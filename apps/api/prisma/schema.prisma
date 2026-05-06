@@ -1,0 +1,32 @@
+// Prisma schema — Lubin Investment
+// docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Cache qualitatif par ticker (TTL géré côté code)
+model QualitativeCache {
+  ticker    String   @id
+  /// JSON contenant { business: Criterion[], management: Criterion[], verdict_direct: string }
+  data      Json
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+/// Watchlist globale (Phase 1 sans auth — Phase 3 ajoutera userId)
+model WatchlistEntry {
+  id        Int      @id @default(autoincrement())
+  ticker    String   @unique
+  addedAt   DateTime @default(now())
+  /// Snapshot du dernier refresh (P/FCF, score chiffres, etc.) — nullable au premier ajout
+  snapshot  Json?
+  /// Date du dernier rafraîchissement
+  refreshedAt DateTime?
+
+  @@index([ticker])
+}
