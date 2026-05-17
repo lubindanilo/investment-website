@@ -1,0 +1,188 @@
+import { useEffect, useMemo, useState } from 'react';
+import {
+  BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine,
+} from 'recharts';
+import type { TimeseriesPeriod, CriterionHistogram, TimeseriesPoint } from '@lubin/shared';
+import { PERIOD_YEARS } from '@lubin/shared';
+import { api, ApiError } from '../lib/api.js';
+import './HistogramModal.css';
+
+const PERIODS: TimeseriesPeriod[] = ['1Y', '5Y', '10Y', '20Y', 'All'];
+
+interface Props {
+  ticker: string;
+  criterionName: string;
+  config: CriterionHistogram;
+  onClose: () => void;
+}
+
+export function HistogramModal({ ticker, criterionName, config, onClose }: Props) {
+  const [period, setPeriod] = useState<TimeseriesPeriod>('5Y');
+  const [data, setData] = useState<TimeseriesPoint[] | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Pour 1Y et 5Y → quarterly (granularité fine). Au-delà → annual (Finnhub a 16+ années annuelles).
+  const freq: 'quarterly' | 'annual' = (period === '1Y' || period === '5Y') ? 'quarterly' : 'annual';
+
+  // Charge la série au changement de période
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    api.timeseries(ticker, config.metricKey, PERIOD_YEARS[period], freq)
+      .then(res => { if (!cancelled) setData(res.points); })
+      .catch(e => {
+        if (!cancelled) setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
+      })
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
+  }, [ticker, config.metricKey, period, freq]);
+
+  // Échap pour fermer
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  // Stats : valeur la plus récente, moyenne, CAGR sur la période
+  const stats = useMemo(() => {
+    if (!data || data.length === 0) return null;
+    const latest = data[data.length - 1]!;
+    const oldest = data[0]!;
+    const values = data.map(p => p.value);
+    const avg = values.reduce((s, v) => s + v, 0) / values.length;
+    // CAGR : seulement pour les séries strictement positives
+    let cagr: number | null = null;
+    if (oldest.value > 0 && latest.value > 0) {
+      const years = (new Date(latest.date).getTime() - new Date(oldest.date).getTime()) / (365.25 * 24 * 3600 * 1000);
+      if (years >= 1) cagr = Math.pow(latest.value / oldest.value, 1 / years) - 1;
+    }
+    return { latest, avg, cagr };
+  }, [data]);
+
+  return (
+    <div className="hist-overlay" onClick={onClose}>
+      <div className="hist-modal" onClick={e => e.stopPropagation()}>
+        <header className="hist-header">
+          <div>
+            <div className="hist-ticker">{ticker}</div>
+            <h2 className="hist-title">{config.label}</h2>
+            <div className="hist-sub">
+              Critère : {criterionName} · {freq === 'quarterly' ? 'données trimestrielles' : 'données annuelles'} · source SEC via Finnhub
+            </div>
+          </div>
+          <button className="hist-close" onClick={onClose} aria-label="Fermer">×</button>
+        </header>
+
+        <div className="hist-periods">
+          {PERIODS.map(p => (
+            <button
+              key={p}
+              className={`period-btn ${p === period ? 'active' : ''}`}
+              onClick={() => setPeriod(p)}
+            >
+              {p}
+            </button>
+          ))}
+        </div>
+
+        {loading && <div className="hist-loading"><span className="spinner" /> Chargement…</div>}
+
+        {error && !loading && (
+          <div className="hist-error">Erreur : {error}</div>
+        )}
+
+        {!loading && !error && data && data.length === 0 && (
+          <div className="hist-error">Aucune donnée trimestrielle disponible pour cette période.</div>
+        )}
+
+        {!loading && !error && data && data.length > 0 && (
+          <>
+            <div className="hist-chart-wrap">
+              <ResponsiveContainer width="100%" height={320}>
+                <BarChart data={data} margin={{ top: 8, right: 8, left: 8, bottom: 8 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
+                  <XAxis
+                    dataKey="date"
+                    tick={{ fontSize: 10, fill: 'var(--text3)' }}
+                    tickFormatter={d => d.slice(2, 7).replace('-', '/')}
+                    interval="preserveStartEnd"
+                  />
+                  <YAxis
+                    tick={{ fontSize: 10, fill: 'var(--text3)' }}
+                    tickFormatter={v => formatCompact(v, config.unit)}
+                    width={50}
+                  />
+                  <Tooltip
+                    contentStyle={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 6, fontSize: 12 }}
+                    labelStyle={{ color: 'var(--text2)', fontFamily: 'IBM Plex Mono, monospace' }}
+                    formatter={(v) => [formatFull(Number(v), config.unit), config.label]}
+                    labelFormatter={d => freq === 'quarterly' ? `Trimestre ${formatQuarter(String(d))}` : `Année ${String(d).slice(0, 4)}`}
+                  />
+                  <ReferenceLine y={0} stroke="var(--text3)" strokeWidth={1} />
+                  <Bar
+                    dataKey="value"
+                    fill="var(--brand)"
+                    radius={[3, 3, 0, 0]}
+                    maxBarSize={32}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            {stats && (
+              <div className="hist-stats">
+                <Stat label="Dernier trimestre" value={`${formatFull(stats.latest.value, config.unit)} (${formatQuarter(stats.latest.date)})`} />
+                <Stat label="Moyenne période" value={formatFull(stats.avg, config.unit)} />
+                {stats.cagr !== null && (
+                  <Stat label="CAGR sur période" value={(stats.cagr * 100).toFixed(2) + '%/an'} accent={stats.cagr >= 0 ? 'green' : 'red'} />
+                )}
+                <Stat label="Trimestres" value={String(data.length)} />
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Stat({ label, value, accent }: { label: string; value: string; accent?: 'green' | 'red' }) {
+  return (
+    <div className="hist-stat">
+      <div className="hist-stat-label">{label}</div>
+      <div className={`hist-stat-val ${accent ?? ''}`}>{value}</div>
+    </div>
+  );
+}
+
+function formatCompact(v: number, unit: CriterionHistogram['unit']): string {
+  if (unit === 'percent') return (v).toFixed(0) + '%';
+  if (unit === 'count') {
+    if (Math.abs(v) >= 1e9) return (v / 1e9).toFixed(1) + 'B';
+    if (Math.abs(v) >= 1e6) return (v / 1e6).toFixed(1) + 'M';
+    if (Math.abs(v) >= 1e3) return (v / 1e3).toFixed(0) + 'k';
+    return v.toFixed(0);
+  }
+  // currency / raw : compact $
+  if (Math.abs(v) >= 1e9) return '$' + (v / 1e9).toFixed(1) + 'B';
+  if (Math.abs(v) >= 1e6) return '$' + (v / 1e6).toFixed(0) + 'M';
+  if (Math.abs(v) >= 1e3) return '$' + (v / 1e3).toFixed(0) + 'k';
+  return '$' + v.toFixed(0);
+}
+
+function formatFull(v: number, unit: CriterionHistogram['unit']): string {
+  if (unit === 'percent') return v.toFixed(2) + '%';
+  if (unit === 'count') return v.toLocaleString('fr-FR');
+  return '$' + v.toLocaleString('fr-FR', { maximumFractionDigits: 0 });
+}
+
+function formatQuarter(isoDate: string): string {
+  const m = isoDate.match(/^(\d{4})-(\d{2})/);
+  if (!m) return isoDate;
+  const month = parseInt(m[2]!, 10);
+  const q = month <= 3 ? 'Q1' : month <= 6 ? 'Q2' : month <= 9 ? 'Q3' : 'Q4';
+  return `${q} ${m[1]}`;
+}
