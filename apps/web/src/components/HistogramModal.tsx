@@ -46,6 +46,32 @@ export function HistogramModal({ ticker, criterionName, config, onClose }: Props
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
+  /**
+   * Détecte les "gaps" dans la série (typiquement causés par un changement de ticker —
+   * ex Fiserv FISV → FI mi-2023 — qui partitionne les filings entre 2 symbols).
+   * Quarterly : un gap normal entre 2 points = ~90j. On flag à partir de 200j.
+   * Annual    : ~365j entre 2 points. On flag à partir de 540j.
+   */
+  const gaps = useMemo(() => {
+    if (!data || data.length < 2) return [];
+    const thresholdMs = (freq === 'quarterly' ? 200 : 540) * 24 * 3600 * 1000;
+    const out: { from: string; to: string; missingApprox: number }[] = [];
+    for (let i = 1; i < data.length; i++) {
+      const a = new Date(data[i-1]!.date).getTime();
+      const b = new Date(data[i]!.date).getTime();
+      const delta = b - a;
+      if (delta > thresholdMs) {
+        const periodMs = (freq === 'quarterly' ? 91 : 365) * 24 * 3600 * 1000;
+        out.push({
+          from: data[i-1]!.date,
+          to: data[i]!.date,
+          missingApprox: Math.round(delta / periodMs) - 1,
+        });
+      }
+    }
+    return out;
+  }, [data, freq]);
+
   // Stats : valeur la plus récente, moyenne, CAGR sur la période
   const stats = useMemo(() => {
     if (!data || data.length === 0) return null;
@@ -53,14 +79,15 @@ export function HistogramModal({ ticker, criterionName, config, onClose }: Props
     const oldest = data[0]!;
     const values = data.map(p => p.value);
     const avg = values.reduce((s, v) => s + v, 0) / values.length;
-    // CAGR : seulement pour les séries strictement positives
+    // CAGR : seulement pour les séries strictement positives ET sans gap (sinon
+    // calcul absurde sur 2 segments discontinus — typique des changements de ticker).
     let cagr: number | null = null;
-    if (oldest.value > 0 && latest.value > 0) {
+    if (oldest.value > 0 && latest.value > 0 && gaps.length === 0) {
       const years = (new Date(latest.date).getTime() - new Date(oldest.date).getTime()) / (365.25 * 24 * 3600 * 1000);
       if (years >= 1) cagr = Math.pow(latest.value / oldest.value, 1 / years) - 1;
     }
     return { latest, avg, cagr };
-  }, [data]);
+  }, [data, gaps]);
 
   return (
     <div className="hist-overlay" onClick={onClose}>
@@ -96,6 +123,19 @@ export function HistogramModal({ ticker, criterionName, config, onClose }: Props
 
         {!loading && !error && data && data.length === 0 && (
           <div className="hist-error">Aucune donnée trimestrielle disponible pour cette période.</div>
+        )}
+
+        {!loading && !error && data && data.length > 0 && gaps.length > 0 && (
+          <div className="hist-gap-warning">
+            <strong>⚠ Donnée incomplète</strong> : Finnhub n'a pas {gaps.reduce((s, g) => s + g.missingApprox, 0)} {freq === 'quarterly' ? 'trimestre(s)' : 'année(s)'} entre{' '}
+            {gaps.map((g, i) => (
+              <span key={i}>
+                {i > 0 && ' et '}
+                <code>{formatDateShort(g.from)} → {formatDateShort(g.to)}</code>
+              </span>
+            ))}.
+            {' '}Cause typique : <strong>changement de ticker</strong> (Fiserv <code>FISV</code> → <code>FI</code>, Meta <code>FB</code> → <code>META</code>, etc.) — essaie le nouveau symbol pour des données complètes. Le CAGR est désactivé car il ne serait pas comparable.
+          </div>
         )}
 
         {!loading && !error && data && data.length > 0 && (
@@ -185,4 +225,10 @@ function formatQuarter(isoDate: string): string {
   const month = parseInt(m[2]!, 10);
   const q = month <= 3 ? 'Q1' : month <= 6 ? 'Q2' : month <= 9 ? 'Q3' : 'Q4';
   return `${q} ${m[1]}`;
+}
+
+function formatDateShort(isoDate: string): string {
+  const m = isoDate.match(/^(\d{4})-(\d{2})/);
+  if (!m) return isoDate;
+  return `${m[2]}/${m[1]!.slice(2)}`;
 }

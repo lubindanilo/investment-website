@@ -113,3 +113,25 @@
 }
 .hist-stat-val.green { color: var(--green); }
 .hist-stat-val.red { color: var(--red); }
+
+
+/* Gap warning — affiché quand la série a un trou (changement de ticker, données manquantes) */
+.hist-gap-warning {
+  margin: 8px 0 14px;
+  padding: 10px 14px;
+  background: rgba(180, 83, 9, 0.08);
+  border-left: 3px solid var(--orange);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.hist-gap-warning code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 1px 5px;
+  border-radius: 3px;
+  color: var(--text2);
+}
+.hist-gap-warning strong { color: var(--orange); }

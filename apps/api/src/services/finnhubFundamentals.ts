@@ -201,9 +201,19 @@ export async function getReportedTimeseries(
     .filter((x): x is Raw => x !== null)
     .sort((a, b) => a.date.localeCompare(b.date));
 
-  // Décumulation Q1/Q2/Q3 si cumulative
+  // Décumulation Q1/Q2/Q3 si cumulative.
+  //
+  // Cas piégeux : si Q1 manque pour une année (ex : changement de ticker FISV→FI en plein
+  // milieu de 2023, Finnhub ne renvoie alors que Q2/Q3 sous l'ancien symbol), on ne peut PAS
+  // décumuler — la valeur "Q2" est en réalité la valeur YTD = Q1+Q2 actuelle. Si on remontait
+  // cette valeur comme si c'était Q2 seul, on aurait des chiffres 2-3× trop hauts (bug constaté
+  // sur FISV : Q2 2021 reporté à $7.8B au lieu de $4.0B réel, Q3 2025 à $15.9B au lieu de ~$5B).
+  // → On SKIP le point quand on ne peut pas décumuler proprement.
   const points: TimeseriesPoint[] = [];
   const ytdByYear: Record<number, number> = {};
+  // Trace la quarter le plus récent vu pour chaque année (pour valider qu'on a la chaîne complète)
+  const lastQuarterByYear: Record<number, number> = {};
+  let skippedQ: { date: string; quarter: number }[] = [];
   for (const r of quarterlyRaw) {
     if (!cfg.cumulative) {
       points.push({ date: r.date, value: r.value });
@@ -212,11 +222,24 @@ export async function getReportedTimeseries(
     if (r.quarter === 1) {
       points.push({ date: r.date, value: r.value });
       ytdByYear[r.year] = r.value;
+      lastQuarterByYear[r.year] = 1;
     } else {
-      const priorYtd = ytdByYear[r.year] ?? 0;
+      // Pour décumuler Q_n on a besoin du Q_(n-1) YTD de la MÊME année.
+      // Si lastQuarterByYear[r.year] !== r.quarter - 1, il manque un quarter intermédiaire
+      // (Q1 absent, ou Q1+Q2 absents, etc.) → on ne peut pas décumuler.
+      const expectedPrior = r.quarter - 1;
+      if (lastQuarterByYear[r.year] !== expectedPrior) {
+        skippedQ.push({ date: r.date, quarter: r.quarter });
+        continue;
+      }
+      const priorYtd = ytdByYear[r.year]!;
       points.push({ date: r.date, value: r.value - priorYtd });
       ytdByYear[r.year] = r.value;
+      lastQuarterByYear[r.year] = r.quarter;
     }
+  }
+  if (skippedQ.length > 0) {
+    console.warn(`[finnhub fundamentals ${ticker}/${metric}] ${skippedQ.length} Q skipped (impossible à décumuler, Q1 ou intermédiaire manquant) :`, skippedQ.slice(0, 5));
   }
 
   // Dérivation Q4 : annuel − Q3 YTD (cumulative only)
