@@ -1,68 +1,87 @@
 #!/usr/bin/env bash
 #
-# Check rapide (max 5s) que Docker + Postgres sont là.
+# Check rapide que Docker + Postgres sont prêts avant `pnpm dev`.
 # NE BLOQUE PAS le lancement de l'app si quelque chose cloche :
-#   - avertit clairement avec une commande de récup
+#   - avertit clairement avec les commandes de récupération
 #   - exit 0 quand même pour laisser pnpm dev continuer
 #
-# Philosophie : "fail gracefully" — mieux vaut une app qui démarre avec un warning
-# qu'un script qui hang 90s sur un Docker wedged.
+# Compatible macOS (n'utilise pas `timeout` GNU qui n'est pas natif macOS).
 
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
-RED='\033[0;31m'
 NC='\033[0m'
 
 log()  { echo -e "${GREEN}[db]${NC} $1"; }
 warn() { echo -e "${YELLOW}[db]${NC} $1"; }
-err()  { echo -e "${RED}[db]${NC} $1" >&2; }
 
-# ── 1. Docker daemon (check rapide avec timeout 5s) ──────────────────
-if ! timeout 5 docker info > /dev/null 2>&1; then
-  warn "Docker daemon non joignable (timeout 5s)."
+# Helper portable : exécute une commande avec un timeout en arrière-plan.
+# Marche sur macOS ET Linux, sans dépendance à GNU coreutils.
+run_with_timeout() {
+  local timeout_sec=$1
+  shift
+  ( "$@" ) &
+  local pid=$!
+  local elapsed=0
+  while kill -0 "$pid" 2>/dev/null; do
+    if [ "$elapsed" -ge "$timeout_sec" ]; then
+      kill -9 "$pid" 2>/dev/null
+      wait "$pid" 2>/dev/null
+      return 124  # convention timeout
+    fi
+    sleep 1
+    elapsed=$((elapsed + 1))
+  done
+  wait "$pid"
+  return $?
+}
+
+# ── 1. Docker daemon ─────────────────────────────────────────────────
+# `docker info` répond instantanément si le daemon est joignable, sinon
+# affiche "Cannot connect…" en stderr. Pas besoin de timeout dans 99% des cas.
+if ! docker info > /dev/null 2>&1; then
+  warn "Docker daemon non joignable."
   warn ""
   warn "Pour résoudre :"
-  warn "  1. Lance Docker Desktop manuellement (double-clic sur l'app)"
-  warn "  2. Attends que la baleine du menu bar arrête de bouger"
-  warn "  3. Vérifie : docker info | head"
-  warn "  4. Si Docker est wedged : menu Troubleshoot → Reset to factory defaults"
+  warn "  1. Lance Docker Desktop : open -a Docker"
+  warn "  2. Attends que la baleine 🐳 soit stable dans la barre de menu (~30s)"
+  warn "  3. Re-essaie : pnpm db:up"
   warn ""
   warn "L'app va se lancer quand même mais elle plantera sur les routes DB."
-  exit 0  # exit 0 → ne bloque pas pnpm dev
+  exit 0
 fi
 log "Docker daemon OK"
 
-# ── 2. Container Postgres (check rapide) ─────────────────────────────
-CONTAINER_STATUS=$(timeout 5 docker inspect -f '{{.State.Status}}' lubin-postgres 2>/dev/null || echo "unknown")
+# ── 2. Container Postgres ────────────────────────────────────────────
+CONTAINER_STATUS=$(docker inspect -f '{{.State.Status}}' lubin-postgres 2>/dev/null || echo "missing")
 
 case "$CONTAINER_STATUS" in
   running)
     log "Postgres déjà en cours"
     ;;
-  exited|created|paused)
+  exited|created|paused|stopped)
     log "Postgres arrêté ($CONTAINER_STATUS) — démarrage…"
-    timeout 10 docker start lubin-postgres > /dev/null 2>&1 || {
+    if ! docker start lubin-postgres > /dev/null 2>&1; then
       warn "Impossible de démarrer lubin-postgres. Lance manuellement : docker start lubin-postgres"
       exit 0
-    }
+    fi
     ;;
   *)
     warn "Container 'lubin-postgres' absent. Création via docker compose…"
-    timeout 30 docker compose up -d postgres > /dev/null 2>&1 || {
+    if ! docker compose up -d postgres > /dev/null 2>&1; then
       warn "Échec docker compose up. Lance manuellement."
       exit 0
-    }
+    fi
     ;;
 esac
 
-# ── 3. Postgres prêt ? (check rapide) ────────────────────────────────
-for i in 1 2 3 4 5; do
-  if timeout 2 docker exec lubin-postgres pg_isready -U lubin -d lubin_investment > /dev/null 2>&1; then
+# ── 3. Postgres prêt à accepter des connexions ───────────────────────
+for i in 1 2 3 4 5 6 7 8 9 10; do
+  if docker exec lubin-postgres pg_isready -U lubin -d lubin_investment > /dev/null 2>&1; then
     log "Postgres prêt"
     exit 0
   fi
   sleep 1
 done
 
-warn "Postgres ne répond pas après 5s (mais le container tourne). L'app va essayer quand même."
+warn "Postgres ne répond pas après 10s (mais le container tourne). L'app va essayer quand même."
 exit 0
