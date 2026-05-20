@@ -23,6 +23,11 @@ export function ScoreCard({ analysis, onAddWatchlist, alreadyInWatchlist }: {
         <div className="score-header">
           <h1 className="score-company">
             {analysis.company} <span className="score-ticker">{analysis.ticker}</span>
+            {analysis.fundamentalsSource === 'yahoo' && (
+              <span className="score-source-badge" title={`Fondamentaux via Yahoo Finance (symbol résolu : ${analysis.yahooSymbol}). Devise : ${analysis.currency}.`}>
+                via Yahoo · {analysis.currency}
+              </span>
+            )}
           </h1>
           <button
             className="btn-secondary score-add-btn"

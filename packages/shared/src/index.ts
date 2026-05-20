@@ -109,12 +109,21 @@ export interface AnalyzeResponse {
   /** Date du prochain + dernier earnings (Finnhub /calendar/earnings) */
   earnings: EarningsInfo;
   /**
-   * False quand Finnhub n'a pas du tout de fondamentaux pour ce ticker
-   * (typique des tickers non-US — Suisse, France, Allemagne…).
-   * Le front affiche alors un bandeau, masque le chart TradingView et
-   * grise les critères chiffres (tous à N/A).
+   * False quand AUCUNE source ne renvoie de fondamentaux (Finnhub vide + Yahoo introuvable).
+   * Le front affiche alors un bandeau, masque le chart TradingView et grise les chiffres.
    */
   fundamentalsAvailable: boolean;
+  /**
+   * Source ayant fourni les fondamentaux :
+   *   - 'finnhub' : tickers US (couverture pre-computed ratios)
+   *   - 'yahoo'   : tickers non-US résolus via suffixes (.SW, .PA, .DE…)
+   *   - null      : indisponible
+   */
+  fundamentalsSource: 'finnhub' | 'yahoo' | null;
+  /** Devise de reporting : USD pour Finnhub, CHF/EUR/GBP… pour Yahoo selon l'exchange. */
+  currency: string;
+  /** Symbol résolu chez Yahoo si fallback Yahoo (ex "COPN.SW" quand l'utilisateur a tapé "COPN"). */
+  yahooSymbol?: string;
 }
 
 // ─── Watchlist ─────────────────────────────────────────────────────────────

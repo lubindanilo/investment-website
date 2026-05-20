@@ -10,6 +10,8 @@ import type { AnalyzeResponse, ValoParams } from '@lubin/shared';
 import { getMetric, getProfile2, getQuote, getCompanyNews } from '../services/finnhub.js';
 import { getProfile } from '../services/fmp.js';
 import { getSharesHistory, computeSharesCagr, computeFcfPerShareCagr } from '../services/yahoo.js';
+import { resolveYahooTicker } from '../services/yahooResolve.js';
+import { getYahooFundamentals } from '../services/yahooFundamentals.js';
 import { getEarningsInfo } from '../services/earnings.js';
 import { fetchQualitative, type QualitativeResult } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildValuation, filterNews } from '../services/derivedMetrics.js';
@@ -104,12 +106,46 @@ analyzeRouter.get('/', analyzeLimiter, asyncHandler(async (req: Request, res: Re
   }
   const hasPrice = !!quote?.c && quote.c > 0;
   const hasMetricData = !metricEmpty;
-  const fundamentalsAvailable = hasPrice || hasMetricData;
+  const finnhubUsable = hasPrice || hasMetricData;
 
-  const yahooShareCagr = computeSharesCagr(sharesHistory);
-  const yahooFcfPerShareCagr = computeFcfPerShareCagr(sharesHistory);
-  const metrics = computeDerivedMetrics({ metric, profile: fhProfile, quote, yahooShareCagr, yahooFcfPerShareCagr });
-  const company = fhProfile?.name ?? fmpProfile?.companyName ?? ticker;
+  // Décide la source : Finnhub si disponible, sinon Yahoo fallback (tickers EU non-US).
+  let fundamentalsSource: 'finnhub' | 'yahoo' | null = null;
+  let currency = 'USD';
+  let yahooSymbol: string | undefined;
+  let metrics;
+  let companyFromSource: string | null = null;
+
+  if (finnhubUsable) {
+    fundamentalsSource = 'finnhub';
+    const yahooShareCagr = computeSharesCagr(sharesHistory);
+    const yahooFcfPerShareCagr = computeFcfPerShareCagr(sharesHistory);
+    metrics = computeDerivedMetrics({ metric, profile: fhProfile, quote, yahooShareCagr, yahooFcfPerShareCagr });
+  } else {
+    // Finnhub vide → tenter Yahoo. Résolution + fetch en 2 temps :
+    //   1) resolveYahooTicker probe les suffixes (.SW, .PA, …) pour trouver l'exchange
+    //   2) getYahooFundamentals fait UN appel batch sur toutes les séries annuelles
+    console.log(`[analyze ${ticker}] Finnhub vide → fallback Yahoo`);
+    const resolved = await timed('yahoo resolve', resolveYahooTicker(ticker)).catch(() => null);
+    if (resolved) {
+      yahooSymbol = resolved.symbol;
+      currency = resolved.currency;
+      companyFromSource = resolved.longName ?? null;
+      const yfund = await timed('yahoo fundamentals', getYahooFundamentals(resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null)).catch(() => null);
+      if (yfund) {
+        fundamentalsSource = 'yahoo';
+        metrics = yfund.metrics;
+      } else {
+        // Yahoo trouvé mais fondamentaux indispos (rare — small cap européenne)
+        metrics = computeDerivedMetrics({ metric, profile: fhProfile, quote, yahooShareCagr: null, yahooFcfPerShareCagr: null });
+      }
+    } else {
+      // Ni Finnhub ni Yahoo → on continue tout de même (mode "qualitatif seul")
+      metrics = computeDerivedMetrics({ metric, profile: fhProfile, quote, yahooShareCagr: null, yahooFcfPerShareCagr: null });
+    }
+  }
+
+  const fundamentalsAvailable = fundamentalsSource !== null;
+  const company = companyFromSource ?? fhProfile?.name ?? fmpProfile?.companyName ?? ticker;
   const quant = buildQuantitativeCriteria(metrics);
 
   const chiffresContext = quant.map(c => ({ nom: c.nom, valeur: c.valeur, statut: c.statut }));
@@ -169,6 +205,9 @@ analyzeRouter.get('/', analyzeLimiter, asyncHandler(async (req: Request, res: Re
     qualError,
     earnings,
     fundamentalsAvailable,
+    fundamentalsSource,
+    currency,
+    yahooSymbol,
   };
   res.json(response);
 }));
