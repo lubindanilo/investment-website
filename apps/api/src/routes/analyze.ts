@@ -15,6 +15,7 @@ import { z } from 'zod';
 import type { AnalyzeResponse, ValoParams, Criterion } from '@lubin/shared';
 import { getMetric, getProfile2, getQuote, getCompanyNews } from '../services/finnhub.js';
 import { getSharesHistory, computeSharesCagr, computeFcfPerShareCagr } from '../services/yahoo.js';
+import { computeFcfPerShareCagrFromQuarterlies } from '../services/finnhubFundamentals.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { getYahooFundamentals } from '../services/yahooFundamentals.js';
 import { getEarningsInfo } from '../services/earnings.js';
@@ -97,8 +98,32 @@ async function loadQuantData(ticker: string) {
   if (finnhubUsable) {
     fundamentalsSource = 'finnhub';
     const yahooShareCagr = computeSharesCagr(sharesHistory);
-    const yahooFcfPerShareCagr = computeFcfPerShareCagr(sharesHistory);
-    metrics = computeDerivedMetrics({ metric, profile: fhProfile, quote, yahooShareCagr, yahooFcfPerShareCagr });
+    // Pour le FCF/action CAGR, on PRÉFÈRE reconstruire l'annuel à partir des quarterlies
+    // Finnhub (Q1+Q2+Q3+Q4 = 10-K par construction). Plus fiable que :
+    //  - Yahoo annualFreeCashFlow (peut être partial year, vu sur AMZN 2025 = 7.7B au lieu de 30B+)
+    //  - Finnhub annualFreeCashFlow (parfois valeurs gonflées 5× pour certains tickers)
+    // Si Finnhub quarterlies indispos → fallback Yahoo (avec sa propre detection d'anomalie).
+    const fhCagr = await timed('fh fcfPs cagr', computeFcfPerShareCagrFromQuarterlies(ticker, 5))
+      .catch(() => ({ value: null, reason: 'Erreur lors du calcul' as string }));
+    let fcfPsCagrValue = fhCagr.value;
+    let fcfPsCagrReason = fhCagr.reason;
+    if (fcfPsCagrValue == null) {
+      // Tentative fallback Yahoo (utile pour les ADRs étrangers ASML/NSRGY qui n'ont pas
+      // de quarterlies Finnhub mais ont des annuels Yahoo)
+      const yahooResult = computeFcfPerShareCagr(sharesHistory);
+      if (yahooResult.value != null) {
+        fcfPsCagrValue = yahooResult.value;
+        fcfPsCagrReason = undefined;
+      } else {
+        fcfPsCagrReason = fhCagr.reason ?? yahooResult.reason;
+      }
+    }
+    metrics = computeDerivedMetrics({
+      metric, profile: fhProfile, quote,
+      yahooShareCagr,
+      yahooFcfPerShareCagr: fcfPsCagrValue,
+      yahooFcfPerShareCagrReason: fcfPsCagrReason,
+    });
   } else {
     console.log(`[analyze ${ticker}] Finnhub vide → fallback Yahoo`);
     const resolved = await timed('yahoo resolve', resolveYahooTicker(ticker)).catch(() => null);

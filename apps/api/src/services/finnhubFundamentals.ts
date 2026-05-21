@@ -264,6 +264,94 @@ export async function getReportedTimeseries(
 }
 
 /**
+ * Calcule le CAGR du FCF/action sur 5 ans en reconstituant les annuels depuis
+ * les quarterlies Finnhub. Approche robuste : on additionne Q1+Q2+Q3+Q4 pour
+ * chaque année fiscale (sans dépendre de annualFreeCashFlow Yahoo qui peut
+ * être partial pour l'année en cours, ni de Finnhub annual qui a parfois des
+ * valeurs gonflées).
+ *
+ * Pourquoi cette approche est fiable :
+ *   - Q4 est dérivé du 10-K (annual − Q3 YTD) dans getReportedTimeseries → la somme
+ *     Q1+Q2+Q3+Q4 EST EXACTEMENT la valeur du 10-K, par construction.
+ *   - Si Finnhub fournit < 4 quarters pour une année (réorg, ticker change), on skip.
+ *   - Skip aussi les années avec FCF annuel ≤ 0 (CAGR mathématiquement non-pertinent
+ *     sur ces bornes).
+ *
+ * @param ticker  Symbole pour les logs
+ * @param years   Profondeur souhaitée (5 par défaut)
+ * @returns { value, reason } — value=null si non calculable, reason explique pourquoi
+ */
+export async function computeFcfPerShareCagrFromQuarterlies(
+  ticker: string,
+  years = 5,
+): Promise<{ value: number | null; reason?: string }> {
+  // On fetch 6 ans de quarterlies pour avoir une marge (FCF + shares)
+  const [fcfQ, sharesQ] = await Promise.all([
+    getReportedTimeseries(ticker, 'fcf', 'quarterly', years + 1),
+    getReportedTimeseries(ticker, 'shares', 'quarterly', years + 1),
+  ]);
+
+  if (fcfQ.length === 0 || sharesQ.length === 0) {
+    return { value: null, reason: 'Trimestrielles Finnhub indisponibles' };
+  }
+
+  // Regroupe par année fiscale. Année complète = au moins 4 quarters (Q1+Q2+Q3+Q4).
+  type YearAgg = { count: number; fcfSum: number; sharesSum: number };
+  const byYear: Record<number, YearAgg> = {};
+  for (const p of fcfQ) {
+    const yr = Number(p.date.slice(0, 4));
+    byYear[yr] ??= { count: 0, fcfSum: 0, sharesSum: 0 };
+    byYear[yr].count++;
+    byYear[yr].fcfSum += p.value;
+  }
+  // Pour les shares, on prend la moyenne pondérée des quarters (= dilutedAverageShares pour l'année).
+  // Les shares sont non-cumulatives (cf METRICS.shares.cumulative = false), donc on moyenne.
+  const sharesByYear: Record<number, { sum: number; count: number }> = {};
+  for (const p of sharesQ) {
+    const yr = Number(p.date.slice(0, 4));
+    sharesByYear[yr] ??= { sum: 0, count: 0 };
+    sharesByYear[yr].sum += p.value;
+    sharesByYear[yr].count++;
+  }
+
+  // Construit la série annuelle [{ year, fcfPs }] uniquement pour les années complètes
+  const annual: Array<{ year: number; fcf: number; shares: number; fcfPs: number }> = [];
+  for (const yrStr of Object.keys(byYear).sort()) {
+    const yr = Number(yrStr);
+    const agg = byYear[yr]!;
+    const sh = sharesByYear[yr];
+    if (agg.count < 4) {
+      console.log(`[fcfPsCagr ${ticker}] année ${yr} incomplète (${agg.count}/4 quarters) — skip`);
+      continue;
+    }
+    if (!sh || sh.count === 0) continue;
+    const annualFcf = agg.fcfSum;
+    const annualShares = sh.sum / sh.count;
+    if (annualShares <= 0) continue;
+    annual.push({ year: yr, fcf: annualFcf, shares: annualShares, fcfPs: annualFcf / annualShares });
+  }
+
+  console.log(`[fcfPsCagr ${ticker}] ${annual.length} années complètes reconstruites :`, annual.map(a => `${a.year}: FCF=${(a.fcf / 1e9).toFixed(1)}B fcfPs=${a.fcfPs.toFixed(2)}`).join(' | '));
+
+  if (annual.length < 2) {
+    return { value: null, reason: 'Moins de 2 années complètes (besoin Q1-Q4 par année)' };
+  }
+
+  // CAGR sur les bornes : oldest valide (fcfPs > 0) → newest valide (fcfPs > 0)
+  const valid = annual.filter(a => a.fcfPs > 0);
+  if (valid.length < 2) {
+    return { value: null, reason: 'Moins de 2 années avec FCF/action positif' };
+  }
+  const oldest = valid[0]!;
+  const newest = valid[valid.length - 1]!;
+  const ny = newest.year - oldest.year;
+  if (ny < 1) return { value: null, reason: 'Période < 1 an entre bornes' };
+
+  const cagr = Math.pow(newest.fcfPs / oldest.fcfPs, 1 / ny) - 1;
+  return { value: cagr };
+}
+
+/**
  * Si la métrique est un share count, on ramène toutes les valeurs en current-basis.
  *
  * Pour Finnhub on utilise un algorithme "discontinuity-based" (≠ Yahoo date-based) :
