@@ -264,91 +264,113 @@ export async function getReportedTimeseries(
 }
 
 /**
- * Calcule le CAGR du FCF/action sur 5 ans en reconstituant les annuels depuis
- * les quarterlies Finnhub. Approche robuste : on additionne Q1+Q2+Q3+Q4 pour
- * chaque année fiscale (sans dépendre de annualFreeCashFlow Yahoo qui peut
- * être partial pour l'année en cours, ni de Finnhub annual qui a parfois des
- * valeurs gonflées).
+ * Calcule un taux de croissance annualisé du FCF/action sur ~5 ans par
+ * régression log-linéaire des TTM trimestriels.
  *
- * Pourquoi cette approche est fiable :
- *   - Q4 est dérivé du 10-K (annual − Q3 YTD) dans getReportedTimeseries → la somme
- *     Q1+Q2+Q3+Q4 EST EXACTEMENT la valeur du 10-K, par construction.
- *   - Si Finnhub fournit < 4 quarters pour une année (réorg, ticker change), on skip.
- *   - Skip aussi les années avec FCF annuel ≤ 0 (CAGR mathématiquement non-pertinent
- *     sur ces bornes).
+ * Pourquoi pas une CAGR endpoint-based (Y-5 vs Y0) :
+ *   - Sensible aux outliers : si Y-5 OU Y0 est une année atypique (one-shot,
+ *     spike conjoncturel, etc.), la CAGR mesure surtout le bruit, pas le trend.
+ *   - Cas AMZN : Y-5 (2021) = $107B mais 2022 a fait $110B (à peine plus), puis
+ *     2023 jump à $137B, 2024 inconnu, 2025 spike à $271B (probablement
+ *     anomalie comptable Finnhub) → la CAGR endpoint 2021→2025 dit +26%/an,
+ *     mais ça ne reflète pas vraiment la trajectoire.
  *
- * @param ticker  Symbole pour les logs
- * @param years   Profondeur souhaitée (5 par défaut)
- * @returns { value, reason } — value=null si non calculable, reason explique pourquoi
+ * Approche régression :
+ *   1. Fetch 6 ans de quarterlies Finnhub (FCF + shares).
+ *   2. Pour chaque trimestre où on a 4 quarters précédents : calcule
+ *      TTM_FCF (sum 4 derniers Q) / TTM_shares (moyenne 4 derniers Q).
+ *   3. Filtre les TTM positifs (log impossible sinon).
+ *   4. Garde les 20 derniers TTM (~5 ans).
+ *   5. Régression linéaire de log(TTM_fcfPs) sur l'axe temporel (années).
+ *   6. Le coefficient = taux de croissance log → exp(slope) - 1 = croissance annualisée.
+ *
+ * Avantages :
+ *   - Utilise TOUS les points pour estimer la pente, pas seulement les bornes.
+ *   - Le TTM lisse déjà la saisonnalité intra-année.
+ *   - Robuste face à un quarter aberrant.
  */
 export async function computeFcfPerShareCagrFromQuarterlies(
   ticker: string,
-  years = 5,
+  windowYears = 5,
 ): Promise<{ value: number | null; reason?: string }> {
-  // On fetch 6 ans de quarterlies pour avoir une marge (FCF + shares)
+  // On fetch 6 ans pour avoir 24 quarters → 21 TTM possibles → 20 dans la fenêtre
   const [fcfQ, sharesQ] = await Promise.all([
-    getReportedTimeseries(ticker, 'fcf', 'quarterly', years + 1),
-    getReportedTimeseries(ticker, 'shares', 'quarterly', years + 1),
+    getReportedTimeseries(ticker, 'fcf', 'quarterly', windowYears + 1),
+    getReportedTimeseries(ticker, 'shares', 'quarterly', windowYears + 1),
   ]);
-
-  if (fcfQ.length === 0 || sharesQ.length === 0) {
-    return { value: null, reason: 'Trimestrielles Finnhub indisponibles' };
+  if (fcfQ.length < 8 || sharesQ.length < 8) {
+    return { value: null, reason: 'Moins de 8 trimestres disponibles (besoin >= 8 pour TTM rolling)' };
   }
 
-  // Regroupe par année fiscale. Année complète = au moins 4 quarters (Q1+Q2+Q3+Q4).
-  type YearAgg = { count: number; fcfSum: number; sharesSum: number };
-  const byYear: Record<number, YearAgg> = {};
-  for (const p of fcfQ) {
-    const yr = Number(p.date.slice(0, 4));
-    byYear[yr] ??= { count: 0, fcfSum: 0, sharesSum: 0 };
-    byYear[yr].count++;
-    byYear[yr].fcfSum += p.value;
-  }
-  // Pour les shares, on prend la moyenne pondérée des quarters (= dilutedAverageShares pour l'année).
-  // Les shares sont non-cumulatives (cf METRICS.shares.cumulative = false), donc on moyenne.
-  const sharesByYear: Record<number, { sum: number; count: number }> = {};
-  for (const p of sharesQ) {
-    const yr = Number(p.date.slice(0, 4));
-    sharesByYear[yr] ??= { sum: 0, count: 0 };
-    sharesByYear[yr].sum += p.value;
-    sharesByYear[yr].count++;
-  }
+  // Tri par date croissante
+  const fcf = [...fcfQ].sort((a, b) => a.date.localeCompare(b.date));
+  const shares = [...sharesQ].sort((a, b) => a.date.localeCompare(b.date));
 
-  // Construit la série annuelle [{ year, fcfPs }] uniquement pour les années complètes
-  const annual: Array<{ year: number; fcf: number; shares: number; fcfPs: number }> = [];
-  for (const yrStr of Object.keys(byYear).sort()) {
-    const yr = Number(yrStr);
-    const agg = byYear[yr]!;
-    const sh = sharesByYear[yr];
-    if (agg.count < 4) {
-      console.log(`[fcfPsCagr ${ticker}] année ${yr} incomplète (${agg.count}/4 quarters) — skip`);
-      continue;
+  // Lookup shares "à ou avant" une date donnée (les shares Q4 n'existent pas dans Finnhub
+  // car non-cumulative — pas de dérivation à partir du 10-K. Pour le FCF Q4 dérivé 2024-12-31
+  // on prend les shares de Q3 (2024-09-30) qui ne sont que à quelques % près des shares
+  // de fin d'année — l'erreur est négligeable vs un skip complet du Q4).
+  function sharesAtOrBefore(date: string): number | null {
+    let candidate: number | null = null;
+    for (const p of shares) {
+      if (p.date <= date) candidate = p.value;
+      else break;
     }
-    if (!sh || sh.count === 0) continue;
-    const annualFcf = agg.fcfSum;
-    const annualShares = sh.sum / sh.count;
-    if (annualShares <= 0) continue;
-    annual.push({ year: yr, fcf: annualFcf, shares: annualShares, fcfPs: annualFcf / annualShares });
+    return candidate;
   }
 
-  console.log(`[fcfPsCagr ${ticker}] ${annual.length} années complètes reconstruites :`, annual.map(a => `${a.year}: FCF=${(a.fcf / 1e9).toFixed(1)}B fcfPs=${a.fcfPs.toFixed(2)}`).join(' | '));
-
-  if (annual.length < 2) {
-    return { value: null, reason: 'Moins de 2 années complètes (besoin Q1-Q4 par année)' };
+  // Compute TTM FCF/share at each quarter (commence à index 3 → besoin de 4 quarters de FCF)
+  const ttmSeries: Array<{ date: string; ts: number; ttmFcfPs: number }> = [];
+  for (let i = 3; i < fcf.length; i++) {
+    const ttmFcf = fcf[i]!.value + fcf[i - 1]!.value + fcf[i - 2]!.value + fcf[i - 3]!.value;
+    const sharesValues = [
+      sharesAtOrBefore(fcf[i]!.date),
+      sharesAtOrBefore(fcf[i - 1]!.date),
+      sharesAtOrBefore(fcf[i - 2]!.date),
+      sharesAtOrBefore(fcf[i - 3]!.date),
+    ].filter((v): v is number => typeof v === 'number' && v > 0);
+    if (sharesValues.length < 4) continue;
+    const ttmShares = sharesValues.reduce((s, v) => s + v, 0) / 4;
+    if (ttmShares <= 0 || ttmFcf <= 0) continue; // log impossible si ≤ 0
+    ttmSeries.push({
+      date: fcf[i]!.date,
+      ts: new Date(fcf[i]!.date + 'T00:00:00Z').getTime(),
+      ttmFcfPs: ttmFcf / ttmShares,
+    });
   }
 
-  // CAGR sur les bornes : oldest valide (fcfPs > 0) → newest valide (fcfPs > 0)
-  const valid = annual.filter(a => a.fcfPs > 0);
-  if (valid.length < 2) {
-    return { value: null, reason: 'Moins de 2 années avec FCF/action positif' };
+  if (ttmSeries.length < 4) {
+    return { value: null, reason: `Moins de 4 TTM exploitables (FCF négatif ou shares manquant sur la fenêtre) — ${ttmSeries.length} dispo` };
   }
-  const oldest = valid[0]!;
-  const newest = valid[valid.length - 1]!;
-  const ny = newest.year - oldest.year;
-  if (ny < 1) return { value: null, reason: 'Période < 1 an entre bornes' };
 
-  const cagr = Math.pow(newest.fcfPs / oldest.fcfPs, 1 / ny) - 1;
-  return { value: cagr };
+  // Filtre fenêtre : garde les TTM des `windowYears` dernières années
+  const cutoffTs = Date.now() - windowYears * 365.25 * 24 * 3600 * 1000;
+  const inWindow = ttmSeries.filter(p => p.ts >= cutoffTs);
+  if (inWindow.length < 4) {
+    return { value: null, reason: `Trop peu de TTM positifs dans la fenêtre ${windowYears}Y (${inWindow.length})` };
+  }
+
+  // Régression linéaire de log(ttmFcfPs) ~ années écoulées depuis le 1er point
+  const t0 = inWindow[0]!.ts;
+  const xs = inWindow.map(p => (p.ts - t0) / (365.25 * 24 * 3600 * 1000));
+  const ys = inWindow.map(p => Math.log(p.ttmFcfPs));
+  const n = xs.length;
+  const meanX = xs.reduce((s, v) => s + v, 0) / n;
+  const meanY = ys.reduce((s, v) => s + v, 0) / n;
+  let num = 0, den = 0;
+  for (let i = 0; i < n; i++) {
+    num += (xs[i]! - meanX) * (ys[i]! - meanY);
+    den += (xs[i]! - meanX) ** 2;
+  }
+  if (den === 0) return { value: null, reason: 'Variance nulle (tous les TTM à la même date)' };
+  const slope = num / den;
+  const annualGrowth = Math.exp(slope) - 1;
+
+  // Log debug pour traçabilité
+  const first = inWindow[0]!;
+  const last = inWindow[inWindow.length - 1]!;
+  console.log(`[fcfPsRegress ${ticker}] ${n} TTM | ${first.date}(${first.ttmFcfPs.toFixed(2)}) → ${last.date}(${last.ttmFcfPs.toFixed(2)}) | slope=${slope.toFixed(4)} → ${(annualGrowth * 100).toFixed(2)}%/an`);
+  return { value: annualGrowth };
 }
 
 /**
