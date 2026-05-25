@@ -111,4 +111,35 @@ describe('computeFcfPerShareCagr', () => {
     expect(r.reason).toMatch(/2025/);
     expect(r.reason).toMatch(/suspect/i);
   });
+
+  it("régression log-linéaire ≥ 3 points : plus robuste qu'endpoint-based (cas AAPL FY25 atypique)", () => {
+    // Cas AAPL réel : FCF Yahoo a une FY25 sous-évaluée (98.77B au lieu de ~108B).
+    // Endpoint-based donnerait -1.2 %/an (trompeur), la régression donne ~0 % (plus honnête).
+    const history: SharesHistoryPoint[] = [
+      { fiscalYear: 2022, dilutedShares: 16_330_000_000, fcf: 111_440_000_000 },  // 6.82$
+      { fiscalYear: 2023, dilutedShares: 15_810_000_000, fcf:  99_580_000_000 },  // 6.30$
+      { fiscalYear: 2024, dilutedShares: 15_410_000_000, fcf: 108_810_000_000 },  // 7.06$
+      { fiscalYear: 2025, dilutedShares: 15_000_000_000, fcf:  98_770_000_000 },  // 6.58$ (Yahoo sous-évalué)
+    ];
+    const r = computeFcfPerShareCagr(history);
+    expect(r.value).not.toBeNull();
+    // Régression : ~0 % (entre -2 % et +2 %). Endpoint aurait donné -1.2 % strict.
+    // La régression est moins biaisée par les bornes — verdict plus juste = "à peu près flat".
+    expect(Math.abs(r.value!)).toBeLessThan(0.02);
+  });
+
+  it("régression : croissance positive bien détectée quand la trajectoire est claire", () => {
+    // FCF/share qui croît régulièrement sur 5 ans → régression doit donner ~+15 %/an
+    const history: SharesHistoryPoint[] = [
+      { fiscalYear: 2020, dilutedShares: 100, fcf: 1000 }, // 10
+      { fiscalYear: 2021, dilutedShares: 100, fcf: 1150 }, // 11.5
+      { fiscalYear: 2022, dilutedShares: 100, fcf: 1320 }, // 13.2
+      { fiscalYear: 2023, dilutedShares: 100, fcf: 1520 }, // 15.2
+      { fiscalYear: 2024, dilutedShares: 100, fcf: 1750 }, // 17.5
+    ];
+    const r = computeFcfPerShareCagr(history);
+    expect(r.value).not.toBeNull();
+    expect(r.value!).toBeGreaterThan(0.13);
+    expect(r.value!).toBeLessThan(0.17);
+  });
 });

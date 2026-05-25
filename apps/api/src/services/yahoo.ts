@@ -218,17 +218,22 @@ export interface FcfPerShareCagrResult {
 }
 
 /**
- * CAGR du FCF par action depuis l'historique Yahoo (split-adjusté).
+ * Croissance du FCF par action depuis l'historique Yahoo (split-adjusté).
  *
- * On calcule directement : fcfPerShare(année) = fcf / dilutedShares
- *                          CAGR = (fcfPerShare_newest / fcfPerShare_oldest)^(1/years) - 1
+ * Méthode : régression log-linéaire sur TOUS les points dispo (typiquement 4 ans).
+ * Plus robuste qu'une CAGR endpoint-based qui dépend uniquement des bornes (et peut
+ * être biaisée si une borne est une année atypique — cas AAPL FY2025 où Yahoo
+ * renvoie $98.77B FCF alors que la TTM réelle est ~$108B, donnant un CAGR
+ * endpoint -1.2 % au lieu de ~0 % via régression).
  *
- * Renvoie { value: null, reason: "..." } si :
- *   - moins de 2 points avec FCF + shares > 0 → "Historique FCF insuffisant"
- *   - les bornes ont un FCF négatif → "FCF négatif sur les bornes"
- *   - série trop courte → "Période < 1 an"
- *   - **dernière année anormalement basse** (drop > 60% vs médiane des 2-3 précédentes)
- *     → "Données Yahoo Y dubieuses : FCF a/b/c…" — pas de fallback caché, on alerte.
+ * Anomalie partial-year (cas AMZN 2025) : si le DERNIER point est < 40 % de la
+ * médiane des 2-3 précédents, on bloque le calcul (probable donnée préliminaire).
+ *
+ * Renvoie { value: null, reason } si :
+ *   - moins de 2 points avec FCF + shares > 0
+ *   - série trop courte (< 1 an)
+ *   - anomalie partial-year sur le dernier point
+ *   - moins de 3 points pour la régression (on retombe alors sur endpoint-based à 2 points)
  */
 export function computeFcfPerShareCagr(history: SharesHistoryPoint[] | null): FcfPerShareCagrResult {
   if (!history || history.length < 2) {
@@ -239,10 +244,7 @@ export function computeFcfPerShareCagr(history: SharesHistoryPoint[] | null): Fc
     return { value: null, reason: 'Moins de 2 années avec FCF > 0' };
   }
 
-  // Détection d'anomalie sur le dernier point : si le FCF de l'année N est < 40% de
-  // la médiane des années N-3..N-1 valides, on suspecte une donnée partielle/preliminaire
-  // (cas AMZN 2025 où Yahoo a renvoyé 7.7B vs ~32B les années précédentes). On bloque
-  // au lieu d'inventer une CAGR aberrante (-51.9%/an).
+  // Anomalie partial-year sur le dernier point (cas AMZN 2025 : 7.7B vs médiane 32B)
   if (valid.length >= 3) {
     const last = valid[valid.length - 1]!;
     const prev = valid.slice(-4, -1).map(p => p.fcf!).filter(Boolean).sort((a, b) => a - b);
@@ -255,16 +257,34 @@ export function computeFcfPerShareCagr(history: SharesHistoryPoint[] | null): Fc
     }
   }
 
-  const oldest = valid[0]!;
-  const newest = valid[valid.length - 1]!;
-  const years = newest.fiscalYear - oldest.fiscalYear;
-  if (years < 1) return { value: null, reason: 'Période < 1 an entre bornes valides' };
-  const fcfPsOld = oldest.fcf! / oldest.dilutedShares;
-  const fcfPsNew = newest.fcf! / newest.dilutedShares;
-  if (fcfPsOld <= 0 || fcfPsNew <= 0) {
+  // FCF/share par année
+  const fcfPs = valid.map(p => ({ year: p.fiscalYear, ratio: p.fcf! / p.dilutedShares }));
+  const newest = fcfPs[fcfPs.length - 1]!;
+  const oldest = fcfPs[0]!;
+  const span = newest.year - oldest.year;
+  if (span < 1) return { value: null, reason: 'Période < 1 an entre bornes valides' };
+
+  // Régression log-linéaire si on a ≥ 3 points (plus robuste aux bornes atypiques).
+  // Slope de log(ratio) sur year = taux de croissance annualisé en log → exp() - 1.
+  if (fcfPs.length >= 3) {
+    const xs = fcfPs.map(p => p.year);
+    const ys = fcfPs.map(p => Math.log(p.ratio));
+    const n = xs.length;
+    const meanX = xs.reduce((s, v) => s + v, 0) / n;
+    const meanY = ys.reduce((s, v) => s + v, 0) / n;
+    let num = 0, den = 0;
+    for (let i = 0; i < n; i++) {
+      num += (xs[i]! - meanX) * (ys[i]! - meanY);
+      den += (xs[i]! - meanX) ** 2;
+    }
+    if (den > 0) return { value: Math.exp(num / den) - 1 };
+  }
+
+  // Fallback 2 points : CAGR endpoint classique
+  if (oldest.ratio <= 0 || newest.ratio <= 0) {
     return { value: null, reason: 'FCF/action négatif sur une borne' };
   }
-  return { value: Math.pow(fcfPsNew / fcfPsOld, 1 / years) - 1 };
+  return { value: Math.pow(newest.ratio / oldest.ratio, 1 / span) - 1 };
 }
 
 // ═══════════════════════════════════════════════════════════════
