@@ -595,6 +595,9 @@ export interface CapitalEmployedSnapshot {
   totalAssets: number | null;
   currentLiabilities: number | null;
   goodwill: number | null;
+  equity: number | null;
+  /** Total debt (LT + ST + leases) au dernier quarter — utilisé par le fallback financier */
+  totalDebt: number | null;
   /** Cash total (cash + STI) au dernier quarter */
   totalCash: number | null;
   /** Revenue TTM (somme des 4 derniers Q) — utilisé pour estimer le cash opérationnel */
@@ -603,10 +606,10 @@ export interface CapitalEmployedSnapshot {
   excessCash: number | null;
   /** Formule effectivement appliquée :
    *  - 'strict' : CE = Assets − CurLiab − Goodwill − ExcessCash (formule complète)
-   *  - 'no-excess-fallback' : CE = Assets − CurLiab − Goodwill (la soustraction de l'excess
-   *    aurait rendu CE ≤ 0 → on retombe sur la formule classique Bettin/Mauboussin)
-   *  Null si CE indispo (impossible avec ou sans fallback). */
-  formulaUsed: 'strict' | 'no-excess-fallback' | null;
+   *  - 'no-excess-fallback' : CE = Assets − CurLiab − Goodwill (ultra-cash-rich)
+   *  - 'financial-equity' : CE = Equity + LT Debt − Goodwill (assureurs/banques, bilan unclassified)
+   *  Null si CE indispo. */
+  formulaUsed: 'strict' | 'no-excess-fallback' | 'financial-equity' | null;
   /** Capital employé final utilisé ; null si non calculable même avec fallback */
   capitalEmployed: number | null;
   /** Date du dernier quarter dispo */
@@ -616,66 +619,90 @@ export interface CapitalEmployedSnapshot {
 }
 
 export async function computeCapitalEmployedSnapshot(ticker: string): Promise<CapitalEmployedSnapshot> {
-  const [assetsQ, curLiabQ, goodwillQ, cashQ, revenueQ] = await Promise.all([
+  const [assetsQ, curLiabQ, goodwillQ, cashQ, revenueQ, equityQ, debtQ] = await Promise.all([
     getReportedTimeseries(ticker, 'totalAssets', 'quarterly', 2),
     getReportedTimeseries(ticker, 'currentLiabilities', 'quarterly', 2),
     getReportedTimeseries(ticker, 'goodwill', 'quarterly', 2),
     getReportedTimeseries(ticker, 'cashAndEquivalents', 'quarterly', 2),
     getReportedTimeseries(ticker, 'revenue', 'quarterly', 2),
+    getReportedTimeseries(ticker, 'equity', 'quarterly', 2),
+    getReportedTimeseries(ticker, 'totalDebt', 'quarterly', 2),
   ]);
   const lastAssets = assetsQ[assetsQ.length - 1];
   const lastCurLiab = curLiabQ[curLiabQ.length - 1];
   const lastGoodwill = goodwillQ[goodwillQ.length - 1];
   const lastCash = cashQ[cashQ.length - 1];
+  const lastEquity = equityQ[equityQ.length - 1];
+  const lastDebt = debtQ[debtQ.length - 1];
   const totalAssets = lastAssets?.value ?? null;
   const currentLiabilities = lastCurLiab?.value ?? null;
   const goodwill = lastGoodwill?.value ?? 0;
   const totalCash = lastCash?.value ?? 0;
+  const equity = lastEquity?.value ?? null;
+  const totalDebt = lastDebt?.value ?? 0;
   const revenueSorted = [...revenueQ].sort((a, b) => a.date.localeCompare(b.date));
   const last4Rev = revenueSorted.slice(-4);
   const revenueTtm = last4Rev.length === 4 ? last4Rev.reduce((s, p) => s + p.value, 0) : null;
   const excessCash = computeExcessCash(totalCash, revenueTtm);
-  const asOf = lastAssets?.date ?? lastCurLiab?.date ?? lastGoodwill?.date ?? null;
+  const asOf = lastAssets?.date ?? lastCurLiab?.date ?? lastEquity?.date ?? null;
+
+  const baseFields = {
+    totalAssets, currentLiabilities, goodwill: lastGoodwill?.value ?? null,
+    equity, totalDebt: lastDebt?.value ?? null,
+    totalCash: lastCash?.value ?? null, revenueTtm, excessCash,
+  };
 
   if (totalAssets == null) {
+    return { ...baseFields, formulaUsed: null, capitalEmployed: null, asOf, reason: 'Total Assets indisponible chez Finnhub' };
+  }
+
+  // ─── Fallback secteur financier (assureurs, banques) ───────────────────────
+  // Bilan unclassified (us-gaap_LiabilitiesCurrent absent) : les passifs sont des
+  // réserves de sinistres + primes non gagnées + deferred premiums, pas séparés
+  // current/non-current. La formule Bettin/Mauboussin ne s'applique pas.
+  //
+  // Formule adaptée : CE = Equity + LongTermDebt − Goodwill. Équivalent mathématique
+  // de "Assets − (Liabilities − LongTermDebt) − Goodwill" — c'est-à-dire qu'on traite
+  // les réserves d'assurance comme du "free financing" (float, équivalent du deferred
+  // revenue chez Amazon/Costco). Ne soustrait PAS l'excess cash (le cash d'un assureur
+  // est du working capital, pas excédentaire).
+  if (currentLiabilities == null && equity != null) {
+    const ceFinancial = equity + totalDebt - goodwill;
+    if (ceFinancial > 0) {
+      return {
+        ...baseFields, formulaUsed: 'financial-equity', capitalEmployed: ceFinancial, asOf,
+        reason: `Bilan unclassified (pas de Current Liabilities) — fallback secteur financier : CE = Equity ${(equity/1e9).toFixed(2)}B + Dette LT ${(totalDebt/1e9).toFixed(2)}B − Goodwill ${(goodwill/1e9).toFixed(2)}B`,
+      };
+    }
     return {
-      totalAssets, currentLiabilities, goodwill: lastGoodwill?.value ?? null,
-      totalCash: lastCash?.value ?? null, revenueTtm, excessCash: null,
-      formulaUsed: null, capitalEmployed: null, asOf,
-      reason: 'Total Assets indisponible chez Finnhub',
+      ...baseFields, formulaUsed: null, capitalEmployed: null, asOf,
+      reason: `Capital employé nul ou négatif sur le fallback financier (equity ${(equity/1e9).toFixed(2)}B + dette ${(totalDebt/1e9).toFixed(2)}B − goodwill ${(goodwill/1e9).toFixed(2)}B)`,
     };
   }
+
   if (currentLiabilities == null) {
     return {
-      totalAssets, currentLiabilities, goodwill: lastGoodwill?.value ?? null,
-      totalCash: lastCash?.value ?? null, revenueTtm, excessCash: null,
-      formulaUsed: null, capitalEmployed: null, asOf,
-      reason: 'Current Liabilities indisponible chez Finnhub',
+      ...baseFields, formulaUsed: null, capitalEmployed: null, asOf,
+      reason: 'Current Liabilities ET Equity indisponibles chez Finnhub',
     };
   }
-  // Try strict formula first (Assets − CurLiab − Goodwill − ExcessCash)
+
+  // ─── Formule standard (industriels, tech, retail, services) ────────────────
+  // Try strict d'abord (Bettin/Mauboussin + Damodaran excess cash)
   const ceStrict = totalAssets - currentLiabilities - goodwill - excessCash;
   if (ceStrict > 0) {
-    return {
-      totalAssets, currentLiabilities, goodwill, totalCash, revenueTtm, excessCash,
-      formulaUsed: 'strict', capitalEmployed: ceStrict, asOf,
-    };
+    return { ...baseFields, formulaUsed: 'strict', capitalEmployed: ceStrict, asOf };
   }
-  // Strict CE négatif → fallback sur Bettin/Mauboussin classique (sans soustraction d'excess)
-  // Cas typique : boîte ultra-cash-rich (BKNG, MEDP, AAPL light) où le cash excédentaire
-  // > capital opérationnel. On expose le fallback explicitement (pas un fallback caché).
+  // Strict CE ≤ 0 → fallback sans soustraction d'excess (cas ultra-cash-rich BKNG/MEDP)
   const ceNoExcess = totalAssets - currentLiabilities - goodwill;
   if (ceNoExcess > 0) {
     return {
-      totalAssets, currentLiabilities, goodwill, totalCash, revenueTtm, excessCash,
-      formulaUsed: 'no-excess-fallback', capitalEmployed: ceNoExcess, asOf,
-      reason: `Fallback : cash excédentaire (${(excessCash / 1e9).toFixed(2)}B) > capital opérationnel net — on retombe sur la formule sans soustraction d'excess (Bettin/Mauboussin classique)`,
+      ...baseFields, formulaUsed: 'no-excess-fallback', capitalEmployed: ceNoExcess, asOf,
+      reason: `Fallback : cash excédentaire (${(excessCash / 1e9).toFixed(2)}B) > capital opérationnel net — formule sans soustraction d'excess (Bettin/Mauboussin classique)`,
     };
   }
-  // Même sans soustraire l'excess, CE ≤ 0 → sur-acquisition (goodwill > assets nets)
   return {
-    totalAssets, currentLiabilities, goodwill, totalCash, revenueTtm, excessCash,
-    formulaUsed: null, capitalEmployed: null, asOf,
+    ...baseFields, formulaUsed: null, capitalEmployed: null, asOf,
     reason: `Capital employé nul ou négatif même sans excess cash (assets ${(totalAssets / 1e9).toFixed(2)}B − curLiab ${(currentLiabilities / 1e9).toFixed(2)}B − goodwill ${(goodwill / 1e9).toFixed(2)}B) — sur-acquisition`,
   };
 }
@@ -757,39 +784,51 @@ export async function getAdjustedFcfTtmSeries(ticker: string, windowYears: numbe
  * - CE ≤ 0 → quarter skippé
  */
 export async function getCapitalEmployedSeries(ticker: string, windowYears: number): Promise<TimeseriesPoint[]> {
-  const [assetsQ, curLiabQ, goodwillQ, cashQ, revenueQ] = await Promise.all([
+  const [assetsQ, curLiabQ, goodwillQ, cashQ, revenueQ, equityQ, debtQ] = await Promise.all([
     getReportedTimeseries(ticker, 'totalAssets', 'quarterly', windowYears + 1),
     getReportedTimeseries(ticker, 'currentLiabilities', 'quarterly', windowYears + 1),
     getReportedTimeseries(ticker, 'goodwill', 'quarterly', windowYears + 1),
     getReportedTimeseries(ticker, 'cashAndEquivalents', 'quarterly', windowYears + 1),
     getReportedTimeseries(ticker, 'revenue', 'quarterly', windowYears + 1),
+    getReportedTimeseries(ticker, 'equity', 'quarterly', windowYears + 1),
+    getReportedTimeseries(ticker, 'totalDebt', 'quarterly', windowYears + 1),
   ]);
-  if (assetsQ.length === 0 || curLiabQ.length === 0) return [];
+  if (assetsQ.length === 0) return [];
   const curLiabByDate = new Map(curLiabQ.map(p => [p.date, p.value]));
   const goodwillByDate = new Map(goodwillQ.map(p => [p.date, p.value]));
   const cashByDate = new Map(cashQ.map(p => [p.date, p.value]));
+  const equityByDate = new Map(equityQ.map(p => [p.date, p.value]));
+  const debtByDate = new Map(debtQ.map(p => [p.date, p.value]));
   const revenueTtmSeries = rollingTtmSum(revenueQ);
   const revenueTtmByDate = new Map(revenueTtmSeries.map(p => [p.date, p.value]));
   const out: TimeseriesPoint[] = [];
   for (const p of assetsQ) {
     const curLiab = curLiabByDate.get(p.date);
-    if (curLiab == null) continue;
     const goodwill = goodwillByDate.get(p.date) ?? 0;
+    const equity = equityByDate.get(p.date);
+    const debt = debtByDate.get(p.date) ?? 0;
+
+    // Fallback secteur financier : pas de Current Liab pour ce quarter mais Equity dispo
+    if (curLiab == null) {
+      if (equity == null) continue;
+      const ceFinancial = equity + debt - goodwill;
+      if (ceFinancial > 0) out.push({ date: p.date, value: ceFinancial });
+      continue;
+    }
+
+    // Formule standard avec fallback ultra-cash-rich
     const cash = cashByDate.get(p.date) ?? 0;
     const revTtm = revenueTtmByDate.get(p.date) ?? null;
     const excess = computeExcessCash(cash, revTtm);
-    // Strict d'abord (Bettin + soustraction excess Damodaran)
     const ceStrict = p.value - curLiab - goodwill - excess;
     if (ceStrict > 0) {
       out.push({ date: p.date, value: ceStrict });
       continue;
     }
-    // Fallback : sans soustraction d'excess (cohérent avec le snapshot)
     const ceNoExcess = p.value - curLiab - goodwill;
     if (ceNoExcess > 0) {
       out.push({ date: p.date, value: ceNoExcess });
     }
-    // Sinon : sur-acquisition, on skip ce point
   }
   return out;
 }

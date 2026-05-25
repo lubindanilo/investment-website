@@ -186,6 +186,23 @@ describe('computeDerivedMetrics', () => {
       expect(m.cashROCE).toBeCloseTo(0.598, 2);
       expect(m.cashROCEFormula).toBe('strict');
     });
+
+    it('expose cashROCEFormula="financial-equity" pour les assureurs/banques (KNSL-like)', () => {
+      // KNSL approx : equity $1.97B + LT debt $0.22B − goodwill 0 = $2.19B
+      // FCF ≈ $500M → ROCE ≈ 22.8 %
+      const m = computeDerivedMetrics({
+        metric: { metric: {} },
+        profile: null, quote: null,
+        adjFcfTtm: 500_000_000,
+        capitalEmployed: 2_190_000_000,
+        capitalEmployedFormula: 'financial-equity',
+        capitalEmployedReason: 'Bilan unclassified — fallback secteur financier',
+      });
+      expect(m.cashROCE).toBeCloseTo(0.228, 2);
+      expect(m.cashROCEFormula).toBe('financial-equity');
+      // La raison est propagée même quand ROCE est calculé (la carte UI l'utilise)
+      expect(m.notCalculableReasons?.cashROCE).toMatch(/financier/i);
+    });
   });
 });
 

@@ -119,7 +119,7 @@ async function getCashRoceHistoryUs(ticker: string, years: number): Promise<Cash
  * Cohérent avec yahooFundamentals.ts (snapshot) et derivedMetrics.ts.
  */
 async function getCashRoceHistoryAnnualYahoo(yahooSymbol: string, years: number): Promise<CashRoceHistoryPoint[]> {
-  const [fcf, assets, curLiab, goodwill, cashSti, cashOnly, revenue] = await Promise.all([
+  const [fcf, assets, curLiab, goodwill, cashSti, cashOnly, revenue, equity, totalDebt] = await Promise.all([
     fetchYahooAnnualBasic(yahooSymbol, 'annualFreeCashFlow'),
     fetchYahooAnnualBasic(yahooSymbol, 'annualTotalAssets'),
     fetchYahooAnnualBasic(yahooSymbol, 'annualCurrentLiabilities'),
@@ -127,9 +127,11 @@ async function getCashRoceHistoryAnnualYahoo(yahooSymbol: string, years: number)
     fetchYahooAnnualBasic(yahooSymbol, 'annualCashAndShortTermInvestments'),
     fetchYahooAnnualBasic(yahooSymbol, 'annualCashAndCashEquivalents'),
     fetchYahooAnnualBasic(yahooSymbol, 'annualTotalRevenue'),
+    fetchYahooAnnualBasic(yahooSymbol, 'annualStockholdersEquity'),
+    fetchYahooAnnualBasic(yahooSymbol, 'annualTotalDebt'),
   ]);
-  if (fcf.length === 0 || assets.length === 0 || curLiab.length === 0) {
-    console.warn(`[cashRoce ${yahooSymbol}] EU pas assez de données (fcf=${fcf.length}, assets=${assets.length}, curLiab=${curLiab.length})`);
+  if (fcf.length === 0 || assets.length === 0) {
+    console.warn(`[cashRoce ${yahooSymbol}] EU pas assez de données (fcf=${fcf.length}, assets=${assets.length})`);
     return [];
   }
   // Préférence : cash+STI agrégé. Fallback : cash seul.
@@ -142,11 +144,15 @@ async function getCashRoceHistoryAnnualYahoo(yahooSymbol: string, years: number)
   const goodwillByYear = new Map<string, number>();
   const cashByYear = new Map<string, number>();
   const revenueByYear = new Map<string, number>();
+  const equityByYear = new Map<string, number>();
+  const debtByYear = new Map<string, number>();
   for (const p of assets) assetsByYear.set(p.date.slice(0, 4), p.value);
   for (const p of curLiab) curLiabByYear.set(p.date.slice(0, 4), p.value);
   for (const p of goodwill) goodwillByYear.set(p.date.slice(0, 4), p.value);
   for (const p of cash) cashByYear.set(p.date.slice(0, 4), p.value);
   for (const p of revenue) revenueByYear.set(p.date.slice(0, 4), p.value);
+  for (const p of equity) equityByYear.set(p.date.slice(0, 4), p.value);
+  for (const p of totalDebt) debtByYear.set(p.date.slice(0, 4), p.value);
 
   const points: CashRoceHistoryPoint[] = [];
   for (const p of fcf) {
@@ -155,21 +161,31 @@ async function getCashRoceHistoryAnnualYahoo(yahooSymbol: string, years: number)
     if (p.value <= 0) continue;
     const yr = p.date.slice(0, 4);
     const a = assetsByYear.get(yr);
-    const cl = curLiabByYear.get(yr);
-    if (a == null || cl == null) continue;
+    if (a == null) continue;
     const gw = goodwillByYear.get(yr) ?? 0;
-    const ch = cashByYear.get(yr) ?? 0;
-    const rev = revenueByYear.get(yr) ?? null;
-    const excess = computeExcessCash(ch, rev);
-    // Strict d'abord, fallback sans excess sinon (cohérent avec le snapshot Finnhub)
-    const ceStrict = a - cl - gw - excess;
+    const cl = curLiabByYear.get(yr);
     let ce: number;
-    if (ceStrict > 0) {
-      ce = ceStrict;
+    if (cl == null) {
+      // Fallback secteur financier (bilan unclassified)
+      const eq = equityByYear.get(yr);
+      if (eq == null) continue;
+      const dt = debtByYear.get(yr) ?? 0;
+      const ceFinancial = eq + dt - gw;
+      if (ceFinancial <= 0) continue;
+      ce = ceFinancial;
     } else {
-      const ceNoExcess = a - cl - gw;
-      if (ceNoExcess <= 0) continue; // sur-acquisition → skip
-      ce = ceNoExcess;
+      // Formule standard avec fallback ultra-cash-rich
+      const ch = cashByYear.get(yr) ?? 0;
+      const rev = revenueByYear.get(yr) ?? null;
+      const excess = computeExcessCash(ch, rev);
+      const ceStrict = a - cl - gw - excess;
+      if (ceStrict > 0) {
+        ce = ceStrict;
+      } else {
+        const ceNoExcess = a - cl - gw;
+        if (ceNoExcess <= 0) continue;
+        ce = ceNoExcess;
+      }
     }
     const ratio = p.value / ce;
     if (!Number.isFinite(ratio) || ratio <= 0) continue;

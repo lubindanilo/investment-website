@@ -52,7 +52,7 @@ export function computeDerivedMetrics(input: {
   /** Raison explicite quand capitalEmployed est null (equity négatif > debt, données manquantes…) */
   capitalEmployedReason?: string;
   /** Variante de formule effectivement appliquée par le snapshot — propagé tel quel à la sortie */
-  capitalEmployedFormula?: 'strict' | 'no-excess-fallback' | null;
+  capitalEmployedFormula?: 'strict' | 'no-excess-fallback' | 'financial-equity' | null;
 }): DerivedMetrics {
   const m = input.metric?.metric ?? {};
   const price = input.quote?.c ?? null;
@@ -143,7 +143,7 @@ export function computeDerivedMetrics(input: {
   // a déjà choisi la formule à appliquer via `capitalEmployedFormula`.
   let cashROCE: number | null = null;
   let cashROCEReason: string | undefined;
-  const cashROCEFormula: 'strict' | 'no-excess-fallback' | null = input.capitalEmployedFormula ?? null;
+  const cashROCEFormula: 'strict' | 'no-excess-fallback' | 'financial-equity' | null = input.capitalEmployedFormula ?? null;
   if (input.adjFcfTtm == null || input.adjFcfTtm <= 0) {
     cashROCEReason = input.adjFcfTtm == null
       ? 'FCF ajusté TTM indisponible'
@@ -152,9 +152,9 @@ export function computeDerivedMetrics(input: {
     cashROCEReason = input.capitalEmployedReason ?? 'Capital employé indisponible';
   } else {
     cashROCE = input.adjFcfTtm / input.capitalEmployed;
-    // Si fallback appliqué, on l'expose dans la "raison" même quand cashROCE est calculé
-    // (la carte UI affichera la formule réellement utilisée).
-    if (cashROCEFormula === 'no-excess-fallback' && input.capitalEmployedReason) {
+    // Si un fallback (no-excess ou financial-equity) est appliqué, on expose la raison
+    // même quand cashROCE est calculé — la carte UI affichera la formule réellement utilisée.
+    if ((cashROCEFormula === 'no-excess-fallback' || cashROCEFormula === 'financial-equity') && input.capitalEmployedReason) {
       cashROCEReason = input.capitalEmployedReason;
     }
   }
@@ -205,7 +205,16 @@ export function computeDerivedMetrics(input: {
   if (shareCagr == null) reasons.shareCagr = input.sharesGrowthReason ?? 'Évolution actions 5Y indisponible';
   if (netMargin == null) reasons.netMargin = 'Marge nette indisponible chez Finnhub';
   if (fcfMargin == null) reasons.fcfMargin = 'Marge FCF non dérivable (P/FCF ou CA manquant)';
-  if (cashROCE == null) reasons.cashROCE = cashROCEReason ?? 'ROCE non calculable (FCF ou capital employé manquant)';
+  // notCalculableReasons.cashROCE est exposé dans 2 cas :
+  //  - ROCE non calculable (donnée manquante / CE négatif) → la raison explique pourquoi
+  //  - ROCE calculé mais via un fallback (ultra-cash-rich, financial) → la raison explique
+  //    quelle variante de formule a été appliquée. La carte UI peut ainsi afficher
+  //    transparemment le fallback (principe "pas de fallback caché").
+  if (cashROCE == null) {
+    reasons.cashROCE = cashROCEReason ?? 'ROCE non calculable (FCF ou capital employé manquant)';
+  } else if (cashROCEReason) {
+    reasons.cashROCE = cashROCEReason;
+  }
   if (netDebtFcf == null) reasons.netDebtFcf = 'Net debt / FCF non dérivable (EV ou FCF manquant)';
   if (ccr == null) reasons.ccr = 'Cash Conversion Rate non dérivable (PE ou P/FCF manquant)';
   if (operatingLeverage == null) reasons.operatingLeverage = input.opMarginTrendReason ?? 'Marges opérationnelles 5Y indisponibles';
@@ -327,12 +336,13 @@ export function buildQuantitativeCriteria(m: DerivedMetrics): Criterion[] {
     },
     (() => {
       // Le texte est court : verdict + mention discrète du fallback si appliqué.
-      // La formule complète, les composants et l'explication du fallback sont dans la
-      // modale info (icône ⓘ sur la carte), pas dans le texte de la carte elle-même.
+      // La formule complète, les composants et l'explication des variants sont dans la
+      // modale info (icône ⓘ sur la carte), pas dans le texte de la carte.
       const variant = m.cashROCEFormula;
-      const fallbackNote = variant === 'no-excess-fallback'
-        ? ' (calcul fallback — voir ⓘ)'
-        : '';
+      const fallbackNote =
+        variant === 'no-excess-fallback'  ? ' (calcul fallback ultra-cash-rich — voir ⓘ)' :
+        variant === 'financial-equity'    ? ' (formule secteur financier — voir ⓘ)' :
+        '';
       const verdict = m.cashROCE == null
         ? reasonOr(m, 'cashROCE', 'Donnée indisponible')
         : m.cashROCE > 0.15

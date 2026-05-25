@@ -144,6 +144,7 @@ export async function getYahooFundamentals(
         'annualCashAndCashEquivalents',
         'annualTotalAssets',
         'annualGoodwill',
+        'annualStockholdersEquity',
         'annualCurrentAssets',
         'annualCurrentLiabilities',
         'annualDilutedAverageShares',
@@ -168,6 +169,7 @@ export async function getYahooFundamentals(
       const cash           = cashStiAgg.length > 0 ? cashStiAgg : extract(data, 'annualCashAndCashEquivalents');
       const totalAssets    = extract(data, 'annualTotalAssets');
       const goodwill       = extract(data, 'annualGoodwill');
+      const equity         = extract(data, 'annualStockholdersEquity');
       const currentAssets  = extract(data, 'annualCurrentAssets');
       const currentLiab    = extract(data, 'annualCurrentLiabilities');
       const sharesDilutedRaw = extract(data, 'annualDilutedAverageShares');
@@ -234,30 +236,47 @@ export async function getYahooFundamentals(
       const latestAssets = latest(totalAssets);
       const latestCurLiab = latest(currentLiab);
       const latestGoodwill = latest(goodwill);
+      const latestEquity = latest(equity);
       const latestDebt = latest(totalDebt);
       const latestCash = latest(cash);
       let cashROCE: number | null = null;
-      let cashROCEFormula: 'strict' | 'no-excess-fallback' | null = null;
+      let cashROCEFormula: 'strict' | 'no-excess-fallback' | 'financial-equity' | null = null;
       if (!latestFcf) reasons.cashROCE = 'FCF indisponible';
       else if (latestFcf.value <= 0) reasons.cashROCE = 'FCF négatif sur le dernier exercice';
-      else if (!latestAssets || !latestCurLiab) reasons.cashROCE = 'Total Assets ou Current Liabilities indisponibles';
+      else if (!latestAssets) reasons.cashROCE = 'Total Assets indisponible';
       else {
         const goodwillVal = latestGoodwill?.value ?? 0;
-        const cashVal = latestCash?.value ?? 0;
-        const revVal = latestRev?.value ?? null;
-        const excess = computeExcessCash(cashVal, revVal);
-        const ceStrict = latestAssets.value - latestCurLiab.value - goodwillVal - excess;
-        if (ceStrict > 0) {
-          cashROCE = latestFcf.value / ceStrict;
-          cashROCEFormula = 'strict';
-        } else {
-          // Fallback : sans soustraction d'excess (cohérent avec le path Finnhub)
-          const ceNoExcess = latestAssets.value - latestCurLiab.value - goodwillVal;
-          if (ceNoExcess > 0) {
-            cashROCE = latestFcf.value / ceNoExcess;
-            cashROCEFormula = 'no-excess-fallback';
+        // Fallback secteur financier (assureurs, banques) : bilan unclassified
+        if (!latestCurLiab) {
+          if (!latestEquity) {
+            reasons.cashROCE = 'Current Liabilities ET Equity indisponibles';
           } else {
-            reasons.cashROCE = `Capital employé nul ou négatif même sans excess cash (assets ${(latestAssets.value / 1e9).toFixed(2)}B − curLiab ${(latestCurLiab.value / 1e9).toFixed(2)}B − goodwill ${(goodwillVal / 1e9).toFixed(2)}B) — sur-acquisition`;
+            const debtVal = latestDebt?.value ?? 0;
+            const ceFinancial = latestEquity.value + debtVal - goodwillVal;
+            if (ceFinancial > 0) {
+              cashROCE = latestFcf.value / ceFinancial;
+              cashROCEFormula = 'financial-equity';
+            } else {
+              reasons.cashROCE = `Capital employé nul ou négatif (fallback financier : equity ${(latestEquity.value/1e9).toFixed(2)}B + dette ${(debtVal/1e9).toFixed(2)}B − goodwill ${(goodwillVal/1e9).toFixed(2)}B)`;
+            }
+          }
+        } else {
+          // Formule standard
+          const cashVal = latestCash?.value ?? 0;
+          const revVal = latestRev?.value ?? null;
+          const excess = computeExcessCash(cashVal, revVal);
+          const ceStrict = latestAssets.value - latestCurLiab.value - goodwillVal - excess;
+          if (ceStrict > 0) {
+            cashROCE = latestFcf.value / ceStrict;
+            cashROCEFormula = 'strict';
+          } else {
+            const ceNoExcess = latestAssets.value - latestCurLiab.value - goodwillVal;
+            if (ceNoExcess > 0) {
+              cashROCE = latestFcf.value / ceNoExcess;
+              cashROCEFormula = 'no-excess-fallback';
+            } else {
+              reasons.cashROCE = `Capital employé nul ou négatif même sans excess cash (assets ${(latestAssets.value / 1e9).toFixed(2)}B − curLiab ${(latestCurLiab.value / 1e9).toFixed(2)}B − goodwill ${(goodwillVal / 1e9).toFixed(2)}B) — sur-acquisition`;
+            }
           }
         }
       }

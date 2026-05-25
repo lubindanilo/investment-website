@@ -101,6 +101,25 @@ const CashRoceGuide = (): ReactNode => (
       C'est la formule Bettin / Mauboussin classique. La carte critère mentionne explicitement quand le fallback est utilisé — pas de fallback caché.
     </p>
 
+    <h3 className="info-section-title">Fallback "secteur financier"</h3>
+    <p className="info-para">
+      Les compagnies d'assurance et les banques (KNSL, BRK, JPM, MA partiellement…) publient un bilan <strong>unclassified</strong> — pas de séparation entre <em>current</em> et <em>non-current liabilities</em>. Leurs gros passifs sont des réserves de sinistres et des primes non gagnées (= "float", équivalent du deferred revenue d'Amazon : c'est du financement gratuit à long terme, pas du capital rémunéré).
+    </p>
+    <p className="info-para">
+      Pour ce profil, on bascule sur la formule standard du secteur :
+    </p>
+    <div className="info-formula">
+      <code>
+        Cash ROCE (financier) = FCF ajusté ÷ (Equity + Long-Term Debt − Goodwill)
+      </code>
+      <div className="info-formula-sub">
+        Équivalent à <em>Assets − (Liabilities − LongTermDebt) − Goodwill</em> — on traite les réserves comme du free financing, exclues du dénominateur.
+      </div>
+    </div>
+    <p className="info-para">
+      Pas de soustraction d'excess cash dans ce cas : pour un assureur, le cash est du working capital opérationnel (paiement des sinistres), pas excédentaire.
+    </p>
+
     <h3 className="info-section-title">Échelle d'interprétation pratique</h3>
     <table className="info-table">
       <thead>
