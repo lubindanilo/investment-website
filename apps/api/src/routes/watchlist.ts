@@ -80,6 +80,9 @@ async function buildSnapshot(ticker: string): Promise<WatchlistEntry> {
       scoreChiffresMax: quant.length,  // 10
       currency: 'USD',
       source: 'finnhub',
+      // Champs persistés pour recompute P/FCF live (cf. GET /api/watchlist)
+      adjFcfTtm: fhFcfAdj.ttmFcfAdj,
+      sharesOutstanding: fhCapEmp.sharesLatest,
     };
   }
 
@@ -92,6 +95,16 @@ async function buildSnapshot(ticker: string): Promise<WatchlistEntry> {
       const evaluable = quant.filter(c => c.valeur !== 'N/A');
       const pass = evaluable.filter(c => c.statut === 'pass').length;
       const warn = evaluable.filter(c => c.statut === 'warn').length;
+      // Reconstruction shares + adjFcfTtm depuis le compute Yahoo pour le recompute
+      // P/FCF live. yfund.metrics.marketCap = price × sharesLatest et pfcfTTM = mcap / FCF,
+      // donc on peut isoler chacun par division.
+      const ym = yfund.metrics;
+      const sharesOutstanding = (ym.marketCap != null && ym.price != null && ym.price > 0)
+        ? ym.marketCap / ym.price
+        : null;
+      const adjFcfTtm = (ym.marketCap != null && ym.pfcfTTM != null && ym.pfcfTTM > 0)
+        ? ym.marketCap / ym.pfcfTTM
+        : null;
       return {
         ticker,
         name: resolved.longName ?? ticker,
@@ -101,6 +114,7 @@ async function buildSnapshot(ticker: string): Promise<WatchlistEntry> {
         scoreChiffresMax: evaluable.length,
         currency: yfund.currency,
         source: 'yahoo',
+        adjFcfTtm, sharesOutstanding,
       };
     }
     return {
@@ -135,10 +149,14 @@ const SNAPSHOT_FRESHNESS_MS = 30 * 60 * 1000;
  *  Actuel : score sur 10 chiffres (P/FCF sorti). Avant : score sur 11. */
 const SNAPSHOT_SCHEMA_SCORE_MAX = 10;
 
-/** Détecte les snapshots stockés avec un ancien schéma (avant le refactor P/FCF). */
+/** Détecte les snapshots stockés avec un ancien schéma (avant un refactor). */
 function hasOutdatedSchema(snap: WatchlistEntry | null): boolean {
   if (!snap || !snap.source || snap.scoreChiffresMax <= 0) return false;
-  return snap.scoreChiffresMax !== SNAPSHOT_SCHEMA_SCORE_MAX;
+  if (snap.scoreChiffresMax !== SNAPSHOT_SCHEMA_SCORE_MAX) return true;
+  // adjFcfTtm + sharesOutstanding requis pour le live P/FCF — si absent, snapshot
+  // pré-live-price → marquer obsolète pour qu'un rebuild les peuple.
+  if (snap.adjFcfTtm === undefined || snap.sharesOutstanding === undefined) return true;
+  return false;
 }
 
 function isFresh(refreshedAt: Date | null | undefined, snap: WatchlistEntry | null): boolean {
@@ -159,20 +177,53 @@ function emptyEntry(ticker: string): WatchlistEntry {
   };
 }
 
+/**
+ * Recalcule pfcfTTM en live = (price × sharesOutstanding) / adjFcfTtm.
+ * `adjFcfTtm` et `sharesOutstanding` viennent du snapshot DB (quasi-statiques entre
+ * earnings) ; `price` est fetché en temps réel via Finnhub /quote. Si quote échoue
+ * ou si l'une des 2 valeurs statiques manque, on garde la valeur DB (stale acceptée).
+ *
+ * Coût : 1 appel /quote par ticker. Finnhub /quote = ~100-300 ms par appel,
+ * parallélisé pour toute la watchlist via Promise.all + finnhubLimiter.
+ */
+async function enrichWithLivePrice(snapshots: WatchlistEntry[]): Promise<WatchlistEntry[]> {
+  return Promise.all(
+    snapshots.map(async snap => {
+      if (!snap.source || snap.adjFcfTtm == null || snap.sharesOutstanding == null) {
+        return snap; // pas assez d'info pour recompute, on garde la valeur DB
+      }
+      try {
+        const q = await getQuote(snap.ticker);
+        const livePrice = q?.c;
+        if (!livePrice || livePrice <= 0) return snap;
+        // pfcfTTM = (price × shares) / adjFcfTtm. adjFcfTtm est en USD bruts,
+        // sharesOutstanding aussi (count), price en monnaie par action → mcap en monnaie brute.
+        const livePfcf = (livePrice * snap.sharesOutstanding) / snap.adjFcfTtm;
+        if (!Number.isFinite(livePfcf) || livePfcf <= 0) return snap;
+        return { ...snap, price: livePrice, pfcfTTM: livePfcf };
+      } catch {
+        return snap; // quote a planté → snapshot DB inchangé
+      }
+    }),
+  );
+}
+
 watchlistRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   const userId = req.user!.userId;
   const entries = await prisma.watchlistEntry.findMany({
     where: { userId },
     orderBy: { addedAt: 'asc' },
   });
-  // GET = lecture pure DB, fast path. Le rebuild des snapshots obsolètes est délégué
-  // au frontend qui détecte (scoreChiffresMax !== 10) et appelle POST /refresh.
-  // Le isFresh() inclut le check de schéma → /refresh re-fetch automatiquement les
-  // entrées au schéma périmé même si time-fresh.
-  const result: WatchlistEntry[] = entries.map(e => {
+  // Snapshot DB = fast path. Pour le P/FCF qui dépend du prix temps réel, on
+  // recalcule en live : fetch /quote en parallèle + (price × shares) / adjFcfTtm.
+  // Si quote échoue ou snapshot incomplet → on tombe sur la valeur DB stale.
+  const dbSnapshots: WatchlistEntry[] = entries.map(e => {
     const snap = (e.snapshot as WatchlistEntry | null) ?? null;
     return snap ?? emptyEntry(e.ticker);
   });
+  const t0 = Date.now();
+  const result = await enrichWithLivePrice(dbSnapshots);
+  console.log(`[watchlist GET user=${userId.slice(0, 8)}] ${dbSnapshots.length} entries enriched live in ${Date.now() - t0}ms`);
   res.json(result);
 }));
 

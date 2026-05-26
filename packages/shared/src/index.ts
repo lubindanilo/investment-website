@@ -173,6 +173,12 @@ export interface WatchlistEntry {
   currency?: string;
   /** Source qui a fourni la donnée — utile pour distinguer EU vs US dans l'UI */
   source?: 'finnhub' | 'yahoo' | null;
+  // ─── Champs internes pour recompute P/FCF live ──────────────────────────
+  // Ces 2 champs ne changent qu'à chaque earnings (FCF) ou très peu (shares).
+  // Ils permettent de recomputer pfcfTTM = (price × shares) / adjFcfTtm avec un
+  // prix temps réel à chaque GET, sans refaire tous les calculs lourds.
+  adjFcfTtm?: number | null;
+  sharesOutstanding?: number | null;
 }
 
 // ─── Earnings (calendrier + résultats) ─────────────────────────────────────
