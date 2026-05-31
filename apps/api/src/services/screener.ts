@@ -133,7 +133,7 @@ export interface TickResult { picked: number; scored: number; nodata: number; er
  * Traite un lot de tickers dus. Séquentiel (le finnhubLimiter gère la concurrence interne
  * à chaque ticker) avec un budget de temps pour tenir sous la durée max du lambda.
  */
-export async function tick(limit: number, softDeadlineMs = 50_000): Promise<TickResult> {
+export async function tick(limit: number, softDeadlineMs = 25_000): Promise<TickResult> {
   const start = Date.now();
   const due = await pickDueTickers(limit);
   let scored = 0, nodata = 0, error = 0;

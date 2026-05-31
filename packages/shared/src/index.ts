@@ -191,6 +191,26 @@ export interface WatchlistEntry {
 
 // ─── Earnings (calendrier + résultats) ─────────────────────────────────────
 
+/** Une ligne du screener (vue "meilleures notes"). */
+export interface ScreenerTopRow {
+  ticker: string;
+  name: string | null;
+  scoreChiffres: number | null;
+  scoreChiffresMax: number | null;
+  pfcfTTM: number | null;
+  currency: string | null;
+  nextEarningsDate: string | null;
+}
+
+/** Progression de la veille screener. */
+export interface ScreenerStats {
+  pending: number;
+  scored: number;
+  nodata: number;
+  error: number;
+  total: number;
+}
+
 export interface EarningsResult {
   /** YYYY-MM-DD */
   date: string;

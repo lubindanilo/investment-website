@@ -1,6 +1,7 @@
 import { NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import { AnalysePage } from './pages/AnalysePage.js';
 import { WatchlistPage } from './pages/WatchlistPage.js';
+import { ScreenerPage } from './pages/ScreenerPage.js';
 import { AuthPage } from './pages/AuthPage.js';
 import { RequireAuth } from './components/RequireAuth.js';
 import { useAuth } from './contexts/AuthContext.js';
@@ -27,6 +28,9 @@ export function App() {
         <NavLink to="/watchlist" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
           Watchlist
         </NavLink>
+        <NavLink to="/screener" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+          Screener
+        </NavLink>
       </nav>
 
       <main className="app-main">
@@ -34,6 +38,7 @@ export function App() {
           <Route path="/" element={<AnalysePage />} />
           <Route path="/analyse/:ticker" element={<AnalysePage />} />
           <Route path="/watchlist" element={<RequireAuth><WatchlistPage /></RequireAuth>} />
+          <Route path="/screener" element={<ScreenerPage />} />
           <Route path="/login" element={<AuthPage initialMode="login" />} />
           <Route path="/signup" element={<AuthPage initialMode="signup" />} />
         </Routes>

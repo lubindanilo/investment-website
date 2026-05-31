@@ -12,6 +12,8 @@ import type {
   PfcfHistoryResponse,
   CashRoceHistoryResponse,
   PublicUser,
+  ScreenerTopRow,
+  ScreenerStats,
 } from '@lubin/shared';
 import { captureException } from './sentry.js';
 
@@ -139,6 +141,15 @@ export const api = {
       points: { date: string; value: number }[];
       cached: boolean;
     }>(`/api/price-history?${q}`);
+  },
+  screener: {
+    top: (params: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number } = {}) => {
+      const q = new URLSearchParams();
+      for (const [k, v] of Object.entries(params)) if (v != null) q.set(k, String(v));
+      const qs = q.toString();
+      return safeRequest<ScreenerTopRow[]>(`/api/screener/top${qs ? `?${qs}` : ''}`);
+    },
+    stats: () => safeRequest<ScreenerStats>('/api/screener/stats'),
   },
   watchlist: {
     list: () => safeRequest<WatchlistEntry[]>('/api/watchlist'),
