@@ -93,6 +93,22 @@ export const getProfile2 = (ticker: string) =>
 export const getQuote = (ticker: string) =>
   fhGet<FinnhubQuote>(`/quote?symbol=${ticker}`, 'quote', TTL_QUOTE);
 
+/** Une entrée de /stock/symbol (liste des tickers d'un exchange). */
+export interface FinnhubSymbol {
+  symbol: string;
+  displaySymbol?: string;
+  description?: string;
+  type?: string;      // "Common Stock", "ADR", "ETP", "REIT", "PUBLIC"…
+  currency?: string;
+  mic?: string;
+}
+
+const TTL_SYMBOLS = 24 * 60 * 60_000; // liste d'exchange : 24h (très statique)
+
+/** Liste tous les tickers d'un exchange Finnhub (ex "US", "PA", "L"…). */
+export const getStockSymbols = (exchange: string) =>
+  fhGet<FinnhubSymbol[]>(`/stock/symbol?exchange=${encodeURIComponent(exchange)}`, `symbols ${exchange}`, TTL_SYMBOLS);
+
 export function getCompanyNews(ticker: string, days = 60) {
   const to = new Date();
   const from = new Date();

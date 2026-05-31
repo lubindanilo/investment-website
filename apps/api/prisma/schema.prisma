@@ -72,6 +72,37 @@ model TickerQuantSnapshot {
   @@index([refreshedAt])
 }
 
+/// Veille quantitative automatique ("screener"). Une ligne par ticker de l'univers.
+/// La note /10 (quanti uniquement, jamais de GPT) est recalculée quand `nextEarningsDate`
+/// est atteinte — le quantitatif ne bouge qu'aux résultats. Tant que la date est future,
+/// le score reste en cache. Le détail complet vit dans TickerQuantSnapshot.
+///
+/// Couverture progressive : priority 0=US, 1=EU, 2=OTHER (le worker pioche dans cet ordre).
+model ScreenerTicker {
+  ticker             String    @id
+  exchange           String?
+  name               String?
+  currency           String?
+  region             String    @default("US")
+  priority           Int       @default(0)
+  /// pending | scored | nodata | error
+  status             String    @default("pending")
+  scoreChiffres      Int?
+  scoreChiffresMax   Int?
+  /// scoreChiffres / scoreChiffresMax — indexé pour le tri "meilleures notes"
+  scoreRatio         Float?
+  pfcfTTM            Float?
+  fundamentalsSource String?
+  /// Date du prochain earnings (YYYY-MM-DD) — pilote le re-scoring
+  nextEarningsDate   String?
+  lastScoredAt       DateTime?
+  attempts           Int       @default(0)
+  updatedAt          DateTime  @updatedAt
+
+  @@index([status, priority, lastScoredAt])
+  @@index([scoreRatio])
+}
+
 /// Watchlist par utilisateur. Un même ticker peut apparaître chez plusieurs users (différentes lignes).
 /// Les champs `snapshot` + `refreshedAt` sont legacy — gardés pour backward-compat mais
 /// plus utilisés depuis l'introduction de TickerQuantSnapshot (cache global).
