@@ -54,10 +54,12 @@ function isManagementCacheValid(data: unknown): data is Criterion[] {
 async function loadQuantDataOrThrow(ticker: string) {
   const data = await loadQuantData(ticker);
   if (data.finnhubCompletelyEmpty && !data.fundamentalsAvailable) {
+    // Aucune donnée NI chez Finnhub NI chez Yahoo → le symbole n'existe pas / n'est pas
+    // couvert. On renvoie un 404 "non détecté" (et non un 5xx qui suggérerait une panne).
     throw new ApiError(
-      503,
-      'Données fondamentales indisponibles',
-      `Finnhub n'a pas répondu pour ${ticker}. Vérifie la clé API ou réessaie dans 1 minute (rate limit).`,
+      404,
+      `« ${ticker} » n'a pas été trouvé`,
+      `Aucune donnée pour ce symbole. Vérifie l'orthographe (ex : AAPL, MSFT, MC.PA). Si le symbole est correct, il n'est peut-être pas couvert, ou réessaie dans une minute.`,
     );
   }
   return data;

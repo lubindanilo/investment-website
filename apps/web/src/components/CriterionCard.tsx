@@ -64,7 +64,18 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
               </button>
             )}
           </div>
-          <div className={`badge ${c.statut}`}>{BADGE_LABEL[c.statut]}</div>
+          <div className="critere-header-right">
+            {clickable && (
+              <span className="critere-chart-cue" title="Voir le graphique" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                  <line x1="5" y1="20" x2="5" y2="13" />
+                  <line x1="12" y1="20" x2="12" y2="5" />
+                  <line x1="19" y1="20" x2="19" y2="15" />
+                </svg>
+              </span>
+            )}
+            <div className={`badge ${c.statut}`}>{BADGE_LABEL[c.statut]}</div>
+          </div>
         </div>
         <div className="critere-value">{c.valeur}</div>
         <div className="critere-target">{c.cible}</div>

@@ -158,7 +158,7 @@ export function WatchlistPage() {
   return (
     <>
       <h1 className="section-title">Watchlist</h1>
-      <p className="section-sub">Tes entreprises à surveiller. P/FCF et score chiffres actualisés en temps réel.</p>
+      <p className="section-sub">Tes entreprises à surveiller.</p>
 
       <div className="search-wrap">
         <input

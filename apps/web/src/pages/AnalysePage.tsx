@@ -169,11 +169,8 @@ export function AnalysePage() {
           {!analysis.fundamentalsAvailable && (
             <div className="fund-missing-banner">
               <div className="fund-missing-title">Données fondamentales indisponibles pour {analysis.ticker}</div>
-              <div className="fund-missing-msg">
-                La couverture des données fondamentales est limitée pour ce titre (principalement les actions cotées aux US). Pour les sociétés européennes ou asiatiques, les chiffres et la valorisation ne sont pas disponibles.
-              </div>
               <div className="fund-missing-hint">
-                Seule l'analyse qualitative reste valide ci-dessous. Si la société a une cotation ADR US (ex : Nestlé <code>NSRGY</code>, ASML <code>ASML</code>, LVMH <code>LVMUY</code>), essaie ce ticker à la place.
+                Ce titre n'est pas couvert. S'il a une cotation ADR US (ex : <code>NSRGY</code>, <code>ASML</code>, <code>LVMUY</code>), essaie ce symbole à la place.
               </div>
             </div>
           )}
@@ -183,8 +180,6 @@ export function AnalysePage() {
             onAddWatchlist={addToWatchlist}
             alreadyInWatchlist={analysis.inWatchlist === true || inWatchlist.has(analysis.ticker)}
           />
-
-          <EarningsPanel ticker={analysis.ticker} earnings={analysis.earnings} currency={analysis.currency} />
 
           {analysis.fundamentalsSource === 'yahoo' ? (
             // Tickers EU résolus via Yahoo : TradingView ne reconnaît pas COPN sans préfixe
@@ -202,24 +197,18 @@ export function AnalysePage() {
             </div>
           )}
 
-          <SectionHeader title="Chiffres (10)" sub="Calculés à partir des données fondamentales temps réel" score={scoreOf(chiffres)} />
+          <SectionHeader title="Chiffres (10)" score={scoreOf(chiffres)} />
           <CriteriaGrid items={chiffres} ticker={analysis.ticker} currency={analysis.currency} annualOnly={analysis.fundamentalsSource === 'yahoo'} />
 
-          {/* Section qualitative — soit affichée (cache hit), soit CTA "Générer" (cache miss).
-              On évite tout appel GPT automatique : l'utilisateur clique explicitement quand il veut. */}
+          <EarningsPanel ticker={analysis.ticker} earnings={analysis.earnings} currency={analysis.currency} />
+
           {analysis.qualitativeAvailable ? (
             <>
-              <SectionHeader
-                title="Qualitatif (15)"
-                sub={`Business model${analysis.businessCachedAt ? ` · cache à vie depuis ${new Date(analysis.businessCachedAt).toLocaleDateString('fr-FR')}` : ''} + Management${analysis.managementCachedAt ? ` · maj du ${new Date(analysis.managementCachedAt).toLocaleDateString('fr-FR')}` : ''}`}
-              />
-
               <SectionHeader title="Business model (10)" score={scoreOf(business)} />
               <CriteriaGrid items={business} />
 
               <SectionHeader
                 title="Management (5)"
-                sub="Allocation, ancienneté, transparence, skin in the game, rachats opportunistes"
                 score={scoreOf(management)}
                 right={
                   <button className="btn-secondary" onClick={refreshManagementOnly} disabled={refreshingQual}>
@@ -242,7 +231,7 @@ export function AnalysePage() {
 
           <SectionHeader
             title="Valorisation"
-            sub="Timing d'entrée — n'entre PAS dans le score qualité. Une bonne action reste bonne, juste pas encore au bon prix."
+            sub="Le bon prix d'entrée — n'entre pas dans la note qualité."
           />
           {valuationCards.length === 2 && (
             <CriteriaGrid
@@ -354,7 +343,10 @@ function ErrorState({ error, onRetry }: { error: ApiError; onRetry?: () => void 
   // 400/404 → message simple. 429 → message rate limit. 0/500+ → message + bouton retry.
   let title: string;
   let hint: string;
-  if (error.status === 429) {
+  if (error.status === 404) {
+    title = 'Ticker non détecté';
+    hint = error.details ?? error.userMessage;
+  } else if (error.status === 429) {
     title = 'Trop de requêtes — patiente une minute';
     hint = 'Tu as atteint le rate limit. Réessaie dans 60 secondes.';
   } else if (error.status === 0) {
@@ -374,7 +366,7 @@ function ErrorState({ error, onRetry }: { error: ApiError; onRetry?: () => void 
     <div className="error-box">
       <div className="error-box-title">{title}</div>
       <div className="error-box-hint">{hint}</div>
-      {error.details && <div className="error-box-details">{error.details}</div>}
+      {error.status !== 404 && error.details && <div className="error-box-details">{error.details}</div>}
       {error.retriable && onRetry && (
         <button className="btn-secondary" onClick={onRetry} style={{ marginTop: 12 }}>
           ↻ Réessayer

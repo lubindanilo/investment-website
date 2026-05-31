@@ -1,7 +1,4 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { ScreenerStats } from '@lubin/shared';
-import { api } from '../lib/api.js';
 import { useAuth } from '../contexts/AuthContext.js';
 import './HomePage.css';
 
@@ -11,13 +8,6 @@ import './HomePage.css';
  */
 export function HomePage() {
   const { user } = useAuth();
-  const [stats, setStats] = useState<ScreenerStats | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    api.screener.stats().then(s => { if (!cancelled) setStats(s); }).catch(() => {});
-    return () => { cancelled = true; };
-  }, []);
 
   return (
     <div className="home">
@@ -37,13 +27,6 @@ export function HomePage() {
           <Link to="/analyser" className="btn-primary home-cta">Analyser une action</Link>
           <Link to="/screener" className="btn-secondary home-cta">Explorer le screener</Link>
         </div>
-        {stats && stats.scored > 0 && (
-          <div className="home-livestat">
-            <span className="home-livedot" />
-            {stats.scored.toLocaleString('fr-FR')} entreprises déjà notées automatiquement
-            {stats.pending > 0 && ` · ${stats.pending.toLocaleString('fr-FR')} en cours`}
-          </div>
-        )}
       </section>
 
       {/* ── Bénéfices ── */}

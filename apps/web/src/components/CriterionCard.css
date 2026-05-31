@@ -86,9 +86,19 @@
 }
 .critere-card.clickable:hover {
   border-color: var(--brand-border);
-  box-shadow: 0 2px 8px rgba(207, 30, 44, 0.08);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 .critere-card.clickable:active {
   transform: translateY(1px);
 }
+
+.critere-header-right { display: flex; align-items: center; gap: 8px; }
+.critere-chart-cue {
+  display: inline-flex;
+  color: var(--text3);
+  opacity: 0.6;
+  transition: color 0.15s, opacity 0.15s;
+}
+.critere-card.clickable:hover .critere-chart-cue { color: var(--brand); opacity: 1; }
 
