@@ -34,9 +34,46 @@ interface FinnhubEarningsCalendar {
   }>;
 }
 
+/**
+ * Endpoint `/stock/earnings` (earnings surprises) — historique réel vs estimé des
+ * derniers trimestres. Indispensable car `/calendar/earnings` omet régulièrement le
+ * DERNIER rapport pour certains tickers (constaté sur MSFT, AAPL : la fenêtre ne
+ * renvoie que le prochain earnings). Cet endpoint, lui, fournit toujours le passé.
+ */
+interface FinnhubEarningsSurprise {
+  actual?: number | null;
+  estimate?: number | null;
+  period?: string;   // YYYY-MM-DD (fin de période fiscale)
+  quarter?: number;
+  year?: number;
+}
+
 interface CachedEarnings { data: EarningsInfo; cachedAt: number }
 const EARNINGS_CACHE_TTL = 7 * 24 * 60 * 60 * 1000;
 const earningsCache = new Map<string, CachedEarnings>();
+
+/** Convertit une entrée /stock/earnings en EarningsResult (pas de revenue sur cet endpoint). */
+function surpriseToResult(raw: FinnhubEarningsSurprise): EarningsResult | null {
+  if (!raw.period || !/^\d{4}-\d{2}-\d{2}$/.test(raw.period)) return null;
+  const epsAct = raw.actual ?? null;
+  const epsEst = raw.estimate ?? null;
+  if (epsAct == null && epsEst == null) return null;
+  const epsSurp = epsAct != null && epsEst != null ? epsAct - epsEst : null;
+  const epsSurpPct = epsSurp != null && epsEst && epsEst !== 0 ? epsSurp / Math.abs(epsEst) : null;
+  return {
+    date: raw.period,
+    quarter: raw.quarter ?? 0,
+    year: raw.year ?? Number(raw.period.slice(0, 4)),
+    hour: null,
+    epsActual: epsAct,
+    epsEstimate: epsEst,
+    epsSurprise: epsSurp,
+    epsSurprisePct: epsSurpPct,
+    revenueActual: null,
+    revenueEstimate: null,
+    revenueSurprisePct: null,
+  };
+}
 
 /** Convertit une entrée Finnhub brute en EarningsResult typé. */
 function toResult(raw: NonNullable<FinnhubEarningsCalendar['earningsCalendar']>[number]): EarningsResult | null {
@@ -83,13 +120,24 @@ export async function getEarningsInfo(ticker: string): Promise<EarningsInfo> {
   const from = new Date(today); from.setDate(from.getDate() - 100);
   const to   = new Date(today); to.setDate(to.getDate() + 100);
   const fmt = (d: Date) => d.toISOString().slice(0, 10);
-  const url = `${BASE}/calendar/earnings?symbol=${ticker}&from=${fmt(from)}&to=${fmt(to)}&token=${TOKEN}`;
+  const calUrl = `${BASE}/calendar/earnings?symbol=${ticker}&from=${fmt(from)}&to=${fmt(to)}&token=${TOKEN}`;
+  const surpUrl = `${BASE}/stock/earnings?symbol=${ticker}&token=${TOKEN}`;
 
   try {
-    const data = await finnhubLimiter.schedule(async () => {
-      const res = await fetchWithRetry(url, undefined, { label: `finnhub earnings ${ticker}`, attempts: 2 });
-      return res.json() as Promise<FinnhubEarningsCalendar>;
-    });
+    // Deux sources en parallèle :
+    //   - /calendar/earnings → prochain earnings (date + estimés) + passé avec revenue
+    //   - /stock/earnings    → historique réel vs estimé (toujours fourni, contrairement
+    //                          au calendrier qui omet le dernier rapport pour MSFT/AAPL…)
+    const [data, surprises] = await Promise.all([
+      finnhubLimiter.schedule(async () => {
+        const res = await fetchWithRetry(calUrl, undefined, { label: `finnhub earnings ${ticker}`, attempts: 2 });
+        return res.json() as Promise<FinnhubEarningsCalendar>;
+      }),
+      finnhubLimiter.schedule(async () => {
+        const res = await fetchWithRetry(surpUrl, undefined, { label: `finnhub surprises ${ticker}`, attempts: 2 });
+        return res.json() as Promise<FinnhubEarningsSurprise[]>;
+      }).catch(() => [] as FinnhubEarningsSurprise[]),
+    ]);
     const items = (data.earningsCalendar ?? [])
       .filter(e => e.symbol === ticker)
       .map(toResult)
@@ -99,8 +147,17 @@ export async function getEarningsInfo(ticker: string): Promise<EarningsInfo> {
     const past = items.filter(e => e.date < todayIso).sort((a, b) => b.date.localeCompare(a.date)); // récent → ancien
     const future = items.filter(e => e.date >= todayIso).sort((a, b) => a.date.localeCompare(b.date)); // proche → lointain
 
+    // last : on préfère l'entrée calendrier SI elle a un EPS réel (elle porte aussi le
+    // revenue) ; sinon on bascule sur /stock/earnings (cas MSFT/AAPL).
+    const calLast = past[0] ?? null;
+    const lastSurpRaw = (Array.isArray(surprises) ? surprises : [])
+      .filter(s => s.actual != null && s.period)
+      .sort((a, b) => (b.period ?? '').localeCompare(a.period ?? ''))[0];
+    const surpLast = lastSurpRaw ? surpriseToResult(lastSurpRaw) : null;
+    const last = (calLast && calLast.epsActual != null) ? calLast : (surpLast ?? calLast);
+
     const result: EarningsInfo = {
-      last: past[0] ?? null,
+      last,
       next: future[0] ?? null,
     };
     earningsCache.set(ticker, { data: result, cachedAt: Date.now() });
