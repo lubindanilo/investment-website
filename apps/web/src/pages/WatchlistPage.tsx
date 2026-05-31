@@ -6,7 +6,7 @@ import { useToast } from '../components/Toast.js';
 import { Icon, ScorePill } from '../components/ui/primitives.js';
 import './WatchlistPage.css';
 
-type SortKey = 'default' | 'price' | 'pfcf' | 'score';
+type SortKey = 'default' | 'price' | 'pfcf' | 'score' | 'earnings';
 type SortDir = 'asc' | 'desc';
 interface SortState { key: SortKey; dir: SortDir }
 const SORT_STORAGE_KEY = 'li_watchlist_sort';
@@ -14,7 +14,7 @@ const SORT_STORAGE_KEY = 'li_watchlist_sort';
 function loadSort(): SortState {
   try {
     const s = JSON.parse(localStorage.getItem(SORT_STORAGE_KEY) ?? '');
-    if (s && ['default', 'price', 'pfcf', 'score'].includes(s.key) && ['asc', 'desc'].includes(s.dir)) return s as SortState;
+    if (s && ['default', 'price', 'pfcf', 'score', 'earnings'].includes(s.key) && ['asc', 'desc'].includes(s.dir)) return s as SortState;
   } catch { /* ignore */ }
   return { key: 'score', dir: 'desc' };
 }
@@ -22,11 +22,11 @@ function saveSort(s: SortState) { localStorage.setItem(SORT_STORAGE_KEY, JSON.st
 
 function sortItems(items: WatchlistEntry[], { key, dir }: SortState): WatchlistEntry[] {
   if (key === 'default') return items;
-  const num = (v: number | null | undefined) => (v == null ? null : v);
   return [...items].sort((a, b) => {
     let cmp = 0;
-    if (key === 'price') { const av = num(a.price), bv = num(b.price); if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
-    else if (key === 'pfcf') { const av = num(a.pfcfTTM), bv = num(b.pfcfTTM); if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
+    if (key === 'price') { const av = a.price, bv = b.price; if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
+    else if (key === 'pfcf') { const av = a.pfcfTTM, bv = b.pfcfTTM; if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
+    else if (key === 'earnings') { const av = a.nextEarningsDate, bv = b.nextEarningsDate; if (!av) return 1; if (!bv) return -1; cmp = av.localeCompare(bv); }
     else { const ra = a.scoreChiffresMax > 0 ? a.scoreChiffres / a.scoreChiffresMax : -1; const rb = b.scoreChiffresMax > 0 ? b.scoreChiffres / b.scoreChiffresMax : -1; cmp = ra - rb; }
     return dir === 'asc' ? cmp : -cmp;
   });
@@ -95,11 +95,11 @@ export function WatchlistPage() {
     catch (e) { toast.push('error', (e as Error).message); }
   }
 
-  const SortTh = ({ label, col }: { label: string; col: Exclude<SortKey, 'default'> }) => {
+  const SortTh = ({ label, col, align = 'right' }: { label: string; col: Exclude<SortKey, 'default'>; align?: 'left' | 'right' }) => {
     const active = sort.key === col;
     return (
-      <th className="sortable num-cell" onClick={() => toggleSort(col)}>
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, justifyContent: 'flex-end' }}>
+      <th className={'sortable' + (align === 'right' ? ' num-cell' : '')} onClick={() => toggleSort(col)}>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, justifyContent: align === 'right' ? 'flex-end' : 'flex-start' }}>
           {label}<span style={{ opacity: active ? 1 : 0.25 }}><Icon name={active && sort.dir === 'asc' ? 'arrowUp' : 'arrowDown'} size={11} stroke={2.4} /></span>
         </span>
       </th>
@@ -155,7 +155,7 @@ export function WatchlistPage() {
                   <SortTh label="Cours" col="price" />
                   <SortTh label="P/FCF" col="pfcf" />
                   <SortTh label="Note" col="score" />
-                  <th>Prochains résultats</th>
+                  <SortTh label="Prochains résultats" col="earnings" align="left" />
                   <th style={{ width: 50 }}></th>
                 </tr>
               </thead>
