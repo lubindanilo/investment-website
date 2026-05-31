@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import type { AnalyzeResponse, ScreenerTopRow, Criterion } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
@@ -7,7 +7,7 @@ import { useAuth } from '../contexts/AuthContext.js';
 import { CriteriaGrid, QualGrid } from '../components/CriterionCard.js';
 import { ValuationBlock } from '../components/ui/ValuationBlock.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
-import { Icon, ScoreCircle, ScorePill, scoreColor, toDataStatus } from '../components/ui/primitives.js';
+import { Icon, ScoreCircle, ScorePill, toDataStatus } from '../components/ui/primitives.js';
 import { CompositionBar, PriceChart } from '../components/ui/charts.js';
 import './AnalysePage.css';
 
@@ -180,23 +180,13 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
   watched: boolean; onWatch: () => void; onGenerateQual: () => void; generatingQual: boolean;
   refreshingQual: boolean; onRefreshMgmt: () => void;
 }) {
-  const scoreRef = useRef<HTMLDivElement>(null);
-  const [stickyVisible, setStickyVisible] = useState(false);
-  useEffect(() => {
-    const onScroll = () => { if (scoreRef.current) setStickyVisible(scoreRef.current.getBoundingClientRect().bottom < 70); };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
   const s10 = score10(chiffres);
   const counts = compositionCounts(chiffres);
-  const tone = scoreColor(s10);
   const currency = analysis.currency || 'USD';
   const annualOnly = analysis.fundamentalsSource === 'yahoo';
 
   return (
     <>
-      <StickyScoreBar analysis={analysis} score={s10} tone={tone} visible={stickyVisible} watched={watched} onWatch={onWatch} />
       <div className="col gap-28 fade-in anl-filled">
         {!analysis.fundamentalsAvailable && (
           <div className="anl-banner">
@@ -206,7 +196,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
         )}
 
         {/* ScoreCard */}
-        <div ref={scoreRef} className="card anl-scorecard">
+        <div className="card anl-scorecard">
           <ScoreCircle score={s10} />
           <div className="col gap-12 grow">
             <div className="anl-scorecard-head">
@@ -305,29 +295,6 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
         )}
       </div>
     </>
-  );
-}
-
-// ─── Mini-barre sticky ───────────────────────────────────────────────────────
-function StickyScoreBar({ analysis, score, tone, visible, watched, onWatch }: {
-  analysis: AnalyzeResponse; score: number; tone: { bg: string; ink: string }; visible: boolean; watched: boolean; onWatch: () => void;
-}) {
-  return (
-    <div className="anl-sticky" data-visible={visible}>
-      <div className="wrap anl-sticky-inner">
-        <div className="row gap-12" style={{ minWidth: 0 }}>
-          <span className="num anl-sticky-ticker">{analysis.ticker}</span>
-          <span className="tiny muted only-desktop anl-sticky-name">{analysis.company}</span>
-          {analysis.price != null && <span className="num tiny" style={{ fontWeight: 600 }}>{analysis.currency} {analysis.price.toFixed(2)}</span>}
-        </div>
-        <div className="row gap-12">
-          <span className="num anl-sticky-score" style={{ color: tone.ink, background: tone.bg }}>{score}/10</span>
-          <button className={'btn btn-sm ' + (watched ? 'btn-soft' : 'btn-brand')} onClick={onWatch}>
-            {watched ? <><Icon name="check" size={14} /> Suivie</> : <><Icon name="plus" size={14} /> Watchlist</>}
-          </button>
-        </div>
-      </div>
-    </div>
   );
 }
 
