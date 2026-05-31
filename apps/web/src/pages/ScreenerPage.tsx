@@ -1,21 +1,22 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { ScreenerTopRow, ScreenerStats } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
+import { Icon, ScorePill } from '../components/ui/primitives.js';
 import './ScreenerPage.css';
 
-/**
- * Screener — meilleures notes quantitatives de l'univers, alimentées en continu par
- * la veille automatique. Permet de repérer directement les entreprises les mieux notées
- * sans chercher ticker par ticker.
- */
-const MIN_RATIO_OPTIONS = [
-  { label: '100 % (10/10)', value: 1 },
-  { label: '≥ 90 %', value: 0.9 },
-  { label: '≥ 80 %', value: 0.8 },
-  { label: '≥ 70 %', value: 0.7 },
-  { label: 'Toutes', value: 0 },
-];
+const SCORE_OPTS = [4, 6, 8, 9, 10];
+const PFCF_MAX = 50; // valeur haute = "pas de filtre P/FCF"
+
+type SortCol = 'score' | 'pfcf';
+interface SortState { col: SortCol; dir: 'asc' | 'desc' }
+
+function ratioOf(r: ScreenerTopRow) { return r.scoreChiffresMax ? (r.scoreChiffres ?? 0) / r.scoreChiffresMax : 0; }
+function formatEarnings(iso?: string | null): string {
+  if (!iso) return '—';
+  const d = new Date(iso + 'T12:00:00Z');
+  return Number.isNaN(d.getTime()) ? '—' : d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+}
 
 export function ScreenerPage() {
   const navigate = useNavigate();
@@ -23,119 +24,124 @@ export function ScreenerPage() {
   const [stats, setStats] = useState<ScreenerStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [minRatio, setMinRatio] = useState(0.8);
-  const [maxPfcf, setMaxPfcf] = useState<string>('');
+  const [minScore, setMinScore] = useState(6);
+  const [maxPfcf, setMaxPfcf] = useState(PFCF_MAX);
+  const [sort, setSort] = useState<SortState>({ col: 'score', dir: 'desc' });
 
   const load = useCallback(async () => {
-    setLoading(true);
-    setError(null);
+    setLoading(true); setError(null);
     try {
-      const maxPfcfNum = maxPfcf.trim() ? Number(maxPfcf) : undefined;
       const [top, st] = await Promise.all([
-        api.screener.top({ minRatio, maxPfcf: maxPfcfNum, minMax: 8, limit: 200 }),
+        api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300 }),
         api.screener.stats(),
       ]);
-      setRows(top);
-      setStats(st);
+      setRows(top); setStats(st);
     } catch (e) {
       setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
-    } finally {
-      setLoading(false);
-    }
-  }, [minRatio, maxPfcf]);
+    } finally { setLoading(false); }
+  }, [minScore, maxPfcf]);
 
   useEffect(() => { load(); }, [load]);
 
-  const progress = stats && stats.total > 0
-    ? Math.round(((stats.scored + stats.nodata + stats.error) / stats.total) * 100)
-    : 0;
+  const sorted = useMemo(() => {
+    const dir = sort.dir === 'desc' ? -1 : 1;
+    return [...rows].sort((a, b) => {
+      const av = sort.col === 'score' ? ratioOf(a) : (a.pfcfTTM ?? Infinity);
+      const bv = sort.col === 'score' ? ratioOf(b) : (b.pfcfTTM ?? Infinity);
+      return (av - bv) * dir;
+    });
+  }, [rows, sort]);
+
+  const progress = stats && stats.total > 0 ? Math.round(((stats.scored + stats.nodata + stats.error) / stats.total) * 100) : 0;
+
+  const SortTh = ({ label, col }: { label: string; col: SortCol }) => {
+    const active = sort.col === col;
+    return (
+      <th className="sortable num-cell" onClick={() => setSort({ col, dir: active && sort.dir === 'desc' ? 'asc' : 'desc' })}>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, justifyContent: 'flex-end' }}>
+          {label}<span style={{ opacity: active ? 1 : 0.25 }}><Icon name={active && sort.dir === 'asc' ? 'arrowUp' : 'arrowDown'} size={11} stroke={2.4} /></span>
+        </span>
+      </th>
+    );
+  };
 
   return (
-    <>
-      <h1 className="section-title">Screener</h1>
-      <p className="section-sub">
-        Les entreprises les mieux notées (note quantitative /10), alimentées en continu par la veille automatique.
-      </p>
-
-      {stats && (
-        <div className="scr-stats">
-          <span><strong>{stats.scored.toLocaleString('fr-FR')}</strong> notées</span>
-          <span><strong>{stats.pending.toLocaleString('fr-FR')}</strong> en attente</span>
-          <span><strong>{stats.nodata.toLocaleString('fr-FR')}</strong> sans données</span>
-          <span className="scr-stats-progress">{progress} % de l'univers traité ({stats.total.toLocaleString('fr-FR')})</span>
+    <div className="scr">
+      <div className="wrap-wide scr-wrap">
+        <div className="scr-head">
+          <div className="col gap-4">
+            <h1 className="scr-title">Screener</h1>
+            <p className="muted" style={{ fontSize: 14 }}>Les meilleures notes de l'univers, triées par la veille. Les 10/10 en tête.</p>
+          </div>
+          {stats && (
+            <div className="col gap-6 scr-progress">
+              <div className="row between wide">
+                <span className="tiny muted" style={{ fontWeight: 600 }}>Veille de l'univers</span>
+                <span className="num tiny" style={{ fontWeight: 700, color: progress >= 100 ? 'var(--good)' : 'var(--brand-ink)' }}>{progress >= 100 ? 'À jour' : progress + ' %'}</span>
+              </div>
+              <div className="scr-progress-track"><div className="scr-progress-fill" style={{ width: `${progress}%`, background: progress >= 100 ? 'var(--good)' : 'var(--brand)' }} /></div>
+              <span className="tiny muted num">{stats.scored.toLocaleString('fr-FR')} / {stats.total.toLocaleString('fr-FR')} titres notés</span>
+            </div>
+          )}
         </div>
-      )}
 
-      <div className="scr-filters">
-        <label>
-          Note minimale
-          <select className="input" value={minRatio} onChange={e => setMinRatio(Number(e.target.value))}>
-            {MIN_RATIO_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-          </select>
-        </label>
-        <label>
-          P/FCF max
-          <input
-            className="input"
-            type="number"
-            min="0"
-            placeholder="ex : 25"
-            value={maxPfcf}
-            onChange={e => setMaxPfcf(e.target.value)}
-          />
-        </label>
-      </div>
-
-      {error && <div className="error-box"><div className="error-box-hint">{error}</div></div>}
-
-      {loading ? (
-        <div className="empty-state"><div className="empty-state-text">Chargement…</div></div>
-      ) : rows.length === 0 ? (
-        <div className="empty-state">
-          <div className="empty-state-text">Aucune entreprise au-dessus de ce seuil pour l'instant</div>
-          <div className="empty-state-sub">La veille note l'univers progressivement — reviens plus tard, ou baisse le seuil.</div>
+        {/* Filtres */}
+        <div className="card scr-filters">
+          <div className="row gap-8"><Icon name="filter" size={15} style={{ color: 'var(--ink-3)' }} /><span className="tiny scr-filter-kicker">Filtres</span></div>
+          <div className="row gap-12">
+            <span className="label">Note minimale</span>
+            <div className="seg">{SCORE_OPTS.map(s => <button key={s} type="button" data-active={minScore === s} onClick={() => setMinScore(s)}>{s}{s < 10 ? '+' : ''}</button>)}</div>
+          </div>
+          <div className="row gap-12 scr-pfcf-filter">
+            <span className="label" style={{ whiteSpace: 'nowrap' }}>P/FCF max</span>
+            <input type="range" min={10} max={PFCF_MAX} value={maxPfcf} onChange={e => setMaxPfcf(+e.target.value)} style={{ flex: 1, accentColor: 'var(--brand)' }} />
+            <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{maxPfcf >= PFCF_MAX ? '∞' : maxPfcf + '×'}</span>
+          </div>
+          <span className="tiny muted" style={{ marginLeft: 'auto' }}>{sorted.length} résultats</span>
         </div>
-      ) : (
-        <div className="scr-table-wrap">
-          <table className="scr-table">
-            <thead>
-              <tr>
-                <th>Ticker</th>
-                <th>Nom</th>
-                <th style={{ textAlign: 'right' }}>Note</th>
-                <th style={{ textAlign: 'right' }}>P/FCF</th>
-                <th style={{ textAlign: 'right' }}>Prochain earnings</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map(r => {
-                const ratio = r.scoreChiffresMax ? (r.scoreChiffres ?? 0) / r.scoreChiffresMax : 0;
-                const cls = ratio >= 1 ? 'top' : ratio >= 0.8 ? 'high' : ratio >= 0.6 ? 'mid' : 'low';
-                return (
+
+        {error && <div className="card scr-msg">{error}</div>}
+
+        {loading ? (
+          <div className="card skel-ui" style={{ height: 320 }} />
+        ) : sorted.length === 0 ? (
+          <div className="card scr-empty">
+            <h3>Aucune entreprise au-dessus de ce seuil</h3>
+            <p className="muted">La veille note l'univers progressivement — reviens plus tard, ou baisse le seuil.</p>
+          </div>
+        ) : (
+          <div className="card scroll-x" style={{ padding: 0, overflow: 'hidden' }}>
+            <table className="tbl">
+              <thead>
+                <tr>
+                  <th>Société</th>
+                  <SortTh label="Note" col="score" />
+                  <SortTh label="P/FCF" col="pfcf" />
+                  <th style={{ textAlign: 'right' }}>Prochains résultats</th>
+                  <th style={{ width: 40 }}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {sorted.map(r => (
                   <tr key={r.ticker} onClick={() => navigate(`/analyse/${r.ticker}`)}>
-                    <td><span className="scr-ticker">{r.ticker}</span></td>
-                    <td className="scr-name">{r.name ?? r.ticker}</td>
-                    <td style={{ textAlign: 'right' }} className={`scr-score ${cls}`}>
-                      {r.scoreChiffres}/{r.scoreChiffresMax}
+                    <td>
+                      <div className="row gap-10">
+                        <span className="num" style={{ fontWeight: 700, fontSize: 13.5, minWidth: 52 }}>{r.ticker}</span>
+                        <span style={{ color: 'var(--ink-2)', fontSize: 13.5 }}>{r.name ?? r.ticker}</span>
+                      </div>
                     </td>
-                    <td style={{ textAlign: 'right' }} className="scr-pfcf">
-                      {r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}
-                    </td>
-                    <td style={{ textAlign: 'right' }} className="scr-earnings">{formatEarningsDate(r.nextEarningsDate)}</td>
+                    <td className="num-cell"><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
+                    <td className="num-cell num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
+                    <td className="num-cell num" style={{ color: 'var(--ink-2)' }}>{formatEarnings(r.nextEarningsDate)}</td>
+                    <td className="num-cell" style={{ width: 40 }}><span style={{ color: 'var(--ink-4)' }}><Icon name="chevronR" size={16} /></span></td>
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+        <div style={{ height: 50 }} />
+      </div>
+    </div>
   );
-}
-
-function formatEarningsDate(iso?: string | null): string {
-  if (!iso) return '—';
-  const d = new Date(iso + 'T12:00:00Z');
-  if (Number.isNaN(d.getTime())) return '—';
-  return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
 }

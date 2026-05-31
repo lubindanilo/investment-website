@@ -1,56 +1,41 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import type { WatchlistEntry } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
+import { Icon, ScorePill } from '../components/ui/primitives.js';
 import './WatchlistPage.css';
 
-// ─── Tri ─────────────────────────────────────────────────────────────
-type SortKey = 'default' | 'ticker' | 'pfcf' | 'score';
+type SortKey = 'default' | 'price' | 'pfcf' | 'score';
 type SortDir = 'asc' | 'desc';
 interface SortState { key: SortKey; dir: SortDir }
-
 const SORT_STORAGE_KEY = 'li_watchlist_sort';
 
 function loadSort(): SortState {
   try {
     const s = JSON.parse(localStorage.getItem(SORT_STORAGE_KEY) ?? '');
-    if (s && ['default','ticker','pfcf','score'].includes(s.key) && ['asc','desc'].includes(s.dir)) {
-      return s as SortState;
-    }
-  } catch {}
-  return { key: 'default', dir: 'asc' };
+    if (s && ['default', 'price', 'pfcf', 'score'].includes(s.key) && ['asc', 'desc'].includes(s.dir)) return s as SortState;
+  } catch { /* ignore */ }
+  return { key: 'score', dir: 'desc' };
 }
-function saveSort(s: SortState) {
-  localStorage.setItem(SORT_STORAGE_KEY, JSON.stringify(s));
-}
-
-/** Direction par défaut selon la colonne (P/FCF asc = bon marché en premier ; Score desc = meilleur en premier). */
-function defaultDirFor(key: SortKey): SortDir {
-  return key === 'score' ? 'desc' : 'asc';
-}
+function saveSort(s: SortState) { localStorage.setItem(SORT_STORAGE_KEY, JSON.stringify(s)); }
 
 function sortItems(items: WatchlistEntry[], { key, dir }: SortState): WatchlistEntry[] {
   if (key === 'default') return items;
-  const arr = [...items];
-  arr.sort((a, b) => {
+  const num = (v: number | null | undefined) => (v == null ? null : v);
+  return [...items].sort((a, b) => {
     let cmp = 0;
-    if (key === 'ticker') {
-      cmp = a.ticker.localeCompare(b.ticker);
-    } else if (key === 'pfcf') {
-      // null toujours en fin de liste
-      if (a.pfcfTTM == null && b.pfcfTTM == null) cmp = 0;
-      else if (a.pfcfTTM == null) return 1;
-      else if (b.pfcfTTM == null) return -1;
-      else cmp = a.pfcfTTM - b.pfcfTTM;
-    } else if (key === 'score') {
-      const ra = a.scoreChiffresMax > 0 ? a.scoreChiffres / a.scoreChiffresMax : 0;
-      const rb = b.scoreChiffresMax > 0 ? b.scoreChiffres / b.scoreChiffresMax : 0;
-      cmp = ra - rb;
-    }
+    if (key === 'price') { const av = num(a.price), bv = num(b.price); if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
+    else if (key === 'pfcf') { const av = num(a.pfcfTTM), bv = num(b.pfcfTTM); if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
+    else { const ra = a.scoreChiffresMax > 0 ? a.scoreChiffres / a.scoreChiffresMax : -1; const rb = b.scoreChiffresMax > 0 ? b.scoreChiffres / b.scoreChiffresMax : -1; cmp = ra - rb; }
     return dir === 'asc' ? cmp : -cmp;
   });
-  return arr;
+}
+
+function formatEarnings(iso?: string | null): string {
+  if (!iso) return '—';
+  const d = new Date(iso + 'T12:00:00Z');
+  return Number.isNaN(d.getTime()) ? '—' : d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
 export function WatchlistPage() {
@@ -58,7 +43,6 @@ export function WatchlistPage() {
   const toast = useToast();
   const [items, setItems] = useState<WatchlistEntry[]>([]);
   const [loading, setLoading] = useState(true);
-  const [loadError, setLoadError] = useState<ApiError | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [adding, setAdding] = useState(false);
   const [newTicker, setNewTicker] = useState('');
@@ -68,58 +52,28 @@ export function WatchlistPage() {
 
   function toggleSort(key: Exclude<SortKey, 'default'>) {
     setSort(prev => {
-      // Si déjà actif sur cette colonne : toggle asc/desc ; sinon : direction par défaut
-      const next: SortState = prev.key === key
-        ? { key, dir: prev.dir === 'asc' ? 'desc' : 'asc' }
-        : { key, dir: defaultDirFor(key) };
-      saveSort(next);
-      return next;
+      const next: SortState = prev.key === key ? { key, dir: prev.dir === 'desc' ? 'asc' : 'desc' } : { key, dir: key === 'score' ? 'desc' : 'asc' };
+      saveSort(next); return next;
     });
   }
 
-  function resetSort() {
-    const next: SortState = { key: 'default', dir: 'asc' };
-    setSort(next);
-    saveSort(next);
-  }
-
-  const refresh = useCallback(async (force = false) => {
+  const refresh = useCallback(async () => {
     setRefreshing(true);
-    try {
-      const list = await api.watchlist.refresh(force);
-      setItems(list);
-    } catch (e) {
-      toast.push('error', (e as Error).message);
-    } finally {
-      setRefreshing(false);
-    }
+    try { setItems(await api.watchlist.refresh(true)); }
+    catch (e) { toast.push('error', (e as Error).message); }
+    finally { setRefreshing(false); }
   }, [toast]);
 
-  // Charge la liste depuis le cache global + overlay prix live (GET /api/watchlist
-  // recompute le P/FCF maison à partir du prix temps réel). C'est volontairement LÉGER :
-  // aucun recompute de score/critères ici — uniquement la mise à jour du prix.
-  // Le guard inFlight évite d'empiler 2 charges concurrentes (mount + retour onglet).
   const inFlight = useRef(false);
   const load = useCallback(async () => {
     if (inFlight.current) return;
     inFlight.current = true;
-    setLoadError(null);
-    try {
-      const list = await api.watchlist.list();
-      setItems(list);
-    } catch (e) {
-      setLoadError(e instanceof ApiError ? e : new ApiError(0, (e as Error).message));
-    } finally {
-      setLoading(false);
-      inFlight.current = false;
-    }
+    try { setItems(await api.watchlist.list()); }
+    catch { /* silencieux : on garde l'affichage courant */ }
+    finally { setLoading(false); inFlight.current = false; }
   }, []);
 
   useEffect(() => {
-    // Recharge prix + P/FCF à chaque fois que l'user (re)vient sur la page :
-    //   - navigation vers /watchlist → react-router remonte le composant → load()
-    //   - retour sur l'onglet du navigateur → visibilitychange → load()
-    // Pas de recompute de score : c'est juste un overlay prix (≈ 1 appel /quote par ticker).
     load();
     const onVisible = () => { if (document.visibilityState === 'visible') load(); };
     document.addEventListener('visibilitychange', onVisible);
@@ -129,163 +83,111 @@ export function WatchlistPage() {
   async function addTicker() {
     const t = newTicker.trim().toUpperCase();
     if (!t) return;
-    if (items.some(i => i.ticker === t)) {
-      toast.push('warn', `${t} est déjà dans ta watchlist.`);
-      return;
-    }
+    if (items.some(i => i.ticker === t)) { toast.push('warn', `${t} est déjà dans ta watchlist.`); return; }
     setAdding(true);
-    try {
-      const entry = await api.watchlist.add(t);
-      setItems(prev => [...prev, entry]);
-      setNewTicker('');
-      toast.push('success', `${t} ajouté`);
-    } catch (e) {
-      toast.push('error', (e as Error).message);
-    } finally {
-      setAdding(false);
-    }
+    try { const entry = await api.watchlist.add(t); setItems(prev => [...prev, entry]); setNewTicker(''); toast.push('success', `${t} ajouté`); }
+    catch (e) { toast.push('error', (e as Error).message); }
+    finally { setAdding(false); }
   }
 
   async function remove(ticker: string) {
-    try {
-      await api.watchlist.remove(ticker);
-      setItems(prev => prev.filter(e => e.ticker !== ticker));
-    } catch (e) {
-      toast.push('error', (e as Error).message);
-    }
+    try { await api.watchlist.remove(ticker); setItems(prev => prev.filter(e => e.ticker !== ticker)); }
+    catch (e) { toast.push('error', (e as Error).message); }
   }
 
+  const SortTh = ({ label, col }: { label: string; col: Exclude<SortKey, 'default'> }) => {
+    const active = sort.key === col;
+    return (
+      <th className="sortable num-cell" onClick={() => toggleSort(col)}>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, justifyContent: 'flex-end' }}>
+          {label}<span style={{ opacity: active ? 1 : 0.25 }}><Icon name={active && sort.dir === 'asc' ? 'arrowUp' : 'arrowDown'} size={11} stroke={2.4} /></span>
+        </span>
+      </th>
+    );
+  };
+
   return (
-    <>
-      <h1 className="section-title">Watchlist</h1>
-      <p className="section-sub">Tes entreprises à surveiller.</p>
+    <div className="wl">
+      <div className="wrap-wide wl-wrap">
+        <div className="wl-head">
+          <div className="col gap-4">
+            <h1 className="wl-title">Watchlist</h1>
+            <p className="muted" style={{ fontSize: 14 }}>
+              {items.length} action{items.length > 1 ? 's' : ''} suivie{items.length > 1 ? 's' : ''} · prix et P/FCF mis à jour à chaque visite.
+            </p>
+          </div>
+          <div className="row gap-10">
+            <button className="btn btn-ghost btn-sm" onClick={refresh} disabled={refreshing}>
+              {refreshing ? <><span className="spinner" /> Maj…</> : <><Icon name="refresh" size={15} /> Rafraîchir</>}
+            </button>
+            <Link to="/screener" className="btn btn-ghost btn-sm"><Icon name="plus" size={15} /> Depuis le screener</Link>
+          </div>
+        </div>
 
-      <div className="search-wrap">
-        <input
-          className="input"
-          placeholder="Ticker à ajouter (ex : MEDP, ADBE, QLYS)"
-          value={newTicker}
-          onChange={e => setNewTicker(e.target.value.toUpperCase())}
-          onKeyDown={e => e.key === 'Enter' && addTicker()}
-        />
-        <button className="btn-primary" onClick={addTicker} disabled={adding || !newTicker.trim()}>
-          {adding ? <><span className="spinner" /> Ajout…</> : '＋ Ajouter'}
-        </button>
-        <button className="btn-secondary" onClick={() => refresh(true)} disabled={refreshing} title="Rafraîchir (force)">
-          {refreshing ? <span className="spinner" /> : '↻'}
-        </button>
-      </div>
-
-      {loadError && (
-        <div className="error-box">
-          <div className="error-box-title">Impossible de charger la watchlist</div>
-          <div className="error-box-hint">{loadError.userMessage}</div>
-          <button className="btn-secondary" style={{ marginTop: 12 }} onClick={() => { setLoading(true); load(); }}>
-            ↻ Réessayer
+        <div className="wl-add">
+          <div className="anl-search-field" style={{ maxWidth: 320 }}>
+            <Icon name="search" size={16} className="anl-search-icon" />
+            <input className="anl-search-input num" style={{ height: 40, paddingLeft: 40, fontSize: 14 }}
+              value={newTicker} placeholder="Ajouter un ticker…"
+              onChange={e => setNewTicker(e.target.value.toUpperCase())}
+              onKeyDown={e => e.key === 'Enter' && addTicker()} />
+          </div>
+          <button className="btn btn-brand btn-sm" style={{ height: 40 }} onClick={addTicker} disabled={adding || !newTicker.trim()}>
+            {adding ? <span className="spinner" /> : <><Icon name="plus" size={14} /> Ajouter</>}
           </button>
         </div>
-      )}
 
-      {loading ? (
-        <div className="empty-state">
-          <div className="empty-state-text">Chargement…</div>
-        </div>
-      ) : items.length === 0 && !loadError ? (
-        <div className="empty-state">
-          <div className="empty-state-text">Watchlist vide</div>
-          <div className="empty-state-sub">Ajoute un ticker ci-dessus, ou clique « Ajouter à la watchlist » après une analyse.</div>
-        </div>
-      ) : (
-        <div className="wl-table-wrap">
-          <table className="wl-table">
-            <thead>
-              <tr>
-                <SortableTh label="Ticker" colKey="ticker" sort={sort} onSort={toggleSort} />
-                <th>Nom</th>
-                <th style={{ textAlign: 'right' }}>Prix</th>
-                <SortableTh label="P/FCF" colKey="pfcf" sort={sort} onSort={toggleSort} align="right" />
-                <SortableTh label="Score chiffres" colKey="score" sort={sort} onSort={toggleSort} align="right" />
-                <th style={{ textAlign: 'right' }}>Prochain earnings</th>
-                <th style={{ textAlign: 'right' }}>
-                  {sort.key !== 'default' && (
-                    <button className="wl-sort-reset" onClick={resetSort} title="Réinitialiser le tri">
-                      ↺
-                    </button>
-                  )}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {sortedItems.map(e => (
-                <WatchRow
-                  key={e.ticker}
-                  e={e}
-                  onOpen={() => navigate(`/analyse/${e.ticker}`)}
-                  onRemove={() => remove(e.ticker)}
-                />
-              ))}
-            </tbody>
-          </table>
-        </div>
-      )}
-    </>
-  );
-}
-
-function SortableTh({ label, colKey, sort, onSort, align }: {
-  label: string;
-  colKey: Exclude<SortKey, 'default'>;
-  sort: SortState;
-  onSort: (k: Exclude<SortKey, 'default'>) => void;
-  align?: 'left' | 'right';
-}) {
-  const active = sort.key === colKey;
-  const arrow = active ? (sort.dir === 'asc' ? ' ↑' : ' ↓') : '';
-  return (
-    <th
-      className={`wl-th-sortable ${active ? 'active' : ''}`}
-      style={{ textAlign: align ?? 'left' }}
-      onClick={() => onSort(colKey)}
-      title={`Trier par ${label.toLowerCase()}`}
-    >
-      {label}<span className="wl-sort-arrow">{arrow}</span>
-    </th>
-  );
-}
-
-/** Formate la date du prochain earnings (ex "28 juil. 2026"). "—" si inconnue. */
-function formatEarningsDate(iso?: string | null): string {
-  if (!iso) return '—';
-  const d = new Date(iso + 'T12:00:00Z');
-  if (Number.isNaN(d.getTime())) return '—';
-  return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
-}
-
-function WatchRow({ e, onOpen, onRemove }: { e: WatchlistEntry; onOpen: () => void; onRemove: () => void }) {
-  const pfcfCls = e.pfcfTTM == null ? '' : e.pfcfTTM < 25 ? 'pass' : e.pfcfTTM < 35 ? 'warn' : 'fail';
-  const pct = e.scoreChiffres / e.scoreChiffresMax;
-  const scoreCls = pct >= 0.75 ? 'high' : pct >= 0.5 ? 'mid' : 'low';
-  return (
-    <tr onClick={onOpen}>
-      <td><span className="wl-ticker">{e.ticker}</span></td>
-      <td className="wl-name">{e.name}</td>
-      <td style={{ textAlign: 'right' }} className="wl-price">{e.price != null ? `${e.price.toFixed(2)} ${e.currency ?? 'USD'}` : 'N/A'}</td>
-      <td style={{ textAlign: 'right' }} className={`wl-pfcf ${pfcfCls}`}>
-        {e.pfcfTTM != null ? e.pfcfTTM.toFixed(1) + '×' : 'N/A'}
-      </td>
-      <td style={{ textAlign: 'right' }} className={`wl-score ${scoreCls}`}>
-        {e.scoreChiffres}/{e.scoreChiffresMax}
-      </td>
-      <td style={{ textAlign: 'right' }} className="wl-earnings">{formatEarningsDate(e.nextEarningsDate)}</td>
-      <td style={{ textAlign: 'right' }}>
-        <button
-          className="wl-remove"
-          onClick={ev => { ev.stopPropagation(); onRemove(); }}
-          title="Retirer"
-        >
-          ✕
-        </button>
-      </td>
-    </tr>
+        {loading ? (
+          <div className="card skel-ui" style={{ height: 240 }} />
+        ) : items.length === 0 ? (
+          <div className="card wl-empty">
+            <div className="wl-empty-icon"><Icon name="star" size={24} /></div>
+            <h3>Votre watchlist est vide</h3>
+            <p className="muted">Ajoutez un ticker ci-dessus, ou explorez le screener pour suivre les mieux notées.</p>
+            <Link to="/screener" className="btn btn-brand" style={{ marginTop: 4 }}>Explorer le screener</Link>
+          </div>
+        ) : (
+          <div className="card scroll-x" style={{ padding: 0, overflow: 'hidden' }}>
+            <table className="tbl">
+              <thead>
+                <tr>
+                  <th>Société</th>
+                  <SortTh label="Cours" col="price" />
+                  <SortTh label="P/FCF" col="pfcf" />
+                  <SortTh label="Note" col="score" />
+                  <th>Prochains résultats</th>
+                  <th style={{ width: 50 }}></th>
+                </tr>
+              </thead>
+              <tbody>
+                {sortedItems.map(w => {
+                  const s = w.scoreChiffresMax > 0 ? Math.round(w.scoreChiffres / w.scoreChiffresMax * 10) : null;
+                  return (
+                    <tr key={w.ticker} onClick={() => navigate(`/analyse/${w.ticker}`)}>
+                      <td>
+                        <div className="row gap-10">
+                          <span className="num" style={{ fontWeight: 700, fontSize: 13.5, minWidth: 52 }}>{w.ticker}</span>
+                          <span style={{ color: 'var(--ink-2)', fontSize: 13.5 }}>{w.name}</span>
+                        </div>
+                      </td>
+                      <td className="num-cell num" style={{ fontWeight: 600 }}>{w.price != null ? `${w.currency ?? 'USD'} ${w.price.toFixed(2)}` : '—'}</td>
+                      <td className="num-cell num">{w.pfcfTTM != null && w.pfcfTTM > 0 ? w.pfcfTTM.toFixed(1) + '×' : '—'}</td>
+                      <td className="num-cell">{s != null ? <ScorePill score={s} /> : <span className="muted">—</span>}</td>
+                      <td><span className="num tiny wl-earn"><Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />{formatEarnings(w.nextEarningsDate)}</span></td>
+                      <td className="num-cell" style={{ width: 50 }}>
+                        <button className="wl-remove" onClick={e => { e.stopPropagation(); remove(w.ticker); }} aria-label="Retirer">
+                          <Icon name="trash" size={16} />
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+        <div style={{ height: 50 }} />
+      </div>
+    </div>
   );
 }
