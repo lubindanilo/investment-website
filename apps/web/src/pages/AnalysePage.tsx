@@ -4,7 +4,7 @@ import type { AnalyzeResponse, ScreenerTopRow, Criterion } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
 import { useAuth } from '../contexts/AuthContext.js';
-import { CriteriaGrid } from '../components/CriterionCard.js';
+import { CriteriaGrid, QualGrid } from '../components/CriterionCard.js';
 import { ValuationBlock } from '../components/ui/ValuationBlock.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
 import { Icon, ScoreCircle, ScorePill, scoreColor, toDataStatus } from '../components/ui/primitives.js';
@@ -266,11 +266,11 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
             <div className="col gap-20">
               <div className="col gap-10">
                 <span className="kicker anl-qual-kicker">Business model · {scoreOf(business)}</span>
-                <CriteriaGrid items={business} />
+                <QualGrid items={business} />
               </div>
               <div className="col gap-10">
                 <span className="kicker anl-qual-kicker">Management · {scoreOf(management)}</span>
-                <CriteriaGrid items={management} />
+                <QualGrid items={management} />
               </div>
             </div>
           ) : (
