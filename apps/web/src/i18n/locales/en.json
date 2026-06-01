@@ -322,7 +322,12 @@
     "fcf": "Quarterly free cash flow",
     "shares": "Diluted shares (average)",
     "operatingIncome": "Quarterly operating income",
-    "totalDebt": "Long-term debt"
+    "totalDebt": "Long-term debt",
+    "netMargin": "Net margin (TTM)",
+    "fcfMargin": "FCF margin (TTM)",
+    "operatingMargin": "Operating margin (TTM)",
+    "netDebtFcf": "Net debt / FCF (TTM)",
+    "cashConversion": "Cash conversion FCF/NI (TTM)"
   },
   "valuation": {
     "assumptions": "Assumptions",

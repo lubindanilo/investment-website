@@ -232,6 +232,7 @@ function Stat({ label, value, accent }: { label: string; value: string; accent?:
 
 function formatCompact(v: number, unit: CriterionHistogram['unit']): string {
   if (unit === 'percent') return (v).toFixed(0) + '%';
+  if (unit === 'multiple') return v.toFixed(1) + '×';
   if (unit === 'count') {
     if (Math.abs(v) >= 1e9) return (v / 1e9).toFixed(1) + 'B';
     if (Math.abs(v) >= 1e6) return (v / 1e6).toFixed(1) + 'M';
@@ -247,6 +248,7 @@ function formatCompact(v: number, unit: CriterionHistogram['unit']): string {
 
 function formatFull(v: number, unit: CriterionHistogram['unit'], currency = 'USD'): string {
   if (unit === 'percent') return v.toFixed(2) + '%';
+  if (unit === 'multiple') return v.toFixed(2) + '×';
   if (unit === 'count') return v.toLocaleString('fr-FR');
   return `${v.toLocaleString('fr-FR', { maximumFractionDigits: 0 })} ${currency}`;
 }

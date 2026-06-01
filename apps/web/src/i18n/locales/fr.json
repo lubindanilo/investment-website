@@ -40,7 +40,12 @@
     "fcf": "Free cash flow trimestriel",
     "shares": "Actions diluées (moyenne)",
     "operatingIncome": "Résultat opérationnel trimestriel",
-    "totalDebt": "Dette long terme"
+    "totalDebt": "Dette long terme",
+    "netMargin": "Marge nette (TTM)",
+    "fcfMargin": "Marge FCF (TTM)",
+    "operatingMargin": "Marge opérationnelle (TTM)",
+    "netDebtFcf": "Dette nette / FCF (TTM)",
+    "cashConversion": "Conversion cash FCF/RN (TTM)"
   },
   "home": {
     "hero": {

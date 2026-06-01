@@ -288,14 +288,23 @@ export const PERIOD_YEARS: Record<TimeseriesPeriod, number> = {
  */
 export type TimeseriesMetricKey = 'revenue' | 'netIncome' | 'operatingIncome' | 'fcf' | 'cfo' | 'shares' | 'totalDebt' | 'equity' | 'cashAndEquivalents' | 'totalAssets' | 'currentLiabilities' | 'goodwill';
 
+/**
+ * Métriques-RATIO : calculées par /api/timeseries à partir de DEUX séries sous-jacentes
+ * (TTM glissant côté US, par exercice côté EU/ADR). Contrairement aux métriques brutes,
+ * la série renvoyée est déjà le ratio lui-même — marge en % (unit 'percent') ou multiple
+ * × (unit 'multiple') — pas une grandeur absolue. Le dernier point = la valeur de la carte.
+ */
+export type RatioMetricKey = 'netMargin' | 'fcfMargin' | 'operatingMargin' | 'netDebtFcf' | 'cashConversion';
+export const RATIO_METRIC_KEYS: readonly RatioMetricKey[] = ['netMargin', 'fcfMargin', 'operatingMargin', 'netDebtFcf', 'cashConversion'];
+
 export interface CriterionHistogram {
-  metricKey: TimeseriesMetricKey;
+  metricKey: TimeseriesMetricKey | RatioMetricKey;
   /** Libellé français (fallback). Le front affiche plutôt `t(labelKey)`. */
   label: string;
   /** Clé i18n du titre du graphique (ex 'charts.fcf'). */
   labelKey: string;
-  /** Format : 'currency' (montant $), 'count' (nb actions), 'percent' (×100 + %) */
-  unit: 'currency' | 'count' | 'percent';
+  /** Format : 'currency' (montant $), 'count' (nb actions), 'percent' (×100 + %), 'multiple' (× , ex 2.5×) */
+  unit: 'currency' | 'count' | 'percent' | 'multiple';
 }
 
 /**
@@ -317,14 +326,14 @@ export const CRITERION_LINECHARTS: Record<string, { label: string; labelKey: str
 
 /** Critères ouvrant un HISTOGRAMME, indexés par clé stable. `labelKey` = clé i18n du titre. */
 export const CRITERION_HISTOGRAMS: Record<string, CriterionHistogram> = {
-  netMargin:         { metricKey: 'netIncome',       label: 'Résultat net trimestriel',          labelKey: 'charts.netIncome',       unit: 'currency' },
+  netMargin:         { metricKey: 'netMargin',       label: 'Marge nette (TTM)',                  labelKey: 'charts.netMargin',       unit: 'percent'  },
   revenueGrowth5y:   { metricKey: 'revenue',         label: 'CA trimestriel',                     labelKey: 'charts.revenue',         unit: 'currency' },
   fcfGrowth5y:       { metricKey: 'fcf',             label: 'Free cash flow trimestriel',         labelKey: 'charts.fcf',             unit: 'currency' },
   shareCount5y:      { metricKey: 'shares',          label: 'Actions diluées (moyenne)',          labelKey: 'charts.shares',          unit: 'count'    },
-  fcfMargin:         { metricKey: 'fcf',             label: 'Free cash flow trimestriel',         labelKey: 'charts.fcf',             unit: 'currency' },
-  operatingLeverage: { metricKey: 'operatingIncome', label: 'Résultat opérationnel trimestriel',  labelKey: 'charts.operatingIncome', unit: 'currency' },
-  netDebtFcf:        { metricKey: 'totalDebt',       label: 'Dette long terme',                   labelKey: 'charts.totalDebt',       unit: 'currency' },
-  cashConversion:    { metricKey: 'fcf',             label: 'Free cash flow trimestriel',         labelKey: 'charts.fcf',             unit: 'currency' },
+  fcfMargin:         { metricKey: 'fcfMargin',       label: 'Marge FCF (TTM)',                    labelKey: 'charts.fcfMargin',       unit: 'percent'  },
+  operatingLeverage: { metricKey: 'operatingMargin', label: 'Marge opérationnelle (TTM)',         labelKey: 'charts.operatingMargin', unit: 'percent'  },
+  netDebtFcf:        { metricKey: 'netDebtFcf',      label: 'Dette nette / FCF (TTM)',            labelKey: 'charts.netDebtFcf',      unit: 'multiple' },
+  cashConversion:    { metricKey: 'cashConversion',  label: 'Conversion cash FCF/RN (TTM)',       labelKey: 'charts.cashConversion',  unit: 'multiple' },
 };
 
 // ─── P/FCF historique (graphique line cliquable depuis le critère) ────────

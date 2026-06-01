@@ -322,7 +322,12 @@
     "fcf": "Free cash flow trimestral",
     "shares": "Acciones diluidas (media)",
     "operatingIncome": "Resultado operativo trimestral",
-    "totalDebt": "Deuda a largo plazo"
+    "totalDebt": "Deuda a largo plazo",
+    "netMargin": "Margen neto (TTM)",
+    "fcfMargin": "Margen FCF (TTM)",
+    "operatingMargin": "Margen operativo (TTM)",
+    "netDebtFcf": "Deuda neta / FCF (TTM)",
+    "cashConversion": "Conversión de caja FCF/BN (TTM)"
   },
   "valuation": {
     "assumptions": "Hipótesis",

@@ -22,12 +22,15 @@ import { getReportedTimeseries, METRICS, type MetricKey } from '../services/finn
 import { getYahooMetricTimeseries } from '../services/yahoo.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { getNextEarningsDate, ttlUntilNextEarnings } from '../services/earnings.js';
+import { getRatioTimeseries } from '../services/derivedTimeseries.js';
+import { RATIO_METRIC_KEYS, type RatioMetricKey } from '@lubin/shared';
 import * as cache from '../lib/timeseriesCache.js';
 
 export const timeseriesRouter: Router = Router();
 
 const TickerSchema = z.string().trim().toUpperCase().regex(/^[A-Z0-9.\-]{1,15}$/);
-const MetricSchema = z.string().refine((v): v is MetricKey => v in METRICS, { message: 'metric inconnu' });
+const RATIO_SET = new Set<string>(RATIO_METRIC_KEYS);
+const MetricSchema = z.string().refine((v): v is MetricKey | RatioMetricKey => v in METRICS || RATIO_SET.has(v), { message: 'metric inconnu' });
 const FreqSchema = z.enum(['quarterly', 'annual']).default('quarterly');
 const YearsSchema = z.coerce.number().int().min(1).max(50).default(5);
 
@@ -67,9 +70,46 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     });
   }
   const ticker = t.data;
-  const metric = m.data;
+  const requestedMetric = m.data;
   const requestedFreq = f.data;
   const years = y.data;
+
+  // ─── 0. Métriques-RATIO (marge nette/FCF, levier op, dette/FCF, conversion) ─────
+  // Calculées à partir de 2 séries (TTM glissant US / annuel EU-ADR) par un service dédié.
+  // Le `freq` demandé est ignoré : getRatioTimeseries choisit lui-même la granularité.
+  if (RATIO_SET.has(requestedMetric)) {
+    const ratioKey = requestedMetric as RatioMetricKey;
+    const key = cache.cacheKey(ticker, ratioKey, 'ratio', years);
+    const hit = await cache.get(key);
+    if (hit) {
+      res.json({
+        ticker, metric: ratioKey,
+        freq: hit.servedFreq ?? 'quarterly',
+        years, points: hit.points, source: hit.source,
+        cached: true, ageMs: Date.now() - hit.storedAt,
+        euAnnualOnly: !!hit.annualFallback,
+      });
+      return;
+    }
+    const earningsPromise = getNextEarningsDate(ticker);
+    const startedAt = Date.now();
+    const ratio = await getRatioTimeseries(ticker, ratioKey, years);
+    const source = ratio.freq === 'annual' ? 'yahoo' : 'finnhub';
+    const elapsedMs = Date.now() - startedAt;
+    const nextEarnings = await earningsPromise.catch(() => null);
+    const ttlMs = ttlUntilNextEarnings(nextEarnings);
+    // annualFallback réutilisé pour porter isEuTicker (masque les boutons côté UI pour les vrais EU).
+    cache.set(key, ratio.points, source, ttlMs, { servedFreq: ratio.freq, annualFallback: ratio.isEuTicker });
+    res.json({
+      ticker, metric: ratioKey,
+      freq: ratio.freq, years, points: ratio.points, source,
+      cached: false, fetchedInMs: elapsedMs,
+      cacheTtlHours: Math.round(ttlMs / 3_600_000),
+      nextEarnings, euAnnualOnly: ratio.isEuTicker,
+    });
+    return;
+  }
+  const metric = requestedMetric as MetricKey;
 
   // ─── 1. Résout le ticker pour décider de la source ─────────────
   // Optimisation : on tape le cache de resolveYahooTicker (24h) — pas un nouvel appel
