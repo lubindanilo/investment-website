@@ -24,11 +24,17 @@ import { fetchWithRetry } from '../lib/retry.js';
 const KEY = process.env.OPENAI_API_KEY ?? '';
 const MODEL = process.env.OPENAI_MODEL ?? 'gpt-4o-2024-11-20';
 
-/** Nom de langue + directive pour que GPT rédige TOUT le contenu dans la langue cible. */
-const LANG_NAME: Record<Lang, string> = { fr: 'français', en: 'anglais (English)', es: 'espagnol (español)' };
+/**
+ * Directive de langue placée EN TÊTE du prompt (poids fort), rédigée dans la langue cible
+ * pour maximiser la conformité du modèle. Vide en français (prompt d'origine inchangé).
+ */
 function langDirective(lang: Lang): string {
-  if (lang === 'fr') return ''; // prompt d'origine inchangé en français
-  return `\n\nIMPORTANT — garde EXACTEMENT le format JSON et les clés ci-dessus (nom, valeur, cible, statut, explication, verdict_direct) en anglais ; statut reste pass/fail/warn. Écris seulement le CONTENU des champs nom, valeur, cible, explication et verdict_direct en ${LANG_NAME[lang]}.`;
+  if (lang === 'fr') return '';
+  const d: Record<Exclude<Lang, 'fr'>, string> = {
+    en: 'RESPOND IN ENGLISH. Every text value in the JSON ("valeur", "explication", "verdict_direct") MUST be written in English. Keep the JSON keys EXACTLY as specified (nom, valeur, cible, statut, explication, verdict_direct) — never translate the keys. "statut" stays one of pass/fail/warn.',
+    es: 'RESPONDE EN ESPAÑOL. Todos los valores de texto del JSON ("valeur", "explication", "verdict_direct") DEBEN estar escritos en español. Mantén las claves del JSON EXACTAMENTE como se indican (nom, valeur, cible, statut, explication, verdict_direct) — nunca traduzcas las claves. "statut" sigue siendo pass/fail/warn.',
+  };
+  return d[lang as Exclude<Lang, 'fr'>] + '\n\n';
 }
 
 if (!KEY) console.warn('[openai] OPENAI_API_KEY non défini — les appels échoueront');
@@ -124,13 +130,13 @@ export async function fetchBusinessAnalysis(args: {
   const { ticker, company, chiffresContext, sbcShareOfFcf, lang = 'fr' } = args;
   const useSearch = isSearchModel(MODEL);
 
-  const prompt = `${buildContextBlock(ticker, company, chiffresContext, sbcShareOfFcf)}${webSearchHint()}
+  const prompt = `${langDirective(lang)}${buildContextBlock(ticker, company, chiffresContext, sbcShareOfFcf)}${webSearchHint()}
 
 Tu dois compléter UNIQUEMENT les 10 critères de BUSINESS MODEL ci-dessous + un verdict_direct.
 
 RÈGLES STRICTES de format :
 1. "nom" = libellé exact tel que listé ci-dessous, SANS préfixe.
-2. "valeur" = une réponse CONCRÈTE et CONCISE (3-7 mots max), pas "N/A" sauf si vraiment impossible. Ex: "Non exposé", "+15%/an", "Switching costs + Échelle".
+2. "valeur" = une réponse CONCRÈTE et CONCISE (3-7 mots max), dans la langue de réponse demandée, pas "N/A" sauf si vraiment impossible.
 3. "cible" = la cible tel que listée ci-dessous.
 4. "statut" = "pass" / "fail" / "warn".
 5. "explication" = 1 phrase concrète${useSearch ? ', avec date si pertinent' : ''}.
@@ -153,7 +159,7 @@ Réponds en JSON STRICT, sans markdown, sans commentaire avant/après. Format ex
 {
   "verdict_direct": "...",
   "business": [10 items dans l'ordre exact ci-dessus]
-}${langDirective(lang)}`;
+}`;
 
   const parsed = await callOpenAi(prompt, `business ${ticker} [${lang}]`) as { verdict_direct?: string; business?: Criterion[] };
   return {
@@ -174,13 +180,13 @@ export async function fetchManagementAnalysis(args: {
   const { ticker, company, chiffresContext, sbcShareOfFcf, lang = 'fr' } = args;
   const useSearch = isSearchModel(MODEL);
 
-  const prompt = `${buildContextBlock(ticker, company, chiffresContext, sbcShareOfFcf)}${webSearchHint()}
+  const prompt = `${langDirective(lang)}${buildContextBlock(ticker, company, chiffresContext, sbcShareOfFcf)}${webSearchHint()}
 
 Tu dois compléter UNIQUEMENT les 5 critères de MANAGEMENT ci-dessous.
 
 RÈGLES STRICTES de format :
 1. "nom" = libellé exact tel que listé ci-dessous, SANS préfixe.
-2. "valeur" = réponse CONCRÈTE et CONCISE (3-7 mots max). Ex: "Mike Lyons (mai 2025)", "Fondateur 22 ans", "Détient 8% du capital".
+2. "valeur" = réponse CONCRÈTE et CONCISE (3-7 mots max), dans la langue de réponse demandée.
 3. "cible" = la cible tel que listée ci-dessous.
 4. "statut" = "pass" / "fail" / "warn".
 5. "explication" = 1 phrase concrète${useSearch ? ', avec date si pertinent (ex: "Mike Lyons CEO depuis mai 2025")' : ''}.
@@ -195,7 +201,7 @@ MANAGEMENT (5 critères, dans cet ordre exact) :
 Réponds en JSON STRICT, sans markdown, sans commentaire avant/après. Format exact :
 {
   "management": [5 items dans l'ordre exact ci-dessus]
-}${langDirective(lang)}`;
+}`;
 
   const parsed = await callOpenAi(prompt, `management ${ticker} [${lang}]`) as { management?: Criterion[] };
   return {
@@ -244,7 +250,40 @@ const MGMT_CIBLES_I18N: Record<Lang, string[]> = {
   es: ['Recompras + M&A creadoras', '> 5 años, fundador ideal', 'Sin escándalos, comunicación directa', 'Patrimonio significativo en acciones', 'Recompras en mínimos del ciclo, no en máximos'],
 };
 
-/** Écrase nom + cible par index depuis les tables localisées (déterministe), garde valeur/statut/explication de GPT. */
+/**
+ * GPT (surtout en ES) traduit parfois les CLÉS du JSON ("valor", "estado", "explicación"…)
+ * malgré la consigne. On remappe ces clés multilingues vers les clés canoniques avant usage.
+ */
+const KEY_ALIASES: Record<string, keyof Criterion> = {
+  nom: 'nom', nombre: 'nom', name: 'nom', nome: 'nom',
+  valeur: 'valeur', valor: 'valeur', value: 'valeur', valore: 'valeur',
+  cible: 'cible', objetivo: 'cible', target: 'cible', obiettivo: 'cible',
+  statut: 'statut', estado: 'statut', status: 'statut', stato: 'statut', estatus: 'statut',
+  explication: 'explication', explicacion: 'explication', 'explicación': 'explication',
+  explanation: 'explication', spiegazione: 'explication',
+};
+function normalizeKeys(raw: Record<string, unknown>): Partial<Criterion> {
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(raw ?? {})) {
+    const canon = KEY_ALIASES[k.toLowerCase().trim()] ?? k;
+    if (out[canon] == null) out[canon] = v;
+  }
+  return out as Partial<Criterion>;
+}
+
+/**
+ * Normalise les clés puis écrase nom + cible par index depuis les tables localisées
+ * (déterministe), en gardant valeur/statut/explication produits par GPT.
+ */
 function applyLabels(items: Criterion[], names: string[], cibles: string[]): Criterion[] {
-  return items.map((it, i) => ({ ...it, nom: names[i] ?? it.nom, cible: cibles[i] ?? it.cible }));
+  return (items ?? []).map((raw, i) => {
+    const it = normalizeKeys(raw as unknown as Record<string, unknown>);
+    return {
+      nom: names[i] ?? it.nom ?? '',
+      valeur: it.valeur ?? '',
+      cible: cibles[i] ?? it.cible ?? '',
+      statut: (['pass', 'warn', 'fail'].includes(it.statut as string) ? it.statut : 'warn') as Criterion['statut'],
+      explication: it.explication ?? '',
+    };
+  });
 }
