@@ -36,12 +36,16 @@ model User {
 /// verdictDirect = la 1-2 phrases punchy affichée en haut du ScoreCard. Vit avec
 /// business car concerne le nature de la société.
 model BusinessAnalysis {
-  ticker        String   @id
+  ticker        String
+  /// Langue de l'analyse (fr/en/es) — cache séparé par langue.
+  lang          String   @default("fr")
   /// JSON contenant business: Criterion[] (10 critères)
   business      Json
   /// 1-2 phrases punchy
   verdictDirect String
   createdAt     DateTime @default(now())
+
+  @@id([ticker, lang])
 }
 
 /// Analyse qualitative du MANAGEMENT — RAFRAÎCHISSABLE manuellement.
@@ -50,10 +54,14 @@ model BusinessAnalysis {
 /// échelles plus courtes que le business. L'utilisateur déclenche un refresh via
 /// bouton dédié. Pas de TTL automatique — l'utilisateur sait quand il y a un changement.
 model ManagementAnalysis {
-  ticker     String   @id
+  ticker     String
+  /// Langue de l'analyse (fr/en/es) — cache séparé par langue.
+  lang       String   @default("fr")
   /// JSON contenant management: Criterion[] (5 critères)
   management Json
   updatedAt  DateTime @default(now()) @updatedAt
+
+  @@id([ticker, lang])
 }
 
 /// Cache GLOBAL par ticker du résultat de l'analyse quant.

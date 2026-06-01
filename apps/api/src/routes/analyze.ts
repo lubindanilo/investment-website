@@ -160,8 +160,8 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   // fetch échouait/traînait.
   const userId = req.user?.userId;
   const [businessRow, managementRow, watchlistRow] = await Promise.all([
-    prisma.businessAnalysis.findUnique({ where: { ticker } }),
-    prisma.managementAnalysis.findUnique({ where: { ticker } }),
+    prisma.businessAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } }),
+    prisma.managementAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } }),
     userId
       ? prisma.watchlistEntry.findUnique({ where: { userId_ticker: { userId, ticker } } })
       : Promise.resolve(null),
@@ -264,13 +264,13 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
 
   const quant = await loadQuantDataOrThrow(ticker, lang);
   const company = quant.company;
-  const chiffres = buildQuantitativeCriteria(quant.metrics);
+  const chiffres = buildQuantitativeCriteria(quant.metrics, lang);
   const chiffresContext = chiffres.map(c => ({ nom: c.nom, valeur: c.valeur, statut: c.statut }));
 
   // Lecture initiale du cache
   const [existingBiz, existingMgmt] = await Promise.all([
-    prisma.businessAnalysis.findUnique({ where: { ticker } }),
-    prisma.managementAnalysis.findUnique({ where: { ticker } }),
+    prisma.businessAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } }),
+    prisma.managementAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } }),
   ]);
 
   // Génère le business UNIQUEMENT s'il est absent ou schéma obsolète.
@@ -285,11 +285,11 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
     console.log(`[analyze ${ticker}] business cache hit (${businessCachedAt.toISOString().slice(0, 10)})`);
   } else {
     console.log(`[analyze ${ticker}] business cache miss → GPT call`);
-    const fresh = await fetchBusinessAnalysis({ ticker, company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf });
+    const fresh = await fetchBusinessAnalysis({ ticker, company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf, lang });
     const upserted = await prisma.businessAnalysis.upsert({
-      where: { ticker },
+      where: { ticker_lang: { ticker, lang } },
       update: { business: fresh.business as object, verdictDirect: fresh.verdict_direct },
-      create: { ticker, business: fresh.business as object, verdictDirect: fresh.verdict_direct },
+      create: { ticker, lang, business: fresh.business as object, verdictDirect: fresh.verdict_direct },
     });
     business = fresh.business;
     verdictDirect = fresh.verdict_direct;
@@ -306,11 +306,11 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
     console.log(`[analyze ${ticker}] management cache hit (${managementCachedAt.toISOString().slice(0, 10)})`);
   } else {
     console.log(`[analyze ${ticker}] management cache miss → GPT call`);
-    const fresh = await fetchManagementAnalysis({ ticker, company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf });
+    const fresh = await fetchManagementAnalysis({ ticker, company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf, lang });
     const upserted = await prisma.managementAnalysis.upsert({
-      where: { ticker },
+      where: { ticker_lang: { ticker, lang } },
       update: { management: fresh.management as object },
-      create: { ticker, management: fresh.management as object },
+      create: { ticker, lang, management: fresh.management as object },
     });
     management = fresh.management;
     managementCachedAt = upserted.updatedAt;
@@ -333,19 +333,19 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
   const lang = parseLang(req.headers['accept-language']);
 
   const quant = await loadQuantDataOrThrow(ticker, lang);
-  const chiffres = buildQuantitativeCriteria(quant.metrics);
+  const chiffres = buildQuantitativeCriteria(quant.metrics, lang);
   const chiffresContext = chiffres.map(c => ({ nom: c.nom, valeur: c.valeur, statut: c.statut }));
 
   console.log(`[analyze ${ticker}] refresh-management forced → GPT call`);
-  const fresh = await fetchManagementAnalysis({ ticker, company: quant.company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf });
+  const fresh = await fetchManagementAnalysis({ ticker, company: quant.company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf, lang });
   const upserted = await prisma.managementAnalysis.upsert({
-    where: { ticker },
+    where: { ticker_lang: { ticker, lang } },
     update: { management: fresh.management as object },
-    create: { ticker, management: fresh.management as object },
+    create: { ticker, lang, management: fresh.management as object },
   });
 
   // On lit aussi business pour pouvoir reconstruire la response complète
-  const businessRow = await prisma.businessAnalysis.findUnique({ where: { ticker } });
+  const businessRow = await prisma.businessAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } });
   const business = businessRow && isBusinessCacheValid(businessRow.business) ? businessRow.business : null;
 
   res.json(buildResponse({

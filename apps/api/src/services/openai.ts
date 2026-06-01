@@ -17,11 +17,18 @@
  * Le passage entre les deux se fait via la var d'env OPENAI_MODEL.
  */
 import type { Criterion } from '@lubin/shared';
+import type { Lang } from '../i18n/index.js';
 import { openaiLimiter } from '../lib/limiter.js';
 import { fetchWithRetry } from '../lib/retry.js';
 
 const KEY = process.env.OPENAI_API_KEY ?? '';
 const MODEL = process.env.OPENAI_MODEL ?? 'gpt-4o-2024-11-20';
+
+/** Nom de langue + directive pour que GPT rédige TOUT le contenu dans la langue cible. */
+const LANG_NAME: Record<Lang, string> = { fr: 'français', en: 'anglais (English)', es: 'espagnol (español)' };
+function langDirective(lang: Lang): string {
+  return `\n\nLANGUE DE RÉPONSE : rédige TOUT le texte (les "nom", "valeur", "explication"${''} et "verdict_direct") en ${LANG_NAME[lang]}. Traduis aussi les libellés de critères et les cibles dans cette langue. N'utilise PAS le français si la langue demandée n'est pas le français.`;
+}
 
 if (!KEY) console.warn('[openai] OPENAI_API_KEY non défini — les appels échoueront');
 
@@ -111,8 +118,9 @@ export async function fetchBusinessAnalysis(args: {
   company: string;
   chiffresContext: ChiffreContext[];
   sbcShareOfFcf: number | null;
+  lang?: Lang;
 }): Promise<BusinessAnalysisResult> {
-  const { ticker, company, chiffresContext, sbcShareOfFcf } = args;
+  const { ticker, company, chiffresContext, sbcShareOfFcf, lang = 'fr' } = args;
   const useSearch = isSearchModel(MODEL);
 
   const prompt = `${buildContextBlock(ticker, company, chiffresContext, sbcShareOfFcf)}${webSearchHint()}
@@ -144,9 +152,9 @@ Réponds en JSON STRICT, sans markdown, sans commentaire avant/après. Format ex
 {
   "verdict_direct": "...",
   "business": [10 items dans l'ordre exact ci-dessus]
-}`;
+}${langDirective(lang)}`;
 
-  const parsed = await callOpenAi(prompt, `business ${ticker}`) as { verdict_direct?: string; business?: Criterion[] };
+  const parsed = await callOpenAi(prompt, `business ${ticker} [${lang}]`) as { verdict_direct?: string; business?: Criterion[] };
   return {
     verdict_direct: parsed.verdict_direct ?? '',
     business: ensureCibles(parsed.business ?? [], BUSINESS_CIBLES),
@@ -160,8 +168,9 @@ export async function fetchManagementAnalysis(args: {
   company: string;
   chiffresContext: ChiffreContext[];
   sbcShareOfFcf: number | null;
+  lang?: Lang;
 }): Promise<ManagementAnalysisResult> {
-  const { ticker, company, chiffresContext, sbcShareOfFcf } = args;
+  const { ticker, company, chiffresContext, sbcShareOfFcf, lang = 'fr' } = args;
   const useSearch = isSearchModel(MODEL);
 
   const prompt = `${buildContextBlock(ticker, company, chiffresContext, sbcShareOfFcf)}${webSearchHint()}
@@ -185,9 +194,9 @@ MANAGEMENT (5 critères, dans cet ordre exact) :
 Réponds en JSON STRICT, sans markdown, sans commentaire avant/après. Format exact :
 {
   "management": [5 items dans l'ordre exact ci-dessus]
-}`;
+}${langDirective(lang)}`;
 
-  const parsed = await callOpenAi(prompt, `management ${ticker}`) as { management?: Criterion[] };
+  const parsed = await callOpenAi(prompt, `management ${ticker} [${lang}]`) as { management?: Criterion[] };
   return {
     management: ensureCibles(parsed.management ?? [], MGMT_CIBLES),
   };
