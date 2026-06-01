@@ -42,6 +42,15 @@ const US_PRIMARY_MICS = new Set(['XNAS', 'XNYS', 'XASE']);
 
 const MAX_ATTEMPTS = 5;
 const RESCORE_TTL_MS = 90 * 24 * 3600 * 1000; // re-note les dates inconnues tous les 90j
+/**
+ * Cooldown anti-churn : un ticker fraîchement noté n'est PAS re-pioché avant ce délai, même si
+ * son earnings est "dû". Indispensable car le fournisseur ne fait pas avancer la date du
+ * prochain earnings le jour J : elle reste = aujourd'hui (parfois plusieurs jours) après
+ * l'échéance. Sans cooldown, un tel titre redevient dû à CHAQUE tick, monopolise la file
+ * (priority 0 servie en premier) et affame tout le reste de l'univers (EU/INTL pending) — le
+ * compteur d'avancement se fige alors qu'on re-note en boucle une poignée de titres.
+ */
+const RESCORE_COOLDOWN_MS = 12 * 3600 * 1000; // au plus ~2 re-notations/jour par ticker
 
 export interface SeedResult { region: string; fetched: number; inserted: number }
 
@@ -116,16 +125,19 @@ async function seedEu(): Promise<SeedResult> {
 async function pickDueTickers(limit: number): Promise<{ ticker: string }[]> {
   const today = new Date().toISOString().slice(0, 10);
   const ttlCutoff = new Date(Date.now() - RESCORE_TTL_MS);
+  const cooldownCutoff = new Date(Date.now() - RESCORE_COOLDOWN_MS);
   return prisma.screenerTicker.findMany({
     where: {
       OR: [
+        // Jamais noté → c'est le front de progression, toujours prioritaire, aucun cooldown.
         { status: 'pending' },
-        // earnings atteint → re-note (récupère la nouvelle date au passage)
-        { status: 'scored', nextEarningsDate: { lte: today } },
+        // earnings atteint → re-note (récupère la nouvelle date au passage), mais au plus une
+        // fois par cooldown : si la date ne progresse pas côté fournisseur, on ne boucle pas.
+        { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff } },
         // date inconnue → re-note après le TTL pour ne pas geler éternellement
         { status: 'scored', nextEarningsDate: null, lastScoredAt: { lt: ttlCutoff } },
-        // erreurs transitoires : on retente jusqu'à MAX_ATTEMPTS
-        { status: 'error', attempts: { lt: MAX_ATTEMPTS } },
+        // erreurs transitoires : on retente jusqu'à MAX_ATTEMPTS, espacé par le cooldown
+        { status: 'error', attempts: { lt: MAX_ATTEMPTS }, lastScoredAt: { lt: cooldownCutoff } },
       ],
     },
     orderBy: [{ priority: 'asc' }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
