@@ -65,6 +65,34 @@ export async function getCachedSnapshot(ticker: string): Promise<CachedQuantSnap
   return row ? (row.snapshot as unknown as CachedQuantSnapshot) : null;
 }
 
+/** Cap absolu : au-delà, on recalcule même si l'earnings n'est pas atteint (sécurité fraîcheur). */
+const HARD_MAX_AGE_MS = 120 * 24 * 3600 * 1000;
+/** TTL pour les tickers sans date d'earnings connue. */
+const UNKNOWN_EARNINGS_MAX_AGE_MS = 30 * 24 * 3600 * 1000;
+
+/**
+ * Snapshot servable « tel quel » par /api/analyze (chemin rapide, sans recompute).
+ * Règle de fraîcheur : les fondamentaux ne bougent qu'aux earnings. On sert donc le cache
+ * tant que le prochain earnings n'est pas atteint (date future), avec un cap absolu.
+ * Le PRIX, lui, est rafraîchi en direct côté loadQuantData. Retourne null si à recalculer.
+ */
+export async function getServableSnapshot(ticker: string): Promise<CachedQuantSnapshot | null> {
+  const row = await prisma.tickerQuantSnapshot.findUnique({ where: { ticker } });
+  if (!row) return null;
+  const snap = row.snapshot as unknown as CachedQuantSnapshot;
+  if (!snap.fundamentalsAvailable) return null; // ne sert pas un cache "nodata"
+  const ageMs = Date.now() - row.refreshedAt.getTime();
+  if (ageMs > HARD_MAX_AGE_MS) return null;
+  const today = new Date().toISOString().slice(0, 10);
+  const ned = snap.nextEarningsDate;
+  if (ned) {
+    if (ned < today) return null; // earnings passé → fondamentaux potentiellement changés
+  } else if (ageMs > UNKNOWN_EARNINGS_MAX_AGE_MS) {
+    return null; // date inconnue → on recalcule au bout d'un mois
+  }
+  return snap;
+}
+
 /** Lit plusieurs snapshots en batch (pour la watchlist). */
 export async function getCachedSnapshotsBatch(tickers: string[]): Promise<Map<string, CachedQuantSnapshot>> {
   if (tickers.length === 0) return new Map();

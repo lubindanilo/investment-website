@@ -38,18 +38,25 @@ export class ApiError extends Error {
 interface RequestOpts {
   attempts?: number;
   signal?: AbortSignal;
+  /** Timeout par tentative (ms). Évite qu'une requête lente ne pende indéfiniment. */
+  timeoutMs?: number;
 }
 
 async function request<T>(path: string, init: RequestInit = {}, opts: RequestOpts = {}): Promise<T> {
-  const { attempts = 2, signal } = opts;
+  const { attempts = 2, signal, timeoutMs = 30_000 } = opts;
   const baseDelay = 400;
   let lastErr: ApiError | null = null;
 
   for (let n = 1; n <= attempts; n++) {
+    // Timeout par tentative via AbortController, combiné au signal éventuel de l'appelant.
+    const ctrl = new AbortController();
+    const onAbort = () => ctrl.abort();
+    if (signal) { if (signal.aborted) ctrl.abort(); else signal.addEventListener('abort', onAbort, { once: true }); }
+    const timer = setTimeout(() => ctrl.abort(new DOMException('timeout', 'TimeoutError')), timeoutMs);
     try {
       const res = await fetch(path, {
         ...init,
-        signal,
+        signal: ctrl.signal,
         // credentials:'include' → envoie le cookie auth avec chaque requête.
         // Sans ça, le cookie HttpOnly serait bloqué côté navigateur en cross-origin (dev local).
         credentials: 'include',
@@ -65,17 +72,21 @@ async function request<T>(path: string, init: RequestInit = {}, opts: RequestOpt
         return (await res.json()) as T;
       }
     } catch (e) {
+      // Annulation explicite par l'appelant (pas notre timeout) → on propage tel quel.
+      if (signal?.aborted) throw e;
       if (e instanceof ApiError) {
         if (!e.retriable || n === attempts) throw e;
         lastErr = e;
-      } else if (e instanceof DOMException && e.name === 'AbortError') {
-        throw e;
       } else {
-        // Erreur réseau (offline, DNS, etc.) → status 0
-        const networkErr = new ApiError(0, 'Pas de connexion au serveur', (e as Error).message);
+        // Timeout (notre AbortController) ou erreur réseau (offline, DNS…) → status 0, retriable.
+        const isTimeout = e instanceof DOMException && e.name === 'TimeoutError';
+        const networkErr = new ApiError(0, isTimeout ? 'Délai dépassé' : 'Pas de connexion au serveur', (e as Error).message);
         if (n === attempts) throw networkErr;
         lastErr = networkErr;
       }
+    } finally {
+      clearTimeout(timer);
+      if (signal) signal.removeEventListener('abort', onAbort);
     }
     // Exponential backoff + jitter
     const delay = baseDelay * 2 ** (n - 1) + Math.random() * 200;
@@ -98,7 +109,9 @@ async function safeRequest<T>(path: string, init: RequestInit = {}, opts?: Reque
 
 export const api = {
   analyze(ticker: string) {
-    return safeRequest<AnalyzeResponse>(`/api/analyze?ticker=${encodeURIComponent(ticker)}`);
+    // Pas de retry : rejouer un calcul lourd doublerait l'attente. Timeout généreux (45 s)
+    // mais borné, pour ne jamais pendre 2 min.
+    return safeRequest<AnalyzeResponse>(`/api/analyze?ticker=${encodeURIComponent(ticker)}`, {}, { attempts: 1, timeoutMs: 45_000 });
   },
   revalue(ticker: string, params: ValoParams) {
     return safeRequest<{ valuation: ValuationResult; metrics: DerivedMetrics }>(
@@ -111,14 +124,14 @@ export const api = {
     return safeRequest<AnalyzeResponse>(`/api/analyze/qualitative`, {
       method: 'POST',
       body: JSON.stringify({ ticker }),
-    });
+    }, { attempts: 1, timeoutMs: 60_000 });
   },
   /** Force un GPT call pour MANAGEMENT uniquement. Business reste intouchable. */
   refreshManagement(ticker: string) {
     return safeRequest<AnalyzeResponse>(`/api/analyze/refresh-management`, {
       method: 'POST',
       body: JSON.stringify({ ticker }),
-    });
+    }, { attempts: 1, timeoutMs: 60_000 });
   },
   timeseries(ticker: string, metric: string, years: number, freq: 'quarterly' | 'annual' = 'quarterly') {
     const q = new URLSearchParams({ ticker, metric, freq, years: String(years) });

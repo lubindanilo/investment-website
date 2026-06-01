@@ -18,7 +18,7 @@ import { getMetric, getQuote } from '../services/finnhub.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { fetchBusinessAnalysis, fetchManagementAnalysis } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
-import { writeCachedSnapshot, type CachedQuantSnapshot } from '../services/quantCache.js';
+import { writeCachedSnapshot, getServableSnapshot, type CachedQuantSnapshot } from '../services/quantCache.js';
 import { prisma } from '../db/client.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { analyzeLimiter } from '../middleware/rateLimit.js';
@@ -52,8 +52,8 @@ function isManagementCacheValid(data: unknown): data is Criterion[] {
  * route analyze (qui veut retourner une erreur HTTP claire), alors que d'autres
  * callers (watchlist) gèrent ce cas en silence avec un fallback emptyEntry.
  */
-async function loadQuantDataOrThrow(ticker: string, lang: Lang = 'fr') {
-  const data = await loadQuantData(ticker);
+async function loadQuantDataOrThrow(ticker: string, lang: Lang = 'fr', cached?: CachedQuantSnapshot | null) {
+  const data = await loadQuantData(ticker, { cached });
   if (data.finnhubCompletelyEmpty && !data.fundamentalsAvailable) {
     // Aucune donnée NI chez Finnhub NI chez Yahoo → le symbole n'existe pas / n'est pas
     // couvert. On renvoie un 404 "non détecté" (et non un 5xx qui suggérerait une panne).
@@ -152,7 +152,10 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const ticker = parse.data;
   const lang = parseLang(req.headers['accept-language']);
 
-  const quant = await loadQuantDataOrThrow(ticker, lang);
+  // Chemin rapide : si un snapshot frais existe (la veille a déjà scoré tout l'univers),
+  // on réutilise ses fondamentaux → 0 appel lourd, immunisé contre la famine du rate-limiter.
+  const servable = await getServableSnapshot(ticker).catch(() => null);
+  const quant = await loadQuantDataOrThrow(ticker, lang, servable);
 
   // Lecture des 2 caches qualitatifs + appartenance watchlist (si connecté) en parallèle.
   // L'appartenance est calculée ici côté serveur (source unique) → le front n'a pas à
@@ -183,9 +186,9 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   if (userId) response.inWatchlist = watchlistRow != null;
 
   // ⚠ SINGLE SOURCE OF TRUTH : on persiste le résultat dans le cache global
-  // TickerQuantSnapshot. La watchlist le lira tel quel → impossible que les 2 vues
-  // divergent. Le score affiché en watchlist = exactement le score calculé ici.
-  await persistQuantCache(ticker, quant, response);
+  // TickerQuantSnapshot (sauf chemin rapide : le cache est déjà frais, pas de réécriture).
+  // La watchlist lit ce cache tel quel → score identique, divergence impossible.
+  if (!servable) await persistQuantCache(ticker, quant, response);
 
   res.json(response);
 }));

@@ -30,6 +30,7 @@ import { getEarningsInfo } from './earnings.js';
 import type { EarningsInfo } from '@lubin/shared';
 import { computeDerivedMetrics } from './derivedMetrics.js';
 import type { DerivedMetrics } from '@lubin/shared';
+import type { CachedQuantSnapshot } from './quantCache.js';
 
 export interface QuantData {
   metrics: DerivedMetrics;
@@ -59,10 +60,18 @@ export interface LoadQuantOptions {
   includeEarnings?: boolean;
   /** Logs verbeux. Default: true. */
   log?: boolean;
+  /**
+   * CHEMIN RAPIDE : si un snapshot cache frais est fourni, on NE refait PAS les ~9 appels
+   * fondamentaux (metric/profile/financials/Yahoo). On réutilise `cached.metrics` et on ne
+   * fetch que le léger (quote pour le prix live + news + earnings). Évite la famine du
+   * rate-limiter Finnhub causée par le cron de veille. Le caller passe ce qui sort de
+   * getServableSnapshot().
+   */
+  cached?: CachedQuantSnapshot | null;
 }
 
 export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {}): Promise<QuantData> {
-  const { includeNews = true, includeEarnings = true, log = true } = opts;
+  const { includeNews = true, includeEarnings = true, log = true, cached } = opts;
   const t0 = Date.now();
   const ms = () => Date.now() - t0;
 
@@ -74,6 +83,42 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
       e => { console.warn(`[quant ${ticker}] ${name} FAIL in ${Date.now() - start}ms : ${e.message}`); throw e; },
     );
   };
+
+  // ── CHEMIN RAPIDE : cache frais → 0 appel fondamental, prix recalculé live ──
+  if (cached && cached.fundamentalsAvailable) {
+    if (log) console.log(`[quant ${ticker}] FAST PATH (cache servable) — fondamentaux réutilisés`);
+    const [quote, rawNews, earnings] = await Promise.all([
+      timed('finnhub quote', getQuote(ticker)).catch(() => null),
+      includeNews ? timed('finnhub news', getCompanyNews(ticker)).catch(() => [] as FinnhubNewsItem[]) : Promise.resolve([] as FinnhubNewsItem[]),
+      includeEarnings ? timed('earnings', getEarningsInfo(ticker)).catch(() => ({ next: null, last: null } as EarningsInfo)) : Promise.resolve({ next: null, last: null } as EarningsInfo),
+    ]);
+    const metrics: DerivedMetrics = { ...cached.metrics };
+    const livePrice = quote?.c != null && quote.c > 0 ? quote.c : null;
+    if (livePrice != null) {
+      metrics.price = livePrice;
+      // Recompute P/FCF live (price × shares / adjFcfTtm) — même formule que la watchlist.
+      if (cached.adjFcfTtm != null && cached.adjFcfTtm !== 0 && cached.sharesOutstanding != null) {
+        const p = (livePrice * cached.sharesOutstanding) / cached.adjFcfTtm;
+        if (Number.isFinite(p) && p > 0) metrics.pfcfTTM = p;
+      }
+    }
+    if (log) console.log(`[quant ${ticker}] FAST PATH done in ${ms()}ms`);
+    return {
+      metrics,
+      company: cached.company,
+      fundamentalsAvailable: true,
+      fundamentalsSource: cached.fundamentalsSource,
+      currency: cached.currency,
+      yahooSymbol: cached.yahooSymbol,
+      rawNews,
+      earnings,
+      industry: cached.sector ?? null,
+      dayChangePct: quote?.dp ?? cached.dayChangePct ?? null,
+      finnhubCompletelyEmpty: false,
+      rawFhFcfAdj: null,
+      rawFhCapEmp: null,
+    };
+  }
 
   if (log) console.log(`[quant ${ticker}] start`);
   // Tous les fetches "data layer" en parallèle. Les optionnels (news, earnings) sont
