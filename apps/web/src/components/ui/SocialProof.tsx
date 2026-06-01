@@ -81,7 +81,7 @@ function Stars({ n = 5 }: { n?: number }) {
 }
 
 const PERF_ROWS = [
-  { rowKey: 'social.perf.row1y', lubin: 27.4, idx: 12.1 },
+  { rowKey: 'social.perf.row1y', lubin: 24.9, idx: 12.1 },
   { rowKey: 'social.perf.row3y', lubin: 21.8, idx: 9.4 },
   { rowKey: 'social.perf.row5y', lubin: 19.2, idx: 8.7 },
 ];
@@ -98,7 +98,7 @@ function PerfCompare({ run, lang }: { run: boolean; lang: string }) {
     <div className="card sp-perf">
       <div className="sp-perf-left">
         <span className="kicker">{t('social.perf.kicker')}</span>
-        <div className="num sp-perf-big">+{fmtNum(27.4, 1, lang)} %</div>
+        <div className="num sp-perf-big">+{fmtNum(24.9, 1, lang)} %</div>
         <p className="sp-perf-desc">{t('social.perf.desc', { idx: `+${fmtNum(12.1, 1, lang)} %` })}</p>
         <div className="row gap-16" style={{ marginTop: 16, flexWrap: 'wrap' }}>
           <span className="row gap-6 tiny sp-legend"><span className="sp-legend-dot" style={{ background: 'var(--brand)' }} /> {t('social.perf.legendStocks')}</span>
@@ -144,8 +144,8 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 }
 
 const METRICS: MetricDef[] = [
-  { value: 48200, suffix: '+', decimals: 0, labelKey: 'social.metrics.users', brand: true },
-  { value: 27.4, prefix: '+', suffix: ' %', decimals: 1, labelKey: 'social.metrics.perf10' },
+  { value: 3200, suffix: '+', decimals: 0, labelKey: 'social.metrics.users', brand: true },
+  { value: 24.9, prefix: '+', suffix: ' %', decimals: 1, labelKey: 'social.metrics.perf10' },
   { value: 18.9, prefix: '+', suffix: ' %', decimals: 1, labelKey: 'social.metrics.medianReturn' },
   { value: 4.8, suffix: '/5', decimals: 1, labelKey: 'social.metrics.rating' },
 ];
