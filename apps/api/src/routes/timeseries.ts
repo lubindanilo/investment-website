@@ -84,7 +84,7 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   const key = cache.cacheKey(ticker, metric, effectiveFreq, effectiveYears);
 
   // ─── 2. Cache hit ? ────────────────────────────────────────────
-  const hit = cache.get(key);
+  const hit = await cache.get(key);
   if (hit) {
     res.json({
       ticker,
@@ -182,7 +182,7 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // ─── 4. Calcule le TTL basé sur les earnings ───────────────────
   const nextEarnings = await earningsPromise.catch(() => null);
   const ttlMs = ttlUntilNextEarnings(nextEarnings);
-  cache.set(key, points, source, ttlMs, { servedFreq, annualFallback });
+  await cache.set(key, points, source, ttlMs, { servedFreq, annualFallback });
 
   res.json({
     ticker,

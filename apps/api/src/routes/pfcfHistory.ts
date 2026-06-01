@@ -33,7 +33,7 @@ pfcfHistoryRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   const key = cache.cacheKey(ticker, 'pfcf-history', 'computed', years);
 
   // 1. Cache hit ?
-  const hit = cache.get(key);
+  const hit = await cache.get(key);
   if (hit) {
     res.json({
       ticker,
@@ -56,7 +56,7 @@ pfcfHistoryRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   const nextEarnings = await earningsPromise;
   const ttlMs = ttlUntilNextEarnings(nextEarnings);
   // Adaptation au cache typé TimeseriesPoint : on stocke pfcf dans value
-  cache.set(
+  await cache.set(
     key,
     points.map(p => ({ date: p.date, value: p.pfcf })),
     'finnhub', // source virtuelle, juste pour les logs

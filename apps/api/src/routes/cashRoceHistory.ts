@@ -32,7 +32,7 @@ cashRoceHistoryRouter.get('/', asyncHandler(async (req: Request, res: Response) 
   // Cache key dédié — namespace différent de pfcf-history pour éviter collisions
   const key = cache.cacheKey(ticker, 'cash-roce-history', 'computed', years);
 
-  const hit = cache.get(key);
+  const hit = await cache.get(key);
   if (hit) {
     res.json({
       ticker,
@@ -51,7 +51,7 @@ cashRoceHistoryRouter.get('/', asyncHandler(async (req: Request, res: Response) 
 
   const nextEarnings = await earningsPromise;
   const ttlMs = ttlUntilNextEarnings(nextEarnings);
-  cache.set(
+  await cache.set(
     key,
     points.map(p => ({ date: p.date, value: p.cashRoce })),
     'finnhub',

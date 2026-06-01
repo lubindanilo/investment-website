@@ -80,6 +80,23 @@ model TickerQuantSnapshot {
   @@index([refreshedAt])
 }
 
+/// Cache PERSISTANT des séries temporelles des graphiques détaillés (histogramme par
+/// métrique, P/FCF, Cash ROCE). Persisté en DB (et non en mémoire par instance) → partagé
+/// entre toutes les instances de lambda, survit aux cold starts. TTL calé sur le prochain
+/// earnings (champ expiresAt) → invalidation post-résultats automatique.
+/// Clé = `ticker|metric|freq|years`.
+model ChartCache {
+  key            String   @id
+  points         Json
+  source         String
+  servedFreq     String?
+  annualFallback Boolean?
+  expiresAt      DateTime
+  storedAt       DateTime @default(now())
+
+  @@index([expiresAt])
+}
+
 /// Veille quantitative automatique ("screener"). Une ligne par ticker de l'univers.
 /// La note /10 (quanti uniquement, jamais de GPT) est recalculée quand `nextEarningsDate`
 /// est atteinte — le quantitatif ne bouge qu'aux résultats. Tant que la date est future,
