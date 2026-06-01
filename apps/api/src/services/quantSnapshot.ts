@@ -121,6 +121,22 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   }
 
   if (log) console.log(`[quant ${ticker}] start`);
+
+  // Les 6 calculs /financials-reported ne dépendent PAS du 1er batch. Pour les tickers US
+  // (sans suffixe → quasi toujours servis par Finnhub), on les lance EN PARALLÈLE du data
+  // layer au lieu d'attendre la fin du 1er batch → chemin à froid sensiblement plus rapide.
+  // On ne le fait pas pour les tickers suffixés (EU/Asie) qui partent sur Yahoo : éviterait
+  // des appels Finnhub inutiles (qui 403 et consomment le limiteur).
+  const runFinancials = () => Promise.all([
+    timed('fh fcfPs regress',  computeFcfPerShareCagrFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
+    timed('fh rev regress',    computeRevenueGrowthFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
+    timed('fh shares regress', computeSharesGrowthFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
+    timed('fh opLev regress',  computeOperatingMarginTrendFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
+    timed('fh fcfAdj ttm',     computeAdjustedFcfTtm(ticker)).catch(() => ({ ttmFcfAdj: null as number | null, ttmCfo: null, ttmSbc: null, ttmCapex: null, sbcShareOfFcf: null, asOf: null } as AdjustedFcfResult)),
+    timed('fh capEmp',         computeCapitalEmployedSnapshot(ticker)).catch(() => ({ totalAssets: null, currentLiabilities: null, currentAssets: null, goodwill: null, equity: null, totalDebt: null, totalCash: null, revenueTtm: null, netIncomeTtm: null, sharesLatest: null, excessCash: null, formulaUsed: null, capitalEmployed: null, asOf: null, reason: 'Erreur fetch capital employé' } as CapitalEmployedSnapshot)),
+  ] as const);
+  const batch2Early = ticker.includes('.') ? null : runFinancials();
+
   // Tous les fetches "data layer" en parallèle. Les optionnels (news, earnings) sont
   // remplacés par des Promise.resolve si exclus pour économiser des calls Finnhub.
   const [metric, fhProfile, quote, rawNews, sharesHistory, earnings] = await Promise.all([
@@ -153,20 +169,8 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
 
   if (finnhubUsable) {
     fundamentalsSource = 'finnhub';
-    // 5 calculs en parallèle via les quarterlies Finnhub :
-    //   - FCF/action 5Y (régression sur TTM FCF_adj / TTM_shares)
-    //   - Croissance CA 5Y (régression sur TTM_revenue)
-    //   - Évolution actions 5Y (régression sur shares quarterly split-adj)
-    //   - Operating leverage (pente du TTM op margin)
-    //   - FCF_adj actuel (CFO_TTM − SBC_TTM + CapEx_TTM)
-    const [fhFcfPs, fhRev, fhShares, fhOpLev, fhFcfAdj, fhCapEmp] = await Promise.all([
-      timed('fh fcfPs regress',  computeFcfPerShareCagrFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
-      timed('fh rev regress',    computeRevenueGrowthFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
-      timed('fh shares regress', computeSharesGrowthFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
-      timed('fh opLev regress',  computeOperatingMarginTrendFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
-      timed('fh fcfAdj ttm',     computeAdjustedFcfTtm(ticker)).catch(() => ({ ttmFcfAdj: null as number | null, ttmCfo: null, ttmSbc: null, ttmCapex: null, sbcShareOfFcf: null, asOf: null } as AdjustedFcfResult)),
-      timed('fh capEmp',         computeCapitalEmployedSnapshot(ticker)).catch(() => ({ totalAssets: null, currentLiabilities: null, currentAssets: null, goodwill: null, equity: null, totalDebt: null, totalCash: null, revenueTtm: null, netIncomeTtm: null, sharesLatest: null, excessCash: null, formulaUsed: null, capitalEmployed: null, asOf: null, reason: 'Erreur fetch capital employé' } as CapitalEmployedSnapshot)),
-    ]);
+    // Les 6 calculs /financials-reported (lancés tôt en // pour les US, sinon maintenant).
+    const [fhFcfPs, fhRev, fhShares, fhOpLev, fhFcfAdj, fhCapEmp] = await (batch2Early ?? runFinancials());
     rawFhFcfAdj = fhFcfAdj;
     rawFhCapEmp = fhCapEmp;
 

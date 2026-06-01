@@ -121,29 +121,42 @@ async function seedEu(): Promise<SeedResult> {
   return { region: 'EU', fetched: rows.length, inserted: await insertRows('EU', rows) };
 }
 
-/** Sélectionne les prochains tickers à (re)noter, par priorité de région puis ancienneté. */
+/**
+ * Sélectionne les prochains tickers à (re)noter, en DEUX phases :
+ *   1. Résultats fraîchement tombés (earnings atteint) → re-scoré EN PRIORITÉ, avant tout le
+ *      reste. Ainsi le cache est rafraîchi vite après l'annonce, idéalement avant qu'un
+ *      utilisateur ne re-clique (sinon il déclenche un recompute à la volée).
+ *   2. Le reste : jamais noté (front de progression), dates inconnues (TTL), erreurs — par
+ *      priorité de région puis ancienneté.
+ */
 async function pickDueTickers(limit: number): Promise<{ ticker: string }[]> {
   const today = new Date().toISOString().slice(0, 10);
   const ttlCutoff = new Date(Date.now() - RESCORE_TTL_MS);
   const cooldownCutoff = new Date(Date.now() - RESCORE_COOLDOWN_MS);
-  return prisma.screenerTicker.findMany({
+
+  // Phase 1 — earnings atteint (au plus une fois par cooldown si la date ne progresse pas).
+  const earningsDue = await prisma.screenerTicker.findMany({
+    where: { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff } },
+    orderBy: [{ nextEarningsDate: 'asc' }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
+    take: limit,
+    select: { ticker: true },
+  });
+  if (earningsDue.length >= limit) return earningsDue;
+
+  // Phase 2 — comble le reste du lot.
+  const rest = await prisma.screenerTicker.findMany({
     where: {
       OR: [
-        // Jamais noté → c'est le front de progression, toujours prioritaire, aucun cooldown.
         { status: 'pending' },
-        // earnings atteint → re-note (récupère la nouvelle date au passage), mais au plus une
-        // fois par cooldown : si la date ne progresse pas côté fournisseur, on ne boucle pas.
-        { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff } },
-        // date inconnue → re-note après le TTL pour ne pas geler éternellement
         { status: 'scored', nextEarningsDate: null, lastScoredAt: { lt: ttlCutoff } },
-        // erreurs transitoires : on retente jusqu'à MAX_ATTEMPTS, espacé par le cooldown
         { status: 'error', attempts: { lt: MAX_ATTEMPTS }, lastScoredAt: { lt: cooldownCutoff } },
       ],
     },
     orderBy: [{ priority: 'asc' }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
-    take: limit,
+    take: limit - earningsDue.length,
     select: { ticker: true },
   });
+  return [...earningsDue, ...rest];
 }
 
 type ScoreOutcome = 'scored' | 'nodata' | 'error';
