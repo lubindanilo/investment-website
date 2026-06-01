@@ -40,10 +40,10 @@ void i18n
     interpolation: { escapeValue: false },
   });
 
-// Tient l'attribut <html lang> et le localStorage synchronisés au changement de langue.
-i18n.on('languageChanged', (lng) => {
-  document.documentElement.lang = lng;
-});
+// Tient l'attribut <html lang> synchronisé : au chargement initial (ressources inline →
+// init synchrone) puis à chaque changement de langue.
+if (typeof document !== 'undefined') document.documentElement.lang = currentLang();
+i18n.on('languageChanged', (lng) => { document.documentElement.lang = lng.slice(0, 2); });
 
 /** Langue courante normalisée (toujours dans SUPPORTED_LANGS). */
 export function currentLang(): Lang {

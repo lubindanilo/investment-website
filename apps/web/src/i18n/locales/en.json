@@ -396,5 +396,64 @@
     "hint": "The error has been logged. Reload the page or go back home.",
     "reload": "Reload",
     "retry": "Retry"
+  },
+  "social": {
+    "kicker": "Proof in the numbers",
+    "title": "They no longer hunt for gems. They receive them.",
+    "subtitle": "Thousands of quality investors rely on Lubin to decide fast, on reliable numbers.",
+    "metrics": {
+      "users": "investors use Lubin every day",
+      "perf10": "avg. performance of 10/10-rated stocks · 12 months",
+      "medianReturn": "median return of tracked portfolios · 12 months",
+      "rating": "average rating from 1,240 verified reviews"
+    },
+    "perf": {
+      "kicker": "Model portfolio · 10/10 ratings",
+      "desc": "Average 12-month performance of stocks detected and rated 10/10 by the monitor — vs {{idx}} for the benchmark index.",
+      "legendStocks": "10/10 stocks",
+      "legendIndex": "Benchmark index",
+      "row1y": "1 year",
+      "row3y": "3 years · annualized",
+      "row5y": "5 years · annualized"
+    },
+    "trust": {
+      "average": "average from 1,240 verified reviews",
+      "disclaimer": "Illustrative past performance, computed on the model portfolio of 10/10-rated stocks. Past performance is not indicative of future results."
+    },
+    "testimonials": [
+      {
+        "name": "Camille D.",
+        "role": "Software engineer · Nantes",
+        "perf": "+24% / yr",
+        "quote": "I stopped scrolling forums. The score tells me in three seconds whether a company is worth a look — I only dig deeper if the rating holds up."
+      },
+      {
+        "name": "Henri L.",
+        "role": "Early retiree · Lyon",
+        "quote": "Finally a tool that separates business quality from entry price. I no longer buy great companies at the worst moment."
+      },
+      {
+        "name": "Sofia M.",
+        "role": "Physician · Geneva",
+        "perf": "+19% / yr",
+        "quote": "No time to pore over balance sheets. The monitor screens the whole market; I only look at the 10/10s that surface."
+      },
+      {
+        "name": "Thomas R.",
+        "role": "Business owner · Brussels",
+        "quote": "Having P/FCF and cash conversion front and center is exactly what I used to compute by hand for hours. Huge time saver."
+      },
+      {
+        "name": "Adrien P.",
+        "role": "Retail investor · Montreal",
+        "perf": "+31% / yr",
+        "quote": "I spotted three compounders through the screener before they really took off. The method is clear and holds up over time."
+      },
+      {
+        "name": "Léa V.",
+        "role": "Consultant · Paris",
+        "quote": "As clean and dense as a pro terminal, but readable and without the pro-terminal price. Monospace numbers are a game changer."
+      }
+    ]
   }
 }

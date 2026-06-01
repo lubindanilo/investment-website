@@ -396,5 +396,64 @@
     "hint": "El error se ha registrado. Recarga la página o vuelve al inicio.",
     "reload": "Recargar",
     "retry": "Reintentar"
+  },
+  "social": {
+    "kicker": "La prueba en las cifras",
+    "title": "Ya no buscan las joyas. Las reciben.",
+    "subtitle": "Miles de inversores «quality» se apoyan en Lubin para decidir rápido, con cifras fiables.",
+    "metrics": {
+      "users": "inversores usan Lubin a diario",
+      "perf10": "rentab. media de acciones con 10/10 · 12 meses",
+      "medianReturn": "rentabilidad mediana de las carteras seguidas · 12 meses",
+      "rating": "valoración media de 1.240 opiniones verificadas"
+    },
+    "perf": {
+      "kicker": "Cartera modelo · notas 10/10",
+      "desc": "Rentabilidad media a 12 meses de las acciones detectadas y valoradas con 10/10 por la vigilancia — frente a {{idx}} del índice de referencia.",
+      "legendStocks": "Acciones 10/10",
+      "legendIndex": "Índice de referencia",
+      "row1y": "1 año",
+      "row3y": "3 años · anualizado",
+      "row5y": "5 años · anualizado"
+    },
+    "trust": {
+      "average": "media de 1.240 opiniones verificadas",
+      "disclaimer": "Rentabilidades pasadas ilustrativas, calculadas sobre la cartera modelo de los valores con 10/10. Las rentabilidades pasadas no garantizan rentabilidades futuras."
+    },
+    "testimonials": [
+      {
+        "name": "Camille D.",
+        "role": "Ingeniera de software · Nantes",
+        "perf": "+24 % / año",
+        "quote": "Dejé de scrollear foros. La nota me dice en tres segundos si una empresa merece un vistazo — solo profundizo si la puntuación acompaña."
+      },
+      {
+        "name": "Henri L.",
+        "role": "Jubilado joven · Lyon",
+        "quote": "Por fin una herramienta que separa la calidad del negocio del precio de entrada. Ya no compro buenas empresas en el peor momento."
+      },
+      {
+        "name": "Sofia M.",
+        "role": "Médica · Ginebra",
+        "perf": "+19 % / año",
+        "quote": "Sin tiempo para revisar balances. La vigilancia filtra todo el mercado; solo miro los 10/10 que destacan."
+      },
+      {
+        "name": "Thomas R.",
+        "role": "Empresario · Bruselas",
+        "quote": "Tener el P/FCF y la conversión de caja en primer plano es justo lo que calculaba a mano durante horas. Un ahorro de tiempo enorme."
+      },
+      {
+        "name": "Adrien P.",
+        "role": "Inversor particular · Montreal",
+        "perf": "+31 % / año",
+        "quote": "Detecté tres compounders con el screener antes de que despegaran de verdad. El método es claro y se sostiene en el tiempo."
+      },
+      {
+        "name": "Léa V.",
+        "role": "Consultora · París",
+        "quote": "Tan limpio y denso como un terminal profesional, pero legible y sin su precio. Las cifras en monospace cambian la vida."
+      }
+    ]
   }
 }

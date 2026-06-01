@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext.js';
 import { Icon, type IconName } from '../components/ui/primitives.js';
 import { HeroPreview } from '../components/ui/HeroPreview.js';
+import { SocialProofSection } from '../components/ui/SocialProof.js';
 import './HomePage.css';
 
 export function HomePage() {
@@ -86,6 +87,9 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Preuve sociale (chiffres + perf + avis) ── */}
+      <SocialProofSection />
 
       {/* ── CTA final ── */}
       <section className="wrap" style={{ padding: '24px 28px 64px' }}>
