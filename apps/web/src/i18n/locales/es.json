@@ -1,0 +1,340 @@
+{
+  "common": {
+    "loading": "Cargando…",
+    "refresh": "Actualizar",
+    "updating": "Actualizando…",
+    "add": "Añadir",
+    "retry": "Reintentar",
+    "close": "Cerrar",
+    "viaYahoo": "vía Yahoo"
+  },
+  "nav": {
+    "analyse": "Analizar",
+    "watchlist": "Lista",
+    "screener": "Screener"
+  },
+  "userMenu": {
+    "login": "Iniciar sesión",
+    "signup": "Crear cuenta",
+    "logout": "Cerrar sesión",
+    "loggedOut": "Sesión cerrada"
+  },
+  "langSwitcher": {
+    "label": "Idioma"
+  },
+  "home": {
+    "hero": {
+      "chip": "Análisis fundamental automatizado",
+      "titleLine1": "Encuentra empresas de calidad,",
+      "titleAccent": "sin el ruido.",
+      "lede": "Escribe un ticker y obtén una nota de calidad sobre 10 calculada con criterios financieros objetivos. Una valoración evaluada por separado. Y una vigilancia que puntúa todo el mercado por ti.",
+      "ctaAnalyze": "Analizar una acción",
+      "ctaScreener": "Explorar el screener"
+    },
+    "stats": {
+      "criteria": "criterios cuantificados",
+      "tickers": "valores vigilados",
+      "speed": "por análisis"
+    },
+    "benefits": {
+      "0": {
+        "title": "Cifras, no palabrería",
+        "text": "10 criterios financieros objetivos calculados en segundos. Decide el dato, no las opiniones."
+      },
+      "1": {
+        "title": "Toda la bolsa, vigilada",
+        "text": "Una vigilancia automática puntúa continuamente el universo bursátil y destaca las mejores empresas."
+      },
+      "2": {
+        "title": "El método de los grandes inversores",
+        "text": "Rentabilidad, crecimiento, calidad del balance: los criterios de los compounders a largo plazo."
+      },
+      "3": {
+        "title": "Calidad y precio, por separado",
+        "text": "La calidad del negocio y el precio de entrada se juzgan de forma independiente. Nunca uno por el otro."
+      }
+    },
+    "how": {
+      "kicker": "Cómo funciona",
+      "title": "Una acción juzgada de un vistazo"
+    },
+    "steps": {
+      "0": {
+        "title": "Escribe un ticker",
+        "text": "Introduce el símbolo de una acción. La nota de calidad aparece en segundos."
+      },
+      "1": {
+        "title": "Lee la nota y su composición",
+        "text": "Una nota sobre 10, su reparto verde/naranja/rojo y el detalle de los 10 criterios."
+      },
+      "2": {
+        "title": "Decide el precio de entrada",
+        "text": "Ajusta tus hipótesis para obtener el precio de compra recomendado, separado de la calidad."
+      }
+    },
+    "cta": {
+      "title": "Encuentra los 10/10 sin buscarlos",
+      "subtitle": "La vigilancia puntúa el universo de forma continua — tú recoges las mejores.",
+      "analyze": "Analizar una acción",
+      "signup": "Crear una cuenta"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Bienvenido de nuevo",
+      "subtitle": "Inicia sesión para retomar tus análisis."
+    },
+    "signup": {
+      "title": "Crear una cuenta",
+      "subtitle": "Unos segundos para empezar a puntuar el mercado."
+    },
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tu@ejemplo.com",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "passwordHint": "8 caracteres como mínimo.",
+    "togglePassword": "Mostrar la contraseña",
+    "submit": {
+      "login": "Iniciar sesión",
+      "signup": "Crear mi cuenta"
+    },
+    "switchToSignup": {
+      "prompt": "¿Aún no tienes cuenta? ",
+      "link": "Crear una cuenta"
+    },
+    "switchToLogin": {
+      "prompt": "¿Ya tienes una cuenta? ",
+      "link": "Iniciar sesión"
+    },
+    "error": {
+      "required": "Correo electrónico y contraseña requeridos",
+      "passwordTooShort": "Contraseña: 8 caracteres como mínimo",
+      "passwordMismatch": "Las contraseñas no coinciden",
+      "unexpected": "Error inesperado"
+    },
+    "aside": {
+      "kicker": "Lubin Investment",
+      "h2Line1": "Que decidan los datos,",
+      "h2Line2": "no las opiniones.",
+      "p": "Una nota de calidad sobre 10, una valoración independiente y un seguimiento que vigila todo el mercado por ti."
+    }
+  },
+  "screener": {
+    "title": "Screener",
+    "subtitle": "Las mejores puntuaciones del universo, ordenadas por el seguimiento. Los 10/10 a la cabeza.",
+    "progress": {
+      "label": "Seguimiento del universo",
+      "upToDate": "Al día",
+      "scored": "{{scored}} / {{total}} valores reevaluados"
+    },
+    "filters": {
+      "kicker": "Filtros",
+      "minScore": "Puntuación mínima",
+      "maxPfcf": "P/FCF máx."
+    },
+    "results_one": "{{count}} resultado",
+    "results_other": "{{count}} resultados",
+    "empty": {
+      "title": "Ninguna empresa por encima de este umbral",
+      "desc": "El seguimiento puntúa el universo de forma progresiva — vuelve más tarde o baja el umbral."
+    },
+    "col": {
+      "company": "Empresa",
+      "sector": "Sector",
+      "score": "Puntuación",
+      "price": "Precio",
+      "change": "Var.",
+      "oneYear": "1 año"
+    }
+  },
+  "watchlist": {
+    "title": "Watchlist",
+    "followed_one": "{{count}} acción seguida · precio y P/FCF actualizados en cada visita.",
+    "followed_other": "{{count}} acciones seguidas · precio y P/FCF actualizados en cada visita.",
+    "refresh": "Actualizar",
+    "refreshing": "Actualizando…",
+    "fromScreener": "Desde el screener",
+    "addPlaceholder": "Añadir un ticker…",
+    "add": "Añadir",
+    "remove": "Quitar",
+    "empty": {
+      "title": "Tu watchlist está vacía",
+      "desc": "Añade un ticker arriba o explora el screener para seguir las mejor valoradas.",
+      "cta": "Explorar el screener"
+    },
+    "col": {
+      "company": "Empresa",
+      "price": "Precio",
+      "score": "Puntuación",
+      "earnings": "Próximos resultados"
+    },
+    "toast": {
+      "alreadyAdded": "{{ticker}} ya está en tu watchlist.",
+      "added": "{{ticker}} añadido"
+    }
+  },
+  "analyse": {
+    "hintPrefix": "Consejo: escribe un ticker como",
+    "hintOr": "o",
+    "searchPlaceholder": "Introduce un ticker — p. ej. AAPL, MSFT, ASML…",
+    "analyze": "Analizar",
+    "analyzing": "Analizando…",
+    "addToWatchlist": "Añadir a la watchlist",
+    "inWatchlist": "En la watchlist",
+    "viaYahoo": "vía Yahoo",
+    "viaYahooTitle": "Datos vía Yahoo",
+    "scoreComposition": "Composición de la nota",
+    "compYes": "{{count}} sí",
+    "compPartial": "{{count}} parcial",
+    "compNo": "{{count}} no",
+    "businessModel": "Modelo de negocio",
+    "management": "Dirección",
+    "updating": "Actualizando…",
+    "generateQual": "Iniciar el análisis cualitativo",
+    "generating": "Generando…",
+    "qualCtaText": "El análisis cualitativo evalúa el moat, la previsibilidad de los ingresos y la calidad de la dirección — más allá de las cifras.",
+    "horizonAll": "Todo",
+    "priceUnavailable": "Gráfico de cotización no disponible para este símbolo.",
+    "landingKicker": "De nuestro seguimiento · las mejor valoradas",
+    "sections": {
+      "chiffres": {
+        "title": "Las cifras",
+        "sub": "10 criterios financieros objetivos · deciden los datos, no las opiniones"
+      },
+      "resultats": {
+        "title": "Resultados",
+        "sub": "Último informe publicado y próxima fecha"
+      },
+      "qualitative": {
+        "title": "Análisis cualitativo",
+        "sub": "Modelo de negocio y dirección · opcional, bajo demanda"
+      },
+      "valorisation": {
+        "title": "Valoración",
+        "sub": "Precio de entrada — evaluado por separado de la calidad del negocio"
+      },
+      "actualites": {
+        "title": "Noticias recientes",
+        "sub": "El contexto, sin el ruido"
+      },
+      "cours": {
+        "title": "Cotización",
+        "sub": "Evolución del precio en el horizonte seleccionado"
+      }
+    },
+    "banner": {
+      "noFundamentalsPre": "Datos fundamentales no disponibles para",
+      "noFundamentalsPost": "Este valor no está cubierto — prueba una cotización ADR de EE. UU. si existe."
+    },
+    "toast": {
+      "loginWatchlist": "Inicia sesión para gestionar tu watchlist",
+      "added": "{{ticker}} añadido a la watchlist",
+      "qualGenerated": "Análisis cualitativo generado",
+      "mgmtUpdated": "Datos de dirección actualizados"
+    },
+    "error": {
+      "notFound": "Ticker «{{ticker}}» no encontrado",
+      "tooManyTitle": "Demasiadas solicitudes",
+      "tooManyDesc": "Límite temporal alcanzado. Inténtalo de nuevo en un minuto.",
+      "offlineTitle": "Conexión imposible",
+      "offlineDesc": "No se puede contactar con el servidor. Inténtalo de nuevo en un instante.",
+      "invalidTitle": "Ticker no válido",
+      "invalidDesc": "Letras mayúsculas, 8 caracteres máximo.",
+      "genericTitle": "Error",
+      "newSearch": "Nueva búsqueda"
+    }
+  },
+  "earnings": {
+    "title": "Earnings — {{ticker}}",
+    "transcriptLink": "Ver la transcripción de la última call ↗",
+    "lastReport": "Último informe",
+    "nextReport": "Próximo informe",
+    "beforeOpen": "antes de la apertura",
+    "afterClose": "tras el cierre",
+    "epsExpected": "BPA esperado",
+    "revenueExpected": "Ingresos esperados"
+  },
+  "briefs": {
+    "netMargin": {
+      "why": "Un margen neto positivo demuestra que la empresa gana dinero de verdad una vez pagados todos sus gastos — la base de toda inversión de calidad.",
+      "how": "Beneficio neto ÷ ingresos (últimos 12 meses). Referencia: > 5 % = bueno, ≤ 0 = en pérdidas."
+    },
+    "revenueGrowth5y": {
+      "why": "Unos ingresos que crecen de forma sostenida son el motor de la creación de valor — sin crecimiento, es difícil componer.",
+      "how": "Tendencia (regresión) de los ingresos móviles a lo largo de ~5 años. Referencia: > 10 %/año = bueno."
+    },
+    "fcfGrowth5y": {
+      "why": "El flujo de caja libre POR ACCIÓN es lo que realmente enriquece al accionista: tiene en cuenta la dilución (emisión de acciones). Una empresa puede crecer diluyendo — aquí miramos lo que de verdad te corresponde.",
+      "how": "Tendencia del FCF ajustado (caja libre menos remuneración en acciones) dividido por el número de acciones, a lo largo de 5 años. Referencia: > 10 %/año = bueno."
+    },
+    "fcfMargin": {
+      "why": "Mide cuánta caja realmente libre genera cada euro de ventas, DESPUÉS de contar la remuneración en acciones (a menudo oculta). Es la caja que puede devolverse o reinvertirse.",
+      "how": "(Flujo de explotación − remuneración en acciones − inversiones) ÷ ingresos. Referencia: > 10 % = bueno."
+    },
+    "operatingLeverage": {
+      "why": "Unos márgenes que mejoran cuando suben los ingresos revelan una ventaja de escala: la empresa se vuelve más rentable a medida que crece.",
+      "how": "Pendiente del margen operativo (últimos 12 meses) a lo largo de ~5 años. Creciente = bueno."
+    },
+    "cashRoce": {
+      "why": "Rentabilidad del capital realmente empleado — el núcleo de la calidad de un negocio (enfoque Buffett/Bettin-Mauboussin). Por encima del coste del capital (~8-10 %), la empresa crea riqueza; por debajo, la destruye.",
+      "how": "FCF ajustado ÷ (activos − pasivos corrientes − fondo de comercio − caja excedente). Referencia: > 15 % = bueno, > 25 % = excelente."
+    },
+    "netDebtFcf": {
+      "why": "Indica cuántos años de caja libre harían falta para devolver la deuda — un buen indicador del riesgo financiero y de la fragilidad ante un retroceso.",
+      "how": "(Deuda total − tesorería) ÷ FCF. Referencia: < 3 = sano, > 5 = tensionado."
+    },
+    "cashConversion": {
+      "why": "Comprueba que los beneficios contables se transforman realmente en caja. Una brecha persistente señala beneficios «de papel» (cuentas por cobrar, inventarios que se inflan…).",
+      "how": "Relación entre beneficio y caja generada (derivada del PER y del P/FCF). Referencia: > 1 = la caja acompaña (o supera) al beneficio."
+    },
+    "currentRatio": {
+      "why": "Capacidad de hacer frente a las deudas a corto plazo con sus activos a corto plazo — un indicador simple de solidez del balance y de riesgo de liquidez.",
+      "how": "Activos corrientes ÷ pasivos corrientes. Referencia: > 1,5 = cómodo, < 1 = a vigilar."
+    },
+    "pfcf": {
+      "why": "El precio pagado por 1 € de caja libre anual: la medida de valoración más reveladora. Una empresa excelente comprada demasiado cara sigue siendo una mala inversión en el momento equivocado.",
+      "how": "Capitalización bursátil ÷ FCF (últimos 12 meses). Referencia: < 25× = razonable, > 35× = caro."
+    },
+    "valuation": {
+      "why": "Ofrece un precio de compra indicativo para apuntar a una rentabilidad objetivo: el buen «momento de entrada». Este criterio NO entra en la nota de calidad — una buena empresa lo sigue siendo, solo que aún no al precio adecuado.",
+      "how": "Descuento de la caja futura (DCF) según la rentabilidad objetivo, la hipótesis de crecimiento y el múltiplo de salida."
+    },
+    "shareCount5y": {
+      "why": "El número de acciones decide tu parte del pastel: las recompras netas concentran el valor, la dilución lo dispersa. Un compounder recompra o se mantiene estable.",
+      "how": "CAGR del número de acciones diluidas a lo largo de ~5 años. Referencia: a la baja = recompras (bueno), estable = neutro, al alza = dilución."
+    }
+  },
+  "criteria": {
+    "target": "objetivo {{target}}",
+    "history": "Histórico",
+    "calc": "Cálculo"
+  },
+  "status": {
+    "good": "SÍ",
+    "warn": "PARCIAL",
+    "bad": "NO"
+  },
+  "charts": {
+    "pfcf": "Evolución del P/FCF en el tiempo",
+    "cashRoce": "Evolución del Cash ROCE en el tiempo",
+    "netIncome": "Beneficio neto trimestral",
+    "revenue": "Ventas trimestrales",
+    "fcf": "Free cash flow trimestral",
+    "shares": "Acciones diluidas (media)",
+    "operatingIncome": "Resultado operativo trimestral",
+    "totalDebt": "Deuda a largo plazo"
+  },
+  "valuation": {
+    "assumptions": "Hipótesis",
+    "growth": "Crecimiento esperado (FCF/año)",
+    "exitMultiple": "Múltiplo de salida (P/FCF)",
+    "targetReturn": "Rentabilidad anual objetivo",
+    "pfcfHistory": "Histórico del P/FCF",
+    "buyPrice": "Precio de compra recomendado",
+    "currentPrice": "Precio actual",
+    "below": "Por debajo del precio recomendado",
+    "above": "Por encima del precio recomendado",
+    "note": "Evaluado por separado de la nota de calidad. El precio recomendado es el punto de entrada para apuntar a tu rentabilidad objetivo.",
+    "unavailable": "Valoración no disponible (FCF por acción no calculable para este valor)."
+  }
+}

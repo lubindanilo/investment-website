@@ -1,0 +1,340 @@
+{
+  "common": {
+    "loading": "Loading…",
+    "refresh": "Refresh",
+    "updating": "Updating…",
+    "add": "Add",
+    "retry": "Retry",
+    "close": "Close",
+    "viaYahoo": "via Yahoo"
+  },
+  "nav": {
+    "analyse": "Analyze",
+    "watchlist": "Watchlist",
+    "screener": "Screener"
+  },
+  "userMenu": {
+    "login": "Sign in",
+    "signup": "Create account",
+    "logout": "Sign out",
+    "loggedOut": "Signed out"
+  },
+  "langSwitcher": {
+    "label": "Language"
+  },
+  "home": {
+    "hero": {
+      "chip": "Automated fundamental analysis",
+      "titleLine1": "Find quality companies,",
+      "titleAccent": "without the noise.",
+      "lede": "Enter a ticker and get a quality score out of 10, computed from objective financial criteria. Valuation assessed separately. Plus a monitor that scores the entire market for you.",
+      "ctaAnalyze": "Analyze a stock",
+      "ctaScreener": "Explore the screener"
+    },
+    "stats": {
+      "criteria": "quantified criteria",
+      "tickers": "tickers monitored",
+      "speed": "per analysis"
+    },
+    "benefits": {
+      "0": {
+        "title": "Numbers, not noise",
+        "text": "10 objective financial criteria computed in seconds. The data decides, not opinions."
+      },
+      "1": {
+        "title": "The whole market, monitored",
+        "text": "An automated monitor continuously scores the stock universe and surfaces the best companies."
+      },
+      "2": {
+        "title": "The method of great investors",
+        "text": "Profitability, growth, balance-sheet quality: the criteria of long-term compounders."
+      },
+      "3": {
+        "title": "Quality and price, separated",
+        "text": "Business quality and entry price are judged independently. Never one for the other."
+      }
+    },
+    "how": {
+      "kicker": "How it works",
+      "title": "A stock judged at a glance"
+    },
+    "steps": {
+      "0": {
+        "title": "Type a ticker",
+        "text": "Enter a stock symbol. The quality score appears in seconds."
+      },
+      "1": {
+        "title": "Read the score and its breakdown",
+        "text": "A score out of 10, its green/amber/red split, and the detail of all 10 criteria."
+      },
+      "2": {
+        "title": "Decide on the entry price",
+        "text": "Adjust your assumptions to get the recommended buy price, separate from quality."
+      }
+    },
+    "cta": {
+      "title": "Find the 10/10s without hunting for them",
+      "subtitle": "The monitor scores the universe continuously — you reap the best.",
+      "analyze": "Analyze a stock",
+      "signup": "Create an account"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to pick up your analyses."
+    },
+    "signup": {
+      "title": "Create an account",
+      "subtitle": "A few seconds to start scoring the market."
+    },
+    "email": "Email",
+    "emailPlaceholder": "you@example.com",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "passwordHint": "8 characters minimum.",
+    "togglePassword": "Show password",
+    "submit": {
+      "login": "Sign in",
+      "signup": "Create my account"
+    },
+    "switchToSignup": {
+      "prompt": "No account yet? ",
+      "link": "Create an account"
+    },
+    "switchToLogin": {
+      "prompt": "Already have an account? ",
+      "link": "Sign in"
+    },
+    "error": {
+      "required": "Email and password required",
+      "passwordTooShort": "Password: 8 characters minimum",
+      "passwordMismatch": "Passwords do not match",
+      "unexpected": "Unexpected error"
+    },
+    "aside": {
+      "kicker": "Lubin Investment",
+      "h2Line1": "Let the data decide,",
+      "h2Line2": "not opinions.",
+      "p": "A quality score out of 10, a separate valuation, and monitoring that watches the entire market for you."
+    }
+  },
+  "screener": {
+    "title": "Screener",
+    "subtitle": "The highest scores across the universe, ranked by our monitoring. The 10/10s on top.",
+    "progress": {
+      "label": "Universe monitoring",
+      "upToDate": "Up to date",
+      "scored": "{{scored}} / {{total}} stocks re-evaluated"
+    },
+    "filters": {
+      "kicker": "Filters",
+      "minScore": "Minimum score",
+      "maxPfcf": "Max P/FCF"
+    },
+    "results_one": "{{count}} result",
+    "results_other": "{{count}} results",
+    "empty": {
+      "title": "No company above this threshold",
+      "desc": "Monitoring scores the universe gradually — check back later, or lower the threshold."
+    },
+    "col": {
+      "company": "Company",
+      "sector": "Sector",
+      "score": "Score",
+      "price": "Price",
+      "change": "Chg.",
+      "oneYear": "1Y"
+    }
+  },
+  "watchlist": {
+    "title": "Watchlist",
+    "followed_one": "{{count}} stock tracked · price and P/FCF updated on every visit.",
+    "followed_other": "{{count}} stocks tracked · price and P/FCF updated on every visit.",
+    "refresh": "Refresh",
+    "refreshing": "Updating…",
+    "fromScreener": "From the screener",
+    "addPlaceholder": "Add a ticker…",
+    "add": "Add",
+    "remove": "Remove",
+    "empty": {
+      "title": "Your watchlist is empty",
+      "desc": "Add a ticker above, or explore the screener to track the top-rated stocks.",
+      "cta": "Explore the screener"
+    },
+    "col": {
+      "company": "Company",
+      "price": "Price",
+      "score": "Score",
+      "earnings": "Next earnings"
+    },
+    "toast": {
+      "alreadyAdded": "{{ticker}} is already in your watchlist.",
+      "added": "{{ticker}} added"
+    }
+  },
+  "analyse": {
+    "hintPrefix": "Tip: type a ticker like",
+    "hintOr": "or",
+    "searchPlaceholder": "Enter a ticker — e.g. AAPL, MSFT, ASML…",
+    "analyze": "Analyze",
+    "analyzing": "Analyzing…",
+    "addToWatchlist": "Add to watchlist",
+    "inWatchlist": "In watchlist",
+    "viaYahoo": "via Yahoo",
+    "viaYahooTitle": "Data via Yahoo",
+    "scoreComposition": "Score breakdown",
+    "compYes": "{{count}} yes",
+    "compPartial": "{{count}} partial",
+    "compNo": "{{count}} no",
+    "businessModel": "Business model",
+    "management": "Management",
+    "updating": "Updating…",
+    "generateQual": "Run qualitative analysis",
+    "generating": "Generating…",
+    "qualCtaText": "The qualitative analysis assesses the moat, revenue predictability and management quality — beyond the numbers alone.",
+    "horizonAll": "All",
+    "priceUnavailable": "Price chart unavailable for this symbol.",
+    "landingKicker": "From our watch · top rated",
+    "sections": {
+      "chiffres": {
+        "title": "The numbers",
+        "sub": "10 objective financial criteria · the data decides, not opinions"
+      },
+      "resultats": {
+        "title": "Earnings",
+        "sub": "Latest published report and next release"
+      },
+      "qualitative": {
+        "title": "Qualitative analysis",
+        "sub": "Business model and management · optional, on demand"
+      },
+      "valorisation": {
+        "title": "Valuation",
+        "sub": "Entry price — judged separately from business quality"
+      },
+      "actualites": {
+        "title": "Recent news",
+        "sub": "The context, without the noise"
+      },
+      "cours": {
+        "title": "Price",
+        "sub": "Price movement over the selected horizon"
+      }
+    },
+    "banner": {
+      "noFundamentalsPre": "Fundamental data unavailable for",
+      "noFundamentalsPost": "This stock isn't covered — try a US ADR listing if one exists."
+    },
+    "toast": {
+      "loginWatchlist": "Log in to manage your watchlist",
+      "added": "{{ticker}} added to watchlist",
+      "qualGenerated": "Qualitative analysis generated",
+      "mgmtUpdated": "Management data updated"
+    },
+    "error": {
+      "notFound": "Ticker “{{ticker}}” not found",
+      "tooManyTitle": "Too many requests",
+      "tooManyDesc": "Temporary limit reached. Try again in a minute.",
+      "offlineTitle": "Connection failed",
+      "offlineDesc": "Unable to reach the server. Try again in a moment.",
+      "invalidTitle": "Invalid ticker",
+      "invalidDesc": "Uppercase letters, 8 characters max.",
+      "genericTitle": "Error",
+      "newSearch": "New search"
+    }
+  },
+  "earnings": {
+    "title": "Earnings — {{ticker}}",
+    "transcriptLink": "View the latest call transcript ↗",
+    "lastReport": "Last report",
+    "nextReport": "Next report",
+    "beforeOpen": "before open",
+    "afterClose": "after close",
+    "epsExpected": "Expected EPS",
+    "revenueExpected": "Expected revenue"
+  },
+  "briefs": {
+    "netMargin": {
+      "why": "A positive net margin proves the company actually makes money once all its costs are paid — the foundation of any quality investment.",
+      "how": "Net income ÷ revenue (trailing 12 months). Benchmark: > 5% = good, ≤ 0 = loss-making."
+    },
+    "revenueGrowth5y": {
+      "why": "Revenue that grows over time is the engine of value creation — without growth, compounding is hard.",
+      "how": "Trend (regression) of trailing revenue over ~5 years. Benchmark: > 10%/year = good."
+    },
+    "fcfGrowth5y": {
+      "why": "Free cash flow PER SHARE is what truly enriches the shareholder: it accounts for dilution (share issuance). A company can grow while diluting — here we look at what actually accrues to you.",
+      "how": "Trend of adjusted FCF (free cash minus stock-based compensation) divided by share count, over 5 years. Benchmark: > 10%/year = good."
+    },
+    "fcfMargin": {
+      "why": "Measures how much truly free cash each euro of sales generates, AFTER accounting for stock-based compensation (often hidden). This is the cash that can be returned or reinvested.",
+      "how": "(Operating cash flow − stock-based compensation − capital expenditures) ÷ revenue. Benchmark: > 10% = good."
+    },
+    "operatingLeverage": {
+      "why": "Margins that improve as revenue rises reveal a scale advantage: the company becomes more profitable as it grows.",
+      "how": "Slope of the operating margin (trailing 12 months) over ~5 years. Rising = good."
+    },
+    "cashRoce": {
+      "why": "Return on the capital actually employed — the core of business quality (Buffett/Bettin-Mauboussin approach). Above the cost of capital (~8-10%), the company creates wealth; below it, it destroys wealth.",
+      "how": "Adjusted FCF ÷ (assets − current liabilities − goodwill − excess cash). Benchmark: > 15% = good, > 25% = excellent."
+    },
+    "netDebtFcf": {
+      "why": "Shows how many years of free cash it would take to repay the debt — a good proxy for financial risk and fragility in a downturn.",
+      "how": "(Total debt − cash) ÷ FCF. Benchmark: < 3 = healthy, > 5 = stretched."
+    },
+    "cashConversion": {
+      "why": "Checks that accounting earnings actually convert into real cash. A persistent gap signals \"paper\" profits (rising receivables, bloating inventories…).",
+      "how": "Ratio of earnings to cash generated (derived from the P/E and P/FCF). Benchmark: > 1 = cash keeps up with (or exceeds) earnings."
+    },
+    "currentRatio": {
+      "why": "Ability to meet short-term liabilities with short-term assets — a simple indicator of balance-sheet strength and liquidity risk.",
+      "how": "Current assets ÷ current liabilities. Benchmark: > 1.5 = comfortable, < 1 = watch closely."
+    },
+    "pfcf": {
+      "why": "The price paid for €1 of annual free cash: the most telling valuation measure. An excellent company bought too dear is still a poor investment at the wrong time.",
+      "how": "Market capitalization ÷ FCF (trailing 12 months). Benchmark: < 25× = reasonable, > 35× = expensive."
+    },
+    "valuation": {
+      "why": "Gives an indicative buy price to target a desired return: the right \"entry timing.\" This criterion does NOT factor into the quality score — a good company stays good, it's just not yet at the right price.",
+      "how": "Discounting of future cash (DCF) based on the target return, the growth assumption and the exit multiple."
+    },
+    "shareCount5y": {
+      "why": "The share count decides your slice of the pie: net buybacks concentrate value, dilution disperses it. A compounder buys back or stays flat.",
+      "how": "CAGR of diluted share count over ~5 years. Benchmark: declining = buybacks (good), flat = neutral, rising = dilution."
+    }
+  },
+  "criteria": {
+    "target": "target {{target}}",
+    "history": "History",
+    "calc": "Calculation"
+  },
+  "status": {
+    "good": "YES",
+    "warn": "PARTIAL",
+    "bad": "NO"
+  },
+  "charts": {
+    "pfcf": "P/FCF over time",
+    "cashRoce": "Cash ROCE over time",
+    "netIncome": "Quarterly net income",
+    "revenue": "Quarterly revenue",
+    "fcf": "Quarterly free cash flow",
+    "shares": "Diluted shares (average)",
+    "operatingIncome": "Quarterly operating income",
+    "totalDebt": "Long-term debt"
+  },
+  "valuation": {
+    "assumptions": "Assumptions",
+    "growth": "Expected growth (FCF/yr)",
+    "exitMultiple": "Exit multiple (P/FCF)",
+    "targetReturn": "Target annual return",
+    "pfcfHistory": "P/FCF history",
+    "buyPrice": "Recommended buy price",
+    "currentPrice": "Current price",
+    "below": "Below the recommended price",
+    "above": "Above the recommended price",
+    "note": "Judged separately from the quality score. The recommended price is the entry point to aim for your target return.",
+    "unavailable": "Valuation unavailable (FCF per share not computable for this stock)."
+  }
+}

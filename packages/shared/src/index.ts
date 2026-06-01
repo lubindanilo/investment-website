@@ -8,6 +8,12 @@
 export type CriterionStatus = 'pass' | 'fail' | 'warn';
 
 export interface Criterion {
+  /**
+   * Identifiant stable, indépendant de la langue (ex 'fcfGrowth5y'). Présent sur les
+   * critères chiffrés déterministes ; sert à retrouver le graphique/brief associé sans
+   * dépendre du libellé `nom` (qui, lui, est localisé). Absent sur les critères qualitatifs.
+   */
+  key?: string;
   nom: string;
   valeur: string;
   cible: string;
@@ -284,7 +290,10 @@ export type TimeseriesMetricKey = 'revenue' | 'netIncome' | 'operatingIncome' | 
 
 export interface CriterionHistogram {
   metricKey: TimeseriesMetricKey;
+  /** Libellé français (fallback). Le front affiche plutôt `t(labelKey)`. */
   label: string;
+  /** Clé i18n du titre du graphique (ex 'charts.fcf'). */
+  labelKey: string;
   /** Format : 'currency' (montant $), 'count' (nb actions), 'percent' (×100 + %) */
   unit: 'currency' | 'count' | 'percent';
 }
@@ -293,20 +302,29 @@ export interface CriterionHistogram {
  * Liste des critères qui ouvrent un graphique LINE (≠ histogramme).
  * À étendre si on ajoute d'autres ratios trackables (PE, PB, EV/EBITDA, etc.).
  */
-export const CRITERION_LINECHARTS: Record<string, { label: string; kind: 'pfcf' | 'cashRoce' }> = {
-  'P/FCF actuel': { label: 'Évolution du P/FCF dans le temps', kind: 'pfcf' },
-  'Cash ROCE':    { label: 'Évolution du Cash ROCE dans le temps', kind: 'cashRoce' },
+// Clés stables des critères chiffrés (indépendantes de la langue). Servent à indexer
+// graphiques, briefs et catalogues i18n sans dépendre du libellé localisé.
+export type QuantCriterionKey =
+  | 'netMargin' | 'revenueGrowth5y' | 'fcfGrowth5y' | 'shareCount5y' | 'fcfMargin'
+  | 'operatingLeverage' | 'cashRoce' | 'netDebtFcf' | 'cashConversion' | 'currentRatio'
+  | 'pfcf' | 'valuation';
+
+/** Critères ouvrant un graphique LINE, indexés par clé stable. `labelKey` = clé i18n du titre. */
+export const CRITERION_LINECHARTS: Record<string, { label: string; labelKey: string; kind: 'pfcf' | 'cashRoce' }> = {
+  pfcf:     { label: 'Évolution du P/FCF dans le temps', labelKey: 'charts.pfcf', kind: 'pfcf' },
+  cashRoce: { label: 'Évolution du Cash ROCE dans le temps', labelKey: 'charts.cashRoce', kind: 'cashRoce' },
 };
 
+/** Critères ouvrant un HISTOGRAMME, indexés par clé stable. `labelKey` = clé i18n du titre. */
 export const CRITERION_HISTOGRAMS: Record<string, CriterionHistogram> = {
-  'Rentable (marge nette)':            { metricKey: 'netIncome',       label: 'Résultat net trimestriel',         unit: 'currency' },
-  'Croissance du CA 5 ans':            { metricKey: 'revenue',         label: 'CA trimestriel',                   unit: 'currency' },
-  'Croissance FCF/action 5 ans':       { metricKey: 'fcf',             label: 'Free cash flow trimestriel',       unit: 'currency' },
-  "Évolution nombre d'actions 5 ans":  { metricKey: 'shares',          label: 'Actions diluées (moyenne)',        unit: 'count'    },
-  'Marge FCF (ajustée SBC)':           { metricKey: 'fcf',             label: 'Free cash flow trimestriel',       unit: 'currency' },
-  'Operating leverage':                { metricKey: 'operatingIncome', label: 'Résultat opérationnel trimestriel', unit: 'currency' },
-  'Dette nette / FCF':                 { metricKey: 'totalDebt',       label: 'Dette long terme',                 unit: 'currency' },
-  'Cash Conversion Rate':              { metricKey: 'fcf',             label: 'Free cash flow trimestriel',       unit: 'currency' },
+  netMargin:         { metricKey: 'netIncome',       label: 'Résultat net trimestriel',          labelKey: 'charts.netIncome',       unit: 'currency' },
+  revenueGrowth5y:   { metricKey: 'revenue',         label: 'CA trimestriel',                     labelKey: 'charts.revenue',         unit: 'currency' },
+  fcfGrowth5y:       { metricKey: 'fcf',             label: 'Free cash flow trimestriel',         labelKey: 'charts.fcf',             unit: 'currency' },
+  shareCount5y:      { metricKey: 'shares',          label: 'Actions diluées (moyenne)',          labelKey: 'charts.shares',          unit: 'count'    },
+  fcfMargin:         { metricKey: 'fcf',             label: 'Free cash flow trimestriel',         labelKey: 'charts.fcf',             unit: 'currency' },
+  operatingLeverage: { metricKey: 'operatingIncome', label: 'Résultat opérationnel trimestriel',  labelKey: 'charts.operatingIncome', unit: 'currency' },
+  netDebtFcf:        { metricKey: 'totalDebt',       label: 'Dette long terme',                   labelKey: 'charts.totalDebt',       unit: 'currency' },
+  cashConversion:    { metricKey: 'fcf',             label: 'Free cash flow trimestriel',         labelKey: 'charts.fcf',             unit: 'currency' },
 };
 
 // ─── P/FCF historique (graphique line cliquable depuis le critère) ────────

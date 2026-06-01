@@ -7,6 +7,7 @@
  *   buyPrice  = exitPrice / (1 + rendementVisé)^5
  */
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Icon } from './primitives.js';
 import { PfcfChartModal } from '../PfcfChartModal.js';
 import './ValuationBlock.css';
@@ -35,6 +36,7 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, t
   ticker?: string;
   annualOnly?: boolean;
 }) {
+  const { t } = useTranslation();
   const fcfPerShare = price != null && pfcfTTM != null && pfcfTTM > 0 ? price / pfcfTTM : null;
   const [growth, setGrowth] = useState(() => clamp(Math.round((valoParams?.fcfGrowth ?? 0.1) * 100), 0, 30));
   const [exitMult, setExitMult] = useState(() => clamp(Math.round(valoParams?.targetMultiple ?? 20), 8, 40));
@@ -46,7 +48,7 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, t
   if (fcfPerShare == null || price == null) {
     return (
       <div className="card valb" style={{ padding: 22 }}>
-        <span className="muted" style={{ fontSize: 14 }}>Valorisation indisponible (FCF par action non calculable pour ce titre).</span>
+        <span className="muted" style={{ fontSize: 14 }}>{t('valuation.unavailable')}</span>
       </div>
     );
   }
@@ -62,30 +64,30 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, t
       <div className="valb-left">
         <div className="row gap-8 valb-kicker-row">
           <Icon name="scale" size={16} style={{ color: 'var(--ink-3)' }} />
-          <span className="valb-kicker">Hypothèses</span>
+          <span className="valb-kicker">{t('valuation.assumptions')}</span>
         </div>
         <div className="col gap-18">
-          <Slider label="Croissance attendue (FCF/an)" value={growth} set={setGrowth} min={0} max={30} step={1} suffix=" %" />
-          <Slider label="Multiple de sortie (P/FCF)" value={exitMult} set={setExitMult} min={8} max={40} step={1} suffix="×" />
-          <Slider label="Rendement annuel visé" value={ret} set={setRet} min={6} max={20} step={1} suffix=" %" />
+          <Slider label={t('valuation.growth')} value={growth} set={setGrowth} min={0} max={30} step={1} suffix=" %" />
+          <Slider label={t('valuation.exitMultiple')} value={exitMult} set={setExitMult} min={8} max={40} step={1} suffix="×" />
+          <Slider label={t('valuation.targetReturn')} value={ret} set={setRet} min={6} max={20} step={1} suffix=" %" />
         </div>
         {ticker && pfcfTTM != null && pfcfTTM > 0 && (
           <button type="button" className="valb-hist-btn" onClick={() => setPfcfChartOpen(true)}>
-            <Icon name="bars" size={14} /> Historique du P/FCF
+            <Icon name="bars" size={14} /> {t('valuation.pfcfHistory')}
           </button>
         )}
       </div>
       <div className="valb-right">
-        <span className="valb-kicker">Prix d'achat conseillé</span>
+        <span className="valb-kicker">{t('valuation.buyPrice')}</span>
         <div className="num valb-price">{sym}{buyPrice.toFixed(0)}</div>
         <div className="row gap-8 valb-current">
-          <span className="tiny muted">Cours actuel</span>
+          <span className="tiny muted">{t('valuation.currentPrice')}</span>
           <span className="num tiny" style={{ fontWeight: 600 }}>{sym}{price.toFixed(2)}</span>
         </div>
         <div className={'valb-badge ' + (cheap ? 'valb-badge-good' : 'valb-badge-bad')}>
-          {cheap ? 'Sous le prix conseillé' : 'Au-dessus du prix conseillé'} · {upside >= 0 ? '+' : ''}{upside.toFixed(0)} %
+          {cheap ? t('valuation.below') : t('valuation.above')} · {upside >= 0 ? '+' : ''}{upside.toFixed(0)} %
         </div>
-        <p className="tiny muted valb-note">Jugé <b style={{ color: 'var(--ink-2)' }}>séparément</b> de la note de qualité. Le prix conseillé est le cours d'entrée pour viser votre rendement.</p>
+        <p className="tiny muted valb-note">{t('valuation.note')}</p>
       </div>
 
       {pfcfChartOpen && ticker && (

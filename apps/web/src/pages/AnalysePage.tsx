@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { AnalyzeResponse, ScreenerTopRow, Criterion } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
@@ -39,6 +40,7 @@ export function AnalysePage() {
   const toast = useToast();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { t } = useTranslation();
 
   const [ticker, setTicker] = useState(routeTicker?.toUpperCase() ?? '');
   const [analysis, setAnalysis] = useState<AnalyzeResponse | null>(null);
@@ -73,20 +75,20 @@ export function AnalysePage() {
     if (!analysis) return;
     if (!user) {
       navigate('/login', { state: { from: `/analyse/${analysis.ticker}` } });
-      toast.push('warn', 'Connecte-toi pour gérer ta watchlist');
+      toast.push('warn', t('analyse.toast.loginWatchlist'));
       return;
     }
     try {
       await api.watchlist.add(analysis.ticker);
       setInWatchlist(prev => new Set(prev).add(analysis.ticker));
-      toast.push('success', `${analysis.ticker} ajouté à la watchlist`);
+      toast.push('success', t('analyse.toast.added', { ticker: analysis.ticker }));
     } catch (e) { toast.push('error', (e as Error).message); }
   }
 
   async function generateQualitative() {
     if (!analysis) return;
     setGeneratingQual(true);
-    try { setAnalysis(await api.generateQualitative(analysis.ticker)); toast.push('success', 'Analyse qualitative générée'); }
+    try { setAnalysis(await api.generateQualitative(analysis.ticker)); toast.push('success', t('analyse.toast.qualGenerated')); }
     catch (e) { toast.push('error', (e as Error).message); }
     finally { setGeneratingQual(false); }
   }
@@ -94,7 +96,7 @@ export function AnalysePage() {
   async function refreshManagementOnly() {
     if (!analysis) return;
     setRefreshingQual(true);
-    try { setAnalysis(await api.refreshManagement(analysis.ticker)); toast.push('success', 'Données management mises à jour'); }
+    try { setAnalysis(await api.refreshManagement(analysis.ticker)); toast.push('success', t('analyse.toast.mgmtUpdated')); }
     catch (e) { toast.push('error', (e as Error).message); }
     finally { setRefreshingQual(false); }
   }
@@ -110,7 +112,7 @@ export function AnalysePage() {
         <div className="anl-search-block">
           <SearchBar value={ticker} onChange={setTicker} onSubmit={run} loading={loading} />
           {!loading && !analysis && !error && (
-            <span className="tiny muted anl-hint">Astuce : tape un ticker comme <b>AAPL</b>, <b>MSFT</b> ou <b>ASML</b>.</span>
+            <span className="tiny muted anl-hint">{t('analyse.hintPrefix')} <b>AAPL</b>, <b>MSFT</b> {t('analyse.hintOr')} <b>ASML</b>.</span>
           )}
         </div>
 
@@ -141,15 +143,16 @@ export function AnalysePage() {
 function SearchBar({ value, onChange, onSubmit, loading }: {
   value: string; onChange: (v: string) => void; onSubmit: (v: string) => void; loading: boolean;
 }) {
+  const { t } = useTranslation();
   return (
     <form className="anl-search" onSubmit={(e) => { e.preventDefault(); onSubmit(value); }}>
       <div className="anl-search-field">
         <Icon name="search" size={18} className="anl-search-icon" />
         <input className="anl-search-input num" value={value} onChange={(e) => onChange(e.target.value.toUpperCase())}
-          placeholder="Entrez un ticker — ex. AAPL, MSFT, ASML…" />
+          placeholder={t('analyse.searchPlaceholder')} />
       </div>
       <button type="submit" className="btn btn-brand" style={{ height: 48 }} disabled={loading || !value.trim()}>
-        {loading ? 'Analyse…' : <>Analyser <Icon name="arrowRight" size={17} /></>}
+        {loading ? t('analyse.analyzing') : <>{t('analyse.analyze')} <Icon name="arrowRight" size={17} /></>}
       </button>
     </form>
   );
@@ -180,6 +183,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
   watched: boolean; onWatch: () => void; onGenerateQual: () => void; generatingQual: boolean;
   refreshingQual: boolean; onRefreshMgmt: () => void;
 }) {
+  const { t } = useTranslation();
   const s10 = score10(chiffres);
   const counts = compositionCounts(chiffres);
   const currency = analysis.currency || 'USD';
@@ -191,7 +195,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
         {!analysis.fundamentalsAvailable && (
           <div className="anl-banner">
             <Icon name="shield" size={16} />
-            <span>Données fondamentales indisponibles pour <b>{analysis.ticker}</b>. Ce titre n'est pas couvert — essaie une cotation ADR US si elle existe.</span>
+            <span>{t('analyse.banner.noFundamentalsPre')} <b>{analysis.ticker}</b>. {t('analyse.banner.noFundamentalsPost')}</span>
           </div>
         )}
 
@@ -204,22 +208,22 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
                 <div className="row gap-10">
                   <h1 className="anl-company">{analysis.company}</h1>
                   <span className="num anl-ticker-badge">{analysis.ticker}</span>
-                  {annualOnly && <span className="num anl-ticker-badge" title="Données via Yahoo">via Yahoo</span>}
+                  {annualOnly && <span className="num anl-ticker-badge" title={t('analyse.viaYahooTitle')}>{t('analyse.viaYahoo')}</span>}
                 </div>
                 {analysis.price != null && (
                   <div className="num anl-price">{currency} {analysis.price.toFixed(2)}</div>
                 )}
               </div>
               <button className={'btn ' + (watched ? 'btn-soft' : 'btn-brand')} onClick={onWatch}>
-                {watched ? <><Icon name="check" size={16} /> Dans la watchlist</> : <><Icon name="plus" size={16} /> Ajouter à la watchlist</>}
+                {watched ? <><Icon name="check" size={16} /> {t('analyse.inWatchlist')}</> : <><Icon name="plus" size={16} /> {t('analyse.addToWatchlist')}</>}
               </button>
             </div>
             {analysis.verdict_direct?.trim() && <p className="anl-verdict">{analysis.verdict_direct}</p>}
             <div className="col gap-6 anl-composition">
               <div className="row between">
-                <span className="tiny muted">Composition de la note</span>
+                <span className="tiny muted">{t('analyse.scoreComposition')}</span>
                 <span className="num tiny anl-comp-counts">
-                  <span style={{ color: 'var(--good)' }}>{counts.good} oui</span> · <span style={{ color: 'var(--warn)' }}>{counts.warn} partiel</span> · <span style={{ color: 'var(--bad)' }}>{counts.bad} non</span>
+                  <span style={{ color: 'var(--good)' }}>{t('analyse.compYes', { count: counts.good })}</span> · <span style={{ color: 'var(--warn)' }}>{t('analyse.compPartial', { count: counts.warn })}</span> · <span style={{ color: 'var(--bad)' }}>{t('analyse.compNo', { count: counts.bad })}</span>
                 </span>
               </div>
               <CompositionBar counts={counts} />
@@ -231,57 +235,57 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
         <PriceSection ticker={analysis.ticker} currency={currency} />
 
         {/* 10 critères */}
-        <Section title="Les chiffres" sub="10 critères financiers objectifs · la donnée tranche, pas les opinions">
+        <Section title={t('analyse.sections.chiffres.title')} sub={t('analyse.sections.chiffres.sub')}>
           <CriteriaGrid items={chiffres} ticker={analysis.ticker} currency={currency} annualOnly={annualOnly} />
         </Section>
 
         {/* Résultats */}
         {(analysis.earnings?.next || analysis.earnings?.last) && (
-          <Section title="Résultats" sub="Dernier rapport publié et prochaine échéance">
+          <Section title={t('analyse.sections.resultats.title')} sub={t('analyse.sections.resultats.sub')}>
             <EarningsPanel ticker={analysis.ticker} earnings={analysis.earnings} currency={currency} />
           </Section>
         )}
 
         {/* Qualitatif (à la demande) */}
         <Section
-          title="Analyse qualitative"
-          sub="Business model et management · optionnelle, à la demande"
+          title={t('analyse.sections.qualitative.title')}
+          sub={t('analyse.sections.qualitative.sub')}
           right={analysis.qualitativeAvailable
             ? <button className="btn btn-ghost btn-sm" onClick={onRefreshMgmt} disabled={refreshingQual}>
-                {refreshingQual ? <><span className="spinner" /> Maj…</> : <><Icon name="refresh" size={14} /> Management</>}
+                {refreshingQual ? <><span className="spinner" /> {t('analyse.updating')}</> : <><Icon name="refresh" size={14} /> {t('analyse.management')}</>}
               </button>
             : undefined}
         >
           {analysis.qualitativeAvailable ? (
             <div className="col gap-20">
               <div className="col gap-10">
-                <span className="kicker anl-qual-kicker">Business model · {scoreOf(business)}</span>
+                <span className="kicker anl-qual-kicker">{t('analyse.businessModel')} · {scoreOf(business)}</span>
                 <QualGrid items={business} />
               </div>
               <div className="col gap-10">
-                <span className="kicker anl-qual-kicker">Management · {scoreOf(management)}</span>
+                <span className="kicker anl-qual-kicker">{t('analyse.management')} · {scoreOf(management)}</span>
                 <QualGrid items={management} />
               </div>
             </div>
           ) : (
             <div className="card anl-qual-cta">
               <div className="anl-qual-cta-icon"><Icon name="layers" size={22} /></div>
-              <p>L'analyse qualitative évalue le moat, la prévisibilité des revenus et la qualité du management — au-delà des seuls chiffres.</p>
+              <p>{t('analyse.qualCtaText')}</p>
               <button className="btn btn-soft" onClick={onGenerateQual} disabled={generatingQual}>
-                {generatingQual ? <><span className="spinner" /> Génération…</> : 'Lancer l\'analyse qualitative'}
+                {generatingQual ? <><span className="spinner" /> {t('analyse.generating')}</> : t('analyse.generateQual')}
               </button>
             </div>
           )}
         </Section>
 
         {/* Valorisation */}
-        <Section title="Valorisation" sub="Prix d'entrée — jugé séparément de la qualité du business">
+        <Section title={t('analyse.sections.valorisation.title')} sub={t('analyse.sections.valorisation.sub')}>
           <ValuationBlock price={analysis.price} pfcfTTM={analysis.metrics.pfcfTTM} currency={currency} valoParams={analysis.valoParams} ticker={analysis.ticker} annualOnly={annualOnly} />
         </Section>
 
         {/* Actualités */}
         {analysis.news.length > 0 && (
-          <Section title="Actualités récentes" sub="Le contexte, sans le bruit">
+          <Section title={t('analyse.sections.actualites.title')} sub={t('analyse.sections.actualites.sub')}>
             <div className="card anl-news">
               {analysis.news.map((n, i) => (
                 <a key={i} href={n.url} target="_blank" rel="noopener noreferrer" className="anl-news-row">
@@ -300,6 +304,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
 
 // ─── Section cours (SVG via priceHistory) ────────────────────────────────────
 function PriceSection({ ticker, currency }: { ticker: string; currency: string }) {
+  const { t } = useTranslation();
   const [horizon, setHorizon] = useState('5A');
   const [data, setData] = useState<number[] | null>(null);
   const [loading, setLoading] = useState(true);
@@ -315,14 +320,14 @@ function PriceSection({ ticker, currency }: { ticker: string; currency: string }
   }, [ticker, horizon]);
 
   return (
-    <Section title="Cours" sub="Évolution du prix sur l'horizon sélectionné"
+    <Section title={t('analyse.sections.cours.title')} sub={t('analyse.sections.cours.sub')}
       right={<div className="seg">{Object.keys(HORIZONS).map(h => (
-        <button key={h} type="button" data-active={h === horizon} onClick={() => setHorizon(h)}>{h}</button>
+        <button key={h} type="button" data-active={h === horizon} onClick={() => setHorizon(h)}>{h === 'Tout' ? t('analyse.horizonAll') : h}</button>
       ))}</div>}>
       <div className="card anl-price-card">
         {loading ? <div className="skel-ui" style={{ height: 240 }} />
           : data && data.length >= 2 ? <PriceChart data={data} currency={currency === 'USD' ? '$' : ''} />
-          : <div className="anl-price-empty">Graphique de cours indisponible pour ce symbole.</div>}
+          : <div className="anl-price-empty">{t('analyse.priceUnavailable')}</div>}
       </div>
     </Section>
   );
@@ -351,24 +356,26 @@ function LoadingState() {
 
 // ─── Erreur ──────────────────────────────────────────────────────────────────
 function ErrorState({ error, ticker, onRetry }: { error: ApiError; ticker: string; onRetry: () => void }) {
+  const { t } = useTranslation();
   let title: string, desc: string, icon: 'search' | 'shield' | 'refresh' = 'search';
-  if (error.status === 404) { title = `Ticker « ${ticker} » introuvable`; desc = error.details ?? error.userMessage; icon = 'search'; }
-  else if (error.status === 429) { title = 'Trop de requêtes'; desc = 'Limite temporaire atteinte. Réessaie dans une minute.'; icon = 'refresh'; }
-  else if (error.status === 0) { title = 'Connexion impossible'; desc = 'Impossible de joindre le serveur. Réessaie dans un instant.'; icon = 'refresh'; }
-  else if (error.status === 400) { title = 'Ticker invalide'; desc = 'Lettres majuscules, 8 caractères max.'; icon = 'search'; }
-  else { title = 'Erreur'; desc = error.userMessage; icon = 'shield'; }
+  if (error.status === 404) { title = t('analyse.error.notFound', { ticker }); desc = error.details ?? error.userMessage; icon = 'search'; }
+  else if (error.status === 429) { title = t('analyse.error.tooManyTitle'); desc = t('analyse.error.tooManyDesc'); icon = 'refresh'; }
+  else if (error.status === 0) { title = t('analyse.error.offlineTitle'); desc = t('analyse.error.offlineDesc'); icon = 'refresh'; }
+  else if (error.status === 400) { title = t('analyse.error.invalidTitle'); desc = t('analyse.error.invalidDesc'); icon = 'search'; }
+  else { title = t('analyse.error.genericTitle'); desc = error.userMessage; icon = 'shield'; }
   return (
     <div className="card anl-error fade-up">
       <div className="anl-error-icon"><Icon name={icon} size={26} /></div>
       <h3>{title}</h3>
       <p className="muted">{desc}</p>
-      <button className="btn btn-ghost" onClick={onRetry} style={{ marginTop: 6 }}>Nouvelle recherche</button>
+      <button className="btn btn-ghost" onClick={onRetry} style={{ marginTop: 6 }}>{t('analyse.error.newSearch')}</button>
     </div>
   );
 }
 
 // ─── Vitrine (état vide) — les mieux notées ──────────────────────────────────
 function LandingDiscovery({ onPick }: { onPick: (ticker: string) => void }) {
+  const { t } = useTranslation();
   const [picks, setPicks] = useState<ScreenerTopRow[]>([]);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
@@ -383,7 +390,7 @@ function LandingDiscovery({ onPick }: { onPick: (ticker: string) => void }) {
     <div className="fade-up anl-landing">
       <div className="row gap-8 anl-landing-head">
         <Icon name="star" size={16} style={{ color: 'var(--brand)' }} />
-        <span className="kicker">Issu de la veille · les mieux notées</span>
+        <span className="kicker">{t('analyse.landingKicker')}</span>
       </div>
       <div className="anl-landing-grid">
         {!loaded

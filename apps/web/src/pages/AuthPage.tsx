@@ -4,6 +4,7 @@
  * validation email + mot de passe ≥ 8, confirmation en inscription).
  */
 import { useState, type FormEvent } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext.js';
 import { ApiError } from '../lib/api.js';
@@ -14,6 +15,7 @@ import './AuthPage.css';
 type Mode = 'login' | 'signup';
 
 export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
+  const { t } = useTranslation();
   const { user, loading, login, signup } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -34,9 +36,9 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
-    if (!email.trim() || !password) { setError('Email et mot de passe requis'); return; }
-    if (password.length < 8) { setError('Mot de passe : 8 caractères minimum'); return; }
-    if (mode === 'signup' && password !== confirm) { setError('Les mots de passe ne correspondent pas'); return; }
+    if (!email.trim() || !password) { setError(t('auth.error.required')); return; }
+    if (password.length < 8) { setError(t('auth.error.passwordTooShort')); return; }
+    if (mode === 'signup' && password !== confirm) { setError(t('auth.error.passwordMismatch')); return; }
     setSubmitting(true);
     try {
       if (mode === 'signup') await signup(email.trim(), password);
@@ -44,7 +46,7 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
       const from = (location.state as { from?: string } | null)?.from ?? '/';
       navigate(from, { replace: true });
     } catch (err) {
-      setError(err instanceof ApiError ? err.userMessage : ((err as Error).message ?? 'Erreur inattendue'));
+      setError(err instanceof ApiError ? err.userMessage : ((err as Error).message ?? t('auth.error.unexpected')));
     } finally {
       setSubmitting(false);
     }
@@ -57,32 +59,32 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
       {/* Formulaire */}
       <div className="auth-form-side">
         <div style={{ width: '100%', maxWidth: 380 }}>
-          <h1 className="auth-h1">{isSignup ? 'Créer un compte' : 'Bon retour'}</h1>
-          <p className="muted auth-sub">{isSignup ? 'Quelques secondes pour commencer à noter le marché.' : 'Connectez-vous pour reprendre vos analyses.'}</p>
+          <h1 className="auth-h1">{isSignup ? t('auth.signup.title') : t('auth.login.title')}</h1>
+          <p className="muted auth-sub">{isSignup ? t('auth.signup.subtitle') : t('auth.login.subtitle')}</p>
 
           <form onSubmit={onSubmit} className="col gap-16" autoComplete="on">
             <div className="col gap-6">
-              <label className="label">E-mail</label>
+              <label className="label">{t('auth.email')}</label>
               <div className="auth-field">
                 <Icon name="mail" size={16} className="auth-field-icon" />
                 <input className="input auth-input" type="email" value={email} autoComplete="email" autoFocus
-                  onChange={e => setEmail(e.target.value)} placeholder="vous@exemple.com" required />
+                  onChange={e => setEmail(e.target.value)} placeholder={t('auth.emailPlaceholder')} required />
               </div>
             </div>
             <div className="col gap-6">
-              <label className="label">Mot de passe</label>
+              <label className="label">{t('auth.password')}</label>
               <div className="auth-field">
                 <Icon name="lock" size={16} className="auth-field-icon" />
                 <input className="input auth-input" type={showPw ? 'text' : 'password'} value={password}
                   autoComplete={isSignup ? 'new-password' : 'current-password'} minLength={8}
                   onChange={e => setPassword(e.target.value)} placeholder="••••••••" required style={{ paddingRight: 42 }} />
-                <button type="button" className="auth-eye" onClick={() => setShowPw(v => !v)} aria-label="Afficher le mot de passe"><Icon name="eye" size={16} /></button>
+                <button type="button" className="auth-eye" onClick={() => setShowPw(v => !v)} aria-label={t('auth.togglePassword')}><Icon name="eye" size={16} /></button>
               </div>
-              {isSignup && <span className="tiny muted">8 caractères minimum.</span>}
+              {isSignup && <span className="tiny muted">{t('auth.passwordHint')}</span>}
             </div>
             {isSignup && (
               <div className="col gap-6">
-                <label className="label">Confirmer le mot de passe</label>
+                <label className="label">{t('auth.confirmPassword')}</label>
                 <div className="auth-field">
                   <Icon name="lock" size={16} className="auth-field-icon" />
                   <input className="input auth-input" type={showPw ? 'text' : 'password'} value={confirm}
@@ -93,14 +95,14 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
             )}
             {error && <div className="s-badge s-badge-bad auth-err">{error}</div>}
             <button type="submit" className="btn btn-brand btn-lg btn-block" disabled={submitting} style={{ marginTop: 4 }}>
-              {submitting ? <><span className="spinner" /> …</> : isSignup ? 'Créer mon compte' : 'Se connecter'}
+              {submitting ? <><span className="spinner" /> …</> : isSignup ? t('auth.submit.signup') : t('auth.submit.login')}
             </button>
           </form>
 
           <p className="tiny muted auth-switch">
-            {isSignup ? 'Déjà un compte ? ' : 'Pas encore de compte ? '}
+            {isSignup ? t('auth.switchToLogin.prompt') : t('auth.switchToSignup.prompt')}
             <Link to={isSignup ? '/login' : '/signup'} className="auth-link" onClick={() => { setMode(isSignup ? 'login' : 'signup'); setError(null); }}>
-              {isSignup ? 'Se connecter' : 'Créer un compte'}
+              {isSignup ? t('auth.switchToLogin.link') : t('auth.switchToSignup.link')}
             </Link>
           </p>
         </div>
@@ -110,9 +112,9 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
       <div className="auth-aside">
         <div className="auth-aside-halo" aria-hidden="true" />
         <div className="auth-aside-inner">
-          <span className="kicker auth-aside-kicker">Lubin Investment</span>
-          <h2 className="auth-aside-h2">La donnée tranche,<br />pas les opinions.</h2>
-          <p className="auth-aside-p">Une note de qualité sur 10, une valorisation séparée, et une veille qui surveille tout le marché pour vous.</p>
+          <span className="kicker auth-aside-kicker">{t('auth.aside.kicker')}</span>
+          <h2 className="auth-aside-h2">{t('auth.aside.h2Line1')}<br />{t('auth.aside.h2Line2')}</h2>
+          <p className="auth-aside-p">{t('auth.aside.p')}</p>
           <div style={{ marginTop: 32, maxWidth: 320 }}><HeroPreview /></div>
         </div>
       </div>

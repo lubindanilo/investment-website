@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { Criterion } from '@lubin/shared';
 import { CRITERION_HISTOGRAMS, CRITERION_LINECHARTS } from '@lubin/shared';
 import { HistogramModal } from './HistogramModal.js';
 import { PfcfChartModal } from './PfcfChartModal.js';
 import { CashRoceChartModal } from './CashRoceChartModal.js';
 import { Icon, InfoPop, StatusBadge, toDataStatus } from './ui/primitives.js';
-import { CRITERION_BRIEFS } from '../data/criterionBriefs.js';
 import './CriterionCard.css';
 
 /**
@@ -29,13 +29,15 @@ function extractPfcfMultiple(c: Criterion): number | null {
 export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false }: {
   c: Criterion; ticker?: string; currency?: string; annualOnly?: boolean;
 }) {
-  const histogramConfig = CRITERION_HISTOGRAMS[c.nom];
-  const lineConfig = CRITERION_LINECHARTS[c.nom];
+  const { t, i18n } = useTranslation();
+  // Lookups par clé STABLE (indépendante de la langue), pas par le libellé localisé.
+  const histogramConfig = c.key ? CRITERION_HISTOGRAMS[c.key] : undefined;
+  const lineConfig = c.key ? CRITERION_LINECHARTS[c.key] : undefined;
   const chartKind: 'line' | 'histogram' | null = ticker
     ? (lineConfig ? 'line' : (histogramConfig ? 'histogram' : null))
     : null;
   const [open, setOpen] = useState(false);
-  const brief = CRITERION_BRIEFS[c.nom];
+  const hasBrief = !!c.key && i18n.exists(`briefs.${c.key}.why`);
 
   return (
     <>
@@ -46,16 +48,16 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
         </div>
         <div className="crit-card-vrow">
           <span className={'num crit-card-value' + (isCompactValue(c.valeur) ? '' : ' is-long')}>{c.valeur}</span>
-          <span className="num crit-card-target">cible {c.cible}</span>
+          <span className="num crit-card-target">{t('criteria.target', { target: c.cible })}</span>
         </div>
         <p className="crit-card-note">{c.explication}</p>
         <div className="crit-card-foot">
-          {brief
-            ? <InfoPop title={c.nom} why={brief.why} calc={brief.how} />
+          {hasBrief
+            ? <InfoPop title={c.nom} why={t(`briefs.${c.key}.why`)} calc={t(`briefs.${c.key}.how`)} />
             : <span />}
           {chartKind && (
             <button type="button" className="crit-hist-btn" onClick={() => setOpen(true)}>
-              <Icon name="bars" size={13} /> Historique
+              <Icon name="bars" size={13} /> {t('criteria.history')}
             </button>
           )}
         </div>

@@ -16,6 +16,7 @@ import type {
   ScreenerStats,
 } from '@lubin/shared';
 import { captureException } from './sentry.js';
+import { currentLang } from '../i18n/index.js';
 
 /** Erreur typée que les composants peuvent inspecter. */
 export class ApiError extends Error {
@@ -52,7 +53,8 @@ async function request<T>(path: string, init: RequestInit = {}, opts: RequestOpt
         // credentials:'include' → envoie le cookie auth avec chaque requête.
         // Sans ça, le cookie HttpOnly serait bloqué côté navigateur en cross-origin (dev local).
         credentials: 'include',
-        headers: { 'Content-Type': 'application/json', ...(init.headers ?? {}) },
+        // Accept-Language → le back localise le contenu généré (critères, qualitatif, erreurs).
+        headers: { 'Content-Type': 'application/json', 'Accept-Language': currentLang(), ...(init.headers ?? {}) },
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({ error: res.statusText }));

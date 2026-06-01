@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { WatchlistEntry } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
@@ -40,6 +41,7 @@ function formatEarnings(iso?: string | null): string {
 }
 
 export function WatchlistPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const toast = useToast();
   const [items, setItems] = useState<WatchlistEntry[]>([]);
@@ -82,11 +84,11 @@ export function WatchlistPage() {
   }, [load]);
 
   async function addTicker() {
-    const t = newTicker.trim().toUpperCase();
-    if (!t) return;
-    if (items.some(i => i.ticker === t)) { toast.push('warn', `${t} est déjà dans ta watchlist.`); return; }
+    const tk = newTicker.trim().toUpperCase();
+    if (!tk) return;
+    if (items.some(i => i.ticker === tk)) { toast.push('warn', t('watchlist.toast.alreadyAdded', { ticker: tk })); return; }
     setAdding(true);
-    try { const entry = await api.watchlist.add(t); setItems(prev => [...prev, entry]); setNewTicker(''); toast.push('success', `${t} ajouté`); }
+    try { const entry = await api.watchlist.add(tk); setItems(prev => [...prev, entry]); setNewTicker(''); toast.push('success', t('watchlist.toast.added', { ticker: tk })); }
     catch (e) { toast.push('error', (e as Error).message); }
     finally { setAdding(false); }
   }
@@ -112,16 +114,16 @@ export function WatchlistPage() {
       <div className="wrap-wide wl-wrap">
         <div className="wl-head">
           <div className="col gap-4">
-            <h1 className="wl-title">Watchlist</h1>
+            <h1 className="wl-title">{t('watchlist.title')}</h1>
             <p className="muted" style={{ fontSize: 14 }}>
-              {items.length} action{items.length > 1 ? 's' : ''} suivie{items.length > 1 ? 's' : ''} · prix et P/FCF mis à jour à chaque visite.
+              {t('watchlist.followed', { count: items.length })}
             </p>
           </div>
           <div className="row gap-10">
             <button className="btn btn-ghost btn-sm" onClick={refresh} disabled={refreshing}>
-              {refreshing ? <><span className="spinner" /> Maj…</> : <><Icon name="refresh" size={15} /> Rafraîchir</>}
+              {refreshing ? <><span className="spinner" /> {t('watchlist.refreshing')}</> : <><Icon name="refresh" size={15} /> {t('watchlist.refresh')}</>}
             </button>
-            <Link to="/screener" className="btn btn-ghost btn-sm"><Icon name="plus" size={15} /> Depuis le screener</Link>
+            <Link to="/screener" className="btn btn-ghost btn-sm"><Icon name="plus" size={15} /> {t('watchlist.fromScreener')}</Link>
           </div>
         </div>
 
@@ -129,12 +131,12 @@ export function WatchlistPage() {
           <div className="anl-search-field" style={{ maxWidth: 320 }}>
             <Icon name="search" size={16} className="anl-search-icon" />
             <input className="anl-search-input num" style={{ height: 40, paddingLeft: 40, fontSize: 14 }}
-              value={newTicker} placeholder="Ajouter un ticker…"
+              value={newTicker} placeholder={t('watchlist.addPlaceholder')}
               onChange={e => setNewTicker(e.target.value.toUpperCase())}
               onKeyDown={e => e.key === 'Enter' && addTicker()} />
           </div>
           <button className="btn btn-brand btn-sm" style={{ height: 40 }} onClick={addTicker} disabled={adding || !newTicker.trim()}>
-            {adding ? <span className="spinner" /> : <><Icon name="plus" size={14} /> Ajouter</>}
+            {adding ? <span className="spinner" /> : <><Icon name="plus" size={14} /> {t('watchlist.add')}</>}
           </button>
         </div>
 
@@ -143,20 +145,20 @@ export function WatchlistPage() {
         ) : items.length === 0 ? (
           <div className="card wl-empty">
             <div className="wl-empty-icon"><Icon name="star" size={24} /></div>
-            <h3>Votre watchlist est vide</h3>
-            <p className="muted">Ajoutez un ticker ci-dessus, ou explorez le screener pour suivre les mieux notées.</p>
-            <Link to="/screener" className="btn btn-brand" style={{ marginTop: 4 }}>Explorer le screener</Link>
+            <h3>{t('watchlist.empty.title')}</h3>
+            <p className="muted">{t('watchlist.empty.desc')}</p>
+            <Link to="/screener" className="btn btn-brand" style={{ marginTop: 4 }}>{t('watchlist.empty.cta')}</Link>
           </div>
         ) : (
           <div className="card scroll-x" style={{ padding: 0, overflow: 'hidden' }}>
             <table className="tbl">
               <thead>
                 <tr>
-                  <th>Société</th>
-                  <SortTh label="Cours" col="price" />
+                  <th>{t('watchlist.col.company')}</th>
+                  <SortTh label={t('watchlist.col.price')} col="price" />
                   <SortTh label="P/FCF" col="pfcf" />
-                  <SortTh label="Note" col="score" />
-                  <SortTh label="Prochains résultats" col="earnings" align="left" />
+                  <SortTh label={t('watchlist.col.score')} col="score" />
+                  <SortTh label={t('watchlist.col.earnings')} col="earnings" align="left" />
                   <th style={{ width: 50 }}></th>
                 </tr>
               </thead>
@@ -176,7 +178,7 @@ export function WatchlistPage() {
                       <td className="num-cell">{s != null ? <ScorePill score={s} /> : <span className="muted">—</span>}</td>
                       <td><span className="num tiny wl-earn"><Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />{formatEarnings(w.nextEarningsDate)}</span></td>
                       <td className="num-cell" style={{ width: 50 }}>
-                        <button className="wl-remove" onClick={e => { e.stopPropagation(); remove(w.ticker); }} aria-label="Retirer">
+                        <button className="wl-remove" onClick={e => { e.stopPropagation(); remove(w.ticker); }} aria-label={t('watchlist.remove')}>
                           <Icon name="trash" size={16} />
                         </button>
                       </td>

@@ -4,6 +4,7 @@
  */
 import type { Criterion, DerivedMetrics, ValoParams, ValuationResult } from '@lubin/shared';
 import type { FinnhubMetricResponse, FinnhubProfile2, FinnhubQuote } from './finnhub.js';
+import { tt, type Lang } from '../i18n/index.js';
 
 export function computeDerivedMetrics(input: {
   metric: FinnhubMetricResponse | null;
@@ -319,147 +320,146 @@ function reasonOr(m: DerivedMetrics, key: string, fallback: string): string {
   return m.notCalculableReasons?.[key] ?? fallback;
 }
 
-export function buildQuantitativeCriteria(m: DerivedMetrics): Criterion[] {
+export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'): Criterion[] {
+  const unavailable = tt(lang, 'common.unavailable');
   return [
     {
-      nom: 'Rentable (marge nette)',
+      key: 'netMargin',
+      nom: tt(lang, 'netMargin.name'),
       valeur: m.netMargin == null ? NOT_CALC : fmtPct(m.netMargin),
-      cible: '> 0 %',
+      cible: tt(lang, 'netMargin.target'),
       statut: m.netMargin == null ? 'warn' : m.netMargin > 0.05 ? 'pass' : m.netMargin > 0 ? 'warn' : 'fail',
       explication: m.netMargin == null
-        ? reasonOr(m, 'netMargin', 'Donnée indisponible')
-        : m.netMargin > 0 ? `Entreprise rentable (${fmtPct(m.netMargin)})` : 'Pertes nettes',
+        ? reasonOr(m, 'netMargin', unavailable)
+        : m.netMargin > 0 ? tt(lang, 'netMargin.profitable', { pct: fmtPct(m.netMargin) }) : tt(lang, 'netMargin.losses'),
     },
     {
-      nom: 'Croissance du CA 5 ans',
+      key: 'revenueGrowth5y',
+      nom: tt(lang, 'revenueGrowth5y.name'),
       valeur: m.revenueCagr == null ? NOT_CALC : fmtPct(m.revenueCagr, '%/an'),
-      cible: '> 10 %/an',
+      cible: tt(lang, 'revenueGrowth5y.target'),
       statut: m.revenueCagr == null ? 'warn' : m.revenueCagr > 0.10 ? 'pass' : m.revenueCagr > 0.05 ? 'warn' : 'fail',
       explication: m.revenueCagr == null
-        ? reasonOr(m, 'revenueCagr', 'Historique CA insuffisant')
-        : m.revenueCagr > 0.10 ? 'Croissance soutenue' : 'Croissance insuffisante',
+        ? reasonOr(m, 'revenueCagr', tt(lang, 'revenueGrowth5y.unavailable'))
+        : m.revenueCagr > 0.10 ? tt(lang, 'revenueGrowth5y.strong') : tt(lang, 'revenueGrowth5y.weak'),
     },
     {
-      nom: 'Croissance FCF/action 5 ans',
+      key: 'fcfGrowth5y',
+      nom: tt(lang, 'fcfGrowth5y.name'),
       valeur: m.fcfPerShareCagr == null ? NOT_CALC : fmtPct(m.fcfPerShareCagr, '%/an'),
-      cible: '> 10 %/an (ajusté SBC)',
+      cible: tt(lang, 'fcfGrowth5y.target'),
       statut: m.fcfPerShareCagr == null ? 'warn' : m.fcfPerShareCagr > 0.10 ? 'pass' : m.fcfPerShareCagr > 0.05 ? 'warn' : 'fail',
       explication: m.fcfPerShareCagr == null
-        ? reasonOr(m, 'fcfPerShareCagr', 'Historique FCF/action insuffisant')
-        : m.fcfPerShareCagr > 0.10 ? 'Création de valeur par action solide' : 'Création de valeur par action faible',
+        ? reasonOr(m, 'fcfPerShareCagr', tt(lang, 'fcfGrowth5y.unavailable'))
+        : m.fcfPerShareCagr > 0.10 ? tt(lang, 'fcfGrowth5y.strong') : tt(lang, 'fcfGrowth5y.weak'),
     },
     (() => {
       const v = m.shareCagr;
       const sourceTag = m.shareCagrSource === 'yahoo'
         ? ' [Yahoo raw]'
         : m.shareCagrSource === 'finnhub-derived'
-          ? ' [Finnhub dérivé]'
+          ? ' [Finnhub]'
           : '';
       const base = v == null
-        ? 'Donnée indisponible'
+        ? unavailable
         : v < 0
-          ? `Rachats nets — création de valeur (${(v * 100).toFixed(2)}%/an)`
+          ? tt(lang, 'shareCount5y.buybacks', { pct: (v * 100).toFixed(2) })
           : v <= 0.005
-            ? "Nombre d'actions stable"
+            ? tt(lang, 'shareCount5y.stable')
             : v < 0.025
-              ? `Dilution modérée (${(v * 100).toFixed(2)}%/an)`
-              : `Dilution forte (${(v * 100).toFixed(2)}%/an)`;
+              ? tt(lang, 'shareCount5y.moderate', { pct: (v * 100).toFixed(2) })
+              : tt(lang, 'shareCount5y.heavy', { pct: (v * 100).toFixed(2) });
       return {
-        nom: "Évolution nombre d'actions 5 ans",
+        key: 'shareCount5y',
+        nom: tt(lang, 'shareCount5y.name'),
         valeur: v == null ? 'N/A' : (v >= 0 ? '+' : '') + (v * 100).toFixed(2) + '%/an',
-        cible: 'Stable ou en baisse',
+        cible: tt(lang, 'shareCount5y.target'),
         statut: v == null ? 'warn' : v <= 0.005 ? 'pass' : v < 0.025 ? 'warn' : 'fail',
         explication: base + sourceTag,
       } as const;
     })(),
     {
-      nom: 'Marge FCF (ajustée SBC)',
+      key: 'fcfMargin',
+      nom: tt(lang, 'fcfMargin.name'),
       valeur: m.fcfMargin == null ? NOT_CALC : fmtPct(m.fcfMargin),
-      cible: '> 10 %',
+      cible: tt(lang, 'fcfMargin.target'),
       statut: m.fcfMargin == null ? 'warn' : m.fcfMargin > 0.10 ? 'pass' : m.fcfMargin > 0.05 ? 'warn' : 'fail',
       explication: m.fcfMargin == null
-        ? reasonOr(m, 'fcfMargin', 'Donnée indisponible')
-        : m.fcfMargin > 0.10 ? 'Marge FCF solide' : 'Marge FCF faible',
+        ? reasonOr(m, 'fcfMargin', unavailable)
+        : m.fcfMargin > 0.10 ? tt(lang, 'fcfMargin.solid') : tt(lang, 'fcfMargin.weak'),
     },
     {
-      nom: 'Operating leverage',
-      valeur: m.operatingLeverage == null ? NOT_CALC : m.operatingLeverage ? '✓ Expansion' : '✗ Compression',
-      cible: 'Marge en expansion sur 5 ans',
+      key: 'operatingLeverage',
+      nom: tt(lang, 'operatingLeverage.name'),
+      valeur: m.operatingLeverage == null ? NOT_CALC : m.operatingLeverage ? tt(lang, 'operatingLeverage.expansionVal') : tt(lang, 'operatingLeverage.compressionVal'),
+      cible: tt(lang, 'operatingLeverage.target'),
       statut: m.operatingLeverage == null ? 'warn' : m.operatingLeverage ? 'pass' : 'fail',
       explication: m.operatingLeverage == null
-        ? reasonOr(m, 'operatingLeverage', 'Trajectoire 5 ans indisponible')
-        : m.operatingLeverage ? 'Revenus croissent plus vite que les coûts' : 'Coûts grandissent plus vite que les revenus',
+        ? reasonOr(m, 'operatingLeverage', tt(lang, 'operatingLeverage.unavailable'))
+        : m.operatingLeverage ? tt(lang, 'operatingLeverage.expansion') : tt(lang, 'operatingLeverage.compression'),
     },
     (() => {
-      // Le texte est court : verdict + mention discrète du fallback si appliqué.
-      // La formule complète, les composants et l'explication des variants sont dans la
-      // modale info (icône ⓘ sur la carte), pas dans le texte de la carte.
+      // Verdict + mention discrète du fallback si appliqué (détail complet dans la modale ⓘ).
       const variant = m.cashROCEFormula;
       const fallbackNote =
-        variant === 'no-excess-fallback'   ? ' (calcul fallback ultra-cash-rich — voir ⓘ)' :
-        variant === 'no-goodwill-fallback' ? ' (formule Buffett goodwill inclus — voir ⓘ)' :
-        variant === 'financial-equity'     ? ' (formule secteur financier — voir ⓘ)' :
+        variant === 'no-excess-fallback'   ? tt(lang, 'cashRoce.note.noExcess') :
+        variant === 'no-goodwill-fallback' ? tt(lang, 'cashRoce.note.noGoodwill') :
+        variant === 'financial-equity'     ? tt(lang, 'cashRoce.note.financial') :
         '';
       const verdict = m.cashROCE == null
-        ? reasonOr(m, 'cashROCE', 'Donnée indisponible')
+        ? reasonOr(m, 'cashROCE', unavailable)
         : m.cashROCE > 0.15
-          ? `Excellent retour cash sur capital${fallbackNote}`
-          : `Retour sur capital insuffisant${fallbackNote}`;
+          ? tt(lang, 'cashRoce.excellent') + fallbackNote
+          : tt(lang, 'cashRoce.weak') + fallbackNote;
       return {
-        nom: 'Cash ROCE',
+        key: 'cashRoce',
+        nom: tt(lang, 'cashRoce.name'),
         valeur: m.cashROCE == null ? NOT_CALC : fmtPct(m.cashROCE),
-        cible: '> 15 % (FCF ÷ Capital Investi)',
+        cible: tt(lang, 'cashRoce.target'),
         statut: m.cashROCE == null ? 'warn' : m.cashROCE > 0.15 ? 'pass' : m.cashROCE > 0.10 ? 'warn' : 'fail',
         explication: verdict,
       } as const;
     })(),
     {
-      nom: 'Dette nette / FCF',
+      key: 'netDebtFcf',
+      nom: tt(lang, 'netDebtFcf.name'),
       valeur: m.netDebtFcf == null ? NOT_CALC : fmtRaw(m.netDebtFcf),
-      cible: '< 3 ans',
+      cible: tt(lang, 'netDebtFcf.target'),
       statut: m.netDebtFcf == null ? 'warn' : m.netDebtFcf < 3 ? 'pass' : m.netDebtFcf < 5 ? 'warn' : 'fail',
       explication: m.netDebtFcf == null
-        ? reasonOr(m, 'netDebtFcf', 'Donnée indisponible')
+        ? reasonOr(m, 'netDebtFcf', unavailable)
         : m.netDebtFcf < 0
-          ? 'Trésorerie nette positive'
+          ? tt(lang, 'netDebtFcf.netcash')
           : m.netDebtFcf < 3
-            ? `Remboursable en ${fmtRaw(m.netDebtFcf)} ans`
-            : 'Endettement élevé',
+            ? tt(lang, 'netDebtFcf.repayable', { years: fmtRaw(m.netDebtFcf) })
+            : tt(lang, 'netDebtFcf.high'),
     },
     {
-      nom: 'Cash Conversion Rate',
+      key: 'cashConversion',
+      nom: tt(lang, 'cashConversion.name'),
       valeur: m.ccr == null ? NOT_CALC : fmtRaw(m.ccr),
-      cible: '> 1 (FCF / Net Income)',
+      cible: tt(lang, 'cashConversion.target'),
       statut: m.ccr == null ? 'warn' : m.ccr > 1 ? 'pass' : m.ccr > 0.7 ? 'warn' : 'fail',
       explication: m.ccr == null
-        ? reasonOr(m, 'ccr', 'Donnée indisponible')
-        : m.ccr > 1 ? 'Les bénéfices deviennent vraiment du cash' : 'Une partie des bénéfices ne se transforme pas en cash',
+        ? reasonOr(m, 'ccr', unavailable)
+        : m.ccr > 1 ? tt(lang, 'cashConversion.good') : tt(lang, 'cashConversion.weak'),
     },
     (() => {
-      // Current ratio = Current Assets / Current Liabilities. Sa lecture :
-      //   < 1   → la boîte peut payer ses fournisseurs avec ce que ses clients lui paient (modèle "BFR négatif" type Amazon, Costco) — fort
-      //   1-1.5 → équilibre classique
-      //   > 1.5 → beaucoup de capital immobilisé en stocks + créances clients
       const cr = m.nwcCurrentRatio;
       const valeur = cr == null ? NOT_CALC : cr.toFixed(2);
       let statut: 'pass' | 'warn' | 'fail' = 'warn';
-      let explication = reasonOr(m, 'nwcCurrentRatio', 'Bilan indisponible');
+      let explication = reasonOr(m, 'nwcCurrentRatio', tt(lang, 'currentRatio.unavailable'));
       if (cr != null) {
-        if (cr < 1) {
-          statut = 'pass';
-          explication = `${cr.toFixed(2)} — les clients payent avant les fournisseurs (modèle type Amazon, Costco)`;
-        } else if (cr < 1.5) {
-          statut = 'warn';
-          explication = `${cr.toFixed(2)} — équilibre classique entre actifs courants et passifs courants`;
-        } else {
-          statut = 'fail';
-          explication = `${cr.toFixed(2)} — beaucoup de capital immobilisé en stocks et créances clients`;
-        }
+        const x = cr.toFixed(2);
+        if (cr < 1) { statut = 'pass'; explication = tt(lang, 'currentRatio.strong', { x }); }
+        else if (cr < 1.5) { statut = 'warn'; explication = tt(lang, 'currentRatio.classic', { x }); }
+        else { statut = 'fail'; explication = tt(lang, 'currentRatio.heavy', { x }); }
       }
       return {
-        nom: 'Current Ratio',
+        key: 'currentRatio',
+        nom: tt(lang, 'currentRatio.name'),
         valeur,
-        cible: '< 1 (BFR négatif)',
+        cible: tt(lang, 'currentRatio.target'),
         statut,
         explication,
       } as const;
@@ -477,6 +477,7 @@ export function buildQuantitativeCriteria(m: DerivedMetrics): Criterion[] {
  */
 export function buildPfcfCriterion(m: DerivedMetrics): Criterion {
   return {
+    key: 'pfcf',
     nom: 'P/FCF actuel',
     valeur: m.pfcfTTM == null ? NOT_CALC : m.pfcfTTM.toFixed(1) + '×',
     cible: '< 25',
@@ -494,6 +495,7 @@ export function buildValuation(
   params: ValoParams,
 ): ValuationResult {
   const result: ValuationResult = {
+    key: 'valuation',
     nom: 'Valorisation',
     valeur: 'Inputs incomplets',
     cible: '',

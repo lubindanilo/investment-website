@@ -3,6 +3,7 @@
  * Icônes line maison, Logo, ScoreCircle, StatusBadge, ScorePill, PriceChange, IconBtn, InfoPop.
  */
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../../styles/ui.css';
 
 // ─── Icônes (set line, stroke 1.7) ──────────────────────────────────────────
@@ -104,18 +105,18 @@ export function ScoreCircle({ score, size = 116, stroke = 9, animate = true }: {
   );
 }
 
-// ─── StatusBadge (OUI / PARTIEL / NON) ───────────────────────────────────────
+// ─── StatusBadge (OUI / PARTIEL / NON — localisé) ────────────────────────────
 export type DataStatus = 'good' | 'warn' | 'bad';
-const STATUS_LABEL: Record<DataStatus, string> = { good: 'OUI', warn: 'PARTIEL', bad: 'NON' };
 /** Mappe les statuts backend (pass/warn/fail) vers la sémantique data. */
 export function toDataStatus(s: 'pass' | 'warn' | 'fail'): DataStatus {
   return s === 'pass' ? 'good' : s === 'fail' ? 'bad' : 'warn';
 }
 export function StatusBadge({ status }: { status: DataStatus }) {
+  const { t } = useTranslation();
   return (
     <span className={`s-badge s-badge-${status}`}>
       <span className={`s-badge-dot s-dot-${status}`} />
-      {STATUS_LABEL[status]}
+      {t(`status.${status}`)}
     </span>
   );
 }
@@ -168,6 +169,7 @@ export function IconBtn({ name, onClick, label, active = false, size = 16 }: {
 
 // ─── InfoPop (popover "i" : pourquoi + comment) ──────────────────────────────
 export function InfoPop({ title, why, calc }: { title: string; why: string; calc: string }) {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
   useEffect(() => {
@@ -188,7 +190,7 @@ export function InfoPop({ title, why, calc }: { title: string; why: string; calc
           <span className="pop-arrow" style={{ top: -5, left: '50%', marginLeft: -5 }} />
           <b style={{ display: 'block', marginBottom: 6, fontSize: 12.5 }}>{title}</b>
           <span style={{ display: 'block', opacity: 0.85, marginBottom: 8 }}>{why}</span>
-          <span style={{ display: 'block', fontSize: 11, opacity: 0.6, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 2 }}>Calcul</span>
+          <span style={{ display: 'block', fontSize: 11, opacity: 0.6, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 2 }}>{t('criteria.calc')}</span>
           <span className="mono" style={{ display: 'block', fontSize: 11.5, opacity: 0.8 }}>{calc}</span>
         </span>
       )}

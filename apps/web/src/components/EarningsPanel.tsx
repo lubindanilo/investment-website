@@ -1,4 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import type { EarningsInfo, EarningsResult } from '@lubin/shared';
+import { currentLang } from '../i18n/index.js';
 import './EarningsPanel.css';
 
 /**
@@ -9,6 +11,7 @@ import './EarningsPanel.css';
  *   - Lien externe vers transcripts Seeking Alpha (pas d'API gratuite pour le transcript brut)
  */
 export function EarningsPanel({ ticker, earnings, currency = 'USD' }: { ticker: string; earnings: EarningsInfo; currency?: string }) {
+  const { t } = useTranslation();
   const { next, last } = earnings;
   if (!next && !last) return null;  // pas de données → on n'affiche rien
 
@@ -17,41 +20,44 @@ export function EarningsPanel({ ticker, earnings, currency = 'USD' }: { ticker: 
   return (
     <div className="earnings-panel">
       <div className="earnings-title">
-        <span>Earnings — {ticker}</span>
+        <span>{t('earnings.title', { ticker })}</span>
         <a
           href={seekingAlpha}
           target="_blank"
           rel="noopener noreferrer"
           className="earnings-transcript-link"
         >
-          Voir le transcript du dernier call ↗
+          {t('earnings.transcriptLink')}
         </a>
       </div>
       <div className="earnings-grid">
-        {last && <EarningsCard label="Dernier rapport" e={last} currency={currency} />}
-        {next && <EarningsCard label="Prochain rapport" e={next} isFuture currency={currency} />}
+        {last && <EarningsCard label={t('earnings.lastReport')} e={last} currency={currency} />}
+        {next && <EarningsCard label={t('earnings.nextReport')} e={next} isFuture currency={currency} />}
       </div>
     </div>
   );
 }
 
 function EarningsCard({ label, e, isFuture = false, currency = 'USD' }: { label: string; e: EarningsResult; isFuture?: boolean; currency?: string }) {
-  const dateFmt = new Date(e.date + 'T12:00:00Z').toLocaleDateString('fr-FR', {
+  const { t } = useTranslation();
+  const localeMap: Record<string, string> = { fr: 'fr-FR', en: 'en-US', es: 'es-ES' };
+  const dateFmt = new Date(e.date + 'T12:00:00Z').toLocaleDateString(localeMap[currentLang()], {
     day: '2-digit', month: 'short', year: 'numeric',
   });
   const epsBeat = e.epsSurprise != null ? e.epsSurprise > 0 : null;
   const revBeat = e.revenueSurprisePct != null ? e.revenueSurprisePct > 0 : null;
+  const hourLabel = e.hour === 'bmo' ? t('earnings.beforeOpen') : e.hour === 'amc' ? t('earnings.afterClose') : '';
 
   return (
     <div className="earnings-card">
       <div className="earnings-card-label">{label}</div>
       <div className="earnings-card-date">
-        Q{e.quarter} {e.year} <span className="earnings-card-day">· {dateFmt}{e.hour ? ` ${e.hour === 'bmo' ? 'avant ouverture' : e.hour === 'amc' ? 'après clôture' : ''}` : ''}</span>
+        Q{e.quarter} {e.year} <span className="earnings-card-day">· {dateFmt}{e.hour ? ` ${hourLabel}` : ''}</span>
       </div>
       {isFuture ? (
         <div className="earnings-card-info">
-          <Field label="EPS attendu" value={e.epsEstimate != null ? `${e.epsEstimate.toFixed(2)} ${currency}` : '–'} />
-          <Field label="CA attendu" value={e.revenueEstimate != null ? formatRevenue(e.revenueEstimate, currency) : '–'} />
+          <Field label={t('earnings.epsExpected')} value={e.epsEstimate != null ? `${e.epsEstimate.toFixed(2)} ${currency}` : '–'} />
+          <Field label={t('earnings.revenueExpected')} value={e.revenueEstimate != null ? formatRevenue(e.revenueEstimate, currency) : '–'} />
         </div>
       ) : (
         <div className="earnings-card-info">

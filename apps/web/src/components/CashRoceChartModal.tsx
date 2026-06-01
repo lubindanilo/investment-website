@@ -11,6 +11,7 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine,
 } from 'recharts';
+import { useTranslation } from 'react-i18next';
 import type { TimeseriesPeriod, CashRoceHistoryPoint } from '@lubin/shared';
 import { PERIOD_YEARS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
@@ -30,6 +31,7 @@ interface Props {
 }
 
 export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Props) {
+  const { t } = useTranslation();
   const [period, setPeriod] = useState<TimeseriesPeriod>('5Y');
   const [data, setData] = useState<CashRoceHistoryPoint[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -75,7 +77,7 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
         <header className="croce-header">
           <div>
             <div className="croce-ticker">{ticker}</div>
-            <h2 className="croce-title">Évolution du Cash ROCE</h2>
+            <h2 className="croce-title">{t('charts.cashRoce')}</h2>
             <div className="croce-sub">
               Formule : FCF (ajusté SBC) ÷ (Assets − CurLiab − Goodwill − Cash excédentaire) — Bettin/Mauboussin. Cash excédentaire = max(0, cash − 2 % × revenue).
             </div>

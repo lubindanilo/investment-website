@@ -13,6 +13,7 @@
 import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import type { AnalyzeResponse, ValoParams, Criterion } from '@lubin/shared';
+import { parseLang, tt, type Lang } from '../i18n/index.js';
 import { getMetric, getQuote } from '../services/finnhub.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { fetchBusinessAnalysis, fetchManagementAnalysis } from '../services/openai.js';
@@ -51,16 +52,12 @@ function isManagementCacheValid(data: unknown): data is Criterion[] {
  * route analyze (qui veut retourner une erreur HTTP claire), alors que d'autres
  * callers (watchlist) gèrent ce cas en silence avec un fallback emptyEntry.
  */
-async function loadQuantDataOrThrow(ticker: string) {
+async function loadQuantDataOrThrow(ticker: string, lang: Lang = 'fr') {
   const data = await loadQuantData(ticker);
   if (data.finnhubCompletelyEmpty && !data.fundamentalsAvailable) {
     // Aucune donnée NI chez Finnhub NI chez Yahoo → le symbole n'existe pas / n'est pas
     // couvert. On renvoie un 404 "non détecté" (et non un 5xx qui suggérerait une panne).
-    throw new ApiError(
-      404,
-      `« ${ticker} » n'a pas été trouvé`,
-      `Aucune donnée pour ce symbole. Vérifie l'orthographe (ex : AAPL, MSFT, MC.PA). Si le symbole est correct, il n'est peut-être pas couvert, ou réessaie dans une minute.`,
-    );
+    throw new ApiError(404, tt(lang, 'error.notFound', { ticker }), tt(lang, 'error.notFoundDetail'));
   }
   return data;
 }
@@ -79,11 +76,12 @@ function buildResponse(args: {
   management: Criterion[] | null;
   businessCachedAt: Date | null;
   managementCachedAt: Date | null;
+  lang?: Lang;
 }): AnalyzeResponse {
-  const { ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt } = args;
+  const { ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt, lang = 'fr' } = args;
   const { metrics, company, fundamentalsAvailable, fundamentalsSource, currency, yahooSymbol, rawNews, earnings } = quant;
 
-  const chiffres = buildQuantitativeCriteria(metrics);     // 10 critères qualité
+  const chiffres = buildQuantitativeCriteria(metrics, lang);     // 10 critères qualité (localisés)
   const pfcfCriterion = buildPfcfCriterion(metrics);       // P/FCF actuel — affiché en valorisation
 
   const histGrowth = metrics.fcfPerShareCagr ?? metrics.revenueCagr;
@@ -152,8 +150,9 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const parse = TickerSchema.safeParse(req.query.ticker);
   if (!parse.success) throw new ApiError(400, 'ticker invalide', parse.error.flatten());
   const ticker = parse.data;
+  const lang = parseLang(req.headers['accept-language']);
 
-  const quant = await loadQuantDataOrThrow(ticker);
+  const quant = await loadQuantDataOrThrow(ticker, lang);
 
   // Lecture des 2 caches qualitatifs + appartenance watchlist (si connecté) en parallèle.
   // L'appartenance est calculée ici côté serveur (source unique) → le front n'a pas à
@@ -179,6 +178,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
     management,
     businessCachedAt: business ? businessRow!.createdAt : null,
     managementCachedAt: management ? managementRow!.updatedAt : null,
+    lang,
   });
   if (userId) response.inWatchlist = watchlistRow != null;
 
@@ -260,8 +260,9 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
   const parse = TickerSchema.safeParse(req.body?.ticker);
   if (!parse.success) throw new ApiError(400, 'ticker invalide');
   const ticker = parse.data;
+  const lang = parseLang(req.headers['accept-language']);
 
-  const quant = await loadQuantDataOrThrow(ticker);
+  const quant = await loadQuantDataOrThrow(ticker, lang);
   const company = quant.company;
   const chiffres = buildQuantitativeCriteria(quant.metrics);
   const chiffresContext = chiffres.map(c => ({ nom: c.nom, valeur: c.valeur, statut: c.statut }));
@@ -316,7 +317,7 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
   }
 
   res.json(buildResponse({
-    ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt,
+    ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt, lang,
   }));
 }));
 
@@ -329,8 +330,9 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
   const parse = TickerSchema.safeParse(req.body?.ticker);
   if (!parse.success) throw new ApiError(400, 'ticker invalide');
   const ticker = parse.data;
+  const lang = parseLang(req.headers['accept-language']);
 
-  const quant = await loadQuantDataOrThrow(ticker);
+  const quant = await loadQuantDataOrThrow(ticker, lang);
   const chiffres = buildQuantitativeCriteria(quant.metrics);
   const chiffresContext = chiffres.map(c => ({ nom: c.nom, valeur: c.valeur, statut: c.statut }));
 
@@ -354,6 +356,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
     management: fresh.management,
     businessCachedAt: business ? businessRow!.createdAt : null,
     managementCachedAt: upserted.updatedAt,
+    lang,
   }));
 }));
 

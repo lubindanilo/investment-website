@@ -6,6 +6,7 @@ import { ErrorBoundary } from './components/ErrorBoundary.js';
 import { ToastProvider } from './components/Toast.js';
 import { AuthProvider } from './contexts/AuthContext.js';
 import { initSentry } from './lib/sentry.js';
+import './i18n/index.js';
 import './styles/global.css';
 
 initSentry();

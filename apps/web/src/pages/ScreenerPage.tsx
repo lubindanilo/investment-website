@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import type { ScreenerTopRow, ScreenerStats } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill } from '../components/ui/primitives.js';
@@ -22,6 +23,7 @@ function valOf(r: ScreenerTopRow, col: SortCol): number {
 }
 
 export function ScreenerPage() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [rows, setRows] = useState<ScreenerTopRow[]>([]);
   const [stats, setStats] = useState<ScreenerStats | null>(null);
@@ -67,34 +69,34 @@ export function ScreenerPage() {
       <div className="wrap-wide scr-wrap">
         <div className="scr-head">
           <div className="col gap-4">
-            <h1 className="scr-title">Screener</h1>
-            <p className="muted" style={{ fontSize: 14 }}>Les meilleures notes de l'univers, triées par la veille. Les 10/10 en tête.</p>
+            <h1 className="scr-title">{t('screener.title')}</h1>
+            <p className="muted" style={{ fontSize: 14 }}>{t('screener.subtitle')}</p>
           </div>
           {stats && (
             <div className="col gap-6 scr-progress">
               <div className="row between wide">
-                <span className="tiny muted" style={{ fontWeight: 600 }}>Veille de l'univers</span>
-                <span className="num tiny" style={{ fontWeight: 700, color: progress >= 100 ? 'var(--good)' : 'var(--brand-ink)' }}>{progress >= 100 ? 'À jour' : progress + ' %'}</span>
+                <span className="tiny muted" style={{ fontWeight: 600 }}>{t('screener.progress.label')}</span>
+                <span className="num tiny" style={{ fontWeight: 700, color: progress >= 100 ? 'var(--good)' : 'var(--brand-ink)' }}>{progress >= 100 ? t('screener.progress.upToDate') : progress + ' %'}</span>
               </div>
               <div className="scr-progress-track"><div className="scr-progress-fill" style={{ width: `${progress}%`, background: progress >= 100 ? 'var(--good)' : 'var(--brand)' }} /></div>
-              <span className="tiny muted num">{stats.scored.toLocaleString('fr-FR')} / {stats.total.toLocaleString('fr-FR')} titres réévalués</span>
+              <span className="tiny muted num">{t('screener.progress.scored', { scored: stats.scored.toLocaleString('fr-FR'), total: stats.total.toLocaleString('fr-FR') })}</span>
             </div>
           )}
         </div>
 
         {/* Filtres */}
         <div className="card scr-filters">
-          <div className="row gap-8"><Icon name="filter" size={15} style={{ color: 'var(--ink-3)' }} /><span className="tiny scr-filter-kicker">Filtres</span></div>
+          <div className="row gap-8"><Icon name="filter" size={15} style={{ color: 'var(--ink-3)' }} /><span className="tiny scr-filter-kicker">{t('screener.filters.kicker')}</span></div>
           <div className="row gap-12">
-            <span className="label">Note minimale</span>
+            <span className="label">{t('screener.filters.minScore')}</span>
             <div className="seg">{SCORE_OPTS.map(s => <button key={s} type="button" data-active={minScore === s} onClick={() => setMinScore(s)}>{s}+</button>)}</div>
           </div>
           <div className="row gap-12 scr-pfcf-filter">
-            <span className="label" style={{ whiteSpace: 'nowrap' }}>P/FCF max</span>
+            <span className="label" style={{ whiteSpace: 'nowrap' }}>{t('screener.filters.maxPfcf')}</span>
             <input type="range" min={10} max={PFCF_MAX} value={maxPfcf} onChange={e => setMaxPfcf(+e.target.value)} style={{ flex: 1, accentColor: 'var(--brand)' }} />
             <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{maxPfcf >= PFCF_MAX ? '∞' : maxPfcf + '×'}</span>
           </div>
-          <span className="tiny muted" style={{ marginLeft: 'auto' }}>{sorted.length} résultats</span>
+          <span className="tiny muted" style={{ marginLeft: 'auto' }}>{t('screener.results', { count: sorted.length })}</span>
         </div>
 
         {error && <div className="card scr-msg">{error}</div>}
@@ -103,21 +105,21 @@ export function ScreenerPage() {
           <div className="card skel-ui" style={{ height: 320 }} />
         ) : sorted.length === 0 ? (
           <div className="card scr-empty">
-            <h3>Aucune entreprise au-dessus de ce seuil</h3>
-            <p className="muted">La veille note l'univers progressivement — reviens plus tard, ou baisse le seuil.</p>
+            <h3>{t('screener.empty.title')}</h3>
+            <p className="muted">{t('screener.empty.desc')}</p>
           </div>
         ) : (
           <div className="card scroll-x" style={{ padding: 0, overflow: 'hidden' }}>
             <table className="tbl scr-tbl">
               <thead>
                 <tr>
-                  <th>Société</th>
-                  <th>Secteur</th>
-                  <SortTh label="Note" col="score" />
+                  <th>{t('screener.col.company')}</th>
+                  <th>{t('screener.col.sector')}</th>
+                  <SortTh label={t('screener.col.score')} col="score" />
                   <SortTh label="P/FCF" col="pfcf" />
-                  <SortTh label="Cours" col="price" />
-                  <SortTh label="Var." col="change" />
-                  <th>1 an</th>
+                  <SortTh label={t('screener.col.price')} col="price" />
+                  <SortTh label={t('screener.col.change')} col="change" />
+                  <th>{t('screener.col.oneYear')}</th>
                   <th style={{ width: 40 }}></th>
                 </tr>
               </thead>

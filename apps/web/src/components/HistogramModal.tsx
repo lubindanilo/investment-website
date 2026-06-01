@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine,
 } from 'recharts';
+import { useTranslation } from 'react-i18next';
 import type { TimeseriesPeriod, CriterionHistogram, TimeseriesPoint } from '@lubin/shared';
 import { PERIOD_YEARS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
@@ -19,6 +20,8 @@ interface Props {
 }
 
 export function HistogramModal({ ticker, criterionName, config, currency = 'USD', onClose }: Props) {
+  const { t } = useTranslation();
+  const chartTitle = t(config.labelKey, { defaultValue: config.label });
   const [period, setPeriod] = useState<TimeseriesPeriod>('5Y');
   const [data, setData] = useState<TimeseriesPoint[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -131,7 +134,7 @@ export function HistogramModal({ ticker, criterionName, config, currency = 'USD'
         <header className="hist-header">
           <div>
             <div className="hist-ticker">{ticker}</div>
-            <h2 className="hist-title">{config.label}</h2>
+            <h2 className="hist-title">{chartTitle}</h2>
             <div className="hist-sub">
               Critère : {criterionName} · {freq === 'quarterly' ? 'données trimestrielles' : 'données annuelles'}
             </div>
@@ -187,7 +190,7 @@ export function HistogramModal({ ticker, criterionName, config, currency = 'USD'
                   <Tooltip
                     contentStyle={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 6, fontSize: 12 }}
                     labelStyle={{ color: 'var(--text2)', fontFamily: 'var(--mono)' }}
-                    formatter={(v) => [formatFull(Number(v), config.unit, currency), config.label]}
+                    formatter={(v) => [formatFull(Number(v), config.unit, currency), chartTitle]}
                     labelFormatter={d => freq === 'quarterly' ? `Trimestre ${formatQuarter(String(d))}` : `Année ${String(d).slice(0, 4)}`}
                   />
                   <ReferenceLine y={0} stroke="var(--text3)" strokeWidth={1} />

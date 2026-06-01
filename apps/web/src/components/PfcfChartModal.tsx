@@ -15,6 +15,7 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine,
 } from 'recharts';
+import { useTranslation } from 'react-i18next';
 import type { TimeseriesPeriod, PfcfHistoryPoint } from '@lubin/shared';
 import { PERIOD_YEARS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
@@ -32,6 +33,7 @@ interface Props {
 }
 
 export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClose }: Props) {
+  const { t } = useTranslation();
   const [period, setPeriod] = useState<TimeseriesPeriod>('5Y');
   const [data, setData] = useState<PfcfHistoryPoint[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -81,7 +83,7 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
         <header className="pfcf-header">
           <div>
             <div className="pfcf-ticker">{ticker}</div>
-            <h2 className="pfcf-title">Évolution du P/FCF dans le temps</h2>
+            <h2 className="pfcf-title">{t('charts.pfcf')}</h2>
             <div className="pfcf-sub">
               Calculé : prix × actions ÷ FCF (TTM)
             </div>

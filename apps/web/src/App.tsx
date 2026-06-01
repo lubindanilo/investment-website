@@ -1,4 +1,6 @@
 import { Link, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { LangSwitcher } from './components/ui/LangSwitcher.js';
 import { HomePage } from './pages/HomePage.js';
 import { AnalysePage } from './pages/AnalysePage.js';
 import { WatchlistPage } from './pages/WatchlistPage.js';
@@ -11,6 +13,7 @@ import { Logo } from './components/ui/primitives.js';
 
 export function App() {
   const { pathname } = useLocation();
+  const { t } = useTranslation();
   // Onglets d'app masqués uniquement sur les pages d'auth. Présents sur l'accueil pour
   // garder Watchlist / Screener / Analyser accessibles depuis la landing.
   const showNav = pathname !== '/login' && pathname !== '/signup';
@@ -18,22 +21,25 @@ export function App() {
   return (
     <>
       <header className="app-header">
-        <Link to="/" className="logo" aria-label="Accueil Lubin Investment">
+        <Link to="/" className="logo" aria-label="Lubin Investment">
           <Logo size={28} />
         </Link>
-        <UserMenu />
+        <div className="row gap-10">
+          <LangSwitcher />
+          <UserMenu />
+        </div>
       </header>
 
       {showNav && (
         <nav className="app-nav">
           <NavLink to="/analyser" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            Analyser
+            {t('nav.analyse')}
           </NavLink>
           <NavLink to="/watchlist" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            Watchlist
+            {t('nav.watchlist')}
           </NavLink>
           <NavLink to="/screener" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            Screener
+            {t('nav.screener')}
           </NavLink>
         </nav>
       )}
@@ -63,13 +69,14 @@ function UserMenu() {
   const { user, loading, logout } = useAuth();
   const navigate = useNavigate();
   const toast = useToast();
+  const { t } = useTranslation();
 
   if (loading) return <div className="user-menu user-menu-loading" aria-hidden />;
 
   async function onLogout() {
     try {
       await logout();
-      toast.push('success', 'Déconnecté');
+      toast.push('success', t('userMenu.loggedOut'));
       navigate('/login');
     } catch (e) {
       toast.push('error', (e as Error).message);
@@ -79,8 +86,8 @@ function UserMenu() {
   if (!user) {
     return (
       <div className="user-menu">
-        <NavLink to="/login" className="user-menu-link">Connexion</NavLink>
-        <NavLink to="/signup" className="btn-secondary user-menu-signup">Créer un compte</NavLink>
+        <NavLink to="/login" className="user-menu-link">{t('userMenu.login')}</NavLink>
+        <NavLink to="/signup" className="btn-secondary user-menu-signup">{t('userMenu.signup')}</NavLink>
       </div>
     );
   }
@@ -88,7 +95,7 @@ function UserMenu() {
   return (
     <div className="user-menu">
       <span className="user-menu-email" title={user.email}>{user.email}</span>
-      <button type="button" className="user-menu-logout" onClick={onLogout}>Se déconnecter</button>
+      <button type="button" className="user-menu-logout" onClick={onLogout}>{t('userMenu.logout')}</button>
     </div>
   );
 }

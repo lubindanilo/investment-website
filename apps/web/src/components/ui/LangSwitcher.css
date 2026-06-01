@@ -1,0 +1,13 @@
+.lang-switcher {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 1px solid var(--line); border-radius: 9px;
+  padding: 4px 8px; background: var(--surface);
+  transition: border-color .14s;
+}
+.lang-switcher:hover { border-color: var(--ink-4); }
+.lang-switcher-icon { font-size: 13px; line-height: 1; opacity: 0.8; }
+.lang-switcher-select {
+  border: none; background: none; outline: none; cursor: pointer;
+  font-size: 13px; font-weight: 600; color: var(--ink-2);
+  font-family: var(--sans); padding-right: 2px;
+}
