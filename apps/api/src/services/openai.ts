@@ -27,7 +27,8 @@ const MODEL = process.env.OPENAI_MODEL ?? 'gpt-4o-2024-11-20';
 /** Nom de langue + directive pour que GPT rédige TOUT le contenu dans la langue cible. */
 const LANG_NAME: Record<Lang, string> = { fr: 'français', en: 'anglais (English)', es: 'espagnol (español)' };
 function langDirective(lang: Lang): string {
-  return `\n\nLANGUE DE RÉPONSE : rédige TOUT le texte (les "nom", "valeur", "explication"${''} et "verdict_direct") en ${LANG_NAME[lang]}. Traduis aussi les libellés de critères et les cibles dans cette langue. N'utilise PAS le français si la langue demandée n'est pas le français.`;
+  if (lang === 'fr') return ''; // prompt d'origine inchangé en français
+  return `\n\nIMPORTANT — garde EXACTEMENT le format JSON et les clés ci-dessus (nom, valeur, cible, statut, explication, verdict_direct) en anglais ; statut reste pass/fail/warn. Écris seulement le CONTENU des champs nom, valeur, cible, explication et verdict_direct en ${LANG_NAME[lang]}.`;
 }
 
 if (!KEY) console.warn('[openai] OPENAI_API_KEY non défini — les appels échoueront');
@@ -157,7 +158,7 @@ Réponds en JSON STRICT, sans markdown, sans commentaire avant/après. Format ex
   const parsed = await callOpenAi(prompt, `business ${ticker} [${lang}]`) as { verdict_direct?: string; business?: Criterion[] };
   return {
     verdict_direct: parsed.verdict_direct ?? '',
-    business: ensureCibles(parsed.business ?? [], BUSINESS_CIBLES),
+    business: applyLabels(parsed.business ?? [], BUSINESS_LABELS[lang], BUSINESS_CIBLES_I18N[lang]),
   };
 }
 
@@ -198,7 +199,7 @@ Réponds en JSON STRICT, sans markdown, sans commentaire avant/après. Format ex
 
   const parsed = await callOpenAi(prompt, `management ${ticker} [${lang}]`) as { management?: Criterion[] };
   return {
-    management: ensureCibles(parsed.management ?? [], MGMT_CIBLES),
+    management: applyLabels(parsed.management ?? [], MGMT_LABELS[lang], MGMT_CIBLES_I18N[lang]),
   };
 }
 
@@ -219,27 +220,31 @@ function extractJson(text: string): { verdict_direct?: string; business?: Criter
   return null;
 }
 
-const BUSINESS_CIBLES = [
-  'Pas exposé commodity',
-  'Pas sensible aux taux',
-  'Pas dépendant public',
-  'Marché final croît',
-  'Peu de CapEx, peu d\'actifs',
-  '1+ moat parmi 4 types',
-  'Récurrence / contrats LT',
-  'Top client < 15% du CA',
-  'Pas que par M&A',
-  'Gagne vs concurrents',
-];
+// Libellés (nom) + cibles déterministes par langue. On NE confie PAS la traduction des
+// libellés à GPT (peu fiable, casse la structure) : il ne produit que valeur/explication/verdict
+// dans la langue cible ; nom + cible sont écrasés par index depuis ces tables.
+const BUSINESS_LABELS: Record<Lang, string[]> = {
+  fr: ['Non dépendant des matières premières', 'Non dépendant des taux d\'intérêts', 'Non dépendant du gouvernement', 'Marché en croissance', 'Asset light', 'Moat', 'Revenus prévisibles', 'Clientèle diversifiée', 'Croissance organique', 'Gagne des parts de marché'],
+  en: ['Not commodity-dependent', 'Not interest-rate sensitive', 'Not government-dependent', 'Growing market', 'Asset light', 'Moat', 'Predictable revenue', 'Diversified customers', 'Organic growth', 'Gaining market share'],
+  es: ['No depende de materias primas', 'No depende de los tipos de interés', 'No depende del gobierno', 'Mercado en crecimiento', 'Asset light', 'Moat (foso)', 'Ingresos predecibles', 'Clientela diversificada', 'Crecimiento orgánico', 'Gana cuota de mercado'],
+};
+const BUSINESS_CIBLES_I18N: Record<Lang, string[]> = {
+  fr: ['Pas exposé commodity', 'Pas sensible aux taux', 'Pas dépendant public', 'Marché final croît', 'Peu de CapEx, peu d\'actifs', '1+ moat parmi 4 types', 'Récurrence / contrats LT', 'Top client < 15% du CA', 'Pas que par M&A', 'Gagne vs concurrents'],
+  en: ['Not commodity-exposed', 'Not rate-sensitive', 'Not gov-dependent', 'End market growing', 'Low CapEx, few assets', '1+ moat among 4 types', 'Recurring / LT contracts', 'Top client < 15% of revenue', 'Not just via M&A', 'Wins vs competitors'],
+  es: ['Sin exposición a materias primas', 'Sin sensibilidad a los tipos', 'Sin dependencia pública', 'El mercado final crece', 'Poco CapEx, pocos activos', '1+ moat entre 4 tipos', 'Recurrencia / contratos LP', 'Cliente principal < 15% de ventas', 'No solo por M&A', 'Gana frente a competidores'],
+};
+const MGMT_LABELS: Record<Lang, string[]> = {
+  fr: ['Allocation capital', 'CEO ancienneté', 'CEO transparence', 'CEO skin in the game', 'Rachats opportunistes'],
+  en: ['Capital allocation', 'CEO tenure', 'CEO transparency', 'CEO skin in the game', 'Opportunistic buybacks'],
+  es: ['Asignación de capital', 'Antigüedad del CEO', 'Transparencia del CEO', 'CEO con capital propio', 'Recompras oportunistas'],
+};
+const MGMT_CIBLES_I18N: Record<Lang, string[]> = {
+  fr: ['Rachats actions + M&A créatrices', '> 5 ans, fondateur idéal', 'Pas de scandales, communication directe', 'Patrimoine significatif en actions', 'Buybacks en bas de cycle, pas en haut'],
+  en: ['Buybacks + value-creating M&A', '> 5 yrs, founder ideal', 'No scandals, direct communication', 'Significant equity stake', 'Buybacks at cycle lows, not highs'],
+  es: ['Recompras + M&A creadoras', '> 5 años, fundador ideal', 'Sin escándalos, comunicación directa', 'Patrimonio significativo en acciones', 'Recompras en mínimos del ciclo, no en máximos'],
+};
 
-const MGMT_CIBLES = [
-  'Rachats actions + M&A créatrices',
-  '> 5 ans, fondateur idéal',
-  'Pas de scandales, communication directe',
-  'Patrimoine significatif en actions',
-  'Buybacks en bas de cycle, pas en haut',
-];
-
-function ensureCibles(items: Criterion[], cibles: string[]): Criterion[] {
-  return items.map((it, i) => ({ ...it, cible: it.cible || cibles[i] || '' }));
+/** Écrase nom + cible par index depuis les tables localisées (déterministe), garde valeur/statut/explication de GPT. */
+function applyLabels(items: Criterion[], names: string[], cibles: string[]): Criterion[] {
+  return items.map((it, i) => ({ ...it, nom: names[i] ?? it.nom, cible: cibles[i] ?? it.cible }));
 }
