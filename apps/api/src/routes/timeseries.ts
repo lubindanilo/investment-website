@@ -38,6 +38,15 @@ const YearsSchema = z.coerce.number().int().min(1).max(50).default(5);
  */
 const YAHOO_MAX_YEARS_QUARTERLY = 1;
 
+/**
+ * Repli ADR étranger (déposant 20-F : NVO, OMAB, ASML, NSRGY…) : Finnhub n'a aucun
+ * trimestre pour eux. Yahoo expose ~5 trimestres récents (plafond fundamentals-timeseries,
+ * vérifié sur MSFT aussi). Au-delà de cette fenêtre, ces 5 points ne couvrent plus assez
+ * la période → on bascule sur l'annuel Yahoo (~4-5 ans, profondeur max côté Yahoo) plutôt
+ * que d'afficher 5 barres trimestrielles perdues sur 5 ans.
+ */
+const ADR_QUARTERLY_MAX_YEARS = 2;
+
 /** Calcule le nombre minimum de points attendus pour valider la source */
 function minPointsExpected(freq: 'quarterly' | 'annual', years: number): number {
   if (freq === 'quarterly') return Math.max(Math.floor(years * 3), 3); // 3 trimestres/an minimum
@@ -80,7 +89,7 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     res.json({
       ticker,
       metric,
-      freq: effectiveFreq,
+      freq: hit.servedFreq ?? effectiveFreq,
       years: effectiveYears,
       points: hit.points,
       source: hit.source,
@@ -101,6 +110,10 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   //   • US tout le reste     → Finnhub
   let points = [] as Awaited<ReturnType<typeof getReportedTimeseries>>;
   let source: 'yahoo' | 'finnhub' = 'finnhub';
+  // Granularité réellement servie : peut différer de la demande pour un ADR 20-F
+  // (repli quarterly→annual selon la profondeur de fenêtre, cf. cascade ci-dessous).
+  let servedFreq: 'quarterly' | 'annual' = effectiveFreq;
+  let annualFallback = false;
   const minPoints = minPointsExpected(effectiveFreq, effectiveYears);
 
   if (isEuTicker) {
@@ -130,20 +143,51 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
       points = await getReportedTimeseries(ticker, metric, requestedFreq, years);
       source = 'finnhub';
     }
+
+    // ─── Repli ADR étranger (déposant 20-F) ──────────────────────────────
+    // Finnhub n'a aucun trimestre pour NVO, OMAB, ASML, NSRGY… (pas de 10-Q déposée),
+    // et selon les cas pas d'annuel non plus → points vides quelle que soit la freq.
+    // Yahoo, lui, expose leurs comptes intérimaires. Cascade :
+    //   • trimestriel demandé + fenêtre courte (≤ ADR_QUARTERLY_MAX_YEARS) → trimestriel Yahoo (~5 pts récents)
+    //   • sinon (fenêtre longue, ou annuel demandé)                        → annuel Yahoo (~4-5 ans dispo)
+    if (points.length === 0) {
+      const yq = (requestedFreq === 'quarterly' && years <= ADR_QUARTERLY_MAX_YEARS)
+        ? await getYahooMetricTimeseries(ticker, metric, years)
+        : [];
+      if (yq.length >= 3) {
+        points = yq;
+        source = 'yahoo';
+        servedFreq = 'quarterly';
+        console.log(`[timeseries ${ticker}/${metric}] ADR/20-F → Yahoo quarterly ${yq.length} pts`);
+      } else {
+        const annualType = mapMetricToYahooAnnual(metric);
+        if (annualType) {
+          points = await fetchYahooAnnual(resolved?.symbol ?? ticker, annualType, Math.max(years, 5));
+          source = 'yahoo';
+          servedFreq = 'annual';
+          annualFallback = points.length > 0;
+          console.log(`[timeseries ${ticker}/${metric}] ADR/20-F → Yahoo annual ${points.length} pts (trimestriel indispo sur ${years}Y)`);
+        }
+      }
+    }
   }
 
+  // euAnnualOnly masque les boutons de période (UI) : réservé aux EU, 100 % annuels.
+  // Pour un ADR on garde les boutons — 1Y reste trimestriel ; la granularité réelle de
+  // chaque fenêtre est portée par `freq` (servedFreq) dans le sous-titre du graphe.
   const elapsedMs = Date.now() - startedAt;
-  console.log(`[timeseries ${ticker}/${metric}] ${source}${isEuTicker ? '/EU' : ''} OK ${points.length} pts en ${elapsedMs}ms`);
+  const tag = isEuTicker ? '/EU' : annualFallback ? '/ADR-annual' : '';
+  console.log(`[timeseries ${ticker}/${metric}] ${source}${tag} OK ${points.length} pts (${servedFreq}) en ${elapsedMs}ms`);
 
   // ─── 4. Calcule le TTL basé sur les earnings ───────────────────
   const nextEarnings = await earningsPromise.catch(() => null);
   const ttlMs = ttlUntilNextEarnings(nextEarnings);
-  cache.set(key, points, source, ttlMs);
+  cache.set(key, points, source, ttlMs, { servedFreq, annualFallback });
 
   res.json({
     ticker,
     metric,
-    freq: effectiveFreq,
+    freq: servedFreq,
     years: effectiveYears,
     points,
     source,

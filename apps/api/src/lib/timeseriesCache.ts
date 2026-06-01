@@ -16,7 +16,20 @@
  */
 import type { TimeseriesPoint } from '@lubin/shared';
 
-interface CacheEntry {
+/**
+ * Métadonnées de granularité : pour un ADR étranger (déposant 20-F), la route peut
+ * demander du quarterly mais servir de l'annuel en repli. On mémorise ce qui a été
+ * RÉELLEMENT servi pour le restituer à l'identique au cache hit (la clé, elle, reste
+ * indexée sur la freq demandée).
+ */
+export interface CacheMeta {
+  /** Granularité effectivement servie ('quarterly' ou 'annual'), si différente de la clé. */
+  servedFreq?: 'quarterly' | 'annual';
+  /** true si on a basculé sur l'annuel Yahoo faute de trimestriel (ADR 20-F). */
+  annualFallback?: boolean;
+}
+
+interface CacheEntry extends CacheMeta {
   points: TimeseriesPoint[];
   /** Source ayant fourni la donnée : pour logs + debug */
   source: 'yahoo' | 'finnhub';
@@ -42,12 +55,14 @@ export function get(key: string): CacheEntry | null {
   return entry;
 }
 
-export function set(key: string, points: TimeseriesPoint[], source: 'yahoo' | 'finnhub', ttlMs: number): void {
+export function set(key: string, points: TimeseriesPoint[], source: 'yahoo' | 'finnhub', ttlMs: number, meta?: CacheMeta): void {
   cache.set(key, {
     points,
     source,
     storedAt: Date.now(),
     expiresAt: Date.now() + ttlMs,
+    servedFreq: meta?.servedFreq,
+    annualFallback: meta?.annualFallback,
   });
   if (cache.size > PURGE_THRESHOLD) {
     const now = Date.now();
