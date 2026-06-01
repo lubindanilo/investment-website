@@ -336,5 +336,17 @@
     "above": "Por encima del precio recomendado",
     "note": "Evaluado por separado de la nota de calidad. El precio recomendado es el punto de entrada para apuntar a tu rentabilidad objetivo.",
     "unavailable": "Valoración no disponible (FCF por acción no calculable para este valor)."
+  },
+  "score": {
+    "high": "Alta",
+    "mid": "Media",
+    "low": "Baja"
+  },
+  "heroPreview": {
+    "composition": "Composición",
+    "cashRoce": "Cash ROCE",
+    "fcfMargin": "Margen FCF",
+    "revenueGrowth": "Crecimiento ventas",
+    "debtFcf": "Deuda / FCF"
   }
 }

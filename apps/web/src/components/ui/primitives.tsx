@@ -70,17 +70,18 @@ export function Logo({ size = 30, showWord = true, color }: { size?: number; sho
 }
 
 // ─── Couleur par niveau de note ──────────────────────────────────────────────
-export interface ScoreTone { ring: string; bg: string; ink: string; label: string; }
+export interface ScoreTone { ring: string; bg: string; ink: string; band: 'high' | 'mid' | 'low'; }
 export function scoreColor(score: number): ScoreTone {
-  if (score >= 8) return { ring: 'var(--good)', bg: 'var(--good-bg)', ink: 'var(--good-ink)', label: 'Élevée' };
-  if (score >= 6) return { ring: 'var(--warn)', bg: 'var(--warn-bg)', ink: 'var(--warn-ink)', label: 'Moyenne' };
-  return { ring: 'var(--bad)', bg: 'var(--bad-bg)', ink: 'var(--bad-ink)', label: 'Faible' };
+  if (score >= 8) return { ring: 'var(--good)', bg: 'var(--good-bg)', ink: 'var(--good-ink)', band: 'high' };
+  if (score >= 6) return { ring: 'var(--warn)', bg: 'var(--warn-bg)', ink: 'var(--warn-ink)', band: 'mid' };
+  return { ring: 'var(--bad)', bg: 'var(--bad-bg)', ink: 'var(--bad-ink)', band: 'low' };
 }
 
 // ─── ScoreCircle (anneau /10) ────────────────────────────────────────────────
 export function ScoreCircle({ score, size = 116, stroke = 9, animate = true }: {
   score: number; size?: number; stroke?: number; animate?: boolean;
 }) {
+  const { t } = useTranslation();
   const c = scoreColor(score);
   const r = (size - stroke) / 2;
   const circ = 2 * Math.PI * r;
@@ -98,7 +99,7 @@ export function ScoreCircle({ score, size = 116, stroke = 9, animate = true }: {
           {score}<span style={{ fontSize: size * 0.16, color: 'var(--ink-3)', fontWeight: 600 }}>/10</span>
         </div>
         <div style={{ fontSize: size * 0.1, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: c.ink, marginTop: 3 }}>
-          {c.label}
+          {t(`score.${c.band}`)}
         </div>
       </div>
     </div>

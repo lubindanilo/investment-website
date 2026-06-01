@@ -100,6 +100,8 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'currentRatio.unavailable': 'Bilan indisponible',
     // commun
     'common.unavailable': 'Donnée indisponible',
+    'common.notCalc': 'Non calculable',
+    'common.perYear': '%/an',
     // erreurs API
     'error.notFound': '« {{ticker}} » n\'a pas été trouvé',
     'error.notFoundDetail': "Aucune donnée pour ce symbole. Vérifie l'orthographe (ex : AAPL, MSFT, MC.PA). Si le symbole est correct, il n'est peut-être pas couvert, ou réessaie dans une minute.",
@@ -159,6 +161,8 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'currentRatio.heavy': '{{x}} — lots of capital tied up in inventory and receivables',
     'currentRatio.unavailable': 'Balance sheet unavailable',
     'common.unavailable': 'Data unavailable',
+    'common.notCalc': 'Not available',
+    'common.perYear': '%/yr',
     'error.notFound': '“{{ticker}}” was not found',
     'error.notFoundDetail': "No data for this symbol. Check the spelling (e.g. AAPL, MSFT, MC.PA). If the symbol is correct, it may not be covered — or try again in a minute.",
   },
@@ -217,6 +221,8 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'currentRatio.heavy': '{{x}} — mucho capital inmovilizado en inventario y cuentas por cobrar',
     'currentRatio.unavailable': 'Balance no disponible',
     'common.unavailable': 'Dato no disponible',
+    'common.notCalc': 'No disponible',
+    'common.perYear': '%/año',
     'error.notFound': '«{{ticker}}» no se ha encontrado',
     'error.notFoundDetail': "No hay datos para este símbolo. Verifica la ortografía (p. ej. AAPL, MSFT, MC.PA). Si el símbolo es correcto, puede que no esté cubierto — o inténtalo de nuevo en un minuto.",
   },

@@ -336,5 +336,17 @@
     "above": "Above the recommended price",
     "note": "Judged separately from the quality score. The recommended price is the entry point to aim for your target return.",
     "unavailable": "Valuation unavailable (FCF per share not computable for this stock)."
+  },
+  "score": {
+    "high": "High",
+    "mid": "Medium",
+    "low": "Low"
+  },
+  "heroPreview": {
+    "composition": "Breakdown",
+    "cashRoce": "Cash ROCE",
+    "fcfMargin": "FCF margin",
+    "revenueGrowth": "Revenue growth",
+    "debtFcf": "Net debt / FCF"
   }
 }

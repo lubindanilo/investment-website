@@ -310,18 +310,23 @@ function fmtRaw(v: number | null, digits = 2): string {
   return v == null ? 'N/A' : v.toFixed(digits);
 }
 
-/**
- * Format strict pour les valeurs non calculables. Au lieu de "N/A" générique,
- * on affiche "Non calculable" et l'explication contient la raison spécifique
- * (FCF négatif, données manquantes, etc.) — principe d'honnêteté radicale.
- */
+/** Valeur "non calculable" par défaut (français) — pour pfcf/valuation non affichés en UI. */
 const NOT_CALC = 'Non calculable';
-function reasonOr(m: DerivedMetrics, key: string, fallback: string): string {
+
+/**
+ * Raison spécifique de non-calcul si dispo (FCF négatif, données manquantes…), sinon fallback.
+ * Les raisons détaillées sont générées en français côté compute ; en EN/ES on retombe sur le
+ * fallback localisé (pas de fuite de français) — le détail fin n'est rendu qu'en fr.
+ */
+function reasonOr(m: DerivedMetrics, key: string, fallback: string, lang: Lang = 'fr'): string {
+  if (lang !== 'fr') return fallback;
   return m.notCalculableReasons?.[key] ?? fallback;
 }
 
 export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'): Criterion[] {
   const unavailable = tt(lang, 'common.unavailable');
+  const NOT_CALC = tt(lang, 'common.notCalc');
+  const perYear = tt(lang, 'common.perYear');
   return [
     {
       key: 'netMargin',
@@ -330,27 +335,27 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
       cible: tt(lang, 'netMargin.target'),
       statut: m.netMargin == null ? 'warn' : m.netMargin > 0.05 ? 'pass' : m.netMargin > 0 ? 'warn' : 'fail',
       explication: m.netMargin == null
-        ? reasonOr(m, 'netMargin', unavailable)
+        ? reasonOr(m, 'netMargin', unavailable, lang)
         : m.netMargin > 0 ? tt(lang, 'netMargin.profitable', { pct: fmtPct(m.netMargin) }) : tt(lang, 'netMargin.losses'),
     },
     {
       key: 'revenueGrowth5y',
       nom: tt(lang, 'revenueGrowth5y.name'),
-      valeur: m.revenueCagr == null ? NOT_CALC : fmtPct(m.revenueCagr, '%/an'),
+      valeur: m.revenueCagr == null ? NOT_CALC : fmtPct(m.revenueCagr, perYear),
       cible: tt(lang, 'revenueGrowth5y.target'),
       statut: m.revenueCagr == null ? 'warn' : m.revenueCagr > 0.10 ? 'pass' : m.revenueCagr > 0.05 ? 'warn' : 'fail',
       explication: m.revenueCagr == null
-        ? reasonOr(m, 'revenueCagr', tt(lang, 'revenueGrowth5y.unavailable'))
+        ? reasonOr(m, 'revenueCagr', tt(lang, 'revenueGrowth5y.unavailable'), lang)
         : m.revenueCagr > 0.10 ? tt(lang, 'revenueGrowth5y.strong') : tt(lang, 'revenueGrowth5y.weak'),
     },
     {
       key: 'fcfGrowth5y',
       nom: tt(lang, 'fcfGrowth5y.name'),
-      valeur: m.fcfPerShareCagr == null ? NOT_CALC : fmtPct(m.fcfPerShareCagr, '%/an'),
+      valeur: m.fcfPerShareCagr == null ? NOT_CALC : fmtPct(m.fcfPerShareCagr, perYear),
       cible: tt(lang, 'fcfGrowth5y.target'),
       statut: m.fcfPerShareCagr == null ? 'warn' : m.fcfPerShareCagr > 0.10 ? 'pass' : m.fcfPerShareCagr > 0.05 ? 'warn' : 'fail',
       explication: m.fcfPerShareCagr == null
-        ? reasonOr(m, 'fcfPerShareCagr', tt(lang, 'fcfGrowth5y.unavailable'))
+        ? reasonOr(m, 'fcfPerShareCagr', tt(lang, 'fcfGrowth5y.unavailable'), lang)
         : m.fcfPerShareCagr > 0.10 ? tt(lang, 'fcfGrowth5y.strong') : tt(lang, 'fcfGrowth5y.weak'),
     },
     (() => {
@@ -372,7 +377,7 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
       return {
         key: 'shareCount5y',
         nom: tt(lang, 'shareCount5y.name'),
-        valeur: v == null ? 'N/A' : (v >= 0 ? '+' : '') + (v * 100).toFixed(2) + '%/an',
+        valeur: v == null ? 'N/A' : (v >= 0 ? '+' : '') + (v * 100).toFixed(2) + perYear,
         cible: tt(lang, 'shareCount5y.target'),
         statut: v == null ? 'warn' : v <= 0.005 ? 'pass' : v < 0.025 ? 'warn' : 'fail',
         explication: base + sourceTag,
@@ -385,7 +390,7 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
       cible: tt(lang, 'fcfMargin.target'),
       statut: m.fcfMargin == null ? 'warn' : m.fcfMargin > 0.10 ? 'pass' : m.fcfMargin > 0.05 ? 'warn' : 'fail',
       explication: m.fcfMargin == null
-        ? reasonOr(m, 'fcfMargin', unavailable)
+        ? reasonOr(m, 'fcfMargin', unavailable, lang)
         : m.fcfMargin > 0.10 ? tt(lang, 'fcfMargin.solid') : tt(lang, 'fcfMargin.weak'),
     },
     {
@@ -395,7 +400,7 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
       cible: tt(lang, 'operatingLeverage.target'),
       statut: m.operatingLeverage == null ? 'warn' : m.operatingLeverage ? 'pass' : 'fail',
       explication: m.operatingLeverage == null
-        ? reasonOr(m, 'operatingLeverage', tt(lang, 'operatingLeverage.unavailable'))
+        ? reasonOr(m, 'operatingLeverage', tt(lang, 'operatingLeverage.unavailable'), lang)
         : m.operatingLeverage ? tt(lang, 'operatingLeverage.expansion') : tt(lang, 'operatingLeverage.compression'),
     },
     (() => {
@@ -407,7 +412,7 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
         variant === 'financial-equity'     ? tt(lang, 'cashRoce.note.financial') :
         '';
       const verdict = m.cashROCE == null
-        ? reasonOr(m, 'cashROCE', unavailable)
+        ? reasonOr(m, 'cashROCE', unavailable, lang)
         : m.cashROCE > 0.15
           ? tt(lang, 'cashRoce.excellent') + fallbackNote
           : tt(lang, 'cashRoce.weak') + fallbackNote;
@@ -427,7 +432,7 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
       cible: tt(lang, 'netDebtFcf.target'),
       statut: m.netDebtFcf == null ? 'warn' : m.netDebtFcf < 3 ? 'pass' : m.netDebtFcf < 5 ? 'warn' : 'fail',
       explication: m.netDebtFcf == null
-        ? reasonOr(m, 'netDebtFcf', unavailable)
+        ? reasonOr(m, 'netDebtFcf', unavailable, lang)
         : m.netDebtFcf < 0
           ? tt(lang, 'netDebtFcf.netcash')
           : m.netDebtFcf < 3
@@ -441,14 +446,14 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
       cible: tt(lang, 'cashConversion.target'),
       statut: m.ccr == null ? 'warn' : m.ccr > 1 ? 'pass' : m.ccr > 0.7 ? 'warn' : 'fail',
       explication: m.ccr == null
-        ? reasonOr(m, 'ccr', unavailable)
+        ? reasonOr(m, 'ccr', unavailable, lang)
         : m.ccr > 1 ? tt(lang, 'cashConversion.good') : tt(lang, 'cashConversion.weak'),
     },
     (() => {
       const cr = m.nwcCurrentRatio;
       const valeur = cr == null ? NOT_CALC : cr.toFixed(2);
       let statut: 'pass' | 'warn' | 'fail' = 'warn';
-      let explication = reasonOr(m, 'nwcCurrentRatio', tt(lang, 'currentRatio.unavailable'));
+      let explication = reasonOr(m, 'nwcCurrentRatio', tt(lang, 'currentRatio.unavailable'), lang);
       if (cr != null) {
         const x = cr.toFixed(2);
         if (cr < 1) { statut = 'pass'; explication = tt(lang, 'currentRatio.strong', { x }); }

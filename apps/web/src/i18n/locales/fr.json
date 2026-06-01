@@ -336,5 +336,17 @@
     "above": "Au-dessus du prix conseillé",
     "note": "Jugé séparément de la note de qualité. Le prix conseillé est le cours d'entrée pour viser votre rendement.",
     "unavailable": "Valorisation indisponible (FCF par action non calculable pour ce titre)."
+  },
+  "score": {
+    "high": "Élevée",
+    "mid": "Moyenne",
+    "low": "Faible"
+  },
+  "heroPreview": {
+    "composition": "Composition",
+    "cashRoce": "Cash ROCE",
+    "fcfMargin": "Marge FCF",
+    "revenueGrowth": "Croissance CA",
+    "debtFcf": "Dette / FCF"
   }
 }
