@@ -85,15 +85,15 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
             <div className="pfcf-ticker">{ticker}</div>
             <h2 className="pfcf-title">{t('charts.pfcf')}</h2>
             <div className="pfcf-sub">
-              Calculé : prix × actions ÷ FCF (TTM)
+              {t('chart.pfcfSub')}
             </div>
           </div>
-          <button className="pfcf-close" onClick={onClose} aria-label="Fermer">×</button>
+          <button className="pfcf-close" onClick={onClose} aria-label={t('chart.close')}>×</button>
         </header>
 
         <div className="pfcf-periods">
           {annualOnly ? (
-            <span className="period-static">4 ans annuels (max disponible pour ce ticker)</span>
+            <span className="period-static">{t('chart.pfcfAnnualOnlyTag')}</span>
           ) : (
             PERIODS.map(p => (
               <button
@@ -107,14 +107,14 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
           )}
         </div>
 
-        {loading && <div className="pfcf-loading"><span className="spinner" /> Chargement…</div>}
+        {loading && <div className="pfcf-loading"><span className="spinner" /> {t('common.loading')}</div>}
 
         {error && !loading && (
-          <div className="pfcf-error">Erreur : {error}</div>
+          <div className="pfcf-error">{t('chart.error', { msg: error })}</div>
         )}
 
         {!loading && !error && data && data.length === 0 && (
-          <div className="pfcf-error">Pas assez d'historique pour calculer le P/FCF sur cette période.</div>
+          <div className="pfcf-error">{t('chart.pfcfNoData')}</div>
         )}
 
         {!loading && !error && data && data.length > 0 && (
@@ -147,7 +147,7 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
                       y={stats.median}
                       stroke="var(--text3)"
                       strokeDasharray="4 4"
-                      label={{ value: `médiane ${stats.median.toFixed(1)}×`, position: 'right', fontSize: 10, fill: 'var(--text3)' }}
+                      label={{ value: t('chart.median', { v: `${stats.median.toFixed(1)}×` }), position: 'right', fontSize: 10, fill: 'var(--text3)' }}
                     />
                   )}
                   {/* Niveau actuel → reference forte si fourni séparément (souvent ≈ dernier point) */}
@@ -176,26 +176,26 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
             {stats && (
               <div className="pfcf-stats">
                 <Stat
-                  label={annualOnly ? 'Dernière clôture annuelle' : 'Actuel'}
+                  label={t(annualOnly ? 'chart.stat.lastAnnualClose' : 'chart.stat.current')}
                   value={`${stats.latest.toFixed(1)}×`}
                   accent={stats.latest < stats.median ? 'green' : 'red'}
                 />
-                <Stat label="Médiane période" value={`${stats.median.toFixed(1)}×`} />
-                <Stat label="Min / Max" value={`${stats.min.toFixed(1)}× / ${stats.max.toFixed(1)}×`} />
+                <Stat label={t('chart.stat.median')} value={`${stats.median.toFixed(1)}×`} />
+                <Stat label={t('chart.stat.minmax')} value={`${stats.min.toFixed(1)}× / ${stats.max.toFixed(1)}×`} />
                 <Stat
-                  label="Percentile"
+                  label={t('chart.stat.percentile')}
                   value={`${stats.percentile.toFixed(0)}e`}
                   accent={stats.percentile < 30 ? 'green' : stats.percentile > 70 ? 'red' : undefined}
                 />
-                <Stat label="Points" value={String(data.length)} />
+                <Stat label={t('chart.stat.points')} value={String(data.length)} />
               </div>
             )}
 
             {stats && (
               <div className="pfcf-help">
                 {stats.latest < stats.median
-                  ? `Le dernier multiple (${stats.latest.toFixed(1)}×) est sous la médiane historique (${stats.median.toFixed(1)}×) — valorisation relative attractive.`
-                  : `Le dernier multiple (${stats.latest.toFixed(1)}×) est au-dessus de la médiane historique (${stats.median.toFixed(1)}×) — valorisation tendue vs son propre passé.`}
+                  ? t('chart.pfcfVerdictBelow', { latest: stats.latest.toFixed(1), median: stats.median.toFixed(1) })
+                  : t('chart.pfcfVerdictAbove', { latest: stats.latest.toFixed(1), median: stats.median.toFixed(1) })}
               </div>
             )}
           </>

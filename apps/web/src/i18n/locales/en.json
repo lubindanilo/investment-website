@@ -348,5 +348,53 @@
     "fcfMargin": "FCF margin",
     "revenueGrowth": "Revenue growth",
     "debtFcf": "Net debt / FCF"
+  },
+  "chart": {
+    "close": "Close",
+    "error": "Error: {{msg}}",
+    "perYear": "%/yr",
+    "freqQuarterly": "quarterly data",
+    "freqAnnual": "annual data",
+    "histSub": "Criterion: {{name}} · {{freq}}",
+    "annualOnlyTag": "Annual data",
+    "noQuarterlyData": "No quarterly data available for this period.",
+    "pfcfSub": "Computed: price × shares ÷ FCF (TTM)",
+    "pfcfAnnualOnlyTag": "4 annual years (max available for this ticker)",
+    "pfcfNoData": "Not enough history to compute P/FCF over this period.",
+    "pfcfVerdictBelow": "The latest multiple ({{latest}}×) is below the historical median ({{median}}×) — attractive relative valuation.",
+    "pfcfVerdictAbove": "The latest multiple ({{latest}}×) is above the historical median ({{median}}×) — stretched vs its own past.",
+    "croceSub": "Formula: FCF (SBC-adjusted) ÷ (Assets − CurLiab − Goodwill − Excess cash) — Bettin/Mauboussin. Excess cash = max(0, cash − 2% × revenue).",
+    "croceAnnualOnlyTag": "Annual (max available for this ticker)",
+    "croceNoData": "Not enough history to compute Cash ROCE over this period (needs positive FCF + positive capital employed over ≥ 4 quarters / 2 fiscal years).",
+    "croceThreshold": "15% threshold",
+    "median": "median {{v}}",
+    "croceVerdictHigh": "Cash ROCE durably above 15% ({{n}}/{{total}} periods) — consistent operating value creation.",
+    "croceVerdictMid": "Cash ROCE above the threshold in {{n}}/{{total}} periods — average quality, watch closely.",
+    "croceVerdictLow": "Cash ROCE rarely above 15% ({{n}}/{{total}} periods) — weak operating value creation.",
+    "tooltipQuarter": "Quarter {{q}}",
+    "tooltipYear": "Year {{y}}",
+    "stat": {
+      "avg": "Period average",
+      "cagr": "CAGR over period",
+      "median": "Period median",
+      "minmax": "Min / Max",
+      "percentile": "Percentile",
+      "points": "Points",
+      "lastQuarter": "Last quarter",
+      "lastYear": "Last year",
+      "quarters": "Quarters",
+      "years": "Years",
+      "current": "Current",
+      "lastAnnualClose": "Last annual close",
+      "lastClose": "Last close",
+      "currentTtm": "Current (TTM)",
+      "periodsAbove": "Periods ≥ 15%"
+    }
+  },
+  "errorBoundary": {
+    "title": "Application error",
+    "hint": "The error has been logged. Reload the page or go back home.",
+    "reload": "Reload",
+    "retry": "Retry"
   }
 }

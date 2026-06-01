@@ -348,5 +348,53 @@
     "fcfMargin": "Marge FCF",
     "revenueGrowth": "Croissance CA",
     "debtFcf": "Dette / FCF"
+  },
+  "chart": {
+    "close": "Fermer",
+    "error": "Erreur : {{msg}}",
+    "perYear": "%/an",
+    "freqQuarterly": "données trimestrielles",
+    "freqAnnual": "données annuelles",
+    "histSub": "Critère : {{name}} · {{freq}}",
+    "annualOnlyTag": "Données annuelles",
+    "noQuarterlyData": "Aucune donnée trimestrielle disponible pour cette période.",
+    "pfcfSub": "Calculé : prix × actions ÷ FCF (TTM)",
+    "pfcfAnnualOnlyTag": "4 ans annuels (max disponible pour ce ticker)",
+    "pfcfNoData": "Pas assez d'historique pour calculer le P/FCF sur cette période.",
+    "pfcfVerdictBelow": "Le dernier multiple ({{latest}}×) est sous la médiane historique ({{median}}×) — valorisation relative attractive.",
+    "pfcfVerdictAbove": "Le dernier multiple ({{latest}}×) est au-dessus de la médiane historique ({{median}}×) — valorisation tendue vs son propre passé.",
+    "croceSub": "Formule : FCF (ajusté SBC) ÷ (Assets − CurLiab − Goodwill − Cash excédentaire) — Bettin/Mauboussin. Cash excédentaire = max(0, cash − 2 % × revenue).",
+    "croceAnnualOnlyTag": "Annuel (max disponible pour ce ticker)",
+    "croceNoData": "Pas assez d'historique pour calculer le Cash ROCE sur cette période (besoin de FCF positif + capital employé positif sur ≥ 4 trimestres / 2 exercices).",
+    "croceThreshold": "seuil 15 %",
+    "median": "médiane {{v}}",
+    "croceVerdictHigh": "Cash ROCE durablement au-dessus de 15 % ({{n}}/{{total}} périodes) — création de valeur opérationnelle constante.",
+    "croceVerdictMid": "Cash ROCE au-dessus du seuil sur {{n}}/{{total}} périodes — qualité moyenne, à surveiller.",
+    "croceVerdictLow": "Cash ROCE rarement au-dessus de 15 % ({{n}}/{{total}} périodes) — création de valeur opérationnelle faible.",
+    "tooltipQuarter": "Trimestre {{q}}",
+    "tooltipYear": "Année {{y}}",
+    "stat": {
+      "avg": "Moyenne période",
+      "cagr": "CAGR sur période",
+      "median": "Médiane période",
+      "minmax": "Min / Max",
+      "percentile": "Percentile",
+      "points": "Points",
+      "lastQuarter": "Dernier trimestre",
+      "lastYear": "Dernière année",
+      "quarters": "Trimestres",
+      "years": "Années",
+      "current": "Actuel",
+      "lastAnnualClose": "Dernière clôture annuelle",
+      "lastClose": "Dernière clôture",
+      "currentTtm": "Actuel (TTM)",
+      "periodsAbove": "Périodes ≥ 15 %"
+    }
+  },
+  "errorBoundary": {
+    "title": "Erreur dans l'application",
+    "hint": "L'erreur a été enregistrée. Recharge la page ou retourne à l'accueil.",
+    "reload": "Recharger",
+    "retry": "Réessayer"
   }
 }

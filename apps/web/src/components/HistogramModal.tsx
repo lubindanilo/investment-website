@@ -136,17 +136,17 @@ export function HistogramModal({ ticker, criterionName, config, currency = 'USD'
             <div className="hist-ticker">{ticker}</div>
             <h2 className="hist-title">{chartTitle}</h2>
             <div className="hist-sub">
-              Critère : {criterionName} · {freq === 'quarterly' ? 'données trimestrielles' : 'données annuelles'}
+              {t('chart.histSub', { name: criterionName, freq: t(freq === 'quarterly' ? 'chart.freqQuarterly' : 'chart.freqAnnual') })}
             </div>
           </div>
-          <button className="hist-close" onClick={onClose} aria-label="Fermer">×</button>
+          <button className="hist-close" onClick={onClose} aria-label={t('chart.close')}>×</button>
         </header>
 
         <div className="hist-periods">
           {euAnnualOnly ? (
             // Tickers EU : Yahoo n'expose que ~4 années annuelles. Les boutons 1Y/5Y/…/All
             // renverraient tous les mêmes 4 points → UX trompeuse. On affiche un tag static.
-            <span className="period-static">Données annuelles</span>
+            <span className="period-static">{t('chart.annualOnlyTag')}</span>
           ) : (
             PERIODS.map(p => (
               <button
@@ -160,14 +160,14 @@ export function HistogramModal({ ticker, criterionName, config, currency = 'USD'
           )}
         </div>
 
-        {loading && <div className="hist-loading"><span className="spinner" /> Chargement…</div>}
+        {loading && <div className="hist-loading"><span className="spinner" /> {t('common.loading')}</div>}
 
         {error && !loading && (
-          <div className="hist-error">Erreur : {error}</div>
+          <div className="hist-error">{t('chart.error', { msg: error })}</div>
         )}
 
         {!loading && !error && data && data.length === 0 && (
-          <div className="hist-error">Aucune donnée trimestrielle disponible pour cette période.</div>
+          <div className="hist-error">{t('chart.noQuarterlyData')}</div>
         )}
 
         {!loading && !error && data && data.length > 0 && (
@@ -191,7 +191,7 @@ export function HistogramModal({ ticker, criterionName, config, currency = 'USD'
                     contentStyle={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 6, fontSize: 12 }}
                     labelStyle={{ color: 'var(--text2)', fontFamily: 'var(--mono)' }}
                     formatter={(v) => [formatFull(Number(v), config.unit, currency), chartTitle]}
-                    labelFormatter={d => freq === 'quarterly' ? `Trimestre ${formatQuarter(String(d))}` : `Année ${String(d).slice(0, 4)}`}
+                    labelFormatter={d => freq === 'quarterly' ? t('chart.tooltipQuarter', { q: formatQuarter(String(d)) }) : t('chart.tooltipYear', { y: String(d).slice(0, 4) })}
                   />
                   <ReferenceLine y={0} stroke="var(--text3)" strokeWidth={1} />
                   <Bar
@@ -206,12 +206,12 @@ export function HistogramModal({ ticker, criterionName, config, currency = 'USD'
 
             {stats && (
               <div className="hist-stats">
-                <Stat label={freq === 'quarterly' ? 'Dernier trimestre' : 'Dernière année'} value={`${formatFull(stats.latest.value, config.unit, currency)} (${freq === 'quarterly' ? formatQuarter(stats.latest.date) : stats.latest.date.slice(0, 4)})`} />
-                <Stat label="Moyenne période" value={formatFull(stats.avg, config.unit, currency)} />
+                <Stat label={t(freq === 'quarterly' ? 'chart.stat.lastQuarter' : 'chart.stat.lastYear')} value={`${formatFull(stats.latest.value, config.unit, currency)} (${freq === 'quarterly' ? formatQuarter(stats.latest.date) : stats.latest.date.slice(0, 4)})`} />
+                <Stat label={t('chart.stat.avg')} value={formatFull(stats.avg, config.unit, currency)} />
                 {stats.cagr !== null && (
-                  <Stat label="CAGR sur période" value={(stats.cagr * 100).toFixed(2) + '%/an'} accent={stats.cagr >= 0 ? 'green' : 'red'} />
+                  <Stat label={t('chart.stat.cagr')} value={(stats.cagr * 100).toFixed(2) + t('chart.perYear')} accent={stats.cagr >= 0 ? 'green' : 'red'} />
                 )}
-                <Stat label={freq === 'quarterly' ? 'Trimestres' : 'Années'} value={String(data.length)} />
+                <Stat label={t(freq === 'quarterly' ? 'chart.stat.quarters' : 'chart.stat.years')} value={String(data.length)} />
               </div>
             )}
           </>

@@ -79,15 +79,15 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
             <div className="croce-ticker">{ticker}</div>
             <h2 className="croce-title">{t('charts.cashRoce')}</h2>
             <div className="croce-sub">
-              Formule : FCF (ajusté SBC) ÷ (Assets − CurLiab − Goodwill − Cash excédentaire) — Bettin/Mauboussin. Cash excédentaire = max(0, cash − 2 % × revenue).
+              {t('chart.croceSub')}
             </div>
           </div>
-          <button className="croce-close" onClick={onClose} aria-label="Fermer">×</button>
+          <button className="croce-close" onClick={onClose} aria-label={t('chart.close')}>×</button>
         </header>
 
         <div className="croce-periods">
           {annualOnly ? (
-            <span className="period-static">Annuel (max disponible pour ce ticker)</span>
+            <span className="period-static">{t('chart.croceAnnualOnlyTag')}</span>
           ) : (
             PERIODS.map(p => (
               <button
@@ -101,17 +101,14 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
           )}
         </div>
 
-        {loading && <div className="croce-loading"><span className="spinner" /> Chargement…</div>}
+        {loading && <div className="croce-loading"><span className="spinner" /> {t('common.loading')}</div>}
 
         {error && !loading && (
-          <div className="croce-error">Erreur : {error}</div>
+          <div className="croce-error">{t('chart.error', { msg: error })}</div>
         )}
 
         {!loading && !error && data && data.length === 0 && (
-          <div className="croce-error">
-            Pas assez d'historique pour calculer le Cash ROCE sur cette période
-            (besoin de FCF positif + capital employé positif sur ≥ 4 trimestres / 2 exercices).
-          </div>
+          <div className="croce-error">{t('chart.croceNoData')}</div>
         )}
 
         {!loading && !error && data && data.length > 0 && (
@@ -143,7 +140,7 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
                     y={THRESHOLD}
                     stroke="var(--text3)"
                     strokeDasharray="4 4"
-                    label={{ value: 'seuil 15 %', position: 'right', fontSize: 10, fill: 'var(--text3)' }}
+                    label={{ value: t('chart.croceThreshold'), position: 'right', fontSize: 10, fill: 'var(--text3)' }}
                   />
                   {/* Médiane historique pour signal mean-reversion */}
                   {stats && (
@@ -152,7 +149,7 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
                       stroke="var(--brand)"
                       strokeDasharray="2 4"
                       strokeOpacity={0.5}
-                      label={{ value: `médiane ${(stats.median * 100).toFixed(1)}%`, position: 'insideTopRight', fontSize: 10, fill: 'var(--brand)' }}
+                      label={{ value: t('chart.median', { v: `${(stats.median * 100).toFixed(1)}%` }), position: 'insideTopRight', fontSize: 10, fill: 'var(--brand)' }}
                     />
                   )}
                   <Line
@@ -172,28 +169,28 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
             {stats && (
               <div className="croce-stats">
                 <Stat
-                  label={annualOnly ? 'Dernière clôture' : 'Actuel (TTM)'}
+                  label={t(annualOnly ? 'chart.stat.lastClose' : 'chart.stat.currentTtm')}
                   value={(stats.latest * 100).toFixed(1) + '%'}
                   accent={stats.latest >= THRESHOLD ? 'green' : 'red'}
                 />
-                <Stat label="Médiane période" value={(stats.median * 100).toFixed(1) + '%'} />
-                <Stat label="Min / Max" value={`${(stats.min * 100).toFixed(1)}% / ${(stats.max * 100).toFixed(1)}%`} />
+                <Stat label={t('chart.stat.median')} value={(stats.median * 100).toFixed(1) + '%'} />
+                <Stat label={t('chart.stat.minmax')} value={`${(stats.min * 100).toFixed(1)}% / ${(stats.max * 100).toFixed(1)}%`} />
                 <Stat
-                  label="Quarters ≥ 15 %"
+                  label={t('chart.stat.periodsAbove')}
                   value={`${stats.aboveThreshold}/${stats.n} (${stats.pctAbove.toFixed(0)}%)`}
                   accent={stats.pctAbove >= 70 ? 'green' : stats.pctAbove >= 40 ? undefined : 'red'}
                 />
-                <Stat label="Points" value={String(data.length)} />
+                <Stat label={t('chart.stat.points')} value={String(data.length)} />
               </div>
             )}
 
             {stats && (
               <div className="croce-help">
                 {stats.pctAbove >= 80
-                  ? `Cash ROCE durablement au-dessus de 15 % (${stats.aboveThreshold}/${stats.n} périodes) — création de valeur opérationnelle constante.`
+                  ? t('chart.croceVerdictHigh', { n: stats.aboveThreshold, total: stats.n })
                   : stats.pctAbove >= 40
-                    ? `Cash ROCE au-dessus du seuil sur ${stats.aboveThreshold}/${stats.n} périodes — qualité moyenne, à surveiller.`
-                    : `Cash ROCE rarement au-dessus de 15 % (${stats.aboveThreshold}/${stats.n} périodes) — création de valeur opérationnelle faible.`}
+                    ? t('chart.croceVerdictMid', { n: stats.aboveThreshold, total: stats.n })
+                    : t('chart.croceVerdictLow', { n: stats.aboveThreshold, total: stats.n })}
               </div>
             )}
           </>
