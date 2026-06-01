@@ -16,6 +16,7 @@ import { prisma } from '../db/client.js';
 import { getStockSymbols } from './finnhub.js';
 import { buildAndCacheQuantSnapshot } from './scoreSnapshot.js';
 import { getSparkSeries } from './priceSeries.js';
+import { warmChartCacheForTicker } from './chartWarm.js';
 import { EU_LARGE_CAPS } from '../data/euLargeCaps.js';
 import { INTL_LARGE_CAPS } from '../data/intlLargeCaps.js';
 
@@ -229,10 +230,21 @@ async function markTimedOut(ticker: string): Promise<void> {
  *   - garde de budget : on ne démarre un nouveau ticker que s'il reste ≥ PER_TICKER_MS,
  *     pour que la réponse parte bien avant la coupure du cron.
  */
-export async function tick(limit: number, softDeadlineMs = 22_000): Promise<TickResult> {
+/** Fin de la phase scoring : on laisse de la marge pour la phase warm sous la limite cron (30s). */
+const SCORE_DEADLINE_MS = 15_000;
+/** Fin de la phase warm graphiques (laisse de la marge avant la coupure du cron à 30s,
+ *  en comptant l'overhead lambda + le timeout du warm en cours). */
+const WARM_DEADLINE_MS = 24_000;
+/** Plafond par ticker pour le warm graphiques (best-effort, ne touche jamais au score). */
+const CHART_WARM_MS = 6_000;
+/** Combien de titres "jamais warmés" combler par tick, en plus des fraîchement scorés. */
+const WARM_FILL = 6;
+
+export async function tick(limit: number, softDeadlineMs = SCORE_DEADLINE_MS): Promise<TickResult> {
   const start = Date.now();
   const due = await pickDueTickers(limit);
   let scored = 0, nodata = 0, error = 0, timeout = 0;
+  const justScored: string[] = [];
   for (const t of due) {
     // Pas assez de budget pour garantir un cycle complet → on s'arrête net.
     if (Date.now() - start + PER_TICKER_MS > softDeadlineMs) break;
@@ -241,13 +253,47 @@ export async function tick(limit: number, softDeadlineMs = 22_000): Promise<Tick
     // et finira par écrire sa ligne (la lambda tient 60s) — la donnée converge.
     const r = await Promise.race([scoreOne(t.ticker), timer]);
     if (r === TIMEOUT_SENTINEL) { await markTimedOut(t.ticker); timeout++; }
-    else if (r === 'scored') scored++;
+    else if (r === 'scored') { scored++; justScored.push(t.ticker); }
     else if (r === 'nodata') nodata++;
     else error++;
   }
+
+  // ── Phase warm graphiques (best-effort, découplée du score) ──────────────────
+  // La veille prérempli ChartCache pour TOUT l'univers, comme elle a scoré le screener.
+  // 1) les titres fraîchement scorés (memo /financials-reported encore chaud → quasi gratuit),
+  // 2) puis on comble des titres scorés jamais warmés (backfill progressif).
+  const warmed = await warmChartsPhase(justScored, start);
+
   const elapsedMs = Date.now() - start;
-  console.log(`[screener tick] picked=${due.length} scored=${scored} nodata=${nodata} error=${error} timeout=${timeout} in ${elapsedMs}ms`);
+  console.log(`[screener tick] picked=${due.length} scored=${scored} nodata=${nodata} error=${error} timeout=${timeout} warmed=${warmed} in ${elapsedMs}ms`);
   return { picked: due.length, scored, nodata, error, timeout, elapsedMs };
+}
+
+/** Préremplit les graphiques d'un lot de tickers dans le budget restant. Renvoie le nb warmé. */
+async function warmChartsPhase(justScored: string[], start: number): Promise<number> {
+  const queue = [...justScored];
+  const fillN = Math.max(0, WARM_FILL - queue.length);
+  if (fillN > 0) {
+    const never = await prisma.screenerTicker.findMany({
+      where: { status: 'scored', chartsWarmedAt: null, ticker: { notIn: queue.length ? queue : ['__none__'] } },
+      orderBy: { scoreRatio: 'desc' },
+      take: fillN,
+      select: { ticker: true, nextEarningsDate: true },
+    }).catch(() => [] as { ticker: string; nextEarningsDate: string | null }[]);
+    queue.push(...never.map(n => n.ticker));
+  }
+  let warmed = 0;
+  for (const ticker of queue) {
+    if (Date.now() - start + CHART_WARM_MS > WARM_DEADLINE_MS) break;
+    // nextEarningsDate : relu depuis la ligne (scoreOne vient de la mettre à jour).
+    const row = await prisma.screenerTicker.findUnique({ where: { ticker }, select: { nextEarningsDate: true } }).catch(() => null);
+    const ned = row?.nextEarningsDate ?? null;
+    const timer = new Promise<typeof TIMEOUT_SENTINEL>((res) => setTimeout(() => res(TIMEOUT_SENTINEL), CHART_WARM_MS));
+    await Promise.race([warmChartCacheForTicker(ticker, ned).catch(() => {}), timer]);
+    await prisma.screenerTicker.update({ where: { ticker }, data: { chartsWarmedAt: new Date() } }).catch(() => {});
+    warmed++;
+  }
+  return warmed;
 }
 
 export interface TopRow {
