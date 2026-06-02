@@ -12,11 +12,11 @@
  */
 import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
-import type { AnalyzeResponse, ValoParams, Criterion } from '@lubin/shared';
+import type { AnalyzeResponse, ValoParams, Criterion, MarketShare } from '@lubin/shared';
 import { parseLang, tt, type Lang } from '../i18n/index.js';
 import { getMetric, getQuote } from '../services/finnhub.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
-import { fetchBusinessAnalysis, fetchManagementAnalysis } from '../services/openai.js';
+import { fetchBusinessAnalysis, fetchManagementAnalysis, fetchMarketShare } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
 import { writeCachedSnapshot, getServableSnapshot, type CachedQuantSnapshot } from '../services/quantCache.js';
 import { pfcfPercentile, isPfcfOpportunity, getPfcfHistory, PFCF_OPP_MIN_SCORE10 } from '../services/pfcfHistory.js';
@@ -48,6 +48,11 @@ function isBusinessCacheValid(data: unknown): data is Criterion[] {
 }
 function isManagementCacheValid(data: unknown): data is Criterion[] {
   return Array.isArray(data) && data.length >= EXPECTED_MGMT;
+}
+/** Un marketShare en cache est exploitable s'il a des années et ≥ 2 séries alignées. */
+function isMarketShareValid(data: unknown): data is MarketShare {
+  const m = data as MarketShare | null;
+  return !!m && Array.isArray(m.years) && m.years.length >= 2 && Array.isArray(m.series) && m.series.length >= 2;
 }
 
 /**
@@ -81,6 +86,7 @@ function buildResponse(args: {
   managementCachedAt: Date | null;
   pfcfPercentile?: number | null;
   opportunity?: boolean;
+  marketShare?: MarketShare | null;
   lang?: Lang;
 }): AnalyzeResponse {
   const { ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt, lang = 'fr' } = args;
@@ -151,6 +157,7 @@ function buildResponse(args: {
     yahooSymbol,
     pfcfPercentile: args.pfcfPercentile ?? null,
     opportunity,
+    marketShare: args.marketShare ?? null,
   };
 }
 
@@ -225,6 +232,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
 
   const business = businessRow && isBusinessCacheValid(businessRow.business) ? businessRow.business : null;
   const management = managementRow && isManagementCacheValid(managementRow.management) ? managementRow.management : null;
+  const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
   // « Opportunité du moment » : percentile du P/FCF live vs historique (cache).
   const { pfcfPercentile: pct, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
@@ -239,6 +247,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
     managementCachedAt: management ? managementRow!.updatedAt : null,
     pfcfPercentile: pct,
     opportunity,
+    marketShare,
     lang,
   });
   if (userId) response.inWatchlist = watchlistRow != null;
@@ -334,53 +343,63 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
     prisma.managementAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } }),
   ]);
 
-  // Génère le business UNIQUEMENT s'il est absent ou schéma obsolète.
-  // Le business est cache À VIE — pas de TTL, pas de regen automatique.
+  // On ne (re)génère que ce qui manque. Les appels GPT manquants partent EN PARALLÈLE
+  // (business + management + part de marché) pour tenir dans le budget de 60 s du lambda.
+  const needBiz = !(existingBiz && isBusinessCacheValid(existingBiz.business));
+  const needMgmt = !(existingMgmt && isManagementCacheValid(existingMgmt.management));
+  const needMS = !(existingBiz && isMarketShareValid(existingBiz.marketShare));
+  if (needBiz || needMgmt || needMS) {
+    console.log(`[analyze ${ticker}] GPT: business=${needBiz} mgmt=${needMgmt} marketShare=${needMS}`);
+  }
+  const [bizFresh, mgmtFresh, msFresh] = await Promise.all([
+    needBiz ? fetchBusinessAnalysis({ ticker, company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf, lang }) : Promise.resolve(null),
+    needMgmt ? fetchManagementAnalysis({ ticker, company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf, lang }) : Promise.resolve(null),
+    needMS ? fetchMarketShare({ ticker, company, lang }).catch(() => null) : Promise.resolve(null),
+  ]);
+
+  // Business (cache à vie) + part de marché (stockée sur la même ligne) → upsert combiné.
   let business: Criterion[];
   let verdictDirect: string;
   let businessCachedAt: Date;
-  if (existingBiz && isBusinessCacheValid(existingBiz.business)) {
-    business = existingBiz.business;
-    verdictDirect = existingBiz.verdictDirect;
-    businessCachedAt = existingBiz.createdAt;
-    console.log(`[analyze ${ticker}] business cache hit (${businessCachedAt.toISOString().slice(0, 10)})`);
-  } else {
-    console.log(`[analyze ${ticker}] business cache miss → GPT call`);
-    const fresh = await fetchBusinessAnalysis({ ticker, company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf, lang });
+  let marketShare: MarketShare | null = existingBiz && isMarketShareValid(existingBiz.marketShare) ? existingBiz.marketShare : null;
+  if (msFresh) marketShare = msFresh;
+  if (bizFresh) {
     const upserted = await prisma.businessAnalysis.upsert({
       where: { ticker_lang: { ticker, lang } },
-      update: { business: fresh.business as object, verdictDirect: fresh.verdict_direct },
-      create: { ticker, lang, business: fresh.business as object, verdictDirect: fresh.verdict_direct },
+      update: { business: bizFresh.business as object, verdictDirect: bizFresh.verdict_direct, ...(msFresh ? { marketShare: msFresh as object } : {}) },
+      create: { ticker, lang, business: bizFresh.business as object, verdictDirect: bizFresh.verdict_direct, marketShare: (msFresh ?? undefined) as object | undefined },
     });
-    business = fresh.business;
-    verdictDirect = fresh.verdict_direct;
+    business = bizFresh.business;
+    verdictDirect = bizFresh.verdict_direct;
     businessCachedAt = upserted.createdAt;
+  } else {
+    business = existingBiz!.business as unknown as Criterion[];
+    verdictDirect = existingBiz!.verdictDirect;
+    businessCachedAt = existingBiz!.createdAt;
+    // Business déjà en cache mais part de marché nouvellement générée → on la persiste seule.
+    if (msFresh) await prisma.businessAnalysis.update({ where: { ticker_lang: { ticker, lang } }, data: { marketShare: msFresh as object } }).catch(() => {});
   }
 
-  // Génère le management UNIQUEMENT s'il est absent.
-  // Le management est cache jusqu'à refresh explicite via /refresh-management.
+  // Management (cache jusqu'à refresh explicite).
   let management: Criterion[];
   let managementCachedAt: Date;
-  if (existingMgmt && isManagementCacheValid(existingMgmt.management)) {
-    management = existingMgmt.management;
-    managementCachedAt = existingMgmt.updatedAt;
-    console.log(`[analyze ${ticker}] management cache hit (${managementCachedAt.toISOString().slice(0, 10)})`);
-  } else {
-    console.log(`[analyze ${ticker}] management cache miss → GPT call`);
-    const fresh = await fetchManagementAnalysis({ ticker, company, chiffresContext, sbcShareOfFcf: quant.metrics.sbcShareOfFcf, lang });
+  if (mgmtFresh) {
     const upserted = await prisma.managementAnalysis.upsert({
       where: { ticker_lang: { ticker, lang } },
-      update: { management: fresh.management as object },
-      create: { ticker, lang, management: fresh.management as object },
+      update: { management: mgmtFresh.management as object },
+      create: { ticker, lang, management: mgmtFresh.management as object },
     });
-    management = fresh.management;
+    management = mgmtFresh.management;
     managementCachedAt = upserted.updatedAt;
+  } else {
+    management = existingMgmt!.management as unknown as Criterion[];
+    managementCachedAt = existingMgmt!.updatedAt;
   }
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
   res.json(buildResponse({
     ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt,
-    pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, lang,
+    pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, marketShare, lang,
   }));
 }));
 
@@ -410,6 +429,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
   // On lit aussi business pour pouvoir reconstruire la response complète
   const businessRow = await prisma.businessAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } });
   const business = businessRow && isBusinessCacheValid(businessRow.business) ? businessRow.business : null;
+  const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
   res.json(buildResponse({
@@ -420,6 +440,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
     management: fresh.management,
     businessCachedAt: business ? businessRow!.createdAt : null,
     managementCachedAt: upserted.updatedAt,
+    marketShare,
     pfcfPercentile: opp.pfcfPercentile,
     opportunity: opp.opportunity,
     lang,

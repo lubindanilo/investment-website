@@ -656,5 +656,20 @@
     "utilities_regulated_electric": "Services publics - Électricité réglementée",
     "utilities_regulated_gas": "Services publics - Gaz réglementé",
     "utilities_diversified": "Services publics - Diversifiés"
+  },
+  "marketShare": {
+    "title": "Part de marché",
+    "subtitle": "position concurrentielle",
+    "history": "Historique",
+    "stacked": "Empilé",
+    "chartTitle": "Évolution de la part de marché",
+    "chartSub": "Part estimée parmi les principaux acteurs",
+    "estimate": "Estimations",
+    "status": {
+      "pass": "Leader · en hausse",
+      "warn": "Stable · marché fragmenté",
+      "fail": "En recul"
+    },
+    "generate": "Générer la part de marché"
   }
 }

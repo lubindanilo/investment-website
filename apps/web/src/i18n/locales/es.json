@@ -656,5 +656,20 @@
     "utilities_regulated_electric": "Servicios públicos - Electricidad regulada",
     "utilities_regulated_gas": "Servicios públicos - Gas regulado",
     "utilities_diversified": "Servicios públicos - Diversificados"
+  },
+  "marketShare": {
+    "title": "Cuota de mercado",
+    "subtitle": "posición competitiva",
+    "history": "Histórico",
+    "stacked": "Apilado",
+    "chartTitle": "Evolución de la cuota de mercado",
+    "chartSub": "Cuota estimada entre los principales actores",
+    "estimate": "Estimaciones",
+    "status": {
+      "pass": "Líder · al alza",
+      "warn": "Estable · mercado fragmentado",
+      "fail": "En retroceso"
+    },
+    "generate": "Generar la cuota de mercado"
   }
 }

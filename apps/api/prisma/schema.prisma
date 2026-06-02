@@ -43,6 +43,10 @@ model BusinessAnalysis {
   business      Json
   /// 1-2 phrases punchy
   verdictDirect String
+  /// « Part de marché du moment » — un Criterion enrichi (part estimée + tendance + concurrents
+  /// + source), généré avec l'analyse business. Affiché dans la partie quali mais HORS notation.
+  /// Nullable : les analyses générées avant cette feature ne l'ont pas (régénération pour l'obtenir).
+  marketShare   Json?
   createdAt     DateTime @default(now())
 
   @@id([ticker, lang])

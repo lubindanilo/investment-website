@@ -16,7 +16,7 @@
  *
  * Le passage entre les deux se fait via la var d'env OPENAI_MODEL.
  */
-import type { Criterion } from '@lubin/shared';
+import type { Criterion, MarketShare, MarketShareSeries } from '@lubin/shared';
 import type { Lang } from '../i18n/index.js';
 import { openaiLimiter } from '../lib/limiter.js';
 import { fetchWithRetry } from '../lib/retry.js';
@@ -207,6 +207,93 @@ Réponds en JSON STRICT, sans markdown, sans commentaire avant/après. Format ex
   return {
     management: applyLabels(parsed.management ?? [], MGMT_LABELS[lang], MGMT_CIBLES_I18N[lang]),
   };
+}
+
+// ─── Part de marché (qualitatif enrichi, hors notation) ────────────────────
+
+/** Remap des clés top-level (GPT en ES traduit parfois) vers la forme canonique. */
+function pickKey(obj: Record<string, unknown>, ...names: string[]): unknown {
+  for (const n of names) for (const k of Object.keys(obj)) if (k.toLowerCase().trim() === n) return obj[k];
+  return undefined;
+}
+
+/** Nettoie la sortie GPT : séries alignées sur years, parts clampées, colonnes renormalisées à 100. */
+function sanitizeMarketShare(raw: Record<string, unknown>): MarketShare | null {
+  const yearsRaw = pickKey(raw, 'years', 'années', 'anos', 'annees') as unknown[] | undefined;
+  const seriesRaw = pickKey(raw, 'series', 'séries', 'series_') as unknown[] | undefined;
+  if (!Array.isArray(yearsRaw) || !Array.isArray(seriesRaw)) return null;
+  const years = yearsRaw.map(y => String(y)).slice(0, 8);
+  const n = years.length;
+  if (n < 2) return null;
+
+  const series: MarketShareSeries[] = [];
+  for (const s of seriesRaw) {
+    if (!s || typeof s !== 'object') continue;
+    const o = s as Record<string, unknown>;
+    const name = String(pickKey(o, 'name', 'nom', 'nombre') ?? '').trim();
+    const dataRaw = pickKey(o, 'data', 'données', 'datos', 'valeurs') as unknown[] | undefined;
+    if (!name || !Array.isArray(dataRaw)) continue;
+    const data = Array.from({ length: n }, (_, i) => {
+      const v = Number(dataRaw[i]);
+      return Number.isFinite(v) ? Math.max(0, Math.min(100, v)) : 0;
+    });
+    series.push({ name, data });
+    if (series.length >= 6) break;
+  }
+  if (series.length < 2) return null;
+
+  // Renormalise chaque année à 100 (pour un empilé propre), si la somme est exploitable.
+  for (let i = 0; i < n; i++) {
+    const sum = series.reduce((a, s) => a + s.data[i]!, 0);
+    if (sum > 0) for (const s of series) s.data[i] = Math.round((s.data[i]! / sum) * 1000) / 10;
+  }
+
+  const statutRaw = String(pickKey(raw, 'statut', 'estado', 'status') ?? 'warn').toLowerCase();
+  const statut = (['pass', 'warn', 'fail'].includes(statutRaw) ? statutRaw : 'warn') as MarketShare['statut'];
+  return {
+    valeur: String(pickKey(raw, 'valeur', 'valor', 'value') ?? '').trim(),
+    statut,
+    explication: String(pickKey(raw, 'explication', 'explicacion', 'explicación', 'explanation') ?? '').trim(),
+    source: (() => { const s = pickKey(raw, 'source', 'fuente'); return s ? String(s).trim() : undefined; })(),
+    years,
+    series,
+  };
+}
+
+/**
+ * « Part de marché · position concurrentielle » via GPT + recherche web. Renvoie l'estimation
+ * de part actuelle + tendance + l'évolution annuelle (société + concurrents + « Autres »).
+ * Best-effort : renvoie null si la sortie est inexploitable (le front masque alors la carte).
+ */
+export async function fetchMarketShare(args: { ticker: string; company: string; lang?: Lang }): Promise<MarketShare | null> {
+  const { ticker, company, lang = 'fr' } = args;
+  const prompt = `${langDirective(lang)}Tu estimes la PART DE MARCHÉ de ${company} (ticker ${ticker}) sur son marché principal.${webSearchHint()}
+
+Donne :
+1. La part de marché ACTUELLE (%) et sa tendance (gagne / stable / recule).
+2. Les 3 principaux concurrents et leur part approximative.
+3. L'évolution estimée sur les 6 dernières années (une valeur par an).
+
+Réponds en JSON STRICT (sans markdown, sans texte avant/après). Format EXACT :
+{
+  "valeur": "phrase courte, ex: ≈ 42 % du voyage en ligne",
+  "statut": "pass" | "warn" | "fail",
+  "explication": "1-2 phrases : tendance + dynamique concurrentielle",
+  "source": "source + année (ex: Phocuswright 2024)",
+  "years": ["2019","2020","2021","2022","2023","2024"],
+  "series": [
+    { "name": "${company}", "data": [6 nombres en %] },
+    { "name": "Concurrent 1", "data": [6 nombres] },
+    { "name": "Concurrent 2", "data": [6 nombres] },
+    { "name": "Autres", "data": [6 nombres] }
+  ]
+}
+RÈGLES : la 1re série est ${company}. 4 à 5 séries. Chaque année, la somme ≈ 100. Nombres seuls (sans "%").
+"statut" : pass = leader ou gagne des parts · warn = stable / marché fragmenté · fail = perd des parts.
+Si données peu fiables : statut "warn" + estimations prudentes (jamais N/A).`;
+
+  const parsed = await callOpenAi(prompt, `marketShare ${ticker} [${lang}]`) as Record<string, unknown>;
+  return sanitizeMarketShare(parsed ?? {});
 }
 
 // ─── Helpers internes ──────────────────────────────────────────────────────

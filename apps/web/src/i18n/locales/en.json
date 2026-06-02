@@ -656,5 +656,20 @@
     "utilities_regulated_electric": "Utilities - Regulated Electric",
     "utilities_regulated_gas": "Utilities - Regulated Gas",
     "utilities_diversified": "Utilities - Diversified"
+  },
+  "marketShare": {
+    "title": "Market share",
+    "subtitle": "competitive position",
+    "history": "History",
+    "stacked": "Stacked",
+    "chartTitle": "Market share over time",
+    "chartSub": "Estimated share among the main players",
+    "estimate": "Estimates",
+    "status": {
+      "pass": "Leader · gaining",
+      "warn": "Stable · fragmented market",
+      "fail": "Losing share"
+    },
+    "generate": "Generate market share"
   }
 }

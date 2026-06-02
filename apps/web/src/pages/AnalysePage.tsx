@@ -6,6 +6,7 @@ import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
 import { useAuth } from '../contexts/AuthContext.js';
 import { CriteriaGrid, QualGrid } from '../components/CriterionCard.js';
+import { MarketShareCard } from '../components/MarketShareCard.js';
 import { ValuationBlock } from '../components/ui/ValuationBlock.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
 import { Icon, ScoreCircle, ScorePill, OpportunityBadge, toDataStatus } from '../components/ui/primitives.js';
@@ -272,6 +273,13 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
         >
           {analysis.qualitativeAvailable ? (
             <div className="col gap-20">
+              {analysis.marketShare ? (
+                <MarketShareCard ms={analysis.marketShare} />
+              ) : (
+                <button className="btn btn-ghost btn-sm" onClick={onGenerateQual} disabled={generatingQual} style={{ alignSelf: 'flex-start' }}>
+                  {generatingQual ? <><span className="spinner" /> {t('analyse.generating')}</> : <><Icon name="bars" size={14} /> {t('marketShare.generate')}</>}
+                </button>
+              )}
               <div className="col gap-10">
                 <span className="kicker anl-qual-kicker">{t('analyse.businessModel')} · {scoreOf(business)}</span>
                 <QualGrid items={business} />

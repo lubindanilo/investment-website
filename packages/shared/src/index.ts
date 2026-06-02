@@ -26,6 +26,32 @@ export interface Criterion {
 
 export type CriteriaCategory = 'chiffres' | 'business' | 'management' | 'valorisation';
 
+/**
+ * « Part de marché · position concurrentielle » — critère qualitatif enrichi (GPT + recherche web).
+ * Affiché en tête de la partie qualitative, HORS notation. `series` alimente le graphe d'évolution
+ * (empilé entre acteurs / courbe de la société). `series[0]` = la société analysée ; dernière entrée
+ * souvent « Autres ». Chaque `data` = part en % par année, aligné sur `years`.
+ */
+export interface MarketShareSeries {
+  name: string;
+  /** Part de marché en % par année (aligné sur `years`). */
+  data: number[];
+}
+export interface MarketShare {
+  /** Phrase d'en-tête, ex. « ≈ 42 % du voyage en ligne ». */
+  valeur: string;
+  /** pass = leader/en hausse · warn = stable/fragmenté · fail = en recul. */
+  statut: CriterionStatus;
+  /** 1-2 phrases : tendance + dynamique concurrentielle. */
+  explication: string;
+  /** Source + date (les chiffres sont des estimations). */
+  source?: string;
+  /** Années de l'axe X (ex. ["2019",…,"2024"]). */
+  years: string[];
+  /** Une série par acteur ; series[0] = la société analysée. */
+  series: MarketShareSeries[];
+}
+
 // ─── Fondamentaux dérivés ─────────────────────────────────────────────────
 
 export interface DerivedMetrics {
@@ -171,6 +197,11 @@ export interface AnalyzeResponse {
   pfcfPercentile: number | null;
   /** « Opportunité du moment » : P/FCF dans son décile bas historique (≤10) ET < 25. */
   opportunity: boolean;
+  /**
+   * « Part de marché · position concurrentielle » (qualitatif GPT, hors notation).
+   * Null si l'analyse qualitative n'a pas encore été générée (ou générée avant cette feature).
+   */
+  marketShare?: MarketShare | null;
   /**
    * True si le ticker est déjà dans la watchlist de l'utilisateur connecté.
    * Calculé côté serveur (optionalAuth) → source unique, pas de course avec un
