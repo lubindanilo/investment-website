@@ -1,79 +1,15 @@
 /**
- * MarketShareCard — « Part de marché · position concurrentielle » (critère qualitatif enrichi,
- * hors notation). Affiché en tête de la partie qualitative. Données GPT (estimations + sources).
- * Bouton « Historique » → modale avec le graphe d'évolution (empilé entre acteurs / société seule).
+ * MarketShareModal — graphe d'évolution de la part de marché (estimations GPT).
+ * Bascule « Empilé » (répartition entre acteurs) / « société » (trajectoire seule).
+ * Ouvert depuis la carte de critère « Gagne des parts de marché ».
  */
 import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { MarketShare } from '@lubin/shared';
-import { Icon, toDataStatus } from './ui/primitives.js';
 
-const COLORS = ['var(--brand)', '#0e9aa7', '#e0a13c', '#c2557a', '#9aa0b4', '#5b8def'];
+export const MS_COLORS = ['var(--brand)', '#0e9aa7', '#e0a13c', '#c2557a', '#9aa0b4', '#5b8def'];
 
-function pillStyle(status: 'good' | 'warn' | 'bad'): React.CSSProperties {
-  const map = {
-    good: { bg: 'var(--good-bg)', ink: 'var(--good-ink)', dot: 'var(--good)' },
-    warn: { bg: 'var(--warn-bg)', ink: 'var(--warn-ink)', dot: 'var(--warn)' },
-    bad: { bg: 'var(--bad-bg)', ink: 'var(--bad-ink)', dot: 'var(--bad)' },
-  }[status];
-  return {
-    display: 'inline-flex', alignItems: 'center', gap: 6, padding: '4px 10px', borderRadius: 999,
-    fontSize: 12, fontWeight: 700, background: map.bg, color: map.ink,
-    border: `1px solid color-mix(in oklch, ${map.dot} 30%, transparent)`,
-  };
-}
-
-export function MarketShareCard({ ms }: { ms: MarketShare }) {
-  const { t } = useTranslation();
-  const [open, setOpen] = useState(false);
-  const status = toDataStatus(ms.statut);
-  const lastIdx = ms.years.length - 1;
-
-  return (
-    <div className="card" style={{ padding: '20px 22px', display: 'flex', flexDirection: 'column', gap: 13 }}>
-      <div className="row between" style={{ alignItems: 'flex-start', gap: 12 }}>
-        <span className="kicker">{t('marketShare.title')} · {t('marketShare.subtitle')}</span>
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="valb-hist-btn"
-          style={{ marginTop: 0 }}
-        >
-          <Icon name="bars" size={14} /> {t('marketShare.history')}
-        </button>
-      </div>
-
-      <div className="row gap-10" style={{ flexWrap: 'wrap', alignItems: 'center' }}>
-        {ms.valeur && <span className="num" style={{ fontSize: 19, fontWeight: 800, letterSpacing: '-.01em' }}>{ms.valeur}</span>}
-        <span style={pillStyle(status)}>
-          <span style={{ width: 7, height: 7, borderRadius: '50%', background: `var(--${status === 'good' ? 'good' : status === 'bad' ? 'bad' : 'warn'})` }} />
-          {t(`marketShare.status.${ms.statut}`)}
-        </span>
-      </div>
-
-      {ms.explication && <p style={{ fontSize: 14, color: 'var(--ink-2)', maxWidth: '64ch', lineHeight: 1.5 }}>{ms.explication}</p>}
-
-      <div className="row gap-8" style={{ flexWrap: 'wrap' }}>
-        {ms.series.map((s, i) => (
-          <span key={s.name} className="chip-ms" style={{
-            display: 'inline-flex', alignItems: 'center', gap: 7, padding: '5px 11px', borderRadius: 999,
-            border: '1px solid var(--line)', background: 'var(--surface-2)', fontSize: 12.5, fontWeight: 600, color: 'var(--ink-2)',
-          }}>
-            <span style={{ width: 9, height: 9, borderRadius: 3, background: COLORS[i % COLORS.length], flexShrink: 0 }} />
-            {s.name} {s.data[lastIdx] != null && <span className="num muted">~{s.data[lastIdx]}%</span>}
-          </span>
-        ))}
-      </div>
-
-      {ms.source && <span className="tiny" style={{ color: 'var(--ink-4)' }}>{t('marketShare.estimate')} · {ms.source}</span>}
-
-      {open && <MarketShareModal ms={ms} onClose={() => setOpen(false)} />}
-    </div>
-  );
-}
-
-// ─── Modale graphe d'évolution ───────────────────────────────────────────────
-function MarketShareModal({ ms, onClose }: { ms: MarketShare; onClose: () => void }) {
+export function MarketShareModal({ ms, onClose }: { ms: MarketShare; onClose: () => void }) {
   const { t } = useTranslation();
   const [view, setView] = useState<'stack' | 'company'>('stack');
 
@@ -128,7 +64,6 @@ function MarketShareModal({ ms, onClose }: { ms: MarketShare; onClose: () => voi
         </>
       );
     }
-    // stacked
     const cum = new Array(n).fill(0);
     const layers: React.ReactNode[] = [];
     ms.series.forEach((se, si) => {
@@ -137,7 +72,7 @@ function MarketShareModal({ ms, onClose }: { ms: MarketShare; onClose: () => voi
       const topPts = top.map((v, i) => ({ x: xAt(i), y: yAt(v) }));
       const botPts = bot.map((v, i) => ({ x: xAt(i), y: yAt(v) })).reverse();
       const area = smooth(topPts) + ' L ' + botPts.map(p => `${p.x} ${p.y}`).join(' L ') + ' Z';
-      layers.push(<path key={`a${si}`} d={area} fill={COLORS[si % COLORS.length]} fillOpacity={0.88} />);
+      layers.push(<path key={`a${si}`} d={area} fill={MS_COLORS[si % MS_COLORS.length]} fillOpacity={0.88} />);
       layers.push(<path key={`l${si}`} d={smooth(topPts)} fill="none" stroke="#fff" strokeWidth={1.4} strokeOpacity={0.5} />);
     });
     return <>{grid}{layers}</>;
@@ -169,7 +104,7 @@ function MarketShareModal({ ms, onClose }: { ms: MarketShare; onClose: () => voi
         <div className="row gap-14" style={{ flexWrap: 'wrap' }}>
           {legend.map((s, i) => (
             <span key={s.name} className="row gap-6" style={{ fontSize: 12.5, fontWeight: 600, color: 'var(--ink-2)' }}>
-              <span style={{ width: 11, height: 11, borderRadius: 3, background: COLORS[(view === 'company' ? 0 : i) % COLORS.length] }} />
+              <span style={{ width: 11, height: 11, borderRadius: 3, background: MS_COLORS[(view === 'company' ? 0 : i) % MS_COLORS.length] }} />
               {s.name}
             </span>
           ))}

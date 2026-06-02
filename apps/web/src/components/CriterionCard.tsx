@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { Criterion } from '@lubin/shared';
+import type { Criterion, MarketShare } from '@lubin/shared';
 import { CRITERION_HISTOGRAMS, CRITERION_LINECHARTS } from '@lubin/shared';
 import { HistogramModal } from './HistogramModal.js';
 import { PfcfChartModal } from './PfcfChartModal.js';
 import { CashRoceChartModal } from './CashRoceChartModal.js';
+import { MarketShareModal } from './MarketShareModal.js';
 import { Icon, InfoPop, StatusBadge, toDataStatus } from './ui/primitives.js';
 import './CriterionCard.css';
 
@@ -102,10 +103,65 @@ function QualCard({ c }: { c: Criterion }) {
   );
 }
 
-export function QualGrid({ items }: { items: Criterion[] }) {
+/**
+ * Variante de QualCard pour le critère « Gagne des parts de marché » : on y greffe la part de
+ * marché estimée (valeur + texte) + un bouton qui ouvre la modale d'évolution/répartition.
+ * Si la part de marché n'est pas encore générée, propose un bouton de génération.
+ */
+function MarketShareQualCard({ c, ms, onGenerate, generating }: {
+  c: Criterion; ms?: MarketShare | null; onGenerate?: () => void; generating?: boolean;
+}) {
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="qual-card">
+      <div className="qual-card-head">
+        <span className="qual-card-label">{c.nom}</span>
+        <StatusBadge status={toDataStatus(c.statut)} />
+      </div>
+      {ms ? (
+        <>
+          {ms.valeur && <span className="num" style={{ fontWeight: 800, fontSize: 15, color: 'var(--ink)', marginTop: 2 }}>{ms.valeur}</span>}
+          <p className="qual-card-note">{ms.explication || c.explication}</p>
+          <button type="button" className="crit-hist-btn" style={{ alignSelf: 'flex-start', marginTop: 2 }} onClick={() => setOpen(true)}>
+            <Icon name="bars" size={13} /> {t('marketShare.history')}
+          </button>
+          {open && <MarketShareModal ms={ms} onClose={() => setOpen(false)} />}
+        </>
+      ) : (
+        <>
+          {c.explication && <p className="qual-card-note">{c.explication}</p>}
+          {onGenerate && (
+            <button type="button" className="crit-hist-btn" style={{ alignSelf: 'flex-start', marginTop: 2 }} onClick={onGenerate} disabled={generating}>
+              {generating ? <><span className="spinner" /> {t('analyse.generating')}</> : <><Icon name="bars" size={13} /> {t('marketShare.generate')}</>}
+            </button>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Grille qualitative. Si `marketShare` (ou `onGenerateMarketShare`) est fourni, la DERNIÈRE carte
+ * — le critère « Gagne des parts de marché », toujours en position finale de la liste business —
+ * est enrichie (part de marché + graphe). Les autres grilles (management) ne le passent pas.
+ */
+export function QualGrid({ items, marketShare, onGenerateMarketShare, generatingMarketShare }: {
+  items: Criterion[];
+  marketShare?: MarketShare | null;
+  onGenerateMarketShare?: () => void;
+  generatingMarketShare?: boolean;
+}) {
+  const enhanced = marketShare !== undefined || !!onGenerateMarketShare;
+  const lastIdx = items.length - 1;
   return (
     <div className="qual-grid">
-      {items.map((c, i) => <QualCard key={i} c={c} />)}
+      {items.map((c, i) => (
+        enhanced && i === lastIdx
+          ? <MarketShareQualCard key={i} c={c} ms={marketShare} onGenerate={onGenerateMarketShare} generating={generatingMarketShare} />
+          : <QualCard key={i} c={c} />
+      ))}
     </div>
   );
 }
