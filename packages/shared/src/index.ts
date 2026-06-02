@@ -26,6 +26,13 @@ export interface Criterion {
 
 export type CriteriaCategory = 'chiffres' | 'business' | 'management' | 'valorisation';
 
+/** Un pair coté du secteur avec son P/FCF (pour le détail concurrentiel). */
+export interface SectorPeer {
+  ticker: string;
+  name: string | null;
+  pfcf: number;
+}
+
 /** Benchmark sectoriel : médiane du P/FCF des pairs cotés suivis + position du titre. */
 export interface SectorBenchmark {
   /** Industrie (chaîne canonique anglaise — traduite côté front via le namespace `industries`). */
@@ -36,6 +43,21 @@ export interface SectorBenchmark {
   count: number;
   /** Percentile du P/FCF du titre vs ses pairs (0-100, bas = moins cher). Null si P/FCF du titre indispo. */
   percentile: number | null;
+  /** Liste des pairs (ticker + P/FCF), triée croissant — pour la modale « + de détails ». */
+  peers: SectorPeer[];
+}
+
+/** Infos dividende (Yahoo). `paysDividend=false` → la société n'en verse pas. */
+export interface DividendInfo {
+  paysDividend: boolean;
+  /** Rendement en % (ex 1.8 pour 1,8 %). */
+  yieldPct: number | null;
+  /** Dividende annuel par action (devise du titre). */
+  ratePerShare: number | null;
+  /** Taux de distribution (payout) en % du résultat. */
+  payoutRatioPct: number | null;
+  /** Prochaine date ex-dividende (YYYY-MM-DD). */
+  exDate: string | null;
 }
 
 /**
@@ -219,6 +241,8 @@ export interface AnalyzeResponse {
    * industrie + le percentile du titre. Null si industrie inconnue ou trop peu de pairs.
    */
   sectorBenchmark?: SectorBenchmark | null;
+  /** Infos dividende (Yahoo). Null si non récupérable ; `paysDividend=false` si pas de dividende. */
+  dividend?: DividendInfo | null;
   /**
    * True si le ticker est déjà dans la watchlist de l'utilisateur connecté.
    * Calculé côté serveur (optionalAuth) → source unique, pas de course avec un

@@ -7,6 +7,8 @@ import { useToast } from '../components/Toast.js';
 import { useAuth } from '../contexts/AuthContext.js';
 import { CriteriaGrid, QualGrid } from '../components/CriterionCard.js';
 import { ValuationBlock } from '../components/ui/ValuationBlock.js';
+import { PfcfCards } from '../components/PfcfCards.js';
+import { DividendBlock } from '../components/DividendBlock.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
 import { Icon, ScoreCircle, ScorePill, OpportunityBadge, toDataStatus } from '../components/ui/primitives.js';
 import { CompositionBar, PriceChart } from '../components/ui/charts.js';
@@ -248,17 +250,18 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
         {/* Cours */}
         <PriceSection ticker={analysis.ticker} currency={currency} />
 
-        {/* 10 critères */}
+        {/* 10 critères + 2 cartes P/FCF « hors notation » (secteur + historique) */}
         <Section title={t('analyse.sections.chiffres.title')} sub={t('analyse.sections.chiffres.sub')}>
           <CriteriaGrid items={chiffres} ticker={analysis.ticker} currency={currency} annualOnly={annualOnly} />
+          <PfcfCards
+            pfcfTTM={analysis.metrics.pfcfTTM}
+            pfcfPercentile={analysis.pfcfPercentile}
+            sectorBenchmark={analysis.sectorBenchmark ?? null}
+            ticker={analysis.ticker}
+            currency={currency}
+            annualOnly={annualOnly}
+          />
         </Section>
-
-        {/* Résultats */}
-        {(analysis.earnings?.next || analysis.earnings?.last) && (
-          <Section title={t('analyse.sections.resultats.title')} sub={t('analyse.sections.resultats.sub')}>
-            <EarningsPanel ticker={analysis.ticker} earnings={analysis.earnings} currency={currency} />
-          </Section>
-        )}
 
         {/* Qualitatif (à la demande) */}
         <Section
@@ -293,9 +296,23 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
           )}
         </Section>
 
+        {/* Résultats (sous le qualitatif) */}
+        {(analysis.earnings?.next || analysis.earnings?.last) && (
+          <Section title={t('analyse.sections.resultats.title')} sub={t('analyse.sections.resultats.sub')}>
+            <EarningsPanel ticker={analysis.ticker} earnings={analysis.earnings} currency={currency} />
+          </Section>
+        )}
+
+        {/* Dividendes */}
+        {analysis.dividend && (
+          <Section title={t('dividend.title')} sub={t('dividend.sub')}>
+            <DividendBlock dividend={analysis.dividend} currency={currency} />
+          </Section>
+        )}
+
         {/* Valorisation */}
         <Section title={t('analyse.sections.valorisation.title')} sub={t('analyse.sections.valorisation.sub')}>
-          <ValuationBlock price={analysis.price} pfcfTTM={analysis.metrics.pfcfTTM} currency={currency} valoParams={analysis.valoParams} ticker={analysis.ticker} annualOnly={annualOnly} pfcfPercentile={analysis.pfcfPercentile} opportunity={analysis.opportunity} sectorBenchmark={analysis.sectorBenchmark ?? null} />
+          <ValuationBlock price={analysis.price} pfcfTTM={analysis.metrics.pfcfTTM} currency={currency} valoParams={analysis.valoParams} />
         </Section>
 
         {/* Actualités */}

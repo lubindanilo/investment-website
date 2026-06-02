@@ -674,5 +674,24 @@
       "fail": "En recul"
     },
     "generate": "Générer la part de marché"
+  },
+  "pfcfCards": {
+    "notScored": "Hors notation",
+    "sectorTitle": "P/FCF vs secteur",
+    "historyTitle": "P/FCF vs historique",
+    "moreDetails": "+ de détails",
+    "noSector": "Pas assez de pairs cotés pour comparer.",
+    "historyPosition": "{{pct}}ᵉ percentile de son propre historique.",
+    "peersTitle": "P/FCF des concurrents",
+    "peersSub": "{{count}} sociétés · médiane {{median}}×"
+  },
+  "dividend": {
+    "title": "Dividendes",
+    "sub": "Rendement et distribution",
+    "none": "Ne verse pas de dividende",
+    "yield": "Rendement",
+    "rate": "Dividende / action",
+    "payout": "Taux de distribution",
+    "exDate": "Prochaine ex-date"
   }
 }

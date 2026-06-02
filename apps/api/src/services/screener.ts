@@ -417,19 +417,23 @@ const SECTOR_BENCH_MIN_PEERS = 5;
 export async function getSectorPfcfBenchmark(
   sector: string | null,
   tickerPfcf: number | null,
-): Promise<{ sector: string; medianPfcf: number; count: number; percentile: number | null } | null> {
+): Promise<{ sector: string; medianPfcf: number; count: number; percentile: number | null; peers: { ticker: string; name: string | null; pfcf: number }[] } | null> {
   if (!sector) return null;
   const rows = await prisma.screenerTicker.findMany({
     where: { status: 'scored', sector, pfcfTTM: { gt: 0 } },
-    select: { pfcfTTM: true },
+    select: { ticker: true, name: true, pfcfTTM: true },
   });
-  const values = rows.map(r => r.pfcfTTM!).filter(v => Number.isFinite(v) && v > 0).sort((a, b) => a - b);
-  if (values.length < SECTOR_BENCH_MIN_PEERS) return null;
+  const peers = rows
+    .filter(r => Number.isFinite(r.pfcfTTM) && r.pfcfTTM! > 0)
+    .map(r => ({ ticker: r.ticker, name: r.name, pfcf: r.pfcfTTM! }))
+    .sort((a, b) => a.pfcf - b.pfcf);
+  if (peers.length < SECTOR_BENCH_MIN_PEERS) return null;
+  const values = peers.map(p => p.pfcf);
   const median = values[Math.floor(values.length / 2)]!;
   let percentile: number | null = null;
   if (tickerPfcf != null && tickerPfcf > 0) {
     const below = values.filter(v => v <= tickerPfcf).length;
     percentile = (below / values.length) * 100;
   }
-  return { sector, medianPfcf: median, count: values.length, percentile };
+  return { sector, medianPfcf: median, count: peers.length, percentile, peers };
 }

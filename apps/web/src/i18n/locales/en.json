@@ -674,5 +674,24 @@
       "fail": "Losing share"
     },
     "generate": "Generate market share"
+  },
+  "pfcfCards": {
+    "notScored": "Not scored",
+    "sectorTitle": "P/FCF vs sector",
+    "historyTitle": "P/FCF vs history",
+    "moreDetails": "+ details",
+    "noSector": "Not enough listed peers to compare.",
+    "historyPosition": "{{pct}}th percentile of its own history.",
+    "peersTitle": "Competitors’ P/FCF",
+    "peersSub": "{{count}} companies · median {{median}}×"
+  },
+  "dividend": {
+    "title": "Dividends",
+    "sub": "Yield and payout",
+    "none": "Does not pay a dividend",
+    "yield": "Yield",
+    "rate": "Dividend / share",
+    "payout": "Payout ratio",
+    "exDate": "Next ex-date"
   }
 }

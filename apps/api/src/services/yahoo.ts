@@ -13,7 +13,7 @@
  * Si Yahoo échoue (cookie/crumb/parsing) → on retourne null et le caller fallback
  * sur la dérivation Finnhub (revenueGrowth5Y vs revenueShareGrowth5Y).
  */
-import type { EarningsInfo, EarningsResult } from '@lubin/shared';
+import type { EarningsInfo, EarningsResult, DividendInfo } from '@lubin/shared';
 import { yahooLimiter } from '../lib/limiter.js';
 import { fetchSplitEvents, cumulativeSplitFactor } from './yahooSplits.js';
 
@@ -633,6 +633,62 @@ export async function getAssetProfileYahoo(symbol: string): Promise<YahooAssetPr
       console.warn(`[yahoo profile ${symbol}] échec :`, (e as Error).message);
       yahooProfileCache.set(symbol, { data: empty, cachedAt: Date.now() });
       return empty;
+    }
+  });
+}
+
+// ── Dividende via Yahoo quoteSummary (summaryDetail + calendarEvents) ──────────
+const YAHOO_DIV_TTL_MS = 24 * 60 * 60 * 1000; // 1 j (rendement bouge avec le prix)
+interface CachedYahooDiv { data: DividendInfo; cachedAt: number }
+const yahooDivCache = new Map<string, CachedYahooDiv>();
+
+export async function getDividendInfoYahoo(symbol: string): Promise<DividendInfo> {
+  const none: DividendInfo = { paysDividend: false, yieldPct: null, ratePerShare: null, payoutRatioPct: null, exDate: null };
+  const cached = yahooDivCache.get(symbol);
+  if (cached && Date.now() - cached.cachedAt < YAHOO_DIV_TTL_MS) return cached.data;
+
+  return yahooLimiter.schedule(async () => {
+    try {
+      const fetchOnce = async (session: YahooSession): Promise<Response> => {
+        const url = `${QUOTE_SUMMARY_BASE}/${encodeURIComponent(symbol)}`
+          + `?modules=${encodeURIComponent('summaryDetail,calendarEvents')}`
+          + `&crumb=${encodeURIComponent(session.crumb)}`;
+        const headers: Record<string, string> = { 'User-Agent': UA, Accept: 'application/json' };
+        if (session.cookies) headers.Cookie = session.cookies;
+        return fetch(url, { headers });
+      };
+      let session = await getSession();
+      let res = await fetchOnce(session);
+      if (res.status === 401 || res.status === 403) { invalidateSession(); session = await getSession(); res = await fetchOnce(session); }
+      if (!res.ok) throw new Error(`Yahoo quoteSummary HTTP ${res.status}`);
+      const data = await res.json() as {
+        quoteSummary?: { result?: Array<{
+          summaryDetail?: { dividendRate?: YahooNum; dividendYield?: YahooNum; payoutRatio?: YahooNum; trailingAnnualDividendRate?: YahooNum; trailingAnnualDividendYield?: YahooNum; exDividendDate?: YahooNum };
+          calendarEvents?: { exDividendDate?: YahooNum; dividendDate?: YahooNum };
+        }>; error?: { description?: string } | null };
+      };
+      if (data.quoteSummary?.error) throw new Error(data.quoteSummary.error.description ?? 'quoteSummary error');
+      const node = data.quoteSummary?.result?.[0];
+      const sd = node?.summaryDetail;
+      const rate = sd?.dividendRate?.raw ?? sd?.trailingAnnualDividendRate?.raw ?? null;
+      const yld = sd?.dividendYield?.raw ?? sd?.trailingAnnualDividendYield?.raw ?? null;
+      const payout = sd?.payoutRatio?.raw ?? null;
+      const exRaw = sd?.exDividendDate ?? node?.calendarEvents?.exDividendDate;
+      const exDate = ynumToDate(exRaw);
+      const paysDividend = (rate != null && rate > 0) || (yld != null && yld > 0);
+      const result: DividendInfo = {
+        paysDividend,
+        yieldPct: yld != null ? Math.round(yld * 1000) / 10 : null,           // fraction → %
+        ratePerShare: rate != null ? Math.round(rate * 100) / 100 : null,
+        payoutRatioPct: payout != null && payout > 0 ? Math.round(payout * 1000) / 10 : null,
+        exDate,
+      };
+      yahooDivCache.set(symbol, { data: result, cachedAt: Date.now() });
+      return result;
+    } catch (e) {
+      console.warn(`[yahoo dividend ${symbol}] échec :`, (e as Error).message);
+      yahooDivCache.set(symbol, { data: none, cachedAt: Date.now() });
+      return none;
     }
   });
 }
