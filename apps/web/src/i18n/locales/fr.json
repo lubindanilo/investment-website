@@ -11,7 +11,8 @@
   "nav": {
     "analyse": "Analyser",
     "watchlist": "Watchlist",
-    "screener": "Screener"
+    "screener": "Screener",
+    "compare": "Comparer"
   },
   "userMenu": {
     "login": "Connexion",
@@ -460,5 +461,38 @@
         "quote": "Aussi propre et dense qu'un terminal pro, mais lisible et sans le prix d'un terminal pro. Les chiffres en monospace, ça change la vie."
       }
     ]
+  },
+  "compare": {
+    "title": "Comparaison",
+    "subtitle": "Mettez 2 à 3 titres côte à côte. La donnée tranche, ligne par ligne.",
+    "tickersLabel": "Titres",
+    "addTicker": "Ajouter un titre",
+    "searchPlaceholder": "Rechercher un ticker…",
+    "noResult": "Aucun résultat.",
+    "slots": "{{n}}/3 · minimum 2 pour comparer",
+    "remove": "Retirer",
+    "best": "Meilleur sur ce critère",
+    "verdict": "Verdict",
+    "bestRated": "Mieux notée",
+    "vsPrice": "vs cours",
+    "errorLoad": "Impossible de charger la comparaison.",
+    "invite": {
+      "title": "Ajoutez un 2ᵉ titre pour comparer",
+      "text": "La comparaison met en regard les 10 chiffres et la valorisation de 2 à 3 titres, et surligne le meilleur de chaque ligne."
+    },
+    "sections": {
+      "chiffres": "Les chiffres",
+      "chiffresSub": "10 critères · le meilleur de chaque ligne est surligné",
+      "valuation": "Valorisation",
+      "valuationSub": "jugée séparément de la qualité"
+    },
+    "pfcf": {
+      "label": "P/FCF actuel",
+      "target": "plus bas = mieux"
+    },
+    "valuation": {
+      "label": "Prix d'achat conseillé",
+      "target": "décote vs cours"
+    }
   }
 }

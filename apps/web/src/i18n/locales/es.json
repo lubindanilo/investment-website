@@ -11,7 +11,8 @@
   "nav": {
     "analyse": "Analizar",
     "watchlist": "Lista",
-    "screener": "Screener"
+    "screener": "Screener",
+    "compare": "Comparar"
   },
   "userMenu": {
     "login": "Iniciar sesión",
@@ -460,5 +461,38 @@
         "quote": "Tan limpio y denso como un terminal profesional, pero legible y sin su precio. Las cifras en monospace cambian la vida."
       }
     ]
+  },
+  "compare": {
+    "title": "Comparación",
+    "subtitle": "Pon 2 o 3 valores uno al lado del otro. Deciden los datos, línea por línea.",
+    "tickersLabel": "Valores",
+    "addTicker": "Añadir un valor",
+    "searchPlaceholder": "Buscar un ticker…",
+    "noResult": "Sin resultados.",
+    "slots": "{{n}}/3 · mínimo 2 para comparar",
+    "remove": "Quitar",
+    "best": "Mejor en este criterio",
+    "verdict": "Veredicto",
+    "bestRated": "Mejor valorada",
+    "vsPrice": "vs precio",
+    "errorLoad": "No se pudo cargar la comparación.",
+    "invite": {
+      "title": "Añade un 2º valor para comparar",
+      "text": "La comparación enfrenta las 10 cifras y la valoración de 2 a 3 valores, y resalta el mejor de cada línea."
+    },
+    "sections": {
+      "chiffres": "Las cifras",
+      "chiffresSub": "10 criterios · se resalta el mejor de cada línea",
+      "valuation": "Valoración",
+      "valuationSub": "evaluada por separado de la calidad"
+    },
+    "pfcf": {
+      "label": "P/FCF actual",
+      "target": "más bajo = mejor"
+    },
+    "valuation": {
+      "label": "Precio de compra recomendado",
+      "target": "descuento vs precio"
+    }
   }
 }

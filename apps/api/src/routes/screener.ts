@@ -11,8 +11,10 @@
  * secret n'est pas configuré, ils sont refusés.
  */
 import { Router, type Request, type Response, type NextFunction } from 'express';
+import type { TickerSuggestion } from '@lubin/shared';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { seedRegion, tick, getTop, getStats } from '../services/screener.js';
+import { prisma } from '../db/client.js';
 
 export const screenerRouter: Router = Router();
 
@@ -57,4 +59,28 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
 // ── GET /stats ──────────────────────────────────────────────────────────────
 screenerRouter.get('/stats', asyncHandler(async (_req: Request, res: Response) => {
   res.json(await getStats());
+}));
+
+// ── GET /search?q=app ─────────────────────────────────────────────────────────
+// Autocomplétion (sélecteur de comparaison) : titres scorés dont le ticker ou le nom
+// matche. Priorité au ticker exact/préfixe, puis aux mieux notés.
+screenerRouter.get('/search', asyncHandler(async (req: Request, res: Response) => {
+  const q = String(req.query.q ?? '').trim();
+  if (q.length < 1) { res.json([] as TickerSuggestion[]); return; }
+  const rows = await prisma.screenerTicker.findMany({
+    where: {
+      status: 'scored',
+      OR: [
+        { ticker: { startsWith: q, mode: 'insensitive' } },
+        { name: { contains: q, mode: 'insensitive' } },
+      ],
+    },
+    orderBy: [{ scoreRatio: 'desc' }],
+    take: 8,
+    select: { ticker: true, name: true, sector: true, scoreChiffres: true, scoreChiffresMax: true },
+  });
+  // Remonte les préfixes exacts de ticker en tête (UX recherche).
+  const qu = q.toUpperCase();
+  rows.sort((a, b) => Number(b.ticker.startsWith(qu)) - Number(a.ticker.startsWith(qu)));
+  res.json(rows as TickerSuggestion[]);
 }));

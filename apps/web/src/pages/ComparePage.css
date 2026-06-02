@@ -1,0 +1,47 @@
+/* Comparaison side-by-side — porté du design Claude Design (export-comparaison). */
+.cmp { background: var(--bg); min-height: 100vh; }
+.cmp-wrap { max-width: 1180px; margin: 0 auto; padding: 26px 28px 60px; }
+.cmp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.cmp-title { font-size: 26px; }
+
+.cmp-selector { padding: 12px 14px; margin-bottom: 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.cmp-selector-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-3); }
+.cmp-chip { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 6px 0 13px; border-radius: 999px; background: var(--brand); color: #fff; }
+.cmp-chip-x { width: 24px; height: 24px; border-radius: 50%; border: none; background: oklch(1 0 0 / 0.18); color: #fff; display: flex; align-items: center; justify-content: center; }
+.cmp-add { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border-radius: 999px; border: 1.5px dashed var(--line); background: var(--surface); color: var(--ink-2); font-weight: 600; font-size: 13.5px; transition: all .14s; }
+.cmp-add:hover { border-color: var(--brand); color: var(--brand-ink); }
+.cmp-suggest { position: absolute; top: 44px; left: 0; width: 300px; z-index: 30; padding: 6px; box-shadow: var(--sh-lg); }
+.cmp-suggest-item { width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; border: none; background: transparent; transition: background .12s; }
+.cmp-suggest-item:hover { background: var(--brand-softer); }
+
+/* Verdict */
+.cmp-verdict { padding: 14px 18px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.cmp-verdict-chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px 6px 8px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--surface); }
+.cmp-verdict-chip.win { border-color: var(--brand); background: var(--brand-softer); }
+
+/* Grille */
+.cmp-scroll { width: 100%; }
+.cmp-grid { display: grid; align-items: stretch; }
+.cmp-h { position: sticky; top: 0; z-index: 4; background: var(--bg); padding: 0 7px 12px; }
+.cmp-corner { position: sticky; top: 0; left: 0; z-index: 6; background: var(--bg); }
+.cmp-label { position: sticky; left: 0; z-index: 3; background: var(--bg); padding: 14px 16px 14px 2px; display: flex; }
+.cmp-sec { grid-column: 1 / -1; position: sticky; left: 0; background: var(--bg); padding: 22px 2px 8px; z-index: 3; display: flex; align-items: baseline; }
+.cmp-cellw { padding: 5px 7px; }
+
+.cmp-cell { position: relative; height: 100%; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--surface); padding: 11px 12px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.cmp-cell-mark { position: absolute; top: 7px; right: 8px; color: var(--good-ink); display: inline-flex; }
+.cmp-cell .num { white-space: nowrap; }
+
+/* en-tête titre (colonne) */
+.cmp-thcard { padding: 14px; display: flex; gap: 12px; align-items: center; position: relative; height: 132px; text-align: left; }
+.cmp-thcard-x { position: absolute; top: 8px; right: 8px; width: 24px; height: 24px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-4); display: flex; align-items: center; justify-content: center; transition: all .14s; }
+.cmp-thcard-x:hover { color: var(--bad); border-color: var(--bad-bg); }
+
+.cmp-invite { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 56px 32px; gap: 14px; }
+.cmp-invite-icon { width: 52px; height: 52px; border-radius: 15px; background: var(--brand-soft); color: var(--brand-ink); display: flex; align-items: center; justify-content: center; }
+
+@media (max-width: 880px) {
+  .cmp-wrap { padding: 20px 14px 48px; }
+  .cmp-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
+  .cmp-h { position: static; }
+}

@@ -7,6 +7,9 @@
 
 export type CriterionStatus = 'pass' | 'fail' | 'warn';
 
+/** Statut sémantique « data » côté affichage (vert/orange/rouge). */
+export type DataStatus = 'good' | 'warn' | 'bad';
+
 export interface Criterion {
   /**
    * Identifiant stable, indépendant de la langue (ex 'fcfGrowth5y'). Présent sur les
@@ -193,6 +196,53 @@ export interface WatchlistEntry {
   // prix temps réel à chaque GET, sans refaire tous les calculs lourds.
   adjFcfTtm?: number | null;
   sharesOutstanding?: number | null;
+}
+
+// ─── Comparaison side-by-side ──────────────────────────────────────────────
+
+/** Valeur d'un critère pour un ticker dans la table de comparaison. */
+export interface CompareCell {
+  /** Affichage formaté (ex "27.1%", "✓ Expansion", "1.03"). */
+  d: string;
+  /** Numérique comparable pour le "meilleur par ligne" (null si non comparable, ex texte). */
+  n: number | null;
+  /** Statut data : vert/orange/rouge. */
+  s: DataStatus;
+}
+
+/** Un ticker dans la comparaison (en-tête + cellules par critère). */
+export interface CompareTicker {
+  ticker: string;
+  company: string;
+  sector: string | null;
+  currency: string;
+  price: number | null;
+  dayChangePct: number | null;
+  /** Note /10 = round(scoreChiffres / scoreChiffresMax × 10). */
+  scoreChiffres: number;
+  scoreChiffresMax: number;
+  /** Cellules indexées par clé de critère (10 chiffres + 'pfcf' + 'valuation'). */
+  cells: Record<string, CompareCell>;
+  /** Prix d'achat conseillé (DCF) — pour la ligne Valorisation. */
+  buyPrice: number | null;
+}
+
+/** Définition (localisée) d'un critère pour les libellés de lignes de la comparaison. */
+export interface CompareCriterionDef { key: string; label: string; target: string }
+
+export interface CompareResponse {
+  tickers: CompareTicker[];
+  /** Les 10 critères chiffrés (libellé + cible localisés), pour la colonne de gauche. */
+  criteria: CompareCriterionDef[];
+}
+
+/** Suggestion d'autocomplétion (recherche de ticker pour la comparaison). */
+export interface TickerSuggestion {
+  ticker: string;
+  name: string | null;
+  sector: string | null;
+  scoreChiffres: number | null;
+  scoreChiffresMax: number | null;
 }
 
 // ─── Earnings (calendrier + résultats) ─────────────────────────────────────

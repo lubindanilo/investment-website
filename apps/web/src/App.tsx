@@ -5,6 +5,7 @@ import { HomePage } from './pages/HomePage.js';
 import { AnalysePage } from './pages/AnalysePage.js';
 import { WatchlistPage } from './pages/WatchlistPage.js';
 import { ScreenerPage } from './pages/ScreenerPage.js';
+import { ComparePage } from './pages/ComparePage.js';
 import { AuthPage } from './pages/AuthPage.js';
 import { RequireAuth } from './components/RequireAuth.js';
 import { useAuth } from './contexts/AuthContext.js';
@@ -41,6 +42,9 @@ export function App() {
           <NavLink to="/screener" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.screener')}
           </NavLink>
+          <NavLink to="/compare" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+            {t('nav.compare')}
+          </NavLink>
         </nav>
       )}
 
@@ -51,6 +55,7 @@ export function App() {
           <Route path="/analyse/:ticker" element={<AnalysePage />} />
           <Route path="/watchlist" element={<RequireAuth><WatchlistPage /></RequireAuth>} />
           <Route path="/screener" element={<ScreenerPage />} />
+          <Route path="/compare" element={<ComparePage />} />
           <Route path="/login" element={<AuthPage initialMode="login" />} />
           <Route path="/signup" element={<AuthPage initialMode="signup" />} />
         </Routes>

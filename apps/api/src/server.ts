@@ -25,6 +25,7 @@ import { pfcfHistoryRouter } from './routes/pfcfHistory.js';
 import { cashRoceHistoryRouter } from './routes/cashRoceHistory.js';
 import { priceHistoryRouter } from './routes/priceHistory.js';
 import { screenerRouter } from './routes/screener.js';
+import { compareRouter } from './routes/compare.js';
 import { authRouter } from './routes/auth.js';
 import { apiLimiter } from './middleware/rateLimit.js';
 import { errorHandler } from './middleware/error.js';
@@ -84,6 +85,7 @@ app.use('/api/pfcf-history', pfcfHistoryRouter);
 app.use('/api/cash-roce-history', cashRoceHistoryRouter);
 app.use('/api/price-history', priceHistoryRouter);
 app.use('/api/screener', screenerRouter);
+app.use('/api/compare', compareRouter);
 
 // 404 fallback (avant l'error handler)
 app.use((req, res) => {

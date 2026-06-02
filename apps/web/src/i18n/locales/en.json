@@ -11,7 +11,8 @@
   "nav": {
     "analyse": "Analyze",
     "watchlist": "Watchlist",
-    "screener": "Screener"
+    "screener": "Screener",
+    "compare": "Compare"
   },
   "userMenu": {
     "login": "Sign in",
@@ -460,5 +461,38 @@
         "quote": "As clean and dense as a pro terminal, but readable and without the pro-terminal price. Monospace numbers are a game changer."
       }
     ]
+  },
+  "compare": {
+    "title": "Comparison",
+    "subtitle": "Put 2 to 3 stocks side by side. The data decides, row by row.",
+    "tickersLabel": "Stocks",
+    "addTicker": "Add a stock",
+    "searchPlaceholder": "Search a ticker…",
+    "noResult": "No result.",
+    "slots": "{{n}}/3 · minimum 2 to compare",
+    "remove": "Remove",
+    "best": "Best on this criterion",
+    "verdict": "Verdict",
+    "bestRated": "Top rated",
+    "vsPrice": "vs price",
+    "errorLoad": "Could not load the comparison.",
+    "invite": {
+      "title": "Add a 2nd stock to compare",
+      "text": "The comparison lines up the 10 numbers and the valuation of 2 to 3 stocks, and highlights the best of each row."
+    },
+    "sections": {
+      "chiffres": "The numbers",
+      "chiffresSub": "10 criteria · the best of each row is highlighted",
+      "valuation": "Valuation",
+      "valuationSub": "judged separately from quality"
+    },
+    "pfcf": {
+      "label": "Current P/FCF",
+      "target": "lower = better"
+    },
+    "valuation": {
+      "label": "Recommended buy price",
+      "target": "discount vs price"
+    }
   }
 }

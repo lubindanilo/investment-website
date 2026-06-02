@@ -14,6 +14,8 @@ import type {
   PublicUser,
   ScreenerTopRow,
   ScreenerStats,
+  CompareResponse,
+  TickerSuggestion,
 } from '@lubin/shared';
 import { captureException } from './sentry.js';
 import { currentLang } from '../i18n/index.js';
@@ -165,7 +167,10 @@ export const api = {
       return safeRequest<ScreenerTopRow[]>(`/api/screener/top${qs ? `?${qs}` : ''}`);
     },
     stats: () => safeRequest<ScreenerStats>('/api/screener/stats'),
+    search: (q: string) => safeRequest<TickerSuggestion[]>(`/api/screener/search?q=${encodeURIComponent(q)}`),
   },
+  compare: (tickers: string[]) =>
+    safeRequest<CompareResponse>(`/api/compare?tickers=${encodeURIComponent(tickers.join(','))}`, {}, { attempts: 1, timeoutMs: 45_000 }),
   watchlist: {
     list: () => safeRequest<WatchlistEntry[]>('/api/watchlist'),
     add: (ticker: string) =>
