@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { ScreenerTopRow, ScreenerStats } from '@lubin/shared';
@@ -21,6 +21,114 @@ function valOf(r: ScreenerTopRow, col: SortCol): number {
   if (col === 'pfcf') return r.pfcfTTM ?? Infinity;
   if (col === 'price') return r.price ?? -Infinity;
   return r.dayChangePct ?? -Infinity;
+}
+
+/** Bouton « Filtres » → popover de sélection du secteur (avec recherche). */
+function SectorFilter({ sectors, value, onChange }: {
+  sectors: { sector: string; count: number }[];
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  const { t } = useTranslation();
+  const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const h = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener('mousedown', h);
+    return () => document.removeEventListener('mousedown', h);
+  }, [open]);
+
+  const label = (raw: string) => t(`industries.${sectorSlug(raw)}`, { defaultValue: raw });
+  const q = query.trim().toLowerCase();
+  const filtered = q ? sectors.filter(s => label(s.sector).toLowerCase().includes(q)) : sectors;
+  const activeLabel = value ? label(value) : null;
+
+  const pick = (v: string) => { onChange(v); setOpen(false); setQuery(''); };
+
+  return (
+    <div ref={ref} style={{ position: 'relative', display: 'inline-flex' }}>
+      <button
+        type="button"
+        onClick={() => setOpen(o => !o)}
+        data-active={!!value || open}
+        style={{
+          display: 'inline-flex', alignItems: 'center', gap: 7, padding: '6px 12px',
+          borderRadius: 8, fontWeight: 700, fontSize: 12.5, cursor: 'pointer',
+          border: '1px solid ' + (value ? 'var(--brand)' : 'var(--line)'),
+          background: value ? 'var(--brand-soft)' : 'var(--surface)',
+          color: value ? 'var(--brand-ink)' : 'var(--ink-3)', transition: 'all .14s', maxWidth: 260,
+        }}
+      >
+        <Icon name="filter" size={14} />
+        <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+          {activeLabel ?? t('screener.filters.kicker')}
+        </span>
+        <Icon name="chevronD" size={13} style={{ opacity: 0.6 }} />
+      </button>
+
+      {open && (
+        <div
+          style={{
+            position: 'absolute', top: 'calc(100% + 6px)', left: 0, zIndex: 30, width: 280,
+            background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: 12,
+            boxShadow: 'var(--sh-md, 0 10px 30px rgba(0,0,0,.12))', padding: 8,
+          }}
+        >
+          <div className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)', padding: '4px 8px 6px' }}>
+            {t('screener.filters.sector')}
+          </div>
+          <div className="anl-search-field" style={{ marginBottom: 6 }}>
+            <Icon name="search" size={14} className="anl-search-icon" />
+            <input
+              autoFocus
+              className="anl-search-input"
+              style={{ height: 34, paddingLeft: 34, fontSize: 13 }}
+              value={query}
+              placeholder={t('screener.filters.sector')}
+              onChange={e => setQuery(e.target.value)}
+            />
+          </div>
+          <div style={{ maxHeight: 280, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <SectorItem label={t('screener.filters.allSectors')} active={!value} onClick={() => pick('')} />
+            {filtered.map(s => (
+              <SectorItem
+                key={s.sector}
+                label={label(s.sector)}
+                count={s.count}
+                active={value === s.sector}
+                onClick={() => pick(s.sector)}
+              />
+            ))}
+            {filtered.length === 0 && <div className="tiny muted" style={{ padding: '8px' }}>—</div>}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SectorItem({ label, count, active, onClick }: { label: string; count?: number; active: boolean; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      style={{
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8,
+        width: '100%', textAlign: 'left', padding: '7px 9px', borderRadius: 7, cursor: 'pointer',
+        border: 'none', fontSize: 13, fontWeight: active ? 700 : 500,
+        background: active ? 'var(--brand-soft)' : 'transparent',
+        color: active ? 'var(--brand-ink)' : 'var(--ink)',
+      }}
+      onMouseEnter={e => { if (!active) (e.currentTarget.style.background = 'var(--bg-soft)'); }}
+      onMouseLeave={e => { if (!active) (e.currentTarget.style.background = 'transparent'); }}
+    >
+      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{label}</span>
+      {count != null && <span className="num tiny muted" style={{ flexShrink: 0 }}>{count}</span>}
+    </button>
+  );
 }
 
 export function ScreenerPage() {
@@ -101,7 +209,7 @@ export function ScreenerPage() {
 
         {/* Filtres */}
         <div className="card scr-filters">
-          <div className="row gap-8"><Icon name="filter" size={15} style={{ color: 'var(--ink-3)' }} /><span className="tiny scr-filter-kicker">{t('screener.filters.kicker')}</span></div>
+          <SectorFilter sectors={sectors} value={sector} onChange={setSector} />
           <div className="row gap-12">
             <span className="label">{t('screener.filters.minScore')}</span>
             <div className="seg">{SCORE_OPTS.map(s => <button key={s} type="button" data-active={minScore === s} onClick={() => setMinScore(s)}>{s}+</button>)}</div>
@@ -110,26 +218,6 @@ export function ScreenerPage() {
             <span className="label" style={{ whiteSpace: 'nowrap' }}>{t('screener.filters.maxPfcf')}</span>
             <input type="range" min={10} max={PFCF_MAX} value={maxPfcf} onChange={e => setMaxPfcf(+e.target.value)} style={{ flex: 1, accentColor: 'var(--brand)' }} />
             <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{maxPfcf >= PFCF_MAX ? '∞' : maxPfcf + '×'}</span>
-          </div>
-          <div className="row gap-12">
-            <span className="label" style={{ whiteSpace: 'nowrap' }}>{t('screener.filters.sector')}</span>
-            <select
-              className="scr-sector-select num"
-              value={sector}
-              onChange={e => setSector(e.target.value)}
-              style={{
-                padding: '6px 10px', borderRadius: 8, border: '1px solid var(--line)',
-                background: 'var(--surface)', color: 'var(--ink)', fontSize: 13, fontWeight: 600,
-                maxWidth: 240, cursor: 'pointer',
-              }}
-            >
-              <option value="">{t('screener.filters.allSectors')}</option>
-              {sectors.map(s => (
-                <option key={s.sector} value={s.sector}>
-                  {t(`industries.${sectorSlug(s.sector)}`, { defaultValue: s.sector })} ({s.count})
-                </option>
-              ))}
-            </select>
           </div>
           <button
             type="button"
