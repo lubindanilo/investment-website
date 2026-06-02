@@ -344,7 +344,7 @@
     "above": "Por encima del precio recomendado",
     "note": "Evaluado por separado de la nota de calidad. El precio recomendado es el punto de entrada para apuntar a tu rentabilidad objetivo.",
     "unavailable": "Valoración no disponible (FCF por acción no calculable para este valor).",
-    "sectorMedian": "P/FCF mediano · {{sector}}",
+    "sectorMedian": "El ratio P/FCF mediano del sector «{{sector}}» es de {{value}}×.",
     "belowSector": "{{pct}} % por debajo de la mediana del sector",
     "aboveSector": "{{pct}} % por encima de la mediana del sector"
   },

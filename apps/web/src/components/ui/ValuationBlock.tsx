@@ -126,13 +126,13 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, t
           const delta = pfcfTTM != null && pfcfTTM > 0 ? ((pfcfTTM - sectorBenchmark.medianPfcf) / sectorBenchmark.medianPfcf) * 100 : null;
           const cheaper = delta != null && delta < 0;
           return (
-            <div className="col gap-2" style={{ marginTop: 10, padding: '8px 10px', borderRadius: 9, background: 'var(--surface-2)', border: '1px solid var(--line)' }}>
-              <div className="row between">
-                <span className="tiny muted">{t('valuation.sectorMedian', { sector: sectorLabel })}</span>
-                <span className="num tiny" style={{ fontWeight: 700 }}>{sectorBenchmark.medianPfcf.toFixed(1)}× <span className="muted" style={{ fontWeight: 500 }}>(n={sectorBenchmark.count})</span></span>
-              </div>
+            <div className="col gap-3" style={{ marginTop: 10, padding: '8px 10px', borderRadius: 9, background: 'var(--surface-2)', border: '1px solid var(--line)' }}>
+              <span className="tiny" style={{ color: 'var(--ink-2)', lineHeight: 1.45 }}>
+                {t('valuation.sectorMedian', { sector: sectorLabel, value: sectorBenchmark.medianPfcf.toFixed(1) })}
+                {' '}<span className="num muted">· n={sectorBenchmark.count}</span>
+              </span>
               {delta != null && (
-                <span className="tiny" style={{ fontWeight: 600, color: cheaper ? 'var(--good-ink)' : 'var(--ink-3)' }}>
+                <span className="tiny" style={{ fontWeight: 700, color: cheaper ? 'var(--good-ink)' : 'var(--ink-3)' }}>
                   {t(cheaper ? 'valuation.belowSector' : 'valuation.aboveSector', { pct: Math.abs(delta).toFixed(0) })}
                 </span>
               )}

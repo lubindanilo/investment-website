@@ -344,7 +344,7 @@
     "above": "Au-dessus du prix conseillé",
     "note": "Jugé séparément de la note de qualité. Le prix conseillé est le cours d'entrée pour viser votre rendement.",
     "unavailable": "Valorisation indisponible (FCF par action non calculable pour ce titre).",
-    "sectorMedian": "P/FCF médian · {{sector}}",
+    "sectorMedian": "Le ratio P/FCF médian du secteur « {{sector}} » est de {{value}}×.",
     "belowSector": "{{pct}} % sous la médiane du secteur",
     "aboveSector": "{{pct}} % au-dessus de la médiane du secteur"
   },
