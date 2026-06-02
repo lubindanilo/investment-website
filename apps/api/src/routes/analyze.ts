@@ -12,7 +12,8 @@
  */
 import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
-import type { AnalyzeResponse, ValoParams, Criterion, MarketShare } from '@lubin/shared';
+import type { AnalyzeResponse, ValoParams, Criterion, MarketShare, SectorBenchmark } from '@lubin/shared';
+import { getSectorPfcfBenchmark } from '../services/screener.js';
 import { parseLang, tt, type Lang } from '../i18n/index.js';
 import { getMetric, getQuote } from '../services/finnhub.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
@@ -87,6 +88,7 @@ function buildResponse(args: {
   pfcfPercentile?: number | null;
   opportunity?: boolean;
   marketShare?: MarketShare | null;
+  sectorBenchmark?: SectorBenchmark | null;
   lang?: Lang;
 }): AnalyzeResponse {
   const { ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt, lang = 'fr' } = args;
@@ -158,6 +160,7 @@ function buildResponse(args: {
     pfcfPercentile: args.pfcfPercentile ?? null,
     opportunity,
     marketShare: args.marketShare ?? null,
+    sectorBenchmark: args.sectorBenchmark ?? null,
   };
 }
 
@@ -236,6 +239,8 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
 
   // « Opportunité du moment » : percentile du P/FCF live vs historique (cache).
   const { pfcfPercentile: pct, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
+  // Benchmark sectoriel du P/FCF (médiane des pairs cotés de l'industrie).
+  const sectorBenchmark = await getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM);
 
   const response = buildResponse({
     ticker,
@@ -248,6 +253,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
     pfcfPercentile: pct,
     opportunity,
     marketShare,
+    sectorBenchmark,
     lang,
   });
   if (userId) response.inWatchlist = watchlistRow != null;
@@ -397,9 +403,10 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
   }
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
+  const sectorBenchmark = await getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM);
   res.json(buildResponse({
     ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt,
-    pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, marketShare, lang,
+    pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, marketShare, sectorBenchmark, lang,
   }));
 }));
 
@@ -432,6 +439,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
   const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
+  const sectorBenchmark = await getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM);
   res.json(buildResponse({
     ticker,
     quant,
@@ -443,6 +451,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
     marketShare,
     pfcfPercentile: opp.pfcfPercentile,
     opportunity: opp.opportunity,
+    sectorBenchmark,
     lang,
   }));
 }));

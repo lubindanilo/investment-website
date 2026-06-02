@@ -8,8 +8,10 @@
  */
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import type { SectorBenchmark } from '@lubin/shared';
 import { Icon } from './primitives.js';
 import { PfcfChartModal } from '../PfcfChartModal.js';
+import { sectorSlug } from '../../lib/sector.js';
 import './ValuationBlock.css';
 
 const clamp = (v: number, min: number, max: number) => Math.max(min, Math.min(max, v));
@@ -28,7 +30,7 @@ function Slider({ label, value, set, min, max, step, suffix }: {
   );
 }
 
-export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, ticker, annualOnly = false, pfcfPercentile = null, opportunity = false }: {
+export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, ticker, annualOnly = false, pfcfPercentile = null, opportunity = false, sectorBenchmark = null }: {
   price: number | null;
   pfcfTTM: number | null;
   currency?: string;
@@ -39,6 +41,8 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, t
   pfcfPercentile?: number | null;
   /** « Opportunité du moment » : P/FCF dans son décile bas historique ET < 25. */
   opportunity?: boolean;
+  /** Benchmark sectoriel du P/FCF (médiane des pairs cotés de l'industrie). */
+  sectorBenchmark?: SectorBenchmark | null;
 }) {
   const { t } = useTranslation();
   const fcfPerShare = price != null && pfcfTTM != null && pfcfTTM > 0 ? price / pfcfTTM : null;
@@ -115,6 +119,26 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, t
             </span>
           </div>
         </div>
+
+        {/* Benchmark sectoriel : médiane P/FCF des pairs cotés de l'industrie + écart du titre */}
+        {sectorBenchmark && sectorBenchmark.medianPfcf > 0 && (() => {
+          const sectorLabel = t(`industries.${sectorSlug(sectorBenchmark.sector)}`, { defaultValue: sectorBenchmark.sector });
+          const delta = pfcfTTM != null && pfcfTTM > 0 ? ((pfcfTTM - sectorBenchmark.medianPfcf) / sectorBenchmark.medianPfcf) * 100 : null;
+          const cheaper = delta != null && delta < 0;
+          return (
+            <div className="col gap-2" style={{ marginTop: 10, padding: '8px 10px', borderRadius: 9, background: 'var(--surface-2)', border: '1px solid var(--line)' }}>
+              <div className="row between">
+                <span className="tiny muted">{t('valuation.sectorMedian', { sector: sectorLabel })}</span>
+                <span className="num tiny" style={{ fontWeight: 700 }}>{sectorBenchmark.medianPfcf.toFixed(1)}× <span className="muted" style={{ fontWeight: 500 }}>(n={sectorBenchmark.count})</span></span>
+              </div>
+              {delta != null && (
+                <span className="tiny" style={{ fontWeight: 600, color: cheaper ? 'var(--good-ink)' : 'var(--ink-3)' }}>
+                  {t(cheaper ? 'valuation.belowSector' : 'valuation.aboveSector', { pct: Math.abs(delta).toFixed(0) })}
+                </span>
+              )}
+            </div>
+          );
+        })()}
 
         <p className="tiny muted valb-note">{t('valuation.note')}</p>
       </div>

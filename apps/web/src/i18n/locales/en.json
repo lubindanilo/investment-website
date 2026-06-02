@@ -343,7 +343,10 @@
     "below": "Below the recommended price",
     "above": "Above the recommended price",
     "note": "Judged separately from the quality score. The recommended price is the entry point to aim for your target return.",
-    "unavailable": "Valuation unavailable (FCF per share not computable for this stock)."
+    "unavailable": "Valuation unavailable (FCF per share not computable for this stock).",
+    "sectorMedian": "Median P/FCF · {{sector}}",
+    "belowSector": "{{pct}}% below sector median",
+    "aboveSector": "{{pct}}% above sector median"
   },
   "score": {
     "high": "High",

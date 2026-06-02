@@ -295,7 +295,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
 
         {/* Valorisation */}
         <Section title={t('analyse.sections.valorisation.title')} sub={t('analyse.sections.valorisation.sub')}>
-          <ValuationBlock price={analysis.price} pfcfTTM={analysis.metrics.pfcfTTM} currency={currency} valoParams={analysis.valoParams} ticker={analysis.ticker} annualOnly={annualOnly} pfcfPercentile={analysis.pfcfPercentile} opportunity={analysis.opportunity} />
+          <ValuationBlock price={analysis.price} pfcfTTM={analysis.metrics.pfcfTTM} currency={currency} valoParams={analysis.valoParams} ticker={analysis.ticker} annualOnly={annualOnly} pfcfPercentile={analysis.pfcfPercentile} opportunity={analysis.opportunity} sectorBenchmark={analysis.sectorBenchmark ?? null} />
         </Section>
 
         {/* Actualités */}

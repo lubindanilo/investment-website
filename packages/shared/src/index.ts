@@ -26,6 +26,18 @@ export interface Criterion {
 
 export type CriteriaCategory = 'chiffres' | 'business' | 'management' | 'valorisation';
 
+/** Benchmark sectoriel : médiane du P/FCF des pairs cotés suivis + position du titre. */
+export interface SectorBenchmark {
+  /** Industrie (chaîne canonique anglaise — traduite côté front via le namespace `industries`). */
+  sector: string;
+  /** Médiane du P/FCF des pairs (P/FCF > 0). */
+  medianPfcf: number;
+  /** Nombre de pairs valides ayant servi au calcul. */
+  count: number;
+  /** Percentile du P/FCF du titre vs ses pairs (0-100, bas = moins cher). Null si P/FCF du titre indispo. */
+  percentile: number | null;
+}
+
 /**
  * « Part de marché · position concurrentielle » — critère qualitatif enrichi (GPT + recherche web).
  * Affiché en tête de la partie qualitative, HORS notation. `series` alimente le graphe d'évolution
@@ -202,6 +214,11 @@ export interface AnalyzeResponse {
    * Null si l'analyse qualitative n'a pas encore été générée (ou générée avant cette feature).
    */
   marketShare?: MarketShare | null;
+  /**
+   * Benchmark sectoriel du P/FCF : médiane parmi les sociétés cotées suivies de la même
+   * industrie + le percentile du titre. Null si industrie inconnue ou trop peu de pairs.
+   */
+  sectorBenchmark?: SectorBenchmark | null;
   /**
    * True si le ticker est déjà dans la watchlist de l'utilisateur connecté.
    * Calculé côté serveur (optionalAuth) → source unique, pas de course avec un

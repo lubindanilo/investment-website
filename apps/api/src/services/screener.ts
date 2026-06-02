@@ -405,3 +405,31 @@ export async function getSectors(): Promise<{ sector: string; count: number }[]>
     .map(g => ({ sector: g.sector, count: g._count._all }))
     .sort((a, b) => b.count - a.count);
 }
+
+/** Nombre minimal de pairs cotés pour qu'une médiane sectorielle soit pertinente. */
+const SECTOR_BENCH_MIN_PEERS = 5;
+
+/**
+ * Benchmark sectoriel du P/FCF : médiane (+ percentile du titre) parmi les sociétés cotées
+ * suivies de la MÊME industrie. `tickerPfcf` situe le titre vs ses pairs (percentile bas = moins
+ * cher). Renvoie null si l'industrie est inconnue ou compte trop peu de pairs valides.
+ */
+export async function getSectorPfcfBenchmark(
+  sector: string | null,
+  tickerPfcf: number | null,
+): Promise<{ sector: string; medianPfcf: number; count: number; percentile: number | null } | null> {
+  if (!sector) return null;
+  const rows = await prisma.screenerTicker.findMany({
+    where: { status: 'scored', sector, pfcfTTM: { gt: 0 } },
+    select: { pfcfTTM: true },
+  });
+  const values = rows.map(r => r.pfcfTTM!).filter(v => Number.isFinite(v) && v > 0).sort((a, b) => a - b);
+  if (values.length < SECTOR_BENCH_MIN_PEERS) return null;
+  const median = values[Math.floor(values.length / 2)]!;
+  let percentile: number | null = null;
+  if (tickerPfcf != null && tickerPfcf > 0) {
+    const below = values.filter(v => v <= tickerPfcf).length;
+    percentile = (below / values.length) * 100;
+  }
+  return { sector, medianPfcf: median, count: values.length, percentile };
+}
