@@ -19,7 +19,8 @@ import { loadQuantData } from '../services/quantSnapshot.js';
 import { fetchBusinessAnalysis, fetchManagementAnalysis } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
 import { writeCachedSnapshot, getServableSnapshot, type CachedQuantSnapshot } from '../services/quantCache.js';
-import { pfcfPercentile, isPfcfOpportunity } from '../services/pfcfHistory.js';
+import { pfcfPercentile, isPfcfOpportunity, getPfcfHistory } from '../services/pfcfHistory.js';
+import { ttlUntilNextEarnings } from '../services/earnings.js';
 import * as chartCache from '../lib/timeseriesCache.js';
 import { prisma } from '../db/client.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
@@ -147,20 +148,39 @@ function buildResponse(args: {
   };
 }
 
+/** Profondeur « All » du graphe P/FCF (cf. PERIOD_YEARS.All / chartWarm.OPP_YEARS). */
+const OPP_YEARS = 50;
+
+/** Percentile + opportunité à partir d'une série P/FCF (dernier point = ce que classe le graphe). */
+function oppFromPoints(points: { date: string; pfcf: number }[]): { pfcfPercentile: number | null; opportunity: boolean } {
+  const current = points[points.length - 1]?.pfcf ?? null;
+  const pct = pfcfPercentile(points, current);
+  return { pfcfPercentile: pct, opportunity: isPfcfOpportunity(pct, current) };
+}
+
 /**
- * « Opportunité du moment » pour la vue analyse : percentile du P/FCF LIVE (metrics.pfcfTTM)
- * vs son historique. On lit la série déjà cachée (ChartCache, remplie par la veille) → pas de
- * recompute lourd. Repli sur les colonnes pré-calculées de ScreenerTicker si le cache est absent.
+ * « Opportunité du moment » pour la vue analyse. On reproduit EXACTEMENT le calcul de l'onglet
+ * « All » du graphe « Historique du P/FCF » : percentile du DERNIER point sur la série complète
+ * (50 ans), pour que la valeur affichée en valo == celle du graphe.
+ *
+ *   1. Cache ChartCache |50 (rempli par la veille) → instantané.
+ *   2. Cache absent (ticker pas encore re-warmé) → on calcule la série en live (même chemin que
+ *      la route du graphe) et on la met en cache → la valo == « All » dès la 1ʳᵉ ouverture.
+ *   3. Échec du calcul → repli sur les colonnes pré-calculées de ScreenerTicker.
  */
-async function computeOpportunity(ticker: string, pfcfTTM: number | null): Promise<{ pfcfPercentile: number | null; opportunity: boolean }> {
-  // 5 ans = la période warmée par la veille (cf. chartWarm.YEARS).
-  const entry = await chartCache.get(chartCache.cacheKey(ticker, 'pfcf-history', 'computed', 5)).catch(() => null);
+async function computeOpportunity(ticker: string, nextEarningsDate: string | null): Promise<{ pfcfPercentile: number | null; opportunity: boolean }> {
+  const key = chartCache.cacheKey(ticker, 'pfcf-history', 'computed', OPP_YEARS);
+  const entry = await chartCache.get(key).catch(() => null);
   if (entry && entry.points.length) {
-    const points = entry.points.map(p => ({ date: p.date, pfcf: p.value }));
-    const pct = pfcfPercentile(points, pfcfTTM);
-    return { pfcfPercentile: pct, opportunity: isPfcfOpportunity(pct, pfcfTTM) };
+    return oppFromPoints(entry.points.map(p => ({ date: p.date, pfcf: p.value })));
   }
-  // Repli : valeurs pré-calculées par la veille (basées sur le dernier point historique).
+  // Cache miss → calcul live + mise en cache (TTL calé sur le prochain earnings, comme le graphe).
+  const points = await getPfcfHistory(ticker, OPP_YEARS).catch(() => [] as { date: string; pfcf: number }[]);
+  if (points.length) {
+    await chartCache.set(key, points.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttlUntilNextEarnings(nextEarningsDate)).catch(() => {});
+    return oppFromPoints(points);
+  }
+  // Repli ultime : valeurs pré-calculées par la veille.
   const row = await prisma.screenerTicker.findUnique({
     where: { ticker },
     select: { pfcfPercentile: true, opportunity: true },
@@ -201,7 +221,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const management = managementRow && isManagementCacheValid(managementRow.management) ? managementRow.management : null;
 
   // « Opportunité du moment » : percentile du P/FCF live vs historique (cache).
-  const { pfcfPercentile: pct, opportunity } = await computeOpportunity(ticker, quant.metrics.pfcfTTM);
+  const { pfcfPercentile: pct, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
 
   const response = buildResponse({
     ticker,
@@ -351,7 +371,7 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
     managementCachedAt = upserted.updatedAt;
   }
 
-  const opp = await computeOpportunity(ticker, quant.metrics.pfcfTTM);
+  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
   res.json(buildResponse({
     ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt,
     pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, lang,
@@ -385,7 +405,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
   const businessRow = await prisma.businessAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } });
   const business = businessRow && isBusinessCacheValid(businessRow.business) ? businessRow.business : null;
 
-  const opp = await computeOpportunity(ticker, quant.metrics.pfcfTTM);
+  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
   res.json(buildResponse({
     ticker,
     quant,
