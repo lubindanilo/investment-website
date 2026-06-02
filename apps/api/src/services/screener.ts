@@ -154,6 +154,9 @@ async function pickDueTickers(limit: number): Promise<{ ticker: string }[]> {
         { status: 'pending' },
         { status: 'scored', nextEarningsDate: null, lastScoredAt: { lt: ttlCutoff } },
         { status: 'error', attempts: { lt: MAX_ATTEMPTS }, lastScoredAt: { lt: cooldownCutoff } },
+        // Auto-réparation : titre noté mais sans cours (échec transitoire Finnhub/Yahoo au
+        // scoring de masse) → on le re-note pour récupérer cours / secteur / variation / spark.
+        { status: 'scored', price: null, lastScoredAt: { lt: cooldownCutoff } },
       ],
     },
     orderBy: [{ priority: 'asc' }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
