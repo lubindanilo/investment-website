@@ -70,7 +70,7 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, t
           <Icon name="scale" size={16} style={{ color: 'var(--ink-3)' }} />
           <span className="valb-kicker">{t('valuation.assumptions')}</span>
         </div>
-        <div className="col gap-18">
+        <div className="col valb-sliders">
           <Slider label={t('valuation.growth')} value={growth} set={setGrowth} min={0} max={30} step={1} suffix=" %" />
           <Slider label={t('valuation.exitMultiple')} value={exitMult} set={setExitMult} min={8} max={40} step={1} suffix="×" />
           <Slider label={t('valuation.targetReturn')} value={ret} set={setRet} min={6} max={20} step={1} suffix=" %" />

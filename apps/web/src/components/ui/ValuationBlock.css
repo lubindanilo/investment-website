@@ -4,8 +4,10 @@
   padding: 0;
   overflow: hidden;
 }
-.valb-left { padding: 22px; border-right: 1px solid var(--line); }
+.valb-left { padding: 22px; border-right: 1px solid var(--line); display: flex; flex-direction: column; }
 .valb-kicker-row { margin-bottom: 16px; }
+/* Répartit les 3 sliders verticalement pour épouser la hauteur de la colonne droite */
+.valb-sliders { flex: 1; justify-content: space-evenly; gap: 18px; }
 .valb-kicker { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-3); }
 .valb-slider-val { font-weight: 700; font-size: 14px; color: var(--brand-ink); }
 
@@ -13,7 +15,7 @@
 
 .valb-hist-btn {
   display: inline-flex; align-items: center; gap: 7px; align-self: flex-start;
-  margin-top: 18px;
+  margin-top: 22px;
   background: none; border: 1px solid var(--line); border-radius: 8px;
   padding: 7px 12px; font-size: 12.5px; font-weight: 600; color: var(--ink-2);
   transition: background .14s, color .14s, border-color .14s;
