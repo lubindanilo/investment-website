@@ -17,6 +17,9 @@ import { getStockSymbols } from './finnhub.js';
 import { buildAndCacheQuantSnapshot } from './scoreSnapshot.js';
 import { getSparkSeries } from './priceSeries.js';
 import { warmChartCacheForTicker } from './chartWarm.js';
+import { getPfcfHistory, pfcfPercentile, isOpportunity, PFCF_OPP_MIN_SCORE10, PFCF_OPP_MAX } from './pfcfHistory.js';
+import { ttlUntilNextEarnings } from './earnings.js';
+import * as chartCache from '../lib/timeseriesCache.js';
 import { EU_LARGE_CAPS } from '../data/euLargeCaps.js';
 import { INTL_LARGE_CAPS } from '../data/intlLargeCaps.js';
 
@@ -162,6 +165,33 @@ async function pickDueTickers(limit: number): Promise<{ ticker: string }[]> {
 
 type ScoreOutcome = 'scored' | 'nodata' | 'error';
 
+/** Profondeur « All » du graphe P/FCF (cf. PERIOD_YEARS.All) — base du percentile d'opportunité. */
+const OPP_YEARS = 50;
+
+/**
+ * « Opportunité du moment » au moment du scoring. Ne calcule l'historique P/FCF (coûteux) QUE
+ * pour les candidats plausibles : note ≥ 8/10 ET 0 < P/FCF < 25 (les seuls qui peuvent qualifier).
+ * Cache aussi la série |50 (sert le graphe « All » + le calcul live de la vue analyse).
+ * Renvoie {opportunity, pfcfPercentile} ; best-effort (jamais throw).
+ */
+async function computeOpportunityAtScore(
+  ticker: string,
+  score10: number,
+  pfcfTTM: number | null,
+  nextEarningsDate: string | null,
+): Promise<{ opportunity: boolean; pfcfPercentile: number | null }> {
+  if (score10 < PFCF_OPP_MIN_SCORE10 || pfcfTTM == null || pfcfTTM <= 0 || pfcfTTM >= PFCF_OPP_MAX) {
+    return { opportunity: false, pfcfPercentile: null };
+  }
+  const pts = await getPfcfHistory(ticker, OPP_YEARS).catch(() => [] as { date: string; pfcf: number }[]);
+  if (!pts.length) return { opportunity: false, pfcfPercentile: null };
+  const ttl = ttlUntilNextEarnings(nextEarningsDate);
+  await chartCache.set(chartCache.cacheKey(ticker, 'pfcf-history', 'computed', OPP_YEARS), pts.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  const current = pts[pts.length - 1]?.pfcf ?? null; // dernier point = ce que classe le graphe « All »
+  const pct = pfcfPercentile(pts, current);
+  return { opportunity: isOpportunity(pct, current, score10), pfcfPercentile: pct };
+}
+
 /** Note un ticker (quanti only) et met à jour sa ligne ScreenerTicker. */
 async function scoreOne(ticker: string): Promise<ScoreOutcome> {
   try {
@@ -170,6 +200,11 @@ async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     const status: ScoreOutcome = snap.fundamentalsAvailable && hasScore ? 'scored' : 'nodata';
     // Sparkline 1 an pour les titres notés (non bloquant si Yahoo échoue → []).
     const spark = hasScore ? await getSparkSeries(ticker).catch(() => []) : [];
+    // « Opportunité du moment » (gated aux candidats note ≥ 8/10 & P/FCF < 25 pour borner le coût).
+    const score10 = hasScore ? Math.round((snap.scoreChiffres / snap.scoreChiffresMax) * 10) : 0;
+    const opp = hasScore
+      ? await computeOpportunityAtScore(ticker, score10, snap.metrics.pfcfTTM ?? null, snap.nextEarningsDate ?? null)
+      : { opportunity: false, pfcfPercentile: null };
     await prisma.screenerTicker.update({
       where: { ticker },
       data: {
@@ -185,6 +220,8 @@ async function scoreOne(ticker: string): Promise<ScoreOutcome> {
         price: snap.metrics.price ?? null,
         dayChangePct: snap.dayChangePct ?? null,
         spark: spark.length >= 2 ? spark : undefined,
+        opportunity: opp.opportunity,
+        pfcfPercentile: opp.pfcfPercentile,
         nextEarningsDate: snap.nextEarningsDate ?? null,
         lastScoredAt: new Date(),
         attempts: { increment: 1 },

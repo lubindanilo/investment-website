@@ -19,7 +19,7 @@ import { loadQuantData } from '../services/quantSnapshot.js';
 import { fetchBusinessAnalysis, fetchManagementAnalysis } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
 import { writeCachedSnapshot, getServableSnapshot, type CachedQuantSnapshot } from '../services/quantCache.js';
-import { pfcfPercentile, isPfcfOpportunity, getPfcfHistory } from '../services/pfcfHistory.js';
+import { pfcfPercentile, isPfcfOpportunity, getPfcfHistory, PFCF_OPP_MIN_SCORE10 } from '../services/pfcfHistory.js';
 import { ttlUntilNextEarnings } from '../services/earnings.js';
 import * as chartCache from '../lib/timeseriesCache.js';
 import { prisma } from '../db/client.js';
@@ -122,6 +122,12 @@ function buildResponse(args: {
   const score = pass + Math.round(warn * 0.5);
   const scoreMax = evaluables.length;
 
+  // Note quantitative /10 (10 chiffres uniquement, comme le screener) → gate de l'opportunité.
+  const chiffresEval = fundamentalsAvailable ? chiffres : chiffres.filter(c => c.valeur !== 'N/A');
+  const chiffresScore = chiffresEval.filter(c => c.statut === 'pass').length + Math.round(chiffresEval.filter(c => c.statut === 'warn').length * 0.5);
+  const chiffresScore10 = chiffresEval.length > 0 ? Math.round((chiffresScore / chiffresEval.length) * 10) : 0;
+  const opportunity = (args.opportunity ?? false) && chiffresScore10 >= PFCF_OPP_MIN_SCORE10;
+
   return {
     ticker,
     company,
@@ -144,7 +150,7 @@ function buildResponse(args: {
     currency,
     yahooSymbol,
     pfcfPercentile: args.pfcfPercentile ?? null,
-    opportunity: args.opportunity ?? false,
+    opportunity,
   };
 }
 

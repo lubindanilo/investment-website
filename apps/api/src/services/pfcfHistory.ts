@@ -42,6 +42,8 @@ export interface PfcfHistoryPoint {
 export const PFCF_OPP_PERCENTILE = 10;
 /** Plafond absolu du P/FCF pour qualifier d'opportunité. */
 export const PFCF_OPP_MAX = 25;
+/** Note quantitative minimale (sur 10) pour qualifier d'« opportunité du moment ». */
+export const PFCF_OPP_MIN_SCORE10 = 8;
 /** Historique minimal (points) pour un percentile fiable (~3 ans de trimestres). */
 const PFCF_PERCENTILE_MIN_POINTS = 12;
 
@@ -58,9 +60,18 @@ export function pfcfPercentile(points: PfcfHistoryPoint[], current: number | nul
   return (below / vals.length) * 100;
 }
 
-/** Vrai si le P/FCF est une « opportunité du moment » (décile bas historique ET < plafond). */
+/** Vrai si le P/FCF est dans son décile bas historique ET sous le plafond (test P/FCF pur). */
 export function isPfcfOpportunity(percentile: number | null, pfcf: number | null): boolean {
   return percentile != null && pfcf != null && pfcf > 0 && percentile <= PFCF_OPP_PERCENTILE && pfcf < PFCF_OPP_MAX;
+}
+
+/**
+ * « Opportunité du moment » complète : société de qualité (note ≥ 8/10) DONT le P/FCF est
+ * historiquement bas (décile bas ET < 25). Le gate de note évite de flagger un titre médiocre
+ * juste parce qu'il est optiquement bon marché.
+ */
+export function isOpportunity(percentile: number | null, pfcf: number | null, score10: number | null): boolean {
+  return isPfcfOpportunity(percentile, pfcf) && score10 != null && score10 >= PFCF_OPP_MIN_SCORE10;
 }
 
 interface YahooChartResponse {

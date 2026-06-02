@@ -6,16 +6,13 @@
  * jamais bloquer le scoring. Warme la période par défaut (5 ans), celle qu'ouvre le front.
  */
 import * as cache from '../lib/timeseriesCache.js';
-import { getPfcfHistory, pfcfPercentile, isPfcfOpportunity } from './pfcfHistory.js';
+import { getPfcfHistory } from './pfcfHistory.js';
 import { getCashRoceHistory } from './cashRoceHistory.js';
 import { getReportedTimeseries, type MetricKey } from './finnhubFundamentals.js';
 import { ttlUntilNextEarnings } from './earnings.js';
-import { prisma } from '../db/client.js';
 
 const YEARS = 5;
-/** Profondeur « All » du sélecteur du graphe P/FCF (cf. PERIOD_YEARS.All) — référence
- *  historique COMPLÈTE servant au calcul de l'« opportunité du moment ».
- *  On l'aligne sur « All » pour que le percentile affiché en valo == celui du graphe. */
+/** Profondeur « All » du sélecteur du graphe P/FCF (cf. PERIOD_YEARS.All). */
 const OPP_YEARS = 50;
 /** Métriques d'histogramme exposées dans l'UI (cf. CRITERION_HISTOGRAMS, shared). */
 const HISTO_METRICS: MetricKey[] = ['netIncome', 'revenue', 'fcf', 'shares', 'operatingIncome', 'totalDebt'];
@@ -37,16 +34,8 @@ export async function warmChartCacheForTicker(ticker: string, nextEarningsDate: 
   if (pfcfAll.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed', OPP_YEARS), pfcfAll.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
   if (croce.length) await cache.set(cache.cacheKey(ticker, 'cash-roce-history', 'computed', YEARS), croce.map(p => ({ date: p.date, value: p.cashRoce })), 'finnhub', ttl).catch(() => {});
 
-  // « Opportunité du moment » : percentile du dernier point sur la série COMPLÈTE (= onglet
-  // « All » du graphe), persisté sur ScreenerTicker pour le badge + filtre. Best-effort.
-  if (pfcfAll.length) {
-    const current = pfcfAll[pfcfAll.length - 1]?.pfcf ?? null;
-    const pct = pfcfPercentile(pfcfAll, current);
-    await prisma.screenerTicker.updateMany({
-      where: { ticker },
-      data: { pfcfPercentile: pct, opportunity: isPfcfOpportunity(pct, current) },
-    }).catch(() => {});
-  }
+  // NB : le flag « opportunité du moment » (ScreenerTicker.opportunity/pfcfPercentile) est calculé
+  // au scoring (scoreOne) — source unique, couvre tout l'univers — pas ici (warm = cache graphes).
   // Histogrammes : US uniquement (l'EU/Asie passe par Yahoo dans la route → lazy-fill).
   if (!ticker.includes('.')) {
     for (const metric of HISTO_METRICS) {
