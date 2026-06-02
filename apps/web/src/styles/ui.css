@@ -86,8 +86,8 @@
   padding: 5px 11px; border-radius: 6px; transition: all .14s;
 }
 .seg button:hover { color: var(--ink); }
-/* Sélection bien visible : pastille indigo pleine + texte blanc */
-.seg button[data-active="true"] { background: var(--brand); color: #fff; box-shadow: var(--sh-xs); }
+/* Sélection bien visible : pastille indigo pleine + texte blanc + halo bleu */
+.seg button[data-active="true"] { background: var(--brand); color: #fff; box-shadow: var(--sh-xs), 0 0 0 2px color-mix(in oklch, var(--brand) 30%, transparent); }
 .seg button[data-active="true"]:hover { color: #fff; }
 
 /* Cellule "Société" des tables : ticker (lane fixe) + nom tronqué */

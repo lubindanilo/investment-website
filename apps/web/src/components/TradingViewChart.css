@@ -35,7 +35,8 @@
 }
 .period-btn:hover { border-color: var(--border-strong); color: var(--text); }
 /* État sélectionné bien visible : indigo plein + texte blanc (≠ simple teinte pâle) */
-.period-btn.active { background: var(--brand); border-color: var(--brand); color: #fff; font-weight: 700; }
+/* Vue sélectionnée : fond indigo plein + halo bleu autour (lisibilité maximale). */
+.period-btn.active { background: var(--brand); border-color: var(--brand); color: #fff; font-weight: 700; box-shadow: 0 0 0 2px color-mix(in oklch, var(--brand) 30%, transparent); }
 .period-btn.active:hover { color: #fff; border-color: var(--brand); }
 
 .chart-iframe-wrap { height: 220px; }
