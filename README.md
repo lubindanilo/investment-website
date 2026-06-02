@@ -1,4 +1,4 @@
-# Lubin Investment
+# Investment Website
 
 Application web d'analyse fondamentale d'actions (style Interactive Brokers, theme clair).
 
