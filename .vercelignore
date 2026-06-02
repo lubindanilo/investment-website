@@ -1,6 +1,10 @@
 # Local-only infra
 docker-compose.yml
-scripts/
+scripts/*
+# …sauf le garde-fou anti-régression, exécuté pendant build:vercel (doit être déployé).
+# Forme `scripts/*` + négation : `scripts/` + négation ne marcherait pas (gitignore ne
+# ré-inclut pas un fichier si son dossier parent est exclu).
+!scripts/check-api-shared-imports.mjs
 cron/
 
 # Tests + fixtures (jamais exécutés en prod Vercel)
