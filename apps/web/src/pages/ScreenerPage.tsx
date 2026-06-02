@@ -142,7 +142,7 @@ export function ScreenerPage() {
               </thead>
               <tbody>
                 {sorted.map(r => (
-                  <tr key={r.ticker} onClick={() => navigate(`/analyse/${r.ticker}`)}>
+                  <tr key={r.ticker} className={r.opportunity ? 'is-opp' : undefined} onClick={() => navigate(`/analyse/${r.ticker}`)}>
                     <td>
                       <div className="scr-soc">
                         <span className="num scr-soc-ticker row gap-6">{r.ticker}{r.opportunity && <OpportunityBadge compact />}</span>

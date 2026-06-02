@@ -188,7 +188,7 @@ export function WatchlistPage() {
                 {sortedItems.map(w => {
                   const s = w.scoreChiffresMax > 0 ? Math.round(w.scoreChiffres / w.scoreChiffresMax * 10) : null;
                   return (
-                    <tr key={w.ticker} onClick={() => navigate(`/analyse/${w.ticker}`)}>
+                    <tr key={w.ticker} className={w.opportunity ? 'is-opp' : undefined} onClick={() => navigate(`/analyse/${w.ticker}`)}>
                       <td style={{ maxWidth: 340 }}>
                         <div className="tbl-soc">
                           <span className="num tbl-soc-ticker row gap-6">{w.ticker}{w.opportunity && <OpportunityBadge compact />}</span>

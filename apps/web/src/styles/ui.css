@@ -22,6 +22,10 @@
 .tbl tbody tr { transition: background .12s; cursor: pointer; }
 .tbl tbody tr:hover { background: var(--brand-softer); }
 .tbl tbody tr:last-child td { border-bottom: none; }
+/* « Opportunité du moment » : ligne légèrement mise en avant (teinte verte + liseré gauche) */
+.tbl tbody tr.is-opp { background: color-mix(in oklch, var(--good) 6%, transparent); }
+.tbl tbody tr.is-opp:hover { background: color-mix(in oklch, var(--good) 12%, transparent); }
+.tbl tbody tr.is-opp td:first-child { box-shadow: inset 3px 0 0 var(--good); }
 .num-cell { text-align: right; }
 
 /* Layout */
@@ -82,7 +86,9 @@
   padding: 5px 11px; border-radius: 6px; transition: all .14s;
 }
 .seg button:hover { color: var(--ink); }
-.seg button[data-active="true"] { background: var(--surface); color: var(--brand-ink); box-shadow: var(--sh-xs); }
+/* Sélection bien visible : pastille indigo pleine + texte blanc */
+.seg button[data-active="true"] { background: var(--brand); color: #fff; box-shadow: var(--sh-xs); }
+.seg button[data-active="true"]:hover { color: #fff; }
 
 /* Cellule "Société" des tables : ticker (lane fixe) + nom tronqué */
 .tbl-soc { display: flex; align-items: center; gap: 12px; min-width: 0; }

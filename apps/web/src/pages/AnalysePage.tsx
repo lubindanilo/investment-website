@@ -208,7 +208,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
             <Icon name="gem" size={16} stroke={2} />
             <span>
               <b>{t('opportunity.banner')}</b>
-              {analysis.pfcfPercentile != null && <> — {t('opportunity.pfcfPercentile')} {Math.round(analysis.pfcfPercentile)} {t('opportunity.percentileHint')}</>}
+              {analysis.pfcfPercentile != null && <> — {t('opportunity.bannerDetail', { pct: Math.round(analysis.pfcfPercentile) })}</>}
             </span>
           </div>
         )}
