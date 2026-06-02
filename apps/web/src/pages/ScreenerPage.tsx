@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import type { ScreenerTopRow, ScreenerStats } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
+import { sectorSlug } from '../lib/sector.js';
 import { Sparkline } from '../components/ui/charts.js';
 import { formatPrice } from '../lib/format.js';
 import './ScreenerPage.css';
@@ -32,20 +33,33 @@ export function ScreenerPage() {
   const [minScore, setMinScore] = useState(6);
   const [maxPfcf, setMaxPfcf] = useState(PFCF_MAX);
   const [onlyOpp, setOnlyOpp] = useState(false);
+  const [sector, setSector] = useState('');                       // '' = tous les secteurs
+  const [sectors, setSectors] = useState<{ sector: string; count: number }[]>([]);
   const [sort, setSort] = useState<SortState>({ col: 'score', dir: 'desc' });
+
+  // Liste des industries disponibles (une fois) → options du filtre, triées par libellé traduit.
+  useEffect(() => {
+    api.screener.sectors()
+      .then(list => setSectors(
+        [...list].sort((a, b) =>
+          t(`industries.${sectorSlug(a.sector)}`, { defaultValue: a.sector })
+            .localeCompare(t(`industries.${sectorSlug(b.sector)}`, { defaultValue: b.sector }))),
+      ))
+      .catch(() => {});
+  }, [t]);
 
   const load = useCallback(async () => {
     setLoading(true); setError(null);
     try {
       const [top, st] = await Promise.all([
-        api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300, opportunities: onlyOpp }),
+        api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300, opportunities: onlyOpp, sector: sector || undefined }),
         api.screener.stats(),
       ]);
       setRows(top); setStats(st);
     } catch (e) {
       setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
     } finally { setLoading(false); }
-  }, [minScore, maxPfcf, onlyOpp]);
+  }, [minScore, maxPfcf, onlyOpp, sector]);
 
   useEffect(() => { load(); }, [load]);
 
@@ -96,6 +110,26 @@ export function ScreenerPage() {
             <span className="label" style={{ whiteSpace: 'nowrap' }}>{t('screener.filters.maxPfcf')}</span>
             <input type="range" min={10} max={PFCF_MAX} value={maxPfcf} onChange={e => setMaxPfcf(+e.target.value)} style={{ flex: 1, accentColor: 'var(--brand)' }} />
             <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{maxPfcf >= PFCF_MAX ? '∞' : maxPfcf + '×'}</span>
+          </div>
+          <div className="row gap-12">
+            <span className="label" style={{ whiteSpace: 'nowrap' }}>{t('screener.filters.sector')}</span>
+            <select
+              className="scr-sector-select num"
+              value={sector}
+              onChange={e => setSector(e.target.value)}
+              style={{
+                padding: '6px 10px', borderRadius: 8, border: '1px solid var(--line)',
+                background: 'var(--surface)', color: 'var(--ink)', fontSize: 13, fontWeight: 600,
+                maxWidth: 240, cursor: 'pointer',
+              }}
+            >
+              <option value="">{t('screener.filters.allSectors')}</option>
+              {sectors.map(s => (
+                <option key={s.sector} value={s.sector}>
+                  {t(`industries.${sectorSlug(s.sector)}`, { defaultValue: s.sector })} ({s.count})
+                </option>
+              ))}
+            </select>
           </div>
           <button
             type="button"
@@ -149,7 +183,7 @@ export function ScreenerPage() {
                         <span className="scr-soc-name">{r.name ?? r.ticker}</span>
                       </div>
                     </td>
-                    <td className="muted" style={{ fontSize: 13 }}>{r.sector ?? '—'}</td>
+                    <td className="muted" style={{ fontSize: 13 }}>{r.sector ? t(`industries.${sectorSlug(r.sector)}`, { defaultValue: r.sector }) : '—'}</td>
                     <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
                     <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
                     <td className="num">{formatPrice(r.price, r.currency)}</td>

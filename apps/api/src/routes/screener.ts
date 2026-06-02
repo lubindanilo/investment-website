@@ -13,7 +13,7 @@
 import { Router, type Request, type Response, type NextFunction } from 'express';
 import type { TickerSuggestion } from '@lubin/shared';
 import { asyncHandler, ApiError } from '../middleware/error.js';
-import { seedRegion, tick, getTop, getStats } from '../services/screener.js';
+import { seedRegion, tick, getTop, getStats, getSectors } from '../services/screener.js';
 import { prisma } from '../db/client.js';
 
 export const screenerRouter: Router = Router();
@@ -47,14 +47,21 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
     const n = Number(v);
     return Number.isFinite(n) ? n : undefined;
   };
+  const sector = typeof req.query.sector === 'string' && req.query.sector.trim() ? req.query.sector.trim() : undefined;
   const rows = await getTop({
     minRatio: num(req.query.minRatio),
     maxPfcf: num(req.query.maxPfcf),
     minMax: num(req.query.minMax),
     limit: num(req.query.limit),
     onlyOpportunities: req.query.opportunities === 'true',
+    sector,
   });
   res.json(rows);
+}));
+
+// ── GET /sectors (industries distinctes pour le filtre) ──────────────────────
+screenerRouter.get('/sectors', asyncHandler(async (_req: Request, res: Response) => {
+  res.json(await getSectors());
 }));
 
 // ── GET /stats ──────────────────────────────────────────────────────────────

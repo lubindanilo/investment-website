@@ -6,6 +6,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { sectorSlug } from '../lib/sector.js';
 import type { CompareResponse, CompareTicker, CompareCriterionDef, TickerSuggestion, DataStatus } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScoreCircle, scoreColor, StatusBadge, InfoPop } from '../components/ui/primitives.js';
@@ -315,6 +316,7 @@ function ValueCell({ company, critKey, best }: { company: CompanyView; critKey: 
 }
 
 function TitleHeaderCard({ company, onRemove, removable }: { company: CompanyView; onRemove: (t: string) => void; removable: boolean }) {
+  const { t } = useTranslation();
   if ('loading' in company) {
     return (
       <div className="card cmp-thcard">
@@ -350,7 +352,7 @@ function TitleHeaderCard({ company, onRemove, removable }: { company: CompanyVie
       <div className="col" style={{ gap: 3, minWidth: 0, flex: 1, paddingRight: removable ? 18 : 0 }}>
         <span className="num" style={{ fontWeight: 800, fontSize: 15 }}>{company.ticker}</span>
         <span style={{ fontSize: 12.5, fontWeight: 600, color: 'var(--ink)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{company.company}</span>
-        {company.sector && <span className="tiny muted" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{company.sector}</span>}
+        {company.sector && <span className="tiny muted" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t(`industries.${sectorSlug(company.sector)}`, { defaultValue: company.sector })}</span>}
         <div className="row gap-8" style={{ marginTop: 3, flexWrap: 'wrap' }}>
           <span className="num tiny" style={{ fontWeight: 600 }}>{formatPrice(company.price, company.currency)}</span>
           {company.dayChangePct != null && (

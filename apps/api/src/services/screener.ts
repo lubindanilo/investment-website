@@ -353,8 +353,8 @@ export interface TopRow {
 }
 
 /** Meilleures notes pour la vue screener. Tri par ratio décroissant, indexé. */
-export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean } = {}): Promise<TopRow[]> {
-  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false } = opts;
+export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean; sector?: string } = {}): Promise<TopRow[]> {
+  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false, sector } = opts;
   return prisma.screenerTicker.findMany({
     where: {
       status: 'scored',
@@ -362,6 +362,7 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
       scoreRatio: { gte: minRatio },
       ...(maxPfcf != null ? { pfcfTTM: { gt: 0, lte: maxPfcf } } : {}),
       ...(onlyOpportunities ? { opportunity: true } : {}),
+      ...(sector ? { sector } : {}),       // filtre par industrie (valeur canonique anglaise stockée)
     },
     orderBy: [{ scoreRatio: 'desc' }, { scoreChiffresMax: 'desc' }],
     take: Math.min(limit, 500),
@@ -386,4 +387,21 @@ export async function getStats(): Promise<{ pending: number; scored: number; nod
     out.total += c;
   }
   return out;
+}
+
+/**
+ * Liste des industries (valeur `sector`) présentes parmi les titres notés, avec le nombre
+ * de titres — alimente le menu déroulant du filtre par secteur du screener. Tri par count.
+ * La valeur renvoyée est la chaîne canonique anglaise (la traduction est faite côté front).
+ */
+export async function getSectors(): Promise<{ sector: string; count: number }[]> {
+  const grouped = await prisma.screenerTicker.groupBy({
+    by: ['sector'],
+    where: { status: 'scored', sector: { not: null }, scoreChiffresMax: { gte: 8 } },
+    _count: { _all: true },
+  });
+  return grouped
+    .filter((g): g is typeof g & { sector: string } => !!g.sector)
+    .map(g => ({ sector: g.sector, count: g._count._all }))
+    .sort((a, b) => b.count - a.count);
 }

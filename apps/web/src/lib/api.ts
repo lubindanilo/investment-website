@@ -160,13 +160,14 @@ export const api = {
     }>(`/api/price-history?${q}`);
   },
   screener: {
-    top: (params: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; opportunities?: boolean } = {}) => {
+    top: (params: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; opportunities?: boolean; sector?: string } = {}) => {
       const q = new URLSearchParams();
-      for (const [k, v] of Object.entries(params)) if (v != null && v !== false) q.set(k, String(v));
+      for (const [k, v] of Object.entries(params)) if (v != null && v !== false && v !== '') q.set(k, String(v));
       const qs = q.toString();
       return safeRequest<ScreenerTopRow[]>(`/api/screener/top${qs ? `?${qs}` : ''}`);
     },
     stats: () => safeRequest<ScreenerStats>('/api/screener/stats'),
+    sectors: () => safeRequest<{ sector: string; count: number }[]>('/api/screener/sectors'),
     search: (q: string) => safeRequest<TickerSuggestion[]>(`/api/screener/search?q=${encodeURIComponent(q)}`),
   },
   compare: (tickers: string[]) =>
