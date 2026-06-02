@@ -13,7 +13,7 @@
  * Avec ce service partagé : impossible de diverger, c'est mathématique.
  */
 import { getMetric, getProfile2, getQuote, getCompanyNews, type FinnhubNewsItem } from './finnhub.js';
-import { getSharesHistory, computeSharesCagr, computeFcfPerShareCagr, getEarningsInfoYahoo } from './yahoo.js';
+import { getSharesHistory, computeSharesCagr, computeFcfPerShareCagr, getEarningsInfoYahoo, getAssetProfileYahoo } from './yahoo.js';
 import {
   computeFcfPerShareCagrFromQuarterlies,
   computeRevenueGrowthFromQuarterlies,
@@ -284,10 +284,16 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
     }
   }
 
+  // Secteur détaillé : Yahoo assetProfile expose une `industry` granulaire (« Travel Services »,
+  // « Information Technology Services »…) bien plus précise que le `finnhubIndustry` large.
+  // Couvre aussi le non-US (où finnhubIndustry est null). Fallback en cascade. Mémoïsé 30 j.
+  const yProfile = await getAssetProfileYahoo(yahooSymbol ?? ticker).catch(() => ({ sector: null, industry: null }));
+  const detailedIndustry = yProfile.industry ?? yProfile.sector ?? fhProfile?.finnhubIndustry ?? null;
+
   return {
     metrics, company, fundamentalsAvailable, fundamentalsSource, currency, yahooSymbol,
     rawNews, earnings: earningsInfo, finnhubCompletelyEmpty,
-    industry: fhProfile?.finnhubIndustry ?? null,
+    industry: detailedIndustry,
     dayChangePct: quote?.dp ?? yahooDayChangePct ?? null,
     rawFhFcfAdj, rawFhCapEmp,
   };

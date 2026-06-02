@@ -585,3 +585,54 @@ export async function getEarningsInfoYahoo(symbol: string): Promise<EarningsInfo
     }
   });
 }
+
+// ── Profil sectoriel via Yahoo quoteSummary (sector + industry granulaire) ──────
+// Finnhub /profile2 ne donne qu'un secteur large (« Technology »). Yahoo assetProfile
+// expose `sector` (large) ET `industry` (fin : « Information Technology Services »,
+// « Travel Services », « Semiconductors »…). On garde l'industry pour un affichage plus
+// précis. Couvre US + monde. Mémoïsé 30 j (le profil sectoriel ne bouge quasi jamais).
+export interface YahooAssetProfile { sector: string | null; industry: string | null }
+const YAHOO_PROFILE_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+interface CachedYahooProfile { data: YahooAssetProfile; cachedAt: number }
+const yahooProfileCache = new Map<string, CachedYahooProfile>();
+
+export async function getAssetProfileYahoo(symbol: string): Promise<YahooAssetProfile> {
+  const empty: YahooAssetProfile = { sector: null, industry: null };
+  const cached = yahooProfileCache.get(symbol);
+  if (cached && Date.now() - cached.cachedAt < YAHOO_PROFILE_TTL_MS) return cached.data;
+
+  return yahooLimiter.schedule(async () => {
+    try {
+      const fetchOnce = async (session: YahooSession): Promise<Response> => {
+        const url = `${QUOTE_SUMMARY_BASE}/${encodeURIComponent(symbol)}`
+          + `?modules=${encodeURIComponent('assetProfile')}`
+          + `&crumb=${encodeURIComponent(session.crumb)}`;
+        const headers: Record<string, string> = { 'User-Agent': UA, Accept: 'application/json' };
+        if (session.cookies) headers.Cookie = session.cookies;
+        return fetch(url, { headers });
+      };
+
+      let session = await getSession();
+      let res = await fetchOnce(session);
+      if (res.status === 401 || res.status === 403) {
+        invalidateSession();
+        session = await getSession();
+        res = await fetchOnce(session);
+      }
+      if (!res.ok) throw new Error(`Yahoo quoteSummary HTTP ${res.status}`);
+      const data = await res.json() as { quoteSummary?: { result?: Array<{ assetProfile?: { sector?: string; industry?: string } }>; error?: { description?: string } | null } };
+      if (data.quoteSummary?.error) throw new Error(data.quoteSummary.error.description ?? 'quoteSummary error');
+      const p = data.quoteSummary?.result?.[0]?.assetProfile;
+      const result: YahooAssetProfile = {
+        sector: p?.sector?.trim() || null,
+        industry: p?.industry?.trim() || null,
+      };
+      yahooProfileCache.set(symbol, { data: result, cachedAt: Date.now() });
+      return result;
+    } catch (e) {
+      console.warn(`[yahoo profile ${symbol}] échec :`, (e as Error).message);
+      yahooProfileCache.set(symbol, { data: empty, cachedAt: Date.now() });
+      return empty;
+    }
+  });
+}
