@@ -37,6 +37,32 @@ export interface PfcfHistoryPoint {
   pfcf: number;
 }
 
+// ─── « Opportunité du moment » : P/FCF historiquement bas ──────────────────
+/** Seuil de percentile (décile bas) pour qualifier d'opportunité. */
+export const PFCF_OPP_PERCENTILE = 10;
+/** Plafond absolu du P/FCF pour qualifier d'opportunité. */
+export const PFCF_OPP_MAX = 25;
+/** Historique minimal (points) pour un percentile fiable (~3 ans de trimestres). */
+const PFCF_PERCENTILE_MIN_POINTS = 12;
+
+/**
+ * Percentile du P/FCF `current` au sein de sa propre série (0-100 = % de points ≤ current).
+ * Null si historique insuffisant. Même formule que la modale P/FCF.
+ */
+export function pfcfPercentile(points: PfcfHistoryPoint[], current: number | null): number | null {
+  if (current == null || !Number.isFinite(current) || current <= 0) return null;
+  const vals = points.map(p => p.pfcf).filter(v => Number.isFinite(v) && v > 0);
+  if (vals.length < PFCF_PERCENTILE_MIN_POINTS) return null;
+  let below = 0;
+  for (const v of vals) if (v <= current) below++;
+  return (below / vals.length) * 100;
+}
+
+/** Vrai si le P/FCF est une « opportunité du moment » (décile bas historique ET < plafond). */
+export function isPfcfOpportunity(percentile: number | null, pfcf: number | null): boolean {
+  return percentile != null && pfcf != null && pfcf > 0 && percentile <= PFCF_OPP_PERCENTILE && pfcf < PFCF_OPP_MAX;
+}
+
 interface YahooChartResponse {
   chart?: {
     result?: Array<{

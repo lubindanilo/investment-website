@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { ScreenerTopRow, ScreenerStats } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
-import { Icon, ScorePill } from '../components/ui/primitives.js';
+import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { Sparkline } from '../components/ui/charts.js';
 import { formatPrice } from '../lib/format.js';
 import './ScreenerPage.css';
@@ -31,20 +31,21 @@ export function ScreenerPage() {
   const [error, setError] = useState<string | null>(null);
   const [minScore, setMinScore] = useState(6);
   const [maxPfcf, setMaxPfcf] = useState(PFCF_MAX);
+  const [onlyOpp, setOnlyOpp] = useState(false);
   const [sort, setSort] = useState<SortState>({ col: 'score', dir: 'desc' });
 
   const load = useCallback(async () => {
     setLoading(true); setError(null);
     try {
       const [top, st] = await Promise.all([
-        api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300 }),
+        api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300, opportunities: onlyOpp }),
         api.screener.stats(),
       ]);
       setRows(top); setStats(st);
     } catch (e) {
       setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
     } finally { setLoading(false); }
-  }, [minScore, maxPfcf]);
+  }, [minScore, maxPfcf, onlyOpp]);
 
   useEffect(() => { load(); }, [load]);
 
@@ -96,6 +97,22 @@ export function ScreenerPage() {
             <input type="range" min={10} max={PFCF_MAX} value={maxPfcf} onChange={e => setMaxPfcf(+e.target.value)} style={{ flex: 1, accentColor: 'var(--brand)' }} />
             <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{maxPfcf >= PFCF_MAX ? '∞' : maxPfcf + '×'}</span>
           </div>
+          <button
+            type="button"
+            onClick={() => setOnlyOpp(v => !v)}
+            data-active={onlyOpp}
+            title={t('opportunity.tooltip')}
+            className="scr-opp-toggle"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 12px',
+              borderRadius: 999, fontWeight: 700, fontSize: 12.5, cursor: 'pointer',
+              border: '1px solid ' + (onlyOpp ? 'color-mix(in oklch, var(--good) 45%, transparent)' : 'var(--line)'),
+              background: onlyOpp ? 'var(--good-bg)' : 'var(--surface)',
+              color: onlyOpp ? 'var(--good-ink)' : 'var(--ink-3)', transition: 'all .14s',
+            }}
+          >
+            <Icon name="gem" size={13} stroke={2} />{t('opportunity.filter')}
+          </button>
           <span className="tiny muted" style={{ marginLeft: 'auto' }}>{t('screener.results', { count: sorted.length })}</span>
         </div>
 
@@ -128,7 +145,7 @@ export function ScreenerPage() {
                   <tr key={r.ticker} onClick={() => navigate(`/analyse/${r.ticker}`)}>
                     <td>
                       <div className="scr-soc">
-                        <span className="num scr-soc-ticker">{r.ticker}</span>
+                        <span className="num scr-soc-ticker row gap-6">{r.ticker}{r.opportunity && <OpportunityBadge compact />}</span>
                         <span className="scr-soc-name">{r.name ?? r.ticker}</span>
                       </div>
                     </td>

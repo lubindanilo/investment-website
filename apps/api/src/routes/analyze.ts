@@ -19,6 +19,8 @@ import { loadQuantData } from '../services/quantSnapshot.js';
 import { fetchBusinessAnalysis, fetchManagementAnalysis } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
 import { writeCachedSnapshot, getServableSnapshot, type CachedQuantSnapshot } from '../services/quantCache.js';
+import { pfcfPercentile, isPfcfOpportunity } from '../services/pfcfHistory.js';
+import * as chartCache from '../lib/timeseriesCache.js';
 import { prisma } from '../db/client.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { analyzeLimiter } from '../middleware/rateLimit.js';
@@ -76,6 +78,8 @@ function buildResponse(args: {
   management: Criterion[] | null;
   businessCachedAt: Date | null;
   managementCachedAt: Date | null;
+  pfcfPercentile?: number | null;
+  opportunity?: boolean;
   lang?: Lang;
 }): AnalyzeResponse {
   const { ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt, lang = 'fr' } = args;
@@ -138,7 +142,30 @@ function buildResponse(args: {
     fundamentalsSource,
     currency,
     yahooSymbol,
+    pfcfPercentile: args.pfcfPercentile ?? null,
+    opportunity: args.opportunity ?? false,
   };
+}
+
+/**
+ * « Opportunité du moment » pour la vue analyse : percentile du P/FCF LIVE (metrics.pfcfTTM)
+ * vs son historique. On lit la série déjà cachée (ChartCache, remplie par la veille) → pas de
+ * recompute lourd. Repli sur les colonnes pré-calculées de ScreenerTicker si le cache est absent.
+ */
+async function computeOpportunity(ticker: string, pfcfTTM: number | null): Promise<{ pfcfPercentile: number | null; opportunity: boolean }> {
+  // 5 ans = la période warmée par la veille (cf. chartWarm.YEARS).
+  const entry = await chartCache.get(chartCache.cacheKey(ticker, 'pfcf-history', 'computed', 5)).catch(() => null);
+  if (entry && entry.points.length) {
+    const points = entry.points.map(p => ({ date: p.date, pfcf: p.value }));
+    const pct = pfcfPercentile(points, pfcfTTM);
+    return { pfcfPercentile: pct, opportunity: isPfcfOpportunity(pct, pfcfTTM) };
+  }
+  // Repli : valeurs pré-calculées par la veille (basées sur le dernier point historique).
+  const row = await prisma.screenerTicker.findUnique({
+    where: { ticker },
+    select: { pfcfPercentile: true, opportunity: true },
+  }).catch(() => null);
+  return { pfcfPercentile: row?.pfcfPercentile ?? null, opportunity: row?.opportunity ?? false };
 }
 
 // ─── GET /api/analyze ──────────────────────────────────────────────────────
@@ -173,6 +200,9 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const business = businessRow && isBusinessCacheValid(businessRow.business) ? businessRow.business : null;
   const management = managementRow && isManagementCacheValid(managementRow.management) ? managementRow.management : null;
 
+  // « Opportunité du moment » : percentile du P/FCF live vs historique (cache).
+  const { pfcfPercentile: pct, opportunity } = await computeOpportunity(ticker, quant.metrics.pfcfTTM);
+
   const response = buildResponse({
     ticker,
     quant,
@@ -181,6 +211,8 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
     management,
     businessCachedAt: business ? businessRow!.createdAt : null,
     managementCachedAt: management ? managementRow!.updatedAt : null,
+    pfcfPercentile: pct,
+    opportunity,
     lang,
   });
   if (userId) response.inWatchlist = watchlistRow != null;
@@ -319,8 +351,10 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
     managementCachedAt = upserted.updatedAt;
   }
 
+  const opp = await computeOpportunity(ticker, quant.metrics.pfcfTTM);
   res.json(buildResponse({
-    ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt, lang,
+    ticker, quant, business, verdictDirect, management, businessCachedAt, managementCachedAt,
+    pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, lang,
   }));
 }));
 
@@ -351,6 +385,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
   const businessRow = await prisma.businessAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } });
   const business = businessRow && isBusinessCacheValid(businessRow.business) ? businessRow.business : null;
 
+  const opp = await computeOpportunity(ticker, quant.metrics.pfcfTTM);
   res.json(buildResponse({
     ticker,
     quant,
@@ -359,6 +394,8 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
     management: fresh.management,
     businessCachedAt: business ? businessRow!.createdAt : null,
     managementCachedAt: upserted.updatedAt,
+    pfcfPercentile: opp.pfcfPercentile,
+    opportunity: opp.opportunity,
     lang,
   }));
 }));

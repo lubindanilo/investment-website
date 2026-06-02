@@ -160,9 +160,9 @@ export const api = {
     }>(`/api/price-history?${q}`);
   },
   screener: {
-    top: (params: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number } = {}) => {
+    top: (params: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; opportunities?: boolean } = {}) => {
       const q = new URLSearchParams();
-      for (const [k, v] of Object.entries(params)) if (v != null) q.set(k, String(v));
+      for (const [k, v] of Object.entries(params)) if (v != null && v !== false) q.set(k, String(v));
       const qs = q.toString();
       return safeRequest<ScreenerTopRow[]>(`/api/screener/top${qs ? `?${qs}` : ''}`);
     },

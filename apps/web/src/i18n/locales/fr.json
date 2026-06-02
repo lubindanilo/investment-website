@@ -494,5 +494,16 @@
       "label": "Prix d'achat conseillé",
       "target": "décote vs cours"
     }
+  },
+  "opportunity": {
+    "badge": "Opportunité",
+    "badgeFull": "Opportunité du moment",
+    "tooltip": "Le ratio P/FCF est dans son décile le plus bas historique (≤ 10ᵉ percentile) et sous 25 — historiquement bon marché.",
+    "banner": "Opportunité du moment : P/FCF historiquement bas",
+    "filter": "Opportunités du moment",
+    "pfcfRatio": "P/FCF actuel",
+    "pfcfPercentile": "Percentile du P/FCF",
+    "percentileHint": "vs son historique",
+    "insufficient": "Historique insuffisant"
   }
 }

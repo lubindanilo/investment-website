@@ -35,6 +35,7 @@ export const ICON_PATHS = {
   star: '<path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.8 6.6 19.5l1.2-6L3.3 9.3l6.1-.7L12 3Z"/>',
   scale: '<path d="M12 3v18M5 7h14M5 7l-3 7h6l-3-7ZM19 7l-3 7h6l-3-7Z"/>',
   filter: '<path d="M3 5h18l-7 8v6l-4-2v-4L3 5Z"/>',
+  gem: '<path d="M6 3h12l4 6-10 12L2 9l4-6Z"/><path d="M2 9h20M9 3 7.5 9 12 21M15 3l1.5 6L12 21"/>',
 } as const;
 
 export type IconName = keyof typeof ICON_PATHS;
@@ -118,6 +119,29 @@ export function StatusBadge({ status }: { status: DataStatus }) {
     <span className={`s-badge s-badge-${status}`}>
       <span className={`s-badge-dot s-dot-${status}`} />
       {t(`status.${status}`)}
+    </span>
+  );
+}
+
+// ─── OpportunityBadge (« opportunité du moment » : P/FCF historiquement bas) ──
+// `compact` → puce icône-seule (tables, place réduite) ; sinon chip avec libellé.
+export function OpportunityBadge({ compact = false }: { compact?: boolean }) {
+  const { t } = useTranslation();
+  const base: CSSProperties = {
+    display: 'inline-flex', alignItems: 'center', gap: 4, flexShrink: 0,
+    borderRadius: 999, background: 'var(--good-bg)', color: 'var(--good-ink)',
+    fontWeight: 700, lineHeight: 1, whiteSpace: 'nowrap',
+    border: '1px solid color-mix(in oklch, var(--good) 30%, transparent)',
+  };
+  return (
+    <span
+      title={t('opportunity.tooltip')}
+      style={compact
+        ? { ...base, padding: 4, fontSize: 0 }
+        : { ...base, padding: '3px 8px', fontSize: 11.5 }}
+    >
+      <Icon name="gem" size={compact ? 13 : 12} stroke={2} />
+      {!compact && t('opportunity.badge')}
     </span>
   );
 }

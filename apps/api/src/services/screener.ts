@@ -308,17 +308,20 @@ export interface TopRow {
   price: number | null;
   dayChangePct: number | null;
   spark: number[] | null;
+  opportunity: boolean;
+  pfcfPercentile: number | null;
 }
 
 /** Meilleures notes pour la vue screener. Tri par ratio décroissant, indexé. */
-export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number } = {}): Promise<TopRow[]> {
-  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100 } = opts;
+export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean } = {}): Promise<TopRow[]> {
+  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false } = opts;
   return prisma.screenerTicker.findMany({
     where: {
       status: 'scored',
       scoreChiffresMax: { gte: minMax },       // dénominateur significatif (évite 2/2 = 100%)
       scoreRatio: { gte: minRatio },
       ...(maxPfcf != null ? { pfcfTTM: { gt: 0, lte: maxPfcf } } : {}),
+      ...(onlyOpportunities ? { opportunity: true } : {}),
     },
     orderBy: [{ scoreRatio: 'desc' }, { scoreChiffresMax: 'desc' }],
     take: Math.min(limit, 500),
@@ -326,6 +329,7 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
       ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true,
       pfcfTTM: true, currency: true, nextEarningsDate: true,
       sector: true, price: true, dayChangePct: true, spark: true,
+      opportunity: true, pfcfPercentile: true,
     },
   }) as Promise<TopRow[]>;
 }

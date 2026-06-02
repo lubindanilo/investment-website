@@ -494,5 +494,16 @@
       "label": "Recommended buy price",
       "target": "discount vs price"
     }
+  },
+  "opportunity": {
+    "badge": "Opportunity",
+    "badgeFull": "Opportunity of the moment",
+    "tooltip": "The P/FCF ratio is in its lowest historical decile (≤ 10th percentile) and below 25 — historically cheap.",
+    "banner": "Opportunity of the moment: historically low P/FCF",
+    "filter": "Current opportunities",
+    "pfcfRatio": "Current P/FCF",
+    "pfcfPercentile": "P/FCF percentile",
+    "percentileHint": "vs its history",
+    "insufficient": "Insufficient history"
   }
 }

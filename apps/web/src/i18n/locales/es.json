@@ -494,5 +494,16 @@
       "label": "Precio de compra recomendado",
       "target": "descuento vs precio"
     }
+  },
+  "opportunity": {
+    "badge": "Oportunidad",
+    "badgeFull": "Oportunidad del momento",
+    "tooltip": "El ratio P/FCF está en su decil más bajo histórico (≤ percentil 10) y por debajo de 25 — históricamente barato.",
+    "banner": "Oportunidad del momento: P/FCF históricamente bajo",
+    "filter": "Oportunidades del momento",
+    "pfcfRatio": "P/FCF actual",
+    "pfcfPercentile": "Percentil del P/FCF",
+    "percentileHint": "vs su historial",
+    "insufficient": "Historial insuficiente"
   }
 }

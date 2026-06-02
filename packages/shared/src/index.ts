@@ -167,6 +167,10 @@ export interface AnalyzeResponse {
   currency: string;
   /** Symbol résolu chez Yahoo si fallback Yahoo (ex "COPN.SW" quand l'utilisateur a tapé "COPN"). */
   yahooSymbol?: string;
+  /** Percentile actuel du P/FCF vs son propre historique (0-100). Null si historique insuffisant. */
+  pfcfPercentile: number | null;
+  /** « Opportunité du moment » : P/FCF dans son décile bas historique (≤10) ET < 25. */
+  opportunity: boolean;
   /**
    * True si le ticker est déjà dans la watchlist de l'utilisateur connecté.
    * Calculé côté serveur (optionalAuth) → source unique, pas de course avec un
@@ -190,6 +194,10 @@ export interface WatchlistEntry {
   source?: 'finnhub' | 'yahoo' | null;
   /** Date du prochain earnings (YYYY-MM-DD). Null si inconnue. Cachée jusqu'à la date. */
   nextEarningsDate?: string | null;
+  /** « Opportunité du moment » (P/FCF dans son décile bas historique ET < 25). */
+  opportunity?: boolean;
+  /** Percentile actuel du P/FCF vs historique (0-100). Null si indisponible. */
+  pfcfPercentile?: number | null;
   // ─── Champs internes pour recompute P/FCF live ──────────────────────────
   // Ces 2 champs ne changent qu'à chaque earnings (FCF) ou très peu (shares).
   // Ils permettent de recomputer pfcfTTM = (price × shares) / adjFcfTtm avec un
@@ -264,6 +272,10 @@ export interface ScreenerTopRow {
   dayChangePct: number | null;
   /** Closes mensuels ~1 an pour la sparkline. */
   spark: number[] | null;
+  /** « Opportunité du moment » : P/FCF dans son décile bas historique (≤10) ET < 25. */
+  opportunity: boolean;
+  /** Percentile actuel du P/FCF vs historique (0-100). Null si indisponible. */
+  pfcfPercentile: number | null;
 }
 
 /** Progression de la veille screener. */

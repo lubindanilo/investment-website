@@ -28,13 +28,17 @@ function Slider({ label, value, set, min, max, step, suffix }: {
   );
 }
 
-export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, ticker, annualOnly = false }: {
+export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, ticker, annualOnly = false, pfcfPercentile = null, opportunity = false }: {
   price: number | null;
   pfcfTTM: number | null;
   currency?: string;
   valoParams?: { targetReturn: number; fcfGrowth: number; targetMultiple: number };
   ticker?: string;
   annualOnly?: boolean;
+  /** Percentile actuel du P/FCF vs son historique (0-100). Null si indisponible. */
+  pfcfPercentile?: number | null;
+  /** « Opportunité du moment » : P/FCF dans son décile bas historique ET < 25. */
+  opportunity?: boolean;
 }) {
   const { t } = useTranslation();
   const fcfPerShare = price != null && pfcfTTM != null && pfcfTTM > 0 ? price / pfcfTTM : null;
@@ -87,6 +91,31 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams, t
         <div className={'valb-badge ' + (cheap ? 'valb-badge-good' : 'valb-badge-bad')}>
           {cheap ? t('valuation.below') : t('valuation.above')} · {upside >= 0 ? '+' : ''}{upside.toFixed(0)} %
         </div>
+
+        {/* « Opportunité du moment » : ratio P/FCF actuel + son percentile historique */}
+        <div className="valb-opp" style={{
+          display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, marginTop: 14,
+        }}>
+          <div className="col gap-2" style={{
+            padding: '8px 10px', borderRadius: 9, background: 'var(--surface-2)', border: '1px solid var(--line)',
+          }}>
+            <span className="tiny muted">{t('opportunity.pfcfRatio')}</span>
+            <span className="num" style={{ fontWeight: 700, fontSize: 15 }}>
+              {pfcfTTM != null && pfcfTTM > 0 ? `${pfcfTTM.toFixed(1)}×` : '—'}
+            </span>
+          </div>
+          <div className="col gap-2" style={{
+            padding: '8px 10px', borderRadius: 9,
+            background: opportunity ? 'var(--good-bg)' : 'var(--surface-2)',
+            border: '1px solid ' + (opportunity ? 'color-mix(in oklch, var(--good) 30%, transparent)' : 'var(--line)'),
+          }}>
+            <span className="tiny muted" style={opportunity ? { color: 'var(--good-ink)' } : undefined}>{t('opportunity.pfcfPercentile')}</span>
+            <span className="num" style={{ fontWeight: 700, fontSize: 15, color: opportunity ? 'var(--good-ink)' : undefined }}>
+              {pfcfPercentile != null ? `${Math.round(pfcfPercentile)} / 100` : t('opportunity.insufficient')}
+            </span>
+          </div>
+        </div>
+
         <p className="tiny muted valb-note">{t('valuation.note')}</p>
       </div>
 

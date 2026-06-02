@@ -247,6 +247,19 @@ watchlistRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // 4) Rafraîchit les dates d'earnings périmées (en régime établi : aucun fetch)
   await refreshStaleEarnings(result, cacheByTicker);
 
+  // 5) « Opportunité du moment » : pré-calculée par la veille sur ScreenerTicker (batch).
+  if (tickers.length) {
+    const oppRows = await prisma.screenerTicker.findMany({
+      where: { ticker: { in: tickers } },
+      select: { ticker: true, opportunity: true, pfcfPercentile: true },
+    }).catch(() => [] as { ticker: string; opportunity: boolean; pfcfPercentile: number | null }[]);
+    const oppByTicker = new Map(oppRows.map(r => [r.ticker, r]));
+    for (const e of result) {
+      const o = oppByTicker.get(e.ticker);
+      if (o) { e.opportunity = o.opportunity; e.pfcfPercentile = o.pfcfPercentile; }
+    }
+  }
+
   console.log(`[watchlist GET user=${userId.slice(0, 8)}] ${tickers.length} tickers, ${cacheByTicker.size} cached, live overlay in ${Date.now() - t0}ms`);
   res.json(result);
 }));

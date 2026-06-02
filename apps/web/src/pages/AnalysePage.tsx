@@ -8,7 +8,7 @@ import { useAuth } from '../contexts/AuthContext.js';
 import { CriteriaGrid, QualGrid } from '../components/CriterionCard.js';
 import { ValuationBlock } from '../components/ui/ValuationBlock.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
-import { Icon, ScoreCircle, ScorePill, toDataStatus } from '../components/ui/primitives.js';
+import { Icon, ScoreCircle, ScorePill, OpportunityBadge, toDataStatus } from '../components/ui/primitives.js';
 import { CompositionBar, PriceChart } from '../components/ui/charts.js';
 import './AnalysePage.css';
 
@@ -199,6 +199,20 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
           </div>
         )}
 
+        {/* « Opportunité du moment » : P/FCF dans son décile bas historique ET < 25 */}
+        {analysis.opportunity && (
+          <div className="anl-banner" style={{
+            background: 'var(--good-bg)', color: 'var(--good-ink)',
+            border: '1px solid color-mix(in oklch, var(--good) 30%, transparent)',
+          }}>
+            <Icon name="gem" size={16} stroke={2} />
+            <span>
+              <b>{t('opportunity.banner')}</b>
+              {analysis.pfcfPercentile != null && <> — {t('opportunity.pfcfPercentile')} {Math.round(analysis.pfcfPercentile)} {t('opportunity.percentileHint')}</>}
+            </span>
+          </div>
+        )}
+
         {/* ScoreCard */}
         <div className="card anl-scorecard">
           <ScoreCircle score={s10} />
@@ -280,7 +294,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
 
         {/* Valorisation */}
         <Section title={t('analyse.sections.valorisation.title')} sub={t('analyse.sections.valorisation.sub')}>
-          <ValuationBlock price={analysis.price} pfcfTTM={analysis.metrics.pfcfTTM} currency={currency} valoParams={analysis.valoParams} ticker={analysis.ticker} annualOnly={annualOnly} />
+          <ValuationBlock price={analysis.price} pfcfTTM={analysis.metrics.pfcfTTM} currency={currency} valoParams={analysis.valoParams} ticker={analysis.ticker} annualOnly={annualOnly} pfcfPercentile={analysis.pfcfPercentile} opportunity={analysis.opportunity} />
         </Section>
 
         {/* Actualités */}

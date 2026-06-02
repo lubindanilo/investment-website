@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import type { WatchlistEntry } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
-import { Icon, ScorePill } from '../components/ui/primitives.js';
+import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { formatPrice } from '../lib/format.js';
 import './WatchlistPage.css';
 
@@ -50,8 +50,13 @@ export function WatchlistPage() {
   const [adding, setAdding] = useState(false);
   const [newTicker, setNewTicker] = useState('');
   const [sort, setSort] = useState<SortState>(() => loadSort());
+  const [onlyOpp, setOnlyOpp] = useState(false);
 
-  const sortedItems = useMemo(() => sortItems(items, sort), [items, sort]);
+  const hasOpp = useMemo(() => items.some(i => i.opportunity), [items]);
+  const sortedItems = useMemo(() => {
+    const base = onlyOpp ? items.filter(i => i.opportunity) : items;
+    return sortItems(base, sort);
+  }, [items, sort, onlyOpp]);
 
   function toggleSort(key: Exclude<SortKey, 'default'>) {
     setSort(prev => {
@@ -138,6 +143,23 @@ export function WatchlistPage() {
           <button className="btn btn-brand btn-sm" style={{ height: 40 }} onClick={addTicker} disabled={adding || !newTicker.trim()}>
             {adding ? <span className="spinner" /> : <><Icon name="plus" size={14} /> {t('watchlist.add')}</>}
           </button>
+          {hasOpp && (
+            <button
+              type="button"
+              onClick={() => setOnlyOpp(v => !v)}
+              data-active={onlyOpp}
+              title={t('opportunity.tooltip')}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 6, height: 40, padding: '0 14px',
+                borderRadius: 999, fontWeight: 700, fontSize: 12.5, cursor: 'pointer', marginLeft: 'auto',
+                border: '1px solid ' + (onlyOpp ? 'color-mix(in oklch, var(--good) 45%, transparent)' : 'var(--line)'),
+                background: onlyOpp ? 'var(--good-bg)' : 'var(--surface)',
+                color: onlyOpp ? 'var(--good-ink)' : 'var(--ink-3)', transition: 'all .14s',
+              }}
+            >
+              <Icon name="gem" size={13} stroke={2} />{t('opportunity.filter')}
+            </button>
+          )}
         </div>
 
         {loading ? (
@@ -169,7 +191,7 @@ export function WatchlistPage() {
                     <tr key={w.ticker} onClick={() => navigate(`/analyse/${w.ticker}`)}>
                       <td style={{ maxWidth: 340 }}>
                         <div className="tbl-soc">
-                          <span className="num tbl-soc-ticker">{w.ticker}</span>
+                          <span className="num tbl-soc-ticker row gap-6">{w.ticker}{w.opportunity && <OpportunityBadge compact />}</span>
                           <span className="tbl-soc-name">{w.name}</span>
                         </div>
                       </td>

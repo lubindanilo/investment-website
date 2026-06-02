@@ -6,10 +6,11 @@
  * jamais bloquer le scoring. Warme la période par défaut (5 ans), celle qu'ouvre le front.
  */
 import * as cache from '../lib/timeseriesCache.js';
-import { getPfcfHistory } from './pfcfHistory.js';
+import { getPfcfHistory, pfcfPercentile, isPfcfOpportunity } from './pfcfHistory.js';
 import { getCashRoceHistory } from './cashRoceHistory.js';
 import { getReportedTimeseries, type MetricKey } from './finnhubFundamentals.js';
 import { ttlUntilNextEarnings } from './earnings.js';
+import { prisma } from '../db/client.js';
 
 const YEARS = 5;
 /** Métriques d'histogramme exposées dans l'UI (cf. CRITERION_HISTOGRAMS, shared). */
@@ -28,6 +29,17 @@ export async function warmChartCacheForTicker(ticker: string, nextEarningsDate: 
   ]);
   if (pfcf.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed', YEARS), pfcf.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
   if (croce.length) await cache.set(cache.cacheKey(ticker, 'cash-roce-history', 'computed', YEARS), croce.map(p => ({ date: p.date, value: p.cashRoce })), 'finnhub', ttl).catch(() => {});
+
+  // « Opportunité du moment » : percentile du P/FCF courant (dernier point) vs sa série,
+  // persisté sur ScreenerTicker pour le badge + filtre (screener / watchlist). Best-effort.
+  if (pfcf.length) {
+    const current = pfcf[pfcf.length - 1]?.pfcf ?? null;
+    const pct = pfcfPercentile(pfcf, current);
+    await prisma.screenerTicker.updateMany({
+      where: { ticker },
+      data: { pfcfPercentile: pct, opportunity: isPfcfOpportunity(pct, current) },
+    }).catch(() => {});
+  }
   // Histogrammes : US uniquement (l'EU/Asie passe par Yahoo dans la route → lazy-fill).
   if (!ticker.includes('.')) {
     for (const metric of HISTO_METRICS) {

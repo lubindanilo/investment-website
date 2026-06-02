@@ -52,6 +52,7 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
     maxPfcf: num(req.query.maxPfcf),
     minMax: num(req.query.minMax),
     limit: num(req.query.limit),
+    onlyOpportunities: req.query.opportunities === 'true',
   });
   res.json(rows);
 }));

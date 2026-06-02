@@ -132,10 +132,15 @@ model ScreenerTicker {
   /// Dernière fois que les séries de graphiques (ChartCache) ont été préremplies pour ce
   /// ticker. Null = jamais → la veille les comble progressivement (comme elle a scoré l'univers).
   chartsWarmedAt     DateTime?
+  /// « Opportunité du moment » : P/FCF dans son décile bas historique (≤10) ET < 25.
+  opportunity        Boolean   @default(false)
+  /// Percentile actuel du P/FCF vs son historique (0-100). Null si indisponible.
+  pfcfPercentile     Float?
   updatedAt          DateTime  @updatedAt
 
   @@index([status, priority, lastScoredAt])
   @@index([scoreRatio])
+  @@index([opportunity])
 }
 
 /// Watchlist par utilisateur. Un même ticker peut apparaître chez plusieurs users (différentes lignes).
