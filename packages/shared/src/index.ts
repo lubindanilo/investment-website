@@ -49,6 +49,14 @@ export interface SectorBenchmark {
   peers: SectorPeer[];
 }
 
+/** Un versement de dividende (par action). */
+export interface DividendPayment {
+  /** YYYY-MM-DD du versement. */
+  date: string;
+  /** Montant par action (devise du titre). */
+  amount: number;
+}
+
 /** Infos dividende (Yahoo). `paysDividend=false` → la société n'en verse pas. */
 export interface DividendInfo {
   paysDividend: boolean;
@@ -60,6 +68,8 @@ export interface DividendInfo {
   payoutRatioPct: number | null;
   /** Prochaine date ex-dividende (YYYY-MM-DD). */
   exDate: string | null;
+  /** Historique complet des versements (ancien→récent) — alimente le graphe d'évolution. */
+  payments: DividendPayment[];
 }
 
 /**

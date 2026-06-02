@@ -13,11 +13,12 @@
  * Si Yahoo échoue (cookie/crumb/parsing) → on retourne null et le caller fallback
  * sur la dérivation Finnhub (revenueGrowth5Y vs revenueShareGrowth5Y).
  */
-import type { EarningsInfo, EarningsResult, DividendInfo } from '@lubin/shared';
+import type { EarningsInfo, EarningsResult, DividendInfo, DividendPayment } from '@lubin/shared';
 import { yahooLimiter } from '../lib/limiter.js';
 import { fetchSplitEvents, cumulativeSplitFactor } from './yahooSplits.js';
 
 const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
+const CHART_BASE = 'https://query1.finance.yahoo.com/v8/finance/chart';
 const CRUMB_URL = 'https://query1.finance.yahoo.com/v1/test/getcrumb';
 const SESSION_URL = 'https://fc.yahoo.com';
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Lubin-Investment/0.1';
@@ -642,8 +643,29 @@ const YAHOO_DIV_TTL_MS = 24 * 60 * 60 * 1000; // 1 j (rendement bouge avec le pr
 interface CachedYahooDiv { data: DividendInfo; cachedAt: number }
 const yahooDivCache = new Map<string, CachedYahooDiv>();
 
+/** Historique des versements de dividende via le chart Yahoo (events=div, public, sans crumb). */
+async function fetchDividendPayments(symbol: string, years = 25): Promise<DividendPayment[]> {
+  try {
+    const now = Math.floor(Date.now() / 1000);
+    const period1 = now - years * 365 * 86400;
+    const url = `${CHART_BASE}/${encodeURIComponent(symbol)}?period1=${period1}&period2=${now}&interval=1mo&events=div`;
+    const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
+    if (!res.ok) return [];
+    const data = await res.json() as { chart?: { result?: Array<{ events?: { dividends?: Record<string, { amount?: number; date?: number }> } }> } };
+    const divs = data.chart?.result?.[0]?.events?.dividends ?? {};
+    return Object.values(divs)
+      .map(d => (typeof d.amount === 'number' && d.amount > 0 && typeof d.date === 'number')
+        ? { date: new Date(d.date * 1000).toISOString().slice(0, 10), amount: Math.round(d.amount * 10000) / 10000 }
+        : null)
+      .filter((x): x is DividendPayment => x !== null)
+      .sort((a, b) => a.date.localeCompare(b.date));
+  } catch {
+    return [];
+  }
+}
+
 export async function getDividendInfoYahoo(symbol: string): Promise<DividendInfo> {
-  const none: DividendInfo = { paysDividend: false, yieldPct: null, ratePerShare: null, payoutRatioPct: null, exDate: null };
+  const none: DividendInfo = { paysDividend: false, yieldPct: null, ratePerShare: null, payoutRatioPct: null, exDate: null, payments: [] };
   const cached = yahooDivCache.get(symbol);
   if (cached && Date.now() - cached.cachedAt < YAHOO_DIV_TTL_MS) return cached.data;
 
@@ -675,13 +697,16 @@ export async function getDividendInfoYahoo(symbol: string): Promise<DividendInfo
       const payout = sd?.payoutRatio?.raw ?? null;
       const exRaw = sd?.exDividendDate ?? node?.calendarEvents?.exDividendDate;
       const exDate = ynumToDate(exRaw);
-      const paysDividend = (rate != null && rate > 0) || (yld != null && yld > 0);
+      // Historique des versements (chart events=div) — pour le graphe d'évolution.
+      const payments = await fetchDividendPayments(symbol);
+      const paysDividend = (rate != null && rate > 0) || (yld != null && yld > 0) || payments.length > 0;
       const result: DividendInfo = {
         paysDividend,
         yieldPct: yld != null ? Math.round(yld * 1000) / 10 : null,           // fraction → %
         ratePerShare: rate != null ? Math.round(rate * 100) / 100 : null,
         payoutRatioPct: payout != null && payout > 0 ? Math.round(payout * 1000) / 10 : null,
         exDate,
+        payments,
       };
       yahooDivCache.set(symbol, { data: result, cachedAt: Date.now() });
       return result;

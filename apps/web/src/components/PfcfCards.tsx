@@ -35,13 +35,7 @@ export function PfcfRatioCard({ pfcfTTM, pfcfPercentile, sectorBenchmark, ticker
   const status = ratioStatus(pfcfTTM, pfcfPercentile);
 
   return (
-    <div
-      className="crit-card"
-      style={{ gridColumn: 'span 2', border: '1.5px solid var(--brand)', position: 'relative' }}
-    >
-      <span className="tiny" style={{ position: 'absolute', top: 12, right: 14, fontWeight: 700, fontSize: 10.5, letterSpacing: '.04em', textTransform: 'uppercase', color: 'var(--brand-ink)' }}>
-        {t('pfcfCards.notScored')}
-      </span>
+    <div className="crit-card" style={{ border: '1.5px solid var(--brand)' }}>
       <div className="crit-card-head">
         <span className="crit-card-label">{t('pfcfCards.title')}</span>
         {status && <StatusBadge status={status} />}
@@ -56,7 +50,7 @@ export function PfcfRatioCard({ pfcfTTM, pfcfPercentile, sectorBenchmark, ticker
         {sectorBenchmark && sectorBenchmark.meanPfcf > 0 && <> · {t('pfcfCards.sectorMean', { value: sectorBenchmark.meanPfcf.toFixed(1) })}</>}
       </p>
       <div className="crit-card-foot">
-        <span />
+        <span className="pfcf-card-tag">{t('pfcfCards.notScored')}</span>
         {pfcfTTM != null && pfcfTTM > 0 && (
           <button type="button" className="crit-hist-btn" onClick={() => setHistOpen(true)}>
             <Icon name="bars" size={13} /> {t('valuation.pfcfHistory')}

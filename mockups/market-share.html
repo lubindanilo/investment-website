@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Part de marché — maquette</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: oklch(0.985 0.003 270);
+    --bg-soft: oklch(0.965 0.005 270);
+    --surface: oklch(1 0 0);
+    --surface-2: oklch(0.985 0.004 270);
+    --ink: oklch(0.22 0.02 270);
+    --ink-2: oklch(0.40 0.02 270);
+    --ink-3: oklch(0.55 0.02 270);
+    --ink-4: oklch(0.68 0.02 270);
+    --line: oklch(0.92 0.006 270);
+    --line-soft: oklch(0.95 0.005 270);
+    --brand: oklch(0.515 0.193 277);
+    --brand-soft: oklch(0.95 0.035 277);
+    --brand-ink: oklch(0.42 0.18 277);
+    --good: oklch(0.62 0.15 150);
+    --good-bg: oklch(0.95 0.05 150);
+    --good-ink: oklch(0.40 0.12 150);
+    --warn: oklch(0.72 0.15 75);
+    --bad: oklch(0.60 0.20 25);
+    --r: 16px; --r-sm: 10px;
+    --sh-xs: 0 1px 2px rgba(20,20,40,.06);
+    --sh-md: 0 12px 34px rgba(20,20,50,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);
+       -webkit-font-smoothing:antialiased;padding:40px 20px;line-height:1.45}
+  .num{font-family:'JetBrains Mono',monospace;font-variant-numeric:tabular-nums}
+  .wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+  .page-h{display:flex;flex-direction:column;gap:4px;margin-bottom:4px}
+  .page-h h1{font-size:22px;font-weight:800;letter-spacing:-.02em}
+  .page-h p{color:var(--ink-3);font-size:14px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh-xs)}
+  .kicker{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3)}
+  .sec-title{font-size:16px;font-weight:800;letter-spacing:-.01em}
+  .muted{color:var(--ink-3)}
+  .tiny{font-size:12px}
+
+  /* En-tête qualitatif (le « critère ») */
+  .ms-head{padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+  .ms-row1{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .ms-value{font-size:20px;font-weight:800;letter-spacing:-.01em}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700;
+        background:var(--good-bg);color:var(--good-ink);border:1px solid color-mix(in oklch,var(--good) 30%,transparent)}
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--good)}
+  .ms-expl{font-size:14px;color:var(--ink-2);max-width:62ch}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .chip{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);
+        background:var(--surface-2);font-size:12.5px;font-weight:600;color:var(--ink-2)}
+  .chip .sw{width:9px;height:9px;border-radius:3px}
+  .src{font-size:11.5px;color:var(--ink-4)}
+
+  .chart-card{padding:20px 22px;display:flex;flex-direction:column;gap:14px}
+  .chart-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .seg{display:inline-flex;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--r-sm);padding:3px;gap:2px}
+  .seg button{border:none;background:transparent;color:var(--ink-3);font:600 12px 'JetBrains Mono',monospace;
+              padding:5px 11px;border-radius:6px;cursor:pointer;transition:all .14s}
+  .seg button.active{background:var(--brand);color:#fff}
+  .legend{display:flex;gap:14px;flex-wrap:wrap}
+  .legend .it{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;color:var(--ink-2)}
+  .legend .sw{width:11px;height:11px;border-radius:3px}
+  .note{font-size:12px;color:var(--ink-3);background:var(--bg-soft);border-left:3px solid var(--brand);
+        border-radius:6px;padding:10px 13px;line-height:1.5}
+  svg text{font-family:'JetBrains Mono',monospace}
+  .tag{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-4)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="page-h">
+    <h1>Part de marché — maquette</h1>
+    <p>Aperçu visuel sur <b>Booking Holdings (BKNG)</b> · données d'exemple. Le rendu réel s'insère dans la partie qualitative de l'analyse.</p>
+  </div>
+
+  <!-- 1. Le critère qualitatif (estimation GPT + recherche) -->
+  <div class="card ms-head">
+    <div class="kicker">Part de marché · position concurrentielle</div>
+    <div class="ms-row1">
+      <span class="ms-value num">≈ 42 % du voyage en ligne</span>
+      <span class="pill"><span class="dot"></span>Leader · en hausse</span>
+    </div>
+    <div class="ms-expl">
+      Booking domine la réservation de voyage en ligne (OTA) et gagne des parts depuis 5 ans,
+      portée par l'hôtellerie en Europe et l'essor des « connected trips ». Principaux concurrents :
+    </div>
+    <div class="chips">
+      <span class="chip"><span class="sw" style="background:var(--brand)"></span>Booking ~42 %</span>
+      <span class="chip"><span class="sw" style="background:#0e9aa7"></span>Expedia ~22 %</span>
+      <span class="chip"><span class="sw" style="background:#e0a13c"></span>Airbnb ~20 %</span>
+      <span class="chip"><span class="sw" style="background:#c2557a"></span>Trip.com ~8 %</span>
+    </div>
+    <div class="src">Source : estimations agrégées (rapports annuels, Phocuswright) — données d'exemple, à dater à la génération.</div>
+  </div>
+
+  <!-- 2. Évolution : part parmi les principaux acteurs cotés (calculée) -->
+  <div class="card chart-card">
+    <div class="chart-head">
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <span class="sec-title">Évolution de la part de marché</span>
+        <span class="tiny muted">Part du chiffre d'affaires parmi les principaux acteurs cotés du secteur</span>
+      </div>
+      <div class="seg">
+        <button class="active" data-view="stack">Empilé</button>
+        <button data-view="line">Booking</button>
+      </div>
+    </div>
+    <div id="chart"></div>
+    <div class="legend" id="legend"></div>
+    <div class="note" id="note"></div>
+  </div>
+
+  <div class="card chart-card">
+    <span class="tag">Comment lire</span>
+    <div class="tiny muted" style="line-height:1.6">
+      Deux sources se combinent : <b>l'estimation qualitative</b> (carte du haut, « vrai » marché via GPT + recherche, avec sources)
+      et <b>le graphe calculé</b> (part de CA parmi les pairs cotés qu'on suit — précis mais relatif à notre couverture).
+      Bascule <b>Empilé / Booking</b> pour voir soit la répartition entre acteurs, soit la trajectoire de Booking seule.
+    </div>
+  </div>
+</div>
+
+<script>
+const YEARS = ['2019','2020','2021','2022','2023','2024'];
+// Part (%) parmi les principaux acteurs cotés — somme = 100 par an (données d'exemple).
+const SERIES = [
+  { name:'Booking',  color:'var(--brand)', data:[38,35,37,40,41,42] },
+  { name:'Expedia',  color:'#0e9aa7',      data:[28,29,26,24,23,22] },
+  { name:'Airbnb',   color:'#e0a13c',      data:[11,12,16,18,19,20] },
+  { name:'Trip.com', color:'#c2557a',      data:[9,9,8,8,8,8] },
+  { name:'Autres',   color:'#9aa0b4',      data:[14,15,13,10,9,8] },
+];
+const W=820, H=300, P={t:14,r:14,b:28,l:40};
+const iw=W-P.l-P.r, ih=H-P.t-P.b;
+const xAt=i=> P.l + (i/(YEARS.length-1))*iw;
+const yAt=v=> P.t + ih - (v/100)*ih;
+
+function smooth(pts){
+  if(pts.length<2) return '';
+  let d=`M ${pts[0].x} ${pts[0].y}`;
+  for(let i=0;i<pts.length-1;i++){
+    const p0=pts[i], p1=pts[i+1];
+    const cx=(p0.x+p1.x)/2;
+    d+=` C ${cx} ${p0.y} ${cx} ${p1.y} ${p1.x} ${p1.y}`;
+  }
+  return d;
+}
+function gridAndAxis(){
+  let s='';
+  for(const v of [0,25,50,75,100]){
+    const y=yAt(v);
+    s+=`<line x1="${P.l}" y1="${y}" x2="${W-P.r}" y2="${y}" stroke="var(--line)" stroke-dasharray="3 3"/>`;
+    s+=`<text x="${P.l-8}" y="${y+3}" text-anchor="end" font-size="10" fill="var(--ink-4)">${v}%</text>`;
+  }
+  YEARS.forEach((yr,i)=>{ s+=`<text x="${xAt(i)}" y="${H-8}" text-anchor="middle" font-size="10" fill="var(--ink-4)">${yr}</text>`; });
+  return s;
+}
+function renderStack(){
+  // cumul empilé
+  const cum = YEARS.map(()=>0);
+  let body='';
+  SERIES.forEach(se=>{
+    const top = se.data.map((v,i)=>{ cum[i]+=v; return cum[i]; });
+    const bot = se.data.map((v,i)=> cum[i]-v);
+    const topPts = top.map((v,i)=>({x:xAt(i),y:yAt(v)}));
+    const botPts = bot.map((v,i)=>({x:xAt(i),y:yAt(v)})).reverse();
+    const area = smooth(topPts)+' L '+botPts.map(p=>`${p.x} ${p.y}`).join(' L ')+' Z';
+    body+=`<path d="${area}" fill="${se.color}" fill-opacity="0.88"/>`;
+    body+=`<path d="${smooth(topPts)}" fill="none" stroke="#fff" stroke-width="1.4" stroke-opacity="0.5"/>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}">${gridAndAxis()}${body}</svg>`;
+}
+function renderLine(){
+  const se=SERIES[0];
+  const pts=se.data.map((v,i)=>({x:xAt(i),y:yAt(v)}));
+  const area=smooth(pts)+` L ${xAt(YEARS.length-1)} ${yAt(0)} L ${xAt(0)} ${yAt(0)} Z`;
+  let dots=pts.map((p,i)=>`<circle cx="${p.x}" cy="${p.y}" r="3.4" fill="var(--brand)"/><text x="${p.x}" y="${p.y-9}" text-anchor="middle" font-size="10" font-weight="700" fill="var(--brand-ink)">${se.data[i]}%</text>`).join('');
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}">${gridAndAxis()}
+    <path d="${area}" fill="var(--brand-soft)"/>
+    <path d="${smooth(pts)}" fill="none" stroke="var(--brand)" stroke-width="2.4" stroke-linecap="round"/>
+    ${dots}</svg>`;
+}
+function legendFor(view){
+  const items = view==='stack'? SERIES : [SERIES[0]];
+  return items.map(s=>`<span class="it"><span class="sw" style="background:${s.color}"></span>${s.name}</span>`).join('');
+}
+function noteFor(view){
+  return view==='stack'
+    ? 'Lecture : en 2024, Booking représente <b>42 %</b> du CA cumulé des cinq acteurs suivis, contre 38 % en 2019 — soit des parts gagnées sur Expedia et les « autres ».'
+    : 'Trajectoire de Booking seule : <b>+4 pts</b> de part en 5 ans (38 % → 42 %), avec un creux en 2020 (COVID) puis reprise.';
+}
+function draw(view){
+  document.getElementById('chart').innerHTML = view==='stack'? renderStack() : renderLine();
+  document.getElementById('legend').innerHTML = legendFor(view);
+  document.getElementById('note').innerHTML = noteFor(view);
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); draw(b.dataset.view);
+}));
+draw('stack');
+</script>
+</body>
+</html>

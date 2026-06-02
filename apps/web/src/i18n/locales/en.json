@@ -688,6 +688,11 @@
     "yield": "Yield",
     "rate": "Dividend / share",
     "payout": "Payout ratio",
-    "exDate": "Next ex-date"
+    "exDate": "Next ex-date",
+    "perShareShort": "share",
+    "payoutShort": "payout {{pct}}%",
+    "evolution": "Dividend history",
+    "evolutionSub": "Dividend per share, by period",
+    "evolutionNote": "Years with no payment stay on the axis, without a bar."
   }
 }

@@ -38,6 +38,8 @@
   border-top: 1px solid var(--line-soft);
   padding-top: 9px;
 }
+/* Tag « Hors notation » des cartes dérivées (Ratio P/FCF, Dividende) — dans le pied, à gauche. */
+.pfcf-card-tag { font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--brand-ink); }
 .crit-hist-btn {
   display: inline-flex; align-items: center; gap: 6px;
   background: none; border: 1px solid var(--line); border-radius: 7px;

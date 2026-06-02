@@ -8,7 +8,7 @@ import { useAuth } from '../contexts/AuthContext.js';
 import { CriteriaGrid, QualGrid } from '../components/CriterionCard.js';
 import { ValuationBlock } from '../components/ui/ValuationBlock.js';
 import { PfcfRatioCard } from '../components/PfcfCards.js';
-import { DividendBlock } from '../components/DividendBlock.js';
+import { DividendCard } from '../components/DividendCard.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
 import { Icon, ScoreCircle, ScorePill, OpportunityBadge, toDataStatus } from '../components/ui/primitives.js';
 import { CompositionBar, PriceChart } from '../components/ui/charts.js';
@@ -257,7 +257,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
             ticker={analysis.ticker}
             currency={currency}
             annualOnly={annualOnly}
-            trailing={
+            trailing={<>
               <PfcfRatioCard
                 pfcfTTM={analysis.metrics.pfcfTTM}
                 pfcfPercentile={analysis.pfcfPercentile}
@@ -265,7 +265,8 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
                 ticker={analysis.ticker}
                 annualOnly={annualOnly}
               />
-            }
+              {analysis.dividend && <DividendCard dividend={analysis.dividend} currency={currency} />}
+            </>}
           />
         </Section>
 
@@ -306,13 +307,6 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
         {(analysis.earnings?.next || analysis.earnings?.last) && (
           <Section title={t('analyse.sections.resultats.title')} sub={t('analyse.sections.resultats.sub')}>
             <EarningsPanel ticker={analysis.ticker} earnings={analysis.earnings} currency={currency} />
-          </Section>
-        )}
-
-        {/* Dividendes */}
-        {analysis.dividend && (
-          <Section title={t('dividend.title')} sub={t('dividend.sub')}>
-            <DividendBlock dividend={analysis.dividend} currency={currency} />
           </Section>
         )}
 

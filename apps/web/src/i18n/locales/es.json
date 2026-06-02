@@ -688,6 +688,11 @@
     "yield": "Rendimiento",
     "rate": "Dividendo / acción",
     "payout": "Tasa de reparto",
-    "exDate": "Próxima ex-fecha"
+    "exDate": "Próxima ex-fecha",
+    "perShareShort": "acción",
+    "payoutShort": "reparto {{pct}} %",
+    "evolution": "Evolución del dividendo",
+    "evolutionSub": "Dividendo por acción, por período",
+    "evolutionNote": "Los años sin pago permanecen en el eje, sin barra."
   }
 }
