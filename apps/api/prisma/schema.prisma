@@ -10,8 +10,14 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  // url       = connexion POOLÉE (PgBouncer) → runtime de l'app (Vercel lambda).
+  url       = env("DATABASE_URL")
+  // directUrl = connexion DIRECTE (non poolée) → migrations uniquement.
+  // `prisma migrate deploy` pose un advisory lock niveau session : impossible via le pooler
+  // (chaque requête part sur un backend différent → lock perdu → timeout P1002). La connexion
+  // directe (même host SANS `-pooler`) règle ça. Cf. doc Neon « Connect from Prisma ».
+  directUrl = env("DIRECT_URL")
 }
 
 /// Utilisateur — auth email/password locale (pas de social pour le moment).
