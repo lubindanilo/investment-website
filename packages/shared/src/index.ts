@@ -39,6 +39,8 @@ export interface SectorBenchmark {
   sector: string;
   /** Médiane du P/FCF des pairs (P/FCF > 0). */
   medianPfcf: number;
+  /** Moyenne du P/FCF des pairs (P/FCF > 0). */
+  meanPfcf: number;
   /** Nombre de pairs valides ayant servi au calcul. */
   count: number;
   /** Percentile du P/FCF du titre vs ses pairs (0-100, bas = moins cher). Null si P/FCF du titre indispo. */

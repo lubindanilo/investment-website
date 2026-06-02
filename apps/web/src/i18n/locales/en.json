@@ -677,13 +677,9 @@
   },
   "pfcfCards": {
     "notScored": "Not scored",
-    "sectorTitle": "P/FCF vs sector",
-    "historyTitle": "P/FCF vs history",
-    "moreDetails": "+ details",
-    "noSector": "Not enough listed peers to compare.",
-    "historyPosition": "{{pct}}th percentile of its own history.",
-    "peersTitle": "Competitors’ P/FCF",
-    "peersSub": "{{count}} companies · median {{median}}×"
+    "title": "P/FCF ratio",
+    "historyPosition": "{{pct}}th percentile of its history",
+    "sectorMean": "sector average {{value}}×"
   },
   "dividend": {
     "title": "Dividends",

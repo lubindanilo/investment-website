@@ -7,7 +7,7 @@ import { useToast } from '../components/Toast.js';
 import { useAuth } from '../contexts/AuthContext.js';
 import { CriteriaGrid, QualGrid } from '../components/CriterionCard.js';
 import { ValuationBlock } from '../components/ui/ValuationBlock.js';
-import { PfcfCards } from '../components/PfcfCards.js';
+import { PfcfRatioCard } from '../components/PfcfCards.js';
 import { DividendBlock } from '../components/DividendBlock.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
 import { Icon, ScoreCircle, ScorePill, OpportunityBadge, toDataStatus } from '../components/ui/primitives.js';
@@ -250,16 +250,22 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
         {/* Cours */}
         <PriceSection ticker={analysis.ticker} currency={currency} />
 
-        {/* 10 critères + 2 cartes P/FCF « hors notation » (secteur + historique) */}
+        {/* 10 critères + carte « Ratio P/FCF » (hors notation, sur 2 colonnes, complète la rangée) */}
         <Section title={t('analyse.sections.chiffres.title')} sub={t('analyse.sections.chiffres.sub')}>
-          <CriteriaGrid items={chiffres} ticker={analysis.ticker} currency={currency} annualOnly={annualOnly} />
-          <PfcfCards
-            pfcfTTM={analysis.metrics.pfcfTTM}
-            pfcfPercentile={analysis.pfcfPercentile}
-            sectorBenchmark={analysis.sectorBenchmark ?? null}
+          <CriteriaGrid
+            items={chiffres}
             ticker={analysis.ticker}
             currency={currency}
             annualOnly={annualOnly}
+            trailing={
+              <PfcfRatioCard
+                pfcfTTM={analysis.metrics.pfcfTTM}
+                pfcfPercentile={analysis.pfcfPercentile}
+                sectorBenchmark={analysis.sectorBenchmark ?? null}
+                ticker={analysis.ticker}
+                annualOnly={annualOnly}
+              />
+            }
           />
         </Section>
 

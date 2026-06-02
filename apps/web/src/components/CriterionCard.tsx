@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { Criterion, MarketShare } from '@lubin/shared';
 import { CRITERION_HISTOGRAMS, CRITERION_LINECHARTS } from '@lubin/shared';
@@ -77,14 +77,17 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
   );
 }
 
-export function CriteriaGrid({ items, ticker, currency, annualOnly }: {
+export function CriteriaGrid({ items, ticker, currency, annualOnly, trailing }: {
   items: Criterion[]; ticker?: string; currency?: string; annualOnly?: boolean;
+  /** Élément rendu DANS la grille après les critères (ex. carte « Ratio P/FCF » sur 2 colonnes). */
+  trailing?: ReactNode;
 }) {
   return (
     <div className="criteria-grid">
       {items.map((c, i) => (
         <CriterionCard key={i} c={c} ticker={ticker} currency={currency} annualOnly={annualOnly} />
       ))}
+      {trailing}
     </div>
   );
 }
