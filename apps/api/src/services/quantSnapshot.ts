@@ -166,6 +166,8 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   let companyFromSource: string | null = null;
   let rawFhFcfAdj: AdjustedFcfResult | null = null;
   let rawFhCapEmp: CapitalEmployedSnapshot | null = null;
+  // Variation du jour côté Yahoo (Finnhub /quote est US-only → null pour l'EU/Asie).
+  let yahooDayChangePct: number | null = null;
 
   if (finnhubUsable) {
     fundamentalsSource = 'finnhub';
@@ -207,6 +209,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
         yahooSymbol = resolved.symbol;
         currency = resolved.currency;
         companyFromSource = resolved.longName ?? null;
+        yahooDayChangePct = resolved.dayChangePct ?? null;
         const yfund = await timed('yahoo fundamentals (ADR)', getYahooFundamentals(resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null)).catch(() => null);
         if (yfund) {
           fundamentalsSource = 'yahoo';
@@ -248,6 +251,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
       yahooSymbol = resolved.symbol;
       currency = resolved.currency;
       companyFromSource = resolved.longName ?? null;
+      yahooDayChangePct = resolved.dayChangePct ?? null;
       const yfund = await timed('yahoo fundamentals', getYahooFundamentals(resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null)).catch(() => null);
       if (yfund) {
         fundamentalsSource = 'yahoo';
@@ -284,7 +288,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
     metrics, company, fundamentalsAvailable, fundamentalsSource, currency, yahooSymbol,
     rawNews, earnings: earningsInfo, finnhubCompletelyEmpty,
     industry: fhProfile?.finnhubIndustry ?? null,
-    dayChangePct: quote?.dp ?? null,
+    dayChangePct: quote?.dp ?? yahooDayChangePct ?? null,
     rawFhFcfAdj, rawFhCapEmp,
   };
 }

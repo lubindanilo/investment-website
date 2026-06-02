@@ -53,6 +53,8 @@ interface ResolveResult {
   longName?: string;
   /** Code d'exchange Yahoo (NMS, SWX, PAR, AMS…) — utile pour debug */
   exchangeCode?: string;
+  /** Variation du jour en % (Finnhub /quote est US-only → on la dérive de Yahoo pour l'EU/Asie). */
+  dayChangePct?: number | null;
 }
 
 const RESOLVE_CACHE_TTL_MS = 24 * 60 * 60 * 1000;
@@ -66,11 +68,14 @@ interface YahooChartResponse {
         symbol?: string;
         currency?: string;
         regularMarketPrice?: number;
+        chartPreviousClose?: number;
+        previousClose?: number;
         longName?: string;
         shortName?: string;
         exchangeName?: string;
         instrumentType?: string;
       };
+      indicators?: { quote?: Array<{ close?: (number | null)[] }> };
     }>;
     error?: { description?: string; code?: string } | null;
   };
@@ -90,17 +95,29 @@ async function probeOne(symbol: string): Promise<ResolveResult | null> {
     }
     const data = (await res.json()) as YahooChartResponse;
     if (data.chart?.error) return null;
-    const meta = data.chart?.result?.[0]?.meta;
+    const result = data.chart?.result?.[0];
+    const meta = result?.meta;
     if (!meta || !meta.regularMarketPrice || meta.regularMarketPrice <= 0) return null;
     // Filtre : on veut des actions, pas des indices ou crypto ou futures.
     // instrumentType = 'EQUITY' (Yahoo's tag pour les stocks)
     if (meta.instrumentType && meta.instrumentType !== 'EQUITY') return null;
+
+    // Variation du jour : prix courant vs dernière clôture précédente. On prend la clôture
+    // de la veille depuis la série daily (avant-dernier close valide), sinon le previousClose
+    // du meta. Évite de dépendre de Finnhub /quote (US-only).
+    const closes = (result?.indicators?.quote?.[0]?.close ?? []).filter((v): v is number => typeof v === 'number' && v > 0);
+    const prevClose = closes.length >= 2 ? closes[closes.length - 2]! : (meta.previousClose ?? meta.chartPreviousClose ?? null);
+    const dayChangePct = prevClose != null && prevClose > 0
+      ? ((meta.regularMarketPrice - prevClose) / prevClose) * 100
+      : null;
+
     return {
       symbol: meta.symbol ?? symbol,
       currency: meta.currency ?? 'USD',
       price: meta.regularMarketPrice,
       longName: meta.longName ?? meta.shortName ?? undefined,
       exchangeCode: meta.exchangeName,
+      dayChangePct,
     };
   } catch {
     return null;

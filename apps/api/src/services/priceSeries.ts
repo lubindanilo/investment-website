@@ -19,8 +19,10 @@ export async function getSparkSeries(ticker: string, months = 13): Promise<numbe
       const url = `${CHART_BASE}/${encodeURIComponent(sym)}?interval=1mo&period1=${period1}&period2=${period2}`;
       const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
       if (!res.ok) return [];
-      const data = await res.json() as { chart?: { result?: Array<{ indicators?: { quote?: Array<{ close?: (number | null)[] }> } }> } };
-      const closes = data.chart?.result?.[0]?.indicators?.quote?.[0]?.close;
+      const data = await res.json() as { chart?: { result?: Array<{ indicators?: { quote?: Array<{ close?: (number | null)[] }>; adjclose?: Array<{ adjclose?: (number | null)[] }> } }> } };
+      const result = data.chart?.result?.[0];
+      // close en priorité, sinon adjclose (certains symboles n'exposent que l'ajusté).
+      const closes = result?.indicators?.quote?.[0]?.close ?? result?.indicators?.adjclose?.[0]?.adjclose;
       if (!Array.isArray(closes)) return [];
       return closes.filter((v): v is number => typeof v === 'number' && v > 0).slice(-months);
     } catch {
