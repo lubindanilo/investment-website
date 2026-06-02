@@ -90,6 +90,18 @@
 .seg button[data-active="true"] { background: var(--brand); color: #fff; box-shadow: var(--sh-xs), 0 0 0 2px color-mix(in oklch, var(--brand) 30%, transparent); }
 .seg button[data-active="true"]:hover { color: #fff; }
 
+/* ─── Boutons de période/vue des modales graphes (P/FCF, histogrammes, cash ROCE, part de
+   marché). Définis ICI (global) et plus dans TradingViewChart.css qui n'est pas bundlé. ─── */
+.period-btn {
+  padding: 5px 11px; border-radius: 8px; cursor: pointer; transition: all .14s;
+  font-family: var(--mono, 'JetBrains Mono', monospace); font-size: 12px; font-weight: 600;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-3);
+}
+.period-btn:hover { color: var(--ink); border-color: var(--ink-4); }
+/* Vue sélectionnée : fond indigo plein + texte blanc + halo bleu → sans ambiguïté. */
+.period-btn.active { background: var(--brand); border-color: var(--brand); color: #fff; font-weight: 700; box-shadow: 0 0 0 2px color-mix(in oklch, var(--brand) 30%, transparent); }
+.period-btn.active:hover { color: #fff; border-color: var(--brand); }
+
 /* Cellule "Société" des tables : ticker (lane fixe) + nom tronqué */
 .tbl-soc { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .tbl-soc-ticker {
