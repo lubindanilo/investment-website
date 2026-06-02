@@ -35,6 +35,14 @@ const RATIO_UNIT: Record<RatioMetricKey, 'percent' | 'multiple'> = {
   netDebtFcf: 'multiple',
 };
 
+/**
+ * Clés des métriques-ratio — source de vérité runtime CÔTÉ API.
+ * Dérivé de RATIO_UNIT (pas d'import de VALEUR depuis @lubin/shared : son package résout
+ * vers src/index.ts, non chargeable par Node en prod → crash lambda). Le type RatioMetricKey,
+ * lui, reste défini dans shared et n'est importé qu'en `import type` (effacé au build).
+ */
+export const RATIO_METRIC_KEYS = Object.keys(RATIO_UNIT) as RatioMetricKey[];
+
 /** Facteur d'échelle : 100 pour exprimer une marge en points de %, 1 pour un multiple ×. */
 function scaleFor(ratio: RatioMetricKey): number {
   return RATIO_UNIT[ratio] === 'percent' ? 100 : 1;

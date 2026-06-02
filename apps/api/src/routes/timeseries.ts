@@ -22,8 +22,11 @@ import { getReportedTimeseries, METRICS, type MetricKey } from '../services/finn
 import { getYahooMetricTimeseries } from '../services/yahoo.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { getNextEarningsDate, ttlUntilNextEarnings } from '../services/earnings.js';
-import { getRatioTimeseries } from '../services/derivedTimeseries.js';
-import { RATIO_METRIC_KEYS, type RatioMetricKey } from '@lubin/shared';
+import { getRatioTimeseries, RATIO_METRIC_KEYS } from '../services/derivedTimeseries.js';
+// ⚠ RatioMetricKey en import TYPE uniquement : @lubin/shared résout vers src/index.ts (pas de
+// build dist/), que Node ne sait pas charger en prod. Importer une VALEUR depuis shared crashe
+// donc la lambda (ERR_MODULE_NOT_FOUND). Les types sont effacés au build → sans danger.
+import type { RatioMetricKey } from '@lubin/shared';
 import * as cache from '../lib/timeseriesCache.js';
 
 export const timeseriesRouter: Router = Router();
