@@ -112,6 +112,13 @@ export function computeDerivedMetrics(input: {
     shareCagr = (1 + revenueGrowth5Y) / (1 + revenueShareGrowth5Y) - 1;
     shareCagrSource = 'finnhub-derived';
   }
+  // Garde-fou agnostique de la source : >100 %/an d'évolution du nombre d'actions sur 5 ans
+  // n'arrive jamais pour une société établie — c'est une base quasi nulle (IPO récente,
+  // pré-IPO → post-IPO) ou une donnée dégénérée. On affiche « Non calculable » plutôt qu'une aberration.
+  if (shareCagr != null && (!Number.isFinite(shareCagr) || Math.abs(shareCagr) > 1)) {
+    shareCagr = null;
+    shareCagrSource = null;
+  }
 
   // P/FCF actuel + Marge FCF — préfère le FCF ajusté SBC si dispo, sinon retombe sur
   // les valeurs Finnhub précomputed (FCF brut, non ajusté).
@@ -256,7 +263,11 @@ export function computeDerivedMetrics(input: {
   // en français clair uniquement.
   const reasons: Record<string, string> = {};
   if (fcfPerShareCagr == null) {
-    reasons.fcfPerShareCagr = 'Historique insuffisant pour estimer la croissance sur 5 ans';
+    // Distingue la cause : FCF (souvent) négatif → message dédié ; sinon historique insuffisant.
+    const upstream = input.yahooFcfPerShareCagrReason ?? '';
+    reasons.fcfPerShareCagr = /négati|positif/i.test(upstream)
+      ? 'Free cash flow négatif'
+      : 'Historique insuffisant pour estimer la croissance sur 5 ans';
   }
   if (revenueCagr == null) reasons.revenueCagr = 'Historique insuffisant pour estimer la croissance du chiffre d\'affaires';
   if (shareCagr == null) reasons.shareCagr = 'Historique insuffisant pour estimer l\'évolution du nombre d\'actions';

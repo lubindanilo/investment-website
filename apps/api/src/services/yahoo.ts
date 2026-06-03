@@ -200,7 +200,19 @@ export function computeSharesCagr(history: SharesHistoryPoint[] | null): number 
   const newest = history[history.length - 1]!;
   const years = newest.fiscalYear - oldest.fiscalYear;
   if (years < 1 || oldest.dilutedShares <= 0) return null;
-  return Math.pow(newest.dilutedShares / oldest.dilutedShares, 1 / years) - 1;
+  const cagr = Math.pow(newest.dilutedShares / oldest.dilutedShares, 1 / years) - 1;
+  // Garde-fou : >±100 %/an = rupture structurelle (IPO récente, émission/reverse split, base ≈ 0),
+  // pas une évolution organique du flottant → non comparable (ex EMPD 0,002M→18M = +10 392 %/an).
+  if (!Number.isFinite(cagr) || Math.abs(cagr) > 1) return null;
+  return cagr;
+}
+
+/** Plafond de plausibilité du CAGR FCF/action issu du fallback Yahoo endpoint (base ≈ 0 → explosion). */
+function guardFcfPsCagr(v: number): FcfPerShareCagrResult {
+  if (!Number.isFinite(v) || Math.abs(v) > 5) {
+    return { value: null, reason: 'Croissance FCF/action hors plage réaliste (base quasi nulle / donnée dégénérée)' };
+  }
+  return { value: v };
 }
 
 export interface FcfPerShareCagrResult {
@@ -276,14 +288,14 @@ export function computeFcfPerShareCagr(history: SharesHistoryPoint[] | null): Fc
       num += (xs[i]! - meanX) * (ys[i]! - meanY);
       den += (xs[i]! - meanX) ** 2;
     }
-    if (den > 0) return { value: Math.exp(num / den) - 1 };
+    if (den > 0) return guardFcfPsCagr(Math.exp(num / den) - 1);
   }
 
   // Fallback 2 points : CAGR endpoint classique
   if (oldest.ratio <= 0 || newest.ratio <= 0) {
     return { value: null, reason: 'FCF/action négatif sur une borne' };
   }
-  return { value: Math.pow(newest.ratio / oldest.ratio, 1 / span) - 1 };
+  return guardFcfPsCagr(Math.pow(newest.ratio / oldest.ratio, 1 / span) - 1);
 }
 
 // ═══════════════════════════════════════════════════════════════
