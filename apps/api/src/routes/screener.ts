@@ -13,7 +13,7 @@
 import { Router, type Request, type Response, type NextFunction } from 'express';
 import type { TickerSuggestion } from '@lubin/shared';
 import { asyncHandler, ApiError } from '../middleware/error.js';
-import { seedRegion, tick, getTop, getStats, getSectors } from '../services/screener.js';
+import { seedRegion, tick, getTop, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
 import { prisma } from '../db/client.js';
 
 export const screenerRouter: Router = Router();
@@ -50,12 +50,19 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
   const sectors = typeof req.query.sector === 'string' && req.query.sector.trim()
     ? req.query.sector.split(',').map(s => s.trim()).filter(Boolean)
     : undefined;
+  const onlyOpportunities = req.query.opportunities === 'true';
+  // Vue « opportunités » : on ré-évalue le flag AU PRIX DU JOUR avant de filtrer (auto-throttlé
+  // ~10 min). La pépite dépend du cours → on ne veut pas servir un flag figé au dernier earnings.
+  // Best-effort : si Yahoo flanche, on sert les flags en cache.
+  if (onlyOpportunities) {
+    await refreshOpportunitiesLive().catch(() => {});
+  }
   const rows = await getTop({
     minRatio: num(req.query.minRatio),
     maxPfcf: num(req.query.maxPfcf),
     minMax: num(req.query.minMax),
     limit: num(req.query.limit),
-    onlyOpportunities: req.query.opportunities === 'true',
+    onlyOpportunities,
     sectors,
   });
   res.json(rows);

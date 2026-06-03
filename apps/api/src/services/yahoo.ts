@@ -19,6 +19,7 @@ import { fetchSplitEvents, cumulativeSplitFactor } from './yahooSplits.js';
 
 const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
 const CHART_BASE = 'https://query1.finance.yahoo.com/v8/finance/chart';
+const QUOTE_V7_BASE = 'https://query1.finance.yahoo.com/v7/finance/quote';
 const CRUMB_URL = 'https://query1.finance.yahoo.com/v1/test/getcrumb';
 const SESSION_URL = 'https://fc.yahoo.com';
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Lubin-Investment/0.1';
@@ -101,6 +102,45 @@ async function fetchTimeseries(ticker: string, types: string[]): Promise<Timeser
   }
   if (!res.ok) throw new Error(`Yahoo timeseries HTTP ${res.status}`);
   return res.json() as Promise<TimeseriesResponse>;
+}
+
+/**
+ * Quotes BATCH (prix courant) pour N symboles en peu de requêtes (~40/req via v7/finance/quote).
+ * Utilisé pour ré-évaluer l'opportunité en LIVE sur tout l'univers candidat sans exploser le
+ * rate-limit (627 prix ≈ 16 requêtes ≈ qq secondes). Renvoie Map<symbol_majuscule, prix>.
+ * Best-effort : un chunk en échec est ignoré (les symboles manquants → absents de la Map).
+ */
+export async function getYahooBatchQuotes(symbols: string[]): Promise<Map<string, number>> {
+  const out = new Map<string, number>();
+  const uniq = [...new Set(symbols.map(s => s.trim()).filter(Boolean))];
+  const CHUNK = 40;
+  const chunks: string[][] = [];
+  for (let i = 0; i < uniq.length; i += CHUNK) chunks.push(uniq.slice(i, i + CHUNK));
+
+  await Promise.all(chunks.map(chunk => yahooLimiter.schedule(async () => {
+    const tryOnce = async (session: YahooSession): Promise<Response> => {
+      const url = `${QUOTE_V7_BASE}?symbols=${encodeURIComponent(chunk.join(','))}`
+        + `&crumb=${encodeURIComponent(session.crumb)}`;
+      const headers: Record<string, string> = { 'User-Agent': UA, Accept: 'application/json' };
+      if (session.cookies) headers.Cookie = session.cookies;
+      return fetch(url, { headers });
+    };
+    try {
+      let session = await getSession();
+      let res = await tryOnce(session);
+      if (res.status === 401 || res.status === 403) { invalidateSession(); session = await getSession(); res = await tryOnce(session); }
+      if (!res.ok) { console.warn(`[yahoo batch quote] HTTP ${res.status} (${chunk.length} symboles)`); return; }
+      const data = await res.json() as { quoteResponse?: { result?: Array<{ symbol?: string; regularMarketPrice?: number }> } };
+      for (const r of data.quoteResponse?.result ?? []) {
+        if (r.symbol && typeof r.regularMarketPrice === 'number' && r.regularMarketPrice > 0) {
+          out.set(r.symbol.toUpperCase(), r.regularMarketPrice);
+        }
+      }
+    } catch (e) {
+      console.warn('[yahoo batch quote] échec chunk —', (e as Error).message);
+    }
+  })));
+  return out;
 }
 
 /** Pour la dérivation CAGR annuelle (ne garde que l'année + valeurs strictement > 0). */

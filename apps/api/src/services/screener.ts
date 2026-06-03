@@ -17,7 +17,8 @@ import { getStockSymbols } from './finnhub.js';
 import { buildAndCacheQuantSnapshot } from './scoreSnapshot.js';
 import { getSparkSeries } from './priceSeries.js';
 import { warmChartCacheForTicker } from './chartWarm.js';
-import { getPfcfHistory, pfcfPercentile, isOpportunity, PFCF_OPP_MIN_SCORE10, PFCF_OPP_MAX } from './pfcfHistory.js';
+import { getPfcfHistory, pfcfPercentile, pfcfDecileThreshold, isOpportunity, PFCF_OPP_MIN_SCORE10, PFCF_OPP_MAX } from './pfcfHistory.js';
+import { getYahooBatchQuotes } from './yahoo.js';
 import { ttlUntilNextEarnings } from './earnings.js';
 import * as chartCache from '../lib/timeseriesCache.js';
 import { EU_LARGE_CAPS } from '../data/euLargeCaps.js';
@@ -170,6 +171,8 @@ type ScoreOutcome = 'scored' | 'nodata' | 'error';
 
 /** Profondeur « All » du graphe P/FCF (cf. PERIOD_YEARS.All) — base du percentile d'opportunité. */
 const OPP_YEARS = 50;
+/** Borne P/FCF au-delà de laquelle on ne calcule même pas le seuil décile (jamais une pépite). */
+const OPP_DECILE_BAND = 35;
 
 /**
  * « Opportunité du moment » au moment du scoring. Ne calcule l'historique P/FCF (coûteux) QUE
@@ -182,19 +185,93 @@ async function computeOpportunityAtScore(
   score10: number,
   pfcfTTM: number | null,
   nextEarningsDate: string | null,
-): Promise<{ opportunity: boolean; pfcfPercentile: number | null }> {
-  if (score10 < PFCF_OPP_MIN_SCORE10 || pfcfTTM == null || pfcfTTM <= 0 || pfcfTTM >= PFCF_OPP_MAX) {
-    return { opportunity: false, pfcfPercentile: null };
+): Promise<{ opportunity: boolean; pfcfPercentile: number | null; pfcfDecile10: number | null }> {
+  // On calcule le seuil décile pour tout candidat note ≥ 8 dont le P/FCF est APPROCHABLE (< 35),
+  // même s'il dépasse 25 aujourd'hui : ça permet de le flagger EN LIVE si son cours baisse plus tard
+  // (le seuil ne bouge qu'aux earnings). Au-delà de 35, un titre ne deviendra jamais une pépite.
+  if (score10 < PFCF_OPP_MIN_SCORE10 || pfcfTTM == null || pfcfTTM <= 0 || pfcfTTM >= OPP_DECILE_BAND) {
+    return { opportunity: false, pfcfPercentile: null, pfcfDecile10: null };
   }
   const pts = await getPfcfHistory(ticker, OPP_YEARS).catch(() => [] as { date: string; pfcf: number }[]);
-  if (!pts.length) return { opportunity: false, pfcfPercentile: null };
+  if (!pts.length) return { opportunity: false, pfcfPercentile: null, pfcfDecile10: null };
   const ttl = ttlUntilNextEarnings(nextEarningsDate);
   await chartCache.set(chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj', OPP_YEARS), pts.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
   // On classe le P/FCF COURANT (cohérent, fourni par le caller) contre la distribution historique —
   // et non le dernier point de l'historique (close mensuel), pour que le gate < 25 et le percentile
   // utilisent la même valeur que ce qu'on affiche au prix du moment.
   const pct = pfcfPercentile(pts, pfcfTTM);
-  return { opportunity: isOpportunity(pct, pfcfTTM, score10), pfcfPercentile: pct };
+  // Seuil décile figé → permet la ré-évaluation LIVE (pfcf_live ≤ seuil) avec juste le prix du jour.
+  const pfcfDecile10 = pfcfDecileThreshold(pts);
+  return { opportunity: isOpportunity(pct, pfcfTTM, score10), pfcfPercentile: pct, pfcfDecile10 };
+}
+
+/** Fraîcheur du flag opportunity en LIVE : au-delà, on recalcule au prix du jour. */
+const OPP_LIVE_TTL_MS = 10 * 60_000;
+
+/**
+ * Ré-évalue le flag « opportunité » EN LIVE (prix du jour) pour les candidats (note ≥ 8) dont
+ * le seuil décile est connu et qui n'ont pas été rafraîchis depuis OPP_LIVE_TTL_MS.
+ *
+ * La pépite dépend du P/FCF courant, donc du cours, qui bouge chaque jour — la cadence earnings
+ * ne suffit pas. On ne re-fetche PAS les fondamentaux : shares, adjFcfTtm (snapshot) et le seuil
+ * décile (figé au scoring) sont en cache ; seul le PRIX est récupéré en live, en batch Yahoo
+ * (~40 symboles/requête → tout l'univers candidat en quelques requêtes). Auto-throttlé via
+ * oppRefreshedAt : la 1ʳᵉ requête après 10 min paie le batch (~qq s), les suivantes sont instantanées.
+ *
+ *   opportunité = note ≥ 8  ET  0 < pfcf_live < 25  ET  pfcf_live ≤ pfcfDecile10
+ */
+export async function refreshOpportunitiesLive(): Promise<{ refreshed: number; flipped: number }> {
+  const cutoff = new Date(Date.now() - OPP_LIVE_TTL_MS);
+  const cands = await prisma.screenerTicker.findMany({
+    where: {
+      status: 'scored',
+      scoreRatio: { gte: 0.75 },           // score10 ≥ 8 ⟺ ratio ≥ 0.75
+      pfcfDecile10: { not: null },
+      OR: [{ oppRefreshedAt: null }, { oppRefreshedAt: { lt: cutoff } }],
+    },
+    select: { ticker: true, pfcfDecile10: true, opportunity: true },
+  });
+  if (cands.length === 0) return { refreshed: 0, flipped: 0 };
+
+  const tickers = cands.map(c => c.ticker);
+  // shares + adjFcfTtm depuis le snapshot (ne bougent qu'aux earnings).
+  const snaps = await prisma.tickerQuantSnapshot.findMany({
+    where: { ticker: { in: tickers } },
+    select: { ticker: true, snapshot: true },
+  });
+  const fund = new Map<string, { shares: number | null; adjFcf: number | null }>();
+  for (const s of snaps) {
+    const snap = s.snapshot as { sharesOutstanding?: number | null; adjFcfTtm?: number | null } | null;
+    fund.set(s.ticker, { shares: snap?.sharesOutstanding ?? null, adjFcf: snap?.adjFcfTtm ?? null });
+  }
+  // Prix du jour en batch (le ticker app = symbole Yahoo : US direct, non-US déjà suffixé .PA/.SW…).
+  const prices = await getYahooBatchQuotes(tickers);
+
+  const now = new Date();
+  const priced: string[] = [];
+  const updates: Promise<unknown>[] = [];
+  let flipped = 0;
+  for (const c of cands) {
+    const f = fund.get(c.ticker);
+    const price = prices.get(c.ticker.toUpperCase()) ?? null;
+    if (price == null || price <= 0 || !f || f.shares == null || f.shares <= 0 || f.adjFcf == null || f.adjFcf === 0) {
+      continue; // prix ou fondamentaux indispo → on ne touche rien (re-tenté au prochain passage)
+    }
+    const livePfcf = (price * f.shares) / f.adjFcf;
+    const opportunity = livePfcf > 0 && livePfcf < PFCF_OPP_MAX && c.pfcfDecile10 != null && livePfcf <= c.pfcfDecile10;
+    priced.push(c.ticker);
+    if (opportunity !== c.opportunity) {
+      flipped++;
+      updates.push(prisma.screenerTicker.update({ where: { ticker: c.ticker }, data: { opportunity, oppRefreshedAt: now } }));
+    }
+  }
+  await Promise.allSettled(updates);
+  // Marque comme rafraîchis (10 min) tous les titres effectivement évalués (prix obtenu).
+  if (priced.length) {
+    await prisma.screenerTicker.updateMany({ where: { ticker: { in: priced } }, data: { oppRefreshedAt: now } }).catch(() => {});
+  }
+  console.log(`[screener opp-live] ${priced.length}/${cands.length} ré-évalués au prix du jour, ${flipped} basculés`);
+  return { refreshed: priced.length, flipped };
 }
 
 /** Note un ticker (quanti only) et met à jour sa ligne ScreenerTicker. */
@@ -215,7 +292,7 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
       : snap.metrics.pfcfTTM ?? null;
     const opp = hasScore
       ? await computeOpportunityAtScore(ticker, score10, pfcfConsistent, snap.nextEarningsDate ?? null)
-      : { opportunity: false, pfcfPercentile: null };
+      : { opportunity: false, pfcfPercentile: null, pfcfDecile10: null };
     await prisma.screenerTicker.update({
       where: { ticker },
       data: {
@@ -233,6 +310,9 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
         spark: spark.length >= 2 ? spark : undefined,
         opportunity: opp.opportunity,
         pfcfPercentile: opp.pfcfPercentile,
+        pfcfDecile10: opp.pfcfDecile10,
+        // Le scoring vient de (ré)évaluer l'opportunité au prix du moment → marque la fraîcheur live.
+        oppRefreshedAt: new Date(),
         nextEarningsDate: snap.nextEarningsDate ?? null,
         lastScoredAt: new Date(),
         attempts: { increment: 1 },

@@ -59,6 +59,25 @@ export function pfcfPercentile(points: PfcfHistoryPoint[], current: number | nul
   return (below / vals.length) * 100;
 }
 
+/**
+ * Seuil P/FCF du décile bas : la plus grande valeur `v` de la distribution telle que
+ * pfcfPercentile(v) ≤ PFCF_OPP_PERCENTILE. Permet la ré-évaluation LIVE de l'opportunité
+ * (pfcf_live ≤ seuil ⟺ percentile ≤ 10) avec le seul prix du jour, sans recharger l'historique.
+ * Null si historique insuffisant. Légèrement conservateur sur la frontière (jamais de faux positif).
+ */
+export function pfcfDecileThreshold(points: PfcfHistoryPoint[]): number | null {
+  const vals = points.map(p => p.pfcf).filter(v => Number.isFinite(v) && v > 0).sort((a, b) => a - b);
+  const n = vals.length;
+  if (n < PFCF_PERCENTILE_MIN_POINTS) return null;
+  let threshold: number | null = null;
+  for (let i = 0; i < n; i++) {
+    // vals[i] a (i+1) valeurs ≤ lui → percentile = (i+1)/n*100. On garde la dernière ≤ seuil.
+    if (((i + 1) / n) * 100 <= PFCF_OPP_PERCENTILE) threshold = vals[i]!;
+    else break;
+  }
+  return threshold;
+}
+
 /** Vrai si le P/FCF est dans son décile bas historique ET sous le plafond (test P/FCF pur). */
 export function isPfcfOpportunity(percentile: number | null, pfcf: number | null): boolean {
   return percentile != null && pfcf != null && pfcf > 0 && percentile <= PFCF_OPP_PERCENTILE && pfcf < PFCF_OPP_MAX;

@@ -175,6 +175,12 @@ model ScreenerTicker {
   opportunity        Boolean   @default(false)
   /// Percentile actuel du P/FCF vs son historique (0-100). Null si indisponible.
   pfcfPercentile     Float?
+  /// Seuil P/FCF du décile bas historique (valeur au 10e percentile), figé au scoring.
+  /// Permet de RÉ-ÉVALUER l'opportunité EN LIVE (pfcf_live ≤ pfcfDecile10) avec juste le prix
+  /// du jour, sans recharger toute la distribution. La distribution ne bouge qu'aux earnings.
+  pfcfDecile10       Float?
+  /// Dernière ré-évaluation LIVE du flag opportunity (au prix du jour). Pilote le throttle (~10 min).
+  oppRefreshedAt     DateTime?
   updatedAt          DateTime  @updatedAt
 
   @@index([status, priority, lastScoredAt])
