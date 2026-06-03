@@ -107,6 +107,32 @@ model ChartCache {
   @@index([expiresAt])
 }
 
+/// Store PERSISTANT et CANONIQUE des séries trimestrielles brutes de fondamentaux
+/// (revenue, cfo, capex, sbc, shares, netIncome, operatingIncome, totalDebt, cash…).
+/// = sortie de getReportedTimeseries AVANT ajustement splits : dé-cumulée (YTD→trimestre)
+/// + trous comblés via SEC EDGAR. APPEND-ONLY : on n'ajoute que les trimestres absents
+/// (nouveaux résultats OU trous anciens nouvellement comblés), jamais d'écrasement d'une
+/// valeur existante → stabilité point-in-time + zéro re-fetch entre deux earnings.
+/// L'ajustement splits (shares uniquement) est appliqué À LA LECTURE pour qu'un futur split
+/// ré-aligne tout l'historique sans figer une base obsolète.
+/// `expiresAt` = lastEnd + ~120j (plancher re-check 14j) → re-fetch quand un nouveau trimestre
+/// est déposé. Clé = (ticker, metric). Bypass total en replay backtest (non point-in-time).
+model FundamentalsSeries {
+  ticker    String
+  metric    String
+  /// TimeseriesPoint[] {date, value} complet, trié ASC, dé-cumulé + EDGAR mergé, PRÉ-split.
+  points    Json
+  /// 'finnhub' | 'finnhub+edgar' | 'finnhub-empty'
+  source    String
+  /// Fin du dernier trimestre stocké (YYYY-MM-DD). Null si série vide.
+  lastEnd   String?
+  expiresAt DateTime
+  builtAt   DateTime @default(now())
+
+  @@id([ticker, metric])
+  @@index([expiresAt])
+}
+
 /// Veille quantitative automatique ("screener"). Une ligne par ticker de l'univers.
 /// La note /10 (quanti uniquement, jamais de GPT) est recalculée quand `nextEarningsDate`
 /// est atteinte — le quantitatif ne bouge qu'aux résultats. Tant que la date est future,

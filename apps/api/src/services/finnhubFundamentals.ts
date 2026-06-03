@@ -13,6 +13,7 @@ import { fetchWithRetry } from '../lib/retry.js';
 import type { TimeseriesPoint } from '@lubin/shared';
 import { fetchSplitEvents, splitAdjustWithDiscontinuity, type SplitEvent } from './yahooSplits.js';
 import { getEdgarQuarterlySeries } from './secEdgar.js';
+import { readSeries, isFresh, appendMergePersist } from './fundamentalsStore.js';
 
 const BASE = 'https://finnhub.io/api/v1';
 const TOKEN = process.env.FINNHUB_API_KEY ?? '';
@@ -529,6 +530,22 @@ export async function getReportedTimeseries(
   if (!cfg) return [];
   const cap = Math.max(1, Math.min(years, 50));
 
+  // ─── Store persistant (quarterly, hors replay) ──────────────────────────────
+  // Série fraîche en DB → ZÉRO appel réseau (Finnhub + EDGAR) entre deux earnings. On
+  // tranche à `cap` et on ajuste les splits À LA LECTURE (le store garde la série brute
+  // pré-split, donc un futur split ré-aligne tout l'historique sans figer une base obsolète).
+  const STORE_YEARS = Math.max(15, cap);
+  const useStore = freq === 'quarterly' && !REPLAY;
+  let storedSeries: Awaited<ReturnType<typeof readSeries>> = null;
+  if (useStore) {
+    storedSeries = await readSeries(ticker, metric);
+    if (isFresh(storedSeries, Date.now())) {
+      return splitAdjustIfNeeded(filterWindow(storedSeries!.points, cap), ticker, metric);
+    }
+  }
+  // Fenêtre de CONSTRUCTION : pleine (STORE_YEARS) quand on alimente le store, sinon `cap`.
+  const buildYears = useStore ? STORE_YEARS : cap;
+
   // Pour quarterly + cumulative : fetch en parallèle les deux fréquences pour dériver Q4
   const needAnnualForQ4 = freq === 'quarterly' && cfg.cumulative;
   const [quarterlyFilings, annualFilings] = await Promise.all([
@@ -627,7 +644,8 @@ export async function getReportedTimeseries(
   // Finnhub a des trimestres manquants (Q4 non dérivable, tags…). Si la série fenêtrée a des
   // trous, on récupère chez EDGAR (autoritatif) UNIQUEMENT les trimestres absents et on fusionne
   // — sans toucher aux points Finnhub existants ni à aucune formule en aval.
-  let windowed = filterWindow(points, cap);
+  let windowed = filterWindow(points, buildYears);
+  let usedEdgar = false;
   if (freq === 'quarterly' && !ticker.includes('.') && hasQuarterlyGap(windowed)) {
     const edgar = await getEdgarQuarterlySeries(ticker, metric).catch(() => [] as TimeseriesPoint[]);
     if (edgar.length > 0) {
@@ -635,14 +653,25 @@ export async function getReportedTimeseries(
       // différer de quelques jours pour le même trimestre → un match exact créerait des doublons.
       const haveTs = windowed.map(p => Date.parse(p.date));
       const near = (t: number) => haveTs.some(h => Math.abs(h - t) < 20 * 86400000);
-      const filled = filterWindow(edgar, cap).filter(e => !near(Date.parse(e.date)));
+      const filled = filterWindow(edgar, buildYears).filter(e => !near(Date.parse(e.date)));
       if (filled.length > 0) {
         windowed = [...windowed, ...filled].sort((a, b) => a.date.localeCompare(b.date));
+        usedEdgar = true;
         console.log(`[edgar ${ticker}/${metric}] +${filled.length} trimestre(s) comblé(s) (trous Finnhub)`);
       }
     }
   }
-  return splitAdjustIfNeeded(windowed, ticker, metric);
+
+  // ─── Persistance store (append-only) ────────────────────────────────────────
+  // `windowed` = série reconstruite (pré-split, fenêtre pleine). On la fusionne append-only
+  // dans le store (n'ajoute que les trimestres absents, jamais d'écrasement), puis on sert la
+  // série EFFECTIVE tranchée à `cap` et ajustée splits à la lecture.
+  if (useStore) {
+    const source = windowed.length === 0 ? 'finnhub-empty' : (usedEdgar ? 'finnhub+edgar' : 'finnhub');
+    const effective = await appendMergePersist(ticker, metric, storedSeries, windowed, source, Date.now());
+    return splitAdjustIfNeeded(filterWindow(effective, cap), ticker, metric);
+  }
+  return splitAdjustIfNeeded(filterWindow(windowed, cap), ticker, metric);
 }
 
 /** Vrai s'il manque ≥1 trimestre dans la série (écart > ~130j entre 2 points, ou série vide). */

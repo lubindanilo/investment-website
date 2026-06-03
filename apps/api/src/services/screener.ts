@@ -196,7 +196,7 @@ async function computeOpportunityAtScore(
 }
 
 /** Note un ticker (quanti only) et met à jour sa ligne ScreenerTicker. */
-async function scoreOne(ticker: string): Promise<ScoreOutcome> {
+export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
   try {
     const snap = await buildAndCacheQuantSnapshot(ticker, { includeEarnings: true });
     const hasScore = snap.scoreChiffresMax > 0;
