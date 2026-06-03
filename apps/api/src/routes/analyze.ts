@@ -188,7 +188,7 @@ function oppFromPoints(points: { date: string; pfcf: number }[]): { pfcfPercenti
  *   3. Échec du calcul → repli sur les colonnes pré-calculées de ScreenerTicker.
  */
 async function computeOpportunity(ticker: string, nextEarningsDate: string | null): Promise<{ pfcfPercentile: number | null; opportunity: boolean }> {
-  const key = chartCache.cacheKey(ticker, 'pfcf-history', 'computed', OPP_YEARS);
+  const key = chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj', OPP_YEARS);
   const entry = await chartCache.get(key).catch(() => null);
   if (entry && entry.points.length) {
     return oppFromPoints(entry.points.map(p => ({ date: p.date, pfcf: p.value })));

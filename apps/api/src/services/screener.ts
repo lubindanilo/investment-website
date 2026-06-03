@@ -189,7 +189,7 @@ async function computeOpportunityAtScore(
   const pts = await getPfcfHistory(ticker, OPP_YEARS).catch(() => [] as { date: string; pfcf: number }[]);
   if (!pts.length) return { opportunity: false, pfcfPercentile: null };
   const ttl = ttlUntilNextEarnings(nextEarningsDate);
-  await chartCache.set(chartCache.cacheKey(ticker, 'pfcf-history', 'computed', OPP_YEARS), pts.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  await chartCache.set(chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj', OPP_YEARS), pts.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
   const current = pts[pts.length - 1]?.pfcf ?? null; // dernier point = ce que classe le graphe « All »
   const pct = pfcfPercentile(pts, current);
   return { opportunity: isOpportunity(pct, current, score10), pfcfPercentile: pct };

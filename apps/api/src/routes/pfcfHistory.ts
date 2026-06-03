@@ -30,7 +30,7 @@ pfcfHistoryRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   const ticker = t.data;
   const years = y.data;
   // On stocke dans le même cache que timeseries en utilisant un "metric" virtuel "pfcf-history"
-  const key = cache.cacheKey(ticker, 'pfcf-history', 'computed', years);
+  const key = cache.cacheKey(ticker, 'pfcf-history', 'computed-adj', years);
 
   // 1. Cache hit ?
   const hit = await cache.get(key);

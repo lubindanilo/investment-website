@@ -21,8 +21,7 @@
  *   - Pas de quarter récent connu (delta < 6 mois)
  *   - Pas assez de quarters pour calculer TTM (besoin ≥ 4)
  */
-import { fetchSplitEvents, splitAdjustWithDiscontinuity } from './yahooSplits.js';
-import { getReportedTimeseries } from './finnhubFundamentals.js';
+import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundamentals.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 import { yahooLimiter } from '../lib/limiter.js';
 import type { TimeseriesPoint } from '@lubin/shared';
@@ -125,16 +124,6 @@ async function fetchPriceHistory(
   });
 }
 
-/** Calcule la somme TTM (trailing 12 months) à chaque trimestre = sum des 4 derniers Q FCF. */
-function rollingTtm(quarterlyFcf: TimeseriesPoint[]): { date: string; ttm: number }[] {
-  const sorted = [...quarterlyFcf].sort((a, b) => a.date.localeCompare(b.date));
-  const result: { date: string; ttm: number }[] = [];
-  for (let i = 3; i < sorted.length; i++) {
-    const ttm = sorted[i]!.value + sorted[i-1]!.value + sorted[i-2]!.value + sorted[i-3]!.value;
-    result.push({ date: sorted[i]!.date, ttm });
-  }
-  return result;
-}
 
 /**
  * Index : pour une date `t`, retrouve le dernier point de la série dont date ≤ t.
@@ -195,38 +184,38 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
   // Fenêtre FCF : besoin de 1 an supplémentaire pour calculer le TTM du premier point
   const fcfYears = years + 1;
 
-  const [prices, fcfQ, sharesQ, splits] = await Promise.all([
+  // FCF TTM AJUSTÉ DU SBC (CFO − CapEx − SBC) — même définition que le P/FCF de la carte
+  // (metrics.pfcfTTM = marketCap / adjFcfTtm). On NE prend plus le FCF brut, sinon le graphe
+  // et le percentile divergent de la carte (cas DocuSign : 10× brut vs 25× ajusté).
+  const [prices, adjFcfTtm, sharesQ] = await Promise.all([
     fetchPriceHistory(ticker, years, interval),
-    getReportedTimeseries(ticker, 'fcf', 'quarterly', fcfYears),
+    getAdjustedFcfTtmSeries(ticker, fcfYears),
     getReportedTimeseries(ticker, 'shares', 'quarterly', fcfYears),
-    fetchSplitEvents(ticker),
   ]);
 
   if (prices.length === 0) {
     console.warn(`[pfcf ${ticker}] aucun prix Yahoo`);
     return [];
   }
-  if (fcfQ.length < 4 || sharesQ.length < 4) {
-    console.warn(`[pfcf ${ticker}] pas assez de quarters (FCF=${fcfQ.length}, shares=${sharesQ.length})`);
+  if (adjFcfTtm.length < 1 || sharesQ.length < 4) {
+    console.warn(`[pfcf ${ticker}] pas assez de quarters (adjFcfTtm=${adjFcfTtm.length}, shares=${sharesQ.length})`);
     return [];
   }
 
-  void splits;
-  const ttmSeries = rollingTtm(fcfQ);
-
   const points: PfcfHistoryPoint[] = [];
   for (const p of prices) {
-    const ttm = findLatestAsOf(ttmSeries, p.date);
+    const ttm = findLatestAsOf(adjFcfTtm, p.date);   // {date, value} = FCF ajusté TTM
     const sh = findLatestAsOf(sharesQ, p.date);
     if (!ttm || !sh) continue;
-    if (ttm.ttm <= 0 || sh.value <= 0) continue;
+    if (ttm.value <= 0 || sh.value <= 0) continue;   // FCF ajusté ≤ 0 → P/FCF non pertinent (omis)
     const marketCap = p.value * sh.value;
-    const pfcf = marketCap / ttm.ttm;
+    const pfcf = marketCap / ttm.value;
     if (!Number.isFinite(pfcf) || pfcf <= 0) continue;
+    if (pfcf > 200) continue;   // FCF ajusté ≈ 0 → multiple explosif (>200× = rendement FCF <0,5%) → bruit
     points.push({ date: p.date, pfcf: Math.round(pfcf * 100) / 100 });
   }
 
-  console.log(`[pfcf ${ticker}] US ${points.length} pts (${interval}) — prices=${prices.length} fcfQ=${fcfQ.length} sharesQ=${sharesQ.length}`);
+  console.log(`[pfcf ${ticker}] US ${points.length} pts (${interval}, FCF ajusté SBC) — prices=${prices.length} adjFcf=${adjFcfTtm.length} sharesQ=${sharesQ.length}`);
   return points;
 }
 

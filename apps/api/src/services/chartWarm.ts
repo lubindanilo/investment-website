@@ -30,8 +30,8 @@ export async function warmChartCacheForTicker(ticker: string, nextEarningsDate: 
     getPfcfHistory(ticker, OPP_YEARS).catch(() => []),
     getCashRoceHistory(ticker, YEARS).catch(() => []),
   ]);
-  if (pfcf.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed', YEARS), pfcf.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
-  if (pfcfAll.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed', OPP_YEARS), pfcfAll.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  if (pfcf.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed-adj', YEARS), pfcf.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  if (pfcfAll.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed-adj', OPP_YEARS), pfcfAll.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
   if (croce.length) await cache.set(cache.cacheKey(ticker, 'cash-roce-history', 'computed', YEARS), croce.map(p => ({ date: p.date, value: p.cashRoce })), 'finnhub', ttl).catch(() => {});
 
   // NB : le flag « opportunité du moment » (ScreenerTicker.opportunity/pfcfPercentile) est calculé
