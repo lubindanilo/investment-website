@@ -171,12 +171,6 @@ function buildResponse(args: {
 const OPP_YEARS = 50;
 
 /** Percentile + opportunité à partir d'une série P/FCF (dernier point = ce que classe le graphe). */
-function oppFromPoints(points: { date: string; pfcf: number }[]): { pfcfPercentile: number | null; opportunity: boolean } {
-  const current = points[points.length - 1]?.pfcf ?? null;
-  const pct = pfcfPercentile(points, current);
-  return { pfcfPercentile: pct, opportunity: isPfcfOpportunity(pct, current) };
-}
-
 /**
  * « Opportunité du moment » pour la vue analyse. On reproduit EXACTEMENT le calcul de l'onglet
  * « All » du graphe « Historique du P/FCF » : percentile du DERNIER point sur la série complète
@@ -187,24 +181,56 @@ function oppFromPoints(points: { date: string; pfcf: number }[]): { pfcfPercenti
  *      la route du graphe) et on la met en cache → la valo == « All » dès la 1ʳᵉ ouverture.
  *   3. Échec du calcul → repli sur les colonnes pré-calculées de ScreenerTicker.
  */
-async function computeOpportunity(ticker: string, nextEarningsDate: string | null): Promise<{ pfcfPercentile: number | null; opportunity: boolean }> {
+async function computeOpportunity(
+  ticker: string,
+  nextEarningsDate: string | null,
+  cachedPfcf: number | null,
+  adjFcfTtm: number | null,
+  sharesOutstanding: number | null,
+): Promise<{ pfcfPercentile: number | null; opportunity: boolean }> {
+  // 1) Distribution HISTORIQUE du P/FCF (lente, cadence earnings → cache OK).
   const key = chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj', OPP_YEARS);
+  let points: { date: string; pfcf: number }[] = [];
   const entry = await chartCache.get(key).catch(() => null);
   if (entry && entry.points.length) {
-    return oppFromPoints(entry.points.map(p => ({ date: p.date, pfcf: p.value })));
+    points = entry.points.map(p => ({ date: p.date, pfcf: p.value }));
+  } else {
+    points = await getPfcfHistory(ticker, OPP_YEARS).catch(() => [] as { date: string; pfcf: number }[]);
+    if (points.length) {
+      await chartCache.set(key, points.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttlUntilNextEarnings(nextEarningsDate)).catch(() => {});
+    }
   }
-  // Cache miss → calcul live + mise en cache (TTL calé sur le prochain earnings, comme le graphe).
-  const points = await getPfcfHistory(ticker, OPP_YEARS).catch(() => [] as { date: string; pfcf: number }[]);
-  if (points.length) {
-    await chartCache.set(key, points.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttlUntilNextEarnings(nextEarningsDate)).catch(() => {});
-    return oppFromPoints(points);
+  // Repli ultime : pas d'historique → colonnes pré-calculées par la veille.
+  if (!points.length) {
+    const row = await prisma.screenerTicker.findUnique({
+      where: { ticker },
+      select: { pfcfPercentile: true, opportunity: true },
+    }).catch(() => null);
+    return { pfcfPercentile: row?.pfcfPercentile ?? null, opportunity: row?.opportunity ?? false };
   }
-  // Repli ultime : valeurs pré-calculées par la veille.
-  const row = await prisma.screenerTicker.findUnique({
-    where: { ticker },
-    select: { pfcfPercentile: true, opportunity: true },
-  }).catch(() => null);
-  return { pfcfPercentile: row?.pfcfPercentile ?? null, opportunity: row?.opportunity ?? false };
+
+  // 2) P/FCF COURANT en LIVE — la pépite dépend du cours, qui change chaque jour.
+  //    ⚠ COHÉRENCE : le P/FCF courant doit être sur la MÊME base que les points historiques
+  //    (prix × shares / adjFcfTtm), sinon le percentile est biaisé. metrics.pfcfTTM peut, lui,
+  //    être sur une base marketCap Finnhub légèrement différente (nb d'actions ≠) → à NE PAS
+  //    utiliser ici. Cas réel DOCU : 24,54 (marketCap) vs 25,30 (base historique) → bascule la pépite.
+  //
+  //    • Chemin lent (rawFh* dispos) : on recalcule prix_live × shares / adjFcfTtm.
+  //    • Chemin rapide (snapshot) : metrics.pfcfTTM est DÉJÀ recalculé live sur cette base → on le prend.
+  //    • Repli : dernier point historique (déjà sur la bonne base, mais pas du jour).
+  let current = points[points.length - 1]?.pfcf ?? null;
+  if (adjFcfTtm != null && adjFcfTtm !== 0 && sharesOutstanding != null) {
+    const live = await getQuote(ticker).catch(() => null);
+    const livePrice = live?.c ?? null;
+    if (livePrice != null && livePrice > 0) {
+      const p = (livePrice * sharesOutstanding) / adjFcfTtm;
+      if (Number.isFinite(p) && p > 0) current = p;
+    }
+  } else if (cachedPfcf != null && cachedPfcf > 0) {
+    current = cachedPfcf; // snapshot : pfcfTTM déjà live + base prix×shares/adjFcfTtm
+  }
+  const pct = pfcfPercentile(points, current);
+  return { pfcfPercentile: pct, opportunity: isPfcfOpportunity(pct, current) };
 }
 
 // ─── GET /api/analyze ──────────────────────────────────────────────────────
@@ -241,7 +267,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
   // « Opportunité du moment » : percentile du P/FCF live vs historique (cache).
-  const { pfcfPercentile: pct, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
+  const { pfcfPercentile: pct, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
   // Benchmark sectoriel du P/FCF (médiane des pairs cotés de l'industrie) + dividende (Yahoo).
   const [sectorBenchmark, dividend] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
@@ -409,7 +435,7 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
     managementCachedAt = existingMgmt!.updatedAt;
   }
 
-  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
+  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
   const [sectorBenchmark, dividend] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
@@ -448,7 +474,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (re
   const business = businessRow && isBusinessCacheValid(businessRow.business) ? businessRow.business : null;
   const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
-  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null);
+  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
   const [sectorBenchmark, dividend] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),

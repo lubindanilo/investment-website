@@ -190,9 +190,11 @@ async function computeOpportunityAtScore(
   if (!pts.length) return { opportunity: false, pfcfPercentile: null };
   const ttl = ttlUntilNextEarnings(nextEarningsDate);
   await chartCache.set(chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj', OPP_YEARS), pts.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
-  const current = pts[pts.length - 1]?.pfcf ?? null; // dernier point = ce que classe le graphe « All »
-  const pct = pfcfPercentile(pts, current);
-  return { opportunity: isOpportunity(pct, current, score10), pfcfPercentile: pct };
+  // On classe le P/FCF COURANT (cohérent, fourni par le caller) contre la distribution historique —
+  // et non le dernier point de l'historique (close mensuel), pour que le gate < 25 et le percentile
+  // utilisent la même valeur que ce qu'on affiche au prix du moment.
+  const pct = pfcfPercentile(pts, pfcfTTM);
+  return { opportunity: isOpportunity(pct, pfcfTTM, score10), pfcfPercentile: pct };
 }
 
 /** Note un ticker (quanti only) et met à jour sa ligne ScreenerTicker. */
@@ -204,9 +206,15 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     // Sparkline 1 an pour les titres notés (non bloquant si Yahoo échoue → []).
     const spark = hasScore ? await getSparkSeries(ticker).catch(() => []) : [];
     // « Opportunité du moment » (gated aux candidats note ≥ 8/10 & P/FCF < 25 pour borner le coût).
+    // ⚠ COHÉRENCE : on classe le P/FCF courant sur la MÊME base que l'historique (prix × shares /
+    // adjFcfTtm), pas sur metrics.pfcfTTM qui peut être sur une base marketCap Finnhub différente
+    // (nb d'actions ≠) → sinon le percentile est biaisé et bascule les cas limites (ex DOCU).
     const score10 = hasScore ? Math.round((snap.scoreChiffres / snap.scoreChiffresMax) * 10) : 0;
+    const pfcfConsistent = (snap.adjFcfTtm != null && snap.adjFcfTtm !== 0 && snap.sharesOutstanding != null && snap.metrics.price != null && snap.metrics.price > 0)
+      ? (snap.metrics.price * snap.sharesOutstanding) / snap.adjFcfTtm
+      : snap.metrics.pfcfTTM ?? null;
     const opp = hasScore
-      ? await computeOpportunityAtScore(ticker, score10, snap.metrics.pfcfTTM ?? null, snap.nextEarningsDate ?? null)
+      ? await computeOpportunityAtScore(ticker, score10, pfcfConsistent, snap.nextEarningsDate ?? null)
       : { opportunity: false, pfcfPercentile: null };
     await prisma.screenerTicker.update({
       where: { ticker },
