@@ -122,9 +122,12 @@ model FundamentalsSeries {
   metric    String
   /// TimeseriesPoint[] {date, value} complet, trié ASC, dé-cumulé + EDGAR mergé, PRÉ-split.
   points    Json
-  /// 'finnhub' | 'finnhub+edgar' | 'finnhub-empty'
+  /// 'finnhub' | 'finnhub+edgar' | 'finnhub-empty' | 'yahoo' | 'yahoo-empty'
   source    String
-  /// Fin du dernier trimestre stocké (YYYY-MM-DD). Null si série vide.
+  /// 'quarterly' (US, Finnhub+EDGAR) | 'annual' (non-US, Yahoo). Observabilité — la clé reste
+  /// (ticker, metric) car les noms de métriques ne collisionnent pas (revenue vs annualTotalRevenue).
+  freq      String   @default("quarterly")
+  /// Fin de la dernière période stockée (YYYY-MM-DD). Null si série vide.
   lastEnd   String?
   expiresAt DateTime
   builtAt   DateTime @default(now())

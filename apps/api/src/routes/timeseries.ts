@@ -20,6 +20,7 @@ import { z } from 'zod';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { getReportedTimeseries, METRICS, type MetricKey } from '../services/finnhubFundamentals.js';
 import { getYahooMetricTimeseries } from '../services/yahoo.js';
+import { getYahooAnnualSingleCached } from '../services/yahooAnnualStore.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { getNextEarningsDate, ttlUntilNextEarnings } from '../services/earnings.js';
 import { getRatioTimeseries, RATIO_METRIC_KEYS } from '../services/derivedTimeseries.js';
@@ -164,12 +165,8 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     // on doit donc taper directement le type annuel correspondant.
     const annualType = mapMetricToYahooAnnual(metric);
     if (annualType && resolved) {
-      const { getQuarterlyTimeseries } = await import('../services/yahoo.js');
-      // getQuarterlyTimeseries valide que le type commence par "quarterly" → on contourne
-      // en utilisant le helper de bas niveau via le mapping annuel.
-      points = await fetchYahooAnnual(resolved.symbol, annualType, effectiveYears);
-      // getQuarterlyTimeseries n'est utilisé que comme fallback si on a besoin de partage de code
-      void getQuarterlyTimeseries;
+      // Store annuel canonique (partagé avec getYahooFundamentals → mêmes chiffres carte/graphe).
+      points = windowAnnual(await getYahooAnnualSingleCached(ticker, resolved.symbol, annualType, Date.now()), effectiveYears);
       source = 'yahoo';
     }
   } else {
@@ -205,7 +202,7 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
       } else {
         const annualType = mapMetricToYahooAnnual(metric);
         if (annualType) {
-          points = await fetchYahooAnnual(resolved?.symbol ?? ticker, annualType, Math.max(years, 5));
+          points = windowAnnual(await getYahooAnnualSingleCached(ticker, resolved?.symbol ?? ticker, annualType, Date.now()), Math.max(years, 5));
           source = 'yahoo';
           servedFreq = 'annual';
           annualFallback = points.length > 0;
@@ -258,41 +255,12 @@ function mapMetricToYahooAnnual(metric: MetricKey): string | null {
 }
 
 /**
- * Helper bas niveau pour fetch un type annuel Yahoo sur un symbol arbitraire (ex "COPN.SW").
- * Distinct de getQuarterlyTimeseries qui n'accepte que les types "quarterly*" par sécurité.
+ * Fenêtre une série annuelle (store canonique, ~7 ans) sur les `years` dernières années.
+ * Le fetch + la persistance vivent dans yahooAnnualStore (partagés avec getYahooFundamentals).
  */
-async function fetchYahooAnnual(
-  symbol: string,
-  type: string,
-  years: number,
-): Promise<Array<{ date: string; value: number }>> {
-  const BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
-  const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Lubin-Investment/0.1';
-  const period2 = Math.floor(Date.now() / 1000);
-  const period1 = period2 - Math.max(years + 1, 5) * 365 * 24 * 3600;
-  const url = `${BASE}/${encodeURIComponent(symbol)}?symbol=${encodeURIComponent(symbol)}&type=${encodeURIComponent(type)}&period1=${period1}&period2=${period2}`;
-  try {
-    const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
-    if (!res.ok) {
-      console.warn(`[yahoo annual ${symbol}/${type}] HTTP ${res.status}`);
-      return [];
-    }
-    const data = await res.json() as {
-      timeseries?: { result?: Array<Record<string, unknown> & { meta?: { type?: string[] } }> }
-    };
-    const result = data.timeseries?.result?.find(r => r.meta?.type?.includes(type));
-    const rows = (result?.[type] as Array<{ asOfDate?: string; reportedValue?: { raw?: number } }> | undefined) ?? [];
-    return rows
-      .map(row => {
-        const date = row.asOfDate;
-        const val = row.reportedValue?.raw;
-        if (!date || typeof val !== 'number') return null;
-        return { date, value: val };
-      })
-      .filter((x): x is { date: string; value: number } => x !== null)
-      .sort((a, b) => a.date.localeCompare(b.date));
-  } catch (e) {
-    console.warn(`[yahoo annual ${symbol}/${type}] échec :`, (e as Error).message);
-    return [];
-  }
+function windowAnnual(points: Array<{ date: string; value: number }>, years: number): Array<{ date: string; value: number }> {
+  const cutoff = new Date();
+  cutoff.setFullYear(cutoff.getFullYear() - Math.max(years + 1, 5));
+  const iso = cutoff.toISOString().slice(0, 10);
+  return points.filter(p => p.date >= iso);
 }

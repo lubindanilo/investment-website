@@ -210,7 +210,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
         currency = resolved.currency;
         companyFromSource = resolved.longName ?? null;
         yahooDayChangePct = resolved.dayChangePct ?? null;
-        const yfund = await timed('yahoo fundamentals (ADR)', getYahooFundamentals(resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null)).catch(() => null);
+        const yfund = await timed('yahoo fundamentals (ADR)', getYahooFundamentals(ticker, resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null)).catch(() => null);
         if (yfund) {
           fundamentalsSource = 'yahoo';
           metrics = yfund.metrics;
@@ -252,7 +252,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
       currency = resolved.currency;
       companyFromSource = resolved.longName ?? null;
       yahooDayChangePct = resolved.dayChangePct ?? null;
-      const yfund = await timed('yahoo fundamentals', getYahooFundamentals(resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null)).catch(() => null);
+      const yfund = await timed('yahoo fundamentals', getYahooFundamentals(ticker, resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null)).catch(() => null);
       if (yfund) {
         fundamentalsSource = 'yahoo';
         metrics = yfund.metrics;

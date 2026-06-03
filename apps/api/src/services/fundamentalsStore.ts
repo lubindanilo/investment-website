@@ -15,12 +15,17 @@ import type { TimeseriesPoint } from '@lubin/shared';
 import { prisma } from '../db/client.js';
 
 const DAY_MS = 86_400_000;
-/** Fenêtre après le dernier trimestre avant qu'un nouveau dépôt soit attendu (~1 trimestre + délai de dépôt). */
-const REFRESH_AFTER_DAYS = 120;
-/** Plancher de re-check quand le dépôt attendu n'est pas encore là (évite de re-fetcher à chaque appel). */
-const RECHECK_FLOOR_DAYS = 14;
-/** Tolérance de proximité de dates pour considérer deux points comme le MÊME trimestre. */
+/** Tolérance de proximité de dates pour considérer deux points comme la MÊME période. */
 const PROXIMITY_MS = 20 * DAY_MS;
+
+/** Cadence d'expiration par fréquence : délai après la dernière période avant d'attendre un nouveau dépôt. */
+export interface ExpiryCadence {
+  /** Jours après lastEnd avant qu'une nouvelle période soit attendue. quarterly ~120, annual ~400. */
+  cadenceDays: number;
+  /** Plancher de re-check quand le dépôt attendu n'est pas encore là. quarterly ~14, annual ~30. */
+  floorDays: number;
+}
+const QUARTERLY_CADENCE: ExpiryCadence = { cadenceDays: 120, floorDays: 14 };
 
 export interface StoredSeries {
   points: TimeseriesPoint[];
@@ -52,11 +57,11 @@ export function isFresh(stored: StoredSeries | null, nowMs: number): boolean {
   return stored != null && stored.expiresAt.getTime() > nowMs;
 }
 
-/** Échéance de re-fetch : lastEnd + 120j, avec un plancher de re-check à 14j depuis maintenant. */
-function computeExpiry(lastEnd: string | null, nowMs: number): Date {
-  const floor = nowMs + RECHECK_FLOOR_DAYS * DAY_MS;
+/** Échéance de re-fetch : lastEnd + cadence, avec un plancher de re-check depuis maintenant. */
+function computeExpiry(lastEnd: string | null, nowMs: number, cadence: ExpiryCadence): Date {
+  const floor = nowMs + cadence.floorDays * DAY_MS;
   if (!lastEnd) return new Date(floor);
-  const due = Date.parse(lastEnd) + REFRESH_AFTER_DAYS * DAY_MS;
+  const due = Date.parse(lastEnd) + cadence.cadenceDays * DAY_MS;
   return new Date(Math.max(due, floor));
 }
 
@@ -81,6 +86,16 @@ const byDate = (a: TimeseriesPoint, b: TimeseriesPoint) => a.date.localeCompare(
  * Anti-dégradation : si la reconstruction est vide ET qu'on a déjà du stock, on garde le stock
  * (on rafraîchit juste l'échéance pour ne pas re-fetcher en boucle).
  */
+export interface PersistOpts {
+  /** 'quarterly' (défaut) ou 'annual'. */
+  freq?: string;
+  /** Cadence d'expiration. Défaut = quarterly (120j / 14j). */
+  cadence?: ExpiryCadence;
+  /** Si true, persiste même une série VIDE (avec expiry) → évite de re-fetcher en boucle un
+   *  type qu'une source ne fournit pas (cache négatif borné). Utilisé pour le batch annuel Yahoo. */
+  persistEmpty?: boolean;
+}
+
 export async function appendMergePersist(
   ticker: string,
   metric: string,
@@ -88,19 +103,22 @@ export async function appendMergePersist(
   built: TimeseriesPoint[],
   source: string,
   nowMs: number,
+  opts: PersistOpts = {},
 ): Promise<TimeseriesPoint[]> {
+  const freq = opts.freq ?? 'quarterly';
+  const cadence = opts.cadence ?? QUARTERLY_CADENCE;
   const existing = stored?.points ?? [];
   const merged = appendOnlyMerge(existing, built);
   const lastEnd = merged.length > 0 ? merged[merged.length - 1]!.date : null;
-  const expiresAt = computeExpiry(lastEnd, nowMs);
-  // Rien à persister et rien en stock → renvoie [] sans écrire (négatif non mis en cache dur).
-  if (merged.length === 0) return [];
+  const expiresAt = computeExpiry(lastEnd, nowMs, cadence);
+  // Série vide et rien à persister : on n'écrit que si persistEmpty (cache négatif borné).
+  if (merged.length === 0 && !opts.persistEmpty) return [];
 
   try {
     await prisma.fundamentalsSeries.upsert({
       where: { ticker_metric: { ticker: ticker.toUpperCase(), metric } },
-      create: { ticker: ticker.toUpperCase(), metric, points: merged as unknown as object, source, lastEnd, expiresAt },
-      update: { points: merged as unknown as object, source, lastEnd, expiresAt, builtAt: new Date(nowMs) },
+      create: { ticker: ticker.toUpperCase(), metric, points: merged as unknown as object, source, freq, lastEnd, expiresAt },
+      update: { points: merged as unknown as object, source, freq, lastEnd, expiresAt, builtAt: new Date(nowMs) },
     });
   } catch {
     // Best-effort : si l'écriture échoue, on renvoie quand même la série mergée en mémoire.

@@ -25,51 +25,11 @@
 import { yahooLimiter } from '../lib/limiter.js';
 import { computeExcessCash } from './finnhubFundamentals.js';
 import { computeFcfPerShareCagr as computeFcfPerShareCagrYahoo } from './yahoo.js';
+import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
 import type { DerivedMetrics } from '@lubin/shared';
 
-const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
-const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Lubin-Investment/0.1';
-
-interface TimeseriesValue {
-  asOfDate?: string;
-  reportedValue?: { raw?: number };
-}
-interface TimeseriesResult {
-  meta?: { type?: string[]; symbol?: string[] };
-  [key: string]: unknown;
-}
-interface TimeseriesResponse {
-  timeseries?: { result?: TimeseriesResult[]; error?: { description?: string } | null };
-}
-
-/** Récupère un batch de types annuels Yahoo en 1 requête. */
-async function fetchBatch(symbol: string, types: string[]): Promise<TimeseriesResponse> {
-  const period2 = Math.floor(Date.now() / 1000);
-  const period1 = period2 - 7 * 365 * 24 * 3600; // 7 ans pour avoir 5 années pleines + buffer
-  const url = `${TIMESERIES_BASE}/${encodeURIComponent(symbol)}`
-    + `?symbol=${encodeURIComponent(symbol)}`
-    + `&type=${encodeURIComponent(types.join(','))}`
-    + `&period1=${period1}&period2=${period2}`;
-  // Note : pour les tickers européens .SW/.PA/.DE, Yahoo n'exige PAS le crumb (contrairement au .com)
-  // si on hit query1 directement. Si jamais ça change on bascule sur le path session-aware de yahoo.ts.
-  const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
-  if (!res.ok) throw new Error(`Yahoo fundamentals HTTP ${res.status}`);
-  return res.json() as Promise<TimeseriesResponse>;
-}
-
-function extract(response: TimeseriesResponse, type: string): { fiscalYear: number; date: string; value: number }[] {
-  const result = response.timeseries?.result?.find(r => r.meta?.type?.includes(type));
-  const rows = (result?.[type] as TimeseriesValue[] | undefined) ?? [];
-  return rows
-    .map(row => {
-      const date = row.asOfDate;
-      const val = row.reportedValue?.raw;
-      if (!date || typeof val !== 'number') return null;
-      return { fiscalYear: Number(date.slice(0, 4)), date, value: val };
-    })
-    .filter((x): x is { fiscalYear: number; date: string; value: number } => x !== null && Number.isFinite(x.fiscalYear))
-    .sort((a, b) => a.fiscalYear - b.fiscalYear);
-}
+// Le fetch annuel Yahoo + la persistance sont désormais centralisés dans yahooAnnualStore
+// (store canonique partagé avec les graphiques). Cf. getYahooAnnualBatchCached ci-dessous.
 
 /** Helper : récupère la dernière valeur d'une série. */
 function latest<T extends { fiscalYear: number; value: number }>(series: T[]): T | null {
@@ -114,6 +74,7 @@ interface YahooFundamentalsResult {
  * @param companyName  Nom long (optionnel, pour métadonnées)
  */
 export async function getYahooFundamentals(
+  ticker: string,
   yahooSymbol: string,
   price: number,
   currency: string,
@@ -141,31 +102,36 @@ export async function getYahooFundamentals(
         'annualDilutedAverageShares',
         'annualOrdinarySharesNumber',
       ];
-      const data = await fetchBatch(yahooSymbol, types);
-      if (data.timeseries?.error) {
-        console.warn(`[yahoo fund ${yahooSymbol}]`, data.timeseries.error.description);
+      // Store annuel canonique (persisté, partagé avec les graphiques). Toutes les lignes
+      // fraîches → ZÉRO appel Yahoo. `series(type)` re-dérive fiscalYear depuis la date.
+      const batch = await getYahooAnnualBatchCached(ticker, yahooSymbol, types, Date.now());
+      if (!batch) {
+        console.warn(`[yahoo fund ${yahooSymbol}] batch annuel indisponible`);
         return null;
       }
+      const series = (type: string) => (batch.get(type) ?? [])
+        .map(p => ({ fiscalYear: Number(p.date.slice(0, 4)), date: p.date, value: p.value }))
+        .filter(x => Number.isFinite(x.fiscalYear));
 
-      const revenue        = extract(data, 'annualTotalRevenue');
-      const netIncome      = extract(data, 'annualNetIncome');
-      const operatingInc   = extract(data, 'annualOperatingIncome');
-      const fcf            = extract(data, 'annualFreeCashFlow');
-      const totalDebt      = extract(data, 'annualTotalDebt');
+      const revenue        = series('annualTotalRevenue');
+      const netIncome      = series('annualNetIncome');
+      const operatingInc   = series('annualOperatingIncome');
+      const fcf            = series('annualFreeCashFlow');
+      const totalDebt      = series('annualTotalDebt');
       // Préférence : cash+STI agrégé. Fallback : cash seul si Yahoo ne fournit pas l'agrégé.
-      const cashStiAgg     = extract(data, 'annualCashAndShortTermInvestments');
-      const cash           = cashStiAgg.length > 0 ? cashStiAgg : extract(data, 'annualCashAndCashEquivalents');
-      const totalAssets    = extract(data, 'annualTotalAssets');
-      const goodwill       = extract(data, 'annualGoodwill');
-      const equity         = extract(data, 'annualStockholdersEquity');
-      const currentAssets  = extract(data, 'annualCurrentAssets');
-      const currentLiab    = extract(data, 'annualCurrentLiabilities');
+      const cashStiAgg     = series('annualCashAndShortTermInvestments');
+      const cash           = cashStiAgg.length > 0 ? cashStiAgg : series('annualCashAndCashEquivalents');
+      const totalAssets    = series('annualTotalAssets');
+      const goodwill       = series('annualGoodwill');
+      const equity         = series('annualStockholdersEquity');
+      const currentAssets  = series('annualCurrentAssets');
+      const currentLiab    = series('annualCurrentLiabilities');
       // Shares : Yahoo restate déjà l'historique post-split (vérifié sur NVO 2:1 2023, AAPL 4:1
       // 2020 — toutes les années annual sont en current basis). Ne PAS appliquer
       // cumulativeSplitFactor sinon on double-compte le split. Bug constaté NVO : FCF/share 2022
       // affichait 7.07 DKK (FCF / 2×shares) au lieu de 14.25 DKK → CAGR -2.6% trompeur.
-      const sharesDilutedRaw = extract(data, 'annualDilutedAverageShares');
-      const sharesOrdinaryRaw = extract(data, 'annualOrdinarySharesNumber');
+      const sharesDilutedRaw = series('annualDilutedAverageShares');
+      const sharesOrdinaryRaw = series('annualOrdinarySharesNumber');
       const shares = sharesDilutedRaw.length >= 2 ? sharesDilutedRaw : sharesOrdinaryRaw;
 
       const latestRev = latest(revenue);
