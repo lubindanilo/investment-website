@@ -133,7 +133,10 @@
       "minScore": "Puntuación mínima",
       "maxPfcf": "P/FCF máx.",
       "sector": "Sector",
-      "allSectors": "Todos los sectores"
+      "allSectors": "Todos los sectores",
+      "apply": "Aplicar",
+      "reset": "Restablecer",
+      "nSectors": "{{count}} sectores"
     },
     "results_one": "{{count}} resultado",
     "results_other": "{{count}} resultados",

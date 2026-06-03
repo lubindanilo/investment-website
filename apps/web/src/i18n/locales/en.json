@@ -133,7 +133,10 @@
       "minScore": "Minimum score",
       "maxPfcf": "Max P/FCF",
       "sector": "Sector",
-      "allSectors": "All sectors"
+      "allSectors": "All sectors",
+      "apply": "Apply",
+      "reset": "Reset",
+      "nSectors": "{{count}} sectors"
     },
     "results_one": "{{count}} result",
     "results_other": "{{count}} results",

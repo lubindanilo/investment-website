@@ -158,7 +158,10 @@
       "minScore": "Note minimale",
       "maxPfcf": "P/FCF max",
       "sector": "Secteur",
-      "allSectors": "Tous les secteurs"
+      "allSectors": "Tous les secteurs",
+      "apply": "Valider",
+      "reset": "Réinitialiser",
+      "nSectors": "{{count}} secteurs"
     },
     "results_one": "{{count}} résultat",
     "results_other": "{{count}} résultats",

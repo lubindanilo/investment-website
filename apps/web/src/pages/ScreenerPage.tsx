@@ -23,17 +23,20 @@ function valOf(r: ScreenerTopRow, col: SortCol): number {
   return r.dayChangePct ?? -Infinity;
 }
 
-/** Bouton « Filtres » → popover de sélection du secteur (avec recherche). */
+/** Bouton « Filtres » → popover multi-sélection de secteurs (recherche + Valider/Réinitialiser). */
 function SectorFilter({ sectors, value, onChange }: {
   sectors: { sector: string; count: number }[];
-  value: string;
-  onChange: (v: string) => void;
+  value: string[];
+  onChange: (v: string[]) => void;
 }) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [draft, setDraft] = useState<string[]>(value);
   const ref = useRef<HTMLDivElement>(null);
 
+  // À l'ouverture, on repart de la sélection appliquée.
+  useEffect(() => { if (open) setDraft(value); }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!open) return;
     const h = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
@@ -44,41 +47,44 @@ function SectorFilter({ sectors, value, onChange }: {
   const label = (raw: string) => t(`industries.${sectorSlug(raw)}`, { defaultValue: raw });
   const q = query.trim().toLowerCase();
   const filtered = q ? sectors.filter(s => label(s.sector).toLowerCase().includes(q)) : sectors;
-  const activeLabel = value ? label(value) : null;
+  const toggle = (s: string) => setDraft(d => d.includes(s) ? d.filter(x => x !== s) : [...d, s]);
+  const apply = (next: string[]) => { onChange(next); setOpen(false); setQuery(''); };
 
-  const pick = (v: string) => { onChange(v); setOpen(false); setQuery(''); };
+  const btnLabel = value.length === 0
+    ? t('screener.filters.kicker')
+    : value.length === 1 ? label(value[0]!) : t('screener.filters.nSectors', { count: value.length });
+  const active = value.length > 0;
 
   return (
     <div ref={ref} style={{ position: 'relative', display: 'inline-flex' }}>
       <button
         type="button"
         onClick={() => setOpen(o => !o)}
-        data-active={!!value || open}
+        data-active={active || open}
         style={{
           display: 'inline-flex', alignItems: 'center', gap: 7, padding: '6px 12px',
           borderRadius: 8, fontWeight: 700, fontSize: 12.5, cursor: 'pointer',
-          border: '1px solid ' + (value ? 'var(--brand)' : 'var(--line)'),
-          background: value ? 'var(--brand-soft)' : 'var(--surface)',
-          color: value ? 'var(--brand-ink)' : 'var(--ink-3)', transition: 'all .14s', maxWidth: 260,
+          border: '1px solid ' + (active ? 'var(--brand)' : 'var(--line)'),
+          background: active ? 'var(--brand-soft)' : 'var(--surface)',
+          color: active ? 'var(--brand-ink)' : 'var(--ink-3)', transition: 'all .14s', maxWidth: 260,
         }}
       >
         <Icon name="filter" size={14} />
-        <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-          {activeLabel ?? t('screener.filters.kicker')}
-        </span>
+        <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{btnLabel}</span>
         <Icon name="chevronD" size={13} style={{ opacity: 0.6 }} />
       </button>
 
       {open && (
         <div
           style={{
-            position: 'absolute', top: 'calc(100% + 6px)', left: 0, zIndex: 30, width: 280,
+            position: 'absolute', top: 'calc(100% + 6px)', left: 0, zIndex: 30, width: 290,
             background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: 12,
             boxShadow: 'var(--sh-md, 0 10px 30px rgba(0,0,0,.12))', padding: 8,
           }}
         >
-          <div className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)', padding: '4px 8px 6px' }}>
-            {t('screener.filters.sector')}
+          <div className="row between" style={{ padding: '4px 8px 6px' }}>
+            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.sector')}</span>
+            {draft.length > 0 && <span className="tiny num" style={{ fontWeight: 700, color: 'var(--brand-ink)' }}>{draft.length}</span>}
           </div>
           <div className="anl-search-field" style={{ marginBottom: 6 }}>
             <Icon name="search" size={14} className="anl-search-icon" />
@@ -91,18 +97,25 @@ function SectorFilter({ sectors, value, onChange }: {
               onChange={e => setQuery(e.target.value)}
             />
           </div>
-          <div style={{ maxHeight: 280, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 1 }}>
-            <SectorItem label={t('screener.filters.allSectors')} active={!value} onClick={() => pick('')} />
+          <div style={{ maxHeight: 260, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 1 }}>
             {filtered.map(s => (
               <SectorItem
                 key={s.sector}
                 label={label(s.sector)}
                 count={s.count}
-                active={value === s.sector}
-                onClick={() => pick(s.sector)}
+                checked={draft.includes(s.sector)}
+                onClick={() => toggle(s.sector)}
               />
             ))}
             {filtered.length === 0 && <div className="tiny muted" style={{ padding: '8px' }}>—</div>}
+          </div>
+          <div className="row gap-8" style={{ marginTop: 8, paddingTop: 8, borderTop: '1px solid var(--line)' }}>
+            <button type="button" className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={() => apply([])}>
+              {t('screener.filters.reset')}
+            </button>
+            <button type="button" className="btn btn-brand btn-sm" style={{ flex: 1 }} onClick={() => apply(draft)}>
+              {t('screener.filters.apply')}
+            </button>
           </div>
         </div>
       )}
@@ -110,22 +123,28 @@ function SectorFilter({ sectors, value, onChange }: {
   );
 }
 
-function SectorItem({ label, count, active, onClick }: { label: string; count?: number; active: boolean; onClick: () => void }) {
+function SectorItem({ label, count, checked, onClick }: { label: string; count?: number; checked: boolean; onClick: () => void }) {
   return (
     <button
       type="button"
       onClick={onClick}
       style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8,
+        display: 'flex', alignItems: 'center', gap: 9,
         width: '100%', textAlign: 'left', padding: '7px 9px', borderRadius: 7, cursor: 'pointer',
-        border: 'none', fontSize: 13, fontWeight: active ? 700 : 500,
-        background: active ? 'var(--brand-soft)' : 'transparent',
-        color: active ? 'var(--brand-ink)' : 'var(--ink)',
+        border: 'none', fontSize: 13, fontWeight: checked ? 700 : 500,
+        background: checked ? 'var(--brand-soft)' : 'transparent',
+        color: checked ? 'var(--brand-ink)' : 'var(--ink)',
       }}
-      onMouseEnter={e => { if (!active) (e.currentTarget.style.background = 'var(--bg-soft)'); }}
-      onMouseLeave={e => { if (!active) (e.currentTarget.style.background = 'transparent'); }}
+      onMouseEnter={e => { if (!checked) (e.currentTarget.style.background = 'var(--bg-soft)'); }}
+      onMouseLeave={e => { if (!checked) (e.currentTarget.style.background = 'transparent'); }}
     >
-      <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{label}</span>
+      <span style={{
+        width: 16, height: 16, borderRadius: 4, flexShrink: 0, display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+        border: '1.5px solid ' + (checked ? 'var(--brand)' : 'var(--line)'), background: checked ? 'var(--brand)' : 'transparent', color: '#fff',
+      }}>
+        {checked && <Icon name="check" size={11} stroke={3} />}
+      </span>
+      <span style={{ flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{label}</span>
       {count != null && <span className="num tiny muted" style={{ flexShrink: 0 }}>{count}</span>}
     </button>
   );
@@ -141,7 +160,7 @@ export function ScreenerPage() {
   const [minScore, setMinScore] = useState(6);
   const [maxPfcf, setMaxPfcf] = useState(PFCF_MAX);
   const [onlyOpp, setOnlyOpp] = useState(false);
-  const [sector, setSector] = useState('');                       // '' = tous les secteurs
+  const [selectedSectors, setSelectedSectors] = useState<string[]>([]);   // [] = tous les secteurs
   const [sectors, setSectors] = useState<{ sector: string; count: number }[]>([]);
   const [sort, setSort] = useState<SortState>({ col: 'score', dir: 'desc' });
 
@@ -160,14 +179,14 @@ export function ScreenerPage() {
     setLoading(true); setError(null);
     try {
       const [top, st] = await Promise.all([
-        api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300, opportunities: onlyOpp, sector: sector || undefined }),
+        api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300, opportunities: onlyOpp, sector: selectedSectors.length ? selectedSectors.join(',') : undefined }),
         api.screener.stats(),
       ]);
       setRows(top); setStats(st);
     } catch (e) {
       setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
     } finally { setLoading(false); }
-  }, [minScore, maxPfcf, onlyOpp, sector]);
+  }, [minScore, maxPfcf, onlyOpp, selectedSectors]);
 
   useEffect(() => { load(); }, [load]);
 
@@ -209,7 +228,7 @@ export function ScreenerPage() {
 
         {/* Filtres */}
         <div className="card scr-filters">
-          <SectorFilter sectors={sectors} value={sector} onChange={setSector} />
+          <SectorFilter sectors={sectors} value={selectedSectors} onChange={setSelectedSectors} />
           <div className="row gap-12">
             <span className="label">{t('screener.filters.minScore')}</span>
             <div className="seg">{SCORE_OPTS.map(s => <button key={s} type="button" data-active={minScore === s} onClick={() => setMinScore(s)}>{s}+</button>)}</div>

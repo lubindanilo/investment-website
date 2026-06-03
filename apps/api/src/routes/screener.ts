@@ -47,14 +47,16 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
     const n = Number(v);
     return Number.isFinite(n) ? n : undefined;
   };
-  const sector = typeof req.query.sector === 'string' && req.query.sector.trim() ? req.query.sector.trim() : undefined;
+  const sectors = typeof req.query.sector === 'string' && req.query.sector.trim()
+    ? req.query.sector.split(',').map(s => s.trim()).filter(Boolean)
+    : undefined;
   const rows = await getTop({
     minRatio: num(req.query.minRatio),
     maxPfcf: num(req.query.maxPfcf),
     minMax: num(req.query.minMax),
     limit: num(req.query.limit),
     onlyOpportunities: req.query.opportunities === 'true',
-    sector,
+    sectors,
   });
   res.json(rows);
 }));

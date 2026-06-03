@@ -353,8 +353,8 @@ export interface TopRow {
 }
 
 /** Meilleures notes pour la vue screener. Tri par ratio décroissant, indexé. */
-export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean; sector?: string } = {}): Promise<TopRow[]> {
-  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false, sector } = opts;
+export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean; sectors?: string[] } = {}): Promise<TopRow[]> {
+  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false, sectors } = opts;
   return prisma.screenerTicker.findMany({
     where: {
       status: 'scored',
@@ -362,7 +362,7 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
       scoreRatio: { gte: minRatio },
       ...(maxPfcf != null ? { pfcfTTM: { gt: 0, lte: maxPfcf } } : {}),
       ...(onlyOpportunities ? { opportunity: true } : {}),
-      ...(sector ? { sector } : {}),       // filtre par industrie (valeur canonique anglaise stockée)
+      ...(sectors && sectors.length ? { sector: { in: sectors } } : {}),   // 1+ industries (valeurs canoniques anglaises)
     },
     orderBy: [{ scoreRatio: 'desc' }, { scoreChiffresMax: 'desc' }],
     take: Math.min(limit, 500),
