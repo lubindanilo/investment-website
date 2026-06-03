@@ -682,17 +682,17 @@
     "sectorMean": "media del sector {{value}}×"
   },
   "dividend": {
-    "title": "Dividendos",
-    "sub": "Rendimiento y reparto",
+    "title": "Dividendo",
     "none": "No reparte dividendo",
-    "yield": "Rendimiento",
-    "rate": "Dividendo / acción",
-    "payout": "Tasa de reparto",
-    "exDate": "Próxima ex-fecha",
-    "perShareShort": "acción",
-    "payoutShort": "reparto {{pct}} %",
+    "growthLabel": "Crecimiento anualizado · 5 años",
+    "growthNA": "Historial < 5 años",
+    "statYield": "rendimiento {{v}} %",
+    "statPayout": "reparto {{v}} %",
+    "iYield": "El rendimiento por dividendo de {{company}} ({{ticker}}) es del {{yield}} %, lo que significa que por cada 100 {{cur}} invertidos en la acción, los inversores reciben {{yield}} {{cur}} de dividendos al año.",
+    "iPayout": "La tasa de reparto de {{company}} es del {{payout}} %, lo que significa que el {{payout}} % de los beneficios se distribuye como dividendos.",
+    "iPayoutNA": "La tasa de reparto no está disponible.",
     "evolution": "Evolución del dividendo",
-    "evolutionSub": "Dividendo por acción, por período",
+    "evolutionSub": "Dividendo por acción, por período (ajustado por splits)",
     "evolutionNote": "Los años sin pago permanecen en el eje, sin barra."
   }
 }

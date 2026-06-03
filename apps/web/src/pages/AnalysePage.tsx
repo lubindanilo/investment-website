@@ -265,7 +265,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
                 ticker={analysis.ticker}
                 annualOnly={annualOnly}
               />
-              {analysis.dividend && <DividendCard dividend={analysis.dividend} currency={currency} />}
+              {analysis.dividend && <DividendCard dividend={analysis.dividend} currency={currency} company={analysis.company} ticker={analysis.ticker} />}
             </>}
           />
         </Section>

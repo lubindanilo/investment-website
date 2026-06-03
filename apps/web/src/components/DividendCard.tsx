@@ -1,10 +1,10 @@
 /**
  * DividendCard — carte « Dividende » (hors notation), dans la grille des critères chiffrés.
- * Affiche rendement + dividende/action (ou « Ne verse pas de dividende ») et un bouton
- * « Évolution du dividende » → modale avec le graphe (barres) et un sélecteur de période
- * All → 1Y. Les années sans dividende restent sur l'axe, sans barre.
+ * KPI principal = croissance annualisée du dividende sur 5 ans. Corps = la stat (rendement +
+ * distribution). Popover « i » = explication pédagogique (rendement + payout). Bouton
+ * « Évolution du dividende » → modale graphe à barres (timelines All → 1Y, splits ajustés).
  */
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { DividendInfo, DividendPayment } from '@lubin/shared';
 import { Icon } from './ui/primitives.js';
@@ -12,28 +12,56 @@ import { Icon } from './ui/primitives.js';
 type Period = 'All' | '10Y' | '5Y' | '1Y';
 const PERIODS: Period[] = ['1Y', '5Y', '10Y', 'All'];
 
-export function DividendCard({ dividend, currency = 'USD' }: { dividend: DividendInfo; currency?: string }) {
+export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
+  dividend: DividendInfo; currency?: string; company: string; ticker: string;
+}) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const sym = currency === 'USD' ? '$' : `${currency} `;
+  const cur = currency === 'USD' ? '$' : currency;
   const hasHistory = dividend.payments.length > 0;
+  const g = dividend.growth5yPct;
+  const growthColor = g == null ? undefined : g > 0 ? 'var(--good-ink)' : g < 0 ? 'var(--bad-ink)' : undefined;
+
+  const statLine = [
+    dividend.yieldPct != null ? t('dividend.statYield', { v: dividend.yieldPct.toFixed(2) }) : null,
+    dividend.payoutRatioPct != null ? t('dividend.statPayout', { v: dividend.payoutRatioPct.toFixed(0) }) : null,
+  ].filter(Boolean).join(' · ');
 
   return (
     <div className="crit-card" style={{ border: '1.5px solid var(--brand)' }}>
       <div className="crit-card-head">
         <span className="crit-card-label">{t('dividend.title')}</span>
+        {dividend.paysDividend && dividend.yieldPct != null && (
+          <DividendInfoPop
+            title={t('dividend.title')}
+            yieldText={t('dividend.iYield', { company, ticker, yield: dividend.yieldPct.toFixed(2), cur })}
+            payoutText={dividend.payoutRatioPct != null
+              ? t('dividend.iPayout', { company, payout: dividend.payoutRatioPct.toFixed(2) })
+              : t('dividend.iPayoutNA')}
+          />
+        )}
       </div>
-      <div className="crit-card-vrow">
-        <span className="num crit-card-value">{dividend.paysDividend && dividend.yieldPct != null ? `${dividend.yieldPct.toFixed(2)} %` : '—'}</span>
-      </div>
-      <p className="crit-card-note">
-        {dividend.paysDividend
-          ? [
-              dividend.ratePerShare != null ? `${sym}${dividend.ratePerShare.toFixed(2)}/${t('dividend.perShareShort')}` : null,
-              dividend.payoutRatioPct != null ? t('dividend.payoutShort', { pct: dividend.payoutRatioPct.toFixed(0) }) : null,
-            ].filter(Boolean).join(' · ')
-          : t('dividend.none')}
-      </p>
+
+      {dividend.paysDividend ? (
+        <>
+          <div className="crit-card-vrow">
+            <span className="num crit-card-value" style={{ color: growthColor }}>
+              {g != null ? `${g > 0 ? '+' : ''}${g.toFixed(1)} %/an` : '—'}
+            </span>
+          </div>
+          <p className="crit-card-note">
+            <span style={{ fontWeight: 600, color: 'var(--ink-2)' }}>{g != null ? t('dividend.growthLabel') : t('dividend.growthNA')}</span>
+            {statLine && <> · {statLine}</>}
+          </p>
+        </>
+      ) : (
+        <>
+          <div className="crit-card-vrow"><span className="num crit-card-value">—</span></div>
+          <p className="crit-card-note">{t('dividend.none')}</p>
+        </>
+      )}
+
       <div className="crit-card-foot">
         <span className="pfcf-card-tag">{t('pfcfCards.notScored')}</span>
         {hasHistory && (
@@ -44,6 +72,34 @@ export function DividendCard({ dividend, currency = 'USD' }: { dividend: Dividen
       </div>
       {open && <DividendModal payments={dividend.payments} currency={currency} onClose={() => setOpen(false)} />}
     </div>
+  );
+}
+
+// ─── Petit popover « i » dédié (2 paragraphes, sans en-tête « Calcul ») ───────
+function DividendInfoPop({ title, yieldText, payoutText }: { title: string; yieldText: string; payoutText: string }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const h = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener('mousedown', h);
+    return () => document.removeEventListener('mousedown', h);
+  }, [open]);
+  return (
+    <span ref={ref} style={{ position: 'relative', display: 'inline-flex' }}>
+      <button type="button" onClick={(e) => { e.stopPropagation(); setOpen(!open); }} aria-label="En savoir plus"
+        style={{ display: 'inline-flex', width: 22, height: 22, borderRadius: 6, alignItems: 'center', justifyContent: 'center',
+          border: '1px solid var(--line)', background: open ? 'var(--brand-soft)' : 'transparent', color: open ? 'var(--brand-ink)' : 'var(--ink-4)', transition: 'all .14s' }}>
+        <Icon name="info" size={13} />
+      </button>
+      {open && (
+        <span className="pop fade-in" style={{ top: 28, right: 0 }} onClick={(e) => e.stopPropagation()}>
+          <b style={{ display: 'block', marginBottom: 6, fontSize: 12.5 }}>{title}</b>
+          <span style={{ display: 'block', opacity: 0.85, marginBottom: 8, lineHeight: 1.5 }}>{yieldText}</span>
+          <span style={{ display: 'block', opacity: 0.85, lineHeight: 1.5 }}>{payoutText}</span>
+        </span>
+      )}
+    </span>
   );
 }
 
@@ -59,7 +115,6 @@ function DividendModal({ payments, currency, onClose }: { payments: DividendPaym
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  // Barres selon la période : 1Y = versements individuels ; sinon agrégat annuel (trous à 0).
   const bars = useMemo<{ label: string; value: number }[]>(() => {
     if (payments.length === 0) return [];
     const nowY = new Date().getFullYear();

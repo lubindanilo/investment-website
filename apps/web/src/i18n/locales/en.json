@@ -682,17 +682,17 @@
     "sectorMean": "sector average {{value}}×"
   },
   "dividend": {
-    "title": "Dividends",
-    "sub": "Yield and payout",
+    "title": "Dividend",
     "none": "Does not pay a dividend",
-    "yield": "Yield",
-    "rate": "Dividend / share",
-    "payout": "Payout ratio",
-    "exDate": "Next ex-date",
-    "perShareShort": "share",
-    "payoutShort": "payout {{pct}}%",
+    "growthLabel": "Annualized growth · 5y",
+    "growthNA": "History < 5y",
+    "statYield": "yield {{v}}%",
+    "statPayout": "payout {{v}}%",
+    "iYield": "{{company}} ({{ticker}}) has a dividend yield of {{yield}}%, meaning that for every 100 {{cur}} invested in the stock, investors receive {{yield}} {{cur}} in dividends per year.",
+    "iPayout": "{{company}} has a payout ratio of {{payout}}%, meaning {{payout}}% of the company’s earnings are paid out as dividends.",
+    "iPayoutNA": "The payout ratio is not disclosed.",
     "evolution": "Dividend history",
-    "evolutionSub": "Dividend per share, by period",
+    "evolutionSub": "Dividend per share, by period (split-adjusted)",
     "evolutionNote": "Years with no payment stay on the axis, without a bar."
   }
 }

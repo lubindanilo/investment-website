@@ -68,7 +68,9 @@ export interface DividendInfo {
   payoutRatioPct: number | null;
   /** Prochaine date ex-dividende (YYYY-MM-DD). */
   exDate: string | null;
-  /** Historique complet des versements (ancien→récent) — alimente le graphe d'évolution. */
+  /** Croissance annualisée (CAGR) du dividende sur 5 ans, en %. Null si historique < 5 ans. */
+  growth5yPct: number | null;
+  /** Historique complet des versements, AJUSTÉ DES SPLITS (ancien→récent) — graphe d'évolution. */
   payments: DividendPayment[];
 }
 

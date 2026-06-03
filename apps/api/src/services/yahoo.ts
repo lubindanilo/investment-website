@@ -643,8 +643,13 @@ const YAHOO_DIV_TTL_MS = 24 * 60 * 60 * 1000; // 1 j (rendement bouge avec le pr
 interface CachedYahooDiv { data: DividendInfo; cachedAt: number }
 const yahooDivCache = new Map<string, CachedYahooDiv>();
 
-/** Historique des versements de dividende via le chart Yahoo (events=div, public, sans crumb). */
-async function fetchDividendPayments(symbol: string, years = 25): Promise<DividendPayment[]> {
+/**
+ * Historique des versements de dividende via le chart Yahoo (events=div, public, sans crumb).
+ * ⚠ Yahoo renvoie déjà les montants AJUSTÉS DES SPLITS (exprimés en actions courantes) :
+ * ex AAPL 2019 ressort à ~0,19 (= 0,77 ÷ 4 du split 2020), pas 0,77. On les utilise tels quels
+ * — pas de ré-ajustement (sinon double comptage).
+ */
+async function fetchDividendPayments(symbol: string, years = 30): Promise<DividendPayment[]> {
   try {
     const now = Math.floor(Date.now() / 1000);
     const period1 = now - years * 365 * 86400;
@@ -664,8 +669,27 @@ async function fetchDividendPayments(symbol: string, years = 25): Promise<Divide
   }
 }
 
+/** CAGR du dividende sur 5 ans à partir des versements (déjà split-adjustés). Fenêtres 12 mois. */
+function dividendGrowth5y(payments: DividendPayment[]): number | null {
+  if (payments.length < 2) return null;
+  const dayMs = 86400000;
+  const nowMs = Date.now();
+  const sumWindow = (endMs: number) => {
+    const startMs = endMs - 365 * dayMs;
+    return payments.reduce((acc, p) => {
+      const t = Date.parse(p.date + 'T00:00:00Z');
+      return t > startMs && t <= endMs ? acc + p.amount : acc;
+    }, 0);
+  };
+  const ttmNow = sumWindow(nowMs);
+  const ttm5y = sumWindow(nowMs - 5 * 365 * dayMs);
+  if (ttmNow <= 0 || ttm5y <= 0) return null;
+  const cagr = Math.pow(ttmNow / ttm5y, 1 / 5) - 1;
+  return Math.round(cagr * 1000) / 10;   // % à 1 décimale
+}
+
 export async function getDividendInfoYahoo(symbol: string): Promise<DividendInfo> {
-  const none: DividendInfo = { paysDividend: false, yieldPct: null, ratePerShare: null, payoutRatioPct: null, exDate: null, payments: [] };
+  const none: DividendInfo = { paysDividend: false, yieldPct: null, ratePerShare: null, payoutRatioPct: null, exDate: null, growth5yPct: null, payments: [] };
   const cached = yahooDivCache.get(symbol);
   if (cached && Date.now() - cached.cachedAt < YAHOO_DIV_TTL_MS) return cached.data;
 
@@ -697,7 +721,7 @@ export async function getDividendInfoYahoo(symbol: string): Promise<DividendInfo
       const payout = sd?.payoutRatio?.raw ?? null;
       const exRaw = sd?.exDividendDate ?? node?.calendarEvents?.exDividendDate;
       const exDate = ynumToDate(exRaw);
-      // Historique des versements (chart events=div) — pour le graphe d'évolution.
+      // Historique des versements (chart events=div, déjà ajusté des splits par Yahoo).
       const payments = await fetchDividendPayments(symbol);
       const paysDividend = (rate != null && rate > 0) || (yld != null && yld > 0) || payments.length > 0;
       const result: DividendInfo = {
@@ -706,6 +730,7 @@ export async function getDividendInfoYahoo(symbol: string): Promise<DividendInfo
         ratePerShare: rate != null ? Math.round(rate * 100) / 100 : null,
         payoutRatioPct: payout != null && payout > 0 ? Math.round(payout * 1000) / 10 : null,
         exDate,
+        growth5yPct: dividendGrowth5y(payments),
         payments,
       };
       yahooDivCache.set(symbol, { data: result, cachedAt: Date.now() });
