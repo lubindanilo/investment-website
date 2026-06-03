@@ -61,6 +61,9 @@ export async function buildAndCacheQuantSnapshot(
     sector: quant.industry,
     dayChangePct: quant.dayChangePct,
   };
-  await writeCachedSnapshot(ticker, snapshot);
-  return snapshot;
+  // GARDE ANTI-DÉGRADATION : writeCachedSnapshot conserve le cache existant si ce recompute
+  // est de moindre qualité (échec transitoire). On renvoie l'EFFECTIVE (conservé ou nouveau)
+  // pour que le screener écrive une note cohérente avec le cache et stable côté client.
+  const effective = await writeCachedSnapshot(ticker, snapshot);
+  return effective;
 }

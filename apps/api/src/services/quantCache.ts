@@ -104,11 +104,60 @@ export async function getCachedSnapshotsBatch(tickers: string[]): Promise<Map<st
   return map;
 }
 
-/** Écrit le snapshot (upsert) — appelé après chaque compute fresh. */
-export async function writeCachedSnapshot(ticker: string, snapshot: CachedQuantSnapshot): Promise<void> {
+/**
+ * Nombre de critères CHIFFRÉS réellement calculables dans un snapshot (parmi les 10).
+ * Indépendant de la langue : on lit les métriques dérivées, pas les libellés.
+ * operatingLeverage est un booléen → non-null = calculé.
+ */
+function computableMetrics(snap: CachedQuantSnapshot): number {
+  const m = snap.metrics ?? ({} as DerivedMetrics);
+  const vals = [
+    m.netMargin, m.revenueCagr, m.fcfPerShareCagr, m.shareCagr, m.fcfMargin,
+    m.operatingLeverage, m.cashROCE, m.netDebtFcf, m.ccr, m.nwcCurrentRatio,
+  ];
+  return vals.filter((v) => v != null).length;
+}
+
+/**
+ * Vrai si `next` est une DÉGRADATION de qualité vs `prev` — typiquement un échec TRANSITOIRE
+ * de données (rate-limit Finnhub, appel /financials-reported qui flanche), PAS un vrai
+ * changement de fondamentaux. Cas détectés :
+ *   - perte des fondamentaux (available → indisponible),
+ *   - rétrogradation de source (finnhub → yahoo : change l'ensemble des critères ET le
+ *     dénominateur du score → grosse marche dans la note),
+ *   - moins de critères chiffrés calculables (une régression est tombée en « Non calculable »).
+ *
+ * Dans ces cas on CONSERVE `prev` : la note affichée aux clients ne doit pas bouger sur du
+ * bruit transitoire — seulement sur un vrai changement (earnings → recompute de même qualité).
+ * Auto-réparation : un 1er cache dégradé (rien à comparer) est écrit, puis un recompute
+ * complet est une AMÉLIORATION (non dégradation) → il écrase bien le cache dégradé.
+ */
+export function isQualityDegradation(prev: CachedQuantSnapshot, next: CachedQuantSnapshot): boolean {
+  if (prev.fundamentalsAvailable && !next.fundamentalsAvailable) return true;
+  if (prev.fundamentalsSource === 'finnhub' && next.fundamentalsSource === 'yahoo') return true;
+  if (computableMetrics(next) < computableMetrics(prev)) return true;
+  return false;
+}
+
+/**
+ * Écrit le snapshot (upsert) — appelé après chaque compute fresh. GARDE ANTI-DÉGRADATION :
+ * si un cache existant est de meilleure qualité (cf. isQualityDegradation), on le CONSERVE et
+ * on ne persiste pas le recompute dégradé. Renvoie le snapshot EFFECTIVEMENT en cache (le
+ * conservé ou le nouveau) — les appelants (screener) doivent l'utiliser pour rester cohérents.
+ */
+export async function writeCachedSnapshot(ticker: string, snapshot: CachedQuantSnapshot): Promise<CachedQuantSnapshot> {
+  const existing = await getCachedSnapshot(ticker).catch(() => null);
+  if (existing && isQualityDegradation(existing, snapshot)) {
+    console.warn(
+      `[quantCache ${ticker}] recompute dégradé ignoré — source ${existing.fundamentalsSource}→${snapshot.fundamentalsSource}, ` +
+      `critères calculables ${computableMetrics(existing)}→${computableMetrics(snapshot)} : cache conservé, note inchangée`,
+    );
+    return existing;
+  }
   await prisma.tickerQuantSnapshot.upsert({
     where: { ticker },
     update: { snapshot: snapshot as unknown as object, refreshedAt: new Date() },
     create: { ticker, snapshot: snapshot as unknown as object, refreshedAt: new Date() },
   });
+  return snapshot;
 }
