@@ -11,7 +11,8 @@
 import { finnhubLimiter } from '../lib/limiter.js';
 import { fetchWithRetry } from '../lib/retry.js';
 import type { TimeseriesPoint } from '@lubin/shared';
-import { fetchSplitEvents, splitAdjustWithDiscontinuity } from './yahooSplits.js';
+import { fetchSplitEvents, splitAdjustWithDiscontinuity, type SplitEvent } from './yahooSplits.js';
+import { getEdgarQuarterlySeries } from './secEdgar.js';
 
 const BASE = 'https://finnhub.io/api/v1';
 const TOKEN = process.env.FINNHUB_API_KEY ?? '';
@@ -52,6 +53,29 @@ export interface MetricConfig {
    * False si snapshot à date (cash, dette, actions outstanding).
    */
   cumulative: boolean;
+}
+
+// ─── Injection point-in-time (backtest) ────────────────────────────────────
+// Permet au backtest de REJOUER le passé : quand une source de replay est posée,
+// getReportedTimeseries lit des filings stockés (déjà filtrés filedDate ≤ asOf par
+// l'appelant) au lieu de fetcher Finnhub, et toutes les fenêtres temporelles
+// (filterWindow, windowed) sont calées sur asOf au lieu de « maintenant ».
+// Rétro-compatible : REPLAY null = comportement live strictement inchangé. État module
+// global = OK pour un replay SÉQUENTIEL hors-ligne (un ticker/une date à la fois).
+export interface ReplaySource {
+  /** Date d'observation (YYYY-MM-DD) — borne haute de toutes les fenêtres temporelles. */
+  asOf: string;
+  /** Filings disponibles à asOf (filtrés filedDate ≤ asOf par l'appelant). */
+  filings(ticker: string, freq: Frequency): FinnhubFiling[];
+  /** Splits survenus jusqu'à asOf (filtrés ≤ asOf par l'appelant). */
+  splits(ticker: string): SplitEvent[];
+}
+let REPLAY: ReplaySource | null = null;
+/** Pose (ou retire avec null) la source de replay point-in-time. */
+export function setReplaySource(s: ReplaySource | null): void { REPLAY = s; }
+/** Référence temporelle courante en ms : asOf si replay actif, sinon maintenant. */
+function nowRefMs(): number {
+  return REPLAY ? new Date(REPLAY.asOf + 'T00:00:00Z').getTime() : Date.now();
 }
 
 export const METRICS: Record<string, MetricConfig> = {
@@ -254,6 +278,8 @@ const REPORTED_TTL_MS = 60_000;
 const reportedCache = new Map<string, { at: number; promise: Promise<FinnhubFiling[]> }>();
 
 function fetchReported(ticker: string, freq: Frequency): Promise<FinnhubFiling[]> {
+  // Replay point-in-time : on sert les filings stockés (pas de réseau, pas de cache).
+  if (REPLAY) return Promise.resolve(REPLAY.filings(ticker, freq));
   const key = `${ticker.toUpperCase()}|${freq}`;
   const hit = reportedCache.get(key);
   if (hit && Date.now() - hit.at < REPORTED_TTL_MS) return hit.promise;
@@ -418,7 +444,7 @@ export function computeExcessCash(
   return Math.max(0, totalCash - operatingNeed);
 }
 
-function extractValue(filing: FinnhubFiling, cfg: MetricConfig): number | null {
+export function extractValue(filing: FinnhubFiling, cfg: MetricConfig): number | null {
   if (cfg.concepts.includes('__computed_fcf__')) {
     const cfo = extractFirst(filing, 'cf', METRICS.cfo!.concepts);
     const capex = extractFirst(filing, 'cf', METRICS.capex!.concepts);
@@ -596,7 +622,37 @@ export async function getReportedTimeseries(
   }
 
   points.sort((a, b) => a.date.localeCompare(b.date));
-  return splitAdjustIfNeeded(filterWindow(points, cap), ticker, metric);
+
+  // ─── Comble-trous EDGAR (US uniquement) ────────────────────────────────────
+  // Finnhub a des trimestres manquants (Q4 non dérivable, tags…). Si la série fenêtrée a des
+  // trous, on récupère chez EDGAR (autoritatif) UNIQUEMENT les trimestres absents et on fusionne
+  // — sans toucher aux points Finnhub existants ni à aucune formule en aval.
+  let windowed = filterWindow(points, cap);
+  if (freq === 'quarterly' && !ticker.includes('.') && hasQuarterlyGap(windowed)) {
+    const edgar = await getEdgarQuarterlySeries(ticker, metric).catch(() => [] as TimeseriesPoint[]);
+    if (edgar.length > 0) {
+      // Dédup par PROXIMITÉ (±20j) : les dates de fin de période Finnhub vs EDGAR peuvent
+      // différer de quelques jours pour le même trimestre → un match exact créerait des doublons.
+      const haveTs = windowed.map(p => Date.parse(p.date));
+      const near = (t: number) => haveTs.some(h => Math.abs(h - t) < 20 * 86400000);
+      const filled = filterWindow(edgar, cap).filter(e => !near(Date.parse(e.date)));
+      if (filled.length > 0) {
+        windowed = [...windowed, ...filled].sort((a, b) => a.date.localeCompare(b.date));
+        console.log(`[edgar ${ticker}/${metric}] +${filled.length} trimestre(s) comblé(s) (trous Finnhub)`);
+      }
+    }
+  }
+  return splitAdjustIfNeeded(windowed, ticker, metric);
+}
+
+/** Vrai s'il manque ≥1 trimestre dans la série (écart > ~130j entre 2 points, ou série vide). */
+function hasQuarterlyGap(points: TimeseriesPoint[]): boolean {
+  if (points.length < 2) return points.length === 0 ? false : false; // 0-1 pt : pas de "trou" interne à combler ici
+  const sorted = [...points].sort((a, b) => a.date.localeCompare(b.date));
+  for (let i = 1; i < sorted.length; i++) {
+    if ((Date.parse(sorted[i]!.date) - Date.parse(sorted[i - 1]!.date)) / 86400000 > 130) return true;
+  }
+  return false;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -664,8 +720,9 @@ function regressLogGrowth(points: TtmPoint[]): { rate: number; n: number; first:
 
 /** Filtre une série de TTM points sur les `windowYears` dernières années (par ts). */
 function windowed(points: TtmPoint[], windowYears: number): TtmPoint[] {
-  const cutoff = Date.now() - windowYears * 365.25 * 24 * 3600 * 1000;
-  return points.filter(p => p.ts >= cutoff);
+  const ref = nowRefMs();
+  const cutoff = ref - windowYears * 365.25 * 24 * 3600 * 1000;
+  return points.filter(p => p.ts >= cutoff && p.ts <= ref);
 }
 
 /**
@@ -678,7 +735,9 @@ function windowed(points: TtmPoint[], windowYears: number): TtmPoint[] {
  */
 function detectDiscontinuity(
   points: { date: string; ts: number }[],
-  maxGapDays = 200,
+  maxGapDays = 300,   // tolère ≤2 trimestres manquants (~273j) — bénin pour une régression
+                      // temporelle, et le skip de dé-cumulation empêche déjà les valeurs doublées.
+                      // Rejette toujours ≥3 trous (~365j+) = vrai problème (ticker change, an entier absent).
 ): { missing: number; from: string; to: string } | null {
   if (points.length < 2) return null;
   const sorted = [...points].sort((a, b) => a.ts - b.ts);
@@ -1206,7 +1265,7 @@ async function splitAdjustIfNeeded(
   metric: MetricKey,
 ): Promise<TimeseriesPoint[]> {
   if (metric !== 'shares' || points.length === 0) return points;
-  const splits = await fetchSplitEvents(ticker);
+  const splits = REPLAY ? REPLAY.splits(ticker) : await fetchSplitEvents(ticker);
   if (splits.length === 0) return points;
   return splitAdjustWithDiscontinuity(points, splits);
 }
@@ -1223,8 +1282,10 @@ function extractAndPack(filings: FinnhubFiling[], cfg: MetricConfig): Timeseries
 }
 
 function filterWindow(points: TimeseriesPoint[], years: number): TimeseriesPoint[] {
-  const cutoff = new Date();
+  const cutoff = new Date(nowRefMs());
   cutoff.setFullYear(cutoff.getFullYear() - years);
   const cutoffIso = cutoff.toISOString().slice(0, 10);
-  return points.filter(p => p.date >= cutoffIso);
+  // En replay, asOf borne aussi le HAUT (sécurité ; un filing filedDate ≤ asOf a déjà endDate ≤ asOf).
+  const upperIso = REPLAY ? REPLAY.asOf : '9999-12-31';
+  return points.filter(p => p.date >= cutoffIso && p.date <= upperIso);
 }
