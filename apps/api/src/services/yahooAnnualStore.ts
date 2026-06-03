@@ -13,6 +13,7 @@
  */
 import type { TimeseriesPoint } from '@lubin/shared';
 import { readSeries, isFresh, appendMergePersist, type ExpiryCadence } from './fundamentalsStore.js';
+import { getYahooQuarterlyBatch } from './yahoo.js';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Lubin-Investment/0.1';
 const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
@@ -100,6 +101,29 @@ export async function getYahooAnnualBatchCached(
     out.set(type, eff);
   }
   return out;
+}
+
+/**
+ * ACCUMULE l'historique TRIMESTRIEL Yahoo des titres non-US dans le store (freq='quarterly',
+ * sous les clés MetricKey, comme l'US). Yahoo ne donne qu'une fenêtre glissante (~5 trimestres) ;
+ * l'append-only fait qu'à chaque résultat le nouveau trimestre vient s'ajouter → l'historique se
+ * complète tout seul au fil des années (et le chemin CAGR trimestriel finira par s'activer pour l'EU).
+ * No-op pour les émetteurs semestriels (LVMH, Nestlé…) que Yahoo n'expose pas en trimestriel.
+ * Best-effort : appelé en arrière-plan au scoring (cadence earnings = quand le trimestre paraît).
+ */
+export async function accumulateYahooQuarterly(ticker: string, symbol: string, nowMs: number): Promise<number> {
+  const batch = await getYahooQuarterlyBatch(symbol, 6).catch(() => null);
+  if (!batch || batch.size === 0) return 0;
+  let metricsStored = 0;
+  for (const [metricKey, pts] of batch) {
+    if (!pts.length) continue;
+    const stored = await readSeries(ticker, metricKey);
+    // freq='quarterly' + cadence trimestrielle (défaut) → se rafraîchit ~chaque trimestre.
+    await appendMergePersist(ticker, metricKey, stored, pts, 'yahoo-q', nowMs, { freq: 'quarterly' });
+    metricsStored++;
+  }
+  if (metricsStored > 0) console.log(`[yahoo Q-accum ${ticker}] ${metricsStored} métriques trimestrielles accumulées (append-only)`);
+  return metricsStored;
 }
 
 /** Série annuelle store-cachée pour UN type Yahoo (graphiques). [] si indisponible. */

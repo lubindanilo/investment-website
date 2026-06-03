@@ -443,6 +443,46 @@ export async function getYahooMetricTimeseries(
   return getQuarterlyTimeseries(ticker, yType, years);
 }
 
+/**
+ * Batch : toutes les métriques trimestrielles Yahoo en 1 requête → Map<metricKey, points>.
+ * Utilisé pour ACCUMULER l'historique trimestriel des titres non-US (Yahoo ne donne qu'une
+ * fenêtre glissante de ~5 trimestres ; en les stockant append-only au fil des résultats, on
+ * reconstitue l'historique complet). Split-adj sur les share counts. [] / absent si Yahoo n'a
+ * rien (ex émetteurs semestriels comme LVMH/Nestlé → pas de trimestriel).
+ */
+export async function getYahooQuarterlyBatch(symbol: string, years: number): Promise<Map<string, TimeseriesPoint[]>> {
+  const safeYears = Math.max(1, Math.min(years, 50));
+  const pairs = Object.entries(METRIC_TO_YAHOO); // [metricKey, quarterlyType]
+  return yahooLimiter.schedule(async () => {
+    const out = new Map<string, TimeseriesPoint[]>();
+    try {
+      const [data, splits] = await Promise.all([
+        fetchTimeseriesCustomPeriod(symbol, pairs.map(([, t]) => t), safeYears + 1),
+        fetchSplitEvents(symbol).catch(() => [] as Awaited<ReturnType<typeof fetchSplitEvents>>),
+      ]);
+      if (data.timeseries?.error) { console.warn(`[yahoo Q-batch ${symbol}]`, data.timeseries.error.description); return out; }
+      const cutoff = new Date(); cutoff.setFullYear(cutoff.getFullYear() - safeYears);
+      const cutoffIso = cutoff.toISOString().slice(0, 10);
+      for (const [metricKey, yType] of pairs) {
+        const isShares = metricKey === 'shares';
+        const pts = extractSeriesFull(data, yType)
+          .filter(p => p.date >= cutoffIso)
+          .map(p => {
+            if (!isShares || splits.length === 0) return p;
+            const asOfTs = Math.floor(new Date(p.date + 'T00:00:00Z').getTime() / 1000);
+            return { date: p.date, value: p.value * cumulativeSplitFactor(splits, asOfTs) };
+          })
+          .sort((a, b) => a.date.localeCompare(b.date));
+        if (pts.length) out.set(metricKey, pts);
+      }
+      return out;
+    } catch (e) {
+      console.warn(`[yahoo Q-batch ${symbol}] échec :`, (e as Error).message);
+      return out;
+    }
+  });
+}
+
 /** Variant de fetchTimeseries avec fenêtre configurable (jusqu'à 50 ans). */
 async function fetchTimeseriesCustomPeriod(ticker: string, types: string[], years: number): Promise<TimeseriesResponse> {
   const period2 = Math.floor(Date.now() / 1000);

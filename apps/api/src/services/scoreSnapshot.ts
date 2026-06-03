@@ -10,6 +10,7 @@
 import { loadQuantData } from './quantSnapshot.js';
 import { buildQuantitativeCriteria } from './derivedMetrics.js';
 import { writeCachedSnapshot, type CachedQuantSnapshot } from './quantCache.js';
+import { accumulateYahooQuarterly } from './yahooAnnualStore.js';
 
 export async function buildAndCacheQuantSnapshot(
   ticker: string,
@@ -65,5 +66,13 @@ export async function buildAndCacheQuantSnapshot(
   // est de moindre qualité (échec transitoire). On renvoie l'EFFECTIVE (conservé ou nouveau)
   // pour que le screener écrive une note cohérente avec le cache et stable côté client.
   const effective = await writeCachedSnapshot(ticker, snapshot);
+
+  // Titres non-US (Yahoo) : on ACCUMULE l'historique trimestriel Yahoo (fenêtre glissante ~5 trim)
+  // dans le store, append-only. Au fil des résultats, l'historique trimestriel se complète tout seul.
+  // Best-effort, en arrière-plan du scoring (jamais bloquant pour la note).
+  if (quant.fundamentalsSource === 'yahoo' && quant.yahooSymbol) {
+    await accumulateYahooQuarterly(ticker, quant.yahooSymbol, Date.now()).catch(() => {});
+  }
+
   return effective;
 }
