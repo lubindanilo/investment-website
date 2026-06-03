@@ -126,10 +126,13 @@ function DividendModal({ payments, currency, onClose }: { payments: DividendPaym
     const byYear = new Map<number, number>();
     for (const p of payments) { const y = Number(p.date.slice(0, 4)); byYear.set(y, (byYear.get(y) ?? 0) + p.amount); }
     const firstY = Math.min(...payments.map(p => Number(p.date.slice(0, 4))));
-    const span = period === '5Y' ? 5 : period === '10Y' ? 10 : (nowY - firstY + 1);
-    const startY = period === 'All' ? firstY : nowY - span + 1;
+    // L'année courante est INCOMPLÈTE (versements partiels) → on s'arrête à la dernière année
+    // complète pour ne pas afficher une barre tronquée trompeuse (sauf si c'est la seule année).
+    const endY = Math.max(nowY - 1, firstY);
+    const span = period === '5Y' ? 5 : period === '10Y' ? 10 : (endY - firstY + 1);
+    const startY = period === 'All' ? firstY : endY - span + 1;
     const out: { label: string; value: number }[] = [];
-    for (let y = startY; y <= nowY; y++) out.push({ label: String(y), value: Math.round((byYear.get(y) ?? 0) * 10000) / 10000 });
+    for (let y = startY; y <= endY; y++) out.push({ label: String(y), value: Math.round((byYear.get(y) ?? 0) * 10000) / 10000 });
     return out;
   }, [payments, period]);
 

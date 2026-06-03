@@ -155,10 +155,7 @@ export async function getSharesHistory(ticker: string): Promise<SharesHistoryPoi
       // On embarque FCF directement ici pour pouvoir calculer un fcfPerShareCagr split-adjusté
       // sans relancer un appel Yahoo séparé (et sans dépendre de Finnhub epsGrowth5Y qui peut
       // ne pas avoir absorbé un split récent).
-      const [data, splits] = await Promise.all([
-        fetchTimeseries(ticker, ['annualDilutedAverageShares', 'annualOrdinarySharesNumber', 'annualFreeCashFlow']),
-        fetchSplitEvents(ticker),
-      ]);
+      const data = await fetchTimeseries(ticker, ['annualDilutedAverageShares', 'annualOrdinarySharesNumber', 'annualFreeCashFlow']);
       if (data.timeseries?.error) {
         console.warn(`[yahoo ${ticker}]`, data.timeseries.error.description);
         return null;
@@ -179,21 +176,15 @@ export async function getSharesHistory(ticker: string): Promise<SharesHistoryPoi
       const fcfByYear: Record<number, number> = {};
       for (const p of fcfSeries) fcfByYear[p.fiscalYear] = p.value;
 
+      // ⚠ Yahoo restate DÉJÀ le nombre d'actions historique post-split (ex NVDA 2020 = 24,96 Md
+      // déjà en actions courantes). On NE ré-applique PAS le facteur de split (sinon double
+      // comptage → CAGR aberrant, ex NVDA −54 %/an et FCF/action +624 %/an).
       const points: SharesHistoryPoint[] = series
-        .map(s => {
-          const asOfTs = Math.floor(new Date(s.date + 'T00:00:00Z').getTime() / 1000);
-          const factor = cumulativeSplitFactor(splits, asOfTs);
-          return {
-            fiscalYear: s.fiscalYear,
-            dilutedShares: s.value * factor,
-            fcf: fcfByYear[s.fiscalYear] ?? null,
-          };
-        })
+        .map(s => ({ fiscalYear: s.fiscalYear, dilutedShares: s.value, fcf: fcfByYear[s.fiscalYear] ?? null }))
         .sort((a, b) => a.fiscalYear - b.fiscalYear);
 
-      const splitNote = splits.length > 0 ? ` [${splits.length} split-adj]` : '';
       const fcfNote = fcfSeries.length > 0 ? ` +FCF${fcfSeries.length}` : '';
-      console.log(`[yahoo ${ticker}] ${points.length} années via ${source} (${points[0]!.fiscalYear} → ${points[points.length - 1]!.fiscalYear})${splitNote}${fcfNote}`);
+      console.log(`[yahoo ${ticker}] ${points.length} années via ${source} (${points[0]!.fiscalYear} → ${points[points.length - 1]!.fiscalYear})${fcfNote}`);
       return points;
     } catch (e) {
       console.warn(`[yahoo ${ticker}] échec — fallback Finnhub :`, (e as Error).message);
