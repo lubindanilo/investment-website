@@ -5,14 +5,13 @@ import type { ScreenerTopRow, ScreenerStats } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { sectorSlug } from '../lib/sector.js';
-import { Sparkline } from '../components/ui/charts.js';
 import { formatPrice } from '../lib/format.js';
 import './ScreenerPage.css';
 
 const SCORE_OPTS = [4, 6, 8, 9, 10];
 const PFCF_MAX = 50; // valeur haute = pas de filtre P/FCF
 
-type SortCol = 'score' | 'pfcf' | 'price' | 'change';
+type SortCol = 'score' | 'pfcf' | 'price' | 'earnings';
 interface SortState { col: SortCol; dir: 'asc' | 'desc' }
 
 function ratioOf(r: ScreenerTopRow) { return r.scoreChiffresMax ? (r.scoreChiffres ?? 0) / r.scoreChiffresMax : 0; }
@@ -20,7 +19,17 @@ function valOf(r: ScreenerTopRow, col: SortCol): number {
   if (col === 'score') return ratioOf(r);
   if (col === 'pfcf') return r.pfcfTTM ?? Infinity;
   if (col === 'price') return r.price ?? -Infinity;
-  return r.dayChangePct ?? -Infinity;
+  // earnings : null → en bas (date "infinie"). Sinon Date.parse → ms (asc = plus proche en premier).
+  if (!r.nextEarningsDate) return Number.POSITIVE_INFINITY;
+  const t = Date.parse(r.nextEarningsDate + 'T12:00:00Z');
+  return Number.isFinite(t) ? t : Number.POSITIVE_INFINITY;
+}
+
+/** Format date d'earnings — même style que WatchlistPage (ex "12 mars 2026"). */
+function formatEarnings(iso?: string | null): string {
+  if (!iso) return '—';
+  const d = new Date(iso + 'T12:00:00Z');
+  return Number.isNaN(d.getTime()) ? '—' : d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
 /** Bouton « Filtres » → popover multi-sélection de secteurs (recherche + Valider/Réinitialiser). */
@@ -276,8 +285,7 @@ export function ScreenerPage() {
                   <SortTh label={t('screener.col.score')} col="score" />
                   <SortTh label="P/FCF" col="pfcf" />
                   <SortTh label={t('screener.col.price')} col="price" />
-                  <SortTh label={t('screener.col.change')} col="change" />
-                  <th>{t('screener.col.oneYear')}</th>
+                  <SortTh label={t('screener.col.earnings')} col="earnings" />
                   <th style={{ width: 40 }}></th>
                 </tr>
               </thead>
@@ -294,10 +302,12 @@ export function ScreenerPage() {
                     <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
                     <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
                     <td className="num">{formatPrice(r.price, r.currency)}</td>
-                    <td className="num" style={{ fontWeight: 600, color: r.dayChangePct == null ? 'var(--ink-4)' : r.dayChangePct >= 0 ? 'var(--good)' : 'var(--bad)' }}>
-                      {r.dayChangePct == null ? '—' : `${r.dayChangePct >= 0 ? '+' : ''}${r.dayChangePct.toFixed(2)} %`}
+                    <td>
+                      <span className="num tiny wl-earn">
+                        <Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />
+                        {formatEarnings(r.nextEarningsDate)}
+                      </span>
                     </td>
-                    <td>{r.spark && r.spark.length >= 2 ? <span style={{ display: 'inline-flex' }}><Sparkline data={r.spark} /></span> : <span className="muted">—</span>}</td>
                     <td style={{ width: 40, textAlign: 'right' }}><span style={{ color: 'var(--ink-4)' }}><Icon name="chevronR" size={16} /></span></td>
                   </tr>
                 ))}

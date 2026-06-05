@@ -5,6 +5,7 @@ import type { WatchlistEntry } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
+import { TickerSearch } from '../components/TickerSearch.js';
 import { formatPrice } from '../lib/format.js';
 import './WatchlistPage.css';
 
@@ -88,15 +89,15 @@ export function WatchlistPage() {
     return () => document.removeEventListener('visibilitychange', onVisible);
   }, [load]);
 
-  async function addTicker() {
-    const tk = newTicker.trim().toUpperCase();
+  const addTicker = useCallback(async (rawTicker?: string) => {
+    const tk = (rawTicker ?? newTicker).trim().toUpperCase();
     if (!tk) return;
     if (items.some(i => i.ticker === tk)) { toast.push('warn', t('watchlist.toast.alreadyAdded', { ticker: tk })); return; }
     setAdding(true);
     try { const entry = await api.watchlist.add(tk); setItems(prev => [...prev, entry]); setNewTicker(''); toast.push('success', t('watchlist.toast.added', { ticker: tk })); }
     catch (e) { toast.push('error', (e as Error).message); }
     finally { setAdding(false); }
-  }
+  }, [items, newTicker, t, toast]);
 
   async function remove(ticker: string) {
     try { await api.watchlist.remove(ticker); setItems(prev => prev.filter(e => e.ticker !== ticker)); }
@@ -133,14 +134,19 @@ export function WatchlistPage() {
         </div>
 
         <div className="wl-add">
-          <div className="anl-search-field" style={{ maxWidth: 320 }}>
-            <Icon name="search" size={16} className="anl-search-icon" />
-            <input className="anl-search-input num" style={{ height: 40, paddingLeft: 40, fontSize: 14 }}
-              value={newTicker} placeholder={t('watchlist.addPlaceholder')}
-              onChange={e => setNewTicker(e.target.value.toUpperCase())}
-              onKeyDown={e => e.key === 'Enter' && addTicker()} />
+          <div className="anl-search-field" style={{ maxWidth: 320, width: '100%' }}>
+            <TickerSearch
+              value={newTicker}
+              onChange={setNewTicker}
+              onSelect={(tk) => { void addTicker(tk); }}
+              placeholder={t('watchlist.addPlaceholder')}
+              variant="field"
+              exclude={items.map(i => i.ticker)}
+              inputStyle={{ height: 40, paddingLeft: 40, fontSize: 14 }}
+              noResultLabel={t('compare.noResult')}
+            />
           </div>
-          <button className="btn btn-brand btn-sm" style={{ height: 40 }} onClick={addTicker} disabled={adding || !newTicker.trim()}>
+          <button className="btn btn-brand btn-sm" style={{ height: 40 }} onClick={() => { void addTicker(); }} disabled={adding || !newTicker.trim()}>
             {adding ? <span className="spinner" /> : <><Icon name="plus" size={14} /> {t('watchlist.add')}</>}
           </button>
           {hasOpp && (

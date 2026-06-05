@@ -3,13 +3,14 @@
  * Données : /api/compare (cache-servi, quasi instantané). Recherche : /api/screener/search.
  * Réutilise les primitives (ScoreCircle, StatusBadge, InfoPop, Icon) + i18n + tokens.
  */
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { sectorSlug } from '../lib/sector.js';
-import type { CompareResponse, CompareTicker, CompareCriterionDef, TickerSuggestion, DataStatus } from '@lubin/shared';
+import type { CompareResponse, CompareTicker, CompareCriterionDef, DataStatus } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScoreCircle, scoreColor, StatusBadge, InfoPop } from '../components/ui/primitives.js';
+import { TickerSearch } from '../components/TickerSearch.js';
 import { formatPrice } from '../lib/format.js';
 import './ComparePage.css';
 
@@ -17,7 +18,7 @@ type Dir = 'hb' | 'lb' | 'text';
 const DIR: Record<string, Dir> = {
   netMargin: 'hb', revenueGrowth5y: 'hb', fcfGrowth5y: 'hb', shareCount5y: 'lb', fcfMargin: 'hb',
   operatingLeverage: 'text', cashRoce: 'hb', netDebtFcf: 'lb', cashConversion: 'hb', currentRatio: 'lb',
-  pfcf: 'lb', valuation: 'hb',
+  pfcf: 'lb', pfcfPercentile: 'lb',
 };
 
 type CompanyView = (CompareTicker & { loading?: false; missing?: false })
@@ -128,54 +129,24 @@ function AddTicker({ selected, onAdd }: { selected: string[]; onAdd: (t: string)
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState('');
-  const [list, setList] = useState<TickerSuggestion[]>([]);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    const h = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) { setOpen(false); setQ(''); } };
-    document.addEventListener('mousedown', h);
-    return () => document.removeEventListener('mousedown', h);
-  }, [open]);
-
-  useEffect(() => {
-    if (!open || q.trim().length < 1) { setList([]); return; }
-    let cancelled = false;
-    const id = setTimeout(() => {
-      api.screener.search(q.trim())
-        .then(r => { if (!cancelled) setList(r.filter(s => !selected.includes(s.ticker))); })
-        .catch(() => { if (!cancelled) setList([]); });
-    }, 180);
-    return () => { cancelled = true; clearTimeout(id); };
-  }, [q, open, selected]);
-
   return (
-    <div ref={ref} style={{ position: 'relative' }}>
+    <div style={{ position: 'relative' }}>
       {!open ? (
         <button className="cmp-add" onClick={() => setOpen(true)}>
           <Icon name="plus" size={15} /> {t('compare.addTicker')}
         </button>
       ) : (
-        <div style={{ position: 'relative' }}>
-          <Icon name="search" size={15} style={{ position: 'absolute', left: 12, top: 12, color: 'var(--ink-4)' }} />
-          <input autoFocus className="input num" value={q} onChange={e => setQ(e.target.value.toUpperCase())}
-            placeholder={t('compare.searchPlaceholder')} style={{ height: 38, width: 240, paddingLeft: 36, fontSize: 13.5, letterSpacing: '0.03em' }}
-            onKeyDown={e => { if (e.key === 'Enter' && list[0]) { onAdd(list[0].ticker); setOpen(false); setQ(''); } }} />
-        </div>
-      )}
-      {open && q.trim().length >= 1 && (
-        <div className="card fade-in cmp-suggest">
-          {list.length === 0 && <div className="tiny muted" style={{ padding: '12px 10px' }}>{t('compare.noResult')}</div>}
-          {list.map(s => (
-            <button key={s.ticker} className="cmp-suggest-item" onClick={() => { onAdd(s.ticker); setOpen(false); setQ(''); }}>
-              <span className="row gap-10">
-                <span className="num" style={{ fontWeight: 700, fontSize: 13, minWidth: 56 }}>{s.ticker}</span>
-                <span style={{ fontSize: 13, color: 'var(--ink-2)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 150 }}>{s.name ?? s.ticker}</span>
-              </span>
-              <Icon name="plus" size={14} style={{ color: 'var(--brand-ink)' }} />
-            </button>
-          ))}
-        </div>
+        <TickerSearch
+          value={q}
+          onChange={setQ}
+          onSelect={(tk) => { onAdd(tk); setOpen(false); setQ(''); }}
+          placeholder={t('compare.searchPlaceholder')}
+          variant="inline"
+          autoFocus
+          exclude={selected}
+          inputStyle={{ width: 240 }}
+          noResultLabel={t('compare.noResult')}
+        />
       )}
     </div>
   );
@@ -225,7 +196,7 @@ function CompareTable({ companies, criteria, onRemove }: { companies: CompanyVie
   const N = companies.length;
   const valoRows: CompareCriterionDef[] = [
     { key: 'pfcf', label: t('compare.pfcf.label'), target: t('compare.pfcf.target') },
-    { key: 'valuation', label: t('compare.valuation.label'), target: t('compare.valuation.target') },
+    { key: 'pfcfPercentile', label: t('compare.pfcfPercentile.label'), target: t('compare.pfcfPercentile.target') },
   ];
   return (
     <div className="cmp-scroll">
@@ -284,13 +255,13 @@ function ValueCell({ company, critKey, best }: { company: CompanyView; critKey: 
   if (best) { cellStyle.boxShadow = 'inset 0 0 0 2px var(--good)'; cellStyle.borderColor = 'var(--good)'; }
 
   let valNode: React.ReactNode;
-  if (critKey === 'valuation') {
-    const reco = company.buyPrice;
-    const gap = (reco != null && company.price != null && reco > 0) ? (company.price / reco - 1) * 100 : null;
+  if (critKey === 'pfcfPercentile') {
+    // Percentile P/FCF historique : la valeur est la note positionnelle (1-100), heatmap = statut.
+    const pct = cell.n;
     valNode = (
       <div className="col gap-2">
-        <span className="num" style={{ fontSize: 15.5, fontWeight: 700, color: 'var(--ink)' }}>{reco != null ? formatPrice(reco, company.currency) : '—'}</span>
-        {gap != null && <span className="num tiny" style={{ color: 'var(--ink-3)' }}>{gap >= 0 ? '+' : ''}{gap.toFixed(0)} % {t('compare.vsPrice')}</span>}
+        <span className="num" style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{cell.d}</span>
+        {pct != null && <span className="num tiny" style={{ color: 'var(--ink-3)' }}>{t('compare.pfcfPercentile.note', { pct: Math.round(pct) })}</span>}
       </div>
     );
   } else if (critKey === 'operatingLeverage') {

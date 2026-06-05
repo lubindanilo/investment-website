@@ -38,15 +38,16 @@ describe('computeSharesCagr', () => {
     expect(cagr).toBeCloseTo(0.0193, 3); // ~+1.93%/an
   });
 
-  it('utilise les bornes extrêmes (ignore valeurs intermédiaires pour le CAGR)', () => {
+  it('renvoie null si un bond intermédiaire > 3× révèle un événement structurel', () => {
+    // Garde DISCONTINUITÉ : un saut ×10 puis ÷12 d'une année à l'autre n'est pas une évolution
+    // organique du flottant — c'est une émission massive / reverse split / artefact de données.
+    // La CAGR multi-annuelle calculée sur les bornes serait trompeuse (cache l'événement).
     const history: SharesHistoryPoint[] = [
       { fiscalYear: 2020, dilutedShares: 100, fcf: null },
-      { fiscalYear: 2021, dilutedShares: 999, fcf: null },     // outlier au milieu, n'affecte pas le CAGR
+      { fiscalYear: 2021, dilutedShares: 999, fcf: null },
       { fiscalYear: 2022, dilutedShares: 80, fcf: null },
     ];
-    const cagr = computeSharesCagr(history);
-    // (80/100)^(1/2) - 1 ≈ -0.1056
-    expect(cagr).toBeCloseTo(-0.1056, 3);
+    expect(computeSharesCagr(history)).toBeNull();
   });
 });
 

@@ -12,6 +12,7 @@ import { parseLang, type Lang } from '../i18n/index.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { getServableSnapshot } from '../services/quantCache.js';
 import { buildQuantitativeCriteria, buildPfcfCriterion, buildValuation } from '../services/derivedMetrics.js';
+import { getPfcfHistory, pfcfPercentile as computePfcfPercentile } from '../services/pfcfHistory.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { analyzeLimiter } from '../middleware/rateLimit.js';
 import { prisma } from '../db/client.js';
@@ -53,13 +54,32 @@ async function buildCompareTicker(ticker: string, lang: Lang): Promise<CompareTi
   const pfcf = buildPfcfCriterion(m);
   cells['pfcf'] = { d: pfcf.valeur, n: m.pfcfTTM, s: toData(pfcf.statut) };
 
-  // Valorisation (prix d'achat conseillé) — mêmes hypothèses que /api/analyze
+  // Percentile P/FCF historique : remplace l'ancienne ligne « prix d'achat cible ».
+  //  - 1-25 → bon marché vs historique (vert)
+  //  - 26-50 → médian (orange)
+  //  - 51+   → cher vs historique (rouge)
+  // Source prioritaire : colonne ScreenerTicker.pfcfPercentile (calculée à chaque scoring) ;
+  // si manquante, on calcule à la volée depuis getPfcfHistory (best-effort).
+  const row = await prisma.screenerTicker.findUnique({
+    where: { ticker },
+    select: { pfcfPercentile: true, sector: true },
+  }).catch(() => null);
+  let pct: number | null = row?.pfcfPercentile ?? null;
+  if (pct == null && m.pfcfTTM != null && m.pfcfTTM > 0) {
+    const pts = await getPfcfHistory(ticker, 50).catch(() => [] as { date: string; pfcf: number }[]);
+    if (pts.length) pct = computePfcfPercentile(pts, m.pfcfTTM);
+  }
+  const pctStatus: DataStatus = pct == null ? 'warn' : pct <= 25 ? 'good' : pct <= 50 ? 'warn' : 'bad';
+  const pctLabel = pct == null ? 'N/A' : `${Math.round(pct)}ᵉ`;
+  cells['pfcfPercentile'] = { d: pctLabel, n: pct, s: pctStatus };
+
+  // On garde la valorisation (prix d'achat) calculée pour buyPrice — mais on n'expose plus la
+  // ligne « valuation » à l'UI (remplacée par pfcfPercentile ci-dessus).
   const histGrowth = m.fcfPerShareCagr ?? m.revenueCagr;
   const fcfGrowth = histGrowth != null ? Math.max(0.03, Math.min(histGrowth * 0.75, 0.20)) : 0.10;
   const targetMultiple = m.pfcfTTM && m.pfcfTTM > 0 ? Math.max(10, Math.min(Math.round(m.pfcfTTM * 0.85), 30)) : 20;
   const valoParams: ValoParams = { targetReturn: 0.15, fcfGrowth, targetMultiple };
   const valuation = buildValuation(m, valoParams);
-  cells['valuation'] = { d: valuation.valeur, n: valuation.discountPct, s: toData(valuation.statut) };
 
   // Score /10 (chiffres only), même règle que /api/analyze.
   const evaluables = quant.fundamentalsAvailable ? chiffres : chiffres.filter(c => c.valeur !== 'N/A');
@@ -68,11 +88,7 @@ async function buildCompareTicker(ticker: string, lang: Lang): Promise<CompareTi
 
   // Secteur : priorité au calcul live, sinon le cache, sinon la colonne ScreenerTicker
   // (la source qu'affiche déjà le screener — plus fiable que le JSON du snapshot).
-  let sector = quant.industry ?? cached?.sector ?? null;
-  if (!sector) {
-    const row = await prisma.screenerTicker.findUnique({ where: { ticker }, select: { sector: true } }).catch(() => null);
-    sector = row?.sector ?? null;
-  }
+  const sector = quant.industry ?? cached?.sector ?? row?.sector ?? null;
 
   return {
     ticker,

@@ -150,7 +150,8 @@
       "score": "Score",
       "price": "Price",
       "change": "Chg.",
-      "oneYear": "1Y"
+      "oneYear": "1Y",
+      "earnings": "Next earnings"
     }
   },
   "watchlist": {
@@ -501,6 +502,11 @@
     "valuation": {
       "label": "Recommended buy price",
       "target": "discount vs price"
+    },
+    "pfcfPercentile": {
+      "label": "Historical P/FCF percentile",
+      "target": "lower = better",
+      "note": "{{pct}}th percentile over history"
     }
   },
   "opportunity": {
@@ -676,7 +682,7 @@
       "warn": "Stable · fragmented market",
       "fail": "Losing share"
     },
-    "generate": "Generate market share"
+    "generate": "Market share analysis"
   },
   "pfcfCards": {
     "notScored": "Not scored",

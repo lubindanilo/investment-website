@@ -175,7 +175,8 @@
       "score": "Note",
       "price": "Cours",
       "change": "Var.",
-      "oneYear": "1 an"
+      "oneYear": "1 an",
+      "earnings": "Prochains résultats"
     }
   },
   "watchlist": {
@@ -501,6 +502,11 @@
     "valuation": {
       "label": "Prix d'achat conseillé",
       "target": "décote vs cours"
+    },
+    "pfcfPercentile": {
+      "label": "Percentile P/FCF historique",
+      "target": "plus bas = mieux",
+      "note": "{{pct}}ᵉ percentile sur l'historique"
     }
   },
   "opportunity": {
@@ -676,7 +682,7 @@
       "warn": "Stable · marché fragmenté",
       "fail": "En recul"
     },
-    "generate": "Générer la part de marché"
+    "generate": "Analyse des parts de marché"
   },
   "pfcfCards": {
     "notScored": "Hors notation",

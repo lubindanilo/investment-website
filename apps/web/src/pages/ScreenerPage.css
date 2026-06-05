@@ -31,3 +31,6 @@
   .scr-head { flex-direction: column; }
   .scr-progress { width: 100%; align-items: flex-start; }
 }
+
+/* Date du prochain earnings — même style que la Watchlist. */
+.scr-tbl .wl-earn { color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; }

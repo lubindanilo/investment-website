@@ -11,6 +11,7 @@ import { PfcfRatioCard } from '../components/PfcfCards.js';
 import { DividendCard } from '../components/DividendCard.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
 import { Icon, ScoreCircle, ScorePill, OpportunityBadge, toDataStatus } from '../components/ui/primitives.js';
+import { TickerSearch } from '../components/TickerSearch.js';
 import { CompositionBar, PriceChart } from '../components/ui/charts.js';
 import './AnalysePage.css';
 
@@ -149,9 +150,14 @@ function SearchBar({ value, onChange, onSubmit, loading }: {
   return (
     <form className="anl-search" onSubmit={(e) => { e.preventDefault(); onSubmit(value); }}>
       <div className="anl-search-field">
-        <Icon name="search" size={18} className="anl-search-icon" />
-        <input className="anl-search-input num" value={value} onChange={(e) => onChange(e.target.value.toUpperCase())}
-          placeholder={t('analyse.searchPlaceholder')} />
+        <TickerSearch
+          value={value}
+          onChange={onChange}
+          onSelect={onSubmit}
+          placeholder={t('analyse.searchPlaceholder')}
+          variant="field"
+          noResultLabel={t('compare.noResult')}
+        />
       </div>
       <button type="submit" className="btn btn-brand" style={{ height: 48 }} disabled={loading || !value.trim()}>
         {loading ? t('analyse.analyzing') : <>{t('analyse.analyze')} <Icon name="arrowRight" size={17} /></>}

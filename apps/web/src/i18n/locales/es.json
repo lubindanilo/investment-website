@@ -150,7 +150,8 @@
       "score": "Puntuación",
       "price": "Precio",
       "change": "Var.",
-      "oneYear": "1 año"
+      "oneYear": "1 año",
+      "earnings": "Próximos resultados"
     }
   },
   "watchlist": {
@@ -501,6 +502,11 @@
     "valuation": {
       "label": "Precio de compra recomendado",
       "target": "descuento vs precio"
+    },
+    "pfcfPercentile": {
+      "label": "Percentil P/FCF histórico",
+      "target": "más bajo = mejor",
+      "note": "Percentil {{pct}} de su historial"
     }
   },
   "opportunity": {
@@ -676,7 +682,7 @@
       "warn": "Estable · mercado fragmentado",
       "fail": "En retroceso"
     },
-    "generate": "Generar la cuota de mercado"
+    "generate": "Análisis de cuotas de mercado"
   },
   "pfcfCards": {
     "notScored": "Fuera de puntuación",
