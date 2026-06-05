@@ -254,9 +254,28 @@ export function computeDerivedMetrics(input: {
 
   // revenueCagr : préfère le calcul par régression TTM (input.revenueGrowthOverride)
   // sinon retombe sur le précomputed Finnhub revenueGrowth5Y (endpoint-based).
-  const revenueCagr: number | null = (input.revenueGrowthOverride != null && Number.isFinite(input.revenueGrowthOverride))
+  let revenueCagr: number | null = (input.revenueGrowthOverride != null && Number.isFinite(input.revenueGrowthOverride))
     ? input.revenueGrowthOverride
     : revenueGrowth5Y;
+
+  // ─── Garde-fous « base quasi nulle » ────────────────────────────────────────
+  // Sur les micro-caps / coquilles (chiffre d'affaires ou capital employé ≈ 0), ces ratios sont
+  // mathématiquement définis mais vides de sens (ex netMargin = −15 769 %, cashROCE = +6 276 %).
+  // On affiche « Non calculable » plutôt qu'une aberration. ⚠ On NE touche PAS aux sociétés
+  // réellement déficitaires : netMargin/fcfMargin jusqu'à −300 % sont conservés (perte réelle).
+  const degenReasons: Record<string, string> = {};
+  if (revenueCagr != null && Math.abs(revenueCagr) > 2) {
+    revenueCagr = null; degenReasons.revenueCagr = 'Croissance du chiffre d\'affaires hors plage réaliste (base quasi nulle)';
+  }
+  if (netMargin != null && (netMargin < -3 || netMargin > 2)) {
+    netMargin = null; degenReasons.netMargin = 'Marge nette dégénérée (chiffre d\'affaires quasi nul)';
+  }
+  if (fcfMargin != null && (fcfMargin < -3 || fcfMargin > 2)) {
+    fcfMargin = null; degenReasons.fcfMargin = 'Marge de free cash flow dégénérée (chiffre d\'affaires quasi nul)';
+  }
+  if (cashROCE != null && Math.abs(cashROCE) > 3) {
+    cashROCE = null; cashROCEReason = 'Retour sur capital dégénéré (capital employé quasi nul)';
+  }
 
   // Raisons "Non calculable" affichées à l'utilisateur. On NE propage PAS les messages
   // techniques internes (détail de régression, noms de fournisseurs, etc.) : copy produit
@@ -269,10 +288,10 @@ export function computeDerivedMetrics(input: {
       ? 'Free cash flow négatif'
       : 'Historique insuffisant pour estimer la croissance sur 5 ans';
   }
-  if (revenueCagr == null) reasons.revenueCagr = 'Historique insuffisant pour estimer la croissance du chiffre d\'affaires';
+  if (revenueCagr == null) reasons.revenueCagr = degenReasons.revenueCagr ?? 'Historique insuffisant pour estimer la croissance du chiffre d\'affaires';
   if (shareCagr == null) reasons.shareCagr = 'Historique insuffisant pour estimer l\'évolution du nombre d\'actions';
-  if (netMargin == null) reasons.netMargin = 'Marge nette indisponible';
-  if (fcfMargin == null) reasons.fcfMargin = 'Marge de free cash flow indisponible';
+  if (netMargin == null) reasons.netMargin = degenReasons.netMargin ?? 'Marge nette indisponible';
+  if (fcfMargin == null) reasons.fcfMargin = degenReasons.fcfMargin ?? 'Marge de free cash flow indisponible';
   // notCalculableReasons.cashROCE est exposé dans 2 cas :
   //  - ROCE non calculable (donnée manquante / CE négatif) → la raison explique pourquoi
   //  - ROCE calculé mais via un fallback (ultra-cash-rich, financial) → la raison explique

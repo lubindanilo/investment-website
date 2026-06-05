@@ -132,7 +132,29 @@ function computableMetrics(snap: CachedQuantSnapshot): number {
  * Auto-réparation : un 1er cache dégradé (rien à comparer) est écrit, puis un recompute
  * complet est une AMÉLIORATION (non dégradation) → il écrase bien le cache dégradé.
  */
+/**
+ * Vrai si un snapshot contient une métrique économiquement ABERRANTE (au-delà de ce qu'un
+ * recompute propre, garde-fous actifs, peut produire). Sert à NE PAS protéger un cache défectueux.
+ */
+export function hasAberrantMetric(snap: CachedQuantSnapshot): boolean {
+  const m = snap.metrics ?? ({} as DerivedMetrics);
+  const ab = (v: number | null | undefined, bad: (x: number) => boolean) =>
+    typeof v === 'number' && Number.isFinite(v) && bad(v);
+  return (
+    ab(m.shareCagr,       x => Math.abs(x) > 1) ||   // garde-fou nullifie > 100 %/an
+    ab(m.fcfPerShareCagr, x => Math.abs(x) > 5) ||   // garde-fou nullifie > 500 %/an
+    ab(m.revenueCagr,     x => Math.abs(x) > 2) ||   // > 200 %/an = base dégénérée
+    ab(m.netMargin,       x => x < -3 || x > 2)  ||  // marge nette hors [-300 %, 200 %]
+    ab(m.fcfMargin,       x => x < -3 || x > 2)  ||
+    ab(m.cashROCE,        x => Math.abs(x) > 3)      // > 300 % = capital employé ≈ 0
+  );
+}
+
 export function isQualityDegradation(prev: CachedQuantSnapshot, next: CachedQuantSnapshot): boolean {
+  // DÉBLOCAGE : si le cache existant est aberrant et que le recompute est propre, on AUTORISE
+  // l'écrasement même s'il a moins de critères calculables — corriger une aberration prime sur
+  // la complétude (sinon l'aberration reste épinglée à vie, cf. cas FLY shareCagr=22,33).
+  if (hasAberrantMetric(prev) && !hasAberrantMetric(next)) return false;
   if (prev.fundamentalsAvailable && !next.fundamentalsAvailable) return true;
   if (prev.fundamentalsSource === 'finnhub' && next.fundamentalsSource === 'yahoo') return true;
   if (computableMetrics(next) < computableMetrics(prev)) return true;
