@@ -71,7 +71,15 @@ export function AnalysePage() {
   }, []);
 
   useEffect(() => {
-    if (routeTicker) { setTicker(routeTicker.toUpperCase()); run(routeTicker.toUpperCase()); }
+    if (routeTicker) {
+      setTicker(routeTicker.toUpperCase());
+      run(routeTicker.toUpperCase());
+    } else {
+      // Retour sur /analyser (clic sur l'onglet « Analyser » depuis /analyse/XXX) :
+      // on remet la page à zéro — sinon l'analyse précédente reste affichée à la place
+      // de l'écran de saisie.
+      setTicker(''); setAnalysis(null); setError(null); setLastTicker('');
+    }
   }, [routeTicker, run]);
 
   async function addToWatchlist() {
