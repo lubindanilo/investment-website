@@ -240,18 +240,24 @@ export function computeSharesCagr(history: SharesHistoryPoint[] | null): number 
   const newest = history[history.length - 1]!;
   const years = newest.fiscalYear - oldest.fiscalYear;
   if (years < 1 || oldest.dilutedShares <= 0) return null;
+  // Garde DISCONTINUITÉ (pas un seuil sur le résultat) : un bond > 3× d'une année à l'autre est un
+  // événement STRUCTUREL (IPO récente, émission massive, reverse split) — pas une évolution organique
+  // du flottant. La CAGR multi-annuelle n'a alors aucun sens (ex EMPD/FLY post-IPO : actions ×35).
+  // Une vraie dilution organique (< ~30 %/an) ou un vrai rachat passe → valeur CONSERVÉE même élevée.
+  for (let i = 1; i < history.length; i++) {
+    const a = history[i - 1]!.dilutedShares, b = history[i]!.dilutedShares;
+    if (a > 0 && b > 0 && (b / a > 3 || a / b > 3)) return null;
+  }
   const cagr = Math.pow(newest.dilutedShares / oldest.dilutedShares, 1 / years) - 1;
-  // Garde-fou : >±100 %/an = rupture structurelle (IPO récente, émission/reverse split, base ≈ 0),
-  // pas une évolution organique du flottant → non comparable (ex EMPD 0,002M→18M = +10 392 %/an).
-  if (!Number.isFinite(cagr) || Math.abs(cagr) > 1) return null;
+  if (!Number.isFinite(cagr)) return null;
   return cagr;
 }
 
-/** Plafond de plausibilité du CAGR FCF/action issu du fallback Yahoo endpoint (base ≈ 0 → explosion). */
+/** Backstop NUMÉRIQUE uniquement (pas de filtre sur la hauteur réelle) : la dégénérescence de base
+ *  est traitée en amont par le check de base dans computeFcfPerShareCagr. Ici on ne rejette qu'une
+ *  valeur non finie (overflow). Une vraie croissance élevée est conservée. */
 function guardFcfPsCagr(v: number): FcfPerShareCagrResult {
-  if (!Number.isFinite(v) || Math.abs(v) > 5) {
-    return { value: null, reason: 'Croissance FCF/action hors plage réaliste (base quasi nulle / donnée dégénérée)' };
-  }
+  if (!Number.isFinite(v)) return { value: null, reason: 'Croissance FCF/action non calculable (valeur non finie)' };
   return { value: v };
 }
 
@@ -314,6 +320,12 @@ export function computeFcfPerShareCagr(history: SharesHistoryPoint[] | null): Fc
   const oldest = fcfPs[0]!;
   const span = newest.year - oldest.year;
   if (span < 1) return { value: null, reason: 'Période < 1 an entre bornes valides' };
+
+  // Garde sur la BASE : FCF/action de départ dérisoire vs récent (> 5000×) = base ≈ 0 → la
+  // croissance est ininterprétable (ex UCFI ~0 → 0,82). Sinon on CONSERVE la valeur même haute.
+  if (oldest.ratio > 0 && newest.ratio > 0 && oldest.ratio < newest.ratio / 5000) {
+    return { value: null, reason: 'FCF/action de départ quasi nul (croissance ininterprétable)' };
+  }
 
   // Régression log-linéaire si on a ≥ 3 points (plus robuste aux bornes atypiques).
   // Slope de log(ratio) sur year = taux de croissance annualisé en log → exp() - 1.

@@ -108,16 +108,23 @@ export function computeDerivedMetrics(input: {
   if (input.yahooShareCagr != null && Number.isFinite(input.yahooShareCagr)) {
     shareCagr = input.yahooShareCagr;
     shareCagrSource = 'yahoo';
-  } else if (revenueGrowth5Y != null && revenueShareGrowth5Y != null && revenueShareGrowth5Y > -1) {
-    shareCagr = (1 + revenueGrowth5Y) / (1 + revenueShareGrowth5Y) - 1;
-    shareCagrSource = 'finnhub-derived';
+  } else if (revenueGrowth5Y != null && revenueShareGrowth5Y != null && revenueShareGrowth5Y > -0.9) {
+    const derived = (1 + revenueGrowth5Y) / (1 + revenueShareGrowth5Y) - 1;
+    // Dérivation INDIRECTE (ratios CA / CA-par-action) : aucune base d'actions vérifiable → on ne
+    // peut PAS appliquer un check de base. On ne retient donc ce proxy que s'il est plausible (|.|≤1) ;
+    // au-delà c'est dégénéré (IPO récente : EMPD, FLY). ⚠ Différent du chemin Yahoo DIRECT (série
+    // d'actions réelle) où la base est vérifiée et les vraies valeurs élevées sont CONSERVÉES.
+    if (Number.isFinite(derived) && Math.abs(derived) <= 1) {
+      shareCagr = derived;
+      shareCagrSource = 'finnhub-derived';
+    }
   }
-  // Garde-fou agnostique de la source : >100 %/an d'évolution du nombre d'actions sur 5 ans
-  // n'arrive jamais pour une société établie — c'est une base quasi nulle (IPO récente,
-  // pré-IPO → post-IPO) ou une donnée dégénérée. On affiche « Non calculable » plutôt qu'une aberration.
+  // Backstop AGNOSTIQUE de la source (couvre les 4 chemins : Finnhub quarterly, Yahoo annual,
+  // finnhub-derived, yahoo-fund). Spécifique aux ACTIONS : une évolution organique du nombre
+  // d'actions > 100 %/an n'existe JAMAIS sur plusieurs ans — c'est toujours un événement structurel
+  // (IPO, émission/reverse split). Contrairement au CA/FCF, aucune vraie valeur n'est masquée ici.
   if (shareCagr != null && (!Number.isFinite(shareCagr) || Math.abs(shareCagr) > 1)) {
-    shareCagr = null;
-    shareCagrSource = null;
+    shareCagr = null; shareCagrSource = null;
   }
 
   // P/FCF actuel + Marge FCF — préfère le FCF ajusté SBC si dispo, sinon retombe sur
@@ -258,23 +265,29 @@ export function computeDerivedMetrics(input: {
     ? input.revenueGrowthOverride
     : revenueGrowth5Y;
 
-  // ─── Garde-fous « base quasi nulle » ────────────────────────────────────────
-  // Sur les micro-caps / coquilles (chiffre d'affaires ou capital employé ≈ 0), ces ratios sont
-  // mathématiquement définis mais vides de sens (ex netMargin = −15 769 %, cashROCE = +6 276 %).
-  // On affiche « Non calculable » plutôt qu'une aberration. ⚠ On NE touche PAS aux sociétés
-  // réellement déficitaires : netMargin/fcfMargin jusqu'à −300 % sont conservés (perte réelle).
+  // ─── Garde-fous « base dégénérée » — TEST SUR LA BASE, jamais sur le résultat ────────────────
+  // On ne nullifie QUE si le DÉNOMINATEUR est négligeable (≈ 0), pas si le résultat est élevé :
+  // une vraie valeur extrême avec une base significative est CONSERVÉE (ex société déficitaire à
+  // -350 % de marge avec un vrai CA = gardée). Seules les coquilles (CA/capital quasi nul) tombent.
+  // Plancher absolu ~1 M (devise du rapport) = en-dessous, ce n'est pas une activité réelle.
+  const BASE_FLOOR = 1_000_000;
   const degenReasons: Record<string, string> = {};
-  if (revenueCagr != null && Math.abs(revenueCagr) > 2) {
-    revenueCagr = null; degenReasons.revenueCagr = 'Croissance du chiffre d\'affaires hors plage réaliste (base quasi nulle)';
+  // (1) Check de base DIRECT quand le dénominateur absolu est connu : CA / capital < ~1 M = coquille.
+  if (input.revenueTtm != null && Math.abs(input.revenueTtm) < BASE_FLOOR) {
+    if (netMargin != null) { netMargin = null; degenReasons.netMargin = 'Chiffre d\'affaires négligeable — marge nette ininterprétable'; }
+    if (fcfMargin != null) { fcfMargin = null; degenReasons.fcfMargin = 'Chiffre d\'affaires négligeable — marge de FCF ininterprétable'; }
   }
-  if (netMargin != null && (netMargin < -3 || netMargin > 2)) {
-    netMargin = null; degenReasons.netMargin = 'Marge nette dégénérée (chiffre d\'affaires quasi nul)';
-  }
-  if (fcfMargin != null && (fcfMargin < -3 || fcfMargin > 2)) {
-    fcfMargin = null; degenReasons.fcfMargin = 'Marge de free cash flow dégénérée (chiffre d\'affaires quasi nul)';
-  }
-  if (cashROCE != null && Math.abs(cashROCE) > 3) {
-    cashROCE = null; cashROCEReason = 'Retour sur capital dégénéré (capital employé quasi nul)';
+  // (2) Backstop base-RELATIF quand on n'a qu'une valeur PRÉCOMPUTÉE (pas de base accessible, ex
+  // netProfitMargin Finnhub) : une marge hors [-1000 %, +500 %] signifie, par construction, un CA
+  // négligeable DEVANT le résultat → base dégénérée. Bornes assez larges pour CONSERVER les sociétés
+  // très déficitaires réelles (ex -350 %) ; ne tombe que le vrai déchet (ex RVSGF -15 769 %).
+  if (netMargin != null && (netMargin < -10 || netMargin > 5)) { netMargin = null; degenReasons.netMargin ??= 'Marge nette dégénérée (chiffre d\'affaires négligeable devant le résultat)'; }
+  if (fcfMargin != null && (fcfMargin < -10 || fcfMargin > 5)) { fcfMargin = null; degenReasons.fcfMargin ??= 'Marge de FCF dégénérée (chiffre d\'affaires négligeable devant le résultat)'; }
+  // revenueCagr : régression amont déjà base-aware ; backstop > 500 %/an (≈ 7800× sur 5 ans) = base ≈ 0.
+  if (revenueCagr != null && Math.abs(revenueCagr) > 5) { revenueCagr = null; degenReasons.revenueCagr = 'Croissance du chiffre d\'affaires dégénérée (base quasi nulle)'; }
+  // cashROCE : base floor (capital absolu) OU backstop relatif (> 1000 % ⟺ capital ≈ 0 devant le FCF).
+  if (cashROCE != null && ((input.capitalEmployed != null && Math.abs(input.capitalEmployed) < BASE_FLOOR) || Math.abs(cashROCE) > 10)) {
+    cashROCE = null; cashROCEReason = 'Capital employé négligeable — retour sur capital ininterprétable';
   }
 
   // Raisons "Non calculable" affichées à l'utilisateur. On NE propage PAS les messages

@@ -140,13 +140,16 @@ export function hasAberrantMetric(snap: CachedQuantSnapshot): boolean {
   const m = snap.metrics ?? ({} as DerivedMetrics);
   const ab = (v: number | null | undefined, bad: (x: number) => boolean) =>
     typeof v === 'number' && Number.isFinite(v) && bad(v);
+  // Seuils volontairement TRÈS hauts : on ne veut détecter QUE le déchet périmé d'avant les
+  // garde-fous « base dégénérée » (pour autoriser son écrasement), PAS une vraie valeur haute
+  // désormais légitime (qu'on conserve). Le code base-rigoureux ne produit plus ces extrêmes.
   return (
-    ab(m.shareCagr,       x => Math.abs(x) > 1) ||   // garde-fou nullifie > 100 %/an
-    ab(m.fcfPerShareCagr, x => Math.abs(x) > 5) ||   // garde-fou nullifie > 500 %/an
-    ab(m.revenueCagr,     x => Math.abs(x) > 2) ||   // > 200 %/an = base dégénérée
-    ab(m.netMargin,       x => x < -3 || x > 2)  ||  // marge nette hors [-300 %, 200 %]
-    ab(m.fcfMargin,       x => x < -3 || x > 2)  ||
-    ab(m.cashROCE,        x => Math.abs(x) > 3)      // > 300 % = capital employé ≈ 0
+    ab(m.shareCagr,       x => Math.abs(x) > 5)  ||
+    ab(m.fcfPerShareCagr, x => Math.abs(x) > 20) ||
+    ab(m.revenueCagr,     x => Math.abs(x) > 5)  ||
+    ab(m.netMargin,       x => x < -20 || x > 10) ||
+    ab(m.fcfMargin,       x => x < -20 || x > 10) ||
+    ab(m.cashROCE,        x => Math.abs(x) > 20)
   );
 }
 

@@ -180,8 +180,10 @@ export async function getYahooFundamentals(
         fcfPerShareCagrReason = result.reason;
       }
 
-      // Évolution actions 5Y (déjà split-adj)
-      const shareCagr = cagr(shares);
+      // Évolution actions 5Y (déjà split-adj). Garde actions : > 100 %/an n'est jamais organique
+      // (événement structurel : IPO récente, émission massive) → null (aucune vraie valeur masquée).
+      const shareCagrRaw = cagr(shares);
+      const shareCagr = shareCagrRaw != null && Math.abs(shareCagrRaw) <= 1 ? shareCagrRaw : null;
 
       // Marge FCF = FCF / Revenue (latest)
       let fcfMargin: number | null = null;
