@@ -676,7 +676,12 @@ export async function getReportedTimeseries(
 
 /** Vrai s'il manque ≥1 trimestre dans la série (écart > ~130j entre 2 points, ou série vide). */
 function hasQuarterlyGap(points: TimeseriesPoint[]): boolean {
-  if (points.length < 2) return points.length === 0 ? false : false; // 0-1 pt : pas de "trou" interne à combler ici
+  // Série Finnhub entièrement vide → EDGAR est notre dernier recours. C'est précisément le
+  // cas où il faut le consulter (ex GOOGL/shares : Finnhub renvoie 0 trimestre, EDGAR en a 9).
+  // Avant ce fix : la condition `points.length === 0 ? false : false` renvoyait toujours false,
+  // EDGAR n'était jamais appelé sur une série vide → fallback Yahoo annuel à tort.
+  if (points.length === 0) return true;
+  if (points.length < 2) return false;
   const sorted = [...points].sort((a, b) => a.date.localeCompare(b.date));
   for (let i = 1; i < sorted.length; i++) {
     if ((Date.parse(sorted[i]!.date) - Date.parse(sorted[i - 1]!.date)) / 86400000 > 130) return true;
