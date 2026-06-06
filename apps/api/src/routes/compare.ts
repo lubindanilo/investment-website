@@ -8,7 +8,13 @@
 import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import type { CompareResponse, CompareTicker, CompareCell, CompareCriterionDef, DataStatus, DerivedMetrics, ValoParams, CriterionStatus } from '@lubin/shared';
-import { MAX_COMPARE_TICKERS } from '@lubin/shared';
+
+/**
+ * Constante runtime : redéfinie ici car `@lubin/shared` n'est pas buildé (résout vers src/*.ts)
+ * → un `import { value } from '@lubin/shared'` casse la lambda Vercel au boot (ERR_MODULE_NOT_FOUND).
+ * Doit rester synchro avec `MAX_COMPARE_TICKERS` côté shared/front. Cf. check-api-shared-imports.mjs.
+ */
+const MAX_COMPARE_TICKERS = 5;
 import { parseLang, type Lang } from '../i18n/index.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { getServableSnapshot } from '../services/quantCache.js';
