@@ -1,44 +1,163 @@
 /**
- * Liste curée des grandes capitalisations européennes (format symbole Yahoo, ≤ 8 car.
- * pour rester compatible avec le TickerSchema de l'app).
+ * Liste curée des grandes capitalisations européennes (format symbole Yahoo).
  *
- * Pourquoi une liste statique : Finnhub free ne fournit PAS les listes de symboles hors US
- * (l'endpoint /stock/symbol?exchange=PA… renvoie vide), et il n'existe pas d'API gratuite
- * de constituants d'indices fiable. On seede donc à la main les principaux noms des grands
- * indices (CAC 40, DAX, SMI, FTSE 100, AEX, FTSE MIB, IBEX, BEL, OBX, OMXH…). Le scoring
- * passe par le fallback Yahoo (le nom réel est récupéré au moment de la notation).
+ * Sources : Stoxx 600 + grands indices nationaux (CAC All-Tradable, DAX/MDAX/SDAX,
+ * FTSE 100/250/SmallCap, AEX/AMX, BEL 20/Mid, FTSE MIB + Mid, IBEX 35/Med/Small,
+ * SMI/SLI, PSI 20, ATX, OMX SE/HE/CO 25-30, OBX, WIG 20, PX, BUX, ISEQ 20, ATHEX).
+ * Composants collectés depuis Wikipedia + index providers ; tickers normalisés au format
+ * Yahoo avec suffixe bourse primaire, cross-listings dédoublonnés, investment trusts exclus.
  *
- * Extensible : ajouter des tickers ici, relancer le seed EU (idempotent).
+ * Pourquoi statique : Finnhub free ne fournit PAS la liste EU. Régénération via
+ *   `pnpm gen:eu-universe` (workflow Wikipedia + index providers).
  */
 export const EU_LARGE_CAPS: string[] = [
-  // — Euronext Paris (.PA) —
-  'MC.PA', 'OR.PA', 'AIR.PA', 'SU.PA', 'AI.PA', 'EL.PA', 'RMS.PA', 'BNP.PA', 'SAN.PA', 'DG.PA',
-  'BN.PA', 'KER.PA', 'SGO.PA', 'ACA.PA', 'GLE.PA', 'CS.PA', 'ENGI.PA', 'VIE.PA', 'ORA.PA', 'CAP.PA',
-  'PUB.PA', 'RI.PA', 'HO.PA', 'TTE.PA', 'ML.PA', 'SW.PA', 'DSY.PA', 'LR.PA', 'EN.PA', 'VIV.PA',
-  // — Xetra Francfort (.DE) —
-  'SAP.DE', 'SIE.DE', 'ALV.DE', 'DTE.DE', 'BAS.DE', 'BAYN.DE', 'BMW.DE', 'MBG.DE', 'VOW3.DE', 'ADS.DE',
-  'MUV2.DE', 'DB1.DE', 'IFX.DE', 'RWE.DE', 'MRK.DE', 'HEN3.DE', 'VNA.DE', 'SHL.DE', 'CON.DE', 'FRE.DE',
-  'BEI.DE', 'DHL.DE', 'P911.DE', 'RHM.DE', 'EOAN.DE',
-  // — Euronext Amsterdam (.AS) —
-  'ASML.AS', 'ADYEN.AS', 'INGA.AS', 'AD.AS', 'PHIA.AS', 'HEIA.AS', 'PRX.AS', 'WKL.AS', 'ASM.AS', 'AKZA.AS',
-  'KPN.AS', 'ABN.AS', 'MT.AS',
-  // — SIX Suisse (.SW) —
-  'NESN.SW', 'NOVN.SW', 'ROG.SW', 'ZURN.SW', 'UBSG.SW', 'ABBN.SW', 'CFR.SW', 'SIKA.SW', 'LONN.SW', 'GIVN.SW',
-  'SREN.SW', 'ALC.SW', 'PGHN.SW', 'GEBN.SW', 'SCMN.SW', 'HOLN.SW',
-  // — London Stock Exchange (.L) —
-  'AZN.L', 'SHEL.L', 'HSBA.L', 'ULVR.L', 'BP.L', 'RIO.L', 'GSK.L', 'DGE.L', 'GLEN.L', 'REL.L',
-  'NG.L', 'RKT.L', 'PRU.L', 'VOD.L', 'BARC.L', 'LLOY.L', 'AAL.L', 'STAN.L', 'TSCO.L', 'IMB.L',
-  'CPG.L', 'BA.L', 'AV.L', 'SSE.L', 'LSEG.L', 'BATS.L',
-  // — Borsa Italiana (.MI) —
-  'ENEL.MI', 'ENI.MI', 'ISP.MI', 'UCG.MI', 'STLA.MI', 'RACE.MI', 'G.MI', 'PRY.MI', 'MONC.MI', 'SRG.MI',
-  // — Bolsa Madrid (.MC) —
-  'IBE.MC', 'ITX.MC', 'BBVA.MC', 'TEF.MC', 'REP.MC', 'AENA.MC', 'FER.MC', 'ELE.MC', 'CLNX.MC', 'SAN.MC',
-  // — Bruxelles (.BR) —
-  'ABI.BR', 'KBC.BR', 'UCB.BR', 'SOLB.BR', 'GBLB.BR',
-  // — Oslo (.OL) —
-  'EQNR.OL', 'DNB.OL', 'TEL.OL', 'MOWI.OL', 'NHY.OL',
-  // — Helsinki (.HE) —
-  'NOKIA.HE', 'SAMPO.HE', 'UPM.HE', 'NESTE.HE', 'KNEBV.HE',
-  // — Copenhague (.CO) —
-  'DSV.CO', 'GMAB.CO',
+  // — Euronext Paris (.PA) · 124 —
+  'ABVX.PA', 'AC.PA', 'ACA.PA', 'ADP.PA', 'AF.PA', 'AI.PA', 'AIR.PA', 'AKE.PA', 'ALO.PA', 'AM.PA',
+  'AMUN.PA', 'ARG.PA', 'ATE.PA', 'ATO.PA', 'AYV.PA', 'BB.PA', 'BEN.PA', 'BIM.PA', 'BN.PA', 'BNP.PA',
+  'BOL.PA', 'BVI.PA', 'CA.PA', 'CAP.PA', 'CARM.PA', 'CLARI.PA', 'COFA.PA', 'COV.PA', 'CS.PA', 'DBG.PA',
+  'DEC.PA', 'DG.PA', 'DIM.PA', 'DSY.PA', 'EDEN.PA', 'EFGI.PA', 'EL.PA', 'ELIOR.PA', 'ELIS.PA', 'EMEIS.PA',
+  'EN.PA', 'ENGI.PA', 'ENX.PA', 'ERA.PA', 'ERF.PA', 'ES.PA', 'ETL.PA', 'EXA.PA', 'EXENS.PA', 'FDJ.PA',
+  'FGR.PA', 'FII.PA', 'FR.PA', 'FRVIA.PA', 'GET.PA', 'GFC.PA', 'GLE.PA', 'GTT.PA', 'HO.PA', 'ICAD.PA',
+  'IDL.PA', 'IPN.PA', 'IPS.PA', 'ITP.PA', 'KER.PA', 'LI.PA', 'LR.PA', 'MAU.PA', 'MC.PA', 'MEDCL.PA',
+  'MERY.PA', 'MF.PA', 'ML.PA', 'MMT.PA', 'MRN.PA', 'NANO.PA', 'NEOEN.PA', 'NEX.PA', 'NK.PA', 'NXI.PA',
+  'OPM.PA', 'OR.PA', 'ORA.PA', 'PLNW.PA', 'PLX.PA', 'PUB.PA', 'RBT.PA', 'RCO.PA', 'RF.PA', 'RI.PA',
+  'RMS.PA', 'RNO.PA', 'RUI.PA', 'RXL.PA', 'SAF.PA', 'SAN.PA', 'SCR.PA', 'SESG.PA', 'SGO.PA', 'SK.PA',
+  'SOI.PA', 'SOP.PA', 'SPIE.PA', 'STLAP.PA', 'STMPA.PA', 'SU.PA', 'SW.PA', 'TE.PA', 'TEP.PA', 'TFI.PA',
+  'TRI.PA', 'TTE.PA', 'UBI.PA', 'URW.PA', 'VCT.PA', 'VIE.PA', 'VIRI.PA', 'VIRP.PA', 'VIV.PA', 'VK.PA',
+  'VLA.PA', 'VRLA.PA', 'VU.PA', 'WLN.PA',
+  // — Xetra Francfort (.DE) · 170 —
+  '1COV.DE', '1SXP.DE', '1U1.DE', '8TRA.DE', 'ACT.DE', 'ADN1.DE', 'ADS.DE', 'ADV.DE', 'AFX.DE', 'AIXA.DE',
+  'ALV.DE', 'AOF.DE', 'AOX.DE', 'ARND.DE', 'AT1.DE', 'ATOS.DE', 'AU1.DE', 'AUM.DE', 'BAS.DE', 'BAYN.DE',
+  'BC8.DE', 'BEI.DE', 'BFSA.DE', 'BMW.DE', 'BNR.DE', 'BOSS.DE', 'BVB.DE', 'CBK.DE', 'COK.DE', 'CON.DE',
+  'COP.DE', 'CTS.DE', 'CWC.DE', 'DB1.DE', 'DBAN.DE', 'DBK.DE', 'DEQ.DE', 'DEZ.DE', 'DHER.DE', 'DHL.DE',
+  'DMP.DE', 'DOU.DE', 'DRW3.DE', 'DTE.DE', 'DTG.DE', 'DUE.DE', 'DWS.DE', 'EKT.DE', 'ELG.DE', 'ENR.DE',
+  'EOAN.DE', 'EUZ.DE', 'EVD.DE', 'EVK.DE', 'EVT.DE', 'F3C.DE', 'FEG.DE', 'FIE.DE', 'FME.DE', 'FNTN.DE',
+  'FPE3.DE', 'FRA.DE', 'FRE.DE', 'G1A.DE', 'G24.DE', 'GBF.DE', 'GFT.DE', 'GLJ.DE', 'GXI.DE', 'GYC.DE',
+  'HABA.DE', 'HAG.DE', 'HBH.DE', 'HDD.DE', 'HEI.DE', 'HEN3.DE', 'HFG.DE', 'HLE.DE', 'HNR1.DE', 'HOT.DE',
+  'HYQ.DE', 'IFX.DE', 'ILM1.DE', 'INH.DE', 'IOS.DE', 'JEN.DE', 'JST.DE', 'JUN3.DE', 'KBX.DE', 'KCO.DE',
+  'KGX.DE', 'KRN.DE', 'KSB3.DE', 'KTN.DE', 'KWS.DE', 'LEG.DE', 'LHA.DE', 'LXS.DE', 'M8G.DE', 'MAN.DE',
+  'MBB.DE', 'MBG.DE', 'MLP.DE', 'MOR.DE', 'MRK.DE', 'MTX.DE', 'MUV2.DE', 'MUX.DE', 'NA9.DE', 'NDA.DE',
+  'NDX1.DE', 'NEM.DE', 'NOEJ.DE', 'OBCK.DE', 'OBK.DE', 'P911.DE', 'PAH3.DE', 'PAT.DE', 'PBB.DE', 'PNE3.DE',
+  'PSAN.DE', 'PSM.DE', 'PUM.DE', 'QIA.DE', 'R3NK.DE', 'RAA.DE', 'RDC.DE', 'RHM.DE', 'RRTL.DE', 'RWE.DE',
+  'S92.DE', 'SAP.DE', 'SAX.DE', 'SDF.DE', 'SFQ.DE', 'SHA.DE', 'SHA0.DE', 'SHL.DE', 'SIE.DE', 'SIX2.DE',
+  'SMHN.DE', 'SPG.DE', 'SRT3.DE', 'STM.DE', 'STO3.DE', 'SY1.DE', 'SZG.DE', 'SZU.DE', 'TEG.DE', 'TKA.DE',
+  'TKMS.DE', 'TLX.DE', 'TMV.DE', 'TNIE.DE', 'TPE.DE', 'TUI1.DE', 'UN01.DE', 'UTDI.DE', 'VAR1.DE', 'VBK.DE',
+  'VH2.DE', 'VNA.DE', 'VOS.DE', 'VOW3.DE', 'WAC.DE', 'WAF.DE', 'WCH.DE', 'WUW.DE', 'YSN.DE', 'ZAL.DE',
+  // — London Stock Exchange (.L) · 329 —
+  'AAF.L', 'AAL.L', 'ABDN.L', 'ABF.L', 'ADM.L', 'AEP.L', 'AHT.L', 'AJB.L', 'ALFA.L', 'AML.L',
+  'ANTO.L', 'AO.L', 'APN.L', 'APTD.L', 'ASHM.L', 'ATYM.L', 'AUTO.L', 'AV.L', 'AVON.L', 'AZN.L',
+  'BA.L', 'BAB.L', 'BAG.L', 'BARC.L', 'BATS.L', 'BBOX.L', 'BBY.L', 'BCG.L', 'BDEV.L', 'BEZ.L',
+  'BGEO.L', 'BKG.L', 'BLND.L', 'BME.L', 'BNZL.L', 'BOOT.L', 'BOWL.L', 'BOY.L', 'BP.L', 'BPT.L',
+  'BRBY.L', 'BREE.L', 'BT-A.L', 'BTRW.L', 'BWY.L', 'BYG.L', 'BYIT.L', 'CABP.L', 'CAPD.L', 'CARD.L',
+  'CBG.L', 'CCC.L', 'CCEP.L', 'CCH.L', 'CCR.L', 'CHG.L', 'CKN.L', 'CLI.L', 'CLIG.L', 'CMCX.L',
+  'CNA.L', 'CNE.L', 'COA.L', 'COST.L', 'CPG.L', 'CPI.L', 'CRDA.L', 'CSN.L', 'CTEC.L', 'CURY.L',
+  'CVSG.L', 'CWK.L', 'CWR.L', 'DCC.L', 'DFS.L', 'DGE.L', 'DLG.L', 'DLN.L', 'DNLM.L', 'DOCS.L',
+  'DOM.L', 'DPLM.L', 'DRX.L', 'DSCV.L', 'EDV.L', 'ELM.L', 'EMG.L', 'ENOG.L', 'ENQ.L', 'ENT.L',
+  'EVOK.L', 'EWG.L', 'EXPN.L', 'EZJ.L', 'FAN.L', 'FCH.L', 'FGP.L', 'FORT.L', 'FOUR.L', 'FOXT.L',
+  'FRAS.L', 'FRES.L', 'FSG.L', 'FSJ.L', 'FSTA.L', 'GAMA.L', 'GAW.L', 'GBG.L', 'GCP.L', 'GDWN.L',
+  'GEN.L', 'GFRD.L', 'GFTU.L', 'GLE.L', 'GLEN.L', 'GMS.L', 'GNC.L', 'GNS.L', 'GPE.L', 'GREG.L',
+  'GRG.L', 'GRI.L', 'GROW.L', 'GSK.L', 'GYM.L', 'HAS.L', 'HBR.L', 'HEAD.L', 'HFD.L', 'HFG.L',
+  'HIK.L', 'HILS.L', 'HLCL.L', 'HLMA.L', 'HLN.L', 'HMSO.L', 'HOC.L', 'HSBA.L', 'HSW.L', 'HSX.L',
+  'HTG.L', 'HTWS.L', 'HWDN.L', 'HWG.L', 'IAG.L', 'IBST.L', 'ICG.L', 'IGG.L', 'IHG.L', 'IHP.L',
+  'III.L', 'IMB.L', 'IMI.L', 'INCH.L', 'INDV.L', 'INF.L', 'INVP.L', 'IPF.L', 'IPO.L', 'ITH.L',
+  'ITRK.L', 'ITV.L', 'IWG.L', 'JD.L', 'JDW.L', 'JMAT.L', 'JSG.L', 'JTC.L', 'JUP.L', 'KGF.L',
+  'KIE.L', 'KLR.L', 'KMR.L', 'KNOS.L', 'LAND.L', 'LGEN.L', 'LIO.L', 'LLOY.L', 'LMP.L', 'LRE.L',
+  'LSEG.L', 'LSL.L', 'LUCE.L', 'MAB.L', 'MACF.L', 'MARS.L', 'MCG.L', 'MEGP.L', 'MER.L', 'MGAM.L',
+  'MGNS.L', 'MKS.L', 'MNDI.L', 'MNG.L', 'MONY.L', 'MOON.L', 'MOTR.L', 'MRO.L', 'MSLH.L', 'MTLN.L',
+  'MTO.L', 'MTRO.L', 'N91.L', 'NAS.L', 'NCC.L', 'NG.L', 'NGG.L', 'NRR.L', 'NWG.L', 'NXR.L',
+  'NXT.L', 'OCDO.L', 'OCN.L', 'ONT.L', 'OSB.L', 'OTB.L', 'OXB.L', 'OXIG.L', 'PAF.L', 'PAG.L',
+  'PAGE.L', 'PDL.L', 'PETS.L', 'PFD.L', 'PHAR.L', 'PHNX.L', 'PHP.L', 'PLUS.L', 'PNN.L', 'POLN.L',
+  'PPH.L', 'PRN.L', 'PRU.L', 'PRV.L', 'PSN.L', 'PSON.L', 'PTEC.L', 'QLT.L', 'QQ.L', 'RAT.L',
+  'RCH.L', 'REC.L', 'REL.L', 'RHIM.L', 'RIO.L', 'RKT.L', 'RMV.L', 'RNK.L', 'ROR.L', 'RPI.L',
+  'RR.L', 'RS1.L', 'RSW.L', 'RTO.L', 'RWA.L', 'SAFE.L', 'SAGA.L', 'SBRE.L', 'SBRY.L', 'SCT.L',
+  'SDLF.L', 'SDR.L', 'SDY.L', 'SFR.L', 'SGE.L', 'SGRO.L', 'SHAW.L', 'SHC.L', 'SHEL.L', 'SHI.L',
+  'SMDS.L', 'SMIN.L', 'SMWH.L', 'SN.L', 'SNR.L', 'SNWS.L', 'SPI.L', 'SPX.L', 'SRE.L', 'SRP.L',
+  'SSE.L', 'SSPG.L', 'STAN.L', 'STB.L', 'STJ.L', 'STVG.L', 'SUS.L', 'SVS.L', 'SVT.L', 'SYNT.L',
+  'TATE.L', 'TBCG.L', 'TCAP.L', 'TEP.L', 'TET.L', 'THG.L', 'TPK.L', 'TPT.L', 'TRI.L', 'TRN.L',
+  'TRST.L', 'TSCO.L', 'TTG.L', 'TUI.L', 'TW.L', 'UKW.L', 'ULTP.L', 'ULVR.L', 'UTG.L', 'UU.L',
+  'VANQ.L', 'VCT.L', 'VID.L', 'VOD.L', 'VSVS.L', 'VTY.L', 'WEIR.L', 'WISE.L', 'WIX.L', 'WIZZ.L',
+  'WKP.L', 'WOSG.L', 'WPP.L', 'WTB.L', 'XAR.L', 'XPP.L', 'XPS.L', 'ZIG.L', 'ZTF.L',
+  // — Euronext Amsterdam (.AS) · 54 —
+  'AALB.AS', 'ABN.AS', 'AD.AS', 'ADH.AS', 'ADYEN.AS', 'AF.AS', 'AGN.AS', 'AKZA.AS', 'ALLFG.AS', 'AMG.AS',
+  'APAM.AS', 'ARCAD.AS', 'ARGX.AS', 'ASM.AS', 'ASML.AS', 'ASRNL.AS', 'BAMNB.AS', 'BESI.AS', 'BFIT.AS', 'CRBN.AS',
+  'CTPNV.AS', 'DSFIR.AS', 'ECMPA.AS', 'EXO.AS', 'FAGR.AS', 'FLOW.AS', 'FUR.AS', 'HAL.AS', 'HAVAS.AS', 'HEIA.AS',
+  'HEIJM.AS', 'IMCD.AS', 'INGA.AS', 'KPN.AS', 'LAKE.AS', 'LIGHT.AS', 'MT.AS', 'NN.AS', 'OCI.AS', 'PHARM.AS',
+  'PHIA.AS', 'PNL.AS', 'PRX.AS', 'RAND.AS', 'REN.AS', 'SHELL.AS', 'THEON.AS', 'TOM2.AS', 'TWEKA.AS', 'UMG.AS',
+  'UNA.AS', 'VLK.AS', 'VPK.AS', 'WKL.AS',
+  // — Euronext Bruxelles (.BR) · 46 —
+  'ABI.BR', 'ACKB.BR', 'AED.BR', 'AGFB.BR', 'AGS.BR', 'ASCE.BR', 'AZE.BR', 'BEKB.BR', 'BPOST.BR', 'BREB.BR',
+  'COLR.BR', 'CPINV.BR', 'DECB.BR', 'DEME.BR', 'DIE.BR', 'ECONB.BR', 'ELI.BR', 'EVS.BR', 'EXM.BR', 'FAGR.BR',
+  'GBLB.BR', 'GIMB.BR', 'HOMI.BR', 'IBAB.BR', 'KBC.BR', 'KIN.BR', 'LOTB.BR', 'MELE.BR', 'MONT.BR', 'OBEL.BR',
+  'ONTEX.BR', 'PROX.BR', 'RECT.BR', 'RET.BR', 'SHUR.BR', 'SIP.BR', 'SOF.BR', 'SOLB.BR', 'SYENS.BR', 'TESB.BR',
+  'TINC.BR', 'UCB.BR', 'UMI.BR', 'VGP.BR', 'WDP.BR', 'XIOR.BR',
+  // — Borsa Italiana Milan (.MI) · 98 —
+  'A2A.MI', 'ACE.MI', 'AMP.MI', 'ANIM.MI', 'ARIS.MI', 'ARN.MI', 'ASC.MI', 'AVIO.MI', 'AZM.MI', 'BAMI.MI',
+  'BC.MI', 'BDB.MI', 'BFF.MI', 'BGN.MI', 'BIF.MI', 'BMED.MI', 'BMPS.MI', 'BPE.MI', 'BRE.MI', 'BZU.MI',
+  'CALT.MI', 'CE.MI', 'CEM.MI', 'CIR.MI', 'CMB.MI', 'COM.MI', 'CPR.MI', 'CRL.MI', 'DAN.MI', 'DIA.MI',
+  'DIS.MI', 'DLG.MI', 'ELN.MI', 'ENAV.MI', 'ENEL.MI', 'ENI.MI', 'ERG.MI', 'FBK.MI', 'FCT.MI', 'FM.MI',
+  'G.MI', 'GVS.MI', 'HER.MI', 'ICOS.MI', 'IG.MI', 'INW.MI', 'IP.MI', 'IRE.MI', 'ISP.MI', 'ITM.MI',
+  'IVG.MI', 'JUVE.MI', 'LDO.MI', 'LTMC.MI', 'LUVE.MI', 'MAIRE.MI', 'MARR.MI', 'MB.MI', 'MFEA.MI', 'MFEB.MI',
+  'MN.MI', 'MOL.MI', 'MONC.MI', 'NEXI.MI', 'NWP.MI', 'OVS.MI', 'PHIL.MI', 'PHN.MI', 'PIA.MI', 'PIRC.MI',
+  'PRY.MI', 'PST.MI', 'RACE.MI', 'RCS.MI', 'REC.MI', 'REVO.MI', 'REY.MI', 'RWAY.MI', 'SES.MI', 'SFER.MI',
+  'SFL.MI', 'SL.MI', 'SOL.MI', 'SPM.MI', 'SRG.MI', 'TEN.MI', 'TGYM.MI', 'TIP.MI', 'TIT.MI', 'TNXT.MI',
+  'TPRO.MI', 'TRN.MI', 'UCG.MI', 'UNI.MI', 'WBD.MI', 'WIIT.MI', 'YACHT.MI', 'ZV.MI',
+  // — BME Madrid (.MC) · 84 —
+  'A3M.MC', 'ACS.MC', 'ACX.MC', 'ADX.MC', 'AENA.MC', 'AI.MC', 'ALM.MC', 'ALNT.MC', 'AMP.MC', 'AMS.MC',
+  'ANA.MC', 'ANE.MC', 'ATRY.MC', 'AZK.MC', 'BBVA.MC', 'BKT.MC', 'BKY.MC', 'CABK.MC', 'CAF.MC', 'CASH.MC',
+  'CBAV.MC', 'CIE.MC', 'CLNX.MC', 'COL.MC', 'DIA.MC', 'DOM.MC', 'EBRO.MC', 'ECR.MC', 'EDR.MC', 'ELE.MC',
+  'ENC.MC', 'ENER.MC', 'ENG.MC', 'ENO.MC', 'EZE.MC', 'FAE.MC', 'FDR.MC', 'FER.MC', 'GAM.MC', 'GEST.MC',
+  'GRE.MC', 'GRF.MC', 'GSJ.MC', 'HOME.MC', 'IAG.MC', 'IBE.MC', 'IDR.MC', 'ITX.MC', 'IZER.MC', 'LDA.MC',
+  'LOG.MC', 'LRE.MC', 'MAP.MC', 'MEL.MC', 'MRL.MC', 'MTS.MC', 'NEA.MC', 'NTGY.MC', 'NTH.MC', 'NXT.MC',
+  'OHLA.MC', 'OLE.MC', 'ORY.MC', 'PHM.MC', 'PRM.MC', 'PSG.MC', 'PUIG.MC', 'RED.MC', 'REP.MC', 'RJF.MC',
+  'ROVI.MC', 'SAB.MC', 'SAN.MC', 'SCYR.MC', 'SLR.MC', 'TEF.MC', 'TLGO.MC', 'TRE.MC', 'TRG.MC', 'TUB.MC',
+  'UNI.MC', 'VID.MC', 'VIS.MC', 'VOC.MC',
+  // — SIX Swiss (.SW) · 45 —
+  'ABBN.SW', 'ADEN.SW', 'ALC.SW', 'AMS.SW', 'BAER.SW', 'BALN.SW', 'BARN.SW', 'BEAN.SW', 'CFR.SW', 'CLN.SW',
+  'DOCM.SW', 'EMSN.SW', 'GALE.SW', 'GEBN.SW', 'GF.SW', 'GIVN.SW', 'HELN.SW', 'HOLN.SW', 'KNIN.SW', 'LISP.SW',
+  'LOGN.SW', 'LONN.SW', 'NESN.SW', 'NOVN.SW', 'OERL.SW', 'PGHN.SW', 'PLPH.SW', 'RIGN.SW', 'ROG.SW', 'SCHN.SW',
+  'SCMN.SW', 'SDZ.SW', 'SGSN.SW', 'SIG.SW', 'SIKA.SW', 'SLHN.SW', 'SOON.SW', 'SPSN.SW', 'SREN.SW', 'STMN.SW',
+  'TEMN.SW', 'UBSG.SW', 'UHR.SW', 'VACN.SW', 'ZURN.SW',
+  // — Euronext Lisbonne (.LS) · 18 —
+  'ALTR.LS', 'BCP.LS', 'COR.LS', 'CTT.LS', 'EDP.LS', 'EDPR.LS', 'EGL.LS', 'GALP.LS', 'IBS.LS', 'JMT.LS',
+  'NBA.LS', 'NOS.LS', 'NVG.LS', 'PHR.LS', 'RENE.LS', 'SEM.LS', 'SON.LS', 'SONC.LS',
+  // — Wiener Börse (.VI) · 20 —
+  'ANDRITZ.VI', 'ATS.VI', 'BAW.VI', 'CAI.VI', 'DOC.VI', 'EBS.VI', 'EVN.VI', 'LNZ.VI', 'OMV.VI', 'PAL.VI',
+  'POR.VI', 'POST.VI', 'RBI.VI', 'SBO.VI', 'STR.VI', 'UQA.VI', 'VER.VI', 'VIG.VI', 'VOE.VI', 'WIE.VI',
+  // — OMX Stockholm (.ST) · 41 —
+  'ADDT-B.ST', 'ALFA.ST', 'ASSA-B.ST', 'ATCO-A.ST', 'AZN.ST', 'BALD-B.ST', 'BOL.ST', 'CAST.ST', 'ELUX-B.ST', 'EPI-A.ST',
+  'EQT.ST', 'ERIC-B.ST', 'ESSITY-B.ST', 'EVO.ST', 'HEXA-B.ST', 'HM-B.ST', 'HUSQ-B.ST', 'INDT.ST', 'INDU-C.ST', 'INVE-B.ST',
+  'LIFCO-B.ST', 'NIBE-B.ST', 'SAAB-B.ST', 'SAND.ST', 'SCA-B.ST', 'SEB-A.ST', 'SECU-B.ST', 'SHB-A.ST', 'SKA-B.ST', 'SKF-B.ST',
+  'SWEC-B.ST', 'SWED-A.ST', 'SWMA.ST', 'TEL2-B.ST', 'TELIA.ST', 'TIGO-SDB.ST', 'TREL-B.ST', 'VITR.ST', 'VOLV-B.ST', 'VPLAY-B.ST',
+  'WIHL.ST',
+  // — OMX Helsinki (.HE) · 25 —
+  'ELISA.HE', 'FORTUM.HE', 'HIAB.HE', 'HUH1V.HE', 'KALMAR.HE', 'KCR.HE', 'KEMIRA.HE', 'KESKOB.HE', 'KNEBV.HE', 'KOJAMO.HE',
+  'MANTA.HE', 'METSO.HE', 'NDA-FI.HE', 'NESTE.HE', 'NOKIA.HE', 'ORNBV.HE', 'OUT1V.HE', 'QTCOM.HE', 'SAMPO.HE', 'STERV.HE',
+  'TIETO.HE', 'TYRES.HE', 'UPM.HE', 'VALMT.HE', 'WRT1V.HE',
+  // — OMX Copenhagen (.CO) · 24 —
+  'AMBU-B.CO', 'BAVA.CO', 'CARL-B.CO', 'COLO-B.CO', 'DANSKE.CO', 'DEMANT.CO', 'DSV.CO', 'GMAB.CO', 'GN.CO', 'ISS.CO',
+  'JYSK.CO', 'MAERSK-A.CO', 'MAERSK-B.CO', 'NKT.CO', 'NOVO-B.CO', 'NSIS-B.CO', 'ORSTED.CO', 'PNDORA.CO', 'RBREW.CO', 'ROCK-B.CO',
+  'SYDB.CO', 'TRYG.CO', 'VWS.CO', 'ZEAL.CO',
+  // — Oslo Børs (.OL) · 27 —
+  'AKRBP.OL', 'BWLPG.OL', 'DNB.OL', 'EQNR.OL', 'FRO.OL', 'GJF.OL', 'GOGL.OL', 'HAFNI.OL', 'HAUTO.OL', 'KOG.OL',
+  'LSG.OL', 'MOWI.OL', 'MPCC.OL', 'NAS.OL', 'NHY.OL', 'NOD.OL', 'ORK.OL', 'SALM.OL', 'SCHA.OL', 'STB.OL',
+  'SUBC.OL', 'TEL.OL', 'TGS.OL', 'TOM.OL', 'VAR.OL', 'WAWI.OL', 'YAR.OL',
+  // — GPW Varsovie (.WA) · 20 —
+  'ALE.WA', 'ALR.WA', 'BDX.WA', 'CDR.WA', 'DNP.WA', 'INPST.WA', 'KGH.WA', 'KRU.WA', 'KTY.WA', 'LPP.WA',
+  'MBK.WA', 'MDV.WA', 'PCO.WA', 'PEO.WA', 'PGE.WA', 'PKN.WA', 'PKO.WA', 'PZU.WA', 'TPE.WA', 'ZAB.WA',
+  // — BCP Prague (.PR) · 12 —
+  'CEZ.PR', 'COLT.PR', 'CSG.PR', 'DSP.PR', 'GEVO.PR', 'KARO.PR', 'KOFOL.PR', 'KOMB.PR', 'MONET.PR', 'PEN.PR',
+  'PUA.PR', 'TABAK.PR',
+  // — Bourse de Budapest (.BD) · 18 —
+  '4IG.BD', 'AKKO.BD', 'ALTEO.BD', 'ANY.BD', 'AUTOWALLIS.BD', 'BIF.BD', 'CIGPANNONIA.BD', 'DELTA.BD', 'GSPARK.BD', 'MASTERPLAST.BD',
+  'MOL.BD', 'MTELEKOM.BD', 'OPUS.BD', 'OTP.BD', 'PANNERGY.BD', 'RICHTER.BD', 'WABERERS.BD', 'ZWACK.BD',
+  // — Euronext Dublin (.IR) · 20 —
+  'A5G.IR', 'BIRG.IR', 'C5H.IR', 'DHG.IR', 'EG7.IR', 'GL9.IR', 'GRP.IR', 'GVR.IR', 'GYQ.IR', 'IR5B.IR',
+  'IRES.IR', 'KMR.IR', 'KRX.IR', 'KRZ.IR', 'MLC.IR', 'OIZ.IR', 'PTSB.IR', 'RY4C.IR', 'SK3.IR', 'UPR.IR',
+  // — ATHEX Athènes (.AT) · 60 —
+  'ADMIE.AT', 'AEGN.AT', 'ALMY.AT', 'ALPHA.AT', 'AVAX.AT', 'BELA.AT', 'BRIQ.AT', 'CENER.AT', 'CENTR.AT', 'EEE.AT',
+  'EKTER.AT', 'ELHA.AT', 'ELLAK.AT', 'ELPE.AT', 'ELSTR.AT', 'ELTON.AT', 'ENTER.AT', 'EPSIL.AT', 'ETE.AT', 'EUROB.AT',
+  'EXAE.AT', 'EYAPS.AT', 'EYDAP.AT', 'FOYRK.AT', 'GEKTE.AT', 'HTO.AT', 'IATR.AT', 'IKTIN.AT', 'INKAT.AT', 'INLIF.AT',
+  'INTEK.AT', 'INTRK.AT', 'KEKR.AT', 'KRI.AT', 'KYLO.AT', 'LAMDA.AT', 'MOH.AT', 'MOTO.AT', 'MYTIL.AT', 'NAB.AT',
+  'OLTH.AT', 'OLYMP.AT', 'OPAP.AT', 'OTOEL.AT', 'PAP.AT', 'PETRO.AT', 'PLAKR.AT', 'PLAT.AT', 'PPA.AT', 'PPC.AT',
+  'PREMI.AT', 'PROF.AT', 'QUEST.AT', 'REVOI.AT', 'SAR.AT', 'SPACE.AT', 'TENER.AT', 'TITC.AT', 'TPEIR.AT', 'VIO.AT',
 ];

@@ -14,6 +14,7 @@
 import type { TimeseriesPoint } from '@lubin/shared';
 import { readSeries, isFresh, appendMergePersist, type ExpiryCadence } from './fundamentalsStore.js';
 import { getYahooQuarterlyBatch } from './yahoo.js';
+import { getStockanalysisQuarterlyBatch } from './stockanalysisFundamentals.js';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Lubin-Investment/0.1';
 const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
@@ -123,6 +124,33 @@ export async function accumulateYahooQuarterly(ticker: string, symbol: string, n
     metricsStored++;
   }
   if (metricsStored > 0) console.log(`[yahoo Q-accum ${ticker}] ${metricsStored} métriques trimestrielles accumulées (append-only)`);
+  return metricsStored;
+}
+
+/**
+ * ACCUMULE l'historique TRIMESTRIEL / SEMESTRIEL stockanalysis.com des titres non-US dans
+ * le store. Vs Yahoo (5 trimestres glissants) : stockanalysis renvoie ~20 périodes (5 ans
+ * trimestriel OU 10 ans semestriel selon la cadence native). Append-only : on conserve aussi
+ * tout ce que Yahoo a déjà mis (clé date), on ajoute les périodes manquantes.
+ *
+ * La fréquence détectée (`quarterly` | `semiannual` | `annual`) est PROPAGÉE dans la colonne
+ * `freq` du store — important : ~25 % des EU (LVMH, L'Oréal, Air Liquide…) publient nativement
+ * en semestriel et n'ont PAS de Q1/Q3 (directive Transparence UE 2013).
+ *
+ * Best-effort : ~3 fetches par ticker (income, cash-flow, balance-sheet), throttle 1 req/s.
+ * Renvoie le nb de métriques accumulées (0 = source indisponible pour ce ticker).
+ */
+export async function accumulateStockanalysisQuarterly(ticker: string, nowMs: number): Promise<number> {
+  const batch = await getStockanalysisQuarterlyBatch(ticker).catch(() => null);
+  if (!batch || batch.series.size === 0) return 0;
+  let metricsStored = 0;
+  for (const [metricKey, pts] of batch.series) {
+    if (!pts.length) continue;
+    const stored = await readSeries(ticker, metricKey);
+    await appendMergePersist(ticker, metricKey, stored, pts, 'stockanalysis', nowMs, { freq: batch.freq });
+    metricsStored++;
+  }
+  if (metricsStored > 0) console.log(`[sa Q-accum ${ticker}] ${metricsStored} métriques accumulées (freq=${batch.freq}, append-only)`);
   return metricsStored;
 }
 
