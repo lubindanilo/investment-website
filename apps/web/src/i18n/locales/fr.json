@@ -473,12 +473,12 @@
   },
   "compare": {
     "title": "Comparaison",
-    "subtitle": "Mettez 2 à 3 titres côte à côte. La donnée tranche, ligne par ligne.",
+    "subtitle": "Mettez 2 à {{max}} titres côte à côte. La donnée tranche, ligne par ligne.",
     "tickersLabel": "Titres",
     "addTicker": "Ajouter un titre",
     "searchPlaceholder": "Rechercher un ticker…",
     "noResult": "Aucun résultat.",
-    "slots": "{{n}}/3 · minimum 2 pour comparer",
+    "slots": "{{n}}/{{max}} · minimum 2 pour comparer",
     "remove": "Retirer",
     "best": "Meilleur sur ce critère",
     "verdict": "Verdict",
@@ -487,7 +487,7 @@
     "errorLoad": "Impossible de charger la comparaison.",
     "invite": {
       "title": "Ajoutez un 2ᵉ titre pour comparer",
-      "text": "La comparaison met en regard les 10 chiffres et la valorisation de 2 à 3 titres, et surligne le meilleur de chaque ligne."
+      "text": "La comparaison met en regard les 10 chiffres et la valorisation de 2 à {{max}} titres, et surligne le meilleur de chaque ligne."
     },
     "sections": {
       "chiffres": "Les chiffres",

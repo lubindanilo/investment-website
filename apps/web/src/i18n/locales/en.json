@@ -473,12 +473,12 @@
   },
   "compare": {
     "title": "Comparison",
-    "subtitle": "Put 2 to 3 stocks side by side. The data decides, row by row.",
+    "subtitle": "Put 2 to {{max}} stocks side by side. The data decides, row by row.",
     "tickersLabel": "Stocks",
     "addTicker": "Add a stock",
     "searchPlaceholder": "Search a ticker…",
     "noResult": "No result.",
-    "slots": "{{n}}/3 · minimum 2 to compare",
+    "slots": "{{n}}/{{max}} · minimum 2 to compare",
     "remove": "Remove",
     "best": "Best on this criterion",
     "verdict": "Verdict",
@@ -487,7 +487,7 @@
     "errorLoad": "Could not load the comparison.",
     "invite": {
       "title": "Add a 2nd stock to compare",
-      "text": "The comparison lines up the 10 numbers and the valuation of 2 to 3 stocks, and highlights the best of each row."
+      "text": "The comparison lines up the 10 numbers and the valuation of 2 to {{max}} stocks, and highlights the best of each row."
     },
     "sections": {
       "chiffres": "The numbers",

@@ -1,5 +1,5 @@
 /**
- * Comparaison side-by-side de 2 à 3 titres.
+ * Comparaison side-by-side de 2 à MAX_COMPARE_TICKERS titres.
  * Données : /api/compare (cache-servi, quasi instantané). Recherche : /api/screener/search.
  * Réutilise les primitives (ScoreCircle, StatusBadge, InfoPop, Icon) + i18n + tokens.
  */
@@ -8,6 +8,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { sectorSlug } from '../lib/sector.js';
 import type { CompareResponse, CompareTicker, CompareCriterionDef, DataStatus } from '@lubin/shared';
+import { MAX_COMPARE_TICKERS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScoreCircle, scoreColor, StatusBadge, InfoPop } from '../components/ui/primitives.js';
 import { TickerSearch } from '../components/TickerSearch.js';
@@ -49,7 +50,7 @@ function bestForRow(key: string, companies: CompanyView[]): string | null {
 export function ComparePage() {
   const { t } = useTranslation();
   const [sp, setSp] = useSearchParams();
-  const initial = (sp.get('tickers') ?? '').split(',').map(s => s.trim().toUpperCase()).filter(Boolean).slice(0, 3);
+  const initial = (sp.get('tickers') ?? '').split(',').map(s => s.trim().toUpperCase()).filter(Boolean).slice(0, MAX_COMPARE_TICKERS);
   const [tickers, setTickers] = useState<string[]>(initial);
   const [data, setData] = useState<CompareResponse | null>(null);
   const [loading, setLoading] = useState(false);
@@ -70,7 +71,7 @@ export function ComparePage() {
   }, [tickers, setSp]);
 
   const add = useCallback((tk: string) => {
-    setTickers(ts => (ts.length >= 3 || ts.includes(tk)) ? ts : [...ts, tk]);
+    setTickers(ts => (ts.length >= MAX_COMPARE_TICKERS || ts.includes(tk)) ? ts : [...ts, tk]);
   }, []);
   const remove = useCallback((tk: string) => setTickers(ts => ts.filter(x => x !== tk)), []);
 
@@ -88,7 +89,7 @@ export function ComparePage() {
         <div className="cmp-head">
           <div className="col gap-4">
             <h1 className="cmp-title">{t('compare.title')}</h1>
-            <p className="muted" style={{ fontSize: 14 }}>{t('compare.subtitle')}</p>
+            <p className="muted" style={{ fontSize: 14 }}>{t('compare.subtitle', { max: MAX_COMPARE_TICKERS })}</p>
           </div>
         </div>
 
@@ -105,8 +106,8 @@ export function ComparePage() {
               </span>
             ))}
           </div>
-          {tickers.length < 3 && <AddTicker selected={tickers} onAdd={add} />}
-          <span className="tiny muted" style={{ marginLeft: 'auto' }}>{t('compare.slots', { n: tickers.length })}</span>
+          {tickers.length < MAX_COMPARE_TICKERS && <AddTicker selected={tickers} onAdd={add} />}
+          <span className="tiny muted" style={{ marginLeft: 'auto' }}>{t('compare.slots', { n: tickers.length, max: MAX_COMPARE_TICKERS })}</span>
         </div>
 
         {error && <div className="card" style={{ padding: 16, color: 'var(--bad-ink)' }}>{error}</div>}
@@ -158,7 +159,7 @@ function CompareInvite() {
     <div className="card cmp-invite">
       <div className="cmp-invite-icon"><Icon name="layers" size={24} /></div>
       <h3 style={{ fontSize: 19 }}>{t('compare.invite.title')}</h3>
-      <p className="muted" style={{ maxWidth: 380, fontSize: 14, lineHeight: 1.5 }}>{t('compare.invite.text')}</p>
+      <p className="muted" style={{ maxWidth: 380, fontSize: 14, lineHeight: 1.5 }}>{t('compare.invite.text', { max: MAX_COMPARE_TICKERS })}</p>
     </div>
   );
 }

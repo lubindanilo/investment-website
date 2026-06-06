@@ -445,6 +445,13 @@ export type TimeseriesMetricKey = 'revenue' | 'netIncome' | 'operatingIncome' | 
 export type RatioMetricKey = 'netMargin' | 'fcfMargin' | 'operatingMargin' | 'netDebtFcf' | 'cashConversion';
 export const RATIO_METRIC_KEYS: readonly RatioMetricKey[] = ['netMargin', 'fcfMargin', 'operatingMargin', 'netDebtFcf', 'cashConversion'];
 
+/**
+ * Nombre maxi de titres comparables côté /comparer. Source unique de vérité partagée
+ * entre le front (sélecteur + slots) et l'API (/api/compare). Pour en autoriser plus,
+ * il suffit de modifier cette constante. Min toujours 2.
+ */
+export const MAX_COMPARE_TICKERS = 5;
+
 export interface CriterionHistogram {
   metricKey: TimeseriesMetricKey | RatioMetricKey;
   /** Libellé français (fallback). Le front affiche plutôt `t(labelKey)`. */

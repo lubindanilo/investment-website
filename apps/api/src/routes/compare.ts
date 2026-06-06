@@ -1,5 +1,5 @@
 /**
- * /api/compare?tickers=A,B,C — comparaison side-by-side de 2 à 3 titres.
+ * /api/compare?tickers=A,B,C — comparaison side-by-side de 2 à MAX_COMPARE_TICKERS titres.
  *
  * Sert depuis le cache (chemin rapide loadQuantData(cached)) → quasi instantané, 0 recompute.
  * Renvoie par ticker l'en-tête + une cellule par critère (10 chiffres + P/FCF + valorisation),
@@ -8,6 +8,7 @@
 import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import type { CompareResponse, CompareTicker, CompareCell, CompareCriterionDef, DataStatus, DerivedMetrics, ValoParams, CriterionStatus } from '@lubin/shared';
+import { MAX_COMPARE_TICKERS } from '@lubin/shared';
 import { parseLang, type Lang } from '../i18n/index.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { getServableSnapshot } from '../services/quantCache.js';
@@ -112,8 +113,8 @@ compareRouter.get('/', analyzeLimiter, asyncHandler(async (req: Request, res: Re
     const p = TickerSchema.safeParse(r);
     if (p.success && !parsed.includes(p.data)) parsed.push(p.data);
   }
-  if (parsed.length < 2 || parsed.length > 3) {
-    throw new ApiError(400, 'Indique 2 à 3 tickers à comparer', { tickers: parsed });
+  if (parsed.length < 2 || parsed.length > MAX_COMPARE_TICKERS) {
+    throw new ApiError(400, `Indique 2 à ${MAX_COMPARE_TICKERS} tickers à comparer`, { tickers: parsed });
   }
   const lang = parseLang(req.headers['accept-language']);
   const results = await Promise.all(parsed.map(t => buildCompareTicker(t, lang).catch(() => null)));

@@ -56,7 +56,12 @@ export function TickerSearch({
     return () => document.removeEventListener('mousedown', h);
   }, [focused]);
 
-  // Recherche debounced
+  // Recherche debounced.
+  // ⚠️ On dépend de `excludeKey` (chaîne stable) et NON de `exclude` (le tableau) : sans `exclude`
+  // passé par l'appelant, sa valeur par défaut `[]` est une nouvelle référence à chaque rendu, ce
+  // qui relançait l'effet en boucle (setList → re-rendu → nouvelle réf → effet → …) et figeait la
+  // page (« Maximum update depth exceeded »).
+  const excludeKey = exclude.join(',');
   useEffect(() => {
     const q = value.trim();
     if (q.length < minChars) { setList([]); return; }
@@ -71,7 +76,8 @@ export function TickerSearch({
         .catch(() => { if (!cancelled) setList([]); });
     }, 180);
     return () => { cancelled = true; clearTimeout(id); };
-  }, [value, exclude, minChars]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, excludeKey, minChars]);
 
   const showSuggestions = focused && value.trim().length >= minChars;
   const isField = variant === 'field';
