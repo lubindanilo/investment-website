@@ -46,7 +46,11 @@ const VALID_SYMBOL = /^[A-Z0-9.\-]{1,15}$/;
 const US_PRIMARY_MICS = new Set(['XNAS', 'XNYS', 'XASE']);
 
 const MAX_ATTEMPTS = 5;
-const RESCORE_TTL_MS = 90 * 24 * 3600 * 1000; // re-note les dates inconnues tous les 90j
+// Re-note les titres à date d'earnings INCONNUE assez vite : Finnhub free tier a souvent un
+// trou de couverture transitoire (vide juste après une publication, puis la date apparaît
+// quelques jours/semaines plus tard chez Finnhub ou Yahoo). 90j laissait `nextEarningsDate`
+// nul trop longtemps ; 14j permet de rattraper la date dès qu'une source la publie.
+const RESCORE_TTL_MS = 14 * 24 * 3600 * 1000;
 /**
  * Cooldown anti-churn : un ticker fraîchement noté n'est PAS re-pioché avant ce délai, même si
  * son earnings est "dû". Indispensable car le fournisseur ne fait pas avancer la date du

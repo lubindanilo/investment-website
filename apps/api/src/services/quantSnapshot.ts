@@ -278,14 +278,16 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   const company = companyFromSource ?? fhProfile?.name ?? ticker;
 
   // Fallback earnings Yahoo : Finnhub /calendar/earnings (date du PROCHAIN earnings) est
-  // US-only → vide pour les ADR/EU (ASML, NVO, NESN…). On complète via Yahoo quoteSummary
-  // dès que la date du prochain manque, MÊME si Finnhub a fourni le dernier rapport
-  // (/stock/earnings couvre les ADR cotés NASDAQ → un `last` présent ne doit pas bloquer
-  // le fetch du `next`). On fusionne : on garde le `last` riche de Finnhub (EPS réel +
-  // surprise) et on complète juste le `next` avec Yahoo.
+  // souvent vide — pas seulement pour les ADR/EU (ASML, NVO, NESN…), mais AUSSI pour des
+  // US (free tier : trou de couverture, typiquement juste après une publication — constaté
+  // sur CRM/COST où Finnhub n'a aucune date future alors que Yahoo l'a). On complète donc
+  // via Yahoo quoteSummary dès que le `next` manque, en utilisant le symbole Yahoo résolu
+  // s'il existe, sinon le ticker lui-même (US : ticker app = symbole Yahoo). On fusionne :
+  // on garde le `last` riche de Finnhub (EPS réel + surprise) et on complète juste le `next`.
   let earningsInfo = earnings;
-  if (includeEarnings && yahooSymbol && !earningsInfo.next) {
-    const yEarn = await timed('yahoo earnings', getEarningsInfoYahoo(yahooSymbol)).catch(() => null);
+  const earnSym = yahooSymbol ?? ticker;
+  if (includeEarnings && earnSym && !earningsInfo.next) {
+    const yEarn = await timed('yahoo earnings', getEarningsInfoYahoo(earnSym)).catch(() => null);
     if (yEarn) {
       earningsInfo = {
         next: earningsInfo.next ?? yEarn.next,
