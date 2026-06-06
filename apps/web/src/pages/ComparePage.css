@@ -26,6 +26,10 @@
 .cmp-h { position: sticky; top: 0; z-index: 4; background: var(--bg); padding: 0 7px 12px; }
 .cmp-corner { position: sticky; top: 0; left: 0; z-index: 6; background: var(--bg); }
 .cmp-label { position: sticky; left: 0; z-index: 3; background: var(--bg); padding: 14px 16px 14px 2px; display: flex; }
+/* Quand un popover .pop est ouvert dans la cellule libellé, on remonte le stacking context
+ * au-dessus des sections suivantes (.cmp-sec, z-index 3) — sinon le popover apparaît clippé
+ * derrière la section « Valorisation » qui le suit dans le DOM. */
+.cmp-label:has(.pop) { z-index: 50; }
 .cmp-sec { grid-column: 1 / -1; position: sticky; left: 0; background: var(--bg); padding: 22px 2px 8px; z-index: 3; display: flex; align-items: baseline; }
 .cmp-cellw { padding: 5px 7px; }
 
