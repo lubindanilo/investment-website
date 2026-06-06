@@ -136,6 +136,18 @@ export interface DerivedMetrics {
   ccr: number | null;
   nwc: number | null;
   nwcCurrentRatio: number | null;
+  /**
+   * Cash Conversion Cycle (CCC) en JOURS = DSO + DIO − DPO. Remplace currentRatio
+   * pour l'évaluation de l'efficacité du BFR. Négatif = modèle float (Amazon, Costco).
+   */
+  ccc: number | null;
+  /** Sous-composantes (jours) pour l'affichage détaillé : créances / stocks / fournisseurs. */
+  cccDso: number | null;
+  cccDio: number | null;
+  cccDpo: number | null;
+  /** Pente de la régression linéaire CCC vs temps, en JOURS/AN (≥ 4 trimestres requis).
+   *  < -3 = compression, ∈ [-3,+3] = stable, > +3 = allongement. */
+  cccSlopeDaysPerYear: number | null;
   pfcfTTM: number | null;
   /** Marché capitalisation (USD millions) */
   marketCap: number | null;
@@ -470,7 +482,7 @@ export interface CriterionHistogram {
 // graphiques, briefs et catalogues i18n sans dépendre du libellé localisé.
 export type QuantCriterionKey =
   | 'netMargin' | 'revenueGrowth5y' | 'fcfGrowth5y' | 'shareCount5y' | 'fcfMargin'
-  | 'operatingLeverage' | 'cashRoce' | 'netDebtFcf' | 'cashConversion' | 'currentRatio'
+  | 'operatingLeverage' | 'cashRoce' | 'netDebtFcf' | 'cashConversion' | 'ccc'
   | 'pfcf' | 'valuation';
 
 /** Critères ouvrant un graphique LINE, indexés par clé stable. `labelKey` = clé i18n du titre. */

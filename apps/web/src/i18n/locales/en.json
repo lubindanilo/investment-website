@@ -294,9 +294,9 @@
       "why": "Checks that accounting earnings actually convert into real cash. A persistent gap signals \"paper\" profits (rising receivables, bloating inventories…).",
       "how": "Ratio of earnings to cash generated (derived from the P/E and P/FCF). Benchmark: > 1 = cash keeps up with (or exceeds) earnings."
     },
-    "currentRatio": {
-      "why": "Ability to meet short-term liabilities with short-term assets — a simple indicator of balance-sheet strength and liquidity risk.",
-      "how": "Current assets ÷ current liabilities. Benchmark: > 1.5 = comfortable, < 1 = watch closely."
+    "ccc": {
+      "why": "Days between buying inventory and collecting from customers, net of the supplier payment delay. Measures working-capital efficiency and business-model quality. A negative CCC (float model) means customers finance the operations — the operational Holy Grail.",
+      "how": "CCC = DSO + DIO − DPO (in days). DSO = receivables/revenue × 365, DIO = inventory/cost of revenue × 365, DPO = payables/cost of revenue × 365. Trend over 5 years: compression = positive signal, lengthening = red flag."
     },
     "pfcf": {
       "why": "The price paid for €1 of annual free cash: the most telling valuation measure. An excellent company bought too dear is still a poor investment at the wrong time.",

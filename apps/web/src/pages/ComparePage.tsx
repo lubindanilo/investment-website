@@ -18,7 +18,7 @@ import './ComparePage.css';
 type Dir = 'hb' | 'lb' | 'text';
 const DIR: Record<string, Dir> = {
   netMargin: 'hb', revenueGrowth5y: 'hb', fcfGrowth5y: 'hb', shareCount5y: 'lb', fcfMargin: 'hb',
-  operatingLeverage: 'text', cashRoce: 'hb', netDebtFcf: 'lb', cashConversion: 'hb', currentRatio: 'lb',
+  operatingLeverage: 'text', cashRoce: 'hb', netDebtFcf: 'lb', cashConversion: 'hb', ccc: 'lb',
   pfcf: 'lb', pfcfPercentile: 'lb',
 };
 

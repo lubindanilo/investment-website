@@ -73,6 +73,17 @@ export function computeDerivedMetrics(input: {
   totalDebtSnapshot?: number | null;
   /** Total Cash (latest Q) — fallback pour netDebtFcf */
   totalCashSnapshot?: number | null;
+  // ─── Cash Conversion Cycle (CCC) ───
+  /** CCC courant (jours) au dernier trimestre dispo. */
+  cccCurrent?: number | null;
+  /** Sous-composantes (jours) au dernier trimestre. */
+  cccDso?: number | null;
+  cccDio?: number | null;
+  cccDpo?: number | null;
+  /** Pente régression linéaire CCC vs temps (jours/an), null si < 4 trimestres. */
+  cccSlopeDaysPerYear?: number | null;
+  /** Raison spécifique quand CCC indisponible. */
+  cccReason?: string;
 }): DerivedMetrics {
   const m = input.metric?.metric ?? {};
   const price = input.quote?.c ?? null;
@@ -320,6 +331,7 @@ export function computeDerivedMetrics(input: {
   if (operatingLeverage == null) reasons.operatingLeverage = 'Historique insuffisant pour estimer la tendance des marges';
   if (pfcfTTM == null) reasons.pfcfTTM = 'P/FCF indisponible';
   if (currentRatio == null) reasons.nwcCurrentRatio = 'Ratio de liquidité indisponible';
+  if (input.cccCurrent == null) reasons.ccc = input.cccReason ?? 'Cycle de conversion du cash indisponible (créances, stocks ou COGS manquants)';
 
   return {
     netMargin,
@@ -335,6 +347,11 @@ export function computeDerivedMetrics(input: {
     ccr,
     nwc,
     nwcCurrentRatio: currentRatio,
+    ccc: input.cccCurrent ?? null,
+    cccDso: input.cccDso ?? null,
+    cccDio: input.cccDio ?? null,
+    cccDpo: input.cccDpo ?? null,
+    cccSlopeDaysPerYear: input.cccSlopeDaysPerYear ?? null,
     pfcfTTM,
     marketCap: mcap,
     price,
@@ -493,21 +510,36 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
         : m.ccr > 1 ? tt(lang, 'cashConversion.good') : tt(lang, 'cashConversion.weak'),
     },
     (() => {
-      const cr = m.nwcCurrentRatio;
-      const valeur = cr == null ? NOT_CALC : cr.toFixed(2);
+      // CCC = DSO + DIO − DPO (jours). Verdict :
+      //  - pass : CCC < 0 (modèle float : Amazon, Costco) OU pente < -3 j/an sur 5 ans (compression nette)
+      //  - warn : pente ∈ [-3, +3] j/an (stable)
+      //  - fail : pente > +3 j/an (allongement net)
+      const ccc = m.ccc;
+      const slope = m.cccSlopeDaysPerYear;
+      const valeur = ccc == null ? NOT_CALC : `${Math.round(ccc)} j`;
       let statut: 'pass' | 'warn' | 'fail' = 'warn';
-      let explication = reasonOr(m, 'nwcCurrentRatio', tt(lang, 'currentRatio.unavailable'), lang);
-      if (cr != null) {
-        const x = cr.toFixed(2);
-        if (cr < 1) { statut = 'pass'; explication = tt(lang, 'currentRatio.strong', { x }); }
-        else if (cr < 1.5) { statut = 'warn'; explication = tt(lang, 'currentRatio.classic', { x }); }
-        else { statut = 'fail'; explication = tt(lang, 'currentRatio.heavy', { x }); }
+      let explication = reasonOr(m, 'ccc', tt(lang, 'ccc.unavailable'), lang);
+      if (ccc != null) {
+        const x = Math.round(ccc).toString();
+        const s = slope != null ? slope.toFixed(1) : '?';
+        if (ccc < 0) {
+          statut = 'pass'; explication = tt(lang, 'ccc.float', { x });
+        } else if (slope == null) {
+          statut = ccc < 30 ? 'pass' : 'warn';
+          explication = tt(lang, 'ccc.noTrend', { x });
+        } else if (slope < -3) {
+          statut = 'pass'; explication = tt(lang, 'ccc.compressing', { x, s });
+        } else if (slope > 3) {
+          statut = 'fail'; explication = tt(lang, 'ccc.lengthening', { x, s });
+        } else {
+          statut = 'warn'; explication = tt(lang, 'ccc.stable', { x, s });
+        }
       }
       return {
-        key: 'currentRatio',
-        nom: tt(lang, 'currentRatio.name'),
+        key: 'ccc',
+        nom: tt(lang, 'ccc.name'),
         valeur,
-        cible: tt(lang, 'currentRatio.target'),
+        cible: tt(lang, 'ccc.target'),
         statut,
         explication,
       } as const;

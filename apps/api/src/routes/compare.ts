@@ -35,7 +35,7 @@ const NUM_BY_KEY: Record<string, (m: DerivedMetrics) => number | null> = {
   cashRoce: m => m.cashROCE,
   netDebtFcf: m => m.netDebtFcf,
   cashConversion: m => m.ccr,
-  currentRatio: m => m.nwcCurrentRatio,
+  ccc: m => m.ccc,
 };
 
 async function buildCompareTicker(ticker: string, lang: Lang): Promise<CompareTicker | null> {

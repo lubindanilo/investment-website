@@ -319,9 +319,9 @@
       "why": "Vérifie que les bénéfices comptables se transforment bien en vrai cash. Un écart durable signale des bénéfices « de papier » (créances, stocks qui gonflent…).",
       "how": "Rapport entre bénéfice et cash généré (dérivé du PER et du P/FCF). Repère : > 1 = le cash suit (ou dépasse) le bénéfice."
     },
-    "currentRatio": {
-      "why": "Capacité à honorer ses dettes à court terme avec ses actifs court terme — un indicateur simple de solidité du bilan et de risque de liquidité.",
-      "how": "Actifs courants ÷ passifs courants. Repère : > 1,5 = confortable, < 1 = à surveiller."
+    "ccc": {
+      "why": "Le nombre de jours entre l'achat des stocks et l'encaissement du client, net du délai accordé par les fournisseurs. Mesure l'efficacité du BFR et la qualité du business model. Un CCC négatif (modèle « float ») signifie que les clients financent l'activité — c'est le Saint Graal opérationnel.",
+      "how": "CCC = DSO + DIO − DPO (en jours). DSO = créances/CA × 365, DIO = stocks/coût des ventes × 365, DPO = fournisseurs/coût des ventes × 365. On regarde la tendance sur 5 ans : compression = signe positif, allongement = drapeau rouge."
     },
     "pfcf": {
       "why": "Le prix payé pour 1 € de cash libre annuel : la mesure de valorisation la plus parlante. Une excellente entreprise payée trop cher reste un mauvais investissement au mauvais moment.",

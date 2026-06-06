@@ -294,9 +294,9 @@
       "why": "Comprueba que los beneficios contables se transforman realmente en caja. Una brecha persistente señala beneficios «de papel» (cuentas por cobrar, inventarios que se inflan…).",
       "how": "Relación entre beneficio y caja generada (derivada del PER y del P/FCF). Referencia: > 1 = la caja acompaña (o supera) al beneficio."
     },
-    "currentRatio": {
-      "why": "Capacidad de hacer frente a las deudas a corto plazo con sus activos a corto plazo — un indicador simple de solidez del balance y de riesgo de liquidez.",
-      "how": "Activos corrientes ÷ pasivos corrientes. Referencia: > 1,5 = cómodo, < 1 = a vigilar."
+    "ccc": {
+      "why": "Días entre la compra del inventario y el cobro al cliente, neto del plazo concedido por los proveedores. Mide la eficiencia del capital circulante y la calidad del modelo de negocio. Un CCC negativo (modelo float) significa que los clientes financian la operación — el Santo Grial operativo.",
+      "how": "CCC = DSO + DIO − DPO (en días). DSO = cuentas por cobrar/ingresos × 365, DIO = inventario/coste de ventas × 365, DPO = cuentas por pagar/coste de ventas × 365. Tendencia a 5 años: compresión = señal positiva, alargamiento = bandera roja."
     },
     "pfcf": {
       "why": "El precio pagado por 1 € de caja libre anual: la medida de valoración más reveladora. Una empresa excelente comprada demasiado cara sigue siendo una mala inversión en el momento equivocado.",

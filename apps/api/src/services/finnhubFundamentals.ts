@@ -224,6 +224,58 @@ export const METRICS: Record<string, MetricConfig> = {
     concepts: ['us-gaap_Goodwill'],
     cumulative: false,
   },
+  /**
+   * Créances clients (AR) — snapshot bilan. Numérateur du DSO (Days Sales Outstanding).
+   * Plusieurs noms XBRL selon les sociétés. On préfère le "trade receivables net" car il
+   * exclut les autres créances (impôts, prêts intercos…).
+   */
+  accountsReceivable: {
+    section: 'bs',
+    concepts: [
+      'us-gaap_AccountsReceivableNetCurrent',
+      'us-gaap_ReceivablesNetCurrent',
+      'us-gaap_AccountsReceivableNet',
+    ],
+    cumulative: false,
+  },
+  /**
+   * Stocks (Inventory) — snapshot bilan. Numérateur du DIO (Days Inventory Outstanding).
+   * Plusieurs sociétés (banques, assureurs, services) n'ont pas de stocks → absent = 0.
+   */
+  inventory: {
+    section: 'bs',
+    concepts: [
+      'us-gaap_InventoryNet',
+      'us-gaap_Inventory',
+    ],
+    cumulative: false,
+  },
+  /**
+   * Dettes fournisseurs (AP) — snapshot bilan. Numérateur du DPO (Days Payable Outstanding).
+   */
+  accountsPayable: {
+    section: 'bs',
+    concepts: [
+      'us-gaap_AccountsPayableCurrent',
+      'us-gaap_AccountsPayable',
+    ],
+    cumulative: false,
+  },
+  /**
+   * Coût des ventes (COGS) — métrique cumulative YTD comme la revenue. Dénominateur du
+   * DIO et DPO. Quand la société ne distingue pas biens/services, certains émetteurs
+   * publient `CostOfGoodsAndServicesSold` ou `CostOfServices` au lieu de `CostOfRevenue`.
+   */
+  costOfRevenue: {
+    section: 'ic',
+    concepts: [
+      'us-gaap_CostOfRevenue',
+      'us-gaap_CostOfGoodsAndServicesSold',
+      'us-gaap_CostOfGoodsSold',
+      'us-gaap_CostOfServices',
+    ],
+    cumulative: true,
+  },
 };
 
 export type MetricKey = keyof typeof METRICS;
@@ -1293,6 +1345,100 @@ export async function computeFcfPerShareCagrFromQuarterlies(
  * splitAdjustWithDiscontinuity détecte le saut ≈ factor dans la série et n'ajuste que
  * les points avant ce saut. Voir yahooSplits.ts pour le détail de l'algorithme.
  */
+// ═══════════════════════════════════════════════════════════════════════════════
+// Cash Conversion Cycle (CCC = DSO + DIO − DPO)
+// ═══════════════════════════════════════════════════════════════════════════════
+// Mesure le temps (en jours) entre l'achat des stocks et l'encaissement clients,
+// net du délai de paiement fournisseurs. Plus bas = mieux. Négatif = la société
+// est PAYÉE par ses clients avant d'avoir à payer ses fournisseurs (modèle float :
+// Amazon, Costco, Ferrari) — best-in-class.
+//
+//   DSO = Créances clients / Revenue TTM × 365
+//   DIO = Stocks / COGS TTM × 365
+//   DPO = Dettes fournisseurs / COGS TTM × 365
+//
+// On calcule un point par fin de trimestre (snapshot bilan × TTM IC/CF), puis on
+// régresse linéairement le CCC sur le temps pour mesurer la tendance en JOURS/AN.
+//   - pente < -3 j/an  → compression nette (pass)
+//   - pente ∈ [-3, +3] → stable (warn)
+//   - pente > +3       → allongement (fail)
+//   - dernier CCC < 0  → modèle float déjà acquis → pass quel que soit la pente
+
+export interface CccPoint { date: string; ccc: number; dso: number; dio: number; dpo: number }
+export interface CccResult {
+  /** Tous les points calculables (au moins 1 TTM dispo pour chaque côté du ratio). */
+  points: CccPoint[];
+  /** Dernier point (le plus récent). */
+  current: CccPoint | null;
+  /** Pente de la régression linéaire CCC = α + β·t (β en JOURS/AN). Null si < 4 pts. */
+  slopeDaysPerYear: number | null;
+  /** True si la société publie de l'inventaire (= sociétés produit). False = services/banque. */
+  hasInventory: boolean;
+  /** Raison spécifique quand CCC non calculable. */
+  reason?: string;
+}
+
+export async function computeCccSeries(ticker: string, years: number = 6): Promise<CccResult> {
+  const [revenueQ, cogsQ, arQ, invQ, apQ] = await Promise.all([
+    getReportedTimeseries(ticker, 'revenue',             'quarterly', years),
+    getReportedTimeseries(ticker, 'costOfRevenue',       'quarterly', years),
+    getReportedTimeseries(ticker, 'accountsReceivable',  'quarterly', years),
+    getReportedTimeseries(ticker, 'inventory',           'quarterly', years),
+    getReportedTimeseries(ticker, 'accountsPayable',     'quarterly', years),
+  ]);
+  if (revenueQ.length < 4 || cogsQ.length < 4) {
+    return { points: [], current: null, slopeDaysPerYear: null, hasInventory: false,
+             reason: revenueQ.length < 4 ? 'Revenue TTM indispo (< 4 trimestres)' : 'COGS TTM indispo (< 4 trimestres)' };
+  }
+  const revTtm  = rollingTtmSum(revenueQ);
+  const cogsTtm = rollingTtmSum(cogsQ);
+  const revByDate  = new Map(revTtm.map(p => [p.date, p.value]));
+  const cogsByDate = new Map(cogsTtm.map(p => [p.date, p.value]));
+  const arByDate   = new Map(arQ.map(p => [p.date, p.value]));
+  const invByDate  = new Map(invQ.map(p => [p.date, p.value]));
+  const apByDate   = new Map(apQ.map(p => [p.date, p.value]));
+
+  const hasInventory = invQ.length >= 4 && invQ.some(p => p.value > 0);
+
+  const points: CccPoint[] = [];
+  for (const [date, rev] of revByDate) {
+    if (rev <= 0) continue;
+    const cogs = cogsByDate.get(date);
+    if (!cogs || cogs <= 0) continue;
+    const ar  = arByDate.get(date);
+    const inv = invByDate.get(date) ?? 0; // services sans stocks → 0 (DIO sera 0)
+    const ap  = apByDate.get(date);
+    if (ar == null || ap == null) continue;
+    const dso = (ar / rev)  * 365;
+    const dio = (inv / cogs) * 365;
+    const dpo = (ap  / cogs) * 365;
+    const ccc = dso + dio - dpo;
+    if (!Number.isFinite(ccc)) continue;
+    points.push({ date, ccc, dso, dio, dpo });
+  }
+  points.sort((a, b) => a.date.localeCompare(b.date));
+  const current = points.length ? points[points.length - 1]! : null;
+
+  // Régression linéaire CCC vs temps (années). Slope en JOURS/AN.
+  let slopeDaysPerYear: number | null = null;
+  if (points.length >= 4) {
+    const t0 = tsOf(points[0]!.date);
+    const xs = points.map(p => (tsOf(p.date) - t0) / (365.25 * 24 * 3600 * 1000));
+    const ys = points.map(p => p.ccc);
+    const n = xs.length;
+    const meanX = xs.reduce((s, v) => s + v, 0) / n;
+    const meanY = ys.reduce((s, v) => s + v, 0) / n;
+    let num = 0, den = 0;
+    for (let i = 0; i < n; i++) {
+      num += (xs[i]! - meanX) * (ys[i]! - meanY);
+      den += (xs[i]! - meanX) ** 2;
+    }
+    if (den > 0) slopeDaysPerYear = num / den;
+  }
+  if (!current) return { points, current: null, slopeDaysPerYear, hasInventory, reason: 'Aucun trimestre calculable (AR, AP, COGS ou Rev manquants)' };
+  return { points, current, slopeDaysPerYear, hasInventory };
+}
+
 async function splitAdjustIfNeeded(
   points: TimeseriesPoint[],
   ticker: string,
