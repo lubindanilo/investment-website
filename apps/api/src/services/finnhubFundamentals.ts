@@ -1382,7 +1382,18 @@ export async function computeFcfPerShareCagrFromQuarterlies(
 //   - pente > +3       → allongement (fail)
 //   - dernier CCC < 0  → modèle float déjà acquis → pass quel que soit la pente
 
-export interface CccPoint { date: string; ccc: number; dso: number; dio: number; dpo: number }
+export interface CccPoint {
+  date: string;
+  ccc: number;
+  dso: number;
+  dio: number;
+  dpo: number;
+  /** True si DIO/DPO ont été calculés avec revenue comme dénominateur (COGS indispo).
+   *  Sous-estime les niveaux absolus de DIO/DPO du facteur de la marge brute, mais la
+   *  TENDANCE reste valide — c'est ce qui pilote le verdict CCC. Bloomberg/Capital IQ
+   *  font le même fallback quand le COGS n'est pas isolé dans les filings. */
+  approximated?: boolean;
+}
 export interface CccResult {
   /** Tous les points calculables (au moins 1 TTM dispo pour chaque côté du ratio). */
   points: CccPoint[];
@@ -1392,6 +1403,8 @@ export interface CccResult {
   slopeDaysPerYear: number | null;
   /** True si la société publie de l'inventaire (= sociétés produit). False = services/banque. */
   hasInventory: boolean;
+  /** True si le DERNIER point a été calculé avec revenue comme dénominateur (COGS indispo). */
+  approximated: boolean;
   /** Raison spécifique quand CCC non calculable. */
   reason?: string;
 }
@@ -1404,12 +1417,18 @@ export async function computeCccSeries(ticker: string, years: number = 6): Promi
     getReportedTimeseries(ticker, 'inventory',           'quarterly', years),
     getReportedTimeseries(ticker, 'accountsPayable',     'quarterly', years),
   ]);
-  if (revenueQ.length < 4 || cogsQ.length < 4) {
-    return { points: [], current: null, slopeDaysPerYear: null, hasInventory: false,
-             reason: revenueQ.length < 4 ? 'Revenue TTM indispo (< 4 trimestres)' : 'COGS TTM indispo (< 4 trimestres)' };
+  // Précondition stricte : on a besoin du revenue TTM pour TOUT calcul (numérateur DSO,
+  // ET dénominateur de fallback pour DIO/DPO quand COGS manque). En revanche on n'exige
+  // plus 4 trimestres de COGS — s'il n'est pas publié on calcule en mode "approché".
+  if (revenueQ.length < 4) {
+    return { points: [], current: null, slopeDaysPerYear: null, hasInventory: false, approximated: false,
+             reason: 'Revenue TTM indispo (< 4 trimestres)' };
   }
   const revTtm  = rollingTtmSum(revenueQ);
-  const cogsTtm = rollingTtmSum(cogsQ);
+  // On calcule un TTM COGS quand on en a au moins 4 Q, sinon Map vide → tous les points
+  // tomberont en mode approché. Hybride OK : seuls les trimestres avec COGS TTM dispo
+  // bénéficient de la formule exacte, les autres passent par le revenue.
+  const cogsTtm = cogsQ.length >= 4 ? rollingTtmSum(cogsQ) : [];
   const revByDate  = new Map(revTtm.map(p => [p.date, p.value]));
   const cogsByDate = new Map(cogsTtm.map(p => [p.date, p.value]));
   const arByDate   = new Map(arQ.map(p => [p.date, p.value]));
@@ -1421,18 +1440,23 @@ export async function computeCccSeries(ticker: string, years: number = 6): Promi
   const points: CccPoint[] = [];
   for (const [date, rev] of revByDate) {
     if (rev <= 0) continue;
-    const cogs = cogsByDate.get(date);
-    if (!cogs || cogs <= 0) continue;
     const ar  = arByDate.get(date);
     const inv = invByDate.get(date) ?? 0; // services sans stocks → 0 (DIO sera 0)
     const ap  = apByDate.get(date);
     if (ar == null || ap == null) continue;
-    const dso = (ar / rev)  * 365;
-    const dio = (inv / cogs) * 365;
-    const dpo = (ap  / cogs) * 365;
+    const cogs = cogsByDate.get(date);
+    const useCogs = cogs != null && cogs > 0;
+    // Si COGS dispo : formule exacte. Sinon : DIO/DPO calculés avec revenue (sous-estime
+    // d'un facteur ~marge_brute en absolu mais la TENDANCE reste valide).
+    const denom = useCogs ? cogs : rev;
+    const dso = (ar  / rev)   * 365;
+    const dio = (inv / denom) * 365;
+    const dpo = (ap  / denom) * 365;
     const ccc = dso + dio - dpo;
     if (!Number.isFinite(ccc)) continue;
-    points.push({ date, ccc, dso, dio, dpo });
+    const point: CccPoint = { date, ccc, dso, dio, dpo };
+    if (!useCogs) point.approximated = true;
+    points.push(point);
   }
   points.sort((a, b) => a.date.localeCompare(b.date));
   const current = points.length ? points[points.length - 1]! : null;
@@ -1453,8 +1477,9 @@ export async function computeCccSeries(ticker: string, years: number = 6): Promi
     }
     if (den > 0) slopeDaysPerYear = num / den;
   }
-  if (!current) return { points, current: null, slopeDaysPerYear, hasInventory, reason: 'Aucun trimestre calculable (AR, AP, COGS ou Rev manquants)' };
-  return { points, current, slopeDaysPerYear, hasInventory };
+  if (!current) return { points, current: null, slopeDaysPerYear, hasInventory, approximated: false,
+                         reason: 'Aucun trimestre calculable (revenue + AR + AP requis)' };
+  return { points, current, slopeDaysPerYear, hasInventory, approximated: current.approximated === true };
 }
 
 async function splitAdjustIfNeeded(

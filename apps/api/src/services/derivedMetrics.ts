@@ -82,6 +82,8 @@ export function computeDerivedMetrics(input: {
   cccDpo?: number | null;
   /** Pente régression linéaire CCC vs temps (jours/an), null si < 4 trimestres. */
   cccSlopeDaysPerYear?: number | null;
+  /** True si le CCC courant a été calculé en mode approché (COGS indispo, DIO/DPO via revenue). */
+  cccApproximated?: boolean;
   /** Raison spécifique quand CCC indisponible. */
   cccReason?: string;
 }): DerivedMetrics {
@@ -352,6 +354,7 @@ export function computeDerivedMetrics(input: {
     cccDio: input.cccDio ?? null,
     cccDpo: input.cccDpo ?? null,
     cccSlopeDaysPerYear: input.cccSlopeDaysPerYear ?? null,
+    cccApproximated: input.cccApproximated ?? null,
     pfcfTTM,
     marketCap: mcap,
     price,
@@ -516,7 +519,13 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
       //  - fail : pente > +3 j/an (allongement net)
       const ccc = m.ccc;
       const slope = m.cccSlopeDaysPerYear;
-      const valeur = ccc == null ? NOT_CALC : `${Math.round(ccc)} j`;
+      const isApprox = m.cccApproximated === true;
+      // Suffixe " (estimé)" sur la valeur quand on est en mode approché — flag visuel
+      // pour l'utilisateur : niveau absolu sous-estimé (DIO/DPO via revenue), mais le
+      // verdict (pass/warn/fail) reste piloté par la tendance qui elle est fiable.
+      const valeur = ccc == null
+        ? NOT_CALC
+        : `${Math.round(ccc)} j${isApprox ? ' (estimé)' : ''}`;
       let statut: 'pass' | 'warn' | 'fail' = 'warn';
       let explication = reasonOr(m, 'ccc', tt(lang, 'ccc.unavailable'), lang);
       if (ccc != null) {
@@ -533,6 +542,9 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
           statut = 'fail'; explication = tt(lang, 'ccc.lengthening', { x, s });
         } else {
           statut = 'warn'; explication = tt(lang, 'ccc.stable', { x, s });
+        }
+        if (isApprox) {
+          explication = `[Estimé via revenue, COGS non publié] ${explication}`;
         }
       }
       return {

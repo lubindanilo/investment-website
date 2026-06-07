@@ -318,7 +318,7 @@ export async function getYahooFundamentals(
         // CCC indispo côté Yahoo (pas de séries AR/Inv/AP/COGS exposées dans le batch annuel actuel).
         // Le critère se notera "Non calculable" pour le path Yahoo tant qu'on n'a pas branché
         // stockanalysis comme source primaire EU/INTL.
-        ccc: null, cccDso: null, cccDio: null, cccDpo: null, cccSlopeDaysPerYear: null,
+        ccc: null, cccDso: null, cccDio: null, cccDpo: null, cccSlopeDaysPerYear: null, cccApproximated: null,
         pfcfTTM,
         marketCap,
         price,

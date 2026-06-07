@@ -148,6 +148,10 @@ export interface DerivedMetrics {
   /** Pente de la régression linéaire CCC vs temps, en JOURS/AN (≥ 4 trimestres requis).
    *  < -3 = compression, ∈ [-3,+3] = stable, > +3 = allongement. */
   cccSlopeDaysPerYear: number | null;
+  /** True si le CCC courant est calculé en mode APPROCHÉ (COGS non publié → DIO/DPO
+   *  utilisent revenue comme dénominateur). Les niveaux absolus sont sous-estimés,
+   *  mais la tendance reste fiable. Null si CCC indispo. */
+  cccApproximated: boolean | null;
   pfcfTTM: number | null;
   /** Marché capitalisation (USD millions) */
   marketCap: number | null;
