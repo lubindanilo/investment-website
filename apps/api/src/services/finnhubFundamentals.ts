@@ -93,9 +93,16 @@ export const METRICS: Record<string, MetricConfig> = {
   },
   netIncome: {
     section: 'ic',
+    // Du plus LARGE (fallback) au plus PRÉCIS (gagne en coexistence). EDGAR dedup par date,
+    // dernière entrée gagne → NetIncomeLoss reste en dernier.
+    // Les *AvailableToCommonStockholders débloquent SKYW, FUTU, MCY, GFI (sociétés qui publient
+    // uniquement la version "after preferred dividends" — précis pour les actionnaires ordinaires
+    // mais sous-estime légèrement le résultat consolidé. Acceptable pour calculer marges/ratios).
     concepts: [
-      'us-gaap_NetIncomeLoss',
+      'us-gaap_NetIncomeLossAvailableToCommonStockholdersBasic',
+      'us-gaap_NetIncomeLossAvailableToCommonStockholdersDiluted',
       'us-gaap_ProfitLoss',
+      'us-gaap_NetIncomeLoss',
     ],
     cumulative: true,
   },
@@ -120,14 +127,22 @@ export const METRICS: Record<string, MetricConfig> = {
   },
   capex: {
     section: 'cf',
+    // PaymentsToAcquireOilAndGasPropertyAndEquipment débloque les pétroliers/gaziers (PNRG)
+    // qui isolent ces investissements dans un tag dédié.
     concepts: [
-      'us-gaap_PaymentsToAcquirePropertyPlantAndEquipment',
+      'us-gaap_PaymentsToAcquireOilAndGasPropertyAndEquipment',
       'us-gaap_PaymentsToAcquireProductiveAssets',
+      'us-gaap_PaymentsToAcquirePropertyPlantAndEquipment',  // standard — gagne en coexistence
     ],
     cumulative: true,
   },
   shares: {
     section: 'ic',
+    // ORDRE INVERSE des sections cumulative: pour pointInTime, c'est la PREMIÈRE entrée à une
+    // date qui gagne (seen.has check). Donc on met le concept PRÉFÉRÉ EN PREMIER (= diluted).
+    // Basic seulement en fallback (sociétés qui n'ont pas de diluted reporté : FUTU, TYL, TOYO,
+    // GFI). NB : CommonStockSharesOutstanding NON ajouté — c'est un instant XBRL (duration=0)
+    // qui serait droppé par le filtre 60-100j de pointInTime.
     concepts: [
       'us-gaap_WeightedAverageNumberOfDilutedSharesOutstanding',
       'us-gaap_WeightedAverageNumberOfSharesOutstandingBasic',
@@ -233,15 +248,20 @@ export const METRICS: Record<string, MetricConfig> = {
   accountsReceivable: {
     section: 'bs',
     // ORDRE CRITIQUE : du plus LARGE (fallback) au plus PRÉCIS (gagne en cas de coexistence).
-    // L'union EDGAR (decumulateFlow / pointInTime) dédup par date, dernière entrée gagne.
-    // Une société publiant À LA FOIS AccountsReceivableNetCurrent ET *AndOther → on doit
-    // privilégier le pur "trade receivables", donc il vient en DERNIER.
+    // L'union EDGAR dédup par date, dernière entrée gagne. Les sociétés publiant simultanément
+    // un tag pur et un tag agrégé → on doit privilégier le pur "trade receivables".
+    // Élargie via audit XBRL workflow `wz588k1p2` : débloque HST (REITs), SEZL (BNPL),
+    // ACGL/PGR (assureurs), TGT (retailer).
     concepts: [
+      'us-gaap_AccountsAndNotesReceivableNet',                                                   // HST (hôtellerie/REIT) — trade + notes combinés
       'us-gaap_TradeAndOtherReceivablesNetCurrent',
-      'us-gaap_AccountsAndOtherReceivablesNetCurrent',  // ex Target
+      'us-gaap_AccountsAndOtherReceivablesNetCurrent',                                           // ex Target
+      'us-gaap_PremiumsReceivableAtCarryingValue',                                               // assureurs P&C (ACGL, PGR)
+      'us-gaap_FinancingReceivableExcludingAccruedInterestAfterAllowanceForCreditLossCurrent',   // BNPL/financeurs (SEZL)
+      'us-gaap_NotesReceivableNet',                                                              // émetteurs notes-centric
       'us-gaap_AccountsReceivableNet',
       'us-gaap_ReceivablesNetCurrent',
-      'us-gaap_AccountsReceivableNetCurrent',           // le plus précis — gagne en cas de coexistence
+      'us-gaap_AccountsReceivableNetCurrent',                                                    // le plus précis — gagne en cas de coexistence
     ],
     cumulative: false,
   },
@@ -251,20 +271,34 @@ export const METRICS: Record<string, MetricConfig> = {
    */
   inventory: {
     section: 'bs',
+    // Du plus LARGE au plus PRÉCIS : InventoryNet (= post-allowance, le standard) reste dernier.
+    // InventoryGross débloque les pétroliers/foreurs (WHD) qui n'exposent pas l'allowance séparément.
     concepts: [
-      'us-gaap_InventoryNet',
+      'us-gaap_InventoryGross',                                                                  // WHD (drilling) — agrégé brut
       'us-gaap_Inventory',
+      'us-gaap_InventoryNet',                                                                    // standard, gagne en coexistence
     ],
     cumulative: false,
   },
   /**
    * Dettes fournisseurs (AP) — snapshot bilan. Numérateur du DPO (Days Payable Outstanding).
+   *
+   * Élargie via audit XBRL workflow `wz588k1p2` : débloque CRM/Salesforce (a abandonné
+   * AccountsPayableCurrent en 2019 au profit de *AndOtherAccruedLiabilitiesCurrent), DXCM,
+   * DECK, HST. ⚠ Les tags `*AndAccruedLiabilities` sont AGRÉGÉS (gonflent un peu le DPO car
+   * incluent charges à payer) — placés en fallback large, le pur AccountsPayableCurrent reste
+   * dernier et gagne s'il coexiste. La tendance CCC reste fiable.
    */
   accountsPayable: {
     section: 'bs',
     concepts: [
-      'us-gaap_AccountsPayableCurrent',
+      'us-gaap_AccountsPayableAndAccruedLiabilities',                          // période non-current incluse
+      'us-gaap_AccountsPayableAndAccruedLiabilitiesCurrentAndNoncurrent',
+      'us-gaap_AccountsPayableAndOtherAccruedLiabilitiesCurrent',              // CRM, DXCM
+      'us-gaap_AccountsPayableTradeCurrentAndNoncurrent',
+      'us-gaap_AccountsPayableTradeCurrent',
       'us-gaap_AccountsPayable',
+      'us-gaap_AccountsPayableCurrent',                                        // le plus précis — gagne en coexistence
     ],
     cumulative: false,
   },
