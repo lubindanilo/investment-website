@@ -801,8 +801,19 @@ function tsOf(date: string): number {
 }
 
 /**
- * Régression linéaire de log(value) sur t (années depuis t0).
- * Renvoie { rate, n, first, last } pour traçabilité. null si non régressable.
+ * Régression de log(value) sur le temps par estimateur de **Theil-Sen** : pente = médiane
+ * de toutes les pentes individuelles (i,j) avec i<j. Résistant aux outliers jusqu'à 29 %
+ * de points pourris (breakdown point théorique) — contrairement à l'OLS qu'un seul outlier
+ * peut faire dévier.
+ *
+ * Pourquoi pas OLS :
+ *   Cas réel ADBE Q1 2024 : paiement Figma de $1B → marge op tombée à 17,5 % (un seul
+ *   trimestre, vs 34-37 % normalement). L'OLS l'absorbait dans 4 TTM consécutifs et
+ *   concluait −0,57 %/an ; Theil-Sen le contourne et retrouve la vraie tendance haussière.
+ *
+ * Complexité : O(n²) — pour n ≤ ~30 (notre fenêtre 5 ans trimestrielle), ~400 ops, négligeable.
+ *
+ * Renvoie { rate, n, first, last } pour traçabilité (même shape qu'avant). null si non régressable.
  */
 function regressLogGrowth(points: TtmPoint[]): { rate: number; n: number; first: TtmPoint; last: TtmPoint } | null {
   const valid = points.filter(p => p.value > 0);
@@ -810,16 +821,42 @@ function regressLogGrowth(points: TtmPoint[]): { rate: number; n: number; first:
   const t0 = valid[0]!.ts;
   const xs = valid.map(p => (p.ts - t0) / (365.25 * 24 * 3600 * 1000));
   const ys = valid.map(p => Math.log(p.value));
-  const n = xs.length;
-  const meanX = xs.reduce((s, v) => s + v, 0) / n;
-  const meanY = ys.reduce((s, v) => s + v, 0) / n;
-  let num = 0, den = 0;
-  for (let i = 0; i < n; i++) {
-    num += (xs[i]! - meanX) * (ys[i]! - meanY);
-    den += (xs[i]! - meanX) ** 2;
+  const slopes: number[] = [];
+  for (let i = 0; i < valid.length; i++) {
+    for (let j = i + 1; j < valid.length; j++) {
+      const dx = xs[j]! - xs[i]!;
+      if (dx <= 0) continue;
+      slopes.push((ys[j]! - ys[i]!) / dx);
+    }
   }
-  if (den === 0) return null;
-  return { rate: Math.exp(num / den) - 1, n, first: valid[0]!, last: valid[valid.length - 1]! };
+  if (slopes.length === 0) return null;
+  slopes.sort((a, b) => a - b);
+  const median = slopes.length % 2 === 1
+    ? slopes[(slopes.length - 1) / 2]!
+    : (slopes[slopes.length / 2 - 1]! + slopes[slopes.length / 2]!) / 2;
+  return { rate: Math.exp(median) - 1, n: valid.length, first: valid[0]!, last: valid[valid.length - 1]! };
+}
+
+/**
+ * Régression LINÉAIRE robuste (Theil-Sen) sur (x, y) bruts — sans transformation log.
+ * Renvoie la pente médiane (unités y / unité x). Utile pour les séries qui peuvent passer
+ * par zéro / être négatives (ex CCC en jours, où on ne peut pas faire log). null si < 4 points.
+ */
+function theilSenLinearSlope(xs: number[], ys: number[]): number | null {
+  if (xs.length < 4 || xs.length !== ys.length) return null;
+  const slopes: number[] = [];
+  for (let i = 0; i < xs.length; i++) {
+    for (let j = i + 1; j < xs.length; j++) {
+      const dx = xs[j]! - xs[i]!;
+      if (dx <= 0) continue;
+      slopes.push((ys[j]! - ys[i]!) / dx);
+    }
+  }
+  if (slopes.length === 0) return null;
+  slopes.sort((a, b) => a - b);
+  return slopes.length % 2 === 1
+    ? slopes[(slopes.length - 1) / 2]!
+    : (slopes[slopes.length / 2 - 1]! + slopes[slopes.length / 2]!) / 2;
 }
 
 /** Filtre une série de TTM points sur les `windowYears` dernières années (par ts). */
@@ -1461,21 +1498,15 @@ export async function computeCccSeries(ticker: string, years: number = 6): Promi
   points.sort((a, b) => a.date.localeCompare(b.date));
   const current = points.length ? points[points.length - 1]! : null;
 
-  // Régression linéaire CCC vs temps (années). Slope en JOURS/AN.
+  // Régression LINÉAIRE robuste (Theil-Sen) CCC vs temps. Slope en JOURS/AN.
+  // Pas de log : le CCC peut être négatif (modèle float). La médiane des pentes est résistante
+  // aux trimestres exceptionnels (rachat saisonnier de stock, working-capital one-shot, etc.).
   let slopeDaysPerYear: number | null = null;
   if (points.length >= 4) {
     const t0 = tsOf(points[0]!.date);
     const xs = points.map(p => (tsOf(p.date) - t0) / (365.25 * 24 * 3600 * 1000));
     const ys = points.map(p => p.ccc);
-    const n = xs.length;
-    const meanX = xs.reduce((s, v) => s + v, 0) / n;
-    const meanY = ys.reduce((s, v) => s + v, 0) / n;
-    let num = 0, den = 0;
-    for (let i = 0; i < n; i++) {
-      num += (xs[i]! - meanX) * (ys[i]! - meanY);
-      den += (xs[i]! - meanX) ** 2;
-    }
-    if (den > 0) slopeDaysPerYear = num / den;
+    slopeDaysPerYear = theilSenLinearSlope(xs, ys);
   }
   if (!current) return { points, current: null, slopeDaysPerYear, hasInventory, approximated: false,
                          reason: 'Aucun trimestre calculable (revenue + AR + AP requis)' };
