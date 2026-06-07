@@ -250,10 +250,11 @@ export const METRICS: Record<string, MetricConfig> = {
     // ORDRE CRITIQUE : du plus LARGE (fallback) au plus PRÉCIS (gagne en cas de coexistence).
     // L'union EDGAR dédup par date, dernière entrée gagne. Les sociétés publiant simultanément
     // un tag pur et un tag agrégé → on doit privilégier le pur "trade receivables".
-    // Élargie via audit XBRL workflow `wz588k1p2` : débloque HST (REITs), SEZL (BNPL),
-    // ACGL/PGR (assureurs), TGT (retailer).
+    // Élargie via audit XBRL workflow `wz588k1p2` puis audit complémentaire TGT/MCD/ACGL :
+    // débloque HST (REITs), SEZL (BNPL), ACGL/PGR (assureurs), TGT (retailer), MCD (notes+loans).
     concepts: [
-      'us-gaap_AccountsAndNotesReceivableNet',                                                   // HST (hôtellerie/REIT) — trade + notes combinés
+      'us-gaap_AccountsAndNotesReceivableNet',                                                   // HST (hôtellerie/REIT)
+      'us-gaap_AccountsNotesAndLoansReceivableNetCurrent',                                       // MCD (franchisés + notes)
       'us-gaap_TradeAndOtherReceivablesNetCurrent',
       'us-gaap_AccountsAndOtherReceivablesNetCurrent',                                           // ex Target
       'us-gaap_PremiumsReceivableAtCarryingValue',                                               // assureurs P&C (ACGL, PGR)
@@ -295,6 +296,7 @@ export const METRICS: Record<string, MetricConfig> = {
       'us-gaap_AccountsPayableAndAccruedLiabilities',                          // période non-current incluse
       'us-gaap_AccountsPayableAndAccruedLiabilitiesCurrentAndNoncurrent',
       'us-gaap_AccountsPayableAndOtherAccruedLiabilitiesCurrent',              // CRM, DXCM
+      'us-gaap_ReinsurancePayable',                                            // assureurs (ACGL)
       'us-gaap_AccountsPayableTradeCurrentAndNoncurrent',
       'us-gaap_AccountsPayableTradeCurrent',
       'us-gaap_AccountsPayable',
@@ -780,12 +782,13 @@ export async function getReportedTimeseries(
 
 /** Vrai s'il manque ≥1 trimestre dans la série (écart > ~130j entre 2 points, ou série vide). */
 function hasQuarterlyGap(points: TimeseriesPoint[]): boolean {
-  // Série Finnhub entièrement vide → EDGAR est notre dernier recours. C'est précisément le
-  // cas où il faut le consulter (ex GOOGL/shares : Finnhub renvoie 0 trimestre, EDGAR en a 9).
-  // Avant ce fix : la condition `points.length === 0 ? false : false` renvoyait toujours false,
-  // EDGAR n'était jamais appelé sur une série vide → fallback Yahoo annuel à tort.
-  if (points.length === 0) return true;
-  if (points.length < 2) return false;
+  // EDGAR est notre source de complétude. On le consulte chaque fois que la série Finnhub
+  // est manifestement incomplète :
+  //  - 0 point          → série totalement absente (ex GOOGL/shares, EDGAR en a 9)
+  //  - < 8 points       → moins de 2 ans de trimestres (ex TGT/AR : Finnhub n'a que 1 pt
+  //                       annuel, EDGAR a 12 pts annuels couvrant ~15 ans)
+  //  - gap interne > 130j → trimestres manquants au milieu (ex changements de ticker FISV→FI)
+  if (points.length < 8) return true;
   const sorted = [...points].sort((a, b) => a.date.localeCompare(b.date));
   for (let i = 1; i < sorted.length; i++) {
     if ((Date.parse(sorted[i]!.date) - Date.parse(sorted[i - 1]!.date)) / 86400000 > 130) return true;
@@ -1496,24 +1499,36 @@ export async function computeCccSeries(ticker: string, years: number = 6): Promi
              reason: 'Revenue TTM indispo (< 4 trimestres)' };
   }
   const revTtm  = rollingTtmSum(revenueQ);
-  // On calcule un TTM COGS quand on en a au moins 4 Q, sinon Map vide → tous les points
-  // tomberont en mode approché. Hybride OK : seuls les trimestres avec COGS TTM dispo
-  // bénéficient de la formule exacte, les autres passent par le revenue.
   const cogsTtm = cogsQ.length >= 4 ? rollingTtmSum(cogsQ) : [];
-  const revByDate  = new Map(revTtm.map(p => [p.date, p.value]));
+  // Map indexée par date pour les flux TTM (alignement Q exact attendu).
   const cogsByDate = new Map(cogsTtm.map(p => [p.date, p.value]));
-  const arByDate   = new Map(arQ.map(p => [p.date, p.value]));
-  const invByDate  = new Map(invQ.map(p => [p.date, p.value]));
-  const apByDate   = new Map(apQ.map(p => [p.date, p.value]));
+  // Pour les SNAPSHOTS bilan (AR/Inv/AP) on utilise un lookup AS-OF (dernier point ≤ date) :
+  // certaines sociétés (TGT, sociétés cycliques) ne publient leur AR qu'ANNUELLEMENT alors que
+  // revenue/COGS sont trimestriels — un match exact rate 8 trimestres sur 12. Staleness 400j =
+  // tolère un AR annuel pour les 4 trimestres qui suivent sa publication.
+  const arSorted  = [...arQ].sort((a, b) => a.date.localeCompare(b.date));
+  const invSorted = [...invQ].sort((a, b) => a.date.localeCompare(b.date));
+  const apSorted  = [...apQ].sort((a, b) => a.date.localeCompare(b.date));
+  const STALE_MS = 400 * 86_400_000;
+  const asOf = (sorted: TimeseriesPoint[], date: string): number | null => {
+    const t = Date.parse(date + 'T12:00:00Z');
+    let cand: TimeseriesPoint | null = null;
+    for (const p of sorted) { if (p.date <= date) cand = p; else break; }
+    if (!cand) return null;
+    if (Math.abs(t - Date.parse(cand.date + 'T12:00:00Z')) > STALE_MS) return null;
+    return cand.value;
+  };
 
   const hasInventory = invQ.length >= 4 && invQ.some(p => p.value > 0);
 
   const points: CccPoint[] = [];
-  for (const [date, rev] of revByDate) {
+  for (const p of revTtm) {
+    const date = p.date;
+    const rev = p.value;
     if (rev <= 0) continue;
-    const ar  = arByDate.get(date);
-    const inv = invByDate.get(date) ?? 0; // services sans stocks → 0 (DIO sera 0)
-    const ap  = apByDate.get(date);
+    const ar  = asOf(arSorted, date);
+    const inv = asOf(invSorted, date) ?? 0; // services sans stocks → 0 (DIO sera 0)
+    const ap  = asOf(apSorted, date);
     if (ar == null || ap == null) continue;
     const cogs = cogsByDate.get(date);
     const useCogs = cogs != null && cogs > 0;
