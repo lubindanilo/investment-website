@@ -102,7 +102,14 @@ function pointInTime(entries: ConceptEntry[], isShares: boolean): TimeseriesPoin
       if (dur < 60 || dur > 100) continue;
     }
     if (seen.has(e.end)) continue; seen.add(e.end);
-    out.push({ date: e.end, value: e.val });
+    // NORMALISATION D'ÉCHELLE shares : certains émetteurs (MCD) publient leurs shares en
+    // MILLIONS sans renseigner `decimals` dans le XBRL — val=713.5 = 713,5M actions. Notre
+    // pipeline (et Finnhub) attend des unités directes (10^8 à 10^11). Si val < 10^7 mais
+    // que la société est manifestement cotée (val > 0), on multiplie par 10^6 pour rattraper.
+    // Aucune vraie société cotée n'a < 10M d'actions en circulation.
+    let value = e.val;
+    if (isShares && value > 0 && value < 1e7) value *= 1e6;
+    out.push({ date: e.end, value });
   }
   return out.sort((a, b) => a.date.localeCompare(b.date));
 }

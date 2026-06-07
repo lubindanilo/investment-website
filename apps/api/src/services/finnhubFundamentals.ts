@@ -66,8 +66,14 @@ export interface MetricConfig {
 export interface ReplaySource {
   /** Date d'observation (YYYY-MM-DD) — borne haute de toutes les fenêtres temporelles. */
   asOf: string;
-  /** Filings disponibles à asOf (filtrés filedDate ≤ asOf par l'appelant). */
-  filings(ticker: string, freq: Frequency): FinnhubFiling[];
+  /**
+   * Chemin DB : série DÉCUMULÉE déjà construite (lue de FundamentalsSeries), PRÉ-split,
+   * filtrée à la disponibilité ≤ asOf par l'appelant. Si fournie, getReportedTimeseries la
+   * sert directement (zéro re-décumulation) → le backtest utilise EXACTEMENT la donnée du site.
+   */
+  series?(ticker: string, metric: string): TimeseriesPoint[] | null;
+  /** Chemin filings bruts (JSON local), fallback si `series` absent (filtrés filedDate ≤ asOf). */
+  filings?(ticker: string, freq: Frequency): FinnhubFiling[];
   /** Splits survenus jusqu'à asOf (filtrés ≤ asOf par l'appelant). */
   splits(ticker: string): SplitEvent[];
 }
@@ -386,7 +392,7 @@ const reportedCache = new Map<string, { at: number; promise: Promise<FinnhubFili
 
 function fetchReported(ticker: string, freq: Frequency): Promise<FinnhubFiling[]> {
   // Replay point-in-time : on sert les filings stockés (pas de réseau, pas de cache).
-  if (REPLAY) return Promise.resolve(REPLAY.filings(ticker, freq));
+  if (REPLAY?.filings) return Promise.resolve(REPLAY.filings(ticker, freq));
   const key = `${ticker.toUpperCase()}|${freq}`;
   const hit = reportedCache.get(key);
   if (hit && Date.now() - hit.at < REPORTED_TTL_MS) return hit.promise;
@@ -636,6 +642,14 @@ export async function getReportedTimeseries(
   if (!cfg) return [];
   const cap = Math.max(1, Math.min(years, 50));
 
+  // ─── Replay DB (backtest branché sur FundamentalsSeries) ────────────────────
+  // Série déjà décumulée + EDGAR-comblée (PRÉ-split), filtrée à ≤ asOf par l'appelant.
+  // On la sert telle quelle (split-adj à la lecture comme le live) → mêmes chiffres que le site.
+  if (REPLAY?.series) {
+    const pts = REPLAY.series(ticker, metric) ?? [];
+    return splitAdjustIfNeeded(filterWindow(pts, cap), ticker, metric);
+  }
+
   // ─── Store persistant (quarterly, hors replay) ──────────────────────────────
   // Série fraîche en DB → ZÉRO appel réseau (Finnhub + EDGAR) entre deux earnings. On
   // tranche à `cap` et on ajuste les splits À LA LECTURE (le store garde la série brute
@@ -667,10 +681,24 @@ export async function getReportedTimeseries(
 
   // Cas quarterly
   type Raw = { date: string; value: number; year: number; quarter: number };
+  // Métriques où value=0 est CERTAINEMENT du bruit (jamais légitime pour une société cotée) :
+  //  - shares : société cotée → forcément > 0
+  //  - snapshots de bilan (cumulative: false) : Total Assets, Equity, Liabilities, AR/AP/Inv, etc.
+  //    publiés normalement → un 0 signale un trou de parsing Finnhub (cas MCD/shares 2024+ à 0).
+  // Pour les cumulative: true (revenue, NI, opIncome, CFO, capex, SBC), value=0 reste légitime
+  // (ex SBC=0 pour une société qui n'en distribue pas).
+  const dropZero = metric === 'shares' || !cfg.cumulative;
   const quarterlyRaw: Raw[] = quarterlyFilings
     .map(f => {
-      const value = extractValue(f, cfg);
+      let value = extractValue(f, cfg);
       if (value == null) return null;
+      if (dropZero && value === 0) return null;
+      // Normalisation d'échelle SHARES : Finnhub a un bug de parsing intermittent qui
+      // renvoie les valeurs en MILLIONS d'actions au lieu d'unités directes (cas MCD 2024+ :
+      // 720 au lieu de 720_000_000, mélangé avec des points antérieurs en unités directes).
+      // On rescale toute valeur < 10M qui est manifestement aberrante (jamais une société cotée
+      // n'a moins de 10M d'actions en circulation).
+      if (metric === 'shares' && value > 0 && value < 1e7) value *= 1e6;
       return { date: f.endDate.slice(0, 10), value, year: f.year, quarter: f.quarter };
     })
     .filter((x): x is Raw => x !== null)
@@ -788,11 +816,16 @@ function hasQuarterlyGap(points: TimeseriesPoint[]): boolean {
   //  - < 8 points       → moins de 2 ans de trimestres (ex TGT/AR : Finnhub n'a que 1 pt
   //                       annuel, EDGAR a 12 pts annuels couvrant ~15 ans)
   //  - gap interne > 130j → trimestres manquants au milieu (ex changements de ticker FISV→FI)
+  //  - trailing gap > 200j → la série s'est arrêtée il y a > 6 mois (ex MCD/shares : Finnhub
+  //    publie shares=0 depuis 2024 → après filtrage on a 11 pts jusqu'à 2023-09, l'absence
+  //    de gap interne MASQUERAIT le bug si on ne regardait pas la fraîcheur du dernier point).
   if (points.length < 8) return true;
   const sorted = [...points].sort((a, b) => a.date.localeCompare(b.date));
   for (let i = 1; i < sorted.length; i++) {
     if ((Date.parse(sorted[i]!.date) - Date.parse(sorted[i - 1]!.date)) / 86400000 > 130) return true;
   }
+  const lastTs = Date.parse(sorted[sorted.length - 1]!.date + 'T12:00:00Z');
+  if (nowRefMs() - lastTs > 200 * 86_400_000) return true;
   return false;
 }
 
@@ -1540,6 +1573,11 @@ export async function computeCccSeries(ticker: string, years: number = 6): Promi
     const dpo = (ap  / denom) * 365;
     const ccc = dso + dio - dpo;
     if (!Number.isFinite(ccc)) continue;
+    // Garde-fou anti-aberration : un cycle de cash > 2 ans (≈ 730 j) en absolu est
+    // physiquement impossible pour une société opérationnelle. Cas SILO (micro-cap, revenue
+    // ≈ 0) : le mode approché donnait CCC = -5454 j. On skip ces points dégénérés plutôt
+    // que de les laisser polluer la régression de pente.
+    if (Math.abs(ccc) > 730) continue;
     const point: CccPoint = { date, ccc, dso, dio, dpo };
     if (!useCogs) point.approximated = true;
     points.push(point);
