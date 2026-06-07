@@ -5,6 +5,7 @@ import { CRITERION_HISTOGRAMS, CRITERION_LINECHARTS } from '@lubin/shared';
 import { HistogramModal } from './HistogramModal.js';
 import { PfcfChartModal } from './PfcfChartModal.js';
 import { CashRoceChartModal } from './CashRoceChartModal.js';
+import { CccChartModal } from './CccChartModal.js';
 import { MarketShareModal } from './MarketShareModal.js';
 import { Icon, InfoPop, StatusBadge, toDataStatus } from './ui/primitives.js';
 import './CriterionCard.css';
@@ -34,8 +35,11 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
   // Lookups par clé STABLE (indépendante de la langue), pas par le libellé localisé.
   const histogramConfig = c.key ? CRITERION_HISTOGRAMS[c.key] : undefined;
   const lineConfig = c.key ? CRITERION_LINECHARTS[c.key] : undefined;
-  const chartKind: 'line' | 'histogram' | null = ticker
-    ? (lineConfig ? 'line' : (histogramConfig ? 'histogram' : null))
+  // Le critère CCC a son propre composant (barres empilées DSO+DIO/−DPO + ligne CCC) qui
+  // consomme /api/ccc-history. On le détecte par la clé stable (pas par le libellé localisé).
+  const isCcc = c.key === 'ccc';
+  const chartKind: 'line' | 'histogram' | 'ccc' | null = ticker
+    ? (isCcc ? 'ccc' : (lineConfig ? 'line' : (histogramConfig ? 'histogram' : null)))
     : null;
   const [open, setOpen] = useState(false);
   const hasBrief = !!c.key && i18n.exists(`briefs.${c.key}.why`);
@@ -72,6 +76,9 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
       )}
       {open && ticker && chartKind === 'line' && lineConfig?.kind === 'cashRoce' && (
         <CashRoceChartModal ticker={ticker} annualOnly={annualOnly} onClose={() => setOpen(false)} />
+      )}
+      {open && ticker && chartKind === 'ccc' && (
+        <CccChartModal ticker={ticker} currency={currency} onClose={() => setOpen(false)} />
       )}
     </>
   );

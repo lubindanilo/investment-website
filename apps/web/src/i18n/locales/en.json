@@ -364,6 +364,23 @@
     "revenueGrowth": "Revenue growth",
     "debtFcf": "Net debt / FCF"
   },
+  "ccc": {
+    "history": "CCC history",
+    "chart": {
+      "title": "Cash Conversion Cycle",
+      "sub": "Quarterly breakdown DSO + DIO − DPO over 5 years",
+      "cccNow": "Current CCC",
+      "trend": "Trend",
+      "period": "Period",
+      "dso": "DSO · receivables",
+      "dio": "DIO · inventory",
+      "dpo": "DPO · payables (releases cash)",
+      "ccc": "Net CCC",
+      "noData": "Not enough quarterly history to reconstruct the CCC.",
+      "approxBadge": "Estimated.",
+      "approxNote": "Cost of revenue is not published for this stock — DIO/DPO are computed via revenue (less precise in absolute terms, but the trend remains reliable)."
+    }
+  },
   "chart": {
     "close": "Close",
     "error": "Error: {{msg}}",

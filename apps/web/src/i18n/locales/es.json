@@ -364,6 +364,23 @@
     "revenueGrowth": "Crecimiento ventas",
     "debtFcf": "Deuda / FCF"
   },
+  "ccc": {
+    "history": "Historial del CCC",
+    "chart": {
+      "title": "Ciclo de conversión de efectivo",
+      "sub": "Descomposición trimestral DSO + DIO − DPO a 5 años",
+      "cccNow": "CCC actual",
+      "trend": "Tendencia",
+      "period": "Periodo",
+      "dso": "DSO · cuentas por cobrar",
+      "dio": "DIO · inventario",
+      "dpo": "DPO · proveedores (libera efectivo)",
+      "ccc": "CCC neto",
+      "noData": "Historial trimestral insuficiente para reconstruir el CCC.",
+      "approxBadge": "Estimado.",
+      "approxNote": "El coste de ventas no se publica para este valor — DIO/DPO se calculan vía ingresos (menos preciso en absoluto, pero la tendencia sigue siendo fiable)."
+    }
+  },
   "chart": {
     "close": "Cerrar",
     "error": "Error: {{msg}}",

@@ -147,6 +147,17 @@ export const api = {
     const q = new URLSearchParams({ ticker, years: String(years) });
     return safeRequest<CashRoceHistoryResponse>(`/api/cash-roce-history?${q}`);
   },
+  cccHistory(ticker: string, years = 5) {
+    const q = new URLSearchParams({ ticker, years: String(years) });
+    return safeRequest<{
+      ticker: string;
+      points: Array<{ date: string; ccc: number; dso: number; dio: number; dpo: number; approximated?: boolean }>;
+      slopeDaysPerYear: number | null;
+      approximated: boolean;
+      hasInventory: boolean;
+      reason?: string;
+    }>(`/api/ccc-history?${q}`);
+  },
   priceHistory(ticker: string, years: number, interval: '1d' | '1wk' | '1mo' = '1mo') {
     const q = new URLSearchParams({ ticker, years: String(years), interval });
     return safeRequest<{

@@ -364,6 +364,23 @@
     "revenueGrowth": "Croissance CA",
     "debtFcf": "Dette / FCF"
   },
+  "ccc": {
+    "history": "Historique du CCC",
+    "chart": {
+      "title": "Cycle de conversion du cash",
+      "sub": "Décomposition trimestrielle DSO + DIO − DPO sur 5 ans",
+      "cccNow": "CCC actuel",
+      "trend": "Tendance",
+      "period": "Période",
+      "dso": "DSO · créances clients",
+      "dio": "DIO · stocks",
+      "dpo": "DPO · fournisseurs (libère du cash)",
+      "ccc": "CCC net",
+      "noData": "Pas assez d'historique trimestriel pour reconstituer le CCC.",
+      "approxBadge": "Estimé.",
+      "approxNote": "Le coût des ventes n'est pas publié pour ce titre — DIO/DPO sont calculés via le chiffre d'affaires (moins précis en absolu, mais la tendance reste fiable)."
+    }
+  },
   "chart": {
     "close": "Fermer",
     "error": "Erreur : {{msg}}",
