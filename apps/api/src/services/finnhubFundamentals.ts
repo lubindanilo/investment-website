@@ -227,14 +227,21 @@ export const METRICS: Record<string, MetricConfig> = {
   /**
    * Créances clients (AR) — snapshot bilan. Numérateur du DSO (Days Sales Outstanding).
    * Plusieurs noms XBRL selon les sociétés. On préfère le "trade receivables net" car il
-   * exclut les autres créances (impôts, prêts intercos…).
+   * exclut les autres créances (impôts, prêts intercos…). Le concept *AndOtherReceivables
+   * (TGT, certains retailers) est plus large mais on l'accepte en fallback.
    */
   accountsReceivable: {
     section: 'bs',
+    // ORDRE CRITIQUE : du plus LARGE (fallback) au plus PRÉCIS (gagne en cas de coexistence).
+    // L'union EDGAR (decumulateFlow / pointInTime) dédup par date, dernière entrée gagne.
+    // Une société publiant À LA FOIS AccountsReceivableNetCurrent ET *AndOther → on doit
+    // privilégier le pur "trade receivables", donc il vient en DERNIER.
     concepts: [
-      'us-gaap_AccountsReceivableNetCurrent',
-      'us-gaap_ReceivablesNetCurrent',
+      'us-gaap_TradeAndOtherReceivablesNetCurrent',
+      'us-gaap_AccountsAndOtherReceivablesNetCurrent',  // ex Target
       'us-gaap_AccountsReceivableNet',
+      'us-gaap_ReceivablesNetCurrent',
+      'us-gaap_AccountsReceivableNetCurrent',           // le plus précis — gagne en cas de coexistence
     ],
     cumulative: false,
   },
@@ -265,14 +272,25 @@ export const METRICS: Record<string, MetricConfig> = {
    * Coût des ventes (COGS) — métrique cumulative YTD comme la revenue. Dénominateur du
    * DIO et DPO. Quand la société ne distingue pas biens/services, certains émetteurs
    * publient `CostOfGoodsAndServicesSold` ou `CostOfServices` au lieu de `CostOfRevenue`.
+   *
+   * Fallback "large" (CostsAndExpenses / OperatingCostsAndExpenses) : utilisé en DERNIER
+   * recours par les pétroliers (CVX, EOG), miniers (SSRM), certains restaurants (MCD)
+   * qui agrègent leurs coûts au lieu d'isoler le COGS. ⚠ Inclut SG&A et autres opex →
+   * DIO/DPO légèrement sous-estimés (dénominateur plus large), mais cohérent dans le
+   * temps → la TENDANCE CCC reste fiable, c'est ce qui pilote le verdict.
    */
   costOfRevenue: {
     section: 'ic',
+    // ORDRE CRITIQUE : du plus LARGE (fallback) au plus PRÉCIS (gagne en cas de coexistence).
+    // EDGAR dedup par date → DERNIÈRE entrée écrase. Une société publiant AAPL-style
+    // CostOfRevenue + CostsAndExpenses → on doit récupérer le COGS pur, donc lui en dernier.
     concepts: [
-      'us-gaap_CostOfRevenue',
-      'us-gaap_CostOfGoodsAndServicesSold',
-      'us-gaap_CostOfGoodsSold',
+      'us-gaap_CostsAndExpenses',             // ULTIME : large (COGS+SG&A+opex) — débloque CVX, EOG, MCD…
+      'us-gaap_OperatingCostsAndExpenses',
       'us-gaap_CostOfServices',
+      'us-gaap_CostOfGoodsSold',
+      'us-gaap_CostOfGoodsAndServicesSold',
+      'us-gaap_CostOfRevenue',                // précis — gagne quand coexiste avec un fallback large
     ],
     cumulative: true,
   },
