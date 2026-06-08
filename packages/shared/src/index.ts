@@ -407,13 +407,33 @@ export interface MarketBeatRow {
   weight: number;
 }
 
-/** Position d'un portefeuille suivi (prix d'entrée figé à l'inception + prix live). */
+/** Position d'un portefeuille suivi (prix d'entrée figé + prix live + flag pépite). */
 export interface ForwardComparePosition {
   ticker: string;
+  name: string | null;
   entry: number | null;
   live: number | null;
-  /** Rendement depuis l'inception (live/entry − 1). Null si prix indisponible. */
+  /** Rendement depuis l'entrée (live/entry − 1, ou réalisé si vendue). Null si prix indisponible. */
   ret: number | null;
+  /** « Pépite du moment » actuelle (note≥8 + P/FCF<25 + percentile≤10). Le titre est-il AUSSI une pépite ? */
+  opportunity: boolean;
+  // ── Champs « Ma sélection » uniquement (positions gérées par l'utilisateur) ──
+  id?: string;
+  buyDate?: string;
+  sellDate?: string | null;
+  sellPrice?: number | null;
+  note?: string | null;
+}
+
+/** Position du portefeuille personnel (CRUD). */
+export interface PortfolioPositionDTO {
+  id: string;
+  ticker: string;
+  buyDate: string;
+  buyPrice: number;
+  sellDate: string | null;
+  sellPrice: number | null;
+  note: string | null;
 }
 
 /** Un portefeuille du suivi forward comparé (équipondéré). */

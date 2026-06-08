@@ -12,7 +12,7 @@
     "analyse": "Analizar",
     "watchlist": "Lista",
     "screener": "Screener",
-    "marketBeat": "Vencer al mercado",
+    "marketBeat": "Estrategia de cartera",
     "compare": "Comparar",
     "pricing": "Precios"
   },
@@ -123,8 +123,8 @@
     }
   },
   "marketBeat": {
-    "title": "Vencer al mercado",
-    "subtitle": "Estrategia value + momentum, validada en backtest (Sharpe ~1,5, supera al S&P 500 con riesgo comparable): entre el 50 % de acciones con mejor rendimiento bursátil a 12 meses, las 20 más baratas por P/FCF, equiponderadas. Precio y capitalización en directo.",
+    "title": "Estrategia de cartera",
+    "subtitle": "Seguimiento privado: mi selección vs la cesta sistemática value + momentum vs el S&P 500. La cesta toma, entre el 50 % de acciones del S&P 500 con mejor rendimiento a 12 meses, las 20 más baratas por P/FCF (equiponderado). Precio y capitalización en directo.",
     "col": {
       "company": "Empresa",
       "sector": "Sector",
@@ -144,6 +144,30 @@
       "mine": "Mi selección",
       "system": "Value + Momentum",
       "sp500": "S&P 500"
+    },
+    "portfolio": {
+      "title": "Mi selección",
+      "subtitle": "Tus compras/ventas. El rendimiento y las oportunidades se recalculan al abrir.",
+      "add": "Añadir una compra",
+      "ticker": "Ticker",
+      "buyDate": "Fecha de compra",
+      "buyPrice": "Precio de compra",
+      "note": "Nota (opcional)",
+      "save": "Añadir",
+      "cancel": "Cancelar",
+      "sellTitle": "Cerrar la posición",
+      "sellDate": "Fecha de venta",
+      "sellPrice": "Precio de venta",
+      "confirmSell": "Vender",
+      "close": "Vender",
+      "delete": "Eliminar",
+      "open": "Abierta",
+      "closed": "Vendida",
+      "gem": "Oportunidad",
+      "empty": "Sin posiciones. Añade tu primera compra arriba.",
+      "colReturn": "Rendimiento",
+      "colStatus": "Estado",
+      "since": "desde"
     }
   },
   "screener": {

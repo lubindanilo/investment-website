@@ -19,7 +19,7 @@ import { prisma } from '../db/client.js';
 import { getYahooBatchQuotes } from './yahoo.js';
 import { getSp500Universe } from './sp500Universe.js';
 import { FORWARD_INCEPTION, MINE_POSITIONS, SYSTEM_POSITIONS, SPY_ENTRY } from '../data/forwardCompare.js';
-import type { MarketBeatRow, ForwardCompareResponse, ForwardComparePortfolio } from '@lubin/shared';
+import type { MarketBeatRow, ForwardCompareResponse, ForwardComparePosition } from '@lubin/shared';
 
 /**
  * Univers de sélection :
@@ -120,34 +120,50 @@ export async function getMarketBeat(opts: MarketBeatOpts = {}): Promise<MarketBe
 }
 
 /**
- * Suivi FORWARD comparé : « Ma sélection » (discrétionnaire) vs « Value + Momentum » (systématique,
- * cohorte de lancement figée) vs S&P 500 — rendement équipondéré depuis l'inception, prix live.
- * Tant qu'on est proche de l'inception, les rendements sont ≈ 0 (le suivi vient de démarrer) ;
- * ils s'accumulent avec le temps. C'est la preuve forward, non gonflée par le biais de survie.
+ * Suivi FORWARD comparé : « Ma sélection » (positions saisies par le propriétaire en DB, ou la
+ * cohorte de lancement par défaut tant qu'aucune n'est saisie) vs « Value + Momentum » (cohorte
+ * systématique figée) vs S&P 500. Rendement équipondéré depuis l'entrée, prix LIVE ; pour une
+ * position vendue, rendement RÉALISÉ (sellPrice/buyPrice). Chaque titre porte aussi son flag
+ * « pépite » du moment → on voit lesquels sont à la fois sélectionnés ET une pépite.
  */
-export async function getForwardCompare(): Promise<ForwardCompareResponse> {
-  const tickers = [...new Set([...MINE_POSITIONS, ...SYSTEM_POSITIONS].map((p) => p.ticker).concat('SPY'))];
-  const quotes = await getYahooBatchQuotes(tickers).catch(() => new Map<string, number>());
+export async function getForwardCompare(userId?: string): Promise<ForwardCompareResponse> {
+  const dbPos = userId
+    ? await prisma.portfolioPosition.findMany({ where: { userId }, orderBy: [{ sellDate: { sort: 'asc', nulls: 'first' } }, { buyDate: 'desc' }] })
+    : [];
+  // « Ma sélection » = positions DB si présentes, sinon la cohorte de lancement par défaut (config).
+  const mineRaw = dbPos.length
+    ? dbPos.map((p) => ({ id: p.id as string | undefined, ticker: p.ticker, entry: p.buyPrice, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note }))
+    : MINE_POSITIONS.map((p) => ({ id: undefined as string | undefined, ticker: p.ticker, entry: p.entry, buyDate: FORWARD_INCEPTION, sellDate: null as string | null, sellPrice: null as number | null, note: null as string | null }));
+
+  const allTickers = [...new Set([...mineRaw.map((p) => p.ticker), ...SYSTEM_POSITIONS.map((p) => p.ticker), 'SPY'])];
+  const [quotes, meta] = await Promise.all([
+    getYahooBatchQuotes(allTickers).catch(() => new Map<string, number>()),
+    prisma.screenerTicker.findMany({ where: { ticker: { in: allTickers } }, select: { ticker: true, name: true, opportunity: true } }),
+  ]);
+  const info = new Map(meta.map((m) => [m.ticker, m]));
   const ret = (entry: number | null, live: number | null) =>
     entry != null && entry > 0 && live != null && live > 0 ? live / entry - 1 : null;
+  const avg = (ps: ForwardComparePosition[]) => { const v = ps.filter((x) => x.ret != null); return v.length ? v.reduce((a, x) => a + x.ret!, 0) / v.length : null; };
 
-  const build = (id: string, label: string, positions: typeof MINE_POSITIONS): ForwardComparePortfolio => {
-    const det = positions.map((p) => {
-      const live = quotes.get(p.ticker.toUpperCase()) ?? null;
-      return { ticker: p.ticker, entry: p.entry, live, ret: ret(p.entry, live) };
-    });
-    const valid = det.filter((d) => d.ret != null);
-    const returnPct = valid.length ? valid.reduce((a, d) => a + d.ret!, 0) / valid.length : null;
-    return { id, label, returnPct, positions: det };
-  };
+  // « Ma sélection » : si vendue → rendement réalisé (sellPrice) ; sinon prix live.
+  const minePositions: ForwardComparePosition[] = mineRaw.map((p) => {
+    const live = p.sellPrice != null ? p.sellPrice : (quotes.get(p.ticker.toUpperCase()) ?? null);
+    const m = info.get(p.ticker);
+    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: m?.opportunity ?? false, id: p.id, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note };
+  });
+  const systemPositions: ForwardComparePosition[] = SYSTEM_POSITIONS.map((p) => {
+    const live = quotes.get(p.ticker.toUpperCase()) ?? null;
+    const m = info.get(p.ticker);
+    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: m?.opportunity ?? false };
+  });
 
   const spyLive = quotes.get('SPY') ?? null;
   return {
     inception: FORWARD_INCEPTION,
     asOf: new Date().toISOString().slice(0, 10),
     portfolios: [
-      build('mine', 'Ma sélection', MINE_POSITIONS),
-      build('system', 'Value + Momentum', SYSTEM_POSITIONS),
+      { id: 'mine', label: 'Ma sélection', returnPct: avg(minePositions), positions: minePositions },
+      { id: 'system', label: 'Value + Momentum', returnPct: avg(systemPositions), positions: systemPositions },
     ],
     benchmark: { label: 'S&P 500', entry: SPY_ENTRY, live: spyLive, returnPct: ret(SPY_ENTRY, spyLive) },
   };

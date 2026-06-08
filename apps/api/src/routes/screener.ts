@@ -13,6 +13,8 @@
 import { Router, type Request, type Response, type NextFunction } from 'express';
 import type { TickerSuggestion } from '@lubin/shared';
 import { asyncHandler, ApiError } from '../middleware/error.js';
+import { requireAuth } from '../middleware/auth.js';
+import { requireOwner } from '../middleware/owner.js';
 import { seedRegion, tick, getTop, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
 import { getMarketBeat, getForwardCompare } from '../services/marketBeat.js';
 import { prisma } from '../db/client.js';
@@ -69,8 +71,8 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
   res.json(rows);
 }));
 
-// ── GET /market-beat (panier value+momentum « bat le marché », lecture publique) ──
-screenerRouter.get('/market-beat', asyncHandler(async (req: Request, res: Response) => {
+// ── GET /market-beat (panier value+momentum, page PRIVÉE → réservé au propriétaire) ──
+screenerRouter.get('/market-beat', requireAuth, requireOwner, asyncHandler(async (req: Request, res: Response) => {
   const num = (v: unknown): number | undefined => {
     const n = Number(v);
     return Number.isFinite(n) ? n : undefined;
@@ -84,9 +86,9 @@ screenerRouter.get('/market-beat', asyncHandler(async (req: Request, res: Respon
   res.json(rows);
 }));
 
-// ── GET /forward-compare (suivi forward : ma sélection vs value+momentum vs S&P500) ──
-screenerRouter.get('/forward-compare', asyncHandler(async (_req: Request, res: Response) => {
-  res.json(await getForwardCompare());
+// ── GET /forward-compare (suivi forward, page PRIVÉE → réservé au propriétaire) ──
+screenerRouter.get('/forward-compare', requireAuth, requireOwner, asyncHandler(async (req: Request, res: Response) => {
+  res.json(await getForwardCompare(req.user!.userId));
 }));
 
 // ── GET /sectors (industries distinctes pour le filtre) ──────────────────────

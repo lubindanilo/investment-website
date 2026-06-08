@@ -12,7 +12,7 @@
     "analyse": "Analyser",
     "watchlist": "Watchlist",
     "screener": "Screener",
-    "marketBeat": "Bat le marché",
+    "marketBeat": "Stratégie portefeuille",
     "compare": "Comparer",
     "pricing": "Tarifs"
   },
@@ -148,8 +148,8 @@
     }
   },
   "marketBeat": {
-    "title": "Bat le marché",
-    "subtitle": "Stratégie value + momentum, validée en backtest (Sharpe ~1,5, bat le S&P 500 à risque comparable) : parmi le top 50 % des actions par performance boursière sur 12 mois, on retient les 20 les moins chères en P/FCF, équipondérées. Prix et capitalisation en direct.",
+    "title": "Stratégie portefeuille",
+    "subtitle": "Suivi privé : ma sélection vs le panier systématique value + momentum vs le S&P 500. Le panier retient, parmi le top 50 % des actions du S&P 500 par performance 12 mois, les 20 les moins chères en P/FCF (équipondéré). Prix et capitalisation en direct.",
     "col": {
       "company": "Société",
       "sector": "Secteur",
@@ -169,6 +169,30 @@
       "mine": "Ma sélection",
       "system": "Value + Momentum",
       "sp500": "S&P 500"
+    },
+    "portfolio": {
+      "title": "Ma sélection",
+      "subtitle": "Tes achats/ventes. Le rendement et les pépites se recalculent à chaque ouverture.",
+      "add": "Ajouter un achat",
+      "ticker": "Ticker",
+      "buyDate": "Date d'achat",
+      "buyPrice": "Prix d'achat",
+      "note": "Note (optionnel)",
+      "save": "Ajouter",
+      "cancel": "Annuler",
+      "sellTitle": "Clôturer la position",
+      "sellDate": "Date de vente",
+      "sellPrice": "Prix de vente",
+      "confirmSell": "Vendre",
+      "close": "Vendre",
+      "delete": "Supprimer",
+      "open": "Ouverte",
+      "closed": "Vendue",
+      "gem": "Pépite",
+      "empty": "Aucune position. Ajoute ton premier achat ci-dessus.",
+      "colReturn": "Rendement",
+      "colStatus": "Statut",
+      "since": "depuis"
     }
   },
   "screener": {

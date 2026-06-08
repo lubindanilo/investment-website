@@ -1,4 +1,4 @@
-import { Link, NavLink, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from './components/ui/LangSwitcher.js';
 import { HomePage } from './pages/HomePage.js';
@@ -14,9 +14,14 @@ import { useAuth } from './contexts/AuthContext.js';
 import { useToast } from './components/Toast.js';
 import { Logo } from './components/ui/primitives.js';
 
+/** Page « Stratégie portefeuille » : privée, réservée au compte propriétaire. */
+const OWNER_EMAIL = 'lubindanilo2@gmail.com';
+
 export function App() {
   const { pathname } = useLocation();
   const { t } = useTranslation();
+  const { user } = useAuth();
+  const isOwner = (user?.email ?? '').toLowerCase() === OWNER_EMAIL;
   // Onglets d'app masqués uniquement sur les pages d'auth. Présents sur l'accueil pour
   // garder Watchlist / Screener / Analyser accessibles depuis la landing.
   const showNav = pathname !== '/login' && pathname !== '/signup';
@@ -44,9 +49,11 @@ export function App() {
           <NavLink to="/screener" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.screener')}
           </NavLink>
-          <NavLink to="/bat-le-marche" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.marketBeat')}
-          </NavLink>
+          {isOwner && (
+            <NavLink to="/strategie-portefeuille" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+              {t('nav.marketBeat')}
+            </NavLink>
+          )}
           <NavLink to="/compare" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.compare')}
           </NavLink>
@@ -63,7 +70,7 @@ export function App() {
           <Route path="/analyse/:ticker" element={<AnalysePage />} />
           <Route path="/watchlist" element={<RequireAuth><WatchlistPage /></RequireAuth>} />
           <Route path="/screener" element={<ScreenerPage />} />
-          <Route path="/bat-le-marche" element={<MarketBeatPage />} />
+          <Route path="/strategie-portefeuille" element={isOwner ? <MarketBeatPage /> : <Navigate to="/" replace />} />
           <Route path="/compare" element={<ComparePage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/login" element={<AuthPage initialMode="login" />} />

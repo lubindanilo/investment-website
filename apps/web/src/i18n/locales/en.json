@@ -12,7 +12,7 @@
     "analyse": "Analyze",
     "watchlist": "Watchlist",
     "screener": "Screener",
-    "marketBeat": "Beat the Market",
+    "marketBeat": "Portfolio Strategy",
     "compare": "Compare",
     "pricing": "Pricing"
   },
@@ -123,8 +123,8 @@
     }
   },
   "marketBeat": {
-    "title": "Beat the Market",
-    "subtitle": "A value + momentum strategy, backtested (Sharpe ~1.5, beats the S&P 500 at comparable risk): among the top 50% of stocks by 12-month price performance, the 20 cheapest on P/FCF, equal-weighted. Live price and market cap.",
+    "title": "Portfolio Strategy",
+    "subtitle": "Private tracking: my selection vs the systematic value + momentum basket vs the S&P 500. The basket takes, among the top 50% of S&P 500 stocks by 12-month performance, the 20 cheapest on P/FCF (equal-weighted). Live price and market cap.",
     "col": {
       "company": "Company",
       "sector": "Sector",
@@ -144,6 +144,30 @@
       "mine": "My selection",
       "system": "Value + Momentum",
       "sp500": "S&P 500"
+    },
+    "portfolio": {
+      "title": "My selection",
+      "subtitle": "Your buys/sells. Returns and opportunity flags recompute on every open.",
+      "add": "Add a buy",
+      "ticker": "Ticker",
+      "buyDate": "Buy date",
+      "buyPrice": "Buy price",
+      "note": "Note (optional)",
+      "save": "Add",
+      "cancel": "Cancel",
+      "sellTitle": "Close the position",
+      "sellDate": "Sell date",
+      "sellPrice": "Sell price",
+      "confirmSell": "Sell",
+      "close": "Sell",
+      "delete": "Delete",
+      "open": "Open",
+      "closed": "Sold",
+      "gem": "Opportunity",
+      "empty": "No positions yet. Add your first buy above.",
+      "colReturn": "Return",
+      "colStatus": "Status",
+      "since": "since"
     }
   },
   "screener": {

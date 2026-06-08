@@ -26,6 +26,7 @@ import { cccHistoryRouter } from './routes/cccHistory.js';
 import { cashRoceHistoryRouter } from './routes/cashRoceHistory.js';
 import { priceHistoryRouter } from './routes/priceHistory.js';
 import { screenerRouter } from './routes/screener.js';
+import { portfolioRouter } from './routes/portfolio.js';
 import { compareRouter } from './routes/compare.js';
 import { authRouter } from './routes/auth.js';
 import { apiLimiter } from './middleware/rateLimit.js';
@@ -87,6 +88,7 @@ app.use('/api/ccc-history', cccHistoryRouter);
 app.use('/api/cash-roce-history', cashRoceHistoryRouter);
 app.use('/api/price-history', priceHistoryRouter);
 app.use('/api/screener', screenerRouter);
+app.use('/api/portfolio', portfolioRouter);
 app.use('/api/compare', compareRouter);
 
 // 404 fallback (avant l'error handler)

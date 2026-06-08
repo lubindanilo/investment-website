@@ -15,6 +15,7 @@ import type {
   ScreenerTopRow,
   MarketBeatRow,
   ForwardCompareResponse,
+  PortfolioPositionDTO,
   ScreenerStats,
   CompareResponse,
   TickerSuggestion,
@@ -191,6 +192,16 @@ export const api = {
     },
     /** Suivi forward comparé : ma sélection vs value+momentum vs S&P 500. */
     forwardCompare: () => safeRequest<ForwardCompareResponse>('/api/screener/forward-compare', {}, { attempts: 1, timeoutMs: 45_000 }),
+  },
+  /** Portefeuille personnel suivi (réservé au propriétaire). */
+  portfolio: {
+    list: () => safeRequest<PortfolioPositionDTO[]>('/api/portfolio/positions'),
+    add: (p: { ticker: string; buyDate: string; buyPrice: number; note?: string }) =>
+      safeRequest<PortfolioPositionDTO>('/api/portfolio/positions', { method: 'POST', body: JSON.stringify(p) }),
+    close: (id: string, p: { sellDate: string; sellPrice: number }) =>
+      safeRequest<PortfolioPositionDTO>(`/api/portfolio/positions/${encodeURIComponent(id)}`, { method: 'PATCH', body: JSON.stringify(p) }),
+    remove: (id: string) =>
+      safeRequest<{ ok: true }>(`/api/portfolio/positions/${encodeURIComponent(id)}`, { method: 'DELETE' }),
   },
   compare: (tickers: string[]) =>
     safeRequest<CompareResponse>(`/api/compare?tickers=${encodeURIComponent(tickers.join(','))}`, {}, { attempts: 1, timeoutMs: 45_000 }),

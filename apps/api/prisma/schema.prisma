@@ -29,6 +29,32 @@ model User {
   createdAt    DateTime @default(now())
 
   watchlist WatchlistEntry[]
+  portfolio PortfolioPosition[]
+}
+
+/// Position du portefeuille personnel suivi (page « Stratégie portefeuille »). Achats et ventes
+/// saisis manuellement par le propriétaire → alimente le suivi forward « Ma sélection » comparé
+/// au S&P 500 et au panier value+momentum. Position ouverte tant que sellDate est null.
+model PortfolioPosition {
+  id        String   @id @default(cuid())
+  userId    String
+  ticker    String
+  /// Date d'achat (YYYY-MM-DD).
+  buyDate   String
+  /// Prix d'achat (fill réel saisi par l'utilisateur).
+  buyPrice  Float
+  /// Date de vente (YYYY-MM-DD) ; null = position toujours ouverte.
+  sellDate  String?
+  /// Prix de vente ; null tant que la position est ouverte.
+  sellPrice Float?
+  /// Thèse / note libre (optionnel).
+  note      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 /// Analyse qualitative du BUSINESS MODEL — cache À VIE (immutable une fois généré).
