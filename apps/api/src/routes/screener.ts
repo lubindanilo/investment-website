@@ -14,6 +14,7 @@ import { Router, type Request, type Response, type NextFunction } from 'express'
 import type { TickerSuggestion } from '@lubin/shared';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { seedRegion, tick, getTop, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
+import { getMarketBeat } from '../services/marketBeat.js';
 import { prisma } from '../db/client.js';
 
 export const screenerRouter: Router = Router();
@@ -64,6 +65,20 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
     limit: num(req.query.limit),
     onlyOpportunities,
     sectors,
+  });
+  res.json(rows);
+}));
+
+// ── GET /market-beat (panier value+momentum « bat le marché », lecture publique) ──
+screenerRouter.get('/market-beat', asyncHandler(async (req: Request, res: Response) => {
+  const num = (v: unknown): number | undefined => {
+    const n = Number(v);
+    return Number.isFinite(n) ? n : undefined;
+  };
+  const rows = await getMarketBeat({
+    topPct: num(req.query.topPct) ?? 0.5,
+    nPicks: num(req.query.n) ?? 20,
+    universe: req.query.universe === 'ALL' ? 'ALL' : 'US',
   });
   res.json(rows);
 }));

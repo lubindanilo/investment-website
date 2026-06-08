@@ -12,6 +12,7 @@
     "analyse": "Analyser",
     "watchlist": "Watchlist",
     "screener": "Screener",
+    "marketBeat": "Bat le marché",
     "compare": "Comparer",
     "pricing": "Tarifs"
   },
@@ -144,6 +145,22 @@
       "h2Line1": "La donnée tranche,",
       "h2Line2": "pas les opinions.",
       "p": "Une note de qualité sur 10, une valorisation séparée, et une veille qui surveille tout le marché pour vous."
+    }
+  },
+  "marketBeat": {
+    "title": "Bat le marché",
+    "subtitle": "Stratégie value + momentum, validée en backtest (Sharpe ~1,5, bat le S&P 500 à risque comparable) : parmi le top 50 % des actions par performance boursière sur 12 mois, on retient les 20 les moins chères en P/FCF, équipondérées. Prix et capitalisation en direct.",
+    "col": {
+      "company": "Société",
+      "sector": "Secteur",
+      "momentum": "Momentum 12 mois",
+      "price": "Cours",
+      "marketCap": "Capitalisation",
+      "weight": "Poids"
+    },
+    "empty": {
+      "title": "Panier indisponible pour le moment",
+      "desc": "La veille remplit l'univers progressivement — reviens dans un moment."
     }
   },
   "screener": {

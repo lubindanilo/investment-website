@@ -380,6 +380,33 @@ export interface ScreenerTopRow {
   pfcfPercentile: number | null;
 }
 
+/**
+ * Ligne du panier « Bat le marché » (stratégie value + momentum, validée en backtest :
+ * Sharpe ~1,5, bat le S&P500 à risque comparable). Sélection : parmi le top 50 % des actions
+ * par momentum de prix 12 mois, on prend les N moins chères en P/FCF absolu, équipondérées.
+ */
+export interface MarketBeatRow {
+  ticker: string;
+  name: string | null;
+  scoreChiffres: number | null;
+  scoreChiffresMax: number | null;
+  pfcfTTM: number | null;
+  currency: string | null;
+  nextEarningsDate: string | null;
+  sector: string | null;
+  price: number | null;
+  dayChangePct: number | null;
+  spark: number[] | null;
+  opportunity: boolean;
+  pfcfPercentile: number | null;
+  /** Momentum de prix ~12 mois (12-1, on saute le dernier mois). 0,42 = +42 %. Null si historique insuffisant. */
+  momentum12m: number | null;
+  /** Capitalisation boursière live (prix du jour × actions). Null si indisponible. */
+  marketCap: number | null;
+  /** Poids équipondéré dans le panier (ex. 0,05 = 5 %). */
+  weight: number;
+}
+
 /** Progression de la veille screener. */
 export interface ScreenerStats {
   pending: number;

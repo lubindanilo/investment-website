@@ -12,6 +12,7 @@
     "analyse": "Analizar",
     "watchlist": "Lista",
     "screener": "Screener",
+    "marketBeat": "Vencer al mercado",
     "compare": "Comparar",
     "pricing": "Precios"
   },
@@ -119,6 +120,22 @@
       "h2Line1": "Que decidan los datos,",
       "h2Line2": "no las opiniones.",
       "p": "Una nota de calidad sobre 10, una valoración independiente y un seguimiento que vigila todo el mercado por ti."
+    }
+  },
+  "marketBeat": {
+    "title": "Vencer al mercado",
+    "subtitle": "Estrategia value + momentum, validada en backtest (Sharpe ~1,5, supera al S&P 500 con riesgo comparable): entre el 50 % de acciones con mejor rendimiento bursátil a 12 meses, las 20 más baratas por P/FCF, equiponderadas. Precio y capitalización en directo.",
+    "col": {
+      "company": "Empresa",
+      "sector": "Sector",
+      "momentum": "Momentum 12 meses",
+      "price": "Precio",
+      "marketCap": "Capitalización",
+      "weight": "Peso"
+    },
+    "empty": {
+      "title": "Cesta no disponible por ahora",
+      "desc": "El seguimiento completa el universo progresivamente — vuelve en un momento."
     }
   },
   "screener": {

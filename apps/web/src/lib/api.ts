@@ -13,6 +13,7 @@ import type {
   CashRoceHistoryResponse,
   PublicUser,
   ScreenerTopRow,
+  MarketBeatRow,
   ScreenerStats,
   CompareResponse,
   TickerSuggestion,
@@ -180,6 +181,13 @@ export const api = {
     stats: () => safeRequest<ScreenerStats>('/api/screener/stats'),
     sectors: () => safeRequest<{ sector: string; count: number }[]>('/api/screener/sectors'),
     search: (q: string) => safeRequest<TickerSuggestion[]>(`/api/screener/search?q=${encodeURIComponent(q)}`),
+    /** Panier « Bat le marché » (value + momentum) — calcul live à la demande. */
+    marketBeat: (params: { topPct?: number; n?: number; universe?: 'US' | 'ALL' } = {}) => {
+      const q = new URLSearchParams();
+      for (const [k, v] of Object.entries(params)) if (v != null) q.set(k, String(v));
+      const qs = q.toString();
+      return safeRequest<MarketBeatRow[]>(`/api/screener/market-beat${qs ? `?${qs}` : ''}`, {}, { attempts: 1, timeoutMs: 45_000 });
+    },
   },
   compare: (tickers: string[]) =>
     safeRequest<CompareResponse>(`/api/compare?tickers=${encodeURIComponent(tickers.join(','))}`, {}, { attempts: 1, timeoutMs: 45_000 }),

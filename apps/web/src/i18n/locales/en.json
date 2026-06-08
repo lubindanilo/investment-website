@@ -12,6 +12,7 @@
     "analyse": "Analyze",
     "watchlist": "Watchlist",
     "screener": "Screener",
+    "marketBeat": "Beat the Market",
     "compare": "Compare",
     "pricing": "Pricing"
   },
@@ -119,6 +120,22 @@
       "h2Line1": "Let the data decide,",
       "h2Line2": "not opinions.",
       "p": "A quality score out of 10, a separate valuation, and monitoring that watches the entire market for you."
+    }
+  },
+  "marketBeat": {
+    "title": "Beat the Market",
+    "subtitle": "A value + momentum strategy, backtested (Sharpe ~1.5, beats the S&P 500 at comparable risk): among the top 50% of stocks by 12-month price performance, the 20 cheapest on P/FCF, equal-weighted. Live price and market cap.",
+    "col": {
+      "company": "Company",
+      "sector": "Sector",
+      "momentum": "12-month momentum",
+      "price": "Price",
+      "marketCap": "Market cap",
+      "weight": "Weight"
+    },
+    "empty": {
+      "title": "Basket unavailable right now",
+      "desc": "Our monitoring fills the universe progressively — check back in a moment."
     }
   },
   "screener": {
