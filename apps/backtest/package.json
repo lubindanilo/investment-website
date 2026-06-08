@@ -1,0 +1,22 @@
+{
+  "name": "@lubin/backtest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Backtest point-in-time des critères Lubin Investment — projet séparé du site (réutilise les fonctions pures de @lubin/api).",
+  "scripts": {
+    "ingest": "tsx src/ingest/run.ts",
+    "poc": "tsx src/poc/run.ts",
+    "lint": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@lubin/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^4.1.6"
+  }
+}

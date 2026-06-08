@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": ["node"],
+    // On importe des fonctions PURES de @lubin/api via chemin relatif (../../api/src/...).
+    // Bundler resolution mappe les imports .js → fichiers .ts du monorepo.
+    "allowImportingTsExtensions": false
+  },
+  "include": ["src"]
+}

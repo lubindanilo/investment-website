@@ -1,0 +1,5 @@
+# Données crawlées (volumineuses, reproductibles) — jamais commitées
+.data/
+dist/
+*.parquet
+*.csv
