@@ -18,7 +18,7 @@
 import { prisma } from '../db/client.js';
 import { getYahooBatchQuotes } from './yahoo.js';
 import { getSp500Universe } from './sp500Universe.js';
-import { FORWARD_INCEPTION, MINE_POSITIONS, SYSTEM_POSITIONS, SPY_ENTRY } from '../data/forwardCompare.js';
+import { FORWARD_INCEPTION, SYSTEM_POSITIONS, SPY_ENTRY } from '../data/forwardCompare.js';
 import type { MarketBeatRow, ForwardCompareResponse, ForwardComparePosition } from '@lubin/shared';
 
 /**
@@ -130,10 +130,9 @@ export async function getForwardCompare(userId?: string): Promise<ForwardCompare
   const dbPos = userId
     ? await prisma.portfolioPosition.findMany({ where: { userId }, orderBy: [{ sellDate: { sort: 'asc', nulls: 'first' } }, { buyDate: 'desc' }] })
     : [];
-  // « Ma sélection » = positions DB si présentes, sinon la cohorte de lancement par défaut (config).
-  const mineRaw = dbPos.length
-    ? dbPos.map((p) => ({ id: p.id as string | undefined, ticker: p.ticker, entry: p.buyPrice, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note }))
-    : MINE_POSITIONS.map((p) => ({ id: undefined as string | undefined, ticker: p.ticker, entry: p.entry, buyDate: FORWARD_INCEPTION, sellDate: null as string | null, sellPrice: null as number | null, note: null as string | null }));
+  // « Ma sélection » = UNIQUEMENT les positions saisies par le propriétaire (additif, jamais de
+  // placeholder qui s'efface). Vide tant qu'aucune n'est ajoutée.
+  const mineRaw = dbPos.map((p) => ({ id: p.id as string | undefined, ticker: p.ticker, entry: p.buyPrice, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note }));
 
   const allTickers = [...new Set([...mineRaw.map((p) => p.ticker), ...SYSTEM_POSITIONS.map((p) => p.ticker), 'SPY'])];
   const [quotes, meta] = await Promise.all([
