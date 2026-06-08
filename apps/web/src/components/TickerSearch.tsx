@@ -44,6 +44,11 @@ export function TickerSearch({
   const [list, setList] = useState<TickerSuggestion[]>([]);
   const [focused, setFocused] = useState(false);
   const [highlight, setHighlight] = useState(0);
+  // État de chargement : sans ça, entre le keystroke et la fin du fetch, la dropdown affichait
+  // « Aucun résultat » alors qu'on attend la réponse — UX trompeuse. On distingue trois états :
+  // 'idle' (rien tapé), 'loading' (fetch en cours), 'done' (fetch terminé → list est la source de vérité).
+  const [status, setStatus] = useState<'idle' | 'loading' | 'done'>('idle');
+  const [searchError, setSearchError] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
 
   // Fermeture sur clic extérieur
@@ -64,16 +69,19 @@ export function TickerSearch({
   const excludeKey = exclude.join(',');
   useEffect(() => {
     const q = value.trim();
-    if (q.length < minChars) { setList([]); return; }
+    if (q.length < minChars) { setList([]); setStatus('idle'); setSearchError(false); return; }
     let cancelled = false;
+    setStatus('loading');
+    setSearchError(false);
     const id = setTimeout(() => {
       api.screener.search(q)
         .then(r => { if (!cancelled) {
           const filtered = exclude.length ? r.filter(s => !exclude.includes(s.ticker)) : r;
           setList(filtered);
           setHighlight(0);
+          setStatus('done');
         }})
-        .catch(() => { if (!cancelled) setList([]); });
+        .catch(() => { if (!cancelled) { setList([]); setSearchError(true); setStatus('done'); } });
     }, 180);
     return () => { cancelled = true; clearTimeout(id); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -123,7 +131,19 @@ export function TickerSearch({
       />
       {showSuggestions && (
         <div className="card fade-in cmp-suggest" style={isField ? { width: '100%', top: 52 } : undefined}>
-          {list.length === 0 && <div className="tiny muted" style={{ padding: '12px 10px' }}>{noResultLabel}</div>}
+          {status === 'loading' && list.length === 0 && (
+            <div className="tiny muted" style={{ padding: '12px 10px', display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span className="spinner" /> Recherche…
+            </div>
+          )}
+          {status === 'done' && list.length === 0 && !searchError && (
+            <div className="tiny muted" style={{ padding: '12px 10px' }}>{noResultLabel}</div>
+          )}
+          {searchError && (
+            <div className="tiny" style={{ padding: '12px 10px', color: 'var(--red, #c33)' }}>
+              Erreur de connexion. Réessaie dans un instant.
+            </div>
+          )}
           {list.map((s, i) => (
             <button
               key={s.ticker}

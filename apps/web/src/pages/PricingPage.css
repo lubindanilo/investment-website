@@ -1,0 +1,182 @@
+/* Page Tarifs — public, deux cards Gratuit / Pro, sobre et premium. */
+
+.pricing { padding: 24px 0 60px; }
+.pricing-wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* Hero */
+.pricing-hero { text-align: center; padding: 30px 0 36px; }
+.pricing-hero-chip {
+  display: inline-block; padding: 5px 12px; border-radius: 999px;
+  background: var(--brand-softer); color: var(--brand); font-size: 12px;
+  font-weight: 600; letter-spacing: 0.03em; margin-bottom: 14px;
+}
+.pricing-hero-title {
+  font-size: clamp(28px, 4.5vw, 44px); font-weight: 700; line-height: 1.15;
+  color: var(--ink); margin: 0 0 14px;
+}
+.pricing-hero-lede {
+  font-size: 16px; color: var(--ink-2); max-width: 620px; margin: 0 auto;
+  line-height: 1.55;
+}
+
+/* Toggle mensuel/annuel */
+.pricing-toggle-wrap { display: flex; justify-content: center; margin: 24px 0 32px; }
+.pricing-toggle {
+  display: inline-flex; gap: 4px; padding: 4px;
+  background: var(--surface, #f4f4f5); border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.pricing-toggle-btn {
+  border: none; background: transparent; padding: 8px 18px;
+  font-size: 13.5px; font-weight: 600; color: var(--ink-2);
+  border-radius: 999px; cursor: pointer; transition: all .15s;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.pricing-toggle-btn:hover { color: var(--ink); }
+.pricing-toggle-btn.is-active {
+  background: var(--ink, #111); color: #fff; box-shadow: var(--sh-sm, 0 1px 3px rgba(0,0,0,.1));
+}
+.pricing-save {
+  font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 999px;
+  background: var(--green-soft, #d1fae5); color: var(--green, #15803d);
+}
+.pricing-toggle-btn.is-active .pricing-save { background: rgba(255,255,255,.18); color: #fff; }
+
+/* Cards */
+.pricing-cards {
+  display: grid; gap: 20px; grid-template-columns: 1fr 1fr;
+  align-items: stretch; margin-bottom: 60px;
+}
+@media (max-width: 760px) { .pricing-cards { grid-template-columns: 1fr; } }
+
+.pricing-card {
+  display: flex; flex-direction: column;
+  background: var(--surface, #fff); border: 1px solid var(--line);
+  border-radius: 16px; padding: 28px 26px; position: relative;
+  transition: transform .15s, box-shadow .15s;
+}
+.pricing-card-featured {
+  border-color: var(--brand);
+  border-width: 2px;
+  background: linear-gradient(180deg, var(--brand-softer, #fff7ed) 0%, var(--surface, #fff) 30%);
+  box-shadow: 0 8px 32px -8px rgba(0,0,0,0.12);
+}
+.pricing-card-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--brand); color: #fff;
+  padding: 5px 14px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+.pricing-card-head { margin-bottom: 18px; }
+.pricing-card-name { font-size: 20px; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.pricing-card-tagline { font-size: 13px; color: var(--ink-3); margin: 0; }
+
+.pricing-card-price { display: flex; align-items: baseline; gap: 6px; margin-bottom: 4px; }
+.pricing-card-amount {
+  font-size: 48px; font-weight: 700; color: var(--ink); line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.pricing-card-unit { font-size: 14px; font-weight: 600; color: var(--ink-3); }
+.pricing-card-perMonth { font-size: 12px; color: var(--ink-4); margin: 0 0 18px; }
+.pricing-card .pricing-card-price + .pricing-cta { margin-top: 18px; }
+
+.pricing-cta {
+  display: block; width: 100%; text-align: center; padding: 12px 0;
+  font-weight: 600; font-size: 14px; margin: 0 0 22px;
+  border-radius: 10px; text-decoration: none;
+}
+.pricing-cta-secondary {
+  background: var(--surface, #fff); color: var(--ink); border: 1px solid var(--line);
+}
+.pricing-cta-secondary:hover { background: var(--surface-2, #f9fafb); }
+.pricing-cta-secondary:disabled { color: var(--ink-4); cursor: not-allowed; }
+
+.pricing-features { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 11px; }
+.pricing-features li {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 13.5px; color: var(--ink-2); line-height: 1.45;
+}
+.pricing-features li svg { flex: none; margin-top: 3px; color: var(--green, #16a34a); }
+
+/* Sections */
+.pricing-section-title {
+  font-size: 22px; font-weight: 700; color: var(--ink);
+  margin: 0 0 24px; text-align: center;
+}
+
+/* Pourquoi Lubin */
+.pricing-why { margin: 0 0 64px; }
+.pricing-why-grid {
+  display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 760px) { .pricing-why-grid { grid-template-columns: 1fr; } }
+.pricing-why-card {
+  padding: 24px 22px; background: var(--surface, #fff);
+  border: 1px solid var(--line); border-radius: 14px;
+}
+.pricing-why-num {
+  font-size: 13px; font-weight: 700; color: var(--brand);
+  letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.pricing-why-cardTitle { font-size: 16px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+.pricing-why-cardText { font-size: 13.5px; color: var(--ink-2); line-height: 1.55; margin: 0; }
+
+/* Tableau comparatif */
+.pricing-compare { margin: 0 0 64px; }
+.pricing-compare-tableWrap { overflow-x: auto; }
+.pricing-compare-table {
+  width: 100%; border-collapse: collapse; font-size: 13.5px;
+  background: var(--surface, #fff); border: 1px solid var(--line); border-radius: 12px;
+}
+.pricing-compare-table th, .pricing-compare-table td {
+  padding: 14px 18px; text-align: center; border-bottom: 1px solid var(--line);
+}
+.pricing-compare-table th {
+  background: var(--surface-2, #f9fafb); font-weight: 700; font-size: 13px;
+  color: var(--ink); letter-spacing: 0.02em;
+}
+.pricing-compare-thFeature, .pricing-compare-tdFeature { text-align: left !important; color: var(--ink-2); }
+.pricing-compare-thPro, .pricing-compare-tdPro { background: var(--brand-softer, rgba(255,180,120,0.06)); font-weight: 600; color: var(--ink); }
+.pricing-compare-table tr:last-child td { border-bottom: none; }
+
+/* FAQ */
+.pricing-faq { margin: 0 0 64px; max-width: 760px; margin-left: auto; margin-right: auto; }
+.pricing-faq-list { display: flex; flex-direction: column; gap: 8px; }
+.pricing-faq-item {
+  border: 1px solid var(--line); border-radius: 10px;
+  background: var(--surface, #fff); overflow: hidden;
+}
+.pricing-faq-item summary {
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; padding: 16px 20px; cursor: pointer; list-style: none;
+  font-size: 14.5px; font-weight: 600; color: var(--ink);
+}
+.pricing-faq-item summary::-webkit-details-marker { display: none; }
+.pricing-faq-item summary:hover { background: var(--surface-2, #f9fafb); }
+.pricing-faq-chev { transition: transform .2s; color: var(--ink-3); }
+.pricing-faq-item[open] .pricing-faq-chev { transform: rotate(90deg); }
+.pricing-faq-item p {
+  padding: 0 20px 18px; font-size: 13.5px; color: var(--ink-2);
+  line-height: 1.6; margin: 0;
+}
+
+/* CTA final */
+.pricing-finalCta {
+  text-align: center; padding: 40px 24px; background: var(--surface-2, #f9fafb);
+  border: 1px solid var(--line); border-radius: 16px; margin-bottom: 36px;
+}
+.pricing-finalCta-title { font-size: 24px; font-weight: 700; color: var(--ink); margin: 0 0 8px; }
+.pricing-finalCta-sub { font-size: 14px; color: var(--ink-2); margin: 0 0 22px; }
+.pricing-finalCta-buttons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.pricing-finalCta-buttons .btn { padding: 12px 24px; font-size: 14px; }
+
+/* Disclaimer */
+.pricing-disclaimer {
+  border-top: 1px solid var(--line); padding-top: 24px;
+  text-align: center;
+}
+.pricing-disclaimer p {
+  font-size: 11.5px; color: var(--ink-4); line-height: 1.6;
+  max-width: 760px; margin: 0 auto; font-style: italic;
+}

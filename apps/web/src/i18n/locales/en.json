@@ -12,7 +12,8 @@
     "analyse": "Analyze",
     "watchlist": "Watchlist",
     "screener": "Screener",
-    "compare": "Compare"
+    "compare": "Compare",
+    "pricing": "Pricing"
   },
   "userMenu": {
     "login": "Sign in",
@@ -359,10 +360,10 @@
   },
   "heroPreview": {
     "composition": "Breakdown",
-    "cashRoce": "Cash ROCE",
-    "fcfMargin": "FCF margin",
-    "revenueGrowth": "Revenue growth",
-    "debtFcf": "Net debt / FCF"
+    "cashRoce": "Capital return",
+    "fcfMargin": "Cash profitability",
+    "revenueGrowth": "Sales growth",
+    "debtFcf": "Leverage"
   },
   "ccc": {
     "history": "CCC history",
@@ -720,5 +721,125 @@
     "evolution": "Dividend history",
     "evolutionSub": "Dividend per share, by period (split-adjusted)",
     "evolutionNote": "Years with no payment stay on the axis, without a bar."
+  },
+  "pricing": {
+    "hero": {
+      "chip": "Simple pricing · no commitment",
+      "title": "Invest with method, not opinions",
+      "lede": "A quality score on 10 objective financial criteria. Computed in seconds. Decided by the data, not by the buzz."
+    },
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "togglePeriod": "Billing period",
+    "save": "Save {{amount}}",
+    "perMonth": "/mo",
+    "perYear": "/yr",
+    "free": {
+      "name": "Free",
+      "tagline": "Discover the method",
+      "cta": "Start free",
+      "ctaLoggedIn": "Go to analysis",
+      "features": [
+        "Full analysis of any single stock",
+        "Score /10 with its 10 financial criteria",
+        "Watchlist · up to 10 stocks",
+        "Screener · top 100 results",
+        "Compare · 2 stocks",
+        "Search by ticker or name",
+        "FR · EN · ES"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "badge": "Most popular",
+      "tagline": "Decide with every card on the table",
+      "cta": "Go Pro",
+      "ctaComingSoon": "Coming soon",
+      "equivalent": "that's {{price}} €/mo billed annually",
+      "features": [
+        "Everything in Free · unlimited",
+        "AI qualitative analysis · business + management",
+        "Opportunities of the moment · hidden gems",
+        "Compare up to 5 stocks",
+        "Market share · competitive landscape",
+        "Detailed charts · valuation, cash returns, cycle, dividend",
+        "Sector benchmarks · medians & deciles",
+        "Full Europe & International data",
+        "Ad-free, no tracking",
+        "Priority email support"
+      ]
+    },
+    "why": {
+      "title": "What makes Lubin different",
+      "pillars": [
+        {
+          "title": "An objective score",
+          "text": "10 financial criteria computed from published accounts. No opinions, no hype. The data decides."
+        },
+        {
+          "title": "Continuous coverage",
+          "text": "The entire market is scored continuously — Europe, US, International. The best ones surface on their own."
+        },
+        {
+          "title": "Great investors' method",
+          "text": "Return on capital, free cash flow growth, balance sheet strength: the criteria of long-term compounders."
+        }
+      ]
+    },
+    "compare": {
+      "title": "Detailed comparison",
+      "feature": "Feature",
+      "rows": [
+        { "label": "Full analysis of a stock", "free": true, "pro": true },
+        { "label": "Score /10 on 10 financial criteria", "free": true, "pro": true },
+        { "label": "Watchlist", "free": "10 stocks", "pro": "Unlimited" },
+        { "label": "Screener", "free": "Top 100", "pro": "Unlimited" },
+        { "label": "Compare multiple stocks", "free": "2 stocks", "pro": "Up to 5" },
+        { "label": "AI qualitative analysis (business + management)", "free": false, "pro": true },
+        { "label": "Opportunities of the moment", "free": false, "pro": true },
+        { "label": "Market share", "free": false, "pro": true },
+        { "label": "Detailed charts (valuation, cash ROCE, cycle, dividend)", "free": false, "pro": true },
+        { "label": "Sector benchmarks", "free": false, "pro": true },
+        { "label": "Full Europe & International data", "free": false, "pro": true },
+        { "label": "Ad-free", "free": true, "pro": true },
+        { "label": "Support", "free": "Community", "pro": "Priority" }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "How is the quality score computed?",
+          "a": "On 10 objective financial criteria: profitability, sales growth, per-share earnings growth, expanding margins, return on invested capital, leverage under control, earnings-to-cash conversion, and collection cycle. Each criterion is validated (YES / PARTIAL / NO) against thresholds drawn from the financial literature (Buffett, Bettin-Mauboussin, Damodaran). The final score is the total."
+        },
+        {
+          "q": "Which stocks are covered?",
+          "a": "Over 7,000 names tracked: NYSE & Nasdaq (US), Stoxx 600 and national European indices, major international markets. Free gives à-la-carte analysis on all of them; Pro unlocks full Europe and International data with complete quarterly histories."
+        },
+        {
+          "q": "Is this investment advice?",
+          "a": "No. Lubin Investment is a decision-support tool for retail investors. We do not provide personalized investment advice. Investment decisions remain your sole responsibility."
+        },
+        {
+          "q": "How do I cancel my subscription?",
+          "a": "At any time from your account, one click. No commitment, no questions asked. Pro access stays active until the end of the current period."
+        },
+        {
+          "q": "What payment methods do you accept?",
+          "a": "Credit card (Visa, Mastercard, Amex), Apple Pay and Google Pay via Stripe. Secure payments, never stored on our servers."
+        },
+        {
+          "q": "Can I switch from monthly to yearly?",
+          "a": "Yes, anytime from your account. The change is immediate with prorated adjustment."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ready to see what others miss?",
+      "sub": "Start free, no credit card. Upgrade to Pro once you're convinced.",
+      "signup": "Start free",
+      "analyse": "Analyze a stock"
+    },
+    "disclaimer": "Lubin Investment is a decision-support tool for retail investors. This service does not constitute personalized investment advice. Past performance of any strategy is not indicative of future results. All investment decisions remain your sole responsibility. Before any transaction, verify that the stock matches your risk profile."
   }
 }

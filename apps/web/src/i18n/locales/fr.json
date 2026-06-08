@@ -12,7 +12,8 @@
     "analyse": "Analyser",
     "watchlist": "Watchlist",
     "screener": "Screener",
-    "compare": "Comparer"
+    "compare": "Comparer",
+    "pricing": "Tarifs"
   },
   "userMenu": {
     "login": "Connexion",
@@ -359,10 +360,10 @@
   },
   "heroPreview": {
     "composition": "Composition",
-    "cashRoce": "Cash ROCE",
-    "fcfMargin": "Marge FCF",
-    "revenueGrowth": "Croissance CA",
-    "debtFcf": "Dette / FCF"
+    "cashRoce": "Rendement capital",
+    "fcfMargin": "Profitabilité cash",
+    "revenueGrowth": "Croissance ventes",
+    "debtFcf": "Endettement"
   },
   "ccc": {
     "history": "Historique du CCC",
@@ -720,5 +721,125 @@
     "evolution": "Évolution du dividende",
     "evolutionSub": "Dividende par action, par période (ajusté des splits)",
     "evolutionNote": "Les années sans versement restent sur l’axe, sans barre."
+  },
+  "pricing": {
+    "hero": {
+      "chip": "Tarifs simples · sans engagement",
+      "title": "Investir avec méthode, pas avec opinions",
+      "lede": "Une note de qualité sur 10 critères financiers objectifs. Calculée en quelques secondes. Décidée par les chiffres, pas par les modes."
+    },
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "togglePeriod": "Période de facturation",
+    "save": "Économisez {{amount}}",
+    "perMonth": "/mois",
+    "perYear": "/an",
+    "free": {
+      "name": "Gratuit",
+      "tagline": "Pour découvrir la méthode",
+      "cta": "Commencer gratuitement",
+      "ctaLoggedIn": "Aller à l'analyse",
+      "features": [
+        "Analyse complète d'1 titre à la carte",
+        "Note /10 avec ses 10 critères financiers",
+        "Watchlist · jusqu'à 10 titres",
+        "Screener · top 100 résultats",
+        "Comparaison · 2 titres",
+        "Recherche par ticker ou nom",
+        "FR · EN · ES"
+      ]
+    },
+    "pro": {
+      "name": "Pro",
+      "badge": "Le plus populaire",
+      "tagline": "Pour décider avec toutes les cartes en main",
+      "cta": "Devenir Pro",
+      "ctaComingSoon": "Bientôt disponible",
+      "equivalent": "soit {{price}} €/mois facturé annuellement",
+      "features": [
+        "Tout le Gratuit · sans limite",
+        "Analyse qualitative IA · business + management",
+        "Opportunités du moment · pépites repérées par la veille",
+        "Comparaison jusqu'à 5 titres",
+        "Part de marché · paysage concurrentiel",
+        "Graphiques détaillés · valorisation, cash, rendement, dividende",
+        "Benchmark sectoriel · médianes & déciles",
+        "Données Europe & Internationales complètes",
+        "Sans publicité, sans tracking",
+        "Support prioritaire par email"
+      ]
+    },
+    "why": {
+      "title": "Ce qui fait Lubin différent",
+      "pillars": [
+        {
+          "title": "Une note objective",
+          "text": "10 critères financiers calculés à partir des comptes publiés. Pas d'avis, pas de buzz. La donnée tranche."
+        },
+        {
+          "title": "Une veille continue",
+          "text": "L'ensemble de la cote est noté en continu — Europe, US, International. Vous récoltez les meilleures sans chercher."
+        },
+        {
+          "title": "Méthode des grands investisseurs",
+          "text": "Rentabilité du capital, croissance du free cash flow, qualité du bilan : les critères des compounders de long terme."
+        }
+      ]
+    },
+    "compare": {
+      "title": "Comparaison détaillée",
+      "feature": "Fonctionnalité",
+      "rows": [
+        { "label": "Analyse complète d'un titre", "free": true, "pro": true },
+        { "label": "Note /10 sur 10 critères chiffrés", "free": true, "pro": true },
+        { "label": "Watchlist", "free": "10 titres", "pro": "Illimitée" },
+        { "label": "Screener", "free": "Top 100", "pro": "Illimité" },
+        { "label": "Comparer plusieurs titres", "free": "2 titres", "pro": "Jusqu'à 5" },
+        { "label": "Analyse qualitative IA (business + management)", "free": false, "pro": true },
+        { "label": "Opportunités du moment", "free": false, "pro": true },
+        { "label": "Part de marché", "free": false, "pro": true },
+        { "label": "Graphiques détaillés (valorisation, cash ROCE, cycle, dividende)", "free": false, "pro": true },
+        { "label": "Benchmark sectoriel", "free": false, "pro": true },
+        { "label": "Données Europe & Internationales complètes", "free": false, "pro": true },
+        { "label": "Sans publicité", "free": true, "pro": true },
+        { "label": "Support", "free": "Communauté", "pro": "Prioritaire" }
+      ]
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "items": [
+        {
+          "q": "Comment la note de qualité est-elle calculée ?",
+          "a": "Sur 10 critères financiers objectifs : rentabilité, croissance des ventes, croissance des profits par action, marges en expansion, rendement du capital investi, endettement maîtrisé, conversion des bénéfices en cash, et cycle d'encaissement. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Buffett, Bettin-Mauboussin, Damodaran). La note finale est le total."
+        },
+        {
+          "q": "Quels titres sont couverts ?",
+          "a": "Plus de 7 000 titres surveillés : NYSE & Nasdaq (US), Stoxx 600 et indices nationaux européens, principales places internationales. Le plan Gratuit donne accès à l'analyse à la carte sur tous ces titres ; le Pro déverrouille les données Europe et Internationales avec leurs historiques trimestriels complets."
+        },
+        {
+          "q": "Est-ce un conseil en investissement ?",
+          "a": "Non. Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Nous ne fournissons aucun conseil personnalisé au sens de l'article L.321-1 du Code monétaire et financier. La décision d'investir reste sous votre seule responsabilité."
+        },
+        {
+          "q": "Comment annuler mon abonnement ?",
+          "a": "À tout moment depuis votre espace client, en un clic. Pas d'engagement, pas de question. L'accès Pro reste actif jusqu'à la fin de la période en cours."
+        },
+        {
+          "q": "Quels moyens de paiement acceptez-vous ?",
+          "a": "Carte bancaire (Visa, Mastercard, Amex), Apple Pay et Google Pay via Stripe. Paiements sécurisés, jamais stockés sur nos serveurs."
+        },
+        {
+          "q": "Puis-je passer du mensuel à l'annuel (ou inversement) ?",
+          "a": "Oui, à tout moment depuis votre espace client. Le changement est immédiat avec ajustement prorata."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Prêt à voir l'invisible ?",
+      "sub": "Démarrez gratuitement, sans carte bancaire. Passez Pro quand vous êtes convaincu.",
+      "signup": "Commencer gratuitement",
+      "analyse": "Analyser une action"
+    },
+    "disclaimer": "Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Ce service ne constitue pas un conseil en investissement personnalisé au sens de l'article L.321-1 du Code monétaire et financier. Les performances passées d'une stratégie ne préjugent pas des performances futures. Toute décision d'investissement reste sous votre seule responsabilité. Avant toute opération, vérifiez l'adéquation entre le titre et votre profil de risque."
   }
 }
