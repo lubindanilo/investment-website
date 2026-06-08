@@ -161,6 +161,14 @@
     "empty": {
       "title": "Panier indisponible pour le moment",
       "desc": "La veille remplit l'univers progressivement — reviens dans un moment."
+    },
+    "compare": {
+      "title": "Suivi en direct vs le marché",
+      "since": "depuis le {{date}}",
+      "vsMarket": "vs marché",
+      "mine": "Ma sélection",
+      "system": "Value + Momentum",
+      "sp500": "S&P 500"
     }
   },
   "screener": {

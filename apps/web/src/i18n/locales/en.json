@@ -136,6 +136,14 @@
     "empty": {
       "title": "Basket unavailable right now",
       "desc": "Our monitoring fills the universe progressively — check back in a moment."
+    },
+    "compare": {
+      "title": "Live tracking vs the market",
+      "since": "since {{date}}",
+      "vsMarket": "vs market",
+      "mine": "My selection",
+      "system": "Value + Momentum",
+      "sp500": "S&P 500"
     }
   },
   "screener": {

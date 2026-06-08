@@ -14,6 +14,7 @@ import type {
   PublicUser,
   ScreenerTopRow,
   MarketBeatRow,
+  ForwardCompareResponse,
   ScreenerStats,
   CompareResponse,
   TickerSuggestion,
@@ -188,6 +189,8 @@ export const api = {
       const qs = q.toString();
       return safeRequest<MarketBeatRow[]>(`/api/screener/market-beat${qs ? `?${qs}` : ''}`, {}, { attempts: 1, timeoutMs: 45_000 });
     },
+    /** Suivi forward comparé : ma sélection vs value+momentum vs S&P 500. */
+    forwardCompare: () => safeRequest<ForwardCompareResponse>('/api/screener/forward-compare', {}, { attempts: 1, timeoutMs: 45_000 }),
   },
   compare: (tickers: string[]) =>
     safeRequest<CompareResponse>(`/api/compare?tickers=${encodeURIComponent(tickers.join(','))}`, {}, { attempts: 1, timeoutMs: 45_000 }),

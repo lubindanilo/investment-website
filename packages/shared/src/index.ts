@@ -407,6 +407,32 @@ export interface MarketBeatRow {
   weight: number;
 }
 
+/** Position d'un portefeuille suivi (prix d'entrée figé à l'inception + prix live). */
+export interface ForwardComparePosition {
+  ticker: string;
+  entry: number | null;
+  live: number | null;
+  /** Rendement depuis l'inception (live/entry − 1). Null si prix indisponible. */
+  ret: number | null;
+}
+
+/** Un portefeuille du suivi forward comparé (équipondéré). */
+export interface ForwardComparePortfolio {
+  id: string;
+  label: string;
+  /** Rendement équipondéré du panier depuis l'inception. Null si aucun prix. */
+  returnPct: number | null;
+  positions: ForwardComparePosition[];
+}
+
+/** Réponse du suivi forward comparé (page « Bat le marché »). */
+export interface ForwardCompareResponse {
+  inception: string;
+  asOf: string;
+  portfolios: ForwardComparePortfolio[];
+  benchmark: { label: string; entry: number | null; live: number | null; returnPct: number | null };
+}
+
 /** Progression de la veille screener. */
 export interface ScreenerStats {
   pending: number;

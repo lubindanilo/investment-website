@@ -136,6 +136,14 @@
     "empty": {
       "title": "Cesta no disponible por ahora",
       "desc": "El seguimiento completa el universo progresivamente — vuelve en un momento."
+    },
+    "compare": {
+      "title": "Seguimiento en directo vs el mercado",
+      "since": "desde el {{date}}",
+      "vsMarket": "vs mercado",
+      "mine": "Mi selección",
+      "system": "Value + Momentum",
+      "sp500": "S&P 500"
     }
   },
   "screener": {

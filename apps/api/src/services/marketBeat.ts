@@ -17,9 +17,18 @@
  */
 import { prisma } from '../db/client.js';
 import { getYahooBatchQuotes } from './yahoo.js';
-import type { MarketBeatRow } from '@lubin/shared';
+import { getSp500Universe } from './sp500Universe.js';
+import { FORWARD_INCEPTION, MINE_POSITIONS, SYSTEM_POSITIONS, SPY_ENTRY } from '../data/forwardCompare.js';
+import type { MarketBeatRow, ForwardCompareResponse, ForwardComparePortfolio } from '@lubin/shared';
 
-export interface MarketBeatOpts { topPct?: number; nPicks?: number; universe?: 'US' | 'ALL' }
+/**
+ * Univers de sélection :
+ *   - 'SP500' (défaut) : membres du S&P 500 = grandes caps US, l'univers EXACTEMENT validé en
+ *     backtest (value+momentum y bat le marché). À privilégier.
+ *   - 'US'   : tout le scoré US — ⚠ inclut des ADR étrangers et micro-caps NON validés (risqué).
+ *   - 'ALL'  : tout l'univers scoré.
+ */
+export interface MarketBeatOpts { topPct?: number; nPicks?: number; universe?: 'SP500' | 'US' | 'ALL' }
 
 /**
  * Momentum de prix 12-1 mois depuis la sparkline (closes mensuels croissants, le dernier = mois
@@ -38,16 +47,19 @@ export function momentum12m(spark: number[] | null | undefined): number | null {
 export async function getMarketBeat(opts: MarketBeatOpts = {}): Promise<MarketBeatRow[]> {
   const topPct = Math.min(Math.max(opts.topPct ?? 0.5, 0.05), 1);
   const nPicks = Math.min(Math.max(Math.floor(opts.nPicks ?? 20), 1), 100);
-  const universe = opts.universe ?? 'US';
+  const universe = opts.universe ?? 'SP500';
+  // Univers S&P 500 = holdings ETF live (auto-mis à jour ; les compos changent). Fallback embarqué.
+  const sp500 = universe === 'SP500' ? [...(await getSp500Universe())] : null;
 
   // 1. Candidats : titres notés, P/FCF positif (le P/FCF négatif n'a pas de sens en valeur),
   //    ≥ 8 critères calculables (hygiène). `spark` filtré côté JS (évite les pièges JSON-null Prisma).
+  //    Univers restreint au S&P 500 par défaut (grandes caps US validées).
   const cands = await prisma.screenerTicker.findMany({
     where: {
       status: 'scored',
       scoreChiffresMax: { gte: 8 },
       pfcfTTM: { gt: 0 },
-      ...(universe === 'US' ? { region: 'US' } : {}),
+      ...(sp500 ? { ticker: { in: sp500 } } : universe === 'US' ? { region: 'US' } : {}),
     },
     select: {
       ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true, pfcfTTM: true,
@@ -105,4 +117,38 @@ export async function getMarketBeat(opts: MarketBeatOpts = {}): Promise<MarketBe
   // Tri d'affichage : du moins cher au plus cher (P/FCF live).
   rows.sort((a, b) => (a.pfcfTTM ?? Infinity) - (b.pfcfTTM ?? Infinity));
   return rows;
+}
+
+/**
+ * Suivi FORWARD comparé : « Ma sélection » (discrétionnaire) vs « Value + Momentum » (systématique,
+ * cohorte de lancement figée) vs S&P 500 — rendement équipondéré depuis l'inception, prix live.
+ * Tant qu'on est proche de l'inception, les rendements sont ≈ 0 (le suivi vient de démarrer) ;
+ * ils s'accumulent avec le temps. C'est la preuve forward, non gonflée par le biais de survie.
+ */
+export async function getForwardCompare(): Promise<ForwardCompareResponse> {
+  const tickers = [...new Set([...MINE_POSITIONS, ...SYSTEM_POSITIONS].map((p) => p.ticker).concat('SPY'))];
+  const quotes = await getYahooBatchQuotes(tickers).catch(() => new Map<string, number>());
+  const ret = (entry: number | null, live: number | null) =>
+    entry != null && entry > 0 && live != null && live > 0 ? live / entry - 1 : null;
+
+  const build = (id: string, label: string, positions: typeof MINE_POSITIONS): ForwardComparePortfolio => {
+    const det = positions.map((p) => {
+      const live = quotes.get(p.ticker.toUpperCase()) ?? null;
+      return { ticker: p.ticker, entry: p.entry, live, ret: ret(p.entry, live) };
+    });
+    const valid = det.filter((d) => d.ret != null);
+    const returnPct = valid.length ? valid.reduce((a, d) => a + d.ret!, 0) / valid.length : null;
+    return { id, label, returnPct, positions: det };
+  };
+
+  const spyLive = quotes.get('SPY') ?? null;
+  return {
+    inception: FORWARD_INCEPTION,
+    asOf: new Date().toISOString().slice(0, 10),
+    portfolios: [
+      build('mine', 'Ma sélection', MINE_POSITIONS),
+      build('system', 'Value + Momentum', SYSTEM_POSITIONS),
+    ],
+    benchmark: { label: 'S&P 500', entry: SPY_ENTRY, live: spyLive, returnPct: ret(SPY_ENTRY, spyLive) },
+  };
 }

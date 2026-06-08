@@ -14,7 +14,7 @@ import { Router, type Request, type Response, type NextFunction } from 'express'
 import type { TickerSuggestion } from '@lubin/shared';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { seedRegion, tick, getTop, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
-import { getMarketBeat } from '../services/marketBeat.js';
+import { getMarketBeat, getForwardCompare } from '../services/marketBeat.js';
 import { prisma } from '../db/client.js';
 
 export const screenerRouter: Router = Router();
@@ -75,12 +75,18 @@ screenerRouter.get('/market-beat', asyncHandler(async (req: Request, res: Respon
     const n = Number(v);
     return Number.isFinite(n) ? n : undefined;
   };
+  const u = req.query.universe;
   const rows = await getMarketBeat({
     topPct: num(req.query.topPct) ?? 0.5,
     nPicks: num(req.query.n) ?? 20,
-    universe: req.query.universe === 'ALL' ? 'ALL' : 'US',
+    universe: u === 'ALL' ? 'ALL' : u === 'US' ? 'US' : 'SP500',
   });
   res.json(rows);
+}));
+
+// ── GET /forward-compare (suivi forward : ma sélection vs value+momentum vs S&P500) ──
+screenerRouter.get('/forward-compare', asyncHandler(async (_req: Request, res: Response) => {
+  res.json(await getForwardCompare());
 }));
 
 // ── GET /sectors (industries distinctes pour le filtre) ──────────────────────
