@@ -13,6 +13,7 @@ import { EarningsPanel } from '../components/EarningsPanel.js';
 import { Icon, ScoreCircle, ScorePill, OpportunityBadge, toDataStatus } from '../components/ui/primitives.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import { CompositionBar, PriceChart } from '../components/ui/charts.js';
+import SeoHead from '../components/SeoHead.js';
 import './AnalysePage.css';
 
 const HORIZONS: Record<string, { years: number; interval: '1d' | '1wk' | '1mo' }> = {
@@ -119,6 +120,8 @@ export function AnalysePage() {
 
   return (
     <div className="anl">
+      {/* SEO : titre + meta description (i18n) injectés au montage. */}
+      <SeoHead titleKey="seo.analyse.title" descKey="seo.analyse.desc" />
       <div className="wrap anl-wrap">
         <div className="anl-search-block">
           <SearchBar value={ticker} onChange={setTicker} onSubmit={run} loading={loading} />

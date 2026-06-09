@@ -13,6 +13,7 @@ import { api, ApiError } from '../lib/api.js';
 import { Icon, ScoreCircle, scoreColor, StatusBadge, InfoPop } from '../components/ui/primitives.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import { formatPrice } from '../lib/format.js';
+import SeoHead from '../components/SeoHead.js';
 import './ComparePage.css';
 
 type Dir = 'hb' | 'lb' | 'text';
@@ -85,6 +86,8 @@ export function ComparePage() {
 
   return (
     <div className="cmp">
+      {/* SEO : titre + meta description (i18n) injectés au montage. */}
+      <SeoHead titleKey="seo.compare.title" descKey="seo.compare.desc" />
       <div className="cmp-wrap">
         <div className="cmp-head">
           <div className="col gap-4">

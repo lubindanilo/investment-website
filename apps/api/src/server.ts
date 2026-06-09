@@ -29,6 +29,7 @@ import { screenerRouter } from './routes/screener.js';
 import { portfolioRouter } from './routes/portfolio.js';
 import { compareRouter } from './routes/compare.js';
 import { authRouter } from './routes/auth.js';
+import { sitemapRouter } from './routes/sitemap.js';
 import { apiLimiter } from './middleware/rateLimit.js';
 import { errorHandler } from './middleware/error.js';
 
@@ -90,6 +91,12 @@ app.use('/api/price-history', priceHistoryRouter);
 app.use('/api/screener', screenerRouter);
 app.use('/api/portfolio', portfolioRouter);
 app.use('/api/compare', compareRouter);
+
+// Sitemap dynamique — exposé sous /api/sitemap.xml.
+// Le rewrite Vercel mappe /sitemap.xml → /api/sitemap.xml (côté lambda, l'URL reçue
+// est /api/sitemap.xml). Le router définit GET /sitemap.xml en interne, on le monte
+// donc sur /api pour reconstituer le chemin attendu.
+app.use('/api', sitemapRouter);
 
 // 404 fallback (avant l'error handler)
 app.use((req, res) => {

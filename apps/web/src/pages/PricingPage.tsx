@@ -16,6 +16,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '../components/ui/primitives.js';
 import { useAuth } from '../contexts/AuthContext.js';
+import SeoHead from '../components/SeoHead.js';
 import './PricingPage.css';
 
 type Period = 'monthly' | 'yearly';
@@ -45,6 +46,8 @@ export function PricingPage() {
 
   return (
     <div className="pricing">
+      {/* SEO : titre + meta description (i18n) injectés au montage. */}
+      <SeoHead titleKey="seo.pricing.title" descKey="seo.pricing.desc" />
       <div className="wrap pricing-wrap">
 
         {/* Hero */}

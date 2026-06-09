@@ -1,0 +1,62 @@
+/* Pied de page applicatif partagé */
+.app-footer {
+  border-top: 1px solid var(--line);
+  padding: 40px 20px 24px;
+  background: var(--surface-2, #f9fafb);
+  margin-top: 60px;
+}
+
+.app-footer-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+@media (max-width: 760px) {
+  .app-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.app-footer-col h3 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.app-footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.app-footer-col a {
+  color: var(--ink-2);
+  font-size: 13.5px;
+  text-decoration: none;
+}
+
+.app-footer-col a:hover {
+  color: var(--brand);
+  text-decoration: underline;
+}
+
+.app-footer-bottom {
+  max-width: 1080px;
+  margin: 32px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--ink-4);
+  line-height: 1.6;
+}

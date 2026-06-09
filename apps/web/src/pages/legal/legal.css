@@ -1,0 +1,38 @@
+/* Styles partagés pour les pages légales (FR) */
+/* TODO i18n : extraire vers locales en sprint 3. */
+
+.legal {
+  padding: 32px 0 60px;
+}
+
+.legal-wrap {
+  max-width: 760px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.legal h1 {
+  font-size: 28px;
+}
+
+.legal-updated {
+  font-size: 12px;
+  color: var(--ink-4);
+}
+
+.legal h2 {
+  font-size: 18px;
+  margin: 32px 0 12px;
+}
+
+.legal h3 {
+  font-size: 15px;
+}
+
+.legal p {
+  line-height: 1.7;
+}
+
+.legal ul {
+  padding-left: 20px;
+}

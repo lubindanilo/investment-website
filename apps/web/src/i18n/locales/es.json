@@ -890,5 +890,70 @@
       "analyse": "Analizar una acción"
     },
     "disclaimer": "Lubin Investment es una herramienta de ayuda a la decisión para inversores particulares. Este servicio no constituye asesoramiento de inversión personalizado. Los rendimientos pasados de una estrategia no garantizan los resultados futuros. Toda decisión de inversión queda bajo su exclusiva responsabilidad. Antes de cualquier operación, verifique la adecuación del valor a su perfil de riesgo."
+  },
+  "seo": {
+    "home": {
+      "title": "Análisis fundamental de acciones · nota sobre 10 · Lubin Investment",
+      "desc": "Escribe un ticker y obtén una nota de calidad sobre 10 criterios financieros objetivos. Valoración independiente y vigilancia continua de todo el mercado."
+    },
+    "analyse": {
+      "title": "Analizar una acción · nota, valoración, cualitativo · Lubin Investment",
+      "desc": "Nota sobre 10 calculada en segundos, P/FCF, flujo de caja libre, márgenes, deuda: la ficha completa de una acción en una página, sin ruido."
+    },
+    "screener": {
+      "title": "Screener · las mejores notas del mercado · Lubin Investment",
+      "desc": "Todas las acciones puntuadas en continuo por la vigilancia. Filtra por nota, P/FCF, sector. Las 10/10 suben automáticamente al principio de la lista."
+    },
+    "compare": {
+      "title": "Compara de 2 a 5 acciones lado a lado · Lubin Investment",
+      "desc": "Pon varios títulos cara a cara en 10 criterios financieros y la valoración. La mejor de cada fila aparece resaltada, línea por línea."
+    },
+    "watchlist": {
+      "title": "Mi watchlist · seguimiento de tus acciones · Lubin Investment",
+      "desc": "Sigue tus acciones favoritas: cotización, nota sobre 10, P/FCF y próximos resultados actualizados en cada visita. Hasta 10 valores en el plan gratuito."
+    },
+    "pricing": {
+      "title": "Tarifas · Gratis y Pro desde 13 €/mes · Lubin Investment",
+      "desc": "Empieza gratis, sin tarjeta bancaria. Pro 19 €/mes o 159 €/año: análisis cualitativo IA, oportunidades, comparación 5 títulos, datos UE e internacionales."
+    },
+    "methodology": {
+      "title": "Metodología · 10 criterios, fuentes públicas · Lubin Investment",
+      "desc": "Cómo funciona la nota sobre 10: 10 criterios financieros, fórmulas, umbrales, fuentes regulatorias (SEC EDGAR XBRL, Finnhub, Yahoo). Cero caja negra."
+    },
+    "legal": {
+      "mentions": {
+        "title": "Aviso legal · Lubin Investment",
+        "desc": "Editor, director de publicación, alojamiento y datos legales del servicio Lubin Investment. Micro-emprendedor con exención de IVA (art. 293 B CGI)."
+      },
+      "cgu": {
+        "title": "Condiciones de uso · Lubin Investment",
+        "desc": "Condiciones generales de uso del servicio Lubin Investment: objeto, acceso, propiedad intelectual, responsabilidades. Herramienta de apoyo, no asesoramiento."
+      },
+      "cgv": {
+        "title": "Condiciones de venta · Lubin Investment",
+        "desc": "Ofertas Pro mensual y anual, pago Stripe, derecho de desistimiento de 14 días, cancelación, mediación de consumo. Condiciones de venta de la suscripción Pro."
+      },
+      "confidentialite": {
+        "title": "Política de privacidad · RGPD · Lubin Investment",
+        "desc": "Datos recopilados, finalidades, plazos, encargados (Stripe, Vercel, Neon, OpenAI), tus derechos RGPD y el uso de cookies en Lubin Investment."
+      }
+    }
+  },
+  "footer": {
+    "product": "Producto",
+    "legal": "Legal",
+    "contact": "Contacto",
+    "links": {
+      "analyse": "Analizar",
+      "screener": "Screener",
+      "compare": "Comparar",
+      "pricing": "Tarifas",
+      "methodology": "Metodología",
+      "mentions": "Aviso legal",
+      "cgu": "Condiciones de uso",
+      "cgv": "Condiciones de venta",
+      "confidentialite": "Privacidad"
+    },
+    "disclaimerShort": "Herramienta de ayuda a la decisión. No constituye asesoramiento de inversión personalizado."
   }
 }

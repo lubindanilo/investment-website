@@ -6,6 +6,7 @@ import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { TickerSearch } from '../components/TickerSearch.js';
+import SeoHead from '../components/SeoHead.js';
 import { formatPrice } from '../lib/format.js';
 import './WatchlistPage.css';
 
@@ -117,6 +118,7 @@ export function WatchlistPage() {
 
   return (
     <div className="wl">
+      <SeoHead titleKey="seo.watchlist.title" descKey="seo.watchlist.desc" />
       <div className="wrap-wide wl-wrap">
         <div className="wl-head">
           <div className="col gap-4">

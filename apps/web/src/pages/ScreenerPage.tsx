@@ -6,6 +6,7 @@ import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { sectorSlug } from '../lib/sector.js';
 import { formatPrice } from '../lib/format.js';
+import SeoHead from '../components/SeoHead.js';
 import './ScreenerPage.css';
 
 const SCORE_OPTS = [4, 6, 8, 9, 10];
@@ -217,6 +218,8 @@ export function ScreenerPage() {
 
   return (
     <div className="scr">
+      {/* SEO : titre + meta description (i18n) injectés au montage. */}
+      <SeoHead titleKey="seo.screener.title" descKey="seo.screener.desc" />
       <div className="wrap-wide scr-wrap">
         <div className="scr-head">
           <div className="col gap-4">

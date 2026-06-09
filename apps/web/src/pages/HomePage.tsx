@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext.js';
 import { Icon, type IconName } from '../components/ui/primitives.js';
 import { HeroPreview } from '../components/ui/HeroPreview.js';
 import { SocialProofSection } from '../components/ui/SocialProof.js';
+import SeoHead from '../components/SeoHead.js';
 import './HomePage.css';
 
 export function HomePage() {
@@ -27,6 +28,8 @@ export function HomePage() {
 
   return (
     <div className="home">
+      {/* SEO : titre + meta description (i18n) injectés au montage. */}
+      <SeoHead titleKey="seo.home.title" descKey="seo.home.desc" />
       {/* ── Hero ── */}
       <section className="home-hero">
         <div className="home-hero-halo" aria-hidden="true" />

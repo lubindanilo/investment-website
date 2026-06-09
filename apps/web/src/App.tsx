@@ -1,18 +1,35 @@
+import { lazy, Suspense } from 'react';
 import { Link, NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from './components/ui/LangSwitcher.js';
 import { HomePage } from './pages/HomePage.js';
 import { AnalysePage } from './pages/AnalysePage.js';
-import { WatchlistPage } from './pages/WatchlistPage.js';
-import { ScreenerPage } from './pages/ScreenerPage.js';
-import { MarketBeatPage } from './pages/MarketBeatPage.js';
-import { ComparePage } from './pages/ComparePage.js';
-import { PricingPage } from './pages/PricingPage.js';
-import { AuthPage } from './pages/AuthPage.js';
 import { RequireAuth } from './components/RequireAuth.js';
 import { useAuth } from './contexts/AuthContext.js';
 import { useToast } from './components/Toast.js';
 import { Logo } from './components/ui/primitives.js';
+import AppFooter from './components/AppFooter.js';
+
+// ── Pages lazy-loadées : routes secondaires, on évite de gonfler le bundle critique.
+// La forme `.then(m => ({ default: m.X }))` est nécessaire car ces modules exportent
+// des named exports (et non un default export).
+const WatchlistPage = lazy(() => import('./pages/WatchlistPage.js').then((m) => ({ default: m.WatchlistPage })));
+const ScreenerPage = lazy(() => import('./pages/ScreenerPage.js').then((m) => ({ default: m.ScreenerPage })));
+const ComparePage = lazy(() => import('./pages/ComparePage.js').then((m) => ({ default: m.ComparePage })));
+const PricingPage = lazy(() => import('./pages/PricingPage.js').then((m) => ({ default: m.PricingPage })));
+const AuthPage = lazy(() => import('./pages/AuthPage.js').then((m) => ({ default: m.AuthPage })));
+const MarketBeatPage = lazy(() => import('./pages/MarketBeatPage.js').then((m) => ({ default: m.MarketBeatPage })));
+const MethodologyPage = lazy(() => import('./pages/MethodologyPage.js').then((m) => ({ default: m.MethodologyPage })));
+
+// Pages légales — lazy aussi (faible trafic, on les sort du bundle d'entrée).
+const MentionsLegalesPage = lazy(() =>
+  import('./pages/legal/MentionsLegalesPage.js').then((m) => ({ default: m.MentionsLegalesPage })),
+);
+const CguPage = lazy(() => import('./pages/legal/CguPage.js').then((m) => ({ default: m.CguPage })));
+const CgvPage = lazy(() => import('./pages/legal/CgvPage.js').then((m) => ({ default: m.CgvPage })));
+const ConfidentialitePage = lazy(() =>
+  import('./pages/legal/ConfidentialitePage.js').then((m) => ({ default: m.ConfidentialitePage })),
+);
 
 /** Page « Stratégie portefeuille » : privée, réservée au compte propriétaire. */
 const OWNER_EMAIL = 'lubindanilo2@gmail.com';
@@ -25,6 +42,8 @@ export function App() {
   // Onglets d'app masqués uniquement sur les pages d'auth. Présents sur l'accueil pour
   // garder Watchlist / Screener / Analyser accessibles depuis la landing.
   const showNav = pathname !== '/login' && pathname !== '/signup';
+  // Le footer suit la même règle d'affichage que la nav.
+  const showFooter = showNav;
 
   return (
     <>
@@ -64,18 +83,38 @@ export function App() {
       )}
 
       <main className="app-main">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/analyser" element={<AnalysePage />} />
-          <Route path="/analyse/:ticker" element={<AnalysePage />} />
-          <Route path="/watchlist" element={<RequireAuth><WatchlistPage /></RequireAuth>} />
-          <Route path="/screener" element={<ScreenerPage />} />
-          <Route path="/strategie-portefeuille" element={isOwner ? <MarketBeatPage /> : <Navigate to="/" replace />} />
-          <Route path="/compare" element={<ComparePage />} />
-          <Route path="/pricing" element={<PricingPage />} />
-          <Route path="/login" element={<AuthPage initialMode="login" />} />
-          <Route path="/signup" element={<AuthPage initialMode="signup" />} />
-        </Routes>
+        {/* Suspense : tant qu'une page lazy-loadée n'est pas prête, on montre un spinner discret. */}
+        <Suspense
+          fallback={
+            <div
+              className="page-loading"
+              role="status"
+              aria-live="polite"
+              style={{ display: 'flex', justifyContent: 'center', padding: '4rem 0' }}
+            >
+              <div className="spinner" aria-hidden />
+            </div>
+          }
+        >
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/analyser" element={<AnalysePage />} />
+            <Route path="/analyse/:ticker" element={<AnalysePage />} />
+            <Route path="/watchlist" element={<RequireAuth><WatchlistPage /></RequireAuth>} />
+            <Route path="/screener" element={<ScreenerPage />} />
+            <Route path="/strategie-portefeuille" element={isOwner ? <MarketBeatPage /> : <Navigate to="/" replace />} />
+            <Route path="/compare" element={<ComparePage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/methodologie" element={<MethodologyPage />} />
+            <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
+            <Route path="/cgu" element={<CguPage />} />
+            <Route path="/cgv" element={<CgvPage />} />
+            <Route path="/confidentialite" element={<ConfidentialitePage />} />
+            <Route path="/login" element={<AuthPage initialMode="login" />} />
+            <Route path="/signup" element={<AuthPage initialMode="signup" />} />
+          </Routes>
+        </Suspense>
+        {showFooter && <AppFooter />}
       </main>
     </>
   );

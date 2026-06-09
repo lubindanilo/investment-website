@@ -890,5 +890,70 @@
       "analyse": "Analyser une action"
     },
     "disclaimer": "Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Ce service ne constitue pas un conseil en investissement personnalisé au sens de l'article L.321-1 du Code monétaire et financier. Les performances passées d'une stratégie ne préjugent pas des performances futures. Toute décision d'investissement reste sous votre seule responsabilité. Avant toute opération, vérifiez l'adéquation entre le titre et votre profil de risque."
+  },
+  "seo": {
+    "home": {
+      "title": "Analyse fondamentale d'actions notée sur 10 · Lubin Investment",
+      "desc": "Tapez un ticker, obtenez une note de qualité sur 10 critères financiers objectifs. Valorisation jugée séparément, veille continue sur toute la cote."
+    },
+    "analyse": {
+      "title": "Analyser une action · score, valorisation, qualitatif · Lubin Investment",
+      "desc": "Score sur 10 calculé en quelques secondes, P/FCF, free cash flow, marges, dette : la fiche complète d'une action en une page, sans bla-bla."
+    },
+    "screener": {
+      "title": "Screener · les meilleures notes du marché · Lubin Investment",
+      "desc": "Toutes les actions notées en continu par la veille. Filtrez par note, P/FCF, secteur. Les 10/10 remontent automatiquement en tête de liste."
+    },
+    "compare": {
+      "title": "Comparer 2 à 5 actions côte à côte · Lubin Investment",
+      "desc": "Mettez plusieurs titres face à face sur 10 critères financiers et la valorisation. Le meilleur de chaque ligne est surligné, ligne par ligne."
+    },
+    "watchlist": {
+      "title": "Ma watchlist · suivi des actions favorites · Lubin Investment",
+      "desc": "Suivez vos actions préférées : cours, score sur 10, P/FCF et prochains earnings mis à jour à chaque visite. Jusqu'à 10 titres en gratuit."
+    },
+    "pricing": {
+      "title": "Tarifs · Gratuit et Pro à partir de 13 €/mois · Lubin Investment",
+      "desc": "Démarrez gratuitement, sans carte bancaire. Pro 19 €/mois ou 159 €/an : qualitatif IA, opportunités, comparaison 5 titres, données EU et International."
+    },
+    "methodology": {
+      "title": "Méthodologie · 10 critères, sources publiques · Lubin Investment",
+      "desc": "Comment fonctionne la note sur 10 : 10 critères financiers, formules, seuils, sources réglementaires (SEC EDGAR XBRL, Finnhub, Yahoo). Zéro boîte noire."
+    },
+    "legal": {
+      "mentions": {
+        "title": "Mentions légales · Lubin Investment",
+        "desc": "Éditeur, directeur de publication, hébergeur et coordonnées légales du service Lubin Investment. Micro-entrepreneur en exonération de TVA art. 293 B CGI."
+      },
+      "cgu": {
+        "title": "Conditions générales d'utilisation · Lubin Investment",
+        "desc": "Conditions générales d'utilisation du service Lubin Investment : objet, accès, propriété intellectuelle, responsabilités. Outil d'aide à la décision, non conseil."
+      },
+      "cgv": {
+        "title": "Conditions générales de vente · Lubin Investment",
+        "desc": "Offres Pro mensuelle et annuelle, paiement Stripe, droit de rétractation de 14 jours, résiliation, médiation conso. Conditions de vente de l'abonnement Pro."
+      },
+      "confidentialite": {
+        "title": "Politique de confidentialité · RGPD · Lubin Investment",
+        "desc": "Données collectées, finalités, durées de conservation, sous-traitants (Stripe, Vercel, Neon, OpenAI), vos droits RGPD et l'usage des cookies sur Lubin Investment."
+      }
+    }
+  },
+  "footer": {
+    "product": "Produit",
+    "legal": "Légal",
+    "contact": "Contact",
+    "links": {
+      "analyse": "Analyser",
+      "screener": "Screener",
+      "compare": "Comparer",
+      "pricing": "Tarifs",
+      "methodology": "Méthodologie",
+      "mentions": "Mentions légales",
+      "cgu": "CGU",
+      "cgv": "CGV",
+      "confidentialite": "Confidentialité"
+    },
+    "disclaimerShort": "Outil d'aide à la décision. Ne constitue pas un conseil en investissement personnalisé."
   }
 }

@@ -890,5 +890,70 @@
       "analyse": "Analyze a stock"
     },
     "disclaimer": "Lubin Investment is a decision-support tool for retail investors. This service does not constitute personalized investment advice. Past performance of any strategy is not indicative of future results. All investment decisions remain your sole responsibility. Before any transaction, verify that the stock matches your risk profile."
+  },
+  "seo": {
+    "home": {
+      "title": "Fundamental stock analysis scored out of 10 · Lubin Investment",
+      "desc": "Type a ticker, get a quality score across 10 objective financial criteria. Valuation judged separately, continuous monitoring of the whole market."
+    },
+    "analyse": {
+      "title": "Analyze a stock · score, valuation, qualitative · Lubin Investment",
+      "desc": "Score out of 10 computed in seconds, P/FCF, free cash flow, margins, debt: a stock's full fact sheet on a single page, with no fluff."
+    },
+    "screener": {
+      "title": "Screener · the market's best scores · Lubin Investment",
+      "desc": "Every stock scored continuously by our monitoring engine. Filter by score, P/FCF, sector. The 10/10 names automatically rise to the top."
+    },
+    "compare": {
+      "title": "Compare 2 to 5 stocks side by side · Lubin Investment",
+      "desc": "Put several names face to face across 10 financial criteria and valuation. The best on each row is highlighted, line by line."
+    },
+    "watchlist": {
+      "title": "My watchlist · track your favorite stocks · Lubin Investment",
+      "desc": "Track your favorite stocks: price, score out of 10, P/FCF and next earnings refreshed on each visit. Up to 10 names on the free tier."
+    },
+    "pricing": {
+      "title": "Pricing · Free and Pro from 13 €/month · Lubin Investment",
+      "desc": "Start free, no credit card. Pro 19 €/month or 159 €/year: AI qualitative analysis, opportunities, 5-stock compare, full EU and International data."
+    },
+    "methodology": {
+      "title": "Methodology · 10 criteria, public sources · Lubin Investment",
+      "desc": "How the score out of 10 works: 10 financial criteria, formulas, thresholds, regulatory sources (SEC EDGAR XBRL, Finnhub, Yahoo). Zero black box."
+    },
+    "legal": {
+      "mentions": {
+        "title": "Legal notice · Lubin Investment",
+        "desc": "Publisher, publication director, host and legal details of the Lubin Investment service. French micro-entrepreneur, VAT-exempt under art. 293 B CGI."
+      },
+      "cgu": {
+        "title": "Terms of use · Lubin Investment",
+        "desc": "Terms of use for the Lubin Investment service: purpose, access, intellectual property, responsibilities. Decision-support tool, not investment advice."
+      },
+      "cgv": {
+        "title": "Terms of sale · Lubin Investment",
+        "desc": "Monthly and yearly Pro offers, Stripe payment, 14-day withdrawal right, cancellation, consumer mediation. Conditions of sale for the Pro subscription."
+      },
+      "confidentialite": {
+        "title": "Privacy policy · GDPR · Lubin Investment",
+        "desc": "Data collected, purposes, retention, processors (Stripe, Vercel, Neon, OpenAI), your GDPR rights and the use of cookies on Lubin Investment."
+      }
+    }
+  },
+  "footer": {
+    "product": "Product",
+    "legal": "Legal",
+    "contact": "Contact",
+    "links": {
+      "analyse": "Analyze",
+      "screener": "Screener",
+      "compare": "Compare",
+      "pricing": "Pricing",
+      "methodology": "Methodology",
+      "mentions": "Legal notice",
+      "cgu": "Terms of use",
+      "cgv": "Terms of sale",
+      "confidentialite": "Privacy"
+    },
+    "disclaimerShort": "Decision-support tool. Does not constitute personalized investment advice."
   }
 }
