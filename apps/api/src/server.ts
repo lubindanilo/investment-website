@@ -92,11 +92,15 @@ app.use('/api/screener', screenerRouter);
 app.use('/api/portfolio', portfolioRouter);
 app.use('/api/compare', compareRouter);
 
-// Sitemap dynamique — exposé sous /api/sitemap.xml.
-// Le rewrite Vercel mappe /sitemap.xml → /api/sitemap.xml (côté lambda, l'URL reçue
-// est /api/sitemap.xml). Le router définit GET /sitemap.xml en interne, on le monte
-// donc sur /api pour reconstituer le chemin attendu.
+// Sitemap dynamique — accessible à DEUX chemins :
+//   - /api/sitemap.xml      (chemin direct, utile en dev local sans rewrite)
+//   - /sitemap.xml          (chemin canonique SEO, le rewrite Vercel envoie la requête
+//                            à la lambda `api/[...all]` qui reçoit le path original)
+// Vercel ne chaîne PAS les rewrites : un rewrite /sitemap.xml → /api/sitemap.xml ne
+// re-déclenche pas la règle /api/(.*) → /api/[...all]. On rewrite donc directement
+// vers /api/[...all] côté vercel.json et on monte le router aux deux niveaux ici.
 app.use('/api', sitemapRouter);
+app.use('/', sitemapRouter);
 
 // 404 fallback (avant l'error handler)
 app.use((req, res) => {
