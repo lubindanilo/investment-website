@@ -21,6 +21,7 @@
  */
 import { Router, type Request, type Response } from 'express';
 import { prisma } from '../db/client.js';
+import { getArticleBySlug, toArticleLang, type Article, type ArticleLang } from '@lubin/shared';
 
 export const seoPrerenderRouter: Router = Router();
 
@@ -335,4 +336,132 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
     console.error('[seoPrerender]', ticker, (err as Error).message);
     res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(ticker));
   }
+});
+
+// ─── Article de blog : pré-rendu riche pour les bots/IA (3 langues via ?lng) ──
+function renderArticleHtml(article: Article, lang: ArticleLang): string {
+  const c = article.content[lang];
+  const base = `${SITE_URL}/blog/${article.slug}`;
+  const canonical = lang === 'fr' ? base : `${base}?lng=${lang}`;
+  const htmlLang = lang;
+  const ogLocale = lang === 'en' ? 'en_US' : lang === 'es' ? 'es_ES' : 'fr_FR';
+  const title = escapeHtml(c.title);
+  const description = escapeHtml(c.metaDescription);
+  const datePublished = `${article.date}T08:00:00Z`;
+  const dateModified = `${article.updated}T08:00:00Z`;
+
+  const hreflang = (['fr', 'en', 'es'] as const)
+    .map((l) => `<link rel="alternate" hreflang="${l}" href="${l === 'fr' ? base : `${base}?lng=${l}`}">`)
+    .join('\n');
+
+  const bodyHtml = c.body
+    .map((b) => {
+      if (b.type === 'h2') return `<h2>${escapeHtml(b.text)}</h2>`;
+      if (b.type === 'ul') return `<ul>${b.items.map((i) => `<li>${escapeHtml(i)}</li>`).join('')}</ul>`;
+      return `<p>${escapeHtml(b.text)}</p>`;
+    })
+    .join('\n');
+
+  const faqHtml = c.faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n');
+
+  const articleLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: c.title,
+    description: c.metaDescription,
+    url: canonical,
+    inLanguage: `${lang}`,
+    datePublished,
+    dateModified,
+    author: { '@type': 'Organization', name: 'Lubin Investment', url: SITE_URL },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Lubin Investment',
+      url: SITE_URL,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` },
+    },
+    mainEntityOfPage: canonical,
+  };
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: c.faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+      { '@type': 'ListItem', position: 3, name: c.title, item: canonical },
+    ],
+  };
+
+  const ctaHref = article.ticker ? `${SITE_URL}/analyse/${article.ticker}` : `${SITE_URL}/analyser`;
+
+  return `<!DOCTYPE html>
+<html lang="${htmlLang}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<meta name="description" content="${description}">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="${canonical}">
+${hreflang}
+<meta property="og:type" content="article">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${description}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:site_name" content="Lubin Investment">
+<meta property="og:locale" content="${ogLocale}">
+<meta property="og:image" content="${SITE_URL}/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${description}">
+<meta name="twitter:image" content="${SITE_URL}/og-default.png">
+<script type="application/ld+json">${JSON.stringify(articleLd, null, 2)}</script>
+<script type="application/ld+json">${JSON.stringify(faqLd, null, 2)}</script>
+<script type="application/ld+json">${JSON.stringify(breadcrumbLd, null, 2)}</script>
+</head>
+<body>
+<header>
+  <p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/blog">Blog</a></p>
+</header>
+<main>
+<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/blog">Blog</a></nav>
+<h1>${escapeHtml(c.title)}</h1>
+<p><small>${escapeHtml(article.date)}</small></p>
+<p><strong>${escapeHtml(c.answer)}</strong></p>
+${bodyHtml}
+<h2>FAQ</h2>
+${faqHtml}
+<p><a href="${ctaHref}"><strong>${article.ticker ? `Voir l'analyse ${escapeHtml(article.ticker)} sur Lubin Investment` : 'Analyser une action sur Lubin Investment'}</strong></a></p>
+<footer><p><small>${escapeHtml(c.disclaimer)}</small></p></footer>
+</main>
+</body>
+</html>`;
+}
+
+// GET /blog/:slug — servi UNIQUEMENT aux bots (rewrite Vercel conditionnel). ?lng=en|es.
+seoPrerenderRouter.get('/blog/:slug', (req: Request, res: Response) => {
+  const slug = String(req.params.slug || '').slice(0, 128);
+  const article = getArticleBySlug(slug);
+  if (!article) {
+    res
+      .status(404)
+      .set('Content-Type', 'text/html; charset=utf-8')
+      .send(`<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Article introuvable · Lubin Investment</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${SITE_URL}/blog"></head><body><h1>Article introuvable</h1><p><a href="${SITE_URL}/blog">Retour au blog</a></p></body></html>`);
+    return;
+  }
+  const lng = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
+  res
+    .status(200)
+    .set('Content-Type', 'text/html; charset=utf-8')
+    .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
+    .send(renderArticleHtml(article, lng));
 });
