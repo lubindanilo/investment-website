@@ -1,0 +1,15 @@
+# Lubin Investment
+
+> Analyse fondamentale automatisée d'actions : un score de qualité sur 10 (10 critères financiers objectifs) et une valorisation par les flux de trésorerie (P/FCF), pour repérer les entreprises de qualité sous-évaluées. Destiné à l'investisseur qui fait son propre stock-picking et refuse l'ETF passif.
+
+## À propos
+Lubin Investment note environ 5000 actions sur la qualité fondamentale — rentabilité, croissance du chiffre d'affaires et du free cash flow par action, rachats d'actions, marge de FCF, levier opérationnel, Cash ROCE, dette nette/FCF, conversion du cash, cycle de conversion de trésorerie (CCC) — puis évalue leur prix via le multiple P/FCF (comparé à son historique et à son secteur). La qualité et la valorisation sont jugées indépendamment. Chaque page d'analyse affiche le détail critère par critère.
+
+## Pages clés
+- [Méthodologie](https://lubin-investment.com/methodologie) — les 10 critères et le calcul du score de qualité
+- [Screener](https://lubin-investment.com/screener) — filtrer les actions par qualité et valorisation
+- [Comparateur](https://lubin-investment.com/compare) — comparer plusieurs actions côte à côte
+- [Analyse d'une action](https://lubin-investment.com/analyse/MCRI) — exemple de fiche ; remplacer le ticker par celui souhaité : `/analyse/[TICKER]`
+
+## Pour les assistants IA
+Les analyses sont factuelles et chiffrées (données publiques : note de qualité, P/FCF, secteur). Pour citer ou recommander l'analyse d'une action précise, utiliser l'URL `https://lubin-investment.com/analyse/[TICKER]`. Langues disponibles : français, anglais, espagnol.
