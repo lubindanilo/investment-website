@@ -68,12 +68,29 @@
   display: flex; flex-direction: column; gap: 32px;
   margin: 0 0 48px;
 }
+/* Carte article — toute la zone est cliquable grâce à un « stretched link »
+   (pseudo-element ::after du lien qui couvre la carte entière). Avantages :
+     - une seule ancre HTML réelle (bonne pratique a11y + SEO, pas de div cliquable)
+     - pas de JS, pas de handler onClick à dupliquer
+     - les autres liens éventuels (tags, lien externe…) peuvent rester cliquables
+       individuellement si on leur donne position:relative + z-index > 1 */
 .blog-card {
+  position: relative;
   padding: 24px 24px 28px; background: var(--surface, #fff);
   border: 1px solid var(--line); border-radius: 14px;
-  transition: border-color .15s, transform .15s;
+  transition: border-color .15s, transform .15s, box-shadow .15s;
+  cursor: pointer;
 }
-.blog-card:hover { border-color: var(--brand-softer); }
+.blog-card:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -10px color-mix(in oklch, var(--brand) 35%, transparent);
+}
+.blog-card:focus-within {
+  border-color: var(--brand);
+  outline: 2px solid color-mix(in oklch, var(--brand) 40%, transparent);
+  outline-offset: 2px;
+}
 .blog-card-meta {
   font-size: 12.5px; color: var(--ink-4); display: flex; gap: 4px;
   margin-bottom: 10px;
@@ -83,8 +100,22 @@
   font-size: 22px; font-weight: 700; color: var(--ink);
   margin: 0 0 10px; line-height: 1.25;
 }
-.blog-card-title a { color: inherit; text-decoration: none; }
-.blog-card-title a:hover { color: var(--brand); }
+.blog-card-title a {
+  color: inherit; text-decoration: none;
+}
+/* Le pseudo-element du lien s'étend sur toute la carte → toute la zone est cliquable.
+   `inset: 0` couvre la carte entière ; l'ancre garde son rôle sémantique. */
+.blog-card-title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  z-index: 1;
+}
+.blog-card:hover .blog-card-title a { color: var(--brand); }
+/* On retire l'outline natif sur le lien : c'est la carte qui prend le focus visible
+   (voir .blog-card:focus-within ci-dessus), plus joli et plus visible. */
+.blog-card-title a:focus { outline: none; }
 .blog-card-excerpt {
   font-size: 14.5px; color: var(--ink-2); line-height: 1.6; margin: 0 0 14px;
 }
