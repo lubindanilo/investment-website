@@ -17,9 +17,8 @@ export function CguPage() {
             Les présentes Conditions Générales d'Utilisation (ci-après « CGU »)
             ont pour objet de définir les modalités et conditions d'accès et
             d'utilisation du site et de l'application Lubin Investment
-            (ci-après « le Service »), édité par [[À COMPLÉTER : nom de
-            l'éditeur]], micro-entrepreneur immatriculé sous le SIRET
-            [[À COMPLÉTER : SIRET]].
+            (ci-après « le Service »), édité par Lubin Célestin DANILO,
+            micro-entrepreneur immatriculé sous le SIRET 935 377 812 00018.
           </p>
           <p>
             Lubin Investment est un <strong>outil d'aide à la décision</strong>{" "}

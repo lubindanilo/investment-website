@@ -15,12 +15,12 @@ export function CgvPage() {
           <h2>1. Objet et champ d'application</h2>
           <p>
             Les présentes Conditions Générales de Vente (ci-après « CGV »)
-            régissent les relations contractuelles entre [[À COMPLÉTER : nom de
-            l'éditeur]], micro-entrepreneur immatriculé sous le SIRET
-            [[À COMPLÉTER : SIRET]], dont le siège est situé
-            [[À COMPLÉTER : adresse]] (ci-après « l'Éditeur »), et toute
-            personne physique majeure consommatrice souscrivant un abonnement
-            au service Lubin Investment (ci-après « le Client »).
+            régissent les relations contractuelles entre Lubin Célestin DANILO,
+            micro-entrepreneur immatriculé sous le SIRET 935 377 812 00018,
+            dont le siège est situé 8 B bis rue de l'Entrepôt, 59800 Lille,
+            France (ci-après « l'Éditeur »), et toute personne physique majeure
+            consommatrice souscrivant un abonnement au service Lubin Investment
+            (ci-après « le Client »).
           </p>
           <p>
             Les CGV sont accessibles à tout moment sur le site et prévalent sur
@@ -208,9 +208,11 @@ export function CgvPage() {
             d'un médiateur de la consommation.
           </p>
           <p>
-            Médiateur désigné : [[À COMPLÉTER : nom du médiateur de la
-            consommation]] — [[À COMPLÉTER : adresse postale]] —
-            [[À COMPLÉTER : URL du site de saisine en ligne]].
+            Médiateur désigné : <strong>Médiation de la consommation pour les
+            entrepreneurs du Numérique (CM2C)</strong> — 14 rue Saint-Jean,
+            75017 Paris — <a href="https://cm2c.net" target="_blank"
+            rel="noopener noreferrer">cm2c.net</a>. Le Client peut saisir
+            gratuitement le médiateur par voie électronique ou postale.
           </p>
           <p>
             Le Client peut également recourir à la plateforme européenne de
@@ -246,8 +248,8 @@ export function CgvPage() {
             vous souhaitez vous rétracter du contrat.
           </p>
           <p>
-            À l'attention de [[À COMPLÉTER : nom de l'éditeur]],
-            [[À COMPLÉTER : adresse]], admin@lubin-investment.com :
+            À l'attention de Lubin Célestin DANILO, 8 B bis rue de l'Entrepôt,
+            59800 Lille, France, admin@lubin-investment.com :
             <br />
             « Je vous notifie par la présente ma rétractation du contrat portant
             sur la prestation de service ci-dessous :

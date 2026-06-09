@@ -27,9 +27,9 @@ export function ConfidentialitePage() {
           <h2>2. Responsable du traitement</h2>
           <p>
             Le responsable du traitement des données personnelles est
-            [[À COMPLÉTER : nom de l'éditeur]], micro-entrepreneur immatriculé
-            sous le SIRET [[À COMPLÉTER : SIRET]], dont le siège est situé
-            [[À COMPLÉTER : adresse]].
+            Lubin Célestin DANILO, micro-entrepreneur immatriculé sous le SIRET
+            935 377 812 00018, dont le siège est situé 8 B bis rue de
+            l'Entrepôt, 59800 Lille, France.
           </p>
           <p>
             Contact : admin@lubin-investment.com.
@@ -270,7 +270,7 @@ export function ConfidentialitePage() {
           </p>
           <ul>
             <li>Par email : admin@lubin-investment.com</li>
-            <li>Par courrier : [[À COMPLÉTER : adresse]]</li>
+            <li>Par courrier : Lubin Célestin DANILO, 8 B bis rue de l'Entrepôt, 59800 Lille, France</li>
           </ul>
         </section>
 

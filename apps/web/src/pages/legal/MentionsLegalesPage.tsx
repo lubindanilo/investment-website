@@ -15,15 +15,16 @@ export function MentionsLegalesPage() {
           <h2>1. Éditeur du site</h2>
           <p>
             Le site Lubin Investment (ci-après « le Site ») est édité par
-            [[À COMPLÉTER : nom et prénom de l'éditeur]], entrepreneur individuel
-            sous le régime de la micro-entreprise.
+            Lubin Célestin DANILO, entrepreneur individuel sous le régime de la
+            micro-entreprise.
           </p>
           <ul>
             <li>Statut : micro-entrepreneur (entreprise individuelle)</li>
-            <li>SIRET : [[À COMPLÉTER : SIRET]]</li>
-            <li>Code APE : [[À COMPLÉTER : code APE]]</li>
+            <li>SIREN : 935 377 812</li>
+            <li>SIRET : 935 377 812 00018</li>
+            <li>Code APE : 63.12Z (Portails Internet)</li>
             <li>
-              Adresse du siège : [[À COMPLÉTER : adresse complète du siège]]
+              Adresse du siège : 8 B bis rue de l'Entrepôt, 59800 Lille, France
             </li>
             <li>Courriel : admin@lubin-investment.com</li>
             <li>
@@ -41,8 +42,7 @@ export function MentionsLegalesPage() {
         <section>
           <h2>2. Directeur de la publication</h2>
           <p>
-            Directeur de la publication : [[À COMPLÉTER : nom et prénom du
-            directeur de publication]].
+            Directeur de la publication : Lubin Célestin DANILO.
           </p>
         </section>
 
