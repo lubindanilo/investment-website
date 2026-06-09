@@ -102,7 +102,7 @@ function renderTickerHtml(t: {
 
   // Titre ≤ 60 caractères (Google tronque ~61 % des titres plus longs), mot-clé en
   // tête, SANS suffixe de marque (Google ajoute déjà le nom du site). Nom tronqué au besoin.
-  const titleTail = score !== '—' ? ` — analyse, note ${score}` : ' — analyse fondamentale';
+  const titleTail = score !== '—' ? ` - analyse, note ${score}` : ' - analyse fondamentale';
   const tickerPart = ` (${t.ticker})`;
   let titleName = rawName;
   const nameBudget = 60 - tickerPart.length - titleTail.length;
@@ -249,16 +249,16 @@ ${oppBadge}
 
 <h2>Les 10 critères chiffrés analysés</h2>
 <ol>
-<li><strong>Rentable</strong> — marge nette positive</li>
-<li><strong>Ventes en croissance</strong> — chiffre d'affaires &gt; 10 %/an sur 5 ans (régression Theil-Sen robuste aux outliers)</li>
-<li><strong>Profits par action en croissance</strong> — FCF par action ajusté de la rémunération en actions, &gt; 10 %/an sur 5 ans</li>
-<li><strong>Nombre d'actions maîtrisé</strong> — stable ou en baisse (rachats nets = création de valeur pour l'actionnaire)</li>
-<li><strong>Profitabilité cash</strong> — marge de free cash flow &gt; 10 % du chiffre d'affaires</li>
-<li><strong>Marges en expansion</strong> — la marge opérationnelle s'élargit sur 5 ans (operating leverage)</li>
-<li><strong>Rendement du capital investi</strong> — Cash ROCE Bettin-Mauboussin &gt; 15 % par an</li>
-<li><strong>Endettement maîtrisé</strong> — dette nette remboursable en moins de 3 ans de free cash flow</li>
-<li><strong>Bénéfices transformés en cash</strong> — le free cash flow excède le bénéfice net comptable</li>
-<li><strong>Délai d'encaissement net</strong> — cycle de conversion du cash (DSO + DIO − DPO) en baisse ou négatif</li>
+<li><strong>Rentable</strong> : marge nette positive</li>
+<li><strong>Ventes en croissance</strong> : chiffre d'affaires &gt; 10 %/an sur 5 ans (régression Theil-Sen robuste aux outliers)</li>
+<li><strong>Profits par action en croissance</strong> : FCF par action ajusté de la rémunération en actions, &gt; 10 %/an sur 5 ans</li>
+<li><strong>Nombre d'actions maîtrisé</strong> : stable ou en baisse (rachats nets = création de valeur pour l'actionnaire)</li>
+<li><strong>Profitabilité cash</strong> : marge de free cash flow &gt; 10 % du chiffre d'affaires</li>
+<li><strong>Marges en expansion</strong> : la marge opérationnelle s'élargit sur 5 ans (operating leverage)</li>
+<li><strong>Rendement du capital investi</strong> : Cash ROCE Bettin-Mauboussin &gt; 15 % par an</li>
+<li><strong>Endettement maîtrisé</strong> : dette nette remboursable en moins de 3 ans de free cash flow</li>
+<li><strong>Bénéfices transformés en cash</strong> : le free cash flow excède le bénéfice net comptable</li>
+<li><strong>Délai d'encaissement net</strong> : cycle de conversion du cash (DSO + DIO − DPO) en baisse ou négatif</li>
 </ol>
 
 <h2>Sources de données</h2>
