@@ -13,7 +13,13 @@
 import { Router, type Request, type Response } from 'express';
 import { asyncHandler } from '../middleware/error.js';
 import { prisma } from '../db/client.js';
-import { listArticles } from '@lubin/shared';
+// ⚠️ On NE peut PAS importer de valeur depuis '@lubin/shared' (pas de build dist/ → crash
+// de la lambda en prod, cf. scripts/check-api-shared-imports.mjs). On consomme donc une
+// COPIE locale du module articles. La source de vérité reste packages/shared/src/articles.ts
+// (côté web) — il faut synchroniser les deux fichiers quand un article est ajouté/édité.
+// TODO : à terme, transformer @lubin/shared en vrai package compilé (tsc → dist/) et virer
+// cette duplication.
+import { listArticles } from '../data/articles.js';
 
 export const sitemapRouter: Router = Router();
 

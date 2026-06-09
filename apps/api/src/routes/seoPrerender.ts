@@ -21,7 +21,11 @@
  */
 import { Router, type Request, type Response } from 'express';
 import { prisma } from '../db/client.js';
-import { getArticleBySlug, toArticleLang, type Article, type ArticleLang } from '@lubin/shared';
+// ⚠️ Imports de valeur (`getArticleBySlug`, `toArticleLang`) interdits depuis '@lubin/shared'
+// — pas de build dist/, crash lambda Vercel. On consomme la copie locale apps/api/src/data/.
+// Les types restent OK à puiser depuis '@lubin/shared' (effacés à la compilation).
+import { getArticleBySlug, toArticleLang } from '../data/articles.js';
+import type { Article, ArticleLang } from '@lubin/shared';
 
 export const seoPrerenderRouter: Router = Router();
 
