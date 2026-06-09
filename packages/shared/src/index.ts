@@ -3,6 +3,9 @@
  * Tout ce qui voyage sur le réseau doit être typé ici.
  */
 
+// ─── Contenu éditorial (blog) — source unique web + api ─────────────────────
+export * from './articles.js';
+
 // ─── Critères ──────────────────────────────────────────────────────────────
 
 export type CriterionStatus = 'pass' | 'fail' | 'warn';

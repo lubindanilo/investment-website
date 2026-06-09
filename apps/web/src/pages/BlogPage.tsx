@@ -12,29 +12,21 @@
  * TODO i18n : extraire vers locales/*.json en sprint 3 quand on aura plusieurs articles.
  */
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { listArticles, toArticleLang } from '@lubin/shared';
 import SeoHead from '../components/SeoHead.js';
 import { Icon } from '../components/ui/primitives.js';
 import './BlogPage.css';
 
-// Articles publiés. Vide pour l'instant — premier article à venir.
-const ARTICLES: Array<{
+// Forme d'affichage d'une carte article (dérivée de @lubin/shared, langue active).
+type DisplayArticle = {
   slug: string;
   title: string;
   excerpt: string;
   date: string;       // ISO YYYY-MM-DD
   readingTime: number; // en minutes
   tags: string[];
-}> = [
-  // À VENIR :
-  // {
-  //   slug: 'pourquoi-le-fcf-est-meilleur-que-le-pnl',
-  //   title: 'Pourquoi le free cash flow est plus fiable que le bénéfice net',
-  //   excerpt: 'Le bénéfice net comptable se manipule. Le cash, lui, ne ment pas. Plongée dans la métrique que les compounders surveillent en priorité.',
-  //   date: '2026-07-01',
-  //   readingTime: 7,
-  //   tags: ['Méthode', 'Fondamentaux'],
-  // },
-];
+};
 
 // Thèmes prévus pour les premiers articles (signal éditorial pour les lecteurs et Google).
 const UPCOMING_TOPICS = [
@@ -47,6 +39,17 @@ const UPCOMING_TOPICS = [
 ];
 
 export function BlogPage() {
+  const { i18n } = useTranslation();
+  const lang = toArticleLang(i18n.language);
+  const articles: DisplayArticle[] = listArticles().map((a) => ({
+    slug: a.slug,
+    date: a.date,
+    readingTime: a.readingTime,
+    title: a.content[lang].title,
+    excerpt: a.content[lang].excerpt,
+    tags: a.content[lang].tags,
+  }));
+
   return (
     <div className="blog">
       <SeoHead titleKey="seo.blog.title" descKey="seo.blog.desc" />
@@ -54,7 +57,7 @@ export function BlogPage() {
 
         {/* Hero */}
         <header className="blog-hero">
-          <div className="blog-hero-chip">{ARTICLES.length === 0 ? 'Bientôt en ligne' : 'Le blog'}</div>
+          <div className="blog-hero-chip">{articles.length === 0 ? 'Bientôt en ligne' : 'Le blog'}</div>
           <h1 className="blog-hero-title">
             Comprendre les marchés avec méthode
           </h1>
@@ -66,18 +69,18 @@ export function BlogPage() {
         </header>
 
         {/* État liste d'articles */}
-        {ARTICLES.length === 0 ? (
+        {articles.length === 0 ? (
           <ComingSoonState />
         ) : (
           <section className="blog-list">
-            {ARTICLES.map(article => (
+            {articles.map(article => (
               <ArticleCard key={article.slug} article={article} />
             ))}
           </section>
         )}
 
         {/* Thèmes à venir */}
-        {ARTICLES.length === 0 && (
+        {articles.length === 0 && (
           <section className="blog-upcoming">
             <h2 className="blog-section-title">Ce qui arrive bientôt</h2>
             <ul className="blog-upcoming-list">
@@ -128,7 +131,7 @@ function ComingSoonState() {
   );
 }
 
-function ArticleCard({ article }: { article: typeof ARTICLES[number] }) {
+function ArticleCard({ article }: { article: DisplayArticle }) {
   return (
     <article className="blog-card">
       <div className="blog-card-meta">

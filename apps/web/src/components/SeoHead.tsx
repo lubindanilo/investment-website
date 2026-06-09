@@ -6,10 +6,14 @@ import { useTranslation } from 'react-i18next';
 
 // Props du composant SeoHead
 export interface SeoHeadProps {
-  /** Clé i18n pour le titre de la page */
-  titleKey: string;
-  /** Clé i18n pour la meta description */
-  descKey: string;
+  /** Clé i18n pour le titre de la page (optionnel si `title` littéral fourni) */
+  titleKey?: string;
+  /** Clé i18n pour la meta description (optionnel si `description` littérale fournie) */
+  descKey?: string;
+  /** Titre littéral (prioritaire sur titleKey) — pour contenu dynamique (articles) */
+  title?: string;
+  /** Meta description littérale (prioritaire sur descKey) */
+  description?: string;
   /** URL absolue ou relative de l'image OG (par défaut : /og-default.png) */
   image?: string;
   /** Type Open Graph (par défaut : website) */
@@ -85,6 +89,8 @@ function setLink(rel: string, href: string): HTMLLinkElement {
 export default function SeoHead({
   titleKey,
   descKey,
+  title: literalTitle,
+  description: literalDescription,
   image,
   type = 'website',
   pathname,
@@ -96,9 +102,9 @@ export default function SeoHead({
     const previousTitle = document.title;
     const previousHtmlLang = document.documentElement.getAttribute('lang');
 
-    // Calcule les valeurs effectives à appliquer
-    const title = t(titleKey);
-    const description = t(descKey);
+    // Calcule les valeurs effectives à appliquer (littéral prioritaire sur clé i18n)
+    const title = literalTitle ?? (titleKey ? t(titleKey) : document.title);
+    const description = literalDescription ?? (descKey ? t(descKey) : '');
     const lang = i18n.language || 'fr';
     const ogLocale = toOgLocale(lang);
     const path =
@@ -143,7 +149,7 @@ export default function SeoHead({
         document.documentElement.setAttribute('lang', previousHtmlLang);
       }
     };
-  }, [titleKey, descKey, image, type, pathname, i18n.language, t]);
+  }, [titleKey, descKey, literalTitle, literalDescription, image, type, pathname, i18n.language, t]);
 
   // Aucun rendu dans le DOM React
   return null;

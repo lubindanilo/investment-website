@@ -21,6 +21,7 @@ const AuthPage = lazy(() => import('./pages/AuthPage.js').then((m) => ({ default
 const MarketBeatPage = lazy(() => import('./pages/MarketBeatPage.js').then((m) => ({ default: m.MarketBeatPage })));
 const MethodologyPage = lazy(() => import('./pages/MethodologyPage.js').then((m) => ({ default: m.MethodologyPage })));
 const BlogPage = lazy(() => import('./pages/BlogPage.js').then((m) => ({ default: m.BlogPage })));
+const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage.js').then((m) => ({ default: m.BlogArticlePage })));
 
 // Pages légales — lazy aussi (faible trafic, on les sort du bundle d'entrée).
 const MentionsLegalesPage = lazy(() =>
@@ -111,6 +112,7 @@ export function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/methodologie" element={<MethodologyPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogArticlePage />} />
             <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
             <Route path="/cgu" element={<CguPage />} />
             <Route path="/cgv" element={<CgvPage />} />

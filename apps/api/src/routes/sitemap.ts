@@ -13,6 +13,7 @@
 import { Router, type Request, type Response } from 'express';
 import { asyncHandler } from '../middleware/error.js';
 import { prisma } from '../db/client.js';
+import { listArticles } from '@lubin/shared';
 
 export const sitemapRouter: Router = Router();
 
@@ -95,12 +96,17 @@ async function buildSitemap(): Promise<string> {
   });
 
   const staticBlocks = STATIC_PAGES.map((p) => buildStaticUrlBlock(p.path, p.changefreq, p.priority, lastmod));
+  // Articles de blog (hreflang fr/en/es via ?lng). lastmod = date de mise à jour de l'article.
+  const articleBlocks = listArticles().map((a) =>
+    buildStaticUrlBlock(`/blog/${a.slug}`, 'monthly', 0.6, a.updated),
+  );
   const tickerBlocks = tickers.map((t) => buildTickerUrlBlock(t.ticker, lastmod));
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ...staticBlocks,
+    ...articleBlocks,
     ...tickerBlocks,
     '</urlset>',
   ].join('\n');
