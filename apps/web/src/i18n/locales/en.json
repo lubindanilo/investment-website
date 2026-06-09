@@ -893,31 +893,31 @@
   },
   "seo": {
     "home": {
-      "title": "Fundamental stock analysis scored out of 10 · Lubin Investment",
-      "desc": "Type a ticker, get a quality score across 10 objective financial criteria. Valuation judged separately, continuous monitoring of the whole market."
+      "title": "Find undervalued quality stocks",
+      "desc": "Quality score /10 across 10 objective criteria + a recommended buy price (P/FCF). Automated fundamental analysis to do your own stock-picking and beat the market."
     },
     "analyse": {
-      "title": "Analyze a stock · score, valuation, qualitative · Lubin Investment",
+      "title": "Analyze a stock: score, valuation, qualitative",
       "desc": "Score out of 10 computed in seconds, P/FCF, free cash flow, margins, debt: a stock's full fact sheet on a single page, with no fluff."
     },
     "screener": {
-      "title": "Screener · the market's best scores · Lubin Investment",
+      "title": "Stock screener: the market's best scores",
       "desc": "Every stock scored continuously by our monitoring engine. Filter by score, P/FCF, sector. The 10/10 names automatically rise to the top."
     },
     "compare": {
-      "title": "Compare 2 to 5 stocks side by side · Lubin Investment",
+      "title": "Compare 2 to 5 stocks side by side",
       "desc": "Put several names face to face across 10 financial criteria and valuation. The best on each row is highlighted, line by line."
     },
     "watchlist": {
-      "title": "My watchlist · track your favorite stocks · Lubin Investment",
+      "title": "My watchlist: track your favorite stocks",
       "desc": "Track your favorite stocks: price, score out of 10, P/FCF and next earnings refreshed on each visit. Up to 10 names on the free tier."
     },
     "pricing": {
-      "title": "Pricing · Free and Pro from 13 €/month · Lubin Investment",
+      "title": "Pricing: free and Pro from 13 €/month",
       "desc": "Start free, no credit card. Pro 19 €/month or 159 €/year: AI qualitative analysis, opportunities, 5-stock compare, full EU and International data."
     },
     "methodology": {
-      "title": "Methodology · 10 criteria, public sources · Lubin Investment",
+      "title": "Methodology: 10 criteria, public sources",
       "desc": "How the score out of 10 works: 10 financial criteria, formulas, thresholds, regulatory sources (SEC EDGAR XBRL, Finnhub, Yahoo). Zero black box."
     },
     "legal": {

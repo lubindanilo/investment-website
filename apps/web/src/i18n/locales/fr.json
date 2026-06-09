@@ -893,31 +893,31 @@
   },
   "seo": {
     "home": {
-      "title": "Analyse fondamentale d'actions notée sur 10 · Lubin Investment",
-      "desc": "Tapez un ticker, obtenez une note de qualité sur 10 critères financiers objectifs. Valorisation jugée séparément, veille continue sur toute la cote."
+      "title": "Repérez les actions de qualité sous-évaluées",
+      "desc": "Note de qualité /10 sur 10 critères objectifs + prix d'achat conseillé (P/FCF). L'analyse fondamentale automatisée pour faire son propre stock-picking et battre le marché."
     },
     "analyse": {
-      "title": "Analyser une action · score, valorisation, qualitatif · Lubin Investment",
+      "title": "Analyser une action : score, valorisation, qualitatif",
       "desc": "Score sur 10 calculé en quelques secondes, P/FCF, free cash flow, marges, dette : la fiche complète d'une action en une page, sans bla-bla."
     },
     "screener": {
-      "title": "Screener · les meilleures notes du marché · Lubin Investment",
+      "title": "Screener d'actions : les meilleures notes du marché",
       "desc": "Toutes les actions notées en continu par la veille. Filtrez par note, P/FCF, secteur. Les 10/10 remontent automatiquement en tête de liste."
     },
     "compare": {
-      "title": "Comparer 2 à 5 actions côte à côte · Lubin Investment",
+      "title": "Comparer 2 à 5 actions côte à côte",
       "desc": "Mettez plusieurs titres face à face sur 10 critères financiers et la valorisation. Le meilleur de chaque ligne est surligné, ligne par ligne."
     },
     "watchlist": {
-      "title": "Ma watchlist · suivi des actions favorites · Lubin Investment",
+      "title": "Ma watchlist : suivi des actions favorites",
       "desc": "Suivez vos actions préférées : cours, score sur 10, P/FCF et prochains earnings mis à jour à chaque visite. Jusqu'à 10 titres en gratuit."
     },
     "pricing": {
-      "title": "Tarifs · Gratuit et Pro à partir de 13 €/mois · Lubin Investment",
+      "title": "Tarifs : gratuit et Pro dès 13 €/mois",
       "desc": "Démarrez gratuitement, sans carte bancaire. Pro 19 €/mois ou 159 €/an : qualitatif IA, opportunités, comparaison 5 titres, données EU et International."
     },
     "methodology": {
-      "title": "Méthodologie · 10 critères, sources publiques · Lubin Investment",
+      "title": "Méthodologie : 10 critères, sources publiques",
       "desc": "Comment fonctionne la note sur 10 : 10 critères financiers, formules, seuils, sources réglementaires (SEC EDGAR XBRL, Finnhub, Yahoo). Zéro boîte noire."
     },
     "legal": {
