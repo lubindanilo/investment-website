@@ -8,8 +8,23 @@
 .cmp-selector-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-3); }
 .cmp-chip { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 6px 0 13px; border-radius: 999px; background: var(--brand); color: #fff; }
 .cmp-chip-x { width: 24px; height: 24px; border-radius: 50%; border: none; background: oklch(1 0 0 / 0.18); color: #fff; display: flex; align-items: center; justify-content: center; }
-.cmp-add { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border-radius: 999px; border: 1.5px dashed var(--line); background: var(--surface); color: var(--ink-2); font-weight: 600; font-size: 13.5px; transition: all .14s; }
+.cmp-add { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border-radius: 999px; border: 1.5px dashed var(--line); background: var(--surface); color: var(--ink-2); font-weight: 600; font-size: 13.5px; transition: all .14s; cursor: pointer; }
 .cmp-add:hover { border-color: var(--brand); color: var(--brand-ink); }
+
+/* Variant « call-to-action » utilisé quand 0 ticker n'a été choisi.
+   Style brand plein pour signaler clairement la prochaine action à effectuer. */
+.cmp-add--primary {
+  border: 1.5px solid var(--brand);
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--sh-brand, 0 4px 14px -4px color-mix(in oklch, var(--brand) 55%, transparent));
+}
+.cmp-add--primary:hover {
+  background: var(--brand-press, var(--brand));
+  border-color: var(--brand-press, var(--brand));
+  color: #fff;
+  transform: translateY(-1px);
+}
 .cmp-suggest { position: absolute; top: 44px; left: 0; width: 300px; z-index: 30; padding: 6px; box-shadow: var(--sh-lg); }
 .cmp-suggest-item { width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; border: none; background: transparent; transition: background .12s; }
 .cmp-suggest-item:hover,

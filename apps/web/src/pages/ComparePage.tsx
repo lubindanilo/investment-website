@@ -133,10 +133,17 @@ function AddTicker({ selected, onAdd }: { selected: string[]; onAdd: (t: string)
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [q, setQ] = useState('');
+  // Aucun ticker sélectionné → on met le bouton en évidence (style brand plein) pour
+  // signaler clairement la prochaine action à faire. Sinon, on garde le style dashed
+  // discret pour ne pas surcharger l'interface une fois qu'on a commencé à comparer.
+  const isEmpty = selected.length === 0;
   return (
     <div style={{ position: 'relative' }}>
       {!open ? (
-        <button className="cmp-add" onClick={() => setOpen(true)}>
+        <button
+          className={'cmp-add' + (isEmpty ? ' cmp-add--primary' : '')}
+          onClick={() => setOpen(true)}
+        >
           <Icon name="plus" size={15} /> {t('compare.addTicker')}
         </button>
       ) : (
