@@ -15,5 +15,13 @@
     { "source": "/health", "destination": "/api/[...all]" },
     { "source": "/api/(.*)", "destination": "/api/[...all]" },
     { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.lubin-investment.com" }],
+      "destination": "https://lubin-investment.com/$1",
+      "permanent": true
+    }
   ]
 }
