@@ -14,6 +14,17 @@
     { "source": "/sitemap.xml", "destination": "/api/[...all]" },
     { "source": "/health", "destination": "/api/[...all]" },
     { "source": "/api/(.*)", "destination": "/api/[...all]" },
+    {
+      "source": "/analyse/:ticker",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(googlebot|bingbot|google-inspectiontool|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|chatgpt-user|gptbot|claudebot|perplexitybot|google-extended).*"
+        }
+      ],
+      "destination": "/api/[...all]"
+    },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [

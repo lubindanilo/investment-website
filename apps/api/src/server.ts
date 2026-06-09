@@ -30,6 +30,7 @@ import { portfolioRouter } from './routes/portfolio.js';
 import { compareRouter } from './routes/compare.js';
 import { authRouter } from './routes/auth.js';
 import { sitemapRouter } from './routes/sitemap.js';
+import { seoPrerenderRouter } from './routes/seoPrerender.js';
 import { apiLimiter } from './middleware/rateLimit.js';
 import { errorHandler } from './middleware/error.js';
 
@@ -101,6 +102,15 @@ app.use('/api/compare', compareRouter);
 // vers /api/[...all] côté vercel.json et on monte le router aux deux niveaux ici.
 app.use('/api', sitemapRouter);
 app.use('/', sitemapRouter);
+
+// Dynamic Rendering — pré-rendu HTML SEO pour les bots sur /analyse/:ticker.
+// Vercel route les requêtes vers cette lambda UNIQUEMENT si le User-Agent matche
+// un crawler connu (rewrite conditionnel `has` dans vercel.json). Les humains
+// continuent à atterrir sur la SPA via le rewrite catch-all → index.html.
+// Monté à la racine + sur /api pour couvrir les deux chemins possibles (selon
+// que Vercel route via /api/[...all] ou directement).
+app.use('/', seoPrerenderRouter);
+app.use('/api', seoPrerenderRouter);
 
 // 404 fallback (avant l'error handler)
 app.use((req, res) => {
