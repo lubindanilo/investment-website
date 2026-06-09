@@ -98,8 +98,52 @@ function renderTickerHtml(t: {
     : '';
 
   const canonical = `${SITE_URL}/analyse/${safeTicker}`;
-  const title = `Analyse fondamentale ${safeTicker} (${name}) — Note ${score} · Lubin Investment`;
-  const description = `${name} (${safeTicker}) — note de qualité ${score} sur 10 critères financiers objectifs. Qualité ${quality}, P/FCF ${pfcf}, secteur ${sector}. Analyse fondamentale automatisée par Lubin Investment.`;
+  const rawName = t.name || t.ticker;
+
+  // Titre ≤ 60 caractères (Google tronque ~61 % des titres plus longs), mot-clé en
+  // tête, SANS suffixe de marque (Google ajoute déjà le nom du site). Nom tronqué au besoin.
+  const titleTail = score !== '—' ? ` — analyse, note ${score}` : ' — analyse fondamentale';
+  const tickerPart = ` (${t.ticker})`;
+  let titleName = rawName;
+  const nameBudget = 60 - tickerPart.length - titleTail.length;
+  if (titleName.length > nameBudget) {
+    let cut = rawName.slice(0, Math.max(6, nameBudget - 1));
+    const lastSpace = cut.lastIndexOf(' ');
+    if (lastSpace > 8) cut = cut.slice(0, lastSpace); // coupe sur un mot entier
+    titleName = cut.trimEnd() + '…';
+  }
+  const rawTitle = `${titleName}${tickerPart}${titleTail}`;
+  const title = escapeHtml(rawTitle);
+
+  const rawDescription = `${rawName} (${t.ticker}) : note de qualité ${score} sur 10 critères financiers objectifs. Qualité ${quality}, P/FCF ${pfcf}, secteur ${t.sector || 'non renseigné'}.`;
+  const description = escapeHtml(rawDescription);
+
+  // Fraîcheur — signal fort pour le SEO et les moteurs IA (contenu maintenu).
+  const now = new Date();
+  const isoDate = now.toISOString();
+  const dateFr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+
+  // FAQ — levier GEO majeur (FAQPage = ~3,2× plus de citations dans les AI Overviews).
+  const faq: { q: string; a: string }[] = [
+    {
+      q: `${rawName} (${t.ticker}) est-elle une action de qualité ?`,
+      a: `${rawName} obtient une note de qualité de ${score} (qualité ${quality}), calculée sur 10 critères financiers objectifs : rentabilité, croissance du chiffre d'affaires et du free cash flow, rachats d'actions, marges, endettement et rendement du capital.`,
+    },
+    {
+      q: `Comment est calculée la note de ${t.ticker} ?`,
+      a: `La note est le total des critères validés (OUI / PARTIEL / NON) selon des seuils issus de la littérature financière (Warren Buffett, Mauboussin, Aswath Damodaran), de façon automatique et sans opinion humaine.`,
+    },
+    ...(t.pfcfTTM != null && isFinite(t.pfcfTTM)
+      ? [{
+          q: `Quel est le P/FCF de ${rawName} ?`,
+          a: `Le multiple cours / free cash flow (P/FCF) de ${rawName} ressort à ${pfcf}. Chez Lubin Investment, la valorisation est jugée séparément de la qualité.`,
+        }]
+      : []),
+    {
+      q: `Où voir l'analyse complète de ${t.ticker} ?`,
+      a: `L'analyse interactive complète (détail des 10 critères, historiques, valorisation P/FCF, comparaisons sectorielles) est disponible sur ${canonical}.`,
+    },
+  ];
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -126,18 +170,20 @@ function renderTickerHtml(t: {
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${SITE_URL}/og-default.png">
 
-<!-- Schema.org JSON-LD : aide Google à comprendre le contenu et candidate aux rich results -->
+<!-- Schema.org JSON-LD : aide Google + moteurs IA à parser le contenu (rich results, citations GEO) -->
 <script type="application/ld+json">
 ${JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'AnalysisNewsArticle',
-  headline: title,
-  description,
+  headline: rawTitle,
+  description: rawDescription,
   url: canonical,
   inLanguage: 'fr-FR',
+  datePublished: isoDate,
+  dateModified: isoDate,
   about: {
     '@type': 'Corporation',
-    name,
+    name: rawName,
     tickerSymbol: t.ticker,
     ...(t.exchange ? { tickerExchange: t.exchange } : {}),
   },
@@ -150,6 +196,32 @@ ${JSON.stringify({
   mainEntityOfPage: canonical,
 }, null, 2)}
 </script>
+
+<!-- FAQPage : fort signal pour les AI Overviews / réponses génératives -->
+<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}, null, 2)}
+</script>
+
+<!-- Fil d'Ariane -->
+<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Screener', item: `${SITE_URL}/screener` },
+    { '@type': 'ListItem', position: 3, name: `${rawName} (${t.ticker})`, item: canonical },
+  ],
+}, null, 2)}
+</script>
 </head>
 <body>
 
@@ -159,7 +231,10 @@ ${JSON.stringify({
 
 <main>
 
+<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/screener">Screener</a> › ${name} (${safeTicker})</nav>
+
 <h1>Analyse fondamentale ${safeTicker} (${name})</h1>
+<p><small>Mis à jour le ${dateFr}</small></p>
 
 <p><strong>Note de qualité : ${score}</strong> sur 10 critères financiers objectifs (qualité ${quality}).
 Secteur : ${sector}.
@@ -192,6 +267,9 @@ SEC EDGAR (XBRL des 10-K et 10-Q déposés à la SEC) pour les fondamentaux trim
 Finnhub pour les compléments et la couverture internationale,
 Yahoo Finance pour les données de marché,
 stockanalysis.com pour les trimestriels EU et internationaux.</p>
+
+<h2>Questions fréquentes</h2>
+${faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n')}
 
 <h2>Aller plus loin</h2>
 <p>👉 <a href="${canonical}"><strong>Voir l'analyse complète et interactive de ${safeTicker}</strong></a> : tous les critères détaillés, graphiques d'historique, valorisation, comparaisons sectorielles, et qualitatif business pour les abonnés Pro.</p>
