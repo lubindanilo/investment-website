@@ -14,6 +14,7 @@
     "screener": "Screener",
     "marketBeat": "Stratégie portefeuille",
     "compare": "Comparer",
+    "blog": "Blog",
     "pricing": "Tarifs"
   },
   "userMenu": {
@@ -919,6 +920,10 @@
     "methodology": {
       "title": "Méthodologie : 10 critères, sources publiques",
       "desc": "Comment fonctionne la note sur 10 : 10 critères financiers, formules, seuils, sources réglementaires (SEC EDGAR XBRL, Finnhub, Yahoo). Zéro boîte noire."
+    },
+    "blog": {
+      "title": "Blog · Analyses, méthodes et fondamentaux · Lubin Investment",
+      "desc": "Analyses fondamentales, décryptages de méthodes value, plongées dans le free cash flow, le ROIC et les compounders. Le blog Lubin Investment."
     },
     "legal": {
       "mentions": {

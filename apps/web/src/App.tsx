@@ -20,6 +20,7 @@ const PricingPage = lazy(() => import('./pages/PricingPage.js').then((m) => ({ d
 const AuthPage = lazy(() => import('./pages/AuthPage.js').then((m) => ({ default: m.AuthPage })));
 const MarketBeatPage = lazy(() => import('./pages/MarketBeatPage.js').then((m) => ({ default: m.MarketBeatPage })));
 const MethodologyPage = lazy(() => import('./pages/MethodologyPage.js').then((m) => ({ default: m.MethodologyPage })));
+const BlogPage = lazy(() => import('./pages/BlogPage.js').then((m) => ({ default: m.BlogPage })));
 
 // Pages légales — lazy aussi (faible trafic, on les sort du bundle d'entrée).
 const MentionsLegalesPage = lazy(() =>
@@ -76,6 +77,9 @@ export function App() {
           <NavLink to="/compare" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.compare')}
           </NavLink>
+          <NavLink to="/blog" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+            {t('nav.blog')}
+          </NavLink>
           <NavLink to="/pricing" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.pricing')}
           </NavLink>
@@ -106,6 +110,7 @@ export function App() {
             <Route path="/compare" element={<ComparePage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/methodologie" element={<MethodologyPage />} />
+            <Route path="/blog" element={<BlogPage />} />
             <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
             <Route path="/cgu" element={<CguPage />} />
             <Route path="/cgv" element={<CgvPage />} />

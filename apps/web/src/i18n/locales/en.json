@@ -14,6 +14,7 @@
     "screener": "Screener",
     "marketBeat": "Portfolio Strategy",
     "compare": "Compare",
+    "blog": "Blog",
     "pricing": "Pricing"
   },
   "userMenu": {
@@ -919,6 +920,10 @@
     "methodology": {
       "title": "Methodology: 10 criteria, public sources",
       "desc": "How the score out of 10 works: 10 financial criteria, formulas, thresholds, regulatory sources (SEC EDGAR XBRL, Finnhub, Yahoo). Zero black box."
+    },
+    "blog": {
+      "title": "Blog · Analyses, methods and fundamentals · Lubin Investment",
+      "desc": "Fundamental analyses, value method deep-dives, free cash flow, ROIC and compounders. The Lubin Investment blog."
     },
     "legal": {
       "mentions": {

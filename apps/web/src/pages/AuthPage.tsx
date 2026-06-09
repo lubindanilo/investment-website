@@ -3,7 +3,7 @@
  * sombre avec HeroPreview). Logique d'auth réelle conservée (useAuth, redirection,
  * validation email + mot de passe ≥ 8, confirmation en inscription).
  */
-import { useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext.js';
@@ -27,6 +27,15 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
   const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
+
+  // Resynchronise le mode quand on navigue entre /login et /signup (par ex. via les
+  // boutons « Sign in » / « Create account » du header). Sans ça, le composant restait
+  // monté avec son ancien mode et l'URL changeait sans que le formulaire bascule —
+  // l'utilisateur cliquait dans le vide.
+  useEffect(() => {
+    setMode(initialMode);
+    setError(null);
+  }, [initialMode]);
 
   if (!loading && user) {
     const from = (location.state as { from?: string } | null)?.from ?? '/';
