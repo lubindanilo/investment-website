@@ -1043,6 +1043,71 @@
     "banner": {
       "frenchOnly": "This legal document is available in French only — it reflects the obligations of French law applicable to the publisher."
     }
+  },
+  "methodology": {
+    "hero": {
+      "chip": "Methodology",
+      "title": "10 criteria, public sources, zero black box.",
+      "lede": "Lubin Investment applies the same lens to every company: ten fundamental criteria, scored from official regulatory filings. Here's exactly how the engine works."
+    },
+    "why": {
+      "title": "Why this method",
+      "paragraphs": [
+        "Most stock analyses rely on opinions, analyst consensus or momentum indicators. These signals change constantly and reflect mostly the market's mood. We chose to anchor on verifiable accounting facts, extracted directly from filings made with the regulator.",
+        "The ten selected criteria cover three dimensions of a quality company: growth (revenue, FCF per share, margins), capital profitability (Cash ROCE, FCF margin) and balance-sheet strength (leverage, cash conversion, operating cycle). It's the same framework that the best long-term investors — Buffett, Mauboussin, Terry Smith — have used for decades, translated into reproducible formulas.",
+        "Each criterion answers a simple question, with a clear threshold. No opaque score, no secret weighting. If a company fails a criterion, we tell you which one and why. And if you disagree with one of our thresholds, you can knowingly ignore it."
+      ]
+    },
+    "criteresTitle": "The 10 criteria in detail",
+    "fields": {
+      "formula": "Formula",
+      "threshold": "Threshold",
+      "why": "Why"
+    },
+    "criteres": [
+      { "num": 1, "nom": "Profitable", "formule": "Net margin = Net income / Revenue", "seuil": "> 0 %", "pourquoi": "A company that doesn't make money isn't an investment case. This first filter eliminates structurally loss-making companies." },
+      { "num": 2, "nom": "Growing sales", "formule": "Revenue growth = Theil-Sen slope of revenue over 5 years", "seuil": "> 10 % per year", "pourquoi": "Organic revenue growth remains the best driver of long-term value creation. The Theil-Sen regression smooths out exceptional years." },
+      { "num": 3, "nom": "Growing earnings per share", "formule": "SBC-adjusted FCF/share growth = Theil-Sen slope over 5 years", "seuil": "> 10 % per year", "pourquoi": "What shareholders actually receive is cash per share after dilution. We restate stock-based compensation (SBC) to avoid accounting illusions." },
+      { "num": 4, "nom": "Share count under control", "formule": "Annual change in diluted share count over 5 years", "seuil": "Stable or declining", "pourquoi": "Heavy dilution transfers value from existing shareholders to new entrants. The best companies buy back shares rather than issuing them." },
+      { "num": 5, "nom": "Cash profitability", "formule": "FCF margin = Free Cash Flow / Revenue", "seuil": "> 10 %", "pourquoi": "Cash is a fact, earnings is an accounting opinion. A high FCF margin means each euro of revenue generates real cash available to shareholders." },
+      { "num": 6, "nom": "Expanding margins", "formule": "Operating leverage = Theil-Sen slope of operating margin over 5 years", "seuil": "Positive slope", "pourquoi": "Margins widening over time reveal real competitive advantage: pricing power, economies of scale or network effects. A sign of durable quality." },
+      { "num": 7, "nom": "Return on invested capital", "formule": "Cash ROCE (Bettin-Mauboussin) = FCF / (Equity + Net debt − Excess cash)", "seuil": "> 15 %", "pourquoi": "Metric popularized by Michael Mauboussin: how much cash the company generates for each euro actually tied up. Above 15 %, you have a quality compounder." },
+      { "num": 8, "nom": "Debt under control", "formule": "Net debt / FCF = (Financial debt − Cash) / Free Cash Flow", "seuil": "< 3 years", "pourquoi": "How many years of cash flow would be needed to repay all debt? Above 3 years, balance-sheet risk becomes a real issue in case of a downturn." },
+      { "num": 9, "nom": "Earnings converted to cash", "formule": "FCF / Net income (Cash conversion ratio)", "seuil": "> 1", "pourquoi": "Checks that accounting earnings actually translate into cash. A recurring ratio < 1 often signals questionable accounting quality or growing working capital needs." },
+      { "num": 10, "nom": "Net collection cycle", "formule": "CCC = DSO + DIO − DPO (Days Sales Outstanding + Days Inventory − Days Payable)", "seuil": "Low or negative", "pourquoi": "The Cash Conversion Cycle measures how many days the company ties up cash in its operating cycle. The best (Apple, Amazon) have a negative CCC: their suppliers finance their growth." }
+    ],
+    "theil": {
+      "title": "Why the Theil-Sen regression?",
+      "p1": "To measure a trend over 5 years (revenue growth, FCF/share, margins), classic linear regression is sensitive to outliers. One exceptional year is enough to skew the slope.",
+      "p2": "The Theil-Sen regression computes the median slope across all pairs of points. It's robust to outliers: an atypical year doesn't derail the underlying trend.",
+      "exampleLabel": "Adobe example:",
+      "exampleText": "in 2022, the failed Figma acquisition exploded one-off expenses. Classic regression would have concluded growth was slowing. Theil-Sen neutralizes that isolated point and keeps measuring the real business dynamic."
+    },
+    "sourcesTitle": "Data sources",
+    "sources": [
+      { "nom": "SEC EDGAR (XBRL)", "role": "Official US financial statements", "detail": "Primary source for US companies. XBRL data straight from 10-K and 10-Q filings with the regulator. Zero intermediary, zero processing." },
+      { "nom": "Finnhub", "role": "Quotes, international fundamentals", "detail": "European and international market coverage, near-real-time prices, earnings calendars and aggregated fundamentals." },
+      { "nom": "Yahoo Finance", "role": "Fallback prices and calendars", "detail": "Used as a fallback for earnings dates and certain price histories not covered elsewhere." },
+      { "nom": "OpenAI GPT (Pro only)", "role": "Qualitative analysis", "detail": "For Pro subscribers: generation of a qualitative analysis of the business model, risks and investment thesis. The quantitative scoring of the 10 criteria remains 100 % deterministic." }
+    ],
+    "sourcesNote": "We systematically cite the source of every figure displayed. No \"proprietary\" numbers, no undocumented reprocessing.",
+    "limites": {
+      "title": "Limits — what the method does not do",
+      "items": [
+        { "title": "The method is retrospective.", "text": "It judges a company's historical quality. A quality compounder can perfectly well disappoint in the years to come, and a mediocre company can turn around." },
+        { "title": "It ignores valuation.", "text": "The 10 criteria say nothing about the price paid. An excellent company bought too expensive remains a bad investment. We separately publish valuation indicators (P/E, FCF yield, EV/EBITDA)." },
+        { "title": "It's unsuitable for some sectors.", "text": "Banks, insurance, listed real estate (REITs), pre-profitability companies: net margin, Cash ROCE or CCC criteria don't apply as-is." },
+        { "title": "XBRL data isn't perfect.", "text": "Some fields are mistagged by filers, or use non-standard XBRL concepts. We continuously improve our fallback chains, but residual errors do exist." },
+        { "title": "No method replaces your judgment.", "text": "Scores are a decision-support tool, not a buy recommendation. You remain the sole judge." }
+      ]
+    },
+    "cta": {
+      "title": "Ready to apply the method?",
+      "sub": "Run an analysis on the stock of your choice. The 10 criteria, in plain language, in 30 seconds.",
+      "buttonLoggedIn": "Run an analysis",
+      "buttonGuest": "Create a free account"
+    },
+    "disclaimer": "Lubin Investment provides a tool for the fundamental analysis of listed stocks, for informational and educational purposes. The scores displayed constitute neither investment advice nor a buy or sell recommendation. Past performance does not guarantee future returns. Do your own research and consult a licensed advisor before any investment decision."
   }
 }
 
