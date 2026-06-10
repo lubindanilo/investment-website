@@ -1007,7 +1007,7 @@
     },
     "methodology": {
       "title": "Méthodologie : 10 critères, sources publiques",
-      "desc": "Comment fonctionne la note sur 10 : 10 critères financiers, formules, seuils, sources réglementaires (SEC EDGAR XBRL, Finnhub, Yahoo). Zéro boîte noire."
+      "desc": "Comment fonctionne la note sur 10 : 10 critères financiers, leurs formules et leurs seuils, expliqués simplement. Zéro boîte noire."
     },
     "blog": {
       "title": "Blog · Analyses, méthodes et fondamentaux · Lubin Investment",
@@ -1077,7 +1077,6 @@
         "La méthode Lubin expliquée critère par critère",
         "Lire un 10-K en 15 minutes : la cheat sheet",
         "Cash ROCE vs ROIC : pourquoi nous avons choisi la version de Bettin-Mauboussin",
-        "Theil-Sen vs moindres carrés : pourquoi la médiane des pentes change tout",
         "5 pièges des fiches Yahoo Finance que personne ne mentionne",
         "Pourquoi nous excluons l'or et les commodities de notre univers"
       ]
@@ -1135,12 +1134,12 @@
     "hero": {
       "chip": "Méthodologie",
       "title": "10 critères, des sources publiques, zéro boîte noire.",
-      "lede": "Lubin Investment applique la même grille de lecture à chaque société : dix critères fondamentaux, scorés à partir des dépôts réglementaires officiels. Voici exactement comment fonctionne le moteur."
+      "lede": "Lubin Investment applique la même grille de lecture à chaque société : dix critères fondamentaux, scorés à partir de leurs comptes officiels publics. Voici exactement comment fonctionne le moteur."
     },
     "why": {
       "title": "Pourquoi cette méthode",
       "paragraphs": [
-        "La plupart des analyses d'actions reposent sur des opinions, des consensus d'analystes ou des indicateurs de momentum. Ces signaux changent en permanence et reflètent surtout l'humeur du marché. Nous avons préféré nous attacher à des faits comptables vérifiables, extraits directement des rapports déposés auprès du régulateur.",
+        "La plupart des analyses d'actions reposent sur des opinions, des consensus d'analystes ou des indicateurs de momentum. Ces signaux changent en permanence et reflètent surtout l'humeur du marché. Nous avons préféré nous attacher à des faits comptables vérifiables, tirés directement des comptes officiels publiés par chaque entreprise.",
         "Les dix critères sélectionnés couvrent trois dimensions d'une entreprise de qualité : la croissance (CA, FCF/action, marges), la profitabilité du capital (Cash ROCE, marge FCF) et la solidité financière (endettement, conversion en cash, cycle d'exploitation). C'est l'ossature que les meilleurs investisseurs long terme, Buffett, Mauboussin, Terry Smith, utilisent depuis des décennies, traduite en formules reproductibles.",
         "Chaque critère répond à une question simple, avec un seuil clair. Pas de note opaque, pas de pondération secrète. Si une société rate un critère, on te dit lequel et pourquoi. Et si tu n'es pas d'accord avec l'un de nos seuils, tu peux l'ignorer en connaissance de cause."
       ]
@@ -1153,38 +1152,23 @@
     },
     "criteres": [
       { "num": 1, "nom": "Rentable", "formule": "Marge nette = Résultat net / Chiffre d'affaires", "seuil": "> 0 %", "pourquoi": "Une entreprise qui ne gagne pas d'argent n'est pas une affaire d'investissement. Ce premier filtre élimine les sociétés structurellement déficitaires." },
-      { "num": 2, "nom": "Ventes en croissance", "formule": "Croissance CA = pente Theil-Sen du chiffre d'affaires sur 5 ans", "seuil": "> 10 % par an", "pourquoi": "La croissance organique du chiffre d'affaires reste le meilleur moteur de création de valeur à long terme. La régression Theil-Sen lisse les exercices exceptionnels." },
-      { "num": 3, "nom": "Profits par action en croissance", "formule": "Croissance FCF/action SBC-ajusté = pente Theil-Sen sur 5 ans", "seuil": "> 10 % par an", "pourquoi": "Ce que touche réellement l'actionnaire, c'est le cash par action après dilution. On retraite la rémunération en actions (Stock-Based Compensation) pour éviter les illusions comptables." },
-      { "num": 4, "nom": "Nombre d'actions maîtrisé", "formule": "Variation annuelle du nombre d'actions dilué sur 5 ans", "seuil": "Stable ou en baisse", "pourquoi": "Une dilution massive transfère la valeur des actionnaires existants vers les nouveaux entrants. Les meilleures entreprises rachètent leurs actions plutôt que d'en émettre." },
-      { "num": 5, "nom": "Profitabilité cash", "formule": "Marge FCF = Free Cash Flow / Chiffre d'affaires", "seuil": "> 10 %", "pourquoi": "Le cash est un fait, le bénéfice est une opinion comptable. Une marge FCF élevée signifie que chaque euro de revenu génère du vrai cash disponible pour les actionnaires." },
-      { "num": 6, "nom": "Marges en expansion", "formule": "Operating leverage = pente Theil-Sen de la marge opérationnelle sur 5 ans", "seuil": "Pente positive", "pourquoi": "Les marges qui s'étendent dans le temps révèlent un avantage compétitif réel : pricing power, économies d'échelle ou effet de réseau. C'est un signal de qualité durable." },
-      { "num": 7, "nom": "Rendement du capital investi", "formule": "Cash ROCE (Bettin-Mauboussin) = FCF / (Capitaux propres + Dette nette − Cash excédentaire)", "seuil": "> 15 %", "pourquoi": "Mesure popularisée par Michael Mauboussin : combien de cash l'entreprise génère pour chaque euro réellement immobilisé. Au-dessus de 15 %, on tient un compounder de qualité." },
-      { "num": 8, "nom": "Endettement maîtrisé", "formule": "Dette nette / FCF = (Dette financière − Trésorerie) / Free Cash Flow", "seuil": "< 3 ans", "pourquoi": "Combien d'années de cash flow seraient nécessaires pour rembourser toute la dette ? Au-delà de 3 ans, le risque de bilan devient un sujet en cas de retournement." },
-      { "num": 9, "nom": "Bénéfices transformés en cash", "formule": "FCF / Résultat net (Cash conversion ratio)", "seuil": "> 1", "pourquoi": "Vérifie que les bénéfices comptables se traduisent vraiment en cash. Un ratio < 1 récurrent signale souvent une qualité comptable douteuse ou des besoins en BFR croissants." },
-      { "num": 10, "nom": "Délai d'encaissement net", "formule": "CCC = DSO + DIO − DPO (Days Sales Outstanding + Days Inventory − Days Payable)", "seuil": "Faible ou négatif", "pourquoi": "Le Cash Conversion Cycle mesure combien de jours l'entreprise immobilise du cash dans son cycle d'exploitation. Les meilleures (Apple, Amazon) ont un CCC négatif : leurs fournisseurs financent leur croissance." }
+      { "num": 2, "nom": "Ventes en croissance", "formule": "Croissance du chiffre d'affaires sur 5 ans", "seuil": "> 10 % par an", "pourquoi": "La croissance des ventes reste le meilleur moteur de création de valeur sur le long terme. On mesure la tendance sur 5 ans pour gommer les années exceptionnelles." },
+      { "num": 3, "nom": "Profits par action en croissance", "formule": "Croissance du cash par action sur 5 ans", "seuil": "> 10 % par an", "pourquoi": "Ce qui compte vraiment pour toi, actionnaire, c'est le cash généré par action. On retire au passage les actions distribuées aux salariés, qui réduisent ta part." },
+      { "num": 4, "nom": "Nombre d'actions maîtrisé", "formule": "Variation annuelle du nombre d'actions dilué sur 5 ans", "seuil": "Stable ou en baisse", "pourquoi": "La dilution, c'est quand l'entreprise crée de nouvelles actions : ta part du gâteau rétrécit. Les meilleures font l'inverse, elles rachètent leurs actions au lieu d'en émettre." },
+      { "num": 5, "nom": "Profitabilité cash", "formule": "Marge de cash = cash disponible (free cash flow) / chiffre d'affaires", "seuil": "> 10 %", "pourquoi": "Le free cash flow, c'est l'argent qui reste vraiment en caisse une fois tout payé, bien plus fiable que le bénéfice comptable. Une marge élevée veut dire que chaque euro de vente génère du vrai cash." },
+      { "num": 6, "nom": "Marges en expansion", "formule": "Évolution de la marge opérationnelle sur 5 ans", "seuil": "En hausse", "pourquoi": "Des marges qui montent au fil des années révèlent un vrai avantage : l'entreprise peut imposer ses prix ou produire moins cher. Un signe de qualité durable." },
+      { "num": 7, "nom": "Rendement du capital investi", "formule": "Cash généré pour 100 € investis dans l'activité (Cash ROCE)", "seuil": "> 15 %", "pourquoi": "Combien de cash l'entreprise génère pour chaque euro réellement investi dans son activité. Au-dessus de 15 %, elle fait travailler son argent très efficacement." },
+      { "num": 8, "nom": "Endettement maîtrisé", "formule": "Dette nette / cash disponible (free cash flow)", "seuil": "< 3 ans", "pourquoi": "Combien d'années de cash il faudrait pour rembourser toute la dette. Au-delà de 3 ans, le risque devient sérieux en cas de coup dur." },
+      { "num": 9, "nom": "Bénéfices transformés en cash", "formule": "Cash disponible / bénéfice net", "seuil": "> 1", "pourquoi": "Vérifie que les profits annoncés deviennent du vrai argent, pas juste une écriture comptable. Un ratio durablement sous 1 est un signal d'alerte." },
+      { "num": 10, "nom": "Délai d'encaissement net", "formule": "Jours pendant lesquels l'argent reste bloqué dans le cycle (clients, stocks, fournisseurs)", "seuil": "Faible ou négatif", "pourquoi": "Le temps, en jours, pendant lequel l'argent est immobilisé entre le moment où l'entreprise paie ses fournisseurs et celui où ses clients la paient. Court ou négatif, c'est excellent : ses fournisseurs financent sa croissance (Apple, Amazon)." }
     ],
-    "theil": {
-      "title": "Pourquoi la régression Theil-Sen ?",
-      "p1": "Pour mesurer une tendance sur 5 ans (croissance du CA, du FCF/action, des marges), la régression linéaire classique est sensible aux valeurs extrêmes. Une année exceptionnelle suffit à fausser la pente.",
-      "p2": "La régression Theil-Sen calcule la pente médiane parmi toutes les paires de points possibles. Elle est robuste aux valeurs aberrantes : un exercice atypique ne dérègle pas la mesure de la tendance de fond.",
-      "exampleLabel": "Exemple Adobe :",
-      "exampleText": "en 2022, le rachat raté de Figma a fait exploser les frais exceptionnels. Une régression classique aurait conclu à un ralentissement de la croissance. La régression Theil-Sen, elle, neutralise ce point isolé et continue de mesurer la dynamique réelle de l'activité."
-    },
-    "sourcesTitle": "Sources de données",
-    "sources": [
-      { "nom": "SEC EDGAR (XBRL)", "role": "États financiers officiels US", "detail": "Source primaire pour les sociétés américaines. Données XBRL directement issues des dépôts 10-K et 10-Q auprès du régulateur. Zéro intermédiaire, zéro retraitement." },
-      { "nom": "Finnhub", "role": "Cotations, fondamentaux internationaux", "detail": "Couverture des marchés européens et internationaux, prix temps quasi-réel, calendriers earnings et données fondamentales agrégées." },
-      { "nom": "Yahoo Finance", "role": "Fallback prix et calendriers", "detail": "Utilisé en secours pour les dates de publication des résultats et certains historiques de prix non couverts ailleurs." },
-      { "nom": "OpenAI GPT (Pro uniquement)", "role": "Analyse qualitative", "detail": "Pour les abonnés Pro : génération d'une analyse qualitative du business model, des risques et de la thèse d'investissement. Le scoring quantitatif des 10 critères reste 100 % déterministe." }
-    ],
-    "sourcesNote": "Nous citons systématiquement la source de chaque donnée affichée. Aucun chiffre « propriétaire », aucun retraitement non documenté.",
     "limites": {
       "title": "Limites, ce que la méthode ne fait pas",
       "items": [
         { "title": "La méthode est rétrospective.", "text": "Elle juge la qualité historique d'une société. Un compounder de qualité peut très bien décevoir dans les années à venir, et une société médiocre peut se redresser." },
         { "title": "Elle ignore la valorisation.", "text": "Les 10 critères ne disent rien du prix payé. Une excellente société achetée trop cher reste un mauvais investissement. Nous publions séparément des indicateurs de valorisation (PER, FCF yield, EV/EBITDA)." },
         { "title": "Elle est inadaptée à certains secteurs.", "text": "Banques, assurances, foncières cotées (REIT), sociétés en phase de pré-rentabilité : les critères de marge nette, de Cash ROCE ou de CCC ne s'appliquent pas tels quels." },
-        { "title": "Les données XBRL ne sont pas parfaites.", "text": "Certains champs sont mal taggués par les déposants, ou utilisent des concepts XBRL non standards. Nous améliorons en continu nos chaînes de fallback, mais des erreurs résiduelles existent." },
+        { "title": "Les données ne sont pas parfaites.", "text": "Certaines viennent de rapports mal renseignés par les entreprises. On corrige en continu, mais des erreurs résiduelles peuvent subsister." },
         { "title": "Aucune méthode ne remplace ton jugement.", "text": "Les scores sont une aide à la décision, pas une recommandation d'achat. Tu restes seul juge." }
       ]
     },
