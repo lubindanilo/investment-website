@@ -16,6 +16,9 @@ const handler = (label: string, limit: number): RateLimitRequestHandler => rateL
   limit,
   standardHeaders: 'draft-7',
   legacyHeaders: false,
+  // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
+  // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
+  validate: { trustProxy: false },
   message: { error: `Trop de requêtes — réessaie dans une minute.`, scope: label },
   skip: () => SKIP_IN_TESTS,
 });
@@ -38,6 +41,9 @@ export const apiLimiter = rateLimit({
   limit: 1000,
   standardHeaders: 'draft-7',
   legacyHeaders: false,
+  // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
+  // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
+  validate: { trustProxy: false },
   message: { error: `Trop de requêtes — réessaie dans une minute.`, scope: 'global' },
   skip: (req) => {
     if (SKIP_IN_TESTS) return true;
@@ -55,6 +61,9 @@ export const analyzeLimiter = rateLimit({
   limit: 20,
   standardHeaders: 'draft-7',
   legacyHeaders: false,
+  // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
+  // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
+  validate: { trustProxy: false },
   message: { error: 'Trop d\'analyses récentes — patiente 1 minute.', scope: 'analyze' },
   skip: () => SKIP_IN_TESTS,
 });
@@ -65,6 +74,9 @@ export const watchlistMutateLimiter = rateLimit({
   limit: 60,
   standardHeaders: 'draft-7',
   legacyHeaders: false,
+  // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
+  // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
+  validate: { trustProxy: false },
   message: { error: 'Trop de modifications de watchlist — patiente.', scope: 'watchlist' },
   skip: () => SKIP_IN_TESTS,
 });
@@ -78,6 +90,9 @@ export const authLimiter = rateLimit({
   limit: 10,
   standardHeaders: 'draft-7',
   legacyHeaders: false,
+  // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
+  // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
+  validate: { trustProxy: false },
   message: { error: 'Trop de tentatives — patiente 1 minute.', scope: 'auth' },
   skip: () => SKIP_IN_TESTS,
 });

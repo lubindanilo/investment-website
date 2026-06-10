@@ -119,9 +119,10 @@ describe('POST /api/auth/login', () => {
 });
 
 describe('GET /api/auth/me', () => {
-  it('renvoie 401 sans cookie', async () => {
+  it('renvoie 200 + null sans cookie (endpoint d\'état, pas un mur)', async () => {
     const res = await request(app).get('/api/auth/me');
-    expect(res.status).toBe(401);
+    expect(res.status).toBe(200);
+    expect(res.body).toBeNull();
   });
 
   it('renvoie le user avec cookie valide', async () => {

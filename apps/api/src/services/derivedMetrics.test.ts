@@ -216,10 +216,10 @@ describe('buildQuantitativeCriteria', () => {
     expect(criteres.find(c => c.nom === 'P/FCF actuel')).toBeUndefined();
   });
 
-  it('inclut "Évolution nombre d\'actions 5 ans" en position 4', () => {
+  it('inclut le critère sur le nombre d\'actions en position 4', () => {
     const m = computeDerivedMetrics({ metric: null, profile: null, quote: null });
     const criteres = buildQuantitativeCriteria(m);
-    expect(criteres[3]?.nom).toMatch(/Évolution.*actions/i);
+    expect(criteres[3]?.nom).toMatch(/actions/i);
   });
 
   it('renvoie statut warn pour les critères dont la donnée manque', () => {

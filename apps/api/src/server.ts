@@ -37,6 +37,11 @@ import { apiLimiter } from './middleware/rateLimit.js';
 import { errorHandler } from './middleware/error.js';
 
 const app: Express = express();
+// Derrière le proxy Vercel : sans ça, req.ip = l'IP du proxy (identique pour tous),
+// ce qui ferait dégénérer les rate-limiters par IP en limite GLOBALE. Avec trust proxy,
+// req.ip = la vraie IP client (X-Forwarded-For) → rate-limit réellement par visiteur.
+// N'affecte PAS le cookie auth (secure est basé sur l'env VERCEL, pas sur req.secure).
+app.set('trust proxy', true);
 const PORT = Number(process.env.API_PORT ?? 3001);
 
 // CORS :

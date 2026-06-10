@@ -74,19 +74,9 @@ export function AnalysePage() {
     setLoading(true); setError(null); setAnalysis(null); setPreview(null); setLastTicker(cleaned);
     window.scrollTo({ top: 0 });
     try {
-      // Anonyme : on NE déclenche PAS l'appel authentifié /api/analyze — il renverrait 401
-      // et polluerait la console du navigateur (l'échec HTTP est loggué même rattrapé en JS).
-      // On va directement chercher l'aperçu public (note /10, P/FCF, secteur, opportunité).
-      if (!user) {
-        try {
-          setPreview(await api.screener.tickerPreview(cleaned));
-        } catch {
-          // Ticker non couvert / non scoré : pas d'aperçu possible → on bascule sur /signup.
-          toast.push('warn', t('analyse.toast.signupRequired', { ticker: cleaned }));
-          navigate('/signup', { state: { from: `/analyse/${cleaned}` } });
-        }
-        return;
-      }
+      // L'analyse quantitative complète est servie à TOUS (connecté ou non). Le backend
+      // (optionalAuth) renvoie la fiche complète ; le Pro reste gated sur le qualitatif et
+      // les graphes détaillés (côté composant via isPro). Plus de mur d'inscription ici.
       setAnalysis(await api.analyze(cleaned));
     } catch (e) {
       const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
