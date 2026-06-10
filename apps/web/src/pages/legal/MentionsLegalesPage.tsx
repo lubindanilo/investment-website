@@ -1,6 +1,9 @@
 // Page « Mentions légales » — conforme LCEN (loi n° 2004-575 du 21 juin 2004).
-// TODO i18n : extraire vers locales en sprint 3.
+// Le contenu reste en français car ce sont des obligations légales du droit français
+// applicables à un micro-entrepreneur établi en France. Une bannière s'affiche en EN/ES
+// pour expliquer que le document est en français uniquement (cf. LegalLangBanner).
 import SeoHead from "../../components/SeoHead.js";
+import { LegalLangBanner } from "./LegalLangBanner.js";
 import "./legal.css";
 
 export function MentionsLegalesPage() {
@@ -8,6 +11,7 @@ export function MentionsLegalesPage() {
     <main className="legal">
       <SeoHead titleKey="seo.legal.mentions.title" descKey="seo.legal.mentions.desc" />
       <div className="legal-wrap">
+        <LegalLangBanner />
         <h1>Mentions légales</h1>
         <p className="legal-updated">Dernière mise à jour : juin 2026</p>
 

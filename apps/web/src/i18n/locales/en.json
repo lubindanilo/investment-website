@@ -965,5 +965,84 @@
       "confidentialite": "Privacy"
     },
     "disclaimerShort": "Decision-support tool. Does not constitute personalized investment advice."
+  },
+  "blog": {
+    "hero": {
+      "chipComing": "Coming soon",
+      "chipLive": "The blog",
+      "title": "Understand markets with method",
+      "lede": "Fundamental analyses, method deep-dives, plunges into the fundamentals of quality companies. The content we wish we had read before investing our first euro."
+    },
+    "empty": {
+      "title": "First article being written",
+      "text": "We're laying the groundwork. The first article — on the pitfalls of accounting net income vs free cash flow — will be out in the coming weeks.",
+      "also": {
+        "prefix": "In the meantime, check out the full",
+        "methodology": "scoring methodology",
+        "middle": " across our 10 criteria, or explore the",
+        "screener": "screener",
+        "suffix": " of the highest-rated companies in our monitor."
+      }
+    },
+    "upcoming": {
+      "title": "What's coming next",
+      "items": [
+        "The Lubin method explained criterion by criterion",
+        "Read a 10-K in 15 minutes: the cheat sheet",
+        "Cash ROCE vs ROIC: why we picked the Bettin-Mauboussin version",
+        "Theil-Sen vs least squares: why median-of-slopes changes everything",
+        "5 Yahoo Finance pitfalls nobody talks about",
+        "Why we exclude gold and commodities from our universe"
+      ]
+    },
+    "cta": {
+      "title": "While you wait: start analyzing",
+      "sub": "The best way to understand the method is to apply it. Type a ticker, get a score in seconds.",
+      "button": "Analyze a stock"
+    },
+    "card": {
+      "readingTime": "{{minutes}} min read"
+    }
+  },
+  "account": {
+    "title": "My account",
+    "subscription": {
+      "title": "Subscription"
+    },
+    "badge": {
+      "free": "Free",
+      "proMonthly": "Pro monthly",
+      "proYearly": "Pro annual"
+    },
+    "pro": {
+      "renewsOn": "Next renewal on",
+      "canceledUntil": "Subscription canceled. Pro access kept until",
+      "pastDue": "Your last payment failed. Update your card to keep your Pro access.",
+      "managePortal": "Manage subscription",
+      "opening": "Opening…",
+      "portalNote": "The secure Stripe portal lets you change plan, update your card, download invoices, or cancel your subscription."
+    },
+    "free": {
+      "quotaLabel": "Analyses today",
+      "summary": "You're using Lubin Investment on the free plan. You have access to the screener (top 100), the watchlist (10 stocks) and 2-stock comparison.",
+      "unlockTeaser": "To unlock AI qualitative analysis, opportunities of the moment, detailed charts, 5-stock comparison and full EU/International data, go Pro.",
+      "goPro": "See Pro offers"
+    },
+    "session": {
+      "title": "Session"
+    },
+    "footerNote": {
+      "prefix": "A question, an issue? Email us at"
+    },
+    "toast": {
+      "checkoutSuccess": "Welcome to Lubin Pro! Your subscription is being activated.",
+      "checkoutCancel": "Payment canceled. You can try again anytime."
+    }
+  },
+  "legal": {
+    "banner": {
+      "frenchOnly": "This legal document is available in French only — it reflects the obligations of French law applicable to the publisher."
+    }
   }
 }
+

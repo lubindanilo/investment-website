@@ -1,6 +1,7 @@
 // Page « Conditions Générales d'Utilisation » (CGU).
-// TODO i18n : extraire vers locales en sprint 3.
+// Contenu en français uniquement — droit français applicable. Bannière EN/ES via LegalLangBanner.
 import SeoHead from "../../components/SeoHead.js";
+import { LegalLangBanner } from "./LegalLangBanner.js";
 import "./legal.css";
 
 export function CguPage() {
@@ -8,6 +9,7 @@ export function CguPage() {
     <main className="legal">
       <SeoHead titleKey="seo.legal.cgu.title" descKey="seo.legal.cgu.desc" />
       <div className="legal-wrap">
+        <LegalLangBanner />
         <h1>Conditions Générales d'Utilisation (CGU)</h1>
         <p className="legal-updated">Dernière mise à jour : juin 2026</p>
 

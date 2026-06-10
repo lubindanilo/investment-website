@@ -36,3 +36,12 @@
 .legal ul {
   padding-left: 20px;
 }
+
+/* Bannière « Document en français uniquement » affichée en EN/ES en haut de chaque page légale */
+.legal-lang-banner {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--brand-softer, #eef2ff); border: 1px solid var(--brand-softer);
+  border-left: 3px solid var(--brand); border-radius: 10px;
+  padding: 12px 14px; margin-bottom: 24px;
+  font-size: 13px; color: var(--ink-2); line-height: 1.5;
+}

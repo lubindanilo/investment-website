@@ -1,6 +1,7 @@
 // Page « Conditions Générales de Vente » (CGV).
-// TODO i18n : extraire vers locales en sprint 3.
+// Contenu en français uniquement — droit français applicable. Bannière EN/ES via LegalLangBanner.
 import SeoHead from "../../components/SeoHead.js";
+import { LegalLangBanner } from "./LegalLangBanner.js";
 import "./legal.css";
 
 export function CgvPage() {
@@ -8,6 +9,7 @@ export function CgvPage() {
     <main className="legal">
       <SeoHead titleKey="seo.legal.cgv.title" descKey="seo.legal.cgv.desc" />
       <div className="legal-wrap">
+        <LegalLangBanner />
         <h1>Conditions Générales de Vente (CGV)</h1>
         <p className="legal-updated">Dernière mise à jour : juin 2026</p>
 

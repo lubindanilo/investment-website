@@ -965,5 +965,83 @@
       "confidentialite": "Confidentialité"
     },
     "disclaimerShort": "Outil d'aide à la décision. Ne constitue pas un conseil en investissement personnalisé."
+  },
+  "blog": {
+    "hero": {
+      "chipComing": "Bientôt en ligne",
+      "chipLive": "Le blog",
+      "title": "Comprendre les marchés avec méthode",
+      "lede": "Analyses fondamentales, décryptages de méthode, plongées dans les fondamentaux des entreprises de qualité. Le contenu que nous aurions aimé lire avant d'investir notre premier euro."
+    },
+    "empty": {
+      "title": "Premier article en cours de rédaction",
+      "text": "On prépare le terrain. Le premier article — sur les pièges du bénéfice net comptable face au free cash flow — sortira dans les prochaines semaines.",
+      "also": {
+        "prefix": "En attendant, tu peux consulter la",
+        "methodology": "méthodologie complète",
+        "middle": " du scoring sur 10 critères, ou explorer le",
+        "screener": "screener",
+        "suffix": " des meilleures entreprises notées par notre veille."
+      }
+    },
+    "upcoming": {
+      "title": "Ce qui arrive bientôt",
+      "items": [
+        "La méthode Lubin expliquée critère par critère",
+        "Lire un 10-K en 15 minutes : la cheat sheet",
+        "Cash ROCE vs ROIC : pourquoi nous avons choisi la version de Bettin-Mauboussin",
+        "Theil-Sen vs moindres carrés : pourquoi la médiane des pentes change tout",
+        "5 pièges des fiches Yahoo Finance que personne ne mentionne",
+        "Pourquoi nous excluons l'or et les commodities de notre univers"
+      ]
+    },
+    "cta": {
+      "title": "En attendant : commence à analyser",
+      "sub": "La meilleure façon de comprendre la méthode, c'est de l'appliquer. Tape un ticker, obtiens une note en quelques secondes.",
+      "button": "Analyser une action"
+    },
+    "card": {
+      "readingTime": "{{minutes}} min de lecture"
+    }
+  },
+  "account": {
+    "title": "Mon compte",
+    "subscription": {
+      "title": "Abonnement"
+    },
+    "badge": {
+      "free": "Gratuit",
+      "proMonthly": "Pro mensuel",
+      "proYearly": "Pro annuel"
+    },
+    "pro": {
+      "renewsOn": "Prochain renouvellement le",
+      "canceledUntil": "Abonnement annulé. Accès Pro maintenu jusqu'au",
+      "pastDue": "Votre dernier paiement a échoué. Mettez à jour votre carte bancaire pour conserver votre accès Pro.",
+      "managePortal": "Gérer mon abonnement",
+      "opening": "Ouverture…",
+      "portalNote": "Le portail sécurisé Stripe permet de changer de plan, mettre à jour ta carte, télécharger tes factures, ou annuler ton abonnement."
+    },
+    "free": {
+      "quotaLabel": "Analyses aujourd'hui",
+      "summary": "Tu utilises Lubin Investment en mode gratuit. Tu as accès au screener (top 100), à la watchlist (10 titres) et à la comparaison de 2 titres.",
+      "unlockTeaser": "Pour débloquer l'analyse qualitative IA, les opportunités du moment, les graphiques détaillés, la comparaison de 5 titres, et les données EU/International, passe Pro.",
+      "goPro": "Voir les offres Pro"
+    },
+    "session": {
+      "title": "Session"
+    },
+    "footerNote": {
+      "prefix": "Une question, un problème ? Écris-nous à"
+    },
+    "toast": {
+      "checkoutSuccess": "Bienvenue dans Lubin Pro ! L'abonnement est en cours d'activation.",
+      "checkoutCancel": "Paiement annulé. Tu peux réessayer quand tu veux."
+    }
+  },
+  "legal": {
+    "banner": {
+      "frenchOnly": "Ce document juridique est disponible en français uniquement."
+    }
   }
 }

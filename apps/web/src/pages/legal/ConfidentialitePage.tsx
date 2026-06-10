@@ -1,6 +1,7 @@
 // Page « Politique de confidentialité » — RGPD (Règlement UE 2016/679) + Loi Informatique et Libertés.
-// TODO i18n : extraire vers locales en sprint 3.
+// Contenu en français uniquement — droit français applicable. Bannière EN/ES via LegalLangBanner.
 import SeoHead from "../../components/SeoHead.js";
+import { LegalLangBanner } from "./LegalLangBanner.js";
 import "./legal.css";
 
 export function ConfidentialitePage() {
@@ -8,6 +9,7 @@ export function ConfidentialitePage() {
     <main className="legal">
       <SeoHead titleKey="seo.legal.confidentialite.title" descKey="seo.legal.confidentialite.desc" />
       <div className="legal-wrap">
+        <LegalLangBanner />
         <h1>Politique de confidentialité</h1>
         <p className="legal-updated">Dernière mise à jour : juin 2026</p>
 

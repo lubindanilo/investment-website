@@ -28,18 +28,11 @@ type DisplayArticle = {
   tags: string[];
 };
 
-// Thèmes prévus pour les premiers articles (signal éditorial pour les lecteurs et Google).
-const UPCOMING_TOPICS = [
-  'La méthode Lubin expliquée critère par critère',
-  'Lire un 10-K en 15 minutes : la cheat sheet',
-  'Cash ROCE vs ROIC : pourquoi nous avons choisi la version de Bettin-Mauboussin',
-  'Théil-Sen vs moindres carrés : pourquoi la médiane des pentes change tout',
-  '5 pièges des fiches Yahoo Finance que personne ne mentionne',
-  'Pourquoi nous excluons l\'or et les commodities de notre univers',
-];
+// Note : la liste des thèmes à venir (signal éditorial) est désormais dans
+// apps/web/src/i18n/locales/*.json (clé blog.upcoming.items) pour être traduite FR/EN/ES.
 
 export function BlogPage() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const lang = toArticleLang(i18n.language);
   const articles: DisplayArticle[] = listArticles().map((a) => ({
     slug: a.slug,
@@ -49,6 +42,8 @@ export function BlogPage() {
     excerpt: a.content[lang].excerpt,
     tags: a.content[lang].tags,
   }));
+  // Liste des thèmes à venir (signal éditorial). Lue depuis les locales pour FR/EN/ES.
+  const upcomingTopics: string[] = (t('blog.upcoming.items', { returnObjects: true }) as string[]) ?? [];
 
   return (
     <div className="blog">
@@ -57,15 +52,9 @@ export function BlogPage() {
 
         {/* Hero */}
         <header className="blog-hero">
-          <div className="blog-hero-chip">{articles.length === 0 ? 'Bientôt en ligne' : 'Le blog'}</div>
-          <h1 className="blog-hero-title">
-            Comprendre les marchés avec méthode
-          </h1>
-          <p className="blog-hero-lede">
-            Analyses fondamentales, décryptages de méthode, plongées dans les fondamentaux des
-            entreprises de qualité. Le contenu que nous aurions aimé lire avant d'investir
-            notre premier euro.
-          </p>
+          <div className="blog-hero-chip">{articles.length === 0 ? t('blog.hero.chipComing') : t('blog.hero.chipLive')}</div>
+          <h1 className="blog-hero-title">{t('blog.hero.title')}</h1>
+          <p className="blog-hero-lede">{t('blog.hero.lede')}</p>
         </header>
 
         {/* État liste d'articles */}
@@ -74,17 +63,17 @@ export function BlogPage() {
         ) : (
           <section className="blog-list">
             {articles.map(article => (
-              <ArticleCard key={article.slug} article={article} />
+              <ArticleCard key={article.slug} article={article} locale={i18n.language} />
             ))}
           </section>
         )}
 
         {/* Thèmes à venir */}
-        {articles.length === 0 && (
+        {articles.length === 0 && upcomingTopics.length > 0 && (
           <section className="blog-upcoming">
-            <h2 className="blog-section-title">Ce qui arrive bientôt</h2>
+            <h2 className="blog-section-title">{t('blog.upcoming.title')}</h2>
             <ul className="blog-upcoming-list">
-              {UPCOMING_TOPICS.map((topic, i) => (
+              {upcomingTopics.map((topic, i) => (
                 <li key={i} className="blog-upcoming-item">
                   <span className="blog-upcoming-num">{(i + 1).toString().padStart(2, '0')}</span>
                   <span className="blog-upcoming-text">{topic}</span>
@@ -96,13 +85,10 @@ export function BlogPage() {
 
         {/* CTA final */}
         <section className="blog-cta">
-          <h2 className="blog-cta-title">En attendant : commence à analyser</h2>
-          <p className="blog-cta-sub">
-            La meilleure façon de comprendre la méthode, c'est de l'appliquer. Tape un ticker,
-            obtiens une note en quelques secondes.
-          </p>
+          <h2 className="blog-cta-title">{t('blog.cta.title')}</h2>
+          <p className="blog-cta-sub">{t('blog.cta.sub')}</p>
           <Link to="/analyser" className="btn btn-brand blog-cta-btn">
-            Analyser une action <Icon name="arrowRight" size={16} />
+            {t('blog.cta.button')} <Icon name="arrowRight" size={16} />
           </Link>
         </section>
 
@@ -112,35 +98,40 @@ export function BlogPage() {
 }
 
 function ComingSoonState() {
+  const { t } = useTranslation();
   return (
     <section className="blog-empty">
       <div className="blog-empty-card">
         <div className="blog-empty-icon"><Icon name="info" size={28} /></div>
-        <h2 className="blog-empty-title">Premier article en cours de rédaction</h2>
-        <p className="blog-empty-text">
-          On prépare le terrain. Le premier article — sur les pièges du bénéfice net comptable
-          face au free cash flow — sortira dans les prochaines semaines.
-        </p>
+        <h2 className="blog-empty-title">{t('blog.empty.title')}</h2>
+        <p className="blog-empty-text">{t('blog.empty.text')}</p>
         <p className="blog-empty-text" style={{ marginTop: 12 }}>
-          En attendant, tu peux consulter la <Link to="/methodologie" className="blog-link">méthodologie complète</Link> du
-          scoring sur 10 critères, ou explorer le <Link to="/screener" className="blog-link">screener</Link> des
-          meilleures entreprises notées par notre veille.
+          {/* Trans avec liens — on découpe en 3 morceaux pour préserver les <Link>. */}
+          {t('blog.empty.also.prefix')}{' '}
+          <Link to="/methodologie" className="blog-link">{t('blog.empty.also.methodology')}</Link>
+          {t('blog.empty.also.middle')}{' '}
+          <Link to="/screener" className="blog-link">{t('blog.empty.also.screener')}</Link>
+          {t('blog.empty.also.suffix')}
         </p>
       </div>
     </section>
   );
 }
 
-function ArticleCard({ article }: { article: DisplayArticle }) {
+function ArticleCard({ article, locale }: { article: DisplayArticle; locale: string }) {
+  const { t } = useTranslation();
+  // Locale Intl : 'fr-FR' par défaut. On garde 'fr' / 'en' / 'es' issu d'i18n.language et
+  // on les expand en locales valides Intl.
+  const intlLocale = locale.startsWith('en') ? 'en-US' : locale.startsWith('es') ? 'es-ES' : 'fr-FR';
   return (
     <article className="blog-card">
       <div className="blog-card-meta">
         <time dateTime={article.date} className="blog-card-date">
-          {new Date(article.date + 'T12:00:00Z').toLocaleDateString('fr-FR', {
+          {new Date(article.date + 'T12:00:00Z').toLocaleDateString(intlLocale, {
             day: 'numeric', month: 'long', year: 'numeric',
           })}
         </time>
-        <span className="blog-card-readingTime">· {article.readingTime} min de lecture</span>
+        <span className="blog-card-readingTime">· {t('blog.card.readingTime', { minutes: article.readingTime })}</span>
       </div>
       <h2 className="blog-card-title">
         <Link to={`/blog/${article.slug}`}>{article.title}</Link>
