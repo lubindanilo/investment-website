@@ -28,7 +28,7 @@ import { prisma } from '../db/client.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { analyzeLimiter } from '../middleware/rateLimit.js';
 import { optionalAuth, requireAuth } from '../middleware/auth.js';
-import { enforceDailyAnalysisQuota, requirePro } from '../middleware/subscription.js';
+import { requirePro } from '../middleware/subscription.js';
 
 export const analyzeRouter: Router = Router();
 
@@ -239,11 +239,13 @@ async function computeOpportunity(
 // Si l'un des deux n'est pas en cache, on renvoie quand même la réponse — le front
 // affichera le bouton "Générer l'analyse qualitative".
 
-// IMPORTANT : on a fait le choix « force account creation » dès la 1ère analyse
-// (vs accès anonyme limité par IP). requireAuth bloque les non-connectés en 401, le
-// frontend les redirige vers /signup. Ensuite enforceDailyAnalysisQuota incrémente
-// le compteur (10/jour Free) ; les Pro passent en illimité.
-analyzeRouter.get('/', analyzeLimiter, requireAuth, enforceDailyAnalysisQuota, asyncHandler(async (req: Request, res: Response) => {
+// CHOIX : l'analyse QUANTITATIVE est libre pour TOUS (connecté ou non) — meilleure UX,
+// meilleur partage/SEO, et les bots recevaient déjà la version riche (prérendu). La
+// protection anti-abus repose sur analyzeLimiter (par IP, cf. trust proxy) ; le coût est
+// borné par le cache (snapshots). optionalAuth pose req.user SI un cookie valide existe
+// (→ appartenance watchlist), sinon laisse passer en anonyme. Le Pro reste gated sur le
+// QUALITATIF (POST /qualitative, requirePro) et les graphes détaillés (côté front).
+analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Request, res: Response) => {
   const parse = TickerSchema.safeParse(req.query.ticker);
   if (!parse.success) throw new ApiError(400, 'ticker invalide', parse.error.flatten());
   const ticker = parse.data;
