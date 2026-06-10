@@ -4,6 +4,12 @@
     "noResult": "Sin resultados",
     "networkError": "Error de conexión. Inténtalo de nuevo en un momento."
   },
+  "priceChart": {
+    "start": "Inicio",
+    "end": "Fin",
+    "change": "Variación",
+    "minMax": "Mín / Máx"
+  },
   "upgrade": {
     "badge": "PRO",
     "sub": "Esta funcionalidad está reservada a los suscriptores Pro. Pásate a Pro para desbloquear todo Lubin Investment e invertir con todas las cartas en la mesa.",

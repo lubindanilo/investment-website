@@ -13,6 +13,12 @@
     "noResult": "No result",
     "networkError": "Connection error. Try again in a moment."
   },
+  "priceChart": {
+    "start": "Start",
+    "end": "End",
+    "change": "Change",
+    "minMax": "Min / Max"
+  },
   "upgrade": {
     "badge": "PRO",
     "sub": "This feature is reserved for Pro subscribers. Go Pro to unlock the full Lubin Investment and invest with every card on the table.",

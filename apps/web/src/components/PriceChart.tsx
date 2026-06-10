@@ -9,6 +9,7 @@
  * mais sans dépendre de l'iframe TV qui ne résout pas les symbols EU sans préfixe.
  */
 import { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine,
 } from 'recharts';
@@ -35,6 +36,7 @@ interface Props {
 }
 
 export function PriceChart({ ticker, currency }: Props) {
+  const { t } = useTranslation();
   const [period, setPeriod] = useState<Period>('5A');
   const [allData, setAllData] = useState<{ date: string; value: number }[] | null>(null);
   const [resolvedSymbol, setResolvedSymbol] = useState<string | null>(null);
@@ -154,21 +156,21 @@ export function PriceChart({ ticker, currency }: Props) {
       {stats && !loading && !error && data.length > 0 && (
         <div className="chart-stats-row">
           <span className="chart-stat">
-            <span className="chart-stat-label">Début</span>
+            <span className="chart-stat-label">{t('priceChart.start')}</span>
             <span className="chart-stat-val">{stats.first.toFixed(2)} {currency}</span>
           </span>
           <span className="chart-stat">
-            <span className="chart-stat-label">Fin</span>
+            <span className="chart-stat-label">{t('priceChart.end')}</span>
             <span className="chart-stat-val">{stats.last.toFixed(2)} {currency}</span>
           </span>
           <span className="chart-stat">
-            <span className="chart-stat-label">Variation</span>
+            <span className="chart-stat-label">{t('priceChart.change')}</span>
             <span className={`chart-stat-val ${stats.change >= 0 ? 'green' : 'red'}`}>
               {stats.change >= 0 ? '+' : ''}{(stats.change * 100).toFixed(1)}%
             </span>
           </span>
           <span className="chart-stat">
-            <span className="chart-stat-label">Min / Max</span>
+            <span className="chart-stat-label">{t('priceChart.minMax')}</span>
             <span className="chart-stat-val">{stats.min.toFixed(2)} / {stats.max.toFixed(2)}</span>
           </span>
         </div>
