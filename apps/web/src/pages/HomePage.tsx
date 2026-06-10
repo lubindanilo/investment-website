@@ -43,6 +43,7 @@ export function HomePage() {
             <p className="home-lede">
               {t('home.hero.lede')}
             </p>
+            <p className="home-hero-value">{t('home.hero.valueLine')}</p>
             <div className="row gap-12" style={{ flexWrap: 'wrap' }}>
               <Link to="/analyser" className="btn btn-brand btn-lg">{t('home.hero.ctaAnalyze')} <Icon name="arrowRight" size={17} /></Link>
               <Link to="/screener" className="btn btn-ghost btn-lg">{t('home.hero.ctaScreener')}</Link>

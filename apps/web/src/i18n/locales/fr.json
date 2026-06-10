@@ -78,6 +78,7 @@
     "marketBeat": "Stratégie portefeuille",
     "compare": "Comparer",
     "blog": "Blog",
+    "methodologie": "Méthodologie",
     "pricing": "Tarifs"
   },
   "userMenu": {
@@ -120,6 +121,7 @@
       "titleLine1": "Trouvez les entreprises de qualité,",
       "titleAccent": "sans le bruit.",
       "lede": "Tapez un ticker, obtenez une note de qualité sur 10 calculée sur des critères financiers objectifs. Une valorisation jugée séparément. Et une veille qui note tout le marché pour vous.",
+      "valueLine": "Une note de qualité sur 10, une analyse approfondie du Business Model et du Management, et un prix d'achat conseillé.",
       "ctaAnalyze": "Analyser une action",
       "ctaScreener": "Explorer le screener"
     },
@@ -495,7 +497,10 @@
     "cashRoce": "Rendement capital",
     "fcfMargin": "Profitabilité cash",
     "revenueGrowth": "Croissance ventes",
-    "debtFcf": "Endettement"
+    "debtFcf": "Endettement",
+    "netMargin": "Marge nette",
+    "cashConv": "Conversion en cash",
+    "buybacks": "Rachats d'actions"
   },
   "ccc": {
     "history": "Historique du CCC",
