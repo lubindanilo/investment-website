@@ -24,7 +24,7 @@ import { prisma } from '../db/client.js';
 // ⚠️ Imports de valeur (`getArticleBySlug`, `toArticleLang`) interdits depuis '@lubin/shared'
 // — pas de build dist/, crash lambda Vercel. On consomme la copie locale apps/api/src/data/.
 // Les types restent OK à puiser depuis '@lubin/shared' (effacés à la compilation).
-import { getArticleBySlug, toArticleLang } from '../data/articles.js';
+import { getArticleBySlug, listArticles, toArticleLang } from '../data/articles.js';
 import type { Article, ArticleLang } from '@lubin/shared';
 
 export const seoPrerenderRouter: Router = Router();
@@ -639,3 +639,251 @@ seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) 
     res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug));
   }
 });
+
+// ─── Pages statiques (accueil, screener, méthodologie, blog, pricing, comparateur,
+//     analyser, pages légales) : pré-rendu HTML pour les bots. Sans ça, les crawlers
+//     tombent sur la coquille SPA (apps/web/dist/index.html) : ni <link rel=canonical>
+//     ni <h1> dans le HTML initial (SeoHead ne les injecte que côté client, signal plus
+//     faible pour Google). On suit les 4 points de contact des hubs : router SPA (déjà là),
+//     vercel.json (rewrite conditionnel bots), ce fichier (le HTML), sitemap.ts (ces URLs
+//     sont déjà dans STATIC_PAGES côté sitemap).
+
+type StaticPage = {
+  title: string;             // <title> + og:title (séparateur deux-points, jamais de tiret long)
+  description: string;       // meta description + og:description
+  h1: string;                // <h1> unique et indexable
+  body: string[];            // paragraphes indexables (le 1er = réponse directe, answer-first)
+  breadcrumb: string | null; // libellé niveau 2 du fil d'Ariane (null = racine = accueil)
+};
+
+// Meta alignées sur les clés i18n du SPA (apps/web, seo.*) pour ne pas diverger entre ce
+// que voit le bot ici et ce que SeoHead injecte pour l'humain (même titre, même canonical).
+const STATIC_PAGES: Record<string, StaticPage> = {
+  '/': {
+    title: 'Repérez les actions de qualité sous-évaluées',
+    description: "Note de qualité sur 10 critères objectifs + prix d'achat conseillé (P/FCF). L'analyse fondamentale automatisée pour faire son propre stock-picking et viser à battre le marché.",
+    h1: 'Trouvez les entreprises de qualité, sans le bruit',
+    body: [
+      "Lubin Investment attribue à chaque action une note de qualité sur 10, calculée sur des critères financiers objectifs, et juge sa valorisation séparément (P/FCF). Tapez un ticker, obtenez une analyse fondamentale complète en quelques secondes.",
+      "Une veille note en continu plus de 6 200 actions américaines, européennes et internationales. Les meilleures notes remontent automatiquement en tête du screener.",
+      "La méthode est entièrement transparente : 10 critères financiers, des seuils issus de la littérature (Warren Buffett, Michael Mauboussin, Aswath Damodaran), et des sources publiques (SEC EDGAR, Finnhub, Yahoo Finance). Aucune boîte noire, aucune opinion humaine.",
+    ],
+    breadcrumb: null,
+  },
+  '/screener': {
+    title: "Screener d'actions : les meilleures notes du marché",
+    description: "Toutes les actions notées en continu par la veille. Filtrez par note, P/FCF, secteur. Les 10/10 remontent automatiquement en tête de liste.",
+    h1: "Screener d'actions : les meilleures notes du marché",
+    body: [
+      "Le screener Lubin Investment liste toutes les actions notées en continu par la veille, classées par note de qualité. Les titres notés 10 sur 10 remontent automatiquement en tête de liste.",
+      "Filtrez par note, par multiple de valorisation (P/FCF), par secteur ou par région. Chaque ligne mène à l'analyse fondamentale détaillée de l'action.",
+    ],
+    breadcrumb: 'Screener',
+  },
+  '/methodologie': {
+    title: 'Méthodologie : 10 critères, sources publiques',
+    description: "Comment fonctionne la note sur 10 : 10 critères financiers, formules, seuils, sources réglementaires (SEC EDGAR XBRL, Finnhub, Yahoo). Zéro boîte noire.",
+    h1: '10 critères, des sources publiques, zéro boîte noire',
+    body: [
+      "La note de qualité Lubin Investment repose sur 10 critères financiers objectifs : rentabilité, croissance du chiffre d'affaires et du free cash flow, rachats d'actions, marges, rendement du capital investi, endettement et conversion des bénéfices en cash.",
+      "Chaque critère est validé (OUI, PARTIEL ou NON) selon des seuils issus de la littérature financière (Warren Buffett, Michael Mauboussin, Aswath Damodaran). La note finale est le total des validations, calculée automatiquement, sans opinion humaine.",
+      "Les données proviennent de sources publiques autoritatives : SEC EDGAR (dépôts XBRL des 10-K et 10-Q), Finnhub, Yahoo Finance et stockanalysis.com pour la couverture internationale.",
+    ],
+    breadcrumb: 'Méthodologie',
+  },
+  '/blog': {
+    title: 'Blog : analyses, méthodes et fondamentaux',
+    description: "Analyses fondamentales, décryptages de méthodes value, plongées dans le free cash flow, le ROIC et les compounders. Le blog Lubin Investment.",
+    h1: 'Comprendre les marchés avec méthode',
+    body: [
+      "Le blog Lubin Investment publie des analyses fondamentales, des décryptages de méthode value et des plongées dans le free cash flow, le ROIC et les entreprises de qualité.",
+      "Chaque article est disponible en français, en anglais et en espagnol.",
+    ],
+    breadcrumb: 'Blog',
+  },
+  '/pricing': {
+    title: 'Tarifs : gratuit et Pro dès 13 €/mois',
+    description: "Démarrez gratuitement, sans carte bancaire. Pro 19 €/mois ou 159 €/an : qualitatif IA, opportunités, comparaison 5 titres, données EU et International.",
+    h1: 'Investir avec méthode, pas avec opinions',
+    body: [
+      "Lubin Investment est gratuit pour démarrer, sans carte bancaire : note de qualité sur 10, valorisation P/FCF et screener des meilleures actions.",
+      "L'abonnement Pro (19 €/mois ou 159 €/an) ajoute le qualitatif business généré par IA, les opportunités de valorisation, la comparaison de 2 à 5 titres et la couverture des actions européennes et internationales.",
+    ],
+    breadcrumb: 'Tarifs',
+  },
+  '/analyser': {
+    title: 'Analyser une action : score, valorisation, qualitatif',
+    description: "Score sur 10 calculé en quelques secondes, P/FCF, free cash flow, marges, dette : la fiche complète d'une action en une page, sans bla-bla.",
+    h1: 'Analyser une action en quelques secondes',
+    body: [
+      "Tapez le ticker d'une action et obtenez sa note de qualité sur 10, son multiple de valorisation (P/FCF), son free cash flow, ses marges et son endettement : la fiche fondamentale complète sur une seule page.",
+      "L'analyse couvre plus de 6 200 actions américaines, européennes et internationales, à partir de sources publiques officielles.",
+    ],
+    breadcrumb: 'Analyser',
+  },
+  '/compare': {
+    title: 'Comparer 2 à 5 actions côte à côte',
+    description: "Mettez plusieurs titres face à face sur 10 critères financiers et la valorisation. Le meilleur de chaque ligne est surligné, ligne par ligne.",
+    h1: 'Comparer 2 à 5 actions côte à côte',
+    body: [
+      "Mettez plusieurs actions face à face sur les 10 critères financiers et la valorisation. La meilleure valeur de chaque ligne est mise en évidence, critère par critère.",
+      "Idéal pour départager deux concurrents d'un même secteur ou arbitrer entre plusieurs candidats à l'achat.",
+    ],
+    breadcrumb: 'Comparateur',
+  },
+  '/mentions-legales': {
+    title: 'Mentions légales : Lubin Investment',
+    description: "Éditeur, directeur de publication, hébergeur et coordonnées légales du service Lubin Investment. Micro-entrepreneur en exonération de TVA art. 293 B CGI.",
+    h1: 'Mentions légales',
+    body: [
+      "Informations légales du service Lubin Investment : éditeur, directeur de la publication, hébergeur et coordonnées de contact.",
+    ],
+    breadcrumb: 'Mentions légales',
+  },
+  '/cgu': {
+    title: "Conditions générales d'utilisation : Lubin Investment",
+    description: "Conditions générales d'utilisation du service Lubin Investment : objet, accès, propriété intellectuelle, responsabilités. Outil d'aide à la décision, non conseil.",
+    h1: "Conditions générales d'utilisation",
+    body: [
+      "Conditions générales d'utilisation du service Lubin Investment : objet du service, accès, propriété intellectuelle et responsabilités. Lubin Investment est un outil d'aide à la décision et ne constitue pas un conseil en investissement personnalisé.",
+    ],
+    breadcrumb: 'CGU',
+  },
+  '/cgv': {
+    title: 'Conditions générales de vente : Lubin Investment',
+    description: "Offres Pro mensuelle et annuelle, paiement Stripe, droit de rétractation de 14 jours, résiliation, médiation conso. Conditions de vente de l'abonnement Pro.",
+    h1: 'Conditions générales de vente',
+    body: [
+      "Conditions générales de vente de l'abonnement Pro Lubin Investment : offres mensuelle et annuelle, paiement par Stripe, droit de rétractation, résiliation et médiation de la consommation.",
+    ],
+    breadcrumb: 'CGV',
+  },
+  '/confidentialite': {
+    title: 'Politique de confidentialité : RGPD',
+    description: "Données collectées, finalités, durées de conservation, sous-traitants (Stripe, Vercel, Neon, OpenAI), vos droits RGPD et l'usage des cookies sur Lubin Investment.",
+    h1: 'Politique de confidentialité',
+    body: [
+      "Politique de confidentialité de Lubin Investment : données collectées, finalités, durées de conservation, sous-traitants et vos droits RGPD, ainsi que l'usage des cookies.",
+    ],
+    breadcrumb: 'Confidentialité',
+  },
+};
+
+// HTML pré-rendu d'une page statique : title/meta, canonical auto-référent, <h1>, OG,
+// Twitter, et JSON-LD (WebSite + Organization sur l'accueil, BreadcrumbList sinon).
+function renderStaticPageHtml(path: string, page: StaticPage): string {
+  const canonical = `${SITE_URL}${path}`;
+  const title = escapeHtml(page.title);
+  const description = escapeHtml(page.description);
+  const bodyHtml = page.body.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n');
+
+  const ld: object[] = [];
+  if (path === '/') {
+    ld.push({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Lubin Investment',
+      url: `${SITE_URL}/`,
+      inLanguage: 'fr-FR',
+      description: page.description,
+      publisher: {
+        '@type': 'Organization',
+        name: 'Lubin Investment',
+        url: `${SITE_URL}/`,
+        logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` },
+      },
+    });
+    ld.push({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'Lubin Investment',
+      url: `${SITE_URL}/`,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` },
+    });
+  }
+  if (page.breadcrumb) {
+    ld.push({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: page.breadcrumb, item: canonical },
+      ],
+    });
+  }
+  const ldHtml = ld
+    .map((o) => `<script type="application/ld+json">${JSON.stringify(o, null, 2)}</script>`)
+    .join('\n');
+
+  // Sur /blog : on liste les articles publiés pour mailler les pages /blog/:slug
+  // (réduit la profondeur de crawl, distribue le PageRank interne).
+  let extraMain = '';
+  if (path === '/blog') {
+    const items = listArticles()
+      .map((a) => `<li><a href="${SITE_URL}/blog/${escapeHtml(a.slug)}">${escapeHtml(a.content.fr.title)}</a></li>`)
+      .join('\n');
+    if (items) extraMain = `<h2>Articles récents</h2>\n<ul>\n${items}\n</ul>`;
+  }
+
+  const breadcrumbNav = page.breadcrumb
+    ? `<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › ${escapeHtml(page.breadcrumb)}</nav>`
+    : '';
+
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<meta name="description" content="${description}">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="${canonical}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${description}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:site_name" content="Lubin Investment">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="${SITE_URL}/og-default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title}">
+<meta name="twitter:description" content="${description}">
+<meta name="twitter:image" content="${SITE_URL}/og-default.png">
+${ldHtml}
+</head>
+<body>
+<header><p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/methodologie">Méthodologie</a> · <a href="${SITE_URL}/pricing">Tarifs</a> · <a href="${SITE_URL}/blog">Blog</a></p></header>
+<main>
+${breadcrumbNav}
+<h1>${escapeHtml(page.h1)}</h1>
+${bodyHtml}
+${extraMain}
+<h2>Aller plus loin</h2>
+<p>
+<a href="${SITE_URL}/screener">Screener des meilleures actions</a> ·
+<a href="${SITE_URL}/analyser">Analyser une action</a> ·
+<a href="${SITE_URL}/compare">Comparer plusieurs titres</a> ·
+<a href="${SITE_URL}/classement/qualite-10-sur-10">Actions notées 10 sur 10</a> ·
+<a href="${SITE_URL}/classement/sous-evaluees">Actions de qualité sous-évaluées</a> ·
+<a href="${SITE_URL}/methodologie">Méthodologie</a> ·
+<a href="${SITE_URL}/pricing">Tarifs</a>
+</p>
+</main>
+<footer>
+<p><small>Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Ce service ne constitue pas un conseil en investissement personnalisé au sens de l'article L.321-1 du Code monétaire et financier. Les performances passées ne préjugent pas des performances futures.</small></p>
+</footer>
+</body>
+</html>`;
+}
+
+// Enregistrement des routes statiques : chemins EXACTS, servis aux bots via le rewrite
+// Vercel conditionnel. Aucun conflit avec /blog/:slug ni /analyse/:ticker (routes à param).
+for (const [staticPath, page] of Object.entries(STATIC_PAGES)) {
+  seoPrerenderRouter.get(staticPath, (_req: Request, res: Response) => {
+    res
+      .status(200)
+      .set('Content-Type', 'text/html; charset=utf-8')
+      .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
+      .send(renderStaticPageHtml(staticPath, page));
+  });
+}
