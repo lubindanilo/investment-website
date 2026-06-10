@@ -1,5 +1,5 @@
 /**
- * Contenu éditorial du blog — SOURCE UNIQUE, partagée par :
+ * Contenu éditorial du blog, SOURCE UNIQUE, partagée par :
  *   - apps/web  (SPA : BlogPage + BlogArticlePage, langue active)
  *   - apps/api  (prérendu bots seoPrerender + sitemap)
  *
@@ -593,9 +593,9 @@ const techPfcf: Article = {
       excerpt:
         'Microsoft cotiza a 49,7x sus flujos de caja, Alphabet a 116,6x, Adobe a solo 11,7x. La tecnología no es un bloque homogéneo: tres gigantes bajo la lupa.',
       metaDescription:
-        'MSFT a 49,7x FCF, GOOGL a 116,6x, ADBE a 11,7x. Análisis de valoraciones tecnológicas por Lubin Investment — algunos gigantes cotizan como si la perfección estuviera garantizada.',
+        'MSFT a 49,7x FCF, GOOGL a 116,6x, ADBE a 11,7x. Análisis de valoraciones tecnológicas por Lubin Investment, algunos gigantes cotizan como si la perfección estuviera garantizada.',
       answer:
-        'No, la tecnología no paga demasiado por sus flujos de caja en todas partes — pero algunos casos son extremos. Microsoft (P/FCF 49,7x, calidad 8/10) cotiza a 3x su precio de compra recomendado. Alphabet (P/FCF 116,6x, calidad 6/10) está en una burbuja de múltiplos con FCF por acción en caída del 3 % anual. Adobe (P/FCF 11,7x, calidad 9/10), en cambio, está en su mínimo histórico pese a un margen FCF del 34 % y un crecimiento saludable.',
+        'No, la tecnología no paga demasiado por sus flujos de caja en todas partes, pero algunos casos son extremos. Microsoft (P/FCF 49,7x, calidad 8/10) cotiza a 3x su precio de compra recomendado. Alphabet (P/FCF 116,6x, calidad 6/10) está en una burbuja de múltiplos con FCF por acción en caída del 3 % anual. Adobe (P/FCF 11,7x, calidad 9/10), en cambio, está en su mínimo histórico pese a un margen FCF del 34 % y un crecimiento saludable.',
       body: [
         { type: 'h2', text: 'La tecnología no es un sector, es un mosaico de modelos de negocio' },
         { type: 'p', text: 'Cuando se dice «la tecnología es demasiado cara», se mezcla todo. Microsoft obtiene 39 centavos de margen neto por dólar de ingreso. Alphabet también, con un 38 %. Adobe: 29 %. Todos son muy rentables. Pero la forma en que el mercado los valora no tiene nada que ver.' },
@@ -614,9 +614,9 @@ const techPfcf: Article = {
         { type: 'h2', text: 'Alphabet (GOOGL): un 6/10 a 116,6x el FCF' },
         { type: 'p', text: 'Alphabet es el caso más extremo. La calidad es solo de 6/10: dos criterios fallan claramente (crecimiento del FCF por acción del -3,0 % anual, Cash ROCE del 9,2 % bajo el 15 %), dos están en advertencia.' },
         { type: 'p', text: 'El verdadero problema: Alphabet es excelente convirtiendo audiencia en ingresos publicitarios, pero menos convirtiendo esos ingresos en caja libre. El margen FCF es de solo el 9,1 %, y el FCF por acción cae un 3 % anual por el stock-based compensation masivo (40 % del FCF).' },
-        { type: 'p', text: 'Sin embargo, el mercado valora Alphabet a 116,6x el FCF — 7 veces la mediana del sector. Nuestro precio de compra de 54 dólares implica una sobrevaloración del 85 % sobre los 364 dólares actuales.' },
+        { type: 'p', text: 'Sin embargo, el mercado valora Alphabet a 116,6x el FCF, 7 veces la mediana del sector. Nuestro precio de compra de 54 dólares implica una sobrevaloración del 85 % sobre los 364 dólares actuales.' },
         { type: 'h2', text: 'Adobe (ADBE): el contraejemplo a 11,7x el FCF' },
-        { type: 'p', text: 'Adobe es lo contrario: calidad 9/10 (23/25 criterios), margen FCF del 34 %, Cash ROCE del 153 %, ciclo de caja negativo de -28 días, crecimiento del FCF por acción del 10,9 % anual. Y el P/FCF es de solo 11,7x — su mínimo histórico.' },
+        { type: 'p', text: 'Adobe es lo contrario: calidad 9/10 (23/25 criterios), margen FCF del 34 %, Cash ROCE del 153 %, ciclo de caja negativo de -28 días, crecimiento del FCF por acción del 10,9 % anual. Y el P/FCF es de solo 11,7x, su mínimo histórico.' },
         { type: 'p', text: 'El mercado ha masacrado Adobe por el miedo a la IA generativa (Midjourney, Canva) y la ralentización del crecimiento. Pero el flujo de caja libre sigue creciendo. El resultado: una brecha enorme entre la calidad real (9/10) y la percepción del mercado.' },
         { type: 'p', text: 'Atención: incluso a este precio, la valoración no es una ganga evidente. Nuestro precio de compra es de 149 dólares, un 37 % por debajo de los 238 dólares actuales. Pero es el más asequible de los tres.' },
         { type: 'h2', text: 'Lecciones para el inversor' },
