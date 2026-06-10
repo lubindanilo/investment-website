@@ -805,6 +805,7 @@
       "tagline": "Decidir con todas las cartas a la vista",
       "cta": "Hacerse Pro",
       "ctaComingSoon": "Próximamente",
+      "alreadyPro": "Ya eres Pro · gestionar suscripción",
       "equivalent": "es decir {{price}} €/mes facturado anualmente",
       "features": [
         "Todo el plan Gratis · sin límite",
@@ -924,6 +925,10 @@
     "blog": {
       "title": "Blog · Análisis, métodos y fundamentales · Lubin Investment",
       "desc": "Análisis fundamentales, desglose de métodos value, free cash flow, ROIC y compounders. El blog de Lubin Investment."
+    },
+    "account": {
+      "title": "Mi cuenta · Lubin Investment",
+      "desc": "Gestiona tu suscripción Lubin Investment: estado, plan, próxima facturación, portal de gestión seguro."
     },
     "legal": {
       "mentions": {

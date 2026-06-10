@@ -805,6 +805,7 @@
       "tagline": "Pour décider avec toutes les cartes en main",
       "cta": "Devenir Pro",
       "ctaComingSoon": "Bientôt disponible",
+      "alreadyPro": "Tu es déjà Pro · gérer mon abonnement",
       "equivalent": "soit {{price}} €/mois facturé annuellement",
       "features": [
         "Tout le Gratuit · sans limite",
@@ -924,6 +925,10 @@
     "blog": {
       "title": "Blog · Analyses, méthodes et fondamentaux · Lubin Investment",
       "desc": "Analyses fondamentales, décryptages de méthodes value, plongées dans le free cash flow, le ROIC et les compounders. Le blog Lubin Investment."
+    },
+    "account": {
+      "title": "Mon compte · Lubin Investment",
+      "desc": "Gérez votre abonnement Lubin Investment : statut, plan, prochaine facturation, portail de gestion sécurisé."
     },
     "legal": {
       "mentions": {

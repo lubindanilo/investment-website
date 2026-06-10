@@ -28,6 +28,32 @@ model User {
   passwordHash String
   createdAt    DateTime @default(now())
 
+  // ─── Abonnement Stripe ─────────────────────────────────────────────────────
+  /// Customer ID Stripe — créé au premier checkout, réutilisé pour le portail
+  /// de gestion d'abonnement. Null tant que l'utilisateur n'a jamais tenté un
+  /// paiement.
+  stripeCustomerId String? @unique
+  /// Statut d'abonnement : `free` (défaut), `active`, `past_due`, `canceled`,
+  /// `unpaid`, `incomplete`, `incomplete_expired`. Mis à jour par le webhook
+  /// Stripe (customer.subscription.created/updated/deleted).
+  subscriptionStatus String @default("free")
+  /// Plan en cours : `monthly` ou `yearly` (null si free).
+  subscriptionPlan   String?
+  /// Fin de la période payée en cours — l'accès Pro reste actif jusqu'à cette
+  /// date même si l'utilisateur a déjà annulé (renouvellement off). Source de
+  /// vérité pour le gate `isPro` côté API.
+  subscriptionCurrentPeriodEnd DateTime?
+  /// Stripe subscription ID — utile pour les webhooks et le portail.
+  stripeSubscriptionId String? @unique
+
+  // ─── Quota d'analyses gratuites ────────────────────────────────────────────
+  /// Nombre d'analyses faites aujourd'hui (UTC). Reset par dailyAnalysisResetAt.
+  /// Non utilisé pour les utilisateurs Pro (= illimité).
+  dailyAnalysisCount Int      @default(0)
+  /// Date du début de la fenêtre 24h en cours. Le compteur reset quand un
+  /// nouvel appel arrive après que 24h se soient écoulées depuis cette date.
+  dailyAnalysisResetAt DateTime @default(now())
+
   watchlist WatchlistEntry[]
   portfolio PortfolioPosition[]
 }

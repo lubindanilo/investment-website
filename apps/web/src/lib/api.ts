@@ -239,4 +239,39 @@ export const api = {
       }),
     logout: () => safeRequest<{ ok: true }>('/api/auth/logout', { method: 'POST' }),
   },
+  /**
+   * Billing — checkout (créer une session de paiement) et portail (gérer un abonnement
+   * existant). Les deux retournent une URL Stripe vers laquelle rediriger l'utilisateur.
+   */
+  billing: {
+    checkout: (plan: 'monthly' | 'yearly') =>
+      safeRequest<{ url: string }>('/api/billing/checkout', {
+        method: 'POST',
+        body: JSON.stringify({ plan }),
+      }),
+    portal: () =>
+      safeRequest<{ url: string }>('/api/billing/portal', { method: 'POST' }),
+  },
+  /** /api/me — statut d'abonnement et quotas du user courant. */
+  me: {
+    subscription: async (): Promise<SubscriptionInfo | null> => {
+      try {
+        return await safeRequest<SubscriptionInfo>('/api/me/subscription');
+      } catch (e) {
+        if (e instanceof ApiError && e.status === 401) return null;
+        throw e;
+      }
+    },
+  },
 };
+
+/** Statut d'abonnement renvoyé par GET /api/me/subscription. */
+export interface SubscriptionInfo {
+  isPro: boolean;
+  status: 'free' | 'active' | 'past_due' | 'canceled' | 'unpaid' | 'incomplete' | 'incomplete_expired';
+  plan: 'monthly' | 'yearly' | null;
+  currentPeriodEnd: string | null;
+  hasCustomer: boolean;
+  dailyAnalysisCount: number;
+  dailyAnalysisLimit: number;
+}

@@ -12,10 +12,13 @@
  * Structure : hero → toggle mensuel/annuel → 2 cards → tableau comparaison → FAQ → disclaimer légal.
  */
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Icon } from '../components/ui/primitives.js';
 import { useAuth } from '../contexts/AuthContext.js';
+import { useSubscription } from '../contexts/SubscriptionContext.js';
+import { useToast } from '../components/Toast.js';
+import { api, ApiError } from '../lib/api.js';
 import SeoHead from '../components/SeoHead.js';
 import './PricingPage.css';
 
@@ -29,11 +32,38 @@ const STRIPE_YEARLY  = (import.meta.env.VITE_STRIPE_PRO_YEARLY as string | undef
 export function PricingPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
+  const { isPro } = useSubscription();
+  const navigate = useNavigate();
+  const toast = useToast();
   const [period, setPeriod] = useState<Period>('yearly');
+  const [checkingOut, setCheckingOut] = useState(false);
 
   const proPrice = period === 'monthly' ? 19 : 159;
   const proPriceUnit = period === 'monthly' ? t('pricing.perMonth') : t('pricing.perYear');
   const proStripeUrl = period === 'monthly' ? STRIPE_MONTHLY : STRIPE_YEARLY;
+
+  // CTA Pro : ordre de priorité…
+  //   1. Pas connecté → on l'envoie sur /signup avec retour vers /pricing (UX continue)
+  //   2. Connecté + déjà Pro → on l'envoie sur /compte
+  //   3. Connecté Free → on appelle /api/billing/checkout pour générer une Checkout
+  //      Session Stripe à la volée (la session est liée à son user pour que le webhook
+  //      identifie l'abonné en DB).
+  //   4. Fallback : si l'env VITE_STRIPE_PRO_* est défini (Payment Link statique) ET
+  //      que l'API checkout est inaccessible, on retombe sur le lien externe.
+  async function onProClick(e: React.MouseEvent) {
+    if (!user) return; // <Link> natif vers /signup va prendre le relais
+    e.preventDefault();
+    if (isPro) { navigate('/compte'); return; }
+    setCheckingOut(true);
+    try {
+      const { url } = await api.billing.checkout(period);
+      window.location.href = url;
+    } catch (err) {
+      const msg = err instanceof ApiError ? err.userMessage : (err as Error).message;
+      toast.push('error', msg);
+      setCheckingOut(false);
+    }
+  }
 
   const proFeatures: string[] = (t('pricing.pro.features', { returnObjects: true }) as string[]) ?? [];
   const freeFeatures: string[] = (t('pricing.free.features', { returnObjects: true }) as string[]) ?? [];
@@ -121,19 +151,31 @@ export function PricingPage() {
             {period === 'yearly' && (
               <p className="pricing-card-perMonth">{t('pricing.pro.equivalent', { price: (159 / 12).toFixed(2).replace('.', ',') })}</p>
             )}
-            {proStripeUrl ? (
-              <a
-                href={proStripeUrl}
-                className="btn btn-brand pricing-cta"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            {isPro ? (
+              <Link to="/compte" className="btn pricing-cta pricing-cta-secondary">
+                {t('pricing.pro.alreadyPro')}
+              </Link>
+            ) : !user ? (
+              <Link to="/signup" state={{ from: '/pricing' }} className="btn btn-brand pricing-cta">
                 {t('pricing.pro.cta')}
-              </a>
+              </Link>
             ) : (
-              <button type="button" className="btn pricing-cta pricing-cta-secondary" disabled>
-                {t('pricing.pro.ctaComingSoon')}
+              // Connecté + Free : on lance la Checkout Session via l'API (1er choix). Si
+              // l'API n'est pas configurée côté env (STRIPE_SECRET_KEY absente), on retombe
+              // sur le Payment Link statique éventuel. Sinon le bouton est désactivé.
+              <button
+                type="button"
+                className="btn btn-brand pricing-cta"
+                onClick={(e) => { void onProClick(e); }}
+                disabled={checkingOut}
+              >
+                {checkingOut ? <><span className="spinner" /> …</> : t('pricing.pro.cta')}
               </button>
+            )}
+            {/* Fallback Payment Link statique — caché par défaut, utile uniquement si on
+                veut tester sans backend Stripe (ex. CI). */}
+            {!isPro && !user && proStripeUrl && false && (
+              <a href={proStripeUrl} target="_blank" rel="noopener noreferrer">{proStripeUrl}</a>
             )}
             <ul className="pricing-features">
               {proFeatures.map((f, i) => (

@@ -21,6 +21,7 @@ const AuthPage = lazy(() => import('./pages/AuthPage.js').then((m) => ({ default
 const MarketBeatPage = lazy(() => import('./pages/MarketBeatPage.js').then((m) => ({ default: m.MarketBeatPage })));
 const MethodologyPage = lazy(() => import('./pages/MethodologyPage.js').then((m) => ({ default: m.MethodologyPage })));
 const BlogPage = lazy(() => import('./pages/BlogPage.js').then((m) => ({ default: m.BlogPage })));
+const AccountPage = lazy(() => import('./pages/AccountPage.js').then((m) => ({ default: m.AccountPage })));
 const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage.js').then((m) => ({ default: m.BlogArticlePage })));
 // Pages-hub SEO (SPEC-001) : secteurs et classements. Mêmes URLs que celles servies aux bots.
 const HubPage = lazy(() => import('./pages/HubPage.js').then((m) => ({ default: m.HubPage })));
@@ -117,6 +118,7 @@ export function App() {
             <Route path="/methodologie" element={<MethodologyPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogArticlePage />} />
+            <Route path="/compte" element={<RequireAuth><AccountPage /></RequireAuth>} />
             <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
             <Route path="/cgu" element={<CguPage />} />
             <Route path="/cgv" element={<CgvPage />} />
@@ -166,7 +168,8 @@ function UserMenu() {
 
   return (
     <div className="user-menu">
-      <span className="user-menu-email" title={user.email}>{user.email}</span>
+      {/* Email cliquable → page /compte (gérer abonnement, voir statut Pro, etc.) */}
+      <NavLink to="/compte" className="user-menu-email" title={user.email}>{user.email}</NavLink>
       <button type="button" className="user-menu-logout" onClick={onLogout}>{t('userMenu.logout')}</button>
     </div>
   );

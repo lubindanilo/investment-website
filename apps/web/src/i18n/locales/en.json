@@ -805,6 +805,7 @@
       "tagline": "Decide with every card on the table",
       "cta": "Go Pro",
       "ctaComingSoon": "Coming soon",
+      "alreadyPro": "You are already Pro · manage subscription",
       "equivalent": "that's {{price}} €/mo billed annually",
       "features": [
         "Everything in Free · unlimited",
@@ -924,6 +925,10 @@
     "blog": {
       "title": "Blog · Analyses, methods and fundamentals · Lubin Investment",
       "desc": "Fundamental analyses, value method deep-dives, free cash flow, ROIC and compounders. The Lubin Investment blog."
+    },
+    "account": {
+      "title": "My account · Lubin Investment",
+      "desc": "Manage your Lubin Investment subscription: status, plan, next billing, secure customer portal."
     },
     "legal": {
       "mentions": {

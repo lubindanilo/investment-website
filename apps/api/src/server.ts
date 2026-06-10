@@ -31,6 +31,8 @@ import { compareRouter } from './routes/compare.js';
 import { authRouter } from './routes/auth.js';
 import { sitemapRouter } from './routes/sitemap.js';
 import { seoPrerenderRouter } from './routes/seoPrerender.js';
+import { billingRouter, meRouter } from './routes/billing.js';
+import { stripeWebhookRouter } from './routes/stripeWebhook.js';
 import { apiLimiter } from './middleware/rateLimit.js';
 import { errorHandler } from './middleware/error.js';
 
@@ -53,6 +55,11 @@ app.use(cors({
   origin: allowedOrigins.length === 1 ? allowedOrigins[0] : allowedOrigins,
   credentials: true,
 }));
+// ⚠️ Webhook Stripe AVANT express.json() — la signature est calculée sur le RAW body.
+// Si on parse en JSON avant, la signature ne matchera jamais et tous les events seront
+// rejetés en 400. Le router monte sa propre middleware express.raw() pour cette route.
+app.use('/api', stripeWebhookRouter);
+
 app.use(express.json({ limit: '1mb' }));
 app.use(cookieParser());
 
@@ -92,6 +99,8 @@ app.use('/api/price-history', priceHistoryRouter);
 app.use('/api/screener', screenerRouter);
 app.use('/api/portfolio', portfolioRouter);
 app.use('/api/compare', compareRouter);
+app.use('/api/billing', billingRouter);
+app.use('/api/me', meRouter);
 
 // Sitemap dynamique — accessible à DEUX chemins :
 //   - /api/sitemap.xml      (chemin direct, utile en dev local sans rewrite)
