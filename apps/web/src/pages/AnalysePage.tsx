@@ -64,9 +64,11 @@ export function AnalysePage() {
 
   useEffect(() => { setInWatchlist(new Set()); }, [user]);
 
-  const run = useCallback(async (t: string) => {
-    if (!t.trim()) return;
-    const cleaned = t.trim().toUpperCase();
+  // `tk` (ticker) plutôt que `t` pour éviter le shadowing de la fonction d'i18n
+  // utilisée dans le corps de la fonction (setUpgrade avec t('upgrade.quota.feature')).
+  const run = useCallback(async (tk: string) => {
+    if (!tk.trim()) return;
+    const cleaned = tk.trim().toUpperCase();
     setLoading(true); setError(null); setAnalysis(null); setPreview(null); setLastTicker(cleaned);
     window.scrollTo({ top: 0 });
     try {
@@ -82,7 +84,7 @@ export function AnalysePage() {
           setPreview(await api.screener.tickerPreview(cleaned));
         } catch {
           // Ticker non couvert / non scoré : pas d'aperçu possible → on bascule sur /signup.
-          toast.push('warn', `Crée un compte gratuit pour analyser ${cleaned}`);
+          toast.push('warn', t('analyse.toast.signupRequired', { ticker: cleaned }));
           navigate('/signup', { state: { from: `/analyse/${cleaned}` } });
         }
         return;
@@ -92,8 +94,10 @@ export function AnalysePage() {
       if (err.quotaExceeded) {
         const details = (err.details as { used?: number; limit?: number } | undefined);
         setUpgrade({
-          feature: 'Limite quotidienne atteinte',
-          detail: details ? `Tu as utilisé ${details.used ?? '?'} / ${details.limit ?? 10} analyses aujourd'hui.` : undefined,
+          feature: t('upgrade.quota.feature'),
+          detail: details
+            ? t('upgrade.quota.detail', { used: details.used ?? '?', limit: details.limit ?? 10 })
+            : undefined,
         });
         return;
       }
@@ -152,7 +156,7 @@ export function AnalysePage() {
     catch (e) {
       const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
       if (err.requiresPro) {
-        setUpgrade({ feature: 'Analyse qualitative IA', detail: 'Business model + qualité du management évalués par GPT.' });
+        setUpgrade({ feature: t('upgrade.qualitative.feature'), detail: t('upgrade.qualitative.detail') });
       } else {
         toast.push('error', err.userMessage);
       }
@@ -167,7 +171,7 @@ export function AnalysePage() {
     catch (e) {
       const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
       if (err.requiresPro) {
-        setUpgrade({ feature: 'Rafraîchir l\'analyse management', detail: 'Force un nouvel appel GPT pour ré-évaluer le management.' });
+        setUpgrade({ feature: t('upgrade.refreshMgmt.feature'), detail: t('upgrade.refreshMgmt.detail') });
       } else {
         toast.push('error', err.userMessage);
       }

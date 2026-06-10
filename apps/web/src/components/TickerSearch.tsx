@@ -11,6 +11,7 @@
  * ticker inconnu de l'univers screener) — la sélection d'une suggestion l'emporte si elle existe.
  */
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import type { TickerSuggestion } from '@lubin/shared';
 import { api } from '../lib/api.js';
 import { Icon } from './ui/primitives.js';
@@ -38,9 +39,12 @@ interface Props {
 export function TickerSearch({
   value, onChange, onSelect, placeholder,
   autoFocus = false, exclude = [],
-  variant = 'field', className, inputStyle, noResultLabel = 'Aucun résultat',
+  variant = 'field', className, inputStyle, noResultLabel,
   minChars = 1,
 }: Props) {
+  const { t } = useTranslation();
+  // Default à i18n si le caller n'a pas passé de label (la majorité des cas).
+  const effectiveNoResultLabel = noResultLabel ?? t('search.noResult');
   const [list, setList] = useState<TickerSuggestion[]>([]);
   const [focused, setFocused] = useState(false);
   const [highlight, setHighlight] = useState(0);
@@ -133,15 +137,15 @@ export function TickerSearch({
         <div className="card fade-in cmp-suggest" style={isField ? { width: '100%', top: 52 } : undefined}>
           {status === 'loading' && list.length === 0 && (
             <div className="tiny muted" style={{ padding: '12px 10px', display: 'flex', alignItems: 'center', gap: 8 }}>
-              <span className="spinner" /> Recherche…
+              <span className="spinner" /> {t('search.searching')}
             </div>
           )}
           {status === 'done' && list.length === 0 && !searchError && (
-            <div className="tiny muted" style={{ padding: '12px 10px' }}>{noResultLabel}</div>
+            <div className="tiny muted" style={{ padding: '12px 10px' }}>{effectiveNoResultLabel}</div>
           )}
           {searchError && (
             <div className="tiny" style={{ padding: '12px 10px', color: 'var(--red, #c33)' }}>
-              Erreur de connexion. Réessaie dans un instant.
+              {t('search.networkError')}
             </div>
           )}
           {list.map((s, i) => (

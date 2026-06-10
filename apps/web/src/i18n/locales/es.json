@@ -1,4 +1,60 @@
 {
+  "search": {
+    "searching": "Buscando…",
+    "noResult": "Sin resultados",
+    "networkError": "Error de conexión. Inténtalo de nuevo en un momento."
+  },
+  "upgrade": {
+    "badge": "PRO",
+    "sub": "Esta funcionalidad está reservada a los suscriptores Pro. Pásate a Pro para desbloquear todo Lubin Investment e invertir con todas las cartas en la mesa.",
+    "ctaPrimary": "Ver ofertas Pro",
+    "ctaSecondary": "Más tarde",
+    "disclaimer": "Desde 13 €/mes (anual) — Sin compromiso, cancela con un clic.",
+    "defaultBenefits": [
+      "Análisis ilimitados todos los días",
+      "Análisis cualitativo IA (negocio + gestión)",
+      "Oportunidades del momento — joyas detectadas por nuestra vigilancia",
+      "Comparación de hasta 5 valores",
+      "Gráficos detallados (P/FCF, Cash ROCE, ciclo de caja, dividendo)",
+      "Datos Europa e Internacionales completos"
+    ],
+    "screener": {
+      "feature": "Screener completo y oportunidades",
+      "detail": "Ves el top {{count}} en gratuito. Pro desbloquea todo el universo + el filtro Oportunidades.",
+      "benefits": [
+        "Screener completo — 7000+ empresas evaluadas",
+        "Filtro « Oportunidades del momento » (P/FCF en su decil bajo histórico)",
+        "Filtro Max P/FCF para apuntar a valoraciones bajas",
+        "Datos Europa e Internacionales",
+        "Análisis ilimitados todos los días",
+        "Análisis cualitativo IA, gráficos detallados, comparación 5 valores"
+      ]
+    },
+    "watchlist": {
+      "feature": "Watchlist ilimitada",
+      "detail": "Has alcanzado {{current}} / {{limit}} valores en modo gratuito."
+    },
+    "chart": {
+      "feature": "Gráfico detallado",
+      "detail": {
+        "ccc": "Evolución trimestral del ciclo de conversión de efectivo (DSO + DIO − DPO).",
+        "pfcf": "Histórico del múltiplo P/FCF en varios años, con percentil y zona de compra.",
+        "cashRoce": "Evolución del rendimiento del capital invertido (Cash ROCE) a 5-10 años."
+      }
+    },
+    "quota": {
+      "feature": "Límite diario alcanzado",
+      "detail": "Has usado {{used}} / {{limit}} análisis hoy."
+    },
+    "qualitative": {
+      "feature": "Análisis cualitativo IA",
+      "detail": "Modelo de negocio + calidad de la gestión evaluados por GPT."
+    },
+    "refreshMgmt": {
+      "feature": "Refrescar análisis de gestión",
+      "detail": "Fuerza una nueva llamada GPT para reevaluar la gestión."
+    }
+  },
   "common": {
     "loading": "Cargando…",
     "refresh": "Actualizar",
@@ -203,6 +259,14 @@
       "change": "Var.",
       "oneYear": "1 año",
       "earnings": "Próximos resultados"
+    },
+    "proLock": {
+      "badge": "PRO",
+      "oppTitle": "Oportunidades del momento — reservado a los suscriptores Pro",
+      "maxPfcfTitle": "Filtro Max P/FCF — reservado a los suscriptores Pro",
+      "overlayTitle": "Ver todo el top {{count}} empresas evaluadas",
+      "overlaySub": "El screener Pro desbloquea todo el universo, el filtro « Oportunidades del momento » y todos los datos EU + Internacionales.",
+      "overlayCta": "Hacerse Pro"
     }
   },
   "watchlist": {
@@ -229,6 +293,17 @@
     "toast": {
       "alreadyAdded": "{{ticker}} ya está en tu watchlist.",
       "added": "{{ticker}} añadido"
+    },
+    "quotaSuffix": "en gratuito",
+    "limit": {
+      "banner": {
+        "before": "Has alcanzado el límite de",
+        "titles_one": "{{count}} valor",
+        "titles_other": "{{count}} valores",
+        "after": "del plan gratuito.",
+        "cta": "Hazte Pro para una watchlist ilimitada"
+      },
+      "placeholder": "Límite {{limit}}/{{limit}} alcanzado"
     }
   },
   "analyse": {
@@ -288,7 +363,8 @@
       "loginWatchlist": "Inicia sesión para gestionar tu watchlist",
       "added": "{{ticker}} añadido a la watchlist",
       "qualGenerated": "Análisis cualitativo generado",
-      "mgmtUpdated": "Datos de dirección actualizados"
+      "mgmtUpdated": "Datos de dirección actualizados",
+      "signupRequired": "Crea una cuenta gratuita para analizar {{ticker}}"
     },
     "error": {
       "notFound": "Ticker «{{ticker}}» no encontrado",

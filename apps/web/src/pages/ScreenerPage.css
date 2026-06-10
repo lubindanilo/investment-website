@@ -83,3 +83,16 @@
   letter-spacing: 0.1em; padding: 1px 6px; border-radius: 999px;
   background: var(--brand); color: #fff; margin-left: 4px;
 }
+
+/* Filtre verrouillé (ex Max P/FCF en Free) — opacité réduite + curseur not-allowed
+   pour signaler que l'interaction est désactivée. Au clic, la modale d'upgrade
+   s'ouvre (géré côté React via onClick sur le wrapper). */
+.scr-filter-locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.scr-filter-locked .label { color: var(--ink-3); }
+.scr-filter-locked input[type="range"] {
+  pointer-events: none;
+  filter: grayscale(0.6);
+}

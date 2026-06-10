@@ -152,7 +152,7 @@ export function WatchlistPage() {
               {t('watchlist.followed', { count: items.length })}
               {!isPro && (
                 <span className="wl-quota" style={{ marginLeft: 10 }}>
-                  · <strong>{items.length}</strong> / {FREE_WATCHLIST_LIMIT} en gratuit
+                  · <strong>{items.length}</strong> / {FREE_WATCHLIST_LIMIT} {t('watchlist.quotaSuffix')}
                 </span>
               )}
             </p>
@@ -169,9 +169,9 @@ export function WatchlistPage() {
           <div className="wl-limit-banner">
             <Icon name="info" size={16} />
             <span>
-              Tu as atteint la limite de <strong>{FREE_WATCHLIST_LIMIT} titres</strong> du plan gratuit.
+              {t('watchlist.limit.banner.before')} <strong>{t('watchlist.limit.banner.titles', { count: FREE_WATCHLIST_LIMIT })}</strong> {t('watchlist.limit.banner.after')}
               <button type="button" className="wl-limit-cta" onClick={() => setUpgrade(true)}>
-                Passe Pro pour une watchlist illimitée →
+                {t('watchlist.limit.banner.cta')} →
               </button>
             </span>
           </div>
@@ -183,7 +183,7 @@ export function WatchlistPage() {
               value={newTicker}
               onChange={setNewTicker}
               onSelect={(tk) => { if (atFreeLimit) { setUpgrade(true); return; } void addTicker(tk); }}
-              placeholder={atFreeLimit ? `Limite ${FREE_WATCHLIST_LIMIT}/${FREE_WATCHLIST_LIMIT} atteinte` : t('watchlist.addPlaceholder')}
+              placeholder={atFreeLimit ? t('watchlist.limit.placeholder', { limit: FREE_WATCHLIST_LIMIT }) : t('watchlist.addPlaceholder')}
               variant="field"
               exclude={items.map(i => i.ticker)}
               inputStyle={{ height: 40, paddingLeft: 40, fontSize: 14 }}
@@ -270,8 +270,8 @@ export function WatchlistPage() {
       </div>
       {upgrade && (
         <UpgradeModal
-          feature="Watchlist illimitée"
-          detail={`Tu as atteint ${items.length} / ${FREE_WATCHLIST_LIMIT} titres en mode gratuit.`}
+          feature={t('upgrade.watchlist.feature')}
+          detail={t('upgrade.watchlist.detail', { current: items.length, limit: FREE_WATCHLIST_LIMIT })}
           onClose={() => setUpgrade(false)}
         />
       )}

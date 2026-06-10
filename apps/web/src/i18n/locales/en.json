@@ -8,6 +8,62 @@
     "close": "Close",
     "viaYahoo": "via Yahoo"
   },
+  "search": {
+    "searching": "Searching…",
+    "noResult": "No result",
+    "networkError": "Connection error. Try again in a moment."
+  },
+  "upgrade": {
+    "badge": "PRO",
+    "sub": "This feature is reserved for Pro subscribers. Go Pro to unlock the full Lubin Investment and invest with every card on the table.",
+    "ctaPrimary": "See Pro offers",
+    "ctaSecondary": "Later",
+    "disclaimer": "From €13/month (yearly) — No commitment, cancel in one click.",
+    "defaultBenefits": [
+      "Unlimited analyses every day",
+      "AI qualitative analysis (business + management)",
+      "Opportunities of the moment — gems spotted by our monitor",
+      "Compare up to 5 stocks",
+      "Detailed charts (P/FCF, Cash ROCE, cash cycle, dividend)",
+      "Full Europe and International data"
+    ],
+    "screener": {
+      "feature": "Full screener and opportunities",
+      "detail": "You see the top {{count}} on Free. Pro unlocks the entire universe + the Opportunities filter.",
+      "benefits": [
+        "Full screener — 7000+ rated companies",
+        "« Opportunities of the moment » filter (P/FCF in its historical bottom decile)",
+        "Max P/FCF filter to target low valuations",
+        "Europe and International data",
+        "Unlimited analyses every day",
+        "AI qualitative analysis, detailed charts, 5-stock compare"
+      ]
+    },
+    "watchlist": {
+      "feature": "Unlimited watchlist",
+      "detail": "You've reached {{current}} / {{limit}} stocks on the Free plan."
+    },
+    "chart": {
+      "feature": "Detailed chart",
+      "detail": {
+        "ccc": "Quarterly evolution of the cash conversion cycle (DSO + DIO − DPO).",
+        "pfcf": "P/FCF multiple history over several years, with percentile and buy zone.",
+        "cashRoce": "Evolution of return on invested capital (Cash ROCE) over 5-10 years."
+      }
+    },
+    "quota": {
+      "feature": "Daily limit reached",
+      "detail": "You've used {{used}} / {{limit}} analyses today."
+    },
+    "qualitative": {
+      "feature": "AI qualitative analysis",
+      "detail": "Business model + management quality assessed by GPT."
+    },
+    "refreshMgmt": {
+      "feature": "Refresh management analysis",
+      "detail": "Force a new GPT call to re-evaluate management."
+    }
+  },
   "nav": {
     "analyse": "Analyze",
     "watchlist": "Watchlist",
@@ -203,6 +259,14 @@
       "change": "Chg.",
       "oneYear": "1Y",
       "earnings": "Next earnings"
+    },
+    "proLock": {
+      "badge": "PRO",
+      "oppTitle": "Opportunities of the moment — reserved for Pro subscribers",
+      "maxPfcfTitle": "Max P/FCF filter — reserved for Pro subscribers",
+      "overlayTitle": "See the full top {{count}} rated companies",
+      "overlaySub": "The Pro screener unlocks the entire universe, the Opportunities of the moment filter and all EU + International data.",
+      "overlayCta": "Go Pro"
     }
   },
   "watchlist": {
@@ -229,6 +293,17 @@
     "toast": {
       "alreadyAdded": "{{ticker}} is already in your watchlist.",
       "added": "{{ticker}} added"
+    },
+    "quotaSuffix": "on Free",
+    "limit": {
+      "banner": {
+        "before": "You've reached the limit of",
+        "titles_one": "{{count}} stock",
+        "titles_other": "{{count}} stocks",
+        "after": "on the Free plan.",
+        "cta": "Go Pro for an unlimited watchlist"
+      },
+      "placeholder": "Limit {{limit}}/{{limit}} reached"
     }
   },
   "analyse": {
@@ -288,7 +363,8 @@
       "loginWatchlist": "Log in to manage your watchlist",
       "added": "{{ticker}} added to watchlist",
       "qualGenerated": "Qualitative analysis generated",
-      "mgmtUpdated": "Management data updated"
+      "mgmtUpdated": "Management data updated",
+      "signupRequired": "Create a free account to analyze {{ticker}}"
     },
     "error": {
       "notFound": "Ticker “{{ticker}}” not found",

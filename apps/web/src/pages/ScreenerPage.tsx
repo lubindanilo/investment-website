@@ -254,16 +254,36 @@ export function ScreenerPage() {
             <span className="label">{t('screener.filters.minScore')}</span>
             <div className="seg">{SCORE_OPTS.map(s => <button key={s} type="button" data-active={minScore === s} onClick={() => setMinScore(s)}>{s}+</button>)}</div>
           </div>
-          <div className="row gap-12 scr-pfcf-filter">
-            <span className="label" style={{ whiteSpace: 'nowrap' }}>{t('screener.filters.maxPfcf')}</span>
-            <input type="range" min={10} max={PFCF_MAX} value={maxPfcf} onChange={e => setMaxPfcf(+e.target.value)} style={{ flex: 1, accentColor: 'var(--brand)' }} />
+          {/* Filtre Max P/FCF — verrouillé pour les Free (paywall via UpgradeModal).
+              On affiche le slider quand même (signal qu'il existe) mais on intercepte
+              tout changement de valeur et tout focus pour ouvrir la modale Pro. Visuel
+              grisé + curseur not-allowed pour signaler clairement le verrouillage. */}
+          <div
+            className={'row gap-12 scr-pfcf-filter' + (!isPro ? ' scr-filter-locked' : '')}
+            onClick={() => { if (!isPro) setUpgrade(true); }}
+            title={!isPro ? t('screener.proLock.maxPfcfTitle') : undefined}
+          >
+            <span className="label" style={{ whiteSpace: 'nowrap' }}>
+              {t('screener.filters.maxPfcf')}
+              {!isPro && <span className="scr-pro-tag" style={{ marginLeft: 6 }}>PRO</span>}
+            </span>
+            <input
+              type="range"
+              min={10}
+              max={PFCF_MAX}
+              value={maxPfcf}
+              disabled={!isPro}
+              onChange={e => { if (isPro) setMaxPfcf(+e.target.value); }}
+              onMouseDown={(e) => { if (!isPro) { e.preventDefault(); setUpgrade(true); } }}
+              style={{ flex: 1, accentColor: 'var(--brand)', cursor: !isPro ? 'not-allowed' : 'pointer' }}
+            />
             <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{maxPfcf >= PFCF_MAX ? '∞' : maxPfcf + '×'}</span>
           </div>
           <button
             type="button"
             onClick={() => { if (!isPro) { setUpgrade(true); return; } setOnlyOpp(v => !v); }}
             data-active={onlyOpp && isPro}
-            title={isPro ? t('opportunity.tooltip') : 'Opportunités du moment — réservé aux abonnés Pro'}
+            title={isPro ? t('opportunity.tooltip') : t('screener.proLock.oppTitle')}
             className="scr-opp-toggle"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 12px',
@@ -346,16 +366,13 @@ export function ScreenerPage() {
             {!isPro && sorted.length > FREE_SCREENER_TOP && (
               <div className="scr-pro-overlay" onClick={() => setUpgrade(true)}>
                 <div className="scr-pro-overlay-inner">
-                  <div className="scr-pro-overlay-badge">PRO</div>
+                  <div className="scr-pro-overlay-badge">{t('screener.proLock.badge')}</div>
                   <div className="scr-pro-overlay-title">
-                    Voir tout le top {sorted.length} entreprises notées
+                    {t('screener.proLock.overlayTitle', { count: sorted.length })}
                   </div>
-                  <div className="scr-pro-overlay-sub">
-                    Le screener Pro débloque l'ensemble de l'univers, le filtre « Opportunités
-                    du moment » et toutes les données EU + International.
-                  </div>
+                  <div className="scr-pro-overlay-sub">{t('screener.proLock.overlaySub')}</div>
                   <button type="button" className="btn btn-brand scr-pro-overlay-cta">
-                    Passer Pro <Icon name="arrowRight" size={14} />
+                    {t('screener.proLock.overlayCta')} <Icon name="arrowRight" size={14} />
                   </button>
                 </div>
               </div>
@@ -366,15 +383,9 @@ export function ScreenerPage() {
       </div>
       {upgrade && (
         <UpgradeModal
-          feature="Screener complet et opportunités"
-          detail={`Tu vois le top ${FREE_SCREENER_TOP} en gratuit. Pro débloque l'univers entier + le filtre Opportunités.`}
-          benefits={[
-            'Screener complet — top 7000+ entreprises notées',
-            'Filtre « Opportunités du moment » (P/FCF dans son décile bas historique)',
-            'Données Europe et Internationales',
-            'Analyses illimitées tous les jours',
-            'Analyse qualitative IA, graphiques détaillés, comparaison 5 titres',
-          ]}
+          feature={t('upgrade.screener.feature')}
+          detail={t('upgrade.screener.detail', { count: FREE_SCREENER_TOP })}
+          benefits={(t('upgrade.screener.benefits', { returnObjects: true }) as string[]) ?? []}
           onClose={() => setUpgrade(false)}
         />
       )}

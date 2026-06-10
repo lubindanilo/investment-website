@@ -7,36 +7,35 @@
  *   - Quand un compte Free a épuisé son quota du jour (429 + code 'QUOTA_EXCEEDED')
  *   - Quand on clique sur une feature gated côté UI avant même de tenter l'appel API
  *
+ * i18n : 100 % traduit FR/EN/ES. Le `feature` et le `detail` sont passés en string
+ * DÉJÀ traduite par le caller (qui a accès à useTranslation + interpolations).
+ * Les bénéfices par défaut, le sous-titre, les CTAs et le disclaimer sont lus dans
+ * `upgrade.*` côté locales.
+ *
  * Usage :
+ *   const { t } = useTranslation();
  *   const [modal, setModal] = useState<{ feature: string } | null>(null);
- *   // …
  *   {modal && <UpgradeModal feature={modal.feature} onClose={() => setModal(null)} />}
  */
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Icon } from './ui/primitives.js';
 import './UpgradeModal.css';
 
 interface Props {
-  /** Court titre de la fonctionnalité bloquée (ex: « Analyse qualitative IA »). */
+  /** Court titre de la fonctionnalité bloquée — string DÉJÀ traduite par le caller. */
   feature: string;
-  /** Sous-titre optionnel (utilisé pour le quota dépassé : "Tu as utilisé 10/10 analyses"). */
+  /** Sous-titre optionnel — string DÉJÀ traduite par le caller (utilisé pour quotas dynamiques). */
   detail?: string;
-  /** Bénéfices Pro à mettre en avant. Liste par défaut si non fournie. */
+  /** Bénéfices Pro à mettre en avant. Strings déjà traduites. Si undefined : utilise la liste par défaut depuis i18n. */
   benefits?: string[];
   onClose: () => void;
 }
 
-const DEFAULT_BENEFITS = [
-  'Analyses illimitées tous les jours',
-  'Analyse qualitative IA (business + management)',
-  'Opportunités du moment — pépites repérées par la veille',
-  'Comparaison jusqu\'à 5 titres',
-  'Graphiques détaillés (P/FCF, Cash ROCE, cycle de cash, dividende)',
-  'Données Europe et Internationales complètes',
-];
-
 export function UpgradeModal({ feature, detail, benefits, onClose }: Props) {
+  const { t } = useTranslation();
+
   // Esc pour fermer
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
@@ -44,20 +43,19 @@ export function UpgradeModal({ feature, detail, benefits, onClose }: Props) {
     return () => window.removeEventListener('keydown', onKey);
   }, [onClose]);
 
-  const items = benefits ?? DEFAULT_BENEFITS;
+  // Bénéfices par défaut chargés depuis i18n. Si le caller a passé une liste custom on l'utilise.
+  const defaultBenefits = (t('upgrade.defaultBenefits', { returnObjects: true }) as string[]) ?? [];
+  const items = benefits ?? defaultBenefits;
 
   return (
     <div className="upgrade-overlay" onClick={onClose} role="dialog" aria-modal="true">
       <div className="upgrade-modal" onClick={e => e.stopPropagation()}>
-        <button type="button" className="upgrade-close" onClick={onClose} aria-label="Fermer">×</button>
+        <button type="button" className="upgrade-close" onClick={onClose} aria-label={t('common.close')}>×</button>
 
-        <div className="upgrade-badge">PRO</div>
+        <div className="upgrade-badge">{t('upgrade.badge')}</div>
         <h2 className="upgrade-title">{feature}</h2>
         {detail && <p className="upgrade-detail">{detail}</p>}
-        <p className="upgrade-sub">
-          Cette fonctionnalité est réservée aux abonnés Pro. Passe Pro pour débloquer
-          l'ensemble de Lubin Investment et investir avec toutes les cartes en main.
-        </p>
+        <p className="upgrade-sub">{t('upgrade.sub')}</p>
 
         <ul className="upgrade-features">
           {items.map((b, i) => (
@@ -70,16 +68,14 @@ export function UpgradeModal({ feature, detail, benefits, onClose }: Props) {
 
         <div className="upgrade-cta-row">
           <Link to="/pricing" className="btn btn-brand upgrade-cta" onClick={onClose}>
-            Voir les offres Pro <Icon name="arrowRight" size={14} />
+            {t('upgrade.ctaPrimary')} <Icon name="arrowRight" size={14} />
           </Link>
           <button type="button" className="upgrade-cta-secondary" onClick={onClose}>
-            Plus tard
+            {t('upgrade.ctaSecondary')}
           </button>
         </div>
 
-        <p className="upgrade-disclaimer">
-          À partir de 13 €/mois (annuel) — Sans engagement, annulation en un clic.
-        </p>
+        <p className="upgrade-disclaimer">{t('upgrade.disclaimer')}</p>
       </div>
     </div>
   );

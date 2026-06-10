@@ -100,11 +100,11 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
       )}
       {upgrade && (
         <UpgradeModal
-          feature="Graphique détaillé"
+          feature={t('upgrade.chart.feature')}
           detail={
-            chartKind === 'ccc' ? 'Évolution trimestrielle du cycle de conversion du cash (DSO + DIO − DPO).'
-            : lineConfig?.kind === 'pfcf' ? 'Historique du multiple P/FCF sur plusieurs années, avec percentile et zone d\'achat.'
-            : lineConfig?.kind === 'cashRoce' ? 'Évolution du rendement du capital investi (Cash ROCE) sur 5-10 ans.'
+            chartKind === 'ccc' ? t('upgrade.chart.detail.ccc')
+            : lineConfig?.kind === 'pfcf' ? t('upgrade.chart.detail.pfcf')
+            : lineConfig?.kind === 'cashRoce' ? t('upgrade.chart.detail.cashRoce')
             : undefined
           }
           onClose={() => setUpgrade(false)}

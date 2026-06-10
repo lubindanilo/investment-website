@@ -8,6 +8,62 @@
     "close": "Fermer",
     "viaYahoo": "via Yahoo"
   },
+  "search": {
+    "searching": "Recherche…",
+    "noResult": "Aucun résultat",
+    "networkError": "Erreur de connexion. Réessaie dans un instant."
+  },
+  "upgrade": {
+    "badge": "PRO",
+    "sub": "Cette fonctionnalité est réservée aux abonnés Pro. Passe Pro pour débloquer l'ensemble de Lubin Investment et investir avec toutes les cartes en main.",
+    "ctaPrimary": "Voir les offres Pro",
+    "ctaSecondary": "Plus tard",
+    "disclaimer": "À partir de 13 €/mois (annuel) — Sans engagement, annulation en un clic.",
+    "defaultBenefits": [
+      "Analyses illimitées tous les jours",
+      "Analyse qualitative IA (business + management)",
+      "Opportunités du moment — pépites repérées par la veille",
+      "Comparaison jusqu'à 5 titres",
+      "Graphiques détaillés (P/FCF, Cash ROCE, cycle de cash, dividende)",
+      "Données Europe et Internationales complètes"
+    ],
+    "screener": {
+      "feature": "Screener complet et opportunités",
+      "detail": "Tu vois le top {{count}} en gratuit. Pro débloque l'univers entier + le filtre Opportunités.",
+      "benefits": [
+        "Screener complet — top 7000+ entreprises notées",
+        "Filtre « Opportunités du moment » (P/FCF dans son décile bas historique)",
+        "Filtre Max P/FCF pour cibler les valorisations basses",
+        "Données Europe et Internationales",
+        "Analyses illimitées tous les jours",
+        "Analyse qualitative IA, graphiques détaillés, comparaison 5 titres"
+      ]
+    },
+    "watchlist": {
+      "feature": "Watchlist illimitée",
+      "detail": "Tu as atteint {{current}} / {{limit}} titres en mode gratuit."
+    },
+    "chart": {
+      "feature": "Graphique détaillé",
+      "detail": {
+        "ccc": "Évolution trimestrielle du cycle de conversion du cash (DSO + DIO − DPO).",
+        "pfcf": "Historique du multiple P/FCF sur plusieurs années, avec percentile et zone d'achat.",
+        "cashRoce": "Évolution du rendement du capital investi (Cash ROCE) sur 5-10 ans."
+      }
+    },
+    "quota": {
+      "feature": "Limite quotidienne atteinte",
+      "detail": "Tu as utilisé {{used}} / {{limit}} analyses aujourd'hui."
+    },
+    "qualitative": {
+      "feature": "Analyse qualitative IA",
+      "detail": "Business model + qualité du management évalués par GPT."
+    },
+    "refreshMgmt": {
+      "feature": "Rafraîchir l'analyse management",
+      "detail": "Force un nouvel appel GPT pour ré-évaluer le management."
+    }
+  },
   "nav": {
     "analyse": "Analyser",
     "watchlist": "Watchlist",
@@ -228,6 +284,14 @@
       "change": "Var.",
       "oneYear": "1 an",
       "earnings": "Prochains résultats"
+    },
+    "proLock": {
+      "badge": "PRO",
+      "oppTitle": "Opportunités du moment — réservé aux abonnés Pro",
+      "maxPfcfTitle": "Filtre Max P/FCF — réservé aux abonnés Pro",
+      "overlayTitle": "Voir tout le top {{count}} entreprises notées",
+      "overlaySub": "Le screener Pro débloque l'ensemble de l'univers, le filtre « Opportunités du moment » et toutes les données EU + International.",
+      "overlayCta": "Passer Pro"
     }
   },
   "watchlist": {
@@ -254,6 +318,17 @@
     "toast": {
       "alreadyAdded": "{{ticker}} est déjà dans ta watchlist.",
       "added": "{{ticker}} ajouté"
+    },
+    "quotaSuffix": "en gratuit",
+    "limit": {
+      "banner": {
+        "before": "Tu as atteint la limite de",
+        "titles_one": "{{count}} titre",
+        "titles_other": "{{count}} titres",
+        "after": "du plan gratuit.",
+        "cta": "Passe Pro pour une watchlist illimitée"
+      },
+      "placeholder": "Limite {{limit}}/{{limit}} atteinte"
     }
   },
   "analyse": {
@@ -313,7 +388,8 @@
       "loginWatchlist": "Connecte-toi pour gérer ta watchlist",
       "added": "{{ticker}} ajouté à la watchlist",
       "qualGenerated": "Analyse qualitative générée",
-      "mgmtUpdated": "Données management mises à jour"
+      "mgmtUpdated": "Données management mises à jour",
+      "signupRequired": "Crée un compte gratuit pour analyser {{ticker}}"
     },
     "error": {
       "notFound": "Ticker « {{ticker}} » introuvable",
