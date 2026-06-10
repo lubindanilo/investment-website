@@ -85,6 +85,13 @@
   .home-lede { font-size: 16px; }
 }
 @media (max-width: 880px) {
-  .home-steps { grid-template-columns: 1fr; gap: 24px; }
+  .home-steps { grid-template-columns: 1fr; gap: 20px; }
   .home-stats { gap: 24px; flex-wrap: wrap; }
+  /* Densité mobile : on resserre les grands espacements verticaux (page trop longue). */
+  .home-how { padding: 44px 0; }
+  .home-how-head { margin-bottom: 26px; }
+  .home-section { padding: 12px 18px 24px; }
+  .home-h2 { font-size: 27px; }
+  .home-final { padding: 40px 24px; }
+  .home-final-title { font-size: 28px; }
 }

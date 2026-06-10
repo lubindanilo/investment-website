@@ -33,11 +33,24 @@
 .sp-disclaimer { max-width: 560px; line-height: 1.5; }
 
 @media (max-width: 880px) {
-  .sp-wrap { padding: 64px 18px; }
+  .sp-wrap { padding: 48px 18px; }
+  .sp-head { margin-bottom: 24px; }
   .sp-metrics { grid-template-columns: 1fr 1fr; }
   .sp-perf { grid-template-columns: 1fr; }
   .sp-perf-left { border-right: none; border-bottom: 1px solid var(--line); }
-  .sp-testis { grid-template-columns: 1fr; }
+  /* Témoignages en carrousel horizontal (swipe) sur mobile : évite une pile de 6 cartes
+     (≈ 700 px de scroll vertical). Le contenu est identique, seule la disposition change. */
+  .sp-testis {
+    grid-template-columns: none;
+    display: flex;
+    gap: 12px;
+    margin: 20px -18px 0;
+    padding: 2px 18px 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .sp-testi { scroll-snap-align: start; flex: 0 0 84%; }
   .sp-trust { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 560px) {

@@ -25,7 +25,7 @@
     "sub": "Cette fonctionnalité est réservée aux abonnés Pro. Passe Pro pour débloquer l'ensemble de Lubin Investment et investir avec toutes les cartes en main.",
     "ctaPrimary": "Voir les offres Pro",
     "ctaSecondary": "Plus tard",
-    "disclaimer": "À partir de 13 €/mois (annuel), Sans engagement, annulation en un clic.",
+    "disclaimer": "À partir de 13 €/mois (annuel), sans engagement, annulation en un clic.",
     "defaultBenefits": [
       "Analyses illimitées tous les jours",
       "Analyse qualitative IA (business + management)",
@@ -118,10 +118,10 @@
   "home": {
     "hero": {
       "chip": "Analyse fondamentale automatisée",
-      "titleLine1": "Trouvez les entreprises de qualité,",
+      "titleLine1": "Trouve les entreprises de qualité,",
       "titleAccent": "sans le bruit.",
-      "lede": "Tapez un ticker, obtenez une note de qualité sur 10 calculée sur des critères financiers objectifs. Une valorisation jugée séparément. Et une veille qui note tout le marché pour vous.",
-      "valueLine": "Une note de qualité sur 10, une analyse approfondie du Business Model et du Management, et un prix d'achat conseillé.",
+      "lede": "Tape un ticker, obtiens une note de qualité sur 10 calculée sur des critères financiers objectifs. Une valorisation jugée séparément. Et une veille qui note tout le marché pour toi.",
+      "valueLine": "Une note de qualité sur 10, une analyse approfondie du business model et du management, et un prix d'achat conseillé.",
       "ctaAnalyze": "Analyser une action",
       "ctaScreener": "Explorer le screener"
     },
@@ -153,21 +153,21 @@
     },
     "steps": {
       "0": {
-        "title": "Tapez un ticker",
-        "text": "Entrez le symbole d'une action. La note de qualité s'affiche en quelques secondes."
+        "title": "Tape un ticker",
+        "text": "Entre le symbole d'une action. La note de qualité s'affiche en quelques secondes."
       },
       "1": {
-        "title": "Lisez la note et sa composition",
+        "title": "Lis la note et sa composition",
         "text": "Une note sur 10, sa répartition vert/orange/rouge, et le détail des 10 critères."
       },
       "2": {
-        "title": "Décidez du prix d'entrée",
-        "text": "Ajustez vos hypothèses pour obtenir le prix d'achat conseillé, séparé de la qualité."
+        "title": "Décide du prix d'entrée",
+        "text": "Ajuste tes hypothèses pour obtenir le prix d'achat conseillé, séparé de la qualité."
       }
     },
     "cta": {
-      "title": "Trouvez les 10/10 sans les chercher",
-      "subtitle": "La veille note l'univers en continu, vous récoltez les meilleures.",
+      "title": "Trouve les 10/10 sans les chercher",
+      "subtitle": "La veille note l'univers en continu, tu récoltes les meilleures.",
       "analyze": "Analyser une action",
       "signup": "Créer un compte"
     }
@@ -175,14 +175,14 @@
   "auth": {
     "login": {
       "title": "Bon retour",
-      "subtitle": "Connectez-vous pour reprendre vos analyses."
+      "subtitle": "Connecte-toi pour reprendre tes analyses."
     },
     "signup": {
       "title": "Créer un compte",
       "subtitle": "Quelques secondes pour commencer à noter le marché."
     },
     "email": "E-mail",
-    "emailPlaceholder": "vous@exemple.com",
+    "emailPlaceholder": "toi@exemple.com",
     "password": "Mot de passe",
     "confirmPassword": "Confirmer le mot de passe",
     "passwordHint": "8 caractères minimum.",
@@ -209,7 +209,7 @@
       "kicker": "Lubin Investment",
       "h2Line1": "La donnée tranche,",
       "h2Line2": "pas les opinions.",
-      "p": "Une note de qualité sur 10, une valorisation séparée, et une veille qui surveille tout le marché pour vous."
+      "p": "Une note de qualité sur 10, une valorisation séparée, et une veille qui surveille tout le marché pour toi."
     }
   },
   "marketBeat": {
@@ -313,8 +313,8 @@
     "add": "Ajouter",
     "remove": "Retirer",
     "empty": {
-      "title": "Votre watchlist est vide",
-      "desc": "Ajoutez un ticker ci-dessus, ou explorez le screener pour suivre les mieux notées.",
+      "title": "Ta watchlist est vide",
+      "desc": "Ajoute un ticker ci-dessus, ou explore le screener pour suivre les mieux notées.",
       "cta": "Explorer le screener"
     },
     "col": {
@@ -342,7 +342,7 @@
   "analyse": {
     "hintPrefix": "Astuce : tape un ticker comme",
     "hintOr": "ou",
-    "searchPlaceholder": "Entrez un ticker, ex. AAPL, MSFT, ASML…",
+    "searchPlaceholder": "Entre un ticker, ex. AAPL, MSFT, ASML…",
     "analyze": "Analyser",
     "analyzing": "Analyse…",
     "addToWatchlist": "Ajouter à la watchlist",
@@ -481,7 +481,7 @@
     "currentPrice": "Cours actuel",
     "below": "Sous le prix conseillé",
     "above": "Au-dessus du prix conseillé",
-    "note": "Jugé séparément de la note de qualité. Le prix conseillé est le cours d'entrée pour viser votre rendement.",
+    "note": "Jugé séparément de la note de qualité. Le prix conseillé est le cours d'entrée pour viser ton rendement.",
     "unavailable": "Valorisation indisponible (FCF par action non calculable pour ce titre).",
     "sectorMedian": "Le ratio P/FCF médian du secteur « {{sector}} » est de {{value}}×.",
     "belowSector": "{{pct}} % sous la médiane du secteur",
@@ -628,7 +628,7 @@
   },
   "compare": {
     "title": "Comparaison",
-    "subtitle": "Mettez 2 à {{max}} titres côte à côte. La donnée tranche, ligne par ligne.",
+    "subtitle": "Mets 2 à {{max}} titres côte à côte. La donnée tranche, ligne par ligne.",
     "tickersLabel": "Titres",
     "addTicker": "Ajouter un titre",
     "searchPlaceholder": "Rechercher un ticker…",
@@ -641,7 +641,7 @@
     "vsPrice": "vs cours",
     "errorLoad": "Impossible de charger la comparaison.",
     "invite": {
-      "title": "Ajoutez un 2ᵉ titre pour comparer",
+      "title": "Ajoute un 2ᵉ titre pour comparer",
       "text": "La comparaison met en regard les 10 chiffres et la valorisation de 2 à {{max}} titres, et surligne le meilleur de chaque ligne."
     },
     "sections": {
@@ -868,7 +868,7 @@
     "monthly": "Mensuel",
     "yearly": "Annuel",
     "togglePeriod": "Période de facturation",
-    "save": "Économisez {{amount}}",
+    "save": "Économise {{amount}}",
     "perMonth": "/mois",
     "perYear": "/an",
     "free": {
@@ -915,7 +915,7 @@
         },
         {
           "title": "Une veille continue",
-          "text": "L'ensemble de la cote est noté en continu, Europe, US, International. Vous récoltez les meilleures sans chercher."
+          "text": "L'ensemble de la cote est noté en continu, Europe, US, International. Tu récoltes les meilleures sans chercher."
         },
         {
           "title": "Méthode des grands investisseurs",
@@ -959,21 +959,21 @@
         },
         {
           "q": "Comment annuler mon abonnement ?",
-          "a": "À tout moment depuis votre espace client, en un clic. Pas d'engagement, pas de question. L'accès Pro reste actif jusqu'à la fin de la période en cours."
+          "a": "À tout moment depuis ton espace client, en un clic. Pas d'engagement, pas de question. L'accès Pro reste actif jusqu'à la fin de la période en cours."
         },
         {
-          "q": "Quels moyens de paiement acceptez-vous ?",
+          "q": "Quels moyens de paiement sont acceptés ?",
           "a": "Carte bancaire (Visa, Mastercard, Amex), Apple Pay et Google Pay via Stripe. Paiements sécurisés, jamais stockés sur nos serveurs."
         },
         {
           "q": "Puis-je passer du mensuel à l'annuel (ou inversement) ?",
-          "a": "Oui, à tout moment depuis votre espace client. Le changement est immédiat avec ajustement prorata."
+          "a": "Oui, à tout moment depuis ton espace client. Le changement est immédiat avec ajustement prorata."
         }
       ]
     },
     "finalCta": {
       "title": "Prêt à voir l'invisible ?",
-      "sub": "Démarrez gratuitement, sans carte bancaire. Passez Pro quand vous êtes convaincu.",
+      "sub": "Démarre gratuitement, sans carte bancaire. Passe Pro quand tu es convaincu.",
       "signup": "Commencer gratuitement",
       "analyse": "Analyser une action"
     },
@@ -981,7 +981,7 @@
   },
   "seo": {
     "home": {
-      "title": "Repérez les actions de qualité sous-évaluées",
+      "title": "Repère les actions de qualité sous-évaluées",
       "desc": "Note de qualité /10 sur 10 critères objectifs + prix d'achat conseillé (P/FCF). L'analyse fondamentale automatisée pour faire son propre stock-picking et battre le marché."
     },
     "analyse": {
@@ -990,19 +990,19 @@
     },
     "screener": {
       "title": "Screener d'actions : les meilleures notes du marché",
-      "desc": "Toutes les actions notées en continu par la veille. Filtrez par note, P/FCF, secteur. Les 10/10 remontent automatiquement en tête de liste."
+      "desc": "Toutes les actions notées en continu par la veille. Filtre par note, P/FCF, secteur. Les 10/10 remontent automatiquement en tête de liste."
     },
     "compare": {
       "title": "Comparer 2 à 5 actions côte à côte",
-      "desc": "Mettez plusieurs titres face à face sur 10 critères financiers et la valorisation. Le meilleur de chaque ligne est surligné, ligne par ligne."
+      "desc": "Mets plusieurs titres face à face sur 10 critères financiers et la valorisation. Le meilleur de chaque ligne est surligné, ligne par ligne."
     },
     "watchlist": {
       "title": "Ma watchlist : suivi des actions favorites",
-      "desc": "Suivez vos actions préférées : cours, score sur 10, P/FCF et prochains earnings mis à jour à chaque visite. Jusqu'à 10 titres en gratuit."
+      "desc": "Suis tes actions préférées : cours, score sur 10, P/FCF et prochains earnings mis à jour à chaque visite. Jusqu'à 10 titres en gratuit."
     },
     "pricing": {
       "title": "Tarifs : gratuit et Pro dès 13 €/mois",
-      "desc": "Démarrez gratuitement, sans carte bancaire. Pro 19 €/mois ou 159 €/an : qualitatif IA, opportunités, comparaison 5 titres, données EU et International."
+      "desc": "Démarre gratuitement, sans carte bancaire. Pro 19 €/mois ou 159 €/an : qualitatif IA, opportunités, comparaison 5 titres, données EU et International."
     },
     "methodology": {
       "title": "Méthodologie : 10 critères, sources publiques",
@@ -1014,7 +1014,7 @@
     },
     "account": {
       "title": "Mon compte · Lubin Investment",
-      "desc": "Gérez votre abonnement Lubin Investment : statut, plan, prochaine facturation, portail de gestion sécurisé."
+      "desc": "Gère ton abonnement Lubin Investment : statut, plan, prochaine facturation, portail de gestion sécurisé."
     },
     "legal": {
       "mentions": {
@@ -1103,7 +1103,7 @@
     "pro": {
       "renewsOn": "Prochain renouvellement le",
       "canceledUntil": "Abonnement annulé. Accès Pro maintenu jusqu'au",
-      "pastDue": "Votre dernier paiement a échoué. Mettez à jour votre carte bancaire pour conserver votre accès Pro.",
+      "pastDue": "Ton dernier paiement a échoué. Mets à jour ta carte bancaire pour conserver ton accès Pro.",
       "managePortal": "Gérer mon abonnement",
       "opening": "Ouverture…",
       "portalNote": "Le portail sécurisé Stripe permet de changer de plan, mettre à jour ta carte, télécharger tes factures, ou annuler ton abonnement."
@@ -1141,7 +1141,7 @@
       "paragraphs": [
         "La plupart des analyses d'actions reposent sur des opinions, des consensus d'analystes ou des indicateurs de momentum. Ces signaux changent en permanence et reflètent surtout l'humeur du marché. Nous avons préféré nous attacher à des faits comptables vérifiables, extraits directement des rapports déposés auprès du régulateur.",
         "Les dix critères sélectionnés couvrent trois dimensions d'une entreprise de qualité : la croissance (CA, FCF/action, marges), la profitabilité du capital (Cash ROCE, marge FCF) et la solidité financière (endettement, conversion en cash, cycle d'exploitation). C'est l'ossature que les meilleurs investisseurs long terme, Buffett, Mauboussin, Terry Smith, utilisent depuis des décennies, traduite en formules reproductibles.",
-        "Chaque critère répond à une question simple, avec un seuil clair. Pas de note opaque, pas de pondération secrète. Si une société rate un critère, on vous dit lequel et pourquoi. Et si vous n'êtes pas d'accord avec l'un de nos seuils, vous pouvez l'ignorer en connaissance de cause."
+        "Chaque critère répond à une question simple, avec un seuil clair. Pas de note opaque, pas de pondération secrète. Si une société rate un critère, on te dit lequel et pourquoi. Et si tu n'es pas d'accord avec l'un de nos seuils, tu peux l'ignorer en connaissance de cause."
       ]
     },
     "criteresTitle": "Les 10 critères en détail",
@@ -1184,12 +1184,12 @@
         { "title": "Elle ignore la valorisation.", "text": "Les 10 critères ne disent rien du prix payé. Une excellente société achetée trop cher reste un mauvais investissement. Nous publions séparément des indicateurs de valorisation (PER, FCF yield, EV/EBITDA)." },
         { "title": "Elle est inadaptée à certains secteurs.", "text": "Banques, assurances, foncières cotées (REIT), sociétés en phase de pré-rentabilité : les critères de marge nette, de Cash ROCE ou de CCC ne s'appliquent pas tels quels." },
         { "title": "Les données XBRL ne sont pas parfaites.", "text": "Certains champs sont mal taggués par les déposants, ou utilisent des concepts XBRL non standards. Nous améliorons en continu nos chaînes de fallback, mais des erreurs résiduelles existent." },
-        { "title": "Aucune méthode ne remplace votre jugement.", "text": "Les scores sont une aide à la décision, pas une recommandation d'achat. Vous restez seul juge." }
+        { "title": "Aucune méthode ne remplace ton jugement.", "text": "Les scores sont une aide à la décision, pas une recommandation d'achat. Tu restes seul juge." }
       ]
     },
     "cta": {
       "title": "Prêt à appliquer la méthode ?",
-      "sub": "Lancez une analyse sur le titre de votre choix. Les 10 critères, en clair, en 30 secondes.",
+      "sub": "Lance une analyse sur le titre de ton choix. Les 10 critères, en clair, en 30 secondes.",
       "buttonLoggedIn": "Lancer une analyse",
       "buttonGuest": "Créer un compte gratuit"
     },
