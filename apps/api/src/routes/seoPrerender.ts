@@ -519,10 +519,35 @@ type HubRow = {
   scoreChiffres: number | null; scoreChiffresMax: number | null; pfcfTTM: number | null;
 };
 
-function renderHubHtml(o: { title: string; h1: string; intro: string; path: string; rows: HubRow[] }): string {
-  const canonical = `${SITE_URL}${o.path}`;
+// Chrome multilingue des hubs (fr/en/es). Le tableau (tickers/notes/P/FCF) est neutre ;
+// seuls les libellés et le texte changent. Permet hreflang propre (SEO multilingue).
+const HUB_T = {
+  fr: {
+    ogLocale: 'fr_FR', bcHome: 'Accueil', thAction: 'Action', thScore: 'Note qualité',
+    methodo: "Notre note de qualité juge la solidité du business sur 10 critères financiers objectifs (rentabilité, croissance du free cash flow, rachats d'actions, endettement, rendement du capital). Le P/FCF (prix rapporté au free cash flow) mesure si l'action est chère ou bon marché. Méthode complète :",
+    methodoLink: 'notre méthodologie', explore: 'Explorer le screener complet',
+  },
+  en: {
+    ogLocale: 'en_US', bcHome: 'Home', thAction: 'Stock', thScore: 'Quality score',
+    methodo: 'Our quality score judges how solid a business is across 10 objective financial criteria (profitability, free cash flow growth, share buybacks, debt, return on capital). The P/FCF (price to free cash flow) shows whether the stock is cheap or expensive. Full method:',
+    methodoLink: 'our methodology', explore: 'Explore the full screener',
+  },
+  es: {
+    ogLocale: 'es_ES', bcHome: 'Inicio', thAction: 'Acción', thScore: 'Nota de calidad',
+    methodo: 'Nuestra nota de calidad juzga la solidez del negocio con 10 criterios financieros objetivos (rentabilidad, crecimiento del flujo de caja libre, recompras, deuda, rendimiento del capital). El P/FCF (precio respecto al flujo de caja libre) indica si la acción está cara o barata. Método completo:',
+    methodoLink: 'nuestra metodología', explore: 'Explorar el screener completo',
+  },
+} as const;
+
+function renderHubHtml(o: { title: string; h1: string; intro: string; path: string; rows: HubRow[]; lang: ArticleLang }): string {
+  const tr = HUB_T[o.lang];
+  const base = `${SITE_URL}${o.path}`;
+  const canonical = o.lang === 'fr' ? base : `${base}?lng=${o.lang}`;
   const title = escapeHtml(o.title);
   const description = escapeHtml(o.intro.slice(0, 158));
+  const hreflang = (['fr', 'en', 'es'] as const)
+    .map((l) => `<link rel="alternate" hreflang="${l}" href="${l === 'fr' ? base : `${base}?lng=${l}`}">`)
+    .join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${base}">`;
   const rowsHtml = o.rows.map((r, i) => {
     const name = escapeHtml(r.name || r.ticker);
     const tk = escapeHtml(r.ticker);
@@ -540,13 +565,13 @@ function renderHubHtml(o: { title: string; h1: string; intro: string; path: stri
   const breadcrumbLd = {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 1, name: tr.bcHome, item: `${SITE_URL}/` },
       { '@type': 'ListItem', position: 2, name: 'Screener', item: `${SITE_URL}/screener` },
       { '@type': 'ListItem', position: 3, name: o.h1, item: canonical },
     ],
   };
   return `<!DOCTYPE html>
-<html lang="fr">
+<html lang="${o.lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -554,33 +579,53 @@ function renderHubHtml(o: { title: string; h1: string; intro: string; path: stri
 <meta name="description" content="${description}">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${canonical}">
+${hreflang}
 <meta property="og:type" content="website">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="Lubin Investment">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="${tr.ogLocale}">
 <script type="application/ld+json">${JSON.stringify(itemListLd, null, 2)}</script>
 <script type="application/ld+json">${JSON.stringify(breadcrumbLd, null, 2)}</script>
 </head>
 <body>
 <header><p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/methodologie">Méthodologie</a></p></header>
 <main>
-<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/screener">Screener</a> › ${escapeHtml(o.h1)}</nav>
+<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">${tr.bcHome}</a> › <a href="${SITE_URL}/screener">Screener</a> › ${escapeHtml(o.h1)}</nav>
 <h1>${escapeHtml(o.h1)}</h1>
 <p>${escapeHtml(o.intro)}</p>
 <table>
-<thead><tr><th>#</th><th>Action</th><th>Note qualité</th><th>P/FCF</th></tr></thead>
+<thead><tr><th>#</th><th>${tr.thAction}</th><th>${tr.thScore}</th><th>P/FCF</th></tr></thead>
 <tbody>
 ${rowsHtml}
 </tbody>
 </table>
-<p>Notre note de qualité juge la solidité du business sur 10 critères financiers objectifs (rentabilité, croissance du free cash flow, rachats d'actions, endettement, rendement du capital). Le P/FCF (prix rapporté au free cash flow, le cash réellement généré) mesure si l'action est chère ou bon marché. Méthode complète : <a href="${SITE_URL}/methodologie">notre méthodologie</a>.</p>
-<p><a href="${SITE_URL}/screener">Explorer le screener complet</a></p>
+<p>${tr.methodo} <a href="${SITE_URL}/methodologie">${tr.methodoLink}</a>.</p>
+<p><a href="${SITE_URL}/screener">${tr.explore}</a></p>
 </main>
 </body>
 </html>`;
 }
+
+// Titres/intros des hubs par langue. La valeur secteur (disp) est passée telle quelle.
+const HUB_COPY = {
+  secteur: {
+    fr: (d: string) => ({ title: `Meilleures actions de qualité : ${d}`, h1: `Meilleures actions de qualité du secteur ${d}`, intro: `Les actions du secteur ${d} les mieux notées par notre analyse fondamentale, classées de la meilleure qualité à la moins bonne, avec leur valorisation (P/FCF). Clique sur une action pour son analyse détaillée.` }),
+    en: (d: string) => ({ title: `Best quality stocks: ${d}`, h1: `Best ${d} stocks by quality`, intro: `The ${d} stocks with the highest scores from our fundamental analysis, ranked from best to worst quality, with their valuation (P/FCF). Click a stock for its full analysis.` }),
+    es: (d: string) => ({ title: `Mejores acciones de calidad: ${d}`, h1: `Mejores acciones de calidad del sector ${d}`, intro: `Las acciones del sector ${d} mejor puntuadas por nuestro análisis fundamental, ordenadas de mayor a menor calidad, con su valoración (P/FCF). Haz clic en una acción para su análisis completo.` }),
+  },
+  q10: {
+    fr: { title: 'Actions notées 10 sur 10 : la qualité maximale', h1: 'Les actions notées 10 sur 10 par notre analyse', intro: `Toutes les actions qui obtiennent la note de qualité maximale sur nos 10 critères financiers objectifs (rentabilité, croissance du cash, faible endettement, rachats d'actions). Une note parfaite ne dit rien du prix : regarde aussi le P/FCF.` },
+    en: { title: 'Stocks rated 10 out of 10: top quality', h1: 'Stocks rated 10 out of 10 by our analysis', intro: `All the stocks that score the maximum quality grade on our 10 objective financial criteria (profitability, cash growth, low debt, buybacks). A perfect score says nothing about price: check the P/FCF too.` },
+    es: { title: 'Acciones con nota 10 sobre 10: calidad máxima', h1: 'Las acciones con nota 10 sobre 10 según nuestro análisis', intro: `Todas las acciones que obtienen la nota de calidad máxima en nuestros 10 criterios financieros objetivos (rentabilidad, crecimiento de caja, baja deuda, recompras). Una nota perfecta no dice nada del precio: mira también el P/FCF.` },
+  },
+  sousval: {
+    fr: { title: 'Actions de qualité sous-évaluées en ce moment', h1: 'Actions de qualité actuellement sous-évaluées', intro: `Les actions de qualité dont la valorisation (P/FCF, le prix rapporté au cash généré) est dans le bas de sa fourchette historique. Une bonne entreprise à un prix raisonnable, le coeur de notre méthode.` },
+    en: { title: 'Undervalued quality stocks right now', h1: 'Quality stocks currently undervalued', intro: `Quality stocks whose valuation (P/FCF, the price relative to the cash generated) is in the low end of its historical range. A good company at a reasonable price, the heart of our method.` },
+    es: { title: 'Acciones de calidad infravaloradas ahora', h1: 'Acciones de calidad actualmente infravaloradas', intro: `Acciones de calidad cuya valoración (P/FCF, el precio respecto a la caja generada) está en la parte baja de su rango histórico. Una buena empresa a un precio razonable, el corazón de nuestro método.` },
+  },
+} as const;
 
 const HUB_SELECT = { ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true, pfcfTTM: true } as const;
 
@@ -597,14 +642,14 @@ seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => 
       where: { status: 'scored', sector }, orderBy: { scoreRatio: 'desc' }, take: 60, select: HUB_SELECT,
     });
     const disp = displaySector(sector);
-    // Titre ≤ 60 car : "Meilleures actions de qualité : " fait 32 car, on borne le nom de
-    // secteur à 26 (sinon Google tronque les noms longs comme "Drug Manufacturers...").
+    const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
+    // Titre ≤ 60 car : on borne le nom de secteur à 26 (sinon Google tronque les noms
+    // longs comme "Drug Manufacturers...") ; laisse la place au préfixe traduit.
     const dispTitle = disp.length > 26 ? disp.slice(0, 25).trimEnd() + '…' : disp;
+    const copy = HUB_COPY.secteur[lang](disp);
     res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
-      title: `Meilleures actions de qualité : ${dispTitle}`,
-      h1: `Meilleures actions de qualité du secteur ${disp}`,
-      intro: `Les actions du secteur ${disp} les mieux notées par notre analyse fondamentale, classées de la meilleure qualité à la moins bonne, avec leur valorisation (P/FCF). Clique sur une action pour son analyse détaillée.`,
-      path: `/secteur/${slug}`, rows,
+      title: HUB_COPY.secteur[lang](dispTitle).title,
+      h1: copy.h1, intro: copy.intro, path: `/secteur/${slug}`, rows, lang,
     }));
   } catch (err) {
     console.error('[hub secteur]', slug, (err as Error).message);
@@ -615,28 +660,25 @@ seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => 
 // GET /classement/:slug : best-of (qualite-10-sur-10, sous-evaluees).
 seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) => {
   const slug = String(req.params.slug || '').toLowerCase().slice(0, 80);
+  const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
   try {
-    let rows: HubRow[]; let title: string; let h1: string; let intro: string;
+    let rows: HubRow[]; let copy: { title: string; h1: string; intro: string };
     if (slug === 'qualite-10-sur-10') {
       const raw = await prisma.screenerTicker.findMany({
         where: { status: 'scored' }, orderBy: { scoreRatio: 'desc' }, take: 200, select: HUB_SELECT,
       });
       rows = raw.filter((r) => r.scoreChiffres != null && r.scoreChiffresMax != null && r.scoreChiffres >= r.scoreChiffresMax).slice(0, 100);
-      title = 'Actions notées 10 sur 10 : la qualité maximale';
-      h1 = 'Les actions notées 10 sur 10 par notre analyse';
-      intro = `Toutes les actions qui obtiennent la note de qualité maximale sur nos 10 critères financiers objectifs (rentabilité, croissance du cash, faible endettement, rachats d'actions). Une note parfaite ne dit rien du prix : regarde aussi le P/FCF.`;
+      copy = HUB_COPY.q10[lang];
     } else if (slug === 'sous-evaluees') {
       rows = await prisma.screenerTicker.findMany({
         where: { status: 'scored', opportunity: true }, orderBy: { scoreRatio: 'desc' }, take: 100, select: HUB_SELECT,
       });
-      title = 'Actions de qualité sous-évaluées en ce moment';
-      h1 = 'Actions de qualité actuellement sous-évaluées';
-      intro = `Les actions de qualité dont la valorisation (P/FCF, le prix rapporté au cash généré) est dans le bas de sa fourchette historique. Une bonne entreprise à un prix raisonnable, le coeur de notre méthode.`;
+      copy = HUB_COPY.sousval[lang];
     } else {
       res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return;
     }
     res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
-      title, h1, intro, path: `/classement/${slug}`, rows,
+      title: copy.title, h1: copy.h1, intro: copy.intro, path: `/classement/${slug}`, rows, lang,
     }));
   } catch (err) {
     console.error('[hub classement]', slug, (err as Error).message);

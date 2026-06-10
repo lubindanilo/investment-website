@@ -90,15 +90,22 @@ function buildTickerUrlBlock(ticker: string, lastmod: string): string {
   ].join('\n');
 }
 
-/** Construit un bloc <url> pour une page de hub (secteur / classement). */
+/** Construit un bloc <url> pour une page de hub (secteur / classement), avec hreflang
+ *  fr/en/es (le pré-rendu des hubs gère le paramètre ?lng). */
 function buildHubUrlBlock(path: string, lastmod: string): string {
   const loc = xmlEscape(`${SITE_URL}${path}`);
+  const altLinks = LOCALES.map((lng) => {
+    const href = lng === 'fr' ? `${SITE_URL}${path}` : `${SITE_URL}${path}?lng=${lng}`;
+    return `    <xhtml:link rel="alternate" hreflang="${lng}" href="${xmlEscape(href)}"/>`;
+  }).join('\n');
   return [
     '  <url>',
     `    <loc>${loc}</loc>`,
     `    <lastmod>${lastmod}</lastmod>`,
     `    <changefreq>daily</changefreq>`,
     `    <priority>0.8</priority>`,
+    altLinks,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}"/>`,
     '  </url>',
   ].join('\n');
 }
