@@ -116,10 +116,17 @@ async function onSubscriptionUpsert(sub: Stripe.Subscription): Promise<void> {
     return;
   }
 
-  // Récupère le price ID du 1er item (un abonnement = un price dans notre cas)
-  const priceId = sub.items.data[0]?.price.id ?? null;
+  // Récupère le price ID + period_end du 1er item.
+  // ⚠️ Changement API Stripe 2026-05-27.dahlia : `current_period_end` est désormais sur
+  // chaque item d'abonnement (sub.items.data[i].current_period_end), PLUS à la racine
+  // de l'objet subscription. Si on lisait sub.current_period_end on récupérait `null` et
+  // l'utilisateur restait stuck en Free malgré un statut 'active'.
+  const item = sub.items.data[0];
+  const priceId = item?.price.id ?? null;
   const plan = planFromPriceId(priceId);
-  const periodEnd = (sub as unknown as { current_period_end?: number }).current_period_end;
+  const periodEnd =
+    (item as unknown as { current_period_end?: number } | undefined)?.current_period_end
+    ?? (sub as unknown as { current_period_end?: number }).current_period_end;
 
   await prisma.user.update({
     where: { id: user.id },
