@@ -346,6 +346,25 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
   }
 });
 
+// Auteur (E-E-A-T / YMYL) : Person identifié + bio basée sur l'EXPÉRIENCE et la
+// transparence (pas de diplôme inventé). Levier de confiance en finance.
+const AUTHOR_NAME = 'Lubin Danilo';
+const AUTHOR_JOBTITLE: Record<ArticleLang, string> = {
+  fr: 'Fondateur de Lubin Investment',
+  en: 'Founder of Lubin Investment',
+  es: 'Fundador de Lubin Investment',
+};
+const AUTHOR_BYLINE: Record<ArticleLang, string> = {
+  fr: 'Par Lubin Danilo, fondateur de Lubin Investment',
+  en: 'By Lubin Danilo, founder of Lubin Investment',
+  es: 'Por Lubin Danilo, fundador de Lubin Investment',
+};
+const AUTHOR_BIO: Record<ArticleLang, string> = {
+  fr: "Écrit par Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, j'analyse les actions par les fondamentaux depuis plusieurs années et j'investis mon propre argent avec cette méthode. Je l'ai codifiée dans un outil qui juge séparément la qualité d'un business et son prix, à partir de critères inspirés de la littérature financière (Warren Buffett, Michael Mauboussin, Aswath Damodaran).",
+  en: "Written by Lubin Danilo, founder of Lubin Investment. A self-taught individual investor, I have analyzed stocks through their fundamentals for several years and invest my own money with this method. I codified it into a tool that judges a company's quality and its price separately, using criteria drawn from the financial literature (Warren Buffett, Michael Mauboussin, Aswath Damodaran).",
+  es: "Escrito por Lubin Danilo, fundador de Lubin Investment. Inversor particular autodidacta, analizo acciones por sus fundamentales desde hace varios años e invierto mi propio dinero con este método. Lo codifiqué en una herramienta que juzga por separado la calidad de un negocio y su precio, con criterios inspirados en la literatura financiera (Warren Buffett, Michael Mauboussin, Aswath Damodaran).",
+};
+
 // ─── Article de blog : pré-rendu riche pour les bots/IA (3 langues via ?lng) ──
 function renderArticleHtml(article: Article, lang: ArticleLang): string {
   const c = article.content[lang];
@@ -381,7 +400,14 @@ function renderArticleHtml(article: Article, lang: ArticleLang): string {
     inLanguage: `${lang}`,
     datePublished,
     dateModified,
-    author: { '@type': 'Organization', name: 'Lubin Investment', url: SITE_URL },
+    author: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      jobTitle: AUTHOR_JOBTITLE[lang],
+      description: AUTHOR_BIO[lang],
+      worksFor: { '@type': 'Organization', name: 'Lubin Investment', url: SITE_URL },
+      url: SITE_URL,
+    },
     publisher: {
       '@type': 'Organization',
       name: 'Lubin Investment',
@@ -443,12 +469,14 @@ ${hreflang}
 <main>
 <nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/blog">Blog</a></nav>
 <h1>${escapeHtml(c.title)}</h1>
-<p><small>${escapeHtml(article.date)}</small></p>
+<p><small>${escapeHtml(article.date)} · <span rel="author">${escapeHtml(AUTHOR_BYLINE[lang])}</span></small></p>
 <p><strong>${escapeHtml(c.answer)}</strong></p>
 ${bodyHtml}
 <h2>FAQ</h2>
 ${faqHtml}
 <p><a href="${ctaHref}"><strong>${article.ticker ? `Voir l'analyse ${escapeHtml(article.ticker)} sur Lubin Investment` : 'Analyser une action sur Lubin Investment'}</strong></a></p>
+<h2>${lang === 'en' ? 'About the author' : lang === 'es' ? 'Sobre el autor' : "À propos de l'auteur"}</h2>
+<p>${escapeHtml(AUTHOR_BIO[lang])}</p>
 <footer><p><small>${escapeHtml(c.disclaimer)}</small></p></footer>
 </main>
 </body>
