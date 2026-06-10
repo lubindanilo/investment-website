@@ -121,6 +121,11 @@ export function PricingPage() {
               <span className="pricing-card-amount">0</span>
               <span className="pricing-card-unit">€</span>
             </div>
+            {/* Réserve la même hauteur que la ligne « soit X €/mois » de Pro (annuel) afin
+                d'aligner verticalement les boutons « Aller à l'analyse » et « Devenir Pro ». */}
+            {period === 'yearly' && (
+              <p className="pricing-card-perMonth" aria-hidden="true">&nbsp;</p>
+            )}
             <Link
               to={user ? '/analyser' : '/signup'}
               className="btn pricing-cta pricing-cta-secondary"

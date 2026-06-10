@@ -25,7 +25,7 @@
     "sub": "Cette fonctionnalité est réservée aux abonnés Pro. Passe Pro pour débloquer l'ensemble de Lubin Investment et investir avec toutes les cartes en main.",
     "ctaPrimary": "Voir les offres Pro",
     "ctaSecondary": "Plus tard",
-    "disclaimer": "À partir de 13 €/mois (annuel), sans engagement, annulation en un clic.",
+    "disclaimer": "Dès 13 € par mois",
     "defaultBenefits": [
       "Analyses illimitées tous les jours",
       "Analyse qualitative IA (business + management)",
@@ -881,7 +881,7 @@
         "Jusqu'à 10 analyses quantitatives par jour",
         "Note /10 avec ses 10 critères financiers",
         "Watchlist · jusqu'à 10 titres",
-        "Screener · top 100 résultats",
+        "Screener · top 10 résultats",
         "Comparaison · 2 titres",
         "FR · EN · ES"
       ]
@@ -931,7 +931,7 @@
         { "label": "Analyse complète d'un titre", "free": true, "pro": true },
         { "label": "Note /10 sur 10 critères chiffrés", "free": true, "pro": true },
         { "label": "Watchlist", "free": "10 titres", "pro": "Illimitée" },
-        { "label": "Screener", "free": "Top 100", "pro": "Illimité" },
+        { "label": "Screener", "free": "Top 10", "pro": "Illimité" },
         { "label": "Comparer plusieurs titres", "free": "2 titres", "pro": "Jusqu'à 5" },
         { "label": "Analyse qualitative IA (business + management)", "free": false, "pro": true },
         { "label": "Opportunités du moment", "free": false, "pro": true },
@@ -1111,7 +1111,7 @@
     },
     "free": {
       "quotaLabel": "Analyses aujourd'hui",
-      "summary": "Tu utilises Lubin Investment en mode gratuit. Tu as accès au screener (top 100), à la watchlist (10 titres) et à la comparaison de 2 titres.",
+      "summary": "Tu utilises Lubin Investment en mode gratuit. Tu as accès au screener (top 10), à la watchlist (10 titres) et à la comparaison de 2 titres.",
       "unlockTeaser": "Pour débloquer l'analyse qualitative IA, les opportunités du moment, les graphiques détaillés, la comparaison de 5 titres, et les données EU/International, passe Pro.",
       "goPro": "Voir les offres Pro"
     },
