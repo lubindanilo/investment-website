@@ -134,7 +134,7 @@ export function TickerSearch({
         style={{ ...inputBaseStyle, ...inputStyle }}
       />
       {showSuggestions && (
-        <div className="card fade-in cmp-suggest" style={isField ? { width: '100%', top: 52 } : undefined}>
+        <div className="card fade-up cmp-suggest" style={isField ? { width: '100%', top: 52 } : undefined}>
           {status === 'loading' && list.length === 0 && (
             <div className="tiny muted" style={{ padding: '12px 10px', display: 'flex', alignItems: 'center', gap: 8 }}>
               <span className="spinner" /> {t('search.searching')}

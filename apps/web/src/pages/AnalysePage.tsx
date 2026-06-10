@@ -45,14 +45,16 @@ export function AnalysePage() {
   const { ticker: routeTicker } = useParams<{ ticker?: string }>();
   const toast = useToast();
   const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const { t } = useTranslation();
 
   const [ticker, setTicker] = useState(routeTicker?.toUpperCase() ?? '');
   const [analysis, setAnalysis] = useState<AnalyzeResponse | null>(null);
   // Aperçu public montré à l'anonyme (au lieu d'une redirection vers /signup).
   const [preview, setPreview] = useState<TickerPreview | null>(null);
-  const [loading, setLoading] = useState(false);
+  // On démarre en "chargement" s'il y a déjà un ticker dans l'URL : on attend la résolution
+  // de la session avant de lancer la requête (cf. useEffect), pour ne pas flasher l'écran de saisie.
+  const [loading, setLoading] = useState(!!routeTicker);
   const [error, setError] = useState<ApiError | null>(null);
   const [refreshingQual, setRefreshingQual] = useState(false);
   const [generatingQual, setGeneratingQual] = useState(false);
@@ -72,6 +74,19 @@ export function AnalysePage() {
     setLoading(true); setError(null); setAnalysis(null); setPreview(null); setLastTicker(cleaned);
     window.scrollTo({ top: 0 });
     try {
+      // Anonyme : on NE déclenche PAS l'appel authentifié /api/analyze — il renverrait 401
+      // et polluerait la console du navigateur (l'échec HTTP est loggué même rattrapé en JS).
+      // On va directement chercher l'aperçu public (note /10, P/FCF, secteur, opportunité).
+      if (!user) {
+        try {
+          setPreview(await api.screener.tickerPreview(cleaned));
+        } catch {
+          // Ticker non couvert / non scoré : pas d'aperçu possible → on bascule sur /signup.
+          toast.push('warn', t('analyse.toast.signupRequired', { ticker: cleaned }));
+          navigate('/signup', { state: { from: `/analyse/${cleaned}` } });
+        }
+        return;
+      }
       setAnalysis(await api.analyze(cleaned));
     } catch (e) {
       const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
@@ -105,7 +120,7 @@ export function AnalysePage() {
     } finally {
       setLoading(false);
     }
-  }, [navigate, toast]);
+  }, [navigate, toast, user, t]);
 
   // Soumet un ticker : on NAVIGUE vers /analyse/:ticker plutôt que de faire l'analyse en
   // local. L'URL devient l'unique source de vérité — partageable, bookmarkable, indexable
@@ -126,6 +141,10 @@ export function AnalysePage() {
   useEffect(() => {
     if (routeTicker) {
       setTicker(routeTicker.toUpperCase());
+      // On attend que la session soit résolue avant de lancer : `run` choisit l'aperçu public
+      // (anonyme) ou l'analyse complète (connecté) selon `user`. Lancer trop tôt = mauvais
+      // branchement + flash. `loading` est déjà à true (init) tant qu'on attend.
+      if (authLoading) return;
       run(routeTicker.toUpperCase());
     } else {
       // Retour sur /analyser (clic sur l'onglet « Analyser » depuis /analyse/XXX) :
@@ -133,7 +152,7 @@ export function AnalysePage() {
       // de l'écran de saisie.
       setTicker(''); setAnalysis(null); setError(null); setLastTicker(''); setPreview(null);
     }
-  }, [routeTicker, run]);
+  }, [routeTicker, run, authLoading]);
 
   async function addToWatchlist() {
     if (!analysis) return;
@@ -198,7 +217,14 @@ export function AnalysePage() {
 
         {error && <ErrorState error={error} ticker={lastTicker} onRetry={() => { setError(null); setAnalysis(null); }} />}
         {loading && !analysis && <LoadingState />}
-        {!loading && !analysis && preview && <AnalysisPreview data={preview} />}
+        {!loading && !analysis && preview && (
+          <>
+            <AnalysisPreview data={preview} />
+            {/* Comble le vide sous l'aperçu anonyme avec du contenu RÉEL et utile : les actions
+                les mieux notées par la veille, cliquables (montre le produit + invite à explorer). */}
+            <LandingDiscovery onPick={(t) => { setTicker(t); submit(t); }} />
+          </>
+        )}
         {!loading && !analysis && !error && !preview && <LandingDiscovery onPick={(t) => { setTicker(t); submit(t); }} />}
 
         {analysis && (

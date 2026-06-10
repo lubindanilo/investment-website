@@ -8,6 +8,8 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import type { DividendInfo, DividendPayment } from '@lubin/shared';
 import { Icon } from './ui/primitives.js';
+import { UpgradeModal } from './UpgradeModal.js';
+import { useSubscription } from '../contexts/SubscriptionContext.js';
 
 type Period = 'All' | '10Y' | '5Y' | '1Y';
 const PERIODS: Period[] = ['1Y', '5Y', '10Y', 'All'];
@@ -16,7 +18,9 @@ export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
   dividend: DividendInfo; currency?: string; company: string; ticker: string;
 }) {
   const { t } = useTranslation();
+  const { isPro } = useSubscription();
   const [open, setOpen] = useState(false);
+  const [upgrade, setUpgrade] = useState(false);
   const sym = currency === 'USD' ? '$' : `${currency} `;
   const cur = currency === 'USD' ? '$' : currency;
   const hasHistory = dividend.payments.length > 0;
@@ -67,12 +71,21 @@ export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
       <div className="crit-card-foot">
         <span className="pfcf-card-tag">{t('pfcfCards.notScored')}</span>
         {hasHistory && (
-          <button type="button" className="crit-hist-btn" onClick={() => setOpen(true)}>
+          <button
+            type="button"
+            className={'crit-hist-btn' + (!isPro ? ' crit-hist-btn-pro' : '')}
+            onClick={() => { if (!isPro) { setUpgrade(true); return; } setOpen(true); }}
+            title={!isPro ? 'Graphique détaillé — Pro' : undefined}
+          >
             <Icon name="bars" size={13} /> {t('dividend.evolution')}
+            {!isPro && <span className="crit-pro-tag">PRO</span>}
           </button>
         )}
       </div>
-      {open && <DividendModal payments={dividend.payments} currency={currency} onClose={() => setOpen(false)} />}
+      {open && isPro && <DividendModal payments={dividend.payments} currency={currency} onClose={() => setOpen(false)} />}
+      {upgrade && (
+        <UpgradeModal feature={t('upgrade.chart.feature')} detail={t('upgrade.chart.detail.dividend')} onClose={() => setUpgrade(false)} />
+      )}
     </div>
   );
 }
