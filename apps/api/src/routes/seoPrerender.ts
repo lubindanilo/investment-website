@@ -597,8 +597,11 @@ seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => 
       where: { status: 'scored', sector }, orderBy: { scoreRatio: 'desc' }, take: 60, select: HUB_SELECT,
     });
     const disp = displaySector(sector);
+    // Titre ≤ 60 car : "Meilleures actions de qualité : " fait 32 car, on borne le nom de
+    // secteur à 26 (sinon Google tronque les noms longs comme "Drug Manufacturers...").
+    const dispTitle = disp.length > 26 ? disp.slice(0, 25).trimEnd() + '…' : disp;
     res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
-      title: `Meilleures actions de qualité : ${disp}`,
+      title: `Meilleures actions de qualité : ${dispTitle}`,
       h1: `Meilleures actions de qualité du secteur ${disp}`,
       intro: `Les actions du secteur ${disp} les mieux notées par notre analyse fondamentale, classées de la meilleure qualité à la moins bonne, avec leur valorisation (P/FCF). Clique sur une action pour son analyse détaillée.`,
       path: `/secteur/${slug}`, rows,

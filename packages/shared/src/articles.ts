@@ -96,7 +96,7 @@ const adobe: Article = {
       excerpt:
         "An elite company, with its cash cheaper than at any point in five years. But a good company and a good price are two different things. Here is how I decide, without emotion.",
       metaDescription:
-        "Adobe's cash is cheaper than in five years, yet the stock still trades above my buy price. Quality and price are two different things: how I decide before earnings.",
+        "Adobe's cash is cheaper than in five years, but the stock still trades above my buy price. Quality is not price: how I decide before earnings.",
       answer:
         "Adobe is an elite company trading cheaper today than at any point in the last five years. But a good company and a good price are two different things. The market fears AI will destroy it, and even after the fall, the stock still trades above my reasonable buy price. Here is how I decide, with no bet and no emotion.",
       body: [
