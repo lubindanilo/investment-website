@@ -1007,7 +1007,7 @@
     },
     "methodology": {
       "title": "Metodología: 10 criterios, fuentes públicas",
-      "desc": "Cómo funciona la nota sobre 10: 10 criterios financieros, fórmulas, umbrales, fuentes regulatorias (SEC EDGAR XBRL, Finnhub, Yahoo). Cero caja negra."
+      "desc": "Cómo funciona la nota sobre 10: 10 criterios financieros, sus fórmulas y umbrales, explicados de forma sencilla. Cero caja negra."
     },
     "blog": {
       "title": "Blog · Análisis, métodos y fundamentales · Lubin Investment",
@@ -1077,7 +1077,6 @@
         "El método Lubin explicado criterio por criterio",
         "Leer un 10-K en 15 minutos: la cheat sheet",
         "Cash ROCE vs ROIC: por qué elegimos la versión Bettin-Mauboussin",
-        "Theil-Sen vs mínimos cuadrados: por qué la mediana de pendientes lo cambia todo",
         "5 trampas de las fichas Yahoo Finance que nadie menciona",
         "Por qué excluimos el oro y las commodities de nuestro universo"
       ]
@@ -1135,12 +1134,12 @@
     "hero": {
       "chip": "Metodología",
       "title": "10 criterios, fuentes públicas, cero caja negra.",
-      "lede": "Lubin Investment aplica la misma lupa a cada empresa: diez criterios fundamentales, valorados a partir de presentaciones regulatorias oficiales. Así funciona exactamente el motor."
+      "lede": "Lubin Investment aplica la misma lupa a cada empresa: diez criterios fundamentales, valorados a partir de las cuentas oficiales públicas de cada empresa. Así funciona exactamente el motor."
     },
     "why": {
       "title": "Por qué este método",
       "paragraphs": [
-        "La mayoría de los análisis bursátiles se basan en opiniones, consensos de analistas o indicadores de momentum. Estas señales cambian constantemente y reflejan sobre todo el ánimo del mercado. Preferimos anclarnos en hechos contables verificables, extraídos directamente de las presentaciones ante el regulador.",
+        "La mayoría de los análisis bursátiles se basan en opiniones, consensos de analistas o indicadores de momentum. Estas señales cambian constantemente y reflejan sobre todo el ánimo del mercado. Preferimos anclarnos en hechos contables verificables, tomados directamente de las cuentas oficiales que publica cada empresa.",
         "Los diez criterios seleccionados cubren tres dimensiones de una empresa de calidad: crecimiento (ventas, FCF por acción, márgenes), rentabilidad del capital (Cash ROCE, margen FCF) y solidez financiera (endeudamiento, conversión a caja, ciclo operativo). Es la misma estructura que los mejores inversores a largo plazo, Buffett, Mauboussin, Terry Smith, usan desde hace décadas, traducida en fórmulas reproducibles.",
         "Cada criterio responde a una pregunta simple, con un umbral claro. Sin nota opaca, sin ponderación secreta. Si una empresa falla un criterio, te decimos cuál y por qué. Y si no estás de acuerdo con uno de nuestros umbrales, puedes ignorarlo con conocimiento de causa."
       ]
@@ -1153,38 +1152,23 @@
     },
     "criteres": [
       { "num": 1, "nom": "Rentable", "formule": "Margen neto = Beneficio neto / Ventas", "seuil": "> 0 %", "pourquoi": "Una empresa que no gana dinero no es una tesis de inversión. Este primer filtro elimina las sociedades estructuralmente deficitarias." },
-      { "num": 2, "nom": "Ventas en crecimiento", "formule": "Crecimiento ventas = pendiente Theil-Sen de los ingresos a 5 años", "seuil": "> 10 % anual", "pourquoi": "El crecimiento orgánico de las ventas sigue siendo el mejor motor de creación de valor a largo plazo. La regresión Theil-Sen suaviza los ejercicios excepcionales." },
-      { "num": 3, "nom": "Beneficios por acción en crecimiento", "formule": "Crecimiento FCF/acción ajustado SBC = pendiente Theil-Sen a 5 años", "seuil": "> 10 % anual", "pourquoi": "Lo que realmente recibe el accionista es la caja por acción tras la dilución. Ajustamos la remuneración en acciones (SBC) para evitar ilusiones contables." },
-      { "num": 4, "nom": "Número de acciones controlado", "formule": "Variación anual del número de acciones diluido a 5 años", "seuil": "Estable o a la baja", "pourquoi": "Una dilución masiva transfiere valor de los accionistas existentes a los nuevos. Las mejores empresas recompran acciones en vez de emitirlas." },
-      { "num": 5, "nom": "Rentabilidad de caja", "formule": "Margen FCF = Free Cash Flow / Ventas", "seuil": "> 10 %", "pourquoi": "La caja es un hecho, el beneficio es una opinión contable. Un margen FCF alto significa que cada euro de ingreso genera caja real disponible para los accionistas." },
-      { "num": 6, "nom": "Márgenes en expansión", "formule": "Apalancamiento operativo = pendiente Theil-Sen del margen operativo a 5 años", "seuil": "Pendiente positiva", "pourquoi": "Los márgenes que se amplían con el tiempo revelan una ventaja competitiva real: pricing power, economías de escala o efecto de red. Una señal de calidad duradera." },
-      { "num": 7, "nom": "Rendimiento del capital invertido", "formule": "Cash ROCE (Bettin-Mauboussin) = FCF / (Fondos propios + Deuda neta − Caja excedente)", "seuil": "> 15 %", "pourquoi": "Medida popularizada por Michael Mauboussin: cuánta caja genera la empresa por cada euro realmente inmovilizado. Por encima del 15 %, tienes un compounder de calidad." },
-      { "num": 8, "nom": "Endeudamiento controlado", "formule": "Deuda neta / FCF = (Deuda financiera − Caja) / Free Cash Flow", "seuil": "< 3 años", "pourquoi": "¿Cuántos años de flujo de caja harían falta para devolver toda la deuda? Por encima de 3 años, el riesgo de balance se vuelve un problema en caso de bajada del ciclo." },
-      { "num": 9, "nom": "Beneficios convertidos en caja", "formule": "FCF / Beneficio neto (Cash conversion ratio)", "seuil": "> 1", "pourquoi": "Verifica que los beneficios contables se traducen realmente en caja. Un ratio < 1 recurrente suele señalar calidad contable dudosa o necesidades de capital de trabajo crecientes." },
-      { "num": 10, "nom": "Ciclo de cobro neto", "formule": "CCC = DSO + DIO − DPO (Days Sales Outstanding + Days Inventory − Days Payable)", "seuil": "Bajo o negativo", "pourquoi": "El Cash Conversion Cycle mide cuántos días la empresa inmoviliza caja en su ciclo operativo. Las mejores (Apple, Amazon) tienen un CCC negativo: sus proveedores financian su crecimiento." }
+      { "num": 2, "nom": "Ventas en crecimiento", "formule": "Crecimiento de las ventas a 5 años", "seuil": "> 10 % anual", "pourquoi": "El crecimiento de las ventas sigue siendo el mejor motor de creación de valor a largo plazo. Medimos la tendencia a 5 años para suavizar los años excepcionales." },
+      { "num": 3, "nom": "Beneficios por acción en crecimiento", "formule": "Crecimiento de la caja por acción a 5 años", "seuil": "> 10 % anual", "pourquoi": "Lo que de verdad te importa como accionista es la caja generada por acción. Quitamos de paso las acciones repartidas a los empleados, que reducen tu parte." },
+      { "num": 4, "nom": "Número de acciones controlado", "formule": "Variación anual del número de acciones diluido a 5 años", "seuil": "Estable o a la baja", "pourquoi": "La dilución es cuando la empresa crea nuevas acciones: tu parte del pastel se reduce. Las mejores hacen lo contrario, recompran acciones en vez de emitirlas." },
+      { "num": 5, "nom": "Rentabilidad de caja", "formule": "Margen de caja = free cash flow / ventas", "seuil": "> 10 %", "pourquoi": "El free cash flow es el dinero que queda realmente en caja una vez pagado todo, mucho más fiable que el beneficio contable. Un margen alto significa que cada euro de ingreso genera caja real." },
+      { "num": 6, "nom": "Márgenes en expansión", "formule": "Evolución del margen operativo a 5 años", "seuil": "Al alza", "pourquoi": "Unos márgenes que suben con los años revelan una ventaja real: la empresa puede subir precios o producir más barato. Señal de calidad duradera." },
+      { "num": 7, "nom": "Rendimiento del capital invertido", "formule": "Caja generada por cada 100 € invertidos en el negocio (Cash ROCE)", "seuil": "> 15 %", "pourquoi": "Cuánta caja genera la empresa por cada euro realmente invertido en su negocio. Por encima del 15 %, hace trabajar su dinero de forma muy eficiente." },
+      { "num": 8, "nom": "Endeudamiento controlado", "formule": "Deuda neta / free cash flow", "seuil": "< 3 años", "pourquoi": "Cuántos años de caja harían falta para devolver toda la deuda. Por encima de 3 años, el riesgo se vuelve serio si las cosas se tuercen." },
+      { "num": 9, "nom": "Beneficios convertidos en caja", "formule": "Free cash flow / beneficio neto", "seuil": "> 1", "pourquoi": "Verifica que los beneficios anunciados se convierten en dinero real, no solo en un apunte contable. Un ratio por debajo de 1 de forma duradera es una señal de alerta." },
+      { "num": 10, "nom": "Ciclo de cobro neto", "formule": "Días que el dinero queda inmovilizado en el ciclo (clientes, inventario, proveedores)", "seuil": "Bajo o negativo", "pourquoi": "Los días que el dinero queda inmovilizado entre pagar a los proveedores y cobrar de los clientes. Corto o negativo es excelente: sus proveedores financian su crecimiento (Apple, Amazon)." }
     ],
-    "theil": {
-      "title": "¿Por qué la regresión Theil-Sen?",
-      "p1": "Para medir una tendencia a 5 años (crecimiento de ventas, FCF/acción, márgenes), la regresión lineal clásica es sensible a los valores extremos. Un año excepcional basta para distorsionar la pendiente.",
-      "p2": "La regresión Theil-Sen calcula la pendiente mediana entre todos los pares de puntos posibles. Es robusta frente a valores atípicos: un ejercicio puntual no desvía la medida de la tendencia de fondo.",
-      "exampleLabel": "Ejemplo Adobe:",
-      "exampleText": "en 2022, la fallida adquisición de Figma disparó los gastos extraordinarios. Una regresión clásica habría concluido en una desaceleración del crecimiento. Theil-Sen neutraliza ese punto aislado y sigue midiendo la dinámica real del negocio."
-    },
-    "sourcesTitle": "Fuentes de datos",
-    "sources": [
-      { "nom": "SEC EDGAR (XBRL)", "role": "Estados financieros oficiales EEUU", "detail": "Fuente primaria para las empresas estadounidenses. Datos XBRL directamente de las presentaciones 10-K y 10-Q ante el regulador. Cero intermediarios, cero procesamiento." },
-      { "nom": "Finnhub", "role": "Cotizaciones, fundamentales internacionales", "detail": "Cobertura de mercados europeos e internacionales, precios casi en tiempo real, calendarios de resultados y datos fundamentales agregados." },
-      { "nom": "Yahoo Finance", "role": "Fallback precios y calendarios", "detail": "Utilizado como respaldo para las fechas de publicación de resultados y ciertos históricos de precios no cubiertos en otro lugar." },
-      { "nom": "OpenAI GPT (solo Pro)", "role": "Análisis cualitativo", "detail": "Para los suscriptores Pro: generación de un análisis cualitativo del modelo de negocio, riesgos y tesis de inversión. El scoring cuantitativo de los 10 criterios se mantiene 100 % determinista." }
-    ],
-    "sourcesNote": "Citamos sistemáticamente la fuente de cada dato mostrado. Sin cifras «propietarias», sin procesamiento no documentado.",
     "limites": {
       "title": "Límites, lo que el método no hace",
       "items": [
         { "title": "El método es retrospectivo.", "text": "Juzga la calidad histórica de una empresa. Un compounder de calidad puede perfectamente decepcionar en los próximos años, y una empresa mediocre puede recuperarse." },
         { "title": "Ignora la valoración.", "text": "Los 10 criterios no dicen nada del precio pagado. Una empresa excelente comprada demasiado cara sigue siendo una mala inversión. Publicamos por separado indicadores de valoración (PER, FCF yield, EV/EBITDA)." },
         { "title": "Es inadecuado para algunos sectores.", "text": "Bancos, seguros, inmobiliarias cotizadas (REIT), empresas en fase de pre-rentabilidad: los criterios de margen neto, Cash ROCE o CCC no se aplican tal cual." },
-        { "title": "Los datos XBRL no son perfectos.", "text": "Algunos campos están mal etiquetados por los emisores, o usan conceptos XBRL no estándar. Mejoramos continuamente nuestras cadenas de fallback, pero existen errores residuales." },
+        { "title": "Los datos no son perfectos.", "text": "Algunos provienen de informes mal cumplimentados por las empresas. Corregimos continuamente, pero pueden quedar errores residuales." },
         { "title": "Ningún método reemplaza tu juicio.", "text": "Las notas son una ayuda a la decisión, no una recomendación de compra. Sigues siendo el único juez." }
       ]
     },

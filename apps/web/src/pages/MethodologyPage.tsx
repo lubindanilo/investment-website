@@ -1,15 +1,13 @@
 /**
  * MethodologyPage — page publique « Méthodologie ».
  *
- * Détaille les 10 critères fondamentaux scorés par Lubin Investment, leurs formules,
- * leurs seuils et leur justification. Présente aussi la régression Theil-Sen utilisée
- * pour mesurer les tendances long terme et liste les sources de données mobilisées.
+ * Détaille les 10 critères fondamentaux scorés par Lubin Investment, leurs formules
+ * (en clair), leurs seuils et leur justification, expliqués pour un débutant.
  *
  * Objectif éditorial : maximum de transparence. L'utilisateur doit comprendre exactement
  * ce qu'il achète quand il prend l'abonnement Pro.
  *
- * Structure : Hero → Pourquoi (3 paragraphes) → 10 critères (cards) → Theil-Sen → Sources
- * (4 cards) → Limites → CTA → Disclaimer.
+ * Structure : Hero → Pourquoi (3 paragraphes) → 10 critères (cards) → Limites → CTA → Disclaimer.
  *
  * i18n : 100 % traduit FR/EN/ES via la clé `methodology.*` dans locales/*.json.
  * Les listes (critères, sources, limites, "pourquoi") sont récupérées via returnObjects
@@ -30,19 +28,12 @@ interface Critere {
   pourquoi: string;
 }
 
-interface Source {
-  nom: string;
-  role: string;
-  detail: string;
-}
-
 export function MethodologyPage() {
   const { t } = useTranslation();
   const { user } = useAuth();
 
   // Listes longues côté i18n via returnObjects (un seul objet JSON, plus simple à traduire).
   const criteres: Critere[] = (t('methodology.criteres', { returnObjects: true }) as Critere[]) ?? [];
-  const sources: Source[] = (t('methodology.sources', { returnObjects: true }) as Source[]) ?? [];
   const whyParas: string[] = (t('methodology.why.paragraphs', { returnObjects: true }) as string[]) ?? [];
   const limites: { title: string; text: string }[] =
     (t('methodology.limites.items', { returnObjects: true }) as { title: string; text: string }[]) ?? [];
@@ -105,37 +96,6 @@ export function MethodologyPage() {
               </Reveal>
             ))}
           </div>
-        </section>
-
-        {/* Régression Theil-Sen */}
-        <Reveal as="section" className="methodo-theil">
-          <h2 className="methodo-section-title">{t('methodology.theil.title')}</h2>
-          <div className="methodo-theil-card">
-            <p>{t('methodology.theil.p1')}</p>
-            <p>{t('methodology.theil.p2')}</p>
-            <p>
-              <strong>{t('methodology.theil.exampleLabel')}</strong> {t('methodology.theil.exampleText')}
-            </p>
-          </div>
-        </Reveal>
-
-        {/* Sources */}
-        <section className="methodo-sources">
-          <Reveal>
-            <h2 className="methodo-section-title">{t('methodology.sourcesTitle')}</h2>
-          </Reveal>
-          <div className="methodo-sources-grid">
-            {sources.map((s, i) => (
-              <Reveal as="article" key={i} className="methodo-source-card" delay={i * 100}>
-                <h3 className="methodo-source-nom">{s.nom}</h3>
-                <p className="methodo-source-role">{s.role}</p>
-                <p className="methodo-source-detail">{s.detail}</p>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal>
-            <p className="methodo-sources-note">{t('methodology.sourcesNote')}</p>
-          </Reveal>
         </section>
 
         {/* Limites */}

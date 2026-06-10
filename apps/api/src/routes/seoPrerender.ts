@@ -258,7 +258,7 @@ ${oppBadge}
 <h2>Les 10 critères chiffrés analysés</h2>
 <ol>
 <li><strong>Rentable</strong> : marge nette positive</li>
-<li><strong>Ventes en croissance</strong> : chiffre d'affaires &gt; 10 %/an sur 5 ans (régression Theil-Sen robuste aux outliers)</li>
+<li><strong>Ventes en croissance</strong> : chiffre d'affaires &gt; 10 %/an sur 5 ans</li>
 <li><strong>Profits par action en croissance</strong> : FCF par action ajusté de la rémunération en actions, &gt; 10 %/an sur 5 ans</li>
 <li><strong>Nombre d'actions maîtrisé</strong> : stable ou en baisse (rachats nets = création de valeur pour l'actionnaire)</li>
 <li><strong>Profitabilité cash</strong> : marge de free cash flow &gt; 10 % du chiffre d'affaires</li>
@@ -266,15 +266,8 @@ ${oppBadge}
 <li><strong>Rendement du capital investi</strong> : Cash ROCE Bettin-Mauboussin &gt; 15 % par an</li>
 <li><strong>Endettement maîtrisé</strong> : dette nette remboursable en moins de 3 ans de free cash flow</li>
 <li><strong>Bénéfices transformés en cash</strong> : le free cash flow excède le bénéfice net comptable</li>
-<li><strong>Délai d'encaissement net</strong> : cycle de conversion du cash (DSO + DIO − DPO) en baisse ou négatif</li>
+<li><strong>Délai d'encaissement net</strong> : cycle de trésorerie court ou négatif</li>
 </ol>
-
-<h2>Sources de données</h2>
-<p>L'analyse de ${safeTicker} s'appuie sur des sources publiques autoritatives :
-SEC EDGAR (XBRL des 10-K et 10-Q déposés à la SEC) pour les fondamentaux trimestriels US,
-Finnhub pour les compléments et la couverture internationale,
-Yahoo Finance pour les données de marché,
-stockanalysis.com pour les trimestriels EU et internationaux.</p>
 
 <h2>Questions fréquentes</h2>
 ${faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n')}
@@ -831,15 +824,15 @@ const STATIC_SEO: StaticSeo[] = [
     // methodology.criteres ; à resynchroniser si la grille évolue, comme data/articles.ts).
     criteria: [
       { n: 1, name: '1. Rentable', formula: "Marge nette = Résultat net / Chiffre d'affaires", threshold: '> 0 %', why: "Une entreprise qui ne gagne pas d'argent n'est pas une affaire d'investissement. Ce premier filtre élimine les sociétés structurellement déficitaires." },
-      { n: 2, name: '2. Ventes en croissance', formula: "Croissance CA = pente Theil-Sen du chiffre d'affaires sur 5 ans", threshold: '> 10 % par an', why: "La croissance organique du chiffre d'affaires reste le meilleur moteur de création de valeur à long terme. La régression Theil-Sen lisse les exercices exceptionnels." },
-      { n: 3, name: '3. Profits par action en croissance', formula: 'Croissance FCF/action SBC-ajusté = pente Theil-Sen sur 5 ans', threshold: '> 10 % par an', why: "Ce que touche réellement l'actionnaire, c'est le cash par action après dilution. On retraite la rémunération en actions (Stock-Based Compensation) pour éviter les illusions comptables." },
-      { n: 4, name: "4. Nombre d'actions maîtrisé", formula: "Variation annuelle du nombre d'actions dilué sur 5 ans", threshold: 'Stable ou en baisse', why: "Une dilution massive transfère la valeur des actionnaires existants vers les nouveaux entrants. Les meilleures entreprises rachètent leurs actions plutôt que d'en émettre." },
-      { n: 5, name: '5. Profitabilité cash', formula: "Marge FCF = Free Cash Flow / Chiffre d'affaires", threshold: '> 10 %', why: "Le cash est un fait, le bénéfice est une opinion comptable. Une marge FCF élevée signifie que chaque euro de revenu génère du vrai cash disponible pour les actionnaires." },
-      { n: 6, name: '6. Marges en expansion', formula: 'Operating leverage = pente Theil-Sen de la marge opérationnelle sur 5 ans', threshold: 'Pente positive', why: "Les marges qui s'étendent dans le temps révèlent un avantage compétitif réel : pricing power, économies d'échelle ou effet de réseau. C'est un signal de qualité durable." },
-      { n: 7, name: '7. Rendement du capital investi', formula: 'Cash ROCE (Bettin-Mauboussin) = FCF / (Capitaux propres + Dette nette − Cash excédentaire)', threshold: '> 15 %', why: "Mesure popularisée par Michael Mauboussin : combien de cash l'entreprise génère pour chaque euro réellement immobilisé. Au-dessus de 15 %, on tient un compounder de qualité." },
-      { n: 8, name: '8. Endettement maîtrisé', formula: 'Dette nette / FCF = (Dette financière − Trésorerie) / Free Cash Flow', threshold: '< 3 ans', why: "Combien d'années de cash flow seraient nécessaires pour rembourser toute la dette ? Au-delà de 3 ans, le risque de bilan devient un sujet en cas de retournement." },
-      { n: 9, name: '9. Bénéfices transformés en cash', formula: 'FCF / Résultat net (Cash conversion ratio)', threshold: '> 1', why: "Vérifie que les bénéfices comptables se traduisent vraiment en cash. Un ratio < 1 récurrent signale souvent une qualité comptable douteuse ou des besoins en BFR croissants." },
-      { n: 10, name: "10. Délai d'encaissement net", formula: 'CCC = DSO + DIO − DPO (Days Sales Outstanding + Days Inventory − Days Payable)', threshold: 'Faible ou négatif', why: "Le Cash Conversion Cycle mesure combien de jours l'entreprise immobilise du cash dans son cycle d'exploitation. Les meilleures (Apple, Amazon) ont un CCC négatif : leurs fournisseurs financent leur croissance." },
+      { n: 2, name: '2. Ventes en croissance', formula: "Croissance du chiffre d'affaires sur 5 ans", threshold: '> 10 % par an', why: "La croissance des ventes reste le meilleur moteur de création de valeur sur le long terme. On mesure la tendance sur 5 ans pour gommer les années exceptionnelles." },
+      { n: 3, name: '3. Profits par action en croissance', formula: 'Croissance du cash par action sur 5 ans', threshold: '> 10 % par an', why: "Ce qui compte vraiment pour toi, actionnaire, c'est le cash généré par action. On retire au passage les actions distribuées aux salariés, qui réduisent ta part." },
+      { n: 4, name: "4. Nombre d'actions maîtrisé", formula: "Variation annuelle du nombre d'actions dilué sur 5 ans", threshold: 'Stable ou en baisse', why: "La dilution, c'est quand l'entreprise crée de nouvelles actions : ta part du gâteau rétrécit. Les meilleures font l'inverse, elles rachètent leurs actions au lieu d'en émettre." },
+      { n: 5, name: '5. Profitabilité cash', formula: "Marge de cash = cash disponible (free cash flow) / chiffre d'affaires", threshold: '> 10 %', why: "Le free cash flow, c'est l'argent qui reste vraiment en caisse une fois tout payé, bien plus fiable que le bénéfice comptable. Une marge élevée veut dire que chaque euro de vente génère du vrai cash." },
+      { n: 6, name: '6. Marges en expansion', formula: 'Évolution de la marge opérationnelle sur 5 ans', threshold: 'En hausse', why: "Des marges qui montent au fil des années révèlent un vrai avantage : l'entreprise peut imposer ses prix ou produire moins cher. Un signe de qualité durable." },
+      { n: 7, name: '7. Rendement du capital investi', formula: "Cash généré pour 100 € investis dans l'activité (Cash ROCE)", threshold: '> 15 %', why: "Combien de cash l'entreprise génère pour chaque euro réellement investi dans son activité. Au-dessus de 15 %, elle fait travailler son argent très efficacement." },
+      { n: 8, name: '8. Endettement maîtrisé', formula: 'Dette nette / cash disponible (free cash flow)', threshold: '< 3 ans', why: "Combien d'années de cash il faudrait pour rembourser toute la dette. Au-delà de 3 ans, le risque devient sérieux en cas de coup dur." },
+      { n: 9, name: '9. Bénéfices transformés en cash', formula: 'Cash disponible / bénéfice net', threshold: '> 1', why: "Vérifie que les profits annoncés deviennent du vrai argent, pas juste une écriture comptable. Un ratio durablement sous 1 est un signal d'alerte." },
+      { n: 10, name: "10. Délai d'encaissement net", formula: "Jours pendant lesquels l'argent reste bloqué dans le cycle (clients, stocks, fournisseurs)", threshold: 'Faible ou négatif', why: "Le temps, en jours, pendant lequel l'argent est immobilisé entre le moment où l'entreprise paie ses fournisseurs et celui où ses clients la paient. Court ou négatif, c'est excellent : ses fournisseurs financent sa croissance (Apple, Amazon)." },
     ],
   },
   {
