@@ -872,12 +872,11 @@
       "cta": "Start free",
       "ctaLoggedIn": "Go to analysis",
       "features": [
-        "Full analysis of any single stock",
+        "Up to 10 quantitative analyses per day",
         "Score /10 with its 10 financial criteria",
         "Watchlist · up to 10 stocks",
         "Screener · top 100 results",
         "Compare · 2 stocks",
-        "Search by ticker or name",
         "FR · EN · ES"
       ]
     },
@@ -888,10 +887,10 @@
       "cta": "Go Pro",
       "ctaComingSoon": "Coming soon",
       "alreadyPro": "You are already Pro · manage subscription",
-      "equivalent": "that's {{price}} €/mo billed annually",
+      "equivalent": "that's {{price}} €/mo",
       "features": [
-        "Everything in Free · unlimited",
-        "AI qualitative analysis · business + management",
+        "Unlimited quantitative analysis",
+        "Qualitative analysis: business + management",
         "Opportunities of the moment · hidden gems",
         "Compare up to 5 stocks",
         "Market share · competitive landscape",

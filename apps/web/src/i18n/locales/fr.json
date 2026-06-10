@@ -872,12 +872,11 @@
       "cta": "Commencer gratuitement",
       "ctaLoggedIn": "Aller à l'analyse",
       "features": [
-        "Analyse complète d'1 titre à la carte",
+        "Jusqu'à 10 analyses quantitatives par jour",
         "Note /10 avec ses 10 critères financiers",
         "Watchlist · jusqu'à 10 titres",
         "Screener · top 100 résultats",
         "Comparaison · 2 titres",
-        "Recherche par ticker ou nom",
         "FR · EN · ES"
       ]
     },
@@ -888,10 +887,10 @@
       "cta": "Devenir Pro",
       "ctaComingSoon": "Bientôt disponible",
       "alreadyPro": "Tu es déjà Pro · gérer mon abonnement",
-      "equivalent": "soit {{price}} €/mois facturé annuellement",
+      "equivalent": "soit {{price}} €/mois",
       "features": [
-        "Tout le Gratuit · sans limite",
-        "Analyse qualitative IA · business + management",
+        "Analyse quantitative illimitée",
+        "Analyse qualitative : business + management",
         "Opportunités du moment · pépites repérées par la veille",
         "Comparaison jusqu'à 5 titres",
         "Part de marché · paysage concurrentiel",
