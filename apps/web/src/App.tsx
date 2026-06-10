@@ -22,6 +22,8 @@ const MarketBeatPage = lazy(() => import('./pages/MarketBeatPage.js').then((m) =
 const MethodologyPage = lazy(() => import('./pages/MethodologyPage.js').then((m) => ({ default: m.MethodologyPage })));
 const BlogPage = lazy(() => import('./pages/BlogPage.js').then((m) => ({ default: m.BlogPage })));
 const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage.js').then((m) => ({ default: m.BlogArticlePage })));
+// Pages-hub SEO (SPEC-001) : secteurs et classements. Mêmes URLs que celles servies aux bots.
+const HubPage = lazy(() => import('./pages/HubPage.js').then((m) => ({ default: m.HubPage })));
 
 // Pages légales — lazy aussi (faible trafic, on les sort du bundle d'entrée).
 const MentionsLegalesPage = lazy(() =>
@@ -105,6 +107,8 @@ export function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/analyser" element={<AnalysePage />} />
             <Route path="/analyse/:ticker" element={<AnalysePage />} />
+            <Route path="/secteur/:slug" element={<HubPage kind="sector" />} />
+            <Route path="/classement/:slug" element={<HubPage kind="classement" />} />
             <Route path="/watchlist" element={<RequireAuth><WatchlistPage /></RequireAuth>} />
             <Route path="/screener" element={<ScreenerPage />} />
             <Route path="/strategie-portefeuille" element={isOwner ? <MarketBeatPage /> : <Navigate to="/" replace />} />

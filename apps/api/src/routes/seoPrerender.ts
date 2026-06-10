@@ -103,6 +103,9 @@ function renderTickerHtml(t: {
     : '';
 
   const canonical = `${SITE_URL}/analyse/${safeTicker}`;
+  // Maillage hub-spoke : lien vers le hub de son secteur (réduit la profondeur de crawl).
+  const sectorHubHref = t.sector ? `${SITE_URL}/secteur/${slugifySector(t.sector)}` : null;
+  const sectorHubLabel = t.sector ? escapeHtml(displaySector(t.sector)) : null;
   const rawName = t.name || t.ticker;
 
   // Titre ≤ 60 caractères (Google tronque ~61 % des titres plus longs), mot-clé en
@@ -236,7 +239,7 @@ ${JSON.stringify({
 
 <main>
 
-<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/screener">Screener</a> › ${name} (${safeTicker})</nav>
+<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/screener">Screener</a> ${sectorHubHref ? `› <a href="${sectorHubHref}">${sectorHubLabel}</a> ` : ''}› ${name} (${safeTicker})</nav>
 
 <h1>Analyse fondamentale ${safeTicker} (${name})</h1>
 <p><small>Mis à jour le ${dateFr}</small></p>
@@ -281,6 +284,7 @@ ${faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join(
 
 <p>Autres ressources :
 <a href="${SITE_URL}/methodologie">Méthodologie détaillée</a> ·
+${sectorHubHref ? `<a href="${sectorHubHref}">Toutes les actions du secteur ${sectorHubLabel}</a> ·\n` : ''}<a href="${SITE_URL}/classement/qualite-10-sur-10">Les actions notées 10 sur 10</a> ·
 <a href="${SITE_URL}/screener">Top des entreprises de qualité</a> ·
 <a href="${SITE_URL}/pricing">Tarifs Lubin Investment</a>.</p>
 
@@ -468,4 +472,142 @@ seoPrerenderRouter.get('/blog/:slug', (req: Request, res: Response) => {
     .set('Content-Type', 'text/html; charset=utf-8')
     .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
     .send(renderArticleHtml(article, lng));
+});
+
+// ─── Pages-hub (SPEC-001) : maillent les 5000 /analyse, réduisent la profondeur ─────
+// de crawl et distribuent le PageRank interne. C'est le levier d'indexation.
+export function slugifySector(s: string): string {
+  return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/&/g, ' et ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+// Affichage propre du nom de secteur (sans tiret, préférence Lubin).
+function displaySector(s: string): string {
+  return s.replace(/\s*-\s*/g, ' ').trim();
+}
+
+type HubRow = {
+  ticker: string; name: string | null;
+  scoreChiffres: number | null; scoreChiffresMax: number | null; pfcfTTM: number | null;
+};
+
+function renderHubHtml(o: { title: string; h1: string; intro: string; path: string; rows: HubRow[] }): string {
+  const canonical = `${SITE_URL}${o.path}`;
+  const title = escapeHtml(o.title);
+  const description = escapeHtml(o.intro.slice(0, 158));
+  const rowsHtml = o.rows.map((r, i) => {
+    const name = escapeHtml(r.name || r.ticker);
+    const tk = escapeHtml(r.ticker);
+    const score = r.scoreChiffres != null && r.scoreChiffresMax ? `${r.scoreChiffres}/${r.scoreChiffresMax}` : 'n.d.';
+    const pfcf = r.pfcfTTM != null && isFinite(r.pfcfTTM) ? `${r.pfcfTTM.toFixed(1)}x` : 'n.d.';
+    return `<tr><td>${i + 1}</td><td><a href="${SITE_URL}/analyse/${tk}">${name} (${tk})</a></td><td>${score}</td><td>${pfcf}</td></tr>`;
+  }).join('\n');
+  const itemListLd = {
+    '@context': 'https://schema.org', '@type': 'ItemList',
+    itemListElement: o.rows.map((r, i) => ({
+      '@type': 'ListItem', position: i + 1,
+      url: `${SITE_URL}/analyse/${r.ticker}`, name: `${r.name || r.ticker} (${r.ticker})`,
+    })),
+  };
+  const breadcrumbLd = {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Screener', item: `${SITE_URL}/screener` },
+      { '@type': 'ListItem', position: 3, name: o.h1, item: canonical },
+    ],
+  };
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<meta name="description" content="${description}">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="${canonical}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${description}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:site_name" content="Lubin Investment">
+<meta property="og:locale" content="fr_FR">
+<script type="application/ld+json">${JSON.stringify(itemListLd, null, 2)}</script>
+<script type="application/ld+json">${JSON.stringify(breadcrumbLd, null, 2)}</script>
+</head>
+<body>
+<header><p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/methodologie">Méthodologie</a></p></header>
+<main>
+<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/screener">Screener</a> › ${escapeHtml(o.h1)}</nav>
+<h1>${escapeHtml(o.h1)}</h1>
+<p>${escapeHtml(o.intro)}</p>
+<table>
+<thead><tr><th>#</th><th>Action</th><th>Note qualité</th><th>P/FCF</th></tr></thead>
+<tbody>
+${rowsHtml}
+</tbody>
+</table>
+<p>Notre note de qualité juge la solidité du business sur 10 critères financiers objectifs (rentabilité, croissance du free cash flow, rachats d'actions, endettement, rendement du capital). Le P/FCF (prix rapporté au free cash flow, le cash réellement généré) mesure si l'action est chère ou bon marché. Méthode complète : <a href="${SITE_URL}/methodologie">notre méthodologie</a>.</p>
+<p><a href="${SITE_URL}/screener">Explorer le screener complet</a></p>
+</main>
+</body>
+</html>`;
+}
+
+const HUB_SELECT = { ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true, pfcfTTM: true } as const;
+
+// GET /secteur/:slug : meilleures actions d'un secteur (servi aux bots).
+seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => {
+  const slug = String(req.params.slug || '').toLowerCase().slice(0, 80);
+  try {
+    const distinct = await prisma.screenerTicker.findMany({
+      where: { status: 'scored', sector: { not: null } }, distinct: ['sector'], select: { sector: true },
+    });
+    const sector = distinct.map((d) => d.sector).find((s): s is string => !!s && slugifySector(s) === slug);
+    if (!sector) { res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return; }
+    const rows = await prisma.screenerTicker.findMany({
+      where: { status: 'scored', sector }, orderBy: { scoreRatio: 'desc' }, take: 60, select: HUB_SELECT,
+    });
+    const disp = displaySector(sector);
+    res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
+      title: `Meilleures actions de qualité : ${disp}`,
+      h1: `Meilleures actions de qualité du secteur ${disp}`,
+      intro: `Les actions du secteur ${disp} les mieux notées par notre analyse fondamentale, classées de la meilleure qualité à la moins bonne, avec leur valorisation (P/FCF). Clique sur une action pour son analyse détaillée.`,
+      path: `/secteur/${slug}`, rows,
+    }));
+  } catch (err) {
+    console.error('[hub secteur]', slug, (err as Error).message);
+    res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug));
+  }
+});
+
+// GET /classement/:slug : best-of (qualite-10-sur-10, sous-evaluees).
+seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) => {
+  const slug = String(req.params.slug || '').toLowerCase().slice(0, 80);
+  try {
+    let rows: HubRow[]; let title: string; let h1: string; let intro: string;
+    if (slug === 'qualite-10-sur-10') {
+      const raw = await prisma.screenerTicker.findMany({
+        where: { status: 'scored' }, orderBy: { scoreRatio: 'desc' }, take: 200, select: HUB_SELECT,
+      });
+      rows = raw.filter((r) => r.scoreChiffres != null && r.scoreChiffresMax != null && r.scoreChiffres >= r.scoreChiffresMax).slice(0, 100);
+      title = 'Actions notées 10 sur 10 : la qualité maximale';
+      h1 = 'Les actions notées 10 sur 10 par notre analyse';
+      intro = `Toutes les actions qui obtiennent la note de qualité maximale sur nos 10 critères financiers objectifs (rentabilité, croissance du cash, faible endettement, rachats d'actions). Une note parfaite ne dit rien du prix : regarde aussi le P/FCF.`;
+    } else if (slug === 'sous-evaluees') {
+      rows = await prisma.screenerTicker.findMany({
+        where: { status: 'scored', opportunity: true }, orderBy: { scoreRatio: 'desc' }, take: 100, select: HUB_SELECT,
+      });
+      title = 'Actions de qualité sous-évaluées en ce moment';
+      h1 = 'Actions de qualité actuellement sous-évaluées';
+      intro = `Les actions de qualité dont la valorisation (P/FCF, le prix rapporté au cash généré) est dans le bas de sa fourchette historique. Une bonne entreprise à un prix raisonnable, le coeur de notre méthode.`;
+    } else {
+      res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return;
+    }
+    res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
+      title, h1, intro, path: `/classement/${slug}`, rows,
+    }));
+  } catch (err) {
+    console.error('[hub classement]', slug, (err as Error).message);
+    res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug));
+  }
 });

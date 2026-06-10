@@ -10,3 +10,19 @@
 export function sectorSlug(raw: string): string {
   return raw.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
 }
+
+/**
+ * Slug d'URL d'un hub secteur. DOIT rester identique à `slugifySector` côté API
+ * (apps/api/src/routes/seoPrerender.ts) : c'est la même URL servie aux bots, dans le
+ * sitemap et à l'humain. Séparateur tiret, accents retirés, « & » → « et ».
+ * Ex. : « Travel Services » → « travel-services ».
+ */
+export function sectorHubSlug(raw: string): string {
+  return raw
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/&/g, ' et ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}

@@ -20,6 +20,7 @@ import { prisma } from '../db/client.js';
 // TODO : à terme, transformer @lubin/shared en vrai package compilé (tsc → dist/) et virer
 // cette duplication.
 import { listArticles } from '../data/articles.js';
+import { slugifySector } from './seoPrerender.js';
 
 export const sitemapRouter: Router = Router();
 
@@ -89,7 +90,20 @@ function buildTickerUrlBlock(ticker: string, lastmod: string): string {
   ].join('\n');
 }
 
-/** Assemble le XML complet (statiques + tickers scorés). */
+/** Construit un bloc <url> pour une page de hub (secteur / classement). */
+function buildHubUrlBlock(path: string, lastmod: string): string {
+  const loc = xmlEscape(`${SITE_URL}${path}`);
+  return [
+    '  <url>',
+    `    <loc>${loc}</loc>`,
+    `    <lastmod>${lastmod}</lastmod>`,
+    `    <changefreq>daily</changefreq>`,
+    `    <priority>0.8</priority>`,
+    '  </url>',
+  ].join('\n');
+}
+
+/** Assemble le XML complet (statiques + hubs + tickers scorés). */
 async function buildSitemap(): Promise<string> {
   const lastmod = new Date().toISOString().slice(0, 10);
 
@@ -101,11 +115,31 @@ async function buildSitemap(): Promise<string> {
     select: { ticker: true },
   });
 
+  // Hubs secteur : un par secteur ayant au moins un ticker scoré (pages d'indexation/maillage).
+  const sectorRows = await prisma.screenerTicker.findMany({
+    where: { status: 'scored', sector: { not: null } },
+    distinct: ['sector'],
+    select: { sector: true },
+  });
+  const sectorSlugs = Array.from(
+    new Set(
+      sectorRows
+        .map((r) => (r.sector ? slugifySector(r.sector) : ''))
+        .filter((s) => s.length > 0),
+    ),
+  );
+
   const staticBlocks = STATIC_PAGES.map((p) => buildStaticUrlBlock(p.path, p.changefreq, p.priority, lastmod));
   // Articles de blog (hreflang fr/en/es via ?lng). lastmod = date de mise à jour de l'article.
   const articleBlocks = listArticles().map((a) =>
     buildStaticUrlBlock(`/blog/${a.slug}`, 'monthly', 0.6, a.updated),
   );
+  // Hubs : classements transverses (toujours présents) + un hub par secteur.
+  const hubBlocks = [
+    buildHubUrlBlock('/classement/qualite-10-sur-10', lastmod),
+    buildHubUrlBlock('/classement/sous-evaluees', lastmod),
+    ...sectorSlugs.map((slug) => buildHubUrlBlock(`/secteur/${slug}`, lastmod)),
+  ];
   const tickerBlocks = tickers.map((t) => buildTickerUrlBlock(t.ticker, lastmod));
 
   return [
@@ -113,6 +147,7 @@ async function buildSitemap(): Promise<string> {
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ...staticBlocks,
     ...articleBlocks,
+    ...hubBlocks,
     ...tickerBlocks,
     '</urlset>',
   ].join('\n');
