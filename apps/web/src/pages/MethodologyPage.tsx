@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext.js';
 import SeoHead from '../components/SeoHead.js';
+import { Reveal } from '../components/Reveal.js';
 import './MethodologyPage.css';
 
 interface Critere {
@@ -59,21 +60,30 @@ export function MethodologyPage() {
         </header>
 
         {/* Pourquoi */}
-        <section className="methodo-why">
+        <Reveal as="section" className="methodo-why">
           <h2 className="methodo-section-title">{t('methodology.why.title')}</h2>
           <div className="methodo-why-stack">
             {whyParas.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
-        </section>
+        </Reveal>
 
-        {/* Les 10 critères */}
+        {/* Les 10 critères — cascade d'apparition (80ms entre chaque carte) */}
         <section className="methodo-criteres">
-          <h2 className="methodo-section-title">{t('methodology.criteresTitle')}</h2>
+          <Reveal>
+            <h2 className="methodo-section-title">{t('methodology.criteresTitle')}</h2>
+          </Reveal>
           <div className="methodo-criteres-grid">
-            {criteres.map(c => (
-              <article key={c.num} className="methodo-critere-card">
+            {criteres.map((c, i) => (
+              <Reveal
+                as="article"
+                key={c.num}
+                className="methodo-critere-card"
+                /* Cascade : on plafonne le delay à ~480ms pour ne pas trop attendre
+                   sur les cartes du bas du grid (sinon utilisateur scrolle déjà ailleurs). */
+                delay={Math.min(i * 80, 480)}
+              >
                 <div className="methodo-critere-head">
                   <span className="methodo-critere-num">{String(c.num).padStart(2, '0')}</span>
                   <h3 className="methodo-critere-nom">{c.nom}</h3>
@@ -92,13 +102,13 @@ export function MethodologyPage() {
                     <dd className="methodo-critere-pourquoi">{c.pourquoi}</dd>
                   </div>
                 </dl>
-              </article>
+              </Reveal>
             ))}
           </div>
         </section>
 
         {/* Régression Theil-Sen */}
-        <section className="methodo-theil">
+        <Reveal as="section" className="methodo-theil">
           <h2 className="methodo-section-title">{t('methodology.theil.title')}</h2>
           <div className="methodo-theil-card">
             <p>{t('methodology.theil.p1')}</p>
@@ -107,25 +117,29 @@ export function MethodologyPage() {
               <strong>{t('methodology.theil.exampleLabel')}</strong> {t('methodology.theil.exampleText')}
             </p>
           </div>
-        </section>
+        </Reveal>
 
         {/* Sources */}
         <section className="methodo-sources">
-          <h2 className="methodo-section-title">{t('methodology.sourcesTitle')}</h2>
+          <Reveal>
+            <h2 className="methodo-section-title">{t('methodology.sourcesTitle')}</h2>
+          </Reveal>
           <div className="methodo-sources-grid">
             {sources.map((s, i) => (
-              <article key={i} className="methodo-source-card">
+              <Reveal as="article" key={i} className="methodo-source-card" delay={i * 100}>
                 <h3 className="methodo-source-nom">{s.nom}</h3>
                 <p className="methodo-source-role">{s.role}</p>
                 <p className="methodo-source-detail">{s.detail}</p>
-              </article>
+              </Reveal>
             ))}
           </div>
-          <p className="methodo-sources-note">{t('methodology.sourcesNote')}</p>
+          <Reveal>
+            <p className="methodo-sources-note">{t('methodology.sourcesNote')}</p>
+          </Reveal>
         </section>
 
         {/* Limites */}
-        <section className="methodo-limites">
+        <Reveal as="section" className="methodo-limites">
           <h2 className="methodo-section-title">{t('methodology.limites.title')}</h2>
           <div className="methodo-limites-card">
             <ul>
@@ -136,10 +150,10 @@ export function MethodologyPage() {
               ))}
             </ul>
           </div>
-        </section>
+        </Reveal>
 
         {/* CTA final */}
-        <section className="methodo-cta">
+        <Reveal as="section" className="methodo-cta">
           <h2 className="methodo-cta-title">{t('methodology.cta.title')}</h2>
           <p className="methodo-cta-sub">{t('methodology.cta.sub')}</p>
           <div className="methodo-cta-buttons">
@@ -147,9 +161,9 @@ export function MethodologyPage() {
               {user ? t('methodology.cta.buttonLoggedIn') : t('methodology.cta.buttonGuest')}
             </Link>
           </div>
-        </section>
+        </Reveal>
 
-        {/* Disclaimer */}
+        {/* Disclaimer — sans animation (peu visible si scrollé loin, et ne doit pas distraire) */}
         <footer className="methodo-disclaimer">
           <p>{t('methodology.disclaimer')}</p>
         </footer>
