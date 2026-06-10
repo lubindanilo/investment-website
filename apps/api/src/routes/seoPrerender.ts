@@ -696,6 +696,9 @@ type StaticSeo = {
   sections: { h2: string; p: string }[];
   links: { href: string; label: string }[];
   website?: boolean;
+  /** Détail des critères (page Méthodologie) : rendu en HTML lisible par les bots GEO
+   *  qui n'exécutent PAS le JS (GPTBot, PerplexityBot, ClaudeBot) + ItemList JSON-LD. */
+  criteria?: { n: number; name: string; formula: string; threshold: string; why: string }[];
 };
 
 function renderStaticHtml(o: StaticSeo): string {
@@ -708,6 +711,23 @@ function renderStaticHtml(o: StaticSeo): string {
   const linksHtml = o.links
     .map((l) => `<a href="${SITE_URL}${l.href}">${escapeHtml(l.label)}</a>`)
     .join(' · ');
+  // Détail des critères (Méthodologie) : HTML sémantique servi aux bots (les crawlers GEO
+  // ne rendent pas le JS, donc le contenu client-side leur est invisible sans ça).
+  const criteriaHtml = o.criteria?.length
+    ? `<h2>Les 10 critères en détail</h2>\n<ol>\n${o.criteria
+        .map((c) => `  <li>\n    <h3>${escapeHtml(c.name)}</h3>\n    <p><strong>Formule :</strong> ${escapeHtml(c.formula)}</p>\n    <p><strong>Seuil :</strong> ${escapeHtml(c.threshold)}</p>\n    <p>${escapeHtml(c.why)}</p>\n  </li>`)
+        .join('\n')}\n</ol>`
+    : '';
+  const criteriaLd = o.criteria?.length
+    ? `\n<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'ItemList',
+        name: 'Les 10 critères de qualité de Lubin Investment',
+        itemListElement: o.criteria.map((c) => ({
+          '@type': 'ListItem', position: c.n,
+          name: c.name, description: `${c.why} (Formule : ${c.formula} · Seuil : ${c.threshold})`,
+        })),
+      })}</script>`
+    : '';
   const breadcrumbLd = {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
@@ -739,7 +759,7 @@ function renderStaticHtml(o: StaticSeo): string {
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="Lubin Investment">
 <meta property="og:locale" content="fr_FR">
-<script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>${websiteLd}
+<script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>${websiteLd}${criteriaLd}
 </head>
 <body>
 <header><p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/methodologie">Méthodologie</a> · <a href="${SITE_URL}/blog">Blog</a></p></header>
@@ -748,6 +768,7 @@ function renderStaticHtml(o: StaticSeo): string {
 <h1>${escapeHtml(o.h1)}</h1>
 <p>${escapeHtml(o.intro)}</p>
 ${sectionsHtml}
+${criteriaHtml}
 <p>${linksHtml}</p>
 </main>
 </body>
@@ -805,6 +826,20 @@ const STATIC_SEO: StaticSeo[] = [
     links: [
       { href: '/analyser', label: 'Analyser une action' },
       { href: '/screener', label: 'Screener' },
+    ],
+    // Détail des 10 critères servi aux bots GEO (copie statique, source : web i18n
+    // methodology.criteres ; à resynchroniser si la grille évolue, comme data/articles.ts).
+    criteria: [
+      { n: 1, name: '1. Rentable', formula: "Marge nette = Résultat net / Chiffre d'affaires", threshold: '> 0 %', why: "Une entreprise qui ne gagne pas d'argent n'est pas une affaire d'investissement. Ce premier filtre élimine les sociétés structurellement déficitaires." },
+      { n: 2, name: '2. Ventes en croissance', formula: "Croissance CA = pente Theil-Sen du chiffre d'affaires sur 5 ans", threshold: '> 10 % par an', why: "La croissance organique du chiffre d'affaires reste le meilleur moteur de création de valeur à long terme. La régression Theil-Sen lisse les exercices exceptionnels." },
+      { n: 3, name: '3. Profits par action en croissance', formula: 'Croissance FCF/action SBC-ajusté = pente Theil-Sen sur 5 ans', threshold: '> 10 % par an', why: "Ce que touche réellement l'actionnaire, c'est le cash par action après dilution. On retraite la rémunération en actions (Stock-Based Compensation) pour éviter les illusions comptables." },
+      { n: 4, name: "4. Nombre d'actions maîtrisé", formula: "Variation annuelle du nombre d'actions dilué sur 5 ans", threshold: 'Stable ou en baisse', why: "Une dilution massive transfère la valeur des actionnaires existants vers les nouveaux entrants. Les meilleures entreprises rachètent leurs actions plutôt que d'en émettre." },
+      { n: 5, name: '5. Profitabilité cash', formula: "Marge FCF = Free Cash Flow / Chiffre d'affaires", threshold: '> 10 %', why: "Le cash est un fait, le bénéfice est une opinion comptable. Une marge FCF élevée signifie que chaque euro de revenu génère du vrai cash disponible pour les actionnaires." },
+      { n: 6, name: '6. Marges en expansion', formula: 'Operating leverage = pente Theil-Sen de la marge opérationnelle sur 5 ans', threshold: 'Pente positive', why: "Les marges qui s'étendent dans le temps révèlent un avantage compétitif réel : pricing power, économies d'échelle ou effet de réseau. C'est un signal de qualité durable." },
+      { n: 7, name: '7. Rendement du capital investi', formula: 'Cash ROCE (Bettin-Mauboussin) = FCF / (Capitaux propres + Dette nette − Cash excédentaire)', threshold: '> 15 %', why: "Mesure popularisée par Michael Mauboussin : combien de cash l'entreprise génère pour chaque euro réellement immobilisé. Au-dessus de 15 %, on tient un compounder de qualité." },
+      { n: 8, name: '8. Endettement maîtrisé', formula: 'Dette nette / FCF = (Dette financière − Trésorerie) / Free Cash Flow', threshold: '< 3 ans', why: "Combien d'années de cash flow seraient nécessaires pour rembourser toute la dette ? Au-delà de 3 ans, le risque de bilan devient un sujet en cas de retournement." },
+      { n: 9, name: '9. Bénéfices transformés en cash', formula: 'FCF / Résultat net (Cash conversion ratio)', threshold: '> 1', why: "Vérifie que les bénéfices comptables se traduisent vraiment en cash. Un ratio < 1 récurrent signale souvent une qualité comptable douteuse ou des besoins en BFR croissants." },
+      { n: 10, name: "10. Délai d'encaissement net", formula: 'CCC = DSO + DIO − DPO (Days Sales Outstanding + Days Inventory − Days Payable)', threshold: 'Faible ou négatif', why: "Le Cash Conversion Cycle mesure combien de jours l'entreprise immobilise du cash dans son cycle d'exploitation. Les meilleures (Apple, Amazon) ont un CCC négatif : leurs fournisseurs financent leur croissance." },
     ],
   },
   {
