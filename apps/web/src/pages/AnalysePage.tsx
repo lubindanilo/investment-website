@@ -71,6 +71,22 @@ export function AnalysePage() {
     }
   }, []);
 
+  // Soumet un ticker : on NAVIGUE vers /analyse/:ticker plutôt que de faire l'analyse en
+  // local. L'URL devient l'unique source de vérité — partageable, bookmarkable, indexable
+  // (SEO), boutons précédent/suivant du navigateur fonctionnels. Le useEffect [routeTicker]
+  // détecte le changement et relance `run`. Cas particulier : si on soumet le ticker
+  // courant (déjà dans l'URL), on rejoue `run` manuellement car useEffect ne se
+  // redéclencherait pas (même valeur).
+  const submit = useCallback((t: string) => {
+    const cleaned = t.trim().toUpperCase();
+    if (!cleaned) return;
+    if (cleaned === (routeTicker ?? '').toUpperCase()) {
+      void run(cleaned);
+    } else {
+      navigate(`/analyse/${encodeURIComponent(cleaned)}`);
+    }
+  }, [navigate, routeTicker, run]);
+
   useEffect(() => {
     if (routeTicker) {
       setTicker(routeTicker.toUpperCase());
@@ -124,7 +140,7 @@ export function AnalysePage() {
       <SeoHead titleKey="seo.analyse.title" descKey="seo.analyse.desc" />
       <div className="wrap anl-wrap">
         <div className="anl-search-block">
-          <SearchBar value={ticker} onChange={setTicker} onSubmit={run} loading={loading} />
+          <SearchBar value={ticker} onChange={setTicker} onSubmit={submit} loading={loading} />
           {!loading && !analysis && !error && (
             <span className="tiny muted anl-hint">{t('analyse.hintPrefix')} <b>AAPL</b>, <b>MSFT</b> {t('analyse.hintOr')} <b>ASML</b>.</span>
           )}
@@ -132,7 +148,7 @@ export function AnalysePage() {
 
         {error && <ErrorState error={error} ticker={lastTicker} onRetry={() => { setError(null); setAnalysis(null); }} />}
         {loading && !analysis && <LoadingState />}
-        {!loading && !analysis && !error && <LandingDiscovery onPick={(t) => { setTicker(t); run(t); }} />}
+        {!loading && !analysis && !error && <LandingDiscovery onPick={(t) => { setTicker(t); submit(t); }} />}
 
         {analysis && (
           <AnalysisView
