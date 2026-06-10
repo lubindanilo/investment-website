@@ -86,7 +86,7 @@ export function PriceChart({ ticker, currency }: Props) {
     <div className="chart-section">
       <div className="chart-title">
         <span>
-          Cours boursier — {ticker}
+          {t('priceChart.title', { ticker })}
           {resolvedSymbol && resolvedSymbol !== ticker && (
             <span className="chart-source-note"> ({resolvedSymbol}, {currency})</span>
           )}

@@ -1,5 +1,5 @@
 /**
- * Dynamic Rendering — pré-rendu HTML server-side pour les crawlers/bots.
+ * Dynamic Rendering, pré-rendu HTML server-side pour les crawlers/bots.
  *
  * Problème résolu : notre SPA Vite n'a pas de SSR. Le HTML initial est ~2 Ko avec
  * un <div id="root"></div> vide et un <title> générique. Googlebot rend bien le JS
@@ -9,11 +9,11 @@
  * Solution recommandée par Google (cf. dynamic-rendering doc) : détecter les bots
  * via User-Agent et leur renvoyer un HTML pré-rendu riche, statique, avec :
  *   - <title> + meta description spécifiques au ticker
- *   - <h1>, <h2>, paragraphes textuels — le bot a quelque chose à indexer
+ *   - <h1>, <h2>, paragraphes textuels, le bot a quelque chose à indexer
  *   - URL canonique, og:title, twitter:card spécifiques
  *   - Lien vers l'app SPA pour les humains qui arriveraient ici
  *
- * Les utilisateurs humains ne passent jamais par ici — le rewrite Vercel conditionne
+ * Les utilisateurs humains ne passent jamais par ici, le rewrite Vercel conditionne
  * la redirection au User-Agent (regex bots). Les humains gardent la SPA interactive.
  *
  * Sécurité : on ne révèle que des données publiques (note de qualité, ticker, secteur).
@@ -22,7 +22,7 @@
 import { Router, type Request, type Response } from 'express';
 import { prisma } from '../db/client.js';
 // ⚠️ Imports de valeur (`getArticleBySlug`, `toArticleLang`) interdits depuis '@lubin/shared'
-// — pas de build dist/, crash lambda Vercel. On consomme la copie locale apps/api/src/data/.
+//, pas de build dist/, crash lambda Vercel. On consomme la copie locale apps/api/src/data/.
 // Les types restent OK à puiser depuis '@lubin/shared' (effacés à la compilation).
 import { getArticleBySlug, toArticleLang } from '../data/articles.js';
 import type { Article, ArticleLang } from '@lubin/shared';
@@ -43,11 +43,11 @@ function escapeHtml(s: string): string {
 
 // Note /10 lisible pour humains et bots (5 → "5", 10 → "10/10").
 function formatScore(score: number | null, max: number | null): string {
-  if (score == null || !max || max <= 0) return '—';
+  if (score == null || !max || max <= 0) return ', ';
   return `${score}/10`;
 }
 
-// Adjectif qualitatif basé sur la note — utilisé dans la meta description.
+// Adjectif qualitatif basé sur la note, utilisé dans la meta description.
 function qualityLabel(score: number | null, max: number | null): string {
   if (score == null || !max) return 'à analyser';
   const ratio = score / max;
@@ -56,7 +56,7 @@ function qualityLabel(score: number | null, max: number | null): string {
   return 'faible';
 }
 
-// Réponse 404 pour ticker inexistant — important : un VRAI 404 (pas un soft 404).
+// Réponse 404 pour ticker inexistant, important : un VRAI 404 (pas un soft 404).
 function render404(ticker: string): string {
   const safeTicker = escapeHtml(ticker);
   return `<!DOCTYPE html>
@@ -96,8 +96,8 @@ function renderTickerHtml(t: {
   const sector = t.sector ? escapeHtml(t.sector) : 'secteur non renseigné';
   const score = formatScore(t.scoreChiffres, t.scoreChiffresMax);
   const quality = qualityLabel(t.scoreChiffres, t.scoreChiffresMax);
-  const pfcf = t.pfcfTTM != null && isFinite(t.pfcfTTM) ? `${t.pfcfTTM.toFixed(1)}×` : '—';
-  const price = t.price != null && isFinite(t.price) ? `${t.price.toFixed(2)} ${escapeHtml(t.currency || 'USD')}` : '—';
+  const pfcf = t.pfcfTTM != null && isFinite(t.pfcfTTM) ? `${t.pfcfTTM.toFixed(1)}×` : ', ';
+  const price = t.price != null && isFinite(t.price) ? `${t.price.toFixed(2)} ${escapeHtml(t.currency || 'USD')}` : ', ';
   const oppBadge = t.opportunity
     ? `<p><strong>⭐ Opportunité du moment :</strong> ${name} est dans son décile bas historique de valorisation (P/FCF ≤ 10ᵉ percentile sur 10 ans, ET ratio &lt; 25×). C'est un point d'entrée potentiellement intéressant pour les investisseurs long terme.</p>`
     : '';
@@ -110,7 +110,7 @@ function renderTickerHtml(t: {
 
   // Titre ≤ 60 caractères (Google tronque ~61 % des titres plus longs), mot-clé en
   // tête, SANS suffixe de marque (Google ajoute déjà le nom du site). Nom tronqué au besoin.
-  const titleTail = score !== '—' ? ` : analyse, note ${score}` : ' : analyse fondamentale';
+  const titleTail = score !== ', ' ? ` : analyse, note ${score}` : ' : analyse fondamentale';
   const tickerPart = ` (${t.ticker})`;
   let titleName = rawName;
   const nameBudget = 60 - tickerPart.length - titleTail.length;
@@ -126,12 +126,12 @@ function renderTickerHtml(t: {
   const rawDescription = `${rawName} (${t.ticker}) : note de qualité ${score} sur 10 critères financiers objectifs. Qualité ${quality}, P/FCF ${pfcf}, secteur ${t.sector || 'non renseigné'}.`;
   const description = escapeHtml(rawDescription);
 
-  // Fraîcheur — signal fort pour le SEO et les moteurs IA (contenu maintenu).
+  // Fraîcheur, signal fort pour le SEO et les moteurs IA (contenu maintenu).
   const now = new Date();
   const isoDate = now.toISOString();
   const dateFr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
 
-  // FAQ — levier GEO majeur (FAQPage = ~3,2× plus de citations dans les AI Overviews).
+  // FAQ, levier GEO majeur (FAQPage = ~3,2× plus de citations dans les AI Overviews).
   const faq: { q: string; a: string }[] = [
     {
       q: `${rawName} (${t.ticker}) est-elle une action de qualité ?`,
@@ -298,7 +298,7 @@ ${sectorHubHref ? `<a href="${sectorHubHref}">Toutes les actions du secteur ${se
 </html>`;
 }
 
-// GET /analyse/:ticker — servi UNIQUEMENT aux bots (via rewrite Vercel conditionnel).
+// GET /analyse/:ticker, servi UNIQUEMENT aux bots (via rewrite Vercel conditionnel).
 // Les humains arrivent ici via la SPA (rewrite catch-all → index.html).
 seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) => {
   const raw = req.params.ticker;
@@ -340,7 +340,7 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
       .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
       .send(renderTickerHtml(t));
   } catch (err) {
-    // En cas d'erreur DB, on renvoie un 503 plutôt qu'une page vide — Google retentera plus tard.
+    // En cas d'erreur DB, on renvoie un 503 plutôt qu'une page vide, Google retentera plus tard.
     console.error('[seoPrerender]', ticker, (err as Error).message);
     res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(ticker));
   }
@@ -484,7 +484,7 @@ ${faqHtml}
 </html>`;
 }
 
-// GET /blog/:slug — servi UNIQUEMENT aux bots (rewrite Vercel conditionnel). ?lng=en|es.
+// GET /blog/:slug, servi UNIQUEMENT aux bots (rewrite Vercel conditionnel). ?lng=en|es.
 seoPrerenderRouter.get('/blog/:slug', (req: Request, res: Response) => {
   const slug = String(req.params.slug || '').slice(0, 128);
   const article = getArticleBySlug(slug);

@@ -1,5 +1,5 @@
 // Page « Conditions Générales d'Utilisation » (CGU).
-// Contenu en français uniquement — droit français applicable. Bannière EN/ES via LegalLangBanner.
+// Contenu en français uniquement, droit français applicable. Bannière EN/ES via LegalLangBanner.
 import SeoHead from "../../components/SeoHead.js";
 import { LegalLangBanner } from "./LegalLangBanner.js";
 import "./legal.css";

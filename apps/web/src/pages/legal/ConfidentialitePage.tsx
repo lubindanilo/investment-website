@@ -1,5 +1,5 @@
-// Page « Politique de confidentialité » — RGPD (Règlement UE 2016/679) + Loi Informatique et Libertés.
-// Contenu en français uniquement — droit français applicable. Bannière EN/ES via LegalLangBanner.
+// Page « Politique de confidentialité », RGPD (Règlement UE 2016/679) + Loi Informatique et Libertés.
+// Contenu en français uniquement, droit français applicable. Bannière EN/ES via LegalLangBanner.
 import SeoHead from "../../components/SeoHead.js";
 import { LegalLangBanner } from "./LegalLangBanner.js";
 import "./legal.css";
@@ -44,7 +44,7 @@ export function ConfidentialitePage() {
           <ul>
             <li>
               <strong>Données de compte</strong> : adresse email, mot de passe
-              (stocké uniquement sous forme de <em>hash</em> bcrypt — la version
+              (stocké uniquement sous forme de <em>hash</em> bcrypt, la version
               en clair n'est jamais conservée).
             </li>
             <li>
@@ -76,30 +76,27 @@ export function ConfidentialitePage() {
           <h2>4. Finalités et bases légales</h2>
           <ul>
             <li>
-              <strong>Création et gestion du compte</strong> — base légale :
+              <strong>Création et gestion du compte</strong>, base légale :
               exécution du contrat (art. 6.1.b RGPD).
             </li>
             <li>
               <strong>Fourniture du Service et personnalisation</strong>{" "}
-              (watchlists, analyses qualitatives) — base légale : exécution du
+              (watchlists, analyses qualitatives), base légale : exécution du
               contrat (art. 6.1.b RGPD).
             </li>
             <li>
-              <strong>Gestion des paiements et de la facturation</strong> —
-              base légale : exécution du contrat et obligation légale (art.
+              <strong>Gestion des paiements et de la facturation</strong> :               base légale : exécution du contrat et obligation légale (art.
               6.1.b et 6.1.c RGPD).
             </li>
             <li>
-              <strong>Sécurité du Service et prévention de la fraude</strong> —
-              base légale : intérêt légitime (art. 6.1.f RGPD).
+              <strong>Sécurité du Service et prévention de la fraude</strong> :               base légale : intérêt légitime (art. 6.1.f RGPD).
             </li>
             <li>
-              <strong>Respect des obligations comptables et fiscales</strong> —
-              base légale : obligation légale (art. 6.1.c RGPD).
+              <strong>Respect des obligations comptables et fiscales</strong> :               base légale : obligation légale (art. 6.1.c RGPD).
             </li>
             <li>
               <strong>Communication transactionnelle</strong> (confirmations
-              d'abonnement, factures, alertes de sécurité) — base légale :
+              d'abonnement, factures, alertes de sécurité), base légale :
               exécution du contrat (art. 6.1.b RGPD).
             </li>
           </ul>
@@ -143,19 +140,19 @@ export function ConfidentialitePage() {
           </p>
           <ul>
             <li>
-              <strong>Stripe Payments Europe Ltd</strong> (Irlande) — traitement
+              <strong>Stripe Payments Europe Ltd</strong> (Irlande), traitement
               des paiements et facturation.
             </li>
             <li>
-              <strong>Vercel Inc.</strong> (États-Unis) — hébergement de
+              <strong>Vercel Inc.</strong> (États-Unis), hébergement de
               l'application web et des fonctions serveur.
             </li>
             <li>
-              <strong>Neon Inc.</strong> (États-Unis) — hébergement de la base
+              <strong>Neon Inc.</strong> (États-Unis), hébergement de la base
               de données PostgreSQL.
             </li>
             <li>
-              <strong>OpenAI, LLC</strong> (États-Unis) — génération des
+              <strong>OpenAI, LLC</strong> (États-Unis), génération des
               analyses qualitatives (sans réutilisation des données pour
               l'entraînement, conformément à la politique « OpenAI API data
               usage »).
@@ -179,7 +176,7 @@ export function ConfidentialitePage() {
             </strong>{" "}
             (décision d'exécution (UE) 2021/914), ainsi que, le cas échéant, par
             la certification de ces prestataires au{" "}
-            <strong>Data Privacy Framework (DPF)</strong> UE — États-Unis.
+            <strong>Data Privacy Framework (DPF)</strong> UE, États-Unis.
           </p>
           <p>
             Vous pouvez obtenir une copie des garanties mises en œuvre en nous
@@ -221,7 +218,7 @@ export function ConfidentialitePage() {
             En cas de difficulté, vous disposez du droit d'introduire une
             réclamation auprès de la <strong>CNIL</strong> (Commission
             Nationale de l'Informatique et des Libertés), 3 place de Fontenoy,
-            TSA 80715, 75334 Paris Cedex 07 —{" "}
+            TSA 80715, 75334 Paris Cedex 07 , {" "}
             <a href="https://www.cnil.fr" target="_blank" rel="noreferrer">
               www.cnil.fr
             </a>
@@ -262,7 +259,7 @@ export function ConfidentialitePage() {
         </section>
 
         <section>
-          <h2>11. Contact — Délégué à la protection des données (DPO)</h2>
+          <h2>11. Contact, Délégué à la protection des données (DPO)</h2>
           <p>
             Compte tenu de la taille de la structure (micro-entreprise), aucun
             Délégué à la Protection des Données (DPO) n'a été désigné de manière

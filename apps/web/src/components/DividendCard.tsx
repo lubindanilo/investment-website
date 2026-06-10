@@ -47,7 +47,9 @@ export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
         <>
           <div className="crit-card-vrow">
             <span className="num crit-card-value" style={{ color: growthColor }}>
-              {g != null ? `${g > 0 ? '+' : ''}${g.toFixed(1)} %/an` : '—'}
+              {/* Placeholder « valeur non disponible » : hyphen ASCII (court neutre)
+                  pour conserver une UI cohérente sans recourir à l'em dash. */}
+              {g != null ? `${g > 0 ? '+' : ''}${g.toFixed(1)} %/an` : '–'}
             </span>
           </div>
           <p className="crit-card-note">
@@ -57,7 +59,7 @@ export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
         </>
       ) : (
         <>
-          <div className="crit-card-vrow"><span className="num crit-card-value">—</span></div>
+          <div className="crit-card-vrow"><span className="num crit-card-value">–</span></div>
           <p className="crit-card-note">{t('dividend.none')}</p>
         </>
       )}

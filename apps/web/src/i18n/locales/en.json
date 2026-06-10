@@ -14,6 +14,7 @@
     "networkError": "Connection error. Try again in a moment."
   },
   "priceChart": {
+    "title": "Stock price: {{ticker}}",
     "start": "Start",
     "end": "End",
     "change": "Change",
@@ -24,11 +25,11 @@
     "sub": "This feature is reserved for Pro subscribers. Go Pro to unlock the full Lubin Investment and invest with every card on the table.",
     "ctaPrimary": "See Pro offers",
     "ctaSecondary": "Later",
-    "disclaimer": "From €13/month (yearly) — No commitment, cancel in one click.",
+    "disclaimer": "From €13/month (yearly), No commitment, cancel in one click.",
     "defaultBenefits": [
       "Unlimited analyses every day",
       "AI qualitative analysis (business + management)",
-      "Opportunities of the moment — gems spotted by our monitor",
+      "Opportunities of the moment, gems spotted by our monitor",
       "Compare up to 5 stocks",
       "Detailed charts (P/FCF, Cash ROCE, cash cycle, dividend)",
       "Full Europe and International data"
@@ -37,7 +38,7 @@
       "feature": "Full screener and opportunities",
       "detail": "You see the top {{count}} on Free. Pro unlocks the entire universe + the Opportunities filter.",
       "benefits": [
-        "Full screener — 7000+ rated companies",
+        "Full screener, 7000+ rated companies",
         "« Opportunities of the moment » filter (P/FCF in its historical bottom decile)",
         "Max P/FCF filter to target low valuations",
         "Europe and International data",
@@ -99,8 +100,7 @@
     },
     "stats": {
       "criteria": "quantified criteria",
-      "tickers": "tickers monitored",
-      "speed": "per analysis"
+      "tickers": "tickers monitored"
     },
     "benefits": {
       "0": {
@@ -140,7 +140,7 @@
     },
     "cta": {
       "title": "Find the 10/10s without hunting for them",
-      "subtitle": "The monitor scores the universe continuously — you reap the best.",
+      "subtitle": "The monitor scores the universe continuously, you reap the best.",
       "analyze": "Analyze a stock",
       "signup": "Create an account"
     }
@@ -198,7 +198,7 @@
     },
     "empty": {
       "title": "Basket unavailable right now",
-      "desc": "Our monitoring fills the universe progressively — check back in a moment."
+      "desc": "Our monitoring fills the universe progressively, check back in a moment."
     },
     "compare": {
       "title": "Live tracking vs the market",
@@ -255,7 +255,7 @@
     "results_other": "{{count}} results",
     "empty": {
       "title": "No company above this threshold",
-      "desc": "Monitoring scores the universe gradually — check back later, or lower the threshold."
+      "desc": "Monitoring scores the universe gradually, check back later, or lower the threshold."
     },
     "col": {
       "company": "Company",
@@ -268,8 +268,8 @@
     },
     "proLock": {
       "badge": "PRO",
-      "oppTitle": "Opportunities of the moment — reserved for Pro subscribers",
-      "maxPfcfTitle": "Max P/FCF filter — reserved for Pro subscribers",
+      "oppTitle": "Opportunities of the moment, reserved for Pro subscribers",
+      "maxPfcfTitle": "Max P/FCF filter, reserved for Pro subscribers",
       "overlayTitle": "See the full top {{count}} rated companies",
       "overlaySub": "The Pro screener unlocks the entire universe, the Opportunities of the moment filter and all EU + International data.",
       "overlayCta": "Go Pro"
@@ -315,7 +315,7 @@
   "analyse": {
     "hintPrefix": "Tip: type a ticker like",
     "hintOr": "or",
-    "searchPlaceholder": "Enter a ticker — e.g. AAPL, MSFT, ASML…",
+    "searchPlaceholder": "Enter a ticker, e.g. AAPL, MSFT, ASML…",
     "analyze": "Analyze",
     "analyzing": "Analyzing…",
     "addToWatchlist": "Add to watchlist",
@@ -331,7 +331,7 @@
     "updating": "Updating…",
     "generateQual": "Run qualitative analysis",
     "generating": "Generating…",
-    "qualCtaText": "The qualitative analysis assesses the moat, revenue predictability and management quality — beyond the numbers alone.",
+    "qualCtaText": "The qualitative analysis assesses the moat, revenue predictability and management quality, beyond the numbers alone.",
     "horizonAll": "All",
     "priceUnavailable": "Price chart unavailable for this symbol.",
     "landingKicker": "From our watch · top rated",
@@ -350,7 +350,7 @@
       },
       "valorisation": {
         "title": "Valuation",
-        "sub": "Entry price — judged separately from business quality"
+        "sub": "Entry price, judged separately from business quality"
       },
       "actualites": {
         "title": "Recent news",
@@ -363,7 +363,7 @@
     },
     "banner": {
       "noFundamentalsPre": "Fundamental data unavailable for",
-      "noFundamentalsPost": "This stock isn't covered — try a US ADR listing if one exists."
+      "noFundamentalsPost": "This stock isn't covered, try a US ADR listing if one exists."
     },
     "toast": {
       "loginWatchlist": "Log in to manage your watchlist",
@@ -385,7 +385,7 @@
     }
   },
   "earnings": {
-    "title": "Earnings — {{ticker}}",
+    "title": "Earnings, {{ticker}}",
     "transcriptLink": "View the latest call transcript ↗",
     "lastReport": "Last report",
     "nextReport": "Next report",
@@ -396,15 +396,15 @@
   },
   "briefs": {
     "netMargin": {
-      "why": "A positive net margin proves the company actually makes money once all its costs are paid — the foundation of any quality investment.",
+      "why": "A positive net margin proves the company actually makes money once all its costs are paid, the foundation of any quality investment.",
       "how": "Net income ÷ revenue (trailing 12 months). Benchmark: > 5% = good, ≤ 0 = loss-making."
     },
     "revenueGrowth5y": {
-      "why": "Revenue that grows over time is the engine of value creation — without growth, compounding is hard.",
+      "why": "Revenue that grows over time is the engine of value creation, without growth, compounding is hard.",
       "how": "Trend (regression) of trailing revenue over ~5 years. Benchmark: > 10%/year = good."
     },
     "fcfGrowth5y": {
-      "why": "Free cash flow PER SHARE is what truly enriches the shareholder: it accounts for dilution (share issuance). A company can grow while diluting — here we look at what actually accrues to you.",
+      "why": "Free cash flow PER SHARE is what truly enriches the shareholder: it accounts for dilution (share issuance). A company can grow while diluting, here we look at what actually accrues to you.",
       "how": "Trend of adjusted FCF (free cash minus stock-based compensation) divided by share count, over 5 years. Benchmark: > 10%/year = good."
     },
     "fcfMargin": {
@@ -416,11 +416,11 @@
       "how": "Slope of the operating margin (trailing 12 months) over ~5 years. Rising = good."
     },
     "cashRoce": {
-      "why": "Return on the capital actually employed — the core of business quality (Buffett/Bettin-Mauboussin approach). Above the cost of capital (~8-10%), the company creates wealth; below it, it destroys wealth.",
+      "why": "Return on the capital actually employed, the core of business quality (Buffett/Bettin-Mauboussin approach). Above the cost of capital (~8-10%), the company creates wealth; below it, it destroys wealth.",
       "how": "Adjusted FCF ÷ (assets − current liabilities − goodwill − excess cash). Benchmark: > 15% = good, > 25% = excellent."
     },
     "netDebtFcf": {
-      "why": "Shows how many years of free cash it would take to repay the debt — a good proxy for financial risk and fragility in a downturn.",
+      "why": "Shows how many years of free cash it would take to repay the debt, a good proxy for financial risk and fragility in a downturn.",
       "how": "(Total debt − cash) ÷ FCF. Benchmark: < 3 = healthy, > 5 = stretched."
     },
     "cashConversion": {
@@ -428,7 +428,7 @@
       "how": "Ratio of earnings to cash generated (derived from the P/E and P/FCF). Benchmark: > 1 = cash keeps up with (or exceeds) earnings."
     },
     "ccc": {
-      "why": "Days between buying inventory and collecting from customers, net of the supplier payment delay. Measures working-capital efficiency and business-model quality. A negative CCC (float model) means customers finance the operations — the operational Holy Grail.",
+      "why": "Days between buying inventory and collecting from customers, net of the supplier payment delay. Measures working-capital efficiency and business-model quality. A negative CCC (float model) means customers finance the operations, the operational Holy Grail.",
       "how": "CCC = DSO + DIO − DPO (in days). DSO = receivables/revenue × 365, DIO = inventory/cost of revenue × 365, DPO = payables/cost of revenue × 365. Trend over 5 years: compression = positive signal, lengthening = red flag."
     },
     "pfcf": {
@@ -436,7 +436,7 @@
       "how": "Market capitalization ÷ FCF (trailing 12 months). Benchmark: < 25× = reasonable, > 35× = expensive."
     },
     "valuation": {
-      "why": "Gives an indicative buy price to target a desired return: the right \"entry timing.\" This criterion does NOT factor into the quality score — a good company stays good, it's just not yet at the right price.",
+      "why": "Gives an indicative buy price to target a desired return: the right \"entry timing.\" This criterion does NOT factor into the quality score, a good company stays good, it's just not yet at the right price.",
       "how": "Discounting of future cash (DCF) based on the target return, the growth assumption and the exit multiple."
     },
     "shareCount5y": {
@@ -511,7 +511,7 @@
       "ccc": "Net CCC",
       "noData": "Not enough quarterly history to reconstruct the CCC.",
       "approxBadge": "Estimated.",
-      "approxNote": "Cost of revenue is not published for this stock — DIO/DPO are computed via revenue (less precise in absolute terms, but the trend remains reliable)."
+      "approxNote": "Cost of revenue is not published for this stock, DIO/DPO are computed via revenue (less precise in absolute terms, but the trend remains reliable)."
     }
   },
   "chart": {
@@ -526,16 +526,16 @@
     "pfcfSub": "Computed: price × shares ÷ FCF (TTM)",
     "pfcfAnnualOnlyTag": "4 annual years (max available for this ticker)",
     "pfcfNoData": "Not enough history to compute P/FCF over this period.",
-    "pfcfVerdictBelow": "The latest multiple ({{latest}}×) is below the historical median ({{median}}×) — attractive relative valuation.",
-    "pfcfVerdictAbove": "The latest multiple ({{latest}}×) is above the historical median ({{median}}×) — stretched vs its own past.",
-    "croceSub": "Formula: FCF (SBC-adjusted) ÷ (Assets − CurLiab − Goodwill − Excess cash) — Bettin/Mauboussin. Excess cash = max(0, cash − 2% × revenue).",
+    "pfcfVerdictBelow": "The latest multiple ({{latest}}×) is below the historical median ({{median}}×), attractive relative valuation.",
+    "pfcfVerdictAbove": "The latest multiple ({{latest}}×) is above the historical median ({{median}}×), stretched vs its own past.",
+    "croceSub": "Formula: FCF (SBC-adjusted) ÷ (Assets − CurLiab − Goodwill − Excess cash), Bettin/Mauboussin. Excess cash = max(0, cash − 2% × revenue).",
     "croceAnnualOnlyTag": "Annual (max available for this ticker)",
     "croceNoData": "Not enough history to compute Cash ROCE over this period (needs positive FCF + positive capital employed over ≥ 4 quarters / 2 fiscal years).",
     "croceThreshold": "15% threshold",
     "median": "median {{v}}",
-    "croceVerdictHigh": "Cash ROCE durably above 15% ({{n}}/{{total}} periods) — consistent operating value creation.",
-    "croceVerdictMid": "Cash ROCE above the threshold in {{n}}/{{total}} periods — average quality, watch closely.",
-    "croceVerdictLow": "Cash ROCE rarely above 15% ({{n}}/{{total}} periods) — weak operating value creation.",
+    "croceVerdictHigh": "Cash ROCE durably above 15% ({{n}}/{{total}} periods), consistent operating value creation.",
+    "croceVerdictMid": "Cash ROCE above the threshold in {{n}}/{{total}} periods, average quality, watch closely.",
+    "croceVerdictLow": "Cash ROCE rarely above 15% ({{n}}/{{total}} periods), weak operating value creation.",
     "tooltipQuarter": "Quarter {{q}}",
     "tooltipYear": "Year {{y}}",
     "stat": {
@@ -574,7 +574,7 @@
     },
     "perf": {
       "kicker": "Model portfolio · 10/10 ratings",
-      "desc": "Average 12-month performance of stocks detected and rated 10/10 by the monitor — vs {{idx}} for the benchmark index.",
+      "desc": "Average 12-month performance of stocks detected and rated 10/10 by the monitor, vs {{idx}} for the benchmark index.",
       "legendStocks": "10/10 stocks",
       "legendIndex": "Benchmark index",
       "row1y": "1 year",
@@ -590,7 +590,7 @@
         "name": "Camille D.",
         "role": "Software engineer · Nantes",
         "perf": "+24% / yr",
-        "quote": "I stopped scrolling forums. The score tells me in three seconds whether a company is worth a look — I only dig deeper if the rating holds up."
+        "quote": "I stopped scrolling forums. The score tells me in three seconds whether a company is worth a look, I only dig deeper if the rating holds up."
       },
       {
         "name": "Henri L.",
@@ -662,7 +662,7 @@
   "opportunity": {
     "badge": "Opportunity",
     "badgeFull": "Opportunity of the moment",
-    "tooltip": "The P/FCF ratio is in its lowest historical decile (≤ 10th percentile) and below 25 — historically cheap.",
+    "tooltip": "The P/FCF ratio is in its lowest historical decile (≤ 10th percentile) and below 25, historically cheap.",
     "banner": "Opportunity of the moment",
     "filter": "Current opportunities",
     "pfcfRatio": "Current P/FCF",
@@ -911,7 +911,7 @@
         },
         {
           "title": "Continuous coverage",
-          "text": "The entire market is scored continuously — Europe, US, International. The best ones surface on their own."
+          "text": "The entire market is scored continuously, Europe, US, International. The best ones surface on their own."
         },
         {
           "title": "Great investors' method",
@@ -1057,7 +1057,7 @@
     },
     "empty": {
       "title": "First article being written",
-      "text": "We're laying the groundwork. The first article — on the pitfalls of accounting net income vs free cash flow — will be out in the coming weeks.",
+      "text": "We're laying the groundwork. The first article, on the pitfalls of accounting net income vs free cash flow, will be out in the coming weeks.",
       "also": {
         "prefix": "In the meantime, check out the full",
         "methodology": "scoring methodology",
@@ -1123,7 +1123,7 @@
   },
   "legal": {
     "banner": {
-      "frenchOnly": "This legal document is available in French only — it reflects the obligations of French law applicable to the publisher."
+      "frenchOnly": "This legal document is available in French only, it reflects the obligations of French law applicable to the publisher."
     }
   },
   "methodology": {
@@ -1136,7 +1136,7 @@
       "title": "Why this method",
       "paragraphs": [
         "Most stock analyses rely on opinions, analyst consensus or momentum indicators. These signals change constantly and reflect mostly the market's mood. We chose to anchor on verifiable accounting facts, extracted directly from filings made with the regulator.",
-        "The ten selected criteria cover three dimensions of a quality company: growth (revenue, FCF per share, margins), capital profitability (Cash ROCE, FCF margin) and balance-sheet strength (leverage, cash conversion, operating cycle). It's the same framework that the best long-term investors — Buffett, Mauboussin, Terry Smith — have used for decades, translated into reproducible formulas.",
+        "The ten selected criteria cover three dimensions of a quality company: growth (revenue, FCF per share, margins), capital profitability (Cash ROCE, FCF margin) and balance-sheet strength (leverage, cash conversion, operating cycle). It's the same framework that the best long-term investors, Buffett, Mauboussin, Terry Smith, have used for decades, translated into reproducible formulas.",
         "Each criterion answers a simple question, with a clear threshold. No opaque score, no secret weighting. If a company fails a criterion, we tell you which one and why. And if you disagree with one of our thresholds, you can knowingly ignore it."
       ]
     },
@@ -1174,7 +1174,7 @@
     ],
     "sourcesNote": "We systematically cite the source of every figure displayed. No \"proprietary\" numbers, no undocumented reprocessing.",
     "limites": {
-      "title": "Limits — what the method does not do",
+      "title": "Limits, what the method does not do",
       "items": [
         { "title": "The method is retrospective.", "text": "It judges a company's historical quality. A quality compounder can perfectly well disappoint in the years to come, and a mediocre company can turn around." },
         { "title": "It ignores valuation.", "text": "The 10 criteria say nothing about the price paid. An excellent company bought too expensive remains a bad investment. We separately publish valuation indicators (P/E, FCF yield, EV/EBITDA)." },

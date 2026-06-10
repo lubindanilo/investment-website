@@ -49,8 +49,7 @@ export function HomePage() {
             </div>
             <div className="home-stats">
               <div><span className="num home-stat-n">10</span><span className="home-stat-l">{t('home.stats.criteria')}</span></div>
-              <div><span className="num home-stat-n">6&nbsp;200+</span><span className="home-stat-l">{t('home.stats.tickers')}</span></div>
-              <div><span className="num home-stat-n">&lt; 3 s</span><span className="home-stat-l">{t('home.stats.speed')}</span></div>
+              <div><span className="num home-stat-n">7&nbsp;000+</span><span className="home-stat-l">{t('home.stats.tickers')}</span></div>
             </div>
           </div>
           <div className="home-hero-right fade-up">

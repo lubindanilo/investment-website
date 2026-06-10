@@ -3,7 +3,7 @@
  *
  * Pourquoi : les textes des Mentions légales, CGU, CGV et Politique de confidentialité
  * sont des documents JURIDIQUES rédigés selon le droit français (LCEN, Code conso,
- * RGPD…) — ils ne sont volontairement disponibles qu'en français, qui est la langue
+ * RGPD…), ils ne sont volontairement disponibles qu'en français, qui est la langue
  * officielle des obligations légales applicables à un micro-entrepreneur français
  * vendant à des consommateurs français/européens.
  *

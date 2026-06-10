@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './TradingViewChart.css';
 
 const RANGES = ['1M', '3M', '6M', '1A', '5A'] as const;
 const TV_RANGE_MAP: Record<string, string> = { '1M': '1M', '3M': '3M', '6M': '6M', '1A': '12M', '5A': '60M' };
 
 export function TradingViewChart({ ticker }: { ticker: string }) {
+  const { t } = useTranslation();
   const [range, setRange] = useState<string>('1A');
   const tvRange = TV_RANGE_MAP[range] ?? '12M';
 
@@ -16,7 +18,7 @@ export function TradingViewChart({ ticker }: { ticker: string }) {
   return (
     <div className="chart-section">
       <div className="chart-title">
-        <span>Cours boursier — {ticker}</span>
+        <span>{t('priceChart.title', { ticker })}</span>
         <div className="chart-periods">
           {RANGES.map(r => (
             <button

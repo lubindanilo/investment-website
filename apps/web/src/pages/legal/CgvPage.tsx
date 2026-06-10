@@ -1,5 +1,5 @@
 // Page « Conditions Générales de Vente » (CGV).
-// Contenu en français uniquement — droit français applicable. Bannière EN/ES via LegalLangBanner.
+// Contenu en français uniquement, droit français applicable. Bannière EN/ES via LegalLangBanner.
 import SeoHead from "../../components/SeoHead.js";
 import { LegalLangBanner } from "./LegalLangBanner.js";
 import "./legal.css";
@@ -211,8 +211,8 @@ export function CgvPage() {
           </p>
           <p>
             Médiateur désigné : <strong>Médiation de la consommation pour les
-            entrepreneurs du Numérique (CM2C)</strong> — 14 rue Saint-Jean,
-            75017 Paris — <a href="https://cm2c.net" target="_blank"
+            entrepreneurs du Numérique (CM2C)</strong>, 14 rue Saint-Jean,
+            75017 Paris, <a href="https://cm2c.net" target="_blank"
             rel="noopener noreferrer">cm2c.net</a>. Le Client peut saisir
             gratuitement le médiateur par voie électronique ou postale.
           </p>
@@ -244,7 +244,7 @@ export function CgvPage() {
         </section>
 
         <section>
-          <h2>Annexe — Formulaire-type de rétractation</h2>
+          <h2>Annexe, Formulaire-type de rétractation</h2>
           <p>
             Veuillez compléter et renvoyer le présent formulaire uniquement si
             vous souhaitez vous rétracter du contrat.
@@ -256,15 +256,15 @@ export function CgvPage() {
             « Je vous notifie par la présente ma rétractation du contrat portant
             sur la prestation de service ci-dessous :
             <br />
-            — Commandé le [date] / Reçu le [date]
+           , Commandé le [date] / Reçu le [date]
             <br />
-            — Nom du consommateur :
+           , Nom du consommateur :
             <br />
-            — Adresse du consommateur :
+           , Adresse du consommateur :
             <br />
-            — Signature (uniquement en cas de notification papier) :
+           , Signature (uniquement en cas de notification papier) :
             <br />
-            — Date : »
+           , Date : »
           </p>
         </section>
       </div>

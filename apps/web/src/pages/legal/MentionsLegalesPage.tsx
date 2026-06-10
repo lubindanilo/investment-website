@@ -1,4 +1,4 @@
-// Page « Mentions légales » — conforme LCEN (loi n° 2004-575 du 21 juin 2004).
+// Page « Mentions légales », conforme LCEN (loi n° 2004-575 du 21 juin 2004).
 // Le contenu reste en français car ce sont des obligations légales du droit français
 // applicables à un micro-entrepreneur établi en France. Une bannière s'affiche en EN/ES
 // pour expliquer que le document est en français uniquement (cf. LegalLangBanner).
@@ -57,7 +57,7 @@ export function MentionsLegalesPage() {
           </p>
           <ul>
             <li>
-              <strong>Vercel Inc.</strong> — 440 N Barranca Ave #4133, Covina,
+              <strong>Vercel Inc.</strong>, 440 N Barranca Ave #4133, Covina,
               CA 91723, États-Unis. Site :{" "}
               <a href="https://vercel.com" target="_blank" rel="noreferrer">
                 vercel.com
@@ -65,7 +65,7 @@ export function MentionsLegalesPage() {
               .
             </li>
             <li>
-              <strong>Neon Inc.</strong> (base de données) — 209 Barton
+              <strong>Neon Inc.</strong> (base de données), 209 Barton
               Springs Rd, Austin, TX 78704, États-Unis. Site :{" "}
               <a href="https://neon.tech" target="_blank" rel="noreferrer">
                 neon.tech
