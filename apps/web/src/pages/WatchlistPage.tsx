@@ -6,6 +6,8 @@ import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { TickerSearch } from '../components/TickerSearch.js';
+import { UpgradeModal } from '../components/UpgradeModal.js';
+import { useSubscription } from '../contexts/SubscriptionContext.js';
 import SeoHead from '../components/SeoHead.js';
 import { formatPrice } from '../lib/format.js';
 import './WatchlistPage.css';
@@ -42,10 +44,14 @@ function formatEarnings(iso?: string | null): string {
   return Number.isNaN(d.getTime()) ? '—' : d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
+// Limite watchlist côté Free — synchro avec apps/api/src/routes/watchlist.ts.
+const FREE_WATCHLIST_LIMIT = 10;
+
 export function WatchlistPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const toast = useToast();
+  const { isPro } = useSubscription();
   const [items, setItems] = useState<WatchlistEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -53,6 +59,12 @@ export function WatchlistPage() {
   const [newTicker, setNewTicker] = useState('');
   const [sort, setSort] = useState<SortState>(() => loadSort());
   const [onlyOpp, setOnlyOpp] = useState(false);
+  // Modale d'upgrade Pro affichée quand l'utilisateur Free atteint la limite de 10 titres.
+  const [upgrade, setUpgrade] = useState(false);
+
+  // L'utilisateur Free est-il déjà à la limite ? Bloque le bouton « Ajouter » côté UI
+  // (en plus du gate API) pour éviter une requête voulue à échouer.
+  const atFreeLimit = !isPro && items.length >= FREE_WATCHLIST_LIMIT;
 
   const hasOpp = useMemo(() => items.some(i => i.opportunity), [items]);
   const sortedItems = useMemo(() => {
@@ -95,8 +107,21 @@ export function WatchlistPage() {
     if (!tk) return;
     if (items.some(i => i.ticker === tk)) { toast.push('warn', t('watchlist.toast.alreadyAdded', { ticker: tk })); return; }
     setAdding(true);
-    try { const entry = await api.watchlist.add(tk); setItems(prev => [...prev, entry]); setNewTicker(''); toast.push('success', t('watchlist.toast.added', { ticker: tk })); }
-    catch (e) { toast.push('error', (e as Error).message); }
+    try {
+      const entry = await api.watchlist.add(tk);
+      setItems(prev => [...prev, entry]);
+      setNewTicker('');
+      toast.push('success', t('watchlist.toast.added', { ticker: tk }));
+    }
+    catch (e) {
+      const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
+      // Limite Free atteinte (10 titres) → modal upgrade au lieu d'un toast d'erreur.
+      if (err.requiresPro) {
+        setUpgrade(true);
+      } else {
+        toast.push('error', err.userMessage);
+      }
+    }
     finally { setAdding(false); }
   }, [items, newTicker, t, toast]);
 
@@ -125,6 +150,11 @@ export function WatchlistPage() {
             <h1 className="wl-title">{t('watchlist.title')}</h1>
             <p className="muted" style={{ fontSize: 14 }}>
               {t('watchlist.followed', { count: items.length })}
+              {!isPro && (
+                <span className="wl-quota" style={{ marginLeft: 10 }}>
+                  · <strong>{items.length}</strong> / {FREE_WATCHLIST_LIMIT} en gratuit
+                </span>
+              )}
             </p>
           </div>
           <div className="row gap-10">
@@ -135,20 +165,37 @@ export function WatchlistPage() {
           </div>
         </div>
 
+        {atFreeLimit && (
+          <div className="wl-limit-banner">
+            <Icon name="info" size={16} />
+            <span>
+              Tu as atteint la limite de <strong>{FREE_WATCHLIST_LIMIT} titres</strong> du plan gratuit.
+              <button type="button" className="wl-limit-cta" onClick={() => setUpgrade(true)}>
+                Passe Pro pour une watchlist illimitée →
+              </button>
+            </span>
+          </div>
+        )}
+
         <div className="wl-add">
           <div className="anl-search-field" style={{ maxWidth: 320, width: '100%' }}>
             <TickerSearch
               value={newTicker}
               onChange={setNewTicker}
-              onSelect={(tk) => { void addTicker(tk); }}
-              placeholder={t('watchlist.addPlaceholder')}
+              onSelect={(tk) => { if (atFreeLimit) { setUpgrade(true); return; } void addTicker(tk); }}
+              placeholder={atFreeLimit ? `Limite ${FREE_WATCHLIST_LIMIT}/${FREE_WATCHLIST_LIMIT} atteinte` : t('watchlist.addPlaceholder')}
               variant="field"
               exclude={items.map(i => i.ticker)}
               inputStyle={{ height: 40, paddingLeft: 40, fontSize: 14 }}
               noResultLabel={t('compare.noResult')}
             />
           </div>
-          <button className="btn btn-brand btn-sm" style={{ height: 40 }} onClick={() => { void addTicker(); }} disabled={adding || !newTicker.trim()}>
+          <button
+            className="btn btn-brand btn-sm"
+            style={{ height: 40 }}
+            onClick={() => { if (atFreeLimit) { setUpgrade(true); return; } void addTicker(); }}
+            disabled={adding || (!atFreeLimit && !newTicker.trim())}
+          >
             {adding ? <span className="spinner" /> : <><Icon name="plus" size={14} /> {t('watchlist.add')}</>}
           </button>
           {hasOpp && (
@@ -221,6 +268,13 @@ export function WatchlistPage() {
         )}
         <div style={{ height: 50 }} />
       </div>
+      {upgrade && (
+        <UpgradeModal
+          feature="Watchlist illimitée"
+          detail={`Tu as atteint ${items.length} / ${FREE_WATCHLIST_LIMIT} titres en mode gratuit.`}
+          onClose={() => setUpgrade(false)}
+        />
+      )}
     </div>
   );
 }

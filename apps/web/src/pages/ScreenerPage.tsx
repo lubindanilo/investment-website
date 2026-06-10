@@ -7,7 +7,14 @@ import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.j
 import { sectorSlug } from '../lib/sector.js';
 import { formatPrice } from '../lib/format.js';
 import SeoHead from '../components/SeoHead.js';
+import { UpgradeModal } from '../components/UpgradeModal.js';
+import { useSubscription } from '../contexts/SubscriptionContext.js';
 import './ScreenerPage.css';
+
+/** Nombre de lignes visibles en clair pour un utilisateur gratuit. Au-delà, les
+ *  lignes sont floutées avec un overlay « Voir tout — Pro ». Synchro UX uniquement,
+ *  l'API renvoie toujours toute la liste pour le SEO/sitemap. */
+const FREE_SCREENER_TOP = 10;
 
 const SCORE_OPTS = [4, 6, 8, 9, 10];
 const PFCF_MAX = 50; // valeur haute = pas de filtre P/FCF
@@ -163,6 +170,8 @@ function SectorItem({ label, count, checked, onClick }: { label: string; count?:
 export function ScreenerPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { isPro } = useSubscription();
+  const [upgrade, setUpgrade] = useState(false);
   const [rows, setRows] = useState<ScreenerTopRow[]>([]);
   const [stats, setStats] = useState<ScreenerStats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -252,19 +261,22 @@ export function ScreenerPage() {
           </div>
           <button
             type="button"
-            onClick={() => setOnlyOpp(v => !v)}
-            data-active={onlyOpp}
-            title={t('opportunity.tooltip')}
+            onClick={() => { if (!isPro) { setUpgrade(true); return; } setOnlyOpp(v => !v); }}
+            data-active={onlyOpp && isPro}
+            title={isPro ? t('opportunity.tooltip') : 'Opportunités du moment — réservé aux abonnés Pro'}
             className="scr-opp-toggle"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 6, padding: '6px 12px',
               borderRadius: 999, fontWeight: 700, fontSize: 12.5, cursor: 'pointer',
-              border: '1px solid ' + (onlyOpp ? 'color-mix(in oklch, var(--good) 45%, transparent)' : 'var(--line)'),
-              background: onlyOpp ? 'var(--good-bg)' : 'var(--surface)',
-              color: onlyOpp ? 'var(--good-ink)' : 'var(--ink-3)', transition: 'all .14s',
+              border: '1px solid ' + (!isPro ? 'var(--brand-softer)' : (onlyOpp ? 'color-mix(in oklch, var(--good) 45%, transparent)' : 'var(--line)')),
+              background: !isPro ? 'var(--surface)' : (onlyOpp ? 'var(--good-bg)' : 'var(--surface)'),
+              color: !isPro ? 'var(--brand)' : (onlyOpp ? 'var(--good-ink)' : 'var(--ink-3)'),
+              transition: 'all .14s',
             }}
           >
-            <Icon name="gem" size={13} stroke={2} />{t('opportunity.filter')}
+            <Icon name="gem" size={13} stroke={2} />
+            {t('opportunity.filter')}
+            {!isPro && <span className="scr-pro-tag">PRO</span>}
           </button>
           <span className="tiny muted" style={{ marginLeft: 'auto' }}>{t('screener.results', { count: sorted.length })}</span>
         </div>
@@ -279,7 +291,7 @@ export function ScreenerPage() {
             <p className="muted">{t('screener.empty.desc')}</p>
           </div>
         ) : (
-          <div className="card scroll-x" style={{ padding: 0, overflow: 'hidden' }}>
+          <div className="card scroll-x scr-table-wrap" style={{ padding: 0, overflow: 'hidden', position: 'relative' }}>
             <table className="tbl scr-tbl">
               <thead>
                 <tr>
@@ -293,33 +305,79 @@ export function ScreenerPage() {
                 </tr>
               </thead>
               <tbody>
-                {sorted.map(r => (
-                  <tr key={r.ticker} className={r.opportunity ? 'is-opp' : undefined} onClick={() => navigate(`/analyse/${r.ticker}`)}>
-                    <td>
-                      <div className="scr-soc">
-                        <span className="num scr-soc-ticker row gap-6">{r.ticker}{r.opportunity && <OpportunityBadge compact />}</span>
-                        <span className="scr-soc-name">{r.name ?? r.ticker}</span>
-                      </div>
-                    </td>
-                    <td className="muted" style={{ fontSize: 13 }}>{r.sector ? t(`industries.${sectorSlug(r.sector)}`, { defaultValue: r.sector }) : '—'}</td>
-                    <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
-                    <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
-                    <td className="num">{formatPrice(r.price, r.currency)}</td>
-                    <td>
-                      <span className="num tiny wl-earn">
-                        <Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />
-                        {formatEarnings(r.nextEarningsDate)}
-                      </span>
-                    </td>
-                    <td style={{ width: 40, textAlign: 'right' }}><span style={{ color: 'var(--ink-4)' }}><Icon name="chevronR" size={16} /></span></td>
-                  </tr>
-                ))}
+                {sorted.map((r, i) => {
+                  // Free : les rangs > 10 sont visibles mais floutés (CSS) ; clic → modal upgrade.
+                  // Le badge « Opportunité » est masqué pour les Free (réservé Pro).
+                  const locked = !isPro && i >= FREE_SCREENER_TOP;
+                  return (
+                    <tr
+                      key={r.ticker}
+                      className={(r.opportunity && isPro ? 'is-opp' : '') + (locked ? ' scr-locked' : '')}
+                      onClick={() => { if (locked) { setUpgrade(true); return; } navigate(`/analyse/${r.ticker}`); }}
+                    >
+                      <td>
+                        <div className="scr-soc">
+                          <span className="num scr-soc-ticker row gap-6">
+                            {r.ticker}
+                            {r.opportunity && isPro && <OpportunityBadge compact />}
+                          </span>
+                          <span className="scr-soc-name">{r.name ?? r.ticker}</span>
+                        </div>
+                      </td>
+                      <td className="muted" style={{ fontSize: 13 }}>{r.sector ? t(`industries.${sectorSlug(r.sector)}`, { defaultValue: r.sector }) : '—'}</td>
+                      <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
+                      <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
+                      <td className="num">{formatPrice(r.price, r.currency)}</td>
+                      <td>
+                        <span className="num tiny wl-earn">
+                          <Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />
+                          {formatEarnings(r.nextEarningsDate)}
+                        </span>
+                      </td>
+                      <td style={{ width: 40, textAlign: 'right' }}><span style={{ color: 'var(--ink-4)' }}><Icon name="chevronR" size={16} /></span></td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
+            {/* Overlay Pro : positionné au-dessus de la zone floutée, ne couvre QUE la partie >10.
+                Le tableau reste structurellement présent (SEO + nombre total visible), mais
+                l'utilisateur Free ne peut pas piocher dans le top 7000+ sans Pro. */}
+            {!isPro && sorted.length > FREE_SCREENER_TOP && (
+              <div className="scr-pro-overlay" onClick={() => setUpgrade(true)}>
+                <div className="scr-pro-overlay-inner">
+                  <div className="scr-pro-overlay-badge">PRO</div>
+                  <div className="scr-pro-overlay-title">
+                    Voir tout le top {sorted.length} entreprises notées
+                  </div>
+                  <div className="scr-pro-overlay-sub">
+                    Le screener Pro débloque l'ensemble de l'univers, le filtre « Opportunités
+                    du moment » et toutes les données EU + International.
+                  </div>
+                  <button type="button" className="btn btn-brand scr-pro-overlay-cta">
+                    Passer Pro <Icon name="arrowRight" size={14} />
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         )}
         <div style={{ height: 50 }} />
       </div>
+      {upgrade && (
+        <UpgradeModal
+          feature="Screener complet et opportunités"
+          detail={`Tu vois le top ${FREE_SCREENER_TOP} en gratuit. Pro débloque l'univers entier + le filtre Opportunités.`}
+          benefits={[
+            'Screener complet — top 7000+ entreprises notées',
+            'Filtre « Opportunités du moment » (P/FCF dans son décile bas historique)',
+            'Données Europe et Internationales',
+            'Analyses illimitées tous les jours',
+            'Analyse qualitative IA, graphiques détaillés, comparaison 5 titres',
+          ]}
+          onClose={() => setUpgrade(false)}
+        />
+      )}
     </div>
   );
 }

@@ -36,11 +36,15 @@ import {
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { watchlistMutateLimiter } from '../middleware/rateLimit.js';
 import { requireAuth } from '../middleware/auth.js';
+import { isProActive } from '../services/stripe.js';
 
 export const watchlistRouter: Router = Router();
 watchlistRouter.use(requireAuth);
 
 const TickerSchema = z.string().trim().toUpperCase().regex(/^[A-Z0-9.\-]{1,15}$/);
+
+/** Limite watchlist pour les comptes Free. Les Pro sont illimités. */
+const FREE_WATCHLIST_LIMIT = 10;
 
 /**
  * Compute fresh + write to global cache. Utilisé quand un ticker n'a pas encore
@@ -271,6 +275,27 @@ watchlistRouter.post('/', watchlistMutateLimiter, asyncHandler(async (req: Reque
   const parse = TickerSchema.safeParse(req.body?.ticker);
   if (!parse.success) throw new ApiError(400, 'ticker invalide');
   const ticker = parse.data;
+
+  // Limite watchlist pour les comptes Free (10 titres max). Pro = illimité.
+  // On lit le statut et le compteur en parallèle ; si l'utilisateur essaie d'AJOUTER
+  // un ticker déjà présent dans sa liste (upsert), on ne compte pas une nouvelle
+  // entrée — la limite ne doit donc pas bloquer le re-ajout d'un ticker existant.
+  const [user, alreadyHas, currentCount] = await Promise.all([
+    prisma.user.findUnique({
+      where: { id: userId },
+      select: { subscriptionStatus: true, subscriptionCurrentPeriodEnd: true },
+    }),
+    prisma.watchlistEntry.findUnique({ where: { userId_ticker: { userId, ticker } }, select: { userId: true } }),
+    prisma.watchlistEntry.count({ where: { userId } }),
+  ]);
+  const isPro = user ? isProActive(user) : false;
+  if (!isPro && !alreadyHas && currentCount >= FREE_WATCHLIST_LIMIT) {
+    throw new ApiError(
+      403,
+      `Watchlist limitée à ${FREE_WATCHLIST_LIMIT} titres en gratuit. Passe Pro pour un suivi illimité.`,
+      { limit: FREE_WATCHLIST_LIMIT, current: currentCount, code: 'PRO_REQUIRED' },
+    );
+  }
 
   // Ajoute la ligne user-ticker
   await prisma.watchlistEntry.upsert({

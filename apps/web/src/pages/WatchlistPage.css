@@ -19,3 +19,24 @@
 .wl-remove:hover { color: var(--bad); background: var(--bad-bg); }
 
 @media (max-width: 880px) { .wl-head { flex-direction: column; } }
+
+/* Compteur "X / 10 en gratuit" à côté du nombre de titres suivis */
+.wl-quota { color: var(--ink-3); font-size: 13px; }
+.wl-quota strong { color: var(--ink); font-family: var(--mono, monospace); }
+
+/* Bannière limite atteinte — affichée sous le header, au-dessus de la barre d'ajout */
+.wl-limit-banner {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 16px; margin-bottom: 14px;
+  background: var(--brand-softer, #eef2ff); border: 1px solid var(--brand-softer);
+  border-left: 3px solid var(--brand); border-radius: 10px;
+  font-size: 13.5px; color: var(--ink-2); line-height: 1.5;
+}
+.wl-limit-banner svg { flex: none; color: var(--brand); margin-top: 2px; }
+.wl-limit-banner strong { color: var(--ink); }
+.wl-limit-cta {
+  background: none; border: none; padding: 0 0 0 6px;
+  color: var(--brand); font-weight: 600; font-size: 13.5px;
+  text-decoration: underline; cursor: pointer;
+}
+.wl-limit-cta:hover { text-decoration: none; color: var(--brand-press, var(--brand)); }
