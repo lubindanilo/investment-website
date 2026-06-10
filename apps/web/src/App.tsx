@@ -90,6 +90,9 @@ export function App() {
               {t('nav.marketBeat')}
             </NavLink>
           )}
+          <NavLink to="/pricing" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+            {t('nav.pricing')}
+          </NavLink>
         </nav>
       )}
 
