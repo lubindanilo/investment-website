@@ -640,3 +640,194 @@ seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) 
     res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug));
   }
 });
+
+// ─── Pages statiques (SPA) pré-rendues pour les bots ────────────────────────
+// La home et les pages cœur (/screener, /methodologie, /blog, /pricing, /analyser,
+// /compare) sont servies aux humains en SPA (coquille sans canonical ni h1). Pour les
+// bots, on renvoie un HTML statique avec title/meta/canonical/h1/h2 + maillage interne.
+// Humains inchangés (rewrite Vercel conditionné au User-Agent).
+type StaticSeo = {
+  path: string; title: string; desc: string; h1: string; intro: string;
+  sections: { h2: string; p: string }[];
+  links: { href: string; label: string }[];
+  website?: boolean;
+};
+
+function renderStaticHtml(o: StaticSeo): string {
+  const canonical = `${SITE_URL}${o.path === '/' ? '/' : o.path}`;
+  const title = escapeHtml(o.title);
+  const description = escapeHtml(o.desc.slice(0, 158));
+  const sectionsHtml = o.sections
+    .map((s) => `<h2>${escapeHtml(s.h2)}</h2>\n<p>${escapeHtml(s.p)}</p>`)
+    .join('\n');
+  const linksHtml = o.links
+    .map((l) => `<a href="${SITE_URL}${l.href}">${escapeHtml(l.label)}</a>`)
+    .join(' · ');
+  const breadcrumbLd = {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+      ...(o.path === '/' ? [] : [{ '@type': 'ListItem', position: 2, name: o.h1, item: canonical }]),
+    ],
+  };
+  const websiteLd = o.website
+    ? `\n<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'WebSite', name: 'Lubin Investment',
+        url: `${SITE_URL}/`, inLanguage: 'fr',
+      })}</script>\n<script type="application/ld+json">${JSON.stringify({
+        '@context': 'https://schema.org', '@type': 'Organization', name: 'Lubin Investment',
+        url: `${SITE_URL}/`, logo: `${SITE_URL}/icon-512.png`,
+      })}</script>`
+    : '';
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<meta name="description" content="${description}">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="${canonical}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${description}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:site_name" content="Lubin Investment">
+<meta property="og:locale" content="fr_FR">
+<script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>${websiteLd}
+</head>
+<body>
+<header><p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/methodologie">Méthodologie</a> · <a href="${SITE_URL}/blog">Blog</a></p></header>
+<main>
+<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a>${o.path === '/' ? '' : ` › ${escapeHtml(o.h1)}`}</nav>
+<h1>${escapeHtml(o.h1)}</h1>
+<p>${escapeHtml(o.intro)}</p>
+${sectionsHtml}
+<p>${linksHtml}</p>
+</main>
+</body>
+</html>`;
+}
+
+const STATIC_SEO: StaticSeo[] = [
+  {
+    path: '/',
+    title: "Analyse fondamentale d'actions : la qualité et le prix",
+    desc: "Tapez un ticker : note de qualité sur 10 critères financiers objectifs et valorisation (P/FCF) jugée à part. Plus de 7000 actions suivies en continu.",
+    h1: 'Trouvez les entreprises de qualité, sans le bruit',
+    intro: "Lubin Investment note chaque action sur 10 critères financiers objectifs (rentabilité, croissance du cash, rachats d'actions, endettement, rendement du capital) et juge le prix séparément via le P/FCF. Une méthode, pas des opinions.",
+    sections: [
+      { h2: 'Comment ça marche', p: "Tapez un ticker, lisez la note sur 10 et son détail, puis décidez du prix d'entrée. La qualité du business et le prix de l'action sont jugés séparément : c'est la règle d'or de la méthode." },
+      { h2: 'Une méthode transparente', p: 'Les critères s\'appuient sur la littérature financière (Warren Buffett, Michael Mauboussin, Aswath Damodaran). Aucune opinion, aucune boîte noire : la donnée décide.' },
+      { h2: 'Aller plus loin', p: 'Explorez le classement des actions notées 10 sur 10, les actions de qualité sous-évaluées, le screener complet, ou la méthodologie détaillée.' },
+    ],
+    links: [
+      { href: '/analyser', label: 'Analyser une action' },
+      { href: '/screener', label: 'Screener' },
+      { href: '/classement/qualite-10-sur-10', label: 'Actions notées 10 sur 10' },
+      { href: '/classement/sous-evaluees', label: 'Actions sous-évaluées' },
+      { href: '/methodologie', label: 'Méthodologie' },
+      { href: '/blog', label: 'Blog' },
+    ],
+    website: true,
+  },
+  {
+    path: '/screener',
+    title: 'Screener d\'actions : note de qualité et P/FCF',
+    desc: 'Le screener Lubin trie des milliers d\'actions par note de qualité (10 critères) et par valorisation (P/FCF). Trouvez les entreprises solides au bon prix.',
+    h1: 'Screener : les meilleures actions de qualité',
+    intro: 'Filtrez les actions par note de qualité sur 10 critères financiers objectifs et par valorisation (P/FCF, le prix rapporté au cash généré). Le screener met en tête les entreprises les plus solides.',
+    sections: [
+      { h2: 'Qualité d\'abord, prix ensuite', p: 'Chaque action reçoit une note sur 10 (solidité du business) et un P/FCF (cher ou bon marché). Les deux sont jugés séparément pour éviter de payer trop cher une bonne entreprise.' },
+      { h2: 'Classements prêts à l\'emploi', p: 'Consultez directement les actions notées 10 sur 10, ou les actions de qualité actuellement sous-évaluées.' },
+    ],
+    links: [
+      { href: '/classement/qualite-10-sur-10', label: 'Actions notées 10 sur 10' },
+      { href: '/classement/sous-evaluees', label: 'Actions sous-évaluées' },
+      { href: '/methodologie', label: 'Notre méthodologie' },
+    ],
+  },
+  {
+    path: '/methodologie',
+    title: 'Méthodologie : 10 critères, sources publiques',
+    desc: 'Comment Lubin note une action : 10 critères financiers objectifs, seuils issus de la littérature (Buffett, Mauboussin, Damodaran), zéro opinion, zéro boîte noire.',
+    h1: '10 critères, sources publiques, zéro boîte noire',
+    intro: 'La note de qualité repose sur 10 critères financiers objectifs, validés selon des seuils tirés de la littérature financière. Le calcul est automatique et sans opinion humaine.',
+    sections: [
+      { h2: 'Les 10 critères de qualité', p: 'Rentabilité, croissance des ventes et du free cash flow, rachats d\'actions, marges, profitabilité cash, rendement du capital (Cash ROCE), endettement maîtrisé, conversion du bénéfice en cash, cycle de trésorerie.' },
+      { h2: 'La valorisation, jugée à part', p: 'Le P/FCF (prix rapporté au free cash flow) mesure si l\'action est chère ou bon marché. Une bonne entreprise à mauvais prix reste un mauvais placement.' },
+    ],
+    links: [
+      { href: '/analyser', label: 'Analyser une action' },
+      { href: '/screener', label: 'Screener' },
+    ],
+  },
+  {
+    path: '/blog',
+    title: 'Blog : analyse fondamentale et méthode',
+    desc: 'Analyses d\'actions par les fondamentaux, méthode P/FCF et lecture de l\'actualité par la qualité. Le blog de Lubin Investment, en clair.',
+    h1: 'Comprendre les marchés avec méthode',
+    intro: 'Des analyses fondamentales d\'actions, la méthode de valorisation par les flux de trésorerie, et une lecture de l\'actualité au prisme de la qualité.',
+    sections: [
+      { h2: 'Pédagogique et chiffré', p: 'Chaque article explique les termes, montre les chiffres réels, et raconte la thèse au-delà des nombres (moat, management, risques).' },
+    ],
+    links: [
+      { href: '/analyser', label: 'Analyser une action' },
+      { href: '/methodologie', label: 'Méthodologie' },
+    ],
+  },
+  {
+    path: '/pricing',
+    title: 'Tarifs : Lubin Investment, gratuit et Pro',
+    desc: 'Analysez gratuitement n\'importe quelle action (note /10 + valorisation). Pro : analyses illimitées, analyse qualitative, comparaisons et données complètes.',
+    h1: 'Investir avec méthode, pas avec des opinions',
+    intro: 'Le plan gratuit donne la note de qualité et la valorisation de n\'importe quelle action. Le plan Pro débloque l\'analyse qualitative, les comparaisons et les données complètes.',
+    sections: [
+      { h2: 'Gratuit', p: 'Note de qualité sur 10 critères, valorisation P/FCF, screener et watchlist. De quoi décider sur n\'importe quelle action.' },
+      { h2: 'Pro', p: 'Analyses illimitées, analyse qualitative (business et management), opportunités, comparaisons jusqu\'à 5 actions, données Europe et international.' },
+    ],
+    links: [
+      { href: '/analyser', label: 'Analyser une action' },
+      { href: '/methodologie', label: 'Méthodologie' },
+    ],
+  },
+  {
+    path: '/analyser',
+    title: 'Analyser une action : qualité et valorisation',
+    desc: 'Tapez un ticker et obtenez en quelques secondes une note de qualité sur 10 critères et une valorisation (P/FCF) jugée séparément.',
+    h1: 'Analyser une action',
+    intro: 'Entrez un ticker (par exemple AAPL, MSFT ou ASML) pour obtenir sa note de qualité sur 10 critères financiers objectifs et sa valorisation par le free cash flow.',
+    sections: [
+      { h2: 'Une note, un prix', p: 'La note juge la solidité du business ; le P/FCF juge le prix. Vous repartez avec les deux, séparément.' },
+    ],
+    links: [
+      { href: '/screener', label: 'Screener' },
+      { href: '/classement/qualite-10-sur-10', label: 'Actions notées 10 sur 10' },
+    ],
+  },
+  {
+    path: '/compare',
+    title: 'Comparer des actions : qualité et prix',
+    desc: 'Mettez 2 à 5 actions côte à côte : note de qualité, 10 critères et valorisation (P/FCF). La donnée décide, ligne par ligne.',
+    h1: 'Comparer des actions',
+    intro: 'Placez 2 à 5 actions côte à côte pour comparer leur note de qualité, le détail des 10 critères et leur valorisation (P/FCF). La meilleure de chaque ligne est mise en avant.',
+    sections: [
+      { h2: 'Comparer ce qui compte', p: 'Au lieu d\'opposer des cours, on compare la qualité du business et le prix payé pour le cash généré.' },
+    ],
+    links: [
+      { href: '/analyser', label: 'Analyser une action' },
+      { href: '/screener', label: 'Screener' },
+    ],
+  },
+];
+
+const STATIC_BY_PATH: Record<string, StaticSeo> = Object.fromEntries(STATIC_SEO.map((s) => [s.path, s]));
+
+for (const seo of STATIC_SEO) {
+  seoPrerenderRouter.get(seo.path, (_req: Request, res: Response) => {
+    res.status(200)
+      .set('Content-Type', 'text/html; charset=utf-8')
+      .set('Cache-Control', 'public, max-age=3600, s-maxage=86400')
+      .send(renderStaticHtml(STATIC_BY_PATH[seo.path]!));
+  });
+}
