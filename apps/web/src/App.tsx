@@ -84,6 +84,9 @@ export function App() {
           <NavLink to="/blog" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.blog')}
           </NavLink>
+          <NavLink to="/methodologie" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+            {t('nav.methodologie')}
+          </NavLink>
           <NavLink to="/pricing" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.pricing')}
           </NavLink>

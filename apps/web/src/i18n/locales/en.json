@@ -78,6 +78,7 @@
     "marketBeat": "Portfolio Strategy",
     "compare": "Compare",
     "blog": "Blog",
+    "methodologie": "Methodology",
     "pricing": "Pricing"
   },
   "userMenu": {
@@ -95,6 +96,7 @@
       "titleLine1": "Find quality companies,",
       "titleAccent": "without the noise.",
       "lede": "Enter a ticker and get a quality score out of 10, computed from objective financial criteria. Valuation assessed separately. Plus a monitor that scores the entire market for you.",
+      "valueLine": "A quality score out of 10, an in-depth analysis of the business model and management, and a recommended buy price.",
       "ctaAnalyze": "Analyze a stock",
       "ctaScreener": "Explore the screener"
     },
@@ -495,7 +497,10 @@
     "cashRoce": "Capital return",
     "fcfMargin": "Cash profitability",
     "revenueGrowth": "Sales growth",
-    "debtFcf": "Leverage"
+    "debtFcf": "Leverage",
+    "netMargin": "Net margin",
+    "cashConv": "Cash conversion",
+    "buybacks": "Share buybacks"
   },
   "ccc": {
     "history": "CCC history",

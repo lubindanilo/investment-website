@@ -9,7 +9,9 @@ import { CompositionBar } from './charts.js';
 const TILES: { labelKey: string; value: string; status: DataStatus }[] = [
   { labelKey: 'cashRoce', value: '31 %', status: 'good' },
   { labelKey: 'fcfMargin', value: '24 %', status: 'good' },
+  { labelKey: 'netMargin', value: '34 %', status: 'good' },
   { labelKey: 'revenueGrowth', value: '12 %', status: 'good' },
+  { labelKey: 'cashConv', value: '1.2×', status: 'good' },
   { labelKey: 'debtFcf', value: '1.4×', status: 'good' },
 ];
 
