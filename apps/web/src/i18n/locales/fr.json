@@ -119,10 +119,10 @@
   "home": {
     "hero": {
       "chip": "Analyse fondamentale automatisée",
-      "titleLine1": "Trouve les entreprises de qualité,",
-      "titleAccent": "sans le bruit.",
-      "lede": "Tape un ticker, obtiens une note de qualité sur 10 calculée sur des critères financiers objectifs. Une valorisation jugée séparément. Et une veille qui note tout le marché pour toi.",
-      "valueLine": "Une note de qualité sur 10, une analyse approfondie du business model et du management, et un prix d'achat conseillé.",
+      "titleLine1": "Achète des entreprises de qualité",
+      "titleAccent": "au bon prix.",
+      "lede": "Tape le symbole d'une action (son « ticker », ex. AAPL) : en quelques secondes, tu sais si l'entreprise est solide (sa note sur 10) et si son prix est raisonnable. Fini de payer une bonne action trop cher, ou de passer des heures sur des bilans.",
+      "valueLine": "Une note sur 10, une analyse de son activité et de ses dirigeants, et un prix d'achat conseillé.",
       "ctaAnalyze": "Analyser une action",
       "ctaScreener": "Explorer le screener"
     },
@@ -133,19 +133,19 @@
     "benefits": {
       "0": {
         "title": "Des chiffres, pas du bla-bla",
-        "text": "10 critères financiers objectifs calculés en quelques secondes. La donnée tranche, pas les opinions."
+        "text": "Tu sais en quelques secondes si une entreprise est solide, sans démêler les avis contradictoires des forums."
       },
       "1": {
         "title": "Toute la cote, surveillée",
-        "text": "Une veille automatique note en continu l'univers boursier et fait remonter les meilleures entreprises."
+        "text": "Tu ne rates plus aucune pépite : la veille scanne tout le marché en continu."
       },
       "2": {
         "title": "La méthode des grands investisseurs",
-        "text": "Rentabilité, croissance, qualité du bilan : les critères des compounders de long terme."
+        "text": "Tu appliques les critères des meilleurs investisseurs (Buffett, Terry Smith), sans avoir à les calculer toi-même."
       },
       "3": {
         "title": "Qualité et prix, séparés",
-        "text": "La qualité du business et le prix d'entrée sont jugés indépendamment. Jamais l'un pour l'autre."
+        "text": "Tu n'achètes plus une bonne entreprise au mauvais prix : la qualité et le prix sont jugés séparément."
       }
     },
     "how": {
