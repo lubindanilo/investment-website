@@ -16,7 +16,7 @@ import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import { prisma } from '../db/client.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
-import { requireAuth } from '../middleware/auth.js';
+import { requireAuth, optionalAuth } from '../middleware/auth.js';
 import { hashPassword, verifyPassword, signToken, COOKIE_NAME, cookieOptions } from '../lib/auth.js';
 import { authLimiter } from '../middleware/rateLimit.js';
 
@@ -72,13 +72,16 @@ authRouter.post('/logout', (_req: Request, res: Response) => {
   res.json({ ok: true });
 });
 
-authRouter.get('/me', requireAuth, asyncHandler(async (req: Request, res: Response) => {
-  // requireAuth garantit req.user
-  const user = await prisma.user.findUnique({ where: { id: req.user!.userId } });
+authRouter.get('/me', optionalAuth, asyncHandler(async (req: Request, res: Response) => {
+  // Endpoint d'ÉTAT (suis-je connecté ?) : anonyme => 200 + null, PAS 401. Évite une
+  // erreur console "401" sur chaque page pour les visiteurs non connectés.
+  if (!req.user) { res.json(null); return; }
+  const user = await prisma.user.findUnique({ where: { id: req.user.userId } });
   if (!user) {
     // Cas rare : le cookie est valide mais le user a été supprimé entre-temps
     res.clearCookie(COOKIE_NAME, cookieOptions({ clear: true }));
-    throw new ApiError(401, 'Utilisateur introuvable');
+    res.json(null);
+    return;
   }
   res.json(publicUser(user));
 }));

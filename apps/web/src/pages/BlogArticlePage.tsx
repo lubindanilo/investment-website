@@ -5,12 +5,32 @@
  */
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { getArticleBySlug, toArticleLang, type ArticleBlock } from '@lubin/shared';
+import { getArticleBySlug, toArticleLang, type ArticleBlock, type ArticleLang } from '@lubin/shared';
 import SeoHead from '../components/SeoHead.js';
 import { Icon } from '../components/ui/primitives.js';
 import './BlogArticlePage.css';
 
 const LOCALE: Record<string, string> = { fr: 'fr-FR', en: 'en-US', es: 'es-ES' };
+
+// Auteur (E-E-A-T / YMYL) : signature + bio courte, basées sur l'expérience réelle
+// (autodidacte, investit son propre argent), affichées aussi aux lecteurs humains.
+const AUTHOR: Record<ArticleLang, { byline: string; heading: string; bio: string }> = {
+  fr: {
+    byline: 'Par Lubin Danilo',
+    heading: "À propos de l'auteur",
+    bio: "Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, j'analyse les actions par les fondamentaux depuis plusieurs années et j'investis mon propre argent avec cette méthode, que j'ai codifiée dans cet outil.",
+  },
+  en: {
+    byline: 'By Lubin Danilo',
+    heading: 'About the author',
+    bio: 'Lubin Danilo, founder of Lubin Investment. A self-taught individual investor, I have analyzed stocks through their fundamentals for several years and invest my own money with this method, which I codified into this tool.',
+  },
+  es: {
+    byline: 'Por Lubin Danilo',
+    heading: 'Sobre el autor',
+    bio: 'Lubin Danilo, fundador de Lubin Investment. Inversor particular autodidacta, analizo acciones por sus fundamentales desde hace varios años e invierto mi propio dinero con este método, que codifiqué en esta herramienta.',
+  },
+};
 
 function renderBlock(block: ArticleBlock, i: number) {
   if (block.type === 'h2') return <h2 key={i} className="article-h2">{block.text}</h2>;
@@ -52,7 +72,8 @@ export function BlogArticlePage() {
           </div>
           <h1 className="article-title">{c.title}</h1>
           <div className="article-meta">
-            <time dateTime={article.date}>{dateLabel}</time>
+            <span rel="author">{AUTHOR[lang].byline}</span>
+            <time dateTime={article.date}>· {dateLabel}</time>
             <span>· {article.readingTime} min</span>
           </div>
         </header>
@@ -86,6 +107,11 @@ export function BlogArticlePage() {
               Analyser une action <Icon name="arrowRight" size={16} />
             </Link>
           )}
+        </section>
+
+        <section className="article-author">
+          <h2 className="article-h2">{AUTHOR[lang].heading}</h2>
+          <p>{AUTHOR[lang].bio}</p>
         </section>
 
         <p className="article-disclaimer">{c.disclaimer}</p>
