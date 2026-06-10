@@ -45,8 +45,18 @@
   background: none; border: 1px solid var(--line); border-radius: 7px;
   padding: 5px 10px; font-size: 12px; font-weight: 600; color: var(--ink-2);
   transition: background .14s, color .14s, border-color .14s;
+  cursor: pointer;
 }
 .crit-hist-btn:hover { background: var(--brand-soft); color: var(--brand-ink); border-color: transparent; }
+
+/* Variant graphique détaillé verrouillé (Free) — tag PRO + accent indigo subtil */
+.crit-hist-btn-pro { border-color: var(--brand-softer); color: var(--brand); }
+.crit-hist-btn-pro:hover { background: var(--brand-softer); color: var(--brand); border-color: transparent; }
+.crit-pro-tag {
+  display: inline-block; font-size: 9.5px; font-weight: 800;
+  letter-spacing: 0.08em; padding: 1.5px 6px; border-radius: 999px;
+  background: var(--brand); color: #fff; margin-left: 2px;
+}
 
 /* ── Cartes qualitatives (compactes) ── */
 .qual-grid {

@@ -130,10 +130,26 @@ export function AccountPage() {
             </>
           ) : (
             <>
+              {/* Quota du jour — barre visuelle pour donner l'urgence */}
+              {sub && (
+                <div className="account-quota">
+                  <div className="account-quota-head">
+                    <span className="account-quota-label">Analyses aujourd'hui</span>
+                    <span className="account-quota-value">
+                      <strong>{sub.dailyAnalysisCount}</strong> / {sub.dailyAnalysisLimit}
+                    </span>
+                  </div>
+                  <div className="account-quota-bar">
+                    <div
+                      className="account-quota-fill"
+                      style={{ width: `${Math.min(100, Math.round((sub.dailyAnalysisCount / Math.max(1, sub.dailyAnalysisLimit)) * 100))}%` }}
+                    />
+                  </div>
+                </div>
+              )}
               <p className="account-info">
-                Tu utilises Lubin Investment en mode gratuit. Tu as accès à <strong>{sub?.dailyAnalysisLimit ?? 10} analyses
-                par jour</strong> ({sub ? `${sub.dailyAnalysisCount} utilisées aujourd'hui` : '—'}),
-                au screener (top 100), à la watchlist (10 titres) et à la comparaison de 2 titres.
+                Tu utilises Lubin Investment en mode gratuit. Tu as accès au screener (top 100),
+                à la watchlist (10 titres) et à la comparaison de 2 titres.
               </p>
               <p className="account-info">
                 Pour débloquer l'<strong>analyse qualitative IA</strong>, les <strong>opportunités du moment</strong>,

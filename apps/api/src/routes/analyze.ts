@@ -27,7 +27,8 @@ import * as chartCache from '../lib/timeseriesCache.js';
 import { prisma } from '../db/client.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { analyzeLimiter } from '../middleware/rateLimit.js';
-import { optionalAuth } from '../middleware/auth.js';
+import { optionalAuth, requireAuth } from '../middleware/auth.js';
+import { enforceDailyAnalysisQuota, requirePro } from '../middleware/subscription.js';
 
 export const analyzeRouter: Router = Router();
 
@@ -238,7 +239,11 @@ async function computeOpportunity(
 // Si l'un des deux n'est pas en cache, on renvoie quand même la réponse — le front
 // affichera le bouton "Générer l'analyse qualitative".
 
-analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Request, res: Response) => {
+// IMPORTANT : on a fait le choix « force account creation » dès la 1ère analyse
+// (vs accès anonyme limité par IP). requireAuth bloque les non-connectés en 401, le
+// frontend les redirige vers /signup. Ensuite enforceDailyAnalysisQuota incrémente
+// le compteur (10/jour Free) ; les Pro passent en illimité.
+analyzeRouter.get('/', analyzeLimiter, requireAuth, enforceDailyAnalysisQuota, asyncHandler(async (req: Request, res: Response) => {
   const parse = TickerSchema.safeParse(req.query.ticker);
   if (!parse.success) throw new ApiError(400, 'ticker invalide', parse.error.flatten());
   const ticker = parse.data;
@@ -365,7 +370,10 @@ async function persistQuantCache(
 // Génère ce qui manque (business + management si absents). Renvoie la réponse complète.
 // C'est le SEUL endroit où on déclenche un appel GPT (à part /refresh-management).
 
-analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Request, res: Response) => {
+// Analyse qualitative IA (business + management via GPT) — réservée aux abonnés Pro.
+// requirePro renvoie 403 + code 'PRO_REQUIRED' que le frontend détecte pour afficher
+// la modale d'upgrade.
+analyzeRouter.post('/qualitative', analyzeLimiter, requireAuth, requirePro, asyncHandler(async (req: Request, res: Response) => {
   const parse = TickerSchema.safeParse(req.body?.ticker);
   if (!parse.success) throw new ApiError(400, 'ticker invalide');
   const ticker = parse.data;
@@ -451,7 +459,8 @@ analyzeRouter.post('/qualitative', analyzeLimiter, asyncHandler(async (req: Requ
 // Cas d'usage : CEO part, CFO scandale, nouveau président — l'utilisateur sait
 // quand il y a un changement, déclenche un refresh.
 
-analyzeRouter.post('/refresh-management', analyzeLimiter, asyncHandler(async (req: Request, res: Response) => {
+// Rafraîchissement de l'analyse management uniquement (force un appel GPT) — Pro only.
+analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePro, asyncHandler(async (req: Request, res: Response) => {
   const parse = TickerSchema.safeParse(req.body?.ticker);
   if (!parse.success) throw new ApiError(400, 'ticker invalide');
   const ticker = parse.data;

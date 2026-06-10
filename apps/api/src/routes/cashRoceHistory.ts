@@ -9,6 +9,8 @@
 import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import { asyncHandler, ApiError } from '../middleware/error.js';
+import { requireAuth } from '../middleware/auth.js';
+import { requirePro } from '../middleware/subscription.js';
 import { getCashRoceHistory } from '../services/cashRoceHistory.js';
 import { getNextEarningsDate, ttlUntilNextEarnings } from '../services/earnings.js';
 import * as cache from '../lib/timeseriesCache.js';
@@ -18,7 +20,8 @@ export const cashRoceHistoryRouter: Router = Router();
 const TickerSchema = z.string().trim().toUpperCase().regex(/^[A-Z0-9.\-]{1,15}$/);
 const YearsSchema = z.coerce.number().int().min(1).max(50).default(5);
 
-cashRoceHistoryRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
+// Graphique détaillé du Cash ROCE (rendement du capital) — Pro only.
+cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req: Request, res: Response) => {
   const t = TickerSchema.safeParse(req.query.ticker);
   const y = YearsSchema.safeParse(req.query.years ?? '5');
   if (!t.success || !y.success) {

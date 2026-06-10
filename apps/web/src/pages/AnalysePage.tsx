@@ -12,6 +12,7 @@ import { DividendCard } from '../components/DividendCard.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
 import { Icon, ScoreCircle, ScorePill, OpportunityBadge, toDataStatus } from '../components/ui/primitives.js';
 import { TickerSearch } from '../components/TickerSearch.js';
+import { UpgradeModal } from '../components/UpgradeModal.js';
 import { CompositionBar, PriceChart } from '../components/ui/charts.js';
 import SeoHead from '../components/SeoHead.js';
 import './AnalysePage.css';
@@ -54,6 +55,9 @@ export function AnalysePage() {
   const [generatingQual, setGeneratingQual] = useState(false);
   const [inWatchlist, setInWatchlist] = useState<Set<string>>(new Set());
   const [lastTicker, setLastTicker] = useState('');
+  // Modale d'upgrade Pro déclenchée par les 403 PRO_REQUIRED (qualitatif IA, etc.)
+  // et 429 QUOTA_EXCEEDED (10 analyses/jour atteint). Le contenu varie selon la cause.
+  const [upgrade, setUpgrade] = useState<{ feature: string; detail?: string } | null>(null);
 
   useEffect(() => { setInWatchlist(new Set()); }, [user]);
 
@@ -65,11 +69,30 @@ export function AnalysePage() {
     try {
       setAnalysis(await api.analyze(cleaned));
     } catch (e) {
-      setError(e instanceof ApiError ? e : new ApiError(0, (e as Error).message));
+      const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
+      // Anonyme tente une analyse → redirection vers /signup avec retour vers la page
+      // d'analyse demandée. Décision business : force account creation dès la 1ère
+      // analyse (vs accès anonyme limité par IP).
+      if (err.requiresAuth) {
+        toast.push('warn', `Crée un compte gratuit pour analyser ${cleaned}`);
+        navigate('/signup', { state: { from: `/analyse/${cleaned}` } });
+        return;
+      }
+      // Quota gratuit dépassé (10/jour) → modal upgrade. Pas une erreur "bloquante" à
+      // afficher dans ErrorState, c'est juste un appel à passer Pro.
+      if (err.quotaExceeded) {
+        const details = (err.details as { used?: number; limit?: number } | undefined);
+        setUpgrade({
+          feature: 'Limite quotidienne atteinte',
+          detail: details ? `Tu as utilisé ${details.used ?? '?'} / ${details.limit ?? 10} analyses aujourd'hui.` : undefined,
+        });
+        return;
+      }
+      setError(err);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [navigate, toast]);
 
   // Soumet un ticker : on NAVIGUE vers /analyse/:ticker plutôt que de faire l'analyse en
   // local. L'URL devient l'unique source de vérité — partageable, bookmarkable, indexable
@@ -117,7 +140,14 @@ export function AnalysePage() {
     if (!analysis) return;
     setGeneratingQual(true);
     try { setAnalysis(await api.generateQualitative(analysis.ticker)); toast.push('success', t('analyse.toast.qualGenerated')); }
-    catch (e) { toast.push('error', (e as Error).message); }
+    catch (e) {
+      const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
+      if (err.requiresPro) {
+        setUpgrade({ feature: 'Analyse qualitative IA', detail: 'Business model + qualité du management évalués par GPT.' });
+      } else {
+        toast.push('error', err.userMessage);
+      }
+    }
     finally { setGeneratingQual(false); }
   }
 
@@ -125,7 +155,14 @@ export function AnalysePage() {
     if (!analysis) return;
     setRefreshingQual(true);
     try { setAnalysis(await api.refreshManagement(analysis.ticker)); toast.push('success', t('analyse.toast.mgmtUpdated')); }
-    catch (e) { toast.push('error', (e as Error).message); }
+    catch (e) {
+      const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
+      if (err.requiresPro) {
+        setUpgrade({ feature: 'Rafraîchir l\'analyse management', detail: 'Force un nouvel appel GPT pour ré-évaluer le management.' });
+      } else {
+        toast.push('error', err.userMessage);
+      }
+    }
     finally { setRefreshingQual(false); }
   }
 
@@ -165,6 +202,13 @@ export function AnalysePage() {
           />
         )}
       </div>
+      {upgrade && (
+        <UpgradeModal
+          feature={upgrade.feature}
+          detail={upgrade.detail}
+          onClose={() => setUpgrade(null)}
+        />
+      )}
     </div>
   );
 }
@@ -423,7 +467,7 @@ function LoadingState() {
 function ErrorState({ error, ticker, onRetry }: { error: ApiError; ticker: string; onRetry: () => void }) {
   const { t } = useTranslation();
   let title: string, desc: string, icon: 'search' | 'shield' | 'refresh' = 'search';
-  if (error.status === 404) { title = t('analyse.error.notFound', { ticker }); desc = error.details ?? error.userMessage; icon = 'search'; }
+  if (error.status === 404) { title = t('analyse.error.notFound', { ticker }); desc = typeof error.details === 'string' ? error.details : error.userMessage; icon = 'search'; }
   else if (error.status === 429) { title = t('analyse.error.tooManyTitle'); desc = t('analyse.error.tooManyDesc'); icon = 'refresh'; }
   else if (error.status === 0) { title = t('analyse.error.offlineTitle'); desc = t('analyse.error.offlineDesc'); icon = 'refresh'; }
   else if (error.status === 400) { title = t('analyse.error.invalidTitle'); desc = t('analyse.error.invalidDesc'); icon = 'search'; }

@@ -7,6 +7,8 @@ import { PfcfChartModal } from './PfcfChartModal.js';
 import { CashRoceChartModal } from './CashRoceChartModal.js';
 import { CccChartModal } from './CccChartModal.js';
 import { MarketShareModal } from './MarketShareModal.js';
+import { UpgradeModal } from './UpgradeModal.js';
+import { useSubscription } from '../contexts/SubscriptionContext.js';
 import { Icon, InfoPop, StatusBadge, toDataStatus } from './ui/primitives.js';
 import './CriterionCard.css';
 
@@ -32,6 +34,7 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
   c: Criterion; ticker?: string; currency?: string; annualOnly?: boolean;
 }) {
   const { t, i18n } = useTranslation();
+  const { isPro } = useSubscription();
   // Lookups par clé STABLE (indépendante de la langue), pas par le libellé localisé.
   const histogramConfig = c.key ? CRITERION_HISTOGRAMS[c.key] : undefined;
   const lineConfig = c.key ? CRITERION_LINECHARTS[c.key] : undefined;
@@ -41,8 +44,17 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
   const chartKind: 'line' | 'histogram' | 'ccc' | null = ticker
     ? (isCcc ? 'ccc' : (lineConfig ? 'line' : (histogramConfig ? 'histogram' : null)))
     : null;
+  // « Graphiques détaillés » réservés aux Pro : P/FCF historique, Cash ROCE, CCC.
+  // Les histogrammes simples (revenue/fcf/shares trimestriels) restent accessibles à tous.
+  const isProChart = chartKind === 'line' || chartKind === 'ccc';
   const [open, setOpen] = useState(false);
+  const [upgrade, setUpgrade] = useState(false);
   const hasBrief = !!c.key && i18n.exists(`briefs.${c.key}.why`);
+
+  function onChartClick() {
+    if (isProChart && !isPro) { setUpgrade(true); return; }
+    setOpen(true);
+  }
 
   return (
     <>
@@ -61,8 +73,14 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
             ? <InfoPop title={c.nom} why={t(`briefs.${c.key}.why`)} calc={t(`briefs.${c.key}.how`)} />
             : <span />}
           {chartKind && (
-            <button type="button" className="crit-hist-btn" onClick={() => setOpen(true)}>
+            <button
+              type="button"
+              className={'crit-hist-btn' + (isProChart && !isPro ? ' crit-hist-btn-pro' : '')}
+              onClick={onChartClick}
+              title={isProChart && !isPro ? 'Graphique détaillé — Pro' : undefined}
+            >
               <Icon name="bars" size={13} /> {t('criteria.history')}
+              {isProChart && !isPro && <span className="crit-pro-tag">PRO</span>}
             </button>
           )}
         </div>
@@ -79,6 +97,18 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
       )}
       {open && ticker && chartKind === 'ccc' && (
         <CccChartModal ticker={ticker} currency={currency} onClose={() => setOpen(false)} />
+      )}
+      {upgrade && (
+        <UpgradeModal
+          feature="Graphique détaillé"
+          detail={
+            chartKind === 'ccc' ? 'Évolution trimestrielle du cycle de conversion du cash (DSO + DIO − DPO).'
+            : lineConfig?.kind === 'pfcf' ? 'Historique du multiple P/FCF sur plusieurs années, avec percentile et zone d\'achat.'
+            : lineConfig?.kind === 'cashRoce' ? 'Évolution du rendement du capital investi (Cash ROCE) sur 5-10 ans.'
+            : undefined
+          }
+          onClose={() => setUpgrade(false)}
+        />
       )}
     </>
   );

@@ -22,9 +22,14 @@ import { buildQuantitativeCriteria, buildPfcfCriterion, buildValuation } from '.
 import { getPfcfHistory, pfcfPercentile as computePfcfPercentile } from '../services/pfcfHistory.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { analyzeLimiter } from '../middleware/rateLimit.js';
+import { optionalAuth } from '../middleware/auth.js';
+import { isProActive } from '../services/stripe.js';
 import { prisma } from '../db/client.js';
 
 export const compareRouter: Router = Router();
+
+/** Limite pour les comptes Free / anonymes — débloqué à MAX_COMPARE_TICKERS pour les Pro. */
+const FREE_MAX_COMPARE_TICKERS = 2;
 
 const TickerSchema = z.string().trim().toUpperCase().regex(/^[A-Z0-9.\-]{1,15}$/);
 
@@ -112,15 +117,39 @@ async function buildCompareTicker(ticker: string, lang: Lang): Promise<CompareTi
 }
 
 // GET /api/compare?tickers=AAPL,MSFT,NVDA
-compareRouter.get('/', analyzeLimiter, asyncHandler(async (req: Request, res: Response) => {
+compareRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Request, res: Response) => {
   const raw = String(req.query.tickers ?? '').split(',').map(s => s.trim()).filter(Boolean);
   const parsed: string[] = [];
   for (const r of raw) {
     const p = TickerSchema.safeParse(r);
     if (p.success && !parsed.includes(p.data)) parsed.push(p.data);
   }
-  if (parsed.length < 2 || parsed.length > MAX_COMPARE_TICKERS) {
-    throw new ApiError(400, `Indique 2 à ${MAX_COMPARE_TICKERS} tickers à comparer`, { tickers: parsed });
+  // Limite dépendante du plan : 2 max pour Free / anonymes, 5 max pour Pro.
+  // requirePro côté middleware serait trop strict (on veut autoriser 2 tickers pour
+  // les Free), donc on fait le check ici manuellement.
+  let userIsPro = false;
+  if (req.user) {
+    const u = await prisma.user.findUnique({
+      where: { id: req.user.userId },
+      select: { subscriptionStatus: true, subscriptionCurrentPeriodEnd: true },
+    });
+    userIsPro = u ? isProActive(u) : false;
+  }
+  const maxTickers = userIsPro ? MAX_COMPARE_TICKERS : FREE_MAX_COMPARE_TICKERS;
+
+  if (parsed.length < 2) {
+    throw new ApiError(400, 'Indique au moins 2 tickers à comparer', { tickers: parsed });
+  }
+  if (parsed.length > maxTickers) {
+    if (!userIsPro) {
+      // Code spécifique → le frontend ouvre la modale d'upgrade
+      throw new ApiError(
+        403,
+        `Comparaison de plus de ${FREE_MAX_COMPARE_TICKERS} titres réservée aux abonnés Pro.`,
+        { tickers: parsed, limit: FREE_MAX_COMPARE_TICKERS, code: 'PRO_REQUIRED' },
+      );
+    }
+    throw new ApiError(400, `Maximum ${MAX_COMPARE_TICKERS} tickers à comparer`, { tickers: parsed });
   }
   const lang = parseLang(req.headers['accept-language']);
   const results = await Promise.all(parsed.map(t => buildCompareTicker(t, lang).catch(() => null)));

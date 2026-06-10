@@ -11,6 +11,8 @@ import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import { computeCccSeries } from '../services/finnhubFundamentals.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
+import { requireAuth } from '../middleware/auth.js';
+import { requirePro } from '../middleware/subscription.js';
 import { analyzeLimiter } from '../middleware/rateLimit.js';
 
 export const cccHistoryRouter: Router = Router();
@@ -20,7 +22,8 @@ const Schema = z.object({
   years:  z.coerce.number().int().min(1).max(20).default(5),
 });
 
-cccHistoryRouter.get('/', analyzeLimiter, asyncHandler(async (req: Request, res: Response) => {
+// Graphique détaillé du cycle de conversion du cash — Pro only.
+cccHistoryRouter.get('/', analyzeLimiter, requireAuth, requirePro, asyncHandler(async (req: Request, res: Response) => {
   const parsed = Schema.safeParse(req.query);
   if (!parsed.success) throw new ApiError(400, 'Paramètres invalides', parsed.error.flatten());
   const { ticker, years } = parsed.data;

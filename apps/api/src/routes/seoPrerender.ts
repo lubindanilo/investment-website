@@ -407,6 +407,7 @@ function renderArticleHtml(article: Article, lang: ArticleLang): string {
       description: AUTHOR_BIO[lang],
       worksFor: { '@type': 'Organization', name: 'Lubin Investment', url: SITE_URL },
       url: SITE_URL,
+      sameAs: ['https://www.linkedin.com/in/lubin-danilo/'],
     },
     publisher: {
       '@type': 'Organization',

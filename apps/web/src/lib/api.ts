@@ -28,16 +28,28 @@ export class ApiError extends Error {
   constructor(
     public status: number,
     public userMessage: string,
-    public details?: string,
+    public details?: unknown,
+    /** Code d'erreur métier renvoyé par l'API (ex 'PRO_REQUIRED', 'QUOTA_EXCEEDED'). */
+    public code?: string,
   ) {
     super(userMessage);
     this.name = 'ApiError';
   }
 
-  /** true si retry potentiellement productif (network down, 5xx, 429) */
+  /** true si retry potentiellement productif (network down, 5xx). 429 = quota dépassé → pas retriable. */
   get retriable(): boolean {
-    return this.status === 0 || this.status === 429 || (this.status >= 500 && this.status < 600);
+    if (this.code === 'QUOTA_EXCEEDED' || this.code === 'PRO_REQUIRED' || this.code === 'AUTH_REQUIRED') return false;
+    return this.status === 0 || (this.status >= 500 && this.status < 600);
   }
+
+  /** Cette erreur déclenche une modale d'upgrade Pro côté UI. */
+  get requiresPro(): boolean { return this.code === 'PRO_REQUIRED' || this.status === 403; }
+
+  /** Cette erreur déclenche une redirection vers /signup côté UI. */
+  get requiresAuth(): boolean { return this.code === 'AUTH_REQUIRED' || this.status === 401; }
+
+  /** Cette erreur indique que le quota gratuit du jour est dépassé. */
+  get quotaExceeded(): boolean { return this.code === 'QUOTA_EXCEEDED' || this.status === 429; }
 }
 
 interface RequestOpts {
@@ -69,8 +81,17 @@ async function request<T>(path: string, init: RequestInit = {}, opts: RequestOpt
         headers: { 'Content-Type': 'application/json', 'Accept-Language': currentLang(), ...(init.headers ?? {}) },
       });
       if (!res.ok) {
-        const body = await res.json().catch(() => ({ error: res.statusText }));
-        const err = new ApiError(res.status, body.error ?? `HTTP ${res.status}`, body.details);
+        const body = (await res.json().catch(() => ({ error: res.statusText }))) as {
+          error?: string;
+          code?: string;
+          details?: unknown;
+        };
+        // Le code d'erreur métier peut être au niveau racine OU dans details (pour /api/compare).
+        const detailsCode = (body.details && typeof body.details === 'object'
+          ? (body.details as { code?: string }).code
+          : undefined);
+        const code = body.code ?? detailsCode;
+        const err = new ApiError(res.status, body.error ?? `HTTP ${res.status}`, body.details, code);
         if (!err.retriable || n === attempts) throw err;
         lastErr = err;
       } else {
