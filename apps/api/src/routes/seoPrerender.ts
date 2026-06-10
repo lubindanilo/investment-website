@@ -107,7 +107,7 @@ function renderTickerHtml(t: {
 
   // Titre ≤ 60 caractères (Google tronque ~61 % des titres plus longs), mot-clé en
   // tête, SANS suffixe de marque (Google ajoute déjà le nom du site). Nom tronqué au besoin.
-  const titleTail = score !== '—' ? ` - analyse, note ${score}` : ' - analyse fondamentale';
+  const titleTail = score !== '—' ? ` : analyse, note ${score}` : ' : analyse fondamentale';
   const tickerPart = ` (${t.ticker})`;
   let titleName = rawName;
   const nameBudget = 60 - tickerPart.length - titleTail.length;
