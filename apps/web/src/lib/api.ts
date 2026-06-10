@@ -23,6 +23,19 @@ import type {
 import { captureException } from './sentry.js';
 import { currentLang } from '../i18n/index.js';
 
+/** Aperçu PUBLIC d'un ticker scoré (socle déjà indexé par les bots : note, P/FCF, secteur). */
+export interface TickerPreview {
+  ticker: string;
+  name: string | null;
+  sector: string | null;
+  scoreChiffres: number | null;
+  scoreChiffresMax: number | null;
+  pfcfTTM: number | null;
+  price: number | null;
+  currency: string | null;
+  opportunity: boolean;
+}
+
 /** Erreur typée que les composants peuvent inspecter. */
 export class ApiError extends Error {
   constructor(
@@ -204,6 +217,10 @@ export const api = {
     stats: () => safeRequest<ScreenerStats>('/api/screener/stats'),
     sectors: () => safeRequest<{ sector: string; count: number }[]>('/api/screener/sectors'),
     search: (q: string) => safeRequest<TickerSuggestion[]>(`/api/screener/search?q=${encodeURIComponent(q)}`),
+    /** Aperçu public d'un ticker (note, P/FCF, secteur) : socle déjà servi aux bots, montré
+     *  à l'anonyme sur /analyse/:ticker au lieu de le rediriger vers /signup. */
+    tickerPreview: (ticker: string) =>
+      safeRequest<TickerPreview>(`/api/screener/ticker/${encodeURIComponent(ticker)}`),
     /** Panier « Bat le marché » (value + momentum) — calcul live à la demande. */
     marketBeat: (params: { topPct?: number; n?: number; universe?: 'US' | 'ALL' } = {}) => {
       const q = new URLSearchParams();

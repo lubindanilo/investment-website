@@ -2,7 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { AnalyzeResponse, ScreenerTopRow, Criterion } from '@lubin/shared';
-import { api, ApiError } from '../lib/api.js';
+import { api, ApiError, type TickerPreview } from '../lib/api.js';
+import { AnalysisPreview } from '../components/AnalysisPreview.js';
 import { useToast } from '../components/Toast.js';
 import { useAuth } from '../contexts/AuthContext.js';
 import { CriteriaGrid, QualGrid } from '../components/CriterionCard.js';
@@ -49,6 +50,8 @@ export function AnalysePage() {
 
   const [ticker, setTicker] = useState(routeTicker?.toUpperCase() ?? '');
   const [analysis, setAnalysis] = useState<AnalyzeResponse | null>(null);
+  // Aperçu public montré à l'anonyme (au lieu d'une redirection vers /signup).
+  const [preview, setPreview] = useState<TickerPreview | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<ApiError | null>(null);
   const [refreshingQual, setRefreshingQual] = useState(false);
@@ -64,18 +67,24 @@ export function AnalysePage() {
   const run = useCallback(async (t: string) => {
     if (!t.trim()) return;
     const cleaned = t.trim().toUpperCase();
-    setLoading(true); setError(null); setAnalysis(null); setLastTicker(cleaned);
+    setLoading(true); setError(null); setAnalysis(null); setPreview(null); setLastTicker(cleaned);
     window.scrollTo({ top: 0 });
     try {
       setAnalysis(await api.analyze(cleaned));
     } catch (e) {
       const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
-      // Anonyme tente une analyse → redirection vers /signup avec retour vers la page
-      // d'analyse demandée. Décision business : force account creation dès la 1ère
-      // analyse (vs accès anonyme limité par IP).
+      // Anonyme : au lieu d'une redirection sèche vers /signup (qui crée un cloaking, le bot
+      // voit l'analyse pré-rendue mais pas l'humain), on affiche l'APERÇU PUBLIC du ticker
+      // (note /10, P/FCF, secteur : déjà servi aux bots) + un panneau d'inscription inline.
+      // Le détail des critères, la valorisation, le suivi et le qualitatif restent gated.
       if (err.requiresAuth) {
-        toast.push('warn', `Crée un compte gratuit pour analyser ${cleaned}`);
-        navigate('/signup', { state: { from: `/analyse/${cleaned}` } });
+        try {
+          setPreview(await api.screener.tickerPreview(cleaned));
+        } catch {
+          // Ticker non couvert / non scoré : pas d'aperçu possible → on bascule sur /signup.
+          toast.push('warn', `Crée un compte gratuit pour analyser ${cleaned}`);
+          navigate('/signup', { state: { from: `/analyse/${cleaned}` } });
+        }
         return;
       }
       // Quota gratuit dépassé (10/jour) → modal upgrade. Pas une erreur "bloquante" à
@@ -118,7 +127,7 @@ export function AnalysePage() {
       // Retour sur /analyser (clic sur l'onglet « Analyser » depuis /analyse/XXX) :
       // on remet la page à zéro — sinon l'analyse précédente reste affichée à la place
       // de l'écran de saisie.
-      setTicker(''); setAnalysis(null); setError(null); setLastTicker('');
+      setTicker(''); setAnalysis(null); setError(null); setLastTicker(''); setPreview(null);
     }
   }, [routeTicker, run]);
 
@@ -178,14 +187,15 @@ export function AnalysePage() {
       <div className="wrap anl-wrap">
         <div className="anl-search-block">
           <SearchBar value={ticker} onChange={setTicker} onSubmit={submit} loading={loading} />
-          {!loading && !analysis && !error && (
+          {!loading && !analysis && !error && !preview && (
             <span className="tiny muted anl-hint">{t('analyse.hintPrefix')} <b>AAPL</b>, <b>MSFT</b> {t('analyse.hintOr')} <b>ASML</b>.</span>
           )}
         </div>
 
         {error && <ErrorState error={error} ticker={lastTicker} onRetry={() => { setError(null); setAnalysis(null); }} />}
         {loading && !analysis && <LoadingState />}
-        {!loading && !analysis && !error && <LandingDiscovery onPick={(t) => { setTicker(t); submit(t); }} />}
+        {!loading && !analysis && preview && <AnalysisPreview data={preview} />}
+        {!loading && !analysis && !error && !preview && <LandingDiscovery onPick={(t) => { setTicker(t); submit(t); }} />}
 
         {analysis && (
           <AnalysisView

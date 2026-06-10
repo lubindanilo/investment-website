@@ -124,3 +124,24 @@ screenerRouter.get('/search', asyncHandler(async (req: Request, res: Response) =
   rows.sort((a, b) => Number(b.ticker.startsWith(qu)) - Number(a.ticker.startsWith(qu)));
   res.json(rows as TickerSuggestion[]);
 }));
+
+// ── GET /ticker/:ticker ───────────────────────────────────────────────────────
+// Aperçu PUBLIC d'un ticker scoré (sans auth) : exactement les données déjà servies aux
+// bots par le pré-rendu (note /10, P/FCF, secteur, prix, opportunité). Sert à montrer le
+// socle de valeur à un visiteur ANONYME sur /analyse/:ticker sans le rediriger vers /signup
+// (évite le cloaking : bot et humain voient le même socle déjà public). Le détail des 10
+// critères, la valorisation et le qualitatif restent derrière l'inscription/Pro.
+screenerRouter.get('/ticker/:ticker', asyncHandler(async (req: Request, res: Response) => {
+  const ticker = String(req.params.ticker ?? '').trim().toUpperCase().slice(0, 16);
+  if (!ticker) { res.status(400).json({ error: 'Ticker manquant' }); return; }
+  const row = await prisma.screenerTicker.findFirst({
+    where: { ticker, status: 'scored' },
+    select: {
+      ticker: true, name: true, sector: true,
+      scoreChiffres: true, scoreChiffresMax: true,
+      pfcfTTM: true, price: true, currency: true, opportunity: true,
+    },
+  });
+  if (!row) { res.status(404).json({ error: 'Ticker non couvert ou non scoré', code: 'NOT_FOUND' }); return; }
+  res.json(row);
+}));
