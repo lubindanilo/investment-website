@@ -44,9 +44,10 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
   const chartKind: 'line' | 'histogram' | 'ccc' | null = ticker
     ? (isCcc ? 'ccc' : (lineConfig ? 'line' : (histogramConfig ? 'histogram' : null)))
     : null;
-  // « Graphiques détaillés » réservés aux Pro : P/FCF historique, Cash ROCE, CCC.
-  // Les histogrammes simples (revenue/fcf/shares trimestriels) restent accessibles à tous.
-  const isProChart = chartKind === 'line' || chartKind === 'ccc';
+  // TOUS les graphiques d'historique (P/FCF, Cash ROCE, CCC ET histogrammes trimestriels)
+  // sont réservés aux Pro : tout bouton « Historique » d'un critère ouvre la modale Upgrade
+  // pour un compte gratuit. (Le cours et le calculateur de valorisation restent gratuits.)
+  const isProChart = chartKind !== null;
   const [open, setOpen] = useState(false);
   const [upgrade, setUpgrade] = useState(false);
   const hasBrief = !!c.key && i18n.exists(`briefs.${c.key}.why`);
