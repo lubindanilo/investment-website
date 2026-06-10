@@ -16,7 +16,7 @@
     "sub": "Esta funcionalidad está reservada a los suscriptores Pro. Pásate a Pro para desbloquear todo Lubin Investment e invertir con todas las cartas en la mesa.",
     "ctaPrimary": "Ver ofertas Pro",
     "ctaSecondary": "Más tarde",
-    "disclaimer": "Desde 13 €/mes (anual), sin compromiso, cancela con un clic.",
+    "disclaimer": "Desde 13 € al mes",
     "defaultBenefits": [
       "Análisis ilimitados todos los días",
       "Análisis cualitativo IA (negocio + gestión)",
@@ -881,7 +881,7 @@
         "Hasta 10 análisis cuantitativos por día",
         "Nota /10 con sus 10 criterios financieros",
         "Watchlist · hasta 10 valores",
-        "Screener · top 100 resultados",
+        "Screener · top 10 resultados",
         "Comparar · 2 valores",
         "FR · EN · ES"
       ]
@@ -931,7 +931,7 @@
         { "label": "Análisis completo de un valor", "free": true, "pro": true },
         { "label": "Nota /10 sobre 10 criterios financieros", "free": true, "pro": true },
         { "label": "Watchlist", "free": "10 valores", "pro": "Ilimitada" },
-        { "label": "Screener", "free": "Top 100", "pro": "Ilimitado" },
+        { "label": "Screener", "free": "Top 10", "pro": "Ilimitado" },
         { "label": "Comparar varios valores", "free": "2 valores", "pro": "Hasta 5" },
         { "label": "Análisis cualitativo IA (negocio + gestión)", "free": false, "pro": true },
         { "label": "Oportunidades del momento", "free": false, "pro": true },
@@ -1111,7 +1111,7 @@
     },
     "free": {
       "quotaLabel": "Análisis hoy",
-      "summary": "Estás usando Lubin Investment en modo gratuito. Tienes acceso al screener (top 100), watchlist (10 valores) y comparación de 2 valores.",
+      "summary": "Estás usando Lubin Investment en modo gratuito. Tienes acceso al screener (top 10), watchlist (10 valores) y comparación de 2 valores.",
       "unlockTeaser": "Para desbloquear el análisis cualitativo IA, las oportunidades del momento, los gráficos detallados, la comparación de 5 valores y los datos EU/Internacionales, pásate a Pro.",
       "goPro": "Ver ofertas Pro"
     },

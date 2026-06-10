@@ -64,32 +64,32 @@ export function App() {
 
       {showNav && (
         <nav className="app-nav">
+          {/* Ordre voulu : Analyser, Screener, Watchlist, Comparer, Méthodologie, Blog,
+              puis Stratégie Portefeuille (réservé au propriétaire). Tarifs reste accessible
+              via le footer et les modales d'upgrade. */}
           <NavLink to="/analyser" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.analyse')}
+          </NavLink>
+          <NavLink to="/screener" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+            {t('nav.screener')}
           </NavLink>
           <NavLink to="/watchlist" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.watchlist')}
           </NavLink>
-          <NavLink to="/screener" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.screener')}
+          <NavLink to="/compare" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+            {t('nav.compare')}
+          </NavLink>
+          <NavLink to="/methodologie" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+            {t('nav.methodologie')}
+          </NavLink>
+          <NavLink to="/blog" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+            {t('nav.blog')}
           </NavLink>
           {isOwner && (
             <NavLink to="/strategie-portefeuille" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
               {t('nav.marketBeat')}
             </NavLink>
           )}
-          <NavLink to="/compare" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.compare')}
-          </NavLink>
-          <NavLink to="/blog" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.blog')}
-          </NavLink>
-          <NavLink to="/methodologie" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.methodologie')}
-          </NavLink>
-          <NavLink to="/pricing" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.pricing')}
-          </NavLink>
         </nav>
       )}
 

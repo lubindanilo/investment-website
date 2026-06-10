@@ -25,7 +25,7 @@
     "sub": "This feature is reserved for Pro subscribers. Go Pro to unlock the full Lubin Investment and invest with every card on the table.",
     "ctaPrimary": "See Pro offers",
     "ctaSecondary": "Later",
-    "disclaimer": "From €13/month (yearly), no commitment, cancel in one click.",
+    "disclaimer": "From €13 per month",
     "defaultBenefits": [
       "Unlimited analyses every day",
       "AI qualitative analysis (business + management)",
@@ -881,7 +881,7 @@
         "Up to 10 quantitative analyses per day",
         "Score /10 with its 10 financial criteria",
         "Watchlist · up to 10 stocks",
-        "Screener · top 100 results",
+        "Screener · top 10 results",
         "Compare · 2 stocks",
         "FR · EN · ES"
       ]
@@ -931,7 +931,7 @@
         { "label": "Full analysis of a stock", "free": true, "pro": true },
         { "label": "Score /10 on 10 financial criteria", "free": true, "pro": true },
         { "label": "Watchlist", "free": "10 stocks", "pro": "Unlimited" },
-        { "label": "Screener", "free": "Top 100", "pro": "Unlimited" },
+        { "label": "Screener", "free": "Top 10", "pro": "Unlimited" },
         { "label": "Compare multiple stocks", "free": "2 stocks", "pro": "Up to 5" },
         { "label": "AI qualitative analysis (business + management)", "free": false, "pro": true },
         { "label": "Opportunities of the moment", "free": false, "pro": true },
@@ -1111,7 +1111,7 @@
     },
     "free": {
       "quotaLabel": "Analyses today",
-      "summary": "You're using Lubin Investment on the free plan. You have access to the screener (top 100), the watchlist (10 stocks) and 2-stock comparison.",
+      "summary": "You're using Lubin Investment on the free plan. You have access to the screener (top 10), the watchlist (10 stocks) and 2-stock comparison.",
       "unlockTeaser": "To unlock AI qualitative analysis, opportunities of the moment, detailed charts, 5-stock comparison and full EU/International data, go Pro.",
       "goPro": "See Pro offers"
     },
