@@ -1,0 +1,25 @@
+name: Content lint (no em/en dash in articles)
+
+# Garde-fou déterministe : un article de blog ne doit JAMAIS contenir de tiret long (—)
+# ni de tiret moyen (–) — ni dans les titres, ni dans le corps. Échoue la PR si trouvé.
+# (Préférence éditoriale Lubin : séparateurs en deux-points, jamais de tiret.)
+on:
+  pull_request:
+    paths:
+      - 'packages/shared/src/articles.ts'
+      - 'apps/api/src/data/articles.ts'
+  workflow_dispatch: {}
+
+jobs:
+  no-dashes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Interdire les tirets longs/moyens dans les articles
+        run: |
+          FILES="packages/shared/src/articles.ts apps/api/src/data/articles.ts"
+          if grep -nP '[\x{2014}\x{2013}]' $FILES; then
+            echo "::error::Tiret long (—) ou moyen (–) détecté dans un article. Remplace par ':' , ',' ou coupe la phrase."
+            exit 1
+          fi
+          echo "✅ Aucun tiret long/moyen dans les articles."
