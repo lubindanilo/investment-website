@@ -46,7 +46,8 @@
       "detail": {
         "ccc": "Evolución trimestral del ciclo de conversión de efectivo (DSO + DIO − DPO).",
         "pfcf": "Histórico del múltiplo P/FCF en varios años, con percentil y zona de compra.",
-        "cashRoce": "Evolución del rendimiento del capital invertido (Cash ROCE) a 5-10 años."
+        "cashRoce": "Evolución del rendimiento del capital invertido (Cash ROCE) a 5-10 años.",
+        "dividend": "Historial de pagos de dividendos, ajustado por splits, durante varios años."
       }
     },
     "quota": {
