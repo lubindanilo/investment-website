@@ -640,13 +640,15 @@ seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) 
   }
 });
 
-// ─── Pages statiques (accueil, screener, méthodologie, blog, pricing, comparateur,
-//     analyser, pages légales) : pré-rendu HTML pour les bots. Sans ça, les crawlers
-//     tombent sur la coquille SPA (apps/web/dist/index.html) : ni <link rel=canonical>
-//     ni <h1> dans le HTML initial (SeoHead ne les injecte que côté client, signal plus
-//     faible pour Google). On suit les 4 points de contact des hubs : router SPA (déjà là),
-//     vercel.json (rewrite conditionnel bots), ce fichier (le HTML), sitemap.ts (ces URLs
-//     sont déjà dans STATIC_PAGES côté sitemap).
+// ─── Pages statiques (screener, méthodologie, blog, pricing, comparateur, analyser,
+//     pages légales) : pré-rendu HTML pour les bots. Sans ça, les crawlers tombent sur la
+//     coquille SPA (apps/web/dist/index.html) : ni <link rel=canonical> ni <h1> dans le
+//     HTML initial (SeoHead ne les injecte que côté client, signal plus faible pour Google).
+//     NB : l'accueil "/" n'est PAS traité ici. Vercel sert le fichier statique index.html
+//     AVANT d'appliquer les `rewrites`, donc un rewrite conditionnel sur "/" ne se déclenche
+//     jamais (alors qu'il fonctionne pour les autres chemins, qui n'ont pas de fichier
+//     statique). Le canonical, le <h1> et le JSON-LD WebSite/Organization de l'accueil sont
+//     donc posés directement dans apps/web/index.html.
 
 type StaticPage = {
   title: string;             // <title> + og:title (séparateur deux-points, jamais de tiret long)
@@ -659,17 +661,6 @@ type StaticPage = {
 // Meta alignées sur les clés i18n du SPA (apps/web, seo.*) pour ne pas diverger entre ce
 // que voit le bot ici et ce que SeoHead injecte pour l'humain (même titre, même canonical).
 const STATIC_PAGES: Record<string, StaticPage> = {
-  '/': {
-    title: 'Repérez les actions de qualité sous-évaluées',
-    description: "Note de qualité sur 10 critères objectifs + prix d'achat conseillé (P/FCF). L'analyse fondamentale automatisée pour faire son propre stock-picking et viser à battre le marché.",
-    h1: 'Trouvez les entreprises de qualité, sans le bruit',
-    body: [
-      "Lubin Investment attribue à chaque action une note de qualité sur 10, calculée sur des critères financiers objectifs, et juge sa valorisation séparément (P/FCF). Tapez un ticker, obtenez une analyse fondamentale complète en quelques secondes.",
-      "Une veille note en continu plus de 6 200 actions américaines, européennes et internationales. Les meilleures notes remontent automatiquement en tête du screener.",
-      "La méthode est entièrement transparente : 10 critères financiers, des seuils issus de la littérature (Warren Buffett, Michael Mauboussin, Aswath Damodaran), et des sources publiques (SEC EDGAR, Finnhub, Yahoo Finance). Aucune boîte noire, aucune opinion humaine.",
-    ],
-    breadcrumb: null,
-  },
   '/screener': {
     title: "Screener d'actions : les meilleures notes du marché",
     description: "Toutes les actions notées en continu par la veille. Filtrez par note, P/FCF, secteur. Les 10/10 remontent automatiquement en tête de liste.",
@@ -778,29 +769,6 @@ function renderStaticPageHtml(path: string, page: StaticPage): string {
   const bodyHtml = page.body.map((p) => `<p>${escapeHtml(p)}</p>`).join('\n');
 
   const ld: object[] = [];
-  if (path === '/') {
-    ld.push({
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      name: 'Lubin Investment',
-      url: `${SITE_URL}/`,
-      inLanguage: 'fr-FR',
-      description: page.description,
-      publisher: {
-        '@type': 'Organization',
-        name: 'Lubin Investment',
-        url: `${SITE_URL}/`,
-        logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` },
-      },
-    });
-    ld.push({
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: 'Lubin Investment',
-      url: `${SITE_URL}/`,
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` },
-    });
-  }
   if (page.breadcrumb) {
     ld.push({
       '@context': 'https://schema.org',

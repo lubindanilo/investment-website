@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#0b0d10" />
   <meta name="robots" content="index,follow" />
-  <meta name="description" content="Lubin Investment — analyse fondamentale d'actions, scoring multi-critères et opportunités du moment." />
+  <meta name="description" content="Lubin Investment : analyse fondamentale d'actions, scoring multi-critères et opportunités du moment." />
   <meta name="application-name" content="Lubin Investment" />
   <meta http-equiv="content-language" content="fr" />
 
@@ -27,12 +27,53 @@
   <link rel="icon" href="/favicon.ico" />
 
   <title>Lubin Investment</title>
+
+  <!-- Canonical de l'accueil. Vercel sert ce fichier statique pour "/" (avant les rewrites),
+       donc c'est ici que vivent le canonical, le <h1> et le JSON-LD de la home pour les bots.
+       Sur les autres routes, <SeoHead /> met à jour ce <link> côté client. -->
+  <link rel="canonical" href="https://lubin-investment.com/" />
+
+  <!-- JSON-LD WebSite + Organization (structured data de marque, valable sur tout le site). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Lubin Investment",
+    "url": "https://lubin-investment.com/",
+    "inLanguage": "fr-FR",
+    "description": "Analyse fondamentale d'actions : note de qualité sur 10 critères objectifs et valorisation P/FCF jugée séparément.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lubin Investment",
+      "url": "https://lubin-investment.com/",
+      "logo": { "@type": "ImageObject", "url": "https://lubin-investment.com/icon-512.png" }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Lubin Investment",
+    "url": "https://lubin-investment.com/",
+    "logo": { "@type": "ImageObject", "url": "https://lubin-investment.com/icon-512.png" }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="root"></div>
+  <!-- Contenu de repli (h1 + intro) rendu dans le HTML initial : indexable par les bots qui
+       reçoivent ce shell statique pour "/", et remplacé par React (createRoot) au montage. -->
+  <div id="root">
+    <div class="app-splash" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;background:#0b0d10;color:#e6e9ef;font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif">
+      <h1 style="font-size:1.6rem;font-weight:800;margin:0;max-width:640px">Lubin Investment : analyse fondamentale d'actions</h1>
+      <p style="margin:0;max-width:560px;opacity:.8;line-height:1.5">Une note de qualité sur 10 critères financiers objectifs et une valorisation jugée séparément (P/FCF). Chargement de l'application.</p>
+      <noscript>Activez JavaScript pour utiliser l'application interactive Lubin Investment.</noscript>
+    </div>
+  </div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

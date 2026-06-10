@@ -10,17 +10,9 @@ import { app } from '../server.js';
 
 const SITE = 'https://lubin-investment.com';
 
+// NB : l'accueil "/" n'est pas servi par l'API (Vercel sert index.html en statique avant les
+// rewrites). Son canonical / <h1> / JSON-LD sont posés dans apps/web/index.html.
 describe('pré-rendu statique pour les bots', () => {
-  it('GET / : canonical auto-référent + h1 + JSON-LD WebSite', async () => {
-    const res = await request(app).get('/');
-    expect(res.status).toBe(200);
-    expect(res.headers['content-type']).toMatch(/text\/html/);
-    expect(res.text).toContain(`<link rel="canonical" href="${SITE}/">`);
-    expect(res.text).toMatch(/<h1>[^<]+<\/h1>/);
-    expect(res.text).toContain('"@type": "WebSite"');
-    expect(res.text).toContain('"@type": "Organization"');
-  });
-
   it('GET /screener : canonical + h1 + BreadcrumbList', async () => {
     const res = await request(app).get('/screener');
     expect(res.status).toBe(200);
