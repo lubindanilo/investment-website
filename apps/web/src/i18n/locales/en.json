@@ -94,10 +94,10 @@
   "home": {
     "hero": {
       "chip": "Automated fundamental analysis",
-      "titleLine1": "Find quality companies,",
-      "titleAccent": "without the noise.",
-      "lede": "Enter a ticker and get a quality score out of 10, computed from objective financial criteria. Valuation assessed separately. Plus a monitor that scores the entire market for you.",
-      "valueLine": "A quality score out of 10, an in-depth analysis of the business model and management, and a recommended buy price.",
+      "titleLine1": "Buy quality companies",
+      "titleAccent": "at the right price.",
+      "lede": "Type a stock's symbol (its “ticker”, e.g. AAPL): in seconds, you know whether the company is solid (its score out of 10) and whether its price is reasonable. No more overpaying for a good stock, or spending hours on financial statements.",
+      "valueLine": "A score out of 10, an analysis of its business and its leadership, and a recommended buy price.",
       "ctaAnalyze": "Analyze a stock",
       "ctaScreener": "Explore the screener"
     },
@@ -108,19 +108,19 @@
     "benefits": {
       "0": {
         "title": "Numbers, not noise",
-        "text": "10 objective financial criteria computed in seconds. The data decides, not opinions."
+        "text": "You know in seconds whether a company is solid, without untangling contradictory forum opinions."
       },
       "1": {
         "title": "The whole market, monitored",
-        "text": "An automated monitor continuously scores the stock universe and surfaces the best companies."
+        "text": "You never miss a gem: the monitor scans the entire market continuously."
       },
       "2": {
         "title": "The method of great investors",
-        "text": "Profitability, growth, balance-sheet quality: the criteria of long-term compounders."
+        "text": "You apply the criteria of the best investors (Buffett, Terry Smith), without calculating them yourself."
       },
       "3": {
         "title": "Quality and price, separated",
-        "text": "Business quality and entry price are judged independently. Never one for the other."
+        "text": "You no longer buy a good company at the wrong price: quality and price are judged separately."
       }
     },
     "how": {
