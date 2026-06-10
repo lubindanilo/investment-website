@@ -182,6 +182,7 @@ export function ScreenerPage() {
   const [selectedSectors, setSelectedSectors] = useState<string[]>([]);   // [] = tous les secteurs
   const [sectors, setSectors] = useState<{ sector: string; count: number }[]>([]);
   const [sort, setSort] = useState<SortState>({ col: 'score', dir: 'desc' });
+  const [visibleCount, setVisibleCount] = useState(60);   // pagination "charger plus" (Pro)
 
   // Liste des industries disponibles (une fois) → options du filtre, triées par libellé traduit.
   useEffect(() => {
@@ -213,6 +214,17 @@ export function ScreenerPage() {
     const dir = sort.dir === 'desc' ? -1 : 1;
     return [...rows].sort((a, b) => (valOf(a, sort.col) - valOf(b, sort.col)) * dir);
   }, [rows, sort]);
+
+  // Reset de la pagination quand les données / le tri / les filtres changent.
+  useEffect(() => { setVisibleCount(60); }, [rows, sort, minScore, maxPfcf, onlyOpp, selectedSectors]);
+
+  // Évite de rendre des centaines de lignes (page de 18-24k px sur mobile). Free : top
+  // gratuit + ~12 lignes floutées sous l'overlay (le total est annoncé PAR l'overlay, pas en
+  // rendant 290 lignes). Pro : pagination par paquets de 60 via "charger plus".
+  const renderCount = isPro
+    ? Math.min(visibleCount, sorted.length)
+    : Math.min(sorted.length, FREE_SCREENER_TOP + 12);
+  const visible = sorted.slice(0, renderCount);
 
   const progress = stats && stats.total > 0 ? Math.round(((stats.scored + stats.nodata + stats.error) / stats.total) * 100) : 0;
 
@@ -325,7 +337,7 @@ export function ScreenerPage() {
                 </tr>
               </thead>
               <tbody>
-                {sorted.map((r, i) => {
+                {visible.map((r, i) => {
                   // Free : les rangs > 10 sont visibles mais floutés (CSS) ; clic → modal upgrade.
                   // Le badge « Opportunité » est masqué pour les Free (réservé Pro).
                   const locked = !isPro && i >= FREE_SCREENER_TOP;
@@ -377,6 +389,13 @@ export function ScreenerPage() {
                 </div>
               </div>
             )}
+          </div>
+        )}
+        {!loading && isPro && visibleCount < sorted.length && (
+          <div className="row" style={{ justifyContent: 'center', marginTop: 16 }}>
+            <button type="button" className="btn btn-ghost" onClick={() => setVisibleCount((v) => v + 60)}>
+              {t('screener.loadMore', { defaultValue: 'Charger plus' })} ({sorted.length - visibleCount})
+            </button>
           </div>
         )}
         <div style={{ height: 50 }} />
