@@ -32,3 +32,8 @@ apps/api/prisma/migrations/.tmp/
 postgres-data/
 .env.bak
 .vercel
+
+# Playwright E2E artifacts
+playwright-report/
+test-results/
+blob-report/
