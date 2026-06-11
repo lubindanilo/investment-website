@@ -107,6 +107,10 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     // erreurs API
     'error.notFound': '« {{ticker}} » n\'a pas été trouvé',
     'error.notFoundDetail': "Aucune donnée pour ce symbole. Vérifie l'orthographe (ex : AAPL, MSFT, MC.PA). Si le symbole est correct, il n'est peut-être pas couvert, ou réessaie dans une minute.",
+    // auth (messages renvoyés au front, localisés via Accept-Language)
+    'auth.invalidCredentials': 'Email ou mot de passe invalide',
+    'auth.emailTaken': 'Cet email est déjà utilisé',
+    'auth.invalidPayload': 'Données invalides',
   },
   en: {
     'netMargin.name': 'Profitable',
@@ -169,6 +173,10 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'common.perYear': '%/yr',
     'error.notFound': '“{{ticker}}” was not found',
     'error.notFoundDetail': "No data for this symbol. Check the spelling (e.g. AAPL, MSFT, MC.PA). If the symbol is correct, it may not be covered, or try again in a minute.",
+    // auth
+    'auth.invalidCredentials': 'Invalid email or password',
+    'auth.emailTaken': 'This email is already in use',
+    'auth.invalidPayload': 'Invalid data',
   },
   es: {
     'netMargin.name': 'Rentable',
@@ -231,5 +239,9 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'common.perYear': '%/año',
     'error.notFound': '«{{ticker}}» no se ha encontrado',
     'error.notFoundDetail': "No hay datos para este símbolo. Verifica la ortografía (p. ej. AAPL, MSFT, MC.PA). Si el símbolo es correcto, puede que no esté cubierto, o inténtalo de nuevo en un minuto.",
+    // auth
+    'auth.invalidCredentials': 'Correo electrónico o contraseña no válidos',
+    'auth.emailTaken': 'Este correo electrónico ya está en uso',
+    'auth.invalidPayload': 'Datos no válidos',
   },
 };

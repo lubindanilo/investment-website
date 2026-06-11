@@ -80,7 +80,8 @@
     "compare": "Compare",
     "blog": "Blog",
     "methodologie": "Methodology",
-    "pricing": "Pricing"
+    "pricing": "Pricing",
+    "toggleMenu": "Navigation menu"
   },
   "userMenu": {
     "login": "Sign in",
@@ -316,6 +317,8 @@
     }
   },
   "analyse": {
+    "h1": "Analyze a stock",
+    "h1Sub": "Quality score on 10 criteria and P/FCF valuation, in seconds.",
     "hintPrefix": "Tip: type a ticker like",
     "hintOr": "or",
     "searchPlaceholder": "Enter a ticker, e.g. AAPL, MSFT, ASML…",
@@ -1017,6 +1020,18 @@
       "title": "My account · Lubin Investment",
       "desc": "Manage your Lubin Investment subscription: status, plan, next billing, secure customer portal."
     },
+    "login": {
+      "title": "Sign in · Lubin Investment",
+      "desc": "Sign in to Lubin Investment to access your analyses, watchlist and subscription."
+    },
+    "signup": {
+      "title": "Create an account · Lubin Investment",
+      "desc": "Create your Lubin Investment account: quality score on 10 criteria, watchlist and screener, for free."
+    },
+    "notfound": {
+      "title": "Page not found · Lubin Investment",
+      "desc": "This page doesn't exist or has been moved."
+    },
     "legal": {
       "mentions": {
         "title": "Legal notice · Lubin Investment",
@@ -1035,6 +1050,12 @@
         "desc": "Data collected, purposes, retention, processors (Stripe, Vercel, Neon, OpenAI), your GDPR rights and the use of cookies on Lubin Investment."
       }
     }
+  },
+  "notFound": {
+    "title": "This page can't be found",
+    "sub": "The link may be wrong or the page has been moved.",
+    "home": "Back to home",
+    "screener": "Explore the screener"
   },
   "footer": {
     "product": "Product",

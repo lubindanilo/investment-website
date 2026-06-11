@@ -147,3 +147,9 @@
 .fade-up { animation: fadeUp .42s cubic-bezier(.22,.61,.36,1) both; }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .fade-in { animation: fadeIn .3s ease both; }
+
+/* Cibles tactiles ≥ 44px en mobile : boutons segmentés (filtres de score du screener,
+   sélecteurs de période des modales graphes). Desktop inchangé. */
+@media (max-width: 720px) {
+  .seg button { min-height: 44px; padding: 8px 14px; }
+}

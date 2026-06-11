@@ -60,6 +60,7 @@ export function PriceChart({ data, color = 'var(--brand)', height = 240, currenc
   return (
     <div ref={ref} style={{ width: '100%' }} onMouseLeave={() => setHover(null)}>
       <svg width={w} height={height} style={{ display: 'block' }}
+        aria-hidden="true" focusable="false"
         onMouseMove={(e) => {
           const rect = e.currentTarget.getBoundingClientRect();
           const x = ((e.clientX - rect.left) / rect.width) * w;
@@ -103,13 +104,13 @@ export function PriceChart({ data, color = 'var(--brand)', height = 240, currenc
 export function Sparkline({ data, width = 86, height = 28, color }: {
   data: number[]; width?: number; height?: number; color?: string;
 }) {
-  if (data.length < 2) return <svg width={width} height={height} />;
+  if (data.length < 2) return <svg width={width} height={height} aria-hidden="true" focusable="false" />;
   const min = Math.min(...data), max = Math.max(...data), span = max - min || 1;
   const up = data[data.length - 1]! >= data[0]!;
   const c = color || (up ? 'var(--good)' : 'var(--bad)');
   const pts = data.map((v, i) => ({ x: (i / (data.length - 1)) * (width - 2) + 1, y: height - 2 - ((v - min) / span) * (height - 4) }));
   return (
-    <svg width={width} height={height} style={{ display: 'block' }}>
+    <svg width={width} height={height} style={{ display: 'block' }} aria-hidden="true" focusable="false">
       <path d={smoothPath(pts)} fill="none" stroke={c} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -150,6 +151,7 @@ export function CriterionChart({ series, type, height = 320, unit = '' }: {
   return (
     <div ref={ref} style={{ width: '100%' }} onMouseLeave={() => setHover(null)}>
       <svg width={w} height={height} style={{ display: 'block' }}
+        aria-hidden="true" focusable="false"
         onMouseMove={(e) => {
           const rect = e.currentTarget.getBoundingClientRect();
           const x = ((e.clientX - rect.left) / rect.width) * w;

@@ -70,10 +70,10 @@ function Metric({ m, run, lang }: { m: MetricDef; run: boolean; lang: string }) 
 
 function Stars({ n = 5 }: { n?: number }) {
   return (
-    <div className="row gap-2" aria-label={`${n}/5`}>
+    <div className="row gap-2" role="img" aria-label={`${n}/5`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <span key={i} style={{ color: i < n ? 'var(--brand)' : 'var(--line)', display: 'inline-flex' }}>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.8 6.6 19.5l1.2-6L3.3 9.3l6.1-.7L12 3Z" /></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 3 2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.8 6.6 19.5l1.2-6L3.3 9.3l6.1-.7L12 3Z" /></svg>
         </span>
       ))}
     </div>

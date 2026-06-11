@@ -19,6 +19,7 @@ import { asyncHandler, ApiError } from '../middleware/error.js';
 import { requireAuth, optionalAuth } from '../middleware/auth.js';
 import { hashPassword, verifyPassword, signToken, COOKIE_NAME, cookieOptions } from '../lib/auth.js';
 import { authLimiter } from '../middleware/rateLimit.js';
+import { parseLang, tt } from '../i18n/index.js';
 
 export const authRouter: Router = Router();
 
@@ -32,14 +33,17 @@ function publicUser(u: { id: string; email: string; createdAt: Date }) {
 }
 
 authRouter.post('/signup', authLimiter, asyncHandler(async (req: Request, res: Response) => {
+  const lang = parseLang(req.headers['accept-language']);
   const parse = CredentialsSchema.safeParse(req.body);
-  if (!parse.success) throw new ApiError(400, parse.error.issues[0]?.message ?? 'Payload invalide');
+  // Les messages de champ Zod (email/mdp) sont déjà filtrés côté front avant l'appel ;
+  // on garde un fallback localisé générique si une validation serveur passe quand même.
+  if (!parse.success) throw new ApiError(400, parse.error.issues[0]?.message ?? tt(lang, 'auth.invalidPayload'));
   const { email, password } = parse.data;
 
   const existing = await prisma.user.findUnique({ where: { email } });
   if (existing) {
     // 409 = conflict. Acceptable de révéler ici parce que signup, pas login.
-    throw new ApiError(409, 'Cet email est déjà utilisé');
+    throw new ApiError(409, tt(lang, 'auth.emailTaken'));
   }
 
   const passwordHash = await hashPassword(password);
@@ -51,8 +55,9 @@ authRouter.post('/signup', authLimiter, asyncHandler(async (req: Request, res: R
 }));
 
 authRouter.post('/login', authLimiter, asyncHandler(async (req: Request, res: Response) => {
+  const lang = parseLang(req.headers['accept-language']);
   const parse = CredentialsSchema.safeParse(req.body);
-  if (!parse.success) throw new ApiError(400, 'Email ou mot de passe invalide');
+  if (!parse.success) throw new ApiError(400, tt(lang, 'auth.invalidCredentials'));
   const { email, password } = parse.data;
 
   const user = await prisma.user.findUnique({ where: { email } });
@@ -60,7 +65,7 @@ authRouter.post('/login', authLimiter, asyncHandler(async (req: Request, res: Re
   // qui permet d'énumérer les emails.
   const hashToCompare = user?.passwordHash ?? '$2a$12$invalidinvalidinvalidinvalidinvalidinvalidinvalid.';
   const ok = await verifyPassword(password, hashToCompare);
-  if (!user || !ok) throw new ApiError(401, 'Email ou mot de passe invalide');
+  if (!user || !ok) throw new ApiError(401, tt(lang, 'auth.invalidCredentials'));
 
   const token = signToken({ userId: user.id, email: user.email });
   res.cookie(COOKIE_NAME, token, cookieOptions());

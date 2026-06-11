@@ -98,7 +98,7 @@ export function MarketShareModal({ ms, onClose }: { ms: MarketShare; onClose: ()
         </div>
 
         <div style={{ margin: '8px 0 14px' }}>
-          <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H}>{chart}</svg>
+          <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} aria-hidden="true" focusable="false">{chart}</svg>
         </div>
 
         <div className="row gap-14" style={{ flexWrap: 'wrap' }}>

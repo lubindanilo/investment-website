@@ -198,6 +198,15 @@ export function AnalysePage() {
       {/* SEO : titre + meta description (i18n) injectés au montage. */}
       <SeoHead titleKey="seo.analyse.title" descKey="seo.analyse.desc" />
       <div className="wrap anl-wrap">
+        {/* Titre de page (H1) : présent dès l'état initial pour la sémantique SEO/a11y.
+            Masqué quand une analyse est affichée — c'est alors le nom de société qui
+            porte le H1, pour ne jamais avoir deux H1 sur la page. */}
+        {!analysis && (
+          <header className="anl-page-head">
+            <h1 className="anl-page-title">{t('analyse.h1')}</h1>
+            <p className="anl-page-sub">{t('analyse.h1Sub')}</p>
+          </header>
+        )}
         <div className="anl-search-block">
           <SearchBar value={ticker} onChange={setTicker} onSubmit={submit} loading={loading} />
           {!loading && !analysis && !error && !preview && (

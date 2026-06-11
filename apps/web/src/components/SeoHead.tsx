@@ -20,6 +20,8 @@ export interface SeoHeadProps {
   type?: 'website' | 'article';
   /** Chemin courant utilisé pour construire l'URL canonique (par défaut : window.location.pathname) */
   pathname?: string;
+  /** Marque la page comme non indexable (robots: noindex). Restauré à index,follow au démontage. */
+  noindex?: boolean;
 }
 
 // Base du site, lue depuis l'environnement Vite ou repli sur le domaine de prod
@@ -94,6 +96,7 @@ export default function SeoHead({
   image,
   type = 'website',
   pathname,
+  noindex = false,
 }: SeoHeadProps) {
   const { t, i18n } = useTranslation();
 
@@ -101,6 +104,11 @@ export default function SeoHead({
     // Mémorise l'état précédent pour le restaurer au démontage
     const previousTitle = document.title;
     const previousHtmlLang = document.documentElement.getAttribute('lang');
+    // robots : par défaut le site est indexable (cf. index.html). Une page noindex
+    // (404, etc.) bascule la balise puis la restaure à index,follow au démontage,
+    // pour ne pas « contaminer » les pages suivantes de la SPA.
+    const robots = document.head.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    const previousRobots = robots?.getAttribute('content') ?? null;
 
     // Calcule les valeurs effectives à appliquer (littéral prioritaire sur clé i18n)
     const title = literalTitle ?? (titleKey ? t(titleKey) : document.title);
@@ -140,6 +148,9 @@ export default function SeoHead({
     // URL canonique
     setLink('canonical', canonicalUrl);
 
+    // Indexation (robots)
+    setMeta('name', 'robots', noindex ? 'noindex,follow' : 'index,follow');
+
     // Nettoyage : on restaure le titre et la langue précédents.
     // On laisse les <meta> en place pour éviter un flash entre deux pages
     // qui montent leur propre <SeoHead /> ; elles seront écrasées par le suivant.
@@ -148,8 +159,10 @@ export default function SeoHead({
       if (previousHtmlLang) {
         document.documentElement.setAttribute('lang', previousHtmlLang);
       }
+      // Restaure la directive robots (sinon une page noindex laisserait la suivante noindex).
+      if (robots && previousRobots !== null) robots.setAttribute('content', previousRobots);
     };
-  }, [titleKey, descKey, literalTitle, literalDescription, image, type, pathname, i18n.language, t]);
+  }, [titleKey, descKey, literalTitle, literalDescription, image, type, pathname, noindex, i18n.language, t]);
 
   // Aucun rendu dans le DOM React
   return null;

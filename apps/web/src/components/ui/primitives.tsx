@@ -47,6 +47,7 @@ export function Icon({ name, size = 18, stroke = 1.7, className = '', style }: {
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
       stroke="currentColor" strokeWidth={stroke} strokeLinecap="round" strokeLinejoin="round"
       className={className} style={style}
+      aria-hidden="true" focusable="false"
       dangerouslySetInnerHTML={{ __html: ICON_PATHS[name] }} />
   );
 }
@@ -89,7 +90,7 @@ export function ScoreCircle({ score, size = 116, stroke = 9, animate = true }: {
   const offset = circ * (1 - Math.max(0, Math.min(score, 10)) / 10);
   return (
     <div style={{ position: 'relative', width: size, height: size, flexShrink: 0 }}>
-      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }}>
+      <svg width={size} height={size} style={{ transform: 'rotate(-90deg)' }} aria-hidden="true" focusable="false">
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--line)" strokeWidth={stroke} />
         <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke={c.ring} strokeWidth={stroke}
           strokeLinecap="round" strokeDasharray={circ} strokeDashoffset={offset}

@@ -2,6 +2,11 @@
 .anl { background: var(--bg); min-height: calc(100vh - var(--nav-h)); }
 .anl-wrap { padding-top: 24px; }
 
+/* En-tête de page (état initial, avant analyse) */
+.anl-page-head { margin-bottom: 18px; }
+.anl-page-title { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); }
+.anl-page-sub { margin-top: 4px; font-size: 14px; color: var(--ink-2); }
+
 /* Recherche */
 .anl-search-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
 .anl-search { display: flex; gap: 10px; width: 100%; }

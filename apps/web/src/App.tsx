@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Link, NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from './components/ui/LangSwitcher.js';
@@ -9,6 +9,7 @@ import { useAuth } from './contexts/AuthContext.js';
 import { useToast } from './components/Toast.js';
 import { Logo } from './components/ui/primitives.js';
 import AppFooter from './components/AppFooter.js';
+import { NotFoundPage } from './pages/NotFoundPage.js';
 
 // ── Pages lazy-loadées : routes secondaires, on évite de gonfler le bundle critique.
 // La forme `.then(m => ({ default: m.X }))` est nécessaire car ces modules exportent
@@ -50,20 +51,48 @@ export function App() {
   // Le footer suit la même règle d'affichage que la nav.
   const showFooter = showNav;
 
+  // Menu mobile (burger). Sur desktop la nav reste une barre d'onglets ; sous 720px
+  // elle est repliée dans un menu déroulant (plus de scroll horizontal des liens).
+  const [navOpen, setNavOpen] = useState(false);
+  // On referme le menu à chaque changement de route.
+  useEffect(() => { setNavOpen(false); }, [pathname]);
+
   return (
     <>
       <header className="app-header">
         <Link to="/" className="logo" aria-label="Lubin Investment">
           <Logo size={28} />
         </Link>
-        <div className="row gap-10">
-          <LangSwitcher />
-          <UserMenu />
+        <div className="header-right">
+          {/* Lang + compte : dans le header sur desktop, repliés dans le menu sur mobile
+              (cf. .header-actions / .app-nav-actions dans le CSS). */}
+          <div className="header-actions">
+            <LangSwitcher />
+            <UserMenu />
+          </div>
+          {showNav && (
+            <button
+              type="button"
+              className={'nav-burger' + (navOpen ? ' open' : '')}
+              aria-label={t('nav.toggleMenu')}
+              aria-expanded={navOpen}
+              aria-controls="app-nav"
+              onClick={() => setNavOpen((o) => !o)}
+            >
+              <span className="nav-burger-bar" aria-hidden="true" />
+              <span className="nav-burger-bar" aria-hidden="true" />
+              <span className="nav-burger-bar" aria-hidden="true" />
+            </button>
+          )}
         </div>
       </header>
 
       {showNav && (
-        <nav className="app-nav">
+        <nav
+          id="app-nav"
+          className={'app-nav' + (navOpen ? ' open' : '')}
+          onClick={() => setNavOpen(false)}
+        >
           {/* Ordre voulu : Analyser, Screener, Watchlist, Comparer, Méthodologie, Blog,
               puis Stratégie Portefeuille (réservé au propriétaire). Tarifs reste accessible
               via le footer et les modales d'upgrade. */}
@@ -93,6 +122,13 @@ export function App() {
           <NavLink to="/pricing" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.pricing')}
           </NavLink>
+          {/* Actions (langue + compte) repliées dans le menu sur mobile uniquement.
+              stopPropagation : interagir avec le sélecteur de langue ou le menu compte
+              ne doit pas refermer le menu (seules les navigations le ferment, via l'effet). */}
+          <div className="app-nav-actions" onClick={(e) => e.stopPropagation()}>
+            <LangSwitcher />
+            <UserMenu />
+          </div>
         </nav>
       )}
 
@@ -131,6 +167,8 @@ export function App() {
             <Route path="/confidentialite" element={<ConfidentialitePage />} />
             <Route path="/login" element={<AuthPage initialMode="login" />} />
             <Route path="/signup" element={<AuthPage initialMode="signup" />} />
+            {/* Catch-all : page 404 dédiée (évite le warning React Router et le titre générique). */}
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
         {showFooter && <AppFooter />}

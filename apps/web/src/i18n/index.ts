@@ -5,7 +5,8 @@
  * localisé CÔTÉ BACK : le front transmet sa langue courante via l'en-tête `Accept-Language`
  * (cf. lib/api.ts) et reçoit le contenu déjà traduit. Pas de double source de vérité.
  *
- * Détection : localStorage (choix explicite) → langue du navigateur, repli `fr`.
+ * Détection : ?lng= dans l'URL (alternates hreflang du sitemap) → localStorage
+ * (choix explicite) → langue du navigateur, repli `fr`.
  */
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
@@ -33,7 +34,13 @@ void i18n
     nonExplicitSupportedLngs: true, // 'en-US' → 'en'
     fallbackLng: 'fr',
     detection: {
-      order: ['localStorage', 'navigator'],
+      // ?lng= en premier : c'est ce que déclarent les alternates hreflang du sitemap
+      // (ex. /pricing?lng=es). Sans ça, un crawler/visiteur sans localStorage tombait
+      // sur la langue du navigateur (anglais) au lieu de la langue demandée par l'URL,
+      // ce qui neutralisait tout le SEO multilingue. Le choix détecté est mis en cache
+      // dans localStorage (la langue persiste ensuite à la navigation interne).
+      order: ['querystring', 'localStorage', 'navigator'],
+      lookupQuerystring: 'lng',
       lookupLocalStorage: LANG_STORAGE_KEY,
       caches: ['localStorage'],
     },

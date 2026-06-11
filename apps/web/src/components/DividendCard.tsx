@@ -175,7 +175,7 @@ function DividendModal({ payments, currency, onClose }: { payments: DividendPaym
         </div>
 
         <div style={{ margin: '8px 0 14px' }}>
-          <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H}>
+          <svg viewBox={`0 0 ${W} ${H}`} width="100%" height={H} aria-hidden="true" focusable="false">
             {[0, 0.25, 0.5, 0.75, 1].map(f => {
               const y = P.t + ih - f * ih;
               return (
