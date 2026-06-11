@@ -713,6 +713,9 @@ function renderStaticHtml(o: StaticSeo, lang: ArticleLang): string {
   const tr = STATIC_TR[lang];
   const c = o.content[lang];
   const base = `${SITE_URL}${o.path === '/' ? '/' : o.path}`;
+  // Suffixe de langue pour les liens internes (fr = URL nue, en/es = ?lng=) + URL d'accueil localisée.
+  const lq = lang === 'fr' ? '' : `?lng=${lang}`;
+  const homeUrl = `${SITE_URL}/${lq}`;
   // Canonique propre à la langue (fr = URL nue, en/es = ?lng=) — cohérent avec le sitemap.
   const canonical = lang === 'fr' ? base : `${base}${base.includes('?') ? '&' : '?'}lng=${lang}`;
   const hreflang = (['fr', 'en', 'es'] as const)
@@ -724,7 +727,7 @@ function renderStaticHtml(o: StaticSeo, lang: ArticleLang): string {
     .map((s) => `<h2>${escapeHtml(s.h2)}</h2>\n<p>${escapeHtml(s.p)}</p>`)
     .join('\n');
   const linksHtml = c.links
-    .map((l) => `<a href="${SITE_URL}${l.href}${lang === 'fr' ? '' : `?lng=${lang}`}">${escapeHtml(l.label)}</a>`)
+    .map((l) => `<a href="${SITE_URL}${l.href}${lq}">${escapeHtml(l.label)}</a>`)
     .join(' · ');
   // Détail des critères (Méthodologie) : HTML sémantique servi aux bots (les crawlers GEO
   // ne rendent pas le JS, donc le contenu client-side leur est invisible sans ça).
@@ -746,7 +749,7 @@ function renderStaticHtml(o: StaticSeo, lang: ArticleLang): string {
   const breadcrumbLd = {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: tr.home, item: base },
+      { '@type': 'ListItem', position: 1, name: tr.home, item: homeUrl },
       ...(o.path === '/' ? [] : [{ '@type': 'ListItem', position: 2, name: c.h1, item: canonical }]),
     ],
   };
@@ -778,9 +781,9 @@ ${hreflang}
 <script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>${websiteLd}${criteriaLd}
 </head>
 <body>
-<header><p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/methodologie">${escapeHtml(tr.nav)}</a> · <a href="${SITE_URL}/blog">Blog</a></p></header>
+<header><p><a href="${homeUrl}">Lubin Investment</a> · <a href="${SITE_URL}/screener${lq}">Screener</a> · <a href="${SITE_URL}/methodologie${lq}">${escapeHtml(tr.nav)}</a> · <a href="${SITE_URL}/blog${lq}">Blog</a></p></header>
 <main>
-<nav aria-label="Breadcrumb"><a href="${base}">${escapeHtml(tr.home)}</a>${o.path === '/' ? '' : ` › ${escapeHtml(c.h1)}`}</nav>
+<nav aria-label="Breadcrumb"><a href="${homeUrl}">${escapeHtml(tr.home)}</a>${o.path === '/' ? '' : ` › ${escapeHtml(c.h1)}`}</nav>
 <h1>${escapeHtml(c.h1)}</h1>
 <p>${escapeHtml(c.intro)}</p>
 ${sectionsHtml}

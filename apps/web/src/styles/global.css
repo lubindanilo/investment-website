@@ -375,6 +375,10 @@ input { font-family: inherit; }
   .header-actions { display: none; }
   .nav-burger { display: inline-flex; }
 
+  /* Pages sans nav (login/signup) : pas de burger pour héberger les actions, donc on
+     garde langue + compte visibles dans le header (sinon plus aucun sélecteur de langue). */
+  .app-header--no-nav .header-actions { display: flex; }
+
   /* Nav repliée dans un menu déroulant (fini le scroll horizontal des liens). */
   .app-nav {
     flex-direction: column;

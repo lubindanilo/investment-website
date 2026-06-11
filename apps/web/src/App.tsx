@@ -59,7 +59,7 @@ export function App() {
 
   return (
     <>
-      <header className="app-header">
+      <header className={'app-header' + (showNav ? '' : ' app-header--no-nav')}>
         <Link to="/" className="logo" aria-label="Lubin Investment">
           <Logo size={28} />
         </Link>

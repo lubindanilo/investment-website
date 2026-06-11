@@ -27,17 +27,22 @@ const BOT_UA =
 
 export const config = {
   // Limite stricte à la racine : tout le reste est déjà géré par vercel.json.
-  matcher: '/',
+  matcher: ['/'],
 };
 
 export default function middleware(request: Request): Response {
+  const url = new URL(request.url);
+  // Garde-fou défensif : on ne réécrit JAMAIS autre chose que la racine, même si le
+  // `matcher` venait à matcher plus large que prévu selon la version de la plateforme.
+  // Sans ça, un bot sur /screener pourrait être réécrit vers l'accueil (mauvais contenu).
+  if (url.pathname !== '/') return next();
+
   const ua = request.headers.get('user-agent') ?? '';
   // Humains (et UA inconnus) : on ne touche à rien, la SPA statique est servie.
   if (!BOT_UA.test(ua)) return next();
 
   // Bot sur "/" : réécriture transparente vers le pré-rendu Express de l'accueil.
   // On ne modifie que le pathname ; `url.search` (donc `?lng=`) est conservé tel quel.
-  const url = new URL(request.url);
   url.pathname = '/api/';
   return rewrite(url);
 }
