@@ -25,10 +25,9 @@
   color: #fff;
   transform: translateY(-1px);
 }
-.cmp-suggest { position: absolute; top: 44px; left: 0; width: 300px; z-index: 30; padding: 6px; box-shadow: var(--sh-lg); }
-.cmp-suggest-item { width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px; border: none; background: transparent; transition: background .12s; }
-.cmp-suggest-item:hover,
-.cmp-suggest-item.is-active { background: var(--brand-softer); }
+/* Styles du dropdown d'autocomplete (.cmp-suggest*) déplacés vers components/TickerSearch.css
+   pour qu'ils soient chargés sur toutes les pages qui utilisent la barre (ComparePage étant
+   lazy-loadé, son CSS ne suffisait pas pour /analyser et /watchlist). */
 
 /* Verdict */
 .cmp-verdict { padding: 14px 18px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }

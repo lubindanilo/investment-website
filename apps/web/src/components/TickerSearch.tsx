@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import type { TickerSuggestion } from '@lubin/shared';
 import { api } from '../lib/api.js';
 import { Icon } from './ui/primitives.js';
+import './TickerSearch.css';
 
 interface Props {
   value: string;
@@ -157,7 +158,7 @@ export function TickerSearch({
               onClick={() => { onSelect(s.ticker); setFocused(false); }}
             >
               <span className="row gap-10">
-                <span className="num" style={{ fontWeight: 700, fontSize: 13, minWidth: 56 }}>{s.ticker}</span>
+                <span className="num cmp-suggest-ticker" style={{ fontWeight: 700, fontSize: 13, minWidth: 56 }}>{s.ticker}</span>
                 <span style={{ fontSize: 13, color: 'var(--ink-2)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 200 }}>{s.name ?? s.ticker}</span>
               </span>
               <Icon name="chevronR" size={14} style={{ color: 'var(--ink-4)' }} />

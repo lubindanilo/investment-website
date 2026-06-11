@@ -1,0 +1,41 @@
+/**
+ * Styles du dropdown d'autocomplete de TickerSearch.
+ *
+ * ⚠️ Co-localisés avec le composant (et non dans ComparePage.css) car TickerSearch est
+ * partagé par /analyser, /watchlist et /comparer. ComparePage étant lazy-loadé (code-split),
+ * son CSS n'est chargé que sur /comparer — auparavant ces règles y vivaient, donc sur /analyser
+ * et /watchlist le dropdown tombait sur le style par défaut du navigateur (boutons gris « carrés »).
+ * En important ce fichier depuis le composant, les styles suivent partout où la barre est rendue.
+ */
+
+.cmp-suggest {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  width: 300px;
+  z-index: 30;
+  padding: 6px;
+  box-shadow: var(--sh-lg);
+}
+
+.cmp-suggest-item {
+  width: 100%;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 8px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  transition: color .12s;
+}
+
+/* Liste épurée : ticker en indigo (texte bleu/violet), pas de rectangle de fond.
+   La ligne active/survolée intensifie la couleur du texte au lieu de remplir une « boîte ». */
+.cmp-suggest-ticker { color: var(--brand-ink); }
+.cmp-suggest-item:hover .cmp-suggest-ticker,
+.cmp-suggest-item.is-active .cmp-suggest-ticker { color: var(--brand); }
+.cmp-suggest-item:hover,
+.cmp-suggest-item.is-active { background: transparent; }
