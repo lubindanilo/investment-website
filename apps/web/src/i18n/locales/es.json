@@ -80,7 +80,8 @@
     "compare": "Comparar",
     "blog": "Blog",
     "methodologie": "Metodología",
-    "pricing": "Precios"
+    "pricing": "Precios",
+    "toggleMenu": "Menú de navegación"
   },
   "userMenu": {
     "login": "Iniciar sesión",
@@ -316,6 +317,8 @@
     }
   },
   "analyse": {
+    "h1": "Analizar una acción",
+    "h1Sub": "Nota de calidad sobre 10 criterios y valoración P/FCF, en segundos.",
     "hintPrefix": "Consejo: escribe un ticker como",
     "hintOr": "o",
     "searchPlaceholder": "Introduce un ticker, p. ej. AAPL, MSFT, ASML…",
@@ -1017,6 +1020,18 @@
       "title": "Mi cuenta · Lubin Investment",
       "desc": "Gestiona tu suscripción Lubin Investment: estado, plan, próxima facturación, portal de gestión seguro."
     },
+    "login": {
+      "title": "Iniciar sesión · Lubin Investment",
+      "desc": "Inicia sesión en Lubin Investment para acceder a tus análisis, tu watchlist y tu suscripción."
+    },
+    "signup": {
+      "title": "Crear una cuenta · Lubin Investment",
+      "desc": "Crea tu cuenta Lubin Investment: nota de calidad sobre 10 criterios, watchlist y screener, gratis."
+    },
+    "notfound": {
+      "title": "Página no encontrada · Lubin Investment",
+      "desc": "Esta página no existe o ha sido movida."
+    },
     "legal": {
       "mentions": {
         "title": "Aviso legal · Lubin Investment",
@@ -1035,6 +1050,12 @@
         "desc": "Datos recopilados, finalidades, plazos, encargados (Stripe, Vercel, Neon, OpenAI), tus derechos RGPD y el uso de cookies en Lubin Investment."
       }
     }
+  },
+  "notFound": {
+    "title": "No se encuentra esta página",
+    "sub": "Puede que el enlace sea incorrecto o que la página se haya movido.",
+    "home": "Volver al inicio",
+    "screener": "Explorar el screener"
   },
   "footer": {
     "product": "Producto",

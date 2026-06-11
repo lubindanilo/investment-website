@@ -684,61 +684,86 @@ seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) 
 // /compare) sont servies aux humains en SPA (coquille sans canonical ni h1). Pour les
 // bots, on renvoie un HTML statique avec title/meta/canonical/h1/h2 + maillage interne.
 // Humains inchangés (rewrite Vercel conditionné au User-Agent).
-type StaticSeo = {
-  path: string; title: string; desc: string; h1: string; intro: string;
+/** Contenu d'une page statique pour UNE langue. */
+type StaticSeoContent = {
+  title: string; desc: string; h1: string; intro: string;
   sections: { h2: string; p: string }[];
   links: { href: string; label: string }[];
-  website?: boolean;
   /** Détail des critères (page Méthodologie) : rendu en HTML lisible par les bots GEO
    *  qui n'exécutent PAS le JS (GPTBot, PerplexityBot, ClaudeBot) + ItemList JSON-LD. */
   criteria?: { n: number; name: string; formula: string; threshold: string; why: string }[];
 };
+type StaticSeo = {
+  path: string;
+  website?: boolean;
+  /** Contenu trilingue. Le bot reçoit la langue demandée via ?lng= (défaut fr). */
+  content: Record<ArticleLang, StaticSeoContent>;
+};
 
-function renderStaticHtml(o: StaticSeo): string {
-  const canonical = `${SITE_URL}${o.path === '/' ? '/' : o.path}`;
-  const title = escapeHtml(o.title);
-  const description = escapeHtml(o.desc.slice(0, 158));
-  const sectionsHtml = o.sections
+/** Libellés d'interface du pré-rendu statique, par langue. */
+const STATIC_TR: Record<ArticleLang, {
+  home: string; criteriaH2: string; criteriaLdName: string; formula: string; threshold: string; ogLocale: string; nav: string;
+}> = {
+  fr: { home: 'Accueil', criteriaH2: 'Les 10 critères en détail', criteriaLdName: 'Les 10 critères de qualité de Lubin Investment', formula: 'Formule', threshold: 'Seuil', ogLocale: 'fr_FR', nav: 'Méthodologie' },
+  en: { home: 'Home', criteriaH2: 'The 10 criteria in detail', criteriaLdName: "Lubin Investment's 10 quality criteria", formula: 'Formula', threshold: 'Threshold', ogLocale: 'en_US', nav: 'Methodology' },
+  es: { home: 'Inicio', criteriaH2: 'Los 10 criterios en detalle', criteriaLdName: 'Los 10 criterios de calidad de Lubin Investment', formula: 'Fórmula', threshold: 'Umbral', ogLocale: 'es_ES', nav: 'Metodología' },
+};
+
+function renderStaticHtml(o: StaticSeo, lang: ArticleLang): string {
+  const tr = STATIC_TR[lang];
+  const c = o.content[lang];
+  const base = `${SITE_URL}${o.path === '/' ? '/' : o.path}`;
+  // Suffixe de langue pour les liens internes (fr = URL nue, en/es = ?lng=) + URL d'accueil localisée.
+  const lq = lang === 'fr' ? '' : `?lng=${lang}`;
+  const homeUrl = `${SITE_URL}/${lq}`;
+  // Canonique propre à la langue (fr = URL nue, en/es = ?lng=) — cohérent avec le sitemap.
+  const canonical = lang === 'fr' ? base : `${base}${base.includes('?') ? '&' : '?'}lng=${lang}`;
+  const hreflang = (['fr', 'en', 'es'] as const)
+    .map((l) => `<link rel="alternate" hreflang="${l}" href="${l === 'fr' ? base : `${base}?lng=${l}`}">`)
+    .join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${base}">`;
+  const title = escapeHtml(c.title);
+  const description = escapeHtml(c.desc.slice(0, 158));
+  const sectionsHtml = c.sections
     .map((s) => `<h2>${escapeHtml(s.h2)}</h2>\n<p>${escapeHtml(s.p)}</p>`)
     .join('\n');
-  const linksHtml = o.links
-    .map((l) => `<a href="${SITE_URL}${l.href}">${escapeHtml(l.label)}</a>`)
+  const linksHtml = c.links
+    .map((l) => `<a href="${SITE_URL}${l.href}${lq}">${escapeHtml(l.label)}</a>`)
     .join(' · ');
   // Détail des critères (Méthodologie) : HTML sémantique servi aux bots (les crawlers GEO
   // ne rendent pas le JS, donc le contenu client-side leur est invisible sans ça).
-  const criteriaHtml = o.criteria?.length
-    ? `<h2>Les 10 critères en détail</h2>\n<ol>\n${o.criteria
-        .map((c) => `  <li>\n    <h3>${escapeHtml(c.name)}</h3>\n    <p><strong>Formule :</strong> ${escapeHtml(c.formula)}</p>\n    <p><strong>Seuil :</strong> ${escapeHtml(c.threshold)}</p>\n    <p>${escapeHtml(c.why)}</p>\n  </li>`)
+  const criteriaHtml = c.criteria?.length
+    ? `<h2>${escapeHtml(tr.criteriaH2)}</h2>\n<ol>\n${c.criteria
+        .map((cr) => `  <li>\n    <h3>${escapeHtml(cr.name)}</h3>\n    <p><strong>${escapeHtml(tr.formula)} :</strong> ${escapeHtml(cr.formula)}</p>\n    <p><strong>${escapeHtml(tr.threshold)} :</strong> ${escapeHtml(cr.threshold)}</p>\n    <p>${escapeHtml(cr.why)}</p>\n  </li>`)
         .join('\n')}\n</ol>`
     : '';
-  const criteriaLd = o.criteria?.length
+  const criteriaLd = c.criteria?.length
     ? `\n<script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org', '@type': 'ItemList',
-        name: 'Les 10 critères de qualité de Lubin Investment',
-        itemListElement: o.criteria.map((c) => ({
-          '@type': 'ListItem', position: c.n,
-          name: c.name, description: `${c.why} (Formule : ${c.formula} · Seuil : ${c.threshold})`,
+        name: tr.criteriaLdName,
+        itemListElement: c.criteria.map((cr) => ({
+          '@type': 'ListItem', position: cr.n,
+          name: cr.name, description: `${cr.why} (${tr.formula} : ${cr.formula} · ${tr.threshold} : ${cr.threshold})`,
         })),
       })}</script>`
     : '';
   const breadcrumbLd = {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
-      ...(o.path === '/' ? [] : [{ '@type': 'ListItem', position: 2, name: o.h1, item: canonical }]),
+      { '@type': 'ListItem', position: 1, name: tr.home, item: homeUrl },
+      ...(o.path === '/' ? [] : [{ '@type': 'ListItem', position: 2, name: c.h1, item: canonical }]),
     ],
   };
   const websiteLd = o.website
     ? `\n<script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org', '@type': 'WebSite', name: 'Lubin Investment',
-        url: `${SITE_URL}/`, inLanguage: 'fr',
+        url: `${SITE_URL}/`, inLanguage: lang,
       })}</script>\n<script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Organization', name: 'Lubin Investment',
         url: `${SITE_URL}/`, logo: `${SITE_URL}/icon-512.png`,
       })}</script>`
     : '';
   return `<!DOCTYPE html>
-<html lang="fr">
+<html lang="${lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -746,20 +771,21 @@ function renderStaticHtml(o: StaticSeo): string {
 <meta name="description" content="${description}">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${canonical}">
+${hreflang}
 <meta property="og:type" content="website">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="Lubin Investment">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="${tr.ogLocale}">
 <script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>${websiteLd}${criteriaLd}
 </head>
 <body>
-<header><p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/methodologie">Méthodologie</a> · <a href="${SITE_URL}/blog">Blog</a></p></header>
+<header><p><a href="${homeUrl}">Lubin Investment</a> · <a href="${SITE_URL}/screener${lq}">Screener</a> · <a href="${SITE_URL}/methodologie${lq}">${escapeHtml(tr.nav)}</a> · <a href="${SITE_URL}/blog${lq}">Blog</a></p></header>
 <main>
-<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a>${o.path === '/' ? '' : ` › ${escapeHtml(o.h1)}`}</nav>
-<h1>${escapeHtml(o.h1)}</h1>
-<p>${escapeHtml(o.intro)}</p>
+<nav aria-label="Breadcrumb"><a href="${homeUrl}">${escapeHtml(tr.home)}</a>${o.path === '/' ? '' : ` › ${escapeHtml(c.h1)}`}</nav>
+<h1>${escapeHtml(c.h1)}</h1>
+<p>${escapeHtml(c.intro)}</p>
 ${sectionsHtml}
 ${criteriaHtml}
 <p>${linksHtml}</p>
@@ -771,136 +797,570 @@ ${criteriaHtml}
 const STATIC_SEO: StaticSeo[] = [
   {
     path: '/',
-    title: "Analyse fondamentale d'actions : la qualité et le prix",
-    desc: "Tapez un ticker : note de qualité sur 10 critères financiers objectifs et valorisation (P/FCF) jugée à part. Plus de 7000 actions suivies en continu.",
-    h1: 'Trouvez les entreprises de qualité, sans le bruit',
-    intro: "Lubin Investment note chaque action sur 10 critères financiers objectifs (rentabilité, croissance du cash, rachats d'actions, endettement, rendement du capital) et juge le prix séparément via le P/FCF. Une méthode, pas des opinions.",
-    sections: [
-      { h2: 'Comment ça marche', p: "Tapez un ticker, lisez la note sur 10 et son détail, puis décidez du prix d'entrée. La qualité du business et le prix de l'action sont jugés séparément : c'est la règle d'or de la méthode." },
-      { h2: 'Une méthode transparente', p: 'Les critères s\'appuient sur la littérature financière (Warren Buffett, Michael Mauboussin, Aswath Damodaran). Aucune opinion, aucune boîte noire : la donnée décide.' },
-      { h2: 'Aller plus loin', p: 'Explorez le classement des actions notées 10 sur 10, les actions de qualité sous-évaluées, le screener complet, ou la méthodologie détaillée.' },
-    ],
-    links: [
-      { href: '/analyser', label: 'Analyser une action' },
-      { href: '/screener', label: 'Screener' },
-      { href: '/classement/qualite-10-sur-10', label: 'Actions notées 10 sur 10' },
-      { href: '/classement/sous-evaluees', label: 'Actions sous-évaluées' },
-      { href: '/methodologie', label: 'Méthodologie' },
-      { href: '/blog', label: 'Blog' },
-    ],
     website: true,
+    content: {
+      fr: {
+        title: "Analyse fondamentale d'actions : la qualité et le prix",
+        desc: "Tapez un ticker : note de qualité sur 10 critères financiers objectifs et valorisation (P/FCF) jugée à part. Plus de 7000 actions suivies en continu.",
+        h1: 'Trouvez les entreprises de qualité, sans le bruit',
+        intro: "Lubin Investment note chaque action sur 10 critères financiers objectifs (rentabilité, croissance du cash, rachats d'actions, endettement, rendement du capital) et juge le prix séparément via le P/FCF. Une méthode, pas des opinions.",
+        sections: [
+          { h2: 'Comment ça marche', p: "Tapez un ticker, lisez la note sur 10 et son détail, puis décidez du prix d'entrée. La qualité du business et le prix de l'action sont jugés séparément : c'est la règle d'or de la méthode." },
+          { h2: 'Une méthode transparente', p: "Les critères s'appuient sur la littérature financière (Warren Buffett, Michael Mauboussin, Aswath Damodaran). Aucune opinion, aucune boîte noire : la donnée décide." },
+          { h2: 'Aller plus loin', p: 'Explorez le classement des actions notées 10 sur 10, les actions de qualité sous-évaluées, le screener complet, ou la méthodologie détaillée.' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyser une action' },
+          { href: '/screener', label: 'Screener' },
+          { href: '/classement/qualite-10-sur-10', label: 'Actions notées 10 sur 10' },
+          { href: '/classement/sous-evaluees', label: 'Actions sous-évaluées' },
+          { href: '/methodologie', label: 'Méthodologie' },
+          { href: '/blog', label: 'Blog' },
+        ],
+      },
+      en: {
+        title: 'Fundamental stock analysis: quality and price',
+        desc: 'Type a ticker: a quality score on 10 objective financial criteria and a valuation (P/FCF) judged separately. Over 7,000 stocks tracked continuously.',
+        h1: 'Find quality companies, without the noise',
+        intro: 'Lubin Investment scores every stock on 10 objective financial criteria (profitability, cash growth, buybacks, debt, return on capital) and judges price separately via P/FCF. A method, not opinions.',
+        sections: [
+          { h2: 'How it works', p: "Type a ticker, read the score out of 10 and its breakdown, then decide on your entry price. Business quality and share price are judged separately: that's the golden rule of the method." },
+          { h2: 'A transparent method', p: 'The criteria draw on financial literature (Warren Buffett, Michael Mauboussin, Aswath Damodaran). No opinions, no black box: the data decides.' },
+          { h2: 'Go further', p: 'Explore the ranking of stocks rated 10 out of 10, undervalued quality stocks, the full screener, or the detailed methodology.' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyze a stock' },
+          { href: '/screener', label: 'Screener' },
+          { href: '/classement/qualite-10-sur-10', label: 'Stocks rated 10 out of 10' },
+          { href: '/classement/sous-evaluees', label: 'Undervalued stocks' },
+          { href: '/methodologie', label: 'Methodology' },
+          { href: '/blog', label: 'Blog' },
+        ],
+      },
+      es: {
+        title: 'Análisis fundamental de acciones: la calidad y el precio',
+        desc: 'Escribe un ticker: nota de calidad sobre 10 criterios financieros objetivos y valoración (P/FCF) juzgada aparte. Más de 7000 acciones seguidas en continuo.',
+        h1: 'Encuentra empresas de calidad, sin el ruido',
+        intro: 'Lubin Investment puntúa cada acción sobre 10 criterios financieros objetivos (rentabilidad, crecimiento del cash, recompras, deuda, rendimiento del capital) y juzga el precio por separado mediante el P/FCF. Un método, no opiniones.',
+        sections: [
+          { h2: 'Cómo funciona', p: 'Escribe un ticker, lee la nota sobre 10 y su detalle, y luego decide el precio de entrada. La calidad del negocio y el precio de la acción se juzgan por separado: es la regla de oro del método.' },
+          { h2: 'Un método transparente', p: 'Los criterios se apoyan en la literatura financiera (Warren Buffett, Michael Mauboussin, Aswath Damodaran). Sin opiniones, sin caja negra: decide el dato.' },
+          { h2: 'Ir más lejos', p: 'Explora el ranking de acciones con nota 10 sobre 10, las acciones de calidad infravaloradas, el screener completo o la metodología detallada.' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analizar una acción' },
+          { href: '/screener', label: 'Screener' },
+          { href: '/classement/qualite-10-sur-10', label: 'Acciones con nota 10 sobre 10' },
+          { href: '/classement/sous-evaluees', label: 'Acciones infravaloradas' },
+          { href: '/methodologie', label: 'Metodología' },
+          { href: '/blog', label: 'Blog' },
+        ],
+      },
+    },
   },
   {
     path: '/screener',
-    title: 'Screener d\'actions : note de qualité et P/FCF',
-    desc: 'Le screener Lubin trie des milliers d\'actions par note de qualité (10 critères) et par valorisation (P/FCF). Trouvez les entreprises solides au bon prix.',
-    h1: 'Screener : les meilleures actions de qualité',
-    intro: 'Filtrez les actions par note de qualité sur 10 critères financiers objectifs et par valorisation (P/FCF, le prix rapporté au cash généré). Le screener met en tête les entreprises les plus solides.',
-    sections: [
-      { h2: 'Qualité d\'abord, prix ensuite', p: 'Chaque action reçoit une note sur 10 (solidité du business) et un P/FCF (cher ou bon marché). Les deux sont jugés séparément pour éviter de payer trop cher une bonne entreprise.' },
-      { h2: 'Classements prêts à l\'emploi', p: 'Consultez directement les actions notées 10 sur 10, ou les actions de qualité actuellement sous-évaluées.' },
-    ],
-    links: [
-      { href: '/classement/qualite-10-sur-10', label: 'Actions notées 10 sur 10' },
-      { href: '/classement/sous-evaluees', label: 'Actions sous-évaluées' },
-      { href: '/methodologie', label: 'Notre méthodologie' },
-    ],
+    content: {
+      fr: {
+        title: "Screener d'actions : note de qualité et P/FCF",
+        desc: "Le screener Lubin trie des milliers d'actions par note de qualité (10 critères) et par valorisation (P/FCF). Trouvez les entreprises solides au bon prix.",
+        h1: 'Screener : les meilleures actions de qualité',
+        intro: 'Filtrez les actions par note de qualité sur 10 critères financiers objectifs et par valorisation (P/FCF, le prix rapporté au cash généré). Le screener met en tête les entreprises les plus solides.',
+        sections: [
+          { h2: "Qualité d'abord, prix ensuite", p: 'Chaque action reçoit une note sur 10 (solidité du business) et un P/FCF (cher ou bon marché). Les deux sont jugés séparément pour éviter de payer trop cher une bonne entreprise.' },
+          { h2: "Classements prêts à l'emploi", p: 'Consultez directement les actions notées 10 sur 10, ou les actions de qualité actuellement sous-évaluées.' },
+        ],
+        links: [
+          { href: '/classement/qualite-10-sur-10', label: 'Actions notées 10 sur 10' },
+          { href: '/classement/sous-evaluees', label: 'Actions sous-évaluées' },
+          { href: '/methodologie', label: 'Notre méthodologie' },
+        ],
+      },
+      en: {
+        title: 'Stock screener: quality score and P/FCF',
+        desc: 'The Lubin screener sorts thousands of stocks by quality score (10 criteria) and valuation (P/FCF). Find solid companies at the right price.',
+        h1: 'Screener: the best quality stocks',
+        intro: 'Filter stocks by quality score on 10 objective financial criteria and by valuation (P/FCF, price relative to the cash generated). The screener puts the most solid companies at the top.',
+        sections: [
+          { h2: 'Quality first, price second', p: 'Each stock gets a score out of 10 (business strength) and a P/FCF (expensive or cheap). The two are judged separately to avoid overpaying for a good company.' },
+          { h2: 'Ready-made rankings', p: 'Browse stocks rated 10 out of 10 directly, or quality stocks currently undervalued.' },
+        ],
+        links: [
+          { href: '/classement/qualite-10-sur-10', label: 'Stocks rated 10 out of 10' },
+          { href: '/classement/sous-evaluees', label: 'Undervalued stocks' },
+          { href: '/methodologie', label: 'Our methodology' },
+        ],
+      },
+      es: {
+        title: 'Screener de acciones: nota de calidad y P/FCF',
+        desc: 'El screener de Lubin ordena miles de acciones por nota de calidad (10 criterios) y por valoración (P/FCF). Encuentra empresas sólidas al precio justo.',
+        h1: 'Screener: las mejores acciones de calidad',
+        intro: 'Filtra las acciones por nota de calidad sobre 10 criterios financieros objetivos y por valoración (P/FCF, el precio en relación con el cash generado). El screener pone en cabeza las empresas más sólidas.',
+        sections: [
+          { h2: 'Primero la calidad, luego el precio', p: 'Cada acción recibe una nota sobre 10 (solidez del negocio) y un P/FCF (cara o barata). Ambos se juzgan por separado para no pagar de más por una buena empresa.' },
+          { h2: 'Rankings listos para usar', p: 'Consulta directamente las acciones con nota 10 sobre 10, o las acciones de calidad actualmente infravaloradas.' },
+        ],
+        links: [
+          { href: '/classement/qualite-10-sur-10', label: 'Acciones con nota 10 sobre 10' },
+          { href: '/classement/sous-evaluees', label: 'Acciones infravaloradas' },
+          { href: '/methodologie', label: 'Nuestra metodología' },
+        ],
+      },
+    },
   },
   {
     path: '/methodologie',
-    title: 'Méthodologie : 10 critères, sources publiques',
-    desc: 'Comment Lubin note une action : 10 critères financiers objectifs, seuils issus de la littérature (Buffett, Mauboussin, Damodaran), zéro opinion, zéro boîte noire.',
-    h1: '10 critères, sources publiques, zéro boîte noire',
-    intro: 'La note de qualité repose sur 10 critères financiers objectifs, validés selon des seuils tirés de la littérature financière. Le calcul est automatique et sans opinion humaine.',
-    sections: [
-      { h2: 'Les 10 critères de qualité', p: 'Rentabilité, croissance des ventes et du free cash flow, rachats d\'actions, marges, profitabilité cash, rendement du capital (Cash ROCE), endettement maîtrisé, conversion du bénéfice en cash, cycle de trésorerie.' },
-      { h2: 'La valorisation, jugée à part', p: 'Le P/FCF (prix rapporté au free cash flow) mesure si l\'action est chère ou bon marché. Une bonne entreprise à mauvais prix reste un mauvais placement.' },
-    ],
-    links: [
-      { href: '/analyser', label: 'Analyser une action' },
-      { href: '/screener', label: 'Screener' },
-    ],
-    // Détail des 10 critères servi aux bots GEO (copie statique, source : web i18n
-    // methodology.criteres ; à resynchroniser si la grille évolue, comme data/articles.ts).
-    criteria: [
-      { n: 1, name: '1. Rentable', formula: "Marge nette = Résultat net / Chiffre d'affaires", threshold: '> 0 %', why: "Une entreprise qui ne gagne pas d'argent n'est pas une affaire d'investissement. Ce premier filtre élimine les sociétés structurellement déficitaires." },
-      { n: 2, name: '2. Ventes en croissance', formula: "Croissance du chiffre d'affaires sur 5 ans", threshold: '> 10 % par an', why: "La croissance des ventes reste le meilleur moteur de création de valeur sur le long terme. On mesure la tendance sur 5 ans pour gommer les années exceptionnelles." },
-      { n: 3, name: '3. Profits par action en croissance', formula: 'Croissance du cash par action sur 5 ans', threshold: '> 10 % par an', why: "Ce qui compte vraiment pour toi, actionnaire, c'est le cash généré par action. On retire au passage les actions distribuées aux salariés, qui réduisent ta part." },
-      { n: 4, name: "4. Nombre d'actions maîtrisé", formula: "Variation annuelle du nombre d'actions dilué sur 5 ans", threshold: 'Stable ou en baisse', why: "La dilution, c'est quand l'entreprise crée de nouvelles actions : ta part du gâteau rétrécit. Les meilleures font l'inverse, elles rachètent leurs actions au lieu d'en émettre." },
-      { n: 5, name: '5. Profitabilité cash', formula: "Marge de cash = cash disponible (free cash flow) / chiffre d'affaires", threshold: '> 10 %', why: "Le free cash flow, c'est l'argent qui reste vraiment en caisse une fois tout payé, bien plus fiable que le bénéfice comptable. Une marge élevée veut dire que chaque euro de vente génère du vrai cash." },
-      { n: 6, name: '6. Marges en expansion', formula: 'Évolution de la marge opérationnelle sur 5 ans', threshold: 'En hausse', why: "Des marges qui montent au fil des années révèlent un vrai avantage : l'entreprise peut imposer ses prix ou produire moins cher. Un signe de qualité durable." },
-      { n: 7, name: '7. Rendement du capital investi', formula: "Cash généré pour 100 € investis dans l'activité (Cash ROCE)", threshold: '> 15 %', why: "Combien de cash l'entreprise génère pour chaque euro réellement investi dans son activité. Au-dessus de 15 %, elle fait travailler son argent très efficacement." },
-      { n: 8, name: '8. Endettement maîtrisé', formula: 'Dette nette / cash disponible (free cash flow)', threshold: '< 3 ans', why: "Combien d'années de cash il faudrait pour rembourser toute la dette. Au-delà de 3 ans, le risque devient sérieux en cas de coup dur." },
-      { n: 9, name: '9. Bénéfices transformés en cash', formula: 'Cash disponible / bénéfice net', threshold: '> 1', why: "Vérifie que les profits annoncés deviennent du vrai argent, pas juste une écriture comptable. Un ratio durablement sous 1 est un signal d'alerte." },
-      { n: 10, name: "10. Délai d'encaissement net", formula: "Jours pendant lesquels l'argent reste bloqué dans le cycle (clients, stocks, fournisseurs)", threshold: 'Faible ou négatif', why: "Le temps, en jours, pendant lequel l'argent est immobilisé entre le moment où l'entreprise paie ses fournisseurs et celui où ses clients la paient. Court ou négatif, c'est excellent : ses fournisseurs financent sa croissance (Apple, Amazon)." },
-    ],
+    content: {
+      fr: {
+        title: 'Méthodologie : 10 critères, sources publiques',
+        desc: 'Comment Lubin note une action : 10 critères financiers objectifs, seuils issus de la littérature (Buffett, Mauboussin, Damodaran), zéro opinion, zéro boîte noire.',
+        h1: '10 critères, sources publiques, zéro boîte noire',
+        intro: 'La note de qualité repose sur 10 critères financiers objectifs, validés selon des seuils tirés de la littérature financière. Le calcul est automatique et sans opinion humaine.',
+        sections: [
+          { h2: 'Les 10 critères de qualité', p: "Rentabilité, croissance des ventes et du free cash flow, rachats d'actions, marges, profitabilité cash, rendement du capital (Cash ROCE), endettement maîtrisé, conversion du bénéfice en cash, cycle de trésorerie." },
+          { h2: 'La valorisation, jugée à part', p: "Le P/FCF (prix rapporté au free cash flow) mesure si l'action est chère ou bon marché. Une bonne entreprise à mauvais prix reste un mauvais placement." },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyser une action' },
+          { href: '/screener', label: 'Screener' },
+        ],
+        // Détail des 10 critères servi aux bots GEO (copie statique, source : web i18n
+        // methodology.criteres ; à resynchroniser si la grille évolue, comme data/articles.ts).
+        criteria: [
+          { n: 1, name: '1. Rentable', formula: "Marge nette = Résultat net / Chiffre d'affaires", threshold: '> 0 %', why: "Une entreprise qui ne gagne pas d'argent n'est pas une affaire d'investissement. Ce premier filtre élimine les sociétés structurellement déficitaires." },
+          { n: 2, name: '2. Ventes en croissance', formula: "Croissance du chiffre d'affaires sur 5 ans", threshold: '> 10 % par an', why: "La croissance des ventes reste le meilleur moteur de création de valeur sur le long terme. On mesure la tendance sur 5 ans pour gommer les années exceptionnelles." },
+          { n: 3, name: '3. Profits par action en croissance', formula: 'Croissance du cash par action sur 5 ans', threshold: '> 10 % par an', why: "Ce qui compte vraiment pour toi, actionnaire, c'est le cash généré par action. On retire au passage les actions distribuées aux salariés, qui réduisent ta part." },
+          { n: 4, name: "4. Nombre d'actions maîtrisé", formula: "Variation annuelle du nombre d'actions dilué sur 5 ans", threshold: 'Stable ou en baisse', why: "La dilution, c'est quand l'entreprise crée de nouvelles actions : ta part du gâteau rétrécit. Les meilleures font l'inverse, elles rachètent leurs actions au lieu d'en émettre." },
+          { n: 5, name: '5. Profitabilité cash', formula: "Marge de cash = cash disponible (free cash flow) / chiffre d'affaires", threshold: '> 10 %', why: "Le free cash flow, c'est l'argent qui reste vraiment en caisse une fois tout payé, bien plus fiable que le bénéfice comptable. Une marge élevée veut dire que chaque euro de vente génère du vrai cash." },
+          { n: 6, name: '6. Marges en expansion', formula: 'Évolution de la marge opérationnelle sur 5 ans', threshold: 'En hausse', why: "Des marges qui montent au fil des années révèlent un vrai avantage : l'entreprise peut imposer ses prix ou produire moins cher. Un signe de qualité durable." },
+          { n: 7, name: '7. Rendement du capital investi', formula: "Cash généré pour 100 € investis dans l'activité (Cash ROCE)", threshold: '> 15 %', why: "Combien de cash l'entreprise génère pour chaque euro réellement investi dans son activité. Au-dessus de 15 %, elle fait travailler son argent très efficacement." },
+          { n: 8, name: '8. Endettement maîtrisé', formula: 'Dette nette / cash disponible (free cash flow)', threshold: '< 3 ans', why: "Combien d'années de cash il faudrait pour rembourser toute la dette. Au-delà de 3 ans, le risque devient sérieux en cas de coup dur." },
+          { n: 9, name: '9. Bénéfices transformés en cash', formula: 'Cash disponible / bénéfice net', threshold: '> 1', why: "Vérifie que les profits annoncés deviennent du vrai argent, pas juste une écriture comptable. Un ratio durablement sous 1 est un signal d'alerte." },
+          { n: 10, name: "10. Délai d'encaissement net", formula: "Jours pendant lesquels l'argent reste bloqué dans le cycle (clients, stocks, fournisseurs)", threshold: 'Faible ou négatif', why: "Le temps, en jours, pendant lequel l'argent est immobilisé entre le moment où l'entreprise paie ses fournisseurs et celui où ses clients la paient. Court ou négatif, c'est excellent : ses fournisseurs financent sa croissance (Apple, Amazon)." },
+        ],
+      },
+      en: {
+        title: 'Methodology: 10 criteria, public sources',
+        desc: 'How Lubin scores a stock: 10 objective financial criteria, thresholds drawn from the literature (Buffett, Mauboussin, Damodaran), no opinions, no black box.',
+        h1: '10 criteria, public sources, no black box',
+        intro: 'The quality score rests on 10 objective financial criteria, validated against thresholds drawn from financial literature. The calculation is automatic, with no human opinion.',
+        sections: [
+          { h2: 'The 10 quality criteria', p: 'Profitability, growth in sales and free cash flow, share buybacks, margins, cash profitability, return on capital (Cash ROCE), controlled debt, conversion of earnings into cash, cash cycle.' },
+          { h2: 'Valuation, judged separately', p: 'P/FCF (price relative to free cash flow) measures whether the stock is expensive or cheap. A good company at a bad price is still a bad investment.' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyze a stock' },
+          { href: '/screener', label: 'Screener' },
+        ],
+        criteria: [
+          { n: 1, name: '1. Profitable', formula: 'Net margin = Net income / Revenue', threshold: '> 0%', why: "A company that doesn't make money isn't an investment case. This first filter removes structurally loss-making companies." },
+          { n: 2, name: '2. Growing sales', formula: 'Revenue growth over 5 years', threshold: '> 10% per year', why: 'Sales growth remains the best driver of long-term value creation. We measure the 5-year trend to smooth out exceptional years.' },
+          { n: 3, name: '3. Growing earnings per share', formula: 'Cash-per-share growth over 5 years', threshold: '> 10% per year', why: 'What really matters to you as a shareholder is the cash generated per share. We also strip out shares granted to employees, which dilute your stake.' },
+          { n: 4, name: '4. Share count under control', formula: 'Annual change in diluted share count over 5 years', threshold: 'Stable or declining', why: 'Dilution is when the company issues new shares: your slice of the pie shrinks. The best ones do the opposite — they buy back shares instead of issuing them.' },
+          { n: 5, name: '5. Cash profitability', formula: 'Cash margin = free cash flow / revenue', threshold: '> 10%', why: 'Free cash flow is the money that truly stays in the bank once everything is paid, far more reliable than accounting profit. A high margin means each dollar of sales generates real cash.' },
+          { n: 6, name: '6. Expanding margins', formula: 'Change in operating margin over 5 years', threshold: 'Rising', why: 'Margins rising over the years reveal a real edge: the company can set its prices or produce more cheaply. A sign of durable quality.' },
+          { n: 7, name: '7. Return on invested capital', formula: 'Cash generated per €100 invested in the business (Cash ROCE)', threshold: '> 15%', why: 'How much cash the company generates for each euro actually invested in its business. Above 15%, it puts its money to work very efficiently.' },
+          { n: 8, name: '8. Controlled debt', formula: 'Net debt / free cash flow', threshold: '< 3 years', why: 'How many years of cash it would take to repay all the debt. Beyond 3 years, the risk becomes serious in a downturn.' },
+          { n: 9, name: '9. Earnings turned into cash', formula: 'Free cash flow / net income', threshold: '> 1', why: 'Checks that reported profits become real money, not just an accounting entry. A ratio durably below 1 is a warning sign.' },
+          { n: 10, name: '10. Net collection period', formula: 'Days that cash stays locked in the cycle (receivables, inventory, payables)', threshold: 'Low or negative', why: 'The time, in days, that money is tied up between when the company pays its suppliers and when its customers pay it. Short or negative is excellent: its suppliers finance its growth (Apple, Amazon).' },
+        ],
+      },
+      es: {
+        title: 'Metodología: 10 criterios, fuentes públicas',
+        desc: 'Cómo Lubin puntúa una acción: 10 criterios financieros objetivos, umbrales extraídos de la literatura (Buffett, Mauboussin, Damodaran), sin opiniones, sin caja negra.',
+        h1: '10 criterios, fuentes públicas, sin caja negra',
+        intro: 'La nota de calidad se basa en 10 criterios financieros objetivos, validados según umbrales extraídos de la literatura financiera. El cálculo es automático y sin opinión humana.',
+        sections: [
+          { h2: 'Los 10 criterios de calidad', p: 'Rentabilidad, crecimiento de las ventas y del free cash flow, recompras de acciones, márgenes, rentabilidad en efectivo, rendimiento del capital (Cash ROCE), endeudamiento controlado, conversión del beneficio en efectivo, ciclo de tesorería.' },
+          { h2: 'La valoración, juzgada aparte', p: 'El P/FCF (precio en relación con el free cash flow) mide si la acción está cara o barata. Una buena empresa a mal precio sigue siendo una mala inversión.' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analizar una acción' },
+          { href: '/screener', label: 'Screener' },
+        ],
+        criteria: [
+          { n: 1, name: '1. Rentable', formula: 'Margen neto = Beneficio neto / Ingresos', threshold: '> 0 %', why: 'Una empresa que no gana dinero no es un caso de inversión. Este primer filtro elimina las empresas estructuralmente deficitarias.' },
+          { n: 2, name: '2. Ventas en crecimiento', formula: 'Crecimiento de los ingresos en 5 años', threshold: '> 10 % al año', why: 'El crecimiento de las ventas sigue siendo el mejor motor de creación de valor a largo plazo. Medimos la tendencia a 5 años para suavizar los años excepcionales.' },
+          { n: 3, name: '3. Beneficios por acción en crecimiento', formula: 'Crecimiento del cash por acción en 5 años', threshold: '> 10 % al año', why: 'Lo que de verdad te importa como accionista es el cash generado por acción. De paso descontamos las acciones entregadas a los empleados, que reducen tu parte.' },
+          { n: 4, name: '4. Número de acciones controlado', formula: 'Variación anual del número de acciones diluidas en 5 años', threshold: 'Estable o a la baja', why: 'La dilución es cuando la empresa crea nuevas acciones: tu porción del pastel se reduce. Las mejores hacen lo contrario, recompran sus acciones en lugar de emitirlas.' },
+          { n: 5, name: '5. Rentabilidad en efectivo', formula: 'Margen de cash = free cash flow / ingresos', threshold: '> 10 %', why: 'El free cash flow es el dinero que realmente queda en caja una vez pagado todo, mucho más fiable que el beneficio contable. Un margen alto significa que cada euro de ventas genera cash real.' },
+          { n: 6, name: '6. Márgenes en expansión', formula: 'Evolución del margen operativo en 5 años', threshold: 'Al alza', why: 'Unos márgenes que suben con los años revelan una ventaja real: la empresa puede imponer sus precios o producir más barato. Una señal de calidad duradera.' },
+          { n: 7, name: '7. Rendimiento del capital invertido', formula: 'Cash generado por cada 100 € invertidos en la actividad (Cash ROCE)', threshold: '> 15 %', why: 'Cuánto cash genera la empresa por cada euro realmente invertido en su actividad. Por encima del 15 %, hace trabajar su dinero con mucha eficiencia.' },
+          { n: 8, name: '8. Endeudamiento controlado', formula: 'Deuda neta / free cash flow', threshold: '< 3 años', why: 'Cuántos años de cash harían falta para devolver toda la deuda. Más allá de 3 años, el riesgo se vuelve serio ante un imprevisto.' },
+          { n: 9, name: '9. Beneficios convertidos en efectivo', formula: 'Free cash flow / beneficio neto', threshold: '> 1', why: 'Verifica que los beneficios anunciados se convierten en dinero real, no solo en un apunte contable. Un ratio sostenidamente por debajo de 1 es una señal de alerta.' },
+          { n: 10, name: '10. Plazo de cobro neto', formula: 'Días en que el dinero queda bloqueado en el ciclo (clientes, existencias, proveedores)', threshold: 'Bajo o negativo', why: 'El tiempo, en días, que el dinero está inmovilizado entre que la empresa paga a sus proveedores y que sus clientes le pagan. Corto o negativo es excelente: sus proveedores financian su crecimiento (Apple, Amazon).' },
+        ],
+      },
+    },
   },
   {
     path: '/blog',
-    title: 'Blog : analyse fondamentale et méthode',
-    desc: 'Analyses d\'actions par les fondamentaux, méthode P/FCF et lecture de l\'actualité par la qualité. Le blog de Lubin Investment, en clair.',
-    h1: 'Comprendre les marchés avec méthode',
-    intro: 'Des analyses fondamentales d\'actions, la méthode de valorisation par les flux de trésorerie, et une lecture de l\'actualité au prisme de la qualité.',
-    sections: [
-      { h2: 'Pédagogique et chiffré', p: 'Chaque article explique les termes, montre les chiffres réels, et raconte la thèse au-delà des nombres (moat, management, risques).' },
-    ],
-    links: [
-      { href: '/analyser', label: 'Analyser une action' },
-      { href: '/methodologie', label: 'Méthodologie' },
-    ],
+    content: {
+      fr: {
+        title: 'Blog : analyse fondamentale et méthode',
+        desc: "Analyses d'actions par les fondamentaux, méthode P/FCF et lecture de l'actualité par la qualité. Le blog de Lubin Investment, en clair.",
+        h1: 'Comprendre les marchés avec méthode',
+        intro: "Des analyses fondamentales d'actions, la méthode de valorisation par les flux de trésorerie, et une lecture de l'actualité au prisme de la qualité.",
+        sections: [
+          { h2: 'Pédagogique et chiffré', p: 'Chaque article explique les termes, montre les chiffres réels, et raconte la thèse au-delà des nombres (moat, management, risques).' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyser une action' },
+          { href: '/methodologie', label: 'Méthodologie' },
+        ],
+      },
+      en: {
+        title: 'Blog: fundamental analysis and method',
+        desc: "Fundamental stock analysis, the P/FCF method, and a reading of the news through the lens of quality. Lubin Investment's blog, in plain terms.",
+        h1: 'Understanding markets with method',
+        intro: 'Fundamental stock analysis, the cash-flow valuation method, and a reading of the news through the prism of quality.',
+        sections: [
+          { h2: 'Educational and data-driven', p: 'Each article explains the terms, shows the real numbers, and tells the thesis beyond the figures (moat, management, risks).' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyze a stock' },
+          { href: '/methodologie', label: 'Methodology' },
+        ],
+      },
+      es: {
+        title: 'Blog: análisis fundamental y método',
+        desc: 'Análisis fundamental de acciones, método P/FCF y una lectura de la actualidad a través de la calidad. El blog de Lubin Investment, en claro.',
+        h1: 'Entender los mercados con método',
+        intro: 'Análisis fundamentales de acciones, el método de valoración por flujos de caja y una lectura de la actualidad bajo el prisma de la calidad.',
+        sections: [
+          { h2: 'Pedagógico y con cifras', p: 'Cada artículo explica los términos, muestra las cifras reales y cuenta la tesis más allá de los números (moat, dirección, riesgos).' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analizar una acción' },
+          { href: '/methodologie', label: 'Metodología' },
+        ],
+      },
+    },
   },
   {
     path: '/pricing',
-    title: 'Tarifs : Lubin Investment, gratuit et Pro',
-    desc: 'Analysez gratuitement n\'importe quelle action (note /10 + valorisation). Pro : analyses illimitées, analyse qualitative, comparaisons et données complètes.',
-    h1: 'Investir avec méthode, pas avec des opinions',
-    intro: 'Le plan gratuit donne la note de qualité et la valorisation de n\'importe quelle action. Le plan Pro débloque l\'analyse qualitative, les comparaisons et les données complètes.',
-    sections: [
-      { h2: 'Gratuit', p: 'Note de qualité sur 10 critères, valorisation P/FCF, screener et watchlist. De quoi décider sur n\'importe quelle action.' },
-      { h2: 'Pro', p: 'Analyses illimitées, analyse qualitative (business et management), opportunités, comparaisons jusqu\'à 5 actions, données Europe et international.' },
-    ],
-    links: [
-      { href: '/analyser', label: 'Analyser une action' },
-      { href: '/methodologie', label: 'Méthodologie' },
-    ],
+    content: {
+      fr: {
+        title: 'Tarifs : Lubin Investment, gratuit et Pro',
+        desc: "Analysez gratuitement n'importe quelle action (note /10 + valorisation). Pro : analyses illimitées, analyse qualitative, comparaisons et données complètes.",
+        h1: 'Investir avec méthode, pas avec des opinions',
+        intro: "Le plan gratuit donne la note de qualité et la valorisation de n'importe quelle action. Le plan Pro débloque l'analyse qualitative, les comparaisons et les données complètes.",
+        sections: [
+          { h2: 'Gratuit', p: "Note de qualité sur 10 critères, valorisation P/FCF, screener et watchlist. De quoi décider sur n'importe quelle action." },
+          { h2: 'Pro', p: "Analyses illimitées, analyse qualitative (business et management), opportunités, comparaisons jusqu'à 5 actions, données Europe et international." },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyser une action' },
+          { href: '/methodologie', label: 'Méthodologie' },
+        ],
+      },
+      en: {
+        title: 'Pricing: Lubin Investment, free and Pro',
+        desc: 'Analyze any stock for free (score /10 + valuation). Pro: unlimited analyses, qualitative analysis, comparisons and full data.',
+        h1: 'Invest with method, not with opinions',
+        intro: 'The free plan gives the quality score and valuation of any stock. The Pro plan unlocks qualitative analysis, comparisons and full data.',
+        sections: [
+          { h2: 'Free', p: 'Quality score on 10 criteria, P/FCF valuation, screener and watchlist. Enough to decide on any stock.' },
+          { h2: 'Pro', p: 'Unlimited analyses, qualitative analysis (business and management), opportunities, comparisons of up to 5 stocks, European and international data.' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyze a stock' },
+          { href: '/methodologie', label: 'Methodology' },
+        ],
+      },
+      es: {
+        title: 'Precios: Lubin Investment, gratis y Pro',
+        desc: 'Analiza cualquier acción gratis (nota /10 + valoración). Pro: análisis ilimitados, análisis cualitativo, comparaciones y datos completos.',
+        h1: 'Invierte con método, no con opiniones',
+        intro: 'El plan gratuito da la nota de calidad y la valoración de cualquier acción. El plan Pro desbloquea el análisis cualitativo, las comparaciones y los datos completos.',
+        sections: [
+          { h2: 'Gratis', p: 'Nota de calidad sobre 10 criterios, valoración P/FCF, screener y watchlist. Suficiente para decidir sobre cualquier acción.' },
+          { h2: 'Pro', p: 'Análisis ilimitados, análisis cualitativo (negocio y dirección), oportunidades, comparaciones de hasta 5 acciones, datos de Europa e internacionales.' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analizar una acción' },
+          { href: '/methodologie', label: 'Metodología' },
+        ],
+      },
+    },
   },
   {
     path: '/analyser',
-    title: 'Analyser une action : qualité et valorisation',
-    desc: 'Tapez un ticker et obtenez en quelques secondes une note de qualité sur 10 critères et une valorisation (P/FCF) jugée séparément.',
-    h1: 'Analyser une action',
-    intro: 'Entrez un ticker (par exemple AAPL, MSFT ou ASML) pour obtenir sa note de qualité sur 10 critères financiers objectifs et sa valorisation par le free cash flow.',
-    sections: [
-      { h2: 'Une note, un prix', p: 'La note juge la solidité du business ; le P/FCF juge le prix. Vous repartez avec les deux, séparément.' },
-    ],
-    links: [
-      { href: '/screener', label: 'Screener' },
-      { href: '/classement/qualite-10-sur-10', label: 'Actions notées 10 sur 10' },
-    ],
+    content: {
+      fr: {
+        title: 'Analyser une action : qualité et valorisation',
+        desc: 'Tapez un ticker et obtenez en quelques secondes une note de qualité sur 10 critères et une valorisation (P/FCF) jugée séparément.',
+        h1: 'Analyser une action',
+        intro: 'Entrez un ticker (par exemple AAPL, MSFT ou ASML) pour obtenir sa note de qualité sur 10 critères financiers objectifs et sa valorisation par le free cash flow.',
+        sections: [
+          { h2: 'Une note, un prix', p: 'La note juge la solidité du business ; le P/FCF juge le prix. Vous repartez avec les deux, séparément.' },
+        ],
+        links: [
+          { href: '/screener', label: 'Screener' },
+          { href: '/classement/qualite-10-sur-10', label: 'Actions notées 10 sur 10' },
+        ],
+      },
+      en: {
+        title: 'Analyze a stock: quality and valuation',
+        desc: 'Type a ticker and get, in seconds, a quality score on 10 criteria and a valuation (P/FCF) judged separately.',
+        h1: 'Analyze a stock',
+        intro: 'Enter a ticker (for example AAPL, MSFT or ASML) to get its quality score on 10 objective financial criteria and its free-cash-flow valuation.',
+        sections: [
+          { h2: 'One score, one price', p: 'The score judges business strength; the P/FCF judges the price. You leave with both, separately.' },
+        ],
+        links: [
+          { href: '/screener', label: 'Screener' },
+          { href: '/classement/qualite-10-sur-10', label: 'Stocks rated 10 out of 10' },
+        ],
+      },
+      es: {
+        title: 'Analizar una acción: calidad y valoración',
+        desc: 'Escribe un ticker y obtén, en segundos, una nota de calidad sobre 10 criterios y una valoración (P/FCF) juzgada por separado.',
+        h1: 'Analizar una acción',
+        intro: 'Introduce un ticker (por ejemplo AAPL, MSFT o ASML) para obtener su nota de calidad sobre 10 criterios financieros objetivos y su valoración por el free cash flow.',
+        sections: [
+          { h2: 'Una nota, un precio', p: 'La nota juzga la solidez del negocio; el P/FCF juzga el precio. Te llevas ambos, por separado.' },
+        ],
+        links: [
+          { href: '/screener', label: 'Screener' },
+          { href: '/classement/qualite-10-sur-10', label: 'Acciones con nota 10 sobre 10' },
+        ],
+      },
+    },
   },
   {
     path: '/compare',
-    title: 'Comparer des actions : qualité et prix',
-    desc: 'Mettez 2 à 5 actions côte à côte : note de qualité, 10 critères et valorisation (P/FCF). La donnée décide, ligne par ligne.',
-    h1: 'Comparer des actions',
-    intro: 'Placez 2 à 5 actions côte à côte pour comparer leur note de qualité, le détail des 10 critères et leur valorisation (P/FCF). La meilleure de chaque ligne est mise en avant.',
-    sections: [
-      { h2: 'Comparer ce qui compte', p: 'Au lieu d\'opposer des cours, on compare la qualité du business et le prix payé pour le cash généré.' },
-    ],
-    links: [
-      { href: '/analyser', label: 'Analyser une action' },
-      { href: '/screener', label: 'Screener' },
-    ],
+    content: {
+      fr: {
+        title: 'Comparer des actions : qualité et prix',
+        desc: 'Mettez 2 à 5 actions côte à côte : note de qualité, 10 critères et valorisation (P/FCF). La donnée décide, ligne par ligne.',
+        h1: 'Comparer des actions',
+        intro: 'Placez 2 à 5 actions côte à côte pour comparer leur note de qualité, le détail des 10 critères et leur valorisation (P/FCF). La meilleure de chaque ligne est mise en avant.',
+        sections: [
+          { h2: 'Comparer ce qui compte', p: "Au lieu d'opposer des cours, on compare la qualité du business et le prix payé pour le cash généré." },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyser une action' },
+          { href: '/screener', label: 'Screener' },
+        ],
+      },
+      en: {
+        title: 'Compare stocks: quality and price',
+        desc: 'Put 2 to 5 stocks side by side: quality score, 10 criteria and valuation (P/FCF). The data decides, line by line.',
+        h1: 'Compare stocks',
+        intro: 'Place 2 to 5 stocks side by side to compare their quality score, the detail of the 10 criteria and their valuation (P/FCF). The best of each line is highlighted.',
+        sections: [
+          { h2: 'Compare what matters', p: 'Instead of pitting share prices against each other, we compare business quality and the price paid for the cash generated.' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analyze a stock' },
+          { href: '/screener', label: 'Screener' },
+        ],
+      },
+      es: {
+        title: 'Comparar acciones: calidad y precio',
+        desc: 'Pon de 2 a 5 acciones una al lado de otra: nota de calidad, 10 criterios y valoración (P/FCF). El dato decide, línea por línea.',
+        h1: 'Comparar acciones',
+        intro: 'Coloca de 2 a 5 acciones una al lado de otra para comparar su nota de calidad, el detalle de los 10 criterios y su valoración (P/FCF). La mejor de cada línea se destaca.',
+        sections: [
+          { h2: 'Comparar lo que importa', p: 'En lugar de enfrentar cotizaciones, comparamos la calidad del negocio y el precio pagado por el cash generado.' },
+        ],
+        links: [
+          { href: '/analyser', label: 'Analizar una acción' },
+          { href: '/screener', label: 'Screener' },
+        ],
+      },
+    },
+  },
+  {
+    path: '/mentions-legales',
+    content: {
+      fr: {
+        title: 'Mentions légales · Lubin Investment',
+        desc: 'Éditeur, responsable de publication, hébergeur et coordonnées légales du service Lubin Investment.',
+        h1: 'Mentions légales',
+        intro: "Informations légales du service Lubin Investment : éditeur, responsable de la publication, hébergeur et coordonnées. Le texte complet est disponible sur la page.",
+        sections: [
+          { h2: 'Éditeur et hébergeur', p: "Lubin Investment est édité par un micro-entrepreneur (exonération de TVA, art. 293 B du CGI). Les coordonnées complètes de l'éditeur, du responsable de publication et de l'hébergeur figurent sur cette page." },
+        ],
+        links: [
+          { href: '/cgu', label: "Conditions d'utilisation" },
+          { href: '/confidentialite', label: 'Confidentialité' },
+        ],
+      },
+      en: {
+        title: 'Legal notice · Lubin Investment',
+        desc: 'Publisher, publication manager, host and legal contact details for the Lubin Investment service.',
+        h1: 'Legal notice',
+        intro: 'Legal information for the Lubin Investment service: publisher, publication manager, host and contact details. The full text is available on the page.',
+        sections: [
+          { h2: 'Publisher and host', p: 'Lubin Investment is published by a sole trader (VAT exempt, art. 293 B of the French CGI). Full details of the publisher, publication manager and host are listed on this page.' },
+        ],
+        links: [
+          { href: '/cgu', label: 'Terms of use' },
+          { href: '/confidentialite', label: 'Privacy' },
+        ],
+      },
+      es: {
+        title: 'Aviso legal · Lubin Investment',
+        desc: 'Editor, responsable de publicación, alojamiento y datos de contacto legales del servicio Lubin Investment.',
+        h1: 'Aviso legal',
+        intro: 'Información legal del servicio Lubin Investment: editor, responsable de la publicación, alojamiento y datos de contacto. El texto completo está disponible en la página.',
+        sections: [
+          { h2: 'Editor y alojamiento', p: 'Lubin Investment está editado por un autónomo (exento de IVA, art. 293 B del CGI francés). Los datos completos del editor, del responsable de publicación y del alojamiento figuran en esta página.' },
+        ],
+        links: [
+          { href: '/cgu', label: 'Condiciones de uso' },
+          { href: '/confidentialite', label: 'Privacidad' },
+        ],
+      },
+    },
+  },
+  {
+    path: '/cgu',
+    content: {
+      fr: {
+        title: "Conditions générales d'utilisation · Lubin Investment",
+        desc: "Conditions générales d'utilisation de Lubin Investment : objet, accès, propriété intellectuelle, responsabilités. Outil d'aide à la décision, non un conseil en investissement.",
+        h1: "Conditions générales d'utilisation",
+        intro: "Les conditions générales d'utilisation encadrent l'accès et l'usage du service Lubin Investment. Le texte intégral est disponible sur la page.",
+        sections: [
+          { h2: 'Objet et responsabilités', p: "Lubin Investment est un outil d'aide à la décision fondé sur des données publiques. Il ne constitue pas un conseil en investissement personnalisé ; les décisions restent celles de l'utilisateur." },
+        ],
+        links: [
+          { href: '/cgv', label: 'CGV' },
+          { href: '/confidentialite', label: 'Confidentialité' },
+        ],
+      },
+      en: {
+        title: 'Terms of use · Lubin Investment',
+        desc: 'Lubin Investment terms of use: purpose, access, intellectual property, liability. A decision-support tool, not personalized investment advice.',
+        h1: 'Terms of use',
+        intro: 'The terms of use govern access to and use of the Lubin Investment service. The full text is available on the page.',
+        sections: [
+          { h2: 'Purpose and liability', p: 'Lubin Investment is a decision-support tool based on public data. It is not personalized investment advice; decisions remain those of the user.' },
+        ],
+        links: [
+          { href: '/cgv', label: 'Terms of sale' },
+          { href: '/confidentialite', label: 'Privacy' },
+        ],
+      },
+      es: {
+        title: 'Condiciones de uso · Lubin Investment',
+        desc: 'Condiciones de uso de Lubin Investment: objeto, acceso, propiedad intelectual, responsabilidades. Herramienta de ayuda a la decisión, no asesoramiento de inversión.',
+        h1: 'Condiciones de uso',
+        intro: 'Las condiciones de uso regulan el acceso y el uso del servicio Lubin Investment. El texto íntegro está disponible en la página.',
+        sections: [
+          { h2: 'Objeto y responsabilidades', p: 'Lubin Investment es una herramienta de ayuda a la decisión basada en datos públicos. No constituye asesoramiento de inversión personalizado; las decisiones siguen siendo del usuario.' },
+        ],
+        links: [
+          { href: '/cgv', label: 'Condiciones de venta' },
+          { href: '/confidentialite', label: 'Privacidad' },
+        ],
+      },
+    },
+  },
+  {
+    path: '/cgv',
+    content: {
+      fr: {
+        title: 'Conditions générales de vente · Lubin Investment',
+        desc: "Conditions générales de vente de l'abonnement Pro Lubin Investment : prix, paiement, reconduction, droit de rétractation et résiliation.",
+        h1: 'Conditions générales de vente',
+        intro: "Les conditions générales de vente encadrent l'abonnement Pro de Lubin Investment. Le texte intégral est disponible sur la page.",
+        sections: [
+          { h2: 'Abonnement et paiement', p: "L'abonnement Pro est facturé via un prestataire de paiement sécurisé, reconductible et résiliable à tout moment. Les modalités complètes (prix, rétractation, résiliation) figurent sur cette page." },
+        ],
+        links: [
+          { href: '/pricing', label: 'Tarifs' },
+          { href: '/cgu', label: "Conditions d'utilisation" },
+        ],
+      },
+      en: {
+        title: 'Terms of sale · Lubin Investment',
+        desc: 'Terms of sale for the Lubin Investment Pro subscription: pricing, payment, renewal, right of withdrawal and cancellation.',
+        h1: 'Terms of sale',
+        intro: 'The terms of sale govern the Lubin Investment Pro subscription. The full text is available on the page.',
+        sections: [
+          { h2: 'Subscription and payment', p: 'The Pro subscription is billed via a secure payment provider, renewable and cancellable at any time. The full terms (pricing, withdrawal, cancellation) are listed on this page.' },
+        ],
+        links: [
+          { href: '/pricing', label: 'Pricing' },
+          { href: '/cgu', label: 'Terms of use' },
+        ],
+      },
+      es: {
+        title: 'Condiciones de venta · Lubin Investment',
+        desc: 'Condiciones de venta de la suscripción Pro de Lubin Investment: precio, pago, renovación, derecho de desistimiento y cancelación.',
+        h1: 'Condiciones de venta',
+        intro: 'Las condiciones de venta regulan la suscripción Pro de Lubin Investment. El texto íntegro está disponible en la página.',
+        sections: [
+          { h2: 'Suscripción y pago', p: 'La suscripción Pro se factura a través de un proveedor de pago seguro, renovable y cancelable en cualquier momento. Las condiciones completas (precio, desistimiento, cancelación) figuran en esta página.' },
+        ],
+        links: [
+          { href: '/pricing', label: 'Precios' },
+          { href: '/cgu', label: 'Condiciones de uso' },
+        ],
+      },
+    },
+  },
+  {
+    path: '/confidentialite',
+    content: {
+      fr: {
+        title: 'Politique de confidentialité · Lubin Investment',
+        desc: 'Quelles données Lubin Investment collecte, pourquoi, combien de temps, et vos droits (accès, rectification, suppression) au titre du RGPD.',
+        h1: 'Politique de confidentialité',
+        intro: 'Cette politique explique quelles données sont collectées, pour quelles finalités, et les droits dont vous disposez. Le texte complet est disponible sur la page.',
+        sections: [
+          { h2: 'Données et droits', p: "Les données (email, watchlist, abonnement) servent uniquement à fournir le service. Conformément au RGPD, vous disposez de droits d'accès, de rectification et de suppression, détaillés sur cette page." },
+        ],
+        links: [
+          { href: '/mentions-legales', label: 'Mentions légales' },
+          { href: '/cgu', label: "Conditions d'utilisation" },
+        ],
+      },
+      en: {
+        title: 'Privacy policy · Lubin Investment',
+        desc: 'What data Lubin Investment collects, why, for how long, and your rights (access, rectification, erasure) under the GDPR.',
+        h1: 'Privacy policy',
+        intro: 'This policy explains what data is collected, for what purposes, and the rights you have. The full text is available on the page.',
+        sections: [
+          { h2: 'Data and rights', p: 'Data (email, watchlist, subscription) is used solely to provide the service. Under the GDPR, you have rights of access, rectification and erasure, detailed on this page.' },
+        ],
+        links: [
+          { href: '/mentions-legales', label: 'Legal notice' },
+          { href: '/cgu', label: 'Terms of use' },
+        ],
+      },
+      es: {
+        title: 'Política de privacidad · Lubin Investment',
+        desc: 'Qué datos recopila Lubin Investment, por qué, durante cuánto tiempo, y tus derechos (acceso, rectificación, supresión) según el RGPD.',
+        h1: 'Política de privacidad',
+        intro: 'Esta política explica qué datos se recopilan, con qué fines, y los derechos de los que dispones. El texto completo está disponible en la página.',
+        sections: [
+          { h2: 'Datos y derechos', p: 'Los datos (correo, watchlist, suscripción) se usan únicamente para prestar el servicio. Conforme al RGPD, dispones de derechos de acceso, rectificación y supresión, detallados en esta página.' },
+        ],
+        links: [
+          { href: '/mentions-legales', label: 'Aviso legal' },
+          { href: '/cgu', label: 'Condiciones de uso' },
+        ],
+      },
+    },
   },
 ];
 
 const STATIC_BY_PATH: Record<string, StaticSeo> = Object.fromEntries(STATIC_SEO.map((s) => [s.path, s]));
 
 for (const seo of STATIC_SEO) {
-  seoPrerenderRouter.get(seo.path, (_req: Request, res: Response) => {
+  seoPrerenderRouter.get(seo.path, (req: Request, res: Response) => {
+    // Langue demandée par le bot via ?lng= (les alternates hreflang du sitemap pointent
+    // vers ?lng=en / ?lng=es). Défaut fr. Le cache CDN distingue les langues car ?lng=
+    // fait partie de l'URL.
+    const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
     res.status(200)
       .set('Content-Type', 'text/html; charset=utf-8')
       .set('Cache-Control', 'public, max-age=3600, s-maxage=86400')
-      .send(renderStaticHtml(STATIC_BY_PATH[seo.path]!));
+      .send(renderStaticHtml(STATIC_BY_PATH[seo.path]!, lang));
   });
 }

@@ -10,6 +10,7 @@ import { useAuth } from '../contexts/AuthContext.js';
 import { ApiError } from '../lib/api.js';
 import { Icon } from '../components/ui/primitives.js';
 import { HeroPreview } from '../components/ui/HeroPreview.js';
+import SeoHead from '../components/SeoHead.js';
 import './AuthPage.css';
 
 type Mode = 'login' | 'signup';
@@ -65,6 +66,11 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
 
   return (
     <div className="auth-grid card">
+      {/* SEO : titre + meta distincts pour /login et /signup (sinon titre générique). */}
+      <SeoHead
+        titleKey={isSignup ? 'seo.signup.title' : 'seo.login.title'}
+        descKey={isSignup ? 'seo.signup.desc' : 'seo.login.desc'}
+      />
       {/* Formulaire */}
       <div className="auth-form-side">
         <div style={{ width: '100%', maxWidth: 380 }}>

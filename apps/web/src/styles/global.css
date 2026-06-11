@@ -215,6 +215,42 @@ input { font-family: inherit; }
 .tab:hover { color: var(--text); }
 .tab.active { color: var(--brand); border-bottom-color: var(--brand); font-weight: 600; }
 
+/* Groupe d'actions à droite du header (langue + compte + burger). */
+.header-right { display: flex; align-items: center; gap: 10px; }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+/* Copie des actions dans le menu mobile : masquée sur desktop (cf. media query). */
+.app-nav-actions { display: none; }
+
+/* ─── Bouton burger (mobile uniquement, masqué ≥ 721px) ─── */
+.nav-burger {
+  display: none; /* visible seulement sous 720px (cf. media query) */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0; /* ne pas laisser le flex écraser le bouton sous 44px */
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  transition: border-color 0.15s;
+}
+.nav-burger:hover { border-color: var(--brand); }
+.nav-burger-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transition: transform 0.18s, opacity 0.18s;
+}
+/* Croix quand le menu est ouvert */
+.nav-burger.open .nav-burger-bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-burger.open .nav-burger-bar:nth-child(2) { opacity: 0; }
+.nav-burger.open .nav-burger-bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
 .app-main {
   /* Conteneur large : les pages se limitent elles-mêmes via .wrap (1240) ou .wrap-wide
      (1440). Les listes (Screener/Watchlist) occupent ainsi toute la largeur utile. */
@@ -333,5 +369,62 @@ input { font-family: inherit; }
 
 @media (max-width: 720px) {
   .app-header, .app-main { padding-left: 20px; padding-right: 20px; }
-  .app-nav { padding: 0 20px; overflow-x: auto; }
+
+  /* Header mobile = logo + burger uniquement. Langue + compte sont repliés dans le
+     menu (sinon le header déborde la largeur de l'écran → scroll horizontal). */
+  .header-actions { display: none; }
+  .nav-burger { display: inline-flex; }
+
+  /* Pages sans nav (login/signup) : pas de burger pour héberger les actions, donc on
+     garde langue + compte visibles dans le header (sinon plus aucun sélecteur de langue). */
+  .app-header--no-nav .header-actions { display: flex; }
+
+  /* Nav repliée dans un menu déroulant (fini le scroll horizontal des liens). */
+  .app-nav {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    overflow-x: visible;
+    display: none; /* fermée par défaut */
+  }
+  .app-nav.open { display: flex; }
+
+  /* Liens en pleine largeur, hauteur ≥ 48px (cibles tactiles confortables). */
+  .app-nav .tab {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 20px;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border);
+    border-left: 3px solid transparent;
+  }
+  .app-nav .tab.active {
+    border-bottom-color: var(--border);
+    border-left-color: var(--brand);
+    background: var(--brand-dim);
+  }
+
+  /* Actions (langue + compte) en bas du menu déroulant. */
+  .app-nav-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  /* ─── Cibles tactiles ≥ 44px (WCAG 2.5.5 / Apple HIG) ─── */
+  .lang-switcher { min-height: 44px; padding: 6px 10px; }
+  .lang-switcher-select { font-size: 14px; }
+  .user-menu { gap: 10px; flex-wrap: wrap; }
+  .user-menu-link,
+  .user-menu-logout,
+  .user-menu-signup,
+  .user-menu-email {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
 }

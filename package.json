@@ -22,5 +22,8 @@
   "packageManager": "pnpm@11.1.2",
   "engines": {
     "node": ">=22"
+  },
+  "dependencies": {
+    "@vercel/functions": "^3.7.0"
   }
 }
