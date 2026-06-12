@@ -41,6 +41,25 @@ function escapeHtml(s: string): string {
     .replace(/'/g, '&#39;');
 }
 
+// Convertit les liens markdown [libellé](/url) en vrais <a> (texte échappé).
+// Les liens internes (/...) sont rendus absolus pour les bots. À utiliser pour tout
+// texte d'article susceptible de contenir des liens (paragraphes, listes, FAQ).
+function renderInline(text: string): string {
+  const MD = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let out = '';
+  let last = 0;
+  let m: RegExpExecArray | null;
+  while ((m = MD.exec(text)) !== null) {
+    out += escapeHtml(text.slice(last, m.index));
+    const raw = m[2] ?? '';
+    const href = raw.startsWith('/') ? `${SITE_URL}${raw}` : raw;
+    out += `<a href="${escapeHtml(href)}">${escapeHtml(m[1] ?? '')}</a>`;
+    last = m.index + m[0].length;
+  }
+  out += escapeHtml(text.slice(last));
+  return out;
+}
+
 // Note /10 lisible pour humains et bots (5 → "5", 10 → "10/10").
 function formatScore(score: number | null, max: number | null): string {
   if (score == null || !max || max <= 0) return ', ';
@@ -377,12 +396,12 @@ function renderArticleHtml(article: Article, lang: ArticleLang): string {
   const bodyHtml = c.body
     .map((b) => {
       if (b.type === 'h2') return `<h2>${escapeHtml(b.text)}</h2>`;
-      if (b.type === 'ul') return `<ul>${b.items.map((i) => `<li>${escapeHtml(i)}</li>`).join('')}</ul>`;
-      return `<p>${escapeHtml(b.text)}</p>`;
+      if (b.type === 'ul') return `<ul>${b.items.map((i) => `<li>${renderInline(i)}</li>`).join('')}</ul>`;
+      return `<p>${renderInline(b.text)}</p>`;
     })
     .join('\n');
 
-  const faqHtml = c.faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n');
+  const faqHtml = c.faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${renderInline(f.a)}</p>`).join('\n');
 
   const articleLd = {
     '@context': 'https://schema.org',
@@ -464,7 +483,7 @@ ${hreflang}
 <nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/blog">Blog</a></nav>
 <h1>${escapeHtml(c.title)}</h1>
 <p><small>${escapeHtml(article.date)} · <span rel="author">${escapeHtml(AUTHOR_BYLINE[lang])}</span></small></p>
-<p><strong>${escapeHtml(c.answer)}</strong></p>
+<p><strong>${renderInline(c.answer)}</strong></p>
 ${bodyHtml}
 <h2>FAQ</h2>
 ${faqHtml}
