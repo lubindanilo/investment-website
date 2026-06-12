@@ -6063,7 +6063,1521 @@ const adobeResults: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [adobeResults, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, reassurance, bsyRop, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe];
+const gddy: Article = {
+  slug: 'godaddy-gddy-analyse-action-10-sur-10',
+  date: '2026-06-12',
+  updated: '2026-06-12',
+  readingTime: 8,
+  ticker: 'GDDY',
+  content: {
+    fr: {
+      title: "GoDaddy (GDDY) : analyse d'une action notée 10/10",
+      excerpt:
+        "GoDaddy n'est plus un simple vendeur de noms de domaine. Derrière une croissance molle se cache une machine à cash payée bon marché. Mon analyse fondamentale.",
+      metaDescription:
+        "GoDaddy (GDDY) obtient 10/10 à ma grille de qualité, avec un P/FCF d'environ 8. Forces, croissance molle, valorisation : mon analyse fondamentale complète.",
+      answer:
+        "GoDaddy obtient la note maximale à ma grille de qualité : très rentable, généreuse en cash, elle rachète massivement ses actions. Le marché la paie pourtant moins de huit fois son free cash flow. Son point faible est une croissance des ventes molle. Voici pourquoi le cash compense, et où est le piège.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Note de qualité : 10/10 à ma grille de critères fondamentaux.",
+            "Marge de free cash flow de 26 % : sur 100 dollars de ventes, 26 finissent en cash réellement disponible.",
+            "Croissance des ventes faible (environ 7 %/an), le seul vrai bémol de la thèse.",
+            "Mais le cash par action grimpe vite (autour de 28 %/an), porté par de gros rachats d'actions.",
+            "Valorisation basse : moins de 8 fois le free cash flow, pour une qualité de 10/10.",
+          ],
+        },
+        { type: 'h2', text: "GoDaddy, ce n'est plus ce que tu crois" },
+        {
+          type: 'p',
+          text: "Pour la plupart des gens, GoDaddy reste le vendeur de noms de domaine, celui des pubs un peu kitsch. Cette image a dix ans de retard. Aujourd'hui, GoDaddy est une plateforme d'infrastructure pour les petites entreprises : hébergement de sites, outils de présence en ligne, paiement, marketing, et désormais des assistants basés sur l'IA pour monter une boutique en quelques minutes.",
+        },
+        {
+          type: 'p',
+          text: "Le client type n'est pas un développeur. C'est un artisan, un commerçant, un indépendant qui veut exister en ligne sans rien comprendre à la technique. Des dizaines de millions de clients de ce profil, qui paient un abonnement année après année. C'est ce socle qui m'intéresse.",
+        },
+        { type: 'h2', text: "Pourquoi ma grille lui met 10/10" },
+        {
+          type: 'p',
+          text: "Je ne note pas une entreprise à l'intuition. Je la passe au crible de critères financiers concrets : est-elle rentable, son cash augmente-t-il, rachète-t-elle ses actions plutôt que d'en créer, sa dette est-elle maîtrisable ? GoDaddy coche presque tout. Sa marge nette tourne autour de 17 %, et surtout sa marge de free cash flow atteint 26 %. Le free cash flow, c'est l'argent qui reste réellement une fois toutes les factures payées. Une marge de 26 %, c'est le double de l'entreprise moyenne.",
+        },
+        {
+          type: 'p',
+          text: "Le signe qui ne trompe pas, côté gestion : GoDaddy réduit son nombre d'actions d'environ 5 % par an. Quand une entreprise rachète ses propres actions, chaque action restante représente une plus grosse part du gâteau. C'est pour ça que son cash par action progresse d'environ 28 % par an, bien plus vite que ses ventes.",
+        },
+        { type: 'h2', text: "Le vrai bémol : la croissance" },
+        {
+          type: 'p',
+          text: "Maintenant, l'honnêteté. GoDaddy n'est pas une fusée. Ses ventes ne progressent que d'environ 7 % par an, sous le seuil de 10 % que j'aime voir. C'est le marché de l'hébergement et des outils PME : mature, concurrentiel, avec Wix, Squarespace ou Shopify qui poussent. Une note de 10/10 ne veut pas dire entreprise parfaite. Elle veut dire que sur l'ensemble de mes critères objectifs, le profil financier est solide. La croissance molle est le trade-off à accepter ici.",
+        },
+        {
+          type: 'p',
+          text: "Ce qui sauve la thèse, c'est l'allocation du capital. Une entreprise qui croît peu mais qui transforme efficacement son cash en valeur par action peut très bien rémunérer ses actionnaires. GoDaddy fait exactement ça : peu de croissance du chiffre d'affaires, mais beaucoup de cash redistribué via les rachats.",
+        },
+        { type: 'h2', text: "Est-ce le bon prix ?" },
+        {
+          type: 'p',
+          text: "C'est la deuxième question, que je traite toujours séparément de la qualité. Pour mesurer le prix, je regarde le P/FCF (price-to-free-cash-flow) : le prix de l'action divisé par le free cash flow annuel. Un P/FCF de 8, ça veut dire que tu paies huit années de ce cash. GoDaddy se paie aujourd'hui moins de 8 fois son free cash flow. Pour une entreprise notée 10/10, c'est bon marché : le marché valorise la médiocrité de la croissance, pas la qualité du cash.",
+        },
+        {
+          type: 'p',
+          text: "Le risque à garder en tête : si la croissance ne repart pas et que la concurrence grignote les marges, ce bas prix sera mérité. Si au contraire les nouveaux outils IA relancent les abonnements, l'action est anormalement bon marché. Un P/FCF bas n'est une affaire que si la qualité tient.",
+        },
+        {
+          type: 'p',
+          text: "C'est tout l'intérêt de séparer les deux questions, la qualité d'un côté, le prix de l'autre. C'est exactement ce que je voulais pouvoir faire en quelques secondes pour n'importe quelle action, alors je l'ai codé dans mon site d'investissement. Tu peux y voir le détail des critères sur la [page d'analyse de GoDaddy](/analyse/GDDY), le [classement des actions sous-évaluées](/classement/sous-evaluees) et ma [méthodologie complète](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "GoDaddy est-elle juste un vendeur de noms de domaine ?",
+          a: "Plus depuis longtemps. C'est devenu une plateforme d'infrastructure pour petites entreprises : hébergement, sites, paiement, marketing, outils d'IA. Le nom de domaine n'est que la porte d'entrée vers des abonnements récurrents.",
+        },
+        {
+          q: "Pourquoi 10/10 si la croissance est faible ?",
+          a: "Ma note mesure la solidité financière globale : rentabilité, génération de cash, marges, rachats d'actions, dette. GoDaddy excelle sur presque tout. La croissance molle est son point faible, mais elle ne suffit pas à dégrader un profil par ailleurs très solide.",
+        },
+        {
+          q: "Un P/FCF inférieur à 8, est-ce une bonne affaire ?",
+          a: "Seulement si la qualité tient. Un prix bas peut refléter une croissance en panne. Chez GoDaddy, le cash par action progresse vite grâce aux rachats, ce qui rend le bas prix plus intéressant qu'il n'en a l'air, à condition que les marges résistent.",
+        },
+        {
+          q: "Faut-il acheter l'action GoDaddy ?",
+          a: "Ça dépend de ta conviction sur sa capacité à défendre ses marges face à Wix, Squarespace et Shopify, et de ta discipline de prix. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches.",
+        },
+      ],
+      tags: ['Analyse', 'GoDaddy', 'Software', 'Valorisation'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: "GoDaddy (GDDY): a stock rated 10/10, explained",
+      excerpt:
+        "GoDaddy is no longer just a domain name seller. Behind soft growth sits a cash machine priced cheaply. My fundamental analysis.",
+      metaDescription:
+        "GoDaddy (GDDY) scores 10/10 on my quality grid, at a P/FCF near 8. Strengths, soft growth, valuation: my full fundamental analysis.",
+      answer:
+        "GoDaddy earns the top score on my quality grid: highly profitable, cash generous, buying back stock aggressively. Yet the market pays less than eight times its free cash flow. Its weak spot is soft sales growth. Here is why the cash makes up for it, and where the trap is.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Quality score: 10/10 on my fundamental grid.",
+            "Free cash flow margin of 26 %: out of 100 dollars of sales, 26 end up as cash truly available.",
+            "Weak sales growth (about 7 % a year), the one real caveat of the thesis.",
+            "But cash per share climbs fast (around 28 % a year), driven by heavy buybacks.",
+            "Low valuation: under 8 times free cash flow, for a 10/10 quality.",
+          ],
+        },
+        { type: 'h2', text: "GoDaddy is no longer what you think" },
+        {
+          type: 'p',
+          text: "For most people, GoDaddy is still the domain name seller from the cheesy ads. That image is ten years out of date. Today GoDaddy is an infrastructure platform for small businesses: website hosting, online presence tools, payments, marketing, and now AI-based assistants to spin up a store in minutes.",
+        },
+        {
+          type: 'p',
+          text: "The typical customer is not a developer. It is a craftsperson, a shopkeeper, a freelancer who wants to exist online without understanding the tech. Tens of millions of such customers, paying a subscription year after year. That base is what interests me.",
+        },
+        { type: 'h2', text: "Why my grid gives it 10/10" },
+        {
+          type: 'p',
+          text: "I do not score a company on a hunch. I run it through concrete financial criteria: is it profitable, is its cash growing, does it buy back shares rather than issue them, is its debt manageable? GoDaddy ticks almost everything. Its net margin is around 17 %, and above all its free cash flow margin reaches 26 %. Free cash flow is the money that truly stays once every bill is paid. A 26 % margin is double the average company.",
+        },
+        {
+          type: 'p',
+          text: "The tell on capital management: GoDaddy shrinks its share count by about 5 % a year. When a company buys back its own shares, each remaining share is a bigger slice of the pie. That is why its cash per share grows about 28 % a year, far faster than its sales.",
+        },
+        { type: 'h2', text: "The real caveat: growth" },
+        {
+          type: 'p',
+          text: "Now, the honest part. GoDaddy is no rocket. Its sales grow only about 7 % a year, below the 10 % threshold I like to see. This is the hosting and SMB tools market: mature, competitive, with Wix, Squarespace and Shopify pushing. A 10/10 score does not mean a perfect company. It means that across my objective criteria, the financial profile is solid. Soft growth is the trade-off to accept here.",
+        },
+        {
+          type: 'p',
+          text: "What saves the thesis is capital allocation. A company that grows little but efficiently turns its cash into per-share value can still reward shareholders well. GoDaddy does exactly that: little revenue growth, but plenty of cash returned through buybacks.",
+        },
+        { type: 'h2', text: "Is it the right price?" },
+        {
+          type: 'p',
+          text: "That is the second question, which I always handle separately from quality. To measure price, I look at P/FCF (price-to-free-cash-flow): the share price divided by annual free cash flow. A P/FCF of 8 means you pay eight years of that cash. GoDaddy trades today at under 8 times its free cash flow. For a 10/10 stock, that is cheap: the market is pricing the mediocre growth, not the quality of the cash.",
+        },
+        {
+          type: 'p',
+          text: "The risk to keep in mind: if growth does not pick up and competition erodes margins, that low price will be deserved. If instead the new AI tools revive subscriptions, the stock is unusually cheap. A low P/FCF is only a bargain if the quality holds.",
+        },
+        {
+          type: 'p',
+          text: "That is the whole point of separating the two questions, quality on one side, price on the other. It is exactly what I wanted to do in seconds for any stock, so I coded it into my investing site. You can see the criteria in detail on the [GoDaddy analysis page](/analyse/GDDY), the [ranking of undervalued stocks](/classement/sous-evaluees) and my [full methodology](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "Is GoDaddy just a domain name seller?",
+          a: "Not for a long time. It has become an infrastructure platform for small businesses: hosting, websites, payments, marketing, AI tools. The domain name is only the entry point to recurring subscriptions.",
+        },
+        {
+          q: "Why 10/10 if growth is weak?",
+          a: "My score measures overall financial soundness: profitability, cash generation, margins, buybacks, debt. GoDaddy excels at almost everything. Soft growth is its weak spot, but it is not enough to drag down an otherwise very solid profile.",
+        },
+        {
+          q: "Is a P/FCF under 8 a bargain?",
+          a: "Only if the quality holds. A low price can reflect stalled growth. At GoDaddy, cash per share grows fast thanks to buybacks, which makes the low price more interesting than it looks, provided margins hold up.",
+        },
+        {
+          q: "Should you buy GoDaddy stock?",
+          a: "It depends on your conviction about its ability to defend margins against Wix, Squarespace and Shopify, and on your price discipline. This is not personalized investment advice, do your own research.",
+        },
+      ],
+      tags: ['Analysis', 'GoDaddy', 'Software', 'Valuation'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
+    },
+    es: {
+      title: "GoDaddy (GDDY): análisis de una acción 10/10",
+      excerpt:
+        "GoDaddy ya no es un simple vendedor de dominios. Tras un crecimiento flojo se esconde una máquina de caja barata. Mi análisis fundamental.",
+      metaDescription:
+        "GoDaddy (GDDY) saca 10/10 en mi rejilla de calidad, con un P/FCF cercano a 8. Fortalezas, crecimiento flojo, valoración: mi análisis fundamental completo.",
+      answer:
+        "GoDaddy obtiene la nota máxima en mi rejilla de calidad: muy rentable, generosa en caja, recompra acciones con fuerza. Aun así el mercado la paga a menos de ocho veces su free cash flow. Su punto débil es un crecimiento de ventas flojo. Aquí explico por qué la caja compensa, y dónde está la trampa.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Nota de calidad: 10/10 en mi rejilla de criterios fundamentales.",
+            "Margen de free cash flow del 26 %: de 100 dólares de ventas, 26 acaban en caja realmente disponible.",
+            "Crecimiento de ventas flojo (alrededor del 7 % anual), el único pero real de la tesis.",
+            "Pero la caja por acción sube rápido (en torno al 28 % anual), impulsada por fuertes recompras.",
+            "Valoración baja: menos de 8 veces el free cash flow, para una calidad de 10/10.",
+          ],
+        },
+        { type: 'h2', text: "GoDaddy ya no es lo que crees" },
+        {
+          type: 'p',
+          text: "Para la mayoría, GoDaddy sigue siendo el vendedor de dominios de los anuncios algo hortera. Esa imagen lleva diez años de retraso. Hoy GoDaddy es una plataforma de infraestructura para pequeñas empresas: alojamiento de webs, herramientas de presencia online, pagos, marketing, y ahora asistentes con IA para montar una tienda en minutos.",
+        },
+        {
+          type: 'p',
+          text: "El cliente típico no es un programador. Es un artesano, un comerciante, un autónomo que quiere existir en internet sin entender de tecnología. Decenas de millones de clientes de ese perfil, que pagan una suscripción año tras año. Esa base es lo que me interesa.",
+        },
+        { type: 'h2', text: "Por qué mi rejilla le da 10/10" },
+        {
+          type: 'p',
+          text: "No puntúo una empresa por intuición. La paso por criterios financieros concretos: ¿es rentable, crece su caja, recompra acciones en vez de emitirlas, tiene la deuda controlada? GoDaddy cumple casi todo. Su margen neto ronda el 17 %, y sobre todo su margen de free cash flow alcanza el 26 %. El free cash flow es el dinero que de verdad queda una vez pagadas todas las facturas. Un margen del 26 % es el doble de la empresa media.",
+        },
+        {
+          type: 'p',
+          text: "La señal que no engaña, en gestión: GoDaddy reduce su número de acciones alrededor de un 5 % al año. Cuando una empresa recompra sus propias acciones, cada acción restante representa una porción mayor del pastel. Por eso su caja por acción crece cerca de un 28 % al año, mucho más rápido que sus ventas.",
+        },
+        { type: 'h2', text: "El verdadero pero: el crecimiento" },
+        {
+          type: 'p',
+          text: "Ahora, la honestidad. GoDaddy no es un cohete. Sus ventas crecen solo alrededor de un 7 % anual, por debajo del umbral del 10 % que me gusta ver. Es el mercado del alojamiento y las herramientas para pymes: maduro, competitivo, con Wix, Squarespace o Shopify empujando. Una nota de 10/10 no significa empresa perfecta. Significa que en el conjunto de mis criterios objetivos, el perfil financiero es sólido. El crecimiento flojo es el trade-off a aceptar aquí.",
+        },
+        {
+          type: 'p',
+          text: "Lo que salva la tesis es la asignación de capital. Una empresa que crece poco pero convierte su caja en valor por acción de forma eficiente puede recompensar bien a sus accionistas. GoDaddy hace justo eso: poco crecimiento de ingresos, pero mucha caja devuelta vía recompras.",
+        },
+        { type: 'h2', text: "¿Es el precio correcto?" },
+        {
+          type: 'p',
+          text: "Es la segunda pregunta, que siempre trato por separado de la calidad. Para medir el precio miro el P/FCF (price-to-free-cash-flow): el precio de la acción dividido por el free cash flow anual. Un P/FCF de 8 significa que pagas ocho años de esa caja. GoDaddy cotiza hoy a menos de 8 veces su free cash flow. Para una acción 10/10, es barato: el mercado valora la mediocridad del crecimiento, no la calidad de la caja.",
+        },
+        {
+          type: 'p',
+          text: "El riesgo a tener presente: si el crecimiento no repunta y la competencia erosiona los márgenes, ese precio bajo estará merecido. Si en cambio las nuevas herramientas de IA reactivan las suscripciones, la acción está inusualmente barata. Un P/FCF bajo solo es una ganga si la calidad aguanta.",
+        },
+        {
+          type: 'p',
+          text: "Ese es todo el sentido de separar las dos preguntas, la calidad por un lado, el precio por otro. Es justo lo que quería poder hacer en segundos para cualquier acción, así que lo programé en mi web de inversión. Puedes ver el detalle de los criterios en la [página de análisis de GoDaddy](/analyse/GDDY), el [ranking de acciones infravaloradas](/classement/sous-evaluees) y mi [metodología completa](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "¿GoDaddy es solo un vendedor de dominios?",
+          a: "Ya no desde hace tiempo. Se ha convertido en una plataforma de infraestructura para pequeñas empresas: alojamiento, webs, pagos, marketing, herramientas de IA. El dominio es solo la puerta de entrada a suscripciones recurrentes.",
+        },
+        {
+          q: "¿Por qué 10/10 si el crecimiento es débil?",
+          a: "Mi nota mide la solidez financiera global: rentabilidad, generación de caja, márgenes, recompras, deuda. GoDaddy destaca en casi todo. El crecimiento flojo es su punto débil, pero no basta para degradar un perfil por lo demás muy sólido.",
+        },
+        {
+          q: "¿Un P/FCF por debajo de 8 es una ganga?",
+          a: "Solo si la calidad aguanta. Un precio bajo puede reflejar un crecimiento estancado. En GoDaddy, la caja por acción crece rápido gracias a las recompras, lo que hace el precio bajo más interesante de lo que parece, siempre que los márgenes resistan.",
+        },
+        {
+          q: "¿Hay que comprar la acción de GoDaddy?",
+          a: "Depende de tu convicción sobre su capacidad de defender los márgenes frente a Wix, Squarespace y Shopify, y de tu disciplina de precio. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación.",
+        },
+      ],
+      tags: ['Análisis', 'GoDaddy', 'Software', 'Valoración'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 12 de junio de 2026, sujetas a cambios. Haz tu propia investigación.",
+    },
+  },
+};
+
+const methodeQualite: Article = {
+  slug: 'methode-lubin-qualite-valorisation-separees',
+  date: '2026-06-12',
+  updated: '2026-06-12',
+  readingTime: 7,
+  content: {
+    fr: {
+      title: "Qualité et prix : pourquoi je ne les mélange jamais",
+      excerpt:
+        "La plupart des erreurs d'investissement viennent d'une confusion : croire qu'une bonne entreprise est forcément un bon achat. Voici comment je sépare les deux.",
+      metaDescription:
+        "Une bonne entreprise n'est pas un bon investissement si tu la paies trop cher. Ma méthode sépare qualité et prix : voici pourquoi, avec des exemples réels.",
+      answer:
+        "Une bonne entreprise et un bon investissement sont deux choses différentes. La qualité mesure la solidité du business. Le prix mesure ce que tu paies pour cette solidité. Mélanger les deux est l'erreur numéro un. Ma méthode les juge séparément, qualité d'abord, prix ensuite. Voici comment, et pourquoi ça change tout.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Qualité et prix répondent à deux questions différentes, jamais à la même.",
+            "Une entreprise géniale payée trop cher reste un mauvais placement.",
+            "Une entreprise pas chère mais en déclin est un piège, pas une affaire (value trap).",
+            "Ma règle : je juge la qualité d'abord, le prix seulement ensuite.",
+            "La case à viser : qualité élevée ET prix bas, en même temps.",
+          ],
+        },
+        { type: 'h2', text: "L'erreur qui coûte le plus cher" },
+        {
+          type: 'p',
+          text: "« C'est une super entreprise, donc c'est un bon investissement. » Cette phrase a ruiné plus de portefeuilles que n'importe quel krach. Parce qu'elle confond deux choses qui n'ont rien à voir : la qualité d'une entreprise, et la qualité d'un investissement.",
+        },
+        {
+          type: 'p',
+          text: "Une entreprise de qualité, c'est un business solide : rentable, qui génère du cash, qui résiste aux crises. Un bon investissement, c'est autre chose : c'est acheter quelque chose pour moins que ce que ça vaut. Tu peux avoir la meilleure entreprise du monde et faire un mauvais placement, simplement en la payant trop cher.",
+        },
+        { type: 'h2', text: "Les deux questions, jamais une seule" },
+        {
+          type: 'p',
+          text: "C'est pour ça que je pose toujours deux questions séparées. La première : est-ce une bonne entreprise ? Là je regarde la qualité, sur des critères objectifs : la régularité du free cash flow (l'argent qui reste vraiment une fois les factures payées), les marges, la solidité du bilan, le rendement du capital. Je résume ça par une note sur 10.",
+        },
+        {
+          type: 'p',
+          text: "La deuxième question, et seulement après : est-ce un bon prix ? Là je regarde la valorisation, c'est-à-dire combien je paie pour ce que l'entreprise génère. L'outil le plus simple pour ça est le P/FCF (price-to-free-cash-flow) : le prix de l'action divisé par le free cash flow annuel. Un P/FCF de 12, ça veut dire que tu paies douze années de ce cash.",
+        },
+        { type: 'h2', text: "Cas réel : la super entreprise trop chère" },
+        {
+          type: 'p',
+          text: "Prends Adobe avant ses derniers résultats. Une entreprise d'élite, dominante, des marges énormes. Tout le monde le sait. Et comme tout le monde le sait, l'action s'est longtemps payée plus de 30 fois son free cash flow. À ce prix, même une entreprise formidable peut stagner des années, parce que la bonne nouvelle est déjà dans le cours. Tu as payé le futur d'avance.",
+        },
+        {
+          type: 'p',
+          text: "C'est le piège numéro un : confondre « entreprise admirable » et « action à acheter maintenant ». L'admiration n'est pas une stratégie. Le prix, si.",
+        },
+        { type: 'h2', text: "Cas réel : le piège inverse, le value trap" },
+        {
+          type: 'p',
+          text: "L'autre piège est symétrique. Tu tombes sur une action à 4 fois son free cash flow. Ça paraît donné, réflexe : « c'est sous-évalué, j'achète ». Sauf que parfois le prix est bas pour une bonne raison. L'entreprise perd des parts de marché, ses marges s'effritent, son cash de demain sera plus faible. Tu crois acheter une affaire, tu achètes une entreprise en train de fondre. Ça s'appelle un value trap, un piège de la valeur.",
+        },
+        {
+          type: 'p',
+          text: "C'est exactement pour l'éviter que je ne regarde jamais le prix sans avoir d'abord jugé la qualité. Un P/FCF bas n'est jamais une bonne affaire en soi. Il l'est seulement si la qualité, derrière, tient dans la durée.",
+        },
+        { type: 'h2', text: "La case que je cherche" },
+        {
+          type: 'p',
+          text: "Si je devais résumer ma méthode en une image, ce serait un tableau à quatre cases, deux axes : la qualité, et le prix. Qualité faible et prix élevé : à fuir. Qualité élevée et prix élevé : la belle entreprise trop chère, je la mets en liste d'attente. Qualité faible et prix bas : le value trap. Et la case que je cherche vraiment : qualité élevée et prix bas, en même temps.",
+        },
+        {
+          type: 'p',
+          text: "C'est rare, et c'est inconfortable à acheter, parce que sur le moment personne n'en veut. Mais c'est là que se font les meilleurs investissements. Pouvoir répondre à ces deux questions, séparément, en quelques secondes pour n'importe quelle action : c'est tout ce que je voulais. C'est pour ça que j'ai construit mon site, avec une note de qualité et un prix de référence pour chaque action. Tu peux commencer par le [classement des actions sous-évaluées](/classement/sous-evaluees) ou lire ma [méthodologie complète](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "Qualité et valorisation, quelle différence ?",
+          a: "La qualité mesure si l'entreprise est un bon business, indépendamment de son cours : rentabilité, cash, marges, dette. La valorisation mesure si le prix payé est raisonnable au regard de ce que l'entreprise génère. Les deux sont indépendantes.",
+        },
+        {
+          q: "C'est quoi un value trap ?",
+          a: "Une action qui semble bon marché mais dont l'entreprise est en déclin. Le prix est bas parce que le cash futur sera plus faible. On croit acheter une affaire, on achète un problème. Un prix bas n'est intéressant que si la qualité tient.",
+        },
+        {
+          q: "Pourquoi juger la qualité avant le prix ?",
+          a: "Parce qu'un prix bas n'a de sens que sur une entreprise solide. Commencer par la qualité évite de se faire piéger par des actions optiquement bon marché mais en perdition. Le prix ne sert qu'à décider quand acheter une entreprise déjà jugée bonne.",
+        },
+        {
+          q: "Comment appliquer cette méthode concrètement ?",
+          a: "Pour chaque action, réponds à deux questions séparées : est-ce un bon business (qualité), et est-ce un bon prix (valorisation). N'achète que lorsque les deux réponses sont oui. Ceci n'est pas un conseil en investissement, fais tes propres recherches.",
+        },
+      ],
+      tags: ['Méthode', 'Valorisation', 'Pédagogie', 'P/FCF'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Fais tes propres recherches.",
+    },
+    en: {
+      title: "Quality or price: why I never mix the two",
+      excerpt:
+        "Most investing mistakes come from one confusion: believing a good company is always a good buy. Here is how I separate the two.",
+      metaDescription:
+        "A good company is not a good investment if you overpay. My method separates quality and price: here is why, with real examples.",
+      answer:
+        "A good company and a good investment are two different things. Quality measures how solid the business is. Price measures what you pay for that solidity. Mixing the two is the number one mistake. My method judges them separately, quality first, price second. Here is how, and why it changes everything.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Quality and price answer two different questions, never the same one.",
+            "A great company bought too expensive is still a bad investment.",
+            "A cheap but declining company is a trap, not a bargain (a value trap).",
+            "My rule: I judge quality first, price only afterward.",
+            "The box to aim for: high quality AND low price, at the same time.",
+          ],
+        },
+        { type: 'h2', text: "The most expensive mistake" },
+        {
+          type: 'p',
+          text: "« It is a great company, so it is a good investment. » That sentence has ruined more portfolios than any crash. Because it confuses two unrelated things: the quality of a company, and the quality of an investment.",
+        },
+        {
+          type: 'p',
+          text: "A quality company is a solid business: profitable, cash generating, resilient in downturns. A good investment is something else: it is buying something for less than it is worth. You can own the best company in the world and still make a poor investment, simply by overpaying.",
+        },
+        { type: 'h2', text: "Two questions, never just one" },
+        {
+          type: 'p',
+          text: "That is why I always ask two separate questions. First: is this a good company? There I look at quality, on objective criteria: the consistency of free cash flow (the money that truly remains once bills are paid), margins, balance sheet strength, return on capital. I sum it up as a score out of 10.",
+        },
+        {
+          type: 'p',
+          text: "The second question, and only after: is this a good price? There I look at valuation, meaning how much I pay for what the company generates. The simplest tool is P/FCF (price-to-free-cash-flow): the share price divided by annual free cash flow. A P/FCF of 12 means you pay twelve years of that cash.",
+        },
+        { type: 'h2', text: "Real case: the great company too expensive" },
+        {
+          type: 'p',
+          text: "Take Adobe before its latest results. An elite company, dominant, huge margins. Everyone knows it. And because everyone knows it, the stock long traded above 30 times its free cash flow. At that price, even a wonderful company can stall for years, because the good news is already in the price. You paid the future in advance.",
+        },
+        {
+          type: 'p',
+          text: "That is the number one trap: confusing an admirable company with a stock to buy now. Admiration is not a strategy. Price is.",
+        },
+        { type: 'h2', text: "Real case: the opposite trap, the value trap" },
+        {
+          type: 'p',
+          text: "The other trap is symmetrical. You find a stock at 4 times its free cash flow. It looks cheap, the reflex is: « it is undervalued, I buy ». Except sometimes the price is low for a good reason. The company is losing market share, its margins are eroding, its future cash will be lower. You think you are buying a bargain, you are buying a company that is melting. That is a value trap.",
+        },
+        {
+          type: 'p',
+          text: "It is precisely to avoid this that I never look at price before judging quality. A low P/FCF is never a bargain on its own. It only is if the quality behind it holds over time.",
+        },
+        { type: 'h2', text: "The box I am looking for" },
+        {
+          type: 'p',
+          text: "If I had to sum up my method in one image, it would be a four-box grid, two axes: quality and price. Low quality and high price: avoid. High quality and high price: the fine company too expensive, I put it on a watchlist. Low quality and low price: the value trap. And the box I truly hunt for: high quality and low price, at the same time.",
+        },
+        {
+          type: 'p',
+          text: "It is rare, and it is uncomfortable to buy, because at that moment nobody wants it. But that is where the best investments are made. Being able to answer those two questions, separately, in seconds for any stock: that is all I wanted. That is why I built my site, with a quality score and a reference price for every stock. You can start with the [ranking of undervalued stocks](/classement/sous-evaluees) or read my [full methodology](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "Quality versus valuation, what is the difference?",
+          a: "Quality measures whether the company is a good business, regardless of its share price: profitability, cash, margins, debt. Valuation measures whether the price paid is reasonable given what the company generates. The two are independent.",
+        },
+        {
+          q: "What is a value trap?",
+          a: "A stock that looks cheap but whose company is in decline. The price is low because future cash will be weaker. You think you are buying a bargain, you are buying a problem. A low price is only attractive if the quality holds.",
+        },
+        {
+          q: "Why judge quality before price?",
+          a: "Because a low price only makes sense on a solid company. Starting with quality avoids being trapped by stocks that look cheap but are failing. Price only serves to decide when to buy a company already judged good.",
+        },
+        {
+          q: "How do I apply this method concretely?",
+          a: "For each stock, answer two separate questions: is it a good business (quality), and is it a good price (valuation). Only buy when both answers are yes. This is not investment advice, do your own research.",
+        },
+      ],
+      tags: ['Method', 'Valuation', 'Education', 'P/FCF'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Do your own research.",
+    },
+    es: {
+      title: "Calidad o precio: por qué nunca los mezclo",
+      excerpt:
+        "La mayoría de los errores de inversión vienen de una confusión: creer que una buena empresa es siempre una buena compra. Así separo las dos cosas.",
+      metaDescription:
+        "Una buena empresa no es una buena inversión si pagas de más. Mi método separa calidad y precio: aquí explico por qué, con ejemplos reales.",
+      answer:
+        "Una buena empresa y una buena inversión son dos cosas distintas. La calidad mide la solidez del negocio. El precio mide lo que pagas por esa solidez. Mezclar ambas es el error número uno. Mi método las juzga por separado, calidad primero, precio después. Aquí explico cómo, y por qué lo cambia todo.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Calidad y precio responden a dos preguntas distintas, nunca a la misma.",
+            "Una empresa genial comprada demasiado cara sigue siendo una mala inversión.",
+            "Una empresa barata pero en declive es una trampa, no una ganga (value trap).",
+            "Mi regla: juzgo la calidad primero, el precio solo después.",
+            "La casilla a buscar: calidad alta Y precio bajo, al mismo tiempo.",
+          ],
+        },
+        { type: 'h2', text: "El error que más caro cuesta" },
+        {
+          type: 'p',
+          text: "« Es una gran empresa, así que es una buena inversión. » Esa frase ha arruinado más carteras que cualquier crac. Porque confunde dos cosas que no tienen relación: la calidad de una empresa, y la calidad de una inversión.",
+        },
+        {
+          type: 'p',
+          text: "Una empresa de calidad es un negocio sólido: rentable, que genera caja, que resiste las crisis. Una buena inversión es otra cosa: es comprar algo por menos de lo que vale. Puedes tener la mejor empresa del mundo y hacer una mala inversión, simplemente pagándola demasiado cara.",
+        },
+        { type: 'h2', text: "Dos preguntas, nunca una sola" },
+        {
+          type: 'p',
+          text: "Por eso siempre hago dos preguntas separadas. La primera: ¿es una buena empresa? Ahí miro la calidad, con criterios objetivos: la regularidad del free cash flow (el dinero que de verdad queda una vez pagadas las facturas), los márgenes, la solidez del balance, el rendimiento del capital. Lo resumo en una nota sobre 10.",
+        },
+        {
+          type: 'p',
+          text: "La segunda pregunta, y solo después: ¿es un buen precio? Ahí miro la valoración, es decir cuánto pago por lo que la empresa genera. La herramienta más sencilla es el P/FCF (price-to-free-cash-flow): el precio de la acción dividido por el free cash flow anual. Un P/FCF de 12 significa que pagas doce años de esa caja.",
+        },
+        { type: 'h2', text: "Caso real: la gran empresa demasiado cara" },
+        {
+          type: 'p',
+          text: "Toma Adobe antes de sus últimos resultados. Una empresa de élite, dominante, con márgenes enormes. Todos lo saben. Y como todos lo saben, la acción cotizó mucho tiempo por encima de 30 veces su free cash flow. A ese precio, hasta una empresa maravillosa puede estancarse años, porque la buena noticia ya está en la cotización. Pagaste el futuro por adelantado.",
+        },
+        {
+          type: 'p',
+          text: "Esa es la trampa número uno: confundir una empresa admirable con una acción para comprar ahora. La admiración no es una estrategia. El precio, sí.",
+        },
+        { type: 'h2', text: "Caso real: la trampa inversa, el value trap" },
+        {
+          type: 'p',
+          text: "La otra trampa es simétrica. Encuentras una acción a 4 veces su free cash flow. Parece regalada, el reflejo es: « está infravalorada, compro ». Salvo que a veces el precio es bajo por una buena razón. La empresa pierde cuota de mercado, sus márgenes se erosionan, su caja de mañana será menor. Crees comprar una ganga, compras una empresa que se derrite. Eso es un value trap.",
+        },
+        {
+          type: 'p',
+          text: "Es justo para evitar esto que nunca miro el precio antes de juzgar la calidad. Un P/FCF bajo nunca es una ganga por sí solo. Solo lo es si la calidad detrás aguanta en el tiempo.",
+        },
+        { type: 'h2', text: "La casilla que busco" },
+        {
+          type: 'p',
+          text: "Si tuviera que resumir mi método en una imagen, sería una rejilla de cuatro casillas, dos ejes: calidad y precio. Calidad baja y precio alto: huir. Calidad alta y precio alto: la buena empresa demasiado cara, la pongo en lista de espera. Calidad baja y precio bajo: el value trap. Y la casilla que de verdad busco: calidad alta y precio bajo, al mismo tiempo.",
+        },
+        {
+          type: 'p',
+          text: "Es raro, y es incómodo de comprar, porque en ese momento nadie la quiere. Pero ahí es donde se hacen las mejores inversiones. Poder responder a esas dos preguntas, por separado, en segundos para cualquier acción: es todo lo que quería. Por eso construí mi web, con una nota de calidad y un precio de referencia para cada acción. Puedes empezar por el [ranking de acciones infravaloradas](/classement/sous-evaluees) o leer mi [metodología completa](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "Calidad y valoración, ¿qué diferencia hay?",
+          a: "La calidad mide si la empresa es un buen negocio, al margen de su cotización: rentabilidad, caja, márgenes, deuda. La valoración mide si el precio pagado es razonable respecto a lo que la empresa genera. Ambas son independientes.",
+        },
+        {
+          q: "¿Qué es un value trap?",
+          a: "Una acción que parece barata pero cuya empresa está en declive. El precio es bajo porque la caja futura será menor. Crees comprar una ganga, compras un problema. Un precio bajo solo es atractivo si la calidad aguanta.",
+        },
+        {
+          q: "¿Por qué juzgar la calidad antes que el precio?",
+          a: "Porque un precio bajo solo tiene sentido en una empresa sólida. Empezar por la calidad evita caer en acciones ópticamente baratas pero en quiebra. El precio solo sirve para decidir cuándo comprar una empresa ya juzgada buena.",
+        },
+        {
+          q: "¿Cómo aplico este método en concreto?",
+          a: "Para cada acción, responde a dos preguntas separadas: ¿es un buen negocio (calidad), y es un buen precio (valoración)? Compra solo cuando ambas respuestas sean sí. Esto no es asesoramiento de inversión, haz tu propia investigación.",
+        },
+      ],
+      tags: ['Método', 'Valoración', 'Pedagogía', 'P/FCF'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Haz tu propia investigación.",
+    },
+  },
+};
+
+const softwareApp: Article = {
+  slug: 'meilleures-actions-logicielles-10-sur-10-juin-2026',
+  date: '2026-06-12',
+  updated: '2026-06-12',
+  readingTime: 9,
+  content: {
+    fr: {
+      title: "Meilleures actions logicielles : 4 valeurs 10/10",
+      excerpt:
+        "Intuit, Roper, Salesforce, Bentley : quatre éditeurs de logiciels notés 10/10 à ma grille. Même qualité, valorisations très différentes. Le comparatif.",
+      metaDescription:
+        "INTU, ROP, CRM et BSY ont toutes 10/10 à ma grille de qualité, mais des P/FCF de 13 à 24. Quel éditeur logiciel offre le meilleur rapport qualité prix ?",
+      answer:
+        "Intuit, Roper, Salesforce et Bentley obtiennent toutes la note maximale à ma grille de qualité. Mais leurs valorisations vont du simple à presque le double : Salesforce se paie environ 13 fois son cash, Bentley près de 24. Même qualité ne veut pas dire même prix. Voici comment je les départage.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Quatre éditeurs notés 10/10 : Intuit (INTU), Roper (ROP), Salesforce (CRM), Bentley (BSY).",
+            "Salesforce est la moins chère : environ 13 fois son free cash flow.",
+            "Intuit et Roper suivent, autour de 13 à 14 fois.",
+            "Bentley est la plus chère, près de 24 fois, car sa qualité se paie.",
+            "Toutes dégagent plus de 25 % de marge de free cash flow : des machines à cash.",
+          ],
+        },
+        { type: 'h2', text: "Pourquoi le logiciel domine ma sélection qualité" },
+        {
+          type: 'p',
+          text: "Le logiciel est le secteur le plus représenté dans mon haut de classement, et ce n'est pas un hasard. Un bon éditeur vend un abonnement, encaissé d'avance, avec un coût marginal quasi nul pour servir un client de plus. Résultat : des marges énormes et beaucoup de cash. Le free cash flow, c'est l'argent qui reste réellement une fois toutes les factures payées. Les quatre entreprises de ce comparatif en dégagent toutes plus de 25 % de leurs ventes.",
+        },
+        {
+          type: 'p',
+          text: "Ma note sur 10 mesure cette solidité : rentabilité, croissance du cash, marges, rachats d'actions, dette. Ces quatre-là cochent l'ensemble des cases. La vraie question n'est donc pas laquelle est la meilleure entreprise, mais laquelle se paie au meilleur prix.",
+        },
+        { type: 'h2', text: "Le comparatif, qualité égale, prix différents" },
+        {
+          type: 'p',
+          text: "Pour comparer le prix, j'utilise le P/FCF (price-to-free-cash-flow) : le cours divisé par le free cash flow annuel. Un P/FCF de 13 veut dire que tu paies treize années de ce cash. Voici les quatre, du moins cher au plus cher :",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Salesforce (CRM) : environ 13 fois le free cash flow. Le géant du CRM, en pleine bascule vers les agents IA. Croissance autour de 12 %/an.",
+            "Intuit (INTU) : environ 13 à 14 fois. TurboTax et QuickBooks, un quasi-monopole sur la compta et les impôts des PME américaines. Croissance proche de 15 %/an, la plus rapide du lot.",
+            "Roper (ROP) : environ 14 fois. Un assembleur de logiciels de niche, très diversifié, peu connu du grand public mais redoutablement régulier.",
+            "Bentley (BSY) : près de 24 fois. Les logiciels d'ingénierie pour les infrastructures (ponts, réseaux, usines). La plus chère, parce que la plus protégée.",
+          ],
+        },
+        { type: 'h2', text: "Pourquoi Bentley se paie deux fois plus cher" },
+        {
+          type: 'p',
+          text: "Un P/FCF de 24 contre 13, c'est presque le double. Est-ce que Bentley est deux fois moins intéressante ? Pas forcément. Le marché paie cher ce qu'il juge le plus durable. Bentley vend des logiciels que des ingénieurs utilisent sur des projets longs de dix ou vingt ans. Le coût pour en changer est gigantesque. C'est ce qu'on appelle un moat, un fossé concurrentiel : ce qui empêche un rival de prendre la place. Plus le moat est solide, plus le marché accepte de payer cher.",
+        },
+        {
+          type: 'p',
+          text: "À l'inverse, Salesforce est moins chère parce que sa croissance ralentit et que la concurrence dans le logiciel d'entreprise est féroce. Le marché doute un peu plus, donc il paie un peu moins. Le prix n'est pas un hasard, il raconte les peurs et les espoirs du moment.",
+        },
+        { type: 'h2', text: "Laquelle choisir ?" },
+        {
+          type: 'p',
+          text: "Il n'y a pas de réponse unique, parce que prix bas ne veut pas dire meilleure affaire. Si tu cherches la décote maximale sur une qualité solide, Salesforce et Intuit sont les plus intéressantes sur le papier. Si tu privilégies la prévisibilité et que tu acceptes de payer plus cher pour dormir tranquille, Bentley se défend. Le bon réflexe n'est pas de prendre la moins chère, mais de te demander pour chacune si la qualité justifie son prix.",
+        },
+        {
+          type: 'p',
+          text: "C'est exactement le travail que je voulais pouvoir faire en quelques secondes, alors je l'ai codé. Tu peux voir le détail de chaque entreprise sur sa page d'analyse, par exemple [Intuit](/analyse/INTU), [Salesforce](/analyse/CRM) ou [Bentley](/analyse/BSY), et le [classement des actions sous-évaluées](/classement/sous-evaluees). Ma [méthodologie complète](/methodologie) explique chaque critère.",
+        },
+      ],
+      faq: [
+        {
+          q: "Pourquoi quatre éditeurs ont-ils la même note de 10/10 ?",
+          a: "Parce que ma note mesure la solidité financière objective (rentabilité, cash, marges, dette), pas le prix. Quatre entreprises peuvent être également solides comme business tout en se payant des prix très différents en bourse.",
+        },
+        {
+          q: "Faut-il acheter la moins chère, Salesforce ?",
+          a: "Pas automatiquement. Un P/FCF plus bas peut refléter des doutes du marché sur la croissance. La moins chère n'est la meilleure affaire que si sa qualité tient. Compare toujours le prix à la solidité, pas dans l'absolu.",
+        },
+        {
+          q: "Pourquoi Bentley est-elle la plus chère ?",
+          a: "Parce que son moat est jugé très solide : ses logiciels d'ingénierie sont utilisés sur des projets d'infrastructure de très long terme, avec un coût de changement énorme. Le marché paie cher cette durabilité perçue.",
+        },
+        {
+          q: "Le logiciel est-il toujours un bon secteur d'investissement ?",
+          a: "C'est un secteur à marges élevées et revenus récurrents, donc structurellement attractif. Mais cela ne garantit aucun prix d'entrée raisonnable. Ceci n'est pas un conseil en investissement, fais tes propres recherches.",
+        },
+      ],
+      tags: ['Palmarès', 'Software', 'Comparatif', 'Valorisation'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: "Best software stocks: four names rated 10/10",
+      excerpt:
+        "Intuit, Roper, Salesforce, Bentley: four software makers rated 10/10 on my grid. Same quality, very different valuations. The comparison.",
+      metaDescription:
+        "INTU, ROP, CRM and BSY all score 10/10 on my quality grid, but P/FCF ranges from 13 to 24. Which software stock offers the best quality for the price?",
+      answer:
+        "Intuit, Roper, Salesforce and Bentley all earn the top score on my quality grid. But their valuations range from single to nearly double: Salesforce trades at about 13 times its cash, Bentley near 24. Same quality does not mean same price. Here is how I tell them apart.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Four makers rated 10/10: Intuit (INTU), Roper (ROP), Salesforce (CRM), Bentley (BSY).",
+            "Salesforce is the cheapest: about 13 times its free cash flow.",
+            "Intuit and Roper follow, around 13 to 14 times.",
+            "Bentley is the most expensive, near 24 times, because its quality is priced in.",
+            "All generate over 25 % free cash flow margin: true cash machines.",
+          ],
+        },
+        { type: 'h2', text: "Why software dominates my quality selection" },
+        {
+          type: 'p',
+          text: "Software is the most represented sector at the top of my ranking, and that is no accident. A good maker sells a subscription, collected upfront, with near-zero marginal cost to serve one more customer. The result: huge margins and lots of cash. Free cash flow is the money that truly remains once every bill is paid. All four companies here generate over 25 % of their sales as free cash flow.",
+        },
+        {
+          type: 'p',
+          text: "My score out of 10 measures that soundness: profitability, cash growth, margins, buybacks, debt. These four tick every box. So the real question is not which is the best company, but which trades at the best price.",
+        },
+        { type: 'h2', text: "The comparison, equal quality, different prices" },
+        {
+          type: 'p',
+          text: "To compare price, I use P/FCF (price-to-free-cash-flow): the share price divided by annual free cash flow. A P/FCF of 13 means you pay thirteen years of that cash. Here are the four, cheapest to priciest:",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Salesforce (CRM): about 13 times free cash flow. The CRM giant, mid-pivot toward AI agents. Growth around 12 % a year.",
+            "Intuit (INTU): about 13 to 14 times. TurboTax and QuickBooks, a near-monopoly on US small-business accounting and taxes. Growth close to 15 % a year, the fastest of the group.",
+            "Roper (ROP): about 14 times. A collector of niche software businesses, highly diversified, little known to the public but remarkably steady.",
+            "Bentley (BSY): near 24 times. Engineering software for infrastructure (bridges, networks, plants). The priciest, because the most protected.",
+          ],
+        },
+        { type: 'h2', text: "Why Bentley trades at twice the price" },
+        {
+          type: 'p',
+          text: "A P/FCF of 24 versus 13 is almost double. Is Bentley half as interesting? Not necessarily. The market pays up for what it deems most durable. Bentley sells software that engineers use on projects lasting ten or twenty years. The cost to switch is enormous. That is a moat, a competitive gap: what stops a rival from taking its place. The stronger the moat, the more the market is willing to pay.",
+        },
+        {
+          type: 'p',
+          text: "Conversely, Salesforce is cheaper because its growth is slowing and competition in enterprise software is fierce. The market doubts a bit more, so it pays a bit less. Price is not random, it tells the fears and hopes of the moment.",
+        },
+        { type: 'h2', text: "Which one to choose?" },
+        {
+          type: 'p',
+          text: "There is no single answer, because a low price does not mean the best deal. If you want the deepest discount on solid quality, Salesforce and Intuit look most interesting on paper. If you favor predictability and accept paying more to sleep easy, Bentley holds up. The right reflex is not to grab the cheapest, but to ask, for each one, whether the quality justifies its price.",
+        },
+        {
+          type: 'p',
+          text: "That is exactly the work I wanted to do in seconds, so I coded it. You can see the detail of each company on its analysis page, for example [Intuit](/analyse/INTU), [Salesforce](/analyse/CRM) or [Bentley](/analyse/BSY), and the [ranking of undervalued stocks](/classement/sous-evaluees). My [full methodology](/methodologie) explains every criterion.",
+        },
+      ],
+      faq: [
+        {
+          q: "Why do four makers share the same 10/10 score?",
+          a: "Because my score measures objective financial soundness (profitability, cash, margins, debt), not price. Four companies can be equally solid as businesses while trading at very different prices on the market.",
+        },
+        {
+          q: "Should you buy the cheapest, Salesforce?",
+          a: "Not automatically. A lower P/FCF can reflect market doubts about growth. The cheapest is only the best deal if its quality holds. Always compare price to soundness, not in absolute terms.",
+        },
+        {
+          q: "Why is Bentley the most expensive?",
+          a: "Because its moat is seen as very strong: its engineering software is used on very long-term infrastructure projects, with an enormous switching cost. The market pays up for that perceived durability.",
+        },
+        {
+          q: "Is software always a good sector to invest in?",
+          a: "It is a high-margin, recurring-revenue sector, so structurally attractive. But that guarantees no reasonable entry price. This is not investment advice, do your own research.",
+        },
+      ],
+      tags: ['Ranking', 'Software', 'Comparison', 'Valuation'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
+    },
+    es: {
+      title: "Mejores acciones de software: cuatro 10/10",
+      excerpt:
+        "Intuit, Roper, Salesforce, Bentley: cuatro empresas de software con 10/10 en mi rejilla. Misma calidad, valoraciones muy distintas. El comparativo.",
+      metaDescription:
+        "INTU, ROP, CRM y BSY sacan 10/10 en mi rejilla de calidad, pero con P/FCF de 13 a 24. ¿Qué acción de software ofrece la mejor calidad por su precio?",
+      answer:
+        "Intuit, Roper, Salesforce y Bentley obtienen la nota máxima en mi rejilla de calidad. Pero sus valoraciones van de lo sencillo a casi el doble: Salesforce cotiza a unas 13 veces su caja, Bentley cerca de 24. Misma calidad no significa mismo precio. Así las distingo.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Cuatro empresas con 10/10: Intuit (INTU), Roper (ROP), Salesforce (CRM), Bentley (BSY).",
+            "Salesforce es la más barata: unas 13 veces su free cash flow.",
+            "Intuit y Roper siguen, alrededor de 13 a 14 veces.",
+            "Bentley es la más cara, cerca de 24 veces, porque su calidad se paga.",
+            "Todas generan más del 25 % de margen de free cash flow: máquinas de caja.",
+          ],
+        },
+        { type: 'h2', text: "Por qué el software domina mi selección de calidad" },
+        {
+          type: 'p',
+          text: "El software es el sector más representado en lo alto de mi clasificación, y no es casualidad. Una buena empresa vende una suscripción, cobrada por adelantado, con un coste marginal casi nulo para servir a un cliente más. El resultado: márgenes enormes y mucha caja. El free cash flow es el dinero que de verdad queda una vez pagadas todas las facturas. Las cuatro empresas de este comparativo generan más del 25 % de sus ventas en free cash flow.",
+        },
+        {
+          type: 'p',
+          text: "Mi nota sobre 10 mide esa solidez: rentabilidad, crecimiento de la caja, márgenes, recompras, deuda. Estas cuatro cumplen todas las casillas. Así que la verdadera pregunta no es cuál es la mejor empresa, sino cuál cotiza al mejor precio.",
+        },
+        { type: 'h2', text: "El comparativo, igual calidad, distinto precio" },
+        {
+          type: 'p',
+          text: "Para comparar el precio uso el P/FCF (price-to-free-cash-flow): la cotización dividida por el free cash flow anual. Un P/FCF de 13 significa que pagas trece años de esa caja. Aquí están las cuatro, de la más barata a la más cara:",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Salesforce (CRM): unas 13 veces el free cash flow. El gigante del CRM, en plena transición hacia los agentes de IA. Crecimiento en torno al 12 % anual.",
+            "Intuit (INTU): unas 13 a 14 veces. TurboTax y QuickBooks, un casi monopolio en la contabilidad y los impuestos de las pymes de EE. UU. Crecimiento cercano al 15 % anual, el más rápido del grupo.",
+            "Roper (ROP): unas 14 veces. Un ensamblador de software de nicho, muy diversificado, poco conocido por el público pero notablemente regular.",
+            "Bentley (BSY): cerca de 24 veces. Software de ingeniería para infraestructuras (puentes, redes, plantas). La más cara, porque la más protegida.",
+          ],
+        },
+        { type: 'h2', text: "Por qué Bentley cotiza al doble de precio" },
+        {
+          type: 'p',
+          text: "Un P/FCF de 24 frente a 13 es casi el doble. ¿Es Bentley la mitad de interesante? No necesariamente. El mercado paga caro lo que considera más duradero. Bentley vende software que los ingenieros usan en proyectos de diez o veinte años. El coste de cambiar es gigantesco. Eso es un moat, un foso competitivo: lo que impide a un rival ocupar su lugar. Cuanto más sólido el foso, más acepta pagar el mercado.",
+        },
+        {
+          type: 'p',
+          text: "A la inversa, Salesforce es más barata porque su crecimiento se ralentiza y la competencia en software empresarial es feroz. El mercado duda un poco más, así que paga un poco menos. El precio no es aleatorio, cuenta los miedos y las esperanzas del momento.",
+        },
+        { type: 'h2', text: "¿Cuál elegir?" },
+        {
+          type: 'p',
+          text: "No hay una única respuesta, porque precio bajo no significa mejor negocio. Si buscas el mayor descuento sobre una calidad sólida, Salesforce e Intuit parecen las más interesantes sobre el papel. Si prefieres la previsibilidad y aceptas pagar más por dormir tranquilo, Bentley se defiende. El reflejo correcto no es coger la más barata, sino preguntarte, para cada una, si la calidad justifica su precio.",
+        },
+        {
+          type: 'p',
+          text: "Es justo el trabajo que quería poder hacer en segundos, así que lo programé. Puedes ver el detalle de cada empresa en su página de análisis, por ejemplo [Intuit](/analyse/INTU), [Salesforce](/analyse/CRM) o [Bentley](/analyse/BSY), y el [ranking de acciones infravaloradas](/classement/sous-evaluees). Mi [metodología completa](/methodologie) explica cada criterio.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Por qué cuatro empresas comparten el mismo 10/10?",
+          a: "Porque mi nota mide la solidez financiera objetiva (rentabilidad, caja, márgenes, deuda), no el precio. Cuatro empresas pueden ser igual de sólidas como negocio y cotizar a precios muy distintos en bolsa.",
+        },
+        {
+          q: "¿Hay que comprar la más barata, Salesforce?",
+          a: "No automáticamente. Un P/FCF más bajo puede reflejar dudas del mercado sobre el crecimiento. La más barata solo es el mejor negocio si su calidad aguanta. Compara siempre el precio con la solidez, no en absoluto.",
+        },
+        {
+          q: "¿Por qué Bentley es la más cara?",
+          a: "Porque su foso se considera muy sólido: su software de ingeniería se usa en proyectos de infraestructura de muy largo plazo, con un coste de cambio enorme. El mercado paga caro esa durabilidad percibida.",
+        },
+        {
+          q: "¿El software es siempre un buen sector para invertir?",
+          a: "Es un sector de márgenes altos e ingresos recurrentes, así que estructuralmente atractivo. Pero eso no garantiza ningún precio de entrada razonable. Esto no es asesoramiento de inversión, haz tu propia investigación.",
+        },
+      ],
+      tags: ['Ranking', 'Software', 'Comparativo', 'Valoración'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 12 de junio de 2026, sujetas a cambios. Haz tu propia investigación.",
+    },
+  },
+};
+
+const dataSecteurs: Article = {
+  slug: 'etude-secteurs-actions-10-sur-10-juin-2026',
+  date: '2026-06-12',
+  updated: '2026-06-12',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: "Actions 10/10 : les 3 secteurs qui dominent en 2026",
+      excerpt:
+        "Sur des milliers d'actions analysées, à peine 60 décrochent la note parfaite. Et trois secteurs en concentrent l'essentiel. Ce que ça dit du marché.",
+      metaDescription:
+        "Sur des milliers d'actions, environ 60 obtiennent 10/10 à ma grille. Assurance, logiciel et finance dominent. L'étude data des secteurs de qualité en 2026.",
+      answer:
+        "Sur les milliers d'actions que j'analyse, à peine une soixantaine obtient la note maximale de qualité. Trois secteurs en concentrent l'essentiel : l'assurance, le logiciel et la finance. Ce n'est pas un hasard, c'est lié à la façon dont ces métiers génèrent du cash. Voici ce que cette concentration révèle.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Environ 60 actions seulement obtiennent 10/10 sur des milliers analysées : la qualité parfaite est rare.",
+            "Trois secteurs dominent largement : assurance, logiciel, finance.",
+            "Le logiciel et l'assurance sont les deux plus représentés.",
+            "Point commun : ces métiers encaissent du cash d'avance et le réinvestissent.",
+            "Mais qualité élevée ne dit rien du prix : certains de ces secteurs sont chers, d'autres bradés.",
+          ],
+        },
+        { type: 'h2', text: "La qualité parfaite est plus rare qu'on ne croit" },
+        {
+          type: 'p',
+          text: "Quand j'analyse l'ensemble du marché, la première leçon est humble : la qualité irréprochable est rare. Sur des milliers d'entreprises passées au crible, à peine une soixantaine obtient ma note maximale, 10 sur 10. Cette note ne récompense pas une action à la mode. Elle valide un profil financier objectif : rentabilité, croissance du cash, marges, rachats d'actions, dette maîtrisée. La plupart des entreprises échouent sur au moins un de ces critères.",
+        },
+        {
+          type: 'p',
+          text: "La deuxième leçon est plus intéressante : ces rares élues ne sont pas réparties au hasard. Elles se concentrent dans une poignée de secteurs.",
+        },
+        { type: 'h2', text: "Les trois secteurs qui raflent la mise" },
+        {
+          type: 'p',
+          text: "Trois familles dominent nettement le haut de mon classement : l'assurance, le logiciel et la finance. À elles trois, elles rassemblent la majeure partie des actions notées 10/10. Le logiciel et l'assurance sont les deux plus présents, suivis par divers métiers de la finance.",
+        },
+        {
+          type: 'p',
+          text: "Pourquoi ces trois-là ? Parce qu'ils partagent une mécanique : ils encaissent de l'argent avant de le dépenser, et le font travailler entre-temps. Un assureur touche des primes aujourd'hui et paiera des sinistres plus tard. Un éditeur de logiciels facture un abonnement d'avance, avec un coût quasi nul pour servir un client de plus. Une société financière fait tourner du capital. Dans les trois cas, le free cash flow (l'argent qui reste vraiment une fois les factures payées) est structurellement abondant.",
+        },
+        { type: 'h2', text: "Ce que la concentration ne dit pas" },
+        {
+          type: 'p',
+          text: "Attention au piège. Savoir qu'un secteur concentre des entreprises de qualité ne te dit rien sur leur prix. Et c'est là que ça devient passionnant, parce que ces trois secteurs ne sont pas valorisés pareil.",
+        },
+        {
+          type: 'p',
+          text: "Le logiciel est souvent cher : le marché adore ses marges, donc il paie d'avance. L'assurance, au contraire, est souvent bradée : le métier est aride, mal compris, exposé aux catastrophes, donc délaissé. On trouve des assureurs notés 10/10 qui se paient moins de 5 fois leur free cash flow, là où des éditeurs de logiciels équivalents en qualité se paient 3 ou 4 fois plus cher.",
+        },
+        { type: 'h2', text: "Ce que j'en fais, concrètement" },
+        {
+          type: 'p',
+          text: "Cette carte des secteurs me sert de boussole. Elle me dit où chercher des entreprises solides. Mais je ne m'arrête jamais là. Une fois la qualité repérée, je pose la deuxième question, toujours séparée : à quel prix ? C'est cette double grille, la qualité d'abord, le prix ensuite, qui sépare une bonne idée d'un bon investissement.",
+        },
+        {
+          type: 'p',
+          text: "C'est exactement ce que je voulais pouvoir faire en quelques secondes pour n'importe quelle action, alors je l'ai construit. Tu peux explorer le [classement des entreprises notées 10 sur 10](/classement/qualite-10-sur-10), celui des [actions sous-évaluées](/classement/sous-evaluees), et lire ma [méthodologie complète](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "Combien d'actions obtiennent 10/10 ?",
+          a: "À peine une soixantaine sur les milliers que j'analyse. La note maximale est rare car elle exige un profil financier solide sur l'ensemble de mes critères objectifs, sans point faible majeur.",
+        },
+        {
+          q: "Pourquoi l'assurance et le logiciel dominent-ils ?",
+          a: "Parce que ces métiers encaissent du cash d'avance (primes, abonnements) et le réinvestissent, ce qui produit structurellement beaucoup de free cash flow. C'est exactement ce que ma grille de qualité récompense.",
+        },
+        {
+          q: "Un secteur de qualité est-il forcément un bon investissement ?",
+          a: "Non. La qualité du secteur ne dit rien du prix. Le logiciel est souvent cher, l'assurance souvent bradée. Il faut toujours croiser la qualité avec la valorisation avant de conclure.",
+        },
+        {
+          q: "Comment utiliser cette étude ?",
+          a: "Comme une boussole pour savoir où chercher des entreprises solides, puis vérifier le prix de chacune. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches.",
+        },
+      ],
+      tags: ['Étude', 'Secteurs', 'Qualité', 'Données'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: "10/10 stocks: the 3 sectors that dominate in 2026",
+      excerpt:
+        "Out of thousands of stocks analyzed, barely 60 earn the perfect score. And three sectors hold most of them. What that says about the market.",
+      metaDescription:
+        "Out of thousands of stocks, about 60 score 10/10 on my grid. Insurance, software and finance dominate. The data study of quality sectors in 2026.",
+      answer:
+        "Out of the thousands of stocks I analyze, barely sixty earn the top quality score. Three sectors hold most of them: insurance, software and finance. That is no accident, it is tied to how these businesses generate cash. Here is what that concentration reveals.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Only about 60 stocks score 10/10 out of thousands analyzed: perfect quality is rare.",
+            "Three sectors clearly dominate: insurance, software, finance.",
+            "Software and insurance are the two most represented.",
+            "Common thread: these businesses collect cash upfront and reinvest it.",
+            "But high quality says nothing about price: some of these sectors are expensive, others dirt cheap.",
+          ],
+        },
+        { type: 'h2', text: "Perfect quality is rarer than you think" },
+        {
+          type: 'p',
+          text: "When I analyze the whole market, the first lesson is humbling: flawless quality is rare. Out of thousands of companies screened, barely sixty earn my top score, 10 out of 10. That score does not reward a trendy stock. It validates an objective financial profile: profitability, cash growth, margins, buybacks, controlled debt. Most companies fail on at least one of these criteria.",
+        },
+        {
+          type: 'p',
+          text: "The second lesson is more interesting: these rare winners are not spread at random. They cluster in a handful of sectors.",
+        },
+        { type: 'h2', text: "The three sectors that take the prize" },
+        {
+          type: 'p',
+          text: "Three families clearly dominate the top of my ranking: insurance, software and finance. Together they hold most of the stocks rated 10/10. Software and insurance are the two most present, followed by various finance businesses.",
+        },
+        {
+          type: 'p',
+          text: "Why those three? Because they share one mechanic: they collect money before spending it, and put it to work in the meantime. An insurer takes premiums today and pays claims later. A software maker bills a subscription upfront, with near-zero cost to serve one more customer. A financial firm turns capital. In all three, free cash flow (the money that truly remains once bills are paid) is structurally abundant.",
+        },
+        { type: 'h2', text: "What the concentration does not tell you" },
+        {
+          type: 'p',
+          text: "Beware the trap. Knowing that a sector concentrates quality companies tells you nothing about their price. And that is where it gets fascinating, because these three sectors are not valued the same.",
+        },
+        {
+          type: 'p',
+          text: "Software is often expensive: the market loves its margins, so it pays in advance. Insurance, by contrast, is often dirt cheap: the business is dry, poorly understood, exposed to disasters, hence neglected. You find insurers rated 10/10 trading at under 5 times their free cash flow, while software makers of equal quality trade at 3 or 4 times that price.",
+        },
+        { type: 'h2', text: "What I actually do with this" },
+        {
+          type: 'p',
+          text: "This sector map is my compass. It tells me where to look for solid companies. But I never stop there. Once quality is spotted, I ask the second question, always separate: at what price? It is this double grid, quality first, price second, that separates a good idea from a good investment.",
+        },
+        {
+          type: 'p',
+          text: "That is exactly what I wanted to do in seconds for any stock, so I built it. You can explore the [ranking of companies rated 10 out of 10](/classement/qualite-10-sur-10), the one for [undervalued stocks](/classement/sous-evaluees), and read my [full methodology](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "How many stocks score 10/10?",
+          a: "Barely sixty out of the thousands I analyze. The top score is rare because it requires a solid financial profile across all my objective criteria, with no major weak spot.",
+        },
+        {
+          q: "Why do insurance and software dominate?",
+          a: "Because these businesses collect cash upfront (premiums, subscriptions) and reinvest it, which structurally produces a lot of free cash flow. That is exactly what my quality grid rewards.",
+        },
+        {
+          q: "Is a quality sector necessarily a good investment?",
+          a: "No. Sector quality says nothing about price. Software is often expensive, insurance often cheap. You must always cross quality with valuation before concluding.",
+        },
+        {
+          q: "How should I use this study?",
+          a: "As a compass for where to look for solid companies, then check each one's price. This is not personalized investment advice, do your own research.",
+        },
+      ],
+      tags: ['Study', 'Sectors', 'Quality', 'Data'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
+    },
+    es: {
+      title: "Acciones 10/10: los 3 sectores que dominan en 2026",
+      excerpt:
+        "De miles de acciones analizadas, apenas 60 logran la nota perfecta. Y tres sectores concentran la mayoría. Lo que dice del mercado.",
+      metaDescription:
+        "De miles de acciones, unas 60 sacan 10/10 en mi rejilla. Seguros, software y finanzas dominan. El estudio de datos de los sectores de calidad en 2026.",
+      answer:
+        "De los miles de acciones que analizo, apenas unas sesenta logran la nota máxima de calidad. Tres sectores concentran la mayoría: seguros, software y finanzas. No es casualidad, está ligado a cómo estos negocios generan caja. Esto es lo que revela esa concentración.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Solo unas 60 acciones sacan 10/10 de entre miles analizadas: la calidad perfecta es rara.",
+            "Tres sectores dominan ampliamente: seguros, software, finanzas.",
+            "El software y los seguros son los dos más representados.",
+            "Punto en común: estos negocios cobran caja por adelantado y la reinvierten.",
+            "Pero calidad alta no dice nada del precio: algunos de estos sectores son caros, otros están regalados.",
+          ],
+        },
+        { type: 'h2', text: "La calidad perfecta es más rara de lo que se cree" },
+        {
+          type: 'p',
+          text: "Cuando analizo todo el mercado, la primera lección es humilde: la calidad impecable es rara. De miles de empresas filtradas, apenas unas sesenta logran mi nota máxima, 10 sobre 10. Esa nota no premia una acción de moda. Valida un perfil financiero objetivo: rentabilidad, crecimiento de la caja, márgenes, recompras, deuda controlada. La mayoría de las empresas fallan en al menos uno de esos criterios.",
+        },
+        {
+          type: 'p',
+          text: "La segunda lección es más interesante: esas raras elegidas no están repartidas al azar. Se concentran en un puñado de sectores.",
+        },
+        { type: 'h2', text: "Los tres sectores que se llevan el premio" },
+        {
+          type: 'p',
+          text: "Tres familias dominan claramente lo alto de mi clasificación: seguros, software y finanzas. Entre las tres reúnen la mayor parte de las acciones con 10/10. El software y los seguros son los dos más presentes, seguidos de diversos negocios financieros.",
+        },
+        {
+          type: 'p',
+          text: "¿Por qué esos tres? Porque comparten una mecánica: cobran dinero antes de gastarlo, y lo ponen a trabajar mientras tanto. Una aseguradora cobra primas hoy y pagará siniestros más tarde. Una empresa de software factura una suscripción por adelantado, con un coste casi nulo para servir a un cliente más. Una firma financiera hace girar capital. En los tres casos, el free cash flow (el dinero que de verdad queda una vez pagadas las facturas) es estructuralmente abundante.",
+        },
+        { type: 'h2', text: "Lo que la concentración no dice" },
+        {
+          type: 'p',
+          text: "Cuidado con la trampa. Saber que un sector concentra empresas de calidad no dice nada de su precio. Y ahí es donde se vuelve apasionante, porque estos tres sectores no se valoran igual.",
+        },
+        {
+          type: 'p',
+          text: "El software suele ser caro: al mercado le encantan sus márgenes, así que paga por adelantado. Los seguros, en cambio, suelen estar regalados: el negocio es árido, mal comprendido, expuesto a catástrofes, y por eso abandonado. Hay aseguradoras con 10/10 que cotizan a menos de 5 veces su free cash flow, mientras empresas de software de igual calidad cotizan a 3 o 4 veces ese precio.",
+        },
+        { type: 'h2', text: "Qué hago con esto, en concreto" },
+        {
+          type: 'p',
+          text: "Este mapa de sectores me sirve de brújula. Me dice dónde buscar empresas sólidas. Pero nunca me detengo ahí. Una vez detectada la calidad, hago la segunda pregunta, siempre separada: ¿a qué precio? Es esa doble rejilla, la calidad primero, el precio después, la que separa una buena idea de una buena inversión.",
+        },
+        {
+          type: 'p',
+          text: "Es justo lo que quería poder hacer en segundos para cualquier acción, así que lo construí. Puedes explorar el [ranking de empresas calificadas 10 sobre 10](/classement/qualite-10-sur-10), el de [acciones infravaloradas](/classement/sous-evaluees), y leer mi [metodología completa](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Cuántas acciones sacan 10/10?",
+          a: "Apenas unas sesenta de los miles que analizo. La nota máxima es rara porque exige un perfil financiero sólido en el conjunto de mis criterios objetivos, sin un punto débil mayor.",
+        },
+        {
+          q: "¿Por qué dominan los seguros y el software?",
+          a: "Porque estos negocios cobran caja por adelantado (primas, suscripciones) y la reinvierten, lo que produce estructuralmente mucho free cash flow. Es justo lo que premia mi rejilla de calidad.",
+        },
+        {
+          q: "¿Un sector de calidad es siempre una buena inversión?",
+          a: "No. La calidad del sector no dice nada del precio. El software suele ser caro, los seguros suelen estar baratos. Hay que cruzar siempre la calidad con la valoración antes de concluir.",
+        },
+        {
+          q: "¿Cómo usar este estudio?",
+          a: "Como una brújula para saber dónde buscar empresas sólidas, y luego comprobar el precio de cada una. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación.",
+        },
+      ],
+      tags: ['Estudio', 'Sectores', 'Calidad', 'Datos'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 12 de junio de 2026, sujetas a cambios. Haz tu propia investigación.",
+    },
+  },
+};
+
+const bkng: Article = {
+  slug: 'booking-holdings-bkng-analyse-action-10-sur-10',
+  date: '2026-06-12',
+  updated: '2026-06-12',
+  readingTime: 8,
+  ticker: 'BKNG',
+  content: {
+    fr: {
+      title: "Booking Holdings (BKNG) : analyse d'une action 10/10",
+      excerpt:
+        "Derrière Booking.com se cache une des plus belles machines à cash de la cote. Notée 10/10, payée 15 fois son free cash flow. Mon analyse alors que le voyage repart.",
+      metaDescription:
+        "Booking Holdings (BKNG) obtient 10/10 à ma grille, avec un P/FCF d'environ 15. Croissance forte, marges énormes : mon analyse alors que le voyage reprend.",
+      answer:
+        "Booking Holdings, la maison mère de Booking.com, obtient la note maximale à ma grille de qualité : croissance forte, marges énormes, rachats d'actions massifs. Elle se paie environ 15 fois son free cash flow, ni bradée ni excessive. Alors que le voyage mondial repart, voici pourquoi cette action mérite le coup d'oeil, et ses risques.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Note de qualité : 10/10 à ma grille de critères fondamentaux.",
+            "Croissance des ventes forte, autour de 22 %/an, rare à cette taille.",
+            "Marge de free cash flow de 30 % : une machine à cash.",
+            "Le cash par action grimpe d'environ 33 %/an, dopé par d'énormes rachats d'actions.",
+            "Valorisation moyenne : environ 15 fois le free cash flow, ni cadeau ni excès.",
+          ],
+        },
+        { type: 'h2', text: "Bien plus que Booking.com" },
+        {
+          type: 'p',
+          text: "Tout le monde connaît Booking.com pour réserver un hôtel. Peu de gens réalisent que derrière se cache un empire : Booking Holdings, qui possède aussi Priceline, Agoda, Kayak, et le service de réservation de restaurants OpenTable. C'est la plus grande agence de voyage en ligne au monde, de très loin.",
+        },
+        {
+          type: 'p',
+          text: "Son modèle est presque magique sur le plan financier. Booking ne possède ni hôtel ni avion. Elle met en relation des voyageurs et des hébergeurs, et prend une commission au passage. Pas d'actifs lourds, peu de coûts fixes : presque chaque euro de commission supplémentaire tombe en cash. C'est ce qui explique des marges que peu d'entreprises atteignent.",
+        },
+        { type: 'h2', text: "Pourquoi ma grille lui met 10/10" },
+        {
+          type: 'p',
+          text: "Ma note sur 10 mesure la solidité financière objective : rentabilité, croissance du cash, marges, rachats d'actions, dette. Booking excelle partout. Sa marge de free cash flow atteint 30 %. Le free cash flow, c'est l'argent qui reste vraiment une fois toutes les factures payées. Trente pour cent, ça veut dire que sur 100 euros de ventes, 30 finissent en cash disponible.",
+        },
+        {
+          type: 'p',
+          text: "Plus rare encore : malgré sa taille, l'entreprise croît toujours d'environ 22 % par an. Et elle rachète ses propres actions à un rythme soutenu, près de 6 % du total chaque année. Quand le nombre d'actions baisse, chaque action restante pèse davantage. C'est pour ça que son cash par action progresse encore plus vite que ses ventes, autour de 33 % par an.",
+        },
+        { type: 'h2', text: "L'angle du moment : le voyage repart" },
+        {
+          type: 'p',
+          text: "Le contexte ajoute du piquant. Le voyage international retrouve des couleurs, et Booking est la mieux placée pour en profiter : plus de voyageurs, plus de réservations, plus de commissions. Quand une entreprise déjà dominante surfe sur un vent porteur, les volumes peuvent surprendre à la hausse.",
+        },
+        {
+          type: 'p',
+          text: "Mais c'est aussi son risque. Le voyage est cyclique : il monte fort dans les bonnes périodes, et se contracte vite en cas de récession, de tensions géopolitiques ou de choc sanitaire. Une part des résultats actuels reflète une reprise qui ne durera pas éternellement à ce rythme. À garder en tête avant de se projeter.",
+        },
+        { type: 'h2', text: "Est-ce le bon prix ?" },
+        {
+          type: 'p',
+          text: "C'est ma deuxième question, toujours séparée de la qualité. Pour mesurer le prix, je regarde le P/FCF (price-to-free-cash-flow) : le cours divisé par le free cash flow annuel. Booking se paie environ 15 fois son free cash flow. Ce n'est ni bradé, ni excessif. Pour une entreprise qui croît à 22 % avec des marges pareilles, c'est même plutôt raisonnable au regard de sa qualité.",
+        },
+        {
+          type: 'p',
+          text: "Le vrai débat, c'est la durabilité de la croissance. Si le voyage continue de progresser, 15 fois le cash est un prix correct pour un leader. Si la reprise s'essouffle, le multiple peut se contracter. Comme toujours, le prix bas ou moyen n'est intéressant que si la qualité tient. C'est cette double lecture que je voulais pouvoir faire en quelques secondes, alors je l'ai codée. Vois le détail sur la [page d'analyse de Booking](/analyse/BKNG), le [classement des actions sous-évaluées](/classement/sous-evaluees) et ma [méthodologie](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "Que possède Booking Holdings exactement ?",
+          a: "Booking.com, Priceline, Agoda, Kayak et OpenTable. C'est la plus grande agence de voyage en ligne au monde, présente sur l'hôtellerie, les vols, les locations et la réservation de restaurants.",
+        },
+        {
+          q: "Pourquoi ses marges sont-elles si élevées ?",
+          a: "Parce que Booking ne possède ni hôtel ni avion. Elle met en relation voyageurs et hébergeurs contre une commission, sans actifs lourds. Presque chaque commission supplémentaire tombe en cash, d'où une marge de free cash flow d'environ 30 %.",
+        },
+        {
+          q: "Un P/FCF de 15 est-il cher ?",
+          a: "C'est une valorisation moyenne, ni bradée ni excessive. Pour une entreprise qui croît à 22 % par an avec de telles marges, c'est plutôt raisonnable au regard de sa qualité, à condition que la croissance du voyage se poursuive.",
+        },
+        {
+          q: "Faut-il acheter l'action Booking Holdings ?",
+          a: "Ça dépend de ta vision sur la durabilité de la reprise du voyage et de ta discipline de prix, car le secteur est cyclique. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches.",
+        },
+      ],
+      tags: ['Analyse', 'Booking', 'Voyage', 'Valorisation'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: "Booking Holdings (BKNG): a 10/10 stock, explained",
+      excerpt:
+        "Behind Booking.com sits one of the finest cash machines on the market. Rated 10/10, priced at 15 times free cash flow. My analysis as travel rebounds.",
+      metaDescription:
+        "Booking Holdings (BKNG) scores 10/10 on my grid, at a P/FCF near 15. Strong growth, huge margins: my analysis as global travel recovers.",
+      answer:
+        "Booking Holdings, the parent of Booking.com, earns the top score on my quality grid: strong growth, huge margins, heavy buybacks. It trades at about 15 times its free cash flow, neither cheap nor excessive. As global travel rebounds, here is why this stock is worth a look, and its risks.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Quality score: 10/10 on my fundamental grid.",
+            "Strong sales growth, around 22 % a year, rare at this size.",
+            "Free cash flow margin of 30 %: a cash machine.",
+            "Cash per share climbs about 33 % a year, fueled by huge buybacks.",
+            "Mid valuation: about 15 times free cash flow, neither a gift nor excess.",
+          ],
+        },
+        { type: 'h2', text: "Far more than Booking.com" },
+        {
+          type: 'p',
+          text: "Everyone knows Booking.com to book a hotel. Few realize there is an empire behind it: Booking Holdings, which also owns Priceline, Agoda, Kayak, and the restaurant reservation service OpenTable. It is by far the largest online travel agency in the world.",
+        },
+        {
+          type: 'p',
+          text: "Its model is almost magical financially. Booking owns no hotel and no plane. It connects travelers with hosts and takes a commission along the way. No heavy assets, few fixed costs: nearly every extra euro of commission drops to cash. That explains margins few companies reach.",
+        },
+        { type: 'h2', text: "Why my grid gives it 10/10" },
+        {
+          type: 'p',
+          text: "My score out of 10 measures objective financial soundness: profitability, cash growth, margins, buybacks, debt. Booking excels everywhere. Its free cash flow margin reaches 30 %. Free cash flow is the money that truly remains once every bill is paid. Thirty percent means that out of 100 euros of sales, 30 end up as available cash.",
+        },
+        {
+          type: 'p',
+          text: "Rarer still: despite its size, the company still grows about 22 % a year. And it buys back its own shares at a steady pace, nearly 6 % of the total each year. When the share count falls, each remaining share weighs more. That is why its cash per share grows even faster than its sales, around 33 % a year.",
+        },
+        { type: 'h2', text: "The angle of the moment: travel is back" },
+        {
+          type: 'p',
+          text: "The backdrop adds spice. International travel is regaining color, and Booking is best placed to benefit: more travelers, more bookings, more commissions. When an already dominant company rides a tailwind, volumes can surprise to the upside.",
+        },
+        {
+          type: 'p',
+          text: "But that is also its risk. Travel is cyclical: it rises strongly in good times and contracts fast in a recession, geopolitical tension or health shock. Part of the current results reflects a recovery that will not last forever at this pace. Worth keeping in mind before projecting.",
+        },
+        { type: 'h2', text: "Is it the right price?" },
+        {
+          type: 'p',
+          text: "That is my second question, always separate from quality. To measure price, I look at P/FCF (price-to-free-cash-flow): the share price divided by annual free cash flow. Booking trades at about 15 times its free cash flow. That is neither cheap nor excessive. For a company growing 22 % with such margins, it is even rather reasonable given its quality.",
+        },
+        {
+          type: 'p',
+          text: "The real debate is the durability of growth. If travel keeps rising, 15 times cash is a fair price for a leader. If the recovery fades, the multiple can contract. As always, a low or mid price is only attractive if the quality holds. That double read is what I wanted to do in seconds, so I coded it. See the detail on the [Booking analysis page](/analyse/BKNG), the [ranking of undervalued stocks](/classement/sous-evaluees) and my [methodology](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "What exactly does Booking Holdings own?",
+          a: "Booking.com, Priceline, Agoda, Kayak and OpenTable. It is the largest online travel agency in the world, present in hotels, flights, rentals and restaurant reservations.",
+        },
+        {
+          q: "Why are its margins so high?",
+          a: "Because Booking owns no hotel and no plane. It connects travelers with hosts for a commission, with no heavy assets. Nearly every extra commission drops to cash, hence a free cash flow margin near 30 %.",
+        },
+        {
+          q: "Is a P/FCF of 15 expensive?",
+          a: "It is a mid valuation, neither cheap nor excessive. For a company growing 22 % a year with such margins, it is rather reasonable given its quality, provided travel growth continues.",
+        },
+        {
+          q: "Should you buy Booking Holdings stock?",
+          a: "It depends on your view of how durable the travel recovery is and on your price discipline, since the sector is cyclical. This is not personalized investment advice, do your own research.",
+        },
+      ],
+      tags: ['Analysis', 'Booking', 'Travel', 'Valuation'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
+    },
+    es: {
+      title: "Booking Holdings (BKNG): análisis de una acción 10/10",
+      excerpt:
+        "Tras Booking.com se esconde una de las mejores máquinas de caja del mercado. Con 10/10 y a 15 veces su free cash flow. Mi análisis mientras el viaje repunta.",
+      metaDescription:
+        "Booking Holdings (BKNG) saca 10/10 en mi rejilla, con un P/FCF cercano a 15. Crecimiento fuerte, márgenes enormes: mi análisis mientras el viaje se recupera.",
+      answer:
+        "Booking Holdings, la matriz de Booking.com, obtiene la nota máxima en mi rejilla de calidad: crecimiento fuerte, márgenes enormes, fuertes recompras. Cotiza a unas 15 veces su free cash flow, ni regalada ni excesiva. Mientras el viaje mundial repunta, aquí explico por qué merece una mirada, y sus riesgos.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Nota de calidad: 10/10 en mi rejilla de criterios fundamentales.",
+            "Crecimiento de ventas fuerte, en torno al 22 % anual, raro a este tamaño.",
+            "Margen de free cash flow del 30 %: una máquina de caja.",
+            "La caja por acción sube cerca del 33 % anual, impulsada por enormes recompras.",
+            "Valoración media: unas 15 veces el free cash flow, ni regalo ni exceso.",
+          ],
+        },
+        { type: 'h2', text: "Mucho más que Booking.com" },
+        {
+          type: 'p',
+          text: "Todo el mundo conoce Booking.com para reservar un hotel. Pocos se dan cuenta de que detrás hay un imperio: Booking Holdings, que también posee Priceline, Agoda, Kayak y el servicio de reservas de restaurantes OpenTable. Es, con mucho, la mayor agencia de viajes online del mundo.",
+        },
+        {
+          type: 'p',
+          text: "Su modelo es casi mágico en lo financiero. Booking no posee ni hoteles ni aviones. Conecta a viajeros con alojamientos y se lleva una comisión por el camino. Sin activos pesados, con pocos costes fijos: casi cada euro de comisión adicional cae en caja. Eso explica unos márgenes que pocas empresas alcanzan.",
+        },
+        { type: 'h2', text: "Por qué mi rejilla le da 10/10" },
+        {
+          type: 'p',
+          text: "Mi nota sobre 10 mide la solidez financiera objetiva: rentabilidad, crecimiento de la caja, márgenes, recompras, deuda. Booking destaca en todo. Su margen de free cash flow alcanza el 30 %. El free cash flow es el dinero que de verdad queda una vez pagadas todas las facturas. Un 30 % significa que de 100 euros de ventas, 30 acaban en caja disponible.",
+        },
+        {
+          type: 'p',
+          text: "Más raro aún: pese a su tamaño, la empresa sigue creciendo alrededor de un 22 % al año. Y recompra sus propias acciones a buen ritmo, cerca de un 6 % del total cada año. Cuando el número de acciones baja, cada acción restante pesa más. Por eso su caja por acción crece aún más rápido que sus ventas, en torno al 33 % anual.",
+        },
+        { type: 'h2', text: "El ángulo del momento: el viaje repunta" },
+        {
+          type: 'p',
+          text: "El contexto añade interés. El viaje internacional recupera color, y Booking es la mejor situada para aprovecharlo: más viajeros, más reservas, más comisiones. Cuando una empresa ya dominante surfea un viento a favor, los volúmenes pueden sorprender al alza.",
+        },
+        {
+          type: 'p',
+          text: "Pero ese es también su riesgo. El viaje es cíclico: sube con fuerza en los buenos tiempos y se contrae rápido ante una recesión, tensiones geopolíticas o un shock sanitario. Parte de los resultados actuales refleja una recuperación que no durará para siempre a este ritmo. Conviene tenerlo presente antes de proyectar.",
+        },
+        { type: 'h2', text: "¿Es el precio correcto?" },
+        {
+          type: 'p',
+          text: "Es mi segunda pregunta, siempre separada de la calidad. Para medir el precio miro el P/FCF (price-to-free-cash-flow): la cotización dividida por el free cash flow anual. Booking cotiza a unas 15 veces su free cash flow. No es ni barata ni excesiva. Para una empresa que crece al 22 % con semejantes márgenes, es incluso bastante razonable dada su calidad.",
+        },
+        {
+          type: 'p',
+          text: "El verdadero debate es la durabilidad del crecimiento. Si el viaje sigue subiendo, 15 veces la caja es un precio justo para un líder. Si la recuperación se agota, el múltiplo puede contraerse. Como siempre, un precio bajo o medio solo es atractivo si la calidad aguanta. Esa doble lectura es lo que quería poder hacer en segundos, así que la programé. Mira el detalle en la [página de análisis de Booking](/analyse/BKNG), el [ranking de acciones infravaloradas](/classement/sous-evaluees) y mi [metodología](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qué posee exactamente Booking Holdings?",
+          a: "Booking.com, Priceline, Agoda, Kayak y OpenTable. Es la mayor agencia de viajes online del mundo, presente en hoteles, vuelos, alquileres y reservas de restaurantes.",
+        },
+        {
+          q: "¿Por qué sus márgenes son tan altos?",
+          a: "Porque Booking no posee ni hoteles ni aviones. Conecta a viajeros con alojamientos a cambio de una comisión, sin activos pesados. Casi cada comisión adicional cae en caja, de ahí un margen de free cash flow cercano al 30 %.",
+        },
+        {
+          q: "¿Un P/FCF de 15 es caro?",
+          a: "Es una valoración media, ni barata ni excesiva. Para una empresa que crece al 22 % anual con esos márgenes, es bastante razonable dada su calidad, siempre que el crecimiento del viaje continúe.",
+        },
+        {
+          q: "¿Hay que comprar la acción de Booking Holdings?",
+          a: "Depende de tu visión sobre la durabilidad de la recuperación del viaje y de tu disciplina de precio, ya que el sector es cíclico. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación.",
+        },
+      ],
+      tags: ['Análisis', 'Booking', 'Viajes', 'Valoración'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 12 de junio de 2026, sujetas a cambios. Haz tu propia investigación.",
+    },
+  },
+};
+
+const qlysIntu: Article = {
+  slug: 'qualys-qlys-intuit-intu-comparatif-10-sur-10',
+  date: '2026-06-12',
+  updated: '2026-06-12',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: "Qualys (QLYS) ou Intuit (INTU) : 2 logiciels 10/10",
+      excerpt:
+        "Deux éditeurs de logiciels notés 10/10, deux valorisations différentes. Qualys plus rentable mais plus chère, Intuit moins chère et plus large. Le comparatif.",
+      metaDescription:
+        "Qualys (QLYS) à 18x le cash, Intuit (INTU) à 13x : deux logiciels notés 10/10. Marges, croissance, moat : lequel offre le meilleur rapport qualité prix ?",
+      answer:
+        "Qualys et Intuit ont toutes deux 10/10 à ma grille de qualité, mais des profils opposés. Qualys, dans la cybersécurité, affiche des marges supérieures mais se paie plus cher, environ 18 fois son cash. Intuit, plus large et plus connue, croît plus vite et coûte moins cher, environ 13 fois. Voici comment je tranche.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Deux éditeurs notés 10/10 : Qualys (QLYS) et Intuit (INTU).",
+            "Qualys : la plus rentable (marge nette d'environ 29 %), mais la plus chère (environ 18 fois le cash).",
+            "Intuit : la moins chère (environ 13 fois), la croissance la plus rapide (environ 15 %/an).",
+            "Intuit a un moat plus large grâce à TurboTax et QuickBooks.",
+            "Même note, choix différent selon que tu privilégies la décote ou la croissance.",
+          ],
+        },
+        { type: 'h2', text: "Deux logiciels, deux mondes" },
+        {
+          type: 'p',
+          text: "Qualys et Intuit sont toutes les deux des éditeurs de logiciels notés 10/10 par ma grille, mais elles ne font pas du tout le même métier. Qualys vend de la cybersécurité en ligne : elle scanne en permanence les systèmes de ses clients pour repérer les failles et vérifier la conformité. Un service technique, vendu surtout à de grandes entreprises.",
+        },
+        {
+          type: 'p',
+          text: "Intuit, c'est l'inverse du spectre : grand public et petites entreprises. Elle édite TurboTax, le logiciel numéro un pour faire ses impôts aux États-Unis, et QuickBooks, la référence de la comptabilité des PME américaines. Deux quasi-monopoles sur des tâches que personne n'a envie de faire à la main.",
+        },
+        { type: 'h2', text: "Qualys, la plus rentable" },
+        {
+          type: 'p',
+          text: "Côté marges, Qualys impressionne. Sa marge nette dépasse 29 %, et sa marge de free cash flow frôle 31 %. Le free cash flow, c'est l'argent qui reste vraiment une fois les factures payées. À ce niveau, Qualys transforme presque un tiers de ses ventes en cash pur. La cybersécurité est un besoin non négociable : une entreprise coupe beaucoup de budgets avant de couper sa sécurité. Ça donne un pouvoir de tarification solide.",
+        },
+        {
+          type: 'p',
+          text: "Le revers, c'est le prix. Qualys se paie environ 18 fois son free cash flow. Pour mesurer ça, j'utilise le P/FCF (price-to-free-cash-flow), le cours divisé par le cash annuel. Dix-huit fois, ce n'est pas excessif pour cette qualité, mais ce n'est pas une décote non plus.",
+        },
+        { type: 'h2', text: "Intuit, moins chère et plus large" },
+        {
+          type: 'p',
+          text: "Intuit se paie environ 13 fois son free cash flow, nettement moins que Qualys. Et pourtant, elle croît plus vite, autour de 15 % par an contre 13 % pour Qualys. Sur le papier, payer moins cher une croissance plus rapide, c'est attirant.",
+        },
+        {
+          type: 'p',
+          text: "Surtout, son moat est plus large. Un moat, c'est le fossé concurrentiel qui empêche un rival de prendre la place. Une fois que des millions de PME tiennent leur comptabilité sur QuickBooks, en changer est un cauchemar. Cette adhérence vaut de l'or. Qualys a un bon moat technique, mais Intuit a un moat de masse, ancré dans les habitudes de tout un pays.",
+        },
+        { type: 'h2', text: "Laquelle je préfère, et pourquoi" },
+        {
+          type: 'p',
+          text: "Même note de qualité, mais le choix dépend de ce que tu cherches. Si tu veux la marge maximale et que la cybersécurité te parle, Qualys est superbe, à condition d'accepter de la payer un peu cher. Si tu veux le meilleur compromis entre qualité, croissance et prix, Intuit a ma préférence sur ce duel : moins chère, croissance plus rapide, moat plus profond.",
+        },
+        {
+          type: 'p',
+          text: "Mais le mot d'ordre reste le même : la moins chère n'est pas automatiquement la meilleure affaire, et la plus rentable non plus. Tout dépend du prix payé pour la qualité obtenue. C'est cette double lecture que je voulais pouvoir faire en quelques secondes, alors je l'ai codée. Compare-les toi-même sur [Qualys](/analyse/QLYS) et [Intuit](/analyse/INTU), ou parcours le [classement des entreprises 10 sur 10](/classement/qualite-10-sur-10) et ma [méthodologie](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "Qualys et Intuit font-elles le même métier ?",
+          a: "Non. Qualys vend de la cybersécurité en ligne, surtout aux grandes entreprises. Intuit édite TurboTax (impôts) et QuickBooks (comptabilité PME), pour le grand public et les petites entreprises. Deux modèles très différents, même note de qualité.",
+        },
+        {
+          q: "Pourquoi Qualys est-elle plus chère ?",
+          a: "Parce que ses marges sont parmi les plus élevées de la cote et que la cybersécurité est un besoin non négociable. Le marché paie cette rentabilité et cette résilience par un P/FCF d'environ 18, contre 13 pour Intuit.",
+        },
+        {
+          q: "Intuit est-elle la meilleure affaire des deux ?",
+          a: "Sur ce duel, elle cumule un prix plus bas, une croissance plus rapide et un moat plus large. Mais moins cher ne veut pas dire sans risque. Compare toujours le prix à la qualité avant de conclure.",
+        },
+        {
+          q: "Faut-il acheter Qualys ou Intuit ?",
+          a: "Ça dépend de ce que tu privilégies, la marge maximale ou le meilleur compromis croissance-prix, et de ta discipline d'entrée. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches.",
+        },
+      ],
+      tags: ['Comparatif', 'Software', 'Cybersécurité', 'Valorisation'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: "Qualys (QLYS) or Intuit (INTU): two 10/10 names",
+      excerpt:
+        "Two software makers rated 10/10, two different valuations. Qualys more profitable but pricier, Intuit cheaper and broader. The comparison.",
+      metaDescription:
+        "Qualys (QLYS) at 18x cash, Intuit (INTU) at 13x: two software makers rated 10/10. Margins, growth, moat: which offers the best quality for the price?",
+      answer:
+        "Qualys and Intuit both score 10/10 on my quality grid, but with opposite profiles. Qualys, in cybersecurity, posts higher margins but trades pricier, about 18 times its cash. Intuit, broader and better known, grows faster and costs less, about 13 times. Here is how I decide.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Two makers rated 10/10: Qualys (QLYS) and Intuit (INTU).",
+            "Qualys: the most profitable (net margin around 29 %), but the priciest (about 18 times cash).",
+            "Intuit: the cheapest (about 13 times), the fastest growth (about 15 % a year).",
+            "Intuit has a broader moat thanks to TurboTax and QuickBooks.",
+            "Same score, different choice depending on whether you favor discount or growth.",
+          ],
+        },
+        { type: 'h2', text: "Two software firms, two worlds" },
+        {
+          type: 'p',
+          text: "Qualys and Intuit are both software makers rated 10/10 by my grid, but they are in completely different businesses. Qualys sells cybersecurity online: it continuously scans its clients' systems to spot flaws and check compliance. A technical service, sold mostly to large enterprises.",
+        },
+        {
+          type: 'p',
+          text: "Intuit is the opposite end of the spectrum: consumers and small businesses. It makes TurboTax, the number one software to file taxes in the United States, and QuickBooks, the reference for US small-business accounting. Two near-monopolies on tasks nobody wants to do by hand.",
+        },
+        { type: 'h2', text: "Qualys, the more profitable" },
+        {
+          type: 'p',
+          text: "On margins, Qualys impresses. Its net margin tops 29 %, and its free cash flow margin nears 31 %. Free cash flow is the money that truly remains once bills are paid. At that level, Qualys turns nearly a third of its sales into pure cash. Cybersecurity is a non-negotiable need: a company cuts many budgets before cutting its security. That gives solid pricing power.",
+        },
+        {
+          type: 'p',
+          text: "The flip side is the price. Qualys trades at about 18 times its free cash flow. To measure that, I use P/FCF (price-to-free-cash-flow), the share price divided by annual cash. Eighteen times is not excessive for this quality, but it is no discount either.",
+        },
+        { type: 'h2', text: "Intuit, cheaper and broader" },
+        {
+          type: 'p',
+          text: "Intuit trades at about 13 times its free cash flow, clearly less than Qualys. And yet it grows faster, around 15 % a year versus 13 % for Qualys. On paper, paying less for faster growth is appealing.",
+        },
+        {
+          type: 'p',
+          text: "Above all, its moat is broader. A moat is the competitive gap that stops a rival from taking its place. Once millions of small businesses run their books on QuickBooks, switching is a nightmare. That stickiness is worth gold. Qualys has a good technical moat, but Intuit has a mass moat, anchored in the habits of an entire country.",
+        },
+        { type: 'h2', text: "Which I prefer, and why" },
+        {
+          type: 'p',
+          text: "Same quality score, but the choice depends on what you want. If you want the maximum margin and cybersecurity speaks to you, Qualys is superb, provided you accept paying up a bit. If you want the best balance of quality, growth and price, Intuit gets my preference in this duel: cheaper, faster growth, deeper moat.",
+        },
+        {
+          type: 'p',
+          text: "But the watchword stays the same: the cheapest is not automatically the best deal, and neither is the most profitable. It all depends on the price paid for the quality obtained. That double read is what I wanted to do in seconds, so I coded it. Compare them yourself on [Qualys](/analyse/QLYS) and [Intuit](/analyse/INTU), or browse the [ranking of companies rated 10 out of 10](/classement/qualite-10-sur-10) and my [methodology](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "Are Qualys and Intuit in the same business?",
+          a: "No. Qualys sells cybersecurity online, mostly to large enterprises. Intuit makes TurboTax (taxes) and QuickBooks (small-business accounting), for consumers and small businesses. Two very different models, same quality score.",
+        },
+        {
+          q: "Why is Qualys more expensive?",
+          a: "Because its margins are among the highest on the market and cybersecurity is a non-negotiable need. The market pays for that profitability and resilience with a P/FCF near 18, versus 13 for Intuit.",
+        },
+        {
+          q: "Is Intuit the better deal of the two?",
+          a: "In this duel it combines a lower price, faster growth and a broader moat. But cheaper does not mean risk-free. Always compare price to quality before concluding.",
+        },
+        {
+          q: "Should you buy Qualys or Intuit?",
+          a: "It depends on what you favor, maximum margin or the best growth-price balance, and on your entry discipline. This is not personalized investment advice, do your own research.",
+        },
+      ],
+      tags: ['Comparison', 'Software', 'Cybersecurity', 'Valuation'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
+    },
+    es: {
+      title: "Qualys (QLYS) o Intuit (INTU): dos software 10/10",
+      excerpt:
+        "Dos empresas de software con 10/10, dos valoraciones distintas. Qualys más rentable pero más cara, Intuit más barata y más amplia. El comparativo.",
+      metaDescription:
+        "Qualys (QLYS) a 18x la caja, Intuit (INTU) a 13x: dos software con 10/10. Márgenes, crecimiento, foso: ¿cuál ofrece la mejor calidad por su precio?",
+      answer:
+        "Qualys e Intuit sacan ambas 10/10 en mi rejilla de calidad, pero con perfiles opuestos. Qualys, en ciberseguridad, presenta márgenes superiores pero cotiza más cara, unas 18 veces su caja. Intuit, más amplia y conocida, crece más rápido y cuesta menos, unas 13 veces. Así lo decido.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Dos empresas con 10/10: Qualys (QLYS) e Intuit (INTU).",
+            "Qualys: la más rentable (margen neto cercano al 29 %), pero la más cara (unas 18 veces la caja).",
+            "Intuit: la más barata (unas 13 veces), el crecimiento más rápido (cerca del 15 % anual).",
+            "Intuit tiene un foso más amplio gracias a TurboTax y QuickBooks.",
+            "Misma nota, elección distinta según prefieras el descuento o el crecimiento.",
+          ],
+        },
+        { type: 'h2', text: "Dos software, dos mundos" },
+        {
+          type: 'p',
+          text: "Qualys e Intuit son ambas empresas de software con 10/10 en mi rejilla, pero no hacen para nada el mismo negocio. Qualys vende ciberseguridad online: escanea de forma continua los sistemas de sus clientes para detectar fallos y verificar el cumplimiento. Un servicio técnico, vendido sobre todo a grandes empresas.",
+        },
+        {
+          type: 'p',
+          text: "Intuit es el extremo opuesto del espectro: gran público y pequeñas empresas. Edita TurboTax, el software número uno para hacer los impuestos en Estados Unidos, y QuickBooks, la referencia de la contabilidad de las pymes estadounidenses. Dos casi monopolios sobre tareas que nadie quiere hacer a mano.",
+        },
+        { type: 'h2', text: "Qualys, la más rentable" },
+        {
+          type: 'p',
+          text: "En márgenes, Qualys impresiona. Su margen neto supera el 29 %, y su margen de free cash flow roza el 31 %. El free cash flow es el dinero que de verdad queda una vez pagadas las facturas. A ese nivel, Qualys convierte casi un tercio de sus ventas en caja pura. La ciberseguridad es una necesidad no negociable: una empresa recorta muchos presupuestos antes de recortar su seguridad. Eso da un poder de fijación de precios sólido.",
+        },
+        {
+          type: 'p',
+          text: "El reverso es el precio. Qualys cotiza a unas 18 veces su free cash flow. Para medirlo uso el P/FCF (price-to-free-cash-flow), la cotización dividida por la caja anual. Dieciocho veces no es excesivo para esta calidad, pero tampoco es un descuento.",
+        },
+        { type: 'h2', text: "Intuit, más barata y más amplia" },
+        {
+          type: 'p',
+          text: "Intuit cotiza a unas 13 veces su free cash flow, claramente menos que Qualys. Y sin embargo crece más rápido, en torno al 15 % anual frente al 13 % de Qualys. Sobre el papel, pagar menos por un crecimiento más rápido es atractivo.",
+        },
+        {
+          type: 'p',
+          text: "Sobre todo, su foso es más amplio. Un foso es la brecha competitiva que impide a un rival ocupar su lugar. Una vez que millones de pymes llevan su contabilidad en QuickBooks, cambiar es una pesadilla. Esa adherencia vale oro. Qualys tiene un buen foso técnico, pero Intuit tiene un foso de masa, anclado en los hábitos de todo un país.",
+        },
+        { type: 'h2', text: "Cuál prefiero, y por qué" },
+        {
+          type: 'p',
+          text: "Misma nota de calidad, pero la elección depende de lo que busques. Si quieres el margen máximo y la ciberseguridad te interesa, Qualys es estupenda, siempre que aceptes pagarla algo cara. Si quieres el mejor equilibrio entre calidad, crecimiento y precio, Intuit tiene mi preferencia en este duelo: más barata, crecimiento más rápido, foso más profundo.",
+        },
+        {
+          type: 'p',
+          text: "Pero la consigna sigue siendo la misma: la más barata no es automáticamente el mejor negocio, ni tampoco la más rentable. Todo depende del precio pagado por la calidad obtenida. Esa doble lectura es lo que quería poder hacer en segundos, así que la programé. Compáralas tú mismo en [Qualys](/analyse/QLYS) e [Intuit](/analyse/INTU), o recorre el [ranking de empresas 10 sobre 10](/classement/qualite-10-sur-10) y mi [metodología](/methodologie).",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qualys e Intuit hacen el mismo negocio?",
+          a: "No. Qualys vende ciberseguridad online, sobre todo a grandes empresas. Intuit edita TurboTax (impuestos) y QuickBooks (contabilidad de pymes), para el gran público y las pequeñas empresas. Dos modelos muy distintos, misma nota de calidad.",
+        },
+        {
+          q: "¿Por qué Qualys es más cara?",
+          a: "Porque sus márgenes están entre los más altos del mercado y la ciberseguridad es una necesidad no negociable. El mercado paga esa rentabilidad y resiliencia con un P/FCF cercano a 18, frente a 13 de Intuit.",
+        },
+        {
+          q: "¿Intuit es el mejor negocio de las dos?",
+          a: "En este duelo combina un precio más bajo, un crecimiento más rápido y un foso más amplio. Pero más barata no significa sin riesgo. Compara siempre el precio con la calidad antes de concluir.",
+        },
+        {
+          q: "¿Hay que comprar Qualys o Intuit?",
+          a: "Depende de lo que priorices, el margen máximo o el mejor equilibrio crecimiento-precio, y de tu disciplina de entrada. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación.",
+        },
+      ],
+      tags: ['Comparativo', 'Software', 'Ciberseguridad', 'Valoración'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 12 de junio de 2026, sujetas a cambios. Haz tu propia investigación.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, qlysIntu, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, reassurance, bsyRop, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
