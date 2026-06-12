@@ -53,9 +53,9 @@ const adobe: Article = {
       excerpt:
         "Une entreprise d'élite, au cash le moins cher depuis cinq ans. Mais bonne entreprise et bon prix sont deux choses différentes. Voici comment je tranche, sans émotion.",
       metaDescription:
-        "Adobe se paie son cash le moins cher en cinq ans, mais reste au-dessus de mon prix d'achat. Qualité et prix sont deux choses différentes : ma façon de trancher.",
+        "Adobe affiche la valorisation la plus basse de ces cinq dernières années, mais reste au-dessus de mon prix d'achat. Qualité et prix sont deux choses différentes : ma façon de trancher.",
       answer:
-        "Adobe est une entreprise d'élite qui se paie aujourd'hui moins cher qu'à n'importe quel moment des cinq dernières années. Mais une bonne entreprise et un bon prix sont deux choses différentes. Le marché a peur que l'IA la détruise, et même après la chute, l'action reste au-dessus de mon prix d'achat raisonnable. Voici comment je tranche, sans pari ni émotion.",
+        "Adobe est une entreprise d'élite qui affiche aujourd'hui une valorisation plus basse qu'à n'importe quel moment des cinq dernières années. Mais une bonne entreprise et un bon prix sont deux choses différentes. Le marché a peur que l'IA la détruise, et même après la chute, l'action reste au-dessus de mon prix d'achat raisonnable. Voici comment je tranche, sans pari ni émotion.",
       body: [
         { type: 'ul', items: [
           "Adobe est une entreprise d'élite : marge de free cash flow de 34 %, un moat profond, un bilan quasiment sans dette.",
@@ -73,7 +73,7 @@ const adobe: Article = {
         { type: 'p', text: "Mais un bon bilan ne raconte pas tout. Ce qui me convainc, c'est le moat d'Adobe : son fossé concurrentiel, ce qui empêche un rival de prendre sa place. Demande à un monteur vidéo ou à un service marketing d'abandonner Premiere ou Photoshop : il ne peut pas. Des années de fichiers, de réflexes, de formation. Résultat, 94 % des revenus d'Adobe sont des abonnements qui retombent chaque année, et l'entreprise pèse près de 58 % du marché mondial du logiciel créatif. Côté gestion, le signe qui ne trompe pas : elle rachète ses propres actions et n'a quasiment pas de dette. Ce n'est pas une entreprise fragile, c'est une infrastructure." },
         { type: 'h2', text: "Alors pourquoi l'action s'est-elle effondrée ? (le prix)" },
         { type: 'p', text: "Parce que le marché ne paie pas une entreprise, il paie une histoire. Et l'histoire d'Adobe fait peur : sa croissance ralentit (autour de 11 % par an, contre plus de 20 % avant), et l'IA pourrait éroder sa capacité à imposer ses prix." },
-        { type: 'p', text: "Pour mesurer ce que le marché accepte de payer, je regarde un ratio simple : le P/FCF (price to free cash flow). C'est le prix de l'action divisé par le free cash flow qu'elle génère chaque année. Un P/FCF de 12, ça veut dire que tu paies aujourd'hui douze années de ce cash. Plus c'est bas, moins c'est cher. Adobe se paie environ 12 fois son free cash flow. Sa moyenne des cinq dernières années était de 33. Son secteur tourne autour de 60. Le marché traite donc l'une des plus belles machines à cash de la tech comme une affaire finie." },
+        { type: 'p', text: "Pour mesurer ce que le marché accepte de payer, je regarde un ratio simple : le P/FCF (price to free cash flow). C'est le prix de l'action divisé par le free cash flow qu'elle génère chaque année. Un P/FCF de 12, ça veut dire que tu paies aujourd'hui douze années de ce cash. Plus c'est bas, moins c'est cher. Adobe se valorise environ 12 fois son free cash flow. Sa moyenne des cinq dernières années était de 33. Son secteur tourne autour de 60. Le marché traite donc l'une des plus belles machines à cash de la tech comme une affaire finie." },
         { type: 'h2', text: 'Le vrai débat (et le piège)' },
         { type: 'p', text: "Toute la thèse tient en une question : crois-tu que l'IA va réellement casser Adobe, ou que la peur est exagérée ? Si tu penses qu'Adobe défend son territoire, l'action est anormalement bon marché. Si tu crois à la disruption, ce bas prix est un piège, pas une aubaine. Un P/FCF faible n'est jamais une bonne affaire en soi : il l'est seulement si la qualité tient. C'est précisément pour ça que je juge la qualité avant le prix." },
         { type: 'h2', text: 'Comment je tranche, sans émotion' },
@@ -190,11 +190,11 @@ const kinsale: Article = {
     fr: {
       title: 'Kinsale Capital (KNSL) : l\'assureur de niche à suivre',
       excerpt:
-        "Un assureur qui gagne de l'argent rien qu'en assurant, qui grandit de 33 % par an et qui se paie bon marché. Voici pourquoi Kinsale coche mes 10 critères de qualité, et où se cache le piège.",
+        "Un assureur qui gagne de l'argent rien qu'en assurant, qui grandit de 33 % par an et qui est sous-évaluée. Voici pourquoi Kinsale coche mes 10 critères de qualité, et où se cache le piège.",
       metaDescription:
         "Kinsale Capital (KNSL) expliqué simplement : ce que fait cet assureur E and S, son avantage durable, ses risques, et pourquoi il figure parmi mes valeurs de meilleure qualité.",
       answer:
-        "Kinsale Capital est un assureur américain d'élite : il couvre les risques bizarres dont personne ne veut, avec une discipline de coûts que ses rivaux ne savent pas copier. Il valide 10 de mes 10 critères de qualité, grandit de 33 % par an, et se paie pourtant bon marché. La qualité est rare, le prix aussi.",
+        "Kinsale Capital est un assureur américain d'élite : il couvre les risques bizarres dont personne ne veut, avec une discipline de coûts que ses rivaux ne savent pas copier. Il valide 10 de mes 10 critères de qualité, grandit de 33 % par an, et affiche pourtant une valorisation basse. La qualité est rare, le prix aussi.",
       body: [
         { type: 'h2', text: "L'assureur qui dit oui quand les autres disent non" },
         { type: 'p', text: "La première fois que j'ai regardé Kinsale Capital de près, j'ai cru à une erreur dans mes données. Un assureur avec les marges d'un éditeur de logiciels, ça n'existe pas censément. Et pourtant." },
@@ -223,8 +223,8 @@ const kinsale: Article = {
         { type: 'p', text: "Deux détails qui en disent long sur la qualité de la gestion. Le premier : le taux de conversion du bénéfice en cash ressort à 1,89, ce qui signifie que le cash généré dépasse le bénéfice comptable. Une entreprise qui transforme ses profits en argent bien réel, et même davantage, ne triche pas avec ses comptes. Le second : un management qui rend du capital sans gaspiller, avec un nouveau programme de rachat d'actions de 250 millions de dollars annoncé en décembre 2025. Racheter ses propres actions, c'est concentrer la propriété entre les actionnaires restants, à condition de le faire à un prix raisonnable." },
         { type: 'h2', text: "La qualité d'abord, le prix ensuite (et séparément)" },
         { type: 'p', text: "Voici la règle que je n'enfreins jamais : je sépare toujours deux questions que la plupart des gens confondent. Un : est-ce une bonne entreprise ? Deux, complètement à part : est-ce le bon prix ? Une entreprise géniale payée trop cher reste un mauvais placement. Sur Kinsale, la première question est tranchée. Reste la seconde." },
-        { type: 'p', text: "Pour mesurer le prix, je regarde le P/FCF (price to free cash flow) : le cours de l'action rapporté au cash que l'entreprise génère vraiment chaque année. Un P/FCF de 7, ça veut dire qu'au rythme actuel, tu paies l'équivalent de sept années de ce cash. Plus c'est bas, moins c'est cher. Kinsale se paie 7,0 fois son free cash flow." },
-        { type: 'p', text: "Mets ce chiffre en perspective. Des assureurs solides mais bien moins rapides se paient plus cher : Progressive autour de 7,4 fois, Chubb 8,3 fois, RLI 8,8 fois. La médiane du secteur tourne à 7,4 fois. Autrement dit, le marché fait payer Kinsale moins cher que des concurrents qui grandissent deux à trois fois moins vite. C'est inhabituel : d'ordinaire, on paie une prime pour la croissance, pas une décote." },
+        { type: 'p', text: "Pour mesurer le prix, je regarde le P/FCF (price to free cash flow) : le cours de l'action rapporté au cash que l'entreprise génère vraiment chaque année. Un P/FCF de 7, ça veut dire qu'au rythme actuel, tu paies l'équivalent de sept années de ce cash. Plus c'est bas, moins c'est cher. Kinsale se valorise 7,0 fois son free cash flow." },
+        { type: 'p', text: "Mets ce chiffre en perspective. Des assureurs solides mais bien moins rapides se valorisent plus cher : Progressive autour de 7,4 fois, Chubb 8,3 fois, RLI 8,8 fois. La médiane du secteur tourne à 7,4 fois. Autrement dit, le marché fait payer Kinsale moins cher que des concurrents qui grandissent deux à trois fois moins vite. C'est inhabituel : d'ordinaire, on paie une prime pour la croissance, pas une décote." },
         { type: 'p', text: "En passant ce profil dans mon modèle de valorisation, avec des hypothèses volontairement prudentes (une croissance du free cash flow ramenée à 20 % par an, bien sous son rythme actuel, et un multiple de sortie modeste de 10 fois), j'obtiens un prix d'achat raisonnable autour de 533 dollars. L'action en vaut environ 303. Le cours est donc à peu près 76 % sous le prix que mon modèle juge justifié. Ce genre d'écart, sur une entreprise de cette qualité, ne se produit que quand une action est temporairement mal aimée." },
         { type: 'h2', text: "Pourquoi le marché boude une si belle machine ?" },
         { type: 'p', text: "Parce que le marché ne paie pas une entreprise, il paie une histoire, et l'histoire récente a fait peur. Au premier trimestre 2026, Kinsale a publié un chiffre d'affaires en dessous des attentes, et l'action a corrigé de 30 % depuis ses sommets. Vu de loin, ça ressemble à un dérapage." },
@@ -235,7 +235,7 @@ const kinsale: Article = {
         { type: 'p', text: "Deuxième risque : la discipline doit tenir. Tout le moat repose sur une souscription rigoureuse. Le jour où l'entreprise se mettrait à courir après le volume pour entretenir sa croissance, accepter des risques mal tarifés, ce moteur se gripperait. C'est arrivé à de nombreux assureurs avant elle. Rien ne garantit que Kinsale y échappera éternellement." },
         { type: 'p', text: "Troisième risque, le plus simple : la qualité ne protège pas du prix. Si tu achètes même la meilleure entreprise du monde trop cher, tu fais un mauvais placement. Aujourd'hui Kinsale paraît bon marché, mais un P/FCF bas n'est jamais une bonne affaire en soi : il ne l'est que si la qualité tient et que le cycle ne se retourne pas trop tôt. C'est exactement pour ça que je juge la qualité avant le prix, et le prix séparément." },
         { type: 'h2', text: "Comment je lis Kinsale, sans m'emballer" },
-        { type: 'p', text: "Au fond, Kinsale a cette double nature que j'aime : c'est à la fois une action de croissance (33 % par an) et une action bon marché (7,0 fois son cash). On voit rarement les deux dans la même ligne, et c'est ce qui rend le dossier intéressant. Le prochain rendez-vous concret tombe le 22 juillet 2026, avec les résultats du deuxième trimestre. Si l'entreprise confirme son rythme, le marché pourrait finir par lui rendre un multiple plus généreux." },
+        { type: 'p', text: "Au fond, Kinsale a cette double nature que j'aime : c'est à la fois une action de croissance (33 % par an) et une action bon marché (7,0 fois son free cash flow). On voit rarement les deux dans la même ligne, et c'est ce qui rend le dossier intéressant. Le prochain rendez-vous concret tombe le 22 juillet 2026, avec les résultats du deuxième trimestre. Si l'entreprise confirme son rythme, le marché pourrait finir par lui rendre un multiple plus généreux." },
         { type: 'p', text: "Mais je ne fonce pas pour autant. Je note un prix d'achat raisonnable, autour de 533 dollars, et je laisse le marché venir à moi plutôt que de courir après lui. Si tu veux creuser, tu trouveras le détail des critères et des comparables sur la page d'analyse de Kinsale, dans le hub des assureurs, et dans mon classement des entreprises notées 10 sur 10." },
         { type: 'p', text: "Juger si une entreprise est bonne, puis à quel prix l'acheter, séparément, en quelques secondes et pour n'importe quelle action : c'est exactement ce que je voulais pouvoir faire. Alors je l'ai construit." },
       ],
@@ -395,7 +395,7 @@ const rotation: Article = {
         "Une rotation value, c'est quand les capitaux quittent les actions \"chères et en forte croissance\" pour les actions \"bon marché par rapport à leurs fondamentaux\". En 2026 elle est bien réelle : l'indice Value gagne 18,6 % contre 8,3 % pour le Growth. Mais bon marché ne veut pas dire bonne affaire. Voici comment je trie.",
       body: [
         { type: 'h2', text: "D'abord, value et growth, ça veut dire quoi ?" },
-        { type: 'p', text: "Avant de parler de rotation, posons les mots. Une action est dite \"value\" (valeur) quand elle se paie bon marché par rapport à ce que l'entreprise vaut vraiment : ses bénéfices, son cash, ses actifs. Tu paies peu pour beaucoup de fondamentaux. À l'inverse, une action \"growth\" (croissance) est chère : tu acceptes de payer un prix élevé aujourd'hui parce que tu paries sur une forte croissance future. La tech et l'IA sont l'exemple type." },
+        { type: 'p', text: "Avant de parler de rotation, posons les mots. Une action est dite \"value\" (valeur) quand elle est sous-évaluée par rapport à ce que l'entreprise vaut vraiment : ses bénéfices, son cash, ses actifs. Tu paies peu pour beaucoup de fondamentaux. À l'inverse, une action \"growth\" (croissance) est chère : tu acceptes de payer un prix élevé aujourd'hui parce que tu paries sur une forte croissance future. La tech et l'IA sont l'exemple type." },
         { type: 'p', text: "Une \"rotation\", c'est simplement le moment où les capitaux se déplacent en masse d'un style vers l'autre. Quand l'argent fuit la croissance pour la valeur, on parle de rotation value. C'est exactement ce qui se passe en 2026, et l'ampleur est rare." },
         { type: 'ul', items: [
           "Value et growth : value = bon marché par rapport aux fondamentaux ; growth = cher car on paie la croissance future",
@@ -422,17 +422,17 @@ const rotation: Article = {
         { type: 'p', text: "Concrètement, je regarde si l'entreprise est durablement rentable, si ses ventes et son cash augmentent, si elle rachète ses propres actions plutôt que de gaspiller, si sa dette reste maîtrisable, et si elle dégage beaucoup de free cash flow. Le free cash flow, c'est l'argent qui reste vraiment dans les caisses une fois toutes les factures payées : salaires, machines, impôts. C'est plus difficile à maquiller que le bénéfice comptable, donc je m'y fie davantage." },
         { type: 'p', text: "Cette note qualité est mon filtre anti value trap. Si une action est pas chère mais note mal, je passe : c'est probablement un piège. Si elle est pas chère ET note 10/10, là ça devient intéressant, parce que j'ai à la fois un bon business et, peut-être, un bon prix." },
         { type: 'h2', text: "À quoi ressemble une qualité pas chère, en 2026" },
-        { type: 'p', text: "Pour mesurer si le prix est raisonnable, j'utilise un ratio simple : le P/FCF (price to free cash flow), le prix de l'action rapporté au free cash flow qu'elle génère chaque année. Un P/FCF de 10, ça veut dire que tu paies aujourd'hui dix années de ce cash. Plus c'est bas, moins c'est cher. Le sens d'abord : un P/FCF bas, l'action se paie bon marché." },
+        { type: 'p', text: "Pour mesurer si le prix est raisonnable, j'utilise un ratio simple : le P/FCF (price to free cash flow), le prix de l'action rapporté au free cash flow qu'elle génère chaque année. Un P/FCF de 10, ça veut dire que tu paies aujourd'hui dix années de ce cash. Plus c'est bas, moins c'est cher. Le sens d'abord : un P/FCF bas, l'action est sous-évaluée." },
         { type: 'p', text: "En croisant ma note de qualité maximale avec un P/FCF sous 10×, un profil ressort très nettement : l'assurance. Ce n'est pas un hasard. Une bonne compagnie d'assurance encaisse les primes d'avance, place cet argent, et dégage du cash avec peu de besoins d'investissement. C'est exactement le genre de business solide que la rotation value récompense, sans être un value trap." },
-        { type: 'p', text: "Quelques exemples concrets, sans rien inventer sur les chiffres. SkyWest, une compagnie aérienne régionale notée 10/10, se paie autour de 3,9 fois son free cash flow, soit comme si elle frôlait la faillite, ce que ses fondamentaux ne disent pas. Kinsale Capital, un assureur spécialisé qui croît à 33 % par an, se paie 7,1 fois, sous la médiane de son secteur. Progressive, l'assureur auto le plus efficace d'Amérique qui gagne 5,7 % de parts de marché par an, est à 7,4 fois. Arch Capital, assureur diversifié en croissance de 17 % par an, tourne à 5,6 fois." },
-        { type: 'p', text: "On peut continuer : W.R. Berkley, l'assureur valeur par excellence avec 58 ans d'existence, se paie 7,0 fois ; Mercury General affiche un P/FCF de 4,0 fois, un P/B (prix rapporté à la valeur comptable) de 1,1 fois et un rendement de 3,7 %, une value pure ; Cincinnati Financial, 74 ans de dividendes en hausse, est à 7,4 fois. Le point commun de toute cette liste : une note qualité parfaite ET un multiple de cash inférieur à la moyenne du marché. Bon business et bon prix, les deux à la fois." },
+        { type: 'p', text: "Quelques exemples concrets, sans rien inventer sur les chiffres. SkyWest, une compagnie aérienne régionale notée 10/10, se valorise autour de 3,9 fois son free cash flow, soit comme si elle frôlait la faillite, ce que ses fondamentaux ne disent pas. Kinsale Capital, un assureur spécialisé qui croît à 33 % par an, se valorise 7,1 fois, sous la médiane de son secteur. Progressive, l'assureur auto le plus efficace d'Amérique qui gagne 5,7 % de parts de marché par an, est à 7,4 fois. Arch Capital, assureur diversifié en croissance de 17 % par an, tourne à 5,6 fois." },
+        { type: 'p', text: "On peut continuer : W.R. Berkley, l'assureur valeur par excellence avec 58 ans d'existence, se valorise 7,0 fois ; Mercury General affiche un P/FCF de 4,0 fois, un P/B (prix rapporté à la valeur comptable) de 1,1 fois et un rendement de 3,7 %, une value pure ; Cincinnati Financial, 74 ans de dividendes en hausse, est à 7,4 fois. Le point commun de toute cette liste : une note qualité parfaite ET un multiple de cash inférieur à la moyenne du marché. Bon business et bon prix, les deux à la fois." },
         { type: 'h2', text: "Ce que ça implique pour toi, sans illusion" },
         { type: 'p', text: "Si la rotation value se poursuit, ce sont précisément ces profils, solides et décotés, qui devraient le mieux se comporter. Mais je ne te vendrai pas une certitude. Personne ne sait timer un retournement de marché : ni moi, ni Neuberger Berman, ni WisdomTree, qui parient d'ailleurs dans des directions opposées." },
         { type: 'p', text: "Ce que je sais, en revanche, c'est qu'acheter de la qualité à bon prix a historiquement bien vieilli, que la rotation se confirme demain ou dans deux ans. Tu n'as pas besoin de deviner le calendrier du marché. Tu as besoin de ne pas payer trop cher un bon business, et de ne jamais confondre une décote avec un déclin." },
         { type: 'p', text: "C'est exactement ce que je voulais pouvoir faire en quelques secondes pour n'importe quelle action : juger la qualité d'un business d'un côté, son prix de l'autre, et repérer les rares cas où les deux s'alignent. Comme je ne trouvais pas l'outil, je l'ai construit. Tu peux y taper un ticker pour voir où une action se situe dans la matrice qualité-prix, parcourir mon classement des actions sous-évaluées, ou filtrer celles que je note 10/10 sur la qualité. Le pas cher, on en trouve partout. La qualité pas chère, beaucoup plus rarement." },
       ],
       faq: [
-        { q: "C'est quoi une action value, par rapport à une action growth ?", a: "Une action value se paie bon marché par rapport aux fondamentaux de l'entreprise (bénéfices, cash, actifs) : tu paies peu pour beaucoup. Une action growth est chère car tu paries sur une forte croissance future, comme dans la tech ou l'IA. La rotation value, c'est quand l'argent quitte la seconde pour la première." },
+        { q: "C'est quoi une action value, par rapport à une action growth ?", a: "Une action value est sous-évaluée par rapport aux fondamentaux de l'entreprise (bénéfices, cash, actifs) : tu paies peu pour beaucoup. Une action growth est chère car tu paries sur une forte croissance future, comme dans la tech ou l'IA. La rotation value, c'est quand l'argent quitte la seconde pour la première." },
         { q: "C'est quoi un value trap, et comment l'éviter ?", a: "Un value trap est une action qui semble pas chère mais le reste, ou baisse encore, parce que l'entreprise décline réellement. Le prix bas n'est pas une décote, c'est un déclin justifié. Pour l'éviter, je juge d'abord la qualité du business (rentabilité, croissance du cash, dette maîtrisée) et je n'achète bon marché que ce qui est aussi solide." },
         { q: "C'est quoi le P/FCF, en clair ?", a: "Le P/FCF (price to free cash flow) rapporte le prix de l'action au free cash flow qu'elle génère chaque année, c'est-à-dire l'argent qui reste vraiment après avoir tout payé. Un P/FCF de 7 veut dire que tu paies sept années de ce cash. Plus il est bas, moins l'action est chère. Le sens compte avant le chiffre." },
         { q: "La rotation value de 2026 est-elle durable ?", a: "Personne ne le sait avec certitude. Neuberger Berman la juge durable : les valeurs value ont un bêta des bénéfices de 1,2 contre 0,8 pour la croissance, donc profitent plus d'une reprise, et les taux élevés les favorisent. Mais WisdomTree a réduit son pari value en juin 2026, jugeant la croissance redevenue plus abordable. Deux avis opposés, d'où ma prudence sur le timing." },
@@ -569,19 +569,19 @@ const techPfcf: Article = {
     fr: {
       title: "Microsoft, Alphabet, Adobe : ces actions sont-elles chères ?",
       excerpt:
-        "Microsoft se paie 49,7 fois son cash, Alphabet 116,6 fois, Adobe 11,7 fois. Trois géants, trois prix qui n'ont rien à voir. Voici comment je lis ces écarts.",
+        "Microsoft se valorise 49,7 fois son free cash flow, Alphabet 116,6 fois, Adobe 11,7 fois. Trois géants, trois prix qui n'ont rien à voir. Voici comment je lis ces écarts.",
       metaDescription:
         "La valorisation de MSFT, GOOGL et ADBE expliquée simplement. Apprends à lire un multiple et à séparer la qualité d'une entreprise de son prix.",
       answer:
-        "Non, pas partout : tout dépend de l'entreprise. Microsoft (49,7 fois son cash) et Alphabet (116,6 fois) se paient comme si la perfection était acquise, alors que leur cash par action stagne ou recule. Adobe (11,7 fois), bien plus solide, est au plus bas de son histoire. Le multiple seul ne dit rien : la croissance derrière décide.",
+        "Non, pas partout : tout dépend de l'entreprise. Microsoft (49,7 fois son free cash flow) et Alphabet (116,6 fois) se valorisent comme si la perfection était acquise, alors que leur cash par action stagne ou recule. Adobe (11,7 fois), bien plus solide, est au plus bas de son histoire. Le multiple seul ne dit rien : la croissance derrière décide.",
       body: [
         { type: 'h2', text: "Pourquoi « la tech est trop chère » ne veut rien dire" },
-        { type: 'p', text: "Tu l'as forcément entendu : « la tech est trop chère ». C'est une phrase qui mélange tout. Microsoft, Alphabet et Adobe sont rangés dans la même case « big tech », mais le marché les valorise de façons radicalement différentes. L'une se paie dix fois plus cher que l'autre pour des qualités comparables. Comprendre pourquoi, c'est apprendre à lire un chiffre tout simple : le prix d'une action rapporté au cash qu'elle génère." },
+        { type: 'p', text: "Tu l'as forcément entendu : « la tech est trop chère ». C'est une phrase qui mélange tout. Microsoft, Alphabet et Adobe sont rangés dans la même case « big tech », mais le marché les valorise de façons radicalement différentes. L'une se valorise dix fois plus cher que l'autre pour des qualités comparables. Comprendre pourquoi, c'est apprendre à lire un chiffre tout simple : le prix d'une action rapporté au cash qu'elle génère." },
         { type: 'p', text: "Ce chiffre s'appelle le P/FCF, pour price to free cash flow. Le free cash flow, c'est l'argent qui reste réellement dans les caisses une fois toutes les factures payées : salaires, machines, impôts, investissements. Pas le bénéfice comptable, qui se maquille facilement, mais le cash. Le P/FCF, c'est le prix de l'action divisé par ce cash annuel. Un P/FCF de 12 veut dire que tu paies aujourd'hui douze années de ce cash. Plus c'est bas, moins c'est cher. Plus c'est haut, plus le marché te demande de croire à une forte croissance future." },
         { type: 'p', text: "Ce nombre s'appelle aussi un « multiple » : combien de fois le cash annuel tu acceptes de payer. Et voici tout l'enjeu de cet article : un multiple élevé n'est pas « cher » dans l'absolu. Il l'est seulement si la croissance ne suit pas. Payer 50 fois le cash d'une entreprise qui double tous les trois ans peut être une affaire. Payer 12 fois le cash d'une entreprise en déclin peut être un piège. Le chiffre ne se juge jamais seul." },
         { type: 'ul', items: [
           "P/FCF : le prix de l'action divisé par le cash qu'elle génère vraiment. 12 = tu paies douze années de ce cash. Bas = bon marché, élevé = cher.",
-          "Microsoft se paie 49,7 fois son cash (qualité 8/10), Alphabet 116,6 fois (6/10), Adobe 11,7 fois (9/10).",
+          "Microsoft se valorise 49,7 fois son free cash flow (qualité 8/10), Alphabet 116,6 fois (6/10), Adobe 11,7 fois (9/10).",
           "Un multiple élevé n'est cher que si la croissance déçoit. Un multiple bas n'est une affaire que si la qualité tient.",
           "Le vrai juge n'est pas le revenu, mais le cash par action : il dit ce que l'actionnaire touche réellement.",
           "Je juge toujours la qualité d'un business et son prix séparément. Mélanger les deux, c'est l'erreur numéro un.",
@@ -592,15 +592,15 @@ const techPfcf: Article = {
         { type: 'h2', text: "Microsoft (MSFT) : une excellente entreprise payée comme si elle allait accélérer" },
         { type: 'p', text: "Microsoft valide 8 critères sur 10. C'est une vraie entreprise d'élite : 39 centimes de marge nette par euro de revenu, un chiffre d'affaires qui croît de 13,5 % par an, et un cycle de trésorerie négatif de 62 jours. Ce dernier point est rare et précieux : ses clients la paient avant qu'elle ne paie ses fournisseurs, exactement comme Costco. L'argent travaille pour elle, pas l'inverse. Elle rachète aussi ses actions régulièrement, ce qui concentre la valeur sur ceux qui restent." },
         { type: 'p', text: "Mais deux voyants clignotent en rouge. Son cash par action ne progresse que de 4,8 % par an, sous mon seuil de 10 %. Et son ratio de conversion du bénéfice en cash n'est que de 0,48 : moins de la moitié des bénéfices deviennent du cash libre. Le coupable a un nom : l'investissement massif dans l'intelligence artificielle. Microsoft brûle du cash en centres de données aujourd'hui, en pariant qu'il reviendra plus tard. C'est peut-être un bon pari, mais en attendant, le cash que touche l'actionnaire stagne." },
-        { type: 'p', text: "Voilà le cœur du problème de prix. À 49,7 fois son cash, le marché paie Microsoft comme si la croissance allait s'accélérer franchement. Mon modèle de valorisation, lui, vise un rendement de 15 % par an et ressort un prix d'achat raisonnable autour de 144 dollars. L'action en vaut 403. Je suis donc à 64 % au-dessus du point d'entrée que je m'autorise : la marge de sécurité est négative. Microsoft reste superbe. Mais à ce prix, tu paies déjà l'accélération avant qu'elle n'arrive." },
+        { type: 'p', text: "Voilà le cœur du problème de prix. À 49,7 fois son free cash flow, le marché paie Microsoft comme si la croissance allait s'accélérer franchement. Mon modèle de valorisation, lui, vise un rendement de 15 % par an et ressort un prix d'achat raisonnable autour de 144 dollars. L'action en vaut 403. Je suis donc à 64 % au-dessus du point d'entrée que je m'autorise : la marge de sécurité est négative. Microsoft reste superbe. Mais à ce prix, tu paies déjà l'accélération avant qu'elle n'arrive." },
         { type: 'h2', text: "Alphabet (GOOGL) : le cas extrême, 116,6 fois un cash qui recule" },
         { type: 'p', text: "Alphabet est le plus déroutant des trois. Sa note de qualité n'est que de 6 sur 10. Deux critères échouent franchement : son cash par action recule de 3 % par an, et son Cash ROCE n'est que de 9,2 %, sous mon seuil de 15 %. Deux autres sont en avertissement, dont une marge de free cash flow de 9,1 %, juste sous la barre des 10 %." },
         { type: 'p', text: "Le paradoxe est saisissant. Alphabet est une machine à transformer ton attention en revenus publicitaires : personne ne fait mieux. Mais transformer ces revenus en cash qui revient à l'actionnaire, c'est une autre histoire. Sa marge de cash n'est que de 9,1 %, et son cash par action baisse depuis cinq ans. Deux raisons : un stock-based compensation énorme, et de lourds investissements. Le stock-based compensation, c'est la rémunération des salariés en actions plutôt qu'en cash. Ça paraît gratuit, mais ça crée de nouvelles actions, donc ça dilue les actionnaires existants : ta part du gâteau rétrécit. Chez Alphabet, ça absorbe 40 % du free cash flow. Énorme." },
-        { type: 'p', text: "Et pourtant, le marché valorise Alphabet à 116,6 fois son cash, soit 7 fois la médiane de son secteur. C'est un multiple qui ne suppose pas une croissance solide : il suppose une accélération spectaculaire d'un cash qui, aujourd'hui, recule. Mon prix d'achat raisonnable ressort à 54 dollars, contre un cours de 364. Une surcote de 85 %. C'est l'illustration parfaite du piège du multiple élevé : tu paies très cher une croissance future que les chiffres actuels ne montrent pas encore." },
+        { type: 'p', text: "Et pourtant, le marché valorise Alphabet à 116,6 fois son free cash flow, soit 7 fois la médiane de son secteur. C'est un multiple qui ne suppose pas une croissance solide : il suppose une accélération spectaculaire d'un cash qui, aujourd'hui, recule. Mon prix d'achat raisonnable ressort à 54 dollars, contre un cours de 364. Une surcote de 85 %. C'est l'illustration parfaite du piège du multiple élevé : tu paies très cher une croissance future que les chiffres actuels ne montrent pas encore." },
         { type: 'h2', text: "Adobe (ADBE) : la qualité la plus haute, au prix le plus bas" },
         { type: 'p', text: "Adobe est le contre-exemple presque parfait. Note de qualité 9 sur 10, soit 23 critères validés sur 25. Une marge de free cash flow de 34 % : sur 100 euros de ventes, 34 finissent en cash disponible, là où la plupart des entreprises plafonnent autour de 10. Un Cash ROCE de 153 %, ce qui est exceptionnel. Un cycle de trésorerie négatif de 28 jours. Et surtout, son cash par action croît de 10,9 % par an : le seul des trois à passer mon seuil. Tout ce qui manque à Microsoft et Alphabet, Adobe l'a." },
         { type: 'p', text: "Et son multiple ? 11,7 fois le cash. Le plus bas de toute son histoire. Le marché a massacré Adobe par peur de l'IA générative, Midjourney et Canva en tête, et parce que sa croissance a ralenti, autour de 11 % par an contre plus de 20 % avant. Mais le free cash flow, lui, continue de monter. Résultat : un écart béant entre la qualité réelle, 9 sur 10, et la peur que le marché projette dessus." },
-        { type: 'p', text: "Attention quand même : moins cher ne veut pas dire donné. Même à 11,7 fois son cash, Adobe n'est pas une affaire évidente à mes yeux. Mon prix d'achat raisonnable ressort à 149 dollars, contre un cours de 238 : encore 37 % au-dessus. La différence, c'est que cette surcote de 37 % est bien plus tolérable que les 64 % de Microsoft ou les 85 % d'Alphabet. Relativement aux deux autres, Adobe est de loin le plus abordable. Tu peux le vérifier sur la page d'analyse d'Adobe." },
+        { type: 'p', text: "Attention quand même : moins cher ne veut pas dire donné. Même à 11,7 fois son free cash flow, Adobe n'est pas une affaire évidente à mes yeux. Mon prix d'achat raisonnable ressort à 149 dollars, contre un cours de 238 : encore 37 % au-dessus. La différence, c'est que cette surcote de 37 % est bien plus tolérable que les 64 % de Microsoft ou les 85 % d'Alphabet. Relativement aux deux autres, Adobe est de loin le plus abordable. Tu peux le vérifier sur la page d'analyse d'Adobe." },
         { type: 'h2', text: "Ce que ces trois cas t'apprennent à lire" },
         { type: 'p', text: "Trois entreprises de la même famille, trois prix qui n'ont rien à voir. Si tu ne devais retenir que trois réflexes :" },
         { type: 'ul', items: [
@@ -614,8 +614,8 @@ const techPfcf: Article = {
       faq: [
         { q: "C'est quoi le P/FCF, en une phrase ?", a: "Le prix de l'action divisé par le free cash flow qu'elle génère chaque année, c'est-à-dire le cash qui reste une fois toutes les factures payées. Un P/FCF de 12 veut dire que tu paies douze années de ce cash : bas = bon marché, élevé = cher." },
         { q: "Un multiple élevé veut-il toujours dire « trop cher » ?", a: "Non. Un multiple élevé signifie que le marché price une forte croissance future. Il n'est trop cher que si cette croissance déçoit. Microsoft à 49,7 fois et Alphabet à 116,6 fois sont chers parce que leur cash par action stagne ou recule, pas parce que le chiffre est haut en soi." },
-        { q: "Pourquoi Alphabet se paie-t-il 116,6 fois son cash ?", a: "Parce que le marché parie sur une accélération spectaculaire de son cash. Mais aujourd'hui ce cash recule de 3 % par an, sa marge de cash n'est que de 9,1 %, et le stock-based compensation, la rémunération en actions qui dilue les actionnaires, absorbe 40 % du free cash flow." },
-        { q: "Adobe à 11,7 fois son cash, c'est une affaire ?", a: "C'est le moins cher des trois et de loin le plus solide (qualité 9/10), mais pas une affaire évidente. Mon prix d'achat raisonnable est de 149 dollars, contre un cours de 238 : encore 37 % au-dessus. Moins cher ne veut pas dire donné." },
+        { q: "Pourquoi Alphabet se valorise-t-il 116,6 fois son free cash flow ?", a: "Parce que le marché parie sur une accélération spectaculaire de son cash. Mais aujourd'hui ce cash recule de 3 % par an, sa marge de cash n'est que de 9,1 %, et le stock-based compensation, la rémunération en actions qui dilue les actionnaires, absorbe 40 % du free cash flow." },
+        { q: "Adobe à 11,7 fois son free cash flow, c'est une affaire ?", a: "C'est le moins cher des trois et de loin le plus solide (qualité 9/10), mais pas une affaire évidente. Mon prix d'achat raisonnable est de 149 dollars, contre un cours de 238 : encore 37 % au-dessus. Moins cher ne veut pas dire donné." },
         { q: "Pourquoi regarder le cash par action plutôt que le chiffre d'affaires ?", a: "Parce que le chiffre d'affaires peut grimper sans que tu en profites : si l'entreprise crée sans cesse de nouvelles actions pour payer ses salariés, ta part rétrécit. Le cash par action mesure ce que l'actionnaire touche réellement, dilution comprise." },
       ],
       tags: ['Analyse', 'Microsoft', 'Alphabet', 'Adobe', 'Valorisation'],
@@ -747,9 +747,9 @@ const afya: Article = {
   "content": {
     "fr": {
       "title": "Afya Limited (AFYA) : la pépite brésilienne bradée",
-      "excerpt": "Une entreprise qui forme les médecins du Brésil, de très grande qualité, et qui se paie à peine plus d'un an de cash généré. Voici pourquoi Afya coche tous mes critères, et où se cache le piège.",
+      "excerpt": "Une entreprise qui forme les médecins du Brésil, de très grande qualité, et qui affiche une valorisation d'à peine un an de cash généré. Voici pourquoi Afya coche tous mes critères, et où se cache le piège.",
       "metaDescription": "Afya Limited (AFYA) expliqué simplement : ce que fait cet acteur de l'éducation médicale au Brésil, son moat réglementaire, ses risques, et pourquoi elle est de très grande qualité.",
-      "answer": "Afya forme les médecins du Brésil, un métier protégé par des licences quasi introuvables. L'entreprise valide mes 10 critères de qualité, fait croître son cash de 28 % par an, et se paie à peine plus d'un an de ce cash. La qualité est rare, le prix encore plus. Voici comment je lis ce dossier.",
+      "answer": "Afya forme les médecins du Brésil, un métier protégé par des licences quasi introuvables. L'entreprise valide mes 10 critères de qualité, fait croître son cash de 28 % par an, et affiche une valorisation d'à peine un an de ce cash. La qualité est rare, le prix encore plus. Voici comment je lis ce dossier.",
       "body": [
         {
           "type": "ul",
@@ -767,7 +767,7 @@ const afya: Article = {
         },
         {
           "type": "p",
-          "text": "La première fois que j'ai vu le prix d'Afya dans mes données, j'ai vérifié deux fois. Une entreprise qui coche tous mes critères de qualité et qui se paie à peine plus d'un an de cash, ça n'arrive presque jamais. Alors j'ai voulu comprendre ce qui se cachait derrière."
+          "text": "La première fois que j'ai vu le prix d'Afya dans mes données, j'ai vérifié deux fois. Une entreprise qui coche tous mes critères de qualité et qui affiche une valorisation d'à peine un an de cash, ça n'arrive presque jamais. Alors j'ai voulu comprendre ce qui se cachait derrière."
         },
         {
           "type": "p",
@@ -839,7 +839,7 @@ const afya: Article = {
         },
         {
           "type": "p",
-          "text": "Pour mesurer le prix, je regarde le P/FCF (price to free cash flow) : le cours de l'action rapporté au cash que l'entreprise génère vraiment chaque année. Un P/FCF de 1,1, ça veut dire qu'au rythme actuel, tu paies à peine plus d'une année de ce cash. Plus c'est bas, moins c'est cher. Afya se paie 1,1 fois son free cash flow. C'est le multiple le plus bas de tout mon palmarès qualité, et la plupart des entreprises solides se paient dix à vingt fois plus."
+          "text": "Pour mesurer le prix, je regarde le P/FCF (price to free cash flow) : le cours de l'action rapporté au cash que l'entreprise génère vraiment chaque année. Un P/FCF de 1,1, ça veut dire qu'au rythme actuel, tu paies à peine plus d'une année de ce cash. Plus c'est bas, moins c'est cher. Afya se valorise 1,1 fois son free cash flow. C'est le multiple le plus bas de tout mon palmarès qualité, et la plupart des entreprises solides se valorisent dix à vingt fois plus."
         },
         {
           "type": "p",
@@ -1291,9 +1291,9 @@ const rnr: Article = {
   "content": {
     "fr": {
       "title": "RenaissanceRe (RNR) : une action de qualité bradée",
-      "excerpt": "Un réassureur d'élite qui se paie aujourd'hui parmi les prix les plus bas de toute son histoire. Voici pourquoi RenaissanceRe coche mes critères de qualité, et le piège que cache son métier.",
+      "excerpt": "Un réassureur d'élite qui affiche aujourd'hui une valorisation parmi les plus basses de toute son histoire. Voici pourquoi RenaissanceRe coche mes critères de qualité, et le piège que cache son métier.",
       "metaDescription": "RenaissanceRe Holdings (RNR) expliqué simplement : ce que fait ce réassureur des Bermudes, son moat, ses risques, et pourquoi il figure parmi mes valeurs de meilleure qualité.",
-      "answer": "RenaissanceRe est un réassureur des Bermudes d'élite : il assure les assureurs contre les grandes catastrophes, avec une discipline de souscription réputée. Il valide mes 10 critères de qualité et obtient 10 sur 10. Et il se paie aujourd'hui parmi les prix les plus bas de toute son histoire. La qualité est rare, ce prix aussi.",
+      "answer": "RenaissanceRe est un réassureur des Bermudes d'élite : il assure les assureurs contre les grandes catastrophes, avec une discipline de souscription réputée. Il valide mes 10 critères de qualité et obtient 10 sur 10. Et il affiche aujourd'hui une valorisation parmi les plus basses de toute son histoire. La qualité est rare, ce prix aussi.",
       "body": [
         {
           "type": "ul",
@@ -1383,7 +1383,7 @@ const rnr: Article = {
         },
         {
           "type": "p",
-          "text": "Pour mesurer le prix, je regarde le P/FCF (price to free cash flow) : le cours de l'action rapporté au cash que l'entreprise génère vraiment chaque année. Un P/FCF de 3, ça veut dire qu'au rythme actuel, tu paies à peine plus de trois années de ce cash. Plus c'est bas, moins c'est cher. RenaissanceRe se paie 3,0 fois son free cash flow, à un cours d'environ 295,75 dollars."
+          "text": "Pour mesurer le prix, je regarde le P/FCF (price to free cash flow) : le cours de l'action rapporté au cash que l'entreprise génère vraiment chaque année. Un P/FCF de 3, ça veut dire qu'au rythme actuel, tu paies à peine plus de trois années de ce cash. Plus c'est bas, moins c'est cher. RenaissanceRe se valorise 3,0 fois son free cash flow, à un cours d'environ 295,75 dollars."
         },
         {
           "type": "p",
@@ -1403,7 +1403,7 @@ const rnr: Article = {
         },
         {
           "type": "p",
-          "text": "Or un P/FCF se calcule sur le cash d'une période donnée. Si ce cash a été dopé par une ou deux années calmes, le ratio paraît artificiellement bas. Le marché le sait : il refuse de payer ce cash comme s'il était récurrent et lisse, parce qu'il ne l'est pas. C'est exactement pour ça qu'un réassureur, même excellent, se paie structurellement un multiple plus bas qu'un éditeur de logiciels au cash régulier. Ce P/FCF de 3 n'est donc pas seulement une aubaine : c'est aussi le prix de l'incertitude."
+          "text": "Or un P/FCF se calcule sur le cash d'une période donnée. Si ce cash a été dopé par une ou deux années calmes, le ratio paraît artificiellement bas. Le marché le sait : il refuse de payer ce cash comme s'il était récurrent et lisse, parce qu'il ne l'est pas. C'est exactement pour ça qu'un réassureur, même excellent, se voit attribuer structurellement un multiple plus bas qu'un éditeur de logiciels au cash régulier. Ce P/FCF de 3 n'est donc pas seulement une aubaine : c'est aussi le prix de l'incertitude."
         },
         {
           "type": "h2",
@@ -1867,7 +1867,7 @@ const meli: Article = {
         },
         {
           "type": "p",
-          "text": "La première fois que j'ai vu les chiffres de MercadoLibre, j'ai relu deux fois. Une entreprise qui grandit de 41 % par an et qui se paie comme une value oubliée, ça ne se croise pas tous les jours. MercadoLibre, c'est le géant de la vente en ligne en Amérique latine (Brésil, Argentine, Mexique), couplé à Mercado Pago, sa banque et son service de paiement. En clair : l'Amazon plus le PayPal d'un continent, dans la même maison."
+          "text": "La première fois que j'ai vu les chiffres de MercadoLibre, j'ai relu deux fois. Une entreprise qui grandit de 41 % par an et qui se valorise comme une value oubliée, ça ne se croise pas tous les jours. MercadoLibre, c'est le géant de la vente en ligne en Amérique latine (Brésil, Argentine, Mexique), couplé à Mercado Pago, sa banque et son service de paiement. En clair : l'Amazon plus le PayPal d'un continent, dans la même maison."
         },
         {
           "type": "p",
@@ -2297,15 +2297,15 @@ const pfcfSous5x: Article = {
   "content": {
     "fr": {
       "title": "Actions de qualité très bradées : aubaine ou piège ?",
-      "excerpt": "Sept entreprises de très grande qualité se paient moins de 5 ans du cash qu'elles génèrent. Aubaine ou piège ? Voici comment je sépare la qualité du prix, et pourquoi le marché doute.",
-      "metaDescription": "Sept actions de très grande qualité se paient très bon marché en juin 2026. Vraie décote ou piège de valeur ? Ma méthode pour séparer la qualité du prix du marché.",
-      "answer": "En juin 2026, sept entreprises que je note 10/10 sur la qualité se paient moins de 5 ans du cash qu'elles génèrent. C'est rare, et tentant. Mais un prix très bas cache souvent une raison. Voici comment je sépare la qualité du prix, et pourquoi je creuse toujours le doute du marché avant de conclure.",
+      "excerpt": "Sept entreprises de très grande qualité affichent une valorisation de moins de 5 ans du cash qu'elles génèrent. Aubaine ou piège ? Voici comment je sépare la qualité du prix, et pourquoi le marché doute.",
+      "metaDescription": "Sept actions de très grande qualité se valorisent très bon marché en juin 2026. Vraie décote ou piège de valeur ? Ma méthode pour séparer la qualité du prix du marché.",
+      "answer": "En juin 2026, sept entreprises que je note 10/10 sur la qualité affichent une valorisation de moins de 5 ans du cash qu'elles génèrent. C'est rare, et tentant. Mais un prix très bas cache souvent une raison. Voici comment je sépare la qualité du prix, et pourquoi je creuse toujours le doute du marché avant de conclure.",
       "body": [
         {
           "type": "ul",
           "items": [
             "Sept actions que je note 10/10 sur la qualité affichent un P/FCF sous 5 en juin 2026 : tu les paies moins de cinq ans du cash qu'elles génèrent.",
-            "La plus extrême : Afya, à 1,1 fois son cash, soit à peine plus d'un an. Universal Insurance à 2,9, RenaissanceRe à 3,0.",
+            "La plus extrême : Afya, à 1,1 fois son free cash flow, soit à peine plus d'un an. Universal Insurance à 2,9, RenaissanceRe à 3,0.",
             "Beaucoup sont des assureurs ou des réassureurs : ce n'est pas un hasard, c'est le coeur de l'article.",
             "Un P/FCF très bas n'est pas une preuve d'aubaine : ce peut être une vraie décote, ou un piège de valeur si le marché doute pour une bonne raison.",
             "Ma règle, le fil de tout ce qui suit : juger la qualité du business et le prix de l'action séparément, puis comprendre pourquoi le marché doute."
@@ -2354,7 +2354,7 @@ const pfcfSous5x: Article = {
         {
           "type": "ul",
           "items": [
-            "Afya (AFYA), éducation médicale au Brésil : 1,1 fois son cash. Tu la paies à peine plus d'un an de free cash flow.",
+            "Afya (AFYA), éducation médicale au Brésil : 1,1 fois son free cash flow. Tu la paies à peine plus d'un an de free cash flow.",
             "Universal Insurance (UVE), assurance habitation : 2,9 fois. Moins de trois ans de cash.",
             "RenaissanceRe (RNR), réassurance : 3,0 fois.",
             "Collegium Pharmaceutical (COLL), pharmacie spécialisée : 3,8 fois.",
@@ -2377,7 +2377,7 @@ const pfcfSous5x: Article = {
         },
         {
           "type": "p",
-          "text": "C'est là que la cyclicité devient un piège pour l'oeil non averti. Un assureur à 3 fois son cash n'est pas forcément trois fois moins cher qu'un autre à 9 fois : il peut simplement sortir d'une année exceptionnellement clémente que personne ne croit reproductible. Le bas P/FCF reflète alors un doute légitime, pas une erreur du marché."
+          "text": "C'est là que la cyclicité devient un piège pour l'oeil non averti. Un assureur à 3 fois son free cash flow n'est pas forcément trois fois moins cher qu'un autre à 9 fois : il peut simplement sortir d'une année exceptionnellement clémente que personne ne croit reproductible. Le bas P/FCF reflète alors un doute légitime, pas une erreur du marché."
         },
         {
           "type": "p",
@@ -2843,7 +2843,7 @@ const reperer10sous: Article = {
         },
         {
           "type": "p",
-          "text": "Je préfère cette mesure à un simple \"c'est moins cher que la moyenne du secteur\", parce qu'elle compare l'entreprise à elle-même. Une excellente entreprise mérite souvent un multiple plus élevé que la moyenne. Ce que je cherche, ce n'est pas qu'elle soit absolument la moins chère du marché, c'est qu'elle se paie peu cher par rapport à son propre standard. Quand le percentile est dans le décile bas (les 10 % les moins chers de son histoire), le marché lui fait un prix inhabituel."
+          "text": "Je préfère cette mesure à un simple \"c'est moins cher que la moyenne du secteur\", parce qu'elle compare l'entreprise à elle-même. Une excellente entreprise mérite souvent un multiple plus élevé que la moyenne. Ce que je cherche, ce n'est pas qu'elle soit absolument la moins chère du marché, c'est qu'elle se valorise peu cher par rapport à son propre standard. Quand le percentile est dans le décile bas (les 10 % les moins chers de son histoire), le marché lui fait un prix inhabituel."
         },
         {
           "type": "h2",
@@ -2855,11 +2855,11 @@ const reperer10sous: Article = {
         },
         {
           "type": "p",
-          "text": "Trois cas vérifiés en juin 2026, sans rien inventer sur les chiffres. RenaissanceRe (ticker RNR), un réassureur, note 10/10 et se paie 3,0× son free cash flow, au percentile 4 : moins cher que pendant 96 % de son passé. MercadoLibre (ticker MELI), le géant du e-commerce et du paiement en Amérique latine, note 10/10 à 6,8×, au percentile 0, soit le point le moins cher jamais observé. Roper (ticker ROP), un conglomérat de logiciels, note 10/10 à 14,4×, au percentile 8."
+          "text": "Trois cas vérifiés en juin 2026, sans rien inventer sur les chiffres. RenaissanceRe (ticker RNR), un réassureur, note 10/10 et se valorise 3,0× son free cash flow, au percentile 4 : moins cher que pendant 96 % de son passé. MercadoLibre (ticker MELI), le géant du e-commerce et du paiement en Amérique latine, note 10/10 à 6,8×, au percentile 0, soit le point le moins cher jamais observé. Roper (ticker ROP), un conglomérat de logiciels, note 10/10 à 14,4×, au percentile 8."
         },
         {
           "type": "p",
-          "text": "Note bien : Roper se paie 14,4×, presque cinq fois plus cher que RenaissanceRe en valeur absolue. Pourtant les deux sont des opportunités. Pourquoi. Parce que 14,4× est bas pour Roper, une entreprise qui a presque toujours mérité un multiple élevé. C'est exactement pour ça que je compare chaque action à son propre passé, et pas seulement à ses voisines. Tu peux retrouver ce genre de profils dans mon [classement des actions sous-évaluées](/classement/sous-evaluees)."
+          "text": "Note bien : Roper se valorise 14,4×, presque cinq fois plus cher que RenaissanceRe en valeur absolue. Pourtant les deux sont des opportunités. Pourquoi. Parce que 14,4× est bas pour Roper, une entreprise qui a presque toujours mérité un multiple élevé. C'est exactement pour ça que je compare chaque action à son propre passé, et pas seulement à ses voisines. Tu peux retrouver ce genre de profils dans mon [classement des actions sous-évaluées](/classement/sous-evaluees)."
         },
         {
           "type": "h2",
@@ -2883,7 +2883,7 @@ const reperer10sous: Article = {
         },
         {
           "type": "p",
-          "text": "Ma routine tient en trois gestes. Un : je regarde la note sur 10. Si elle n'est pas excellente, je m'arrête là, peu importe le prix. Deux : si elle est bonne, je regarde le P/FCF et surtout son percentile, pour savoir si l'action se paie cher ou pas par rapport à son propre passé. Trois : je n'agis que quand les deux s'alignent, et sinon je note le ticker et j'attends que le prix vienne à moi."
+          "text": "Ma routine tient en trois gestes. Un : je regarde la note sur 10. Si elle n'est pas excellente, je m'arrête là, peu importe le prix. Deux : si elle est bonne, je regarde le P/FCF et surtout son percentile, pour savoir si l'action se valorise cher ou pas par rapport à son propre passé. Trois : je n'agis que quand les deux s'alignent, et sinon je note le ticker et j'attends que le prix vienne à moi."
         },
         {
           "type": "p",
@@ -2913,7 +2913,7 @@ const reperer10sous: Article = {
         },
         {
           "q": "Pourquoi juger la qualité et le prix séparément ?",
-          "a": "Parce que ce sont deux questions différentes. Une entreprise géniale payée trop cher reste un mauvais placement ; une entreprise médiocre, même bradée, reste médiocre. En les jugeant à part, je repère les rares cas où un excellent business se paie à un prix inhabituellement bas, et j'évite de confondre une décote avec un déclin."
+          "a": "Parce que ce sont deux questions différentes. Une entreprise géniale payée trop cher reste un mauvais placement ; une entreprise médiocre, même bradée, reste médiocre. En les jugeant à part, je repère les rares cas où un excellent business se valorise à un prix inhabituellement bas, et j'évite de confondre une décote avec un déclin."
         },
         {
           "q": "Un P/FCF bas, est-ce toujours une bonne affaire ?",
@@ -3271,7 +3271,7 @@ const topMoinsCheres: Article = {
       "title": "Les actions de qualité les moins chères de 2026",
       "excerpt": "Cinq entreprises à la qualité comptable parfaite, payées une à quatre années de cash. Ce que chacune fait, et pourquoi le marché les boude encore.",
       "metaDescription": "Cinq actions de très grande qualité payées entre 1,1 et 3,9 fois leur cash en juin 2026 : ce que fait chaque entreprise, et la tension qui les rend si peu chères.",
-      "answer": "En juin 2026, cinq actions cumulent une qualité comptable parfaite, notée 10/10, et un prix très bas. Afya, Universal Insurance, RenaissanceRe, Collegium et SkyWest se paient entre 1,1 et 3,9 fois leur cash annuel. Bonne note ne veut pas dire bonne affaire : chacune porte une tension qui explique ce prix.",
+      "answer": "En juin 2026, cinq actions cumulent une qualité comptable parfaite, notée 10/10, et un prix très bas. Afya, Universal Insurance, RenaissanceRe, Collegium et SkyWest se valorisent entre 1,1 et 3,9 fois leur cash annuel. Bonne note ne veut pas dire bonne affaire : chacune porte une tension qui explique ce prix.",
       "body": [
         {
           "type": "ul",
@@ -3325,7 +3325,7 @@ const topMoinsCheres: Article = {
         },
         {
           "type": "p",
-          "text": "Secteur : assurance. Universal Insurance assure surtout des habitations en Floride. À 2,9 fois son cash, l'action est très bon marché pour une entreprise notée 10/10. Et là, la tension saute aux yeux : la Floride, c'est l'État des ouragans."
+          "text": "Secteur : assurance. Universal Insurance assure surtout des habitations en Floride. À 2,9 fois son free cash flow, l'action est très bon marché pour une entreprise notée 10/10. Et là, la tension saute aux yeux : la Floride, c'est l'État des ouragans."
         },
         {
           "type": "p",
@@ -3337,7 +3337,7 @@ const topMoinsCheres: Article = {
         },
         {
           "type": "p",
-          "text": "Secteur : réassurance. RenaissanceRe est un réassureur : en clair, l'assureur des assureurs. Quand une compagnie d'assurance veut se protéger d'un sinistre géant, elle se réassure auprès d'acteurs comme RNR. À 3,0 fois son cash, c'est l'une des affaires les plus solides de cette liste, et pourtant l'une des moins chères."
+          "text": "Secteur : réassurance. RenaissanceRe est un réassureur : en clair, l'assureur des assureurs. Quand une compagnie d'assurance veut se protéger d'un sinistre géant, elle se réassure auprès d'acteurs comme RNR. À 3,0 fois son free cash flow, c'est l'une des affaires les plus solides de cette liste, et pourtant l'une des moins chères."
         },
         {
           "type": "p",
@@ -3349,7 +3349,7 @@ const topMoinsCheres: Article = {
         },
         {
           "type": "p",
-          "text": "Secteur : pharmacie. Collegium Pharmaceutical commercialise des traitements de la douleur, dont une gamme conçue pour limiter les abus. À 3,8 fois son cash, l'action reste très peu chère. Mais ici, la tension a un nom précis que tout investisseur en pharma connaît : le mur des brevets."
+          "text": "Secteur : pharmacie. Collegium Pharmaceutical commercialise des traitements de la douleur, dont une gamme conçue pour limiter les abus. À 3,8 fois son free cash flow, l'action reste très peu chère. Mais ici, la tension a un nom précis que tout investisseur en pharma connaît : le mur des brevets."
         },
         {
           "type": "p",
@@ -3361,7 +3361,7 @@ const topMoinsCheres: Article = {
         },
         {
           "type": "p",
-          "text": "Secteur : transport aérien. SkyWest opère des vols régionaux aux États-Unis, le plus souvent sous les couleurs des grandes compagnies (American, Delta, United) via des contrats. À 3,9 fois son cash, c'est la cinquième de mon classement, et la tension est celle de tout le secteur aérien : la cyclicité."
+          "text": "Secteur : transport aérien. SkyWest opère des vols régionaux aux États-Unis, le plus souvent sous les couleurs des grandes compagnies (American, Delta, United) via des contrats. À 3,9 fois son free cash flow, c'est la cinquième de mon classement, et la tension est celle de tout le secteur aérien : la cyclicité."
         },
         {
           "type": "p",
@@ -3711,994 +3711,6 @@ const topMoinsCheres: Article = {
   }
 };
 
-const reassurance: Article = {
-  "slug": "meilleures-actions-reassurance-10-10",
-  "date": "2026-06-11",
-  "updated": "2026-06-11",
-  "readingTime": 10,
-  "content": {
-    "fr": {
-      "title": "Réassurance : les meilleures actions de qualité",
-      "excerpt": "Un secteur que le marché trouve ennuyeux et volatil, et qui cache pourtant des machines à cash de très grande qualité. Voici ce que je regarde, et pourquoi.",
-      "metaDescription": "Réassurance et assurance : pourquoi ce secteur négligé abrite des actions de très grande qualité chez moi (RNR, ACGL). Qualité, prix, et le vrai risque, expliqués.",
-      "answer": "La réassurance passe pour ennuyeuse et imprévisible, alors qu'elle abrite des entreprises notées 10/10 chez moi : très rentables, peu endettées, parfois bradées. RenaissanceRe et Arch Capital en sont les vedettes. Le piège : leurs résultats sont volatils à cause des catastrophes. Voici comment je sépare la qualité du prix.",
-      "body": [
-        {
-          "type": "ul",
-          "items": [
-            "La réassurance, c'est l'assurance des assureurs : un métier souvent perçu comme ennuyeux et imprévisible, donc délaissé par le marché.",
-            "Plusieurs de ces entreprises décrochent pourtant la note maximale chez moi, 10 sur 10, sur des critères de qualité purement financiers.",
-            "RenaissanceRe (RNR) se paie environ 3 fois son cash annuel (P/FCF 3,0), Arch Capital (ACGL) environ 5,6 fois : c'est très bon marché.",
-            "Leur force : discipline de souscription, cycle dur favorable, et un float investi qui rapporte en plus.",
-            "Le vrai trade-off : qualité solide et prix bas, mais des résultats qui peuvent plonger une année de grosses catastrophes."
-          ]
-        },
-        {
-          "type": "h2",
-          "text": "Le secteur que personne ne veut regarder"
-        },
-        {
-          "type": "p",
-          "text": "Quand je parle de réassurance, je vois souvent la même réaction : un haussement d'épaules. C'est perçu comme ennuyeux, technique, et surtout imprévisible. Une grosse saison d'ouragans, un tremblement de terre, et les résultats d'une réassureuse peuvent plonger. Le marché déteste ça. Du coup, il a tendance à délaisser tout le secteur, à le ranger dans la case cyclique sans intérêt."
-        },
-        {
-          "type": "p",
-          "text": "Et c'est précisément ce désintérêt qui crée l'occasion. Plusieurs de ces entreprises décrochent chez moi la note maximale, 10 sur 10, tout en se payant moins cher que la plupart des belles actions de la cote. Avant d'aller plus loin, je veux que tu comprennes le métier, parce que sans ça les chiffres ne veulent rien dire."
-        },
-        {
-          "type": "h2",
-          "text": "C'est quoi, la réassurance ?"
-        },
-        {
-          "type": "p",
-          "text": "Ton assureur auto ou habitation, lui aussi, a peur de la catastrophe. Si un ouragan détruit dix mille maisons d'un coup, il ne peut pas tout payer seul. Alors il s'assure à son tour, auprès d'un réassureur. La réassurance, c'est donc l'assurance des assureurs : elle prend en charge une partie des très gros risques, contre une prime."
-        },
-        {
-          "type": "p",
-          "text": "Pourquoi ce métier peut être extrêmement rentable ? Trois leviers. D'abord la discipline de souscription : souscrire, c'est accepter de couvrir un risque à un certain prix. Une réassureuse de qualité refuse les mauvais risques, même quand la concurrence brade ses tarifs. Ensuite le cycle : après une grosse catastrophe, les capacités se raréfient, les prix montent fort. On appelle ça un cycle dur, et c'est le moment où les meilleures gagnent le plus. Enfin le float : l'argent des primes encaissées avant de payer les sinistres. En attendant, la réassureuse l'investit et garde les revenus. C'est le secret de Warren Buffett avec l'assurance : on est payé pour détenir l'argent des autres."
-        },
-        {
-          "type": "h2",
-          "text": "Comment je note la qualité, séparément du prix"
-        },
-        {
-          "type": "p",
-          "text": "Voici ma règle de base, le fil de tout ce que je fais : je juge la qualité d'une entreprise et le prix de son action comme deux questions complètement distinctes. Une entreprise géniale payée trop cher reste un mauvais placement. Une entreprise médiocre bradée reste médiocre. Confondre les deux, c'est l'erreur numéro un, et je l'explique en détail dans ma [méthodologie](/methodologie)."
-        },
-        {
-          "type": "p",
-          "text": "La note sur 10 ne regarde que la qualité du business, jamais le prix. Je passe l'entreprise au crible de critères financiers concrets : est-elle vraiment rentable, ses ventes et son cash augmentent-ils, sa dette est-elle maîtrisée, rend-elle bien le capital ? Un 10 sur 10 veut dire qu'elle coche tout. Deux chiffres reviennent souvent dans mon analyse, alors autant te les expliquer tout de suite."
-        },
-        {
-          "type": "p",
-          "text": "La marge nette, d'abord : sur 100 euros de ventes, combien finissent en bénéfice net une fois tout payé. Une marge nette de 24 % chez RenaissanceRe veut dire que sur 100 euros de primes, 24 restent en bénéfice. C'est énorme pour de l'assurance. Le Cash ROCE ensuite : le rendement du capital employé, version cash. En clair, pour chaque euro immobilisé dans le business, combien de cash il génère chaque année. Un Cash ROCE de 31 %, ça veut dire 31 centimes de cash par euro employé, an après an. C'est le signe d'une machine qui transforme efficacement le capital en argent réel."
-        },
-        {
-          "type": "h2",
-          "text": "RenaissanceRe (RNR) : la machine de souscription"
-        },
-        {
-          "type": "p",
-          "text": "RenaissanceRe est une réassureuse basée aux Bermudes, spécialiste reconnu des risques catastrophe. Elle décroche chez moi le 10 sur 10. Sa marge nette atteint 24 %, son Cash ROCE 31 %, et elle ne porte quasiment pas de dette. Cette combinaison est rare : forte rentabilité, capital qui travaille dur, bilan propre. Quand une année se passe mal côté sinistres, un bilan sans dette est exactement ce qui permet de tenir et de rebondir."
-        },
-        {
-          "type": "p",
-          "text": "Et le prix ? Son P/FCF tourne autour de 3,0. Le P/FCF, c'est le prix de l'action divisé par le cash qu'elle génère chaque année. Un P/FCF de 3, ça veut dire que tu paies à peine trois années du cash produit : très bon marché. Pour situer, ce niveau la place dans le percentile 4. Le percentile, c'est la position dans un classement de 0 à 100 : être au percentile 4, ça veut dire que seules 4 % des actions sont aussi bon marché ou plus. Autrement dit, presque rien n'est moins cher. Le détail chiffré est sur sa [fiche d'analyse RenaissanceRe](/analyse/RNR)."
-        },
-        {
-          "type": "h2",
-          "text": "Arch Capital (ACGL) : la croissance disciplinée"
-        },
-        {
-          "type": "p",
-          "text": "Arch Capital est un profil un peu différent : un groupe diversifié qui fait à la fois de l'assurance et de la réassurance, ce qui lisse une partie de la volatilité. Elle obtient aussi le 10 sur 10. Sa marge nette est de 26 %, son Cash ROCE de 24 %, et surtout son chiffre d'affaires croît d'environ 23 % par an. Une croissance pareille, sur un métier aussi rentable, c'est exactement le profil que je cherche."
-        },
-        {
-          "type": "p",
-          "text": "Côté prix, son P/FCF est d'environ 5,6. C'est plus cher que RenaissanceRe, et c'est logique : le marché paie un peu plus pour la diversification et la croissance. Mais 5,6 fois le cash, pour une entreprise notée 10 sur 10 qui grossit de plus de 20 % par an, ça reste modeste. Tu trouveras le détail sur sa [fiche d'analyse Arch Capital](/analyse/ACGL)."
-        },
-        {
-          "type": "h2",
-          "text": "Les autres 10 sur 10 du même panier"
-        },
-        {
-          "type": "p",
-          "text": "La réassurance pure n'est pas seule dans cette poche de qualité. Dans le même panier d'assureurs notés 10 sur 10, je retrouve Kinsale, un spécialiste de l'assurance de niche, autour de 7,1 fois son cash. W. R. Berkley, assureur diversifié de long terme, autour de 7,0 fois. Et Progressive, le géant de l'assurance auto américaine, autour de 7,4 fois. Trois business très différents, une même note maximale, et des prix qui restent raisonnables."
-        },
-        {
-          "type": "p",
-          "text": "Si tu veux voir tous les business qui décrochent le maximum, je tiens un [classement des actions notées 10 sur 10](/classement/qualite-10-sur-10). Et si c'est le prix qui te motive, mon [classement des actions sous-évaluées](/classement/sous-evaluees) part du même principe : la qualité d'abord, le prix ensuite."
-        },
-        {
-          "type": "h2",
-          "text": "Pourquoi le marché délaisse tout ça"
-        },
-        {
-          "type": "p",
-          "text": "Si ces entreprises sont si bonnes et si peu chères, où est le piège ? Il est réel, et je ne vais pas te le cacher. Les résultats d'une réassureuse sont volatils. Une année calme côté catastrophes, le bénéfice explose. Une année avec deux ouragans majeurs, il peut s'effondrer, voire virer au rouge. Le marché déteste cette imprévisibilité, et il préfère payer cher une croissance régulière et lisse plutôt qu'un bénéfice en dents de scie."
-        },
-        {
-          "type": "p",
-          "text": "C'est ça, le vrai trade-off : qualité solide et prix bas, contre volatilité des sinistres. Un P/FCF de 3 n'est pas un cadeau gratuit, c'est la prime que le marché exige pour accepter de ne pas savoir ce que rapportera l'an prochain. La vraie question, celle qui décide tout, c'est : crois-tu que sur un cycle complet, sur cinq ou dix ans, la discipline de souscription et le float l'emportent sur les mauvaises années ? Si oui, ces prix sont anormalement bas. Sinon, mieux vaut passer ton chemin."
-        },
-        {
-          "type": "h2",
-          "text": "Comment je m'en sers"
-        },
-        {
-          "type": "p",
-          "text": "Je n'achète jamais un secteur parce qu'il est bon marché. Je commence par la qualité : le 10 sur 10 me dit que le business tient debout. Ensuite seulement je regarde le prix, et je note un point d'entrée raisonnable. Pour un métier volatil comme la réassurance, je raisonne sur la moyenne d'un cycle, pas sur l'année en cours, et j'accepte d'avance que certaines années seront moches. C'est le prix de l'entrée. C'est exactement pour pouvoir trancher ça en quelques secondes, qualité d'un côté, prix de l'autre, que j'ai construit mon site d'investissement."
-        }
-      ],
-      "faq": [
-        {
-          "q": "C'est quoi, la réassurance, en une phrase ?",
-          "a": "C'est l'assurance des assureurs : un réassureur prend en charge une partie des très gros risques d'une compagnie d'assurance, contre une prime, pour qu'une catastrophe ne mette pas l'assureur à terre."
-        },
-        {
-          "q": "Pourquoi un P/FCF de 3 est-il considéré comme bon marché ?",
-          "a": "Le P/FCF est le prix de l'action divisé par le cash généré chaque année. À 3, tu paies à peine trois années de ce cash. C'est très bas : seules quelques pour cent des actions sont aussi peu chères. Mais bas marché ne veut pas dire bonne affaire si le risque est élevé."
-        },
-        {
-          "q": "Que veut dire la note 10 sur 10 ?",
-          "a": "Elle mesure uniquement la qualité du business, jamais le prix. Un 10 sur 10 coche tous mes critères financiers : rentabilité, croissance, faible dette, bon rendement du capital. Le prix se juge séparément, dans un second temps."
-        },
-        {
-          "q": "Quel est le principal risque de la réassurance ?",
-          "a": "La volatilité des sinistres. Une année de grosses catastrophes peut faire plonger les bénéfices, voire les rendre négatifs. C'est pour ça que le marché délaisse le secteur, et c'est ce qui crée à la fois le prix bas et le risque."
-        },
-        {
-          "q": "RenaissanceRe ou Arch Capital, laquelle choisir ?",
-          "a": "Ce sont deux profils. RenaissanceRe est moins chère (P/FCF 3,0) et plus concentrée sur la catastrophe. Arch Capital est plus chère (5,6) mais diversifiée et en forte croissance, environ 23 % par an. Ceci n'est pas un conseil, fais tes propres recherches."
-        }
-      ],
-      "tags": [
-        "Palmarès",
-        "Réassurance",
-        "Assurance",
-        "Qualité",
-        "Valorisation"
-      ],
-      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches."
-    },
-    "en": {
-      "title": "Reinsurance: the best quality stocks to know",
-      "excerpt": "A sector the market finds boring and volatile, yet it hides cash machines I rate 10 out of 10. Here is what I look at, and why.",
-      "metaDescription": "Reinsurance and insurance: why this neglected sector hides stocks I rate 10 out of 10 (RNR, ACGL). Quality, price, and the real risk, explained simply.",
-      "answer": "Reinsurance looks boring and unpredictable, yet it hides companies I rate 10 out of 10: highly profitable, low debt, sometimes dirt cheap. RenaissanceRe and Arch Capital are the stars. The catch: their results are volatile because of catastrophes. Here is how I separate quality from price.",
-      "body": [
-        {
-          "type": "ul",
-          "items": [
-            "Reinsurance is insurance for insurers: a business widely seen as boring and unpredictable, so the market neglects it.",
-            "Yet several of these companies earn my top score, 10 out of 10, on purely financial quality criteria.",
-            "RenaissanceRe (RNR) trades at about 3 times its annual cash (P/FCF 3.0), Arch Capital (ACGL) at about 5.6 times: very cheap.",
-            "Their edge: underwriting discipline, a favorable hard cycle, and an invested float that earns extra income.",
-            "The real trade-off: solid quality and a low price, but results that can sink in a heavy catastrophe year."
-          ]
-        },
-        {
-          "type": "h2",
-          "text": "The sector nobody wants to look at"
-        },
-        {
-          "type": "p",
-          "text": "When I bring up reinsurance, I usually get the same reaction: a shrug. It is seen as boring, technical, and above all unpredictable. One big hurricane season, one earthquake, and a reinsurer's results can sink. The market hates that. So it tends to neglect the whole sector, filing it under dull and cyclical."
-        },
-        {
-          "type": "p",
-          "text": "And that very lack of interest is what creates the opportunity. Several of these companies earn my top score, 10 out of 10, while trading cheaper than most of the fine stocks on the market. Before going further, I want you to understand the business, because without that the numbers mean nothing."
-        },
-        {
-          "type": "h2",
-          "text": "What is reinsurance?"
-        },
-        {
-          "type": "p",
-          "text": "Your car or home insurer is also afraid of catastrophe. If a hurricane destroys ten thousand homes at once, it cannot pay for everything alone. So it insures itself in turn, with a reinsurer. Reinsurance is therefore insurance for insurers: it takes on part of the very large risks in exchange for a premium."
-        },
-        {
-          "type": "p",
-          "text": "Why can this business be extremely profitable? Three levers. First, underwriting discipline: to underwrite is to agree to cover a risk at a certain price. A quality reinsurer refuses bad risks, even when rivals slash their rates. Second, the cycle: after a big catastrophe, capacity becomes scarce and prices rise sharply. That is called a hard cycle, and it is when the best ones earn the most. Third, the float: the premium money collected before claims are paid. In the meantime, the reinsurer invests it and keeps the income. That is Warren Buffett's secret with insurance: you are paid to hold other people's money."
-        },
-        {
-          "type": "h2",
-          "text": "How I score quality, separately from price"
-        },
-        {
-          "type": "p",
-          "text": "Here is my ground rule, the thread through everything I do: I judge the quality of a company and the price of its stock as two completely separate questions. A great company bought too expensive is still a bad investment. A mediocre company, even dirt cheap, stays mediocre. Confusing the two is the number one mistake, and I explain it in detail in my [methodology](/methodologie)."
-        },
-        {
-          "type": "p",
-          "text": "The score out of 10 looks only at the quality of the business, never the price. I run the company through concrete financial criteria: is it truly profitable, are its sales and cash growing, is its debt manageable, does it return capital well? A 10 out of 10 means it ticks everything. Two numbers come up often in my analysis, so let me explain them right away."
-        },
-        {
-          "type": "p",
-          "text": "Net margin first: out of 100 dollars of sales, how many end up as net profit once everything is paid. A 24% net margin at RenaissanceRe means that out of 100 dollars of premiums, 24 stay as profit. That is huge for insurance. Then Cash ROCE: the return on capital employed, the cash version. In plain terms, for each dollar tied up in the business, how much cash it generates each year. A Cash ROCE of 31% means 31 cents of cash per dollar employed, year after year. It is the mark of a machine that turns capital into real money efficiently."
-        },
-        {
-          "type": "h2",
-          "text": "RenaissanceRe (RNR): the underwriting machine"
-        },
-        {
-          "type": "p",
-          "text": "RenaissanceRe is a Bermuda-based reinsurer, a recognized specialist in catastrophe risk. It earns my 10 out of 10. Its net margin reaches 24%, its Cash ROCE 31%, and it carries almost no debt. That combination is rare: high profitability, hard-working capital, a clean balance sheet. When a year goes badly on claims, a debt-free balance sheet is exactly what lets it hold on and bounce back."
-        },
-        {
-          "type": "p",
-          "text": "And the price? Its P/FCF is around 3.0. The P/FCF is the share price divided by the cash it generates each year. A P/FCF of 3 means you are paying barely three years of the cash produced: very cheap. To put it in context, that level places it in the 4th percentile. A percentile is the position in a ranking from 0 to 100: being in the 4th percentile means only 4% of stocks are this cheap or cheaper. In other words, almost nothing is cheaper. The full figures are on its [RenaissanceRe analysis page](/analyse/RNR)."
-        },
-        {
-          "type": "h2",
-          "text": "Arch Capital (ACGL): disciplined growth"
-        },
-        {
-          "type": "p",
-          "text": "Arch Capital is a slightly different profile: a diversified group doing both insurance and reinsurance, which smooths part of the volatility. It also earns the 10 out of 10. Its net margin is 26%, its Cash ROCE 24%, and above all its revenue grows about 23% a year. Growth like that, in a business this profitable, is exactly the profile I am looking for."
-        },
-        {
-          "type": "p",
-          "text": "On price, its P/FCF is about 5.6. That is more expensive than RenaissanceRe, and it makes sense: the market pays a bit more for diversification and growth. But 5.6 times cash, for a company rated 10 out of 10 growing more than 20% a year, stays modest. You will find the details on its [Arch Capital analysis page](/analyse/ACGL)."
-        },
-        {
-          "type": "h2",
-          "text": "The other 10 out of 10 names in the same basket"
-        },
-        {
-          "type": "p",
-          "text": "Pure reinsurance is not alone in this quality pocket. In the same basket of insurers rated 10 out of 10, I find Kinsale, a niche insurance specialist, at about 7.1 times its cash. W. R. Berkley, a long-term diversified insurer, at about 7.0 times. And Progressive, the giant of US auto insurance, at about 7.4 times. Three very different businesses, the same top score, and prices that stay reasonable."
-        },
-        {
-          "type": "p",
-          "text": "If you want to see every business earning the top mark, I keep a [ranking of stocks rated 10 out of 10](/classement/qualite-10-sur-10). And if price is what drives you, my [ranking of undervalued stocks](/classement/sous-evaluees) starts from the same principle: quality first, price second."
-        },
-        {
-          "type": "h2",
-          "text": "Why the market neglects all this"
-        },
-        {
-          "type": "p",
-          "text": "If these companies are so good and so cheap, where is the catch? It is real, and I will not hide it from you. A reinsurer's results are volatile. A calm catastrophe year, and profit soars. A year with two major hurricanes, and it can collapse, even turn red. The market hates that unpredictability, and it would rather pay up for steady, smooth growth than for jagged earnings."
-        },
-        {
-          "type": "p",
-          "text": "That is the real trade-off: solid quality and a low price, against the volatility of claims. A P/FCF of 3 is not a free gift, it is the premium the market demands for accepting that it cannot know what next year will earn. The real question, the one that decides everything, is this: do you believe that over a full cycle, over five or ten years, underwriting discipline and the float outweigh the bad years? If yes, these prices are abnormally low. If not, better to walk away."
-        },
-        {
-          "type": "h2",
-          "text": "How I use this"
-        },
-        {
-          "type": "p",
-          "text": "I never buy a sector just because it is cheap. I start with quality: the 10 out of 10 tells me the business stands up. Only then do I look at the price, and I note a reasonable entry point. For a volatile business like reinsurance, I think in terms of a cycle average, not the current year, and I accept in advance that some years will be ugly. That is the cost of entry. It is precisely to settle that in a few seconds, quality on one side, price on the other, that I built my investment site."
-        }
-      ],
-      "faq": [
-        {
-          "q": "What is reinsurance, in one sentence?",
-          "a": "It is insurance for insurers: a reinsurer takes on part of an insurance company's very large risks in exchange for a premium, so that a catastrophe does not bring the insurer down."
-        },
-        {
-          "q": "Why is a P/FCF of 3 considered cheap?",
-          "a": "The P/FCF is the share price divided by the cash generated each year. At 3, you pay barely three years of that cash. That is very low: only a few percent of stocks are this cheap. But low price does not mean a bargain if the risk is high."
-        },
-        {
-          "q": "What does a score of 10 out of 10 mean?",
-          "a": "It measures only the quality of the business, never the price. A 10 out of 10 ticks all my financial criteria: profitability, growth, low debt, good return on capital. Price is judged separately, in a second step."
-        },
-        {
-          "q": "What is the main risk of reinsurance?",
-          "a": "The volatility of claims. A heavy catastrophe year can sink profits, even turn them negative. That is why the market neglects the sector, and it is what creates both the low price and the risk."
-        },
-        {
-          "q": "RenaissanceRe or Arch Capital, which one?",
-          "a": "They are two profiles. RenaissanceRe is cheaper (P/FCF 3.0) and more concentrated on catastrophe. Arch Capital is more expensive (5.6) but diversified and growing fast, about 23% a year. This is not advice, do your own research."
-        }
-      ],
-      "tags": [
-        "Ranking",
-        "Reinsurance",
-        "Insurance",
-        "Quality",
-        "Valuation"
-      ],
-      "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research."
-    },
-    "es": {
-      "title": "Reaseguro: las mejores acciones de calidad",
-      "excerpt": "Un sector que el mercado ve aburrido y volátil, y que sin embargo esconde máquinas de generar caja que valoro 10 sobre 10. Esto es lo que miro, y por qué.",
-      "metaDescription": "Reaseguro y seguro: por qué este sector olvidado esconde acciones que valoro 10 sobre 10 (RNR, ACGL). Calidad, precio y el riesgo real, explicados.",
-      "answer": "El reaseguro parece aburrido e impredecible, pero esconde empresas que valoro 10 sobre 10: muy rentables, con poca deuda, a veces baratísimas. RenaissanceRe y Arch Capital son las estrellas. La trampa: sus resultados son volátiles por las catástrofes. Así separo la calidad del precio.",
-      "body": [
-        {
-          "type": "ul",
-          "items": [
-            "El reaseguro es el seguro de las aseguradoras: un negocio visto como aburrido e impredecible, y por eso olvidado por el mercado.",
-            "Sin embargo, varias de estas empresas logran mi nota máxima, 10 sobre 10, con criterios de calidad puramente financieros.",
-            "RenaissanceRe (RNR) cotiza a unas 3 veces su caja anual (P/FCF 3,0), Arch Capital (ACGL) a unas 5,6 veces: muy barato.",
-            "Su fuerza: disciplina de suscripción, un ciclo duro favorable y un float invertido que da ingresos adicionales.",
-            "El verdadero compromiso: calidad sólida y precio bajo, pero resultados que pueden hundirse en un año de grandes catástrofes."
-          ]
-        },
-        {
-          "type": "h2",
-          "text": "El sector que nadie quiere mirar"
-        },
-        {
-          "type": "p",
-          "text": "Cuando hablo de reaseguro, suelo ver la misma reacción: un encogimiento de hombros. Se percibe como aburrido, técnico y sobre todo impredecible. Una gran temporada de huracanes, un terremoto, y los resultados de una reaseguradora pueden hundirse. El mercado odia eso. Por eso tiende a olvidar todo el sector, a meterlo en el cajón de lo cíclico sin interés."
-        },
-        {
-          "type": "p",
-          "text": "Y es justo ese desinterés el que crea la oportunidad. Varias de estas empresas logran conmigo la nota máxima, 10 sobre 10, cotizando más baratas que la mayoría de las buenas acciones del mercado. Antes de seguir, quiero que entiendas el negocio, porque sin eso las cifras no significan nada."
-        },
-        {
-          "type": "h2",
-          "text": "¿Qué es el reaseguro?"
-        },
-        {
-          "type": "p",
-          "text": "Tu aseguradora de coche o de hogar también teme la catástrofe. Si un huracán destruye diez mil casas de golpe, no puede pagarlo todo sola. Así que se asegura a su vez, con una reaseguradora. El reaseguro es, por tanto, el seguro de las aseguradoras: asume parte de los riesgos muy grandes a cambio de una prima."
-        },
-        {
-          "type": "p",
-          "text": "¿Por qué este negocio puede ser muy rentable? Tres palancas. Primero, la disciplina de suscripción: suscribir es aceptar cubrir un riesgo a cierto precio. Una reaseguradora de calidad rechaza los malos riesgos, aunque la competencia rebaje sus tarifas. Segundo, el ciclo: tras una gran catástrofe, la capacidad escasea y los precios suben con fuerza. Eso se llama un ciclo duro, y es cuando las mejores ganan más. Tercero, el float: el dinero de las primas cobradas antes de pagar los siniestros. Mientras tanto, la reaseguradora lo invierte y se queda los ingresos. Ese es el secreto de Warren Buffett con el seguro: te pagan por tener el dinero de los demás."
-        },
-        {
-          "type": "h2",
-          "text": "Cómo puntúo la calidad, aparte del precio"
-        },
-        {
-          "type": "p",
-          "text": "Esta es mi regla básica, el hilo de todo lo que hago: juzgo la calidad de una empresa y el precio de su acción como dos preguntas completamente distintas. Una empresa genial comprada demasiado cara sigue siendo una mala inversión. Una empresa mediocre, por barata que sea, sigue siendo mediocre. Confundir ambas es el error número uno, y lo explico en detalle en mi [metodología](/methodologie)."
-        },
-        {
-          "type": "p",
-          "text": "La nota sobre 10 mira solo la calidad del negocio, nunca el precio. Paso la empresa por un tamiz de criterios financieros concretos: ¿es realmente rentable, crecen sus ventas y su caja, es manejable su deuda, devuelve bien el capital? Un 10 sobre 10 significa que cumple con todo. Dos cifras aparecen a menudo en mi análisis, así que te las explico ya."
-        },
-        {
-          "type": "p",
-          "text": "El margen neto, primero: de cada 100 euros de ventas, cuántos acaban en beneficio neto una vez pagado todo. Un margen neto del 24 % en RenaissanceRe significa que de cada 100 euros de primas, 24 quedan como beneficio. Es enorme para un seguro. Luego el Cash ROCE: el rendimiento del capital empleado, en versión caja. En claro, por cada euro inmovilizado en el negocio, cuánta caja genera cada año. Un Cash ROCE del 31 % significa 31 céntimos de caja por euro empleado, año tras año. Es la señal de una máquina que convierte el capital en dinero real de forma eficiente."
-        },
-        {
-          "type": "h2",
-          "text": "RenaissanceRe (RNR): la máquina de suscripción"
-        },
-        {
-          "type": "p",
-          "text": "RenaissanceRe es una reaseguradora con sede en Bermudas, especialista reconocida en riesgo de catástrofe. Logra conmigo el 10 sobre 10. Su margen neto alcanza el 24 %, su Cash ROCE el 31 %, y casi no tiene deuda. Esa combinación es rara: alta rentabilidad, capital que trabaja duro, un balance limpio. Cuando un año va mal en siniestros, un balance sin deuda es justo lo que permite aguantar y recuperarse."
-        },
-        {
-          "type": "p",
-          "text": "¿Y el precio? Su P/FCF ronda el 3,0. El P/FCF es el precio de la acción dividido por la caja que genera cada año. Un P/FCF de 3 significa que pagas apenas tres años de la caja producida: muy barato. Para situarlo, ese nivel la coloca en el percentil 4. El percentil es la posición en una clasificación de 0 a 100: estar en el percentil 4 significa que solo el 4 % de las acciones están así de baratas o más. Dicho de otro modo, casi nada es más barato. El detalle está en su [ficha de análisis de RenaissanceRe](/analyse/RNR)."
-        },
-        {
-          "type": "h2",
-          "text": "Arch Capital (ACGL): crecimiento disciplinado"
-        },
-        {
-          "type": "p",
-          "text": "Arch Capital es un perfil algo distinto: un grupo diversificado que hace a la vez seguro y reaseguro, lo que suaviza parte de la volatilidad. También logra el 10 sobre 10. Su margen neto es del 26 %, su Cash ROCE del 24 %, y sobre todo su facturación crece alrededor del 23 % al año. Un crecimiento así, en un negocio tan rentable, es justo el perfil que busco."
-        },
-        {
-          "type": "p",
-          "text": "En cuanto al precio, su P/FCF es de unas 5,6 veces. Es más caro que RenaissanceRe, y es lógico: el mercado paga algo más por la diversificación y el crecimiento. Pero 5,6 veces la caja, para una empresa valorada 10 sobre 10 que crece más del 20 % al año, sigue siendo modesto. Encontrarás el detalle en su [ficha de análisis de Arch Capital](/analyse/ACGL)."
-        },
-        {
-          "type": "h2",
-          "text": "Los otros 10 sobre 10 de la misma cesta"
-        },
-        {
-          "type": "p",
-          "text": "El reaseguro puro no está solo en esta bolsa de calidad. En la misma cesta de aseguradoras valoradas 10 sobre 10 encuentro a Kinsale, especialista en seguro de nicho, a unas 7,1 veces su caja. W. R. Berkley, aseguradora diversificada de largo plazo, a unas 7,0 veces. Y Progressive, el gigante del seguro de coche en Estados Unidos, a unas 7,4 veces. Tres negocios muy distintos, la misma nota máxima, y precios que siguen siendo razonables."
-        },
-        {
-          "type": "p",
-          "text": "Si quieres ver todos los negocios que logran la nota máxima, mantengo una [clasificación de acciones valoradas 10 sobre 10](/classement/qualite-10-sur-10). Y si lo que te mueve es el precio, mi [clasificación de acciones infravaloradas](/classement/sous-evaluees) parte del mismo principio: la calidad primero, el precio después."
-        },
-        {
-          "type": "h2",
-          "text": "Por qué el mercado olvida todo esto"
-        },
-        {
-          "type": "p",
-          "text": "Si estas empresas son tan buenas y tan baratas, ¿dónde está la trampa? Es real, y no te la voy a ocultar. Los resultados de una reaseguradora son volátiles. Un año tranquilo en catástrofes, y el beneficio se dispara. Un año con dos huracanes mayores, y puede hundirse, incluso ponerse en rojo. El mercado odia esa imprevisibilidad, y prefiere pagar caro un crecimiento regular y suave antes que un beneficio en dientes de sierra."
-        },
-        {
-          "type": "p",
-          "text": "Ese es el verdadero compromiso: calidad sólida y precio bajo, frente a la volatilidad de los siniestros. Un P/FCF de 3 no es un regalo gratis, es la prima que el mercado exige por aceptar que no puede saber cuánto rendirá el año que viene. La verdadera pregunta, la que lo decide todo, es esta: ¿crees que en un ciclo completo, en cinco o diez años, la disciplina de suscripción y el float pesan más que los malos años? Si es así, estos precios son anormalmente bajos. Si no, mejor seguir de largo."
-        },
-        {
-          "type": "h2",
-          "text": "Cómo lo uso yo"
-        },
-        {
-          "type": "p",
-          "text": "Nunca compro un sector solo porque esté barato. Empiezo por la calidad: el 10 sobre 10 me dice que el negocio se sostiene. Solo después miro el precio, y anoto un punto de entrada razonable. Para un negocio volátil como el reaseguro, razono sobre la media de un ciclo, no sobre el año en curso, y acepto de antemano que algunos años serán feos. Ese es el coste de entrar. Es justo para poder zanjar eso en unos segundos, calidad por un lado, precio por otro, que construí mi sitio de inversión."
-        }
-      ],
-      "faq": [
-        {
-          "q": "¿Qué es el reaseguro, en una frase?",
-          "a": "Es el seguro de las aseguradoras: una reaseguradora asume parte de los riesgos muy grandes de una compañía de seguros a cambio de una prima, para que una catástrofe no derribe a la aseguradora."
-        },
-        {
-          "q": "¿Por qué un P/FCF de 3 se considera barato?",
-          "a": "El P/FCF es el precio de la acción dividido por la caja generada cada año. A 3, pagas apenas tres años de esa caja. Es muy bajo: solo un pequeño porcentaje de acciones están así de baratas. Pero precio bajo no significa buena oportunidad si el riesgo es alto."
-        },
-        {
-          "q": "¿Qué significa la nota 10 sobre 10?",
-          "a": "Mide solo la calidad del negocio, nunca el precio. Un 10 sobre 10 cumple todos mis criterios financieros: rentabilidad, crecimiento, poca deuda, buen rendimiento del capital. El precio se juzga aparte, en un segundo paso."
-        },
-        {
-          "q": "¿Cuál es el principal riesgo del reaseguro?",
-          "a": "La volatilidad de los siniestros. Un año de grandes catástrofes puede hundir los beneficios, incluso volverlos negativos. Por eso el mercado olvida el sector, y eso es lo que crea a la vez el precio bajo y el riesgo."
-        },
-        {
-          "q": "¿RenaissanceRe o Arch Capital, cuál elegir?",
-          "a": "Son dos perfiles. RenaissanceRe es más barata (P/FCF 3,0) y más concentrada en catástrofe. Arch Capital es más cara (5,6) pero diversificada y en fuerte crecimiento, cerca del 23 % al año. Esto no es un consejo, haz tu propia investigación."
-        }
-      ],
-      "tags": [
-        "Clasificación",
-        "Reaseguro",
-        "Seguro",
-        "Calidad",
-        "Valoración"
-      ],
-      "disclaimer": "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación."
-    }
-  }
-};
-
-const bsyRop: Article = {
-  "slug": "bentley-bsy-vs-roper-rop-logiciel-10-10",
-  "date": "2026-06-11",
-  "updated": "2026-06-11",
-  "readingTime": 11,
-  "ticker": "BSY",
-  "content": {
-    "fr": {
-      "title": "Bentley (BSY) ou Roper (ROP) : quelle action choisir",
-      "excerpt": "Deux éditeurs de logiciels de très grande qualité, deux façons d'être excellents. L'un grandit tout seul, l'autre rachète. L'un est plus cher, l'autre signalé en opportunité. Voici comment je les départage, sans gagnant absolu.",
-      "metaDescription": "Bentley (BSY) face à Roper (ROP), deux logiciels de très grande qualité : valorisation, croissance, dette et allocation du capital. Comment je compare, sans gagnant.",
-      "answer": "Bentley et Roper sont deux éditeurs de logiciels notés 10 sur 10 dans ma méthode : qualité maximale. Mais ils ne sont pas interchangeables. Roper se paie nettement moins cher et affiche de meilleures marges ; Bentley grandit un peu plus vite sur le cash par action et porte moins de dette. Deux profils, pas un gagnant.",
-      "body": [
-        {
-          "type": "ul",
-          "items": [
-            "Bentley Systems (BSY) et Roper Technologies (ROP) obtiennent tous deux ma note de 10 sur 10 : la qualité du business est au sommet des deux côtés.",
-            "Le prix les sépare : Roper se paie 14,4 fois son cash annuel (signalé opportunité), Bentley 25,1 fois (cher en absolu, mais bas dans sa propre histoire).",
-            "Roper est une machine à acquisitions, donc plus endettée (dette nette de 4,2 ans de cash) ; Bentley grandit surtout tout seul, avec moins de dette (2,4 ans).",
-            "Bentley grandit un peu plus vite sur le cash par action (21 % par an contre 11 %) ; Roper a de meilleures marges (marge nette 21 % contre 18 %).",
-            "Le fil de tout l'article : juger la qualité d'un business et le prix de l'action séparément, jamais en même temps."
-          ]
-        },
-        {
-          "type": "h2",
-          "text": "Deux 10 sur 10, et pourtant deux entreprises très différentes"
-        },
-        {
-          "type": "p",
-          "text": "La première fois que j'ai mis Bentley et Roper côte à côte, je me suis dit que comparer deux notes parfaites n'avait pas grand intérêt. Si les deux valent 10 sur 10, autant tirer à pile ou face. J'avais tort. Deux entreprises peuvent atteindre l'excellence par des chemins radicalement différents, et c'est précisément ce qui rend la comparaison utile."
-        },
-        {
-          "type": "p",
-          "text": "D'abord, un mot sur cette note. Quand je dis 10 sur 10, je ne note pas à l'intuition. Je passe l'entreprise au crible de 10 critères de qualité fondamentale : est-elle vraiment rentable, ses ventes et son cash augmentent-ils, transforme-t-elle son bénéfice comptable en cash réel, sa dette est-elle maîtrisée, rend-elle de l'argent à ses actionnaires sans gaspiller ? Une entreprise qui valide tout obtient 10. C'est rare, par construction. Bentley et Roper y arrivent toutes les deux. Mais la note mesure la qualité du business, pas le prix de l'action. Ce sont deux questions que je ne mélange jamais."
-        },
-        {
-          "type": "p",
-          "text": "Bentley édite des logiciels d'ingénierie et d'infrastructure : les outils qui servent à concevoir des ponts, des routes, des réseaux d'eau, des usines. On parle de BIM (Building Information Modeling), c'est-à-dire la maquette numérique d'un ouvrage, qui suit le chantier puis l'exploitation pendant des décennies. Roper, lui, n'est pas vraiment un éditeur unique : c'est un conglomérat, une holding qui possède une collection de logiciels de niche, chacun leader sur son petit marché, rachetés un par un au fil des années. Le premier construit, le second collectionne."
-        },
-        {
-          "type": "h2",
-          "text": "Le prix : Roper est nettement moins cher"
-        },
-        {
-          "type": "p",
-          "text": "Commençons par la question qui fâche, parce que c'est elle qui les sépare le plus. Pour mesurer ce qu'on paie, je regarde un ratio simple : le P/FCF (price to free cash flow). C'est le prix de l'action divisé par le free cash flow qu'elle génère chaque année. Le free cash flow, c'est l'argent qui reste vraiment dans les caisses une fois toutes les factures payées (salaires, machines, impôts). Un P/FCF de 14, ça veut dire que tu paies aujourd'hui l'équivalent de quatorze années de ce cash. Plus c'est bas, moins c'est cher."
-        },
-        {
-          "type": "p",
-          "text": "Roper se paie 14,4 fois son free cash flow. Bentley se paie 25,1 fois. À la louche, pour le même euro de cash annuel généré, Bentley te coûte presque deux fois plus cher que Roper. C'est un écart énorme entre deux entreprises de qualité comparable."
-        },
-        {
-          "type": "p",
-          "text": "Mais un chiffre brut ne suffit jamais : il faut le replacer dans l'histoire de l'entreprise. C'est là qu'intervient le percentile. Le percentile situe la valorisation d'aujourd'hui par rapport à toutes celles que l'action a connues dans son passé. Un percentile de 0, ça veut dire que l'action n'a quasiment jamais été aussi peu chère qu'aujourd'hui, par rapport à elle-même. Un percentile de 8, c'est presque pareil : très bas dans son historique."
-        },
-        {
-          "type": "p",
-          "text": "Et là, surprise. Bentley est à un percentile de 0 : malgré son P/FCF élevé de 25, elle n'a jamais été aussi bon marché dans sa propre histoire. Autrement dit, elle est chère en absolu, mais l'action s'est toujours payée encore plus cher avant. Roper est à un percentile de 8, et mon outil la signale carrément comme une opportunité : à la fois pas chère en absolu (14,4 fois) et basse dans son historique. Sur le seul terrain du prix, Roper a une longueur d'avance."
-        },
-        {
-          "type": "h2",
-          "text": "La croissance et les marges : avantages croisés"
-        },
-        {
-          "type": "p",
-          "text": "Si Roper est moins chère, c'est peut-être qu'elle grandit moins vite ? Pas vraiment. Les deux croissent à un rythme proche sur le chiffre d'affaires : environ 12 % par an pour Roper, 11 % pour Bentley. Quasiment au coude à coude."
-        },
-        {
-          "type": "p",
-          "text": "La nuance se joue ailleurs, sur le cash par action. Là, Bentley va plus vite : son free cash flow par action grimpe de 21 % par an, contre 11 % pour Roper. Pourquoi je regarde le cash par action et pas seulement le chiffre d'affaires ? Parce que c'est ce qui revient réellement à chaque actionnaire. Une entreprise peut faire grossir ses ventes tout en émettant des actions à tour de bras, et chaque détenteur se retrouve avec une part plus mince du gâteau. Le cash par action corrige ça : il mesure la richesse créée par action que tu détiens."
-        },
-        {
-          "type": "p",
-          "text": "En face, Roper reprend l'avantage sur la rentabilité pure. Sa marge nette est de 21 %, contre 18 % pour Bentley. La marge nette, c'est la part du chiffre d'affaires qui reste en bénéfice une fois tout payé. Et sur la marge de free cash flow, même hiérarchie : 30 % pour Roper, 27 % pour Bentley. Une marge de FCF de 30 % veut dire que sur 100 euros de ventes, 30 finissent en cash réellement disponible. La plupart des entreprises plafonnent autour de 10. Les deux sont donc largement au-dessus du lot, Roper un cran devant."
-        },
-        {
-          "type": "p",
-          "text": "Tu vois le tableau se dessiner : Bentley pour la vitesse du cash par action, Roper pour les marges et le prix. Aucune ne domine sur tous les fronts."
-        },
-        {
-          "type": "h2",
-          "text": "L'allocation du capital : construire ou racheter ?"
-        },
-        {
-          "type": "p",
-          "text": "C'est ici que les deux modèles divergent le plus, et c'est le point que je trouve le plus instructif. L'allocation du capital, c'est la façon dont une direction utilise l'argent qu'elle gagne : le réinvestir, racheter des concurrents, racheter ses propres actions, ou rembourser de la dette. C'est l'une des choses qui distingue un bon management d'un mauvais."
-        },
-        {
-          "type": "p",
-          "text": "Roper est un acquéreur en série. Son métier, au fond, c'est d'utiliser le cash qu'elle génère pour racheter d'autres éditeurs de logiciels de niche, les laisser tourner avec une grande autonomie, et encaisser leur cash à son tour. C'est un modèle redoutable quand il est bien exécuté : chaque acquisition réussie ajoute une nouvelle source de cash récurrent. Mais il a une contrepartie. Pour financer ces rachats, Roper s'endette davantage."
-        },
-        {
-          "type": "p",
-          "text": "Je mesure cet endettement avec un ratio : la dette nette rapportée au free cash flow. Il répond à une question concrète : combien d'années de cash faudrait-il pour rembourser toute la dette ? Chez Roper, c'est 4,2 ans. Chez Bentley, 2,4 ans. Bentley est donc nettement moins endettée, parce qu'elle grandit surtout de façon organique : elle développe ses propres logiciels plutôt que de racheter ceux des autres à crédit. Sa croissance vient de l'intérieur, pas du chéquier."
-        },
-        {
-          "type": "p",
-          "text": "Ni l'un ni l'autre n'est mauvais, ce sont des philosophies différentes. La dette de 4,2 ans de Roper n'est pas alarmante pour une machine à acquisitions dont les cash flows sont très réguliers, mais elle la rend plus sensible aux taux d'intérêt et aux mauvaises acquisitions. La prudence de Bentley, avec 2,4 ans, est un coussin de sécurité, au prix d'une croissance externe plus lente."
-        },
-        {
-          "type": "h2",
-          "text": "Le moat : pourquoi aucune ne se fait déloger facilement"
-        },
-        {
-          "type": "p",
-          "text": "Un bon bilan ne suffit jamais à me convaincre. Ce que je cherche vraiment, c'est le moat : le fossé concurrentiel, ce qui empêche un rival de venir prendre la place. Et c'est peut-être le point sur lequel les deux se ressemblent le plus."
-        },
-        {
-          "type": "p",
-          "text": "Leur moat à toutes les deux repose sur le même mécanisme : des coûts de changement élevés. Quand un logiciel devient critique pour faire ton travail, en changer coûte cher en temps, en formation, en risque d'erreur. Demande à un bureau d'études d'abandonner les outils Bentley au milieu de la conception d'un pont : c'est impensable, des années de fichiers et de réflexes sont en jeu. Même logique pour les logiciels de niche de Roper, souvent leaders sur des marchés étroits où ils sont devenus le standard de fait. Personne ne change de logiciel comptable spécialisé ou de système de gestion hospitalier pour économiser quelques euros."
-        },
-        {
-          "type": "p",
-          "text": "Ce moat se voit dans un chiffre que je regarde toujours : le Cash ROCE. Il répond à une question simple : pour chaque euro mis dans le business, combien de cash il recrache chaque année ? Chez Roper, c'est 26 %, donc 26 centimes de cash par euro investi, par an. C'est environ deux fois le seuil que je considère comme excellent. Chez Bentley, ce rendement est très élevé lui aussi, porté par un modèle léger en actifs : Bentley vend des licences logicielles, elle n'a quasiment pas d'usines ni de stocks à financer. Peu de capital immobilisé, beaucoup de cash en retour."
-        },
-        {
-          "type": "h2",
-          "text": "Les risques que je n'oublie pas"
-        },
-        {
-          "type": "p",
-          "text": "Je serais malhonnête de ne te montrer que la lumière. Les deux ont de vrais trade-offs."
-        },
-        {
-          "type": "p",
-          "text": "Pour Roper, le risque tient à son propre modèle : tout repose sur sa capacité à continuer de trouver de bonnes entreprises à racheter, à bon prix, et à bien les intégrer. Le jour où elle surpaie une acquisition, ou où elle manque de cibles de qualité, la machine ralentit, et la dette de 4,2 ans devient un poids plutôt qu'un levier. Une machine à acquisitions ne vaut que tant qu'elle achète bien."
-        },
-        {
-          "type": "p",
-          "text": "Pour Bentley, le risque est surtout dans le prix. À 25 fois son cash, l'action est chère en absolu, même si elle est basse dans sa propre histoire. Un P/FCF élevé ne pardonne pas la déception : si la croissance ralentit, le multiple peut se dégonfler vite. Bentley est aussi exposée aux cycles de l'infrastructure et de la construction, qui dépendent des budgets publics et privés."
-        },
-        {
-          "type": "p",
-          "text": "Et le risque commun aux deux, le plus simple : la qualité ne protège jamais du prix. Un P/FCF bas comme celui de Roper n'est une bonne affaire que si la qualité tient, et un P/FCF élevé comme celui de Bentley n'est justifié que si la croissance suit. C'est exactement pour ça que je juge la qualité d'abord, et le prix séparément."
-        },
-        {
-          "type": "h2",
-          "text": "Alors, laquelle choisir ?"
-        },
-        {
-          "type": "p",
-          "text": "Honnêtement, il n'y a pas de gagnant absolu, et c'est tout l'intérêt. Si je devais résumer : Roper est le choix de la valorisation et des marges, signalée en opportunité, au prix d'une dette plus lourde et d'une dépendance à ses rachats. Bentley est le choix de la croissance organique du cash par action et de la prudence financière, au prix d'une valorisation chère en absolu."
-        },
-        {
-          "type": "p",
-          "text": "Le bon arbitrage dépend de ce que tu cherches et de ce en quoi tu crois. Tu préfères une entreprise qui grandit surtout par sa propre force, quitte à la payer cher ? Bentley. Tu préfères une mécanique d'acquisitions éprouvée, moins chère aujourd'hui, en acceptant plus de dette ? Roper. Aucune réponse n'est universellement bonne, elles répondent à des tempéraments différents."
-        },
-        {
-          "type": "p",
-          "text": "Pour creuser, tu trouveras le détail des critères et de la valorisation sur la page d'analyse de Bentley, sur celle de Roper, et la liste complète des entreprises qui décrochent ma note maximale dans mon classement des sociétés notées 10 sur 10. Si tu veux comprendre la mécanique derrière ces notes, tout est expliqué dans ma méthodologie."
-        },
-        {
-          "type": "p",
-          "text": "Juger si une entreprise est bonne, puis à quel prix l'acheter, séparément, en quelques secondes et pour n'importe quelle action : c'est exactement ce que je voulais pouvoir faire. Alors je l'ai construit."
-        }
-      ],
-      "faq": [
-        {
-          "q": "Pourquoi comparer deux actions notées 10/10 ?",
-          "a": "Parce que deux entreprises peuvent être excellentes par des chemins opposés. Bentley et Roper valident toutes les deux mes 10 critères de qualité, mais l'une grandit organiquement avec peu de dette, l'autre rachète des concurrents et porte plus de dette. La note mesure la qualité, pas le prix ni le profil de risque."
-        },
-        {
-          "q": "Bentley ou Roper est-elle la moins chère ?",
-          "a": "Roper, nettement. Elle se paie 14,4 fois son free cash flow contre 25,1 fois pour Bentley, et mon outil la signale en opportunité. Attention toutefois : Bentley est à un percentile de 0, donc chère en absolu mais au plus bas de sa propre histoire de valorisation."
-        },
-        {
-          "q": "Pourquoi Roper est-elle plus endettée que Bentley ?",
-          "a": "Parce que Roper est une machine à acquisitions : elle s'endette pour racheter des éditeurs de logiciels de niche. Sa dette nette représente 4,2 ans de cash, contre 2,4 ans pour Bentley, qui grandit surtout de façon organique sans financer ses rachats à crédit."
-        },
-        {
-          "q": "C'est quoi, le Cash ROCE ?",
-          "a": "Le Cash ROCE répond à une question simple : pour chaque euro mis dans le business, combien de cash il recrache par an ? Roper affiche 26 %, soit 26 centimes par euro et par an, environ deux fois mon seuil d'excellence. Bentley est très élevée aussi, grâce à son modèle léger en actifs."
-        },
-        {
-          "q": "Faut-il acheter Bentley ou Roper ?",
-          "a": "Il n'y a pas de gagnant absolu. Roper privilégie le prix et les marges, Bentley la croissance organique du cash et la prudence financière. Le bon choix dépend de ce que tu cherches et du prix que tu acceptes de payer. Ceci n'est pas un conseil en investissement, fais tes propres recherches."
-        }
-      ],
-      "tags": [
-        "Analyse",
-        "Logiciel",
-        "Comparatif",
-        "Valorisation"
-      ],
-      "disclaimer": "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres à la date de publication (juin 2026), susceptibles d'évoluer. Fais tes propres recherches."
-    },
-    "en": {
-      "title": "Bentley (BSY) or Roper (ROP): which stock to buy",
-      "excerpt": "Two software companies rated 10 out of 10, two ways of being excellent. One grows on its own, the other buys. One is pricier, the other flagged as an opportunity. Here is how I split them, with no absolute winner.",
-      "metaDescription": "Bentley Systems (BSY) versus Roper (ROP) : two top-quality software firms. Valuation, growth, debt, capital allocation. How I compare, with no absolute winner.",
-      "answer": "Bentley and Roper are two software companies rated 10 out of 10 in my method: top quality. But they are not interchangeable. Roper trades clearly cheaper and posts better margins; Bentley grows a bit faster on cash per share and carries less debt. Two profiles, not one winner.",
-      "body": [
-        {
-          "type": "ul",
-          "items": [
-            "Bentley Systems (BSY) and Roper Technologies (ROP) both earn my 10 out of 10 score: business quality is top-tier on both sides.",
-            "Price separates them: Roper trades at 14.4 times its yearly cash (flagged as an opportunity), Bentley at 25.1 times (expensive in absolute terms, but low in its own history).",
-            "Roper is an acquisition machine, so more indebted (net debt of 4.2 years of cash); Bentley grows mostly on its own, with less debt (2.4 years).",
-            "Bentley grows a bit faster on cash per share (21% a year versus 11%); Roper has better margins (net margin 21% versus 18%).",
-            "The thread of this whole piece: judge the quality of a business and the price of the stock separately, never at the same time."
-          ]
-        },
-        {
-          "type": "h2",
-          "text": "Two 10/10s, and yet two very different companies"
-        },
-        {
-          "type": "p",
-          "text": "The first time I put Bentley and Roper side by side, I told myself comparing two perfect scores was pointless. If both are worth 10 out of 10, you may as well flip a coin. I was wrong. Two companies can reach excellence through radically different paths, and that is exactly what makes the comparison useful."
-        },
-        {
-          "type": "p",
-          "text": "First, a word on that score. When I say 10 out of 10, I do not grade on gut feeling. I run the company through 10 fundamental quality criteria: is it truly profitable, are its sales and cash growing, does it turn accounting profit into real cash, is its debt under control, does it return money to shareholders without wasting it? A company that passes them all gets a 10. That is rare, by design. Bentley and Roper both manage it. But the score measures business quality, not the stock price. Those are two questions I never mix."
-        },
-        {
-          "type": "p",
-          "text": "Bentley makes engineering and infrastructure software: the tools used to design bridges, roads, water networks, plants. We are talking about BIM (Building Information Modeling), the digital model of a structure, which follows the construction site and then operations for decades. Roper is not really a single publisher: it is a conglomerate, a holding company that owns a collection of niche software firms, each a leader in its small market, acquired one by one over the years. The first builds, the second collects."
-        },
-        {
-          "type": "h2",
-          "text": "Price: Roper is clearly cheaper"
-        },
-        {
-          "type": "p",
-          "text": "Let us start with the awkward question, because it is the one that separates them most. To measure what you pay, I look at one simple ratio: the P/FCF (price to free cash flow). It is the share price divided by the free cash flow it generates each year. Free cash flow is the money that truly stays in the bank once every bill is paid (salaries, machines, taxes). A P/FCF of 14 means you are paying today the equivalent of fourteen years of that cash. The lower it is, the cheaper it is."
-        },
-        {
-          "type": "p",
-          "text": "Roper trades at 14.4 times its free cash flow. Bentley trades at 25.1 times. Roughly speaking, for the same euro of yearly cash generated, Bentley costs you almost twice as much as Roper. That is a huge gap between two companies of comparable quality."
-        },
-        {
-          "type": "p",
-          "text": "But a raw number is never enough: you have to place it back in the company's history. That is where the percentile comes in. The percentile situates today's valuation against every valuation the stock has seen in its past. A percentile of 0 means the stock has almost never been this cheap relative to itself. A percentile of 8 is nearly the same: very low in its history."
-        },
-        {
-          "type": "p",
-          "text": "And here is the surprise. Bentley is at a percentile of 0: despite its high P/FCF of 25, it has never been this cheap in its own history. In other words, it is expensive in absolute terms, but the stock has always traded even more expensively before. Roper is at a percentile of 8, and my tool flags it outright as an opportunity: both cheap in absolute terms (14.4 times) and low in its history. On price alone, Roper has the edge."
-        },
-        {
-          "type": "h2",
-          "text": "Growth and margins: crossed advantages"
-        },
-        {
-          "type": "p",
-          "text": "If Roper is cheaper, maybe it grows more slowly? Not really. Both grow at a similar pace on revenue: about 12% a year for Roper, 11% for Bentley. Almost neck and neck."
-        },
-        {
-          "type": "p",
-          "text": "The nuance lies elsewhere, in cash per share. There, Bentley moves faster: its free cash flow per share climbs 21% a year, versus 11% for Roper. Why do I look at cash per share and not just revenue? Because that is what actually comes back to each shareholder. A company can grow its sales while issuing shares left and right, and every holder ends up with a thinner slice of the cake. Cash per share corrects for that: it measures the wealth created per share you hold."
-        },
-        {
-          "type": "p",
-          "text": "In return, Roper takes the lead on pure profitability. Its net margin is 21%, versus 18% for Bentley. Net margin is the share of revenue that remains as profit once everything is paid. And on free cash flow margin, same ranking: 30% for Roper, 27% for Bentley. A 30% FCF margin means that out of 100 euros of sales, 30 end up as genuinely available cash. Most companies top out near 10. Both are therefore well above the pack, Roper a notch ahead."
-        },
-        {
-          "type": "p",
-          "text": "You can see the picture forming: Bentley for the speed of cash per share, Roper for margins and price. Neither dominates on every front."
-        },
-        {
-          "type": "h2",
-          "text": "Capital allocation: build or buy?"
-        },
-        {
-          "type": "p",
-          "text": "This is where the two models diverge most, and it is the point I find most instructive. Capital allocation is how a management uses the money it earns: reinvesting it, buying competitors, buying back its own shares, or paying down debt. It is one of the things that tells good management from bad."
-        },
-        {
-          "type": "p",
-          "text": "Roper is a serial acquirer. Its job, at heart, is to use the cash it generates to buy other niche software firms, let them run with great autonomy, and collect their cash in turn. It is a formidable model when well executed: each successful acquisition adds a new source of recurring cash. But it has a flip side. To finance those purchases, Roper takes on more debt."
-        },
-        {
-          "type": "p",
-          "text": "I measure that debt with a ratio: net debt against free cash flow. It answers a concrete question: how many years of cash would it take to repay all the debt? At Roper, it is 4.2 years. At Bentley, 2.4 years. Bentley is therefore far less indebted, because it grows mostly organically: it develops its own software rather than buying others' on credit. Its growth comes from within, not from the checkbook."
-        },
-        {
-          "type": "p",
-          "text": "Neither is bad, they are different philosophies. Roper's 4.2 years of debt is not alarming for an acquisition machine whose cash flows are very steady, but it makes it more sensitive to interest rates and to bad acquisitions. Bentley's caution, at 2.4 years, is a safety cushion, at the cost of slower external growth."
-        },
-        {
-          "type": "h2",
-          "text": "The moat: why neither is easily dislodged"
-        },
-        {
-          "type": "p",
-          "text": "A clean balance sheet is never enough to convince me. What I really look for is the moat: the competitive trench, what stops a rival from taking the spot. And it may be the point on which the two resemble each other most."
-        },
-        {
-          "type": "p",
-          "text": "The moat of both rests on the same mechanism: high switching costs. When a piece of software becomes critical to doing your job, changing it is costly in time, training, and risk of error. Ask a design office to drop Bentley's tools in the middle of designing a bridge: it is unthinkable, years of files and reflexes are at stake. Same logic for Roper's niche software, often leaders in narrow markets where they have become the de facto standard. Nobody switches specialized accounting software or a hospital management system to save a few euros."
-        },
-        {
-          "type": "p",
-          "text": "This moat shows up in a number I always check: Cash ROCE. It answers a simple question: for every euro put into the business, how much cash does it spit back each year? At Roper, it is 26%, so 26 cents of cash per euro invested, per year. That is roughly twice the threshold I consider excellent. At Bentley, this return is very high too, carried by an asset-light model: Bentley sells software licenses, it has almost no factories or inventory to finance. Little capital tied up, plenty of cash in return."
-        },
-        {
-          "type": "h2",
-          "text": "The risks I do not forget"
-        },
-        {
-          "type": "p",
-          "text": "I would be dishonest to show you only the bright side. Both have real trade-offs."
-        },
-        {
-          "type": "p",
-          "text": "For Roper, the risk lies in its own model: everything rests on its ability to keep finding good companies to buy, at a good price, and to integrate them well. The day it overpays for an acquisition, or runs short of quality targets, the machine slows, and the 4.2 years of debt become a weight rather than a lever. An acquisition machine is only worth as much as it buys well."
-        },
-        {
-          "type": "p",
-          "text": "For Bentley, the risk is mostly in the price. At 25 times its cash, the stock is expensive in absolute terms, even if it is low in its own history. A high P/FCF does not forgive disappointment: if growth slows, the multiple can deflate fast. Bentley is also exposed to the cycles of infrastructure and construction, which depend on public and private budgets."
-        },
-        {
-          "type": "p",
-          "text": "And the risk shared by both, the simplest one: quality never protects you from price. A low P/FCF like Roper's is only a bargain if the quality holds, and a high P/FCF like Bentley's is only justified if the growth follows. That is exactly why I judge quality first, and price separately."
-        },
-        {
-          "type": "h2",
-          "text": "So, which one to choose?"
-        },
-        {
-          "type": "p",
-          "text": "Honestly, there is no absolute winner, and that is the whole point. If I had to sum up: Roper is the choice of valuation and margins, flagged as an opportunity, at the cost of heavier debt and a dependence on its acquisitions. Bentley is the choice of organic growth in cash per share and financial caution, at the cost of a valuation that is expensive in absolute terms."
-        },
-        {
-          "type": "p",
-          "text": "The right trade-off depends on what you are looking for and what you believe in. Do you prefer a company that grows mostly on its own strength, even if you pay up for it? Bentley. Do you prefer a proven acquisition machine, cheaper today, while accepting more debt? Roper. No answer is universally right, they suit different temperaments."
-        },
-        {
-          "type": "p",
-          "text": "To dig deeper, you will find the detail of the criteria and valuation on Bentley's analysis page, on Roper's, and the full list of companies that earn my top score in my ranking of firms rated 10 out of 10. If you want to understand the mechanics behind these scores, it is all explained in my methodology."
-        },
-        {
-          "type": "p",
-          "text": "Judging whether a company is good, then at what price to buy it, separately, in a few seconds and for any stock: that is exactly what I wanted to be able to do. So I built it."
-        }
-      ],
-      "faq": [
-        {
-          "q": "Why compare two stocks both rated 10/10?",
-          "a": "Because two companies can be excellent through opposite paths. Bentley and Roper both pass my 10 quality criteria, but one grows organically with little debt while the other buys competitors and carries more debt. The score measures quality, not price or risk profile."
-        },
-        {
-          "q": "Is Bentley or Roper the cheaper one?",
-          "a": "Roper, clearly. It trades at 14.4 times its free cash flow versus 25.1 times for Bentley, and my tool flags it as an opportunity. Note, though: Bentley is at a percentile of 0, so expensive in absolute terms but at the bottom of its own valuation history."
-        },
-        {
-          "q": "Why is Roper more indebted than Bentley?",
-          "a": "Because Roper is an acquisition machine: it takes on debt to buy niche software firms. Its net debt represents 4.2 years of cash, versus 2.4 years for Bentley, which grows mostly organically without financing its purchases on credit."
-        },
-        {
-          "q": "What is Cash ROCE?",
-          "a": "Cash ROCE answers a simple question: for every euro put into the business, how much cash does it spit back per year? Roper posts 26%, so 26 cents per euro per year, about twice my excellence threshold. Bentley is very high too, thanks to its asset-light model."
-        },
-        {
-          "q": "Should you buy Bentley or Roper?",
-          "a": "There is no absolute winner. Roper favors price and margins, Bentley favors organic cash growth and financial caution. The right choice depends on what you are looking for and the price you accept to pay. This is not investment advice, do your own research."
-        }
-      ],
-      "tags": [
-        "Analysis",
-        "Software",
-        "Comparison",
-        "Valuation"
-      ],
-      "disclaimer": "This article is an analysis for informational and educational purposes, and does not constitute personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (June 2026), subject to change. Do your own research."
-    },
-    "es": {
-      "title": "Bentley (BSY) o Roper (ROP): qué acción elegir",
-      "excerpt": "Dos empresas de software con nota 10 sobre 10, dos formas de ser excelentes. Una crece sola, la otra compra. Una es más cara, la otra señalada como oportunidad. Así es como las separo, sin un ganador absoluto.",
-      "metaDescription": "Bentley (BSY) frente a Roper (ROP), dos software de altísima calidad: valoración, crecimiento, deuda y asignación de capital. Cómo comparo, sin ganador absoluto.",
-      "answer": "Bentley y Roper son dos empresas de software con nota 10 sobre 10 en mi método: calidad máxima. Pero no son intercambiables. Roper cotiza claramente más barata y luce mejores márgenes; Bentley crece algo más rápido en caja por acción y carga menos deuda. Dos perfiles, no un ganador.",
-      "body": [
-        {
-          "type": "ul",
-          "items": [
-            "Bentley Systems (BSY) y Roper Technologies (ROP) obtienen ambas mi nota de 10 sobre 10: la calidad del negocio está en lo más alto en los dos casos.",
-            "El precio las separa: Roper cotiza a 14,4 veces su caja anual (señalada como oportunidad), Bentley a 25,1 veces (cara en absoluto, pero baja en su propia historia).",
-            "Roper es una máquina de adquisiciones, por eso más endeudada (deuda neta de 4,2 años de caja); Bentley crece sobre todo sola, con menos deuda (2,4 años).",
-            "Bentley crece algo más rápido en caja por acción (21 % al año frente al 11 %); Roper tiene mejores márgenes (margen neto del 21 % frente al 18 %).",
-            "El hilo de todo el artículo: juzgar la calidad de un negocio y el precio de la acción por separado, nunca a la vez."
-          ]
-        },
-        {
-          "type": "h2",
-          "text": "Dos 10 sobre 10 y, sin embargo, dos empresas muy distintas"
-        },
-        {
-          "type": "p",
-          "text": "La primera vez que puse a Bentley y Roper una al lado de la otra, me dije que comparar dos notas perfectas no tenía mucho interés. Si las dos valen 10 sobre 10, igual da lanzar una moneda al aire. Me equivocaba. Dos empresas pueden alcanzar la excelencia por caminos radicalmente distintos, y eso es justamente lo que hace útil la comparación."
-        },
-        {
-          "type": "p",
-          "text": "Primero, una palabra sobre esa nota. Cuando digo 10 sobre 10, no califico por intuición. Paso la empresa por un tamiz de 10 criterios de calidad fundamental: ¿es de verdad rentable, crecen sus ventas y su caja, transforma su beneficio contable en caja real, está controlada su deuda, devuelve dinero a sus accionistas sin derrochar? Una empresa que los valida todos obtiene un 10. Es raro, por construcción. Bentley y Roper lo logran las dos. Pero la nota mide la calidad del negocio, no el precio de la acción. Son dos preguntas que nunca mezclo."
-        },
-        {
-          "type": "p",
-          "text": "Bentley edita software de ingeniería e infraestructura: las herramientas que sirven para diseñar puentes, carreteras, redes de agua, fábricas. Hablamos de BIM (Building Information Modeling), es decir, la maqueta digital de una obra, que acompaña a la construcción y luego a la explotación durante décadas. Roper no es realmente un editor único: es un conglomerado, una sociedad holding que posee una colección de empresas de software de nicho, cada una líder en su pequeño mercado, compradas una a una a lo largo de los años. La primera construye, la segunda colecciona."
-        },
-        {
-          "type": "h2",
-          "text": "El precio: Roper es claramente más barata"
-        },
-        {
-          "type": "p",
-          "text": "Empecemos por la pregunta incómoda, porque es la que más las separa. Para medir lo que se paga, miro un ratio sencillo: el P/FCF (price to free cash flow). Es el precio de la acción dividido entre el flujo de caja libre que genera cada año. El flujo de caja libre es el dinero que de verdad queda en las arcas una vez pagadas todas las facturas (sueldos, máquinas, impuestos). Un P/FCF de 14 significa que pagas hoy el equivalente a catorce años de esa caja. Cuanto más bajo, más barato."
-        },
-        {
-          "type": "p",
-          "text": "Roper cotiza a 14,4 veces su flujo de caja libre. Bentley cotiza a 25,1 veces. A grandes rasgos, por el mismo euro de caja anual generada, Bentley te cuesta casi el doble que Roper. Es una brecha enorme entre dos empresas de calidad comparable."
-        },
-        {
-          "type": "p",
-          "text": "Pero un dato en bruto nunca basta: hay que situarlo en la historia de la empresa. Ahí entra el percentil. El percentil sitúa la valoración de hoy frente a todas las que la acción ha conocido en su pasado. Un percentil de 0 significa que la acción casi nunca ha estado tan barata como hoy respecto a sí misma. Un percentil de 8 es casi lo mismo: muy bajo en su historial."
-        },
-        {
-          "type": "p",
-          "text": "Y aquí, sorpresa. Bentley está en un percentil de 0: pese a su P/FCF alto de 25, nunca ha estado tan barata en su propia historia. Dicho de otro modo, es cara en absoluto, pero la acción siempre se había pagado aún más cara antes. Roper está en un percentil de 8, y mi herramienta la señala directamente como una oportunidad: a la vez barata en absoluto (14,4 veces) y baja en su historial. Solo en el terreno del precio, Roper saca ventaja."
-        },
-        {
-          "type": "h2",
-          "text": "El crecimiento y los márgenes: ventajas cruzadas"
-        },
-        {
-          "type": "p",
-          "text": "Si Roper es más barata, ¿quizá crece menos? No realmente. Las dos crecen a un ritmo parecido en ingresos: alrededor del 12 % al año Roper, el 11 % Bentley. Casi a la par."
-        },
-        {
-          "type": "p",
-          "text": "El matiz está en otro sitio, en la caja por acción. Ahí Bentley va más rápido: su flujo de caja libre por acción sube un 21 % al año, frente al 11 % de Roper. ¿Por qué miro la caja por acción y no solo los ingresos? Porque es lo que de verdad le llega a cada accionista. Una empresa puede hacer crecer sus ventas mientras emite acciones sin parar, y cada tenedor se queda con una porción más fina del pastel. La caja por acción corrige eso: mide la riqueza creada por cada acción que posees."
-        },
-        {
-          "type": "p",
-          "text": "En cambio, Roper recupera la ventaja en la rentabilidad pura. Su margen neto es del 21 %, frente al 18 % de Bentley. El margen neto es la parte de los ingresos que queda como beneficio una vez pagado todo. Y en el margen de flujo de caja libre, la misma jerarquía: 30 % para Roper, 27 % para Bentley. Un margen de FCF del 30 % significa que de cada 100 euros de ventas, 30 acaban en caja realmente disponible. La mayoría de las empresas no pasan del 10. Las dos están, pues, muy por encima de la media, Roper un escalón por delante."
-        },
-        {
-          "type": "p",
-          "text": "Ves cómo se dibuja el cuadro: Bentley por la velocidad de la caja por acción, Roper por los márgenes y el precio. Ninguna domina en todos los frentes."
-        },
-        {
-          "type": "h2",
-          "text": "La asignación de capital: ¿construir o comprar?"
-        },
-        {
-          "type": "p",
-          "text": "Aquí es donde más divergen los dos modelos, y es el punto que me parece más instructivo. La asignación de capital es la forma en que una dirección usa el dinero que gana: reinvertirlo, comprar competidores, recomprar sus propias acciones o amortizar deuda. Es una de las cosas que distingue a una buena gestión de una mala."
-        },
-        {
-          "type": "p",
-          "text": "Roper es una compradora en serie. Su negocio, en el fondo, es usar la caja que genera para comprar otras empresas de software de nicho, dejarlas funcionar con gran autonomía y cobrar su caja a su vez. Es un modelo temible cuando se ejecuta bien: cada adquisición exitosa añade una nueva fuente de caja recurrente. Pero tiene una contrapartida. Para financiar esas compras, Roper se endeuda más."
-        },
-        {
-          "type": "p",
-          "text": "Mido ese endeudamiento con un ratio: la deuda neta frente al flujo de caja libre. Responde a una pregunta concreta: ¿cuántos años de caja harían falta para devolver toda la deuda? En Roper, son 4,2 años. En Bentley, 2,4 años. Bentley está, pues, claramente menos endeudada, porque crece sobre todo de forma orgánica: desarrolla su propio software en lugar de comprar el de otros a crédito. Su crecimiento viene de dentro, no del talonario."
-        },
-        {
-          "type": "p",
-          "text": "Ni una ni otra es mala, son filosofías distintas. La deuda de 4,2 años de Roper no es alarmante para una máquina de adquisiciones cuyos flujos de caja son muy regulares, pero la hace más sensible a los tipos de interés y a las malas adquisiciones. La prudencia de Bentley, con 2,4 años, es un colchón de seguridad, a costa de un crecimiento externo más lento."
-        },
-        {
-          "type": "h2",
-          "text": "El foso: por qué a ninguna se la desbanca con facilidad"
-        },
-        {
-          "type": "p",
-          "text": "Un buen balance nunca basta para convencerme. Lo que de verdad busco es el foso: la trinchera competitiva, lo que impide a un rival venir a ocupar el lugar. Y quizá sea el punto en el que más se parecen las dos."
-        },
-        {
-          "type": "p",
-          "text": "El foso de ambas se apoya en el mismo mecanismo: unos costes de cambio elevados. Cuando un software se vuelve crítico para hacer tu trabajo, cambiarlo cuesta caro en tiempo, formación y riesgo de error. Pídele a una oficina de ingeniería que abandone las herramientas de Bentley a mitad del diseño de un puente: es impensable, hay años de archivos y reflejos en juego. Misma lógica para el software de nicho de Roper, a menudo líder en mercados estrechos donde se ha vuelto el estándar de facto. Nadie cambia de software contable especializado o de sistema de gestión hospitalaria para ahorrarse unos euros."
-        },
-        {
-          "type": "p",
-          "text": "Este foso se ve en un dato que siempre miro: el Cash ROCE. Responde a una pregunta sencilla: por cada euro metido en el negocio, ¿cuánta caja escupe cada año? En Roper, es el 26 %, es decir, 26 céntimos de caja por euro invertido, al año. Es alrededor del doble del umbral que considero excelente. En Bentley, esta rentabilidad es muy alta también, impulsada por un modelo ligero en activos: Bentley vende licencias de software, casi no tiene fábricas ni existencias que financiar. Poco capital inmovilizado, mucha caja de vuelta."
-        },
-        {
-          "type": "h2",
-          "text": "Los riesgos que no olvido"
-        },
-        {
-          "type": "p",
-          "text": "Sería deshonesto enseñarte solo la luz. Las dos tienen verdaderos trade-offs."
-        },
-        {
-          "type": "p",
-          "text": "Para Roper, el riesgo está en su propio modelo: todo depende de su capacidad de seguir encontrando buenas empresas que comprar, a buen precio, e integrarlas bien. El día que pague de más por una adquisición, o que le falten objetivos de calidad, la máquina se ralentiza, y los 4,2 años de deuda pasan de palanca a lastre. Una máquina de adquisiciones solo vale mientras compra bien."
-        },
-        {
-          "type": "p",
-          "text": "Para Bentley, el riesgo está sobre todo en el precio. A 25 veces su caja, la acción es cara en absoluto, aunque esté baja en su propia historia. Un P/FCF alto no perdona la decepción: si el crecimiento se ralentiza, el múltiplo puede desinflarse rápido. Bentley está también expuesta a los ciclos de la infraestructura y la construcción, que dependen de los presupuestos públicos y privados."
-        },
-        {
-          "type": "p",
-          "text": "Y el riesgo común a las dos, el más sencillo: la calidad nunca te protege del precio. Un P/FCF bajo como el de Roper solo es una ganga si la calidad aguanta, y un P/FCF alto como el de Bentley solo se justifica si el crecimiento acompaña. Por eso justamente juzgo primero la calidad, y el precio por separado."
-        },
-        {
-          "type": "h2",
-          "text": "Entonces, ¿cuál elegir?"
-        },
-        {
-          "type": "p",
-          "text": "Honestamente, no hay un ganador absoluto, y ahí está todo el interés. Si tuviera que resumir: Roper es la opción de la valoración y los márgenes, señalada como oportunidad, a costa de una deuda más pesada y de una dependencia de sus compras. Bentley es la opción del crecimiento orgánico de la caja por acción y de la prudencia financiera, a costa de una valoración cara en absoluto."
-        },
-        {
-          "type": "p",
-          "text": "El buen arbitraje depende de lo que buscas y de aquello en lo que crees. ¿Prefieres una empresa que crece sobre todo por su propia fuerza, aunque la pagues cara? Bentley. ¿Prefieres una mecánica de adquisiciones contrastada, más barata hoy, aceptando más deuda? Roper. Ninguna respuesta es universalmente buena, responden a temperamentos distintos."
-        },
-        {
-          "type": "p",
-          "text": "Para profundizar, encontrarás el detalle de los criterios y de la valoración en la página de análisis de Bentley, en la de Roper, y la lista completa de empresas que se llevan mi nota máxima en mi clasificación de empresas con nota 10 sobre 10. Si quieres entender la mecánica detrás de estas notas, está todo explicado en mi metodología."
-        },
-        {
-          "type": "p",
-          "text": "Juzgar si una empresa es buena, y luego a qué precio comprarla, por separado, en unos segundos y para cualquier acción: es exactamente lo que quería poder hacer. Así que lo construí."
-        }
-      ],
-      "faq": [
-        {
-          "q": "¿Por qué comparar dos acciones con nota 10/10?",
-          "a": "Porque dos empresas pueden ser excelentes por caminos opuestos. Bentley y Roper validan ambas mis 10 criterios de calidad, pero una crece de forma orgánica con poca deuda y la otra compra competidores y carga más deuda. La nota mide la calidad, no el precio ni el perfil de riesgo."
-        },
-        {
-          "q": "¿Cuál es más barata, Bentley o Roper?",
-          "a": "Roper, claramente. Cotiza a 14,4 veces su flujo de caja libre frente a 25,1 veces de Bentley, y mi herramienta la señala como oportunidad. Ojo, eso sí: Bentley está en un percentil de 0, así que es cara en absoluto pero está en el mínimo de su propia historia de valoración."
-        },
-        {
-          "q": "¿Por qué Roper está más endeudada que Bentley?",
-          "a": "Porque Roper es una máquina de adquisiciones: se endeuda para comprar empresas de software de nicho. Su deuda neta representa 4,2 años de caja, frente a 2,4 años de Bentley, que crece sobre todo de forma orgánica sin financiar sus compras a crédito."
-        },
-        {
-          "q": "¿Qué es el Cash ROCE?",
-          "a": "El Cash ROCE responde a una pregunta sencilla: por cada euro metido en el negocio, ¿cuánta caja escupe al año? Roper luce un 26 %, es decir, 26 céntimos por euro al año, alrededor del doble de mi umbral de excelencia. Bentley es muy alta también, gracias a su modelo ligero en activos."
-        },
-        {
-          "q": "¿Hay que comprar Bentley o Roper?",
-          "a": "No hay un ganador absoluto. Roper prioriza el precio y los márgenes, Bentley el crecimiento orgánico de la caja y la prudencia financiera. La buena elección depende de lo que buscas y del precio que aceptes pagar. Esto no es asesoramiento de inversión, haz tu propia investigación."
-        }
-      ],
-      "tags": [
-        "Análisis",
-        "Software",
-        "Comparativa",
-        "Valoración"
-      ],
-      "disclaimer": "Este artículo es un análisis con fines informativos y educativos, y no constituye asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha de publicación (junio de 2026), sujetas a cambios. Haz tu propia investigación."
-    }
-  }
-};
-
 const assuranceTop: Article = {
   "slug": "assurance-actions-10-10-pfcf-bas-juin-2026",
   "date": "2026-06-11",
@@ -4731,7 +3743,7 @@ const assuranceTop: Article = {
         },
         {
           "type": "p",
-          "text": "Et le plus troublant n'est pas là. Ces assureurs d'élite se paient en moyenne autour de 5 fois leur cash. Dit autrement, le marché les traite à la fois comme des entreprises de très haute qualité (par leurs fondamentaux) et comme des affaires bradées (par leur prix). Les deux à la fois, c'est rare, et ça mérite qu'on s'arrête."
+          "text": "Et le plus troublant n'est pas là. Ces assureurs d'élite se valorisent en moyenne autour de 5 fois leur cash. Dit autrement, le marché les traite à la fois comme des entreprises de très haute qualité (par leurs fondamentaux) et comme des affaires bradées (par leur prix). Les deux à la fois, c'est rare, et ça mérite qu'on s'arrête."
         },
         {
           "type": "p",
@@ -4789,7 +3801,7 @@ const assuranceTop: Article = {
         },
         {
           "type": "p",
-          "text": "Voilà la vraie question. Si ces entreprises sont si solides, pourquoi un cash payé 3, 4, 5 fois, là où une belle action de croissance se paie 20 ou 30 fois ? Le marché n'est pas idiot. Il applique une décote pour trois raisons honnêtes, qu'il faut peser."
+          "text": "Voilà la vraie question. Si ces entreprises sont si solides, pourquoi un cash payé 3, 4, 5 fois, là où une belle action de croissance se valorise 20 ou 30 fois ? Le marché n'est pas idiot. Il applique une décote pour trois raisons honnêtes, qu'il faut peser."
         },
         {
           "type": "p",
@@ -5296,7 +4308,7 @@ const kgc: Article = {
         },
         {
           "type": "p",
-          "text": "Pour mesurer ce que le marché accepte de payer, je regarde un ratio simple : le P/FCF (price to free cash flow), le prix de l'action divisé par le free cash flow qu'elle génère chaque année. Un P/FCF de 11, ça veut dire que tu paies aujourd'hui environ onze années de ce cash. Plus c'est bas, moins c'est cher. Kinross se paie 11,3 fois son free cash flow, l'action vaut environ 23,66 dollars."
+          "text": "Pour mesurer ce que le marché accepte de payer, je regarde un ratio simple : le P/FCF (price to free cash flow), le prix de l'action divisé par le free cash flow qu'elle génère chaque année. Un P/FCF de 11, ça veut dire que tu paies aujourd'hui environ onze années de ce cash. Plus c'est bas, moins c'est cher. Kinross se valorise 11,3 fois son free cash flow, l'action vaut environ 23,66 dollars."
         },
         {
           "type": "p",
@@ -5728,7 +4740,7 @@ const adobeResults: Article = {
       metaDescription:
         "Adobe (ADBE) bat les attentes au T2 2026 mais l'action chute. Départ du CFO, peur de l'IA, valorisation au plus bas : mon analyse qualité contre prix.",
       answer:
-        "Adobe a publié un trimestre record et relevé ses prévisions, et pourtant l'action a chuté d'environ 6 %. Le marché a sanctionné le départ surprise du directeur financier et sa peur que l'IA érode le modèle. Résultat : une entreprise d'élite se paie son cash moins cher que jamais. Voici comment je sépare la qualité du prix.",
+        "Adobe a publié un trimestre record et relevé ses prévisions, et pourtant l'action a chuté d'environ 6 %. Le marché a sanctionné le départ surprise du directeur financier et sa peur que l'IA érode le modèle. Résultat : une entreprise d'élite se valorise son cash moins cher que jamais. Voici comment je sépare la qualité du prix.",
       body: [
         {
           type: 'ul',
@@ -5736,7 +4748,7 @@ const adobeResults: Article = {
             "Trimestre record : 6,62 milliards de dollars de chiffre d'affaires, en hausse de 13 % sur un an, et un bénéfice par action ajusté de 5,96 dollars, au-dessus des attentes.",
             "L'action a quand même reculé d'environ 6 %, surtout à cause du départ surprise du directeur financier et de la crainte que l'IA abîme le modèle d'Adobe.",
             "Les revenus récurrents liés à l'IA dépassent désormais 500 millions de dollars : pour l'instant, l'IA nourrit Adobe plus qu'elle ne la détruit.",
-            "Adobe se paie environ 10 fois son free cash-flow, contre une moyenne de 33 sur dix ans : le marché la traite comme une entreprise en déclin.",
+            "Adobe se valorise environ 10 fois son free cash-flow, contre une moyenne de 33 sur dix ans : le marché la traite comme une entreprise en déclin.",
             "Une bonne entreprise n'est pas la même chose qu'un bon prix : je juge la qualité d'abord, la valorisation ensuite.",
           ],
         },
@@ -6119,7 +5131,7 @@ const gddy: Article = {
         { type: 'h2', text: "Est-ce le bon prix ?" },
         {
           type: 'p',
-          text: "C'est la deuxième question, que je traite toujours séparément de la qualité. Pour mesurer le prix, je regarde le P/FCF (price-to-free-cash-flow) : le prix de l'action divisé par le free cash flow annuel. Un P/FCF de 8, ça veut dire que tu paies huit années de ce cash. GoDaddy se paie aujourd'hui moins de 8 fois son free cash flow. Pour une entreprise notée 10/10, c'est bon marché : le marché valorise la médiocrité de la croissance, pas la qualité du cash.",
+          text: "C'est la deuxième question, que je traite toujours séparément de la qualité. Pour mesurer le prix, je regarde le P/FCF (price-to-free-cash-flow) : le prix de l'action divisé par le free cash flow annuel. Un P/FCF de 8, ça veut dire que tu paies huit années de ce cash. GoDaddy se valorise aujourd'hui moins de 8 fois son free cash flow. Pour une entreprise notée 10/10, c'est bon marché : le marché valorise la médiocrité de la croissance, pas la qualité du cash.",
         },
         {
           type: 'p',
@@ -6602,7 +5614,7 @@ const softwareApp: Article = {
       metaDescription:
         "INTU, ROP, CRM et BSY : quatre éditeurs de logiciels de grande qualité, à des valorisations du simple au double. Lequel offre le meilleur rapport qualité prix ?",
       answer:
-        "Intuit, Roper, Salesforce et Bentley obtiennent toutes la note maximale à ma grille de qualité. Mais leurs valorisations vont du simple à presque le double : Salesforce se paie environ 13 fois son cash, Bentley près de 24. Même qualité ne veut pas dire même prix. Voici comment je les départage.",
+        "Intuit, Roper, Salesforce et Bentley obtiennent toutes la note maximale à ma grille de qualité. Mais leurs valorisations vont du simple à presque le double : Salesforce se valorise environ 13 fois son free cash flow, Bentley près de 24. Même qualité ne veut pas dire même prix. Voici comment je les départage.",
       body: [
         {
           type: 'ul',
@@ -6610,7 +5622,7 @@ const softwareApp: Article = {
             "Quatre éditeurs notés 10/10 : Intuit (INTU), Roper (ROP), Salesforce (CRM), Bentley (BSY).",
             "Salesforce est la moins chère : environ 13 fois son free cash flow.",
             "Intuit et Roper suivent, autour de 13 à 14 fois.",
-            "Bentley est la plus chère, près de 24 fois, car sa qualité se paie.",
+            "Bentley est la plus chère, près de 24 fois, car sa qualité se valorise.",
             "Toutes dégagent plus de 25 % de marge de free cash flow : des machines à cash.",
           ],
         },
@@ -6621,7 +5633,7 @@ const softwareApp: Article = {
         },
         {
           type: 'p',
-          text: "Ma note sur 10 mesure cette solidité : rentabilité, croissance du cash, marges, rachats d'actions, dette. Ces quatre-là cochent l'ensemble des cases. La vraie question n'est donc pas laquelle est la meilleure entreprise, mais laquelle se paie au meilleur prix.",
+          text: "Ma note sur 10 mesure cette solidité : rentabilité, croissance du cash, marges, rachats d'actions, dette. Ces quatre-là cochent l'ensemble des cases. La vraie question n'est donc pas laquelle est la meilleure entreprise, mais laquelle se valorise au meilleur prix.",
         },
         { type: 'h2', text: "Le comparatif, qualité égale, prix différents" },
         {
@@ -6637,7 +5649,7 @@ const softwareApp: Article = {
             "Bentley (BSY) : près de 24 fois. Les logiciels d'ingénierie pour les infrastructures (ponts, réseaux, usines). La plus chère, parce que la plus protégée.",
           ],
         },
-        { type: 'h2', text: "Pourquoi Bentley se paie deux fois plus cher" },
+        { type: 'h2', text: "Pourquoi Bentley se valorise deux fois plus cher" },
         {
           type: 'p',
           text: "Un P/FCF de 24 contre 13, c'est presque le double. Est-ce que Bentley est deux fois moins intéressante ? Pas forcément. Le marché paie cher ce qu'il juge le plus durable. Bentley vend des logiciels que des ingénieurs utilisent sur des projets longs de dix ou vingt ans. Le coût pour en changer est gigantesque. C'est ce qu'on appelle un moat, un fossé concurrentiel : ce qui empêche un rival de prendre la place. Plus le moat est solide, plus le marché accepte de payer cher.",
@@ -6897,7 +5909,7 @@ const dataSecteurs: Article = {
         },
         {
           type: 'p',
-          text: "Le logiciel est souvent cher : le marché adore ses marges, donc il paie d'avance. L'assurance, au contraire, est souvent bradée : le métier est aride, mal compris, exposé aux catastrophes, donc délaissé. On trouve des assureurs notés 10/10 qui se paient moins de 5 fois leur free cash flow, là où des éditeurs de logiciels équivalents en qualité se paient 3 ou 4 fois plus cher.",
+          text: "Le logiciel est souvent cher : le marché adore ses marges, donc il paie d'avance. L'assurance, au contraire, est souvent bradée : le métier est aride, mal compris, exposé aux catastrophes, donc délaissé. On trouve des assureurs notés 10/10 qui se valorisent moins de 5 fois leur free cash flow, là où des éditeurs de logiciels équivalents en qualité se valorisent 3 ou 4 fois plus cher.",
         },
         { type: 'h2', text: "Ce que j'en fais, concrètement" },
         {
@@ -7104,7 +6116,7 @@ const bkng: Article = {
       metaDescription:
         "Booking (BKNG), maison mère de Booking.com : croissance forte, marges énormes, prix raisonnable. Mon analyse alors que le voyage mondial repart.",
       answer:
-        "Booking Holdings, la maison mère de Booking.com, obtient la note maximale à ma grille de qualité : croissance forte, marges énormes, rachats d'actions massifs. Elle se paie environ 15 fois son free cash flow, ni bradée ni excessive. Alors que le voyage mondial repart, voici pourquoi cette action mérite le coup d'oeil, et ses risques.",
+        "Booking Holdings, la maison mère de Booking.com, obtient la note maximale à ma grille de qualité : croissance forte, marges énormes, rachats d'actions massifs. Elle se valorise environ 15 fois son free cash flow, ni bradée ni excessive. Alors que le voyage mondial repart, voici pourquoi cette action mérite le coup d'oeil, et ses risques.",
       body: [
         {
           type: 'ul',
@@ -7146,7 +6158,7 @@ const bkng: Article = {
         { type: 'h2', text: "Est-ce le bon prix ?" },
         {
           type: 'p',
-          text: "C'est ma deuxième question, toujours séparée de la qualité. Pour mesurer le prix, je regarde le P/FCF (price-to-free-cash-flow) : le cours divisé par le free cash flow annuel. Booking se paie environ 15 fois son free cash flow. Ce n'est ni bradé, ni excessif. Pour une entreprise qui croît à 22 % avec des marges pareilles, c'est même plutôt raisonnable au regard de sa qualité.",
+          text: "C'est ma deuxième question, toujours séparée de la qualité. Pour mesurer le prix, je regarde le P/FCF (price-to-free-cash-flow) : le cours divisé par le free cash flow annuel. Booking se valorise environ 15 fois son free cash flow. Ce n'est ni bradé, ni excessif. Pour une entreprise qui croît à 22 % avec des marges pareilles, c'est même plutôt raisonnable au regard de sa qualité.",
         },
         {
           type: 'p',
@@ -7334,250 +6346,7 @@ const bkng: Article = {
   },
 };
 
-const qlysIntu: Article = {
-  slug: 'qualys-qlys-intuit-intu-comparatif-10-sur-10',
-  date: '2026-06-12',
-  updated: '2026-06-12',
-  readingTime: 8,
-  content: {
-    fr: {
-      title: "Qualys (QLYS) ou Intuit (INTU) : quelle action choisir",
-      excerpt:
-        "Deux éditeurs de logiciels parmi les plus solides, deux valorisations différentes. Qualys plus rentable mais plus chère, Intuit moins chère. Le comparatif.",
-      metaDescription:
-        "Qualys et Intuit, deux éditeurs de logiciels de grande qualité aux profils opposés. Marges, croissance, avantage concurrentiel : lequel choisir en 2026 ?",
-      answer:
-        "Qualys et Intuit ont toutes deux 10/10 à ma grille de qualité, mais des profils opposés. Qualys, dans la cybersécurité, affiche des marges supérieures mais se paie plus cher, environ 18 fois son cash. Intuit, plus large et plus connue, croît plus vite et coûte moins cher, environ 13 fois. Voici comment je tranche.",
-      body: [
-        {
-          type: 'ul',
-          items: [
-            "Deux éditeurs notés 10/10 : Qualys (QLYS) et Intuit (INTU).",
-            "Qualys : la plus rentable (marge nette d'environ 29 %), mais la plus chère (environ 18 fois le cash).",
-            "Intuit : la moins chère (environ 13 fois), la croissance la plus rapide (environ 15 %/an).",
-            "Intuit a un moat plus large grâce à TurboTax et QuickBooks.",
-            "Même note, choix différent selon que tu privilégies la décote ou la croissance.",
-          ],
-        },
-        { type: 'h2', text: "Deux logiciels, deux mondes" },
-        {
-          type: 'p',
-          text: "Qualys et Intuit sont toutes les deux des éditeurs de logiciels notés 10/10 par ma grille, mais elles ne font pas du tout le même métier. Qualys vend de la cybersécurité en ligne : elle scanne en permanence les systèmes de ses clients pour repérer les failles et vérifier la conformité. Un service technique, vendu surtout à de grandes entreprises.",
-        },
-        {
-          type: 'p',
-          text: "Intuit, c'est l'inverse du spectre : grand public et petites entreprises. Elle édite TurboTax, le logiciel numéro un pour faire ses impôts aux États-Unis, et QuickBooks, la référence de la comptabilité des PME américaines. Deux quasi-monopoles sur des tâches que personne n'a envie de faire à la main.",
-        },
-        { type: 'h2', text: "Qualys, la plus rentable" },
-        {
-          type: 'p',
-          text: "Côté marges, Qualys impressionne. Sa marge nette dépasse 29 %, et sa marge de free cash flow frôle 31 %. Le free cash flow, c'est l'argent qui reste vraiment une fois les factures payées. À ce niveau, Qualys transforme presque un tiers de ses ventes en cash pur. La cybersécurité est un besoin non négociable : une entreprise coupe beaucoup de budgets avant de couper sa sécurité. Ça donne un pouvoir de tarification solide.",
-        },
-        {
-          type: 'p',
-          text: "Le revers, c'est le prix. Qualys se paie environ 18 fois son free cash flow. Pour mesurer ça, j'utilise le P/FCF (price-to-free-cash-flow), le cours divisé par le cash annuel. Dix-huit fois, ce n'est pas excessif pour cette qualité, mais ce n'est pas une décote non plus.",
-        },
-        { type: 'h2', text: "Intuit, moins chère et plus large" },
-        {
-          type: 'p',
-          text: "Intuit se paie environ 13 fois son free cash flow, nettement moins que Qualys. Et pourtant, elle croît plus vite, autour de 15 % par an contre 13 % pour Qualys. Sur le papier, payer moins cher une croissance plus rapide, c'est attirant.",
-        },
-        {
-          type: 'p',
-          text: "Surtout, son moat est plus large. Un moat, c'est le fossé concurrentiel qui empêche un rival de prendre la place. Une fois que des millions de PME tiennent leur comptabilité sur QuickBooks, en changer est un cauchemar. Cette adhérence vaut de l'or. Qualys a un bon moat technique, mais Intuit a un moat de masse, ancré dans les habitudes de tout un pays.",
-        },
-        { type: 'h2', text: "Laquelle je préfère, et pourquoi" },
-        {
-          type: 'p',
-          text: "Même note de qualité, mais le choix dépend de ce que tu cherches. Si tu veux la marge maximale et que la cybersécurité te parle, Qualys est superbe, à condition d'accepter de la payer un peu cher. Si tu veux le meilleur compromis entre qualité, croissance et prix, Intuit a ma préférence sur ce duel : moins chère, croissance plus rapide, moat plus profond.",
-        },
-        {
-          type: 'p',
-          text: "Mais le mot d'ordre reste le même : la moins chère n'est pas automatiquement la meilleure affaire, et la plus rentable non plus. Tout dépend du prix payé pour la qualité obtenue. C'est cette double lecture que je voulais pouvoir faire en quelques secondes, alors je l'ai codée. Compare-les toi-même sur [Qualys](/analyse/QLYS) et [Intuit](/analyse/INTU), ou parcours le [classement des entreprises 10 sur 10](/classement/qualite-10-sur-10) et ma [méthodologie](/methodologie).",
-        },
-      ],
-      faq: [
-        {
-          q: "Qualys et Intuit font-elles le même métier ?",
-          a: "Non. Qualys vend de la cybersécurité en ligne, surtout aux grandes entreprises. Intuit édite TurboTax (impôts) et QuickBooks (comptabilité PME), pour le grand public et les petites entreprises. Deux modèles très différents, même note de qualité.",
-        },
-        {
-          q: "Pourquoi Qualys est-elle plus chère ?",
-          a: "Parce que ses marges sont parmi les plus élevées de la cote et que la cybersécurité est un besoin non négociable. Le marché paie cette rentabilité et cette résilience par un P/FCF d'environ 18, contre 13 pour Intuit.",
-        },
-        {
-          q: "Intuit est-elle la meilleure affaire des deux ?",
-          a: "Sur ce duel, elle cumule un prix plus bas, une croissance plus rapide et un moat plus large. Mais moins cher ne veut pas dire sans risque. Compare toujours le prix à la qualité avant de conclure.",
-        },
-        {
-          q: "Faut-il acheter Qualys ou Intuit ?",
-          a: "Ça dépend de ce que tu privilégies, la marge maximale ou le meilleur compromis croissance-prix, et de ta discipline d'entrée. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches.",
-        },
-      ],
-      tags: ['Comparatif', 'Software', 'Cybersécurité', 'Valorisation'],
-      disclaimer:
-        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
-    },
-    en: {
-      title: "Qualys (QLYS) or Intuit (INTU): which stock to pick",
-      excerpt:
-        "Two of the soundest software makers around, two different valuations. Qualys more profitable but pricier, Intuit cheaper and broader. The comparison.",
-      metaDescription:
-        "Qualys and Intuit, two high-quality software makers with opposite profiles. Margins, growth, moat: which one to pick in 2026?",
-      answer:
-        "Qualys and Intuit both score 10/10 on my quality grid, but with opposite profiles. Qualys, in cybersecurity, posts higher margins but trades pricier, about 18 times its cash. Intuit, broader and better known, grows faster and costs less, about 13 times. Here is how I decide.",
-      body: [
-        {
-          type: 'ul',
-          items: [
-            "Two makers rated 10/10: Qualys (QLYS) and Intuit (INTU).",
-            "Qualys: the most profitable (net margin around 29 %), but the priciest (about 18 times cash).",
-            "Intuit: the cheapest (about 13 times), the fastest growth (about 15 % a year).",
-            "Intuit has a broader moat thanks to TurboTax and QuickBooks.",
-            "Same score, different choice depending on whether you favor discount or growth.",
-          ],
-        },
-        { type: 'h2', text: "Two software firms, two worlds" },
-        {
-          type: 'p',
-          text: "Qualys and Intuit are both software makers rated 10/10 by my grid, but they are in completely different businesses. Qualys sells cybersecurity online: it continuously scans its clients' systems to spot flaws and check compliance. A technical service, sold mostly to large enterprises.",
-        },
-        {
-          type: 'p',
-          text: "Intuit is the opposite end of the spectrum: consumers and small businesses. It makes TurboTax, the number one software to file taxes in the United States, and QuickBooks, the reference for US small-business accounting. Two near-monopolies on tasks nobody wants to do by hand.",
-        },
-        { type: 'h2', text: "Qualys, the more profitable" },
-        {
-          type: 'p',
-          text: "On margins, Qualys impresses. Its net margin tops 29 %, and its free cash flow margin nears 31 %. Free cash flow is the money that truly remains once bills are paid. At that level, Qualys turns nearly a third of its sales into pure cash. Cybersecurity is a non-negotiable need: a company cuts many budgets before cutting its security. That gives solid pricing power.",
-        },
-        {
-          type: 'p',
-          text: "The flip side is the price. Qualys trades at about 18 times its free cash flow. To measure that, I use P/FCF (price-to-free-cash-flow), the share price divided by annual cash. Eighteen times is not excessive for this quality, but it is no discount either.",
-        },
-        { type: 'h2', text: "Intuit, cheaper and broader" },
-        {
-          type: 'p',
-          text: "Intuit trades at about 13 times its free cash flow, clearly less than Qualys. And yet it grows faster, around 15 % a year versus 13 % for Qualys. On paper, paying less for faster growth is appealing.",
-        },
-        {
-          type: 'p',
-          text: "Above all, its moat is broader. A moat is the competitive gap that stops a rival from taking its place. Once millions of small businesses run their books on QuickBooks, switching is a nightmare. That stickiness is worth gold. Qualys has a good technical moat, but Intuit has a mass moat, anchored in the habits of an entire country.",
-        },
-        { type: 'h2', text: "Which I prefer, and why" },
-        {
-          type: 'p',
-          text: "Same quality score, but the choice depends on what you want. If you want the maximum margin and cybersecurity speaks to you, Qualys is superb, provided you accept paying up a bit. If you want the best balance of quality, growth and price, Intuit gets my preference in this duel: cheaper, faster growth, deeper moat.",
-        },
-        {
-          type: 'p',
-          text: "But the watchword stays the same: the cheapest is not automatically the best deal, and neither is the most profitable. It all depends on the price paid for the quality obtained. That double read is what I wanted to do in seconds, so I coded it. Compare them yourself on [Qualys](/analyse/QLYS) and [Intuit](/analyse/INTU), or browse the [ranking of companies rated 10 out of 10](/classement/qualite-10-sur-10) and my [methodology](/methodologie).",
-        },
-      ],
-      faq: [
-        {
-          q: "Are Qualys and Intuit in the same business?",
-          a: "No. Qualys sells cybersecurity online, mostly to large enterprises. Intuit makes TurboTax (taxes) and QuickBooks (small-business accounting), for consumers and small businesses. Two very different models, same quality score.",
-        },
-        {
-          q: "Why is Qualys more expensive?",
-          a: "Because its margins are among the highest on the market and cybersecurity is a non-negotiable need. The market pays for that profitability and resilience with a P/FCF near 18, versus 13 for Intuit.",
-        },
-        {
-          q: "Is Intuit the better deal of the two?",
-          a: "In this duel it combines a lower price, faster growth and a broader moat. But cheaper does not mean risk-free. Always compare price to quality before concluding.",
-        },
-        {
-          q: "Should you buy Qualys or Intuit?",
-          a: "It depends on what you favor, maximum margin or the best growth-price balance, and on your entry discipline. This is not personalized investment advice, do your own research.",
-        },
-      ],
-      tags: ['Comparison', 'Software', 'Cybersecurity', 'Valuation'],
-      disclaimer:
-        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
-    },
-    es: {
-      title: "Qualys (QLYS) o Intuit (INTU): qué acción elegir",
-      excerpt:
-        "Dos de las empresas de software más sólidas, dos valoraciones distintas. Qualys más rentable pero más cara, Intuit más barata. El comparativo.",
-      metaDescription:
-        "Qualys e Intuit, dos empresas de software de gran calidad con perfiles opuestos. Márgenes, crecimiento, foso: ¿cuál elegir en 2026?",
-      answer:
-        "Qualys e Intuit sacan ambas 10/10 en mi rejilla de calidad, pero con perfiles opuestos. Qualys, en ciberseguridad, presenta márgenes superiores pero cotiza más cara, unas 18 veces su caja. Intuit, más amplia y conocida, crece más rápido y cuesta menos, unas 13 veces. Así lo decido.",
-      body: [
-        {
-          type: 'ul',
-          items: [
-            "Dos empresas con 10/10: Qualys (QLYS) e Intuit (INTU).",
-            "Qualys: la más rentable (margen neto cercano al 29 %), pero la más cara (unas 18 veces la caja).",
-            "Intuit: la más barata (unas 13 veces), el crecimiento más rápido (cerca del 15 % anual).",
-            "Intuit tiene un foso más amplio gracias a TurboTax y QuickBooks.",
-            "Misma nota, elección distinta según prefieras el descuento o el crecimiento.",
-          ],
-        },
-        { type: 'h2', text: "Dos software, dos mundos" },
-        {
-          type: 'p',
-          text: "Qualys e Intuit son ambas empresas de software con 10/10 en mi rejilla, pero no hacen para nada el mismo negocio. Qualys vende ciberseguridad online: escanea de forma continua los sistemas de sus clientes para detectar fallos y verificar el cumplimiento. Un servicio técnico, vendido sobre todo a grandes empresas.",
-        },
-        {
-          type: 'p',
-          text: "Intuit es el extremo opuesto del espectro: gran público y pequeñas empresas. Edita TurboTax, el software número uno para hacer los impuestos en Estados Unidos, y QuickBooks, la referencia de la contabilidad de las pymes estadounidenses. Dos casi monopolios sobre tareas que nadie quiere hacer a mano.",
-        },
-        { type: 'h2', text: "Qualys, la más rentable" },
-        {
-          type: 'p',
-          text: "En márgenes, Qualys impresiona. Su margen neto supera el 29 %, y su margen de free cash flow roza el 31 %. El free cash flow es el dinero que de verdad queda una vez pagadas las facturas. A ese nivel, Qualys convierte casi un tercio de sus ventas en caja pura. La ciberseguridad es una necesidad no negociable: una empresa recorta muchos presupuestos antes de recortar su seguridad. Eso da un poder de fijación de precios sólido.",
-        },
-        {
-          type: 'p',
-          text: "El reverso es el precio. Qualys cotiza a unas 18 veces su free cash flow. Para medirlo uso el P/FCF (price-to-free-cash-flow), la cotización dividida por la caja anual. Dieciocho veces no es excesivo para esta calidad, pero tampoco es un descuento.",
-        },
-        { type: 'h2', text: "Intuit, más barata y más amplia" },
-        {
-          type: 'p',
-          text: "Intuit cotiza a unas 13 veces su free cash flow, claramente menos que Qualys. Y sin embargo crece más rápido, en torno al 15 % anual frente al 13 % de Qualys. Sobre el papel, pagar menos por un crecimiento más rápido es atractivo.",
-        },
-        {
-          type: 'p',
-          text: "Sobre todo, su foso es más amplio. Un foso es la brecha competitiva que impide a un rival ocupar su lugar. Una vez que millones de pymes llevan su contabilidad en QuickBooks, cambiar es una pesadilla. Esa adherencia vale oro. Qualys tiene un buen foso técnico, pero Intuit tiene un foso de masa, anclado en los hábitos de todo un país.",
-        },
-        { type: 'h2', text: "Cuál prefiero, y por qué" },
-        {
-          type: 'p',
-          text: "Misma nota de calidad, pero la elección depende de lo que busques. Si quieres el margen máximo y la ciberseguridad te interesa, Qualys es estupenda, siempre que aceptes pagarla algo cara. Si quieres el mejor equilibrio entre calidad, crecimiento y precio, Intuit tiene mi preferencia en este duelo: más barata, crecimiento más rápido, foso más profundo.",
-        },
-        {
-          type: 'p',
-          text: "Pero la consigna sigue siendo la misma: la más barata no es automáticamente el mejor negocio, ni tampoco la más rentable. Todo depende del precio pagado por la calidad obtenida. Esa doble lectura es lo que quería poder hacer en segundos, así que la programé. Compáralas tú mismo en [Qualys](/analyse/QLYS) e [Intuit](/analyse/INTU), o recorre el [ranking de empresas 10 sobre 10](/classement/qualite-10-sur-10) y mi [metodología](/methodologie).",
-        },
-      ],
-      faq: [
-        {
-          q: "¿Qualys e Intuit hacen el mismo negocio?",
-          a: "No. Qualys vende ciberseguridad online, sobre todo a grandes empresas. Intuit edita TurboTax (impuestos) y QuickBooks (contabilidad de pymes), para el gran público y las pequeñas empresas. Dos modelos muy distintos, misma nota de calidad.",
-        },
-        {
-          q: "¿Por qué Qualys es más cara?",
-          a: "Porque sus márgenes están entre los más altos del mercado y la ciberseguridad es una necesidad no negociable. El mercado paga esa rentabilidad y resiliencia con un P/FCF cercano a 18, frente a 13 de Intuit.",
-        },
-        {
-          q: "¿Intuit es el mejor negocio de las dos?",
-          a: "En este duelo combina un precio más bajo, un crecimiento más rápido y un foso más amplio. Pero más barata no significa sin riesgo. Compara siempre el precio con la calidad antes de concluir.",
-        },
-        {
-          q: "¿Hay que comprar Qualys o Intuit?",
-          a: "Depende de lo que priorices, el margen máximo o el mejor equilibrio crecimiento-precio, y de tu disciplina de entrada. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación.",
-        },
-      ],
-      tags: ['Comparativo', 'Software', 'Ciberseguridad', 'Valoración'],
-      disclaimer:
-        "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 12 de junio de 2026, sujetas a cambios. Haz tu propia investigación.",
-    },
-  },
-};
-
-export const ARTICLES: Article[] = [adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, qlysIntu, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, reassurance, bsyRop, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe];
+export const ARTICLES: Article[] = [adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
