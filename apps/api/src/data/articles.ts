@@ -188,11 +188,11 @@ const kinsale: Article = {
   ticker: 'KNSL',
   content: {
     fr: {
-      title: 'Kinsale Capital (KNSL) : assureur noté 10/10, analyse',
+      title: 'Kinsale Capital (KNSL) : l\'assureur de niche à suivre',
       excerpt:
         "Un assureur qui gagne de l'argent rien qu'en assurant, qui grandit de 33 % par an et qui se paie bon marché. Voici pourquoi Kinsale coche mes 10 critères de qualité, et où se cache le piège.",
       metaDescription:
-        "Kinsale Capital (KNSL) expliqué simplement : ce que fait cet assureur E and S, son avantage durable, ses risques, et pourquoi il obtient ma note 10/10.",
+        "Kinsale Capital (KNSL) expliqué simplement : ce que fait cet assureur E and S, son avantage durable, ses risques, et pourquoi il figure parmi mes valeurs de meilleure qualité.",
       answer:
         "Kinsale Capital est un assureur américain d'élite : il couvre les risques bizarres dont personne ne veut, avec une discipline de coûts que ses rivaux ne savent pas copier. Il valide 10 de mes 10 critères de qualité, grandit de 33 % par an, et se paie pourtant bon marché. La qualité est rare, le prix aussi.",
       body: [
@@ -251,11 +251,11 @@ const kinsale: Article = {
         "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 10 juin 2026, susceptibles d'évoluer. Faites vos propres recherches.",
     },
     en: {
-      title: 'Kinsale Capital (KNSL) : a 10/10 insurer, analysis',
+      title: 'Kinsale Capital (KNSL): the niche insurer to watch',
       excerpt:
         'An insurer that makes money just by insuring, grows 33% a year, and trades cheap. Here is why Kinsale meets my 10 quality criteria, and where the catch hides.',
       metaDescription:
-        'Kinsale Capital (KNSL) explained simply: what this E and S insurer does, its durable edge, its risks, and why it earns my 10/10 quality score.',
+        'Kinsale Capital (KNSL) explained simply: what this E and S insurer does, its durable edge, its risks, and why it ranks among my highest-quality picks.',
       answer:
         "Kinsale Capital is an elite American insurer that covers the odd risks nobody else wants, with a cost discipline its rivals cannot copy. It meets 10 of my 10 quality criteria, grows 33% a year, and still trades cheap. Quality this rare is unusual. So is the price. Here is how I read it, without getting carried away.",
       body: [
@@ -314,11 +314,11 @@ const kinsale: Article = {
         'This article is an analysis for informational and educational purposes and is not personalized investment advice. Past performance does not guarantee future results. Figures as of June 10, 2026, subject to change. Do your own research.',
     },
     es: {
-      title: 'Kinsale Capital (KNSL) : una aseguradora 10/10, análisis',
+      title: 'Kinsale Capital (KNSL): la aseguradora de nicho a seguir',
       excerpt:
         'Una aseguradora que gana dinero solo con asegurar, que crece un 33 % al año y que cotiza barata. Aquí está por qué Kinsale cumple mis 10 criterios de calidad, y dónde se esconde la trampa.',
       metaDescription:
-        'Kinsale Capital (KNSL) explicada de forma sencilla: qué hace esta aseguradora E and S, su ventaja, sus riesgos y por qué obtiene mi nota 10/10 sin ser cara.',
+        'Kinsale Capital (KNSL) explicada de forma sencilla: qué hace esta aseguradora E and S, su ventaja, sus riesgos y por qué es una de mis empresas de mayor calidad sin ser cara.',
       answer:
         'Kinsale Capital es una aseguradora estadounidense de élite: cubre los riesgos raros que nadie más quiere, con una disciplina de costes que sus rivales no logran copiar. Cumple 10 de mis 10 criterios de calidad, crece un 33 % al año y aún así cotiza barata. Una calidad así es rara. El precio también. Así lo leo, sin dejarme llevar.',
       body: [
@@ -571,7 +571,7 @@ const techPfcf: Article = {
       excerpt:
         "Microsoft se paie 49,7 fois son cash, Alphabet 116,6 fois, Adobe 11,7 fois. Trois géants, trois prix qui n'ont rien à voir. Voici comment je lis ces écarts.",
       metaDescription:
-        "P/FCF de MSFT (49,7x), GOOGL (116,6x) et ADBE (11,7x) expliqué simplement. Apprends à lire un multiple et à séparer la qualité d'une entreprise de son prix.",
+        "La valorisation de MSFT, GOOGL et ADBE expliquée simplement. Apprends à lire un multiple et à séparer la qualité d'une entreprise de son prix.",
       answer:
         "Non, pas partout : tout dépend de l'entreprise. Microsoft (49,7 fois son cash) et Alphabet (116,6 fois) se paient comme si la perfection était acquise, alors que leur cash par action stagne ou recule. Adobe (11,7 fois), bien plus solide, est au plus bas de son histoire. Le multiple seul ne dit rien : la croissance derrière décide.",
       body: [
@@ -627,7 +627,7 @@ const techPfcf: Article = {
       excerpt:
         "Microsoft trades at 49.7 times its cash, Alphabet at 116.6, Adobe at 11.7. Three giants, three prices with nothing in common. Here is how I read the gaps.",
       metaDescription:
-        "P/FCF of MSFT (49.7x), GOOGL (116.6x) and ADBE (11.7x) explained simply. Learn to read a multiple and to separate a company's quality from its price.",
+        "The valuation of MSFT, GOOGL and ADBE explained simply. Learn to read a multiple and to separate a company's quality from its price.",
       answer:
         "No, not everywhere : it depends on the company. Microsoft (49.7 times its cash) and Alphabet (116.6 times) are priced as if perfection were guaranteed, while their cash per share stalls or falls. Adobe (11.7 times), far more solid, sits at its historic low. A multiple alone says nothing : the growth behind it decides.",
       body: [
@@ -683,7 +683,7 @@ const techPfcf: Article = {
       excerpt:
         "Microsoft cotiza a 49,7 veces su caja, Alphabet a 116,6, Adobe a 11,7. Tres gigantes, tres precios que no tienen nada que ver. Así leo yo las diferencias.",
       metaDescription:
-        "El P/FCF de MSFT (49,7x), GOOGL (116,6x) y ADBE (11,7x) explicado simple. Aprende a leer un múltiplo y a separar la calidad de una empresa de su precio.",
+        "La valoración de MSFT, GOOGL y ADBE explicada de forma sencilla. Aprende a leer un múltiplo y a separar la calidad de una empresa de su precio.",
       answer:
         "No, no en todas partes : depende de la empresa. Microsoft (49,7 veces su caja) y Alphabet (116,6 veces) cotizan como si la perfección estuviera garantizada, mientras su caja por acción se estanca o cae. Adobe (11,7 veces), mucho más sólida, está en su mínimo histórico. Un múltiplo solo no dice nada : el crecimiento detrás decide.",
       body: [
@@ -746,9 +746,9 @@ const afya: Article = {
   "ticker": "AFYA",
   "content": {
     "fr": {
-      "title": "Afya Limited (AFYA) : qualité 10/10 bradée",
-      "excerpt": "Une entreprise qui forme les médecins du Brésil, notée 10/10, et qui se paie à peine plus d'un an de cash généré. Voici pourquoi Afya coche tous mes critères, et où se cache le piège.",
-      "metaDescription": "Afya Limited (AFYA) expliqué simplement : ce que fait cet acteur de l'éducation médicale au Brésil, son moat réglementaire, ses risques, et sa note 10/10.",
+      "title": "Afya Limited (AFYA) : la pépite brésilienne bradée",
+      "excerpt": "Une entreprise qui forme les médecins du Brésil, de très grande qualité, et qui se paie à peine plus d'un an de cash généré. Voici pourquoi Afya coche tous mes critères, et où se cache le piège.",
+      "metaDescription": "Afya Limited (AFYA) expliqué simplement : ce que fait cet acteur de l'éducation médicale au Brésil, son moat réglementaire, ses risques, et pourquoi elle est de très grande qualité.",
       "answer": "Afya forme les médecins du Brésil, un métier protégé par des licences quasi introuvables. L'entreprise valide mes 10 critères de qualité, fait croître son cash de 28 % par an, et se paie à peine plus d'un an de ce cash. La qualité est rare, le prix encore plus. Voici comment je lis ce dossier.",
       "body": [
         {
@@ -924,9 +924,9 @@ const afya: Article = {
       "disclaimer": "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Afya Limited (AFYA) : 10/10 quality, dirt cheap",
-      "excerpt": "A company that trains Brazil's doctors, rated 10/10, trading at barely more than one year of the cash it generates. Here is why Afya meets all my criteria, and where the catch hides.",
-      "metaDescription": "Afya Limited (AFYA) explained simply: what this Brazilian medical education player does, its regulatory moat, its risks, and its 10/10 quality score.",
+      "title": "Afya Limited (AFYA): a dirt-cheap Brazilian gem",
+      "excerpt": "A company that trains Brazil's doctors, of the highest quality, trading at barely more than one year of the cash it generates. Here is why Afya meets all my criteria, and where the catch hides.",
+      "metaDescription": "Afya Limited (AFYA) explained simply: what this Brazilian medical education player does, its regulatory moat, its risks, and why it is top quality.",
       "answer": "Afya trains Brazil's doctors, a trade protected by licenses that are nearly impossible to obtain. The company meets my 10 quality criteria, grows its cash 28% a year, and trades at barely more than one year of that cash. Quality this rare is unusual. The price even more so. Here is how I read it.",
       "body": [
         {
@@ -1102,9 +1102,9 @@ const afya: Article = {
       "disclaimer": "This article is an analysis for informational and educational purposes, and does not constitute personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research."
     },
     "es": {
-      "title": "Afya Limited (AFYA) : calidad 10/10 muy barata",
-      "excerpt": "Una empresa que forma a los médicos de Brasil, calificada 10/10, que cotiza a apenas algo más de un año de la caja que genera. Aquí explico por qué Afya cumple todos mis criterios, y dónde se esconde la trampa.",
-      "metaDescription": "Afya Limited (AFYA) explicado simple: qué hace este actor de la educación médica en Brasil, su foso regulatorio, sus riesgos y su calificación de calidad 10/10.",
+      "title": "Afya Limited (AFYA): la joya brasileña de saldo",
+      "excerpt": "Una empresa que forma a los médicos de Brasil, de altísima calidad, que cotiza a apenas algo más de un año de la caja que genera. Aquí explico por qué Afya cumple todos mis criterios, y dónde se esconde la trampa.",
+      "metaDescription": "Afya Limited (AFYA) explicado simple: qué hace este actor de la educación médica en Brasil, su foso regulatorio, sus riesgos y por qué es de altísima calidad.",
       "answer": "Afya forma a los médicos de Brasil, un oficio protegido por licencias casi imposibles de obtener. La empresa cumple mis 10 criterios de calidad, hace crecer su caja un 28 % al año y cotiza a apenas algo más de un año de esa caja. La calidad es rara, el precio aún más. Así leo este caso.",
       "body": [
         {
@@ -1291,8 +1291,8 @@ const rnr: Article = {
   "content": {
     "fr": {
       "title": "RenaissanceRe Holdings (RNR) : qualité bradée",
-      "excerpt": "Un réassureur d'élite, noté 10 sur 10, qui se paie aujourd'hui parmi les prix les plus bas de toute son histoire. Voici pourquoi RenaissanceRe coche mes critères de qualité, et le piège que cache son métier.",
-      "metaDescription": "RenaissanceRe Holdings (RNR) expliqué simplement : ce que fait ce réassureur des Bermudes, son moat, ses risques, et pourquoi il obtient ma note 10 sur 10.",
+      "excerpt": "Un réassureur d'élite qui se paie aujourd'hui parmi les prix les plus bas de toute son histoire. Voici pourquoi RenaissanceRe coche mes critères de qualité, et le piège que cache son métier.",
+      "metaDescription": "RenaissanceRe Holdings (RNR) expliqué simplement : ce que fait ce réassureur des Bermudes, son moat, ses risques, et pourquoi il figure parmi mes valeurs de meilleure qualité.",
       "answer": "RenaissanceRe est un réassureur des Bermudes d'élite : il assure les assureurs contre les grandes catastrophes, avec une discipline de souscription réputée. Il valide mes 10 critères de qualité et obtient 10 sur 10. Et il se paie aujourd'hui parmi les prix les plus bas de toute son histoire. La qualité est rare, ce prix aussi.",
       "body": [
         {
@@ -1846,9 +1846,9 @@ const meli: Article = {
   "ticker": "MELI",
   "content": {
     "fr": {
-      "title": "MercadoLibre (MELI) : note 10/10, payée comme une value",
-      "excerpt": "Une machine à cash notée 10/10, qui grandit de 41 % par an, et qui ne s'est jamais payée aussi peu cher de toute son histoire. Voici pourquoi je regarde MercadoLibre de très près, et où se cache le piège.",
-      "metaDescription": "MercadoLibre (MELI) expliqué simplement : un business noté 10/10 au P/FCF le plus bas de son histoire. Sa qualité, son moat, ses risques, et comment je tranche.",
+      "title": "MercadoLibre (MELI) : l'Amazon latino payé pas cher",
+      "excerpt": "Une machine à cash de très grande qualité, qui grandit de 41 % par an, et qui ne s'est jamais payée aussi peu cher de toute son histoire. Voici pourquoi je regarde MercadoLibre de très près, et où se cache le piège.",
+      "metaDescription": "MercadoLibre (MELI) expliqué simplement : un business de très grande qualité au prix le plus bas de son histoire. Sa qualité, son moat, ses risques, et comment je tranche.",
       "answer": "MercadoLibre est l'Amazon plus PayPal de l'Amérique latine, noté 10 sur 10 dans ma méthode. Il grandit de 41 % par an, génère un cash exceptionnel, et ne s'est jamais payé aussi peu cher de toute son histoire. La qualité est rare, le prix l'est tout autant. Voici comment je tranche, sans emballement.",
       "body": [
         {
@@ -1993,9 +1993,9 @@ const meli: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "MercadoLibre (MELI): rated 10/10, priced like value",
-      "excerpt": "A cash machine rated 10/10, growing 41% a year, that has never been this cheap in its entire history. Here is why I watch MercadoLibre very closely, and where the trap hides.",
-      "metaDescription": "MercadoLibre (MELI) explained simply: a business rated 10/10 at the lowest P/FCF in its history. Its quality, its moat, its risks, and how I decide.",
+      "title": "MercadoLibre (MELI): Latam's Amazon, priced cheap",
+      "excerpt": "A top-quality cash machine, growing 41% a year, that has never been this cheap in its entire history. Here is why I watch MercadoLibre very closely, and where the trap hides.",
+      "metaDescription": "MercadoLibre (MELI) explained simply: a top-quality business at the cheapest price in its history. Its quality, its moat, its risks, and how I decide.",
       "answer": "MercadoLibre is Latin America's Amazon plus PayPal, rated 10 out of 10 in my method. It grows 41% a year, generates exceptional cash, and has never been this cheap in its entire history. Quality is rare, and so is the price. Here is how I decide, without getting carried away.",
       "body": [
         {
@@ -2140,9 +2140,9 @@ const meli: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research."
     },
     "es": {
-      "title": "MercadoLibre (MELI): nota 10/10, a precio de value",
-      "excerpt": "Una máquina de generar caja con nota 10/10, que crece un 41 % al año, y que nunca se había pagado tan barata en toda su historia. Aquí explico por qué vigilo de cerca a MercadoLibre, y dónde se esconde la trampa.",
-      "metaDescription": "MercadoLibre (MELI) explicado simple: un negocio con nota 10/10 al P/FCF más bajo de su historia. Su calidad, su foso, sus riesgos, y cómo decido.",
+      "title": "MercadoLibre (MELI): el Amazon latino, barato",
+      "excerpt": "Una máquina de generar caja de altísima calidad, que crece un 41 % al año, y que nunca se había pagado tan barata en toda su historia. Aquí explico por qué vigilo de cerca a MercadoLibre, y dónde se esconde la trampa.",
+      "metaDescription": "MercadoLibre (MELI) explicado simple: un negocio de altísima calidad al precio más bajo de su historia. Su calidad, su foso, sus riesgos, y cómo decido.",
       "answer": "MercadoLibre es el Amazon más PayPal de América Latina, con nota 10 sobre 10 en mi método. Crece un 41 % al año, genera una caja excepcional, y nunca se había pagado tan barata en toda su historia. La calidad es rara, y el precio también. Así es como decido, sin dejarme llevar.",
       "body": [
         {
@@ -2296,9 +2296,9 @@ const pfcfSous5x: Article = {
   "readingTime": 9,
   "content": {
     "fr": {
-      "title": "Actions 10/10 payées moins de 5 ans de cash : piège ?",
-      "excerpt": "Sept entreprises que je note 10/10 se paient moins de 5 ans du cash qu'elles génèrent. Aubaine ou piège ? Voici comment je sépare la qualité du prix, et pourquoi le marché doute.",
-      "metaDescription": "Sept actions notées 10/10 se paient un P/FCF sous 5 en juin 2026. Vraie décote ou piège de valeur ? Ma méthode pour séparer la qualité du prix du marché.",
+      "title": "Actions de qualité très bradées : aubaine ou piège ?",
+      "excerpt": "Sept entreprises de très grande qualité se paient moins de 5 ans du cash qu'elles génèrent. Aubaine ou piège ? Voici comment je sépare la qualité du prix, et pourquoi le marché doute.",
+      "metaDescription": "Sept actions de très grande qualité se paient très bon marché en juin 2026. Vraie décote ou piège de valeur ? Ma méthode pour séparer la qualité du prix du marché.",
       "answer": "En juin 2026, sept entreprises que je note 10/10 sur la qualité se paient moins de 5 ans du cash qu'elles génèrent. C'est rare, et tentant. Mais un prix très bas cache souvent une raison. Voici comment je sépare la qualité du prix, et pourquoi je creuse toujours le doute du marché avant de conclure.",
       "body": [
         {
@@ -2451,9 +2451,9 @@ const pfcfSous5x: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (juin 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "10/10 stocks paid under 5 years of cash: a trap?",
-      "excerpt": "Seven companies I score 10/10 trade at under 5 years of the cash they generate. Bargain or trap? Here is how I separate quality from price, and why the market doubts.",
-      "metaDescription": "Seven stocks scored 10/10 trade at a P/FCF below 5 in June 2026. Real discount or value trap? My method to separate quality from price and dig into the doubt.",
+      "title": "Deeply cheap quality stocks: bargain or trap?",
+      "excerpt": "Seven top-quality companies trade at under 5 years of the cash they generate. Bargain or trap? Here is how I separate quality from price, and why the market doubts.",
+      "metaDescription": "Seven top-quality stocks trade very cheaply in June 2026. Real discount or value trap? My method to separate quality from price and dig into the doubt.",
       "answer": "In June 2026, seven companies I score 10/10 on quality trade at under five years of the cash they generate. That is rare, and tempting. But a very low price usually hides a reason. Here is how I separate quality from price, and why I always dig into the market's doubt before drawing conclusions.",
       "body": [
         {
@@ -2606,9 +2606,9 @@ const pfcfSous5x: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (June 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "Acciones 10/10 a menos de 5 años de caja: trampa?",
-      "excerpt": "Siete empresas que puntúo 10/10 cotizan a menos de 5 años de la caja que generan. Ganga o trampa? Así separo la calidad del precio, y por qué el mercado duda.",
-      "metaDescription": "Siete acciones puntuadas 10/10 cotizan con un P/FCF por debajo de 5 en junio de 2026. Descuento real o trampa de valor? Mi método para separar calidad y precio.",
+      "title": "Acciones de calidad muy baratas: ¿ganga o trampa?",
+      "excerpt": "Siete empresas de altísima calidad cotizan a menos de 5 años de la caja que generan. Ganga o trampa? Así separo la calidad del precio, y por qué el mercado duda.",
+      "metaDescription": "Siete acciones de altísima calidad cotizan muy baratas en junio de 2026. Descuento real o trampa de valor? Mi método para separar calidad y precio.",
       "answer": "En junio de 2026, siete empresas que puntúo 10/10 en calidad cotizan a menos de cinco años de la caja que generan. Es raro, y tentador. Pero un precio muy bajo suele esconder una razón. Así separo la calidad del precio, y por qué siempre indago en la duda del mercado antes de concluir.",
       "body": [
         {
@@ -2772,7 +2772,7 @@ const reperer10sous: Article = {
     "fr": {
       "title": "Repérer une action excellente et pas chère",
       "excerpt": "Ma méthode en deux temps pour trouver une action à la fois de qualité et sous-évaluée : la qualité d'abord, le prix ensuite, jugés séparément. Avec trois exemples vérifiés en juin 2026.",
-      "metaDescription": "Comment je repère une action excellente et pas chère : note qualité sur 10, puis prix via le P/FCF et son percentile. Méthode en deux temps, 3 exemples.",
+      "metaDescription": "Comment je repère une action excellente et pas chère : une note de qualité, puis le prix et son percentile. Méthode en deux temps, 3 exemples.",
       "answer": "Je sépare toujours deux questions : l'entreprise est-elle excellente, et le prix est-il bas. Une note de qualité sur 10 juge le business sans regarder le cours. Ensuite le P/FCF, comparé à son propre passé, juge le prix. Quand les deux s'alignent, je tiens une vraie opportunité.",
       "body": [
         {
@@ -2935,7 +2935,7 @@ const reperer10sous: Article = {
     "en": {
       "title": "Spotting an excellent and cheap stock",
       "excerpt": "My two-step method to find a stock that is both high quality and undervalued: quality first, price second, judged separately. With three examples verified in June 2026.",
-      "metaDescription": "How I spot a stock that is both excellent and cheap: a quality score out of 10, then price via P/FCF and its percentile. Two-step method, 3 examples.",
+      "metaDescription": "How I spot a stock that is both excellent and cheap: a quality score, then price and its percentile. Two-step method, 3 examples.",
       "answer": "I always separate two questions: is the company excellent, and is the price low. A quality score out of 10 judges the business without looking at the stock price. Then the P/FCF, compared to its own past, judges the price. When the two line up, I have a real opportunity.",
       "body": [
         {
@@ -3098,7 +3098,7 @@ const reperer10sous: Article = {
     "es": {
       "title": "Detectar una acción excelente y barata",
       "excerpt": "Mi método en dos tiempos para encontrar una acción a la vez de calidad e infravalorada: primero la calidad, después el precio, juzgados por separado. Con tres ejemplos verificados en junio de 2026.",
-      "metaDescription": "Cómo detecto una acción a la vez excelente y barata: una nota de calidad sobre 10, luego el precio vía P/FCF y su percentil. Método en dos tiempos, 3 ejemplos.",
+      "metaDescription": "Cómo detecto una acción a la vez excelente y barata: una nota de calidad, luego el precio y su percentil. Método en dos tiempos, 3 ejemplos.",
       "answer": "Siempre separo dos preguntas: ¿es excelente la empresa, y es bajo el precio? Una nota de calidad sobre 10 juzga el negocio sin mirar la cotización. Después el P/FCF, comparado con su propio pasado, juzga el precio. Cuando ambos se alinean, tengo una oportunidad real.",
       "body": [
         {
@@ -3268,9 +3268,9 @@ const topMoinsCheres: Article = {
   "readingTime": 9,
   "content": {
     "fr": {
-      "title": "Actions notées 10/10 les moins chères : juin 2026",
+      "title": "Les actions de qualité les moins chères de 2026",
       "excerpt": "Cinq entreprises à la qualité comptable parfaite, payées une à quatre années de cash. Ce que chacune fait, et pourquoi le marché les boude encore.",
-      "metaDescription": "Cinq actions notées 10/10 et payées entre 1,1 et 3,9 fois leur cash en juin 2026 : ce que fait chaque entreprise, et la tension qui les rend si peu chères.",
+      "metaDescription": "Cinq actions de très grande qualité payées entre 1,1 et 3,9 fois leur cash en juin 2026 : ce que fait chaque entreprise, et la tension qui les rend si peu chères.",
       "answer": "En juin 2026, cinq actions cumulent une qualité comptable parfaite, notée 10/10, et un prix très bas. Afya, Universal Insurance, RenaissanceRe, Collegium et SkyWest se paient entre 1,1 et 3,9 fois leur cash annuel. Bonne note ne veut pas dire bonne affaire : chacune porte une tension qui explique ce prix.",
       "body": [
         {
@@ -3415,9 +3415,9 @@ const topMoinsCheres: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (juin 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Cheapest stocks rated 10/10: June 2026",
+      "title": "The cheapest quality stocks of June 2026",
       "excerpt": "Five companies with flawless accounting quality, priced at one to four years of cash. What each one does, and why the market still shuns them.",
-      "metaDescription": "Five stocks rated 10/10 and priced between 1.1 and 3.9 times their cash in June 2026: what each company does, and the tension that makes them so cheap.",
+      "metaDescription": "Five top-quality stocks priced between 1.1 and 3.9 times their cash in June 2026: what each company does, and the tension that makes them so cheap.",
       "answer": "In June 2026, five stocks combine flawless accounting quality, rated 10/10, with a very low price. Afya, Universal Insurance, RenaissanceRe, Collegium and SkyWest trade between 1.1 and 3.9 times their annual cash. A great score does not mean a great deal: each one carries a tension that explains the price.",
       "body": [
         {
@@ -3562,9 +3562,9 @@ const topMoinsCheres: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (June 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "Acciones 10/10 más baratas: junio de 2026",
+      "title": "Las acciones de calidad más baratas de 2026",
       "excerpt": "Cinco empresas con calidad contable perfecta, pagadas entre uno y cuatro años de caja. Qué hace cada una y por qué el mercado aún las evita.",
-      "metaDescription": "Cinco acciones con nota 10/10 y pagadas entre 1,1 y 3,9 veces su caja en junio de 2026: qué hace cada empresa y la tensión que las hace tan baratas.",
+      "metaDescription": "Cinco acciones de altísima calidad pagadas entre 1,1 y 3,9 veces su caja en junio de 2026: qué hace cada empresa y la tensión que las hace tan baratas.",
       "answer": "En junio de 2026, cinco acciones combinan una calidad contable perfecta, con nota 10/10, y un precio muy bajo. Afya, Universal Insurance, RenaissanceRe, Collegium y SkyWest cotizan entre 1,1 y 3,9 veces su caja anual. Una gran nota no significa una gran ganga: cada una arrastra una tensión que explica ese precio.",
       "body": [
         {
@@ -3718,9 +3718,9 @@ const reassurance: Article = {
   "readingTime": 10,
   "content": {
     "fr": {
-      "title": "Réassurance de qualité : les actions notées 10/10",
-      "excerpt": "Un secteur que le marché trouve ennuyeux et volatil, et qui cache pourtant des machines à cash notées 10/10. Voici ce que je regarde, et pourquoi.",
-      "metaDescription": "Réassurance et assurance : pourquoi ce secteur négligé abrite des actions notées 10/10 chez moi (RNR, ACGL). Qualité, prix, et le vrai risque, expliqués.",
+      "title": "Réassurance : les meilleures actions de qualité",
+      "excerpt": "Un secteur que le marché trouve ennuyeux et volatil, et qui cache pourtant des machines à cash de très grande qualité. Voici ce que je regarde, et pourquoi.",
+      "metaDescription": "Réassurance et assurance : pourquoi ce secteur négligé abrite des actions de très grande qualité chez moi (RNR, ACGL). Qualité, prix, et le vrai risque, expliqués.",
       "answer": "La réassurance passe pour ennuyeuse et imprévisible, alors qu'elle abrite des entreprises notées 10/10 chez moi : très rentables, peu endettées, parfois bradées. RenaissanceRe et Arch Capital en sont les vedettes. Le piège : leurs résultats sont volatils à cause des catastrophes. Voici comment je sépare la qualité du prix.",
       "body": [
         {
@@ -3862,7 +3862,7 @@ const reassurance: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Quality reinsurance: the stocks I rate 10/10",
+      "title": "Reinsurance: the best quality stocks to know",
       "excerpt": "A sector the market finds boring and volatile, yet it hides cash machines I rate 10 out of 10. Here is what I look at, and why.",
       "metaDescription": "Reinsurance and insurance: why this neglected sector hides stocks I rate 10 out of 10 (RNR, ACGL). Quality, price, and the real risk, explained simply.",
       "answer": "Reinsurance looks boring and unpredictable, yet it hides companies I rate 10 out of 10: highly profitable, low debt, sometimes dirt cheap. RenaissanceRe and Arch Capital are the stars. The catch: their results are volatile because of catastrophes. Here is how I separate quality from price.",
@@ -4006,7 +4006,7 @@ const reassurance: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research."
     },
     "es": {
-      "title": "Reaseguro de calidad: las acciones que valoro 10/10",
+      "title": "Reaseguro: las mejores acciones de calidad",
       "excerpt": "Un sector que el mercado ve aburrido y volátil, y que sin embargo esconde máquinas de generar caja que valoro 10 sobre 10. Esto es lo que miro, y por qué.",
       "metaDescription": "Reaseguro y seguro: por qué este sector olvidado esconde acciones que valoro 10 sobre 10 (RNR, ACGL). Calidad, precio y el riesgo real, explicados.",
       "answer": "El reaseguro parece aburrido e impredecible, pero esconde empresas que valoro 10 sobre 10: muy rentables, con poca deuda, a veces baratísimas. RenaissanceRe y Arch Capital son las estrellas. La trampa: sus resultados son volátiles por las catástrofes. Así separo la calidad del precio.",
@@ -4160,9 +4160,9 @@ const bsyRop: Article = {
   "ticker": "BSY",
   "content": {
     "fr": {
-      "title": "Bentley Systems (BSY) ou Roper (ROP) : 10/10 comparés",
-      "excerpt": "Deux éditeurs de logiciels notés 10 sur 10, deux façons d'être excellents. L'un grandit tout seul, l'autre rachète. L'un est plus cher, l'autre signalé en opportunité. Voici comment je les départage, sans gagnant absolu.",
-      "metaDescription": "Bentley (BSY) face à Roper (ROP), deux logiciels notés 10/10 : valorisation, croissance, dette et allocation du capital. Comment je compare, sans gagnant.",
+      "title": "Bentley (BSY) ou Roper (ROP) : quel logiciel choisir",
+      "excerpt": "Deux éditeurs de logiciels de très grande qualité, deux façons d'être excellents. L'un grandit tout seul, l'autre rachète. L'un est plus cher, l'autre signalé en opportunité. Voici comment je les départage, sans gagnant absolu.",
+      "metaDescription": "Bentley (BSY) face à Roper (ROP), deux logiciels de très grande qualité : valorisation, croissance, dette et allocation du capital. Comment je compare, sans gagnant.",
       "answer": "Bentley et Roper sont deux éditeurs de logiciels notés 10 sur 10 dans ma méthode : qualité maximale. Mais ils ne sont pas interchangeables. Roper se paie nettement moins cher et affiche de meilleures marges ; Bentley grandit un peu plus vite sur le cash par action et porte moins de dette. Deux profils, pas un gagnant.",
       "body": [
         {
@@ -4339,9 +4339,9 @@ const bsyRop: Article = {
       "disclaimer": "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres à la date de publication (juin 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Bentley Systems (BSY) or Roper (ROP) : 10/10 compared",
+      "title": "Bentley (BSY) or Roper (ROP): which one to choose",
       "excerpt": "Two software companies rated 10 out of 10, two ways of being excellent. One grows on its own, the other buys. One is pricier, the other flagged as an opportunity. Here is how I split them, with no absolute winner.",
-      "metaDescription": "Bentley Systems (BSY) versus Roper (ROP) : two software firms rated 10/10. Valuation, growth, debt, capital allocation. How I compare, with no absolute winner.",
+      "metaDescription": "Bentley Systems (BSY) versus Roper (ROP) : two top-quality software firms. Valuation, growth, debt, capital allocation. How I compare, with no absolute winner.",
       "answer": "Bentley and Roper are two software companies rated 10 out of 10 in my method: top quality. But they are not interchangeable. Roper trades clearly cheaper and posts better margins; Bentley grows a bit faster on cash per share and carries less debt. Two profiles, not one winner.",
       "body": [
         {
@@ -4518,9 +4518,9 @@ const bsyRop: Article = {
       "disclaimer": "This article is an analysis for informational and educational purposes, and does not constitute personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (June 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "Bentley Systems (BSY) o Roper (ROP) : 10/10 comparadas",
+      "title": "Bentley (BSY) o Roper (ROP): cuál elegir mejor",
       "excerpt": "Dos empresas de software con nota 10 sobre 10, dos formas de ser excelentes. Una crece sola, la otra compra. Una es más cara, la otra señalada como oportunidad. Así es como las separo, sin un ganador absoluto.",
-      "metaDescription": "Bentley (BSY) frente a Roper (ROP), dos software con nota 10/10: valoración, crecimiento, deuda y asignación de capital. Cómo comparo, sin ganador absoluto.",
+      "metaDescription": "Bentley (BSY) frente a Roper (ROP), dos software de altísima calidad: valoración, crecimiento, deuda y asignación de capital. Cómo comparo, sin ganador absoluto.",
       "answer": "Bentley y Roper son dos empresas de software con nota 10 sobre 10 en mi método: calidad máxima. Pero no son intercambiables. Roper cotiza claramente más barata y luce mejores márgenes; Bentley crece algo más rápido en caja por acción y carga menos deuda. Dos perfiles, no un ganador.",
       "body": [
         {
@@ -4707,8 +4707,8 @@ const assuranceTop: Article = {
   "content": {
     "fr": {
       "title": "Assurance : reine de mon top qualité à prix cassé",
-      "excerpt": "En juin 2026, l'assurance est de loin le secteur le plus présent dans mes actions notées 10/10, avec un cash payé environ 5 fois. Aubaine ignorée par le marché, ou risque bien réel ? Voici comment je tranche.",
-      "metaDescription": "L'assurance domine mes actions notées 10/10, P/FCF moyen autour de 5 fois. Pourquoi tant d'assureurs cochent mes critères et pourquoi le marché les paie peu.",
+      "excerpt": "En juin 2026, l'assurance est de loin le secteur le plus présent dans mes actions de très grande qualité, avec un cash payé environ 5 fois. Aubaine ignorée par le marché, ou risque bien réel ? Voici comment je tranche.",
+      "metaDescription": "L'assurance domine mes actions de très grande qualité, à un prix moyen très bas. Pourquoi tant d'assureurs cochent mes critères et pourquoi le marché les paie peu.",
       "answer": "En juin 2026, l'assurance est le secteur le plus représenté dans mon top des actions notées 10/10, avec un cash payé environ 5 fois en moyenne. Ces compagnies cochent mes 10 critères de qualité, et pourtant le marché les paie peu. Aubaine ignorée ou risque réel ? Je sépare la qualité du prix pour répondre.",
       "body": [
         {
@@ -4872,8 +4872,8 @@ const assuranceTop: Article = {
     },
     "en": {
       "title": "Insurance : queen of my quality top at a low price",
-      "excerpt": "In June 2026, insurance is by far the most common sector among my stocks rated 10/10, with cash priced at about 5 times on average. A bargain the market ignores, or a real risk? Here is how I decide.",
-      "metaDescription": "Insurance dominates my 10/10 stocks, average P/FCF around 5 times. Why so many insurers tick my criteria, and why the market pays so little for them.",
+      "excerpt": "In June 2026, insurance is by far the most common sector among my top-quality stocks, with cash priced at about 5 times on average. A bargain the market ignores, or a real risk? Here is how I decide.",
+      "metaDescription": "Insurance dominates my top-quality stocks, at a very low average price. Why so many insurers tick my criteria, and why the market pays so little for them.",
       "answer": "In June 2026, insurance is the most represented sector in my top of stocks rated 10/10, with cash priced at about 5 times on average. These companies tick my 10 quality criteria, yet the market pays little for them. Ignored bargain or real risk? I separate quality from price to answer.",
       "body": [
         {
@@ -5037,8 +5037,8 @@ const assuranceTop: Article = {
     },
     "es": {
       "title": "Seguros : reina de mi top de calidad a precio bajo",
-      "excerpt": "En junio de 2026, los seguros son con diferencia el sector más presente entre mis acciones con nota 10/10, con la caja pagada unas 5 veces de media. ¿Ganga ignorada por el mercado o riesgo real? Así es como decido.",
-      "metaDescription": "Los seguros dominan mis acciones 10/10, P/FCF medio de unas 5 veces. Por qué tantas aseguradoras cumplen mis criterios y el mercado las paga tan poco.",
+      "excerpt": "En junio de 2026, los seguros son con diferencia el sector más presente entre mis acciones de altísima calidad, con la caja pagada unas 5 veces de media. ¿Ganga ignorada por el mercado o riesgo real? Así es como decido.",
+      "metaDescription": "Los seguros dominan mis acciones de altísima calidad, a un precio medio muy bajo. Por qué tantas aseguradoras cumplen mis criterios y el mercado las paga tan poco.",
       "answer": "En junio de 2026, los seguros son el sector más representado en mi top de acciones con nota 10/10, con la caja pagada unas 5 veces de media. Estas compañías cumplen mis 10 criterios de calidad y, aun así, el mercado las paga poco. ¿Ganga ignorada o riesgo real? Separo la calidad del precio para responder.",
       "body": [
         {
@@ -5211,9 +5211,9 @@ const kgc: Article = {
   "ticker": "KGC",
   "content": {
     "fr": {
-      "title": "Kinross Gold (KGC) : la mine d'or notée 10 sur 10",
+      "title": "Kinross Gold (KGC) : la mine d'or qui génère du cash",
       "excerpt": "Une minière d'or qui coche tous mes critères de qualité, dopée par un or au plus haut. Mais une note parfaite n'est pas une thèse : voici le pari réel, et le risque que personne ne te dit.",
-      "metaDescription": "Kinross Gold (KGC) note 10 sur 10, P/FCF 11,3 et trésorerie nette positive. Mais c'est un pari sur l'or, pas un compounder. Ma lecture honnête, qualité et prix.",
+      "metaDescription": "Kinross Gold (KGC), de très grande qualité, avec une trésorerie nette positive. Mais c'est un pari sur l'or, pas un compounder. Ma lecture honnête, qualité et prix.",
       "answer": "Kinross Gold coche tous mes critères de qualité financière : note 10 sur 10, marge de cash de 36 %, trésorerie nette positive, et un cash par action qui a plus que doublé sur un an avec la flambée de l'or. Mais une note parfaite n'est pas une thèse. Acheter Kinross, c'est d'abord parier sur le prix de l'or. Voici comment je sépare les deux.",
       "body": [
         {
@@ -5380,7 +5380,7 @@ const kgc: Article = {
     "en": {
       "title": "Kinross Gold (KGC) : the gold miner rated 10 of 10",
       "excerpt": "A gold miner that ticks every quality box, boosted by gold at record highs. But a perfect score is not a thesis: here is the real bet, and the risk nobody mentions.",
-      "metaDescription": "Kinross Gold (KGC) scores 10 of 10, with a 11.3 P/FCF and net cash. But it is a bet on gold, not a compounder. My honest read, quality and price kept separate.",
+      "metaDescription": "Kinross Gold (KGC) is top quality, with net cash on the balance sheet. But it is a bet on gold, not a compounder. My honest read, quality and price kept separate.",
       "answer": "Kinross Gold ticks every one of my financial quality criteria: a 10 of 10 score, a 36% cash margin, net cash on the balance sheet, and cash per share that more than doubled in a year as gold surged. But a perfect score is not a thesis. Buying Kinross is, first of all, a bet on the price of gold. Here is how I keep the two apart.",
       "body": [
         {
@@ -5547,7 +5547,7 @@ const kgc: Article = {
     "es": {
       "title": "Kinross Gold (KGC) : la minera de oro con un 10 de 10",
       "excerpt": "Una minera de oro que cumple todos mis criterios de calidad, impulsada por un oro en máximos. Pero una nota perfecta no es una tesis: aquí está la apuesta real y el riesgo que nadie te cuenta.",
-      "metaDescription": "Kinross Gold (KGC) saca un 10 de 10, con un P/FCF de 11,3 y caja neta. Pero es una apuesta por el oro, no un compounder. Mi lectura honesta, calidad y precio.",
+      "metaDescription": "Kinross Gold (KGC) es de altísima calidad, con caja neta positiva. Pero es una apuesta por el oro, no un compounder. Mi lectura honesta, calidad y precio.",
       "answer": "Kinross Gold cumple todos mis criterios de calidad financiera: nota de 10 de 10, margen de caja del 36 %, caja neta positiva y una caja por acción que más que se duplicó en un año con la subida del oro. Pero una nota perfecta no es una tesis. Comprar Kinross es, ante todo, apostar por el precio del oro. Así separo las dos cosas.",
       "body": [
         {
@@ -6071,11 +6071,11 @@ const gddy: Article = {
   ticker: 'GDDY',
   content: {
     fr: {
-      title: "GoDaddy (GDDY) : analyse d'une action notée 10/10",
+      title: "GoDaddy (GDDY) : la pépite du web à prix cassé",
       excerpt:
         "GoDaddy n'est plus un simple vendeur de noms de domaine. Derrière une croissance molle se cache une machine à cash payée bon marché. Mon analyse fondamentale.",
       metaDescription:
-        "GoDaddy (GDDY) obtient 10/10 à ma grille de qualité, avec un P/FCF d'environ 8. Forces, croissance molle, valorisation : mon analyse fondamentale complète.",
+        "GoDaddy n'est plus qu'un vendeur de domaines : une machine à cash très rentable, payée bon marché. Forces, croissance molle, valorisation : mon analyse.",
       answer:
         "GoDaddy obtient la note maximale à ma grille de qualité : très rentable, généreuse en cash, elle rachète massivement ses actions. Le marché la paie pourtant moins de huit fois son free cash flow. Son point faible est une croissance des ventes molle. Voici pourquoi le cash compense, et où est le piège.",
       body: [
@@ -6153,11 +6153,11 @@ const gddy: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "GoDaddy (GDDY): a stock rated 10/10, explained",
+      title: "GoDaddy (GDDY): the web cash machine on sale",
       excerpt:
         "GoDaddy is no longer just a domain name seller. Behind soft growth sits a cash machine priced cheaply. My fundamental analysis.",
       metaDescription:
-        "GoDaddy (GDDY) scores 10/10 on my quality grid, at a P/FCF near 8. Strengths, soft growth, valuation: my full fundamental analysis.",
+        "GoDaddy is no longer just a domain seller: a highly profitable cash machine, priced cheaply. Strengths, soft growth, valuation: my analysis.",
       answer:
         "GoDaddy earns the top score on my quality grid: highly profitable, cash generous, buying back stock aggressively. Yet the market pays less than eight times its free cash flow. Its weak spot is soft sales growth. Here is why the cash makes up for it, and where the trap is.",
       body: [
@@ -6235,11 +6235,11 @@ const gddy: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "GoDaddy (GDDY): análisis de una acción 10/10",
+      title: "GoDaddy (GDDY): la joya web a precio de saldo",
       excerpt:
         "GoDaddy ya no es un simple vendedor de dominios. Tras un crecimiento flojo se esconde una máquina de caja barata. Mi análisis fundamental.",
       metaDescription:
-        "GoDaddy (GDDY) saca 10/10 en mi rejilla de calidad, con un P/FCF cercano a 8. Fortalezas, crecimiento flojo, valoración: mi análisis fundamental completo.",
+        "GoDaddy ya no es solo un vendedor de dominios: una máquina de caja muy rentable y barata. Fortalezas, crecimiento flojo, valoración: mi análisis.",
       answer:
         "GoDaddy obtiene la nota máxima en mi rejilla de calidad: muy rentable, generosa en caja, recompra acciones con fuerza. Aun así el mercado la paga a menos de ocho veces su free cash flow. Su punto débil es un crecimiento de ventas flojo. Aquí explico por qué la caja compensa, y dónde está la trampa.",
       body: [
@@ -6596,11 +6596,11 @@ const softwareApp: Article = {
   readingTime: 9,
   content: {
     fr: {
-      title: "Meilleures actions logicielles : 4 valeurs 10/10",
+      title: "Les meilleures actions de logiciels de qualité 2026",
       excerpt:
-        "Intuit, Roper, Salesforce, Bentley : quatre éditeurs de logiciels notés 10/10 à ma grille. Même qualité, valorisations très différentes. Le comparatif.",
+        "Intuit, Roper, Salesforce, Bentley : quatre des éditeurs de logiciels les plus solides. Même qualité, valorisations très différentes. Le comparatif.",
       metaDescription:
-        "INTU, ROP, CRM et BSY ont toutes 10/10 à ma grille de qualité, mais des P/FCF de 13 à 24. Quel éditeur logiciel offre le meilleur rapport qualité prix ?",
+        "INTU, ROP, CRM et BSY : quatre éditeurs de logiciels de grande qualité, à des valorisations du simple au double. Lequel offre le meilleur rapport qualité prix ?",
       answer:
         "Intuit, Roper, Salesforce et Bentley obtiennent toutes la note maximale à ma grille de qualité. Mais leurs valorisations vont du simple à presque le double : Salesforce se paie environ 13 fois son cash, Bentley près de 24. Même qualité ne veut pas dire même prix. Voici comment je les départage.",
       body: [
@@ -6679,11 +6679,11 @@ const softwareApp: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Best software stocks: four names rated 10/10",
+      title: "The best quality software stocks of 2026",
       excerpt:
-        "Intuit, Roper, Salesforce, Bentley: four software makers rated 10/10 on my grid. Same quality, very different valuations. The comparison.",
+        "Intuit, Roper, Salesforce, Bentley: four of the soundest software makers around. Same quality, very different valuations. The comparison.",
       metaDescription:
-        "INTU, ROP, CRM and BSY all score 10/10 on my quality grid, but P/FCF ranges from 13 to 24. Which software stock offers the best quality for the price?",
+        "INTU, ROP, CRM and BSY: four high-quality software makers at valuations ranging from single to double. Which offers the best quality for the price?",
       answer:
         "Intuit, Roper, Salesforce and Bentley all earn the top score on my quality grid. But their valuations range from single to nearly double: Salesforce trades at about 13 times its cash, Bentley near 24. Same quality does not mean same price. Here is how I tell them apart.",
       body: [
@@ -6762,11 +6762,11 @@ const softwareApp: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "Mejores acciones de software: cuatro 10/10",
+      title: "Las mejores acciones de software de calidad 2026",
       excerpt:
-        "Intuit, Roper, Salesforce, Bentley: cuatro empresas de software con 10/10 en mi rejilla. Misma calidad, valoraciones muy distintas. El comparativo.",
+        "Intuit, Roper, Salesforce, Bentley: cuatro de las empresas de software más sólidas. Misma calidad, valoraciones muy distintas. El comparativo.",
       metaDescription:
-        "INTU, ROP, CRM y BSY sacan 10/10 en mi rejilla de calidad, pero con P/FCF de 13 a 24. ¿Qué acción de software ofrece la mejor calidad por su precio?",
+        "INTU, ROP, CRM y BSY: cuatro empresas de software de gran calidad, a valoraciones del simple al doble. ¿Cuál ofrece la mejor calidad por su precio?",
       answer:
         "Intuit, Roper, Salesforce y Bentley obtienen la nota máxima en mi rejilla de calidad. Pero sus valoraciones van de lo sencillo a casi el doble: Salesforce cotiza a unas 13 veces su caja, Bentley cerca de 24. Misma calidad no significa mismo precio. Así las distingo.",
       body: [
@@ -6854,11 +6854,11 @@ const dataSecteurs: Article = {
   readingTime: 8,
   content: {
     fr: {
-      title: "Actions 10/10 : les 3 secteurs qui dominent en 2026",
+      title: "Les meilleurs secteurs d'actions de qualité en 2026",
       excerpt:
         "Sur des milliers d'actions analysées, à peine 60 décrochent la note parfaite. Et trois secteurs en concentrent l'essentiel. Ce que ça dit du marché.",
       metaDescription:
-        "Sur des milliers d'actions, environ 60 obtiennent 10/10 à ma grille. Assurance, logiciel et finance dominent. L'étude data des secteurs de qualité en 2026.",
+        "Sur des milliers d'actions, à peine 60 atteignent la qualité maximale. Assurance, logiciel et finance dominent. L'étude des secteurs de qualité en 2026.",
       answer:
         "Sur les milliers d'actions que j'analyse, à peine une soixantaine obtient la note maximale de qualité. Trois secteurs en concentrent l'essentiel : l'assurance, le logiciel et la finance. Ce n'est pas un hasard, c'est lié à la façon dont ces métiers génèrent du cash. Voici ce que cette concentration révèle.",
       body: [
@@ -6932,11 +6932,11 @@ const dataSecteurs: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "10/10 stocks: the 3 sectors that dominate in 2026",
+      title: "The best sectors for quality stocks in 2026",
       excerpt:
         "Out of thousands of stocks analyzed, barely 60 earn the perfect score. And three sectors hold most of them. What that says about the market.",
       metaDescription:
-        "Out of thousands of stocks, about 60 score 10/10 on my grid. Insurance, software and finance dominate. The data study of quality sectors in 2026.",
+        "Out of thousands of stocks, barely 60 reach top quality. Insurance, software and finance dominate. The study of quality sectors in 2026.",
       answer:
         "Out of the thousands of stocks I analyze, barely sixty earn the top quality score. Three sectors hold most of them: insurance, software and finance. That is no accident, it is tied to how these businesses generate cash. Here is what that concentration reveals.",
       body: [
@@ -7010,11 +7010,11 @@ const dataSecteurs: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "Acciones 10/10: los 3 sectores que dominan en 2026",
+      title: "Los mejores sectores de acciones de calidad 2026",
       excerpt:
         "De miles de acciones analizadas, apenas 60 logran la nota perfecta. Y tres sectores concentran la mayoría. Lo que dice del mercado.",
       metaDescription:
-        "De miles de acciones, unas 60 sacan 10/10 en mi rejilla. Seguros, software y finanzas dominan. El estudio de datos de los sectores de calidad en 2026.",
+        "De miles de acciones, apenas 60 alcanzan la máxima calidad. Seguros, software y finanzas dominan. El estudio de los sectores de calidad en 2026.",
       answer:
         "De los miles de acciones que analizo, apenas unas sesenta logran la nota máxima de calidad. Tres sectores concentran la mayoría: seguros, software y finanzas. No es casualidad, está ligado a cómo estos negocios generan caja. Esto es lo que revela esa concentración.",
       body: [
@@ -7098,11 +7098,11 @@ const bkng: Article = {
   ticker: 'BKNG',
   content: {
     fr: {
-      title: "Booking Holdings (BKNG) : analyse d'une action 10/10",
+      title: "Booking (BKNG) : la meilleure opportunité du moment",
       excerpt:
-        "Derrière Booking.com se cache une des plus belles machines à cash de la cote. Notée 10/10, payée 15 fois son free cash flow. Mon analyse alors que le voyage repart.",
+        "Derrière Booking.com se cache une des plus belles machines à cash de la cote, à un prix raisonnable. Mon analyse alors que le voyage mondial repart.",
       metaDescription:
-        "Booking Holdings (BKNG) obtient 10/10 à ma grille, avec un P/FCF d'environ 15. Croissance forte, marges énormes : mon analyse alors que le voyage reprend.",
+        "Booking (BKNG), maison mère de Booking.com : croissance forte, marges énormes, prix raisonnable. Mon analyse alors que le voyage mondial repart.",
       answer:
         "Booking Holdings, la maison mère de Booking.com, obtient la note maximale à ma grille de qualité : croissance forte, marges énormes, rachats d'actions massifs. Elle se paie environ 15 fois son free cash flow, ni bradée ni excessive. Alors que le voyage mondial repart, voici pourquoi cette action mérite le coup d'oeil, et ses risques.",
       body: [
@@ -7176,11 +7176,11 @@ const bkng: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Booking Holdings (BKNG): a 10/10 stock, explained",
+      title: "Booking (BKNG): the best opportunity right now",
       excerpt:
-        "Behind Booking.com sits one of the finest cash machines on the market. Rated 10/10, priced at 15 times free cash flow. My analysis as travel rebounds.",
+        "Behind Booking.com sits one of the finest cash machines on the market, at a reasonable price. My analysis as global travel rebounds.",
       metaDescription:
-        "Booking Holdings (BKNG) scores 10/10 on my grid, at a P/FCF near 15. Strong growth, huge margins: my analysis as global travel recovers.",
+        "Booking (BKNG), the parent of Booking.com: strong growth, huge margins, a reasonable price. My analysis as global travel recovers.",
       answer:
         "Booking Holdings, the parent of Booking.com, earns the top score on my quality grid: strong growth, huge margins, heavy buybacks. It trades at about 15 times its free cash flow, neither cheap nor excessive. As global travel rebounds, here is why this stock is worth a look, and its risks.",
       body: [
@@ -7254,11 +7254,11 @@ const bkng: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "Booking Holdings (BKNG): análisis de una acción 10/10",
+      title: "Booking (BKNG): la mejor oportunidad del momento",
       excerpt:
-        "Tras Booking.com se esconde una de las mejores máquinas de caja del mercado. Con 10/10 y a 15 veces su free cash flow. Mi análisis mientras el viaje repunta.",
+        "Tras Booking.com se esconde una de las mejores máquinas de caja del mercado, a un precio razonable. Mi análisis mientras el viaje mundial repunta.",
       metaDescription:
-        "Booking Holdings (BKNG) saca 10/10 en mi rejilla, con un P/FCF cercano a 15. Crecimiento fuerte, márgenes enormes: mi análisis mientras el viaje se recupera.",
+        "Booking (BKNG), matriz de Booking.com: crecimiento fuerte, márgenes enormes, precio razonable. Mi análisis mientras el viaje mundial repunta.",
       answer:
         "Booking Holdings, la matriz de Booking.com, obtiene la nota máxima en mi rejilla de calidad: crecimiento fuerte, márgenes enormes, fuertes recompras. Cotiza a unas 15 veces su free cash flow, ni regalada ni excesiva. Mientras el viaje mundial repunta, aquí explico por qué merece una mirada, y sus riesgos.",
       body: [
@@ -7341,11 +7341,11 @@ const qlysIntu: Article = {
   readingTime: 8,
   content: {
     fr: {
-      title: "Qualys (QLYS) ou Intuit (INTU) : 2 logiciels 10/10",
+      title: "Qualys ou Intuit : quel logiciel de qualité choisir",
       excerpt:
-        "Deux éditeurs de logiciels notés 10/10, deux valorisations différentes. Qualys plus rentable mais plus chère, Intuit moins chère et plus large. Le comparatif.",
+        "Deux éditeurs de logiciels parmi les plus solides, deux valorisations différentes. Qualys plus rentable mais plus chère, Intuit moins chère. Le comparatif.",
       metaDescription:
-        "Qualys (QLYS) à 18x le cash, Intuit (INTU) à 13x : deux logiciels notés 10/10. Marges, croissance, moat : lequel offre le meilleur rapport qualité prix ?",
+        "Qualys et Intuit, deux éditeurs de logiciels de grande qualité aux profils opposés. Marges, croissance, avantage concurrentiel : lequel choisir en 2026 ?",
       answer:
         "Qualys et Intuit ont toutes deux 10/10 à ma grille de qualité, mais des profils opposés. Qualys, dans la cybersécurité, affiche des marges supérieures mais se paie plus cher, environ 18 fois son cash. Intuit, plus large et plus connue, croît plus vite et coûte moins cher, environ 13 fois. Voici comment je tranche.",
       body: [
@@ -7419,11 +7419,11 @@ const qlysIntu: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Qualys (QLYS) or Intuit (INTU): two 10/10 names",
+      title: "Qualys or Intuit: which quality software to pick",
       excerpt:
-        "Two software makers rated 10/10, two different valuations. Qualys more profitable but pricier, Intuit cheaper and broader. The comparison.",
+        "Two of the soundest software makers around, two different valuations. Qualys more profitable but pricier, Intuit cheaper and broader. The comparison.",
       metaDescription:
-        "Qualys (QLYS) at 18x cash, Intuit (INTU) at 13x: two software makers rated 10/10. Margins, growth, moat: which offers the best quality for the price?",
+        "Qualys and Intuit, two high-quality software makers with opposite profiles. Margins, growth, moat: which one to pick in 2026?",
       answer:
         "Qualys and Intuit both score 10/10 on my quality grid, but with opposite profiles. Qualys, in cybersecurity, posts higher margins but trades pricier, about 18 times its cash. Intuit, broader and better known, grows faster and costs less, about 13 times. Here is how I decide.",
       body: [
@@ -7497,11 +7497,11 @@ const qlysIntu: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "Qualys (QLYS) o Intuit (INTU): dos software 10/10",
+      title: "Qualys o Intuit: qué software de calidad elegir",
       excerpt:
-        "Dos empresas de software con 10/10, dos valoraciones distintas. Qualys más rentable pero más cara, Intuit más barata y más amplia. El comparativo.",
+        "Dos de las empresas de software más sólidas, dos valoraciones distintas. Qualys más rentable pero más cara, Intuit más barata. El comparativo.",
       metaDescription:
-        "Qualys (QLYS) a 18x la caja, Intuit (INTU) a 13x: dos software con 10/10. Márgenes, crecimiento, foso: ¿cuál ofrece la mejor calidad por su precio?",
+        "Qualys e Intuit, dos empresas de software de gran calidad con perfiles opuestos. Márgenes, crecimiento, foso: ¿cuál elegir en 2026?",
       answer:
         "Qualys e Intuit sacan ambas 10/10 en mi rejilla de calidad, pero con perfiles opuestos. Qualys, en ciberseguridad, presenta márgenes superiores pero cotiza más cara, unas 18 veces su caja. Intuit, más amplia y conocida, crece más rápido y cuesta menos, unas 13 veces. Así lo decido.",
       body: [
