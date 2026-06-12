@@ -5714,7 +5714,356 @@ const kgc: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, reassurance, bsyRop, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe];
+const adobeResults: Article = {
+  slug: 'adobe-resultats-q2-2026-action-chute',
+  date: '2026-06-12',
+  updated: '2026-06-12',
+  readingTime: 8,
+  ticker: 'ADBE',
+  content: {
+    fr: {
+      title: "Adobe (ADBE) : résultats records, l'action chute",
+      excerpt:
+        "Adobe publie un trimestre record et relève ses prévisions, et pourtant l'action recule. Départ du directeur financier, peur de l'IA : ma lecture par les fondamentaux.",
+      metaDescription:
+        "Adobe (ADBE) bat les attentes au T2 2026 mais l'action chute. Départ du CFO, peur de l'IA, valorisation au plus bas : mon analyse qualité contre prix.",
+      answer:
+        "Adobe a publié un trimestre record et relevé ses prévisions, et pourtant l'action a chuté d'environ 6 %. Le marché a sanctionné le départ surprise du directeur financier et sa peur que l'IA érode le modèle. Résultat : une entreprise d'élite se paie son cash moins cher que jamais. Voici comment je sépare la qualité du prix.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Trimestre record : 6,62 milliards de dollars de chiffre d'affaires, en hausse de 13 % sur un an, et un bénéfice par action ajusté de 5,96 dollars, au-dessus des attentes.",
+            "L'action a quand même reculé d'environ 6 %, surtout à cause du départ surprise du directeur financier et de la crainte que l'IA abîme le modèle d'Adobe.",
+            "Les revenus récurrents liés à l'IA dépassent désormais 500 millions de dollars : pour l'instant, l'IA nourrit Adobe plus qu'elle ne la détruit.",
+            "Adobe se paie environ 10 fois son free cash-flow, contre une moyenne de 33 sur dix ans : le marché la traite comme une entreprise en déclin.",
+            "Une bonne entreprise n'est pas la même chose qu'un bon prix : je juge la qualité d'abord, la valorisation ensuite.",
+          ],
+        },
+        { type: 'h2', text: "Ce qui s'est passé hier soir" },
+        {
+          type: 'p',
+          text: "Adobe a dévoilé les résultats de son deuxième trimestre fiscal 2026 le 11 juin au soir. Le chiffre d'affaires atteint 6,62 milliards de dollars, en hausse de 13 % sur un an. C'est un record. Le bénéfice par action ajusté ressort à 5,96 dollars, au-dessus de ce qu'attendaient les analystes (autour de 5,81 dollars).",
+        },
+        {
+          type: 'p',
+          text: "Sur le sujet qui obsède tout le monde, l'intelligence artificielle, les chiffres sont solides. Les revenus récurrents liés à l'IA dépassent désormais 500 millions de dollars, soit plusieurs fois plus qu'un an plus tôt. Firefly, l'outil d'IA générative d'Adobe, approche les 300 millions de revenus récurrents. Et la direction a relevé ses prévisions pour l'année : elle vise maintenant entre 20,5 et 20,6 milliards de dollars de chiffre d'affaires, avec un programme de rachat d'actions de 25 milliards en place. Sur le papier, c'est un sans-faute.",
+        },
+        { type: 'h2', text: "Pourquoi l'action chute alors que les chiffres sont bons" },
+        {
+          type: 'p',
+          text: "La raison principale n'est pas dans les résultats du trimestre. C'est une annonce qui les a accompagnés : le directeur financier d'Adobe, Dan Durn, quitte l'entreprise. Et la bourse déteste ça. Un directeur financier qui part, c'est toujours une question qui flotte : pourquoi maintenant, que sait-il qu'on ignore ? Dans la plupart des cas, c'est un départ banal. Mais le marché vend d'abord et pose les questions ensuite. L'action a reculé d'environ 6 % malgré d'excellents résultats.",
+        },
+        {
+          type: 'p',
+          text: "Derrière, il y a une inquiétude plus ancienne. Depuis des mois, une question pèse sur Adobe : l'IA va-t-elle détruire son business ? Si n'importe qui peut générer une image ou une vidéo professionnelle en tapant une phrase, pourquoi payer un abonnement Adobe ? Cette peur avait déjà fait fondre l'action jusqu'à des plus-bas de plusieurs années. C'est exactement le contexte que j'avais décrit dans mon analyse fondamentale d'Adobe, juste avant ces résultats.",
+        },
+        { type: 'h2', text: "Est-ce une bonne entreprise ? La qualité d'abord" },
+        {
+          type: 'p',
+          text: "Quand je regarde une action, je commence toujours par une question, et une seule : est-ce un bon business, indépendamment de son prix ? Pour Adobe, la réponse est oui, sans hésiter. L'entreprise vend les outils qui font tourner la création professionnelle dans le monde entier : Photoshop, Illustrator, Premiere. Son avantage concurrentiel, ce qu'on appelle son moat (le fossé qui empêche un rival de prendre sa place), tient à une chose simple. Demande à un monteur ou à un service marketing d'abandonner ces outils : il ne peut pas. Des années de fichiers, de réflexes, de formation. Cela se traduit par une énorme proportion de revenus en abonnement, qui retombent chaque année.",
+        },
+        {
+          type: 'p',
+          text: "Et ce trimestre apporte une preuve concrète que ce moat tient face à l'IA. Les 500 millions de revenus liés à l'IA ne sortent pas de nulle part : ils montrent qu'Adobe arrive à intégrer l'IA dans ses propres outils et à la facturer, au lieu de se faire remplacer par elle. Pour l'instant, l'IA nourrit Adobe plus qu'elle ne la dévore.",
+        },
+        { type: 'h2', text: "Est-ce un bon prix ? La valorisation" },
+        {
+          type: 'p',
+          text: "Une fois la qualité validée, et seulement après, je regarde le prix. Pour ça, j'utilise un ratio simple : le P/FCF (price-to-free-cash-flow). C'est le prix de l'action divisé par le free cash-flow qu'elle génère chaque année. Le free cash-flow, c'est l'argent qui reste vraiment dans les caisses une fois toutes les factures payées. Un P/FCF de 10, ça veut dire que tu paies aujourd'hui dix années de ce cash. Plus c'est bas, moins c'est cher.",
+        },
+        {
+          type: 'p',
+          text: "Voici ce que la chute du cours a produit, en quelques repères :",
+        },
+        {
+          type: 'ul',
+          items: [
+            "P/FCF aujourd'hui : environ 10 fois le free cash-flow.",
+            "Moyenne d'Adobe sur dix ans : environ 33 fois.",
+            "Free cash-flow généré par action sur un an : autour de 24 dollars, en croissance.",
+            "Lecture : le marché paie l'une des plus belles machines à cash de la tech comme si son déclin était acté.",
+          ],
+        },
+        {
+          type: 'p',
+          text: "Une entreprise qui croît encore à 13 %, dominante dans son domaine, qui dégage des milliards de cash, payée environ un tiers de sa valorisation habituelle. Soit le marché a raison et l'IA va vraiment la casser, soit la peur est allée trop loin.",
+        },
+        { type: 'h2', text: "Le vrai débat : l'IA nourrit ou détruit Adobe ?" },
+        {
+          type: 'p',
+          text: "Toute la thèse tient dans cette question. Si tu penses qu'Adobe défend son territoire et apprend à vendre l'IA, alors l'action est anormalement bon marché aujourd'hui. Si tu crois à une disruption profonde, ce bas prix n'est pas une aubaine, c'est un piège. C'est ce qu'on appelle un value trap : une action qui a l'air donnée parce que l'entreprise va, en réalité, gagner moins demain.",
+        },
+        {
+          type: 'p',
+          text: "Un P/FCF faible n'est jamais une bonne affaire en soi. Il l'est seulement si la qualité tient dans la durée. C'est précisément pour ça que je juge toujours la qualité avant le prix, jamais l'inverse.",
+        },
+        { type: 'h2', text: "Comment je tranche, sans émotion" },
+        {
+          type: 'p',
+          text: "Ces résultats ne changent pas ma méthode, ils la confirment. Adobe reste une entreprise d'élite, désormais au cash le moins cher de son histoire. Mais la baisse du jour est dominée par une émotion (le départ d'un dirigeant), pas par une dégradation des fondamentaux. Je ne me précipite pas sur une réaction de marché. Je garde un prix d'achat raisonnable en tête, et je laisse le cours venir à moi plutôt que de courir après lui. Tu peux suivre les chiffres à jour sur ma page d'analyse fondamentale d'Adobe.",
+        },
+        {
+          type: 'p',
+          text: "Savoir si une entreprise est bonne, et à quel prix l'acheter, deux questions traitées séparément : c'est tout ce que je voulais pouvoir faire en quelques secondes pour n'importe quelle action. C'est pour ça que j'ai construit mon site d'investissement, où j'applique cette grille à plus de 5 000 actions, dont le [classement des actions sous-évaluées](/classement/sous-evaluees) et ma [méthodologie complète](/methodologie). L'analyse détaillée d'Adobe se trouve sur sa [page d'analyse](/analyse/ADBE).",
+        },
+      ],
+      faq: [
+        {
+          q: "Pourquoi l'action Adobe baisse-t-elle si les résultats sont bons ?",
+          a: "Surtout à cause du départ surprise de son directeur financier, qui a inquiété le marché, et de la peur de fond que l'IA érode son modèle. À court terme, un cours réagit aux émotions et aux surprises, pas seulement aux fondamentaux. Un trimestre record peut coïncider avec une baisse.",
+        },
+        {
+          q: "C'est quoi, le free cash-flow ?",
+          a: "L'argent qui reste réellement à l'entreprise après avoir payé tout ce qu'il faut pour tourner et investir. C'est plus difficile à maquiller que le bénéfice comptable, donc je m'y fie davantage pour juger la solidité d'un business.",
+        },
+        {
+          q: "Un P/FCF bas, est-ce toujours une bonne affaire ?",
+          a: "Non. Un prix bas peut cacher une entreprise en déclin (un value trap). Il n'est intéressant que si la qualité du business tient dans le temps. D'où ma règle : la qualité d'abord, le prix ensuite.",
+        },
+        {
+          q: "L'IA va-t-elle tuer Adobe ?",
+          a: "C'est le vrai débat, et personne n'a la réponse avec certitude. Mais ce trimestre montre qu'Adobe arrive pour l'instant à vendre l'IA plutôt qu'à se faire remplacer par elle : plus de 500 millions de revenus récurrents liés à l'IA. Le risque reste réel et mérite d'être suivi.",
+        },
+        {
+          q: "Faut-il acheter Adobe maintenant ?",
+          a: "Ça dépend de ta conviction sur l'IA et de ta discipline de prix. L'action est au cash le moins cher de son histoire, mais une entreprise géniale payée trop cher reste un mauvais placement. Ceci n'est pas un conseil en investissement, fais tes propres recherches.",
+        },
+      ],
+      tags: ['Analyse', 'Adobe', 'Résultats', 'IA', 'Valorisation'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: "Adobe (ADBE): record quarter, the stock still fell",
+      excerpt:
+        "Adobe posted a record quarter and raised guidance, yet the stock dropped. A CFO exit and AI fears: my read through the fundamentals.",
+      metaDescription:
+        "Adobe (ADBE) beat estimates in Q2 2026 but the stock fell. CFO departure, AI fears, valuation near lows: my quality versus price analysis.",
+      answer:
+        "Adobe posted a record quarter and raised its guidance, yet the stock fell about 6 %. The market punished a surprise CFO departure and its fear that AI will erode the model. The result: an elite company now trades at the cheapest cash multiple in its history. Here is how I separate quality from price.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Record quarter: 6.62 billion dollars in revenue, up 13 % year over year, and adjusted earnings of 5.96 dollars per share, above expectations.",
+            "The stock still fell about 6 %, mainly on a surprise CFO departure and the fear that AI will damage Adobe's model.",
+            "AI-related recurring revenue now exceeds 500 million dollars: for now, AI feeds Adobe more than it destroys it.",
+            "Adobe trades at roughly 10 times its free cash flow, versus a 33 average over ten years: the market treats it like a company in decline.",
+            "A good company is not the same as a good price: I judge quality first, valuation second.",
+          ],
+        },
+        { type: 'h2', text: "What happened last night" },
+        {
+          type: 'p',
+          text: "Adobe reported its second fiscal quarter of 2026 on the evening of June 11. Revenue reached 6.62 billion dollars, up 13 % year over year. That is a record. Adjusted earnings came in at 5.96 dollars per share, above what analysts expected (around 5.81 dollars).",
+        },
+        {
+          type: 'p',
+          text: "On the topic everyone obsesses over, artificial intelligence, the numbers are strong. AI-related recurring revenue now tops 500 million dollars, several times more than a year earlier. Firefly, Adobe's generative AI tool, is approaching 300 million in recurring revenue. Management also raised full-year guidance, now targeting 20.5 to 20.6 billion dollars in revenue, with a 25 billion dollar buyback program in place. On paper, it is flawless.",
+        },
+        { type: 'h2', text: "Why the stock fell while the numbers were good" },
+        {
+          type: 'p',
+          text: "The main reason is not in the quarter's results. It is an announcement that came with them: Adobe's chief financial officer, Dan Durn, is leaving. The market hates that. A departing CFO always leaves a question hanging: why now, what does he know that we do not? In most cases it is an ordinary move. But the market sells first and asks questions later. The stock fell about 6 % despite excellent results.",
+        },
+        {
+          type: 'p',
+          text: "Behind it lies an older worry. For months, one question has weighed on Adobe: will AI destroy its business? If anyone can generate a professional image or video by typing a sentence, why pay for an Adobe subscription? That fear had already pushed the stock to multi-year lows. It is exactly the context I described in my Adobe fundamental analysis, just before these results.",
+        },
+        { type: 'h2', text: "Is it a good company? Quality first" },
+        {
+          type: 'p',
+          text: "When I look at a stock, I always start with one question, and only one: is this a good business, regardless of its price? For Adobe, the answer is clearly yes. The company sells the tools that run professional creation worldwide: Photoshop, Illustrator, Premiere. Its competitive advantage, what we call its moat (the gap that stops a rival from taking its place), comes down to one thing. Ask an editor or a marketing team to drop these tools: they cannot. Years of files, habits, training. That translates into a huge share of subscription revenue that recurs every year.",
+        },
+        {
+          type: 'p',
+          text: "And this quarter offers concrete proof that the moat holds against AI. The 500 million dollars of AI revenue did not appear from nowhere: they show Adobe can build AI into its own tools and charge for it, rather than be replaced by it. For now, AI feeds Adobe more than it eats it.",
+        },
+        { type: 'h2', text: "Is it a good price? The valuation" },
+        {
+          type: 'p',
+          text: "Once quality is confirmed, and only then, I look at the price. For that I use a simple ratio: P/FCF (price-to-free-cash-flow). It is the share price divided by the free cash flow the company generates each year. Free cash flow is the money that truly stays in the bank once every bill is paid. A P/FCF of 10 means you are paying ten years of that cash today. The lower it is, the cheaper it is.",
+        },
+        {
+          type: 'p',
+          text: "Here is what the drop in the stock produced, in a few markers:",
+        },
+        {
+          type: 'ul',
+          items: [
+            "P/FCF today: about 10 times free cash flow.",
+            "Adobe's ten-year average: about 33 times.",
+            "Free cash flow generated per share over a year: around 24 dollars, and growing.",
+            "Read: the market is pricing one of tech's best cash machines as if its decline were a done deal.",
+          ],
+        },
+        {
+          type: 'p',
+          text: "A company still growing at 13 %, dominant in its field, throwing off billions in cash, priced at about a third of its usual valuation. Either the market is right and AI will truly break it, or the fear has gone too far.",
+        },
+        { type: 'h2', text: "The real debate: does AI feed or destroy Adobe?" },
+        {
+          type: 'p',
+          text: "The whole thesis sits in that question. If you think Adobe defends its turf and learns to sell AI, then the stock is unusually cheap today. If you believe in deep disruption, this low price is not a bargain, it is a trap. That is what we call a value trap: a stock that looks cheap because the company will in fact earn less tomorrow.",
+        },
+        {
+          type: 'p',
+          text: "A low P/FCF is never a bargain on its own. It only is if the quality holds over time. That is exactly why I always judge quality before price, never the other way around.",
+        },
+        { type: 'h2', text: "How I decide, without emotion" },
+        {
+          type: 'p',
+          text: "These results do not change my method, they confirm it. Adobe remains an elite company, now at the cheapest cash multiple in its history. But today's drop is driven by an emotion (an executive leaving), not by weaker fundamentals. I do not rush into a market reaction. I keep a reasonable buy price in mind and let the stock come to me rather than chase it. You can follow the up-to-date numbers on my Adobe fundamental analysis page.",
+        },
+        {
+          type: 'p',
+          text: "Knowing whether a company is good, and at what price to buy it, as two separate questions: that is all I wanted to be able to do in seconds for any stock. That is why I built my investing site, where I apply this grid to more than 5,000 stocks, including the [ranking of undervalued stocks](/classement/sous-evaluees) and my [full methodology](/methodologie). The detailed Adobe analysis is on its [analysis page](/analyse/ADBE).",
+        },
+      ],
+      faq: [
+        {
+          q: "Why is Adobe stock falling if the results are good?",
+          a: "Mostly because of the surprise departure of its chief financial officer, which worried the market, and the underlying fear that AI will erode its model. In the short term, a stock reacts to emotions and surprises, not only to fundamentals. A record quarter can coincide with a drop.",
+        },
+        {
+          q: "What is free cash flow?",
+          a: "The money that truly remains with the company after paying everything it needs to operate and invest. It is harder to dress up than accounting profit, so I rely on it more to judge how solid a business is.",
+        },
+        {
+          q: "Is a low P/FCF always a bargain?",
+          a: "No. A low price can hide a company in decline (a value trap). It is only attractive if the quality of the business holds over time. Hence my rule: quality first, price second.",
+        },
+        {
+          q: "Will AI kill Adobe?",
+          a: "That is the real debate, and nobody knows for sure. But this quarter shows Adobe can, for now, sell AI rather than be replaced by it: more than 500 million dollars of AI-related recurring revenue. The risk is real and worth watching.",
+        },
+        {
+          q: "Should you buy Adobe now?",
+          a: "It depends on your conviction about AI and your price discipline. The stock is at the cheapest cash multiple in its history, but a great company bought too expensive is still a bad investment. This is not investment advice, do your own research.",
+        },
+      ],
+      tags: ['Analysis', 'Adobe', 'Earnings', 'AI', 'Valuation'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
+    },
+    es: {
+      title: "Adobe (ADBE): resultados récord y la acción cae",
+      excerpt:
+        "Adobe publica un trimestre récord y sube su guía, pero la acción baja. Salida del director financiero y miedo a la IA: mi lectura por los fundamentales.",
+      metaDescription:
+        "Adobe (ADBE) supera previsiones en el Q2 2026 pero la acción cae. Salida del CFO, miedo a la IA, valoración en mínimos: mi análisis calidad contra precio.",
+      answer:
+        "Adobe publicó un trimestre récord y subió su guía, y aun así la acción cayó alrededor de un 6 %. El mercado castigó la salida sorpresa del director financiero y su miedo a que la IA erosione el modelo. El resultado: una empresa de élite cotiza a su caja más barata de la historia. Así separo la calidad del precio.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Trimestre récord: 6,62 mil millones de dólares de ingresos, un 13 % más interanual, y un beneficio ajustado de 5,96 dólares por acción, por encima de lo esperado.",
+            "La acción cayó igualmente alrededor de un 6 %, sobre todo por la salida sorpresa del director financiero y el miedo a que la IA dañe el modelo de Adobe.",
+            "Los ingresos recurrentes ligados a la IA ya superan los 500 millones de dólares: por ahora, la IA alimenta a Adobe más de lo que la destruye.",
+            "Adobe cotiza a unas 10 veces su free cash flow, frente a una media de 33 en diez años: el mercado la trata como una empresa en declive.",
+            "Una buena empresa no es lo mismo que un buen precio: juzgo la calidad primero, la valoración después.",
+          ],
+        },
+        { type: 'h2', text: "Qué pasó ayer por la noche" },
+        {
+          type: 'p',
+          text: "Adobe presentó los resultados de su segundo trimestre fiscal de 2026 la tarde del 11 de junio. Los ingresos alcanzan 6,62 mil millones de dólares, un 13 % más interanual. Es un récord. El beneficio ajustado por acción se sitúa en 5,96 dólares, por encima de lo que esperaban los analistas (en torno a 5,81 dólares).",
+        },
+        {
+          type: 'p',
+          text: "En el tema que obsesiona a todos, la inteligencia artificial, las cifras son sólidas. Los ingresos recurrentes ligados a la IA ya superan los 500 millones de dólares, varias veces más que un año antes. Firefly, la herramienta de IA generativa de Adobe, se acerca a los 300 millones en ingresos recurrentes. La dirección también subió su guía anual: ahora apunta a entre 20,5 y 20,6 mil millones de dólares de ingresos, con un programa de recompra de acciones de 25 mil millones en marcha. Sobre el papel, es impecable.",
+        },
+        { type: 'h2', text: "Por qué cae la acción si las cifras son buenas" },
+        {
+          type: 'p',
+          text: "La razón principal no está en los resultados del trimestre. Es un anuncio que los acompañó: el director financiero de Adobe, Dan Durn, deja la empresa. Y a la bolsa eso no le gusta. Un director financiero que se va siempre deja una pregunta en el aire: ¿por qué ahora, qué sabe que nosotros no? En la mayoría de los casos es una salida normal. Pero el mercado vende primero y pregunta después. La acción cayó alrededor de un 6 % pese a unos excelentes resultados.",
+        },
+        {
+          type: 'p',
+          text: "Detrás hay una inquietud más antigua. Desde hace meses, una pregunta pesa sobre Adobe: ¿la IA destruirá su negocio? Si cualquiera puede generar una imagen o un vídeo profesional escribiendo una frase, ¿por qué pagar una suscripción de Adobe? Ese miedo ya había hundido la acción hasta mínimos de varios años. Es justo el contexto que describí en mi análisis fundamental de Adobe, justo antes de estos resultados.",
+        },
+        { type: 'h2', text: "¿Es una buena empresa? La calidad primero" },
+        {
+          type: 'p',
+          text: "Cuando miro una acción, siempre empiezo por una pregunta, y solo una: ¿es un buen negocio, al margen de su precio? Para Adobe, la respuesta es claramente sí. La empresa vende las herramientas que hacen funcionar la creación profesional en todo el mundo: Photoshop, Illustrator, Premiere. Su ventaja competitiva, lo que llamamos su foso o moat (el muro que impide a un rival ocupar su lugar), se reduce a una cosa. Pídele a un editor o a un equipo de marketing que abandone esas herramientas: no puede. Años de archivos, de hábitos, de formación. Eso se traduce en una enorme proporción de ingresos por suscripción que se repiten cada año.",
+        },
+        {
+          type: 'p',
+          text: "Y este trimestre aporta una prueba concreta de que ese foso aguanta frente a la IA. Los 500 millones de dólares de ingresos por IA no salen de la nada: muestran que Adobe consigue integrar la IA en sus propias herramientas y cobrarla, en vez de ser sustituida por ella. Por ahora, la IA alimenta a Adobe más de lo que la devora.",
+        },
+        { type: 'h2', text: "¿Es un buen precio? La valoración" },
+        {
+          type: 'p',
+          text: "Una vez confirmada la calidad, y solo entonces, miro el precio. Para eso uso un ratio sencillo: el P/FCF (price-to-free-cash-flow). Es el precio de la acción dividido por el free cash flow que genera cada año. El free cash flow es el dinero que de verdad queda en caja una vez pagadas todas las facturas. Un P/FCF de 10 significa que hoy pagas diez años de esa caja. Cuanto más bajo, más barato.",
+        },
+        {
+          type: 'p',
+          text: "Esto es lo que produjo la caída de la acción, en unas pocas referencias:",
+        },
+        {
+          type: 'ul',
+          items: [
+            "P/FCF hoy: alrededor de 10 veces el free cash flow.",
+            "Media de Adobe a diez años: alrededor de 33 veces.",
+            "Free cash flow generado por acción en un año: en torno a 24 dólares, y creciendo.",
+            "Lectura: el mercado paga una de las mejores máquinas de caja de la tecnología como si su declive estuviera decidido.",
+          ],
+        },
+        {
+          type: 'p',
+          text: "Una empresa que todavía crece al 13 %, dominante en su campo, que genera miles de millones en caja, valorada a un tercio de su valoración habitual. O el mercado tiene razón y la IA la romperá de verdad, o el miedo ha ido demasiado lejos.",
+        },
+        { type: 'h2', text: "El verdadero debate: ¿la IA alimenta o destruye a Adobe?" },
+        {
+          type: 'p',
+          text: "Toda la tesis está en esa pregunta. Si crees que Adobe defiende su terreno y aprende a vender IA, entonces la acción está hoy inusualmente barata. Si crees en una disrupción profunda, este precio bajo no es una ganga, es una trampa. Es lo que llamamos un value trap: una acción que parece regalada porque la empresa, en realidad, ganará menos mañana.",
+        },
+        {
+          type: 'p',
+          text: "Un P/FCF bajo nunca es una ganga por sí solo. Solo lo es si la calidad aguanta en el tiempo. Por eso juzgo siempre la calidad antes que el precio, nunca al revés.",
+        },
+        { type: 'h2', text: "Cómo decido, sin emoción" },
+        {
+          type: 'p',
+          text: "Estos resultados no cambian mi método, lo confirman. Adobe sigue siendo una empresa de élite, ahora a la caja más barata de su historia. Pero la caída de hoy está dominada por una emoción (la marcha de un directivo), no por un deterioro de los fundamentales. No me lanzo sobre una reacción del mercado. Mantengo en mente un precio de compra razonable y dejo que la acción venga a mí en lugar de perseguirla. Puedes seguir las cifras actualizadas en mi página de análisis fundamental de Adobe.",
+        },
+        {
+          type: 'p',
+          text: "Saber si una empresa es buena, y a qué precio comprarla, como dos preguntas separadas: es todo lo que quería poder hacer en segundos para cualquier acción. Por eso construí mi web de inversión, donde aplico esta rejilla a más de 5.000 acciones, incluido el [ranking de acciones infravaloradas](/classement/sous-evaluees) y mi [metodología completa](/methodologie). El análisis detallado de Adobe está en su [página de análisis](/analyse/ADBE).",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Por qué cae la acción de Adobe si los resultados son buenos?",
+          a: "Sobre todo por la salida sorpresa de su director financiero, que inquietó al mercado, y por el miedo de fondo a que la IA erosione su modelo. A corto plazo, una acción reacciona a las emociones y a las sorpresas, no solo a los fundamentales. Un trimestre récord puede coincidir con una caída.",
+        },
+        {
+          q: "¿Qué es el free cash flow?",
+          a: "El dinero que de verdad le queda a la empresa tras pagar todo lo necesario para operar e invertir. Es más difícil de maquillar que el beneficio contable, así que me fío más de él para juzgar la solidez de un negocio.",
+        },
+        {
+          q: "¿Un P/FCF bajo es siempre una ganga?",
+          a: "No. Un precio bajo puede esconder una empresa en declive (un value trap). Solo es atractivo si la calidad del negocio aguanta en el tiempo. De ahí mi regla: la calidad primero, el precio después.",
+        },
+        {
+          q: "¿La IA matará a Adobe?",
+          a: "Ese es el verdadero debate, y nadie lo sabe con certeza. Pero este trimestre muestra que Adobe consigue, por ahora, vender IA en lugar de ser sustituida por ella: más de 500 millones de dólares de ingresos recurrentes ligados a la IA. El riesgo es real y conviene seguirlo.",
+        },
+        {
+          q: "¿Hay que comprar Adobe ahora?",
+          a: "Depende de tu convicción sobre la IA y de tu disciplina de precio. La acción está a la caja más barata de su historia, pero una gran empresa comprada demasiado cara sigue siendo una mala inversión. Esto no es asesoramiento de inversión, haz tu propia investigación.",
+        },
+      ],
+      tags: ['Análisis', 'Adobe', 'Resultados', 'IA', 'Valoración'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 12 de junio de 2026, sujetas a cambios. Haz tu propia investigación.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [adobeResults, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, reassurance, bsyRop, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
