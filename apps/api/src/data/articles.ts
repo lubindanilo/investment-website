@@ -386,7 +386,7 @@ const rotation: Article = {
   readingTime: 11,
   content: {
     fr: {
-      title: 'Rotation value 2026 : trouver la qualité pas chère',
+      title: 'Rotation value : les actions de qualité pas chères',
       excerpt:
         "En 2026, l'argent quitte la tech pour les actions \"value\". Je t'explique ce que ça veut dire, pourquoi le pas cher est souvent un piège, et comment je cherche la qualité décotée plutôt que le bon marché.",
       metaDescription:
@@ -443,7 +443,7 @@ const rotation: Article = {
         "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 10 juin 2026, susceptibles d'évoluer. Faites vos propres recherches.",
     },
     en: {
-      title: 'Value rotation 2026 : finding quality on the cheap',
+      title: 'Value rotation: quality stocks on the cheap in 2026',
       excerpt:
         "In 2026, money is leaving tech for \"value\" stocks. Here is what that actually means, why cheap is often a trap, and how I look for quality at a discount rather than just cheap.",
       metaDescription:
@@ -500,7 +500,7 @@ const rotation: Article = {
         'This article is an analysis for informational and educational purposes and is not personalized investment advice. Past performance does not guarantee future results. Figures as of June 10, 2026, subject to change. Do your own research.',
     },
     es: {
-      title: 'Rotación value 2026 : encontrar calidad barata',
+      title: 'Rotación value: acciones de calidad baratas en 2026',
       excerpt:
         'En 2026, el dinero abandona la tecnología por las acciones \"value\". Te explico qué significa, por qué lo barato suele ser una trampa, y cómo busco calidad con descuento en lugar de solo barato.',
       metaDescription:
@@ -567,7 +567,7 @@ const techPfcf: Article = {
   ticker: 'MSFT',
   content: {
     fr: {
-      title: "Microsoft, Alphabet, Adobe : la tech paie-t-elle trop cher ?",
+      title: "Microsoft, Alphabet, Adobe : ces actions sont-elles chères ?",
       excerpt:
         "Microsoft se paie 49,7 fois son cash, Alphabet 116,6 fois, Adobe 11,7 fois. Trois géants, trois prix qui n'ont rien à voir. Voici comment je lis ces écarts.",
       metaDescription:
@@ -623,7 +623,7 @@ const techPfcf: Article = {
         "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 10 juin 2026, susceptibles d'évoluer. Faites vos propres recherches.",
     },
     en: {
-      title: "Microsoft, Alphabet, Adobe : does big tech pay too much ?",
+      title: "Microsoft, Alphabet, Adobe: are these stocks too pricey?",
       excerpt:
         "Microsoft trades at 49.7 times its cash, Alphabet at 116.6, Adobe at 11.7. Three giants, three prices with nothing in common. Here is how I read the gaps.",
       metaDescription:
@@ -679,7 +679,7 @@ const techPfcf: Article = {
         "This article is an analysis for informational and educational purposes and is not personalized investment advice. Past performance does not guarantee future results. Figures as of June 10, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "Microsoft, Alphabet, Adobe : ¿paga demasiado la tecnología ?",
+      title: "Microsoft, Alphabet, Adobe: ¿están caras estas acciones?",
       excerpt:
         "Microsoft cotiza a 49,7 veces su caja, Alphabet a 116,6, Adobe a 11,7. Tres gigantes, tres precios que no tienen nada que ver. Así leo yo las diferencias.",
       metaDescription:
@@ -1290,7 +1290,7 @@ const rnr: Article = {
   "ticker": "RNR",
   "content": {
     "fr": {
-      "title": "RenaissanceRe Holdings (RNR) : qualité bradée",
+      "title": "RenaissanceRe (RNR) : une action de qualité bradée",
       "excerpt": "Un réassureur d'élite qui se paie aujourd'hui parmi les prix les plus bas de toute son histoire. Voici pourquoi RenaissanceRe coche mes critères de qualité, et le piège que cache son métier.",
       "metaDescription": "RenaissanceRe Holdings (RNR) expliqué simplement : ce que fait ce réassureur des Bermudes, son moat, ses risques, et pourquoi il figure parmi mes valeurs de meilleure qualité.",
       "answer": "RenaissanceRe est un réassureur des Bermudes d'élite : il assure les assureurs contre les grandes catastrophes, avec une discipline de souscription réputée. Il valide mes 10 critères de qualité et obtient 10 sur 10. Et il se paie aujourd'hui parmi les prix les plus bas de toute son histoire. La qualité est rare, ce prix aussi.",
@@ -1472,7 +1472,7 @@ const rnr: Article = {
       "disclaimer": "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 11 juin 2026, susceptibles d'évoluer. Faites vos propres recherches."
     },
     "en": {
-      "title": "RenaissanceRe Holdings (RNR) : quality on sale",
+      "title": "RenaissanceRe (RNR): a quality stock on sale",
       "excerpt": "An elite reinsurer, scored 10 out of 10, that trades today among the cheapest prices in its entire history. Here is why RenaissanceRe meets my quality criteria, and the trap its business hides.",
       "metaDescription": "RenaissanceRe Holdings (RNR) explained simply: what this Bermuda reinsurer does, its moat, its risks, and why it earns my 10 out of 10 quality score.",
       "answer": "RenaissanceRe is an elite Bermuda reinsurer: it insures the insurers against major catastrophes, with a renowned underwriting discipline. It meets my 10 quality criteria and scores 10 out of 10. And it trades today among the cheapest prices in its entire history. Quality this rare is unusual. So is the price.",
@@ -1654,7 +1654,7 @@ const rnr: Article = {
       "disclaimer": "This article is an analysis for informational and educational purposes and is not personalized investment advice. Past performance does not guarantee future results. Figures as of June 11, 2026, subject to change. Do your own research."
     },
     "es": {
-      "title": "RenaissanceRe Holdings (RNR) : calidad de saldo",
+      "title": "RenaissanceRe (RNR): una acción de calidad barata",
       "excerpt": "Una reaseguradora de élite, con nota 10 sobre 10, que cotiza hoy entre los precios más bajos de toda su historia. Aquí está por qué RenaissanceRe cumple mis criterios de calidad, y la trampa que esconde su negocio.",
       "metaDescription": "RenaissanceRe Holdings (RNR) explicada de forma sencilla: qué hace esta reaseguradora de Bermudas, su moat, sus riesgos y por qué obtiene mi nota 10 sobre 10.",
       "answer": "RenaissanceRe es una reaseguradora de Bermudas de élite: asegura a las aseguradoras contra las grandes catástrofes, con una disciplina de suscripción reconocida. Cumple mis 10 criterios de calidad y obtiene un 10 sobre 10. Y cotiza hoy entre los precios más bajos de toda su historia. Una calidad así es rara. El precio también.",
@@ -4160,7 +4160,7 @@ const bsyRop: Article = {
   "ticker": "BSY",
   "content": {
     "fr": {
-      "title": "Bentley (BSY) ou Roper (ROP) : quel logiciel choisir",
+      "title": "Bentley (BSY) ou Roper (ROP) : quelle action choisir",
       "excerpt": "Deux éditeurs de logiciels de très grande qualité, deux façons d'être excellents. L'un grandit tout seul, l'autre rachète. L'un est plus cher, l'autre signalé en opportunité. Voici comment je les départage, sans gagnant absolu.",
       "metaDescription": "Bentley (BSY) face à Roper (ROP), deux logiciels de très grande qualité : valorisation, croissance, dette et allocation du capital. Comment je compare, sans gagnant.",
       "answer": "Bentley et Roper sont deux éditeurs de logiciels notés 10 sur 10 dans ma méthode : qualité maximale. Mais ils ne sont pas interchangeables. Roper se paie nettement moins cher et affiche de meilleures marges ; Bentley grandit un peu plus vite sur le cash par action et porte moins de dette. Deux profils, pas un gagnant.",
@@ -4339,7 +4339,7 @@ const bsyRop: Article = {
       "disclaimer": "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres à la date de publication (juin 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Bentley (BSY) or Roper (ROP): which one to choose",
+      "title": "Bentley (BSY) or Roper (ROP): which stock to buy",
       "excerpt": "Two software companies rated 10 out of 10, two ways of being excellent. One grows on its own, the other buys. One is pricier, the other flagged as an opportunity. Here is how I split them, with no absolute winner.",
       "metaDescription": "Bentley Systems (BSY) versus Roper (ROP) : two top-quality software firms. Valuation, growth, debt, capital allocation. How I compare, with no absolute winner.",
       "answer": "Bentley and Roper are two software companies rated 10 out of 10 in my method: top quality. But they are not interchangeable. Roper trades clearly cheaper and posts better margins; Bentley grows a bit faster on cash per share and carries less debt. Two profiles, not one winner.",
@@ -4518,7 +4518,7 @@ const bsyRop: Article = {
       "disclaimer": "This article is an analysis for informational and educational purposes, and does not constitute personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (June 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "Bentley (BSY) o Roper (ROP): cuál elegir mejor",
+      "title": "Bentley (BSY) o Roper (ROP): qué acción elegir",
       "excerpt": "Dos empresas de software con nota 10 sobre 10, dos formas de ser excelentes. Una crece sola, la otra compra. Una es más cara, la otra señalada como oportunidad. Así es como las separo, sin un ganador absoluto.",
       "metaDescription": "Bentley (BSY) frente a Roper (ROP), dos software de altísima calidad: valoración, crecimiento, deuda y asignación de capital. Cómo comparo, sin ganador absoluto.",
       "answer": "Bentley y Roper son dos empresas de software con nota 10 sobre 10 en mi método: calidad máxima. Pero no son intercambiables. Roper cotiza claramente más barata y luce mejores márgenes; Bentley crece algo más rápido en caja por acción y carga menos deuda. Dos perfiles, no un ganador.",
@@ -4706,7 +4706,7 @@ const assuranceTop: Article = {
   "readingTime": 11,
   "content": {
     "fr": {
-      "title": "Assurance : reine de mon top qualité à prix cassé",
+      "title": "Assurance : les actions de qualité que le marché brade",
       "excerpt": "En juin 2026, l'assurance est de loin le secteur le plus présent dans mes actions de très grande qualité, avec un cash payé environ 5 fois. Aubaine ignorée par le marché, ou risque bien réel ? Voici comment je tranche.",
       "metaDescription": "L'assurance domine mes actions de très grande qualité, à un prix moyen très bas. Pourquoi tant d'assureurs cochent mes critères et pourquoi le marché les paie peu.",
       "answer": "En juin 2026, l'assurance est le secteur le plus représenté dans mon top des actions notées 10/10, avec un cash payé environ 5 fois en moyenne. Ces compagnies cochent mes 10 critères de qualité, et pourtant le marché les paie peu. Aubaine ignorée ou risque réel ? Je sépare la qualité du prix pour répondre.",
@@ -4871,7 +4871,7 @@ const assuranceTop: Article = {
       "disclaimer": "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 11 juin 2026, susceptibles d'évoluer. Faites vos propres recherches."
     },
     "en": {
-      "title": "Insurance : queen of my quality top at a low price",
+      "title": "Insurance: top-quality stocks the market underprices",
       "excerpt": "In June 2026, insurance is by far the most common sector among my top-quality stocks, with cash priced at about 5 times on average. A bargain the market ignores, or a real risk? Here is how I decide.",
       "metaDescription": "Insurance dominates my top-quality stocks, at a very low average price. Why so many insurers tick my criteria, and why the market pays so little for them.",
       "answer": "In June 2026, insurance is the most represented sector in my top of stocks rated 10/10, with cash priced at about 5 times on average. These companies tick my 10 quality criteria, yet the market pays little for them. Ignored bargain or real risk? I separate quality from price to answer.",
@@ -5036,7 +5036,7 @@ const assuranceTop: Article = {
       "disclaimer": "This article is an analysis for informational and educational purposes, and does not constitute personalized investment advice. Past performance does not guarantee future results. Figures as of June 11, 2026, subject to change. Do your own research."
     },
     "es": {
-      "title": "Seguros : reina de mi top de calidad a precio bajo",
+      "title": "Seguros: acciones de calidad que el mercado malvende",
       "excerpt": "En junio de 2026, los seguros son con diferencia el sector más presente entre mis acciones de altísima calidad, con la caja pagada unas 5 veces de media. ¿Ganga ignorada por el mercado o riesgo real? Así es como decido.",
       "metaDescription": "Los seguros dominan mis acciones de altísima calidad, a un precio medio muy bajo. Por qué tantas aseguradoras cumplen mis criterios y el mercado las paga tan poco.",
       "answer": "En junio de 2026, los seguros son el sector más representado en mi top de acciones con nota 10/10, con la caja pagada unas 5 veces de media. Estas compañías cumplen mis 10 criterios de calidad y, aun así, el mercado las paga poco. ¿Ganga ignorada o riesgo real? Separo la calidad del precio para responder.",
@@ -5378,7 +5378,7 @@ const kgc: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 11 juin 2026, susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Kinross Gold (KGC) : the gold miner rated 10 of 10",
+      "title": "Kinross Gold (KGC): the gold miner that prints cash",
       "excerpt": "A gold miner that ticks every quality box, boosted by gold at record highs. But a perfect score is not a thesis: here is the real bet, and the risk nobody mentions.",
       "metaDescription": "Kinross Gold (KGC) is top quality, with net cash on the balance sheet. But it is a bet on gold, not a compounder. My honest read, quality and price kept separate.",
       "answer": "Kinross Gold ticks every one of my financial quality criteria: a 10 of 10 score, a 36% cash margin, net cash on the balance sheet, and cash per share that more than doubled in a year as gold surged. But a perfect score is not a thesis. Buying Kinross is, first of all, a bet on the price of gold. Here is how I keep the two apart.",
@@ -5545,7 +5545,7 @@ const kgc: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 11, 2026, subject to change. Do your own research."
     },
     "es": {
-      "title": "Kinross Gold (KGC) : la minera de oro con un 10 de 10",
+      "title": "Kinross Gold (KGC): la minera de oro que da caja",
       "excerpt": "Una minera de oro que cumple todos mis criterios de calidad, impulsada por un oro en máximos. Pero una nota perfecta no es una tesis: aquí está la apuesta real y el riesgo que nadie te cuenta.",
       "metaDescription": "Kinross Gold (KGC) es de altísima calidad, con caja neta positiva. Pero es una apuesta por el oro, no un compounder. Mi lectura honesta, calidad y precio.",
       "answer": "Kinross Gold cumple todos mis criterios de calidad financiera: nota de 10 de 10, margen de caja del 36 %, caja neta positiva y una caja por acción que más que se duplicó en un año con la subida del oro. Pero una nota perfecta no es una tesis. Comprar Kinross es, ante todo, apostar por el precio del oro. Así separo las dos cosas.",
@@ -6071,7 +6071,7 @@ const gddy: Article = {
   ticker: 'GDDY',
   content: {
     fr: {
-      title: "GoDaddy (GDDY) : la pépite du web à prix cassé",
+      title: "GoDaddy (GDDY) : l'action web à prix cassé",
       excerpt:
         "GoDaddy n'est plus un simple vendeur de noms de domaine. Derrière une croissance molle se cache une machine à cash payée bon marché. Mon analyse fondamentale.",
       metaDescription:
@@ -6153,7 +6153,7 @@ const gddy: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "GoDaddy (GDDY): the web cash machine on sale",
+      title: "GoDaddy (GDDY): the web stock on sale",
       excerpt:
         "GoDaddy is no longer just a domain name seller. Behind soft growth sits a cash machine priced cheaply. My fundamental analysis.",
       metaDescription:
@@ -6235,7 +6235,7 @@ const gddy: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "GoDaddy (GDDY): la joya web a precio de saldo",
+      title: "GoDaddy (GDDY): la acción web a precio de saldo",
       excerpt:
         "GoDaddy ya no es un simple vendedor de dominios. Tras un crecimiento flojo se esconde una máquina de caja barata. Mi análisis fundamental.",
       metaDescription:
@@ -6326,7 +6326,7 @@ const methodeQualite: Article = {
   readingTime: 7,
   content: {
     fr: {
-      title: "Qualité et prix : pourquoi je ne les mélange jamais",
+      title: "Investir en bourse : qualité et prix, jamais mélangés",
       excerpt:
         "La plupart des erreurs d'investissement viennent d'une confusion : croire qu'une bonne entreprise est forcément un bon achat. Voici comment je sépare les deux.",
       metaDescription:
@@ -6413,7 +6413,7 @@ const methodeQualite: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Fais tes propres recherches.",
     },
     en: {
-      title: "Quality or price: why I never mix the two",
+      title: "Investing: why I never mix quality and price",
       excerpt:
         "Most investing mistakes come from one confusion: believing a good company is always a good buy. Here is how I separate the two.",
       metaDescription:
@@ -6500,7 +6500,7 @@ const methodeQualite: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Do your own research.",
     },
     es: {
-      title: "Calidad o precio: por qué nunca los mezclo",
+      title: "Invertir: por qué nunca mezclo calidad y precio",
       excerpt:
         "La mayoría de los errores de inversión vienen de una confusión: creer que una buena empresa es siempre una buena compra. Así separo las dos cosas.",
       metaDescription:
@@ -7098,7 +7098,7 @@ const bkng: Article = {
   ticker: 'BKNG',
   content: {
     fr: {
-      title: "Booking (BKNG) : la meilleure opportunité du moment",
+      title: "Booking (BKNG) : la meilleure opportunité en bourse",
       excerpt:
         "Derrière Booking.com se cache une des plus belles machines à cash de la cote, à un prix raisonnable. Mon analyse alors que le voyage mondial repart.",
       metaDescription:
@@ -7176,7 +7176,7 @@ const bkng: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Booking (BKNG): the best opportunity right now",
+      title: "Booking (BKNG): the best stock opportunity now",
       excerpt:
         "Behind Booking.com sits one of the finest cash machines on the market, at a reasonable price. My analysis as global travel rebounds.",
       metaDescription:
@@ -7254,7 +7254,7 @@ const bkng: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "Booking (BKNG): la mejor oportunidad del momento",
+      title: "Booking (BKNG): la mejor oportunidad en bolsa",
       excerpt:
         "Tras Booking.com se esconde una de las mejores máquinas de caja del mercado, a un precio razonable. Mi análisis mientras el viaje mundial repunta.",
       metaDescription:
@@ -7341,7 +7341,7 @@ const qlysIntu: Article = {
   readingTime: 8,
   content: {
     fr: {
-      title: "Qualys ou Intuit : quel logiciel de qualité choisir",
+      title: "Qualys (QLYS) ou Intuit (INTU) : quelle action choisir",
       excerpt:
         "Deux éditeurs de logiciels parmi les plus solides, deux valorisations différentes. Qualys plus rentable mais plus chère, Intuit moins chère. Le comparatif.",
       metaDescription:
@@ -7419,7 +7419,7 @@ const qlysIntu: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Qualys or Intuit: which quality software to pick",
+      title: "Qualys (QLYS) or Intuit (INTU): which stock to pick",
       excerpt:
         "Two of the soundest software makers around, two different valuations. Qualys more profitable but pricier, Intuit cheaper and broader. The comparison.",
       metaDescription:
@@ -7497,7 +7497,7 @@ const qlysIntu: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "Qualys o Intuit: qué software de calidad elegir",
+      title: "Qualys (QLYS) o Intuit (INTU): qué acción elegir",
       excerpt:
         "Dos de las empresas de software más sólidas, dos valoraciones distintas. Qualys más rentable pero más cara, Intuit más barata. El comparativo.",
       metaDescription:
