@@ -71,6 +71,9 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "redirects": [
+    { "source": "/blog/bentley-bsy-vs-roper-rop-logiciel-10-10", "destination": "/blog/meilleures-actions-logicielles-10-sur-10-juin-2026", "permanent": true },
+    { "source": "/blog/qualys-qlys-intuit-intu-comparatif-10-sur-10", "destination": "/blog/meilleures-actions-logicielles-10-sur-10-juin-2026", "permanent": true },
+    { "source": "/blog/meilleures-actions-reassurance-10-10", "destination": "/blog/assurance-actions-10-10-pfcf-bas-juin-2026", "permanent": true },
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.lubin-investment.com" }],
