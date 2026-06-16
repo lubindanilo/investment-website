@@ -8443,7 +8443,7 @@ const articleMRVL: Article = {
       title: 'Marvell (MRVL) entre au S&P 500 : notre score fondamental',
       excerpt: 'Marvell Technology rejoint le S&P 500 le 22 juin 2026. Score de qualité solide, mais valorisation très tendue. Je décortique ce que ça change vraiment pour l\'action.',
       metaDescription: 'Marvell Technology (MRVL) entre au S&P 500 le 22 juin 2026. Analyse fondamentale complète : score de qualité, valorisation, puces IA custom. Ce que ça change.',
-      answer: 'Marvell Technology est une action de solide qualité opérationnelle, score 8 sur 10, spécialiste des puces réseau et de l\'IA custom pour hyperscalers. Son entrée au S&P 500 le 22 juin 2026 crée une demande mécanique des fonds indiciels, mais la valorisation actuelle est extrêmement tendue. Ce n\'est pas le moment d\'acheter n\'importe quel prix.',
+      answer: 'Marvell Technology est une action de solide qualité opérationnelle, score 8 sur 10, spécialiste des puces réseau et de l\'IA custom pour hyperscalers. Son entrée au S&P 500 le 22 juin 2026 crée une demande mécanique des fonds indiciels, mais à 273 fois son free cash flow, la valorisation est intenable : notre modèle ne voit pas d\'opportunité d\'investissement à ces niveaux. À éviter au cours actuel.',
       body: [
         {
           type: 'ul',
@@ -8451,7 +8451,7 @@ const articleMRVL: Article = {
             'Marvell (MRVL) rejoint le S&P 500 le 22 juin 2026, remplaçant Pool Corp. L\'annonce date du 5 juin.',
             'Score de qualité fondamentale : 8 sur 10. Croissance des revenus de 13,9 % par an sur 5 ans, FCF par action en hausse de 37,2 % par an.',
             'Valorisation très élevée : P/FCF de 273 fois (le prix de l\'action représente 273 années de cash libre généré). Ce multiple reflète une forte prime de croissance IA.',
-            'Risque réel : le cours actuel (308 dollars) dépasse largement le prix d\'achat recommandé par notre modèle (41,93 dollars). La qualité est là, le prix ne l\'est pas.',
+            'Risque réel : le cours actuel (308 dollars) dépasse largement le prix d\'achat recommandé par notre modèle (41,93 dollars), soit une surcote de 86 %. La qualité est là, mais à ce prix, ce n\'est pas une opportunité d\'investissement fondamental : c\'est un pari sur une dynamique IA déjà largement intégrée.',
             'L\'entrée au S&P 500 crée une demande mécanique à court terme, mais n\'améliore pas les fondamentaux ni la valorisation.'
           ]
         },
@@ -8543,7 +8543,7 @@ const articleMRVL: Article = {
         },
         {
           q: 'À quel prix MRVL deviendrait-elle une opportunité selon votre méthode ?',
-          a: 'Notre modèle estime un prix d\'achat raisonnable à environ 41,93 dollars, basé sur le FCF actuel et nos hypothèses de croissance. Le cours actuel de 308 dollars intègre une prime de croissance IA extrêmement élevée. Il faudrait une correction majeure ou une forte accélération des fondamentaux pour que les deux se rejoignent.'
+          a: 'Notre modèle estime un prix d\'achat raisonnable à environ 41,93 dollars, basé sur le FCF actuel et nos hypothèses de croissance. Le cours actuel de 308 dollars intègre une prime de croissance IA extrêmement élevée. Tant que l\'écart reste de cet ordre, MRVL ne correspond pas à notre méthode qualité + valorisation : à éviter à ces niveaux, à reconsidérer seulement après une correction sérieuse ou une accélération forte des fondamentaux.'
         }
       ],
       tags: ['MRVL', 'Marvell Technology', 'S&P 500', 'semiconducteurs', 'IA', 'puces custom', 'analyse fondamentale', 'valorisation'],
@@ -8553,7 +8553,7 @@ const articleMRVL: Article = {
       title: 'Marvell (MRVL) joins the S&P 500: our fundamental score',
       excerpt: 'Marvell Technology joins the S&P 500 on June 22, 2026. Strong quality score, but extremely stretched valuation. I break down what this really changes for the stock.',
       metaDescription: 'Marvell Technology (MRVL) joins the S&P 500 on June 22, 2026. Full fundamental analysis: quality score, valuation, custom AI chips. What it actually changes.',
-      answer: 'Marvell Technology scores 8 out of 10 on fundamental quality, driven by networking chips and custom AI silicon for hyperscalers. Its S&P 500 entry on June 22, 2026 creates mechanical buying pressure from index funds, but the current valuation is extremely stretched. Quality is there, the price is not.',
+      answer: 'Marvell Technology scores 8 out of 10 on fundamental quality, driven by networking chips and custom AI silicon for hyperscalers. Its S&P 500 entry on June 22, 2026 creates mechanical buying pressure from index funds, but at 273 times its free cash flow the valuation is unsustainable: our model sees no fundamental investment opportunity at these levels. Avoid at the current price.',
       body: [
         {
           type: 'ul',
@@ -8561,7 +8561,7 @@ const articleMRVL: Article = {
             'Marvell (MRVL) joins the S&P 500 on June 22, 2026, replacing Pool Corp. The announcement came June 5.',
             'Fundamental quality score: 8 out of 10. Revenue growth of 13.9% per year over 5 years, FCF per share up 37.2% per year.',
             'Very high valuation: P/FCF of 273x (the stock price represents 273 years of generated free cash flow). This multiple reflects a heavy AI growth premium.',
-            'Real risk: current price (308 dollars) far exceeds the buy price our model recommends (41.93 dollars). Quality is there, price is not.',
+            'Real risk: current price (308 dollars) far exceeds the buy price our model recommends (41.93 dollars), an 86% premium. Quality is there, but at this price it is not a fundamental investment opportunity: it is a bet on AI momentum that is already largely priced in.',
             'S&P 500 inclusion creates short-term mechanical demand but does not improve fundamentals or valuation.'
           ]
         },
@@ -8653,7 +8653,7 @@ const articleMRVL: Article = {
         },
         {
           q: 'At what price would MRVL become an opportunity according to your method?',
-          a: 'Our model estimates a reasonable buy price at around 41.93 dollars, based on current FCF and our growth assumptions. The current price of 308 dollars includes an extremely high AI growth premium. It would take a major correction or strong fundamental acceleration for the two to converge.'
+          a: 'Our model estimates a reasonable buy price at around 41.93 dollars, based on current FCF and our growth assumptions. The current price of 308 dollars includes an extremely high AI growth premium. As long as the gap stays this wide, MRVL does not fit our quality + valuation method: avoid at these levels, reconsider only after a serious correction or strong fundamental acceleration.'
         }
       ],
       tags: ['MRVL', 'Marvell Technology', 'S&P 500', 'semiconductors', 'AI', 'custom chips', 'fundamental analysis', 'valuation'],
@@ -8663,7 +8663,7 @@ const articleMRVL: Article = {
       title: 'Marvell (MRVL) entra al S&P 500: ¿cuánto vale realmente esta acción?',
       excerpt: 'Marvell Technology se une al S&P 500 el 22 de junio de 2026. Puntuación de calidad sólida, pero valoración muy tensa. Analizo qué cambia realmente para la acción.',
       metaDescription: 'Marvell Technology (MRVL) se une al S&P 500 el 22 de junio de 2026. Análisis fundamental completo: puntuación de calidad, valoración, chips de IA personalizados.',
-      answer: 'Marvell Technology obtiene 8 sobre 10 en calidad fundamental, impulsada por chips de red y silicon de IA personalizado para hyperscalers. Su entrada al S&P 500 el 22 de junio de 2026 crea demanda mecánica de los fondos indexados, pero la valoración actual es extremadamente elevada. La calidad está, el precio no.',
+      answer: 'Marvell Technology obtiene 8 sobre 10 en calidad fundamental, impulsada por chips de red y silicon de IA personalizado para hyperscalers. Su entrada al S&P 500 el 22 de junio de 2026 crea demanda mecánica de los fondos indexados, pero a 273 veces su free cash flow, la valoración es insostenible: nuestro modelo no ve oportunidad de inversión fundamental a estos niveles. A evitar al precio actual.',
       body: [
         {
           type: 'ul',
@@ -8671,7 +8671,7 @@ const articleMRVL: Article = {
             'Marvell (MRVL) se une al S&P 500 el 22 de junio de 2026, reemplazando a Pool Corp. El anuncio fue el 5 de junio.',
             'Puntuación de calidad fundamental: 8 sobre 10. Crecimiento de ingresos del 13,9% anual en 5 años, FCF por acción en alza del 37,2% anual.',
             'Valoración muy elevada: P/FCF de 273 veces (el precio de la acción representa 273 años de flujo de caja libre generado). Este múltiplo refleja una prima de crecimiento IA muy alta.',
-            'Riesgo real: el precio actual (308 dólares) supera ampliamente el precio de compra recomendado por nuestro modelo (41,93 dólares).',
+            'Riesgo real: el precio actual (308 dólares) supera ampliamente el precio de compra recomendado por nuestro modelo (41,93 dólares), una prima del 86%. La calidad está, pero a este precio no es una oportunidad de inversión fundamental: es una apuesta sobre un impulso IA ya descontado en gran medida.',
             'La entrada al S&P 500 crea demanda mecánica a corto plazo pero no mejora los fundamentales ni la valoración.'
           ]
         },
@@ -8763,7 +8763,7 @@ const articleMRVL: Article = {
         },
         {
           q: '¿A qué precio MRVL sería una oportunidad según vuestro método?',
-          a: 'Nuestro modelo estima un precio de compra razonable en torno a 41,93 dólares, basado en el FCF actual y nuestras hipótesis de crecimiento. El precio actual de 308 dólares incluye una prima de crecimiento IA extremadamente alta. Haría falta una corrección importante o una fuerte aceleración de los fundamentales para que ambos converjan.'
+          a: 'Nuestro modelo estima un precio de compra razonable en torno a 41,93 dólares, basado en el FCF actual y nuestras hipótesis de crecimiento. El precio actual de 308 dólares incluye una prima de crecimiento IA extremadamente alta. Mientras la brecha se mantenga así de amplia, MRVL no encaja en nuestro método calidad + valoración: a evitar a estos niveles, a reconsiderar solo tras una corrección seria o una fuerte aceleración fundamental.'
         }
       ],
       tags: ['MRVL', 'Marvell Technology', 'S&P 500', 'semiconductores', 'IA', 'chips personalizados', 'análisis fundamental', 'valoración'],
@@ -10521,7 +10521,7 @@ const intu: Article = {
     en: {
       title: 'Intuit (INTU) : the US tax SaaS stock to watch',
       excerpt:
-        "Intuit owns TurboTax, QuickBooks and Mailchimp. More than 40 million Americans use TurboTax every year — and almost none of them switch. Here's why the stock scores 10 out of 10 in my analysis, and where I set my buy threshold.",
+        "Intuit owns TurboTax, QuickBooks and Mailchimp. More than 40 million Americans use TurboTax every year, and almost none of them switch. Here's why the stock scores 10 out of 10 in my analysis, and where I set my buy threshold.",
       metaDescription:
         'Intuit (INTU) full fundamental analysis: quality score, valuation, AI strategy and risks. TurboTax, QuickBooks, Intuit Assist. Is INTU stock a buy in 2026?',
       answer:
@@ -10559,7 +10559,7 @@ const intu: Article = {
         },
         {
           type: 'p',
-          text: "When I analyze a stock, I score it out of 10 on quality alone — completely separately from its price. My 10 criteria cover profitability (margins, cash generated), growth (revenues and free cash flow per share over 5 years), financial strength (debt, cash conversion), and capital allocation (share buybacks, dividends).",
+          text: "When I analyze a stock, I score it out of 10 on quality alone, completely separately from its price. My 10 criteria cover profitability (margins, cash generated), growth (revenues and free cash flow per share over 5 years), financial strength (debt, cash conversion), and capital allocation (share buybacks, dividends).",
         },
         {
           type: 'p',
