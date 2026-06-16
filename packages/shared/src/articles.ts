@@ -6541,7 +6541,1067 @@ const note10sur10: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe];
+const actionsAsiatiques: Article = {
+  slug: 'actions-asiatiques-interpreter-note-10-sur-10',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: 'Actions asiatiques : comment interpréter un 10/10 hors US',
+      excerpt: "Le Japon, la Corée et Hong Kong abritent des entreprises de qualité que notre screener note 10/10. Mais lire ces dossiers demande quelques ajustements. Voici ce que j'adapte avant d'investir.",
+      metaDescription: "Comment lire une action japonaise, coréenne ou hongkongaise notée 10/10 : comptabilité, gouvernance, fiscalité dividendes, liquidité. Guide pratique.",
+      answer: "Une action asiatique notée 10/10 par notre screener répond aux mêmes critères financiers qu'une action américaine : FCF solide, marges élevées, bilan sain. Mais trois points méritent vigilance : la gouvernance d'entreprise (souvent différente), la fiscalité des dividendes à la source, et la liquidité parfois limitée sur certaines valeurs.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Notre screener couvre le Japon (TOPIX), la Corée (KOSPI) et Hong Kong : des marchés immenses avec des entreprises de qualité souvent ignorées par les investisseurs occidentaux.",
+            "La note /10 s'appuie sur les mêmes 10 critères partout dans le monde : la comptabilité locale peut affecter certains ratios, mais le FCF et les marges restent les signaux les plus fiables.",
+            "La gouvernance d'entreprise en Asie s'améliore rapidement : le Japon et la Corée ont engagé des réformes profondes depuis 2023 pour mieux protéger les actionnaires minoritaires.",
+            "La fiscalité des dividendes diffère selon les pays : le Japon retient 15,315% à la source pour les non-résidents, la Corée 22%, Hong Kong 0%.",
+            "La liquidité : certaines petites capitalisations japonaises ou coréennes ont des volumes journaliers faibles. À vérifier avant tout achat.",
+          ],
+        },
+        { type: 'h2', text: "Pourquoi je regarde les marchés asiatiques" },
+        {
+          type: 'p',
+          text: "La plupart des investisseurs particuliers français concentrent leur portefeuille sur les États-Unis et l'Europe. C'est compréhensible : les données sont accessibles, les entreprises connues, les rapports en anglais. Mais cette myopie géographique crée une opportunité. Le Japon, la Corée du Sud et Hong Kong abritent des centaines d'entreprises excellentes que le marché occidental sous-analyse systématiquement.",
+        },
+        {
+          type: 'p',
+          text: "Le TOPIX japonais a progressé de 42% sur les douze derniers mois, porté par des réformes de gouvernance historiques et un retour massif des ménages japonais vers les actions. Le KOSPI coréen, lui, a bondi de 118% en douze mois grâce aux réformes du marché des capitaux et à l'essor de l'IA. Ces deux marchés ne sont plus des marchés de niche.",
+        },
+        { type: 'h2', text: "Quels marchés couvre notre screener" },
+        {
+          type: 'p',
+          text: "Notre screener analyse les actions cotées au Tokyo Stock Exchange (suffixe .T), au Korea Stock Exchange (suffixe .KS) et à la Hong Kong Stock Exchange (suffixe .HK). Ces trois bourses représentent ensemble une capitalisation boursière supérieure à 10 000 milliards de dollars, soit davantage que toute la zone euro.",
+        },
+        {
+          type: 'p',
+          text: "La note /10 que j'attribue à chaque action repose sur 10 critères financiers objectifs : la croissance des revenus, la progression du FCF (le cash réellement généré après toutes les dépenses, y compris les investissements), la marge de FCF, le Cash ROCE (le rendement du capital employé mesuré en cash réel, pas en bénéfice comptable), l'endettement, les rachats d'actions, et quelques autres indicateurs de solidité. Ces critères s'appliquent exactement de la même façon à une action japonaise qu'à une action américaine.",
+        },
+        { type: 'h2', text: "Les quatre différences à intégrer avant d'investir" },
+        {
+          type: 'p',
+          text: "Première différence : la comptabilité. Les entreprises japonaises et coréennes suivent des normes IFRS ou leurs standards locaux, proches des normes internationales, mais avec quelques subtilités. La capitalisation des dépenses de R et D, le traitement des stocks ou les pensions de retraite peuvent légèrement gonfler ou dégonfler certains ratios. Je reste vigilant, mais le FCF, lui, est assez robuste à ces écarts : l'argent dans les caisses est concret, quelle que soit la norme comptable.",
+        },
+        {
+          type: 'p',
+          text: "Deuxième différence : la gouvernance. C'est historiquement le point faible des entreprises asiatiques. Au Japon, les keiretsu (réseaux de participations croisées entre entreprises liées) diluaient les intérêts des actionnaires minoritaires depuis des décennies. Mais la Bourse de Tokyo a lancé en 2023 une vague de réformes : les entreprises dont le ratio cours sur valeur comptable est inférieur à 1 sont désormais poussées à mieux allouer leur capital, à racheter des actions, à distribuer davantage. Résultat : les rachats d'actions japonais ont explosé. Honda, par exemple, a maintenu son dividende même en annonçant une dépréciation de 15,7 milliards de dollars sur ses activités EV. C'est un signal de discipline.",
+        },
+        {
+          type: 'p',
+          text: "Troisième différence : la fiscalité des dividendes à la source. Le Japon retient 15,315% à la source sur les dividendes versés aux non-résidents. La Corée retient 22%. Hong Kong, en revanche, ne retient rien. Pour un investisseur français, ces retenues s'imputent partiellement sur l'impôt français via les conventions fiscales, mais le mécanisme est plus complexe qu'avec une action américaine.",
+        },
+        {
+          type: 'p',
+          text: "Quatrième différence : la liquidité. Les grandes capitalisations japonaises (Toyota, Sony, Keyence) et coréennes (Samsung, SK Hynix) traitent des volumes colossaux chaque jour. Mais le screener analyse aussi des entreprises de taille intermédiaire, parfois peu connues en dehors de leur marché domestique. Sur ces valeurs, les volumes journaliers peuvent être limités, les fourchettes achat/vente plus larges. J'adapte mes ordres en conséquence : ordre à cours limité plutôt qu'ordre au marché.",
+        },
+        { type: 'h2', text: "Comment j'adapte la lecture de la valorisation P/FCF" },
+        {
+          type: 'p',
+          text: "Le P/FCF (price-to-free-cash-flow) est le ratio que j'utilise pour juger si une action est chère ou non. Concrètement : c'est le prix de l'action divisé par le cash que l'entreprise génère vraiment chaque année après toutes ses dépenses. Un P/FCF de 12 signifie que tu paies aujourd'hui l'équivalent de 12 années de ce cash. Plus ce chiffre est bas, moins l'action est chère.",
+        },
+        {
+          type: 'p',
+          text: "Sur les marchés asiatiques, les P/FCF moyens historiques ont longtemps été plus bas qu'aux États-Unis, pour deux raisons : la défiance des investisseurs envers la gouvernance, et la faible visibilité des entreprises locales à l'international. Avec les réformes de gouvernance au Japon et en Corée, cet écart de valorisation se réduit progressivement. Autrement dit : des dossiers asiatiques 10/10 qui affichaient des valorisations très basses il y a trois ans voient leur P/FCF remonter, non pas parce qu'ils sont moins bons, mais parce que le marché les comprend mieux.",
+        },
+        { type: 'h2', text: "Ce que je retiens pour mon propre portefeuille" },
+        {
+          type: 'p',
+          text: "J'investis dans des actions asiatiques notées 10/10 avec la même logique que partout ailleurs : la qualité d'abord, le prix ensuite. Les quatre points spécifiques que j'ai décrits (comptabilité, gouvernance, fiscalité, liquidité) ne sont pas des blocages. Ce sont des ajustements à intégrer dans la réflexion. Le marché occidental sous-analyse encore ces valeurs, et c'est précisément de là que peuvent venir les meilleures opportunités.",
+        },
+        {
+          type: 'p',
+          text: "Si tu veux voir les actions asiatiques actuellement dans notre screener, avec leur note /10 et leur valorisation P/FCF à jour, tu peux les consulter sur notre screener en ligne. C'est l'outil que j'ai construit pour analyser exactement ce genre de dossiers en quelques secondes.",
+        },
+      ],
+      faq: [
+        {
+          q: "Peut-on acheter facilement des actions japonaises ou coréennes depuis la France ?",
+          a: "Oui. La plupart des courtiers en ligne français (Degiro, Saxo, Interactive Brokers) donnent accès au Tokyo Stock Exchange et au Korea Stock Exchange. Les frais sont un peu plus élevés que sur les marchés européens ou américains. Quelques grandes capitalisations japonaises sont également disponibles sous forme d'ADR sur le NYSE.",
+        },
+        {
+          q: "La note /10 de notre screener est-elle comparable entre une action américaine et une action japonaise ?",
+          a: "Oui, les 10 critères sont identiques. La note mesure la solidité financière objective : FCF, marges, croissance, bilan, allocation du capital. Une entreprise japonaise notée 10/10 répond aux mêmes exigences qu'une américaine 10/10. La seule nuance concerne certains ratios affectés par les normes comptables locales, mais le FCF reste le signal le plus universel.",
+        },
+        {
+          q: "Le yen faible (2025-2026) est-il un risque pour les actions japonaises ?",
+          a: "C'est un point à surveiller. Un yen faible avantage les exportateurs japonais (Toyota, Sony, Fanuc) mais peut éroder les rendements d'un investisseur européen qui reçoit des dividendes en yen. Je convertis mentalement les FCF en euros pour avoir une image fidèle de la valorisation réelle.",
+        },
+        {
+          q: "Pourquoi la Corée du Sud est-elle souvent déconsidérée malgré ses entreprises de qualité ?",
+          a: "Historiquement, la Corée souffrait d'une décote de gouvernance : les chaebols (conglomérats familiaux comme Samsung ou LG) favorisaient la famille fondatrice au détriment des minoritaires. Les réformes lancées depuis 2023 changent la donne, avec des exigences accrues en matière de dividendes et de rachats d'actions. Le KOSPI a d'ailleurs bondi de 118% en douze mois, en partie pour cette raison.",
+        },
+        {
+          q: "Comment fonctionne la retenue à la source sur les dividendes japonais ?",
+          a: "Le Japon retient 15,315% à la source sur les dividendes versés aux non-résidents (en vertu de la convention fiscale franco-japonaise). Cette retenue est en principe récupérable via un crédit d'impôt dans ta déclaration française. La mécanique exacte dépend de ton courtier et de ta situation fiscale.",
+        },
+      ],
+      tags: ['actions asiatiques', 'bourse Japon', 'bourse Corée', 'note 10 sur 10', 'méthode investissement', 'screener actions', 'gouvernance entreprise'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Chiffres à la date de publication. Fais tes propres recherches avant d'investir.",
+    },
+    en: {
+      title: 'Asian stocks: how to read a top-quality score outside the US',
+      excerpt: "Japan, South Korea and Hong Kong are home to top-quality companies our screener rates highly. But reading these files requires a few adjustments. Here is what I adapt before investing.",
+      metaDescription: "How to read a Japanese, Korean or Hong Kong stock with a top quality score: accounting, governance, dividend taxation, liquidity. A practical guide for Western investors.",
+      answer: "An Asian stock rated 10/10 by our screener meets the same financial criteria as a US stock: solid FCF, high margins, clean balance sheet. But three points deserve attention: corporate governance (often different), withholding tax on dividends at source, and sometimes limited liquidity on smaller names.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Our screener covers Japan (TOPIX), South Korea (KOSPI) and Hong Kong (HKEX): three massive markets home to world-class companies often ignored by Western investors.",
+            "The quality score uses the same 10 criteria everywhere: local accounting can affect some ratios, but FCF and margins remain the most reliable signals.",
+            "Corporate governance in Asia is improving fast: Japan and South Korea have launched deep reforms since 2023 to better protect minority shareholders.",
+            "Dividend withholding tax varies by country: Japan withholds 15.315% at source for non-residents, South Korea 22%, Hong Kong 0%.",
+            "Liquidity: some smaller Japanese or Korean companies have thin daily volumes. Always check before buying.",
+          ],
+        },
+        { type: 'h2', text: "Why I look at Asian markets" },
+        {
+          type: 'p',
+          text: "Most retail investors concentrate their portfolios on the US and Europe. That is understandable: data is accessible, companies are familiar, reports come in English. But this geographic short-sightedness creates an opportunity. Japan, South Korea and Hong Kong are home to hundreds of excellent companies that Western markets systematically under-analyze.",
+        },
+        {
+          type: 'p',
+          text: "Japan's TOPIX has risen 42% over the past twelve months, driven by historic governance reforms and a massive return of Japanese households to equities. South Korea's KOSPI surged 118% over twelve months, fuelled by capital market reforms and the AI boom. These are no longer niche markets.",
+        },
+        { type: 'h2', text: "Which markets our screener covers" },
+        {
+          type: 'p',
+          text: "Our screener analyzes stocks listed on the Tokyo Stock Exchange (.T suffix), Korea Stock Exchange (.KS suffix) and Hong Kong Stock Exchange (.HK suffix). These three exchanges together represent a market cap of over 10 trillion dollars, more than the entire eurozone.",
+        },
+        {
+          type: 'p',
+          text: "The score I assign to each stock relies on 10 objective financial criteria: revenue growth, FCF growth (cash actually generated after all expenses, including capital investment), FCF margin, Cash ROCE (capital return measured in real cash, not accounting profit), debt levels, share buybacks, and a few other soundness indicators. These criteria apply in exactly the same way to a Japanese stock as to an American one.",
+        },
+        { type: 'h2', text: "Four differences to factor in before investing" },
+        {
+          type: 'p',
+          text: "First: accounting. Japanese and Korean companies follow IFRS or their own local standards, broadly aligned with international norms but with some nuances. FCF, however, is quite robust to these gaps: cash in the bank is concrete, whatever the accounting standard.",
+        },
+        {
+          type: 'p',
+          text: "Second: governance. This has historically been the weak point of Asian companies. In Japan, keiretsu (cross-ownership networks between related companies) diluted minority shareholder interests for decades. But the Tokyo Stock Exchange launched a wave of reforms in 2023: companies with a price-to-book ratio below 1 are now pushed to better allocate capital, buy back shares, and distribute more. Honda, for example, maintained its dividend forecast even after announcing a 15.7 billion dollar EV write-down. That is a discipline signal.",
+        },
+        {
+          type: 'p',
+          text: "Third: dividend withholding tax at source. Japan withholds 15.315% at source on dividends paid to non-residents. South Korea withholds 22%. Hong Kong, by contrast, withholds nothing. For a French investor, these withholdings are partially creditable against French tax under double tax treaties, but the mechanics are more complex than with a US stock.",
+        },
+        {
+          type: 'p',
+          text: "Fourth: liquidity. Large-cap Japanese names (Toyota, Sony, Keyence) and Korean names (Samsung, SK Hynix) trade massive daily volumes. But the screener also covers mid-size companies that are little known outside their home market. On these names, daily volumes can be thin and bid-ask spreads wider. I always use limit orders, not market orders.",
+        },
+        { type: 'h2', text: "How I adjust the P/FCF valuation reading" },
+        {
+          type: 'p',
+          text: "P/FCF (price-to-free-cash-flow) is the ratio I use to judge whether a stock is expensive or not. Concretely: it is the stock price divided by the cash the company genuinely generates each year after all its expenses. A P/FCF of 12 means you are paying today the equivalent of 12 years of that cash. The lower the number, the cheaper the stock.",
+        },
+        {
+          type: 'p',
+          text: "Asian markets historically had lower average P/FCF ratios than the US for two reasons: investor distrust of governance, and low international visibility. With governance reforms in Japan and South Korea, this valuation gap is gradually narrowing. Top-quality Asian names that traded at very low valuations three years ago are now seeing their P/FCF rise, not because they got worse, but because the market understands them better.",
+        },
+        { type: 'h2', text: "What I keep for my own portfolio" },
+        {
+          type: 'p',
+          text: "I invest in highly-rated Asian stocks with the same logic as everywhere else: quality first, price second. The four specific points I described are not blockers. They are adjustments to factor into the thinking. Western markets still under-analyze these names, and that is precisely where the best opportunities can arise.",
+        },
+        {
+          type: 'p',
+          text: "If you want to see the Asian stocks currently in our screener, with their quality scores and up-to-date P/FCF valuations, you can check them on our online screener. That is the tool I built to analyze exactly these kinds of files in seconds.",
+        },
+      ],
+      faq: [
+        {
+          q: "Can you easily buy Japanese or Korean stocks from Europe?",
+          a: "Yes. Most online brokers (IBKR, Degiro, Saxo) provide access to the Tokyo and Korea stock exchanges. Fees are slightly higher than on European or US markets. Some large Japanese companies are also available as ADRs on the NYSE.",
+        },
+        {
+          q: "Is the quality score comparable between a US stock and a Japanese stock?",
+          a: "Yes, the 10 criteria are identical. The score measures objective financial strength: FCF, margins, growth, balance sheet, capital allocation. A Japanese stock rated 10/10 meets the same requirements as a US 10/10. The only nuance relates to certain ratios affected by local accounting standards, but FCF remains the most universal signal.",
+        },
+        {
+          q: "Is the weak yen a risk for Japanese stocks?",
+          a: "It is a point to monitor. A weak yen benefits Japanese exporters (Toyota, Sony, Fanuc) but can erode returns for a European investor receiving yen dividends. I mentally convert FCF to euros to get an accurate picture of real valuation.",
+        },
+        {
+          q: "Why is South Korea often discounted despite its quality companies?",
+          a: "Historically, Korea suffered from a governance discount: chaebols (family conglomerates like Samsung or LG) favored the founding family over minority shareholders. Reforms launched since 2023 are changing this, with increased dividend and buyback requirements. The KOSPI surged 118% over twelve months partly for this reason.",
+        },
+        {
+          q: "How does Japanese dividend withholding tax work?",
+          a: "Japan withholds 15.315% at source on dividends paid to non-residents (under the France-Japan tax treaty). This withholding is in principle recoverable via a tax credit in your French return. The exact mechanics depend on your broker and your tax situation.",
+        },
+      ],
+      tags: ['asian stocks', 'Japan stock market', 'Korea stock market', 'quality score', 'investment method', 'stock screener', 'corporate governance'],
+      disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date. Do your own research before investing.",
+    },
+    es: {
+      title: 'Acciones asiáticas: interpretar una nota máxima fuera de EE. UU.',
+      excerpt: "Japón, Corea del Sur y Hong Kong albergan empresas de calidad que nuestro screener califica al máximo. Pero leer estos expedientes requiere algunos ajustes. Esto es lo que adapto antes de invertir.",
+      metaDescription: "Cómo leer una acción japonesa, coreana o de Hong Kong con nota máxima de calidad: contabilidad, gobernanza, fiscalidad de dividendos, liquidez. Guía práctica.",
+      answer: "Una acción asiática con nota máxima en nuestro screener cumple los mismos criterios financieros que una acción estadounidense: FCF sólido, márgenes altos, balance saneado. Pero tres puntos merecen atención: la gobernanza corporativa (a menudo diferente), la retención fiscal sobre dividendos en origen, y la liquidez a veces limitada.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Nuestro screener cubre Japón (TOPIX), Corea del Sur (KOSPI) y Hong Kong (HKEX): tres mercados enormes con empresas de clase mundial frecuentemente ignoradas por los inversores occidentales.",
+            "La nota de calidad usa los mismos 10 criterios en todo el mundo: la contabilidad local puede afectar algunos ratios, pero el FCF y los márgenes siguen siendo las señales más fiables.",
+            "La gobernanza corporativa en Asia mejora rápidamente: Japón y Corea han impulsado reformas profundas desde 2023 para proteger mejor a los accionistas minoritarios.",
+            "La retención fiscal sobre dividendos varía según el país: Japón retiene el 15,315% en origen para no residentes, Corea el 22%, Hong Kong el 0%.",
+            "Liquidez: algunas empresas japonesas o coreanas de pequeña capitalización tienen volúmenes diarios reducidos. Siempre hay que verificarlo antes de comprar.",
+          ],
+        },
+        { type: 'h2', text: "Por qué analizo los mercados asiáticos" },
+        {
+          type: 'p',
+          text: "La mayoría de los inversores minoristas concentran su cartera en Estados Unidos y Europa. Es comprensible: los datos son accesibles, las empresas conocidas, los informes en inglés. Pero esta miopía geográfica genera una oportunidad. Japón, Corea del Sur y Hong Kong albergan cientos de empresas excelentes que los mercados occidentales analizan de forma sistemáticamente insuficiente.",
+        },
+        {
+          type: 'p',
+          text: "El TOPIX japonés ha subido un 42% en los últimos doce meses, impulsado por reformas históricas de gobernanza y un retorno masivo de los hogares japoneses a la renta variable. El KOSPI coreano se disparó un 118% en doce meses, gracias a las reformas del mercado de capitales y al auge de la IA.",
+        },
+        { type: 'h2', text: "Qué mercados cubre nuestro screener" },
+        {
+          type: 'p',
+          text: "Nuestro screener analiza acciones cotizadas en la Bolsa de Tokio (sufijo .T), la Bolsa de Corea (sufijo .KS) y la Bolsa de Hong Kong (sufijo .HK). Estas tres bolsas representan juntas una capitalización bursátil superior a 10 billones de dólares, más que toda la zona euro.",
+        },
+        { type: 'h2', text: "Las cuatro diferencias que hay que integrar antes de invertir" },
+        {
+          type: 'p',
+          text: "Primera diferencia: la contabilidad. Las empresas japonesas y coreanas siguen normas IFRS o sus propios estándares locales, próximos a las normas internacionales pero con matices. El FCF, sin embargo, es bastante robusto a estas diferencias: el efectivo en caja es concreto, independientemente de la norma contable.",
+        },
+        {
+          type: 'p',
+          text: "Segunda diferencia: la gobernanza. Históricamente ha sido el punto débil de las empresas asiáticas. En Japón, los keiretsu (redes de participaciones cruzadas entre empresas relacionadas) diluían los intereses de los accionistas minoritarios. Pero la Bolsa de Tokio lanzó en 2023 reformas profundas: las empresas con un ratio precio/valor contable inferior a 1 ahora están presionadas para asignar mejor el capital. Honda, por ejemplo, mantuvo sus previsiones de dividendo pese a anunciar una depreciación de 15.700 millones de dólares en sus actividades EV.",
+        },
+        {
+          type: 'p',
+          text: "Tercera diferencia: la retención fiscal sobre dividendos en origen. Japón retiene el 15,315% en origen sobre los dividendos pagados a no residentes. Corea retiene el 22%. Hong Kong, en cambio, no retiene nada.",
+        },
+        {
+          type: 'p',
+          text: "Cuarta diferencia: la liquidez. Las grandes capitalizaciones japonesas y coreanas negocian volúmenes diarios enormes. Pero el screener también cubre empresas de tamaño mediano poco conocidas fuera de su mercado local. En esos valores, los volúmenes pueden ser reducidos. Siempre utilizo órdenes limitadas, no órdenes a mercado.",
+        },
+        { type: 'h2', text: "Cómo adapto la lectura de la valoración P/FCF" },
+        {
+          type: 'p',
+          text: "El P/FCF (price-to-free-cash-flow) es el ratio que uso para juzgar si una acción es cara o no. Concretamente: es el precio de la acción dividido entre el efectivo que la empresa genera de verdad cada año después de todos sus gastos. Un P/FCF de 12 significa que hoy pagas el equivalente de 12 años de ese efectivo. Cuanto más bajo, más barata es la acción.",
+        },
+        {
+          type: 'p',
+          text: "Los mercados asiáticos históricamente tenían P/FCF medios más bajos que EE. UU. por dos razones: la desconfianza de los inversores hacia la gobernanza, y la baja visibilidad internacional. Con las reformas de gobernanza en Japón y Corea, esta brecha de valoración se reduce gradualmente.",
+        },
+        { type: 'h2', text: "Lo que me llevo para mi propia cartera" },
+        {
+          type: 'p',
+          text: "Invierto en acciones asiáticas de alta calificación con la misma lógica que en cualquier otro lugar: calidad primero, precio después. Los cuatro puntos específicos que he descrito no son obstáculos. Son ajustes que hay que integrar en el análisis.",
+        },
+        {
+          type: 'p',
+          text: "Si quieres ver las acciones asiáticas que hay actualmente en nuestro screener, con su nota de calidad y su valoración P/FCF actualizada, puedes consultarlas en nuestro screener en línea. Es la herramienta que construí para analizar exactamente este tipo de expedientes en cuestión de segundos.",
+        },
+      ],
+      faq: [
+        {
+          q: "Se pueden comprar fácilmente acciones japonesas o coreanas desde España?",
+          a: "Sí. La mayoría de brókers en línea (IBKR, Degiro, Saxo) dan acceso a la Bolsa de Tokio y a la Bolsa de Corea. Las comisiones son algo más altas que en los mercados europeos o estadounidenses. Algunas grandes capitalizaciones japonesas también están disponibles como ADR en la NYSE.",
+        },
+        {
+          q: "La nota de calidad es comparable entre una acción americana y una japonesa?",
+          a: "Sí, los 10 criterios son idénticos. La nota mide la solidez financiera objetiva: FCF, márgenes, crecimiento, balance, asignación de capital. Una acción japonesa con nota máxima cumple los mismos requisitos que una americana. El único matiz se refiere a ciertos ratios afectados por las normas contables locales, pero el FCF sigue siendo la señal más universal.",
+        },
+        {
+          q: "El yen débil es un riesgo para las acciones japonesas?",
+          a: "Es un punto a vigilar. Un yen débil beneficia a los exportadores japoneses (Toyota, Sony, Fanuc) pero puede erosionar los rendimientos de un inversor europeo que recibe dividendos en yenes. Mentalmente convierto el FCF a euros para tener una imagen fiel de la valoración real.",
+        },
+        {
+          q: "Por qué Corea del Sur suele estar infravalorada pese a sus empresas de calidad?",
+          a: "Históricamente, Corea sufría un descuento de gobernanza: los chaebols (conglomerados familiares como Samsung o LG) favorecían a la familia fundadora en detrimento de los minoritarios. Las reformas lanzadas desde 2023 están cambiando esto. El KOSPI se disparó un 118% en doce meses en parte por esta razón.",
+        },
+        {
+          q: "Cómo funciona la retención fiscal japonesa sobre dividendos?",
+          a: "Japón retiene el 15,315% en origen sobre los dividendos pagados a no residentes. Esta retención es en principio recuperable mediante un crédito fiscal en tu declaración local. La mecánica exacta depende de tu bróker y tu situación fiscal.",
+        },
+      ],
+      tags: ['acciones asiáticas', 'bolsa Japón', 'bolsa Corea', 'calidad empresas', 'método inversión', 'screener acciones', 'gobernanza empresarial'],
+      disclaimer: "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación. Haz tu propia investigación antes de invertir.",
+    },
+  },
+};
+
+const sp500RecordJuin2026: Article = {
+  slug: 'sp500-record-juin-2026-actions-10-sur-10-valorisation',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 7,
+  content: {
+    fr: {
+      title: 'S&P 500 record juin 2026 : les meilleures actions encore bon marché ?',
+      excerpt: "Le S&P 500 a franchi 7 600 points début juin 2026, son 24e record historique de l'année. Mais toutes les actions de qualité de notre screener n'ont pas suivi cette hausse. Certaines restent sous-valorisées.",
+      metaDescription: "S&P 500 à 7 609 points en juin 2026 : les actions de qualité maximale restent-elles sous-valorisées malgré la hausse du marché ? Analyse avec données réelles.",
+      answer: "Le S&P 500 a clôturé au-dessus de 7 600 points pour la première fois le 2 juin 2026. Mais l'indice global ne dit rien sur les actions individuelles. Certaines entreprises notées 10/10 dans notre screener n'ont pas profité de ce rally et restent à des valorisations basses. La qualité et le prix sont deux choses distinctes.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Le S&P 500 a clôturé pour la première fois au-dessus de 7 600 points le 2 juin 2026, à 7 609 exactement : son 24e record historique de l'année, en hausse de 10% depuis janvier.",
+            "L'indice global traite à un multiple cours sur bénéfices prévisionnel de 23x, bien au-dessus de sa moyenne historique de 18x : le marché dans l'ensemble est cher.",
+            "Mais la moyenne cache des écarts énormes : certaines actions de qualité dans notre screener affichent encore des valorisations P/FCF (prix divisé par le cash généré) en dessous de leurs niveaux historiques.",
+            "Qualys (QLYS) par exemple : son ratio EV/FCF est à 12x en juin 2026, contre une médiane historique sur 10 ans de 25x. Soit 51% en dessous de sa propre moyenne.",
+            "Un indice record ne signifie pas que tout est cher. Il signifie que les actifs les plus en vue ont été achetés massivement.",
+          ],
+        },
+        { type: 'h2', text: "Le contexte : un S&P 500 à 7 609 points" },
+        {
+          type: 'p',
+          text: "Le 2 juin 2026, le S&P 500 a clôturé pour la première fois de son histoire au-dessus de 7 600 points, à 7 609 exactement. C'était le 24e record historique de l'année, et l'indice affichait une progression de 10% depuis le 1er janvier. Le moteur principal : les valeurs technologiques liées à l'IA, portées par de bons résultats d'entreprises comme Hewlett Packard Enterprise et des annonces enthousiastes sur les infrastructures d'intelligence artificielle.",
+        },
+        {
+          type: 'p',
+          text: "La question que je me pose immédiatement quand je vois un tel record : est-ce que mes dossiers ont suivi ? Pas tous. Et c'est exactement là que réside l'opportunité.",
+        },
+        { type: 'h2', text: "Un indice record ne veut pas dire que tout est cher" },
+        {
+          type: 'p',
+          text: "Le S&P 500 est une moyenne pondérée par la capitalisation boursière. Quelques géants technologiques (Nvidia, Microsoft, Apple, Amazon) représentent à eux seuls une part énorme de l'indice. Quand ces géants montent, l'indice monte. Mais des centaines d'autres entreprises de qualité, moins médiatiques, moins présentes dans les portefeuilles passifs des ETF, peuvent ne pas avoir bougé autant.",
+        },
+        {
+          type: 'p',
+          text: "La valorisation globale du marché, mesurée par le ratio cours/bénéfices prévisionnel, est à 23x contre une moyenne historique de 18x. C'est élevé. Mais c'est la moyenne. Certains secteurs et certaines entreprises spécifiques peuvent encore traiter à des multiples raisonnables ou même bas par rapport à leur propre historique.",
+        },
+        { type: 'h2', text: "Des dossiers de qualité qui n'ont pas suivi : ce que montrent les chiffres" },
+        {
+          type: 'p',
+          text: "Dans notre screener, la note /10 mesure la qualité intrinsèque d'un business : ses marges de FCF (la proportion des revenus qui se transforme vraiment en cash), sa croissance, son endettement, son rendement du capital. Elle ne mesure pas la popularité de l'action sur les marchés. Une entreprise peut être notée 10/10 depuis trois ans et n'avoir que peu progressé en bourse si elle est peu connue, peu suivie par les analystes, ou sur un secteur momentanément délaissé.",
+        },
+        {
+          type: 'p',
+          text: "L'exemple le plus frappant que j'observe en juin 2026 est Qualys (QLYS). C'est une entreprise de cybersécurité qui génère un FCF par action de 8,05 dollars. Son action cote autour de 112 dollars. Cela donne un ratio EV/FCF de 12x : tu paies en bourse l'équivalent de 12 années de cash généré. La médiane historique sur 10 ans de ce même ratio pour cette entreprise est de 25x. Qualys est donc aujourd'hui à une valorisation 51% en dessous de sa propre moyenne historique, alors même que le S&P 500 bat des records.",
+        },
+        {
+          type: 'p',
+          text: "Autre exemple : Napco Security Technologies (NSSC), notée 10/10 dans notre screener. L'entreprise affiche une marge de FCF de 30%, une croissance de revenus de 11,8% au dernier trimestre (Q3 2026, mars 2026), et un P/FCF autour de 23x. Ce n'est pas donné, mais c'est cohérent avec la qualité du dossier et inférieur à son propre pic historique des années 2022-2023.",
+        },
+        { type: 'h2', text: "La divergence entre qualité et valorisation marché" },
+        {
+          type: 'p',
+          text: "Ce phénomène illustre exactement pourquoi je sépare systématiquement la qualité du prix. Le marché achète des thèmes (l'IA, la technologie, la consommation américaine) en masse. Il délaisse tout ce qui n'entre pas dans ces narratifs du moment. Une entreprise de cybersécurité rentable mais discrète, ou un fabricant de systèmes de sécurité physique en croissance modérée, n'attire pas les flux spéculatifs.",
+        },
+        {
+          type: 'p',
+          text: "C'est une source de tension permanente pour l'investisseur fondamental. Voir le marché monter sans son dossier préféré est inconfortable. Mais c'est aussi le signal que la divergence entre qualité et valorisation reste intacte, et que le potentiel de revalorisation existe.",
+        },
+        { type: 'h2', text: "Ce que le record du S&P 500 dit sur notre méthode" },
+        {
+          type: 'p',
+          text: "Notre méthode est conçue précisément pour ces moments. Elle ne cherche pas à suivre l'indice : elle cherche à trouver des entreprises excellentes à un prix raisonnable, indépendamment du bruit macro. Un S&P 500 à 7 609 ne nous dit pas que Qualys à 12x son FCF est cher. Il nous dit que le marché dans l'ensemble a été acheté massivement, mais que l'allocation de capital reste inégale.",
+        },
+        {
+          type: 'p',
+          text: "La vraie question n'est pas 'est-ce que le marché est cher ?' mais 'est-ce que MON dossier est cher ?'. Pour répondre à cette question, il faut un outil qui analyse chaque action individuellement. C'est pour ça que j'ai construit notre screener : pour répondre à cette question en quelques secondes, pour n'importe quelle action de notre univers.",
+        },
+      ],
+      faq: [
+        {
+          q: "Le S&P 500 à 7 609 points signifie-t-il qu'il faut vendre ?",
+          a: "Non nécessairement. Un indice élevé reflète la valorisation moyenne du marché, pas celle de chaque action. Notre méthode regarde chaque dossier individuellement. Certaines entreprises de qualité restent sous-valorisées par rapport à leur propre historique, même quand l'indice bat des records. Ceci n'est pas un conseil d'investissement.",
+        },
+        {
+          q: "Comment comparer la valorisation d'une action à son propre historique ?",
+          a: "Je regarde le P/FCF actuel (prix divisé par le cash généré) et je le compare à la médiane historique sur 5 ou 10 ans. Si le P/FCF actuel est très en dessous de sa propre médiane, l'action est bon marché par rapport à ce que le marché a accepté de payer par le passé.",
+        },
+        {
+          q: "Les actions notées 10/10 sont-elles automatiquement des bonnes affaires ?",
+          a: "Non. Une note de 10/10 mesure la qualité du business, pas son prix. Une entreprise peut être excellente et se traiter à un P/FCF très élevé, ce qui la rend chère. Notre méthode sépare toujours les deux : qualité d'abord, prix ensuite.",
+        },
+        {
+          q: "Qu'est-ce que le ratio EV/FCF mentionné pour Qualys ?",
+          a: "L'EV/FCF (Enterprise Value sur Free Cash Flow) est une variante du P/FCF qui tient compte de la dette et du cash de l'entreprise pour donner une image plus précise de ce que l'acheteur paie vraiment. Pour une entreprise peu endettée comme Qualys, l'EV/FCF de 12x est très proche du P/FCF.",
+        },
+        {
+          q: "Pourquoi le marché peut-il délaisser des entreprises de qualité ?",
+          a: "Le marché achète souvent des thèmes en masse (IA, semi-conducteurs, consommation) et délaisse ce qui ne rentre pas dans le narratif du moment. Une entreprise excellente mais dans un secteur peu à la mode peut stagner pendant des mois ou des années. C'est inconfortable mais c'est une opportunité pour l'investisseur fondamental qui pense à long terme.",
+        },
+      ],
+      tags: ['S&P 500', 'record bourse juin 2026', 'actions sous-valorisées', 'Qualys QLYS', 'NSSC Napco', 'valorisation actions', 'méthode investissement'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'S&P 500 record June 2026: are the best quality stocks still cheap?',
+      excerpt: "The S&P 500 crossed 7,600 points in early June 2026, its 24th all-time high of the year. But not all top-quality stocks in our screener followed this rally. Some remain undervalued.",
+      metaDescription: "S&P 500 at 7,609 in June 2026: do top-rated stocks in our screener remain undervalued despite the market rally? Analysis with real valuation data.",
+      answer: "The S&P 500 closed above 7,600 points for the first time on June 2, 2026. But a rising index tells you nothing about individual stocks. Some companies rated 10/10 in our screener did not participate in this rally and remain at low valuations. Quality and price are two separate things.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "The S&P 500 closed above 7,600 for the first time on June 2, 2026, at exactly 7,609: its 24th all-time high of the year, up 10% since January.",
+            "The broad market trades at a forward P/E of 23x, well above its historical average of 18x: the market as a whole is expensive.",
+            "But the average hides enormous dispersion: some quality stocks in our screener still trade at P/FCF levels below their own historical averages.",
+            "Qualys (QLYS) for example: its EV/FCF ratio is at 12x in June 2026, versus a 10-year median of 25x. That is 51% below its own historical average.",
+            "A record index does not mean everything is expensive. It means the most visible assets have been bought massively.",
+          ],
+        },
+        { type: 'h2', text: "The context: an S&P 500 at 7,609 points" },
+        {
+          type: 'p',
+          text: "On June 2, 2026, the S&P 500 closed above 7,600 for the first time in its history, at exactly 7,609. That was the 24th all-time high of the year, with the index up 10% since January 1. The main driver: AI-linked technology stocks, carried by strong results from companies like Hewlett Packard Enterprise and enthusiastic announcements on artificial intelligence infrastructure.",
+        },
+        {
+          type: 'p',
+          text: "The question I ask immediately when I see such a record: did my files keep up? Not all of them. And that is exactly where the opportunity lies.",
+        },
+        { type: 'h2', text: "A record index does not mean everything is expensive" },
+        {
+          type: 'p',
+          text: "The S&P 500 is a market-cap-weighted average. A handful of tech giants (Nvidia, Microsoft, Apple, Amazon) represent an enormous share of the index on their own. When these giants rise, the index rises. But hundreds of other quality companies, less covered, less present in passive ETF portfolios, may not have moved as much.",
+        },
+        {
+          type: 'p',
+          text: "The overall market valuation, measured by the forward P/E ratio, stands at 23x against a historical average of 18x. That is elevated. But it is an average. Specific sectors and companies can still trade at reasonable or even low multiples relative to their own history.",
+        },
+        { type: 'h2', text: "Top-quality stocks that did not follow: what the numbers show" },
+        {
+          type: 'p',
+          text: "The most striking example I observe in June 2026 is Qualys (QLYS). It is a cybersecurity company that generates FCF per share of 8.05 dollars. Its stock trades around 112 dollars. That gives an EV/FCF ratio of 12x: you are paying in the market the equivalent of 12 years of generated cash. The 10-year historical median for this same ratio for this company is 25x. Qualys is therefore today at a valuation 51% below its own historical average, even as the S&P 500 hits records.",
+        },
+        {
+          type: 'p',
+          text: "Another example: Napco Security Technologies (NSSC), rated 10/10 in our screener. The company has an FCF margin of 30%, revenue growth of 11.8% last quarter (Q3 2026, March 2026), and a P/FCF around 23x. That is not cheap, but it is consistent with the quality of the file, and below its own historical peak from 2022-2023.",
+        },
+        { type: 'h2', text: "The divergence between quality and market valuation" },
+        {
+          type: 'p',
+          text: "This phenomenon illustrates exactly why I systematically separate quality from price. The market buys themes (AI, technology, US consumption) en masse. It neglects everything that does not fit the current narrative. A profitable but discreet cybersecurity company, or a physical security systems manufacturer with moderate growth, does not attract speculative flows.",
+        },
+        { type: 'h2', text: "What the S&P 500 record says about our method" },
+        {
+          type: 'p',
+          text: "Our method is designed precisely for these moments. It does not try to follow the index: it tries to find excellent companies at a reasonable price, regardless of macro noise. An S&P 500 at 7,609 does not tell us that Qualys at 12x its FCF is expensive. It tells us the market as a whole has been bought massively, but capital allocation remains uneven.",
+        },
+        {
+          type: 'p',
+          text: "The real question is not whether the market is expensive. It is whether MY file is expensive. To answer that question, you need a tool that analyzes each stock individually. That is what I built our screener for.",
+        },
+      ],
+      faq: [
+        {
+          q: "Does the S&P 500 at 7,609 mean you should sell?",
+          a: "Not necessarily. A high index reflects average market valuation, not the valuation of each stock. Our method looks at each file individually. Some quality companies remain undervalued relative to their own history, even when the index hits records. This is not investment advice.",
+        },
+        {
+          q: "How do you compare a stock's valuation to its own history?",
+          a: "I look at the current P/FCF (price divided by cash generated) and compare it to the 5 or 10 year historical median. If the current P/FCF is well below its own median, the stock is cheap relative to what the market was willing to pay in the past.",
+        },
+        {
+          q: "Are 10/10-rated stocks automatically good deals?",
+          a: "No. A 10/10 score measures business quality, not price. A company can be excellent and trade at a very high P/FCF, making it expensive. Our method always separates the two: quality first, price second.",
+        },
+        {
+          q: "What is the EV/FCF ratio mentioned for Qualys?",
+          a: "EV/FCF (Enterprise Value to Free Cash Flow) is a variant of P/FCF that accounts for the company's debt and cash to give a more precise picture of what the buyer is really paying. For a company like Qualys that carries little debt, the EV/FCF of 12x is very close to P/FCF.",
+        },
+        {
+          q: "Why can the market neglect quality companies?",
+          a: "The market often buys themes en masse (AI, semiconductors, consumption) and neglects what does not fit the current narrative. An excellent company in an unfashionable sector can stagnate for months or years. That is uncomfortable, but it is an opportunity for the fundamental investor thinking long-term.",
+        },
+      ],
+      tags: ['S&P 500', 'stock market record June 2026', 'undervalued stocks', 'Qualys QLYS', 'NSSC Napco', 'stock valuation', 'investment method'],
+      disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date. Do your own research before investing.",
+    },
+    es: {
+      title: 'S&P 500 récord junio 2026: las mejores acciones, ¿aún baratas?',
+      excerpt: "El S&P 500 superó los 7.600 puntos a principios de junio de 2026, su 24º máximo histórico del año. Pero no todas las acciones de calidad de nuestro screener siguieron esta subida. Algunas siguen infravaloradas.",
+      metaDescription: "S&P 500 en 7.609 puntos en junio 2026: las acciones de mayor calidad de nuestro screener, ¿siguen infravaloradas pese al rally del mercado? Análisis con datos reales.",
+      answer: "El S&P 500 cerró por encima de 7.600 puntos por primera vez el 2 de junio de 2026. Pero un índice en máximos no dice nada sobre las acciones individuales. Algunas empresas con la máxima calificación en nuestro screener no participaron en este rally y siguen a valoraciones bajas. Calidad y precio son dos cosas distintas.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "El S&P 500 cerró por encima de 7.600 puntos por primera vez el 2 de junio de 2026, exactamente en 7.609: su 24º máximo histórico del año, con una subida del 10% desde enero.",
+            "El mercado en su conjunto cotiza a un PER futuro de 23x, muy por encima de su media histórica de 18x: el mercado en general está caro.",
+            "Pero la media oculta una dispersión enorme: algunas acciones de calidad en nuestro screener siguen cotizando con P/FCF (precio dividido entre el efectivo generado) por debajo de sus propias medias históricas.",
+            "Qualys (QLYS), por ejemplo: su ratio EV/FCF está en 12x en junio de 2026, frente a una mediana histórica de 10 años de 25x. Es decir, un 51% por debajo de su propia media.",
+            "Un índice récord no significa que todo esté caro. Significa que los activos más visibles han sido comprados masivamente.",
+          ],
+        },
+        { type: 'h2', text: "El contexto: un S&P 500 en 7.609 puntos" },
+        {
+          type: 'p',
+          text: "El 2 de junio de 2026, el S&P 500 cerró por encima de 7.600 puntos por primera vez en su historia, exactamente en 7.609. Fue el 24º máximo histórico del año, con el índice subiendo un 10% desde el 1 de enero. El motor principal: los valores tecnológicos vinculados a la IA, impulsados por buenos resultados de empresas como Hewlett Packard Enterprise.",
+        },
+        { type: 'h2', text: "Un índice récord no significa que todo esté caro" },
+        {
+          type: 'p',
+          text: "El S&P 500 es una media ponderada por capitalización bursátil. Unos pocos gigantes tecnológicos (Nvidia, Microsoft, Apple, Amazon) representan por sí solos una parte enorme del índice. Cuando estos gigantes suben, el índice sube. Pero cientos de otras empresas de calidad, menos cubiertas, menos presentes en las carteras pasivas de ETF, pueden no haber subido tanto.",
+        },
+        { type: 'h2', text: "Acciones con máxima calificación que no siguieron la subida" },
+        {
+          type: 'p',
+          text: "El ejemplo más llamativo que observo en junio de 2026 es Qualys (QLYS). Es una empresa de ciberseguridad que genera un FCF por acción de 8,05 dólares. Su acción cotiza alrededor de 112 dólares. Eso da un ratio EV/FCF de 12x: estás pagando en bolsa el equivalente de 12 años de efectivo generado. La mediana histórica a 10 años de ese mismo ratio para esta empresa es de 25x. Qualys está hoy a una valoración un 51% por debajo de su propia media histórica, incluso cuando el S&P 500 marca récords.",
+        },
+        {
+          type: 'p',
+          text: "Otro ejemplo: Napco Security Technologies (NSSC), con la máxima calificación en nuestro screener. La empresa tiene un margen de FCF del 30%, un crecimiento de ingresos del 11,8% en el último trimestre (Q3 2026, marzo 2026) y un P/FCF de alrededor de 23x, por debajo de su propio pico histórico de 2022-2023.",
+        },
+        { type: 'h2', text: "La divergencia entre calidad y valoración: cómo la interpreto" },
+        {
+          type: 'p',
+          text: "Este fenómeno ilustra exactamente por qué separo sistemáticamente la calidad del precio. El mercado compra temas (IA, tecnología, consumo americano) en masa. Ignora todo lo que no encaja en el narrativo del momento.",
+        },
+        { type: 'h2', text: "Lo que el récord del S&P 500 dice sobre nuestro método" },
+        {
+          type: 'p',
+          text: "La verdadera pregunta no es si el mercado está caro. Es si MI expediente está caro. Para responder a esa pregunta necesitas una herramienta que analice cada acción individualmente. Para eso construí nuestro screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "El S&P 500 en 7.609 puntos significa que hay que vender?",
+          a: "No necesariamente. Un índice alto refleja la valoración media del mercado, no la de cada acción. Nuestro método analiza cada expediente individualmente. Algunas empresas de calidad siguen infravaloradas respecto a su propio historial, incluso cuando el índice marca récords. Esto no es un consejo de inversión.",
+        },
+        {
+          q: "Cómo comparar la valoración de una acción con su propio historial?",
+          a: "Miro el P/FCF actual (precio dividido entre el efectivo generado) y lo comparo con la mediana histórica a 5 o 10 años. Si el P/FCF actual está muy por debajo de su propia mediana, la acción está barata respecto a lo que el mercado estuvo dispuesto a pagar en el pasado.",
+        },
+        {
+          q: "Las acciones con calificación máxima son automáticamente buenas oportunidades?",
+          a: "No. Una calificación máxima mide la calidad del negocio, no su precio. Una empresa puede ser excelente y cotizar con un P/FCF muy alto, lo que la hace cara. Nuestro método siempre separa ambas cosas: calidad primero, precio después.",
+        },
+        {
+          q: "Qué es el ratio EV/FCF mencionado para Qualys?",
+          a: "El EV/FCF (Enterprise Value sobre Free Cash Flow) es una variante del P/FCF que tiene en cuenta la deuda y el efectivo de la empresa. Para Qualys, que tiene poca deuda, el EV/FCF de 12x es muy próximo al P/FCF.",
+        },
+        {
+          q: "Por qué el mercado puede ignorar empresas de calidad?",
+          a: "El mercado compra a menudo temas en masa (IA, semiconductores, consumo) e ignora lo que no encaja en el narrativo del momento. Una empresa excelente en un sector poco de moda puede estancarse durante meses o años. Eso es incómodo, pero es una oportunidad para el inversor fundamental a largo plazo.",
+        },
+      ],
+      tags: ['S&P 500', 'récord bolsa junio 2026', 'acciones infravaloradas', 'Qualys QLYS', 'NSSC Napco', 'valoración acciones', 'método inversión'],
+      disclaimer: "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación. Haz tu propia investigación antes de invertir.",
+    },
+  },
+};
+
+const pfcfEleve: Article = {
+  slug: 'pfcf-eleve-quand-payer-20-fois-qualite',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: 'Valorisation élevée : quand payer 20x une action de qualité ?',
+      excerpt: "Payer 20 fois le cash généré par une entreprise semble cher. Mais certains dossiers de qualité justifient ce multiple. Voici comment je distingue un P/FCF élevé justifié d'un piège de valorisation.",
+      metaDescription: "Quand est-il justifié de payer 20x le free cash flow d'une action de qualité ? NSSC 23x, PCTY 17x, QLYS 12x : analyse des conditions qui rendent un multiple élevé acceptable.",
+      answer: "Un P/FCF (prix divisé par le cash annuel généré) de 20x n'est pas automatiquement cher. Cela dépend de trois facteurs : la croissance attendue du FCF, la visibilité des revenus (récurrents ou non), et la solidité du moat (avantage concurrentiel). Une entreprise dont le FCF croît de 15% par an justifie un multiple plus élevé qu'une entreprise stagnante.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Le P/FCF (price-to-free-cash-flow) mesure combien d'années de cash tu paies aujourd'hui : un P/FCF de 20x signifie que tu paies l'équivalent de 20 ans de free cash flow actuel.",
+            "Un P/FCF élevé n'est pas un problème en soi : il l'est uniquement si le FCF ne croît pas assez vite pour le justifier.",
+            "La visibilité des revenus joue énormément : un SaaS à revenus récurrents justifie un multiple plus élevé qu'un fabricant à revenus cycliques.",
+            "NSSC (Napco Security Technologies) : P/FCF de 23x, FCF margin de 30%, croissance 11,8%, revenus récurrents en hausse de 15,4%. Le multiple est soutenu par la qualité.",
+            "La différence entre un multiple élevé justifié et un piège : la croissance du FCF doit être réelle, visible et durable.",
+          ],
+        },
+        { type: 'h2', text: "Le P/FCF : ce que ce chiffre dit vraiment" },
+        {
+          type: 'p',
+          text: "Je commence toujours par expliquer ce ratio, parce que mal lu, il induit en erreur. Le P/FCF (price-to-free-cash-flow), c'est le prix que tu paies pour l'action divisé par le free cash flow que l'entreprise génère chaque année. Le FCF, c'est l'argent qui reste vraiment dans les caisses après que l'entreprise a payé toutes ses dépenses : salaires, fournisseurs, impôts, et aussi ses investissements dans ses propres outils (machines, logiciels, infrastructure). Ce n'est pas le bénéfice comptable. C'est le vrai cash.",
+        },
+        {
+          type: 'p',
+          text: "Un P/FCF de 10 veut dire : tu paies aujourd'hui l'équivalent de 10 années de ce cash. Un P/FCF de 20, c'est 20 années. Plus c'est élevé, plus tu paies cher, en apparence. Mais 'en apparence' est le mot clé.",
+        },
+        { type: 'h2', text: "Pourquoi un P/FCF de 20x peut être parfaitement justifié" },
+        {
+          type: 'p',
+          text: "Imagine une entreprise dont le FCF est de 100 euros cette année. Tu la paies 2 000 euros, soit un P/FCF de 20x. Ça semble cher. Mais si ce FCF croît de 15% par an, dans cinq ans il sera de 200 euros. Dans dix ans, de 400 euros. Rétrospectivement, tes 2 000 euros de départ auront été payés à 5x le FCF de l'année 10. Ce n'est plus cher du tout.",
+        },
+        {
+          type: 'p',
+          text: "C'est le premier facteur : la croissance attendue du FCF. Plus elle est forte et durable, plus un multiple élevé est justifié. Le second facteur est la visibilité. Un FCF garanti par des contrats pluriannuels ou des abonnements récurrents vaut plus qu'un FCF dépendant de commandes ponctuelles. Le troisième facteur est le moat : l'avantage concurrentiel, la barrière qui empêche un concurrent de venir prendre les clients de cette entreprise.",
+        },
+        { type: 'h2', text: "Trois exemples réels tirés de notre screener" },
+        {
+          type: 'p',
+          text: "Napco Security Technologies (NSSC) : cette entreprise fait des systèmes de sécurité physique (alarmes, contrôle d'accès) pour les bâtiments commerciaux et scolaires. Son P/FCF est d'environ 23x en juin 2026. Cher en apparence. Mais sa marge de FCF est de 30% (sur 100 euros de revenus, 30 finissent en cash), et ses revenus récurrents de services ont crû de 15,4% au dernier trimestre (Q3 2026, mars 2026). Le moat : une fois qu'un système Napco est installé dans une école ou un immeuble, le coût de remplacement est prohibitif. Les clients restent.",
+        },
+        {
+          type: 'p',
+          text: "Paylocity (PCTY) : logiciel RH et paie pour PME américaines. Son FCF pour les douze mois à mars 2026 s'élève à 421 millions de dollars, soit une marge de FCF de 24,4%. Le P/FCF tourne autour de 17,6x. Les revenus récurrents représentent la quasi-totalité du chiffre d'affaires (1,73 milliard de dollars annualisé). Le moat : changer de logiciel de paie est un projet long, risqué et coûteux pour une PME. Les taux de rétention dans ce secteur dépassent 90%.",
+        },
+        {
+          type: 'p',
+          text: "Qualys (QLYS) : cybersécurité. FCF par action de 8,05 dollars, cours autour de 112 dollars, soit un EV/FCF de 12x (51% en dessous de sa propre médiane historique de 25x). Là, ce n'est plus un P/FCF élevé : c'est un P/FCF bas, alors que la qualité est intacte. Un cas inverse à NSSC et PCTY, mais utile pour illustrer que dans notre univers de dossiers de qualité, les valorisations varient énormément.",
+        },
+        { type: 'h2', text: "La différence entre un P/FCF élevé justifié et un piège" },
+        {
+          type: 'p',
+          text: "Le piège classique : une entreprise affiche un P/FCF de 30x parce que son FCF est faible cette année. On se dit 'ça va croître' sans vérifier. Si le FCF ne s'améliore pas, le multiple reste insoutenable indéfiniment. J'ai appris à distinguer 'FCF temporairement déprimé parce que l'entreprise investit pour croître' (acceptable) de 'FCF structurellement bas parce que le business ne génère pas vraiment de cash' (un piège).",
+        },
+        {
+          type: 'p',
+          text: "Les signaux d'alarme : un FCF qui ne croît pas depuis trois ans malgré une bonne croissance de revenus (le cash est absorbé quelque part), une dette qui monte, des acquisitions répétées financées par émission d'actions (dilution des actionnaires), ou un capex (investissement) élevé et en hausse sans explication claire.",
+        },
+        { type: 'h2', text: "Les limites de la méthode : ce que le P/FCF ne dit pas" },
+        {
+          type: 'p',
+          text: "Le P/FCF est un outil puissant, mais il ne dit rien sur la durabilité du moat, sur la qualité du management, ou sur les risques réglementaires et concurrentiels. NSSC à 23x peut devenir une mauvaise affaire si un concurrent innove suffisamment pour rendre ses systèmes obsolètes. PCTY à 17x peut souffrir si une disruption technologique réduit les barrières à l'entrée dans son secteur.",
+        },
+        {
+          type: 'p',
+          text: "C'est pour ça que ma méthode note séparément la qualité (10 critères financiers) et le prix (P/FCF comparé à l'historique). Un P/FCF élevé n'est acceptable que si la note de qualité est elle-même élevée. Tu peux retrouver les P/FCF et notes de qualité actualisées de ces trois entreprises sur notre screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "Quel P/FCF est considéré comme normal ou raisonnable ?",
+          a: "Il n'existe pas de chiffre universel. Le marché américain global tourne autour de 20-25x FCF en 2026. Pour les entreprises SaaS ou logicielles à forte croissance, des P/FCF de 20-40x sont courants. Pour des entreprises industrielles ou cycliques, 10-15x est plus habituel. L'essentiel est de comparer le P/FCF actuel à la propre médiane historique de l'entreprise.",
+        },
+        {
+          q: "Comment calculer le P/FCF d'une action soi-même ?",
+          a: "P/FCF = capitalisation boursière (nombre d'actions fois le prix) divisée par le free cash flow annuel. Le FCF se trouve dans le tableau des flux de trésorerie du rapport annuel : prends le 'cash from operations' et soustrais le capex (purchases of property, plant and equipment).",
+        },
+        {
+          q: "Un P/FCF de 23x pour NSSC, c'est vraiment justifié ?",
+          a: "De mon point de vue oui, à condition que la croissance des revenus récurrents continue autour de 15% et que la marge de FCF reste au-dessus de 28%. Si la croissance ralentit à 5%, le multiple devrait se comprimer. C'est le risque principal à surveiller. Ce n'est pas un conseil d'investissement.",
+        },
+        {
+          q: "Quelle est la différence entre le bénéfice comptable et le free cash flow ?",
+          a: "Le bénéfice comptable peut être influencé par des choix d'amortissement, de provisions, de comptabilisation des revenus. Le FCF, lui, mesure les mouvements de trésorerie réels. Une entreprise peut afficher un bénéfice comptable positif tout en consommant du cash. Le FCF est plus difficile à manipuler : le cash est soit là, soit il ne l'est pas.",
+        },
+        {
+          q: "Comment utiliser notre méthode pour évaluer si un P/FCF élevé est justifié ?",
+          a: "Je commence par la note de qualité /10 : si elle est élevée (8 ou plus), le business génère durablement du FCF. Ensuite je regarde le taux de croissance historique du FCF sur 5 ans. Enfin je compare le P/FCF actuel à la médiane historique de l'entreprise. Si les trois sont favorables, un P/FCF de 20x peut être accepté.",
+        },
+      ],
+      tags: ['valorisation action', 'P/FCF élevé', 'NSSC Napco Security', 'PCTY Paylocity', 'QLYS Qualys', 'free cash flow', 'méthode investissement', 'moat avantage concurrentiel'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'High valuation: when is paying 20x a quality stock justified?',
+      excerpt: "Paying 20 times a company's generated cash looks expensive. But some quality files justify this multiple. Here is how I distinguish a justified high P/FCF from a valuation trap.",
+      metaDescription: "When is paying 20x free cash flow for a quality stock justified? NSSC 23x, PCTY 17x, QLYS 12x: analysis of the conditions that make a high multiple acceptable.",
+      answer: "A P/FCF (price divided by annual cash generated) of 20x is not automatically expensive. It depends on three factors: expected FCF growth, revenue visibility (recurring or not), and the strength of the moat (competitive advantage). A company whose FCF grows 15% per year justifies a higher multiple than a stagnating one.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "P/FCF measures how many years of cash you are paying today. A P/FCF of 20x means: you are paying the equivalent of 20 years of current free cash flow.",
+            "A high P/FCF is not a problem in itself: it is one only if FCF is not growing fast enough to justify it.",
+            "Revenue visibility matters enormously: a SaaS with recurring revenue justifies a higher multiple than a manufacturer with cyclical revenue.",
+            "NSSC (Napco Security Technologies): P/FCF of 23x, FCF margin of 30%, 11.8% revenue growth, recurring service revenue up 15.4%. The multiple is supported by quality.",
+            "The difference between a justified high multiple and a trap: FCF growth must be real, visible and durable.",
+          ],
+        },
+        { type: 'h2', text: "P/FCF: what this number really says" },
+        {
+          type: 'p',
+          text: "I always start by explaining this ratio, because misread it misleads. P/FCF (price-to-free-cash-flow) is the price you pay for the stock divided by the free cash flow (FCF) the company generates each year. FCF is the money that genuinely stays in the coffers after the company has paid all its expenses: salaries, suppliers, taxes, and also its investments in its own tools. This is not accounting profit. It is real cash.",
+        },
+        {
+          type: 'p',
+          text: "A P/FCF of 10 means: you are paying today the equivalent of 10 years of that cash. A P/FCF of 20, that is 20 years. The higher it is, the more you pay, apparently. But 'apparently' is the key word here.",
+        },
+        { type: 'h2', text: "Why a P/FCF of 20x can be perfectly justified" },
+        {
+          type: 'p',
+          text: "Imagine a company whose FCF is 100 euros this year. You pay 2,000 euros for it, a P/FCF of 20x. That seems expensive. But if this FCF grows 15% per year, in five years it will be 200 euros. In ten years, 400 euros. Retrospectively, your initial 2,000 euros will have been paid at 5x the FCF of year 10. That is no longer expensive at all.",
+        },
+        {
+          type: 'p',
+          text: "That is the first factor: expected FCF growth. The stronger and more durable it is, the more a high multiple is justified. The second factor is visibility. FCF guaranteed by multi-year contracts or recurring subscriptions is worth more than FCF dependent on one-off orders. The third factor is the moat: the competitive barrier that prevents a rival from taking this company's customers.",
+        },
+        { type: 'h2', text: "Three real examples from our screener" },
+        {
+          type: 'p',
+          text: "Napco Security Technologies (NSSC): this company makes physical security systems (alarms, access control) for commercial and school buildings. Its P/FCF is around 23x in June 2026. Expensive at first glance. But its FCF margin is 30%, and its recurring service revenues grew 15.4% last quarter (Q3 2026, March 2026). The moat: once a Napco system is installed in a school or a building, the replacement cost is prohibitive. Customers stay.",
+        },
+        {
+          type: 'p',
+          text: "Paylocity (PCTY): HR and payroll software for American SMBs. Its FCF for the twelve months to March 2026 amounts to 421 million dollars, an FCF margin of 24.4%. The P/FCF is around 17.6x. Recurring revenue represents nearly all of turnover (1.73 billion annualized). The moat: switching payroll software is a long, risky and costly project for an SMB. Retention rates in this sector exceed 90%.",
+        },
+        {
+          type: 'p',
+          text: "Qualys (QLYS): cybersecurity. FCF per share of 8.05 dollars, stock around 112 dollars, giving an EV/FCF of 12x (51% below its own historical median of 25x). Here, this is not a high P/FCF: it is a low one, while quality remains intact. An inverse case to NSSC and PCTY, but useful to illustrate that within our quality universe, valuations vary enormously.",
+        },
+        { type: 'h2', text: "The difference between a justified high P/FCF and a trap" },
+        {
+          type: 'p',
+          text: "The classic trap: a company shows a P/FCF of 30x because its FCF is weak this year. You tell yourself 'it will grow' without checking. If FCF does not improve, the multiple remains unsustainable indefinitely. I have learned to distinguish 'temporarily depressed FCF because the company is investing to grow' (acceptable) from 'structurally low FCF because the business does not genuinely generate cash' (a trap).",
+        },
+        { type: 'h2', text: "Limits of the method: what P/FCF does not tell you" },
+        {
+          type: 'p',
+          text: "P/FCF is a powerful tool, but it says nothing about the durability of the moat, management quality, or regulatory and competitive risks. That is why my method scores quality separately (10 financial criteria) from price (P/FCF compared to history). A high P/FCF is only acceptable if the quality score itself is high. You can find the updated P/FCF and quality scores for these three companies on our screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "What P/FCF is considered normal or reasonable?",
+          a: "There is no universal number. The broad US market runs around 20-25x FCF in 2026. For SaaS or high-growth software companies, P/FCF of 20-40x are common. For industrial or cyclical companies, 10-15x is more usual. The key is to compare the current P/FCF to the company's own historical median.",
+        },
+        {
+          q: "How do you calculate P/FCF yourself?",
+          a: "P/FCF = market cap (shares times price) divided by annual free cash flow. FCF is in the cash flow statement of the annual report: take 'cash from operations' and subtract capex (purchases of property, plant and equipment).",
+        },
+        {
+          q: "Is a P/FCF of 23x for NSSC really justified?",
+          a: "In my view yes, provided recurring revenue growth continues around 15% and the FCF margin stays above 28%. If growth slows to 5%, the multiple should compress. That is the main risk to watch. This is not investment advice.",
+        },
+        {
+          q: "What is the difference between accounting profit and free cash flow?",
+          a: "Accounting profit can be influenced by depreciation choices, provisions, revenue recognition. FCF measures actual cash movements. A company can show positive accounting profit while consuming cash. FCF is harder to manipulate: cash is either there or it is not.",
+        },
+        {
+          q: "How does our method evaluate whether a high P/FCF is justified?",
+          a: "I start with the quality score: if it is high (8 or above), the business durably generates FCF. Then I look at the historical FCF growth rate over 5 years. Finally I compare the current P/FCF to the company's historical median. If all three are favorable, a P/FCF of 20x can be accepted.",
+        },
+      ],
+      tags: ['stock valuation', 'high P/FCF', 'NSSC Napco Security', 'PCTY Paylocity', 'QLYS Qualys', 'free cash flow', 'investment method', 'moat competitive advantage'],
+      disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date. Do your own research before investing.",
+    },
+    es: {
+      title: 'Valoración alta: ¿cuándo pagar 20x una acción de calidad?',
+      excerpt: "Pagar 20 veces el efectivo generado por una empresa parece caro. Pero algunos expedientes de calidad justifican ese múltiplo. Así es como distingo un P/FCF alto justificado de una trampa de valoración.",
+      metaDescription: "Cuándo es justificado pagar 20x el free cash flow de una acción de calidad? NSSC 23x, PCTY 17x, QLYS 12x: análisis de las condiciones que hacen aceptable un múltiplo alto.",
+      answer: "Un P/FCF (precio dividido entre el efectivo anual generado) de 20x no es automáticamente caro. Depende de tres factores: el crecimiento esperado del FCF, la visibilidad de los ingresos (recurrentes o no) y la solidez del moat (ventaja competitiva). Una empresa cuyo FCF crece un 15% anual justifica un múltiplo más alto que una empresa estancada.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "El P/FCF (price-to-free-cash-flow) mide cuántos años de efectivo estás pagando hoy. Un P/FCF de 20x significa: pagas el equivalente de 20 años de free cash flow actual.",
+            "Un P/FCF alto no es un problema en sí mismo: lo es solo si el FCF no crece lo suficientemente rápido como para justificarlo.",
+            "La visibilidad de los ingresos importa mucho: un SaaS con ingresos recurrentes justifica un múltiplo más alto que un fabricante con ingresos cíclicos.",
+            "NSSC (Napco Security Technologies): P/FCF de 23x, margen FCF del 30%, crecimiento del 11,8%, ingresos recurrentes de servicios con alza del 15,4%. El múltiplo está respaldado por la calidad.",
+            "La diferencia entre un múltiplo alto justificado y una trampa: el crecimiento del FCF debe ser real, visible y duradero.",
+          ],
+        },
+        { type: 'h2', text: "El P/FCF: lo que este número dice realmente" },
+        {
+          type: 'p',
+          text: "Siempre empiezo explicando este ratio, porque mal leído induce a error. El P/FCF es el precio que pagas por la acción dividido entre el free cash flow que la empresa genera cada año. El FCF es el dinero que realmente queda en las arcas después de que la empresa ha pagado todos sus gastos: salarios, proveedores, impuestos, e inversiones en sus propias herramientas. No es el beneficio contable. Es el efectivo real.",
+        },
+        { type: 'h2', text: "Por qué un P/FCF de 20x puede estar perfectamente justificado" },
+        {
+          type: 'p',
+          text: "Imagina una empresa cuyo FCF es de 100 euros este año. La pagas 2.000 euros, un P/FCF de 20x. Parece caro. Pero si ese FCF crece un 15% anual, en cinco años será de 200 euros. En diez años, de 400 euros. Retrospectivamente, tus 2.000 euros iniciales habrán sido pagados a 5x el FCF del año 10. Ya no es caro en absoluto.",
+        },
+        { type: 'h2', text: "Tres ejemplos reales de nuestro screener" },
+        {
+          type: 'p',
+          text: "Napco Security Technologies (NSSC): esta empresa fabrica sistemas de seguridad física (alarmas, control de acceso) para edificios comerciales y escolares. Su P/FCF es de alrededor de 23x en junio de 2026. Caro a primera vista. Pero su margen de FCF es del 30%, y sus ingresos recurrentes de servicios crecieron un 15,4% en el último trimestre (Q3 2026, marzo 2026). El moat (la barrera que impide a un rival robar sus clientes): una vez instalado un sistema Napco en una escuela o un edificio, el coste de sustitución es prohibitivo.",
+        },
+        {
+          type: 'p',
+          text: "Paylocity (PCTY): software de RRHH y nóminas para pymes americanas. Su FCF para los doce meses hasta marzo de 2026 asciende a 421 millones de dólares, un margen de FCF del 24,4%. El P/FCF ronda los 17,6x. El moat: cambiar de software de nóminas es un proyecto largo, arriesgado y costoso para una pyme. Las tasas de retención en este sector superan el 90%.",
+        },
+        {
+          type: 'p',
+          text: "Qualys (QLYS): ciberseguridad. FCF por acción de 8,05 dólares, cotización alrededor de 112 dólares, lo que da un EV/FCF de 12x (un 51% por debajo de su propia mediana histórica de 25x). Aquí no es un P/FCF alto: es bajo, mientras la calidad permanece intacta.",
+        },
+        { type: 'h2', text: "La diferencia entre un P/FCF alto justificado y una trampa" },
+        {
+          type: 'p',
+          text: "La trampa clásica: una empresa muestra un P/FCF de 30x porque su FCF es débil este año. Te dices 'va a crecer' sin verificarlo. Si el FCF no mejora, el múltiplo sigue siendo insostenible indefinidamente. He aprendido a distinguir 'FCF temporalmente deprimido porque la empresa está invirtiendo para crecer' (aceptable) de 'FCF estructuralmente bajo porque el negocio no genera realmente efectivo' (una trampa).",
+        },
+        { type: 'h2', text: "Los límites del método: lo que el P/FCF no dice" },
+        {
+          type: 'p',
+          text: "El P/FCF es una herramienta poderosa, pero no dice nada sobre la durabilidad del moat, la calidad del equipo directivo, ni los riesgos regulatorios y competitivos. Por eso mi método puntúa por separado la calidad (10 criterios financieros) del precio (P/FCF comparado con el historial). Puedes consultar el P/FCF y las notas de calidad actualizadas de estas tres empresas en nuestro screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qué P/FCF se considera normal o razonable?",
+          a: "No hay un número universal. El mercado americano global ronda los 20-25x FCF en 2026. Para empresas SaaS o de software de alto crecimiento, P/FCF de 20-40x son habituales. Para empresas industriales o cíclicas, 10-15x es más usual. Lo esencial es comparar el P/FCF actual con la propia mediana histórica de la empresa.",
+        },
+        {
+          q: "Cómo calcular el P/FCF de una acción uno mismo?",
+          a: "P/FCF = capitalización bursátil (acciones por precio) dividida entre el free cash flow anual. El FCF se encuentra en el estado de flujos de caja del informe anual: toma el 'cash from operations' y resta el capex.",
+        },
+        {
+          q: "Un P/FCF de 23x para NSSC está realmente justificado?",
+          a: "Desde mi punto de vista sí, siempre que el crecimiento de los ingresos recurrentes continúe alrededor del 15% y el margen de FCF permanezca por encima del 28%. Si el crecimiento se desacelera al 5%, el múltiplo debería comprimirse. Ese es el principal riesgo a vigilar. No es un consejo de inversión.",
+        },
+        {
+          q: "Cuál es la diferencia entre el beneficio contable y el free cash flow?",
+          a: "El beneficio contable puede estar influenciado por elecciones de amortización, provisiones, reconocimiento de ingresos. El FCF mide los movimientos reales de tesorería. El FCF es más difícil de manipular: el efectivo o está o no está.",
+        },
+        {
+          q: "Cómo usa nuestro método para evaluar si un P/FCF alto está justificado?",
+          a: "Empiezo por la nota de calidad: si es alta (8 o más), el negocio genera FCF de forma duradera. Luego miro la tasa de crecimiento histórica del FCF a 5 años. Finalmente comparo el P/FCF actual con la mediana histórica de la empresa. Si los tres son favorables, un P/FCF de 20x puede aceptarse.",
+        },
+      ],
+      tags: ['valoración acción', 'P/FCF alto', 'NSSC Napco Security', 'PCTY Paylocity', 'QLYS Qualys', 'free cash flow', 'método inversión', 'moat ventaja competitiva'],
+      disclaimer: "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación. Haz tu propia investigación antes de invertir.",
+    },
+  },
+};
+
+const croissanceVsFcf: Article = {
+  slug: 'croissance-vs-fcf-methode-lubin-analyse',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: 'Croissance ou FCF : comment ma méthode tranche',
+      excerpt: "Croissance rapide ou free cash flow solide : faut-il choisir ? La plupart des investisseurs opposent ces deux critères. Ma méthode dit non : je veux les deux, mais si je dois choisir, le FCF prime toujours.",
+      metaDescription: "Croissance des revenus contre free cash flow : pourquoi ma méthode donne la priorité au FCF, comment repérer une croissance qui brûle du cash, avec des exemples réels.",
+      answer: "Une entreprise peut croître vite tout en détruisant de la valeur si elle brûle du cash pour y arriver. Et une entreprise peut croître modérément tout en étant une machine à cash exceptionnelle. Ma méthode veut les deux : croissance ET FCF solide. Mais quand il faut trancher, le FCF réel prime sur la croissance affichée.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "La croissance des revenus sans FCF solide est un signal d'alarme : l'entreprise grandit peut-être, mais elle ne génère pas de valeur réelle pour ses actionnaires.",
+            "Le FCF (free cash flow) est l'argent réellement disponible après toutes les dépenses, y compris les investissements. C'est lui qui finance les dividendes, les rachats d'actions, et la croissance future.",
+            "Ma méthode note les deux séparément : la croissance compte, mais la marge de FCF et le rendement du capital (Cash ROCE) comptent encore davantage.",
+            "Paylocity (PCTY) : 10,5% de croissance de revenus + marge FCF de 24,4%. C'est le profil idéal : croissance modérée mais cash réel et abondant.",
+            "Le FCF est plus difficile à manipuler que le bénéfice comptable. C'est pour ça que je m'y fie davantage.",
+          ],
+        },
+        { type: 'h2', text: "Le faux débat croissance contre value" },
+        {
+          type: 'p',
+          text: "Depuis des décennies, les analystes financiers opposent les 'growth stocks' (actions de croissance) aux 'value stocks' (actions bon marché). Les premières croissent vite mais sont chères. Les secondes sont bon marché mais stagnent. Ce débat m'a toujours semblé mal posé. Ce que je cherche, moi, c'est une entreprise qui croît ET qui génère du cash réel. Pas l'une ou l'autre : les deux.",
+        },
+        {
+          type: 'p',
+          text: "Mais quand les deux ne sont pas réunis dans le même dossier, je dois trancher. Et ma réponse est constante : le FCF prime. Toujours. Voici pourquoi.",
+        },
+        { type: 'h2', text: "Comment une entreprise peut croître sans générer de FCF" },
+        {
+          type: 'p',
+          text: "C'est le cas le plus dangereux, et le plus courant dans les secteurs technologiques à fort momentum. Une entreprise gagne 100 millions de revenus cette année, et 130 l'année prochaine. 30% de croissance, impressionnant. Mais pour y arriver, elle a dépensé 140 millions. Son FCF est négatif. Elle brûle du cash pour croître.",
+        },
+        {
+          type: 'p',
+          text: "Cette situation peut être temporaire et acceptable : une entreprise en phase de démarrage qui investit massivement pour conquérir un marché peut justifier un FCF négatif pendant quelques années, si la trajectoire est claire et si les fondamentaux unitaires (revenus par client, coût d'acquisition) sont sains. Mais si le FCF reste négatif ou très faible pendant cinq ans malgré une forte croissance des revenus, c'est que le modèle d'affaires ne convertit pas bien la croissance en valeur.",
+        },
+        {
+          type: 'p',
+          text: "J'ai vu beaucoup d'entreprises dans ce cas décrocher en bourse non pas lors d'un mauvais trimestre de revenus, mais lors du premier signe de ralentissement de la croissance. Parce que leur valeur boursière reposait entièrement sur la promesse de cette croissance future, et non sur un cash réel existant.",
+        },
+        { type: 'h2', text: "Comment une entreprise peut générer d'excellents FCF sans croissance explosive" },
+        {
+          type: 'p',
+          text: "C'est le profil que je préfère, souvent sous-estimé par le marché. Une entreprise qui croît à 8-12% par an de façon régulière, avec une marge de FCF élevée, est en réalité une machine à capitaliser. Paylocity (PCTY) en est l'exemple parfait en ce moment. Sa croissance de revenus est de 10,5% au dernier trimestre, ce n'est pas spectaculaire. Mais sa marge de FCF est de 24,4%. Sur 1,73 milliard de revenus annuels, 421 millions de dollars finissent en cash réel.",
+        },
+        {
+          type: 'p',
+          text: "C'est un profil qui ne fait pas les gros titres. Il ne fait pas rêver comme une entreprise à 50% de croissance annuelle. Mais il est beaucoup plus résilient : si la croissance ralentit un trimestre, le cash est toujours là. L'entreprise ne dépend pas d'une promesse. Elle a des faits.",
+        },
+        { type: 'h2', text: "Notre méthode : on veut les deux, mais le FCF prime" },
+        {
+          type: 'p',
+          text: "Dans les 10 critères de ma méthode, j'évalue la croissance des revenus et du FCF, mais aussi la marge de FCF et le Cash ROCE (rendement du capital employé mesuré en cash réel). Ce Cash ROCE est particulièrement révélateur : il mesure combien de cash l'entreprise génère pour chaque euro de capital investi dans le business.",
+        },
+        {
+          type: 'p',
+          text: "Pour qu'une action soit notée 8 ou plus sur 10 dans mon screener, elle doit montrer à la fois une croissance positive et un FCF solide. Mais si la croissance est faible et le FCF excellent, j'accepte quand même le dossier. Si la croissance est forte et le FCF négatif ou très faible, le dossier ne passe pas. Le FCF est non négociable.",
+        },
+        { type: 'h2', text: "Pourquoi le FCF est plus difficile à truquer que le bénéfice comptable" },
+        {
+          type: 'p',
+          text: "C'est la raison technique et la plus importante de ce choix. Le bénéfice comptable est influençable de nombreuses façons légales : tu choisis de capitaliser plutôt qu'amortir une dépense, tu constitues ou reprends des provisions, tu joues sur la reconnaissance des revenus dans le temps. Ces choix sont encadrés par les normes comptables mais laissent une latitude réelle.",
+        },
+        {
+          type: 'p',
+          text: "Le FCF, lui, mesure les flux de trésorerie réels. Le cash a quitté le compte en banque, ou il ne l'a pas quitté. Il est beaucoup plus difficile de maquiller ça sur plusieurs années. C'est pour ça que je regarde toujours le FCF sur au moins 5 ans, pas seulement le dernier trimestre.",
+        },
+        {
+          type: 'p',
+          text: "Si tu veux voir les entreprises de notre screener qui combinent croissance et FCF solide, avec leur note /10 et leur valorisation P/FCF actualisée, tu peux les consulter directement sur notre outil. C'est exactement le filtre que j'ai construit pour trier en quelques secondes les dossiers qui valent vraiment la peine d'être analysés plus en profondeur.",
+        },
+      ],
+      faq: [
+        {
+          q: "Une entreprise à forte croissance mais sans FCF peut-elle quand même être un bon investissement ?",
+          a: "Oui, dans des cas précis : phase de démarrage avec des fondamentaux unitaires sains et une trajectoire claire vers la rentabilité. Mais c'est un pari sur le futur, pas un investissement sur des faits présents. Ma méthode préfère les entreprises qui ont déjà démontré leur capacité à convertir la croissance en cash.",
+        },
+        {
+          q: "Quelle est la différence entre la marge de FCF et la marge bénéficiaire ?",
+          a: "La marge bénéficiaire mesure le bénéfice comptable par rapport aux revenus. La marge de FCF mesure le cash réellement généré par rapport aux revenus. Une entreprise peut avoir une marge bénéficiaire de 15% et une marge de FCF de 5% si elle investit beaucoup en capex. La marge de FCF est plus fiable.",
+        },
+        {
+          q: "Qu'est-ce que le Cash ROCE mentionné dans la méthode ?",
+          a: "Le Cash ROCE (Cash Return on Capital Employed) mesure combien de FCF l'entreprise génère pour chaque euro de capital investi dans le business. Un Cash ROCE de 30% signifie que pour 100 euros de capital investi, l'entreprise génère 30 euros de FCF chaque année. C'est un indicateur puissant de la qualité du modèle économique.",
+        },
+        {
+          q: "Pourquoi regarder le FCF sur 5 ans plutôt qu'un seul trimestre ?",
+          a: "Le FCF d'un seul trimestre peut être trompeur : une entreprise peut encaisser des paiements d'avance en fin d'année ou retarder des décaissements, gonflant artificiellement le FCF à court terme. Sur 5 ans, ces effets se lissent. On voit si le FCF est structurellement solide ou seulement ponctuel.",
+        },
+        {
+          q: "La croissance zéro est-elle rédhibitoire dans ta méthode ?",
+          a: "Pas automatiquement. Une entreprise sans croissance des revenus mais avec un FCF très élevé et une valorisation basse peut être une excellente opportunité. Ce que je refuse, c'est la croissance sans FCF. L'inverse (FCF sans croissance) est parfois très bien, selon la valorisation et la durabilité du business.",
+        },
+      ],
+      tags: ['croissance vs FCF', 'free cash flow', 'méthode investissement', 'Paylocity PCTY', 'Cash ROCE', 'marge FCF', 'analyse fondamentale'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Growth or FCF: how my investment method decides',
+      excerpt: "Fast growth or solid free cash flow: do you have to choose? Most investors pit these two criteria against each other. My method says no: I want both, but if I must choose, FCF always wins.",
+      metaDescription: "Revenue growth versus free cash flow: why my investment method prioritizes FCF, how to spot cash-burning growth, with real examples from our screener.",
+      answer: "A company can grow fast while destroying value if it burns cash to get there. And a company can grow moderately while being an exceptional cash machine. My method wants both: growth AND solid FCF. But when you have to choose, real FCF beats reported growth. Here is why, with concrete examples.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Revenue growth without solid FCF is a warning signal: the company may be expanding, but it is not creating real value for its shareholders.",
+            "FCF (free cash flow) is the money genuinely available after all expenses, including capital investment. It funds dividends, buybacks, and future growth.",
+            "My method scores both separately: growth matters, but FCF margin and capital return (Cash ROCE) matter even more.",
+            "Paylocity (PCTY): 10.5% revenue growth plus FCF margin of 24.4%. That is the ideal profile: moderate growth but real, abundant cash.",
+            "FCF is harder to manipulate than accounting profit. That is why I trust it more.",
+          ],
+        },
+        { type: 'h2', text: "The false debate: growth versus value" },
+        {
+          type: 'p',
+          text: "For decades, analysts have opposed growth stocks (expensive but growing fast) to value stocks (cheap but stagnating). This debate has always seemed poorly framed to me. What I look for is a company that grows AND generates real cash. Not one or the other: both.",
+        },
+        { type: 'h2', text: "How a company can grow without generating FCF" },
+        {
+          type: 'p',
+          text: "This is the most dangerous case, and the most common in high-momentum technology sectors. A company earns 100 million in revenue this year and 130 million next year. 30% growth, impressive. But to get there, it spent 140 million. Its FCF is negative. It is burning cash to grow.",
+        },
+        {
+          type: 'p',
+          text: "This situation can be temporary and acceptable: an early-stage company investing heavily to conquer a market can justify negative FCF for a few years, if the trajectory is clear and the unit economics (revenue per customer, acquisition cost) are sound. But if FCF remains negative or very low for five years despite strong revenue growth, the business model is not converting growth into value well.",
+        },
+        {
+          type: 'p',
+          text: "I have seen many companies in this situation collapse in the stock market not at a bad revenue quarter, but at the first sign of growth slowing. Because their stock market value rested entirely on the promise of that future growth, not on existing real cash.",
+        },
+        { type: 'h2', text: "How a company can generate excellent FCF without explosive growth" },
+        {
+          type: 'p',
+          text: "This is the profile I prefer, often underestimated by the market. Paylocity (PCTY) is the perfect example right now. Its revenue growth is 10.5% last quarter, not spectacular. But its FCF margin is 24.4%. Of 1.73 billion in annual revenue, 421 million dollars end up as real cash. That cash funds buybacks, product investment, and a competitive position of strength.",
+        },
+        { type: 'h2', text: "Our method: we want both, but FCF wins" },
+        {
+          type: 'p',
+          text: "In my method's 10 criteria, I evaluate both revenue and FCF growth, but also FCF margin and Cash ROCE (capital return measured in real cash). For a stock to score 8 or above out of 10 in my screener, it must show both positive growth and solid FCF. If growth is weak but FCF excellent, I still accept the file. If growth is strong but FCF negative or very weak, the file does not pass. FCF is non-negotiable.",
+        },
+        { type: 'h2', text: "Why FCF is harder to manipulate than accounting profit" },
+        {
+          type: 'p',
+          text: "This is the most important technical reason for this choice. Accounting profit can be influenced in many legal ways: you choose to capitalize rather than expense a cost, you build or release provisions, you play with revenue recognition timing. FCF measures actual cash flows. Cash left the bank account, or it did not. That is why I always look at FCF over at least 5 years, not just the latest quarter.",
+        },
+        {
+          type: 'p',
+          text: "If you want to see the companies in our screener that combine growth and solid FCF, with their quality score and updated P/FCF valuation, you can check them directly on our tool. That is exactly the filter I built to sort in seconds the files that are genuinely worth analyzing in more depth.",
+        },
+      ],
+      faq: [
+        {
+          q: "Can a high-growth company with no FCF still be a good investment?",
+          a: "Yes, in specific cases: early stage with sound unit economics and a clear path to profitability. But that is a bet on the future, not an investment in present facts. My method prefers companies that have already demonstrated their ability to convert growth into cash.",
+        },
+        {
+          q: "What is the difference between FCF margin and profit margin?",
+          a: "Profit margin measures accounting profit relative to revenue. FCF margin measures cash actually generated relative to revenue. A company can have a 15% profit margin and a 5% FCF margin if it invests heavily in capex. FCF margin is more reliable.",
+        },
+        {
+          q: "What is Cash ROCE mentioned in the method?",
+          a: "Cash ROCE (Cash Return on Capital Employed) measures how much FCF a company generates for each euro of capital invested in the business. A Cash ROCE of 30% means that for 100 euros of invested capital, the company generates 30 euros of FCF each year. It is a powerful indicator of business model quality.",
+        },
+        {
+          q: "Why look at FCF over 5 years rather than a single quarter?",
+          a: "A single quarter's FCF can be misleading: a company can collect advance payments at year-end or delay supplier payments, artificially inflating short-term FCF. Over 5 years, these effects smooth out. The trend is what matters.",
+        },
+        {
+          q: "Is zero growth a dealbreaker in your method?",
+          a: "Not automatically. A company with no revenue growth but very high FCF and a low valuation can be an excellent yield opportunity. What I refuse is growth without FCF. The reverse (FCF without growth) is sometimes very good, depending on valuation and business durability.",
+        },
+      ],
+      tags: ['growth vs FCF', 'free cash flow', 'investment method', 'Paylocity PCTY', 'Cash ROCE', 'FCF margin', 'fundamental analysis'],
+      disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date. Do your own research before investing.",
+    },
+    es: {
+      title: 'Crecimiento o FCF: cómo decide mi método de inversión',
+      excerpt: "Crecimiento rápido o free cash flow sólido: ¿hay que elegir? La mayoría de los inversores contraponen estos dos criterios. Mi método dice que no: quiero los dos, pero si tengo que elegir, el FCF siempre gana.",
+      metaDescription: "Crecimiento de ingresos frente a free cash flow: por qué mi método prioriza el FCF, cómo detectar un crecimiento que quema efectivo, con ejemplos reales de nuestro screener.",
+      answer: "Una empresa puede crecer rápido mientras destruye valor si quema efectivo para conseguirlo. Y una empresa puede crecer moderadamente mientras es una máquina excepcional de generación de efectivo. Mi método quiere los dos: crecimiento Y FCF sólido. Pero cuando hay que elegir, el FCF real prima sobre el crecimiento declarado.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "El crecimiento de ingresos sin FCF sólido es una señal de alarma: la empresa puede estar expandiéndose, pero no está creando valor real para sus accionistas.",
+            "El FCF (free cash flow) es el dinero genuinamente disponible después de todos los gastos, incluidas las inversiones. Es el que financia dividendos, recompras de acciones y el crecimiento futuro.",
+            "Mi método puntúa ambos por separado: el crecimiento importa, pero el margen de FCF y el rendimiento del capital (Cash ROCE) importan aún más.",
+            "Paylocity (PCTY): crecimiento de ingresos del 10,5% más margen FCF del 24,4%. Ese es el perfil ideal: crecimiento moderado pero efectivo real y abundante.",
+            "El FCF es más difícil de manipular que el beneficio contable. Por eso me fío más de él.",
+          ],
+        },
+        { type: 'h2', text: "El falso debate crecimiento contra valor" },
+        {
+          type: 'p',
+          text: "Durante décadas, los analistas han opuesto las growth stocks (caras pero de alto crecimiento) a las value stocks (baratas pero estancadas). Este debate siempre me ha parecido mal planteado. Lo que busco es una empresa que crezca Y genere efectivo real. No una u otra: las dos.",
+        },
+        { type: 'h2', text: "Cómo puede una empresa crecer sin generar FCF" },
+        {
+          type: 'p',
+          text: "Este es el caso más peligroso, y el más frecuente en los sectores tecnológicos con fuerte momentum. Una empresa gana 100 millones en ingresos este año y 130 el siguiente. Crecimiento del 30%, impresionante. Pero para lograrlo, gastó 140 millones. Su FCF es negativo. Está quemando efectivo para crecer.",
+        },
+        {
+          type: 'p',
+          text: "Esta situación puede ser temporal y aceptable: una empresa en fase inicial que invierte masivamente para conquistar un mercado puede justificar FCF negativo durante unos años, si la trayectoria es clara y los fundamentos unitarios son sanos. Pero si el FCF permanece negativo o muy bajo durante cinco años pese a un fuerte crecimiento de ingresos, el modelo de negocio no convierte bien el crecimiento en valor.",
+        },
+        { type: 'h2', text: "Cómo puede una empresa generar excelente FCF sin crecimiento explosivo" },
+        {
+          type: 'p',
+          text: "Paylocity (PCTY) es el ejemplo perfecto ahora mismo. Su crecimiento de ingresos es del 10,5% en el último trimestre, nada espectacular. Pero su margen de FCF es del 24,4%. De 1.730 millones de ingresos anuales, 421 millones de dólares terminan siendo efectivo real. Ese efectivo financia recompras de acciones, inversión en producto y una posición competitiva de fuerza.",
+        },
+        { type: 'h2', text: "Nuestro método: queremos los dos, pero el FCF gana" },
+        {
+          type: 'p',
+          text: "En los 10 criterios de mi método, evalúo tanto el crecimiento de ingresos como del FCF, pero también el margen de FCF y el Cash ROCE (rendimiento del capital empleado medido en efectivo real). Para que una acción obtenga 8 o más sobre 10 en mi screener, debe mostrar tanto crecimiento positivo como FCF sólido. Si el crecimiento es fuerte pero el FCF negativo o muy débil, el expediente no pasa. El FCF es innegociable.",
+        },
+        { type: 'h2', text: "Por qué el FCF es más difícil de manipular que el beneficio contable" },
+        {
+          type: 'p',
+          text: "El beneficio contable puede estar influenciado de muchas formas legales: eliges capitalizar en lugar de amortizar un gasto, constituyes o reviertes provisiones, juegas con el reconocimiento de ingresos en el tiempo. El FCF mide los flujos de tesorería reales. El efectivo salió de la cuenta bancaria, o no salió. Por eso siempre miro el FCF a lo largo de al menos 5 años.",
+        },
+        {
+          type: 'p',
+          text: "Si quieres ver las empresas de nuestro screener que combinan crecimiento y FCF sólido, con su nota de calidad y su valoración P/FCF actualizada, puedes consultarlas directamente en nuestra herramienta. Es exactamente el filtro que construí para clasificar en segundos los expedientes que realmente merecen analizarse con más profundidad.",
+        },
+      ],
+      faq: [
+        {
+          q: "Una empresa de alto crecimiento pero sin FCF puede seguir siendo una buena inversión?",
+          a: "Sí, en casos concretos: fase inicial con fundamentos unitarios sanos y una trayectoria clara hacia la rentabilidad. Pero eso es una apuesta sobre el futuro, no una inversión en hechos presentes. Mi método prefiere las empresas que ya han demostrado su capacidad para convertir el crecimiento en efectivo.",
+        },
+        {
+          q: "Cuál es la diferencia entre el margen de FCF y el margen de beneficio?",
+          a: "El margen de beneficio mide el beneficio contable respecto a los ingresos. El margen de FCF mide el efectivo realmente generado respecto a los ingresos. Una empresa puede tener un margen de beneficio del 15% y un margen de FCF del 5% si invierte mucho en capex. El margen de FCF es más fiable.",
+        },
+        {
+          q: "Qué es el Cash ROCE mencionado en el método?",
+          a: "El Cash ROCE (Cash Return on Capital Employed) mide cuánto FCF genera la empresa por cada euro de capital invertido en el negocio. Un Cash ROCE del 30% significa que por cada 100 euros de capital invertido, la empresa genera 30 euros de FCF al año. Es un indicador poderoso de la calidad del modelo de negocio.",
+        },
+        {
+          q: "Por qué mirar el FCF a 5 años en lugar de un solo trimestre?",
+          a: "El FCF de un solo trimestre puede ser engañoso: una empresa puede cobrar pagos anticipados a fin de año o retrasar pagos a proveedores, inflando artificialmente el FCF a corto plazo. A 5 años, estos efectos se nivelan. Lo que importa es la tendencia.",
+        },
+        {
+          q: "Crecimiento cero es descalificante en tu método?",
+          a: "No automáticamente. Una empresa sin crecimiento de ingresos pero con FCF muy alto y una valoración baja puede ser una excelente oportunidad de rentabilidad. Lo que rechazo es el crecimiento sin FCF. Lo contrario (FCF sin crecimiento) a veces es muy bueno, según la valoración y la durabilidad del negocio.",
+        },
+      ],
+      tags: ['crecimiento vs FCF', 'free cash flow', 'método inversión', 'Paylocity PCTY', 'Cash ROCE', 'margen FCF', 'análisis fundamental'],
+      disclaimer: "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación. Haz tu propia investigación antes de invertir.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
