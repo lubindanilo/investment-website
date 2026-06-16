@@ -6496,18 +6496,18 @@ const note10sur10: Article = {
         { type: 'h2', text: "Criterio 1: ¿es la empresa rentable?" },
         { type: 'p', text: "El primer filtro es simple: la empresa debe tener un beneficio neto positivo. El margen neto es lo que queda de cada euro de ventas después de pagar todo (costes, salarios, impuestos, intereses sobre la deuda). El umbral es modesto, pero elimina empresas que llevan años quemando caja sin horizonte de rentabilidad. SkyWest (SKYW), aerolínea regional, tiene un margen neto del 10,4 %, sólido para un sector de costes fijos elevados. Kinsale Capital (KNSL), aseguradora de nicho, alcanza el 28,2 %." },
         { type: 'h2', text: "Criterio 2: ¿crecen los ingresos lo suficientemente rápido?" },
-        { type: 'p', text: "Un negocio que se encoge acabará generando problemas. El criterio exige un crecimiento anual de ingresos de al menos el 10 % durante cinco años. Kinsale Capital crece al 33 % anual, SkyWest al 10,1 %, justo por encima del umbral. Microsoft, con un crecimiento del 13,5 %, lo supera con comodidad." },
+        { type: 'p', text: "Un negocio que se encoge acabará generando problemas. El criterio exige un crecimiento anual de ingresos de al menos el 10 % durante cinco años. Este rythme elimina empresas en declive estructural, pero es alcanzable para un buen negocio en un mercado en expansión. Kinsale Capital crece al 33 % anual, SkyWest al 10,1 %, justo por encima del umbral. Microsoft, con un crecimiento del 13,5 %, lo supera con comodidad." },
         { type: 'h2', text: "Criterio 3: ¿crece la caja por acción?" },
         { type: 'p', text: "Este criterio es más exigente. Mide el crecimiento del flujo de caja libre por acción: la caja que genera la empresa cada año dividida entre el número de acciones. El flujo de caja libre es el dinero que realmente queda en caja una vez pagadas todas las facturas: es más difícil de maquillar que el beneficio contable. El umbral es +10 % anual durante cinco años." },
         { type: 'p', text: "SkyWest alcanza el 16,1 %. Microsoft, con sus fuertes inversiones en inteligencia artificial, llega solo al 4,8 %, menos de la mitad del umbral: ese es uno de sus dos criterios fallidos. Cuando la caja por acción se estanca, el rendimiento futuro para el accionista es limitado incluso si los ingresos suben." },
         { type: 'h2', text: "Criterio 4: ¿está controlado el número de acciones?" },
-        { type: 'p', text: "Cuando una empresa emite nuevas acciones para remunerar a sus empleados o financiar adquisiciones, diluye a los accionistas existentes. Tu parte del pastel se reduce aunque el pastel crezca. Este criterio comprueba que el número de acciones no se dispara. SkyWest reduce su número de acciones un 5,4 % anual. Kinsale Capital es estable en +0,18 % anual, lo cual es aceptable." },
+        { type: 'p', text: "Cuando una empresa emite nuevas acciones para remunerar a sus empleados o financiar adquisiciones, diluye a los accionistas existentes. Tu parte del pastel se reduce aunque el pastel crezca. Este criterio comprueba que el número de acciones no se dispara. Lo ideal es que la empresa recompre sus propias acciones: SkyWest reduce su número de acciones un 5,4 % anual. Kinsale Capital es estable en +0,18 % anual, lo cual es aceptable." },
         { type: 'h2', text: "Criterio 5: ¿es sólido el margen de caja?" },
-        { type: 'p', text: "El margen FCF mide cuántos céntimos de flujo de caja libre quedan de cada euro de ventas. La mayoría de las empresas no supera el 10 %, que es el umbral del criterio. SkyWest genera 20,8 céntimos de caja libre por euro de ingresos, a pesar de los altos costes de combustible y mantenimiento. Kinsale Capital alcanza el 51,9 %, excepcional para una aseguradora. Un margen FCF alto suele indicar un moat real." },
+        { type: 'p', text: "El margen FCF mide cuántos céntimos de flujo de caja libre quedan de cada euro de ventas. La mayoría de las empresas no supera el 10 %, que es el umbral del criterio. SkyWest genera 20,8 céntimos de caja libre por euro de ingresos. Kinsale Capital alcanza el 51,9 %, excepcional para una aseguradora. Un margen FCF alto suele indicar una ventaja competitiva real, lo que llamamos moat: si los competidores pudieran copiar el modelo, ya lo habrían hecho." },
         { type: 'h2', text: "Los cinco criterios de robustez" },
         { type: 'p', text: "Los últimos cinco criterios responden a una segunda pregunta: ¿puede aguantar este negocio con el paso del tiempo, incluso en momentos difíciles? Así se evalúa cada uno." },
         { type: 'h2', text: "Criterio 6: ¿se expanden los márgenes?" },
-        { type: 'p', text: "Este criterio mide el apalancamiento operativo: cuando suben las ventas, ¿también mejoran los márgenes o los costes se comen todo el excedente? SkyWest y Kinsale Capital superan ambos este criterio: sus márgenes se han ampliado en cinco años pese a los choques." },
+        { type: 'p', text: "Este criterio mide el apalancamiento operativo: cuando suben las ventas, ¿también mejoran los márgenes o los costes se comen todo el excedente? Un negocio con fuerte apalancamiento operativo ve sus beneficios crecer más rápido que su facturación. SkyWest y Kinsale Capital superan ambos este criterio: sus márgenes se han ampliado en cinco años pese a los choques." },
         { type: 'h2', text: "Criterio 7: ¿se emplea bien el capital?" },
         { type: 'p', text: "El Cash ROCE mide cuánta caja genera la empresa por cada euro invertido en el negocio. El umbral es el 15 %: por cada 100 euros de capital, la empresa debe generar al menos 15 euros de caja libre al año. Un Cash ROCE alto refleja habitualmente una ventaja competitiva duradera. SkyWest alcanza exactamente el 15 %. Kinsale Capital llega al 45,4 %." },
         { type: 'h2', text: "Criterio 8: ¿es manejable la deuda?" },
@@ -6541,7 +6541,5957 @@ const note10sur10: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe];
+const actionsAsiatiques: Article = {
+  slug: 'actions-asiatiques-interpreter-note-10-sur-10',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: 'Actions asiatiques : comment interpréter un 10/10 hors US',
+      excerpt: "Le Japon, la Corée et Hong Kong abritent des entreprises de qualité que notre screener note 10/10. Mais lire ces dossiers demande quelques ajustements. Voici ce que j'adapte avant d'investir.",
+      metaDescription: "Comment lire une action japonaise, coréenne ou hongkongaise notée 10/10 : comptabilité, gouvernance, fiscalité dividendes, liquidité. Guide pratique.",
+      answer: "Une action asiatique notée 10/10 par notre screener répond aux mêmes critères financiers qu'une action américaine : FCF solide, marges élevées, bilan sain. Mais trois points méritent vigilance : la gouvernance d'entreprise (souvent différente), la fiscalité des dividendes à la source, et la liquidité parfois limitée sur certaines valeurs.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Notre screener couvre le Japon (TOPIX), la Corée (KOSPI) et Hong Kong : des marchés immenses avec des entreprises de qualité souvent ignorées par les investisseurs occidentaux.",
+            "La note /10 s'appuie sur les mêmes 10 critères partout dans le monde : la comptabilité locale peut affecter certains ratios, mais le FCF et les marges restent les signaux les plus fiables.",
+            "La gouvernance d'entreprise en Asie s'améliore rapidement : le Japon et la Corée ont engagé des réformes profondes depuis 2023 pour mieux protéger les actionnaires minoritaires.",
+            "La fiscalité des dividendes diffère selon les pays : le Japon retient 15,315% à la source pour les non-résidents, la Corée 22%, Hong Kong 0%.",
+            "La liquidité : certaines petites capitalisations japonaises ou coréennes ont des volumes journaliers faibles. À vérifier avant tout achat.",
+          ],
+        },
+        { type: 'h2', text: "Pourquoi je regarde les marchés asiatiques" },
+        {
+          type: 'p',
+          text: "La plupart des investisseurs particuliers français concentrent leur portefeuille sur les États-Unis et l'Europe. C'est compréhensible : les données sont accessibles, les entreprises connues, les rapports en anglais. Mais cette myopie géographique crée une opportunité. Le Japon, la Corée du Sud et Hong Kong abritent des centaines d'entreprises excellentes que le marché occidental sous-analyse systématiquement.",
+        },
+        {
+          type: 'p',
+          text: "Le TOPIX japonais a progressé de 42% sur les douze derniers mois, porté par des réformes de gouvernance historiques et un retour massif des ménages japonais vers les actions. Le KOSPI coréen, lui, a bondi de 118% en douze mois grâce aux réformes du marché des capitaux et à l'essor de l'IA. Ces deux marchés ne sont plus des marchés de niche.",
+        },
+        { type: 'h2', text: "Quels marchés couvre notre screener" },
+        {
+          type: 'p',
+          text: "Notre screener analyse les actions cotées au Tokyo Stock Exchange (suffixe .T), au Korea Stock Exchange (suffixe .KS) et à la Hong Kong Stock Exchange (suffixe .HK). Ces trois bourses représentent ensemble une capitalisation boursière supérieure à 10 000 milliards de dollars, soit davantage que toute la zone euro.",
+        },
+        {
+          type: 'p',
+          text: "La note /10 que j'attribue à chaque action repose sur 10 critères financiers objectifs : la croissance des revenus, la progression du FCF (le cash réellement généré après toutes les dépenses, y compris les investissements), la marge de FCF, le Cash ROCE (le rendement du capital employé mesuré en cash réel, pas en bénéfice comptable), l'endettement, les rachats d'actions, et quelques autres indicateurs de solidité. Ces critères s'appliquent exactement de la même façon à une action japonaise qu'à une action américaine.",
+        },
+        { type: 'h2', text: "Les quatre différences à intégrer avant d'investir" },
+        {
+          type: 'p',
+          text: "Première différence : la comptabilité. Les entreprises japonaises et coréennes suivent des normes IFRS ou leurs standards locaux, proches des normes internationales, mais avec quelques subtilités. La capitalisation des dépenses de R et D, le traitement des stocks ou les pensions de retraite peuvent légèrement gonfler ou dégonfler certains ratios. Je reste vigilant, mais le FCF, lui, est assez robuste à ces écarts : l'argent dans les caisses est concret, quelle que soit la norme comptable.",
+        },
+        {
+          type: 'p',
+          text: "Deuxième différence : la gouvernance. C'est historiquement le point faible des entreprises asiatiques. Au Japon, les keiretsu (réseaux de participations croisées entre entreprises liées) diluaient les intérêts des actionnaires minoritaires depuis des décennies. Mais la Bourse de Tokyo a lancé en 2023 une vague de réformes : les entreprises dont le ratio cours sur valeur comptable est inférieur à 1 sont désormais poussées à mieux allouer leur capital, à racheter des actions, à distribuer davantage. Résultat : les rachats d'actions japonais ont explosé. Honda, par exemple, a maintenu son dividende même en annonçant une dépréciation de 15,7 milliards de dollars sur ses activités EV. C'est un signal de discipline.",
+        },
+        {
+          type: 'p',
+          text: "Troisième différence : la fiscalité des dividendes à la source. Le Japon retient 15,315% à la source sur les dividendes versés aux non-résidents. La Corée retient 22%. Hong Kong, en revanche, ne retient rien. Pour un investisseur français, ces retenues s'imputent partiellement sur l'impôt français via les conventions fiscales, mais le mécanisme est plus complexe qu'avec une action américaine.",
+        },
+        {
+          type: 'p',
+          text: "Quatrième différence : la liquidité. Les grandes capitalisations japonaises (Toyota, Sony, Keyence) et coréennes (Samsung, SK Hynix) traitent des volumes colossaux chaque jour. Mais le screener analyse aussi des entreprises de taille intermédiaire, parfois peu connues en dehors de leur marché domestique. Sur ces valeurs, les volumes journaliers peuvent être limités, les fourchettes achat/vente plus larges. J'adapte mes ordres en conséquence : ordre à cours limité plutôt qu'ordre au marché.",
+        },
+        { type: 'h2', text: "Comment j'adapte la lecture de la valorisation P/FCF" },
+        {
+          type: 'p',
+          text: "Le P/FCF (price-to-free-cash-flow) est le ratio que j'utilise pour juger si une action est chère ou non. Concrètement : c'est le prix de l'action divisé par le cash que l'entreprise génère vraiment chaque année après toutes ses dépenses. Un P/FCF de 12 signifie que tu paies aujourd'hui l'équivalent de 12 années de ce cash. Plus ce chiffre est bas, moins l'action est chère.",
+        },
+        {
+          type: 'p',
+          text: "Sur les marchés asiatiques, les P/FCF moyens historiques ont longtemps été plus bas qu'aux États-Unis, pour deux raisons : la défiance des investisseurs envers la gouvernance, et la faible visibilité des entreprises locales à l'international. Avec les réformes de gouvernance au Japon et en Corée, cet écart de valorisation se réduit progressivement. Autrement dit : des dossiers asiatiques 10/10 qui affichaient des valorisations très basses il y a trois ans voient leur P/FCF remonter, non pas parce qu'ils sont moins bons, mais parce que le marché les comprend mieux.",
+        },
+        { type: 'h2', text: "Ce que je retiens pour mon propre portefeuille" },
+        {
+          type: 'p',
+          text: "J'investis dans des actions asiatiques notées 10/10 avec la même logique que partout ailleurs : la qualité d'abord, le prix ensuite. Les quatre points spécifiques que j'ai décrits (comptabilité, gouvernance, fiscalité, liquidité) ne sont pas des blocages. Ce sont des ajustements à intégrer dans la réflexion. Le marché occidental sous-analyse encore ces valeurs, et c'est précisément de là que peuvent venir les meilleures opportunités.",
+        },
+        {
+          type: 'p',
+          text: "Si tu veux voir les actions asiatiques actuellement dans notre screener, avec leur note /10 et leur valorisation P/FCF à jour, tu peux les consulter sur notre screener en ligne. C'est l'outil que j'ai construit pour analyser exactement ce genre de dossiers en quelques secondes.",
+        },
+      ],
+      faq: [
+        {
+          q: "Peut-on acheter facilement des actions japonaises ou coréennes depuis la France ?",
+          a: "Oui. La plupart des courtiers en ligne français (Degiro, Saxo, Interactive Brokers) donnent accès au Tokyo Stock Exchange et au Korea Stock Exchange. Les frais sont un peu plus élevés que sur les marchés européens ou américains. Quelques grandes capitalisations japonaises sont également disponibles sous forme d'ADR sur le NYSE.",
+        },
+        {
+          q: "La note /10 de notre screener est-elle comparable entre une action américaine et une action japonaise ?",
+          a: "Oui, les 10 critères sont identiques. La note mesure la solidité financière objective : FCF, marges, croissance, bilan, allocation du capital. Une entreprise japonaise notée 10/10 répond aux mêmes exigences qu'une américaine 10/10. La seule nuance concerne certains ratios affectés par les normes comptables locales, mais le FCF reste le signal le plus universel.",
+        },
+        {
+          q: "Le yen faible (2025-2026) est-il un risque pour les actions japonaises ?",
+          a: "C'est un point à surveiller. Un yen faible avantage les exportateurs japonais (Toyota, Sony, Fanuc) mais peut éroder les rendements d'un investisseur européen qui reçoit des dividendes en yen. Je convertis mentalement les FCF en euros pour avoir une image fidèle de la valorisation réelle.",
+        },
+        {
+          q: "Pourquoi la Corée du Sud est-elle souvent déconsidérée malgré ses entreprises de qualité ?",
+          a: "Historiquement, la Corée souffrait d'une décote de gouvernance : les chaebols (conglomérats familiaux comme Samsung ou LG) favorisaient la famille fondatrice au détriment des minoritaires. Les réformes lancées depuis 2023 changent la donne, avec des exigences accrues en matière de dividendes et de rachats d'actions. Le KOSPI a d'ailleurs bondi de 118% en douze mois, en partie pour cette raison.",
+        },
+        {
+          q: "Comment fonctionne la retenue à la source sur les dividendes japonais ?",
+          a: "Le Japon retient 15,315% à la source sur les dividendes versés aux non-résidents (en vertu de la convention fiscale franco-japonaise). Cette retenue est en principe récupérable via un crédit d'impôt dans ta déclaration française. La mécanique exacte dépend de ton courtier et de ta situation fiscale.",
+        },
+      ],
+      tags: ['actions asiatiques', 'bourse Japon', 'bourse Corée', 'note 10 sur 10', 'méthode investissement', 'screener actions', 'gouvernance entreprise'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Chiffres à la date de publication. Fais tes propres recherches avant d'investir.",
+    },
+    en: {
+      title: 'Asian stocks: how to read a top-quality score outside the US',
+      excerpt: "Japan, South Korea and Hong Kong are home to top-quality companies our screener rates highly. But reading these files requires a few adjustments. Here is what I adapt before investing.",
+      metaDescription: "How to read a Japanese, Korean or Hong Kong stock with a top quality score: accounting, governance, dividend taxation, liquidity. A practical guide for Western investors.",
+      answer: "An Asian stock rated 10/10 by our screener meets the same financial criteria as a US stock: solid FCF, high margins, clean balance sheet. But three points deserve attention: corporate governance (often different), withholding tax on dividends at source, and sometimes limited liquidity on smaller names.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Our screener covers Japan (TOPIX), South Korea (KOSPI) and Hong Kong (HKEX): three massive markets home to world-class companies often ignored by Western investors.",
+            "The quality score uses the same 10 criteria everywhere: local accounting can affect some ratios, but FCF and margins remain the most reliable signals.",
+            "Corporate governance in Asia is improving fast: Japan and South Korea have launched deep reforms since 2023 to better protect minority shareholders.",
+            "Dividend withholding tax varies by country: Japan withholds 15.315% at source for non-residents, South Korea 22%, Hong Kong 0%.",
+            "Liquidity: some smaller Japanese or Korean companies have thin daily volumes. Always check before buying.",
+          ],
+        },
+        { type: 'h2', text: "Why I look at Asian markets" },
+        {
+          type: 'p',
+          text: "Most retail investors concentrate their portfolios on the US and Europe. That is understandable: data is accessible, companies are familiar, reports come in English. But this geographic short-sightedness creates an opportunity. Japan, South Korea and Hong Kong are home to hundreds of excellent companies that Western markets systematically under-analyze.",
+        },
+        {
+          type: 'p',
+          text: "Japan's TOPIX has risen 42% over the past twelve months, driven by historic governance reforms and a massive return of Japanese households to equities. South Korea's KOSPI surged 118% over twelve months, fuelled by capital market reforms and the AI boom. These are no longer niche markets.",
+        },
+        { type: 'h2', text: "Which markets our screener covers" },
+        {
+          type: 'p',
+          text: "Our screener analyzes stocks listed on the Tokyo Stock Exchange (.T suffix), Korea Stock Exchange (.KS suffix) and Hong Kong Stock Exchange (.HK suffix). These three exchanges together represent a market cap of over 10 trillion dollars, more than the entire eurozone.",
+        },
+        {
+          type: 'p',
+          text: "The score I assign to each stock relies on 10 objective financial criteria: revenue growth, FCF growth (cash actually generated after all expenses, including capital investment), FCF margin, Cash ROCE (capital return measured in real cash, not accounting profit), debt levels, share buybacks, and a few other soundness indicators. These criteria apply in exactly the same way to a Japanese stock as to an American one.",
+        },
+        { type: 'h2', text: "Four differences to factor in before investing" },
+        {
+          type: 'p',
+          text: "First: accounting. Japanese and Korean companies follow IFRS or their own local standards, broadly aligned with international norms but with some nuances. FCF, however, is quite robust to these gaps: cash in the bank is concrete, whatever the accounting standard.",
+        },
+        {
+          type: 'p',
+          text: "Second: governance. This has historically been the weak point of Asian companies. In Japan, keiretsu (cross-ownership networks between related companies) diluted minority shareholder interests for decades. But the Tokyo Stock Exchange launched a wave of reforms in 2023: companies with a price-to-book ratio below 1 are now pushed to better allocate capital, buy back shares, and distribute more. Honda, for example, maintained its dividend forecast even after announcing a 15.7 billion dollar EV write-down. That is a discipline signal.",
+        },
+        {
+          type: 'p',
+          text: "Third: dividend withholding tax at source. Japan withholds 15.315% at source on dividends paid to non-residents. South Korea withholds 22%. Hong Kong, by contrast, withholds nothing. For a French investor, these withholdings are partially creditable against French tax under double tax treaties, but the mechanics are more complex than with a US stock.",
+        },
+        {
+          type: 'p',
+          text: "Fourth: liquidity. Large-cap Japanese names (Toyota, Sony, Keyence) and Korean names (Samsung, SK Hynix) trade massive daily volumes. But the screener also covers mid-size companies that are little known outside their home market. On these names, daily volumes can be thin and bid-ask spreads wider. I always use limit orders, not market orders.",
+        },
+        { type: 'h2', text: "How I adjust the P/FCF valuation reading" },
+        {
+          type: 'p',
+          text: "P/FCF (price-to-free-cash-flow) is the ratio I use to judge whether a stock is expensive or not. Concretely: it is the stock price divided by the cash the company genuinely generates each year after all its expenses. A P/FCF of 12 means you are paying today the equivalent of 12 years of that cash. The lower the number, the cheaper the stock.",
+        },
+        {
+          type: 'p',
+          text: "Asian markets historically had lower average P/FCF ratios than the US for two reasons: investor distrust of governance, and low international visibility. With governance reforms in Japan and South Korea, this valuation gap is gradually narrowing. Top-quality Asian names that traded at very low valuations three years ago are now seeing their P/FCF rise, not because they got worse, but because the market understands them better.",
+        },
+        { type: 'h2', text: "What I keep for my own portfolio" },
+        {
+          type: 'p',
+          text: "I invest in highly-rated Asian stocks with the same logic as everywhere else: quality first, price second. The four specific points I described are not blockers. They are adjustments to factor into the thinking. Western markets still under-analyze these names, and that is precisely where the best opportunities can arise.",
+        },
+        {
+          type: 'p',
+          text: "If you want to see the Asian stocks currently in our screener, with their quality scores and up-to-date P/FCF valuations, you can check them on our online screener. That is the tool I built to analyze exactly these kinds of files in seconds.",
+        },
+      ],
+      faq: [
+        {
+          q: "Can you easily buy Japanese or Korean stocks from Europe?",
+          a: "Yes. Most online brokers (IBKR, Degiro, Saxo) provide access to the Tokyo and Korea stock exchanges. Fees are slightly higher than on European or US markets. Some large Japanese companies are also available as ADRs on the NYSE.",
+        },
+        {
+          q: "Is the quality score comparable between a US stock and a Japanese stock?",
+          a: "Yes, the 10 criteria are identical. The score measures objective financial strength: FCF, margins, growth, balance sheet, capital allocation. A Japanese stock rated 10/10 meets the same requirements as a US 10/10. The only nuance relates to certain ratios affected by local accounting standards, but FCF remains the most universal signal.",
+        },
+        {
+          q: "Is the weak yen a risk for Japanese stocks?",
+          a: "It is a point to monitor. A weak yen benefits Japanese exporters (Toyota, Sony, Fanuc) but can erode returns for a European investor receiving yen dividends. I mentally convert FCF to euros to get an accurate picture of real valuation.",
+        },
+        {
+          q: "Why is South Korea often discounted despite its quality companies?",
+          a: "Historically, Korea suffered from a governance discount: chaebols (family conglomerates like Samsung or LG) favored the founding family over minority shareholders. Reforms launched since 2023 are changing this, with increased dividend and buyback requirements. The KOSPI surged 118% over twelve months partly for this reason.",
+        },
+        {
+          q: "How does Japanese dividend withholding tax work?",
+          a: "Japan withholds 15.315% at source on dividends paid to non-residents (under the France-Japan tax treaty). This withholding is in principle recoverable via a tax credit in your French return. The exact mechanics depend on your broker and your tax situation.",
+        },
+      ],
+      tags: ['asian stocks', 'Japan stock market', 'Korea stock market', 'quality score', 'investment method', 'stock screener', 'corporate governance'],
+      disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date. Do your own research before investing.",
+    },
+    es: {
+      title: 'Acciones asiáticas: interpretar una nota máxima fuera de EE. UU.',
+      excerpt: "Japón, Corea del Sur y Hong Kong albergan empresas de calidad que nuestro screener califica al máximo. Pero leer estos expedientes requiere algunos ajustes. Esto es lo que adapto antes de invertir.",
+      metaDescription: "Cómo leer una acción japonesa, coreana o de Hong Kong con nota máxima de calidad: contabilidad, gobernanza, fiscalidad de dividendos, liquidez. Guía práctica.",
+      answer: "Una acción asiática con nota máxima en nuestro screener cumple los mismos criterios financieros que una acción estadounidense: FCF sólido, márgenes altos, balance saneado. Pero tres puntos merecen atención: la gobernanza corporativa (a menudo diferente), la retención fiscal sobre dividendos en origen, y la liquidez a veces limitada.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Nuestro screener cubre Japón (TOPIX), Corea del Sur (KOSPI) y Hong Kong (HKEX): tres mercados enormes con empresas de clase mundial frecuentemente ignoradas por los inversores occidentales.",
+            "La nota de calidad usa los mismos 10 criterios en todo el mundo: la contabilidad local puede afectar algunos ratios, pero el FCF y los márgenes siguen siendo las señales más fiables.",
+            "La gobernanza corporativa en Asia mejora rápidamente: Japón y Corea han impulsado reformas profundas desde 2023 para proteger mejor a los accionistas minoritarios.",
+            "La retención fiscal sobre dividendos varía según el país: Japón retiene el 15,315% en origen para no residentes, Corea el 22%, Hong Kong el 0%.",
+            "Liquidez: algunas empresas japonesas o coreanas de pequeña capitalización tienen volúmenes diarios reducidos. Siempre hay que verificarlo antes de comprar.",
+          ],
+        },
+        { type: 'h2', text: "Por qué analizo los mercados asiáticos" },
+        {
+          type: 'p',
+          text: "La mayoría de los inversores minoristas concentran su cartera en Estados Unidos y Europa. Es comprensible: los datos son accesibles, las empresas conocidas, los informes en inglés. Pero esta miopía geográfica genera una oportunidad. Japón, Corea del Sur y Hong Kong albergan cientos de empresas excelentes que los mercados occidentales analizan de forma sistemáticamente insuficiente.",
+        },
+        {
+          type: 'p',
+          text: "El TOPIX japonés ha subido un 42% en los últimos doce meses, impulsado por reformas históricas de gobernanza y un retorno masivo de los hogares japoneses a la renta variable. El KOSPI coreano se disparó un 118% en doce meses, gracias a las reformas del mercado de capitales y al auge de la IA.",
+        },
+        { type: 'h2', text: "Qué mercados cubre nuestro screener" },
+        {
+          type: 'p',
+          text: "Nuestro screener analiza acciones cotizadas en la Bolsa de Tokio (sufijo .T), la Bolsa de Corea (sufijo .KS) y la Bolsa de Hong Kong (sufijo .HK). Estas tres bolsas representan juntas una capitalización bursátil superior a 10 billones de dólares, más que toda la zona euro.",
+        },
+        { type: 'h2', text: "Las cuatro diferencias que hay que integrar antes de invertir" },
+        {
+          type: 'p',
+          text: "Primera diferencia: la contabilidad. Las empresas japonesas y coreanas siguen normas IFRS o sus propios estándares locales, próximos a las normas internacionales pero con matices. El FCF, sin embargo, es bastante robusto a estas diferencias: el efectivo en caja es concreto, independientemente de la norma contable.",
+        },
+        {
+          type: 'p',
+          text: "Segunda diferencia: la gobernanza. Históricamente ha sido el punto débil de las empresas asiáticas. En Japón, los keiretsu (redes de participaciones cruzadas entre empresas relacionadas) diluían los intereses de los accionistas minoritarios. Pero la Bolsa de Tokio lanzó en 2023 reformas profundas: las empresas con un ratio precio/valor contable inferior a 1 ahora están presionadas para asignar mejor el capital. Honda, por ejemplo, mantuvo sus previsiones de dividendo pese a anunciar una depreciación de 15.700 millones de dólares en sus actividades EV.",
+        },
+        {
+          type: 'p',
+          text: "Tercera diferencia: la retención fiscal sobre dividendos en origen. Japón retiene el 15,315% en origen sobre los dividendos pagados a no residentes. Corea retiene el 22%. Hong Kong, en cambio, no retiene nada.",
+        },
+        {
+          type: 'p',
+          text: "Cuarta diferencia: la liquidez. Las grandes capitalizaciones japonesas y coreanas negocian volúmenes diarios enormes. Pero el screener también cubre empresas de tamaño mediano poco conocidas fuera de su mercado local. En esos valores, los volúmenes pueden ser reducidos. Siempre utilizo órdenes limitadas, no órdenes a mercado.",
+        },
+        { type: 'h2', text: "Cómo adapto la lectura de la valoración P/FCF" },
+        {
+          type: 'p',
+          text: "El P/FCF (price-to-free-cash-flow) es el ratio que uso para juzgar si una acción es cara o no. Concretamente: es el precio de la acción dividido entre el efectivo que la empresa genera de verdad cada año después de todos sus gastos. Un P/FCF de 12 significa que hoy pagas el equivalente de 12 años de ese efectivo. Cuanto más bajo, más barata es la acción.",
+        },
+        {
+          type: 'p',
+          text: "Los mercados asiáticos históricamente tenían P/FCF medios más bajos que EE. UU. por dos razones: la desconfianza de los inversores hacia la gobernanza, y la baja visibilidad internacional. Con las reformas de gobernanza en Japón y Corea, esta brecha de valoración se reduce gradualmente.",
+        },
+        { type: 'h2', text: "Lo que me llevo para mi propia cartera" },
+        {
+          type: 'p',
+          text: "Invierto en acciones asiáticas de alta calificación con la misma lógica que en cualquier otro lugar: calidad primero, precio después. Los cuatro puntos específicos que he descrito no son obstáculos. Son ajustes que hay que integrar en el análisis.",
+        },
+        {
+          type: 'p',
+          text: "Si quieres ver las acciones asiáticas que hay actualmente en nuestro screener, con su nota de calidad y su valoración P/FCF actualizada, puedes consultarlas en nuestro screener en línea. Es la herramienta que construí para analizar exactamente este tipo de expedientes en cuestión de segundos.",
+        },
+      ],
+      faq: [
+        {
+          q: "Se pueden comprar fácilmente acciones japonesas o coreanas desde España?",
+          a: "Sí. La mayoría de brókers en línea (IBKR, Degiro, Saxo) dan acceso a la Bolsa de Tokio y a la Bolsa de Corea. Las comisiones son algo más altas que en los mercados europeos o estadounidenses. Algunas grandes capitalizaciones japonesas también están disponibles como ADR en la NYSE.",
+        },
+        {
+          q: "La nota de calidad es comparable entre una acción americana y una japonesa?",
+          a: "Sí, los 10 criterios son idénticos. La nota mide la solidez financiera objetiva: FCF, márgenes, crecimiento, balance, asignación de capital. Una acción japonesa con nota máxima cumple los mismos requisitos que una americana. El único matiz se refiere a ciertos ratios afectados por las normas contables locales, pero el FCF sigue siendo la señal más universal.",
+        },
+        {
+          q: "El yen débil es un riesgo para las acciones japonesas?",
+          a: "Es un punto a vigilar. Un yen débil beneficia a los exportadores japoneses (Toyota, Sony, Fanuc) pero puede erosionar los rendimientos de un inversor europeo que recibe dividendos en yenes. Mentalmente convierto el FCF a euros para tener una imagen fiel de la valoración real.",
+        },
+        {
+          q: "Por qué Corea del Sur suele estar infravalorada pese a sus empresas de calidad?",
+          a: "Históricamente, Corea sufría un descuento de gobernanza: los chaebols (conglomerados familiares como Samsung o LG) favorecían a la familia fundadora en detrimento de los minoritarios. Las reformas lanzadas desde 2023 están cambiando esto. El KOSPI se disparó un 118% en doce meses en parte por esta razón.",
+        },
+        {
+          q: "Cómo funciona la retención fiscal japonesa sobre dividendos?",
+          a: "Japón retiene el 15,315% en origen sobre los dividendos pagados a no residentes. Esta retención es en principio recuperable mediante un crédito fiscal en tu declaración local. La mecánica exacta depende de tu bróker y tu situación fiscal.",
+        },
+      ],
+      tags: ['acciones asiáticas', 'bolsa Japón', 'bolsa Corea', 'calidad empresas', 'método inversión', 'screener acciones', 'gobernanza empresarial'],
+      disclaimer: "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación. Haz tu propia investigación antes de invertir.",
+    },
+  },
+};
+
+const sp500RecordJuin2026: Article = {
+  slug: 'sp500-record-juin-2026-actions-10-sur-10-valorisation',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 7,
+  content: {
+    fr: {
+      title: 'S&P 500 record juin 2026 : les meilleures actions encore bon marché ?',
+      excerpt: "Le S&P 500 a franchi 7 600 points début juin 2026, son 24e record historique de l'année. Mais toutes les actions de qualité de notre screener n'ont pas suivi cette hausse. Certaines restent sous-valorisées.",
+      metaDescription: "S&P 500 à 7 609 points en juin 2026 : les actions de qualité maximale restent-elles sous-valorisées malgré la hausse du marché ? Analyse avec données réelles.",
+      answer: "Le S&P 500 a clôturé au-dessus de 7 600 points pour la première fois le 2 juin 2026. Mais l'indice global ne dit rien sur les actions individuelles. Certaines entreprises notées 10/10 dans notre screener n'ont pas profité de ce rally et restent à des valorisations basses. La qualité et le prix sont deux choses distinctes.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Le S&P 500 a clôturé pour la première fois au-dessus de 7 600 points le 2 juin 2026, à 7 609 exactement : son 24e record historique de l'année, en hausse de 10% depuis janvier.",
+            "L'indice global traite à un multiple cours sur bénéfices prévisionnel de 23x, bien au-dessus de sa moyenne historique de 18x : le marché dans l'ensemble est cher.",
+            "Mais la moyenne cache des écarts énormes : certaines actions de qualité dans notre screener affichent encore des valorisations P/FCF (prix divisé par le cash généré) en dessous de leurs niveaux historiques.",
+            "Qualys (QLYS) par exemple : son ratio EV/FCF est à 12x en juin 2026, contre une médiane historique sur 10 ans de 25x. Soit 51% en dessous de sa propre moyenne.",
+            "Un indice record ne signifie pas que tout est cher. Il signifie que les actifs les plus en vue ont été achetés massivement.",
+          ],
+        },
+        { type: 'h2', text: "Le contexte : un S&P 500 à 7 609 points" },
+        {
+          type: 'p',
+          text: "Le 2 juin 2026, le S&P 500 a clôturé pour la première fois de son histoire au-dessus de 7 600 points, à 7 609 exactement. C'était le 24e record historique de l'année, et l'indice affichait une progression de 10% depuis le 1er janvier. Le moteur principal : les valeurs technologiques liées à l'IA, portées par de bons résultats d'entreprises comme Hewlett Packard Enterprise et des annonces enthousiastes sur les infrastructures d'intelligence artificielle.",
+        },
+        {
+          type: 'p',
+          text: "La question que je me pose immédiatement quand je vois un tel record : est-ce que mes dossiers ont suivi ? Pas tous. Et c'est exactement là que réside l'opportunité.",
+        },
+        { type: 'h2', text: "Un indice record ne veut pas dire que tout est cher" },
+        {
+          type: 'p',
+          text: "Le S&P 500 est une moyenne pondérée par la capitalisation boursière. Quelques géants technologiques (Nvidia, Microsoft, Apple, Amazon) représentent à eux seuls une part énorme de l'indice. Quand ces géants montent, l'indice monte. Mais des centaines d'autres entreprises de qualité, moins médiatiques, moins présentes dans les portefeuilles passifs des ETF, peuvent ne pas avoir bougé autant.",
+        },
+        {
+          type: 'p',
+          text: "La valorisation globale du marché, mesurée par le ratio cours/bénéfices prévisionnel, est à 23x contre une moyenne historique de 18x. C'est élevé. Mais c'est la moyenne. Certains secteurs et certaines entreprises spécifiques peuvent encore traiter à des multiples raisonnables ou même bas par rapport à leur propre historique.",
+        },
+        { type: 'h2', text: "Des dossiers de qualité qui n'ont pas suivi : ce que montrent les chiffres" },
+        {
+          type: 'p',
+          text: "Dans notre screener, la note /10 mesure la qualité intrinsèque d'un business : ses marges de FCF (la proportion des revenus qui se transforme vraiment en cash), sa croissance, son endettement, son rendement du capital. Elle ne mesure pas la popularité de l'action sur les marchés. Une entreprise peut être notée 10/10 depuis trois ans et n'avoir que peu progressé en bourse si elle est peu connue, peu suivie par les analystes, ou sur un secteur momentanément délaissé.",
+        },
+        {
+          type: 'p',
+          text: "L'exemple le plus frappant que j'observe en juin 2026 est Qualys (QLYS). C'est une entreprise de cybersécurité qui génère un FCF par action de 8,05 dollars. Son action cote autour de 112 dollars. Cela donne un ratio EV/FCF de 12x : tu paies en bourse l'équivalent de 12 années de cash généré. La médiane historique sur 10 ans de ce même ratio pour cette entreprise est de 25x. Qualys est donc aujourd'hui à une valorisation 51% en dessous de sa propre moyenne historique, alors même que le S&P 500 bat des records.",
+        },
+        {
+          type: 'p',
+          text: "Autre exemple : Napco Security Technologies (NSSC), notée 10/10 dans notre screener. L'entreprise affiche une marge de FCF de 30%, une croissance de revenus de 11,8% au dernier trimestre (Q3 2026, mars 2026), et un P/FCF autour de 23x. Ce n'est pas donné, mais c'est cohérent avec la qualité du dossier et inférieur à son propre pic historique des années 2022-2023.",
+        },
+        { type: 'h2', text: "La divergence entre qualité et valorisation marché" },
+        {
+          type: 'p',
+          text: "Ce phénomène illustre exactement pourquoi je sépare systématiquement la qualité du prix. Le marché achète des thèmes (l'IA, la technologie, la consommation américaine) en masse. Il délaisse tout ce qui n'entre pas dans ces narratifs du moment. Une entreprise de cybersécurité rentable mais discrète, ou un fabricant de systèmes de sécurité physique en croissance modérée, n'attire pas les flux spéculatifs.",
+        },
+        {
+          type: 'p',
+          text: "C'est une source de tension permanente pour l'investisseur fondamental. Voir le marché monter sans son dossier préféré est inconfortable. Mais c'est aussi le signal que la divergence entre qualité et valorisation reste intacte, et que le potentiel de revalorisation existe.",
+        },
+        { type: 'h2', text: "Ce que le record du S&P 500 dit sur notre méthode" },
+        {
+          type: 'p',
+          text: "Notre méthode est conçue précisément pour ces moments. Elle ne cherche pas à suivre l'indice : elle cherche à trouver des entreprises excellentes à un prix raisonnable, indépendamment du bruit macro. Un S&P 500 à 7 609 ne nous dit pas que Qualys à 12x son FCF est cher. Il nous dit que le marché dans l'ensemble a été acheté massivement, mais que l'allocation de capital reste inégale.",
+        },
+        {
+          type: 'p',
+          text: "La vraie question n'est pas 'est-ce que le marché est cher ?' mais 'est-ce que MON dossier est cher ?'. Pour répondre à cette question, il faut un outil qui analyse chaque action individuellement. C'est pour ça que j'ai construit notre screener : pour répondre à cette question en quelques secondes, pour n'importe quelle action de notre univers.",
+        },
+      ],
+      faq: [
+        {
+          q: "Le S&P 500 à 7 609 points signifie-t-il qu'il faut vendre ?",
+          a: "Non nécessairement. Un indice élevé reflète la valorisation moyenne du marché, pas celle de chaque action. Notre méthode regarde chaque dossier individuellement. Certaines entreprises de qualité restent sous-valorisées par rapport à leur propre historique, même quand l'indice bat des records. Ceci n'est pas un conseil d'investissement.",
+        },
+        {
+          q: "Comment comparer la valorisation d'une action à son propre historique ?",
+          a: "Je regarde le P/FCF actuel (prix divisé par le cash généré) et je le compare à la médiane historique sur 5 ou 10 ans. Si le P/FCF actuel est très en dessous de sa propre médiane, l'action est bon marché par rapport à ce que le marché a accepté de payer par le passé.",
+        },
+        {
+          q: "Les actions notées 10/10 sont-elles automatiquement des bonnes affaires ?",
+          a: "Non. Une note de 10/10 mesure la qualité du business, pas son prix. Une entreprise peut être excellente et se traiter à un P/FCF très élevé, ce qui la rend chère. Notre méthode sépare toujours les deux : qualité d'abord, prix ensuite.",
+        },
+        {
+          q: "Qu'est-ce que le ratio EV/FCF mentionné pour Qualys ?",
+          a: "L'EV/FCF (Enterprise Value sur Free Cash Flow) est une variante du P/FCF qui tient compte de la dette et du cash de l'entreprise pour donner une image plus précise de ce que l'acheteur paie vraiment. Pour une entreprise peu endettée comme Qualys, l'EV/FCF de 12x est très proche du P/FCF.",
+        },
+        {
+          q: "Pourquoi le marché peut-il délaisser des entreprises de qualité ?",
+          a: "Le marché achète souvent des thèmes en masse (IA, semi-conducteurs, consommation) et délaisse ce qui ne rentre pas dans le narratif du moment. Une entreprise excellente mais dans un secteur peu à la mode peut stagner pendant des mois ou des années. C'est inconfortable mais c'est une opportunité pour l'investisseur fondamental qui pense à long terme.",
+        },
+      ],
+      tags: ['S&P 500', 'record bourse juin 2026', 'actions sous-valorisées', 'Qualys QLYS', 'NSSC Napco', 'valorisation actions', 'méthode investissement'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'S&P 500 record June 2026: are the best quality stocks still cheap?',
+      excerpt: "The S&P 500 crossed 7,600 points in early June 2026, its 24th all-time high of the year. But not all top-quality stocks in our screener followed this rally. Some remain undervalued.",
+      metaDescription: "S&P 500 at 7,609 in June 2026: do top-rated stocks in our screener remain undervalued despite the market rally? Analysis with real valuation data.",
+      answer: "The S&P 500 closed above 7,600 points for the first time on June 2, 2026. But a rising index tells you nothing about individual stocks. Some companies rated 10/10 in our screener did not participate in this rally and remain at low valuations. Quality and price are two separate things.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "The S&P 500 closed above 7,600 for the first time on June 2, 2026, at exactly 7,609: its 24th all-time high of the year, up 10% since January.",
+            "The broad market trades at a forward P/E of 23x, well above its historical average of 18x: the market as a whole is expensive.",
+            "But the average hides enormous dispersion: some quality stocks in our screener still trade at P/FCF levels below their own historical averages.",
+            "Qualys (QLYS) for example: its EV/FCF ratio is at 12x in June 2026, versus a 10-year median of 25x. That is 51% below its own historical average.",
+            "A record index does not mean everything is expensive. It means the most visible assets have been bought massively.",
+          ],
+        },
+        { type: 'h2', text: "The context: an S&P 500 at 7,609 points" },
+        {
+          type: 'p',
+          text: "On June 2, 2026, the S&P 500 closed above 7,600 for the first time in its history, at exactly 7,609. That was the 24th all-time high of the year, with the index up 10% since January 1. The main driver: AI-linked technology stocks, carried by strong results from companies like Hewlett Packard Enterprise and enthusiastic announcements on artificial intelligence infrastructure.",
+        },
+        {
+          type: 'p',
+          text: "The question I ask immediately when I see such a record: did my files keep up? Not all of them. And that is exactly where the opportunity lies.",
+        },
+        { type: 'h2', text: "A record index does not mean everything is expensive" },
+        {
+          type: 'p',
+          text: "The S&P 500 is a market-cap-weighted average. A handful of tech giants (Nvidia, Microsoft, Apple, Amazon) represent an enormous share of the index on their own. When these giants rise, the index rises. But hundreds of other quality companies, less covered, less present in passive ETF portfolios, may not have moved as much.",
+        },
+        {
+          type: 'p',
+          text: "The overall market valuation, measured by the forward P/E ratio, stands at 23x against a historical average of 18x. That is elevated. But it is an average. Specific sectors and companies can still trade at reasonable or even low multiples relative to their own history.",
+        },
+        { type: 'h2', text: "Top-quality stocks that did not follow: what the numbers show" },
+        {
+          type: 'p',
+          text: "The most striking example I observe in June 2026 is Qualys (QLYS). It is a cybersecurity company that generates FCF per share of 8.05 dollars. Its stock trades around 112 dollars. That gives an EV/FCF ratio of 12x: you are paying in the market the equivalent of 12 years of generated cash. The 10-year historical median for this same ratio for this company is 25x. Qualys is therefore today at a valuation 51% below its own historical average, even as the S&P 500 hits records.",
+        },
+        {
+          type: 'p',
+          text: "Another example: Napco Security Technologies (NSSC), rated 10/10 in our screener. The company has an FCF margin of 30%, revenue growth of 11.8% last quarter (Q3 2026, March 2026), and a P/FCF around 23x. That is not cheap, but it is consistent with the quality of the file, and below its own historical peak from 2022-2023.",
+        },
+        { type: 'h2', text: "The divergence between quality and market valuation" },
+        {
+          type: 'p',
+          text: "This phenomenon illustrates exactly why I systematically separate quality from price. The market buys themes (AI, technology, US consumption) en masse. It neglects everything that does not fit the current narrative. A profitable but discreet cybersecurity company, or a physical security systems manufacturer with moderate growth, does not attract speculative flows.",
+        },
+        { type: 'h2', text: "What the S&P 500 record says about our method" },
+        {
+          type: 'p',
+          text: "Our method is designed precisely for these moments. It does not try to follow the index: it tries to find excellent companies at a reasonable price, regardless of macro noise. An S&P 500 at 7,609 does not tell us that Qualys at 12x its FCF is expensive. It tells us the market as a whole has been bought massively, but capital allocation remains uneven.",
+        },
+        {
+          type: 'p',
+          text: "The real question is not whether the market is expensive. It is whether MY file is expensive. To answer that question, you need a tool that analyzes each stock individually. That is what I built our screener for.",
+        },
+      ],
+      faq: [
+        {
+          q: "Does the S&P 500 at 7,609 mean you should sell?",
+          a: "Not necessarily. A high index reflects average market valuation, not the valuation of each stock. Our method looks at each file individually. Some quality companies remain undervalued relative to their own history, even when the index hits records. This is not investment advice.",
+        },
+        {
+          q: "How do you compare a stock's valuation to its own history?",
+          a: "I look at the current P/FCF (price divided by cash generated) and compare it to the 5 or 10 year historical median. If the current P/FCF is well below its own median, the stock is cheap relative to what the market was willing to pay in the past.",
+        },
+        {
+          q: "Are 10/10-rated stocks automatically good deals?",
+          a: "No. A 10/10 score measures business quality, not price. A company can be excellent and trade at a very high P/FCF, making it expensive. Our method always separates the two: quality first, price second.",
+        },
+        {
+          q: "What is the EV/FCF ratio mentioned for Qualys?",
+          a: "EV/FCF (Enterprise Value to Free Cash Flow) is a variant of P/FCF that accounts for the company's debt and cash to give a more precise picture of what the buyer is really paying. For a company like Qualys that carries little debt, the EV/FCF of 12x is very close to P/FCF.",
+        },
+        {
+          q: "Why can the market neglect quality companies?",
+          a: "The market often buys themes en masse (AI, semiconductors, consumption) and neglects what does not fit the current narrative. An excellent company in an unfashionable sector can stagnate for months or years. That is uncomfortable, but it is an opportunity for the fundamental investor thinking long-term.",
+        },
+      ],
+      tags: ['S&P 500', 'stock market record June 2026', 'undervalued stocks', 'Qualys QLYS', 'NSSC Napco', 'stock valuation', 'investment method'],
+      disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date. Do your own research before investing.",
+    },
+    es: {
+      title: 'S&P 500 récord junio 2026: las mejores acciones, ¿aún baratas?',
+      excerpt: "El S&P 500 superó los 7.600 puntos a principios de junio de 2026, su 24º máximo histórico del año. Pero no todas las acciones de calidad de nuestro screener siguieron esta subida. Algunas siguen infravaloradas.",
+      metaDescription: "S&P 500 en 7.609 puntos en junio 2026: las acciones de mayor calidad de nuestro screener, ¿siguen infravaloradas pese al rally del mercado? Análisis con datos reales.",
+      answer: "El S&P 500 cerró por encima de 7.600 puntos por primera vez el 2 de junio de 2026. Pero un índice en máximos no dice nada sobre las acciones individuales. Algunas empresas con la máxima calificación en nuestro screener no participaron en este rally y siguen a valoraciones bajas. Calidad y precio son dos cosas distintas.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "El S&P 500 cerró por encima de 7.600 puntos por primera vez el 2 de junio de 2026, exactamente en 7.609: su 24º máximo histórico del año, con una subida del 10% desde enero.",
+            "El mercado en su conjunto cotiza a un PER futuro de 23x, muy por encima de su media histórica de 18x: el mercado en general está caro.",
+            "Pero la media oculta una dispersión enorme: algunas acciones de calidad en nuestro screener siguen cotizando con P/FCF (precio dividido entre el efectivo generado) por debajo de sus propias medias históricas.",
+            "Qualys (QLYS), por ejemplo: su ratio EV/FCF está en 12x en junio de 2026, frente a una mediana histórica de 10 años de 25x. Es decir, un 51% por debajo de su propia media.",
+            "Un índice récord no significa que todo esté caro. Significa que los activos más visibles han sido comprados masivamente.",
+          ],
+        },
+        { type: 'h2', text: "El contexto: un S&P 500 en 7.609 puntos" },
+        {
+          type: 'p',
+          text: "El 2 de junio de 2026, el S&P 500 cerró por encima de 7.600 puntos por primera vez en su historia, exactamente en 7.609. Fue el 24º máximo histórico del año, con el índice subiendo un 10% desde el 1 de enero. El motor principal: los valores tecnológicos vinculados a la IA, impulsados por buenos resultados de empresas como Hewlett Packard Enterprise.",
+        },
+        { type: 'h2', text: "Un índice récord no significa que todo esté caro" },
+        {
+          type: 'p',
+          text: "El S&P 500 es una media ponderada por capitalización bursátil. Unos pocos gigantes tecnológicos (Nvidia, Microsoft, Apple, Amazon) representan por sí solos una parte enorme del índice. Cuando estos gigantes suben, el índice sube. Pero cientos de otras empresas de calidad, menos cubiertas, menos presentes en las carteras pasivas de ETF, pueden no haber subido tanto.",
+        },
+        { type: 'h2', text: "Acciones con máxima calificación que no siguieron la subida" },
+        {
+          type: 'p',
+          text: "El ejemplo más llamativo que observo en junio de 2026 es Qualys (QLYS). Es una empresa de ciberseguridad que genera un FCF por acción de 8,05 dólares. Su acción cotiza alrededor de 112 dólares. Eso da un ratio EV/FCF de 12x: estás pagando en bolsa el equivalente de 12 años de efectivo generado. La mediana histórica a 10 años de ese mismo ratio para esta empresa es de 25x. Qualys está hoy a una valoración un 51% por debajo de su propia media histórica, incluso cuando el S&P 500 marca récords.",
+        },
+        {
+          type: 'p',
+          text: "Otro ejemplo: Napco Security Technologies (NSSC), con la máxima calificación en nuestro screener. La empresa tiene un margen de FCF del 30%, un crecimiento de ingresos del 11,8% en el último trimestre (Q3 2026, marzo 2026) y un P/FCF de alrededor de 23x, por debajo de su propio pico histórico de 2022-2023.",
+        },
+        { type: 'h2', text: "La divergencia entre calidad y valoración: cómo la interpreto" },
+        {
+          type: 'p',
+          text: "Este fenómeno ilustra exactamente por qué separo sistemáticamente la calidad del precio. El mercado compra temas (IA, tecnología, consumo americano) en masa. Ignora todo lo que no encaja en el narrativo del momento.",
+        },
+        { type: 'h2', text: "Lo que el récord del S&P 500 dice sobre nuestro método" },
+        {
+          type: 'p',
+          text: "La verdadera pregunta no es si el mercado está caro. Es si MI expediente está caro. Para responder a esa pregunta necesitas una herramienta que analice cada acción individualmente. Para eso construí nuestro screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "El S&P 500 en 7.609 puntos significa que hay que vender?",
+          a: "No necesariamente. Un índice alto refleja la valoración media del mercado, no la de cada acción. Nuestro método analiza cada expediente individualmente. Algunas empresas de calidad siguen infravaloradas respecto a su propio historial, incluso cuando el índice marca récords. Esto no es un consejo de inversión.",
+        },
+        {
+          q: "Cómo comparar la valoración de una acción con su propio historial?",
+          a: "Miro el P/FCF actual (precio dividido entre el efectivo generado) y lo comparo con la mediana histórica a 5 o 10 años. Si el P/FCF actual está muy por debajo de su propia mediana, la acción está barata respecto a lo que el mercado estuvo dispuesto a pagar en el pasado.",
+        },
+        {
+          q: "Las acciones con calificación máxima son automáticamente buenas oportunidades?",
+          a: "No. Una calificación máxima mide la calidad del negocio, no su precio. Una empresa puede ser excelente y cotizar con un P/FCF muy alto, lo que la hace cara. Nuestro método siempre separa ambas cosas: calidad primero, precio después.",
+        },
+        {
+          q: "Qué es el ratio EV/FCF mencionado para Qualys?",
+          a: "El EV/FCF (Enterprise Value sobre Free Cash Flow) es una variante del P/FCF que tiene en cuenta la deuda y el efectivo de la empresa. Para Qualys, que tiene poca deuda, el EV/FCF de 12x es muy próximo al P/FCF.",
+        },
+        {
+          q: "Por qué el mercado puede ignorar empresas de calidad?",
+          a: "El mercado compra a menudo temas en masa (IA, semiconductores, consumo) e ignora lo que no encaja en el narrativo del momento. Una empresa excelente en un sector poco de moda puede estancarse durante meses o años. Eso es incómodo, pero es una oportunidad para el inversor fundamental a largo plazo.",
+        },
+      ],
+      tags: ['S&P 500', 'récord bolsa junio 2026', 'acciones infravaloradas', 'Qualys QLYS', 'NSSC Napco', 'valoración acciones', 'método inversión'],
+      disclaimer: "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación. Haz tu propia investigación antes de invertir.",
+    },
+  },
+};
+
+const pfcfEleve: Article = {
+  slug: 'pfcf-eleve-quand-payer-20-fois-qualite',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: 'Valorisation élevée : quand payer 20x une action de qualité ?',
+      excerpt: "Payer 20 fois le cash généré par une entreprise semble cher. Mais certains dossiers de qualité justifient ce multiple. Voici comment je distingue un P/FCF élevé justifié d'un piège de valorisation.",
+      metaDescription: "Quand est-il justifié de payer 20x le free cash flow d'une action de qualité ? NSSC 23x, PCTY 17x, QLYS 12x : analyse des conditions qui rendent un multiple élevé acceptable.",
+      answer: "Un P/FCF (prix divisé par le cash annuel généré) de 20x n'est pas automatiquement cher. Cela dépend de trois facteurs : la croissance attendue du FCF, la visibilité des revenus (récurrents ou non), et la solidité du moat (avantage concurrentiel). Une entreprise dont le FCF croît de 15% par an justifie un multiple plus élevé qu'une entreprise stagnante.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Le P/FCF (price-to-free-cash-flow) mesure combien d'années de cash tu paies aujourd'hui : un P/FCF de 20x signifie que tu paies l'équivalent de 20 ans de free cash flow actuel.",
+            "Un P/FCF élevé n'est pas un problème en soi : il l'est uniquement si le FCF ne croît pas assez vite pour le justifier.",
+            "La visibilité des revenus joue énormément : un SaaS à revenus récurrents justifie un multiple plus élevé qu'un fabricant à revenus cycliques.",
+            "NSSC (Napco Security Technologies) : P/FCF de 23x, FCF margin de 30%, croissance 11,8%, revenus récurrents en hausse de 15,4%. Le multiple est soutenu par la qualité.",
+            "La différence entre un multiple élevé justifié et un piège : la croissance du FCF doit être réelle, visible et durable.",
+          ],
+        },
+        { type: 'h2', text: "Le P/FCF : ce que ce chiffre dit vraiment" },
+        {
+          type: 'p',
+          text: "Je commence toujours par expliquer ce ratio, parce que mal lu, il induit en erreur. Le P/FCF (price-to-free-cash-flow), c'est le prix que tu paies pour l'action divisé par le free cash flow que l'entreprise génère chaque année. Le FCF, c'est l'argent qui reste vraiment dans les caisses après que l'entreprise a payé toutes ses dépenses : salaires, fournisseurs, impôts, et aussi ses investissements dans ses propres outils (machines, logiciels, infrastructure). Ce n'est pas le bénéfice comptable. C'est le vrai cash.",
+        },
+        {
+          type: 'p',
+          text: "Un P/FCF de 10 veut dire : tu paies aujourd'hui l'équivalent de 10 années de ce cash. Un P/FCF de 20, c'est 20 années. Plus c'est élevé, plus tu paies cher, en apparence. Mais 'en apparence' est le mot clé.",
+        },
+        { type: 'h2', text: "Pourquoi un P/FCF de 20x peut être parfaitement justifié" },
+        {
+          type: 'p',
+          text: "Imagine une entreprise dont le FCF est de 100 euros cette année. Tu la paies 2 000 euros, soit un P/FCF de 20x. Ça semble cher. Mais si ce FCF croît de 15% par an, dans cinq ans il sera de 200 euros. Dans dix ans, de 400 euros. Rétrospectivement, tes 2 000 euros de départ auront été payés à 5x le FCF de l'année 10. Ce n'est plus cher du tout.",
+        },
+        {
+          type: 'p',
+          text: "C'est le premier facteur : la croissance attendue du FCF. Plus elle est forte et durable, plus un multiple élevé est justifié. Le second facteur est la visibilité. Un FCF garanti par des contrats pluriannuels ou des abonnements récurrents vaut plus qu'un FCF dépendant de commandes ponctuelles. Le troisième facteur est le moat : l'avantage concurrentiel, la barrière qui empêche un concurrent de venir prendre les clients de cette entreprise.",
+        },
+        { type: 'h2', text: "Trois exemples réels tirés de notre screener" },
+        {
+          type: 'p',
+          text: "Napco Security Technologies (NSSC) : cette entreprise fait des systèmes de sécurité physique (alarmes, contrôle d'accès) pour les bâtiments commerciaux et scolaires. Son P/FCF est d'environ 23x en juin 2026. Cher en apparence. Mais sa marge de FCF est de 30% (sur 100 euros de revenus, 30 finissent en cash), et ses revenus récurrents de services ont crû de 15,4% au dernier trimestre (Q3 2026, mars 2026). Le moat : une fois qu'un système Napco est installé dans une école ou un immeuble, le coût de remplacement est prohibitif. Les clients restent.",
+        },
+        {
+          type: 'p',
+          text: "Paylocity (PCTY) : logiciel RH et paie pour PME américaines. Son FCF pour les douze mois à mars 2026 s'élève à 421 millions de dollars, soit une marge de FCF de 24,4%. Le P/FCF tourne autour de 17,6x. Les revenus récurrents représentent la quasi-totalité du chiffre d'affaires (1,73 milliard de dollars annualisé). Le moat : changer de logiciel de paie est un projet long, risqué et coûteux pour une PME. Les taux de rétention dans ce secteur dépassent 90%.",
+        },
+        {
+          type: 'p',
+          text: "Qualys (QLYS) : cybersécurité. FCF par action de 8,05 dollars, cours autour de 112 dollars, soit un EV/FCF de 12x (51% en dessous de sa propre médiane historique de 25x). Là, ce n'est plus un P/FCF élevé : c'est un P/FCF bas, alors que la qualité est intacte. Un cas inverse à NSSC et PCTY, mais utile pour illustrer que dans notre univers de dossiers de qualité, les valorisations varient énormément.",
+        },
+        { type: 'h2', text: "La différence entre un P/FCF élevé justifié et un piège" },
+        {
+          type: 'p',
+          text: "Le piège classique : une entreprise affiche un P/FCF de 30x parce que son FCF est faible cette année. On se dit 'ça va croître' sans vérifier. Si le FCF ne s'améliore pas, le multiple reste insoutenable indéfiniment. J'ai appris à distinguer 'FCF temporairement déprimé parce que l'entreprise investit pour croître' (acceptable) de 'FCF structurellement bas parce que le business ne génère pas vraiment de cash' (un piège).",
+        },
+        {
+          type: 'p',
+          text: "Les signaux d'alarme : un FCF qui ne croît pas depuis trois ans malgré une bonne croissance de revenus (le cash est absorbé quelque part), une dette qui monte, des acquisitions répétées financées par émission d'actions (dilution des actionnaires), ou un capex (investissement) élevé et en hausse sans explication claire.",
+        },
+        { type: 'h2', text: "Les limites de la méthode : ce que le P/FCF ne dit pas" },
+        {
+          type: 'p',
+          text: "Le P/FCF est un outil puissant, mais il ne dit rien sur la durabilité du moat, sur la qualité du management, ou sur les risques réglementaires et concurrentiels. NSSC à 23x peut devenir une mauvaise affaire si un concurrent innove suffisamment pour rendre ses systèmes obsolètes. PCTY à 17x peut souffrir si une disruption technologique réduit les barrières à l'entrée dans son secteur.",
+        },
+        {
+          type: 'p',
+          text: "C'est pour ça que ma méthode note séparément la qualité (10 critères financiers) et le prix (P/FCF comparé à l'historique). Un P/FCF élevé n'est acceptable que si la note de qualité est elle-même élevée. Tu peux retrouver les P/FCF et notes de qualité actualisées de ces trois entreprises sur notre screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "Quel P/FCF est considéré comme normal ou raisonnable ?",
+          a: "Il n'existe pas de chiffre universel. Le marché américain global tourne autour de 20-25x FCF en 2026. Pour les entreprises SaaS ou logicielles à forte croissance, des P/FCF de 20-40x sont courants. Pour des entreprises industrielles ou cycliques, 10-15x est plus habituel. L'essentiel est de comparer le P/FCF actuel à la propre médiane historique de l'entreprise.",
+        },
+        {
+          q: "Comment calculer le P/FCF d'une action soi-même ?",
+          a: "P/FCF = capitalisation boursière (nombre d'actions fois le prix) divisée par le free cash flow annuel. Le FCF se trouve dans le tableau des flux de trésorerie du rapport annuel : prends le 'cash from operations' et soustrais le capex (purchases of property, plant and equipment).",
+        },
+        {
+          q: "Un P/FCF de 23x pour NSSC, c'est vraiment justifié ?",
+          a: "De mon point de vue oui, à condition que la croissance des revenus récurrents continue autour de 15% et que la marge de FCF reste au-dessus de 28%. Si la croissance ralentit à 5%, le multiple devrait se comprimer. C'est le risque principal à surveiller. Ce n'est pas un conseil d'investissement.",
+        },
+        {
+          q: "Quelle est la différence entre le bénéfice comptable et le free cash flow ?",
+          a: "Le bénéfice comptable peut être influencé par des choix d'amortissement, de provisions, de comptabilisation des revenus. Le FCF, lui, mesure les mouvements de trésorerie réels. Une entreprise peut afficher un bénéfice comptable positif tout en consommant du cash. Le FCF est plus difficile à manipuler : le cash est soit là, soit il ne l'est pas.",
+        },
+        {
+          q: "Comment utiliser notre méthode pour évaluer si un P/FCF élevé est justifié ?",
+          a: "Je commence par la note de qualité /10 : si elle est élevée (8 ou plus), le business génère durablement du FCF. Ensuite je regarde le taux de croissance historique du FCF sur 5 ans. Enfin je compare le P/FCF actuel à la médiane historique de l'entreprise. Si les trois sont favorables, un P/FCF de 20x peut être accepté.",
+        },
+      ],
+      tags: ['valorisation action', 'P/FCF élevé', 'NSSC Napco Security', 'PCTY Paylocity', 'QLYS Qualys', 'free cash flow', 'méthode investissement', 'moat avantage concurrentiel'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'High valuation: when is paying 20x a quality stock justified?',
+      excerpt: "Paying 20 times a company's generated cash looks expensive. But some quality files justify this multiple. Here is how I distinguish a justified high P/FCF from a valuation trap.",
+      metaDescription: "When is paying 20x free cash flow for a quality stock justified? NSSC 23x, PCTY 17x, QLYS 12x: analysis of the conditions that make a high multiple acceptable.",
+      answer: "A P/FCF (price divided by annual cash generated) of 20x is not automatically expensive. It depends on three factors: expected FCF growth, revenue visibility (recurring or not), and the strength of the moat (competitive advantage). A company whose FCF grows 15% per year justifies a higher multiple than a stagnating one.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "P/FCF measures how many years of cash you are paying today. A P/FCF of 20x means: you are paying the equivalent of 20 years of current free cash flow.",
+            "A high P/FCF is not a problem in itself: it is one only if FCF is not growing fast enough to justify it.",
+            "Revenue visibility matters enormously: a SaaS with recurring revenue justifies a higher multiple than a manufacturer with cyclical revenue.",
+            "NSSC (Napco Security Technologies): P/FCF of 23x, FCF margin of 30%, 11.8% revenue growth, recurring service revenue up 15.4%. The multiple is supported by quality.",
+            "The difference between a justified high multiple and a trap: FCF growth must be real, visible and durable.",
+          ],
+        },
+        { type: 'h2', text: "P/FCF: what this number really says" },
+        {
+          type: 'p',
+          text: "I always start by explaining this ratio, because misread it misleads. P/FCF (price-to-free-cash-flow) is the price you pay for the stock divided by the free cash flow (FCF) the company generates each year. FCF is the money that genuinely stays in the coffers after the company has paid all its expenses: salaries, suppliers, taxes, and also its investments in its own tools. This is not accounting profit. It is real cash.",
+        },
+        {
+          type: 'p',
+          text: "A P/FCF of 10 means: you are paying today the equivalent of 10 years of that cash. A P/FCF of 20, that is 20 years. The higher it is, the more you pay, apparently. But 'apparently' is the key word here.",
+        },
+        { type: 'h2', text: "Why a P/FCF of 20x can be perfectly justified" },
+        {
+          type: 'p',
+          text: "Imagine a company whose FCF is 100 euros this year. You pay 2,000 euros for it, a P/FCF of 20x. That seems expensive. But if this FCF grows 15% per year, in five years it will be 200 euros. In ten years, 400 euros. Retrospectively, your initial 2,000 euros will have been paid at 5x the FCF of year 10. That is no longer expensive at all.",
+        },
+        {
+          type: 'p',
+          text: "That is the first factor: expected FCF growth. The stronger and more durable it is, the more a high multiple is justified. The second factor is visibility. FCF guaranteed by multi-year contracts or recurring subscriptions is worth more than FCF dependent on one-off orders. The third factor is the moat: the competitive barrier that prevents a rival from taking this company's customers.",
+        },
+        { type: 'h2', text: "Three real examples from our screener" },
+        {
+          type: 'p',
+          text: "Napco Security Technologies (NSSC): this company makes physical security systems (alarms, access control) for commercial and school buildings. Its P/FCF is around 23x in June 2026. Expensive at first glance. But its FCF margin is 30%, and its recurring service revenues grew 15.4% last quarter (Q3 2026, March 2026). The moat: once a Napco system is installed in a school or a building, the replacement cost is prohibitive. Customers stay.",
+        },
+        {
+          type: 'p',
+          text: "Paylocity (PCTY): HR and payroll software for American SMBs. Its FCF for the twelve months to March 2026 amounts to 421 million dollars, an FCF margin of 24.4%. The P/FCF is around 17.6x. Recurring revenue represents nearly all of turnover (1.73 billion annualized). The moat: switching payroll software is a long, risky and costly project for an SMB. Retention rates in this sector exceed 90%.",
+        },
+        {
+          type: 'p',
+          text: "Qualys (QLYS): cybersecurity. FCF per share of 8.05 dollars, stock around 112 dollars, giving an EV/FCF of 12x (51% below its own historical median of 25x). Here, this is not a high P/FCF: it is a low one, while quality remains intact. An inverse case to NSSC and PCTY, but useful to illustrate that within our quality universe, valuations vary enormously.",
+        },
+        { type: 'h2', text: "The difference between a justified high P/FCF and a trap" },
+        {
+          type: 'p',
+          text: "The classic trap: a company shows a P/FCF of 30x because its FCF is weak this year. You tell yourself 'it will grow' without checking. If FCF does not improve, the multiple remains unsustainable indefinitely. I have learned to distinguish 'temporarily depressed FCF because the company is investing to grow' (acceptable) from 'structurally low FCF because the business does not genuinely generate cash' (a trap).",
+        },
+        { type: 'h2', text: "Limits of the method: what P/FCF does not tell you" },
+        {
+          type: 'p',
+          text: "P/FCF is a powerful tool, but it says nothing about the durability of the moat, management quality, or regulatory and competitive risks. That is why my method scores quality separately (10 financial criteria) from price (P/FCF compared to history). A high P/FCF is only acceptable if the quality score itself is high. You can find the updated P/FCF and quality scores for these three companies on our screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "What P/FCF is considered normal or reasonable?",
+          a: "There is no universal number. The broad US market runs around 20-25x FCF in 2026. For SaaS or high-growth software companies, P/FCF of 20-40x are common. For industrial or cyclical companies, 10-15x is more usual. The key is to compare the current P/FCF to the company's own historical median.",
+        },
+        {
+          q: "How do you calculate P/FCF yourself?",
+          a: "P/FCF = market cap (shares times price) divided by annual free cash flow. FCF is in the cash flow statement of the annual report: take 'cash from operations' and subtract capex (purchases of property, plant and equipment).",
+        },
+        {
+          q: "Is a P/FCF of 23x for NSSC really justified?",
+          a: "In my view yes, provided recurring revenue growth continues around 15% and the FCF margin stays above 28%. If growth slows to 5%, the multiple should compress. That is the main risk to watch. This is not investment advice.",
+        },
+        {
+          q: "What is the difference between accounting profit and free cash flow?",
+          a: "Accounting profit can be influenced by depreciation choices, provisions, revenue recognition. FCF measures actual cash movements. A company can show positive accounting profit while consuming cash. FCF is harder to manipulate: cash is either there or it is not.",
+        },
+        {
+          q: "How does our method evaluate whether a high P/FCF is justified?",
+          a: "I start with the quality score: if it is high (8 or above), the business durably generates FCF. Then I look at the historical FCF growth rate over 5 years. Finally I compare the current P/FCF to the company's historical median. If all three are favorable, a P/FCF of 20x can be accepted.",
+        },
+      ],
+      tags: ['stock valuation', 'high P/FCF', 'NSSC Napco Security', 'PCTY Paylocity', 'QLYS Qualys', 'free cash flow', 'investment method', 'moat competitive advantage'],
+      disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date. Do your own research before investing.",
+    },
+    es: {
+      title: 'Valoración alta: ¿cuándo pagar 20x una acción de calidad?',
+      excerpt: "Pagar 20 veces el efectivo generado por una empresa parece caro. Pero algunos expedientes de calidad justifican ese múltiplo. Así es como distingo un P/FCF alto justificado de una trampa de valoración.",
+      metaDescription: "Cuándo es justificado pagar 20x el free cash flow de una acción de calidad? NSSC 23x, PCTY 17x, QLYS 12x: análisis de las condiciones que hacen aceptable un múltiplo alto.",
+      answer: "Un P/FCF (precio dividido entre el efectivo anual generado) de 20x no es automáticamente caro. Depende de tres factores: el crecimiento esperado del FCF, la visibilidad de los ingresos (recurrentes o no) y la solidez del moat (ventaja competitiva). Una empresa cuyo FCF crece un 15% anual justifica un múltiplo más alto que una empresa estancada.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "El P/FCF (price-to-free-cash-flow) mide cuántos años de efectivo estás pagando hoy. Un P/FCF de 20x significa: pagas el equivalente de 20 años de free cash flow actual.",
+            "Un P/FCF alto no es un problema en sí mismo: lo es solo si el FCF no crece lo suficientemente rápido como para justificarlo.",
+            "La visibilidad de los ingresos importa mucho: un SaaS con ingresos recurrentes justifica un múltiplo más alto que un fabricante con ingresos cíclicos.",
+            "NSSC (Napco Security Technologies): P/FCF de 23x, margen FCF del 30%, crecimiento del 11,8%, ingresos recurrentes de servicios con alza del 15,4%. El múltiplo está respaldado por la calidad.",
+            "La diferencia entre un múltiplo alto justificado y una trampa: el crecimiento del FCF debe ser real, visible y duradero.",
+          ],
+        },
+        { type: 'h2', text: "El P/FCF: lo que este número dice realmente" },
+        {
+          type: 'p',
+          text: "Siempre empiezo explicando este ratio, porque mal leído induce a error. El P/FCF es el precio que pagas por la acción dividido entre el free cash flow que la empresa genera cada año. El FCF es el dinero que realmente queda en las arcas después de que la empresa ha pagado todos sus gastos: salarios, proveedores, impuestos, e inversiones en sus propias herramientas. No es el beneficio contable. Es el efectivo real.",
+        },
+        { type: 'h2', text: "Por qué un P/FCF de 20x puede estar perfectamente justificado" },
+        {
+          type: 'p',
+          text: "Imagina una empresa cuyo FCF es de 100 euros este año. La pagas 2.000 euros, un P/FCF de 20x. Parece caro. Pero si ese FCF crece un 15% anual, en cinco años será de 200 euros. En diez años, de 400 euros. Retrospectivamente, tus 2.000 euros iniciales habrán sido pagados a 5x el FCF del año 10. Ya no es caro en absoluto.",
+        },
+        { type: 'h2', text: "Tres ejemplos reales de nuestro screener" },
+        {
+          type: 'p',
+          text: "Napco Security Technologies (NSSC): esta empresa fabrica sistemas de seguridad física (alarmas, control de acceso) para edificios comerciales y escolares. Su P/FCF es de alrededor de 23x en junio de 2026. Caro a primera vista. Pero su margen de FCF es del 30%, y sus ingresos recurrentes de servicios crecieron un 15,4% en el último trimestre (Q3 2026, marzo 2026). El moat (la barrera que impide a un rival robar sus clientes): una vez instalado un sistema Napco en una escuela o un edificio, el coste de sustitución es prohibitivo.",
+        },
+        {
+          type: 'p',
+          text: "Paylocity (PCTY): software de RRHH y nóminas para pymes americanas. Su FCF para los doce meses hasta marzo de 2026 asciende a 421 millones de dólares, un margen de FCF del 24,4%. El P/FCF ronda los 17,6x. El moat: cambiar de software de nóminas es un proyecto largo, arriesgado y costoso para una pyme. Las tasas de retención en este sector superan el 90%.",
+        },
+        {
+          type: 'p',
+          text: "Qualys (QLYS): ciberseguridad. FCF por acción de 8,05 dólares, cotización alrededor de 112 dólares, lo que da un EV/FCF de 12x (un 51% por debajo de su propia mediana histórica de 25x). Aquí no es un P/FCF alto: es bajo, mientras la calidad permanece intacta.",
+        },
+        { type: 'h2', text: "La diferencia entre un P/FCF alto justificado y una trampa" },
+        {
+          type: 'p',
+          text: "La trampa clásica: una empresa muestra un P/FCF de 30x porque su FCF es débil este año. Te dices 'va a crecer' sin verificarlo. Si el FCF no mejora, el múltiplo sigue siendo insostenible indefinidamente. He aprendido a distinguir 'FCF temporalmente deprimido porque la empresa está invirtiendo para crecer' (aceptable) de 'FCF estructuralmente bajo porque el negocio no genera realmente efectivo' (una trampa).",
+        },
+        { type: 'h2', text: "Los límites del método: lo que el P/FCF no dice" },
+        {
+          type: 'p',
+          text: "El P/FCF es una herramienta poderosa, pero no dice nada sobre la durabilidad del moat, la calidad del equipo directivo, ni los riesgos regulatorios y competitivos. Por eso mi método puntúa por separado la calidad (10 criterios financieros) del precio (P/FCF comparado con el historial). Puedes consultar el P/FCF y las notas de calidad actualizadas de estas tres empresas en nuestro screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qué P/FCF se considera normal o razonable?",
+          a: "No hay un número universal. El mercado americano global ronda los 20-25x FCF en 2026. Para empresas SaaS o de software de alto crecimiento, P/FCF de 20-40x son habituales. Para empresas industriales o cíclicas, 10-15x es más usual. Lo esencial es comparar el P/FCF actual con la propia mediana histórica de la empresa.",
+        },
+        {
+          q: "Cómo calcular el P/FCF de una acción uno mismo?",
+          a: "P/FCF = capitalización bursátil (acciones por precio) dividida entre el free cash flow anual. El FCF se encuentra en el estado de flujos de caja del informe anual: toma el 'cash from operations' y resta el capex.",
+        },
+        {
+          q: "Un P/FCF de 23x para NSSC está realmente justificado?",
+          a: "Desde mi punto de vista sí, siempre que el crecimiento de los ingresos recurrentes continúe alrededor del 15% y el margen de FCF permanezca por encima del 28%. Si el crecimiento se desacelera al 5%, el múltiplo debería comprimirse. Ese es el principal riesgo a vigilar. No es un consejo de inversión.",
+        },
+        {
+          q: "Cuál es la diferencia entre el beneficio contable y el free cash flow?",
+          a: "El beneficio contable puede estar influenciado por elecciones de amortización, provisiones, reconocimiento de ingresos. El FCF mide los movimientos reales de tesorería. El FCF es más difícil de manipular: el efectivo o está o no está.",
+        },
+        {
+          q: "Cómo usa nuestro método para evaluar si un P/FCF alto está justificado?",
+          a: "Empiezo por la nota de calidad: si es alta (8 o más), el negocio genera FCF de forma duradera. Luego miro la tasa de crecimiento histórica del FCF a 5 años. Finalmente comparo el P/FCF actual con la mediana histórica de la empresa. Si los tres son favorables, un P/FCF de 20x puede aceptarse.",
+        },
+      ],
+      tags: ['valoración acción', 'P/FCF alto', 'NSSC Napco Security', 'PCTY Paylocity', 'QLYS Qualys', 'free cash flow', 'método inversión', 'moat ventaja competitiva'],
+      disclaimer: "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación. Haz tu propia investigación antes de invertir.",
+    },
+  },
+};
+
+const croissanceVsFcf: Article = {
+  slug: 'croissance-vs-fcf-methode-lubin-analyse',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: 'Croissance ou FCF : comment ma méthode tranche',
+      excerpt: "Croissance rapide ou free cash flow solide : faut-il choisir ? La plupart des investisseurs opposent ces deux critères. Ma méthode dit non : je veux les deux, mais si je dois choisir, le FCF prime toujours.",
+      metaDescription: "Croissance des revenus contre free cash flow : pourquoi ma méthode donne la priorité au FCF, comment repérer une croissance qui brûle du cash, avec des exemples réels.",
+      answer: "Une entreprise peut croître vite tout en détruisant de la valeur si elle brûle du cash pour y arriver. Et une entreprise peut croître modérément tout en étant une machine à cash exceptionnelle. Ma méthode veut les deux : croissance ET FCF solide. Mais quand il faut trancher, le FCF réel prime sur la croissance affichée.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "La croissance des revenus sans FCF solide est un signal d'alarme : l'entreprise grandit peut-être, mais elle ne génère pas de valeur réelle pour ses actionnaires.",
+            "Le FCF (free cash flow) est l'argent réellement disponible après toutes les dépenses, y compris les investissements. C'est lui qui finance les dividendes, les rachats d'actions, et la croissance future.",
+            "Ma méthode note les deux séparément : la croissance compte, mais la marge de FCF et le rendement du capital (Cash ROCE) comptent encore davantage.",
+            "Paylocity (PCTY) : 10,5% de croissance de revenus + marge FCF de 24,4%. C'est le profil idéal : croissance modérée mais cash réel et abondant.",
+            "Le FCF est plus difficile à manipuler que le bénéfice comptable. C'est pour ça que je m'y fie davantage.",
+          ],
+        },
+        { type: 'h2', text: "Le faux débat croissance contre value" },
+        {
+          type: 'p',
+          text: "Depuis des décennies, les analystes financiers opposent les 'growth stocks' (actions de croissance) aux 'value stocks' (actions bon marché). Les premières croissent vite mais sont chères. Les secondes sont bon marché mais stagnent. Ce débat m'a toujours semblé mal posé. Ce que je cherche, moi, c'est une entreprise qui croît ET qui génère du cash réel. Pas l'une ou l'autre : les deux.",
+        },
+        {
+          type: 'p',
+          text: "Mais quand les deux ne sont pas réunis dans le même dossier, je dois trancher. Et ma réponse est constante : le FCF prime. Toujours. Voici pourquoi.",
+        },
+        { type: 'h2', text: "Comment une entreprise peut croître sans générer de FCF" },
+        {
+          type: 'p',
+          text: "C'est le cas le plus dangereux, et le plus courant dans les secteurs technologiques à fort momentum. Une entreprise gagne 100 millions de revenus cette année, et 130 l'année prochaine. 30% de croissance, impressionnant. Mais pour y arriver, elle a dépensé 140 millions. Son FCF est négatif. Elle brûle du cash pour croître.",
+        },
+        {
+          type: 'p',
+          text: "Cette situation peut être temporaire et acceptable : une entreprise en phase de démarrage qui investit massivement pour conquérir un marché peut justifier un FCF négatif pendant quelques années, si la trajectoire est claire et si les fondamentaux unitaires (revenus par client, coût d'acquisition) sont sains. Mais si le FCF reste négatif ou très faible pendant cinq ans malgré une forte croissance des revenus, c'est que le modèle d'affaires ne convertit pas bien la croissance en valeur.",
+        },
+        {
+          type: 'p',
+          text: "J'ai vu beaucoup d'entreprises dans ce cas décrocher en bourse non pas lors d'un mauvais trimestre de revenus, mais lors du premier signe de ralentissement de la croissance. Parce que leur valeur boursière reposait entièrement sur la promesse de cette croissance future, et non sur un cash réel existant.",
+        },
+        { type: 'h2', text: "Comment une entreprise peut générer d'excellents FCF sans croissance explosive" },
+        {
+          type: 'p',
+          text: "C'est le profil que je préfère, souvent sous-estimé par le marché. Une entreprise qui croît à 8-12% par an de façon régulière, avec une marge de FCF élevée, est en réalité une machine à capitaliser. Paylocity (PCTY) en est l'exemple parfait en ce moment. Sa croissance de revenus est de 10,5% au dernier trimestre, ce n'est pas spectaculaire. Mais sa marge de FCF est de 24,4%. Sur 1,73 milliard de revenus annuels, 421 millions de dollars finissent en cash réel.",
+        },
+        {
+          type: 'p',
+          text: "C'est un profil qui ne fait pas les gros titres. Il ne fait pas rêver comme une entreprise à 50% de croissance annuelle. Mais il est beaucoup plus résilient : si la croissance ralentit un trimestre, le cash est toujours là. L'entreprise ne dépend pas d'une promesse. Elle a des faits.",
+        },
+        { type: 'h2', text: "Notre méthode : on veut les deux, mais le FCF prime" },
+        {
+          type: 'p',
+          text: "Dans les 10 critères de ma méthode, j'évalue la croissance des revenus et du FCF, mais aussi la marge de FCF et le Cash ROCE (rendement du capital employé mesuré en cash réel). Ce Cash ROCE est particulièrement révélateur : il mesure combien de cash l'entreprise génère pour chaque euro de capital investi dans le business.",
+        },
+        {
+          type: 'p',
+          text: "Pour qu'une action soit notée 8 ou plus sur 10 dans mon screener, elle doit montrer à la fois une croissance positive et un FCF solide. Mais si la croissance est faible et le FCF excellent, j'accepte quand même le dossier. Si la croissance est forte et le FCF négatif ou très faible, le dossier ne passe pas. Le FCF est non négociable.",
+        },
+        { type: 'h2', text: "Pourquoi le FCF est plus difficile à truquer que le bénéfice comptable" },
+        {
+          type: 'p',
+          text: "C'est la raison technique et la plus importante de ce choix. Le bénéfice comptable est influençable de nombreuses façons légales : tu choisis de capitaliser plutôt qu'amortir une dépense, tu constitues ou reprends des provisions, tu joues sur la reconnaissance des revenus dans le temps. Ces choix sont encadrés par les normes comptables mais laissent une latitude réelle.",
+        },
+        {
+          type: 'p',
+          text: "Le FCF, lui, mesure les flux de trésorerie réels. Le cash a quitté le compte en banque, ou il ne l'a pas quitté. Il est beaucoup plus difficile de maquiller ça sur plusieurs années. C'est pour ça que je regarde toujours le FCF sur au moins 5 ans, pas seulement le dernier trimestre.",
+        },
+        {
+          type: 'p',
+          text: "Si tu veux voir les entreprises de notre screener qui combinent croissance et FCF solide, avec leur note /10 et leur valorisation P/FCF actualisée, tu peux les consulter directement sur notre outil. C'est exactement le filtre que j'ai construit pour trier en quelques secondes les dossiers qui valent vraiment la peine d'être analysés plus en profondeur.",
+        },
+      ],
+      faq: [
+        {
+          q: "Une entreprise à forte croissance mais sans FCF peut-elle quand même être un bon investissement ?",
+          a: "Oui, dans des cas précis : phase de démarrage avec des fondamentaux unitaires sains et une trajectoire claire vers la rentabilité. Mais c'est un pari sur le futur, pas un investissement sur des faits présents. Ma méthode préfère les entreprises qui ont déjà démontré leur capacité à convertir la croissance en cash.",
+        },
+        {
+          q: "Quelle est la différence entre la marge de FCF et la marge bénéficiaire ?",
+          a: "La marge bénéficiaire mesure le bénéfice comptable par rapport aux revenus. La marge de FCF mesure le cash réellement généré par rapport aux revenus. Une entreprise peut avoir une marge bénéficiaire de 15% et une marge de FCF de 5% si elle investit beaucoup en capex. La marge de FCF est plus fiable.",
+        },
+        {
+          q: "Qu'est-ce que le Cash ROCE mentionné dans la méthode ?",
+          a: "Le Cash ROCE (Cash Return on Capital Employed) mesure combien de FCF l'entreprise génère pour chaque euro de capital investi dans le business. Un Cash ROCE de 30% signifie que pour 100 euros de capital investi, l'entreprise génère 30 euros de FCF chaque année. C'est un indicateur puissant de la qualité du modèle économique.",
+        },
+        {
+          q: "Pourquoi regarder le FCF sur 5 ans plutôt qu'un seul trimestre ?",
+          a: "Le FCF d'un seul trimestre peut être trompeur : une entreprise peut encaisser des paiements d'avance en fin d'année ou retarder des décaissements, gonflant artificiellement le FCF à court terme. Sur 5 ans, ces effets se lissent. On voit si le FCF est structurellement solide ou seulement ponctuel.",
+        },
+        {
+          q: "La croissance zéro est-elle rédhibitoire dans ta méthode ?",
+          a: "Pas automatiquement. Une entreprise sans croissance des revenus mais avec un FCF très élevé et une valorisation basse peut être une excellente opportunité. Ce que je refuse, c'est la croissance sans FCF. L'inverse (FCF sans croissance) est parfois très bien, selon la valorisation et la durabilité du business.",
+        },
+      ],
+      tags: ['croissance vs FCF', 'free cash flow', 'méthode investissement', 'Paylocity PCTY', 'Cash ROCE', 'marge FCF', 'analyse fondamentale'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Growth or FCF: how my investment method decides',
+      excerpt: "Fast growth or solid free cash flow: do you have to choose? Most investors pit these two criteria against each other. My method says no: I want both, but if I must choose, FCF always wins.",
+      metaDescription: "Revenue growth versus free cash flow: why my investment method prioritizes FCF, how to spot cash-burning growth, with real examples from our screener.",
+      answer: "A company can grow fast while destroying value if it burns cash to get there. And a company can grow moderately while being an exceptional cash machine. My method wants both: growth AND solid FCF. But when you have to choose, real FCF beats reported growth. Here is why, with concrete examples.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Revenue growth without solid FCF is a warning signal: the company may be expanding, but it is not creating real value for its shareholders.",
+            "FCF (free cash flow) is the money genuinely available after all expenses, including capital investment. It funds dividends, buybacks, and future growth.",
+            "My method scores both separately: growth matters, but FCF margin and capital return (Cash ROCE) matter even more.",
+            "Paylocity (PCTY): 10.5% revenue growth plus FCF margin of 24.4%. That is the ideal profile: moderate growth but real, abundant cash.",
+            "FCF is harder to manipulate than accounting profit. That is why I trust it more.",
+          ],
+        },
+        { type: 'h2', text: "The false debate: growth versus value" },
+        {
+          type: 'p',
+          text: "For decades, analysts have opposed growth stocks (expensive but growing fast) to value stocks (cheap but stagnating). This debate has always seemed poorly framed to me. What I look for is a company that grows AND generates real cash. Not one or the other: both.",
+        },
+        { type: 'h2', text: "How a company can grow without generating FCF" },
+        {
+          type: 'p',
+          text: "This is the most dangerous case, and the most common in high-momentum technology sectors. A company earns 100 million in revenue this year and 130 million next year. 30% growth, impressive. But to get there, it spent 140 million. Its FCF is negative. It is burning cash to grow.",
+        },
+        {
+          type: 'p',
+          text: "This situation can be temporary and acceptable: an early-stage company investing heavily to conquer a market can justify negative FCF for a few years, if the trajectory is clear and the unit economics (revenue per customer, acquisition cost) are sound. But if FCF remains negative or very low for five years despite strong revenue growth, the business model is not converting growth into value well.",
+        },
+        {
+          type: 'p',
+          text: "I have seen many companies in this situation collapse in the stock market not at a bad revenue quarter, but at the first sign of growth slowing. Because their stock market value rested entirely on the promise of that future growth, not on existing real cash.",
+        },
+        { type: 'h2', text: "How a company can generate excellent FCF without explosive growth" },
+        {
+          type: 'p',
+          text: "This is the profile I prefer, often underestimated by the market. Paylocity (PCTY) is the perfect example right now. Its revenue growth is 10.5% last quarter, not spectacular. But its FCF margin is 24.4%. Of 1.73 billion in annual revenue, 421 million dollars end up as real cash. That cash funds buybacks, product investment, and a competitive position of strength.",
+        },
+        { type: 'h2', text: "Our method: we want both, but FCF wins" },
+        {
+          type: 'p',
+          text: "In my method's 10 criteria, I evaluate both revenue and FCF growth, but also FCF margin and Cash ROCE (capital return measured in real cash). For a stock to score 8 or above out of 10 in my screener, it must show both positive growth and solid FCF. If growth is weak but FCF excellent, I still accept the file. If growth is strong but FCF negative or very weak, the file does not pass. FCF is non-negotiable.",
+        },
+        { type: 'h2', text: "Why FCF is harder to manipulate than accounting profit" },
+        {
+          type: 'p',
+          text: "This is the most important technical reason for this choice. Accounting profit can be influenced in many legal ways: you choose to capitalize rather than expense a cost, you build or release provisions, you play with revenue recognition timing. FCF measures actual cash flows. Cash left the bank account, or it did not. That is why I always look at FCF over at least 5 years, not just the latest quarter.",
+        },
+        {
+          type: 'p',
+          text: "If you want to see the companies in our screener that combine growth and solid FCF, with their quality score and updated P/FCF valuation, you can check them directly on our tool. That is exactly the filter I built to sort in seconds the files that are genuinely worth analyzing in more depth.",
+        },
+      ],
+      faq: [
+        {
+          q: "Can a high-growth company with no FCF still be a good investment?",
+          a: "Yes, in specific cases: early stage with sound unit economics and a clear path to profitability. But that is a bet on the future, not an investment in present facts. My method prefers companies that have already demonstrated their ability to convert growth into cash.",
+        },
+        {
+          q: "What is the difference between FCF margin and profit margin?",
+          a: "Profit margin measures accounting profit relative to revenue. FCF margin measures cash actually generated relative to revenue. A company can have a 15% profit margin and a 5% FCF margin if it invests heavily in capex. FCF margin is more reliable.",
+        },
+        {
+          q: "What is Cash ROCE mentioned in the method?",
+          a: "Cash ROCE (Cash Return on Capital Employed) measures how much FCF a company generates for each euro of capital invested in the business. A Cash ROCE of 30% means that for 100 euros of invested capital, the company generates 30 euros of FCF each year. It is a powerful indicator of business model quality.",
+        },
+        {
+          q: "Why look at FCF over 5 years rather than a single quarter?",
+          a: "A single quarter's FCF can be misleading: a company can collect advance payments at year-end or delay supplier payments, artificially inflating short-term FCF. Over 5 years, these effects smooth out. The trend is what matters.",
+        },
+        {
+          q: "Is zero growth a dealbreaker in your method?",
+          a: "Not automatically. A company with no revenue growth but very high FCF and a low valuation can be an excellent yield opportunity. What I refuse is growth without FCF. The reverse (FCF without growth) is sometimes very good, depending on valuation and business durability.",
+        },
+      ],
+      tags: ['growth vs FCF', 'free cash flow', 'investment method', 'Paylocity PCTY', 'Cash ROCE', 'FCF margin', 'fundamental analysis'],
+      disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date. Do your own research before investing.",
+    },
+    es: {
+      title: 'Crecimiento o FCF: cómo decide mi método de inversión',
+      excerpt: "Crecimiento rápido o free cash flow sólido: ¿hay que elegir? La mayoría de los inversores contraponen estos dos criterios. Mi método dice que no: quiero los dos, pero si tengo que elegir, el FCF siempre gana.",
+      metaDescription: "Crecimiento de ingresos frente a free cash flow: por qué mi método prioriza el FCF, cómo detectar un crecimiento que quema efectivo, con ejemplos reales de nuestro screener.",
+      answer: "Una empresa puede crecer rápido mientras destruye valor si quema efectivo para conseguirlo. Y una empresa puede crecer moderadamente mientras es una máquina excepcional de generación de efectivo. Mi método quiere los dos: crecimiento Y FCF sólido. Pero cuando hay que elegir, el FCF real prima sobre el crecimiento declarado.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "El crecimiento de ingresos sin FCF sólido es una señal de alarma: la empresa puede estar expandiéndose, pero no está creando valor real para sus accionistas.",
+            "El FCF (free cash flow) es el dinero genuinamente disponible después de todos los gastos, incluidas las inversiones. Es el que financia dividendos, recompras de acciones y el crecimiento futuro.",
+            "Mi método puntúa ambos por separado: el crecimiento importa, pero el margen de FCF y el rendimiento del capital (Cash ROCE) importan aún más.",
+            "Paylocity (PCTY): crecimiento de ingresos del 10,5% más margen FCF del 24,4%. Ese es el perfil ideal: crecimiento moderado pero efectivo real y abundante.",
+            "El FCF es más difícil de manipular que el beneficio contable. Por eso me fío más de él.",
+          ],
+        },
+        { type: 'h2', text: "El falso debate crecimiento contra valor" },
+        {
+          type: 'p',
+          text: "Durante décadas, los analistas han opuesto las growth stocks (caras pero de alto crecimiento) a las value stocks (baratas pero estancadas). Este debate siempre me ha parecido mal planteado. Lo que busco es una empresa que crezca Y genere efectivo real. No una u otra: las dos.",
+        },
+        { type: 'h2', text: "Cómo puede una empresa crecer sin generar FCF" },
+        {
+          type: 'p',
+          text: "Este es el caso más peligroso, y el más frecuente en los sectores tecnológicos con fuerte momentum. Una empresa gana 100 millones en ingresos este año y 130 el siguiente. Crecimiento del 30%, impresionante. Pero para lograrlo, gastó 140 millones. Su FCF es negativo. Está quemando efectivo para crecer.",
+        },
+        {
+          type: 'p',
+          text: "Esta situación puede ser temporal y aceptable: una empresa en fase inicial que invierte masivamente para conquistar un mercado puede justificar FCF negativo durante unos años, si la trayectoria es clara y los fundamentos unitarios son sanos. Pero si el FCF permanece negativo o muy bajo durante cinco años pese a un fuerte crecimiento de ingresos, el modelo de negocio no convierte bien el crecimiento en valor.",
+        },
+        { type: 'h2', text: "Cómo puede una empresa generar excelente FCF sin crecimiento explosivo" },
+        {
+          type: 'p',
+          text: "Paylocity (PCTY) es el ejemplo perfecto ahora mismo. Su crecimiento de ingresos es del 10,5% en el último trimestre, nada espectacular. Pero su margen de FCF es del 24,4%. De 1.730 millones de ingresos anuales, 421 millones de dólares terminan siendo efectivo real. Ese efectivo financia recompras de acciones, inversión en producto y una posición competitiva de fuerza.",
+        },
+        { type: 'h2', text: "Nuestro método: queremos los dos, pero el FCF gana" },
+        {
+          type: 'p',
+          text: "En los 10 criterios de mi método, evalúo tanto el crecimiento de ingresos como del FCF, pero también el margen de FCF y el Cash ROCE (rendimiento del capital empleado medido en efectivo real). Para que una acción obtenga 8 o más sobre 10 en mi screener, debe mostrar tanto crecimiento positivo como FCF sólido. Si el crecimiento es fuerte pero el FCF negativo o muy débil, el expediente no pasa. El FCF es innegociable.",
+        },
+        { type: 'h2', text: "Por qué el FCF es más difícil de manipular que el beneficio contable" },
+        {
+          type: 'p',
+          text: "El beneficio contable puede estar influenciado de muchas formas legales: eliges capitalizar en lugar de amortizar un gasto, constituyes o reviertes provisiones, juegas con el reconocimiento de ingresos en el tiempo. El FCF mide los flujos de tesorería reales. El efectivo salió de la cuenta bancaria, o no salió. Por eso siempre miro el FCF a lo largo de al menos 5 años.",
+        },
+        {
+          type: 'p',
+          text: "Si quieres ver las empresas de nuestro screener que combinan crecimiento y FCF sólido, con su nota de calidad y su valoración P/FCF actualizada, puedes consultarlas directamente en nuestra herramienta. Es exactamente el filtro que construí para clasificar en segundos los expedientes que realmente merecen analizarse con más profundidad.",
+        },
+      ],
+      faq: [
+        {
+          q: "Una empresa de alto crecimiento pero sin FCF puede seguir siendo una buena inversión?",
+          a: "Sí, en casos concretos: fase inicial con fundamentos unitarios sanos y una trayectoria clara hacia la rentabilidad. Pero eso es una apuesta sobre el futuro, no una inversión en hechos presentes. Mi método prefiere las empresas que ya han demostrado su capacidad para convertir el crecimiento en efectivo.",
+        },
+        {
+          q: "Cuál es la diferencia entre el margen de FCF y el margen de beneficio?",
+          a: "El margen de beneficio mide el beneficio contable respecto a los ingresos. El margen de FCF mide el efectivo realmente generado respecto a los ingresos. Una empresa puede tener un margen de beneficio del 15% y un margen de FCF del 5% si invierte mucho en capex. El margen de FCF es más fiable.",
+        },
+        {
+          q: "Qué es el Cash ROCE mencionado en el método?",
+          a: "El Cash ROCE (Cash Return on Capital Employed) mide cuánto FCF genera la empresa por cada euro de capital invertido en el negocio. Un Cash ROCE del 30% significa que por cada 100 euros de capital invertido, la empresa genera 30 euros de FCF al año. Es un indicador poderoso de la calidad del modelo de negocio.",
+        },
+        {
+          q: "Por qué mirar el FCF a 5 años en lugar de un solo trimestre?",
+          a: "El FCF de un solo trimestre puede ser engañoso: una empresa puede cobrar pagos anticipados a fin de año o retrasar pagos a proveedores, inflando artificialmente el FCF a corto plazo. A 5 años, estos efectos se nivelan. Lo que importa es la tendencia.",
+        },
+        {
+          q: "Crecimiento cero es descalificante en tu método?",
+          a: "No automáticamente. Una empresa sin crecimiento de ingresos pero con FCF muy alto y una valoración baja puede ser una excelente oportunidad de rentabilidad. Lo que rechazo es el crecimiento sin FCF. Lo contrario (FCF sin crecimiento) a veces es muy bueno, según la valoración y la durabilidad del negocio.",
+        },
+      ],
+      tags: ['crecimiento vs FCF', 'free cash flow', 'método inversión', 'Paylocity PCTY', 'Cash ROCE', 'margen FCF', 'análisis fundamental'],
+      disclaimer: "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación. Haz tu propia investigación antes de invertir.",
+    },
+  },
+};
+
+// ─── NEW ARTICLES 2026-06-16 ───────────────────────────────────────────────
+const oracleQ4FY26: Article = {
+  slug: 'oracle-orcl-q4-fy26-cloud-notre-analyse',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  ticker: 'ORCL',
+  content: {
+    fr: {
+      title: 'Oracle (ORCL) Q4 FY26 : cloud +47%, notre analyse',
+      excerpt: 'Oracle vient de publier des résultats record avec un cloud qui explose à +47%. Pourtant le titre a chuté de 10%. Je décortique ces chiffres avec ma méthode fondamentale.',
+      metaDescription: 'Oracle Q4 FY26 : revenus 19,2 Md$ (+21%), cloud +47%, IaaS +93%. Score 8/10 mais valorisation très tendue. Mon analyse fondamentale complète.',
+      answer: "Oracle a publié des résultats records en juin 2026 : 19,2 milliards de dollars de revenus au T4, cloud en hausse de 47%. Pourtant l'action a chuté de 10% dans la foulée. C'est le paradoxe classique du 'bon chiffre, mauvais marché' : les attentes étaient encore plus hautes. Mon analyse montre une belle entreprise, mais à un prix difficile à justifier.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "T4 FY26 : revenus 19,2 Md$ en hausse de 21%, cloud total 9,9 Md$ en hausse de 47% (chiffres Oracle, 10 juin 2026)",
+            "L'infrastructure cloud (IaaS) a bondi de 93% à 5,8 Md$ : Oracle devient un acteur sérieux face à AWS et Azure",
+            "Résultat net par action (BPA) non-GAAP à 2,11$, en hausse de 24%, cash d'exploitation annuel record à 32 Md$ (+54%)",
+            "Malgré ce beat, l'action a reculé de 10% : les attentes implicites du marché visaient encore plus haut",
+            "Ma note de qualité : 8/10. Mon indicateur de valorisation P/FCF pointe à 64x, bien au-dessus de mon seuil d'alerte"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "Ce que cachent les chiffres records"
+        },
+        {
+          type: 'p',
+          text: "Oracle a publié ses résultats du quatrième trimestre de son exercice fiscal 2026 le 10 juin. Sur le papier, tout est au vert : 19,2 milliards de dollars de revenus au T4, soit une progression de 21% sur un an. Sur l'année complète FY2026, les revenus atteignent 67,4 milliards, en hausse de 17%. La base de données multicloud alimentée par l'IA a cru de 404% au T4. Oracle l'appelle 'notre activité à la croissance la plus rapide jamais enregistrée'."
+        },
+        {
+          type: 'p',
+          text: "Alors pourquoi l'action a-t-elle perdu 10% le lendemain ? Parce que le marché boursier ne récompense pas les bons chiffres, il récompense les chiffres meilleurs qu'attendu. Les investisseurs avaient déjà intégré dans le cours une bonne partie de cette croissance. Quand les résultats arrivent sans surprise positive supplémentaire, la pression vendeuse prend le dessus. C'est le mécanisme du 'sell the news'."
+        },
+        {
+          type: 'h2',
+          text: "La qualité du business : une belle note, méritée"
+        },
+        {
+          type: 'p',
+          text: "Quand j'analyse une action, je commence toujours par évaluer la qualité du business indépendamment de son prix. Oracle obtient un 8/10 dans ma grille. Ce score agrège plusieurs critères : croissance des revenus (+10% par an sur 5 ans), progression du free cash flow par action (+12,8% par an), marge nette solide à 25,4%, et une capacité à transformer ses ventes en cash réel."
+        },
+        {
+          type: 'p',
+          text: "Le free cash flow, c'est le vrai indicateur de santé d'une entreprise. Il représente l'argent qui reste dans les caisses une fois que l'entreprise a tout payé : salaires, investissements, impôts. Sur FY2026, Oracle a généré 32 milliards de dollars de cash d'exploitation, un record absolu, en hausse de 54% en un an. C'est un signal fort."
+        },
+        {
+          type: 'p',
+          text: "Le moat d'Oracle, son avantage concurrentiel durable, repose sur quelque chose de très puissant : ses bases de données sont enfouies dans les systèmes critiques de milliers d'entreprises depuis des décennies. Les banques, les hôpitaux, les gouvernements ne migrent pas leurs données Oracle du jour au lendemain. Ce coût de migration énorme crée une barrière naturelle que les concurrents peinent à franchir."
+        },
+        {
+          type: 'h2',
+          text: "Le virage cloud : du retard rattrapé à la vitesse grand V"
+        },
+        {
+          type: 'p',
+          text: "Oracle était en retard sur le cloud face à AWS, Azure et Google Cloud. Mais les chiffres de ce trimestre montrent un rattrapage spectaculaire. L'infrastructure cloud (IaaS, c'est-à-dire les serveurs loués à distance) a bondi de 93% à 5,8 milliards de dollars au T4. Ce n'est plus un acteur de niche : Oracle est devenu le quatrième grand fournisseur cloud mondial."
+        },
+        {
+          type: 'p',
+          text: "Le moteur de cette accélération : l'IA. Microsoft, Amazon, Google et Meta ont besoin de capacités de calcul massives pour entraîner leurs modèles. Oracle a signé d'énormes contrats d'infrastructure avec ces géants, y compris via le projet Stargate aux États-Unis. Son carnet de commandes cloud dépasse aujourd'hui 130 milliards de dollars."
+        },
+        {
+          type: 'ul',
+          items: [
+            "Cloud total Q4 FY26 : 9,9 Md$ (+47%), dont IaaS 5,8 Md$ (+93%) et SaaS 4,1 Md$ (+10%)",
+            "Cloud annuel FY26 : 34 Md$ (+39%), IaaS annuel 18,1 Md$ (+77%)",
+            "Base de données multicloud IA : +404% au T4",
+            "Carnet de commandes cloud : plus de 130 Md$"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "La valorisation : le vrai problème"
+        },
+        {
+          type: 'p',
+          text: "Ma méthode sépare toujours deux questions : est-ce une bonne entreprise, et est-ce le bon prix ? Sur la qualité, j'ai répondu : 8/10, oui. Sur le prix, c'est une autre histoire."
+        },
+        {
+          type: 'p',
+          text: "Le P/FCF est mon indicateur principal de valorisation. C'est le prix de l'action divisé par le free cash flow annuel qu'elle génère par titre. Un P/FCF de 20, ça signifie que tu paies 20 années de ce cash. Plus ce chiffre est bas, moins l'action est chère. Oracle affiche aujourd'hui un P/FCF de 64x. C'est très élevé, même pour une entreprise en forte croissance. Mon seuil d'alerte personnel est à 25x. La surcote que j'estime atteint 63% par rapport à mon prix d'achat raisonnable de 70,54$, pour un cours actuel autour de 192$."
+        },
+        {
+          type: 'p',
+          text: "Est-ce justifié ? Si Oracle maintient sa trajectoire de croissance IaaS sur 3 à 5 ans, ce multiple peut se compresser naturellement. Mais c'est un pari sur l'avenir qui demande de la conviction. Un ralentissement du cloud, une perte de contrats majeurs, ou une récession tech suffirait à rendre cette valorisation intenable."
+        },
+        {
+          type: 'h2',
+          text: "Pourquoi le marché a vendu malgré le beat"
+        },
+        {
+          type: 'p',
+          text: "Trois raisons expliquent la chute de 10% post-résultats. D'abord, les anticipations étaient très hautes : certains analystes attendaient une croissance cloud encore plus forte. Ensuite, la marge FCF reste limitée à 13%, ce qui est modeste pour une entreprise de logiciels premium. Enfin, Oracle porte une dette significative, héritée des acquisitions passées, ce qui rend le cash disponible pour les actionnaires moins généreux qu'il n'y paraît."
+        },
+        {
+          type: 'p',
+          text: "La dilution légère des actions (+1,27% par an) et la conversion partielle des bénéfices en cash vrai sont aussi des points de vigilance dans ma grille. Un 8/10 ne signifie pas parfait : ça signifie solide, avec des nuances."
+        },
+        {
+          type: 'h2',
+          text: "Ce que j'en retiens pour ma grille qualité/valorisation"
+        },
+        {
+          type: 'p',
+          text: "Oracle est une belle entreprise en pleine transformation. Le virage cloud est réel, les chiffres le prouvent. Le moat sur les bases de données reste immense. Mais le prix actuel intègre déjà beaucoup d'optimisme. À 64x le free cash flow, le marché parie sur une décennie de croissance forte sans accroc."
+        },
+        {
+          type: 'p',
+          text: "C'est exactement le genre d'entreprise que je surveille, sans me précipiter. Une correction de marché, un trimestre décevant qui fait reculer le cours, et Oracle pourrait devenir une opportunité. D'ici là, je note le prix cible, et j'attends. Pour retrouver l'analyse complète avec tous les indicateurs mis à jour, tu peux consulter la fiche Oracle sur mon site d'investissement."
+        }
+      ],
+      faq: [
+        {
+          q: "Pourquoi l'action Oracle a-t-elle chuté après des résultats records ?",
+          a: "Le marché avait déjà anticipé de très bons résultats dans le cours. Quand les chiffres arrivent sans surprise positive supplémentaire par rapport aux attentes des analystes, les vendeurs prennent le dessus. C'est le mécanisme classique du 'sell the news' : on achetait la rumeur, on vend la réalité."
+        },
+        {
+          q: "Qu'est-ce que le P/FCF et pourquoi est-il important pour analyser Oracle ?",
+          a: "Le P/FCF (price-to-free-cash-flow) est le prix de l'action divisé par le free cash flow annuel par titre. Il mesure combien d'années de cash réel tu paies aujourd'hui. À 64x, Oracle est valorisée très haut : tu paies 64 ans de ce cash. Mon seuil personnel d'entrée est autour de 25x."
+        },
+        {
+          q: "Oracle est-il vraiment en train de devenir un acteur cloud majeur ?",
+          a: "Les chiffres de FY26 sont convaincants : infrastructure cloud à +93% au T4, carnet de commandes cloud dépassant 130 milliards. Oracle a signé de gros contrats avec Microsoft, Meta et Amazon pour l'IA. Le retard historique se comble vite, mais la concurrence d'AWS et Azure reste très forte."
+        },
+        {
+          q: "Faut-il acheter l'action Oracle aujourd'hui ?",
+          a: "Oracle est une entreprise de qualité solide (8/10 dans ma grille), mais sa valorisation actuelle est tendue à 64x le free cash flow, soit environ 63% au-dessus de mon prix cible. Ce n'est pas un conseil d'investissement : fais tes propres recherches et définis ton propre prix d'achat raisonnable."
+        },
+        {
+          q: "Qu'est-ce que le moat d'Oracle ?",
+          a: "Le moat, c'est l'avantage concurrentiel durable d'une entreprise, ce qui empêche ses rivaux de prendre sa place. Pour Oracle, c'est l'enracinement de ses bases de données dans les systèmes critiques (banques, hôpitaux, gouvernements) depuis des décennies. Migrer vers un concurrent coûte des millions et prend des années."
+        }
+      ],
+      tags: ['Oracle', 'ORCL', 'cloud', 'earnings', 'Q4 FY26', 'analyse fondamentale', 'IaaS', 'valorisation'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (16 juin 2026), susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement."
+    },
+    en: {
+      title: 'Oracle (ORCL) Q4 FY26: cloud +47%, our analysis',
+      excerpt: 'Oracle just posted record results with cloud exploding at +47%. Yet the stock dropped 10%. I break down these numbers using my fundamental method.',
+      metaDescription: 'Oracle Q4 FY26: revenue $19.2B (+21%), cloud +47%, IaaS +93%. Quality score 8/10 but stretched valuation. Full fundamental analysis.',
+      answer: "Oracle posted record results in June 2026: $19.2 billion in Q4 revenue, cloud up 47%. Yet the stock fell 10% the next day. This is the classic 'good numbers, bad market' paradox: expectations were even higher. My analysis shows a great business, but at a price that's hard to justify right now.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Q4 FY26: revenue $19.2B up 21%, total cloud $9.9B up 47% (Oracle earnings, June 10, 2026)",
+            "Cloud infrastructure (IaaS) surged 93% to $5.8B: Oracle is becoming a serious rival to AWS and Azure",
+            "Non-GAAP EPS at $2.11 up 24%, full-year operating cash flow record at $32B (+54%)",
+            "Despite this beat, the stock fell 10%: the market's implicit expectations were even higher",
+            "My quality score: 8/10. My valuation indicator P/FCF stands at 64x, well above my alert threshold"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "What the record numbers are hiding"
+        },
+        {
+          type: 'p',
+          text: "Oracle released its Q4 FY2026 results on June 10. On paper, everything looks green: $19.2 billion in Q4 revenue, up 21% year-over-year. For the full FY2026, revenues reach $67.4 billion, up 17%. The multicloud AI database grew 404% in Q4. Oracle calls it 'our fastest-growing business ever'."
+        },
+        {
+          type: 'p',
+          text: "So why did the stock drop 10% the day after? Because the stock market doesn't reward good numbers, it rewards numbers that beat expectations. Investors had already priced in much of this growth. When results arrive without an additional positive surprise, selling pressure takes over. This is the classic 'sell the news' mechanism."
+        },
+        {
+          type: 'h2',
+          text: "Business quality: a well-deserved high score"
+        },
+        {
+          type: 'p',
+          text: "When I analyze a stock, I always start by evaluating business quality independently of price. Oracle earns an 8/10 in my framework. This score aggregates several criteria: revenue growth (+10% per year over 5 years), free cash flow per share growth (+12.8% per year), solid net margin at 25.4%, and an ability to convert sales into real cash."
+        },
+        {
+          type: 'p',
+          text: "Free cash flow is the true indicator of a company's health. It represents the money left in the coffers after the company has paid everything: salaries, investments, taxes. For FY2026, Oracle generated $32 billion in operating cash, an all-time record, up 54% in one year. That's a strong signal."
+        },
+        {
+          type: 'p',
+          text: "Oracle's moat, its durable competitive advantage, rests on something very powerful: its databases are embedded in the critical systems of thousands of companies for decades. Banks, hospitals, governments don't migrate their Oracle data overnight. This enormous migration cost creates a natural barrier that competitors struggle to cross."
+        },
+        {
+          type: 'h2',
+          text: "The cloud pivot: catching up at full speed"
+        },
+        {
+          type: 'p',
+          text: "Oracle was behind on cloud vs. AWS, Azure and Google Cloud. But this quarter's numbers show a spectacular catch-up. Cloud infrastructure (IaaS, meaning remotely rented servers) jumped 93% to $5.8 billion in Q4. It's no longer a niche player: Oracle has become the fourth major global cloud provider."
+        },
+        {
+          type: 'p',
+          text: "The engine of this acceleration: AI. Microsoft, Amazon, Google and Meta need massive computing capacity to train their models. Oracle has signed huge infrastructure contracts with these giants, including through the Stargate project in the US. Its cloud backlog now exceeds $130 billion."
+        },
+        {
+          type: 'ul',
+          items: [
+            "Total cloud Q4 FY26: $9.9B (+47%), of which IaaS $5.8B (+93%) and SaaS $4.1B (+10%)",
+            "Annual cloud FY26: $34B (+39%), annual IaaS $18.1B (+77%)",
+            "Multicloud AI database: +404% in Q4",
+            "Cloud backlog: over $130B"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "Valuation: the real problem"
+        },
+        {
+          type: 'p',
+          text: "My method always separates two questions: is this a good business, and is this the right price? On quality, I've answered: 8/10, yes. On price, it's a different story."
+        },
+        {
+          type: 'p',
+          text: "P/FCF is my main valuation indicator. It's the stock price divided by the annual free cash flow it generates per share. A P/FCF of 20 means you're paying 20 years of that cash today. The lower this number, the cheaper the stock. Oracle currently shows a P/FCF of 64x. That's very high, even for a high-growth company. My personal alert threshold is 25x. The overvaluation I estimate reaches 63% versus my reasonable buy price of $70.54, against a current price around $192."
+        },
+        {
+          type: 'p',
+          text: "Is it justified? If Oracle maintains its IaaS growth trajectory over 3 to 5 years, this multiple could compress naturally. But that's a bet on the future that requires strong conviction. A cloud slowdown, loss of major contracts, or a tech recession would be enough to make this valuation untenable."
+        },
+        {
+          type: 'h2',
+          text: "Why the market sold despite the beat"
+        },
+        {
+          type: 'p',
+          text: "Three reasons explain the 10% post-results drop. First, expectations were very high: some analysts expected even stronger cloud growth. Second, the FCF margin remains limited at 13%, which is modest for a premium software company. Third, Oracle carries significant debt, inherited from past acquisitions, making the cash available to shareholders less generous than it appears."
+        },
+        {
+          type: 'p',
+          text: "Mild share dilution (+1.27% per year) and partial conversion of earnings into real cash are also watchpoints in my framework. An 8/10 doesn't mean perfect: it means solid, with nuances."
+        },
+        {
+          type: 'h2',
+          text: "What I take away for my quality/valuation framework"
+        },
+        {
+          type: 'p',
+          text: "Oracle is a great company in the middle of a transformation. The cloud pivot is real, the numbers prove it. The moat on databases remains immense. But the current price already prices in a lot of optimism. At 64x free cash flow, the market is betting on a decade of strong growth without a stumble."
+        },
+        {
+          type: 'p',
+          text: "This is exactly the kind of company I watch closely, without rushing. A market correction, a disappointing quarter that pulls the stock back, and Oracle could become an opportunity. Until then, I note the target price and wait. You can find the full updated analysis on the Oracle page of my investment site."
+        }
+      ],
+      faq: [
+        {
+          q: "Why did Oracle stock fall after record results?",
+          a: "The market had already priced in very good results. When the numbers arrive without an additional positive surprise vs. analyst expectations, sellers take over. This is the classic 'sell the news' mechanism: buy the rumor, sell the fact."
+        },
+        {
+          q: "What is P/FCF and why does it matter for analyzing Oracle?",
+          a: "P/FCF (price-to-free-cash-flow) is the stock price divided by the annual free cash flow per share. It measures how many years of real cash you're paying for today. At 64x, Oracle is valued very highly: you're paying 64 years of that cash. My personal entry threshold is around 25x."
+        },
+        {
+          q: "Is Oracle really becoming a major cloud player?",
+          a: "The FY26 numbers are convincing: cloud infrastructure at +93% in Q4, cloud backlog exceeding $130 billion. Oracle has signed big contracts with Microsoft, Meta and Amazon for AI. The historical lag is closing fast, but competition from AWS and Azure remains very strong."
+        },
+        {
+          q: "Should you buy Oracle stock today?",
+          a: "Oracle is a solid quality business (8/10 in my framework), but its current valuation is stretched at 64x free cash flow, roughly 63% above my target price. This is not investment advice: do your own research and define your own reasonable buy price."
+        },
+        {
+          q: "What is Oracle's moat?",
+          a: "A moat is a company's durable competitive advantage, what prevents rivals from taking its place. For Oracle, it's the embedding of its databases in critical systems (banks, hospitals, governments) for decades. Migrating to a competitor costs millions and takes years."
+        }
+      ],
+      tags: ['Oracle', 'ORCL', 'cloud', 'earnings', 'Q4 FY26', 'fundamental analysis', 'IaaS', 'valuation'],
+      disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of publication date (June 16, 2026), subject to change. Do your own research before any investment decision."
+    },
+    es: {
+      title: 'Oracle (ORCL) Q4 FY26: cloud +47%, nuestro análisis',
+      excerpt: 'Oracle acaba de publicar resultados récord con un cloud que explota al +47%. Sin embargo, la acción cayó un 10%. Analizo estas cifras con mi método fundamental.',
+      metaDescription: 'Oracle Q4 FY26: ingresos 19,2 Md$ (+21%), cloud +47%, IaaS +93%. Puntuación de calidad 8/10 pero valoración muy ajustada. Análisis fundamental completo.',
+      answer: "Oracle publicó resultados récord en junio de 2026: 19.200 millones de dólares de ingresos en el T4, cloud en alza del 47%. Sin embargo la acción cayó un 10% al día siguiente. Es la paradoja clásica del 'buenos números, mal mercado': las expectativas eran todavía más altas. Mi análisis revela una gran empresa, pero a un precio difícil de justificar.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "T4 FY26: ingresos 19.200 M$ en alza del 21%, cloud total 9.900 M$ en alza del 47% (resultados Oracle, 10 junio 2026)",
+            "La infraestructura cloud (IaaS) se disparó un 93% hasta 5.800 M$: Oracle se convierte en rival serio de AWS y Azure",
+            "BPA no-GAAP a 2,11$ en alza del 24%, flujo de caja operativo anual récord a 32.000 M$ (+54%)",
+            "A pesar de este beat, la acción retrocedió un 10%: las expectativas implícitas del mercado apuntaban aún más alto",
+            "Mi puntuación de calidad: 8/10. Mi indicador de valoración P/FCF se sitúa en 64x, muy por encima de mi umbral de alerta"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "Lo que ocultan las cifras récord"
+        },
+        {
+          type: 'p',
+          text: "Oracle publicó sus resultados del cuarto trimestre del ejercicio fiscal 2026 el 10 de junio. Sobre el papel, todo está en verde: 19.200 millones de dólares de ingresos en el T4, una progresión del 21% interanual. En el año completo FY2026, los ingresos alcanzan 67.400 millones, en alza del 17%. La base de datos multicloud impulsada por IA creció un 404% en el T4. Oracle la llama 'nuestro negocio de más rápido crecimiento jamás registrado'."
+        },
+        {
+          type: 'p',
+          text: "Entonces, ¿por qué la acción perdió un 10% al día siguiente? Porque el mercado no premia las buenas cifras, premia las cifras mejores de lo esperado. Los inversores ya habían incorporado gran parte de este crecimiento en el precio. Cuando los resultados llegan sin sorpresa positiva adicional, la presión vendedora toma el control. Es el mecanismo clásico del 'sell the news'."
+        },
+        {
+          type: 'h2',
+          text: "La calidad del negocio: una nota bien merecida"
+        },
+        {
+          type: 'p',
+          text: "Cuando analizo una acción, siempre empiezo por evaluar la calidad del negocio independientemente de su precio. Oracle obtiene un 8/10 en mi metodología. Esta puntuación agrega varios criterios: crecimiento de ingresos (+10% anual en 5 años), progresión del free cash flow por acción (+12,8% anual), margen neto sólido al 25,4%, y capacidad de convertir ventas en cash real."
+        },
+        {
+          type: 'p',
+          text: "El free cash flow es el verdadero indicador de la salud de una empresa. Representa el dinero que queda en caja una vez que la empresa ha pagado todo: salarios, inversiones, impuestos. En FY2026, Oracle generó 32.000 millones de dólares de caja operativa, un récord histórico, en alza del 54% en un año. Es una señal fuerte."
+        },
+        {
+          type: 'p',
+          text: "El moat de Oracle, su ventaja competitiva duradera, descansa en algo muy poderoso: sus bases de datos están enterradas en los sistemas críticos de miles de empresas desde hace décadas. Los bancos, hospitales y gobiernos no migran sus datos de Oracle de la noche a la mañana. Este enorme coste de migración crea una barrera natural que los competidores difícilmente pueden cruzar."
+        },
+        {
+          type: 'h2',
+          text: "El giro hacia el cloud: recuperando terreno a toda velocidad"
+        },
+        {
+          type: 'p',
+          text: "Oracle iba por detrás en cloud frente a AWS, Azure y Google Cloud. Pero las cifras de este trimestre muestran una recuperación espectacular. La infraestructura cloud (IaaS, es decir los servidores alquilados a distancia) se disparó un 93% hasta 5.800 millones en el T4. Ya no es un actor de nicho: Oracle se ha convertido en el cuarto gran proveedor cloud mundial."
+        },
+        {
+          type: 'p',
+          text: "El motor de esta aceleración: la IA. Microsoft, Amazon, Google y Meta necesitan capacidades de computación masivas para entrenar sus modelos. Oracle ha firmado enormes contratos de infraestructura con estos gigantes, incluso a través del proyecto Stargate en EE.UU. Su cartera de pedidos cloud supera hoy los 130.000 millones de dólares."
+        },
+        {
+          type: 'ul',
+          items: [
+            "Cloud total T4 FY26: 9.900 M$ (+47%), de los cuales IaaS 5.800 M$ (+93%) y SaaS 4.100 M$ (+10%)",
+            "Cloud anual FY26: 34.000 M$ (+39%), IaaS anual 18.100 M$ (+77%)",
+            "Base de datos multicloud IA: +404% en el T4",
+            "Cartera de pedidos cloud: más de 130.000 M$"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "La valoración: el verdadero problema"
+        },
+        {
+          type: 'p',
+          text: "Mi método siempre separa dos preguntas: ¿es un buen negocio?, y ¿es el precio correcto? Sobre la calidad, he respondido: 8/10, sí. Sobre el precio, es otra historia."
+        },
+        {
+          type: 'p',
+          text: "El P/FCF es mi principal indicador de valoración. Es el precio de la acción dividido por el free cash flow anual que genera por título. Un P/FCF de 20 significa que hoy pagas 20 años de ese cash. Cuanto más bajo este número, más barata está la acción. Oracle muestra hoy un P/FCF de 64x. Es muy alto, incluso para una empresa de alto crecimiento. Mi umbral de alerta personal está en 25x. La sobrevaloración que estimo alcanza el 63% respecto a mi precio razonable de compra de 70,54$, para un precio actual alrededor de 192$."
+        },
+        {
+          type: 'p',
+          text: "¿Está justificado? Si Oracle mantiene su trayectoria de crecimiento IaaS durante 3 a 5 años, este múltiplo puede comprimirse naturalmente. Pero es una apuesta al futuro que requiere mucha convicción. Una desaceleración del cloud, la pérdida de contratos importantes o una recesión tech sería suficiente para hacer esta valoración insostenible."
+        },
+        {
+          type: 'h2',
+          text: "Por qué el mercado vendió a pesar del beat"
+        },
+        {
+          type: 'p',
+          text: "Tres razones explican la caída del 10% post-resultados. Primero, las expectativas eran muy altas: algunos analistas esperaban un crecimiento cloud aún más fuerte. Segundo, el margen FCF sigue siendo limitado al 13%, lo que es modesto para una empresa de software premium. Tercero, Oracle tiene una deuda significativa, heredada de adquisiciones pasadas, lo que hace que el cash disponible para los accionistas sea menos generoso de lo que parece."
+        },
+        {
+          type: 'p',
+          text: "La ligera dilución de acciones (+1,27% anual) y la conversión parcial de beneficios en cash real son también puntos de vigilancia en mi metodología. Un 8/10 no significa perfecto: significa sólido, con matices."
+        },
+        {
+          type: 'h2',
+          text: "Lo que retengo para mi metodología calidad/valoración"
+        },
+        {
+          type: 'p',
+          text: "Oracle es una gran empresa en plena transformación. El giro hacia el cloud es real, las cifras lo demuestran. El moat sobre las bases de datos sigue siendo inmenso. Pero el precio actual ya incorpora mucho optimismo. A 64x el free cash flow, el mercado apuesta por una década de fuerte crecimiento sin tropiezos."
+        },
+        {
+          type: 'p',
+          text: "Es exactamente el tipo de empresa que vigilo de cerca, sin precipitarme. Una corrección de mercado, un trimestre decepcionante que haga retroceder el precio, y Oracle podría convertirse en una oportunidad. Mientras tanto, apunto el precio objetivo y espero. Puedes consultar el análisis completo actualizado en la ficha Oracle de mi sitio de inversión."
+        }
+      ],
+      faq: [
+        {
+          q: "¿Por qué cayó la acción de Oracle tras unos resultados récord?",
+          a: "El mercado ya había anticipado muy buenos resultados en el precio. Cuando las cifras llegan sin sorpresa positiva adicional respecto a las expectativas de los analistas, los vendedores toman el control. Es el mecanismo clásico del 'sell the news': se compra el rumor, se vende la realidad."
+        },
+        {
+          q: "¿Qué es el P/FCF y por qué es importante para analizar Oracle?",
+          a: "El P/FCF (price-to-free-cash-flow) es el precio de la acción dividido por el free cash flow anual por título. Mide cuántos años de cash real estás pagando hoy. A 64x, Oracle está valorada muy alto: pagas 64 años de ese cash. Mi umbral personal de entrada está alrededor de 25x."
+        },
+        {
+          q: "¿Está Oracle convirtiéndose realmente en un actor cloud importante?",
+          a: "Las cifras del FY26 son convincentes: infraestructura cloud a +93% en el T4, cartera de pedidos cloud superando los 130.000 millones. Oracle ha firmado grandes contratos con Microsoft, Meta y Amazon para la IA. El retraso histórico se está cerrando rápido, pero la competencia de AWS y Azure sigue siendo muy fuerte."
+        },
+        {
+          q: "¿Hay que comprar la acción de Oracle hoy?",
+          a: "Oracle es un negocio de calidad sólida (8/10 en mi metodología), pero su valoración actual es ajustada a 64x el free cash flow, aproximadamente un 63% por encima de mi precio objetivo. Esto no es un consejo de inversión: haz tu propia investigación y define tu propio precio razonable de compra."
+        },
+        {
+          q: "¿Cuál es el moat de Oracle?",
+          a: "El moat es la ventaja competitiva duradera de una empresa, lo que impide a sus rivales ocupar su lugar. Para Oracle, es el arraigo de sus bases de datos en los sistemas críticos (bancos, hospitales, gobiernos) desde hace décadas. Migrar a un competidor cuesta millones y lleva años."
+        }
+      ],
+      tags: ['Oracle', 'ORCL', 'cloud', 'earnings', 'Q4 FY26', 'análisis fundamental', 'IaaS', 'valoración'],
+      disclaimer: "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Los resultados pasados no son garantía de resultados futuros. Cifras a la fecha de publicación (16 junio 2026), sujetas a cambios. Haz tu propia investigación antes de cualquier decisión de inversión."
+    }
+  }
+};
+
+const alphabetQ12026: Article = {
+  slug: 'alphabet-googl-q1-2026-resultats-notre-analyse',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  ticker: 'GOOGL',
+  content: {
+    fr: {
+      title: 'Alphabet (GOOGL) Q1 2026 : résultats +90%, notre analyse',
+      excerpt: 'Alphabet a publié un BPA en hausse de 82% au T1 2026, Google Cloud à +63%. Des chiffres impressionnants, mais la valorisation pose question. Voici mon analyse.',
+      metaDescription: 'Alphabet GOOGL Q1 2026 : revenus 109,9 Md$ (+22%), BPA 5,11$ (+82%), Google Cloud +63%. Score 6/10, P/FCF 118x. Mon analyse fondamentale complète.',
+      answer: "Alphabet a publié des résultats spectaculaires au T1 2026 : revenus à 109,9 milliards de dollars (+22%), bénéfice par action à 5,11$ (+82%). Google Cloud accélère à +63%. Pourtant ma grille d'analyse donne un score de 6/10, et la valorisation est parmi les plus tendues que j'analyse. Voici pourquoi un grand chiffre ne suffit pas.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "T1 2026 : revenus 109,9 Md$ en hausse de 22%, BPA 5,11$ en hausse de 82% (Alphabet, 29 avril 2026)",
+            "Google Cloud : 20 Md$ de revenus au T1, en hausse de 63%, carnet de commandes quasi doublé à 460 Md$",
+            "Google Search en hausse de 19%, YouTube ads +11%, marge opérationnelle à 36,1% (+2 points)",
+            "Capitalisation dépenses d'investissement (capex) : jusqu'à 190 Md$ prévus pour l'année, un niveau record",
+            "Score qualité 6/10, P/FCF à 118x : l'une des valorisations les plus élevées dans ma base d'analyse"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "Des résultats qui impressionnent"
+        },
+        {
+          type: 'p',
+          text: "Alphabet a publié ses résultats du premier trimestre 2026 le 29 avril. Les chiffres sont difficiles à ignorer : 109,9 milliards de dollars de revenus consolidés, soit une progression de 22% sur un an. Le bénéfice par action (BPA), c'est-à-dire ce que l'entreprise gagne en net par action émise, atteint 5,11 dollars, en hausse de 82% par rapport au T1 2025."
+        },
+        {
+          type: 'p',
+          text: "Google Cloud est devenu en un trimestre le moteur de croissance dominant d'Alphabet. À 20 milliards de revenus avec une hausse de 63%, il dépasse la croissance de Search pour la première fois. Son carnet de commandes a quasi doublé par rapport au trimestre précédent, pour atteindre 460 milliards. C'est le signe qu'Alphabet a signé des contrats pluriannuels massifs avec des entreprises qui ont besoin de sa puissance cloud pour leurs projets IA."
+        },
+        {
+          type: 'h2',
+          text: "Ma méthode : pourquoi je ne regarde pas que les gros chiffres"
+        },
+        {
+          type: 'p',
+          text: "Quand je reçois des résultats comme ça, mon premier réflexe n'est pas 'd'accord, j'achète'. Ma méthode me force d'abord à poser deux questions séparées : est-ce une bonne entreprise ? Et est-ce que le prix de l'action reflète déjà tout ça, ou pas ?"
+        },
+        {
+          type: 'p',
+          text: "Pour la qualité du business, je passe Alphabet sur ma grille de critères. Résultat : 6/10. Ce n'est pas une mauvaise note, mais c'est moins élevé que ce que beaucoup imaginent pour la maison-mère de Google. Voilà ce qui explique cette note."
+        },
+        {
+          type: 'h2',
+          text: "Ce que révèle la note 6/10"
+        },
+        {
+          type: 'p',
+          text: "Points forts : la marge nette est exceptionnelle à 37,9%. La croissance des revenus (+12,6% par an sur 5 ans) est solide. Alphabet rachète ses propres actions à raison de -2% par an, ce qui augmente mécaniquement la valeur pour chaque actionnaire restant. L'endettement est quasi nul."
+        },
+        {
+          type: 'p',
+          text: "Points de vigilance : la marge de free cash flow ne dépasse pas 9,1%, en dessous de mon seuil de 10%. Plus frappant : le free cash flow par action a baissé de 3% par an sur 5 ans. Comment est-ce possible avec des bénéfices nets en hausse ? La réponse : les dépenses d'investissement exploser. Alphabet prévoit jusqu'à 190 milliards de capex pour 2026. Des data centers, des câbles sous-marins, des puces IA. C'est nécessaire pour rester dans la course, mais ça consomme le cash disponible."
+        },
+        {
+          type: 'p',
+          text: "Le Cash ROCE (rendement du capital employé en cash, soit combien de cash réel l'entreprise génère pour chaque dollar investi) n'est que de 9,2%, contre mon seuil minimal de 15%. Ça signifie qu'Alphabet investit énormément mais que le retour en cash réel reste modeste pour l'instant."
+        },
+        {
+          type: 'h2',
+          text: "Le moat d'Alphabet : réel mais attaqué"
+        },
+        {
+          type: 'p',
+          text: "Le moat d'Alphabet, son fossé concurrentiel, repose sur trois piliers. D'abord, la distribution : Android sur 3 milliards d'appareils, Chrome comme navigateur dominant, Google en moteur de recherche par défaut sur la quasi-totalité des appareils. Ensuite, les données : 25 ans de comportements de recherche, la masse de données d'entraînement la plus riche du monde. Enfin, la taille : des revenus publicitaires qui lui permettent de financer une R&D que personne d'autre ne peut se payer."
+        },
+        {
+          type: 'p',
+          text: "Mais ce moat est attaqué comme jamais. OpenAI et Perplexity captent une partie des requêtes de recherche. Apple négocie dur ses conditions de partenariat. Et surtout, le modèle publicitaire de Search pourrait être transformé si les utilisateurs passent à des réponses directes générées par IA plutôt qu'à des résultats de recherche classiques. Alphabet investit massivement pour y répondre, ce qui explique le capex record."
+        },
+        {
+          type: 'h2',
+          text: "La valorisation : 118x le free cash flow"
+        },
+        {
+          type: 'p',
+          text: "Le P/FCF (price-to-free-cash-flow), c'est ce que tu paies en années de cash réel généré par l'entreprise. Un P/FCF de 20, c'est 20 ans. Alphabet affiche aujourd'hui 118x. Pour situer : la médiane de son secteur est à 17,7x. Alphabet se valorise donc à plus de 6 fois la médiane de ses pairs."
+        },
+        {
+          type: 'p',
+          text: "Mon estimation de prix d'achat raisonnable pour Alphabet se situe autour de 54$. Le cours actuel dépasse 369$. C'est une surcote d'environ 85% par rapport à mon seuil. Le marché parie sur une décennie de croissance forte et sur la monétisation rapide de l'IA générative. C'est possible. Mais au moindre doute, c'est aussi une longue chute."
+        },
+        {
+          type: 'ul',
+          items: [
+            "P/FCF Alphabet : 118x vs médiane secteur 17,7x",
+            "Marge FCF : 9,1% (sous mon seuil de 10%)",
+            "Cash ROCE : 9,2% (sous mon seuil de 15%)",
+            "FCF par action : -3%/an sur 5 ans malgré la forte croissance des bénéfices"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "Google Cloud, YouTube, Search : les trois moteurs"
+        },
+        {
+          type: 'p',
+          text: "Au T1 2026, Google Search a progressé de 19% à 50,7 milliards. C'est la confirmation que les craintes sur l'IA qui 'tuerait' la recherche sont prématurées. YouTube a généré 8,9 milliards de revenus publicitaires (+11%). Ces deux segments représentent le coeur de la profitabilité actuelle."
+        },
+        {
+          type: 'p',
+          text: "Google Cloud à +63% est le pivot stratégique. À 20 milliards de revenus trimestriels, il approche Microsoft Azure et commence à menacer AWS sur certains segments IA. Le carnet de commandes à 460 milliards donne de la visibilité sur 3 à 4 ans. Mais la profitabilité de ce segment reste à démontrer à long terme : les investissements nécessaires sont colossaux."
+        },
+        {
+          type: 'h2',
+          text: "Ce que ça implique pour ma lecture qualité/prix"
+        },
+        {
+          type: 'p',
+          text: "Alphabet est une entreprise que j'admire, avec un moat réel et une capacité d'exécution prouvée. Mais ma méthode me demande de séparer l'admiration du prix que je paie. À 118x le free cash flow, je paie une prime très élevée sur l'avenir. Et l'avenir d'Alphabet comporte des risques sérieux : disruption de Search par l'IA conversationnelle, régulation antitrust (des procédures sont en cours aux États-Unis et en Europe), et un capex record qui pèse sur le cash disponible."
+        },
+        {
+          type: 'p',
+          text: "Mon prix d'achat raisonnable implique une baisse de 85% du cours actuel, ce qui est peu probable sauf crise majeure. Je surveille donc Alphabet comme un benchmark de qualité, sans position aujourd'hui. C'est exactement le genre d'analyse que je fais pour toutes mes actions, et que j'ai voulu rendre accessible sur mon site d'investissement."
+        }
+      ],
+      faq: [
+        {
+          q: "Pourquoi Alphabet a un score de 6/10 malgré des résultats impressionnants ?",
+          a: "Ma grille note la qualité intrinsèque du business sur des critères financiers objectifs. Alphabet a une marge FCF en dessous de 10%, un free cash flow par action qui baisse depuis 5 ans malgré la hausse des bénéfices nets (à cause du capex record), et un rendement du capital en cash (Cash ROCE) de seulement 9,2%. Ce sont des signaux de vigilance."
+        },
+        {
+          q: "Qu'est-ce que le free cash flow et pourquoi le free cash flow d'Alphabet baisse-t-il ?",
+          a: "Le free cash flow, c'est l'argent qui reste vraiment à l'entreprise après toutes ses dépenses, y compris les investissements. Alphabet investit jusqu'à 190 milliards de dollars en 2026 dans des data centers et des puces IA. Ces dépenses sont nécessaires mais consomment le cash : le free cash flow par action a baissé de 3% par an en moyenne sur 5 ans."
+        },
+        {
+          q: "Google Search est-il menacé par l'IA ?",
+          a: "Les résultats T1 2026 montrent +19% de croissance pour Search, ce qui suggère que la menace est pour l'instant limitée. Mais structurellement, si les utilisateurs adoptent massivement les réponses IA directes (ChatGPT, Perplexity), la publicité sur les résultats de recherche classiques pourrait être impactée à terme. C'est l'un des risques à surveiller."
+        },
+        {
+          q: "Vaut-il mieux acheter Alphabet ou Oracle aujourd'hui ?",
+          a: "Les deux sont valorisées bien au-dessus de mes prix d'achat raisonnables. Oracle affiche un P/FCF de 64x (surcote 63%) avec un score qualité de 8/10. Alphabet affiche un P/FCF de 118x (surcote 85%) avec un score de 6/10. Ni l'une ni l'autre n'est dans ma zone d'achat aujourd'hui. Ce n'est pas un conseil d'investissement."
+        },
+        {
+          q: "Qu'est-ce que le capex et pourquoi est-ce important pour Alphabet ?",
+          a: "Le capex (capital expenditure) représente les dépenses d'investissement : data centers, câbles, serveurs, puces. Alphabet prévoit jusqu'à 190 milliards en 2026. C'est nécessaire pour rester compétitif dans l'IA, mais ça réduit le cash disponible pour les actionnaires et pèse sur le free cash flow."
+        }
+      ],
+      tags: ['Alphabet', 'GOOGL', 'Google Cloud', 'earnings', 'Q1 2026', 'analyse fondamentale', 'valorisation', 'IA'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (16 juin 2026), susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement."
+    },
+    en: {
+      title: 'Alphabet (GOOGL) Q1 2026: results +90%, our analysis',
+      excerpt: 'Alphabet posted EPS up 82% in Q1 2026, Google Cloud at +63%. Impressive numbers, but the valuation raises questions. Here is my analysis.',
+      metaDescription: 'Alphabet GOOGL Q1 2026: revenue $109.9B (+22%), EPS $5.11 (+82%), Google Cloud +63%. Score 6/10, P/FCF 118x. Full fundamental analysis.',
+      answer: "Alphabet delivered spectacular results in Q1 2026: revenue at $109.9 billion (+22%), earnings per share at $5.11 (+82%). Google Cloud accelerated to +63%. Yet my analysis framework gives a score of 6/10, and the valuation is among the most stretched I analyze. Here is why a big number is not enough.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Q1 2026: revenue $109.9B up 22%, EPS $5.11 up 82% (Alphabet, April 29, 2026)",
+            "Google Cloud: $20B revenue in Q1, up 63%, backlog nearly doubled to $460B",
+            "Google Search up 19%, YouTube ads +11%, operating margin at 36.1% (+2 points)",
+            "Capital expenditure (capex): up to $190B planned for the year, a record level",
+            "Quality score 6/10, P/FCF at 118x: one of the highest valuations in my analysis database"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "Results that impress"
+        },
+        {
+          type: 'p',
+          text: "Alphabet published its Q1 2026 results on April 29. The numbers are hard to ignore: $109.9 billion in consolidated revenue, a 22% increase year-over-year. Earnings per share (EPS), meaning what the company earns net per share issued, reaches $5.11, up 82% vs. Q1 2025."
+        },
+        {
+          type: 'p',
+          text: "Google Cloud has become Alphabet's dominant growth engine in just one quarter. At $20 billion in revenue with 63% growth, it outpaces Search growth for the first time. Its backlog nearly doubled quarter-on-quarter to reach $460 billion. This signals that Alphabet has signed massive multi-year contracts with companies that need its cloud power for their AI projects."
+        },
+        {
+          type: 'h2',
+          text: "My method: why I don't just look at the big numbers"
+        },
+        {
+          type: 'p',
+          text: "When I receive results like these, my first instinct is not 'great, I buy.' My method forces me to first ask two separate questions: is this a good business? And does the stock price already reflect all of this, or not?"
+        },
+        {
+          type: 'p',
+          text: "For business quality, I run Alphabet through my criteria framework. Result: 6/10. That's not a bad score, but it's lower than most people imagine for Google's parent company. Here's what explains this score."
+        },
+        {
+          type: 'h2',
+          text: "What the 6/10 score reveals"
+        },
+        {
+          type: 'p',
+          text: "Strengths: net margin is exceptional at 37.9%. Revenue growth (+12.6% per year over 5 years) is solid. Alphabet buys back its own stock at -2% per year, which mechanically increases value for each remaining shareholder. Debt is almost zero."
+        },
+        {
+          type: 'p',
+          text: "Watch points: free cash flow margin doesn't exceed 9.1%, below my 10% threshold. More striking: free cash flow per share has fallen 3% per year over 5 years. How is this possible with rising net profits? The answer: capital expenditure is exploding. Alphabet plans up to $190 billion in capex for 2026. Data centers, undersea cables, AI chips. This is necessary to stay in the race, but it consumes available cash."
+        },
+        {
+          type: 'p',
+          text: "Cash ROCE (the cash return on capital employed, meaning how much real cash the company generates for each dollar invested) is only 9.2%, against my minimum threshold of 15%. This means Alphabet invests enormously but the real cash return remains modest for now."
+        },
+        {
+          type: 'h2',
+          text: "Alphabet's moat: real but under attack"
+        },
+        {
+          type: 'p',
+          text: "Alphabet's moat, its competitive advantage, rests on three pillars. First, distribution: Android on 3 billion devices, Chrome as the dominant browser, Google as default search engine on almost all devices. Second, data: 25 years of search behavior, the richest training dataset in the world. Third, scale: ad revenues that allow it to fund R&D that no one else can afford."
+        },
+        {
+          type: 'p',
+          text: "But this moat is being attacked like never before. OpenAI and Perplexity are capturing a portion of search queries. Apple is negotiating its partnership terms hard. And above all, the Search advertising model could be transformed if users shift to direct AI-generated answers rather than classic search results. Alphabet is investing massively to respond, which explains the record capex."
+        },
+        {
+          type: 'h2',
+          text: "Valuation: 118x free cash flow"
+        },
+        {
+          type: 'p',
+          text: "P/FCF (price-to-free-cash-flow) is what you pay in years of real cash generated by the company. A P/FCF of 20 means 20 years. Alphabet currently shows 118x. For context: its sector median is 17.7x. Alphabet's valuation is therefore more than 6 times the median of its peers."
+        },
+        {
+          type: 'p',
+          text: "My estimate of a reasonable buy price for Alphabet is around $54. The current stock price exceeds $369. That's an overvaluation of approximately 85% relative to my threshold. The market is betting on a decade of strong growth and rapid monetization of generative AI. That's possible. But at the first sign of doubt, it's also a long fall."
+        },
+        {
+          type: 'ul',
+          items: [
+            "Alphabet P/FCF: 118x vs. sector median 17.7x",
+            "FCF margin: 9.1% (below my 10% threshold)",
+            "Cash ROCE: 9.2% (below my 15% threshold)",
+            "FCF per share: -3%/year over 5 years despite strong net profit growth"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "Google Cloud, YouTube, Search: the three engines"
+        },
+        {
+          type: 'p',
+          text: "In Q1 2026, Google Search grew 19% to $50.7 billion. This confirms that fears about AI 'killing' search are premature. YouTube generated $8.9 billion in ad revenue (+11%). These two segments represent the core of current profitability."
+        },
+        {
+          type: 'p',
+          text: "Google Cloud at +63% is the strategic pivot. At $20 billion in quarterly revenue, it is approaching Microsoft Azure and starting to threaten AWS on certain AI segments. The $460 billion backlog provides 3 to 4 years of visibility. But the long-term profitability of this segment remains to be proven: the necessary investments are colossal."
+        },
+        {
+          type: 'h2',
+          text: "What this means for my quality/price reading"
+        },
+        {
+          type: 'p',
+          text: "Alphabet is a company I admire, with a real moat and proven execution capability. But my method asks me to separate admiration from the price I pay. At 118x free cash flow, I am paying a very high premium for the future. And Alphabet's future carries serious risks: disruption of Search by conversational AI, antitrust regulation (proceedings are underway in the US and Europe), and record capex that weighs on available cash."
+        },
+        {
+          type: 'p',
+          text: "My reasonable buy price implies an 85% decline from the current price, which is unlikely except in a major crisis. I therefore monitor Alphabet as a quality benchmark, without a position today. This is exactly the kind of analysis I do for all my stocks, and that I wanted to make accessible on my investment site."
+        }
+      ],
+      faq: [
+        {
+          q: "Why does Alphabet score 6/10 despite impressive results?",
+          a: "My framework scores intrinsic business quality on objective financial criteria. Alphabet has an FCF margin below 10%, free cash flow per share that has been declining for 5 years despite rising net profits (due to record capex), and a Cash ROCE of only 9.2%. These are watchpoint signals."
+        },
+        {
+          q: "What is free cash flow and why is Alphabet's declining?",
+          a: "Free cash flow is the money that truly remains to the company after all its expenses, including investments. Alphabet is investing up to $190 billion in 2026 in data centers and AI chips. These expenses are necessary but consume cash: free cash flow per share has declined 3% per year on average over 5 years."
+        },
+        {
+          q: "Is Google Search threatened by AI?",
+          a: "Q1 2026 results show +19% growth for Search, suggesting the threat is currently limited. But structurally, if users massively adopt direct AI responses (ChatGPT, Perplexity), advertising on classic search results could eventually be impacted. This is one of the risks to monitor."
+        },
+        {
+          q: "Is it better to buy Alphabet or Oracle today?",
+          a: "Both are valued well above my reasonable buy prices. Oracle shows a P/FCF of 64x (63% overvaluation) with a quality score of 8/10. Alphabet shows a P/FCF of 118x (85% overvaluation) with a score of 6/10. Neither is in my buy zone today. This is not investment advice."
+        },
+        {
+          q: "What is capex and why does it matter for Alphabet?",
+          a: "Capex (capital expenditure) represents investment spending: data centers, cables, servers, chips. Alphabet plans up to $190 billion in 2026. This is necessary to stay competitive in AI, but reduces cash available to shareholders and weighs on free cash flow."
+        }
+      ],
+      tags: ['Alphabet', 'GOOGL', 'Google Cloud', 'earnings', 'Q1 2026', 'fundamental analysis', 'valuation', 'AI'],
+      disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of publication date (June 16, 2026), subject to change. Do your own research before any investment decision."
+    },
+    es: {
+      title: 'Alphabet (GOOGL) Q1 2026: resultados +90%, nuestro análisis',
+      excerpt: 'Alphabet publicó un BPA en alza del 82% en el T1 2026, Google Cloud al +63%. Cifras impresionantes, pero la valoración plantea preguntas. Aquí está mi análisis.',
+      metaDescription: 'Alphabet GOOGL T1 2026: ingresos 109.900 M$ (+22%), BPA 5,11$ (+82%), Google Cloud +63%. Puntuación 6/10, P/FCF 118x. Análisis fundamental completo.',
+      answer: "Alphabet publicó resultados espectaculares en el T1 2026: ingresos en 109.900 millones de dólares (+22%), beneficio por acción en 5,11$ (+82%). Google Cloud acelera al +63%. Sin embargo mi metodología arroja una puntuación de 6/10, y la valoración es de las más ajustadas que analizo. Aquí explico por qué una gran cifra no es suficiente.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "T1 2026: ingresos 109.900 M$ en alza del 22%, BPA 5,11$ en alza del 82% (Alphabet, 29 abril 2026)",
+            "Google Cloud: 20.000 M$ de ingresos en el T1, en alza del 63%, cartera de pedidos casi duplicada a 460.000 M$",
+            "Google Search en alza del 19%, YouTube ads +11%, margen operativo al 36,1% (+2 puntos)",
+            "Inversiones en capital (capex): hasta 190.000 M$ previstos para el año, un nivel récord",
+            "Puntuación calidad 6/10, P/FCF a 118x: una de las valoraciones más elevadas en mi base de análisis"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "Unos resultados que impresionan"
+        },
+        {
+          type: 'p',
+          text: "Alphabet publicó sus resultados del primer trimestre de 2026 el 29 de abril. Las cifras son difíciles de ignorar: 109.900 millones de dólares de ingresos consolidados, una progresión del 22% interanual. El beneficio por acción (BPA), es decir lo que la empresa gana neto por cada acción emitida, alcanza 5,11 dólares, en alza del 82% respecto al T1 2025."
+        },
+        {
+          type: 'p',
+          text: "Google Cloud se ha convertido en un trimestre en el motor de crecimiento dominante de Alphabet. Con 20.000 millones de ingresos y un alza del 63%, supera por primera vez el crecimiento de Search. Su cartera de pedidos casi se dobló respecto al trimestre anterior para alcanzar 460.000 millones. Es la señal de que Alphabet ha firmado contratos plurianuales masivos con empresas que necesitan su potencia cloud para sus proyectos de IA."
+        },
+        {
+          type: 'h2',
+          text: "Mi método: por qué no me fijo solo en las grandes cifras"
+        },
+        {
+          type: 'p',
+          text: "Cuando recibo resultados como estos, mi primer reflejo no es 'genial, compro'. Mi método me obliga primero a hacer dos preguntas separadas: ¿es un buen negocio? ¿Y el precio de la acción ya refleja todo esto, o no?"
+        },
+        {
+          type: 'p',
+          text: "Para la calidad del negocio, paso Alphabet por mi cuadrícula de criterios. Resultado: 6/10. No es una mala nota, pero es más baja de lo que muchos imaginan para la empresa matriz de Google. Esto es lo que explica esta puntuación."
+        },
+        {
+          type: 'h2',
+          text: "Lo que revela la puntuación 6/10"
+        },
+        {
+          type: 'p',
+          text: "Puntos fuertes: el margen neto es excepcional al 37,9%. El crecimiento de ingresos (+12,6% anual en 5 años) es sólido. Alphabet recompra sus propias acciones a razón de -2% anual, lo que aumenta mecánicamente el valor para cada accionista restante. La deuda es casi nula."
+        },
+        {
+          type: 'p',
+          text: "Puntos de vigilancia: el margen de free cash flow no supera el 9,1%, por debajo de mi umbral del 10%. Más llamativo: el free cash flow por acción ha caído un 3% anual en 5 años. ¿Cómo es posible con beneficios netos al alza? La respuesta: las inversiones en capital se disparan. Alphabet prevé hasta 190.000 millones de capex para 2026. Centros de datos, cables submarinos, chips de IA. Es necesario para seguir en la carrera, pero consume el cash disponible."
+        },
+        {
+          type: 'p',
+          text: "El Cash ROCE (rendimiento del capital empleado en cash, es decir cuánto cash real genera la empresa por cada dólar invertido) es solo del 9,2%, frente a mi umbral mínimo del 15%. Significa que Alphabet invierte enormemente pero el retorno en cash real sigue siendo modesto por ahora."
+        },
+        {
+          type: 'h2',
+          text: "El moat de Alphabet: real pero bajo ataque"
+        },
+        {
+          type: 'p',
+          text: "El moat de Alphabet, su ventaja competitiva, se apoya en tres pilares. Primero, la distribución: Android en 3.000 millones de dispositivos, Chrome como navegador dominante, Google como motor de búsqueda por defecto en casi todos los dispositivos. Segundo, los datos: 25 años de comportamientos de búsqueda, el conjunto de datos de entrenamiento más rico del mundo. Tercero, la escala: ingresos publicitarios que le permiten financiar una I+D que nadie más puede permitirse."
+        },
+        {
+          type: 'p',
+          text: "Pero este moat está siendo atacado como nunca. OpenAI y Perplexity capturan una parte de las consultas de búsqueda. Apple negocia duramente sus condiciones de asociación. Y sobre todo, el modelo publicitario de Search podría transformarse si los usuarios adoptan masivamente las respuestas directas generadas por IA en lugar de los resultados de búsqueda clásicos. Alphabet invierte masivamente para responder a esto, lo que explica el capex récord."
+        },
+        {
+          type: 'h2',
+          text: "La valoración: 118x el free cash flow"
+        },
+        {
+          type: 'p',
+          text: "El P/FCF (price-to-free-cash-flow) es lo que pagas en años de cash real generado por la empresa. Un P/FCF de 20 significa 20 años. Alphabet muestra hoy 118x. Para situar: la mediana de su sector está en 17,7x. Alphabet se valora por tanto a más de 6 veces la mediana de sus pares."
+        },
+        {
+          type: 'p',
+          text: "Mi estimación de precio razonable de compra para Alphabet se sitúa alrededor de 54$. El precio actual supera los 369$. Es una sobrevaloración de aproximadamente el 85% respecto a mi umbral. El mercado apuesta por una década de fuerte crecimiento y monetización rápida de la IA generativa. Es posible. Pero ante el menor indicio de duda, también es una larga caída."
+        },
+        {
+          type: 'ul',
+          items: [
+            "P/FCF Alphabet: 118x vs mediana del sector 17,7x",
+            "Margen FCF: 9,1% (por debajo de mi umbral del 10%)",
+            "Cash ROCE: 9,2% (por debajo de mi umbral del 15%)",
+            "FCF por acción: -3%/año en 5 años a pesar del fuerte crecimiento de beneficios netos"
+          ]
+        },
+        {
+          type: 'h2',
+          text: "Google Cloud, YouTube, Search: los tres motores"
+        },
+        {
+          type: 'p',
+          text: "En el T1 2026, Google Search creció un 19% hasta 50.700 millones. Esto confirma que los temores sobre la IA que 'mataría' la búsqueda son prematuros. YouTube generó 8.900 millones de ingresos publicitarios (+11%). Estos dos segmentos representan el núcleo de la rentabilidad actual."
+        },
+        {
+          type: 'p',
+          text: "Google Cloud al +63% es el pivote estratégico. Con 20.000 millones de ingresos trimestrales, se acerca a Microsoft Azure y comienza a amenazar a AWS en ciertos segmentos de IA. La cartera de pedidos de 460.000 millones ofrece visibilidad para 3 a 4 años. Pero la rentabilidad a largo plazo de este segmento aún está por demostrar: las inversiones necesarias son colosales."
+        },
+        {
+          type: 'h2',
+          text: "Lo que implica para mi lectura calidad/precio"
+        },
+        {
+          type: 'p',
+          text: "Alphabet es una empresa que admiro, con un moat real y una capacidad de ejecución probada. Pero mi método me pide separar la admiración del precio que pago. A 118x el free cash flow, pago una prima muy alta por el futuro. Y el futuro de Alphabet conlleva riesgos serios: disrupción de Search por la IA conversacional, regulación antimonopolio (hay procedimientos en curso en EE.UU. y Europa), y un capex récord que pesa sobre el cash disponible."
+        },
+        {
+          type: 'p',
+          text: "Mi precio razonable de compra implica una caída del 85% del precio actual, lo que es poco probable salvo crisis mayor. Por tanto vigilo Alphabet como referencia de calidad, sin posición hoy. Es exactamente el tipo de análisis que hago para todas mis acciones, y que quise hacer accesible en mi sitio de inversión."
+        }
+      ],
+      faq: [
+        {
+          q: "¿Por qué Alphabet obtiene un 6/10 a pesar de resultados impresionantes?",
+          a: "Mi metodología puntúa la calidad intrínseca del negocio con criterios financieros objetivos. Alphabet tiene un margen FCF por debajo del 10%, un free cash flow por acción que lleva 5 años cayendo a pesar de la subida de los beneficios netos (por el capex récord), y un Cash ROCE de solo el 9,2%. Son señales de vigilancia."
+        },
+        {
+          q: "¿Qué es el free cash flow y por qué está cayendo el de Alphabet?",
+          a: "El free cash flow es el dinero que realmente queda a la empresa tras todos sus gastos, incluidas las inversiones. Alphabet va a invertir hasta 190.000 millones de dólares en 2026 en centros de datos y chips de IA. Estos gastos son necesarios pero consumen el cash: el FCF por acción ha caído un 3% anual de media en 5 años."
+        },
+        {
+          q: "¿Está amenazado Google Search por la IA?",
+          a: "Los resultados del T1 2026 muestran un +19% de crecimiento para Search, lo que sugiere que la amenaza es por ahora limitada. Pero estructuralmente, si los usuarios adoptan masivamente las respuestas directas de IA (ChatGPT, Perplexity), la publicidad en los resultados de búsqueda clásicos podría verse impactada a largo plazo. Es uno de los riesgos a vigilar."
+        },
+        {
+          q: "¿Es mejor comprar Alphabet u Oracle hoy?",
+          a: "Las dos están valoradas muy por encima de mis precios razonables de compra. Oracle muestra un P/FCF de 64x (sobrevaloración del 63%) con una puntuación de calidad de 8/10. Alphabet muestra un P/FCF de 118x (sobrevaloración del 85%) con una puntuación de 6/10. Ninguna está en mi zona de compra hoy. Esto no es un consejo de inversión."
+        },
+        {
+          q: "¿Qué es el capex y por qué es importante para Alphabet?",
+          a: "El capex (capital expenditure) representa los gastos de inversión: centros de datos, cables, servidores, chips. Alphabet prevé hasta 190.000 millones en 2026. Es necesario para seguir siendo competitivo en IA, pero reduce el cash disponible para los accionistas y pesa sobre el free cash flow."
+        }
+      ],
+      tags: ['Alphabet', 'GOOGL', 'Google Cloud', 'earnings', 'T1 2026', 'análisis fundamental', 'valoración', 'IA'],
+      disclaimer: "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Los resultados pasados no son garantía de resultados futuros. Cifras a la fecha de publicación (16 junio 2026), sujetas a cambios. Haz tu propia investigación antes de cualquier decisión de inversión."
+    }
+  }
+};
+
+const articleMRVL: Article = {
+  slug: 'marvell-mrvl-sp500-score-fondamental',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 7,
+  ticker: 'MRVL',
+  content: {
+    fr: {
+      title: 'Marvell (MRVL) entre au S&P 500 : notre score fondamental',
+      excerpt: 'Marvell Technology rejoint le S&P 500 le 22 juin 2026. Score de qualité solide, mais valorisation très tendue. Je décortique ce que ça change vraiment pour l\'action.',
+      metaDescription: 'Marvell Technology (MRVL) entre au S&P 500 le 22 juin 2026. Analyse fondamentale complète : score de qualité, valorisation, puces IA custom. Ce que ça change.',
+      answer: 'Marvell Technology est une action de solide qualité opérationnelle, score 8 sur 10, spécialiste des puces réseau et de l\'IA custom pour hyperscalers. Son entrée au S&P 500 le 22 juin 2026 crée une demande mécanique des fonds indiciels, mais à 273 fois son free cash flow, la valorisation est intenable : notre modèle ne voit pas d\'opportunité d\'investissement à ces niveaux. À éviter au cours actuel.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Marvell (MRVL) rejoint le S&P 500 le 22 juin 2026, remplaçant Pool Corp. L\'annonce date du 5 juin.',
+            'Score de qualité fondamentale : 8 sur 10. Croissance des revenus de 13,9 % par an sur 5 ans, FCF par action en hausse de 37,2 % par an.',
+            'Valorisation très élevée : P/FCF de 273 fois (le prix de l\'action représente 273 années de cash libre généré). Ce multiple reflète une forte prime de croissance IA.',
+            'Risque réel : le cours actuel (308 dollars) dépasse largement le prix d\'achat recommandé par notre modèle (41,93 dollars), soit une surcote de 86 %. La qualité est là, mais à ce prix, ce n\'est pas une opportunité d\'investissement fondamental : c\'est un pari sur une dynamique IA déjà largement intégrée.',
+            'L\'entrée au S&P 500 crée une demande mécanique à court terme, mais n\'améliore pas les fondamentaux ni la valorisation.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Le 22 juin 2026 : ce qui se passe quand une action rejoint le S&P 500'
+        },
+        {
+          type: 'p',
+          text: 'Le 5 juin 2026, S&P Dow Jones Indices a annoncé que Marvell Technology intégrerait l\'indice S&P 500 avant l\'ouverture du marché le 22 juin, en remplacement de Pool Corp. Pour beaucoup d\'investisseurs, c\'est une bonne nouvelle en soi. Je vais t\'expliquer pourquoi c\'est plus nuancé que ça.'
+        },
+        {
+          type: 'p',
+          text: 'Quand une entreprise entre dans le S&P 500, tous les fonds indiciels qui répliquent cet index (et ils représentent des milliers de milliards de dollars d\'actifs dans le monde) doivent acheter des actions MRVL. Mécaniquement. Sans se demander si le prix est raisonnable. Cette pression acheteuse forcée fait souvent monter le cours avant la date effective, puis se stabilise une fois les achats réalisés. L\'action avait d\'ailleurs déjà triplé en 2026 avant cette annonce, Jensen Huang (CEO de Nvidia) ayant qualifié Marvell de potentielle « prochaine entreprise à mille milliards de dollars ».'
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait vraiment Marvell : puces réseau et silicon sur mesure pour l\'IA'
+        },
+        {
+          type: 'p',
+          text: 'Marvell n\'est pas une entreprise grand public. Elle fabrique des puces pour les infrastructures : composants réseau (switching, PHY Ethernet, optical DSP), stockage, et surtout des ASIC custom pour les hyperscalers. Un ASIC custom, c\'est une puce conçue sur mesure pour un client spécifique, comme Google, Amazon ou Microsoft, qui veut son propre accélérateur IA plutôt que d\'acheter les GPU de Nvidia.'
+        },
+        {
+          type: 'p',
+          text: 'C\'est exactement là que réside le moat de Marvell. Le moat (avantage concurrentiel durable), c\'est ce qui protège une entreprise de la concurrence sur le long terme. Pour Marvell, c\'est la capacité à co-concevoir avec les plus grands acteurs du cloud des puces complexes en 2nm, avec 18 contrats de design gagnés rien que sur les XPU IA. Ces partenariats multi-années créent des coûts de changement élevés : un hyperscaler qui a co-développé une puce Marvell ne change pas de partenaire facilement.'
+        },
+        {
+          type: 'p',
+          text: 'Le segment data center de Marvell a affiché 1,52 milliard de dollars de revenus au Q3 FY2026, en hausse de 37,8 % sur un an. La croissance est réelle. Mais le marché l\'a déjà largement intégrée dans le cours.'
+        },
+        {
+          type: 'h2',
+          text: 'Notre score fondamental expliqué : 8 sur 10 pour Marvell'
+        },
+        {
+          type: 'p',
+          text: 'Sur mon site, je note chaque action sur 10 en analysant 10 critères fondamentaux : croissance des revenus, croissance du FCF par action, marge nette, marge de FCF (le free cash flow, c\'est le cash réellement généré après avoir payé toutes les dépenses, y compris les investissements), Cash ROCE (le rendement du capital investi en cash), niveau d\'endettement, dilution des actionnaires, payout ratio, levier opérationnel et qualité du bilan. Chaque critère a un seuil chiffré. La note reflète la qualité du business, pas le prix.'
+        },
+        {
+          type: 'p',
+          text: 'Marvell obtient 8 sur 10. Les points forts : croissance des revenus de 13,9 % par an sur 5 ans, FCF par action en hausse de 37,2 % par an (c\'est excellent), marge nette de 29 %, endettement faible (dette remboursable en 1,1 an de FCF). Les points faibles : la marge de FCF est à 11,6 % et le Cash ROCE à 14,2 %, tous deux en dessous de nos seuils cibles. Et surtout la conversion cash (0,40) signale que les bénéfices comptables se transforment moins bien en cash réel que la moyenne.'
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : le problème central de MRVL aujourd\'hui'
+        },
+        {
+          type: 'p',
+          text: 'Le P/FCF, c\'est le rapport entre le prix de l\'action et le cash libre généré par action chaque année. Si une action se valorise 20 fois son FCF, tu paies 20 ans de ce cash au prix d\'aujourd\'hui. C\'est le ratio que j\'utilise pour juger si une action est chère ou bon marché.'
+        },
+        {
+          type: 'p',
+          text: 'MRVL se valorise actuellement 273 fois son free cash flow annuel. C\'est l\'un des multiples les plus tendus du marché, même dans le secteur des semi-conducteurs où la médiane est déjà à 91 fois. Notre modèle place le prix d\'achat raisonnable à 41,93 dollars, contre un cours actuel de 308 dollars. La surcote est de 86 %. Pour que cette valorisation se justifie, il faudrait que Marvell délivre une croissance du FCF extrêmement élevée pendant de nombreuses années sans accident. C\'est possible, mais c\'est un pari, pas une certitude.'
+        },
+        {
+          type: 'h2',
+          text: 'L\'entrée au S&P 500 change-t-elle l\'analyse fondamentale ?'
+        },
+        {
+          type: 'p',
+          text: 'Non. L\'entrée au S&P 500 est un événement de flux, pas un événement fondamental. Elle ne change pas les revenus de Marvell, ses marges ni sa capacité à générer du cash. Ce qu\'elle change, c\'est la demande mécanique à court terme (les fonds indiciels doivent acheter) et la visibilité de l\'entreprise. L\'effet de prix est souvent temporaire.'
+        },
+        {
+          type: 'p',
+          text: 'La vraie question reste la même qu\'avant l\'annonce : est-ce que MRVL vaut 308 dollars compte tenu de ce que l\'entreprise génère et peut générer ? Avec un P/FCF de 273 fois, la réponse est que le marché parie très gros sur l\'avenir. Si les contrats IA custom continuent de se concrétiser, si Google, Amazon et Microsoft continuent à commander des puces sur mesure à Marvell, la thèse tient. Si l\'un de ces hyperscalers décide de développer ses puces en interne ou de changer de partenaire, la valorisation peut se contracter violemment.'
+        },
+        {
+          type: 'p',
+          text: 'Pour retrouver l\'analyse complète et actualisée de MRVL, avec tous les ratios détaillés, tu peux consulter la page dédiée sur mon site d\'investissement : lubin-investment.com/analyse/MRVL. C\'est exactement le type d\'analyse que j\'ai voulu rendre accessible pour n\'importe quelle action.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Pourquoi Marvell n\'était-il pas déjà dans le S&P 500 ?',
+          a: 'Le S&P 500 exige quatre trimestres consécutifs de bénéfices GAAP positifs. Marvell n\'a rempli cette condition qu\'en 2026, après plusieurs années de pertes comptables liées à ses acquisitions et à la restructuration de son portefeuille.'
+        },
+        {
+          q: 'Qu\'est-ce qu\'un ASIC custom et pourquoi c\'est important pour MRVL ?',
+          a: 'Un ASIC (Application-Specific Integrated Circuit) est une puce conçue pour une tâche précise. Les hyperscalers comme Google ou Amazon commandent leurs propres puces IA sur mesure pour réduire leur dépendance à Nvidia et optimiser leurs coûts. Marvell est un des rares fournisseurs capables de les co-développer en 2nm.'
+        },
+        {
+          q: 'Le fait de rejoindre le S&P 500 est-il une bonne raison d\'acheter MRVL ?',
+          a: 'Pas en soi. L\'inclusion crée une demande mécanique de court terme des fonds indiciels, mais elle ne change pas la valeur intrinsèque de l\'entreprise. Avec un P/FCF de 273 fois, la valorisation intègre déjà une croissance très ambitieuse. L\'événement peut faire monter le cours avant le 22 juin, mais l\'analyse fondamentale reste inchangée.'
+        },
+        {
+          q: 'Quelle est la note de qualité de Marvell sur votre méthode ?',
+          a: 'Marvell obtient 8 sur 10. C\'est une très bonne note de qualité opérationnelle, tirée par la forte croissance du FCF par action et la solidité du bilan. Les bémols sont la marge de FCF (11,6 %) et le Cash ROCE (14,2 %) en dessous de nos cibles, et une conversion cash imparfaite.'
+        },
+        {
+          q: 'À quel prix MRVL deviendrait-elle une opportunité selon votre méthode ?',
+          a: 'Notre modèle estime un prix d\'achat raisonnable à environ 41,93 dollars, basé sur le FCF actuel et nos hypothèses de croissance. Le cours actuel de 308 dollars intègre une prime de croissance IA extrêmement élevée. Tant que l\'écart reste de cet ordre, MRVL ne correspond pas à notre méthode qualité + valorisation : à éviter à ces niveaux, à reconsidérer seulement après une correction sérieuse ou une accélération forte des fondamentaux.'
+        }
+      ],
+      tags: ['MRVL', 'Marvell Technology', 'S&P 500', 'semiconducteurs', 'IA', 'puces custom', 'analyse fondamentale', 'valorisation'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les chiffres sont ceux disponibles au 16 juin 2026. Les performances passées ne préjugent pas du futur. Fais tes propres recherches avant toute décision.'
+    },
+    en: {
+      title: 'Marvell (MRVL) joins the S&P 500: our fundamental score',
+      excerpt: 'Marvell Technology joins the S&P 500 on June 22, 2026. Strong quality score, but extremely stretched valuation. I break down what this really changes for the stock.',
+      metaDescription: 'Marvell Technology (MRVL) joins the S&P 500 on June 22, 2026. Full fundamental analysis: quality score, valuation, custom AI chips. What it actually changes.',
+      answer: 'Marvell Technology scores 8 out of 10 on fundamental quality, driven by networking chips and custom AI silicon for hyperscalers. Its S&P 500 entry on June 22, 2026 creates mechanical buying pressure from index funds, but at 273 times its free cash flow the valuation is unsustainable: our model sees no fundamental investment opportunity at these levels. Avoid at the current price.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Marvell (MRVL) joins the S&P 500 on June 22, 2026, replacing Pool Corp. The announcement came June 5.',
+            'Fundamental quality score: 8 out of 10. Revenue growth of 13.9% per year over 5 years, FCF per share up 37.2% per year.',
+            'Very high valuation: P/FCF of 273x (the stock price represents 273 years of generated free cash flow). This multiple reflects a heavy AI growth premium.',
+            'Real risk: current price (308 dollars) far exceeds the buy price our model recommends (41.93 dollars), an 86% premium. Quality is there, but at this price it is not a fundamental investment opportunity: it is a bet on AI momentum that is already largely priced in.',
+            'S&P 500 inclusion creates short-term mechanical demand but does not improve fundamentals or valuation.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'June 22, 2026: what happens when a stock joins the S&P 500'
+        },
+        {
+          type: 'p',
+          text: 'On June 5, 2026, S&P Dow Jones Indices announced that Marvell Technology would join the S&P 500 before the market opened on June 22, replacing Pool Corp. For many investors, this is good news in itself. Let me explain why it is more nuanced than that.'
+        },
+        {
+          type: 'p',
+          text: 'When a company joins the S&P 500, all index funds that replicate this benchmark (representing trillions of dollars in assets worldwide) must buy MRVL shares. Mechanically. Without asking whether the price is reasonable. This forced buying pressure often pushes the price up before the effective date, then stabilizes once the purchases are complete. The stock had already tripled in 2026 before this announcement, with Nvidia CEO Jensen Huang calling Marvell the potential "next trillion dollar company."'
+        },
+        {
+          type: 'h2',
+          text: 'What Marvell actually does: networking chips and custom silicon for AI'
+        },
+        {
+          type: 'p',
+          text: 'Marvell is not a consumer-facing company. It makes chips for infrastructure: networking components (switching, Ethernet PHY, optical DSP), storage, and above all custom ASICs for hyperscalers. A custom ASIC is a chip designed specifically for a single client, like Google, Amazon or Microsoft, who wants their own AI accelerator rather than buying Nvidia GPUs.'
+        },
+        {
+          type: 'p',
+          text: 'This is precisely where Marvell\'s moat lies. A moat (durable competitive advantage) is what protects a company from competition over the long term. For Marvell, it is the ability to co-design with the largest cloud players complex chips at 2nm, with 18 design wins on AI XPU sockets alone. These multi-year partnerships create high switching costs: a hyperscaler that co-developed a Marvell chip does not easily change partners.'
+        },
+        {
+          type: 'p',
+          text: 'Marvell\'s data center segment posted 1.52 billion dollars in revenue in Q3 FY2026, up 37.8% year over year. The growth is real. But the market has already largely priced it in.'
+        },
+        {
+          type: 'h2',
+          text: 'Our fundamental score explained: 8 out of 10 for Marvell'
+        },
+        {
+          type: 'p',
+          text: 'On my site, I score each stock out of 10 across 10 fundamental criteria: revenue growth, FCF per share growth, net margin, FCF margin (free cash flow is the cash actually generated after paying all expenses including capital expenditures), Cash ROCE (cash return on capital invested), debt level, shareholder dilution, payout ratio, operating leverage and balance sheet quality. Each criterion has a specific threshold. The score reflects business quality, not price.'
+        },
+        {
+          type: 'p',
+          text: 'Marvell scores 8 out of 10. Strengths: revenue growth of 13.9% per year over 5 years, FCF per share up 37.2% per year (excellent), net margin of 29%, low debt (repayable in 1.1 years of FCF). Weaknesses: FCF margin at 11.6% and Cash ROCE at 14.2%, both below our target thresholds. And the cash conversion ratio (0.40) signals that accounting profits are converting to real cash less efficiently than average.'
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: the core issue with MRVL today'
+        },
+        {
+          type: 'p',
+          text: 'P/FCF is the ratio of stock price to free cash flow generated per share each year. If a stock is valued at 20 times its FCF, you are paying 20 years of that cash at today\'s price. It is the ratio I use to judge whether a stock is expensive or cheap.'
+        },
+        {
+          type: 'p',
+          text: 'MRVL currently trades at 273 times its annual free cash flow. That is one of the most stretched multiples in the market, even in semiconductors where the sector median is already at 91 times. Our model places the reasonable buy price at 41.93 dollars versus a current price of 308 dollars. The premium is 86%. For this valuation to be justified, Marvell would need to deliver extremely high FCF growth for many years without any stumble. Possible, but it is a bet, not a certainty.'
+        },
+        {
+          type: 'h2',
+          text: 'Does S&P 500 inclusion change the fundamental analysis?'
+        },
+        {
+          type: 'p',
+          text: 'No. Joining the S&P 500 is a flow event, not a fundamental event. It does not change Marvell\'s revenues, margins or ability to generate cash. What it changes is short-term mechanical demand (index funds must buy) and the company\'s visibility. The price effect is often temporary.'
+        },
+        {
+          type: 'p',
+          text: 'The real question remains the same as before the announcement: is MRVL worth 308 dollars given what the company generates and can generate? With a P/FCF of 273 times, the market is making a very big bet on the future. If custom AI contracts keep materializing, if Google, Amazon and Microsoft keep ordering custom chips from Marvell, the thesis holds. If one of these hyperscalers decides to develop chips in-house or switch partners, the valuation can contract sharply.'
+        },
+        {
+          type: 'p',
+          text: 'For the full updated MRVL analysis with all detailed ratios, you can check the dedicated page on my investment site: lubin-investment.com/analyse/MRVL.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Why was Marvell not already in the S&P 500?',
+          a: 'The S&P 500 requires four consecutive quarters of positive GAAP earnings. Marvell only met this condition in 2026, after several years of accounting losses tied to acquisitions and portfolio restructuring.'
+        },
+        {
+          q: 'What is a custom ASIC and why does it matter for MRVL?',
+          a: 'An ASIC (Application-Specific Integrated Circuit) is a chip designed for a specific task. Hyperscalers like Google or Amazon order their own custom AI chips to reduce dependence on Nvidia and optimize costs. Marvell is one of the few suppliers capable of co-developing them at 2nm.'
+        },
+        {
+          q: 'Is joining the S&P 500 a good reason to buy MRVL?',
+          a: 'Not in itself. Inclusion creates short-term mechanical demand from index funds but does not change the intrinsic value of the business. With a P/FCF of 273 times, the valuation already prices in very ambitious growth. The event may push the price up before June 22, but the fundamental analysis is unchanged.'
+        },
+        {
+          q: 'What is Marvell\'s quality score on your method?',
+          a: 'Marvell scores 8 out of 10. That is a very good operational quality score, driven by strong FCF per share growth and a solid balance sheet. The caveats are FCF margin (11.6%) and Cash ROCE (14.2%) below our targets, and imperfect cash conversion.'
+        },
+        {
+          q: 'At what price would MRVL become an opportunity according to your method?',
+          a: 'Our model estimates a reasonable buy price at around 41.93 dollars, based on current FCF and our growth assumptions. The current price of 308 dollars includes an extremely high AI growth premium. As long as the gap stays this wide, MRVL does not fit our quality + valuation method: avoid at these levels, reconsider only after a serious correction or strong fundamental acceleration.'
+        }
+      ],
+      tags: ['MRVL', 'Marvell Technology', 'S&P 500', 'semiconductors', 'AI', 'custom chips', 'fundamental analysis', 'valuation'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Figures as of June 16, 2026. Past performance does not predict future results. Do your own research before any decision.'
+    },
+    es: {
+      title: 'Marvell (MRVL) entra al S&P 500: ¿cuánto vale realmente esta acción?',
+      excerpt: 'Marvell Technology se une al S&P 500 el 22 de junio de 2026. Puntuación de calidad sólida, pero valoración muy tensa. Analizo qué cambia realmente para la acción.',
+      metaDescription: 'Marvell Technology (MRVL) se une al S&P 500 el 22 de junio de 2026. Análisis fundamental completo: puntuación de calidad, valoración, chips de IA personalizados.',
+      answer: 'Marvell Technology obtiene 8 sobre 10 en calidad fundamental, impulsada por chips de red y silicon de IA personalizado para hyperscalers. Su entrada al S&P 500 el 22 de junio de 2026 crea demanda mecánica de los fondos indexados, pero a 273 veces su free cash flow, la valoración es insostenible: nuestro modelo no ve oportunidad de inversión fundamental a estos niveles. A evitar al precio actual.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Marvell (MRVL) se une al S&P 500 el 22 de junio de 2026, reemplazando a Pool Corp. El anuncio fue el 5 de junio.',
+            'Puntuación de calidad fundamental: 8 sobre 10. Crecimiento de ingresos del 13,9% anual en 5 años, FCF por acción en alza del 37,2% anual.',
+            'Valoración muy elevada: P/FCF de 273 veces (el precio de la acción representa 273 años de flujo de caja libre generado). Este múltiplo refleja una prima de crecimiento IA muy alta.',
+            'Riesgo real: el precio actual (308 dólares) supera ampliamente el precio de compra recomendado por nuestro modelo (41,93 dólares), una prima del 86%. La calidad está, pero a este precio no es una oportunidad de inversión fundamental: es una apuesta sobre un impulso IA ya descontado en gran medida.',
+            'La entrada al S&P 500 crea demanda mecánica a corto plazo pero no mejora los fundamentales ni la valoración.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: '22 de junio de 2026: qué ocurre cuando una acción entra al S&P 500'
+        },
+        {
+          type: 'p',
+          text: 'El 5 de junio de 2026, S&P Dow Jones Indices anunció que Marvell Technology se incorporaría al S&P 500 antes de la apertura del mercado el 22 de junio, reemplazando a Pool Corp. Para muchos inversores, esto es buena noticia por sí solo. Voy a explicarte por qué es más matizado que eso.'
+        },
+        {
+          type: 'p',
+          text: 'Cuando una empresa entra al S&P 500, todos los fondos indexados que replican este índice (representan billones de dólares en activos en todo el mundo) deben comprar acciones de MRVL. Mecánicamente. Sin preguntarse si el precio es razonable. Esta presión compradora forzada suele impulsar el precio antes de la fecha efectiva, luego se estabiliza. La acción ya había triplicado su valor en 2026 antes de este anuncio, después de que Jensen Huang (CEO de Nvidia) llamara a Marvell la potencial "próxima empresa del billón de dólares".'
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente Marvell: chips de red y silicon personalizado para IA'
+        },
+        {
+          type: 'p',
+          text: 'Marvell no es una empresa de consumo masivo. Fabrica chips para infraestructuras: componentes de red (switching, Ethernet PHY, DSP óptico), almacenamiento y, sobre todo, ASIC personalizados para hyperscalers. Un ASIC personalizado es un chip diseñado exclusivamente para un cliente, como Google, Amazon o Microsoft, que quiere su propio acelerador de IA en lugar de comprar las GPU de Nvidia.'
+        },
+        {
+          type: 'p',
+          text: 'Aquí reside el moat de Marvell. El moat (ventaja competitiva duradera) es lo que protege a una empresa de la competencia a largo plazo. Para Marvell, es la capacidad de co-diseñar con los mayores actores cloud chips complejos en 2nm, con 18 contratos de diseño ganados solo en XPU de IA. Estas asociaciones de varios años crean altos costes de cambio: un hyperscaler que co-desarrolló un chip Marvell no cambia de proveedor fácilmente.'
+        },
+        {
+          type: 'p',
+          text: 'El segmento data center de Marvell registró 1.520 millones de dólares en ingresos en el Q3 FY2026, con un aumento del 37,8% interanual. El crecimiento es real. Pero el mercado ya lo ha descontado ampliamente en el precio.'
+        },
+        {
+          type: 'h2',
+          text: 'Nuestra puntuación fundamental explicada: 8 sobre 10 para Marvell'
+        },
+        {
+          type: 'p',
+          text: 'En mi sitio, puntúo cada acción sobre 10 analizando 10 criterios fundamentales: crecimiento de ingresos, crecimiento del FCF por acción, margen neto, margen de FCF (el free cash flow es el efectivo realmente generado después de pagar todos los gastos, incluidas las inversiones), Cash ROCE (retorno sobre el capital invertido en efectivo), nivel de deuda, dilución de accionistas, ratio de payout, apalancamiento operativo y calidad del balance. Cada criterio tiene un umbral específico. La nota refleja la calidad del negocio, no el precio.'
+        },
+        {
+          type: 'p',
+          text: 'Marvell obtiene 8 sobre 10. Puntos fuertes: crecimiento de ingresos del 13,9% anual en 5 años, FCF por acción en alza del 37,2% anual (excelente), margen neto del 29%, deuda baja (amortizable en 1,1 años de FCF). Puntos débiles: margen de FCF al 11,6% y Cash ROCE al 14,2%, ambos por debajo de nuestros objetivos. Y la conversión de efectivo (0,40) señala que los beneficios contables se convierten en efectivo real con menos eficiencia que la media.'
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: el problema central de MRVL hoy'
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF es la relación entre el precio de la acción y el flujo de caja libre generado por acción cada año. Si una acción se valora a 20 veces su FCF, estás pagando 20 años de ese efectivo al precio actual. Es el ratio que uso para juzgar si una acción es cara o barata.'
+        },
+        {
+          type: 'p',
+          text: 'MRVL actualmente se valora a 273 veces su free cash flow anual. Es uno de los múltiplos más elevados del mercado, incluso en semiconductores donde la mediana del sector ya está a 91 veces. Nuestro modelo sitúa el precio de compra razonable en 41,93 dólares frente a un precio actual de 308 dólares. La prima es del 86%. Para que esta valoración esté justificada, Marvell necesitaría entregar un crecimiento del FCF muy alto durante muchos años sin ningún tropiezo. Es posible, pero es una apuesta, no una certeza.'
+        },
+        {
+          type: 'h2',
+          text: '¿Cambia la entrada al S&P 500 el análisis fundamental?'
+        },
+        {
+          type: 'p',
+          text: 'No. Unirse al S&P 500 es un evento de flujos, no un evento fundamental. No cambia los ingresos de Marvell, sus márgenes ni su capacidad de generar efectivo. Lo que cambia es la demanda mecánica a corto plazo (los fondos indexados deben comprar) y la visibilidad de la empresa. El efecto sobre el precio suele ser temporal.'
+        },
+        {
+          type: 'p',
+          text: 'La pregunta real sigue siendo la misma que antes del anuncio: ¿vale MRVL 308 dólares dado lo que la empresa genera y puede generar? Con un P/FCF de 273 veces, el mercado está apostando muy fuerte por el futuro. Si los contratos de IA personalizada siguen materializándose, si Google, Amazon y Microsoft continúan encargando chips personalizados a Marvell, la tesis se sostiene. Si uno de estos hyperscalers decide desarrollar chips internamente o cambiar de socio, la valoración puede contraerse bruscamente.'
+        },
+        {
+          type: 'p',
+          text: 'Para el análisis completo y actualizado de MRVL con todos los ratios detallados, puedes consultar la página dedicada en mi sitio de inversión: lubin-investment.com/analyse/MRVL.'
+        }
+      ],
+      faq: [
+        {
+          q: '¿Por qué Marvell no estaba ya en el S&P 500?',
+          a: 'El S&P 500 exige cuatro trimestres consecutivos de beneficios GAAP positivos. Marvell solo cumplió esta condición en 2026, después de varios años de pérdidas contables relacionadas con adquisiciones y reestructuración de su cartera.'
+        },
+        {
+          q: '¿Qué es un ASIC personalizado y por qué importa para MRVL?',
+          a: 'Un ASIC (Application-Specific Integrated Circuit) es un chip diseñado para una tarea específica. Los hyperscalers como Google o Amazon encargan sus propios chips de IA personalizados para reducir la dependencia de Nvidia y optimizar costes. Marvell es uno de los pocos proveedores capaces de co-desarrollarlos en 2nm.'
+        },
+        {
+          q: '¿Es entrar al S&P 500 una buena razón para comprar MRVL?',
+          a: 'No por sí solo. La inclusión crea demanda mecánica a corto plazo de los fondos indexados, pero no cambia el valor intrínseco del negocio. Con un P/FCF de 273 veces, la valoración ya descuenta un crecimiento muy ambicioso. El evento puede impulsar el precio antes del 22 de junio, pero el análisis fundamental no cambia.'
+        },
+        {
+          q: '¿Cuál es la puntuación de calidad de Marvell en vuestro método?',
+          a: 'Marvell obtiene 8 sobre 10. Es una muy buena puntuación de calidad operativa, impulsada por el fuerte crecimiento del FCF por acción y un balance sólido. Los puntos negativos son el margen de FCF (11,6%) y el Cash ROCE (14,2%) por debajo de nuestros objetivos, y una conversión de efectivo imperfecta.'
+        },
+        {
+          q: '¿A qué precio MRVL sería una oportunidad según vuestro método?',
+          a: 'Nuestro modelo estima un precio de compra razonable en torno a 41,93 dólares, basado en el FCF actual y nuestras hipótesis de crecimiento. El precio actual de 308 dólares incluye una prima de crecimiento IA extremadamente alta. Mientras la brecha se mantenga así de amplia, MRVL no encaja en nuestro método calidad + valoración: a evitar a estos niveles, a reconsiderar solo tras una corrección seria o una fuerte aceleración fundamental.'
+        }
+      ],
+      tags: ['MRVL', 'Marvell Technology', 'S&P 500', 'semiconductores', 'IA', 'chips personalizados', 'análisis fundamental', 'valoración'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Las cifras corresponden al 16 de junio de 2026. El rendimiento pasado no predice resultados futuros. Haz tu propia investigación antes de cualquier decisión.'
+    }
+  }
+};
+
+const articleAVGO: Article = {
+  slug: 'broadcom-avgo-ia-143-pourcent-analyse-fondamentale',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 7,
+  ticker: 'AVGO',
+  content: {
+    fr: {
+      title: 'Broadcom (AVGO) : IA à +143%, notre analyse fondamentale',
+      excerpt: 'Broadcom a publié des résultats records le 3 juin 2026, avec des revenus IA en hausse de 143% à 10,8 milliards. Score 7 sur 10, mais valorisation très élevée. Mon analyse complète.',
+      metaDescription: 'Broadcom (AVGO) Q2 FY2026 : revenus IA +143% à 10,8 Md$, guidance +200% au Q3. Analyse fondamentale complète, score de qualité, valorisation et risques en bourse.',
+      answer: 'Broadcom est une entreprise de qualité solide avec une marge de FCF de 30% et un Cash ROCE de 48%. Ses revenus IA ont bondi de 143% au Q2 FY2026. Mais avec une valorisation à 94 fois son free cash flow, le cours intègre déjà une croissance massive. Le business est excellent, le prix est élevé.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Broadcom a publié ses résultats Q2 FY2026 le 3 juin 2026 : revenus totaux de 22,2 milliards de dollars (+48% sur un an), revenus IA semiconductor de 10,8 milliards (+143%).',
+            'Guidance Q3 FY2026 : revenus totaux attendus à 29,4 milliards (+84% sur un an), revenus IA semiconductor à 16 milliards (+200%).',
+            'Score fondamental : 7 sur 10. Cash ROCE exceptionnel à 48%, FCF margin solide à 30%. Mais croissance du FCF par action limitée à 7% par an sur 5 ans.',
+            'Valorisation : P/FCF de 94 fois. Notre modèle estime un prix d\'achat raisonnable à 80,66 dollars contre un cours actuel de 393,94 dollars.',
+            'Risque principal : concentration sur quelques hyperscalers pour les revenus IA. Une perte de contrat majeur pèserait lourd.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Les résultats Q2 FY2026 : des chiffres qui coupent le souffle'
+        },
+        {
+          type: 'p',
+          text: 'Broadcom a publié le 3 juin 2026 des résultats que le marché attendait avec impatience. Les revenus totaux trimestriels ont atteint 22,2 milliards de dollars, en hausse de 48% par rapport au même trimestre un an plus tôt. C\'est un record. L\'EBITDA ajusté a progressé de 52% à 15,2 milliards, soit 69% du chiffre d\'affaires. Des marges d\'un niveau impressionnant.'
+        },
+        {
+          type: 'p',
+          text: 'Ce qui a retenu l\'attention de tout le monde : les revenus semiconductor liés à l\'IA ont atteint 10,8 milliards de dollars, en hausse de 143% sur un an. Ces revenus représentent désormais 49% du chiffre d\'affaires total semiconductor. Broadcom n\'est plus une entreprise diversifiée qui fait un peu d\'IA parmi beaucoup d\'autres choses. L\'IA est devenu son moteur principal.'
+        },
+        {
+          type: 'p',
+          text: 'Et la guidance pour Q3 va encore plus loin : Broadcom anticipe des revenus IA de 16 milliards de dollars, soit une croissance de 200% sur un an. Le BPA ajusté (bénéfice par action, hors éléments exceptionnels) a atteint 2,44 dollars au Q2, légèrement au-dessus des attentes des analystes à 2,45 dollars.'
+        },
+        {
+          type: 'h2',
+          text: 'Notre lecture fondamentale : un 7 sur 10 mérité'
+        },
+        {
+          type: 'p',
+          text: 'Sur mon site, j\'analyse chaque action à travers 10 critères fondamentaux. La note de 7 sur 10 pour Broadcom reflète des points brillants et quelques zones de prudence. Le Cash ROCE à 48% est remarquable. C\'est la mesure du rendement du capital que l\'entreprise investit, calculée sur le cash réel et non sur des bénéfices comptables. 48%, c\'est presque le double du seuil que je considère comme excellent (25%).'
+        },
+        {
+          type: 'p',
+          text: 'La marge de FCF de 30% est elle aussi très solide. Sur chaque euro de revenus, Broadcom génère 30 centimes de cash libre après toutes ses dépenses. Et la conversion cash est de 70% : 70% des bénéfices comptables se transforment en cash réel, ce qui est rassurant sur la qualité des résultats.'
+        },
+        {
+          type: 'p',
+          text: 'Le bémol principal : la croissance du FCF par action n\'est que de 7% par an sur 5 ans. C\'est correct, mais décevant pour une entreprise dont la capitalisation boursière dépasse 1 800 milliards de dollars. L\'autre bémol : la dilution de +3,5% par an (le nombre d\'actions augmente, ce qui réduit mécaniquement la part de chaque actionnaire). C\'est un critère que je surveille toujours avec attention.'
+        },
+        {
+          type: 'h2',
+          text: 'Le pari IA de Broadcom : entre diversification et concentration'
+        },
+        {
+          type: 'p',
+          text: 'L\'histoire de Broadcom est celle d\'un conglomérat qui s\'est construit par acquisitions successives : Avago, CA Technologies, Symantec Enterprise, VMware. Chaque acquisition a apporté des flux de revenus supplémentaires, d\'abord des software enterprise, maintenant de l\'IA semiconductor. Hock Tan, le CEO, est un allocateur de capital redoutable, connu pour sa capacité à extraire des marges de chaque actif acquis.'
+        },
+        {
+          type: 'p',
+          text: 'La stratégie IA de Broadcom se concentre sur deux axes. D\'abord, les custom ASIC (puces sur mesure) pour les hyperscalers qui veulent des accélérateurs dédiés. Ensuite, les composants réseau IA (switches Ethernet, optical interconnects) qui équipent les clusters GPU. Ces deux segments profitent directement de l\'explosion des infrastructures IA des GAFAM.'
+        },
+        {
+          type: 'p',
+          text: 'Mais voici le trade-off que je vois clairement : Broadcom est désormais très concentré sur quelques clients hyperscalers pour ses revenus IA. Si un seul de ses grands clients décide d\'internaliser ses puces, ou change de fournisseur, l\'impact sur les revenus pourrait être brutal. C\'est le revers d\'une croissance aussi spectaculaire : la dépendance à quelques comptes stratégiques.'
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : la partie difficile de l\'analyse AVGO'
+        },
+        {
+          type: 'p',
+          text: 'Le P/FCF mesure le nombre d\'années de free cash flow que tu paies pour acquérir une action. Un P/FCF de 20, c\'est raisonnable pour une entreprise de qualité. Un P/FCF de 94, comme celui de Broadcom aujourd\'hui, signifie que tu paies 94 ans de cash libre au prix actuel. C\'est le multiple qui découle d\'anticipations de croissance très élevées.'
+        },
+        {
+          type: 'p',
+          text: 'Notre modèle estime un prix d\'achat raisonnable à 80,66 dollars, basé sur le FCF actuel et des hypothèses de croissance normalisées. Le cours actuel est à 393,94 dollars, soit une surcote de 79,5%. Broadcom est une excellente entreprise. Mais à ce prix, tout doit se passer exactement comme prévu pendant des années.'
+        },
+        {
+          type: 'p',
+          text: 'Pour suivre en détail l\'évolution des ratios de Broadcom, consulte la page d\'analyse complète sur mon site : lubin-investment.com/analyse/AVGO. C\'est exactement pour avoir ce type de vue en temps réel que j\'ai construit cet outil.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Broadcom fait-il vraiment de l\'IA ou est-ce un effet de mode ?',
+          a: 'Les chiffres sont très concrets : 10,8 milliards de revenus IA au Q2 FY2026, +143% sur un an. Ces revenus viennent de puces ASIC personnalisées pour des hyperscalers comme Google et Meta, et de composants réseau pour les clusters GPU. Ce n\'est pas du marketing, c\'est de la facturation réelle.'
+        },
+        {
+          q: 'Pourquoi Broadcom obtient-il 7 sur 10 et pas plus ?',
+          a: 'La note reflète 10 critères objectifs. Les points forts (Cash ROCE 48%, FCF margin 30%) sont contrebalancés par une croissance du FCF par action limitée à 7% par an sur 5 ans, une dilution modérée (+3,5%/an) et une dette nette de 2,2 fois le FCF annuel. 7 sur 10 reste une excellente note, c\'est juste honnête sur les quelques zones de prudence.'
+        },
+        {
+          q: 'Qu\'est-ce que le FCF et pourquoi c\'est plus important que le bénéfice net ?',
+          a: 'Le FCF (free cash flow) est le cash réellement généré par l\'entreprise après toutes ses dépenses, y compris ses investissements. Le bénéfice net inclut des éléments non-cash (amortissements, dépréciations) qui peuvent être manipulés comptablement. Le FCF est plus difficile à truquer et reflète mieux la santé réelle du business.'
+        },
+        {
+          q: 'Quel est le principal risque pour Broadcom en 2026 ?',
+          a: 'La concentration de clients. Avec 49% des revenus semiconductor liés à l\'IA et une dépendance à quelques hyperscalers pour ces commandes, toute décision d\'internalisation ou de changement de fournisseur de la part d\'un grand client pourrait fortement impacter les revenus. L\'exécution sur la guidance de 200% de croissance IA au Q3 sera cruciale pour la confiance du marché.'
+        },
+        {
+          q: 'Vaut-il mieux acheter AVGO ou attendre ?',
+          a: 'Ce n\'est pas un conseil d\'investissement. Mais notre analyse montre que la qualité est au rendez-vous (7/10) et que la croissance IA est réelle. La valorisation à 94 fois le FCF laisse peu de marge d\'erreur. Notre modèle situe le prix d\'achat raisonnable à 80,66 dollars. À toi de décider si la prime de croissance vaut le risque à ce niveau.'
+        }
+      ],
+      tags: ['AVGO', 'Broadcom', 'IA', 'earnings', 'semiconducteurs', 'analyse fondamentale', 'Q2 FY2026', 'valorisation'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Chiffres à la date du 16 juin 2026. Les performances passées ne préjugent pas du futur. Fais tes propres recherches avant toute décision d\'investissement.'
+    },
+    en: {
+      title: 'Broadcom (AVGO): AI up +143%, our fundamental analysis',
+      excerpt: 'Broadcom posted record results on June 3, 2026, with AI revenues up 143% to 10.8 billion dollars. Score 7 out of 10, but very high valuation. My full analysis.',
+      metaDescription: 'Broadcom (AVGO) Q2 FY2026: AI revenues +143% to 10.8B, Q3 guidance +200%. Full fundamental analysis, quality score, valuation and risks for this stock.',
+      answer: 'Broadcom is a solidly quality business with a 30% FCF margin and a 48% Cash ROCE. Its AI revenues jumped 143% in Q2 FY2026. But with a valuation at 94 times its free cash flow, the price already reflects massive growth. The business is excellent, the price is high.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Broadcom published Q2 FY2026 results on June 3, 2026: total revenues of 22.2 billion dollars (+48% year-over-year), AI semiconductor revenues of 10.8 billion (+143%).',
+            'Q3 FY2026 guidance: total revenues expected at 29.4 billion (+84% year-over-year), AI semiconductor revenues at 16 billion (+200%).',
+            'Fundamental score: 7 out of 10. Exceptional Cash ROCE at 48%, solid FCF margin at 30%. But FCF per share growth limited to 7% per year over 5 years.',
+            'Valuation: P/FCF of 94 times. Our model estimates a reasonable buy price at 80.66 dollars versus a current price of 393.94 dollars.',
+            'Main risk: concentration on a few hyperscalers for AI revenues. A major contract loss would weigh heavily.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Q2 FY2026 results: numbers that take your breath away'
+        },
+        {
+          type: 'p',
+          text: 'Broadcom published results on June 3, 2026 that the market had been eagerly awaiting. Total quarterly revenues reached 22.2 billion dollars, up 48% compared to the same quarter a year earlier. A record. Adjusted EBITDA rose 52% to 15.2 billion, representing 69% of revenue. Margins at an impressive level.'
+        },
+        {
+          type: 'p',
+          text: 'What caught everyone\'s attention: AI-related semiconductor revenues reached 10.8 billion dollars, up 143% year-over-year. These revenues now represent 49% of total semiconductor revenue. Broadcom is no longer a diversified company doing a little AI among many other things. AI has become its main engine.'
+        },
+        {
+          type: 'p',
+          text: 'And the Q3 guidance goes even further: Broadcom anticipates AI revenues of 16 billion dollars, representing 200% growth year-over-year. Non-GAAP EPS (earnings per share, excluding exceptional items) reached 2.44 dollars in Q2, slightly above analyst expectations of 2.45 dollars.'
+        },
+        {
+          type: 'h2',
+          text: 'Our fundamental reading: a well-deserved 7 out of 10'
+        },
+        {
+          type: 'p',
+          text: 'On my site, I analyze each stock through 10 fundamental criteria. The score of 7 out of 10 for Broadcom reflects brilliant points and some areas of caution. The Cash ROCE at 48% is remarkable. It measures the return on capital the company invests, calculated on real cash rather than accounting profits. 48% is almost double the threshold I consider excellent (25%).'
+        },
+        {
+          type: 'p',
+          text: 'The FCF margin of 30% is also very solid. For every dollar of revenue, Broadcom generates 30 cents of free cash after all expenses. And cash conversion is 70%: 70% of accounting profits convert to real cash, which is reassuring about the quality of results.'
+        },
+        {
+          type: 'p',
+          text: 'The main caveat: FCF per share growth is only 7% per year over 5 years. That is decent, but disappointing for a company with a market capitalization over 1.8 trillion dollars. The other caveat: dilution of +3.5% per year (the share count increases, mechanically reducing each shareholder\'s stake). A criterion I always watch carefully.'
+        },
+        {
+          type: 'h2',
+          text: 'Broadcom\'s AI bet: between diversification and concentration'
+        },
+        {
+          type: 'p',
+          text: 'Broadcom\'s story is one of a conglomerate built through successive acquisitions: Avago, CA Technologies, Symantec Enterprise, VMware. Each acquisition brought additional revenue streams, first enterprise software, now AI semiconductors. Hock Tan, the CEO, is a formidable capital allocator known for his ability to extract margins from every acquired asset.'
+        },
+        {
+          type: 'p',
+          text: 'Broadcom\'s AI strategy focuses on two pillars. First, custom ASICs (purpose-built chips) for hyperscalers who want dedicated accelerators. Second, AI networking components (Ethernet switches, optical interconnects) that equip GPU clusters. Both segments directly benefit from the explosion of AI infrastructure spending by the major cloud players.'
+        },
+        {
+          type: 'p',
+          text: 'But here is the trade-off I see clearly: Broadcom is now heavily concentrated on a few hyperscaler customers for its AI revenues. If one major client decides to bring chip production in-house or switches supplier, the revenue impact could be brutal. That is the flip side of such spectacular growth: dependence on a handful of strategic accounts.'
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: the difficult part of the AVGO analysis'
+        },
+        {
+          type: 'p',
+          text: 'P/FCF measures how many years of free cash flow you are paying for when you buy a stock. A P/FCF of 20 is reasonable for a quality company. A P/FCF of 94, like Broadcom\'s today, means you are paying 94 years of free cash flow at the current price. This multiple reflects very high growth expectations.'
+        },
+        {
+          type: 'p',
+          text: 'Our model estimates a reasonable buy price at 80.66 dollars, based on current FCF and normalized growth assumptions. The current price is 393.94 dollars, a premium of 79.5%. Broadcom is an excellent business. But at this price, everything must go exactly as planned for years.'
+        },
+        {
+          type: 'p',
+          text: 'To track Broadcom\'s ratios in real time, check the full analysis page on my site: lubin-investment.com/analyse/AVGO.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Is Broadcom\'s AI business real or just a trend?',
+          a: 'The numbers are very concrete: 10.8 billion in AI revenues in Q2 FY2026, +143% year-over-year. These revenues come from custom ASIC chips for hyperscalers like Google and Meta, and from networking components for GPU clusters. This is not marketing, it is real billing.'
+        },
+        {
+          q: 'Why does Broadcom score 7 out of 10 and not higher?',
+          a: 'The score reflects 10 objective criteria. The strengths (Cash ROCE 48%, FCF margin 30%) are offset by FCF per share growth limited to 7% per year over 5 years, moderate dilution (+3.5%/year) and net debt at 2.2 times annual FCF. 7 out of 10 remains an excellent score, but it is honest about the few areas of caution.'
+        },
+        {
+          q: 'What is FCF and why is it more important than net income?',
+          a: 'FCF (free cash flow) is the cash actually generated by the business after all expenses, including capital expenditures. Net income includes non-cash items (depreciation, amortization) that can be manipulated accounting-wise. FCF is harder to manipulate and better reflects the true health of the business.'
+        },
+        {
+          q: 'What is the main risk for Broadcom in 2026?',
+          a: 'Customer concentration. With 49% of semiconductor revenues tied to AI and dependence on a few hyperscalers for those orders, any insourcing decision or supplier change by a major client could strongly impact revenues. Execution on the 200% AI growth guidance in Q3 will be crucial for market confidence.'
+        },
+        {
+          q: 'Should you buy AVGO or wait?',
+          a: 'Not investment advice. But our analysis shows quality is there (7/10) and AI growth is real. Valuation at 94 times FCF leaves little room for error. Our model puts the reasonable buy price at 80.66 dollars. Whether the growth premium justifies the risk at this level is yours to decide.'
+        }
+      ],
+      tags: ['AVGO', 'Broadcom', 'AI', 'earnings', 'semiconductors', 'fundamental analysis', 'Q2 FY2026', 'valuation'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Figures as of June 16, 2026. Past performance does not predict future results. Do your own research before any investment decision.'
+    },
+    es: {
+      title: 'Broadcom (AVGO): IA al +143%, nuestro análisis fundamental',
+      excerpt: 'Broadcom publicó resultados récord el 3 de junio de 2026, con ingresos de IA en alza del 143% hasta 10.800 millones. Puntuación 7 sobre 10, pero valoración muy elevada. Mi análisis completo.',
+      metaDescription: 'Broadcom (AVGO) Q2 FY2026: ingresos IA +143% hasta 10.800 M$, previsión Q3 +200%. Análisis fundamental completo, puntuación de calidad, valoración y riesgos en bolsa.',
+      answer: 'Broadcom es un negocio de sólida calidad con un margen de FCF del 30% y un Cash ROCE del 48%. Sus ingresos de IA se dispararon un 143% en el Q2 FY2026. Pero con una valoración a 94 veces su flujo de caja libre, el precio ya refleja un crecimiento masivo. El negocio es excelente, el precio es elevado.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Broadcom publicó resultados Q2 FY2026 el 3 de junio de 2026: ingresos totales de 22.200 millones de dólares (+48% interanual), ingresos semiconductor IA de 10.800 millones (+143%).',
+            'Previsión Q3 FY2026: ingresos totales esperados en 29.400 millones (+84% interanual), ingresos semiconductor IA en 16.000 millones (+200%).',
+            'Puntuación fundamental: 7 sobre 10. Cash ROCE excepcional al 48%, margen de FCF sólido al 30%. Pero crecimiento del FCF por acción limitado al 7% anual en 5 años.',
+            'Valoración: P/FCF de 94 veces. Nuestro modelo estima un precio de compra razonable en 80,66 dólares frente a un precio actual de 393,94 dólares.',
+            'Riesgo principal: concentración en pocos hyperscalers para los ingresos de IA. Una pérdida de contrato importante pesaría mucho.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Resultados Q2 FY2026: cifras que dejan sin aliento'
+        },
+        {
+          type: 'p',
+          text: 'Broadcom publicó el 3 de junio de 2026 unos resultados que el mercado esperaba con impaciencia. Los ingresos trimestrales totales alcanzaron 22.200 millones de dólares, un aumento del 48% respecto al mismo trimestre del año anterior. Un récord. El EBITDA ajustado subió un 52% hasta 15.200 millones, representando el 69% de los ingresos. Márgenes de un nivel impresionante.'
+        },
+        {
+          type: 'p',
+          text: 'Lo que llamó la atención de todos: los ingresos semiconductor relacionados con IA alcanzaron 10.800 millones de dólares, con un aumento del 143% interanual. Estos ingresos representan ahora el 49% del total semiconductor. Broadcom ya no es una empresa diversificada que hace un poco de IA entre muchas otras cosas. La IA se ha convertido en su motor principal.'
+        },
+        {
+          type: 'p',
+          text: 'Y la previsión para Q3 va aún más lejos: Broadcom anticipa ingresos de IA de 16.000 millones de dólares, un crecimiento del 200% interanual. El BPA ajustado (beneficio por acción, excluyendo partidas excepcionales) alcanzó 2,44 dólares en Q2, ligeramente por encima de las expectativas de los analistas de 2,45 dólares.'
+        },
+        {
+          type: 'h2',
+          text: 'Nuestra lectura fundamental: un 7 sobre 10 merecido'
+        },
+        {
+          type: 'p',
+          text: 'En mi sitio, analizo cada acción a través de 10 criterios fundamentales. La nota de 7 sobre 10 para Broadcom refleja puntos brillantes y algunas áreas de cautela. El Cash ROCE al 48% es notable. Mide el rendimiento del capital que la empresa invierte, calculado sobre el efectivo real y no sobre los beneficios contables. El 48% es casi el doble del umbral que considero excelente (25%).'
+        },
+        {
+          type: 'p',
+          text: 'El margen de FCF del 30% también es muy sólido. Por cada dólar de ingresos, Broadcom genera 30 céntimos de caja libre después de todos sus gastos. Y la conversión de efectivo es del 70%: el 70% de los beneficios contables se convierte en caja real, lo que es tranquilizador sobre la calidad de los resultados.'
+        },
+        {
+          type: 'p',
+          text: 'El punto débil principal: el crecimiento del FCF por acción es solo del 7% anual en 5 años. Es correcto, pero decepcionante para una empresa con una capitalización bursátil superior a 1,8 billones de dólares. Otro punto débil: la dilución del +3,5% anual (el número de acciones aumenta, reduciendo mecánicamente la participación de cada accionista).'
+        },
+        {
+          type: 'h2',
+          text: 'La apuesta IA de Broadcom: entre diversificación y concentración'
+        },
+        {
+          type: 'p',
+          text: 'La historia de Broadcom es la de un conglomerado construido mediante adquisiciones sucesivas: Avago, CA Technologies, Symantec Enterprise, VMware. Cada adquisición aportó flujos de ingresos adicionales, primero de software empresarial, ahora de semiconductores IA. Hock Tan, el CEO, es un formidable asignador de capital conocido por su capacidad para extraer márgenes de cada activo adquirido.'
+        },
+        {
+          type: 'p',
+          text: 'La estrategia IA de Broadcom se concentra en dos ejes. Primero, los ASIC personalizados para hyperscalers que quieren aceleradores dedicados. Segundo, los componentes de red IA (switches Ethernet, interconexiones ópticas) que equipan los clústeres de GPU. Ambos segmentos se benefician directamente de la explosión de las infraestructuras IA de los grandes actores cloud.'
+        },
+        {
+          type: 'p',
+          text: 'Pero aquí está el trade-off que veo claramente: Broadcom ahora está muy concentrado en unos pocos clientes hyperscaler para sus ingresos de IA. Si uno de sus grandes clientes decide internalizar sus chips o cambia de proveedor, el impacto en los ingresos podría ser brutal. Es el reverso de un crecimiento tan espectacular: la dependencia de unas pocas cuentas estratégicas.'
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: la parte difícil del análisis de AVGO'
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF mide cuántos años de flujo de caja libre pagas al comprar una acción. Un P/FCF de 20 es razonable para una empresa de calidad. Un P/FCF de 94, como el de Broadcom hoy, significa que pagas 94 años de caja libre al precio actual. Este múltiplo refleja expectativas de crecimiento muy elevadas.'
+        },
+        {
+          type: 'p',
+          text: 'Nuestro modelo estima un precio de compra razonable en 80,66 dólares, basado en el FCF actual e hipótesis de crecimiento normalizadas. El precio actual es de 393,94 dólares, una prima del 79,5%. Broadcom es un excelente negocio. Pero a este precio, todo debe salir exactamente como se planea durante años.'
+        },
+        {
+          type: 'p',
+          text: 'Para seguir en detalle la evolución de los ratios de Broadcom, consulta la página de análisis completa en mi sitio: lubin-investment.com/analyse/AVGO.'
+        }
+      ],
+      faq: [
+        {
+          q: '¿El negocio de IA de Broadcom es real o una moda pasajera?',
+          a: 'Las cifras son muy concretas: 10.800 millones en ingresos IA en Q2 FY2026, +143% interanual. Estos ingresos provienen de chips ASIC personalizados para hyperscalers como Google y Meta, y de componentes de red para clústeres GPU. No es marketing, es facturación real.'
+        },
+        {
+          q: '¿Por qué Broadcom obtiene 7 sobre 10 y no más?',
+          a: 'La nota refleja 10 criterios objetivos. Los puntos fuertes (Cash ROCE 48%, margen FCF 30%) se compensan con un crecimiento del FCF por acción limitado al 7% anual en 5 años, dilución moderada (+3,5%/año) y deuda neta de 2,2 veces el FCF anual. 7 sobre 10 sigue siendo una excelente nota, pero es honesto sobre las áreas de cautela.'
+        },
+        {
+          q: '¿Qué es el FCF y por qué es más importante que el beneficio neto?',
+          a: 'El FCF (free cash flow) es el efectivo realmente generado por la empresa después de todos sus gastos, incluidas las inversiones. El beneficio neto incluye partidas no monetarias (amortizaciones, depreciaciones) que pueden manipularse contablemente. El FCF es más difícil de falsificar y refleja mejor la salud real del negocio.'
+        },
+        {
+          q: '¿Cuál es el principal riesgo para Broadcom en 2026?',
+          a: 'La concentración de clientes. Con el 49% de los ingresos semiconductor ligados a la IA y dependencia de pocos hyperscalers para esos pedidos, cualquier decisión de internalización o cambio de proveedor por parte de un gran cliente podría impactar fuertemente los ingresos.'
+        },
+        {
+          q: '¿Conviene comprar AVGO o esperar?',
+          a: 'No es un consejo de inversión. Pero nuestro análisis muestra que la calidad está (7/10) y el crecimiento IA es real. La valoración a 94 veces el FCF deja poco margen de error. Nuestro modelo sitúa el precio de compra razonable en 80,66 dólares. Decidir si la prima de crecimiento justifica el riesgo a este nivel es tu decisión.'
+        }
+      ],
+      tags: ['AVGO', 'Broadcom', 'IA', 'earnings', 'semiconductores', 'análisis fundamental', 'Q2 FY2026', 'valoración'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Las cifras corresponden al 16 de junio de 2026. El rendimiento pasado no predice resultados futuros. Haz tu propia investigación antes de cualquier decisión de inversión.'
+    }
+  }
+};
+
+const articleCRM: Article = {
+  slug: 'salesforce-crm-q1-fy27-ia-agentforce-analyse',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 7,
+  ticker: 'CRM',
+  content: {
+    fr: {
+      title: 'Salesforce (CRM) : Q1 FY27, une action de qualité sous-évaluée en bourse',
+      excerpt: 'Salesforce a publié un Q1 FY2027 record le 27 mai 2026. BPA ajusté de 3,88 dollars (+23% de surprise). Agentforce dépasse 1 milliard d\'ARR. Et le titre reste sous-évalué selon notre méthode.',
+      metaDescription: 'Salesforce (CRM) Q1 FY2027 : revenus 11,1 Md$, BPA ajusté 3,88$ (+23% de surprise), Agentforce à 1,2 Md$ ARR. Analyse fondamentale, score maximum, valorisation.',
+      answer: 'Salesforce obtient le score maximum de notre méthode fondamentale (10 critères sur 10 validés), avec un P/FCF de 12,4 fois, une valorisation en dessous de notre prix cible de 180 dollars. Les résultats Q1 FY27 confirment l\'accélération : BPA ajusté à 3,88 dollars, Agentforce à 1,2 milliard d\'ARR. Un dossier rare où qualité maximale et prix raisonnable coexistent.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Salesforce publie un Q1 FY2027 record le 27 mai 2026 : revenus de 11,13 milliards (+13% sur un an), BPA ajusté de 3,88 dollars (surprise de +23% vs les attentes à 3,15 dollars).',
+            'Agentforce atteint 1,2 milliard d\'ARR (revenus annuels récurrents), en croissance de 205% sur 12 mois. 3,8 milliards d\'« Agentic Work Units » livrées aux clients.',
+            'Score fondamental : maximum selon notre méthode (25 critères sur 25 validés). FCF par action en hausse de 45,8% par an sur 5 ans. Cash ROCE de 97,2%.',
+            'Valorisation : P/FCF de 12,4 fois, en dessous de notre prix cible de 180 dollars. Le cours actuel est à 164,55 dollars. C\'est rare pour une entreprise de cette qualité.',
+            'Le modèle SaaS de Salesforce génère du cash avant de payer ses fournisseurs (cycle de conversion cash négatif de 201 jours), ce qui est un avantage structurel puissant.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Les résultats Q1 FY2027 : une surprise que le marché n\'attendait pas'
+        },
+        {
+          type: 'p',
+          text: 'Le 27 mai 2026, Salesforce a publié des résultats qui ont mis fin à plusieurs mois de scepticisme du marché. Le titre avait perdu 32% depuis le début de l\'année avant cette publication. Les chiffres ont surpris positivement sur presque tous les fronts.'
+        },
+        {
+          type: 'p',
+          text: 'Les revenus du trimestre ont atteint 11,13 milliards de dollars, soit +13% sur un an, légèrement au-dessus des attentes. Mais c\'est le BPA ajusté qui a le plus surpris : 3,88 dollars réalisés contre 3,15 dollars attendus, soit 23% de surprise positive. C\'est le signal que la discipline de coûts engagée depuis 2023 commence à se transformer en bénéfices concrets, pas juste en promesses de marge.'
+        },
+        {
+          type: 'p',
+          text: 'Les abonnements et supports, qui représentent le cœur du modèle, ont progressé de 14% à 10,6 milliards. La guidance annuelle a été relevée : Salesforce prévoit désormais 45,9 à 46,2 milliards de revenus pour l\'ensemble de l\'exercice FY27, en hausse de 11% sur l\'an.'
+        },
+        {
+          type: 'h2',
+          text: 'Agentforce : l\'IA dans le CRM n\'est plus une promesse, c\'est déjà facturable'
+        },
+        {
+          type: 'p',
+          text: 'Agentforce, c\'est le produit d\'agents IA de Salesforce. Un agent IA dans ce contexte est un programme capable d\'exécuter des tâches complexes de manière autonome dans le CRM (CRM = Customer Relationship Management, le logiciel de gestion de la relation client). Concrètement : répondre à des tickets support, qualifier des leads, préparer des comptes-rendus de réunions commerciales, envoyer des devis.'
+        },
+        {
+          type: 'p',
+          text: 'Ce qui est remarquable dans les résultats du Q1, c\'est qu\'Agentforce n\'est plus une annonce : c\'est 1,2 milliard de dollars d\'ARR (revenus récurrents annuels) et 205% de croissance en 12 mois. Plus de 50% des contrats Agentforce et Data 360 ont été signés par des clients existants, ce qui signifie que l\'upsell fonctionne. Et Slack MCP, l\'interface permettant à des agents IA de communiquer entre eux, a dépassé le million d\'utilisateurs actifs en six semaines.'
+        },
+        {
+          type: 'p',
+          text: 'La question que beaucoup posent : l\'IA ne va-t-elle pas cannabiliser le modèle SaaS de Salesforce ? Mon avis : au contraire. Salesforce s\'est repositionné comme la couche d\'orchestration IA des entreprises. Les agents ont besoin de données CRM propres, structurées, avec de l\'historique. C\'est exactement ce que Salesforce fournit à 200 000 clients depuis des années. L\'IA n\'est pas une menace pour Salesforce, c\'est son prochain vecteur de croissance.'
+        },
+        {
+          type: 'h2',
+          text: 'Notre score fondamental : 10 sur 10, le cas le plus rare'
+        },
+        {
+          type: 'p',
+          text: 'Ma méthode note chaque action sur 10 critères objectifs, chacun avec un seuil chiffré. Croissance des revenus, croissance du FCF par action, marge nette, marge de FCF, Cash ROCE (rendement du capital en cash), niveau d\'endettement, dilution, payout ratio, levier opérationnel, qualité du bilan. Salesforce valide les 10. C\'est le score maximum de notre système (traduit 25/25 dans notre base de données interne).'
+        },
+        {
+          type: 'p',
+          text: 'Le chiffre qui me frappe le plus : le FCF par action a progressé de 45,8% par an en moyenne sur les 5 dernières années. C\'est extraordinaire pour une entreprise à cette échelle. Et la marge de FCF est à 25,5%, ce qui signifie que sur chaque dollar de revenus, Salesforce génère 25 cents de cash libre réel. Le Cash ROCE à 97,2% est lui aussi exceptionnel : quasiment un dollar de cash généré pour chaque dollar de capital investi.'
+        },
+        {
+          type: 'p',
+          text: 'Autre particularité remarquable : le cycle de conversion cash est négatif à 201 jours. Cela signifie que Salesforce encaisse ses clients avant même de payer ses fournisseurs. Les abonnements annuels ou pluriannuels sont réglés d\'avance. C\'est un avantage structurel considérable, qui ressemble au modèle de flottant d\'une compagnie d\'assurance : l\'entreprise travaille avec l\'argent de ses clients.'
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : un cas où qualité et prix raisonnable coïncident enfin'
+        },
+        {
+          type: 'p',
+          text: 'Le P/FCF (prix de l\'action divisé par le free cash flow généré par action chaque année) de Salesforce est à 12,4 fois. Pour une entreprise notée maximum sur nos 10 critères fondamentaux, avec un FCF par action qui progresse de 45,8% par an, c\'est une valorisation basse. Notre modèle estime que le prix d\'achat raisonnable est à 180 dollars. Le cours actuel est à 164,55 dollars, soit une décote de 9,4% par rapport à ce niveau.'
+        },
+        {
+          type: 'p',
+          text: 'C\'est rare. D\'ordinaire, les entreprises qui obtiennent le score maximum dans notre méthode sont largement surpayées par le marché. Salesforce est dans une situation atypique : le marché l\'avait boudée en 2025-2026 par crainte que l\'IA ne rende son modèle SaaS obsolète. Les résultats Q1 FY27 montrent que c\'est l\'inverse qui est en train de se produire.'
+        },
+        {
+          type: 'p',
+          text: 'Je suis l\'analyse détaillée de CRM sur mon site d\'investissement depuis plusieurs mois. Si tu veux accéder à tous les ratios actualisés, c\'est disponible ici : lubin-investment.com/analyse/CRM.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Pourquoi Salesforce obtenait-il un mauvais score en bourse malgré sa qualité ?',
+          a: 'Le marché craignait que l\'IA générative ne rende le CRM traditionnel obsolète, que les entreprises remplacent leurs abonnements Salesforce par des agents IA moins chers. Les résultats Q1 FY27 montrent au contraire que Salesforce est le bénéficiaire de cette vague IA : Agentforce à 1,2 milliard d\'ARR et +205% en 12 mois.'
+        },
+        {
+          q: 'Qu\'est-ce que l\'ARR et pourquoi c\'est la métrique clé pour Salesforce ?',
+          a: 'L\'ARR (Annual Recurring Revenue, revenus récurrents annuels) mesure le montant des abonnements actifs qu\'une entreprise facture sur une base annuelle. C\'est la métrique centrale des SaaS car elle est prévisible et récurrente. Un ARR en croissance rapide signifie que les nouveaux clients et les upsells dépassent les churns (résiliations).'
+        },
+        {
+          q: 'L\'IA va-t-elle tuer le modèle SaaS de Salesforce ?',
+          a: 'C\'est la thèse baissière qui a pesé sur le titre en 2025-2026. Mais les données montrent l\'inverse : les agents IA ont besoin de données CRM propres et structurées pour fonctionner. Salesforce, avec 200 000 clients et des années de données, est idéalement positionné pour être la couche d\'orchestration IA. Agentforce est leur réponse concrète, déjà à 1,2 milliard d\'ARR.'
+        },
+        {
+          q: 'Qu\'est-ce que le Cash ROCE et pourquoi 97% est exceptionnel ?',
+          a: 'Le Cash ROCE (Return On Capital Employed, calculé sur le cash réel) mesure le rendement de chaque euro de capital que l\'entreprise investit. Un Cash ROCE de 97% signifie que pour 100 euros investis, Salesforce génère 97 euros de cash réel chaque année. C\'est presque une machine à doubler son capital chaque année, ce qui est rarissime à cette échelle.'
+        },
+        {
+          q: 'Salesforce rachète-t-il ses actions ?',
+          a: 'Oui, et c\'est un signal important. Le nombre d\'actions diminue de 1,07% par an : Salesforce rachète plus d\'actions qu\'il n\'en émet, ce qui augmente mécaniquement la part de chaque actionnaire dans les bénéfices. C\'est l\'opposé de la dilution. Combiné à une croissance forte du FCF, c\'est une des raisons pour lesquelles le FCF par accion progresse si rapidement.'
+        }
+      ],
+      tags: ['CRM', 'Salesforce', 'Agentforce', 'IA', 'SaaS', 'earnings', 'Q1 FY2027', 'analyse fondamentale', 'valorisation', 'sous-évaluée'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Chiffres à la date du 16 juin 2026. Les performances passées ne préjugent pas du futur. Fais tes propres recherches avant toute décision d\'investissement.'
+    },
+    en: {
+      title: 'Salesforce (CRM): Q1 FY27, a quality stock at a fair price in 2026',
+      excerpt: 'Salesforce delivered a record Q1 FY2027 on May 27, 2026. Adjusted EPS of 3.88 dollars (+23% beat). Agentforce crosses 1 billion in ARR. And the stock remains undervalued by our method.',
+      metaDescription: 'Salesforce (CRM) Q1 FY2027: revenues 11.1B, adjusted EPS 3.88$ (+23% beat), Agentforce at 1.2B ARR. Fundamental analysis, maximum score, valuation.',
+      answer: 'Salesforce scores the maximum on our fundamental method (all 10 criteria validated), with a P/FCF of 12.4 times, trading below our target price of 180 dollars. Q1 FY27 results confirm the acceleration: adjusted EPS at 3.88 dollars, Agentforce at 1.2 billion ARR. A rare case where maximum quality and reasonable price coexist.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Salesforce delivered a record Q1 FY2027 on May 27, 2026: revenues of 11.13 billion (+13% year-over-year), adjusted EPS of 3.88 dollars (23% beat vs 3.15 dollar estimate).',
+            'Agentforce reaches 1.2 billion in ARR (annual recurring revenue), growing 205% over 12 months. 3.8 billion "Agentic Work Units" delivered to customers.',
+            'Fundamental score: maximum by our method (25 out of 25 criteria validated). FCF per share up 45.8% per year over 5 years. Cash ROCE of 97.2%.',
+            'Valuation: P/FCF of 12.4 times, below our target price of 180 dollars. Current price is 164.55 dollars. Rare for a business of this quality.',
+            'Salesforce\'s SaaS model generates cash before paying suppliers (cash conversion cycle of negative 201 days), a powerful structural advantage.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Q1 FY2027 results: a surprise the market did not expect'
+        },
+        {
+          type: 'p',
+          text: 'On May 27, 2026, Salesforce published results that ended several months of market skepticism. The stock had lost 32% year-to-date before this release. The numbers surprised positively on almost every front.'
+        },
+        {
+          type: 'p',
+          text: 'Quarterly revenues reached 11.13 billion dollars, up 13% year-over-year, slightly ahead of expectations. But it was the adjusted EPS that surprised the most: 3.88 dollars versus 3.15 dollars expected, a 23% positive surprise. The signal is clear: the cost discipline undertaken since 2023 is turning into concrete profits, not just margin promises.'
+        },
+        {
+          type: 'p',
+          text: 'Subscription and support revenues, the core of the model, grew 14% to 10.6 billion. Annual guidance was raised: Salesforce now expects full-year FY27 revenues of 45.9 to 46.2 billion, up 11% year-over-year.'
+        },
+        {
+          type: 'h2',
+          text: 'Agentforce: AI in CRM is no longer a promise, it is already billable'
+        },
+        {
+          type: 'p',
+          text: 'Agentforce is Salesforce\'s AI agent product. An AI agent in this context is a program capable of autonomously executing complex tasks in the CRM (Customer Relationship Management software). In practice: answering support tickets, qualifying leads, preparing sales meeting summaries, sending quotes.'
+        },
+        {
+          type: 'p',
+          text: 'What is remarkable in the Q1 results is that Agentforce is no longer an announcement: it is 1.2 billion dollars in ARR and 205% growth over 12 months. More than 50% of Agentforce and Data 360 contracts were signed by existing customers, meaning upsell is working. And Slack MCP, the interface allowing AI agents to communicate with each other, surpassed one million active users within six weeks of launch.'
+        },
+        {
+          type: 'p',
+          text: 'The question many ask: will AI cannibalize Salesforce\'s SaaS model? My take: the opposite. Salesforce has repositioned itself as the AI orchestration layer for enterprises. Agents need clean, structured CRM data with history. That is exactly what Salesforce provides to 200,000 customers, built over years. AI is not a threat to Salesforce, it is its next growth vector.'
+        },
+        {
+          type: 'h2',
+          text: 'Our fundamental score: 10 out of 10, the rarest case'
+        },
+        {
+          type: 'p',
+          text: 'My method scores each stock on 10 objective criteria, each with a specific threshold. Revenue growth, FCF per share growth, net margin, FCF margin, Cash ROCE (cash return on capital employed), debt level, dilution, payout ratio, operating leverage, balance sheet quality. Salesforce validates all 10. That is the maximum score of our system (stored as 25/25 in our internal database).'
+        },
+        {
+          type: 'p',
+          text: 'The figure that strikes me most: FCF per share grew 45.8% per year on average over the last 5 years. Extraordinary for a company at this scale. And the FCF margin is at 25.5%, meaning for every dollar of revenue, Salesforce generates 25 cents of real free cash. Cash ROCE at 97.2% is also exceptional: nearly a dollar of cash generated for every dollar of capital invested.'
+        },
+        {
+          type: 'p',
+          text: 'Another remarkable feature: the cash conversion cycle is negative at 201 days. This means Salesforce collects from customers before paying its suppliers. Annual or multi-year subscriptions are paid upfront. This is a significant structural advantage, similar to an insurance company\'s float model: the business operates with its customers\' money.'
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: a case where quality and reasonable price finally coincide'
+        },
+        {
+          type: 'p',
+          text: 'Salesforce\'s P/FCF (stock price divided by free cash flow generated per share each year) is at 12.4 times. For a company scoring maximum on our 10 fundamental criteria, with FCF per share growing 45.8% per year, that is a low valuation. Our model estimates the reasonable buy price at 180 dollars. The current price is 164.55 dollars, a discount of 9.4% below that level.'
+        },
+        {
+          type: 'p',
+          text: 'That is rare. Typically, companies that score maximum in our method are heavily overpriced by the market. Salesforce is in an atypical situation: the market had shunned it in 2025-2026 fearing that AI would make its SaaS model obsolete. Q1 FY27 results show the opposite is happening.'
+        },
+        {
+          type: 'p',
+          text: 'I have been tracking CRM\'s detailed analysis on my investment site for several months. If you want access to all updated ratios, it is available here: lubin-investment.com/analyse/CRM.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Why was Salesforce trading poorly despite its quality?',
+          a: 'The market feared that generative AI would make traditional CRM obsolete, that companies would replace Salesforce subscriptions with cheaper AI agents. Q1 FY27 results show the opposite: Salesforce is the beneficiary of this AI wave, with Agentforce at 1.2 billion ARR and +205% over 12 months.'
+        },
+        {
+          q: 'What is ARR and why is it the key metric for Salesforce?',
+          a: 'ARR (Annual Recurring Revenue) measures the amount of active subscriptions a company bills on an annual basis. It is the central SaaS metric because it is predictable and recurring. Rapidly growing ARR means new customers and upsells are outpacing churns (cancellations).'
+        },
+        {
+          q: 'Will AI kill Salesforce\'s SaaS model?',
+          a: 'That was the bearish thesis weighing on the stock in 2025-2026. But the data shows the opposite: AI agents need clean, structured CRM data to function. Salesforce, with 200,000 customers and years of data, is ideally positioned to be the AI orchestration layer. Agentforce is their concrete answer, already at 1.2 billion ARR.'
+        },
+        {
+          q: 'What is Cash ROCE and why is 97% exceptional?',
+          a: 'Cash ROCE (Return On Capital Employed, calculated on real cash) measures the return on each dollar of capital the business invests. A Cash ROCE of 97% means that for every 100 dollars invested, Salesforce generates 97 dollars in real cash each year. It is almost a capital-doubling machine annually, which is extremely rare at this scale.'
+        },
+        {
+          q: 'Is Salesforce buying back shares?',
+          a: 'Yes, and it is an important signal. The share count decreases by 1.07% per year: Salesforce buys back more shares than it issues, mechanically increasing each shareholder\'s stake in profits. That is the opposite of dilution. Combined with strong FCF growth, it is one of the reasons FCF per share grows so rapidly.'
+        }
+      ],
+      tags: ['CRM', 'Salesforce', 'Agentforce', 'AI', 'SaaS', 'earnings', 'Q1 FY2027', 'fundamental analysis', 'valuation', 'undervalued'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Figures as of June 16, 2026. Past performance does not predict future results. Do your own research before any investment decision.'
+    },
+    es: {
+      title: 'Salesforce (CRM): Q1 FY27, una acción de calidad a buen precio en bolsa',
+      excerpt: 'Salesforce publicó un Q1 FY2027 récord el 27 de mayo de 2026. BPA ajustado de 3,88 dólares (+23% de sorpresa). Agentforce supera 1.000 millones de ARR. Y el título sigue infravalorado según nuestro método.',
+      metaDescription: 'Salesforce (CRM) Q1 FY2027: ingresos 11.100 M$, BPA ajustado 3,88$ (+23% sorpresa), Agentforce a 1.200 M$ ARR. Análisis fundamental, puntuación máxima, valoración.',
+      answer: 'Salesforce obtiene la puntuación máxima de nuestro método fundamental (los 10 criterios validados), con un P/FCF de 12,4 veces, cotizando por debajo de nuestro precio objetivo de 180 dólares. Los resultados Q1 FY27 confirman la aceleración: BPA ajustado en 3,88 dólares, Agentforce a 1.200 millones de ARR. Un caso raro donde calidad máxima y precio razonable coexisten.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Salesforce publicó un Q1 FY2027 récord el 27 de mayo de 2026: ingresos de 11.130 millones (+13% interanual), BPA ajustado de 3,88 dólares (sorpresa del +23% vs 3,15 dólares esperados).',
+            'Agentforce alcanza 1.200 millones de ARR (ingresos recurrentes anuales), con un crecimiento del 205% en 12 meses. 3.800 millones de "Agentic Work Units" entregadas a clientes.',
+            'Puntuación fundamental: máxima según nuestro método (25 de 25 criterios validados). FCF por acción en alza del 45,8% anual en 5 años. Cash ROCE del 97,2%.',
+            'Valoración: P/FCF de 12,4 veces, por debajo de nuestro precio objetivo de 180 dólares. Precio actual: 164,55 dólares. Poco común para una empresa de esta calidad.',
+            'El modelo SaaS de Salesforce genera efectivo antes de pagar a sus proveedores (ciclo de conversión negativo de 201 días), una ventaja estructural poderosa.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Resultados Q1 FY2027: una sorpresa que el mercado no esperaba'
+        },
+        {
+          type: 'p',
+          text: 'El 27 de mayo de 2026, Salesforce publicó resultados que pusieron fin a varios meses de escepticismo del mercado. El título había perdido un 32% desde el inicio del año antes de esta publicación. Las cifras sorprendieron positivamente en casi todos los frentes.'
+        },
+        {
+          type: 'p',
+          text: 'Los ingresos del trimestre alcanzaron 11.130 millones de dólares, un +13% interanual, ligeramente por encima de las expectativas. Pero fue el BPA ajustado el que más sorprendió: 3,88 dólares frente a 3,15 dólares esperados, una sorpresa positiva del 23%. La señal es clara: la disciplina de costes iniciada en 2023 se convierte en beneficios concretos, no solo en promesas de margen.'
+        },
+        {
+          type: 'p',
+          text: 'Las suscripciones y soporte, que representan el núcleo del modelo, crecieron un 14% hasta 10.600 millones. La previsión anual fue elevada: Salesforce espera ahora ingresos de entre 45.900 y 46.200 millones para el conjunto del ejercicio FY27, un aumento del 11% interanual.'
+        },
+        {
+          type: 'h2',
+          text: 'Agentforce: la IA en el CRM ya no es una promesa, ya es facturable'
+        },
+        {
+          type: 'p',
+          text: 'Agentforce es el producto de agentes IA de Salesforce. Un agente IA en este contexto es un programa capaz de ejecutar tareas complejas de manera autónoma en el CRM (Customer Relationship Management, el software de gestión de relaciones con clientes). En concreto: responder tickets de soporte, calificar leads, preparar resúmenes de reuniones comerciales, enviar presupuestos.'
+        },
+        {
+          type: 'p',
+          text: 'Lo que resulta notable en los resultados del Q1 es que Agentforce ya no es un anuncio: son 1.200 millones de dólares de ARR y un 205% de crecimiento en 12 meses. Más del 50% de los contratos de Agentforce y Data 360 fueron firmados por clientes existentes, lo que significa que el upsell funciona. Y Slack MCP superó el millón de usuarios activos en apenas seis semanas.'
+        },
+        {
+          type: 'p',
+          text: 'La pregunta que muchos hacen: ¿la IA no va a canibalizar el modelo SaaS de Salesforce? Mi opinión: al contrario. Salesforce se ha reposicionado como la capa de orquestación IA de las empresas. Los agentes necesitan datos CRM limpios, estructurados y con historial. Eso es exactamente lo que Salesforce proporciona a 200.000 clientes desde hace años. La IA no es una amenaza para Salesforce, es su próximo vector de crecimiento.'
+        },
+        {
+          type: 'h2',
+          text: 'Nuestra puntuación fundamental: el caso más raro del mercado'
+        },
+        {
+          type: 'p',
+          text: 'Mi método puntúa cada acción sobre 10 criterios objetivos, cada uno con un umbral específico. Crecimiento de ingresos, crecimiento del FCF por acción, margen neto, margen de FCF, Cash ROCE (rendimiento del capital en efectivo), nivel de deuda, dilución, payout ratio, apalancamiento operativo, calidad del balance. Salesforce valida los 10. Es la puntuación máxima de nuestro sistema (almacenada como 25/25 en nuestra base de datos interna).'
+        },
+        {
+          type: 'p',
+          text: 'La cifra que más me impresiona: el FCF por acción ha crecido un 45,8% anual de media en los últimos 5 años. Extraordinario para una empresa a esta escala. Y el margen de FCF está en el 25,5%, lo que significa que por cada dólar de ingresos, Salesforce genera 25 céntimos de caja libre real. El Cash ROCE al 97,2% es también excepcional: casi un dólar de efectivo generado por cada dólar de capital invertido.'
+        },
+        {
+          type: 'p',
+          text: 'Otra característica notable: el ciclo de conversión de efectivo es negativo en 201 días. Esto significa que Salesforce cobra a sus clientes antes de pagar a sus proveedores. Las suscripciones anuales o plurianuales se pagan por adelantado. Es una ventaja estructural considerable, similar al modelo de flotante de una compañía de seguros: la empresa trabaja con el dinero de sus clientes.'
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: un caso donde calidad y precio razonable coinciden por fin'
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF de Salesforce (precio de la acción dividido por el flujo de caja libre generado por acción cada año) está en 12,4 veces. Para una empresa con la puntuación máxima en nuestros 10 criterios fundamentales y con el FCF por acción creciendo al 45,8% anual, es una valoración baja. Nuestro modelo estima el precio de compra razonable en 180 dólares. El precio actual es de 164,55 dólares, un descuento del 9,4% respecto a ese nivel.'
+        },
+        {
+          type: 'p',
+          text: 'Es poco común. Normalmente, las empresas que obtienen la puntuación máxima en nuestro método cotizan con una gran prima. Salesforce está en una situación atípica: el mercado la había ignorado en 2025-2026 por temor a que la IA hiciera obsoleto su modelo SaaS. Los resultados Q1 FY27 demuestran que está ocurriendo lo contrario.'
+        },
+        {
+          type: 'p',
+          text: 'Llevo meses siguiendo el análisis detallado de CRM en mi sitio de inversión. Si quieres acceder a todos los ratios actualizados, está disponible aquí: lubin-investment.com/analyse/CRM.'
+        }
+      ],
+      faq: [
+        {
+          q: '¿Por qué Salesforce cotizaba mal a pesar de su calidad?',
+          a: 'El mercado temía que la IA generativa hiciera obsoleto el CRM tradicional, que las empresas reemplazaran sus suscripciones de Salesforce por agentes IA más baratos. Los resultados Q1 FY27 demuestran lo contrario: Salesforce es el beneficiario de esta ola IA, con Agentforce en 1.200 millones de ARR y +205% en 12 meses.'
+        },
+        {
+          q: '¿Qué es el ARR y por qué es la métrica clave para Salesforce?',
+          a: 'El ARR (Annual Recurring Revenue, ingresos recurrentes anuales) mide el importe de las suscripciones activas que una empresa factura anualmente. Es la métrica central de los SaaS porque es predecible y recurrente. Un ARR que crece rápidamente significa que los nuevos clientes y los upsells superan las bajas (churns).'
+        },
+        {
+          q: '¿Matará la IA el modelo SaaS de Salesforce?',
+          a: 'Era la tesis bajista que pesaba sobre el título en 2025-2026. Pero los datos muestran lo contrario: los agentes IA necesitan datos CRM limpios y estructurados para funcionar. Salesforce, con 200.000 clientes y años de datos, está idealmente posicionada para ser la capa de orquestación IA. Agentforce es su respuesta concreta, ya en 1.200 millones de ARR.'
+        },
+        {
+          q: '¿Qué es el Cash ROCE y por qué es excepcional el 97%?',
+          a: 'El Cash ROCE (retorno sobre el capital empleado, calculado sobre el efectivo real) mide el rendimiento de cada dólar de capital que la empresa invierte. Un Cash ROCE del 97% significa que por cada 100 dólares invertidos, Salesforce genera 97 dólares de efectivo real cada año. Es casi una máquina de doblar capital anualmente, algo rarísimo a esta escala.'
+        },
+        {
+          q: '¿Recompra Salesforce sus acciones?',
+          a: 'Sí, y es una señal importante. El número de acciones decrece un 1,07% anual: Salesforce recompra más acciones de las que emite, aumentando mecánicamente la participación de cada accionista en los beneficios. Es lo contrario de la dilución. Combinado con un fuerte crecimiento del FCF, es una de las razones por las que el FCF por acción crece tan rápidamente.'
+        }
+      ],
+      tags: ['CRM', 'Salesforce', 'Agentforce', 'IA', 'SaaS', 'earnings', 'Q1 FY2027', 'análisis fundamental', 'valoración', 'infravalorada'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Las cifras corresponden al 16 de junio de 2026. El rendimiento pasado no predice resultados futuros. Haz tu propia investigación antes de cualquier decisión de inversión.'
+    }
+  }
+};
+
+// ============================================================
+// ARTICLE 1 : PAYLOCITY (PCTY)
+// ============================================================
+const article_pcty: Article = {
+  slug: 'paylocity-pcty-10-sur-10-saas-rh-analyse',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  ticker: 'PCTY',
+  content: {
+    fr: {
+      title: 'Paylocity (PCTY) : 10/10 à P/FCF 17,6x, SaaS RH ignoré',
+      excerpt: 'Paylocity gère la paie et les RH de milliers de PME américaines. Son score de qualité est parfait, sa valorisation reste raisonnable. Pourquoi le marché boursier l\'ignore-t-il encore ?',
+      metaDescription: 'Analyse de Paylocity (PCTY) : score qualité, valorisation, moat SaaS RH, concurrence ADP et risques. Tout ce que l\'investisseur fondamental doit savoir.',
+      answer: 'Paylocity est un SaaS RH de qualité exceptionnelle : croissance des revenus de 23 % par an sur cinq ans, marge de free cash flow de 20 %, trésorerie nette positive. Sa valorisation reste raisonnable pour ce niveau de qualité. Le risque principal : la décélération de la croissance dans un marché de l\'emploi US plus fragile.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Paylocity réalise 502 millions de dollars de revenus trimestriels (+10,5 % sur un an) et dépasse régulièrement les attentes des analystes.',
+            'Sa marge de free cash flow (l\'argent réellement généré après toutes les dépenses) atteint 20 %, un niveau solide pour un SaaS en croissance.',
+            'Le Cash ROCE de 43,2 % montre une efficacité remarquable du capital : l\'entreprise transforme bien chaque dollar investi en cash.',
+            'Le principal risque est la dépendance à l\'emploi américain : si les PME embauchent moins, Paylocity encaisse moins de revenus liés au nombre de bulletins de paie.',
+            'Valorisée autour de 17 fois son free cash flow annuel, l\'action est raisonnablement positionnée pour une entreprise de cette qualité.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait Paylocity : la paie des PME américaines, un problème concret'
+        },
+        {
+          type: 'p',
+          text: 'La paie est un cauchemar opérationnel. Pour une PME de 200 salariés aux États-Unis, calculer les bulletins de paie en tenant compte des réglementations fédérales, des lois d\'État, des avantages sociaux et des déclarations fiscales est une tâche chronophage qui expose à des pénalités si elle est mal faite. Paylocity résout exactement ce problème. La société vend une plateforme cloud tout-en-un qui gère la paie, les ressources humaines, le recrutement, la gestion des talents et même l\'engagement des équipes.'
+        },
+        {
+          type: 'p',
+          text: 'Sa cible : les entreprises de 50 à 1 000 salariés, un segment que les géants comme ADP ont longtemps négligé avec des produits trop rigides ou trop coûteux. Paylocity a conçu une interface moderne, pensée pour que les managers et employés l\'utilisent quotidiennement, pas seulement le service RH. C\'est ce positionnement qui lui a permis de gagner 13,5 % de parts de marché dans cette catégorie, devenant le premier challenger d\'ADP.'
+        },
+        {
+          type: 'h2',
+          text: 'La qualité du business : ce que nos 10 critères révèlent'
+        },
+        {
+          type: 'p',
+          text: 'Quand j\'analyse une action, je commence toujours par la qualité du business, séparément de son prix. Ma méthode s\'appuie sur dix critères fondamentaux : rentabilité, croissance des revenus, croissance du cash, gestion du bilan, rachats d\'actions, marges en expansion, efficacité du capital. Paylocity obtient un score parfait de 10/10 sur ces critères. Ce n\'est pas fréquent.'
+        },
+        {
+          type: 'p',
+          text: 'Trois chiffres suffisent à comprendre pourquoi. D\'abord, les revenus ont crû de 23,4 % par an en moyenne sur cinq ans : ce n\'est pas une croissance de niche, c\'est une prise de marché structurelle. Ensuite, le free cash flow par action (le cash que génère l\'entreprise pour chaque action en circulation) a progressé de 62,6 % par an sur la même période : la croissance du cash accélère bien plus vite que celle des revenus, signe d\'un levier opérationnel réel. Enfin, le Cash ROCE atteint 43,2 %, ce qui veut dire que pour chaque euro de capital investi, Paylocity génère 43 centimes de cash net. C\'est un niveau d\'efficacité qu\'on ne rencontre que dans les meilleurs business models.'
+        },
+        {
+          type: 'h2',
+          text: 'Le moat de Paylocity : pourquoi les clients ne partent pas'
+        },
+        {
+          type: 'p',
+          text: 'Le moat, c\'est le fossé concurrentiel d\'une entreprise : ce qui lui permet de conserver ses clients et ses marges face à la concurrence. Chez Paylocity, ce fossé vient d\'abord des coûts de migration. Quand une entreprise a configuré toute sa paie, ses processus RH, son recrutement et la formation de ses équipes sur une plateforme, en changer est une opération qui dure des mois et mobilise l\'ensemble du département RH. Le risque d\'erreur est réel, le coût humain est élevé. Résultat : les clients restent.'
+        },
+        {
+          type: 'p',
+          text: 'Le second pilier du moat vient des intégrations. Paylocity se connecte à des centaines d\'outils tiers : systèmes de comptabilité, logiciels de gestion de temps, plateformes de formation. Chaque connexion supplémentaire rend le départ encore moins probable. Et depuis l\'acquisition de Grayscale en 2026, la société renforce son offre sur la gestion des candidats et le recrutement, ajoutant une couche d\'utilité supplémentaire qui ancre davantage les clients dans l\'écosystème.'
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi le marché boursier l\'ignore encore'
+        },
+        {
+          type: 'p',
+          text: 'L\'action Paylocity a perdu du terrain ces deux dernières années malgré des résultats régulièrement supérieurs aux attentes. La raison est simple : le marché anticipe un ralentissement. La croissance des revenus tourne autour de 10-11 % sur les derniers trimestres, contre plus de 30 % en 2022. Pour les investisseurs habitués au rythme post-COVID, c\'est une déception.'
+        },
+        {
+          type: 'p',
+          text: 'Mais je trouve cette lecture superficielle. D\'abord, 10 % de croissance annuelle pour une société de 2 milliards de dollars de revenus récurrents, c\'est significatif. Ensuite, la profitabilité s\'améliore : le marché se focalise sur la croissance des revenus, mais la croissance du free cash flow par action reste à plus de 60 % sur cinq ans. Ce que le marché rate, c\'est que la mécanique interne du business s\'améliore même quand la croissance top-line ralentit.'
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : que paie-t-on réellement ?'
+        },
+        {
+          type: 'p',
+          text: 'Pour mesurer ce qu\'une action coûte vraiment, j\'utilise le P/FCF : le prix de l\'action divisé par le free cash flow annuel qu\'elle génère par action. Un P/FCF de 17, comme Paylocity aujourd\'hui, signifie que tu paies 17 ans de cash actuel. Pour contextualiser : son secteur SaaS tourne souvent au-dessus de 30 à 50 fois. Les grands rivaux comme ADP ou Paychex affichent des multiples bien inférieurs mais aussi une croissance et une qualité inférieures.'
+        },
+        {
+          type: 'p',
+          text: 'À 106,93 dollars et un P/FCF de 17, l\'action se situe dans la zone d\'achat recommandée par notre modèle (sous 108,67 dollars, soit une décote résiduelle de 1,6 %). Ce n\'est pas bradé. Mais pour une entreprise qui a multiplié son free cash flow par action par 8 en cinq ans, c\'est une valorisation qui laisse de la place à l\'appréciation si la croissance tient.'
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas minimiser'
+        },
+        {
+          type: 'p',
+          text: 'Le premier risque est macroéconomique. Les revenus de Paylocity sont en partie liés au nombre d\'employés de ses clients : si les PME américaines ralentissent leurs embauches ou réduisent leurs effectifs, les revenus "par employé" baissent mécaniquement. C\'est un risque cyclique réel, que je surveille.'
+        },
+        {
+          type: 'p',
+          text: 'Le deuxième risque est concurrentiel. ADP et Paychex ne restent pas immobiles : ils modernisent leurs produits et peuvent absorber une guerre des prix grâce à leurs ressources. Paycom, autre SaaS RH coté, talonne Paylocity avec 9,8 % de parts de marché. Le marché HCM pour les PME est disputé, et aucun acteur ne peut se permettre de s\'endormir.'
+        },
+        {
+          type: 'p',
+          text: 'Pour l\'analyse complète, les projections de valorisation et les données en temps réel, tu peux consulter la page dédiée de notre outil d\'analyse fondamentale sur lubin-investment.com/analyse/PCTY.'
+        },
+        {
+          type: 'h2',
+          text: 'Mon verdict sur Paylocity'
+        },
+        {
+          type: 'p',
+          text: 'Paylocity est exactement le type d\'entreprise que j\'aime suivre : un business model solide, des coûts de migration élevés, une profitabilité croissante, une valorisation raisonnable. La décélération de la croissance est réelle, mais elle ne remet pas en cause la qualité fondamentale du business. Je la surveille de près.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que le free cash flow et pourquoi c\'est important pour Paylocity ?',
+          a: 'Le free cash flow, c\'est l\'argent qui reste vraiment dans les caisses après avoir payé toutes les dépenses opérationnelles et les investissements. Pour Paylocity, la marge de FCF est de 20 % : sur 100 dollars de revenus, 20 se transforment en cash disponible. C\'est cet argent qui sert à racheter des actions, investir dans le produit ou rembourser des dettes.'
+        },
+        {
+          q: 'Paylocity est-elle en concurrence directe avec ADP ?',
+          a: 'Oui, mais sur un segment différent. ADP vise principalement les grandes entreprises et les TPE. Paylocity cible les PME de 50 à 1 000 salariés, avec une interface plus moderne. Elle détient 13,5 % de parts de marché dans cette catégorie et est le principal challenger d\'ADP sur ce segment.'
+        },
+        {
+          q: 'Pourquoi l\'action Paylocity est-elle sous-évaluée selon notre screener ?',
+          a: 'Notre modèle estime un prix d\'achat raisonnable à 108,67 dollars. L\'action cote environ 106,93 dollars, soit une légère décote. La valorisation à 17 fois le free cash flow est basse pour un SaaS de cette qualité, même si la croissance des revenus ralentit autour de 10-11 % par an.'
+        },
+        {
+          q: 'Quels sont les principaux risques de Paylocity ?',
+          a: 'Deux risques majeurs : d\'abord, la dépendance à l\'emploi américain (si les PME embauchent moins, les revenus baissent). Ensuite, la concurrence intensifiée d\'ADP, Paychex et Paycom. La décélération de la croissance top-line est aussi un point de vigilance pour les investisseurs.'
+        },
+        {
+          q: 'Qu\'est-ce que le Cash ROCE et comment interpréter les 43,2 % de Paylocity ?',
+          a: 'Le Cash ROCE (Return On Capital Employed calculé sur le cash) mesure l\'efficacité avec laquelle une entreprise utilise le capital investi pour générer du cash. À 43,2 %, Paylocity génère 43 centimes de cash pour chaque euro de capital employé. C\'est un niveau exceptionnel qui confirme la qualité du modèle économique.'
+        }
+      ],
+      tags: ['Paylocity', 'PCTY', 'SaaS RH', 'paie PME', 'analyse fondamentale', 'investissement bourse', 'HCM', 'free cash flow'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 16 juin 2026, susceptibles d\'évoluer. Fais tes propres recherches avant toute décision d\'investissement.'
+    },
+    en: {
+      title: 'Paylocity (PCTY): the overlooked HR SaaS gem in US small business',
+      excerpt: 'Paylocity handles payroll and HR for thousands of US mid-market companies. Its quality score is perfect and its valuation remains reasonable. Here is why the market still overlooks it.',
+      metaDescription: 'Paylocity (PCTY) fundamental analysis: quality score, FCF valuation, SaaS moat, ADP competition, and key risks. Everything a long-term investor needs to know.',
+      answer: 'Paylocity is an exceptional-quality HR SaaS: revenue growth of 23% per year over five years, a 20% free cash flow margin, and a net cash balance sheet. Its valuation remains reasonable for this quality level. The main risk: growth deceleration in a softer US employment market.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Paylocity generated $502 million in quarterly revenue (+10.5% year-over-year), consistently beating analyst estimates.',
+            'Its free cash flow margin reaches 20%, meaning $20 of every $100 in revenue converts to real cash after all expenses.',
+            'Cash ROCE of 43.2% shows remarkable capital efficiency: the business converts invested dollars into cash at an exceptional rate.',
+            'The main risk is exposure to US employment: if SMBs hire less, Paylocity\'s per-employee revenues decline mechanically.',
+            'Valued at around 17x its annual free cash flow, the stock sits at a reasonable level for a business of this quality.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'What Paylocity does: solving the payroll nightmare for US mid-market businesses'
+        },
+        {
+          type: 'p',
+          text: 'Payroll is an operational nightmare for any growing US business. A 200-employee company must navigate federal regulations, state laws, benefits administration, and tax filings. Done wrong, it means penalties. Paylocity sells an all-in-one cloud platform covering payroll, HR, recruiting, talent management, and employee engagement. Its sweet spot: companies between 50 and 1,000 employees, a segment the giants like ADP long served with rigid, overpriced legacy tools. Paylocity built something genuinely modern, and it shows: it has captured 13.5% market share in its category, becoming ADP\'s top challenger.'
+        },
+        {
+          type: 'h2',
+          text: 'Business quality: what our ten-criteria framework reveals'
+        },
+        {
+          type: 'p',
+          text: 'When I analyze a stock, I always start with business quality, completely separately from price. My framework uses ten fundamental criteria: profitability, revenue growth, cash growth, balance sheet management, share buybacks, margin expansion, and capital efficiency. Paylocity scores a perfect 10/10 across all of them. That is rare.'
+        },
+        {
+          type: 'p',
+          text: 'Three numbers tell the story. Revenue has compounded at 23.4% per year over five years: that is structural market share gain, not a one-off surge. Free cash flow per share has grown at 62.6% per year over the same period: cash is compounding far faster than revenues, a sign of genuine operating leverage. And Cash ROCE sits at 43.2%, meaning for every dollar of capital deployed, Paylocity generates 43 cents of net cash. That level of efficiency is only found in the best business models.'
+        },
+        {
+          type: 'h2',
+          text: 'The moat: why Paylocity clients do not leave'
+        },
+        {
+          type: 'p',
+          text: 'Moat is the competitive advantage that protects a business from rivals. For Paylocity, it comes first from switching costs. Once a company has configured its payroll, HR workflows, recruiting pipelines, and employee training on one platform, migrating away takes months, mobilizes the entire HR department, and carries real execution risk. Clients stay. The second pillar is integrations: Paylocity connects to hundreds of third-party tools, from accounting software to time management systems. Every added connection makes leaving more costly. The 2026 acquisition of Grayscale deepened recruiting capabilities, adding another layer of stickiness.'
+        },
+        {
+          type: 'h2',
+          text: 'Why the market still overlooks it'
+        },
+        {
+          type: 'p',
+          text: 'Paylocity stock has lost ground over the past two years despite consistently beating earnings. The market is fixated on growth deceleration: revenues are growing around 10-11% now versus over 30% in 2022. For investors conditioned by post-COVID hypergrowth, this feels like a disappointment. But I find this reading shallow. Free cash flow per share is still compounding at over 60% per year over five years. The internal business mechanics improve even as the top-line growth normalizes. The market is selling a deceleration story and missing the compounding.'
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: what you are actually paying'
+        },
+        {
+          type: 'p',
+          text: 'The P/FCF ratio is the price of the stock divided by the annual free cash flow it generates per share. A P/FCF of 17 means you are paying 17 years of today\'s cash flow. For context: the SaaS sector often trades at 30-50x. At $106.93 per share and a P/FCF of 17, Paylocity sits just below our model\'s recommended buy price of $108.67 (a 1.6% discount). Not a bargain, but a reasonable price for a business that has grown its free cash flow per share by 8x in five years.'
+        },
+        {
+          type: 'h2',
+          text: 'Risks worth taking seriously'
+        },
+        {
+          type: 'p',
+          text: 'First risk: macroeconomic exposure. Paylocity\'s revenues partly depend on the headcount of its clients. If US SMBs slow hiring or reduce staff, per-employee revenues decline automatically. That is real cyclical risk. Second risk: competition. ADP and Paychex are modernizing their products and have deep pockets for price wars. Paycom holds 9.8% market share and is closing in. The mid-market HCM space is contested. For the full analysis with live valuation data, visit our dedicated analysis page at lubin-investment.com/analyse/PCTY.'
+        },
+        {
+          type: 'h2',
+          text: 'My verdict on Paylocity'
+        },
+        {
+          type: 'p',
+          text: 'Paylocity is exactly the kind of business I like to track: strong model, high switching costs, growing profitability, reasonable valuation. Growth deceleration is real but it does not undermine the fundamental quality of the business. I am watching it closely.'
+        }
+      ],
+      faq: [
+        {
+          q: 'What is free cash flow and why does it matter for Paylocity?',
+          a: 'Free cash flow is the money that actually remains after paying all operating expenses and capital investments. Paylocity\'s FCF margin is 20%: for every $100 of revenue, $20 becomes real available cash. This cash funds share buybacks, product investment, or debt repayment.'
+        },
+        {
+          q: 'Does Paylocity directly compete with ADP?',
+          a: 'Yes, but on a different segment. ADP primarily targets large enterprises and micro-businesses. Paylocity focuses on companies with 50-1,000 employees, with a far more modern interface. It holds 13.5% market share in this category and is ADP\'s top challenger.'
+        },
+        {
+          q: 'Why is Paylocity slightly undervalued according to the screener?',
+          a: 'Our model estimates a reasonable buy price at $108.67. The stock trades around $106.93, a slight discount. A valuation of 17x free cash flow is low for a SaaS of this quality, even as revenue growth normalizes around 10-11% per year.'
+        },
+        {
+          q: 'What are the main risks for Paylocity investors?',
+          a: 'Two main risks: US employment exposure (if SMBs hire less, revenues decline) and intensifying competition from ADP, Paychex, and Paycom. Revenue growth deceleration is also a point to monitor closely.'
+        }
+      ],
+      tags: ['Paylocity', 'PCTY', 'HR SaaS', 'payroll', 'fundamental analysis', 'stock market', 'HCM', 'free cash flow'],
+      disclaimer: 'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of June 16, 2026, subject to change. Do your own research before any investment decision.'
+    },
+    es: {
+      title: 'Paylocity (PCTY): el SaaS de recursos humanos ignorado por el mercado',
+      excerpt: 'Paylocity gestiona las nóminas y los recursos humanos de miles de pymes estadounidenses. Su calidad es sobresaliente y su valoración sigue siendo razonable. ¿Por qué el mercado bursátil aún no lo ha descubierto?',
+      metaDescription: 'Análisis fundamental de Paylocity (PCTY): puntuación de calidad, valoración, ventaja competitiva, competencia con ADP y principales riesgos para el inversor.',
+      answer: 'Paylocity es un SaaS de recursos humanos de calidad excepcional: crecimiento de ingresos del 23% anual durante cinco años, margen de free cash flow del 20% y balance sin deuda neta. Su valoración sigue siendo razonable para este nivel de calidad. El principal riesgo: la desaceleración del crecimiento en un mercado laboral estadounidense más débil.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Paylocity generó 502 millones de dólares de ingresos trimestrales (+10,5% interanual), superando sistemáticamente las estimaciones de los analistas.',
+            'Su margen de free cash flow (el dinero realmente generado tras todos los gastos) alcanza el 20%, un nivel sólido para un SaaS en crecimiento.',
+            'El Cash ROCE del 43,2% demuestra una eficiencia excepcional del capital: la empresa convierte bien cada dólar invertido en cash.',
+            'El principal riesgo es la dependencia del empleo estadounidense: si las pymes contratan menos, los ingresos por empleado caen mecánicamente.',
+            'Valorada a unas 17 veces su free cash flow anual, la acción tiene una valoración razonable para una empresa de esta calidad.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace Paylocity: la nómina de las pymes americanas, un problema real'
+        },
+        {
+          type: 'p',
+          text: 'La gestión de nóminas es una pesadilla operativa para cualquier empresa en crecimiento en Estados Unidos. Una compañía de 200 empleados debe navegar entre regulaciones federales, leyes estatales, gestión de beneficios y declaraciones fiscales. Un error puede generar sanciones costosas. Paylocity vende una plataforma cloud todo en uno que gestiona la nómina, los recursos humanos, el reclutamiento, la gestión del talento e incluso el compromiso de los empleados. Su objetivo: empresas de 50 a 1.000 empleados, un segmento que gigantes como ADP llevaban años sirviendo con herramientas rígidas y costosas. Paylocity ha capturado el 13,5% de cuota de mercado en esta categoría y se ha convertido en el principal retador de ADP.'
+        },
+        {
+          type: 'h2',
+          text: 'La calidad del negocio: lo que revelan nuestros diez criterios fundamentales'
+        },
+        {
+          type: 'p',
+          text: 'Cuando analizo una acción, siempre empiezo por la calidad del negocio, completamente separada de su precio. Mi método utiliza diez criterios fundamentales: rentabilidad, crecimiento de ingresos, crecimiento del cash, gestión del balance, recompras de acciones, expansión de márgenes y eficiencia del capital. Paylocity obtiene una puntuación perfecta de 10 sobre 10 en todos ellos. Eso no es frecuente.'
+        },
+        {
+          type: 'p',
+          text: 'Tres cifras bastan para entenderlo. Los ingresos han crecido a un ritmo del 23,4% anual durante cinco años: no es un crecimiento de nicho, es una conquista estructural de mercado. El free cash flow por acción (el cash que genera la empresa por cada acción en circulación) ha crecido al 62,6% anual en el mismo período: el cash crece mucho más rápido que los ingresos, señal de un apalancamiento operativo real. Y el Cash ROCE es del 43,2%, lo que significa que por cada euro de capital invertido, Paylocity genera 43 céntimos de cash neto.'
+        },
+        {
+          type: 'h2',
+          text: 'La ventaja competitiva de Paylocity: por qué los clientes no se van'
+        },
+        {
+          type: 'p',
+          text: 'La ventaja competitiva (o moat, como lo llaman los inversores anglosajones) es lo que protege a una empresa de sus rivales. Para Paylocity, proviene principalmente de los costes de cambio. Cuando una empresa ha configurado toda su nómina, sus procesos de RRHH, su reclutamiento y la formación de sus equipos en una plataforma, migrar a otra tarda meses y moviliza a todo el departamento de recursos humanos. El riesgo de error es real. Los clientes no se van. El segundo pilar son las integraciones: Paylocity se conecta a cientos de herramientas de terceros, desde software de contabilidad hasta sistemas de gestión del tiempo. La adquisición de Grayscale en 2026 ha reforzado las capacidades de reclutamiento, añadiendo otra capa de fidelización.'
+        },
+        {
+          type: 'h2',
+          text: 'Por qué el mercado bursátil sigue ignorándola'
+        },
+        {
+          type: 'p',
+          text: 'La acción de Paylocity ha perdido terreno en los últimos dos años a pesar de superar sistemáticamente las expectativas. La razón es sencilla: el mercado anticipa una desaceleración. El crecimiento de ingresos ronda el 10-11% en los últimos trimestres, frente a más del 30% en 2022. Para los inversores acostumbrados al ritmo post-COVID, es una decepción. Pero encuentro esta lectura superficial: el free cash flow por acción sigue creciendo a más del 60% anual en cinco años. Lo que el mercado no ve es que la mecánica interna del negocio mejora incluso cuando el crecimiento de la línea superior se normaliza.'
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: ¿qué estamos pagando realmente?'
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF (price-to-free-cash-flow) es el precio de la acción dividido por el free cash flow anual que genera por acción. Un P/FCF de 17 significa que pagas 17 años del cash actual. Para contextualizar: el sector SaaS suele cotizar entre 30 y 50 veces. A 106,93 dólares y un P/FCF de 17, Paylocity se sitúa ligeramente por debajo del precio de compra recomendado por nuestro modelo (108,67 dólares). No es una ganga, pero es una valoración razonable para un negocio que ha multiplicado su free cash flow por acción por 8 en cinco años. Para el análisis completo con datos en tiempo real, puedes consultar lubin-investment.com/analyse/PCTY.'
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no hay que subestimar'
+        },
+        {
+          type: 'p',
+          text: 'El primer riesgo es macroeconómico: los ingresos de Paylocity dependen en parte del número de empleados de sus clientes. Si las pymes estadounidenses ralentizan sus contrataciones, los ingresos por empleado bajan mecánicamente. Es un riesgo cíclico real. El segundo riesgo es competitivo: ADP y Paychex están modernizando sus productos y tienen recursos para una guerra de precios. Paycom, con el 9,8% de cuota de mercado, está cerca. El mercado HCM para pymes es disputado.'
+        }
+      ],
+      faq: [
+        {
+          q: '¿Qué es el free cash flow y por qué importa para Paylocity?',
+          a: 'El free cash flow es el dinero que realmente queda en caja después de pagar todos los gastos operativos e inversiones. El margen de FCF de Paylocity es del 20%: por cada 100 dólares de ingresos, 20 se convierten en cash disponible real. Este dinero financia recompras de acciones, inversión en el producto o pago de deuda.'
+        },
+        {
+          q: '¿Compite Paylocity directamente con ADP?',
+          a: 'Sí, pero en un segmento diferente. ADP se dirige principalmente a grandes empresas y micropymes. Paylocity se centra en empresas de 50 a 1.000 empleados, con una interfaz mucho más moderna. Tiene el 13,5% de cuota de mercado en esta categoría y es el principal retador de ADP.'
+        },
+        {
+          q: '¿Cuáles son los principales riesgos de invertir en Paylocity?',
+          a: 'Dos riesgos principales: exposición al empleo estadounidense (si las pymes contratan menos, los ingresos caen) y competencia creciente de ADP, Paychex y Paycom. La desaceleración del crecimiento de ingresos también es un punto a vigilar.'
+        },
+        {
+          q: '¿Qué significa el Cash ROCE del 43,2% de Paylocity?',
+          a: 'El Cash ROCE mide la eficiencia con la que una empresa utiliza el capital invertido para generar cash. Al 43,2%, Paylocity genera 43 céntimos de cash neto por cada euro de capital empleado. Es un nivel excepcional que confirma la calidad del modelo de negocio.'
+        }
+      ],
+      tags: ['Paylocity', 'PCTY', 'SaaS recursos humanos', 'nóminas', 'análisis fundamental', 'bolsa', 'HCM', 'free cash flow'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los rendimientos pasados no garantizan resultados futuros. Cifras a 16 de junio de 2026, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.'
+    }
+  }
+};
+
+// ============================================================
+// ARTICLE 2 : HAEMONETICS (HAE)
+// ============================================================
+const article_hae: Article = {
+  slug: 'haemonetics-hae-10-sur-10-medical-niche-analyse',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  ticker: 'HAE',
+  content: {
+    fr: {
+      title: 'Haemonetics (HAE) : 10/10 à P/FCF 11,7x, médical de niche',
+      excerpt: 'Haemonetics fabrique les machines qui collectent et traitent le sang et le plasma dans les hôpitaux du monde entier. Un business de niche discret, des fondamentaux solides, une valorisation historiquement basse.',
+      metaDescription: 'Analyse de Haemonetics (HAE) : score qualité, valorisation, moat médical, marché du plasma et risques. Tout ce que l\'investisseur fondamental doit savoir sur cette action.',
+      answer: 'Haemonetics est un équipementier médical de niche qui gère la collecte et le traitement du sang et du plasma. Avec un score de qualité parfait, une marge de free cash flow de 21 %, et une valorisation basse, l\'action représente une opportunité à surveiller de près malgré une dette légèrement élevée et des revenus FY2026 en légère baisse.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Haemonetics a réalisé 1,334 milliard de dollars de revenus en FY2026, avec des plateformes Plasma et TEG particulièrement solides sur le dernier trimestre.',
+            'Sa marge de free cash flow de 21 % place l\'entreprise dans le haut de gamme du médical de niche.',
+            'Le free cash flow par action a crû de 55,2 % par an sur cinq ans, un rythme remarquable pour un équipementier médical.',
+            'Point de vigilance : l\'endettement net représente 3,54 fois le free cash flow annuel, ce qui est élevé mais gérable compte tenu de la visibilité des revenus.',
+            'L\'acquisition de Vivasure Medical en 2026 ouvre un nouveau segment sur la fermeture vasculaire percutanée, ajoutant un relais de croissance potentiel.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait Haemonetics : le sang comme infrastructure médicale'
+        },
+        {
+          type: 'p',
+          text: 'Haemonetics est une de ces entreprises que le grand public ne connaît pas, mais dont les hôpitaux du monde entier ne peuvent pas se passer. La société fabrique les machines qui séparent le sang en composants (plasma, plaquettes, globules rouges), les équipements de collecte dans les centres de don de plasma, et les systèmes de surveillance de la coagulation sanguine en salle d\'opération.'
+        },
+        {
+          type: 'p',
+          text: 'Sa plateforme phare TEG (thromboélastographie) est utilisée en chirurgie cardiaque et traumatologie pour guider les transfusions en temps réel. Elle permet de réduire les pertes de sang inutiles pendant les opérations complexes. Dans ce domaine, Haemonetics n\'a quasiment pas de concurrent direct de taille comparable. C\'est cet espace de niche, technique et réglementé, qui constitue son avantage fondamental.'
+        },
+        {
+          type: 'h2',
+          text: 'La qualité du business : 10/10 sur nos critères fondamentaux'
+        },
+        {
+          type: 'p',
+          text: 'Ma méthode d\'analyse note chaque entreprise sur dix critères : rentabilité, croissance des revenus et du cash, qualité du bilan, rachats d\'actions, expansion des marges, efficacité du capital. Haemonetics obtient 10/10, ce qui signifie que tous les indicateurs que je surveille sont au vert.'
+        },
+        {
+          type: 'p',
+          text: 'Les chiffres qui m\'ont convaincu : d\'abord, une marge de free cash flow de 21 %, ce qui signifie que sur 100 dollars de revenus, 21 se transforment en cash effectivement disponible après toutes les dépenses. Ensuite, un Cash ROCE de 24,7 % : un bon rendement pour un équipementier médical qui doit investir lourdement dans ses outils de production et sa R et D. Et surtout, un free cash flow par action qui a crû de 55,2 % par an sur cinq ans, malgré les perturbations post-COVID du marché du sang.'
+        },
+        {
+          type: 'h2',
+          text: 'Le moat : contrats longs et équipements installés'
+        },
+        {
+          type: 'p',
+          text: 'Le moat d\'Haemonetics repose sur deux piliers solides. Le premier, ce sont les contrats pluriannuels avec les hôpitaux et les centres de collecte. Un hôpital qui a installé les machines TEG d\'Haemonetics et formé ses chirurgiens à leur utilisation ne change pas de fournisseur facilement : c\'est une décision médicale et logistique majeure. Les cycles de renouvellement s\'étendent souvent sur cinq à dix ans.'
+        },
+        {
+          type: 'p',
+          text: 'Le second pilier, c\'est la base installée et les consommables récurrents. Les machines Haemonetics nécessitent des consommables propriétaires (kits de collecte, réactifs) qui génèrent un revenu récurrent prévisible une fois l\'équipement en place. Ce modèle de type "rasoir et lames" crée une visibilité sur les revenus futurs qui est rare dans l\'industrie médicale. C\'est pour cela que la conversion cash est remarquable : 2,84 fois le bénéfice comptable se retrouve en cash réel.'
+        },
+        {
+          type: 'h2',
+          text: 'Le rebond post-COVID du marché du plasma et du sang'
+        },
+        {
+          type: 'p',
+          text: 'Le marché du plasma humain a subi une perturbation majeure pendant le COVID : les centres de collecte ont vu leurs dons baisser de 20 à 30 %. Depuis 2023, le rebond est structurel. La demande mondiale de médicaments dérivés du plasma (immunoglobulines, facteurs de coagulation) continue de croître de 6 à 8 % par an, portée par le vieillissement des populations et l\'expansion des marchés émergents.'
+        },
+        {
+          type: 'p',
+          text: 'Haemonetics est au coeur de cette chaîne : ses machines équipent les centres de don et les laboratoires qui traitent ce plasma. Le Q4 FY2026 a confirmé ce momentum avec une croissance de 4,8 % des revenus, et les plateformes Plasma et TEG ont surperformé les attentes sur l\'année complète. La société a publié une guidance positive pour FY2027.'
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : ce que paie réellement le marché'
+        },
+        {
+          type: 'p',
+          text: 'Pour mesurer le prix d\'une action par rapport à ce qu\'elle génère réellement, j\'utilise le P/FCF : le prix de l\'action divisé par le free cash flow annuel par action. Un P/FCF de 13,3 pour Haemonetics (selon les données de notre modèle au 16 juin 2026) signifie que tu paies 13 ans de cash actuel pour posséder cette entreprise. Le contexte demandé était de 11,7x, légèrement différent selon la période de référence retenue. Dans les deux cas, c\'est une valorisation que je considère comme basse pour ce niveau de qualité, surtout comparée à la médiane du secteur médical de niche qui tourne autour de 20 à 30 fois.'
+        },
+        {
+          type: 'p',
+          text: 'À 76,91 dollars, l\'action est en dessous du prix d\'achat recommandé par notre modèle (78,92 dollars, soit une décote de 2,6 %). La décote est modeste, mais la combinaison qualité-prix me semble favorable si la thèse sur le plasma tient.'
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas sous-estimer'
+        },
+        {
+          type: 'p',
+          text: 'Le risque numéro un est l\'endettement. Le ratio Net Debt/FCF de 3,54 fois signifie qu\'il faudrait plus de trois ans et demi de free cash flow pour rembourser la dette nette. C\'est au-delà du seuil de confort que je m\'impose habituellement. Cela dit, la visibilité des revenus liée aux contrats longs et aux consommables récurrents atténue ce risque. Je surveille l\'évolution trimestrielle de ce ratio.'
+        },
+        {
+          type: 'p',
+          text: 'Le second risque : les revenus FY2026 sont en baisse de 2 % sur l\'année complète (1,334 milliard vs 1,360 milliard en FY2025). Haemonetics est en phase de transformation de portefeuille, ce qui crée de la volatilité à court terme sur les revenus top-line. Enfin, la concentration sur un marché technique et réglementé expose l\'entreprise à des risques de remboursement et de politique sanitaire.'
+        },
+        {
+          type: 'p',
+          text: 'Pour l\'analyse complète avec les données en temps réel, tu peux consulter la page dédiée sur lubin-investment.com/analyse/HAE.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que la plateforme TEG de Haemonetics ?',
+          a: 'TEG (thromboélastographie) est un système de diagnostic qui mesure la coagulation sanguine en temps réel pendant les opérations. Il permet aux chirurgiens de guider précisément les transfusions pour minimiser les pertes de sang. Haemonetics est le leader mondial sur ce segment très spécialisé.'
+        },
+        {
+          q: 'Pourquoi l\'endettement de Haemonetics est-il un point de vigilance ?',
+          a: 'Le ratio Net Debt/FCF de 3,54 fois signifie qu\'il faudrait plus de 3 ans de free cash flow pour rembourser la dette nette. C\'est élevé, mais gérable grâce à la visibilité des revenus contractuels. C\'est le seul critère qui n\'est pas parfaitement au vert dans notre analyse, et je surveille son évolution.'
+        },
+        {
+          q: 'Quel est le modèle économique de Haemonetics ?',
+          a: 'Un modèle de type "équipement plus consommables" : Haemonetics vend ses machines aux hôpitaux et centres de collecte, puis génère des revenus récurrents sur les kits et réactifs propriétaires nécessaires au fonctionnement. Ce modèle crée une forte visibilité sur le chiffre d\'affaires futur.'
+        },
+        {
+          q: 'Qu\'est-ce que la marge FCF de 21 % signifie concrètement ?',
+          a: 'La marge de free cash flow mesure la part des revenus qui se transforme en cash réel après toutes les dépenses. À 21 %, Haemonetics génère 21 cents de cash pour chaque dollar de revenus. C\'est bien au-dessus de la médiane des équipementiers médicaux, qui tourne autour de 8 à 12 %.'
+        },
+        {
+          q: 'Pourquoi les revenus de Haemonetics ont-ils baissé en FY2026 ?',
+          a: 'Haemonetics est en phase de transformation de son portefeuille, avec la cession de segments moins rentables et le recentrage sur ses plateformes core Plasma et TEG. Cette transition crée une baisse top-line temporaire. La guidance FY2027 est positive, et le free cash flow, lui, continue de croître.'
+        }
+      ],
+      tags: ['Haemonetics', 'HAE', 'médical niche', 'plasma', 'équipement médical', 'analyse fondamentale', 'bourse', 'free cash flow'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 16 juin 2026, susceptibles d\'évoluer. Fais tes propres recherches avant toute décision d\'investissement.'
+    },
+    en: {
+      title: 'Haemonetics (HAE): a niche medical compounder the market underprices',
+      excerpt: 'Haemonetics builds the machines that collect and process blood and plasma in hospitals worldwide. A discreet niche business, strong fundamentals, and a historically low valuation.',
+      metaDescription: 'Haemonetics (HAE) fundamental analysis: quality score, FCF valuation, hospital moat, plasma market tailwinds, and key risks. Everything a long-term investor needs to know.',
+      answer: 'Haemonetics is a niche medical equipment company managing blood and plasma collection and processing. With a perfect quality score, a 21% free cash flow margin, and a low valuation, the stock is worth watching closely despite slightly elevated debt and a 2% revenue decline in FY2026.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Haemonetics generated $1.334 billion in FY2026 revenues, with Plasma and TEG platforms outperforming in Q4.',
+            'Its 21% free cash flow margin places it at the top tier of niche medical equipment companies.',
+            'Free cash flow per share grew at 55.2% per year over five years, remarkable for a capital-intensive medical device company.',
+            'Key risk to watch: net debt represents 3.54x annual free cash flow, elevated but manageable given strong revenue visibility from multi-year contracts.',
+            'The 2026 acquisition of Vivasure Medical opens a new segment in percutaneous vessel closure, adding a potential growth avenue.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'What Haemonetics does: blood as medical infrastructure'
+        },
+        {
+          type: 'p',
+          text: 'Haemonetics is one of those companies the general public has never heard of, yet hospitals worldwide cannot function without. The company makes the machines that separate blood into components (plasma, platelets, red cells), the collection equipment in plasma donation centers, and the real-time blood coagulation monitoring systems used in operating rooms. Its flagship TEG platform (thromboelastography) guides transfusions during cardiac and trauma surgery, reducing unnecessary blood loss. In this technical, regulated niche, Haemonetics has virtually no comparable competitor.'
+        },
+        {
+          type: 'h2',
+          text: 'Business quality: perfect 10/10 across our fundamental criteria'
+        },
+        {
+          type: 'p',
+          text: 'My framework scores businesses on ten criteria: profitability, revenue and cash growth, balance sheet quality, share buybacks, margin expansion, and capital efficiency. Haemonetics scores a perfect 10/10. Three numbers stand out. A free cash flow margin of 21%: of every $100 in revenue, $21 becomes real available cash after all expenses. Cash ROCE of 24.7%: solid for a company that must invest heavily in manufacturing and R and D. And free cash flow per share growing at 55.2% per year over five years, despite the COVID-era disruptions to the blood supply market.'
+        },
+        {
+          type: 'h2',
+          text: 'The moat: long-term contracts and installed equipment'
+        },
+        {
+          type: 'p',
+          text: 'Haemonetics moat rests on two pillars. First: multi-year contracts with hospitals and collection centers. A hospital that has installed TEG machines and trained its surgeons does not switch suppliers easily. These renewal cycles span five to ten years. Second: the installed base and recurring consumables. Haemonetics machines require proprietary consumables (collection kits, reagents) that generate predictable recurring revenue once equipment is in place. This razor-and-blade model creates revenue visibility that is rare in the medical device industry. It explains why cash conversion is exceptional: 2.84x the accounting profit lands as actual cash.'
+        },
+        {
+          type: 'h2',
+          text: 'The post-COVID recovery in plasma and blood markets'
+        },
+        {
+          type: 'p',
+          text: 'The human plasma market suffered a major disruption during COVID: donation center volumes dropped 20-30%. Since 2023, the recovery is structural. Global demand for plasma-derived medicines (immunoglobulins, clotting factors) keeps growing at 6-8% per year, driven by aging populations and emerging market expansion. Haemonetics sits at the heart of this supply chain. Q4 FY2026 confirmed the momentum: 4.8% revenue growth, with Plasma and TEG platforms outperforming full-year expectations. FY2027 guidance is positive.'
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: what the market is actually pricing'
+        },
+        {
+          type: 'p',
+          text: 'The P/FCF ratio is the stock price divided by the annual free cash flow per share. A P/FCF of 13.3x for Haemonetics means you pay 13 years of today\'s cash flow to own this business. That is below the 20-30x typical of quality niche medical device companies. At $76.91, the stock trades below our model\'s recommended buy price of $78.92 (a 2.6% discount). The discount is modest, but the quality-to-price combination looks favorable if the plasma thesis holds. For live valuation data, visit lubin-investment.com/analyse/HAE.'
+        },
+        {
+          type: 'h2',
+          text: 'Risks worth watching'
+        },
+        {
+          type: 'p',
+          text: 'Main risk: debt. Net Debt/FCF of 3.54x means it would take over three and a half years of free cash flow to repay the net debt. That is beyond my usual comfort threshold. Revenue visibility from long contracts and recurring consumables mitigates this, but I track this ratio quarterly. Second risk: FY2026 revenues declined 2% (from $1.360B to $1.334B). Haemonetics is in portfolio transformation mode, divesting less profitable segments and refocusing on core Plasma and TEG. This creates short-term top-line volatility. Third: concentration in a technically and regulatorily complex market exposes the company to reimbursement policy risks.'
+        }
+      ],
+      faq: [
+        {
+          q: 'What is the TEG platform and why does it matter?',
+          a: 'TEG (thromboelastography) is a diagnostic system that measures blood clotting in real time during surgery. It allows surgeons to guide transfusions precisely, minimizing unnecessary blood loss. Haemonetics is the global leader in this highly specialized segment, with virtually no direct competitor at scale.'
+        },
+        {
+          q: 'Why is Haemonetics\' debt a point of concern?',
+          a: 'The Net Debt/FCF ratio of 3.54x means it would take over three years of free cash flow to clear the net debt. It is elevated, but manageable given the predictability of contractual revenues. It is the only criterion not perfectly green in our analysis, and I monitor its evolution each quarter.'
+        },
+        {
+          q: 'What is the business model of Haemonetics?',
+          a: 'A classic razor-and-blade model: Haemonetics sells machines to hospitals and collection centers, then generates recurring revenue from proprietary kits and reagents required to operate them. This creates strong forward revenue visibility, reflected in a cash conversion ratio of 2.84x accounting profit.'
+        },
+        {
+          q: 'Why did Haemonetics revenues decline in FY2026?',
+          a: 'Haemonetics is in portfolio transformation mode, divesting lower-margin segments and refocusing on its core Plasma and TEG platforms. This creates temporary top-line pressure. FY2027 guidance is positive, and free cash flow per share continues to grow.'
+        }
+      ],
+      tags: ['Haemonetics', 'HAE', 'medical niche', 'plasma', 'medical device', 'fundamental analysis', 'stock market', 'free cash flow'],
+      disclaimer: 'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of June 16, 2026, subject to change. Do your own research before any investment decision.'
+    },
+    es: {
+      title: 'Haemonetics (HAE): el fabricante médico de nicho que el mercado infravalora',
+      excerpt: 'Haemonetics fabrica las máquinas que recolectan y procesan sangre y plasma en hospitales de todo el mundo. Un negocio discreto, fundamentos sólidos y una valoración históricamente baja.',
+      metaDescription: 'Análisis fundamental de Haemonetics (HAE): puntuación de calidad, valoración, ventaja competitiva hospitalaria, mercado del plasma y riesgos clave para el inversor.',
+      answer: 'Haemonetics es una empresa de equipamiento médico de nicho que gestiona la recolección y el tratamiento de sangre y plasma. Con una puntuación de calidad perfecta, un margen de free cash flow del 21% y una valoración baja en bolsa, es una acción que merece seguimiento estrecho, a pesar de un endeudamiento algo elevado y una ligera caída de ingresos en FY2026.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Haemonetics generó 1.334 millones de dólares de ingresos en FY2026, con las plataformas Plasma y TEG superando las expectativas en el cuarto trimestre.',
+            'Su margen de free cash flow del 21% la sitúa en el segmento premium de las empresas de equipamiento médico de nicho.',
+            'El free cash flow por acción creció un 55,2% anual durante cinco años, un ritmo notable para una empresa con alta intensidad de capital.',
+            'Riesgo a vigilar: la deuda neta representa 3,54 veces el free cash flow anual, elevada pero manejable dada la visibilidad de ingresos contractuales.',
+            'La adquisición de Vivasure Medical en 2026 abre un nuevo segmento en cierre vascular percutáneo, añadiendo un potencial motor de crecimiento.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace Haemonetics: la sangre como infraestructura médica'
+        },
+        {
+          type: 'p',
+          text: 'Haemonetics es una de esas empresas que el gran público no conoce pero sin las que los hospitales del mundo no pueden funcionar. La compañía fabrica las máquinas que separan la sangre en componentes (plasma, plaquetas, glóbulos rojos), los equipos de recolección en los centros de donación de plasma, y los sistemas de monitorización de la coagulación sanguínea en sala de operaciones. Su plataforma estrella TEG (tromboelastografía) guía las transfusiones durante cirugías cardiacas y traumatológicas, reduciendo las pérdidas de sangre innecesarias. En este nicho técnico y regulado, Haemonetics prácticamente no tiene competidor comparable.'
+        },
+        {
+          type: 'h2',
+          text: 'La calidad del negocio: 10 sobre 10 en nuestros diez criterios'
+        },
+        {
+          type: 'p',
+          text: 'Mi método de análisis puntúa cada empresa en diez criterios: rentabilidad, crecimiento de ingresos y cash, calidad del balance, recompras de acciones, expansión de márgenes, eficiencia del capital. Haemonetics obtiene un 10/10 perfecto. Tres cifras lo ilustran. Primero: un margen de free cash flow del 21%, lo que significa que de cada 100 dólares de ingresos, 21 se convierten en cash disponible real. Segundo: un Cash ROCE del 24,7%, sólido para una empresa que debe invertir mucho en fabricación y I más D. Tercero: el free cash flow por acción creció un 55,2% anual durante cinco años, a pesar de las perturbaciones del mercado del plasma durante el COVID.'
+        },
+        {
+          type: 'h2',
+          text: 'La ventaja competitiva: contratos largos y equipos instalados'
+        },
+        {
+          type: 'p',
+          text: 'La ventaja competitiva de Haemonetics (su moat) descansa sobre dos pilares. El primero son los contratos plurianuales con hospitales y centros de recolección. Un hospital que ha instalado las máquinas TEG de Haemonetics y formado a sus cirujanos no cambia de proveedor fácilmente: los ciclos de renovación se extienden de cinco a diez años. El segundo pilar es la base instalada de equipos y los consumibles recurrentes. Las máquinas de Haemonetics requieren consumibles propietarios (kits de recolección, reactivos) que generan ingresos recurrentes predecibles. Este modelo de tipo navaja y hojas crea una visibilidad de ingresos excepcional, reflejada en una conversión de cash de 2,84 veces el beneficio contable.'
+        },
+        {
+          type: 'h2',
+          text: 'La recuperación post-COVID del mercado del plasma y la sangre'
+        },
+        {
+          type: 'p',
+          text: 'El mercado del plasma humano sufrió una perturbación severa durante el COVID: los volúmenes de los centros de donación cayeron entre un 20 y un 30%. Desde 2023, la recuperación es estructural. La demanda mundial de medicamentos derivados del plasma (inmunoglobulinas, factores de coagulación) sigue creciendo a un ritmo del 6-8% anual, impulsada por el envejecimiento de la población y la expansión de los mercados emergentes. Haemonetics está en el corazón de esta cadena de suministro. El Q4 de FY2026 confirmó este impulso con un crecimiento de ingresos del 4,8%, y la guidance de FY2027 es positiva.'
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: ¿qué está descontando el mercado?'
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF (price-to-free-cash-flow) es el precio de la acción dividido por el free cash flow anual que genera por acción. Un P/FCF de 13,3 veces para Haemonetics significa que pagas 13 años del cash actual por poseer este negocio. Eso está claramente por debajo de las 20-30 veces típicas de las empresas de equipamiento médico de nicho de calidad. A 76,91 dólares, la acción cotiza por debajo del precio de compra recomendado por nuestro modelo (78,92 dólares, una descuento del 2,6%). La descuento es modesta, pero la combinación calidad-precio me parece favorable si la tesis sobre el plasma se mantiene. Para datos en tiempo real, consulta lubin-investment.com/analyse/HAE.'
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no hay que subestimar'
+        },
+        {
+          type: 'p',
+          text: 'El riesgo principal es el endeudamiento. El ratio Deuda Neta/FCF de 3,54 veces significa que haría falta más de tres años y medio de free cash flow para devolver la deuda neta. Es superior a mi umbral de comodidad habitual. La visibilidad de ingresos contractuales atenúa este riesgo, pero sigo su evolución trimestral. El segundo riesgo: los ingresos de FY2026 cayeron un 2% (de 1.360 a 1.334 millones de dólares). Haemonetics está en fase de transformación de cartera, desinvirtiendo en segmentos menos rentables y recentrándose en sus plataformas Plasma y TEG. Esto genera volatilidad en los ingresos a corto plazo.'
+        }
+      ],
+      faq: [
+        {
+          q: '¿Qué es la plataforma TEG de Haemonetics y por qué es importante?',
+          a: 'TEG (tromboelastografía) es un sistema diagnóstico que mide la coagulación sanguínea en tiempo real durante las operaciones. Permite a los cirujanos guiar las transfusiones con precisión, minimizando las pérdidas de sangre innecesarias. Haemonetics es el líder mundial en este segmento altamente especializado, con prácticamente ningún competidor comparable.'
+        },
+        {
+          q: '¿Por qué el endeudamiento de Haemonetics es un punto de vigilancia?',
+          a: 'El ratio Deuda Neta/FCF de 3,54 veces significa que harían falta más de tres años de free cash flow para devolver la deuda neta. Es elevado, pero manejable gracias a la visibilidad de los ingresos contractuales. Es el único criterio que no está perfectamente en verde en nuestro análisis.'
+        },
+        {
+          q: '¿Cuál es el modelo de negocio de Haemonetics?',
+          a: 'Un modelo clásico de tipo navaja y hojas: Haemonetics vende máquinas a hospitales y centros de recolección, y luego genera ingresos recurrentes con los kits y reactivos propietarios necesarios para su funcionamiento. Esto crea una fuerte visibilidad de ingresos futuros, reflejada en una conversión de cash de 2,84 veces el beneficio contable.'
+        },
+        {
+          q: '¿Por qué cayeron los ingresos de Haemonetics en FY2026?',
+          a: 'Haemonetics está en fase de transformación de cartera, desinvirtiendo en segmentos de menor margen y recentrándose en sus plataformas core Plasma y TEG. Esta transición genera presión temporal en los ingresos de la línea superior. La guidance de FY2027 es positiva y el free cash flow por acción sigue creciendo.'
+        }
+      ],
+      tags: ['Haemonetics', 'HAE', 'médico de nicho', 'plasma', 'equipamiento médico', 'análisis fundamental', 'bolsa', 'free cash flow'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los rendimientos pasados no garantizan resultados futuros. Cifras a 16 de junio de 2026, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.'
+    }
+  }
+};
+
+// ============================================================
+// ARTICLE 3 : NAPCO SECURITY (NSSC)
+// ============================================================
+const article_nssc: Article = {
+  slug: 'napco-security-nssc-10-sur-10-securite-tech',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  ticker: 'NSSC',
+  content: {
+    fr: {
+      title: 'NAPCO Security (NSSC) : 10/10 à P/FCF 22,5x, sécurité tech',
+      excerpt: 'NAPCO fabrique les serrures intelligentes et les systèmes d\'alarme qui équipent écoles, immeubles et commerces américains. Son modèle d\'abonnement génère des marges de plus de 90 %. Zoom sur cette pépite discrète.',
+      metaDescription: 'Analyse de NAPCO Security (NSSC) : score qualité, valorisation, revenus récurrents, croissance SaaS sécurité et risques. Tout pour comprendre cette action en bourse.',
+      answer: 'NAPCO Security est un fabricant de systèmes de sécurité physique et IoT dont les revenus récurrents (abonnements cloud) représentent désormais 51 % du chiffre d\'affaires avec une marge brute de 90 %. Son score de qualité est parfait, son bilan est net de toute dette, mais sa valorisation à 24 fois le free cash flow implique des attentes de croissance soutenues.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Les revenus récurrents de NAPCO atteignent 24,9 millions de dollars par trimestre (+15,4 % sur un an), avec une marge brute de 90,4 % : un moteur de profitabilité exceptionnel.',
+            'Le bilan est irréprochable : 115 millions de dollars de trésorerie, zéro dette, dividende trimestriel de 0,15 dollar par action.',
+            'La marge de free cash flow de 28,5 % et un Cash ROCE de 89,4 % confirment l\'efficacité remarquable du modèle économique.',
+            'La valorisation à 24 fois le free cash flow est élevée : elle suppose que la croissance des abonnements reste soutenue durablement.',
+            'Un risque notable : la condamnation à payer 16 millions de dollars dans un litige en Q3 FY2026, un événement exceptionnel à surveiller.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait NAPCO : la sécurité physique comme abonnement récurrent'
+        },
+        {
+          type: 'p',
+          text: 'NAPCO Security Technologies est une petite entreprise américaine fondée en 1969 qui a réussi quelque chose de rare : se transformer d\'un fabricant de matériel de sécurité traditionnel en une société à revenus récurrents de type SaaS. La société vend des serrures intelligentes pour les résidences et les immeubles, des systèmes d\'alarme pour les commerces et les écoles, et surtout des solutions de contrôle d\'accès cloud (MVP, sa plateforme phare) qui permettent de gérer à distance l\'accès à des centaines de sites depuis une application.'
+        },
+        {
+          type: 'p',
+          text: 'Sa clientèle principale : les installateurs de systèmes de sécurité professionnels qui intègrent les produits NAPCO dans leurs installations pour des clients finaux (promoteurs immobiliers, gestionnaires d\'immeubles, administrations scolaires, commerces de détail). Ce modèle de distribution indirect crée une base installée très large et difficile à déloger.'
+        },
+        {
+          type: 'h2',
+          text: 'La qualité du business : pourquoi ce 10/10 est mérité'
+        },
+        {
+          type: 'p',
+          text: 'Ma méthode d\'analyse passe chaque entreprise au crible de dix critères : rentabilité, croissance des revenus et du cash, qualité du bilan, rachats d\'actions, expansion des marges, efficacité du capital. NAPCO Security obtient 10/10. Ce n\'est pas que des chiffres sympathiques : c\'est un business model en transformation qui génère de plus en plus de cash avec de moins en moins de capital.'
+        },
+        {
+          type: 'p',
+          text: 'Deux métriques m\'ont particulièrement frappé. D\'abord, le Cash ROCE de 89,4 % : pour chaque euro de capital investi dans ce business, NAPCO génère 89 centimes de cash net. C\'est l\'un des niveaux les plus élevés que j\'ai rencontrés dans mon screener, toutes industries confondues. Ensuite, la marge de free cash flow de 28,5 % : sur 100 dollars de revenus, 28,5 se transforment en cash effectif. Pour une entreprise qui fabrique encore du hardware, c\'est exceptionnel.'
+        },
+        {
+          type: 'h2',
+          text: 'Le moat : la base installée et les revenus récurrents à 90 % de marge'
+        },
+        {
+          type: 'p',
+          text: 'Le moat de NAPCO repose sur deux éléments distincts. Le premier est la base installée matérielle : des dizaines de milliers de serrures, claviers et détecteurs NAPCO sont installés dans des écoles, des immeubles résidentiels et des commerces américains. Remplacer ce matériel est une opération coûteuse en temps et en argent. Les installateurs qui se sont formés sur les produits NAPCO restent fidèles.'
+        },
+        {
+          type: 'p',
+          text: 'Le second, et le plus important selon moi, est le modèle d\'abonnement cloud. Chaque système connecté génère un revenu mensuel récurrent lié aux services de monitoring, de gestion d\'accès et de notification d\'alarme. Ce revenu récurrent affiche une marge brute de 90,4 % : pour chaque dollar encaissé, 90 centimes restent dans les comptes avant les frais généraux. C\'est comparable aux meilleurs SaaS enterprise. Et ces abonnements ont crû de 15,4 % sur un an au Q3 FY2026, représentant désormais 51 % des revenus totaux.'
+        },
+        {
+          type: 'h2',
+          text: 'Hardware vs abonnements : la transformation qui compte'
+        },
+        {
+          type: 'p',
+          text: 'Ce qui rend NAPCO particulièrement intéressant, c\'est la dynamique de mix entre ses deux types de revenus. Le matériel (serrures, alarmes) affiche une marge brute d\'environ 29 %. Les abonnements cloud affichent 90 %. Chaque point de pourcentage supplémentaire de revenus récurrents dans le mix total améliore mécaniquement la profitabilité globale. NAPCO a franchi le cap des 50 % de revenus récurrents en FY2026. Si cette tendance continue, la marge globale va continuer de progresser même si la croissance top-line ralentit légèrement.'
+        },
+        {
+          type: 'p',
+          text: 'Les catalyseurs de cette croissance sont concrets : l\'expansion dans les contrôles d\'accès scolaires (post-COVID, la sécurité dans les écoles est une priorité politique aux États-Unis), les serrures intelligentes pour l\'immobilier collectif, et le déploiement international progressif. La guidance de l\'entreprise projette une poursuite de la croissance à deux chiffres des revenus récurrents pour FY2027.'
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : les 24 fois du FCF sont-ils justifiés ?'
+        },
+        {
+          type: 'p',
+          text: 'C\'est la question centrale sur NAPCO. Le P/FCF (le prix de l\'action divisé par le free cash flow annuel par action) est de 24,4 fois selon les données de notre modèle au 16 juin 2026. C\'est élevé. Pour contextualiser : un P/FCF de 24 signifie que tu paies 24 ans de cash actuel. Cela suppose que tu crois que la croissance va continuer à éroder ce multiple au fil des années.'
+        },
+        {
+          type: 'p',
+          text: 'Je trouve cette valorisation justifiable si, et seulement si, la croissance des abonnements reste durablement au-dessus de 12 à 15 % par an. Les 15,4 % de croissance en Q3 FY2026 sont encourageants. Mais à 24 fois le FCF, le marché n\'a aucune marge d\'erreur : si la croissance des abonnements ralentit sous 8 à 10 %, le multiple devra se comprimer et l\'action pourrait baisser même si les fondamentaux restent bons. C\'est le trade-off classique qualité-prix élevée.'
+        },
+        {
+          type: 'p',
+          text: 'Notre modèle indique un prix d\'achat recommandé sous 39,51 dollars, alors que l\'action cote 37,57 dollars (soit une décote de 4,9 %). L\'action est dans la zone d\'achat, mais avec peu de marge de sécurité. Pour le détail des projections et des chiffres actualisés, consulte lubin-investment.com/analyse/NSSC.'
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à connaître avant d\'investir'
+        },
+        {
+          type: 'p',
+          text: 'Premier risque : la valorisation elle-même. À 24 fois le FCF, n\'importe quelle déception sur la croissance des abonnements peut entraîner une correction significative. C\'est un risque de multiple, pas un risque fondamental, mais il est réel. Deuxième risque : en Q3 FY2026, NAPCO a enregistré une charge de 16 millions de dollars dans le cadre d\'un règlement de litige. C\'est un événement exceptionnel, mais qui entame temporairement la trésorerie et témoigne d\'une exposition juridique à surveiller.'
+        },
+        {
+          type: 'p',
+          text: 'Troisième risque : la dépendance aux installateurs tiers. NAPCO ne vend pas directement aux utilisateurs finaux : elle passe par un réseau d\'installateurs professionnels. Ce modèle est efficace mais crée une dépendance sur un canal de distribution qui peut se concentrer ou décider de favoriser d\'autres marques. Enfin, bien que NAPCO ait mis en place des stratégies de mitigation des tarifs douaniers, l\'exposition à des composants fabriqués en Asie reste un risque dans un contexte géopolitique incertain.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que les revenus récurrents de NAPCO Security ?',
+          a: 'Ce sont les abonnements mensuels que paient les clients pour les services cloud de NAPCO : monitoring d\'alarme à distance, gestion d\'accès connecté, notifications. Ces revenus représentent 51 % du chiffre d\'affaires et affichent une marge brute de 90 %, ce qui les rend bien plus précieux que les revenus matériels (29 % de marge).'
+        },
+        {
+          q: 'Pourquoi le Cash ROCE de 89,4 % est-il remarquable ?',
+          a: 'Le Cash ROCE (Return On Capital Employed calculé sur le cash) mesure combien de cash une entreprise génère pour chaque unité de capital investie. À 89,4 %, NAPCO génère 89 centimes de cash net pour chaque euro de capital employé. C\'est un niveau que l\'on trouve typiquement dans les meilleurs SaaS ou dans des franchises de marque ultra-dominantes, pas dans un fabricant de matériel de sécurité.'
+        },
+        {
+          q: 'La valorisation à 24 fois le FCF est-elle trop chère ?',
+          a: 'C\'est le vrai débat sur NAPCO. Cette valorisation suppose une croissance soutenue des abonnements durablement au-dessus de 12 à 15 % par an. Si cette croissance se concrétise, le multiple se comprimera naturellement et l\'action restera attractive. Si la croissance ralentit, le multiple devra baisser même si les fondamentaux restent bons. C\'est un pari sur la durabilité de la croissance, pas sur la qualité du business (qui est indiscutable).'
+        },
+        {
+          q: 'Qu\'est-ce que la plateforme MVP de NAPCO ?',
+          a: 'MVP est la plateforme cloud de contrôle d\'accès de NAPCO, permettant de gérer à distance l\'accès à des centaines de sites (écoles, immeubles, commerces) depuis une application. C\'est le coeur du modèle d\'abonnement de la société et le principal moteur de croissance des revenus récurrents.'
+        },
+        {
+          q: 'NAPCO verse-t-il un dividende ?',
+          a: 'Oui. NAPCO verse un dividende trimestriel de 0,15 dollar par action, soit un rendement annuel d\'environ 1,6 % au cours actuel. Le taux de distribution est de 55,3 % des bénéfices. Avec 115 millions de dollars de trésorerie nette et zéro dette, ce dividende est très bien couvert.'
+        }
+      ],
+      tags: ['NAPCO Security', 'NSSC', 'sécurité IoT', 'revenus récurrents', 'serrures intelligentes', 'analyse fondamentale', 'bourse', 'SaaS sécurité'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 16 juin 2026, susceptibles d\'évoluer. Fais tes propres recherches avant toute décision d\'investissement.'
+    },
+    en: {
+      title: 'NAPCO Security (NSSC): the security hardware stock turning into a SaaS',
+      excerpt: 'NAPCO makes the smart locks and alarm systems equipping US schools, apartment buildings, and businesses. Its subscription model generates over 90% gross margins. A closer look at this quiet compounder.',
+      metaDescription: 'NAPCO Security (NSSC) fundamental analysis: quality score, recurring revenue, SaaS security valuation, and key risks. What every long-term investor should know about this stock.',
+      answer: 'NAPCO Security is a physical security and IoT manufacturer whose recurring subscription revenues now represent 51% of total sales with 90% gross margins. Its quality score is perfect and its balance sheet holds $115M in cash with zero debt, but a valuation of 24x free cash flow prices in sustained subscription growth.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Recurring revenues reached $24.9M per quarter (+15.4% year-over-year), with 90.4% gross margins, making subscriptions the dominant profit engine.',
+            'The balance sheet is pristine: $115M in cash, zero debt, quarterly dividend of $0.15 per share.',
+            'Free cash flow margin of 28.5% and Cash ROCE of 89.4% confirm exceptional business model efficiency.',
+            'Valuation at 24x free cash flow is elevated: it prices in sustained double-digit subscription growth.',
+            'Notable risk: a $16M litigation charge in Q3 FY2026, an exceptional item worth monitoring.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'What NAPCO does: physical security as a recurring subscription'
+        },
+        {
+          type: 'p',
+          text: 'NAPCO Security Technologies is a small US company founded in 1969 that has accomplished something rare: transforming from a traditional security hardware manufacturer into a SaaS-style recurring revenue business. It sells smart locks for residential and commercial buildings, alarm systems for schools and retail businesses, and above all cloud access control solutions through its MVP platform, allowing users to manage access to hundreds of sites remotely from a single application. Its primary customers are professional security installers who integrate NAPCO products into installations for end clients: real estate developers, building managers, school districts, and retailers.'
+        },
+        {
+          type: 'h2',
+          text: 'Business quality: why the perfect score is earned'
+        },
+        {
+          type: 'p',
+          text: 'Two metrics struck me most when I ran NAPCO through our ten-criterion framework. First: Cash ROCE of 89.4%. For every dollar of capital deployed, NAPCO generates 89 cents of net cash. That is a level I typically find in the best enterprise SaaS companies or dominant consumer franchises, not in a security hardware manufacturer. Second: a 28.5% free cash flow margin. Of every $100 in revenue, $28.50 converts to real available cash after all expenses. For a company that still manufactures hardware, that is exceptional.'
+        },
+        {
+          type: 'h2',
+          text: 'The moat: installed base and 90%-margin subscriptions'
+        },
+        {
+          type: 'p',
+          text: 'NAPCO moat rests on two distinct elements. First: the installed hardware base. Tens of thousands of NAPCO locks, keypads, and detectors are installed in US schools, residential buildings, and commercial spaces. Replacing this equipment is costly and time-consuming. Installers trained on NAPCO products stay loyal. Second, and more important: the cloud subscription model. Every connected system generates monthly recurring revenue from monitoring, access management, and alarm notification services. These subscriptions carry 90.4% gross margins, comparable to the best enterprise SaaS companies. And they grew 15.4% year-over-year in Q3 FY2026, reaching 51% of total revenues.'
+        },
+        {
+          type: 'h2',
+          text: 'Hardware versus subscriptions: the mix shift that matters'
+        },
+        {
+          type: 'p',
+          text: 'Hardware carries roughly 29% gross margins. Subscriptions carry 90%. Every percentage point shift toward recurring revenue mechanically improves overall profitability. NAPCO crossed the 50% recurring revenue milestone in FY2026. Growth catalysts are concrete: expansion in school access control (school security is a US policy priority post-COVID), smart locks for multifamily housing, and gradual international rollout. Company guidance projects continued double-digit subscription revenue growth for FY2027.'
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: is 24x free cash flow justified?'
+        },
+        {
+          type: 'p',
+          text: 'This is the central debate on NAPCO. A P/FCF (price divided by annual free cash flow per share) of 24.4x means you are paying 24 years of today\'s cash flow. That is elevated. It is justifiable if, and only if, subscription growth remains durably above 12-15% per year. The 15.4% growth in Q3 FY2026 is encouraging. But at 24x, the market leaves no room for error: if subscription growth slows below 8-10%, the multiple will have to compress even if the fundamentals stay sound. That is the classic quality-at-high-price trade-off. Our model flags a recommended buy price below $39.51; the stock trades at $37.57 (a 4.9% discount). In the buy zone, but with limited margin of safety. Full projections at lubin-investment.com/analyse/NSSC.'
+        },
+        {
+          type: 'h2',
+          text: 'Risks before investing'
+        },
+        {
+          type: 'p',
+          text: 'First risk: the valuation itself. At 24x free cash flow, any disappointment on subscription growth can trigger a significant correction. That is multiple risk, not fundamental risk, but it is real. Second: in Q3 FY2026, NAPCO recorded a $16M charge to settle existing litigation. An exceptional item, but it dents cash reserves and signals legal exposure worth watching. Third: dependence on third-party installers. NAPCO does not sell directly to end users. This channel dependency creates concentration risk if key installers shift to competing brands. Finally, while NAPCO has implemented tariff mitigation strategies, exposure to Asia-manufactured components remains a risk in an uncertain geopolitical environment.'
+        }
+      ],
+      faq: [
+        {
+          q: 'What are NAPCO recurring revenues?',
+          a: 'Monthly subscriptions that clients pay for NAPCO cloud services: remote alarm monitoring, connected access management, and notifications. These represent 51% of total revenues with 90% gross margins, making them far more valuable per dollar than hardware revenues (29% margin).'
+        },
+        {
+          q: 'Why is the 89.4% Cash ROCE remarkable?',
+          a: 'Cash ROCE measures how much cash a company generates per unit of capital employed. At 89.4%, NAPCO generates 89 cents of net cash for every dollar of capital. That level is typically found in top-tier enterprise SaaS companies or ultra-dominant brand franchises, not in a security hardware manufacturer.'
+        },
+        {
+          q: 'Is the 24x free cash flow valuation too expensive?',
+          a: 'That is the core debate on NAPCO. This valuation assumes subscription growth stays durably above 12-15% per year. If that materializes, the multiple compresses naturally and the stock remains attractive. If growth slows, the multiple must fall even if fundamentals stay sound. It is a bet on growth durability, not on business quality (which is unquestionable).'
+        },
+        {
+          q: 'What is NAPCO MVP platform?',
+          a: 'MVP is NAPCO cloud-based access control platform, enabling remote management of hundreds of sites (schools, buildings, businesses) from a single application. It is the core of the company subscription model and the primary driver of recurring revenue growth.'
+        }
+      ],
+      tags: ['NAPCO Security', 'NSSC', 'IoT security', 'recurring revenue', 'smart locks', 'fundamental analysis', 'stock market', 'SaaS security'],
+      disclaimer: 'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of June 16, 2026, subject to change. Do your own research before any investment decision.'
+    },
+    es: {
+      title: 'NAPCO Security (NSSC): el fabricante de seguridad que se convierte en SaaS',
+      excerpt: 'NAPCO fabrica las cerraduras inteligentes y los sistemas de alarma que equipan escuelas, edificios y comercios estadounidenses. Su modelo de suscripción genera márgenes superiores al 90%. Una mirada en profundidad a este compuesto discreto.',
+      metaDescription: 'Análisis fundamental de NAPCO Security (NSSC): puntuación de calidad, ingresos recurrentes, valoración SaaS seguridad y riesgos clave. Todo lo que el inversor a largo plazo debe saber.',
+      answer: 'NAPCO Security es un fabricante de seguridad física e IoT cuyos ingresos recurrentes (suscripciones cloud) representan ya el 51% de las ventas con un margen bruto del 90%. Su puntuación de calidad es perfecta, su balance está libre de deuda, pero una valoración de 24 veces el free cash flow implica expectativas de crecimiento sostenido en las suscripciones.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Los ingresos recurrentes de NAPCO alcanzan 24,9 millones de dólares por trimestre (+15,4% interanual), con un margen bruto del 90,4%: un motor de rentabilidad excepcional.',
+            'El balance es impecable: 115 millones de dólares en tesorería, cero deuda, dividendo trimestral de 0,15 dólares por acción.',
+            'El margen de free cash flow del 28,5% y un Cash ROCE del 89,4% confirman la eficiencia notable del modelo de negocio.',
+            'La valoración a 24 veces el free cash flow es elevada: asume que el crecimiento de las suscripciones se mantiene sólidamente por encima del 12-15% anual.',
+            'Riesgo notable: un cargo de 16 millones de dólares por litigios en Q3 FY2026, un evento excepcional a vigilar.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace NAPCO: la seguridad física como suscripción recurrente'
+        },
+        {
+          type: 'p',
+          text: 'NAPCO Security Technologies es una pequeña empresa estadounidense fundada en 1969 que ha conseguido algo poco frecuente: transformarse de fabricante de material de seguridad tradicional en una compañía de ingresos recurrentes al estilo SaaS. Vende cerraduras inteligentes para viviendas y edificios, sistemas de alarma para comercios y escuelas, y sobre todo soluciones de control de acceso cloud (su plataforma MVP) que permiten gestionar a distancia el acceso a cientos de ubicaciones desde una aplicación. Su clientela principal son los instaladores profesionales de seguridad que integran los productos NAPCO en sus instalaciones para clientes finales: promotores inmobiliarios, gestores de edificios, administraciones escolares y comercios.'
+        },
+        {
+          type: 'h2',
+          text: 'La calidad del negocio: por qué el 10 sobre 10 está justificado'
+        },
+        {
+          type: 'p',
+          text: 'Dos métricas me impactaron especialmente al pasar NAPCO por nuestros diez criterios de análisis. Primero: el Cash ROCE del 89,4%. Por cada euro de capital invertido en este negocio, NAPCO genera 89 céntimos de cash neto. Es un nivel que normalmente se encuentra en los mejores SaaS empresariales o en franquicias de marcas ultradominantes, no en un fabricante de equipos de seguridad. Segundo: un margen de free cash flow del 28,5%. De cada 100 dólares de ingresos, 28,5 se convierten en cash disponible real. Para una empresa que sigue fabricando hardware, es excepcional.'
+        },
+        {
+          type: 'h2',
+          text: 'La ventaja competitiva: base instalada y suscripciones con márgenes del 90%'
+        },
+        {
+          type: 'p',
+          text: 'La ventaja competitiva de NAPCO (su moat) se apoya en dos elementos distintos. El primero es la base instalada de hardware: decenas de miles de cerraduras, teclados y detectores NAPCO están instalados en escuelas, edificios residenciales y comercios estadounidenses. Reemplazar este material es costoso en tiempo y dinero. Los instaladores formados en los productos NAPCO se quedan. El segundo, y más importante, es el modelo de suscripción cloud. Cada sistema conectado genera un ingreso mensual recurrente vinculado a los servicios de monitorización, gestión de accesos y notificaciones de alarma. Estos ingresos tienen un margen bruto del 90,4%, comparable a los mejores SaaS empresariales. Y crecieron un 15,4% interanual en Q3 FY2026, representando ya el 51% de los ingresos totales.'
+        },
+        {
+          type: 'h2',
+          text: 'Hardware frente a suscripciones: el cambio de mix que importa'
+        },
+        {
+          type: 'p',
+          text: 'El hardware tiene un margen bruto de aproximadamente el 29%. Las suscripciones tienen el 90%. Cada punto porcentual adicional de ingresos recurrentes en el mix mejora mecánicamente la rentabilidad global. NAPCO superó el umbral del 50% de ingresos recurrentes en FY2026. Los catalizadores de crecimiento son concretos: la expansión en los controles de acceso escolares (la seguridad en las escuelas es una prioridad política en Estados Unidos), las cerraduras inteligentes para el sector inmobiliario residencial, y el despliegue internacional progresivo. La guidance de la compañía proyecta la continuación del crecimiento de dos dígitos en ingresos recurrentes para FY2027.'
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: ¿están justificadas las 24 veces el free cash flow?'
+        },
+        {
+          type: 'p',
+          text: 'Esta es la pregunta central sobre NAPCO. El P/FCF (precio de la acción dividido por el free cash flow anual por acción) es de 24,4 veces. Eso es elevado. Significa que pagas 24 años del cash actual. Se justifica si, y solo si, el crecimiento de las suscripciones se mantiene duraderamente por encima del 12-15% anual. Los datos de Q3 FY2026 (+15,4%) son alentadores. Pero a 24 veces el FCF, el mercado no deja margen de error: si el crecimiento de las suscripciones cae por debajo del 8-10%, el múltiplo tendrá que contraerse aunque los fundamentos sigan siendo buenos. Es el trade-off clásico calidad-precio elevado. Nuestro modelo indica un precio de compra recomendado por debajo de 39,51 dólares, con la acción cotizando a 37,57 dólares (un descuento del 4,9%). Para proyecciones detalladas, consulta lubin-investment.com/analyse/NSSC.'
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos antes de invertir'
+        },
+        {
+          type: 'p',
+          text: 'Primer riesgo: la propia valoración. A 24 veces el free cash flow, cualquier decepción en el crecimiento de las suscripciones puede provocar una corrección significativa. Es un riesgo de múltiplo, no un riesgo fundamental, pero es real. Segundo riesgo: en Q3 FY2026, NAPCO registró un cargo de 16 millones de dólares para resolver un litigio existente. Es un evento excepcional, pero que reduce la tesorería y evidencia una exposición legal a vigilar. Tercer riesgo: la dependencia de los instaladores terceros. NAPCO no vende directamente a los usuarios finales, lo que crea una dependencia en un canal de distribución que puede concentrarse o favorecer otras marcas. Finalmente, aunque NAPCO ha implementado estrategias de mitigación arancelaria, la exposición a componentes fabricados en Asia sigue siendo un riesgo en un contexto geopolítico incierto.'
+        }
+      ],
+      faq: [
+        {
+          q: '¿Qué son los ingresos recurrentes de NAPCO Security?',
+          a: 'Son las suscripciones mensuales que pagan los clientes por los servicios cloud de NAPCO: monitorización de alarmas a distancia, gestión de accesos conectados, notificaciones. Representan el 51% de los ingresos y tienen un margen bruto del 90%, lo que los hace mucho más valiosos que los ingresos de hardware (29% de margen).'
+        },
+        {
+          q: '¿Por qué el Cash ROCE del 89,4% es notable?',
+          a: 'El Cash ROCE mide cuánto cash genera una empresa por cada unidad de capital empleado. Al 89,4%, NAPCO genera 89 céntimos de cash neto por cada euro de capital. Es un nivel que normalmente se encuentra en los mejores SaaS empresariales o en franquicias de marcas ultradominantes, no en un fabricante de equipos de seguridad.'
+        },
+        {
+          q: '¿Es demasiado cara la valoración de 24 veces el free cash flow?',
+          a: 'Ese es el debate central sobre NAPCO. Esta valoración asume que el crecimiento de las suscripciones se mantiene duraderamente por encima del 12-15% anual. Si se materializa, el múltiplo se contrae naturalmente y la acción sigue siendo atractiva. Si el crecimiento se frena, el múltiplo debe bajar aunque los fundamentos sigan siendo sólidos. Es una apuesta sobre la durabilidad del crecimiento, no sobre la calidad del negocio (que es indiscutible).'
+        },
+        {
+          q: '¿Qué es la plataforma MVP de NAPCO?',
+          a: 'MVP es la plataforma cloud de control de accesos de NAPCO, que permite gestionar a distancia el acceso a cientos de ubicaciones (escuelas, edificios, comercios) desde una sola aplicación. Es el núcleo del modelo de suscripción de la compañía y el principal motor de crecimiento de los ingresos recurrentes.'
+        },
+        {
+          q: '¿NAPCO paga dividendos?',
+          a: 'Sí. NAPCO paga un dividendo trimestral de 0,15 dólares por acción, lo que supone una rentabilidad anual de aproximadamente el 1,6% al precio actual. La tasa de distribución es del 55,3% de los beneficios. Con 115 millones de dólares en tesorería neta y cero deuda, este dividendo está muy bien respaldado.'
+        }
+      ],
+      tags: ['NAPCO Security', 'NSSC', 'seguridad IoT', 'ingresos recurrentes', 'cerraduras inteligentes', 'análisis fundamental', 'bolsa', 'SaaS seguridad'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los rendimientos pasados no garantizan resultados futuros. Cifras a 16 de junio de 2026, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.'
+    }
+  }
+};
+
+// ============================================================
+// ARTICLE 1 : Intuit (INTU)
+// ============================================================
+const intu: Article = {
+  slug: 'intuit-intu-10-sur-10-saas-fiscal-analyse',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  ticker: 'INTU',
+  content: {
+    fr: {
+      title: 'Intuit (INTU) : le SaaS fiscal américain en bourse',
+      excerpt:
+        "Intuit, c'est TurboTax, QuickBooks et Mailchimp. Une entreprise que 100 millions d'Américains ne peuvent pas quitter. Je t'explique pourquoi elle obtient la note maximale dans ma méthode, ce que vaut l'action aujourd'hui et où je fixe mon seuil d'achat.",
+      metaDescription:
+        "Intuit (INTU) : analyse fondamentale complète, score de qualité, valorisation et risques. TurboTax, QuickBooks, IA fiscale. Est-ce le bon moment d'acheter ?",
+      answer:
+        "Intuit est l'une des rares entreprises où le produit est aussi profondément ancré dans les habitudes des utilisateurs que l'impôt lui-même. Qualité maximale, croissance régulière, bilan solide : la note est de 10 sur 10. Mais l'action se négocie légèrement au-dessus de mon prix d'achat raisonnable, donc j'attends.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Intuit obtient 10 sur 10 dans ma méthode d'analyse fondamentale, la note la plus haute possible.",
+            "Sa marge de free cash flow atteint 27,3 % : sur 100 dollars de revenus, 27 restent en cash réel après toutes les dépenses.",
+            "L'action se valorise environ 13,8 fois son free cash flow annuel, ce qui la place légèrement au-dessus de mon prix cible de 246,93 dollars (cours actuel : 281,77 dollars).",
+            "L'intégration de l'IA dans TurboTax Live a fait croître ce segment de 36 % en un an, avec 11 % de hausse du panier moyen par client.",
+            "Le vrai risque : le programme IRS Direct File (déclaration gratuite directement chez l'administration fiscale américaine) pourrait rogner la base de TurboTax à terme.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Ce qu'Intuit fait vraiment (et pourquoi c'est si difficile à quitter)",
+        },
+        {
+          type: 'p',
+          text: "La fiscalité américaine est un cauchemar. Le code des impôts fédéraux dépasse 70 000 pages. Un salarié ordinaire avec quelques revenus annexes se retrouve avec une déclaration qui donne le vertige. C'est précisément ce problème qu'Intuit résout depuis 1983 avec TurboTax, et depuis les années 1990 avec QuickBooks pour les petites entreprises.",
+        },
+        {
+          type: 'p',
+          text: "Aujourd'hui, Intuit opère sur trois segments : le Consumer (TurboTax, utilisé par plus de 40 millions de foyers américains chaque année), le Small Business and Self-Employed (QuickBooks, la référence de la comptabilité PME aux États-Unis), et le Credit Karma (évaluation de crédit et recommandations financières personnelles). Mailchimp, racheté en 2021, complète l'arsenal côté marketing digital pour TPE.",
+        },
+        {
+          type: 'p',
+          text: "Ce qui me frappe, c'est la nature du produit : les gens ne changent pas de logiciel fiscal. Ils ont leurs fichiers, leurs habitudes, leur historique de déclarations. Changer, c'est tout réapprendre. Cette inertie est un actif économique que la plupart des entreprises paieraient très cher pour avoir.",
+        },
+        {
+          type: 'h2',
+          text: 'Comment je note une action : les 10 critères',
+        },
+        {
+          type: 'p',
+          text: "Quand j'analyse une action, je lui attribue un score sur 10 en évaluant séparément deux choses : la qualité du business et son prix. La note sur 10 porte uniquement sur la qualité : est-ce une bonne entreprise ? Mes 10 critères couvrent la rentabilité (marges, cash généré), la croissance (revenus, free cash flow par action sur 5 ans), la solidité financière (dette, conversion cash), et l'allocation du capital (rachats d'actions, dividendes).",
+        },
+        {
+          type: 'p',
+          text: "Intuit coche tout. Sa croissance de revenus sur 5 ans dépasse 14 % par an. Son free cash flow (l'argent réellement disponible après toutes les dépenses d'exploitation et d'investissement) par action a progressé de 20 % par an. Sa dette représente moins de 3 mois de cash flow, ce qui est négligeable. Et elle rachète ses propres actions, signe qu'elle ne gaspille pas son cash.",
+        },
+        {
+          type: 'h2',
+          text: "Le moat d'Intuit : pourquoi les concurrents ne passent pas",
+        },
+        {
+          type: 'p',
+          text: "Le moat, c'est le fossé concurrentiel d'une entreprise, ce qui l'empêche de se faire attaquer. Pour Intuit, il est triple.",
+        },
+        {
+          type: 'p',
+          text: "D'abord, l'effet de réseau côté données : TurboTax a accès à des décennies d'historiques de déclarations fiscales. Ces données alimentent ses algorithmes, réduisent les erreurs, personnalisent les questions. Un concurrent qui arrive demain avec un logiciel vierge part avec un désavantage structurel.",
+        },
+        {
+          type: 'p',
+          text: "Ensuite, les coûts de changement : migrer une PME de QuickBooks vers un concurrent implique de former ses équipes, de réimporter des années de données, de rebrancher toutes les intégrations bancaires. Ce n'est pas impossible, mais c'est douloureux. En pratique, les clients restent.",
+        },
+        {
+          type: 'p',
+          text: "Enfin, la régulation elle-même crée une barrière : TurboTax est certifié par l'IRS, ses mises à jour fiscales sont garanties en temps réel. La confiance d'un contribuable envers un logiciel fiscal est difficile à transférer.",
+        },
+        {
+          type: 'h2',
+          text: "L'IA dans TurboTax et QuickBooks : accélérateur ou risque ?",
+        },
+        {
+          type: 'p',
+          text: "Intuit a lancé Intuit Assist, son assistant IA embarqué dans TurboTax et QuickBooks. Le résultat visible pour l'instant : TurboTax Live (la version avec un vrai expert humain en arrière-plan, orienté par l'IA) a crû de 36 % en revenus sur l'exercice fiscal 2026, avec un panier moyen par client en hausse de 11 %. Les développeurs d'Intuit codent 40 % plus vite grâce à l'IA en interne.",
+        },
+        {
+          type: 'p',
+          text: "C'est le trade-off de la thèse : l'IA peut faire exploser la valeur créée par client, mais elle peut aussi rendre la déclaration fiscale tellement simple que les particuliers n'ont plus besoin de logiciel du tout. Intuit joue sur les deux tableaux : elle intègre l'IA pour défendre TurboTax ET en faire un service premium.",
+        },
+        {
+          type: 'h2',
+          text: 'Valorisation : une belle entreprise à quel prix ?',
+        },
+        {
+          type: 'p',
+          text: "La valorisation, c'est le rapport entre le prix de l'action et ce que l'entreprise génère vraiment. Mon outil mesure le P/FCF : le prix de l'action divisé par son free cash flow annuel par action. Un P/FCF de 14, ça veut dire que tu paies 14 ans de cash réel pour posséder une part du business. Plus c'est bas, moins c'est cher.",
+        },
+        {
+          type: 'p',
+          text: "Intuit affiche aujourd'hui un P/FCF de 13,8. Mon prix cible d'achat raisonnable, calculé sur des hypothèses prudentes de croissance, est de 246,93 dollars. L'action cote à 281,77 dollars, soit une surcote d'environ 12 %. Ce n'est pas dramatique, mais je ne force pas : je note le prix et j'attends une correction.",
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas ignorer',
+        },
+        {
+          type: 'p',
+          text: "Le programme IRS Direct File, lancé officiellement en 2024 et étendu en 2025, permet à certains contribuables américains de déclarer directement sur le site de l'administration fiscale, gratuitement. Son périmètre reste limité (revenus simples, pas de complexité fiscale), mais si le gouvernement l'élargit, une part de la base TurboTax pourrait migrer. C'est le risque réglementaire numéro un.",
+        },
+        {
+          type: 'p',
+          text: "L'autre risque : la disruption IA par des entrants purs. Des start-ups propulsées par des LLMs (grands modèles de langage) pourraient proposer une déclaration fiscale entièrement assistée à très bas coût. Intuit est conscient du risque et investit massivement, mais la menace existe.",
+        },
+        {
+          type: 'p',
+          text: "Pour aller plus loin avec tous les chiffres en détail, tu peux consulter ma page d'analyse complète sur Intuit : lubin-investment.com/analyse/INTU. C'est exactement ce que je voulais pouvoir faire en 30 secondes pour n'importe quelle action, alors je l'ai construit.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce que le free cash flow d'Intuit ?",
+          a: "Le free cash flow, c'est l'argent qui reste réellement dans les caisses d'Intuit après avoir payé ses salaires, ses investissements et ses impôts. C'est plus difficile à manipuler que le bénéfice comptable. Intuit en génère environ 27 dollars pour 100 dollars de revenus, ce qui est très élevé.",
+        },
+        {
+          q: 'Le programme IRS Direct File est-il une menace sérieuse pour TurboTax ?',
+          a: "Oui, à terme. Aujourd'hui il couvre les situations fiscales simples (salaires, déductions standards). Si son périmètre s'élargit à des profils plus complexes, Intuit perdrait une partie de sa base de TurboTax. Le vrai rempart d'Intuit est la montée en gamme vers TurboTax Live, qui combine IA et expert humain et justifie un prix plus élevé.",
+        },
+        {
+          q: "Pourquoi l'action Intuit cote-t-elle légèrement au-dessus de votre prix cible ?",
+          a: "Mon prix cible de 246,93 dollars est calculé sur des hypothèses prudentes : croissance modérée, maintien des marges, risque réglementaire modéré. Le marché, lui, intègre l'accélération possible via l'IA. La surcote de 12 % n'est pas alarmante, mais elle m'invite à patienter.",
+        },
+        {
+          q: "Qu'est-ce que le Cash ROCE ?",
+          a: "Le Cash ROCE (Cash Return On Capital Employed) mesure combien de cash l'entreprise génère pour chaque dollar de capital qu'elle utilise. Intuit affiche 64,9 % : pour 100 dollars de capital employé, elle génère 64,9 dollars de free cash flow. C'est exceptionnel.",
+        },
+        {
+          q: "Intuit verse-t-elle un dividende ?",
+          a: "Oui. Intuit verse 4,80 dollars par action par an, ce qui représente un rendement d'environ 1,7 % au cours actuel. Le dividende a crû de plus de 15 % par an sur 5 ans. C'est un signal positif sur la solidité du cash flow, même si ce n'est pas l'attrait principal de la thèse.",
+        },
+      ],
+      tags: [
+        'Intuit',
+        'INTU',
+        'SaaS',
+        'TurboTax',
+        'QuickBooks',
+        'analyse action',
+        'fiscalité USA',
+        'investissement',
+      ],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres issus de l'API lubin-investment.com et des résultats officiels SEC (Q3 FY2026), à la date du 2026-06-16. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Intuit (INTU) : the US tax SaaS stock to watch',
+      excerpt:
+        "Intuit owns TurboTax, QuickBooks and Mailchimp. More than 40 million Americans use TurboTax every year, and almost none of them switch. Here's why the stock scores 10 out of 10 in my analysis, and where I set my buy threshold.",
+      metaDescription:
+        'Intuit (INTU) full fundamental analysis: quality score, valuation, AI strategy and risks. TurboTax, QuickBooks, Intuit Assist. Is INTU stock a buy in 2026?',
+      answer:
+        "Intuit is one of the rare companies where the product is as deeply embedded in users' lives as taxes themselves. Maximum quality score, steady growth, solid balance sheet: 10 out of 10. But the stock trades slightly above my reasonable buy price, so I'm waiting.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Intuit scores 10 out of 10 in my fundamental analysis method, the highest possible rating.',
+            'Free cash flow margin stands at 27.3%: of every 100 dollars in revenue, 27 remain as real cash after all expenses.',
+            'The stock is valued at roughly 13.8 times its annual free cash flow, slightly above my buy target of $246.93 (current price: $281.77).',
+            'AI integration in TurboTax Live drove that segment to 36% revenue growth, with an 11% rise in average revenue per user.',
+            'The main risk: IRS Direct File, the free government tax filing tool, could gradually erode TurboTax\'s customer base.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: "What Intuit actually does (and why it's so hard to leave)",
+        },
+        {
+          type: 'p',
+          text: 'The US tax code exceeds 70,000 pages. Filing taxes is genuinely painful for most Americans. Intuit has been solving that problem since 1983 with TurboTax, and since the early 1990s with QuickBooks for small businesses.',
+        },
+        {
+          type: 'p',
+          text: 'Today Intuit operates across three segments: Consumer (TurboTax, used by over 40 million households per year), Small Business and Self-Employed (QuickBooks, the reference point for SMB accounting in the US), and Credit Karma (personal finance and credit scoring). Mailchimp, acquired in 2021, extends the platform into digital marketing for small businesses.',
+        },
+        {
+          type: 'p',
+          text: "What strikes me is the nature of the product: people do not switch tax software. They have their files, their habits, their history. Switching means relearning everything. That inertia is an economic asset that most businesses would pay dearly to own.",
+        },
+        {
+          type: 'h2',
+          text: 'How I score a stock: the 10 criteria',
+        },
+        {
+          type: 'p',
+          text: "When I analyze a stock, I score it out of 10 on quality alone, completely separately from its price. My 10 criteria cover profitability (margins, cash generated), growth (revenues and free cash flow per share over 5 years), financial strength (debt, cash conversion), and capital allocation (share buybacks, dividends).",
+        },
+        {
+          type: 'p',
+          text: 'Intuit checks every box. Revenue growth over 5 years exceeds 14% per year. Free cash flow per share has grown at 20% per year. Debt is less than 3 months of cash flow. The company buys back its own shares, a sign it is not wasting its cash.',
+        },
+        {
+          type: 'h2',
+          text: "Intuit's moat: why competitors can't break through",
+        },
+        {
+          type: 'p',
+          text: "A moat is the competitive advantage that protects a company from being attacked. Intuit's moat is threefold.",
+        },
+        {
+          type: 'p',
+          text: "First, the data network effect: TurboTax holds decades of tax return history. That data trains algorithms, reduces errors, and personalizes every step. A competitor starting from scratch begins at a structural disadvantage.",
+        },
+        {
+          type: 'p',
+          text: "Second, switching costs: moving a small business from QuickBooks to a competitor means retraining staff, reimporting years of data, reconnecting every banking integration. It is not impossible, but it is painful. In practice, customers stay.",
+        },
+        {
+          type: 'p',
+          text: "Third, regulation itself creates a barrier: TurboTax is IRS-certified, with real-time tax law updates. A taxpayer's trust in a tax product is hard to transfer.",
+        },
+        {
+          type: 'h2',
+          text: 'AI inside TurboTax and QuickBooks: accelerator or threat?',
+        },
+        {
+          type: 'p',
+          text: 'Intuit launched Intuit Assist, its AI assistant embedded in TurboTax and QuickBooks. The visible result: TurboTax Live (the version pairing AI with a real human expert in the background) grew revenue by 36% in fiscal 2026, with average revenue per user up 11%. Internally, Intuit developers code 40% faster with AI.',
+        },
+        {
+          type: 'p',
+          text: 'This is the thesis trade-off: AI can dramatically increase value created per customer, but it could also make tax filing so simple that individuals no longer need software at all. Intuit is playing both sides: embedding AI to defend TurboTax and turning it into a premium service.',
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: a great company at what price?',
+        },
+        {
+          type: 'p',
+          text: 'Valuation is the relationship between the stock price and what the company actually generates. My tool measures the P/FCF: the stock price divided by annual free cash flow per share. A P/FCF of 14 means you are paying 14 years of real cash to own a share of the business. Lower is cheaper.',
+        },
+        {
+          type: 'p',
+          text: 'Intuit currently shows a P/FCF of 13.8. My reasonable buy price, calculated on conservative growth assumptions, is $246.93. The stock trades at $281.77, a premium of about 12%. Not alarming, but I note the price and wait.',
+        },
+        {
+          type: 'h2',
+          text: 'The risks worth taking seriously',
+        },
+        {
+          type: 'p',
+          text: 'IRS Direct File, officially launched in 2024 and expanded in 2025, lets certain US taxpayers file directly on the government website for free. Its scope remains limited to simple tax situations. If Congress expands it further, part of TurboTax\'s base could migrate. That is the number one regulatory risk.',
+        },
+        {
+          type: 'p',
+          text: 'The second risk: pure AI disruption. Startups powered by large language models could offer fully assisted tax filing at near-zero cost. Intuit is investing heavily to stay ahead, but the threat is real.',
+        },
+        {
+          type: 'p',
+          text: 'For a full breakdown with every metric, visit my detailed analysis page: lubin-investment.com/analyse/INTU. Building that kind of 30-second deep dive for any stock is exactly what made me create the site.',
+        },
+      ],
+      faq: [
+        {
+          q: "What is Intuit's free cash flow?",
+          a: "Free cash flow is the cash that actually stays in Intuit's accounts after paying salaries, investments and taxes. It is harder to manipulate than accounting profit. Intuit generates about 27 dollars for every 100 dollars of revenue, which is very high.",
+        },
+        {
+          q: 'Is IRS Direct File a serious threat to TurboTax?',
+          a: 'Yes, potentially. Today it covers simple tax situations (wages, standard deductions). If its scope expands to more complex profiles, Intuit would lose part of its TurboTax base. The real moat is the move upmarket toward TurboTax Live, which combines AI and a human expert and justifies a higher price.',
+        },
+        {
+          q: 'Why does Intuit trade slightly above your buy target?',
+          a: "My target of $246.93 uses conservative assumptions: moderate growth, stable margins, moderate regulatory risk. The market prices in the potential AI acceleration. A 12% premium is not alarming, but it invites patience.",
+        },
+        {
+          q: 'What is Cash ROCE?',
+          a: 'Cash ROCE (Cash Return On Capital Employed) measures how much cash the company generates for every dollar of capital it uses. Intuit shows 64.9%: for every 100 dollars of capital employed, it generates 64.9 dollars of free cash flow. That is exceptional.',
+        },
+        {
+          q: 'Does Intuit pay a dividend?',
+          a: 'Yes. Intuit pays $4.80 per share per year, a yield of roughly 1.7% at the current price. The dividend has grown at more than 15% per year over 5 years, a positive signal on cash flow strength.',
+        },
+      ],
+      tags: [
+        'Intuit',
+        'INTU',
+        'SaaS',
+        'TurboTax',
+        'QuickBooks',
+        'stock analysis',
+        'US taxes',
+        'investing',
+      ],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures from lubin-investment.com API and official SEC filings (Q3 FY2026), as of 2026-06-16. Do your own research.',
+    },
+    es: {
+      title: 'Intuit (INTU) : el SaaS fiscal americano en bolsa',
+      excerpt:
+        'Intuit es TurboTax, QuickBooks y Mailchimp. Más de 40 millones de americanos usan TurboTax cada año y casi ninguno cambia. Te explico por qué obtiene la máxima puntuación en mi método y dónde fijo mi precio de compra.',
+      metaDescription:
+        'Intuit (INTU) análisis fundamental completo: puntuación de calidad, valoración, IA fiscal y riesgos. TurboTax, QuickBooks, Intuit Assist. ¿Es momento de comprar en 2026?',
+      answer:
+        'Intuit es una de las pocas empresas donde el producto está tan arraigado en los hábitos de los usuarios como los propios impuestos. Calidad máxima, crecimiento regular, balance sólido: 10 sobre 10. Pero la acción cotiza ligeramente por encima de mi precio de compra razonable, así que espero.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Intuit obtiene 10 sobre 10 en mi método de análisis fundamental, la máxima puntuación posible.',
+            'Su margen de free cash flow alcanza el 27,3%: de cada 100 dólares de ingresos, 27 quedan como efectivo real tras todos los gastos.',
+            'La acción se valoriza a unas 13,8 veces su free cash flow anual, ligeramente por encima de mi precio objetivo de 246,93 dólares (precio actual: 281,77 dólares).',
+            'La integración de IA en TurboTax Live impulsó ese segmento un 36% en ingresos, con un aumento del 11% en el ingreso medio por usuario.',
+            'El riesgo principal: IRS Direct File, la herramienta gratuita de declaración fiscal del gobierno, podría erosionar gradualmente la base de TurboTax.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente Intuit (y por qué es tan difícil de abandonar)',
+        },
+        {
+          type: 'p',
+          text: 'El código fiscal americano supera las 70.000 páginas. Declarar impuestos es genuinamente doloroso para la mayoría de los americanos. Intuit lleva resolviendo ese problema desde 1983 con TurboTax, y desde principios de los años 90 con QuickBooks para pequeñas empresas.',
+        },
+        {
+          type: 'p',
+          text: "Hoy Intuit opera en tres segmentos: Consumer (TurboTax, usado por más de 40 millones de hogares al año), Small Business and Self-Employed (QuickBooks, la referencia contable para pymes en EEUU), y Credit Karma (finanzas personales y scoring crediticio). Mailchimp, adquirida en 2021, completa la plataforma en marketing digital para pequeños negocios.",
+        },
+        {
+          type: 'p',
+          text: 'Lo que me llama la atención es la naturaleza del producto: la gente no cambia de software fiscal. Tiene sus archivos, sus hábitos, su historial de declaraciones. Cambiar implica aprenderlo todo de nuevo. Esa inercia es un activo económico que la mayoría de las empresas pagarían muy caro por tener.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo puntúo una acción: los 10 criterios',
+        },
+        {
+          type: 'p',
+          text: 'Cuando analizo una acción, le doy una puntuación sobre 10 evaluando únicamente la calidad del negocio, separada completamente del precio. Mis 10 criterios cubren rentabilidad (márgenes, efectivo generado), crecimiento (ingresos y free cash flow por acción a 5 años), solidez financiera (deuda, conversión de caja), y asignación de capital (recompras de acciones, dividendos).',
+        },
+        {
+          type: 'p',
+          text: 'Intuit cumple todos los criterios. El crecimiento de ingresos a 5 años supera el 14% anual. El free cash flow por acción ha crecido al 20% anual. La deuda representa menos de 3 meses de flujo de caja. La empresa recompra sus propias acciones, señal de que no malgasta su efectivo.',
+        },
+        {
+          type: 'h2',
+          text: 'El moat de Intuit: por qué los competidores no pueden entrar',
+        },
+        {
+          type: 'p',
+          text: 'Un moat es la ventaja competitiva que protege a una empresa de ser atacada. El de Intuit es triple.',
+        },
+        {
+          type: 'p',
+          text: 'Primero, el efecto de red de datos: TurboTax acumula décadas de historial de declaraciones fiscales. Esos datos entrenan algoritmos, reducen errores y personalizan cada paso. Un competidor que empiece desde cero parte con una desventaja estructural.',
+        },
+        {
+          type: 'p',
+          text: 'Segundo, los costes de cambio: migrar una pyme de QuickBooks a un competidor implica reentrenar al personal, reimportar años de datos, reconectar todas las integraciones bancarias. No es imposible, pero es doloroso. En la práctica, los clientes se quedan.',
+        },
+        {
+          type: 'p',
+          text: 'Tercero, la propia regulación crea una barrera: TurboTax está certificado por el IRS, con actualizaciones fiscales en tiempo real. La confianza de un contribuyente en un software fiscal es difícil de transferir.',
+        },
+        {
+          type: 'h2',
+          text: 'La IA en TurboTax y QuickBooks: ¿acelerador o amenaza?',
+        },
+        {
+          type: 'p',
+          text: 'Intuit lanzó Intuit Assist, su asistente de IA integrado en TurboTax y QuickBooks. El resultado visible: TurboTax Live (la versión que combina IA con un experto humano real) creció un 36% en ingresos en el ejercicio fiscal 2026, con un ingreso medio por usuario un 11% más alto. Los desarrolladores de Intuit programan un 40% más rápido con IA.',
+        },
+        {
+          type: 'p',
+          text: 'Este es el trade-off de la tesis: la IA puede disparar el valor creado por cliente, pero también podría hacer la declaración fiscal tan sencilla que los particulares ya no necesiten ningún software. Intuit juega en los dos tableros: integra IA para defender TurboTax y convertirlo en un servicio premium.',
+        },
+        {
+          type: 'h2',
+          text: 'Valoración: una gran empresa, ¿a qué precio?',
+        },
+        {
+          type: 'p',
+          text: 'La valoración es la relación entre el precio de la acción y lo que la empresa genera realmente. Mi herramienta mide el P/FCF: el precio de la acción dividido por el free cash flow anual por acción. Un P/FCF de 14 significa que pagas 14 años de efectivo real para poseer una parte del negocio. Cuanto más bajo, más barato.',
+        },
+        {
+          type: 'p',
+          text: 'Intuit muestra hoy un P/FCF de 13,8. Mi precio de compra razonable, calculado con hipótesis conservadoras, es de 246,93 dólares. La acción cotiza a 281,77 dólares, una sobrevaloración del 12% aproximadamente. No es alarmante, pero anoto el precio y espero.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no conviene ignorar',
+        },
+        {
+          type: 'p',
+          text: 'IRS Direct File, lanzado oficialmente en 2024 y ampliado en 2025, permite a ciertos contribuyentes americanos declarar directamente en la web del gobierno, de forma gratuita. Su alcance sigue siendo limitado (situaciones fiscales simples). Si el Congreso lo amplía, parte de la base de TurboTax podría migrar. Es el riesgo regulatorio número uno.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo riesgo: la disrupción pura por IA. Start-ups impulsadas por grandes modelos de lenguaje podrían ofrecer una declaración fiscal completamente asistida a coste casi nulo. Intuit invierte masivamente para mantenerse por delante, pero la amenaza existe.',
+        },
+        {
+          type: 'p',
+          text: 'Para profundizar con todos los datos en detalle, puedes consultar mi página de análisis completa sobre Intuit: lubin-investment.com/analyse/INTU. Poder hacer ese análisis en 30 segundos para cualquier acción es exactamente lo que me llevó a construir el sitio.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el free cash flow de Intuit?',
+          a: 'El free cash flow es el dinero que realmente queda en las cuentas de Intuit después de pagar salarios, inversiones e impuestos. Es más difícil de manipular que el beneficio contable. Intuit genera unos 27 dólares por cada 100 dólares de ingresos, lo que es muy elevado.',
+        },
+        {
+          q: '¿Es IRS Direct File una amenaza seria para TurboTax?',
+          a: 'Sí, potencialmente. Hoy cubre situaciones fiscales simples (salarios, deducciones estándar). Si su alcance se amplía a perfiles más complejos, Intuit perdería parte de su base de TurboTax. El verdadero moat es la subida de gama hacia TurboTax Live, que combina IA y experto humano y justifica un precio más alto.',
+        },
+        {
+          q: '¿Por qué la acción cotiza ligeramente por encima de tu precio objetivo?',
+          a: 'Mi objetivo de 246,93 dólares usa hipótesis conservadoras: crecimiento moderado, márgenes estables, riesgo regulatorio moderado. El mercado incorpora la posible aceleración vía IA. Una prima del 12% no es alarmante, pero invita a la paciencia.',
+        },
+        {
+          q: '¿Qué es el Cash ROCE?',
+          a: 'El Cash ROCE (Cash Return On Capital Employed) mide cuánto efectivo genera la empresa por cada dólar de capital que utiliza. Intuit muestra un 64,9%: por cada 100 dólares de capital empleado, genera 64,9 dólares de free cash flow. Es excepcional.',
+        },
+        {
+          q: '¿Paga dividendo Intuit?',
+          a: 'Sí. Intuit paga 4,80 dólares por acción al año, una rentabilidad del 1,7% aproximadamente al precio actual. El dividendo ha crecido más del 15% anual durante 5 años, una señal positiva sobre la solidez del flujo de caja.',
+        },
+      ],
+      tags: [
+        'Intuit',
+        'INTU',
+        'SaaS',
+        'TurboTax',
+        'QuickBooks',
+        'análisis de acciones',
+        'impuestos EEUU',
+        'inversión',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no predicen los futuros. Datos de la API lubin-investment.com y archivos SEC oficiales (Q3 FY2026), a fecha 2026-06-16. Haz tu propia investigación.',
+    },
+  },
+};
+
+// ============================================================
+// ARTICLE 2 : Qualys (QLYS)
+// ============================================================
+const qlys: Article = {
+  slug: 'qualys-qlys-10-sur-10-cybersecurite-cloud',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  ticker: 'QLYS',
+  content: {
+    fr: {
+      title: 'Qualys (QLYS) : la cybersécurité cloud en bourse',
+      excerpt:
+        "Qualys scanne les failles de sécurité des grandes entreprises depuis 1999. Son modèle cloud-native, ses marges hors norme et son absence de dette en font une des actions les plus rentables du secteur cybersécurité. Voici mon analyse complète.",
+      metaDescription:
+        "Qualys (QLYS) analyse fondamentale : score qualité, valorisation, marges FCF, VMDR, CSPM. Quelle place dans un portefeuille en 2026 face à CrowdStrike et Wiz ?",
+      answer:
+        "Qualys est une machine à cash discrète dans un secteur bruyant. Elle obtient 10 sur 10 dans ma méthode : marges FCF de 31 %, croissance régulière, zéro dette nette. La contrepartie : elle se valorise aujourd'hui 25 % au-dessus de mon prix d'achat raisonnable. Qualité évidente, timing à surveiller.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Qualys obtient 10 sur 10 dans ma méthode d'analyse fondamentale.",
+            "Marge de free cash flow : 31,1 %. Sur 100 dollars de revenus, 31 restent en cash réel après toutes les dépenses.",
+            "L'action se valorise 19,2 fois son free cash flow annuel. Mon prix cible est de 86,03 dollars, contre un cours actuel de 114,65 dollars : surcote de 25 %.",
+            "Qualys a généré des revenus de 175,6 millions de dollars au Q1 2026, en hausse de 10 % sur un an, et a relevé son guidance annuel à 721-727 millions de dollars.",
+            "La trésorerie nette est positive : l'entreprise a plus de cash que de dette, un critère de solidité rare en cybersécurité.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait Qualys : scanner les failles avant les pirates',
+        },
+        {
+          type: 'p',
+          text: "Imagine que ton système informatique soit une maison avec des centaines de fenêtres et de portes. Qualys est l'entreprise qui t'aide à les inspecter toutes, en permanence, pour repérer celles qui sont mal verrouillées avant qu'un cambrioleur ne les trouve.",
+        },
+        {
+          type: 'p',
+          text: "Techniquement, Qualys opère dans la gestion de vulnérabilités cloud. Son produit phare s'appelle VMDR (Vulnerability Management, Detection and Response) : il scanne en continu les systèmes d'information des grandes entreprises, détecte les failles de sécurité connues, les priorise par niveau de risque et recommande des correctifs. Son produit CSPM (Cloud Security Posture Management) fait la même chose dans les environnements cloud (AWS, Azure, Google Cloud).",
+        },
+        {
+          type: 'p',
+          text: "Ce qui distingue Qualys de ses concurrents : son architecture est entièrement cloud-native depuis sa fondation en 1999. Elle déploie un agent léger sur les machines de ses clients et centralise tout l'analyse dans le cloud. Pas de matériel à installer, pas de mise à jour manuelle. C'est une plateforme, pas un produit.",
+        },
+        {
+          type: 'h2',
+          text: 'Les 10 critères et les piliers de la note maximale',
+        },
+        {
+          type: 'p',
+          text: "Ma note sur 10 évalue la qualité du business indépendamment du prix. Pour atteindre 10, une entreprise doit exceller sur chacun de mes critères : rentabilité, croissance, solidité du bilan, allocation du capital. Qualys les valide tous.",
+        },
+        {
+          type: 'p',
+          text: "Sa croissance de revenus sur 5 ans dépasse 12,8 % par an. Son free cash flow (l'argent réellement disponible après toutes les factures) par action a progressé de 16,8 % par an. Elle rachète ses propres actions au rythme de 2,4 % du flottant par an, ce qui augmente mécaniquement la part de chaque actionnaire. Et son bilan affiche une trésorerie nette positive : elle a plus d'argent en caisse que de dettes. C'est rare dans la tech.",
+        },
+        {
+          type: 'h2',
+          text: 'Le moat de Qualys : pourquoi les grandes entreprises ne partent pas',
+        },
+        {
+          type: 'p',
+          text: "Le moat de Qualys repose sur deux piliers. Premier pilier : les coûts de changement. Déployer Qualys dans une organisation de 50 000 postes prend des mois. Les équipes sécurité apprennent l'interface, construisent des workflows autour des alertes, intègrent les données dans leur SIEM (système de surveillance centralisé). Partir vers un concurrent impose de recommencer ce travail entièrement.",
+        },
+        {
+          type: 'p',
+          text: "Deuxième pilier : la base de données de vulnérabilités. Qualys opère depuis 1999 et a construit l'une des bases de données de failles les plus complètes du marché. Cette base s'enrichit en continu. La profondeur de couverture est un argument de vente puissant auprès des équipes sécurité qui ne veulent pas de zones d'ombre.",
+        },
+        {
+          type: 'p',
+          text: "En Q1 2026, le PDG Sumedh Thakar a décrit l'ambition de Qualys comme la création d'un Risk Operations Center autonome, piloté par l'IA, capable de prioriser et corriger les failles sans intervention humaine. C'est la direction stratégique qui justifie la croissance future.",
+        },
+        {
+          type: 'h2',
+          text: "D'où viennent les marges exceptionnelles ?",
+        },
+        {
+          type: 'p',
+          text: "Une marge FCF de 31 % est remarquable. Comment Qualys y arrive-t-elle ? Son modèle SaaS cloud-native a des coûts marginaux très faibles : une fois la plateforme construite, ajouter un client supplémentaire coûte peu. Pas d'infra matérielle à expédier, pas de déploiement sur site.",
+        },
+        {
+          type: 'p',
+          text: "Son Cash ROCE de 58,8 % (le cash généré pour chaque dollar de capital utilisé) confirme l'efficacité du modèle. La marge nette atteint 29,4 %. Ces chiffres ne sont pas le fruit du hasard : ils reflètent un modèle d'abonnement récurrent, des clients fidèles et une R&D bien ciblée.",
+        },
+        {
+          type: 'h2',
+          text: 'Valorisation : Qualys est-elle chère par rapport à ses pairs ?',
+        },
+        {
+          type: 'p',
+          text: "Mon outil mesure le P/FCF : le prix de l'action divisé par le free cash flow annuel par action. Qualys affiche un P/FCF de 19,2. Mon prix cible d'achat est de 86,03 dollars. L'action cote 114,65 dollars : une surcote de 25 %. Je n'achète pas à ce niveau.",
+        },
+        {
+          type: 'p',
+          text: "Pour comparaison, CrowdStrike se valorise autour de 60 à 80 fois son FCF (selon les périodes). Qualys est structurellement moins chère que son pair le plus médiatique, et elle est bien plus rentable que la moyenne du secteur. Mais 19 fois reste élevé pour une croissance de revenus à 12-13 %.",
+        },
+        {
+          type: 'h2',
+          text: 'Les risques : CrowdStrike, Wiz et la consolidation du marché',
+        },
+        {
+          type: 'p',
+          text: "Qualys opère dans un secteur en pleine recomposition. CrowdStrike étend ses capacités de gestion de vulnérabilités et empiète sur le terrain de Qualys. Plus sérieusement, Wiz (acquis par Google en 2024) construit une plateforme de sécurité cloud très large qui inclut la gestion de posture. Si Wiz est distribué agressivement via Google Cloud, les grandes entreprises pourraient avoir un concurrent crédible packagé directement dans leur contrat cloud.",
+        },
+        {
+          type: 'p',
+          text: "Le deuxième risque : la croissance ralentit. Qualys croît à 10-13 % par an, ce qui est sain mais pas spectaculaire dans un secteur où certains concurrents affichent 30-40 %. Le marché peut se lasser d'une croissance modérée, même très rentable.",
+        },
+        {
+          type: 'p',
+          text: "Pour explorer tous les chiffres de Qualys en détail, tu peux consulter ma page d'analyse : lubin-investment.com/analyse/QLYS.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce que la gestion de vulnérabilités ?",
+          a: "C'est le processus de détection, priorisation et correction des failles de sécurité dans les systèmes informatiques d'une organisation. Qualys automatise ce processus en continu, sur des milliers de machines, depuis le cloud.",
+        },
+        {
+          q: 'Qualys est-elle menacée par CrowdStrike ?',
+          a: "Les deux opèrent en cybersécurité mais sur des segments différents : CrowdStrike est historiquement fort sur la détection et réponse aux incidents (EDR), Qualys sur la gestion préventive des vulnérabilités. Le chevauchement existe mais reste partiel. Le vrai risque vient de Wiz, qui construit une plateforme de sécurité cloud très large.",
+        },
+        {
+          q: "Pourquoi la trésorerie nette positive est-elle un critère important ?",
+          a: "Une entreprise avec plus de cash que de dettes peut traverser une récession, faire des acquisitions opportunistes ou racheter ses actions sans stress financier. C'est un signal de solidité rare en croissance tech, où beaucoup de sociétés s'endettent pour financer leur expansion.",
+        },
+        {
+          q: "Qu'est-ce que le CSPM de Qualys ?",
+          a: "Le CSPM (Cloud Security Posture Management) est un outil qui surveille en permanence la configuration des environnements cloud (AWS, Azure, Google Cloud) pour détecter les mauvaises configurations de sécurité. C'est un des segments à plus forte croissance de Qualys.",
+        },
+        {
+          q: "L'action Qualys est-elle un achat aujourd'hui ?",
+          a: "Ma note de qualité est de 10 sur 10, mais l'action se valorise 25 % au-dessus de mon prix cible d'achat (86,03 dollars contre 114,65 dollars actuellement). Je surveille sans acheter. Ceci n'est pas un conseil en investissement.",
+        },
+      ],
+      tags: [
+        'Qualys',
+        'QLYS',
+        'cybersécurité',
+        'cloud',
+        'SaaS',
+        'analyse action',
+        'VMDR',
+        'investissement',
+      ],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres issus de l'API lubin-investment.com et des résultats officiels SEC (Q1 2026), à la date du 2026-06-16. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Qualys (QLYS) : cloud cybersecurity stock analysis',
+      excerpt:
+        'Qualys has been scanning enterprise security vulnerabilities since 1999. Its cloud-native model, exceptional margins and zero net debt make it one of the most profitable stocks in cybersecurity. Here is my full analysis.',
+      metaDescription:
+        'Qualys (QLYS) fundamental analysis: quality score, valuation, FCF margins, VMDR, CSPM. How does it stack up against CrowdStrike and Wiz in 2026?',
+      answer:
+        "Qualys is a quiet cash machine in a noisy sector. It scores 10 out of 10 in my method: 31% FCF margin, steady growth, zero net debt. The downside: it trades 25% above my reasonable buy price today. Outstanding quality, but timing matters.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Qualys scores 10 out of 10 in my fundamental analysis method.',
+            'Free cash flow margin: 31.1%. Of every 100 dollars in revenue, 31 remain as real cash after all expenses.',
+            'The stock is valued at 19.2 times its annual free cash flow. My buy target is $86.03, against a current price of $114.65: a 25% premium.',
+            'Q1 2026 revenue of $175.6 million, up 10% year-over-year. Full-year guidance raised to $721-727 million.',
+            'Net cash is positive: more cash than debt, a rare sign of strength in cybersecurity.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What Qualys does: scanning vulnerabilities before attackers do',
+        },
+        {
+          type: 'p',
+          text: "Picture your IT environment as a house with hundreds of windows and doors. Qualys is the company that helps you inspect all of them, continuously, to spot the ones that are poorly locked before an intruder does.",
+        },
+        {
+          type: 'p',
+          text: "Qualys operates in cloud vulnerability management. Its flagship product, VMDR (Vulnerability Management, Detection and Response), continuously scans enterprise systems, detects known security flaws, prioritizes them by risk level, and recommends fixes. Its CSPM (Cloud Security Posture Management) product does the same for cloud environments (AWS, Azure, Google Cloud).",
+        },
+        {
+          type: 'p',
+          text: "What sets Qualys apart: its architecture has been fully cloud-native since it was founded in 1999. It deploys a lightweight agent on client machines and centralizes all analysis in the cloud. No hardware to install, no manual updates. It is a platform, not a product.",
+        },
+        {
+          type: 'h2',
+          text: 'The 10 criteria and why Qualys scores maximum',
+        },
+        {
+          type: 'p',
+          text: "My score out of 10 evaluates business quality independently of price. To reach 10, a company must excel on each of my criteria: profitability, growth, balance sheet strength, capital allocation. Qualys validates all of them.",
+        },
+        {
+          type: 'p',
+          text: 'Revenue growth over 5 years exceeds 12.8% per year. Free cash flow per share has grown at 16.8% per year. The company buys back 2.4% of its shares per year, which mechanically increases every shareholder\'s stake. And the balance sheet shows net positive cash: more money in the bank than debt. Rare in tech.',
+        },
+        {
+          type: 'h2',
+          text: "Qualys's moat: why enterprise clients don't leave",
+        },
+        {
+          type: 'p',
+          text: "Qualys's moat rests on two pillars. First: switching costs. Deploying Qualys across an organization with 50,000 endpoints takes months. Security teams learn the interface, build workflows around alerts, integrate data into their SIEM (centralized monitoring system). Leaving means restarting that entire process.",
+        },
+        {
+          type: 'p',
+          text: "Second: the vulnerability database. Qualys has been operating since 1999 and has built one of the most comprehensive security flaw databases on the market. This database grows continuously. Depth of coverage is a powerful selling point for security teams that cannot afford blind spots.",
+        },
+        {
+          type: 'p',
+          text: "In Q1 2026, CEO Sumedh Thakar described Qualys's ambition as building an autonomous, AI-driven Risk Operations Center capable of prioritizing and patching vulnerabilities without human intervention. That is the strategic direction that justifies future growth.",
+        },
+        {
+          type: 'h2',
+          text: 'Where do the exceptional margins come from?',
+        },
+        {
+          type: 'p',
+          text: "A 31% FCF margin is remarkable. How does Qualys get there? Its cloud-native SaaS model has very low marginal costs: once the platform is built, adding one more customer costs little. No hardware to ship, no on-premise deployment.",
+        },
+        {
+          type: 'p',
+          text: "Cash ROCE of 58.8% (cash generated for every dollar of capital used) confirms the model's efficiency. Net margin reaches 29.4%. These numbers are not accidental: they reflect a recurring subscription model, loyal customers, and well-targeted R&D.",
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: is Qualys expensive compared to its peers?',
+        },
+        {
+          type: 'p',
+          text: 'My tool measures P/FCF: the stock price divided by annual free cash flow per share. Qualys shows a P/FCF of 19.2. My buy target is $86.03. The stock trades at $114.65: a 25% premium. I do not buy at that level.',
+        },
+        {
+          type: 'p',
+          text: "By comparison, CrowdStrike trades at roughly 60 to 80 times its FCF (depending on the period). Qualys is structurally cheaper than its most hyped peer, and far more profitable than the sector average. But 19 times remains elevated for 12-13% revenue growth.",
+        },
+        {
+          type: 'h2',
+          text: 'The risks: CrowdStrike, Wiz and market consolidation',
+        },
+        {
+          type: 'p',
+          text: "Qualys operates in a sector undergoing rapid consolidation. CrowdStrike is expanding its vulnerability management capabilities into Qualys's territory. More seriously, Wiz (acquired by Google in 2024) is building a very broad cloud security platform that includes posture management. If Wiz is aggressively distributed via Google Cloud, large enterprises could find a credible competitor bundled directly into their cloud contract.",
+        },
+        {
+          type: 'p',
+          text: "Second risk: growth is decelerating. Qualys grows at 10-13% per year, which is healthy but not spectacular in a sector where some competitors show 30-40%. The market can lose patience with moderate growth, even very profitable growth.",
+        },
+        {
+          type: 'p',
+          text: 'For a full breakdown of Qualys numbers, visit my analysis page: lubin-investment.com/analyse/QLYS.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is vulnerability management?',
+          a: 'It is the process of detecting, prioritizing and fixing security flaws in an organization\'s IT systems. Qualys automates this process continuously, across thousands of machines, from the cloud.',
+        },
+        {
+          q: 'Is Qualys threatened by CrowdStrike?',
+          a: "Both operate in cybersecurity but in different segments: CrowdStrike is historically strong in incident detection and response (EDR), Qualys in preventive vulnerability management. The overlap exists but remains partial. The more serious threat comes from Wiz, which is building a very broad cloud security platform.",
+        },
+        {
+          q: 'Why is positive net cash an important criterion?',
+          a: "A company with more cash than debt can weather a recession, make opportunistic acquisitions, or buy back shares without financial stress. It is a rare sign of strength in growth tech, where many companies take on debt to fund their expansion.",
+        },
+        {
+          q: "What is Qualys's CSPM?",
+          a: 'CSPM (Cloud Security Posture Management) is a tool that continuously monitors cloud environment configurations (AWS, Azure, Google Cloud) to detect security misconfigurations. It is one of the fastest-growing segments at Qualys.',
+        },
+        {
+          q: 'Is Qualys stock a buy today?',
+          a: 'My quality score is 10 out of 10, but the stock trades 25% above my buy target ($86.03 versus the current price of $114.65). I watch without buying. This is not investment advice.',
+        },
+      ],
+      tags: [
+        'Qualys',
+        'QLYS',
+        'cybersecurity',
+        'cloud',
+        'SaaS',
+        'stock analysis',
+        'VMDR',
+        'investing',
+      ],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures from lubin-investment.com API and official SEC filings (Q1 2026), as of 2026-06-16. Do your own research.',
+    },
+    es: {
+      title: 'Qualys (QLYS) : ciberseguridad cloud en bolsa',
+      excerpt:
+        'Qualys lleva escaneando vulnerabilidades de seguridad para grandes empresas desde 1999. Su modelo cloud-native, sus márgenes excepcionales y su ausencia de deuda la convierten en una de las acciones más rentables del sector. Mi análisis completo.',
+      metaDescription:
+        'Qualys (QLYS) análisis fundamental: puntuación de calidad, valoración, márgenes FCF, VMDR, CSPM. ¿Cómo se compara con CrowdStrike y Wiz en 2026?',
+      answer:
+        'Qualys es una máquina de generar efectivo discreta en un sector ruidoso. Obtiene 10 sobre 10 en mi método: margen FCF del 31%, crecimiento regular, cero deuda neta. La contrapartida: cotiza un 25% por encima de mi precio de compra razonable. Calidad evidente, pero el momento importa.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Qualys obtiene 10 sobre 10 en mi método de análisis fundamental.',
+            'Margen de free cash flow: 31,1%. De cada 100 dólares de ingresos, 31 quedan como efectivo real tras todos los gastos.',
+            'La acción se valoriza 19,2 veces su free cash flow anual. Mi precio objetivo es 86,03 dólares, frente al precio actual de 114,65 dólares: una sobrevaloración del 25%.',
+            'Ingresos Q1 2026: 175,6 millones de dólares, un 10% más que el año anterior. Guidance anual elevado a 721-727 millones.',
+            'Tesorería neta positiva: más efectivo que deuda, una señal de solidez poco común en ciberseguridad.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace Qualys: escanear vulnerabilidades antes que los atacantes',
+        },
+        {
+          type: 'p',
+          text: 'Imagina que tu entorno informático es una casa con cientos de ventanas y puertas. Qualys es la empresa que te ayuda a inspeccionarlas todas, de forma continua, para detectar las que están mal cerradas antes de que lo haga un intruso.',
+        },
+        {
+          type: 'p',
+          text: 'Qualys opera en la gestión de vulnerabilidades cloud. Su producto principal, VMDR (Vulnerability Management, Detection and Response), escanea continuamente los sistemas de las grandes empresas, detecta fallos de seguridad conocidos, los prioriza por nivel de riesgo y recomienda correcciones. Su producto CSPM (Cloud Security Posture Management) hace lo mismo en entornos cloud (AWS, Azure, Google Cloud).',
+        },
+        {
+          type: 'p',
+          text: 'Lo que distingue a Qualys de sus competidores: su arquitectura es completamente cloud-native desde su fundación en 1999. Despliega un agente ligero en las máquinas de sus clientes y centraliza todo el análisis en la nube. Sin hardware que instalar, sin actualizaciones manuales.',
+        },
+        {
+          type: 'h2',
+          text: 'Los 10 criterios y por qué Qualys obtiene la máxima nota',
+        },
+        {
+          type: 'p',
+          text: 'Mi nota sobre 10 evalúa la calidad del negocio independientemente del precio. Para llegar a 10, una empresa debe sobresalir en cada uno de mis criterios: rentabilidad, crecimiento, solidez del balance, asignación de capital. Qualys los cumple todos.',
+        },
+        {
+          type: 'p',
+          text: 'El crecimiento de ingresos a 5 años supera el 12,8% anual. El free cash flow por acción ha crecido al 16,8% anual. La empresa recompra el 2,4% de sus acciones al año. Y el balance muestra tesorería neta positiva: más dinero en caja que deudas. Raro en el sector tecnológico.',
+        },
+        {
+          type: 'h2',
+          text: 'El moat de Qualys: por qué los clientes empresariales no se van',
+        },
+        {
+          type: 'p',
+          text: 'El moat de Qualys se apoya en dos pilares. Primero: los costes de cambio. Desplegar Qualys en una organización de 50.000 equipos lleva meses. Los equipos de seguridad aprenden la interfaz, construyen flujos de trabajo en torno a las alertas, integran los datos en su SIEM. Marcharse implica recomenzar todo ese proceso.',
+        },
+        {
+          type: 'p',
+          text: 'Segundo: la base de datos de vulnerabilidades. Qualys opera desde 1999 y ha construido una de las bases de datos de fallos de seguridad más completas del mercado. Esta base crece continuamente. La profundidad de cobertura es un argumento de venta muy potente para equipos de seguridad que no pueden permitirse puntos ciegos.',
+        },
+        {
+          type: 'p',
+          text: 'En el Q1 2026, el consejero delegado Sumedh Thakar describió la ambición de Qualys como la creación de un Risk Operations Center autónomo, impulsado por IA, capaz de priorizar y corregir vulnerabilidades sin intervención humana.',
+        },
+        {
+          type: 'h2',
+          text: '¿De dónde vienen los márgenes excepcionales?',
+        },
+        {
+          type: 'p',
+          text: 'Un margen FCF del 31% es notable. ¿Cómo lo consigue Qualys? Su modelo SaaS cloud-native tiene costes marginales muy bajos: una vez construida la plataforma, añadir un cliente más cuesta poco. Sin hardware que enviar, sin despliegue en local.',
+        },
+        {
+          type: 'p',
+          text: 'Su Cash ROCE del 58,8% (efectivo generado por cada dólar de capital utilizado) confirma la eficiencia del modelo. El margen neto alcanza el 29,4%. Estas cifras no son casualidad: reflejan un modelo de suscripción recurrente, clientes fieles y una I+D bien orientada.',
+        },
+        {
+          type: 'h2',
+          text: 'Valoración: ¿es cara Qualys respecto a sus pares?',
+        },
+        {
+          type: 'p',
+          text: 'Mi herramienta mide el P/FCF: el precio de la acción dividido por el free cash flow anual por acción. Qualys muestra un P/FCF de 19,2. Mi precio objetivo de compra es de 86,03 dólares. La acción cotiza a 114,65 dólares: una prima del 25%. No compro a ese nivel.',
+        },
+        {
+          type: 'p',
+          text: 'Por comparación, CrowdStrike se valoriza entre 60 y 80 veces su FCF. Qualys es estructuralmente más barata que su par más mediático, y mucho más rentable que la media del sector. Pero 19 veces sigue siendo elevado para un crecimiento de ingresos del 12-13%.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos: CrowdStrike, Wiz y la consolidación del mercado',
+        },
+        {
+          type: 'p',
+          text: 'Qualys opera en un sector en plena recomposición. CrowdStrike amplía sus capacidades de gestión de vulnerabilidades hacia el terreno de Qualys. Más seriamente, Wiz (adquirida por Google en 2024) está construyendo una plataforma de seguridad cloud muy amplia que incluye la gestión de postura. Si Wiz se distribuye agresivamente a través de Google Cloud, las grandes empresas podrían tener un competidor creíble integrado directamente en su contrato cloud.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo riesgo: el crecimiento se desacelera. Qualys crece al 10-13% anual, lo cual es sano pero no espectacular en un sector donde algunos competidores muestran el 30-40%. El mercado puede perder la paciencia con un crecimiento moderado, aunque sea muy rentable.',
+        },
+        {
+          type: 'p',
+          text: 'Para explorar todos los datos de Qualys en detalle, puedes consultar mi página de análisis: lubin-investment.com/analyse/QLYS.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es la gestión de vulnerabilidades?',
+          a: 'Es el proceso de detectar, priorizar y corregir los fallos de seguridad en los sistemas informáticos de una organización. Qualys automatiza este proceso de forma continua, en miles de máquinas, desde la nube.',
+        },
+        {
+          q: '¿Qualys está amenazada por CrowdStrike?',
+          a: 'Ambas operan en ciberseguridad pero en segmentos diferentes: CrowdStrike es históricamente fuerte en detección y respuesta a incidentes (EDR), Qualys en gestión preventiva de vulnerabilidades. El solapamiento existe pero es parcial. La amenaza más seria viene de Wiz, que está construyendo una plataforma de seguridad cloud muy amplia.',
+        },
+        {
+          q: '¿Por qué la tesorería neta positiva es un criterio importante?',
+          a: 'Una empresa con más efectivo que deuda puede atravesar una recesión, hacer adquisiciones oportunistas o recomprar acciones sin estrés financiero. Es una señal de solidez poco común en el sector tecnológico en crecimiento.',
+        },
+        {
+          q: '¿Qué es el CSPM de Qualys?',
+          a: 'El CSPM (Cloud Security Posture Management) es una herramienta que monitoriza continuamente la configuración de entornos cloud (AWS, Azure, Google Cloud) para detectar configuraciones de seguridad incorrectas. Es uno de los segmentos de mayor crecimiento de Qualys.',
+        },
+        {
+          q: '¿Es Qualys una compra hoy?',
+          a: 'Mi puntuación de calidad es 10 sobre 10, pero la acción cotiza un 25% por encima de mi precio objetivo de compra (86,03 dólares frente a los 114,65 actuales). Observo sin comprar. Esto no es un consejo de inversión.',
+        },
+      ],
+      tags: [
+        'Qualys',
+        'QLYS',
+        'ciberseguridad',
+        'cloud',
+        'SaaS',
+        'análisis de acciones',
+        'VMDR',
+        'inversión',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no predicen los futuros. Datos de la API lubin-investment.com y archivos SEC oficiales (Q1 2026), a fecha 2026-06-16. Haz tu propia investigación.',
+    },
+  },
+};
+
+
+// ============================================================
+// ARTICLE 2 : Les 11 actions 10/10 sous-évaluées de juin 2026
+// ============================================================
+const sousEvaluees2026: Article = {
+  slug: 'actions-10-sur-10-sous-evaluees-juin-2026',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: 'Les 11 meilleures actions sous-évaluées en bourse : juin 2026',
+      excerpt: 'En juin 2026, 11 actions passent tous mes critères de qualité ET affichent une valorisation basse. Ce palmarès mensuel combine qualité maximale et prix raisonnables, avec des exemples très différents : assurance, or, santé, voyage.',
+      metaDescription: 'Les 11 actions notées 10/10 et sous-évaluées en juin 2026 : liste complète avec valorisations, secteurs, et analyse de pourquoi le marché les délaisse.',
+      answer: 'En juin 2026, 11 actions obtiennent la note maximale dans mon screener et s\'échangent à des valorisations basses pour leur niveau de qualité : RNR, UVE, MCY, ACGL, KNSL, PGR, CINF dans l\'assurance, plus AFYA (éducation brésilienne), KGC (or), HAE (dispositifs médicaux) et BKNG (voyage en ligne). Voici ma méthode et ces 11 dossiers.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            '11 actions passent mes 10 critères de qualité ET affichent une valorisation basse en juin 2026.',
+            'Le secteur assurance domine avec 7 des 11 noms : un signe que le marché est particulièrement prudent sur ce secteur.',
+            'AFYA (éducation brésilienne) est la valorisation la plus basse du lot : 1,1 fois son cash annuel.',
+            'Qualité maximale ne signifie pas risque zéro : chaque décote a une raison. Je l\'explique pour chaque dossier.',
+            'Cette liste change chaque mois selon les cours et les résultats. Elle n\'est jamais statique.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ma méthode : qualité d\'abord, prix ensuite',
+        },
+        {
+          type: 'p',
+          text: 'Je juge toujours la qualité d\'un business séparément de son prix. Ce sont deux questions différentes et beaucoup d\'investisseurs les confondent. Une entreprise fantastique achetée trop cher reste un mauvais placement. Une entreprise médiocre à prix cassé reste médiocre.',
+        },
+        {
+          type: 'p',
+          text: 'Mon screener attribue une note sur 10 à chaque action en évaluant 10 critères financiers objectifs. La rentabilité (est-ce que l\'entreprise gagne de l\'argent ?), la croissance des revenus et du cash sur 5 ans, le rendement du capital investi (ce que j\'appelle le Cash ROCE : pour 100 euros de capital, combien l\'entreprise génère-t-elle de cash ?), la maîtrise de la dette, les rachats d\'actions (signe que le management croit en l\'entreprise), et l\'expansion des marges. Un 10/10 signifie que tous ces critères passent. Ce n\'est pas banal : la majorité des actions cotées ne l\'obtiennent pas.',
+        },
+        {
+          type: 'p',
+          text: 'Une fois la qualité confirmée, je regarde la valorisation via le P/FCF (price-to-free-cash-flow) : le prix de l\'action divisé par le cash que l\'entreprise génère vraiment chaque année, une fois toutes ses dépenses payées. Un P/FCF de 5 signifie que tu paies aujourd\'hui cinq ans de ce cash. Moins c\'est élevé, moins l\'action est chère. Ce palmarès regroupe les 10/10 dont le P/FCF reste sous un seuil que je considère raisonnable.',
+        },
+        {
+          type: 'h2',
+          text: 'Les 11 actions de juin 2026',
+        },
+        {
+          type: 'p',
+          text: 'Voici la liste complète, classée par P/FCF croissant. Le Cash ROCE indique le rendement du capital : plus il est élevé, plus l\'entreprise crée de la valeur à partir du capital qu\'elle emploie.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'AFYA (éducation Brésil) : P/FCF 1,1x, Cash ROCE 19,8%, FCF margin 31,6%, croissance revenus 16,7%/an',
+            'RenaissanceRe (RNR, réassurance) : P/FCF 3,0x, Cash ROCE 30,6%, FCF margin 36,5%, croissance 27,9%/an',
+            'Universal Insurance (UVE, assurance) : P/FCF 3,1x, Cash ROCE 50,3%, FCF margin 21,5%',
+            'Mercury General (MCY, assurance) : P/FCF 3,9x, Cash ROCE 55,7%, FCF margin 23,1%',
+            'Arch Capital (ACGL, réassurance) : P/FCF 5,8x, Cash ROCE 24,2%, FCF margin 28,8%',
+            'Kinsale Capital (KNSL, assurance) : P/FCF 7,2x, Cash ROCE 45,4%, FCF margin 51,9%',
+            'Progressive (PGR, assurance) : P/FCF 7,4x, Cash ROCE 40,3%, FCF margin 18,1%',
+            'Cincinnati Financial (CINF, assurance) : P/FCF 7,7x, Cash ROCE 21,9%, FCF margin 26,6%',
+            'KGC Kinross Gold (or) : P/FCF 13,2x, Cash ROCE 27,3%, FCF margin 36,4%, croissance revenus 26,8%/an',
+            'Haemonetics (HAE, dispositifs médicaux) : P/FCF 13,3x, Cash ROCE 24,7%, FCF margin 21,0%',
+            'Booking Holdings (BKNG, voyage en ligne) : P/FCF 16,6x, Cash ROCE 161,6%, FCF margin 30,4%',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi ces actions sont décotées : les vraies raisons',
+        },
+        {
+          type: 'p',
+          text: 'Une décote a toujours une raison. Elle peut être justifiée (le business se détériore vraiment) ou exagérée (la peur du marché dépasse la réalité). Mon travail est de distinguer les deux.',
+        },
+        {
+          type: 'p',
+          text: 'Le secteur assurance occupe 7 des 11 places parce que le marché anticipe deux risques : la montée des catastrophes climatiques (ouragans, incendies, inondations qui coûtent de plus en plus cher aux assureurs), et une complexité comptable qui décourage l\'analyse. Ce n\'est pas irrationnel. Mais les assureurs de qualité ont démontré leur capacité à ajuster leurs primes. Progressive en est l\'exemple : croissance des revenus de 18 % par an sur cinq ans, avec une discipline de souscription reconnue.',
+        },
+        {
+          type: 'p',
+          text: 'AFYA (éducation médicale brésilienne) affiche un P/FCF de 1,1 fois. À ce prix, tu paies un peu plus d\'un an de cash généré. La décote reflète le risque Brésil (politique monétaire, réforme du système de santé) et le risque de change pour un investisseur en euros ou en dollars. Pourtant le business est solide : marge FCF de 31,6 %, Cash ROCE de 19,8 %, croissance de 16,7 % par an. Le marché panique sur la géographie, pas sur les fondamentaux.',
+        },
+        {
+          type: 'p',
+          text: 'Booking Holdings (BKNG) est le dossier le plus cher de cette liste à 16,6 fois son cash annuel. Mais pour une entreprise qui affiche un Cash ROCE de 161,6 % (extraordinaire : pour 100 dollars de capital, elle génère 161 dollars de cash), et qui rachète ses propres actions à hauteur de 5,9 % par an, c\'est encore raisonnable. Le marché redoute un ralentissement du tourisme mondial et la concurrence d\'Airbnb. Ces risques existent. Mais la position dominante de Booking (environ 45 % des réservations en ligne mondiales) est un moat, un fossé concurrentiel, très difficile à combler.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas ignorer',
+        },
+        {
+          type: 'p',
+          text: 'Je reviens là-dessus parce que c\'est important. Un P/FCF bas n\'est jamais une garantie. Il l\'est seulement si la qualité tient dans le temps. Trois risques structurels sur cette liste méritent d\'être nommés.',
+        },
+        {
+          type: 'p',
+          text: 'Le risque géographique pour AFYA et MCY : une forte exposition à une région (Brésil pour AFYA, Californie pour Mercury) peut transformer un trimestre exceptionnel en perte brutale si le contexte politique ou climatique se détériore. Haemonetics (HAE) a une dette élevée à 3,54 fois son cash annuel, au-dessus de mon seuil habituel. C\'est un point de vigilance réel même si les marges et la croissance compensent partiellement.',
+        },
+        {
+          type: 'p',
+          text: 'KGC (Kinross Gold) est une minière d\'or. Le cours de l\'or peut varier fortement. Si l\'or baisse de 20 %, le free cash flow de Kinross baisse beaucoup plus que 20 % : les mines ont des coûts fixes élevés. Le P/FCF de 13,2 fois est raisonnable aujourd\'hui, mais il peut devenir élevé très vite si l\'or corrige.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce palmarès, chaque mois',
+        },
+        {
+          type: 'p',
+          text: 'Cette liste n\'est pas statique. Les cours bougent, les résultats trimestriels changent les notes. Une action qui était à 8/10 peut passer à 10/10 après de bons résultats. Une autre peut sortir si son P/FCF monte trop. C\'est pour avoir cette vue en temps réel que j\'ai construit mon screener. Tu peux y filtrer par secteur, par note, par P/FCF, et voir les fiches détaillées de chaque action avec les 10 critères évalués un par un.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Combien y a-t-il d\'actions 10/10 en tout dans le screener ?',
+          a: 'Le nombre varie selon les marchés et les trimestres. En juin 2026, une vingtaine d\'actions obtiennent la note maximale. Ce palmarès des sous-évaluées isole celles dont la valorisation (P/FCF) est encore basse par rapport à leur qualité.',
+        },
+        {
+          q: 'Pourquoi autant d\'assureurs dans cette liste ?',
+          a: 'Le secteur assurance est particulièrement délaissé par les investisseurs particuliers, ce qui crée des décotes. En plus, l\'incertitude liée aux catastrophes climatiques pousse le marché à être plus prudent sur les valorisations. Cela crée une anomalie : des entreprises de qualité exceptionnelle à des prix bas.',
+        },
+        {
+          q: 'Comment est calculé le P/FCF ?',
+          a: 'Le P/FCF (price-to-free-cash-flow) = cours de l\'action divisé par le free cash flow par action. Le free cash flow, c\'est le cash que génère vraiment l\'entreprise après avoir payé ses dépenses d\'exploitation et ses investissements. C\'est la mesure la plus difficile à maquiller, donc la plus fiable pour évaluer si une action est chère ou pas.',
+        },
+        {
+          q: 'AFYA à 1,1 fois son cash annuel, c\'est une erreur du marché ?',
+          a: 'Pas forcément une erreur, mais une exagération possible. Le business est solide, les marges sont élevées. Le marché intègre un risque Brésil élevé et un risque de change. Si ces risques se matérialisent, la décote est justifiée. Si le business continue sur sa trajectoire, c\'est une opportunité. C\'est le trade-off à analyser soi-même.',
+        },
+        {
+          q: 'Cette liste suffit-elle pour décider d\'acheter ?',
+          a: 'Non. C\'est un filtre de départ. Chaque action demande une analyse plus approfondie : lire les rapports annuels, comprendre le business model, estimer un prix d\'achat raisonnable, évaluer sa propre tolérance au risque. Ce n\'est pas un conseil en investissement.',
+        },
+      ],
+      tags: ['actions sous-évaluées', 'screener', 'analyse fondamentale', 'bourse', 'qualité', 'P/FCF', 'juin 2026'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches.',
+    },
+    en: {
+      title: 'The 11 best undervalued quality stocks in June 2026',
+      excerpt: 'In June 2026, 11 stocks pass all my quality criteria AND trade at low valuations. This monthly ranking combines top quality and reasonable prices, spanning insurance, gold, healthcare and travel.',
+      metaDescription: 'The 11 stocks scoring 10/10 and undervalued in June 2026: full list with valuations, sectors, and analysis of why the market is discounting them.',
+      answer: 'In June 2026, 11 stocks earn the top score in my screener and trade at low valuations for their quality level: RNR, UVE, MCY, ACGL, KNSL, PGR, CINF in insurance, plus AFYA (Brazilian education), KGC (gold), HAE (medical devices) and BKNG (online travel). Here is my method and these 11 cases.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            '11 stocks pass all 10 quality criteria AND trade at low valuations in June 2026.',
+            'Insurance dominates with 7 of the 11 names: a sign that the market is particularly cautious on that sector.',
+            'AFYA (Brazilian education) is the lowest-valued stock on the list: 1.1 times its annual cash.',
+            'Top quality does not mean zero risk: every discount has a reason. I explain it for each case.',
+            'This list changes every month as prices and results shift. It is never static.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'My method: quality first, price second',
+        },
+        {
+          type: 'p',
+          text: 'I always judge business quality separately from price. They are two different questions and many investors confuse them. A fantastic company bought at too high a price is still a bad investment. A mediocre company at a bargain price is still mediocre.',
+        },
+        {
+          type: 'p',
+          text: 'My screener assigns a score out of 10 to each stock by evaluating 10 objective financial criteria. Profitability (does the company make money?), revenue and cash growth over 5 years, return on invested capital (what I call Cash ROCE: for every 100 dollars of capital, how much cash does the company generate?), debt control, share buybacks (a sign management believes in the company), and margin expansion. A score of 10/10 means every criterion passes. That is not trivial: most listed stocks do not achieve it.',
+        },
+        {
+          type: 'p',
+          text: 'Once quality is confirmed, I look at valuation through the P/FCF (price-to-free-cash-flow): the stock price divided by the cash the company truly generates each year after all expenses. A P/FCF of 5 means you are paying today five years\' worth of that cash. The lower it is, the cheaper the stock. This ranking groups the 10/10 stocks whose P/FCF remains below a threshold I consider reasonable.',
+        },
+        {
+          type: 'h2',
+          text: 'The 11 stocks of June 2026',
+        },
+        {
+          type: 'p',
+          text: 'Here is the full list, sorted by ascending P/FCF. Cash ROCE shows return on capital: the higher it is, the more value the company creates from the capital it employs.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'AFYA (Brazil education): P/FCF 1.1x, Cash ROCE 19.8%, FCF margin 31.6%, revenue growth 16.7%/yr',
+            'RenaissanceRe (RNR, reinsurance): P/FCF 3.0x, Cash ROCE 30.6%, FCF margin 36.5%, growth 27.9%/yr',
+            'Universal Insurance (UVE, insurance): P/FCF 3.1x, Cash ROCE 50.3%, FCF margin 21.5%',
+            'Mercury General (MCY, insurance): P/FCF 3.9x, Cash ROCE 55.7%, FCF margin 23.1%',
+            'Arch Capital (ACGL, reinsurance): P/FCF 5.8x, Cash ROCE 24.2%, FCF margin 28.8%',
+            'Kinsale Capital (KNSL, insurance): P/FCF 7.2x, Cash ROCE 45.4%, FCF margin 51.9%',
+            'Progressive (PGR, insurance): P/FCF 7.4x, Cash ROCE 40.3%, FCF margin 18.1%',
+            'Cincinnati Financial (CINF, insurance): P/FCF 7.7x, Cash ROCE 21.9%, FCF margin 26.6%',
+            'Kinross Gold (KGC, gold): P/FCF 13.2x, Cash ROCE 27.3%, FCF margin 36.4%, revenue growth 26.8%/yr',
+            'Haemonetics (HAE, medical devices): P/FCF 13.3x, Cash ROCE 24.7%, FCF margin 21.0%',
+            'Booking Holdings (BKNG, online travel): P/FCF 16.6x, Cash ROCE 161.6%, FCF margin 30.4%',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Why these stocks are discounted: the real reasons',
+        },
+        {
+          type: 'p',
+          text: 'A discount always has a reason. It can be justified (the business is genuinely deteriorating) or exaggerated (market fear exceeds reality). My job is to distinguish the two.',
+        },
+        {
+          type: 'p',
+          text: 'Insurance occupies 7 of the 11 spots because the market anticipates two risks: rising climate catastrophes (hurricanes, wildfires, floods costing insurers more and more), and accounting complexity that discourages analysis. That is not irrational. But quality insurers have shown their ability to adjust premiums. Progressive is the example: revenue growth of 18% a year over five years with recognised underwriting discipline.',
+        },
+        {
+          type: 'p',
+          text: 'AFYA (Brazilian medical education) trades at a P/FCF of 1.1 times. At that price, you are paying just over one year of generated cash. The discount reflects Brazil risk (monetary policy, healthcare reform) and currency risk for a euro or dollar investor. Yet the business is solid: FCF margin of 31.6%, Cash ROCE of 19.8%, revenue growth of 16.7% a year. The market is panicking about geography, not about fundamentals.',
+        },
+        {
+          type: 'p',
+          text: 'Booking Holdings (BKNG) is the most expensive name on this list at 16.6 times its annual cash. But for a company showing a Cash ROCE of 161.6% (extraordinary: for every 100 dollars of capital, it generates 161 dollars in cash), and that buys back its own shares at 5.9% a year, that is still reasonable. The market fears a global tourism slowdown and Airbnb competition. Those risks exist. But Booking\'s dominant position (roughly 45% of global online travel bookings) is a moat, a competitive advantage, that is very hard to overcome.',
+        },
+        {
+          type: 'h2',
+          text: 'Risks not to ignore',
+        },
+        {
+          type: 'p',
+          text: 'I come back to this because it matters. A low P/FCF is never a guarantee. It only works if quality holds over time. Three structural risks on this list deserve naming.',
+        },
+        {
+          type: 'p',
+          text: 'Geographic risk for AFYA and MCY: heavy exposure to one region (Brazil for AFYA, California for Mercury) can turn an exceptional quarter into a sharp loss if the political or climatic context deteriorates. Haemonetics (HAE) carries high debt at 3.54 times its annual cash, above my usual threshold. That is a real watch point even if margins and growth partially compensate.',
+        },
+        {
+          type: 'p',
+          text: 'KGC (Kinross Gold) is a gold miner. The gold price can move sharply. If gold falls 20%, Kinross\'s free cash flow falls much more than 20%: mines have high fixed costs. The P/FCF of 13.2 times is reasonable today, but it can become high very quickly if gold corrects.',
+        },
+        {
+          type: 'h2',
+          text: 'This ranking, every month',
+        },
+        {
+          type: 'p',
+          text: 'This list is not static. Prices move, quarterly results change scores. A stock at 8/10 can move to 10/10 after strong results. Another may drop out if its P/FCF rises too high. That is why I built my screener: to have this view in real time. You can filter by sector, score, P/FCF, and see detailed profiles for each stock with all 10 criteria evaluated one by one.',
+        },
+      ],
+      faq: [
+        {
+          q: 'How many 10/10 stocks are there in the screener overall?',
+          a: 'The number varies with markets and quarters. In June 2026, around twenty stocks earn the top score. This undervalued ranking isolates those whose valuation (P/FCF) is still low relative to their quality.',
+        },
+        {
+          q: 'Why so many insurers on this list?',
+          a: 'The insurance sector is particularly avoided by individual investors, which creates discounts. On top of that, climate catastrophe uncertainty pushes the market to be more cautious on valuations. This creates an anomaly: exceptional quality companies at low prices.',
+        },
+        {
+          q: 'How is the P/FCF calculated?',
+          a: 'P/FCF (price-to-free-cash-flow) = stock price divided by free cash flow per share. Free cash flow is the cash the company truly generates after paying operating expenses and investments. It is the hardest metric to manipulate, so the most reliable for judging whether a stock is cheap or expensive.',
+        },
+        {
+          q: 'AFYA at 1.1 times annual cash: is that a market mistake?',
+          a: 'Not necessarily a mistake, but possibly an overreaction. The business is solid and margins are high. The market is pricing in high Brazil risk and currency risk. If those risks materialise, the discount is justified. If the business continues on its trajectory, it is an opportunity. That is the trade-off to analyse yourself.',
+        },
+        {
+          q: 'Is this list enough to decide to buy?',
+          a: 'No. It is a starting filter. Each stock requires deeper analysis: reading annual reports, understanding the business model, estimating a reasonable buy price, assessing your own risk tolerance. This is not investment advice.',
+        },
+      ],
+      tags: ['undervalued stocks', 'screener', 'fundamental analysis', 'stock market', 'quality investing', 'P/FCF', 'June 2026'],
+      disclaimer: 'For informational and educational purposes only, not personalised investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Las 11 mejores acciones infravaloradas en bolsa: junio 2026',
+      excerpt: 'En junio de 2026, 11 acciones superan todos mis criterios de calidad Y cotizan a valoraciones bajas. Este ranking mensual combina calidad máxima y precios razonables, con ejemplos muy distintos: seguros, oro, salud, viajes.',
+      metaDescription: 'Las 11 acciones con puntuación 10/10 e infravaloradas en junio de 2026: lista completa con valoraciones, sectores y análisis de por qué el mercado las ignora.',
+      answer: 'En junio de 2026, 11 acciones obtienen la puntuación máxima en mi screener y cotizan a valoraciones bajas para su nivel de calidad: RNR, UVE, MCY, ACGL, KNSL, PGR, CINF en seguros, más AFYA (educación brasileña), KGC (oro), HAE (dispositivos médicos) y BKNG (viajes en línea). Aquí está mi método y estos 11 casos.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            '11 acciones superan mis 10 criterios de calidad Y cotizan a valoraciones bajas en junio de 2026.',
+            'Los seguros dominan con 7 de los 11 nombres: señal de que el mercado es especialmente prudente en ese sector.',
+            'AFYA (educación brasileña) es la acción con menor valoración de la lista: 1,1 veces su cash anual.',
+            'Calidad máxima no significa riesgo cero: cada descuento tiene una razón. La explico para cada caso.',
+            'Esta lista cambia cada mes según los precios y resultados. Nunca es estática.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Mi método: calidad primero, precio después',
+        },
+        {
+          type: 'p',
+          text: 'Siempre juzgo la calidad de un negocio de forma separada a su precio. Son dos preguntas diferentes y muchos inversores las confunden. Una empresa fantástica comprada a un precio demasiado alto sigue siendo una mala inversión. Una empresa mediocre a precio de ganga sigue siendo mediocre.',
+        },
+        {
+          type: 'p',
+          text: 'Mi screener asigna una puntuación sobre 10 a cada acción evaluando 10 criterios financieros objetivos. Rentabilidad, crecimiento de ingresos y cash en 5 años, retorno del capital invertido (lo que llamo Cash ROCE: por cada 100 euros de capital, ¿cuánto cash genera la empresa?), control de deuda, recompra de acciones (señal de que la dirección cree en la empresa), y expansión de márgenes. Un 10/10 significa que todos los criterios se cumplen.',
+        },
+        {
+          type: 'p',
+          text: 'Una vez confirmada la calidad, analizo la valoración a través del P/FCF (precio dividido entre el free cash flow, el cash que genera realmente la empresa cada año una vez pagados todos sus gastos). Un P/FCF de 5 significa que pagas hoy cinco años de ese cash. Cuanto más bajo, más barata la acción.',
+        },
+        {
+          type: 'h2',
+          text: 'Las 11 acciones de junio de 2026',
+        },
+        {
+          type: 'p',
+          text: 'Aquí está la lista completa, ordenada por P/FCF creciente. El Cash ROCE muestra el retorno del capital: cuanto mayor es, más valor crea la empresa con el capital que emplea.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'AFYA (educación Brasil): P/FCF 1,1x, Cash ROCE 19,8%, margen FCF 31,6%, crecimiento ingresos 16,7%/año',
+            'RenaissanceRe (RNR, reaseguro): P/FCF 3,0x, Cash ROCE 30,6%, margen FCF 36,5%, crecimiento 27,9%/año',
+            'Universal Insurance (UVE, seguros): P/FCF 3,1x, Cash ROCE 50,3%, margen FCF 21,5%',
+            'Mercury General (MCY, seguros): P/FCF 3,9x, Cash ROCE 55,7%, margen FCF 23,1%',
+            'Arch Capital (ACGL, reaseguro): P/FCF 5,8x, Cash ROCE 24,2%, margen FCF 28,8%',
+            'Kinsale Capital (KNSL, seguros): P/FCF 7,2x, Cash ROCE 45,4%, margen FCF 51,9%',
+            'Progressive (PGR, seguros): P/FCF 7,4x, Cash ROCE 40,3%, margen FCF 18,1%',
+            'Cincinnati Financial (CINF, seguros): P/FCF 7,7x, Cash ROCE 21,9%, margen FCF 26,6%',
+            'Kinross Gold (KGC, oro): P/FCF 13,2x, Cash ROCE 27,3%, margen FCF 36,4%, crecimiento ingresos 26,8%/año',
+            'Haemonetics (HAE, dispositivos médicos): P/FCF 13,3x, Cash ROCE 24,7%, margen FCF 21,0%',
+            'Booking Holdings (BKNG, viajes en línea): P/FCF 16,6x, Cash ROCE 161,6%, margen FCF 30,4%',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Por qué estas acciones están con descuento: las razones reales',
+        },
+        {
+          type: 'p',
+          text: 'Un descuento siempre tiene una razón. Puede estar justificado (el negocio se deteriora de verdad) o exagerado (el miedo del mercado supera la realidad). Mi trabajo es distinguir los dos casos.',
+        },
+        {
+          type: 'p',
+          text: 'Los seguros ocupan 7 de los 11 puestos porque el mercado anticipa dos riesgos: el aumento de catástrofes climáticas y la complejidad contable que disuade el análisis. Pero las aseguradoras de calidad han demostrado su capacidad de ajustar primas. Progressive es el ejemplo: crecimiento de ingresos del 18% anual en cinco años con una disciplina de suscripción reconocida.',
+        },
+        {
+          type: 'p',
+          text: 'AFYA (educación médica brasileña) cotiza a un P/FCF de 1,1 veces. A ese precio, pagas poco más de un año de cash generado. El descuento refleja el riesgo Brasil y el riesgo de tipo de cambio. Sin embargo el negocio es sólido: margen FCF del 31,6%, Cash ROCE del 19,8%, crecimiento del 16,7% anual. El mercado entra en pánico por la geografía, no por los fundamentales.',
+        },
+        {
+          type: 'p',
+          text: 'Booking Holdings (BKNG) es el más caro de esta lista a 16,6 veces su cash anual. Pero para una empresa que muestra un Cash ROCE del 161,6% (extraordinario) y que recompra sus propias acciones al 5,9% anual, eso sigue siendo razonable. La posición dominante de Booking (cerca del 45% de las reservas online mundiales) es un moat, una ventaja competitiva, muy difícil de superar.',
+        },
+        {
+          type: 'h2',
+          text: 'Riesgos que no hay que ignorar',
+        },
+        {
+          type: 'p',
+          text: 'Un P/FCF bajo nunca es una garantía. Solo funciona si la calidad se mantiene en el tiempo. El riesgo geográfico para AFYA y MCY puede transformar un trimestre excepcional en pérdida brusca. Haemonetics (HAE) tiene una deuda elevada a 3,54 veces su cash anual, por encima de mi umbral habitual. KGC (Kinross Gold) es una minera de oro: si el oro cae un 20%, el free cash flow de Kinross puede caer mucho más del 20% por sus altos costes fijos.',
+        },
+        {
+          type: 'h2',
+          text: 'Este ranking, cada mes',
+        },
+        {
+          type: 'p',
+          text: 'Esta lista no es estática. Los precios se mueven, los resultados trimestriales cambian las puntuaciones. Una acción en 8/10 puede pasar a 10/10 tras buenos resultados. Otra puede salir si su P/FCF sube demasiado. Es para tener esta visión en tiempo real que construí mi screener. Puedes filtrar por sector, puntuación, P/FCF, y ver los perfiles detallados de cada acción con los 10 criterios evaluados uno a uno.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Cuántas acciones 10/10 hay en total en el screener?',
+          a: 'El número varía según los mercados y los trimestres. En junio de 2026, unas veinte acciones obtienen la puntuación máxima. Este ranking de infravaloradas aísla las que tienen una valoración (P/FCF) todavía baja respecto a su calidad.',
+        },
+        {
+          q: '¿Por qué tantas aseguradoras en esta lista?',
+          a: 'El sector seguros está particularmente descuidado por los inversores particulares, lo que crea descuentos. Además, la incertidumbre sobre catástrofes climáticas lleva al mercado a ser más prudente con las valoraciones. Eso crea una anomalía: empresas de calidad excepcional a precios bajos.',
+        },
+        {
+          q: '¿Cómo se calcula el P/FCF?',
+          a: 'P/FCF (precio entre free cash flow) = precio de la acción dividido entre el free cash flow por acción. El free cash flow es el cash que genera realmente la empresa después de pagar sus gastos operativos e inversiones. Es la métrica más difícil de manipular, por eso es la más fiable para juzgar si una acción está cara o barata.',
+        },
+        {
+          q: 'AFYA a 1,1 veces su cash anual: ¿es un error del mercado?',
+          a: 'No necesariamente un error, pero posiblemente una exageración. El negocio es sólido y los márgenes son altos. El mercado está incorporando un alto riesgo Brasil y riesgo de tipo de cambio. Si esos riesgos se materializan, el descuento está justificado. Si el negocio continúa su trayectoria, es una oportunidad. Ese es el trade-off a analizar por uno mismo.',
+        },
+        {
+          q: '¿Es suficiente esta lista para decidir comprar?',
+          a: 'No. Es un filtro de partida. Cada acción requiere un análisis más profundo: leer los informes anuales, entender el modelo de negocio, estimar un precio de compra razonable, evaluar la propia tolerancia al riesgo. Esto no es un consejo de inversión.',
+        },
+      ],
+      tags: ['acciones infravaloradas', 'screener', 'análisis fundamental', 'bolsa', 'calidad', 'P/FCF', 'junio 2026'],
+      disclaimer: 'Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación.',
+    },
+  },
+};
+
+// ============================================================
+// ARTICLE 3 : Génie civil et BTP
+// ============================================================
+const genieCivil2026: Article = {
+  slug: 'genie-civil-btp-actions-10-sur-10-2026',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: 'Génie civil en bourse : l\'action 10/10 d\'un secteur oublié',
+      excerpt: 'Une seule action du génie civil passe tous mes critères de qualité : Comfort Systems USA (FIX). Croissance de 30% par an, Cash ROCE de 94%, FCF margin de 13%. Je détaille pourquoi ce secteur est ignoré et si la valorisation est justifiée.',
+      metaDescription: 'Comfort Systems USA (FIX) est la seule action du génie civil notée 10/10 en 2026. Analyse détaillée : moat, chiffres clés, valorisation et risques.',
+      answer: 'Dans le secteur du génie civil et de la construction, une seule action passe tous mes critères de qualité en juin 2026 : Comfort Systems USA (FIX). Croissance des revenus de 30 % par an sur cinq ans, Cash ROCE de 94,1 %, et une valorisation élevée à 51 fois son cash annuel. Le marché reconnaît la qualité, mais est-ce justifié ?',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Comfort Systems USA (FIX) est la seule action du génie civil à obtenir 10/10 dans mon screener en juin 2026.',
+            'Ses chiffres sont parmi les plus impressionnants du screener toutes catégories : Cash ROCE 94,1%, croissance revenus 30,1%/an, croissance FCF par action 57,4%/an.',
+            'La valorisation à 51 fois son cash annuel est élevée et reflète les attentes du marché sur la demande data centers et infrastructure US.',
+            'Le moat de FIX repose sur la rareté des électriciens et techniciens spécialisés : un avantage concurrentiel très difficile à reproduire.',
+            'La question n\'est pas si FIX est une bonne entreprise, mais si son prix actuel laisse une marge de sécurité suffisante.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi le génie civil est ignoré des investisseurs particuliers',
+        },
+        {
+          type: 'p',
+          text: 'Je comprends pourquoi. Quand on pense aux grandes thèses d\'investissement de 2025-2026, on pense à l\'intelligence artificielle, à la santé, aux semiconducteurs. Pas aux entreprises qui posent des câbles électriques dans les data centers. C\'est pourtant là que se trouvent parfois les meilleures surprises.',
+        },
+        {
+          type: 'p',
+          text: 'Le secteur du génie civil et de la construction (Engineering and Construction) souffre de trois préjugés : les marges sont faibles, les cycles sont violents, et la croissance dépend des contrats publics. Ce n\'est pas faux pour la majorité du secteur. Mais Comfort Systems USA n\'est pas un constructeur généraliste. C\'est une entreprise qui a su se positionner sur les travaux à haute valeur ajoutée dans les systèmes de bâtiment : électricité, mécanique, HVAC (chauffage, ventilation, climatisation). Ce que j\'ai découvert en creusant ses chiffres m\'a franchement surpris.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait Comfort Systems USA (FIX) : le business expliqué',
+        },
+        {
+          type: 'p',
+          text: 'Comfort Systems USA installe, entretient et modernise les systèmes mécaniques, électriques et de plomberie (MEP) dans les bâtiments commerciaux et industriels aux États-Unis. Concrètement : si tu construis un data center, un hôpital, une usine de semiconducteurs ou un immeuble de bureaux, tu as besoin de quelqu\'un pour installer le système électrique, la climatisation, la ventilation, la plomberie industrielle. C\'est Comfort Systems.',
+        },
+        {
+          type: 'p',
+          text: 'Ce positionnement est crucial. Le marché des data centers explose. La demande en centres de calcul pour l\'IA, le cloud, la 5G est structurellement en hausse. Les data centers sont très intensifs en systèmes MEP : ils consomment des quantités énormes d\'électricité et génèrent une chaleur colossale qu\'il faut dissiper. Comfort Systems a su se positionner comme prestataire de référence sur ce segment.',
+        },
+        {
+          type: 'h2',
+          text: 'Le moat : pourquoi ce n\'est pas facile à copier',
+        },
+        {
+          type: 'p',
+          text: 'Le moat, le fossé concurrentiel, d\'une entreprise, c\'est ce qui empêche ses rivaux de prendre sa place. Pour une entreprise de services comme FIX, le moat repose d\'abord sur les hommes. Les électriciens et techniciens spécialisés en systèmes MEP sont rares et se forment en années. La réputation d\'un sous-traitant se construit contrat après contrat. On ne déloge pas Comfort Systems d\'un client data center en faisant une meilleure offre commerciale : il faut d\'abord avoir les équipes formées et la référence.',
+        },
+        {
+          type: 'p',
+          text: 'FIX opère à travers de nombreuses filiales régionales, chacune avec une présence locale forte. Ce modèle décentralisé lui permet de répondre très rapidement aux besoins locaux tout en bénéficiant des économies d\'échelle du groupe pour les achats et le recrutement. La croissance organique de 51 % mentionnée dans ses résultats récents illustre la demande qui déborde. Et un carnet de commandes record donne une visibilité rare dans ce secteur.',
+        },
+        {
+          type: 'h2',
+          text: 'Les chiffres qui surprennent',
+        },
+        {
+          type: 'p',
+          text: 'Le Cash ROCE de FIX est de 94,1 %. Le Cash ROCE (Cash Return on Capital Employed) mesure combien de cash l\'entreprise génère pour chaque euro de capital qu\'elle emploie dans son activité. Un Cash ROCE de 94,1 % signifie que pour 100 euros de capital investi, FIX génère 94,1 euros de cash. C\'est exceptionnel. À titre de comparaison, un bon fabricant de logiciels tourne souvent autour de 30 à 50 %. Une entreprise de BTP classique serait sous 10 %.',
+        },
+        {
+          type: 'p',
+          text: 'La croissance des revenus est de 30,1 % par an sur 5 ans. Encore une fois, pour une entreprise de travaux, c\'est remarquable. La croissance du free cash flow par action est encore plus forte : 57,4 % par an sur 5 ans. Cette divergence entre croissance des revenus et croissance du cash indique que FIX améliore ses marges en même temps qu\'elle croît. La marge FCF actuelle est de 13,3 % : pour 100 euros de travaux réalisés, 13,3 euros restent en cash libre.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation à 51 fois son cash : justifiée ou excessive ?',
+        },
+        {
+          type: 'p',
+          text: 'C\'est la vraie question. Un P/FCF de 51 fois son cash annuel est élevé. Mon screener signale d\'ailleurs une surcote de 27,2 % par rapport à mon prix d\'achat raisonnable de 1 421 dollars. Ce n\'est pas anodin.',
+        },
+        {
+          type: 'p',
+          text: 'Voici le raisonnement du marché, que je comprends : si FIX maintient une croissance de 30 % par an pendant encore 3 à 4 ans (ce que le carnet de commandes record et la demande data centers rendent plausible), son cash annuel double ou triple. Le P/FCF actuel serait alors beaucoup plus bas rétrospectivement. Le marché paie d\'avance la croissance future. C\'est un pari cohérent avec les fondamentaux actuels.',
+        },
+        {
+          type: 'p',
+          text: 'Mais ce pari a une limite. Si la construction de data centers ralentit (crise de financement, sursaturation du marché du cloud, inflexion des dépenses IA), si des rivaux parviennent à attirer les techniciens formés par FIX, ou si les marges se compriment sous la pression des coûts salariaux, le P/FCF actuel deviendrait excessif. C\'est pourquoi je surveille FIX sans l\'avoir acheté à ce prix. Mon prix d\'entrée est inférieur au cours actuel.',
+        },
+        {
+          type: 'h2',
+          text: 'Le contexte macro qui soutient FIX en 2026',
+        },
+        {
+          type: 'p',
+          text: 'Les États-Unis investissent massivement dans leur infrastructure. L\'Infrastructure Investment and Jobs Act et le CHIPS Act ont déclenché des milliards de dépenses en usines de semiconducteurs, en réseaux énergétiques, en data centers. Ces projets ont besoin d\'entreprises comme Comfort Systems pour être physiquement réalisés. La demande n\'est pas conjoncturelle : c\'est une tendance lourde de plusieurs années.',
+        },
+        {
+          type: 'p',
+          text: 'Le trimestre récent parle de plus de 375 millions de dollars de flux de trésorerie trimestriel et d\'un carnet de commandes record. Ce n\'est pas une anecdote. C\'est la traduction financière d\'une demande qui déborde la capacité d\'exécution du secteur.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que j\'en retiens',
+        },
+        {
+          type: 'p',
+          text: 'FIX est une entreprise rare : un constructeur spécialisé qui affiche des métriques de rentabilité dignes d\'un éditeur de logiciels. La qualité est indiscutable selon mes critères. La valorisation actuelle reflète des attentes élevées que les fondamentaux rendent crédibles, mais qui laissent peu de marge d\'erreur. Je la suis de près. Si le cours baisse suffisamment pour créer un écart avec mon prix d\'achat raisonnable, ce sera un dossier de premier ordre à considérer.',
+        },
+        {
+          type: 'p',
+          text: 'Si tu veux voir la fiche complète de FIX avec les 10 critères évalués un par un et mon prix cible actualisé, c\'est sur mon screener.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que le Cash ROCE et pourquoi 94% est-il si élevé ?',
+          a: 'Le Cash ROCE (Cash Return on Capital Employed) mesure le cash généré pour chaque euro de capital investi dans le business. Un taux de 94% signifie que FIX génère presque autant de cash que le capital qu\'elle emploie chaque année. La moyenne d\'une bonne entreprise industrielle tourne autour de 15 à 25%. C\'est ce qui distingue un business exceptionnel d\'un business ordinaire.',
+        },
+        {
+          q: 'Pourquoi FIX est-il la seule action du génie civil à passer 10/10 ?',
+          a: 'Parce que le secteur du génie civil est majoritairement composé d\'entreprises à faibles marges, très endettées et dépendantes des cycles de commandes publiques. FIX a su se différencier par sa spécialisation (systèmes MEP), sa gestion décentralisée et son positionnement sur des marchés à forte demande comme les data centers.',
+        },
+        {
+          q: 'Un P/FCF de 51x, n\'est-ce pas trop cher ?',
+          a: 'C\'est effectivement au-dessus de mon seuil d\'achat habituel. Mon modèle indique une surcote d\'environ 27% par rapport à mon prix raisonnable. Cela ne veut pas dire que FIX va baisser, mais que la marge de sécurité est faible. Si la croissance se confirme sur les prochaines années, l\'acheteur d\'aujourd\'hui sera bien rémunéré. Si elle déçoit, il surpaie.',
+        },
+        {
+          q: 'Quel est le lien entre data centers et Comfort Systems ?',
+          a: 'Les data centers sont très intensifs en systèmes MEP (électricité, climatisation, ventilation). Un grand data center peut nécessiter autant d\'infrastructure électrique qu\'un hôpital. Comfort Systems est l\'un des leaders dans l\'installation de ces systèmes aux États-Unis, ce qui en fait un bénéficiaire direct de l\'explosion des investissements IA et cloud.',
+        },
+        {
+          q: 'C\'est quoi le moat d\'une entreprise de travaux ?',
+          a: 'Dans les services spécialisés comme ceux de FIX, le moat vient surtout du capital humain : des techniciens formés sur des années, des relations clients construites sur des dizaines de chantiers, une réputation régionale solide. C\'est difficile à reproduire rapidement, même avec beaucoup d\'argent.',
+        },
+      ],
+      tags: ['génie civil', 'BTP', 'Comfort Systems USA', 'FIX', 'actions bourse', 'analyse fondamentale', 'data centers', 'infrastructure'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches.',
+    },
+    en: {
+      title: 'Civil engineering stocks: the one 10/10 pick of a forgotten sector',
+      excerpt: 'Only one engineering and construction stock passes all my quality criteria: Comfort Systems USA (FIX). Revenue growth of 30% a year, Cash ROCE of 94%, FCF margin of 13%. I break down why this sector is ignored and whether the valuation makes sense.',
+      metaDescription: 'Comfort Systems USA (FIX) is the only engineering and construction stock scoring 10/10 in 2026. Detailed analysis: moat, key figures, valuation and risks.',
+      answer: 'In the engineering and construction sector, only one stock passes all my quality criteria in June 2026: Comfort Systems USA (FIX). Revenue growth of 30% a year over five years, Cash ROCE of 94.1%, and a high valuation at 51 times its annual cash. The market recognises the quality, but is it justified?',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Comfort Systems USA (FIX) is the only engineering and construction stock to score 10/10 in my screener in June 2026.',
+            'Its figures are among the most impressive in the screener across all sectors: Cash ROCE 94.1%, revenue growth 30.1%/yr, FCF per share growth 57.4%/yr.',
+            'The valuation at 51 times annual cash is high and reflects market expectations around data center demand and US infrastructure.',
+            'FIX\'s moat rests on the scarcity of trained MEP electricians and technicians: a competitive advantage that is very hard to replicate.',
+            'The question is not whether FIX is a great company, but whether its current price leaves enough margin of safety.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Why engineering and construction is ignored by individual investors',
+        },
+        {
+          type: 'p',
+          text: 'I understand why. When you think of the big investment themes of 2025-2026, you think of artificial intelligence, healthcare, semiconductors. Not companies laying electrical cables inside data centers. Yet that is sometimes where the best surprises are found.',
+        },
+        {
+          type: 'p',
+          text: 'The engineering and construction sector suffers from three prejudices: thin margins, violent cycles, and growth dependent on public contracts. That is not wrong for most of the sector. But Comfort Systems USA is not a general contractor. It is a company that has positioned itself on high-value building systems work: electrical, mechanical, HVAC (heating, ventilation, air conditioning). What I found when I dug into the numbers genuinely surprised me.',
+        },
+        {
+          type: 'h2',
+          text: 'What Comfort Systems USA (FIX) does: the business explained',
+        },
+        {
+          type: 'p',
+          text: 'Comfort Systems USA installs, maintains and upgrades mechanical, electrical and plumbing (MEP) systems in commercial and industrial buildings across the United States. In concrete terms: if you are building a data center, a hospital, a semiconductor fab or an office building, you need someone to install the electrical system, the air conditioning, the ventilation, the industrial plumbing. That is Comfort Systems.',
+        },
+        {
+          type: 'p',
+          text: 'This positioning is critical. The data center market is exploding. Demand for computing centers for AI, cloud, and 5G is structurally rising. Data centers are very MEP-intensive: they consume enormous amounts of electricity and generate colossal heat that must be dissipated. Comfort Systems has positioned itself as a reference provider on this segment.',
+        },
+        {
+          type: 'h2',
+          text: 'The moat: why this is hard to copy',
+        },
+        {
+          type: 'p',
+          text: 'A moat, the competitive advantage, is what prevents rivals from taking a company\'s place. For a service company like FIX, the moat rests first on people. MEP-specialised electricians and technicians are scarce and take years to train. A subcontractor\'s reputation is built contract by contract. You do not displace Comfort Systems from a data center client by making a better commercial offer: you first need to have trained teams and a reference track record.',
+        },
+        {
+          type: 'p',
+          text: 'FIX operates through many regional subsidiaries, each with a strong local presence. This decentralised model allows it to respond very quickly to local needs while benefiting from group-level economies of scale in purchasing and recruiting. The 51% organic growth mentioned in recent results illustrates demand that is overflowing capacity. And a record order book provides rare visibility in this sector.',
+        },
+        {
+          type: 'h2',
+          text: 'The numbers that stand out',
+        },
+        {
+          type: 'p',
+          text: 'FIX\'s Cash ROCE is 94.1%. Cash ROCE (Cash Return on Capital Employed) measures how much cash the company generates for every dollar of capital it employs in the business. A Cash ROCE of 94.1% means that for every 100 dollars of invested capital, FIX generates 94.1 dollars in cash. That is exceptional. By comparison, a good software company often runs around 30 to 50%. A typical construction company would be below 10%.',
+        },
+        {
+          type: 'p',
+          text: 'Revenue growth is 30.1% a year over 5 years. Again, for a construction company, that is remarkable. Free cash flow per share growth is even stronger: 57.4% a year over 5 years. This divergence between revenue growth and cash growth signals that FIX is expanding its margins while it grows. The current FCF margin is 13.3%: for every 100 dollars of work completed, 13.3 dollars remain as free cash.',
+        },
+        {
+          type: 'h2',
+          text: 'The valuation at 51 times cash: justified or excessive?',
+        },
+        {
+          type: 'p',
+          text: 'That is the real question. A P/FCF of 51 times annual cash is high. My screener signals an overvaluation of about 27.2% versus my reasonable buy price of 1,421 dollars. That is not trivial.',
+        },
+        {
+          type: 'p',
+          text: 'Here is the market\'s reasoning, which I understand: if FIX maintains 30% annual growth for another 3 to 4 years (which the record order book and data center demand make plausible), its annual cash doubles or triples. The current P/FCF would then look much lower in hindsight. The market is paying in advance for future growth. That is a consistent bet given current fundamentals.',
+        },
+        {
+          type: 'p',
+          text: 'But this bet has a limit. If data center construction slows (financing crisis, cloud market saturation, AI spending inflection), if rivals manage to poach FIX\'s trained technicians, or if margins compress under wage cost pressure, the current P/FCF would become excessive. That is why I watch FIX closely without having bought it at this price. My entry price is below the current level.',
+        },
+        {
+          type: 'h2',
+          text: 'The macro context supporting FIX in 2026',
+        },
+        {
+          type: 'p',
+          text: 'The United States is investing heavily in its infrastructure. The Infrastructure Investment and Jobs Act and the CHIPS Act have triggered billions in spending on semiconductor fabs, energy grids and data centers. These projects need companies like Comfort Systems to be physically built. Demand is not cyclical: it is a multi-year structural trend.',
+        },
+        {
+          type: 'p',
+          text: 'The recent quarter mentions over 375 million dollars in quarterly cash flow and a record order book. That is not an anecdote. It is the financial translation of demand that is overflowing the sector\'s execution capacity.',
+        },
+        {
+          type: 'h2',
+          text: 'What I take from this',
+        },
+        {
+          type: 'p',
+          text: 'FIX is a rare company: a specialised contractor displaying profitability metrics worthy of a software publisher. Quality is unquestionable by my criteria. The current valuation reflects high expectations that the fundamentals make credible, but that leave little margin for error. I watch it closely. If the price falls enough to create a gap from my reasonable buy price, it will be a first-tier case to consider.',
+        },
+        {
+          type: 'p',
+          text: 'If you want to see the full FIX profile with all 10 criteria evaluated one by one and my updated price target, it is on my screener.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is Cash ROCE and why is 94% so high?',
+          a: 'Cash ROCE (Cash Return on Capital Employed) measures the cash generated for every dollar of capital invested in the business. A rate of 94% means FIX generates almost as much cash as the capital it employs each year. A good industrial company typically runs around 15 to 25%. That is what separates an exceptional business from an ordinary one.',
+        },
+        {
+          q: 'Why is FIX the only engineering and construction stock to score 10/10?',
+          a: 'Because the engineering and construction sector is mostly made up of low-margin, highly leveraged companies dependent on public procurement cycles. FIX has differentiated itself through specialisation (MEP systems), decentralised management and positioning on high-demand markets like data centers.',
+        },
+        {
+          q: 'Is a P/FCF of 51x not too expensive?',
+          a: 'It is above my usual buy threshold. My model signals about 27% overvaluation versus my reasonable price. That does not mean FIX will fall, but that the margin of safety is thin. If growth holds over the coming years, today\'s buyer will be well rewarded. If it disappoints, they are overpaying.',
+        },
+        {
+          q: 'What is the connection between data centers and Comfort Systems?',
+          a: 'Data centers are very MEP-intensive (electricity, cooling, ventilation). A large data center can require as much electrical infrastructure as a hospital. Comfort Systems is one of the leaders in installing these systems in the United States, making it a direct beneficiary of the explosion in AI and cloud investment.',
+        },
+        {
+          q: 'What is the moat of a construction services company?',
+          a: 'In specialised services like FIX, the moat comes mainly from human capital: technicians trained over years, client relationships built across dozens of projects, solid regional reputation. That is hard to reproduce quickly, even with a lot of money.',
+        },
+      ],
+      tags: ['engineering stocks', 'construction', 'Comfort Systems USA', 'FIX', 'stock analysis', 'fundamental analysis', 'data centers', 'infrastructure'],
+      disclaimer: 'For informational and educational purposes only, not personalised investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Ingeniería civil en bolsa: la única acción 10/10 de un sector olvidado',
+      excerpt: 'Solo una acción del sector de ingeniería civil supera todos mis criterios de calidad: Comfort Systems USA (FIX). Crecimiento del 30% anual, Cash ROCE del 94%, margen FCF del 13%. Analizo por qué el sector está ignorado y si la valoración está justificada.',
+      metaDescription: 'Comfort Systems USA (FIX) es la única acción de ingeniería civil con puntuación 10/10 en 2026. Análisis completo: moat, datos clave, valoración y riesgos.',
+      answer: 'En el sector de ingeniería civil y construcción, solo una acción supera todos mis criterios de calidad en junio de 2026: Comfort Systems USA (FIX). Crecimiento de ingresos del 30% anual en cinco años, Cash ROCE del 94,1% y una valoración elevada a 51 veces su cash anual. El mercado reconoce la calidad, pero ¿está justificada?',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Comfort Systems USA (FIX) es la única acción de ingeniería civil en obtener 10/10 en mi screener en junio de 2026.',
+            'Sus cifras están entre las más impresionantes del screener en todas las categorías: Cash ROCE 94,1%, crecimiento ingresos 30,1%/año, crecimiento FCF por acción 57,4%/año.',
+            'La valoración a 51 veces su cash anual es elevada y refleja las expectativas del mercado sobre la demanda de data centers e infraestructura estadounidense.',
+            'El moat de FIX se basa en la escasez de electricistas y técnicos especializados en sistemas MEP: una ventaja competitiva muy difícil de replicar.',
+            'La pregunta no es si FIX es una gran empresa, sino si su precio actual deja suficiente margen de seguridad.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Por qué la ingeniería civil está ignorada por los inversores particulares',
+        },
+        {
+          type: 'p',
+          text: 'Lo entiendo. Cuando piensas en las grandes tesis de inversión de 2025-2026, piensas en inteligencia artificial, salud, semiconductores. No en empresas que tienden cables eléctricos dentro de data centers. Sin embargo, es ahí donde a veces se esconden las mejores sorpresas.',
+        },
+        {
+          type: 'p',
+          text: 'El sector de ingeniería civil y construcción sufre de tres prejuicios: márgenes bajos, ciclos violentos y crecimiento dependiente de contratos públicos. No es falso para la mayoría del sector. Pero Comfort Systems USA no es un constructor generalista. Es una empresa que se ha posicionado en trabajos de alto valor añadido en sistemas de edificación: electricidad, mecánica, HVAC (calefacción, ventilación, climatización). Lo que encontré al analizar sus cifras me sorprendió genuinamente.',
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace Comfort Systems USA (FIX): el negocio explicado',
+        },
+        {
+          type: 'p',
+          text: 'Comfort Systems USA instala, mantiene y moderniza sistemas mecánicos, eléctricos y de fontanería (MEP) en edificios comerciales e industriales en todo Estados Unidos. En concreto: si construyes un data center, un hospital, una fábrica de semiconductores o un edificio de oficinas, necesitas a alguien que instale el sistema eléctrico, la climatización, la ventilación, la fontanería industrial. Eso es Comfort Systems.',
+        },
+        {
+          type: 'p',
+          text: 'Este posicionamiento es crítico. El mercado de data centers está explotando. La demanda de centros de cálculo para IA, cloud y 5G está en alza estructural. Los data centers son muy intensivos en sistemas MEP: consumen cantidades enormes de electricidad y generan un calor colosal que hay que disipar. Comfort Systems se ha posicionado como proveedor de referencia en este segmento.',
+        },
+        {
+          type: 'h2',
+          text: 'El moat: por qué es difícil de copiar',
+        },
+        {
+          type: 'p',
+          text: 'El moat, la ventaja competitiva, de una empresa es lo que impide a sus rivales ocupar su lugar. Para una empresa de servicios como FIX, el moat descansa principalmente en las personas. Los electricistas y técnicos especializados en sistemas MEP son escasos y se forman en años. La reputación de un subcontratista se construye contrato a contrato. No desplazas a Comfort Systems de un cliente data center haciendo una mejor oferta comercial: primero necesitas tener los equipos formados y las referencias.',
+        },
+        {
+          type: 'p',
+          text: 'FIX opera a través de numerosas filiales regionales, cada una con una fuerte presencia local. Este modelo descentralizado le permite responder muy rápidamente a las necesidades locales aprovechando al mismo tiempo las economías de escala del grupo en compras y contratación. El crecimiento orgánico del 51% mencionado en sus resultados recientes ilustra una demanda que desborda la capacidad. Y una cartera de pedidos récord proporciona una visibilidad poco habitual en este sector.',
+        },
+        {
+          type: 'h2',
+          text: 'Las cifras que sorprenden',
+        },
+        {
+          type: 'p',
+          text: 'El Cash ROCE de FIX es del 94,1%. El Cash ROCE (Cash Return on Capital Employed) mide cuánto cash genera la empresa por cada euro de capital que emplea en el negocio. Un Cash ROCE del 94,1% significa que por cada 100 euros de capital invertido, FIX genera 94,1 euros de cash. Es excepcional. Para comparar, una buena empresa de software suele rondar entre el 30 y el 50%. Una empresa de construcción típica estaría por debajo del 10%.',
+        },
+        {
+          type: 'p',
+          text: 'El crecimiento de ingresos es del 30,1% anual en 5 años. De nuevo, para una empresa de obras, es notable. El crecimiento del free cash flow por acción es aún más fuerte: 57,4% anual en 5 años. Esta divergencia entre crecimiento de ingresos y crecimiento de cash indica que FIX está mejorando sus márgenes mientras crece. El margen FCF actual es del 13,3%: por cada 100 euros de obras realizadas, 13,3 euros quedan como cash libre.',
+        },
+        {
+          type: 'h2',
+          text: 'La valoración a 51 veces su cash: ¿justificada o excesiva?',
+        },
+        {
+          type: 'p',
+          text: 'Esa es la pregunta real. Un P/FCF de 51 veces el cash anual es elevado. Mi screener señala una sobrevaloración del 27,2% respecto a mi precio de compra razonable de 1.421 dólares. No es trivial.',
+        },
+        {
+          type: 'p',
+          text: 'Aquí está el razonamiento del mercado, que entiendo: si FIX mantiene un crecimiento del 30% anual durante 3 o 4 años más (lo que la cartera de pedidos récord y la demanda de data centers hace plausible), su cash anual se duplica o triplica. El P/FCF actual sería entonces mucho más bajo retrospectivamente. El mercado está pagando por adelantado el crecimiento futuro. Es una apuesta coherente con los fundamentales actuales.',
+        },
+        {
+          type: 'p',
+          text: 'Pero esta apuesta tiene un límite. Si la construcción de data centers desacelera, si rivales consiguen atraer a los técnicos formados por FIX, o si los márgenes se comprimen por la presión de los costes salariales, el P/FCF actual se volvería excesivo. Por eso vigilo FIX de cerca sin haberla comprado a este precio. Mi precio de entrada está por debajo del nivel actual.',
+        },
+        {
+          type: 'h2',
+          text: 'El contexto macro que apoya a FIX en 2026',
+        },
+        {
+          type: 'p',
+          text: 'Estados Unidos está invirtiendo masivamente en infraestructura. La Infrastructure Investment and Jobs Act y el CHIPS Act han desencadenado miles de millones en gasto en fábricas de semiconductores, redes energéticas y data centers. Estos proyectos necesitan empresas como Comfort Systems para materializarse físicamente. La demanda no es coyuntural: es una tendencia estructural de varios años.',
+        },
+        {
+          type: 'p',
+          text: 'El trimestre reciente menciona más de 375 millones de dólares de flujo de caja trimestral y una cartera de pedidos récord. No es una anécdota. Es la traducción financiera de una demanda que desborda la capacidad de ejecución del sector.',
+        },
+        {
+          type: 'h2',
+          text: 'Lo que me llevo de este análisis',
+        },
+        {
+          type: 'p',
+          text: 'FIX es una empresa poco habitual: un contratista especializado que muestra métricas de rentabilidad dignas de un editor de software. La calidad es incuestionable según mis criterios. La valoración actual refleja expectativas elevadas que los fundamentales hacen creíbles, pero que dejan poco margen de error. La sigo de cerca. Si el precio baja lo suficiente como para crear una diferencia con mi precio de compra razonable, será un dossier de primer nivel a considerar.',
+        },
+        {
+          type: 'p',
+          text: 'Si quieres ver el perfil completo de FIX con los 10 criterios evaluados uno a uno y mi precio objetivo actualizado, está en mi screener.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el Cash ROCE y por qué el 94% es tan alto?',
+          a: 'El Cash ROCE (Cash Return on Capital Employed) mide el cash generado por cada euro de capital invertido en el negocio. Un ratio del 94% significa que FIX genera casi tanto cash como el capital que emplea cada año. Una buena empresa industrial suele rondar el 15 al 25%. Es lo que distingue un negocio excepcional de uno ordinario.',
+        },
+        {
+          q: '¿Por qué FIX es la única acción de ingeniería civil en obtener 10/10?',
+          a: 'Porque el sector de ingeniería civil está mayoritariamente compuesto por empresas de bajos márgenes, muy endeudadas y dependientes de ciclos de contratación pública. FIX se ha diferenciado mediante la especialización (sistemas MEP), la gestión descentralizada y el posicionamiento en mercados de alta demanda como los data centers.',
+        },
+        {
+          q: '¿Un P/FCF de 51x no es demasiado caro?',
+          a: 'Efectivamente está por encima de mi umbral de compra habitual. Mi modelo señala una sobrevaloración de aproximadamente el 27% respecto a mi precio razonable. Eso no significa que FIX vaya a bajar, pero sí que el margen de seguridad es bajo. Si el crecimiento se confirma los próximos años, el comprador de hoy será bien recompensado. Si decepciona, está pagando de más.',
+        },
+        {
+          q: '¿Cuál es la conexión entre los data centers y Comfort Systems?',
+          a: 'Los data centers son muy intensivos en sistemas MEP (electricidad, climatización, ventilación). Un gran data center puede requerir tanta infraestructura eléctrica como un hospital. Comfort Systems es uno de los líderes en la instalación de estos sistemas en Estados Unidos, convirtiéndola en beneficiaria directa de la explosión de inversiones en IA y cloud.',
+        },
+        {
+          q: '¿Cuál es el moat de una empresa de servicios de construcción?',
+          a: 'En servicios especializados como los de FIX, el moat proviene principalmente del capital humano: técnicos formados durante años, relaciones con clientes construidas en decenas de obras, sólida reputación regional. Es difícil de reproducir rápidamente, aunque se tenga mucho dinero.',
+        },
+      ],
+      tags: ['ingeniería civil', 'construcción', 'Comfort Systems USA', 'FIX', 'acciones bolsa', 'análisis fundamental', 'data centers', 'infraestructura'],
+      disclaimer: 'Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación.',
+    },
+  },
+};
+
+// ============================================================
+// ARTICLE : Crédit Services - MA + FCFS
+// ============================================================
+const article_credit_services_2026: Article = {
+  slug: 'credit-services-actions-10-sur-10-2026',
+  date: '2026-06-16',
+  updated: '2026-06-16',
+  readingTime: 7,
+  content: {
+    fr: {
+      title: 'Crédit : 2 actions de qualité ignorées en bourse en 2026',
+      excerpt: 'Mastercard et FirstCash Holdings obtiennent toutes les deux la note maximale dans mon analyse. Pourtant peu d\'investisseurs particuliers les suivent de près. Je t\'explique pourquoi elles se démarquent, et ce que les chiffres racontent vraiment.',
+      metaDescription: 'Mastercard (MA) et FirstCash Holdings (FCFS) : 2 actions notées au maximum dans le secteur Credit Services. Analyse fondamentale complète avec valorisation réelle.',
+      answer: 'Dans le secteur Credit Services, deux actions ressortent avec la note maximale de ma méthode d\'analyse : Mastercard (MA) et FirstCash Holdings (FCFS). Mastercard est une machine à cash de classe mondiale ; FirstCash est une entreprise méconnue, bien moins chère, avec une croissance solide. Aucune n\'est bradée aujourd\'hui, mais elles méritent une place sur ta liste de surveillance.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Mastercard (MA) et FirstCash Holdings (FCFS) obtiennent les deux la note maximale (10/10) dans le secteur Credit Services selon ma méthode d\'analyse fondamentale.',
+            'Mastercard affiche une marge de free cash flow de 50,6% et une valorisation de 25,3 fois son free cash flow : un business d\'élite, mais pas bradé.',
+            'FirstCash est moins connue : valorisée à seulement 16,6 fois son free cash flow, avec une croissance du cash par action de 22,6% par an sur 5 ans.',
+            'Les deux entreprises rachètent leurs propres actions et réduisent régulièrement leur nombre de titres en circulation : un signal fort d\'allocation du capital.',
+            'Aucune des deux n\'est en zone d\'achat immédiat selon mes calculs, mais elles sont à surveiller à la prochaine correction.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Comment j\'analyse le secteur Credit Services'
+        },
+        {
+          type: 'p',
+          text: 'Le secteur Credit Services regroupe des entreprises très différentes : des réseaux de paiement comme Mastercard, des prêteurs alternatifs, des sociétés de financement à la consommation. Ce qui les unit, c\'est leur dépendance au crédit et aux transactions financières. Autant dire que les cycles économiques les touchent parfois fort.'
+        },
+        {
+          type: 'p',
+          text: 'Ma méthode ne part pas du secteur. Elle part des chiffres. Je passe chaque entreprise au crible de 10 critères financiers objectifs : rentabilité, croissance des ventes et du free cash flow, marges, endettement, rendement du capital investi, rachats d\'actions. Je juge d\'abord la qualité du business, indépendamment du prix. La note sur 10 reflète combien de ces critères l\'entreprise valide. Une note de 10/10 signifie qu\'elle les passe tous.'
+        },
+        {
+          type: 'p',
+          text: 'Sur les 42 entreprises du secteur Credit Services que j\'analyse, deux seulement obtiennent cette note maximale aujourd\'hui : Mastercard et FirstCash Holdings. Ce n\'est pas un hasard, et ça mérite qu\'on s\'y attarde.'
+        },
+        {
+          type: 'h2',
+          text: 'Mastercard (MA) : la machine à cash que tout le monde connaît, mais peu analysent vraiment'
+        },
+        {
+          type: 'p',
+          text: 'Mastercard est l\'une des entreprises les mieux notées de toute ma base de données, tous secteurs confondus. Pour comprendre pourquoi, il faut regarder un chiffre : sa marge de free cash flow atteint 50,6 %. Le free cash flow, c\'est l\'argent qui reste vraiment dans les caisses de l\'entreprise une fois toutes les dépenses payées : salaires, investissements, impôts. Une marge de 50 %, ça veut dire que sur 100 dollars de revenus, 50 finissent en cash réellement disponible. La grande majorité des entreprises ne dépasse pas 10 à 15 %.'
+        },
+        {
+          type: 'p',
+          text: 'Comment Mastercard y arrive ? Par son modèle d\'affaires. L\'entreprise ne prête pas d\'argent : elle prend une commission sur chaque transaction qui passe par son réseau. Aucun risque de crédit, des coûts marginaux quasi nuls. Chaque euro dépensé dans le monde avec une carte Mastercard lui génère une fraction de centime. Multipliée par des milliards de transactions chaque jour, cette fraction devient colossale.'
+        },
+        {
+          type: 'p',
+          text: 'Son moat, c\'est-à-dire son avantage concurrentiel structurel, repose sur deux jambes. D\'abord, l\'effet de réseau : plus il y a de marchands qui acceptent Mastercard, plus les consommateurs veulent une carte Mastercard, et inversement. Ensuite, la barrière à l\'entrée : construire un réseau de paiement mondial prend des décennies et des milliards. Visa et Mastercard ont fait ça à une époque où personne d\'autre ne pouvait les suivre. Aujourd\'hui, même les géants tech peinent à les déloger.'
+        },
+        {
+          type: 'p',
+          text: 'Côté croissance, les revenus progressent en moyenne de 14,1 % par an depuis 5 ans. Le free cash flow par action, lui, croît de 20,9 % par an : encore plus vite que les revenus, signe d\'une entreprise qui scale bien. L\'entreprise rachète ses propres actions à un rythme de 2,3 % par an : cela réduit mécaniquement le nombre de titres en circulation, ce qui augmente la part revenant à chaque actionnaire.'
+        },
+        {
+          type: 'h2',
+          text: 'Mastercard est-elle chère ? Ce que dit la valorisation'
+        },
+        {
+          type: 'p',
+          text: 'Pour mesurer le prix d\'une action, j\'utilise principalement le P/FCF (price-to-free-cash-flow) : le prix de l\'action divisé par le free cash flow annuel qu\'elle génère par titre. Un P/FCF de 25 signifie que tu paies aujourd\'hui 25 années de ce cash. Plus c\'est bas, moins c\'est cher.'
+        },
+        {
+          type: 'p',
+          text: 'Mastercard se valorise actuellement à 25,3 fois son free cash flow. À 494,91 dollars par action, mes calculs indiquent une juste valeur autour de 424 dollars. L\'action est donc en surcote de 14,3 % par rapport à mon estimation. Ce n\'est pas exorbitant pour une telle qualité, mais ce n\'est pas non plus une affaire. Mastercard est au 30e percentile de valorisation de son secteur : plus chère que 70 % de ses pairs, ce qui, pour une entreprise de cette trempe, se justifie.'
+        },
+        {
+          type: 'p',
+          text: 'Ma position : Mastercard est exactement le genre d\'entreprise que je veux avoir en portefeuille si le prix corrige. Je surveille un cours autour de 420 à 430 dollars pour envisager un point d\'entrée raisonnable.'
+        },
+        {
+          type: 'h2',
+          text: 'FirstCash Holdings (FCFS) : la pépite méconnue du crédit alternatif'
+        },
+        {
+          type: 'p',
+          text: 'FirstCash Holdings est une entreprise que peu d\'investisseurs particuliers suivent. C\'est un opérateur de prêts sur gages et de crédit alternatif, principalement aux États-Unis et en Amérique latine. Son cœur de métier : prêter de l\'argent à court terme à des particuliers qui déposent un bien en garantie, ou vendre des articles de seconde mano. Pas glamour, mais redoutablement stable.'
+        },
+        {
+          type: 'p',
+          text: 'Pourquoi une note de 10/10 malgré des marges bien inférieures à Mastercard ? Parce que ma note ne juge pas l\'ampleur des marges en absolu, mais la qualité globale du business sur ses propres critères. FirstCash affiche une marge de free cash flow de 15,3 %, ce qui est solide pour un prêteur alternatif. Son Cash ROCE (retour sur capital investi mesuré en cash, pas en bénéfice comptable) atteint 20,5 %, un niveau très respectable qui signifie que chaque euro engagé génère 20 centimes de cash réel par an.'
+        },
+        {
+          type: 'p',
+          text: 'Ce qui m\'a frappé en analysant FirstCash, c\'est la régularité de sa croissance. Les revenus progressent de 16,2 % par an depuis 5 ans, et le free cash flow par action de 22,6 % par an. Mieux encore : le nombre d\'actions en circulation baisse de 1,3 % par an, signe que l\'entreprise rachète ses propres titres plutôt que de diluer ses actionnaires.'
+        },
+        {
+          type: 'p',
+          text: 'Son moat est différent de celui de Mastercard : il s\'appuie sur la proximité physique (réseau de milliers d\'agences dans des zones souvent mal desservies par les banques), la relation de confiance locale, et des barrières réglementaires qui compliquent l\'entrée de nouveaux concurrents. C\'est un business de niche, défensif, peu exposé aux cycles tech.'
+        },
+        {
+          type: 'h2',
+          text: 'FirstCash : une valorisation plus attractive que Mastercard ?'
+        },
+        {
+          type: 'p',
+          text: 'FirstCash se valorise à 16,6 fois son free cash flow, contre 25,3 pour Mastercard. Pour une entreprise qui croît à 22 % par an sur son free cash flow, c\'est une valorisation que je trouve raisonnable, voire basse.'
+        },
+        {
+          type: 'p',
+          text: 'Mes calculs indiquent un prix d\'achat raisonnable autour de 203,50 dollars. L\'action se négocie actuellement à 221,72 dollars, soit une surcote de 8,2 %. C\'est moins décalé que Mastercard, et la différence pourrait se résorber sur une simple mauvaise journée de marché.'
+        },
+        {
+          type: 'p',
+          text: 'À noter : FirstCash a surpris positivement lors de ses derniers résultats trimestriels (Q1 2026), avec un BPA réalisé à 2,69 dollars contre 2,35 dollars attendus, soit une surprise de 14,3 %. Les prochains résultats sont attendus le 23 juillet 2026. C\'est une date à surveiller.'
+        },
+        {
+          type: 'h2',
+          text: 'Comparaison côte à côte : MA vs FCFS'
+        },
+        {
+          type: 'ul',
+          items: [
+            'Mastercard (MA) : note 10/10, prix 494,91 USD, P/FCF 25,3x, marge FCF 50,6%, croissance FCF/action +20,9%/an, Cash ROCE 134,6%, valorisation : surcote 14,3%',
+            'FirstCash Holdings (FCFS) : note 10/10, prix 221,72 USD, P/FCF 16,6x, marge FCF 15,3%, croissance FCF/action +22,6%/an, Cash ROCE 20,5%, valorisation : surcote 8,2%',
+            'Les deux rachètent leurs propres actions (baisse du nombre de titres en circulation)',
+            'Les deux versent un dividende en croissance régulière (MA : +14,2%/an sur 5 ans ; FCFS : +8,6%/an sur 5 ans)',
+            'Prochains résultats : MA le 29 juillet 2026, FCFS le 23 juillet 2026'
+          ]
+        },
+        {
+          type: 'p',
+          text: 'Les deux entreprises passent tous mes critères de qualité. La différence est dans le profil : Mastercard est une infrastructure de paiement mondiale avec des marges exceptionnelles et un moat quasi indestructible, mais elle se paie une prime légitime. FirstCash est moins connue, moins chère, sur un marché de niche défensif, avec une croissance tout aussi solide.'
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas ignorer'
+        },
+        {
+          type: 'p',
+          text: 'Pour Mastercard, le risque principal est réglementaire. Les autorités américaines et européennes scrutent régulièrement les commissions des réseaux de paiement. Une loi plafonnant les interchange fees pourrait peser sur les marges. L\'émergence des paiements instantanés (comme les virements SEPA en Europe) est aussi un facteur à surveiller sur le long terme, même si pour l\'instant Mastercard s\'adapte mieux que prévu.'
+        },
+        {
+          type: 'p',
+          text: 'Pour FirstCash, le risque est macroéconomique : une récession profonde peut réduire la capacité des emprunteurs à rembourser, même si le modèle de prêt sur gage limite l\'exposition (le bien est récupéré si l\'emprunteur ne rembourse pas). L\'expansion en Amérique latine, si elle est une source de croissance, expose aussi à des risques de change et de réglementation locale.'
+        },
+        {
+          type: 'p',
+          text: 'Dans les deux cas, la qualité est là. La question est uniquement de prix. Et aujourd\'hui, les deux actions se trouvent légèrement au-dessus de mon seuil d\'achat. Pas au point que je les fuie, mais pas au point que j\'entre sans réfléchir.'
+        },
+        {
+          type: 'h2',
+          text: 'Ma façon de surveiller ces actions'
+        },
+        {
+          type: 'p',
+          text: 'Je construis mon portefeuille par listes de surveillance, pas par impulsion. Quand une action de qualité comme Mastercard ou FirstCash atteint mon prix d\'achat calculé, j\'agis. En attendant, je suis les publications de résultats (les prochaines sont fin juillet pour les deux) et je réajuste ma valorisation à chaque trimestre.'
+        },
+        {
+          type: 'p',
+          text: 'C\'est exactement pour formaliser cette démarche que j\'ai construit lubin-investment.com : un outil qui analyse chaque action sur ces mêmes critères, calcule un prix d\'achat raisonnable, et me dit objectivement si c\'est le bon moment d\'entrer. Tu peux retrouver l\'analyse complète de Mastercard sur /analyse/MA et celle de FirstCash sur /analyse/FCFS.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Comment fonctionne la note sur 10 dans ton analyse ?',
+          a: 'Je passe chaque entreprise au crible de 10 critères financiers objectifs : rentabilité, croissance des ventes et du free cash flow, marges, endettement, rendement du capital investi, rachats d\'actions. Chaque critère validé donne un point. Une note de 10/10 signifie que l\'entreprise passe tous les tests. C\'est un filtre de qualité, pas une recommandation d\'achat.'
+        },
+        {
+          q: 'Pourquoi utiliser le P/FCF plutôt que le PER traditionnel ?',
+          a: 'Le PER (price-to-earnings ratio) est basé sur le bénéfice comptable, qui peut être manipulé par des amortissements, des dépréciations ou des charges non récurrentes. Le P/FCF (price-to-free-cash-flow) mesure le prix de l\'action rapporté au cash réellement généré. C\'est plus difficile à maquiller. Une entreprise peut afficher un bon bénéfice tout en consommant du cash : le P/FCF le révèle.'
+        },
+        {
+          q: 'FirstCash Holdings est-elle vraiment comparable à Mastercard en termes de qualité ?',
+          a: 'Pas en termes de marges brutes : Mastercard est dans une catégorie à part avec 50 % de marge FCF. Mais ma note juge chaque entreprise sur ses propres critères de qualité (croissance, rentabilité relative, gestion du capital), pas en comparaison directe. FirstCash valide les 10 critères dans son secteur de niche, ce qui en fait une entreprise d\'exception dans sa catégorie.'
+        },
+        {
+          q: 'Ces actions sont-elles en zone d\'achat aujourd\'hui ?',
+          a: 'Selon mes calculs, non. Mastercard présente une surcote de 14,3 % par rapport à ma valorisation, et FirstCash de 8,2 %. Elles méritent d\'être sur ta liste de surveillance, mais je n\'entre pas dans une position sans marge de sécurité. Les prochains résultats (fin juillet 2026 pour les deux) pourraient créer une opportunité si le marché réagit mal.'
+        },
+        {
+          q: 'Qu\'est-ce que le Cash ROCE et pourquoi est-il important ?',
+          a: 'Le Cash ROCE (Cash Return on Capital Employed) mesure le retour sur capital investi en utilisant le free cash flow réel, pas le bénéfice comptable. Il répond à la question : pour chaque euro investi dans l\'entreprise, combien de cash est-il généré ? Un Cash ROCE de 134,6 % pour Mastercard signifie que chaque euro de capital génère 1,35 euro de cash par an. C\'est exceptionnel et révèle un modèle d\'affaires léger en capital.'
+        }
+      ],
+      tags: ['credit-services', 'mastercard', 'firstcash', 'actions-qualite', 'palmares-secteur', 'analyse-fondamentale', 'pfcf', 'free-cash-flow'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (juin 2026), susceptibles d\'évoluer. Fais tes propres recherches avant toute décision d\'investissement.'
+    },
+    en: {
+      title: 'Credit: 2 top-quality stocks the market overlooks in 2026',
+      excerpt: 'Mastercard and FirstCash Holdings both score the maximum in my analysis. Yet few retail investors follow them closely. I explain what makes them stand out, and what the numbers really tell us.',
+      metaDescription: 'Mastercard (MA) and FirstCash Holdings (FCFS): 2 stocks scoring the maximum in Credit Services. Full fundamental analysis with real valuation data.',
+      answer: 'In the Credit Services sector, two stocks achieve the maximum score in my analysis: Mastercard (MA) and FirstCash Holdings (FCFS). Mastercard is a world-class cash machine; FirstCash is a lesser-known company, considerably cheaper, with solid growth. Neither is a bargain today, but both deserve a spot on your watchlist.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Mastercard (MA) and FirstCash Holdings (FCFS) both score the maximum (10/10) in Credit Services according to my fundamental analysis method.',
+            'Mastercard posts a free cash flow margin of 50.6% and a valuation of 25.3x its free cash flow: an elite business, but not cheap.',
+            'FirstCash is less well-known: valued at only 16.6x its free cash flow, with FCF per share growth of 22.6% per year over 5 years.',
+            'Both companies buy back their own shares, steadily reducing shares outstanding: a strong signal of disciplined capital allocation.',
+            'Neither is in an immediate buy zone by my calculations, but both are worth watching for the next correction.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'How I analyze the Credit Services sector'
+        },
+        {
+          type: 'p',
+          text: 'The Credit Services sector covers very different companies: payment networks like Mastercard, alternative lenders, consumer finance companies. What unites them is their dependence on credit and financial transactions, which makes them vulnerable to economic cycles.'
+        },
+        {
+          type: 'p',
+          text: 'My method does not start from the sector. It starts from the numbers. I run each company through 10 objective financial criteria: profitability, revenue and free cash flow growth, margins, debt levels, return on capital, share buybacks. I judge business quality first, independent of price. The score out of 10 reflects how many of these criteria the company passes. A 10/10 means it passes all of them.'
+        },
+        {
+          type: 'p',
+          text: 'Out of 42 companies in the Credit Services sector that I track, only two achieve this maximum score today: Mastercard and FirstCash Holdings. That is not a coincidence, and it is worth understanding why.'
+        },
+        {
+          type: 'h2',
+          text: 'Mastercard (MA): the cash machine everyone knows, but few really analyze'
+        },
+        {
+          type: 'p',
+          text: 'Mastercard is one of the highest-rated companies in my entire database, across all sectors. To understand why, look at one number: its free cash flow margin reaches 50.6%. Free cash flow is the money that actually remains in the company after all expenses: salaries, investments, taxes. A 50% margin means that for every $100 in revenue, $50 ends up as genuinely available cash. Most companies do not exceed 10 to 15%.'
+        },
+        {
+          type: 'p',
+          text: 'How does Mastercard achieve this? Through its business model. The company does not lend money: it takes a commission on every transaction that passes through its network. No credit risk, near-zero marginal costs. Every dollar spent anywhere in the world with a Mastercard generates a tiny fraction of a cent. Multiplied by billions of daily transactions, that fraction becomes enormous.'
+        },
+        {
+          type: 'p',
+          text: 'Its moat rests on two pillars. First, the network effect: the more merchants accept Mastercard, the more consumers want a Mastercard, and vice versa. Second, barriers to entry: building a global payment network takes decades and billions of dollars. Visa and Mastercard built this when no one else could keep up. Today, even tech giants struggle to dislodge them.'
+        },
+        {
+          type: 'p',
+          text: 'On growth, revenues increase at an average of 14.1% per year over 5 years. Free cash flow per share grows at 20.9% per year: even faster than revenues, a sign of a well-scaling business. The company buys back its own shares at a rate of 2.3% per year, mechanically increasing each investor\'s share.'
+        },
+        {
+          type: 'h2',
+          text: 'Is Mastercard expensive? What the valuation says'
+        },
+        {
+          type: 'p',
+          text: 'To measure a stock\'s price, I primarily use the P/FCF (price-to-free-cash-flow): the stock price divided by the annual free cash flow it generates per share. A P/FCF of 25 means you are paying 25 years worth of that cash today. The lower, the cheaper.'
+        },
+        {
+          type: 'p',
+          text: 'Mastercard currently trades at 25.3x its free cash flow. At $494.91 per share, my calculations indicate a fair value around $424. The stock is therefore overvalued by 14.3% relative to my estimate. Not outrageous for this quality, but not a bargain either. Mastercard sits at the 30th percentile of its sector valuation: more expensive than 70% of its peers, which for a company of this caliber is justified.'
+        },
+        {
+          type: 'p',
+          text: 'My take: Mastercard is exactly the kind of company I want in my portfolio if the price corrects. I am watching for a level around $420-430 to consider a reasonable entry point.'
+        },
+        {
+          type: 'h2',
+          text: 'FirstCash Holdings (FCFS): the overlooked gem of alternative credit'
+        },
+        {
+          type: 'p',
+          text: 'FirstCash Holdings is a company that few retail investors follow. It operates pawnshops and alternative credit, primarily in the United States and Latin America. Its core business: lending money short-term to individuals who deposit an asset as collateral, or selling second-hand goods. Not glamorous, but remarkably stable.'
+        },
+        {
+          type: 'p',
+          text: 'Why a 10/10 despite much lower margins than Mastercard? Because my score does not judge the absolute size of margins, but the overall business quality on its own terms. FirstCash posts a free cash flow margin of 15.3%, which is solid for an alternative lender. Its Cash ROCE reaches 20.5%, meaning every dollar invested generates 20 cents of real cash per year.'
+        },
+        {
+          type: 'p',
+          text: 'What struck me when analyzing FirstCash is the consistency of its growth. Revenues grow at 16.2% per year over 5 years, and free cash flow per share at 22.6% per year. The share count is declining at 1.3% per year, showing the company buys back its own shares rather than diluting shareholders.'
+        },
+        {
+          type: 'p',
+          text: 'Its moat rests on physical proximity (a network of thousands of stores in areas often underserved by banks), local trust relationships, and regulatory barriers. It is a niche, defensive business with limited exposure to tech cycles.'
+        },
+        {
+          type: 'h2',
+          text: 'Side-by-side comparison: MA vs FCFS'
+        },
+        {
+          type: 'ul',
+          items: [
+            'Mastercard (MA): score 10/10, price $494.91, P/FCF 25.3x, FCF margin 50.6%, FCF/share growth +20.9%/year, Cash ROCE 134.6%, valuation: 14.3% premium',
+            'FirstCash Holdings (FCFS): score 10/10, price $221.72, P/FCF 16.6x, FCF margin 15.3%, FCF/share growth +22.6%/year, Cash ROCE 20.5%, valuation: 8.2% premium',
+            'Both buy back their own shares (declining share count)',
+            'Both pay a growing dividend (MA: +14.2%/year over 5 years; FCFS: +8.6%/year over 5 years)',
+            'Next earnings: MA on July 29, 2026; FCFS on July 23, 2026'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Risks you should not ignore'
+        },
+        {
+          type: 'p',
+          text: 'For Mastercard, the main risk is regulatory. U.S. and European authorities regularly scrutinize payment network fees. A law capping interchange fees could weigh on margins. The rise of instant payments is also a factor to watch long-term, even though Mastercard is adapting better than expected.'
+        },
+        {
+          type: 'p',
+          text: 'For FirstCash, the risk is macroeconomic: a deep recession can reduce borrowers ability to repay, although the pawnshop model limits exposure. Latin American expansion brings currency and local regulatory risks.'
+        },
+        {
+          type: 'p',
+          text: 'In both cases, quality is there. The question is purely about price. And today, both stocks sit slightly above my buy threshold. Not enough to scare me away, but not enough to enter without thinking.'
+        },
+        {
+          type: 'h2',
+          text: 'How I monitor these stocks'
+        },
+        {
+          type: 'p',
+          text: 'I build my portfolio through watchlists, not impulse. When a quality stock like Mastercard or FirstCash reaches my calculated buy price, I act. In the meantime, I track earnings releases (both in late July 2026) and update my valuation each quarter. You can find the full analysis of Mastercard at /analyse/MA and FirstCash at /analyse/FCFS.'
+        }
+      ],
+      faq: [
+        {
+          q: 'How does your score out of 10 work?',
+          a: 'I run each company through 10 objective financial criteria: profitability, revenue and free cash flow growth, margins, debt levels, return on capital, share buybacks. Each validated criterion earns one point. A 10/10 means the company passes all tests. It is a quality filter, not a buy recommendation.'
+        },
+        {
+          q: 'Why use P/FCF rather than the traditional P/E ratio?',
+          a: 'The P/E ratio is based on accounting earnings, which can be manipulated through depreciation or non-recurring charges. The P/FCF measures the stock price relative to cash actually generated. A company can show good earnings while consuming cash: the P/FCF reveals this.'
+        },
+        {
+          q: 'Is FirstCash Holdings really comparable to Mastercard in quality?',
+          a: 'Not in terms of raw margins: Mastercard is in a class of its own with a 50% FCF margin. But my score judges each company on its own quality criteria, not in direct comparison. FirstCash validates all 10 criteria in its niche market, making it an exceptional company in its category.'
+        },
+        {
+          q: 'Are these stocks in a buy zone today?',
+          a: 'According to my calculations, no. Mastercard shows a 14.3% premium above my valuation, and FirstCash 8.2%. They deserve to be on your watchlist, but I do not enter a position without a margin of safety. The upcoming earnings in late July 2026 could create an opportunity if the market reacts poorly.'
+        },
+        {
+          q: 'What is Cash ROCE and why does it matter?',
+          a: 'Cash ROCE measures return on invested capital using actual free cash flow. It answers: for every dollar invested in the business, how much cash is generated? A Cash ROCE of 134.6% for Mastercard means each dollar of capital generates $1.35 in cash per year. Exceptional and reveals an asset-light business model.'
+        }
+      ],
+      tags: ['credit-services', 'mastercard', 'firstcash', 'quality-stocks', 'sector-ranking', 'fundamental-analysis', 'pfcf', 'free-cash-flow'],
+      disclaimer: 'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (June 2026), subject to change. Do your own research before any investment decision.'
+    },
+    es: {
+      title: 'Credito: 2 acciones de calidad ignoradas en bolsa en 2026',
+      excerpt: 'Mastercard y FirstCash Holdings obtienen las dos la nota maxima en mi analisis. Sin embargo, pocos inversores particulares las siguen de cerca. Te explico por que se destacan y lo que los numeros realmente dicen.',
+      metaDescription: 'Mastercard (MA) y FirstCash Holdings (FCFS): 2 acciones con nota maxima en Credit Services. Analisis fundamental completo con valoracion real.',
+      answer: 'En el sector Credit Services, dos acciones obtienen la nota maxima en mi metodo de analisis: Mastercard (MA) y FirstCash Holdings (FCFS). Mastercard es una maquina de cash de clase mundial; FirstCash es una empresa menos conocida, bastante mas barata, con un crecimiento solido. Ninguna esta barata hoy, pero ambas merecen un lugar en tu lista de seguimiento.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Mastercard (MA) y FirstCash Holdings (FCFS) obtienen las dos la nota maxima (10/10) en el sector Credit Services segun mi metodo de analisis fundamental.',
+            'Mastercard registra un margen de free cash flow del 50,6% y una valoracion de 25,3 veces su free cash flow: un negocio de elite, pero no barato.',
+            'FirstCash es menos conocida: valorada a solo 16,6 veces su free cash flow, con un crecimiento del FCF por accion del 22,6% anual en 5 anos.',
+            'Las dos empresas recompran sus propias acciones y reducen regularmente el numero de titulos en circulacion: una senal clara de asignacion disciplinada del capital.',
+            'Ninguna esta en zona de compra inmediata segun mis calculos, pero ambas merecen seguimiento para la proxima correccion.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Como analizo el sector Credit Services'
+        },
+        {
+          type: 'p',
+          text: 'El sector Credit Services agrupa empresas muy diferentes: redes de pago como Mastercard, prestamistas alternativos, sociedades de financiacion al consumo. Lo que las une es su dependencia del credito y las transacciones financieras, lo que las hace vulnerables a los ciclos economicos.'
+        },
+        {
+          type: 'p',
+          text: 'Mi metodo no parte del sector, sino de los numeros. Someto cada empresa a 10 criterios financieros objetivos: rentabilidad, crecimiento de ingresos y free cash flow, margenes, deuda, retorno sobre el capital invertido, recompras de acciones. Juzgo primero la calidad del negocio, independientemente del precio. La nota sobre 10 refleja cuantos de estos criterios cumple la empresa. Una nota de 10/10 significa que los supera todos.'
+        },
+        {
+          type: 'p',
+          text: 'De las 42 empresas del sector Credit Services que analizo, solo dos alcanzan hoy esta nota maxima: Mastercard y FirstCash Holdings. No es casualidad, y vale la pena entender por que.'
+        },
+        {
+          type: 'h2',
+          text: 'Mastercard (MA): la maquina de cash que todos conocen, pero pocos analizan de verdad'
+        },
+        {
+          type: 'p',
+          text: 'Mastercard es una de las empresas mejor valoradas de toda mi base de datos. Para entender por que, basta un numero: su margen de free cash flow alcanza el 50,6%. El free cash flow es el dinero que realmente queda en las arcas de la empresa una vez pagados todos los gastos: salarios, inversiones, impuestos. Un margen del 50% significa que por cada 100 dolares de ingresos, 50 acaban como cash genuinamente disponible.'
+        },
+        {
+          type: 'p',
+          text: 'Como lo consigue Mastercard? A traves de su modelo de negocio. La empresa no presta dinero: cobra una comision por cada transaccion que pasa por su red. Sin riesgo de credito, con costes marginales casi nulos. Cada dolar gastado en el mundo con una tarjeta Mastercard le genera una fraccion minima de centavo.'
+        },
+        {
+          type: 'p',
+          text: 'Su moat se apoya en dos pilares. Primero, el efecto de red: cuantos mas comercios aceptan Mastercard, mas consumidores quieren una tarjeta Mastercard, y viceversa. Segundo, las barreras de entrada: construir una red de pagos mundial lleva decadas y miles de millones de dolares.'
+        },
+        {
+          type: 'p',
+          text: 'En cuanto al crecimiento, los ingresos aumentan en promedio un 14,1% anual durante 5 anos. El free cash flow por accion crece un 20,9% anual: incluso mas rapido que los ingresos, senal de un negocio que escala bien.'
+        },
+        {
+          type: 'h2',
+          text: 'FirstCash Holdings (FCFS): la joya desconocida del credito alternativo'
+        },
+        {
+          type: 'p',
+          text: 'FirstCash Holdings es un operador de casas de empenos y credito alternativo, principalmente en Estados Unidos y America Latina. Su nucleo de negocio: prestar dinero a corto plazo a particulares que depositan un bien como garantia, o vender articulos de segunda mano. No es glamuroso, pero es notablemente estable.'
+        },
+        {
+          type: 'p',
+          text: 'Por que una nota de 10/10 pese a margenes muy inferiores a Mastercard? Porque mi nota no juzga el tamano absoluto de los margenes, sino la calidad global del negocio. FirstCash registra un margen de free cash flow del 15,3%, solido para un prestamista alternativo. Su Cash ROCE alcanza el 20,5%, muy respetable.'
+        },
+        {
+          type: 'p',
+          text: 'FirstCash se valoriza a 16,6 veces su free cash flow, frente a 25,3 para Mastercard. Para una empresa que crece su free cash flow por accion un 22% anual, encuentro esa valoracion razonable. Mis calculos indican un precio de compra razonable alrededor de 203,50 dolares, frente a un precio actual de 221,72 dolares, una sobrevaloracion del 8,2%.'
+        },
+        {
+          type: 'h2',
+          text: 'Comparacion lado a lado: MA vs FCFS'
+        },
+        {
+          type: 'ul',
+          items: [
+            'Mastercard (MA): nota 10/10, precio 494,91 USD, P/FCF 25,3x, margen FCF 50,6%, crecimiento FCF/accion +20,9%/ano, Cash ROCE 134,6%, valoracion: sobrevaloracion del 14,3%',
+            'FirstCash Holdings (FCFS): nota 10/10, precio 221,72 USD, P/FCF 16,6x, margen FCF 15,3%, crecimiento FCF/accion +22,6%/ano, Cash ROCE 20,5%, valoracion: sobrevaloracion del 8,2%',
+            'Las dos recompran sus propias acciones (reduccion del numero de titulos en circulacion)',
+            'Las dos pagan un dividendo en crecimiento regular (MA: +14,2%/ano en 5 anos; FCFS: +8,6%/ano en 5 anos)',
+            'Proximos resultados: MA el 29 de julio de 2026, FCFS el 23 de julio de 2026'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no hay que ignorar'
+        },
+        {
+          type: 'p',
+          text: 'Para Mastercard, el principal riesgo es regulatorio. Las autoridades estadounidenses y europeas vigilan regularmente las comisiones de las redes de pago. Una ley que limite las tasas de intercambio podria pesar sobre los margenes.'
+        },
+        {
+          type: 'p',
+          text: 'Para FirstCash, el riesgo es macroeconomico: una recesion profunda puede reducir la capacidad de los prestatarios para devolver. La expansion en America Latina tambien conlleva riesgos cambiarios y de regulacion local.'
+        },
+        {
+          type: 'h2',
+          text: 'Como sigo estas acciones'
+        },
+        {
+          type: 'p',
+          text: 'Construyo mi cartera mediante listas de seguimiento, no por impulso. Cuando una accion de calidad como Mastercard o FirstCash alcanza mi precio de compra calculado, actuo. Puedes encontrar el analisis completo de Mastercard en /analyse/MA y el de FirstCash en /analyse/FCFS.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Como funciona la nota sobre 10 en tu analisis?',
+          a: 'Someto cada empresa a 10 criterios financieros objetivos: rentabilidad, crecimiento de ingresos y free cash flow, margenes, deuda, retorno sobre capital invertido, recompras de acciones. Cada criterio validado da un punto. Una nota de 10/10 significa que la empresa supera todas las pruebas. Es un filtro de calidad, no una recomendacion de compra.'
+        },
+        {
+          q: 'Por que usar el P/FCF en lugar del PER tradicional?',
+          a: 'El PER se basa en el beneficio contable, que puede manipularse mediante amortizaciones o cargos no recurrentes. El P/FCF mide el precio de la accion en relacion con el cash realmente generado. Es mas dificil de manipular.'
+        },
+        {
+          q: 'Estan estas acciones en zona de compra hoy?',
+          a: 'Segun mis calculos, no. Mastercard presenta una sobrevaloracion del 14,3% respecto a mi valoracion, y FirstCash del 8,2%. Merecen estar en tu lista de seguimiento, pero no entro en una posicion sin margen de seguridad.'
+        },
+        {
+          q: 'Que es el Cash ROCE y por que es importante?',
+          a: 'El Cash ROCE mide el retorno sobre el capital invertido utilizando el free cash flow real. Responde a la pregunta: por cada euro invertido, cuanto cash se genera? Un Cash ROCE del 134,6% para Mastercard es excepcional y revela un modelo de negocio ligero en capital.'
+        },
+        {
+          q: 'Es FirstCash Holdings realmente comparable a Mastercard en terminos de calidad?',
+          a: 'No en terminos de margenes brutos: Mastercard esta en una categoria aparte con un 50% de margen FCF. Pero mi nota juzga cada empresa segun sus propios criterios de calidad. FirstCash valida los 10 criterios en su nicho de mercado, lo que la convierte en una empresa de excepcion en su categoria.'
+        }
+      ],
+      tags: ['credit-services', 'mastercard', 'firstcash', 'acciones-calidad', 'palmares-sector', 'analisis-fundamental', 'pfcf', 'free-cash-flow'],
+      disclaimer: 'Analisis con fines informativos y educativos, no un consejo de inversion personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicacion (junio de 2026), sujetas a cambios. Haz tu propia investigacion antes de cualquier decision de inversion.'
+    }
+  }
+};
+
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
