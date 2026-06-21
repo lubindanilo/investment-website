@@ -343,6 +343,9 @@
     "horizonAll": "All",
     "priceUnavailable": "Price chart unavailable for this symbol.",
     "landingKicker": "From our watch · top rated",
+    "related": {
+      "title": "Other {{sector}} stocks"
+    },
     "sections": {
       "chiffres": {
         "title": "The numbers",

@@ -368,6 +368,9 @@
     "horizonAll": "Tout",
     "priceUnavailable": "Graphique de cours indisponible pour ce symbole.",
     "landingKicker": "Issu de la veille · les mieux notées",
+    "related": {
+      "title": "Autres actions du secteur {{sector}}"
+    },
     "sections": {
       "chiffres": {
         "title": "Les chiffres",

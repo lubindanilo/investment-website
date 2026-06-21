@@ -9,9 +9,12 @@
 
 /* Recherche */
 .anl-search-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
-/* CTA affichées au-dessus d'une analyse détaillée (remplacent la search bar). */
-.anl-cta-block { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
-.anl-cta-block .btn { flex: 1 1 auto; min-height: 44px; }
+/* CTAs au-dessus d'une analyse détaillée (remplacent la search bar) :
+   stack vertical aligné à droite, flèche dans chaque bouton pour signaler
+   qu'on navigue vers une autre page. */
+.anl-cta-block { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; margin-bottom: 18px; }
+.anl-cta-block .btn { min-height: 44px; min-width: 240px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+@media (max-width: 640px) { .anl-cta-block .btn { width: 100%; min-width: 0; } }
 .anl-search { display: flex; gap: 10px; width: 100%; }
 .anl-search-field { position: relative; flex: 1; display: flex; }
 .anl-search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--ink-4); }
@@ -108,6 +111,21 @@
 .anl-landing-ticker { font-weight: 700; font-size: 15px; }
 .anl-landing-name { max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .anl-landing-foot { border-top: 1px solid var(--line-soft); padding-top: 10px; }
+
+/* Maillage interne : autres actions du même secteur, en bas de la page d'analyse. */
+.anl-related { margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line-soft); }
+.anl-related-title { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px; }
+.anl-related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
+.anl-related-card {
+  text-align: left; padding: 16px; display: flex; flex-direction: column; gap: 12px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: var(--sh-sm);
+  text-decoration: none; color: inherit;
+  transition: transform .12s, box-shadow .14s;
+}
+.anl-related-card:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
+.anl-related-ticker { font-weight: 700; font-size: 15px; color: var(--ink); }
+.anl-related-name { max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.anl-related-foot { border-top: 1px solid var(--line-soft); padding-top: 10px; }
 
 @media (max-width: 880px) {
   .anl-scorecard { grid-template-columns: 1fr; gap: 18px; }

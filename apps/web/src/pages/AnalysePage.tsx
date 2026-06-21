@@ -217,11 +217,16 @@ export function AnalysePage() {
         )}
 
         {/* Page d'analyse détaillée : la search bar disparaît, on propose plutôt
-            d'analyser une autre action ou de découvrir nos opportunités. */}
+            d'analyser une autre action ou de découvrir nos opportunités.
+            CTAs alignés en colonne à droite, avec flèche pour signaler la navigation. */}
         {analysis && (
           <div className="anl-cta-block">
-            <Link to="/analyser" className="btn btn-ghost">{t('analyse.analyzeAnother')}</Link>
-            <Link to="/screener" className="btn btn-brand">{t('analyse.opportunities')}</Link>
+            <Link to="/analyser" className="btn btn-ghost">
+              {t('analyse.analyzeAnother')} <Icon name="arrowRight" size={15} />
+            </Link>
+            <Link to="/screener" className="btn btn-brand">
+              {t('analyse.opportunities')} <Icon name="arrowRight" size={15} />
+            </Link>
           </div>
         )}
 
@@ -238,18 +243,23 @@ export function AnalysePage() {
         {!loading && !analysis && !error && !preview && <LandingDiscovery onPick={(t) => { setTicker(t); submit(t); }} />}
 
         {analysis && (
-          <AnalysisView
-            analysis={analysis}
-            chiffres={chiffres}
-            business={business}
-            management={management}
-            watched={watched}
-            onWatch={addToWatchlist}
-            onGenerateQual={generateQualitative}
-            generatingQual={generatingQual}
-            refreshingQual={refreshingQual}
-            onRefreshMgmt={refreshManagementOnly}
-          />
+          <>
+            <AnalysisView
+              analysis={analysis}
+              chiffres={chiffres}
+              business={business}
+              management={management}
+              watched={watched}
+              onWatch={addToWatchlist}
+              onGenerateQual={generateQualitative}
+              generatingQual={generatingQual}
+              refreshingQual={refreshingQual}
+              onRefreshMgmt={refreshManagementOnly}
+            />
+            {/* Maillage interne : 5 actions du même secteur les mieux notées, cliquables.
+                Améliore le crawl Google + propose au lecteur d'explorer des entreprises comparables. */}
+            <RelatedTickers ticker={analysis.ticker} sector={analysis.sectorBenchmark?.sector ?? null} />
+          </>
         )}
       </div>
       {upgrade && (
@@ -576,5 +586,62 @@ function LandingDiscovery({ onPick }: { onPick: (ticker: string) => void }) {
             })}
       </div>
     </div>
+  );
+}
+
+// ─── Maillage interne : autres actions du même secteur ───────────────────────
+// Affiche 5 actions du même secteur les mieux notées, en bas de la page d'analyse.
+// Sert à 2 choses : (1) suggérer à l'utilisateur d'autres comparables intéressantes,
+// (2) construire un graphe de liens internes que Google adore crawler (maillage sectoriel).
+function RelatedTickers({ ticker, sector }: { ticker: string; sector: string | null }) {
+  const { t } = useTranslation();
+  const [related, setRelated] = useState<ScreenerTopRow[]>([]);
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    if (!sector) { setRelated([]); setLoaded(true); return; }
+    let cancelled = false;
+    setLoaded(false);
+    // Le secteur peut contenir des tirets/duplications (« X - X ») → on garde la valeur brute,
+    // le backend matche exactement la colonne sector qu'il a stockée.
+    api.screener.top({ sector, limit: 6 })
+      .then(rows => {
+        if (cancelled) return;
+        setRelated(rows.filter(r => r.ticker !== ticker).slice(0, 5));
+        setLoaded(true);
+      })
+      .catch(() => { if (!cancelled) setLoaded(true); });
+    return () => { cancelled = true; };
+  }, [ticker, sector]);
+  if (!sector || (loaded && related.length === 0)) return null;
+  // Nom de secteur affiché : on retire un éventuel dédoublement (« X - X » → « X »).
+  const sectorDisplay = sector.includes(' - ') ? sector.split(' - ')[0] : sector;
+  return (
+    <section className="anl-related fade-up">
+      <h2 className="anl-related-title">{t('analyse.related.title', { sector: sectorDisplay })}</h2>
+      <div className="anl-related-grid">
+        {!loaded
+          ? Array.from({ length: 5 }).map((_, i) => <div key={i} className="card skel-ui" style={{ height: 88 }} />)
+          : related.map(r => {
+              const s10 = r.scoreChiffresMax ? Math.round((r.scoreChiffres ?? 0) / r.scoreChiffresMax * 10) : 0;
+              return (
+                <Link key={r.ticker} to={`/analyse/${r.ticker}`} className="card anl-related-card">
+                  <div className="row between">
+                    <div className="col gap-2" style={{ minWidth: 0 }}>
+                      <span className="num anl-related-ticker">{r.ticker}</span>
+                      <span className="tiny muted anl-related-name">{r.name ?? r.ticker}</span>
+                    </div>
+                    <ScorePill score={s10} />
+                  </div>
+                  {r.pfcfTTM != null && r.pfcfTTM > 0 && (
+                    <div className="row between anl-related-foot">
+                      <span className="tiny muted">P/FCF</span>
+                      <span className="num tiny" style={{ color: 'var(--ink-2)' }}>{r.pfcfTTM.toFixed(1)}×</span>
+                    </div>
+                  )}
+                </Link>
+              );
+            })}
+      </div>
+    </section>
   );
 }

@@ -343,6 +343,9 @@
     "horizonAll": "Todo",
     "priceUnavailable": "Gráfico de cotización no disponible para este símbolo.",
     "landingKicker": "De nuestro seguimiento · las mejor valoradas",
+    "related": {
+      "title": "Otras acciones del sector {{sector}}"
+    },
     "sections": {
       "chiffres": {
         "title": "Las cifras",
