@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage.js';
 import { AnalysePage } from './pages/AnalysePage.js';
 import { RequireAuth } from './components/RequireAuth.js';
 import { useAuth } from './contexts/AuthContext.js';
+import { useSubscription } from './contexts/SubscriptionContext.js';
 import { useToast } from './components/Toast.js';
 import { Logo } from './components/ui/primitives.js';
 import AppFooter from './components/AppFooter.js';
@@ -44,6 +45,7 @@ export function App() {
   const { pathname } = useLocation();
   const { t } = useTranslation();
   const { user } = useAuth();
+  const { isPro } = useSubscription();
   const isOwner = (user?.email ?? '').toLowerCase() === OWNER_EMAIL;
   // Onglets d'app masqués uniquement sur les pages d'auth. Présents sur l'accueil pour
   // garder Watchlist / Screener / Analyser accessibles depuis la landing.
@@ -119,8 +121,10 @@ export function App() {
               {t('nav.marketBeat')}
             </NavLink>
           )}
+          {/* Label conditionnel : un Pro voit « Mon abonnement » (pertinent), un Free/anonyme voit
+              « Passer Pro » (conversion). Maximise le CTR sans frustrer les abonnés. */}
           <NavLink to="/pricing" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.pricing')}
+            {t(isPro ? 'nav.subscription' : 'nav.pricingPro')}
           </NavLink>
           {/* Actions (langue + compte) repliées dans le menu sur mobile uniquement.
               stopPropagation : interagir avec le sélecteur de langue ou le menu compte

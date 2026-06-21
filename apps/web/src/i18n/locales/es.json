@@ -74,13 +74,15 @@
   },
   "nav": {
     "analyse": "Analizar",
-    "watchlist": "Lista",
-    "screener": "Screener",
+    "watchlist": "Mis favoritos",
+    "screener": "Top acciones",
     "marketBeat": "Estrategia de cartera",
     "compare": "Comparar",
     "blog": "Blog",
-    "methodologie": "Metodología",
+    "methodologie": "Nuestro método",
     "pricing": "Precios",
+    "pricingPro": "Pasar a Pro",
+    "subscription": "Mi suscripción",
     "toggleMenu": "Menú de navegación"
   },
   "userMenu": {
