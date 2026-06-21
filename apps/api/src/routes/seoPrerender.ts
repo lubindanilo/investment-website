@@ -906,7 +906,7 @@ const STATIC_SEO: StaticSeo[] = [
         title: 'Surperforme le marché avec des actions de qualité au bon prix',
         desc: "Repère en un clin d'œil les meilleures opportunités d'investissement parmi des milliers d'entreprises analysées en continu.",
         h1: "Trouve les actions à acheter aujourd'hui, en un coup d'œil",
-        intro: "Achète des actions de qualité au bon prix : la stratégie qui surperforme l'indice sur le long terme. 7000+ actions analysées.",
+        intro: "Achète des actions de qualité au bon prix : la stratégie d'investissement qui surperforme le marché sur le long terme.",
         sections: [
           { h2: 'Comment ça marche', p: "Tapez un ticker, lisez la note sur 10 et son détail, puis décidez du prix d'entrée. La qualité du business et le prix de l'action sont jugés séparément : c'est la règle d'or de la méthode." },
           { h2: 'Une méthode transparente', p: "Les critères s'appuient sur la littérature financière (Warren Buffett, Michael Mauboussin, Aswath Damodaran). Aucune opinion, aucune boîte noire : la donnée décide." },
@@ -925,7 +925,7 @@ const STATIC_SEO: StaticSeo[] = [
         title: 'Beat the market with quality stocks at the right price',
         desc: 'Spot the best investment opportunities at a glance, among thousands of companies analyzed continuously.',
         h1: 'Find the stocks to buy today, at a glance',
-        intro: 'Buying quality stocks at the right price: the strategy that beats the index over the long term. 7,000+ stocks analyzed.',
+        intro: 'Buy quality stocks at the right price: the investment strategy that beats the market over the long term.',
         sections: [
           { h2: 'How it works', p: "Type a ticker, read the score out of 10 and its breakdown, then decide on your entry price. Business quality and share price are judged separately: that's the golden rule of the method." },
           { h2: 'A transparent method', p: 'The criteria draw on financial literature (Warren Buffett, Michael Mauboussin, Aswath Damodaran). No opinions, no black box: the data decides.' },
@@ -944,7 +944,7 @@ const STATIC_SEO: StaticSeo[] = [
         title: 'Supera al mercado con acciones de calidad al precio justo',
         desc: 'Detecta de un vistazo las mejores oportunidades de inversión entre miles de empresas analizadas en continuo.',
         h1: 'Encuentra las acciones para comprar hoy, de un vistazo',
-        intro: 'Comprar acciones de calidad al precio justo: la estrategia que supera al índice a largo plazo. Más de 7000 acciones analizadas.',
+        intro: 'Compra acciones de calidad al precio justo: la estrategia de inversión que supera al mercado a largo plazo.',
         sections: [
           { h2: 'Cómo funciona', p: 'Escribe un ticker, lee la nota sobre 10 y su detalle, y luego decide el precio de entrada. La calidad del negocio y el precio de la acción se juzgan por separado: es la regla de oro del método.' },
           { h2: 'Un método transparente', p: 'Los criterios se apoyan en la literatura financiera (Warren Buffett, Michael Mauboussin, Aswath Damodaran). Sin opiniones, sin caja negra: decide el dato.' },
