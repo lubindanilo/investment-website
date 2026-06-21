@@ -218,10 +218,10 @@ function renderTickerHtml(
   // Maillage interne : 3-5 tickers comparables (même secteur), liens cliquables avec score + P/FCF
   // en anchor text pour donner du contexte à Google. Construit un graphe que Googlebot crawle facilement.
   const sectorLabel = t.sector ? escapeHtml(displaySector(t.sector)) : null;
+  const relatedHeading = sectorLabel ? `Autres actions du secteur ${sectorLabel}` : 'Autres actions à explorer';
   const relatedSection = related.length > 0 ? `
 
-<h2>Si tu regardes ${displayNameEsc}, regarde aussi…</h2>
-<p>D'autres actions de qualité ${sectorLabel ? `dans le secteur ${sectorLabel}` : 'à explorer'}, classées par note décroissante :</p>
+<h2>${relatedHeading}</h2>
 <ul>
 ${related.map((r) => {
   const rTicker = escapeHtml(r.ticker);
