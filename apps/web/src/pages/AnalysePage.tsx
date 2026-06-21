@@ -209,9 +209,6 @@ export function AnalysePage() {
             </header>
             <div className="anl-search-block">
               <SearchBar value={ticker} onChange={setTicker} onSubmit={submit} loading={loading} />
-              {!loading && !error && !preview && (
-                <span className="tiny muted anl-hint">{t('analyse.hintPrefix')} <b>AAPL</b>, <b>MSFT</b> {t('analyse.hintOr')} <b>ASML</b>.</span>
-              )}
             </div>
           </>
         )}

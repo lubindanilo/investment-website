@@ -321,9 +321,7 @@
   "analyse": {
     "h1": "Analizar una acción",
     "h1Sub": "Nota de calidad sobre 10 criterios y valoración P/FCF, en segundos.",
-    "hintPrefix": "Consejo: escribe un ticker como",
-    "hintOr": "o",
-    "searchPlaceholder": "Introduce un ticker, p. ej. AAPL, MSFT, ASML…",
+    "searchPlaceholder": "Apple, Microsoft, Nvidia…",
     "analyze": "Analizar",
     "analyzing": "Analizando…",
     "analyzeAnother": "Analizar otra acción",

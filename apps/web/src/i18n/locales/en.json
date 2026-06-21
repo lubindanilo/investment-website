@@ -321,9 +321,7 @@
   "analyse": {
     "h1": "Analyze a stock",
     "h1Sub": "Quality score on 10 criteria and P/FCF valuation, in seconds.",
-    "hintPrefix": "Tip: type a ticker like",
-    "hintOr": "or",
-    "searchPlaceholder": "Enter a ticker, e.g. AAPL, MSFT, ASML…",
+    "searchPlaceholder": "Apple, Microsoft, Nvidia…",
     "analyze": "Analyze",
     "analyzing": "Analyzing…",
     "analyzeAnother": "Analyze another stock",
