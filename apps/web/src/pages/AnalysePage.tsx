@@ -325,6 +325,24 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
   const currency = analysis.currency || 'USD';
   const annualOnly = analysis.fundamentalsSource === 'yahoo';
 
+  // Action non couverte : on n'a NI fundamentals NI cours. Plutôt que d'afficher
+  // une note 5/10 par défaut et 10 critères « Non calculable » qui induisent en
+  // erreur, on bascule sur un état vide propre — juste l'icône + le ticker + le
+  // message. Les CTAs du haut (« Analyser une autre action » / « Nos opportunités
+  // du moment ») restent visibles et offrent la sortie.
+  const noPrice = analysis.price == null || analysis.price === 0;
+  if (!analysis.fundamentalsAvailable && noPrice) {
+    return (
+      <div className="anl-uncovered fade-in">
+        <Icon name="shield" size={40} />
+        <h1 className="anl-uncovered-ticker">{analysis.ticker}</h1>
+        <p className="anl-uncovered-desc">
+          {t('analyse.banner.noFundamentalsPre')} <b>{analysis.ticker}</b>. {t('analyse.banner.noFundamentalsPost')}
+        </p>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className="col gap-28 fade-in anl-filled">
