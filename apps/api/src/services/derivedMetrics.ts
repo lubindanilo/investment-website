@@ -423,11 +423,6 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
     },
     (() => {
       const v = m.shareCagr;
-      const sourceTag = m.shareCagrSource === 'yahoo'
-        ? ' [Yahoo raw]'
-        : m.shareCagrSource === 'finnhub-derived'
-          ? ' [Finnhub]'
-          : '';
       const base = v == null
         ? unavailable
         : v < 0
@@ -443,7 +438,7 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
         valeur: v == null ? 'N/A' : (v >= 0 ? '+' : '') + (v * 100).toFixed(2) + perYear,
         cible: tt(lang, 'shareCount5y.target'),
         statut: v == null ? 'warn' : v <= 0.005 ? 'pass' : v < 0.025 ? 'warn' : 'fail',
-        explication: base + sourceTag,
+        explication: base,
       } as const;
     })(),
     {
