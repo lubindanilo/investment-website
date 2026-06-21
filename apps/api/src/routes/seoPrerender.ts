@@ -77,11 +77,14 @@ function stripLegalSuffix(name: string): string {
   if (!name) return name;
   const legalRe = /\s+(Incorporated|Inc|Corporation|Corp|Company|Co|Limited|Ltd|PLC|Plc|LLC|LP|N\.?V\.?|S\.?A\.?|AG|SE|AS|AB|S\.?p\.?A\.?)\.?$/i;
   const classRe = /\s+Class\s+[A-Z]$/i;
+  // Ponctuation / connecteur trainant après strip (ex. « JPMorgan Chase & Co » → « JPMorgan Chase & »
+  // → on enlève le « & » résiduel ; « Sumitomo Mitsui Financial Group, Inc. » → on enlève la virgule).
+  const trailingJunkRe = /(\s*[,;]+\s*$)|(\s+(?:and|et|&)\s*$)/i;
   let result = name;
-  // Loop pour gérer "Inc Class B" → strip Class B → strip Inc
-  for (let i = 0; i < 3; i++) {
+  // Loop pour gérer combos (« Inc Class B », ponctuation après suffixe…).
+  for (let i = 0; i < 4; i++) {
     const before = result;
-    result = result.replace(classRe, '').replace(legalRe, '');
+    result = result.replace(classRe, '').replace(legalRe, '').replace(trailingJunkRe, '');
     if (result === before) break;
   }
   return result.trim() || name; // fallback : si on a tout coupé, garde l'original
@@ -119,19 +122,28 @@ function render404(ticker: string): string {
 
 // HTML pré-rendu riche pour un ticker scoré. C'est le cœur du fix Soft 404 :
 // 3-5 Ko de texte indexable, structure sémantique H1/H2, vraies meta tags.
-function renderTickerHtml(t: {
-  ticker: string;
-  name: string | null;
-  sector: string | null;
-  scoreChiffres: number | null;
-  scoreChiffresMax: number | null;
-  pfcfTTM: number | null;
-  currency: string | null;
-  price: number | null;
-  opportunity: boolean;
-  region: string;
-  exchange: string | null;
-}): string {
+function renderTickerHtml(
+  t: {
+    ticker: string;
+    name: string | null;
+    sector: string | null;
+    scoreChiffres: number | null;
+    scoreChiffresMax: number | null;
+    pfcfTTM: number | null;
+    currency: string | null;
+    price: number | null;
+    opportunity: boolean;
+    region: string;
+    exchange: string | null;
+  },
+  related: Array<{
+    ticker: string;
+    name: string | null;
+    scoreChiffres: number | null;
+    scoreChiffresMax: number | null;
+    pfcfTTM: number | null;
+  }> = [],
+): string {
   const safeTicker = escapeHtml(t.ticker);
   const name = t.name ? escapeHtml(t.name) : safeTicker;
   const sector = t.sector ? escapeHtml(t.sector) : 'secteur non renseigné';
@@ -202,6 +214,28 @@ function renderTickerHtml(t: {
       a: `L'analyse interactive complète (détail des 10 critères, historiques, valorisation P/FCF, comparaisons sectorielles) est disponible sur ${canonical}.`,
     },
   ];
+
+  // Maillage interne : 3-5 tickers comparables (même secteur), liens cliquables avec score + P/FCF
+  // en anchor text pour donner du contexte à Google. Construit un graphe que Googlebot crawle facilement.
+  const sectorLabel = t.sector ? escapeHtml(displaySector(t.sector)) : null;
+  const relatedSection = related.length > 0 ? `
+
+<h2>Si tu regardes ${displayNameEsc}, regarde aussi…</h2>
+<p>D'autres actions de qualité ${sectorLabel ? `dans le secteur ${sectorLabel}` : 'à explorer'}, classées par note décroissante :</p>
+<ul>
+${related.map((r) => {
+  const rTicker = escapeHtml(r.ticker);
+  const rRawName = r.name || r.ticker;
+  const rDisplayName = escapeHtml(stripLegalSuffix(rRawName));
+  const rScore = r.scoreChiffres != null && r.scoreChiffresMax
+    ? `${r.scoreChiffres}/${r.scoreChiffresMax}`
+    : 'non noté';
+  const rPfcf = r.pfcfTTM != null && isFinite(r.pfcfTTM)
+    ? `${r.pfcfTTM.toFixed(1)}×`
+    : null;
+  return `<li><a href="${SITE_URL}/analyse/${rTicker}">${rDisplayName} (${rTicker})</a> — note ${rScore}${rPfcf ? `, P/FCF ${rPfcf}` : ''}</li>`;
+}).join('\n')}
+</ul>` : '';
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -320,6 +354,7 @@ ${oppBadge}
 
 <h2>Questions fréquentes</h2>
 ${faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n')}
+${relatedSection}
 
 <h2>Aller plus loin</h2>
 <p>👉 <a href="${canonical}"><strong>Voir l'analyse complète et interactive de ${safeTicker}</strong></a> : tous les critères détaillés, graphiques d'historique, valorisation, comparaisons sectorielles, et qualitatif business pour les abonnés Pro.</p>
@@ -375,12 +410,23 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
       return;
     }
 
+    // Maillage interne : 5 tickers du même secteur les mieux notés, exclus le courant.
+    // Construit un graphe que Googlebot crawle facilement + signal de pertinence sectorielle.
+    const related = t.sector
+      ? await prisma.screenerTicker.findMany({
+          where: { status: 'scored', sector: t.sector, NOT: { ticker: t.ticker } },
+          orderBy: { scoreRatio: 'desc' },
+          take: 5,
+          select: { ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true, pfcfTTM: true },
+        })
+      : [];
+
     // Cache CDN : on peut se permettre 1h, les notes bougent lentement.
     res
       .status(200)
       .set('Content-Type', 'text/html; charset=utf-8')
       .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
-      .send(renderTickerHtml(t));
+      .send(renderTickerHtml(t, related));
   } catch (err) {
     // En cas d'erreur DB, on renvoie un 503 plutôt qu'une page vide, Google retentera plus tard.
     console.error('[seoPrerender]', ticker, (err as Error).message);
