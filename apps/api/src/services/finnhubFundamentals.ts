@@ -112,9 +112,18 @@ export const METRICS: Record<string, MetricConfig> = {
     ],
     cumulative: true,
   },
+  /**
+   * Operating income — la PLUPART des déposants publient `us-gaap_OperatingIncomeLoss`
+   * directement. Mais certaines sociétés produit (NKE, …) structurent leur income
+   * statement sans "Income from operations" agrégé : GrossProfit → SG&A →
+   * IncomeBeforeIncomeTax. Elles n'émettent JAMAIS le tag `OperatingIncomeLoss`.
+   * → on reconstruit `operatingIncome = GrossProfit − SG&A` quand le tag direct est
+   *   absent. Voir __computed_operatingIncome__ dans extractValue (et le miroir
+   *   dans secEdgar.getEdgarQuarterlySeries).
+   */
   operatingIncome: {
     section: 'ic',
-    concepts: ['us-gaap_OperatingIncomeLoss'],
+    concepts: ['__computed_operatingIncome__'],
     cumulative: true,
   },
   fcf: {
@@ -592,6 +601,16 @@ export function extractValue(filing: FinnhubFiling, cfg: MetricConfig): number |
         'us-gaap_AvailableForSaleSecuritiesCurrent',
       ]),
     });
+  }
+  if (cfg.concepts.includes('__computed_operatingIncome__')) {
+    // 1. Tag direct prioritaire (95% des déposants US le publient).
+    const direct = extractFirst(filing, 'ic', ['us-gaap_OperatingIncomeLoss']);
+    if (direct != null) return direct;
+    // 2. Fallback "produit" (Nike & co) : GP − SG&A. Si l'un manque, on renonce.
+    const gp = extractFirst(filing, 'ic', ['us-gaap_GrossProfit']);
+    const sga = extractFirst(filing, 'ic', ['us-gaap_SellingGeneralAndAdministrativeExpense']);
+    if (gp == null || sga == null) return null;
+    return gp - sga;
   }
   return extractFirst(filing, cfg.section, cfg.concepts);
 }

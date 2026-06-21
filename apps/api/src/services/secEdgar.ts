@@ -129,6 +129,29 @@ export async function getEdgarQuarterlySeries(ticker: string, metric: MetricKey)
     const capexByDate = new Map(capex.map(p => [p.date, Math.abs(p.value)]));
     return cfo.map(c => ({ date: c.date, value: c.value - (capexByDate.get(c.date) ?? 0) }));
   }
+
+  // Operating income : tag direct prioritaire (us-gaap_OperatingIncomeLoss). Fallback
+  // GP − SG&A pour les déposants qui ne publient pas ce tag (NKE & sociétés produit
+  // dont l'income statement va GP → SG&A → IncomeBeforeIncomeTax sans agrégation).
+  // Identique à __computed_operatingIncome__ côté Finnhub (extractValue) : on garde
+  // les deux pipelines alignés pour que la fusion append-only reste cohérente.
+  if (metric === 'operatingIncome') {
+    const cik = await getCik(ticker);
+    if (!cik) return [];
+    const direct = await fetchConcept(cik, 'us-gaap', 'OperatingIncomeLoss', 'USD');
+    if (direct && direct.length > 0) return decumulateFlow(direct);
+    const [gpRaw, sgaRaw] = await Promise.all([
+      fetchConcept(cik, 'us-gaap', 'GrossProfit', 'USD'),
+      fetchConcept(cik, 'us-gaap', 'SellingGeneralAndAdministrativeExpense', 'USD'),
+    ]);
+    if (!gpRaw?.length || !sgaRaw?.length) return [];
+    const gp = decumulateFlow(gpRaw);
+    const sga = decumulateFlow(sgaRaw);
+    const sgaByDate = new Map(sga.map(p => [p.date, p.value]));
+    return gp
+      .filter(p => sgaByDate.has(p.date))
+      .map(p => ({ date: p.date, value: p.value - sgaByDate.get(p.date)! }));
+  }
   const cfg = METRICS[metric];
   if (!cfg) return [];
   const concepts = cfg.concepts.filter(c => !c.startsWith('__')); // skip les métriques computed (totalDebt, cash)
