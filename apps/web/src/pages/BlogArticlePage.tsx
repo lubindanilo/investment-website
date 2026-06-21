@@ -66,6 +66,30 @@ function renderBlock(block: ArticleBlock, i: number) {
       </ul>
     );
   }
+  if (block.type === 'table') {
+    return (
+      <div key={i} className="article-table-wrap" style={{ overflowX: 'auto', margin: '1.5rem 0' }}>
+        <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: '0.95rem' }}>
+          <thead>
+            <tr>
+              {block.headers.map((h, j) => (
+                <th key={j} style={{ border: '1px solid var(--color-border, #e5e7eb)', padding: '0.5rem 0.75rem', textAlign: 'left', background: 'var(--color-surface2, #f9fafb)' }}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {block.rows.map((row, ri) => (
+              <tr key={ri}>
+                {row.map((cell, ci) => (
+                  <td key={ci} style={{ border: '1px solid var(--color-border, #e5e7eb)', padding: '0.5rem 0.75rem' }}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
   return <p key={i} className="article-p">{renderText(block.text)}</p>;
 }
 

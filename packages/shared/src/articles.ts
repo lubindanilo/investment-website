@@ -13,7 +13,8 @@ export type ArticleLang = 'fr' | 'en' | 'es';
 export type ArticleBlock =
   | { type: 'h2'; text: string }
   | { type: 'p'; text: string }
-  | { type: 'ul'; items: string[] };
+  | { type: 'ul'; items: string[] }
+  | { type: 'table'; headers: string[]; rows: string[][] };
 
 export interface ArticleContent {
   /** <title> + <h1> (≤ 60 caractères, mot-clé en tête, pas de marque). */
@@ -12491,7 +12492,1055 @@ const article_credit_services_2026: Article = {
 };
 
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026];
+const article_payx: Article = {
+  slug: 'paychex-payx-9-sur-10-analyse-avant-resultats-24-juin',
+  date: '2026-06-21',
+  updated: '2026-06-21',
+  readingTime: 7,
+  ticker: 'PAYX',
+  content: {
+    fr: {
+      title: 'Paychex (PAYX) : 9/10 avant resultats du 24 juin',
+      excerpt: 'Paychex publie ses resultats Q4 FY2026 le 24 juin. Notre methode lui attribue 9/10 : une entreprise quasi-parfaite, mais surevalorisee de 42 % par rapport a notre prix d\'achat. On fait le point avant l\'ouverture.',
+      metaDescription: 'Analyse Paychex (PAYX) avant les resultats Q4 FY2026 du 24 juin 2026. Score 9/10, P/FCF 18x, dividende 4,8 %, marge FCF 30,8 %. Sureval. 42 %. Avis complet.',
+      answer: 'Paychex obtient 9/10 selon notre methode : marges excellentes, Cash ROCE de 56 %, dette quasi-nulle et dividende croissant a +11,9 %/an. Seul frein : le titre cote a 98 $, soit 42 % au-dessus de notre prix d\'achat juste de 56,63 $.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Score qualite 9/10 : tous les criteres passes sauf la valorisation, qui depasse notre seuil de 42 %.',
+            'P/FCF (prix divise par le flux de tresorerie libre par action) de 18,1x : dans la moyenne du secteur paie SaaS US.',
+            'Dividende de 4,76 $ par action (+11,9 %/an sur 5 ans) : une des remunerations les plus solides du secteur tech.',
+            'Resultats Q4 FY2026 prevus le 24 juin avant ouverture : BPA estime a 1,33 $, chiffre d\'affaires a 1,63 Md$.',
+            'Comparaison : ADP (P/FCF 17,8x), Paylocity PCTY (P/FCF 17,6x) et PAYC (P/FCF 19,6x) dans le meme couloir de valorisation.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait Paychex : la paie des PME americaines'
+        },
+        {
+          type: 'p',
+          text: 'Paychex est l\'un des deux geants mondiaux de la gestion de la paie pour les petites et moyennes entreprises americaines, avec ADP. Fondes en 1971, ils gerent aujourd\'hui les fiches de paie, les avantages sociaux, les ressources humaines et la conformite reglementaire de millions d\'entreprises allant du micro-entrepreneur au groupe de 1 000 salaries. Le modele economique est simple et redoutablement solide : un abonnement SaaS mensuel que le client renouvelle quasi automatiquement, car changer de logiciel de paie en cours d\'annee fiscale est une operation complexe et risquee. Cela cree une "stickiness" (fidelite client) exceptionnelle qui se lit directement dans les chiffres.'
+        },
+        {
+          type: 'p',
+          text: 'Avec une capitalisation boursiere de 36 milliards de dollars et un cours actuel de 98,26 $, Paychex n\'est pas une petite decouverte : c\'est une valeur de fond de portefeuille bien connue des investisseurs americains. Notre analyse cherche a repondre a une question plus precise : est-ce le bon moment d\'acheter, et pourquoi le titre obtient-il 9/10 plutot que 10/10 ?'
+        },
+        {
+          type: 'h2',
+          text: 'Les 9 criteres valides : ce que la methode revele'
+        },
+        {
+          type: 'p',
+          text: 'Notre methode evalue chaque entreprise sur 12 criteres quantitatifs. Paychex en valide 9, avec 2 avertissements et 1 echec. Voici le detail complet.'
+        },
+        {
+          type: 'p',
+          text: 'Profitabilite (VALIDE) : la marge nette de 25,8 % signifie que sur 100 $ de chiffre d\'affaires, 25,80 $ deviennent du profit net. C\'est exceptionnel dans l\'industrie des services. La plupart des entreprises tech cotees peinent a depasser 15 %.'
+        },
+        {
+          type: 'p',
+          text: 'Croissance des ventes (AVERTISSEMENT) : +7,7 %/an sur 5 ans. Notre seuil est de 10 %. Paychex ne l\'atteint pas, mais il faut contextualiser : une croissance a 7,7 % sur un business de 36 milliards de capitalisation, avec des marges de 25 %, est un moteur de creation de valeur considerable. Ce n\'est pas un probleme structurel, c\'est un ecart de quelques points par rapport a notre barre theorique.'
+        },
+        {
+          type: 'p',
+          text: 'FCF par action (AVERTISSEMENT) : +9,3 %/an sur 5 ans. Le FCF, ou flux de tresorerie libre, represente le cash qu\'une entreprise genere apres avoir paye toutes ses depenses d\'exploitation et d\'investissement. Une croissance de 9,3 %/an du FCF par action est quasiment au seuil de 10 % que nous demandons. C\'est la definition meme du "quasi-parfait".'
+        },
+        {
+          type: 'p',
+          text: 'Stabilite du nombre d\'actions (VALIDE) : -0,11 %/an. Paychex ne dilue pas ses actionnaires. Le nombre d\'actions reste stable, ce qui signifie que la croissance du FCF par action vous beneficie directement.'
+        },
+        {
+          type: 'p',
+          text: 'Marge FCF (VALIDE) : 30,8 %. Sur 100 $ de chiffre d\'affaires, 30,80 $ se transforment en cash libre. C\'est l\'un des ratios les plus importants de notre methode, car il mesure la capacite reelle d\'une entreprise a generer de la richesse, independamment de la comptabilite qui peut etre manipulee.'
+        },
+        {
+          type: 'p',
+          text: 'Marges en expansion (VALIDE) : Paychex demontre un levier operationnel. Cela signifie que quand le chiffre d\'affaires augmente, les couts n\'augmentent pas au meme rythme, et les marges s\'ameliorent mecaniquement. C\'est la caracteristique des vrais modeles SaaS.'
+        },
+        {
+          type: 'p',
+          text: 'Cash ROCE (VALIDE) : 56 %. Le Cash ROCE (Return On Capital Employed) mesure combien de cash une entreprise genere pour chaque dollar de capital qu\'elle utilise. A 56 %, Paychex genere 56 centimes de flux de tresorerie libre pour chaque dollar immobilise dans l\'entreprise. C\'est exceptionnel, et c\'est le signe d\'un modele capital-light typique du SaaS.'
+        },
+        {
+          type: 'p',
+          text: 'Dette (VALIDE) : la dette totale est remboursable en 1,64 annee de FCF. C\'est une dette quasi-nulle sur le plan fonctionnel. Paychex pourrait effacer toute sa dette en moins de deux ans avec son seul cash flow, sans toucher a ses activites.'
+        },
+        {
+          type: 'p',
+          text: 'Conversion benefices-cash (VALIDE) : ratio de 1,19. Cela signifie que pour chaque dollar de benefice comptable annonce, Paychex genere 1,19 $ de cash reel. Un ratio superieur a 1 est excellent : il prouve que les profits annonces ne sont pas comptables sur le papier, ils deviennent vraiment du cash en banque.'
+        },
+        {
+          type: 'p',
+          text: 'CCC (AVERTISSEMENT, non calculable) : le CCC, ou Cycle de Conversion du Cash, mesure combien de jours s\'ecoulent entre le moment ou une entreprise paie ses fournisseurs et le moment ou elle encaisse ses clients. Pour Paychex, ce ratio n\'est pas calculable de facon standard. La raison est simple et n\'est pas un probleme : Paychex est un modele SaaS pur avec une "float" de cash, c\'est-a-dire qu\'il encaisse les cotisations patronales de ses clients avant de les reverser aux autorites fiscales. Le cycle client-fournisseur n\'est pas mesurable avec les donnees comptables classiques. Ce n\'est pas un defaut de l\'entreprise, c\'est une limite de notre instrument de mesure sur ce type de modele.'
+        },
+        {
+          type: 'p',
+          text: 'P/FCF (VALIDE) : 18,14x. Le P/FCF (Prix divise par le Flux de Tresorerie Libre par action) est notre principal outil de valorisation. A 18,14 fois son FCF annuel, Paychex est valorise a un niveau raisonnable dans l\'absolu. Mais notre methode calcule aussi un prix d\'achat juste qui tient compte de la croissance future attendue.'
+        },
+        {
+          type: 'h2',
+          text: 'Le seul echec : la valorisation actuelle'
+        },
+        {
+          type: 'p',
+          text: 'Notre prix d\'achat juste pour Paychex est de 56,63 $. Le titre cote actuellement a 98,26 $, soit une survalorisation de 42,4 %. C\'est l\'unique critere en echec dans notre analyse. Ce n\'est pas un probleme de qualite du business : c\'est une question de prix paye. Une entreprise exceptionnelle achetee trop cher peut quand meme etre un mauvais investissement si le prix de depart ne laisse pas de marge de securite.'
+        },
+        {
+          type: 'p',
+          text: 'Comment notre prix juste est-il calcule ? A partir du FCF par action actuel, d\'une hypothese de croissance conservatrice sur 10 ans, et d\'un taux d\'actualisation qui reflete le cout du temps. A 56,63 $, vous achetez la croissance probable de Paychex avec une marge de securite. A 98,26 $, vous payez deja une grande partie de la croissance future, et il ne reste que peu de coussin si les resultats decoivent.'
+        },
+        {
+          type: 'h2',
+          text: 'Le dividende : un signal de solidite'
+        },
+        {
+          type: 'p',
+          text: 'Paychex verse un dividende annuel de 4,76 $ par action, soit un rendement de 4,8 % au cours actuel. Le taux de distribution (payout ratio) est de 95,4 % des benefices, ce qui peut sembler eleve. Mais il faut regarder la realite : le FCF par action depasse largement le dividende, et le taux de distribution sur FCF est beaucoup plus confortable. La croissance du dividende de +11,9 %/an sur 5 ans est un signal fort : la direction a la confiance de s\'engager sur des hausses de dividende regulieres, ce qui n\'est possible que si l\'on a une visibilite excellente sur ses cash flows futurs.'
+        },
+        {
+          type: 'h2',
+          text: 'Comparaison sectorielle : PAYX, ADP, PCTY, PAYC'
+        },
+        {
+          type: 'p',
+          text: 'Pour contextualiser la valorisation de Paychex, voici comment il se positionne face a ses comparables directs dans l\'univers de la paie SaaS americaine. Notre analyse de Paylocity (PCTY) est deja disponible sur le site, consultez /blog/paylocity-pcty-10-sur-10-saas-rh-analyse pour le detail complet.'
+        },
+        {
+          type: 'table',
+          headers: ['Entreprise', 'Ticker', 'P/FCF', 'Score qualite', 'Valorisation'],
+          rows: [
+            ['Paychex', 'PAYX', '18,14x', '9/10', 'Surevalorisee 42 %'],
+            ['ADP', 'ADP', '17,8x', 'N/A', 'N/A'],
+            ['Paylocity', 'PCTY', '17,6x', '10/10', 'Voir /analyse/PCTY'],
+            ['Paycom', 'PAYC', '19,6x', 'N/A', 'N/A']
+          ]
+        },
+        {
+          type: 'p',
+          text: 'Ce tableau montre que Paychex est correctement valorise par rapport a ses pairs en termes de P/FCF. Le secteur paie SaaS US traite entre 17 et 20 fois le FCF, et Paychex est dans la mediane. Cela confirme que le "probleme" n\'est pas une bulle sectorielle absurde, mais simplement que notre methode demande une marge de securite que le marche ne nous accorde pas aujourd\'hui.'
+        },
+        {
+          type: 'h2',
+          text: 'Avant les resultats du 24 juin : ce qu\'il faut surveiller'
+        },
+        {
+          type: 'p',
+          text: 'Paychex publie ses resultats Q4 FY2026 le 24 juin 2026 avant l\'ouverture des marches. Le consensus des analystes attend un BPA (benefice par action) de 1,33 $ et un chiffre d\'affaires de 1,63 milliard de dollars. Au dernier trimestre (Q3), Paychex avait publie un BPA de 1,71 $ exactement en ligne avec les attentes, sans surprise ni deception. C\'est le profil typique d\'une entreprise mature et previsible.'
+        },
+        {
+          type: 'p',
+          text: 'Les points cles a surveiller le 24 juin : (1) La croissance organique du chiffre d\'affaires, en particulier la part des nouveaux clients PME. (2) L\'evolution des marges, notamment si le levier operationnel se confirme. (3) Les perspectives (guidance) pour l\'annee fiscale 2027. (4) Tout commentaire sur la macroeconomie US : Paychex etant directement lie au marche de l\'emploi americain, une deterioration du marche du travail serait un signal negatif pour la croissance de leur base client.'
+        },
+        {
+          type: 'h2',
+          text: 'Conclusion : 9/10 mais pas au prix actuel'
+        },
+        {
+          type: 'p',
+          text: 'Paychex est une entreprise remarquable. Un score de 9/10 dans notre methode signifie que presque tous les criteres de qualite sont valides : profitabilite, generation de cash, solidite du bilan, retour sur capital, dividende croissant. Il manque quelques dixiemes de point de croissance pour atteindre la perfection sur nos criteres de vitesse, et c\'est tout.'
+        },
+        {
+          type: 'p',
+          text: 'Le probleme est exclusivement le prix. A 98,26 $, vous payez une prime de 42 % au-dessus de ce que notre methode juge etre un prix d\'entree raisonnable. Pour les investisseurs deja actionnaires, il n\'y a aucune raison de vendre une entreprise de cette qualite. Pour ceux qui cherchent a initier une position, notre methode recommande d\'attendre un repli vers les 56-60 $ pour avoir une marge de securite. En attendant, le titre merite votre liste de surveillance. Retrouvez l\'analyse complete et tous les ratios en temps reel sur /analyse/PAYX. Et pour comparer avec Paylocity, notre analyse 10/10 est ici : /blog/paylocity-pcty-10-sur-10-saas-rh-analyse.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Pourquoi Paychex obtient 9/10 et pas 10/10 ?',
+          a: 'Deux criteres sont en avertissement (croissance des ventes a 7,7 %/an et croissance du FCF par action a 9,3 %/an, tous deux juste en dessous du seuil de 10 %) et un critere (le CCC) n\'est pas calculable sur ce type de modele SaaS. Le critere de valorisation est en echec : le titre est 42 % au-dessus de notre prix d\'achat juste. La qualite operationnelle est quasi-parfaite, seul le prix pose probleme.'
+        },
+        {
+          q: 'Qu\'est-ce que le P/FCF et pourquoi est-il important ?',
+          a: 'Le P/FCF (Prix / Flux de Tresorerie Libre par action) est notre principal outil de valorisation. Il mesure combien vous payez pour chaque dollar de cash que l\'entreprise genere. A 18,14x pour Paychex, vous payez 18,14 $ pour 1 $ de FCF annuel. C\'est un niveau raisonnable dans l\'absolu, mais notre methode calcule un prix d\'achat juste qui tient compte de la croissance attendue et d\'une marge de securite, ce qui nous donne 56,63 $.'
+        },
+        {
+          q: 'Le dividende de 4,8 % est-il soutenable ?',
+          a: 'Oui. Meme si le payout ratio sur les benefices comptables est eleve (95,4 %), le flux de tresorerie libre de Paychex depasse largement le montant verse en dividendes. La croissance du dividende de +11,9 %/an sur 5 ans est un engagement fort de la direction sur la solidite de ses cash flows futurs. Il n\'y a pas de signal d\'alarme sur la durabilite du dividende.'
+        },
+        {
+          q: 'Pourquoi le CCC n\'est-il pas calculable pour Paychex ?',
+          a: 'Le CCC (Cycle de Conversion du Cash) mesure le delai entre les paiements fournisseurs et les encaissements clients. Pour Paychex, le modele inclut une "float" de cash : l\'entreprise encaisse les charges sociales de ses clients plusieurs jours avant de les reverser aux autorites fiscales. Ce mecanisme rend le calcul standard du CCC non pertinent. Ce n\'est pas un defaut de l\'entreprise, c\'est une limite de notre grille de lecture sur ce type de modele.'
+        },
+        {
+          q: 'Comment Paychex se compare-t-il a Paylocity (PCTY) ?',
+          a: 'Paylocity obtient 10/10 dans notre methode, contre 9/10 pour Paychex, avec un P/FCF de 17,6x contre 18,14x. Les deux sont d\'excellentes entreprises du meme secteur. PCTY cible plutot les entreprises de taille moyenne (100-5 000 employes) tandis que Paychex domine le segment micro-PME. Notre analyse complete de Paylocity est disponible ici : /blog/paylocity-pcty-10-sur-10-saas-rh-analyse.'
+        }
+      ],
+      tags: ['Paychex', 'PAYX', 'SaaS', 'paie', 'earnings', 'dividende', 'PME', 'analyse-fondamentale', 'resultats'],
+      disclaimer: 'Analyse a but informatif et educatif, non un conseil en investissement personnalise. Les performances passees ne garantissent pas les performances futures. Chiffres a la date de publication (21 juin 2026), susceptibles d\'evoluer. Faites vos propres recherches avant toute decision d\'investissement.'
+    },
+    en: {
+      title: 'Paychex (PAYX) : 9/10 quality before June 24 earnings',
+      excerpt: 'Paychex reports Q4 FY2026 earnings on June 24. Our method scores it 9/10 : a near-perfect business, but overvalued by 42 % versus our fair buy price. Full breakdown before the open.',
+      metaDescription: 'Paychex (PAYX) analysis before Q4 FY2026 earnings on June 24, 2026. Score 9/10, P/FCF 18x, dividend yield 4.8 %, FCF margin 30.8 %. Overvalued 42 %. Full review.',
+      answer: 'Paychex scores 9/10 in our method : excellent margins, Cash ROCE of 56 %, near-zero debt, and a dividend growing at +11.9 %/year. The only issue is price : at $98.26, the stock trades 42 % above our fair buy price of $56.63.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Quality score 9/10 : all criteria pass except valuation, which exceeds our threshold by 42 %.',
+            'P/FCF (price divided by free cash flow per share) of 18.1x : in line with the US SaaS payroll peer group.',
+            'Dividend of $4.76 per share (+11.9 %/year over 5 years) : one of the most solid income streams in tech.',
+            'Q4 FY2026 earnings on June 24 before market open : EPS estimate $1.33, revenue estimate $1.63 billion.',
+            'Peers : ADP (P/FCF 17.8x), Paylocity PCTY (P/FCF 17.6x) and PAYC (P/FCF 19.6x) in the same valuation corridor.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'What Paychex does : payroll for US small business'
+        },
+        {
+          type: 'p',
+          text: 'Paychex is one of the two giants of payroll processing for small and medium-sized American businesses, alongside ADP. Founded in 1971, they now manage payroll, benefits, HR, and regulatory compliance for millions of companies ranging from solo entrepreneurs to 1,000-employee groups. The business model is simple and remarkably durable : a monthly SaaS subscription that clients renew almost automatically, because switching payroll software mid-fiscal-year is a complex and risky operation. This creates exceptional customer stickiness that shows up directly in the numbers.'
+        },
+        {
+          type: 'p',
+          text: 'With a market cap of $36 billion and a current price of $98.26, Paychex is not a hidden gem : it is a well-known core holding for American investors. Our analysis aims to answer a more precise question : is now the right time to buy, and why does the stock score 9/10 rather than 10/10 ?'
+        },
+        {
+          type: 'h2',
+          text: 'The 9 criteria passed : what the method reveals'
+        },
+        {
+          type: 'p',
+          text: 'Our method evaluates every company on 12 quantitative criteria. Paychex passes 9 of them, with 2 warnings and 1 failure. Here is the full breakdown.'
+        },
+        {
+          type: 'p',
+          text: 'Profitability (PASS) : a net margin of 25.8 % means that for every $100 in revenue, $25.80 becomes net profit. That is exceptional in the services industry. Most listed tech companies struggle to exceed 15 %.'
+        },
+        {
+          type: 'p',
+          text: 'Sales growth (WARN) : +7.7 %/year over 5 years. Our threshold is 10 %. Paychex does not hit it, but context matters : 7.7 % annual growth on a $36 billion market cap business with 25 % margins is a substantial value-creation engine. This is not a structural problem, it is a few percentage points short of our theoretical bar.'
+        },
+        {
+          type: 'p',
+          text: 'FCF per share (WARN) : +9.3 %/year over 5 years. FCF, or free cash flow, represents the cash a company generates after paying all operating and capital expenditures. Growing FCF per share at 9.3 %/year is almost exactly at our 10 % threshold. This is the definition of "near-perfect".'
+        },
+        {
+          type: 'p',
+          text: 'Share count stability (PASS) : -0.11 %/year. Paychex is not diluting shareholders. The share count stays flat, which means FCF per share growth flows directly to you.'
+        },
+        {
+          type: 'p',
+          text: 'FCF margin (PASS) : 30.8 %. For every $100 in revenue, $30.80 converts into free cash. This is one of the most important ratios in our method, because it measures a company\'s real ability to generate wealth, independent of accounting that can be manipulated.'
+        },
+        {
+          type: 'p',
+          text: 'Expanding margins (PASS) : Paychex demonstrates operating leverage. This means that as revenue grows, costs do not grow at the same pace, and margins improve mechanically. That is the hallmark of true SaaS models.'
+        },
+        {
+          type: 'p',
+          text: 'Cash ROCE (PASS) : 56 %. Cash ROCE (Return On Capital Employed) measures how much cash a company generates for every dollar of capital it uses. At 56 %, Paychex generates 56 cents of free cash flow for every dollar tied up in the business. That is exceptional, and it is the signature of a capital-light SaaS model.'
+        },
+        {
+          type: 'p',
+          text: 'Debt (PASS) : total debt is repayable in 1.64 years of FCF. This is functionally near-zero debt. Paychex could erase all its debt in under two years using its cash flow alone, without touching its operations.'
+        },
+        {
+          type: 'p',
+          text: 'Earnings-to-cash conversion (PASS) : ratio of 1.19. For every dollar of reported accounting profit, Paychex generates $1.19 in real cash. A ratio above 1 is excellent : it proves that reported profits are not just paper entries, they become real cash in the bank.'
+        },
+        {
+          type: 'p',
+          text: 'CCC (WARN, not calculable) : the CCC, or Cash Conversion Cycle, measures how many days elapse between when a company pays its suppliers and when it collects from its customers. For Paychex, this ratio cannot be calculated in a standard way. The reason is simple and is not a business problem : Paychex operates a pure SaaS model with a cash float, meaning it collects employer payroll taxes from clients several days before remitting them to tax authorities. The client-supplier cycle is not measurable with standard accounting data. This is not a flaw in the business, it is a limitation of our measurement tool on this type of model.'
+        },
+        {
+          type: 'p',
+          text: 'P/FCF (PASS) : 18.14x. P/FCF (Price divided by Free Cash Flow per share) is our primary valuation tool. At 18.14 times its annual FCF, Paychex is valued at a reasonable level in absolute terms. But our method also calculates a fair buy price that accounts for expected future growth.'
+        },
+        {
+          type: 'h2',
+          text: 'The one failure : current valuation'
+        },
+        {
+          type: 'p',
+          text: 'Our fair buy price for Paychex is $56.63. The stock currently trades at $98.26, a 42.4 % overvaluation. This is the only failing criterion in our analysis. It is not a quality problem with the business : it is a question of the price paid. An exceptional company bought too expensively can still be a poor investment if the entry price leaves no margin of safety.'
+        },
+        {
+          type: 'p',
+          text: 'How is our fair price calculated ? Starting from current FCF per share, with a conservative 10-year growth assumption and a discount rate that reflects the cost of time. At $56.63, you are buying Paychex\'s probable growth with a margin of safety. At $98.26, you are already paying for a large portion of future growth, and there is little cushion if results disappoint.'
+        },
+        {
+          type: 'h2',
+          text: 'The dividend : a signal of solidity'
+        },
+        {
+          type: 'p',
+          text: 'Paychex pays an annual dividend of $4.76 per share, a yield of 4.8 % at the current price. The payout ratio is 95.4 % of earnings, which may seem high. But look at the reality : FCF per share comfortably exceeds the dividend, and the FCF-based payout ratio is much more comfortable. The dividend growth rate of +11.9 %/year over 5 years is a strong signal : management has the confidence to commit to regular dividend increases, which is only possible if you have excellent visibility on future cash flows.'
+        },
+        {
+          type: 'h2',
+          text: 'Sector comparison : PAYX, ADP, PCTY, PAYC'
+        },
+        {
+          type: 'p',
+          text: 'To contextualize Paychex\'s valuation, here is how it stacks up against its direct peers in US SaaS payroll. Our full analysis of Paylocity (PCTY) is already live on the site, check /blog/paylocity-pcty-10-sur-10-saas-rh-analyse for the complete breakdown.'
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Ticker', 'P/FCF', 'Quality score', 'Valuation'],
+          rows: [
+            ['Paychex', 'PAYX', '18.14x', '9/10', 'Overvalued 42 %'],
+            ['ADP', 'ADP', '17.8x', 'N/A', 'N/A'],
+            ['Paylocity', 'PCTY', '17.6x', '10/10', 'See /analyse/PCTY'],
+            ['Paycom', 'PAYC', '19.6x', 'N/A', 'N/A']
+          ]
+        },
+        {
+          type: 'p',
+          text: 'This table shows that Paychex is fairly valued relative to peers on a P/FCF basis. The US SaaS payroll sector trades between 17 and 20 times FCF, and Paychex sits at the median. This confirms that the "problem" is not an absurd sector bubble, but simply that our method requires a margin of safety that the market is not offering today.'
+        },
+        {
+          type: 'h2',
+          text: 'Before June 24 earnings : what to watch'
+        },
+        {
+          type: 'p',
+          text: 'Paychex reports Q4 FY2026 results on June 24, 2026, before market open. Analyst consensus expects EPS (earnings per share) of $1.33 and revenue of $1.63 billion. Last quarter (Q3), Paychex reported EPS of $1.71, exactly in line with estimates, with no surprise either way. That is the profile of a mature and predictable business.'
+        },
+        {
+          type: 'p',
+          text: 'Key items to watch on June 24 : (1) Organic revenue growth, particularly new SMB client additions. (2) Margin evolution, specifically whether operating leverage continues. (3) Guidance for fiscal year 2027. (4) Any comments on US macro conditions : since Paychex is directly tied to American employment, a deterioration in the labor market would be a negative signal for their client base growth.'
+        },
+        {
+          type: 'h2',
+          text: 'Conclusion : 9/10 but not at the current price'
+        },
+        {
+          type: 'p',
+          text: 'Paychex is a remarkable business. A score of 9/10 in our method means that almost every quality criterion is validated : profitability, cash generation, balance sheet strength, return on capital, growing dividend. It falls a few tenths of a point short on growth speed criteria, and that is all.'
+        },
+        {
+          type: 'p',
+          text: 'The issue is exclusively the price. At $98.26, you are paying a 42 % premium above what our method considers a reasonable entry point. For investors already holding shares, there is no reason to sell a company of this quality. For those looking to initiate a position, our method recommends waiting for a pullback toward the $56-60 range to have a margin of safety. In the meantime, this stock deserves a spot on your watchlist. Find the full analysis and all live ratios at /analyse/PAYX. And to compare with Paylocity, our 10/10 analysis is here : /blog/paylocity-pcty-10-sur-10-saas-rh-analyse.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Why does Paychex score 9/10 and not 10/10 ?',
+          a: 'Two criteria are in warning territory (sales growth at 7.7 %/year and FCF per share growth at 9.3 %/year, both just below the 10 % threshold) and one criterion (CCC) cannot be calculated on this type of SaaS model. The valuation criterion fails : the stock is 42 % above our fair buy price. Operational quality is near-perfect, only the price is the issue.'
+        },
+        {
+          q: 'What is P/FCF and why does it matter ?',
+          a: 'P/FCF (Price / Free Cash Flow per share) is our primary valuation tool. It measures how much you pay for every dollar of cash the company generates. At 18.14x for Paychex, you pay $18.14 for $1 of annual FCF. That is a reasonable level in absolute terms, but our method calculates a fair buy price that accounts for expected growth and a margin of safety, which gives us $56.63.'
+        },
+        {
+          q: 'Is the 4.8 % dividend sustainable ?',
+          a: 'Yes. Even though the payout ratio on accounting earnings is high (95.4 %), Paychex\'s free cash flow comfortably covers the dividend. The +11.9 %/year dividend growth over 5 years is a strong commitment by management on the reliability of future cash flows. There is no red flag on dividend sustainability.'
+        },
+        {
+          q: 'Why is the CCC not calculable for Paychex ?',
+          a: 'The CCC (Cash Conversion Cycle) measures the delay between supplier payments and customer collections. For Paychex, the model includes a cash float : the company collects payroll taxes from clients several days before remitting them to tax authorities. This mechanism makes the standard CCC calculation irrelevant. It is not a business flaw, it is a limitation of our scoring grid on this type of model.'
+        },
+        {
+          q: 'How does Paychex compare to Paylocity (PCTY) ?',
+          a: 'Paylocity scores 10/10 in our method versus 9/10 for Paychex, with a P/FCF of 17.6x versus 18.14x. Both are excellent companies in the same sector. PCTY targets mid-market businesses (100-5,000 employees) while Paychex dominates the micro-SMB segment. Our full Paylocity analysis is available here : /blog/paylocity-pcty-10-sur-10-saas-rh-analyse.'
+        }
+      ],
+      tags: ['Paychex', 'PAYX', 'SaaS', 'payroll', 'earnings', 'dividend', 'SMB', 'fundamental-analysis', 'results'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (June 21, 2026), subject to change. Do your own research before any investment decision.'
+    },
+    es: {
+      title: 'Paychex (PAYX) : 9/10 antes de resultados 24 junio',
+      excerpt: 'Paychex publica sus resultados Q4 FY2026 el 24 de junio. Nuestro metodo le da 9/10 : un negocio casi perfecto, pero sobrevalorado en un 42 % respecto a nuestro precio de compra justo. Analisis completo antes de la apertura.',
+      metaDescription: 'Analisis Paychex (PAYX) antes de resultados Q4 FY2026 del 24 de junio de 2026. Puntuacion 9/10, P/FCF 18x, dividendo 4,8 %, margen FCF 30,8 %. Sobrevalorado 42 %. Opinion completa.',
+      answer: 'Paychex obtiene 9/10 en nuestro metodo : margenes excelentes, Cash ROCE del 56 %, deuda casi nula y dividendo creciendo al +11,9 %/ano. El unico problema es el precio : a 98,26 $, la accion cotiza un 42 % por encima de nuestro precio de compra justo de 56,63 $.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Puntuacion de calidad 9/10 : todos los criterios superados excepto la valoracion, que supera nuestro umbral en un 42 %.',
+            'P/FCF (precio dividido por el flujo de caja libre por accion) de 18,1x : en linea con el grupo de comparables SaaS de nomina estadounidense.',
+            'Dividendo de 4,76 $ por accion (+11,9 %/ano en 5 anos) : una de las rentabilidades por dividendo mas solidas del sector tech.',
+            'Resultados Q4 FY2026 el 24 de junio antes de la apertura del mercado : BPA estimado 1,33 $, ingresos estimados 1,63 mil millones $.',
+            'Comparables : ADP (P/FCF 17,8x), Paylocity PCTY (P/FCF 17,6x) y PAYC (P/FCF 19,6x) en el mismo corredor de valoracion.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Que hace Paychex : nominas para pymes americanas'
+        },
+        {
+          type: 'p',
+          text: 'Paychex es uno de los dos gigantes del procesamiento de nominas para pequenas y medianas empresas estadounidenses, junto con ADP. Fundada en 1971, gestiona hoy las nominas, beneficios sociales, recursos humanos y cumplimiento normativo de millones de empresas que van desde autonomos hasta grupos de 1.000 empleados. El modelo de negocio es sencillo y notablemente duradero : una suscripcion SaaS mensual que los clientes renuevan casi automaticamente, porque cambiar de software de nomina a mitad de ano fiscal es una operacion compleja y arriesgada. Esto crea una fidelizacion excepcional del cliente que se refleja directamente en los numeros.'
+        },
+        {
+          type: 'p',
+          text: 'Con una capitalizacion bursatil de 36.000 millones de dolares y un precio actual de 98,26 $, Paychex no es un tesoro oculto : es un valor core bien conocido por los inversores americanos. Nuestro analisis busca responder una pregunta mas precisa : es ahora el momento adecuado para comprar, y por que la accion obtiene 9/10 en lugar de 10/10 ?'
+        },
+        {
+          type: 'h2',
+          text: 'Los 9 criterios superados : lo que revela el metodo'
+        },
+        {
+          type: 'p',
+          text: 'Nuestro metodo evalua cada empresa en 12 criterios cuantitativos. Paychex supera 9 de ellos, con 2 advertencias y 1 fallo. Aqui esta el detalle completo.'
+        },
+        {
+          type: 'p',
+          text: 'Rentabilidad (SUPERADO) : un margen neto del 25,8 % significa que por cada 100 $ de ingresos, 25,80 $ se convierten en beneficio neto. Es excepcional en el sector servicios. La mayoria de las empresas tech cotizadas luchan por superar el 15 %.'
+        },
+        {
+          type: 'p',
+          text: 'Crecimiento de ventas (ADVERTENCIA) : +7,7 %/ano en 5 anos. Nuestro umbral es del 10 %. Paychex no lo alcanza, pero hay que contextualizar : un crecimiento anual del 7,7 % en un negocio de 36.000 millones de capitalizacion con margenes del 25 % es un motor de creacion de valor considerable. No es un problema estructural, es unos pocos puntos porcentuales por debajo de nuestra barra teorica.'
+        },
+        {
+          type: 'p',
+          text: 'FCF por accion (ADVERTENCIA) : +9,3 %/ano en 5 anos. El FCF, o flujo de caja libre, representa el efectivo que genera una empresa despues de pagar todos sus gastos operativos y de capital. Crecer el FCF por accion al 9,3 %/ano esta casi exactamente en nuestro umbral del 10 %. Esta es la definicion de "casi perfecto".'
+        },
+        {
+          type: 'p',
+          text: 'Estabilidad del numero de acciones (SUPERADO) : -0,11 %/ano. Paychex no diluye a sus accionistas. El numero de acciones se mantiene estable, lo que significa que el crecimiento del FCF por accion le beneficia directamente.'
+        },
+        {
+          type: 'p',
+          text: 'Margen FCF (SUPERADO) : 30,8 %. Por cada 100 $ de ingresos, 30,80 $ se convierten en caja libre. Este es uno de los ratios mas importantes de nuestro metodo, porque mide la capacidad real de una empresa para generar riqueza, independientemente de la contabilidad que puede ser manipulada.'
+        },
+        {
+          type: 'p',
+          text: 'Margenes en expansion (SUPERADO) : Paychex demuestra apalancamiento operativo. Esto significa que cuando los ingresos crecen, los costes no crecen al mismo ritmo, y los margenes mejoran mecanicamente. Esa es la caracteristica de los verdaderos modelos SaaS.'
+        },
+        {
+          type: 'p',
+          text: 'Cash ROCE (SUPERADO) : 56 %. El Cash ROCE (Retorno sobre el Capital Empleado) mide cuanto efectivo genera una empresa por cada dolar de capital que utiliza. Al 56 %, Paychex genera 56 centavos de flujo de caja libre por cada dolar inmovilizado en el negocio. Es excepcional, y es la firma de un modelo SaaS ligero en capital.'
+        },
+        {
+          type: 'p',
+          text: 'Deuda (SUPERADO) : la deuda total es reembolsable en 1,64 anos de FCF. Esto es funcionalmente deuda casi nula. Paychex podria eliminar toda su deuda en menos de dos anos usando solo su flujo de caja, sin tocar sus operaciones.'
+        },
+        {
+          type: 'p',
+          text: 'Conversion de beneficios a caja (SUPERADO) : ratio de 1,19. Por cada dolar de beneficio contable declarado, Paychex genera 1,19 $ en efectivo real. Un ratio superior a 1 es excelente : prueba que los beneficios declarados no son solo apuntes contables en papel, se convierten en efectivo real en el banco.'
+        },
+        {
+          type: 'p',
+          text: 'CCC (ADVERTENCIA, no calculable) : el CCC, o Ciclo de Conversion de Caja, mide cuantos dias transcurren entre que una empresa paga a sus proveedores y cuando cobra de sus clientes. Para Paychex, este ratio no puede calcularse de forma estandar. La razon es sencilla y no es un problema del negocio : Paychex opera un modelo SaaS puro con un flotante de caja, lo que significa que cobra las cuotas patronales de sus clientes varios dias antes de remitirlas a las autoridades fiscales. El ciclo cliente-proveedor no es medible con datos contables estandar. No es un defecto de la empresa, es una limitacion de nuestra herramienta de medicion en este tipo de modelo.'
+        },
+        {
+          type: 'p',
+          text: 'P/FCF (SUPERADO) : 18,14x. El P/FCF (Precio dividido por el Flujo de Caja Libre por accion) es nuestra principal herramienta de valoracion. A 18,14 veces su FCF anual, Paychex esta valorado a un nivel razonable en terminos absolutos. Pero nuestro metodo tambien calcula un precio de compra justo que tiene en cuenta el crecimiento futuro esperado.'
+        },
+        {
+          type: 'h2',
+          text: 'El unico fallo : la valoracion actual'
+        },
+        {
+          type: 'p',
+          text: 'Nuestro precio de compra justo para Paychex es de 56,63 $. La accion cotiza actualmente a 98,26 $, una sobrevaloizacion del 42,4 %. Este es el unico criterio que falla en nuestro analisis. No es un problema de calidad del negocio : es una cuestion del precio pagado. Una empresa excepcional comprada demasiado cara puede ser una mala inversion si el precio de entrada no deja margen de seguridad.'
+        },
+        {
+          type: 'p',
+          text: 'Como se calcula nuestro precio justo ? A partir del FCF por accion actual, con una hipotesis de crecimiento conservadora a 10 anos y una tasa de descuento que refleja el coste del tiempo. A 56,63 $, usted compra el crecimiento probable de Paychex con un margen de seguridad. A 98,26 $, ya esta pagando una gran parte del crecimiento futuro, y queda poco colchon si los resultados decepcionan.'
+        },
+        {
+          type: 'h2',
+          text: 'El dividendo : una senal de solidez'
+        },
+        {
+          type: 'p',
+          text: 'Paychex paga un dividendo anual de 4,76 $ por accion, una rentabilidad del 4,8 % al precio actual. La tasa de distribucion es del 95,4 % de los beneficios, lo que puede parecer elevada. Pero hay que mirar la realidad : el FCF por accion supera con comodidad el dividendo, y la tasa de distribucion sobre FCF es mucho mas confortable. El crecimiento del dividendo del +11,9 %/ano en 5 anos es una senal fuerte : la direccion tiene la confianza de comprometerse con incrementos regulares del dividendo, lo que solo es posible si se tiene una visibilidad excelente sobre los flujos de caja futuros.'
+        },
+        {
+          type: 'h2',
+          text: 'Comparacion sectorial : PAYX, ADP, PCTY, PAYC'
+        },
+        {
+          type: 'p',
+          text: 'Para contextualizar la valoracion de Paychex, aqui esta como se compara con sus comparables directos en la nomina SaaS estadounidense. Nuestro analisis completo de Paylocity (PCTY) ya esta disponible en el sitio, consulte /blog/paylocity-pcty-10-sur-10-saas-rh-analyse para el desglose completo.'
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Ticker', 'P/FCF', 'Puntuacion calidad', 'Valoracion'],
+          rows: [
+            ['Paychex', 'PAYX', '18,14x', '9/10', 'Sobrevalorada 42 %'],
+            ['ADP', 'ADP', '17,8x', 'N/D', 'N/D'],
+            ['Paylocity', 'PCTY', '17,6x', '10/10', 'Ver /analyse/PCTY'],
+            ['Paycom', 'PAYC', '19,6x', 'N/D', 'N/D']
+          ]
+        },
+        {
+          type: 'p',
+          text: 'Esta tabla muestra que Paychex esta razonablemente valorado en comparacion con sus pares en terminos de P/FCF. El sector de nominas SaaS estadounidense cotiza entre 17 y 20 veces el FCF, y Paychex esta en la mediana. Esto confirma que el "problema" no es una burbuja sectorial absurda, sino simplemente que nuestro metodo exige un margen de seguridad que el mercado no nos ofrece hoy.'
+        },
+        {
+          type: 'h2',
+          text: 'Antes de los resultados del 24 de junio : que vigilar'
+        },
+        {
+          type: 'p',
+          text: 'Paychex publica los resultados Q4 FY2026 el 24 de junio de 2026, antes de la apertura del mercado. El consenso de analistas espera un BPA (beneficio por accion) de 1,33 $ y unos ingresos de 1.630 millones de dolares. El trimestre pasado (Q3), Paychex publico un BPA de 1,71 $, exactamente en linea con las estimaciones, sin sorpresas en ningun sentido. Ese es el perfil de un negocio maduro y predecible.'
+        },
+        {
+          type: 'p',
+          text: 'Puntos clave a vigilar el 24 de junio : (1) El crecimiento organico de los ingresos, especialmente las nuevas incorporaciones de clientes pyme. (2) La evolucion de los margenes, concretamente si el apalancamiento operativo continua. (3) Las perspectivas (guidance) para el ano fiscal 2027. (4) Cualquier comentario sobre las condiciones macro en Estados Unidos : dado que Paychex esta directamente ligado al empleo americano, un deterioro del mercado laboral seria una senal negativa para el crecimiento de su base de clientes.'
+        },
+        {
+          type: 'h2',
+          text: 'Conclusion : 9/10 pero no al precio actual'
+        },
+        {
+          type: 'p',
+          text: 'Paychex es un negocio notable. Una puntuacion de 9/10 en nuestro metodo significa que casi todos los criterios de calidad estan validados : rentabilidad, generacion de caja, solidez del balance, retorno sobre el capital, dividendo creciente. Solo le faltan unas decimas de punto en los criterios de velocidad de crecimiento, y eso es todo.'
+        },
+        {
+          type: 'p',
+          text: 'El problema es exclusivamente el precio. A 98,26 $, usted paga una prima del 42 % por encima de lo que nuestro metodo considera un punto de entrada razonable. Para los inversores que ya tienen acciones, no hay razon para vender una empresa de esta calidad. Para los que buscan iniciar una posicion, nuestro metodo recomienda esperar una correccion hacia los 56-60 $ para tener un margen de seguridad. Mientras tanto, este valor merece un lugar en su lista de seguimiento. Encuentre el analisis completo y todos los ratios en tiempo real en /analyse/PAYX. Y para comparar con Paylocity, nuestro analisis 10/10 esta aqui : /blog/paylocity-pcty-10-sur-10-saas-rh-analyse.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Por que Paychex obtiene 9/10 y no 10/10 ?',
+          a: 'Dos criterios estan en zona de advertencia (crecimiento de ventas al 7,7 %/ano y crecimiento del FCF por accion al 9,3 %/ano, ambos justo por debajo del umbral del 10 %) y un criterio (el CCC) no puede calcularse en este tipo de modelo SaaS. El criterio de valoracion falla : la accion esta un 42 % por encima de nuestro precio de compra justo. La calidad operativa es casi perfecta, solo el precio es el problema.'
+        },
+        {
+          q: 'Que es el P/FCF y por que es importante ?',
+          a: 'El P/FCF (Precio / Flujo de Caja Libre por accion) es nuestra principal herramienta de valoracion. Mide cuanto paga usted por cada dolar de efectivo que genera la empresa. A 18,14x para Paychex, paga 18,14 $ por 1 $ de FCF anual. Es un nivel razonable en terminos absolutos, pero nuestro metodo calcula un precio de compra justo que tiene en cuenta el crecimiento esperado y un margen de seguridad, lo que nos da 56,63 $.'
+        },
+        {
+          q: 'Es el dividendo del 4,8 % sostenible ?',
+          a: 'Si. Aunque la tasa de distribucion sobre los beneficios contables es elevada (95,4 %), el flujo de caja libre de Paychex supera con comodidad el dividendo. El crecimiento del dividendo del +11,9 %/ano en 5 anos es un compromiso firme de la direccion sobre la fiabilidad de los flujos de caja futuros. No hay ninguna senal de alarma sobre la sostenibilidad del dividendo.'
+        },
+        {
+          q: 'Por que no es calculable el CCC para Paychex ?',
+          a: 'El CCC (Ciclo de Conversion de Caja) mide el retraso entre los pagos a proveedores y los cobros de clientes. Para Paychex, el modelo incluye un flotante de caja : la empresa cobra las cotizaciones patronales de sus clientes varios dias antes de remitirlas a las autoridades fiscales. Este mecanismo hace que el calculo estandar del CCC sea irrelevante. No es un defecto del negocio, es una limitacion de nuestra cuadricula de puntuacion en este tipo de modelo.'
+        },
+        {
+          q: 'Como se compara Paychex con Paylocity (PCTY) ?',
+          a: 'Paylocity obtiene 10/10 en nuestro metodo frente al 9/10 de Paychex, con un P/FCF de 17,6x frente a 18,14x. Ambas son excelentes empresas del mismo sector. PCTY se dirige mas a las empresas medianas (100-5.000 empleados) mientras que Paychex domina el segmento micro-pyme. Nuestro analisis completo de Paylocity esta disponible aqui : /blog/paylocity-pcty-10-sur-10-saas-rh-analyse.'
+        }
+      ],
+      tags: ['Paychex', 'PAYX', 'SaaS', 'nominas', 'earnings', 'dividendo', 'pyme', 'analisis-fundamental', 'resultados'],
+      disclaimer: 'Analisis con fines informativos y educativos, no un consejo de inversion personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicacion (21 de junio de 2026), sujetas a cambios. Haz tu propia investigacion antes de cualquier decision de inversion.'
+    }
+  }
+};
+
+
+const articleFDX: Article = {
+  slug: 'fedex-fdx-analyse-avant-resultats-q4-2026',
+  date: '2026-06-21',
+  updated: '2026-06-21',
+  readingTime: 7,
+  ticker: 'FDX',
+  content: {
+    fr: {
+      title: 'FedEx Corp (FDX) : ce que nos 10 criteres disent',
+      excerpt:
+        "FedEx publie ses resultats Q4 FY2026 demain. Avant que les chiffres tombent, voici ce que mes 10 criteres fondamentaux disent vraiment de cette entreprise : 3 reussites sur 10, une surcote de 50 %, et une scission freight qui change les regles du jeu.",
+      metaDescription:
+        "FedEx (FDX) resultats Q4 FY2026 le 23 juin. Score qualite 3/10, P/FCF 18,75x, prix d'achat raisonnable a 160 $. Analyse complete avant earnings.",
+      answer:
+        "FedEx publie ses resultats Q4 FY2026 demain apres cloture. Mes 10 criteres donnent un score de 3 sur 10 : l'entreprise est rentable et rachete ses actions, mais ses ventes baissent, ses marges se compriment et son cash ne croit pas assez. A 326 $, l'action se paie environ 50 % au-dessus de mon prix d'achat raisonnable de 160 $.",
+      body: [
+        { type: 'ul', items: [
+          "Score qualite 3/10 : seuls la rentabilite, les rachats d'actions et la valorisation P/FCF passent nos criteres.",
+          "Les ventes baissent de 0,6 % par an sur 5 ans et les marges se compriment : les couts augmentent plus vite que les revenus.",
+          "Le free cash flow par action ne croit que de 3,8 % par an, loin du seuil de 10 % que j'exige.",
+          "A 326 $, l'action se paie assez cher : 50 % au-dessus de mon prix d'achat raisonnable de 160 $.",
+          "La scission de la division freight est l'evenement cle : elle peut changer structurellement le profil de FedEx, dans un sens ou dans l'autre.",
+        ] },
+        { type: 'h2', text: 'Pourquoi je regarde FedEx maintenant' },
+        { type: 'p', text: "Demain soir, 23 juin 2026, FedEx publie ses resultats du quatrieme trimestre de son exercice fiscal 2026. Le consensus attend un benefice par action de 6,02 dollars et un chiffre d'affaires de 24,3 milliards. Au trimestre precedent, l'entreprise avait surpris avec un BPA reel de 5,25 dollars contre 4,18 attendus, soit un depassement de 25,7 %. Le marche a deja integre une partie de cette dynamique : l'action a progresse de 43 % depuis le debut de l'annee pour atteindre 326 dollars." },
+        { type: 'p', text: "Et demain, il y a aussi un dividende. L'ex-dividende tombe le 22 juin, soit aujourd'hui, pour un montant de 1,17 dollar par action. Le rendement du dividende ressort a 1,5 %. Autrement dit, si tu achetes l'action aujourd'hui tu touches ce dividende, mais si tu attends demain ce n'est plus le cas. Rien de determinant, mais a noter." },
+        { type: 'p', text: "Avant que les chiffres tombent, je veux te montrer ce que mes 10 criteres de qualite fondamentale disent de FedEx. Pas de pronostic sur les resultats : je ne fais pas de paris. Ce que je fais, c'est mesurer la solidite du business independamment du bruit court terme." },
+        { type: 'h2', text: 'Ma methode : 10 criteres, deux questions separees' },
+        { type: 'p', text: "Ma regle, que je n'enfreins jamais : je separe toujours deux questions que la plupart des investisseurs confondent. Un : est-ce une bonne entreprise ? Deux, completement a part : est-ce le bon prix ? Une entreprise mediocre, meme a bon prix, reste mediocre. Une entreprise solide surpayee reste un mauvais placement." },
+        { type: 'p', text: "Pour la qualite, je passe chaque entreprise au crible de 10 criteres concrets : est-elle rentable ? Ses ventes augmentent-elles ? Son free cash flow (FCF) par action croit-il assez vite ? Le FCF, c'est l'argent qui reste vraiment dans les caisses apres avoir paye toutes les factures : salaires, investissements, impots. C'est plus difficile a maquiller que le benefice comptable, donc je m'y fie davantage. Je regarde aussi les marges, l'endettement, le rendement du capital, les rachats d'actions. Pour le prix, j'utilise principalement le P/FCF (price to free cash flow) : le cours de l'action divise par le FCF annuel genere. Plus c'est bas, moins c'est cher." },
+        { type: 'h2', text: "Ce que FedEx reussit (les 3 criteres qui passent)" },
+        { type: 'p', text: "Commençons par ce qui fonctionne. FedEx est rentable : sa marge nette atteint 4,9 %. C'est modeste pour moi (mon seuil prefere est au-dela de 10 %), mais ca passe le critere minimal. Pour une entreprise qui manipule physiquement des colis sur des milliers de km, la logistique ayant des couts fixes enormes, une marge de 4,9 % ne fait pas honte." },
+        { type: 'p', text: "Deuxieme reussite : le rachat d'actions. FedEx rachete ses propres actions a un rythme de 3,03 % par an, ce qui reduit le nombre de titres en circulation. Quand une entreprise rachete ses actions, elle concentre la propriete de chaque actionnaire restant sur une plus grande part du gateau. C'est un signal positif de gestion du capital, a condition que le prix paye soit raisonnable. Ici c'est le cas : c'est un critere qui passe." },
+        { type: 'p', text: "Troisieme reussite : la valorisation P/FCF. L'action se paie assez cher, a 18,75 fois son free cash flow annuel. Ce n'est pas bon marche, mais c'est sous mon seuil de 25 fois au-dela duquel je juge l'action trop chere. Mon critere passe, donc. La mediane du secteur logistique tourne autour de 15,2 fois. FedEx est donc un peu au-dessus du milieu du peloton, mais pas excessivement." },
+        { type: 'h2', text: "Ce que FedEx rate (les 7 criteres qui echouent)" },
+        { type: 'p', text: "Maintenant les problemes, et il y en a plusieurs." },
+        { type: 'p', text: "Les ventes reculent. Sur cinq ans, le chiffre d'affaires de FedEx baisse de 0,6 % par an. Ce n'est pas dramatique en valeur absolue, mais pour moi une entreprise de qualite doit augmenter ses revenus. FedEx n'y arrive pas : c'est un echec clair." },
+        { type: 'p', text: "Le FCF par action ne croit que de 3,8 % par an sur cinq ans. Mon seuil est de 10 % minimum. Moins de 4 %, c'est presque a peine plus que l'inflation. L'actionnaire ne s'enrichit pas vraiment." },
+        { type: 'p', text: "La marge FCF n'est que de 4,6 %. Cela signifie que sur 100 dollars de ventes, seulement 4,60 finissent en cash disponible. Mon seuil est de 10 %. Une marge de 4,6 % laisse tres peu de coussin si les couts augmentent ou si l'economie ralentit." },
+        { type: 'p', text: "Les marges se compriment. Les couts augmentent plus vite que les revenus. C'est le signe d'une deterioration structurelle de la rentabilite. Pour une entreprise qui est supposee beneficier d'economies d'echelle, c'est une question serieuse." },
+        { type: 'p', text: "Le Cash ROCE est de 6,5 %. Le ROCE (Return On Capital Employed), ou rendement du capital employe, mesure l'argent genere pour chaque dollar investi dans l'entreprise. 6,5 %, c'est trop bas : mon seuil est de 15 %. Autrement dit, FedEx peine a rentabiliser le capital qu'elle immobilise dans ses avions, entrepots et camions." },
+        { type: 'p', text: "L'endettement est eleve. La dette totale represente 4,1 annees de FCF. C'est dans la zone d'alerte : remboursable, mais sans confort. Si les resultats decoivent sur plusieurs trimestres, la marge de manoeuvre est etroite." },
+        { type: 'p', text: "La conversion benefices vers cash est legerement inferieure a 1 (0,94). Cela signifie que le cash genere est un peu inferieur au benefice comptable annonce. Ce n'est pas un signal d'alarme majeur, mais c'est une legere fuite qui merite attention." },
+        { type: 'h2', text: 'Le tableau comparatif : FedEx vs ses rivaux' },
+        { type: 'p', text: "Pour situer la valorisation P/FCF de FedEx dans son contexte sectoriel, voici une comparaison simple. Le P/FCF mesure combien d'annees de cash libre tu paies en achetant l'action aujourd'hui. Plus le chiffre est bas, moins tu paies cher la caise generee." },
+        { type: 'ul', items: [
+          'FedEx (FDX) : se paie assez cher, a 18,75 fois son free cash flow annuel',
+          'UPS (UPS) : se paie plus cher encore, a 20,8 fois son free cash flow annuel',
+          'DHL (DHL) : se paie nettement moins cher, a 9,4 fois son free cash flow annuel',
+          'Mediane du secteur logistique integre : 15,2 fois le free cash flow annuel',
+        ] },
+        { type: 'p', text: "FedEx est au-dessus de la mediane sectorielle et au-dessus de DHL. Seul UPS est plus cher. Mais DHL affiche un P/FCF presque deux fois inferieur a FedEx : si tu cherches de la logistique a prix raisonnable, la comparaison n'est pas flatteuse pour FDX." },
+        { type: 'h2', text: "La scission freight : l'evenement a ne pas rater" },
+        { type: 'p', text: "L'actualite majeure de FedEx, c'est la scission de sa division fret (freight). FedEx a annonce qu'elle separe FedEx Freight, sa branche de transport de marchandises lourdes (camions, palettes, gros volumes), du reste du groupe. L'objectif officiel : simplifier le business, ameliorer la lisibilite pour les investisseurs, et laisser chaque entite optimiser sa propre structure de couts." },
+        { type: 'p', text: "Pourquoi c'est important ? FedEx Freight est la partie la plus rentable du groupe. En la separant, FedEx Express (le coeur de metier, les colis rapides) sera mis a nu, sans le soutien des marges du freight. Certains analystes pensent que la valeur cachee sera mieux reconnue par le marche une fois les deux entites separees. D'autres s'inquietent que Express, sans le freight, ressemble encore plus a une machine couteuse sous pression." },
+        { type: 'p', text: "Pour moi, c'est precisement ce genre d'evenement qui rend les analyses a court terme dangereuses. La scission change le profil comptable de l'entreprise. Les chiffres que je viens de decrire correspondent a FedEx integre. Apres separation, les deux entites auront des ratios differents. C'est une transformation structurelle, pas un simple trimestre." },
+        { type: 'h2', text: "La valorisation : l'action se paie trop cher selon ma methode" },
+        { type: 'p', text: "A 326 dollars, FedEx est survalorisee selon mon modele. Mon prix d'achat raisonnable ressort a 160,42 dollars, soit une surcote de 50,8 % par rapport au cours actuel. Dit autrement : pour que l'action soit a mon prix cible, il faudrait qu'elle baisse de pres de moitie." },
+        { type: 'p', text: "Ce prix d'achat raisonnable n'est pas un pronostic de cours : c'est le prix auquel, selon mes hypotheses de croissance future du FCF et de rendement attendu, l'action offrirait une marge de securite suffisante. Au cours actuel, cette marge est negative. Ce n'est pas que l'entreprise est mauvaise, c'est que le marche la paie comme si les problemes etaient deja resolus." },
+        { type: 'h2', text: "Ce que j'attends des resultats de demain" },
+        { type: 'p', text: "Je ne parie pas sur les resultats. Ce que je fais, c'est noter ce que les chiffres pourraient signifier pour la qualite fondamentale du dossier. Le consensus attend 6,02 dollars de BPA et 24,3 milliards de chiffre d'affaires. Au trimestre precedent, FedEx avait surpris de 25,7 % sur le BPA. Si l'entreprise repete la performance, le marche reagira probablement positivement a court terme." },
+        { type: 'p', text: "Mais attention : un bon trimestre ne resout pas les problemes structurels. Les ventes qui baissent, les marges qui se compriment, le FCF qui stagne : ce sont des tendances sur cinq ans, pas des glissements d'un trimestre. Pour que FedEx change vraiment de categorie dans mon analyse, il faudrait plusieurs trimestres consecutifs de croissance des revenus, d'expansion des marges et de FCF par action qui remonte au-dela de 10 % de croissance annuelle." },
+        { type: 'p', text: "En attendant, je surveille les resultats demain avec attention, mais sans impatience. Mon prix cible est clair. Si l'action corrige significativement, je reevalue. Sinon, j'attends." },
+        { type: 'h2', text: 'Mon verdict' },
+        { type: 'p', text: "FedEx est une entreprise bien connue, avec une marque mondiale, une infrastructure impressionnante et un management qui rachete activement ses actions. Mais connue ne veut pas dire bonne selon mes criteres, et impressionnante ne veut pas dire rentable. A 3/10 sur ma grille de qualite, c'est un dossier mediocre paye cher. La scission freight peut changer la donne, mais elle introduit aussi une incertitude supplementaire. Je reste a l'ecart au prix actuel, et je note 160 dollars comme prix cible. Pour aller plus loin, consulte la page d'analyse de FedEx sur lubin-investment.com/analyse/FDX." },
+      ],
+      faq: [
+        { q: "C'est quoi le free cash flow ?", a: "C'est l'argent qui reste reellement dans les caisses de l'entreprise apres avoir paye toutes les factures : salaires, investissements, impots, remboursements. C'est plus difficile a maquiller que le benefice comptable, donc je m'y fie davantage pour juger la sante financiere d'une entreprise." },
+        { q: "Pourquoi FedEx a un score de 3/10 seulement ?", a: "Sur mes 10 criteres de qualite, seuls trois passent : la rentabilite (marge nette de 4,9 %), les rachats d'actions (3 % par an) et la valorisation P/FCF (18,75 fois, sous mon seuil de 25). Les sept autres echouent : revenus en baisse, FCF par action qui croit a seulement 3,8 % par an, marges qui se compriment, Cash ROCE trop faible, dette elevee." },
+        { q: "C'est quoi la scission freight de FedEx ?", a: "FedEx separe sa division de transport de marchandises lourdes (FedEx Freight) du reste du groupe. L'objectif est de simplifier le business et de mieux valoriser chaque entite separement. C'est un evenement structurel majeur qui changera le profil financier de l'entreprise apres separation." },
+        { q: "Pourquoi mon prix cible est si loin du cours actuel (160 $ vs 326 $) ?", a: "Mon prix d'achat raisonnable reflete la valeur de l'entreprise selon ses fondamentaux actuels : croissance du FCF, marges, rendement du capital. Quand une entreprise a des revenus en baisse, des marges qui se compriment et un FCF qui stagne, son prix juste est bien inferieur a ce que le marche paie aujourd'hui. Ce n'est pas un pronostic de cours, c'est un point de reference." },
+        { q: "Est-ce que FedEx peut redresser la barre ?", a: "Oui, en theorie. La scission freight pourrait reveler une valeur cachee. Un redressement operationnel est possible. Mais il faudrait plusieurs trimestres consecutifs de croissance des revenus, d'expansion des marges et de FCF par action en hausse d'au moins 10 % par an pour que FedEx franchisse mes seuils de qualite. Ce n'est pas impossible, mais c'est loin du profil actuel. Ceci n'est pas un conseil en investissement, fais tes propres recherches." },
+      ],
+      tags: ['FedEx', 'FDX', 'logistique', 'earnings', 'analyse-fondamentale'],
+      disclaimer:
+        "Cet article est une analyse a but informatif et educatif, et ne constitue pas un conseil en investissement personnalise. Les performances passees ne prejudgent pas des performances futures. Chiffres au 21 juin 2026, susceptibles d'evoluer. Faites vos propres recherches avant toute decision d'investissement.",
+    },
+    en: {
+      title: 'FedEx Corp (FDX) : what our 10 criteria say',
+      excerpt:
+        "FedEx reports Q4 FY2026 earnings tomorrow. Before the numbers drop, here is what my 10 fundamental criteria actually say about this company: 3 passes out of 10, a 50% overvaluation, and a freight spin-off that changes the rules of the game.",
+      metaDescription:
+        "FedEx (FDX) Q4 FY2026 earnings on June 23. Quality score 3/10, P/FCF 18.75x, reasonable buy price at $160. Full analysis before earnings.",
+      answer:
+        "FedEx reports Q4 FY2026 earnings tomorrow after market close. My 10 criteria give a score of 3 out of 10: the company is profitable and buys back shares, but revenues are falling, margins are shrinking and cash is not growing fast enough. At $326, the stock trades about 50% above my reasonable buy price of $160.",
+      body: [
+        { type: 'ul', items: [
+          'Quality score 3/10: only profitability, share buybacks and the P/FCF valuation pass our criteria.',
+          'Revenue has fallen 0.6% per year for 5 years and margins are compressing: costs are growing faster than revenues.',
+          'Free cash flow per share grows only 3.8% per year, well below the 10% threshold I require.',
+          'At $326, the stock is fairly expensive: 50% above my reasonable buy price of $160.',
+          'The freight spin-off is the key event: it can structurally change the profile of FedEx, for better or worse.',
+        ] },
+        { type: 'h2', text: 'Why I am looking at FedEx now' },
+        { type: 'p', text: "Tomorrow evening, June 23, 2026, FedEx reports its fourth quarter results for fiscal year 2026. The consensus expects earnings per share of $6.02 and revenue of $24.3 billion. In the previous quarter, the company surprised with actual EPS of $5.25 against an expected $4.18, a beat of 25.7%. The market has already priced in part of this momentum: the stock has risen 43% year-to-date to reach $326." },
+        { type: 'p', text: "And tomorrow there is also a dividend. The ex-dividend date falls on June 22, today, for $1.17 per share. The dividend yield comes out at 1.5%. In other words, if you buy the stock today you get this dividend, but if you wait until tomorrow you do not. Not decisive, but worth noting." },
+        { type: 'p', text: "Before the numbers drop, I want to show you what my 10 fundamental quality criteria say about FedEx. No forecast on the results: I do not make bets. What I do is measure the soundness of the business independently of the short-term noise." },
+        { type: 'h2', text: 'My method: 10 criteria, two separate questions' },
+        { type: 'p', text: "My rule, which I never break: I always separate two questions most investors confuse. One: is this a good company? Two, entirely apart: is this the right price? A mediocre company, even at a good price, stays mediocre. A solid company overpaid is still a bad investment." },
+        { type: 'p', text: "For quality, I run each company through 10 concrete criteria: is it profitable? Are its revenues growing? Is its free cash flow (FCF) per share growing fast enough? FCF is the money that truly stays in the bank after paying every bill: wages, capital expenditure, taxes. It is harder to dress up than accounting profit, so I trust it more. I also look at margins, debt, return on capital, and share buybacks. For price, I mainly use P/FCF (price to free cash flow): the share price divided by the annual FCF generated. The lower it is, the cheaper it is." },
+        { type: 'h2', text: 'What FedEx gets right (the 3 criteria that pass)' },
+        { type: 'p', text: "Let us start with what works. FedEx is profitable: its net margin reaches 4.9%. Modest for me (my preferred threshold is above 10%), but it passes the minimum criterion. For a company that physically handles packages over thousands of kilometers, with logistics having enormous fixed costs, a 4.9% margin is not shameful." },
+        { type: 'p', text: "Second success: share buybacks. FedEx buys back its own shares at a rate of 3.03% per year, reducing the number of shares outstanding. When a company buys back its shares, it concentrates each remaining shareholder's ownership over a larger slice of the pie. It is a positive capital management signal, provided the price paid is reasonable. Here it is: this criterion passes." },
+        { type: 'p', text: "Third success: P/FCF valuation. The stock trades fairly expensively at 18.75 times its annual free cash flow. Not cheap, but below my threshold of 25 times beyond which I judge the stock too expensive. This criterion passes then. The median of the logistics sector runs around 15.2 times. FedEx is therefore slightly above the midpoint of the pack, but not excessively so." },
+        { type: 'h2', text: 'What FedEx fails (the 7 criteria that do not pass)' },
+        { type: 'p', text: "Now the problems, and there are several." },
+        { type: 'p', text: "Revenue is declining. Over five years, FedEx's revenue falls 0.6% per year. Not dramatic in absolute terms, but for me a quality company must grow its revenues. FedEx cannot manage it: that is a clear failure." },
+        { type: 'p', text: "FCF per share grows only 3.8% per year over five years. My threshold is a minimum of 10%. Less than 4% is barely more than inflation. The shareholder is not genuinely getting richer." },
+        { type: 'p', text: "The FCF margin is only 4.6%. That means out of every 100 dollars of revenue, only $4.60 ends up as available cash. My threshold is 10%. A 4.6% margin leaves very little cushion if costs rise or the economy slows." },
+        { type: 'p', text: "Margins are compressing. Costs are growing faster than revenues. That is a sign of structural deterioration in profitability. For a company supposed to benefit from economies of scale, it is a serious question." },
+        { type: 'p', text: "Cash ROCE is 6.5%. ROCE (Return On Capital Employed) measures cash generated for every dollar invested in the company. 6.5% is too low: my threshold is 15%. In other words, FedEx struggles to earn a return on the capital it locks up in its planes, warehouses and trucks." },
+        { type: 'p', text: "Debt is high. Total debt represents 4.1 years of FCF. That is in the warning zone: repayable, but without comfort. If results disappoint over several quarters, the room for manoeuvre is tight." },
+        { type: 'p', text: "The profit-to-cash conversion is slightly below 1 (0.94). That means the cash generated is a little lower than the accounting profit reported. Not a major alarm signal, but a slight leak worth watching." },
+        { type: 'h2', text: 'The comparison table: FedEx vs its rivals' },
+        { type: 'p', text: "To put FedEx's P/FCF valuation in its sector context, here is a simple comparison. The P/FCF measures how many years of free cash you are paying by buying the stock today. The lower the number, the less you are paying for the cash generated." },
+        { type: 'ul', items: [
+          'FedEx (FDX): trades fairly expensively at 18.75 times its annual free cash flow',
+          'UPS (UPS): trades even more expensively at 20.8 times its annual free cash flow',
+          'DHL (DHL): trades much more cheaply at 9.4 times its annual free cash flow',
+          'Integrated logistics sector median: 15.2 times annual free cash flow',
+        ] },
+        { type: 'p', text: "FedEx is above the sector median and above DHL. Only UPS is more expensive. But DHL has a P/FCF almost half that of FedEx: if you are looking for logistics at a reasonable price, the comparison is not flattering for FDX." },
+        { type: 'h2', text: 'The freight spin-off: the event not to miss' },
+        { type: 'p', text: "The major news for FedEx is the spin-off of its freight division. FedEx has announced it is separating FedEx Freight, its heavy goods transport arm (trucks, pallets, large volumes), from the rest of the group. The stated objective: simplify the business, improve clarity for investors, and let each entity optimize its own cost structure." },
+        { type: 'p', text: "Why does it matter? FedEx Freight is the most profitable part of the group. By separating it, FedEx Express (the core business, fast parcels) will be laid bare, without the support of freight margins. Some analysts believe the hidden value will be better recognized by the market once the two entities are separate. Others worry that Express, without freight, looks even more like an expensive machine under pressure." },
+        { type: 'p', text: "For me, this is precisely the kind of event that makes short-term analysis dangerous. The spin-off changes the accounting profile of the company. The figures I just described correspond to integrated FedEx. After separation, the two entities will have different ratios. This is a structural transformation, not just one quarter." },
+        { type: 'h2', text: 'The valuation: the stock is priced too high by my method' },
+        { type: 'p', text: "At $326, FedEx is overvalued according to my model. My reasonable buy price comes out at $160.42, a 50.8% premium over the current price. Put differently: for the stock to reach my target price, it would need to fall by nearly half." },
+        { type: 'p', text: "This reasonable buy price is not a share price forecast: it is the price at which, under my assumptions about future FCF growth and expected return, the stock would offer a sufficient margin of safety. At the current price, that margin is negative. It is not that the company is terrible, it is that the market prices it as if the problems were already solved." },
+        { type: 'h2', text: "What I am watching in tomorrow's results" },
+        { type: 'p', text: "I do not bet on results. What I do is note what the numbers could mean for the fundamental quality of the case. The consensus expects $6.02 EPS and $24.3 billion in revenue. In the previous quarter, FedEx beat EPS by 25.7%. If the company repeats the performance, the market will probably react positively in the short term." },
+        { type: 'p', text: "But beware: a good quarter does not fix structural problems. Falling revenues, compressing margins, stagnating FCF: these are five-year trends, not one-quarter slips. For FedEx to genuinely change category in my analysis, it would take several consecutive quarters of revenue growth, margin expansion and FCF per share climbing back above 10% annual growth." },
+        { type: 'p', text: "In the meantime, I watch tomorrow's results with attention but without impatience. My target price is clear. If the stock corrects significantly, I reassess. Otherwise, I wait. For the full analysis, visit lubin-investment.com/analyse/FDX." },
+        { type: 'h2', text: 'My verdict' },
+        { type: 'p', text: "FedEx is a well-known company with a global brand, impressive infrastructure and management that actively buys back shares. But well-known does not mean good by my criteria, and impressive does not mean profitable. At 3/10 on my quality grid, this is a mediocre business priced expensively. The freight spin-off could change the picture, but it also introduces additional uncertainty. I stay on the sidelines at the current price and note $160 as my target entry point." },
+      ],
+      faq: [
+        { q: 'What is free cash flow?', a: "It is the money that truly stays in the company's bank after paying every bill: wages, capital expenditure, taxes, debt repayment. It is harder to dress up than accounting profit, so I trust it more to judge the financial health of a company." },
+        { q: 'Why does FedEx score only 3/10?', a: 'Of my 10 quality criteria, only three pass: profitability (4.9% net margin), share buybacks (3% per year) and P/FCF valuation (18.75 times, below my threshold of 25). The other seven fail: declining revenues, FCF per share growing at only 3.8% per year, compressing margins, Cash ROCE too low, and high debt.' },
+        { q: 'What is the FedEx freight spin-off?', a: 'FedEx is separating its heavy goods transport division (FedEx Freight) from the rest of the group. The goal is to simplify the business and better value each entity separately. It is a major structural event that will change the financial profile of the company after separation.' },
+        { q: 'Why is the target price so far from the current price ($160 vs $326)?', a: 'The reasonable buy price reflects the value of the company based on its current fundamentals: FCF growth, margins, return on capital. When a company has declining revenues, compressing margins and stagnating FCF, its fair price is well below what the market pays today. It is not a share price forecast, it is a reference point.' },
+        { q: 'Can FedEx turn things around?', a: 'Yes, in theory. The freight spin-off could reveal hidden value. An operational turnaround is possible. But it would take several consecutive quarters of revenue growth, margin expansion and FCF per share rising by at least 10% per year for FedEx to clear my quality thresholds. Not impossible, but far from the current profile. This is not investment advice, do your own research.' },
+      ],
+      tags: ['FedEx', 'FDX', 'logistics', 'earnings', 'fundamental-analysis'],
+      disclaimer:
+        'This article is an analysis for informational and educational purposes and does not constitute personalized investment advice. Past performance does not guarantee future results. Figures as of June 21, 2026, subject to change. Do your own research before any investment decision.',
+    },
+    es: {
+      title: 'FedEx Corp (FDX) : lo que dicen nuestros 10 criterios',
+      excerpt:
+        "FedEx publica resultados Q4 FY2026 manana. Antes de que caigan los numeros, esto es lo que mis 10 criterios fundamentales dicen realmente de esta empresa: 3 aprobados sobre 10, una sobrevaloración del 50 % y una escision de freight que cambia las reglas del juego.",
+      metaDescription:
+        "FedEx (FDX) resultados Q4 FY2026 el 23 de junio. Puntuacion de calidad 3/10, P/FCF 18,75x, precio de compra razonable en 160 $. Analisis completo antes de earnings.",
+      answer:
+        "FedEx publica sus resultados Q4 FY2026 manana tras el cierre. Mis 10 criterios dan una puntuacion de 3 sobre 10: la empresa es rentable y recompra acciones, pero sus ventas caen, sus margenes se comprimen y su caja no crece lo suficiente. A 326 $, la accion cotiza un 50 % por encima de mi precio de compra razonable de 160 $.",
+      body: [
+        { type: 'ul', items: [
+          'Puntuacion de calidad 3/10: solo la rentabilidad, las recompras de acciones y la valoracion P/FCF superan nuestros criterios.',
+          'Los ingresos caen un 0,6 % al ano durante 5 anos y los margenes se comprimen: los costes crecen mas rapido que los ingresos.',
+          'El flujo de caja libre por accion solo crece un 3,8 % al ano, lejos del umbral del 10 % que exijo.',
+          'A 326 $, la accion cotiza bastante cara: un 50 % por encima de mi precio de compra razonable de 160 $.',
+          'La escision de la division freight es el evento clave: puede cambiar estructuralmente el perfil de FedEx, para bien o para mal.',
+        ] },
+        { type: 'h2', text: 'Por que miro a FedEx ahora' },
+        { type: 'p', text: "Manana por la noche, el 23 de junio de 2026, FedEx publica sus resultados del cuarto trimestre del ejercicio fiscal 2026. El consenso espera un beneficio por accion de 6,02 dolares y unos ingresos de 24,3 millardos. En el trimestre anterior, la empresa sorprendio con un BPA real de 5,25 dolares frente a 4,18 esperados, una superacion del 25,7 %. El mercado ya ha integrado parte de este dinamismo: la accion ha subido un 43 % desde principios de ano para alcanzar los 326 dolares." },
+        { type: 'p', text: "Y manana tambien hay un dividendo. La fecha ex-dividendo cae el 22 de junio, hoy, por 1,17 dolares por accion. La rentabilidad por dividendo es del 1,5 %. En otras palabras, si compras la accion hoy cobras este dividendo, pero si esperas a manana ya no. No es determinante, pero vale la pena anotarlo." },
+        { type: 'p', text: "Antes de que caigan los numeros, quiero mostrarte lo que mis 10 criterios de calidad fundamental dicen de FedEx. Sin pronostico sobre los resultados: no hago apuestas. Lo que hago es medir la solidez del negocio con independencia del ruido a corto plazo." },
+        { type: 'h2', text: 'Mi metodo: 10 criterios, dos preguntas separadas' },
+        { type: 'p', text: "Mi regla, que nunca incumplo: separo siempre dos preguntas que la mayoria de los inversores confunden. Una: ¿es una buena empresa? Dos, completamente aparte: ¿es el precio correcto? Una empresa mediocre, aunque este a buen precio, sigue siendo mediocre. Una empresa solida sobrepagada sigue siendo una mala inversion." },
+        { type: 'p', text: "Para la calidad, paso cada empresa por el filtro de 10 criterios concretos: ¿es rentable? ¿Crecen sus ingresos? ¿Crece lo suficientemente rapido su flujo de caja libre (FCF) por accion? El FCF es el dinero que de verdad queda en caja tras pagar todas las facturas: sueldos, inversiones, impuestos. Es mas dificil de maquillar que el beneficio contable, por eso me fio mas de el. Tambien miro los margenes, la deuda, la rentabilidad del capital y las recompras de acciones. Para el precio, uso principalmente el P/FCF (price to free cash flow): el precio de la accion dividido entre el FCF anual generado. Cuanto mas bajo, mas barato." },
+        { type: 'h2', text: 'Lo que FedEx aprueba (los 3 criterios que pasan)' },
+        { type: 'p', text: "Empecemos por lo que funciona. FedEx es rentable: su margen neto alcanza el 4,9 %. Modesto para mi (mi umbral preferido esta por encima del 10 %), pero supera el criterio minimo. Para una empresa que maneja fisicamente paquetes a lo largo de miles de kilometros, con la logistica que tiene enormes costes fijos, un margen del 4,9 % no esta mal." },
+        { type: 'p', text: "Segundo aprobado: la recompra de acciones. FedEx recompra sus propias acciones a un ritmo del 3,03 % anual, lo que reduce el numero de titulos en circulacion. Cuando una empresa recompra sus acciones, concentra la propiedad de cada accionista restante en una parte mayor del pastel. Es una senal positiva de gestion del capital, siempre que el precio pagado sea razonable. Aqui lo es: este criterio pasa." },
+        { type: 'p', text: "Tercer aprobado: la valoracion P/FCF. La accion se paga bastante cara, a 18,75 veces su flujo de caja libre anual. No es barata, pero esta por debajo de mi umbral de 25 veces a partir del cual juzgo la accion demasiado cara. Este criterio pasa, pues. La mediana del sector logistico ronda las 15,2 veces. FedEx esta algo por encima de la mitad del peloton, pero no excesivamente." },
+        { type: 'h2', text: 'Lo que FedEx suspende (los 7 criterios que fallan)' },
+        { type: 'p', text: "Ahora los problemas, y hay varios." },
+        { type: 'p', text: "Los ingresos caen. En cinco anos, el volumen de negocio de FedEx disminuye un 0,6 % anual. No es dramatico en terminos absolutos, pero para mi una empresa de calidad debe aumentar sus ingresos. FedEx no lo consigue: es un suspenso claro." },
+        { type: 'p', text: "El FCF por accion solo crece un 3,8 % anual en cinco anos. Mi umbral es del 10 % como minimo. Menos de un 4 % es apenas mas que la inflacion. El accionista no se enriquece de verdad." },
+        { type: 'p', text: "El margen FCF es solo del 4,6 %. Eso significa que de cada 100 dolares de ventas, solo 4,60 acaban como caja disponible. Mi umbral es del 10 %. Un margen del 4,6 % deja muy poco colchon si los costes suben o la economia se ralentiza." },
+        { type: 'p', text: "Los margenes se comprimen. Los costes crecen mas rapido que los ingresos. Es la senal de un deterioro estructural de la rentabilidad. Para una empresa que supuestamente se beneficia de economias de escala, es una cuestion seria." },
+        { type: 'p', text: "El Cash ROCE es del 6,5 %. El ROCE (Return On Capital Employed), o rentabilidad del capital empleado, mide el dinero generado por cada dolar invertido en la empresa. El 6,5 % es demasiado bajo: mi umbral es del 15 %. Dicho de otro modo, FedEx tiene dificultades para rentabilizar el capital que inmoviliza en sus aviones, almacenes y camiones." },
+        { type: 'p', text: "La deuda es elevada. La deuda total representa 4,1 anos de FCF. Esta en la zona de alerta: repagable, pero sin comodidad. Si los resultados decepcionan durante varios trimestres, el margen de maniobra es estrecho." },
+        { type: 'p', text: "La conversion de beneficios en caja es ligeramente inferior a 1 (0,94). Eso significa que la caja generada es algo menor que el beneficio contable anunciado. No es una senal de alarma mayor, pero es una ligera fuga que merece atencion." },
+        { type: 'h2', text: 'La tabla comparativa: FedEx frente a sus rivales' },
+        { type: 'p', text: "Para situar la valoracion P/FCF de FedEx en su contexto sectorial, aqui va una comparacion sencilla. El P/FCF mide cuantos anos de caja libre pagas al comprar la accion hoy. Cuanto mas bajo sea el numero, menos pagas por la caja generada." },
+        { type: 'ul', items: [
+          'FedEx (FDX): cotiza bastante cara, a 18,75 veces su flujo de caja libre anual',
+          'UPS (UPS): cotiza aun mas cara, a 20,8 veces su flujo de caja libre anual',
+          'DHL (DHL): cotiza mucho mas barata, a 9,4 veces su flujo de caja libre anual',
+          'Mediana del sector logistico integrado: 15,2 veces el flujo de caja libre anual',
+        ] },
+        { type: 'p', text: "FedEx esta por encima de la mediana sectorial y por encima de DHL. Solo UPS es mas cara. Pero DHL tiene un P/FCF casi dos veces inferior al de FedEx: si buscas logistica a precio razonable, la comparacion no es halagadora para FDX." },
+        { type: 'h2', text: 'La escision freight: el evento que no hay que perderse' },
+        { type: 'p', text: "La gran noticia de FedEx es la escision de su division de carga (freight). FedEx ha anunciado que separara FedEx Freight, su rama de transporte de mercancias pesadas (camiones, palets, grandes volumenes), del resto del grupo. El objetivo declarado: simplificar el negocio, mejorar la transparencia para los inversores y dejar que cada entidad optimice su propia estructura de costes." },
+        { type: 'p', text: "¿Por que importa? FedEx Freight es la parte mas rentable del grupo. Al separarla, FedEx Express (el negocio principal, los paquetes rapidos) quedara al descubierto, sin el apoyo de los margenes de freight. Algunos analistas creen que el valor oculto sera mejor reconocido por el mercado una vez separadas las dos entidades. Otros temen que Express, sin freight, se parezca aun mas a una maquina costosa bajo presion." },
+        { type: 'p', text: "Para mi, es precisamente este tipo de evento el que hace peligroso el analisis a corto plazo. La escision cambia el perfil contable de la empresa. Los numeros que acabo de describir corresponden a FedEx integrada. Tras la separacion, las dos entidades tendran ratios distintos. Es una transformacion estructural, no un simple trimestre." },
+        { type: 'h2', text: 'La valoracion: la accion esta sobrepagada segun mi metodo' },
+        { type: 'p', text: "A 326 dolares, FedEx esta sobrevalorada segun mi modelo. Mi precio de compra razonable es de 160,42 dolares, es decir una sobrevaloración del 50,8 % respecto al precio actual. Dicho de otro modo: para que la accion alcance mi precio objetivo, tendria que caer casi a la mitad." },
+        { type: 'p', text: "Este precio de compra razonable no es un pronostico de cotizacion: es el precio al que, bajo mis hipotesis de crecimiento futuro del FCF y rendimiento esperado, la accion ofreceria un margen de seguridad suficiente. Al precio actual, ese margen es negativo. No es que la empresa sea mala, es que el mercado la paga como si los problemas ya estuvieran resueltos." },
+        { type: 'h2', text: 'Lo que espero de los resultados de manana' },
+        { type: 'p', text: "No apuesto por los resultados. Lo que hago es anotar lo que los numeros podrian significar para la calidad fundamental del caso. El consenso espera 6,02 dolares de BPA y 24,3 millardos de ingresos. En el trimestre anterior, FedEx supero el BPA en un 25,7 %. Si la empresa repite la actuacion, el mercado probablemente reaccionara positivamente a corto plazo." },
+        { type: 'p', text: "Pero atencion: un buen trimestre no soluciona los problemas estructurales. La caida de ingresos, la compresion de margenes, el FCF que se estanca: son tendencias de cinco anos, no deslizamientos de un trimestre. Para que FedEx cambie de verdad de categoria en mi analisis, haria falta varios trimestres consecutivos de crecimiento de ingresos, expansion de margenes y FCF por accion que vuelva a subir por encima de un crecimiento anual del 10 %." },
+        { type: 'p', text: "Mientras tanto, sigo los resultados de manana con atencion pero sin impaciencia. Mi precio objetivo esta claro. Si la accion corrige significativamente, reevaluo. Si no, espero. Para el analisis completo, visita lubin-investment.com/analyse/FDX." },
+        { type: 'h2', text: 'Mi veredicto' },
+        { type: 'p', text: "FedEx es una empresa bien conocida, con una marca mundial, una infraestructura impresionante y una direccion que recompra activamente sus acciones. Pero conocida no significa buena segun mis criterios, e impresionante no significa rentable. Con un 3/10 en mi cuadricula de calidad, es un negocio mediocre pagado caro. La escision de freight podria cambiar la situacion, pero tambien introduce una incertidumbre adicional. Me mantengo al margen al precio actual y anoto 160 dolares como precio objetivo de entrada." },
+      ],
+      faq: [
+        { q: '¿Que es el flujo de caja libre?', a: 'Es el dinero que de verdad queda en las arcas de la empresa tras pagar todas las facturas: sueldos, inversiones, impuestos, amortizaciones de deuda. Es mas dificil de maquillar que el beneficio contable, por eso me fio mas de el para juzgar la salud financiera de una empresa.' },
+        { q: '¿Por que FedEx solo tiene una puntuacion de 3/10?', a: 'De mis 10 criterios de calidad, solo tres pasan: la rentabilidad (margen neto del 4,9 %), las recompras de acciones (3 % anual) y la valoracion P/FCF (18,75 veces, por debajo de mi umbral de 25). Los otros siete suspenden: ingresos a la baja, FCF por accion creciendo solo un 3,8 % anual, margenes en compresion, Cash ROCE demasiado bajo y deuda elevada.' },
+        { q: '¿Que es la escision freight de FedEx?', a: 'FedEx esta separando su division de transporte de mercancias pesadas (FedEx Freight) del resto del grupo. El objetivo es simplificar el negocio y valorar mejor cada entidad por separado. Es un evento estructural importante que cambiara el perfil financiero de la empresa tras la separacion.' },
+        { q: '¿Por que el precio objetivo esta tan lejos del precio actual (160 $ vs 326 $)?', a: 'El precio de compra razonable refleja el valor de la empresa segun sus fundamentales actuales: crecimiento del FCF, margenes, rentabilidad del capital. Cuando una empresa tiene ingresos en caida, margenes en compresion y FCF estancado, su precio justo es muy inferior a lo que el mercado paga hoy. No es un pronostico de cotizacion, es un punto de referencia.' },
+        { q: '¿Puede FedEx dar la vuelta a la situacion?', a: 'Si, en teoria. La escision de freight podria revelar valor oculto. Un saneamiento operativo es posible. Pero haria falta varios trimestres consecutivos de crecimiento de ingresos, expansion de margenes y FCF por accion subiendo al menos un 10 % anual para que FedEx supere mis umbrales de calidad. No es imposible, pero esta lejos del perfil actual. Esto no es asesoramiento de inversion, haz tu propia investigacion.' },
+      ],
+      tags: ['FedEx', 'FDX', 'logistica', 'earnings', 'analisis-fundamental'],
+      disclaimer:
+        'Este articulo es un analisis con fines informativos y educativos y no constituye asesoramiento de inversion personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 21 de junio de 2026, sujetas a cambios. Haz tu propia investigacion antes de cualquier decision de inversion.',
+    },
+  },
+};
+
+const articleROP: Article = {
+  slug: 'roper-technologies-rop-10-sur-10-logiciels-niche',
+  date: '2026-06-21',
+  updated: '2026-06-21',
+  readingTime: 8,
+  ticker: 'ROP',
+  content: {
+    fr: {
+      title: 'Roper Technologies (ROP) : 10/10, logiciels de niche',
+      excerpt: 'Un conglomerat de logiciels verticaux note 10 sur 10 qui se paie a 14 fois son cash annuel, bien en dessous de la mediane du secteur. Je surveille, je n\'achete pas encore : la surcote actuelle est de 38 %. Voici pourquoi ce modele serial acquirer est l\'un des plus elegants de la Bourse americaine.',
+      metaDescription: 'Roper Technologies (ROP) analyse : serial acquirer de logiciels de niche, 10/10 qualite, P/FCF 14x. Prix cible $205. Pourquoi je surveille sans acheter au cours actuel de $330.',
+      answer: 'Roper Technologies est un conglomerat americain qui achete des logiciels de niche a monopole captif, les laisse operer de facon autonome et encaisse leur cash. Note 10 sur 10 selon mes criteres. L\'action se paie 14 fois son cash annuel, bien en dessous de la mediane du secteur a 24 fois. Seul probleme : au cours actuel de 330 dollars, je suis 38 % au-dessus de mon prix d\'entree raisonnable de 205 dollars.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Roper Technologies note 10 sur 10 : rentabilite, croissance, marges, rendement du capital, tout passe.',
+            'Un modele serial acquirer unique : achat de logiciels a monopole de niche, autonomie operationnelle, cash recycle en nouvelles acquisitions.',
+            'P/FCF de 14 fois : se paie bien moins cher que ses pairs logiciels (mediane secteur a 24 fois, Constellation Software a 24 fois).',
+            'La dette de 4 fois le FCF annuel est le seul point d\'attention, mais elle est structurelle et remboursee rapidement grace aux cash flows des acquisitions.',
+            'Prix d\'achat raisonnable : 205 dollars. Cours actuel : 330 dollars. Surcote de 38 %. Je surveille, je n\'achete pas encore.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le modele serial acquirer : qu\'est-ce que c\'est ?',
+        },
+        {
+          type: 'p',
+          text: 'Un serial acquirer (acquereur en serie) est une entreprise dont le coeur de metier n\'est pas de vendre un produit, mais d\'acheter d\'autres entreprises. Elle identifie des cibles avec un avantage concurrentiel durable, les acquiert, les integre sans les etouffer, et reinjecte leurs cash flows dans de nouvelles acquisitions. Le moteur tourne en boucle. Ce modele est encore peu connu des investisseurs particuliers francais, pourtant il produit certains des meilleurs rendements boursiers de long terme. La cle : chaque acquisition doit etre achetee a un prix raisonnable par rapport au cash qu\'elle genere, et ce cash doit etre superieur au cout de la dette levee pour financer l\'achat. C\'est une machine a compositer le capital, pas une holding passive. Le risque principal est que la direction paie trop cher ses cibles et detruise de la valeur. C\'est pourquoi la discipline d\'acquisition est le critere numero un pour evaluer un serial acquirer.',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies applique ce modele depuis plus de quinze ans. Au depart, c\'etait un conglomerat industriel classique. Entre 2020 et 2022, la direction a vendu toutes ses activites industrielles pour devenir 100 % logiciels. Depuis, elle a realise environ cinquante acquisitions reussies dans des niches tres specifiques : logiciels pour les pompiers et les services de secours, logiciels de gestion pour les cabinets medicaux, logiciels de gestion de l\'eau et de l\'environnement, logiciels pour les assureurs specialises, outils de gestion pour les universites americaines. Chaque niche est captive : une fois qu\'un pompier ou un medecin utilise le logiciel de Roper depuis dix ans, il ne change pas. Le cout de changement (le switching cost) est immense. Ce moat, c\'est-a-dire ce fosse concurrentiel, garantit des revenus recurrents et previsibles pendant des decennies. Le concurrent le plus proche qui suit ce meme modele est Constellation Software (CSU.TO), une entreprise canadienne que je regarderai dans un prochain article.',
+        },
+        {
+          type: 'h2',
+          text: 'Les 10 criteres de qualite passes en revue',
+        },
+        {
+          type: 'p',
+          text: 'Je ne note pas une entreprise a l\'intuition. Je la passe au crible de dix criteres financiers concrets. Voici comment Roper se comporte sur chacun. La rentabilite : la marge nette ressort a 21 %, ce qui signifie que sur 100 dollars de ventes, 21 finissent en benefice. C\'est solide pour un conglomerat. La croissance des ventes : plus 12 % par an sur cinq ans, regulierement, sans rupture. La croissance du free cash flow par action (le FCF par action, c\'est-a-dire l\'argent qui reste vraiment dans les caisses une fois toutes les depenses payees, divise par le nombre d\'actions) : plus 11 % par an sur cinq ans. Le controle du nombre d\'actions : quasi-stable, avec une legere dilution de 0,46 % par an seulement, tres maitrisee pour un acquereur qui paye parfois en actions. La marge FCF : 30 %, ce qui est excellent. Sur 100 dollars encaisses, 30 restent disponibles en cash reel. Les marges en expansion : l\'effet de levier operationnel est confirme, les marges s\'ameliorent a mesure que l\'entreprise grossit. Le Cash ROCE (rendement du capital employe mesure en cash, et non en benefice comptable) : 26 %, ce qui veut dire que chaque dollar investi dans l\'entreprise rapporte 26 cents de cash par an. C\'est excellent. La conversion benefices en cash : 1,41, ce qui signifie que le cash genere depasse les benefices comptables. Une entreprise qui transforme ses profits en argent bien reel, et meme davantage, ne triche pas avec ses comptes. Le cycle de conversion du cash (CCC, en jours) : 53 jours en compression a raison de moins 4,4 jours par an. La tendance est a l\'amelioration continue. Enfin, le P/FCF : 14 fois, ce qui est tres bas pour un logiciel de cette qualite.',
+        },
+        {
+          type: 'table',
+          headers: ['Societe', 'Ticker', 'P/FCF', 'Note qualite'],
+          rows: [
+            ['Roper Technologies', 'ROP', '14x', '10/10'],
+            ['Constellation Software', 'CSU.TO', '24x', 'n/a'],
+            ['Intuit', 'INTU', '28x', 'n/a'],
+            ['Salesforce', 'CRM', '22x', 'n/a'],
+            ['Mediane secteur Software', '', '24x', ''],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La dette : le seul point d\'attention',
+        },
+        {
+          type: 'p',
+          text: 'La dette de Roper est remboursable en 4,16 ans de free cash flow. Pour une entreprise classique, ce niveau serait preoccupant. Pour Roper, il est delibere et structurel. Voici la logique : Roper emprunte de l\'argent a un taux fixe pour acheter une entreprise qui genere du cash a un taux superieur. Elle rembourse la dette avec le FCF de l\'acquisition, et dans trois ou quatre ans, son bilan est de nouveau propre pour la prochaine operation. C\'est le meme principe qu\'un investisseur immobilier qui emprunte pour acheter un immeuble locatif : la dette n\'est pas un probleme si le loyer couvre les mensualites et degage un surplus. Ce qui serait vraiment dangereux, c\'est une hausse brutale des taux d\'interet qui rencherisse le cout de la dette avant que celle-ci soit remboursee. C\'est le seul risque reel a surveiller. En dehors de ca, l\'historique de Roper montre une discipline irreprochable : pas d\'acquisition ratee majeure, remboursement regulier, bilan qui se reconstruit entre deux deals. Je le signale honnêtement parce que c\'est le seul WARN dans mon analyse, et il faut le comprendre avant d\'investir.',
+        },
+        {
+          type: 'h2',
+          text: 'Valorisation : excellent business, prix actuel trop eleve',
+        },
+        {
+          type: 'p',
+          text: 'Le P/FCF est le ratio que j\'utilise pour valoriser une entreprise de logiciels. C\'est le prix de l\'action divise par le free cash flow qu\'elle genere chaque annee par action. Un P/FCF de 14 signifie que tu paies aujourd\'hui quatorze annees de ce cash. Plus c\'est bas, moins c\'est cher. Roper se valorise a 14 fois son cash annuel. La mediane du secteur Software-Application est a 24 fois. Son concurrent Constellation Software cote a 24 fois. Intuit cote a 28 fois. Roper est clairement sous-evalue par rapport a ses pairs. Mais cela ne veut pas dire qu\'il faut acheter n\'importe quel prix. Mon prix d\'achat raisonnable, calcule selon ma methode, ressort a 205 dollars. Au cours actuel de 330 dollars, l\'action presente une surcote de 38 %. Je surveille donc Roper de tres pres, sans l\'acheter aujourd\'hui. Les prochains resultats trimestriels sont prevus le 17 juillet 2026 (Q2 2026, EPS estime a 5,34 dollars, chiffre d\'affaires estime a 2,12 milliards de dollars). Une deception pourrait rapprocher le cours de mon prix d\'entree. Une bonne surprise pourrait l\'eloigner. Dans les deux cas, je sais quoi faire, parce que j\'ai un prix, pas une emotion.',
+        },
+        {
+          type: 'h2',
+          text: 'Conclusion',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies est l\'une des entreprises les plus elegantes de la Bourse americaine : un modele serial acquirer bien execute, dix criteres de qualite valides sur dix, un cash qui se paie bien moins cher que ses pairs. Je la surveille, je ne l\'achete pas encore. Mon prix d\'entree raisonnable est 205 dollars. Nous sommes a 330 dollars. La patience est la seule strategie qui tienne. Si tu veux voir l\'analyse complete et suivre l\'evolution du prix en temps reel, retrouve la fiche ROP sur [Lubin Investment](/analyse/ROP).',
+        },
+      ],
+      faq: [
+        {
+          q: 'C\'est quoi un serial acquirer ?',
+          a: 'Un serial acquirer est une entreprise dont le modele consiste a acheter d\'autres entreprises, a encaisser leur cash, et a reinvestir ce cash dans de nouvelles acquisitions. Roper Technologies et Constellation Software sont les deux exemples les plus celebres. Le secret : acheter des niches captives ou les clients ne peuvent pas partir facilement.',
+        },
+        {
+          q: 'Pourquoi Roper a-t-il autant de dette ?',
+          a: 'La dette de Roper est deliberee. L\'entreprise emprunte pour acheter des logiciels qui generent plus de cash que le cout de la dette. Elle rembourse ensuite en trois ou quatre ans. C\'est un modele de creation de valeur, pas un signe de fragilite. Le risque reel : une hausse brutale des taux avant remboursement.',
+        },
+        {
+          q: 'Pourquoi ne pas acheter Roper maintenant ?',
+          a: 'Parce que le prix actuel de 330 dollars est 38 % au-dessus de mon prix d\'achat raisonnable de 205 dollars. Une excellente entreprise achetee trop cher reste un mauvais placement. Je note le prix cible et j\'attends. La qualite, elle, ne change pas.',
+        },
+        {
+          q: 'Quelle est la difference entre Roper et Constellation Software ?',
+          a: 'Les deux sont des serial acquireurs de logiciels verticaux. Constellation Software est canadien, plus axe sur les tres petites niches, et cote a 24 fois son cash annuel. Roper est americain, se concentre sur des niches un peu plus larges, et cote a 14 fois seulement. Les deux modeles sont excellents.',
+        },
+        {
+          q: 'C\'est quoi le P/FCF ?',
+          a: 'Le P/FCF (Price to Free Cash Flow) est le prix de l\'action divise par le free cash flow genere par action chaque annee. Le free cash flow, c\'est l\'argent qui reste vraiment en caisse apres toutes les depenses. Un P/FCF de 14 signifie qu\'on paie 14 annees de cash. Plus c\'est bas, plus c\'est bon marche.',
+        },
+      ],
+      tags: ['Roper Technologies', 'ROP', 'logiciels', 'serial acquirer', 'analyse-fondamentale'],
+      disclaimer: 'Analyse a but informatif et educatif, pas un conseil en investissement personnalise. Les performances passees ne prejugent pas du futur. Chiffres a la date de publication, susceptibles d\'evoluer. Fais tes propres recherches.',
+    },
+    en: {
+      title: 'Roper Technologies (ROP) : 10/10, niche software',
+      excerpt: 'A vertical software conglomerate rated 10 out of 10, trading at 14 times its annual cash, well below the sector median. I am watching, not yet buying : the current premium is 38 %. Here is why the serial acquirer model is one of the most elegant on the US market.',
+      metaDescription: 'Roper Technologies (ROP) analysis : serial acquirer of niche software, 10/10 quality, P/FCF 14x. Target price $205. Why I watch without buying at the current $330 price.',
+      answer: 'Roper Technologies is an American conglomerate that buys niche monopoly software, lets them operate autonomously, and collects their cash. Rated 10 out of 10 on my criteria. The stock trades at 14 times its annual cash, well below the sector median of 24 times. Only problem : at the current price of $330, I am 38 % above my reasonable entry price of $205.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Roper Technologies rated 10 out of 10 : profitability, growth, margins, return on capital, everything passes.',
+            'A unique serial acquirer model : buying niche monopoly software, operational autonomy, cash recycled into new acquisitions.',
+            'P/FCF of 14 times : trades much cheaper than software peers (sector median at 24 times, Constellation Software at 24 times).',
+            'Debt of 4 times annual FCF is the only watch point, but it is structural and repaid quickly from acquisition cash flows.',
+            'Reasonable buy price : $205. Current price : $330. Premium of 38 %. I am watching, not yet buying.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The serial acquirer model : what is it ?',
+        },
+        {
+          type: 'p',
+          text: 'A serial acquirer is a company whose core business is not selling a product, but buying other companies. It identifies targets with a durable competitive advantage, acquires them, integrates them without smothering them, and reinjects their cash flows into new acquisitions. The engine runs in a loop. This model is still little known among retail investors, yet it produces some of the best long-term stock market returns. The key : each acquisition must be bought at a reasonable price relative to the cash it generates, and that cash must exceed the cost of the debt raised to finance the purchase. It is a capital-compounding machine, not a passive holding. The main risk is that management overpays for targets and destroys value. That is why acquisition discipline is the number one criterion for evaluating a serial acquirer.',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies has been applying this model for more than fifteen years. Originally, it was a classic industrial conglomerate. Between 2020 and 2022, management sold all its industrial operations to become 100 % software. Since then, it has completed around fifty successful acquisitions in very specific niches : software for firefighters and emergency services, practice management software for medical offices, water and environmental management software, software for specialty insurers, and management tools for American universities. Each niche is captive : once a firefighter or a doctor has used a Roper software for ten years, they do not switch. The switching cost is enormous. That moat, meaning that competitive ditch, guarantees recurring and predictable revenue for decades. The closest competitor following the same model is Constellation Software (CSU.TO), a Canadian company I will cover in a future article.',
+        },
+        {
+          type: 'h2',
+          text: 'The 10 quality criteria reviewed',
+        },
+        {
+          type: 'p',
+          text: 'I do not score a company on a hunch. I run it through ten concrete financial criteria. Here is how Roper performs on each. Profitability : the net margin is 21 %, meaning that on every $100 of sales, $21 ends up as profit. That is solid for a conglomerate. Revenue growth : plus 12 % per year over five years, consistently and without disruption. Free cash flow per share growth (FCF per share is the money that truly stays in the bank after all expenses, divided by the number of shares) : plus 11 % per year over five years. Share count discipline : nearly flat, with only 0.46 % dilution per year, very controlled for an acquirer that sometimes pays in stock. FCF margin : 30 %, which is excellent. Out of every $100 collected, $30 remain as real available cash. Expanding margins : operating leverage is confirmed, margins improve as the company grows. Cash ROCE (return on capital employed measured in cash, not accounting profit) : 26 %, meaning every dollar invested in the business returns 26 cents of cash per year. That is excellent. Earnings-to-cash conversion : 1.41, meaning the cash generated exceeds accounting profits. A company that turns its profits into real money, and even more, is not cooking its books. The cash conversion cycle (CCC, in days) : 53 days and compressing at minus 4.4 days per year. The trend is continuous improvement. Finally, the P/FCF : 14 times, which is very low for software of this quality.',
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Ticker', 'P/FCF', 'Quality score'],
+          rows: [
+            ['Roper Technologies', 'ROP', '14x', '10/10'],
+            ['Constellation Software', 'CSU.TO', '24x', 'n/a'],
+            ['Intuit', 'INTU', '28x', 'n/a'],
+            ['Salesforce', 'CRM', '22x', 'n/a'],
+            ['Software sector median', '', '24x', ''],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Debt : the only watch point',
+        },
+        {
+          type: 'p',
+          text: 'Roper\'s debt is repayable in 4.16 years of free cash flow. For a typical company, that level would be concerning. For Roper, it is deliberate and structural. Here is the logic : Roper borrows money at a fixed rate to buy a company that generates cash at a higher rate. It repays the debt with the acquisition\'s FCF, and in three or four years its balance sheet is clean again for the next deal. It is the same principle as a real estate investor who borrows to buy a rental property : the debt is not a problem if the rent covers the monthly payments and generates a surplus. What would truly be dangerous is a sudden spike in interest rates that increases the cost of debt before it is repaid. That is the only real risk to watch. Apart from that, Roper\'s track record shows impeccable discipline : no major failed acquisition, steady repayment, balance sheet rebuilding between deals. I flag it honestly because it is the only WARN in my analysis, and you must understand it before investing.',
+        },
+        {
+          type: 'h2',
+          text: 'Valuation : great business, current price too high',
+        },
+        {
+          type: 'p',
+          text: 'The P/FCF is the ratio I use to value a software company. It is the share price divided by the free cash flow generated per share each year. A P/FCF of 14 means you are paying fourteen years of that cash today. The lower it is, the cheaper it is. Roper trades at 14 times its annual cash. The Software-Application sector median is at 24 times. Its competitor Constellation Software trades at 24 times. Intuit trades at 28 times. Roper is clearly undervalued relative to its peers. But that does not mean buy at any price. My reasonable buy price, calculated using my method, comes out at $205. At the current price of $330, the stock carries a 38 % premium. So I am watching Roper very closely, without buying today. The next quarterly results are scheduled for July 17, 2026 (Q2 2026, estimated EPS of $5.34, estimated revenue of $2.12 billion). A disappointment could bring the price closer to my entry point. A positive surprise could push it further away. In both cases, I know what to do, because I have a price, not an emotion.',
+        },
+        {
+          type: 'h2',
+          text: 'Conclusion',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies is one of the most elegant businesses on the US stock market : a well-executed serial acquirer model, ten out of ten quality criteria validated, and cash trading well below peers. I am watching it, not yet buying. My reasonable entry price is $205. We are at $330. Patience is the only strategy that holds. If you want to see the full analysis and track the price in real time, find the ROP page on [Lubin Investment](/analyse/ROP).',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is a serial acquirer ?',
+          a: 'A serial acquirer is a company whose business model consists of buying other companies, collecting their cash, and reinvesting that cash into new acquisitions. Roper Technologies and Constellation Software are the two most famous examples. The secret : buy captive niches where customers cannot easily leave.',
+        },
+        {
+          q: 'Why does Roper have so much debt ?',
+          a: 'Roper\'s debt is deliberate. The company borrows to buy software that generates more cash than the cost of the debt. It then repays in three to four years. It is a value-creation model, not a sign of fragility. The real risk : a sudden rate spike before repayment.',
+        },
+        {
+          q: 'Why not buy Roper right now ?',
+          a: 'Because the current price of $330 is 38 % above my reasonable buy price of $205. An excellent company bought too expensive is still a bad investment. I note the target price and I wait. The quality does not change.',
+        },
+        {
+          q: 'What is the difference between Roper and Constellation Software ?',
+          a: 'Both are vertical software serial acquirers. Constellation Software is Canadian, more focused on very small niches, and trades at 24 times its annual cash. Roper is American, focuses on slightly larger niches, and trades at only 14 times. Both models are excellent.',
+        },
+        {
+          q: 'What is P/FCF ?',
+          a: 'P/FCF (Price to Free Cash Flow) is the share price divided by the free cash flow generated per share each year. Free cash flow is the money that truly remains in the bank after all expenses. A P/FCF of 14 means you are paying 14 years of cash. The lower it is, the cheaper it is.',
+        },
+      ],
+      tags: ['Roper Technologies', 'ROP', 'software', 'serial acquirer', 'fundamental-analysis'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Roper Technologies (ROP) : 10/10, software de nicho',
+      excerpt: 'Un conglomerado de software vertical calificado 10 sobre 10, que cotiza a 14 veces su caja anual, muy por debajo de la mediana del sector. Lo vigilo, todavia no compro : la prima actual es del 38 %. Por que este modelo serial acquirer es uno de los mas elegantes de la Bolsa americana.',
+      metaDescription: 'Roper Technologies (ROP) analisis : serial acquirer de software de nicho, 10/10 calidad, P/FCF 14x. Precio objetivo $205. Por que vigilo sin comprar al precio actual de $330.',
+      answer: 'Roper Technologies es un conglomerado americano que compra software de nicho con monopolio cautivo, los deja operar de forma autonoma y cobra su caja. Calificado 10 sobre 10 segun mis criterios. La accion cotiza a 14 veces su caja anual, muy por debajo de la mediana del sector en 24 veces. Unico problema : al precio actual de 330 dolares, estoy un 38 % por encima de mi precio de entrada razonable de 205 dolares.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Roper Technologies calificado 10 sobre 10 : rentabilidad, crecimiento, margenes, rendimiento del capital, todo aprueba.',
+            'Un modelo serial acquirer unico : compra de software con monopolio de nicho, autonomia operativa, caja reciclada en nuevas adquisiciones.',
+            'P/FCF de 14 veces : cotiza mucho mas barato que sus pares de software (mediana del sector a 24 veces, Constellation Software a 24 veces).',
+            'La deuda de 4 veces el FCF anual es el unico punto a vigilar, pero es estructural y se repaga rapidamente con los flujos de caja de las adquisiciones.',
+            'Precio de compra razonable : 205 dolares. Precio actual : 330 dolares. Prima del 38 %. Vigilo, todavia no compro.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El modelo serial acquirer : que es exactamente ?',
+        },
+        {
+          type: 'p',
+          text: 'Un serial acquirer (adquirente en serie) es una empresa cuyo negocio principal no es vender un producto, sino comprar otras empresas. Identifica objetivos con una ventaja competitiva duradera, los adquiere, los integra sin asfixiarlos, y reinyecta sus flujos de caja en nuevas adquisiciones. El motor gira en bucle. Este modelo todavia es poco conocido entre los inversores particulares de habla hispana, sin embargo produce algunos de los mejores rendimientos bursatiles a largo plazo. La clave : cada adquisicion debe comprarse a un precio razonable en relacion con el efectivo que genera, y ese efectivo debe superar el coste de la deuda levantada para financiar la compra. Es una maquina de componer capital, no una holding pasiva. El riesgo principal es que la direccion pague demasiado por sus objetivos y destruya valor. Por eso la disciplina de adquisicion es el criterio numero uno para evaluar un serial acquirer.',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies lleva aplicando este modelo mas de quince anos. Al principio era un conglomerado industrial clasico. Entre 2020 y 2022, la direccion vendio todas sus operaciones industriales para convertirse en 100 % software. Desde entonces ha completado alrededor de cincuenta adquisiciones exitosas en nichos muy especificos : software para bomberos y servicios de emergencias, software de gestion para consultorios medicos, software de gestion del agua y el medio ambiente, software para aseguradoras especializadas, y herramientas de gestion para universidades americanas. Cada nicho es cautivo : una vez que un bombero o un medico lleva diez anos usando el software de Roper, no cambia. El coste de cambio (switching cost) es enorme. Ese moat, es decir ese foso competitivo, garantiza ingresos recurrentes y predecibles durante decadas. El competidor mas cercano que sigue el mismo modelo es Constellation Software (CSU.TO), una empresa canadiense que analizare en un proximo articulo.',
+        },
+        {
+          type: 'h2',
+          text: 'Los 10 criterios de calidad revisados',
+        },
+        {
+          type: 'p',
+          text: 'No califico una empresa por intuicion. La paso por diez criterios financieros concretos. Asi es como Roper se comporta en cada uno. Rentabilidad : el margen neto es del 21 %, lo que significa que de cada 100 dolares de ventas, 21 acaban como beneficio. Solido para un conglomerado. Crecimiento de ingresos : mas 12 % anual durante cinco anos, de manera regular y sin rupturas. Crecimiento del free cash flow por accion (el FCF por accion es el dinero que de verdad queda en caja tras todos los gastos, dividido entre el numero de acciones) : mas 11 % anual durante cinco anos. Control del numero de acciones : practicamente estable, con una dilusion de solo el 0,46 % anual, muy controlada para un adquirente que a veces paga en acciones. Margen FCF : 30 %, lo que es excelente. De cada 100 dolares cobrados, 30 quedan disponibles en caja real. Margenes en expansion : el apalancamiento operativo esta confirmado, los margenes mejoran a medida que la empresa crece. Cash ROCE (rendimiento del capital empleado medido en caja, no en beneficio contable) : 26 %, es decir que cada dolar invertido en la empresa devuelve 26 centavos de caja al ano. Excelente. Conversion de beneficios en caja : 1,41, lo que significa que la caja generada supera los beneficios contables. Una empresa que convierte sus beneficios en dinero real, e incluso mas, no falsifica sus cuentas. El ciclo de conversion de caja (CCC, en dias) : 53 dias en compresion a razon de menos 4,4 dias por ano. La tendencia es de mejora continua. Por ultimo, el P/FCF : 14 veces, muy bajo para un software de esta calidad.',
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Ticker', 'P/FCF', 'Nota calidad'],
+          rows: [
+            ['Roper Technologies', 'ROP', '14x', '10/10'],
+            ['Constellation Software', 'CSU.TO', '24x', 'n/d'],
+            ['Intuit', 'INTU', '28x', 'n/d'],
+            ['Salesforce', 'CRM', '22x', 'n/d'],
+            ['Mediana sector Software', '', '24x', ''],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La deuda : el unico punto a vigilar',
+        },
+        {
+          type: 'p',
+          text: 'La deuda de Roper es reembolsable en 4,16 anos de free cash flow. Para una empresa clasica, ese nivel seria preocupante. Para Roper, es deliberado y estructural. La logica : Roper pide prestado dinero a un tipo fijo para comprar una empresa que genera caja a un tipo superior. Reembolsa la deuda con el FCF de la adquisicion, y en tres o cuatro anos su balance esta limpio de nuevo para la proxima operacion. Es el mismo principio que un inversor inmobiliario que pide un prestamo para comprar un inmueble en alquiler : la deuda no es un problema si el alquiler cubre las cuotas y genera un excedente. Lo que seria verdaderamente peligroso es una subida brusca de los tipos de interes que encareciera el coste de la deuda antes de que esta sea reembolsada. Ese es el unico riesgo real a vigilar. Fuera de eso, el historial de Roper muestra una disciplina impecable : ninguna adquisicion fallida importante, reembolso regular, balance que se reconstruye entre operaciones. Lo senalo honestamente porque es el unico WARN en mi analisis, y hay que entenderlo antes de invertir.',
+        },
+        {
+          type: 'h2',
+          text: 'Valoracion : negocio excelente, precio actual demasiado alto',
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF es el ratio que utilizo para valorar una empresa de software. Es el precio de la accion dividido entre el free cash flow generado por accion cada ano. Un P/FCF de 14 significa que pagas hoy catorce anos de esa caja. Cuanto mas bajo, mas barato. Roper cotiza a 14 veces su caja anual. La mediana del sector Software-Aplicacion esta en 24 veces. Su competidor Constellation Software cotiza a 24 veces. Intuit cotiza a 28 veces. Roper esta claramente infravalorado respecto a sus pares. Pero eso no significa comprar a cualquier precio. Mi precio de compra razonable, calculado segun mi metodo, sale en 205 dolares. Al precio actual de 330 dolares, la accion tiene una prima del 38 %. Por eso vigilo a Roper muy de cerca, sin comprar hoy. Los proximos resultados trimestrales estan previstos para el 17 de julio de 2026 (Q2 2026, BPA estimado de 5,34 dolares, ingresos estimados de 2.120 millones de dolares). Una decepcion podria acercar la cotizacion a mi precio de entrada. Una sorpresa positiva podria alejarla. En ambos casos se lo que hacer, porque tengo un precio, no una emocion.',
+        },
+        {
+          type: 'h2',
+          text: 'Conclusion',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies es uno de los negocios mas elegantes de la Bolsa americana : un modelo serial acquirer bien ejecutado, diez criterios de calidad de diez validados, y una caja que cotiza mucho mas barata que sus pares. Lo vigilo, todavia no compro. Mi precio de entrada razonable es 205 dolares. Estamos en 330 dolares. La paciencia es la unica estrategia que funciona. Si quieres ver el analisis completo y seguir la evolucion del precio en tiempo real, encuentra la ficha ROP en [Lubin Investment](/analyse/ROP).',
+        },
+      ],
+      faq: [
+        {
+          q: 'Que es un serial acquirer ?',
+          a: 'Un serial acquirer es una empresa cuyo modelo de negocio consiste en comprar otras empresas, cobrar su caja, y reinvertir esa caja en nuevas adquisiciones. Roper Technologies y Constellation Software son los dos ejemplos mas famosos. El secreto : comprar nichos cautivos donde los clientes no pueden irse facilmente.',
+        },
+        {
+          q: 'Por que Roper tiene tanta deuda ?',
+          a: 'La deuda de Roper es deliberada. La empresa pide prestado para comprar software que genera mas caja que el coste de la deuda. Luego la reembolsa en tres o cuatro anos. Es un modelo de creacion de valor, no una senal de fragilidad. El riesgo real : una subida brusca de tipos antes del reembolso.',
+        },
+        {
+          q: 'Por que no comprar Roper ahora mismo ?',
+          a: 'Porque el precio actual de 330 dolares esta un 38 % por encima de mi precio de compra razonable de 205 dolares. Una empresa excelente comprada demasiado cara sigue siendo una mala inversion. Anoto el precio objetivo y espero. La calidad no cambia.',
+        },
+        {
+          q: 'Cual es la diferencia entre Roper y Constellation Software ?',
+          a: 'Ambos son serial acquirers de software vertical. Constellation Software es canadiense, mas enfocado en nichos muy pequenos, y cotiza a 24 veces su caja anual. Roper es americano, se centra en nichos algo mas amplios, y cotiza solo a 14 veces. Ambos modelos son excelentes.',
+        },
+        {
+          q: 'Que es el P/FCF ?',
+          a: 'El P/FCF (Price to Free Cash Flow) es el precio de la accion dividido entre el free cash flow generado por accion cada ano. El free cash flow es el dinero que queda de verdad en caja tras todos los gastos. Un P/FCF de 14 significa que pagas 14 anos de caja. Cuanto mas bajo, mas barato.',
+        },
+      ],
+      tags: ['Roper Technologies', 'ROP', 'software', 'serial acquirer', 'analisis-fundamental'],
+      disclaimer: 'Analisis con fines informativos y educativos, no asesoramiento de inversion personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha de publicacion, sujetas a cambios. Haz tu propia investigacion.',
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, articleFDX, articleROP];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {

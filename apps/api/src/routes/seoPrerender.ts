@@ -473,6 +473,11 @@ function renderArticleHtml(article: Article, lang: ArticleLang): string {
     .map((b) => {
       if (b.type === 'h2') return `<h2>${escapeHtml(b.text)}</h2>`;
       if (b.type === 'ul') return `<ul>${b.items.map((i) => `<li>${renderInline(i)}</li>`).join('')}</ul>`;
+      if (b.type === 'table') {
+        const thead = `<thead><tr>${b.headers.map((h) => `<th>${escapeHtml(h)}</th>`).join('')}</tr></thead>`;
+        const tbody = `<tbody>${b.rows.map((row) => `<tr>${row.map((cell) => `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`).join('')}</tbody>`;
+        return `<table style="border-collapse:collapse;width:100%">${thead}${tbody}</table>`;
+      }
       return `<p>${renderInline(b.text)}</p>`;
     })
     .join('\n');
