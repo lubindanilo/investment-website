@@ -19,7 +19,7 @@ export const SUPPORTED_LANGS = ['fr', 'en', 'es'] as const;
 export type Lang = (typeof SUPPORTED_LANGS)[number];
 export const LANG_STORAGE_KEY = 'li_lang';
 
-export const LANG_LABELS: Record<Lang, string> = { fr: 'Français', en: 'English', es: 'Español' };
+export const LANG_LABELS: Record<Lang, string> = { fr: 'FR', en: 'EN', es: 'ES' };
 
 void i18n
   .use(LanguageDetector)

@@ -916,7 +916,7 @@
       ]
     },
     "why": {
-      "title": "What makes Lubin different",
+      "title": "What you won't find anywhere else",
       "pillars": [
         {
           "title": "An objective score",
@@ -936,19 +936,18 @@
       "title": "Detailed comparison",
       "feature": "Feature",
       "rows": [
+        { "label": "Analyses per day", "free": "10", "pro": "Unlimited" },
         { "label": "Full analysis of a stock", "free": true, "pro": true },
         { "label": "Score /10 on 10 financial criteria", "free": true, "pro": true },
         { "label": "Watchlist", "free": "10 stocks", "pro": "Unlimited" },
         { "label": "Screener", "free": "Top 10", "pro": "Unlimited" },
         { "label": "Compare multiple stocks", "free": "2 stocks", "pro": "Up to 5" },
-        { "label": "AI qualitative analysis (business + management)", "free": false, "pro": true },
-        { "label": "Opportunities of the moment", "free": false, "pro": true },
-        { "label": "Market share", "free": false, "pro": true },
+        { "label": "Detailed analysis of Business Model and Management", "free": false, "pro": true },
+        { "label": "Access to current opportunities", "free": false, "pro": true },
+        { "label": "Analysis of market share evolution", "free": false, "pro": true },
         { "label": "Detailed charts (valuation, cash ROCE, cycle, dividend)", "free": false, "pro": true },
         { "label": "Sector benchmarks", "free": false, "pro": true },
-        { "label": "Full Europe & International data", "free": false, "pro": true },
-        { "label": "Ad-free", "free": true, "pro": true },
-        { "label": "Support", "free": "Community", "pro": "Priority" }
+        { "label": "Number of stocks analyzed", "free": "~4,000 (US)", "pro": "7,200+ (International)" }
       ]
     },
     "faq": {

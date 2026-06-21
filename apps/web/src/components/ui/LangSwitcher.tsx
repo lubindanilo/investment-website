@@ -9,7 +9,6 @@ export function LangSwitcher() {
 
   return (
     <label className="lang-switcher" title={t('langSwitcher.label')}>
-      <span className="lang-switcher-icon" aria-hidden>🌐</span>
       <select
         className="lang-switcher-select"
         value={SUPPORTED_LANGS.includes(current) ? current : 'fr'}

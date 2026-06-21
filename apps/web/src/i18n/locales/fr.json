@@ -916,7 +916,7 @@
       ]
     },
     "why": {
-      "title": "Ce qui fait Lubin différent",
+      "title": "Ce que tu ne trouveras pas ailleurs",
       "pillars": [
         {
           "title": "Une note objective",
@@ -936,19 +936,18 @@
       "title": "Comparaison détaillée",
       "feature": "Fonctionnalité",
       "rows": [
+        { "label": "Analyses par jour", "free": "10", "pro": "Illimitées" },
         { "label": "Analyse complète d'un titre", "free": true, "pro": true },
         { "label": "Note /10 sur 10 critères chiffrés", "free": true, "pro": true },
         { "label": "Watchlist", "free": "10 titres", "pro": "Illimitée" },
         { "label": "Screener", "free": "Top 10", "pro": "Illimité" },
         { "label": "Comparer plusieurs titres", "free": "2 titres", "pro": "Jusqu'à 5" },
-        { "label": "Analyse qualitative IA (business + management)", "free": false, "pro": true },
-        { "label": "Opportunités du moment", "free": false, "pro": true },
-        { "label": "Part de marché", "free": false, "pro": true },
+        { "label": "Analyse détaillée du Business Model et du Management", "free": false, "pro": true },
+        { "label": "Accéder aux opportunités du moment", "free": false, "pro": true },
+        { "label": "Analyse de l'évolution des parts de marché", "free": false, "pro": true },
         { "label": "Graphiques détaillés (valorisation, cash ROCE, cycle, dividende)", "free": false, "pro": true },
         { "label": "Benchmark sectoriel", "free": false, "pro": true },
-        { "label": "Données Europe & Internationales complètes", "free": false, "pro": true },
-        { "label": "Sans publicité", "free": true, "pro": true },
-        { "label": "Support", "free": "Communauté", "pro": "Prioritaire" }
+        { "label": "Nombre d'actions analysées", "free": "~4 000 (US)", "pro": "7 200+ (International)" }
       ]
     },
     "faq": {

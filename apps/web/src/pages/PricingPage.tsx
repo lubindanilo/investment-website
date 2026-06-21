@@ -65,8 +65,6 @@ export function PricingPage() {
     }
   }
 
-  const proFeatures: string[] = (t('pricing.pro.features', { returnObjects: true }) as string[]) ?? [];
-  const freeFeatures: string[] = (t('pricing.free.features', { returnObjects: true }) as string[]) ?? [];
   const faqEntries: Array<{ q: string; a: string }> =
     (t('pricing.faq.items', { returnObjects: true }) as Array<{ q: string; a: string }>) ?? [];
 
@@ -82,7 +80,6 @@ export function PricingPage() {
 
         {/* Hero */}
         <header className="pricing-hero">
-          <div className="pricing-hero-chip">{t('pricing.hero.chip')}</div>
           <h1 className="pricing-hero-title">{t('pricing.hero.title')}</h1>
           <p className="pricing-hero-lede">{t('pricing.hero.lede')}</p>
         </header>
@@ -132,14 +129,6 @@ export function PricingPage() {
             >
               {user ? t('pricing.free.ctaLoggedIn') : t('pricing.free.cta')}
             </Link>
-            <ul className="pricing-features">
-              {freeFeatures.map((f, i) => (
-                <li key={i}>
-                  <Icon name="check" size={14} />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
           </article>
 
           {/* Pro — mise en avant */}
@@ -182,14 +171,6 @@ export function PricingPage() {
             {!isPro && !user && proStripeUrl && false && (
               <a href={proStripeUrl} target="_blank" rel="noopener noreferrer">{proStripeUrl}</a>
             )}
-            <ul className="pricing-features">
-              {proFeatures.map((f, i) => (
-                <li key={i}>
-                  <Icon name="check" size={14} />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
           </article>
         </div>
 
