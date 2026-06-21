@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { AnalyzeResponse, ScreenerTopRow, Criterion } from '@lubin/shared';
 import { api, ApiError, type TickerPreview } from '../lib/api.js';
@@ -202,17 +202,28 @@ export function AnalysePage() {
             Masqué quand une analyse est affichée — c'est alors le nom de société qui
             porte le H1, pour ne jamais avoir deux H1 sur la page. */}
         {!analysis && (
-          <header className="anl-page-head">
-            <h1 className="anl-page-title">{t('analyse.h1')}</h1>
-            <p className="anl-page-sub">{t('analyse.h1Sub')}</p>
-          </header>
+          <>
+            <header className="anl-page-head">
+              <h1 className="anl-page-title">{t('analyse.h1')}</h1>
+              <p className="anl-page-sub">{t('analyse.h1Sub')}</p>
+            </header>
+            <div className="anl-search-block">
+              <SearchBar value={ticker} onChange={setTicker} onSubmit={submit} loading={loading} />
+              {!loading && !error && !preview && (
+                <span className="tiny muted anl-hint">{t('analyse.hintPrefix')} <b>AAPL</b>, <b>MSFT</b> {t('analyse.hintOr')} <b>ASML</b>.</span>
+              )}
+            </div>
+          </>
         )}
-        <div className="anl-search-block">
-          <SearchBar value={ticker} onChange={setTicker} onSubmit={submit} loading={loading} />
-          {!loading && !analysis && !error && !preview && (
-            <span className="tiny muted anl-hint">{t('analyse.hintPrefix')} <b>AAPL</b>, <b>MSFT</b> {t('analyse.hintOr')} <b>ASML</b>.</span>
-          )}
-        </div>
+
+        {/* Page d'analyse détaillée : la search bar disparaît, on propose plutôt
+            d'analyser une autre action ou de découvrir nos opportunités. */}
+        {analysis && (
+          <div className="anl-cta-block">
+            <Link to="/analyser" className="btn btn-ghost">{t('analyse.analyzeAnother')}</Link>
+            <Link to="/screener" className="btn btn-brand">{t('analyse.opportunities')}</Link>
+          </div>
+        )}
 
         {error && <ErrorState error={error} ticker={lastTicker} onRetry={() => { setError(null); setAnalysis(null); }} />}
         {loading && !analysis && <LoadingState />}

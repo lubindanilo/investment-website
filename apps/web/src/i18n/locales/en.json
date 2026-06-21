@@ -324,6 +324,8 @@
     "searchPlaceholder": "Enter a ticker, e.g. AAPL, MSFT, ASML…",
     "analyze": "Analyze",
     "analyzing": "Analyzing…",
+    "analyzeAnother": "Analyze another stock",
+    "opportunities": "Our top opportunities",
     "addToWatchlist": "Add to watchlist",
     "inWatchlist": "In watchlist",
     "viaYahoo": "via Yahoo",
@@ -985,8 +987,8 @@
   },
   "seo": {
     "home": {
-      "title": "Find undervalued quality stocks",
-      "desc": "Quality score /10 across 10 objective criteria + a recommended buy price (P/FCF). Automated fundamental analysis to do your own stock-picking and beat the market."
+      "title": "Beat the market with quality stocks at the right price",
+      "desc": "Spot the best investment opportunities at a glance, among thousands of companies analyzed continuously."
     },
     "analyse": {
       "title": "Analyze a stock: score, valuation, qualitative",

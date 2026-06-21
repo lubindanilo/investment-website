@@ -66,6 +66,27 @@ function formatScore(score: number | null, max: number | null): string {
   return `${score}/10`;
 }
 
+// Nettoie le nom d'une société de ses suffixes juridiques (Inc, Corp, Ltd, Class B…)
+// pour garder le nom de marque connu du grand public dans les titles/descs SEO.
+// Cas typiques :
+//   "Apple Inc" → "Apple" · "Microsoft Corporation" → "Microsoft"
+//   "Berkshire Hathaway Inc Class B" → "Berkshire Hathaway"
+//   "Procter & Gamble Co" → "Procter & Gamble" · "Sea Limited" → "Sea"
+// On garde le nom officiel dans le JSON-LD Corporation (entity-matching Google).
+function stripLegalSuffix(name: string): string {
+  if (!name) return name;
+  const legalRe = /\s+(Incorporated|Inc|Corporation|Corp|Company|Co|Limited|Ltd|PLC|Plc|LLC|LP|N\.?V\.?|S\.?A\.?|AG|SE|AS|AB|S\.?p\.?A\.?)\.?$/i;
+  const classRe = /\s+Class\s+[A-Z]$/i;
+  let result = name;
+  // Loop pour gérer "Inc Class B" → strip Class B → strip Inc
+  for (let i = 0; i < 3; i++) {
+    const before = result;
+    result = result.replace(classRe, '').replace(legalRe, '');
+    if (result === before) break;
+  }
+  return result.trim() || name; // fallback : si on a tout coupé, garde l'original
+}
+
 // Adjectif qualitatif basé sur la note, utilisé dans la meta description.
 function qualityLabel(score: number | null, max: number | null): string {
   if (score == null || !max) return 'à analyser';
@@ -85,6 +106,7 @@ function render404(ticker: string): string {
 <title>${safeTicker} introuvable · Lubin Investment</title>
 <meta name="description" content="Le ticker ${safeTicker} n'est pas couvert par Lubin Investment ou n'a pas encore été scoré.">
 <meta name="robots" content="noindex,follow">
+<link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
 <link rel="canonical" href="${SITE_URL}/screener">
 </head>
 <body>
@@ -116,6 +138,10 @@ function renderTickerHtml(t: {
   const score = formatScore(t.scoreChiffres, t.scoreChiffresMax);
   const quality = qualityLabel(t.scoreChiffres, t.scoreChiffresMax);
   const pfcf = t.pfcfTTM != null && isFinite(t.pfcfTTM) ? `${t.pfcfTTM.toFixed(1)}×` : ', ';
+  // Clause P/FCF inline, ajoutée à la phrase de verdict UNIQUEMENT si on a la donnée.
+  const pfcfClause = t.pfcfTTM != null && isFinite(t.pfcfTTM)
+    ? `, et un multiple de valorisation P/FCF de ${pfcf}`
+    : '';
   const price = t.price != null && isFinite(t.price) ? `${t.price.toFixed(2)} ${escapeHtml(t.currency || 'USD')}` : ', ';
   const oppBadge = t.opportunity
     ? `<p><strong>⭐ Opportunité du moment :</strong> ${name} est dans son décile bas historique de valorisation (P/FCF ≤ 10ᵉ percentile sur 10 ans, ET ratio &lt; 25×). C'est un point d'entrée potentiellement intéressant pour les investisseurs long terme.</p>`
@@ -126,23 +152,28 @@ function renderTickerHtml(t: {
   const sectorHubHref = t.sector ? `${SITE_URL}/secteur/${slugifySector(t.sector)}` : null;
   const sectorHubLabel = t.sector ? escapeHtml(displaySector(t.sector)) : null;
   const rawName = t.name || t.ticker;
+  // Nom de marque (sans suffixe juridique) pour les textes user-facing.
+  // Le nom officiel reste utilisé dans le JSON-LD Corporation (entity-matching).
+  const displayName = stripLegalSuffix(rawName);
+  const displayNameEsc = escapeHtml(displayName);
 
-  // Titre ≤ 60 caractères (Google tronque ~61 % des titres plus longs), mot-clé en
-  // tête, SANS suffixe de marque (Google ajoute déjà le nom du site). Nom tronqué au besoin.
-  const titleTail = score !== ', ' ? ` : analyse, note ${score}` : ' : analyse fondamentale';
-  const tickerPart = ` (${t.ticker})`;
-  let titleName = rawName;
-  const nameBudget = 60 - tickerPart.length - titleTail.length;
+  // Titre format question + verdict, vraie phrase plutôt qu'assemblage de mots-clés.
+  // « l'action » + nom de marque (sans suffixe juridique) pour lire naturel.
+  // Nom tronqué si besoin pour viser ≤ 60 car (Google tronque souvent au-delà).
+  const titlePrefix = `Faut-il acheter l'action `;
+  const titleSuffix = ' ? Notre analyse complète.';
+  let titleName = displayName;
+  const nameBudget = 60 - titlePrefix.length - titleSuffix.length;
   if (titleName.length > nameBudget) {
-    let cut = rawName.slice(0, Math.max(6, nameBudget - 1));
+    let cut = displayName.slice(0, Math.max(6, nameBudget - 1));
     const lastSpace = cut.lastIndexOf(' ');
     if (lastSpace > 8) cut = cut.slice(0, lastSpace); // coupe sur un mot entier
     titleName = cut.trimEnd() + '…';
   }
-  const rawTitle = `${titleName}${tickerPart}${titleTail}`;
+  const rawTitle = `${titlePrefix}${titleName}${titleSuffix}`;
   const title = escapeHtml(rawTitle);
 
-  const rawDescription = `${rawName} (${t.ticker}) : note de qualité ${score} sur 10 critères financiers objectifs. Qualité ${quality}, P/FCF ${pfcf}, secteur ${t.sector || 'non renseigné'}.`;
+  const rawDescription = `On a analysé les fondamentaux et la valorisation de l'action ${displayName} : voici nos conclusions.`;
   const description = escapeHtml(rawDescription);
 
   // Fraîcheur, signal fort pour le SEO et les moteurs IA (contenu maintenu).
@@ -153,21 +184,21 @@ function renderTickerHtml(t: {
   // FAQ, levier GEO majeur (FAQPage = ~3,2× plus de citations dans les AI Overviews).
   const faq: { q: string; a: string }[] = [
     {
-      q: `${rawName} (${t.ticker}) est-elle une action de qualité ?`,
-      a: `${rawName} obtient une note de qualité de ${score} (qualité ${quality}), calculée sur 10 critères financiers objectifs : rentabilité, croissance du chiffre d'affaires et du free cash flow, rachats d'actions, marges, endettement et rendement du capital.`,
+      q: `L'action ${displayName} est-elle de qualité ?`,
+      a: `L'action ${displayName} obtient une note de qualité de ${score} (qualité ${quality}), calculée sur les 10 critères de Lubin Investment : rentabilité, croissance du chiffre d'affaires et du free cash flow, rachats d'actions, marges, endettement et rendement du capital.`,
     },
     {
-      q: `Comment est calculée la note de ${t.ticker} ?`,
+      q: `Comment est calculée la note de ${displayName} ?`,
       a: `La note est le total des critères validés (OUI / PARTIEL / NON) selon des seuils issus de la littérature financière (Warren Buffett, Mauboussin, Aswath Damodaran), de façon automatique et sans opinion humaine.`,
     },
     ...(t.pfcfTTM != null && isFinite(t.pfcfTTM)
       ? [{
-          q: `Quel est le P/FCF de ${rawName} ?`,
-          a: `Le multiple cours / free cash flow (P/FCF) de ${rawName} ressort à ${pfcf}. Chez Lubin Investment, la valorisation est jugée séparément de la qualité.`,
+          q: `Quel est le P/FCF de ${displayName} ?`,
+          a: `Le multiple cours / free cash flow (P/FCF) de l'action ${displayName} ressort à ${pfcf}. Chez Lubin Investment, la valorisation est jugée séparément de la qualité.`,
         }]
       : []),
     {
-      q: `Où voir l'analyse complète de ${t.ticker} ?`,
+      q: `Où voir l'analyse complète de ${displayName} ?`,
       a: `L'analyse interactive complète (détail des 10 critères, historiques, valorisation P/FCF, comparaisons sectorielles) est disponible sur ${canonical}.`,
     },
   ];
@@ -181,6 +212,7 @@ function renderTickerHtml(t: {
 <meta name="description" content="${description}">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${canonical}">
+<link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article">
@@ -263,11 +295,9 @@ ${JSON.stringify({
 <h1>Analyse fondamentale ${safeTicker} (${name})</h1>
 <p><small>Mis à jour le ${dateFr}</small></p>
 
-<p><strong>Note de qualité : ${score}</strong> sur 10 critères financiers objectifs (qualité ${quality}).
-Secteur : ${sector}.
-${t.exchange ? `Place de cotation : ${escapeHtml(t.exchange)}. ` : ''}
-Cours actuel : ${price}.
-${t.pfcfTTM != null ? `Multiple de valorisation (P/FCF) : ${pfcf}.` : ''}</p>
+<p>On a analysé l'action ${displayNameEsc} sur les 10 critères de qualité de Lubin Investment. L'entreprise obtient une note de <strong>${score}</strong> synonyme de qualité ${quality}${pfcfClause}.</p>
+
+<p>Secteur : ${sector}.${t.exchange ? ` Place de cotation : ${escapeHtml(t.exchange)}.` : ''} Cours actuel : ${price}.</p>
 
 ${oppBadge}
 
@@ -459,6 +489,7 @@ function renderArticleHtml(article: Article, lang: ArticleLang): string {
 <meta name="description" content="${description}">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${canonical}">
+<link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
 ${hreflang}
 <meta property="og:type" content="article">
 <meta property="og:title" content="${title}">
@@ -591,6 +622,7 @@ function renderHubHtml(o: { title: string; h1: string; intro: string; path: stri
 <meta name="description" content="${description}">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${canonical}">
+<link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
 ${hreflang}
 <meta property="og:type" content="website">
 <meta property="og:title" content="${title}">
@@ -790,6 +822,7 @@ function renderStaticHtml(o: StaticSeo, lang: ArticleLang): string {
 <meta name="description" content="${description}">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${canonical}">
+<link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
 ${hreflang}
 <meta property="og:type" content="website">
 <meta property="og:title" content="${title}">
@@ -819,10 +852,10 @@ const STATIC_SEO: StaticSeo[] = [
     website: true,
     content: {
       fr: {
-        title: "Analyse fondamentale d'actions : la qualité et le prix",
-        desc: "Tapez un ticker : note de qualité sur 10 critères financiers objectifs et valorisation (P/FCF) jugée à part. Plus de 7000 actions suivies en continu.",
-        h1: 'Trouvez les entreprises de qualité, sans le bruit',
-        intro: "Lubin Investment note chaque action sur 10 critères financiers objectifs (rentabilité, croissance du cash, rachats d'actions, endettement, rendement du capital) et juge le prix séparément via le P/FCF. Une méthode, pas des opinions.",
+        title: 'Surperforme le marché avec des actions de qualité au bon prix',
+        desc: "Repère en un clin d'œil les meilleures opportunités d'investissement parmi des milliers d'entreprises analysées en continu.",
+        h1: "Trouve les actions à acheter aujourd'hui, en un coup d'œil",
+        intro: "Achète des actions de qualité au bon prix : la stratégie qui surperforme l'indice sur le long terme. 7000+ actions analysées.",
         sections: [
           { h2: 'Comment ça marche', p: "Tapez un ticker, lisez la note sur 10 et son détail, puis décidez du prix d'entrée. La qualité du business et le prix de l'action sont jugés séparément : c'est la règle d'or de la méthode." },
           { h2: 'Une méthode transparente', p: "Les critères s'appuient sur la littérature financière (Warren Buffett, Michael Mauboussin, Aswath Damodaran). Aucune opinion, aucune boîte noire : la donnée décide." },
@@ -838,10 +871,10 @@ const STATIC_SEO: StaticSeo[] = [
         ],
       },
       en: {
-        title: 'Fundamental stock analysis: quality and price',
-        desc: 'Type a ticker: a quality score on 10 objective financial criteria and a valuation (P/FCF) judged separately. Over 7,000 stocks tracked continuously.',
-        h1: 'Find quality companies, without the noise',
-        intro: 'Lubin Investment scores every stock on 10 objective financial criteria (profitability, cash growth, buybacks, debt, return on capital) and judges price separately via P/FCF. A method, not opinions.',
+        title: 'Beat the market with quality stocks at the right price',
+        desc: 'Spot the best investment opportunities at a glance, among thousands of companies analyzed continuously.',
+        h1: 'Find the stocks to buy today, at a glance',
+        intro: 'Buying quality stocks at the right price: the strategy that beats the index over the long term. 7,000+ stocks analyzed.',
         sections: [
           { h2: 'How it works', p: "Type a ticker, read the score out of 10 and its breakdown, then decide on your entry price. Business quality and share price are judged separately: that's the golden rule of the method." },
           { h2: 'A transparent method', p: 'The criteria draw on financial literature (Warren Buffett, Michael Mauboussin, Aswath Damodaran). No opinions, no black box: the data decides.' },
@@ -857,10 +890,10 @@ const STATIC_SEO: StaticSeo[] = [
         ],
       },
       es: {
-        title: 'Análisis fundamental de acciones: la calidad y el precio',
-        desc: 'Escribe un ticker: nota de calidad sobre 10 criterios financieros objetivos y valoración (P/FCF) juzgada aparte. Más de 7000 acciones seguidas en continuo.',
-        h1: 'Encuentra empresas de calidad, sin el ruido',
-        intro: 'Lubin Investment puntúa cada acción sobre 10 criterios financieros objetivos (rentabilidad, crecimiento del cash, recompras, deuda, rendimiento del capital) y juzga el precio por separado mediante el P/FCF. Un método, no opiniones.',
+        title: 'Supera al mercado con acciones de calidad al precio justo',
+        desc: 'Detecta de un vistazo las mejores oportunidades de inversión entre miles de empresas analizadas en continuo.',
+        h1: 'Encuentra las acciones para comprar hoy, de un vistazo',
+        intro: 'Comprar acciones de calidad al precio justo: la estrategia que supera al índice a largo plazo. Más de 7000 acciones analizadas.',
         sections: [
           { h2: 'Cómo funciona', p: 'Escribe un ticker, lee la nota sobre 10 y su detalle, y luego decide el precio de entrada. La calidad del negocio y el precio de la acción se juzgan por separado: es la regla de oro del método.' },
           { h2: 'Un método transparente', p: 'Los criterios se apoyan en la literatura financiera (Warren Buffett, Michael Mauboussin, Aswath Damodaran). Sin opiniones, sin caja negra: decide el dato.' },

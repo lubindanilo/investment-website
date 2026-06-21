@@ -9,6 +9,9 @@
 
 /* Recherche */
 .anl-search-block { display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px; }
+/* CTA affichées au-dessus d'une analyse détaillée (remplacent la search bar). */
+.anl-cta-block { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+.anl-cta-block .btn { flex: 1 1 auto; min-height: 44px; }
 .anl-search { display: flex; gap: 10px; width: 100%; }
 .anl-search-field { position: relative; flex: 1; display: flex; }
 .anl-search-icon { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--ink-4); }

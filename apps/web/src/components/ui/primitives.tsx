@@ -65,7 +65,7 @@ export function Logo({ size = 30, showWord = true, color }: { size?: number; sho
         <rect x="15.3" y="11" width="1.4" height="6.2" rx="0.7" fill="#fff" transform="rotate(34 16 14)" />
       </svg>
       {showWord && (
-        <span style={{ fontWeight: 800, fontSize: size * 0.62, letterSpacing: '-0.04em', color: 'var(--ink)' }}>Lubin</span>
+        <span style={{ fontWeight: 800, fontSize: size * 0.62, letterSpacing: '-0.04em', color: 'var(--ink)' }}>Lubin Investment</span>
       )}
     </div>
   );

@@ -349,6 +349,8 @@
     "searchPlaceholder": "Entre un ticker, ex. AAPL, MSFT, ASML…",
     "analyze": "Analyser",
     "analyzing": "Analyse…",
+    "analyzeAnother": "Analyser une autre action",
+    "opportunities": "Nos opportunités du moment",
     "addToWatchlist": "Ajouter à la watchlist",
     "inWatchlist": "Dans la watchlist",
     "viaYahoo": "via Yahoo",
@@ -985,8 +987,8 @@
   },
   "seo": {
     "home": {
-      "title": "Repère les actions de qualité sous-évaluées",
-      "desc": "Note de qualité /10 sur 10 critères objectifs + prix d'achat conseillé (P/FCF). L'analyse fondamentale automatisée pour faire son propre stock-picking et battre le marché."
+      "title": "Surperforme le marché avec des actions de qualité au bon prix",
+      "desc": "Repère en un clin d'œil les meilleures opportunités d'investissement parmi des milliers d'entreprises analysées en continu."
     },
     "analyse": {
       "title": "Analyser une action : score, valorisation, qualitatif",
