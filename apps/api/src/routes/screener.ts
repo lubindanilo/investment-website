@@ -96,6 +96,35 @@ screenerRouter.get('/sectors', asyncHandler(async (_req: Request, res: Response)
   res.json(await getSectors());
 }));
 
+// ── GET /earnings?from=YYYY-MM-DD&to=YYYY-MM-DD ─────────────────────────────
+// Retourne TOUS les tickers scorés (sans filtre de score) dont nextEarningsDate est
+// dans [from, to]. Utilisé par l'agent SEO (vault/projects/li-seo/scripts/signals.py)
+// pour détecter les réactions earnings sur l'univers entier, pas seulement le top noté.
+// /top filtre par scoreRatio desc + cap 500 → rate FDX/CCL/MU/KMX/JBL/NKE qui ont des
+// scores bas mais des earnings impactants (= contenu trafic frais).
+// Lecture publique, max 1000 lignes, sans cap = on relit ce qui est déjà servi par /top.
+screenerRouter.get('/earnings', asyncHandler(async (req: Request, res: Response) => {
+  const today = new Date().toISOString().slice(0, 10);
+  const from = String(req.query.from ?? today);
+  const to = String(req.query.to ?? today);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(from) || !/^\d{4}-\d{2}-\d{2}$/.test(to)) {
+    res.status(400).json({ error: 'Format attendu: from=YYYY-MM-DD&to=YYYY-MM-DD' });
+    return;
+  }
+  const rows = await prisma.screenerTicker.findMany({
+    where: { status: 'scored', nextEarningsDate: { gte: from, lte: to } },
+    orderBy: [{ nextEarningsDate: 'asc' }, { scoreRatio: 'desc' }],
+    take: 1000,
+    select: {
+      ticker: true, name: true, sector: true,
+      scoreChiffres: true, scoreChiffresMax: true,
+      pfcfTTM: true, currency: true, price: true,
+      nextEarningsDate: true, opportunity: true,
+    },
+  });
+  res.json(rows);
+}));
+
 // ── GET /stats ──────────────────────────────────────────────────────────────
 screenerRouter.get('/stats', asyncHandler(async (_req: Request, res: Response) => {
   res.json(await getStats());
