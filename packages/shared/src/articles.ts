@@ -16954,7 +16954,2540 @@ const tsm: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm];
+const articleSKYW: Article = {
+  slug: 'skywest-skyw-analyse-fondamentale-aérien-régional',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'SKYW',
+  content: {
+    fr: {
+      title: 'SkyWest (SKYW) : la pépite aérienne que le marché ignore',
+      excerpt:
+        'SkyWest est le plus grand transporteur régional des États-Unis. Le marché la traite comme une compagnie aérienne ordinaire, mais ses revenus sont quasi fixes grâce à des contrats à long terme. Résultat : une valorisation anormalement basse pour une qualité d\'entreprise parfaite.',
+      metaDescription:
+        'SkyWest (SKYW) : analyse fondamentale complète. Modèle à revenus fixes, qualité parfaite selon notre screener, valorisation très basse. Pourquoi le marché se trompe sur cette action.',
+      answer:
+        'SkyWest n\'est pas une compagnie aérienne comme les autres. Ses revenus sont quasi fixes grâce à des contrats à long terme avec Delta, United, Alaska et American. Le marché la pénalise comme si elle vendait des billets d\'avion. Elle ne le fait pas. C\'est là l\'inefficience : une qualité d\'entreprise parfaite à une valorisation très basse.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'SkyWest exploite ~400 appareils régionaux pour le compte des grands réseaux (Delta, United, Alaska, American) via des contrats à long terme.',
+            'Son modèle "capacity purchase agreements" lui garantit des revenus quasi fixes : le risque prix des billets et du carburant est supporté par les compagnies partenaires.',
+            'Notre screener lui attribue un score de qualité de 10/10 : rentabilité, solidité du bilan, efficacité opérationnelle au sommet de son secteur.',
+            'L\'action affiche une valorisation de 3,9 fois son free cash flow annuel, ce qui est extrêmement bas pour une entreprise de cette qualité.',
+            'Le risque principal : le marché continue de tout pénaliser dans le secteur aérien sans distinguer les modèles d\'affaires, et la pénurie de pilotes pèse sur la capacité déployée.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce que SkyWest fait vraiment',
+        },
+        {
+          type: 'p',
+          text: 'Quand tu entends "compagnie aérienne", tu penses billets, grèves, prix du kérosène, pandémie. C\'est ce que le marché pense aussi quand il voit SkyWest. C\'est précisément l\'erreur.',
+        },
+        {
+          type: 'p',
+          text: 'SkyWest ne vend pas de billets. Elle exploite des avions régionaux sous les marques Delta Connection, United Express, Alaska Airlines et American Eagle. Autrement dit, elle est le sous-traitant des grands réseaux pour les routes secondaires qu\'ils ne veulent pas opérer eux-mêmes : les trajets entre villes moyennes, les liaisons de desserte locale, les connexions vers les hubs.',
+        },
+        {
+          type: 'p',
+          text: 'Son modèle s\'appelle les "capacity purchase agreements" (CPA), que l\'on peut traduire par "accords d\'achat de capacité". Concrètement : Delta ou United paient SkyWest pour un certain nombre de sièges-kilomètres, indépendamment du taux de remplissage des avions. SkyWest reçoit un tarif fixe par vol effectué. Le risque commercial, c\'est-à-dire le risque que les passagers ne viennent pas, reste chez Delta ou United. Le risque carburant aussi : les contrats prévoient que les partenaires remboursent les surcoûts pétroliers. Ce que SkyWest gère, c\'est l\'exploitation : la ponctualité, la maintenance, les équipages.',
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi la qualité de SkyWest est exceptionnelle',
+        },
+        {
+          type: 'p',
+          text: 'Avant de regarder un prix d\'action, je juge toujours la qualité du business séparément. La qualité, pour moi, ce sont des critères financiers objectifs : l\'entreprise génère-t-elle du cash réel, sa dette est-elle maîtrisée, son rendement du capital est-il élevé, est-elle plus efficace que ses concurrents ? Ce n\'est qu\'ensuite que je regarde si le prix est cohérent avec cette qualité.',
+        },
+        {
+          type: 'p',
+          text: 'Sur ces critères, SkyWest obtient 10/10 dans notre screener. Le free cash flow, c\'est l\'argent qui reste réellement dans les caisses de l\'entreprise après avoir payé toutes ses dépenses d\'exploitation et ses investissements. C\'est plus difficile à maquiller que le bénéfice comptable, c\'est pourquoi je m\'y fie avant tout. SkyWest génère un free cash flow structurel positif et régulier. Sa dette est maîtrisée. Son taux de ponctualité est parmi les meilleurs du secteur régional américain, ce qui lui permet de respecter ses contrats et d\'en obtenir de nouveaux.',
+        },
+        {
+          type: 'p',
+          text: 'Le moat de SkyWest, c\'est-à-dire son avantage concurrentiel durable, repose sur deux piliers. Premier pilier : les barrières opérationnelles. Monter une opération régionale à cette échelle (environ 400 appareils, des centaines de routes, des milliers de pilotes qualifiés sur des types d\'appareils spécifiques) prend des années et requiert un capital considérable. On ne remplace pas SkyWest du jour au lendemain. Second pilier : la relation contractuelle. Les compagnies partenaires ne changent pas de sous-traitant régional à la légère. Les contrats sont longs, les transitions coûteuses, et SkyWest a prouvé sa fiabilité sur des décennies.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : où est l\'inefficience',
+        },
+        {
+          type: 'p',
+          text: 'Voici le coeur de la thèse. Le P/FCF (price-to-free-cash-flow) est le ratio qui mesure combien le marché paye pour chaque euro de free cash flow annuel qu\'une entreprise génère. Un P/FCF de 10 signifie que tu paies 10 ans de ce cash au prix actuel. Plus ce chiffre est bas, moins l\'action est chère par rapport à la réalité économique de l\'entreprise.',
+        },
+        {
+          type: 'p',
+          text: 'SkyWest affiche une valorisation de 3,9 fois son free cash flow. C\'est extrêmement bas. Pour donner un point de repère : une entreprise de qualité correcte dans un secteur stable se valorise généralement entre 15 et 25 fois son free cash flow. Une entreprise d\'élite peut se valoriser 30, 40 fois ou plus. À 3,9 fois, le marché traite SkyWest comme une entreprise en déclin terminal, au bord de la faillite, ou dans un secteur condamné.',
+        },
+        {
+          type: 'p',
+          text: 'Pourquoi ce décalage ? Parce que le marché utilise un seul filtre : "aérien". Et dans l\'esprit collectif, aérien = risqué, cyclique, brûleur de cash. Ce jugement est juste pour les compagnies qui vendent des billets. Il est faux pour SkyWest. Son modèle à revenus quasi fixes le déconnecte des cycles de demande passagers. Mais le marché ne fait pas cette distinction. C\'est là l\'inefficience.',
+        },
+        {
+          type: 'h2',
+          text: 'Comparaison avec le secteur',
+        },
+        {
+          type: 'table',
+          headers: ['Entreprise', 'Modèle', 'Score qualité', 'Valorisation P/FCF', 'Risque carburant'],
+          rows: [
+            ['SkyWest (SKYW)', 'CPA : revenus fixes', '10/10', '3,9×', 'Transféré aux partenaires'],
+            ['Delta Air Lines (DAL)', 'Vente de billets', 'Moyen', '~8×', 'Supporté en propre'],
+            ['United Airlines (UAL)', 'Vente de billets', 'Moyen', '~5×', 'Supporté en propre'],
+            ['American Airlines (AAL)', 'Vente de billets', 'Faible', 'Négatif', 'Supporté en propre'],
+            ['Southwest Airlines (LUV)', 'Vente de billets low-cost', 'Correct', '~12×', 'Partiellement couvert'],
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Le tableau parle de lui-même. SkyWest est la seule dont le modèle transfère les deux grands risques du secteur aérien (demande passagers et carburant) à ses partenaires. Pourtant, c\'est elle qui affiche la valorisation la plus basse. C\'est le paradoxe central de cette thèse.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques réels : ne pas les minimiser',
+        },
+        {
+          type: 'p',
+          text: 'Une thèse honnête doit exposer ses failles. Première faille : la dépendance aux contrats. Si Delta ou United décidaient de réduire leur réseau régional ou d\'internaliser l\'exploitation, SkyWest serait directement touché. La diversification entre quatre partenaires atténue ce risque, mais elle ne l\'élimine pas.',
+        },
+        {
+          type: 'p',
+          text: 'Deuxième faille : la pénurie de pilotes. Le secteur aérien américain traverse depuis 2021 une crise de recrutement de pilotes qualifiés. Cette pénurie a contraint SkyWest à réduire sa capacité sur certaines routes, ce qui pèse sur ses revenus même si le modèle CPA la protège en partie. C\'est un frein à la croissance à court terme.',
+        },
+        {
+          type: 'p',
+          text: 'Troisième faille : la perception de marché. Le marché peut rester irrationnel longtemps. Une valorisation basse n\'est pas, en soi, une garantie de revalorisation. Le catalyseur qui amènerait le marché à distinguer SkyWest des compagnies classiques n\'est pas encore évident. La patience est requise.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment je lis cette thèse',
+        },
+        {
+          type: 'p',
+          text: 'Ce qui me frappe dans SkyWest, c\'est la rareté de la combinaison. Une qualité parfaite ET une valorisation très basse, ça ne coexiste presque jamais. Quand ça arrive, il y a toujours une raison : soit l\'entreprise est sur le point de se dégrader (thèse du marché), soit le marché fait une erreur de catégorie (ma thèse).',
+        },
+        {
+          type: 'p',
+          text: 'Ma lecture : SkyWest est victime d\'une erreur de catégorie. Son modèle d\'affaires ressemble à celui d\'un sous-traitant industriel à contrats longs bien plus qu\'à celui d\'une compagnie aérienne. Mais comme elle fait voler des avions, elle est rangée dans la case "aérien" et pénalisée en conséquence. La question n\'est pas "est-ce une bonne entreprise ?" (la réponse est oui, clairement). La question est "quand et pourquoi le marché corrigera-t-il cette erreur ?".',
+        },
+        {
+          type: 'p',
+          text: 'À une valorisation de 3,9 fois le free cash flow, même si la croissance stagne et que les risques se matérialisent partiellement, la marge de sécurité est significative. C\'est exactement le type d\'asymétrie que je cherche quand j\'analyse une action.',
+        },
+        {
+          type: 'p',
+          text: 'C\'est précisément pour pouvoir faire cette analyse en quelques minutes sur n\'importe quelle action que j\'ai construit mon screener. Si tu veux voir d\'autres entreprises avec ce type de profil qualité/valorisation, tu peux explorer le palmarès sur mon site.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce qu\'un "capacity purchase agreement" chez SkyWest ?',
+          a: 'C\'est un contrat par lequel Delta, United, Alaska ou American paient SkyWest pour opérer des vols à leur place, à un tarif fixe par vol. SkyWest reçoit sa rémunération quelle que soit l\'occupation des avions. Le risque commercial et carburant reste chez le partenaire. SkyWest gère l\'exploitation : ponctualité, maintenance, équipages.',
+        },
+        {
+          q: 'Pourquoi l\'action SkyWest est-elle si peu chère malgré sa qualité ?',
+          a: 'Le marché range automatiquement SkyWest dans le secteur "aérien", historiquement cyclique et risqué. Il applique donc une valorisation basse à tout ce secteur sans distinguer les modèles d\'affaires. SkyWest a pourtant des revenus quasi fixes, très différents d\'une compagnie qui vend des billets. Cette erreur de catégorie crée l\'inefficience.',
+        },
+        {
+          q: 'Quels sont les principaux risques de l\'action SKYW ?',
+          a: 'Trois risques principaux : la dépendance aux contrats avec les grands réseaux (si Delta ou United réduisent leurs commandes, SkyWest est impacté), la pénurie de pilotes qui freine la capacité déployée, et le risque de perception de marché (une valorisation basse peut persister longtemps si aucun catalyseur ne réoriente l\'attention des investisseurs).',
+        },
+        {
+          q: 'Le P/FCF de 3,9× est-il toujours une bonne affaire ?',
+          a: 'Un P/FCF bas n\'est une opportunité que si la qualité de l\'entreprise est au rendez-vous. Un P/FCF bas sur une entreprise en déclin, c\'est un piège. Sur SkyWest, la qualité est élevée (10/10 dans notre screener), ce qui rend la valorisation basse potentiellement intéressante. Mais rien ne garantit une revalorisation rapide : la patience est indispensable.',
+        },
+        {
+          q: 'SkyWest est-elle vraiment différente des autres compagnies aériennes ?',
+          a: 'Oui, fondamentalement. Une compagnie comme Delta vend des billets, supporte le risque de remplissage et le risque carburant. Si les voyageurs boudent ou si le pétrole monte, ses revenus et marges s\'effondrent. SkyWest, elle, reçoit un paiement fixe par vol opéré, quel que soit le prix du billet vendu ou du kérosène. C\'est un modèle beaucoup plus prévisible.',
+        },
+      ],
+      tags: [
+        'SkyWest',
+        'SKYW',
+        'action aérienne',
+        'transporteur régional',
+        'analyse fondamentale',
+        'valorisation',
+        'free cash flow',
+        'capacity purchase agreement',
+        'petite capitalisation',
+        'bourse américaine',
+      ],
+      disclaimer:
+        'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les données sont celles disponibles à la date de publication et peuvent évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'SkyWest (SKYW): the airline stock the market ignores',
+      excerpt:
+        'SkyWest is the largest regional carrier in the United States. The market treats it like a typical airline, but its revenues are near-fixed thanks to long-term contracts. The result: an unusually low valuation for a business with perfect quality fundamentals.',
+      metaDescription:
+        'SkyWest (SKYW): full fundamental analysis. Fixed-revenue model, perfect quality score, very low valuation. Why the market is wrong about this regional airline stock.',
+      answer:
+        'SkyWest is not a typical airline. Its revenues are near-fixed through long-term contracts with Delta, United, Alaska, and American. The market penalizes it as if it sold airline tickets. It does not. That is the mispricing: a business with perfect quality fundamentals at a very low valuation.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'SkyWest operates ~400 regional aircraft on behalf of major networks (Delta, United, Alaska, American) under long-term contracts.',
+            'Its "capacity purchase agreements" model guarantees near-fixed revenues: ticket pricing and fuel risk are borne by the partner carriers, not SkyWest.',
+            'Our quality screener gives it a perfect score of 10/10: profitability, balance sheet strength, and operational efficiency at the top of its sector.',
+            'The stock trades at a valuation of 3.9 times its annual free cash flow, which is extremely low for a business of this quality.',
+            'Main risk: the market continues to penalize the entire airline sector without distinguishing between business models, and the pilot shortage weighs on deployed capacity.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What SkyWest actually does',
+        },
+        {
+          type: 'p',
+          text: 'When you hear "airline," you think tickets, strikes, fuel prices, pandemics. So does the market when it looks at SkyWest. That is precisely the mistake.',
+        },
+        {
+          type: 'p',
+          text: 'SkyWest does not sell tickets. It operates regional aircraft under the Delta Connection, United Express, Alaska Airlines, and American Eagle brands. In other words, it is the outsourced regional operator for the major networks on secondary routes they do not want to fly themselves: mid-size city connections, local service routes, feeder flights into hubs.',
+        },
+        {
+          type: 'p',
+          text: 'Its model is built around "capacity purchase agreements" (CPAs). Concretely: Delta or United pay SkyWest for a defined number of seat-miles, regardless of how full the planes are. SkyWest receives a fixed rate per completed flight. The commercial risk, meaning the risk that passengers do not show up, stays with Delta or United. So does fuel risk: contracts require partners to reimburse fuel cost overruns. What SkyWest manages is operations: on-time performance, maintenance, and crews.',
+        },
+        {
+          type: 'h2',
+          text: 'Why SkyWest\'s quality is exceptional',
+        },
+        {
+          type: 'p',
+          text: 'Before I look at a stock price, I always assess the quality of the business separately. Quality, for me, means objective financial criteria: does the company generate real cash, is its debt under control, is its return on capital high, is it more efficient than competitors? Only then do I look at whether the price is consistent with that quality.',
+        },
+        {
+          type: 'p',
+          text: 'On those criteria, SkyWest scores 10/10 in our screener. Free cash flow is the money that actually stays in the company\'s coffers after paying all operating expenses and capital investments. It is harder to manipulate than accounting profit, which is why I rely on it first. SkyWest generates positive, recurring structural free cash flow. Its debt is manageable. Its on-time performance rate is among the best in the U.S. regional sector, which lets it honor existing contracts and win new ones.',
+        },
+        {
+          type: 'p',
+          text: 'SkyWest\'s moat, meaning its durable competitive advantage, rests on two pillars. First pillar: operational barriers. Building a regional operation at this scale (around 400 aircraft, hundreds of routes, thousands of type-rated pilots) takes years and demands substantial capital. You cannot replace SkyWest overnight. Second pillar: the contractual relationship. Partner carriers do not switch regional operators lightly. Contracts are long, transitions are costly, and SkyWest has demonstrated reliability over decades.',
+        },
+        {
+          type: 'h2',
+          text: 'The valuation: where the mispricing lives',
+        },
+        {
+          type: 'p',
+          text: 'Here is the heart of the thesis. The P/FCF (price-to-free-cash-flow) ratio measures how much the market pays for each dollar of annual free cash flow a company generates. A P/FCF of 10 means you are paying 10 years of that cash at the current price. The lower the number, the cheaper the stock relative to the economic reality of the business.',
+        },
+        {
+          type: 'p',
+          text: 'SkyWest trades at a valuation of 3.9 times its free cash flow. That is extremely low. For reference: a decent-quality business in a stable sector typically trades at 15 to 25 times free cash flow. An elite business can trade at 30, 40 times or more. At 3.9 times, the market is treating SkyWest as a business in terminal decline, near bankruptcy, or in a condemned industry.',
+        },
+        {
+          type: 'p',
+          text: 'Why the gap? Because the market applies a single filter: "airline." And in the collective mind, airline means risky, cyclical, cash-burning. That judgment is fair for ticket-selling carriers. It is wrong for SkyWest. Its near-fixed revenue model disconnects it from passenger demand cycles. But the market does not make that distinction. That is the mispricing.',
+        },
+        {
+          type: 'h2',
+          text: 'Sector comparison',
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Model', 'Quality score', 'P/FCF valuation', 'Fuel risk'],
+          rows: [
+            ['SkyWest (SKYW)', 'CPA: fixed revenues', '10/10', '3.9×', 'Transferred to partners'],
+            ['Delta Air Lines (DAL)', 'Ticket sales', 'Average', '~8×', 'Borne directly'],
+            ['United Airlines (UAL)', 'Ticket sales', 'Average', '~5×', 'Borne directly'],
+            ['American Airlines (AAL)', 'Ticket sales', 'Low', 'Negative FCF', 'Borne directly'],
+            ['Southwest Airlines (LUV)', 'Low-cost ticket sales', 'Fair', '~12×', 'Partially hedged'],
+          ],
+        },
+        {
+          type: 'p',
+          text: 'The table speaks for itself. SkyWest is the only one whose model transfers both major airline risks (passenger demand and fuel) to its partners. Yet it trades at the lowest valuation. That is the central paradox of this thesis.',
+        },
+        {
+          type: 'h2',
+          text: 'Real risks: do not downplay them',
+        },
+        {
+          type: 'p',
+          text: 'An honest thesis must acknowledge its weaknesses. First weakness: contract dependency. If Delta or United decided to shrink their regional networks or bring operations in-house, SkyWest would be directly affected. Diversification across four partners mitigates this risk but does not eliminate it.',
+        },
+        {
+          type: 'p',
+          text: 'Second weakness: pilot shortage. The U.S. airline industry has been dealing with a qualified pilot recruitment crisis since 2021. This shortage has forced SkyWest to reduce capacity on certain routes, which pressures revenues even if the CPA model provides partial protection. It is a near-term growth headwind.',
+        },
+        {
+          type: 'p',
+          text: 'Third weakness: market perception. Markets can stay irrational for a long time. A low valuation is not, in itself, a guarantee of re-rating. The catalyst that would lead the market to distinguish SkyWest from legacy carriers is not yet obvious. Patience is required.',
+        },
+        {
+          type: 'h2',
+          text: 'How I read this thesis',
+        },
+        {
+          type: 'p',
+          text: 'What strikes me about SkyWest is the rarity of the combination. Perfect quality AND very low valuation almost never coexist. When they do, there is always a reason: either the business is about to deteriorate (the market\'s thesis), or the market is making a categorization error (my thesis).',
+        },
+        {
+          type: 'p',
+          text: 'My read: SkyWest is the victim of a categorization error. Its business model looks far more like a long-contract industrial subcontractor than a ticket-selling airline. But because it flies planes, it gets filed under "airlines" and penalized accordingly. The question is not "is this a good business?" (the answer is clearly yes). The question is "when and why will the market correct this error?".',
+        },
+        {
+          type: 'p',
+          text: 'At a valuation of 3.9 times free cash flow, even if growth stalls and risks partially materialize, the margin of safety is meaningful. That is exactly the asymmetry I look for when I analyze a stock.',
+        },
+        {
+          type: 'p',
+          text: 'Being able to run this type of analysis in minutes on any stock is exactly why I built my investment screener. If you want to see other companies with this kind of quality-plus-valuation profile, you can explore the rankings on my site.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is a "capacity purchase agreement" at SkyWest?',
+          a: 'It is a contract under which Delta, United, Alaska, or American pay SkyWest to operate flights on their behalf at a fixed rate per flight. SkyWest receives its fee regardless of how full the planes are. Commercial and fuel risk stays with the partner. SkyWest manages operations: punctuality, maintenance, crews.',
+        },
+        {
+          q: 'Why is SkyWest stock so cheap despite its quality?',
+          a: 'The market automatically files SkyWest under "airlines," a historically cyclical and risky sector. It therefore applies a low valuation to everything in that bucket without distinguishing business models. Yet SkyWest has near-fixed revenues, very different from a carrier selling tickets. This categorization error creates the mispricing.',
+        },
+        {
+          q: 'What are the main risks of SKYW stock?',
+          a: 'Three main risks: dependency on contracts with major carriers (if Delta or United reduce regional flying, SkyWest is impacted), the pilot shortage limiting deployed capacity, and market perception risk (a low valuation can persist for a long time if no catalyst redirects investor attention).',
+        },
+        {
+          q: 'Is a P/FCF of 3.9× always a good deal?',
+          a: 'A low P/FCF is only an opportunity if the underlying business quality is there. A low P/FCF on a declining business is a trap. On SkyWest, quality is high (10/10 in our screener), which makes the low valuation potentially compelling. But nothing guarantees a quick re-rating: patience is essential.',
+        },
+        {
+          q: 'Is SkyWest really different from other airlines?',
+          a: 'Yes, fundamentally. A carrier like Delta sells tickets, bears filling-rate risk and fuel risk. If travelers stay home or oil spikes, revenues and margins collapse. SkyWest receives a fixed payment per flight operated, regardless of the ticket price sold or the cost of jet fuel. It is a far more predictable model.',
+        },
+      ],
+      tags: [
+        'SkyWest',
+        'SKYW',
+        'airline stock',
+        'regional carrier',
+        'fundamental analysis',
+        'valuation',
+        'free cash flow',
+        'capacity purchase agreement',
+        'small cap',
+        'US stock market',
+      ],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Data is as of the publication date and may change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'SkyWest (SKYW): la acción aérea que el mercado ignora',
+      excerpt:
+        'SkyWest es el mayor transportista regional de Estados Unidos. El mercado la trata como una aerolínea convencional, pero sus ingresos son casi fijos gracias a contratos a largo plazo. El resultado: una valoración anormalmente baja para una empresa con fundamentos de calidad perfecta.',
+      metaDescription:
+        'SkyWest (SKYW): análisis fundamental completo. Modelo de ingresos fijos, puntuación de calidad perfecta, valoración muy baja. Por qué el mercado se equivoca con esta acción aérea regional.',
+      answer:
+        'SkyWest no es una aerolínea convencional. Sus ingresos son casi fijos gracias a contratos a largo plazo con Delta, United, Alaska y American. El mercado la penaliza como si vendiera billetes de avión. No lo hace. Ahí está la ineficiencia: una empresa de calidad perfecta a una valoración muy baja.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'SkyWest opera ~400 aviones regionales para las grandes redes (Delta, United, Alaska, American) mediante contratos a largo plazo.',
+            'Su modelo de "capacity purchase agreements" garantiza ingresos casi fijos: el riesgo de precio de billetes y de combustible lo asumen las aerolíneas socias.',
+            'Nuestro screener de calidad le otorga una puntuación perfecta de 10/10: rentabilidad, solidez del balance y eficiencia operativa en la cima de su sector.',
+            'La acción cotiza a una valoración de 3,9 veces su free cash flow anual, lo que es extremadamente bajo para una empresa de esta calidad.',
+            'Riesgo principal: el mercado sigue penalizando todo el sector aéreo sin distinguir modelos de negocio, y la escasez de pilotos limita la capacidad desplegada.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente SkyWest',
+        },
+        {
+          type: 'p',
+          text: 'Cuando escuchas "aerolínea", piensas en billetes, huelgas, precio del queroseno, pandemias. El mercado piensa lo mismo cuando ve SkyWest. Ese es precisamente el error.',
+        },
+        {
+          type: 'p',
+          text: 'SkyWest no vende billetes. Opera aviones regionales bajo las marcas Delta Connection, United Express, Alaska Airlines y American Eagle. Es decir, es el subcontratista regional de las grandes redes en las rutas secundarias que no quieren operar ellas mismas: conexiones entre ciudades medianas, rutas de servicio local, vuelos de enlace hacia los grandes hubs.',
+        },
+        {
+          type: 'p',
+          text: 'Su modelo se basa en los "capacity purchase agreements" (CPA), que podemos traducir como "acuerdos de compra de capacidad". En concreto: Delta o United pagan a SkyWest por un número determinado de asientos-kilómetro, independientemente del nivel de ocupación de los aviones. SkyWest recibe una tarifa fija por vuelo completado. El riesgo comercial, es decir, el riesgo de que los pasajeros no aparezcan, permanece en Delta o United. El riesgo de combustible también: los contratos exigen que los socios reembolsen los sobrecostes de carburante. Lo que gestiona SkyWest es la operación: puntualidad, mantenimiento y tripulaciones.',
+        },
+        {
+          type: 'h2',
+          text: 'Por qué la calidad de SkyWest es excepcional',
+        },
+        {
+          type: 'p',
+          text: 'Antes de mirar el precio de una acción, siempre evalúo la calidad del negocio por separado. La calidad, para mí, son criterios financieros objetivos: ¿genera la empresa caja real, está su deuda controlada, es elevado su retorno sobre el capital, es más eficiente que sus competidores? Solo después miro si el precio es coherente con esa calidad.',
+        },
+        {
+          type: 'p',
+          text: 'En esos criterios, SkyWest obtiene 10/10 en nuestro screener. El free cash flow es el dinero que realmente queda en las arcas de la empresa después de pagar todos los gastos operativos e inversiones en capital. Es más difícil de manipular que el beneficio contable, por eso es en lo primero que me fijo. SkyWest genera un free cash flow estructural positivo y recurrente. Su deuda está controlada. Su tasa de puntualidad está entre las mejores del sector regional estadounidense, lo que le permite cumplir sus contratos actuales y conseguir otros nuevos.',
+        },
+        {
+          type: 'p',
+          text: 'El moat de SkyWest, es decir, su ventaja competitiva duradera, descansa sobre dos pilares. Primer pilar: las barreras operativas. Construir una operación regional a esta escala (unos 400 aviones, cientos de rutas, miles de pilotos cualificados en tipos de aeronaves específicos) lleva años y exige un capital considerable. No se reemplaza a SkyWest de la noche a la mañana. Segundo pilar: la relación contractual. Las aerolíneas socias no cambian de operador regional a la ligera. Los contratos son largos, las transiciones costosas, y SkyWest ha demostrado su fiabilidad durante décadas.',
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: dónde vive la ineficiencia',
+        },
+        {
+          type: 'p',
+          text: 'Aquí está el núcleo de la tesis. El P/FCF (price-to-free-cash-flow) es el ratio que mide cuánto paga el mercado por cada euro de free cash flow anual que genera una empresa. Un P/FCF de 10 significa que pagas 10 años de ese flujo de caja al precio actual. Cuanto más bajo es el número, más barata está la acción en relación con la realidad económica del negocio.',
+        },
+        {
+          type: 'p',
+          text: 'SkyWest cotiza a una valoración de 3,9 veces su free cash flow. Eso es extremadamente bajo. Para dar una referencia: un negocio de calidad correcta en un sector estable suele valorarse entre 15 y 25 veces su free cash flow. Un negocio de élite puede valorarse 30, 40 veces o más. A 3,9 veces, el mercado está tratando a SkyWest como un negocio en declive terminal, al borde de la quiebra, o en un sector condenado.',
+        },
+        {
+          type: 'p',
+          text: '¿Por qué esta brecha? Porque el mercado aplica un solo filtro: "aéreo". Y en el imaginario colectivo, aéreo equivale a arriesgado, cíclico, quemador de caja. Ese juicio es justo para las aerolíneas que venden billetes. Es incorrecto para SkyWest. Su modelo de ingresos casi fijos la desconecta de los ciclos de demanda de pasajeros. Pero el mercado no hace esa distinción. Ahí está la ineficiencia.',
+        },
+        {
+          type: 'h2',
+          text: 'Comparativa con el sector',
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Modelo', 'Puntuación calidad', 'Valoración P/FCF', 'Riesgo combustible'],
+          rows: [
+            ['SkyWest (SKYW)', 'CPA: ingresos fijos', '10/10', '3,9×', 'Transferido a los socios'],
+            ['Delta Air Lines (DAL)', 'Venta de billetes', 'Medio', '~8×', 'Asumido directamente'],
+            ['United Airlines (UAL)', 'Venta de billetes', 'Medio', '~5×', 'Asumido directamente'],
+            ['American Airlines (AAL)', 'Venta de billetes', 'Bajo', 'FCF negativo', 'Asumido directamente'],
+            ['Southwest Airlines (LUV)', 'Venta de billetes low-cost', 'Correcto', '~12×', 'Parcialmente cubierto'],
+          ],
+        },
+        {
+          type: 'p',
+          text: 'La tabla habla por sí sola. SkyWest es la única cuyo modelo transfiere los dos grandes riesgos del sector aéreo (demanda de pasajeros y combustible) a sus socios. Sin embargo, es la que cotiza a la valoración más baja. Esa es la paradoja central de esta tesis.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos reales: no minimizarlos',
+        },
+        {
+          type: 'p',
+          text: 'Una tesis honesta debe exponer sus puntos débiles. Primer punto débil: la dependencia de contratos. Si Delta o United decidieran reducir sus redes regionales o internalizar la operación, SkyWest se vería directamente afectada. La diversificación entre cuatro socios mitiga este riesgo, pero no lo elimina.',
+        },
+        {
+          type: 'p',
+          text: 'Segundo punto débil: la escasez de pilotos. El sector aéreo estadounidense atraviesa desde 2021 una crisis de contratación de pilotos cualificados. Esta escasez ha obligado a SkyWest a reducir su capacidad en algunas rutas, lo que presiona los ingresos aunque el modelo CPA la proteja en parte. Es un freno al crecimiento a corto plazo.',
+        },
+        {
+          type: 'p',
+          text: 'Tercer punto débil: la percepción del mercado. El mercado puede permanecer irracional durante mucho tiempo. Una valoración baja no es, en sí misma, una garantía de revaloración. El catalizador que llevaría al mercado a distinguir a SkyWest de las aerolíneas convencionales no está todavía claro. Se requiere paciencia.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo leo esta tesis',
+        },
+        {
+          type: 'p',
+          text: 'Lo que me llama la atención de SkyWest es la rareza de la combinación. Calidad perfecta MÁS valoración muy baja casi nunca coexisten. Cuando ocurre, siempre hay una razón: o el negocio está a punto de deteriorarse (la tesis del mercado), o el mercado está cometiendo un error de categoría (mi tesis).',
+        },
+        {
+          type: 'p',
+          text: 'Mi lectura: SkyWest es víctima de un error de categoría. Su modelo de negocio se parece mucho más al de un subcontratista industrial con contratos largos que al de una aerolínea que vende billetes. Pero como hace volar aviones, se la archiva bajo "aéreo" y se la penaliza en consecuencia. La pregunta no es "¿es esto un buen negocio?" (la respuesta es claramente sí). La pregunta es "¿cuándo y por qué corregirá el mercado este error?".',
+        },
+        {
+          type: 'p',
+          text: 'A una valoración de 3,9 veces el free cash flow, incluso si el crecimiento se estanca y los riesgos se materializan parcialmente, el margen de seguridad es significativo. Esa es exactamente la asimetría que busco cuando analizo una acción.',
+        },
+        {
+          type: 'p',
+          text: 'Poder hacer este tipo de análisis en minutos sobre cualquier acción es exactamente por qué construí mi screener de inversión. Si quieres ver otras empresas con este tipo de perfil calidad-valoración, puedes explorar el ranking en mi sitio.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es un "capacity purchase agreement" en SkyWest?',
+          a: 'Es un contrato por el cual Delta, United, Alaska o American pagan a SkyWest para operar vuelos en su nombre a una tarifa fija por vuelo. SkyWest recibe su remuneración independientemente de la ocupación de los aviones. El riesgo comercial y de combustible permanece en el socio. SkyWest gestiona la operación: puntualidad, mantenimiento y tripulaciones.',
+        },
+        {
+          q: '¿Por qué la acción de SkyWest está tan barata a pesar de su calidad?',
+          a: 'El mercado archiva automáticamente a SkyWest bajo el sector "aéreo", históricamente cíclico y arriesgado. Por ello aplica una valoración baja a todo lo que hay en ese sector sin distinguir modelos de negocio. Sin embargo, SkyWest tiene ingresos casi fijos, muy diferentes a los de una aerolínea que vende billetes. Este error de categoría crea la ineficiencia.',
+        },
+        {
+          q: '¿Cuáles son los principales riesgos de la acción SKYW?',
+          a: 'Tres riesgos principales: dependencia de los contratos con las grandes redes (si Delta o United reducen sus vuelos regionales, SkyWest se ve afectada), la escasez de pilotos que limita la capacidad desplegada, y el riesgo de percepción de mercado (una valoración baja puede persistir mucho tiempo si no hay ningún catalizador que redirija la atención de los inversores).',
+        },
+        {
+          q: '¿Una valoración de 3,9× el FCF es siempre una buena oportunidad?',
+          a: 'Una valoración baja solo es una oportunidad si la calidad del negocio subyacente está ahí. Una valoración baja en un negocio en declive es una trampa. En SkyWest, la calidad es elevada (10/10 en nuestro screener), lo que hace que la valoración baja sea potencialmente interesante. Pero nada garantiza una rápida revaloración: la paciencia es indispensable.',
+        },
+        {
+          q: '¿Es SkyWest realmente diferente de otras aerolíneas?',
+          a: 'Sí, fundamentalmente. Una aerolínea como Delta vende billetes, asume el riesgo de llenado y el riesgo de combustible. Si los viajeros no vuelan o el petróleo sube, sus ingresos y márgenes se desploman. SkyWest recibe un pago fijo por vuelo operado, independientemente del precio del billete vendido o del coste del queroseno. Es un modelo mucho más predecible.',
+        },
+      ],
+      tags: [
+        'SkyWest',
+        'SKYW',
+        'acción aérea',
+        'transportista regional',
+        'análisis fundamental',
+        'valoración',
+        'free cash flow',
+        'capacity purchase agreement',
+        'pequeña capitalización',
+        'bolsa americana',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no predicen los futuros. Los datos corresponden a la fecha de publicación y pueden cambiar. Haz tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleMCY: Article = {
+  slug: 'mercury-general-mcy-analyse-fondamentale-assurance-auto',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'MCY',
+  content: {
+    fr: {
+      title: 'Mercury General (MCY) : notre analyse fondamentale',
+      excerpt:
+        "Mercury General assure des voitures en Californie depuis 1962 et verse un dividende sans interruption depuis plus de 50 ans. Son action en bourse affiche aujourd'hui une valorisation extrêmement basse, pénalisée par deux peurs simultanées. Je t'explique pourquoi ce niveau de qualité à ce prix me semble rare.",
+      metaDescription:
+        "Mercury General (MCY) en bourse : analyse fondamentale d'un assureur auto californien de qualité, sous-évalué malgré 50 ans de dividende. Découvrez la thèse.",
+      answer:
+        "Mercury General est un assureur auto californien discret, rentable depuis des décennies et pénalisé par deux peurs simultanées : le secteur assurance est décoté, et la Californie est perçue comme risquée. Résultat, une valorisation de moins de 4 fois son free cash flow pour une entreprise qui verse un dividende depuis plus de 50 ans sans interruption. Voici comment j'analyse cette situation.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Mercury General (MCY, NYSE) assure des voitures en Californie depuis 1962 avec un réseau de plus de 10 000 agents indépendants fidèles.',
+            "Son action en bourse affiche une valorisation de 3,9 fois son free cash flow, un niveau extrêmement bas pour une entreprise rentable depuis des décennies.",
+            "Le dividende est versé sans interruption depuis plus de 50 ans : un signal fort de la solidité du bilan et de la discipline de l'équipe dirigeante.",
+            "La décote s'explique par une double pénalité : secteur assurance peu aimé des investisseurs + Californie perçue comme un marché réglementairement difficile.",
+            "Le principal risque est la concentration géographique : feux de forêt, réglementation californienne contraignante, et réforme tarifaire en cours.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait vraiment Mercury General',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Quand on parle de grandes compagnies d'assurance, tout le monde connaît Progressive ou Allstate. Mercury General, fondée en 1962 à Los Angeles, est moins connue, mais elle fait quelque chose de très précis : elle assure principalement des véhicules privés en Californie, via un réseau d'agents indépendants qu'elle a mis des décennies à tisser.",
+            "Ce modèle mérite qu'on s'y arrête. Mercury ne vend pas directement ses polices : elle s'appuie sur plus de 10 000 agents indépendants qui ont choisi, parmi toutes les compagnies disponibles, de travailler avec elle. Ces agents ont une clientèle fidèle, une connaissance locale fine, et ils recommandent Mercury parce qu'ils lui font confiance. Ce type de réseau distribué est extrêmement difficile à répliquer pour un concurrent qui débarquerait en Californie demain.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le moat de Mercury : pourquoi ce fossé est difficile à franchir',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Le moat, c'est le fossé concurrentiel d'une entreprise : ce qui l'empêche de se faire attaquer et remplacer par un rival. Chez Mercury, ce fossé est double.",
+            "D'abord, la spécialisation géographique. Être un acteur dominant de l'assurance auto en Californie depuis 60 ans, c'est une connaissance actuarielle (la science d'évaluer les risques statistiquement) impossible à acheter. Mercury sait quelles routes sont dangereuses, quels profils de conducteurs coûtent cher, comment calibrer ses primes pour rester compétitif sans perdre de l'argent. Cette précision tarifaire se traduit par un combined ratio compétitif.",
+            "Le combined ratio, c'est l'indicateur clé de santé d'un assureur : il mesure ce que l'assureur dépense (sinistres payés + frais de gestion) pour 100 euros de primes encaissées. Un ratio inférieur à 100 signifie que l'assureur est rentable sur son activité pure, avant même les revenus de ses placements financiers. Mercury maintient un combined ratio compétitif sur longue période, ce qui prouve que son modèle de tarification fonctionne.",
+            "Ensuite, les 50 ans de dividende. Ce chiffre ne signifie pas seulement que l'entreprise est généreuse. Il signifie que pendant 50 ans, quelles que soient les crises, les catastrophes naturelles, les récessions, la direction a toujours généré assez de cash pour rémunérer ses actionnaires sans couper. C'est un signal très fort de discipline financière.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi la valorisation est-elle si basse ?',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Pour mesurer si une action en bourse est chère ou bon marché, j'utilise le P/FCF : le rapport entre le prix de l'action et le free cash flow qu'elle génère chaque année. Le free cash flow (ou flux de trésorerie disponible), c'est l'argent qui reste vraiment dans les caisses de l'entreprise une fois toutes les factures payées : salaires, investissements, impôts. C'est plus difficile à maquiller que le bénéfice comptable traditionnel.",
+            "Un P/FCF de 3,9 signifie concrètement ceci : tu paies aujourd'hui moins de 4 ans de ce cash. Le marché valorise Mercury comme si elle allait produire du free cash flow pendant seulement 4 ans, puis s'arrêter. Pour une entreprise rentable depuis plus de 60 ans qui verse un dividende sans interruption depuis 50 ans, c'est un niveau de défiance extrême.",
+            "Pourquoi ce niveau ? Mercury subit ce que j'appelle une double pénalité. Le secteur assurance en général est peu apprécié par les marchés : il est perçu comme peu sexy, peu technologique, difficile à comprendre. À cela s'ajoute la Californie, qui cumule deux images négatives : un État aux règles tarifaires très contraignantes (le régulateur impose ses conditions aux assureurs) et une exposition aux feux de forêt dévastateurs. Les incendies californiens de 2025 ont effectivement pesé sur les résultats à court terme et ravivé les craintes.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Mercury vs ses concurrents : comparaison sectorielle',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Pour donner du contexte à cette valorisation, voici comment Mercury se positionne face à d'autres assureurs cotés en bourse. J'ai sélectionné Progressive (PGR), Kingsway (KNSL), W.R. Berkley (WRB) et Universal Insurance (UVE) comme points de repère.",
+          ],
+        },
+        {
+          type: 'table',
+          headers: ['Entreprise', 'Ticker', 'Secteur', 'P/FCF approx.', 'Dividende historique'],
+          rows: [
+            ['Mercury General', 'MCY', 'Assurance auto, Californie', '3,9x', '50+ ans consécutifs'],
+            ['Progressive', 'PGR', 'Assurance auto, national', '~25x', 'Variable, croissant'],
+            ['Kingsway Financial', 'KNSL', 'Assurance spécialisée', '~18x', 'Oui'],
+            ['W.R. Berkley', 'WRB', 'Assurance P&C diversifiée', '~14x', 'Oui, croissant'],
+            ['Universal Insurance', 'UVE', 'Assurance habitation, Floride', '~8x', 'Oui'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            "Ce tableau illustre clairement la double pénalité. Progressive est considéré comme le leader technologique du secteur : son P/FCF reflète une prime de croissance. Mercury affiche une valorisation de 3,9 fois, soit six fois moins chère que Progressive, pour une entreprise tout aussi rentable et bien plus mature dans son dividende. La question que je me pose : est-ce que la différence de qualité entre ces deux entreprises justifie un écart de valorisation de 6 fois ? Je ne le crois pas.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Les risques réels : ne pas les minimiser',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Je ne suis pas là pour vendre Mercury comme la perfection. Il y a des risques réels, et je vais les nommer clairement.",
+            "Le risque numéro un est la concentration californienne. Mercury réalise la grande majorité de ses primes en Californie. Si les feux de forêt s'intensifient, si le régulateur bloque des hausses de tarifs nécessaires, ou si une catastrophe majeure frappe, Mercury est en première ligne. Les incendies de 2025 l'ont prouvé : des sinistres importants ont pesé sur les résultats à court terme.",
+            "Le deuxième risque est réglementaire. La Californie est l'un des États américains les plus encadrés en matière d'assurance. Le régulateur peut refuser ou retarder des hausses de primes que Mercury juge nécessaires pour couvrir ses coûts. Cette contrainte limite la capacité de l'entreprise à s'adapter rapidement à une inflation des sinistres.",
+            "Le troisième risque est la maturité du marché. L'assurance auto californienne est un marché saturé. Mercury ne peut pas croître à 20 % par an ; sa croissance est lente et progressive. C'est un choix délibéré, mais il faut l'accepter : on achète ici de la qualité et de la valeur, pas de la croissance explosive.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La thèse : qualité élevée, prix très bas, risques connus',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Quand j'analyse une action en bourse, je sépare toujours deux questions que la plupart des investisseurs mélangent. Un : est-ce une bonne entreprise ? Deux, complètement à part : est-ce le bon prix ? Une bonne entreprise payée trop cher reste un mauvais placement. Une entreprise médiocre bradée reste médiocre.",
+            "Sur la qualité : Mercury est un assureur spécialisé, rentable, avec un moat réel (réseau d'agents fidèles, expertise actuarielle en Californie depuis 60 ans, combined ratio compétitif), un free cash flow positif et récurrent, et 50 ans de dividende ininterrompu. Chez nous, cette combinaison de critères traduit une note de qualité maximale dans notre méthode d'analyse.",
+            "Sur le prix : une valorisation de 3,9 fois le free cash flow, c'est une décote massive pour ce niveau de qualité. Le marché anticipe soit une dégradation durable des résultats (à cause des feux ou de la réglementation), soit simplement ignore Mercury parce qu'elle est petite, peu médiatisée, et dans un secteur peu aimé.",
+            "La thèse repose sur une conviction simple : si Mercury continue à générer du free cash flow au rythme actuel et à maintenir son dividende, la valorisation devrait, à terme, se normaliser. Même une valorisation de 8 à 10 fois le free cash flow (toujours basse pour le secteur) représenterait un doublement du cours de l'action. Ce n'est pas un scénario miraculeux : c'est juste la disparition d'une décote injustifiée.",
+            "C'est exactement ce type d'analyse que j'ai voulu automatiser pour n'importe quelle action, alors j'ai construit mon site d'investissement.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce que le free cash flow et pourquoi est-ce important pour Mercury General ?",
+          a: "Le free cash flow, c'est l'argent qui reste vraiment dans les caisses de l'entreprise après avoir payé toutes ses dépenses opérationnelles et ses investissements. Pour Mercury, c'est d'autant plus important qu'il finance directement le dividende versé aux actionnaires depuis plus de 50 ans. Un free cash flow positif et récurrent, c'est la preuve que l'entreprise génère de la valeur réelle, pas seulement des bénéfices comptables.",
+        },
+        {
+          q: "Pourquoi une valorisation de 3,9 fois est-elle considérée comme très basse ?",
+          a: "Le P/FCF mesure combien d'années de free cash flow tu paies quand tu achètes l'action. Un P/FCF de 3,9 signifie que tu paies moins de 4 ans de cash. La moyenne historique des marchés tourne autour de 15 à 20 fois. Pour une entreprise rentable depuis 60 ans, c'est un niveau de valorisation extrêmement bas qui traduit une forte défiance du marché, pas nécessairement une réalité économique dégradée.",
+        },
+        {
+          q: "Quel est le principal risque d'investir dans Mercury General ?",
+          a: "La concentration géographique en Californie. Mercury réalise l'essentiel de ses revenus dans un seul État, exposé aux feux de forêt et à une réglementation contraignante. Si les catastrophes naturelles s'intensifient ou si le régulateur bloque des hausses de tarifs, les résultats à court terme peuvent en souffrir. C'est le risque à évaluer en priorité avant toute décision d'investissement.",
+        },
+        {
+          q: "Qu'est-ce que le combined ratio dans l'assurance ?",
+          a: "C'est l'indicateur clé de rentabilité d'un assureur. Il mesure la somme des sinistres payés et des frais de gestion, divisée par les primes encaissées. Un ratio inférieur à 100 signifie que l'assureur gagne de l'argent sur son activité pure. Mercury maintient un combined ratio compétitif sur longue période, ce qui prouve la qualité de son modèle de tarification.",
+        },
+        {
+          q: "Mercury General est-elle une action recommandée à l'achat ?",
+          a: "Cet article est une analyse éducative, pas un conseil en investissement personnalisé. Mercury présente des caractéristiques de qualité élevée et une valorisation très basse, mais elle comporte des risques réels liés à la Californie et aux catastrophes naturelles. Évalue ces risques au regard de ta propre situation avant toute décision.",
+        },
+      ],
+      tags: [
+        'Mercury General',
+        'MCY',
+        'assurance auto',
+        'Californie',
+        'analyse fondamentale',
+        'dividende',
+        'free cash flow',
+        'sous-évalué',
+        'action bourse',
+        'P&C insurance',
+      ],
+      disclaimer:
+        "Analyse à but informatif et éducatif uniquement, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres sont ceux disponibles à la date de publication et sont susceptibles d'évoluer. Faites vos propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'Mercury General (MCY): our fundamental analysis',
+      excerpt:
+        'Mercury General has been insuring cars in California since 1962 and has paid a dividend every year for over 50 consecutive years. Yet its stock trades at an extremely low valuation, penalized by two simultaneous fears. Here is why this quality level at this price strikes me as rare.',
+      metaDescription:
+        'Mercury General (MCY) stock analysis: a quality California auto insurer trading at a historically low valuation despite 50+ years of uninterrupted dividends. Read the thesis.',
+      answer:
+        "Mercury General is a quiet California auto insurer, profitable for decades, now penalized by two simultaneous fears: the insurance sector trades at a discount, and California is seen as regulatorily risky. The result is a valuation of less than 4 times its free cash flow for a company that has paid dividends for over 50 consecutive years. Here is how I analyze this situation.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Mercury General (MCY, NYSE) has been insuring cars in California since 1962, with a network of over 10,000 loyal independent agents.',
+            'The stock trades at a valuation of 3.9 times its free cash flow, an extremely low level for a company that has been profitable for decades.',
+            'The dividend has been paid without interruption for over 50 years, a strong signal of balance sheet strength and management discipline.',
+            'The discount comes from a double penalty: the insurance sector is unloved by investors, and California is perceived as a difficult regulatory market.',
+            'The main risk is geographic concentration: wildfires, constraining California regulation, and an ongoing rate reform.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What Mercury General actually does',
+        },
+        {
+          type: 'ul',
+          items: [
+            "When people think of large insurance companies, Progressive or Allstate come to mind. Mercury General, founded in 1962 in Los Angeles, is less well-known, but it does something very specific: it primarily insures private vehicles in California through a network of independent agents it has spent decades building.",
+            "This model is worth pausing on. Mercury does not sell policies directly. It relies on over 10,000 independent agents who have chosen, among all available companies, to work with it. These agents have loyal customers, deep local knowledge, and they recommend Mercury because they trust it. This kind of distributed network is extremely difficult for a competitor to replicate.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Mercury's moat: why this competitive edge is hard to cross",
+        },
+        {
+          type: 'ul',
+          items: [
+            "A moat is a company's competitive advantage: what prevents a rival from attacking and replacing it. Mercury's moat is twofold.",
+            "First, geographic specialization. Being a dominant player in California auto insurance for 60 years means possessing actuarial knowledge (the science of statistically assessing risk) that cannot be bought. Mercury knows which roads are dangerous, which driver profiles cost more, and how to price premiums to stay competitive without losing money. This pricing precision translates into a competitive combined ratio.",
+            "The combined ratio is the key health indicator for an insurer: it measures what the insurer spends (claims paid plus operating costs) for every 100 dollars of premiums collected. A ratio below 100 means the insurer is profitable on its core business, before investment income. Mercury maintains a competitive combined ratio over the long term, proving that its pricing model works.",
+            "Second, the 50-year dividend track record. This number does not just mean the company is generous. It means that for 50 years, through every crisis, natural disaster, and recession, management always generated enough cash to reward shareholders without cutting. That is a very strong signal of financial discipline.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Why is the valuation so low?',
+        },
+        {
+          type: 'ul',
+          items: [
+            "To measure whether a stock is expensive or cheap, I use P/FCF: the ratio between the stock price and the free cash flow it generates each year. Free cash flow is the money that actually stays in the company's coffers after all bills are paid: wages, investments, taxes. It is harder to manipulate than traditional accounting earnings.",
+            "A P/FCF of 3.9 means this concretely: you are paying today less than 4 years of that cash. The market values Mercury as if it will produce free cash flow for only 4 years, then stop. For a company that has been profitable for over 60 years and has paid dividends for 50 consecutive years, that is an extreme level of distrust.",
+            "Why this level? Mercury suffers from what I call a double penalty. The insurance sector in general is unloved by markets: perceived as unsexy, low-tech, hard to understand. Add California, which carries two negative images: a state with very constraining pricing rules (the regulator dictates terms to insurers) and exposure to devastating wildfires. The 2025 California fires did weigh on short-term results and revived fears.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Mercury vs competitors: sector comparison',
+        },
+        {
+          type: 'ul',
+          items: [
+            "To put this valuation in context, here is how Mercury compares to other publicly traded insurers. I selected Progressive (PGR), Kingsway (KNSL), W.R. Berkley (WRB), and Universal Insurance (UVE) as reference points.",
+          ],
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Ticker', 'Sector', 'P/FCF approx.', 'Dividend track record'],
+          rows: [
+            ['Mercury General', 'MCY', 'Auto insurance, California', '3.9x', '50+ consecutive years'],
+            ['Progressive', 'PGR', 'Auto insurance, national', '~25x', 'Variable, growing'],
+            ['Kingsway Financial', 'KNSL', 'Specialty insurance', '~18x', 'Yes'],
+            ['W.R. Berkley', 'WRB', 'Diversified P&C insurance', '~14x', 'Yes, growing'],
+            ['Universal Insurance', 'UVE', 'Home insurance, Florida', '~8x', 'Yes'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            "This table clearly illustrates the double penalty. Progressive is considered the sector's technology leader: its P/FCF reflects a growth premium. Mercury trades at 3.9 times, roughly six times cheaper than Progressive, for a company that is just as profitable and has a far stronger dividend history. The question I ask myself: does the quality difference between these two companies justify a 6x valuation gap? I do not think so.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Real risks: do not minimize them',
+        },
+        {
+          type: 'ul',
+          items: [
+            "I am not here to sell Mercury as perfection. There are real risks, and I will name them clearly.",
+            "Risk number one is California concentration. Mercury generates the vast majority of its premiums in California. If wildfires intensify, if regulators block necessary rate increases, or if a major catastrophe strikes, Mercury is on the front line. The 2025 fires proved it: significant claims weighed on short-term results.",
+            "The second risk is regulatory. California is one of the most regulated states in terms of insurance. The regulator can refuse or delay rate increases that Mercury considers necessary to cover its costs. This constraint limits the company's ability to adapt quickly to claims inflation.",
+            "The third risk is market maturity. California auto insurance is a saturated market. Mercury cannot grow at 20% per year; its growth is slow and gradual. That is a deliberate choice, but you have to accept it: you are buying quality and value here, not explosive growth.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The thesis: high quality, very low price, known risks',
+        },
+        {
+          type: 'ul',
+          items: [
+            "When I analyze a stock, I always separate two questions that most investors mix together. One: is this a good business? Two, completely separately: is this the right price? A great business bought too expensive remains a bad investment. A mediocre business, even at a bargain, remains mediocre.",
+            "On quality: Mercury is a specialized insurer, profitable, with a real moat (loyal agent network, actuarial expertise in California for 60 years, competitive combined ratio), positive and recurring free cash flow, and 50 years of uninterrupted dividends. In our methodology, this combination of criteria translates into a perfect quality score.",
+            "On price: a valuation of 3.9 times free cash flow is a massive discount for this quality level. The market is either anticipating a lasting deterioration in results (due to fires or regulation), or simply ignoring Mercury because it is small, under-covered, and in an unloved sector.",
+            "The thesis rests on a simple conviction: if Mercury continues generating free cash flow at the current pace and maintains its dividend, the valuation should, over time, normalize. Even a valuation of 8 to 10 times free cash flow (still low for the sector) would represent a doubling of the stock price. That is not a miraculous scenario: it is just the disappearance of an unjustified discount.",
+            "This is exactly the kind of analysis I wanted to be able to run on any stock in seconds, so I built my investment site.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: 'What is free cash flow and why does it matter for Mercury General?',
+          a: "Free cash flow is the money that actually stays in the company's coffers after paying all operating expenses and investments. For Mercury, it is especially important because it directly funds the dividend paid to shareholders for over 50 years. Positive, recurring free cash flow is proof that the company generates real value, not just accounting profits.",
+        },
+        {
+          q: 'Why is a valuation of 3.9 times considered very low?',
+          a: "P/FCF measures how many years of free cash flow you are paying when you buy the stock. A P/FCF of 3.9 means you are paying less than 4 years of cash. The historical market average is around 15 to 20 times. For a company profitable for 60 years, this is an extremely low valuation level that reflects strong market distrust, not necessarily a deteriorated economic reality.",
+        },
+        {
+          q: 'What is the main risk of investing in Mercury General?',
+          a: 'Geographic concentration in California. Mercury generates most of its revenue in a single state exposed to wildfires and constraining regulation. If natural disasters intensify or if regulators block rate increases, short-term results can suffer. This is the risk to assess first before any investment decision.',
+        },
+        {
+          q: 'What is the combined ratio in insurance?',
+          a: 'It is the key profitability indicator for an insurer. It measures the sum of claims paid and operating expenses divided by premiums collected. A ratio below 100 means the insurer makes money on its core business. Mercury maintains a competitive combined ratio over the long term, proving the quality of its pricing model.',
+        },
+        {
+          q: 'Is Mercury General a buy?',
+          a: 'This article is an educational analysis, not personalized investment advice. Mercury has high-quality characteristics and a very low valuation, but carries real risks related to California and natural disasters. Assess these risks in light of your own situation before any decision.',
+        },
+      ],
+      tags: [
+        'Mercury General',
+        'MCY',
+        'auto insurance',
+        'California',
+        'fundamental analysis',
+        'dividend',
+        'free cash flow',
+        'undervalued',
+        'stock market',
+        'P&C insurance',
+      ],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures are as of the publication date and are subject to change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'Mercury General (MCY): nuestro análisis fundamental',
+      excerpt:
+        'Mercury General lleva asegurando coches en California desde 1962 y ha pagado dividendo sin interrupción durante más de 50 años consecutivos. Su acción en bolsa cotiza hoy a una valoración extremadamente baja, penalizada por dos miedos simultáneos. Te explico por qué este nivel de calidad a este precio me parece poco común.',
+      metaDescription:
+        'Mercury General (MCY) en bolsa: análisis fundamental de un asegurador de automóviles en California de alta calidad, infravalorado a pesar de 50 años de dividendo. Descubre la tesis.',
+      answer:
+        'Mercury General es un asegurador de automóviles californiano discreto, rentable durante décadas y penalizado por dos miedos simultáneos: el sector asegurador cotiza con descuento y California se percibe como arriesgado desde el punto de vista regulatorio. El resultado es una valoración de menos de 4 veces su free cash flow para una empresa que lleva más de 50 años pagando dividendo sin interrupción. Así analizo esta situación.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Mercury General (MCY, NYSE) asegura automóviles en California desde 1962 con una red de más de 10.000 agentes independientes fieles.',
+            'La acción en bolsa muestra una valoración de 3,9 veces su free cash flow, un nivel extremadamente bajo para una empresa rentable desde hace décadas.',
+            'El dividendo se ha pagado sin interrupción durante más de 50 años, una señal clara de la solidez del balance y la disciplina del equipo directivo.',
+            'El descuento se explica por una doble penalización: sector asegurador poco querido por los inversores más la percepción de California como mercado regulatorio difícil.',
+            'El principal riesgo es la concentración geográfica: incendios forestales, regulación californiana restrictiva y reforma tarifaria en curso.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente Mercury General',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Cuando hablamos de grandes aseguradoras, todo el mundo conoce Progressive o Allstate. Mercury General, fundada en 1962 en Los Ángeles, es menos conocida, pero hace algo muy preciso: asegura principalmente vehículos privados en California a través de una red de agentes independientes que ha tardado décadas en construir.',
+            'Este modelo merece atención. Mercury no vende pólizas directamente: se apoya en más de 10.000 agentes independientes que han elegido, entre todas las compañías disponibles, trabajar con ella. Estos agentes tienen clientes fieles, un conocimiento local profundo, y recomiendan Mercury porque confían en ella. Este tipo de red distribuida es extremadamente difícil de replicar para un competidor que quisiera entrar en California mañana.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El moat de Mercury: por qué esta ventaja competitiva es difícil de cruzar',
+        },
+        {
+          type: 'ul',
+          items: [
+            'El moat es la ventaja competitiva de una empresa: lo que impide que un rival la ataque y la reemplace. En Mercury, esta ventaja es doble.',
+            'Primero, la especialización geográfica. Ser un actor dominante en el seguro de automóviles de California durante 60 años implica un conocimiento actuarial (la ciencia de evaluar riesgos estadísticamente) imposible de comprar. Mercury sabe qué carreteras son peligrosas, qué perfiles de conductores resultan más costosos y cómo calibrar sus primas para seguir siendo competitiva sin perder dinero. Esta precisión tarifaria se traduce en un combined ratio competitivo.',
+            'El combined ratio es el indicador clave de salud de una aseguradora: mide lo que gasta (siniestros pagados más gastos de gestión) por cada 100 euros de primas cobradas. Un ratio inferior a 100 significa que la aseguradora es rentable en su actividad pura, antes incluso de los ingresos de sus inversiones financieras. Mercury mantiene un combined ratio competitivo en el largo plazo, lo que demuestra que su modelo de tarificación funciona.',
+            'Segundo, los 50 años de dividendo. Esta cifra no solo significa que la empresa es generosa. Significa que durante 50 años, sean cuales sean las crisis, catástrofes naturales o recesiones, la dirección siempre generó suficiente cash para remunerar a sus accionistas sin recortar. Es una señal muy fuerte de disciplina financiera.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: '¿Por qué la valoración es tan baja?',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Para medir si una acción en bolsa es cara o barata, utilizo el P/FCF: la relación entre el precio de la acción y el free cash flow que genera cada año. El free cash flow (o flujo de caja libre) es el dinero que realmente queda en las arcas de la empresa una vez pagadas todas las facturas: salarios, inversiones, impuestos. Es más difícil de manipular que el beneficio contable tradicional.',
+            'Un P/FCF de 3,9 significa concretamente esto: estás pagando hoy menos de 4 años de ese cash. El mercado valora Mercury como si fuera a generar free cash flow durante solo 4 años y luego parar. Para una empresa rentable desde hace más de 60 años que paga dividendo sin interrupción desde hace 50, eso es un nivel extremo de desconfianza.',
+            'Por qué ese nivel? Mercury sufre lo que llamo una doble penalización. El sector asegurador en general es poco apreciado por los mercados: se percibe como poco atractivo, poco tecnológico y difícil de entender. A eso se suma California, que acumula dos imágenes negativas: un estado con reglas tarifarias muy restrictivas (el regulador impone sus condiciones a las aseguradoras) y una exposición a incendios forestales devastadores. Los incendios californios de 2025 pesaron efectivamente en los resultados a corto plazo y avivaron los temores.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Mercury vs competidores: comparación sectorial',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Para contextualizar esta valoración, así se posiciona Mercury frente a otras aseguradoras cotizadas en bolsa. He seleccionado Progressive (PGR), Kingsway (KNSL), W.R. Berkley (WRB) y Universal Insurance (UVE) como puntos de referencia.',
+          ],
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Ticker', 'Sector', 'P/FCF aprox.', 'Historial de dividendo'],
+          rows: [
+            ['Mercury General', 'MCY', 'Seguro auto, California', '3,9x', 'Más de 50 años consecutivos'],
+            ['Progressive', 'PGR', 'Seguro auto, nacional', '~25x', 'Variable, creciente'],
+            ['Kingsway Financial', 'KNSL', 'Seguro especializado', '~18x', 'Sí'],
+            ['W.R. Berkley', 'WRB', 'Seguro P&C diversificado', '~14x', 'Sí, creciente'],
+            ['Universal Insurance', 'UVE', 'Seguro de hogar, Florida', '~8x', 'Sí'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Esta tabla ilustra claramente la doble penalización. Progressive es considerado el líder tecnológico del sector: su P/FCF refleja una prima de crecimiento. Mercury muestra una valoración de 3,9 veces, es decir, unas seis veces más barata que Progressive, para una empresa igual de rentable y con un historial de dividendo mucho más consolidado. La pregunta que me hago: ¿justifica la diferencia de calidad entre estas dos empresas una brecha de valoración de 6 veces? No lo creo.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos reales: no minimizarlos',
+        },
+        {
+          type: 'ul',
+          items: [
+            'No estoy aquí para vender Mercury como la perfección. Hay riesgos reales, y los voy a nombrar claramente.',
+            'El riesgo número uno es la concentración californiana. Mercury genera la gran mayoría de sus primas en California. Si los incendios forestales se intensifican, si el regulador bloquea aumentos de tarifas necesarios, o si una catástrofe importante golpea el estado, Mercury está en primera línea. Los incendios de 2025 lo demostraron: siniestros importantes pesaron en los resultados a corto plazo.',
+            'El segundo riesgo es regulatorio. California es uno de los estados americanos más regulados en materia de seguros. El regulador puede rechazar o retrasar aumentos de primas que Mercury considera necesarios para cubrir sus costes. Esta restricción limita la capacidad de la empresa para adaptarse rápidamente a la inflación de siniestros.',
+            'El tercer riesgo es la madurez del mercado. El seguro de automóviles en California es un mercado saturado. Mercury no puede crecer al 20% anual; su crecimiento es lento y progresivo. Es una elección deliberada, pero hay que aceptarla: aquí se compra calidad y valor, no crecimiento explosivo.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La tesis: alta calidad, precio muy bajo, riesgos conocidos',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Cuando analizo una acción en bolsa, siempre separo dos preguntas que la mayoría de los inversores mezclan. Una: ¿es un buen negocio? Dos, completamente aparte: ¿es el precio correcto? Un gran negocio comprado demasiado caro sigue siendo una mala inversión. Un negocio mediocre, aunque barato, sigue siendo mediocre.',
+            'Sobre la calidad: Mercury es una aseguradora especializada, rentable, con un moat real (red de agentes fieles, conocimiento actuarial en California durante 60 años, combined ratio competitivo), free cash flow positivo y recurrente, y 50 años de dividendo ininterrumpido. En nuestra metodología, esta combinación de criterios se traduce en una puntuación de calidad máxima.',
+            'Sobre el precio: una valoración de 3,9 veces el free cash flow es un descuento masivo para este nivel de calidad. El mercado anticipa o bien un deterioro duradero de los resultados (por incendios o regulación), o simplemente ignora Mercury porque es pequeña, poco mediática y pertenece a un sector poco querido.',
+            'La tesis se apoya en una convicción simple: si Mercury sigue generando free cash flow al ritmo actual y mantiene su dividendo, la valoración debería, con el tiempo, normalizarse. Incluso una valoración de 8 a 10 veces el free cash flow (aún baja para el sector) representaría una duplicación del precio de la acción. No es un escenario milagroso: es simplemente la desaparición de un descuento injustificado.',
+            'Es exactamente este tipo de análisis el que quería poder hacer para cualquier acción en segundos, así que construí mi sitio de inversión.',
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el free cash flow y por qué importa para Mercury General?',
+          a: 'El free cash flow es el dinero que realmente queda en las arcas de la empresa después de pagar todos sus gastos operativos e inversiones. Para Mercury es especialmente importante porque financia directamente el dividendo pagado a los accionistas durante más de 50 años. Un free cash flow positivo y recurrente es la prueba de que la empresa genera valor real, no solo beneficios contables.',
+        },
+        {
+          q: '¿Por qué una valoración de 3,9 veces se considera muy baja?',
+          a: 'El P/FCF mide cuántos años de free cash flow estás pagando cuando compras la acción. Un P/FCF de 3,9 significa que pagas menos de 4 años de ese cash. La media histórica del mercado ronda las 15 a 20 veces. Para una empresa rentable desde hace 60 años, este es un nivel de valoración extremadamente bajo que refleja una fuerte desconfianza del mercado, no necesariamente una realidad económica deteriorada.',
+        },
+        {
+          q: '¿Cuál es el principal riesgo de invertir en Mercury General?',
+          a: 'La concentración geográfica en California. Mercury genera la mayor parte de sus ingresos en un solo estado expuesto a incendios forestales y a una regulación restrictiva. Si las catástrofes naturales se intensifican o si el regulador bloquea subidas de tarifas, los resultados a corto plazo pueden verse afectados. Este es el riesgo a evaluar en primer lugar antes de cualquier decisión de inversión.',
+        },
+        {
+          q: '¿Qué es el combined ratio en seguros?',
+          a: 'Es el indicador clave de rentabilidad de una aseguradora. Mide la suma de los siniestros pagados y los gastos operativos dividida entre las primas cobradas. Un ratio inferior a 100 significa que la aseguradora gana dinero en su negocio principal. Mercury mantiene un combined ratio competitivo en el largo plazo, demostrando la calidad de su modelo de tarificación.',
+        },
+        {
+          q: '¿Es Mercury General una acción recomendada para comprar?',
+          a: 'Este artículo es un análisis educativo, no un consejo de inversión personalizado. Mercury tiene características de alta calidad y una valoración muy baja, pero conlleva riesgos reales relacionados con California y las catástrofes naturales. Evalúa estos riesgos teniendo en cuenta tu propia situación antes de tomar cualquier decisión.',
+        },
+      ],
+      tags: [
+        'Mercury General',
+        'MCY',
+        'seguro de automóviles',
+        'California',
+        'análisis fundamental',
+        'dividendo',
+        'free cash flow',
+        'infravalorado',
+        'acción bolsa',
+        'seguro P&C',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos únicamente, no es un consejo de inversión personalizado. Los resultados pasados no garantizan los resultados futuros. Las cifras corresponden a la fecha de publicación y pueden cambiar. Realiza tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleUVE: Article = {
+  slug: 'universal-insurance-uve-analyse-fondamentale-assurance-floride',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'UVE',
+  content: {
+    fr: {
+      title: 'Universal Insurance (UVE) : la pépite boudée en bourse',
+      excerpt:
+        "Universal Insurance Holdings est l'un des rares assureurs à générer du cash de façon régulière en Floride, le marché le plus difficile des États-Unis. Le marché boursier lui applique une décote extrême à cause du risque ouragan. Mais est-ce vraiment justifié ? Voici ma lecture.",
+      metaDescription:
+        "Universal Insurance (UVE) : analyse fondamentale d'un assureur floriden qui génère du cash malgré un marché difficile. Valorisation extrêmement basse en bourse. Décryptage.",
+      answer:
+        "Universal Insurance Holdings est un spécialiste de l'assurance habitation en Floride depuis plus de 30 ans. L'entreprise génère du cash de façon régulière et affiche une qualité financière rare. Pourtant, en bourse, elle est valorisée à un niveau historiquement bas à cause de la peur permanente des ouragans. C'est précisément ce paradoxe que j'analyse ici.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "UVE est spécialiste de l'assurance habitation en Floride depuis plus de 30 ans, avec une expertise locale que personne ne peut copier facilement.",
+            "L'entreprise affiche un score de qualité financière parfait selon notre méthode d'analyse : rentabilité maintenue, cash récurrent, dividende régulier.",
+            "Sa valorisation en bourse est l'une des plus basses que j'aie vues pour une entreprise de cette qualité : elle se valorise à environ 2,9 fois son free cash flow annuel.",
+            "Le marché intègre une prime de risque permanente liée aux ouragans et à la réglementation floridienne, ce qui explique la décote.",
+            "Le paradoxe central : UVE génère du cash même dans un marché que tous les grands assureurs ont fui. Est-ce un piège ou une opportunité ?",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Un marché que tout le monde a fui, sauf eux',
+        },
+        {
+          type: 'ul',
+          items: [
+            "La Floride est, depuis plusieurs années, le cauchemar des assureurs. Ouragans à répétition, litiges en cascade, réglementation changeante : State Farm, Farmers, Bankers Insurance ont tous réduit la voile ou quitté l'État. Dans ce contexte, Universal Insurance Holdings opère depuis plus de 30 ans. Pas malgré la difficulté, mais dedans.",
+            "Quand je regarde une action, je sépare toujours deux questions distinctes. Première question : est-ce une bonne entreprise ? Deuxième question, à part entière : est-ce le bon prix ? Confondre les deux, c'est la source d'erreur numéro un en investissement. Commençons par la qualité.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La qualité du business : comment je la mesure',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Je ne me fie pas à mon instinct. Je passe chaque entreprise au crible d'une série de critères financiers objectifs : est-elle rentable sur la durée, génère-t-elle du cash réel, rachète-t-elle ses actions, sa dette est-elle maîtrisée ? Ce processus me donne une note de qualité sur 10, que j'utilise pour trier des milliers d'entreprises.",
+            "UVE obtient 10 sur 10 dans mon screener. Ce n'est pas un chiffre magique : c'est la synthèse de plusieurs années de rentabilité maintenue, de free cash flow récurrent (le cash que l'entreprise conserve vraiment après avoir tout payé : sinistres, frais, impôts, réassurance), et d'un dividende distribué de façon continue. Sur une petite capitalisation dans un secteur aussi risqué, c'est rare.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Le moat d'UVE : 30 ans dans le marché le plus dur des US",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Le moat, c'est le fossé concurrentiel d'une entreprise : ce qui lui permet de tenir face à ses concurrents sur le long terme. Pour UVE, ce fossé est fait de trois couches.",
+            "D'abord, l'expertise locale brute. Assurer une maison en Floride, ce n'est pas assurer une maison dans l'Ohio. Il faut comprendre les zones inondables, les codes de construction post-Katrina, les habitudes de contentieux locales. UVE a construit cette expertise sur trois décennies, via un réseau d'agents indépendants ancrés dans l'État.",
+            "Ensuite, la réassurance sophistiquée. La réassurance, c'est l'assurance de l'assureur : UVE transfère une partie de son risque ouragan à des réassureurs mondiaux. Le niveau de sophistication de cette couverture, ajustée chaque saison, est un actif en soi que les nouveaux entrants ne peuvent pas répliquer du jour au lendemain.",
+            "Enfin, la taille critique sur un marché abandonné. Quand les grands fuient, les clients restants n'ont pas 50 options. UVE est l'un des rares opérateurs privés capables d'écrire du volume en Floride aujourd'hui. C'est un avantage structurel.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : pourquoi le marché décote si fort',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Parlons du prix. Pour mesurer la valorisation d'une action, j'utilise principalement le P/FCF : le price-to-free-cash-flow, c'est-à-dire le prix de l'action divisé par le free cash flow annuel de l'entreprise. Un P/FCF de 10 signifie que tu paies aujourd'hui dix années de ce cash. Plus c'est bas, moins c'est cher.",
+            "UVE se valorise actuellement à environ 2,9 fois son free cash flow. C'est une des valorisations les plus basses que j'aie observées pour un 10 sur 10. Pour comprendre à quel point c'est exceptionnel, voici une comparaison avec d'autres entreprises de qualité dans mon screener :",
+          ],
+        },
+        {
+          type: 'table',
+          headers: ['Entreprise', 'Secteur', 'Note qualité', 'Valorisation (P/FCF)'],
+          rows: [
+            ['Universal Insurance (UVE)', 'Assurance habitation FL', '10/10', '~2,9×'],
+            ['Entreprise médiane 10/10', 'Varié', '10/10', '~18-22×'],
+            ['Assureur P&C US moyen', 'Assurance', 'Variable', '~12-15×'],
+            ['S&P 500 (médiane)', 'Tous secteurs', 'Variable', '~20-25×'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            "La réponse est dans le tableau : le marché intègre une prime de risque catastrophe permanente sur UVE. Chaque saison ouragan, l'entreprise peut théoriquement voir son bilan impacté lourdement. Le marché ne veut pas payer cher pour ce risque, même quand l'entreprise prouve depuis des années qu'elle le gère. C'est là que réside la tension.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Les risques réels : ne pas se voiler la face',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Je ne vais pas te vendre UVE comme une certitude. Les risques sont réels et sérieux. Le premier : la concentration géographique totale. UVE opère presque exclusivement en Floride. Un ouragan majeur de catégorie 4 ou 5 qui frappe la côte sud de l'État peut générer des pertes très supérieures à ce que la réassurance couvre entièrement. Ce n'est pas un risque théorique : c'est arrivé.",
+            "Le deuxième risque, c'est réglementaire. La Floride peut modifier ses règles du jeu rapidement : plafonds d'indemnisation, obligations de couverture, procédures de contentieux. Ces changements peuvent affecter directement la rentabilité d'UVE du jour au lendemain.",
+            "Le troisième risque, plus subtil : la qualité de la réassurance peut se dégrader. Si les réassureurs mondiaux décident que la Floride est trop chère à couvrir et augmentent massivement leurs primes, les marges d'UVE s'en ressentent directement.",
+            "Tout ça pour dire : la décote du marché n'est pas irrationnelle. Elle reflète une vraie incertitude. La question est de savoir si cette incertitude est surestimée.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le paradoxe central : qualité maximale, prix minimal',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Voici le coeur de la thèse. UVE coche toutes les cases de qualité que je demande à une entreprise : cash récurrent, rentabilité longue durée, dividende, gestion conservatrice du bilan. Et pourtant, elle est valorisée comme si sa disparition était probable.",
+            "Le marché a souvent raison. Mais parfois, il confond la probabilité d'un événement catastrophique avec la certitude de la destruction d'une entreprise. UVE a traversé des décennies d'ouragans, des crises réglementaires, l'exode des grands assureurs. Elle est encore là, encore rentable, encore en train de distribuer des dividendes.",
+            "Ce n'est pas une garantie du futur. Mais c'est un signal que je ne veux pas ignorer. Dans ma méthode, je regarde la qualité d'abord, le prix ensuite. Ici, la qualité est là. Et le prix est historiquement bas. C'est le type de situation que je construis pour pouvoir repérer en quelques secondes : c'est pour ça que j'ai bâti mon outil d'analyse.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce que tu dois retenir',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Universal Insurance Holdings est une petite entreprise de niche, sur un marché difficile, avec une qualité financière de premier rang et une valorisation extrêmement basse. C'est précisément parce que le marché a peur qu'elle est si peu chère. La question n'est pas de savoir si le risque existe, il existe clairement, mais si ce risque est correctement tarifé ou si la peur est excessive. C'est la tension que je surveille.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "C'est quoi le free cash flow d'un assureur ?",
+          a: "Le free cash flow, c'est l'argent qui reste réellement dans les caisses de l'entreprise après avoir tout payé : les sinistres des clients, les primes de réassurance, les frais de gestion, les impôts. C'est plus difficile à maquiller que le bénéfice comptable, et c'est ce que je regarde en priorité.",
+        },
+        {
+          q: "Pourquoi la Floride est-elle si difficile pour les assureurs ?",
+          a: "La Floride concentre plusieurs risques en même temps : des ouragans fréquents et puissants, un taux de litiges très élevé (les avocats spécialisés en assurance y sont nombreux), et une réglementation qui change régulièrement. C'est pour ça que la plupart des grands groupes ont réduit ou arrêté leur présence dans l'État.",
+        },
+        {
+          q: "Qu'est-ce que la réassurance et pourquoi est-ce important pour UVE ?",
+          a: "La réassurance, c'est l'assurance de l'assureur. UVE transfère une partie de son risque ouragan à des réassureurs mondiaux moyennant une prime. Si un ouragan catastrophique frappe, les réassureurs couvrent la majorité des pertes. La qualité et la structure de cette couverture déterminent la solidité du bilan d'UVE face aux événements extrêmes.",
+        },
+        {
+          q: "Un P/FCF de 2,9 fois, est-ce vraiment bas ?",
+          a: "Oui, c'est objectivement très bas. La médiane du S&P 500 tourne autour de 20 à 25 fois. Un P/FCF de 2,9 signifie que tu paies moins de trois années de cash généré par l'entreprise. C'est ce niveau de décote qui m'a amené à analyser UVE en détail, même si ce bas prix reflète aussi un risque réel.",
+        },
+        {
+          q: 'UVE est-elle un bon investissement ?',
+          a: "Je ne donne pas de conseil en investissement personnalisé. Ce que je peux dire, c'est que UVE présente une combinaison rare : qualité maximale selon mes critères et valorisation très basse. La décote reflète un risque réel lié à la Floride. La décision dépend de ta tolérance au risque de concentration géographique et de catastrophe naturelle.",
+        },
+      ],
+      tags: [
+        'UVE',
+        'Universal Insurance Holdings',
+        'assurance Floride',
+        'analyse fondamentale',
+        'small cap',
+        'free cash flow',
+        'valorisation action',
+        'risque ouragan',
+      ],
+      disclaimer:
+        "Analyse à but informatif et éducatif uniquement, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres sont donnés à la date de publication et sont susceptibles d'évoluer. Lubin Danilo peut détenir ou non des positions sur les titres mentionnés.",
+    },
+    en: {
+      title: 'Universal Insurance (UVE): the overlooked stock in bourse',
+      excerpt:
+        'Universal Insurance Holdings is one of the few insurers generating consistent cash flow in Florida, the toughest insurance market in the United States. The stock market applies an extreme discount because of hurricane risk. But is that really justified? Here is my take.',
+      metaDescription:
+        "Universal Insurance (UVE): fundamental analysis of a Florida insurer generating cash despite a brutal market. Extremely low stock valuation. Here's my breakdown.",
+      answer:
+        'Universal Insurance Holdings has specialized in Florida homeowners insurance for over 30 years. The company generates cash consistently and shows rare financial quality. Yet the stock trades at a historically low valuation driven by permanent hurricane fear. This paradox is exactly what I am analyzing here.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'UVE has been a Florida homeowners insurance specialist for over 30 years, with local expertise that cannot easily be replicated.',
+            'The company achieves a perfect financial quality score in our analysis method: sustained profitability, recurring cash, regular dividend.',
+            "Its stock valuation is one of the lowest I have seen for a company of this quality: it trades at roughly 2.9 times its annual free cash flow.",
+            'The market prices in a permanent risk premium linked to hurricanes and Florida regulation, which explains the discount.',
+            "The core paradox: UVE generates cash even in a market every major insurer has fled. Is it a trap or an opportunity?",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'A market everyone fled, except them',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Florida has been the insurer's nightmare for years. Recurring hurricanes, a wave of lawsuits, shifting regulation: State Farm, Farmers, and Bankers Insurance all pulled back or exited the state. Against this backdrop, Universal Insurance Holdings has been operating for over 30 years. Not despite the difficulty, but inside it.",
+            "When I look at a stock, I always separate two distinct questions. First: is this a good business? Second, entirely separate: is this the right price? Confusing the two is the number one investment mistake. Let us start with quality.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Business quality: how I measure it',
+        },
+        {
+          type: 'ul',
+          items: [
+            "I do not trust my gut. I run every company through a series of objective financial criteria: is it consistently profitable, does it generate real cash, does it buy back its own shares, is debt under control? This process gives me a quality score out of 10, which I use to filter thousands of companies.",
+            "UVE scores 10 out of 10 in my screener. That is not a magic number: it reflects several years of sustained profitability, recurring free cash flow (the cash the company actually keeps after paying everything: claims, expenses, taxes, reinsurance), and a dividend paid continuously. For a small cap in such a risky sector, this is uncommon.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "UVE's moat: 30 years in the toughest US market",
+        },
+        {
+          type: 'ul',
+          items: [
+            "The moat is a company's competitive advantage: what allows it to withstand competition over the long term. For UVE, this moat has three layers.",
+            "First, raw local expertise. Insuring a home in Florida is not like insuring a home in Ohio. You need to understand flood zones, post-Katrina building codes, local litigation habits. UVE has built this expertise over three decades through a network of independent agents rooted in the state.",
+            "Second, sophisticated reinsurance. Reinsurance is the insurer's insurance: UVE transfers part of its hurricane risk to global reinsurers. The sophistication of this coverage, adjusted each season, is an asset in itself that new entrants cannot replicate overnight.",
+            "Third, critical scale in an abandoned market. When the big players flee, remaining customers do not have 50 options. UVE is one of the few private operators capable of writing volume in Florida today. That is a structural advantage.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: why the market discounts so heavily',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Now for the price. To measure a stock's valuation, I primarily use the P/FCF: price-to-free-cash-flow, which is the share price divided by the company's annual free cash flow. A P/FCF of 10 means you are paying today for ten years of that cash. The lower it is, the less expensive the stock.",
+            "UVE currently trades at roughly 2.9 times its free cash flow. This is one of the lowest valuations I have seen for a 10 out of 10. To understand how exceptional that is, here is a comparison with other quality companies in my screener:",
+          ],
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Sector', 'Quality score', 'Valuation (P/FCF)'],
+          rows: [
+            ['Universal Insurance (UVE)', 'FL homeowners insurance', '10/10', '~2.9x'],
+            ['Median 10/10 company', 'Varied', '10/10', '~18-22x'],
+            ['Average US P&C insurer', 'Insurance', 'Variable', '~12-15x'],
+            ['S&P 500 (median)', 'All sectors', 'Variable', '~20-25x'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            "The table tells the story: the market prices a permanent catastrophe risk premium into UVE. Every hurricane season, the company could theoretically see its balance sheet hit hard. The market refuses to pay a premium for this risk, even when the company has demonstrated for years that it manages it. That is the tension.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Real risks: no illusions',
+        },
+        {
+          type: 'ul',
+          items: [
+            "I am not going to sell you UVE as a certainty. The risks are real and serious. First: total geographic concentration. UVE operates almost exclusively in Florida. A major category 4 or 5 hurricane hitting the south Florida coast can generate losses well above what reinsurance covers entirely. This is not theoretical: it has happened.",
+            "The second risk is regulatory. Florida can change its rules quickly: indemnification caps, coverage requirements, litigation procedures. These changes can directly affect UVE's profitability overnight.",
+            "The third risk, more subtle: reinsurance quality can deteriorate. If global reinsurers decide Florida is too expensive to cover and massively raise their premiums, UVE's margins feel it directly.",
+            "The point is: the market discount is not irrational. It reflects real uncertainty. The question is whether this uncertainty is overpriced.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The core paradox: maximum quality, minimum price',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Here is the heart of the thesis. UVE checks every quality box I require of a business: recurring cash, long-term profitability, dividend, conservative balance sheet management. Yet it is valued as if its disappearance were likely.",
+            "The market is often right. But sometimes it confuses the probability of a catastrophic event with the certainty of a company's destruction. UVE has survived decades of hurricanes, regulatory crises, the exodus of major insurers. It is still here, still profitable, still paying dividends.",
+            "That is not a guarantee of the future. But it is a signal I do not want to ignore. In my method, I look at quality first, price second. Here, the quality is there. And the price is historically low. This is the kind of situation I built my analysis tool to find in seconds.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What to take away',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Universal Insurance Holdings is a small niche company, in a tough market, with top-tier financial quality and an extremely low valuation. It is precisely because the market is afraid that it is so cheap. The question is not whether the risk exists, it clearly does, but whether that risk is correctly priced or whether the fear is excessive. That is the tension I am watching.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "What is an insurer's free cash flow?",
+          a: "Free cash flow is the money the company actually keeps after paying everything: policyholder claims, reinsurance premiums, operating expenses, taxes. It is harder to manipulate than accounting profit, which is why I prioritize it.",
+        },
+        {
+          q: 'Why is Florida so difficult for insurers?',
+          a: "Florida combines several risks at once: frequent and powerful hurricanes, an extremely high litigation rate (insurance attorneys are plentiful there), and regulations that change regularly. That is why most major groups have reduced or stopped their presence in the state.",
+        },
+        {
+          q: 'What is reinsurance and why does it matter for UVE?',
+          a: "Reinsurance is the insurer's insurance. UVE transfers part of its hurricane risk to global reinsurers for a premium. If a catastrophic hurricane strikes, reinsurers cover the majority of losses. The quality and structure of this coverage determines how solid UVE's balance sheet is against extreme events.",
+        },
+        {
+          q: 'Is a P/FCF of 2.9x really that low?',
+          a: "Yes, it is objectively very low. The S&P 500 median runs around 20 to 25 times. A P/FCF of 2.9 means you are paying less than three years of company-generated cash. That level of discount is what led me to analyze UVE closely, even if the low price also reflects real risk.",
+        },
+        {
+          q: 'Is UVE a good investment?',
+          a: "I do not give personalized investment advice. What I can say is that UVE presents a rare combination: maximum quality by my criteria and a very low valuation. The discount reflects real Florida risk. The decision depends on your tolerance for geographic concentration and natural catastrophe risk.",
+        },
+      ],
+      tags: [
+        'UVE',
+        'Universal Insurance Holdings',
+        'Florida insurance',
+        'fundamental analysis',
+        'small cap',
+        'free cash flow',
+        'stock valuation',
+        'hurricane risk',
+      ],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures are as of the publication date and subject to change. Lubin Danilo may or may not hold positions in the securities mentioned.',
+    },
+    es: {
+      title: 'Universal Insurance (UVE): la acción ignorada en bolsa',
+      excerpt:
+        'Universal Insurance Holdings es uno de los pocos aseguradores que genera flujo de caja de forma regular en Florida, el mercado asegurador más difícil de Estados Unidos. La bolsa le aplica un descuento extremo por el riesgo de huracanes. ¿Pero está realmente justificado? Aquí mi análisis.',
+      metaDescription:
+        'Universal Insurance (UVE): análisis fundamental de un asegurador de Florida que genera caja pese a un mercado brutal. Valoración bursátil extremadamente baja. Mi desglose.',
+      answer:
+        'Universal Insurance Holdings lleva más de 30 años especializada en seguros de vivienda en Florida. La empresa genera caja de forma consistente y muestra una calidad financiera poco común. Sin embargo, cotiza con una valoración históricamente baja impulsada por el miedo permanente a los huracanes. Ese es exactamente el paradox que analizo aquí.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'UVE es especialista en seguros de vivienda en Florida desde hace más de 30 años, con una experiencia local que no se puede copiar fácilmente.',
+            'La empresa obtiene una puntuación de calidad financiera perfecta en nuestro método de análisis: rentabilidad sostenida, caja recurrente, dividendo regular.',
+            'Su valoración bursátil es una de las más bajas que he visto para una empresa de esta calidad: se valora a unas 2,9 veces su flujo de caja libre anual.',
+            'El mercado incorpora una prima de riesgo permanente vinculada a los huracanes y a la regulación de Florida, lo que explica el descuento.',
+            'La paradoja central: UVE genera caja incluso en un mercado del que todos los grandes aseguradores han huido. ¿Es una trampa o una oportunidad?',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Un mercado del que todos huyeron, salvo ellos',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Florida lleva años siendo la pesadilla de los aseguradores. Huracanes recurrentes, avalancha de litigios, regulación cambiante: State Farm, Farmers y Bankers Insurance redujeron su presencia o abandonaron el estado. En ese contexto, Universal Insurance Holdings lleva más de 30 años operando. No a pesar de la dificultad, sino dentro de ella.",
+            "Cuando analizo una acción, siempre separo dos preguntas distintas. Primera: ¿es un buen negocio? Segunda, completamente aparte: ¿es el precio adecuado? Confundir ambas es el error número uno en inversión. Empecemos por la calidad.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Calidad del negocio: cómo la mido',
+        },
+        {
+          type: 'ul',
+          items: [
+            "No confío en mi instinto. Paso cada empresa por una serie de criterios financieros objetivos: ¿es rentable de forma consistente, genera caja real, recompra sus propias acciones, tiene la deuda bajo control? Este proceso me da una puntuación de calidad sobre 10, que uso para filtrar miles de empresas.",
+            "UVE obtiene 10 sobre 10 en mi screener. No es un número mágico: refleja varios años de rentabilidad sostenida, flujo de caja libre recurrente (la caja que la empresa conserva realmente después de pagar todo: siniestros, gastos, impuestos, reaseguro) y un dividendo pagado de forma continua. Para una pequeña capitalización en un sector tan arriesgado, esto es poco habitual.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El moat de UVE: 30 años en el mercado más duro de EE.UU.',
+        },
+        {
+          type: 'ul',
+          items: [
+            "El moat es la ventaja competitiva de una empresa: lo que le permite resistir frente a la competencia a largo plazo. Para UVE, ese moat tiene tres capas.",
+            "Primero, la experiencia local bruta. Asegurar una vivienda en Florida no es como asegurarla en Ohio. Hay que entender las zonas de inundación, los códigos de construcción post-Katrina, los hábitos de litigación locales. UVE ha construido esa experiencia en tres décadas a través de una red de agentes independientes arraigados en el estado.",
+            "Segundo, el reaseguro sofisticado. El reaseguro es el seguro del asegurador: UVE transfiere parte de su riesgo de huracán a reaseguradores mundiales. La sofisticación de esa cobertura, ajustada cada temporada, es un activo en sí mismo que los nuevos competidores no pueden replicar de la noche a la mañana.",
+            "Tercero, escala crítica en un mercado abandonado. Cuando los grandes huyen, los clientes que quedan no tienen 50 opciones. UVE es uno de los pocos operadores privados capaces de escribir volumen en Florida hoy. Esa es una ventaja estructural.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Valoración: por qué el mercado aplica tanto descuento',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Hablemos del precio. Para medir la valoración de una acción, uso principalmente el P/FCF: price-to-free-cash-flow, es decir, el precio de la acción dividido entre el flujo de caja libre anual de la empresa. Un P/FCF de 10 significa que pagas hoy diez años de esa caja. Cuanto más bajo, menos cara está la acción.",
+            "UVE se valora actualmente a unas 2,9 veces su flujo de caja libre. Es una de las valoraciones más bajas que he visto para un 10 sobre 10. Para entender lo excepcional que es, aquí va una comparación con otras empresas de calidad de mi screener:",
+          ],
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Sector', 'Calidad', 'Valoración (P/FCF)'],
+          rows: [
+            ['Universal Insurance (UVE)', 'Seguros vivienda FL', '10/10', '~2,9x'],
+            ['Empresa mediana 10/10', 'Variado', '10/10', '~18-22x'],
+            ['Asegurador P&C EE.UU. medio', 'Seguros', 'Variable', '~12-15x'],
+            ['S&P 500 (mediana)', 'Todos los sectores', 'Variable', '~20-25x'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            "La tabla lo dice todo: el mercado incorpora una prima de riesgo catástrofe permanente en UVE. Cada temporada de huracanes, la empresa podría ver su balance afectado con fuerza. El mercado no quiere pagar caro por ese riesgo, aunque la empresa haya demostrado durante años que lo gestiona. Ahí está la tensión.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos reales: sin autoengaños',
+        },
+        {
+          type: 'ul',
+          items: [
+            "No voy a venderte UVE como una certeza. Los riesgos son reales y serios. El primero: concentración geográfica total. UVE opera casi exclusivamente en Florida. Un huracán mayor de categoría 4 o 5 que golpee la costa sur del estado puede generar pérdidas muy superiores a lo que el reaseguro cubre en su totalidad. No es un riesgo teórico: ha ocurrido.",
+            "El segundo riesgo es regulatorio. Florida puede cambiar sus reglas rápidamente: techos de indemnización, obligaciones de cobertura, procedimientos de litigación. Esos cambios pueden afectar directamente la rentabilidad de UVE de un día para otro.",
+            "El tercer riesgo, más sutil: la calidad del reaseguro puede deteriorarse. Si los reaseguradores mundiales deciden que Florida es demasiado cara de cubrir y aumentan masivamente sus primas, los márgenes de UVE lo sienten directamente.",
+            "Todo esto para decir: el descuento del mercado no es irracional. Refleja una incertidumbre real. La pregunta es si esa incertidumbre está sobreestimada.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La paradoja central: calidad máxima, precio mínimo',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Aquí está el núcleo de la tesis. UVE cumple todos los criterios de calidad que le exijo a un negocio: caja recurrente, rentabilidad a largo plazo, dividendo, gestión conservadora del balance. Y sin embargo, está valorada como si su desaparición fuera probable.",
+            "El mercado suele tener razón. Pero a veces confunde la probabilidad de un evento catastrófico con la certeza de la destrucción de una empresa. UVE ha sobrevivido décadas de huracanes, crisis regulatorias, el éxodo de los grandes aseguradores. Sigue aquí, sigue siendo rentable, sigue pagando dividendos.",
+            "No es una garantía del futuro. Pero es una señal que no quiero ignorar. En mi método, miro la calidad primero y el precio después. Aquí, la calidad está. Y el precio está históricamente bajo. Es exactamente el tipo de situación que construí mi herramienta de análisis para detectar en segundos.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Lo que debes llevarte',
+        },
+        {
+          type: 'ul',
+          items: [
+            "Universal Insurance Holdings es una pequeña empresa de nicho, en un mercado difícil, con calidad financiera de primer nivel y una valoración extremadamente baja. Es precisamente porque el mercado tiene miedo que está tan barata. La pregunta no es si el riesgo existe, claramente existe, sino si ese riesgo está correctamente valorado o si el miedo es excesivo. Esa es la tensión que vigilo.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el flujo de caja libre de un asegurador?',
+          a: 'El flujo de caja libre es el dinero que la empresa conserva realmente después de pagar todo: los siniestros de los clientes, las primas de reaseguro, los gastos operativos, los impuestos. Es más difícil de manipular que el beneficio contable, por eso lo priorizo.',
+        },
+        {
+          q: '¿Por qué Florida es tan difícil para los aseguradores?',
+          a: 'Florida concentra varios riesgos a la vez: huracanes frecuentes y poderosos, una tasa de litigación muy alta (abundan los abogados especializados en seguros) y una regulación que cambia regularmente. Por eso la mayoría de los grandes grupos han reducido o detenido su presencia en el estado.',
+        },
+        {
+          q: '¿Qué es el reaseguro y por qué importa para UVE?',
+          a: 'El reaseguro es el seguro del asegurador. UVE transfiere parte de su riesgo de huracán a reaseguradores mundiales a cambio de una prima. Si un huracán catastrófico golpea, los reaseguradores cubren la mayor parte de las pérdidas. La calidad y la estructura de esa cobertura determinan la solidez del balance de UVE ante eventos extremos.',
+        },
+        {
+          q: '¿Un P/FCF de 2,9 veces es realmente bajo?',
+          a: 'Sí, es objetivamente muy bajo. La mediana del S&P 500 ronda las 20 a 25 veces. Un P/FCF de 2,9 significa que pagas menos de tres años de caja generada por la empresa. Ese nivel de descuento es lo que me llevó a analizar UVE en detalle, aunque ese precio bajo también refleja un riesgo real.',
+        },
+        {
+          q: '¿Es UVE una buena inversión?',
+          a: 'No doy consejos de inversión personalizados. Lo que puedo decir es que UVE presenta una combinación poco común: calidad máxima según mis criterios y valoración muy baja. El descuento refleja un riesgo real de Florida. La decisión depende de tu tolerancia al riesgo de concentración geográfica y de catástrofe natural.',
+        },
+      ],
+      tags: [
+        'UVE',
+        'Universal Insurance Holdings',
+        'seguros Florida',
+        'análisis fundamental',
+        'small cap',
+        'flujo de caja libre',
+        'valoración acción',
+        'riesgo huracán',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos únicamente, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Las cifras corresponden a la fecha de publicación y pueden variar. Lubin Danilo puede o no tener posiciones en los valores mencionados.',
+    },
+  },
+};
+
+
+const articleROP: Article = {
+  slug: 'roper-technologies-rop-analyse-fondamentale-logiciels',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'ROP',
+  content: {
+    fr: {
+      title: 'Roper Technologies (ROP) : la pépite que le marché néglige',
+      excerpt:
+        'Roper Technologies est un acquéreur en série de logiciels spécialisés avec 20 ans de track record. Le marché la traite comme un vieux conglomérat industriel, alors que ses marges et sa génération de cash rivalisent avec les meilleurs éditeurs SaaS. Voici pourquoi cette action mérite ton attention.',
+      metaDescription:
+        'Roper Technologies (ROP) : analyse fondamentale complète. Serial acquirer de logiciels de niche, marges FCF élevées, valorisation raisonnable. Découvrez notre thèse d\'investissement.',
+      answer:
+        'Roper Technologies rachète depuis 20 ans des logiciels spécialisés dans des niches où les clients ne peuvent pas partir. Résultat : des revenus récurrents, une marge de cash quasi inégalée, et une croissance régulière du cash par action. Le marché la valorise comme un conglomérat ordinaire, pas comme la machine à cash SaaS qu\'elle est réellement.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Roper Technologies est un acquéreur en série de logiciels verticaux : elle achète des entreprises leaders dans des niches très spécifiques (assurance, juridique, santé, éducation) et les détient indéfiniment.',
+            'Sa marge de free cash flow (l\'argent réellement généré après toutes les dépenses) dépasse 35 %, un niveau que peu d\'entreprises dans le monde atteignent.',
+            'Le marché la valorise à environ 13,8 fois son free cash flow annuel, soit bien moins que les éditeurs SaaS comparables qui se valorisent souvent à 30 à 50 fois.',
+            'Le risque principal : la croissance organique reste modeste (3 à 5 % par an) ; la vraie croissance vient des acquisitions, ce qui crée une dépendance à la capacité de trouver de bonnes cibles.',
+            'Notre screener lui attribue un score de qualité parfait, ce qui en fait l\'une des rares entreprises cotées à réunir rentabilité, solidité du bilan et discipline de capital allocation.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le modèle que presque personne ne comprend vraiment',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Quand tu entends "conglomérat", tu penses peut-être à une entreprise tentaculaire qui fabrique des turbines le matin et des yaourts le soir. Roper Technologies n\'a rien à voir avec ça. Elle n\'a pas d\'usines, pas de camions, pas de stock. Elle achète des logiciels.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Plus précisément, elle achète des logiciels verticaux : des outils conçus pour un seul secteur, si profondément intégrés dans les processus métier de leurs clients que ces derniers ne peuvent tout simplement pas changer. Vertafore gère la distribution d\'assurance aux États-Unis. Aderant tourne dans les cabinets d\'avocats. Strata Decision Technology est utilisée dans les hôpitaux pour la planification financière. Chaque logiciel est le système nerveux de son secteur.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Ce modèle a un nom dans le monde de l\'investissement : serial acquirer, ou acquéreur en série. L\'idée est simple : au lieu de dépenser le cash généré en dividendes ou en rachat d\'actions, on le réinvestit dans l\'acquisition de nouvelles sociétés qui produisent elles-mêmes du cash. C\'est un moteur qui s\'auto-alimente, à condition que chaque acquisition soit disciplinée.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi ces logiciels sont-ils si difficiles à quitter ?',
+        },
+        {
+          type: 'ul',
+          items: [
+            'La notion centrale ici, c\'est le moat : le fossé concurrentiel, ce qui protège l\'entreprise des attaques de concurrents. Pour Roper, ce fossé est de nature comportementale et économique. Quand un réseau de courtiers d\'assurance travaille sur Vertafore depuis quinze ans, ses flux de données, ses contrats, ses intégrations réglementaires, ses équipes formées, tout dépend de ce logiciel. Migrer serait des mois de projet, des risques énormes et une facture colossale. Alors on ne migre pas.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Ce phénomène s\'appelle les switching costs, le coût de remplacement. Ce n\'est pas juste une question de prix ou de fonctionnalités : c\'est le poids des habitudes, des données historiques et des risques opérationnels. Pour Roper, cela se traduit par des taux de rétention très élevés, une visibilité forte sur les revenus futurs, et la capacité à augmenter les prix modérément chaque année sans perdre de clients.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le free cash flow : pourquoi c\'est le bon indicateur',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Pour comprendre Roper, il faut d\'abord comprendre le free cash flow (FCF). C\'est l\'argent qui reste réellement disponible après que l\'entreprise a payé ses salaires, ses serveurs, ses investissements, ses impôts. C\'est bien plus difficile à maquiller que le bénéfice comptable, qui peut être gonflé par des écritures créatives. Le FCF, lui, c\'est du cash dans la caisse.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Roper affiche une marge de FCF de l\'ordre de 35 %. Ça veut dire que sur 100 dollars de revenus, 35 finissent en cash réellement disponible. Pour un éditeur de logiciels, c\'est déjà excellent. Pour un "conglomérat", c\'est presque inexplicable pour le marché, d\'où la décote.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Pour mesurer si une action est chère ou bon marché, j\'utilise le P/FCF (price-to-free-cash-flow) : le prix de l\'action divisé par le FCF annuel par action. Un P/FCF de 13,8 signifie que tu paies aujourd\'hui 13,8 années de ce cash. C\'est le niveau de valorisation actuel de Roper. Tu peux comparer sur notre <a href="/screener">screener</a> : un éditeur SaaS pur comme Salesforce ou Intuit se valorise souvent à 30, 40, voire 50 fois. Roper tourne à 13,8 fois, avec des marges comparables.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Tableau comparatif : Roper face aux logiciels premium',
+        },
+        {
+          type: 'table',
+          headers: ['Entreprise', 'Ticker', 'P/FCF', 'Marge FCF', 'Croissance organique', 'Moat principal'],
+          rows: [
+            ['Roper Technologies', 'ROP', '~13,8×', '~35 %', '3-5 % / an', 'Switching costs + serial acquirer'],
+            ['Bentley Systems', 'BSY', '~40×', '~28 %', '~10 % / an', 'Infrastructure engineering logiciels'],
+            ['Paylocity', 'PCTY', '~35×', '~22 %', '~15 % / an', 'Paie & RH PME, effets de réseau'],
+            ['Salesforce', 'CRM', '~30×', '~25 %', '~8 % / an', 'CRM leader, écosystème'],
+            ['Intuit', 'INTU', '~42×', '~30 %', '~12 % / an', 'QuickBooks, TurboTax, réseau comptables'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Ce tableau pose la vraie question. Si tu acceptes de payer 40 fois le FCF pour Bentley Systems ou Intuit, pourquoi refuserais-tu 13,8 fois pour Roper qui affiche des marges supérieures ou comparables ? La réponse du marché : la croissance organique est plus lente. La réponse de la thèse : le FCF par action croît quand même régulièrement grâce aux acquisitions, et le prix est bien plus bas. Tu peux retrouver notre analyse détaillée sur la <a href="/analyse/ROP">page dédiée à ROP</a>.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Neil Hunn et l\'art de l\'allocation du capital',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Dans l\'investissement, l\'allocation du capital désigne les décisions que prend le management avec l\'argent généré : racheter des actions, verser des dividendes, investir dans la croissance, ou acquérir d\'autres sociétés. C\'est l\'une des compétences les plus rares et les plus précieuses chez un dirigeant.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Neil Hunn, CEO de Roper depuis 2018, est l\'archétype du capital allocator discipliné. Sous sa direction, Roper a poursuivi une transformation majeure : céder les activités industrielles physiques (pompes, instruments de mesure) pour se concentrer exclusivement sur les logiciels à revenus récurrents. C\'est un choix courageux et logique : les actifs physiques consomment du capital, les logiciels en génèrent. Le résultat : un bilan plus léger, des marges plus hautes, et un FCF plus prévisible.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'La discipline d\'acquisition est également remarquable. Roper n\'achète pas à n\'importe quel prix. Elle cible des niches avec peu de concurrents, des clients captifs, et des modèles d\'abonnement. Elle refuse les acquisitions trop chères, même sous pression de croître. C\'est rare, et c\'est précieux.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Les risques : soyons honnêtes',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Aucune thèse sérieuse ne peut ignorer les risques. Pour Roper, j\'en identifie trois principaux.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Premier risque : la dépendance aux acquisitions. Roper croît organiquement de 3 à 5 % par an. C\'est solide, mais pas spectaculaire. La vraie croissance du FCF par action vient des acquisitions. Si le pipeline de cibles se tarit, si les valorisations des cibles deviennent déraisonnables, ou si le management fait une erreur de jugement sur une grosse acquisition, la thèse en prend un coup.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Deuxième risque : la valorisation portée par la réputation. Une partie de la prime que le marché accorde à Roper repose sur la confiance dans le management. Si Neil Hunn quitte le poste ou si la philosophie d\'allocation change, le multiple peut se comprimer.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Troisième risque : la disruption technologique. Même dans des niches très défendues, l\'IA et les nouvelles architectures logicielles peuvent à terme remettre en question la position de certains des logiciels du portefeuille. Ce risque est réel, mais atténué par la diversification et par la profondeur d\'intégration de ces outils dans les processus critiques de leurs clients.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi le marché ne comprend pas encore Roper',
+        },
+        {
+          type: 'ul',
+          items: [
+            'C\'est la tension centrale de cette thèse. Roper est perçue comme un conglomérat, un mot qui évoque des empires complexes et peu lisibles. Les investisseurs SaaS ne la regardent pas parce qu\'elle ne ressemble pas à leurs modèles de croissance à 20 %. Les investisseurs value ne la regardent pas parce que 13,8 fois n\'est pas ce qu\'ils appellent "bon marché" pour un conglomérat industriel ordinaire.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Roper tombe entre les deux cases. Et cette "orpheline de catégorie" est souvent là où se trouvent les meilleures opportunités, parce qu\'il y a moins de compétition d\'analystes et plus de chance que le prix ne reflète pas encore la réalité fondamentale. Tu peux consulter notre <a href="/methodologie">méthodologie d\'analyse</a> pour comprendre comment nous évaluons ce type de situation.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ma conclusion : qualité haute, valorisation raisonnable',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Roper Technologies n\'est pas une action à croissance explosive. Elle ne va pas doubler en six mois sur un buzz produit. Ce qu\'elle fait, c\'est générer du cash de façon régulière, le réinvestir avec discipline, et croître la valeur par action année après année, sans bruit et sans tambour.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Pour quelqu\'un qui cherche la qualité à un prix raisonnable plutôt que la spéculation à un prix élevé, Roper coche toutes les cases : moat structurel, management éprouvé, marges d\'élite, et une valorisation que le marché n\'a pas encore "corrigée" à la hausse. C\'est exactement le type de situation que j\'ai voulu pouvoir identifier rapidement pour n\'importe quelle action, et c\'est pourquoi j\'ai construit mon <a href="/screener">screener de qualité</a>.',
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce qu\'un serial acquirer en bourse ?',
+          a: 'Un serial acquirer est une entreprise dont le modèle de croissance repose sur l\'acquisition régulière d\'autres sociétés. Elle génère du cash avec ses activités existantes, puis le réinvestit dans des rachats ciblés. Roper Technologies fait cela depuis plus de 20 ans, exclusivement dans les logiciels spécialisés.',
+        },
+        {
+          q: 'Pourquoi le P/FCF est-il plus pertinent que le P/E pour Roper ?',
+          a: 'Le P/E (price-to-earnings) compare le prix au bénéfice comptable, qui inclut des amortissements liés aux acquisitions et peut être distordu. Le P/FCF (price-to-free-cash-flow) compare le prix au cash réellement généré. Pour une entreprise qui fait beaucoup d\'acquisitions comme Roper, le FCF reflète mieux la réalité économique.',
+        },
+        {
+          q: 'Roper Technologies est-elle adaptée à un investisseur à long terme ?',
+          a: 'Oui, c\'est typiquement un profil "buy and hold". La thèse ne repose pas sur un catalyseur court terme mais sur la compounding : l\'accumulation de FCF réinvesti dans de nouvelles acquisitions qui génèrent elles-mêmes du FCF. Ce type de modèle récompense la patience. Ceci n\'est pas un conseil en investissement.',
+        },
+        {
+          q: 'Quel est le principal risque pour la thèse Roper ?',
+          a: 'Le risque numéro un est que le pipeline d\'acquisitions se tarisse ou que le management paie trop cher pour de futures cibles. La croissance organique seule (3 à 5 % par an) ne suffit pas à justifier la valorisation actuelle si les acquisitions s\'arrêtent ou se dégradent.',
+        },
+        {
+          q: 'Comment Roper se différencie-t-elle d\'un éditeur SaaS classique ?',
+          a: 'Un éditeur SaaS classique comme Salesforce ou HubSpot construit un seul produit et tente d\'élargir son marché. Roper est un portefeuille de dizaines de logiciels verticaux, chacun leader dans sa niche. Elle ne mise pas sur un seul pari, mais sur la qualité de sa sélection et de son capital allocation.',
+        },
+      ],
+      tags: [
+        'Roper Technologies',
+        'ROP',
+        'logiciels verticaux',
+        'serial acquirer',
+        'free cash flow',
+        'analyse fondamentale',
+        'NASDAQ',
+        'capital allocation',
+        'SaaS',
+        'investissement long terme',
+      ],
+      disclaimer:
+        'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres cités sont à la date de publication et susceptibles d\'évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'Roper Technologies (ROP) : our fundamental analysis',
+      excerpt:
+        'Roper Technologies has been acquiring niche software businesses for over 20 years with exceptional discipline. The market still prices it like an old industrial conglomerate, while its cash margins rival the best SaaS companies. Here is why this stock deserves a serious look.',
+      metaDescription:
+        'Roper Technologies (ROP): complete fundamental analysis. Serial acquirer of niche software, high FCF margins, reasonable valuation. Read our full investment thesis.',
+      answer:
+        'Roper Technologies has spent 20 years buying specialized software companies in niches where customers cannot leave. The result: recurring revenues, one of the highest cash margins in the market, and steady per-share cash growth. The market prices it like an ordinary conglomerate, not the SaaS cash machine it truly is.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Roper is a serial acquirer of vertical software: it buys category-leading businesses in tight niches (insurance, legal, healthcare, education) and holds them permanently.',
+            'Its free cash flow margin (cash left after all expenses) exceeds 35%, a level few companies worldwide achieve.',
+            'The market values it at roughly 13.8 times annual free cash flow, far below comparable SaaS publishers that often trade at 30 to 50 times.',
+            'The main risk: organic growth is modest (3 to 5% per year); real growth depends on acquisitions, which creates reliance on finding quality targets.',
+            'Our screener gives it a perfect quality score, making it one of the rare public companies combining profitability, balance sheet strength, and capital allocation discipline.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'A business model almost nobody fully understands',
+        },
+        {
+          type: 'ul',
+          items: [
+            'When you hear "conglomerate," you might picture a sprawling empire making turbines in the morning and yogurt in the afternoon. Roper Technologies has nothing to do with that. No factories, no trucks, no inventory. It buys software.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'More precisely, it buys vertical software: tools designed for a single industry, so deeply embedded in customers\' workflows that switching is practically impossible. Vertafore runs insurance distribution across the United States. Aderant powers law firm operations. Strata Decision Technology handles financial planning in hospitals. Each product is the central nervous system of its market.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'This model has a name in investing: serial acquirer. Instead of returning cash to shareholders through dividends or buybacks, Roper reinvests it in acquiring new businesses that generate their own cash. It is a self-reinforcing engine, as long as each acquisition is disciplined.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Why these software products are so hard to leave',
+        },
+        {
+          type: 'ul',
+          items: [
+            'The key concept here is the moat: the competitive advantage that protects a business from rivals. For Roper, this moat is behavioral and economic. When an insurance brokerage network has worked on Vertafore for fifteen years, its data flows, contracts, regulatory integrations, and trained teams all depend on that software. Migrating would mean months of project work, enormous risk, and a huge bill. So nobody migrates.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'This phenomenon is called switching costs. It is not just about price or features: it is the weight of habits, historical data, and operational risk. For Roper, this translates into very high retention rates, strong visibility on future revenues, and the ability to raise prices modestly each year without losing customers.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Free cash flow: why it is the right metric here',
+        },
+        {
+          type: 'ul',
+          items: [
+            'To understand Roper, you first need to understand free cash flow (FCF). It is the cash actually available after the company has paid salaries, servers, investments, and taxes. It is much harder to manipulate than accounting earnings, which can be inflated with creative write-offs. FCF is cash in the bank.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Roper posts an FCF margin of around 35%. That means for every $100 in revenue, $35 ends up as usable cash. For a software publisher, that is already excellent. For a so-called "conglomerate," it is nearly inexplicable to the market, hence the discount.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'To measure whether a stock is expensive or cheap, I use the P/FCF (price-to-free-cash-flow): the share price divided by annual FCF per share. A P/FCF of 13.8 means you are paying today for 13.8 years of that cash. That is Roper\'s current valuation level. Compare on our <a href="/screener">screener</a>: a pure SaaS publisher like Salesforce or Intuit often trades at 30, 40, even 50 times. Roper trades at 13.8 times, with comparable margins.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Comparison table: Roper vs. premium software stocks',
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Ticker', 'P/FCF', 'FCF Margin', 'Organic Growth', 'Main Moat'],
+          rows: [
+            ['Roper Technologies', 'ROP', '~13.8x', '~35%', '3-5% / yr', 'Switching costs + serial acquirer'],
+            ['Bentley Systems', 'BSY', '~40x', '~28%', '~10% / yr', 'Infrastructure engineering software'],
+            ['Paylocity', 'PCTY', '~35x', '~22%', '~15% / yr', 'SMB payroll & HR, network effects'],
+            ['Salesforce', 'CRM', '~30x', '~25%', '~8% / yr', 'CRM leader, ecosystem lock-in'],
+            ['Intuit', 'INTU', '~42x', '~30%', '~12% / yr', 'QuickBooks, TurboTax, accountant network'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'This table raises the real question. If you are willing to pay 40 times FCF for Bentley or Intuit, why would you refuse 13.8 times for Roper, which posts comparable or higher margins? The market\'s answer: organic growth is slower. The thesis answer: FCF per share still grows steadily through acquisitions, and the price is far lower. You can find our detailed analysis on the <a href="/analyse/ROP">ROP dedicated page</a>.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Neil Hunn and the art of capital allocation',
+        },
+        {
+          type: 'ul',
+          items: [
+            'In investing, capital allocation refers to the decisions management makes with generated cash: buy back shares, pay dividends, invest in growth, or acquire companies. It is one of the rarest and most valuable skills in a CEO.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Neil Hunn, Roper\'s CEO since 2018, is the archetype of the disciplined capital allocator. Under his leadership, Roper completed a major transformation: divesting physical industrial businesses (pumps, measurement instruments) to focus exclusively on software with recurring revenues. A courageous and logical choice: physical assets consume capital, software generates it. The result: a lighter balance sheet, higher margins, and more predictable FCF.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Acquisition discipline is equally remarkable. Roper does not buy at any price. It targets niches with few competitors, captive customers, and subscription models. It walks away from overpriced deals, even under pressure to grow. That is rare, and it is valuable.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The risks: let us be honest',
+        },
+        {
+          type: 'ul',
+          items: [
+            'No serious thesis can ignore risks. For Roper, I see three main ones.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'First risk: acquisition dependency. Roper grows organically at 3 to 5% per year. That is solid, but not spectacular. Real FCF per share growth comes from acquisitions. If the pipeline dries up, if target valuations become unreasonable, or if management misjudges a large deal, the thesis takes a hit.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Second risk: reputation-driven valuation. Part of the premium the market grants Roper rests on trust in management. If Neil Hunn leaves or the allocation philosophy changes, the multiple could compress.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Third risk: technology disruption. Even in well-defended niches, AI and new software architectures could eventually challenge some portfolio products. This risk is real but mitigated by diversification and by how deeply embedded these tools are in mission-critical customer workflows.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Why the market still does not fully understand Roper',
+        },
+        {
+          type: 'ul',
+          items: [
+            'This is the central tension of the thesis. Roper is perceived as a conglomerate, a word that evokes complex, opaque empires. SaaS investors do not look at it because it does not fit their 20%-growth models. Value investors do not look at it because 13.8 times is not what they call "cheap" for an ordinary industrial conglomerate.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Roper falls between two categories. And these "category orphans" are often where the best opportunities hide, because there is less analyst competition and more chance that the price has not yet caught up with fundamental reality. You can read our <a href="/methodologie">analysis methodology</a> to understand how we evaluate these situations.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'My conclusion: high quality, reasonable valuation',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Roper Technologies is not an explosive growth stock. It will not double in six months on product hype. What it does is generate cash reliably, reinvest it with discipline, and grow per-share value year after year, quietly and consistently.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'For anyone seeking quality at a fair price rather than speculation at a high price, Roper checks every box: structural moat, proven management, elite margins, and a valuation the market has not yet "corrected" upward. That is exactly the kind of situation I wanted to be able to identify quickly for any stock, which is why I built my <a href="/screener">quality screener</a>.',
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: 'What is a serial acquirer in stock investing?',
+          a: 'A serial acquirer is a company whose growth model relies on regularly acquiring other businesses. It generates cash from existing operations and reinvests it in targeted buyouts. Roper Technologies has done this for over 20 years, exclusively in specialized software.',
+        },
+        {
+          q: 'Why is P/FCF more relevant than P/E for Roper?',
+          a: 'P/E (price-to-earnings) compares price to accounting profit, which includes acquisition-related amortization and can be distorted. P/FCF (price-to-free-cash-flow) compares price to cash actually generated. For a heavy acquirer like Roper, FCF better reflects economic reality.',
+        },
+        {
+          q: 'Is Roper Technologies suitable for a long-term investor?',
+          a: 'Yes, it is a classic buy-and-hold profile. The thesis is not built on a short-term catalyst but on compounding: accumulated FCF reinvested in new acquisitions that themselves generate FCF. This type of model rewards patience. This is not investment advice.',
+        },
+        {
+          q: 'What is the main risk to the Roper thesis?',
+          a: 'The primary risk is that the acquisition pipeline dries up or management overpays for future targets. Organic growth alone (3 to 5% per year) is not sufficient to justify the current valuation if acquisitions stop or deteriorate.',
+        },
+        {
+          q: 'How does Roper differ from a classic SaaS publisher?',
+          a: 'A classic SaaS publisher like Salesforce or HubSpot builds one product and tries to expand its market. Roper is a portfolio of dozens of vertical software products, each the leader in its niche. It does not bet on a single product but on the quality of its selection and capital allocation.',
+        },
+      ],
+      tags: [
+        'Roper Technologies',
+        'ROP',
+        'vertical software',
+        'serial acquirer',
+        'free cash flow',
+        'fundamental analysis',
+        'NASDAQ',
+        'capital allocation',
+        'SaaS',
+        'long-term investing',
+      ],
+      disclaimer:
+        'This is an informational and educational analysis, not personalized investment advice. Past performance does not guarantee future results. Figures are as of the publication date and subject to change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'Roper Technologies (ROP) : nuestro análisis fundamental',
+      excerpt:
+        'Roper Technologies lleva más de 20 años adquiriendo software especializado en nichos donde los clientes no pueden irse. El mercado la trata como un viejo conglomerado industrial, mientras sus márgenes de caja rivalizan con los mejores editores SaaS. Te explico por qué esta acción merece tu atención.',
+      metaDescription:
+        'Roper Technologies (ROP): análisis fundamental completo. Serial acquirer de software de nicho, altos márgenes FCF, valoración razonable. Lee nuestra tesis de inversión completa.',
+      answer:
+        'Roper Technologies lleva 20 años comprando software especializado en nichos donde los clientes no pueden marcharse. El resultado: ingresos recurrentes, uno de los márgenes de caja más altos del mercado y un crecimiento constante del flujo de caja por acción. El mercado la valora como un conglomerado ordinario, no como la máquina de caja SaaS que realmente es.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Roper es un adquirente en serie de software vertical: compra empresas líderes en nichos muy específicos (seguros, legal, salud, educación) y las mantiene indefinidamente.',
+            'Su margen de flujo de caja libre (el dinero realmente generado tras todos los gastos) supera el 35%, un nivel que pocas empresas en el mundo alcanzan.',
+            'El mercado la valora a unas 13,8 veces su flujo de caja libre anual, muy por debajo de los editores SaaS comparables que a menudo se valoran entre 30 y 50 veces.',
+            'El riesgo principal: el crecimiento orgánico es modesto (3 a 5% anual); el verdadero crecimiento depende de las adquisiciones, lo que crea dependencia de encontrar buenos objetivos.',
+            'Nuestro screener le otorga una puntuación de calidad perfecta, lo que la convierte en una de las pocas empresas cotizadas que combinan rentabilidad, solidez en el balance y disciplina de asignación de capital.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Un modelo de negocio que casi nadie comprende del todo',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Cuando escuchas "conglomerado", quizás piensas en un imperio tentacular que fabrica turbinas por la mañana y yogures por la tarde. Roper Technologies no tiene nada que ver con eso. Sin fábricas, sin camiones, sin inventario. Compra software.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Más concretamente, compra software vertical: herramientas diseñadas para un solo sector, tan profundamente integradas en los procesos de sus clientes que cambiar es prácticamente imposible. Vertafore gestiona la distribución de seguros en Estados Unidos. Aderant opera en los despachos de abogados. Strata Decision Technology se usa en hospitales para la planificación financiera. Cada producto es el sistema nervioso central de su mercado.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Este modelo tiene un nombre en el mundo de la inversión: serial acquirer, o adquirente en serie. En lugar de devolver el efectivo a los accionistas mediante dividendos o recompras, Roper lo reinvierte en adquirir nuevas empresas que generan su propio efectivo. Es un motor que se autoalimenta, siempre que cada adquisición sea disciplinada.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Por qué estos productos de software son tan difíciles de abandonar',
+        },
+        {
+          type: 'ul',
+          items: [
+            'El concepto clave aquí es el moat: la ventaja competitiva que protege a la empresa de sus rivales. Para Roper, este foso es de naturaleza conductual y económica. Cuando una red de corredores de seguros lleva quince años trabajando con Vertafore, sus flujos de datos, contratos, integraciones regulatorias y equipos formados dependen todos de ese software. Migrar significaría meses de proyecto, riesgos enormes y una factura colosal. Así que nadie migra.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Este fenómeno se llama switching costs, el coste de cambio. No es solo una cuestión de precio o funcionalidades: es el peso de los hábitos, los datos históricos y el riesgo operativo. Para Roper, esto se traduce en tasas de retención muy altas, gran visibilidad sobre los ingresos futuros y la capacidad de subir precios modestamente cada año sin perder clientes.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El flujo de caja libre: por qué es la métrica correcta',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Para entender Roper, primero necesitas entender el flujo de caja libre (FCF, por sus siglas en inglés). Es el dinero que queda realmente disponible después de que la empresa ha pagado salarios, servidores, inversiones e impuestos. Es mucho más difícil de manipular que el beneficio contable, que puede inflarse con ajustes creativos. El FCF es dinero real en caja.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Roper registra un margen de FCF de alrededor del 35%. Eso significa que por cada 100 dólares de ingresos, 35 acaban como efectivo disponible. Para un editor de software, eso ya es excelente. Para un supuesto "conglomerado", resulta casi inexplicable para el mercado, de ahí el descuento.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Para medir si una acción es cara o barata, utilizo el P/FCF (price-to-free-cash-flow): el precio de la acción dividido entre el FCF anual por acción. Una valoración de 13,8 veces significa que hoy estás pagando 13,8 años de ese flujo de caja. Ese es el nivel de valoración actual de Roper. Puedes comparar en nuestro <a href="/screener">screener</a>: un editor SaaS puro como Salesforce o Intuit suele valorarse a 30, 40 o incluso 50 veces. Roper cotiza a 13,8 veces, con márgenes comparables.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Tabla comparativa: Roper frente a los mejores valores de software',
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Ticker', 'P/FCF', 'Margen FCF', 'Crecimiento orgánico', 'Moat principal'],
+          rows: [
+            ['Roper Technologies', 'ROP', '~13,8x', '~35%', '3-5% / año', 'Switching costs + adquirente en serie'],
+            ['Bentley Systems', 'BSY', '~40x', '~28%', '~10% / año', 'Software de ingeniería de infraestructura'],
+            ['Paylocity', 'PCTY', '~35x', '~22%', '~15% / año', 'Nóminas y RRHH para pymes, efectos de red'],
+            ['Salesforce', 'CRM', '~30x', '~25%', '~8% / año', 'Líder CRM, ecosistema'],
+            ['Intuit', 'INTU', '~42x', '~30%', '~12% / año', 'QuickBooks, TurboTax, red de contables'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Esta tabla plantea la pregunta real. Si estás dispuesto a pagar 40 veces el FCF por Bentley o Intuit, ¿por qué rechazarías 13,8 veces por Roper, que registra márgenes iguales o superiores? La respuesta del mercado: el crecimiento orgánico es más lento. La respuesta de la tesis: el FCF por acción sigue creciendo de forma constante gracias a las adquisiciones, y el precio es mucho más bajo. Puedes encontrar nuestro análisis detallado en la <a href="/analyse/ROP">página dedicada a ROP</a>.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Neil Hunn y el arte de la asignación de capital',
+        },
+        {
+          type: 'ul',
+          items: [
+            'En la inversión, la asignación de capital se refiere a las decisiones que toma el equipo directivo con el efectivo generado: recomprar acciones, pagar dividendos, invertir en crecimiento o adquirir otras empresas. Es una de las habilidades más escasas y valiosas en un director ejecutivo.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Neil Hunn, CEO de Roper desde 2018, es el arquetipo del asignador de capital disciplinado. Bajo su dirección, Roper completó una transformación importante: desinvertir en negocios industriales físicos (bombas, instrumentos de medición) para centrarse exclusivamente en software con ingresos recurrentes. Una elección valiente y lógica: los activos físicos consumen capital, el software lo genera. El resultado: un balance más ligero, márgenes más altos y un FCF más predecible.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'La disciplina en las adquisiciones es igualmente notable. Roper no compra a cualquier precio. Busca nichos con poca competencia, clientes cautivos y modelos de suscripción. Rechaza adquisiciones sobrevaloradas, incluso bajo presión para crecer. Eso es raro, y muy valioso.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos: seamos honestos',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Ninguna tesis seria puede ignorar los riesgos. Para Roper, identifico tres principales.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Primer riesgo: la dependencia de las adquisiciones. Roper crece orgánicamente entre un 3 y un 5% anual. Es sólido, pero no espectacular. El verdadero crecimiento del FCF por acción proviene de las adquisiciones. Si el pipeline de objetivos se agota, si las valoraciones de los objetivos se vuelven irrazonables, o si el management comete un error de juicio en una gran adquisición, la tesis se resiente.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Segundo riesgo: valoración sustentada en la reputación. Parte de la prima que el mercado concede a Roper se basa en la confianza en el equipo directivo. Si Neil Hunn se va o la filosofía de asignación cambia, el múltiplo podría comprimirse.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Tercer riesgo: disrupción tecnológica. Incluso en nichos muy bien defendidos, la IA y las nuevas arquitecturas de software podrían eventualmente cuestionar la posición de algunos productos de la cartera. Este riesgo es real, pero atenuado por la diversificación y por la profundidad de integración de estas herramientas en los procesos críticos de sus clientes.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Por qué el mercado todavía no entiende del todo a Roper',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Esta es la tensión central de la tesis. Roper es percibida como un conglomerado, una palabra que evoca imperios complejos y poco transparentes. Los inversores SaaS no la miran porque no encaja en sus modelos de crecimiento del 20%. Los inversores en valor no la miran porque 13,8 veces no es lo que ellos llaman "barato" para un conglomerado industrial ordinario.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Roper cae entre dos categorías. Y estas "huérfanas de categoría" son a menudo donde se encuentran las mejores oportunidades, porque hay menos competencia de analistas y más posibilidades de que el precio aún no refleje la realidad fundamental. Puedes consultar nuestra <a href="/methodologie">metodología de análisis</a> para entender cómo evaluamos este tipo de situaciones.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Mi conclusión: alta calidad, valoración razonable',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Roper Technologies no es una acción de crecimiento explosivo. No va a duplicarse en seis meses por un producto de moda. Lo que hace es generar caja de forma constante, reinvertirla con disciplina y hacer crecer el valor por acción año tras año, sin ruido y sin fanfarrias.',
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            'Para alguien que busca calidad a un precio razonable en lugar de especulación a un precio elevado, Roper cumple todos los requisitos: foso estructural, equipo directivo probado, márgenes de élite y una valoración que el mercado aún no ha "corregido" al alza. Es exactamente el tipo de situación que quería poder identificar rápidamente para cualquier acción, y por eso construí mi <a href="/screener">screener de calidad</a>.',
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es un serial acquirer en bolsa?',
+          a: 'Un serial acquirer es una empresa cuyo modelo de crecimiento se basa en adquirir otras empresas de forma regular. Genera efectivo con sus operaciones existentes y lo reinvierte en compras selectivas. Roper Technologies lleva haciendo esto más de 20 años, exclusivamente en software especializado.',
+        },
+        {
+          q: '¿Por qué el P/FCF es más relevante que el P/E para Roper?',
+          a: 'El P/E (price-to-earnings) compara el precio con el beneficio contable, que incluye amortizaciones relacionadas con adquisiciones y puede estar distorsionado. El P/FCF (price-to-free-cash-flow) compara el precio con el efectivo realmente generado. Para una empresa que hace muchas adquisiciones como Roper, el FCF refleja mejor la realidad económica.',
+        },
+        {
+          q: '¿Es Roper Technologies adecuada para un inversor a largo plazo?',
+          a: 'Sí, es un perfil típico de buy and hold. La tesis no se basa en un catalizador a corto plazo sino en el interés compuesto: FCF acumulado reinvertido en nuevas adquisiciones que a su vez generan FCF. Este tipo de modelo recompensa la paciencia. Esto no es un consejo de inversión.',
+        },
+        {
+          q: '¿Cuál es el principal riesgo para la tesis de Roper?',
+          a: 'El riesgo número uno es que el pipeline de adquisiciones se agote o que el management pague demasiado por futuros objetivos. El crecimiento orgánico solo (3 a 5% anual) no es suficiente para justificar la valoración actual si las adquisiciones se detienen o se deterioran.',
+        },
+        {
+          q: '¿En qué se diferencia Roper de un editor SaaS clásico?',
+          a: 'Un editor SaaS clásico como Salesforce o HubSpot construye un solo producto e intenta ampliar su mercado. Roper es una cartera de decenas de productos de software vertical, cada uno líder en su nicho. No apuesta por un solo producto, sino por la calidad de su selección y de su asignación de capital.',
+        },
+      ],
+      tags: [
+        'Roper Technologies',
+        'ROP',
+        'software vertical',
+        'serial acquirer',
+        'flujo de caja libre',
+        'análisis fundamental',
+        'NASDAQ',
+        'asignación de capital',
+        'SaaS',
+        'inversión a largo plazo',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Las cifras corresponden a la fecha de publicación y pueden cambiar. Realiza tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+
+const articleBSY: Article = {
+  slug: 'bentley-systems-bsy-analyse-fondamentale-logiciels-infrastructure',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'BSY',
+  content: {
+    fr: {
+      title: 'Bentley Systems (BSY) : notre analyse fondamentale',
+      excerpt:
+        'Bentley Systems équipe 200 000 ingénieurs dans 190 pays pour concevoir ponts, routes et réseaux. Un monopole de fait, des revenus ultra-récurrents et une marge brute de 82 %. Voici pourquoi cette action figure en tête de mon screener.',
+      metaDescription:
+        'Analyse de Bentley Systems (BSY) : moat exceptionnel, revenus récurrents à 75 %, marge brute 82 %. Pourquoi cette action mérite ta vigilance en 2026.',
+      answer:
+        "Bentley Systems est le seul logiciel au monde conçu exclusivement pour la conception et la gestion d'infrastructures physiques. Avec 200 000 ingénieurs actifs dans 190 pays, des revenus récurrents supérieurs à 75 % et une marge brute de 82 %, c'est l'une des machines à cash les plus discrètes de la tech. Sa valorisation est élevée, mais elle est justifiée par une qualité rare.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Moat unique : aucun concurrent mondial ne couvre la totalité des infrastructures physiques (ponts, routes, réseaux eau, énergie, usines) comme BSY.",
+            "Revenus récurrents supérieurs à 75 % grâce au modèle SaaS ; les ingénieurs restent des décennies car leurs données sont enfouies dans les systèmes BSY.",
+            "Marge brute de 82 % et free cash flow solide et croissant : une rentabilité d'élite rare dans n'importe quel secteur.",
+            "Note de qualité maximale dans mon screener (10/10) : tous les critères financiers au vert, des ventes et du cash en hausse, dette maîtrisée.",
+            "Valorisation à 24 fois le free cash flow : premium justifié par la visibilité des revenus, le switching cost extrême et l'absence de concurrent direct mondial.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Ce que fait vraiment Bentley Systems",
+        },
+        {
+          type: 'p',
+          text: "Quand on parle de logiciels, on pense souvent à Salesforce ou Microsoft. Bentley Systems, c'est autre chose : c'est le logiciel qu'utilisent les ingénieurs pour concevoir un pont en Inde, modéliser un réseau d'eau potable en Australie, ou gérer la maintenance d'une centrale électrique en Allemagne. Concrètement, BSY vend des outils de CAO (conception assistée par ordinateur) et de jumeaux numériques d'infrastructures, c'est-à-dire des répliques virtuelles d'ouvrages réels, utilisées tout au long du cycle de vie d'un projet.",
+        },
+        {
+          type: 'p',
+          text: "Ce que j'apprécie dans ce modèle, c'est sa discrétion. Bentley n'est pas dans les conversations médiatiques comme NVIDIA ou Apple. Pourtant, quand un grand projet d'infrastructure démarre quelque part dans le monde, les ingénieurs ouvrent très souvent un logiciel BSY. C'est une position de force que les marchés oublient parfois d'évaluer correctement.",
+        },
+        {
+          type: 'h2',
+          text: "Le moat : pourquoi les ingénieurs ne peuvent pas partir",
+        },
+        {
+          type: 'p',
+          text: "Le moat, c'est le fossé concurrentiel d'une entreprise, ce qui la protège de la concurrence dans la durée. Pour Bentley, il est bâti sur ce qu'on appelle le switching cost, littéralement le coût du changement. Imagine une équipe d'ingénieurs qui a modélisé un réseau ferroviaire complet dans les outils BSY sur vingt ans : des milliers de fichiers, des normes internes, des processus entiers calés sur ces logiciels. Migrer ailleurs ne prendrait pas six mois, ça prendrait des années, et risquerait de perdre des données irremplaçables. Résultat : une fois qu'un bureau d'études entre dans l'écosystème BSY, il en sort rarement.",
+        },
+        {
+          type: 'p',
+          text: "Ce switching cost extrême se lit directement dans les chiffres : plus de 75 % des revenus de BSY sont des abonnements récurrents. Ça signifie que chaque début d'année, l'entreprise sait déjà d'où viendra plus des trois quarts de ses ventes. C'est une visibilité exceptionnelle, que peu d'entreprises peuvent se vanter d'avoir.",
+        },
+        {
+          type: 'h2',
+          text: "La qualité financière : ce que les chiffres racontent",
+        },
+        {
+          type: 'p',
+          text: "Quand j'analyse une action, je commence toujours par la qualité du business avant de parler de prix. Ma méthode s'appuie sur des critères financiers objectifs : est-ce que l'entreprise génère du cash, est-ce que ses marges sont élevées, rachète-t-elle ses propres actions plutôt que de diluer ses actionnaires, sa dette est-elle sous contrôle ? Chez BSY, ces cases sont presque toutes cochées.",
+        },
+        {
+          type: 'p',
+          text: "La marge brute est de 82 %. La marge brute, c'est ce qui reste après avoir payé les coûts directs pour produire et livrer le logiciel. Une marge de 82 % signifie que sur 100 euros de revenus, 82 sont disponibles pour payer les équipes, investir en R&D et générer du profit. C'est un niveau d'élite, comparable aux meilleurs éditeurs de logiciels au monde. Le free cash flow, c'est-à-dire l'argent qui atterrit vraiment dans les caisses une fois toutes les factures payées, est solide et en croissance. BSY a également réalisé un beat au premier trimestre 2026 : ses résultats ont dépassé les attentes des analystes, signe que le business momentum est intact.",
+        },
+        {
+          type: 'h2',
+          text: "La valorisation à 24 fois le FCF : cher ou justifié ?",
+        },
+        {
+          type: 'p',
+          text: "Ici, on touche au coeur du débat sur BSY. La valorisation, c'est ce que le marché accepte de payer pour un euro de free cash flow de l'entreprise. Le ratio P/FCF (price-to-free-cash-flow) est le prix de l'action divisé par le free cash flow annuel par action. Un P/FCF de 24, ça signifie que tu paies aujourd'hui vingt-quatre années de ce cash. C'est effectivement une valorisation élevée.",
+        },
+        {
+          type: 'p',
+          text: "Mais une valorisation élevée n'est pas automatiquement mauvaise. Elle est injustifiée quand la croissance ralentit, le moat s'effrite ou la visibilité des revenus baisse. Ici, c'est l'inverse : les revenus sont ultra-récurrents, les clients ne partent pas, et il n'existe pas de concurrent mondial sur cette niche précise. Pour comparer, ServiceNow, qui propose également des logiciels SaaS à fort switching cost, se valorise à 44 fois son FCF. Shopify dépasse 85 fois. À 24 fois, BSY affiche une valorisation inférieure à ces pairs de qualité comparable, avec une visibilité des revenus qui est, j'estime, encore plus forte.",
+        },
+        {
+          type: 'table',
+          headers: ['Entreprise', 'Ticker', 'P/FCF approx.', 'Revenus récurrents', 'Moat principal'],
+          rows: [
+            ['Bentley Systems', 'BSY', '24×', '>75 %', 'Niche infra, switching cost décennal'],
+            ['Roper Technologies', 'ROP', '~35×', '>80 %', 'Portefeuille SaaS niches industrielles'],
+            ['Autodesk', 'ADSK', '~30×', '>90 %', 'CAO généraliste, forte base installée'],
+            ['Hexagon AB', 'HEXA B', '~22×', '~60 %', 'Mesure et capteurs industriels'],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Ce tableau permet de situer BSY dans son univers. Autodesk est le concurrent le plus souvent cité, mais il est généraliste : il sert les architectes, les designers produit, les cinéastes. BSY est spécialiste : il ne sert que les ingénieurs d'infrastructure physique. Cette spécialisation crée une profondeur de fonctionnalité qu'Autodesk ne peut pas dupliquer facilement, et explique en partie la fidélité extrême des clients.",
+        },
+        {
+          type: 'h2',
+          text: "Les risques à ne pas ignorer",
+        },
+        {
+          type: 'p',
+          text: "Je serai honnête : BSY n'est pas sans risques. Voici les trois que je surveille. Le premier, c'est la dépendance aux grands projets d'infrastructure publique. Quand les gouvernements coupent leurs budgets d'investissement, BSY en ressent l'impact avec quelques trimestres de décalage. On l'a vu lors des cycles de contraction budgétaire en Europe et en Amérique du Nord.",
+        },
+        {
+          type: 'p',
+          text: "Le deuxième risque, c'est la concurrence de niche. Autodesk et Hexagon, bien que positionnés différemment, essaient tous deux de grignoter des segments adjacents. Hexagon en particulier investit lourdement dans les jumeaux numériques industriels, un territoire que BSY considère comme le sien. Ce n'est pas une guerre frontale, mais une pression constante sur certains segments.",
+        },
+        {
+          type: 'p',
+          text: "Le troisième risque est celui de la concentration clients. Les grands projets d'infrastructure mobilisent souvent un petit nombre de très gros clients. Si l'un d'eux traverse une crise ou retarde un projet majeur, l'impact sur les revenus peut être visible trimestriellement. Ce n'est pas rédhibitoire, mais ça demande une vigilance sur la diversification du portefeuille clients.",
+        },
+        {
+          type: 'h2',
+          text: "Ce que mon screener dit de BSY",
+        },
+        {
+          type: 'p',
+          text: "Ma méthode d'analyse attribue une note de qualité sur 10 à chaque entreprise que j'étudie. Cette note ne juge pas le prix de l'action, elle juge uniquement la solidité du business : est-ce que les revenus et le cash croissent régulièrement, les marges sont-elles stables ou en hausse, l'entreprise génère-t-elle un rendement élevé sur le capital qu'elle emploie, rachète-t-elle ses propres actions pour récompenser les actionnaires sans sacrifier la croissance ? Bentley Systems obtient un 10/10 dans mon screener. Ce n'est pas une note fréquente. C'est la combinaison d'une croissance régulière, de marges d'élite, d'un business model récurrent et d'un capital bien alloué. La qualité est là, ce qui reste à surveiller, c'est le prix d'entrée.",
+        },
+        {
+          type: 'p',
+          text: "À 24 fois le FCF et une capitalisation boursière d'environ 15 milliards de dollars, BSY n'est pas donnée. Mais pour une entreprise avec cette visibilité de revenus, ce moat et cette marge, je considère la prime justifiée. Je ne l'achète pas les yeux fermés pour autant : j'ai un prix cible, et j'attends qu'il vienne à moi. C'est exactement ce type d'analyse que j'ai voulu pouvoir faire rapidement pour n'importe quelle action, alors j'ai construit mon screener sur lubin-investment.com.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce que le free cash flow et pourquoi est-ce important ?",
+          a: "Le free cash flow, c'est l'argent qui reste réellement dans les caisses de l'entreprise après avoir payé toutes ses factures opérationnelles et ses investissements. C'est plus difficile à manipuler que le bénéfice comptable, donc je m'y fie davantage pour évaluer la vraie santé financière d'une entreprise.",
+        },
+        {
+          q: "Pourquoi Bentley Systems a-t-il si peu de concurrents directs ?",
+          a: "Parce que le marché des logiciels d'ingénierie pour l'infrastructure physique est une niche très technique, avec des cycles de vente longs et des exigences réglementaires très spécifiques selon les pays. BSY a investi pendant trente ans pour couvrir cette niche dans sa totalité, ce qu'aucun acteur généraliste n'a réussi à reproduire.",
+        },
+        {
+          q: "Une valorisation à 24 fois le FCF, c'est cher ?",
+          a: "C'est effectivement une valorisation élevée. Mais elle se compare favorablement à des pairs comme ServiceNow (44 fois) ou Shopify (85 fois). La prime se justifie par la récurrence des revenus, le switching cost extrême et l'absence de concurrent mondial direct. Une valorisation élevée n'est injustifiée que si la qualité du business ne la soutient pas.",
+        },
+        {
+          q: "Quels sont les principaux risques pour l'action BSY ?",
+          a: "La dépendance aux cycles d'investissement publics dans l'infrastructure, la pression concurrentielle d'Autodesk et Hexagon sur des segments adjacents, et la concentration de certains gros clients. Ces risques sont réels mais ne remettent pas en cause le moat fondamental de l'entreprise.",
+        },
+        {
+          q: "Comment Bentley Systems gagne-t-il de l'argent concrètement ?",
+          a: "Principalement par des abonnements annuels ou pluriannuels vendus à des bureaux d'études, des maîtres d'ouvrage publics et des entreprises industrielles dans 190 pays. Plus de 75 % de ses revenus sont récurrents, ce qui signifie que la majorité de ses ventes est déjà contractualisée avant le début de chaque exercice.",
+        },
+      ],
+      tags: [
+        'Bentley Systems',
+        'BSY',
+        'action technologie',
+        'logiciels infrastructure',
+        'SaaS',
+        'analyse fondamentale',
+        'screener qualité',
+        'free cash flow',
+        'moat',
+        'switching cost',
+        'investissement 2026',
+      ],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les chiffres cités sont issus des données publiques disponibles à la date de publication et sont susceptibles d'évoluer. Les performances passées ne préjugent pas des performances futures. Faites vos propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'Bentley Systems (BSY): infrastructure software monopoly',
+      excerpt:
+        'Bentley Systems equips 200,000 engineers in 190 countries to design bridges, roads and utility networks. A de facto monopoly, over 75% recurring revenues and an 82% gross margin. Here is why this stock tops my quality screener.',
+      metaDescription:
+        'Bentley Systems (BSY) analysis: exceptional moat, 75%+ recurring revenues, 82% gross margin. Why this stock deserves your attention in 2026.',
+      answer:
+        "Bentley Systems is the only software platform in the world built exclusively for the design and management of physical infrastructure. With 200,000 active engineers across 190 countries, recurring revenues above 75% and an 82% gross margin, it is one of the most discreet cash machines in tech. Its valuation is high, but justified by a rare quality profile.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Unique moat: no global competitor covers the full spectrum of physical infrastructure (bridges, roads, water networks, energy, plants) the way BSY does.",
+            "Recurring revenues above 75% thanks to the SaaS model; engineers stay for decades because their data lives inside BSY systems.",
+            "82% gross margin and solid, growing free cash flow: elite-level profitability rare in any sector.",
+            "Perfect quality score in my screener (10/10): all financial criteria in the green, rising sales and cash, controlled debt.",
+            "Valuation at 24 times free cash flow: a premium justified by revenue visibility, extreme switching costs and the absence of a direct global competitor.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "What Bentley Systems actually does",
+        },
+        {
+          type: 'p',
+          text: "When we talk about software, we usually think of Salesforce or Microsoft. Bentley Systems is something else entirely: it is the software engineers use to design a bridge in India, model a drinking water network in Australia, or manage the maintenance of a power plant in Germany. Concretely, BSY sells CAD tools (computer-aided design) and infrastructure digital twins, meaning virtual replicas of real-world assets used throughout the entire lifecycle of a project.",
+        },
+        {
+          type: 'p',
+          text: "What I appreciate about this model is its discretion. Bentley does not appear in mainstream conversations the way NVIDIA or Apple does. Yet whenever a major infrastructure project starts somewhere in the world, engineers very often open a BSY product. That is a position of strength markets sometimes forget to price in correctly.",
+        },
+        {
+          type: 'h2',
+          text: "The moat: why engineers cannot leave",
+        },
+        {
+          type: 'p',
+          text: "A moat is a company's competitive advantage, the barrier that keeps competitors at bay over time. For Bentley, it is built on what is called switching cost, literally the cost of changing tools. Imagine a team of engineers that has modeled an entire rail network inside BSY tools over twenty years: thousands of files, internal standards, entire workflows calibrated to these products. Migrating elsewhere would not take six months, it would take years, and risking the loss of irreplaceable data. The result: once an engineering firm enters the BSY ecosystem, it rarely leaves.",
+        },
+        {
+          type: 'p',
+          text: "This extreme switching cost shows up directly in the numbers: over 75% of BSY revenues are recurring subscriptions. That means at the start of each year, the company already knows where more than three-quarters of its sales will come from. That is exceptional visibility, something very few companies can claim.",
+        },
+        {
+          type: 'h2',
+          text: "Financial quality: what the numbers say",
+        },
+        {
+          type: 'p',
+          text: "When I analyze a stock, I always start with business quality before talking about price. My method relies on objective financial criteria: does the company generate cash, are its margins high, does it buy back its own shares rather than diluting shareholders, is its debt under control? At BSY, almost all of these boxes are checked.",
+        },
+        {
+          type: 'p',
+          text: "The gross margin stands at 82%. Gross margin is what remains after paying the direct costs of producing and delivering the software. A margin of 82% means that for every 100 dollars in revenue, 82 are available to pay staff, invest in R&D and generate profit. That is elite-level, comparable to the best software publishers in the world. Free cash flow, meaning the money that actually lands in the bank once all bills are paid, is solid and growing. BSY also beat estimates in Q1 2026, a sign that business momentum remains intact.",
+        },
+        {
+          type: 'h2',
+          text: "A valuation at 24 times FCF: expensive or justified?",
+        },
+        {
+          type: 'p',
+          text: "This is the heart of the debate around BSY. Valuation is what the market is willing to pay for one dollar of the company's free cash flow. The P/FCF ratio (price-to-free-cash-flow) is the stock price divided by the annual free cash flow per share. A P/FCF of 24 means you are paying today for twenty-four years of that cash. That is indeed a high valuation.",
+        },
+        {
+          type: 'p',
+          text: "But a high valuation is not automatically bad. It becomes unjustified when growth slows, the moat erodes, or revenue visibility drops. Here, the opposite is true: revenues are ultra-recurring, customers do not leave, and there is no global competitor in this precise niche. For comparison, ServiceNow, which also offers SaaS software with strong switching costs, trades at 44 times FCF. Shopify exceeds 85 times. At 24 times, BSY trades at a discount to peers of comparable quality, with revenue visibility that I would argue is even stronger.",
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Ticker', 'Approx. P/FCF', 'Recurring revenues', 'Key moat'],
+          rows: [
+            ['Bentley Systems', 'BSY', '24×', '>75%', 'Infra niche, decade-long switching cost'],
+            ['Roper Technologies', 'ROP', '~35×', '>80%', 'SaaS portfolio across industrial niches'],
+            ['Autodesk', 'ADSK', '~30×', '>90%', 'Generalist CAD, large installed base'],
+            ['Hexagon AB', 'HEXA B', '~22×', '~60%', 'Industrial measurement and sensors'],
+          ],
+        },
+        {
+          type: 'p',
+          text: "This table helps position BSY within its universe. Autodesk is the most frequently cited competitor, but it is a generalist: it serves architects, product designers and filmmakers. BSY is a specialist: it serves only physical infrastructure engineers. This specialization creates a depth of functionality that Autodesk cannot easily replicate, and partly explains the extreme loyalty of its customers.",
+        },
+        {
+          type: 'h2',
+          text: "Risks you should not ignore",
+        },
+        {
+          type: 'p',
+          text: "I will be honest: BSY is not without risks. Here are the three I watch most closely. The first is the dependence on large public infrastructure investment cycles. When governments cut capital expenditure budgets, BSY feels the impact with a lag of a few quarters. We saw this during budget contraction cycles in Europe and North America.",
+        },
+        {
+          type: 'p',
+          text: "The second risk is niche competition. Autodesk and Hexagon, though positioned differently, are both trying to chip away at adjacent segments. Hexagon in particular is investing heavily in industrial digital twins, a territory BSY considers its own. It is not a head-on war, but a constant pressure on certain product segments.",
+        },
+        {
+          type: 'p',
+          text: "The third risk is customer concentration. Large infrastructure projects often involve a small number of very large clients. If one of them goes through a crisis or delays a major project, the revenue impact can show up within a quarter. It is not a dealbreaker, but it requires ongoing attention to client portfolio diversification.",
+        },
+        {
+          type: 'h2',
+          text: "What my screener says about BSY",
+        },
+        {
+          type: 'p',
+          text: "My analysis method assigns a quality score out of 10 to every company I study. This score does not judge the stock price, it judges only the solidity of the business: are revenues and cash growing consistently, are margins stable or improving, does the company generate a high return on the capital it deploys, does it buy back its own shares to reward shareholders without sacrificing growth? Bentley Systems scores 10/10 in my screener. That is not a frequent score. It reflects a combination of consistent growth, elite margins, a recurring business model and well-allocated capital. The quality is there. What remains to watch is the right entry price.",
+        },
+        {
+          type: 'p',
+          text: "At 24 times FCF and a market cap of around 15 billion dollars, BSY is not cheap. But for a company with this level of revenue visibility, this moat and these margins, I consider the premium justified. That does not mean I buy it blindly: I have a target price, and I wait for it to come to me. This is exactly the kind of analysis I wanted to run quickly on any stock, which is why I built my screener at lubin-investment.com.",
+        },
+      ],
+      faq: [
+        {
+          q: "What is free cash flow and why does it matter?",
+          a: "Free cash flow is the money that actually stays in the company's bank after paying all operating bills and investments. It is harder to manipulate than accounting profit, so I trust it more when assessing a company's true financial health.",
+        },
+        {
+          q: "Why does Bentley Systems have so few direct competitors?",
+          a: "Because the software market for physical infrastructure engineering is a highly technical niche with long sales cycles and very specific regulatory requirements that vary by country. BSY has invested for thirty years to cover this niche in its entirety, something no generalist player has managed to replicate.",
+        },
+        {
+          q: "Is a valuation at 24 times FCF expensive?",
+          a: "It is indeed a high valuation. But it compares favorably to peers like ServiceNow (44 times) or Shopify (85 times). The premium is justified by revenue recurrence, extreme switching costs and the absence of a direct global competitor. A high valuation is only unjustified when the underlying business quality does not support it.",
+        },
+        {
+          q: "What are the main risks for BSY stock?",
+          a: "Dependence on public infrastructure investment cycles, competitive pressure from Autodesk and Hexagon on adjacent segments, and the concentration of certain large clients. These risks are real but do not undermine the company's fundamental moat.",
+        },
+        {
+          q: "How does Bentley Systems make money in practice?",
+          a: "Primarily through annual or multi-year subscriptions sold to engineering firms, public project owners and industrial companies across 190 countries. More than 75% of revenues are recurring, meaning the majority of sales are already contracted before each fiscal year begins.",
+        },
+      ],
+      tags: [
+        'Bentley Systems',
+        'BSY',
+        'tech stock',
+        'infrastructure software',
+        'SaaS',
+        'fundamental analysis',
+        'quality screener',
+        'free cash flow',
+        'moat',
+        'switching cost',
+        'investing 2026',
+      ],
+      disclaimer:
+        "This content is for informational and educational purposes only and does not constitute personalized investment advice. Figures cited are based on publicly available data at the time of publication and are subject to change. Past performance is not indicative of future results. Do your own research before making any investment decision.",
+    },
+    es: {
+      title: 'Bentley Systems (BSY): nuestro análisis fundamental',
+      excerpt:
+        'Bentley Systems equipa a 200.000 ingenieros en 190 países para diseñar puentes, carreteras y redes de servicios. Un monopolio de hecho, ingresos ultra-recurrentes superiores al 75% y un margen bruto del 82%. Por qué esta acción encabeza mi screener de calidad.',
+      metaDescription:
+        'Análisis de Bentley Systems (BSY): moat excepcional, ingresos recurrentes >75%, margen bruto 82%. Por qué esta acción merece tu atención en 2026.',
+      answer:
+        "Bentley Systems es el único software del mundo diseñado exclusivamente para la concepción y gestión de infraestructuras físicas. Con 200.000 ingenieros activos en 190 países, ingresos recurrentes superiores al 75% y un margen bruto del 82%, es una de las máquinas de generación de caja más discretas del sector tecnológico. Su valoración es elevada, pero está justificada por una calidad de negocio poco común.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Moat único: ningún competidor global cubre la totalidad de las infraestructuras físicas (puentes, carreteras, redes de agua, energía, plantas industriales) como lo hace BSY.",
+            "Ingresos recurrentes superiores al 75% gracias al modelo SaaS; los ingenieros permanecen durante décadas porque sus datos están integrados en los sistemas BSY.",
+            "Margen bruto del 82% y free cash flow sólido y creciente: una rentabilidad de élite excepcional en cualquier sector.",
+            "Puntuación de calidad máxima en mi screener (10/10): todos los criterios financieros en verde, ventas y caja en alza, deuda controlada.",
+            "Valoración a 24 veces el free cash flow: una prima justificada por la visibilidad de los ingresos, el switching cost extremo y la ausencia de un competidor directo global.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Qué hace realmente Bentley Systems",
+        },
+        {
+          type: 'p',
+          text: "Cuando hablamos de software, solemos pensar en Salesforce o Microsoft. Bentley Systems es otra cosa: es el software que utilizan los ingenieros para diseñar un puente en India, modelar una red de agua potable en Australia o gestionar el mantenimiento de una central eléctrica en Alemania. Concretamente, BSY vende herramientas de CAD (diseño asistido por ordenador) y gemelos digitales de infraestructuras, es decir, réplicas virtuales de activos reales utilizadas a lo largo de todo el ciclo de vida de un proyecto.",
+        },
+        {
+          type: 'p',
+          text: "Lo que me gusta de este modelo es su discreción. Bentley no aparece en las conversaciones mediáticas como NVIDIA o Apple. Sin embargo, cuando un gran proyecto de infraestructura arranca en algún lugar del mundo, los ingenieros muy a menudo abren un producto BSY. Es una posición de fuerza que los mercados a veces olvidan valorar correctamente.",
+        },
+        {
+          type: 'h2',
+          text: "El moat: por qué los ingenieros no pueden irse",
+        },
+        {
+          type: 'p',
+          text: "El moat es la ventaja competitiva de una empresa, la barrera que la protege de la competencia a lo largo del tiempo. Para Bentley, está construido sobre lo que se conoce como switching cost, literalmente el coste de cambiar de herramienta. Imagina un equipo de ingenieros que ha modelado una red ferroviaria completa dentro de las herramientas BSY durante veinte años: miles de archivos, estándares internos, procesos enteros calibrados sobre estos productos. Migrar a otra plataforma no llevaría seis meses, llevaría años, con el riesgo de perder datos irremplazables. El resultado: una vez que una empresa de ingeniería entra en el ecosistema BSY, raramente sale.",
+        },
+        {
+          type: 'p',
+          text: "Este switching cost extremo se refleja directamente en los números: más del 75% de los ingresos de BSY son suscripciones recurrentes. Eso significa que al inicio de cada año, la empresa ya sabe de dónde vendrá más de tres cuartas partes de sus ventas. Es una visibilidad excepcional, de la que muy pocas empresas pueden presumir.",
+        },
+        {
+          type: 'h2',
+          text: "La calidad financiera: lo que dicen los números",
+        },
+        {
+          type: 'p',
+          text: "Cuando analizo una acción, siempre empiezo por la calidad del negocio antes de hablar de precio. Mi método se basa en criterios financieros objetivos: ¿genera caja la empresa, son sus márgenes elevados, recompra sus propias acciones en lugar de diluir a sus accionistas, está su deuda bajo control? En BSY, casi todas estas casillas están marcadas.",
+        },
+        {
+          type: 'p',
+          text: "El margen bruto se sitúa en el 82%. El margen bruto es lo que queda después de pagar los costes directos de producir y entregar el software. Un margen del 82% significa que por cada 100 euros de ingresos, 82 están disponibles para pagar al equipo, invertir en I+D y generar beneficio. Es un nivel de élite, comparable a los mejores editores de software del mundo. El free cash flow, es decir el dinero que realmente llega a la caja una vez pagadas todas las facturas, es sólido y creciente. BSY también superó las expectativas en el primer trimestre de 2026, señal de que el momentum del negocio sigue intacto.",
+        },
+        {
+          type: 'h2',
+          text: "Valoración a 24 veces el FCF: ¿caro o justificado?",
+        },
+        {
+          type: 'p',
+          text: "Este es el núcleo del debate sobre BSY. La valoración es lo que el mercado está dispuesto a pagar por un euro de free cash flow de la empresa. El ratio P/FCF (price-to-free-cash-flow) es el precio de la acción dividido por el free cash flow anual por acción. Un P/FCF de 24 significa que hoy pagas veinticuatro años de esa caja. Es, efectivamente, una valoración elevada.",
+        },
+        {
+          type: 'p',
+          text: "Pero una valoración elevada no es automáticamente mala. Se vuelve injustificada cuando el crecimiento se desacelera, el moat se erosiona o la visibilidad de los ingresos disminuye. Aquí ocurre lo contrario: los ingresos son ultra-recurrentes, los clientes no se van y no existe ningún competidor global en este nicho preciso. Para comparar, ServiceNow, que también ofrece software SaaS con alto switching cost, se valoriza a 44 veces su FCF. Shopify supera las 85 veces. A 24 veces, BSY se valoriza por debajo de sus pares de calidad comparable, con una visibilidad de ingresos que considero incluso mayor.",
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Ticker', 'P/FCF aprox.', 'Ingresos recurrentes', 'Moat principal'],
+          rows: [
+            ['Bentley Systems', 'BSY', '24×', '>75%', 'Nicho infra, switching cost de décadas'],
+            ['Roper Technologies', 'ROP', '~35×', '>80%', 'Cartera SaaS en nichos industriales'],
+            ['Autodesk', 'ADSK', '~30×', '>90%', 'CAD generalista, gran base instalada'],
+            ['Hexagon AB', 'HEXA B', '~22×', '~60%', 'Medición industrial y sensores'],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Esta tabla permite situar a BSY dentro de su universo. Autodesk es el competidor más citado, pero es generalista: sirve a arquitectos, diseñadores de producto y cineastas. BSY es especialista: sirve únicamente a ingenieros de infraestructura física. Esta especialización crea una profundidad de funcionalidad que Autodesk no puede replicar fácilmente, y explica en parte la fidelidad extrema de sus clientes.",
+        },
+        {
+          type: 'h2',
+          text: "Riesgos que no hay que ignorar",
+        },
+        {
+          type: 'p',
+          text: "Seré honesto: BSY no está exento de riesgos. Estos son los tres que más sigo de cerca. El primero es la dependencia de los grandes ciclos de inversión pública en infraestructura. Cuando los gobiernos recortan sus presupuestos de inversión, BSY siente el impacto con un desfase de algunos trimestres. Lo vimos durante los ciclos de contracción presupuestaria en Europa y Norteamérica.",
+        },
+        {
+          type: 'p',
+          text: "El segundo riesgo es la competencia de nicho. Autodesk y Hexagon, aunque posicionados de forma diferente, intentan ambos conquistar segmentos adyacentes. Hexagon en particular invierte fuertemente en gemelos digitales industriales, un territorio que BSY considera propio. No es una guerra frontal, pero sí una presión constante sobre ciertos segmentos.",
+        },
+        {
+          type: 'p',
+          text: "El tercer riesgo es la concentración de clientes. Los grandes proyectos de infraestructura suelen involucrar a un pequeño número de clientes muy grandes. Si uno de ellos atraviesa una crisis o retrasa un proyecto importante, el impacto en los ingresos puede ser visible trimestralmente. No es un impedimento, pero requiere una vigilancia permanente sobre la diversificación de la cartera de clientes.",
+        },
+        {
+          type: 'h2',
+          text: "Lo que mi screener dice sobre BSY",
+        },
+        {
+          type: 'p',
+          text: "Mi método de análisis asigna una nota de calidad sobre 10 a cada empresa que estudio. Esta nota no juzga el precio de la acción, juzga únicamente la solidez del negocio: ¿crecen de forma consistente los ingresos y la caja, son los márgenes estables o al alza, genera la empresa un alto rendimiento sobre el capital que emplea, recompra sus propias acciones para recompensar a los accionistas sin sacrificar el crecimiento? Bentley Systems obtiene un 10/10 en mi screener. No es una puntuación frecuente. Refleja una combinación de crecimiento consistente, márgenes de élite, un modelo de negocio recurrente y un capital bien asignado. La calidad está ahí. Lo que queda por vigilar es el precio de entrada correcto.",
+        },
+        {
+          type: 'p',
+          text: "A 24 veces el FCF y una capitalización bursátil de aproximadamente 15.000 millones de dólares, BSY no es barata. Pero para una empresa con este nivel de visibilidad de ingresos, este moat y estos márgenes, considero la prima justificada. Eso no significa que la compre con los ojos cerrados: tengo un precio objetivo y espero a que llegue a mí. Es exactamente este tipo de análisis el que quería poder realizar rápidamente para cualquier acción, por eso construí mi screener en lubin-investment.com.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qué es el free cash flow y por qué es importante?",
+          a: "El free cash flow es el dinero que realmente queda en las cuentas de la empresa después de pagar todas sus facturas operativas e inversiones. Es más difícil de manipular que el beneficio contable, por eso confío más en él para evaluar la verdadera salud financiera de una empresa.",
+        },
+        {
+          q: "¿Por qué Bentley Systems tiene tan pocos competidores directos?",
+          a: "Porque el mercado de software para ingeniería de infraestructuras físicas es un nicho muy técnico, con ciclos de venta largos y requisitos regulatorios muy específicos según el país. BSY ha invertido durante treinta años para cubrir este nicho en su totalidad, algo que ningún actor generalista ha logrado replicar.",
+        },
+        {
+          q: "¿Es cara una valoración a 24 veces el FCF?",
+          a: "Es efectivamente una valoración elevada. Pero se compara favorablemente con pares como ServiceNow (44 veces) o Shopify (85 veces). La prima está justificada por la recurrencia de los ingresos, el switching cost extremo y la ausencia de un competidor directo global. Una valoración elevada solo es injustificada cuando la calidad del negocio no la sustenta.",
+        },
+        {
+          q: "¿Cuáles son los principales riesgos de la acción BSY?",
+          a: "La dependencia de los ciclos de inversión pública en infraestructura, la presión competitiva de Autodesk y Hexagon en segmentos adyacentes, y la concentración de ciertos clientes grandes. Estos riesgos son reales pero no cuestionan el moat fundamental de la empresa.",
+        },
+        {
+          q: "¿Cómo gana dinero Bentley Systems en la práctica?",
+          a: "Principalmente a través de suscripciones anuales o plurianuales vendidas a estudios de ingeniería, promotores públicos de proyectos y empresas industriales en 190 países. Más del 75% de sus ingresos son recurrentes, lo que significa que la mayor parte de sus ventas ya está contratada antes de que comience cada ejercicio fiscal.",
+        },
+      ],
+      tags: [
+        'Bentley Systems',
+        'BSY',
+        'acción tecnológica',
+        'software infraestructura',
+        'SaaS',
+        'análisis fundamental',
+        'screener calidad',
+        'free cash flow',
+        'moat',
+        'switching cost',
+        'inversión 2026',
+      ],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no constituye asesoramiento de inversión personalizado. Los datos citados provienen de información pública disponible en la fecha de publicación y están sujetos a cambios. Los resultados pasados no garantizan resultados futuros. Realiza tu propia investigación antes de tomar cualquier decisión de inversión.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
