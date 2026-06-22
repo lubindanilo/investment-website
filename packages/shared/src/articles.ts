@@ -26918,7 +26918,7 @@ const articlePEVsPFCF: Article = {
   readingTime: 6,
   content: {
     fr: {
-      title: 'Ratio cours/bénéfice vs ratio cours/flux de trésorerie : pourquoi l\'un peut tromper',
+      title: 'Bénéfice ou cash : quel ratio pour bien choisir ses actions',
       excerpt: 'Le ratio cours/bénéfice est le plus cité en finance, mais il repose sur des bénéfices comptables que les entreprises peuvent modeler à leur guise. Le ratio cours/flux de trésorerie disponible mesure ce qui entre réellement dans les caisses. Notre screener n\'utilise que ce dernier.',
       metaDescription: 'Pourquoi le ratio cours/bénéfice peut induire en erreur et pourquoi notre screener utilise uniquement le ratio cours/flux de trésorerie disponible. Exemples réels : Nike (196×), Kinsale (7×), PayPal (8×).',
       answer: 'Le ratio cours/bénéfice utilise des bénéfices comptables que les entreprises peuvent manipuler légalement : amortissements, capitalisation de R&D, timing des revenus. Le ratio cours/flux de trésorerie disponible mesure l\'argent qui entre physiquement dans les caisses. C\'est pourquoi notre screener utilise exclusivement ce second ratio : aucune manipulation comptable ne peut le déguiser.',
@@ -26990,7 +26990,7 @@ const articlePEVsPFCF: Article = {
       disclaimer: 'This article is written for informational and educational purposes only. It does not constitute personalized investment advice. Figures cited are approximate and subject to change.',
     },
     es: {
-      title: 'Ratio precio/beneficio vs ratio precio/flujo de caja libre: por qué uno puede engañar',
+      title: 'Beneficio o flujo de caja: cuál ratio elegir para invertir',
       excerpt: 'El ratio precio/beneficio es el más citado en finanzas, pero se basa en beneficios contables que las empresas pueden moldear. El ratio precio/flujo de caja libre mide lo que realmente entra en caja. Nuestro screener usa exclusivamente este último.',
       metaDescription: 'Por qué el ratio precio/beneficio puede inducir a error y por qué nuestro screener usa únicamente el ratio precio/flujo de caja libre. Ejemplos reales: Nike (196×), Kinsale (7×), PayPal (8×).',
       answer: 'El ratio precio/beneficio utiliza beneficios contables que las empresas pueden manipular legalmente: amortizaciones, capitalización de I+D, timing de ingresos, compensación en acciones. El ratio precio/flujo de caja libre mide el dinero que entra físicamente en las cuentas. Por eso nuestro screener usa exclusivamente este segundo ratio.',
@@ -27035,7 +27035,7 @@ const articleQualiteValorisationMethode: Article = {
   readingTime: 5,
   content: {
     fr: {
-      title: 'Qualité et valorisation : la méthode Lubin les sépare — voici pourquoi',
+      title: 'Qualité et valorisation en bourse : pourquoi les séparer',
       excerpt:
         "La plupart des approches fondamentales mélangent qualité et prix en un seul chiffre. La méthode Lubin les sépare en deux étapes distinctes. Voici pourquoi, et comment cela change concrètement vos décisions d'investissement.",
       metaDescription:
@@ -27090,7 +27090,7 @@ const articleQualiteValorisationMethode: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: 'Quality and valuation: the Lubin method separates them — here is why',
+      title: 'Quality and valuation: why our method separates them',
       excerpt: "Most fundamental approaches blend quality and price into a single number. The Lubin method separates them into two distinct steps. Here is why, and how it concretely changes your investment decisions.",
       metaDescription: "Lubin method: evaluate business quality and valuation in two separate steps. Why this discipline changes everything, with real examples — Qualys, Kinsale, Shopify, Nike.",
       answer: "The Lubin method deliberately separates two questions: is this a quality business? And only then: is the price reasonable? By keeping these two steps independent, you avoid the most common trap in investing — paying for quality you have not verified, or missing cheap quality because the stock price looks high.",
@@ -27118,7 +27118,7 @@ const articleQualiteValorisationMethode: Article = {
       disclaimer: 'Analysis for informational and educational purposes, not personalised investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research.',
     },
     es: {
-      title: 'Calidad y valoración: el método Lubin las separa — aquí está el porqué',
+      title: 'Calidad y valoración en bolsa: por qué separarlas',
       excerpt: "La mayoría de los enfoques fundamentales mezclan calidad y precio en un solo número. El método Lubin los separa en dos etapas distintas. Por qué, y cómo cambia concretamente tus decisiones de inversión.",
       metaDescription: "Método Lubin: evaluar la calidad de una empresa y su valoración en dos etapas separadas. Por qué esta disciplina lo cambia todo, con ejemplos reales — Qualys, Kinsale, Shopify, Nike.",
       answer: "El método Lubin separa deliberadamente dos preguntas: ¿es esta una empresa de calidad? Y solo después: ¿es razonable su precio? Al mantener estas dos etapas independientes, se evita la trampa más común en inversión.",
@@ -27151,7 +27151,7 @@ const articleDetteMethode: Article = {
   readingTime: 5,
   content: {
     fr: {
-      title: 'La dette dans notre méthode : le critère bilan qui élimine les actions populaires',
+      title: 'La dette dans notre méthode : le filtre bilan décisif',
       excerpt: "La qualité d'une action commence par son bilan. Notre méthode pénalise la dette, ce qui élimine souvent des valeurs populaires comme AT&T, Delta ou Lennar. Voici pourquoi ce filtre est le premier que nous appliquons.",
       metaDescription: "Pourquoi la dette est le premier filtre de la méthode Lubin : ratio dette/fonds propres, couverture des intérêts, et les actions populaires éliminées par ce critère. Exemples concrets.",
       answer: "Dans la méthode Lubin, la dette est un filtre éliminatoire. Une entreprise trop endettée voit ses coûts fixes grimper, sa flexibilité chuter et ses résultats s'amplifier à la baisse lors des crises. Nous mesurons la dette deux façons : le ratio dette/fonds propres et la couverture des intérêts. Les entreprises qui ne passent pas ce filtre sont exclues, quelle que soit leur notoriété.",
@@ -27179,7 +27179,7 @@ const articleDetteMethode: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres et exemples à la date de publication, susceptibles d'évoluer. Fais tes propres recherches avant toute décision.",
     },
     en: {
-      title: 'Debt in our method: the balance sheet filter that eliminates popular stocks',
+      title: 'Debt in our method: the decisive balance sheet filter',
       excerpt: "Stock quality starts with the balance sheet. Our method penalizes debt, which often eliminates popular names like AT&T, Delta, or Lennar. Here is why this filter is the first one we apply.",
       metaDescription: "Why debt is the first filter in the Lubin method: debt-to-equity ratio, interest coverage, and the popular stocks eliminated by this criterion. Concrete examples.",
       answer: "In the Lubin method, debt is an elimination filter. A heavily indebted company faces higher fixed costs, reduced flexibility, and amplified losses during downturns. We measure debt two ways: the debt-to-equity ratio and the interest coverage ratio. Companies that fail this filter are excluded, regardless of how well-known they are.",
@@ -27206,7 +27206,7 @@ const articleDetteMethode: Article = {
       disclaimer: 'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures and examples as of the publication date, subject to change. Do your own research before any decision.',
     },
     es: {
-      title: 'La deuda en nuestra método: el filtro de balance que elimina acciones populares',
+      title: 'La deuda en nuestro método: el filtro de balance decisivo',
       excerpt: "La calidad de una acción empieza por su balance. Nuestro método penaliza la deuda, lo que elimina a menudo valores populares como AT&T, Delta o Lennar.",
       metaDescription: "Por qué la deuda es el primer filtro del método Lubin: ratio deuda/fondos propios, cobertura de intereses y las acciones populares eliminadas por este criterio.",
       answer: "En el método Lubin, la deuda es un filtro eliminatorio. Una empresa muy endeudada ve aumentar sus costes fijos, reducirse su flexibilidad y amplificarse sus pérdidas durante las crisis. Medimos la deuda de dos formas: el ratio deuda/fondos propios y la cobertura de intereses.",
@@ -27239,7 +27239,7 @@ const articleSecteursSans10: Article = {
   readingTime: 6,
   content: {
     fr: {
-      title: 'Banques, énergie, grande distribution : pourquoi ces secteurs échappent à notre note maximale',
+      title: 'Les secteurs boursiers où la qualité est quasi introuvable',
       excerpt: "Sur plus de 5 000 entreprises analysées, moins de 60 atteignent la note de qualité maximale. Banques, énergie, grande distribution : trois secteurs quasi absents de cette liste. Données, raisons structurelles et ce que ça dit pour votre portefeuille.",
       metaDescription: "Pourquoi les banques, le secteur énergétique et la grande distribution n'atteignent presque jamais la note de qualité maximale dans le screener Lubin. Analyse des critères structurels et exceptions notables.",
       answer: "Sur plus de 5 000 entreprises analysées, moins de 60 obtiennent la note de qualité maximale. Banques, énergie et grande distribution en sont quasi absentes : dette massive, marges infimes, capex dévorant le cash-flow. Ce n'est pas un jugement de valeur sur ces secteurs — c'est un filtre structurel.",
@@ -27271,7 +27271,7 @@ const articleSecteursSans10: Article = {
       disclaimer: "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 22 juin 2026, susceptibles d'évoluer.",
     },
     en: {
-      title: 'Banks, energy, retail: why these sectors never reach the top quality score',
+      title: 'Stock sectors where top quality is almost unachievable',
       excerpt: "Out of 5,000+ companies analyzed, fewer than 60 reach the maximum quality score. Banks, energy, and large-scale retail are almost entirely absent. Data, structural reasons, and what it means for your portfolio.",
       metaDescription: "Why banks, energy producers, and large-scale retailers almost never reach the maximum quality score in the Lubin screener. Structural criteria analysis and notable exceptions.",
       answer: "Out of 5,000+ companies analyzed, fewer than 60 earn the maximum quality score. Banks, energy, and large-scale retail are almost entirely absent: massive leverage, razor-thin margins, and capex that consumes nearly all cash flow. This is not a value judgment on these sectors — it is a structural filter.",
@@ -27300,7 +27300,7 @@ const articleSecteursSans10: Article = {
       disclaimer: "This article is for informational and educational purposes only and does not constitute personalised investment advice. Past performance is not indicative of future results. Figures as of 22 June 2026, subject to change.",
     },
     es: {
-      title: 'Bancos, energía, gran distribución: por qué estos sectores no alcanzan la nota máxima de calidad',
+      title: 'Sectores bursátiles donde la máxima calidad es casi imposible',
       excerpt: "De más de 5.000 empresas analizadas, menos de 60 alcanzan la nota máxima de calidad. Bancos, energía y gran distribución están casi completamente ausentes de esa lista.",
       metaDescription: "Por qué los bancos, las empresas energéticas y la gran distribución casi nunca alcanzan la nota máxima de calidad en el screener Lubin. Análisis de criterios estructurales y excepciones notables.",
       answer: "De más de 5.000 empresas analizadas, menos de 60 obtienen la nota máxima de calidad. Bancos, energía y gran distribución están casi completamente ausentes: apalancamiento masivo, márgenes ínfimos y capex que consume prácticamente todo el flujo de caja.",
@@ -27336,7 +27336,7 @@ const articleDividendesMethode: Article = {
   readingTime: 5,
   content: {
     fr: {
-      title: 'Dividendes : pourquoi notre méthode de qualité ne les évalue pas (et ce que ça révèle)',
+      title: 'Dividendes : pourquoi notre méthode ne les évalue pas',
       excerpt: "Notre screener ne contient aucun critère dividende. Pourtant certaines de nos meilleures entreprises en versent. Ce paradoxe apparent révèle l'essentiel de l'approche Lubin : nous cherchons des générateurs de cash, pas des distributeurs de cash.",
       metaDescription: "Aucun critère dividende dans la méthode Lubin. Pas parce que les dividendes sont mauvais, mais parce qu'ils mesurent la distribution du cash, pas sa génération. Voici pourquoi la distinction change tout.",
       answer: "Notre méthode ne contient aucun critère dividende parce que le dividende mesure l'usage du cash, pas sa création. Une entreprise qui distribue 5 % de rendement mais génère peu de free cash flow est structurellement plus fragile qu'une entreprise qui ne verse rien mais compose son cash à 15 % par an. Nous évaluons la source, pas le robinet.",
@@ -27365,7 +27365,7 @@ const articleDividendesMethode: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: 'Dividends: why our quality method does not evaluate them (and what that reveals)',
+      title: 'Dividends: why our method does not evaluate them',
       excerpt: "Our screener contains zero dividend criteria. Yet some of our highest-rated companies pay dividends. This apparent paradox reveals the core of the Lubin approach: we look for cash generators, not cash distributors.",
       metaDescription: "No dividend criteria in the Lubin method. Not because dividends are bad, but because they measure cash distribution, not cash generation. Here is why the distinction changes everything.",
       answer: "Our method contains no dividend criteria because a dividend measures the use of cash, not its creation. A company distributing a 5% yield but generating little free cash flow is structurally weaker than one that pays nothing but compounds its cash at 15% per year. We evaluate the source, not the tap.",
@@ -27394,7 +27394,7 @@ const articleDividendesMethode: Article = {
       disclaimer: 'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research.',
     },
     es: {
-      title: 'Dividendos: por qué nuestro método de calidad no los evalúa (y lo que eso revela)',
+      title: 'Dividendos: por qué nuestro método no los evalúa',
       excerpt: "Nuestro screener no contiene ningún criterio de dividendo. Sin embargo, algunas de nuestras empresas mejor valoradas los pagan. Esta paradoja aparente revela la esencia del enfoque Lubin: buscamos generadores de caja, no distribuidores de caja.",
       metaDescription: "Ningún criterio de dividendo en el método Lubin. No porque los dividendos sean malos, sino porque miden la distribución del cash, no su generación.",
       answer: "Nuestro método no contiene ningún criterio de dividendo porque el dividendo mide el uso del cash, no su creación. Una empresa que distribuye un rendimiento del 5% pero genera poco flujo de caja libre es estructuralmente más débil que una que no paga nada pero compone su cash al 15% anual.",
@@ -27428,7 +27428,7 @@ const articleFCFCompose: Article = {
   readingTime: 6,
   content: {
     fr: {
-      title: "L'effet boule de neige du flux de trésorerie : ce que nos meilleures actions ont en commun",
+      title: "FCF composé : le secret des meilleures actions en bourse",
       excerpt: "Nos actions à note maximale partagent un point commun invisible dans les bilans : un flux de trésorerie disponible qui se réinvestit à haut rendement, année après année. L'effet boule de neige du FCF composé, expliqué avec données réelles.",
       metaDescription: "FCF composé : pourquoi Mastercard, Qualys et Kinsale Capital ont un flux de trésorerie disponible qui croît à 15-25 % par an. L'effet boule de neige expliqué avec données réelles.",
       answer: "Le FCF composé désigne la capacité d'une entreprise à générer du flux de trésorerie disponible, puis à le réinvestir à haut rendement pour en générer encore plus l'année suivante. Nos actions à note maximale — Mastercard, Qualys, Kinsale Capital — affichent toutes un FCF par action en croissance de 15 à 25 % par an sur cinq ans.",
@@ -27456,7 +27456,7 @@ const articleFCFCompose: Article = {
       disclaimer: "Article à but informatif et éducatif, pas un conseil en investissement personnalisé. Les données de croissance FCF citées sont des estimations à la date de rédaction. Les performances passées ne préjugent pas des performances futures.",
     },
     en: {
-      title: 'The snowball effect of free cash flow: what our top-rated stocks share',
+      title: 'Free cash flow compounding: what our best stocks share',
       excerpt: "Our highest-rated stocks share something invisible in their balance sheets: free cash flow that reinvests at high returns, year after year. The compounding FCF effect, explained with real data.",
       metaDescription: "Compounding FCF: why Mastercard, Qualys, and Kinsale Capital grow their free cash flow per share at 15-25% a year. The snowball effect explained with real data.",
       answer: "Compounding FCF means generating free cash flow, then reinvesting it at high returns to generate even more the following year. Our top-rated stocks — Mastercard, Qualys, Kinsale Capital — all show FCF per share growing at 15 to 25% a year over five years.",
@@ -27484,7 +27484,7 @@ const articleFCFCompose: Article = {
       disclaimer: 'Article for informational and educational purposes, not personalised investment advice. FCF growth figures cited are estimates as of the publication date. Past performance does not guarantee future results. Do your own research.',
     },
     es: {
-      title: 'El efecto bola de nieve del flujo de caja: lo que comparten nuestras mejores acciones',
+      title: 'El efecto bola de nieve del FCF: las mejores acciones en bolsa',
       excerpt: "Nuestras acciones con nota máxima comparten algo invisible en sus balances: un flujo de caja disponible que se reinvierte a alto rendimiento, año tras año. El efecto bola de nieve del FCF compuesto, explicado con datos reales.",
       metaDescription: "FCF compuesto: por qué Mastercard, Qualys y Kinsale Capital hacen crecer su flujo de caja disponible por acción un 15-25 % al año. El efecto bola de nieve explicado con datos reales.",
       answer: "El FCF compuesto es la capacidad de una empresa para generar flujo de caja disponible y reinvertirlo a altos rendimientos para generar aún más al año siguiente. Nuestras acciones con nota máxima — Mastercard, Qualys, Kinsale Capital — muestran todas un FCF por acción que crece entre el 15 y el 25 % anual durante cinco años.",
