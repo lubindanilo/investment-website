@@ -21731,7 +21731,2352 @@ const articleACGL: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL];
+const articleABNB: Article = {
+  slug: 'airbnb-abnb-analyse-fondamentale-marketplace-voyages',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'ABNB',
+  content: {
+    fr: {
+      title: 'Airbnb (ABNB) : la meilleure action du voyage en bourse',
+      excerpt:
+        'Airbnb est une marketplace mondiale des voyages qui ne possède aucun logement. Elle met en relation des millions d\'hôtes et de voyageurs partout dans le monde, génère un cash abondant sans jamais construire un seul immeuble, et affiche un score parfait dans mon screener. Voici pourquoi je la considère comme l\'une des plus belles actions du secteur.',
+      metaDescription:
+        'Airbnb (ABNB) : analyse fondamentale complète. Moat, modèle asset-light, génération de cash et risques. Mon avis sur cette action en bourse en 2026.',
+      answer:
+        'Airbnb est une marketplace des voyages qui met en relation hôtes et voyageurs dans 220 pays sans posséder un seul logement. Son modèle génère un cash structurellement élevé, ses effets de réseau créent un avantage difficile à attaquer, et elle affiche un score parfait dans mon analyse de qualité. La valorisation est élevée, mais le modèle le justifie.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Marketplace asset-light : Airbnb ne possède aucun bien immobilier, donc zéro capex immobilier et une génération de cash exceptionnelle.',
+            'Effets de réseau bilatéraux : plus d\'hôtes attirent plus de voyageurs, qui attirent plus d\'hôtes. Ce cercle vertueux est très difficile à briser.',
+            'Score parfait 10/10 dans mon screener de qualité, avec une marge de free cash flow supérieure à 30 %.',
+            'Risques réels : réglementation hostile dans plusieurs grandes villes, concurrence de Booking et Vrbo, sensibilité aux cycles économiques.',
+            'Valorisation élevée mais justifiée par le modèle, pas par la spéculation : comparer Airbnb à un hôtelier classique est une erreur de cadrage.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce qu\'Airbnb fait vraiment (et pourquoi ça change tout)',
+        },
+        {
+          type: 'p',
+          text: 'La première fois que j\'ai analysé Airbnb, j\'ai failli commettre l\'erreur classique : la comparer aux chaînes hôtelières. Ce serait comme comparer Visa aux banques. Airbnb n\'est pas un hôtelier. C\'est une place de marché, une marketplace, qui connecte deux groupes : des hôtes qui louent leur logement, et des voyageurs qui cherchent où dormir. Airbnb ne possède aucun appartement, aucune villa, aucun chalet. Elle est simplement l\'infrastructure qui fait se rencontrer l\'offre et la demande, et elle prélève une commission à chaque transaction. Résultat : pas de dette immobilière, pas de charges d\'entretien, pas de propriétés à valoriser ou à déprécier. Juste du cash.',
+        },
+        {
+          type: 'p',
+          text: 'Ce modèle a un nom dans le monde de la finance : « asset-light », littéralement « léger en actifs ». Une entreprise asset-light n\'a pas besoin d\'investir massivement pour grandir. Elle croît essentiellement grâce à son réseau et à sa marque, non grâce à des entrepôts ou des immeubles. Et quand on n\'a pas à financer de la pierre, le cash que l\'activité génère reste dans les comptes de l\'entreprise, disponible pour racheter des actions, rembourser de la dette, ou investir dans le produit. C\'est l\'une des configurations les plus favorables qui existent pour un actionnaire.',
+        },
+        {
+          type: 'h2',
+          text: 'Le moat d\'Airbnb : pourquoi c\'est si difficile à copier',
+        },
+        {
+          type: 'p',
+          text: 'Le « moat » (prononcé « moute ») est un terme emprunté à Warren Buffett. Il désigne le fossé concurrentiel d\'une entreprise : tout ce qui empêche un rival de lui prendre ses clients. Plus le fossé est large et profond, plus l\'avantage est durable. Pour Airbnb, ce fossé repose sur ce qu\'on appelle des effets de réseau bilatéraux. Voici comment ça fonctionne : plus il y a d\'hôtes sur la plateforme, plus l\'offre de logements est diversifiée et attractive pour les voyageurs. Plus les voyageurs affluent, plus les hôtes ont intérêt à proposer leurs biens sur Airbnb plutôt qu\'ailleurs. Ce cercle vertueux se renforce lui-même. Aujourd\'hui, Airbnb compte plus de 5 millions d\'hôtes actifs et plus de 150 millions de voyageurs dans 220 pays. Pour un concurrent qui partirait de zéro, reconstituer ce réseau prendrait des années et des dizaines de milliards de dollars. C\'est le type de barrière à l\'entrée que j\'aime trouver quand j\'analyse une action.',
+        },
+        {
+          type: 'p',
+          text: 'À cela s\'ajoute la marque. Airbnb est devenu un verbe dans certaines langues : on « airbnb » un logement comme on « google » une information. Cette notoriété mondiale réduit drastiquement le coût d\'acquisition de nouveaux utilisateurs. L\'entreprise n\'a pas besoin de dépenser des fortunes en publicité pour être connue. Chaque nouveau voyage réussi devient une recommandation organique. C\'est un actif immatériel considérable, et il ne figure nulle part au bilan.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment je note la qualité d\'une action : la méthode',
+        },
+        {
+          type: 'p',
+          text: 'Quand j\'analyse une action, je commence toujours par une question : est-ce une bonne entreprise ? Et seulement ensuite : est-ce le bon prix ? Ces deux questions sont complètement indépendantes, et les mélanger est l\'erreur numéro un des investisseurs débutants. Pour mesurer la qualité, j\'utilise un ensemble de critères financiers objectifs que j\'ai regroupés dans un screener : la croissance des revenus, la rentabilité, la marge de free cash flow, l\'endettement, et les rachats d\'actions. Airbnb obtient un score de 10/10, ce qui signifie qu\'elle passe tous mes filtres de qualité.',
+        },
+        {
+          type: 'p',
+          text: 'Le critère qui me frappe le plus chez Airbnb, c\'est sa marge de free cash flow. Le free cash flow, c\'est l\'argent qui reste réellement dans les comptes de l\'entreprise après avoir tout payé : les salaires, les investissements, les impôts, les charges. C\'est plus difficile à maquiller que le bénéfice comptable, et c\'est pour ça que je m\'y fie davantage. Airbnb affiche une marge de free cash flow supérieure à 30 %. Concrètement, sur 100 euros de revenus, plus de 30 finissent en cash disponible. Pour comparaison, la plupart des entreprises considérées comme très rentables plafonnent autour de 15 à 20 %. Airbnb est dans une catégorie à part.',
+        },
+        {
+          type: 'h2',
+          text: 'Les chiffres qui comptent vraiment',
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Airbnb (ABNB)', 'Repère sectoriel'],
+          rows: [
+            ['Marge de free cash flow', '> 30 %', '~ 10-15 % (hôtellerie classique)'],
+            ['Croissance des revenus', '10-15 % / an', 'Variable selon cycle'],
+            ['Dette nette', 'Quasi nulle', 'Élevée chez les hôteliers'],
+            ['Capex immobilier', '0 €', 'Très élevé (hôtels, complexes)'],
+            ['Score de qualité', '10/10', 'Rare au-dessus de 8'],
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Ce tableau illustre quelque chose d\'important : comparer Airbnb à un Marriott ou un Hilton sur la seule base du prix de l\'action n\'a aucun sens. Ces entreprises n\'ont pas le même modèle économique. Un hôtelier doit financer ses immeubles, entretenir ses propriétés, payer des charges fixes lourdes même quand les chambres sont vides. Airbnb n\'a aucune de ces contraintes. Son capital est immatériel : la confiance, la marque, et le code informatique qui fait tourner la plateforme.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : élevée, mais est-ce justifié ?',
+        },
+        {
+          type: 'p',
+          text: 'Pour mesurer ce que le marché accepte de payer pour une action, j\'utilise le P/FCF : le price-to-free-cash-flow. C\'est simplement le prix de l\'action divisé par le free cash flow qu\'elle génère chaque année. Un P/FCF de 20 signifie que tu paies aujourd\'hui vingt années de ce cash. Plus le ratio est bas, moins l\'action est chère. Plus il est élevé, plus le marché anticipe une forte croissance future, ou bien paye simplement trop cher.',
+        },
+        {
+          type: 'p',
+          text: 'Airbnb affiche un P/FCF d\'environ 27,6 fois, pour une capitalisation boursière d\'environ 90 milliards de dollars. C\'est une valorisation élevée, clairement. Mais avant de dire « trop cher » ou « pas cher », il faut se poser la bonne question : qu\'est-ce qui justifie cette valorisation ? Un hôtelier classique avec les mêmes revenus aurait une valorisation bien inférieure, parce que son capital est immobilisé dans la pierre, sa croissance est lente, et sa marge de cash est bien plus faible. Airbnb, elle, n\'a pas de biens immobiliers. Chaque euro de croissance des revenus se traduit presque directement en cash supplémentaire. Le marché paie une prime pour ce modèle, et selon moi, cette prime est rationnelle.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques : ce que je surveille vraiment',
+        },
+        {
+          type: 'p',
+          text: 'Je n\'ai jamais présenté une action sans parler des risques. Ce serait malhonnête. Pour Airbnb, il y en a plusieurs que je prends au sérieux. Le premier, c\'est la réglementation. Amsterdam, New York, Barcelone ont déjà imposé des restrictions sévères sur la location courte durée. D\'autres villes pourraient suivre. Ce risque est réel et structurel : Airbnb dépend de politiques locales sur lesquelles elle n\'a aucun contrôle. Chaque nouvelle restriction dans une grande ville réduit l\'offre disponible et peut fragiliser la croissance.',
+        },
+        {
+          type: 'p',
+          text: 'Le deuxième risque, c\'est la concurrence. Booking Holdings et Vrbo ne sont pas des concurrents négligeables. Booking notamment dispose d\'un réseau mondial très dense et d\'une force de frappe marketing considérable. La guerre des commissions et des offres promotionnelles peut peser sur les marges d\'Airbnb. Le troisième risque est macroéconomique : les voyages de loisirs sont sensibles aux cycles économiques. En période de récession, les gens voyagent moins, et les revenus d\'Airbnb en pâtissent directement. Enfin, il y a une critique sociale croissante : l\'impact des locations courtes durées sur le marché du logement dans les grandes villes crée des tensions politiques qui nourrissent la réglementation.',
+        },
+        {
+          type: 'h2',
+          text: 'Mon avis tranché sur Airbnb en 2026',
+        },
+        {
+          type: 'p',
+          text: 'Airbnb est l\'une des rares entreprises qui combinent un avantage concurrentiel structurel (les effets de réseau), un modèle sans actifs lourds, et une génération de cash parmi les meilleures de son secteur. Les risques existent, notamment réglementaires, mais ils sont connus et partiellement pricés par le marché. La valorisation est élevée au regard des hôteliers classiques, mais c\'est une erreur de cadrage : Airbnb est une technologie, pas un hôtel. La vraie question n\'est pas « est-ce cher ? » mais « à quel rythme cette machine à cash va-t-elle continuer de croître ? ».',
+        },
+        {
+          type: 'p',
+          text: 'C\'est exactement le type d\'analyse que j\'essaie de faire systématiquement : séparer la qualité du business de son prix, comprendre le modèle avant de regarder le multiple, et ne jamais confondre un secteur avec une entreprise. Si tu veux voir comment Airbnb se compare à d\'autres actions dans mon screener, j\'ai construit un outil pour ça.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Pourquoi Airbnb est-elle considérée comme une action technologique et non hôtelière ?',
+          a: 'Parce qu\'Airbnb ne possède aucun logement. Elle est une plateforme de mise en relation, comme Visa dans les paiements. Son capital est immatériel : marque, réseau, logiciel. Elle ne supporte donc ni les coûts ni les risques de l\'immobilier physique, ce qui la rapproche bien plus d\'une entreprise tech que d\'une chaîne d\'hôtels.',
+        },
+        {
+          q: 'C\'est quoi le free cash flow, et pourquoi c\'est important ?',
+          a: 'Le free cash flow, c\'est l\'argent qui reste réellement dans les comptes de l\'entreprise après avoir tout payé : salaires, investissements, charges, impôts. C\'est plus difficile à manipuler que le bénéfice comptable. Pour un investisseur, c\'est le vrai indicateur de la santé financière d\'un business.',
+        },
+        {
+          q: 'Les restrictions dans des villes comme Amsterdam ou Barcelone sont-elles un danger mortel pour Airbnb ?',
+          a: 'Ce risque est réel mais à nuancer. Ces restrictions concernent des marchés matures et denses, pas l\'ensemble du réseau mondial d\'Airbnb. La croissance vient aujourd\'hui davantage de marchés émergents et de destinations rurales moins exposées à ces politiques. C\'est un risque à surveiller, pas une thèse brisée.',
+        },
+        {
+          q: 'Un P/FCF de 27,6 fois, c\'est cher ou pas ?',
+          a: 'Le P/FCF mesure ce que le marché paie pour chaque euro de cash généré. À 27,6 fois, c\'est élevé en valeur absolue. Mais cette prime se justifie par un modèle asset-light avec des effets de réseau, une marge de cash supérieure à 30 %, et une croissance de 10-15 % par an. Comparer ce multiple à celui d\'un hôtelier classique n\'a pas de sens : les modèles économiques sont fondamentalement différents.',
+        },
+        {
+          q: 'Comment Airbnb utilise-t-elle son cash ?',
+          a: 'Principalement en rachats d\'actions, ce qui est un signal de confiance du management : quand une entreprise rachète ses propres titres, elle dit en substance « notre action est sous-évaluée par rapport à ce que nous valons ». Airbnb n\'a pas non plus de dette nette significative, ce qui lui laisse toute la flexibilité nécessaire pour investir ou résister à un choc économique.',
+        },
+      ],
+      tags: [
+        'Airbnb',
+        'ABNB',
+        'action bourse',
+        'marketplace',
+        'analyse fondamentale',
+        'free cash flow',
+        'effets de réseau',
+        'travel tech',
+        'investissement',
+      ],
+      disclaimer:
+        'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres sont ceux disponibles à la date de publication et peuvent évoluer. Fais tes propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'Airbnb (ABNB) : the best travel stock to own in 2026',
+      excerpt:
+        'Airbnb is a global travel marketplace that owns zero properties. It connects millions of hosts and travelers across 220 countries, generates exceptional cash without ever building a single room, and scores a perfect 10/10 in my quality screener. Here is why I consider it one of the finest businesses in its sector.',
+      metaDescription:
+        'Airbnb (ABNB): complete fundamental analysis. Moat, asset-light model, cash generation and risks. My view on this stock in 2026.',
+      answer:
+        'Airbnb is a travel marketplace connecting hosts and travelers in 220 countries without owning a single property. Its model generates structurally high cash flow, its network effects create a durable competitive advantage, and it scores perfectly in my quality analysis. Valuation is elevated, but the business model fully justifies it.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Asset-light marketplace: Airbnb owns no real estate, meaning zero property capex and exceptional cash generation.',
+            'Bilateral network effects: more hosts attract more travelers, who attract more hosts. This virtuous cycle is extremely hard to disrupt.',
+            'Perfect 10/10 score in my quality screener, with a free cash flow margin above 30%.',
+            'Real risks: hostile regulation in several major cities, competition from Booking and Vrbo, sensitivity to economic cycles.',
+            'Elevated but justified valuation: comparing Airbnb to a traditional hotel chain is a fundamental framing error.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What Airbnb actually does (and why it changes everything)',
+        },
+        {
+          type: 'p',
+          text: 'The first time I analyzed Airbnb, I nearly made the classic mistake: comparing it to hotel chains. That would be like comparing Visa to banks. Airbnb is not a hotelier. It is a marketplace that connects two groups: hosts who rent out their properties, and travelers looking for a place to stay. Airbnb owns no apartments, no villas, no cabins. It is simply the infrastructure that brings supply and demand together, taking a commission on every transaction. The result: no property debt, no maintenance costs, no assets to depreciate. Just cash.',
+        },
+        {
+          type: 'p',
+          text: 'This model has a name in finance: "asset-light." An asset-light company does not need to invest heavily to grow. It scales primarily through its network and brand, not through warehouses or buildings. And when you do not have to finance physical property, the cash the business generates stays on the balance sheet, available to buy back shares, reduce debt, or invest in the product. This is one of the most favorable configurations that can exist for a shareholder.',
+        },
+        {
+          type: 'h2',
+          text: 'Airbnb\'s moat: why it is so hard to replicate',
+        },
+        {
+          type: 'p',
+          text: 'A "moat" is a term borrowed from Warren Buffett. It refers to a company\'s competitive advantage: everything that prevents a rival from stealing its customers. The wider and deeper the moat, the more durable the advantage. For Airbnb, this moat rests on what are called bilateral network effects. Here is how they work: the more hosts join the platform, the more diverse and attractive the inventory becomes for travelers. The more travelers arrive, the more incentive hosts have to list on Airbnb rather than elsewhere. This virtuous cycle reinforces itself continuously. Today, Airbnb has over 5 million active hosts and more than 150 million travelers across 220 countries. For a competitor starting from scratch, rebuilding this network would take years and tens of billions of dollars. That is exactly the kind of barrier to entry I look for when analyzing a stock.',
+        },
+        {
+          type: 'p',
+          text: 'On top of that, there is the brand. Airbnb has become a verb in several languages. This global recognition dramatically reduces the cost of acquiring new users. The company does not need to spend fortunes on advertising to be known. Every successful trip becomes an organic recommendation. That is a significant intangible asset, and it appears nowhere on the balance sheet.',
+        },
+        {
+          type: 'h2',
+          text: 'How I rate stock quality: the method',
+        },
+        {
+          type: 'p',
+          text: 'When I analyze a stock, I always start with one q: is this a great business? And only then: is this the right price? These two questions are completely independent, and mixing them up is the number one mistake beginner investors make. To measure quality, I use a set of objective financial criteria in my screener: revenue growth, profitability, free cash flow margin, debt levels, and share buybacks. Airbnb scores 10/10, meaning it passes every single one of my quality filters.',
+        },
+        {
+          type: 'p',
+          text: 'The metric that stands out most to me for Airbnb is its free cash flow margin. Free cash flow is the money that actually stays in the company\'s accounts after paying everything: salaries, capital expenditures, taxes, operating costs. It is harder to manipulate than accounting profit, which is why I rely on it more. Airbnb posts a free cash flow margin above 30%. In concrete terms, for every 100 dollars of revenue, more than 30 end up as available cash. For comparison, most companies considered highly profitable max out around 15 to 20%. Airbnb is in a category of its own.',
+        },
+        {
+          type: 'h2',
+          text: 'The numbers that actually matter',
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Airbnb (ABNB)', 'Sector benchmark'],
+          rows: [
+            ['Free cash flow margin', '> 30%', '~ 10-15% (traditional hotels)'],
+            ['Revenue growth', '10-15% / year', 'Variable with economic cycle'],
+            ['Net debt', 'Near zero', 'High for traditional hoteliers'],
+            ['Property capex', '$0', 'Very high (hotels, resorts)'],
+            ['Quality score', '10/10', 'Rarely above 8'],
+          ],
+        },
+        {
+          type: 'p',
+          text: 'This table illustrates something important: comparing Airbnb to a Marriott or Hilton based solely on the stock price makes no sense. These companies do not share the same business model. A hotel operator must finance its buildings, maintain its properties, and pay heavy fixed costs even when rooms sit empty. Airbnb faces none of those constraints. Its capital is intangible: trust, brand, and the software running the platform.',
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: elevated, but is it justified?',
+        },
+        {
+          type: 'p',
+          text: 'To measure what the market is willing to pay for a stock, I use the P/FCF, or price-to-free-cash-flow ratio. It is simply the stock price divided by the free cash flow the company generates each year. A P/FCF of 20 means you are paying twenty years worth of that cash today. The lower the ratio, the cheaper the stock. The higher it is, the more the market is pricing in strong future growth, or simply overpaying.',
+        },
+        {
+          type: 'p',
+          text: 'Airbnb trades at a P/FCF of roughly 27.6 times, with a market capitalization of around 90 billion dollars. That is a high valuation, clearly. But before saying "too expensive" or "cheap," you have to ask the right q: what justifies this valuation? A traditional hotelier with the same revenues would trade at a much lower multiple, because its capital is tied up in physical assets, its growth is slow, and its cash margins are far thinner. Airbnb, by contrast, has no real estate. Every dollar of revenue growth translates almost directly into additional cash. The market pays a premium for this model, and in my view, that premium is rational.',
+        },
+        {
+          type: 'h2',
+          text: 'The risks: what I actually watch',
+        },
+        {
+          type: 'p',
+          text: 'I have never presented a stock without discussing risks. That would be dishonest. For Airbnb, there are several I take seriously. The first is regulation. Amsterdam, New York, and Barcelona have already imposed strict limits on short-term rentals. Other cities could follow. This risk is real and structural: Airbnb depends on local policies it cannot control. Every new restriction in a major city reduces available supply and can weigh on growth.',
+        },
+        {
+          type: 'p',
+          text: 'The second risk is competition. Booking Holdings and Vrbo are not negligible competitors. Booking in particular has an extremely dense global network and enormous marketing firepower. A commission war and promotional spending can pressure Airbnb\'s margins. The third risk is macroeconomic: leisure travel is sensitive to economic cycles. In a recession, people travel less, and Airbnb\'s revenues take a direct hit. Finally, there is a growing social critique: the impact of short-term rentals on housing markets in major cities is generating political tensions that feed regulatory pressure.',
+        },
+        {
+          type: 'h2',
+          text: 'My clear take on Airbnb in 2026',
+        },
+        {
+          type: 'p',
+          text: 'Airbnb is one of the rare companies that combines a structural competitive advantage (network effects), a capital-light model, and among the best cash generation in its sector. Risks exist, particularly regulatory ones, but they are known and partially priced in by the market. Valuation is elevated compared to traditional hoteliers, but that is a framing error: Airbnb is a technology platform, not a hotel. The real question is not "is it expensive?" but "at what pace will this cash machine continue to grow?".',
+        },
+        {
+          type: 'p',
+          text: 'This is exactly the kind of analysis I try to do systematically: separating business quality from price, understanding the model before looking at the multiple, and never conflating a sector with a company. If you want to see how Airbnb compares to other stocks in my screener, I built a tool for that.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Why is Airbnb considered a technology stock and not a hotel stock?',
+          a: 'Because Airbnb owns no properties. It is a matchmaking platform, similar to Visa in payments. Its capital is intangible: brand, network, software. It bears neither the costs nor the risks of physical real estate, which makes it far closer to a tech company than a hotel chain.',
+        },
+        {
+          q: 'What is free cash flow and why does it matter?',
+          a: 'Free cash flow is the money that actually remains in a company\'s accounts after paying everything: salaries, capital expenditures, taxes, and operating costs. It is harder to manipulate than accounting earnings. For an investor, it is the true indicator of a business\'s financial health.',
+        },
+        {
+          q: 'Are restrictions in cities like Amsterdam or Barcelona a fatal threat to Airbnb?',
+          a: 'This risk is real but worth contextualizing. These restrictions affect mature, dense urban markets, not Airbnb\'s entire global network. Growth is increasingly coming from emerging markets and rural destinations that are far less exposed to such policies. It is a risk to monitor, not a broken thesis.',
+        },
+        {
+          q: 'Is a P/FCF of 27.6 times expensive or not?',
+          a: 'The P/FCF measures what the market pays for each dollar of cash generated. At 27.6 times, it is elevated in absolute terms. But this premium is supported by an asset-light model with network effects, a cash margin above 30%, and revenue growth of 10-15% per year. Comparing this multiple to that of a traditional hotelier simply does not make sense: the business models are fundamentally different.',
+        },
+        {
+          q: 'How does Airbnb use its cash?',
+          a: 'Primarily through share buybacks, which signal management confidence: when a company buys back its own stock, it is essentially saying "our shares are undervalued relative to what we are worth." Airbnb also carries virtually no net debt, giving it full flexibility to invest or withstand an economic shock.',
+        },
+      ],
+      tags: [
+        'Airbnb',
+        'ABNB',
+        'stock',
+        'marketplace',
+        'fundamental analysis',
+        'free cash flow',
+        'network effects',
+        'travel tech',
+        'investing',
+      ],
+      disclaimer:
+        'This analysis is for informational and educational purposes only, and does not constitute personalized investment advice. Past performance is not indicative of future results. Figures are as of the publication date and may change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'Airbnb (ABNB) : la mejor acción del sector viajes en bolsa',
+      excerpt:
+        'Airbnb es un marketplace mundial de viajes que no posee ningún alojamiento. Conecta a millones de anfitriones y viajeros en 220 países, genera un flujo de caja excepcional sin construir una sola habitación, y obtiene una puntuación perfecta en mi análisis de calidad. Te explico por qué la considero una de las mejores empresas del sector.',
+      metaDescription:
+        'Airbnb (ABNB): análisis fundamental completo. Ventaja competitiva, modelo asset-light, generación de caja y riesgos. Mi opinión sobre esta acción en bolsa en 2026.',
+      answer:
+        'Airbnb es un marketplace de viajes que conecta anfitriones y viajeros en 220 países sin poseer ningún alojamiento. Su modelo genera un flujo de caja estructuralmente muy elevado, sus efectos de red crean una ventaja competitiva difícil de atacar, y obtiene una puntuación perfecta en mi análisis de calidad. La valoración es alta, pero el modelo lo justifica plenamente.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Marketplace asset-light: Airbnb no posee ningún bien inmobiliario, por lo que tiene cero capex inmobiliario y una generación de caja excepcional.',
+            'Efectos de red bilaterales: más anfitriones atraen más viajeros, que atraen más anfitriones. Este círculo virtuoso es muy difícil de romper.',
+            'Puntuación perfecta de 10/10 en mi screener de calidad, con un margen de free cash flow superior al 30%.',
+            'Riesgos reales: regulación restrictiva en varias grandes ciudades, competencia de Booking y Vrbo, sensibilidad a los ciclos económicos.',
+            'Valoración elevada pero justificada por el modelo: comparar Airbnb con un hotelero clásico es un error de enfoque.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente Airbnb (y por qué cambia todo)',
+        },
+        {
+          type: 'p',
+          text: 'La primera vez que analicé Airbnb, estuve a punto de cometer el error clásico: compararla con las cadenas hoteleras. Sería como comparar Visa con los bancos. Airbnb no es una hotelera. Es un marketplace, una plataforma de intercambio, que conecta a dos grupos: anfitriones que alquilan sus alojamientos y viajeros que buscan dónde dormir. Airbnb no posee ningún apartamento, ninguna villa, ninguna cabaña. Es simplemente la infraestructura que hace que la oferta y la demanda se encuentren, y cobra una comisión en cada transacción. El resultado: cero deuda inmobiliaria, cero costes de mantenimiento, ningún activo que depreciar. Solo caja.',
+        },
+        {
+          type: 'p',
+          text: 'Este modelo tiene un nombre en el mundo financiero: "asset-light", literalmente "ligero en activos". Una empresa asset-light no necesita invertir masivamente para crecer. Escala principalmente a través de su red y su marca, no a través de almacenes o edificios. Y cuando no tienes que financiar propiedades físicas, el dinero que genera el negocio se queda en las cuentas de la empresa, disponible para recomprar acciones, reducir deuda o invertir en el producto. Es una de las configuraciones más favorables que pueden existir para un accionista.',
+        },
+        {
+          type: 'h2',
+          text: 'El moat de Airbnb: por qué es tan difícil de copiar',
+        },
+        {
+          type: 'p',
+          text: 'El "moat" (foso competitivo) es un término tomado de Warren Buffett. Designa la ventaja competitiva de una empresa: todo lo que impide a un rival quitarle sus clientes. Cuanto más amplio y profundo sea el foso, más duradera será la ventaja. Para Airbnb, este foso se basa en los llamados efectos de red bilaterales. Así funcionan: cuantos más anfitriones haya en la plataforma, más diversa y atractiva es la oferta de alojamientos para los viajeros. Cuantos más viajeros lleguen, más incentivo tienen los anfitriones para publicar sus propiedades en Airbnb en lugar de en otros sitios. Este círculo virtuoso se refuerza continuamente. Hoy, Airbnb cuenta con más de 5 millones de anfitriones activos y más de 150 millones de viajeros en 220 países. Para un competidor que partiera de cero, reconstruir esta red llevaría años y decenas de miles de millones de dólares. Ese es exactamente el tipo de barrera de entrada que me gusta encontrar cuando analizo una acción.',
+        },
+        {
+          type: 'p',
+          text: 'A esto se suma la marca. Airbnb se ha convertido en un verbo en varios idiomas. Este reconocimiento mundial reduce drásticamente el coste de captación de nuevos usuarios. La empresa no necesita gastar fortunas en publicidad para ser conocida. Cada viaje exitoso se convierte en una recomendación orgánica. Es un activo intangible considerable que no aparece en ningún balance.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo evalúo la calidad de una acción: el método',
+        },
+        {
+          type: 'p',
+          text: 'Cuando analizo una acción, siempre empiezo con una pregunta: ¿es un gran negocio? Y solo después: ¿es el precio correcto? Estas dos preguntas son completamente independientes, y mezclarlas es el error número uno de los inversores principiantes. Para medir la calidad, utilizo un conjunto de criterios financieros objetivos en mi screener: crecimiento de ingresos, rentabilidad, margen de free cash flow, niveles de deuda y recompra de acciones. Airbnb obtiene una puntuación de 10/10, lo que significa que supera todos mis filtros de calidad.',
+        },
+        {
+          type: 'p',
+          text: 'La métrica que más me llama la atención de Airbnb es su margen de free cash flow. El free cash flow es el dinero que realmente queda en las cuentas de la empresa después de pagar todo: salarios, inversiones, impuestos y gastos operativos. Es más difícil de manipular que el beneficio contable, por eso confío más en él. Airbnb registra un margen de free cash flow superior al 30%. En términos concretos, por cada 100 euros de ingresos, más de 30 acaban como caja disponible. Para comparar, la mayoría de las empresas consideradas muy rentables rondan el 15-20%. Airbnb está en una categoría aparte.',
+        },
+        {
+          type: 'h2',
+          text: 'Los números que realmente importan',
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Airbnb (ABNB)', 'Referencia sectorial'],
+          rows: [
+            ['Margen de free cash flow', '> 30%', '~ 10-15% (hotelería clásica)'],
+            ['Crecimiento de ingresos', '10-15% / año', 'Variable según ciclo económico'],
+            ['Deuda neta', 'Casi nula', 'Elevada en hoteleros tradicionales'],
+            ['Capex inmobiliario', '0 €', 'Muy elevado (hoteles, complejos)'],
+            ['Puntuación de calidad', '10/10', 'Raramente por encima de 8'],
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Esta tabla ilustra algo importante: comparar Airbnb con un Marriott o un Hilton basándose únicamente en el precio de la acción no tiene ningún sentido. Estas empresas no comparten el mismo modelo de negocio. Un hotelero tradicional debe financiar sus edificios, mantener sus propiedades y pagar elevados costes fijos incluso cuando las habitaciones están vacías. Airbnb no tiene ninguna de esas restricciones. Su capital es intangible: confianza, marca y el software que hace funcionar la plataforma.',
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: elevada, pero ¿justificada?',
+        },
+        {
+          type: 'p',
+          text: 'Para medir lo que el mercado está dispuesto a pagar por una acción, uso el P/FCF (price-to-free-cash-flow): el precio de la acción dividido entre el free cash flow que genera cada año. Un P/FCF de 20 significa que hoy estás pagando veinte años de ese flujo de caja. Cuanto más bajo sea el ratio, más barata está la acción. Cuanto más alto, más está el mercado anticipando un fuerte crecimiento futuro, o simplemente pagando demasiado.',
+        },
+        {
+          type: 'p',
+          text: 'Airbnb cotiza con un P/FCF de aproximadamente 27,6 veces, con una capitalización bursátil de unos 90.000 millones de dólares. Es una valoración elevada, está claro. Pero antes de decir "demasiado cara" o "barata", hay que hacerse la pregunta correcta: ¿qué justifica esta valoración? Un hotelero tradicional con los mismos ingresos cotizaría a un múltiplo mucho inferior, porque su capital está inmovilizado en activos físicos, su crecimiento es lento y sus márgenes de caja son mucho más estrechos. Airbnb, en cambio, no tiene inmuebles. Cada euro de crecimiento de ingresos se traduce casi directamente en caja adicional. El mercado paga una prima por este modelo y, en mi opinión, esa prima es racional.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos: lo que realmente vigilo',
+        },
+        {
+          type: 'p',
+          text: 'Nunca he presentado una acción sin hablar de los riesgos. Sería deshonesto. Para Airbnb, hay varios que me tomo en serio. El primero es la regulación. Ámsterdam, Nueva York y Barcelona ya han impuesto restricciones severas al alquiler de corta duración. Otras ciudades podrían seguir. Este riesgo es real y estructural: Airbnb depende de políticas locales sobre las que no tiene ningún control. Cada nueva restricción en una gran ciudad reduce la oferta disponible y puede lastrar el crecimiento.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo riesgo es la competencia. Booking Holdings y Vrbo no son competidores despreciables. Booking en particular dispone de una red global muy densa y una gran capacidad de inversión en marketing. La guerra de comisiones y el gasto promocional pueden presionar los márgenes de Airbnb. El tercer riesgo es macroeconómico: los viajes de ocio son sensibles a los ciclos económicos. En una recesión, la gente viaja menos y los ingresos de Airbnb se resienten directamente. Por último, existe una crítica social creciente: el impacto del alquiler de corta duración en el mercado inmobiliario de las grandes ciudades genera tensiones políticas que alimentan la presión regulatoria.',
+        },
+        {
+          type: 'h2',
+          text: 'Mi opinión clara sobre Airbnb en 2026',
+        },
+        {
+          type: 'p',
+          text: 'Airbnb es una de las pocas empresas que combina una ventaja competitiva estructural (los efectos de red), un modelo sin activos pesados y una de las mejores generaciones de caja de su sector. Los riesgos existen, especialmente los regulatorios, pero son conocidos y parcialmente descontados por el mercado. La valoración es elevada en comparación con los hoteleros clásicos, pero eso es un error de enfoque: Airbnb es una plataforma tecnológica, no un hotel. La verdadera pregunta no es "¿está cara?" sino "¿a qué ritmo seguirá creciendo esta máquina de generar caja?".',
+        },
+        {
+          type: 'p',
+          text: 'Este es exactamente el tipo de análisis que intento hacer sistemáticamente: separar la calidad del negocio de su precio, entender el modelo antes de mirar el múltiplo, y nunca confundir un sector con una empresa. Si quieres ver cómo se compara Airbnb con otras acciones en mi screener, he creado una herramienta para eso.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Por qué Airbnb se considera una acción tecnológica y no hotelera?',
+          a: 'Porque Airbnb no posee ningún alojamiento. Es una plataforma de conexión, similar a Visa en los pagos. Su capital es intangible: marca, red y software. No soporta ni los costes ni los riesgos del inmueble físico, lo que la aproxima mucho más a una empresa tech que a una cadena hotelera.',
+        },
+        {
+          q: '¿Qué es el free cash flow y por qué importa?',
+          a: 'El free cash flow es el dinero que realmente queda en las cuentas de la empresa después de pagar todo: salarios, inversiones, impuestos y gastos operativos. Es más difícil de manipular que el beneficio contable. Para un inversor, es el verdadero indicador de la salud financiera de un negocio.',
+        },
+        {
+          q: '¿Las restricciones en ciudades como Ámsterdam o Barcelona son una amenaza fatal para Airbnb?',
+          a: 'Este riesgo es real pero hay que matizarlo. Estas restricciones afectan a mercados maduros y densos, no a toda la red global de Airbnb. El crecimiento proviene cada vez más de mercados emergentes y destinos rurales mucho menos expuestos a estas políticas. Es un riesgo que hay que vigilar, no una tesis rota.',
+        },
+        {
+          q: '¿Un P/FCF de 27,6 veces es caro o no?',
+          a: 'El P/FCF mide lo que paga el mercado por cada euro de caja generada. A 27,6 veces, es elevado en términos absolutos. Pero esta prima está respaldada por un modelo asset-light con efectos de red, un margen de caja superior al 30% y un crecimiento de ingresos del 10-15% anual. Comparar este múltiplo con el de un hotelero clásico simplemente no tiene sentido: los modelos de negocio son fundamentalmente distintos.',
+        },
+        {
+          q: '¿Cómo utiliza Airbnb su caja?',
+          a: 'Principalmente a través de recompras de acciones, lo que es una señal de confianza del equipo directivo: cuando una empresa recompra sus propios títulos, está diciendo en esencia "nuestras acciones están infravaloradas respecto a lo que valemos". Airbnb tampoco tiene prácticamente deuda neta, lo que le da toda la flexibilidad necesaria para invertir o resistir un choque económico.',
+        },
+      ],
+      tags: [
+        'Airbnb',
+        'ABNB',
+        'acción bolsa',
+        'marketplace',
+        'análisis fundamental',
+        'free cash flow',
+        'efectos de red',
+        'travel tech',
+        'inversión',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no constituye asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Las cifras corresponden a la fecha de publicación y pueden cambiar. Realiza tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleAPP: Article = {
+  slug: 'applovin-app-analyse-fondamentale-ia-mobile',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'APP',
+  content: {
+    fr: {
+      title: 'AppLovin (APP) : l\'action IA qui domine la pub mobile',
+      excerpt: 'AppLovin a multiplié son free cash flow par plus de dix en trois ans grâce à son moteur d\'intelligence artificielle AXON. Voici pourquoi cette entreprise obtient un score parfait dans notre analyse, et comment je lis sa valorisation élevée sans me raconter d\'histoires.',
+      metaDescription: 'Analyse fondamentale de l\'action AppLovin (APP) : moteur IA AXON, free cash flow en explosion, moat publicitaire mobile. Score parfait dans notre screener en 2026.',
+      answer: 'AppLovin est une machine à cash construite autour d\'un moteur d\'intelligence artificielle propriétaire qui optimise la publicité mobile mieux que Google ou Meta dans ce segment. Sa marge de free cash flow dépasse 50 % et sa croissance a été de plus de 100 % par an récemment. La valorisation est élevée, mais la qualité du business la justifie en grande partie. Voici comment j\'analyse cette action.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Moteur IA AXON : avantage concurrentiel propriétaire sur la publicité mobile',
+            'Marge de free cash flow supérieure à 50 %, croissance explosive du cash',
+            'Effets de réseau : plus de données, meilleur algorithme, plus d\'annonceurs',
+            'Score parfait dans notre screener de qualité (10/10)',
+            'Valorisation élevée (44 fois le free cash flow) : justifiée ou non ?',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce qu\'AppLovin fait vraiment',
+        },
+        {
+          type: 'p',
+          text: 'La plupart des gens qui entendent « AppLovin » pensent à une régie publicitaire obscure. Ce n\'est pas ce que c\'est. AppLovin est une plateforme d\'intelligence artificielle qui aide les développeurs d\'applications mobiles, surtout des jeux, à gagner de l\'argent avec leurs utilisateurs. Concrètement : tu développes un jeu mobile, tu l\'intègres à la plateforme d\'AppLovin, et leur moteur IA décide quelles publicités montrer à quel utilisateur, au bon moment, pour maximiser les revenus. Le tout en temps réel, à l\'échelle de milliards d\'impressions par jour.',
+        },
+        {
+          type: 'p',
+          text: 'Ce moteur s\'appelle AXON. C\'est le cœur du business, et c\'est là que tout le moat réside. Le moat, c\'est le fossé concurrentiel d\'une entreprise, ce qui empêche un concurrent de lui prendre ses clients facilement. AXON est entraîné sur des données que personne d\'autre n\'a, issues de milliers d\'applications et de milliards d\'interactions d\'utilisateurs. Plus il tourne, plus il devient précis. Plus il est précis, plus les annonceurs paient cher pour y accéder. Plus les annonceurs paient, plus AppLovin attire de nouveaux développeurs. C\'est un cercle vertueux classique d\'effet de réseau.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment je mesure la qualité d\'AppLovin',
+        },
+        {
+          type: 'p',
+          text: 'Avant de regarder le prix d\'une action, je regarde toujours la qualité du business. Ma méthode consiste à passer l\'entreprise au crible de critères financiers objectifs : est-elle rentable, son cash augmente-t-il, rachète-t-elle ses propres actions, sa dette est-elle raisonnable ? Pour AppLovin, la réponse est oui sur tous les points, et c\'est rare.',
+        },
+        {
+          type: 'p',
+          text: 'Le chiffre qui résume tout : la marge de free cash flow dépasse 50 %. Le free cash flow, c\'est l\'argent qui reste réellement dans les caisses après avoir tout payé : salaires, serveurs, impôts, investissements. Une marge de 50 %, ça veut dire que sur 100 euros de revenus, 50 finissent en cash disponible. La plupart des entreprises technologiques plafonnent autour de 20 à 25 %. Quand une entreprise génère ce niveau de cash, elle peut racheter ses propres actions, rembourser sa dette, investir dans la croissance, tout à la fois. AppLovin fait exactement ça.',
+        },
+        {
+          type: 'p',
+          text: 'Dans mon screener, je note chaque action sur 10 selon ces critères de qualité. AppLovin obtient 10/10, un score parfait que très peu d\'entreprises atteignent. Ce n\'est pas un coup de poker : c\'est le résultat de la mécanique financière de la plateforme AXON et de ses effets de réseau.',
+        },
+        {
+          type: 'h2',
+          text: 'La croissance : de zéro à 4 milliards de dollars de cash',
+        },
+        {
+          type: 'p',
+          text: 'Il y a trois ans, AppLovin générait peu de free cash flow. Aujourd\'hui, ce chiffre dépasse 4 milliards de dollars par an. Cette progression n\'est pas le résultat d\'une acquisition ou d\'un coup de chance : c\'est AXON qui monte en puissance. Chaque nouvelle version du moteur améliore les performances publicitaires, ce qui permet à AppLovin de facturer plus cher ses clients et d\'en attirer de nouveaux.',
+        },
+        {
+          type: 'p',
+          text: 'La croissance récente du free cash flow a dépassé 100 % par an. Pour un investisseur, c\'est extraordinaire. Ça signifie que le business double sa capacité à générer du cash en moins d\'un an. La question qui me guide est simple : est-ce que cette trajectoire est durable, ou est-ce le pic ?',
+        },
+        {
+          type: 'h2',
+          text: 'Le tableau des fondamentaux',
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'AppLovin (APP)', 'Commentaire'],
+          rows: [
+            ['Score de qualité', '10/10', 'Score parfait dans notre screener'],
+            ['Marge de free cash flow', '>50 %', 'Exceptionnelle pour le secteur tech'],
+            ['Croissance FCF récente', '>100 %/an', 'Doublement annuel du cash généré'],
+            ['Valorisation (P/FCF)', '44 fois', 'Valorisation élevée, reflète la croissance'],
+            ['Capitalisation boursière', '~250 milliards $', 'Entreprise de grande envergure'],
+            ['Rachats d\'actions', 'Massifs', 'Allocation du capital en faveur des actionnaires'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : 44 fois le cash, est-ce raisonnable ?',
+        },
+        {
+          type: 'p',
+          text: 'Parlons maintenant du prix. Pour mesurer ce que le marché accepte de payer, j\'utilise le P/FCF, le ratio prix sur free cash flow. C\'est le prix de l\'action divisé par le cash qu\'elle génère chaque année. Un P/FCF de 44, ça veut dire que la capitalisation boursière représente 44 années de free cash flow actuel. C\'est objectivement élevé. Mais est-ce que ça veut dire que l\'action est trop chère ?',
+        },
+        {
+          type: 'p',
+          text: 'La réponse dépend de la trajectoire future. Si AppLovin continue à faire croître son free cash flow de 50 à 100 % par an, alors dans deux à trois ans, la valorisation d\'aujourd\'hui semblera très raisonnable. C\'est le pari implicite du marché. L\'enjeu est de savoir si AXON peut maintenir cette progression ou si la croissance va mécaniquement ralentir à mesure que la base s\'élargit.',
+        },
+        {
+          type: 'p',
+          text: 'Je ne prétends pas connaître la réponse avec certitude. Ce que je peux dire, c\'est que la structure du business la rend plausible : les effets de réseau s\'auto-renforcent, le marché de la publicité mobile est encore en croissance, et AppLovin commence seulement à s\'attaquer à des secteurs adjacents au-delà du gaming. La valorisation est exigeante, mais elle n\'est pas irrationnelle si la croissance se poursuit.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques que je surveille',
+        },
+        {
+          type: 'p',
+          text: 'Soyons honnêtes sur les risques, parce qu\'ils sont réels. Le premier est la dépendance à l\'écosystème mobile. AppLovin opère principalement sur iOS et Android. Quand Apple a changé ses règles de confidentialité avec ATT (App Tracking Transparency) en 2021, toute l\'industrie de la pub mobile a tremblé. Cela pourrait se reproduire. Apple ou Google pourraient resserrer leurs politiques et réduire l\'efficacité d\'AXON du jour au lendemain.',
+        },
+        {
+          type: 'p',
+          text: 'Le deuxième risque, c\'est la compétition. Google et Meta dominent la publicité en ligne dans leur ensemble, et ils investissent massivement dans leurs propres outils d\'IA pour la publicité mobile. AppLovin est meilleur qu\'eux dans ce segment précis aujourd\'hui, mais les ressources de ces géants sont considérables.',
+        },
+        {
+          type: 'p',
+          text: 'Le troisième risque, c\'est la concentration sectorielle. Une part significative des revenus d\'AppLovin provient du gaming mobile. Si ce secteur ralentit structurellement, la croissance de la plateforme en souffrirait. L\'expansion vers d\'autres verticales (e-commerce, applications non-gaming) est en cours, mais reste à prouver à grande échelle.',
+        },
+        {
+          type: 'p',
+          text: 'Enfin, la valorisation elle-même est un risque. À 44 fois le free cash flow, il n\'y a pas de droit à l\'erreur. Un trimestre décevant, une annonce réglementaire, un ralentissement de la croissance, et le marché pourrait corriger sévèrement.',
+        },
+        {
+          type: 'h2',
+          text: 'Le moat d\'AXON : pourquoi c\'est difficile à copier',
+        },
+        {
+          type: 'p',
+          text: 'Le moat d\'AppLovin mérite qu\'on s\'y attarde, parce qu\'il est plus solide qu\'il n\'y paraît. AXON n\'est pas juste un algorithme : c\'est un système entraîné sur des années de données comportementales issues de milliards d\'utilisateurs dans des milliers d\'applications. Pour qu\'un concurrent le dépasse, il faudrait non seulement reproduire la technologie, mais aussi accumuler la même profondeur de données. C\'est une barrière à l\'entrée très difficile à franchir rapidement.',
+        },
+        {
+          type: 'p',
+          text: 'Il y a aussi une dimension contractuelle : les développeurs qui intègrent AppLovin dans leurs applications ont des contrats et des habitudes qui les fidélisent. Changer de plateforme publicitaire, c\'est risquer de voir ses revenus baisser pendant la période de transition. Ce coût de changement est un frein réel à la concurrence.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment j\'utilise ce type d\'analyse',
+        },
+        {
+          type: 'p',
+          text: 'AppLovin illustre parfaitement la tension que je rencontre le plus souvent : une entreprise de qualité exceptionnelle, mais dont la valorisation laisse peu de marge d\'erreur. Ma règle est toujours la même : je juge la qualité en premier, le prix ensuite, et je ne les mélange jamais. AppLovin passe le premier test haut la main. Sur le second, le marché reflète déjà les meilleures hypothèses de croissance. C\'est à toi de décider si tu partages ces hypothèses.',
+        },
+        {
+          type: 'p',
+          text: 'Pour suivre cette action de près, tu peux consulter l\'analyse détaillée d\'AppLovin sur mon site, où le score, le P/FCF, les marges et la trajectoire du cash sont mis à jour en continu. C\'est exactement l\'outil que j\'aurais voulu avoir quand j\'ai commencé à investir.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que le moteur AXON d\'AppLovin ?',
+          a: 'AXON est le moteur d\'intelligence artificielle propriétaire d\'AppLovin. Il analyse en temps réel des milliards de signaux comportementaux pour décider quelle publicité montrer à quel utilisateur dans une application mobile. Plus il accumule de données, plus il devient précis, ce qui renforce l\'avantage concurrentiel d\'AppLovin face à ses rivaux.',
+        },
+        {
+          q: 'Pourquoi AppLovin a-t-il un score parfait dans votre screener ?',
+          a: 'Mon screener évalue chaque entreprise sur des critères financiers objectifs : rentabilité, croissance du free cash flow, marges, rachats d\'actions, qualité du bilan. AppLovin obtient 10/10 parce qu\'il excelle sur chacun de ces critères : marge de free cash flow supérieure à 50 %, croissance du cash supérieure à 100 % par an récemment, rachats massifs d\'actions. Ces résultats sont rares.',
+        },
+        {
+          q: 'Une valorisation de 44 fois le free cash flow, c\'est trop cher ?',
+          a: 'C\'est élevé, objectivement. Mais le P/FCF (price-to-free-cash-flow, la capitalisation divisée par le cash annuel) ne doit pas être lu isolément. Si AppLovin continue à faire doubler son free cash flow chaque année, la valorisation actuelle deviendra raisonnable assez vite. Le risque, c\'est que cette croissance ralentisse. C\'est le vrai débat, pas le chiffre de 44 en soi.',
+        },
+        {
+          q: 'Quel est le principal risque pour AppLovin ?',
+          a: 'Le risque le plus immédiat est réglementaire et écosystémique : Apple ou Google pourraient modifier leurs règles de confidentialité, ce qui réduirait l\'efficacité d\'AXON. Le risque structurel est la concentration dans le gaming mobile. L\'expansion vers d\'autres secteurs est en cours mais n\'est pas encore prouvée à grande échelle.',
+        },
+        {
+          q: 'AppLovin est-il en concurrence avec Google et Meta ?',
+          a: 'Oui, mais dans un segment précis : la publicité mobile pour applications, surtout le gaming. Dans ce créneau, AppLovin et son moteur AXON surpassent actuellement Google et Meta en termes de performance. Ces géants ont cependant des ressources considérables et investissent dans ce domaine. L\'avantage d\'AppLovin est réel aujourd\'hui, mais pas inattaquable à long terme.',
+        },
+      ],
+      tags: ['AppLovin', 'APP', 'intelligence artificielle', 'publicité mobile', 'analyse fondamentale', 'free cash flow', 'AXON', 'gaming mobile', 'NASDAQ', 'action tech'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres cités sont à la date de publication et susceptibles d\'évoluer. Effectuez vos propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'AppLovin (APP): the AI stock dominating mobile ads',
+      excerpt: 'AppLovin multiplied its free cash flow tenfold in three years thanks to its AXON artificial intelligence engine. Here is why this company earns a perfect score in our analysis, and how I read its high valuation without fooling myself.',
+      metaDescription: 'Fundamental analysis of AppLovin (APP) stock: AXON AI engine, explosive free cash flow, mobile advertising moat. Perfect score in our screener in 2026.',
+      answer: 'AppLovin is a cash-generating machine built around a proprietary artificial intelligence engine that optimizes mobile advertising better than Google or Meta in this segment. Its free cash flow margin exceeds 50% and its growth has been over 100% per year recently. The valuation is high, but the quality of the business largely justifies it. Here is how I analyze this stock.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'AXON AI engine: proprietary competitive advantage in mobile advertising',
+            'Free cash flow margin above 50%, explosive cash growth',
+            'Network effects: more data, better algorithm, more advertisers',
+            'Perfect score in our quality screener (10/10)',
+            'High valuation (44 times free cash flow): justified or not?',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What AppLovin actually does',
+        },
+        {
+          type: 'p',
+          text: 'Most people who hear "AppLovin" think of an obscure ad network. That is not what it is. AppLovin is an artificial intelligence platform that helps mobile app developers, mostly game makers, monetize their users. Concretely: you build a mobile game, you integrate it with AppLovin\'s platform, and their AI engine decides which ads to show which user, at the right moment, to maximize revenue. All in real time, at the scale of billions of impressions per day.',
+        },
+        {
+          type: 'p',
+          text: 'This engine is called AXON. It is the core of the business, and it is where all the moat lives. A moat is a company\'s competitive advantage, what prevents a competitor from easily taking its customers away. AXON is trained on data that nobody else has, drawn from thousands of apps and billions of user interactions. The more it runs, the more accurate it becomes. The more accurate it is, the more advertisers pay to access it. The more advertisers pay, the more new developers AppLovin attracts. This is a classic network effect flywheel.',
+        },
+        {
+          type: 'h2',
+          text: 'How I measure AppLovin\'s quality',
+        },
+        {
+          type: 'p',
+          text: 'Before looking at a stock\'s price, I always look at the quality of the business. My method is to run the company through objective financial criteria: is it profitable, is its cash growing, does it buy back its own shares, is its debt manageable? For AppLovin, the answer is yes on every count, and that is rare.',
+        },
+        {
+          type: 'p',
+          text: 'The number that sums it all up: free cash flow margin exceeds 50%. Free cash flow is the money that actually stays in the company\'s coffers after paying for everything: salaries, servers, taxes, investments. A 50% margin means that for every 100 dollars of revenue, 50 ends up as available cash. Most tech companies top out around 20 to 25%. When a company generates this level of cash, it can buy back its own shares, pay down debt, and invest in growth, all at the same time. AppLovin does exactly that.',
+        },
+        {
+          type: 'p',
+          text: 'In my screener, I rate each stock out of 10 based on these quality criteria. AppLovin scores 10/10, a perfect score that very few companies achieve. This is not a lucky bet: it is the result of the AXON platform\'s financial mechanics and its network effects.',
+        },
+        {
+          type: 'h2',
+          text: 'The growth: from zero to 4 billion dollars in cash',
+        },
+        {
+          type: 'p',
+          text: 'Three years ago, AppLovin generated little free cash flow. Today, that figure exceeds 4 billion dollars per year. This progression is not the result of an acquisition or a stroke of luck: it is AXON gaining power. Each new version of the engine improves advertising performance, which allows AppLovin to charge its customers more and attract new ones.',
+        },
+        {
+          type: 'p',
+          text: 'Recent free cash flow growth has exceeded 100% per year. For an investor, that is extraordinary. It means the business doubles its capacity to generate cash in less than a year. The question that guides me is simple: is this trajectory sustainable, or is this the peak?',
+        },
+        {
+          type: 'h2',
+          text: 'Key fundamentals at a glance',
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'AppLovin (APP)', 'Commentary'],
+          rows: [
+            ['Quality score', '10/10', 'Perfect score in our screener'],
+            ['Free cash flow margin', '>50%', 'Exceptional for the tech sector'],
+            ['Recent FCF growth', '>100%/year', 'Annual doubling of generated cash'],
+            ['Valuation (P/FCF)', '44 times', 'High valuation, reflects growth expectations'],
+            ['Market capitalization', '~$250 billion', 'Large-cap company'],
+            ['Share buybacks', 'Massive', 'Capital allocation favorable to shareholders'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: 44 times cash, is it reasonable?',
+        },
+        {
+          type: 'p',
+          text: 'Now let us talk about price. To measure what the market is willing to pay, I use the P/FCF, the price-to-free-cash-flow ratio. It is the stock price divided by the cash it generates each year. A P/FCF of 44 means the market capitalization represents 44 years of current free cash flow. That is objectively high. But does it mean the stock is too expensive?',
+        },
+        {
+          type: 'p',
+          text: 'The answer depends on the future trajectory. If AppLovin continues to grow its free cash flow by 50 to 100% per year, then in two to three years, today\'s valuation will look very reasonable. That is the implicit bet the market is making. The challenge is determining whether AXON can maintain this pace or whether growth will mechanically slow as the base gets larger.',
+        },
+        {
+          type: 'p',
+          text: 'I do not claim to know the answer with certainty. What I can say is that the structure of the business makes it plausible: network effects are self-reinforcing, the mobile advertising market is still growing, and AppLovin is only beginning to expand into adjacent sectors beyond gaming. The valuation is demanding, but it is not irrational if growth continues.',
+        },
+        {
+          type: 'h2',
+          text: 'The risks I monitor',
+        },
+        {
+          type: 'p',
+          text: 'Let us be honest about the risks, because they are real. The first is dependence on the mobile ecosystem. AppLovin operates primarily on iOS and Android. When Apple changed its privacy rules with ATT (App Tracking Transparency) in 2021, the entire mobile ad industry trembled. It could happen again. Apple or Google could tighten their policies and reduce AXON\'s effectiveness overnight.',
+        },
+        {
+          type: 'p',
+          text: 'The second risk is competition. Google and Meta dominate online advertising overall, and they are investing heavily in their own AI tools for mobile advertising. AppLovin is better than them in this precise segment today, but the resources of these giants are considerable.',
+        },
+        {
+          type: 'p',
+          text: 'The third risk is sector concentration. A significant portion of AppLovin\'s revenue comes from mobile gaming. If this sector structurally slows, the platform\'s growth would suffer. Expansion into other verticals (e-commerce, non-gaming apps) is underway but remains unproven at scale.',
+        },
+        {
+          type: 'p',
+          text: 'Finally, the valuation itself is a risk. At 44 times free cash flow, there is no margin for error. One disappointing quarter, a regulatory announcement, a slowdown in growth, and the market could correct sharply.',
+        },
+        {
+          type: 'h2',
+          text: 'The AXON moat: why it is hard to copy',
+        },
+        {
+          type: 'p',
+          text: 'AppLovin\'s moat deserves attention, because it is stronger than it appears. AXON is not just an algorithm: it is a system trained on years of behavioral data from billions of users across thousands of apps. For a competitor to surpass it, they would need not only to replicate the technology, but also to accumulate the same depth of data. That is a barrier to entry that is very difficult to overcome quickly.',
+        },
+        {
+          type: 'p',
+          text: 'There is also a contractual dimension: developers who integrate AppLovin into their apps have contracts and habits that lock them in. Switching advertising platforms means risking a revenue dip during the transition period. This switching cost is a real brake on competition.',
+        },
+        {
+          type: 'h2',
+          text: 'How I use this type of analysis',
+        },
+        {
+          type: 'p',
+          text: 'AppLovin perfectly illustrates the tension I encounter most often: a company of exceptional quality, but whose valuation leaves little room for error. My rule is always the same: I judge quality first, price second, and I never mix the two. AppLovin passes the first test with flying colors. On the second, the market already reflects the best growth assumptions. It is up to you to decide whether you share those assumptions.',
+        },
+        {
+          type: 'p',
+          text: 'To follow this stock closely, you can check AppLovin\'s detailed analysis on my site, where the score, P/FCF, margins, and cash trajectory are updated continuously. It is exactly the tool I would have wanted when I started investing.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is AppLovin\'s AXON engine?',
+          a: 'AXON is AppLovin\'s proprietary artificial intelligence engine. It analyzes billions of behavioral signals in real time to decide which ad to show which user in a mobile app. The more data it accumulates, the more accurate it becomes, which strengthens AppLovin\'s competitive advantage over its rivals.',
+        },
+        {
+          q: 'Why does AppLovin have a perfect score in your screener?',
+          a: 'My screener evaluates each company on objective financial criteria: profitability, free cash flow growth, margins, share buybacks, balance sheet quality. AppLovin scores 10/10 because it excels on each of these criteria: free cash flow margin above 50%, cash growth above 100% per year recently, massive share buybacks. These results are rare.',
+        },
+        {
+          q: 'Is a valuation of 44 times free cash flow too expensive?',
+          a: 'It is high, objectively. But the P/FCF (price-to-free-cash-flow, market cap divided by annual cash) should not be read in isolation. If AppLovin continues to double its free cash flow each year, the current valuation will become reasonable fairly quickly. The risk is that this growth slows. That is the real debate, not the number 44 itself.',
+        },
+        {
+          q: 'What is the main risk for AppLovin?',
+          a: 'The most immediate risk is regulatory and ecosystem-related: Apple or Google could change their privacy rules, which would reduce AXON\'s effectiveness. The structural risk is concentration in mobile gaming. Expansion into other sectors is underway but not yet proven at scale.',
+        },
+        {
+          q: 'Is AppLovin competing with Google and Meta?',
+          a: 'Yes, but in a specific segment: mobile advertising for apps, especially gaming. In this niche, AppLovin and its AXON engine currently outperform Google and Meta in terms of performance. However, these giants have considerable resources and are investing in this area. AppLovin\'s advantage is real today, but not unassailable long-term.',
+        },
+      ],
+      tags: ['AppLovin', 'APP', 'artificial intelligence', 'mobile advertising', 'fundamental analysis', 'free cash flow', 'AXON', 'mobile gaming', 'NASDAQ', 'tech stock'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures cited are as of the publication date and subject to change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'AppLovin (APP): la acción IA que domina la pub móvil',
+      excerpt: 'AppLovin multiplicó su flujo de caja libre más de diez veces en tres años gracias a su motor de inteligencia artificial AXON. Te explico por qué esta empresa obtiene una puntuación perfecta en nuestro análisis y cómo interpreto su valoración elevada sin engañarme.',
+      metaDescription: 'Análisis fundamental de la acción AppLovin (APP): motor IA AXON, flujo de caja libre explosivo, ventaja competitiva en publicidad móvil. Puntuación perfecta en nuestro screener en 2026.',
+      answer: 'AppLovin es una máquina generadora de efectivo construida alrededor de un motor de inteligencia artificial propietario que optimiza la publicidad móvil mejor que Google o Meta en este segmento. Su margen de flujo de caja libre supera el 50% y su crecimiento ha sido superior al 100% anual recientemente. La valoración es elevada, pero la calidad del negocio la justifica en gran medida. Así es como analizo esta acción.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Motor IA AXON: ventaja competitiva propia en publicidad móvil',
+            'Margen de flujo de caja libre superior al 50%, crecimiento explosivo del efectivo',
+            'Efectos de red: más datos, mejor algoritmo, más anunciantes',
+            'Puntuación perfecta en nuestro screener de calidad (10/10)',
+            'Valoración elevada (44 veces el flujo de caja libre): ¿justificada o no?',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente AppLovin',
+        },
+        {
+          type: 'p',
+          text: 'La mayoría de las personas que escuchan "AppLovin" piensan en una red publicitaria oscura. No es eso. AppLovin es una plataforma de inteligencia artificial que ayuda a los desarrolladores de aplicaciones móviles, especialmente de videojuegos, a monetizar a sus usuarios. En concreto: desarrollas un juego móvil, lo integras en la plataforma de AppLovin, y su motor de IA decide qué anuncios mostrar a qué usuario, en el momento adecuado, para maximizar los ingresos. Todo en tiempo real, a escala de miles de millones de impresiones al día.',
+        },
+        {
+          type: 'p',
+          text: 'Este motor se llama AXON. Es el núcleo del negocio, y ahí es donde reside todo el moat. El moat es la ventaja competitiva de una empresa, lo que impide que un competidor le quite fácilmente a sus clientes. AXON está entrenado con datos que nadie más tiene, procedentes de miles de aplicaciones y miles de millones de interacciones de usuarios. Cuanto más funciona, más preciso se vuelve. Cuanto más preciso es, más pagan los anunciantes por acceder a él. Cuanto más pagan los anunciantes, más nuevos desarrolladores atrae AppLovin. Es el clásico círculo virtuoso de efectos de red.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo mido la calidad de AppLovin',
+        },
+        {
+          type: 'p',
+          text: 'Antes de mirar el precio de una acción, siempre examino la calidad del negocio. Mi método consiste en pasar la empresa por un filtro de criterios financieros objetivos: ¿es rentable?, ¿está creciendo su efectivo?, ¿recompra sus propias acciones?, ¿es manejable su deuda? Con AppLovin, la respuesta es sí en todos los puntos, y eso es poco frecuente.',
+        },
+        {
+          type: 'p',
+          text: 'El número que lo resume todo: el margen de flujo de caja libre supera el 50%. El flujo de caja libre es el dinero que realmente queda en las arcas de la empresa después de pagar todo: salarios, servidores, impuestos, inversiones. Un margen del 50% significa que por cada 100 euros de ingresos, 50 acaban como efectivo disponible. La mayoría de las empresas tecnológicas no superan el 20 al 25%. Cuando una empresa genera este nivel de efectivo, puede recomprar sus propias acciones, amortizar deuda e invertir en crecimiento, todo al mismo tiempo. AppLovin hace exactamente eso.',
+        },
+        {
+          type: 'p',
+          text: 'En mi screener, puntúo cada acción sobre 10 según estos criterios de calidad. AppLovin obtiene 10/10, una puntuación perfecta que muy pocas empresas logran. No es un golpe de suerte: es el resultado de la mecánica financiera de la plataforma AXON y sus efectos de red.',
+        },
+        {
+          type: 'h2',
+          text: 'El crecimiento: de cero a 4.000 millones de dólares en efectivo',
+        },
+        {
+          type: 'p',
+          text: 'Hace tres años, AppLovin generaba poco flujo de caja libre. Hoy, esa cifra supera los 4.000 millones de dólares anuales. Esta progresión no es el resultado de una adquisición o un golpe de suerte: es AXON ganando potencia. Cada nueva versión del motor mejora el rendimiento publicitario, lo que permite a AppLovin cobrar más a sus clientes y atraer nuevos.',
+        },
+        {
+          type: 'p',
+          text: 'El crecimiento reciente del flujo de caja libre ha superado el 100% anual. Para un inversor, eso es extraordinario. Significa que el negocio duplica su capacidad de generar efectivo en menos de un año. La pregunta que me guía es sencilla: ¿es esta trayectoria sostenible, o estamos en el pico?',
+        },
+        {
+          type: 'h2',
+          text: 'Los fundamentos clave de un vistazo',
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'AppLovin (APP)', 'Comentario'],
+          rows: [
+            ['Puntuación de calidad', '10/10', 'Puntuación perfecta en nuestro screener'],
+            ['Margen de flujo de caja libre', '>50%', 'Excepcional para el sector tecnológico'],
+            ['Crecimiento reciente FCF', '>100%/año', 'Duplicación anual del efectivo generado'],
+            ['Valoración (P/FCF)', '44 veces', 'Valoración elevada, refleja expectativas de crecimiento'],
+            ['Capitalización bursátil', '~250.000 M$', 'Empresa de gran capitalización'],
+            ['Recompra de acciones', 'Masiva', 'Asignación de capital favorable a los accionistas'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Valoración: 44 veces el efectivo, ¿es razonable?',
+        },
+        {
+          type: 'p',
+          text: 'Hablemos ahora del precio. Para medir lo que el mercado está dispuesto a pagar, uso el P/FCF, el ratio precio sobre flujo de caja libre. Es el precio de la acción dividido por el efectivo que genera cada año. Un P/FCF de 44 significa que la capitalización bursátil representa 44 años del flujo de caja libre actual. Eso es objetivamente elevado. Pero, ¿significa que la acción es demasiado cara?',
+        },
+        {
+          type: 'p',
+          text: 'La respuesta depende de la trayectoria futura. Si AppLovin sigue aumentando su flujo de caja libre un 50 o 100% al año, entonces en dos o tres años la valoración actual parecerá muy razonable. Esa es la apuesta implícita del mercado. El desafío está en determinar si AXON puede mantener este ritmo o si el crecimiento se desacelerará mecánicamente a medida que la base se amplíe.',
+        },
+        {
+          type: 'p',
+          text: 'No pretendo conocer la respuesta con certeza. Lo que puedo decir es que la estructura del negocio lo hace plausible: los efectos de red se autorefuerzan, el mercado de publicidad móvil sigue creciendo, y AppLovin apenas está comenzando a expandirse a sectores adyacentes más allá del gaming. La valoración es exigente, pero no es irracional si el crecimiento continúa.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que monitorizo',
+        },
+        {
+          type: 'p',
+          text: 'Seamos honestos sobre los riesgos, porque son reales. El primero es la dependencia del ecosistema móvil. AppLovin opera principalmente en iOS y Android. Cuando Apple cambió sus normas de privacidad con ATT (App Tracking Transparency) en 2021, toda la industria de la publicidad móvil tembló. Podría repetirse. Apple o Google podrían endurecer sus políticas y reducir la eficacia de AXON de la noche a la mañana.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo riesgo es la competencia. Google y Meta dominan la publicidad en línea en general, e invierten masivamente en sus propias herramientas de IA para la publicidad móvil. AppLovin supera a ambos en este segmento preciso hoy, pero los recursos de estos gigantes son considerables.',
+        },
+        {
+          type: 'p',
+          text: 'El tercer riesgo es la concentración sectorial. Una parte significativa de los ingresos de AppLovin proviene del gaming móvil. Si este sector se desacelera estructuralmente, el crecimiento de la plataforma se vería afectado. La expansión hacia otras verticales (comercio electrónico, aplicaciones no relacionadas con juegos) está en marcha, pero aún no está probada a gran escala.',
+        },
+        {
+          type: 'p',
+          text: 'Por último, la propia valoración es un riesgo. Con una valoración de 44 veces el flujo de caja libre, no hay margen para el error. Un trimestre decepcionante, un anuncio regulatorio, una desaceleración del crecimiento, y el mercado podría corregir con fuerza.',
+        },
+        {
+          type: 'h2',
+          text: 'El moat de AXON: por qué es difícil de copiar',
+        },
+        {
+          type: 'p',
+          text: 'El moat de AppLovin merece atención, porque es más sólido de lo que parece. AXON no es solo un algoritmo: es un sistema entrenado durante años con datos de comportamiento procedentes de miles de millones de usuarios en miles de aplicaciones. Para que un competidor lo supere, no solo tendría que replicar la tecnología, sino también acumular la misma profundidad de datos. Esa es una barrera de entrada muy difícil de superar rápidamente.',
+        },
+        {
+          type: 'p',
+          text: 'También existe una dimensión contractual: los desarrolladores que integran AppLovin en sus aplicaciones tienen contratos y hábitos que los fidelizan. Cambiar de plataforma publicitaria implica arriesgarse a una caída de ingresos durante el período de transición. Este coste de cambio es un freno real a la competencia.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo utilizo este tipo de análisis',
+        },
+        {
+          type: 'p',
+          text: 'AppLovin ilustra perfectamente la tensión que encuentro con más frecuencia: una empresa de calidad excepcional, pero cuya valoración deja poco margen para el error. Mi regla es siempre la misma: juzgo primero la calidad, después el precio, y nunca los mezclo. AppLovin supera el primer test con nota. En el segundo, el mercado ya refleja las mejores hipótesis de crecimiento. Depende de ti decidir si compartes esas hipótesis.',
+        },
+        {
+          type: 'p',
+          text: 'Para seguir de cerca esta acción, puedes consultar el análisis detallado de AppLovin en mi sitio, donde la puntuación, el P/FCF, los márgenes y la trayectoria del efectivo se actualizan de forma continua. Es exactamente la herramienta que me habría gustado tener cuando empecé a invertir.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el motor AXON de AppLovin?',
+          a: 'AXON es el motor de inteligencia artificial propietario de AppLovin. Analiza en tiempo real miles de millones de señales de comportamiento para decidir qué anuncio mostrar a qué usuario en una aplicación móvil. Cuantos más datos acumula, más preciso se vuelve, lo que refuerza la ventaja competitiva de AppLovin frente a sus rivales.',
+        },
+        {
+          q: '¿Por qué AppLovin tiene una puntuación perfecta en su screener?',
+          a: 'Mi screener evalúa cada empresa según criterios financieros objetivos: rentabilidad, crecimiento del flujo de caja libre, márgenes, recompra de acciones, calidad del balance. AppLovin obtiene 10/10 porque destaca en cada uno de estos criterios: margen de flujo de caja libre superior al 50%, crecimiento del efectivo superior al 100% anual recientemente, recompras masivas de acciones. Estos resultados son poco frecuentes.',
+        },
+        {
+          q: '¿Una valoración de 44 veces el flujo de caja libre es demasiado cara?',
+          a: 'Es elevada, objetivamente. Pero el P/FCF (precio sobre flujo de caja libre, capitalización dividida entre el efectivo anual) no debe leerse de forma aislada. Si AppLovin sigue duplicando su flujo de caja libre cada año, la valoración actual se volverá razonable bastante rápido. El riesgo es que ese crecimiento se desacelere. Ese es el debate real, no el número 44 en sí mismo.',
+        },
+        {
+          q: '¿Cuál es el principal riesgo para AppLovin?',
+          a: 'El riesgo más inmediato es regulatorio y del ecosistema: Apple o Google podrían cambiar sus normas de privacidad, lo que reduciría la eficacia de AXON. El riesgo estructural es la concentración en el gaming móvil. La expansión hacia otros sectores está en marcha, pero aún no está probada a gran escala.',
+        },
+        {
+          q: '¿AppLovin compite con Google y Meta?',
+          a: 'Sí, pero en un segmento específico: la publicidad móvil para aplicaciones, especialmente gaming. En este nicho, AppLovin y su motor AXON superan actualmente a Google y Meta en términos de rendimiento. Sin embargo, estos gigantes tienen recursos considerables e invierten en este ámbito. La ventaja de AppLovin es real hoy, pero no es inexpugnable a largo plazo.',
+        },
+      ],
+      tags: ['AppLovin', 'APP', 'inteligencia artificial', 'publicidad móvil', 'análisis fundamental', 'flujo de caja libre', 'AXON', 'gaming móvil', 'NASDAQ', 'acción tecnológica'],
+      disclaimer: 'Análisis con fines informativos y educativos, no constituye asesoramiento de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Las cifras citadas corresponden a la fecha de publicación y pueden variar. Realiza tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleMCO: Article = {
+  slug: 'moodys-mco-analyse-fondamentale-notation-financiere',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'MCO',
+  content: {
+    fr: {
+      title: "Moody's Corporation (MCO) : l'action duopole en bourse",
+      excerpt:
+        "Moody's est l'une des deux entreprises au monde qui note les obligations de presque toutes les grandes sociétés et États. Un modèle d'affaires ancré dans la réglementation mondiale, une machine à cash rare, et une position concurrentielle quasi inattaquable. Voici mon analyse fondamentale complète.",
+      metaDescription:
+        "Moody's (MCO) : analyse fondamentale de l'action. Duopole mondial de la notation financière, marges élevées, croissance régulière. Mon avis et ma méthode expliqués.",
+      answer:
+        "Moody's Corporation est l'une des deux entreprises qui contrôlent la notation financière mondiale. Chaque obligation émise dans le monde a presque toujours besoin de leur aval. C'est un duopole légalement ancré, avec des marges de free cash flow proches de 50 % et une croissance structurelle de 10 à 15 % par an. La valorisation est élevée, mais le fossé concurrentiel le justifie.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Duopole mondial de la notation financière avec S&P Global : position quasi inattaquable depuis 100 ans",
+            "Obligation quasi légale d'obtenir une notation Moody's pour émettre des obligations sur les marchés mondiaux",
+            "Deux segments complémentaires : Moody's Investors Service (notation) et Moody's Analytics (data et logiciels de risque)",
+            "Marge de free cash flow structurellement proche de 50 %, croissance 10-15 %/an",
+            "Score de qualité maximal dans mon screener, valorisation élevée mais justifiée par la rareté du moat",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Comprendre le métier : pourquoi Moody's est incontournable",
+        },
+        {
+          type: 'p',
+          text: "Quand une entreprise ou un État veut emprunter de l'argent en émettant des obligations, il a besoin qu'on lui attribue une note de crédit. Cette note dit aux investisseurs : est-ce que cet emprunteur est fiable ? Va-t-il rembourser ? C'est là qu'intervient Moody's. Fondée il y a plus de 100 ans, l'entreprise est l'une des deux seules au monde à qui les marchés font vraiment confiance pour ce travail. L'autre, c'est S&P Global. Ensemble, elles contrôlent l'essentiel du marché mondial de la notation financière. Ce duopole n'est pas le fruit du hasard : il s'est construit sur des décennies de réputation, de crédibilité et d'historique de données que personne ne peut reproduire du jour au lendemain.",
+        },
+        {
+          type: 'p',
+          text: "Ce qui rend ce modèle d'affaires exceptionnel, c'est que la notation est souvent une obligation quasi légale. Beaucoup de fonds institutionnels, de règlements prudentiels et de contrats financiers exigent que les obligations soient notées par une agence reconnue. En pratique, ça veut dire que chaque nouvelle émission obligataire dans le monde génère presque automatiquement un revenu pour Moody's. L'entreprise ne vend pas quelque chose que les clients peuvent choisir de ne pas acheter : elle est inscrite dans le fonctionnement même des marchés financiers mondiaux.",
+        },
+        {
+          type: 'h2',
+          text: "Deux moteurs de revenus : notation et analytics",
+        },
+        {
+          type: 'p',
+          text: "Moody's n'est pas une seule entreprise, c'est en réalité deux métiers distincts sous un même toit. Le premier, Moody's Investors Service, c'est la notation pure : elle représente environ la moitié des revenus totaux. L'entreprise note des milliers d'émetteurs dans le monde, des États souverains aux petites entreprises, et perçoit des honoraires à chaque notation ou mise à jour. Le deuxième moteur, Moody's Analytics, représente l'autre moitié des revenus. Ce segment vend des données, des logiciels et des outils d'analyse du risque aux banques, assureurs, gestionnaires d'actifs et régulateurs. Ces abonnements sont récurrents : une fois qu'un établissement financier intègre les outils Moody's dans ses processus de gestion du risque, le changer coûte trop cher en temps et en formation. C'est ce qu'on appelle un switching cost élevé : le coût de départ est si grand que les clients restent.",
+        },
+        {
+          type: 'h2',
+          text: "Le moat : qu'est-ce qui protège vraiment cette entreprise ?",
+        },
+        {
+          type: 'p',
+          text: "Le moat, c'est le fossé concurrentiel d'une entreprise : ce qui empêche un rival de venir lui prendre ses clients. Pour Moody's, ce fossé est à plusieurs niveaux. D'abord, la réputation et la crédibilité accumulées en 100 ans d'histoire. Les marchés financiers font confiance à Moody's parce qu'ils l'ont toujours fait. Créer une agence concurrente qui inspirerait le même niveau de confiance prendrait des décennies, si c'est même possible. Ensuite, les barrières réglementaires : dans de nombreux pays, seules les agences accréditées par les régulateurs peuvent fournir des notations valables pour les fonds et les bilans bancaires. Ces accréditations sont longues et difficiles à obtenir. Enfin, la base de données historique de Moody's : des décennies de défauts, de migrations de notes, de corrélations sectorielles. Cette mine de données est une ressource que personne ne peut construire en claquant des doigts.",
+        },
+        {
+          type: 'h2',
+          text: "Les chiffres qui racontent la qualité du business",
+        },
+        {
+          type: 'p',
+          text: "Pour juger si une entreprise est de qualité, je regarde des critères financiers concrets, pas seulement son histoire. Le premier indicateur que je surveille, c'est la marge de free cash flow. Le free cash flow, c'est l'argent qui reste vraiment dans les caisses après avoir payé toutes les factures opérationnelles et les investissements. C'est plus difficile à maquiller que le bénéfice comptable, donc c'est ce chiffre que je préfère. Moody's affiche une marge de free cash flow structurellement proche de 50 %. Autrement dit, sur 100 dollars de revenus, environ 50 finissent en cash réellement disponible. C'est exceptionnel : la plupart des entreprises atteignent péniblement 10 à 15 %.",
+        },
+        {
+          type: 'p',
+          text: "La croissance des revenus est régulière, entre 10 et 15 % par an sur le long terme. L'entreprise rachète massivement ses propres actions, ce qui augmente mécaniquement la valeur de chaque action restante : c'est un signe que le management est à l'aise avec le niveau de cash généré et qu'il fait confiance à son propre business. Le dividende croît chaque année. Les marges opérationnelles sont parmi les plus élevées de tout le secteur financier. Dans mon screener de qualité, Moody's obtient un score de 10 sur 10 : c'est la note maximale, attribuée aux entreprises qui cochent tous mes critères de solidité financière.",
+        },
+        {
+          type: 'table',
+          headers: ['Critère', 'Moody\'s (MCO)', 'Comparable sectoriel'],
+          rows: [
+            ['Marge de free cash flow', '~50 %', '10-20 % (médiane secteur)'],
+            ['Croissance annuelle revenus', '10-15 %', '5-10 %'],
+            ['Rachats d\'actions', 'Massifs et réguliers', 'Variables'],
+            ['Dividende', 'Croissant chaque année', 'Variable'],
+            ['Score de qualité (screener)', '10/10', 'Référence'],
+            ['Position concurrentielle', 'Duopole mondial', 'Fragmentée'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: "La valorisation : comprendre pourquoi c'est cher",
+        },
+        {
+          type: 'p',
+          text: "Pour mesurer ce que le marché accepte de payer pour une action, j'utilise le P/FCF : le price-to-free-cash-flow. C'est simplement le prix de l'action divisé par le free cash flow qu'elle génère par action chaque année. Un P/FCF de 10 veut dire que tu paies aujourd'hui 10 ans de ce cash. Plus ce ratio est bas, moins l'action est chère. Moody's affiche actuellement une valorisation d'environ 31 fois son free cash flow. C'est élevé. La majorité des actions sur les marchés se valorisent entre 15 et 25 fois. À 31 fois, le marché dit clairement : cette entreprise est exceptionnelle et ses revenus vont continuer à croître.",
+        },
+        {
+          type: 'p',
+          text: "Est-ce que ce niveau de valorisation est justifié ? C'est la vraie question. Ma réponse est oui, et voici pourquoi. Un duopole avec une obligation quasi légale d'utilisation, des switching costs absolus dans l'analytics, et une marge de free cash flow de 50 % mérite une prime de valorisation. On paye cher parce que la rareté du business est réelle. Il y a deux entreprises au monde à faire ce qu'elles font, et ce n'est pas près de changer. Mais cette valorisation élevée laisse peu de marge d'erreur : si la croissance ralentit ou si un risque se matérialise, la correction peut être violente.",
+        },
+        {
+          type: 'h2',
+          text: "Les risques à ne pas ignorer",
+        },
+        {
+          type: 'p',
+          text: "Une analyse honnête ne cache pas les risques. Il y en a quatre pour Moody's. Le premier est réglementaire : après la crise de 2008, les lois américaines (notamment le Dodd-Frank Act) ont encadré les agences de notation et limité certaines pratiques. De nouvelles régulations pourraient affecter le modèle économique. Le deuxième risque est juridique : les notations sont parfois remises en cause en justice quand elles se révèlent trop optimistes. Moody's a déjà payé des amendes importantes après la crise des subprimes. Le troisième risque est cyclique : quand les entreprises et les États émettent moins d'obligations (en période de hausse des taux ou de récession), les revenus de notation baissent. C'est un risque de court terme mais réel. Enfin, la disruption fintech : de nouvelles entreprises de données financières et d'intelligence artificielle tentent de proposer des alternatives aux notations traditionnelles. Pour l'instant, aucune ne menace sérieusement le duopole, mais c'est un risque à surveiller sur dix ans.",
+        },
+        {
+          type: 'h2',
+          text: "Comment j'analyse une action comme celle-ci",
+        },
+        {
+          type: 'p',
+          text: "Quand je regarde Moody's, je sépare toujours deux questions distinctes. Première question : est-ce une bonne entreprise ? Deuxième question, complètement indépendante : est-ce le bon prix aujourd'hui ? Une bonne entreprise payée trop cher reste un mauvais investissement. Et une mauvaise entreprise bon marché peut être un piège. Mélanger les deux, c'est l'erreur la plus courante que je vois. Pour Moody's, la réponse à la première question est très claire : c'est une entreprise d'élite, avec un moat exceptionnel, des marges rares et une position concurrentielle construite en un siècle. La réponse à la deuxième question dépend de ta conviction sur la durabilité de cette position et du prix que tu acceptes de payer pour cette qualité.",
+        },
+        {
+          type: 'p',
+          text: "C'est exactement pour pouvoir répondre à ces deux questions rapidement, pour n'importe quelle action, que j'ai construit mon site d'analyse. Tu peux retrouver le score complet de Moody's, ses données financières détaillées et ma méthodologie expliquée sur lubin-investment.com/analyse/MCO.",
+        },
+      ],
+      faq: [
+        {
+          q: "Pourquoi Moody's a-t-elle un avantage concurrentiel aussi fort ?",
+          a: "Parce que son avantage repose sur trois piliers que personne ne peut copier rapidement : 100 ans de réputation et de crédibilité, des accréditations réglementaires difficiles à obtenir, et une base de données historiques unique. Les marchés financiers font confiance à Moody's parce qu'ils l'ont toujours fait. Ce n'est pas un avantage technologique, c'est un avantage institutionnel.",
+        },
+        {
+          q: "Qu'est-ce que le free cash flow et pourquoi est-ce important ?",
+          a: "Le free cash flow, c'est l'argent qui reste réellement dans les caisses d'une entreprise après avoir payé toutes les dépenses opérationnelles et les investissements nécessaires. C'est plus difficile à manipuler que le bénéfice comptable. Pour Moody's, une marge de free cash flow proche de 50 % signifie que la moitié de chaque euro de revenu devient du cash disponible : c'est exceptionnel.",
+        },
+        {
+          q: "Pourquoi la valorisation de Moody's est-elle si élevée ?",
+          a: "Une valorisation élevée reflète la rareté et la qualité du business. Moody's est l'une des deux seules entreprises au monde dans sa position, avec des obligations quasi légales d'utilisation dans les marchés obligataires mondiaux. Les investisseurs acceptent de payer une prime pour des actifs aussi rares et défensifs. Mais cette prime laisse peu de marge d'erreur si la croissance déçoit.",
+        },
+        {
+          q: "Quel est le principal risque pour Moody's ?",
+          a: "À court terme, le risque cyclique : quand les émissions obligataires ralentissent (hausse des taux, récession), les revenus de notation baissent. À long terme, le risque réglementaire et la disruption par des alternatives de données. Ces risques existent, mais aucun ne menace le duopole dans un horizon de cinq ans selon mon analyse.",
+        },
+        {
+          q: "Comment utiliser la note de qualité 10/10 dans mon analyse ?",
+          a: "La note de qualité dans mon screener évalue la solidité financière d'une entreprise sur des critères objectifs : rentabilité, croissance, rachats d'actions, marges, endettement. Un 10/10 dit que le business est d'élite. Mais cette note ne dit rien du prix. Une entreprise d'élite payée à un prix déraisonnable reste un mauvais achat. La qualité et le prix sont toujours deux questions séparées.",
+        },
+      ],
+      tags: [
+        "Moody's",
+        'MCO',
+        'notation financière',
+        'duopole',
+        'analyse fondamentale',
+        'free cash flow',
+        'action de qualité',
+        'moat',
+        'obligations',
+        'marchés financiers',
+      ],
+      disclaimer:
+        "Analyse à but informatif et éducatif uniquement, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres sont ceux disponibles à la date de publication et sont susceptibles d'évoluer. Faites vos propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: "Moody's Corporation (MCO) : the duopoly stock",
+      excerpt:
+        "Moody's is one of only two companies in the world that rates the bonds of nearly every major corporation and government. A business model embedded in global regulation, a rare cash-generating machine, and an almost unassailable competitive position. Here is my complete fundamental analysis.",
+      metaDescription:
+        "Moody's (MCO) stock: fundamental analysis. Global bond rating duopoly, high margins, steady growth. My view and methodology explained step by step.",
+      answer:
+        "Moody's Corporation is one of only two companies that control global credit ratings. Almost every bond issued in the world needs their seal of approval. It is a legally anchored duopoly with free cash flow margins near 50% and structural growth of 10 to 15% per year. The valuation is high, but the competitive moat justifies it.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Global bond-rating duopoly with S&P Global: a near-unassailable position built over 100 years',
+            "Quasi-legal obligation to obtain a Moody's rating to issue bonds on world markets",
+            "Two complementary segments: Moody's Investors Service (ratings) and Moody's Analytics (risk data and software)",
+            'Free cash flow margin structurally near 50%, growth of 10-15% per year',
+            'Maximum quality score in my screener; high valuation justified by the rarity of the moat',
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Understanding the business: why Moody's is indispensable",
+        },
+        {
+          type: 'p',
+          text: "When a company or government wants to borrow money by issuing bonds, it needs a credit rating. That rating tells investors: is this borrower reliable? Will they pay back? That is where Moody's comes in. Founded over 100 years ago, the firm is one of only two in the world that financial markets truly trust for this work. The other is S&P Global. Together they control the vast majority of the global credit-rating market. This duopoly was not built by accident: it rests on decades of reputation, credibility, and historical data that no one can replicate overnight.",
+        },
+        {
+          type: 'p',
+          text: "What makes this business model exceptional is that a rating is often a quasi-legal requirement. Many institutional funds, prudential regulations, and financial contracts require bonds to be rated by a recognised agency. In practice, that means every new bond issuance in the world almost automatically generates revenue for Moody's. The firm is not selling something customers can choose to skip: it is embedded in the very functioning of global financial markets.",
+        },
+        {
+          type: 'h2',
+          text: 'Two revenue engines: ratings and analytics',
+        },
+        {
+          type: 'p',
+          text: "Moody's is not a single business; it is really two distinct activities under one roof. The first, Moody's Investors Service, is pure ratings: it accounts for roughly half of total revenues. The firm rates thousands of issuers worldwide, from sovereign governments to small companies, and earns fees for each rating or update. The second engine, Moody's Analytics, makes up the other half of revenues. This segment sells data, software, and risk-analysis tools to banks, insurers, asset managers, and regulators. These are recurring subscriptions: once a financial institution integrates Moody's tools into its risk-management processes, switching away costs too much in time and retraining. That is what a high switching cost means: the cost of leaving is so high that clients stay.",
+        },
+        {
+          type: 'h2',
+          text: 'The moat: what really protects this business?',
+        },
+        {
+          type: 'p',
+          text: "A moat is a company's competitive advantage: what stops a rival from stealing its clients. For Moody's the moat operates on several levels. First, reputation and credibility built over 100 years. Financial markets trust Moody's because they always have. Building a competing agency that inspires the same level of trust would take decades, if it is even possible. Then there are regulatory barriers: in many countries, only agencies accredited by regulators can provide valid ratings for funds and bank balance sheets. Those accreditations are slow and hard to obtain. Finally, Moody's historical database: decades of defaults, rating migrations, and sector correlations. This data mine is a resource no one can build overnight.",
+        },
+        {
+          type: 'h2',
+          text: 'The numbers that tell the quality story',
+        },
+        {
+          type: 'p',
+          text: "To judge whether a business is high quality, I look at concrete financial criteria, not just the narrative. The first indicator I track is the free cash flow margin. Free cash flow is the money that actually stays in the company's treasury after paying all operating bills and investments. It is harder to manipulate than accounting profit, so it is the figure I prefer. Moody's runs a free cash flow margin structurally near 50%. That means roughly 50 cents of every dollar of revenue turns into real available cash. That is exceptional: most companies struggle to reach 10-15%.",
+        },
+        {
+          type: 'p',
+          text: 'Revenue growth is steady at 10-15% per year over the long term. The company buys back its own shares on a large scale, mechanically increasing the value of each remaining share: a sign that management is comfortable with the cash being generated and confident in the business. The dividend grows every year. Operating margins are among the highest in the entire financial sector. In my quality screener, Moody\'s earns a score of 10 out of 10: the maximum, awarded to companies that check every one of my financial-strength criteria.',
+        },
+        {
+          type: 'table',
+          headers: ['Criterion', "Moody's (MCO)", 'Sector comparable'],
+          rows: [
+            ['Free cash flow margin', '~50%', '10-20% (sector median)'],
+            ['Annual revenue growth', '10-15%', '5-10%'],
+            ['Share buybacks', 'Massive and regular', 'Variable'],
+            ['Dividend', 'Growing every year', 'Variable'],
+            ['Quality score (screener)', '10/10', 'Reference'],
+            ['Competitive position', 'Global duopoly', 'Fragmented'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: understanding why it is expensive',
+        },
+        {
+          type: 'p',
+          text: 'To measure what the market is willing to pay for a stock, I use the P/FCF: the price-to-free-cash-flow ratio. It is simply the share price divided by the free cash flow generated per share each year. A P/FCF of 10 means you are paying today for 10 years of that cash. The lower this ratio, the cheaper the stock. Moody\'s currently carries a valuation of roughly 31 times its free cash flow. That is high. Most stocks trade between 15 and 25 times. At 31 times, the market is clearly saying: this company is exceptional and its revenues will keep growing.',
+        },
+        {
+          type: 'p',
+          text: "Is this level of valuation justified? That is the real question. My answer is yes, and here is why. A duopoly with a quasi-legal usage requirement, absolute switching costs in analytics, and a 50% free cash flow margin deserves a valuation premium. You pay up because the rarity of the business is real. There are two companies in the world doing what they do, and that is not about to change. But this high valuation leaves little room for error: if growth slows or a risk materialises, the correction can be severe.",
+        },
+        {
+          type: 'h2',
+          text: 'Risks that cannot be ignored',
+        },
+        {
+          type: 'p',
+          text: "An honest analysis does not hide the risks. There are four for Moody's. The first is regulatory: after the 2008 crisis, US laws (notably the Dodd-Frank Act) regulated rating agencies and restricted certain practices. New regulations could affect the business model. The second risk is legal: ratings are sometimes challenged in court when they prove too optimistic. Moody's has already paid significant fines following the subprime crisis. The third risk is cyclical: when companies and governments issue fewer bonds (during rising rates or a recession), rating revenues fall. This is a short-term but real risk. Finally, fintech disruption: new financial data and AI companies are attempting to offer alternatives to traditional ratings. None seriously threatens the duopoly today, but it is a risk to monitor over a ten-year horizon.",
+        },
+        {
+          type: 'h2',
+          text: 'How I analyse a stock like this one',
+        },
+        {
+          type: 'p',
+          text: "When I look at Moody's, I always separate two distinct questions. First q: is this a good business? Second question, entirely independent: is today the right price? A great business bought at too high a price is still a poor investment. And a poor business bought cheaply can be a trap. Mixing the two is the most common mistake I see. For Moody's, the answer to the first question is very clear: it is an elite business, with an exceptional moat, rare margins, and a competitive position built over a century. The answer to the second question depends on your conviction about the durability of that position and the price you are willing to pay for that quality.",
+        },
+        {
+          type: 'p',
+          text: "It is precisely to answer these two questions quickly, for any stock, that I built my analysis site. You can find Moody's complete quality score, detailed financial data, and my methodology explained at lubin-investment.com/analyse/MCO.",
+        },
+      ],
+      faq: [
+        {
+          q: "Why does Moody's have such a strong competitive advantage?",
+          a: "Because its advantage rests on three pillars nobody can copy quickly: 100 years of reputation and credibility, regulatory accreditations that are hard to obtain, and a unique historical database. Financial markets trust Moody's because they always have. This is not a technological advantage; it is an institutional one.",
+        },
+        {
+          q: 'What is free cash flow and why does it matter?',
+          a: "Free cash flow is the money that actually remains in a company's treasury after paying all operating expenses and necessary investments. It is harder to manipulate than accounting profit. For Moody's, a free cash flow margin near 50% means half of every dollar of revenue becomes available cash: that is exceptional.",
+        },
+        {
+          q: "Why is Moody's valuation so high?",
+          a: "A high valuation reflects the rarity and quality of the business. Moody's is one of only two companies in the world in its position, with quasi-legal usage requirements in global bond markets. Investors accept paying a premium for assets this rare and defensive. But that premium leaves little room for error if growth disappoints.",
+        },
+        {
+          q: "What is the main risk for Moody's?",
+          a: 'In the short term, cyclical risk: when bond issuance slows (rising rates, recession), rating revenues fall. In the long term, regulatory risk and disruption from data alternatives. These risks exist, but none threatens the duopoly on a five-year horizon in my analysis.',
+        },
+        {
+          q: 'How should I use a 10/10 quality score in my analysis?',
+          a: 'The quality score in my screener assesses a company\'s financial strength on objective criteria: profitability, growth, share buybacks, margins, debt. A 10/10 means the business is elite. But it says nothing about price. An elite business bought at an unreasonable price is still a bad buy. Quality and price are always two separate questions.',
+        },
+      ],
+      tags: [
+        "Moody's",
+        'MCO',
+        'credit rating',
+        'duopoly',
+        'fundamental analysis',
+        'free cash flow',
+        'quality stock',
+        'moat',
+        'bonds',
+        'financial markets',
+      ],
+      disclaimer:
+        'For informational and educational purposes only; not personalised investment advice. Past performance does not predict future results. Figures are those available at the date of publication and may change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'Moody\'s Corporation (MCO) : la acción del duopolio',
+      excerpt:
+        'Moody\'s es una de las dos únicas empresas en el mundo que califica los bonos de casi todas las grandes corporaciones y gobiernos. Un modelo de negocio anclado en la regulación mundial, una máquina generadora de efectivo excepcional y una posición competitiva casi inexpugnable. Aquí está mi análisis fundamental completo.',
+      metaDescription:
+        "Moody's (MCO): análisis fundamental de la acción. Duopolio mundial de calificación crediticia, márgenes altos, crecimiento constante. Mi opinión y metodología explicadas.",
+      answer:
+        'Moody\'s Corporation es una de las dos únicas empresas que controlan las calificaciones crediticias mundiales. Casi todos los bonos emitidos en el mundo necesitan su aprobación. Es un duopolio legalmente anclado, con márgenes de flujo de caja libre cercanos al 50% y un crecimiento estructural del 10 al 15% anual. La valoración es elevada, pero el foso competitivo lo justifica.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Duopolio mundial de calificación crediticia con S&P Global: posición casi inexpugnable construida en 100 años',
+            "Obligación cuasi legal de obtener una calificación de Moody's para emitir bonos en los mercados mundiales",
+            "Dos segmentos complementarios: Moody's Investors Service (calificaciones) y Moody's Analytics (datos y software de riesgo)",
+            'Margen de flujo de caja libre estructuralmente cercano al 50%, crecimiento del 10-15% anual',
+            'Puntuación máxima de calidad en mi screener; valoración elevada justificada por la rareza del foso competitivo',
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Entender el negocio: por qué Moody's es imprescindible",
+        },
+        {
+          type: 'p',
+          text: "Cuando una empresa o gobierno quiere pedir prestado dinero emitiendo bonos, necesita que le asignen una calificación crediticia. Esa calificación dice a los inversores: ¿es fiable este emisor? ¿Va a devolver el dinero? Ahí es donde entra Moody's. Fundada hace más de 100 años, la empresa es una de las dos únicas en el mundo en las que los mercados financieros realmente confían para este trabajo. La otra es S&P Global. Juntas controlan la gran mayoría del mercado mundial de calificación crediticia. Este duopolio no se construyó por casualidad: se asienta sobre décadas de reputación, credibilidad y datos históricos que nadie puede replicar de un día para otro.",
+        },
+        {
+          type: 'p',
+          text: "Lo que hace excepcional este modelo de negocio es que la calificación es con frecuencia una exigencia cuasi legal. Muchos fondos institucionales, regulaciones prudenciales y contratos financieros exigen que los bonos estén calificados por una agencia reconocida. En la práctica, eso significa que cada nueva emisión de bonos en el mundo genera casi automáticamente ingresos para Moody's. La empresa no vende algo que los clientes puedan elegir no comprar: está integrada en el propio funcionamiento de los mercados financieros mundiales.",
+        },
+        {
+          type: 'h2',
+          text: 'Dos motores de ingresos: calificaciones y analítica',
+        },
+        {
+          type: 'p',
+          text: "Moody's no es un solo negocio; en realidad son dos actividades distintas bajo el mismo techo. La primera, Moody's Investors Service, es la calificación pura: representa alrededor de la mitad de los ingresos totales. La empresa califica a miles de emisores en todo el mundo, desde gobiernos soberanos hasta pequeñas empresas, y cobra honorarios por cada calificación o actualización. El segundo motor, Moody's Analytics, representa la otra mitad de los ingresos. Este segmento vende datos, software y herramientas de análisis de riesgos a bancos, aseguradoras, gestores de activos y reguladores. Estas son suscripciones recurrentes: una vez que una institución financiera integra las herramientas de Moody's en sus procesos de gestión de riesgos, cambiar de proveedor cuesta demasiado en tiempo y formación. Eso es lo que se llama un alto coste de cambio: el coste de marcharse es tan grande que los clientes se quedan.",
+        },
+        {
+          type: 'h2',
+          text: 'El foso competitivo: ¿qué protege realmente a esta empresa?',
+        },
+        {
+          type: 'p',
+          text: "El foso competitivo de una empresa es lo que impide que un rival le arrebate a sus clientes. Para Moody's, ese foso opera en varios niveles. Primero, la reputación y la credibilidad acumuladas en 100 años de historia. Los mercados financieros confían en Moody's porque siempre lo han hecho. Construir una agencia competidora que inspire el mismo nivel de confianza llevaría décadas, si es que es posible. Luego están las barreras regulatorias: en muchos países, solo las agencias acreditadas por los reguladores pueden ofrecer calificaciones válidas para fondos y balances bancarios. Esas acreditaciones son lentas y difíciles de obtener. Finalmente, la base de datos histórica de Moody's: décadas de impagos, migraciones de calificaciones y correlaciones sectoriales. Esta mina de datos es un recurso que nadie puede construir de la noche a la mañana.",
+        },
+        {
+          type: 'h2',
+          text: 'Los números que cuentan la calidad del negocio',
+        },
+        {
+          type: 'p',
+          text: "Para juzgar si una empresa es de alta calidad, analizo criterios financieros concretos, no solo su historia. El primer indicador que sigo es el margen de flujo de caja libre. El flujo de caja libre es el dinero que realmente queda en las arcas de la empresa después de pagar todas las facturas operativas e inversiones. Es más difícil de manipular que el beneficio contable, por eso es la cifra que prefiero. Moody's tiene un margen de flujo de caja libre estructuralmente cercano al 50%. Eso significa que alrededor de 50 céntimos de cada euro de ingresos se convierte en efectivo realmente disponible. Es excepcional: la mayoría de las empresas apenas llegan al 10-15%.",
+        },
+        {
+          type: 'p',
+          text: 'El crecimiento de los ingresos es constante, entre el 10 y el 15% anual a largo plazo. La empresa recompra masivamente sus propias acciones, lo que aumenta mecánicamente el valor de cada acción restante: es una señal de que la dirección está cómoda con el nivel de efectivo generado y confía en su propio negocio. El dividendo crece cada año. Los márgenes operativos están entre los más altos de todo el sector financiero. En mi screener de calidad, Moody\'s obtiene una puntuación de 10 sobre 10: la máxima, otorgada a las empresas que cumplen todos mis criterios de solidez financiera.',
+        },
+        {
+          type: 'table',
+          headers: ['Criterio', "Moody's (MCO)", 'Comparable sectorial'],
+          rows: [
+            ['Margen de flujo de caja libre', '~50%', '10-20% (mediana sectorial)'],
+            ['Crecimiento anual de ingresos', '10-15%', '5-10%'],
+            ['Recompra de acciones', 'Masiva y regular', 'Variable'],
+            ['Dividendo', 'Creciente cada año', 'Variable'],
+            ['Puntuación de calidad (screener)', '10/10', 'Referencia'],
+            ['Posición competitiva', 'Duopolio mundial', 'Fragmentada'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Valoración: entender por qué es cara',
+        },
+        {
+          type: 'p',
+          text: "Para medir lo que el mercado está dispuesto a pagar por una acción, uso el P/FCF: el precio dividido por el flujo de caja libre. Es simplemente el precio de la acción dividido por el flujo de caja libre que genera por acción cada año. Un P/FCF de 10 significa que hoy pagas 10 años de ese efectivo. Cuanto más bajo sea este ratio, más barata está la acción. Moody's tiene actualmente una valoración de aproximadamente 31 veces su flujo de caja libre. Es elevado. La mayoría de las acciones cotizan entre 15 y 25 veces. A 31 veces, el mercado está diciendo claramente: esta empresa es excepcional y sus ingresos seguirán creciendo.",
+        },
+        {
+          type: 'p',
+          text: "¿Está justificado este nivel de valoración? Esa es la pregunta real. Mi respuesta es sí, y aquí está el porqué. Un duopolio con una exigencia de uso cuasi legal, costes de cambio absolutos en la analítica y un margen de flujo de caja libre del 50% merece una prima de valoración. Se paga caro porque la rareza del negocio es real. Solo hay dos empresas en el mundo haciendo lo que hacen, y eso no va a cambiar pronto. Pero esta alta valoración deja poco margen para el error: si el crecimiento se desacelera o un riesgo se materializa, la corrección puede ser severa.",
+        },
+        {
+          type: 'h2',
+          text: 'Riesgos que no se pueden ignorar',
+        },
+        {
+          type: 'p',
+          text: "Un análisis honesto no oculta los riesgos. Hay cuatro para Moody's. El primero es regulatorio: tras la crisis de 2008, las leyes estadounidenses (en particular la Ley Dodd-Frank) regularon las agencias de calificación y restringieron ciertas prácticas. Nuevas regulaciones podrían afectar al modelo de negocio. El segundo riesgo es legal: las calificaciones a veces se impugnan judicialmente cuando resultan demasiado optimistas. Moody's ya ha pagado multas importantes tras la crisis de las hipotecas subprime. El tercer riesgo es cíclico: cuando las empresas y los gobiernos emiten menos bonos (en períodos de subida de tipos o recesión), los ingresos por calificación caen. Es un riesgo a corto plazo pero real. Finalmente, la disrupción fintech: nuevas empresas de datos financieros e inteligencia artificial intentan ofrecer alternativas a las calificaciones tradicionales. Por ahora ninguna amenaza seriamente al duopolio, pero es un riesgo a vigilar en un horizonte de diez años.",
+        },
+        {
+          type: 'h2',
+          text: 'Cómo analizo una acción como esta',
+        },
+        {
+          type: 'p',
+          text: "Cuando analizo Moody's, siempre separo dos preguntas distintas. Primera pregunta: ¿es este un buen negocio? Segunda pregunta, completamente independiente: ¿es el precio correcto hoy? Un gran negocio comprado a un precio demasiado alto sigue siendo una mala inversión. Y un negocio mediocre comprado barato puede ser una trampa. Mezclar las dos es el error más común que veo. Para Moody's, la respuesta a la primera pregunta es muy clara: es un negocio de élite, con un foso competitivo excepcional, márgenes excepcionales y una posición competitiva construida en un siglo. La respuesta a la segunda pregunta depende de tu convicción sobre la durabilidad de esa posición y el precio que estás dispuesto a pagar por esa calidad.",
+        },
+        {
+          type: 'p',
+          text: "Es precisamente para poder responder estas dos preguntas rápidamente, para cualquier acción, que construí mi sitio de análisis. Puedes encontrar la puntuación de calidad completa de Moody's, sus datos financieros detallados y mi metodología explicada en lubin-investment.com/analyse/MCO.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Por qué Moody's tiene una ventaja competitiva tan sólida?",
+          a: "Porque su ventaja descansa en tres pilares que nadie puede copiar rápidamente: 100 años de reputación y credibilidad, acreditaciones regulatorias difíciles de obtener y una base de datos histórica única. Los mercados financieros confían en Moody's porque siempre lo han hecho. No es una ventaja tecnológica; es una ventaja institucional.",
+        },
+        {
+          q: '¿Qué es el flujo de caja libre y por qué es importante?',
+          a: "El flujo de caja libre es el dinero que realmente queda en las arcas de una empresa después de pagar todos los gastos operativos e inversiones necesarias. Es más difícil de manipular que el beneficio contable. Para Moody's, un margen de flujo de caja libre cercano al 50% significa que la mitad de cada euro de ingresos se convierte en efectivo disponible: eso es excepcional.",
+        },
+        {
+          q: "¿Por qué la valoración de Moody's es tan elevada?",
+          a: "Una valoración elevada refleja la rareza y la calidad del negocio. Moody's es una de las dos únicas empresas en el mundo en su posición, con exigencias de uso cuasi legales en los mercados de bonos mundiales. Los inversores aceptan pagar una prima por activos tan raros y defensivos. Pero esa prima deja poco margen para el error si el crecimiento decepciona.",
+        },
+        {
+          q: "¿Cuál es el principal riesgo para Moody's?",
+          a: 'A corto plazo, el riesgo cíclico: cuando la emisión de bonos se ralentiza (subida de tipos, recesión), los ingresos por calificación caen. A largo plazo, el riesgo regulatorio y la disrupción por alternativas de datos. Estos riesgos existen, pero ninguno amenaza al duopolio en un horizonte de cinco años según mi análisis.',
+        },
+        {
+          q: '¿Cómo debo usar una puntuación de calidad de 10/10 en mi análisis?',
+          a: 'La puntuación de calidad en mi screener evalúa la solidez financiera de una empresa con criterios objetivos: rentabilidad, crecimiento, recompra de acciones, márgenes, endeudamiento. Un 10/10 dice que el negocio es de élite. Pero no dice nada sobre el precio. Un negocio de élite comprado a un precio irrazonable sigue siendo una mala compra. La calidad y el precio son siempre dos preguntas separadas.',
+        },
+      ],
+      tags: [
+        "Moody's",
+        'MCO',
+        'calificación crediticia',
+        'duopolio',
+        'análisis fundamental',
+        'flujo de caja libre',
+        'acción de calidad',
+        'foso competitivo',
+        'bonos',
+        'mercados financieros',
+      ],
+      disclaimer:
+        'Solo con fines informativos y educativos; no es asesoramiento de inversión personalizado. Los resultados pasados no predicen los futuros. Las cifras son las disponibles en la fecha de publicación y pueden cambiar. Haga su propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleNFLX: Article = {
+  slug: 'netflix-nflx-analyse-fondamentale-streaming',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'NFLX',
+  content: {
+    fr: {
+      title: 'Netflix (NFLX) : le leader mondial du streaming en bourse',
+      excerpt: 'Netflix domine le streaming mondial avec 280 millions d\'abonnés dans 190 pays. Son free cash flow a dépassé 6 milliards de dollars en 2024. Voici comment j\'analyse cette action et pourquoi son avance concurrentielle est difficile à rattraper.',
+      metaDescription: 'Netflix (NFLX) : analyse fondamentale du leader mondial du streaming. Free cash flow record, 280M abonnés, nouveaux leviers pub et live. Mon avis complet.',
+      answer: 'Netflix est le leader incontesté du streaming mondial avec 280 millions d\'abonnés, un free cash flow qui dépasse 6 milliards de dollars et une avance concurrentielle construite sur des années de données de visionnage. La valorisation est élevée, mais elle reflète une position dominante difficile à détrôner. Voici mon analyse complète, sans émotion.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Netflix génère plus de 6 milliards de dollars de free cash flow par an, avec une marge autour de 20 %.',
+            '280 millions d\'abonnés dans 190 pays : une portée mondiale qu\'aucun concurrent n\'a réussi à reproduire.',
+            'L\'avantage concurrentiel repose sur les données : chaque heure regardée améliore les algorithmes de recommandation.',
+            'Nouveaux leviers de croissance : publicité (AVOD), événements live (NFL, matchs de boxe), jeux mobiles.',
+            'La valorisation est élevée (30 fois le free cash flow annuel), justifiée par la position de leader et la croissance régulière.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi Netflix n\'est pas une action ordinaire',
+        },
+        {
+          type: 'p',
+          text: 'Quand j\'analyse une action, je commence toujours par la même question : est-ce que cette entreprise a un vrai avantage concurrentiel, quelque chose qui rend sa position durablement difficile à attaquer ? Ce fossé concurrentiel, on l\'appelle un moat (le mot anglais pour « douves », comme celles d\'un château fort). Netflix en a un, et il est plus solide que ce que la plupart des gens imaginent.',
+        },
+        {
+          type: 'p',
+          text: 'L\'erreur classique, c\'est de regarder Netflix uniquement comme un catalogue de films et de séries. C\'est comme réduire Google à un moteur de recherche. La vraie valeur de Netflix, c\'est une base de données de comportements humains sans équivalent. Chaque fois que 280 millions d\'abonnés appuient sur « pause », qu\'ils abandonnent une série au deuxième épisode ou qu\'ils regardent un documentaire trois fois, Netflix apprend quelque chose. Ces données alimentent des algorithmes de recommandation que personne d\'autre ne peut répliquer, parce que personne d\'autre n\'a cette masse d\'utilisateurs depuis aussi longtemps.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment je juge la qualité financière de Netflix',
+        },
+        {
+          type: 'p',
+          text: 'Je ne fais jamais confiance au bénéfice comptable pour juger une entreprise. Il est trop facile à manipuler : amortissements, provisions, dépréciations. Ce qui m\'intéresse, c\'est le free cash flow, l\'argent qui reste réellement dans les caisses une fois que l\'entreprise a payé tout ce qu\'elle doit, y compris ses investissements. Pour Netflix, ce chiffre a atteint plus de 6 milliards de dollars en 2024. Ça veut dire qu\'après avoir produit des centaines d\'heures de contenu original, payé ses serveurs et ses équipes, il restait 6 milliards en cash pur.',
+        },
+        {
+          type: 'p',
+          text: 'La marge de free cash flow est un ratio que je surveille de près : il divise ce cash par le chiffre d\'affaires total. Netflix affiche environ 20 %, et cette marge augmente. Sur 100 euros de revenus, 20 finissent en cash disponible. C\'est la marque d\'un business mature qui a passé la phase d\'investissement massif et commence à convertir sa taille en profits réels.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : élevée, mais pas arbitraire',
+        },
+        {
+          type: 'p',
+          text: 'Pour mesurer ce que le marché accepte de payer pour une action, j\'utilise le P/FCF : le prix de l\'action divisé par le free cash flow qu\'elle génère chaque année. Un P/FCF de 10 signifie que tu paies dix années de ce cash. Plus ce chiffre est bas, moins l\'action est chère. Netflix affiche un P/FCF d\'environ 30. C\'est élevé. La question honnête que je dois me poser : est-ce justifié ?',
+        },
+        {
+          type: 'p',
+          text: 'Ma réponse : oui, pour trois raisons concrètes. Première raison : Netflix est le leader absolu d\'un marché mondial en croissance. 280 millions d\'abonnés dans 190 pays, des revenus qui progressent de 15 % par an, une expansion internationale qui n\'est pas terminée (Inde, Amérique latine, Afrique). Deuxième raison : le free cash flow est en accélération, pas en stagnation. Troisième raison : Netflix rachète massivement ses propres actions, ce qui augmente la valeur de chaque action restante. Ce n\'est pas une entreprise qui gaspille son cash, c\'est une entreprise qui l\'utilise pour récompenser ses actionnaires.',
+        },
+        {
+          type: 'h2',
+          text: 'Les nouveaux leviers que le marché sous-estime',
+        },
+        {
+          type: 'p',
+          text: 'La plupart des analyses de Netflix s\'arrêtent aux abonnements classiques. C\'est une erreur. Netflix est en train de construire plusieurs nouveaux moteurs de croissance qui n\'existaient pas il y a trois ans.',
+        },
+        {
+          type: 'p',
+          text: 'Le premier, c\'est l\'AVOD : une offre d\'abonnement moins chère financée par la publicité. Ce modèle ouvre Netflix à des dizaines de millions de personnes qui trouvaient l\'abonnement classique trop cher, tout en générant des revenus publicitaires supplémentaires. Le deuxième levier, c\'est le live : Netflix a diffusé des matchs de NFL le jour de Noël 2024, des combats de boxe, des événements spéciaux. C\'est un territoire entièrement nouveau pour une plateforme de VOD. Le troisième, moins visible, c\'est les jeux mobiles : Netflix propose déjà des dizaines de jeux sans publicité inclus dans l\'abonnement. Ce n\'est pas encore un moteur de revenus majeur, mais c\'est une option réelle qui vaut quelque chose.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques que je ne minimise pas',
+        },
+        {
+          type: 'p',
+          text: 'Une analyse honnête ne cache pas les risques. Netflix en a plusieurs que je surveille activement.',
+        },
+        {
+          type: 'p',
+          text: 'Le risque le plus immédiat, c\'est la saturation en Occident. En Europe et en Amérique du Nord, la croissance des abonnés ralentit. La prochaine décennie de croissance dépend des marchés émergents, qui ont un pouvoir d\'achat plus faible et une concurrence locale forte. Le deuxième risque, c\'est le coût du contenu original. Produire des films et des séries de qualité coûte des milliards chaque année. Si Netflix perd un ou deux paris coûteux, ses marges en pâtissent. Le troisième risque, c\'est la compétition : Disney+, Max, Apple TV+ ont des ressources considérables et des contenus exclusifs forts (Marvel, Star Wars, HBO, Apple Originals). La guerre du streaming n\'est pas terminée.',
+        },
+        {
+          type: 'p',
+          text: 'Enfin, Netflix porte encore de la dette obligataire issue de ses années d\'investissement massif. Ce n\'est pas un risque critique aujourd\'hui car le cash flow couvre largement le service de la dette, mais c\'est un facteur à garder en tête si les conditions financières se détériorent.',
+        },
+        {
+          type: 'h2',
+          text: 'Le tableau comparatif des plateformes de streaming',
+        },
+        {
+          type: 'table',
+          headers: ['Plateforme', 'Abonnés (approx.)', 'Portée mondiale', 'FCF positif', 'Publicité (AVOD)'],
+          rows: [
+            ['Netflix (NFLX)', '280 M', '190 pays', 'Oui (6+ Mds $)', 'Oui'],
+            ['Disney+ / Hulu', '~150 M', '~50 pays', 'En cours', 'Oui'],
+            ['Max (Warner)', '~100 M', '~65 pays', 'Partiel', 'Oui'],
+            ['Apple TV+', 'Non divulgué', 'Disponible monde', 'Non séparé', 'Non'],
+            ['Amazon Prime Video', '~200 M', '200+ pays', 'Non séparé', 'Oui (récent)'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Comment j\'utilise la note de qualité dans mon analyse',
+        },
+        {
+          type: 'p',
+          text: 'Dans ma méthode d\'analyse, je commence toujours par évaluer la qualité du business indépendamment du prix. Je regarde des critères financiers concrets : est-ce que les revenus et le free cash flow augmentent régulièrement ? L\'entreprise rachète-t-elle ses propres actions plutôt que de diluer les actionnaires ? Sa dette est-elle sous contrôle ? Ses marges s\'améliorent-elles ? Sur ces critères réunis, Netflix obtient un score de qualité maximal dans mon screener. Ce n\'est pas une opinion subjective : c\'est la traduction chiffrée de ses résultats financiers.',
+        },
+        {
+          type: 'p',
+          text: 'Mais un score de qualité parfait ne signifie pas « achète immédiatement ». Il signifie que la qualité du business est au rendez-vous. La deuxième question, que je traite séparément, c\'est le prix. C\'est là que le P/FCF entre en jeu. Netflix est une entreprise d\'élite, et son prix reflète cette élite. La vraie décision dépend de ta conviction sur sa capacité à maintenir cette croissance de 15 % par an sur les cinq prochaines années.',
+        },
+        {
+          type: 'h2',
+          text: 'Mon regard sur Netflix, sans pari ni émotion',
+        },
+        {
+          type: 'p',
+          text: 'Netflix est le type d\'entreprise que je respecte profondément : elle a construit quelque chose de difficile à répliquer, elle génère du cash en quantité croissante, et elle utilise ce cash de façon intelligente. La question n\'est pas de savoir si Netflix est une bonne entreprise. Elle l\'est clairement. La question est de savoir à quel prix tu es prêt à l\'acheter.',
+        },
+        {
+          type: 'p',
+          text: 'À une valorisation de 30 fois son free cash flow, l\'action intègre déjà beaucoup de bonnes nouvelles. Si Netflix continue sur sa trajectoire actuelle, avec une croissance de 15 % par an et une amélioration des marges, ce niveau de valorisation est raisonnable pour un leader mondial. Si la croissance déçoit, ou si la compétition s\'intensifie plus vite que prévu, la marge de sécurité est faible.',
+        },
+        {
+          type: 'p',
+          text: 'C\'est exactement pour pouvoir trancher ce genre de question en quelques secondes, pour n\'importe quelle action, que j\'ai construit mon site d\'analyse. Tu peux retrouver le détail complet de l\'analyse de Netflix sur <a href="/analyse/NFLX">la page dédiée à NFLX</a> ou explorer d\'autres actions via <a href="/analyser">mon outil d\'analyse</a>.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que le free cash flow, et pourquoi est-ce important pour Netflix ?',
+          a: 'Le free cash flow, c\'est l\'argent qui reste réellement dans les caisses de Netflix après avoir payé toutes ses dépenses, y compris la production de contenu. Netflix a généré plus de 6 milliards de dollars en 2024. C\'est plus difficile à manipuler que le bénéfice comptable, et c\'est le vrai indicateur de la santé financière d\'une entreprise.',
+        },
+        {
+          q: 'Comment interpréter le P/FCF de Netflix à 30 ?',
+          a: 'Le P/FCF (price-to-free-cash-flow) mesure combien le marché paie pour chaque dollar de free cash flow. Un P/FCF de 30 signifie que les investisseurs acceptent de payer 30 années de cash flow actuel pour posséder une action. C\'est élevé, mais c\'est le reflet d\'un leader mondial dont le cash flow est en accélération. Une valorisation élevée n\'est pas forcément mauvaise si la croissance est au rendez-vous.',
+        },
+        {
+          q: 'Quelle est la différence entre Netflix et ses concurrents (Disney+, Max, Apple TV+) ?',
+          a: 'Netflix a plusieurs avantages structurels : 280 millions d\'abonnés dans 190 pays contre 50-65 pays pour ses concurrents directs, un free cash flow positif et en croissance, et des années de données de comportement de visionnage qui alimentent des recommandations uniques. Disney+ et Max ont des catalogues forts, mais aucun n\'a la portée internationale ni la rentabilité de Netflix aujourd\'hui.',
+        },
+        {
+          q: 'Quels sont les principaux risques à surveiller sur l\'action Netflix ?',
+          a: 'Trois risques principaux : la saturation des marchés occidentaux qui oblige Netflix à dépendre de la croissance dans les marchés émergents, le coût élevé et continu de la production de contenu original, et la compétition de plateformes adossées à de grands studios (Disney, Warner, Apple). Ces risques sont réels, mais Netflix les gère depuis des années avec une exécution solide.',
+        },
+        {
+          q: 'Qu\'est-ce que l\'AVOD et pourquoi c\'est un levier important pour Netflix ?',
+          a: 'L\'AVOD (Advertising Video On Demand) désigne le modèle d\'abonnement à prix réduit financé par la publicité. Netflix a lancé cette offre pour toucher des segments de marché plus sensibles au prix. C\'est un double levier : il augmente le nombre d\'abonnés tout en générant des revenus publicitaires additionnels, un marché que Netflix n\'exploitait pas avant 2022.',
+        },
+      ],
+      tags: ['Netflix', 'NFLX', 'streaming', 'analyse fondamentale', 'action en bourse', 'free cash flow', 'moat', 'AVOD', 'investissement'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Chiffres à la date de publication, susceptibles d\'évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'Netflix (NFLX): the world\'s leading streaming stock',
+      excerpt: 'Netflix dominates global streaming with 280 million subscribers in 190 countries. Its free cash flow exceeded $6 billion in 2024. Here\'s how I analyze this stock and why its competitive lead is so hard to close.',
+      metaDescription: 'Netflix (NFLX): fundamental analysis of the global streaming leader. Record free cash flow, 280M subscribers, advertising and live event levers. My full take.',
+      answer: 'Netflix is the undisputed global streaming leader with 280 million subscribers, a free cash flow exceeding $6 billion, and a competitive advantage built on years of viewing data. The valuation is high, but it reflects a dominant position that is genuinely hard to dislodge. Here is my full analysis, without emotion.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Netflix generates over $6 billion in free cash flow per year, with a margin around 20%.',
+            '280 million subscribers in 190 countries: a global reach no competitor has managed to replicate.',
+            'The competitive advantage runs on data: every hour watched improves the recommendation algorithms.',
+            'New growth levers: advertising (AVOD), live events (NFL games, boxing), mobile gaming.',
+            'Valuation is high (30 times annual free cash flow), justified by the leading position and steady growth.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Why Netflix is not an ordinary stock',
+        },
+        {
+          type: 'p',
+          text: 'When I analyze a stock, I always start with the same q: does this company have a real competitive advantage, something that makes its position durably difficult to attack? That competitive moat is what I look for first. Netflix has one, and it is far more solid than most people realize.',
+        },
+        {
+          type: 'p',
+          text: 'The classic mistake is to look at Netflix only as a catalog of movies and shows. That is like reducing Google to a search engine. The real value of Netflix is an unmatched database of human viewing behavior. Every time 280 million subscribers hit pause, drop a series at episode two, or rewatch a documentary three times, Netflix learns something. That data feeds recommendation algorithms that nobody else can replicate, because nobody else has had this user base for this long.',
+        },
+        {
+          type: 'h2',
+          text: 'How I assess Netflix\'s financial quality',
+        },
+        {
+          type: 'p',
+          text: 'I never trust accounting profit to judge a business. It is too easy to manipulate through amortization, provisions, and write-offs. What I care about is free cash flow: the money that actually stays in the bank after the company has paid everything it needs to, including investments. For Netflix, that figure exceeded $6 billion in 2024. That means after producing hundreds of hours of original content, paying servers and staff, there was $6 billion in pure cash left over.',
+        },
+        {
+          type: 'p',
+          text: 'The free cash flow margin is a ratio I watch closely: it divides that cash by total revenues. Netflix sits at roughly 20%, and that margin is rising. For every $100 in revenue, $20 ends up as available cash. That is the hallmark of a mature business that has passed the heavy investment phase and is beginning to convert its scale into real profits.',
+        },
+        {
+          type: 'h2',
+          text: 'The valuation: high, but not arbitrary',
+        },
+        {
+          type: 'p',
+          text: 'To measure what the market is willing to pay for a stock, I use the P/FCF ratio: the stock price divided by the free cash flow it generates each year. A P/FCF of 10 means you are paying ten years\' worth of that cash. The lower this number, the cheaper the stock. Netflix trades at a P/FCF of roughly 30. That is high. The honest question I have to ask myself: is it justified?',
+        },
+        {
+          type: 'p',
+          text: 'My answer is yes, for three concrete reasons. First: Netflix is the absolute leader in a growing global market. 280 million subscribers in 190 countries, revenue growing at 15% per year, and an international expansion that is not finished (India, Latin America, Africa). Second: free cash flow is accelerating, not stagnating. Third: Netflix is aggressively buying back its own shares, which increases the value of each remaining share. This is not a company wasting its cash; it is a company using it to reward shareholders.',
+        },
+        {
+          type: 'h2',
+          text: 'New growth levers the market underestimates',
+        },
+        {
+          type: 'p',
+          text: 'Most analyses of Netflix stop at subscription revenue. That is a mistake. Netflix is building several new growth engines that did not exist three years ago.',
+        },
+        {
+          type: 'p',
+          text: 'The first is AVOD: a lower-priced subscription tier funded by advertising. This model opens Netflix to tens of millions of people who found the standard subscription too expensive, while generating additional advertising revenue. The second lever is live events: Netflix broadcast NFL games on Christmas Day 2024, boxing matches, and special events. That is entirely new territory for a streaming platform. The third, less visible lever is mobile gaming: Netflix already offers dozens of ad-free games included in the subscription. Not yet a major revenue driver, but a real option with genuine long-term value.',
+        },
+        {
+          type: 'h2',
+          text: 'Risks I do not minimize',
+        },
+        {
+          type: 'p',
+          text: 'An honest analysis does not hide risks. Netflix has several that I monitor actively.',
+        },
+        {
+          type: 'p',
+          text: 'The most immediate risk is subscriber saturation in Western markets. In Europe and North America, subscriber growth is slowing. The next decade of growth depends on emerging markets, which have lower purchasing power and strong local competition. The second risk is the cost of original content. Producing quality films and series costs billions every year. If Netflix loses one or two costly bets, its margins suffer. The third risk is competition: Disney+, Max, and Apple TV+ have considerable resources and strong exclusive content (Marvel, Star Wars, HBO, Apple Originals). The streaming war is not over.',
+        },
+        {
+          type: 'p',
+          text: 'Finally, Netflix still carries bond debt from its years of heavy investment. This is not a critical risk today, since cash flow comfortably covers debt service, but it is a factor to keep in mind if financial conditions deteriorate.',
+        },
+        {
+          type: 'h2',
+          text: 'Streaming platform comparison',
+        },
+        {
+          type: 'table',
+          headers: ['Platform', 'Subscribers (approx.)', 'Global reach', 'Positive FCF', 'Advertising (AVOD)'],
+          rows: [
+            ['Netflix (NFLX)', '280 M', '190 countries', 'Yes ($6+ B)', 'Yes'],
+            ['Disney+ / Hulu', '~150 M', '~50 countries', 'In progress', 'Yes'],
+            ['Max (Warner)', '~100 M', '~65 countries', 'Partial', 'Yes'],
+            ['Apple TV+', 'Not disclosed', 'Worldwide', 'Not separated', 'No'],
+            ['Amazon Prime Video', '~200 M', '200+ countries', 'Not separated', 'Yes (recent)'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'How I use a quality score in my analysis',
+        },
+        {
+          type: 'p',
+          text: 'In my analytical method, I always start by evaluating business quality independently of price. I look at concrete financial criteria: are revenues and free cash flow growing steadily? Is the company buying back its own shares rather than diluting shareholders? Is debt under control? Are margins improving? On these combined criteria, Netflix earns the maximum quality score in my screener. This is not a subjective opinion: it is the numerical translation of its financial results.',
+        },
+        {
+          type: 'p',
+          text: 'But a perfect quality score does not mean "buy immediately." It means the business quality is there. The second question, which I treat separately, is price. That is where the P/FCF comes in. Netflix is an elite business, and its price reflects that. The real decision depends on your conviction about its ability to sustain 15% annual growth over the next five years.',
+        },
+        {
+          type: 'h2',
+          text: 'My view on Netflix, without a bet or emotion',
+        },
+        {
+          type: 'p',
+          text: 'Netflix is the kind of company I deeply respect: it has built something genuinely difficult to replicate, it generates growing amounts of cash, and it uses that cash intelligently. The question is not whether Netflix is a good business. It clearly is. The question is what price you are willing to pay.',
+        },
+        {
+          type: 'p',
+          text: 'At a valuation of 30 times its free cash flow, the stock already prices in a lot of good news. If Netflix continues on its current trajectory, with 15% annual growth and improving margins, this valuation level is reasonable for a global leader. If growth disappoints, or competition intensifies faster than expected, the margin of safety is thin.',
+        },
+        {
+          type: 'p',
+          text: 'Being able to answer that kind of question in seconds, for any stock, is exactly why I built my analysis platform. You can find the full Netflix breakdown on <a href="/analyse/NFLX">the dedicated NFLX page</a> or explore other stocks with <a href="/analyser">my analysis tool</a>.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is free cash flow, and why does it matter for Netflix?',
+          a: 'Free cash flow is the money that actually stays in Netflix\'s bank account after paying all its expenses, including content production. Netflix generated over $6 billion in 2024. It is harder to manipulate than accounting profit, making it the most reliable indicator of a company\'s real financial health.',
+        },
+        {
+          q: 'How should I interpret Netflix\'s P/FCF of 30?',
+          a: 'The P/FCF (price-to-free-cash-flow) measures how much the market pays for every dollar of free cash flow. A P/FCF of 30 means investors accept paying 30 years of current cash flow to own one share. That is high, but it reflects a global leader whose cash flow is accelerating. A high valuation is not inherently bad if the growth story holds.',
+        },
+        {
+          q: 'What sets Netflix apart from Disney+, Max, and Apple TV+?',
+          a: 'Netflix has several structural advantages: 280 million subscribers in 190 countries versus 50-65 countries for its closest rivals, positive and growing free cash flow, and years of viewing behavior data that power uniquely effective recommendations. Disney+ and Max have strong catalogs, but neither matches Netflix\'s international reach or profitability today.',
+        },
+        {
+          q: 'What are the key risks to watch on Netflix stock?',
+          a: 'Three main risks: subscriber saturation in Western markets forcing reliance on lower-income emerging markets, the high and ongoing cost of original content production, and competition from platforms backed by major studios (Disney, Warner, Apple). These risks are real, but Netflix has been navigating them for years with solid execution.',
+        },
+        {
+          q: 'What is AVOD and why is it an important lever for Netflix?',
+          a: 'AVOD stands for Advertising Video On Demand. It refers to the lower-priced subscription tier funded by ads. Netflix launched this option to reach more price-sensitive market segments. It is a double lever: it grows the subscriber base while generating advertising revenue that Netflix had not captured before 2022.',
+        },
+      ],
+      tags: ['Netflix', 'NFLX', 'streaming', 'fundamental analysis', 'stock', 'free cash flow', 'moat', 'AVOD', 'investing'],
+      disclaimer: 'This content is for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures are as of the publication date and may change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'Netflix (NFLX): el líder mundial del streaming en bolsa',
+      excerpt: 'Netflix domina el streaming global con 280 millones de suscriptores en 190 países. Su flujo de caja libre superó los 6.000 millones de dólares en 2024. Aquí analizo esta acción y explico por qué su ventaja competitiva es tan difícil de alcanzar.',
+      metaDescription: 'Netflix (NFLX): análisis fundamental del líder del streaming. FCF récord, 280M suscriptores, publicidad y eventos en directo. Mi análisis completo.',
+      answer: 'Netflix es el líder indiscutible del streaming mundial con 280 millones de suscriptores, un flujo de caja libre que supera los 6.000 millones de dólares y una ventaja competitiva construida sobre años de datos de visualización. La valoración es elevada, pero refleja una posición dominante genuinamente difícil de desbancar. Aquí está mi análisis completo, sin emociones.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Netflix genera más de 6.000 millones de dólares de flujo de caja libre al año, con un margen en torno al 20%.',
+            '280 millones de suscriptores en 190 países: un alcance global que ningún competidor ha logrado replicar.',
+            'La ventaja competitiva se basa en los datos: cada hora vista mejora los algoritmos de recomendación.',
+            'Nuevos motores de crecimiento: publicidad (AVOD), eventos en directo (NFL, boxeo), juegos móviles.',
+            'La valoración es elevada (30 veces el flujo de caja libre anual), justificada por el liderazgo y el crecimiento sostenido.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Por qué Netflix no es una acción ordinaria',
+        },
+        {
+          type: 'p',
+          text: 'Cuando analizo una acción, siempre empiezo con la misma pregunta: ¿tiene esta empresa una verdadera ventaja competitiva, algo que haga su posición durablemente difícil de atacar? Ese foso competitivo, lo que en inglés llamamos moat (como el foso de un castillo), es lo primero que busco. Netflix lo tiene, y es mucho más sólido de lo que la mayoría imagina.',
+        },
+        {
+          type: 'p',
+          text: 'El error clásico es ver Netflix únicamente como un catálogo de películas y series. Es como reducir Google a un buscador. El verdadero valor de Netflix es una base de datos de comportamiento humano sin parangón. Cada vez que 280 millones de suscriptores pausan un vídeo, abandonan una serie en el segundo episodio o vuelven a ver un documental tres veces, Netflix aprende algo. Esos datos alimentan algoritmos de recomendación que nadie más puede replicar, porque nadie más ha tenido esta base de usuarios durante tanto tiempo.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo evalúo la calidad financiera de Netflix',
+        },
+        {
+          type: 'p',
+          text: 'Nunca confío en el beneficio contable para juzgar una empresa. Es demasiado fácil de manipular mediante amortizaciones, provisiones y deterioros. Lo que me importa es el flujo de caja libre (free cash flow): el dinero que realmente queda en caja una vez que la empresa ha pagado todo lo que debe, incluidas las inversiones. Para Netflix, esa cifra superó los 6.000 millones de dólares en 2024. Eso significa que, después de producir cientos de horas de contenido original y pagar servidores y equipos, quedaron 6.000 millones en efectivo puro.',
+        },
+        {
+          type: 'p',
+          text: 'El margen de flujo de caja libre es un ratio que sigo de cerca: divide ese efectivo entre los ingresos totales. Netflix se sitúa en torno al 20%, y ese margen está subiendo. Por cada 100 dólares de ingresos, 20 acaban como efectivo disponible. Es la marca de un negocio maduro que ha superado la fase de inversión intensa y empieza a convertir su escala en beneficios reales.',
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: elevada, pero no arbitraria',
+        },
+        {
+          type: 'p',
+          text: 'Para medir lo que el mercado está dispuesto a pagar por una acción, utilizo el P/FCF: el precio de la acción dividido por el flujo de caja libre que genera cada año. Un P/FCF de 10 significa que pagas diez años de ese efectivo. Cuanto más bajo, más barata está la acción. Netflix cotiza a un P/FCF de aproximadamente 30. Es elevado. La pregunta honesta que debo hacerme: ¿está justificado?',
+        },
+        {
+          type: 'p',
+          text: 'Mi respuesta es sí, por tres razones concretas. Primera: Netflix es el líder absoluto de un mercado global en crecimiento. 280 millones de suscriptores en 190 países, ingresos creciendo al 15% anual y una expansión internacional que no ha terminado (India, América Latina, África). Segunda: el flujo de caja libre se está acelerando, no estancando. Tercera: Netflix recompra masivamente sus propias acciones, lo que aumenta el valor de cada acción restante. No es una empresa que desperdicia su efectivo; es una empresa que lo utiliza para recompensar a sus accionistas.',
+        },
+        {
+          type: 'h2',
+          text: 'Nuevos motores de crecimiento que el mercado subestima',
+        },
+        {
+          type: 'p',
+          text: 'La mayoría de los análisis de Netflix se detienen en los ingresos por suscripción. Es un error. Netflix está construyendo varios nuevos motores de crecimiento que no existían hace tres años.',
+        },
+        {
+          type: 'p',
+          text: 'El primero es el AVOD: un nivel de suscripción más barato financiado por publicidad. Este modelo abre Netflix a decenas de millones de personas que encontraban la suscripción estándar demasiado cara, a la vez que genera ingresos publicitarios adicionales. El segundo motor es el directo: Netflix emitió partidos de la NFL en Navidad de 2024, combates de boxeo y eventos especiales. Es un territorio completamente nuevo para una plataforma de streaming. El tercero, menos visible, son los juegos móviles: Netflix ya ofrece decenas de juegos sin publicidad incluidos en la suscripción. Aún no es un motor de ingresos importante, pero es una opción real con valor a largo plazo.',
+        },
+        {
+          type: 'h2',
+          text: 'Riesgos que no minimizo',
+        },
+        {
+          type: 'p',
+          text: 'Un análisis honesto no oculta los riesgos. Netflix tiene varios que superviso activamente.',
+        },
+        {
+          type: 'p',
+          text: 'El riesgo más inmediato es la saturación de suscriptores en los mercados occidentales. En Europa y Norteamérica, el crecimiento de suscriptores se ralentiza. La próxima década de crecimiento depende de los mercados emergentes, que tienen menor poder adquisitivo y fuerte competencia local. El segundo riesgo es el coste del contenido original. Producir películas y series de calidad cuesta miles de millones cada año. Si Netflix pierde una o dos apuestas costosas, sus márgenes se resienten. El tercer riesgo es la competencia: Disney+, Max y Apple TV+ tienen recursos considerables y contenido exclusivo potente (Marvel, Star Wars, HBO, Apple Originals). La guerra del streaming no ha terminado.',
+        },
+        {
+          type: 'p',
+          text: 'Por último, Netflix aún carga con deuda de bonos procedente de sus años de inversión intensa. Hoy no es un riesgo crítico, ya que el flujo de caja cubre con comodidad el servicio de la deuda, pero es un factor a tener en cuenta si las condiciones financieras se deterioran.',
+        },
+        {
+          type: 'h2',
+          text: 'Comparativa de plataformas de streaming',
+        },
+        {
+          type: 'table',
+          headers: ['Plataforma', 'Suscriptores (aprox.)', 'Alcance global', 'FCF positivo', 'Publicidad (AVOD)'],
+          rows: [
+            ['Netflix (NFLX)', '280 M', '190 países', 'Sí (6.000+ M$)', 'Sí'],
+            ['Disney+ / Hulu', '~150 M', '~50 países', 'En proceso', 'Sí'],
+            ['Max (Warner)', '~100 M', '~65 países', 'Parcial', 'Sí'],
+            ['Apple TV+', 'No divulgado', 'Disponible globalmente', 'No separado', 'No'],
+            ['Amazon Prime Video', '~200 M', '200+ países', 'No separado', 'Sí (reciente)'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Cómo uso la nota de calidad en mi análisis',
+        },
+        {
+          type: 'p',
+          text: 'En mi método de análisis, siempre empiezo evaluando la calidad del negocio de forma independiente al precio. Reviso criterios financieros concretos: ¿están creciendo los ingresos y el flujo de caja libre de forma sostenida? ¿Está la empresa recomprando sus propias acciones en lugar de diluir a los accionistas? ¿Está la deuda bajo control? ¿Están mejorando los márgenes? Sobre estos criterios combinados, Netflix obtiene la puntuación de calidad máxima en mi screener. No es una opinión subjetiva: es la traducción numérica de sus resultados financieros.',
+        },
+        {
+          type: 'p',
+          text: 'Pero una puntuación de calidad perfecta no significa "compra de inmediato". Significa que la calidad del negocio está ahí. La segunda pregunta, que trato por separado, es el precio. Ahí es donde entra el P/FCF. Netflix es un negocio de élite, y su precio refleja esa élite. La decisión real depende de tu convicción sobre su capacidad para mantener un crecimiento anual del 15% durante los próximos cinco años.',
+        },
+        {
+          type: 'h2',
+          text: 'Mi visión de Netflix, sin apuestas ni emociones',
+        },
+        {
+          type: 'p',
+          text: 'Netflix es el tipo de empresa que respeto profundamente: ha construido algo genuinamente difícil de replicar, genera cantidades crecientes de efectivo y utiliza ese efectivo de forma inteligente. La pregunta no es si Netflix es un buen negocio. Claramente lo es. La pregunta es qué precio estás dispuesto a pagar.',
+        },
+        {
+          type: 'p',
+          text: 'Con una valoración de 30 veces su flujo de caja libre, la acción ya incorpora muchas buenas noticias. Si Netflix continúa en su trayectoria actual, con un crecimiento anual del 15% y mejora de márgenes, este nivel de valoración es razonable para un líder mundial. Si el crecimiento decepciona, o la competencia se intensifica más rápido de lo esperado, el margen de seguridad es escaso.',
+        },
+        {
+          type: 'p',
+          text: 'Poder responder este tipo de pregunta en segundos, para cualquier acción, es exactamente la razón por la que construí mi plataforma de análisis. Puedes encontrar el desglose completo de Netflix en <a href="/analyse/NFLX">la página dedicada a NFLX</a> o explorar otras acciones con <a href="/analyser">mi herramienta de análisis</a>.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el flujo de caja libre y por qué es importante para Netflix?',
+          a: 'El flujo de caja libre es el dinero que realmente queda en las cuentas de Netflix después de pagar todos sus gastos, incluida la producción de contenido. Netflix generó más de 6.000 millones de dólares en 2024. Es más difícil de manipular que el beneficio contable, lo que lo convierte en el indicador más fiable de la salud financiera real de una empresa.',
+        },
+        {
+          q: '¿Cómo interpretar el P/FCF de Netflix en 30?',
+          a: 'El P/FCF (precio sobre flujo de caja libre) mide cuánto paga el mercado por cada dólar de flujo de caja libre. Un P/FCF de 30 significa que los inversores aceptan pagar 30 años del flujo de caja actual para poseer una acción. Es elevado, pero refleja a un líder mundial cuyo flujo de caja se está acelerando. Una valoración alta no es necesariamente mala si el crecimiento se sostiene.',
+        },
+        {
+          q: '¿Qué diferencia a Netflix de Disney+, Max y Apple TV+?',
+          a: 'Netflix tiene varias ventajas estructurales: 280 millones de suscriptores en 190 países frente a los 50-65 países de sus rivales más cercanos, flujo de caja libre positivo y creciente, y años de datos de comportamiento de visualización que potencian recomendaciones únicas. Disney+ y Max tienen catálogos potentes, pero ninguno iguala hoy el alcance internacional ni la rentabilidad de Netflix.',
+        },
+        {
+          q: '¿Cuáles son los principales riesgos a vigilar en la acción Netflix?',
+          a: 'Tres riesgos principales: la saturación de suscriptores en los mercados occidentales que obliga a depender del crecimiento en mercados emergentes de menor poder adquisitivo, el elevado y continuo coste de producción de contenido original, y la competencia de plataformas respaldadas por grandes estudios (Disney, Warner, Apple). Estos riesgos son reales, pero Netflix los lleva gestionando años con una ejecución sólida.',
+        },
+        {
+          q: '¿Qué es el AVOD y por qué es un palanca importante para Netflix?',
+          a: 'AVOD son las siglas de Advertising Video On Demand, es decir, la modalidad de suscripción a menor precio financiada por publicidad. Netflix lanzó esta opción para llegar a segmentos de mercado más sensibles al precio. Es una doble palanca: amplía la base de suscriptores y genera ingresos publicitarios que Netflix no captaba antes de 2022.',
+        },
+      ],
+      tags: ['Netflix', 'NFLX', 'streaming', 'análisis fundamental', 'acción en bolsa', 'flujo de caja libre', 'moat', 'AVOD', 'inversión'],
+      disclaimer: 'Contenido con fines informativos y educativos, no constituye asesoramiento personalizado de inversión. Los resultados pasados no garantizan resultados futuros. Las cifras corresponden a la fecha de publicación y pueden cambiar. Haz tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articlePYPL: Article = {
+  slug: 'paypal-pypl-analyse-fondamentale-fintech-paiements',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'PYPL',
+  content: {
+    fr: {
+      title: 'PayPal (PYPL) : la pépite fintech que le marché néglige',
+      excerpt: 'PayPal génère 4 à 5 milliards de dollars de cash chaque année, rachète massivement ses propres actions, et se valorise comme une entreprise en faillite. Voici pourquoi le marché se trompe, et comment j\'analyse cette situation sans émotion.',
+      metaDescription: 'PayPal (PYPL) : analyse fondamentale complète. Moat, free cash flow, valorisation, risques et thèse d\'investissement expliqués simplement. Mise à jour juin 2026.',
+      answer: 'PayPal est une entreprise solide avec 400 millions de comptes actifs, une marque mondiale de confiance et un free cash flow structurel de 4 à 5 milliards de dollars par an. Le marché la pénalise doublement : secteur fintech hors mode et croissance ralentie. Résultat, elle affiche aujourd\'hui une valorisation anormalement basse pour sa qualité réelle.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'PayPal génère 4 à 5 milliards de dollars de free cash flow chaque année, avec une marge supérieure à 20 %.',
+            'Elle rachète plus de 10 % de ses propres actions chaque année, ce qui profite mécaniquement aux actionnaires restants.',
+            'Sa valorisation actuelle (environ 8 fois son free cash flow annuel) est nettement inférieure à sa moyenne historique.',
+            'Le marché punit deux choses en même temps : le ralentissement de croissance et la mode passée du secteur fintech.',
+            'Les risques sont réels (Apple Pay, Google Pay, Stripe), mais le moat de PayPal reste structurellement solide.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Le piège classique : confondre une bonne entreprise et un bon prix'
+        },
+        {
+          type: 'p',
+          text: 'Quand je regarde une action, je commence toujours par séparer deux questions que presque tout le monde mélange. Première question : est-ce une bonne entreprise ? Deuxième question, complètement indépendante : est-ce le bon prix aujourd\'hui ? Une entreprise géniale achetée trop cher reste un mauvais placement. Une entreprise médiocre bradée reste médiocre. PayPal est un cas intéressant parce que les deux réponses ne vont pas de soi.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal a chuté de plus de 75 % depuis son sommet de 2021. Beaucoup de gens ont donc l\'impression qu\'il s\'agit d\'une entreprise en difficulté. Mais cette chute ne reflète pas la santé du business : elle reflète une déception par rapport à des attentes de croissance folles, alimentées par la bulle COVID. Ce n\'est pas la même chose. Et c\'est précisément là que l\'opportunité se cache, ou pas.'
+        },
+        {
+          type: 'h2',
+          text: 'PayPal, c\'est quoi exactement comme business ?'
+        },
+        {
+          type: 'p',
+          text: 'PayPal est une infrastructure de paiement numérique. Quand tu achètes quelque chose en ligne et que tu cliques sur le bouton PayPal, tu utilises leur réseau. Derrière ce bouton simple se cache un écosystème de 400 millions de comptes actifs d\'un côté et 30 millions de marchands de l\'autre. Ce double réseau, c\'est leur force principale.'
+        },
+        {
+          type: 'p',
+          text: 'L\'entreprise possède aussi Venmo, l\'application de paiements entre particuliers qui domine aux États-Unis (comme Lydia en France, mais à une autre échelle), et Braintree, une infrastructure technique que les développeurs utilisent pour intégrer les paiements dans leurs applications. Ces trois jambes forment un écosystème difficile à remplacer d\'un coup.'
+        },
+        {
+          type: 'h2',
+          text: 'Ce que j\'appelle le moat : pourquoi PayPal est difficile à détrôner'
+        },
+        {
+          type: 'p',
+          text: 'Le moat, c\'est le fossé concurrentiel d\'une entreprise : ce qui l\'empêche d\'être copiée ou remplacée facilement. Pour PayPal, ce fossé repose sur trois choses. D\'abord, la marque et la confiance : dans les paiements en ligne, le consommateur ne clique sur un bouton que s\'il lui fait confiance. PayPal a mis vingt ans à bâtir cette confiance. Ce n\'est pas quelque chose qu\'Apple Pay peut acheter en six mois.'
+        },
+        {
+          type: 'p',
+          text: 'Ensuite, les effets de réseau : plus il y a de marchands qui acceptent PayPal, plus les acheteurs veulent un compte. Et plus il y a d\'acheteurs, plus les marchands veulent l\'intégrer. Ce cercle vertueux auto-entretenu est le fondement de toutes les grandes plateformes. Enfin, les coûts de changement : un marchand qui a intégré Braintree dans son système de paiement ne bascule pas vers un concurrent en une semaine. La migration est coûteuse et risquée.'
+        },
+        {
+          type: 'h2',
+          text: 'Les chiffres qui comptent vraiment'
+        },
+        {
+          type: 'p',
+          text: 'Dans ma méthode, je commence par regarder le free cash flow, pas le bénéfice comptable. Le bénéfice peut être influencé par des écritures comptables, des amortissements, des stocks options. Le free cash flow, c\'est l\'argent qui reste réellement dans les caisses une fois que l\'entreprise a tout payé : ses salaires, ses investissements, ses impôts. C\'est ce cash que l\'entreprise peut utiliser pour racheter ses actions, rembourser sa dette ou faire des acquisitions.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal génère entre 4 et 5 milliards de dollars de free cash flow par an. Sa marge de free cash flow dépasse 20 %, ce qui signifie que pour 100 dollars de revenus encaissés, plus de 20 dollars restent en cash disponible. C\'est un niveau de rentabilité réelle très élevé, comparable à celui des meilleurs business de logiciels. Et cette entreprise n\'a quasiment pas de dette nette.'
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'PayPal (PYPL)', 'Contexte'],
+          rows: [
+            ['Free cash flow annuel', '4 à 5 milliards $', 'Stable depuis 3 ans'],
+            ['Marge de free cash flow', '20 %+', 'Niveau comparable aux meilleurs SaaS'],
+            ['Valorisation (P/FCF)', 'environ 8 fois', 'Nettement sous sa moyenne historique'],
+            ['Rachats d\'actions/an', '10 %+ du flottant', 'Réduction mécanique du nombre d\'actions'],
+            ['Dette nette', 'Quasi nulle', 'Bilan solide, peu de risque financier'],
+            ['Comptes actifs', '400 millions+', 'Réseau mondial installé']
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : pourquoi 8 fois, c\'est une anomalie'
+        },
+        {
+          type: 'p',
+          text: 'Pour mesurer si une action est chère ou bon marché, j\'utilise principalement le P/FCF (price-to-free-cash-flow) : c\'est le prix que tu paies pour l\'action divisé par le free cash flow qu\'elle génère chaque année. Un P/FCF de 8 signifie que tu paies 8 années de ce cash. Plus ce chiffre est bas, moins l\'action est chère par rapport à ce qu\'elle produit concrètement.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal affiche aujourd\'hui une valorisation d\'environ 8 fois son free cash flow annuel. Pour une entreprise qui génère structurellement 4 à 5 milliards de dollars par an, rachète 10 % de ses actions chaque année, et possède l\'infrastructure de paiement de l\'e-commerce mondial, c\'est anormalement bas. À titre de comparaison, des entreprises de bien moindre qualité dans le secteur tech se valorisent 20 à 40 fois leur free cash flow.'
+        },
+        {
+          type: 'p',
+          text: 'Le marché applique ce que j\'appelle une double pénalité : d\'abord, le secteur fintech est sorti de mode après l\'euphorie 2020-2021 et les hausses de taux d\'intérêt. Ensuite, PayPal est perçue comme une entreprise "ex-croissance" : elle ne croît plus à 20 % par an. Ces deux pénalités se cumulent, et le prix final semble déconnecté de la réalité du business.'
+        },
+        {
+          type: 'h2',
+          text: 'Les rachats d\'actions : l\'arme silencieuse'
+        },
+        {
+          type: 'p',
+          text: 'Il y a un mécanisme que beaucoup d\'investisseurs sous-estiment : les rachats d\'actions. Quand une entreprise rachète ses propres actions sur le marché et les annule, le nombre total d\'actions en circulation diminue. Si le nombre d\'actions baisse et que le profit reste stable, chaque action restante représente une part plus grande de l\'entreprise. C\'est une façon silencieuse de redistribuer de la valeur aux actionnaires restants, sans payer de dividende.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal rachète plus de 10 % de ses actions chaque année. Sur 5 ans, cela signifie que le nombre d\'actions en circulation pourrait baisser de près de 40 %. Si le free cash flow reste stable, chaque actionnaire restant sera propriétaire d\'une part sensiblement plus grande de l\'entreprise. Ce n\'est pas spectaculaire sur un an, mais sur 5 à 10 ans, l\'effet de composition est très significatif.'
+        },
+        {
+          type: 'h2',
+          text: 'Les risques : soyons honnêtes'
+        },
+        {
+          type: 'p',
+          text: 'Je ne construis pas une thèse sans regarder ce qui peut la détruire. Et PayPal fait face à des risques réels. Le premier : Apple Pay et Google Pay gagnent des parts de marché sur le paiement mobile en magasin. Ils sont intégrés nativement dans les téléphones, ce que PayPal ne peut pas égaler. Sur ce segment précis, PayPal est en position défensive.'
+        },
+        {
+          type: 'p',
+          text: 'Le deuxième risque : le BNPL (Buy Now Pay Later, soit "achète maintenant, paye plus tard"), popularisé par Klarna et Affirm, attaque une partie du marché d\'e-commerce sur laquelle PayPal était bien positionné. Ce segment est désormais concurrentiel. Troisième risque : la croissance du volume total de paiements (TPV) ralentit. PayPal n\'est plus une fusée à 30 % de croissance annuelle. Enfin, la perte d\'eBay comme partenaire exclusif (historiquement, eBay représentait une large part des transactions) a créé un vide qui prend du temps à combler.'
+        },
+        {
+          type: 'p',
+          text: 'Le vrai débat tient en une question : est-ce que la concurrence va ronger le free cash flow structurellement, ou est-ce que le moat tient ? Si le FCF reste stable à 4-5 milliards et que les rachats continuent, la thèse est solide même sans croissance. Si la concurrence fait baisser les marges, la valorisation actuelle n\'est plus une anomalie mais un signal d\'alarme.'
+        },
+        {
+          type: 'h2',
+          text: 'Mon évaluation : qualité et prix, deux lectures séparées'
+        },
+        {
+          type: 'p',
+          text: 'Dans ma façon d\'analyser les actions, je note séparément la qualité du business et le niveau de valorisation. Sur la qualité, PayPal obtient un score parfait dans mon outil de screener : free cash flow structurel élevé et stable, marge de FCF supérieure à 20 %, bilan solide sans dette nette, rachats massifs d\'actions, réseau installé avec effets de réseau réels. C\'est un business de grande qualité.'
+        },
+        {
+          type: 'p',
+          text: 'Sur la valorisation, une valorisation d\'environ 8 fois le free cash flow pour ce niveau de qualité représente une anomalie de marché. Le marché pénalise trop sévèrement le ralentissement de croissance et l\'aspect "secteur hors mode". C\'est précisément le genre de situation que ma méthode est conçue à identifier : une qualité élevée, un prix bas, et une raison identifiable (mais probablement exagérée) pour laquelle le marché fait cette erreur de valorisation.'
+        },
+        {
+          type: 'p',
+          text: 'Si tu veux analyser d\'autres actions avec cette même grille, c\'est exactement ce que j\'ai construit sur <a href="/analyser">mon site d\'investissement</a>. Tu peux aussi consulter l\'<a href="/analyse/PYPL">analyse complète de PayPal</a> avec tous les indicateurs mis à jour en temps réel.'
+        },
+        {
+          type: 'h2',
+          text: 'Ce que je retiens'
+        },
+        {
+          type: 'p',
+          text: 'PayPal est une entreprise solide, avec un moat réel, un cash abondant et une politique de rachats d\'actions qui profite mécaniquement aux actionnaires sur la durée. Le marché lui applique une double pénalité sévère : secteur fintech sorti de mode et croissance ralentie après l\'euphorie COVID. Résultat, une valorisation anormalement basse pour la qualité réelle du business. La thèse repose sur une conviction simple : le free cash flow tient, les rachats continuent, et le marché finit par corriger cette anomalie. Ce n\'est pas une garantie, mais c\'est une thèse claire, fondée sur des chiffres solides.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que le free cash flow et pourquoi c\'est important pour PayPal ?',
+          a: 'Le free cash flow, c\'est l\'argent qui reste réellement dans les caisses de l\'entreprise après avoir tout payé : salaires, investissements, impôts. C\'est plus difficile à manipuler que le bénéfice comptable. Pour PayPal, ce chiffre atteint 4 à 5 milliards de dollars par an, ce qui montre la solidité réelle du business indépendamment des fluctuations comptables.'
+        },
+        {
+          q: 'Pourquoi l\'action PayPal est-elle aussi bon marché aujourd\'hui ?',
+          a: 'Le marché applique une double pénalité : le secteur fintech est "sorti de mode" après la bulle 2020-2021, et PayPal est perçue comme une entreprise dont la croissance a ralenti. Ces deux facteurs combinés poussent la valorisation à des niveaux qui semblent déconnectés de la qualité réelle du business et de son free cash flow structurel.'
+        },
+        {
+          q: 'Qu\'est-ce que le P/FCF et comment l\'interpréter pour PayPal ?',
+          a: 'Le P/FCF (price-to-free-cash-flow) mesure combien d\'années de free cash flow tu paies en achetant l\'action aujourd\'hui. À environ 8 fois, PayPal se valorise très bas par rapport à sa qualité et à sa moyenne historique. Pour comparaison, des entreprises tech de qualité comparable se valorisent souvent entre 20 et 40 fois leur free cash flow.'
+        },
+        {
+          q: 'Quels sont les principaux risques pour PayPal ?',
+          a: 'Apple Pay et Google Pay gagnent des parts sur le paiement mobile en magasin. Klarna et Affirm attaquent le BNPL. La croissance du volume de paiements ralentit. La perte d\'eBay comme partenaire exclusif a créé un manque. Ces risques sont réels et justifient une certaine prudence, mais ils ne remettent pas fondamentalement en cause le free cash flow structurel tant que le moat en ligne tient.'
+        },
+        {
+          q: 'PayPal est-elle une bonne action à acheter en 2026 ?',
+          a: 'Ce n\'est pas un conseil en investissement. Ce que je peux dire : la qualité du business est élevée, la valorisation est anormalement basse, et les rachats d\'actions créent de la valeur mécaniquement sur la durée. La thèse est claire. Mais les risques concurrentiels sont réels, et toute décision d\'investissement doit rester personnelle et adaptée à ta situation.'
+        }
+      ],
+      tags: ['PayPal', 'PYPL', 'fintech', 'paiements numériques', 'action en bourse', 'free cash flow', 'analyse fondamentale', 'valorisation', 'rachats d\'actions', 'moat'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches avant toute décision.'
+    },
+    en: {
+      title: 'PayPal (PYPL) : the fintech gem the market ignores',
+      excerpt: 'PayPal generates $4-5 billion in cash every year, aggressively buys back its own shares, and trades like a company in distress. Here is why I think the market is wrong, and how I analyze this situation without emotion.',
+      metaDescription: 'PayPal (PYPL): complete fundamental analysis. Moat, free cash flow, valuation, risks and investment thesis explained simply. Updated June 2026.',
+      answer: 'PayPal is a high-quality business with 400 million active accounts, a globally trusted brand, and structural free cash flow of $4-5 billion per year. The market is penalizing it twice: fintech is out of fashion, and growth has slowed. The result is an unusually low valuation for its actual quality. Here is how I break it down.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'PayPal generates $4-5 billion in free cash flow every year, with a margin above 20%.',
+            'It buys back more than 10% of its own shares every year, mechanically benefiting remaining shareholders.',
+            'Its current valuation (around 8 times annual free cash flow) is well below its historical average.',
+            'The market is punishing two things simultaneously: slowing growth and a fintech sector that has fallen out of fashion.',
+            'Competitive risks are real (Apple Pay, Google Pay, Stripe), but PayPal\'s moat remains structurally solid.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'The classic trap: mixing a good business with a good price'
+        },
+        {
+          type: 'p',
+          text: 'When I look at a stock, I always start by separating two questions that almost everyone conflates. First q: is this a good business? Second question, completely independent: is this the right price today? A great business bought too expensive is still a bad investment. A mediocre business on sale is still mediocre. PayPal is interesting precisely because neither answer is obvious.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal has fallen more than 75% from its 2021 peak. Many people therefore assume it is a business in trouble. But that drop does not reflect the health of the business: it reflects disappointment against wildly inflated growth expectations fueled by the COVID bubble. That is not the same thing. And that is exactly where the opportunity hides, or does not.'
+        },
+        {
+          type: 'h2',
+          text: 'What PayPal actually does as a business'
+        },
+        {
+          type: 'p',
+          text: 'PayPal is a digital payments infrastructure. When you buy something online and click the PayPal button, you are using their network. Behind that simple button sits an ecosystem of 400 million active accounts on one side and 30 million merchants on the other. This two-sided network is their core strength.'
+        },
+        {
+          type: 'p',
+          text: 'The company also owns Venmo, the peer-to-peer payments app that dominates in the United States, and Braintree, a technical infrastructure that developers use to integrate payments into their applications. These three legs form an ecosystem that is genuinely difficult to replace overnight.'
+        },
+        {
+          type: 'h2',
+          text: 'The moat: why PayPal is hard to displace'
+        },
+        {
+          type: 'p',
+          text: 'The moat is a business\'s competitive moat: what prevents it from being easily copied or replaced. For PayPal, this moat rests on three things. First, brand and trust: in online payments, a consumer only clicks a button if they trust it. PayPal spent twenty years building that trust. That is not something Apple Pay can buy in six months.'
+        },
+        {
+          type: 'p',
+          text: 'Second, network effects: the more merchants accept PayPal, the more buyers want an account. And the more buyers there are, the more merchants want to integrate it. This self-reinforcing virtuous cycle is the foundation of every great platform. Third, switching costs: a merchant that has integrated Braintree into their payment system does not switch to a competitor in a week. Migration is expensive and risky.'
+        },
+        {
+          type: 'h2',
+          text: 'The numbers that actually matter'
+        },
+        {
+          type: 'p',
+          text: 'In my method, I start by looking at free cash flow, not accounting profit. Profits can be influenced by accounting entries, depreciation, and stock options. Free cash flow is the money that genuinely remains in the company\'s accounts once everything is paid: salaries, investments, taxes. That is the cash the company can use to buy back shares, pay down debt, or make acquisitions.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal generates between $4 and $5 billion in free cash flow per year. Its free cash flow margin exceeds 20%, meaning that for every $100 in revenue collected, more than $20 remain as available cash. That is a very high level of real profitability, comparable to the best software businesses. And this company carries virtually no net debt.'
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'PayPal (PYPL)', 'Context'],
+          rows: [
+            ['Annual free cash flow', '$4-5 billion', 'Stable for 3 years'],
+            ['FCF margin', '20%+', 'Comparable to top SaaS businesses'],
+            ['Valuation (P/FCF)', 'Around 8x', 'Well below historical average'],
+            ['Share buybacks per year', '10%+ of float', 'Mechanical reduction of share count'],
+            ['Net debt', 'Near zero', 'Solid balance sheet, low financial risk'],
+            ['Active accounts', '400 million+', 'Established global network']
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'The valuation: why 8x is an anomaly'
+        },
+        {
+          type: 'p',
+          text: 'To measure whether a stock is expensive or cheap, I primarily use the P/FCF (price-to-free-cash-flow): that is the price you pay for the stock divided by the free cash flow it generates each year. A P/FCF of 8 means you are paying for 8 years of that cash. The lower this number, the cheaper the stock relative to what it actually produces.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal currently trades at around 8 times its annual free cash flow. For a company that structurally generates $4-5 billion per year, buys back 10% of its shares annually, and owns the payment infrastructure of global e-commerce, that is abnormally low. By comparison, businesses of far lower quality in the tech sector typically trade at 20 to 40 times their free cash flow.'
+        },
+        {
+          type: 'p',
+          text: 'The market is applying what I call a double penalty: first, the fintech sector fell out of favor after the 2020-2021 euphoria and interest rate hikes. Second, PayPal is perceived as an "ex-growth" company: it no longer grows at 20% per year. These two penalties compound, and the final price seems disconnected from the reality of the business.'
+        },
+        {
+          type: 'h2',
+          text: 'Share buybacks: the silent weapon'
+        },
+        {
+          type: 'p',
+          text: 'There is a mechanism that many investors underestimate: share buybacks. When a company buys back its own shares on the market and cancels them, the total number of shares outstanding decreases. If the share count falls while profit stays stable, each remaining share represents a larger slice of the company. It is a quiet way to return value to remaining shareholders without paying a dividend.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal is buying back more than 10% of its shares every year. Over 5 years, that means the total share count could fall by nearly 40%. If free cash flow stays stable, each remaining shareholder will own a meaningfully larger portion of the company. Not spectacular in a single year, but over 5 to 10 years, the compounding effect is very significant.'
+        },
+        {
+          type: 'h2',
+          text: 'The risks: let\'s be honest'
+        },
+        {
+          type: 'p',
+          text: 'I do not build a thesis without looking at what could destroy it. And PayPal faces real risks. The first: Apple Pay and Google Pay are gaining market share in mobile in-store payments. They are natively integrated into phones, something PayPal cannot match. On that specific segment, PayPal is in a defensive position.'
+        },
+        {
+          type: 'p',
+          text: 'The second risk: BNPL (Buy Now Pay Later), popularized by Klarna and Affirm, is attacking the e-commerce segment where PayPal was well positioned. That space is now competitive. Third risk: growth in Total Payment Volume (TPV) is slowing. PayPal is no longer a rocket growing at 30% per year. Finally, the loss of eBay as an exclusive partner historically represented a significant share of transactions that has taken time to replace.'
+        },
+        {
+          type: 'p',
+          text: 'The real debate comes down to one q: will competition structurally erode free cash flow, or does the moat hold? If FCF stays stable at $4-5 billion and buybacks continue, the thesis is solid even without growth. If competition compresses margins, the current valuation is no longer an anomaly but a warning sign.'
+        },
+        {
+          type: 'h2',
+          text: 'My assessment: quality and price as two separate readings'
+        },
+        {
+          type: 'p',
+          text: 'In my approach to analyzing stocks, I score the quality of the business separately from its valuation level. On quality, PayPal earns a perfect score in my screening tool: high and stable structural free cash flow, FCF margin above 20%, solid balance sheet with virtually no net debt, aggressive share buybacks, an established network with real network effects. This is a high-quality business.'
+        },
+        {
+          type: 'p',
+          text: 'On valuation, a valuation of around 8 times free cash flow for this quality level represents a market anomaly. The market is too harshly penalizing slowing growth and the "out of fashion sector" factor. This is precisely the type of situation my method is designed to identify: high quality, low price, and an identifiable (but likely exaggerated) reason why the market is making this pricing error.'
+        },
+        {
+          type: 'p',
+          text: 'If you want to analyze other stocks with this same framework, that is exactly what I built on <a href="/analyser">my investment site</a>. You can also check the <a href="/analyse/PYPL">full PayPal analysis</a> with all indicators updated in real time.'
+        },
+        {
+          type: 'h2',
+          text: 'My takeaway'
+        },
+        {
+          type: 'p',
+          text: 'PayPal is a solid company with a real moat, abundant cash generation, and a buyback policy that mechanically benefits shareholders over time. The market is applying a harsh double penalty: fintech sector out of fashion and slowing growth after the COVID euphoria. The result is an unusually low valuation for the actual quality of the business. The thesis rests on a simple conviction: free cash flow holds, buybacks continue, and the market eventually corrects this anomaly. That is not a guarantee, but it is a clear, numbers-based thesis.'
+        }
+      ],
+      faq: [
+        {
+          q: 'What is free cash flow and why does it matter for PayPal?',
+          a: 'Free cash flow is the money that genuinely remains in a company\'s accounts after paying for everything: salaries, investments, taxes. It is harder to manipulate than accounting profit. For PayPal, this figure reaches $4-5 billion per year, demonstrating the real strength of the business regardless of accounting fluctuations.'
+        },
+        {
+          q: 'Why is PayPal stock so cheap today?',
+          a: 'The market is applying a double penalty: the fintech sector is "out of fashion" after the 2020-2021 bubble, and PayPal is perceived as a company whose growth has slowed. These two factors combined push the valuation to levels that appear disconnected from the actual quality of the business and its structural free cash flow.'
+        },
+        {
+          q: 'What is P/FCF and how should I interpret it for PayPal?',
+          a: 'P/FCF (price-to-free-cash-flow) measures how many years of free cash flow you are paying for when you buy the stock today. At around 8x, PayPal trades at a very low valuation relative to its quality and historical average. For context, tech companies of comparable quality typically trade at 20 to 40 times their free cash flow.'
+        },
+        {
+          q: 'What are the main risks for PayPal?',
+          a: 'Apple Pay and Google Pay are gaining share in mobile in-store payments. Klarna and Affirm are attacking the BNPL space. Total Payment Volume growth is slowing. The loss of eBay as an exclusive partner created a gap that has taken time to fill. These risks are real and warrant caution, but they do not fundamentally undermine structural free cash flow as long as the online moat holds.'
+        },
+        {
+          q: 'Is PayPal a good stock to buy in 2026?',
+          a: 'This is not investment advice. What I can say: the business quality is high, the valuation is unusually low, and share buybacks create value mechanically over time. The thesis is clear. But competitive risks are real, and any investment decision must remain personal and suited to your own situation.'
+        }
+      ],
+      tags: ['PayPal', 'PYPL', 'fintech', 'digital payments', 'stock analysis', 'free cash flow', 'fundamental analysis', 'valuation', 'share buybacks', 'moat'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research before making any decision.'
+    },
+    es: {
+      title: 'PayPal (PYPL) : la joya fintech que el mercado ignora',
+      excerpt: 'PayPal genera entre 4 y 5 mil millones de dólares en efectivo cada año, recompra masivamente sus propias acciones y cotiza como si fuera una empresa en apuros. Aquí explico por qué creo que el mercado se equivoca y cómo analizo esta situación sin dejarse llevar por las emociones.',
+      metaDescription: 'PayPal (PYPL): análisis fundamental completo. Moat, free cash flow, valoración, riesgos y tesis de inversión explicados de forma sencilla. Actualizado junio 2026.',
+      answer: 'PayPal es una empresa sólida con 400 millones de cuentas activas, una marca de confianza mundial y un free cash flow estructural de 4 a 5 mil millones de dólares al año. El mercado la penaliza dos veces: el sector fintech está pasado de moda y el crecimiento se ha ralentizado. El resultado es una valoración anormalmente baja para su calidad real.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'PayPal genera entre 4 y 5 mil millones de dólares de free cash flow cada año, con un margen superior al 20%.',
+            'Recompra más del 10% de sus propias acciones cada año, beneficiando mecánicamente a los accionistas restantes.',
+            'Su valoración actual (unas 8 veces el free cash flow anual) está muy por debajo de su media histórica.',
+            'El mercado castiga dos cosas a la vez: la ralentización del crecimiento y el sector fintech fuera de moda.',
+            'Los riesgos competitivos son reales (Apple Pay, Google Pay, Stripe), pero el moat de PayPal sigue siendo estructuralmente sólido.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'La trampa clásica: confundir buena empresa con buen precio'
+        },
+        {
+          type: 'p',
+          text: 'Cuando analizo una acción, siempre separo dos preguntas que casi todo el mundo mezcla. Primera pregunta: ¿es un buen negocio? Segunda pregunta, completamente independiente: ¿es el precio correcto hoy? Una empresa excelente comprada demasiado cara sigue siendo una mala inversión. Una empresa mediocre de oferta sigue siendo mediocre. PayPal es interesante precisamente porque ninguna de las dos respuestas es obvia.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal ha caído más de un 75% desde su máximo de 2021. Muchas personas asumen entonces que es una empresa con problemas. Pero esa caída no refleja la salud del negocio: refleja la decepción frente a unas expectativas de crecimiento desbordadas, alimentadas por la burbuja del COVID. No es lo mismo. Y es exactamente ahí donde se esconde la oportunidad, o no.'
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace exactamente PayPal como negocio'
+        },
+        {
+          type: 'p',
+          text: 'PayPal es una infraestructura de pagos digitales. Cuando compras algo por internet y haces clic en el botón de PayPal, estás usando su red. Detrás de ese botón sencillo se esconde un ecosistema de 400 millones de cuentas activas por un lado y 30 millones de comerciantes por el otro. Esta red de doble cara es su principal fortaleza.'
+        },
+        {
+          type: 'p',
+          text: 'La empresa también posee Venmo, la aplicación de pagos entre particulares que domina en Estados Unidos, y Braintree, una infraestructura técnica que los desarrolladores utilizan para integrar pagos en sus aplicaciones. Estas tres patas forman un ecosistema genuinamente difícil de reemplazar de la noche a la mañana.'
+        },
+        {
+          type: 'h2',
+          text: 'El moat: por qué PayPal es difícil de desbancar'
+        },
+        {
+          type: 'p',
+          text: 'El moat es la ventaja competitiva de una empresa: lo que impide que sea copiada o reemplazada fácilmente. Para PayPal, esta ventaja se apoya en tres pilares. Primero, la marca y la confianza: en los pagos por internet, un consumidor solo hace clic en un botón si confía en él. PayPal tardó veinte años en construir esa confianza. Apple Pay no puede comprar eso en seis meses.'
+        },
+        {
+          type: 'p',
+          text: 'Segundo, los efectos de red: cuantos más comerciantes aceptan PayPal, más compradores quieren una cuenta. Y cuantos más compradores hay, más comerciantes quieren integrarlo. Este círculo virtuoso que se retroalimenta es la base de todas las grandes plataformas. Tercero, los costes de cambio: un comerciante que ha integrado Braintree en su sistema de pagos no migra a un competidor en una semana. La migración es costosa y arriesgada.'
+        },
+        {
+          type: 'h2',
+          text: 'Los números que realmente importan'
+        },
+        {
+          type: 'p',
+          text: 'En mi método, empiezo mirando el free cash flow, no el beneficio contable. El beneficio puede verse influenciado por asientos contables, amortizaciones y opciones sobre acciones. El free cash flow es el dinero que realmente queda en las arcas de la empresa una vez pagado todo: salarios, inversiones, impuestos. Ese es el efectivo que la empresa puede usar para recomprar acciones, pagar deuda o hacer adquisiciones.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal genera entre 4 y 5 mil millones de dólares de free cash flow al año. Su margen de free cash flow supera el 20%, lo que significa que por cada 100 dólares de ingresos cobrados, más de 20 quedan como efectivo disponible. Eso es un nivel de rentabilidad real muy alto, comparable al de los mejores negocios de software. Y esta empresa no tiene prácticamente deuda neta.'
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'PayPal (PYPL)', 'Contexto'],
+          rows: [
+            ['Free cash flow anual', '4 a 5 mil millones $', 'Estable desde hace 3 años'],
+            ['Margen de FCF', 'Más del 20%', 'Comparable a los mejores SaaS'],
+            ['Valoración (P/FCF)', 'Unas 8 veces', 'Muy por debajo de la media histórica'],
+            ['Recompras de acciones/año', 'Más del 10% del capital', 'Reducción mecánica del número de acciones'],
+            ['Deuda neta', 'Casi nula', 'Balance sólido, bajo riesgo financiero'],
+            ['Cuentas activas', 'Más de 400 millones', 'Red global establecida']
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: por qué 8 veces es una anomalía'
+        },
+        {
+          type: 'p',
+          text: 'Para medir si una acción está cara o barata, uso principalmente el P/FCF (price-to-free-cash-flow): es el precio que pagas por la acción dividido entre el free cash flow que genera cada año. Un P/FCF de 8 significa que estás pagando 8 años de ese efectivo. Cuanto más bajo es este número, más barata está la acción en relación a lo que produce de verdad.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal cotiza hoy a unas 8 veces su free cash flow anual. Para una empresa que genera estructuralmente entre 4 y 5 mil millones de dólares al año, recompra el 10% de sus acciones cada año y posee la infraestructura de pagos del comercio electrónico mundial, eso es anormalmente bajo. A modo de comparación, negocios de calidad muy inferior en el sector tecnológico suelen valorarse entre 20 y 40 veces su free cash flow.'
+        },
+        {
+          type: 'p',
+          text: 'El mercado aplica lo que yo llamo una doble penalización: primero, el sector fintech cayó en desgracia tras la euforia de 2020-2021 y las subidas de tipos de interés. Segundo, PayPal se percibe como una empresa "ex-crecimiento": ya no crece al 20% anual. Estas dos penalizaciones se acumulan y el precio final parece desconectado de la realidad del negocio.'
+        },
+        {
+          type: 'h2',
+          text: 'Las recompras de acciones: el arma silenciosa'
+        },
+        {
+          type: 'p',
+          text: 'Hay un mecanismo que muchos inversores subestiman: las recompras de acciones. Cuando una empresa recompra sus propias acciones en el mercado y las cancela, el número total de acciones en circulación disminuye. Si el número de acciones baja y el beneficio se mantiene estable, cada acción restante representa una parte mayor de la empresa. Es una forma silenciosa de redistribuir valor a los accionistas restantes, sin pagar dividendos.'
+        },
+        {
+          type: 'p',
+          text: 'PayPal recompra más del 10% de sus acciones cada año. En 5 años, eso significa que el número de acciones en circulación podría caer casi un 40%. Si el free cash flow se mantiene estable, cada accionista restante será propietario de una parte significativamente mayor de la empresa. No es espectacular en un solo año, pero a lo largo de 5 a 10 años, el efecto del interés compuesto es muy significativo.'
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos: seamos honestos'
+        },
+        {
+          type: 'p',
+          text: 'No construyo una tesis sin analizar lo que podría destruirla. Y PayPal se enfrenta a riesgos reales. El primero: Apple Pay y Google Pay están ganando cuota de mercado en los pagos móviles en tienda física. Están integrados de forma nativa en los teléfonos, algo que PayPal no puede igualar. En ese segmento específico, PayPal está a la defensiva.'
+        },
+        {
+          type: 'p',
+          text: 'El segundo riesgo: el BNPL (Buy Now Pay Later, es decir, "compra ahora, paga después"), popularizado por Klarna y Affirm, ataca el segmento del comercio electrónico en el que PayPal estaba bien posicionado. Ese espacio es ahora muy competitivo. Tercer riesgo: el crecimiento del volumen total de pagos (TPV) se ralentiza. PayPal ya no es un cohete que crece al 30% anual. Por último, la pérdida de eBay como socio exclusivo históricamente representaba una parte importante de las transacciones que ha tardado en reemplazarse.'
+        },
+        {
+          type: 'p',
+          text: 'El verdadero debate se reduce a una pregunta: ¿va a erosionar la competencia el free cash flow estructuralmente, o el moat aguanta? Si el FCF se mantiene estable en 4-5 mil millones y las recompras continúan, la tesis es sólida incluso sin crecimiento. Si la competencia comprime los márgenes, la valoración actual ya no es una anomalía sino una señal de alerta.'
+        },
+        {
+          type: 'h2',
+          text: 'Mi evaluación: calidad y precio como dos lecturas separadas'
+        },
+        {
+          type: 'p',
+          text: 'En mi forma de analizar acciones, evalúo de forma separada la calidad del negocio y el nivel de valoración. En cuanto a calidad, PayPal obtiene una puntuación perfecta en mi herramienta de selección: free cash flow estructural alto y estable, margen de FCF superior al 20%, balance sólido sin deuda neta, recompras masivas de acciones, una red establecida con efectos de red reales. Este es un negocio de alta calidad.'
+        },
+        {
+          type: 'p',
+          text: 'En cuanto a valoración, una valoración de unas 8 veces el free cash flow para este nivel de calidad representa una anomalía de mercado. El mercado está penalizando demasiado severamente la ralentización del crecimiento y el factor "sector fuera de moda". Es exactamente el tipo de situación que mi método está diseñado para identificar: alta calidad, precio bajo y una razón identificable (pero probablemente exagerada) por la que el mercado comete este error de valoración.'
+        },
+        {
+          type: 'p',
+          text: 'Si quieres analizar otras acciones con este mismo enfoque, eso es exactamente lo que he construido en <a href="/analyser">mi sitio de inversión</a>. También puedes consultar el <a href="/analyse/PYPL">análisis completo de PayPal</a> con todos los indicadores actualizados en tiempo real.'
+        },
+        {
+          type: 'h2',
+          text: 'Lo que me llevo'
+        },
+        {
+          type: 'p',
+          text: 'PayPal es una empresa sólida, con un moat real, generación abundante de efectivo y una política de recompra de acciones que beneficia mecánicamente a los accionistas a lo largo del tiempo. El mercado aplica una doble penalización severa: el sector fintech fuera de moda y la ralentización del crecimiento tras la euforia del COVID. El resultado es una valoración anormalmente baja para la calidad real del negocio. La tesis descansa en una convicción sencilla: el free cash flow se mantiene, las recompras continúan y el mercado acaba corrigiendo esta anomalía. No es una garantía, pero es una tesis clara, fundamentada en números sólidos.'
+        }
+      ],
+      faq: [
+        {
+          q: '¿Qué es el free cash flow y por qué es importante para PayPal?',
+          a: 'El free cash flow es el dinero que realmente queda en las arcas de la empresa después de pagar todo: salarios, inversiones, impuestos. Es más difícil de manipular que el beneficio contable. Para PayPal, esta cifra alcanza entre 4 y 5 mil millones de dólares al año, lo que demuestra la solidez real del negocio independientemente de las fluctuaciones contables.'
+        },
+        {
+          q: '¿Por qué la acción de PayPal está tan barata hoy?',
+          a: 'El mercado aplica una doble penalización: el sector fintech está "fuera de moda" tras la burbuja de 2020-2021, y PayPal se percibe como una empresa cuyo crecimiento se ha ralentizado. Estos dos factores combinados empujan la valoración a niveles que parecen desconectados de la calidad real del negocio y de su free cash flow estructural.'
+        },
+        {
+          q: '¿Qué es el P/FCF y cómo interpretarlo para PayPal?',
+          a: 'El P/FCF (price-to-free-cash-flow) mide cuántos años de free cash flow estás pagando cuando compras la acción hoy. A unas 8 veces, PayPal cotiza a una valoración muy baja en relación a su calidad y a su media histórica. Para comparar, las empresas tecnológicas de calidad comparable suelen valorarse entre 20 y 40 veces su free cash flow.'
+        },
+        {
+          q: '¿Cuáles son los principales riesgos para PayPal?',
+          a: 'Apple Pay y Google Pay están ganando cuota en los pagos móviles en tienda. Klarna y Affirm atacan el espacio BNPL. El crecimiento del volumen total de pagos se ralentiza. La pérdida de eBay como socio exclusivo creó un vacío que ha tardado en cubrirse. Estos riesgos son reales y justifican cierta prudencia, pero no comprometen fundamentalmente el free cash flow estructural mientras el moat en línea se mantenga.'
+        },
+        {
+          q: '¿Es PayPal una buena acción para comprar en 2026?',
+          a: 'Esto no es un consejo de inversión. Lo que puedo decir es que la calidad del negocio es alta, la valoración es anormalmente baja y las recompras de acciones crean valor de forma mecánica a lo largo del tiempo. La tesis es clara. Pero los riesgos competitivos son reales y cualquier decisión de inversión debe ser personal y adaptada a tu propia situación.'
+        }
+      ],
+      tags: ['PayPal', 'PYPL', 'fintech', 'pagos digitales', 'acción en bolsa', 'free cash flow', 'análisis fundamental', 'valoración', 'recompra de acciones', 'moat'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a fecha de publicación, sujetas a cambios. Haz tu propia investigación antes de tomar cualquier decisión.'
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
