@@ -19488,7 +19488,2251 @@ const articleBSY: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [accentureQ3FY2026, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, articleTT, wrb, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY];
+const articleCOLL: Article = {
+  slug: 'collegium-pharmaceutical-coll-analyse-fondamentale-pharma',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'COLL',
+  content: {
+    fr: {
+      title: 'Collegium Pharmaceutical (COLL) : analyse fondamentale',
+      excerpt: 'Collegium Pharmaceutical fabrique des médicaments anti-douleur à formulation résistante aux abus. Le marché la confond avec les producteurs d\'opioïdes classiques et la valorise à un niveau extrêmement bas. Voici pourquoi cette confusion crée peut-être l\'une des opportunités les plus intéressantes du moment.',
+      metaDescription: 'Collegium Pharmaceutical (COLL) : analyse fondamentale d\'une pharma spécialisée sous-évaluée. Moat défensif, cash flow exceptionnel, et un marché qui ne voit pas la différence.',
+      answer: 'Collegium Pharmaceutical est une entreprise pharmaceutique spécialisée dans les médicaments anti-douleur à formulation résistante aux abus. Sa valorisation boursière est extrêmement basse parce que le marché la confond avec les fabricants d\'opioïdes classiques. Pourtant, son modèle est fondamentalement différent, et ses finances sont remarquables.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Collegium se spécialise dans les médicaments anti-douleur conçus pour résister aux abus, pas dans les opioïdes classiques.',
+            'Zéro dépenses de R&D : l\'entreprise commercialise des molécules déjà approuvées, ce qui explique une marge de cash flow libre autour de 60 %.',
+            'La valorisation est extrêmement basse : l\'action se valorise environ 3,8 fois son cash flow libre annuel, un niveau rarissime pour une entreprise aussi rentable.',
+            'Le marché applique une double pénalité injustifiée : secteur pharma spécialisée + stigma opioïdes, sans distinguer le modèle de Collegium.',
+            'Risque réel : dépendance à quelques produits clés, pression des génériques, et environnement réglementaire autour des opioïdes.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le malentendu qui crée l\'opportunité',
+        },
+        {
+          type: 'p',
+          text: 'Quand j\'analyse une action, ma première question n\'est pas "est-ce qu\'elle est pas chère ?" mais "pourquoi le marché la voit-il ainsi ?". Parce que si tout le monde a accès aux mêmes chiffres et que l\'action reste bradée, c\'est qu\'il y a une raison. Avec Collegium Pharmaceutical, la raison est claire : le marché ne fait pas la distinction entre un fabricant d\'opioïdes classiques et une entreprise qui fabrique des médicaments spécifiquement conçus pour réduire les risques d\'abus. C\'est la même case, la même méfiance, la même sanction boursière. Et c\'est précisément là que réside l\'intérêt d\'y regarder de plus près.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que Collegium fait vraiment',
+        },
+        {
+          type: 'p',
+          text: 'Collegium Pharmaceutical, cotée au NASDAQ sous le ticker COLL, est une entreprise pharmaceutique de taille moyenne avec une capitalisation boursière d\'environ 1,5 milliard de dollars. Elle commercialise deux médicaments principaux : Xtampza ER, une formule d\'oxycodone à libération prolongée conçue pour résister à l\'écrasement ou à la dissolution (les voies d\'abus classiques), et Nucynta, qui contient du tapentadol, une molécule différente des opioïdes traditionnels avec un mécanisme d\'action dual. Ces médicaments s\'adressent aux patients souffrant de douleurs chroniques sévères pour qui les alternatives classiques sont insuffisantes ou dangereuses. L\'idée fondatrice de Collegium, c\'est de répondre à un besoin médical réel tout en limitant les risques de détournement. C\'est une position défendable, réglementairement reconnue, et commercialement solide.',
+        },
+        {
+          type: 'h2',
+          text: 'Un modèle d\'affaires sans R&D : la clé des marges exceptionnelles',
+        },
+        {
+          type: 'p',
+          text: 'Ce qui rend Collegium financièrement très intéressante, c\'est la structure de son modèle d\'affaires. L\'entreprise ne dépense pas d\'argent en recherche et développement pour découvrir de nouvelles molécules. Elle prend des molécules déjà approuvées par la FDA et les reformule avec ses technologies brevetées pour les rendre résistantes aux abus. Résultat : les coûts sont beaucoup plus prévisibles, et la majeure partie des revenus descend directement vers le cash flow libre. Le cash flow libre, c\'est l\'argent qui reste vraiment dans les caisses de l\'entreprise une fois toutes les dépenses payées : salaires, investissements, impôts, remboursements de dette. C\'est le chiffre dont je me sers le plus, parce qu\'il est bien plus difficile à maquiller que le bénéfice comptable. Chez Collegium, la marge de cash flow libre tourne autour de 60 %. Cela signifie que sur 100 dollars de revenus, 60 finissent en cash réellement disponible. C\'est exceptionnel. La plupart des entreprises cotées plafonnent autour de 10 à 15 %.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment je mesure si une action est chère ou pas chère',
+        },
+        {
+          type: 'p',
+          text: 'Pour savoir si une action est bien valorisée, j\'utilise plusieurs ratios, dont le P/FCF : le price-to-free-cash-flow. Ce ratio mesure combien de fois la capitalisation boursière de l\'entreprise représente son cash flow libre annuel. Concrètement, un P/FCF de 20 signifie que tu paies aujourd\'hui vingt années de ce cash. Plus ce chiffre est bas, moins l\'action est chère par rapport à ce que l\'entreprise génère réellement. Collegium affiche un P/FCF d\'environ 3,8. C\'est un niveau qu\'on voit rarement. Pour une entreprise avec une marge de 60 % et une croissance des revenus récurrente, cela suggère que le marché intègre un scénario très pessimiste. Je veux comprendre ce pessimisme avant d\'y voir une opportunité.',
+        },
+        {
+          type: 'table',
+          headers: ['Critère', 'Collegium (COLL)', 'Pharma spécialisée (médiane secteur)'],
+          rows: [
+            ['Marge de cash flow libre', '~60 %', '~15-25 %'],
+            ['Valorisation (P/FCF)', '~3,8×', '~15-25×'],
+            ['R&D / Revenus', 'Quasi nulle', '15-30 %'],
+            ['Rachats d\'actions', 'Actifs', 'Variable'],
+            ['Dépendance produits clés', 'Élevée (2 produits)', 'Variable'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le moat de Collegium : ce qui protège le business',
+        },
+        {
+          type: 'p',
+          text: 'Le moat, ou fossé concurrentiel, c\'est ce qui empêche un concurrent de venir prendre la place d\'une entreprise. Chez Collegium, il repose sur trois piliers. D\'abord, les brevets sur les formulations : les technologies d\'abuse-deterrence sont protégées, et les génériqueurs doivent prouver que leurs copies ne permettent pas les mêmes voies d\'abus. Ce n\'est pas trivial. Ensuite, les relations avec les prescripteurs : les médecins et spécialistes de la douleur connaissent ces médicaments, les ont prescrits, et ont vu les résultats. Le changement de prescription a un coût d\'inertie élevé. Enfin, le cadre réglementaire lui-même joue en faveur de Collegium : la FDA encourage les formulations abuse-deterrent, et les assureurs ont des incitations à les préférer aux formulations classiques pour limiter les détournements. Ce moat n\'est pas imprenable, mais il est solide et bien ancré dans la réalité médicale et économique du secteur.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques que je ne minimise pas',
+        },
+        {
+          type: 'p',
+          text: 'Une analyse honnête ne peut pas s\'arrêter aux points positifs. Les risques chez Collegium sont réels et sérieux. Le premier, c\'est la concentration du portefeuille : deux produits principaux, c\'est peu. Si l\'un des deux rencontre un problème réglementaire, une perte de brevet anticipée, ou une substitution par un générique, l\'impact sur les revenus sera immédiat et brutal. Le deuxième risque, c\'est l\'environnement réglementaire autour des opioïdes aux États-Unis. La pression politique et judiciaire sur les fabricants de médicaments opioïdes reste très forte. Même si les formulations abuse-deterrent sont mieux perçues, elles ne sont pas à l\'abri d\'un durcissement réglementaire général. Troisième point : les brevets expirent. Les barrières à l\'entrée des génériques se réduisent avec le temps, et la pression sur les prix est inévitable à horizon de quelques années. Ces risques ne disqualifient pas la thèse, mais ils l\'encadrent.',
+        },
+        {
+          type: 'h2',
+          text: 'La double pénalité injustifiée et ce que ça implique',
+        },
+        {
+          type: 'p',
+          text: 'Dans ma méthode d\'analyse, je note chaque entreprise sur 10 selon des critères financiers objectifs : rentabilité, croissance, solidité du bilan, qualité de l\'allocation du capital. Ces critères évaluent la qualité du business indépendamment de son prix en bourse. Collegium obtient un score de 10 sur 10, le maximum. Ce score reflète des marges exceptionnelles, une dette maîtrisée, des rachats d\'actions réguliers, et une croissance des revenus récurrente. Pourtant, l\'action se valorise à un niveau qui correspond davantage à une entreprise en déclin qu\'à une entreprise de qualité. L\'explication, c\'est la double pénalité : le marché pénalise à la fois le secteur pharma spécialisée, souvent regardé avec méfiance, et le stigma opioïdes, sans distinguer la nature des produits de Collegium. C\'est ce type de confusion que j\'essaie d\'identifier, parce que c\'est là que les opportunités les plus asymétriques se créent.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que j\'attends pour décider',
+        },
+        {
+          type: 'p',
+          text: 'Une valorisation basse ne suffit pas à faire une bonne décision d\'investissement. Ce que je surveille chez Collegium, c\'est la trajectoire des revenus sur les deux prochains trimestres : est-ce que la croissance tient, ou est-ce qu\'on voit déjà des signes d\'érosion liés aux génériques ? Je regarde aussi l\'évolution de la couverture brevet sur Xtampza ER, et les signaux du côté des politiques de remboursement. Si ces éléments se maintiennent, la thèse reste très solide. C\'est exactement ce genre d\'analyse que j\'ai voulu pouvoir faire rapidement pour n\'importe quelle action. C\'est pour ça que j\'ai construit mon site d\'investissement, disponible à /analyse/COLL pour voir tous les indicateurs en temps réel.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Collegium Pharmaceutical est-elle une entreprise d\'opioïdes ?',
+          a: 'Techniquement oui, mais avec une différence fondamentale : ses médicaments sont conçus avec des formulations résistantes aux abus, ce qui les rend beaucoup plus difficiles à détourner de leur usage médical. C\'est une distinction que le marché ignore souvent, ce qui explique en partie sa valorisation basse.',
+        },
+        {
+          q: 'Qu\'est-ce que le cash flow libre et pourquoi c\'est important ?',
+          a: 'Le cash flow libre, c\'est l\'argent qui reste réellement dans les caisses de l\'entreprise après toutes les dépenses nécessaires pour fonctionner et investir. C\'est le chiffre le plus difficile à manipuler comptablement, et donc celui sur lequel je m\'appuie le plus pour évaluer la santé financière réelle d\'une entreprise.',
+        },
+        {
+          q: 'Pourquoi une entreprise avec de si bonnes marges est-elle si peu valorisée en bourse ?',
+          a: 'Parce que le marché ne valorise pas seulement les chiffres d\'aujourd\'hui, il valorise aussi les perspectives. La pression des génériques, le risque réglementaire autour des opioïdes, et la concentration du portefeuille sur deux produits créent une incertitude que le marché pénalise fortement. C\'est la tension centrale de cette thèse.',
+        },
+        {
+          q: 'C\'est quoi le P/FCF et comment l\'interpréter ?',
+          a: 'Le P/FCF (price-to-free-cash-flow) mesure combien de fois la valeur boursière d\'une entreprise représente son cash flow libre annuel. Un P/FCF de 3,8 signifie que tu paies moins de quatre ans de ce cash. Plus ce chiffre est bas, moins l\'action est chère par rapport à ce qu\'elle génère. Ce n\'est intéressant que si la qualité du business est au rendez-vous.',
+        },
+        {
+          q: 'Quels sont les principaux risques de l\'action COLL ?',
+          a: 'Les principaux risques sont la dépendance à deux produits clés, l\'expiration future des brevets qui ouvre la voie aux génériques, et l\'environnement réglementaire et politique tendu autour des opioïdes aux États-Unis. Ces risques sont réels et doivent être intégrés dans toute analyse sérieuse.',
+        },
+      ],
+      tags: ['Collegium Pharmaceutical', 'COLL', 'action pharma', 'analyse fondamentale', 'cash flow libre', 'sous-évaluation', 'opioïdes abuse-deterrent', 'Xtampza', 'Nucynta', 'bourse'],
+      disclaimer: 'Analyse à but informatif et éducatif uniquement, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres sont ceux disponibles à la date de publication et peuvent évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'Collegium Pharmaceutical (COLL): our fundamental analysis',
+      excerpt: 'Collegium Pharmaceutical makes abuse-deterrent pain medications. The market lumps it together with traditional opioid makers and prices it at an extremely low valuation. Here is why that confusion might be creating one of the most interesting opportunities right now.',
+      metaDescription: 'Collegium Pharmaceutical (COLL): fundamental analysis of an undervalued specialty pharma. Defensive moat, exceptional cash flow, and a market that misses the distinction.',
+      answer: 'Collegium Pharmaceutical is a specialty pharma company focused on abuse-deterrent pain medications. Its stock valuation is extremely low because the market confuses it with traditional opioid makers. Yet its business model is fundamentally different, and its financials are exceptional. Here is how I analyze it.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Collegium specializes in pain medications engineered to resist abuse, not traditional opioids.',
+            'Zero R&D spending: the company commercializes already-approved molecules, which explains a free cash flow margin of around 60%.',
+            'The valuation is extremely low: the stock is valued at roughly 3.8 times its annual free cash flow, a rare level for a company this profitable.',
+            'The market applies an unjustified double penalty: specialty pharma sector discount plus opioid stigma, without distinguishing Collegium\'s model.',
+            'Real risks: dependence on a few key products, generic pressure, and the regulatory environment around opioids.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The misunderstanding that creates the opportunity',
+        },
+        {
+          type: 'p',
+          text: 'When I analyze a stock, my first question is never "is it cheap?" but "why does the market see it this way?" Because if everyone has access to the same numbers and the stock stays depressed, there is a reason. With Collegium Pharmaceutical, the reason is clear: the market does not distinguish between a traditional opioid manufacturer and a company that makes medications specifically designed to reduce abuse risk. It is the same bucket, the same suspicion, the same market penalty. And that is precisely where looking more closely becomes worthwhile.',
+        },
+        {
+          type: 'h2',
+          text: 'What Collegium actually does',
+        },
+        {
+          type: 'p',
+          text: 'Collegium Pharmaceutical, listed on NASDAQ under the ticker COLL, is a mid-sized pharmaceutical company with a market capitalization of around $1.5 billion. It markets two main medications: Xtampza ER, an extended-release oxycodone formula engineered to resist crushing or dissolution (the classic abuse routes), and Nucynta, which contains tapentadol, a molecule with a dual mechanism of action different from traditional opioids. These medications serve patients with severe chronic pain for whom standard alternatives are insufficient or dangerous. The founding idea behind Collegium is to address a genuine medical need while limiting diversion risk. It is a defensible, regulatorily recognized, and commercially solid position.',
+        },
+        {
+          type: 'h2',
+          text: 'A zero-R&D business model: the key to exceptional margins',
+        },
+        {
+          type: 'p',
+          text: 'What makes Collegium financially compelling is the structure of its business model. The company does not spend money on research and development to discover new molecules. It takes already FDA-approved molecules and reformulates them with its patented technologies to make them abuse-deterrent. The result: costs are far more predictable, and the bulk of revenues flows directly through to free cash flow. Free cash flow is the money that actually stays in the company\'s coffers after all expenses are paid: salaries, capital expenditures, taxes, debt repayments. It is the figure I rely on most, because it is much harder to manipulate than accounting profit. At Collegium, the free cash flow margin runs around 60%. That means for every $100 in revenue, $60 ends up as actual available cash. That is exceptional. Most listed companies top out around 10 to 15%.',
+        },
+        {
+          type: 'h2',
+          text: 'How I measure whether a stock is expensive or cheap',
+        },
+        {
+          type: 'p',
+          text: 'To assess whether a stock is fairly valued, I use several ratios, including the P/FCF: the price-to-free-cash-flow. This ratio measures how many times the company\'s market capitalization represents its annual free cash flow. Concretely, a P/FCF of 20 means you are paying twenty years of that cash today. The lower the number, the cheaper the stock relative to what the company actually generates. Collegium trades at a P/FCF of roughly 3.8. That is a level you rarely see. For a company with a 60% margin and recurring revenue growth, it implies the market is pricing in a very pessimistic scenario. I want to understand that pessimism before concluding it is an opportunity.',
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Collegium (COLL)', 'Specialty Pharma (sector median)'],
+          rows: [
+            ['Free cash flow margin', '~60%', '~15-25%'],
+            ['Valuation (P/FCF)', '~3.8x', '~15-25x'],
+            ['R&D / Revenue', 'Near zero', '15-30%'],
+            ['Share buybacks', 'Active', 'Variable'],
+            ['Key product dependence', 'High (2 products)', 'Variable'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Collegium\'s moat: what protects the business',
+        },
+        {
+          type: 'p',
+          text: 'A moat, or competitive advantage, is what prevents a competitor from taking a company\'s place. At Collegium, it rests on three pillars. First, patents on formulations: abuse-deterrence technologies are protected, and generic makers must prove their copies do not enable the same abuse routes. That is not trivial to demonstrate. Second, prescriber relationships: pain specialists know these medications, have prescribed them, and have seen results. Switching prescriptions carries a high inertia cost. Third, the regulatory framework itself favors Collegium: the FDA encourages abuse-deterrent formulations, and insurers have incentives to prefer them over standard formulations to limit diversion. This moat is not impenetrable, but it is solid and deeply embedded in the medical and economic reality of the sector.',
+        },
+        {
+          type: 'h2',
+          text: 'The risks I do not minimize',
+        },
+        {
+          type: 'p',
+          text: 'An honest analysis cannot stop at the positives. The risks at Collegium are real and serious. The first is portfolio concentration: two main products is thin. If either encounters a regulatory problem, an early patent loss, or generic substitution, the revenue impact will be immediate and severe. The second risk is the regulatory environment around opioids in the United States. Political and legal pressure on opioid drug makers remains intense. Even if abuse-deterrent formulations are better regarded, they are not immune to broader regulatory tightening. Third: patents expire. Barriers to generic entry erode over time, and price pressure is inevitable within a few years. These risks do not invalidate the thesis, but they define its boundaries.',
+        },
+        {
+          type: 'h2',
+          text: 'The unjustified double penalty and what it implies',
+        },
+        {
+          type: 'p',
+          text: 'In my analytical method, I score each company out of 10 based on objective financial criteria: profitability, growth, balance sheet strength, quality of capital allocation. These criteria evaluate business quality independently of the stock\'s market price. Collegium scores 10 out of 10, the maximum. That score reflects exceptional margins, managed debt, consistent share buybacks, and recurring revenue growth. Yet the stock is valued at a level that looks more like a company in decline than a quality business. The explanation is the double penalty: the market discounts both the specialty pharma sector, often viewed with suspicion, and the opioid stigma, without distinguishing the nature of Collegium\'s products. This is the type of confusion I try to identify, because it is where the most asymmetric opportunities are created.',
+        },
+        {
+          type: 'h2',
+          text: 'What I am watching before deciding',
+        },
+        {
+          type: 'p',
+          text: 'A low valuation alone is not enough for a sound investment decision. What I am monitoring at Collegium is revenue trajectory over the next two quarters: is growth holding, or are we already seeing early signs of generic erosion? I also track the patent coverage timeline for Xtampza ER and signals around reimbursement policies. If these hold up, the thesis remains very solid. This is exactly the kind of analysis I wanted to be able to run quickly on any stock. That is why I built my investment site, available at /analyse/COLL to see all key metrics in real time.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Is Collegium Pharmaceutical an opioid company?',
+          a: 'Technically yes, but with a fundamental difference: its medications are engineered with abuse-deterrent formulations that make them much harder to divert from their medical use. This is a distinction the market often ignores, which partly explains the low valuation.',
+        },
+        {
+          q: 'What is free cash flow and why does it matter?',
+          a: 'Free cash flow is the money that actually remains in a company after all operating and investing expenses are paid. It is the hardest figure to manipulate through accounting, which is why I rely on it most heavily to assess a company\'s true financial health.',
+        },
+        {
+          q: 'Why is a company with such strong margins valued so low?',
+          a: 'Because markets price not just today\'s numbers but also future prospects. Generic pressure, regulatory risk around opioids, and the concentration of the portfolio around two products create uncertainty that the market penalizes heavily. That tension is the central trade-off of this thesis.',
+        },
+        {
+          q: 'What is P/FCF and how do I read it?',
+          a: 'P/FCF (price-to-free-cash-flow) measures how many times the market value of a company represents its annual free cash flow. A P/FCF of 3.8 means you are paying less than four years of that cash. The lower the number, the cheaper the stock relative to what it generates. It is only compelling if the business quality holds up.',
+        },
+        {
+          q: 'What are the main risks of COLL stock?',
+          a: 'The main risks are dependence on two key products, future patent expiration opening the door to generics, and the tense regulatory and political environment around opioids in the US. These risks are real and must be part of any serious analysis.',
+        },
+      ],
+      tags: ['Collegium Pharmaceutical', 'COLL', 'pharma stock', 'fundamental analysis', 'free cash flow', 'undervaluation', 'abuse-deterrent opioids', 'Xtampza', 'Nucynta', 'stock market'],
+      disclaimer: 'This article is for informational and educational purposes only and does not constitute personalized investment advice. Past performance does not predict future results. Figures are as of the publication date and may change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'Collegium Pharmaceutical (COLL): análisis fundamental',
+      excerpt: 'Collegium Pharmaceutical fabrica medicamentos analgésicos con formulación resistente al abuso. El mercado la confunde con los fabricantes de opioides tradicionales y la valora a niveles muy bajos. Aquí explico por qué esa confusión puede estar creando una de las oportunidades más interesantes del momento.',
+      metaDescription: 'Collegium Pharmaceutical (COLL): análisis fundamental de una farmacéutica especializada infravalorada. Ventaja competitiva defensiva, flujo de caja excepcional y un mercado que no distingue el modelo.',
+      answer: 'Collegium Pharmaceutical es una empresa farmacéutica especializada en medicamentos analgésicos con formulación resistente al abuso. Su valoración bursátil es extremadamente baja porque el mercado la confunde con los fabricantes de opioides tradicionales. Sin embargo, su modelo de negocio es fundamentalmente distinto y sus finanzas son notables.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Collegium se especializa en medicamentos analgésicos diseñados para resistir el abuso, no en opioides tradicionales.',
+            'Cero gastos en I+D: la empresa comercializa moléculas ya aprobadas, lo que explica un margen de flujo de caja libre de alrededor del 60%.',
+            'La valoración es extremadamente baja: la acción se valora en torno a 3,8 veces su flujo de caja libre anual, un nivel muy poco frecuente para una empresa tan rentable.',
+            'El mercado aplica una doble penalización injustificada: descuento por sector farmacéutico especializado más el estigma de los opioides, sin distinguir el modelo de Collegium.',
+            'Riesgos reales: dependencia de unos pocos productos clave, presión de los genéricos y entorno regulatorio en torno a los opioides.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El malentendido que crea la oportunidad',
+        },
+        {
+          type: 'p',
+          text: 'Cuando analizo una acción, mi primera pregunta nunca es "¿está barata?" sino "¿por qué el mercado la ve así?". Porque si todo el mundo tiene acceso a los mismos datos y la acción sigue deprimida, es que hay una razón. Con Collegium Pharmaceutical, la razón es clara: el mercado no distingue entre un fabricante de opioides tradicional y una empresa que fabrica medicamentos diseñados específicamente para reducir el riesgo de abuso. Misma categoría, misma desconfianza, misma penalización bursátil. Y es precisamente ahí donde merece la pena profundizar.',
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente Collegium',
+        },
+        {
+          type: 'p',
+          text: 'Collegium Pharmaceutical, cotizada en el NASDAQ bajo el ticker COLL, es una empresa farmacéutica de tamaño mediano con una capitalización bursátil de alrededor de 1.500 millones de dólares. Comercializa dos medicamentos principales: Xtampza ER, una fórmula de oxicodona de liberación prolongada diseñada para resistir la trituración o la disolución (las vías de abuso más habituales), y Nucynta, que contiene tapentadol, una molécula con un doble mecanismo de acción diferente a los opioides tradicionales. Estos medicamentos están destinados a pacientes con dolor crónico grave para quienes las alternativas estándar son insuficientes o peligrosas. La idea fundadora de Collegium es responder a una necesidad médica real limitando al mismo tiempo el riesgo de desviación. Es una posición defendible, reconocida regulatoriamente y sólida desde el punto de vista comercial.',
+        },
+        {
+          type: 'h2',
+          text: 'Un modelo sin I+D: la clave de los márgenes excepcionales',
+        },
+        {
+          type: 'p',
+          text: 'Lo que hace a Collegium financieramente muy interesante es la estructura de su modelo de negocio. La empresa no gasta dinero en investigación y desarrollo para descubrir nuevas moléculas. Toma moléculas ya aprobadas por la FDA y las reformula con sus tecnologías patentadas para hacerlas resistentes al abuso. El resultado: los costes son mucho más predecibles y la mayor parte de los ingresos fluye directamente hacia el flujo de caja libre. El flujo de caja libre es el dinero que realmente queda en las arcas de la empresa una vez pagados todos los gastos: salarios, inversiones, impuestos, amortización de deuda. Es el dato en el que más me apoyo, porque es mucho más difícil de manipular contablemente que el beneficio neto. En Collegium, el margen de flujo de caja libre ronda el 60%. Eso significa que por cada 100 dólares de ingresos, 60 acaban como caja real disponible. Es excepcional. La mayoría de las empresas cotizadas se sitúan alrededor del 10-15%.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo mido si una acción está cara o barata',
+        },
+        {
+          type: 'p',
+          text: 'Para evaluar si una acción está bien valorada, utilizo varios ratios, entre ellos el P/FCF: el precio dividido entre el flujo de caja libre. Este ratio mide cuántas veces la capitalización bursátil de la empresa representa su flujo de caja libre anual. Concretamente, un P/FCF de 20 significa que hoy estás pagando veinte años de ese flujo de caja. Cuanto más bajo sea el número, más barata está la acción en relación con lo que la empresa genera realmente. Collegium cotiza con un P/FCF de alrededor de 3,8. Es un nivel que raramente se ve. Para una empresa con un margen del 60% y crecimiento recurrente de ingresos, esto implica que el mercado está incorporando un escenario muy pesimista. Quiero entender ese pesimismo antes de concluir que es una oportunidad.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Collegium (COLL)', 'Farmacéutica especializada (mediana sectorial)'],
+          rows: [
+            ['Margen de flujo de caja libre', '~60%', '~15-25%'],
+            ['Valoración (P/FCF)', '~3,8×', '~15-25×'],
+            ['I+D / Ingresos', 'Casi nulo', '15-30%'],
+            ['Recompra de acciones', 'Activa', 'Variable'],
+            ['Dependencia de productos clave', 'Alta (2 productos)', 'Variable'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El moat de Collegium: lo que protege el negocio',
+        },
+        {
+          type: 'p',
+          text: 'El moat, o ventaja competitiva, es lo que impide a un competidor ocupar el lugar de una empresa. En Collegium, se apoya en tres pilares. Primero, las patentes sobre las formulaciones: las tecnologías de abuse-deterrence están protegidas y los fabricantes de genéricos deben demostrar que sus copias no permiten las mismas vías de abuso. No es algo trivial. Segundo, las relaciones con los prescriptores: los médicos especialistas en dolor conocen estos medicamentos, los han recetado y han observado los resultados. Cambiar de prescripción tiene un coste de inercia elevado. Tercero, el propio marco regulatorio favorece a Collegium: la FDA promueve las formulaciones resistentes al abuso y las aseguradoras tienen incentivos para preferirlas frente a las formulaciones estándar para limitar la desviación. Este moat no es inexpugnable, pero es sólido y está profundamente anclado en la realidad médica y económica del sector.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no minimizo',
+        },
+        {
+          type: 'p',
+          text: 'Un análisis honesto no puede detenerse en los puntos positivos. Los riesgos en Collegium son reales y serios. El primero es la concentración del portfolio: dos productos principales es poco. Si alguno de los dos se enfrenta a un problema regulatorio, a una pérdida anticipada de patente o a la sustitución por un genérico, el impacto en los ingresos será inmediato y severo. El segundo riesgo es el entorno regulatorio en torno a los opioides en Estados Unidos. La presión política y judicial sobre los fabricantes de medicamentos opioides sigue siendo muy intensa. Aunque las formulaciones resistentes al abuso están mejor consideradas, no son inmunes a un endurecimiento regulatorio general. Tercero: las patentes caducan. Las barreras de entrada para los genéricos se reducen con el tiempo y la presión sobre los precios es inevitable en un horizonte de pocos años. Estos riesgos no invalidan la tesis, pero la enmarcan.',
+        },
+        {
+          type: 'h2',
+          text: 'La doble penalización injustificada y lo que implica',
+        },
+        {
+          type: 'p',
+          text: 'En mi método de análisis, puntúo cada empresa sobre 10 según criterios financieros objetivos: rentabilidad, crecimiento, solidez del balance, calidad de la asignación de capital. Estos criterios evalúan la calidad del negocio con independencia del precio de la acción en bolsa. Collegium obtiene una puntuación de 10 sobre 10, el máximo. Esa puntuación refleja márgenes excepcionales, deuda controlada, recompras de acciones consistentes y crecimiento recurrente de ingresos. Sin embargo, la acción se valora a un nivel que corresponde más a una empresa en declive que a un negocio de calidad. La explicación es la doble penalización: el mercado descuenta tanto el sector farmacéutico especializado, a menudo visto con desconfianza, como el estigma de los opioides, sin distinguir la naturaleza de los productos de Collegium. Este tipo de confusión es precisamente lo que intento identificar, porque es ahí donde se crean las oportunidades más asimétricas.',
+        },
+        {
+          type: 'h2',
+          text: 'Qué vigilo antes de decidir',
+        },
+        {
+          type: 'p',
+          text: 'Una valoración baja por sí sola no es suficiente para tomar una buena decisión de inversión. Lo que monitorizo en Collegium es la trayectoria de ingresos durante los próximos dos trimestres: ¿el crecimiento se mantiene o ya aparecen señales tempranas de erosión por genéricos? También sigo la cobertura de patentes de Xtampza ER y las señales en materia de políticas de reembolso. Si estos elementos se mantienen, la tesis sigue siendo muy sólida. Es exactamente el tipo de análisis que quise poder hacer rápidamente sobre cualquier acción. Por eso construí mi sitio de inversión, disponible en /analyse/COLL para consultar todos los indicadores en tiempo real.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Es Collegium Pharmaceutical una empresa de opioides?',
+          a: 'Técnicamente sí, pero con una diferencia fundamental: sus medicamentos están diseñados con formulaciones resistentes al abuso que los hacen mucho más difíciles de desviar de su uso médico. Es una distinción que el mercado suele ignorar y que explica en parte su baja valoración.',
+        },
+        {
+          q: '¿Qué es el flujo de caja libre y por qué es importante?',
+          a: 'El flujo de caja libre es el dinero que realmente queda en la empresa después de pagar todos los gastos operativos y de inversión. Es el dato más difícil de manipular contablemente, por eso es en el que más me apoyo para evaluar la verdadera salud financiera de una empresa.',
+        },
+        {
+          q: '¿Por qué una empresa con márgenes tan altos está tan poco valorada en bolsa?',
+          a: 'Porque el mercado no solo cotiza los números de hoy sino también las perspectivas futuras. La presión de los genéricos, el riesgo regulatorio en torno a los opioides y la concentración del portfolio en dos productos crean una incertidumbre que el mercado penaliza con fuerza. Esa tensión es el trade-off central de esta tesis.',
+        },
+        {
+          q: '¿Qué es el P/FCF y cómo se interpreta?',
+          a: 'El P/FCF (precio dividido entre el flujo de caja libre) mide cuántas veces el valor bursátil de una empresa representa su flujo de caja libre anual. Un P/FCF de 3,8 significa que pagas menos de cuatro años de ese flujo de caja. Cuanto más bajo sea el número, más barata está la acción en relación con lo que genera. Solo es interesante si la calidad del negocio está a la altura.',
+        },
+        {
+          q: '¿Cuáles son los principales riesgos de la acción COLL?',
+          a: 'Los principales riesgos son la dependencia de dos productos clave, el vencimiento futuro de patentes que abre la puerta a los genéricos y el tenso entorno regulatorio y político en torno a los opioides en Estados Unidos. Estos riesgos son reales y deben formar parte de cualquier análisis serio.',
+        },
+      ],
+      tags: ['Collegium Pharmaceutical', 'COLL', 'acción farmacéutica', 'análisis fundamental', 'flujo de caja libre', 'infravaloración', 'opioides resistentes al abuso', 'Xtampza', 'Nucynta', 'bolsa'],
+      disclaimer: 'Análisis con fines informativos y educativos únicamente, no constituye asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Las cifras corresponden a la fecha de publicación y pueden cambiar. Haz tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleBMI: Article = {
+  slug: 'badger-meter-bmi-analyse-fondamentale-instruments-eau',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'BMI',
+  content: {
+    fr: {
+      title: 'Badger Meter (BMI) : la meilleure action eau en bourse',
+      excerpt:
+        'Badger Meter est le leader mondial des compteurs d\'eau intelligents. Une entreprise centenaire qui se transforme en plateforme SaaS, avec une croissance de 15 % par an et un bilan sans dette. Voici pourquoi elle obtient un score parfait dans ma méthode d\'analyse.',
+      metaDescription:
+        'Badger Meter (BMI) : analyse fondamentale de l\'action. Leader mondial des compteurs d\'eau intelligents, croissance solide, transition SaaS. Mon analyse complète.',
+      answer:
+        'Badger Meter est une entreprise quasi-monopolistique dans les compteurs d\'eau intelligents américains, avec plus de 100 ans d\'histoire et une présence dans 90 pays. Sa migration vers un modèle SaaS (données eau) génère une croissance régulière de 15 % par an, des marges en expansion et un bilan sain. Elle obtient un score parfait dans ma méthode d\'analyse de qualité.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Leader mondial des compteurs d\'eau intelligents avec plus de 100 ans d\'histoire',
+            'Présence dans 90+ pays, contrats avec des milliers de municipalités américaines',
+            'Transition vers le SaaS et l\'IoT eau via sa plateforme BEACON',
+            'Croissance des revenus autour de 15 % par an ces dernières années',
+            'Bilan sans dette nette, marges en expansion, free cash flow solide',
+            'Score de qualité parfait dans ma méthode d\'analyse fondamentale',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Une infrastructure cachée sous un nom discret',
+        },
+        {
+          type: 'p',
+          text: 'Badger Meter. Le nom ne fait pas rêver. Personne n\'en parle dans les médias financiers. Pas d\'IA générative, pas de fusée, pas de smartphone. Et pourtant, quand je fais tourner mon screener de qualité, cette petite entreprise de Milwaukee obtient un score parfait : 10 sur 10. Ça m\'a arrêté net.',
+        },
+        {
+          type: 'p',
+          text: 'L\'entreprise fabrique des compteurs d\'eau intelligents depuis 1905. Elle équipe des milliers de villes américaines, et ses clients ne changent pas de fournisseur facilement. Pourquoi ? Parce qu\'un compteur d\'eau est une infrastructure critique : une fois installé, il reste en place des décennies. Et Badger Meter ne se contente plus de vendre du métal : elle vend de la donnée.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment j\'évalue la qualité d\'une action',
+        },
+        {
+          type: 'p',
+          text: 'Ma méthode commence toujours par une question simple : est-ce une bonne entreprise, indépendamment du prix ? Je ne regarde pas si l\'action monte ou descend. Je regarde si le business sous-jacent est solide, rentable, et s\'il a ce que j\'appelle un moat.',
+        },
+        {
+          type: 'p',
+          text: 'Le moat, c\'est le fossé concurrentiel d\'une entreprise : ce qui empêche un rival de lui voler ses clients. Pour Badger Meter, ce fossé est double. D\'abord, les coûts de remplacement : une municipalité qui a installé des milliers de compteurs Badger ne va pas tout arracher pour changer de marque. Ensuite, les données : plus Badger équipe de villes, plus sa plateforme BEACON (qui centralise et analyse les données de consommation d\'eau) devient précieuse. C\'est un cercle vertueux.',
+        },
+        {
+          type: 'h2',
+          text: 'Les chiffres qui confirment la thèse',
+        },
+        {
+          type: 'p',
+          text: 'Une fois la qualité qualitative établie, je regarde les chiffres. Ils racontent la même histoire. Les revenus de Badger Meter croissent d\'environ 15 % par an depuis plusieurs années, sans à-coups. Le free cash flow, c\'est-à-dire l\'argent qui reste réellement dans les caisses une fois toutes les dépenses payées (salaires, investissements, impôts), est solide et en croissance. Les marges s\'élargissent au fil des ans, signe que la transition vers le logiciel et les données fonctionne : les abonnements SaaS sont structurellement plus rentables que la vente de matériel.',
+        },
+        {
+          type: 'p',
+          text: 'Et le bilan : quasiment pas de dette nette. C\'est important. Une entreprise sans dette a une liberté d\'action totale : elle peut investir, racheter ses propres actions, ou traverser une récession sans panique. C\'est le signe d\'un management conservateur et bien géré.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Badger Meter (BMI)', 'Ce que ça signifie'],
+          rows: [
+            ['Score de qualité', '10/10', 'Perfection sur tous mes critères'],
+            ['Croissance revenus', '~15 % / an', 'Régulière, sans à-coups'],
+            ['Valorisation (P/FCF)', '23×', 'Prime justifiée par la qualité'],
+            ['Dette nette', 'Nulle', 'Bilan sain, liberté financière'],
+            ['Présence mondiale', '90+ pays', 'Diversification géographique'],
+            ['Modèle SaaS', 'BEACON platform', 'Récurrence + données propriétaires'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le P/FCF à 23× : cher ou justifié ?',
+        },
+        {
+          type: 'p',
+          text: 'Le P/FCF, c\'est le ratio prix-sur-free-cash-flow. Concrètement : si tu achètes l\'action aujourd\'hui, combien d\'années de free cash flow tu paies ? Un P/FCF de 23 signifie que tu paies 23 ans de cash au rythme actuel. C\'est objectivement une valorisation élevée, pas une affaire au rabais.',
+        },
+        {
+          type: 'p',
+          text: 'Alors pourquoi est-ce que je considère cette valorisation justifiée ? Parce que Badger Meter n\'est plus seulement un fabricant de métal. C\'est une plateforme de données eau en pleine transition SaaS. Les abonnements à BEACON représentent une part croissante des revenus, et les abonnements se valorisent historiquement à des multiples élevés parce qu\'ils sont prévisibles, récurrents, et à marges élevées. Un P/FCF de 23 pour une entreprise qui combine quasi-monopole sur l\'infrastructure critique et migration vers le logiciel, c\'est dans la norme des entreprises de qualité.',
+        },
+        {
+          type: 'p',
+          text: 'Mais voilà le trade-off honnête : si la croissance ralentit à 8-10 % au lieu de 15 %, le multiple peut se comprimer brutalement. Ce n\'est pas une action bradée. C\'est une action de qualité payée au prix de la qualité.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques que je ne cache pas',
+        },
+        {
+          type: 'p',
+          text: 'Badger Meter dépend des budgets municipaux américains. Les villes votent des investissements en infrastructure tous les 10 à 20 ans. En période de contraintes budgétaires fédérales ou locales, les appels d\'offres peuvent se retarder. Ce n\'est pas un risque existentiel, mais c\'est un risque de timing : la croissance peut être irrégulière.',
+        },
+        {
+          type: 'p',
+          text: 'Le deuxième risque est lié à la valorisation elle-même. À 23 fois le free cash flow, le marché intègre déjà une belle trajectoire de croissance. Si Badger Meter manque ses prévisions un ou deux trimestres, l\'action peut corriger sévèrement même si le business fondamental reste intact. C\'est le prix à payer pour une entreprise de cette qualité.',
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi l\'eau est la thèse d\'investissement du siècle',
+        },
+        {
+          type: 'p',
+          text: 'Il y a une thèse de fond derrière Badger Meter qui dépasse les chiffres trimestriels. L\'eau est la ressource la plus sous-valorisée de la planète. La moitié des réseaux de distribution américains ont plus de 50 ans. Le gouvernement américain investit des milliards dans la modernisation de ces infrastructures via l\'Infrastructure Investment and Jobs Act. Badger Meter est l\'un des rares acteurs cotés en bourse qui joue directement cette transition, avec un modèle d\'affaires éprouvé depuis un siècle.',
+        },
+        {
+          type: 'p',
+          text: 'Ce n\'est pas une action de croissance spéculative. C\'est une entreprise qui vend une nécessité absolue, avec un pricing power réel : quand une ville a besoin de savoir combien d\'eau chaque foyer consomme, elle n\'a pas beaucoup de choix. Et Badger Meter peut augmenter ses prix sans perdre ses clients. C\'est la définition du pouvoir de fixation des prix.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment j\'analyse Badger Meter avec mon outil',
+        },
+        {
+          type: 'p',
+          text: 'J\'ai passé des années à vouloir évaluer des entreprises comme Badger Meter rapidement, avec une rigueur financière réelle, sans me perdre dans des tableurs. Analyser la qualité du business séparément du prix, calculer un prix d\'achat raisonnable, comparer avec d\'autres actions du même secteur : c\'est exactement ce que j\'ai construit sur mon site d\'investissement. Pour Badger Meter (BMI), tu peux consulter l\'analyse complète sur lubin-investment.com/analyse/BMI.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que le free cash flow et pourquoi est-ce important ?',
+          a: 'Le free cash flow, c\'est l\'argent qui reste réellement dans les caisses d\'une entreprise après avoir payé toutes ses dépenses opérationnelles et ses investissements. C\'est plus difficile à maquiller que le bénéfice comptable, donc je m\'y fie davantage pour évaluer la vraie rentabilité d\'un business.',
+        },
+        {
+          q: 'Qu\'est-ce qu\'un moat et pourquoi Badger Meter en a-t-il un ?',
+          a: 'Un moat (fossé concurrentiel) est ce qui empêche les concurrents de prendre les clients d\'une entreprise. Badger Meter en a un solide : ses compteurs sont intégrés dans l\'infrastructure critique des villes pour des décennies, et sa plateforme de données BEACON crée une dépendance technologique supplémentaire.',
+        },
+        {
+          q: 'Un P/FCF de 23× n\'est-il pas trop cher ?',
+          a: 'C\'est une valorisation élevée, oui. Mais elle se justifie par la qualité exceptionnelle du business : quasi-monopole sur l\'infrastructure eau critique, transition vers le SaaS, croissance régulière de 15 % par an et bilan sans dette. Une valorisation élevée n\'est un problème que si la qualité ne suit pas.',
+        },
+        {
+          q: 'Quels sont les principaux risques de l\'action Badger Meter ?',
+          a: 'La dépendance aux budgets municipaux américains (qui peuvent être retardés), les cycles longs de contrats publics, et une valorisation qui laisse peu de marge d\'erreur si la croissance ralentit. Ce n\'est pas une action bon marché : c\'est une action de qualité payée à son juste prix.',
+        },
+        {
+          q: 'Pourquoi l\'eau est-elle un secteur intéressant en bourse ?',
+          a: 'L\'eau est une infrastructure critique et une ressource rare. Aux États-Unis, des milliards sont investis pour moderniser les réseaux vieillissants. Les acteurs comme Badger Meter bénéficient de contrats de très long terme, d\'une demande non cyclique et d\'un pricing power réel car leurs clients (les villes) ne peuvent pas se passer d\'eux.',
+        },
+      ],
+      tags: [
+        'Badger Meter',
+        'BMI',
+        'action eau',
+        'compteurs intelligents',
+        'SaaS eau',
+        'IoT eau',
+        'analyse fondamentale',
+        'moat',
+        'infrastructure',
+        'NYSE',
+      ],
+      disclaimer:
+        'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d\'évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'Badger Meter (BMI) : the top water stock on the market',
+      excerpt:
+        'Badger Meter is the global leader in smart water meters. A century-old company transforming into a SaaS platform, with 15% annual revenue growth and a debt-free balance sheet. Here\'s why it scores a perfect 10 in my analysis framework.',
+      metaDescription:
+        'Badger Meter (BMI): fundamental analysis of the stock. Global leader in smart water meters, solid growth, SaaS transition. My complete analysis.',
+      answer:
+        'Badger Meter is a near-monopoly in American smart water meters, with over 100 years of history and presence in 90 countries. Its migration toward a SaaS model (water data) drives consistent 15% annual revenue growth, expanding margins, and a clean balance sheet. It scores a perfect 10 in my quality analysis framework.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Global leader in smart water meters with over 100 years of history',
+            'Present in 90+ countries, contracts with thousands of American municipalities',
+            'Transition to SaaS and water IoT via the BEACON platform',
+            'Revenue growth around 15% per year in recent years',
+            'Net-debt-free balance sheet, expanding margins, solid free cash flow',
+            'Perfect quality score in my fundamental analysis framework',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Critical infrastructure hiding behind a quiet name',
+        },
+        {
+          type: 'p',
+          text: 'Badger Meter. The name doesn\'t inspire much excitement. Nobody talks about it in financial media. No generative AI, no rockets, no smartphones. Yet when I run my quality screener, this small Milwaukee company scores a perfect 10 out of 10. That made me stop and pay attention.',
+        },
+        {
+          type: 'p',
+          text: 'The company has been making smart water meters since 1905. It equips thousands of American cities, and its customers don\'t switch suppliers easily. Why? Because a water meter is critical infrastructure: once installed, it stays in place for decades. And Badger Meter no longer just sells metal - it sells data.',
+        },
+        {
+          type: 'h2',
+          text: 'How I evaluate the quality of a stock',
+        },
+        {
+          type: 'p',
+          text: 'My method always starts with a simple q: is this a good business, independent of its price? I don\'t look at whether the stock is going up or down. I look at whether the underlying business is solid, profitable, and whether it has what I call a moat.',
+        },
+        {
+          type: 'p',
+          text: 'A moat is a company\'s competitive advantage: what prevents a rival from stealing its customers. For Badger Meter, this moat is twofold. First, switching costs: a municipality that has installed thousands of Badger meters won\'t rip everything out to change brands. Second, data: the more cities Badger equips, the more valuable its BEACON platform (which centralizes and analyzes water consumption data) becomes. It\'s a virtuous cycle.',
+        },
+        {
+          type: 'h2',
+          text: 'The numbers that confirm the thesis',
+        },
+        {
+          type: 'p',
+          text: 'Once qualitative quality is established, I look at the numbers. They tell the same story. Badger Meter\'s revenues have grown around 15% per year for several years, consistently. Free cash flow - the money that actually remains in the company\'s accounts after all expenses are paid (salaries, investments, taxes) - is solid and growing. Margins are widening year over year, a sign that the transition toward software and data is working: SaaS subscriptions are structurally more profitable than hardware sales.',
+        },
+        {
+          type: 'p',
+          text: 'And the balance sheet: virtually no net debt. That matters. A debt-free company has total freedom: it can invest, buy back its own shares, or weather a recession without panic. It\'s the sign of conservative, well-run management.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicator', 'Badger Meter (BMI)', 'What it means'],
+          rows: [
+            ['Quality score', '10/10', 'Perfect on all my criteria'],
+            ['Revenue growth', '~15% / year', 'Consistent, without disruptions'],
+            ['Valuation (P/FCF)', '23x', 'Premium justified by quality'],
+            ['Net debt', 'None', 'Clean balance sheet, financial freedom'],
+            ['Global presence', '90+ countries', 'Geographic diversification'],
+            ['SaaS model', 'BEACON platform', 'Recurring revenue + proprietary data'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'P/FCF at 23x: expensive or justified?',
+        },
+        {
+          type: 'p',
+          text: 'The P/FCF is the price-to-free-cash-flow ratio. Concretely: if you buy the stock today, how many years of free cash flow are you paying for? A P/FCF of 23 means you\'re paying for 23 years of cash at the current rate. That\'s objectively a high valuation, not a bargain.',
+        },
+        {
+          type: 'p',
+          text: 'So why do I consider this valuation justified? Because Badger Meter is no longer just a metal manufacturer. It\'s a water data platform in full SaaS transition. BEACON subscriptions represent a growing share of revenues, and subscriptions historically command high multiples because they\'re predictable, recurring, and high-margin. A P/FCF of 23 for a company combining near-monopoly on critical infrastructure and migration toward software is within the norm for quality companies.',
+        },
+        {
+          type: 'p',
+          text: 'But here\'s the honest trade-off: if growth slows to 8-10% instead of 15%, the multiple could compress sharply. This is not a cheap stock. It\'s a quality stock priced at quality rates.',
+        },
+        {
+          type: 'h2',
+          text: 'The risks I won\'t hide',
+        },
+        {
+          type: 'p',
+          text: 'Badger Meter depends on American municipal budgets. Cities vote on infrastructure investments every 10 to 20 years. In times of federal or local budget constraints, tenders can be delayed. This isn\'t an existential risk, but it\'s a timing risk: growth can be uneven.',
+        },
+        {
+          type: 'p',
+          text: 'The second risk is linked to the valuation itself. At 23 times free cash flow, the market already prices in a strong growth trajectory. If Badger Meter misses its forecasts for one or two quarters, the stock can correct sharply even if the underlying business remains intact. That\'s the price you pay for owning a company of this quality.',
+        },
+        {
+          type: 'h2',
+          text: 'Why water is the investment thesis of the century',
+        },
+        {
+          type: 'p',
+          text: 'There\'s a fundamental thesis behind Badger Meter that goes beyond quarterly numbers. Water is the most undervalued resource on the planet. Half of America\'s distribution networks are over 50 years old. The U.S. government is investing billions in modernizing this infrastructure through the Infrastructure Investment and Jobs Act. Badger Meter is one of the rare publicly traded companies directly playing this transition, with a proven business model spanning a century.',
+        },
+        {
+          type: 'p',
+          text: 'This isn\'t a speculative growth stock. It\'s a company selling an absolute necessity, with real pricing power: when a city needs to know how much water each household consumes, it doesn\'t have many options. And Badger Meter can raise its prices without losing customers. That\'s the definition of pricing power.',
+        },
+        {
+          type: 'h2',
+          text: 'How I analyze Badger Meter with my tool',
+        },
+        {
+          type: 'p',
+          text: 'I spent years wanting to evaluate companies like Badger Meter quickly, with genuine financial rigor, without getting lost in spreadsheets. Assessing business quality separately from price, calculating a reasonable buy price, comparing with other stocks in the same sector: that\'s exactly what I built on my investment site. For Badger Meter (BMI), you can find the full analysis at lubin-investment.com/analyse/BMI.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is free cash flow and why does it matter?',
+          a: 'Free cash flow is the money that actually remains in a company\'s accounts after paying all operating expenses and investments. It\'s harder to manipulate than accounting profits, so I rely on it more heavily to assess the true profitability of a business.',
+        },
+        {
+          q: 'What is a moat and why does Badger Meter have one?',
+          a: 'A moat (competitive advantage) is what prevents competitors from taking a company\'s customers. Badger Meter has a strong one: its meters are embedded in city infrastructure for decades, and its BEACON data platform creates additional technological dependency.',
+        },
+        {
+          q: 'Isn\'t a P/FCF of 23x too expensive?',
+          a: 'It\'s a high valuation, yes. But it\'s justified by the exceptional quality of the business: near-monopoly on critical water infrastructure, SaaS transition, consistent 15% annual growth, and a debt-free balance sheet. A high valuation is only a problem if the quality doesn\'t hold up.',
+        },
+        {
+          q: 'What are the main risks with Badger Meter stock?',
+          a: 'Dependence on American municipal budgets (which can be delayed), long public contract cycles, and a valuation that leaves little room for error if growth slows. This isn\'t a cheap stock: it\'s a quality stock priced at its fair value.',
+        },
+        {
+          q: 'Why is water an interesting sector for stock investors?',
+          a: 'Water is critical infrastructure and a scarce resource. In the United States, billions are being invested to modernize aging networks. Players like Badger Meter benefit from very long-term contracts, non-cyclical demand, and real pricing power since their clients (cities) cannot do without them.',
+        },
+      ],
+      tags: [
+        'Badger Meter',
+        'BMI',
+        'water stock',
+        'smart meters',
+        'water SaaS',
+        'water IoT',
+        'fundamental analysis',
+        'moat',
+        'infrastructure',
+        'NYSE',
+      ],
+      disclaimer:
+        'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'Badger Meter (BMI) : la mejor acción del agua en bolsa',
+      excerpt:
+        'Badger Meter es el líder mundial en contadores de agua inteligentes. Una empresa centenaria que se transforma en plataforma SaaS, con un crecimiento del 15 % anual y un balance sin deuda. Aquí explico por qué obtiene una puntuación perfecta en mi método de análisis.',
+      metaDescription:
+        'Badger Meter (BMI): análisis fundamental de la acción. Líder mundial en contadores de agua inteligentes, crecimiento sólido, transición SaaS. Mi análisis completo.',
+      answer:
+        'Badger Meter es un cuasi-monopolio en los contadores de agua inteligentes estadounidenses, con más de 100 años de historia y presencia en 90 países. Su migración hacia un modelo SaaS (datos del agua) genera un crecimiento regular del 15 % anual, márgenes en expansión y un balance saneado. Obtiene una puntuación perfecta en mi metodología de análisis de calidad.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Líder mundial en contadores de agua inteligentes con más de 100 años de historia',
+            'Presencia en más de 90 países, contratos con miles de municipios estadounidenses',
+            'Transición hacia SaaS e IoT del agua a través de la plataforma BEACON',
+            'Crecimiento de ingresos de aproximadamente el 15 % anual en los últimos años',
+            'Balance sin deuda neta, márgenes en expansión, flujo de caja libre sólido',
+            'Puntuación de calidad perfecta en mi metodología de análisis fundamental',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Infraestructura crítica detrás de un nombre discreto',
+        },
+        {
+          type: 'p',
+          text: 'Badger Meter. El nombre no despierta mucho entusiasmo. Nadie habla de ella en los medios financieros. Sin inteligencia artificial generativa, sin cohetes, sin teléfonos inteligentes. Sin embargo, cuando ejecuto mi selector de calidad, esta pequeña empresa de Milwaukee obtiene una puntuación perfecta: 10 sobre 10. Eso me hizo detenerme.',
+        },
+        {
+          type: 'p',
+          text: 'La empresa fabrica contadores de agua inteligentes desde 1905. Equipa a miles de ciudades estadounidenses, y sus clientes no cambian de proveedor fácilmente. ¿Por qué? Porque un contador de agua es infraestructura crítica: una vez instalado, permanece durante décadas. Y Badger Meter ya no se limita a vender metal: vende datos.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo evalúo la calidad de una acción',
+        },
+        {
+          type: 'p',
+          text: 'Mi método siempre comienza con una pregunta simple: ¿es este un buen negocio, independientemente del precio? No miro si la acción sube o baja. Miro si el negocio subyacente es sólido, rentable, y si tiene lo que yo llamo un moat.',
+        },
+        {
+          type: 'p',
+          text: 'Un moat es la ventaja competitiva de una empresa: lo que impide que un rival le robe sus clientes. Para Badger Meter, este moat es doble. Primero, los costes de cambio: un municipio que ha instalado miles de contadores Badger no va a arrancarlo todo para cambiar de marca. Segundo, los datos: cuantas más ciudades equipa Badger, más valiosa se vuelve su plataforma BEACON (que centraliza y analiza datos de consumo de agua). Es un círculo virtuoso.',
+        },
+        {
+          type: 'h2',
+          text: 'Los números que confirman la tesis',
+        },
+        {
+          type: 'p',
+          text: 'Una vez establecida la calidad cualitativa, analizo los números. Cuentan la misma historia. Los ingresos de Badger Meter crecen alrededor del 15 % anual durante varios años, de manera consistente. El flujo de caja libre, es decir, el dinero que realmente queda en las arcas de la empresa una vez pagados todos los gastos (salarios, inversiones, impuestos), es sólido y creciente. Los márgenes se amplían año tras año, señal de que la transición hacia el software y los datos está funcionando: las suscripciones SaaS son estructuralmente más rentables que las ventas de hardware.',
+        },
+        {
+          type: 'p',
+          text: 'Y el balance: prácticamente sin deuda neta. Eso importa. Una empresa sin deuda tiene libertad total: puede invertir, recomprar sus propias acciones, o atravesar una recesión sin pánico. Es la señal de una gestión conservadora y bien dirigida.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Badger Meter (BMI)', 'Qué significa'],
+          rows: [
+            ['Puntuación de calidad', '10/10', 'Perfecto en todos mis criterios'],
+            ['Crecimiento de ingresos', '~15 % / año', 'Regular, sin sobresaltos'],
+            ['Valoración (P/FCF)', '23×', 'Prima justificada por la calidad'],
+            ['Deuda neta', 'Nula', 'Balance saneado, libertad financiera'],
+            ['Presencia mundial', '+90 países', 'Diversificación geográfica'],
+            ['Modelo SaaS', 'Plataforma BEACON', 'Ingresos recurrentes + datos propios'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'P/FCF a 23×: ¿caro o justificado?',
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF es el ratio precio-sobre-flujo-de-caja-libre. Concretamente: si compras la acción hoy, ¿cuántos años de flujo de caja libre estás pagando? Un P/FCF de 23 significa que pagas 23 años de ese cash al ritmo actual. Eso es objetivamente una valoración elevada, no una ganga.',
+        },
+        {
+          type: 'p',
+          text: 'Entonces, ¿por qué considero esta valoración justificada? Porque Badger Meter ya no es solo un fabricante de metal. Es una plataforma de datos del agua en plena transición SaaS. Las suscripciones a BEACON representan una parte creciente de los ingresos, y las suscripciones se valoran históricamente con múltiplos elevados porque son predecibles, recurrentes y de altos márgenes. Un P/FCF de 23 para una empresa que combina cuasi-monopolio sobre infraestructura crítica y migración hacia el software está dentro de la norma para empresas de calidad.',
+        },
+        {
+          type: 'p',
+          text: 'Pero aquí está el trade-off honesto: si el crecimiento se desacelera al 8-10 % en lugar del 15 %, el múltiplo podría comprimirse bruscamente. Esta no es una acción barata. Es una acción de calidad pagada al precio de la calidad.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no oculto',
+        },
+        {
+          type: 'p',
+          text: 'Badger Meter depende de los presupuestos municipales estadounidenses. Las ciudades votan inversiones en infraestructura cada 10 a 20 años. En períodos de restricciones presupuestarias federales o locales, las licitaciones pueden retrasarse. No es un riesgo existencial, pero sí es un riesgo de sincronización: el crecimiento puede ser irregular.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo riesgo está vinculado a la propia valoración. Con 23 veces el flujo de caja libre, el mercado ya incorpora una sólida trayectoria de crecimiento. Si Badger Meter no cumple sus previsiones uno o dos trimestres, la acción puede corregir bruscamente aunque el negocio fundamental siga intacto. Ese es el precio de poseer una empresa de esta calidad.',
+        },
+        {
+          type: 'h2',
+          text: 'Por qué el agua es la tesis de inversión del siglo',
+        },
+        {
+          type: 'p',
+          text: 'Hay una tesis de fondo detrás de Badger Meter que va más allá de los números trimestrales. El agua es el recurso más infravalorado del planeta. La mitad de las redes de distribución estadounidenses tienen más de 50 años. El gobierno de Estados Unidos invierte miles de millones en modernizar estas infraestructuras a través de la Ley de Inversión en Infraestructuras y Empleos. Badger Meter es una de las pocas empresas cotizadas que juega directamente esta transición, con un modelo de negocio probado durante un siglo.',
+        },
+        {
+          type: 'p',
+          text: 'No es una acción de crecimiento especulativo. Es una empresa que vende una necesidad absoluta, con un poder de fijación de precios real: cuando una ciudad necesita saber cuánta agua consume cada hogar, no tiene muchas opciones. Y Badger Meter puede subir sus precios sin perder clientes. Esa es la definición del poder de fijación de precios.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo analizo Badger Meter con mi herramienta',
+        },
+        {
+          type: 'p',
+          text: 'Pasé años queriendo evaluar empresas como Badger Meter rápidamente, con rigor financiero real, sin perderme en hojas de cálculo. Evaluar la calidad del negocio por separado del precio, calcular un precio de compra razonable, comparar con otras acciones del mismo sector: eso es exactamente lo que construí en mi sitio de inversión. Para Badger Meter (BMI), puedes consultar el análisis completo en lubin-investment.com/analyse/BMI.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el flujo de caja libre y por qué es importante?',
+          a: 'El flujo de caja libre es el dinero que realmente queda en las arcas de una empresa después de pagar todos sus gastos operativos e inversiones. Es más difícil de manipular que el beneficio contable, por eso me fío más de él para evaluar la rentabilidad real de un negocio.',
+        },
+        {
+          q: '¿Qué es un moat y por qué Badger Meter tiene uno?',
+          a: 'Un moat (ventaja competitiva) es lo que impide a los competidores arrebatar los clientes de una empresa. Badger Meter tiene uno sólido: sus contadores están integrados en la infraestructura crítica de las ciudades durante décadas, y su plataforma de datos BEACON crea una dependencia tecnológica adicional.',
+        },
+        {
+          q: '¿No es demasiado cara una valoración de 23× el flujo de caja libre?',
+          a: 'Es una valoración elevada, sí. Pero se justifica por la calidad excepcional del negocio: cuasi-monopolio sobre infraestructura hídrica crítica, transición SaaS, crecimiento regular del 15 % anual y balance sin deuda. Una valoración elevada solo es un problema si la calidad no se sostiene.',
+        },
+        {
+          q: '¿Cuáles son los principales riesgos de la acción Badger Meter?',
+          a: 'La dependencia de los presupuestos municipales estadounidenses (que pueden retrasarse), los largos ciclos de contratos públicos, y una valoración que deja poco margen de error si el crecimiento se desacelera. No es una acción barata: es una acción de calidad pagada a su precio justo.',
+        },
+        {
+          q: '¿Por qué el agua es un sector interesante para invertir en bolsa?',
+          a: 'El agua es infraestructura crítica y un recurso escaso. En Estados Unidos, se invierten miles de millones para modernizar redes envejecidas. Empresas como Badger Meter se benefician de contratos de muy largo plazo, demanda no cíclica y un poder de fijación de precios real, ya que sus clientes (las ciudades) no pueden prescindir de ellas.',
+        },
+      ],
+      tags: [
+        'Badger Meter',
+        'BMI',
+        'acción agua',
+        'contadores inteligentes',
+        'SaaS agua',
+        'IoT agua',
+        'análisis fundamental',
+        'moat',
+        'infraestructura',
+        'NYSE',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Realiza tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleMA: Article = {
+  slug: 'mastercard-ma-analyse-fondamentale-paiements',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'MA',
+  content: {
+    fr: {
+      title: 'Mastercard (MA) : le duopole mondial des paiements',
+      excerpt:
+        'Mastercard est l\'une des rares entreprises au monde à percevoir une commission sur chaque achat par carte, partout sur la planète, sans jamais prêter un centime. Voici pourquoi son modèle est l\'un des plus solides que j\'aie jamais analysés.',
+      metaDescription:
+        'Analyse fondamentale de Mastercard (MA) : duopole mondial des paiements, moat absolu, marges record. Découvrez pourquoi cette action mérite votre attention.',
+      answer:
+        'Mastercard encaisse une commission sur chaque transaction par carte dans le monde entier, sans prendre le moindre risque de crédit. Trois milliards de cartes actives, cent millions de marchands, deux cent dix pays : son réseau est quasiment impossible à dupliquer. C\'est l\'une des rares actions à obtenir un score parfait dans mon analyse de qualité.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Mastercard ne prête pas d\'argent : elle perçoit une commission sur chaque transaction, sans risque de défaut.',
+            'Duopole mondial avec Visa : deux réseaux contrôlent l\'essentiel des paiements électroniques mondiaux.',
+            'Effets de réseau absolus : plus il y a de porteurs, plus les marchands acceptent la carte, et inversement.',
+            'Marge de free cash flow d\'environ 50 % : l\'une des plus hautes de la cote mondiale.',
+            'Croissance structurelle : la numérisation du cash mondial pousse les volumes de transactions chaque année.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le modèle d\'affaires que peu d\'investisseurs comprennent vraiment',
+        },
+        {
+          type: 'p',
+          text: 'Quand tu paies par carte dans un magasin, tu penses sans doute à ta banque. Mais derrière chaque transaction, il y a un intermédiaire invisible qui perçoit une infime commission : le réseau de paiement. Mastercard, c\'est ce réseau. Elle ne prête rien, elle ne stocke pas ton argent, elle ne supporte aucun risque si tu ne rembourses pas ton crédit. Elle joue le rôle de l\'infrastructure, comme un péage autoroutier que chaque achat doit franchir.',
+        },
+        {
+          type: 'p',
+          text: 'C\'est le modèle économique le plus proche du monopole naturel que je connaisse. Plus il y a de gens qui portent une carte Mastercard, plus les commerçants du monde entier sont forcés de l\'accepter. Et plus les commerçants l\'acceptent, plus les gens veulent cette carte. Les économistes appellent ça un effet de réseau : chaque utilisateur supplémentaire augmente la valeur du réseau pour tous les autres. Mastercard en bénéficie des deux côtés en même temps.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment j\'évalue la qualité d\'une action comme Mastercard',
+        },
+        {
+          type: 'p',
+          text: 'Ma méthode part d\'un principe simple : je sépare toujours la qualité du business de son prix en bourse. D\'abord, je veux comprendre si l\'entreprise est réellement excellente. Ensuite, et seulement ensuite, je regarde si le prix est justifié. La plupart des erreurs d\'investissement viennent de mélanger les deux.',
+        },
+        {
+          type: 'p',
+          text: 'Pour évaluer la qualité, je regarde plusieurs critères : les marges (combien reste-t-il en cash sur chaque euro de vente ?), la croissance des revenus sur plusieurs années, la solidité du bilan, et surtout la solidité du moat, c\'est-à-dire l\'avantage concurrentiel qui protège l\'entreprise de ses rivaux. Le moat, c\'est ce fossé qui empêche un concurrent de venir prendre ses clients. Mastercard obtient un score parfait de 10/10 dans mon analyse : c\'est l\'une des moins de cinq entreprises sur mille à atteindre ce résultat.',
+        },
+        {
+          type: 'h2',
+          text: 'Le moat de Mastercard : pourquoi personne ne peut le copier',
+        },
+        {
+          type: 'p',
+          text: 'Pour qu\'un réseau de paiement concurrent détrône Mastercard, il faudrait convaincre simultanément des milliards de porteurs de changer de carte, des millions de commerçants d\'installer de nouveaux terminaux, des milliers de banques de nouer de nouveaux accords, et des gouvernements de revoir leurs infrastructures bancaires. C\'est un switching cost astronomique, le coût que supporte quelqu\'un qui voudrait changer de système. En pratique, personne ne peut se permettre de ne pas accepter Mastercard. Pas un seul marchand sérieux dans le monde.',
+        },
+        {
+          type: 'p',
+          text: 'Le réseau de Mastercard couvre 210 pays, trois milliards de cartes actives et cent millions de marchands. Construire quelque chose d\'équivalent nécessiterait des décennies et des centaines de milliards de dollars, pour affronter un réseau déjà installé avec des décennies d\'avance. Ce n\'est pas une barrière à l\'entrée, c\'est un mur.',
+        },
+        {
+          type: 'h2',
+          text: 'Les chiffres qui racontent la solidité du business',
+        },
+        {
+          type: 'p',
+          text: 'La marge de free cash flow de Mastercard tourne autour de 50 %. Concrètement, sur 100 dollars de revenus, 50 finissent en cash disponible après toutes les dépenses. C\'est un ratio exceptionnel : la plupart des entreprises se situent entre 5 et 15 %. Ce chiffre existe parce que Mastercard n\'a presque pas d\'actifs physiques à entretenir : son produit, c\'est de la donnée et des protocoles, pas des usines.',
+        },
+        {
+          type: 'p',
+          text: 'La croissance des revenus est régulière, entre 10 et 15 % par an depuis des années. Ce n\'est pas de la croissance spéculative : elle est portée par un moteur structurel, la numérisation du cash. Chaque billet de banque remplacé par un paiement électronique quelque part dans le monde génère une commission pour Mastercard. Et il reste encore des centaines de milliards de transactions en cash à convertir, notamment en Asie, en Afrique et en Amérique latine.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Mastercard (MA)', 'Moyenne du secteur'],
+          rows: [
+            ['Marge de free cash flow', '~50 %', '~10-15 %'],
+            ['Croissance annuelle des revenus', '10-15 % / an', '5-8 % / an'],
+            ['Couverture géographique', '210 pays', 'Variable'],
+            ['Cartes actives', '3 milliards', 'Non comparable'],
+            ['Score de qualité (notre méthode)', '10/10', 'Médiane : 5/10'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : est-ce que 25 fois le cash, c\'est trop cher ?',
+        },
+        {
+          type: 'p',
+          text: 'Mastercard affiche une valorisation d\'environ 25 fois son free cash flow annuel. Le P/FCF, c\'est un ratio simple : tu divises le prix de l\'action par le cash qu\'elle génère chaque année. Un P/FCF de 25 signifie que tu paies aujourd\'hui 25 années de ce cash. Pour une entreprise ordinaire, c\'est beaucoup. Pour Mastercard, c\'est une autre question.',
+        },
+        {
+          type: 'p',
+          text: 'Voici la logique : si une entreprise croît de 10 à 15 % par an de façon régulière, son cash double en 5 à 7 ans. Une valorisation de 25 fois un cash en forte croissance n\'est pas la même chose que 25 fois un cash stable. Le marché intègre cette croissance dans le prix. La vraie question n\'est pas « est-ce cher aujourd\'hui ? » mais « est-ce que la croissance future justifie le prix actuel ? ». Avec un moteur structurel aussi solide, ma réponse est oui : c\'est une prime justifiée pour un actif quasiment irremplaçable.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas ignorer',
+        },
+        {
+          type: 'p',
+          text: 'Je ne vais pas te présenter Mastercard comme un investissement sans risque : ça n\'existe pas. Trois risques me semblent réels. Premier risque : la réglementation sur les frais d\'interchange. En Europe et aux États-Unis, les législateurs discutent régulièrement de plafonner les commissions que les réseaux de paiement peuvent percevoir. Si ces frais sont comprimés, les marges de Mastercard le seront aussi.',
+        },
+        {
+          type: 'p',
+          text: 'Deuxième risque : la concurrence des fintechs. BNPL (acheter maintenant, payer plus tard), crypto, stablecoins, wallets locaux comme M-Pesa ou PIX en Inde : ces alternatives tentent de contourner les réseaux traditionnels. À ce stade, elles représentent encore une fraction marginale des paiements mondiaux, mais la tendance mérite d\'être suivie. Troisième risque : Mastercard est liée à la croissance économique mondiale. En récession, les volumes de transactions baissent, et ses revenus avec.',
+        },
+        {
+          type: 'p',
+          text: 'Ce qui tempère ces risques : Mastercard a déjà traversé plusieurs crises (2008, 2020) et a vu ses volumes rebondir rapidement à chaque fois. La résilience de son modèle est éprouvée.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que Mastercard fait mieux que presque n\'importe quelle entreprise',
+        },
+        {
+          type: 'p',
+          text: 'L\'allocation du capital, c\'est-à-dire la façon dont la direction utilise le cash généré, est un critère que j\'observe toujours. Mastercard rachète massivement ses propres actions depuis des années, ce qui réduit le nombre de titres en circulation et augmente mécaniquement la part de chaque actionnaire. Elle verse aussi un dividende en croissance régulière. Ce comportement traduit une direction qui comprend la valeur de l\'entreprise et préfère la redistribuer aux actionnaires plutôt que de l\'investir dans des acquisitions douteuses.',
+        },
+        {
+          type: 'p',
+          text: 'Sa capitalisation boursière avoisine les 500 milliards de dollars, ce qui en fait l\'une des vingt plus grandes entreprises mondiales. Pourtant, contrairement à des géants technologiques souvent lourdement endettés ou déficitaires, Mastercard n\'a quasiment pas besoin de capital pour croître : son infrastructure existe, ses coûts marginaux sont presque nuls, et chaque nouvelle transaction enrichit le réseau sans investissement supplémentaire.',
+        },
+        {
+          type: 'h2',
+          text: 'Ma conclusion sur Mastercard',
+        },
+        {
+          type: 'p',
+          text: 'Mastercard est l\'une des rares entreprises où qualité du business et clarté du modèle économique convergent parfaitement. Ce n\'est pas une entreprise à la mode, pas une promesse technologique : c\'est une infrastructure financière mondiale qui génère du cash depuis des décennies et continuera de le faire aussi longtemps que les gens achèteront des choses avec une carte. La croissance est structurelle, le moat est quasiment inattaquable, et la direction gère le capital avec discipline.',
+        },
+        {
+          type: 'p',
+          text: 'Pouvoir analyser n\'importe quelle action selon ces critères, qualité et valorisation séparément, en quelques secondes : c\'est exactement ce que j\'ai voulu construire sur mon site d\'investissement. Tu peux retrouver l\'analyse complète de Mastercard sur la page /analyse/MA.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Mastercard gagne-t-elle de l\'argent quand tu ne rembourses pas ta carte ?',
+          a: 'Non, c\'est une idée reçue fréquente. Mastercard n\'est pas une banque et ne prête rien. Elle perçoit une commission sur chaque transaction, indépendamment de ce qui se passe ensuite entre toi et ta banque. Le risque de crédit repose entièrement sur ta banque, pas sur Mastercard.',
+        },
+        {
+          q: 'Quelle est la différence entre Mastercard et Visa ?',
+          a: 'Leurs modèles économiques sont quasiment identiques : deux réseaux de paiement qui perçoivent des commissions sur les transactions. Ils forment un duopole mondial et se partagent l\'essentiel du marché. La différence principale tient à leur part de marché géographique et aux partenariats avec les banques émettrices selon les pays.',
+        },
+        {
+          q: 'Les fintechs peuvent-elles remplacer Mastercard ?',
+          a: 'À court terme, non. Les alternatives (crypto, BNPL, wallets locaux) représentent encore une part marginale des paiements mondiaux. Mais la question mérite d\'être suivie sur le long terme, notamment dans les marchés émergents où les infrastructures bancaires traditionnelles sont moins enracinées.',
+        },
+        {
+          q: 'C\'est quoi, un P/FCF de 25 fois, en termes simples ?',
+          a: 'Le P/FCF est le prix de l\'action divisé par le cash que l\'entreprise génère chaque année. Un P/FCF de 25 signifie que tu paies 25 années de ce cash. C\'est élevé pour une entreprise ordinaire, mais raisonnable pour une entreprise qui croît de 10 à 15 % par an et dispose d\'un avantage concurrentiel quasi inattaquable.',
+        },
+        {
+          q: 'Pourquoi le score de qualité de Mastercard est-il parfait ?',
+          a: 'Mon score de qualité évalue plusieurs critères : rentabilité, croissance, solidité du bilan, moat, allocation du capital. Mastercard coche toutes les cases : marges de free cash flow parmi les plus hautes de la cote, croissance régulière, réseau inattaquable, rachats d\'actions disciplinés. Un score de 10/10 signifie qu\'aucun critère ne pose de problème.',
+        },
+      ],
+      tags: [
+        'Mastercard',
+        'action MA',
+        'analyse fondamentale',
+        'duopole paiements',
+        'fintech',
+        'investissement',
+        'moat',
+        'free cash flow',
+      ],
+      disclaimer:
+        'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres sont ceux disponibles à la date de publication et sont susceptibles d\'évoluer.',
+    },
+    en: {
+      title: 'Mastercard (MA): the global payments duopoly',
+      excerpt:
+        'Mastercard collects a fee on every card transaction worldwide without ever lending a single dollar. Here is why its business model is one of the most resilient I have ever analyzed.',
+      metaDescription:
+        'Fundamental analysis of Mastercard (MA): global payments duopoly, absolute moat, record margins. Find out why this stock deserves your attention.',
+      answer:
+        'Mastercard earns a fee on every card transaction worldwide, without taking on any credit risk at all. Three billion active cards, one hundred million merchants, two hundred and ten countries: its network is virtually impossible to replicate. It is one of the very few stocks to achieve a perfect quality score in my analysis.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Mastercard does not lend money: it collects a fee on every transaction, with zero default risk.',
+            'Global duopoly with Visa: two networks control the vast majority of electronic payments worldwide.',
+            'Absolute network effects: more cardholders force more merchants to accept the card, and vice versa.',
+            'Free cash flow margin of roughly 50%: one of the highest on any major stock exchange.',
+            'Structural growth: global cash digitization pushes transaction volumes higher every single year.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The business model most investors never fully understand',
+        },
+        {
+          type: 'p',
+          text: 'When you pay by card at a store, you probably think of your bank. But behind every transaction sits an invisible intermediary collecting a tiny fee: the payment network. Mastercard is that network. It lends nothing, stores none of your money, and bears no risk if you default on your credit card. It plays the role of infrastructure, like a highway toll that every purchase must pass through.',
+        },
+        {
+          type: 'p',
+          text: 'This is the business model closest to a natural monopoly that I know of. The more people carry a Mastercard, the more merchants worldwide are forced to accept it. And the more merchants accept it, the more people want the card. Economists call this a network effect: each additional user increases the value of the network for everyone else. Mastercard benefits from both sides at the same time.',
+        },
+        {
+          type: 'h2',
+          text: 'How I assess the quality of a stock like Mastercard',
+        },
+        {
+          type: 'p',
+          text: 'My approach starts from a simple principle: I always separate business quality from its stock price. First, I want to understand whether the company is truly excellent. Then, and only then, do I look at whether the price is justified. Most investment mistakes come from mixing the two together.',
+        },
+        {
+          type: 'p',
+          text: 'To assess quality, I look at several criteria: margins (how much cash is left on every dollar of revenue?), revenue growth over multiple years, balance sheet strength, and above all the strength of the moat, meaning the competitive advantage that protects the business from rivals. The moat is the ditch that prevents a competitor from stealing its customers. Mastercard scores a perfect 10/10 in my analysis: fewer than five companies in a thousand reach that mark.',
+        },
+        {
+          type: 'h2',
+          text: 'The Mastercard moat: why no one can copy it',
+        },
+        {
+          type: 'p',
+          text: 'For a competing payment network to dethrone Mastercard, it would need to simultaneously convince billions of cardholders to switch cards, millions of merchants to install new terminals, thousands of banks to sign new agreements, and governments to revamp their banking infrastructure. That is an astronomical switching cost, meaning the price someone would pay to change systems. In practice, no serious merchant anywhere in the world can afford to refuse Mastercard.',
+        },
+        {
+          type: 'p',
+          text: 'Mastercard\'s network spans 210 countries, three billion active cards, and one hundred million merchants. Building anything equivalent would take decades and hundreds of billions of dollars, against a network that already has decades of head start. This is not a barrier to entry; it is a wall.',
+        },
+        {
+          type: 'h2',
+          text: 'The numbers that tell the story of a solid business',
+        },
+        {
+          type: 'p',
+          text: 'Mastercard\'s free cash flow margin runs at around 50%. Concretely, out of every 100 dollars in revenue, 50 end up as available cash after all expenses. That is exceptional: most companies land between 5 and 15%. This number exists because Mastercard has almost no physical assets to maintain. Its product is data and protocols, not factories.',
+        },
+        {
+          type: 'p',
+          text: 'Revenue growth has been steady, between 10 and 15% per year for years. This is not speculative growth: it is driven by a structural engine, the digitization of cash. Every banknote replaced by an electronic payment somewhere in the world generates a fee for Mastercard. And there are still hundreds of billions of cash transactions left to convert, especially in Asia, Africa, and Latin America.',
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Mastercard (MA)', 'Sector average'],
+          rows: [
+            ['Free cash flow margin', '~50%', '~10-15%'],
+            ['Annual revenue growth', '10-15% / yr', '5-8% / yr'],
+            ['Geographic coverage', '210 countries', 'Variable'],
+            ['Active cards', '3 billion', 'Not comparable'],
+            ['Quality score (our method)', '10/10', 'Median: 5/10'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The valuation: is a multiple of 25 times too expensive?',
+        },
+        {
+          type: 'p',
+          text: 'Mastercard trades at a valuation of roughly 25 times its annual free cash flow. The P/FCF is a simple ratio: you divide the share price by the cash the company generates each year. A P/FCF of 25 means you are paying today for 25 years of that cash. For an ordinary company, that is a lot. For Mastercard, it is a different question entirely.',
+        },
+        {
+          type: 'p',
+          text: 'Here is the logic: if a company grows at 10 to 15% per year consistently, its cash doubles in 5 to 7 years. A valuation of 25 times rapidly growing cash is not the same as 25 times flat cash. The market prices in that growth. The real question is not "is it expensive today?" but "does future growth justify the current price?" With such a solid structural engine, my answer is yes: it is a justified premium for a nearly irreplaceable asset.',
+        },
+        {
+          type: 'h2',
+          text: 'Risks you should not ignore',
+        },
+        {
+          type: 'p',
+          text: 'I am not going to present Mastercard as a risk-free investment: that does not exist. Three risks seem real to me. First: interchange fee regulation. In Europe and the United States, legislators regularly discuss capping the fees that payment networks can collect. If those fees are compressed, so will Mastercard\'s margins.',
+        },
+        {
+          type: 'p',
+          text: 'Second: fintech competition. BNPL (buy now, pay later), crypto, stablecoins, local wallets like M-Pesa or PIX in Brazil: these alternatives attempt to bypass traditional networks. For now they still represent a marginal fraction of global payments, but the trend is worth watching. Third: Mastercard is tied to global economic growth. In a recession, transaction volumes fall, and so do its revenues.',
+        },
+        {
+          type: 'p',
+          text: 'What softens these risks: Mastercard has already weathered several crises (2008, 2020) and saw its volumes rebound quickly each time. The resilience of its model is proven.',
+        },
+        {
+          type: 'h2',
+          text: 'What Mastercard does better than almost any other company',
+        },
+        {
+          type: 'p',
+          text: 'Capital allocation, meaning how management uses the cash the business generates, is a criterion I always watch. Mastercard has been buying back its own shares aggressively for years, reducing the share count and mechanically increasing every shareholder\'s stake. It also pays a steadily growing dividend. This behavior signals a management team that understands the value of the business and prefers to return it to shareholders rather than deploying it into questionable acquisitions.',
+        },
+        {
+          type: 'p',
+          text: 'Its market capitalization is close to 500 billion dollars, making it one of the twenty largest companies in the world. Yet unlike many large technology companies that are heavily indebted or loss-making, Mastercard barely needs capital to grow: its infrastructure exists, its marginal costs are nearly zero, and every new transaction enriches the network without additional investment.',
+        },
+        {
+          type: 'h2',
+          text: 'My conclusion on Mastercard',
+        },
+        {
+          type: 'p',
+          text: 'Mastercard is one of the rare companies where business quality and economic model clarity converge perfectly. It is not a trendy business, not a technological promise: it is a global financial infrastructure that has generated cash for decades and will continue to do so as long as people buy things with cards. Growth is structural, the moat is almost unassailable, and management allocates capital with discipline.',
+        },
+        {
+          type: 'p',
+          text: 'Being able to analyze any stock on these criteria, quality and valuation separately, in a few seconds: that is exactly what I wanted to build on my investment site. You can find the full Mastercard analysis on the /analyse/MA page.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Does Mastercard make money when you miss a credit card payment?',
+          a: 'No, that is a common misconception. Mastercard is not a bank and lends nothing. It collects a fee on every transaction, regardless of what happens afterward between you and your bank. The credit risk sits entirely with your bank, not with Mastercard.',
+        },
+        {
+          q: 'What is the difference between Mastercard and Visa?',
+          a: 'Their business models are virtually identical: two payment networks collecting fees on transactions. They form a global duopoly and together control the vast majority of the market. The main differences are their geographic market share and their bank partnerships, which vary by country.',
+        },
+        {
+          q: 'Can fintechs replace Mastercard?',
+          a: 'Not in the short term. Alternatives such as crypto, BNPL, and local wallets still represent a marginal share of global payments. But the question is worth monitoring over the long term, especially in emerging markets where traditional banking infrastructure is less entrenched.',
+        },
+        {
+          q: 'What does a P/FCF of 25 times mean in plain terms?',
+          a: 'The P/FCF is the share price divided by the cash the company generates each year. A P/FCF of 25 means you are paying for 25 years of that cash. It is high for an ordinary company, but reasonable for one growing at 10 to 15% per year with a nearly unassailable competitive advantage.',
+        },
+        {
+          q: 'Why does Mastercard have a perfect quality score?',
+          a: 'My quality score evaluates several criteria: profitability, growth, balance sheet strength, moat, and capital allocation. Mastercard checks every box: free cash flow margins among the highest on any exchange, consistent growth, an unassailable network, and disciplined share buybacks. A score of 10/10 means no criterion raises a concern.',
+        },
+      ],
+      tags: [
+        'Mastercard',
+        'MA stock',
+        'fundamental analysis',
+        'payments duopoly',
+        'fintech',
+        'investing',
+        'moat',
+        'free cash flow',
+      ],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance is not indicative of future results. Figures are as of the publication date and may change over time.',
+    },
+    es: {
+      title: 'Mastercard (MA): el duopolio mundial de pagos',
+      excerpt:
+        'Mastercard cobra una comisión en cada transacción con tarjeta en todo el mundo sin prestar un solo dólar. Te explico por qué su modelo de negocio es uno de los más sólidos que he analizado.',
+      metaDescription:
+        'Análisis fundamental de Mastercard (MA): duopolio global de pagos, foso competitivo absoluto, márgenes récord. Descubre por qué esta acción merece tu atención.',
+      answer:
+        'Mastercard cobra una comisión en cada transacción con tarjeta en todo el mundo, sin asumir ningún riesgo crediticio. Tres mil millones de tarjetas activas, cien millones de comercios, doscientos diez países: su red es prácticamente imposible de replicar. Es una de las pocas acciones que obtiene una puntuación de calidad perfecta en mi análisis.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Mastercard no presta dinero: cobra una comisión en cada transacción, sin riesgo de impago.',
+            'Duopolio global con Visa: dos redes controlan la mayoría de los pagos electrónicos mundiales.',
+            'Efectos de red absolutos: más titulares de tarjetas obligan a más comercios a aceptarla, y viceversa.',
+            'Margen de flujo de caja libre de alrededor del 50%: uno de los más altos de la bolsa mundial.',
+            'Crecimiento estructural: la digitalización del efectivo empuja los volúmenes de transacciones cada año.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El modelo de negocio que pocos inversores entienden del todo',
+        },
+        {
+          type: 'p',
+          text: 'Cuando pagas con tarjeta en una tienda, probablemente piensas en tu banco. Pero detrás de cada transacción hay un intermediario invisible que cobra una pequeña comisión: la red de pagos. Mastercard es esa red. No presta nada, no guarda tu dinero, y no corre ningún riesgo si no devuelves tu crédito. Actúa como infraestructura, como un peaje de autopista que cada compra debe atravesar.',
+        },
+        {
+          type: 'p',
+          text: 'Este es el modelo de negocio más cercano a un monopolio natural que conozco. Cuanta más gente lleve una tarjeta Mastercard, más comercios del mundo se ven obligados a aceptarla. Y cuantos más comercios la acepten, más gente quiere esa tarjeta. Los economistas llaman a esto un efecto de red: cada usuario adicional aumenta el valor de la red para todos los demás. Mastercard se beneficia de ambos lados al mismo tiempo.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo evalúo la calidad de una acción como Mastercard',
+        },
+        {
+          type: 'p',
+          text: 'Mi método parte de un principio sencillo: siempre separo la calidad del negocio de su precio en bolsa. Primero quiero entender si la empresa es realmente excelente. Luego, y solo entonces, miro si el precio está justificado. La mayoría de los errores de inversión vienen de mezclar ambas cosas.',
+        },
+        {
+          type: 'p',
+          text: 'Para evaluar la calidad, analizo varios criterios: márgenes (¿cuánto cash queda por cada euro de venta?), crecimiento de ingresos durante varios años, solidez del balance, y sobre todo la fortaleza del moat, es decir, la ventaja competitiva que protege a la empresa de sus rivales. El moat es el foso que impide a un competidor robarle clientes. Mastercard obtiene una puntuación perfecta de 10/10 en mi análisis: menos de cinco empresas de cada mil alcanzan ese resultado.',
+        },
+        {
+          type: 'h2',
+          text: 'El foso de Mastercard: por qué nadie puede copiarlo',
+        },
+        {
+          type: 'p',
+          text: 'Para que una red de pagos competidora desbancara a Mastercard, necesitaría convencer simultáneamente a miles de millones de titulares de tarjetas para que cambiaran, a millones de comercios para que instalaran nuevos terminales, a miles de bancos para que firmaran nuevos acuerdos, y a gobiernos para que renovaran sus infraestructuras bancarias. Ese es un coste de cambio astronómico, es decir, el precio que pagaría alguien por cambiar de sistema. En la práctica, ningún comercio serio en el mundo puede permitirse no aceptar Mastercard.',
+        },
+        {
+          type: 'p',
+          text: 'La red de Mastercard cubre 210 países, tres mil millones de tarjetas activas y cien millones de comercios. Construir algo equivalente llevaría décadas y cientos de miles de millones de dólares, para enfrentarse a una red que ya lleva décadas de ventaja. Esto no es una barrera de entrada; es un muro.',
+        },
+        {
+          type: 'h2',
+          text: 'Los números que narran la solidez del negocio',
+        },
+        {
+          type: 'p',
+          text: 'El margen de flujo de caja libre de Mastercard ronda el 50%. En concreto, de cada 100 dólares de ingresos, 50 acaban como efectivo disponible tras todos los gastos. Es un ratio excepcional: la mayoría de las empresas se sitúa entre el 5 y el 15%. Este dato existe porque Mastercard casi no tiene activos físicos que mantener: su producto son datos y protocolos, no fábricas.',
+        },
+        {
+          type: 'p',
+          text: 'El crecimiento de ingresos ha sido constante, entre el 10 y el 15% anual durante años. No es un crecimiento especulativo: está impulsado por un motor estructural, la digitalización del efectivo. Cada billete reemplazado por un pago electrónico en cualquier parte del mundo genera una comisión para Mastercard. Y aún quedan cientos de miles de millones de transacciones en efectivo por convertir, especialmente en Asia, África y América Latina.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Mastercard (MA)', 'Media del sector'],
+          rows: [
+            ['Margen de flujo de caja libre', '~50%', '~10-15%'],
+            ['Crecimiento anual de ingresos', '10-15% / año', '5-8% / año'],
+            ['Cobertura geográfica', '210 países', 'Variable'],
+            ['Tarjetas activas', '3 mil millones', 'No comparable'],
+            ['Puntuación de calidad (nuestro método)', '10/10', 'Mediana: 5/10'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: ¿es demasiado cara a 25 veces el cash?',
+        },
+        {
+          type: 'p',
+          text: 'Mastercard cotiza a una valoración de unas 25 veces su flujo de caja libre anual. El P/FCF es un ratio simple: divides el precio de la acción por el cash que genera cada año. Un P/FCF de 25 significa que hoy pagas 25 años de ese cash. Para una empresa ordinaria, es mucho. Para Mastercard, es otra cuestión.',
+        },
+        {
+          type: 'p',
+          text: 'Esta es la lógica: si una empresa crece entre el 10 y el 15% anual de forma constante, su cash se duplica en 5 a 7 años. Una valoración de 25 veces un cash en fuerte crecimiento no es lo mismo que 25 veces un cash estable. El mercado ya incorpora ese crecimiento en el precio. La pregunta real no es "¿está cara hoy?" sino "¿justifica el crecimiento futuro el precio actual?". Con un motor estructural tan sólido, mi respuesta es sí: es una prima justificada por un activo prácticamente insustituible.',
+        },
+        {
+          type: 'h2',
+          text: 'Riesgos que no debes ignorar',
+        },
+        {
+          type: 'p',
+          text: 'No voy a presentarte Mastercard como una inversión sin riesgo: eso no existe. Tres riesgos me parecen reales. Primero: la regulación sobre las tasas de intercambio. En Europa y Estados Unidos, los legisladores debaten regularmente sobre limitar las comisiones que pueden cobrar las redes de pago. Si esas tasas se comprimen, los márgenes de Mastercard también lo harán.',
+        },
+        {
+          type: 'p',
+          text: 'Segundo: la competencia de las fintechs. BNPL (compra ahora, paga después), criptomonedas, stablecoins, wallets locales como M-Pesa o PIX en Brasil: estas alternativas intentan eludir las redes tradicionales. Por ahora representan una fracción marginal de los pagos globales, pero la tendencia merece seguimiento. Tercero: Mastercard está ligada al crecimiento económico mundial. En recesión, los volúmenes de transacciones bajan y sus ingresos también.',
+        },
+        {
+          type: 'p',
+          text: 'Lo que suaviza estos riesgos: Mastercard ya ha superado varias crisis (2008, 2020) y sus volúmenes rebotaron rápidamente en cada ocasión. La resiliencia de su modelo está probada.',
+        },
+        {
+          type: 'h2',
+          text: 'Lo que Mastercard hace mejor que casi cualquier empresa',
+        },
+        {
+          type: 'p',
+          text: 'La asignación de capital, es decir, cómo la dirección utiliza el cash generado, es un criterio que siempre observo. Mastercard ha estado recomprando sus propias acciones de forma masiva durante años, lo que reduce el número de títulos en circulación y aumenta mecánicamente la participación de cada accionista. También paga un dividendo en crecimiento constante. Este comportamiento refleja una dirección que entiende el valor de la empresa y prefiere devolvérselo a los accionistas antes que invertirlo en adquisiciones cuestionables.',
+        },
+        {
+          type: 'p',
+          text: 'Su capitalización bursátil ronda los 500 mil millones de dólares, lo que la convierte en una de las veinte empresas más grandes del mundo. Sin embargo, a diferencia de muchas grandes tecnológicas muy endeudadas o deficitarias, Mastercard apenas necesita capital para crecer: su infraestructura ya existe, sus costes marginales son casi nulos, y cada nueva transacción enriquece la red sin inversión adicional.',
+        },
+        {
+          type: 'h2',
+          text: 'Mi conclusión sobre Mastercard',
+        },
+        {
+          type: 'p',
+          text: 'Mastercard es una de las pocas empresas donde la calidad del negocio y la claridad del modelo económico convergen perfectamente. No es una empresa de moda ni una promesa tecnológica: es una infraestructura financiera global que lleva décadas generando cash y seguirá haciéndolo mientras la gente compre cosas con tarjeta. El crecimiento es estructural, el foso competitivo es casi inexpugnable, y la dirección asigna el capital con disciplina.',
+        },
+        {
+          type: 'p',
+          text: 'Poder analizar cualquier acción según estos criterios, calidad y valoración por separado, en pocos segundos: eso es exactamente lo que quise construir en mi sitio de inversión. Puedes encontrar el análisis completo de Mastercard en la página /analyse/MA.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Gana Mastercard dinero cuando no pagas tu tarjeta de crédito?',
+          a: 'No, es un error muy común. Mastercard no es un banco y no presta nada. Cobra una comisión en cada transacción, independientemente de lo que ocurra después entre tú y tu banco. El riesgo crediticio recae íntegramente en tu banco, no en Mastercard.',
+        },
+        {
+          q: '¿Cuál es la diferencia entre Mastercard y Visa?',
+          a: 'Sus modelos de negocio son prácticamente idénticos: dos redes de pago que cobran comisiones por transacciones. Forman un duopolio global y juntas controlan la mayor parte del mercado. Las diferencias principales están en su cuota de mercado geográfica y en sus acuerdos con bancos emisores según los países.',
+        },
+        {
+          q: '¿Pueden las fintechs reemplazar a Mastercard?',
+          a: 'A corto plazo, no. Alternativas como las criptomonedas, el BNPL y los wallets locales representan aún una fracción marginal de los pagos globales. Pero la cuestión merece seguimiento a largo plazo, especialmente en mercados emergentes donde la infraestructura bancaria tradicional está menos arraigada.',
+        },
+        {
+          q: '¿Qué significa un P/FCF de 25 veces en términos sencillos?',
+          a: 'El P/FCF es el precio de la acción dividido por el cash que genera la empresa cada año. Un P/FCF de 25 significa que estás pagando 25 años de ese cash. Es elevado para una empresa ordinaria, pero razonable para una que crece entre el 10 y el 15% anual y tiene una ventaja competitiva casi inexpugnable.',
+        },
+        {
+          q: '¿Por qué Mastercard tiene una puntuación de calidad perfecta?',
+          a: 'Mi puntuación de calidad evalúa varios criterios: rentabilidad, crecimiento, solidez del balance, foso competitivo y asignación de capital. Mastercard cumple todos: márgenes de flujo de caja libre entre los más altos de la bolsa, crecimiento constante, red inexpugnable y recompras de acciones disciplinadas. Una puntuación de 10/10 significa que ningún criterio presenta problemas.',
+        },
+      ],
+      tags: [
+        'Mastercard',
+        'acción MA',
+        'análisis fundamental',
+        'duopolio pagos',
+        'fintech',
+        'inversión',
+        'moat',
+        'flujo de caja libre',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Las cifras corresponden a la fecha de publicación y pueden cambiar con el tiempo.',
+    },
+  },
+};
+
+const articlePGR: Article = {
+  slug: 'progressive-pgr-analyse-fondamentale-assurance-auto',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'PGR',
+  content: {
+    fr: {
+      title: 'Progressive (PGR) : le n°1 de l\'assurance auto en bourse',
+      excerpt: 'Progressive est le premier assureur automobile américain par nombre de polices. Son avantage technologique lui permet de croître de 30 à 40 % par an tout en maintenant une rentabilité exceptionnelle. Voici pourquoi cette action affiche l\'une des meilleures valorisations parmi les entreprises que je suis.',
+      metaDescription: 'Analyse fondamentale de Progressive (PGR) : moat technologique, combined ratio, free cash flow et valorisation. Pourquoi cette action obtient un score parfait dans notre screener.',
+      answer: 'Progressive est le premier assureur automobile américain, mais surtout une entreprise technologique déguisée en assureur. Sa capacité à tarifer les risques mieux que tous ses concurrents lui assure une rentabilité structurelle et une croissance explosive. À sa valorisation actuelle, c\'est l\'une des opportunités les plus solides que j\'aie analysées.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Progressive est le n°1 de l\'assurance auto américaine par nombre de polices souscrites.',
+            'Son avantage concurrentiel repose sur la data et la technologie, pas sur le prix bas.',
+            'Combined ratio d\'environ 94 % : chaque dollar de prime génère plus de cash qu\'il n\'en coûte.',
+            'Croissance des primes de 30 à 40 % par an ces dernières années, un chiffre rarissime dans ce secteur.',
+            'Valorisation basse pour une entreprise de cette qualité, avec un free cash flow très solide.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Un assureur ou une entreprise technologique ?',
+        },
+        {
+          type: 'p',
+          text: 'Quand on parle d\'assurance automobile, on pense à des grands bâtiments gris, des formulaires en papier et des primes qui montent chaque année sans raison claire. Progressive ne ressemble pas à ça. Fondée en 1937, l\'entreprise a pris un virage technologique radical il y a vingt ans, et elle creuse depuis cet avantage avec une discipline qui force le respect.',
+        },
+        {
+          type: 'p',
+          text: 'Le cœur du business, c\'est la tarification. Un assureur auto gagne de l\'argent s\'il réussit à estimer correctement le risque que représente chaque conducteur. Trop bas, il perd sur chaque sinistre. Trop haut, il perd des clients au profit de la concurrence. Progressive a résolu ce problème mieux que tout le monde grâce à des systèmes comme Snapshot : un programme qui analyse les comportements de conduite en temps réel (accélérations brutales, freinages, conduite de nuit) pour personnaliser chaque prime à l\'euro près. Son outil Name Your Price fait l\'inverse : le client dit ce qu\'il peut payer, et Progressive calcule la couverture optimale. Le résultat, c\'est une précision actuarielle que GEICO ou State Farm ne peuvent tout simplement pas répliquer.',
+        },
+        {
+          type: 'h2',
+          text: 'Le combined ratio : le chiffre qui révèle tout',
+        },
+        {
+          type: 'p',
+          text: 'Pour comprendre si un assureur gagne vraiment de l\'argent sur ses polices, il existe un indicateur clé : le combined ratio. C\'est la somme des sinistres payés et des frais de fonctionnement, divisée par les primes encaissées. Un ratio de 100 % signifie que l\'assureur dépense exactement ce qu\'il touche : il ne gagne rien sur ses polices, il doit compter sur les placements financiers. Un ratio de 110 % veut dire qu\'il perd de l\'argent à chaque police signée. Progressive affiche un combined ratio autour de 94 %. Ça paraît anodin, mais c\'est exceptionnel : pour chaque 100 dollars de primes encaissées, il lui reste 6 dollars de profit opérationnel avant même d\'investir ses réserves. Sur plusieurs décennies, cette discipline crée une machine à cash très difficile à imiter.',
+        },
+        {
+          type: 'h2',
+          text: 'La qualité du business : comment je l\'évalue',
+        },
+        {
+          type: 'p',
+          text: 'Quand j\'analyse une action, je commence toujours par la qualité du business, séparément de son prix. Je regarde plusieurs critères : la rentabilité (l\'entreprise génère-t-elle vraiment du cash ?), la croissance (ses revenus progressent-ils ?), l\'allocation du capital (rachète-t-elle ses actions, verse-t-elle un dividende ?), et l\'avantage concurrentiel (ce qu\'on appelle le moat, littéralement le fossé qui protège le château fort du concurrent qui veut prendre sa place). Sur ces quatre dimensions, Progressive coche toutes les cases.',
+        },
+        {
+          type: 'p',
+          text: 'Le free cash flow, c\'est l\'argent réellement disponible dans les caisses après avoir payé toutes les dépenses. Ce chiffre est plus difficile à maquiller que le bénéfice comptable traditionnel, c\'est pourquoi je le préfère. Progressive génère un free cash flow exceptionnel, avec une marge très élevée. L\'entreprise reverse une partie de ce cash à ses actionnaires via des rachats d\'actions (ce qui réduit le nombre de titres en circulation et augmente mécaniquement la part de chaque actionnaire) et via un dividende spécial annuel.',
+        },
+        {
+          type: 'h2',
+          text: 'Croissance explosive : pourquoi maintenant ?',
+        },
+        {
+          type: 'p',
+          text: 'Les primes de Progressive ont crû de 30 à 40 % par an ces dernières années, un rythme qu\'on associe plutôt aux entreprises technologiques en hypercroissance. Comment une compagnie d\'assurance auto arrive-t-elle à croître aussi vite ? Deux raisons. D\'abord, ses concurrents directs, GEICO en tête, ont traversé des années difficiles : leur combined ratio dépassait 100 %, ce qui les a forcés à augmenter fortement leurs tarifs ou à se retirer de certains marchés. Progressive, elle, avait la data pour tarifer correctement depuis le début, et elle a capturé les clients que ses rivaux laissaient partir. Ensuite, la distribution : Progressive vend à la fois en direct (via les comparateurs en ligne) et par un réseau d\'agents indépendants, ce qui lui donne une couverture très large sans concentrer tous ses risques sur un seul canal.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : pourquoi si raisonnable pour le n°1 ?',
+        },
+        {
+          type: 'p',
+          text: 'Pour mesurer si une action est bon marché ou non, j\'utilise principalement le P/FCF (price-to-free-cash-flow). C\'est le prix actuel de l\'action divisé par le free cash flow qu\'elle génère chaque année par action. Un P/FCF de 10 signifie que tu paies aujourd\'hui dix années de ce cash. Plus ce ratio est bas, plus la valorisation est attractive. Progressive affiche une valorisation d\'environ 7,4 fois son free cash flow. Pour une entreprise qui est numéro un dans son secteur, qui croît à 30-40 % par an et qui présente un combined ratio parmi les meilleurs du marché, c\'est une valorisation très raisonnable.',
+        },
+        {
+          type: 'p',
+          text: 'Pourquoi le marché lui accorde-t-il une valorisation aussi basse ? Parce que le secteur assurance souffre d\'un problème d\'image auprès des investisseurs. On pense lenteur, réglementation lourde, cycles de marché difficiles. Personne ne rêve d\'acheter « une compagnie d\'assurance ». Résultat, Progressive est traitée comme une entreprise de son secteur alors que ses fondamentaux ressemblent davantage à ceux d\'un éditeur de logiciels. C\'est ce type de décalage que je cherche : une qualité d\'élite reconnue par le marché à une fraction de ce qu\'elle vaudrait si elle s\'appelait autrement.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Progressive (PGR)', 'Secteur assurance moyen'],
+          rows: [
+            ['Combined ratio', '~94 %', '~100-102 %'],
+            ['Croissance des primes (récente)', '30-40 % / an', '5-10 % / an'],
+            ['Capitalisation boursière', '~140 Md$', 'Variable'],
+            ['Valorisation P/FCF', '~7,4×', '12-20× (assureurs qualité)'],
+            ['Score qualité (notre screener)', '10/10', 'Référence'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le moat de Progressive : l\'avantage qui dure',
+        },
+        {
+          type: 'p',
+          text: 'Le moat, le fossé concurrentiel, c\'est ce qui empêche un concurrent d\'arriver et de prendre les clients de Progressive. Ici, il est à deux niveaux. Premier niveau : les données. Vingt ans de comportements de conduite collectés via Snapshot, des millions de sinistres analysés, des modèles prédictifs perfectionnés année après année. Impossible à reproduire en quelques mois. Deuxième niveau : les effets réseau indirects. Plus Progressive a de clients, plus elle a de données, plus ses modèles s\'affinent, plus elle peut offrir des prix justes aux bons conducteurs, plus elle attire les bons conducteurs, et ainsi de suite. C\'est un cercle vertueux que les assureurs traditionnels regardent avec envie sans pouvoir y entrer.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas négliger',
+        },
+        {
+          type: 'p',
+          text: 'Toute thèse honnête doit regarder ce qui peut mal tourner. Trois risques méritent attention. Le premier, c\'est l\'inflation des sinistres. Les coûts de réparation automobile ont explosé depuis 2021 (pièces détachées, main-d\'œuvre, véhicules de remplacement), et la « social inflation » aux États-Unis (jurys qui accordent des indemnités de plus en plus élevées) grignote les marges même des assureurs les plus disciplinés. Progressive s\'adapte en révisant ses tarifs régulièrement, mais ce risque ne disparaît pas. Le deuxième, c\'est la concurrence. GEICO appartient à Berkshire Hathaway, qui a les reins solides pour investir massivement dans la technologie. State Farm est le plus grand assureur auto américain en primes totales et ne restera pas sans réagir. Le troisième, c\'est la saturation potentielle du marché auto américain. Progressive a capturé une part très large du marché des « bons conducteurs ». La croissance future devra venir d\'autres segments ou de nouveaux produits, ce qui implique de nouveaux risques à maîtriser.',
+        },
+        {
+          type: 'h2',
+          text: 'Comment je tranche',
+        },
+        {
+          type: 'p',
+          text: 'Je sépare toujours deux questions : est-ce une entreprise de qualité ? Et est-ce le bon prix ? Progressive répond très bien à la première. Sur la seconde, la valorisation actuelle est nettement plus basse que ce qu\'une entreprise de cette trempe obtiendrait dans n\'importe quel autre secteur. Ce décalage est là parce que personne ne « rêve » d\'acheter de l\'assurance auto. Mais les fondamentaux d\'une entreprise ne disparaissent pas parce que son secteur est perçu comme ennuyeux.',
+        },
+        {
+          type: 'p',
+          text: 'Je surveille deux choses avant d\'agir. D\'abord, que le combined ratio reste structurellement sous 95 % dans la durée, ce qui confirme que l\'avantage de tarification tient face à l\'inflation des sinistres. Ensuite, que la croissance des primes ne s\'effondre pas brutalement une fois la vague de rattrapage terminée. Si ces deux éléments restent solides, la thèse reste intacte.',
+        },
+        {
+          type: 'p',
+          text: 'Savoir évaluer la qualité d\'un business et son prix séparément, pour n\'importe quelle action en quelques secondes, c\'est exactement ce que j\'ai voulu construire dans mon outil d\'analyse. Tu peux retrouver l\'analyse complète de Progressive sur la page <a href="/analyse/PGR">analyse PGR</a> ou lancer une analyse sur n\'importe quelle action via <a href="/analyser">notre screener</a>.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que le combined ratio en assurance ?',
+          a: 'C\'est la somme des sinistres payés et des frais de gestion, divisée par les primes encaissées. Un ratio sous 100 % signifie que l\'assureur est rentable sur ses polices avant même de placer ses réserves. À 94 %, Progressive fait partie des meilleurs de son secteur.',
+        },
+        {
+          q: 'Pourquoi Progressive est-elle considérée comme une entreprise technologique ?',
+          a: 'Parce que son avantage concurrentiel repose entièrement sur la data et les algorithmes. Son programme Snapshot collecte les comportements de conduite en temps réel pour personnaliser chaque prime. Cette précision de tarification est impossible à reproduire sans des années de données accumulées.',
+        },
+        {
+          q: 'Qu\'est-ce que le P/FCF et comment l\'interpréter ?',
+          a: 'Le P/FCF (price-to-free-cash-flow) est le prix de l\'action divisé par le free cash flow annuel par action. Il mesure combien d\'années de cash tu paies aujourd\'hui. Un P/FCF de 7,4 signifie que tu paies 7,4 ans de ce cash : c\'est une valorisation basse pour une entreprise de la qualité de Progressive.',
+        },
+        {
+          q: 'Quels sont les principaux risques sur l\'action Progressive ?',
+          a: 'L\'inflation des sinistres (réparations auto plus chères, indemnités juridiques plus élevées), la concurrence de GEICO et State Farm, et la saturation potentielle du marché auto américain. Ces risques sont réels, mais Progressive a montré sa capacité à ajuster ses tarifs rapidement.',
+        },
+        {
+          q: 'Progressive verse-t-elle un dividende ?',
+          a: 'Oui. Progressive verse un dividende spécial annuel, dont le montant varie selon les résultats de l\'exercice, et procède à des rachats d\'actions réguliers. Ces deux mécanismes permettent de redistribuer le free cash flow excédentaire aux actionnaires.',
+        },
+      ],
+      tags: [
+        'assurance auto',
+        'Progressive PGR',
+        'analyse fondamentale',
+        'combined ratio',
+        'free cash flow',
+        'moat',
+        'actions américaines',
+        'assurance',
+      ],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres mentionnés sont valables à la date de publication et susceptibles d\'évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'Progressive (PGR): the #1 auto insurer on the stock market',
+      excerpt: 'Progressive is the largest auto insurer in the United States by number of policies. Its technological edge drives 30-40% annual premium growth while maintaining exceptional profitability. Here is why this stock earns a perfect score in our screener and offers one of the most compelling valuations I have analyzed.',
+      metaDescription: 'Fundamental analysis of Progressive (PGR): technological moat, combined ratio, free cash flow and valuation. Why this stock earns a perfect score in our quality screener.',
+      answer: 'Progressive is the top US auto insurer, but more importantly a technology company disguised as an insurer. Its ability to price risk more accurately than any competitor creates structural profitability and explosive growth. At its current valuation, it is one of the most solid opportunities I have analyzed.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Progressive is the #1 US auto insurer by policies written.',
+            'Its competitive edge is built on data and technology, not on low prices.',
+            'Combined ratio around 94%: each premium dollar generates more cash than it costs.',
+            'Premium growth of 30-40% per year recently, exceptional for this sector.',
+            'Low valuation for a business of this quality, with very strong free cash flow.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'An insurer or a technology company?',
+        },
+        {
+          type: 'p',
+          text: 'When people think of auto insurance, they picture grey buildings, paper forms, and premiums that rise for no clear reason. Progressive does not look like that. Founded in 1937, it made a radical technology pivot twenty years ago and has been widening that advantage with remarkable discipline ever since.',
+        },
+        {
+          type: 'p',
+          text: 'The heart of the business is pricing. An auto insurer makes money by accurately estimating the risk each driver represents. Price too low and every claim is a loss. Price too high and customers switch to a competitor. Progressive solved this problem better than anyone through systems like Snapshot, which analyzes driving behavior in real time (hard acceleration, braking, night driving) to personalize each premium to the cent. Its Name Your Price tool does the reverse: the customer states what they can pay, and Progressive calculates the optimal coverage. The result is actuarial precision that GEICO or State Farm simply cannot replicate.',
+        },
+        {
+          type: 'h2',
+          text: 'The combined ratio: the number that reveals everything',
+        },
+        {
+          type: 'p',
+          text: 'To understand whether an insurer actually makes money on its policies, there is one key metric: the combined ratio. It is the sum of claims paid and operating expenses, divided by premiums collected. A ratio of 100% means the insurer spends exactly what it earns: it makes nothing on its policies and must rely entirely on investment income. A ratio of 110% means it loses money on every policy written. Progressive reports a combined ratio around 94%. That sounds modest, but it is exceptional: for every 100 dollars of premiums collected, 6 dollars remain as operating profit before any investment returns. Over decades, this discipline creates a cash-generating machine that is very hard to replicate.',
+        },
+        {
+          type: 'h2',
+          text: 'Business quality: how I evaluate it',
+        },
+        {
+          type: 'p',
+          text: 'When I analyze a stock, I always start with business quality, completely separately from its price. I look at several criteria: profitability (does the business actually generate cash?), growth (are revenues rising?), capital allocation (does management buy back shares or pay dividends?), and competitive moat (the protective barrier that prevents a competitor from taking its place). On all four dimensions, Progressive checks every box.',
+        },
+        {
+          type: 'p',
+          text: 'Free cash flow is the money actually available in the company\'s accounts after paying all expenses. It is harder to manipulate than reported net income, which is why I rely on it. Progressive generates exceptional free cash flow with a very high margin. The company returns a portion of this cash to shareholders through share buybacks (which reduce the share count and mechanically increase each shareholder\'s stake) and through an annual special dividend.',
+        },
+        {
+          type: 'h2',
+          text: 'Explosive growth: why now?',
+        },
+        {
+          type: 'p',
+          text: 'Progressive\'s premiums have grown 30-40% per year recently, a pace usually associated with high-growth technology companies. How does an auto insurer manage that? Two reasons. First, its direct competitors, especially GEICO, went through very difficult years: their combined ratios exceeded 100%, forcing them to sharply raise rates or exit certain markets. Progressive, which had the data to price correctly from the start, captured the customers its rivals let go. Second, distribution: Progressive sells both directly (through online comparison sites) and through an independent agent network, giving it very broad coverage without concentrating all risk on a single channel.',
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: why so reasonable for the #1?',
+        },
+        {
+          type: 'p',
+          text: 'To measure whether a stock is cheap or not, I primarily use the P/FCF (price-to-free-cash-flow). It is the current share price divided by the free cash flow generated per share each year. A P/FCF of 10 means you are paying today for ten years of that cash. The lower this ratio, the more attractive the valuation. Progressive trades at a valuation of roughly 7.4 times its free cash flow. For a company that is number one in its sector, growing at 30-40% per year and posting one of the best combined ratios in the market, that is a very reasonable valuation.',
+        },
+        {
+          type: 'p',
+          text: 'Why does the market give it such a low valuation? Because the insurance sector suffers from an image problem with investors. People associate it with slow growth, heavy regulation, and tough market cycles. Nobody dreams of buying "an insurance company." The result: Progressive is priced like a sector average business when its fundamentals look far more like a software company. This kind of mismatch is exactly what I look for: elite quality recognized by the market at a fraction of what it would trade for under a different label.',
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Progressive (PGR)', 'Average insurance sector'],
+          rows: [
+            ['Combined ratio', '~94%', '~100-102%'],
+            ['Recent premium growth', '30-40% / year', '5-10% / year'],
+            ['Market capitalization', '~$140B', 'Varies'],
+            ['P/FCF valuation', '~7.4×', '12-20× (quality insurers)'],
+            ['Quality score (our screener)', '10/10', 'Reference'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Progressive\'s moat: the lasting edge',
+        },
+        {
+          type: 'p',
+          text: 'The moat, the competitive advantage, is what prevents a competitor from coming in and taking Progressive\'s customers. Here it operates at two levels. First: data. Twenty years of driving behavior collected through Snapshot, millions of claims analyzed, predictive models refined year after year. Impossible to replicate in a few months. Second: indirect network effects. The more customers Progressive has, the more data it collects, the more its models sharpen, the better prices it can offer to good drivers, the more good drivers it attracts, and so on. It is a virtuous cycle that traditional insurers watch with envy but cannot enter.',
+        },
+        {
+          type: 'h2',
+          text: 'Risks not to overlook',
+        },
+        {
+          type: 'p',
+          text: 'Every honest thesis must look at what could go wrong. Three risks deserve attention. First, claims inflation. Auto repair costs have surged since 2021 (parts, labor, rental cars), and US "social inflation" (juries awarding increasingly large settlements) erodes margins even for the most disciplined insurers. Progressive adapts by repricing regularly, but this risk does not disappear. Second, competition. GEICO belongs to Berkshire Hathaway, which has deep enough pockets to invest heavily in technology. State Farm is the largest auto insurer in total premiums written and will not sit idle. Third, potential saturation of the US auto market. Progressive has captured a very large share of the "good driver" market. Future growth will have to come from other segments or new products, which introduces new risks to manage.',
+        },
+        {
+          type: 'h2',
+          text: 'How I decide',
+        },
+        {
+          type: 'p',
+          text: 'I always keep two questions separate: is this a quality business? And is this the right price? Progressive answers the first question very well. On the second, the current valuation is considerably lower than what a business of this quality would command in almost any other sector. That gap exists because nobody "dreams" of buying auto insurance. But a company\'s fundamentals do not disappear just because its sector is perceived as boring.',
+        },
+        {
+          type: 'p',
+          text: 'I monitor two things before acting. First, that the combined ratio stays structurally below 95% over time, confirming that the pricing advantage holds against claims inflation. Second, that premium growth does not collapse abruptly once the catch-up wave ends. If both remain solid, the thesis stays intact. You can find the full Progressive analysis on the <a href="/analyse/PGR">PGR analysis page</a> or screen any stock instantly via <a href="/analyser">our screener</a>.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is the combined ratio in insurance?',
+          a: 'It is the sum of claims paid and operating expenses, divided by premiums collected. A ratio below 100% means the insurer is profitable on its policies before any investment income. At 94%, Progressive ranks among the best in its sector.',
+        },
+        {
+          q: 'Why is Progressive considered a technology company?',
+          a: 'Because its competitive advantage is built entirely on data and algorithms. Its Snapshot program collects real-time driving behavior to personalize each premium. This pricing precision cannot be replicated without years of accumulated data.',
+        },
+        {
+          q: 'What is P/FCF and how do I interpret it?',
+          a: 'P/FCF (price-to-free-cash-flow) is the share price divided by the annual free cash flow per share. It measures how many years of cash you are paying for today. A P/FCF of 7.4 means you are paying for 7.4 years of that cash: a low valuation for a business of Progressive\'s quality.',
+        },
+        {
+          q: 'What are the main risks for Progressive stock?',
+          a: 'Claims inflation (higher auto repair costs, larger legal settlements), competition from GEICO and State Farm, and potential saturation of the US auto market. These risks are real, but Progressive has demonstrated the ability to reprice quickly in response.',
+        },
+        {
+          q: 'Does Progressive pay a dividend?',
+          a: 'Yes. Progressive pays an annual special dividend, the amount of which varies with the year\'s results, and conducts regular share buybacks. Both mechanisms return excess free cash flow to shareholders.',
+        },
+      ],
+      tags: [
+        'auto insurance',
+        'Progressive PGR',
+        'fundamental analysis',
+        'combined ratio',
+        'free cash flow',
+        'moat',
+        'US stocks',
+        'insurance',
+      ],
+      disclaimer: 'This content is for informational and educational purposes only and does not constitute personalized investment advice. Past performance is not indicative of future results. Figures are as of the publication date and subject to change. Please do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'Progressive (PGR): el n°1 de seguros de auto en bolsa',
+      excerpt: 'Progressive es la mayor aseguradora de automóviles de Estados Unidos por número de pólizas. Su ventaja tecnológica impulsa un crecimiento de primas del 30 al 40 % anual con una rentabilidad excepcional. Aquí explico por qué esta acción obtiene la puntuación máxima en nuestro screener y ofrece una valoración muy atractiva.',
+      metaDescription: 'Análisis fundamental de Progressive (PGR): ventaja tecnológica, combined ratio, free cash flow y valoración. Por qué esta acción obtiene puntuación perfecta en nuestro screener de calidad.',
+      answer: 'Progressive es la aseguradora de autos número uno en Estados Unidos, pero sobre todo una empresa tecnológica disfrazada de aseguradora. Su capacidad para tarificar riesgos con más precisión que cualquier competidor le asegura rentabilidad estructural y un crecimiento explosivo. A su valoración actual, es una de las oportunidades más sólidas que he analizado.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Progressive es la n°1 en seguros de auto en EE. UU. por pólizas emitidas.',
+            'Su ventaja competitiva se basa en datos y tecnología, no en precios bajos.',
+            'Combined ratio de aproximadamente 94 %: cada dólar de prima genera más caja de la que cuesta.',
+            'Crecimiento de primas del 30 al 40 % anual en los últimos años, excepcional para este sector.',
+            'Valoración baja para una empresa de esta calidad, con un free cash flow muy sólido.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: '¿Una aseguradora o una empresa tecnológica?',
+        },
+        {
+          type: 'p',
+          text: 'Cuando uno piensa en seguros de automóvil, imagina edificios grises, formularios en papel y primas que suben cada año sin motivo claro. Progressive no se parece a eso. Fundada en 1937, la empresa dio un giro tecnológico radical hace veinte años y desde entonces amplía esa ventaja con una disciplina que merece respeto.',
+        },
+        {
+          type: 'p',
+          text: 'El corazón del negocio es la tarificación. Una aseguradora de autos gana dinero si logra estimar correctamente el riesgo que representa cada conductor. Demasiado baja y cada siniestro es una pérdida. Demasiado alta y el cliente se va a la competencia. Progressive resolvió este problema mejor que nadie gracias a sistemas como Snapshot: un programa que analiza el comportamiento al volante en tiempo real (aceleraciones bruscas, frenadas, conducción nocturna) para personalizar cada prima al céntimo. Su herramienta Name Your Price funciona al revés: el cliente dice lo que puede pagar y Progressive calcula la cobertura óptima. El resultado es una precisión actuarial que GEICO o State Farm simplemente no pueden replicar.',
+        },
+        {
+          type: 'h2',
+          text: 'El combined ratio: el número que lo revela todo',
+        },
+        {
+          type: 'p',
+          text: 'Para saber si una aseguradora gana dinero de verdad con sus pólizas, existe un indicador clave: el combined ratio (ratio combinado). Es la suma de los siniestros pagados y los gastos de gestión, dividida por las primas cobradas. Un ratio del 100 % significa que la aseguradora gasta exactamente lo que ingresa: no gana nada con sus pólizas y depende de los rendimientos financieros. Un ratio del 110 % implica que pierde dinero en cada póliza firmada. Progressive publica un combined ratio de alrededor del 94 %. Parece un dato menor, pero es excepcional: por cada 100 dólares de primas cobradas, quedan 6 dólares de beneficio operativo antes de invertir sus reservas. A lo largo de décadas, esta disciplina crea una máquina generadora de efectivo muy difícil de imitar.',
+        },
+        {
+          type: 'h2',
+          text: 'Calidad del negocio: cómo la evalúo',
+        },
+        {
+          type: 'p',
+          text: 'Cuando analizo una acción, siempre empiezo por la calidad del negocio, completamente separada de su precio. Evalúo varios criterios: rentabilidad (¿genera realmente efectivo?), crecimiento (¿aumentan los ingresos?), asignación de capital (¿recompra acciones o paga dividendos?), y ventaja competitiva, lo que llamamos el moat, literalmente el foso que protege el castillo del competidor que quiere tomar su lugar. En las cuatro dimensiones, Progressive marca todas las casillas.',
+        },
+        {
+          type: 'p',
+          text: 'El free cash flow (flujo de caja libre) es el dinero que realmente queda en las cuentas de la empresa después de pagar todos los gastos. Es más difícil de maquillar que el beneficio contable tradicional, por eso lo prefiero. Progressive genera un free cash flow excepcional con un margen muy elevado. La empresa devuelve parte de este efectivo a sus accionistas mediante recompras de acciones (lo que reduce el número de títulos en circulación y aumenta mecánicamente la participación de cada accionista) y mediante un dividendo especial anual.',
+        },
+        {
+          type: 'h2',
+          text: 'Crecimiento explosivo: ¿por qué ahora?',
+        },
+        {
+          type: 'p',
+          text: 'Las primas de Progressive han crecido entre un 30 y un 40 % anual en los últimos años, un ritmo que normalmente asociamos con empresas tecnológicas en hipercrecimiento. ¿Cómo lo consigue una aseguradora de autos? Dos razones. Primero, sus competidores directos, especialmente GEICO, atravesaron años muy difíciles: sus combined ratios superaban el 100 %, lo que les obligó a subir fuertemente las tarifas o a retirarse de algunos mercados. Progressive, que disponía de los datos para tarificar correctamente desde el principio, capturó los clientes que sus rivales dejaban ir. Segundo, la distribución: Progressive vende tanto en directo (a través de comparadores online) como mediante una red de agentes independientes, lo que le da una cobertura muy amplia sin concentrar todos sus riesgos en un solo canal.',
+        },
+        {
+          type: 'h2',
+          text: 'Valoración: ¿por qué tan razonable para la n°1?',
+        },
+        {
+          type: 'p',
+          text: 'Para medir si una acción está cara o barata, utilizo principalmente el P/FCF (price-to-free-cash-flow). Es el precio actual de la acción dividido por el free cash flow que genera por acción cada año. Un P/FCF de 10 significa que pagas hoy diez años de ese efectivo. Cuanto más bajo sea este ratio, más atractiva es la valoración. Progressive presenta una valoración de aproximadamente 7,4 veces su free cash flow. Para una empresa que es número uno en su sector, que crece al 30-40 % anual y que tiene uno de los mejores combined ratios del mercado, es una valoración muy razonable.',
+        },
+        {
+          type: 'p',
+          text: '¿Por qué el mercado le otorga una valoración tan baja? Porque el sector asegurador sufre un problema de imagen entre los inversores. Evoca lentitud, regulación pesada y ciclos de mercado complicados. Nadie sueña con comprar "una compañía de seguros". El resultado: Progressive cotiza como si fuera una empresa media de su sector, cuando sus fundamentales se parecen mucho más a los de una empresa de software. Este tipo de desequilibrio es exactamente lo que busco: calidad de élite reconocida por el mercado a una fracción de lo que valdría con otro nombre.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Progressive (PGR)', 'Sector asegurador promedio'],
+          rows: [
+            ['Combined ratio', '~94 %', '~100-102 %'],
+            ['Crecimiento de primas (reciente)', '30-40 % / año', '5-10 % / año'],
+            ['Capitalización bursátil', '~140 000 M$', 'Variable'],
+            ['Valoración P/FCF', '~7,4×', '12-20× (aseguradoras calidad)'],
+            ['Puntuación de calidad (nuestro screener)', '10/10', 'Referencia'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El moat de Progressive: la ventaja duradera',
+        },
+        {
+          type: 'p',
+          text: 'El moat, la ventaja competitiva, es lo que impide que un competidor entre y se lleve los clientes de Progressive. Aquí opera en dos niveles. Primero: los datos. Veinte años de comportamientos de conducción recopilados a través de Snapshot, millones de siniestros analizados, modelos predictivos perfeccionados año tras año. Imposible de replicar en pocos meses. Segundo: los efectos de red indirectos. Cuantos más clientes tiene Progressive, más datos recopila, más se perfeccionan sus modelos, mejores precios puede ofrecer a los buenos conductores, más buenos conductores atrae, y así sucesivamente. Es un círculo virtuoso que los aseguradores tradicionales observan con envidia sin poder entrar en él.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no hay que ignorar',
+        },
+        {
+          type: 'p',
+          text: 'Toda tesis honesta debe analizar qué puede salir mal. Tres riesgos merecen atención. El primero es la inflación de siniestros. Los costes de reparación de automóviles se han disparado desde 2021 (piezas, mano de obra, vehículos de sustitución), y la "inflación social" en Estados Unidos (jurados que otorgan indemnizaciones cada vez más elevadas) erosiona los márgenes incluso de los aseguradores más disciplinados. Progressive se adapta revisando sus tarifas regularmente, pero este riesgo no desaparece. El segundo es la competencia. GEICO pertenece a Berkshire Hathaway, que tiene recursos suficientes para invertir masivamente en tecnología. State Farm es la mayor aseguradora de autos en primas totales y no permanecerá inactiva. El tercero es la posible saturación del mercado automovilístico estadounidense. Progressive ha capturado una parte muy grande del mercado de "buenos conductores". El crecimiento futuro deberá provenir de otros segmentos o productos nuevos, lo que implica nuevos riesgos que gestionar.',
+        },
+        {
+          type: 'h2',
+          text: 'Cómo tomo la decisión',
+        },
+        {
+          type: 'p',
+          text: 'Siempre separo dos preguntas: ¿es un negocio de calidad? ¿Y es el precio adecuado? Progressive responde muy bien a la primera. En cuanto a la segunda, la valoración actual es considerablemente más baja que la que obtendría una empresa de esta calidad en casi cualquier otro sector. Esa brecha existe porque nadie "sueña" con comprar seguros de auto. Pero los fundamentales de una empresa no desaparecen porque su sector sea percibido como aburrido.',
+        },
+        {
+          type: 'p',
+          text: 'Monitorizo dos cosas antes de actuar. Primero, que el combined ratio se mantenga estructuralmente por debajo del 95 % a lo largo del tiempo, confirmando que la ventaja de tarificación aguanta frente a la inflación de siniestros. Segundo, que el crecimiento de primas no colapse bruscamente una vez terminada la ola de recuperación. Si ambos elementos se mantienen sólidos, la tesis permanece intacta. Puedes consultar el análisis completo de Progressive en la página <a href="/analyse/PGR">análisis PGR</a> o analizar cualquier acción al instante con <a href="/analyser">nuestro screener</a>.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el combined ratio en seguros?',
+          a: 'Es la suma de los siniestros pagados y los gastos de gestión, dividida por las primas cobradas. Un ratio inferior al 100 % indica que la aseguradora es rentable en sus pólizas antes de los rendimientos financieros. Con un 94 %, Progressive está entre las mejores de su sector.',
+        },
+        {
+          q: '¿Por qué se considera a Progressive una empresa tecnológica?',
+          a: 'Porque su ventaja competitiva se basa íntegramente en datos y algoritmos. Su programa Snapshot recopila el comportamiento al volante en tiempo real para personalizar cada prima. Esta precisión de tarificación no se puede replicar sin años de datos acumulados.',
+        },
+        {
+          q: '¿Qué es el P/FCF y cómo interpretarlo?',
+          a: 'El P/FCF (price-to-free-cash-flow) es el precio de la acción dividido por el free cash flow anual por acción. Mide cuántos años de ese efectivo estás pagando hoy. Un P/FCF de 7,4 significa que pagas 7,4 años de ese efectivo: una valoración baja para una empresa de la calidad de Progressive.',
+        },
+        {
+          q: '¿Cuáles son los principales riesgos de la acción Progressive?',
+          a: 'La inflación de siniestros (reparaciones más caras, indemnizaciones judiciales más elevadas), la competencia de GEICO y State Farm, y la posible saturación del mercado automovilístico estadounidense. Estos riesgos son reales, pero Progressive ha demostrado capacidad para ajustar sus tarifas con rapidez.',
+        },
+        {
+          q: '¿Progressive paga dividendo?',
+          a: 'Sí. Progressive paga un dividendo especial anual, cuyo importe varía según los resultados del ejercicio, y realiza recompras de acciones periódicas. Ambos mecanismos permiten redistribuir el free cash flow excedentario a los accionistas.',
+        },
+      ],
+      tags: [
+        'seguro de auto',
+        'Progressive PGR',
+        'análisis fundamental',
+        'combined ratio',
+        'free cash flow',
+        'moat',
+        'acciones americanas',
+        'seguros',
+      ],
+      disclaimer: 'Análisis con fines informativos y educativos, no constituye un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Las cifras mencionadas corresponden a la fecha de publicación y pueden cambiar. Realiza tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleACGL: Article = {
+  slug: 'arch-capital-acgl-analyse-fondamentale-reassurance',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'ACGL',
+  content: {
+    fr: {
+      title: 'Arch Capital (ACGL) : la meilleure action de réassurance',
+      excerpt:
+        'Arch Capital Group est un réassureur de premier plan, basé aux Bermudes, avec un rendement sur capitaux propres structurellement supérieur à 20 %. Une valorisation raisonnable pour un business de qualité rare.',
+      metaDescription:
+        'Analyse fondamentale d\'Arch Capital Group (ACGL) : réassurance, avantage concurrentiel, rentabilité et risques. Pourquoi ce titre retient mon attention en 2026.',
+      answer:
+        'Arch Capital est un réassureur spécialisé qui génère structurellement plus de 20 % de rendement sur ses fonds propres, avec une valorisation autour de 15 fois son free cash flow. Le marché de la réassurance est dur et favorable aux meilleurs underwriters. ACGL en fait partie. Voici pourquoi ce titre mérite une analyse sérieuse.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Rendement sur capitaux propres (ROE) structurel supérieur à 20 %',
+            'Valorisation autour de 15 fois le free cash flow : raisonnable pour cette qualité',
+            'Spécialiste des risques complexes et des lignes catastrophe',
+            'Bilan solide, réserves bien capitalisées, dividende croissant',
+            'Score de qualité parfait dans notre méthodologie d\'analyse',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait vraiment Arch Capital Group',
+        },
+        {
+          type: 'p',
+          text: 'Arch Capital Group (ACGL, cotée sur le NASDAQ) est une holding d\'assurance et de réassurance fondée aux Bermudes en 2001. Quand je dis « réassurance », je parle de l\'assurance des assureurs : quand un ouragan frappe la Floride, les compagnies d\'assurance locales ont elles-mêmes souscrit des contrats avec des réassureurs comme ACGL pour partager les pertes les plus extrêmes. C\'est un métier de spécialiste, peu visible du grand public, mais absolument critique pour la stabilité du système financier mondial.',
+        },
+        {
+          type: 'p',
+          text: 'Arch ne se limite pas à la réassurance pure. L\'entreprise couvre aussi des lignes d\'assurance directe dites « spécialisées » : risques professionnels complexes, garanties hypothécaires (mortgage insurance), lignes maritimes, aviation. Cette diversification la distingue de concurrents plus étroits comme RenaissanceRe (RNR), qui reste focalisé sur la seule réassurance catastrophe. ACGL, elle, joue sur plusieurs tableaux à la fois.',
+        },
+        {
+          type: 'h2',
+          text: 'Le moat d\'Arch : ce qui le protège vraiment',
+        },
+        {
+          type: 'p',
+          text: 'Le mot « moat » désigne en analyse financière le fossé concurrentiel d\'une entreprise : ce qui lui permet de défendre ses marges et d\'éloigner les concurrents dans la durée. Chez Arch Capital, ce fossé repose sur trois piliers solides. Premier pilier : l\'expertise en underwriting. Souscrire un risque catastrophe (tremblement de terre, cyclone, inondation centenaire) est un art, pas une science exacte. Il faut des modèles de risque propriétaires, des équipes spécialisées accumulées sur des décennies, et surtout la discipline de refuser les risques mal tarifés. Arch a cette réputation.',
+        },
+        {
+          type: 'p',
+          text: 'Deuxième pilier : la domiciliation aux Bermudes. Ce n\'est pas un artifice fiscal anecdotique. L\'île concentre les plus grands réassureurs mondiaux, crée un écosystème de talent spécialisé et offre un cadre réglementaire calibré pour ce type de risque. Les acteurs établis aux Bermudes bénéficient d\'une légitimité et d\'un réseau de courtiers que des entrants n\'ont pas. Troisième pilier : la diversification des lignes. Quand le marché de la réassurance catastrophe est saturé (cycle dit « mou »), Arch peut pivoter vers ses activités d\'assurance directe ou d\'assurance hypothécaire, qui suivent des cycles différents. C\'est une résilience structurelle que peu de concurrents possèdent.',
+        },
+        {
+          type: 'h2',
+          text: 'La rentabilité : des chiffres qui parlent',
+        },
+        {
+          type: 'p',
+          text: 'Pour juger la qualité d\'une entreprise, je regarde plusieurs métriques financières objectives. Le ROE (return on equity, soit le rendement sur capitaux propres) mesure combien l\'entreprise génère pour chaque euro investi par ses actionnaires. Un ROE de 20 % signifie que pour 100 euros de capital, l\'entreprise en produit 20 de bénéfice net par an. C\'est considérable. La moyenne du secteur tourne autour de 10 à 12 %. Arch maintient structurellement au-dessus de 20 %, ce qui indique une véritable machine à créer de la valeur, pas un accident de cycle.',
+        },
+        {
+          type: 'p',
+          text: 'Le free cash flow (FCF) est l\'autre indicateur clé. C\'est l\'argent qui reste réellement dans les caisses une fois toutes les dépenses payées, avant toute distribution aux actionnaires. Plus difficile à manipuler comptablement que le bénéfice net, il me donne la vraie image de la santé financière. Arch génère un FCF récurrent, structurel, avec des réserves bien capitalisées et un bilan qui lui permet d\'absorber de grosses années de sinistres sans stress.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Arch Capital (ACGL)', 'Secteur moyen'],
+          rows: [
+            ['ROE structurel', '> 20 %', '10-12 %'],
+            ['Valorisation P/FCF', '~15×', '18-22×'],
+            ['Capitalisation boursière', '~20 milliards $', 'Variable'],
+            ['Dividende', 'Croissant', 'Variable'],
+            ['Note qualité (notre screener)', '10/10', 'En moyenne 5-6/10'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Notre méthode : comment j\'évalue la qualité',
+        },
+        {
+          type: 'p',
+          text: 'Ma méthode sépare toujours deux questions distinctes. Un : est-ce une bonne entreprise ? Deux : est-ce le bon prix ? Les confondre est l\'erreur numéro un des investisseurs particuliers. Pour la qualité, j\'applique une grille de critères objectifs : rentabilité (ROE, marges), croissance des ventes et du cash, endettement maîtrisé, politique de rachats d\'actions ou de dividendes, et cohérence de l\'allocation du capital par le management. Cette grille donne une note de 0 à 10. Arch Capital obtient 10/10 : c\'est un score parfait, rare, qui indique une qualité de business dans le premier centile.',
+        },
+        {
+          type: 'p',
+          text: 'Le P/FCF (price-to-free-cash-flow) est le ratio que j\'utilise pour juger le prix. Il divise la valeur boursière de l\'entreprise par le free cash flow annuel qu\'elle génère. Un P/FCF de 15 signifie que tu paies aujourd\'hui 15 ans de ce cash. Plus c\'est bas, plus la valorisation est attractive. À environ 15 fois son free cash flow, Arch Capital affiche une valorisation raisonnable pour une entreprise de ce calibre. Ce n\'est pas une braderie, mais c\'est loin d\'une spéculation débridée.',
+        },
+        {
+          type: 'h2',
+          text: 'Le cycle de la réassurance : l\'atout du moment',
+        },
+        {
+          type: 'p',
+          text: 'La réassurance est un secteur cyclique. Après une série d\'événements catastrophiques (ouragans Ida et Ian en 2021-2022, inondations en Europe), les primes de réassurance ont fortement augmenté depuis 2023. On parle d\'un « marché dur », où les réassureurs fixent les conditions, imposent des prix élevés, et choisissent leurs risques. C\'est l\'environnement idéal pour un underwriter discipliné comme Arch. Les rendements sont élevés, les marges s\'améliorent, et les acteurs moins rigoureux quittent le marché, laissant plus de volume aux meilleurs.',
+        },
+        {
+          type: 'p',
+          text: 'Le risque symétrique est là aussi : si les catastrophes s\'avèrent moins fréquentes sur les prochaines années, le marché pourrait redevenir « mou » (compétition accrue, primes en baisse). Arch a montré sa capacité à traverser ces cycles sans casse, justement parce que sa diversification lui permet d\'ajuster son portefeuille selon les opportunités disponibles. Ce n\'est pas de la chance : c\'est une stratégie délibérée.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas ignorer',
+        },
+        {
+          type: 'p',
+          text: 'Une bonne entreprise n\'est jamais sans risques. Chez Arch Capital, j\'en vois trois principaux. Le risque de catastrophe d\'abord : une année avec plusieurs ouragans majeurs, un séisme en zone urbaine dense ou un événement cyber systémique pourrait peser lourdement sur les résultats. ACGL est compensée pour prendre ce risque, mais il est réel et non nul. Deuxièmement, le risque de cycle : un retournement vers un marché mou comprime les marges et réduit les ROE. Enfin, la réglementation aux Bermudes : même si le cadre est aujourd\'hui favorable, des changements de politique internationale sur la fiscalité des holdings offshore (notamment dans le cadre des réformes OCDE sur le taux minimum mondial) pourraient modifier les avantages structurels de la domiciliation bermudienne.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que je retiens, et comment j\'y pense',
+        },
+        {
+          type: 'p',
+          text: 'Arch Capital est l\'exemple du type d\'entreprise que j\'appelle une « machine tranquille » : peu médiatisée, mal comprise du grand public, mais d\'une rentabilité remarquable sur longue période. Elle n\'a pas besoin d\'innover chaque trimestre, de conquérir un marché émergent ou d\'annoncer une révolution technologique. Elle fait bien ce qu\'elle fait depuis 25 ans : souscrire des risques complexes mieux que ses concurrents, gérer son bilan avec rigueur, et allouer le capital de façon disciplinée.',
+        },
+        {
+          type: 'p',
+          text: 'À une valorisation autour de 15 fois son free cash flow, le marché ne lui accorde pas une prime de croissance excessive. C\'est à la fois rassurant (moins de risque de déception) et porteur (si les ROE se maintiennent et que les rachats d\'actions continuent, l\'actionnaire est bien servi sans avoir besoin d\'un catalyseur spectaculaire). J\'ai construit mon outil d\'analyse pour pouvoir répondre exactement à ces deux questions pour n\'importe quelle action : la qualité mérite-t-elle attention, et le prix est-il raisonnable ? Sur ACGL, les deux réponses sont oui, aujourd\'hui.',
+        },
+        {
+          type: 'p',
+          text: 'Pour aller plus loin sur les actions de réassurance ou explorer d\'autres entreprises de qualité selon cette même grille, tu peux consulter notre analyse complète sur <a href="/analyse/ACGL">la fiche ACGL</a> ou parcourir les meilleures entreprises de notre <a href="/analyser">screener de qualité</a>.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que la réassurance et en quoi ACGL est-elle différente ?',
+          a: 'La réassurance consiste à assurer les compagnies d\'assurance elles-mêmes contre des pertes très élevées (catastrophes naturelles, événements extrêmes). Arch Capital (ACGL) est différente des réassureurs purs parce qu\'elle couvre aussi l\'assurance directe spécialisée (risques professionnels, garanties hypothécaires), ce qui lui donne une diversification que peu de concurrents possèdent.',
+        },
+        {
+          q: 'Qu\'est-ce que le ROE et pourquoi 20 % est-il remarquable ?',
+          a: 'Le ROE (return on equity) mesure combien une entreprise génère pour chaque euro de capital de ses actionnaires. Un ROE de 20 % signifie 20 euros produits pour 100 investis. Dans le secteur de l\'assurance, la moyenne tourne autour de 10-12 %. Arch Capital maintient structurellement au-dessus de 20 %, ce qui indique une véritable excellence opérationnelle et non un accident ponctuel.',
+        },
+        {
+          q: 'Qu\'est-ce qu\'un « marché dur » en réassurance ?',
+          a: 'Un marché dur désigne une période où les réassureurs ont le pouvoir de fixer des primes élevées et de choisir leurs risques, généralement après une série de sinistres importants. C\'est l\'environnement le plus favorable pour les réassureurs disciplinés comme Arch. Le risque est qu\'il se retourne vers un marché mou (primes en baisse) si les catastrophes restent rares sur plusieurs années.',
+        },
+        {
+          q: 'Le P/FCF de 15 fois, est-ce bon marché pour ACGL ?',
+          a: 'Le P/FCF (price-to-free-cash-flow) mesure combien tu paies pour chaque année de cash généré. À 15 fois, ACGL est valorisée de façon raisonnable : ni en braderie, ni en spéculation. Pour une entreprise avec un ROE structurel de 20 % et un bilan solide, cette valorisation laisse une marge de sécurité correcte. Ce n\'est pas une garantie de performance future, mais c\'est un point d\'entrée honnête.',
+        },
+        {
+          q: 'Quels sont les principaux risques à surveiller pour ACGL ?',
+          a: 'Trois risques principaux : l\'exposition aux catastrophes naturelles majeures (ouragans, séismes) qui peuvent peser sur les résultats d\'une année ; le retournement cyclique vers un marché mou de la réassurance ; et d\'éventuels changements réglementaires touchant les holdings domiciliés aux Bermudes, notamment dans le cadre des réformes fiscales internationales de l\'OCDE.',
+        },
+      ],
+      tags: [
+        'ACGL',
+        'Arch Capital',
+        'réassurance',
+        'analyse fondamentale',
+        'assurance spécialisée',
+        'ROE',
+        'Bermudes',
+        'action de qualité',
+        'free cash flow',
+      ],
+      disclaimer:
+        'Analyse à but informatif et éducatif uniquement, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres cités sont à la date de publication et susceptibles d\'évoluer. Fais tes propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'Arch Capital (ACGL) : the top reinsurance stock to watch',
+      excerpt:
+        'Arch Capital Group is a leading Bermuda-based reinsurer with a structurally high return on equity above 20%. A reasonable valuation for a rare-quality business in the specialty insurance space.',
+      metaDescription:
+        'Fundamental analysis of Arch Capital Group (ACGL): reinsurance, competitive moat, profitability and risks. Why this stock stands out in 2026.',
+      answer:
+        'Arch Capital is a specialist reinsurer that structurally generates over 20% return on equity, with a valuation around 15 times its free cash flow. The reinsurance market is hard and favorable to the best underwriters. ACGL is one of them. Here is why this stock deserves serious analysis.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Structural return on equity (ROE) above 20%',
+            'Valuation around 15 times free cash flow: reasonable for this quality',
+            'Specialist in complex risks and catastrophe lines',
+            'Strong balance sheet, well-capitalized reserves, growing dividend',
+            'Perfect quality score in our analysis methodology',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What Arch Capital Group actually does',
+        },
+        {
+          type: 'p',
+          text: 'Arch Capital Group (ACGL, listed on NASDAQ) is an insurance and reinsurance holding company founded in Bermuda in 2001. When I say "reinsurance," I mean insurance for insurers: when a hurricane hits Florida, local insurance companies have themselves taken out contracts with reinsurers like ACGL to share the most extreme losses. It is a specialist business, little known to the general public, but absolutely critical to the stability of the global financial system.',
+        },
+        {
+          type: 'p',
+          text: 'Arch is not limited to pure reinsurance. The company also covers specialty direct insurance lines: complex professional risks, mortgage insurance, marine and aviation lines. This diversification sets it apart from more narrowly focused competitors like RenaissanceRe (RNR), which stays focused on pure catastrophe reinsurance. ACGL plays on multiple fronts simultaneously.',
+        },
+        {
+          type: 'h2',
+          text: 'The Arch moat: what truly protects it',
+        },
+        {
+          type: 'p',
+          text: 'The word "moat" in financial analysis refers to a company\'s competitive advantage: what allows it to defend its margins and keep competitors at bay over time. At Arch Capital, this moat rests on three solid pillars. First pillar: underwriting expertise. Underwriting a catastrophe risk (earthquake, cyclone, century flood) is an art, not an exact science. It requires proprietary risk models, specialist teams built over decades, and above all the discipline to refuse mispriced risks. Arch has this reputation.',
+        },
+        {
+          type: 'p',
+          text: 'Second pillar: Bermuda domicile. This is not a trivial tax arrangement. The island concentrates the world\'s largest reinsurers, creates an ecosystem of specialized talent, and offers a regulatory framework calibrated for this type of risk. Established Bermuda players benefit from credibility and broker networks that new entrants simply do not have. Third pillar: line diversification. When the catastrophe reinsurance market is saturated (a so-called "soft" cycle), Arch can pivot to its direct insurance or mortgage insurance activities, which follow different cycles. This is structural resilience that few competitors possess.',
+        },
+        {
+          type: 'h2',
+          text: 'Profitability: numbers that speak for themselves',
+        },
+        {
+          type: 'p',
+          text: 'To assess the quality of a business, I look at several objective financial metrics. ROE (return on equity) measures how much a company generates for every dollar invested by its shareholders. An ROE of 20% means that for every $100 of capital, the company produces $20 in net profit per year. That is substantial. The sector average is around 10 to 12%. Arch maintains structurally above 20%, indicating a genuine value-creation machine, not a cyclical accident.',
+        },
+        {
+          type: 'p',
+          text: 'Free cash flow (FCF) is the other key indicator. It is the cash that actually remains in the coffers once all expenses are paid, before any distribution to shareholders. Harder to manipulate on paper than net income, it gives me the true picture of financial health. Arch generates recurring, structural FCF, with well-capitalized reserves and a balance sheet that lets it absorb large loss years without stress.',
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Arch Capital (ACGL)', 'Sector average'],
+          rows: [
+            ['Structural ROE', '> 20%', '10-12%'],
+            ['P/FCF valuation', '~15x', '18-22x'],
+            ['Market capitalization', '~$20 billion', 'Variable'],
+            ['Dividend', 'Growing', 'Variable'],
+            ['Quality score (our screener)', '10/10', 'Average 5-6/10'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Our method: how I evaluate quality',
+        },
+        {
+          type: 'p',
+          text: 'My method always separates two distinct questions. One: is this a good business? Two: is this the right price? Confusing them is the number one mistake retail investors make. For quality, I apply a grid of objective criteria: profitability (ROE, margins), revenue and cash growth, manageable debt, share buyback or dividend policy, and consistency of capital allocation by management. This grid gives a score from 0 to 10. Arch Capital scores 10/10: a perfect score, rare, indicating a business quality in the top percentile.',
+        },
+        {
+          type: 'p',
+          text: 'P/FCF (price-to-free-cash-flow) is the ratio I use to assess the price. It divides the market value of the company by the annual free cash flow it generates. A P/FCF of 15 means you are paying 15 years of that cash today. The lower it is, the more attractive the valuation. At approximately 15 times its free cash flow, Arch Capital shows a reasonable valuation for a company of this caliber. It is not a bargain-bin deal, but it is far from reckless speculation.',
+        },
+        {
+          type: 'h2',
+          text: 'The reinsurance cycle: the current tailwind',
+        },
+        {
+          type: 'p',
+          text: 'Reinsurance is a cyclical sector. Following a series of catastrophic events (Hurricanes Ida and Ian in 2021-2022, European floods), reinsurance premiums have risen sharply since 2023. This is called a "hard market," where reinsurers set the terms, impose high prices, and choose their risks. This is the ideal environment for a disciplined underwriter like Arch. Returns are high, margins are improving, and less rigorous players are exiting the market, leaving more volume for the best operators.',
+        },
+        {
+          type: 'p',
+          text: 'The symmetric risk is also present: if catastrophes prove less frequent over the next few years, the market could turn "soft" again (increased competition, falling premiums). Arch has demonstrated its ability to navigate these cycles without damage, precisely because its diversification allows it to adjust its portfolio based on available opportunities. This is not luck: it is a deliberate strategy.',
+        },
+        {
+          type: 'h2',
+          text: 'Risks that cannot be ignored',
+        },
+        {
+          type: 'p',
+          text: 'A good company is never without risks. For Arch Capital, I see three main ones. First, catastrophe risk: a year with several major hurricanes, an earthquake in a dense urban area, or a systemic cyber event could weigh heavily on results. ACGL is compensated for taking this risk, but it is real and non-negligible. Second, cycle risk: a turn toward a soft market compresses margins and reduces ROE. Finally, Bermuda regulation: even though the current framework is favorable, changes in international policy on offshore holding taxation (particularly under OECD global minimum tax reforms) could alter the structural advantages of Bermuda domiciliation.',
+        },
+        {
+          type: 'h2',
+          text: 'What I take away, and how I think about it',
+        },
+        {
+          type: 'p',
+          text: 'Arch Capital is the type of company I call a "quiet machine": little covered in the media, poorly understood by the general public, yet remarkably profitable over the long term. It does not need to innovate every quarter, conquer an emerging market, or announce a technological revolution. It has done what it does for 25 years: underwrite complex risks better than its competitors, manage its balance sheet with rigor, and allocate capital in a disciplined way.',
+        },
+        {
+          type: 'p',
+          text: 'At a valuation around 15 times its free cash flow, the market grants it no excessive growth premium. This is both reassuring (less risk of disappointment) and promising (if ROEs hold and share buybacks continue, shareholders are well served without needing a spectacular catalyst). I built my analysis tool to answer exactly these two questions for any stock: does the quality deserve attention, and is the price reasonable? On ACGL, both answers are yes today.',
+        },
+        {
+          type: 'p',
+          text: 'To go further on reinsurance stocks or explore other quality companies through this same framework, check out our full analysis on <a href="/analyse/ACGL">the ACGL profile</a> or browse the top companies in our <a href="/analyser">quality screener</a>.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is reinsurance and how is ACGL different?',
+          a: 'Reinsurance means insuring insurance companies themselves against very large losses (natural disasters, extreme events). Arch Capital (ACGL) is different from pure reinsurers because it also covers specialty direct insurance (professional risks, mortgage guarantees), giving it diversification that few competitors possess.',
+        },
+        {
+          q: 'What is ROE and why is 20% remarkable?',
+          a: 'ROE (return on equity) measures how much a company generates for every dollar of shareholder capital. A 20% ROE means $20 produced for every $100 invested. In the insurance sector, the average is around 10-12%. Arch Capital maintains structurally above 20%, indicating genuine operational excellence, not a one-off result.',
+        },
+        {
+          q: 'What is a "hard market" in reinsurance?',
+          a: 'A hard market refers to a period when reinsurers have the power to set high premiums and choose their risks, typically following a series of major losses. It is the most favorable environment for disciplined reinsurers like Arch. The risk is that it reverses to a soft market (falling premiums) if catastrophes remain rare for several years.',
+        },
+        {
+          q: 'Is a P/FCF of 15x cheap for ACGL?',
+          a: 'P/FCF (price-to-free-cash-flow) measures how much you pay for each year of cash generated. At 15x, ACGL is reasonably valued: not a screaming bargain, not speculative. For a company with a structural ROE above 20% and a strong balance sheet, this valuation provides a decent margin of safety. It is not a guarantee of future performance, but it is an honest entry point.',
+        },
+        {
+          q: 'What are the key risks to monitor for ACGL?',
+          a: 'Three main risks: exposure to major natural catastrophes (hurricanes, earthquakes) that can weigh on a single year\'s results; cyclical reversal toward a soft reinsurance market; and potential regulatory changes affecting Bermuda-domiciled holdings, particularly under OECD international tax reform initiatives.',
+        },
+      ],
+      tags: [
+        'ACGL',
+        'Arch Capital',
+        'reinsurance',
+        'fundamental analysis',
+        'specialty insurance',
+        'ROE',
+        'Bermuda',
+        'quality stock',
+        'free cash flow',
+      ],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures cited are as of the publication date and subject to change. Do your own research before making any investment decision.',
+    },
+    es: {
+      title: 'Arch Capital (ACGL) : la mejor acción de reaseguros',
+      excerpt:
+        'Arch Capital Group es uno de los principales reaseguradores del mundo, con sede en Bermudas, y un retorno sobre el capital propio estructuralmente superior al 20%. Una valoración razonable para un negocio de calidad excepcional.',
+      metaDescription:
+        'Análisis fundamental de Arch Capital Group (ACGL): reaseguros, ventaja competitiva, rentabilidad y riesgos. Por qué este valor merece atención en 2026.',
+      answer:
+        'Arch Capital es un reasegurador especializado que genera estructuralmente más del 20% de retorno sobre el capital propio, con una valoración en torno a 15 veces su flujo de caja libre. El mercado de reaseguros es duro y favorable para los mejores suscriptores. ACGL es uno de ellos. Aquí explico por qué este valor merece un análisis serio.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Retorno sobre el capital propio (ROE) estructural superior al 20%',
+            'Valoración en torno a 15 veces el flujo de caja libre: razonable para esta calidad',
+            'Especialista en riesgos complejos y líneas de catástrofe',
+            'Balance sólido, reservas bien capitalizadas, dividendo creciente',
+            'Puntuación de calidad perfecta en nuestra metodología de análisis',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente Arch Capital Group',
+        },
+        {
+          type: 'p',
+          text: 'Arch Capital Group (ACGL, cotizada en el NASDAQ) es una holding de seguros y reaseguros fundada en Bermudas en 2001. Cuando digo "reaseguros", me refiero al seguro de los propios aseguradores: cuando un huracán golpea Florida, las compañías de seguros locales han contratado a su vez pólizas con reaseguradores como ACGL para repartir las pérdidas más extremas. Es un negocio de especialistas, poco visible para el gran público, pero absolutamente crítico para la estabilidad del sistema financiero mundial.',
+        },
+        {
+          type: 'p',
+          text: 'Arch no se limita al reaseguro puro. La empresa también cubre líneas de seguro directo especializado: riesgos profesionales complejos, garantías hipotecarias (mortgage insurance), líneas marítimas y de aviación. Esta diversificación la distingue de competidores más limitados como RenaissanceRe (RNR), centrado únicamente en el reaseguro catastrófico. ACGL juega en varios frentes simultáneamente.',
+        },
+        {
+          type: 'h2',
+          text: 'El moat de Arch: lo que lo protege de verdad',
+        },
+        {
+          type: 'p',
+          text: 'La palabra "moat" en el análisis financiero se refiere a la ventaja competitiva de una empresa: lo que le permite defender sus márgenes y mantener alejados a los competidores a largo plazo. En Arch Capital, esta ventaja se sustenta en tres pilares sólidos. Primer pilar: la experiencia en suscripción. Suscribir un riesgo catastrófico (terremoto, ciclón, inundación centenaria) es un arte, no una ciencia exacta. Requiere modelos de riesgo propietarios, equipos especializados acumulados durante décadas y, sobre todo, la disciplina de rechazar riesgos mal tarificados. Arch tiene esa reputación.',
+        },
+        {
+          type: 'p',
+          text: 'Segundo pilar: la domiciliación en Bermudas. No es un simple artificio fiscal. La isla concentra a los mayores reaseguradores mundiales, crea un ecosistema de talento especializado y ofrece un marco regulatorio calibrado para este tipo de riesgo. Los actores establecidos en Bermudas se benefician de una credibilidad y una red de corredores que los nuevos entrantes simplemente no tienen. Tercer pilar: la diversificación de líneas. Cuando el mercado de reaseguros catastrófico está saturado (ciclo "blando"), Arch puede pivotar hacia sus actividades de seguros directos o seguros hipotecarios, que siguen ciclos diferentes. Es una resiliencia estructural que pocos competidores poseen.',
+        },
+        {
+          type: 'h2',
+          text: 'Rentabilidad: cifras que hablan por sí solas',
+        },
+        {
+          type: 'p',
+          text: 'Para evaluar la calidad de un negocio, examino varias métricas financieras objetivas. El ROE (retorno sobre el capital propio) mide cuánto genera la empresa por cada euro invertido por sus accionistas. Un ROE del 20% significa que por cada 100 euros de capital, la empresa produce 20 de beneficio neto al año. Es considerable. La media del sector ronda el 10-12%. Arch mantiene estructuralmente por encima del 20%, lo que indica una auténtica máquina de creación de valor, no un accidente cíclico.',
+        },
+        {
+          type: 'p',
+          text: 'El flujo de caja libre (FCF, free cash flow) es el otro indicador clave. Es el dinero que realmente queda en caja una vez pagados todos los gastos, antes de cualquier distribución a los accionistas. Más difícil de manipular contablemente que el beneficio neto, me da la imagen real de la salud financiera. Arch genera un FCF recurrente y estructural, con reservas bien capitalizadas y un balance que le permite absorber años de grandes siniestros sin tensión.',
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Arch Capital (ACGL)', 'Media del sector'],
+          rows: [
+            ['ROE estructural', '> 20%', '10-12%'],
+            ['Valoración P/FCF', '~15×', '18-22×'],
+            ['Capitalización bursátil', '~20.000 M$', 'Variable'],
+            ['Dividendo', 'Creciente', 'Variable'],
+            ['Nota de calidad (nuestro screener)', '10/10', 'Media 5-6/10'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Nuestro método: cómo evalúo la calidad',
+        },
+        {
+          type: 'p',
+          text: 'Mi método separa siempre dos preguntas distintas. Una: ¿es un buen negocio? Dos: ¿es el precio adecuado? Confundirlas es el error número uno de los inversores particulares. Para la calidad, aplico una cuadrícula de criterios objetivos: rentabilidad (ROE, márgenes), crecimiento de ventas y del flujo de caja, deuda controlada, política de recompra de acciones o dividendos, y coherencia en la asignación del capital por parte del equipo directivo. Esta cuadrícula da una nota de 0 a 10. Arch Capital obtiene 10/10: una puntuación perfecta, infrecuente, que indica una calidad de negocio en el primer percentil.',
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF (price-to-free-cash-flow) es el ratio que uso para juzgar el precio. Divide el valor bursátil de la empresa por el flujo de caja libre anual que genera. Un P/FCF de 15 significa que pagas hoy 15 años de ese flujo de caja. Cuanto más bajo, más atractiva es la valoración. A aproximadamente 15 veces su flujo de caja libre, Arch Capital muestra una valoración razonable para una empresa de este calibre. No es una ganga, pero está lejos de ser una especulación descontrolada.',
+        },
+        {
+          type: 'h2',
+          text: 'El ciclo de los reaseguros: el viento a favor actual',
+        },
+        {
+          type: 'p',
+          text: 'Los reaseguros son un sector cíclico. Tras una serie de eventos catastróficos (huracanes Ida e Ian en 2021-2022, inundaciones en Europa), las primas de reaseguro han subido con fuerza desde 2023. Se habla de un "mercado duro", en el que los reaseguradores fijan las condiciones, imponen precios elevados y eligen sus riesgos. Es el entorno ideal para un suscriptor disciplinado como Arch. Los rendimientos son altos, los márgenes mejoran y los actores menos rigurosos abandonan el mercado, dejando más volumen para los mejores.',
+        },
+        {
+          type: 'p',
+          text: 'El riesgo simétrico también existe: si las catástrofes resultan menos frecuentes en los próximos años, el mercado podría volver a ser "blando" (mayor competencia, bajada de primas). Arch ha demostrado su capacidad para atravesar estos ciclos sin daños, precisamente porque su diversificación le permite ajustar su cartera según las oportunidades disponibles. No es suerte: es una estrategia deliberada.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no se pueden ignorar',
+        },
+        {
+          type: 'p',
+          text: 'Una buena empresa nunca está exenta de riesgos. En Arch Capital, identifico tres principales. El riesgo catastrófico: un año con varios huracanes importantes, un terremoto en una zona urbana densa o un evento cibernético sistémico podría pesar fuertemente sobre los resultados. ACGL es compensada por asumir este riesgo, pero es real y no despreciable. El riesgo de ciclo: un giro hacia un mercado blando comprime los márgenes y reduce el ROE. Por último, la regulación en Bermudas: aunque el marco actual es favorable, cambios en la política internacional sobre la fiscalidad de las holdings offshore (especialmente en el marco de las reformas de la OCDE sobre el tipo mínimo global) podrían modificar las ventajas estructurales de la domiciliación bermudense.',
+        },
+        {
+          type: 'h2',
+          text: 'Lo que me llevo, y cómo lo pienso',
+        },
+        {
+          type: 'p',
+          text: 'Arch Capital es el tipo de empresa que llamo una "máquina silenciosa": poco cubierta en los medios, mal entendida por el gran público, pero de una rentabilidad notable a largo plazo. No necesita innovar cada trimestre, conquistar un mercado emergente ni anunciar una revolución tecnológica. Lleva 25 años haciendo lo que hace: suscribir riesgos complejos mejor que sus competidores, gestionar su balance con rigor y asignar el capital de forma disciplinada.',
+        },
+        {
+          type: 'p',
+          text: 'Con una valoración en torno a 15 veces su flujo de caja libre, el mercado no le concede una prima de crecimiento excesiva. Eso es tranquilizador (menos riesgo de decepción) y prometedor (si los ROE se mantienen y las recompras de acciones continúan, el accionista sale bien parado sin necesitar un catalizador espectacular). Construí mi herramienta de análisis para poder responder exactamente a estas dos preguntas para cualquier acción: ¿merece la calidad atención, y es razonable el precio? En ACGL, ambas respuestas son sí hoy.',
+        },
+        {
+          type: 'p',
+          text: 'Para profundizar en las acciones de reaseguros o explorar otras empresas de calidad con esta misma metodología, consulta nuestro análisis completo en <a href="/analyse/ACGL">la ficha de ACGL</a> o navega por las mejores empresas de nuestro <a href="/analyser">screener de calidad</a>.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué son los reaseguros y en qué se diferencia ACGL?',
+          a: 'Los reaseguros consisten en asegurar a las propias compañías de seguros contra pérdidas muy elevadas (catástrofes naturales, eventos extremos). Arch Capital (ACGL) se diferencia de los reaseguradores puros porque también cubre seguros directos especializados (riesgos profesionales, garantías hipotecarias), lo que le otorga una diversificación que pocos competidores tienen.',
+        },
+        {
+          q: '¿Qué es el ROE y por qué el 20% es notable?',
+          a: 'El ROE (retorno sobre el capital propio) mide cuánto genera una empresa por cada euro de capital de sus accionistas. Un ROE del 20% significa 20 euros producidos por cada 100 invertidos. En el sector de los seguros, la media ronda el 10-12%. Arch Capital se mantiene estructuralmente por encima del 20%, lo que indica una excelencia operativa genuina, no un resultado puntual.',
+        },
+        {
+          q: '¿Qué es un "mercado duro" en reaseguros?',
+          a: 'Un mercado duro es un período en el que los reaseguradores tienen poder para fijar primas elevadas y elegir sus riesgos, generalmente tras una serie de siniestros importantes. Es el entorno más favorable para los reaseguradores disciplinados como Arch. El riesgo es que se vuelva blando (bajada de primas) si las catástrofes son escasas durante varios años.',
+        },
+        {
+          q: '¿Un P/FCF de 15 veces es barato para ACGL?',
+          a: 'El P/FCF (price-to-free-cash-flow) mide cuánto pagas por cada año de flujo de caja generado. A 15 veces, ACGL está valorada de forma razonable: ni en oferta de saldo, ni en modo especulativo. Para una empresa con un ROE estructural superior al 20% y un balance sólido, esta valoración deja un margen de seguridad correcto. No es una garantía de rentabilidad futura, pero es un punto de entrada honesto.',
+        },
+        {
+          q: '¿Cuáles son los principales riesgos a vigilar en ACGL?',
+          a: 'Tres riesgos principales: la exposición a grandes catástrofes naturales (huracanes, terremotos) que pueden pesar sobre los resultados de un año; el giro cíclico hacia un mercado de reaseguros blando; y posibles cambios regulatorios que afecten a las holdings domiciliadas en Bermudas, especialmente en el marco de las reformas fiscales internacionales de la OCDE.',
+        },
+      ],
+      tags: [
+        'ACGL',
+        'Arch Capital',
+        'reaseguros',
+        'análisis fundamental',
+        'seguros especializados',
+        'ROE',
+        'Bermudas',
+        'acción de calidad',
+        'flujo de caja libre',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos únicamente, no constituye asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Las cifras citadas corresponden a la fecha de publicación y pueden cambiar. Realiza tu propia investigación antes de tomar cualquier decisión de inversión.',
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [accentureQ3FY2026, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, articleTT, wrb, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
