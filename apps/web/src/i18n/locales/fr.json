@@ -397,6 +397,7 @@
         "sub": "Évolution du prix sur l'horizon sélectionné"
       }
     },
+    "uncovered": "Entreprise non reconnue",
     "banner": {
       "noFundamentalsPre": "Données fondamentales indisponibles pour",
       "noFundamentalsPost": "Ce titre n'est pas couvert, essaie une cotation ADR US si elle existe."

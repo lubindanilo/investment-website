@@ -335,10 +335,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
     return (
       <div className="anl-uncovered fade-in">
         <Icon name="shield" size={40} />
-        <h1 className="anl-uncovered-ticker">{analysis.ticker}</h1>
-        <p className="anl-uncovered-desc">
-          {t('analyse.banner.noFundamentalsPre')} <b>{analysis.ticker}</b>. {t('analyse.banner.noFundamentalsPost')}
-        </p>
+        <h1 className="anl-uncovered-title">{t('analyse.uncovered')}</h1>
       </div>
     );
   }

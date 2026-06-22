@@ -102,11 +102,9 @@
   color: var(--ink-3);
 }
 .anl-uncovered svg { color: var(--ink-4); }
-.anl-uncovered-ticker {
-  font-size: 28px; font-weight: 800; letter-spacing: -0.01em; color: var(--ink);
-  font-family: var(--mono);
+.anl-uncovered-title {
+  font-size: 22px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink-2);
 }
-.anl-uncovered-desc { max-width: 480px; font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
 
 /* Erreur */
 .anl-error { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 56px 32px; gap: 14px; }

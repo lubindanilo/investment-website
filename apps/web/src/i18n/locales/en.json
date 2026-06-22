@@ -372,6 +372,7 @@
         "sub": "Price movement over the selected horizon"
       }
     },
+    "uncovered": "Company not recognized",
     "banner": {
       "noFundamentalsPre": "Fundamental data unavailable for",
       "noFundamentalsPost": "This stock isn't covered, try a US ADR listing if one exists."

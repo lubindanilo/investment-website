@@ -372,6 +372,7 @@
         "sub": "Evolución del precio en el horizonte seleccionado"
       }
     },
+    "uncovered": "Empresa no reconocida",
     "banner": {
       "noFundamentalsPre": "Datos fundamentales no disponibles para",
       "noFundamentalsPost": "Este valor no está cubierto, prueba una cotización ADR de EE. UU. si existe."
