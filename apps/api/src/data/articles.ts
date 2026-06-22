@@ -12496,7 +12496,2157 @@ const article_credit_services_2026: Article = {
 
 
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026];
+const accentureQ3FY2026: Article = {
+  slug: 'accenture-acn-chute-18-pourcent-resultats-q3-fy2026',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'ACN',
+  content: {
+    fr: {
+      title: 'Accenture (ACN) : notre analyse après la chute de 18 %',
+      excerpt:
+        "Accenture a perdu 18 % en une seule séance après ses résultats du 18 juin. Sa note de qualité reste solide, mais un critère manque. Voici ce que la chute change, et ce qu'elle ne change pas.",
+      metaDescription:
+        "Accenture (ACN) a chuté de 18 % le 18 juin 2026 après une révision à la baisse de ses prévisions. Analyse fondamentale : est-ce une opportunité ou un piège ? Ma méthode qualité d'abord.",
+      answer:
+        "Accenture a publié ses résultats trimestriels le 18 juin 2026 et a révisé ses prévisions de croissance à la baisse, de +5 % à +8 % à seulement +3 % à +4 %. L'action a chuté de 18 % en séance, passant d'environ 156 dollars à 128 dollars. La qualité reste haute, mais la croissance insuffisante empêche un score parfait. Voici comment je lis cette situation.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Résultats Q3 FY2026 publiés le 18 juin : chiffre d'affaires de 18,7 milliards de dollars, en hausse de 6 % sur un an, légèrement sous le consensus.",
+            "Guidance annuelle révisée à la baisse : croissance de +3 % à +4 %, contre +5 % à +8 % annoncée précédemment.",
+            "Réaction immédiate : l'action a chuté de 18 % en séance, son niveau le plus bas depuis 2016.",
+            "Note de qualité Lubin : 8/10. Accenture est une entreprise solide, mais la croissance des revenus (+5,3 % par an sur 5 ans) reste sous mon seuil de 10 %.",
+            "Prix d'achat raisonnable selon mon modèle : environ 119,68 dollars. A 128 dollars, l'action s'en approche, sans encore l'atteindre.",
+          ],
+        },
+        { type: 'h2', text: "Ce qui s'est passé le 18 juin 2026" },
+        {
+          type: 'p',
+          text: "Accenture a dévoilé ses résultats du troisième trimestre de son exercice fiscal 2026 le 18 juin. Le chiffre d'affaires ressort à 18,7 milliards de dollars, en hausse de 6 % sur un an. C'est légèrement en dessous du consensus des analystes, qui tablaient sur 18,8 milliards. En soi, un écart aussi minime ne justifie pas une panique.",
+        },
+        {
+          type: 'p',
+          text: "Ce qui a tout déclenché, c'est la révision de la guidance annuelle, c'est-à-dire les prévisions que la direction donne pour le reste de l'exercice. Accenture a abaissé son objectif de croissance de chiffre d'affaires de +5 % à +8 % à seulement +3 % à +4 %. C'est ce qu'on appelle un guidance cut. Le marché déteste ça : cela signifie que la demande de services de conseil en informatique ralentit plus vite que prévu. L'action a immédiatement chuté de 18 % en séance, touchant son plus bas niveau depuis 2016.",
+        },
+        { type: 'h2', text: "Est-ce une bonne entreprise ? La qualité d'abord" },
+        {
+          type: 'p',
+          text: "Quand je regarde une action, je commence toujours par séparer deux questions que la plupart des gens confondent. La première : est-ce un bon business ? La seconde, entièrement à part : est-ce le bon prix ? Une entreprise géniale payée trop cher reste un mauvais placement. Et une entreprise médiocre bon marché reste médiocre.",
+        },
+        {
+          type: 'p',
+          text: "Pour Accenture, la réponse à la première question est : oui, c'est un bon business, mais pas un business parfait. Je note l'entreprise sur dix critères financiers concrets : rentabilité, croissance des revenus, croissance du free cash-flow (l'argent qui reste réellement dans les caisses une fois toutes les factures payées), marges, endettement, rachat d'actions, et quelques autres indicateurs de solidité. Accenture valide 8 de ces 10 critères. Ce qui lui manque, c'est précisément la croissance des revenus.",
+        },
+        {
+          type: 'p',
+          text: "Sur les cinq dernières années, Accenture a fait croître ses revenus de 5,3 % par an. Mon seuil est de 10 %. Ce n'est pas une mauvaise performance en valeur absolue, mais pour une entreprise de conseil qui opère sur les marchés les plus dynamiques du monde, les données, l'intelligence artificielle, la transformation digitale, ce rythme me semble insuffisant pour justifier un score parfait. C'est ce critère manquant qui explique la note de 8/10, pas de 10/10.",
+        },
+        { type: 'h2', text: "Ce qu'Accenture fait très bien" },
+        {
+          type: 'p',
+          text: "Sur les huit autres critères, Accenture brille. Sa marge de free cash-flow est de 14,4 %, ce qui est honnête pour un cabinet de services. Sa marge nette atteint 10,6 %. Et surtout, son Cash ROCE (le rendement du capital investi calculé sur la base du free cash-flow réel) est de 76,5 %, un chiffre exceptionnel. Cela signifie que pour chaque dollar immobilisé dans l'entreprise, Accenture génère 0,765 dollar de cash. C'est le signe d'un business très léger en capital, ce qu'on appelle un asset-light model.",
+        },
+        {
+          type: 'p',
+          text: "Son bilan est irréprochable : Accenture est en trésorerie nette, ce qui signifie qu'elle a plus de cash que de dettes. Elle rachète activement ses propres actions, ce qui témoigne d'une allocation du capital disciplinée. Ce sont exactement les signaux que je recherche dans une entreprise de qualité.",
+        },
+        { type: 'h2', text: "Le critère manquant : pourquoi la croissance compte" },
+        {
+          type: 'p',
+          text: "La guidance cut du 18 juin n'est pas un événement isolé. Elle confirme une tendance que les chiffres des cinq dernières années illustraient déjà : Accenture grandit, mais moins vite que ce que son modèle de services numériques premium laissait espérer. Le consensus du secteur IA et transformation digitale était celui d'une forte accélération. À +3 % à +4 % annuels, c'est le scénario inverse.",
+        },
+        {
+          type: 'p',
+          text: "Pourquoi est-ce important ? Parce qu'une entreprise de conseil facture principalement du temps humain. Pour croître plus vite, elle doit recruter, former, et déployer davantage de consultants, ou réussir à monter en valeur ajoutée et en tarifs. Si ni l'un ni l'autre ne se produit au rythme attendu, la croissance plafonne. Le guidance cut suggère que la demande pour les gros programmes de transformation digitale marque le pas.",
+        },
+        { type: 'h2', text: "La valorisation : P/FCF à 7,7 fois" },
+        {
+          type: 'p',
+          text: "Passons au prix. Pour mesurer ce que le marché accepte de payer pour une action, j'utilise un ratio simple : le P/FCF (price-to-free-cash-flow). C'est le prix de l'action divisé par le free cash-flow qu'elle génère chaque année. Un P/FCF de 7,7 signifie que tu paies aujourd'hui 7,7 années de ce cash. Plus ce chiffre est bas, moins l'action est chère.",
+        },
+        {
+          type: 'p',
+          text: "Après la chute de 18 %, Accenture se valorise 7,7 fois son free cash-flow. C'est un niveau historiquement bas pour cette entreprise. La capitalisation boursière est revenue à 78,6 milliards de dollars, pour une action à environ 128 dollars. Mon modèle de valorisation, basé sur le free cash-flow projeté et un taux d'actualisation raisonnable, me donne un prix d'achat cible de 119,68 dollars.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Valeur'],
+          rows: [
+            ['Cours actuel', '~128 $'],
+            ['P/FCF', '7,7×'],
+            ['Marge FCF', '14,4 %'],
+            ['Cash ROCE', '76,5 %'],
+            ['Marge nette', '10,6 %'],
+            ['Croissance revenus 5 ans', '+5,3 % / an'],
+            ['Endettement net', 'Trésorerie nette'],
+            ['Note Lubin', '8/10'],
+            ['Prix cible modèle', '~119,68 $'],
+          ],
+        },
+        { type: 'h2', text: "Ce que la chute change, et ce qu'elle ne change pas" },
+        {
+          type: 'p',
+          text: "La chute de 18 % a rendu l'action beaucoup moins chère. Elle n'a pas amélioré la qualité du business : Accenture reste à 8/10, avec ce critère de croissance insuffisante. Et précisément, le guidance cut du 18 juin aggrave ce point. Ce n'est pas une erreur de lecture temporaire. C'est la direction elle-même qui dit : nous allons croître moins vite que prévu.",
+        },
+        {
+          type: 'p',
+          text: "La chute ne change donc pas le diagnostic fondamental. Elle change uniquement le prix. Et c'est important : une entreprise de 8/10 à 7,7 fois son free cash-flow mérite qu'on y regarde sérieusement. Mais 8/10 n'est pas 10/10. Il y a un risque réel que la croissance continue de décevoir, ce qu'on appelle un value trap, une action qui semble bon marché parce que ses fondamentaux se dégradent.",
+        },
+        { type: 'h2', text: "Comment je tranche, sans émotion" },
+        {
+          type: 'p',
+          text: "Ma discipline est simple : je n'entre pas dans une position avant que le cours atteigne mon prix d'achat raisonnable. Aujourd'hui, l'action est à environ 128 dollars. Mon prix cible est 119,68 dollars. Il manque environ 7 % de baisse supplémentaire pour que je sois à l'aise. Je ne cours pas après le cours, je laisse le cours venir à moi.",
+        },
+        {
+          type: 'p',
+          text: "Je surveille aussi si la qualité fondamentale se dégrade davantage dans les prochains trimestres. Si la croissance des revenus continue de ralentir et que le score tombe en dessous de 8/10, même à un prix bas, l'intérêt diminue. À l'inverse, si Accenture livre une accélération sur l'IA (ses revenus liés à l'IA dépassaient déjà 2 milliards de dollars l'an dernier) et retrouve un rythme de croissance supérieur à 8 %, le critère manquant pourrait se corriger.",
+        },
+        {
+          type: 'p',
+          text: "Savoir si une entreprise est bonne, et à quel prix l'acheter, deux questions traitées séparément : c'est tout ce que je voulais pouvoir faire en quelques secondes pour n'importe quelle action. C'est pour ça que j'ai construit mon site d'investissement, où tu peux consulter l'analyse fondamentale complète d'Accenture sur sa [page d'analyse](/analyse/ACN).",
+        },
+      ],
+      faq: [
+        {
+          q: "Pourquoi l'action Accenture a-t-elle chuté de 18 % le 18 juin 2026 ?",
+          a: "Accenture a abaissé ses prévisions annuelles de croissance de +5-8 % à seulement +3-4 %. Ce guidance cut signale un ralentissement de la demande de services de conseil en informatique, ce que le marché a sanctionné immédiatement.",
+        },
+        {
+          q: "C'est quoi, le free cash-flow ?",
+          a: "L'argent qui reste réellement à l'entreprise après avoir payé tout ce qu'il faut pour tourner et investir. C'est plus difficile à maquiller que le bénéfice comptable, donc je m'y fie davantage pour juger la solidité d'un business.",
+        },
+        {
+          q: "Un P/FCF bas, est-ce toujours une bonne affaire ?",
+          a: "Non. Un prix bas peut cacher une entreprise en déclin (un value trap). Il n'est intéressant que si la qualité du business tient. D'où ma règle : la qualité d'abord, le prix ensuite.",
+        },
+        {
+          q: "Faut-il acheter Accenture maintenant ?",
+          a: "L'action est proche de mon prix cible de 119,68 dollars mais pas encore dessous. La note de 8/10 est solide, mais le critère de croissance manquant est précisément ce que le guidance cut vient d'aggraver. Je surveille sans me précipiter. Ceci n'est pas un conseil en investissement.",
+        },
+        {
+          q: "Qu'est-ce qu'un guidance cut ?",
+          a: "Un guidance cut, c'est quand une entreprise abaisse ses prévisions officielles de revenus ou de bénéfices pour la période à venir. Les marchés réagissent souvent fortement parce que cela signale que la direction elle-même voit les conditions se dégrader.",
+        },
+      ],
+      tags: ['Analyse', 'Accenture', 'Résultats', 'Valorisation', 'IT Consulting'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 22 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Accenture (ACN) after the 18% drop: our fundamental analysis',
+      excerpt:
+        "Accenture fell 18% in a single session after its June 18 earnings. Its quality score remains solid, but one criterion is missing. Here is what the drop changes, and what it does not.",
+      metaDescription:
+        "Accenture (ACN) fell 18% on June 18, 2026 after cutting its revenue guidance. Fundamental analysis: opportunity or trap? Quality-first method applied.",
+      answer:
+        "Accenture published its quarterly results on June 18, 2026 and cut its annual growth guidance from +5-8% to just +3-4%. The stock dropped 18% in the session, falling from around 156 to 128 dollars. Quality remains high, but insufficient revenue growth prevents a perfect score. Here is how I read this situation.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Q3 FY2026 results published June 18: revenue of 18.7 billion dollars, up 6% year-over-year, slightly below consensus.",
+            "Annual guidance cut: revenue growth of +3% to +4%, versus the prior range of +5% to +8%.",
+            "Market reaction: the stock fell 18% in the session, hitting its lowest level since 2016.",
+            "Lubin quality score: 8/10. Accenture is a solid business, but revenue growth (+5.3% per year over 5 years) stays below my 10% threshold.",
+            "Reasonable buy price from my model: around 119.68 dollars. At 128 dollars, the stock is getting close but has not reached it yet.",
+          ],
+        },
+        { type: 'h2', text: 'What happened on June 18, 2026' },
+        {
+          type: 'p',
+          text: "Accenture released its Q3 FY2026 earnings on June 18. Revenue came in at 18.7 billion dollars, up 6% year-over-year. That was slightly below the analyst consensus of 18.8 billion. On its own, such a small miss does not justify a panic.",
+        },
+        {
+          type: 'p',
+          text: "What triggered everything was the annual guidance cut, meaning the forecasts management gives for the rest of the fiscal year. Accenture lowered its revenue growth target from +5% to +8% down to just +3% to +4%. The market hates this: it signals that demand for IT consulting services is slowing faster than expected. The stock immediately fell 18% in the session, hitting its lowest level since 2016.",
+        },
+        { type: 'h2', text: 'Is it a good company? Quality first' },
+        {
+          type: 'p',
+          text: "When I look at a stock, I always start by separating two questions most people confuse. The first: is this a good business? The second, entirely apart: is this the right price? A great company bought too expensive is still a bad investment. And a mediocre company cheap stays mediocre.",
+        },
+        {
+          type: 'p',
+          text: "For Accenture, the answer to the first question is: yes, it is a good business, but not a perfect one. I score the company on ten concrete financial criteria: profitability, revenue growth, free cash-flow growth (the money that truly stays in the bank once every bill is paid), margins, debt, share buybacks, and a few other indicators of solidity. Accenture validates 8 of these 10 criteria. What it lacks is precisely revenue growth.",
+        },
+        {
+          type: 'p',
+          text: "Over the past five years, Accenture has grown its revenues at 5.3% per year. My threshold is 10%. That is not a bad performance in absolute terms, but for a consulting firm operating in the most dynamic markets in the world, data, artificial intelligence, digital transformation, this pace seems insufficient to justify a perfect score. That missing criterion explains the 8/10 score, not 10/10.",
+        },
+        { type: 'h2', text: 'What Accenture does very well' },
+        {
+          type: 'p',
+          text: "On the other eight criteria, Accenture shines. Its free cash-flow margin is 14.4%, which is honest for a services firm. Its net margin reaches 10.6%. And above all, its Cash ROCE (return on invested capital calculated on actual free cash-flow) is 76.5%, an exceptional figure. This means that for every dollar tied up in the business, Accenture generates 0.765 dollars of cash. That is the hallmark of a very asset-light business model.",
+        },
+        {
+          type: 'p',
+          text: "Its balance sheet is impeccable: Accenture is in a net cash position, meaning it holds more cash than debt. It actively buys back its own shares, which signals disciplined capital allocation. These are exactly the signals I look for in a quality company.",
+        },
+        { type: 'h2', text: 'The missing criterion: why revenue growth matters' },
+        {
+          type: 'p',
+          text: "The June 18 guidance cut is not an isolated event. It confirms a trend the past five years of data already illustrated: Accenture grows, but more slowly than its premium digital services model had suggested. The sector consensus around AI and digital transformation was one of strong acceleration. At +3% to +4% annually, that is the opposite scenario.",
+        },
+        {
+          type: 'p',
+          text: "Why does this matter? Because a consulting firm bills primarily for human time. To grow faster, it needs to hire, train, and deploy more consultants, or successfully move up the value chain and raise rates. If neither happens at the expected pace, growth stalls. The guidance cut suggests that demand for large digital transformation programs is losing momentum.",
+        },
+        { type: 'h2', text: 'Valuation: P/FCF at 7.7x' },
+        {
+          type: 'p',
+          text: "Now for the price. To measure what the market is willing to pay for a stock, I use a simple ratio: the P/FCF (price-to-free-cash-flow). It is the share price divided by the free cash-flow the company generates each year. A P/FCF of 7.7 means you are paying today 7.7 years of that cash. The lower this number, the cheaper the stock.",
+        },
+        {
+          type: 'p',
+          text: "After the 18% drop, Accenture trades at 7.7 times its free cash-flow. That is a historically low level for this company. Market cap has come back to 78.6 billion dollars, with the stock around 128 dollars. My valuation model, based on projected free cash-flow and a reasonable discount rate, gives me a target buy price of 119.68 dollars.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicator', 'Value'],
+          rows: [
+            ['Current price', '~$128'],
+            ['P/FCF', '7.7x'],
+            ['FCF margin', '14.4%'],
+            ['Cash ROCE', '76.5%'],
+            ['Net margin', '10.6%'],
+            ['5-year revenue growth', '+5.3% / yr'],
+            ['Net debt', 'Net cash'],
+            ['Lubin score', '8/10'],
+            ['Model target price', '~$119.68'],
+          ],
+        },
+        { type: 'h2', text: 'What the drop changes, and what it does not' },
+        {
+          type: 'p',
+          text: "The 18% drop made the stock much cheaper. It did not improve the quality of the business: Accenture stays at 8/10, with that missing revenue growth criterion. And precisely, the June 18 guidance cut makes that point worse. This is not a temporary misread. Management itself is saying: we will grow slower than expected.",
+        },
+        {
+          type: 'p',
+          text: "The drop therefore does not change the fundamental diagnosis. It only changes the price. And that matters: an 8/10 business at 7.7 times its free cash-flow deserves a serious look. But 8/10 is not 10/10. There is a real risk that growth continues to disappoint, what is called a value trap, a stock that looks cheap because its fundamentals are deteriorating.",
+        },
+        { type: 'h2', text: 'How I decide, without emotion' },
+        {
+          type: 'p',
+          text: "My discipline is simple: I do not enter a position before the stock reaches my reasonable buy price. Today, the stock trades around 128 dollars. My target price is 119.68 dollars. That is about 7% more downside needed before I am comfortable. I do not chase the stock, I wait for it to come to me.",
+        },
+        {
+          type: 'p',
+          text: "I also watch whether fundamental quality deteriorates further in coming quarters. If revenue growth continues to slow and the score falls below 8/10, even at a low price, the interest fades. Conversely, if Accenture delivers acceleration on AI (its AI-related revenues already exceeded 2 billion dollars last year) and returns to growth above 8%, the missing criterion could correct itself.",
+        },
+        {
+          type: 'p',
+          text: "Knowing whether a company is good, and at what price to buy it, two questions treated separately: that is all I ever wanted to do in a few seconds for any stock. That is why I built my investment site, where you can see the full fundamental analysis of Accenture on its [analysis page](/analyse/ACN).",
+        },
+      ],
+      faq: [
+        {
+          q: 'Why did Accenture stock fall 18% on June 18, 2026?',
+          a: 'Accenture cut its annual revenue growth guidance from +5-8% to just +3-4%. This guidance cut signals a slowdown in demand for IT consulting services, which the market penalized immediately.',
+        },
+        {
+          q: 'What is free cash-flow?',
+          a: 'The money a company truly keeps after paying everything needed to operate and invest. It is harder to dress up than accounting profit, so I trust it more when judging the soundness of a business.',
+        },
+        {
+          q: 'Is a low P/FCF always a bargain?',
+          a: 'No. A low price can hide a company in decline (a value trap). It is only interesting if the quality of the business holds. Hence my rule: quality first, price second.',
+        },
+        {
+          q: 'Should you buy Accenture now?',
+          a: 'The stock is approaching my target price of 119.68 dollars but has not reached it yet. The 8/10 score is solid, but the missing growth criterion is precisely what the guidance cut just worsened. I watch without rushing. This is not investment advice.',
+        },
+        {
+          q: 'What is a guidance cut?',
+          a: 'A guidance cut is when a company lowers its official revenue or earnings forecasts for the period ahead. Markets often react strongly because it signals that management itself sees conditions deteriorating.',
+        },
+      ],
+      tags: ['Analysis', 'Accenture', 'Earnings', 'Valuation', 'IT Consulting'],
+      disclaimer:
+        'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 22, 2026, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Accenture (ACN) : análisis tras la caída del 18 %',
+      excerpt:
+        "Accenture cayó un 18 % en una sola sesión tras sus resultados del 18 de junio. Su nota de calidad sigue siendo sólida, pero falta un criterio. Esto es lo que cambia la caída, y lo que no cambia.",
+      metaDescription:
+        "Accenture (ACN) cayó un 18 % el 18 de junio de 2026 tras recortar su guidance de crecimiento. Análisis fundamental: ¿oportunidad o trampa? Mi método de calidad primero.",
+      answer:
+        "Accenture publicó sus resultados trimestrales el 18 de junio de 2026 y recortó su guidance de crecimiento anual de +5-8 % a solo +3-4 %. La acción cayó un 18 % en la sesión, pasando de unos 156 a 128 dólares. La calidad sigue siendo alta, pero el crecimiento insuficiente de ingresos impide una puntuación perfecta. Así es como leo esta situación.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Resultados Q3 FY2026 publicados el 18 de junio: ingresos de 18,7 mil millones de dólares, con un alza del 6 % interanual, ligeramente por debajo del consenso.",
+            "Guidance anual recortado: crecimiento de ingresos de +3 % a +4 %, frente al rango anterior de +5 % a +8 %.",
+            "Reacción del mercado: la acción cayó un 18 % en la sesión, alcanzando su nivel más bajo desde 2016.",
+            "Nota de calidad Lubin: 8/10. Accenture es un negocio sólido, pero el crecimiento de ingresos (+5,3 % anual en 5 años) sigue por debajo de mi umbral del 10 %.",
+            "Precio de compra razonable según mi modelo: unos 119,68 dólares. A 128 dólares, la acción se acerca pero aún no lo alcanza.",
+          ],
+        },
+        { type: 'h2', text: 'Lo que ocurrió el 18 de junio de 2026' },
+        {
+          type: 'p',
+          text: "Accenture presentó sus resultados del tercer trimestre del ejercicio fiscal 2026 el 18 de junio. Los ingresos ascendieron a 18,7 mil millones de dólares, con un alza del 6 % interanual. Eso estuvo ligeramente por debajo del consenso de los analistas, que esperaban 18,8 mil millones. Por sí solo, un desvío tan pequeño no justifica el pánico.",
+        },
+        {
+          type: 'p',
+          text: "Lo que desencadenó todo fue el recorte del guidance anual, es decir, las previsiones que la dirección da para el resto del ejercicio fiscal. Accenture rebajó su objetivo de crecimiento de ingresos de +5 % a +8 % a apenas +3 % a +4 %. El mercado odia esto: señala que la demanda de servicios de consultoría informática se desacelera más rápido de lo previsto. La acción cayó inmediatamente un 18 % en la sesión, tocando su nivel más bajo desde 2016.",
+        },
+        { type: 'h2', text: '¿Es una buena empresa? La calidad primero' },
+        {
+          type: 'p',
+          text: "Cuando miro una acción, siempre separo dos preguntas que la mayoría confunde. La primera: ¿es un buen negocio? La segunda, completamente aparte: ¿es el precio correcto? Una empresa genial comprada demasiado cara sigue siendo una mala inversión. Y una empresa mediocre barata sigue siendo mediocre.",
+        },
+        {
+          type: 'p',
+          text: "Para Accenture, la respuesta a la primera pregunta es: sí, es un buen negocio, pero no perfecto. Evalúo la empresa según diez criterios financieros concretos: rentabilidad, crecimiento de ingresos, crecimiento del flujo de caja libre (el dinero que de verdad queda en las arcas una vez pagadas todas las facturas), márgenes, deuda, recompra de acciones y algunos otros indicadores de solidez. Accenture cumple 8 de estos 10 criterios. Lo que le falta es precisamente el crecimiento de ingresos.",
+        },
+        {
+          type: 'p',
+          text: "En los últimos cinco años, Accenture ha hecho crecer sus ingresos un 5,3 % anual. Mi umbral es del 10 %. No es un mal desempeño en términos absolutos, pero para una consultora que opera en los mercados más dinámicos del mundo, datos, inteligencia artificial, transformación digital, este ritmo me parece insuficiente para justificar una puntuación perfecta. Ese criterio ausente explica la nota de 8/10, no de 10/10.",
+        },
+        { type: 'h2', text: 'En qué Accenture destaca' },
+        {
+          type: 'p',
+          text: "En los otros ocho criterios, Accenture brilla. Su margen de flujo de caja libre es del 14,4 %, que es un nivel honesto para una empresa de servicios. Su margen neto alcanza el 10,6 %. Y sobre todo, su Cash ROCE (la rentabilidad sobre el capital invertido calculada con el flujo de caja libre real) es del 76,5 %, una cifra excepcional. Esto significa que por cada dólar inmovilizado en el negocio, Accenture genera 0,765 dólares de caja. Es la marca de un modelo de negocio muy ligero en activos.",
+        },
+        {
+          type: 'p',
+          text: "Su balance es irreprochable: Accenture tiene caja neta, es decir, más efectivo que deuda. Recompra activamente sus propias acciones, lo que revela una asignación disciplinada del capital. Estas son exactamente las señales que busco en una empresa de calidad.",
+        },
+        { type: 'h2', text: 'El criterio que falta: por qué importa el crecimiento' },
+        {
+          type: 'p',
+          text: "El recorte del guidance del 18 de junio no es un hecho aislado. Confirma una tendencia que los datos de los últimos cinco años ya ilustraban: Accenture crece, pero más despacio de lo que su modelo de servicios digitales premium hacía esperar. El consenso del sector en torno a la IA y la transformación digital apuntaba a una fuerte aceleración. Con un +3 % a +4 % anual, es el escenario contrario.",
+        },
+        {
+          type: 'p',
+          text: "¿Por qué importa? Porque una consultora factura principalmente tiempo humano. Para crecer más rápido, necesita contratar, formar y desplegar más consultores, o subir en la cadena de valor y en tarifas. Si ninguna de las dos cosas ocurre al ritmo esperado, el crecimiento se estanca. El recorte del guidance sugiere que la demanda de grandes programas de transformación digital pierde impulso.",
+        },
+        { type: 'h2', text: 'La valoración: P/FCF a 7,7 veces' },
+        {
+          type: 'p',
+          text: "Veamos el precio. Para medir lo que el mercado acepta pagar por una acción, utilizo un ratio sencillo: el P/FCF (precio sobre flujo de caja libre). Es el precio de la acción dividido entre el flujo de caja libre que genera cada año. Un P/FCF de 7,7 significa que pagas hoy 7,7 años de esa caja. Cuanto más bajo es este número, más barata está la acción.",
+        },
+        {
+          type: 'p',
+          text: "Tras la caída del 18 %, Accenture se valoriza 7,7 veces su flujo de caja libre. Es un nivel históricamente bajo para esta empresa. La capitalización bursátil ha vuelto a 78,6 mil millones de dólares, con la acción en torno a 128 dólares. Mi modelo de valoración, basado en el flujo de caja libre proyectado y una tasa de descuento razonable, me da un precio objetivo de compra de 119,68 dólares.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Valor'],
+          rows: [
+            ['Precio actual', '~128 $'],
+            ['P/FCF', '7,7×'],
+            ['Margen FCF', '14,4 %'],
+            ['Cash ROCE', '76,5 %'],
+            ['Margen neto', '10,6 %'],
+            ['Crecimiento ingresos 5 años', '+5,3 % / año'],
+            ['Deuda neta', 'Caja neta'],
+            ['Nota Lubin', '8/10'],
+            ['Precio objetivo del modelo', '~119,68 $'],
+          ],
+        },
+        { type: 'h2', text: 'Lo que cambia la caída, y lo que no cambia' },
+        {
+          type: 'p',
+          text: "La caída del 18 % hizo la acción mucho más barata. No mejoró la calidad del negocio: Accenture sigue en 8/10, con ese criterio de crecimiento ausente. Y precisamente, el recorte del guidance del 18 de junio agrava ese punto. No es una lectura temporal equivocada. La propia dirección está diciendo: vamos a crecer más despacio de lo previsto.",
+        },
+        {
+          type: 'p',
+          text: "La caída no cambia el diagnóstico fundamental. Solo cambia el precio. Y eso importa: un negocio de 8/10 a 7,7 veces su flujo de caja libre merece atención seria. Pero 8/10 no es 10/10. Existe un riesgo real de que el crecimiento continúe decepcionando, lo que se llama una trampa de valor (value trap): una acción que parece barata porque sus fundamentos se deterioran.",
+        },
+        { type: 'h2', text: 'Cómo decido, sin emoción' },
+        {
+          type: 'p',
+          text: "Mi disciplina es simple: no entro en una posición antes de que la acción alcance mi precio de compra razonable. Hoy, la acción cotiza en torno a 128 dólares. Mi precio objetivo es 119,68 dólares. Falta aproximadamente un 7 % más de bajada para que me sienta cómodo. No persigo la cotización, espero a que venga a mí.",
+        },
+        {
+          type: 'p',
+          text: "También vigilo si la calidad fundamental se deteriora más en los próximos trimestres. Si el crecimiento de ingresos sigue desacelerando y la nota cae por debajo de 8/10, incluso a un precio bajo, el interés disminuye. Al contrario, si Accenture entrega una aceleración en IA (sus ingresos relacionados con la IA ya superaban los 2 mil millones de dólares el año pasado) y recupera un ritmo de crecimiento superior al 8 %, el criterio ausente podría corregirse.",
+        },
+        {
+          type: 'p',
+          text: "Saber si una empresa es buena, y a qué precio comprarla, dos preguntas tratadas por separado: eso es todo lo que siempre quise poder hacer en unos segundos para cualquier acción. Por eso construí mi sitio de inversión, donde puedes consultar el análisis fundamental completo de Accenture en su [página de análisis](/analyse/ACN).",
+        },
+      ],
+      faq: [
+        {
+          q: '¿Por qué cayó un 18 % la acción de Accenture el 18 de junio de 2026?',
+          a: 'Accenture recortó su guidance de crecimiento anual de ingresos de +5-8 % a apenas +3-4 %. Este recorte señala una desaceleración en la demanda de servicios de consultoría informática, que el mercado penalizó de inmediato.',
+        },
+        {
+          q: '¿Qué es el flujo de caja libre?',
+          a: 'El dinero que de verdad le queda a la empresa tras pagar todo lo necesario para operar e invertir. Es más difícil de maquillar que el beneficio contable, así que me fío más de él para juzgar la solidez de un negocio.',
+        },
+        {
+          q: '¿Un P/FCF bajo es siempre una ganga?',
+          a: 'No. Un precio bajo puede ocultar una empresa en declive (una trampa de valor). Solo es interesante si la calidad del negocio se mantiene. De ahí mi regla: primero la calidad, después el precio.',
+        },
+        {
+          q: '¿Hay que comprar Accenture ahora?',
+          a: 'La acción se acerca a mi precio objetivo de 119,68 dólares pero aún no lo ha alcanzado. La nota de 8/10 es sólida, pero el criterio de crecimiento ausente es precisamente lo que el recorte del guidance acaba de empeorar. Vigilo sin apresurarme. Esto no es asesoramiento de inversión.',
+        },
+        {
+          q: '¿Qué es un guidance cut?',
+          a: 'Un guidance cut es cuando una empresa rebaja sus previsiones oficiales de ingresos o beneficios para el período siguiente. Los mercados suelen reaccionar con fuerza porque señala que la propia dirección ve empeorar las condiciones.',
+        },
+      ],
+      tags: ['Análisis', 'Accenture', 'Resultados', 'Valoración', 'IT Consulting'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 22 de junio de 2026, sujetas a cambios. Haz tu propia investigación.',
+    },
+  },
+};
+
+
+const article_payx: Article = {
+  slug: 'paychex-payx-resultats-q4-fy2026-analyse',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'PAYX',
+  content: {
+    fr: {
+      title: 'Paychex (PAYX) : notre analyse avant les résultats',
+      excerpt: 'Paychex publie ses résultats trimestriels après-demain. Avec neuf critères sur dix validés et une marge de free cash flow de 31 %, c\'est l\'une des entreprises les plus solides de notre univers. Voici ce que j\'observe avant l\'annonce.',
+      metaDescription: 'Analyse de Paychex (PAYX) avant les résultats du 24 juin 2026 : qualité du business, valorisation, critère manquant et comparaison avec Paylocity. Tout ce qu\'un investisseur doit savoir.',
+      answer: 'Paychex est un leader de la paie et des ressources humaines pour les PME américaines, avec une marge de free cash flow de 30,8 %, un dividende de 4,8 % en croissance régulière et un modèle très rentable. Son seul point faible selon notre méthode : une croissance des revenus légèrement inférieure à 10 % par an sur cinq ans. La publication des résultats du 24 juin permettra de voir si cette dynamique s\'améliore.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Score de qualité Lubin : 9/10 — un seul critère manquant (croissance revenus à +7,7 %/an, objectif 10 %)',
+            'Marge de free cash flow : 30,8 % — parmi les meilleures du secteur SaaS paie',
+            'Cash ROCE de 56 % : chaque euro investi génère 56 centimes de cash, signe d\'un moat solide',
+            'Dividende de 4,8 %, en croissance de 11,9 %/an sur cinq ans : actionnaire récompensé régulièrement',
+            'Valorisation actuelle : P/FCF 18,1x — au-dessus de notre prix d\'achat conseillé de 56,63 $',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait Paychex : la paie des PME américaines depuis 50 ans',
+        },
+        {
+          type: 'p',
+          text: 'Paychex, fondée en 1971 à Rochester (New York), gère la paie, les ressources humaines et les avantages sociaux de plus d\'un million de PME américaines. Là où les grandes entreprises s\'appuient sur SAP ou Workday, les sociétés de 10 à 1 000 salariés n\'ont ni les équipes ni les budgets pour internaliser ces tâches. Paychex leur vend une solution clé en main : calcul des salaires, déclarations fiscales, gestion des congés, mutuelle, retraite. Le tout en SaaS, facturé à l\'abonnement mensuel.',
+        },
+        {
+          type: 'p',
+          text: 'Avec une capitalisation de 36 milliards de dollars et un cours autour de 98 $, Paychex est la deuxième plus grande société cotée du secteur derrière ADP. Mais contrairement à ADP qui cible aussi les grandes entreprises, Paychex reste concentré sur les PME — un marché où la fidélité client est élevée et la concurrence moins agressive sur les prix.',
+        },
+        {
+          type: 'h2',
+          text: 'Notre méthode en dix critères : pourquoi 9/10 et pas 10/10',
+        },
+        {
+          type: 'p',
+          text: 'Chez Lubin Investment, j\'évalue chaque action sur dix critères fondamentaux : croissance des revenus, croissance du free cash flow par action, marge nette, marge de free cash flow, Cash ROCE, ratio d\'endettement net sur free cash flow, rendement du dividende, croissance du dividende, rachats d\'actions, et cohérence sur plusieurs années. Chaque critère vaut un point. Le score final sur dix (le "score Lubin") mesure la qualité globale du business, indépendamment du prix.',
+        },
+        {
+          type: 'p',
+          text: 'Paychex valide neuf critères sur dix. Le seul point manquant : la croissance des revenus. Sur cinq ans, ses revenus ont progressé de +7,7 % par an en moyenne — c\'est solide, mais légèrement en dessous de notre seuil de 10 %. Tous les autres indicateurs sont au vert : marge nette de 25,8 %, marge de free cash flow de 30,8 %, Cash ROCE de 56 %, endettement net/FCF de 1,64x seulement, dividende de 4,8 % avec une croissance de 11,9 %/an sur cinq ans.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que je regarde dans les résultats du 24 juin',
+        },
+        {
+          type: 'p',
+          text: 'Paychex publie ses résultats du quatrième trimestre de l\'exercice fiscal 2026 le 24 juin 2026 — soit après-demain. Les analystes attendent un bénéfice par action (EPS) de 1,31 $ et un chiffre d\'affaires de 1,61 milliard de dollars. Pour moi, la vraie question n\'est pas de savoir si Paychex bat ou rate ces estimations à quelques centimes près. Ce que je surveille, c\'est la trajectoire de la croissance organique des revenus.',
+        },
+        {
+          type: 'p',
+          text: 'Si la croissance trimestrielle s\'approche ou dépasse les 10 % en rythme annuel, le critère manquant pourrait basculer au vert lors de ma prochaine mise à jour du score. Ce serait un signal intéressant. À l\'inverse, si la croissance continue de décélérer, le 9/10 restera le score officiel. Dans les deux cas, la qualité intrinsèque du modèle reste exceptionnelle : une entreprise qui génère 31 % de free cash flow sur ses revenus ne s\'invente pas.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : bien valorisé, mais pas sous-évalué',
+        },
+        {
+          type: 'p',
+          text: 'Le P/FCF (Price-to-Free-Cash-Flow) est le ratio que j\'utilise pour mesurer ce que tu paies par rapport à la capacité de l\'entreprise à générer du cash. Un P/FCF de 18,1x signifie que le marché valorise Paychex à 18,1 fois son free cash flow annuel. C\'est raisonnable pour une société de cette qualité — le secteur SaaS se valorise souvent entre 30 et 50 fois. Mais ce n\'est pas non plus une opportunité flagrante.',
+        },
+        {
+          type: 'p',
+          text: 'Notre modèle de valorisation interne situe le prix d\'achat conseillé à 56,63 $. Au cours actuel de 98 $, Paychex se valorise avec une prime de +42 % par rapport à notre valeur cible. En d\'autres termes : la qualité est là, le prix ne l\'est pas encore. Je ne vends pas ma position si j\'en ai une — la qualité justifie une prime — mais je n\'en achète pas non plus à ce niveau. J\'attends une correction ou une consolidation.',
+        },
+        {
+          type: 'h2',
+          text: 'Comparaison avec Paylocity (PCTY) : même secteur, profils différents',
+        },
+        {
+          type: 'p',
+          text: 'J\'ai publié il y a quelques jours mon analyse de Paylocity (PCTY), qui obtient un score parfait de 10/10 dans notre méthode. PCTY se valorise à P/FCF 17,6x — légèrement moins cher que Paychex sur ce critère. La différence clé : Paylocity affiche une croissance des revenus de +23 %/an sur cinq ans, contre +7,7 %/an pour Paychex. En échange, Paychex offre un dividende de 4,8 % contre un dividende quasi nul chez Paylocity.',
+        },
+        {
+          type: 'p',
+          text: 'Si tu cherches une exposition au secteur SaaS paie/RH pour les PME américaines, les deux dossiers ont leurs mérites. PCTY est le choix croissance. PAYX est le choix qualité-rendement. Notre modèle préfère légèrement PCTY en ce moment à cause du score parfait, mais les deux entreprises sont sur notre liste de surveillance active.',
+        },
+        {
+          type: 'h2',
+          text: 'Le moat de Paychex : pourquoi les clients restent',
+        },
+        {
+          type: 'p',
+          text: 'Le taux de rétention client de Paychex dépasse 80 % chaque année depuis des décennies. La raison est structurelle : changer de prestataire de paie implique de migrer des données sensibles, de reformer les équipes RH, de re-paramétrer les intégrations avec la comptabilité, les mutuelles, les caisses de retraite. Le coût de sortie est élevé, la valeur perçue du statu quo l\'est encore plus. Ce type de barrière à la sortie — que l\'on appelle switching costs — est l\'un des éléments les plus précieux qu\'une entreprise SaaS puisse avoir.',
+        },
+        {
+          type: 'p',
+          text: 'C\'est ce switching cost qui explique en grande partie le Cash ROCE de 56 % : une fois le client acquis, la relation génère du cash pendant des années sans investissement proportionnel supplémentaire. Le cash ROCE mesure le retour en cash par rapport au capital total employé dans l\'entreprise. À 56 %, chaque euro de capital engagé génère 56 centimes de cash. C\'est exceptionnel.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas ignorer',
+        },
+        {
+          type: 'p',
+          text: 'Paychex n\'est pas sans risques. Premier risque : le macro. Une récession ou un ralentissement du marché de l\'emploi américain réduit mécaniquement le nombre de salariés gérés sur la plateforme — et donc les revenus. Le modèle est partiellement lié à la masse salariale des PME clientes. Deuxième risque : la concurrence. ADP reste très présent sur le marché des PME. Paycom et Paylocity gagnent des parts de marché avec des produits plus modernes sur l\'interface. Troisième risque : la décélération de la croissance, qui est déjà le seul critère non validé dans notre score.',
+        },
+        {
+          type: 'h2',
+          text: 'Mon verdict avant les résultats',
+        },
+        {
+          type: 'p',
+          text: 'Paychex est une des entreprises les plus solides que j\'ai analysées cette année : 9/10, marge FCF de 31 %, dividende croissant, endettement sain, Cash ROCE exceptionnel. Le seul frein à l\'achat aujourd\'hui, c\'est le prix. À 98 $, la valorisation anticipe déjà une large partie de la qualité. Notre prix d\'achat cible est à 56,63 $ — soit 42 % plus bas que le cours actuel.',
+        },
+        {
+          type: 'p',
+          text: 'Les résultats du 24 juin seront un moment clé pour observer si la croissance des revenus se redresse. Si c\'est le cas, le score pourrait passer à 10/10 lors de la prochaine mise à jour — et l\'action mérite alors une surveillance encore plus attentive. En attendant, je garde Paychex sur ma liste de veille et j\'attends un meilleur point d\'entrée. La qualité ne suffit pas : le prix d\'achat détermine le rendement final.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que le P/FCF et pourquoi est-ce important ?',
+          a: 'Le P/FCF (Price-to-Free-Cash-Flow) mesure combien tu paies pour chaque euro de free cash flow généré par l\'entreprise. Un P/FCF de 18,1x pour Paychex signifie que le marché valorise l\'action à 18,1 fois le cash libre annuel. C\'est moins cher que la plupart des SaaS, mais au-dessus de notre prix d\'achat cible de 56,63 $.',
+        },
+        {
+          q: 'Pourquoi Paychex n\'a-t-il pas 10/10 dans votre méthode ?',
+          a: 'Notre méthode exige une croissance des revenus d\'au moins 10 % par an en moyenne sur cinq ans. Paychex affiche +7,7 %/an — solide, mais légèrement en dessous du seuil. Les neuf autres critères sont validés : marge FCF, Cash ROCE, dividende, endettement, etc.',
+        },
+        {
+          q: 'Quelle est la différence entre Paychex et Paylocity ?',
+          a: 'Les deux gèrent la paie et les RH des PME américaines. Paylocity est plus récent, croît plus vite (+23 %/an) et obtient 10/10 dans notre score, mais ne verse pas de dividende. Paychex est plus mature, croît plus lentement (+7,7 %/an), verse un dividende de 4,8 % et génère une marge FCF plus élevée (30,8 % contre 20 %). PCTY est le choix croissance, PAYX est le choix qualité-rendement.',
+        },
+        {
+          q: 'Quel est le prix d\'achat conseillé par votre modèle pour Paychex ?',
+          a: 'Notre modèle de valorisation situe le prix d\'achat conseillé à 56,63 $. Au cours actuel de 98 $, l\'action se valorise avec une prime de +42 % par rapport à cette cible. Nous ne recommandons pas d\'acheter à ce niveau — nous attendons une correction significative.',
+        },
+        {
+          q: 'Qu\'est-ce que le Cash ROCE de 56 % signifie concrètement ?',
+          a: 'Le Cash ROCE (Cash Return on Capital Employed) mesure le cash généré par rapport au capital total utilisé dans l\'entreprise. À 56 %, Paychex génère 56 centimes de free cash flow pour chaque euro de capital engagé. C\'est un signe très fort de moat : les clients restent, les revenus se répètent, l\'investissement additionnel requis est faible.',
+        },
+      ],
+      tags: ['Paychex', 'PAYX', 'SaaS paie', 'RH PME', 'analyse fondamentale', 'résultats Q4 FY2026', 'free cash flow', 'dividende', 'investissement bourse'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 22 juin 2026, susceptibles d\'évoluer. Fais tes propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'Paychex (PAYX): our analysis ahead of June 24 earnings',
+      excerpt: 'Paychex reports its quarterly results the day after tomorrow. With nine out of ten quality criteria validated and a 31% free cash flow margin, it is one of the most solid businesses in our universe. Here is what I am watching before the announcement.',
+      metaDescription: 'Paychex (PAYX) analysis before June 24, 2026 earnings: business quality, valuation, missing criterion, and comparison with Paylocity. Everything an investor needs to know.',
+      answer: 'Paychex is a leading payroll and HR platform for US small businesses, with a 30.8% free cash flow margin, a 4.8% growing dividend, and an exceptional business model. Its only weakness in our framework: revenue growth slightly below 10% per year over five years. The June 24 earnings release will show whether that trend is improving.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Lubin quality score: 9/10 — one criterion short (revenue growth at +7.7%/yr, target 10%)',
+            'Free cash flow margin: 30.8% — among the highest in the payroll SaaS sector',
+            'Cash ROCE of 56%: every dollar of capital generates 56 cents of cash, a sign of strong competitive moat',
+            'Dividend of 4.8%, growing at 11.9%/yr over five years: shareholders rewarded consistently',
+            'Current valuation: P/FCF 18.1x — above our recommended buy price of $56.63',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What Paychex does: payroll for US small businesses for over 50 years',
+        },
+        {
+          type: 'p',
+          text: 'Paychex, founded in 1971 in Rochester, New York, handles payroll, HR, and employee benefits for over one million US small and mid-sized businesses. Where large corporations rely on SAP or Workday, companies with 10 to 1,000 employees lack the teams and budgets to manage these tasks internally. Paychex sells them a turnkey solution: payroll processing, tax filings, time-off management, health benefits, retirement plans. All delivered as SaaS, billed on a monthly subscription.',
+        },
+        {
+          type: 'p',
+          text: 'With a market cap of $36 billion and a share price around $98, Paychex is the second-largest listed company in the sector behind ADP. But unlike ADP, which also targets large enterprises, Paychex remains focused on SMBs — a market where client loyalty is high and price competition is less aggressive.',
+        },
+        {
+          type: 'h2',
+          text: 'Our ten-criteria framework: why 9/10 and not 10/10',
+        },
+        {
+          type: 'p',
+          text: 'At Lubin Investment, I evaluate every stock on ten fundamental criteria: revenue growth, free cash flow per share growth, net margin, FCF margin, Cash ROCE, net debt-to-FCF ratio, dividend yield, dividend growth, share buybacks, and multi-year consistency. Each criterion earns one point. The final score out of ten — the "Lubin score" — measures the overall quality of the business, independently of price.',
+        },
+        {
+          type: 'p',
+          text: 'Paychex validates nine out of ten criteria. The only missing point: revenue growth. Over five years, revenues have grown at +7.7% per year on average — solid, but slightly below our 10% threshold. All other indicators are green: net margin of 25.8%, FCF margin of 30.8%, Cash ROCE of 56%, net debt-to-FCF of only 1.64x, dividend of 4.8% growing at 11.9%/yr over five years.',
+        },
+        {
+          type: 'h2',
+          text: 'What I am watching in the June 24 earnings',
+        },
+        {
+          type: 'p',
+          text: 'Paychex reports its fourth-quarter results for fiscal year 2026 on June 24, 2026 — the day after tomorrow. Analysts are expecting earnings per share (EPS) of $1.31 and revenue of $1.61 billion. For me, the real question is not whether Paychex beats or misses these estimates by a few cents. What I am watching is the trajectory of organic revenue growth.',
+        },
+        {
+          type: 'p',
+          text: 'If quarterly growth approaches or exceeds 10% on an annualized basis, the missing criterion could flip to green in my next score update. That would be an interesting signal. Conversely, if growth continues to decelerate, the 9/10 will remain the official score. Either way, the intrinsic quality of the model stays exceptional: a company that generates 31% free cash flow on revenues is not something you find every day.',
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: fairly valued, but not cheap',
+        },
+        {
+          type: 'p',
+          text: 'P/FCF (Price-to-Free-Cash-Flow) is the ratio I use to measure what you pay relative to the company\'s ability to generate cash. A P/FCF of 18.1x means the market values Paychex at 18.1 times its annual free cash flow. That is reasonable for a company of this quality — the SaaS sector typically trades at 30 to 50 times. But it is not a screaming bargain either.',
+        },
+        {
+          type: 'p',
+          text: 'Our internal valuation model puts the recommended buy price at $56.63. At the current price of $98, Paychex trades at a +42% premium to our target. In other words: the quality is there, the price is not yet. I would not sell a position I already hold — the quality justifies a premium — but I would not add at this level either. I am waiting for a correction or consolidation.',
+        },
+        {
+          type: 'h2',
+          text: 'Comparison with Paylocity (PCTY): same sector, different profiles',
+        },
+        {
+          type: 'p',
+          text: 'A few days ago I published my analysis of Paylocity (PCTY), which scores a perfect 10/10 in our framework. PCTY trades at a P/FCF of 17.6x — slightly cheaper than Paychex on that metric. The key difference: Paylocity shows revenue growth of +23%/yr over five years, versus +7.7%/yr for Paychex. In return, Paychex offers a 4.8% dividend against a near-zero yield at Paylocity.',
+        },
+        {
+          type: 'p',
+          text: 'If you want exposure to the US SMB payroll/HR SaaS sector, both names have merit. PCTY is the growth play. PAYX is the quality-income play. Our model currently gives a slight edge to PCTY because of the perfect score, but both companies are on our active watchlist.',
+        },
+        {
+          type: 'h2',
+          text: 'The Paychex moat: why clients stay',
+        },
+        {
+          type: 'p',
+          text: 'Paychex\'s client retention rate has exceeded 80% every year for decades. The reason is structural: switching payroll providers means migrating sensitive data, retraining HR teams, and re-configuring integrations with accounting software, health insurance carriers, and retirement plan administrators. The exit cost is high; the perceived value of staying put is even higher. This type of barrier — called switching costs — is one of the most valuable things a SaaS company can have.',
+        },
+        {
+          type: 'p',
+          text: 'These switching costs largely explain the 56% Cash ROCE: once a client is acquired, the relationship generates cash for years with no proportional additional investment. Cash ROCE measures the cash return relative to the total capital deployed in the business. At 56%, every dollar of capital engaged generates 56 cents of free cash flow. That is exceptional.',
+        },
+        {
+          type: 'h2',
+          text: 'Risks not to overlook',
+        },
+        {
+          type: 'p',
+          text: 'Paychex is not without risks. First risk: macro. A recession or slowdown in the US labor market mechanically reduces the number of employees processed on the platform — and therefore revenues. The model is partially tied to the payroll base of SMB clients. Second risk: competition. ADP remains very present in the SMB market. Paycom and Paylocity are gaining market share with more modern interfaces. Third risk: revenue growth deceleration — which is already the one criterion not validated in our score.',
+        },
+        {
+          type: 'h2',
+          text: 'My verdict ahead of earnings',
+        },
+        {
+          type: 'p',
+          text: 'Paychex is one of the most solid businesses I have analyzed this year: 9/10, 31% FCF margin, growing dividend, healthy balance sheet, exceptional Cash ROCE. The only barrier to buying today is the price. At $98, the valuation already prices in most of the quality. Our target buy price is $56.63 — roughly 42% below the current price.',
+        },
+        {
+          type: 'p',
+          text: 'The June 24 earnings release will be a key moment to observe whether revenue growth is recovering. If it does, the score could move to 10/10 in the next update — and the stock deserves even closer monitoring. In the meantime, I keep Paychex on my watchlist and wait for a better entry point. Quality alone is not enough: the purchase price determines the final return.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is P/FCF and why does it matter?',
+          a: 'P/FCF (Price-to-Free-Cash-Flow) measures how much you pay for every dollar of free cash flow the company generates. A P/FCF of 18.1x for Paychex means the market values the stock at 18.1 times annual free cash flow. That is lower than most SaaS companies, but above our target buy price of $56.63.',
+        },
+        {
+          q: 'Why does Paychex not score 10/10 in your framework?',
+          a: 'Our framework requires average revenue growth of at least 10% per year over five years. Paychex shows +7.7%/yr — solid, but slightly below the threshold. The other nine criteria are validated: FCF margin, Cash ROCE, dividend, debt level, and more.',
+        },
+        {
+          q: 'What is the difference between Paychex and Paylocity?',
+          a: 'Both handle payroll and HR for US small businesses. Paylocity is newer, grows faster (+23%/yr) and scores 10/10 in our framework, but pays no meaningful dividend. Paychex is more mature, grows more slowly (+7.7%/yr), pays a 4.8% dividend, and generates a higher FCF margin (30.8% vs. 20%). PCTY is the growth play, PAYX is the quality-income play.',
+        },
+        {
+          q: 'What is your model\'s recommended buy price for Paychex?',
+          a: 'Our valuation model places the recommended buy price at $56.63. At the current price of $98, the stock trades at a +42% premium to that target. We do not recommend buying at this level — we are waiting for a significant correction.',
+        },
+        {
+          q: 'What does a 56% Cash ROCE mean in practice?',
+          a: 'Cash ROCE (Cash Return on Capital Employed) measures the cash generated relative to the total capital deployed in the business. At 56%, Paychex generates 56 cents of free cash flow for every dollar of capital engaged. It is a strong sign of competitive moat: clients stay, revenues recur, and incremental investment required is low.',
+        },
+      ],
+      tags: ['Paychex', 'PAYX', 'payroll SaaS', 'HR SMB', 'fundamental analysis', 'Q4 FY2026 earnings', 'free cash flow', 'dividend', 'stock market'],
+      disclaimer: 'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of June 22, 2026, subject to change. Do your own research before any investment decision.',
+    },
+    es: {
+      title: 'Paychex (PAYX) : nuestro análisis antes del 24 de junio',
+      excerpt: 'Paychex publica sus resultados trimestrales pasado mañana. Con nueve de diez criterios validados y un margen de free cash flow del 31 %, es uno de los negocios más sólidos de nuestro universo. Aquí te explico qué observo antes del anuncio.',
+      metaDescription: 'Análisis de Paychex (PAYX) antes de los resultados del 24 de junio de 2026: calidad del negocio, valoración, criterio que falta y comparación con Paylocity. Todo lo que un inversor debe saber.',
+      answer: 'Paychex es un líder en nóminas y recursos humanos para pymes estadounidenses, con un margen de free cash flow del 30,8 %, un dividendo del 4,8 % en crecimiento regular y un modelo muy rentable. Su único punto débil según nuestra metodología: un crecimiento de ingresos ligeramente inferior al 10 % anual en cinco años. La publicación de resultados del 24 de junio permitirá ver si esa dinámica mejora.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Puntuación de calidad Lubin: 9/10 — un solo criterio pendiente (crecimiento de ingresos +7,7 %/año, objetivo 10 %)',
+            'Margen de free cash flow: 30,8 % — entre los más altos del sector SaaS de nóminas',
+            'Cash ROCE del 56 %: cada euro de capital genera 56 céntimos de cash, señal de una ventaja competitiva sólida',
+            'Dividendo del 4,8 %, en crecimiento del 11,9 %/año durante cinco años: accionista recompensado de forma regular',
+            'Valoración actual: P/FCF 18,1x — por encima de nuestro precio de compra recomendado de 56,63 $',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace Paychex: las nóminas de las pymes americanas durante más de 50 años',
+        },
+        {
+          type: 'p',
+          text: 'Paychex, fundada en 1971 en Rochester (Nueva York), gestiona las nóminas, los recursos humanos y los beneficios sociales de más de un millón de pymes estadounidenses. Donde las grandes empresas recurren a SAP o Workday, las compañías de 10 a 1.000 empleados no tienen los equipos ni el presupuesto para internalizar estas tareas. Paychex les vende una solución integral: cálculo de salarios, declaraciones fiscales, gestión de vacaciones, seguro médico, planes de jubilación. Todo en modo SaaS, facturado por suscripción mensual.',
+        },
+        {
+          type: 'p',
+          text: 'Con una capitalización de 36.000 millones de dólares y un precio en torno a 98 $, Paychex es la segunda mayor empresa cotizada del sector por detrás de ADP. Pero a diferencia de ADP, que también atiende a grandes empresas, Paychex sigue centrada en las pymes — un mercado donde la fidelidad del cliente es alta y la competencia de precios es menos agresiva.',
+        },
+        {
+          type: 'h2',
+          text: 'Nuestra metodología de diez criterios: por qué 9/10 y no 10/10',
+        },
+        {
+          type: 'p',
+          text: 'En Lubin Investment, evalúo cada acción según diez criterios fundamentales: crecimiento de ingresos, crecimiento del free cash flow por acción, margen neto, margen de free cash flow, Cash ROCE, ratio deuda neta sobre free cash flow, rentabilidad por dividendo, crecimiento del dividendo, recompra de acciones y coherencia plurianual. Cada criterio vale un punto. La puntuación final sobre diez — la "puntuación Lubin" — mide la calidad global del negocio, independientemente del precio.',
+        },
+        {
+          type: 'p',
+          text: 'Paychex valida nueve de los diez criterios. El único punto que falta: el crecimiento de los ingresos. En cinco años, sus ingresos han crecido a un ritmo medio de +7,7 % anual — sólido, pero ligeramente por debajo de nuestro umbral del 10 %. Todos los demás indicadores están en verde: margen neto del 25,8 %, margen de free cash flow del 30,8 %, Cash ROCE del 56 %, deuda neta/FCF de solo 1,64x, dividendo del 4,8 % con un crecimiento del 11,9 %/año durante cinco años.',
+        },
+        {
+          type: 'h2',
+          text: 'Qué observo en los resultados del 24 de junio',
+        },
+        {
+          type: 'p',
+          text: 'Paychex publica sus resultados del cuarto trimestre del ejercicio fiscal 2026 el 24 de junio de 2026 — pasado mañana. Los analistas esperan un beneficio por acción (BPA) de 1,31 $ y unos ingresos de 1.610 millones de dólares. Para mí, la verdadera pregunta no es si Paychex supera o no estas estimaciones por unos pocos céntimos. Lo que vigilo es la trayectoria del crecimiento orgánico de los ingresos.',
+        },
+        {
+          type: 'p',
+          text: 'Si el crecimiento trimestral se acerca o supera el 10 % en tasa anualizada, el criterio que falta podría cambiar a verde en mi próxima actualización de la puntuación. Sería una señal interesante. Por el contrario, si el crecimiento continúa desacelerándose, el 9/10 seguirá siendo la puntuación oficial. En cualquier caso, la calidad intrínseca del modelo sigue siendo excepcional: una empresa que genera un 31 % de free cash flow sobre sus ingresos no se encuentra todos los días.',
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: bien valorado, pero no barato',
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF (Price-to-Free-Cash-Flow) es el ratio que utilizo para medir lo que pagas en relación con la capacidad de la empresa de generar cash. Un P/FCF de 18,1x significa que el mercado valora a Paychex en 18,1 veces su free cash flow anual. Es razonable para una empresa de esta calidad — el sector SaaS suele valorarse entre 30 y 50 veces. Pero tampoco es una oportunidad evidente.',
+        },
+        {
+          type: 'p',
+          text: 'Nuestro modelo de valoración interno sitúa el precio de compra recomendado en 56,63 $. Al precio actual de 98 $, Paychex se valoriza con una prima del +42 % respecto a nuestro objetivo. En otras palabras: la calidad está ahí, el precio todavía no. No vendería una posición que ya tuviera — la calidad justifica una prima — pero tampoco compraría a este nivel. Espero una corrección o una consolidación.',
+        },
+        {
+          type: 'h2',
+          text: 'Comparación con Paylocity (PCTY): mismo sector, perfiles distintos',
+        },
+        {
+          type: 'p',
+          text: 'Hace unos días publiqué mi análisis de Paylocity (PCTY), que obtiene una puntuación perfecta de 10/10 en nuestra metodología. PCTY se valoriza a un P/FCF de 17,6x — ligeramente más barato que Paychex en ese criterio. La diferencia clave: Paylocity muestra un crecimiento de ingresos del +23 %/año durante cinco años, frente al +7,7 %/año de Paychex. A cambio, Paychex ofrece un dividendo del 4,8 % frente a un rendimiento prácticamente nulo en Paylocity.',
+        },
+        {
+          type: 'p',
+          text: 'Si buscas exposición al sector SaaS de nóminas y RH para pymes estadounidenses, ambas opciones tienen sus méritos. PCTY es la apuesta por el crecimiento. PAYX es la apuesta por la calidad y el rendimiento. Nuestro modelo da actualmente una ligera ventaja a PCTY por la puntuación perfecta, pero las dos empresas están en nuestra lista de seguimiento activa.',
+        },
+        {
+          type: 'h2',
+          text: 'La ventaja competitiva de Paychex: por qué los clientes no se van',
+        },
+        {
+          type: 'p',
+          text: 'La tasa de retención de clientes de Paychex ha superado el 80 % cada año durante décadas. El motivo es estructural: cambiar de proveedor de nóminas implica migrar datos sensibles, volver a formar a los equipos de RH y reconfigurar las integraciones con la contabilidad, las aseguradoras médicas y los planes de jubilación. El coste de salida es elevado; el valor percibido de quedarse lo es aún más. Este tipo de barrera — los llamados switching costs o costes de cambio — es uno de los activos más valiosos que puede tener una empresa SaaS.',
+        },
+        {
+          type: 'p',
+          text: 'Estos costes de cambio explican en gran medida el Cash ROCE del 56 %: una vez captado el cliente, la relación genera cash durante años sin inversión adicional proporcional. El Cash ROCE mide el retorno en cash respecto al capital total empleado en el negocio. Al 56 %, cada euro de capital comprometido genera 56 céntimos de free cash flow. Es excepcional.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no hay que ignorar',
+        },
+        {
+          type: 'p',
+          text: 'Paychex no está exenta de riesgos. Primer riesgo: el macroeconómico. Una recesión o una desaceleración del mercado laboral estadounidense reduce mecánicamente el número de empleados procesados en la plataforma — y por tanto los ingresos. El modelo está parcialmente ligado a la masa salarial de las pymes clientes. Segundo riesgo: la competencia. ADP sigue muy presente en el mercado de las pymes. Paycom y Paylocity ganan cuota de mercado con interfaces más modernas. Tercer riesgo: la desaceleración del crecimiento de los ingresos, que ya es el único criterio no validado en nuestra puntuación.',
+        },
+        {
+          type: 'h2',
+          text: 'Mi veredicto antes de los resultados',
+        },
+        {
+          type: 'p',
+          text: 'Paychex es uno de los negocios más sólidos que he analizado este año: 9/10, margen FCF del 31 %, dividendo en crecimiento, balance saneado, Cash ROCE excepcional. El único freno para comprar hoy es el precio. A 98 $, la valoración ya anticipa gran parte de la calidad. Nuestro precio de compra objetivo es de 56,63 $ — aproximadamente un 42 % por debajo del precio actual.',
+        },
+        {
+          type: 'p',
+          text: 'Los resultados del 24 de junio serán un momento clave para observar si el crecimiento de los ingresos se recupera. Si es así, la puntuación podría pasar a 10/10 en la próxima actualización — y la acción merece entonces un seguimiento aún más atento. Mientras tanto, mantengo a Paychex en mi lista de vigilancia y espero un mejor punto de entrada. La calidad sola no es suficiente: el precio de compra determina el rendimiento final.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el P/FCF y por qué es importante?',
+          a: 'El P/FCF (Price-to-Free-Cash-Flow) mide cuánto pagas por cada dólar de free cash flow que genera la empresa. Un P/FCF de 18,1x para Paychex significa que el mercado valora la acción en 18,1 veces su free cash flow anual. Es más bajo que la mayoría de las SaaS, pero está por encima de nuestro precio de compra objetivo de 56,63 $.',
+        },
+        {
+          q: '¿Por qué Paychex no tiene 10/10 en vuestra metodología?',
+          a: 'Nuestra metodología exige un crecimiento medio de los ingresos de al menos el 10 % anual durante cinco años. Paychex muestra +7,7 %/año — sólido, pero ligeramente por debajo del umbral. Los otros nueve criterios están validados: margen FCF, Cash ROCE, dividendo, nivel de deuda y más.',
+        },
+        {
+          q: '¿Cuál es la diferencia entre Paychex y Paylocity?',
+          a: 'Ambas gestionan nóminas y RH para pymes estadounidenses. Paylocity es más reciente, crece más rápido (+23 %/año) y obtiene 10/10 en nuestra metodología, pero no paga dividendo relevante. Paychex es más madura, crece más despacio (+7,7 %/año), paga un dividendo del 4,8 % y genera un margen FCF más elevado (30,8 % frente al 20 %). PCTY es la apuesta por el crecimiento, PAYX es la apuesta por la calidad y el rendimiento.',
+        },
+        {
+          q: '¿Cuál es el precio de compra recomendado por vuestro modelo para Paychex?',
+          a: 'Nuestro modelo de valoración sitúa el precio de compra recomendado en 56,63 $. Al precio actual de 98 $, la acción se valoriza con una prima del +42 % respecto a ese objetivo. No recomendamos comprar a este nivel — esperamos una corrección significativa.',
+        },
+        {
+          q: '¿Qué significa en la práctica un Cash ROCE del 56 %?',
+          a: 'El Cash ROCE (Cash Return on Capital Employed) mide el cash generado respecto al capital total empleado en el negocio. Al 56 %, Paychex genera 56 céntimos de free cash flow por cada euro de capital comprometido. Es una señal muy sólida de ventaja competitiva: los clientes permanecen, los ingresos se repiten y la inversión adicional necesaria es baja.',
+        },
+      ],
+      tags: ['Paychex', 'PAYX', 'SaaS nóminas', 'recursos humanos pymes', 'análisis fundamental', 'resultados Q4 FY2026', 'free cash flow', 'dividendo', 'bolsa'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los rendimientos pasados no garantizan resultados futuros. Cifras a 22 de junio de 2026, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+
+const carnivalCCLAnalyse2026: Article = {
+  slug: 'carnival-ccl-resultats-q2-2026-analyse',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'CCL',
+  content: {
+    fr: {
+      title: 'Carnival Corporation (CCL) : notre analyse fondamentale',
+      excerpt: 'Carnival publie ses résultats trimestriels demain. Notre modèle lui attribue une note solide, mais deux points faibles pèsent sur le dossier. On décortique tout avant l\'ouverture des marchés.',
+      metaDescription: 'Avant les résultats de Carnival Corporation le 23 juin 2026, notre analyse fondamentale complète sur la valorisation, les forces et les faiblesses de l\'action CCL.',
+      answer: 'Notre modèle attribue à Carnival Corporation une note de 7/10, ce qui en fait une entreprise de qualité correcte mais pas exceptionnelle. La valorisation actuelle est légèrement en dessous de notre prix d\'achat recommandé, donc si tu cherches à entrer sur le dossier, la prudence s\'impose avant les résultats de demain. Je ne prends pas de position la veille d\'une publication de résultats, mais le dossier mérite d\'être suivi de près.',
+      body: [
+        {
+          type: 'p',
+          text: 'Demain matin, le 23 juin 2026, Carnival Corporation publiera ses résultats du deuxième trimestre fiscal 2026. C\'est le genre d\'événement qui fait bouger une action de 5 à 15 % dans les heures qui suivent. Avant que les chiffres tombent, je voulais te partager mon analyse complète du dossier CCL, avec notre grille de notation, la valorisation que j\'en tire, et ce que je vais surveiller en priorité dans le rapport de demain.'
+        },
+        {
+          type: 'p',
+          text: 'Carnival, c\'est le numéro un mondial des croisières. Un secteur fascinant d\'un point de vue fondamental : des marges qui peuvent être très attractives, une demande structurellement en croissance, mais aussi des bilans qui font parfois frémir. Et CCL, c\'est exactement ça : une belle entreprise avec quelques points de friction importants qu\'on ne peut pas ignorer.'
+        },
+        {
+          type: 'h2',
+          text: 'Carnival Corporation en bref : le leader mondial des croisières'
+        },
+        {
+          type: 'p',
+          text: 'Carnival Corporation & plc (ticker : CCL) est la plus grande compagnie de croisières au monde. Le groupe opère sous plusieurs marques bien connues : Carnival Cruise Line, Princess Cruises, Holland America Line, Costa Cruises, AIDA Cruises, P&O Cruises et Cunard, entre autres. En cumulant toutes ses marques, Carnival représente environ 45 % du marché mondial des croisières.'
+        },
+        {
+          type: 'p',
+          text: 'Avec une capitalisation boursière de 37,9 milliards de dollars et un cours actuel autour de 30,87 dollars l\'action, CCL n\'est pas une petite capitalisation. C\'est un grand groupe côté à la fois à New York et à Londres. Le secteur de la croisière est capital-intensif, c\'est-à-dire qu\'il faut investir des milliards pour construire des navires, les entretenir, et les faire tourner. C\'est une caractéristique fondamentale qui explique beaucoup de choses dans l\'analyse du dossier.'
+        },
+        {
+          type: 'h2',
+          text: 'Le contexte avant les résultats : ce que les analystes anticipent'
+        },
+        {
+          type: 'p',
+          text: 'Pour le deuxième trimestre fiscal 2026, le consensus des analystes de Wall Street anticipe un bénéfice par action (BPA) d\'environ 0,12 dollar et un chiffre d\'affaires autour de 5,4 milliards de dollars. Ce sont des chiffres qui semblent modestes en valeur absolue pour une entreprise de cette taille, mais le T2 est historiquement le trimestre de transition avant la haute saison estivale qui est décisive pour Carnival.'
+        },
+        {
+          type: 'p',
+          text: 'Le bénéfice par action (BPA), c\'est simplement le bénéfice net total divisé par le nombre d\'actions en circulation. C\'est l\'un des indicateurs les plus suivis par les marchés financiers lors des publications de résultats. Quand une entreprise bat le consensus, l\'action tend à monter. Quand elle le manque, même légèrement, la réaction peut être violente.'
+        },
+        {
+          type: 'p',
+          text: 'Ce qui m\'intéresse tout autant que le BPA, c\'est la guidance : ce que le management dit pour les trimestres à venir. Dans un secteur aussi cyclique que la croisière, la visibilité sur les réservations futures (le taux de remplissage des navires, le prix moyen payé par passager) est absolument déterminante. Une bonne guidance peut faire monter une action même si les chiffres du trimestre déçoivent légèrement.'
+        },
+        {
+          type: 'h2',
+          text: 'Notre méthode de notation : 10 critères fondamentaux pour un score sur 10'
+        },
+        {
+          type: 'p',
+          text: 'Chez Lubin Investment, j\'analyse chaque entreprise sur 10 critères fondamentaux. Chaque critère vaut 1 point. Le but est simple : avoir un score objectif, reproductible, qui permet de comparer des entreprises de secteurs très différents sur une même échelle. Je ne suis ni acheteur ni vendeur a priori, je cherche simplement à noter honnêtement ce que les données me racontent.'
+        },
+        {
+          type: 'p',
+          text: 'Les 10 critères couvrent : la croissance des revenus, la rentabilité (marges), la génération de trésorerie libre (le fameux free cash flow), la qualité du bilan (dette), la dilution des actionnaires, le rendement sur le capital investi, la régularité des performances, la résilience en période de crise, la valorisation, et enfin la qualité du management. Certains critères sont plus difficiles à valider dans des secteurs capital-intensifs comme les croisières, et c\'est précisément ce qu\'on va voir.'
+        },
+        {
+          type: 'h2',
+          text: 'Carnival score 7/10 : les forces du dossier'
+        },
+        {
+          type: 'p',
+          text: 'Commençons par les bonnes nouvelles. Carnival génère une croissance de chiffre d\'affaires spectaculaire sur cinq ans : +59,5 % par an en moyenne. Cette statistique doit évidemment être lue avec précaution, car elle intègre la récupération post-COVID. En 2020-2021, les croisières étaient à l\'arrêt complet. La base de comparaison était donc très basse, et la reprise a été explosive. Mais même en tenant compte de cet effet de base, la demande structurelle pour les croisières est réelle et en croissance.'
+        },
+        {
+          type: 'p',
+          text: 'La marge nette est de 11,5 %. La marge nette, c\'est le pourcentage du chiffre d\'affaires qui se transforme en bénéfice net après toutes les charges. 11,5 % dans un secteur aussi coûteux en carburant, en main-d\'oeuvre et en entretien de flotte, c\'est honorable. Ce n\'est pas Microsoft, mais ce n\'est pas non plus un groupe qui perd de l\'argent à opérer.'
+        },
+        {
+          type: 'p',
+          text: 'La marge de trésorerie libre (FCF margin) est de 10,7 %. Le FCF, ou trésorerie libre, c\'est ce qu\'il reste dans les caisses après avoir payé toutes les dépenses opérationnelles ET les investissements nécessaires pour maintenir et développer l\'activité. C\'est, à mes yeux, le vrai indicateur de santé financière d\'une entreprise. Une FCF margin de 10,7 % signifie que pour 100 euros de revenus, Carnival en garde environ 10,70 dans sa trésorerie nette. C\'est correct.'
+        },
+        {
+          type: 'p',
+          text: 'La croissance du FCF par action sur cinq ans est encore plus impressionnante : +60,7 % par an. Encore une fois, l\'effet de reprise post-COVID amplifie ce chiffre, mais l\'orientation est clairement positive. L\'entreprise génère de plus en plus de trésorerie libre par action au fil du temps.'
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi CCL ne peut pas obtenir 10/10 : la dette, premier point faible majeur'
+        },
+        {
+          type: 'p',
+          text: 'Et maintenant les points qui font mal. Le premier, et de loin le plus important, c\'est la dette. Le ratio dette nette sur FCF est de 8,3 fois. Autrement dit, si Carnival consacrait l\'intégralité de sa trésorerie libre au remboursement de sa dette (sans investir, sans payer de dividendes, sans rien faire d\'autre), il lui faudrait 8,3 ans pour être à zéro. C\'est très élevé. Mon seuil de confort personnel est autour de 3 fois. En dessous, je suis à l\'aise. Entre 3 et 5, c\'est acceptable avec des contreparties. Au-dessus de 5, le risque augmente fortement.'
+        },
+        {
+          type: 'p',
+          text: 'D\'où vient cette dette colossale ? En grande partie du COVID. En 2020 et 2021, les navires étaient à quai. Carnival n\'encaissait plus de revenus, mais les charges fixes continuaient : entretien des navires, salaires, intérêts sur les emprunts existants. Le groupe a dû s\'endetter massivement pour survivre. Et cette dette s\'est transformée en fardeau durable sur le bilan.'
+        },
+        {
+          type: 'p',
+          text: 'Dans le secteur des croisières, il y a une autre réalité structurelle : construire un nouveau navire coûte entre 500 millions et 2 milliards de dollars selon sa taille. Les commandes se font des années à l\'avance. Ce cycle d\'investissement très lourd rend difficile, voire impossible, d\'avoir un bilan léger dans ce secteur. C\'est une spécificité de l\'industrie que je dois intégrer dans mon analyse. Je ne vais pas pénaliser Carnival pour être dans un secteur capital-intensif, mais je dois noter objectivement que le risque financier est plus élevé qu\'une entreprise tech avec zéro dette.'
+        },
+        {
+          type: 'h2',
+          text: 'La dilution des actionnaires : le deuxième point faible à surveiller'
+        },
+        {
+          type: 'p',
+          text: 'Le deuxième point qui freine la note, c\'est la dilution des actionnaires. Le nombre d\'actions en circulation a augmenté de +5,34 % par an sur cinq ans. La dilution, c\'est quand une entreprise crée de nouvelles actions, ce qui réduit mécaniquement la part de chaque actionnaire existant dans le gâteau. C\'est comme si tu possédais une part dans une pizza, et que le restaurant décidait de couper la pizza en plus de parts sans augmenter sa taille : ta part devient plus petite.'
+        },
+        {
+          type: 'p',
+          text: 'Pour Carnival, cette dilution s\'explique principalement par les levées de capital effectuées pendant le COVID pour financer la survie du groupe. Là aussi, c\'est compréhensible dans le contexte. Mais le résultat est que les actionnaires qui étaient présents avant la crise ont vu leur participation dans le capital se diluer significativement. Et quand je regarde le FCF par action, je dois tenir compte du fait que ce FCF est réparti sur davantage d\'actions aujourd\'hui qu\'il y a cinq ans.'
+        },
+        {
+          type: 'p',
+          text: 'Un taux de dilution de 5,34 % par an, c\'est substantiel. Cela veut dire qu\'une partie de la croissance que l\'entreprise génère est en quelque sorte "consommée" par l\'augmentation du nombre d\'actions. Pour un actionnaire, ce qui compte au final c\'est la croissance du FCF par action, pas la croissance du FCF total. Et sur ce critère, CCL s\'en sort malgré tout correctement grâce à la force de la reprise post-COVID.'
+        },
+        {
+          type: 'h2',
+          text: 'Le rendement sur capital : en dessous de notre cible'
+        },
+        {
+          type: 'p',
+          text: 'Le Cash ROCE (Cash Return on Capital Employed, soit le rendement de trésorerie sur le capital employé) est de 7,6 %. C\'est mon indicateur d\'efficacité du capital : pour chaque euro investi dans l\'activité, combien l\'entreprise génère-t-elle de trésorerie libre ? Notre cible est de 15 %. À 7,6 %, Carnival est en dessous de ce seuil.'
+        },
+        {
+          type: 'p',
+          text: 'Cela s\'explique par deux facteurs combinés : d\'abord, la base de capital employé est énorme (les navires représentent des actifs de plusieurs dizaines de milliards), et ensuite, le FCF généré, bien que positif, doit se mesurer à cette base colossale. Encore une fois, c\'est une caractéristique structurelle du secteur. Mais cela confirme que les croisières ne sont pas naturellement un secteur à très hauts rendements sur capital.'
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : le P/FCF expliqué simplement'
+        },
+        {
+          type: 'p',
+          text: 'Parlons maintenant de la valorisation. J\'utilise principalement le ratio P/FCF (Price to Free Cash Flow) pour valoriser une entreprise. Ce ratio, c\'est simplement le cours de l\'action divisé par le FCF par action. Concrètement, il répond à la question : combien de fois est-ce que je paie la trésorerie libre annuelle que l\'entreprise génère pour moi en tant qu\'actionnaire ?'
+        },
+        {
+          type: 'p',
+          text: 'Plus le P/FCF est bas, plus l\'entreprise est potentiellement bon marché. Un P/FCF de 10 signifie que tu paies 10 ans de FCF actuel pour posséder l\'action. Un P/FCF de 30 signifie 30 ans. C\'est une façon intuitive de comparer la valeur relative d\'une action.'
+        },
+        {
+          type: 'p',
+          text: 'Pour Carnival Corporation, le P/FCF actuel est de 14,9 fois. C\'est une valorisation raisonnable pour une entreprise en croissance. Ce n\'est ni donné ni excessif. Mon modèle de valorisation, qui intègre la croissance attendue et les risques spécifiques du secteur, me donne un prix d\'achat recommandé autour de 33,25 dollars. L\'action cote actuellement autour de 30,87 dollars, soit légèrement en dessous de ce niveau.'
+        },
+        {
+          type: 'p',
+          text: 'Attention toutefois : le fait que l\'action soit en dessous de mon prix cible ne signifie pas automatiquement qu\'il faut acheter maintenant. Mon prix cible intègre déjà les risques que j\'ai identifiés (dette élevée, dilution). Il s\'agit d\'une marge de sécurité minimale pour compenser ces risques. La veille d\'une publication de résultats, la prudence s\'impose encore davantage.'
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Valeur CCL', 'Notre cible / seuil', 'Évaluation'],
+          rows: [
+            ['Capitalisation boursière', '37,9 Mds $', '-', 'Grande cap'],
+            ['Cours actuel', '~30,87 $', 'Prix cible : ~33,25 $', 'Légèrement sous cible'],
+            ['P/FCF (valorisation)', '14,9×', '<20× pour une croissance modérée', 'Correct'],
+            ['FCF margin', '10,7 %', '>10 %', 'Satisfaisant'],
+            ['Marge nette', '11,5 %', '>10 %', 'Correct'],
+            ['Croissance revenus 5 ans', '+59,5 %/an', 'Contexte post-COVID', 'Forte reprise'],
+            ['FCF/action croissance 5 ans', '+60,7 %/an', 'Contexte post-COVID', 'Très forte reprise'],
+            ['Cash ROCE', '7,6 %', '>15 %', 'En dessous de cible'],
+            ['Dette nette / FCF', '8,3×', '<3×', 'Très élevé'],
+            ['Dilution annuelle', '+5,34 %/an', '<1 %/an', 'Préoccupant'],
+            ['Score Lubin', '7/10', '8+/10 pour investir sereinement', 'Solide mais pas exceptionnel'],
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi le secteur des croisières est structurellement difficile à noter 10/10'
+        },
+        {
+          type: 'p',
+          text: 'Je veux prendre un moment pour expliquer quelque chose d\'important : Carnival ne peut pas atteindre 10/10 avec notre grille, et ce n\'est pas entièrement de sa faute. C\'est une contrainte sectorielle. Le secteur des croisières est capital-intensif, cyclique, et a subi un choc exogène majeur avec le COVID. Toutes ces caractéristiques pénalisent mécaniquement les critères de bilan et de rendement sur capital.'
+        },
+        {
+          type: 'p',
+          text: 'Un secteur capital-intensif, c\'est un secteur où il faut constamment investir des sommes colossales juste pour maintenir l\'activité (entretien des navires, remplacement de la flotte vieillissante) et encore plus pour grandir (commandes de nouveaux navires). Ces dépenses s\'appellent les capex (capital expenditures). Elles réduisent mécaniquement le FCF, ce qui affecte à la fois la FCF margin et le Cash ROCE.'
+        },
+        {
+          type: 'p',
+          text: 'Le caractère cyclique du secteur signifie que les revenus peuvent varier énormément d\'une année à l\'autre selon la conjoncture économique, les crises géopolitiques, les épidémies, ou simplement les tendances de consommation. Cette cyclicité rend les projections à long terme plus incertaines, et donc le risque pour l\'investisseur est structurellement plus élevé que pour une entreprise opérant dans un secteur défensif comme la grande distribution ou les services aux collectivités.'
+        },
+        {
+          type: 'p',
+          text: 'Cela dit, ce n\'est pas parce qu\'un secteur est capital-intensif et cyclique qu\'il ne mérite pas d\'être dans un portefeuille. Cela signifie simplement qu\'il faut être conscient des risques, les compenser par une valorisation attractive, et ne pas surpondérer ce type de dossier. C\'est exactement l\'approche que j\'applique avec CCL.'
+        },
+        {
+          type: 'h2',
+          text: 'Ce que je vais surveiller dans les résultats de demain'
+        },
+        {
+          type: 'p',
+          text: 'Voici les quatre points que je vais analyser en priorité quand les résultats tomberont demain matin :'
+        },
+        {
+          type: 'ul',
+          items: [
+            'La guidance pour le T3 et l\'année complète : c\'est le point le plus important. Le T3 est la haute saison (juillet-août-septembre). Si Carnival relève ses prévisions, l\'action devrait bien réagir.',
+            'L\'évolution de la dette nette : est-ce que le groupe continue de rembourser activement sa dette post-COVID ? Tout dollar remboursé est un point de risque en moins.',
+            'Le taux de remplissage des navires et le prix moyen par passager : ces deux indicateurs mesurent la demande réelle et la capacité de Carnival à maintenir ses prix. Si les deux progressent, c\'est excellent.',
+            'Les flux de trésorerie opérationnels : pas seulement le bénéfice comptable, mais combien de cash l\'activité a-t-elle réellement généré ce trimestre ? C\'est là que je lis la santé réelle de l\'entreprise.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Mon verdict avant les résultats : un dossier intéressant, pas encore au niveau d\'une conviction forte'
+        },
+        {
+          type: 'p',
+          text: 'Carnival Corporation est une entreprise sérieuse, leader incontesté dans son secteur, avec une résilience remarquable après le choc COVID. La note de 7/10 reflète des forces réelles : bonne croissance du FCF, marges honorables dans un secteur difficile, valorisation raisonnable. Mais les 3 points manquants ne sont pas de détail : la dette à 8,3 fois le FCF et la dilution à 5,34 % annuel sont deux risques concrets qui pèsent sur la thèse d\'investissement.'
+        },
+        {
+          type: 'p',
+          text: 'L\'action cote légèrement en dessous de mon prix cible de 33,25 dollars, mais je ne vois pas de marge de sécurité suffisamment large pour prendre une position avant une publication de résultats. Les résultats de demain pourraient aussi bien propulser l\'action à 34-35 dollars si tout va bien, que la faire plonger à 27-28 si la guidance déçoit. Ce type de pari binaire n\'est pas dans mon approche.'
+        },
+        {
+          type: 'p',
+          text: 'En revanche, si les résultats de demain montrent une réduction claire de la dette, une guidance relevée pour la haute saison, et des taux de remplissage solides, alors le dossier mérite une attention sérieuse pour une entrée progressive. Je mettrai à jour mon analyse après la publication.'
+        },
+        {
+          type: 'p',
+          text: 'Ce que j\'apprécierais le plus dans les prochains trimestres : voir Carnival atteindre un ratio dette nette / FCF sous 5 fois (un progrès significatif même si encore au-dessus de mon idéal) et une stabilisation de la dilution. Si ces deux tendances se confirment, la note pourrait progresser vers 8/10, ce qui représenterait un dossier nettement plus convaincant pour moi.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Pourquoi Carnival n\'obtient-il que 7/10 avec votre méthode ?',
+          a: 'Carnival obtient 7/10 principalement à cause de deux faiblesses : une dette nette très élevée (8,3 fois la trésorerie libre annuelle) héritée en grande partie de la crise COVID, et une dilution des actionnaires de 5,34 % par an sur cinq ans due aux levées de capital réalisées pour survivre pendant la pandémie. Ces deux points pèsent sur le score malgré de bonnes performances opérationnelles.'
+        },
+        {
+          q: 'Qu\'est-ce que le P/FCF et pourquoi l\'utilisez-vous ?',
+          a: 'Le P/FCF (Price to Free Cash Flow) est le rapport entre le cours de l\'action et la trésorerie libre générée par action. Je l\'utilise car il reflète mieux la valeur réelle d\'une entreprise que le simple P/E basé sur les bénéfices comptables, qui peuvent être manipulés par des écritures non-cash. Pour CCL, ce ratio est de 14,9 fois, ce qui est raisonnable mais pas exceptionnel.'
+        },
+        {
+          q: 'Est-il risqué d\'acheter CCL juste avant les résultats ?',
+          a: 'Oui, il y a un risque binaire important. Les résultats peuvent faire bouger l\'action de 5 à 15 % dans les heures suivant la publication, dans un sens comme dans l\'autre. Si tu n\'as pas de tolérance pour cette volatilité à court terme, il est plus prudent d\'attendre la publication pour analyser les chiffres réels et décider ensuite.'
+        },
+        {
+          q: 'À quel prix serait-il intéressant d\'acheter des actions CCL selon votre modèle ?',
+          a: 'Notre modèle donne un prix d\'achat recommandé autour de 33,25 dollars, qui intègre déjà les risques spécifiques du dossier. L\'action cote actuellement autour de 30,87 dollars, soit légèrement en dessous. Mais mon approche est d\'attendre les résultats et d\'avoir une confirmation des tendances avant d\'initier une position.'
+        },
+        {
+          q: 'Le secteur des croisières est-il un bon secteur pour investir à long terme ?',
+          a: 'Les croisières sont un secteur en croissance structurelle, mais capital-intensif et cyclique. La demande augmente dans les pays émergents (Asie notamment) et la fidélité des clients est forte. En revanche, les gros investissements nécessaires limitent les rendements sur capital, et le secteur est vulnérable aux chocs exogènes (pandémies, géopolitique, énergie). Une position modérée dans un portefeuille diversifié peut être justifiée.'
+        }
+      ],
+      tags: ['Carnival Corporation', 'CCL', 'croisières', 'résultats Q2 2026', 'analyse fondamentale', 'bourse', 'investissement', 'P/FCF', 'valorisation', 'actions américaines', 'secteur voyage', 'dette', 'Lubin Investment'],
+      disclaimer: 'Cet article est rédigé à titre informatif et éducatif uniquement. Il ne constitue en aucun cas un conseil en investissement, une recommandation d\'achat ou de vente de valeurs mobilières. Les informations présentées reflètent l\'opinion personnelle de l\'auteur basée sur des données publiques disponibles à la date de publication. Investir en bourse comporte des risques de perte en capital. Avant toute décision d\'investissement, consultez un conseiller financier agréé. Les performances passées ne préjugent pas des performances futures.'
+    },
+    en: {
+      title: 'Carnival Corporation (CCL) : our fundamental analysis',
+      excerpt: 'Carnival reports quarterly results tomorrow. Our model gives it a solid score, but two key weaknesses weigh on the thesis. We break it all down before markets open.',
+      metaDescription: 'Before Carnival Corporation results on June 23, 2026, our complete fundamental analysis on CCL stock valuation, strengths and weaknesses.',
+      answer: 'Our model assigns Carnival Corporation a score of 7/10, making it a decent but not exceptional quality business. The current valuation is slightly below our recommended buy price, so if you are looking to enter this position, caution is warranted ahead of tomorrow\'s results. I do not take positions the day before an earnings release, but this is a name worth watching closely.',
+      body: [
+        {
+          type: 'p',
+          text: 'Tomorrow morning, June 23, 2026, Carnival Corporation will publish its fiscal second quarter 2026 results. This is the kind of event that can move a stock 5 to 15 % in the hours that follow. Before the numbers drop, I want to share with you my complete analysis of the CCL thesis, including our scoring framework, the valuation I derive from it, and what I will be watching most closely in tomorrow\'s report.'
+        },
+        {
+          type: 'p',
+          text: 'Carnival is the world\'s number one cruise company. It is a fascinating sector from a fundamental perspective: margins that can be very attractive, structurally growing demand, but also balance sheets that can occasionally be alarming. And CCL is exactly that: a solid business with a few important friction points that cannot be ignored.'
+        },
+        {
+          type: 'h2',
+          text: 'Carnival Corporation at a glance: the global leader in cruises'
+        },
+        {
+          type: 'p',
+          text: 'Carnival Corporation & plc (ticker: CCL) is the world\'s largest cruise company. The group operates under several well-known brands: Carnival Cruise Line, Princess Cruises, Holland America Line, Costa Cruises, AIDA Cruises, P&O Cruises and Cunard, among others. Across all its brands, Carnival represents approximately 45% of the global cruise market.'
+        },
+        {
+          type: 'p',
+          text: 'With a market capitalization of $37.9 billion and a current share price of around $30.87, CCL is not a small-cap. It is a large group listed both in New York and London. The cruise sector is capital-intensive, meaning billions must be invested to build ships, maintain them, and operate them. This is a fundamental characteristic that explains a great deal in the analysis of this stock.'
+        },
+        {
+          type: 'h2',
+          text: 'The pre-results context: what analysts are expecting'
+        },
+        {
+          type: 'p',
+          text: 'For the fiscal second quarter of 2026, Wall Street analyst consensus anticipates earnings per share (EPS) of approximately $0.12 and revenue of around $5.4 billion. These figures may seem modest in absolute terms for a company of this size, but Q2 is historically the transition quarter before the critical summer peak season for Carnival.'
+        },
+        {
+          type: 'p',
+          text: 'Earnings per share (EPS) is simply the total net income divided by the number of shares outstanding. It is one of the most closely watched metrics by financial markets during earnings releases. When a company beats consensus, the stock tends to rise. When it misses, even slightly, the reaction can be sharp.'
+        },
+        {
+          type: 'p',
+          text: 'What interests me just as much as EPS is the guidance: what management says about upcoming quarters. In a sector as cyclical as cruises, visibility into future bookings (ship occupancy rates, average price paid per passenger) is absolutely decisive. Strong guidance can lift a stock even when the current quarter\'s numbers are slightly disappointing.'
+        },
+        {
+          type: 'h2',
+          text: 'Our scoring methodology: 10 fundamental criteria for a score out of 10'
+        },
+        {
+          type: 'p',
+          text: 'At Lubin Investment, I analyze each company on 10 fundamental criteria. Each criterion is worth one point. The goal is simple: to have an objective, reproducible score that allows comparison of companies across very different sectors on a single scale. I am neither a buyer nor a seller by default; I simply aim to honestly score what the data tells me.'
+        },
+        {
+          type: 'p',
+          text: 'The 10 criteria cover: revenue growth, profitability (margins), free cash flow generation, balance sheet quality (debt), shareholder dilution, return on capital employed, consistency of performance, resilience during crises, valuation, and management quality. Some criteria are harder to meet in capital-intensive sectors like cruises, and that is precisely what we will examine.'
+        },
+        {
+          type: 'h2',
+          text: 'Carnival scores 7/10: the strengths of this thesis'
+        },
+        {
+          type: 'p',
+          text: 'Let us start with the good news. Carnival has generated spectacular revenue growth over five years: +59.5% per year on average. This statistic obviously needs to be read with caution, as it incorporates post-COVID recovery. In 2020-2021, cruises were completely stopped. The comparison base was very low, and the rebound was explosive. But even accounting for this base effect, structural demand for cruises is real and growing.'
+        },
+        {
+          type: 'p',
+          text: 'Net margin is 11.5%. Net margin is the percentage of revenue that becomes net profit after all charges. 11.5% in a sector as costly as cruises in terms of fuel, labor and fleet maintenance is respectable. This is not Microsoft, but it is not a company losing money on operations either.'
+        },
+        {
+          type: 'p',
+          text: 'The free cash flow (FCF) margin is 10.7%. FCF is what remains in the coffers after paying all operating expenses AND the investments required to maintain and grow the business. It is, in my view, the true indicator of a company\'s financial health. A FCF margin of 10.7% means that for every $100 of revenue, Carnival keeps approximately $10.70 in net cash. That is solid.'
+        },
+        {
+          type: 'p',
+          text: 'FCF per share growth over five years is even more impressive: +60.7% per year. Once again, the post-COVID recovery effect amplifies this figure, but the direction is clearly positive. The company is generating increasing free cash flow per share over time.'
+        },
+        {
+          type: 'h2',
+          text: 'Why CCL cannot reach 10/10: debt, the first major weakness'
+        },
+        {
+          type: 'p',
+          text: 'Now for the painful points. The first, and by far the most important, is debt. The net debt to FCF ratio is 8.3 times. In other words, if Carnival devoted its entire free cash flow to debt repayment (without investing, paying dividends, or doing anything else), it would take 8.3 years to reach zero. That is very high. My personal comfort threshold is around 3 times. Below that, I am comfortable. Between 3 and 5, it is acceptable with compensating factors. Above 5, risk increases sharply.'
+        },
+        {
+          type: 'p',
+          text: 'Where does this colossal debt come from? Largely from COVID. In 2020 and 2021, ships were docked. Carnival was no longer collecting revenues, but fixed costs continued: ship maintenance, wages, interest on existing loans. The group had to borrow heavily to survive. And this debt became a lasting burden on the balance sheet.'
+        },
+        {
+          type: 'p',
+          text: 'In the cruise sector, there is another structural reality: building a new ship costs between $500 million and $2 billion depending on its size. Orders are placed years in advance. This very heavy investment cycle makes it difficult, if not impossible, to have a light balance sheet in this sector. It is an industry-specific characteristic that I must incorporate into my analysis. I will not penalize Carnival for being in a capital-intensive sector, but I must objectively note that the financial risk is higher than for a tech company with zero debt.'
+        },
+        {
+          type: 'h2',
+          text: 'Shareholder dilution: the second weakness to watch'
+        },
+        {
+          type: 'p',
+          text: 'The second point that holds back the score is shareholder dilution. The number of shares outstanding has increased by +5.34% per year over five years. Dilution occurs when a company creates new shares, which mechanically reduces each existing shareholder\'s slice of the pie. It is as if you owned a slice of pizza, and the restaurant decided to cut the pizza into more slices without increasing its size: your slice gets smaller.'
+        },
+        {
+          type: 'p',
+          text: 'For Carnival, this dilution is mainly explained by the capital raises carried out during COVID to fund the group\'s survival. Again, this is understandable in context. But the result is that shareholders who were present before the crisis saw their ownership stake in the company diluted significantly. And when I look at FCF per share, I must account for the fact that this FCF is spread over more shares today than five years ago.'
+        },
+        {
+          type: 'p',
+          text: 'A dilution rate of 5.34% per year is substantial. It means that part of the growth the company generates is in some sense "consumed" by the increase in share count. For a shareholder, what ultimately matters is FCF per share growth, not total FCF growth. On this metric, CCL still holds up reasonably well thanks to the strength of the post-COVID recovery.'
+        },
+        {
+          type: 'h2',
+          text: 'Return on capital: below our target'
+        },
+        {
+          type: 'p',
+          text: 'Cash ROCE (Cash Return on Capital Employed) is 7.6%. This is my capital efficiency indicator: for every dollar invested in the business, how much free cash flow does the company generate? Our target is 15%. At 7.6%, Carnival is below this threshold.'
+        },
+        {
+          type: 'p',
+          text: 'This is explained by two combined factors: first, the capital employed base is enormous (ships represent assets worth tens of billions of dollars), and second, the FCF generated, while positive, must be measured against this colossal base. Once again, this is a structural characteristic of the sector. But it confirms that cruises are not naturally a high-return-on-capital sector.'
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: the P/FCF ratio explained plainly'
+        },
+        {
+          type: 'p',
+          text: 'Let us now discuss valuation. I primarily use the P/FCF ratio (Price to Free Cash Flow) to value a company. This ratio is simply the share price divided by FCF per share. Concretely, it answers the question: how many times am I paying the annual free cash flow that the company generates for me as a shareholder?'
+        },
+        {
+          type: 'p',
+          text: 'The lower the P/FCF, the potentially cheaper the company. A P/FCF of 10 means you are paying for 10 years of current FCF to own the stock. A P/FCF of 30 means 30 years. It is an intuitive way to compare the relative value of a stock.'
+        },
+        {
+          type: 'p',
+          text: 'For Carnival Corporation, the current P/FCF is 14.9 times. This is a reasonable valuation for a growing company. It is neither cheap nor excessive. My valuation model, which incorporates expected growth and sector-specific risks, gives me a recommended buy price of around $33.25. The stock currently trades around $30.87, slightly below this level.'
+        },
+        {
+          type: 'p',
+          text: 'A word of caution: the fact that the stock is below my target price does not automatically mean one should buy now. My target price already incorporates the risks I have identified (high debt, dilution). It represents a minimum margin of safety to compensate for these risks. The day before an earnings release, caution is even more warranted.'
+        },
+        {
+          type: 'table',
+          headers: ['Indicator', 'CCL Value', 'Our target / threshold', 'Assessment'],
+          rows: [
+            ['Market capitalization', '$37.9B', '-', 'Large cap'],
+            ['Current price', '~$30.87', 'Target price: ~$33.25', 'Slightly below target'],
+            ['P/FCF (valuation)', '14.9×', '<20× for moderate growth', 'Reasonable'],
+            ['FCF margin', '10.7%', '>10%', 'Satisfactory'],
+            ['Net margin', '11.5%', '>10%', 'Solid'],
+            ['5-year revenue growth', '+59.5%/yr', 'Post-COVID context', 'Strong recovery'],
+            ['5-year FCF/share growth', '+60.7%/yr', 'Post-COVID context', 'Very strong recovery'],
+            ['Cash ROCE', '7.6%', '>15%', 'Below target'],
+            ['Net debt / FCF', '8.3×', '<3×', 'Very high'],
+            ['Annual dilution', '+5.34%/yr', '<1%/yr', 'Concerning'],
+            ['Lubin Score', '7/10', '8+/10 to invest comfortably', 'Solid but not exceptional'],
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Why the cruise sector is structurally hard to score 10/10'
+        },
+        {
+          type: 'p',
+          text: 'I want to take a moment to explain something important: Carnival cannot reach 10/10 with our framework, and this is not entirely its fault. It is a sector constraint. The cruise industry is capital-intensive, cyclical, and suffered a major exogenous shock with COVID. All of these characteristics mechanically penalize the balance sheet and return on capital criteria.'
+        },
+        {
+          type: 'p',
+          text: 'A capital-intensive sector is one where enormous sums must be constantly invested just to maintain operations (ship maintenance, replacing aging fleet) and even more to grow (ordering new ships). These expenditures are called capex (capital expenditures). They mechanically reduce FCF, which affects both FCF margin and Cash ROCE.'
+        },
+        {
+          type: 'p',
+          text: 'The cyclical nature of the sector means revenues can vary enormously from year to year based on economic conditions, geopolitical crises, epidemics, or simply consumer trends. This cyclicality makes long-term projections more uncertain, and therefore investor risk is structurally higher than for a company operating in a defensive sector like grocery retail or utilities.'
+        },
+        {
+          type: 'p',
+          text: 'That said, just because a sector is capital-intensive and cyclical does not mean it has no place in a portfolio. It simply means one must be aware of the risks, offset them with attractive valuation, and not overweight such positions. This is exactly the approach I apply with CCL.'
+        },
+        {
+          type: 'h2',
+          text: 'What I will be watching in tomorrow\'s results'
+        },
+        {
+          type: 'p',
+          text: 'Here are the four points I will analyze first when results drop tomorrow morning:'
+        },
+        {
+          type: 'ul',
+          items: [
+            'Q3 and full-year guidance: this is the most important point. Q3 is peak season (July-August-September). If Carnival raises its forecasts, the stock should react well.',
+            'Net debt evolution: is the group continuing to actively pay down its post-COVID debt? Every dollar repaid is one less risk point.',
+            'Ship occupancy rates and average revenue per passenger: these two indicators measure real demand and Carnival\'s ability to hold its prices. If both improve, that is excellent.',
+            'Operating cash flows: not just accounting profit, but how much cash did operations actually generate this quarter? This is where I read the true health of the business.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'My verdict before results: an interesting thesis, not yet a high-conviction position'
+        },
+        {
+          type: 'p',
+          text: 'Carnival Corporation is a serious business, the undisputed leader in its sector, with remarkable resilience after the COVID shock. The 7/10 score reflects real strengths: strong FCF growth, respectable margins in a tough sector, reasonable valuation. But the 3 missing points are not trivial: debt at 8.3 times FCF and dilution at 5.34% annually are two concrete risks that weigh on the investment thesis.'
+        },
+        {
+          type: 'p',
+          text: 'The stock trades slightly below my target price of $33.25, but I do not see a margin of safety wide enough to take a position ahead of an earnings release. Tomorrow\'s results could just as easily propel the stock to $34-35 if everything goes well, as send it down to $27-28 if guidance disappoints. This type of binary bet is not part of my approach.'
+        },
+        {
+          type: 'p',
+          text: 'On the other hand, if tomorrow\'s results show a clear reduction in debt, raised guidance for peak season, and solid occupancy rates, then the thesis deserves serious consideration for a gradual entry. I will update my analysis after the publication.'
+        },
+        {
+          type: 'p',
+          text: 'What I would most like to see in the coming quarters: Carnival reaching a net debt / FCF ratio below 5 times (significant progress even if still above my ideal) and stabilization of dilution. If these two trends confirm, the score could progress toward 8/10, which would make this a considerably more convincing thesis for me.'
+        }
+      ],
+      faq: [
+        {
+          q: 'Why does Carnival only score 7/10 with your method?',
+          a: 'Carnival scores 7/10 primarily because of two weaknesses: very high net debt (8.3 times annual free cash flow) largely inherited from the COVID crisis, and 5.34% annual shareholder dilution over five years due to capital raises made to survive the pandemic. These two points weigh on the score despite solid operational performance.'
+        },
+        {
+          q: 'What is P/FCF and why do you use it?',
+          a: 'P/FCF (Price to Free Cash Flow) is the ratio of the share price to free cash flow generated per share. I use it because it better reflects the true value of a company than simple P/E based on accounting earnings, which can be influenced by non-cash items. For CCL, this ratio is 14.9 times, which is reasonable but not exceptional.'
+        },
+        {
+          q: 'Is it risky to buy CCL right before earnings?',
+          a: 'Yes, there is significant binary risk. Results can move the stock 5 to 15% in the hours following the publication, in either direction. If you do not have tolerance for this short-term volatility, it is safer to wait for the publication, analyze the actual numbers, and then decide.'
+        },
+        {
+          q: 'At what price would it be interesting to buy CCL stock according to your model?',
+          a: 'Our model gives a recommended buy price of around $33.25, which already incorporates the thesis-specific risks. The stock currently trades around $30.87, slightly below that level. But my approach is to wait for results and get confirmation of trends before initiating a position.'
+        },
+        {
+          q: 'Is the cruise sector a good sector for long-term investing?',
+          a: 'Cruises are a structurally growing sector, but capital-intensive and cyclical. Demand is growing in emerging markets (Asia notably) and customer loyalty is strong. However, the heavy investments required limit returns on capital, and the sector is vulnerable to exogenous shocks (pandemics, geopolitics, energy). A moderate position within a diversified portfolio can be justified.'
+        }
+      ],
+      tags: ['Carnival Corporation', 'CCL', 'cruises', 'Q2 2026 results', 'fundamental analysis', 'stock market', 'investing', 'P/FCF', 'valuation', 'US stocks', 'travel sector', 'debt', 'Lubin Investment'],
+      disclaimer: 'This article is written for informational and educational purposes only. It does not constitute investment advice, nor a recommendation to buy or sell securities. The information presented reflects the personal opinion of the author based on publicly available data at the date of publication. Investing in financial markets involves risk of capital loss. Before making any investment decision, consult a licensed financial advisor. Past performance is not indicative of future results.'
+    },
+    es: {
+      title: 'Carnival Corporation (CCL) : análisis antes del 23 de junio',
+      excerpt: 'Carnival publica sus resultados trimestrales mañana. Nuestro modelo le otorga una puntuación sólida, pero dos debilidades clave pesan sobre la tesis. Lo analizamos todo antes de que abran los mercados.',
+      metaDescription: 'Antes de los resultados de Carnival Corporation el 23 de junio de 2026, nuestro análisis fundamental completo sobre la valoración, las fortalezas y debilidades de la acción CCL.',
+      answer: 'Nuestro modelo asigna a Carnival Corporation una puntuación de 7/10, lo que la convierte en una empresa de calidad correcta pero no excepcional. La valoración actual está ligeramente por debajo de nuestro precio de compra recomendado, por lo que si buscas entrar en esta posición, la prudencia es necesaria antes de los resultados de mañana. No tomo posiciones la víspera de una publicación de resultados, pero esta empresa merece un seguimiento cercano.',
+      body: [
+        {
+          type: 'p',
+          text: 'Mañana por la mañana, el 23 de junio de 2026, Carnival Corporation publicará sus resultados del segundo trimestre fiscal 2026. Es el tipo de evento que puede mover una acción entre un 5 y un 15 % en las horas siguientes. Antes de que caigan los números, quiero compartir contigo mi análisis completo de la tesis de CCL, incluyendo nuestra metodología de puntuación, la valoración que derivo de ella, y lo que vigilaré más de cerca en el informe de mañana.'
+        },
+        {
+          type: 'p',
+          text: 'Carnival es el número uno mundial en cruceros. Es un sector fascinante desde una perspectiva fundamental: márgenes que pueden ser muy atractivos, demanda en crecimiento estructural, pero también balances que en ocasiones pueden resultar preocupantes. Y CCL es exactamente eso: una empresa sólida con algunos puntos de fricción importantes que no se pueden ignorar.'
+        },
+        {
+          type: 'h2',
+          text: 'Carnival Corporation en breve: el líder mundial en cruceros'
+        },
+        {
+          type: 'p',
+          text: 'Carnival Corporation & plc (ticker: CCL) es la compañía de cruceros más grande del mundo. El grupo opera bajo varias marcas reconocidas: Carnival Cruise Line, Princess Cruises, Holland America Line, Costa Cruises, AIDA Cruises, P&O Cruises y Cunard, entre otras. Sumando todas sus marcas, Carnival representa aproximadamente el 45 % del mercado mundial de cruceros.'
+        },
+        {
+          type: 'p',
+          text: 'Con una capitalización de mercado de 37.900 millones de dólares y un precio actual de la acción de unos 30,87 dólares, CCL no es una empresa de pequeña capitalización. Es un gran grupo cotizado tanto en Nueva York como en Londres. El sector de los cruceros es intensivo en capital, lo que significa que hay que invertir miles de millones para construir barcos, mantenerlos y operarlos. Esta es una característica fundamental que explica muchas cosas en el análisis de esta acción.'
+        },
+        {
+          type: 'h2',
+          text: 'El contexto previo a los resultados: qué esperan los analistas'
+        },
+        {
+          type: 'p',
+          text: 'Para el segundo trimestre fiscal de 2026, el consenso de los analistas de Wall Street anticipa un beneficio por acción (BPA) de aproximadamente 0,12 dólares y unos ingresos de alrededor de 5.400 millones de dólares. Estas cifras pueden parecer modestas en términos absolutos para una empresa de este tamaño, pero el T2 es históricamente el trimestre de transición antes de la crucial temporada alta de verano para Carnival.'
+        },
+        {
+          type: 'p',
+          text: 'El beneficio por acción (BPA) es simplemente el beneficio neto total dividido entre el número de acciones en circulación. Es uno de los indicadores más seguidos por los mercados financieros durante las publicaciones de resultados. Cuando una empresa supera el consenso, la acción tiende a subir. Cuando no lo alcanza, aunque sea ligeramente, la reacción puede ser brusca.'
+        },
+        {
+          type: 'p',
+          text: 'Lo que me interesa tanto como el BPA es el guidance: lo que la dirección dice sobre los próximos trimestres. En un sector tan cíclico como el de los cruceros, la visibilidad sobre las reservas futuras (tasa de ocupación de los barcos, precio medio pagado por pasajero) es absolutamente determinante. Una buena previsión puede impulsar una acción aunque los números del trimestre actual sean ligeramente decepcionantes.'
+        },
+        {
+          type: 'h2',
+          text: 'Nuestra metodología de puntuación: 10 criterios fundamentales para una nota sobre 10'
+        },
+        {
+          type: 'p',
+          text: 'En Lubin Investment, analizo cada empresa en función de 10 criterios fundamentales. Cada criterio vale un punto. El objetivo es simple: tener una puntuación objetiva y reproducible que permita comparar empresas de sectores muy diferentes en una misma escala. No soy comprador ni vendedor por defecto; simplemente busco puntuar honestamente lo que los datos me cuentan.'
+        },
+        {
+          type: 'p',
+          text: 'Los 10 criterios abarcan: crecimiento de ingresos, rentabilidad (márgenes), generación de flujo de caja libre, calidad del balance (deuda), dilución del accionista, retorno sobre el capital empleado, consistencia del rendimiento, resiliencia en períodos de crisis, valoración y calidad del equipo directivo. Algunos criterios son más difíciles de cumplir en sectores intensivos en capital como los cruceros, y eso es precisamente lo que vamos a examinar.'
+        },
+        {
+          type: 'h2',
+          text: 'Carnival obtiene 7/10: las fortalezas de la tesis'
+        },
+        {
+          type: 'p',
+          text: 'Empecemos por las buenas noticias. Carnival ha generado un crecimiento espectacular de ingresos en cinco años: +59,5 % por año de media. Esta estadística obviamente debe leerse con cautela, ya que incorpora la recuperación post-COVID. En 2020-2021, los cruceros estaban completamente detenidos. La base de comparación era muy baja, y el rebote fue explosivo. Pero incluso teniendo en cuenta este efecto base, la demanda estructural de cruceros es real y está creciendo.'
+        },
+        {
+          type: 'p',
+          text: 'El margen neto es del 11,5 %. El margen neto es el porcentaje de los ingresos que se convierte en beneficio neto después de todos los gastos. Un 11,5 % en un sector tan costoso como el de los cruceros en términos de combustible, mano de obra y mantenimiento de flota es respetable. No es Microsoft, pero tampoco es una empresa que pierda dinero en sus operaciones.'
+        },
+        {
+          type: 'p',
+          text: 'El margen de flujo de caja libre (FCF margin) es del 10,7 %. El FCF, o flujo de caja libre, es lo que queda en las arcas después de pagar todos los gastos operativos Y las inversiones necesarias para mantener y hacer crecer el negocio. Es, a mi juicio, el verdadero indicador de la salud financiera de una empresa. Un margen FCF del 10,7 % significa que por cada 100 dólares de ingresos, Carnival retiene aproximadamente 10,70 dólares en efectivo neto. Es un nivel sólido.'
+        },
+        {
+          type: 'p',
+          text: 'El crecimiento del FCF por acción en cinco años es aún más impresionante: +60,7 % por año. Una vez más, el efecto de recuperación post-COVID amplifica esta cifra, pero la dirección es claramente positiva. La empresa genera cada vez más flujo de caja libre por acción a lo largo del tiempo.'
+        },
+        {
+          type: 'h2',
+          text: 'Por qué CCL no puede alcanzar el 10/10: la deuda, primera gran debilidad'
+        },
+        {
+          type: 'p',
+          text: 'Ahora viene lo doloroso. El primer punto, y con diferencia el más importante, es la deuda. El ratio deuda neta sobre FCF es de 8,3 veces. En otras palabras, si Carnival destinara la totalidad de su flujo de caja libre al pago de la deuda (sin invertir, sin pagar dividendos, sin hacer nada más), tardaría 8,3 años en llegar a cero. Eso es muy elevado. Mi umbral personal de comodidad está alrededor de 3 veces. Por debajo de ese nivel, me siento cómodo. Entre 3 y 5, es aceptable con compensaciones. Por encima de 5, el riesgo aumenta considerablemente.'
+        },
+        {
+          type: 'p',
+          text: '¿De dónde viene esta deuda colosal? En gran parte del COVID. En 2020 y 2021, los barcos estaban amarrados. Carnival ya no cobraba ingresos, pero los costos fijos continuaban: mantenimiento de barcos, salarios, intereses sobre préstamos existentes. El grupo tuvo que endeudarse masivamente para sobrevivir. Y esa deuda se convirtió en una carga duradera en el balance.'
+        },
+        {
+          type: 'p',
+          text: 'En el sector de los cruceros, existe otra realidad estructural: construir un nuevo barco cuesta entre 500 millones y 2.000 millones de dólares según su tamaño. Los pedidos se realizan con años de antelación. Este ciclo de inversión muy pesado hace difícil, si no imposible, tener un balance liviano en este sector. Es una particularidad de la industria que debo incorporar en mi análisis. No voy a penalizar a Carnival por estar en un sector intensivo en capital, pero debo señalar objetivamente que el riesgo financiero es mayor que el de una empresa tecnológica con cero deuda.'
+        },
+        {
+          type: 'h2',
+          text: 'La dilución del accionista: la segunda debilidad a vigilar'
+        },
+        {
+          type: 'p',
+          text: 'El segundo punto que frena la puntuación es la dilución del accionista. El número de acciones en circulación ha aumentado un +5,34 % por año durante cinco años. La dilución ocurre cuando una empresa crea nuevas acciones, lo que reduce mecánicamente la participación de cada accionista existente en el pastel. Es como si poseyeras una porción de una pizza y el restaurante decidiera cortarla en más porciones sin aumentar su tamaño: tu porción se hace más pequeña.'
+        },
+        {
+          type: 'p',
+          text: 'Para Carnival, esta dilución se explica principalmente por las ampliaciones de capital realizadas durante el COVID para financiar la supervivencia del grupo. De nuevo, esto es comprensible en contexto. Pero el resultado es que los accionistas que estaban presentes antes de la crisis vieron su participación en el capital diluida significativamente. Y cuando miro el FCF por acción, debo tener en cuenta que ese FCF se reparte entre más acciones hoy que hace cinco años.'
+        },
+        {
+          type: 'p',
+          text: 'Una tasa de dilución del 5,34 % anual es sustancial. Significa que parte del crecimiento que la empresa genera es, en cierto modo, "consumido" por el aumento en el número de acciones. Para un accionista, lo que importa en última instancia es el crecimiento del FCF por acción, no el crecimiento total del FCF. En este criterio, CCL se defiende razonablemente bien gracias a la fuerza de la recuperación post-COVID.'
+        },
+        {
+          type: 'h2',
+          text: 'El retorno sobre el capital: por debajo de nuestro objetivo'
+        },
+        {
+          type: 'p',
+          text: 'El Cash ROCE (rendimiento de caja sobre el capital empleado) es del 7,6 %. Este es mi indicador de eficiencia del capital: por cada dólar invertido en el negocio, ¿cuánto flujo de caja libre genera la empresa? Nuestro objetivo es del 15 %. Con un 7,6 %, Carnival está por debajo de este umbral.'
+        },
+        {
+          type: 'p',
+          text: 'Esto se explica por dos factores combinados: primero, la base de capital empleado es enorme (los barcos representan activos valorados en decenas de miles de millones de dólares), y segundo, el FCF generado, aunque positivo, debe medirse frente a esa base colosal. Una vez más, esta es una característica estructural del sector. Pero confirma que los cruceros no son naturalmente un sector de alto retorno sobre el capital.'
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: el P/FCF explicado de forma sencilla'
+        },
+        {
+          type: 'p',
+          text: 'Hablemos ahora de valoración. Utilizo principalmente el ratio P/FCF (Precio sobre Flujo de Caja Libre) para valorar una empresa. Este ratio es simplemente el precio de la acción dividido entre el FCF por acción. De forma concreta, responde a la pregunta: ¿cuántas veces estoy pagando el flujo de caja libre anual que la empresa genera para mí como accionista?'
+        },
+        {
+          type: 'p',
+          text: 'Cuanto más bajo es el P/FCF, potencialmente más barata es la empresa. Una valoración de 10 veces significa que pagas 10 años de FCF actual para poseer la acción. Una valoración de 30 veces significa 30 años. Es una forma intuitiva de comparar el valor relativo de una acción.'
+        },
+        {
+          type: 'p',
+          text: 'Para Carnival Corporation, la valoración actual es de 14,9 veces el FCF. Es una valoración razonable para una empresa en crecimiento. No es barata ni excesiva. Mi modelo de valoración, que incorpora el crecimiento esperado y los riesgos específicos del sector, me da un precio de compra recomendado de alrededor de 33,25 dólares. La acción cotiza actualmente alrededor de 30,87 dólares, ligeramente por debajo de ese nivel.'
+        },
+        {
+          type: 'p',
+          text: 'Una advertencia: el hecho de que la acción esté por debajo de mi precio objetivo no significa automáticamente que haya que comprar ahora. Mi precio objetivo ya incorpora los riesgos que he identificado (deuda elevada, dilución). Representa un margen de seguridad mínimo para compensar esos riesgos. La víspera de una publicación de resultados, la prudencia es aún más necesaria.'
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Valor CCL', 'Nuestro objetivo / umbral', 'Evaluación'],
+          rows: [
+            ['Capitalización de mercado', '37.900 M$', '-', 'Gran capitalización'],
+            ['Precio actual', '~30,87 $', 'Precio objetivo: ~33,25 $', 'Ligeramente por debajo'],
+            ['Valoración P/FCF', '14,9×', '<20× para crecimiento moderado', 'Razonable'],
+            ['Margen FCF', '10,7 %', '>10 %', 'Satisfactorio'],
+            ['Margen neto', '11,5 %', '>10 %', 'Correcto'],
+            ['Crecimiento ingresos 5 años', '+59,5 %/año', 'Contexto post-COVID', 'Fuerte recuperación'],
+            ['Crecimiento FCF/acción 5 años', '+60,7 %/año', 'Contexto post-COVID', 'Recuperación muy fuerte'],
+            ['Cash ROCE', '7,6 %', '>15 %', 'Por debajo del objetivo'],
+            ['Deuda neta / FCF', '8,3×', '<3×', 'Muy elevada'],
+            ['Dilución anual', '+5,34 %/año', '<1 %/año', 'Preocupante'],
+            ['Puntuación Lubin', '7/10', '8+/10 para invertir con comodidad', 'Sólido pero no excepcional'],
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Por qué el sector de los cruceros es estructuralmente difícil de puntuar 10/10'
+        },
+        {
+          type: 'p',
+          text: 'Quiero tomar un momento para explicar algo importante: Carnival no puede alcanzar el 10/10 con nuestra metodología, y no es enteramente culpa suya. Es una restricción sectorial. El sector de los cruceros es intensivo en capital, cíclico, y sufrió un shock exógeno mayor con el COVID. Todas estas características penalizan mecánicamente los criterios de balance y retorno sobre el capital.'
+        },
+        {
+          type: 'p',
+          text: 'Un sector intensivo en capital es aquel en el que hay que invertir constantemente sumas colosales solo para mantener la actividad (mantenimiento de barcos, renovación de la flota envejecida) y aún más para crecer (pedidos de nuevos barcos). Estos gastos se llaman capex (gastos de capital). Reducen mecánicamente el FCF, lo que afecta tanto al margen FCF como al Cash ROCE.'
+        },
+        {
+          type: 'p',
+          text: 'El carácter cíclico del sector significa que los ingresos pueden variar enormemente de un año a otro según la coyuntura económica, las crisis geopolíticas, las epidemias o simplemente las tendencias de consumo. Esta ciclicidad hace que las proyecciones a largo plazo sean más inciertas, y por tanto el riesgo para el inversor es estructuralmente mayor que para una empresa que opera en un sector defensivo como la gran distribución o los servicios públicos.'
+        },
+        {
+          type: 'p',
+          text: 'Dicho esto, el hecho de que un sector sea intensivo en capital y cíclico no significa que no tenga lugar en una cartera. Simplemente significa que hay que ser consciente de los riesgos, compensarlos con una valoración atractiva, y no sobreponderar este tipo de posiciones. Este es exactamente el enfoque que aplico con CCL.'
+        },
+        {
+          type: 'h2',
+          text: 'Lo que vigilaré en los resultados de mañana'
+        },
+        {
+          type: 'p',
+          text: 'Estos son los cuatro puntos que analizaré primero cuando lleguen los resultados mañana por la mañana:'
+        },
+        {
+          type: 'ul',
+          items: [
+            'El guidance para el T3 y el año completo: este es el punto más importante. El T3 es la temporada alta (julio-agosto-septiembre). Si Carnival eleva sus previsiones, la acción debería reaccionar bien.',
+            'La evolución de la deuda neta: ¿sigue el grupo reduciendo activamente su deuda post-COVID? Cada dólar reembolsado es un punto de riesgo menos.',
+            'La tasa de ocupación de los barcos y el precio medio por pasajero: estos dos indicadores miden la demanda real y la capacidad de Carnival para mantener sus precios. Si ambos mejoran, es una señal excelente.',
+            'Los flujos de caja operativos: no solo el beneficio contable, sino ¿cuánto efectivo generó realmente la actividad este trimestre? Aquí es donde leo la verdadera salud del negocio.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Mi veredicto antes de los resultados: una tesis interesante, aún no es una convicción fuerte'
+        },
+        {
+          type: 'p',
+          text: 'Carnival Corporation es una empresa seria, líder indiscutible en su sector, con una resiliencia notable tras el shock del COVID. La puntuación de 7/10 refleja fortalezas reales: fuerte crecimiento del FCF, márgenes respetables en un sector difícil, valoración razonable. Pero los 3 puntos que faltan no son triviales: una deuda de 8,3 veces el FCF y una dilución del 5,34 % anual son dos riesgos concretos que pesan sobre la tesis de inversión.'
+        },
+        {
+          type: 'p',
+          text: 'La acción cotiza ligeramente por debajo de mi precio objetivo de 33,25 dólares, pero no veo un margen de seguridad suficientemente amplio para tomar una posición antes de una publicación de resultados. Los resultados de mañana podrían tanto impulsar la acción a 34-35 dólares si todo va bien, como hundirla a 27-28 si el guidance decepciona. Este tipo de apuesta binaria no forma parte de mi enfoque.'
+        },
+        {
+          type: 'p',
+          text: 'En cambio, si los resultados de mañana muestran una reducción clara de la deuda, unas previsiones revisadas al alza para la temporada alta y unas sólidas tasas de ocupación, entonces la tesis merece una atención seria para una entrada progresiva. Actualizaré mi análisis tras la publicación.'
+        },
+        {
+          type: 'p',
+          text: 'Lo que más me gustaría ver en los próximos trimestres: que Carnival alcance un ratio deuda neta / FCF por debajo de 5 veces (un progreso significativo aunque aún por encima de mi ideal) y una estabilización de la dilución. Si estas dos tendencias se confirman, la puntuación podría progresar hacia el 8/10, lo que haría de esta tesis una propuesta considerablemente más convincente para mí.'
+        }
+      ],
+      faq: [
+        {
+          q: '¿Por qué Carnival solo obtiene un 7/10 con tu método?',
+          a: 'Carnival obtiene un 7/10 principalmente por dos debilidades: una deuda neta muy elevada (8,3 veces el flujo de caja libre anual) heredada en gran parte de la crisis del COVID, y una dilución del accionista del 5,34 % anual durante cinco años debido a las ampliaciones de capital realizadas para sobrevivir durante la pandemia. Estos dos puntos pesan sobre la puntuación a pesar de un rendimiento operativo sólido.'
+        },
+        {
+          q: '¿Qué es el P/FCF y por qué lo usas?',
+          a: 'El P/FCF (Precio sobre Flujo de Caja Libre) es la relación entre el precio de la acción y el flujo de caja libre generado por acción. Lo utilizo porque refleja mejor el valor real de una empresa que el simple PER basado en beneficios contables, que pueden verse influenciados por partidas no monetarias. Para CCL, esta valoración es de 14,9 veces, lo que es razonable pero no excepcional.'
+        },
+        {
+          q: '¿Es arriesgado comprar CCL justo antes de los resultados?',
+          a: 'Sí, existe un riesgo binario importante. Los resultados pueden mover la acción entre un 5 y un 15 % en las horas siguientes a la publicación, en cualquier dirección. Si no tienes tolerancia para esta volatilidad a corto plazo, es más prudente esperar a la publicación, analizar los números reales y decidir después.'
+        },
+        {
+          q: '¿A qué precio sería interesante comprar acciones de CCL según tu modelo?',
+          a: 'Nuestro modelo da un precio de compra recomendado de alrededor de 33,25 dólares, que ya incorpora los riesgos específicos de la tesis. La acción cotiza actualmente alrededor de 30,87 dólares, ligeramente por debajo de ese nivel. Pero mi enfoque es esperar los resultados y obtener confirmación de las tendencias antes de iniciar una posición.'
+        },
+        {
+          q: '¿Es el sector de los cruceros un buen sector para invertir a largo plazo?',
+          a: 'Los cruceros son un sector en crecimiento estructural, pero intensivo en capital y cíclico. La demanda está creciendo en los mercados emergentes (Asia en particular) y la fidelidad de los clientes es fuerte. Sin embargo, las fuertes inversiones necesarias limitan los retornos sobre el capital, y el sector es vulnerable a shocks exógenos (pandemias, geopolítica, energía). Una posición moderada dentro de una cartera diversificada puede estar justificada.'
+        }
+      ],
+      tags: ['Carnival Corporation', 'CCL', 'cruceros', 'resultados Q2 2026', 'análisis fundamental', 'bolsa', 'inversión', 'P/FCF', 'valoración', 'acciones estadounidenses', 'sector viajes', 'deuda', 'Lubin Investment'],
+      disclaimer: 'Este artículo está redactado con fines únicamente informativos y educativos. No constituye en modo alguno un consejo de inversión ni una recomendación de compra o venta de valores. La información presentada refleja la opinión personal del autor basada en datos públicos disponibles en la fecha de publicación. Invertir en los mercados financieros conlleva riesgo de pérdida de capital. Antes de tomar cualquier decisión de inversión, consulte con un asesor financiero autorizado. Los resultados pasados no son indicativos de resultados futuros.'
+    }
+  }
+};
+
+const fedexQ4FY26: Article = {
+  slug: 'fedex-fdx-resultats-q4-fy2026-analyse',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'FDX',
+  content: {
+    fr: {
+      title: 'FedEx Corporation (FDX) : notre analyse fondamentale',
+      excerpt: "FedEx publie ses résultats annuels demain. Avant l'événement, je te partage mon analyse fondamentale du titre : une rentabilité faible, des revenus qui stagnent et une action qui me semble trop chère au cours actuel.",
+      metaDescription: "FedEx (FDX) dévoile ses résultats le 23 juin 2026. Mon analyse fondamentale du titre avant la publication : rentabilité, croissance, valorisation et prix d'achat raisonnable.",
+      answer: "FedEx publie ses résultats annuels le 23 juin 2026. Mon analyse fondamentale est prudente : la rentabilité reste faible, les revenus stagnent depuis cinq ans et l'action, à environ 326 dollars, me paraît trop chère. Je n'achèterais ce titre qu'autour de 160 dollars.",
+      body: [
+        { type: 'ul', items: [
+          "FedEx dévoile ses résultats du quatrième trimestre de son exercice 2026 le 23 juin, soit demain.",
+          "Le consensus des analystes attend un bénéfice par action proche de 3,70 dollars et un chiffre d'affaires autour de 21,7 milliards de dollars.",
+          "Dans ma méthode, FedEx obtient une note de qualité de 3 sur 10 : rentabilité faible, croissance en recul et dette élevée.",
+          "À environ 326 dollars, l'action est valorisée à 18,8 fois son flux de trésorerie libre, un niveau que je trouve trop élevé.",
+          "Mon prix d'achat raisonnable se situe autour de 160 dollars, soit bien en dessous du cours actuel.",
+        ] },
+        { type: 'h2', text: "Des résultats attendus le 23 juin 2026" },
+        { type: 'p', text: "FedEx publie demain, le 23 juin 2026, les chiffres du quatrième trimestre de son exercice décalé 2026. C'est un rendez-vous suivi de près, car le transporteur sert souvent de baromètre du commerce mondial : quand les volumes de colis ralentissent, c'est toute l'économie qui envoie un signal." },
+        { type: 'p', text: "Les analystes attendent un bénéfice par action d'environ 3,70 dollars et un chiffre d'affaires proche de 21,7 milliards de dollars. Le marché regardera surtout deux choses : la marge dégagée par la division express, en pleine réorganisation, et les perspectives données pour l'exercice suivant. Une publication peut faire bouger le cours de plusieurs pour cent en une séance, dans un sens comme dans l'autre." },
+        { type: 'p', text: "Mon travail ne consiste pas à deviner la réaction de demain. Je m'intéresse à la solidité de l'entreprise sur la durée, pas au pari d'un trimestre. Voici donc ce que disent les fondamentaux de FedEx, indépendamment du chiffre qui tombera demain matin." },
+        { type: 'h2', text: "Ce que révèle notre analyse fondamentale" },
+        { type: 'p', text: "Chez Lubin Investment, chaque société reçoit une note de qualité sur 10. Cette note est la somme de dix critères fondamentaux que je vérifie un par un : la rentabilité, la régularité de la croissance, le niveau de dette, la capacité à générer du cash, etc. Plus une entreprise coche de cases, plus la note grimpe. FedEx obtient 3 sur 10. C'est faible, et le tableau ci-dessous explique pourquoi." },
+        { type: 'table',
+          headers: ['Critère', 'FedEx', 'Mon objectif'],
+          rows: [
+            ['Marge de flux libre', '4,6 %', 'supérieure à 10 %'],
+            ['Croissance des revenus sur 5 ans', '-0,6 % par an', 'positive et régulière'],
+            ['Marge nette', '4,9 %', 'élevée et stable'],
+            ['Rentabilité du capital (Cash ROCE)', '6,5 %', 'supérieure à 15 %'],
+            ['Dette nette rapportée au flux libre', '4,11 fois', 'inférieure à 3 fois'],
+          ],
+        },
+        { type: 'h2', text: "Pourquoi la rentabilité est-elle un problème ?" },
+        { type: 'p', text: "La marge de flux de trésorerie libre mesure ce qu'il reste réellement à l'entreprise après avoir payé ses investissements. Chez FedEx, elle n'est que de 4,6 %, alors que je cherche au moins 10 %. Le métier du transport exige des camions, des avions et des centres de tri très coûteux : ces dépenses lourdes grignotent le cash chaque année. La rentabilité du capital, à 6,5 %, confirme le diagnostic : l'entreprise gagne peu par rapport à l'argent qu'elle immobilise." },
+        { type: 'h2', text: "La croissance est-elle au rendez-vous ?" },
+        { type: 'p', text: "Non. Sur les cinq dernières années, le chiffre d'affaires recule en moyenne de 0,6 % par an. Autrement dit, FedEx vend aujourd'hui à peine plus, voire un peu moins, qu'il y a cinq ans. La concurrence d'UPS, l'arrivée d'Amazon dans la livraison et la pression sur les prix expliquent en partie cette stagnation. Une entreprise qui ne grandit pas a beaucoup de mal à justifier une valorisation généreuse." },
+        { type: 'h2', text: "La dette est-elle maîtrisée ?" },
+        { type: 'p', text: "La dette nette représente 4,11 fois le flux de trésorerie libre annuel. Je préfère rester sous 3 fois. Concrètement, il faudrait à FedEx plus de quatre années entières de cash libre pour rembourser ce qu'elle doit. Ce n'est pas alarmant dans l'immédiat, mais cela réduit la marge de manœuvre, surtout si les volumes venaient à ralentir." },
+        { type: 'h2', text: "La valorisation de l'action FDX" },
+        { type: 'p', text: "Pour juger le prix, j'utilise le P/FCF — autrement dit, le Price to Free Cash Flow — soit le cours de l'action divisé par le flux de trésorerie libre par action. C'est un peu comme le célèbre PER, mais fondé sur le cash réellement disponible plutôt que sur le bénéfice comptable. Plus ce chiffre est élevé, plus tu paies cher chaque dollar de trésorerie générée." },
+        { type: 'p', text: "À environ 326 dollars, l'action FDX est valorisée à 18,8 fois son flux de trésorerie libre. Pour une entreprise très rentable et en forte croissance, ce niveau serait acceptable. Mais pour un transporteur dont les revenus stagnent et dont la rentabilité reste faible, je le trouve trop élevé. Le marché semble payer pour un redressement qui n'est, à ce stade, pas encore visible dans les chiffres." },
+        { type: 'h2', text: "Le secteur de la logistique intégrée" },
+        { type: 'p', text: "FedEx évolue dans la logistique intégrée, un secteur capitalistique par nature : il faut posséder ou louer une flotte gigantesque et l'entretenir en permanence. Les marges y sont structurellement minces et très sensibles au prix du carburant comme au coût de la main d'œuvre. C'est un métier indispensable, mais rarement un terrain où l'on trouve les rentabilités élevées que je recherche." },
+        { type: 'p', text: "Avec une capitalisation d'environ 78,7 milliards de dollars, FedEx reste un géant solide et incontournable. Le plan d'économies en cours peut améliorer les marges à terme. Mais tant que la croissance ne repart pas et que la rentabilité ne progresse pas nettement, le dossier reste fragile à mes yeux." },
+        { type: 'h2', text: "Notre prix d'achat cible" },
+        { type: 'p', text: "Mon modèle situe un prix d'achat raisonnable autour de 160 dollars. C'est près de deux fois moins que le cours actuel. Ce n'est pas un pronostic de baisse, mais le prix auquel les fondamentaux actuels offriraient, selon moi, une vraie marge de sécurité. Tant que l'action reste loin de ce niveau, je préfère observer plutôt qu'acheter." },
+        { type: 'p', text: "Tu peux consulter le détail complet de mes critères et de la valorisation sur la fiche dédiée à <a href=\"/analyse/FDX\">l'analyse de FedEx (FDX)</a>, mise à jour avec les derniers chiffres disponibles." },
+        { type: 'p', text: "Si tu veux appliquer la même grille de lecture à une autre valeur, tu peux lancer ta propre recherche depuis la page <a href=\"/analyser\">analyser une action</a> et obtenir une note de qualité en quelques secondes." },
+        { type: 'p', text: "Et pour d'autres décryptages d'entreprises avant ou après leurs résultats, le <a href=\"/blog\">blog</a> regroupe l'ensemble de mes analyses." },
+      ],
+      faq: [
+        { q: "Quand FedEx publie-t-il ses résultats ?", a: "FedEx publie les résultats du quatrième trimestre de son exercice 2026 le 23 juin 2026. Le consensus attend un bénéfice par action d'environ 3,70 dollars et un chiffre d'affaires proche de 21,7 milliards de dollars." },
+        { q: "Pourquoi FedEx obtient-il une note de 3 sur 10 ?", a: "Parce que trois faiblesses ressortent nettement : une marge de flux libre de seulement 4,6 %, des revenus qui reculent de 0,6 % par an sur cinq ans, et une rentabilité du capital de 6,5 %, loin de mon objectif de 15 %. La dette, à 4,11 fois le flux libre, pèse également." },
+        { q: "L'action FDX est-elle chère aujourd'hui ?", a: "À environ 326 dollars, elle est valorisée à 18,8 fois son flux de trésorerie libre, un niveau que je juge élevé pour une entreprise dont la croissance et la rentabilité sont faibles." },
+        { q: "À quel prix l'action FedEx deviendrait-elle intéressante ?", a: "Mon modèle situe un prix d'achat raisonnable autour de 160 dollars, soit bien en dessous du cours actuel." },
+        { q: "Faut-il acheter FedEx avant les résultats de demain ?", a: "Non, pas selon mon analyse. La publication de demain peut provoquer une réaction du cours, mais elle ne change pas les fondamentaux à long terme. À 326 dollars, le titre reste loin de mon prix cible de 160 dollars." },
+      ],
+      tags: ['FedEx', 'FDX', 'logistique', 'analyse fondamentale', 'résultats'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
+    },
+    en: {
+      title: 'FedEx Corporation (FDX) : our fundamental analysis',
+      excerpt: "FedEx reports its annual results tomorrow. Ahead of the event, I share my fundamental analysis of the stock: weak profitability, flat revenue and a share price that looks too expensive to me at current levels.",
+      metaDescription: "FedEx (FDX) reports on June 23, 2026. My fundamental analysis of the stock before the release: profitability, growth, valuation and a reasonable buy price.",
+      answer: "FedEx reports its annual results on June 23, 2026. My fundamental view is cautious: profitability stays low, revenue has been flat for five years, and the stock, at about 326 dollars, looks too expensive to me. I would only buy this share around 160 dollars.",
+      body: [
+        { type: 'ul', items: [
+          "FedEx reports its fourth-quarter fiscal 2026 results on June 23, that is tomorrow.",
+          "Analyst consensus expects earnings per share near 3.70 dollars and revenue around 21.7 billion dollars.",
+          "In my method, FedEx scores 3 out of 10 for quality: weak profitability, declining growth and heavy debt.",
+          "At about 326 dollars, the stock is valued at 18.8 times its free cash flow, a level I find too high.",
+          "My reasonable buy price sits around 160 dollars, well below the current price.",
+        ] },
+        { type: 'h2', text: "Results due on June 23, 2026" },
+        { type: 'p', text: "FedEx reports tomorrow, June 23, 2026, the numbers for the fourth quarter of its shifted fiscal year 2026. It is a closely watched event, because the carrier often acts as a barometer of global trade: when parcel volumes slow down, the whole economy sends a signal." },
+        { type: 'p', text: "Analysts expect earnings per share of about 3.70 dollars and revenue close to 21.7 billion dollars. The market will focus on two things above all: the margin generated by the express division, which is in the middle of a reorganization, and the outlook given for the next fiscal year. A single release can move the stock by several percent in one session, in either direction." },
+        { type: 'p', text: "My job is not to guess tomorrow's market reaction. I care about how solid the company is over the long run, not the bet of a single quarter. So here is what FedEx's fundamentals say, regardless of the figure that lands tomorrow morning." },
+        { type: 'h2', text: "What our fundamental analysis reveals" },
+        { type: 'p', text: "At Lubin Investment, every company gets a quality score out of 10. That score is the sum of ten fundamental criteria I check one by one: profitability, the steadiness of growth, the level of debt, the ability to generate cash, and more. The more boxes a company ticks, the higher the score climbs. FedEx scores 3 out of 10. That is weak, and the table below explains why." },
+        { type: 'table',
+          headers: ['Criterion', 'FedEx', 'My target'],
+          rows: [
+            ['Free cash flow margin', '4.6%', 'above 10%'],
+            ['Revenue growth over 5 years', '-0.6% per year', 'positive and steady'],
+            ['Net margin', '4.9%', 'high and stable'],
+            ['Return on capital (Cash ROCE)', '6.5%', 'above 15%'],
+            ['Net debt to free cash flow', '4.11 times', 'below 3 times'],
+          ],
+        },
+        { type: 'h2', text: "Why is profitability a problem?" },
+        { type: 'p', text: "The free cash flow margin measures what truly remains for the company after paying for its capital investments. At FedEx it is only 4.6%, whereas I look for at least 10%. The transport business demands trucks, planes and very costly sorting hubs: these heavy outlays eat into cash every year. Return on capital, at 6.5%, confirms the diagnosis: the company earns little compared with the money it ties up in assets." },
+        { type: 'h2', text: "Is growth there?" },
+        { type: 'p', text: "No. Over the past five years, revenue has declined by an average of 0.6% per year. In other words, FedEx now sells barely more, if not slightly less, than it did five years ago. Competition from UPS, Amazon moving into delivery and sustained price pressure partly explain this stagnation. A company that does not grow has a hard time justifying a generous valuation." },
+        { type: 'h2', text: "Is the debt under control?" },
+        { type: 'p', text: "Net debt equals 4.11 times annual free cash flow. I prefer to stay below 3 times. In plain terms, it would take FedEx more than four full years of free cash to repay what it owes. It is not alarming in the short term, but it narrows the room for maneuver, especially if volumes were to slow down." },
+        { type: 'h2', text: "The valuation of the FDX share" },
+        { type: 'p', text: "To judge the price, I use the P/FCF, which stands for Price to Free Cash Flow: the share price divided by free cash flow per share. It works a bit like the well-known P/E ratio, but it is based on the cash actually available rather than accounting profit. The higher this figure, the more you pay for each dollar of cash the company generates." },
+        { type: 'p', text: "At about 326 dollars, the FDX share is valued at 18.8 times its free cash flow. For a highly profitable, fast-growing company, that level would be acceptable. But for a carrier whose revenue is flat and whose profitability stays low, I find it too high. The market seems to be pricing in a turnaround that is, at this stage, not yet visible in the numbers." },
+        { type: 'h2', text: "The integrated logistics sector" },
+        { type: 'p', text: "FedEx operates in integrated logistics, a capital-intensive sector by nature: you have to own or lease a huge fleet and maintain it constantly. Margins are structurally thin and very sensitive to fuel prices and labor costs. It is an essential business, but rarely a place where you find the high returns I look for." },
+        { type: 'p', text: "With a market capitalization of about 78.7 billion dollars, FedEx remains a solid and unavoidable giant. The ongoing cost-saving plan can improve margins over time. But as long as growth does not pick up and profitability does not clearly progress, the investment case stays fragile in my eyes." },
+        { type: 'h2', text: "Our target buy price" },
+        { type: 'p', text: "My model puts a reasonable buy price around 160 dollars. That is nearly half the current price. It is not a forecast of a fall, but the price at which the current fundamentals would, in my view, offer a real margin of safety. As long as the stock stays far from that level, I prefer to watch rather than buy." },
+        { type: 'p', text: "You can review the full detail of my criteria and valuation on the dedicated page for the <a href=\"/analyse/FDX\">FedEx (FDX) analysis</a>, updated with the latest available figures." },
+        { type: 'p', text: "If you want to apply the same reading grid to another stock, you can run your own search from the <a href=\"/analyser\">analyze a stock</a> page and get a quality score in a few seconds." },
+        { type: 'p', text: "And for more company breakdowns before or after their results, the <a href=\"/blog\">blog</a> gathers all of my analyses." },
+      ],
+      faq: [
+        { q: "When does FedEx report its results?", a: "FedEx reports the results of the fourth quarter of its fiscal year 2026 on June 23, 2026. Consensus expects earnings per share of about 3.70 dollars and revenue close to 21.7 billion dollars." },
+        { q: "Why does FedEx score 3 out of 10?", a: "Because three weaknesses stand out clearly: a free cash flow margin of only 4.6%, revenue declining 0.6% per year over five years, and return on capital of 6.5%, far from my 15% target. Debt, at 4.11 times free cash flow, also weighs on the score." },
+        { q: "Is the FDX share expensive today?", a: "At about 326 dollars, it is valued at 18.8 times its free cash flow, a level I consider high for a company whose growth and profitability are weak." },
+        { q: "At what price would the FedEx share become attractive?", a: "My model puts a reasonable buy price around 160 dollars, well below the current price." },
+        { q: "Should you buy FedEx before tomorrow's results?", a: "Not according to my analysis. Tomorrow's release may move the stock, but it does not change the long-term fundamentals. At 326 dollars, the share remains far from my target price of 160 dollars." },
+      ],
+      tags: ['FedEx', 'FDX', 'logistics', 'fundamental analysis', 'earnings'],
+      disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date and subject to change.",
+    },
+    es: {
+      title: 'FedEx Corporation (FDX) : análisis antes del 23 de junio',
+      excerpt: "FedEx publica sus resultados anuales mañana. Antes del evento, comparto mi análisis fundamental del título: rentabilidad débil, ingresos estancados y una acción que me parece demasiado cara al precio actual.",
+      metaDescription: "FedEx (FDX) presenta resultados el 23 de junio de 2026. Mi análisis fundamental del título antes de la publicación: rentabilidad, crecimiento, valoración y un precio de compra razonable.",
+      answer: "FedEx publica sus resultados anuales el 23 de junio de 2026. Mi visión fundamental es prudente: la rentabilidad sigue siendo baja, los ingresos llevan cinco años estancados y la acción, a unos 326 dólares, me parece demasiado cara. Solo compraría este título alrededor de 160 dólares.",
+      body: [
+        { type: 'ul', items: [
+          "FedEx publica los resultados del cuarto trimestre de su ejercicio 2026 el 23 de junio, es decir mañana.",
+          "El consenso de los analistas espera un beneficio por acción cercano a 3,70 dólares y unos ingresos en torno a 21,7 mil millones de dólares.",
+          "En mi método, FedEx obtiene una nota de calidad de 3 sobre 10: rentabilidad débil, crecimiento en retroceso y deuda elevada.",
+          "A unos 326 dólares, la acción está valorada a 18,8 veces su flujo de caja libre, un nivel que considero demasiado alto.",
+          "Mi precio de compra razonable se sitúa alrededor de 160 dólares, muy por debajo del precio actual.",
+        ] },
+        { type: 'h2', text: "Resultados previstos para el 23 de junio de 2026" },
+        { type: 'p', text: "FedEx publica mañana, 23 de junio de 2026, las cifras del cuarto trimestre de su ejercicio fiscal desplazado 2026. Es una cita muy seguida, porque el transportista suele actuar como barómetro del comercio mundial: cuando los volúmenes de paquetes se frenan, toda la economía envía una señal." },
+        { type: 'p', text: "Los analistas esperan un beneficio por acción de unos 3,70 dólares y unos ingresos cercanos a 21,7 mil millones de dólares. El mercado mirará sobre todo dos cosas: el margen que genera la división express, en plena reorganización, y las perspectivas dadas para el próximo ejercicio. Una publicación puede mover la cotización varios puntos porcentuales en una sola sesión, en cualquier dirección." },
+        { type: 'p', text: "Mi trabajo no consiste en adivinar la reacción de mañana. Me interesa la solidez de la empresa a largo plazo, no la apuesta de un solo trimestre. Así que esto es lo que dicen los fundamentales de FedEx, al margen de la cifra que llegue mañana por la mañana." },
+        { type: 'h2', text: "Lo que revela nuestro análisis fundamental" },
+        { type: 'p', text: "En Lubin Investment, cada empresa recibe una nota de calidad sobre 10. Esa nota es la suma de diez criterios fundamentales que verifico uno por uno: la rentabilidad, la regularidad del crecimiento, el nivel de deuda, la capacidad de generar caja, etcétera. Cuantas más casillas marca una empresa, más sube la nota. FedEx obtiene 3 sobre 10. Es una puntuación baja, y la tabla siguiente explica por qué." },
+        { type: 'table',
+          headers: ['Criterio', 'FedEx', 'Mi objetivo'],
+          rows: [
+            ['Margen de flujo de caja libre', '4,6 %', 'superior al 10 %'],
+            ['Crecimiento de ingresos a 5 años', '-0,6 % al año', 'positivo y regular'],
+            ['Margen neto', '4,9 %', 'alto y estable'],
+            ['Rentabilidad del capital (Cash ROCE)', '6,5 %', 'superior al 15 %'],
+            ['Deuda neta sobre flujo de caja libre', '4,11 veces', 'inferior a 3 veces'],
+          ],
+        },
+        { type: 'h2', text: "¿Por qué la rentabilidad es un problema?" },
+        { type: 'p', text: "El margen de flujo de caja libre mide lo que realmente le queda a la empresa después de pagar sus inversiones en activos. En FedEx es solo del 4,6 %, mientras que yo busco al menos un 10 %. El negocio del transporte exige camiones, aviones y centros de clasificación muy costosos: estos gastos pesados se comen la caja cada año. La rentabilidad del capital, del 6,5 %, confirma el diagnóstico: la empresa gana poco en relación con el dinero que inmoviliza." },
+        { type: 'h2', text: "¿Hay crecimiento?" },
+        { type: 'p', text: "No. En los últimos cinco años, los ingresos retroceden de media un 0,6 % al año. Dicho de otro modo, FedEx vende hoy apenas más, o incluso algo menos, que hace cinco años. La competencia de UPS, la entrada de Amazon en el reparto y la presión sostenida sobre los precios explican en parte este estancamiento. Una empresa que no crece tiene muchas dificultades para justificar una valoración generosa." },
+        { type: 'h2', text: "¿Está controlada la deuda?" },
+        { type: 'p', text: "La deuda neta equivale a 4,11 veces el flujo de caja libre anual. Yo prefiero quedarme por debajo de 3 veces. En términos concretos, FedEx necesitaría más de cuatro años enteros de caja libre para devolver lo que debe. No es alarmante a corto plazo, pero reduce el margen de maniobra, sobre todo si los volúmenes llegaran a frenarse." },
+        { type: 'h2', text: "La valoración de la acción FDX" },
+        { type: 'p', text: "Para juzgar el precio, utilizo el P/FCF, es decir el Price to Free Cash Flow: la cotización de la acción dividida por el flujo de caja libre por acción. Funciona de forma similar al conocido PER, pero se basa en la caja realmente disponible en lugar del beneficio contable. Cuanto más alto es este número, más pagas por cada dólar de caja que genera la empresa." },
+        { type: 'p', text: "A unos 326 dólares, la acción FDX está valorada a 18,8 veces su flujo de caja libre. Para una empresa muy rentable y de fuerte crecimiento, ese nivel sería aceptable. Pero para un transportista cuyos ingresos están estancados y cuya rentabilidad sigue siendo baja, lo considero demasiado alto. El mercado parece estar pagando por una recuperación que, a día de hoy, todavía no se ve en las cifras." },
+        { type: 'h2', text: "El sector de la logística integrada" },
+        { type: 'p', text: "FedEx opera en la logística integrada, un sector intensivo en capital por naturaleza: hay que poseer o alquilar una flota gigantesca y mantenerla de forma constante. Los márgenes son estructuralmente estrechos y muy sensibles al precio del combustible y al coste de la mano de obra. Es un negocio imprescindible, pero rara vez un terreno donde se encuentran las rentabilidades elevadas que busco." },
+        { type: 'p', text: "Con una capitalización de unos 78,7 mil millones de dólares, FedEx sigue siendo un gigante sólido e ineludible. El plan de ahorro en curso puede mejorar los márgenes con el tiempo. Pero mientras el crecimiento no repunte y la rentabilidad no progrese con claridad, el caso de inversión sigue siendo frágil a mis ojos." },
+        { type: 'h2', text: "Nuestro precio de compra objetivo" },
+        { type: 'p', text: "Mi modelo sitúa un precio de compra razonable alrededor de 160 dólares. Es casi la mitad del precio actual. No es un pronóstico de caída, sino el precio al que los fundamentales actuales ofrecerían, en mi opinión, un verdadero margen de seguridad. Mientras la acción siga lejos de ese nivel, prefiero observar antes que comprar." },
+        { type: 'p', text: "Puedes consultar el detalle completo de mis criterios y de la valoración en la ficha dedicada al <a href=\"/analyse/FDX\">análisis de FedEx (FDX)</a>, actualizada con las últimas cifras disponibles." },
+        { type: 'p', text: "Si quieres aplicar la misma rejilla de lectura a otro valor, puedes lanzar tu propia búsqueda desde la página <a href=\"/analyser\">analizar una acción</a> y obtener una nota de calidad en pocos segundos." },
+        { type: 'p', text: "Y para más análisis de empresas antes o después de sus resultados, el <a href=\"/blog\">blog</a> reúne todos mis estudios." },
+      ],
+      faq: [
+        { q: "¿Cuándo publica FedEx sus resultados?", a: "FedEx publica los resultados del cuarto trimestre de su ejercicio 2026 el 23 de junio de 2026. El consenso espera un beneficio por acción de unos 3,70 dólares y unos ingresos cercanos a 21,7 mil millones de dólares." },
+        { q: "¿Por qué FedEx obtiene una nota de 3 sobre 10?", a: "Porque destacan tres debilidades claras: un margen de flujo de caja libre de solo el 4,6 %, ingresos que retroceden un 0,6 % al año durante cinco años, y una rentabilidad del capital del 6,5 %, lejos de mi objetivo del 15 %. La deuda, a 4,11 veces el flujo libre, también pesa en la puntuación." },
+        { q: "¿Está cara la acción FDX hoy?", a: "A unos 326 dólares, está valorada a 18,8 veces su flujo de caja libre, un nivel que considero alto para una empresa cuyo crecimiento y rentabilidad son débiles." },
+        { q: "¿A qué precio sería interesante la acción de FedEx?", a: "Mi modelo sitúa un precio de compra razonable alrededor de 160 dólares, muy por debajo del precio actual." },
+        { q: "¿Hay que comprar FedEx antes de los resultados de mañana?", a: "No, según mi análisis. La publicación de mañana puede provocar una reacción en la cotización, pero no cambia los fundamentales a largo plazo. A 326 dólares, el título sigue lejos de mi precio objetivo de 160 dólares." },
+      ],
+      tags: ['FedEx', 'FDX', 'logística', 'análisis fundamental', 'resultados'],
+      disclaimer: "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los rendimientos pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios.",
+    },
+  },
+};
+
+const carMaxQ1FY27: Article = {
+  slug: 'carmax-kmx-resultats-q1-fy2027-analyse',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'KMX',
+  content: {
+    fr: {
+      title: 'CarMax (KMX) résultats Q1 2027 : notre analyse fondamentale',
+      excerpt:
+        "CarMax a légèrement dépassé les attentes sur son BPA au premier trimestre FY2027. Pourtant, notre méthode fondamentale attribue un score très bas à ce titre. Voici pourquoi la distribution automobile reste structurellement difficile à noter en qualité.",
+      metaDescription:
+        "CarMax (KMX) a publié ses résultats Q1 FY2027 le 17 juin 2026 : BPA 0,96$ légèrement au-dessus du consensus. Notre analyse fondamentale explique pourquoi le modèle économique reste fragile malgré le beat.",
+      answer:
+        "CarMax obtient un score de 3 sur 10 dans notre méthode fondamentale malgré un léger dépassement du consensus au Q1 FY2027. Les revenus reculent de 4,5 % par an sur 5 ans, la marge nette ne dépasse pas 1 %, le rendement du capital est à 4,8 % et l'endettement représente plus de 15 fois le free cash flow. Un beat EPS ne suffit pas à effacer des fondamentaux structurellement difficiles.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "CarMax a publié ses résultats Q1 FY2027 le 17 juin 2026 : BPA de 0,96 dollar, légèrement au-dessus du consensus, sur un chiffre d'affaires d'environ 7,4 milliards de dollars.",
+            "Notre score fondamental attribue 3 sur 10 à KMX : la croissance des revenus est négative sur 5 ans (-4,5 % par an), la marge nette est à 1 % et le Cash ROCE à 4,8 %, bien en dessous de notre seuil de 15 %.",
+            "L'endettement net représente 15,65 fois le free cash flow : très élevé, mais en partie structurel car il finance le stock de véhicules d'occasion.",
+            "La marge de free cash flow est à 4,4 % et le cycle de conversion cash atteint 273 jours, reflet direct du modèle de distribution automobile.",
+            "Le P/FCF est à 6,7 fois. Un prix bas n'est pas forcément une bonne affaire si la qualité fondamentale n'est pas au rendez-vous.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Les résultats Q1 FY2027 : un léger beat qui ne change pas le tableau',
+        },
+        {
+          type: 'p',
+          text: "Le 17 juin 2026, CarMax a publié ses résultats pour le premier trimestre de l'exercice fiscal 2027. Le BPA ressort à 0,96 dollar, légèrement au-dessus du consensus des analystes. Le chiffre d'affaires atteint environ 7,4 milliards de dollars. Malgré ce dépassement, les analystes restent prudents sur la trajectoire de redressement de l'entreprise. Pourquoi ? Parce qu'un léger beat sur le bénéfice par action est un instantané d'un seul trimestre. Ma méthode, elle, regarde les 5 dernières années pour juger si un modèle économique crée durablement de la valeur.",
+        },
+        {
+          type: 'p',
+          text: "CarMax est le plus grand distributeur de voitures d'occasion des États-Unis. Son modèle consiste à acheter des véhicules, les reconditionner, les vendre au détail et financer les achats via sa filiale financière CarMax Auto Finance. C'est un business qui requiert un stock immense, des marges minces et un capital considérable. À première vue, une capitalisation de 7,61 milliards de dollars pour une entreprise de cette envergure peut sembler intéressante. Mais ma méthode regarde derrière les chiffres.",
+        },
+        {
+          type: 'h2',
+          text: 'Notre score fondamental : 3 sur 10, et voici pourquoi',
+        },
+        {
+          type: 'p',
+          text: "Je note chaque action sur 10 critères objectifs, chacun avec un seuil précis : croissance des revenus, croissance du free cash flow par action, marge nette, marge de FCF, Cash ROCE (rendement du capital en cash réel), niveau d'endettement, dilution des actionnaires, payout ratio, levier opérationnel, qualité du bilan. CarMax en valide 3 sur 10. Ce n'est pas un jugement subjectif, c'est l'arithmétique du business.",
+        },
+        {
+          type: 'p',
+          text: "Premier problème : la croissance. Les revenus de CarMax ont reculé de 4,5 % par an en moyenne sur les 5 dernières années. Ce n'est pas une stagnation, c'est un déclin. Un business dont les ventes diminuent chaque année part avec un handicap structurel : il doit faire plus avec moins.",
+        },
+        {
+          type: 'p',
+          text: "Deuxième problème : la rentabilité. La marge nette de CarMax est à 1 %. Pour chaque 100 dollars encaissés, 1 dollar reste en bénéfice comptable. La marge de free cash flow est à 4,4 %. Ces chiffres ne sont pas le signe d'une entreprise en difficulté passagère : ils reflètent la nature même de la distribution automobile, un secteur à volumes élevés et marges compressées structurellement.",
+        },
+        {
+          type: 'h2',
+          text: 'Le Cash ROCE : le critère qui tranche',
+        },
+        {
+          type: 'p',
+          text: "Le Cash ROCE (Return On Capital Employed calculé sur le cash réel) mesure ce que le business génère en cash pour chaque dollar de capital qu'il mobilise. Mon seuil minimum est 15 %. CarMax affiche 4,8 %. Cela veut dire que pour 100 dollars de capital immobilisé dans le stock de voitures, les entrepôts, les reconditionnements et la filiale financière, l'entreprise ne génère que 4,8 dollars de cash réel par an. Ce rendement est inférieur à ce que procure un simple placement sans risque.",
+        },
+        {
+          type: 'p',
+          text: "Ce n'est pas une surprise pour un distributeur automobile. Le modèle exige un capital énorme et immobilisé. Reconditionnement, logistique, garanties, financement des achats clients : chaque étape consomme du capital. La spécificité de CarMax, c'est d'avoir industrialisé ce modèle à grande échelle, mais l'industrialisation ne change pas la structure des rendements.",
+        },
+        {
+          type: 'h2',
+          text: "L'endettement : une réalité structurelle, pas une anomalie",
+        },
+        {
+          type: 'p',
+          text: "L'endettement net de CarMax représente 15,65 fois son free cash flow. C'est un niveau très élevé selon mes critères. Mais il faut comprendre la mécanique : une grande partie de cette dette finance le stock de véhicules et les prêts accordés aux clients via CarMax Auto Finance. Ce n'est pas une dette de mauvaise gestion, c'est le carburant du modèle. Comme une banque emprunte à court terme pour prêter à long terme, CarMax emprunte pour financer son stock et ses crédits auto.",
+        },
+        {
+          type: 'p',
+          text: "Le problème n'est pas moral, il est financier : un levier de 15,65 fois réduit considérablement la marge de manoeuvre en cas de crise. La pandémie de 2020, la flambée des prix des voitures d'occasion en 2021-2022, puis leur normalisation en 2023-2024 ont montré à quel point ce modèle est sensible aux cycles. Le cycle de conversion cash à 273 jours illustre cette réalité : entre le moment où CarMax achète un véhicule et le moment où il encaisse sa vente, 273 jours s'écoulent en moyenne. C'est presque un trimestre de trésorerie immobilisée.",
+        },
+        {
+          type: 'h2',
+          text: 'Le P/FCF à 6,7 fois : un prix bas ne compense pas une qualité faible',
+        },
+        {
+          type: 'p',
+          text: "Le P/FCF (prix de l'action divisé par le free cash flow généré par action chaque année) de CarMax est à 6,7 fois. Pour comprendre ce que ça signifie : tu paies aujourd'hui 6,7 années de cash généré par l'entreprise. C'est un niveau historiquement bas. Et c'est précisément là où beaucoup d'investisseurs se font piéger.",
+        },
+        {
+          type: 'p',
+          text: "Un P/FCF bas ne signifie pas que l'action est une bonne affaire. Il peut simplement refléter que le marché anticipe une poursuite du déclin. Si les revenus continuent à reculer de 4,5 % par an et que les marges restent minces, le free cash flow ne progresse pas, voire diminue. Un multiple bas sur une base qui rétrécit n'est pas une décote : c'est une mise en garde.",
+        },
+        {
+          type: 'p',
+          text: "Ma règle est simple : je juge la qualité fondamentale d'abord, le prix ensuite. Je n'achète pas un mauvais business parce qu'il est peu cher. Pour les entreprises notées 3 sur 10, le bas prix est souvent une illusion. L'inverse d'Adobe ou de Salesforce, qui méritent leur prime de qualité : ici, la décote est justifiée par les fondamentaux.",
+        },
+        {
+          type: 'h2',
+          text: "Ce que les résultats Q1 FY2027 changent, et ce qu'ils ne changent pas",
+        },
+        {
+          type: 'p',
+          text: "Le BPA de 0,96 dollar est légèrement au-dessus du consensus. C'est une bonne nouvelle pour les actionnaires d'un trimestre. Mais un trimestre ne change pas 5 ans de déclin des revenus. Il ne change pas une marge nette à 1 %. Il ne change pas un Cash ROCE à 4,8 %. Les analystes restent prudents sur la trajectoire de redressement, et je comprends pourquoi.",
+        },
+        {
+          type: 'p',
+          text: "Pour qu'un investisseur fondamental s'intéresse à CarMax, il faudrait voir plusieurs trimestres consécutifs de croissance des revenus, une expansion des marges, une réduction du levier financier, et une amélioration du Cash ROCE vers 15 % ou plus. Ces signaux n'apparaissent pas encore dans les données disponibles. J'observe, je note, j'attends des preuves.",
+        },
+        {
+          type: 'p',
+          text: "Si tu veux voir l'intégralité des ratios mis à jour pour KMX, c'est accessible directement sur mon site : lubin-investment.com/analyse/KMX.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce que le P/FCF et pourquoi est-il important ?",
+          a: "Le P/FCF (Price to Free Cash Flow) est le rapport entre le prix de l'action et le free cash flow généré par action chaque année. C'est le nombre d'années de cash que tu paies aujourd'hui. Un P/FCF de 6,7 fois signifie que tu paies 6,7 ans de cash. C'est bas, mais sur une base en déclin ce n'est pas forcément bon marché.",
+        },
+        {
+          q: "Pourquoi la distribution automobile obtient-elle toujours des scores fondamentaux bas ?",
+          a: "Parce que le modèle requiert un capital immense (stock de véhicules, financement des crédits auto), génère des marges nettes très minces autour de 1 %, et est très sensible aux cycles économiques et aux prix des voitures d'occasion. Le rendement du capital reste structurellement faible, ce qui pénalise les critères comme le Cash ROCE.",
+        },
+        {
+          q: "Un score de 3 sur 10 signifie-t-il que CarMax est une mauvaise entreprise ?",
+          a: "Non, ça signifie que le modèle économique ne satisfait pas la majorité de mes critères de qualité fondamentale. CarMax est un leader de son secteur, bien géré, avec une marque reconnue. Mais 'bien géré dans un secteur difficile' et 'qualité d'investissement fondamentale' sont deux choses différentes.",
+        },
+        {
+          q: "Le beat EPS du Q1 FY2027 est-il un signal d'achat ?",
+          a: "Pas selon ma méthode. Un léger dépassement du consensus sur un seul trimestre ne compense pas 5 ans de déclin des revenus, une marge nette à 1 % et un Cash ROCE à 4,8 %. Pour changer d'avis, j'aurais besoin de voir plusieurs trimestres consécutifs d'amélioration des fondamentaux. Ceci n'est pas un conseil en investissement.",
+        },
+        {
+          q: "Que signifie un cycle de conversion cash de 273 jours ?",
+          a: "Que 273 jours s'écoulent en moyenne entre le moment où CarMax investit du cash (achat d'un véhicule) et le moment où il le récupère (encaissement de la vente). C'est presque 9 mois de trésorerie immobilisée, ce qui explique en partie le niveau d'endettement élevé du groupe.",
+        },
+      ],
+      tags: [
+        'KMX',
+        'CarMax',
+        'distribution automobile',
+        'earnings',
+        'Q1 FY2027',
+        'analyse fondamentale',
+        'valorisation',
+        'score faible',
+      ],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Chiffres à la date du 22 juin 2026. Les performances passées ne préjugent pas du futur. Fais tes propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'CarMax (KMX) Q1 2027 results: our fundamental analysis',
+      excerpt:
+        'CarMax slightly beat EPS consensus in Q1 FY2027. Yet our fundamental method gives this stock a very low score. Here is why auto retail remains structurally hard to rate on quality.',
+      metaDescription:
+        'CarMax (KMX) published Q1 FY2027 results on June 17, 2026: EPS of 0.96 dollar, slightly above consensus. Our fundamental analysis explains why the business model remains fragile despite the beat.',
+      answer:
+        'CarMax scores 3 out of 10 in our fundamental method despite a slight EPS beat in Q1 FY2027. Revenues have declined 4.5% per year over five years, net margin is 1%, Cash ROCE is 4.8%, and net debt represents more than 15 times free cash flow. A single EPS beat is not enough to erase structurally difficult fundamentals.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'CarMax published Q1 FY2027 results on June 17, 2026: EPS of 0.96 dollar, slightly above consensus, on revenues of approximately 7.4 billion dollars.',
+            'Our fundamental score gives KMX a 3 out of 10: revenue growth has been negative over 5 years (-4.5% per year), net margin is 1% and Cash ROCE is 4.8%, well below our 15% threshold.',
+            'Net debt represents 15.65 times free cash flow: very high, but partly structural as it finances used vehicle inventory.',
+            'Free cash flow margin is 4.4% and the cash conversion cycle reaches 273 days, a direct reflection of the auto retail model.',
+            'P/FCF is at 6.7 times. A low price is not necessarily a good deal if fundamental quality is not there.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Q1 FY2027 results: a slight beat that does not change the picture',
+        },
+        {
+          type: 'p',
+          text: 'On June 17, 2026, CarMax published results for the first quarter of fiscal year 2027. EPS came in at 0.96 dollar, slightly above analyst consensus. Revenue reached approximately 7.4 billion dollars. Despite this beat, analysts remain cautious about the company\'s recovery trajectory. Why? Because a slight EPS beat is a snapshot of a single quarter. My method looks at the last 5 years to judge whether a business model creates value durably.',
+        },
+        {
+          type: 'p',
+          text: "CarMax is the largest used car retailer in the United States. Its model consists of buying vehicles, reconditioning them, selling them at retail, and financing purchases through its subsidiary CarMax Auto Finance. It is a business that requires enormous inventory, thin margins, and significant capital. At first glance, a market cap of 7.61 billion dollars for an enterprise of this size might seem interesting. But my method looks behind the numbers.",
+        },
+        {
+          type: 'h2',
+          text: 'Our fundamental score: 3 out of 10, and here is why',
+        },
+        {
+          type: 'p',
+          text: 'I score each stock on 10 objective criteria, each with a specific threshold: revenue growth, FCF per share growth, net margin, FCF margin, Cash ROCE (cash return on capital employed), debt level, shareholder dilution, payout ratio, operating leverage, balance sheet quality. CarMax validates 3 out of 10. This is not a subjective judgment, it is the arithmetic of the business.',
+        },
+        {
+          type: 'p',
+          text: 'First problem: growth. CarMax revenues have declined 4.5% per year on average over the last 5 years. This is not stagnation, it is a decline. A business whose sales shrink every year starts with a structural handicap: it has to do more with less.',
+        },
+        {
+          type: 'p',
+          text: 'Second problem: profitability. CarMax net margin is 1%. For every 100 dollars collected, 1 dollar remains as accounting profit. The free cash flow margin is 4.4%. These figures are not the sign of a temporarily struggling company: they reflect the very nature of auto retail, a high-volume sector with structurally compressed margins.',
+        },
+        {
+          type: 'h2',
+          text: 'Cash ROCE: the criterion that decides',
+        },
+        {
+          type: 'p',
+          text: 'Cash ROCE measures what the business generates in cash for every dollar of capital it mobilizes. My minimum threshold is 15%. CarMax shows 4.8%. That means for every 100 dollars of capital tied up in vehicle inventory, warehouses, reconditioning, and the finance subsidiary, the company generates only 4.8 dollars of real cash per year. This return is lower than a simple risk-free investment.',
+        },
+        {
+          type: 'p',
+          text: "This is no surprise for an auto retailer. The model requires enormous, tied-up capital. Reconditioning, logistics, warranties, customer purchase financing: every step consumes capital. CarMax's specificity is having industrialized this model at scale, but industrialization does not change the structure of returns.",
+        },
+        {
+          type: 'h2',
+          text: 'Debt: a structural reality, not an anomaly',
+        },
+        {
+          type: 'p',
+          text: "CarMax net debt represents 15.65 times its free cash flow. That is a very high level by my criteria. But the mechanics must be understood: a large part of this debt finances vehicle inventory and loans made to customers through CarMax Auto Finance. This is not mismanagement debt, it is the fuel of the model. Just as a bank borrows short-term to lend long-term, CarMax borrows to finance its inventory and auto loans.",
+        },
+        {
+          type: 'p',
+          text: "The problem is not moral, it is financial: leverage of 15.65 times dramatically reduces flexibility in a crisis. The 2020 pandemic, the surge in used car prices in 2021-2022, then their normalization in 2023-2024, showed how sensitive this model is to cycles. The cash conversion cycle of 273 days illustrates this reality: between when CarMax buys a vehicle and when it collects the sale, 273 days pass on average. That is nearly a quarter of treasury tied up.",
+        },
+        {
+          type: 'h2',
+          text: 'P/FCF at 6.7 times: a low price does not offset weak quality',
+        },
+        {
+          type: 'p',
+          text: "CarMax's P/FCF (stock price divided by free cash flow generated per share each year) is at 6.7 times. To understand what that means: you are paying today for 6.7 years of cash the company generates. That is a historically low level. And that is precisely where many investors get trapped.",
+        },
+        {
+          type: 'p',
+          text: 'A low P/FCF does not mean the stock is a good deal. It may simply reflect the market anticipating continued decline. If revenues keep falling 4.5% per year and margins remain thin, free cash flow does not grow, it may even shrink. A low multiple on a shrinking base is not a discount: it is a warning.',
+        },
+        {
+          type: 'p',
+          text: 'My rule is simple: I judge fundamental quality first, price second. I do not buy a bad business because it is cheap. For companies scoring 3 out of 10, the low price is often an illusion. The opposite of Adobe or Salesforce, which deserve their quality premium: here, the discount is justified by the fundamentals.',
+        },
+        {
+          type: 'h2',
+          text: 'What Q1 FY2027 results change, and what they do not',
+        },
+        {
+          type: 'p',
+          text: 'The EPS of 0.96 dollar is slightly above consensus. That is good news for shareholders for one quarter. But one quarter does not change 5 years of revenue decline. It does not change a 1% net margin. It does not change a Cash ROCE at 4.8%. Analysts remain cautious about the recovery trajectory, and I understand why.',
+        },
+        {
+          type: 'p',
+          text: 'For a fundamental investor to take interest in CarMax, you would need to see several consecutive quarters of revenue growth, margin expansion, leverage reduction, and Cash ROCE improving toward 15% or above. Those signals are not yet visible in the available data. I observe, I score, I wait for evidence.',
+        },
+        {
+          type: 'p',
+          text: 'If you want to see the full set of updated ratios for KMX, they are available directly on my site: lubin-investment.com/analyse/KMX.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is P/FCF and why does it matter?',
+          a: "P/FCF (Price to Free Cash Flow) is the ratio between the stock price and free cash flow generated per share each year. It is the number of years of cash you pay today. A P/FCF of 6.7 times means you pay 6.7 years of cash. That is low, but on a declining base it is not necessarily cheap.",
+        },
+        {
+          q: 'Why does auto retail always score poorly on fundamental metrics?',
+          a: 'Because the model requires enormous capital (vehicle inventory, auto loan financing), generates very thin net margins around 1%, and is highly sensitive to economic cycles and used car prices. Capital returns remain structurally low, which penalizes criteria like Cash ROCE.',
+        },
+        {
+          q: 'Does a score of 3 out of 10 mean CarMax is a bad company?',
+          a: "No, it means the business model does not satisfy the majority of my fundamental quality criteria. CarMax is a leader in its sector, well managed, with a recognized brand. But 'well managed in a difficult sector' and 'fundamental investment quality' are two different things.",
+        },
+        {
+          q: 'Is the Q1 FY2027 EPS beat a buy signal?',
+          a: 'Not by my method. A slight beat on analyst consensus for a single quarter does not offset 5 years of revenue decline, a 1% net margin and a Cash ROCE at 4.8%. To change my view, I would need to see several consecutive quarters of improving fundamentals. This is not investment advice.',
+        },
+        {
+          q: 'What does a cash conversion cycle of 273 days mean?',
+          a: 'It means that on average 273 days pass between when CarMax invests cash (buying a vehicle) and when it gets it back (collecting the sale). That is almost 9 months of tied-up treasury, which partly explains the group\'s high debt level.',
+        },
+      ],
+      tags: [
+        'KMX',
+        'CarMax',
+        'auto retail',
+        'earnings',
+        'Q1 FY2027',
+        'fundamental analysis',
+        'valuation',
+        'low score',
+      ],
+      disclaimer:
+        'Analysis for informational and educational purposes only, not personalized investment advice. Figures as of June 22, 2026. Past performance does not predict future results. Do your own research before any investment decision.',
+    },
+    es: {
+      title: 'CarMax (KMX) : nuestro análisis fundamental Q1 2027',
+      excerpt:
+        'CarMax superó ligeramente el consenso de BPA en el Q1 FY2027. Sin embargo, nuestro método fundamental atribuye una puntuación muy baja a este título. Aquí explicamos por qué la distribución de automóviles sigue siendo estructuralmente difícil de calificar en calidad.',
+      metaDescription:
+        'CarMax (KMX) publicó resultados Q1 FY2027 el 17 de junio de 2026: BPA de 0,96 dólares, ligeramente por encima del consenso. Nuestro análisis fundamental explica por qué el modelo económico sigue siendo frágil pese al beat.',
+      answer:
+        'CarMax obtiene una puntuación de 3 sobre 10 en nuestro método fundamental pese a superar ligeramente el consenso en el Q1 FY2027. Los ingresos han caído un 4,5 % anual en cinco años, el margen neto no supera el 1 %, el Cash ROCE es del 4,8 % y la deuda neta representa más de 15 veces el flujo de caja libre. Un beat de BPA no es suficiente para borrar unos fundamentales estructuralmente difíciles.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'CarMax publicó resultados Q1 FY2027 el 17 de junio de 2026: BPA de 0,96 dólares, ligeramente por encima del consenso, con una facturación de aproximadamente 7.400 millones de dólares.',
+            'Nuestra puntuación fundamental otorga a KMX un 3 sobre 10: el crecimiento de ingresos ha sido negativo en 5 años (-4,5 % anual), el margen neto es del 1 % y el Cash ROCE del 4,8 %, muy por debajo de nuestro umbral del 15 %.',
+            'La deuda neta representa 15,65 veces el flujo de caja libre: muy elevada, aunque en parte estructural porque financia el inventario de vehículos de segunda mano.',
+            'El margen de flujo de caja libre es del 4,4 % y el ciclo de conversión de efectivo alcanza los 273 días, reflejo directo del modelo de distribución de automóviles.',
+            'El P/FCF es de 6,7 veces. Un precio bajo no es necesariamente una buena inversión si la calidad fundamental no está a la altura.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Resultados Q1 FY2027: un ligero beat que no cambia el panorama',
+        },
+        {
+          type: 'p',
+          text: 'El 17 de junio de 2026, CarMax publicó sus resultados del primer trimestre del ejercicio fiscal 2027. El BPA se situó en 0,96 dólares, ligeramente por encima del consenso de los analistas. Los ingresos alcanzaron aproximadamente 7.400 millones de dólares. A pesar de este resultado, los analistas se mantienen cautelosos respecto a la trayectoria de recuperación de la empresa. ¿Por qué? Porque un ligero beat de BPA es una instantánea de un solo trimestre. Mi método mira los últimos 5 años para juzgar si un modelo económico crea valor de forma duradera.',
+        },
+        {
+          type: 'p',
+          text: 'CarMax es el mayor distribuidor de coches de segunda mano de Estados Unidos. Su modelo consiste en comprar vehículos, reacondicionarlos, venderlos al por menor y financiar las compras a través de su filial CarMax Auto Finance. Es un negocio que requiere un inventario enorme, márgenes muy reducidos y un capital considerable. A primera vista, una capitalización de 7.610 millones de dólares para una empresa de esta envergadura puede parecer interesante. Pero mi método mira más allá de las cifras.',
+        },
+        {
+          type: 'h2',
+          text: 'Nuestra puntuación fundamental: 3 sobre 10, y esta es la razón',
+        },
+        {
+          type: 'p',
+          text: 'Puntúo cada acción sobre 10 criterios objetivos, cada uno con un umbral preciso: crecimiento de ingresos, crecimiento del FCF por acción, margen neto, margen de FCF, Cash ROCE (rendimiento del capital en efectivo real), nivel de endeudamiento, dilución de accionistas, payout ratio, apalancamiento operativo, calidad del balance. CarMax valida 3 de los 10. No es un juicio subjetivo, es la aritmética del negocio.',
+        },
+        {
+          type: 'p',
+          text: 'Primer problema: el crecimiento. Los ingresos de CarMax han caído un 4,5 % anual de media en los últimos 5 años. No es estancamiento, es declive. Un negocio cuyas ventas menguan cada año parte con un hándicap estructural: tiene que hacer más con menos.',
+        },
+        {
+          type: 'p',
+          text: 'Segundo problema: la rentabilidad. El margen neto de CarMax es del 1 %. Por cada 100 dólares ingresados, solo 1 dólar permanece como beneficio contable. El margen de flujo de caja libre es del 4,4 %. Estas cifras no son señal de una empresa con dificultades pasajeras: reflejan la naturaleza misma de la distribución de automóviles, un sector de altos volúmenes con márgenes estructuralmente comprimidos.',
+        },
+        {
+          type: 'h2',
+          text: 'El Cash ROCE: el criterio que determina todo',
+        },
+        {
+          type: 'p',
+          text: 'El Cash ROCE mide lo que el negocio genera en efectivo por cada dólar de capital que moviliza. Mi umbral mínimo es el 15 %. CarMax muestra un 4,8 %. Eso significa que por cada 100 dólares de capital inmovilizado en inventario de vehículos, almacenes, reacondicionamiento y la filial financiera, la empresa genera solo 4,8 dólares de efectivo real al año. Este rendimiento es inferior al de una simple inversión sin riesgo.',
+        },
+        {
+          type: 'p',
+          text: 'Esto no sorprende en un distribuidor de automóviles. El modelo requiere un capital enorme e inmovilizado. Reacondicionamiento, logística, garantías, financiación de las compras de los clientes: cada etapa consume capital. La especificidad de CarMax es haber industrializado este modelo a gran escala, pero la industrialización no cambia la estructura de los rendimientos.',
+        },
+        {
+          type: 'h2',
+          text: 'El endeudamiento: una realidad estructural, no una anomalía',
+        },
+        {
+          type: 'p',
+          text: 'La deuda neta de CarMax representa 15,65 veces su flujo de caja libre. Es un nivel muy elevado según mis criterios. Pero hay que entender la mecánica: gran parte de esta deuda financia el inventario de vehículos y los préstamos concedidos a los clientes a través de CarMax Auto Finance. No es una deuda fruto de una mala gestión, es el combustible del modelo. Al igual que un banco pide prestado a corto plazo para prestar a largo, CarMax se endeuda para financiar su inventario y sus créditos para automóviles.',
+        },
+        {
+          type: 'p',
+          text: 'El problema no es moral, es financiero: un apalancamiento de 15,65 veces reduce drásticamente el margen de maniobra en caso de crisis. La pandemia de 2020, el alza de los precios de los coches de segunda mano en 2021-2022 y su posterior normalización en 2023-2024 mostraron la gran sensibilidad de este modelo a los ciclos económicos. El ciclo de conversión de efectivo de 273 días ilustra esta realidad: entre el momento en que CarMax compra un vehículo y el momento en que cobra la venta, transcurren 273 días de media. Eso equivale a casi nueve meses de tesorería inmovilizada.',
+        },
+        {
+          type: 'h2',
+          text: 'P/FCF de 6,7 veces: un precio bajo no compensa una calidad débil',
+        },
+        {
+          type: 'p',
+          text: 'El P/FCF de CarMax (precio de la acción dividido por el flujo de caja libre generado por acción cada año) es de 6,7 veces. Para entender qué significa: hoy pagas 6,7 años de efectivo que genera la empresa. Es un nivel históricamente bajo. Y ese es precisamente el punto donde muchos inversores caen en la trampa.',
+        },
+        {
+          type: 'p',
+          text: 'Un P/FCF bajo no significa que la acción sea una buena inversión. Puede simplemente reflejar que el mercado anticipa la continuación del declive. Si los ingresos siguen cayendo un 4,5 % anual y los márgenes permanecen reducidos, el flujo de caja libre no crece, e incluso puede disminuir. Un múltiplo bajo sobre una base que se contrae no es un descuento: es una advertencia.',
+        },
+        {
+          type: 'p',
+          text: 'Mi regla es simple: juzgo la calidad fundamental primero y el precio después. No compro un mal negocio porque sea barato. Para las empresas puntuadas con 3 sobre 10, el precio bajo es a menudo una ilusión. Lo contrario de Adobe o Salesforce, que merecen su prima de calidad: aquí, el descuento está justificado por los fundamentales.',
+        },
+        {
+          type: 'h2',
+          text: 'Lo que cambian los resultados Q1 FY2027, y lo que no cambian',
+        },
+        {
+          type: 'p',
+          text: 'El BPA de 0,96 dólares está ligeramente por encima del consenso. Es una buena noticia para los accionistas de un trimestre. Pero un trimestre no cambia 5 años de declive de ingresos. No cambia un margen neto del 1 %. No cambia un Cash ROCE del 4,8 %. Los analistas mantienen la cautela sobre la trayectoria de recuperación, y entiendo por qué.',
+        },
+        {
+          type: 'p',
+          text: 'Para que un inversor fundamental se interese por CarMax, habría que ver varios trimestres consecutivos de crecimiento de ingresos, expansión de márgenes, reducción del apalancamiento financiero y mejora del Cash ROCE hacia el 15 % o más. Esas señales no aparecen aún en los datos disponibles. Observo, puntúo, espero evidencias.',
+        },
+        {
+          type: 'p',
+          text: 'Si quieres ver el conjunto completo de ratios actualizados para KMX, están disponibles directamente en mi sitio: lubin-investment.com/analyse/KMX.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el P/FCF y por qué es importante?',
+          a: 'El P/FCF (Price to Free Cash Flow) es la relación entre el precio de la acción y el flujo de caja libre generado por acción cada año. Es el número de años de efectivo que pagas hoy. Un P/FCF de 6,7 veces significa que pagas 6,7 años de efectivo. Es bajo, pero sobre una base en declive no significa necesariamente una buena oportunidad.',
+        },
+        {
+          q: '¿Por qué la distribución de automóviles siempre obtiene puntuaciones fundamentales bajas?',
+          a: 'Porque el modelo requiere un capital enorme (inventario de vehículos, financiación de créditos para automóviles), genera márgenes netos muy reducidos en torno al 1 % y es muy sensible a los ciclos económicos y a los precios de los coches de segunda mano. Los rendimientos del capital permanecen estructuralmente bajos, lo que penaliza criterios como el Cash ROCE.',
+        },
+        {
+          q: '¿Una puntuación de 3 sobre 10 significa que CarMax es una mala empresa?',
+          a: "No, significa que el modelo económico no satisface la mayoría de mis criterios de calidad fundamental. CarMax es líder en su sector, bien gestionada y con una marca reconocida. Pero 'bien gestionada en un sector difícil' y 'calidad de inversión fundamental' son dos cosas distintas.",
+        },
+        {
+          q: '¿Es el beat de BPA del Q1 FY2027 una señal de compra?',
+          a: 'No según mi método. Una ligera superación del consenso en un solo trimestre no compensa 5 años de declive de ingresos, un margen neto del 1 % y un Cash ROCE del 4,8 %. Para cambiar de opinión, necesitaría ver varios trimestres consecutivos de mejora de los fundamentales. Esto no es un consejo de inversión.',
+        },
+        {
+          q: '¿Qué significa un ciclo de conversión de efectivo de 273 días?',
+          a: 'Que transcurren de media 273 días entre el momento en que CarMax invierte efectivo (compra de un vehículo) y el momento en que lo recupera (cobro de la venta). Son casi 9 meses de tesorería inmovilizada, lo que explica en parte el elevado nivel de endeudamiento del grupo.',
+        },
+      ],
+      tags: [
+        'KMX',
+        'CarMax',
+        'distribución de automóviles',
+        'earnings',
+        'Q1 FY2027',
+        'análisis fundamental',
+        'valoración',
+        'puntuación baja',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Las cifras corresponden al 22 de junio de 2026. El rendimiento pasado no predice resultados futuros. Haz tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+export const ARTICLES: Article[] = [accentureQ3FY2026, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
