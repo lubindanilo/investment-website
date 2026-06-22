@@ -14646,7 +14646,2316 @@ const carMaxQ1FY27: Article = {
     },
   },
 };
-export const ARTICLES: Article[] = [accentureQ3FY2026, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27];
+const articleTT: Article = {
+  slug: 'trane-technologies-tt-analyse-fondamentale',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'TT',
+  content: {
+    fr: {
+      title: 'Trane Technologies (TT) : notre analyse fondamentale',
+      excerpt: 'Trane Technologies obtient le score parfait dans notre screener. Leader mondial du HVAC avec des contrats de service récurrents et un moat renforcé par l\'explosion des data centers. Je décortique tout.',
+      metaDescription: 'Trane Technologies (TT) obtient la note maximale dans notre screener fondamental. Analyse complète : qualité, moat data centers, valorisation, risques. Un dossier d\'exception.',
+      answer: 'Trane Technologies est l\'une des rares entreprises à valider l\'intégralité des critères de notre méthode fondamentale. Leader mondial du HVAC, elle combine des revenus récurrents via ses contrats de maintenance, un moat structurel renforcé par la demande de refroidissement des data centers, et une génération de cash régulière. La valorisation actuelle est élevée mais cohérente avec la qualité du dossier.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Trane Technologies obtient le score parfait dans notre screener : toutes les cases fondamentales sont cochées, croissance, cash, bilan, rendement du capital.',
+            'Le moat est double : marques Trane et Thermo King dominantes dans le HVAC et la réfrigération transport, et des contrats de maintenance pluriannuels qui créent des revenus récurrents difficiles à concurrencer.',
+            'La demande de refroidissement des data centers est un catalyseur structurel inédit : chaque nouveau centre d\'IA nécessite des systèmes de climatisation industriels que Trane est l\'un des seuls à fournir à grande échelle.',
+            'La valorisation reflète cette qualité : à environ 33 fois son cash libre, le titre intègre déjà une grande partie de la croissance attendue. Le prix d\'entrée est un paramètre clé.',
+            'Le risque principal est la cyclicité partielle de la construction, qui peut ralentir les nouvelles commandes commerciales même si la base de contrats récurrents amortit les chocs.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait vraiment Trane Technologies',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies est le leader mondial du HVAC (Heating, Ventilation, Air Conditioning), c\'est-à-dire du chauffage, de la ventilation et de la climatisation. Quand tu entres dans un grand immeuble de bureaux, un hôpital ou un centre commercial et que la température est parfaite été comme hiver, il y a de fortes chances que ce soit un système Trane qui tourne en arrière-plan. Le groupe opère sous deux marques principales : Trane pour les solutions résidentielles, commerciales et industrielles, et Thermo King pour la réfrigération des transports (camions frigorifiques, wagons ferroviaires, navires).',
+        },
+        {
+          type: 'p',
+          text: 'Ce qui rend ce modèle économique particulièrement solide, c\'est la structure de ses revenus. Trane ne vend pas uniquement des équipements. Elle accompagne ses clients sur des contrats de maintenance pluriannuels : inspections régulières, remplacement de pièces, mises à jour réglementaires. Ces contrats créent un flux de revenus récurrents qui continue de couler même quand le marché de la construction ralentit. C\'est ce que j\'appelle une base de revenus défensive dans un secteur qui peut paraître cyclique en surface.',
+        },
+        {
+          type: 'h2',
+          text: 'Le score parfait : pourquoi Trane coche toutes les cases',
+        },
+        {
+          type: 'p',
+          text: 'Dans notre méthode, j\'analyse chaque entreprise sur une grille de critères fondamentaux objectifs : est-ce que les revenus croissent régulièrement ? Est-ce que les marges de cash libre sont élevées ? Le bilan est-il sain, avec peu de dette ? L\'entreprise rachète-t-elle ses actions plutôt que de les diluer ? Le rendement sur le capital est-il suffisant pour justifier les investissements ? Trane Technologies valide chacun de ces points. C\'est rare. Dans mon screener, qui couvre des centaines d\'entreprises cotées, très peu atteignent le score maximal. Trane en fait partie.',
+        },
+        {
+          type: 'p',
+          text: 'La marge de cash libre est particulièrement élevée pour une entreprise industrielle. Le Cash ROCE (rendement du cash sur le capital employé) est également bien au-dessus de nos seuils. La croissance des revenus est régulière, sans les à-coups d\'une entreprise tech cyclique. Et la dette est maîtrisée. Ce profil financier est celui d\'une entreprise qui a un avantage concurrentiel durable : si la concurrence pouvait la copier facilement, les marges s\'éroderaient. Elles ne s\'érodent pas.',
+        },
+        {
+          type: 'h2',
+          text: 'Le moat : data centers, énergie et réglementations mondiales',
+        },
+        {
+          type: 'p',
+          text: 'Le vrai avantage compétitif de Trane repose sur trois jambes. La première, c\'est la position de marché : Trane et Thermo King sont des marques de référence dans des secteurs où l\'ingénierie, la fiabilité et le réseau de techniciens certifiés comptent énormément. Un facility manager qui gère l\'infrastructure technique d\'un campus hospitalier ne remplace pas son prestataire HVAC pour économiser 5 % sur le prix d\'un contrat. Le risque de dysfonctionnement et les contraintes réglementaires créent une inertie très forte.',
+        },
+        {
+          type: 'p',
+          text: 'La deuxième jambe, c\'est le catalyseur data centers. L\'explosion de l\'intelligence artificielle crée une demande de puissance de calcul sans précédent. Chaque GPU H100 ou B200 consomme des centaines de watts et dégage une chaleur considérable. Les data centers doivent dissiper cette chaleur avec des systèmes de refroidissement industriels sophistiqués. Trane est l\'un des rares acteurs à disposer de la gamme, de l\'expertise et du réseau de service pour équiper ces installations à grande échelle. C\'est un marché en croissance structurelle sur lequel la demande devrait rester forte pendant au moins une décennie.',
+        },
+        {
+          type: 'p',
+          text: 'La troisième jambe, c\'est la réglementation. Les gouvernements du monde entier imposent des standards d\'efficacité énergétique de plus en plus stricts. En Europe, aux États-Unis, en Asie, les bâtiments commerciaux doivent atteindre des objectifs de consommation que seuls les équipements modernes et bien entretenus permettent d\'atteindre. Cela crée une demande de remplacement et de mise à niveau continue pour les parcs d\'équipements existants. Trane, avec ses gammes à haute efficacité, est idéalement positionnée pour capter ces flux de renouvellement.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : comprendre ce que le marché intègre déjà',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies se valorise environ 33 fois son cash libre annuel. Pour rappel, le P/FCF (price to free cash flow) est le ratio que j\'utilise pour mesurer ce que le marché accepte de payer pour chaque euro de trésorerie générée. Un P/FCF de 33 signifie que tu paies aujourd\'hui 33 années de cash libre actuel pour détenir l\'action. Ce n\'est pas donné. Par comparaison, la moyenne historique du marché américain tourne autour de 20 à 25 fois.',
+        },
+        {
+          type: 'p',
+          text: 'Mais ce multiple n\'est pas absurde pour Trane. Il reflète plusieurs éléments justifiés : la régularité de la croissance, la qualité du bilan, la visibilité des revenus récurrents, et le fait que la demande data centers constitue un moteur de croissance supplémentaire non encore pleinement intégré dans les chiffres. La question n\'est donc pas « est-ce cher ? » mais « est-ce que la qualité et les perspectives justifient ce prix ? ». Notre réponse est nuancée : la qualité est là, mais la marge de sécurité est limitée. Un investisseur qui achète à ce niveau parie sur la continuation d\'une exécution parfaite.',
+        },
+        {
+          type: 'p',
+          text: 'Pour te donner un point de repère concret, je compare Trane à ses principaux concurrents dans le HVAC. Carrier Global et Lennox International sont les rivaux directs sur le HVAC résidentiel et commercial. Daikin, le géant japonais, est dominant en Asie. Ces comparaisons montrent que Trane se valorise avec une prime, mais cette prime est en partie justifiée par sa supériorité sur le segment industriel et sa diversification avec Thermo King.',
+        },
+        {
+          type: 'table',
+          headers: ['Critère', 'Trane TT', 'Carrier GTX', 'Lennox LII', 'Notre seuil'],
+          rows: [
+            ['Score fondamental', '10/10', 'Non vérifié ici', 'Non vérifié ici', '8+/10'],
+            ['Capitalisation', '~90 Mds $', '~60 Mds $', '~20 Mds $', '-'],
+            ['Valorisation P/FCF', '33×', 'Variable', 'Variable', '<25× idéal'],
+            ['Moat data centers', 'Fort', 'Modéré', 'Faible', '-'],
+            ['Revenus récurrents', 'Élevés (contrats)', 'Modérés', 'Modérés', 'Élevés'],
+            ['Bilan (dette)', 'Sain', 'Modéré', 'Tendu', 'Sain'],
+            ['Thermo King (transport)', 'Oui (unique)', 'Non', 'Non', '-'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas ignorer',
+        },
+        {
+          type: 'p',
+          text: 'La valorisation est le risque numéro un. À 33 fois le cash libre, toute déception sur la croissance ou les marges peut entraîner une correction sévère. Le marché paie pour la perfection, et la perfection a une tolérance zéro pour les mauvaises surprises. C\'est un risque structurel inhérent aux grandes entreprises de qualité à forte valorisation.',
+        },
+        {
+          type: 'p',
+          text: 'Le deuxième risque est la cyclicité partielle de la construction. Même si les contrats de maintenance amortissent les chocs, les nouvelles installations commerciales (immeubles de bureaux, hôtels, centres commerciaux) dépendent des cycles de construction. Un ralentissement prolongé de l\'immobilier commercial réduirait le volume de nouvelles commandes d\'équipements, même si la base installée continue de générer des revenus de service.',
+        },
+        {
+          type: 'p',
+          text: 'Le troisième risque est la compétition. Carrier, Lennox, et Daikin sont des concurrents sérieux avec des ressources importantes. La concurrence sur les prix peut s\'intensifier dans certains segments, notamment le résidentiel. Et si l\'un de ces acteurs réussissait à construire une offre data centers comparable à celle de Trane, la prime de valorisation se comprimerait.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que je retiens : une conviction de qualité, un point d\'entrée à surveiller',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies est exactement le type de dossier que je cherche : une entreprise avec un avantage compétitif durable, une génération de cash régulière, une exposition à des tendances structurelles de long terme (efficacité énergétique, data centers), et un management qui a prouvé sa capacité à exécuter. Le score parfait dans notre screener n\'est pas une surprise pour quiconque a étudié le dossier en profondeur.',
+        },
+        {
+          type: 'p',
+          text: 'La seule friction, et elle est réelle, c\'est le prix. À 33 fois le cash libre, l\'action intègre déjà la plupart des bonnes nouvelles. Pour un investisseur qui suit notre méthode et cherche une marge de sécurité, attendre une correction ou un point d\'entrée plus bas reste la posture la plus cohérente. Si tu veux suivre l\'évolution de ce dossier, retrouve l\'analyse détaillée sur <a href="/analyse/TT">/analyse/TT</a>. Pour comprendre notre méthode de notation en détail, lis <a href="/methodologie">notre méthodologie</a>. Et pour explorer d\'autres dossiers comparables, le <a href="/screener">screener</a> est ton meilleur outil.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Pourquoi Trane Technologies obtient-elle le score parfait dans votre screener ?',
+          a: 'Trane valide tous nos critères fondamentaux : croissance régulière des revenus, marges de cash libre élevées pour un industriel, bilan sain avec une dette maîtrisée, rendement sur le capital supérieur à nos seuils, et absence de dilution des actionnaires. Cette combinaison est rare dans le secteur industriel.',
+        },
+        {
+          q: 'Qu\'est-ce que le HVAC et pourquoi est-ce un secteur défensif ?',
+          a: 'Le HVAC désigne les systèmes de chauffage, ventilation et climatisation. C\'est un secteur partiellement défensif car une fois les équipements installés, les contrats de maintenance génèrent des revenus récurrents que les clients renouvellent automatiquement. Les réglementations d\'efficacité énergétique créent aussi une demande de remplacement continue, indépendante des cycles économiques.',
+        },
+        {
+          q: 'Quel est le lien entre Trane Technologies et les data centers ?',
+          a: 'Les data centers modernes, notamment ceux dédiés à l\'intelligence artificielle, génèrent d\'importantes quantités de chaleur qu\'il faut dissiper avec des systèmes de refroidissement industriels. Trane est l\'un des leaders mondiaux sur ces équipements. La multiplication des centres de calcul IA crée donc une demande structurelle nouvelle qui s\'ajoute aux marchés traditionnels de l\'entreprise.',
+        },
+        {
+          q: 'La valorisation élevée est-elle un problème pour investir dans Trane ?',
+          a: 'Une valorisation de 33 fois le cash libre n\'est pas anodine. Elle signifie que le marché intègre déjà plusieurs années de croissance solide. Si Trane continue d\'exécuter parfaitement, le multiple peut se justifier dans le temps. Mais si une déception survenait sur la croissance ou les marges, la correction pourrait être significative. C\'est pourquoi la patience sur le point d\'entrée est importante avec ce type de dossier.',
+        },
+        {
+          q: 'Quelle est la différence entre Trane et Thermo King ?',
+          a: 'Trane est la marque dédiée aux solutions HVAC pour les bâtiments résidentiels, commerciaux et industriels. Thermo King est la marque spécialisée dans la réfrigération des transports : camions frigorifiques, wagons de train, conteneurs maritimes et navires. Les deux divisions opèrent sous le même groupe coté Trane Technologies, et cette diversification renforce la résistance du modèle économique global.',
+        },
+      ],
+      tags: ['Trane Technologies', 'TT', 'HVAC', 'data centers', 'analyse fondamentale', 'bourse', 'investissement', 'Thermo King', 'énergie', 'actions américaines', 'score qualité', 'Lubin Investment'],
+      disclaimer: 'Cet article est rédigé à titre informatif et éducatif uniquement. Il ne constitue en aucun cas un conseil en investissement, une recommandation d\'achat ou de vente de valeurs mobilières. Les informations présentées reflètent l\'opinion personnelle de l\'auteur basée sur des données publiques disponibles à la date de publication. Investir en bourse comporte des risques de perte en capital. Avant toute décision d\'investissement, consultez un conseiller financier agréé. Les performances passées ne préjugent pas des performances futures.',
+    },
+    en: {
+      title: 'Trane Technologies (TT): our fundamental analysis',
+      excerpt: 'Trane Technologies scores a perfect grade in our screener. The global HVAC leader with recurring service contracts and a moat reinforced by the data center boom. A complete breakdown.',
+      metaDescription: 'Trane Technologies (TT) earns the top score in our fundamental screener. Full analysis: quality, data center moat, valuation, risks. An exceptional investment thesis.',
+      answer: 'Trane Technologies is one of the rare companies to validate every criterion in our fundamental method. The global HVAC leader combines recurring revenues through multi-year maintenance contracts, a structural moat reinforced by data center cooling demand, and consistent cash generation. Current valuation is high but consistent with the quality of the business.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Trane Technologies earns a perfect score in our screener: every fundamental box is checked — growth, cash generation, balance sheet, and return on capital.',
+            'The moat is twofold: dominant Trane and Thermo King brands in HVAC and transport refrigeration, and multi-year maintenance contracts that create recurring revenues that competitors struggle to displace.',
+            'Data center cooling demand is an unprecedented structural catalyst: every new AI facility requires industrial HVAC systems that Trane is one of the few players able to supply at scale.',
+            'Valuation reflects that quality: at roughly 33 times free cash flow, the stock already prices in much of the expected growth. Entry price is a key parameter.',
+            'The main risk is partial cyclicality in construction, which can slow new commercial orders even as the recurring contract base cushions shocks.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What Trane Technologies actually does',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies is the global leader in HVAC (Heating, Ventilation and Air Conditioning). When you walk into a large office building, a hospital, or a shopping center and the temperature is perfectly comfortable year-round, there is a strong chance a Trane system is running in the background. The group operates under two main brands: Trane for residential, commercial and industrial climate solutions, and Thermo King for transport refrigeration (refrigerated trucks, railway wagons, ships).',
+        },
+        {
+          type: 'p',
+          text: 'What makes this business model particularly robust is the structure of its revenues. Trane does not only sell equipment. It accompanies its customers with multi-year maintenance contracts: regular inspections, parts replacement, regulatory updates. These contracts create a stream of recurring revenues that keep flowing even when the construction market slows. This is what I call a defensive revenue base within a sector that can appear cyclical on the surface.',
+        },
+        {
+          type: 'h2',
+          text: 'The perfect score: why Trane checks every box',
+        },
+        {
+          type: 'p',
+          text: 'In our method, I analyze each company against a grid of objective fundamental criteria: does revenue grow consistently? Are free cash flow margins high? Is the balance sheet healthy, with limited debt? Does the company buy back shares rather than diluting them? Is return on capital sufficient to justify investments? Trane Technologies passes each of these tests. That is rare. In my screener, which covers hundreds of listed companies, very few reach the maximum score. Trane is one of them.',
+        },
+        {
+          type: 'p',
+          text: 'Free cash flow margins are particularly high for an industrial company. Cash ROCE (cash return on capital employed) is also well above our thresholds. Revenue growth is steady, without the lurches of a cyclical tech company. And debt is under control. This financial profile is that of a company with a durable competitive advantage: if competition could easily replicate it, margins would erode. They do not erode.',
+        },
+        {
+          type: 'h2',
+          text: 'The moat: data centers, energy efficiency and global regulations',
+        },
+        {
+          type: 'p',
+          text: 'Trane\'s real competitive advantage rests on three pillars. The first is market position: Trane and Thermo King are reference brands in sectors where engineering, reliability, and networks of certified technicians matter enormously. A facility manager overseeing the technical infrastructure of a hospital campus does not switch their HVAC provider to save 5% on a contract price. Regulatory constraints and the risk of failure create very strong inertia.',
+        },
+        {
+          type: 'p',
+          text: 'The second pillar is the data center catalyst. The explosion of artificial intelligence is creating unprecedented demand for computing power. Each H100 or B200 GPU consumes hundreds of watts and generates considerable heat. Data centers must dissipate that heat with sophisticated industrial cooling systems. Trane is one of the few players with the product range, expertise, and service network to equip these facilities at scale. This is a structurally growing market where demand should remain strong for at least a decade.',
+        },
+        {
+          type: 'p',
+          text: 'The third pillar is regulation. Governments worldwide are imposing increasingly strict energy efficiency standards. In Europe, the United States, and Asia, commercial buildings must meet consumption targets that only modern, well-maintained equipment can achieve. This creates a continuous replacement and upgrade demand for existing equipment fleets. Trane, with its high-efficiency product lines, is ideally positioned to capture these renewal flows.',
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: understanding what the market already prices in',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies is valued at roughly 33 times its annual free cash flow. As a reminder, P/FCF (price to free cash flow) is the ratio I use to measure what the market is willing to pay for each dollar of cash generated. A P/FCF of 33 means you are paying today for 33 years of current free cash flow to own the stock. That is not cheap. By comparison, the historical average for the US market runs around 20 to 25 times.',
+        },
+        {
+          type: 'p',
+          text: 'But this multiple is not unreasonable for Trane. It reflects several justified elements: the consistency of growth, balance sheet quality, visibility of recurring revenues, and the fact that data center demand represents an additional growth engine not yet fully reflected in the numbers. The question is therefore not "is it expensive?" but "does the quality and outlook justify this price?" Our answer is nuanced: the quality is there, but the margin of safety is limited. An investor buying at this level is betting on the continuation of perfect execution.',
+        },
+        {
+          type: 'p',
+          text: 'To give you a concrete reference point, I compare Trane to its main HVAC competitors. Carrier Global and Lennox International are direct rivals in residential and commercial HVAC. Daikin, the Japanese giant, dominates in Asia. These comparisons show that Trane trades at a premium, but that premium is partly justified by its superiority in the industrial segment and its diversification through Thermo King.',
+        },
+        {
+          type: 'table',
+          headers: ['Criterion', 'Trane TT', 'Carrier GTX', 'Lennox LII', 'Our threshold'],
+          rows: [
+            ['Fundamental score', '10/10', 'Not reviewed here', 'Not reviewed here', '8+/10'],
+            ['Market cap', '~$90B', '~$60B', '~$20B', '-'],
+            ['P/FCF valuation', '33×', 'Variable', 'Variable', '<25× ideal'],
+            ['Data center moat', 'Strong', 'Moderate', 'Weak', '-'],
+            ['Recurring revenues', 'High (contracts)', 'Moderate', 'Moderate', 'High'],
+            ['Balance sheet (debt)', 'Healthy', 'Moderate', 'Stretched', 'Healthy'],
+            ['Thermo King (transport)', 'Yes (unique)', 'No', 'No', '-'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Risks not to overlook',
+        },
+        {
+          type: 'p',
+          text: 'Valuation is the number one risk. At 33 times free cash flow, any disappointment on growth or margins can trigger a sharp correction. The market is paying for perfection, and perfection has zero tolerance for negative surprises. This is a structural risk inherent in high-quality, high-valuation companies.',
+        },
+        {
+          type: 'p',
+          text: 'The second risk is partial cyclicality in construction. Even if maintenance contracts cushion shocks, new commercial installations (office buildings, hotels, shopping centers) depend on construction cycles. A prolonged slowdown in commercial real estate would reduce the volume of new equipment orders, even if the installed base continues to generate service revenues.',
+        },
+        {
+          type: 'p',
+          text: 'The third risk is competition. Carrier, Lennox, and Daikin are serious competitors with significant resources. Price competition can intensify in certain segments, particularly residential. And if one of these players managed to build a data center offering comparable to Trane\'s, the valuation premium would compress.',
+        },
+        {
+          type: 'h2',
+          text: 'My takeaway: a quality conviction, an entry point to monitor',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies is exactly the kind of thesis I look for: a company with a durable competitive advantage, consistent cash generation, exposure to long-term structural trends (energy efficiency, data centers), and management that has proven its ability to execute. The perfect score in our screener is no surprise to anyone who has studied this thesis in depth.',
+        },
+        {
+          type: 'p',
+          text: 'The only friction, and it is real, is price. At 33 times free cash flow, the stock already prices in most of the good news. For an investor following our method who seeks a margin of safety, waiting for a correction or a lower entry point remains the most coherent posture. To follow this thesis over time, see the detailed analysis at <a href="/analyse/TT">/analyse/TT</a>. To understand our scoring method in detail, read <a href="/methodologie">our methodology</a>. And to explore comparable theses, the <a href="/screener">screener</a> is your best tool.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Why does Trane Technologies earn a perfect score in your screener?',
+          a: 'Trane validates all our fundamental criteria: consistent revenue growth, high free cash flow margins for an industrial company, a healthy balance sheet with controlled debt, return on capital above our thresholds, and no shareholder dilution. This combination is rare in the industrial sector.',
+        },
+        {
+          q: 'What is HVAC and why is it a defensive sector?',
+          a: 'HVAC stands for Heating, Ventilation and Air Conditioning. It is a partially defensive sector because once equipment is installed, maintenance contracts generate recurring revenues that clients renew automatically. Energy efficiency regulations also create continuous replacement demand, independent of economic cycles.',
+        },
+        {
+          q: 'What is the connection between Trane Technologies and data centers?',
+          a: 'Modern data centers, particularly those dedicated to artificial intelligence, generate significant amounts of heat that must be dissipated using industrial cooling systems. Trane is one of the global leaders in this equipment. The multiplication of AI computing facilities therefore creates new structural demand that adds to the company\'s traditional markets.',
+        },
+        {
+          q: 'Is the high valuation a problem for investing in Trane?',
+          a: 'A valuation of 33 times free cash flow is significant. It means the market has already priced in several years of solid growth. If Trane continues to execute perfectly, the multiple can justify itself over time. But if a disappointment occurred on growth or margins, the correction could be substantial. This is why patience on the entry point matters with this type of thesis.',
+        },
+        {
+          q: 'What is the difference between Trane and Thermo King?',
+          a: 'Trane is the brand dedicated to HVAC solutions for residential, commercial and industrial buildings. Thermo King is the brand specialized in transport refrigeration: refrigerated trucks, railway wagons, maritime containers and ships. Both divisions operate under the same listed group, Trane Technologies, and this diversification strengthens the overall resilience of the business model.',
+        },
+      ],
+      tags: ['Trane Technologies', 'TT', 'HVAC', 'data centers', 'fundamental analysis', 'stock market', 'investing', 'Thermo King', 'energy efficiency', 'US stocks', 'quality score', 'Lubin Investment'],
+      disclaimer: 'This article is written for informational and educational purposes only. It does not constitute investment advice, nor a recommendation to buy or sell securities. The information presented reflects the personal opinion of the author based on publicly available data at the date of publication. Investing in financial markets involves risk of capital loss. Before making any investment decision, consult a licensed financial advisor. Past performance is not indicative of future results.',
+    },
+    es: {
+      title: 'Trane Technologies (TT): nuestro análisis fundamental',
+      excerpt: 'Trane Technologies obtiene la puntuación perfecta en nuestro screener. El líder mundial del HVAC con contratos de servicio recurrentes y un foso reforzado por la explosión de los data centers. Lo analizamos todo.',
+      metaDescription: 'Trane Technologies (TT) obtiene la nota máxima en nuestro screener fundamental. Análisis completo: calidad, foso data centers, valoración, riesgos. Una tesis de inversión excepcional.',
+      answer: 'Trane Technologies es una de las pocas empresas que valida todos los criterios de nuestro método fundamental. Líder mundial del HVAC, combina ingresos recurrentes a través de contratos de mantenimiento plurianuales, un foso estructural reforzado por la demanda de refrigeración de los data centers y una generación de caja regular. La valoración actual es elevada pero coherente con la calidad del negocio.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Trane Technologies obtiene la puntuación perfecta en nuestro screener: todas las casillas fundamentales están marcadas, crecimiento, caja, balance y rendimiento del capital.',
+            'El foso competitivo es doble: las marcas dominantes Trane y Thermo King en HVAC y refrigeración del transporte, más contratos de mantenimiento plurianuales que crean ingresos recurrentes difíciles de disputar.',
+            'La demanda de refrigeración de los data centers es un catalizador estructural inédito: cada nuevo centro de IA necesita sistemas de climatización industrial que Trane es uno de los pocos en suministrar a gran escala.',
+            'La valoración refleja esa calidad: a unas 33 veces su flujo de caja libre, el título ya integra gran parte del crecimiento esperado. El precio de entrada es un parámetro clave.',
+            'El principal riesgo es la ciclicidad parcial de la construcción, que puede ralentizar los nuevos pedidos comerciales aunque la base de contratos recurrentes amortigüe los shocks.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente Trane Technologies',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies es el líder mundial del HVAC (Heating, Ventilation and Air Conditioning), es decir, calefacción, ventilación y aire acondicionado. Cuando entras en un gran edificio de oficinas, un hospital o un centro comercial y la temperatura es perfecta todo el año, hay muchas probabilidades de que sea un sistema Trane el que funciona en segundo plano. El grupo opera bajo dos marcas principales: Trane para soluciones residenciales, comerciales e industriales, y Thermo King para la refrigeración del transporte (camiones frigoríficos, vagones ferroviarios, barcos).',
+        },
+        {
+          type: 'p',
+          text: 'Lo que hace que este modelo de negocio sea particularmente sólido es la estructura de sus ingresos. Trane no solo vende equipos. Acompaña a sus clientes con contratos de mantenimiento plurianuales: inspecciones periódicas, reposición de piezas, actualizaciones regulatorias. Estos contratos crean un flujo de ingresos recurrentes que sigue fluyendo incluso cuando el mercado de la construcción se ralentiza. Eso es lo que llamo una base de ingresos defensiva en un sector que puede parecer cíclico en la superficie.',
+        },
+        {
+          type: 'h2',
+          text: 'La puntuación perfecta: por qué Trane marca todas las casillas',
+        },
+        {
+          type: 'p',
+          text: 'En nuestra metodología, analizo cada empresa con una cuadrícula de criterios fundamentales objetivos: ¿crecen los ingresos de forma regular? ¿Son elevados los márgenes de flujo de caja libre? ¿Es sano el balance, con poca deuda? ¿Recompra la empresa sus acciones en lugar de diluirlas? ¿Es suficiente el rendimiento sobre el capital para justificar las inversiones? Trane Technologies supera cada una de estas pruebas. Eso es raro. En mi screener, que cubre cientos de empresas cotizadas, muy pocas alcanzan la puntuación máxima. Trane es una de ellas.',
+        },
+        {
+          type: 'p',
+          text: 'Los márgenes de flujo de caja libre son especialmente elevados para una empresa industrial. El Cash ROCE (rendimiento del efectivo sobre el capital empleado) también está muy por encima de nuestros umbrales. El crecimiento de los ingresos es regular, sin los altibajos de una empresa tecnológica cíclica. Y la deuda está controlada. Este perfil financiero es el de una empresa con una ventaja competitiva duradera: si la competencia pudiera replicarla fácilmente, los márgenes se erosionarían. No se erosionan.',
+        },
+        {
+          type: 'h2',
+          text: 'El foso competitivo: data centers, energía y regulaciones mundiales',
+        },
+        {
+          type: 'p',
+          text: 'La verdadera ventaja competitiva de Trane se apoya en tres pilares. El primero es la posición de mercado: Trane y Thermo King son marcas de referencia en sectores donde la ingeniería, la fiabilidad y la red de técnicos certificados cuentan enormemente. Un facility manager que gestiona la infraestructura técnica de un campus hospitalario no cambia a su proveedor de HVAC para ahorrar un 5% en el precio de un contrato. Las limitaciones regulatorias y el riesgo de fallo crean una inercia muy fuerte.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo pilar es el catalizador de los data centers. La explosión de la inteligencia artificial está creando una demanda de capacidad de cómputo sin precedentes. Cada GPU H100 o B200 consume cientos de vatios y genera un calor considerable. Los data centers deben disipar ese calor con sistemas de refrigeración industrial sofisticados. Trane es uno de los pocos actores con la gama de productos, la experiencia y la red de servicio para equipar estas instalaciones a gran escala. Es un mercado en crecimiento estructural donde la demanda debería mantenerse fuerte durante al menos una década.',
+        },
+        {
+          type: 'p',
+          text: 'El tercer pilar es la regulación. Los gobiernos de todo el mundo están imponiendo estándares de eficiencia energética cada vez más estrictos. En Europa, Estados Unidos y Asia, los edificios comerciales deben alcanzar objetivos de consumo que solo los equipos modernos y bien mantenidos permiten lograr. Esto crea una demanda continua de sustitución y actualización de los parques de equipos existentes. Trane, con sus gamas de alta eficiencia, está idealmente posicionada para captar estos flujos de renovación.',
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: entender lo que el mercado ya descuenta',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies se valora aproximadamente 33 veces su flujo de caja libre anual. Como recordatorio, el P/FCF (precio sobre flujo de caja libre) es el ratio que utilizo para medir lo que el mercado está dispuesto a pagar por cada dólar de efectivo generado. Una valoración de 33 veces significa que hoy pagas 33 años de flujo de caja libre actual para poseer la acción. No es barato. Por comparación, la media histórica del mercado estadounidense ronda las 20 a 25 veces.',
+        },
+        {
+          type: 'p',
+          text: 'Pero este múltiplo no es irrazonable para Trane. Refleja varios elementos justificados: la regularidad del crecimiento, la calidad del balance, la visibilidad de los ingresos recurrentes y el hecho de que la demanda de los data centers representa un motor de crecimiento adicional aún no plenamente reflejado en los números. La pregunta no es por tanto «¿es caro?» sino «¿justifican la calidad y las perspectivas este precio?». Nuestra respuesta es matizada: la calidad está ahí, pero el margen de seguridad es limitado. Un inversor que compra a este nivel apuesta por la continuación de una ejecución perfecta.',
+        },
+        {
+          type: 'p',
+          text: 'Para darte un punto de referencia concreto, comparo Trane con sus principales competidores en el HVAC. Carrier Global y Lennox International son rivales directos en el HVAC residencial y comercial. Daikin, el gigante japonés, domina en Asia. Estas comparaciones muestran que Trane cotiza con una prima, pero esa prima está en parte justificada por su superioridad en el segmento industrial y su diversificación gracias a Thermo King.',
+        },
+        {
+          type: 'table',
+          headers: ['Criterio', 'Trane TT', 'Carrier GTX', 'Lennox LII', 'Nuestro umbral'],
+          rows: [
+            ['Puntuación fundamental', '10/10', 'No revisado aquí', 'No revisado aquí', '8+/10'],
+            ['Capitalización', '~90.000 M$', '~60.000 M$', '~20.000 M$', '-'],
+            ['Valoración P/FCF', '33×', 'Variable', 'Variable', '<25× ideal'],
+            ['Foso data centers', 'Fuerte', 'Moderado', 'Débil', '-'],
+            ['Ingresos recurrentes', 'Altos (contratos)', 'Moderados', 'Moderados', 'Altos'],
+            ['Balance (deuda)', 'Sano', 'Moderado', 'Ajustado', 'Sano'],
+            ['Thermo King (transporte)', 'Sí (único)', 'No', 'No', '-'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no hay que ignorar',
+        },
+        {
+          type: 'p',
+          text: 'La valoración es el riesgo número uno. A 33 veces el flujo de caja libre, cualquier decepción en el crecimiento o los márgenes puede provocar una corrección severa. El mercado paga por la perfección, y la perfección tiene tolerancia cero para las sorpresas negativas. Es un riesgo estructural inherente a las grandes empresas de calidad con alta valoración.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo riesgo es la ciclicidad parcial de la construcción. Aunque los contratos de mantenimiento amortigüen los shocks, las nuevas instalaciones comerciales (edificios de oficinas, hoteles, centros comerciales) dependen de los ciclos de la construcción. Una desaceleración prolongada del sector inmobiliario comercial reduciría el volumen de nuevos pedidos de equipos, aunque la base instalada siga generando ingresos de servicio.',
+        },
+        {
+          type: 'p',
+          text: 'El tercer riesgo es la competencia. Carrier, Lennox y Daikin son competidores serios con recursos importantes. La competencia en precios puede intensificarse en ciertos segmentos, en particular el residencial. Y si uno de estos actores consiguiera construir una oferta para data centers comparable a la de Trane, la prima de valoración se comprimiría.',
+        },
+        {
+          type: 'h2',
+          text: 'Mi conclusión: una convicción de calidad, un punto de entrada a vigilar',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies es exactamente el tipo de tesis que busco: una empresa con una ventaja competitiva duradera, generación de caja regular, exposición a tendencias estructurales de largo plazo (eficiencia energética, data centers) y una dirección que ha demostrado su capacidad de ejecución. La puntuación perfecta en nuestro screener no es una sorpresa para quien haya estudiado este dossier en profundidad.',
+        },
+        {
+          type: 'p',
+          text: 'La única fricción, y es real, es el precio. A 33 veces el flujo de caja libre, la acción ya descuenta la mayoría de las buenas noticias. Para un inversor que sigue nuestra metodología y busca un margen de seguridad, esperar una corrección o un punto de entrada más bajo sigue siendo la postura más coherente. Para seguir la evolución de este dossier, consulta el análisis detallado en <a href="/analyse/TT">/analyse/TT</a>. Para entender nuestra metodología de puntuación en detalle, lee <a href="/methodologie">nuestra metodología</a>. Y para explorar tesis comparables, el <a href="/screener">screener</a> es tu mejor herramienta.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Por qué Trane Technologies obtiene la puntuación perfecta en vuestro screener?',
+          a: 'Trane valida todos nuestros criterios fundamentales: crecimiento regular de los ingresos, márgenes de flujo de caja libre elevados para una empresa industrial, balance sano con deuda controlada, rendimiento sobre el capital por encima de nuestros umbrales y ausencia de dilución del accionista. Esta combinación es rara en el sector industrial.',
+        },
+        {
+          q: '¿Qué es el HVAC y por qué es un sector defensivo?',
+          a: 'HVAC son las siglas de Heating, Ventilation and Air Conditioning (calefacción, ventilación y aire acondicionado). Es un sector parcialmente defensivo porque una vez instalados los equipos, los contratos de mantenimiento generan ingresos recurrentes que los clientes renuevan automáticamente. Las regulaciones de eficiencia energética también crean una demanda continua de sustitución, independiente de los ciclos económicos.',
+        },
+        {
+          q: '¿Cuál es la relación entre Trane Technologies y los data centers?',
+          a: 'Los data centers modernos, especialmente los dedicados a la inteligencia artificial, generan importantes cantidades de calor que deben disiparse con sistemas de refrigeración industrial. Trane es uno de los líderes mundiales en estos equipos. La multiplicación de los centros de cómputo de IA crea por tanto una demanda estructural nueva que se suma a los mercados tradicionales de la empresa.',
+        },
+        {
+          q: '¿Es un problema la alta valoración para invertir en Trane?',
+          a: 'Una valoración de 33 veces el flujo de caja libre no es trivial. Significa que el mercado ya ha descontado varios años de crecimiento sólido. Si Trane continúa ejecutando perfectamente, el múltiplo puede justificarse con el tiempo. Pero si se produjera una decepción en el crecimiento o los márgenes, la corrección podría ser significativa. Por eso la paciencia en el punto de entrada es importante con este tipo de tesis.',
+        },
+        {
+          q: '¿Cuál es la diferencia entre Trane y Thermo King?',
+          a: 'Trane es la marca dedicada a soluciones HVAC para edificios residenciales, comerciales e industriales. Thermo King es la marca especializada en refrigeración del transporte: camiones frigoríficos, vagones de tren, contenedores marítimos y barcos. Ambas divisiones operan bajo el mismo grupo cotizado, Trane Technologies, y esta diversificación refuerza la resiliencia global del modelo de negocio.',
+        },
+      ],
+      tags: ['Trane Technologies', 'TT', 'HVAC', 'data centers', 'análisis fundamental', 'bolsa', 'inversión', 'Thermo King', 'eficiencia energética', 'acciones estadounidenses', 'score calidad', 'Lubin Investment'],
+      disclaimer: 'Este artículo está redactado con fines únicamente informativos y educativos. No constituye en modo alguno un consejo de inversión ni una recomendación de compra o venta de valores. La información presentada refleja la opinión personal del autor basada en datos públicos disponibles en la fecha de publicación. Invertir en los mercados financieros conlleva riesgo de pérdida de capital. Antes de tomar cualquier decisión de inversión, consulte con un asesor financiero autorizado. Los resultados pasados no son indicativos de resultados futuros.',
+    },
+  },
+};
+
+const wrb: Article = {
+  slug: 'wr-berkley-wrb-analyse-fondamentale-assurance',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'WRB',
+  content: {
+    fr: {
+      title: 'W.R. Berkley (WRB) : la pépite de l\'assurance',
+      excerpt: 'W.R. Berkley est l\'une des rares compagnies d\'assurance à obtenir la note maximale dans mon modèle. Cinquante ans de discipline, une spécialité que ses concurrents évitent, et une valorisation encore abordable. Je t\'explique pourquoi ce dossier me convainc.',
+      metaDescription: 'W.R. Berkley (WRB) : analyse fondamentale d\'un spécialiste E&S noté 10/10, valorisation attractive et 50 ans d\'excellence en souscription.',
+      answer: 'W.R. Berkley est un spécialiste de l\'assurance sur des risques complexes que les assureurs classiques refusent. La qualité de son modèle est exceptionnelle : cinquante ans de rentabilité régulière, une discipline de souscription rare dans le secteur. Sa valorisation reste raisonnable pour un actif de cette qualité. C\'est le genre de dossier que je garde longtemps.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'W.R. Berkley (WRB) spécialise sur les risques E&S, ceux que les assureurs traditionnels refusent : c\'est son avantage concurrentiel principal.',
+            'Note de qualité maximale dans notre modèle sur 10 critères fondamentaux, une rareté absolue dans le secteur de l\'assurance.',
+            'Valorisation raisonnable : une valorisation de 7 fois son flux de trésorerie libre annuel pour une qualité aussi élevée est une anomalie de marché.',
+            'Combined ratio (sinistres + frais divisés par primes) historiquement sous 95 % sur 50 ans : une prouesse que presque aucun concurrent n\'égale.',
+            'Principaux risques : catastrophes naturelles majeures, retournement du cycle d\'assurance, hausse imprévue des sinistres.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Il y a des dossiers qui te font regarder les chiffres deux fois parce que tu ne les crois pas. W.R. Berkley en fait partie. Quand j\'analyse une action, je commence toujours par la même question : est-ce une bonne entreprise ? Puis, séparément, est-ce le bon prix ? Avec WRB, les deux réponses sont positives en même temps. Ce n\'est pas si courant.',
+        },
+        {
+          type: 'h2',
+          text: 'C\'est quoi les E&S lines ? Le marché que personne ne veut',
+        },
+        {
+          type: 'p',
+          text: 'Pour comprendre W.R. Berkley, il faut d\'abord comprendre ce que sont les "E&S lines", ou "Excess & Surplus Lines". Ce sont des contrats d\'assurance pour des risques que les assureurs classiques refusent d\'émettre parce qu\'ils sont trop compliqués, trop atypiques ou trop difficiles à tarifer.',
+        },
+        {
+          type: 'p',
+          text: 'Imagine une centrale nucléaire, un stade de football, un complexe pétrolier en mer, un parc d\'attractions géant, ou encore une célébrité qui veut assurer ses jambes. L\'assureur de quartier ne sait pas tarifer ce genre de risque. Il n\'a pas les données historiques, pas les actuaires formés, pas l\'appétit pour ce type d\'exposition. Il refuse le dossier. Ce dossier refusé atterrit sur le marché E&S.',
+        },
+        {
+          type: 'p',
+          text: 'Le marché E&S est structurellement moins concurrentiel que le marché standard. Pourquoi ? Parce que pour y opérer, il faut un savoir-faire très pointu, des décennies de données sur des sinistres rares, et une tolérance au risque que la plupart des assureurs n\'ont pas. W.R. Berkley l\'a cultivé pendant plus de cinquante ans. C\'est précisément ce fossé concurrentiel, ce que j\'appelle le moat, qui rend cette entreprise difficile à copier.',
+        },
+        {
+          type: 'h2',
+          text: 'La qualité WRB : ce que les chiffres racontent',
+        },
+        {
+          type: 'p',
+          text: 'Dans mon modèle, j\'analyse chaque entreprise sur dix critères fondamentaux : croissance des revenus, rentabilité, génération de trésorerie libre, qualité du bilan, dilution des actionnaires, rendement sur capital, régularité des performances, résilience en crise, valorisation et qualité du management. Chaque critère vaut un point. W.R. Berkley obtient dix sur dix. C\'est la deuxième fois en deux ans que je vois ce score dans le secteur de l\'assurance.',
+        },
+        {
+          type: 'p',
+          text: 'Le chiffre qui résume tout en assurance, c\'est le combined ratio. C\'est la somme des sinistres payés et des frais de fonctionnement, divisée par les primes encaissées. Si ce ratio est sous 100 %, l\'assureur gagne de l\'argent sur son activité pure de souscription avant même de placer ses réserves en investissements. W.R. Berkley affiche un combined ratio historiquement sous 95 % sur cinquante ans. Dans un secteur où beaucoup d\'acteurs oscillent entre 97 % et 105 %, c\'est une performance remarquable.',
+        },
+        {
+          type: 'p',
+          text: 'La trésorerie libre, le free cash flow, c\'est l\'argent qui reste vraiment dans les caisses après toutes les dépenses. C\'est le flux que j\'utilise pour valoriser une entreprise, car il est beaucoup plus difficile à maquiller que le bénéfice comptable. WRB génère un free cash flow récurrent, régulier et croissant. Sur une capitalisation d\'environ 25 milliards de dollars, cette régularité sur cinq décennies est le signal le plus fort que je connaisse en analyse fondamentale.',
+        },
+        {
+          type: 'h2',
+          text: 'WRB face à ses concurrents : pourquoi ce n\'est pas la même chose',
+        },
+        {
+          type: 'p',
+          text: 'Quand tu regardes le secteur de l\'assurance, tu vois des noms fameux. Progressive assure les voitures au grand public en direct. Cincinnati Financial est un assureur généraliste ancré dans le Midwest américain. Kinsale Capital et RLI visent aussi les E&S, mais sur des segments plus étroits, principalement les petites et moyennes entreprises. Arch Capital se positionne davantage dans la réassurance depuis les Bermudes.',
+        },
+        {
+          type: 'p',
+          text: 'W.R. Berkley, c\'est différent. C\'est un spécialiste des risques institutionnels complexes, à grande échelle. Sa taille lui donne accès à des contrats que Kinsale ne peut pas prendre seule. Sa spécialisation lui donne un pricing power que Progressive n\'a pas sur ces segments. Et sa culture de souscription, transmise sur cinquante ans de management familial, est difficile à répliquer rapidement.',
+        },
+        {
+          type: 'table',
+          headers: ['Entreprise', 'Ticker', 'Spécialité principale', 'Combined ratio typique', 'Positionnement'],
+          rows: [
+            ['W.R. Berkley', 'WRB', 'E&S institutionnel, risques complexes', 'Sous 95 % sur 50 ans', 'Spécialiste grande taille'],
+            ['Kinsale Capital', 'KNSL', 'E&S petites/moyennes entreprises', '78-82 % (sous-segment)', 'Spécialiste niche US petit marché'],
+            ['Arch Capital', 'ACGL', 'Réassurance Bermuda + spécialité', '88-92 % (réassurance)', 'Réassureur global, Bermuda'],
+            ['Cincinnati Financial', 'CINF', 'P&C généraliste Midwest + vie', '95-100 %', 'Assureur régional diversifié'],
+            ['Progressive', 'PGR', 'Assurance auto directe grand public', '94-96 %', 'Leader assurance auto directe'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Une valorisation abordable pour une qualité rare',
+        },
+        {
+          type: 'p',
+          text: 'Pour mesurer si une action est chère ou bon marché, j\'utilise le P/FCF : le prix de l\'action divisé par le free cash flow annuel qu\'elle génère par action. Ce ratio répond à une question simple : combien d\'années de trésorerie libre est-ce que je paie aujourd\'hui pour posséder cette action ? Plus le P/FCF est bas, plus l\'entreprise est accessible.',
+        },
+        {
+          type: 'p',
+          text: 'W.R. Berkley affiche une valorisation de 7 fois son free cash flow annuel. Pour une entreprise qui obtient la note maximale dans mon modèle, avec cinquante ans de rentabilité documentée et un moat aussi solide, c\'est une valorisation basse. Le marché des actions d\'assurance de qualité tourne en général entre 15 et 25 fois. WRB est en dessous de la moitié de cette fourchette.',
+        },
+        {
+          type: 'p',
+          text: 'Pourquoi cette décote ? Plusieurs raisons. L\'assurance E&S est moins bien comprise par les investisseurs généralistes que l\'assurance auto ou l\'assurance vie. Les cycles d\'assurance, avec leurs périodes de durcissement et de détente des prix, créent une perception de cyclicité qui fait fuir les acheteurs passifs. Et les catastrophes naturelles récentes ont rendu le secteur moins populaire dans les portefeuilles. Ce n\'est pas une raison pour fuir, c\'est souvent une source d\'opportunités pour ceux qui font le travail d\'analyse.',
+        },
+        {
+          type: 'h2',
+          text: 'Les risques réels : ne pas les sous-estimer',
+        },
+        {
+          type: 'p',
+          text: 'Je ne serais pas honnête si je ne parlais pas des risques. Ils existent, et ils sont réels.',
+        },
+        {
+          type: 'p',
+          text: 'Le premier, c\'est l\'exposition aux catastrophes naturelles. Inondations, ouragans, tremblements de terre, feux de forêt : un événement catastrophique majeur peut générer des sinistres importants en une seule saison. WRB gère cela par une diversification géographique et sectorielle de son portefeuille de risques, mais une "queue event", un événement extrême rare, reste toujours possible.',
+        },
+        {
+          type: 'p',
+          text: 'Le deuxième risque, c\'est le cycle d\'assurance. Quand les primes sont élevées et la sinistralité basse, beaucoup de nouveaux entrants arrivent sur le marché E&S, attirés par les marges. Cela comprime les prix et les marges pour tout le monde. W.R. Berkley a une discipline historique pour réduire son volume d\'affaires quand les prix ne sont pas satisfaisants, plutôt que de courser le chiffre d\'affaires. C\'est une force, mais le cycle de détente des prix reste un risque de court terme.',
+        },
+        {
+          type: 'p',
+          text: 'Troisième risque : la dérive des sinistres. Certains sinistres, notamment en responsabilité civile sur des risques complexes, se matérialisent des années après l\'émission de la police. Si les estimations de réserves sont insuffisantes, cela pèse directement sur les résultats plusieurs années plus tard. C\'est le risque structurel de tout assureur spécialisé.',
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi je garde ce dossier en portefeuille',
+        },
+        {
+          type: 'p',
+          text: 'La combinaison d\'une qualité fondamentale maximale et d\'une valorisation encore accessible est rare. Trop souvent, les entreprises excellentes sont chères au point de ne laisser aucune marge de sécurité. W.R. Berkley est une exception en ce moment.',
+        },
+        {
+          type: 'p',
+          text: 'Ce qui me convainc le plus, ce n\'est pas un chiffre unique. C\'est la constance. Cinquante ans de combined ratio sous 95 %, c\'est une preuve que le management a maintenu sa discipline à travers plusieurs cycles économiques, plusieurs crises financières, plusieurs saisons de catastrophes. Cette constance ne s\'improvise pas. Elle se construit culture par culture, décision par décision.',
+        },
+        {
+          type: 'p',
+          text: 'Ce dossier illustre exactement ce que j\'essaie de faire avec mon approche d\'investissement : trouver des entreprises qui ont un avantage concurrentiel défendable, une gestion rigoureuse du capital, et une valorisation qui ne m\'oblige pas à parier sur un scénario optimiste pour être à l\'équilibre. Si tu veux explorer d\'autres entreprises avec cette même grille d\'analyse, tu peux consulter la page d\'analyse de W.R. Berkley sur mon site.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce que les E&S lines en assurance ?',
+          a: 'Les E&S lines (Excess & Surplus Lines) sont des contrats d\'assurance pour des risques que les assureurs classiques refusent : trop complexes, trop atypiques ou impossible à tarifer avec les outils standard. Cela inclut les grandes infrastructures industrielles, les risques professionnels spéciaux ou encore les responsabilités civiles de grande ampleur. Ces marchés sont moins concurrentiels et offrent des marges structurellement meilleures à ceux qui ont l\'expertise.',
+        },
+        {
+          q: 'Qu\'est-ce que le combined ratio en assurance ?',
+          a: 'Le combined ratio est la somme des sinistres payés et des frais de gestion divisée par les primes encaissées. Un ratio sous 100 % signifie que l\'assureur gagne de l\'argent sur son activité pure de souscription. W.R. Berkley maintient ce ratio historiquement sous 95 % depuis plus de cinquante ans, ce qui est exceptionnel dans le secteur.',
+        },
+        {
+          q: 'Pourquoi la valorisation de WRB est-elle considérée comme basse ?',
+          a: 'W.R. Berkley affiche une valorisation de 7 fois son free cash flow annuel. Pour une entreprise avec une note de qualité maximale, cinquante ans de rentabilité documentée et un positionnement spécialisé défendable, c\'est nettement en dessous de ce que le marché paie habituellement pour ce niveau de qualité. Cette décote s\'explique en partie par la perception de cyclicité du secteur et l\'exposition aux catastrophes naturelles.',
+        },
+        {
+          q: 'Quels sont les risques principaux pour l\'action WRB ?',
+          a: 'Les trois risques principaux sont : l\'exposition aux catastrophes naturelles (un événement extrême peut générer des sinistres importants sur une courte période), le cycle d\'assurance (une période de détente des prix comprime les marges de souscription), et la dérive des sinistres en responsabilité civile (des sinistres complexes peuvent se matérialiser des années après l\'émission des polices).',
+        },
+        {
+          q: 'En quoi W.R. Berkley est-il différent de Kinsale Capital ou de Progressive ?',
+          a: 'Kinsale se spécialise dans les petites et moyennes entreprises sur le marché E&S américain, un segment plus étroit. Progressive est un assureur auto grand public en direct, un modèle très différent. W.R. Berkley cible les risques institutionnels complexes et de grande échelle, un segment où la taille et l\'expertise sont des barrières à l\'entrée beaucoup plus hautes.',
+        },
+      ],
+      tags: ['WRB', 'W.R. Berkley', 'assurance E&S', 'analyse fondamentale', 'actions américaines', 'assurance spécialisée', 'combined ratio', 'free cash flow', 'bourse', 'Lubin Investment', 'investissement', 'moat'],
+      disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les chiffres sont établis à la date de publication et peuvent évoluer. Les performances passées ne préjugent pas des résultats futurs. Fais tes propres recherches avant toute décision d\'investissement.',
+    },
+    en: {
+      title: 'W.R. Berkley (WRB) : the hidden gem of insurance',
+      excerpt: 'W.R. Berkley is one of the rare insurance companies to score a perfect rating in my model. Fifty years of discipline, a specialty its competitors avoid, and a valuation that is still accessible. Here is why this thesis convinces me.',
+      metaDescription: 'W.R. Berkley (WRB): complete fundamental analysis of an E&S insurance specialist scoring 10/10, attractive valuation and 50 years of underwriting excellence.',
+      answer: 'W.R. Berkley specializes in complex insurance risks that mainstream insurers refuse to write. Its business quality is exceptional: fifty years of consistent profitability and a rare underwriting discipline in the sector. Its valuation remains reasonable for an asset of this quality. This is the kind of stock I hold for the long term.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'W.R. Berkley (WRB) specializes in E&S risks, those that traditional insurers refuse to write. This is its main competitive advantage.',
+            'Perfect quality score in our model across 10 fundamental criteria, an absolute rarity in the insurance sector.',
+            'Reasonable valuation: a valuation at 7 times its annual free cash flow for such high quality is a market anomaly.',
+            'Combined ratio (claims plus expenses divided by premiums) historically below 95% for 50 years, a feat almost no competitor can match.',
+            'Main risks: major natural catastrophes, insurance cycle turns, unexpected claims creep.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Some investment theses make you look at the numbers twice because you simply do not believe them. W.R. Berkley is one of those. When I analyze a stock, I always start with the same question: is this a good business? Then, separately: is it the right price? With WRB, both answers are positive at the same time. That combination is genuinely rare.',
+        },
+        {
+          type: 'h2',
+          text: 'What are E&S lines? The market nobody wants',
+        },
+        {
+          type: 'p',
+          text: 'To understand W.R. Berkley, you first need to understand what "E&S lines," or "Excess & Surplus Lines," actually are. These are insurance contracts for risks that mainstream insurers refuse to underwrite because they are too complex, too unusual, or too difficult to price.',
+        },
+        {
+          type: 'p',
+          text: 'Think of a nuclear power plant, a football stadium, an offshore oil platform, a giant theme park, or a celebrity wanting to insure their legs. The local insurer has no idea how to price that kind of risk. They lack the historical data, the trained actuaries, and the appetite for that type of exposure. They reject the application. That rejected application ends up in the E&S market.',
+        },
+        {
+          type: 'p',
+          text: 'The E&S market is structurally less competitive than the standard insurance market. Why? Because operating in it requires deep expertise, decades of data on rare losses, and a risk tolerance that most insurers simply do not have. W.R. Berkley has been building that expertise for over fifty years. That is precisely the competitive moat, the sustainable advantage, that makes this company difficult to replicate.',
+        },
+        {
+          type: 'h2',
+          text: 'WRB quality: what the numbers say',
+        },
+        {
+          type: 'p',
+          text: 'In my model, I analyze each company on ten fundamental criteria: revenue growth, profitability, free cash flow generation, balance sheet quality, shareholder dilution, return on capital, consistency of performance, crisis resilience, valuation, and management quality. Each criterion is worth one point. W.R. Berkley scores ten out of ten. It is only the second time in two years I have seen this score in the insurance sector.',
+        },
+        {
+          type: 'p',
+          text: 'The number that summarizes everything in insurance is the combined ratio. It is the sum of claims paid and operating expenses, divided by premiums collected. If this ratio is below 100%, the insurer makes money on its pure underwriting activity, before even investing its reserves. W.R. Berkley has maintained a combined ratio historically below 95% for fifty years. In a sector where many players oscillate between 97% and 105%, that is a remarkable performance.',
+        },
+        {
+          type: 'p',
+          text: 'Free cash flow is the money that genuinely stays in the company after all expenses. It is the metric I use to value a business, because it is much harder to manipulate than accounting profit. WRB generates recurring, regular, and growing free cash flow. On a market capitalization of roughly $25 billion, that regularity over five decades is the strongest signal I know in fundamental analysis.',
+        },
+        {
+          type: 'h2',
+          text: 'WRB versus competitors: why it is not the same thing',
+        },
+        {
+          type: 'p',
+          text: 'When you scan the insurance sector, you see familiar names. Progressive insures cars for the general public through direct distribution. Cincinnati Financial is a generalist insurer anchored in the American Midwest. Kinsale Capital and RLI also target E&S lines, but in narrower segments, mainly small and mid-sized businesses. Arch Capital is positioned more in reinsurance from Bermuda.',
+        },
+        {
+          type: 'p',
+          text: 'W.R. Berkley is different. It is a specialist in large-scale, complex institutional risks. Its size gives it access to contracts that Kinsale cannot underwrite alone. Its specialization gives it pricing power that Progressive simply does not have in these segments. And its underwriting culture, built over fifty years of family management, is very difficult to replicate quickly.',
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Ticker', 'Main specialty', 'Typical combined ratio', 'Positioning'],
+          rows: [
+            ['W.R. Berkley', 'WRB', 'Institutional E&S, complex risks', 'Below 95% for 50 years', 'Large-scale specialist'],
+            ['Kinsale Capital', 'KNSL', 'Small/mid-market E&S', '78-82% (sub-segment)', 'Niche specialist US small market'],
+            ['Arch Capital', 'ACGL', 'Bermuda reinsurance + specialty', '88-92% (reinsurance)', 'Global reinsurer, Bermuda'],
+            ['Cincinnati Financial', 'CINF', 'Generalist Midwest P&C + life', '95-100%', 'Diversified regional insurer'],
+            ['Progressive', 'PGR', 'Direct personal auto insurance', '94-96%', 'Direct auto insurance leader'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'An accessible valuation for a rare quality',
+        },
+        {
+          type: 'p',
+          text: 'To measure whether a stock is expensive or affordable, I use P/FCF: the share price divided by the annual free cash flow generated per share. This ratio answers a simple question: how many years of free cash flow am I paying today to own this stock? The lower the P/FCF, the more accessible the company.',
+        },
+        {
+          type: 'p',
+          text: 'W.R. Berkley shows a valuation of 7 times its annual free cash flow. For a company that scores perfectly in my model, with fifty years of documented profitability and such a strong moat, that is a low valuation. Quality insurance stocks typically trade between 15 and 25 times. WRB is below half that range.',
+        },
+        {
+          type: 'p',
+          text: 'Why the discount? Several reasons. E&S insurance is less well understood by generalist investors than auto or life insurance. Insurance cycles, with their periods of hardening and softening prices, create a perception of cyclicality that drives away passive buyers. And recent natural catastrophe events have made the sector less popular in portfolios. That is not a reason to flee; it is often a source of opportunity for those who do the analytical work.',
+        },
+        {
+          type: 'h2',
+          text: 'Real risks: do not underestimate them',
+        },
+        {
+          type: 'p',
+          text: 'I would not be honest without talking about risks. They exist, and they are real.',
+        },
+        {
+          type: 'p',
+          text: 'The first is exposure to natural catastrophes. Floods, hurricanes, earthquakes, wildfires: a major catastrophic event can generate significant claims in a single season. WRB manages this through geographic and sectoral diversification of its risk portfolio, but a tail event, a rare extreme occurrence, always remains possible.',
+        },
+        {
+          type: 'p',
+          text: 'The second risk is the insurance cycle. When premiums are high and loss ratios are low, many new entrants arrive in the E&S market, attracted by the margins. This compresses prices and margins for everyone. W.R. Berkley has a historical discipline to reduce its volume when prices are not satisfactory rather than chasing top-line growth. That is a strength, but a price softening cycle remains a short-term risk.',
+        },
+        {
+          type: 'p',
+          text: 'Third risk: claims development. Some claims, especially in liability coverage on complex risks, crystallize years after the policy was issued. If reserve estimates prove inadequate, this weighs directly on results several years later. This is the structural risk of any specialty insurer.',
+        },
+        {
+          type: 'h2',
+          text: 'Why I hold this stock in my portfolio',
+        },
+        {
+          type: 'p',
+          text: 'The combination of maximum fundamental quality and still-accessible valuation is rare. Too often, excellent companies are priced so high that they leave no margin of safety. W.R. Berkley is an exception right now.',
+        },
+        {
+          type: 'p',
+          text: 'What convinces me most is not a single number. It is consistency. Fifty years of combined ratio below 95% proves that management has maintained discipline through multiple economic cycles, multiple financial crises, multiple catastrophe seasons. That consistency is not improvised. It is built culture by culture, decision by decision.',
+        },
+        {
+          type: 'p',
+          text: 'This thesis illustrates exactly what I try to do with my investment approach: find companies with a defensible competitive advantage, rigorous capital allocation, and a valuation that does not force me to bet on an optimistic scenario just to break even. If you want to explore other companies through this same analytical lens, you can check the W.R. Berkley analysis page on my site.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What are E&S lines in insurance?',
+          a: 'E&S lines (Excess & Surplus Lines) are insurance contracts for risks that mainstream insurers refuse to write: too complex, too unusual, or impossible to price with standard tools. This includes large industrial infrastructure, special professional risks, and large-scale liability. These markets are less competitive and offer structurally better margins for those with the right expertise.',
+        },
+        {
+          q: 'What is the combined ratio in insurance?',
+          a: 'The combined ratio is the sum of claims paid and management expenses divided by premiums collected. A ratio below 100% means the insurer makes money on its pure underwriting activity. W.R. Berkley has historically maintained this ratio below 95% for over fifty years, which is exceptional in the sector.',
+        },
+        {
+          q: 'Why is WRB\'s valuation considered low?',
+          a: 'W.R. Berkley trades at 7 times its annual free cash flow. For a company with a perfect quality score, fifty years of documented profitability, and a defensible specialized positioning, that is well below what the market typically pays for this level of quality. The discount is partly explained by the market\'s perception of sector cyclicality and natural catastrophe exposure.',
+        },
+        {
+          q: 'What are the main risks for WRB stock?',
+          a: 'The three main risks are: exposure to natural catastrophes (an extreme event can generate significant claims in a short period), the insurance cycle (a price softening period compresses underwriting margins), and liability claims development (complex claims can materialize years after policy issuance).',
+        },
+        {
+          q: 'How is W.R. Berkley different from Kinsale Capital or Progressive?',
+          a: 'Kinsale specializes in small and mid-sized businesses in the US E&S market, a narrower segment. Progressive is a direct personal auto insurer, a very different model. W.R. Berkley targets large-scale complex institutional risks, a segment where size and expertise create much higher barriers to entry.',
+        },
+      ],
+      tags: ['WRB', 'W.R. Berkley', 'E&S insurance', 'fundamental analysis', 'US stocks', 'specialty insurance', 'combined ratio', 'free cash flow', 'stock market', 'Lubin Investment', 'investing', 'moat'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Figures are as of the date of publication and may change. Past performance does not predict future results. Do your own research before any investment decision.',
+    },
+    es: {
+      title: 'W.R. Berkley (WRB) : la joya oculta del seguro',
+      excerpt: 'W.R. Berkley es una de las pocas aseguradoras que obtiene la nota máxima en mi modelo. Cincuenta años de disciplina, una especialidad que sus competidores evitan, y una valoración todavía accesible. Te explico por qué esta tesis me convence.',
+      metaDescription: 'W.R. Berkley (WRB): análisis fundamental de un especialista E&S con nota 10/10, valoración atractiva y 50 años de excelencia en suscripción.',
+      answer: 'W.R. Berkley se especializa en seguros de riesgos complejos que las aseguradoras tradicionales rechazan. La calidad de su modelo es excepcional: cincuenta años de rentabilidad regular y una disciplina de suscripción muy poco común en el sector. Su valoración sigue siendo razonable para un activo de esta calidad. Es el tipo de empresa que mantengo en cartera a largo plazo.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'W.R. Berkley (WRB) se especializa en riesgos E&S, aquellos que las aseguradoras tradicionales rechazan: es su principal ventaja competitiva.',
+            'Nota de calidad máxima en nuestro modelo de 10 criterios fundamentales, una rareza absoluta en el sector asegurador.',
+            'Valoración razonable: una valoración de 7 veces su flujo de caja libre anual para una calidad tan elevada es una anomalía de mercado.',
+            'Combined ratio (siniestros más gastos dividido entre primas) históricamente por debajo del 95% durante 50 años, una proeza que casi ningún competidor iguala.',
+            'Principales riesgos: catástrofes naturales importantes, giro del ciclo asegurador, aumento inesperado de la siniestralidad.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Hay tesis de inversión que te hacen mirar los números dos veces porque simplemente no te los crees. W.R. Berkley es una de ellas. Cuando analizo una acción, siempre empiezo por la misma pregunta: ¿es un buen negocio? Después, por separado: ¿es el precio correcto? Con WRB, las dos respuestas son positivas al mismo tiempo. Esa combinación es genuinamente poco habitual.',
+        },
+        {
+          type: 'h2',
+          text: '¿Qué son las E&S lines? El mercado que nadie quiere',
+        },
+        {
+          type: 'p',
+          text: 'Para entender W.R. Berkley, primero hay que comprender qué son las "E&S lines" o "Excess & Surplus Lines". Son contratos de seguro para riesgos que las aseguradoras convencionales rechazan porque son demasiado complejos, demasiado atípicos o demasiado difíciles de tarifar.',
+        },
+        {
+          type: 'p',
+          text: 'Imagina una central nuclear, un estadio de fútbol, una plataforma petrolífera marina, un enorme parque de atracciones, o una celebridad que quiere asegurar sus piernas. El asegurador de barrio no sabe tarifar ese tipo de riesgo. No tiene los datos históricos, no tiene los actuarios formados, ni el apetito para ese tipo de exposición. Rechaza la solicitud. Esa solicitud rechazada llega al mercado E&S.',
+        },
+        {
+          type: 'p',
+          text: 'El mercado E&S es estructuralmente menos competitivo que el mercado estándar. ¿Por qué? Porque para operar en él se requiere un conocimiento muy especializado, décadas de datos sobre siniestros poco frecuentes y una tolerancia al riesgo que la mayoría de las aseguradoras no tiene. W.R. Berkley lo ha cultivado durante más de cincuenta años. Ese es precisamente el moat, la ventaja competitiva sostenible, que hace que esta empresa sea difícil de replicar.',
+        },
+        {
+          type: 'h2',
+          text: 'La calidad de WRB: lo que dicen los números',
+        },
+        {
+          type: 'p',
+          text: 'En mi modelo analizo cada empresa en base a diez criterios fundamentales: crecimiento de ingresos, rentabilidad, generación de flujo de caja libre, calidad del balance, dilución del accionista, rendimiento sobre el capital, regularidad del rendimiento, resiliencia en crisis, valoración y calidad del equipo directivo. Cada criterio vale un punto. W.R. Berkley obtiene diez de diez. Es solo la segunda vez en dos años que veo esta puntuación en el sector asegurador.',
+        },
+        {
+          type: 'p',
+          text: 'El número que lo resume todo en seguros es el combined ratio. Es la suma de los siniestros pagados y los gastos de funcionamiento, dividida entre las primas cobradas. Si este ratio está por debajo del 100%, la aseguradora gana dinero en su actividad pura de suscripción, antes incluso de invertir sus reservas. W.R. Berkley ha mantenido un combined ratio históricamente por debajo del 95% durante cincuenta años. En un sector donde muchos actores oscilan entre el 97% y el 105%, eso es un rendimiento notable.',
+        },
+        {
+          type: 'p',
+          text: 'El flujo de caja libre es el dinero que realmente queda en la empresa después de todos los gastos. Es la métrica que utilizo para valorar un negocio, porque es mucho más difícil de manipular que el beneficio contable. WRB genera un flujo de caja libre recurrente, regular y creciente. Con una capitalización de mercado de unos 25.000 millones de dólares, esa regularidad durante cinco décadas es la señal más fuerte que conozco en el análisis fundamental.',
+        },
+        {
+          type: 'h2',
+          text: 'WRB frente a sus competidores: por qué no es lo mismo',
+        },
+        {
+          type: 'p',
+          text: 'Al explorar el sector asegurador, encuentras nombres conocidos. Progressive asegura vehículos al gran público mediante distribución directa. Cincinnati Financial es una aseguradora generalista arraigada en el Medio Oeste estadounidense. Kinsale Capital y RLI también apuntan a los E&S, pero en segmentos más acotados, principalmente pequeñas y medianas empresas. Arch Capital se posiciona más en la reaseguración desde las Bermudas.',
+        },
+        {
+          type: 'p',
+          text: 'W.R. Berkley es diferente. Es un especialista en riesgos institucionales complejos y de gran escala. Su tamaño le da acceso a contratos que Kinsale no puede suscribir sola. Su especialización le otorga un poder de fijación de precios que Progressive no tiene en estos segmentos. Y su cultura de suscripción, construida durante cincuenta años de gestión familiar, es muy difícil de replicar con rapidez.',
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Ticker', 'Especialidad principal', 'Combined ratio típico', 'Posicionamiento'],
+          rows: [
+            ['W.R. Berkley', 'WRB', 'E&S institucional, riesgos complejos', 'Por debajo del 95% en 50 años', 'Especialista gran escala'],
+            ['Kinsale Capital', 'KNSL', 'E&S pequeñas/medianas empresas', '78-82% (subsegmento)', 'Especialista nicho US pequeño mercado'],
+            ['Arch Capital', 'ACGL', 'Reaseguro Bermudas + especialidad', '88-92% (reaseguro)', 'Reasegurador global, Bermudas'],
+            ['Cincinnati Financial', 'CINF', 'P&C generalista Midwest + vida', '95-100%', 'Asegurador regional diversificado'],
+            ['Progressive', 'PGR', 'Seguro de auto directo al consumidor', '94-96%', 'Líder en seguro de auto directo'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Una valoración accesible para una calidad poco común',
+        },
+        {
+          type: 'p',
+          text: 'Para medir si una acción está cara o barata, utilizo el P/FCF: el precio de la acción dividido entre el flujo de caja libre anual que genera por acción. Este ratio responde a una pregunta sencilla: ¿cuántos años de flujo de caja libre estoy pagando hoy para poseer esta acción? Cuanto más bajo es el P/FCF, más accesible es la empresa.',
+        },
+        {
+          type: 'p',
+          text: 'W.R. Berkley muestra una valoración de 7 veces su flujo de caja libre anual. Para una empresa que obtiene la puntuación máxima en mi modelo, con cincuenta años de rentabilidad documentada y un moat tan sólido, esa es una valoración baja. Las acciones de aseguradoras de calidad suelen cotizar entre 15 y 25 veces. WRB está por debajo de la mitad de esa horquilla.',
+        },
+        {
+          type: 'p',
+          text: '¿Por qué ese descuento? Varias razones. Los seguros E&S son menos comprendidos por los inversores generalistas que los seguros de auto o de vida. Los ciclos aseguradores, con sus períodos de endurecimiento y relajación de precios, generan una percepción de ciclicidad que aleja a los inversores pasivos. Y los recientes eventos de catástrofes naturales han hecho al sector menos popular en las carteras. Eso no es razón para huir; a menudo es una fuente de oportunidades para quienes hacen el trabajo de análisis.',
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos reales: no subestimarlos',
+        },
+        {
+          type: 'p',
+          text: 'No sería honesto si no hablara de los riesgos. Existen y son reales.',
+        },
+        {
+          type: 'p',
+          text: 'El primero es la exposición a catástrofes naturales. Inundaciones, huracanes, terremotos, incendios forestales: un evento catastrófico importante puede generar siniestros significativos en una sola temporada. WRB gestiona esto mediante la diversificación geográfica y sectorial de su cartera de riesgos, pero un evento de cola, una ocurrencia extrema y poco frecuente, siempre sigue siendo posible.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo riesgo es el ciclo asegurador. Cuando las primas son elevadas y la siniestralidad es baja, llegan muchos nuevos participantes al mercado E&S, atraídos por los márgenes. Esto comprime precios y márgenes para todos. W.R. Berkley tiene una disciplina histórica para reducir su volumen cuando los precios no son satisfactorios en lugar de perseguir el crecimiento de ingresos. Eso es una fortaleza, pero un ciclo de relajación de precios sigue siendo un riesgo a corto plazo.',
+        },
+        {
+          type: 'p',
+          text: 'Tercer riesgo: el desarrollo tardío de siniestros. Algunos siniestros, especialmente en responsabilidad civil sobre riesgos complejos, se materializan años después de emitir la póliza. Si las estimaciones de reservas resultan insuficientes, esto pesa directamente sobre los resultados varios años después. Es el riesgo estructural de cualquier asegurador especializado.',
+        },
+        {
+          type: 'h2',
+          text: 'Por qué mantengo esta acción en mi cartera',
+        },
+        {
+          type: 'p',
+          text: 'La combinación de una calidad fundamental máxima y una valoración todavía accesible es poco frecuente. Con demasiada frecuencia, las empresas excelentes cotizan a precios tan elevados que no dejan ningún margen de seguridad. W.R. Berkley es una excepción en este momento.',
+        },
+        {
+          type: 'p',
+          text: 'Lo que más me convence no es un solo número. Es la constancia. Cincuenta años de combined ratio por debajo del 95% es la prueba de que el equipo directivo ha mantenido su disciplina a través de múltiples ciclos económicos, múltiples crisis financieras y múltiples temporadas de catástrofes. Esa constancia no se improvisa. Se construye cultura a cultura, decisión a decisión.',
+        },
+        {
+          type: 'p',
+          text: 'Esta tesis ilustra exactamente lo que intento hacer con mi enfoque de inversión: encontrar empresas con una ventaja competitiva defendible, una gestión rigurosa del capital y una valoración que no me obligue a apostar por un escenario optimista solo para llegar a equilibrio. Si quieres explorar otras empresas con esta misma metodología de análisis, puedes consultar la página de análisis de W.R. Berkley en mi sitio.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué son las E&S lines en seguros?',
+          a: 'Las E&S lines (Excess & Surplus Lines) son contratos de seguro para riesgos que las aseguradoras convencionales rechazan: demasiado complejos, demasiado atípicos o imposibles de tarifar con herramientas estándar. Esto incluye grandes infraestructuras industriales, riesgos profesionales especiales y responsabilidades civiles de gran escala. Estos mercados son menos competitivos y ofrecen márgenes estructuralmente mejores para quienes tienen la experiencia necesaria.',
+        },
+        {
+          q: '¿Qué es el combined ratio en seguros?',
+          a: 'El combined ratio es la suma de los siniestros pagados y los gastos de gestión dividida entre las primas cobradas. Un ratio por debajo del 100% significa que la aseguradora gana dinero en su actividad pura de suscripción. W.R. Berkley ha mantenido históricamente este ratio por debajo del 95% durante más de cincuenta años, lo que es excepcional en el sector.',
+        },
+        {
+          q: '¿Por qué se considera baja la valoración de WRB?',
+          a: 'W.R. Berkley cotiza a 7 veces su flujo de caja libre anual. Para una empresa con puntuación de calidad máxima, cincuenta años de rentabilidad documentada y un posicionamiento especializado defendible, eso está muy por debajo de lo que el mercado suele pagar por este nivel de calidad. El descuento se explica en parte por la percepción del mercado sobre la ciclicidad del sector y la exposición a catástrofes naturales.',
+        },
+        {
+          q: '¿Cuáles son los principales riesgos para la acción WRB?',
+          a: 'Los tres principales riesgos son: la exposición a catástrofes naturales (un evento extremo puede generar siniestros importantes en poco tiempo), el ciclo asegurador (un período de relajación de precios comprime los márgenes de suscripción) y el desarrollo tardío de siniestros en responsabilidad civil (siniestros complejos pueden materializarse años después de emitir las pólizas).',
+        },
+        {
+          q: '¿En qué se diferencia W.R. Berkley de Kinsale Capital o Progressive?',
+          a: 'Kinsale se especializa en pequeñas y medianas empresas en el mercado E&S estadounidense, un segmento más acotado. Progressive es una aseguradora de auto directa para el gran público, un modelo muy diferente. W.R. Berkley apunta a riesgos institucionales complejos y de gran escala, un segmento donde el tamaño y la experiencia crean barreras de entrada mucho más elevadas.',
+        },
+      ],
+      tags: ['WRB', 'W.R. Berkley', 'seguro E&S', 'análisis fundamental', 'acciones estadounidenses', 'seguro especializado', 'combined ratio', 'flujo de caja libre', 'bolsa', 'Lubin Investment', 'inversión', 'moat'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Las cifras corresponden a la fecha de publicación y pueden cambiar. Los resultados pasados no predicen resultados futuros. Haz tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+
+
+const doximityDOCS2026: Article = {
+  slug: 'doximity-docs-analyse-fondamentale-saas-medical',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'DOCS',
+  content: {
+    fr: {
+      title: 'Doximity (DOCS) : le réseau social des médecins US',
+      excerpt:
+        "Doximity connecte 80 % des médecins américains sur une seule plateforme. Un moat rarissime, des marges parmi les meilleures du secteur technologique, et une valorisation qui reste raisonnable. Je décortique le dossier de A à Z.",
+      metaDescription:
+        "Doximity (DOCS) : analyse fondamentale complète. Réseau de 600 000 médecins, marges FCF de 40 %+, valorisation de 18 fois le cash. Ce que les données racontent vraiment.",
+      answer:
+        "Doximity est le LinkedIn des médecins américains, avec une position dominante quasi-irréversible : 80 % des médecins US utilisent la plateforme. Son modèle génère des marges de trésorerie parmi les plus élevées de la tech, et notre grille de notation lui attribue un score parfait. La valorisation actuelle reste accessible pour ce niveau de qualité.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Doximity connecte plus de 600 000 médecins américains, soit 80 % de la profession, un réseau impossible à dupliquer.",
+            "Le modèle économique repose sur la publicité pharmaceutique ciblée et des outils SaaS (messagerie sécurisée, télémédecine, signature numérique).",
+            "La marge de trésorerie libre (FCF) dépasse 40 %, un niveau qu'on retrouve uniquement chez les meilleures entreprises technologiques mondiales.",
+            "Notre grille de notation attribue à Doximity un score parfait de 10 sur 10, chose rarissime dans notre base de données.",
+            "La valorisation, autour de 18 fois le cash annuel généré, reste raisonnable pour une entreprise de cette qualité.",
+            "Les principaux risques : dépendance aux budgets publicitaires pharma, pression réglementaire sur les données de santé, et concurrence des dossiers médicaux électroniques.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Doximity, c'est quoi exactement ?",
+        },
+        {
+          type: 'p',
+          text: "Imagine un réseau professionnel, un peu comme LinkedIn, mais réservé exclusivement aux professionnels de santé américains. C'est exactement ce qu'est Doximity. Fondée en 2010 à San Francisco, l'entreprise a mis plus d'une décennie à construire quelque chose d'unique : une communauté où 8 médecins américains sur 10 ont un profil actif. En chiffres absolus, ça représente plus de 600 000 médecins, à quoi s'ajoutent des centaines de milliers d'infirmières, de pharmaciens et d'autres professionnels de santé.",
+        },
+        {
+          type: 'p',
+          text: "Pourquoi les médecins vont-ils sur Doximity ? Parce que la plateforme leur offre des outils concrets qu'ils ne trouvent nulle part ailleurs : une messagerie sécurisée conforme à la loi HIPAA (la loi américaine sur la confidentialité des données médicales), un système de télémédecine intégré, des outils de signature numérique pour les ordonnances et les documents administratifs, et un réseau d'orientation entre confrères. En d'autres termes, Doximity n'est pas un gadget, c'est une infrastructure de travail quotidien. Et une fois qu'un médecin y est habitué, il ne part pas.",
+        },
+        {
+          type: 'p',
+          text: "C'est précisément cette réalité qui crée ce qu'on appelle un moat, ou fossé concurrentiel. Ce concept désigne ce qui protège une entreprise de la concurrence. Ici, le moat est double : les effets de réseau (un médecin rejoint Doximity parce que ses confrères y sont déjà) et les coûts de changement (quitter la plateforme signifie perdre ses contacts, ses habitudes de travail et ses outils intégrés). Résultat : Doximity dispose d'un accès privilégié à la quasi-totalité du corps médical américain, un actif stratégique que ni les startups ni les géants de la tech n'ont réussi à dupliquer en quinze ans.",
+        },
+        {
+          type: 'h2',
+          text: "Comment Doximity gagne-t-elle de l'argent ?",
+        },
+        {
+          type: 'p',
+          text: "Le modèle économique de Doximity repose sur deux piliers. Le premier, et de loin le plus important, c'est la publicité pharmaceutique. Les laboratoires pharmaceutiques paient pour diffuser leurs messages directement auprès des médecins prescripteurs, via la plateforme. C'est une forme de marketing médical extrêmement ciblé : au lieu d'envoyer un représentant commercial chez chaque médecin, le laboratoire peut toucher précisément les spécialistes qui prescrivent dans sa catégorie thérapeutique. L'efficacité est documentée, et les budgets alloués à ce type de communication sont considérables dans l'industrie pharmaceutique.",
+        },
+        {
+          type: 'p',
+          text: "Le second pilier, c'est le SaaS, c'est-à-dire des abonnements logiciels payés par les hôpitaux, les groupes médicaux et les établissements de santé pour accéder aux outils de télémédecine, aux modules de recrutement de médecins et aux solutions de communication interne. Ce modèle d'abonnement génère des revenus réguliers et prévisibles. La combinaison des deux flux, publicité pharmaceutique et SaaS, produit une mécanique financière remarquable : des coûts variables très faibles (la plateforme ne coûte presque rien à faire tourner une fois construite) et des revenus qui progressent d'année en année sans avoir besoin de réinvestir massivement.",
+        },
+        {
+          type: 'p',
+          text: "Le résultat se lit directement dans les marges. La marge de trésorerie libre de Doximity dépasse 40 %. Pour comprendre ce que ça veut dire concrètement : sur 100 dollars de revenus, l'entreprise en conserve plus de 40 en cash réel, après avoir tout payé. À titre de comparaison, une entreprise industrielle classique se situe entre 5 et 10 %. Même dans la tech, atteindre 40 % de marge FCF est exceptionnel. On ne retrouve ce niveau que chez des entreprises comme Microsoft, Visa ou Veeva.",
+        },
+        {
+          type: 'table',
+          headers: ['Métrique', 'Doximity (DOCS)', 'Médiane secteur SaaS médical', 'Médiane S&P 500'],
+          rows: [
+            ['Marge FCF', '> 40 %', '~15 %', '~12 %'],
+            ['Score qualité (notre grille)', '10 / 10', '~6 / 10', '~5 / 10'],
+            ['Valorisation (P/FCF)', '18,38 fois', '~35 fois', '~25 fois'],
+            ['Part de marché (médecins US)', '~80 %', 'fragmenté', 'N/A'],
+            ['Croissance des revenus', 'régulière, +10-15 % / an', 'variable', '~8 % / an'],
+            ['Dépendance à la dette', 'quasi nulle', 'modérée', 'modérée'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La méthode de notation et le score parfait',
+        },
+        {
+          type: 'p',
+          text: "Chez Lubin Investment, chaque entreprise passe par une grille de dix critères financiers objectifs. Chaque critère vaut un point. L'objectif est simple : comparer des entreprises très différentes sur une même échelle, sans biais émotionnel ni mode sectorielle. Les critères couvrent la croissance des revenus, la rentabilité, la génération de trésorerie libre, la qualité du bilan, la dilution des actionnaires, le rendement sur le capital investi, la régularité des performances, la résilience en période difficile, la valorisation relative, et la qualité du management.",
+        },
+        {
+          type: 'p',
+          text: "Doximity obtient dix points sur dix. Ce n'est pas un résultat fréquent. Sur l'ensemble des entreprises analysées dans notre base, seule une poignée atteignent ce score. Concrètement, cela signifie que l'entreprise valide chacun des dix critères sans exception : sa croissance est régulière, ses marges sont parmi les plus élevées de l'univers coté, elle génère du cash libre en abondance, son bilan est quasi sans dette, elle rachète ses propres actions plutôt que de diluer les actionnaires, et son rendement sur capital investi est excellent. Un score de dix sur dix ne veut pas dire que l'action va monter demain. Ça veut dire que la qualité intrinsèque du business est au niveau le plus élevé qu'on puisse observer.",
+        },
+        {
+          type: 'h2',
+          text: "La valorisation : ce que veut dire 18 fois le cash",
+        },
+        {
+          type: 'p',
+          text: "Pour évaluer si une action est chère ou bon marché, j'utilise principalement le ratio P/FCF, c'est-à-dire le prix que le marché accepte de payer pour chaque euro de trésorerie libre généré par l'entreprise. Doximity se valorise aujourd'hui 18,38 fois son cash annuel. Pour contextualiser : une valorisation de 18 fois pour une entreprise SaaS médicale avec 80 % de part de marché et des marges à 40 %, c'est ce qu'on appelle une valorisation de qualité sans excès. Le marché ne la paye pas comme une bulle. Il la paye comme une entreprise solide, bien établie, dont la croissance est prévisible.",
+        },
+        {
+          type: 'p',
+          text: "Pour mettre les choses en perspective : Adobe, une entreprise de grande qualité dans le secteur des logiciels créatifs, se valorisait en moyenne 33 fois son cash sur cinq ans. Des plateformes SaaS en hypercroissance peuvent atteindre 60 à 100 fois. Doximity, à 18 fois, occupe une zone de valorisation que je qualifie de raisonnable pour ce niveau de qualité. Ce n'est pas donné, mais ce n'est pas non plus un pari sur la croissance future à tout prix. Le marché valorise ce que l'entreprise génère aujourd'hui, avec une prime modérée sur la prévisibilité.",
+        },
+        {
+          type: 'p',
+          text: "Avec une capitalisation boursière entre 10 et 12 milliards de dollars, Doximity reste une midcap technologique. Elle est trop grande pour passer inaperçue, mais assez compacte pour que la croissance puisse encore avoir un impact significatif sur la valorisation dans les années à venir.",
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à connaître avant d\'investir',
+        },
+        {
+          type: 'p',
+          text: "Aucune entreprise parfaite n'existe, et Doximity ne fait pas exception. Trois risques méritent d'être compris clairement. Le premier est la dépendance aux budgets publicitaires pharmaceutiques. L'essentiel des revenus de Doximity vient des laboratoires. Si les dépenses marketing pharma se contractent (restriction réglementaire, changement de stratégie sectorielle, ralentissement économique), les revenus de Doximity peuvent être affectés de manière significative. Ce risque n'est pas théorique : c'est ce qui s'est passé en 2023, quand les labos ont rationalisé leurs dépenses après le boom post-COVID.",
+        },
+        {
+          type: 'p',
+          text: "Le deuxième risque est réglementaire. La plateforme gère des données de santé sensibles dans un cadre strict, la loi HIPAA. Tout changement dans la réglementation américaine sur la confidentialité des données médicales, ou tout incident de sécurité, pourrait affecter la confiance des utilisateurs et créer des obligations légales coûteuses. Ce risque existe, mais il est atténué par le fait que Doximity a été construite dès le départ avec la conformité HIPAA au cœur de son architecture.",
+        },
+        {
+          type: 'p',
+          text: "Le troisième risque est la concurrence des dossiers médicaux électroniques (EHR). Des acteurs comme Epic ou Oracle Health (anciennement Cerner) gèrent déjà une partie des flux de travail des médecins. Si ces plateformes décidaient d'intégrer des fonctionnalités de réseau professionnel ou de communication sécurisée, elles pourraient grignoter le territoire de Doximity. Ce scénario reste improbable à court terme (ces entreprises ont des priorités différentes), mais il constitue un risque structurel à surveiller.",
+        },
+        {
+          type: 'h2',
+          text: 'Ce que je retiens de Doximity',
+        },
+        {
+          type: 'p',
+          text: "Doximity incarne ce que je cherche quand j'analyse une action : une position dominante difficile à attaquer, un modèle économique qui génère du cash en abondance, une direction qui alloue ce cash de manière intelligente, et une valorisation qui ne demande pas d'être excessivement optimiste pour être justifiée. Ce n'est pas le type de dossier qui va tripler en six mois. C'est le type de dossier qui peut performer régulièrement pendant dix ans, avec peu de volatilité existentielle.",
+        },
+        {
+          type: 'p',
+          text: "Le score parfait de notre grille n'est pas une invitation aveugle à acheter. Il dit que la qualité du business est au plus haut niveau. La décision d'investissement dépend ensuite de ton propre horizon de temps, de ta tolérance au risque, et de ton prix d'entrée personnel. Ce que je peux dire, c'est que le dossier Doximity mérite d'être suivi de près par quiconque s'intéresse aux actions technologiques de qualité avec un moat solide. Si tu veux construire un portefeuille d'actions durables, Doximity est exactement le type d'entreprise dont on parle.",
+        },
+      ],
+      faq: [
+        {
+          q: "C'est quoi Doximity en une phrase ?",
+          a: "Doximity est le réseau professionnel numérique des médecins américains : 80 % d'entre eux l'utilisent pour communiquer, faire de la télémédecine et gérer leur activité quotidienne.",
+        },
+        {
+          q: "Comment Doximity gagne-t-elle de l'argent ?",
+          a: "Principalement via la publicité pharmaceutique ciblée (les labos paient pour toucher les médecins prescripteurs) et via des abonnements SaaS vendus aux hôpitaux et groupes médicaux.",
+        },
+        {
+          q: "Qu'est-ce que la marge FCF et pourquoi c'est important ?",
+          a: "La marge FCF (trésorerie libre) mesure la part des revenus qui se transforme en cash réel après toutes les dépenses. Doximity dépasse 40 %, ce qui signifie que l'entreprise est une machine à cash exceptionnellement efficace.",
+        },
+        {
+          q: "Doximity est-elle une action risquée ?",
+          a: "Elle présente des risques réels : dépendance aux budgets pharma, risque réglementaire sur les données de santé, et concurrence potentielle des systèmes de dossiers médicaux. Mais sa position dominante et ses faibles niveaux de dette limitent le risque structurel.",
+        },
+        {
+          q: "Que veut dire P/FCF de 18 fois ?",
+          a: "Cela signifie que le marché valorise l'action à 18 fois le cash annuel généré par l'entreprise. Pour une entreprise de cette qualité avec 80 % de part de marché, c'est une valorisation modérée, ni bon marché ni excessivement chère.",
+        },
+        {
+          q: "Pourquoi le score est-il de 10 sur 10 ?",
+          a: "Parce que Doximity valide les dix critères de notre grille sans exception : croissance régulière, marges élevées, cash abondant, bilan sain, rachats d'actions, rendement sur capital excellent. C'est rare et significatif.",
+        },
+        {
+          q: "Est-ce un conseil d'achat ?",
+          a: "Non. Cette analyse est à but éducatif et informatif uniquement. Nous ne connaissons pas ta situation personnelle, ton horizon d'investissement ni ta tolérance au risque. Fais toujours tes propres recherches.",
+        },
+      ],
+      tags: ['Analyse', 'SaaS médical', 'Doximity', 'Valorisation', 'Moat', 'Santé numérique'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches avant toute décision financière.",
+    },
+    en: {
+      title: 'Doximity (DOCS): the professional network for US doctors',
+      excerpt:
+        "Doximity connects 80% of American physicians on a single platform. A rare moat, margins among the best in tech, and a valuation that remains reasonable. A full breakdown of the investment case.",
+      metaDescription:
+        "Doximity (DOCS) fundamental analysis: 600,000-physician network, 40%+ FCF margins, trading at 18x cash. What the data actually tells you about this medical SaaS.",
+      answer:
+        "Doximity is the LinkedIn for American physicians, with a dominant position that is nearly impossible to replicate: 80% of US doctors use the platform. Its business model generates some of the highest cash margins in tech, and our scoring framework gives it a perfect score. The current valuation remains accessible for this level of quality.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Doximity connects more than 600,000 American physicians (80% of the profession), a network that cannot be duplicated.",
+            "The business model relies on targeted pharmaceutical advertising and SaaS tools (secure messaging, telemedicine, digital signatures).",
+            "Free cash flow margin exceeds 40%, a level found only among the world's best technology companies.",
+            "Our scoring framework gives Doximity a perfect score of 10 out of 10, which is extremely rare in our database.",
+            "The valuation, around 18 times annual cash generated, remains reasonable for a company of this quality.",
+            "Key risks: dependence on pharma ad budgets, regulatory pressure on health data, and competition from electronic health record systems.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What exactly is Doximity?',
+        },
+        {
+          type: 'p',
+          text: "Imagine a professional network, a bit like LinkedIn, but reserved exclusively for American healthcare professionals. That is exactly what Doximity is. Founded in 2010 in San Francisco, the company spent over a decade building something unique: a community where 8 out of 10 US physicians have an active profile. In absolute numbers, that is more than 600,000 physicians, plus hundreds of thousands of nurses, pharmacists, and other healthcare professionals.",
+        },
+        {
+          type: 'p',
+          text: "Why do doctors use Doximity? Because the platform gives them practical tools they cannot find anywhere else: HIPAA-compliant secure messaging (HIPAA being the US law governing medical data privacy), an integrated telemedicine system, digital signature tools for prescriptions and administrative documents, and a physician referral network. In other words, Doximity is not a gadget, it is a daily work infrastructure. And once a physician is used to it, they do not leave.",
+        },
+        {
+          type: 'p',
+          text: "This is precisely what creates what we call a moat, or competitive ditch. This concept describes what protects a business from competition. Here, the moat is two-sided: network effects (a physician joins Doximity because their colleagues are already there) and switching costs (leaving the platform means losing your contacts, your work habits, and your integrated tools). The result: Doximity has privileged access to virtually the entire US medical profession, a strategic asset that neither startups nor tech giants have managed to replicate in fifteen years.",
+        },
+        {
+          type: 'h2',
+          text: 'How does Doximity make money?',
+        },
+        {
+          type: 'p',
+          text: "Doximity's business model rests on two pillars. The first, and by far the most important, is pharmaceutical advertising. Drug companies pay to deliver their messages directly to prescribing physicians via the platform. This is an extremely targeted form of medical marketing: instead of sending a sales representative to every doctor, a pharmaceutical company can reach precisely the specialists who prescribe in its therapeutic category. The effectiveness is documented, and the budgets allocated to this type of communication are considerable in the pharmaceutical industry.",
+        },
+        {
+          type: 'p',
+          text: "The second pillar is SaaS, meaning software subscriptions paid by hospitals, medical groups, and healthcare facilities to access telemedicine tools, physician recruitment modules, and internal communication solutions. This subscription model generates regular, predictable revenue. The combination of the two streams (pharmaceutical advertising and SaaS) produces a remarkable financial engine: very low variable costs (the platform costs almost nothing to run once built) and revenues that grow year after year without requiring massive reinvestment.",
+        },
+        {
+          type: 'p',
+          text: "The result is visible directly in the margins. Doximity's free cash flow margin exceeds 40%. To understand what that means in concrete terms: out of every 100 dollars of revenue, the company keeps more than 40 in real cash, after paying everything. For comparison, a typical industrial company sits between 5 and 10%. Even in tech, reaching 40% FCF margin is exceptional. You find this level only at companies like Microsoft, Visa, or Veeva.",
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Doximity (DOCS)', 'Medical SaaS sector median', 'S&P 500 median'],
+          rows: [
+            ['FCF margin', '> 40%', '~15%', '~12%'],
+            ['Quality score (our framework)', '10 / 10', '~6 / 10', '~5 / 10'],
+            ['Valuation (P/FCF)', '18.38x', '~35x', '~25x'],
+            ['US physician market share', '~80%', 'fragmented', 'N/A'],
+            ['Revenue growth', 'steady, +10-15% / year', 'variable', '~8% / year'],
+            ['Debt dependence', 'nearly zero', 'moderate', 'moderate'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The scoring method and the perfect score',
+        },
+        {
+          type: 'p',
+          text: "At Lubin Investment, every company goes through a ten-criteria financial framework. Each criterion is worth one point. The goal is simple: compare very different companies on the same scale, without emotional bias or sector trends. The criteria cover revenue growth, profitability, free cash flow generation, balance sheet quality, shareholder dilution, return on invested capital, performance consistency, resilience in difficult periods, relative valuation, and management quality.",
+        },
+        {
+          type: 'p',
+          text: "Doximity scores ten out of ten. This is not a common result. Across all companies analyzed in our database, only a handful reach this score. Concretely, it means the company validates each of the ten criteria without exception: its growth is steady, its margins are among the highest in the listed universe, it generates abundant free cash, its balance sheet carries virtually no debt, it buys back its own shares rather than diluting shareholders, and its return on invested capital is excellent. A score of ten out of ten does not mean the stock will go up tomorrow. It means the intrinsic quality of the business is at the highest level we can observe.",
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: what trading at 18x cash actually means',
+        },
+        {
+          type: 'p',
+          text: "To assess whether a stock is expensive or cheap, I primarily use the P/FCF ratio, that is the price the market is willing to pay for each dollar of free cash flow generated by the company. Doximity currently trades at 18.38 times its annual cash. To put that in context: a valuation of 18x for a medical SaaS company with 80% market share and 40% margins is what I would call quality valuation without excess. The market is not paying for it like a bubble. It is paying for it like a solid, well-established company whose growth is predictable.",
+        },
+        {
+          type: 'p',
+          text: "For perspective: Adobe, a high-quality company in creative software, traded at an average of 33x its cash over five years. Hypergrowth SaaS platforms can reach 60 to 100x. Doximity, at 18x, sits in a valuation zone I would describe as reasonable for this quality level. It is not cheap, but it is not a bet on future growth at any price either. The market is valuing what the company generates today, with a moderate premium for predictability.",
+        },
+        {
+          type: 'p',
+          text: "With a market capitalization between 10 and 12 billion dollars, Doximity remains a technology midcap. Large enough not to go unnoticed, but compact enough that growth can still have a meaningful impact on the valuation in the years ahead.",
+        },
+        {
+          type: 'h2',
+          text: 'Risks to understand before investing',
+        },
+        {
+          type: 'p',
+          text: "No perfect company exists, and Doximity is no exception. Three risks deserve clear understanding. The first is dependence on pharmaceutical advertising budgets. The bulk of Doximity's revenue comes from pharmaceutical companies. If pharma marketing spending contracts due to regulatory restriction, sector-wide strategy shifts, or an economic slowdown, Doximity's revenues can be meaningfully affected. This risk is not theoretical: it is what happened in 2023, when drug companies rationalized their spending after the post-COVID boom.",
+        },
+        {
+          type: 'p',
+          text: "The second risk is regulatory. The platform handles sensitive health data under a strict framework, the HIPAA law. Any change in US medical data privacy regulations, or any security incident, could erode user trust and create costly legal obligations. This risk exists, but it is mitigated by the fact that Doximity was built from the outset with HIPAA compliance at the core of its architecture.",
+        },
+        {
+          type: 'p',
+          text: "The third risk is competition from electronic health record systems (EHR). Players like Epic or Oracle Health (formerly Cerner) already manage parts of physicians' workflows. If these platforms decided to integrate professional networking or secure communication features, they could chip away at Doximity's territory. This scenario remains unlikely in the short term (these companies have different priorities), but it is a structural risk worth monitoring.",
+        },
+        {
+          type: 'h2',
+          text: 'What I take away from Doximity',
+        },
+        {
+          type: 'p',
+          text: "Doximity embodies what I look for when analyzing a stock: a dominant position that is hard to attack, a business model that generates abundant cash, a management team that allocates that cash intelligently, and a valuation that does not require excessive optimism to be justified. This is not the kind of stock that will triple in six months. It is the kind of stock that can perform steadily for ten years, with little existential volatility.",
+        },
+        {
+          type: 'p',
+          text: "The perfect score from our framework is not a blind invitation to buy. It says that the quality of the business is at the highest level we can observe. The investment decision then depends on your own time horizon, risk tolerance, and personal entry price. What I can say is that the Doximity case deserves close attention from anyone interested in quality technology stocks with a strong moat. If you want to build a portfolio of durable companies, Doximity is exactly the type of business we are talking about.",
+        },
+      ],
+      faq: [
+        {
+          q: 'What is Doximity in one sentence?',
+          a: "Doximity is the digital professional network for American physicians: 80% of them use it for secure communication, telemedicine, and daily workflow management.",
+        },
+        {
+          q: 'How does Doximity make money?',
+          a: "Primarily through targeted pharmaceutical advertising (drug companies pay to reach prescribing physicians) and SaaS subscriptions sold to hospitals and medical groups.",
+        },
+        {
+          q: 'What is FCF margin and why does it matter?',
+          a: "FCF margin (free cash flow) measures the share of revenue that turns into real cash after all expenses. Doximity exceeds 40%, meaning the company is an exceptionally efficient cash-generating machine.",
+        },
+        {
+          q: 'Is Doximity a risky stock?',
+          a: "It carries real risks: dependence on pharma budgets, regulatory risk on health data, and potential competition from EHR systems. But its dominant position and near-zero debt levels limit structural risk.",
+        },
+        {
+          q: 'What does a P/FCF of 18x mean?',
+          a: "It means the market values the stock at 18 times the annual cash generated by the company. For a business of this quality with 80% market share, that is a moderate valuation: neither cheap nor excessively expensive.",
+        },
+        {
+          q: 'Why does Doximity score 10 out of 10?',
+          a: "Because it validates all ten criteria in our framework without exception: steady growth, high margins, abundant cash, healthy balance sheet, share buybacks, excellent return on capital. This is rare and meaningful.",
+        },
+        {
+          q: 'Is this a buy recommendation?',
+          a: "No. This analysis is for informational and educational purposes only. We do not know your personal situation, investment horizon, or risk tolerance. Always do your own research.",
+        },
+      ],
+      tags: ['Analysis', 'Medical SaaS', 'Doximity', 'Valuation', 'Moat', 'Digital Health'],
+      disclaimer:
+        'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research before making any financial decision.',
+    },
+    es: {
+      title: 'Doximity (DOCS): la red profesional de médicos en EE.UU.',
+      excerpt:
+        "Doximity conecta al 80 % de los médicos estadounidenses en una sola plataforma. Un foso competitivo rarísimo, márgenes entre los mejores de la tecnología, y una valoración razonable. Análisis fundamental completo.",
+      metaDescription:
+        "Doximity (DOCS) análisis fundamental: red de 600.000 médicos, márgenes FCF del 40 %+, valoración de 18 veces el flujo de caja. Lo que dicen realmente los datos.",
+      answer:
+        "Doximity es el LinkedIn de los médicos estadounidenses, con una posición dominante casi imposible de replicar: el 80 % de los médicos de EE.UU. usan la plataforma. Su modelo de negocio genera márgenes de caja entre los más altos de la tecnología, y nuestra metodología le otorga una nota perfecta. La valoración actual sigue siendo accesible para este nivel de calidad.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Doximity conecta a más de 600.000 médicos estadounidenses, el 80 % de la profesión, una red imposible de duplicar.",
+            "El modelo de negocio se basa en publicidad farmacéutica dirigida y herramientas SaaS (mensajería segura, telemedicina, firma digital).",
+            "El margen de flujo de caja libre (FCF) supera el 40 %, un nivel que solo se encuentra en las mejores empresas tecnológicas del mundo.",
+            "Nuestra metodología otorga a Doximity una nota perfecta de 10 sobre 10, algo muy poco frecuente en nuestra base de datos.",
+            "La valoración, en torno a 18 veces el efectivo anual generado, sigue siendo razonable para una empresa de esta calidad.",
+            "Los principales riesgos: dependencia de los presupuestos publicitarios farmacéuticos, presión regulatoria sobre los datos sanitarios y competencia de los sistemas de historia clínica electrónica.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: '¿Qué es exactamente Doximity?',
+        },
+        {
+          type: 'p',
+          text: "Imagina una red profesional, algo parecido a LinkedIn, pero reservada exclusivamente a los profesionales de la salud estadounidenses. Eso es exactamente Doximity. Fundada en 2010 en San Francisco, la empresa tardó más de una década en construir algo único: una comunidad en la que 8 de cada 10 médicos de EE.UU. tienen un perfil activo. En cifras absolutas, eso representa más de 600.000 médicos, a los que se suman cientos de miles de enfermeras, farmacéuticos y otros profesionales sanitarios.",
+        },
+        {
+          type: 'p',
+          text: "¿Por qué los médicos usan Doximity? Porque la plataforma les ofrece herramientas concretas que no encuentran en ningún otro lugar: mensajería segura conforme a la ley HIPAA (la ley estadounidense de privacidad de datos médicos), un sistema de telemedicina integrado, herramientas de firma digital para recetas y documentos administrativos, y una red de derivación entre colegas. En otras palabras, Doximity no es un accesorio, es una infraestructura de trabajo diaria. Y una vez que un médico se acostumbra a ella, no se va.",
+        },
+        {
+          type: 'p',
+          text: "Es precisamente esta realidad la que crea lo que llamamos un moat, o foso competitivo. Este concepto describe lo que protege a una empresa de la competencia. Aquí, el foso es doble: los efectos de red (un médico se une a Doximity porque sus colegas ya están allí) y los costes de cambio (abandonar la plataforma implica perder los contactos, los hábitos de trabajo y las herramientas integradas). El resultado: Doximity tiene acceso privilegiado a prácticamente todo el cuerpo médico de EE.UU., un activo estratégico que ni las startups ni los gigantes tecnológicos han logrado replicar en quince años.",
+        },
+        {
+          type: 'h2',
+          text: '¿Cómo gana dinero Doximity?',
+        },
+        {
+          type: 'p',
+          text: "El modelo de negocio de Doximity se apoya en dos pilares. El primero, y con mucho el más importante, es la publicidad farmacéutica. Los laboratorios farmacéuticos pagan para enviar sus mensajes directamente a los médicos prescriptores a través de la plataforma. Es una forma de marketing médico extremadamente dirigido: en lugar de enviar un representante comercial a cada médico, el laboratorio puede llegar con precisión a los especialistas que prescriben en su categoría terapéutica. La eficacia está documentada, y los presupuestos destinados a este tipo de comunicación son considerables en la industria farmacéutica.",
+        },
+        {
+          type: 'p',
+          text: "El segundo pilar es el SaaS, es decir, suscripciones de software pagadas por hospitales, grupos médicos y centros sanitarios para acceder a herramientas de telemedicina, módulos de contratación de médicos y soluciones de comunicación interna. Este modelo de suscripción genera ingresos regulares y predecibles. La combinación de los dos flujos (publicidad farmacéutica y SaaS) produce un motor financiero notable: costes variables muy bajos (la plataforma cuesta casi nada una vez construida) e ingresos que crecen año tras año sin necesidad de reinversiones masivas.",
+        },
+        {
+          type: 'p',
+          text: "El resultado se lee directamente en los márgenes. El margen de flujo de caja libre de Doximity supera el 40 %. Para entender lo que eso significa en términos concretos: de cada 100 dólares de ingresos, la empresa conserva más de 40 en efectivo real, después de haberlo pagado todo. A modo de comparación, una empresa industrial clásica se sitúa entre el 5 y el 10 %. Incluso en tecnología, alcanzar un margen FCF del 40 % es excepcional. Solo se encuentra ese nivel en empresas como Microsoft, Visa o Veeva.",
+        },
+        {
+          type: 'table',
+          headers: ['Métrica', 'Doximity (DOCS)', 'Mediana SaaS médico', 'Mediana S&P 500'],
+          rows: [
+            ['Margen FCF', '> 40 %', '~15 %', '~12 %'],
+            ['Nota de calidad (nuestra metodología)', '10 / 10', '~6 / 10', '~5 / 10'],
+            ['Valoración (P/FCF)', '18,38 veces', '~35 veces', '~25 veces'],
+            ['Cuota de mercado (médicos EE.UU.)', '~80 %', 'fragmentado', 'N/A'],
+            ['Crecimiento de ingresos', 'estable, +10-15 % / año', 'variable', '~8 % / año'],
+            ['Dependencia de la deuda', 'casi nula', 'moderada', 'moderada'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'La metodología de puntuación y la nota perfecta',
+        },
+        {
+          type: 'p',
+          text: "En Lubin Investment, cada empresa pasa por una metodología de diez criterios financieros objetivos. Cada criterio vale un punto. El objetivo es simple: comparar empresas muy distintas en la misma escala, sin sesgo emocional ni modas sectoriales. Los criterios cubren el crecimiento de los ingresos, la rentabilidad, la generación de flujo de caja libre, la calidad del balance, la dilución de los accionistas, el retorno sobre el capital invertido, la regularidad del rendimiento, la resiliencia en periodos difíciles, la valoración relativa y la calidad de la dirección.",
+        },
+        {
+          type: 'p',
+          text: "Doximity obtiene diez puntos sobre diez. No es un resultado frecuente. Del conjunto de empresas analizadas en nuestra base de datos, solo un puñado alcanza esta puntuación. En términos concretos, significa que la empresa valida cada uno de los diez criterios sin excepción: su crecimiento es regular, sus márgenes están entre los más altos del universo cotizado, genera abundante caja libre, su balance no tiene prácticamente deuda, recompra sus propias acciones en lugar de diluir a los accionistas, y su retorno sobre el capital invertido es excelente. Una nota de diez sobre diez no significa que la acción vaya a subir mañana. Significa que la calidad intrínseca del negocio está al nivel más alto que podemos observar.",
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: qué significa cotizar a 18 veces el flujo de caja',
+        },
+        {
+          type: 'p',
+          text: "Para evaluar si una acción está cara o barata, utilizo principalmente el ratio P/FCF, es decir, el precio que el mercado acepta pagar por cada dólar de flujo de caja libre generado por la empresa. Doximity tiene actualmente una valoración de 18,38 veces su caja anual. Para poner esto en contexto: una valoración de 18 veces para una empresa SaaS médico con el 80 % de cuota de mercado y márgenes del 40 % es lo que yo llamaría una valoración de calidad sin exceso. El mercado no la está pagando como si fuera una burbuja. La está pagando como una empresa sólida y bien establecida, cuyo crecimiento es predecible.",
+        },
+        {
+          type: 'p',
+          text: "Para poner las cosas en perspectiva: Adobe, una empresa de gran calidad en software creativo, tenía una valoración media de 33 veces su caja durante cinco años. Las plataformas SaaS en hipercrecimiento pueden alcanzar entre 60 y 100 veces. Doximity, a 18 veces, ocupa una zona de valoración que yo calificaría de razonable para este nivel de calidad. No es barata, pero tampoco es una apuesta sobre el crecimiento futuro a cualquier precio. El mercado valora lo que la empresa genera hoy, con una prima moderada por la previsibilidad.",
+        },
+        {
+          type: 'p',
+          text: "Con una capitalización bursátil de entre 10 y 12 mil millones de dólares, Doximity sigue siendo una mediana capitalización tecnológica. Lo suficientemente grande para no pasar desapercibida, pero lo suficientemente compacta para que el crecimiento pueda seguir teniendo un impacto significativo en la valoración en los próximos años.",
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que hay que conocer antes de invertir',
+        },
+        {
+          type: 'p',
+          text: "No existe ninguna empresa perfecta, y Doximity no es una excepción. Hay tres riesgos que merecen una comprensión clara. El primero es la dependencia de los presupuestos publicitarios farmacéuticos. La mayor parte de los ingresos de Doximity procede de los laboratorios. Si el gasto en marketing farmacéutico se contrae por una restricción regulatoria, un cambio de estrategia sectorial o una desaceleración económica, los ingresos de Doximity pueden verse afectados de forma significativa. Este riesgo no es teórico: es lo que ocurrió en 2023, cuando los laboratorios racionalizaron su gasto tras el auge post-COVID.",
+        },
+        {
+          type: 'p',
+          text: "El segundo riesgo es regulatorio. La plataforma gestiona datos sanitarios sensibles en un marco estricto, la ley HIPAA. Cualquier cambio en la normativa estadounidense sobre privacidad de datos médicos, o cualquier incidente de seguridad, podría erosionar la confianza de los usuarios y generar obligaciones legales costosas. Este riesgo existe, pero está mitigado por el hecho de que Doximity fue construida desde el principio con el cumplimiento de la HIPAA en el núcleo de su arquitectura.",
+        },
+        {
+          type: 'p',
+          text: "El tercer riesgo es la competencia de los sistemas de historia clínica electrónica (EHR). Actores como Epic u Oracle Health (antes Cerner) ya gestionan partes de los flujos de trabajo de los médicos. Si estas plataformas decidieran integrar funcionalidades de red profesional o de comunicación segura, podrían ir ganando terreno a Doximity. Este escenario sigue siendo improbable a corto plazo (estas empresas tienen prioridades distintas), pero constituye un riesgo estructural que conviene vigilar.",
+        },
+        {
+          type: 'h2',
+          text: 'Lo que me quedo de Doximity',
+        },
+        {
+          type: 'p',
+          text: "Doximity encarna lo que busco cuando analizo una acción: una posición dominante difícil de atacar, un modelo de negocio que genera abundante caja, una dirección que asigna esa caja de forma inteligente, y una valoración que no exige ser excesivamente optimista para estar justificada. No es el tipo de empresa que va a triplicar en seis meses. Es el tipo de empresa que puede rendir con regularidad durante diez años, con poca volatilidad existencial.",
+        },
+        {
+          type: 'p',
+          text: "La nota perfecta de nuestra metodología no es una invitación ciega a comprar. Dice que la calidad del negocio está al nivel más alto que podemos observar. La decisión de inversión depende después de tu propio horizonte temporal, de tu tolerancia al riesgo y de tu precio de entrada personal. Lo que sí puedo decir es que el caso Doximity merece seguimiento atento por parte de cualquiera interesado en acciones tecnológicas de calidad con un foso sólido. Si quieres construir una cartera de empresas duraderas, Doximity es exactamente el tipo de empresa del que hablamos.",
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es Doximity en una frase?',
+          a: "Doximity es la red profesional digital de los médicos estadounidenses: el 80 % de ellos la utiliza para comunicarse de forma segura, hacer telemedicina y gestionar su actividad diaria.",
+        },
+        {
+          q: '¿Cómo gana dinero Doximity?',
+          a: "Principalmente a través de publicidad farmacéutica dirigida (los laboratorios pagan para llegar a los médicos prescriptores) y de suscripciones SaaS vendidas a hospitales y grupos médicos.",
+        },
+        {
+          q: '¿Qué es el margen FCF y por qué importa?',
+          a: "El margen FCF (flujo de caja libre) mide la parte de los ingresos que se convierte en efectivo real después de todos los gastos. Doximity supera el 40 %, lo que significa que la empresa es una máquina generadora de caja excepcionalmente eficiente.",
+        },
+        {
+          q: '¿Es Doximity una acción arriesgada?',
+          a: "Tiene riesgos reales: dependencia de los presupuestos farmacéuticos, riesgo regulatorio sobre los datos sanitarios y posible competencia de los sistemas EHR. Pero su posición dominante y su deuda casi inexistente limitan el riesgo estructural.",
+        },
+        {
+          q: '¿Qué significa un P/FCF de 18 veces?',
+          a: "Significa que el mercado valora la acción a 18 veces el efectivo anual generado por la empresa. Para un negocio de esta calidad con el 80 % de cuota de mercado, eso es una valoración moderada, ni barata ni excesivamente cara.",
+        },
+        {
+          q: '¿Por qué Doximity tiene una nota de 10 sobre 10?',
+          a: "Porque valida los diez criterios de nuestra metodología sin excepción: crecimiento regular, márgenes elevados, abundante caja, balance saneado, recompra de acciones, excelente retorno sobre el capital. Es poco frecuente y significativo.",
+        },
+        {
+          q: '¿Es una recomendación de compra?',
+          a: "No. Este análisis es solo con fines informativos y educativos. No conocemos tu situación personal, tu horizonte de inversión ni tu tolerancia al riesgo. Haz siempre tu propia investigación.",
+        },
+      ],
+      tags: ['Análisis', 'SaaS médico', 'Doximity', 'Valoración', 'Foso competitivo', 'Salud digital'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es un asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación antes de tomar cualquier decisión financiera.",
+    },
+  },
+};
+const asml: Article = {
+  slug: 'asml-holding-analyse-fondamentale-monopole-euv',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'ASML',
+  content: {
+    fr: {
+      title: 'ASML Holding (ASML) : le monopole absolu des puces',
+      excerpt:
+        "Une seule entreprise au monde fabrique les machines qui permettent de faire les meilleurs chips. TSMC, Samsung, Intel lui achètent tous leurs équipements. C'est un monopole total — mais le marché le sait, et le valorise en conséquence.",
+      metaDescription:
+        "ASML détient un monopole mondial sur les machines lithographiques EUV, sans lesquelles aucun chip avancé ne peut être fabriqué. Analyse complète : qualité, valorisation, risques Chine.",
+      answer:
+        "ASML est la seule entreprise au monde à fabriquer les machines EUV qui permettent de graver les puces les plus avancées. Notre screener lui attribue un score parfait sur tous nos critères fondamentaux. Le seul bémol : une valorisation très élevée. Un dossier d'exception, à un prix d'exception.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "ASML est le seul fabricant mondial de machines EUV (lithographie ultraviolette extrême), technologie indispensable pour fabriquer les puces 7 nm, 5 nm, 3 nm et 2 nm.",
+            "Tous les grands fondeurs de puces — TSMC, Samsung, Intel — lui achètent leurs équipements : aucun concurrent sérieux n'existe.",
+            "Notre modèle attribue à ASML un score parfait sur l'ensemble de nos critères fondamentaux : marges, croissance, solidité du bilan, rendement sur capital.",
+            "Le seul point de friction : une valorisation très élevée, avec un P/FCF (prix divisé par le flux de trésorerie libre par action) de 51×, bien au-dessus de la moyenne du secteur.",
+            "Le risque géopolitique est réel : ASML ne peut plus exporter ses machines EUV vers la Chine depuis 2023, et les restrictions sur les machines DUV s'intensifient depuis 2024.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Le monopole absolu d'ASML",
+        },
+        {
+          type: 'p',
+          text: "Pour comprendre ASML, il faut d'abord comprendre ce qu'est la lithographie EUV. Quand tu achètes un smartphone ou un ordinateur, le processeur à l'intérieur est gravé sur une galette de silicium avec des transistors de quelques nanomètres — soit des dizaines de milliers de fois plus fins qu'un cheveu humain. Pour graver ces transistors, il faut une source lumineuse d'une précision extraordinaire. La lithographie EUV (Extreme Ultraviolet Lithography, soit lithographie ultraviolette extrême) utilise une lumière à une longueur d'onde de 13,5 nanomètres pour imprimer ces transistors sur le silicium. Sans cette technologie, impossible de fabriquer les puces les plus avancées du marché.",
+        },
+        {
+          type: 'p',
+          text: "Or ASML est la seule entreprise au monde à maîtriser cette technologie. Et ce n'est pas faute de concurrents qui ont essayé : Nikon, Canon, et des consortiums soutenus par des gouvernements ont dépensé des milliards pour répliquer ce que ASML a mis 30 ans à construire. Personne n'y est parvenu. Pourquoi ? Parce qu'une machine EUV, c'est une prouesse d'ingénierie absolument vertigineuse : 180 tonnes de matériel, plus de 100 000 pièces, 40 conteneurs maritimes pour la livrer, et un prix unitaire compris entre 150 et 200 millions d'euros. La machine génère un plasma de gouttelettes d'étain pour produire la lumière EUV. Le fossé technologique est tel qu'aucun acteur ne peut espérer le combler en moins de 10 à 15 ans, même avec des investissements massifs.",
+        },
+        {
+          type: 'p',
+          text: "Le résultat : ASML détient 100 % du marché mondial des machines EUV, et environ 80 % du marché des machines DUV (Deep Ultraviolet, la génération précédente). TSMC, le fondeur taïwanais qui fabrique les puces d'Apple, Nvidia et AMD, représente à lui seul environ 60 % du chiffre d'affaires d'ASML. Samsung (Corée du Sud) pèse environ 20 %, Intel (États-Unis) environ 10 %. Ce sont les trois titans de la fabrication de semiconducteurs, et ils dépendent tous d'ASML pour leurs machines les plus critiques.",
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi nos critères sont tous au vert',
+        },
+        {
+          type: 'p',
+          text: "Chez Lubin Investment, j'évalue chaque entreprise sur 10 critères fondamentaux. Chaque critère vaut un point. L'objectif : avoir un score objectif, reproductible, comparable entre secteurs. ASML obtient un score parfait — et c'est extrêmement rare. Sur les cinq dernières années, le chiffre d'affaires d'ASML a progressé de façon régulière pour atteindre environ 28 milliards d'euros en 2024. Le carnet de commandes dépasse 36 milliards d'euros, soit plus d'un an de revenus d'avance. La marge brute tourne autour de 50 %, et la marge de trésorerie libre est robuste. Le Cash ROCE d'ASML est bien au-dessus de nos seuils. Son bilan est sain, avec une dette maîtrisée par rapport à la trésorerie libre générée. Pour consulter l'ensemble des métriques, tu peux voir ASML dans notre screener : /screener.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'ASML', 'Secteur équipement semi.', 'Évaluation'],
+          rows: [
+            ['Capitalisation boursière', '~280 Mds €', 'Référence sectorielle', 'Leader absolu'],
+            ['Chiffre d\'affaires 2024', '~28 Mds €', 'ASML hors catégorie', 'Top mondial'],
+            ['Carnet de commandes', '>36 Mds €', 'Visibilité >1 an', 'Exceptionnel'],
+            ['Part de marché EUV', '100 %', 'Aucun concurrent', 'Monopole absolu'],
+            ['Part de marché DUV', '~80 %', 'Nikon/Canon en retrait', 'Dominant'],
+            ['Marge brute', '~50 %', '~35-40 % en moyenne', 'Supérieure'],
+            ['Valorisation P/FCF', '51,57×', '~25-30× secteur', 'Très élevée'],
+            ['Score Lubin', 'Parfait (rare)', 'Moins de 5 % des sociétés', 'Maximum'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le seul point de friction : la valorisation',
+        },
+        {
+          type: 'p',
+          text: "Je vais être honnête avec toi : ASML est l'une des meilleures entreprises que j'aie jamais analysées. Mais une bonne entreprise et une bonne action, ce sont deux choses différentes. Et ici, le prix exige une vraie réflexion. Le P/FCF (Price-to-Free-Cash-Flow, soit la valorisation de l'action divisée par le flux de trésorerie libre par action) d'ASML est de 51,57 fois. Pour mettre ça en perspective : une valorisation de 51× signifie que tu paies aujourd'hui 51 années de trésorerie libre pour posséder l'action à son rythme actuel. La moyenne du secteur équipements semiconducteurs tourne autour de 25 à 30 fois. Le marché valorise donc ASML avec une prime très significative, qui ne se justifie qu'à condition que la croissance future soit forte et durable.",
+        },
+        {
+          type: 'p',
+          text: "Il y a aussi le risque Chine. Depuis 2023, ASML ne peut plus exporter ses machines EUV vers la Chine, suite aux restrictions imposées par le gouvernement américain. Depuis 2024, les restrictions ont été étendues aux machines DUV les plus avancées. La Chine représentait jusqu'à 15-20 % du chiffre d'affaires d'ASML avant ces mesures. Ce chiffre a déjà baissé, et pourrait continuer à se contracter. Enfin, quand TSMC représente 60 % de tes revenus, un ralentissement de ses investissements ou un choc géopolitique autour de Taïwan peut avoir un impact immédiat sur tes commandes. Pour approfondir notre méthode d'évaluation des risques, consulte /methodologie.",
+        },
+        {
+          type: 'h2',
+          text: 'Mon verdict sur ASML',
+        },
+        {
+          type: 'p',
+          text: "ASML est une entreprise d'exception. Son avantage concurrentiel est probablement l'un des plus solides qui existent dans l'économie mondiale : un monopole technologique réel, breveté, impossiblement difficile à répliquer, sur un produit dont tous les acteurs clés dépendent absolument. La croissance est là, les marges sont là, le carnet de commandes est là. Notre modèle attribue le score maximum — et c'est mérité. Mais la valorisation est elle aussi exceptionnelle, dans l'autre sens. À 51 fois la trésorerie libre, le marché a déjà intégré beaucoup de bonnes nouvelles. Mon approche : je surveille de très près, je définis mon prix d'entrée en toute rigueur, et j'attends. Si tu veux suivre l'évolution de la valorisation en temps réel, consulte la fiche ASML dans notre screener : /screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce que la lithographie EUV et pourquoi ASML en a le monopole ?",
+          a: "La lithographie EUV utilise une lumière à 13,5 nm de longueur d'onde pour graver des transistors de quelques nanomètres sur des puces en silicium. ASML en a le monopole mondial car cette technologie a demandé 30 ans de R&D et des investissements colossaux. Aucun concurrent n'a réussi à la répliquer malgré des milliards dépensés.",
+        },
+        {
+          q: "Pourquoi ASML ne peut-il plus vendre ses machines à la Chine ?",
+          a: "Depuis 2023, les États-Unis ont imposé des restrictions sur l'exportation des machines EUV vers la Chine. Ces restrictions ont été renforcées en 2024 pour inclure les machines DUV avancées. La Chine représentait 15-20 % des revenus d'ASML avant ces mesures.",
+        },
+        {
+          q: "Est-ce que l'explosion de l'IA est une bonne nouvelle pour ASML ?",
+          a: "Oui, directement. Plus on entraîne de modèles d'IA, plus on a besoin de puces avancées. Et pour fabriquer ces puces, TSMC et Samsung doivent commander plus de machines EUV à ASML. La demande en IA est un moteur structurel très fort pour le carnet de commandes d'ASML.",
+        },
+        {
+          q: "Pourquoi ASML est-il si cher en bourse malgré ses qualités ?",
+          a: "Parce que le marché paie un premium pour les entreprises avec un monopole aussi solide. Une valorisation de 51× signifie que les investisseurs anticipent une croissance forte et durable sur de nombreuses années. Le risque : si la croissance déçoit ou si le cycle se retourne, la correction peut être brutale.",
+        },
+        {
+          q: "ASML verse-t-il des dividendes ?",
+          a: "Oui, ASML verse un dividende annuel et rachète également ses propres actions. Ces deux éléments témoignent d'une solidité financière réelle. Cependant, avec une valorisation aussi élevée, le rendement du dividende reste modeste par rapport au prix payé. L'essentiel de la thèse repose sur la croissance future.",
+        },
+      ],
+      tags: ['ASML', 'Semiconducteurs', 'EUV', 'Monopole', 'Analyse fondamentale', 'Intelligence artificielle', 'Bourse'],
+      disclaimer:
+        'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date indiquée. Fais tes propres recherches.',
+    },
+    en: {
+      title: 'ASML Holding (ASML) : the absolute chip monopoly',
+      excerpt:
+        "Only one company on earth builds the machines that make the world's best chips. TSMC, Samsung, and Intel all buy their equipment from it. That is a total monopoly — and the market knows it.",
+      metaDescription:
+        "ASML holds a global monopoly on EUV lithography machines, without which no advanced chip can be made. Full analysis: quality, valuation, and China risks.",
+      answer:
+        "ASML is the only company in the world that manufactures EUV machines used to print the most advanced chips. Our screener gives it a perfect score across all our fundamental criteria. The single caveat: a very high valuation. An exceptional business, at an exceptional price.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "ASML is the sole global manufacturer of EUV (Extreme Ultraviolet Lithography) machines, the indispensable technology for making 7 nm, 5 nm, 3 nm, and 2 nm chips.",
+            "Every major chipmaker — TSMC, Samsung, Intel — buys its equipment from ASML. No serious competitor exists.",
+            "Our model gives ASML a perfect score across all our fundamental criteria: margins, growth, balance sheet strength, return on capital.",
+            "The single friction point: a very high valuation, with a P/FCF (price divided by free cash flow per share) of 51x, well above the sector average.",
+            "Geopolitical risk is real: ASML cannot export EUV machines to China since 2023, and restrictions on DUV machines have intensified since 2024.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "ASML's absolute monopoly",
+        },
+        {
+          type: 'p',
+          text: "To understand ASML, you first need to understand what EUV lithography is. When you buy a smartphone or a computer, the processor inside is engraved onto a silicon wafer with transistors just a few nanometers in size — tens of thousands of times thinner than a human hair. To engrave those transistors, you need an extraordinarily precise light source. EUV (Extreme Ultraviolet Lithography) uses light at a wavelength of 13.5 nanometers to print those transistors onto silicon. Without this technology, no advanced chip can be manufactured.",
+        },
+        {
+          type: 'p',
+          text: "ASML is the only company in the world that has mastered this technology. And it is not for lack of competitors trying: Nikon, Canon, and government-backed consortiums have spent billions trying to replicate what ASML spent 30 years building. Nobody has succeeded. An EUV machine weighs 180 tonnes, has more than 100,000 components, requires 40 freight containers to ship, and costs between 150 and 200 million euros per unit. The technological gap is such that no actor can hope to close it in less than 10 to 15 years, even with massive investment.",
+        },
+        {
+          type: 'p',
+          text: "The result: ASML holds 100% of the global market for EUV machines, and around 80% of the DUV (Deep Ultraviolet, the previous generation) market. TSMC, the Taiwanese foundry that manufactures chips for Apple, Nvidia, and AMD, accounts for approximately 60% of ASML's revenue. Samsung represents around 20%, and Intel around 10%. These are the three titans of semiconductor manufacturing, and they all depend on ASML for their most critical machines.",
+        },
+        {
+          type: 'h2',
+          text: 'Why all our criteria are in the green',
+        },
+        {
+          type: 'p',
+          text: "At Lubin Investment, I evaluate each company on 10 fundamental criteria. Each criterion is worth one point. The goal: an objective, reproducible score, comparable across sectors. ASML achieves a perfect score. Over the past five years, its revenue has grown steadily to approximately €28 billion in 2024. The order backlog exceeds €36 billion — more than a full year of revenue in advance. The gross margin runs around 50%, and the free cash flow margin is robust. ASML's Cash ROCE is well above our thresholds. Its balance sheet is healthy, with manageable debt. To review all the detailed metrics, see ASML in our screener: /screener.",
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'ASML', 'Semi Equipment Sector', 'Assessment'],
+          rows: [
+            ['Market capitalization', '~€280 bn', 'Sector benchmark', 'Absolute leader'],
+            ['2024 Revenue', '~€28 bn', 'ASML in a league of its own', 'Global #1'],
+            ['Order backlog', '>€36 bn', 'Visibility >1 year', 'Exceptional'],
+            ['EUV market share', '100%', 'No competitor', 'Absolute monopoly'],
+            ['DUV market share', '~80%', 'Nikon/Canon receding', 'Dominant'],
+            ['Gross margin', '~50%', '~35-40% average', 'Superior'],
+            ['P/FCF valuation', '51.57x', '~25-30x sector', 'Very high'],
+            ['Lubin Score', 'Perfect (rare)', 'Less than 5% of companies', 'Maximum'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The single friction point: valuation',
+        },
+        {
+          type: 'p',
+          text: "I will be straight with you: ASML is one of the finest companies I have ever analyzed. But a great company and a great stock are two different things. ASML's P/FCF stands at 51.57 times. A valuation of 51x means you are paying today for 51 years of current free cash flow to own the stock. The semiconductor equipment sector average runs around 25 to 30 times. The market therefore prices ASML with a very significant premium, one that is only justified if future growth remains strong and durable.",
+        },
+        {
+          type: 'p',
+          text: "There is also the China risk. Since 2023, ASML cannot export its EUV machines to China, following restrictions imposed by the US government. Since 2024, restrictions have been extended to the most advanced DUV machines. China had represented up to 15-20% of ASML's revenue before these measures. This share has already fallen, and could continue to shrink. And when TSMC represents 60% of your revenue, a geopolitical shock around Taiwan can have an immediate impact on your order book. To go deeper into our risk assessment methodology, check /methodologie.",
+        },
+        {
+          type: 'h2',
+          text: 'My verdict on ASML',
+        },
+        {
+          type: 'p',
+          text: "ASML is an exceptional company. Its competitive advantage is arguably one of the most solid in the global economy: a genuine, patented technological monopoly, impossibly difficult to replicate, on a product on which all key players depend absolutely. Growth is there. Margins are there. The order book is there. Our model awards the maximum score — and it is earned. But the valuation is equally exceptional, in the other direction. At 51 times free cash flow, the market has already priced in a great deal of good news. My approach: I watch very closely, define my entry price with rigorous discipline, and wait. To track ASML's valuation in real time, check our screener: /screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "What is EUV lithography and why does ASML hold the monopoly?",
+          a: "EUV lithography uses light at a wavelength of 13.5 nm to engrave transistors just a few nanometers in size onto silicon chips. ASML holds the global monopoly because this technology required 30 years of R&D and massive investment. No competitor has succeeded in replicating it despite spending billions.",
+        },
+        {
+          q: "Why can ASML no longer sell its machines to China?",
+          a: "Since 2023, the US imposed restrictions on exporting EUV machines to China. These restrictions were reinforced in 2024 to include advanced DUV machines. The objective is to prevent China from developing cutting-edge chips with potential military applications. China represented 15-20% of ASML's revenue before these measures.",
+        },
+        {
+          q: "Is the AI explosion good news for ASML?",
+          a: "Yes, directly. The more AI models are trained, the more advanced chips are needed. And to manufacture those chips, TSMC and Samsung must order more EUV machines from ASML. AI demand is therefore a very strong structural driver for ASML's order backlog.",
+        },
+        {
+          q: "Why is ASML so expensively valued despite its qualities?",
+          a: "Because the market pays a premium for a monopoly this solid. A valuation of 51x means investors expect strong, durable growth for many years. The risk: if growth disappoints or the cycle turns, the correction can be brutal.",
+        },
+        {
+          q: "Does ASML pay dividends?",
+          a: "Yes, ASML pays an annual dividend and also buys back its own shares. Both signal genuine financial strength. However, with such a high valuation, the dividend yield remains modest relative to the price paid. The core of the thesis rests on future growth, not immediate income.",
+        },
+      ],
+      tags: ['ASML', 'Semiconductors', 'EUV', 'Monopoly', 'Fundamental analysis', 'Artificial intelligence', 'Stock market'],
+      disclaimer:
+        'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the date indicated. Do your own research.',
+    },
+    es: {
+      title: 'ASML Holding (ASML) : el monopolio absoluto de los chips',
+      excerpt:
+        "Solo una empresa en el mundo fabrica las máquinas que hacen posibles los mejores chips. TSMC, Samsung e Intel le compran todos sus equipos. Es un monopolio total, y el mercado lo sabe.",
+      metaDescription:
+        "ASML tiene el monopolio mundial de las máquinas de litografía EUV, sin las cuales no se puede fabricar ningún chip avanzado. Análisis completo: calidad, valoración y riesgos con China.",
+      answer:
+        "ASML es la única empresa del mundo que fabrica las máquinas EUV que permiten grabar los chips más avanzados. Nuestro modelo le otorga una puntuación perfecta en todos nuestros criterios fundamentales. El único punto débil: una valoración muy elevada. Un negocio excepcional, a un precio excepcional.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "ASML es el único fabricante mundial de máquinas EUV (litografía ultravioleta extrema), tecnología imprescindible para fabricar chips de 7 nm, 5 nm, 3 nm y 2 nm.",
+            "Todos los grandes fabricantes de chips — TSMC, Samsung, Intel — le compran sus equipos a ASML. No existe ningún competidor serio.",
+            "Nuestro modelo otorga a ASML una puntuación perfecta en todos nuestros criterios fundamentales: márgenes, crecimiento, solidez del balance, rentabilidad del capital.",
+            "El único punto de fricción: una valoración muy elevada, con un P/FCF (precio dividido entre el flujo de caja libre por acción) de 51×, muy por encima de la media del sector.",
+            "El riesgo geopolítico es real: ASML no puede exportar máquinas EUV a China desde 2023, y las restricciones sobre las máquinas DUV se han intensificado desde 2024.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El monopolio absoluto de ASML',
+        },
+        {
+          type: 'p',
+          text: "Para entender ASML, primero hay que entender qué es la litografía EUV. Cuando compras un smartphone o un ordenador, el procesador que lleva dentro está grabado en una oblea de silicio con transistores de apenas unos nanómetros de tamaño. Para grabar esos transistores hace falta una fuente de luz de una precisión extraordinaria. La litografía EUV utiliza luz con una longitud de onda de 13,5 nanómetros para imprimir esos transistores sobre el silicio. Sin esta tecnología, es imposible fabricar los chips más avanzados del mercado.",
+        },
+        {
+          type: 'p',
+          text: "ASML es la única empresa del mundo que domina esta tecnología. Nikon, Canon y consorcios respaldados por gobiernos han gastado miles de millones intentando replicar lo que ASML tardó 30 años en construir. Nadie lo ha conseguido. Una máquina EUV pesa 180 toneladas, tiene más de 100.000 piezas, requiere 40 contenedores marítimos para transportarla y cuesta entre 150 y 200 millones de euros por unidad. La brecha tecnológica es tal que ningún actor puede esperar cerrarla en menos de 10 a 15 años.",
+        },
+        {
+          type: 'p',
+          text: "El resultado: ASML controla el 100 % del mercado mundial de máquinas EUV, y alrededor del 80 % del mercado de máquinas DUV. TSMC, la fundidora taiwanesa que fabrica los chips de Apple, Nvidia y AMD, representa por sí sola aproximadamente el 60 % de los ingresos de ASML. Samsung supone alrededor del 20 %, e Intel alrededor del 10 %. Son los tres titanes de la fabricación de semiconductores, y todos dependen de ASML para sus máquinas más críticas.",
+        },
+        {
+          type: 'h2',
+          text: 'Por qué nuestros criterios están todos en verde',
+        },
+        {
+          type: 'p',
+          text: "En Lubin Investment, evalúo cada empresa en 10 criterios fundamentales. ASML obtiene una puntuación perfecta. En los últimos cinco años, sus ingresos han crecido de forma regular hasta alcanzar unos 28.000 millones de euros en 2024. La cartera de pedidos supera los 36.000 millones de euros. El margen bruto ronda el 50 %, y su margen de flujo de caja libre es robusto. El Cash ROCE de ASML está muy por encima de nuestros umbrales. Su balance es sano, con una deuda manejable. Para consultar todas las métricas detalladas, puedes ver ASML en nuestro screener: /screener.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'ASML', 'Sector equipos semicon.', 'Evaluación'],
+          rows: [
+            ['Capitalización de mercado', '~280.000 M€', 'Referencia sectorial', 'Líder absoluto'],
+            ['Ingresos 2024', '~28.000 M€', 'ASML fuera de categoría', 'Top mundial'],
+            ['Cartera de pedidos', '>36.000 M€', 'Visibilidad >1 año', 'Excepcional'],
+            ['Cuota de mercado EUV', '100 %', 'Sin competidor', 'Monopolio absoluto'],
+            ['Cuota de mercado DUV', '~80 %', 'Nikon/Canon en retirada', 'Dominante'],
+            ['Margen bruto', '~50 %', '~35-40 % de media', 'Superior'],
+            ['Valoración P/FCF', '51,57×', '~25-30× sector', 'Muy elevada'],
+            ['Puntuación Lubin', 'Perfecta (rara)', 'Menos del 5 % de empresas', 'Máxima'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El único punto de fricción: la valoración',
+        },
+        {
+          type: 'p',
+          text: "Voy a ser sincero contigo: ASML es una de las mejores empresas que he analizado nunca. Pero una gran empresa y una gran acción son dos cosas distintas. El P/FCF de ASML se sitúa en 51,57 veces. Una valoración de 51× significa que hoy pagas 51 años de flujo de caja libre actual para poseer la acción. La media del sector de equipos para semiconductores ronda las 25 a 30 veces. El mercado valora por tanto a ASML con una prima muy significativa.",
+        },
+        {
+          type: 'p',
+          text: "Hay también el riesgo China. Desde 2023, ASML no puede exportar sus máquinas EUV a China. Desde 2024, las restricciones se han extendido a las máquinas DUV más avanzadas. China representaba hasta el 15-20 % de los ingresos de ASML antes de estas medidas. Y cuando TSMC representa el 60 % de tus ingresos, un shock geopolítico en torno a Taiwán puede tener un impacto inmediato en tu cartera de pedidos. Para profundizar en nuestra metodología, consulta /methodologie.",
+        },
+        {
+          type: 'h2',
+          text: 'Mi veredicto sobre ASML',
+        },
+        {
+          type: 'p',
+          text: "ASML es una empresa excepcional. Su ventaja competitiva es probablemente una de las más sólidas de la economía mundial: un monopolio tecnológico real, patentado, imposiblemente difícil de replicar. El crecimiento está ahí. Los márgenes están ahí. La cartera de pedidos está ahí. Nuestro modelo otorga la puntuación máxima. Pero la valoración es igualmente excepcional, en el otro sentido. A 51 veces el flujo de caja libre, el mercado ya ha incorporado muchas buenas noticias. Mi enfoque: vigilo muy de cerca, defino mi precio de entrada con rigor absoluto y espero. Para seguir la evolución de la valoración en tiempo real, consulta nuestro screener: /screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qué es la litografía EUV y por qué ASML tiene el monopolio?",
+          a: "La litografía EUV utiliza luz con una longitud de onda de 13,5 nm para grabar transistores de apenas unos nanómetros en chips de silicio. ASML tiene el monopolio mundial porque esta tecnología requirió 30 años de I+D e inversiones masivas. Ningún competidor ha conseguido replicarla a pesar de gastar miles de millones.",
+        },
+        {
+          q: "¿Por qué ASML ya no puede vender sus máquinas a China?",
+          a: "Desde 2023, EE. UU. impuso restricciones sobre la exportación de máquinas EUV a China. Estas restricciones se reforzaron en 2024 para incluir las máquinas DUV más avancées. El objetivo es impedir que China desarrolle chips de vanguardia con posibles aplicaciones militares.",
+        },
+        {
+          q: "¿La explosión de la IA es una buena noticia para ASML?",
+          a: "Sí, directamente. Cuantos más modelos de IA se entrenan, más chips avanzados se necesitan. Y para fabricar esos chips, TSMC y Samsung deben pedir más máquinas EUV a ASML. La demanda de IA es por tanto un motor estructural muy potente para la cartera de pedidos de ASML.",
+        },
+        {
+          q: "¿Por qué ASML cotiza tan caro pese a sus cualidades?",
+          a: "Porque el mercado paga una prima por un monopolio tan sólido. Una valoración de 51× significa que los inversores anticipan un crecimiento fuerte y duradero durante muchos años. El riesgo: si el crecimiento decepciona o el ciclo se gira, la corrección puede ser brutal.",
+        },
+        {
+          q: "¿ASML paga dividendos?",
+          a: "Sí, ASML paga un dividendo anual y también recompra sus propias acciones. Ambas señales apuntan a una solidez financiera real. Sin embargo, con una valoración tan elevada, la rentabilidad por dividendo sigue siendo modesta. El núcleo de la tesis se basa en el crecimiento futuro.",
+        },
+      ],
+      tags: ['ASML', 'Semiconductores', 'EUV', 'Monopolio', 'Análisis fundamental', 'Inteligencia artificial', 'Bolsa'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha indicada. Haz tu propia investigación.',
+    },
+  },
+};
+
+const tsm: Article = {
+  slug: 'taiwan-semiconductor-tsm-analyse-fondamentale',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'TSM',
+  content: {
+    fr: {
+      title: 'Taiwan Semiconductor (TSM) : analyse fondamentale',
+      excerpt:
+        'TSMC obtient un score parfait dans notre méthode. Pourtant, l\'action se valorise à seulement 2,2 fois son flux de trésorerie libre. Ce paradoxe a une explication précise, et elle est géopolitique.',
+      metaDescription:
+        'Taiwan Semiconductor (TSM) : notre analyse fondamentale complète. Score parfait, valorisation de 2,2× le FCF. Pourquoi ? Le risque Taïwan expliqué honnêtement.',
+      answer:
+        'TSMC est l\'entreprise que notre méthode note le mieux : qualité parfaite, monopole des puces avancées, croissance IA structurelle. Mais elle se valorise à 2,2 fois son flux de trésorerie libre car le marché intègre un risque géopolitique majeur : une tension militaire avec la Chine pourrait interrompre sa production. Ce trade-off est le coeur du dossier.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'TSMC obtient 10/10 dans notre méthode de notation fondamentale, le score le plus élevé possible.',
+            'Elle fabrique 85 % des puces avancées mondiales (3 nm, 2 nm) : Apple, Nvidia, AMD, Qualcomm dépendent toutes d\'elle.',
+            'Intel Foundry et Samsung accusent 2 à 3 ans de retard technologique : il n\'existe pas de vrai substitut.',
+            'La valorisation de 2,2 fois le FCF est exceptionnellement basse pour une entreprise de cette qualité.',
+            'La raison : le risque géopolitique Taïwan/Chine est directement intégré dans le prix de l\'action.',
+            'Le CAPEX est massif pour construire des usines en Arizona, au Japon et en Allemagne (diversification géographique en cours).',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Il y a des entreprises que tu analyses et où tout se tient : les chiffres sont bons, la position concurrentielle est solide, la croissance est visible. Et puis il y a TSMC. Taiwan Semiconductor Manufacturing Company est dans une catégorie à part entière. Notre méthode de notation lui attribue un score parfait. Et pourtant, l\'action se valorise à un niveau qui ferait croire qu\'elle est en difficulté. Ce paradoxe n\'est pas une anomalie de marché. C\'est une décision consciente des investisseurs face à un risque bien identifié.',
+        },
+        {
+          type: 'p',
+          text: 'Dans cet article, je vais te décortiquer ce dossier en partant de la question fondamentale : pourquoi une entreprise avec une qualité parfaite se valorise-t-elle si peu ? La réponse est honnête, complète, et elle touche à quelque chose que peu d\'analyses financières osent vraiment mettre en avant.',
+        },
+        {
+          type: 'h2',
+          text: 'TSMC : le monopole invisible qui fait tourner le monde',
+        },
+        {
+          type: 'p',
+          text: 'Taiwan Semiconductor Manufacturing Company Limited (ticker : TSM sur le NYSE, 2330.TW à Taïwan) est le plus grand fabricant de semi-conducteurs en sous-traitance au monde. Sa capitalisation boursière dépasse les 900 milliards de dollars, ce qui en fait l\'une des dix plus grandes entreprises mondiales. Mais ce qui rend TSMC vraiment unique, ce n\'est pas sa taille. C\'est son monopole technologique.',
+        },
+        {
+          type: 'p',
+          text: 'Le modèle de TSMC est celui d\'une fonderie. Elle ne conçoit pas ses propres puces. Elle les fabrique pour le compte d\'autres entreprises. Ses clients ? Apple pour les puces des iPhone, Nvidia pour les GPU d\'intelligence artificielle, AMD pour les processeurs de datacenter, Qualcomm pour les puces mobiles, ARM pour les architectures embarquées. Autrement dit, la quasi-totalité des puces qui alimentent l\'économie numérique mondiale passent par les usines de TSMC à Taïwan.',
+        },
+        {
+          type: 'p',
+          text: 'Ce que personne d\'autre ne sait faire : TSMC maîtrise les noeuds de fabrication les plus avancés, à 3 nm et 2 nm. Ces chiffres désignent la finesse des transistors gravés sur les puces. Plus c\'est petit, plus la puce est performante et économe en énergie. Sur ces technologies de pointe, TSMC représente environ 85 % de la production mondiale. Ses deux rivaux potentiels, Intel Foundry et Samsung, accusent un retard de 2 à 3 ans. Dans l\'industrie des semi-conducteurs, 2 à 3 ans de retard technologique, c\'est une éternité.',
+        },
+        {
+          type: 'h2',
+          text: 'L\'IA tire la demande : pourquoi TSMC est au coeur de la révolution',
+        },
+        {
+          type: 'p',
+          text: 'Le boom de l\'intelligence artificielle n\'est pas une mode passagère pour TSMC. C\'est un moteur de croissance structurel. Chaque grand modèle d\'IA entraîné par OpenAI, Google, Meta ou Anthropic nécessite des milliers de puces GPU de haute performance. Ces puces sont fabriquées par Nvidia. Et Nvidia les fait fabriquer par TSMC.',
+        },
+        {
+          type: 'p',
+          text: 'La demande pour les serveurs d\'IA explose. Les datacenters construits en urgence dans le monde entier ont besoin de puces avancées. TSMC est le seul goulot d\'étranglement de cette chaîne. Pas parce qu\'elle est un goulet passager, mais parce qu\'il est structurellement impossible de construire une capacité de fabrication équivalente en quelques années. Une usine de semi-conducteurs de dernière génération (appelée fab) prend entre 3 et 5 ans à construire et coûte entre 15 et 30 milliards de dollars. La technologie nécessaire (les machines de lithographie EUV de ASML, par exemple) est elle-même produite en quantités limitées.',
+        },
+        {
+          type: 'p',
+          text: 'Le flux de trésorerie libre généré par TSMC est structurellement massif. Les marges sont solides. La croissance est visible sur plusieurs années grâce aux cycles d\'investissement dans l\'IA, les véhicules électriques et les infrastructures cloud. Sur nos dix critères de notation, TSMC les valide tous. C\'est l\'une des rares entreprises à atteindre ce niveau dans notre base de données.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que dit notre méthode : 10/10 sur toute la ligne',
+        },
+        {
+          type: 'p',
+          text: 'Notre grille d\'analyse évalue chaque entreprise sur dix critères fondamentaux : croissance des revenus, rentabilité opérationnelle, génération de trésorerie libre, qualité du bilan, rendement sur capital, régularité des résultats, résilience en période de crise, politique d\'allocation du capital, valorisation relative, et qualité du modèle économique. Chaque critère vaut un point.',
+        },
+        {
+          type: 'p',
+          text: 'TSMC valide les dix. La croissance est structurelle et tirée par plusieurs mégatendances. Les marges sont élevées et défendables grâce au monopole technologique. La génération de trésorerie libre est massive. Le bilan est sain. Le rendement sur le capital investi est très au-dessus de nos seuils. Les résultats sont réguliers et prévisibles. La politique d\'allocation (réinvestissement dans les fabs, rachat d\'actions) est rigoureuse. Et le modèle économique, celui d\'une fonderie incontournable pour les plus grandes entreprises tech mondiales, est l\'un des plus défendables qui existe.',
+        },
+        {
+          type: 'p',
+          text: 'Dix sur dix. Ce n\'est pas une note que je donne facilement. Sur plusieurs centaines d\'entreprises analysées, seule une poignée l\'atteint. La note de 10/10 ne signifie pas que l\'action est sans risque. Elle signifie que la qualité fondamentale de l\'entreprise est au plus haut niveau que notre méthode peut mesurer.',
+        },
+        {
+          type: 'table',
+          headers: ['Critère', 'TSMC (TSM)', 'Notre seuil', 'Évaluation'],
+          rows: [
+            ['Capitalisation boursière', '~900 Mds $', '-', 'Méga-cap'],
+            ['Score de qualité Lubin', '10/10', '8+/10 pour investir', 'Parfait'],
+            ['Valorisation P/FCF', '2,2×', '<20× visé', 'Très faible'],
+            ['Part de marché puces avancées', '~85 %', '-', 'Monopole de fait'],
+            ['Retard des concurrents', '2 à 3 ans', '-', 'Avance inattaquable'],
+            ['FCF structurel', 'Massif', '>5 % marge FCF', 'Très solide'],
+            ['Bilan', 'Sain', 'Dette < 3× FCF', 'Satisfaisant'],
+            ['Croissance IA visibilité', 'Plusieurs années', '-', 'Structurelle'],
+            ['CAPEX nouvelles fabs', 'Très élevé', 'Risque dilutif', 'A surveiller'],
+            ['Risque géopolitique', 'Très élevé', '-', 'Principal risque'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Le risque Taïwan : la vraie raison de la valorisation basse',
+        },
+        {
+          type: 'p',
+          text: 'Voilà le coeur du paradoxe. Si TSMC obtient un score parfait et si la demande pour ses puces ne fait qu\'augmenter, pourquoi l\'action se valorise-t-elle à 2,2 fois son flux de trésorerie libre ? À titre de comparaison, une entreprise de qualité moyenne dans un secteur ordinaire se valorise souvent entre 15 et 25 fois son FCF. TSMC est à 2,2 fois. C\'est une décote de plus de 90 % par rapport à ce que justifierait sa seule qualité fondamentale.',
+        },
+        {
+          type: 'p',
+          text: 'La réponse est simple et brutale : le risque Taïwan. La quasi-totalité de la production de TSMC se trouve sur l\'île de Taïwan. Et Taïwan est au coeur de l\'une des tensions géopolitiques les plus surveillées au monde, celle entre la Chine et les États-Unis. Pékin considère Taïwan comme une province rebelle qu\'elle entend réunifier, par la diplomatie si possible, par la force si nécessaire. Une invasion militaire de Taïwan, même partielle, ou un simple blocus naval, suffirait à interrompre la production de TSMC.',
+        },
+        {
+          type: 'p',
+          text: 'Les conséquences d\'une telle interruption seraient catastrophiques pour l\'économie mondiale. Pas seulement pour TSMC et ses actionnaires. Pour l\'ensemble de l\'industrie technologique mondiale. Pour les fabricants d\'automobiles qui dépendent des puces. Pour les opérateurs télécoms. Pour les fournisseurs de cloud. Tout ce qui contient une puce avancée dépend, directement ou indirectement, de Taïwan.',
+        },
+        {
+          type: 'p',
+          text: 'Le marché intègre ce risque de façon rationnelle. Il ne dit pas que l\'invasion aura lieu. Il dit qu\'elle est possible, et que si elle se produit, la valeur de l\'action serait anéantie ou fortement impactée. Ce risque de queue, même si sa probabilité est faible, justifie une décote structurelle significative. C\'est exactement ce que reflète la valorisation de 2,2 fois le FCF.',
+        },
+        {
+          type: 'h2',
+          text: 'La stratégie de diversification : Arizona, Japon, Allemagne',
+        },
+        {
+          type: 'p',
+          text: 'TSMC n\'ignore pas ce risque. Depuis plusieurs années, l\'entreprise investit massivement pour construire des fabs en dehors de Taïwan. En Arizona, TSMC construit plusieurs usines avec le soutien financier du gouvernement américain dans le cadre du CHIPS Act. Au Japon, une fab est déjà en production. En Allemagne, un projet est en cours de développement avec le soutien de l\'Union Européenne.',
+        },
+        {
+          type: 'p',
+          text: 'Ces investissements sont positifs pour la réduction du risque géopolitique à long terme. Mais ils ont un coût. Le CAPEX engagé est massif, plusieurs dizaines de milliards de dollars sur les prochaines années. Et ces nouvelles fabs ne produiront pas avec le même rendement que celles de Taïwan, du moins dans un premier temps. Il y a un coût opérationnel à la diversification géographique que les marges de TSMC devront absorber.',
+        },
+        {
+          type: 'p',
+          text: 'Pour l\'investisseur, c\'est un signal ambigu. La diversification réduit le risque à long terme, ce qui devrait soutenir la valorisation. Mais le CAPEX élevé pèse sur le FCF à court et moyen terme. Il faut donc avoir une vision à plusieurs années pour investir dans ce dossier.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation de 2,2× : une opportunité ou un piège ?',
+        },
+        {
+          type: 'p',
+          text: 'Revenons au chiffre central : une valorisation de 2,2 fois le flux de trésorerie libre. Pour une entreprise de cette qualité, c\'est historiquement très bas. Si le risque géopolitique diminue (accord diplomatique, désescalade, accélération de la diversification géographique), le marché pourrait rapidement revaloriser l\'action vers des multiples bien supérieurs. La marge de progression potentielle est considérable.',
+        },
+        {
+          type: 'p',
+          text: 'Mais si le risque géopolitique se matérialise, même partiellement, la valorisation actuelle ne protège pas l\'investisseur. Une action à 2,2 fois le FCF peut encore perdre 50, 70 ou 90 % de sa valeur si les usines de Taïwan deviennent inaccessibles ou inopérables. C\'est le trade-off fondamental du dossier : un potentiel de hausse asymétrique dans le scénario favorable, un risque de perte extrême dans le scénario défavorable.',
+        },
+        {
+          type: 'p',
+          text: 'Ce n\'est pas un dossier pour tous les profils d\'investisseurs. Si tu gères un portefeuille qui ne peut pas se permettre une perte de 50 % sur une ligne, TSMC n\'est pas adapté. Si tu comprends le risque, si tu as une vision à long terme, et si tu considères que la désescalade géopolitique est le scénario le plus probable, alors la valorisation actuelle est l\'une des asymétries les plus intéressantes des marchés mondiaux.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que je pense du dossier TSMC',
+        },
+        {
+          type: 'p',
+          text: 'TSMC est le genre d\'entreprise qu\'on voudrait acheter les yeux fermés si elle était basée à Zurich ou à Singapour. Qualité parfaite, monopole inattaquable, croissance structurelle tirée par l\'IA, valorisation qui laisse une marge de progression énorme. Mais elle est basée à Taïwan, et ce détail change tout.',
+        },
+        {
+          type: 'p',
+          text: 'Dans notre méthode, la note de qualité est séparée de la décision d\'investissement. Un 10/10 de qualité ne signifie pas automatiquement "acheter". Il signifie que si tu prends ce risque géopolitique, tu le prends sur la meilleure entreprise possible dans son secteur. La contrepartie de ce risque est une valorisation qui reflète fidèlement l\'incertitude. Le marché n\'est pas inefficient ici. Il est honnête.',
+        },
+        {
+          type: 'p',
+          text: 'Mon approche personnelle : TSMC mérite une place dans un portefeuille diversifié, avec une pondération qui reflète la tolérance au risque géopolitique de l\'investisseur. Ce n\'est pas une position à surpondérer. C\'est une position à comprendre profondément avant d\'y entrer. La valorisation de 2,2 fois le FCF est un cadeau conditionnel : il faut savoir à quoi on s\'engage pour l\'accepter.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Pourquoi TSMC se valorise si peu malgré une qualité parfaite ?',
+          a: 'Le marché intègre le risque géopolitique lié à Taïwan. Si une tension militaire avec la Chine interrompait la production, la valeur de l\'action serait fortement impactée. Cette probabilité, même faible, justifie une décote structurelle. La valorisation de 2,2 fois le FCF reflète ce risque de façon rationnelle, pas une inefficience de marché.',
+        },
+        {
+          q: 'Qu\'est-ce que le P/FCF de 2,2× signifie concrètement ?',
+          a: 'Le P/FCF (Price-to-Free-Cash-Flow) mesure combien de fois le marché valorise le flux de trésorerie libre annuel de l\'entreprise. À 2,2 fois, cela signifie que tu paies moins de deux ans et demi de trésorerie libre pour posséder l\'action. Pour une entreprise de haute qualité, ce niveau est historiquement très bas.',
+        },
+        {
+          q: 'TSMC a-t-elle de vrais concurrents capables de la remplacer ?',
+          a: 'Non, pas sur les puces les plus avancées. Intel Foundry et Samsung sont les deux rivaux les plus proches, mais ils accusent 2 à 3 ans de retard technologique sur les noeuds 3 nm et 2 nm. Dans l\'industrie des semi-conducteurs, ce retard est structurellement très difficile à combler car il nécessite des investissements massifs, du temps, et une expertise qui se construit sur des décennies.',
+        },
+        {
+          q: 'Pourquoi Apple, Nvidia et AMD ne font pas fabriquer leurs puces ailleurs ?',
+          a: 'Parce qu\'il n\'existe pas d\'alternative au même niveau de performance. Les puces les plus avancées nécessitent les noeuds de fabrication les plus fins (3 nm, 2 nm) que seule TSMC maîtrise à grande échelle. Changer de fondeur impliquerait soit des puces moins performantes, soit plusieurs années de délai. Pour des produits comme les iPhone ou les GPU d\'IA, ce n\'est pas acceptable.',
+        },
+        {
+          q: 'La diversification géographique de TSMC réduit-elle vraiment le risque ?',
+          a: 'À terme, oui. Les fabs en Arizona, au Japon et en Allemagne réduisent la dépendance à Taïwan. Mais cette diversification prend du temps (3 à 5 ans par usine) et coûte très cher en CAPEX. À court terme, plus de 90 % de la production avancée reste à Taïwan. Le risque géopolitique ne disparaîtra pas avant plusieurs années au minimum.',
+        },
+      ],
+      tags: [
+        'Taiwan Semiconductor',
+        'TSMC',
+        'TSM',
+        'semi-conducteurs',
+        'puces IA',
+        'analyse fondamentale',
+        'risque géopolitique Taïwan',
+        'valorisation',
+        'P/FCF',
+        'actions technologiques',
+        'Nvidia',
+        'Apple',
+        'fonderie',
+        'Lubin Investment',
+      ],
+      disclaimer:
+        'Cet article est rédigé à titre informatif et éducatif uniquement. Il ne constitue en aucun cas un conseil en investissement, une recommandation d\'achat ou de vente de valeurs mobilières. Les informations présentées reflètent l\'opinion personnelle de l\'auteur basée sur des données publiques disponibles à la date de publication. Investir en bourse comporte des risques de perte en capital. Avant toute décision d\'investissement, consultez un conseiller financier agréé. Les performances passées ne préjugent pas des performances futures.',
+    },
+    en: {
+      title: 'Taiwan Semiconductor (TSM): fundamental analysis',
+      excerpt:
+        'TSMC scores a perfect 10 in our model. Yet the stock is valued at just 2.2 times its free cash flow. This paradox has a precise explanation, and it is geopolitical.',
+      metaDescription:
+        'Taiwan Semiconductor (TSM): our complete fundamental analysis. Perfect score, 2.2× FCF valuation. Why? The Taiwan risk explained honestly.',
+      answer:
+        'TSMC is the company our method rates highest: perfect quality, monopoly on advanced chips, structural AI growth. But it trades at 2.2 times its free cash flow because the market prices in a major geopolitical risk: military tension with China could halt its production. This trade-off is the core of the thesis.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'TSMC scores 10/10 in our fundamental rating model, the highest possible score.',
+            'It manufactures 85% of the world\'s advanced chips (3nm, 2nm): Apple, Nvidia, AMD, and Qualcomm all depend on it.',
+            'Intel Foundry and Samsung are 2 to 3 years behind technologically: there is no real substitute.',
+            'The valuation of 2.2 times FCF is exceptionally low for a company of this quality.',
+            'The reason: the Taiwan/China geopolitical risk is directly priced into the stock.',
+            'CAPEX is massive to build new fabs in Arizona, Japan, and Germany (geographic diversification underway).',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Some companies you analyze where everything holds together: the numbers are strong, the competitive position is solid, the growth is visible. And then there is TSMC. Taiwan Semiconductor Manufacturing Company sits in a category of its own. Our rating methodology gives it a perfect score. And yet the stock trades at a level that would suggest it is struggling. This paradox is not a market inefficiency. It is a deliberate decision by investors facing a well-identified risk.',
+        },
+        {
+          type: 'p',
+          text: 'In this article, I will break down this thesis starting from the fundamental question: why does a company with perfect quality trade so cheaply? The answer is honest, complete, and touches on something that few financial analyses dare to put front and center.',
+        },
+        {
+          type: 'h2',
+          text: 'TSMC: the invisible monopoly that runs the world',
+        },
+        {
+          type: 'p',
+          text: 'Taiwan Semiconductor Manufacturing Company Limited (ticker: TSM on NYSE, 2330.TW in Taiwan) is the world\'s largest contract semiconductor manufacturer. Its market capitalization exceeds $900 billion, making it one of the ten largest companies in the world. But what makes TSMC truly unique is not its size. It is its technological monopoly.',
+        },
+        {
+          type: 'p',
+          text: 'TSMC operates as a foundry. It does not design its own chips. It manufactures chips for other companies. Its clients include Apple for iPhone processors, Nvidia for AI GPUs, AMD for datacenter processors, Qualcomm for mobile chips, and ARM for embedded architectures. In other words, virtually all the chips powering the global digital economy flow through TSMC\'s factories in Taiwan.',
+        },
+        {
+          type: 'p',
+          text: 'What no one else can do: TSMC masters the most advanced manufacturing nodes at 3nm and 2nm. These figures describe the fineness of transistors etched onto chips. The smaller, the more powerful and energy-efficient the chip. At these leading-edge technologies, TSMC accounts for roughly 85% of global production. Its two potential rivals, Intel Foundry and Samsung, are 2 to 3 years behind. In the semiconductor industry, a 2 to 3 year technology gap is an eternity.',
+        },
+        {
+          type: 'h2',
+          text: 'AI drives demand: why TSMC is at the heart of the revolution',
+        },
+        {
+          type: 'p',
+          text: 'The artificial intelligence boom is not a passing trend for TSMC. It is a structural growth driver. Every large AI model trained by OpenAI, Google, Meta or Anthropic requires thousands of high-performance GPU chips. These chips are built by Nvidia. And Nvidia has them built by TSMC.',
+        },
+        {
+          type: 'p',
+          text: 'Demand for AI servers is exploding. Datacenters being built urgently worldwide need advanced chips. TSMC is the only bottleneck in this supply chain. Not because it is a transient constraint, but because it is structurally impossible to build equivalent manufacturing capacity in a few years. A state-of-the-art semiconductor fab takes 3 to 5 years to build and costs between $15 and $30 billion. The required technology (ASML\'s EUV lithography machines, for example) is itself produced in limited quantities.',
+        },
+        {
+          type: 'p',
+          text: 'The free cash flow generated by TSMC is structurally massive. Margins are solid. Growth is visible for several years ahead thanks to AI investment cycles, electric vehicles, and cloud infrastructure. On our ten rating criteria, TSMC validates them all. It is one of the rare companies to reach this level in our database.',
+        },
+        {
+          type: 'h2',
+          text: 'What our method says: 10/10 across the board',
+        },
+        {
+          type: 'p',
+          text: 'Our analysis framework evaluates each company on ten fundamental criteria: revenue growth, operating profitability, free cash flow generation, balance sheet quality, return on capital, consistency of results, resilience during downturns, capital allocation policy, relative valuation, and business model quality. Each criterion is worth one point.',
+        },
+        {
+          type: 'p',
+          text: 'TSMC validates all ten. Growth is structural and driven by multiple megatrends. Margins are high and defensible through its technological monopoly. Free cash flow generation is massive. The balance sheet is sound. Return on invested capital is well above our thresholds. Results are consistent and predictable. Capital allocation policy (reinvestment in fabs, share buybacks) is rigorous. And the business model, that of a mission-critical foundry for the world\'s largest tech companies, is among the most defensible that exists.',
+        },
+        {
+          type: 'p',
+          text: 'Ten out of ten. It is not a score I give lightly. Across several hundred analyzed companies, only a handful reach this level. A score of 10/10 does not mean the stock is risk-free. It means the fundamental quality of the business is at the highest level our method can measure.',
+        },
+        {
+          type: 'table',
+          headers: ['Criterion', 'TSMC (TSM)', 'Our threshold', 'Assessment'],
+          rows: [
+            ['Market capitalization', '~$900B', '-', 'Mega-cap'],
+            ['Lubin quality score', '10/10', '8+/10 to invest', 'Perfect'],
+            ['P/FCF valuation', '2.2×', '<20× target', 'Very low'],
+            ['Advanced chip market share', '~85%', '-', 'Effective monopoly'],
+            ['Competitor lag', '2 to 3 years', '-', 'Unassailable lead'],
+            ['Structural FCF', 'Massive', '>5% FCF margin', 'Very solid'],
+            ['Balance sheet', 'Sound', 'Debt < 3× FCF', 'Satisfactory'],
+            ['AI growth visibility', 'Multi-year', '-', 'Structural'],
+            ['New fab CAPEX', 'Very high', 'Dilutive risk', 'Watch closely'],
+            ['Geopolitical risk', 'Very high', '-', 'Primary risk'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'The Taiwan risk: the real reason for the low valuation',
+        },
+        {
+          type: 'p',
+          text: 'Here is the heart of the paradox. If TSMC scores perfectly and demand for its chips is only growing, why does the stock trade at 2.2 times its free cash flow? For comparison, an average-quality company in an ordinary sector often trades at 15 to 25 times FCF. TSMC is at 2.2 times. That is a discount of over 90% relative to what its fundamental quality alone would justify.',
+        },
+        {
+          type: 'p',
+          text: 'The answer is simple and blunt: the Taiwan risk. Almost all of TSMC\'s production sits on the island of Taiwan. And Taiwan is at the center of one of the most closely watched geopolitical tensions in the world, the one between China and the United States. Beijing considers Taiwan a rogue province it intends to reunify, by diplomacy if possible, by force if necessary. A military invasion of Taiwan, even partial, or a simple naval blockade, would be enough to halt TSMC\'s production.',
+        },
+        {
+          type: 'p',
+          text: 'The consequences of such an interruption would be catastrophic for the global economy. Not just for TSMC and its shareholders. For the entire global technology industry. For automakers dependent on chips. For telecom operators. For cloud providers. Everything containing an advanced chip depends, directly or indirectly, on Taiwan.',
+        },
+        {
+          type: 'p',
+          text: 'The market prices this risk rationally. It is not saying the invasion will happen. It is saying it is possible, and that if it does, the stock\'s value would be wiped out or severely impacted. This tail risk, even if its probability is low, justifies a meaningful structural discount. That is exactly what the 2.2 times FCF valuation reflects.',
+        },
+        {
+          type: 'h2',
+          text: 'The diversification strategy: Arizona, Japan, Germany',
+        },
+        {
+          type: 'p',
+          text: 'TSMC is not ignoring this risk. For several years, the company has been investing heavily to build fabs outside Taiwan. In Arizona, TSMC is building multiple plants with financial backing from the US government under the CHIPS Act. In Japan, a fab is already in production. In Germany, a project is under development with support from the European Union.',
+        },
+        {
+          type: 'p',
+          text: 'These investments are positive for reducing geopolitical risk over the long term. But they come at a cost. The committed CAPEX is massive, tens of billions of dollars over the coming years. And these new fabs will not produce with the same yield as those in Taiwan, at least not initially. There is an operational cost to geographic diversification that TSMC\'s margins will need to absorb.',
+        },
+        {
+          type: 'p',
+          text: 'For investors, this is an ambiguous signal. Diversification reduces long-term risk, which should support valuation. But the high CAPEX weighs on FCF in the short and medium term. A multi-year horizon is therefore needed to invest in this thesis.',
+        },
+        {
+          type: 'h2',
+          text: 'The 2.2× valuation: opportunity or trap?',
+        },
+        {
+          type: 'p',
+          text: 'Let us come back to the central figure: a valuation of 2.2 times free cash flow. For a company of this quality, that is historically very low. If geopolitical risk decreases (diplomatic agreement, de-escalation, accelerated geographic diversification), the market could quickly reprice the stock toward far higher multiples. The potential upside is considerable.',
+        },
+        {
+          type: 'p',
+          text: 'But if the geopolitical risk materializes, even partially, the current valuation does not protect the investor. A stock at 2.2 times FCF can still lose 50, 70, or 90% of its value if Taiwan\'s factories become inaccessible or inoperable. That is the fundamental trade-off of this thesis: asymmetric upside potential in the favorable scenario, extreme loss risk in the unfavorable one.',
+        },
+        {
+          type: 'p',
+          text: 'This is not a thesis for every investor profile. If you manage a portfolio that cannot afford a 50% loss on a single position, TSMC is not suitable. If you understand the risk, have a long-term view, and believe that geopolitical de-escalation is the most likely scenario, then the current valuation is one of the most interesting asymmetries in global markets.',
+        },
+        {
+          type: 'h2',
+          text: 'My take on the TSMC thesis',
+        },
+        {
+          type: 'p',
+          text: 'TSMC is the kind of company you would buy with your eyes closed if it were based in Zurich or Singapore. Perfect quality, unassailable monopoly, structural growth driven by AI, valuation that leaves enormous room for upside. But it is based in Taiwan, and that detail changes everything.',
+        },
+        {
+          type: 'p',
+          text: 'In our method, the quality score is separate from the investment decision. A quality score of 10/10 does not automatically mean "buy." It means that if you take this geopolitical risk, you are taking it on the best possible company in its sector. The counterpart to this risk is a valuation that faithfully reflects the uncertainty. The market is not inefficient here. It is honest.',
+        },
+        {
+          type: 'p',
+          text: 'My personal approach: TSMC deserves a place in a diversified portfolio, with a weighting that reflects the investor\'s tolerance for geopolitical risk. It is not a position to overweight. It is a position to understand deeply before entering. The valuation of 2.2 times FCF is a conditional gift: you need to know what you are signing up for to accept it.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Why does TSMC trade so cheaply despite a perfect quality score?',
+          a: 'The market prices in the geopolitical risk linked to Taiwan. If military tension with China were to halt production, the stock\'s value would be severely impacted. This probability, even if low, justifies a structural discount. The 2.2 times FCF valuation reflects this risk rationally, not a market inefficiency.',
+        },
+        {
+          q: 'What does the 2.2× P/FCF valuation mean in practice?',
+          a: 'P/FCF (Price-to-Free-Cash-Flow) measures how many times the market values the company\'s annual free cash flow. At 2.2 times, you are paying less than two and a half years of free cash flow to own the stock. For a high-quality company, this level is historically very low.',
+        },
+        {
+          q: 'Does TSMC have real competitors capable of replacing it?',
+          a: 'No, not on the most advanced chips. Intel Foundry and Samsung are the two closest rivals, but they are 2 to 3 years behind on 3nm and 2nm nodes. In the semiconductor industry, this lag is structurally very difficult to close, as it requires massive investment, time, and expertise built over decades.',
+        },
+        {
+          q: 'Why can\'t Apple, Nvidia, and AMD have their chips made elsewhere?',
+          a: 'Because there is no alternative at the same performance level. The most advanced chips require the finest manufacturing nodes (3nm, 2nm) that only TSMC masters at scale. Switching foundries would mean either less-performant chips or several years of delay. For products like iPhones or AI GPUs, that is not acceptable.',
+        },
+        {
+          q: 'Does TSMC\'s geographic diversification actually reduce the risk?',
+          a: 'Over time, yes. Fabs in Arizona, Japan, and Germany reduce dependence on Taiwan. But this diversification takes time (3 to 5 years per plant) and costs a great deal in CAPEX. In the short term, more than 90% of advanced production remains in Taiwan. The geopolitical risk will not disappear for several years at minimum.',
+        },
+      ],
+      tags: [
+        'Taiwan Semiconductor',
+        'TSMC',
+        'TSM',
+        'semiconductors',
+        'AI chips',
+        'fundamental analysis',
+        'Taiwan geopolitical risk',
+        'valuation',
+        'P/FCF',
+        'tech stocks',
+        'Nvidia',
+        'Apple',
+        'foundry',
+        'Lubin Investment',
+      ],
+      disclaimer:
+        'This article is written for informational and educational purposes only. It does not constitute investment advice, a recommendation to buy or sell any security. The information presented reflects the personal opinion of the author based on publicly available data at the date of publication. Investing in stocks involves risk of capital loss. Before making any investment decision, consult a licensed financial advisor. Past performance does not predict future results.',
+    },
+    es: {
+      title: 'Taiwan Semiconductor (TSM): análisis fundamental',
+      excerpt:
+        'TSMC obtiene una puntuación perfecta en nuestro modelo. Sin embargo, la acción se valoriza a solo 2,2 veces su flujo de caja libre. Esta paradoja tiene una explicación precisa, y es geopolítica.',
+      metaDescription:
+        'Taiwan Semiconductor (TSM): análisis fundamental completo. Puntuación perfecta, valorización 2,2× FCF. El riesgo Taiwán explicado con honestidad.',
+      answer:
+        'TSMC es la empresa que nuestro método califica más alto: calidad perfecta, monopolio en chips avanzados, crecimiento estructural de IA. Pero se valoriza a 2,2 veces su flujo de caja libre porque el mercado incorpora un riesgo geopolítico mayor: una tensión militar con China podría interrumpir su producción. Este intercambio es el núcleo de la tesis.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'TSMC obtiene 10/10 en nuestro modelo de calificación fundamental, la puntuación más alta posible.',
+            'Fabrica el 85% de los chips avanzados del mundo (3 nm, 2 nm): Apple, Nvidia, AMD y Qualcomm dependen todas de ella.',
+            'Intel Foundry y Samsung tienen un retraso tecnológico de 2 a 3 años: no existe un sustituto real.',
+            'La valorización de 2,2 veces el FCF es excepcionalmente baja para una empresa de esta calidad.',
+            'La razón: el riesgo geopolítico Taiwán/China está directamente incorporado en el precio de la acción.',
+            'El CAPEX es masivo para construir nuevas fábricas en Arizona, Japón y Alemania (diversificación geográfica en curso).',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Hay empresas que analizas y donde todo encaja: los números son sólidos, la posición competitiva es fuerte, el crecimiento es visible. Y luego está TSMC. Taiwan Semiconductor Manufacturing Company está en una categoría propia. Nuestra metodología de calificación le otorga una puntuación perfecta. Y sin embargo, la acción cotiza a un nivel que haría pensar que está en dificultades. Esta paradoja no es una ineficiencia del mercado. Es una decisión consciente de los inversores frente a un riesgo bien identificado.',
+        },
+        {
+          type: 'p',
+          text: 'En este artículo, voy a desgranar esta tesis partiendo de la pregunta fundamental: ¿por qué una empresa con calidad perfecta se valoriza tan poco? La respuesta es honesta, completa, y toca algo que pocos análisis financieros se atreven a poner realmente en primer plano.',
+        },
+        {
+          type: 'h2',
+          text: 'TSMC: el monopolio invisible que mueve el mundo',
+        },
+        {
+          type: 'p',
+          text: 'Taiwan Semiconductor Manufacturing Company Limited (ticker: TSM en NYSE, 2330.TW en Taiwán) es el mayor fabricante de semiconductores por contrato del mundo. Su capitalización de mercado supera los 900.000 millones de dólares, lo que la convierte en una de las diez empresas más grandes del mundo. Pero lo que hace a TSMC verdaderamente única no es su tamaño. Es su monopolio tecnológico.',
+        },
+        {
+          type: 'p',
+          text: 'TSMC opera como una fundición. No diseña sus propios chips. Los fabrica para otras empresas. Sus clientes incluyen a Apple para los procesadores del iPhone, Nvidia para las GPU de inteligencia artificial, AMD para los procesadores de centros de datos, Qualcomm para los chips móviles y ARM para las arquitecturas embebidas. En otras palabras, prácticamente todos los chips que impulsan la economía digital mundial pasan por las fábricas de TSMC en Taiwán.',
+        },
+        {
+          type: 'p',
+          text: 'Lo que nadie más sabe hacer: TSMC domina los nodos de fabricación más avanzados a 3 nm y 2 nm. Estas cifras designan la finura de los transistores grabados en los chips. Cuanto más pequeño, más potente y eficiente energéticamente es el chip. En estas tecnologías de vanguardia, TSMC representa aproximadamente el 85% de la producción mundial. Sus dos rivales potenciales, Intel Foundry y Samsung, acumulan un retraso de 2 a 3 años. En la industria de los semiconductores, un retraso tecnológico de 2 a 3 años es una eternidad.',
+        },
+        {
+          type: 'h2',
+          text: 'La IA impulsa la demanda: por qué TSMC está en el centro de la revolución',
+        },
+        {
+          type: 'p',
+          text: 'El auge de la inteligencia artificial no es una moda pasajera para TSMC. Es un motor de crecimiento estructural. Cada gran modelo de IA entrenado por OpenAI, Google, Meta o Anthropic requiere miles de chips GPU de alto rendimiento. Estos chips los fabrica Nvidia. Y Nvidia los hace fabricar por TSMC.',
+        },
+        {
+          type: 'p',
+          text: 'La demanda de servidores de IA se dispara. Los centros de datos construidos urgentemente en todo el mundo necesitan chips avanzados. TSMC es el único cuello de botella en esta cadena de suministro. No porque sea una restricción temporal, sino porque es estructuralmente imposible construir una capacidad de fabricación equivalente en pocos años. Una fábrica de semiconductores de última generación tarda entre 3 y 5 años en construirse y cuesta entre 15.000 y 30.000 millones de dólares. La tecnología necesaria (las máquinas de litografía EUV de ASML, por ejemplo) se produce ella misma en cantidades limitadas.',
+        },
+        {
+          type: 'p',
+          text: 'El flujo de caja libre generado por TSMC es estructuralmente masivo. Los márgenes son sólidos. El crecimiento es visible durante varios años gracias a los ciclos de inversión en IA, vehículos eléctricos e infraestructuras cloud. En nuestros diez criterios de calificación, TSMC los valida todos. Es una de las pocas empresas que alcanza este nivel en nuestra base de datos.',
+        },
+        {
+          type: 'h2',
+          text: 'Lo que dice nuestro método: 10/10 en todos los criterios',
+        },
+        {
+          type: 'p',
+          text: 'Nuestra metodología de análisis evalúa cada empresa en diez criterios fundamentales: crecimiento de ingresos, rentabilidad operativa, generación de flujo de caja libre, calidad del balance, retorno sobre el capital, consistencia de resultados, resiliencia en periodos de crisis, política de asignación de capital, valorización relativa y calidad del modelo de negocio. Cada criterio vale un punto.',
+        },
+        {
+          type: 'p',
+          text: 'TSMC valida los diez. El crecimiento es estructural y está impulsado por múltiples megatendencias. Los márgenes son altos y defendibles gracias al monopolio tecnológico. La generación de flujo de caja libre es masiva. El balance es sólido. El retorno sobre el capital invertido está muy por encima de nuestros umbrales. Los resultados son consistentes y predecibles. La política de asignación de capital (reinversión en fábricas, recompra de acciones) es rigurosa. Y el modelo de negocio, el de una fundición imprescindible para las mayores empresas tecnológicas del mundo, es uno de los más defendibles que existen.',
+        },
+        {
+          type: 'p',
+          text: 'Diez sobre diez. No es una puntuación que doy fácilmente. Entre varios cientos de empresas analizadas, solo un puñado la alcanza. Una puntuación de 10/10 no significa que la acción esté libre de riesgos. Significa que la calidad fundamental del negocio está al nivel más alto que nuestro método puede medir.',
+        },
+        {
+          type: 'table',
+          headers: ['Criterio', 'TSMC (TSM)', 'Nuestro umbral', 'Evaluación'],
+          rows: [
+            ['Capitalización de mercado', '~900.000 M$', '-', 'Mega-cap'],
+            ['Puntuación Lubin', '10/10', '8+/10 para invertir', 'Perfecta'],
+            ['Valorización P/FCF', '2,2×', '<20× objetivo', 'Muy baja'],
+            ['Cuota de mercado chips avanzados', '~85%', '-', 'Monopolio de hecho'],
+            ['Retraso de competidores', '2 a 3 años', '-', 'Ventaja inalcanzable'],
+            ['FCF estructural', 'Masivo', '>5% margen FCF', 'Muy sólido'],
+            ['Balance', 'Sólido', 'Deuda < 3× FCF', 'Satisfactorio'],
+            ['Visibilidad crecimiento IA', 'Varios años', '-', 'Estructural'],
+            ['CAPEX nuevas fábricas', 'Muy alto', 'Riesgo dilutivo', 'A vigilar'],
+            ['Riesgo geopolítico', 'Muy alto', '-', 'Riesgo principal'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'El riesgo Taiwán: la verdadera razón de la baja valorización',
+        },
+        {
+          type: 'p',
+          text: 'Aquí está el núcleo de la paradoja. Si TSMC obtiene una puntuación perfecta y la demanda de sus chips no hace más que crecer, ¿por qué la acción se valoriza a 2,2 veces su flujo de caja libre? A modo de comparación, una empresa de calidad media en un sector ordinario suele cotizar entre 15 y 25 veces su FCF. TSMC está a 2,2 veces. Es un descuento de más del 90% respecto a lo que justificaría su sola calidad fundamental.',
+        },
+        {
+          type: 'p',
+          text: 'La respuesta es simple y directa: el riesgo Taiwán. La casi totalidad de la producción de TSMC se encuentra en la isla de Taiwán. Y Taiwán está en el centro de una de las tensiones geopolíticas más vigiladas del mundo, la que existe entre China y los Estados Unidos. Pekín considera a Taiwán una provincia rebelde que pretende reunificar, por la diplomacia si es posible, por la fuerza si es necesario. Una invasión militar de Taiwán, incluso parcial, o un simple bloqueo naval, sería suficiente para interrumpir la producción de TSMC.',
+        },
+        {
+          type: 'p',
+          text: 'Las consecuencias de tal interrupción serían catastróficas para la economía mundial. No solo para TSMC y sus accionistas. Para toda la industria tecnológica mundial. Para los fabricantes de automóviles que dependen de los chips. Para los operadores de telecomunicaciones. Para los proveedores de cloud. Todo lo que contiene un chip avanzado depende, directa o indirectamente, de Taiwán.',
+        },
+        {
+          type: 'p',
+          text: 'El mercado incorpora este riesgo de manera racional. No está diciendo que la invasión ocurrirá. Está diciendo que es posible, y que si ocurre, el valor de la acción quedaría aniquilado o gravemente impactado. Este riesgo de cola, aunque su probabilidad sea baja, justifica un descuento estructural significativo. Eso es exactamente lo que refleja la valorización de 2,2 veces el FCF.',
+        },
+        {
+          type: 'h2',
+          text: 'La estrategia de diversificación: Arizona, Japón, Alemania',
+        },
+        {
+          type: 'p',
+          text: 'TSMC no ignora este riesgo. Desde hace varios años, la empresa invierte masivamente para construir fábricas fuera de Taiwán. En Arizona, TSMC construye varias plantas con el apoyo financiero del gobierno estadounidense en el marco de la CHIPS Act. En Japón, una fábrica ya está en producción. En Alemania, un proyecto está en desarrollo con el apoyo de la Unión Europea.',
+        },
+        {
+          type: 'p',
+          text: 'Estas inversiones son positivas para reducir el riesgo geopolítico a largo plazo. Pero tienen un coste. El CAPEX comprometido es masivo, decenas de miles de millones de dólares en los próximos años. Y estas nuevas fábricas no producirán con el mismo rendimiento que las de Taiwán, al menos no inicialmente. Hay un coste operativo en la diversificación geográfica que los márgenes de TSMC deberán absorber.',
+        },
+        {
+          type: 'p',
+          text: 'Para el inversor, es una señal ambigua. La diversificación reduce el riesgo a largo plazo, lo que debería apoyar la valorización. Pero el alto CAPEX pesa sobre el FCF a corto y medio plazo. Por lo tanto, se necesita una visión de varios años para invertir en esta tesis.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorización de 2,2×: ¿oportunidad o trampa?',
+        },
+        {
+          type: 'p',
+          text: 'Volvamos al dato central: una valorización de 2,2 veces el flujo de caja libre. Para una empresa de esta calidad, eso es históricamente muy bajo. Si el riesgo geopolítico disminuye (acuerdo diplomático, desescalada, aceleración de la diversificación geográfica), el mercado podría revalorar rápidamente la acción hacia múltiplos muy superiores. El potencial de subida es considerable.',
+        },
+        {
+          type: 'p',
+          text: 'Pero si el riesgo geopolítico se materializa, incluso parcialmente, la valorización actual no protege al inversor. Una acción a 2,2 veces el FCF puede perder aún el 50, 70 o 90% de su valor si las fábricas de Taiwán se vuelven inaccesibles o inoperativas. Ese es el intercambio fundamental de esta tesis: potencial de subida asimétrico en el escenario favorable, riesgo de pérdida extrema en el desfavorable.',
+        },
+        {
+          type: 'p',
+          text: 'Esta no es una tesis para todos los perfiles de inversores. Si gestionas una cartera que no puede permitirse una pérdida del 50% en una posición, TSMC no es adecuado. Si entiendes el riesgo, tienes una visión a largo plazo y consideras que la desescalada geopolítica es el escenario más probable, entonces la valorización actual es una de las asimetrías más interesantes de los mercados mundiales.',
+        },
+        {
+          type: 'h2',
+          text: 'Mi opinión sobre la tesis TSMC',
+        },
+        {
+          type: 'p',
+          text: 'TSMC es el tipo de empresa que comprarías con los ojos cerrados si estuviera basada en Zúrich o en Singapur. Calidad perfecta, monopolio inalcanzable, crecimiento estructural impulsado por la IA, valorización que deja un enorme margen de subida. Pero está basada en Taiwán, y ese detalle lo cambia todo.',
+        },
+        {
+          type: 'p',
+          text: 'En nuestro método, la puntuación de calidad está separada de la decisión de inversión. Una puntuación de calidad de 10/10 no significa automáticamente "comprar". Significa que si asumes este riesgo geopolítico, lo asumes sobre la mejor empresa posible en su sector. La contrapartida de este riesgo es una valorización que refleja fielmente la incertidumbre. El mercado no es ineficiente aquí. Es honesto.',
+        },
+        {
+          type: 'p',
+          text: 'Mi enfoque personal: TSMC merece un lugar en una cartera diversificada, con una ponderación que refleje la tolerancia al riesgo geopolítico del inversor. No es una posición para sobreponderarse. Es una posición para entender profundamente antes de entrar. La valorización de 2,2 veces el FCF es un regalo condicional: hay que saber a qué te comprometes para aceptarlo.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Por qué TSMC se valoriza tan poco a pesar de una calidad perfecta?',
+          a: 'El mercado incorpora el riesgo geopolítico vinculado a Taiwán. Si una tensión militar con China interrumpiera la producción, el valor de la acción quedaría gravemente impactado. Esta probabilidad, aunque baja, justifica un descuento estructural. La valorización de 2,2 veces el FCF refleja este riesgo de manera racional, no una ineficiencia del mercado.',
+        },
+        {
+          q: '¿Qué significa concretamente una valorización P/FCF de 2,2×?',
+          a: 'El P/FCF (Price-to-Free-Cash-Flow) mide cuántas veces el mercado valoriza el flujo de caja libre anual de la empresa. A 2,2 veces, estás pagando menos de dos años y medio de flujo de caja libre para poseer la acción. Para una empresa de alta calidad, este nivel es históricamente muy bajo.',
+        },
+        {
+          q: '¿Tiene TSMC competidores reales capaces de reemplazarla?',
+          a: 'No, no en los chips más avanzados. Intel Foundry y Samsung son los dos rivales más cercanos, pero acumulan 2 a 3 años de retraso en los nodos de 3 nm y 2 nm. En la industria de los semiconductores, ese retraso es estructuralmente muy difícil de cerrar, ya que requiere inversiones masivas, tiempo y una experiencia que se construye a lo largo de décadas.',
+        },
+        {
+          q: '¿Por qué Apple, Nvidia y AMD no hacen fabricar sus chips en otro lugar?',
+          a: 'Porque no existe una alternativa al mismo nivel de rendimiento. Los chips más avanzados requieren los nodos de fabricación más finos (3 nm, 2 nm) que solo TSMC domina a escala. Cambiar de fundición implicaría chips menos potentes o varios años de retraso. Para productos como los iPhone o las GPU de IA, eso no es aceptable.',
+        },
+        {
+          q: '¿La diversificación geográfica de TSMC reduce realmente el riesgo?',
+          a: 'A largo plazo, sí. Las fábricas en Arizona, Japón y Alemania reducen la dependencia de Taiwán. Pero esta diversificación lleva tiempo (3 a 5 años por planta) y cuesta mucho en CAPEX. A corto plazo, más del 90% de la producción avanzada permanece en Taiwán. El riesgo geopolítico no desaparecerá como mínimo durante varios años.',
+        },
+      ],
+      tags: [
+        'Taiwan Semiconductor',
+        'TSMC',
+        'TSM',
+        'semiconductores',
+        'chips de IA',
+        'análisis fundamental',
+        'riesgo geopolítico Taiwán',
+        'valorización',
+        'P/FCF',
+        'acciones tecnológicas',
+        'Nvidia',
+        'Apple',
+        'fundición',
+        'Lubin Investment',
+      ],
+      disclaimer:
+        'Este artículo está redactado con fines informativos y educativos únicamente. No constituye en ningún caso un consejo de inversión, ni una recomendación de compra o venta de valores. La información presentada refleja la opinión personal del autor basada en datos públicos disponibles a la fecha de publicación. Invertir en bolsa implica riesgos de pérdida de capital. Antes de cualquier decisión de inversión, consulta a un asesor financiero autorizado. Las rentabilidades pasadas no predicen resultados futuros.',
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [accentureQ3FY2026, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, articleTT, wrb, doximityDOCS2026, asml, tsm];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
