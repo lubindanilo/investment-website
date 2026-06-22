@@ -12496,413 +12496,6 @@ const article_credit_services_2026: Article = {
 
 
 
-const accentureQ3FY2026: Article = {
-  slug: 'accenture-acn-chute-18-pourcent-resultats-q3-fy2026',
-  date: '2026-06-22',
-  updated: '2026-06-22',
-  readingTime: 7,
-  ticker: 'ACN',
-  content: {
-    fr: {
-      title: 'Accenture (ACN) : notre analyse après la chute de 18 %',
-      excerpt:
-        "Accenture a perdu 18 % en une seule séance après ses résultats du 18 juin. Sa note de qualité reste solide, mais un critère manque. Voici ce que la chute change, et ce qu'elle ne change pas.",
-      metaDescription:
-        "Accenture (ACN) a chuté de 18 % le 18 juin 2026 après une révision à la baisse de ses prévisions. Analyse fondamentale : est-ce une opportunité ou un piège ? Ma méthode qualité d'abord.",
-      answer:
-        "Accenture a publié ses résultats trimestriels le 18 juin 2026 et a révisé ses prévisions de croissance à la baisse, de +5 % à +8 % à seulement +3 % à +4 %. L'action a chuté de 18 % en séance, passant d'environ 156 dollars à 128 dollars. La qualité reste haute, mais la croissance insuffisante empêche un score parfait. Voici comment je lis cette situation.",
-      body: [
-        {
-          type: 'ul',
-          items: [
-            "Résultats Q3 FY2026 publiés le 18 juin : chiffre d'affaires de 18,7 milliards de dollars, en hausse de 6 % sur un an, légèrement sous le consensus.",
-            "Guidance annuelle révisée à la baisse : croissance de +3 % à +4 %, contre +5 % à +8 % annoncée précédemment.",
-            "Réaction immédiate : l'action a chuté de 18 % en séance, son niveau le plus bas depuis 2016.",
-            "Note de qualité Lubin : 8/10. Accenture est une entreprise solide, mais la croissance des revenus (+5,3 % par an sur 5 ans) reste sous mon seuil de 10 %.",
-            "Prix d'achat raisonnable selon mon modèle : environ 119,68 dollars. A 128 dollars, l'action s'en approche, sans encore l'atteindre.",
-          ],
-        },
-        { type: 'h2', text: "Ce qui s'est passé le 18 juin 2026" },
-        {
-          type: 'p',
-          text: "Accenture a dévoilé ses résultats du troisième trimestre de son exercice fiscal 2026 le 18 juin. Le chiffre d'affaires ressort à 18,7 milliards de dollars, en hausse de 6 % sur un an. C'est légèrement en dessous du consensus des analystes, qui tablaient sur 18,8 milliards. En soi, un écart aussi minime ne justifie pas une panique.",
-        },
-        {
-          type: 'p',
-          text: "Ce qui a tout déclenché, c'est la révision de la guidance annuelle, c'est-à-dire les prévisions que la direction donne pour le reste de l'exercice. Accenture a abaissé son objectif de croissance de chiffre d'affaires de +5 % à +8 % à seulement +3 % à +4 %. C'est ce qu'on appelle un guidance cut. Le marché déteste ça : cela signifie que la demande de services de conseil en informatique ralentit plus vite que prévu. L'action a immédiatement chuté de 18 % en séance, touchant son plus bas niveau depuis 2016.",
-        },
-        { type: 'h2', text: "Est-ce une bonne entreprise ? La qualité d'abord" },
-        {
-          type: 'p',
-          text: "Quand je regarde une action, je commence toujours par séparer deux questions que la plupart des gens confondent. La première : est-ce un bon business ? La seconde, entièrement à part : est-ce le bon prix ? Une entreprise géniale payée trop cher reste un mauvais placement. Et une entreprise médiocre bon marché reste médiocre.",
-        },
-        {
-          type: 'p',
-          text: "Pour Accenture, la réponse à la première question est : oui, c'est un bon business, mais pas un business parfait. Je note l'entreprise sur dix critères financiers concrets : rentabilité, croissance des revenus, croissance du free cash-flow (l'argent qui reste réellement dans les caisses une fois toutes les factures payées), marges, endettement, rachat d'actions, et quelques autres indicateurs de solidité. Accenture valide 8 de ces 10 critères. Ce qui lui manque, c'est précisément la croissance des revenus.",
-        },
-        {
-          type: 'p',
-          text: "Sur les cinq dernières années, Accenture a fait croître ses revenus de 5,3 % par an. Mon seuil est de 10 %. Ce n'est pas une mauvaise performance en valeur absolue, mais pour une entreprise de conseil qui opère sur les marchés les plus dynamiques du monde, les données, l'intelligence artificielle, la transformation digitale, ce rythme me semble insuffisant pour justifier un score parfait. C'est ce critère manquant qui explique la note de 8/10, pas de 10/10.",
-        },
-        { type: 'h2', text: "Ce qu'Accenture fait très bien" },
-        {
-          type: 'p',
-          text: "Sur les huit autres critères, Accenture brille. Sa marge de free cash-flow est de 14,4 %, ce qui est honnête pour un cabinet de services. Sa marge nette atteint 10,6 %. Et surtout, son Cash ROCE (le rendement du capital investi calculé sur la base du free cash-flow réel) est de 76,5 %, un chiffre exceptionnel. Cela signifie que pour chaque dollar immobilisé dans l'entreprise, Accenture génère 0,765 dollar de cash. C'est le signe d'un business très léger en capital, ce qu'on appelle un asset-light model.",
-        },
-        {
-          type: 'p',
-          text: "Son bilan est irréprochable : Accenture est en trésorerie nette, ce qui signifie qu'elle a plus de cash que de dettes. Elle rachète activement ses propres actions, ce qui témoigne d'une allocation du capital disciplinée. Ce sont exactement les signaux que je recherche dans une entreprise de qualité.",
-        },
-        { type: 'h2', text: "Le critère manquant : pourquoi la croissance compte" },
-        {
-          type: 'p',
-          text: "La guidance cut du 18 juin n'est pas un événement isolé. Elle confirme une tendance que les chiffres des cinq dernières années illustraient déjà : Accenture grandit, mais moins vite que ce que son modèle de services numériques premium laissait espérer. Le consensus du secteur IA et transformation digitale était celui d'une forte accélération. À +3 % à +4 % annuels, c'est le scénario inverse.",
-        },
-        {
-          type: 'p',
-          text: "Pourquoi est-ce important ? Parce qu'une entreprise de conseil facture principalement du temps humain. Pour croître plus vite, elle doit recruter, former, et déployer davantage de consultants, ou réussir à monter en valeur ajoutée et en tarifs. Si ni l'un ni l'autre ne se produit au rythme attendu, la croissance plafonne. Le guidance cut suggère que la demande pour les gros programmes de transformation digitale marque le pas.",
-        },
-        { type: 'h2', text: "La valorisation : P/FCF à 7,7 fois" },
-        {
-          type: 'p',
-          text: "Passons au prix. Pour mesurer ce que le marché accepte de payer pour une action, j'utilise un ratio simple : le P/FCF (price-to-free-cash-flow). C'est le prix de l'action divisé par le free cash-flow qu'elle génère chaque année. Un P/FCF de 7,7 signifie que tu paies aujourd'hui 7,7 années de ce cash. Plus ce chiffre est bas, moins l'action est chère.",
-        },
-        {
-          type: 'p',
-          text: "Après la chute de 18 %, Accenture se valorise 7,7 fois son free cash-flow. C'est un niveau historiquement bas pour cette entreprise. La capitalisation boursière est revenue à 78,6 milliards de dollars, pour une action à environ 128 dollars. Mon modèle de valorisation, basé sur le free cash-flow projeté et un taux d'actualisation raisonnable, me donne un prix d'achat cible de 119,68 dollars.",
-        },
-        {
-          type: 'table',
-          headers: ['Indicateur', 'Valeur'],
-          rows: [
-            ['Cours actuel', '~128 $'],
-            ['P/FCF', '7,7×'],
-            ['Marge FCF', '14,4 %'],
-            ['Cash ROCE', '76,5 %'],
-            ['Marge nette', '10,6 %'],
-            ['Croissance revenus 5 ans', '+5,3 % / an'],
-            ['Endettement net', 'Trésorerie nette'],
-            ['Note Lubin', '8/10'],
-            ['Prix cible modèle', '~119,68 $'],
-          ],
-        },
-        { type: 'h2', text: "Ce que la chute change, et ce qu'elle ne change pas" },
-        {
-          type: 'p',
-          text: "La chute de 18 % a rendu l'action beaucoup moins chère. Elle n'a pas amélioré la qualité du business : Accenture reste à 8/10, avec ce critère de croissance insuffisante. Et précisément, le guidance cut du 18 juin aggrave ce point. Ce n'est pas une erreur de lecture temporaire. C'est la direction elle-même qui dit : nous allons croître moins vite que prévu.",
-        },
-        {
-          type: 'p',
-          text: "La chute ne change donc pas le diagnostic fondamental. Elle change uniquement le prix. Et c'est important : une entreprise de 8/10 à 7,7 fois son free cash-flow mérite qu'on y regarde sérieusement. Mais 8/10 n'est pas 10/10. Il y a un risque réel que la croissance continue de décevoir, ce qu'on appelle un value trap, une action qui semble bon marché parce que ses fondamentaux se dégradent.",
-        },
-        { type: 'h2', text: "Comment je tranche, sans émotion" },
-        {
-          type: 'p',
-          text: "Ma discipline est simple : je n'entre pas dans une position avant que le cours atteigne mon prix d'achat raisonnable. Aujourd'hui, l'action est à environ 128 dollars. Mon prix cible est 119,68 dollars. Il manque environ 7 % de baisse supplémentaire pour que je sois à l'aise. Je ne cours pas après le cours, je laisse le cours venir à moi.",
-        },
-        {
-          type: 'p',
-          text: "Je surveille aussi si la qualité fondamentale se dégrade davantage dans les prochains trimestres. Si la croissance des revenus continue de ralentir et que le score tombe en dessous de 8/10, même à un prix bas, l'intérêt diminue. À l'inverse, si Accenture livre une accélération sur l'IA (ses revenus liés à l'IA dépassaient déjà 2 milliards de dollars l'an dernier) et retrouve un rythme de croissance supérieur à 8 %, le critère manquant pourrait se corriger.",
-        },
-        {
-          type: 'p',
-          text: "Savoir si une entreprise est bonne, et à quel prix l'acheter, deux questions traitées séparément : c'est tout ce que je voulais pouvoir faire en quelques secondes pour n'importe quelle action. C'est pour ça que j'ai construit mon site d'investissement, où tu peux consulter l'analyse fondamentale complète d'Accenture sur sa [page d'analyse](/analyse/ACN).",
-        },
-      ],
-      faq: [
-        {
-          q: "Pourquoi l'action Accenture a-t-elle chuté de 18 % le 18 juin 2026 ?",
-          a: "Accenture a abaissé ses prévisions annuelles de croissance de +5-8 % à seulement +3-4 %. Ce guidance cut signale un ralentissement de la demande de services de conseil en informatique, ce que le marché a sanctionné immédiatement.",
-        },
-        {
-          q: "C'est quoi, le free cash-flow ?",
-          a: "L'argent qui reste réellement à l'entreprise après avoir payé tout ce qu'il faut pour tourner et investir. C'est plus difficile à maquiller que le bénéfice comptable, donc je m'y fie davantage pour juger la solidité d'un business.",
-        },
-        {
-          q: "Un P/FCF bas, est-ce toujours une bonne affaire ?",
-          a: "Non. Un prix bas peut cacher une entreprise en déclin (un value trap). Il n'est intéressant que si la qualité du business tient. D'où ma règle : la qualité d'abord, le prix ensuite.",
-        },
-        {
-          q: "Faut-il acheter Accenture maintenant ?",
-          a: "L'action est proche de mon prix cible de 119,68 dollars mais pas encore dessous. La note de 8/10 est solide, mais le critère de croissance manquant est précisément ce que le guidance cut vient d'aggraver. Je surveille sans me précipiter. Ceci n'est pas un conseil en investissement.",
-        },
-        {
-          q: "Qu'est-ce qu'un guidance cut ?",
-          a: "Un guidance cut, c'est quand une entreprise abaisse ses prévisions officielles de revenus ou de bénéfices pour la période à venir. Les marchés réagissent souvent fortement parce que cela signale que la direction elle-même voit les conditions se dégrader.",
-        },
-      ],
-      tags: ['Analyse', 'Accenture', 'Résultats', 'Valorisation', 'IT Consulting'],
-      disclaimer:
-        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 22 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
-    },
-    en: {
-      title: 'Accenture (ACN) after the 18% drop: our fundamental analysis',
-      excerpt:
-        "Accenture fell 18% in a single session after its June 18 earnings. Its quality score remains solid, but one criterion is missing. Here is what the drop changes, and what it does not.",
-      metaDescription:
-        "Accenture (ACN) fell 18% on June 18, 2026 after cutting its revenue guidance. Fundamental analysis: opportunity or trap? Quality-first method applied.",
-      answer:
-        "Accenture published its quarterly results on June 18, 2026 and cut its annual growth guidance from +5-8% to just +3-4%. The stock dropped 18% in the session, falling from around 156 to 128 dollars. Quality remains high, but insufficient revenue growth prevents a perfect score. Here is how I read this situation.",
-      body: [
-        {
-          type: 'ul',
-          items: [
-            "Q3 FY2026 results published June 18: revenue of 18.7 billion dollars, up 6% year-over-year, slightly below consensus.",
-            "Annual guidance cut: revenue growth of +3% to +4%, versus the prior range of +5% to +8%.",
-            "Market reaction: the stock fell 18% in the session, hitting its lowest level since 2016.",
-            "Lubin quality score: 8/10. Accenture is a solid business, but revenue growth (+5.3% per year over 5 years) stays below my 10% threshold.",
-            "Reasonable buy price from my model: around 119.68 dollars. At 128 dollars, the stock is getting close but has not reached it yet.",
-          ],
-        },
-        { type: 'h2', text: 'What happened on June 18, 2026' },
-        {
-          type: 'p',
-          text: "Accenture released its Q3 FY2026 earnings on June 18. Revenue came in at 18.7 billion dollars, up 6% year-over-year. That was slightly below the analyst consensus of 18.8 billion. On its own, such a small miss does not justify a panic.",
-        },
-        {
-          type: 'p',
-          text: "What triggered everything was the annual guidance cut, meaning the forecasts management gives for the rest of the fiscal year. Accenture lowered its revenue growth target from +5% to +8% down to just +3% to +4%. The market hates this: it signals that demand for IT consulting services is slowing faster than expected. The stock immediately fell 18% in the session, hitting its lowest level since 2016.",
-        },
-        { type: 'h2', text: 'Is it a good company? Quality first' },
-        {
-          type: 'p',
-          text: "When I look at a stock, I always start by separating two questions most people confuse. The first: is this a good business? The second, entirely apart: is this the right price? A great company bought too expensive is still a bad investment. And a mediocre company cheap stays mediocre.",
-        },
-        {
-          type: 'p',
-          text: "For Accenture, the answer to the first question is: yes, it is a good business, but not a perfect one. I score the company on ten concrete financial criteria: profitability, revenue growth, free cash-flow growth (the money that truly stays in the bank once every bill is paid), margins, debt, share buybacks, and a few other indicators of solidity. Accenture validates 8 of these 10 criteria. What it lacks is precisely revenue growth.",
-        },
-        {
-          type: 'p',
-          text: "Over the past five years, Accenture has grown its revenues at 5.3% per year. My threshold is 10%. That is not a bad performance in absolute terms, but for a consulting firm operating in the most dynamic markets in the world, data, artificial intelligence, digital transformation, this pace seems insufficient to justify a perfect score. That missing criterion explains the 8/10 score, not 10/10.",
-        },
-        { type: 'h2', text: 'What Accenture does very well' },
-        {
-          type: 'p',
-          text: "On the other eight criteria, Accenture shines. Its free cash-flow margin is 14.4%, which is honest for a services firm. Its net margin reaches 10.6%. And above all, its Cash ROCE (return on invested capital calculated on actual free cash-flow) is 76.5%, an exceptional figure. This means that for every dollar tied up in the business, Accenture generates 0.765 dollars of cash. That is the hallmark of a very asset-light business model.",
-        },
-        {
-          type: 'p',
-          text: "Its balance sheet is impeccable: Accenture is in a net cash position, meaning it holds more cash than debt. It actively buys back its own shares, which signals disciplined capital allocation. These are exactly the signals I look for in a quality company.",
-        },
-        { type: 'h2', text: 'The missing criterion: why revenue growth matters' },
-        {
-          type: 'p',
-          text: "The June 18 guidance cut is not an isolated event. It confirms a trend the past five years of data already illustrated: Accenture grows, but more slowly than its premium digital services model had suggested. The sector consensus around AI and digital transformation was one of strong acceleration. At +3% to +4% annually, that is the opposite scenario.",
-        },
-        {
-          type: 'p',
-          text: "Why does this matter? Because a consulting firm bills primarily for human time. To grow faster, it needs to hire, train, and deploy more consultants, or successfully move up the value chain and raise rates. If neither happens at the expected pace, growth stalls. The guidance cut suggests that demand for large digital transformation programs is losing momentum.",
-        },
-        { type: 'h2', text: 'Valuation: P/FCF at 7.7x' },
-        {
-          type: 'p',
-          text: "Now for the price. To measure what the market is willing to pay for a stock, I use a simple ratio: the P/FCF (price-to-free-cash-flow). It is the share price divided by the free cash-flow the company generates each year. A P/FCF of 7.7 means you are paying today 7.7 years of that cash. The lower this number, the cheaper the stock.",
-        },
-        {
-          type: 'p',
-          text: "After the 18% drop, Accenture trades at 7.7 times its free cash-flow. That is a historically low level for this company. Market cap has come back to 78.6 billion dollars, with the stock around 128 dollars. My valuation model, based on projected free cash-flow and a reasonable discount rate, gives me a target buy price of 119.68 dollars.",
-        },
-        {
-          type: 'table',
-          headers: ['Indicator', 'Value'],
-          rows: [
-            ['Current price', '~$128'],
-            ['P/FCF', '7.7x'],
-            ['FCF margin', '14.4%'],
-            ['Cash ROCE', '76.5%'],
-            ['Net margin', '10.6%'],
-            ['5-year revenue growth', '+5.3% / yr'],
-            ['Net debt', 'Net cash'],
-            ['Lubin score', '8/10'],
-            ['Model target price', '~$119.68'],
-          ],
-        },
-        { type: 'h2', text: 'What the drop changes, and what it does not' },
-        {
-          type: 'p',
-          text: "The 18% drop made the stock much cheaper. It did not improve the quality of the business: Accenture stays at 8/10, with that missing revenue growth criterion. And precisely, the June 18 guidance cut makes that point worse. This is not a temporary misread. Management itself is saying: we will grow slower than expected.",
-        },
-        {
-          type: 'p',
-          text: "The drop therefore does not change the fundamental diagnosis. It only changes the price. And that matters: an 8/10 business at 7.7 times its free cash-flow deserves a serious look. But 8/10 is not 10/10. There is a real risk that growth continues to disappoint, what is called a value trap, a stock that looks cheap because its fundamentals are deteriorating.",
-        },
-        { type: 'h2', text: 'How I decide, without emotion' },
-        {
-          type: 'p',
-          text: "My discipline is simple: I do not enter a position before the stock reaches my reasonable buy price. Today, the stock trades around 128 dollars. My target price is 119.68 dollars. That is about 7% more downside needed before I am comfortable. I do not chase the stock, I wait for it to come to me.",
-        },
-        {
-          type: 'p',
-          text: "I also watch whether fundamental quality deteriorates further in coming quarters. If revenue growth continues to slow and the score falls below 8/10, even at a low price, the interest fades. Conversely, if Accenture delivers acceleration on AI (its AI-related revenues already exceeded 2 billion dollars last year) and returns to growth above 8%, the missing criterion could correct itself.",
-        },
-        {
-          type: 'p',
-          text: "Knowing whether a company is good, and at what price to buy it, two questions treated separately: that is all I ever wanted to do in a few seconds for any stock. That is why I built my investment site, where you can see the full fundamental analysis of Accenture on its [analysis page](/analyse/ACN).",
-        },
-      ],
-      faq: [
-        {
-          q: 'Why did Accenture stock fall 18% on June 18, 2026?',
-          a: 'Accenture cut its annual revenue growth guidance from +5-8% to just +3-4%. This guidance cut signals a slowdown in demand for IT consulting services, which the market penalized immediately.',
-        },
-        {
-          q: 'What is free cash-flow?',
-          a: 'The money a company truly keeps after paying everything needed to operate and invest. It is harder to dress up than accounting profit, so I trust it more when judging the soundness of a business.',
-        },
-        {
-          q: 'Is a low P/FCF always a bargain?',
-          a: 'No. A low price can hide a company in decline (a value trap). It is only interesting if the quality of the business holds. Hence my rule: quality first, price second.',
-        },
-        {
-          q: 'Should you buy Accenture now?',
-          a: 'The stock is approaching my target price of 119.68 dollars but has not reached it yet. The 8/10 score is solid, but the missing growth criterion is precisely what the guidance cut just worsened. I watch without rushing. This is not investment advice.',
-        },
-        {
-          q: 'What is a guidance cut?',
-          a: 'A guidance cut is when a company lowers its official revenue or earnings forecasts for the period ahead. Markets often react strongly because it signals that management itself sees conditions deteriorating.',
-        },
-      ],
-      tags: ['Analysis', 'Accenture', 'Earnings', 'Valuation', 'IT Consulting'],
-      disclaimer:
-        'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 22, 2026, subject to change. Do your own research.',
-    },
-    es: {
-      title: 'Accenture (ACN) : análisis tras la caída del 18 %',
-      excerpt:
-        "Accenture cayó un 18 % en una sola sesión tras sus resultados del 18 de junio. Su nota de calidad sigue siendo sólida, pero falta un criterio. Esto es lo que cambia la caída, y lo que no cambia.",
-      metaDescription:
-        "Accenture (ACN) cayó un 18 % el 18 de junio de 2026 tras recortar su guidance de crecimiento. Análisis fundamental: ¿oportunidad o trampa? Mi método de calidad primero.",
-      answer:
-        "Accenture publicó sus resultados trimestrales el 18 de junio de 2026 y recortó su guidance de crecimiento anual de +5-8 % a solo +3-4 %. La acción cayó un 18 % en la sesión, pasando de unos 156 a 128 dólares. La calidad sigue siendo alta, pero el crecimiento insuficiente de ingresos impide una puntuación perfecta. Así es como leo esta situación.",
-      body: [
-        {
-          type: 'ul',
-          items: [
-            "Resultados Q3 FY2026 publicados el 18 de junio: ingresos de 18,7 mil millones de dólares, con un alza del 6 % interanual, ligeramente por debajo del consenso.",
-            "Guidance anual recortado: crecimiento de ingresos de +3 % a +4 %, frente al rango anterior de +5 % a +8 %.",
-            "Reacción del mercado: la acción cayó un 18 % en la sesión, alcanzando su nivel más bajo desde 2016.",
-            "Nota de calidad Lubin: 8/10. Accenture es un negocio sólido, pero el crecimiento de ingresos (+5,3 % anual en 5 años) sigue por debajo de mi umbral del 10 %.",
-            "Precio de compra razonable según mi modelo: unos 119,68 dólares. A 128 dólares, la acción se acerca pero aún no lo alcanza.",
-          ],
-        },
-        { type: 'h2', text: 'Lo que ocurrió el 18 de junio de 2026' },
-        {
-          type: 'p',
-          text: "Accenture presentó sus resultados del tercer trimestre del ejercicio fiscal 2026 el 18 de junio. Los ingresos ascendieron a 18,7 mil millones de dólares, con un alza del 6 % interanual. Eso estuvo ligeramente por debajo del consenso de los analistas, que esperaban 18,8 mil millones. Por sí solo, un desvío tan pequeño no justifica el pánico.",
-        },
-        {
-          type: 'p',
-          text: "Lo que desencadenó todo fue el recorte del guidance anual, es decir, las previsiones que la dirección da para el resto del ejercicio fiscal. Accenture rebajó su objetivo de crecimiento de ingresos de +5 % a +8 % a apenas +3 % a +4 %. El mercado odia esto: señala que la demanda de servicios de consultoría informática se desacelera más rápido de lo previsto. La acción cayó inmediatamente un 18 % en la sesión, tocando su nivel más bajo desde 2016.",
-        },
-        { type: 'h2', text: '¿Es una buena empresa? La calidad primero' },
-        {
-          type: 'p',
-          text: "Cuando miro una acción, siempre separo dos preguntas que la mayoría confunde. La primera: ¿es un buen negocio? La segunda, completamente aparte: ¿es el precio correcto? Una empresa genial comprada demasiado cara sigue siendo una mala inversión. Y una empresa mediocre barata sigue siendo mediocre.",
-        },
-        {
-          type: 'p',
-          text: "Para Accenture, la respuesta a la primera pregunta es: sí, es un buen negocio, pero no perfecto. Evalúo la empresa según diez criterios financieros concretos: rentabilidad, crecimiento de ingresos, crecimiento del flujo de caja libre (el dinero que de verdad queda en las arcas una vez pagadas todas las facturas), márgenes, deuda, recompra de acciones y algunos otros indicadores de solidez. Accenture cumple 8 de estos 10 criterios. Lo que le falta es precisamente el crecimiento de ingresos.",
-        },
-        {
-          type: 'p',
-          text: "En los últimos cinco años, Accenture ha hecho crecer sus ingresos un 5,3 % anual. Mi umbral es del 10 %. No es un mal desempeño en términos absolutos, pero para una consultora que opera en los mercados más dinámicos del mundo, datos, inteligencia artificial, transformación digital, este ritmo me parece insuficiente para justificar una puntuación perfecta. Ese criterio ausente explica la nota de 8/10, no de 10/10.",
-        },
-        { type: 'h2', text: 'En qué Accenture destaca' },
-        {
-          type: 'p',
-          text: "En los otros ocho criterios, Accenture brilla. Su margen de flujo de caja libre es del 14,4 %, que es un nivel honesto para una empresa de servicios. Su margen neto alcanza el 10,6 %. Y sobre todo, su Cash ROCE (la rentabilidad sobre el capital invertido calculada con el flujo de caja libre real) es del 76,5 %, una cifra excepcional. Esto significa que por cada dólar inmovilizado en el negocio, Accenture genera 0,765 dólares de caja. Es la marca de un modelo de negocio muy ligero en activos.",
-        },
-        {
-          type: 'p',
-          text: "Su balance es irreprochable: Accenture tiene caja neta, es decir, más efectivo que deuda. Recompra activamente sus propias acciones, lo que revela una asignación disciplinada del capital. Estas son exactamente las señales que busco en una empresa de calidad.",
-        },
-        { type: 'h2', text: 'El criterio que falta: por qué importa el crecimiento' },
-        {
-          type: 'p',
-          text: "El recorte del guidance del 18 de junio no es un hecho aislado. Confirma una tendencia que los datos de los últimos cinco años ya ilustraban: Accenture crece, pero más despacio de lo que su modelo de servicios digitales premium hacía esperar. El consenso del sector en torno a la IA y la transformación digital apuntaba a una fuerte aceleración. Con un +3 % a +4 % anual, es el escenario contrario.",
-        },
-        {
-          type: 'p',
-          text: "¿Por qué importa? Porque una consultora factura principalmente tiempo humano. Para crecer más rápido, necesita contratar, formar y desplegar más consultores, o subir en la cadena de valor y en tarifas. Si ninguna de las dos cosas ocurre al ritmo esperado, el crecimiento se estanca. El recorte del guidance sugiere que la demanda de grandes programas de transformación digital pierde impulso.",
-        },
-        { type: 'h2', text: 'La valoración: P/FCF a 7,7 veces' },
-        {
-          type: 'p',
-          text: "Veamos el precio. Para medir lo que el mercado acepta pagar por una acción, utilizo un ratio sencillo: el P/FCF (precio sobre flujo de caja libre). Es el precio de la acción dividido entre el flujo de caja libre que genera cada año. Un P/FCF de 7,7 significa que pagas hoy 7,7 años de esa caja. Cuanto más bajo es este número, más barata está la acción.",
-        },
-        {
-          type: 'p',
-          text: "Tras la caída del 18 %, Accenture se valoriza 7,7 veces su flujo de caja libre. Es un nivel históricamente bajo para esta empresa. La capitalización bursátil ha vuelto a 78,6 mil millones de dólares, con la acción en torno a 128 dólares. Mi modelo de valoración, basado en el flujo de caja libre proyectado y una tasa de descuento razonable, me da un precio objetivo de compra de 119,68 dólares.",
-        },
-        {
-          type: 'table',
-          headers: ['Indicador', 'Valor'],
-          rows: [
-            ['Precio actual', '~128 $'],
-            ['P/FCF', '7,7×'],
-            ['Margen FCF', '14,4 %'],
-            ['Cash ROCE', '76,5 %'],
-            ['Margen neto', '10,6 %'],
-            ['Crecimiento ingresos 5 años', '+5,3 % / año'],
-            ['Deuda neta', 'Caja neta'],
-            ['Nota Lubin', '8/10'],
-            ['Precio objetivo del modelo', '~119,68 $'],
-          ],
-        },
-        { type: 'h2', text: 'Lo que cambia la caída, y lo que no cambia' },
-        {
-          type: 'p',
-          text: "La caída del 18 % hizo la acción mucho más barata. No mejoró la calidad del negocio: Accenture sigue en 8/10, con ese criterio de crecimiento ausente. Y precisamente, el recorte del guidance del 18 de junio agrava ese punto. No es una lectura temporal equivocada. La propia dirección está diciendo: vamos a crecer más despacio de lo previsto.",
-        },
-        {
-          type: 'p',
-          text: "La caída no cambia el diagnóstico fundamental. Solo cambia el precio. Y eso importa: un negocio de 8/10 a 7,7 veces su flujo de caja libre merece atención seria. Pero 8/10 no es 10/10. Existe un riesgo real de que el crecimiento continúe decepcionando, lo que se llama una trampa de valor (value trap): una acción que parece barata porque sus fundamentos se deterioran.",
-        },
-        { type: 'h2', text: 'Cómo decido, sin emoción' },
-        {
-          type: 'p',
-          text: "Mi disciplina es simple: no entro en una posición antes de que la acción alcance mi precio de compra razonable. Hoy, la acción cotiza en torno a 128 dólares. Mi precio objetivo es 119,68 dólares. Falta aproximadamente un 7 % más de bajada para que me sienta cómodo. No persigo la cotización, espero a que venga a mí.",
-        },
-        {
-          type: 'p',
-          text: "También vigilo si la calidad fundamental se deteriora más en los próximos trimestres. Si el crecimiento de ingresos sigue desacelerando y la nota cae por debajo de 8/10, incluso a un precio bajo, el interés disminuye. Al contrario, si Accenture entrega una aceleración en IA (sus ingresos relacionados con la IA ya superaban los 2 mil millones de dólares el año pasado) y recupera un ritmo de crecimiento superior al 8 %, el criterio ausente podría corregirse.",
-        },
-        {
-          type: 'p',
-          text: "Saber si una empresa es buena, y a qué precio comprarla, dos preguntas tratadas por separado: eso es todo lo que siempre quise poder hacer en unos segundos para cualquier acción. Por eso construí mi sitio de inversión, donde puedes consultar el análisis fundamental completo de Accenture en su [página de análisis](/analyse/ACN).",
-        },
-      ],
-      faq: [
-        {
-          q: '¿Por qué cayó un 18 % la acción de Accenture el 18 de junio de 2026?',
-          a: 'Accenture recortó su guidance de crecimiento anual de ingresos de +5-8 % a apenas +3-4 %. Este recorte señala una desaceleración en la demanda de servicios de consultoría informática, que el mercado penalizó de inmediato.',
-        },
-        {
-          q: '¿Qué es el flujo de caja libre?',
-          a: 'El dinero que de verdad le queda a la empresa tras pagar todo lo necesario para operar e invertir. Es más difícil de maquillar que el beneficio contable, así que me fío más de él para juzgar la solidez de un negocio.',
-        },
-        {
-          q: '¿Un P/FCF bajo es siempre una ganga?',
-          a: 'No. Un precio bajo puede ocultar una empresa en declive (una trampa de valor). Solo es interesante si la calidad del negocio se mantiene. De ahí mi regla: primero la calidad, después el precio.',
-        },
-        {
-          q: '¿Hay que comprar Accenture ahora?',
-          a: 'La acción se acerca a mi precio objetivo de 119,68 dólares pero aún no lo ha alcanzado. La nota de 8/10 es sólida, pero el criterio de crecimiento ausente es precisamente lo que el recorte del guidance acaba de empeorar. Vigilo sin apresurarme. Esto no es asesoramiento de inversión.',
-        },
-        {
-          q: '¿Qué es un guidance cut?',
-          a: 'Un guidance cut es cuando una empresa rebaja sus previsiones oficiales de ingresos o beneficios para el período siguiente. Los mercados suelen reaccionar con fuerza porque señala que la propia dirección ve empeorar las condiciones.',
-        },
-      ],
-      tags: ['Análisis', 'Accenture', 'Resultados', 'Valoración', 'IT Consulting'],
-      disclaimer:
-        'Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 22 de junio de 2026, sujetas a cambios. Haz tu propia investigación.',
-    },
-  },
-};
-
-
 const article_payx: Article = {
   slug: 'paychex-payx-resultats-q4-fy2026-analyse',
   date: '2026-06-22',
@@ -13311,6 +12904,413 @@ const article_payx: Article = {
       ],
       tags: ['Paychex', 'PAYX', 'SaaS nóminas', 'recursos humanos pymes', 'análisis fundamental', 'resultados Q4 FY2026', 'free cash flow', 'dividendo', 'bolsa'],
       disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los rendimientos pasados no garantizan resultados futuros. Cifras a 22 de junio de 2026, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+
+
+const accentureQ3FY2026: Article = {
+  slug: 'accenture-acn-chute-18-pourcent-resultats-q3-fy2026',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'ACN',
+  content: {
+    fr: {
+      title: 'Accenture (ACN) : notre analyse après la chute de 18 %',
+      excerpt:
+        "Accenture a perdu 18 % en une seule séance après ses résultats du 18 juin. Sa note de qualité reste solide, mais un critère manque. Voici ce que la chute change, et ce qu'elle ne change pas.",
+      metaDescription:
+        "Accenture (ACN) a chuté de 18 % le 18 juin 2026 après une révision à la baisse de ses prévisions. Analyse fondamentale : est-ce une opportunité ou un piège ? Ma méthode qualité d'abord.",
+      answer:
+        "Accenture a publié ses résultats trimestriels le 18 juin 2026 et a révisé ses prévisions de croissance à la baisse, de +5 % à +8 % à seulement +3 % à +4 %. L'action a chuté de 18 % en séance, passant d'environ 156 dollars à 128 dollars. La qualité reste haute, mais la croissance insuffisante empêche un score parfait. Voici comment je lis cette situation.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Résultats Q3 FY2026 publiés le 18 juin : chiffre d'affaires de 18,7 milliards de dollars, en hausse de 6 % sur un an, légèrement sous le consensus.",
+            "Guidance annuelle révisée à la baisse : croissance de +3 % à +4 %, contre +5 % à +8 % annoncée précédemment.",
+            "Réaction immédiate : l'action a chuté de 18 % en séance, son niveau le plus bas depuis 2016.",
+            "Note de qualité Lubin : 8/10. Accenture est une entreprise solide, mais la croissance des revenus (+5,3 % par an sur 5 ans) reste sous mon seuil de 10 %.",
+            "Prix d'achat raisonnable selon mon modèle : environ 119,68 dollars. A 128 dollars, l'action s'en approche, sans encore l'atteindre.",
+          ],
+        },
+        { type: 'h2', text: "Ce qui s'est passé le 18 juin 2026" },
+        {
+          type: 'p',
+          text: "Accenture a dévoilé ses résultats du troisième trimestre de son exercice fiscal 2026 le 18 juin. Le chiffre d'affaires ressort à 18,7 milliards de dollars, en hausse de 6 % sur un an. C'est légèrement en dessous du consensus des analystes, qui tablaient sur 18,8 milliards. En soi, un écart aussi minime ne justifie pas une panique.",
+        },
+        {
+          type: 'p',
+          text: "Ce qui a tout déclenché, c'est la révision de la guidance annuelle, c'est-à-dire les prévisions que la direction donne pour le reste de l'exercice. Accenture a abaissé son objectif de croissance de chiffre d'affaires de +5 % à +8 % à seulement +3 % à +4 %. C'est ce qu'on appelle un guidance cut. Le marché déteste ça : cela signifie que la demande de services de conseil en informatique ralentit plus vite que prévu. L'action a immédiatement chuté de 18 % en séance, touchant son plus bas niveau depuis 2016.",
+        },
+        { type: 'h2', text: "Est-ce une bonne entreprise ? La qualité d'abord" },
+        {
+          type: 'p',
+          text: "Quand je regarde une action, je commence toujours par séparer deux questions que la plupart des gens confondent. La première : est-ce un bon business ? La seconde, entièrement à part : est-ce le bon prix ? Une entreprise géniale payée trop cher reste un mauvais placement. Et une entreprise médiocre bon marché reste médiocre.",
+        },
+        {
+          type: 'p',
+          text: "Pour Accenture, la réponse à la première question est : oui, c'est un bon business, mais pas un business parfait. Je note l'entreprise sur dix critères financiers concrets : rentabilité, croissance des revenus, croissance du free cash-flow (l'argent qui reste réellement dans les caisses une fois toutes les factures payées), marges, endettement, rachat d'actions, et quelques autres indicateurs de solidité. Accenture valide 8 de ces 10 critères. Ce qui lui manque, c'est précisément la croissance des revenus.",
+        },
+        {
+          type: 'p',
+          text: "Sur les cinq dernières années, Accenture a fait croître ses revenus de 5,3 % par an. Mon seuil est de 10 %. Ce n'est pas une mauvaise performance en valeur absolue, mais pour une entreprise de conseil qui opère sur les marchés les plus dynamiques du monde, les données, l'intelligence artificielle, la transformation digitale, ce rythme me semble insuffisant pour justifier un score parfait. C'est ce critère manquant qui explique la note de 8/10, pas de 10/10.",
+        },
+        { type: 'h2', text: "Ce qu'Accenture fait très bien" },
+        {
+          type: 'p',
+          text: "Sur les huit autres critères, Accenture brille. Sa marge de free cash-flow est de 14,4 %, ce qui est honnête pour un cabinet de services. Sa marge nette atteint 10,6 %. Et surtout, son Cash ROCE (le rendement du capital investi calculé sur la base du free cash-flow réel) est de 76,5 %, un chiffre exceptionnel. Cela signifie que pour chaque dollar immobilisé dans l'entreprise, Accenture génère 0,765 dollar de cash. C'est le signe d'un business très léger en capital, ce qu'on appelle un asset-light model.",
+        },
+        {
+          type: 'p',
+          text: "Son bilan est irréprochable : Accenture est en trésorerie nette, ce qui signifie qu'elle a plus de cash que de dettes. Elle rachète activement ses propres actions, ce qui témoigne d'une allocation du capital disciplinée. Ce sont exactement les signaux que je recherche dans une entreprise de qualité.",
+        },
+        { type: 'h2', text: "Le critère manquant : pourquoi la croissance compte" },
+        {
+          type: 'p',
+          text: "La guidance cut du 18 juin n'est pas un événement isolé. Elle confirme une tendance que les chiffres des cinq dernières années illustraient déjà : Accenture grandit, mais moins vite que ce que son modèle de services numériques premium laissait espérer. Le consensus du secteur IA et transformation digitale était celui d'une forte accélération. À +3 % à +4 % annuels, c'est le scénario inverse.",
+        },
+        {
+          type: 'p',
+          text: "Pourquoi est-ce important ? Parce qu'une entreprise de conseil facture principalement du temps humain. Pour croître plus vite, elle doit recruter, former, et déployer davantage de consultants, ou réussir à monter en valeur ajoutée et en tarifs. Si ni l'un ni l'autre ne se produit au rythme attendu, la croissance plafonne. Le guidance cut suggère que la demande pour les gros programmes de transformation digitale marque le pas.",
+        },
+        { type: 'h2', text: "La valorisation : P/FCF à 7,7 fois" },
+        {
+          type: 'p',
+          text: "Passons au prix. Pour mesurer ce que le marché accepte de payer pour une action, j'utilise un ratio simple : le P/FCF (price-to-free-cash-flow). C'est le prix de l'action divisé par le free cash-flow qu'elle génère chaque année. Un P/FCF de 7,7 signifie que tu paies aujourd'hui 7,7 années de ce cash. Plus ce chiffre est bas, moins l'action est chère.",
+        },
+        {
+          type: 'p',
+          text: "Après la chute de 18 %, Accenture se valorise 7,7 fois son free cash-flow. C'est un niveau historiquement bas pour cette entreprise. La capitalisation boursière est revenue à 78,6 milliards de dollars, pour une action à environ 128 dollars. Mon modèle de valorisation, basé sur le free cash-flow projeté et un taux d'actualisation raisonnable, me donne un prix d'achat cible de 119,68 dollars.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Valeur'],
+          rows: [
+            ['Cours actuel', '~128 $'],
+            ['P/FCF', '7,7×'],
+            ['Marge FCF', '14,4 %'],
+            ['Cash ROCE', '76,5 %'],
+            ['Marge nette', '10,6 %'],
+            ['Croissance revenus 5 ans', '+5,3 % / an'],
+            ['Endettement net', 'Trésorerie nette'],
+            ['Note Lubin', '8/10'],
+            ['Prix cible modèle', '~119,68 $'],
+          ],
+        },
+        { type: 'h2', text: "Ce que la chute change, et ce qu'elle ne change pas" },
+        {
+          type: 'p',
+          text: "La chute de 18 % a rendu l'action beaucoup moins chère. Elle n'a pas amélioré la qualité du business : Accenture reste à 8/10, avec ce critère de croissance insuffisante. Et précisément, le guidance cut du 18 juin aggrave ce point. Ce n'est pas une erreur de lecture temporaire. C'est la direction elle-même qui dit : nous allons croître moins vite que prévu.",
+        },
+        {
+          type: 'p',
+          text: "La chute ne change donc pas le diagnostic fondamental. Elle change uniquement le prix. Et c'est important : une entreprise de 8/10 à 7,7 fois son free cash-flow mérite qu'on y regarde sérieusement. Mais 8/10 n'est pas 10/10. Il y a un risque réel que la croissance continue de décevoir, ce qu'on appelle un value trap, une action qui semble bon marché parce que ses fondamentaux se dégradent.",
+        },
+        { type: 'h2', text: "Comment je tranche, sans émotion" },
+        {
+          type: 'p',
+          text: "Ma discipline est simple : je n'entre pas dans une position avant que le cours atteigne mon prix d'achat raisonnable. Aujourd'hui, l'action est à environ 128 dollars. Mon prix cible est 119,68 dollars. Il manque environ 7 % de baisse supplémentaire pour que je sois à l'aise. Je ne cours pas après le cours, je laisse le cours venir à moi.",
+        },
+        {
+          type: 'p',
+          text: "Je surveille aussi si la qualité fondamentale se dégrade davantage dans les prochains trimestres. Si la croissance des revenus continue de ralentir et que le score tombe en dessous de 8/10, même à un prix bas, l'intérêt diminue. À l'inverse, si Accenture livre une accélération sur l'IA (ses revenus liés à l'IA dépassaient déjà 2 milliards de dollars l'an dernier) et retrouve un rythme de croissance supérieur à 8 %, le critère manquant pourrait se corriger.",
+        },
+        {
+          type: 'p',
+          text: "Savoir si une entreprise est bonne, et à quel prix l'acheter, deux questions traitées séparément : c'est tout ce que je voulais pouvoir faire en quelques secondes pour n'importe quelle action. C'est pour ça que j'ai construit mon site d'investissement, où tu peux consulter l'analyse fondamentale complète d'Accenture sur sa [page d'analyse](/analyse/ACN).",
+        },
+      ],
+      faq: [
+        {
+          q: "Pourquoi l'action Accenture a-t-elle chuté de 18 % le 18 juin 2026 ?",
+          a: "Accenture a abaissé ses prévisions annuelles de croissance de +5-8 % à seulement +3-4 %. Ce guidance cut signale un ralentissement de la demande de services de conseil en informatique, ce que le marché a sanctionné immédiatement.",
+        },
+        {
+          q: "C'est quoi, le free cash-flow ?",
+          a: "L'argent qui reste réellement à l'entreprise après avoir payé tout ce qu'il faut pour tourner et investir. C'est plus difficile à maquiller que le bénéfice comptable, donc je m'y fie davantage pour juger la solidité d'un business.",
+        },
+        {
+          q: "Un P/FCF bas, est-ce toujours une bonne affaire ?",
+          a: "Non. Un prix bas peut cacher une entreprise en déclin (un value trap). Il n'est intéressant que si la qualité du business tient. D'où ma règle : la qualité d'abord, le prix ensuite.",
+        },
+        {
+          q: "Faut-il acheter Accenture maintenant ?",
+          a: "L'action est proche de mon prix cible de 119,68 dollars mais pas encore dessous. La note de 8/10 est solide, mais le critère de croissance manquant est précisément ce que le guidance cut vient d'aggraver. Je surveille sans me précipiter. Ceci n'est pas un conseil en investissement.",
+        },
+        {
+          q: "Qu'est-ce qu'un guidance cut ?",
+          a: "Un guidance cut, c'est quand une entreprise abaisse ses prévisions officielles de revenus ou de bénéfices pour la période à venir. Les marchés réagissent souvent fortement parce que cela signale que la direction elle-même voit les conditions se dégrader.",
+        },
+      ],
+      tags: ['Analyse', 'Accenture', 'Résultats', 'Valorisation', 'IT Consulting'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 22 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Accenture (ACN) after the 18% drop: our fundamental analysis',
+      excerpt:
+        "Accenture fell 18% in a single session after its June 18 earnings. Its quality score remains solid, but one criterion is missing. Here is what the drop changes, and what it does not.",
+      metaDescription:
+        "Accenture (ACN) fell 18% on June 18, 2026 after cutting its revenue guidance. Fundamental analysis: opportunity or trap? Quality-first method applied.",
+      answer:
+        "Accenture published its quarterly results on June 18, 2026 and cut its annual growth guidance from +5-8% to just +3-4%. The stock dropped 18% in the session, falling from around 156 to 128 dollars. Quality remains high, but insufficient revenue growth prevents a perfect score. Here is how I read this situation.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Q3 FY2026 results published June 18: revenue of 18.7 billion dollars, up 6% year-over-year, slightly below consensus.",
+            "Annual guidance cut: revenue growth of +3% to +4%, versus the prior range of +5% to +8%.",
+            "Market reaction: the stock fell 18% in the session, hitting its lowest level since 2016.",
+            "Lubin quality score: 8/10. Accenture is a solid business, but revenue growth (+5.3% per year over 5 years) stays below my 10% threshold.",
+            "Reasonable buy price from my model: around 119.68 dollars. At 128 dollars, the stock is getting close but has not reached it yet.",
+          ],
+        },
+        { type: 'h2', text: 'What happened on June 18, 2026' },
+        {
+          type: 'p',
+          text: "Accenture released its Q3 FY2026 earnings on June 18. Revenue came in at 18.7 billion dollars, up 6% year-over-year. That was slightly below the analyst consensus of 18.8 billion. On its own, such a small miss does not justify a panic.",
+        },
+        {
+          type: 'p',
+          text: "What triggered everything was the annual guidance cut, meaning the forecasts management gives for the rest of the fiscal year. Accenture lowered its revenue growth target from +5% to +8% down to just +3% to +4%. The market hates this: it signals that demand for IT consulting services is slowing faster than expected. The stock immediately fell 18% in the session, hitting its lowest level since 2016.",
+        },
+        { type: 'h2', text: 'Is it a good company? Quality first' },
+        {
+          type: 'p',
+          text: "When I look at a stock, I always start by separating two questions most people confuse. The first: is this a good business? The second, entirely apart: is this the right price? A great company bought too expensive is still a bad investment. And a mediocre company cheap stays mediocre.",
+        },
+        {
+          type: 'p',
+          text: "For Accenture, the answer to the first question is: yes, it is a good business, but not a perfect one. I score the company on ten concrete financial criteria: profitability, revenue growth, free cash-flow growth (the money that truly stays in the bank once every bill is paid), margins, debt, share buybacks, and a few other indicators of solidity. Accenture validates 8 of these 10 criteria. What it lacks is precisely revenue growth.",
+        },
+        {
+          type: 'p',
+          text: "Over the past five years, Accenture has grown its revenues at 5.3% per year. My threshold is 10%. That is not a bad performance in absolute terms, but for a consulting firm operating in the most dynamic markets in the world, data, artificial intelligence, digital transformation, this pace seems insufficient to justify a perfect score. That missing criterion explains the 8/10 score, not 10/10.",
+        },
+        { type: 'h2', text: 'What Accenture does very well' },
+        {
+          type: 'p',
+          text: "On the other eight criteria, Accenture shines. Its free cash-flow margin is 14.4%, which is honest for a services firm. Its net margin reaches 10.6%. And above all, its Cash ROCE (return on invested capital calculated on actual free cash-flow) is 76.5%, an exceptional figure. This means that for every dollar tied up in the business, Accenture generates 0.765 dollars of cash. That is the hallmark of a very asset-light business model.",
+        },
+        {
+          type: 'p',
+          text: "Its balance sheet is impeccable: Accenture is in a net cash position, meaning it holds more cash than debt. It actively buys back its own shares, which signals disciplined capital allocation. These are exactly the signals I look for in a quality company.",
+        },
+        { type: 'h2', text: 'The missing criterion: why revenue growth matters' },
+        {
+          type: 'p',
+          text: "The June 18 guidance cut is not an isolated event. It confirms a trend the past five years of data already illustrated: Accenture grows, but more slowly than its premium digital services model had suggested. The sector consensus around AI and digital transformation was one of strong acceleration. At +3% to +4% annually, that is the opposite scenario.",
+        },
+        {
+          type: 'p',
+          text: "Why does this matter? Because a consulting firm bills primarily for human time. To grow faster, it needs to hire, train, and deploy more consultants, or successfully move up the value chain and raise rates. If neither happens at the expected pace, growth stalls. The guidance cut suggests that demand for large digital transformation programs is losing momentum.",
+        },
+        { type: 'h2', text: 'Valuation: P/FCF at 7.7x' },
+        {
+          type: 'p',
+          text: "Now for the price. To measure what the market is willing to pay for a stock, I use a simple ratio: the P/FCF (price-to-free-cash-flow). It is the share price divided by the free cash-flow the company generates each year. A P/FCF of 7.7 means you are paying today 7.7 years of that cash. The lower this number, the cheaper the stock.",
+        },
+        {
+          type: 'p',
+          text: "After the 18% drop, Accenture trades at 7.7 times its free cash-flow. That is a historically low level for this company. Market cap has come back to 78.6 billion dollars, with the stock around 128 dollars. My valuation model, based on projected free cash-flow and a reasonable discount rate, gives me a target buy price of 119.68 dollars.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicator', 'Value'],
+          rows: [
+            ['Current price', '~$128'],
+            ['P/FCF', '7.7x'],
+            ['FCF margin', '14.4%'],
+            ['Cash ROCE', '76.5%'],
+            ['Net margin', '10.6%'],
+            ['5-year revenue growth', '+5.3% / yr'],
+            ['Net debt', 'Net cash'],
+            ['Lubin score', '8/10'],
+            ['Model target price', '~$119.68'],
+          ],
+        },
+        { type: 'h2', text: 'What the drop changes, and what it does not' },
+        {
+          type: 'p',
+          text: "The 18% drop made the stock much cheaper. It did not improve the quality of the business: Accenture stays at 8/10, with that missing revenue growth criterion. And precisely, the June 18 guidance cut makes that point worse. This is not a temporary misread. Management itself is saying: we will grow slower than expected.",
+        },
+        {
+          type: 'p',
+          text: "The drop therefore does not change the fundamental diagnosis. It only changes the price. And that matters: an 8/10 business at 7.7 times its free cash-flow deserves a serious look. But 8/10 is not 10/10. There is a real risk that growth continues to disappoint, what is called a value trap, a stock that looks cheap because its fundamentals are deteriorating.",
+        },
+        { type: 'h2', text: 'How I decide, without emotion' },
+        {
+          type: 'p',
+          text: "My discipline is simple: I do not enter a position before the stock reaches my reasonable buy price. Today, the stock trades around 128 dollars. My target price is 119.68 dollars. That is about 7% more downside needed before I am comfortable. I do not chase the stock, I wait for it to come to me.",
+        },
+        {
+          type: 'p',
+          text: "I also watch whether fundamental quality deteriorates further in coming quarters. If revenue growth continues to slow and the score falls below 8/10, even at a low price, the interest fades. Conversely, if Accenture delivers acceleration on AI (its AI-related revenues already exceeded 2 billion dollars last year) and returns to growth above 8%, the missing criterion could correct itself.",
+        },
+        {
+          type: 'p',
+          text: "Knowing whether a company is good, and at what price to buy it, two questions treated separately: that is all I ever wanted to do in a few seconds for any stock. That is why I built my investment site, where you can see the full fundamental analysis of Accenture on its [analysis page](/analyse/ACN).",
+        },
+      ],
+      faq: [
+        {
+          q: 'Why did Accenture stock fall 18% on June 18, 2026?',
+          a: 'Accenture cut its annual revenue growth guidance from +5-8% to just +3-4%. This guidance cut signals a slowdown in demand for IT consulting services, which the market penalized immediately.',
+        },
+        {
+          q: 'What is free cash-flow?',
+          a: 'The money a company truly keeps after paying everything needed to operate and invest. It is harder to dress up than accounting profit, so I trust it more when judging the soundness of a business.',
+        },
+        {
+          q: 'Is a low P/FCF always a bargain?',
+          a: 'No. A low price can hide a company in decline (a value trap). It is only interesting if the quality of the business holds. Hence my rule: quality first, price second.',
+        },
+        {
+          q: 'Should you buy Accenture now?',
+          a: 'The stock is approaching my target price of 119.68 dollars but has not reached it yet. The 8/10 score is solid, but the missing growth criterion is precisely what the guidance cut just worsened. I watch without rushing. This is not investment advice.',
+        },
+        {
+          q: 'What is a guidance cut?',
+          a: 'A guidance cut is when a company lowers its official revenue or earnings forecasts for the period ahead. Markets often react strongly because it signals that management itself sees conditions deteriorating.',
+        },
+      ],
+      tags: ['Analysis', 'Accenture', 'Earnings', 'Valuation', 'IT Consulting'],
+      disclaimer:
+        'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 22, 2026, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Accenture (ACN) : análisis tras la caída del 18 %',
+      excerpt:
+        "Accenture cayó un 18 % en una sola sesión tras sus resultados del 18 de junio. Su nota de calidad sigue siendo sólida, pero falta un criterio. Esto es lo que cambia la caída, y lo que no cambia.",
+      metaDescription:
+        "Accenture (ACN) cayó un 18 % el 18 de junio de 2026 tras recortar su guidance de crecimiento. Análisis fundamental: ¿oportunidad o trampa? Mi método de calidad primero.",
+      answer:
+        "Accenture publicó sus resultados trimestrales el 18 de junio de 2026 y recortó su guidance de crecimiento anual de +5-8 % a solo +3-4 %. La acción cayó un 18 % en la sesión, pasando de unos 156 a 128 dólares. La calidad sigue siendo alta, pero el crecimiento insuficiente de ingresos impide una puntuación perfecta. Así es como leo esta situación.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Resultados Q3 FY2026 publicados el 18 de junio: ingresos de 18,7 mil millones de dólares, con un alza del 6 % interanual, ligeramente por debajo del consenso.",
+            "Guidance anual recortado: crecimiento de ingresos de +3 % a +4 %, frente al rango anterior de +5 % a +8 %.",
+            "Reacción del mercado: la acción cayó un 18 % en la sesión, alcanzando su nivel más bajo desde 2016.",
+            "Nota de calidad Lubin: 8/10. Accenture es un negocio sólido, pero el crecimiento de ingresos (+5,3 % anual en 5 años) sigue por debajo de mi umbral del 10 %.",
+            "Precio de compra razonable según mi modelo: unos 119,68 dólares. A 128 dólares, la acción se acerca pero aún no lo alcanza.",
+          ],
+        },
+        { type: 'h2', text: 'Lo que ocurrió el 18 de junio de 2026' },
+        {
+          type: 'p',
+          text: "Accenture presentó sus resultados del tercer trimestre del ejercicio fiscal 2026 el 18 de junio. Los ingresos ascendieron a 18,7 mil millones de dólares, con un alza del 6 % interanual. Eso estuvo ligeramente por debajo del consenso de los analistas, que esperaban 18,8 mil millones. Por sí solo, un desvío tan pequeño no justifica el pánico.",
+        },
+        {
+          type: 'p',
+          text: "Lo que desencadenó todo fue el recorte del guidance anual, es decir, las previsiones que la dirección da para el resto del ejercicio fiscal. Accenture rebajó su objetivo de crecimiento de ingresos de +5 % a +8 % a apenas +3 % a +4 %. El mercado odia esto: señala que la demanda de servicios de consultoría informática se desacelera más rápido de lo previsto. La acción cayó inmediatamente un 18 % en la sesión, tocando su nivel más bajo desde 2016.",
+        },
+        { type: 'h2', text: '¿Es una buena empresa? La calidad primero' },
+        {
+          type: 'p',
+          text: "Cuando miro una acción, siempre separo dos preguntas que la mayoría confunde. La primera: ¿es un buen negocio? La segunda, completamente aparte: ¿es el precio correcto? Una empresa genial comprada demasiado cara sigue siendo una mala inversión. Y una empresa mediocre barata sigue siendo mediocre.",
+        },
+        {
+          type: 'p',
+          text: "Para Accenture, la respuesta a la primera pregunta es: sí, es un buen negocio, pero no perfecto. Evalúo la empresa según diez criterios financieros concretos: rentabilidad, crecimiento de ingresos, crecimiento del flujo de caja libre (el dinero que de verdad queda en las arcas una vez pagadas todas las facturas), márgenes, deuda, recompra de acciones y algunos otros indicadores de solidez. Accenture cumple 8 de estos 10 criterios. Lo que le falta es precisamente el crecimiento de ingresos.",
+        },
+        {
+          type: 'p',
+          text: "En los últimos cinco años, Accenture ha hecho crecer sus ingresos un 5,3 % anual. Mi umbral es del 10 %. No es un mal desempeño en términos absolutos, pero para una consultora que opera en los mercados más dinámicos del mundo, datos, inteligencia artificial, transformación digital, este ritmo me parece insuficiente para justificar una puntuación perfecta. Ese criterio ausente explica la nota de 8/10, no de 10/10.",
+        },
+        { type: 'h2', text: 'En qué Accenture destaca' },
+        {
+          type: 'p',
+          text: "En los otros ocho criterios, Accenture brilla. Su margen de flujo de caja libre es del 14,4 %, que es un nivel honesto para una empresa de servicios. Su margen neto alcanza el 10,6 %. Y sobre todo, su Cash ROCE (la rentabilidad sobre el capital invertido calculada con el flujo de caja libre real) es del 76,5 %, una cifra excepcional. Esto significa que por cada dólar inmovilizado en el negocio, Accenture genera 0,765 dólares de caja. Es la marca de un modelo de negocio muy ligero en activos.",
+        },
+        {
+          type: 'p',
+          text: "Su balance es irreprochable: Accenture tiene caja neta, es decir, más efectivo que deuda. Recompra activamente sus propias acciones, lo que revela una asignación disciplinada del capital. Estas son exactamente las señales que busco en una empresa de calidad.",
+        },
+        { type: 'h2', text: 'El criterio que falta: por qué importa el crecimiento' },
+        {
+          type: 'p',
+          text: "El recorte del guidance del 18 de junio no es un hecho aislado. Confirma una tendencia que los datos de los últimos cinco años ya ilustraban: Accenture crece, pero más despacio de lo que su modelo de servicios digitales premium hacía esperar. El consenso del sector en torno a la IA y la transformación digital apuntaba a una fuerte aceleración. Con un +3 % a +4 % anual, es el escenario contrario.",
+        },
+        {
+          type: 'p',
+          text: "¿Por qué importa? Porque una consultora factura principalmente tiempo humano. Para crecer más rápido, necesita contratar, formar y desplegar más consultores, o subir en la cadena de valor y en tarifas. Si ninguna de las dos cosas ocurre al ritmo esperado, el crecimiento se estanca. El recorte del guidance sugiere que la demanda de grandes programas de transformación digital pierde impulso.",
+        },
+        { type: 'h2', text: 'La valoración: P/FCF a 7,7 veces' },
+        {
+          type: 'p',
+          text: "Veamos el precio. Para medir lo que el mercado acepta pagar por una acción, utilizo un ratio sencillo: el P/FCF (precio sobre flujo de caja libre). Es el precio de la acción dividido entre el flujo de caja libre que genera cada año. Un P/FCF de 7,7 significa que pagas hoy 7,7 años de esa caja. Cuanto más bajo es este número, más barata está la acción.",
+        },
+        {
+          type: 'p',
+          text: "Tras la caída del 18 %, Accenture se valoriza 7,7 veces su flujo de caja libre. Es un nivel históricamente bajo para esta empresa. La capitalización bursátil ha vuelto a 78,6 mil millones de dólares, con la acción en torno a 128 dólares. Mi modelo de valoración, basado en el flujo de caja libre proyectado y una tasa de descuento razonable, me da un precio objetivo de compra de 119,68 dólares.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Valor'],
+          rows: [
+            ['Precio actual', '~128 $'],
+            ['P/FCF', '7,7×'],
+            ['Margen FCF', '14,4 %'],
+            ['Cash ROCE', '76,5 %'],
+            ['Margen neto', '10,6 %'],
+            ['Crecimiento ingresos 5 años', '+5,3 % / año'],
+            ['Deuda neta', 'Caja neta'],
+            ['Nota Lubin', '8/10'],
+            ['Precio objetivo del modelo', '~119,68 $'],
+          ],
+        },
+        { type: 'h2', text: 'Lo que cambia la caída, y lo que no cambia' },
+        {
+          type: 'p',
+          text: "La caída del 18 % hizo la acción mucho más barata. No mejoró la calidad del negocio: Accenture sigue en 8/10, con ese criterio de crecimiento ausente. Y precisamente, el recorte del guidance del 18 de junio agrava ese punto. No es una lectura temporal equivocada. La propia dirección está diciendo: vamos a crecer más despacio de lo previsto.",
+        },
+        {
+          type: 'p',
+          text: "La caída no cambia el diagnóstico fundamental. Solo cambia el precio. Y eso importa: un negocio de 8/10 a 7,7 veces su flujo de caja libre merece atención seria. Pero 8/10 no es 10/10. Existe un riesgo real de que el crecimiento continúe decepcionando, lo que se llama una trampa de valor (value trap): una acción que parece barata porque sus fundamentos se deterioran.",
+        },
+        { type: 'h2', text: 'Cómo decido, sin emoción' },
+        {
+          type: 'p',
+          text: "Mi disciplina es simple: no entro en una posición antes de que la acción alcance mi precio de compra razonable. Hoy, la acción cotiza en torno a 128 dólares. Mi precio objetivo es 119,68 dólares. Falta aproximadamente un 7 % más de bajada para que me sienta cómodo. No persigo la cotización, espero a que venga a mí.",
+        },
+        {
+          type: 'p',
+          text: "También vigilo si la calidad fundamental se deteriora más en los próximos trimestres. Si el crecimiento de ingresos sigue desacelerando y la nota cae por debajo de 8/10, incluso a un precio bajo, el interés disminuye. Al contrario, si Accenture entrega una aceleración en IA (sus ingresos relacionados con la IA ya superaban los 2 mil millones de dólares el año pasado) y recupera un ritmo de crecimiento superior al 8 %, el criterio ausente podría corregirse.",
+        },
+        {
+          type: 'p',
+          text: "Saber si una empresa es buena, y a qué precio comprarla, dos preguntas tratadas por separado: eso es todo lo que siempre quise poder hacer en unos segundos para cualquier acción. Por eso construí mi sitio de inversión, donde puedes consultar el análisis fundamental completo de Accenture en su [página de análisis](/analyse/ACN).",
+        },
+      ],
+      faq: [
+        {
+          q: '¿Por qué cayó un 18 % la acción de Accenture el 18 de junio de 2026?',
+          a: 'Accenture recortó su guidance de crecimiento anual de ingresos de +5-8 % a apenas +3-4 %. Este recorte señala una desaceleración en la demanda de servicios de consultoría informática, que el mercado penalizó de inmediato.',
+        },
+        {
+          q: '¿Qué es el flujo de caja libre?',
+          a: 'El dinero que de verdad le queda a la empresa tras pagar todo lo necesario para operar e invertir. Es más difícil de maquillar que el beneficio contable, así que me fío más de él para juzgar la solidez de un negocio.',
+        },
+        {
+          q: '¿Un P/FCF bajo es siempre una ganga?',
+          a: 'No. Un precio bajo puede ocultar una empresa en declive (una trampa de valor). Solo es interesante si la calidad del negocio se mantiene. De ahí mi regla: primero la calidad, después el precio.',
+        },
+        {
+          q: '¿Hay que comprar Accenture ahora?',
+          a: 'La acción se acerca a mi precio objetivo de 119,68 dólares pero aún no lo ha alcanzado. La nota de 8/10 es sólida, pero el criterio de crecimiento ausente es precisamente lo que el recorte del guidance acaba de empeorar. Vigilo sin apresurarme. Esto no es asesoramiento de inversión.',
+        },
+        {
+          q: '¿Qué es un guidance cut?',
+          a: 'Un guidance cut es cuando una empresa rebaja sus previsiones oficiales de ingresos o beneficios para el período siguiente. Los mercados suelen reaccionar con fuerza porque señala que la propia dirección ve empeorar las condiciones.',
+        },
+      ],
+      tags: ['Análisis', 'Accenture', 'Resultados', 'Valoración', 'IT Consulting'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a 22 de junio de 2026, sujetas a cambios. Haz tu propia investigación.',
     },
   },
 };
@@ -14646,433 +14646,6 @@ const carMaxQ1FY27: Article = {
     },
   },
 };
-const articleTT: Article = {
-  slug: 'trane-technologies-tt-analyse-fondamentale',
-  date: '2026-06-22',
-  updated: '2026-06-22',
-  readingTime: 7,
-  ticker: 'TT',
-  content: {
-    fr: {
-      title: 'Trane Technologies (TT) : notre analyse fondamentale',
-      excerpt: 'Trane Technologies obtient le score parfait dans notre screener. Leader mondial du HVAC avec des contrats de service récurrents et un moat renforcé par l\'explosion des data centers. Je décortique tout.',
-      metaDescription: 'Trane Technologies (TT) obtient la note maximale dans notre screener fondamental. Analyse complète : qualité, moat data centers, valorisation, risques. Un dossier d\'exception.',
-      answer: 'Trane Technologies est l\'une des rares entreprises à valider l\'intégralité des critères de notre méthode fondamentale. Leader mondial du HVAC, elle combine des revenus récurrents via ses contrats de maintenance, un moat structurel renforcé par la demande de refroidissement des data centers, et une génération de cash régulière. La valorisation actuelle est élevée mais cohérente avec la qualité du dossier.',
-      body: [
-        {
-          type: 'ul',
-          items: [
-            'Trane Technologies obtient le score parfait dans notre screener : toutes les cases fondamentales sont cochées, croissance, cash, bilan, rendement du capital.',
-            'Le moat est double : marques Trane et Thermo King dominantes dans le HVAC et la réfrigération transport, et des contrats de maintenance pluriannuels qui créent des revenus récurrents difficiles à concurrencer.',
-            'La demande de refroidissement des data centers est un catalyseur structurel inédit : chaque nouveau centre d\'IA nécessite des systèmes de climatisation industriels que Trane est l\'un des seuls à fournir à grande échelle.',
-            'La valorisation reflète cette qualité : à environ 33 fois son cash libre, le titre intègre déjà une grande partie de la croissance attendue. Le prix d\'entrée est un paramètre clé.',
-            'Le risque principal est la cyclicité partielle de la construction, qui peut ralentir les nouvelles commandes commerciales même si la base de contrats récurrents amortit les chocs.',
-          ],
-        },
-        {
-          type: 'h2',
-          text: 'Ce que fait vraiment Trane Technologies',
-        },
-        {
-          type: 'p',
-          text: 'Trane Technologies est le leader mondial du HVAC (Heating, Ventilation, Air Conditioning), c\'est-à-dire du chauffage, de la ventilation et de la climatisation. Quand tu entres dans un grand immeuble de bureaux, un hôpital ou un centre commercial et que la température est parfaite été comme hiver, il y a de fortes chances que ce soit un système Trane qui tourne en arrière-plan. Le groupe opère sous deux marques principales : Trane pour les solutions résidentielles, commerciales et industrielles, et Thermo King pour la réfrigération des transports (camions frigorifiques, wagons ferroviaires, navires).',
-        },
-        {
-          type: 'p',
-          text: 'Ce qui rend ce modèle économique particulièrement solide, c\'est la structure de ses revenus. Trane ne vend pas uniquement des équipements. Elle accompagne ses clients sur des contrats de maintenance pluriannuels : inspections régulières, remplacement de pièces, mises à jour réglementaires. Ces contrats créent un flux de revenus récurrents qui continue de couler même quand le marché de la construction ralentit. C\'est ce que j\'appelle une base de revenus défensive dans un secteur qui peut paraître cyclique en surface.',
-        },
-        {
-          type: 'h2',
-          text: 'Le score parfait : pourquoi Trane coche toutes les cases',
-        },
-        {
-          type: 'p',
-          text: 'Dans notre méthode, j\'analyse chaque entreprise sur une grille de critères fondamentaux objectifs : est-ce que les revenus croissent régulièrement ? Est-ce que les marges de cash libre sont élevées ? Le bilan est-il sain, avec peu de dette ? L\'entreprise rachète-t-elle ses actions plutôt que de les diluer ? Le rendement sur le capital est-il suffisant pour justifier les investissements ? Trane Technologies valide chacun de ces points. C\'est rare. Dans mon screener, qui couvre des centaines d\'entreprises cotées, très peu atteignent le score maximal. Trane en fait partie.',
-        },
-        {
-          type: 'p',
-          text: 'La marge de cash libre est particulièrement élevée pour une entreprise industrielle. Le Cash ROCE (rendement du cash sur le capital employé) est également bien au-dessus de nos seuils. La croissance des revenus est régulière, sans les à-coups d\'une entreprise tech cyclique. Et la dette est maîtrisée. Ce profil financier est celui d\'une entreprise qui a un avantage concurrentiel durable : si la concurrence pouvait la copier facilement, les marges s\'éroderaient. Elles ne s\'érodent pas.',
-        },
-        {
-          type: 'h2',
-          text: 'Le moat : data centers, énergie et réglementations mondiales',
-        },
-        {
-          type: 'p',
-          text: 'Le vrai avantage compétitif de Trane repose sur trois jambes. La première, c\'est la position de marché : Trane et Thermo King sont des marques de référence dans des secteurs où l\'ingénierie, la fiabilité et le réseau de techniciens certifiés comptent énormément. Un facility manager qui gère l\'infrastructure technique d\'un campus hospitalier ne remplace pas son prestataire HVAC pour économiser 5 % sur le prix d\'un contrat. Le risque de dysfonctionnement et les contraintes réglementaires créent une inertie très forte.',
-        },
-        {
-          type: 'p',
-          text: 'La deuxième jambe, c\'est le catalyseur data centers. L\'explosion de l\'intelligence artificielle crée une demande de puissance de calcul sans précédent. Chaque GPU H100 ou B200 consomme des centaines de watts et dégage une chaleur considérable. Les data centers doivent dissiper cette chaleur avec des systèmes de refroidissement industriels sophistiqués. Trane est l\'un des rares acteurs à disposer de la gamme, de l\'expertise et du réseau de service pour équiper ces installations à grande échelle. C\'est un marché en croissance structurelle sur lequel la demande devrait rester forte pendant au moins une décennie.',
-        },
-        {
-          type: 'p',
-          text: 'La troisième jambe, c\'est la réglementation. Les gouvernements du monde entier imposent des standards d\'efficacité énergétique de plus en plus stricts. En Europe, aux États-Unis, en Asie, les bâtiments commerciaux doivent atteindre des objectifs de consommation que seuls les équipements modernes et bien entretenus permettent d\'atteindre. Cela crée une demande de remplacement et de mise à niveau continue pour les parcs d\'équipements existants. Trane, avec ses gammes à haute efficacité, est idéalement positionnée pour capter ces flux de renouvellement.',
-        },
-        {
-          type: 'h2',
-          text: 'La valorisation : comprendre ce que le marché intègre déjà',
-        },
-        {
-          type: 'p',
-          text: 'Trane Technologies se valorise environ 33 fois son cash libre annuel. Pour rappel, le P/FCF (price to free cash flow) est le ratio que j\'utilise pour mesurer ce que le marché accepte de payer pour chaque euro de trésorerie générée. Un P/FCF de 33 signifie que tu paies aujourd\'hui 33 années de cash libre actuel pour détenir l\'action. Ce n\'est pas donné. Par comparaison, la moyenne historique du marché américain tourne autour de 20 à 25 fois.',
-        },
-        {
-          type: 'p',
-          text: 'Mais ce multiple n\'est pas absurde pour Trane. Il reflète plusieurs éléments justifiés : la régularité de la croissance, la qualité du bilan, la visibilité des revenus récurrents, et le fait que la demande data centers constitue un moteur de croissance supplémentaire non encore pleinement intégré dans les chiffres. La question n\'est donc pas « est-ce cher ? » mais « est-ce que la qualité et les perspectives justifient ce prix ? ». Notre réponse est nuancée : la qualité est là, mais la marge de sécurité est limitée. Un investisseur qui achète à ce niveau parie sur la continuation d\'une exécution parfaite.',
-        },
-        {
-          type: 'p',
-          text: 'Pour te donner un point de repère concret, je compare Trane à ses principaux concurrents dans le HVAC. Carrier Global et Lennox International sont les rivaux directs sur le HVAC résidentiel et commercial. Daikin, le géant japonais, est dominant en Asie. Ces comparaisons montrent que Trane se valorise avec une prime, mais cette prime est en partie justifiée par sa supériorité sur le segment industriel et sa diversification avec Thermo King.',
-        },
-        {
-          type: 'table',
-          headers: ['Critère', 'Trane TT', 'Carrier GTX', 'Lennox LII', 'Notre seuil'],
-          rows: [
-            ['Score fondamental', '10/10', 'Non vérifié ici', 'Non vérifié ici', '8+/10'],
-            ['Capitalisation', '~90 Mds $', '~60 Mds $', '~20 Mds $', '-'],
-            ['Valorisation P/FCF', '33×', 'Variable', 'Variable', '<25× idéal'],
-            ['Moat data centers', 'Fort', 'Modéré', 'Faible', '-'],
-            ['Revenus récurrents', 'Élevés (contrats)', 'Modérés', 'Modérés', 'Élevés'],
-            ['Bilan (dette)', 'Sain', 'Modéré', 'Tendu', 'Sain'],
-            ['Thermo King (transport)', 'Oui (unique)', 'Non', 'Non', '-'],
-          ],
-        },
-        {
-          type: 'h2',
-          text: 'Les risques à ne pas ignorer',
-        },
-        {
-          type: 'p',
-          text: 'La valorisation est le risque numéro un. À 33 fois le cash libre, toute déception sur la croissance ou les marges peut entraîner une correction sévère. Le marché paie pour la perfection, et la perfection a une tolérance zéro pour les mauvaises surprises. C\'est un risque structurel inhérent aux grandes entreprises de qualité à forte valorisation.',
-        },
-        {
-          type: 'p',
-          text: 'Le deuxième risque est la cyclicité partielle de la construction. Même si les contrats de maintenance amortissent les chocs, les nouvelles installations commerciales (immeubles de bureaux, hôtels, centres commerciaux) dépendent des cycles de construction. Un ralentissement prolongé de l\'immobilier commercial réduirait le volume de nouvelles commandes d\'équipements, même si la base installée continue de générer des revenus de service.',
-        },
-        {
-          type: 'p',
-          text: 'Le troisième risque est la compétition. Carrier, Lennox, et Daikin sont des concurrents sérieux avec des ressources importantes. La concurrence sur les prix peut s\'intensifier dans certains segments, notamment le résidentiel. Et si l\'un de ces acteurs réussissait à construire une offre data centers comparable à celle de Trane, la prime de valorisation se comprimerait.',
-        },
-        {
-          type: 'h2',
-          text: 'Ce que je retiens : une conviction de qualité, un point d\'entrée à surveiller',
-        },
-        {
-          type: 'p',
-          text: 'Trane Technologies est exactement le type de dossier que je cherche : une entreprise avec un avantage compétitif durable, une génération de cash régulière, une exposition à des tendances structurelles de long terme (efficacité énergétique, data centers), et un management qui a prouvé sa capacité à exécuter. Le score parfait dans notre screener n\'est pas une surprise pour quiconque a étudié le dossier en profondeur.',
-        },
-        {
-          type: 'p',
-          text: 'La seule friction, et elle est réelle, c\'est le prix. À 33 fois le cash libre, l\'action intègre déjà la plupart des bonnes nouvelles. Pour un investisseur qui suit notre méthode et cherche une marge de sécurité, attendre une correction ou un point d\'entrée plus bas reste la posture la plus cohérente. Si tu veux suivre l\'évolution de ce dossier, retrouve l\'analyse détaillée sur <a href="/analyse/TT">/analyse/TT</a>. Pour comprendre notre méthode de notation en détail, lis <a href="/methodologie">notre méthodologie</a>. Et pour explorer d\'autres dossiers comparables, le <a href="/screener">screener</a> est ton meilleur outil.',
-        },
-      ],
-      faq: [
-        {
-          q: 'Pourquoi Trane Technologies obtient-elle le score parfait dans votre screener ?',
-          a: 'Trane valide tous nos critères fondamentaux : croissance régulière des revenus, marges de cash libre élevées pour un industriel, bilan sain avec une dette maîtrisée, rendement sur le capital supérieur à nos seuils, et absence de dilution des actionnaires. Cette combinaison est rare dans le secteur industriel.',
-        },
-        {
-          q: 'Qu\'est-ce que le HVAC et pourquoi est-ce un secteur défensif ?',
-          a: 'Le HVAC désigne les systèmes de chauffage, ventilation et climatisation. C\'est un secteur partiellement défensif car une fois les équipements installés, les contrats de maintenance génèrent des revenus récurrents que les clients renouvellent automatiquement. Les réglementations d\'efficacité énergétique créent aussi une demande de remplacement continue, indépendante des cycles économiques.',
-        },
-        {
-          q: 'Quel est le lien entre Trane Technologies et les data centers ?',
-          a: 'Les data centers modernes, notamment ceux dédiés à l\'intelligence artificielle, génèrent d\'importantes quantités de chaleur qu\'il faut dissiper avec des systèmes de refroidissement industriels. Trane est l\'un des leaders mondiaux sur ces équipements. La multiplication des centres de calcul IA crée donc une demande structurelle nouvelle qui s\'ajoute aux marchés traditionnels de l\'entreprise.',
-        },
-        {
-          q: 'La valorisation élevée est-elle un problème pour investir dans Trane ?',
-          a: 'Une valorisation de 33 fois le cash libre n\'est pas anodine. Elle signifie que le marché intègre déjà plusieurs années de croissance solide. Si Trane continue d\'exécuter parfaitement, le multiple peut se justifier dans le temps. Mais si une déception survenait sur la croissance ou les marges, la correction pourrait être significative. C\'est pourquoi la patience sur le point d\'entrée est importante avec ce type de dossier.',
-        },
-        {
-          q: 'Quelle est la différence entre Trane et Thermo King ?',
-          a: 'Trane est la marque dédiée aux solutions HVAC pour les bâtiments résidentiels, commerciaux et industriels. Thermo King est la marque spécialisée dans la réfrigération des transports : camions frigorifiques, wagons de train, conteneurs maritimes et navires. Les deux divisions opèrent sous le même groupe coté Trane Technologies, et cette diversification renforce la résistance du modèle économique global.',
-        },
-      ],
-      tags: ['Trane Technologies', 'TT', 'HVAC', 'data centers', 'analyse fondamentale', 'bourse', 'investissement', 'Thermo King', 'énergie', 'actions américaines', 'score qualité', 'Lubin Investment'],
-      disclaimer: 'Cet article est rédigé à titre informatif et éducatif uniquement. Il ne constitue en aucun cas un conseil en investissement, une recommandation d\'achat ou de vente de valeurs mobilières. Les informations présentées reflètent l\'opinion personnelle de l\'auteur basée sur des données publiques disponibles à la date de publication. Investir en bourse comporte des risques de perte en capital. Avant toute décision d\'investissement, consultez un conseiller financier agréé. Les performances passées ne préjugent pas des performances futures.',
-    },
-    en: {
-      title: 'Trane Technologies (TT): our fundamental analysis',
-      excerpt: 'Trane Technologies scores a perfect grade in our screener. The global HVAC leader with recurring service contracts and a moat reinforced by the data center boom. A complete breakdown.',
-      metaDescription: 'Trane Technologies (TT) earns the top score in our fundamental screener. Full analysis: quality, data center moat, valuation, risks. An exceptional investment thesis.',
-      answer: 'Trane Technologies is one of the rare companies to validate every criterion in our fundamental method. The global HVAC leader combines recurring revenues through multi-year maintenance contracts, a structural moat reinforced by data center cooling demand, and consistent cash generation. Current valuation is high but consistent with the quality of the business.',
-      body: [
-        {
-          type: 'ul',
-          items: [
-            'Trane Technologies earns a perfect score in our screener: every fundamental box is checked — growth, cash generation, balance sheet, and return on capital.',
-            'The moat is twofold: dominant Trane and Thermo King brands in HVAC and transport refrigeration, and multi-year maintenance contracts that create recurring revenues that competitors struggle to displace.',
-            'Data center cooling demand is an unprecedented structural catalyst: every new AI facility requires industrial HVAC systems that Trane is one of the few players able to supply at scale.',
-            'Valuation reflects that quality: at roughly 33 times free cash flow, the stock already prices in much of the expected growth. Entry price is a key parameter.',
-            'The main risk is partial cyclicality in construction, which can slow new commercial orders even as the recurring contract base cushions shocks.',
-          ],
-        },
-        {
-          type: 'h2',
-          text: 'What Trane Technologies actually does',
-        },
-        {
-          type: 'p',
-          text: 'Trane Technologies is the global leader in HVAC (Heating, Ventilation and Air Conditioning). When you walk into a large office building, a hospital, or a shopping center and the temperature is perfectly comfortable year-round, there is a strong chance a Trane system is running in the background. The group operates under two main brands: Trane for residential, commercial and industrial climate solutions, and Thermo King for transport refrigeration (refrigerated trucks, railway wagons, ships).',
-        },
-        {
-          type: 'p',
-          text: 'What makes this business model particularly robust is the structure of its revenues. Trane does not only sell equipment. It accompanies its customers with multi-year maintenance contracts: regular inspections, parts replacement, regulatory updates. These contracts create a stream of recurring revenues that keep flowing even when the construction market slows. This is what I call a defensive revenue base within a sector that can appear cyclical on the surface.',
-        },
-        {
-          type: 'h2',
-          text: 'The perfect score: why Trane checks every box',
-        },
-        {
-          type: 'p',
-          text: 'In our method, I analyze each company against a grid of objective fundamental criteria: does revenue grow consistently? Are free cash flow margins high? Is the balance sheet healthy, with limited debt? Does the company buy back shares rather than diluting them? Is return on capital sufficient to justify investments? Trane Technologies passes each of these tests. That is rare. In my screener, which covers hundreds of listed companies, very few reach the maximum score. Trane is one of them.',
-        },
-        {
-          type: 'p',
-          text: 'Free cash flow margins are particularly high for an industrial company. Cash ROCE (cash return on capital employed) is also well above our thresholds. Revenue growth is steady, without the lurches of a cyclical tech company. And debt is under control. This financial profile is that of a company with a durable competitive advantage: if competition could easily replicate it, margins would erode. They do not erode.',
-        },
-        {
-          type: 'h2',
-          text: 'The moat: data centers, energy efficiency and global regulations',
-        },
-        {
-          type: 'p',
-          text: 'Trane\'s real competitive advantage rests on three pillars. The first is market position: Trane and Thermo King are reference brands in sectors where engineering, reliability, and networks of certified technicians matter enormously. A facility manager overseeing the technical infrastructure of a hospital campus does not switch their HVAC provider to save 5% on a contract price. Regulatory constraints and the risk of failure create very strong inertia.',
-        },
-        {
-          type: 'p',
-          text: 'The second pillar is the data center catalyst. The explosion of artificial intelligence is creating unprecedented demand for computing power. Each H100 or B200 GPU consumes hundreds of watts and generates considerable heat. Data centers must dissipate that heat with sophisticated industrial cooling systems. Trane is one of the few players with the product range, expertise, and service network to equip these facilities at scale. This is a structurally growing market where demand should remain strong for at least a decade.',
-        },
-        {
-          type: 'p',
-          text: 'The third pillar is regulation. Governments worldwide are imposing increasingly strict energy efficiency standards. In Europe, the United States, and Asia, commercial buildings must meet consumption targets that only modern, well-maintained equipment can achieve. This creates a continuous replacement and upgrade demand for existing equipment fleets. Trane, with its high-efficiency product lines, is ideally positioned to capture these renewal flows.',
-        },
-        {
-          type: 'h2',
-          text: 'Valuation: understanding what the market already prices in',
-        },
-        {
-          type: 'p',
-          text: 'Trane Technologies is valued at roughly 33 times its annual free cash flow. As a reminder, P/FCF (price to free cash flow) is the ratio I use to measure what the market is willing to pay for each dollar of cash generated. A P/FCF of 33 means you are paying today for 33 years of current free cash flow to own the stock. That is not cheap. By comparison, the historical average for the US market runs around 20 to 25 times.',
-        },
-        {
-          type: 'p',
-          text: 'But this multiple is not unreasonable for Trane. It reflects several justified elements: the consistency of growth, balance sheet quality, visibility of recurring revenues, and the fact that data center demand represents an additional growth engine not yet fully reflected in the numbers. The question is therefore not "is it expensive?" but "does the quality and outlook justify this price?" Our answer is nuanced: the quality is there, but the margin of safety is limited. An investor buying at this level is betting on the continuation of perfect execution.',
-        },
-        {
-          type: 'p',
-          text: 'To give you a concrete reference point, I compare Trane to its main HVAC competitors. Carrier Global and Lennox International are direct rivals in residential and commercial HVAC. Daikin, the Japanese giant, dominates in Asia. These comparisons show that Trane trades at a premium, but that premium is partly justified by its superiority in the industrial segment and its diversification through Thermo King.',
-        },
-        {
-          type: 'table',
-          headers: ['Criterion', 'Trane TT', 'Carrier GTX', 'Lennox LII', 'Our threshold'],
-          rows: [
-            ['Fundamental score', '10/10', 'Not reviewed here', 'Not reviewed here', '8+/10'],
-            ['Market cap', '~$90B', '~$60B', '~$20B', '-'],
-            ['P/FCF valuation', '33×', 'Variable', 'Variable', '<25× ideal'],
-            ['Data center moat', 'Strong', 'Moderate', 'Weak', '-'],
-            ['Recurring revenues', 'High (contracts)', 'Moderate', 'Moderate', 'High'],
-            ['Balance sheet (debt)', 'Healthy', 'Moderate', 'Stretched', 'Healthy'],
-            ['Thermo King (transport)', 'Yes (unique)', 'No', 'No', '-'],
-          ],
-        },
-        {
-          type: 'h2',
-          text: 'Risks not to overlook',
-        },
-        {
-          type: 'p',
-          text: 'Valuation is the number one risk. At 33 times free cash flow, any disappointment on growth or margins can trigger a sharp correction. The market is paying for perfection, and perfection has zero tolerance for negative surprises. This is a structural risk inherent in high-quality, high-valuation companies.',
-        },
-        {
-          type: 'p',
-          text: 'The second risk is partial cyclicality in construction. Even if maintenance contracts cushion shocks, new commercial installations (office buildings, hotels, shopping centers) depend on construction cycles. A prolonged slowdown in commercial real estate would reduce the volume of new equipment orders, even if the installed base continues to generate service revenues.',
-        },
-        {
-          type: 'p',
-          text: 'The third risk is competition. Carrier, Lennox, and Daikin are serious competitors with significant resources. Price competition can intensify in certain segments, particularly residential. And if one of these players managed to build a data center offering comparable to Trane\'s, the valuation premium would compress.',
-        },
-        {
-          type: 'h2',
-          text: 'My takeaway: a quality conviction, an entry point to monitor',
-        },
-        {
-          type: 'p',
-          text: 'Trane Technologies is exactly the kind of thesis I look for: a company with a durable competitive advantage, consistent cash generation, exposure to long-term structural trends (energy efficiency, data centers), and management that has proven its ability to execute. The perfect score in our screener is no surprise to anyone who has studied this thesis in depth.',
-        },
-        {
-          type: 'p',
-          text: 'The only friction, and it is real, is price. At 33 times free cash flow, the stock already prices in most of the good news. For an investor following our method who seeks a margin of safety, waiting for a correction or a lower entry point remains the most coherent posture. To follow this thesis over time, see the detailed analysis at <a href="/analyse/TT">/analyse/TT</a>. To understand our scoring method in detail, read <a href="/methodologie">our methodology</a>. And to explore comparable theses, the <a href="/screener">screener</a> is your best tool.',
-        },
-      ],
-      faq: [
-        {
-          q: 'Why does Trane Technologies earn a perfect score in your screener?',
-          a: 'Trane validates all our fundamental criteria: consistent revenue growth, high free cash flow margins for an industrial company, a healthy balance sheet with controlled debt, return on capital above our thresholds, and no shareholder dilution. This combination is rare in the industrial sector.',
-        },
-        {
-          q: 'What is HVAC and why is it a defensive sector?',
-          a: 'HVAC stands for Heating, Ventilation and Air Conditioning. It is a partially defensive sector because once equipment is installed, maintenance contracts generate recurring revenues that clients renew automatically. Energy efficiency regulations also create continuous replacement demand, independent of economic cycles.',
-        },
-        {
-          q: 'What is the connection between Trane Technologies and data centers?',
-          a: 'Modern data centers, particularly those dedicated to artificial intelligence, generate significant amounts of heat that must be dissipated using industrial cooling systems. Trane is one of the global leaders in this equipment. The multiplication of AI computing facilities therefore creates new structural demand that adds to the company\'s traditional markets.',
-        },
-        {
-          q: 'Is the high valuation a problem for investing in Trane?',
-          a: 'A valuation of 33 times free cash flow is significant. It means the market has already priced in several years of solid growth. If Trane continues to execute perfectly, the multiple can justify itself over time. But if a disappointment occurred on growth or margins, the correction could be substantial. This is why patience on the entry point matters with this type of thesis.',
-        },
-        {
-          q: 'What is the difference between Trane and Thermo King?',
-          a: 'Trane is the brand dedicated to HVAC solutions for residential, commercial and industrial buildings. Thermo King is the brand specialized in transport refrigeration: refrigerated trucks, railway wagons, maritime containers and ships. Both divisions operate under the same listed group, Trane Technologies, and this diversification strengthens the overall resilience of the business model.',
-        },
-      ],
-      tags: ['Trane Technologies', 'TT', 'HVAC', 'data centers', 'fundamental analysis', 'stock market', 'investing', 'Thermo King', 'energy efficiency', 'US stocks', 'quality score', 'Lubin Investment'],
-      disclaimer: 'This article is written for informational and educational purposes only. It does not constitute investment advice, nor a recommendation to buy or sell securities. The information presented reflects the personal opinion of the author based on publicly available data at the date of publication. Investing in financial markets involves risk of capital loss. Before making any investment decision, consult a licensed financial advisor. Past performance is not indicative of future results.',
-    },
-    es: {
-      title: 'Trane Technologies (TT): nuestro análisis fundamental',
-      excerpt: 'Trane Technologies obtiene la puntuación perfecta en nuestro screener. El líder mundial del HVAC con contratos de servicio recurrentes y un foso reforzado por la explosión de los data centers. Lo analizamos todo.',
-      metaDescription: 'Trane Technologies (TT) obtiene la nota máxima en nuestro screener fundamental. Análisis completo: calidad, foso data centers, valoración, riesgos. Una tesis de inversión excepcional.',
-      answer: 'Trane Technologies es una de las pocas empresas que valida todos los criterios de nuestro método fundamental. Líder mundial del HVAC, combina ingresos recurrentes a través de contratos de mantenimiento plurianuales, un foso estructural reforzado por la demanda de refrigeración de los data centers y una generación de caja regular. La valoración actual es elevada pero coherente con la calidad del negocio.',
-      body: [
-        {
-          type: 'ul',
-          items: [
-            'Trane Technologies obtiene la puntuación perfecta en nuestro screener: todas las casillas fundamentales están marcadas, crecimiento, caja, balance y rendimiento del capital.',
-            'El foso competitivo es doble: las marcas dominantes Trane y Thermo King en HVAC y refrigeración del transporte, más contratos de mantenimiento plurianuales que crean ingresos recurrentes difíciles de disputar.',
-            'La demanda de refrigeración de los data centers es un catalizador estructural inédito: cada nuevo centro de IA necesita sistemas de climatización industrial que Trane es uno de los pocos en suministrar a gran escala.',
-            'La valoración refleja esa calidad: a unas 33 veces su flujo de caja libre, el título ya integra gran parte del crecimiento esperado. El precio de entrada es un parámetro clave.',
-            'El principal riesgo es la ciclicidad parcial de la construcción, que puede ralentizar los nuevos pedidos comerciales aunque la base de contratos recurrentes amortigüe los shocks.',
-          ],
-        },
-        {
-          type: 'h2',
-          text: 'Qué hace realmente Trane Technologies',
-        },
-        {
-          type: 'p',
-          text: 'Trane Technologies es el líder mundial del HVAC (Heating, Ventilation and Air Conditioning), es decir, calefacción, ventilación y aire acondicionado. Cuando entras en un gran edificio de oficinas, un hospital o un centro comercial y la temperatura es perfecta todo el año, hay muchas probabilidades de que sea un sistema Trane el que funciona en segundo plano. El grupo opera bajo dos marcas principales: Trane para soluciones residenciales, comerciales e industriales, y Thermo King para la refrigeración del transporte (camiones frigoríficos, vagones ferroviarios, barcos).',
-        },
-        {
-          type: 'p',
-          text: 'Lo que hace que este modelo de negocio sea particularmente sólido es la estructura de sus ingresos. Trane no solo vende equipos. Acompaña a sus clientes con contratos de mantenimiento plurianuales: inspecciones periódicas, reposición de piezas, actualizaciones regulatorias. Estos contratos crean un flujo de ingresos recurrentes que sigue fluyendo incluso cuando el mercado de la construcción se ralentiza. Eso es lo que llamo una base de ingresos defensiva en un sector que puede parecer cíclico en la superficie.',
-        },
-        {
-          type: 'h2',
-          text: 'La puntuación perfecta: por qué Trane marca todas las casillas',
-        },
-        {
-          type: 'p',
-          text: 'En nuestra metodología, analizo cada empresa con una cuadrícula de criterios fundamentales objetivos: ¿crecen los ingresos de forma regular? ¿Son elevados los márgenes de flujo de caja libre? ¿Es sano el balance, con poca deuda? ¿Recompra la empresa sus acciones en lugar de diluirlas? ¿Es suficiente el rendimiento sobre el capital para justificar las inversiones? Trane Technologies supera cada una de estas pruebas. Eso es raro. En mi screener, que cubre cientos de empresas cotizadas, muy pocas alcanzan la puntuación máxima. Trane es una de ellas.',
-        },
-        {
-          type: 'p',
-          text: 'Los márgenes de flujo de caja libre son especialmente elevados para una empresa industrial. El Cash ROCE (rendimiento del efectivo sobre el capital empleado) también está muy por encima de nuestros umbrales. El crecimiento de los ingresos es regular, sin los altibajos de una empresa tecnológica cíclica. Y la deuda está controlada. Este perfil financiero es el de una empresa con una ventaja competitiva duradera: si la competencia pudiera replicarla fácilmente, los márgenes se erosionarían. No se erosionan.',
-        },
-        {
-          type: 'h2',
-          text: 'El foso competitivo: data centers, energía y regulaciones mundiales',
-        },
-        {
-          type: 'p',
-          text: 'La verdadera ventaja competitiva de Trane se apoya en tres pilares. El primero es la posición de mercado: Trane y Thermo King son marcas de referencia en sectores donde la ingeniería, la fiabilidad y la red de técnicos certificados cuentan enormemente. Un facility manager que gestiona la infraestructura técnica de un campus hospitalario no cambia a su proveedor de HVAC para ahorrar un 5% en el precio de un contrato. Las limitaciones regulatorias y el riesgo de fallo crean una inercia muy fuerte.',
-        },
-        {
-          type: 'p',
-          text: 'El segundo pilar es el catalizador de los data centers. La explosión de la inteligencia artificial está creando una demanda de capacidad de cómputo sin precedentes. Cada GPU H100 o B200 consume cientos de vatios y genera un calor considerable. Los data centers deben disipar ese calor con sistemas de refrigeración industrial sofisticados. Trane es uno de los pocos actores con la gama de productos, la experiencia y la red de servicio para equipar estas instalaciones a gran escala. Es un mercado en crecimiento estructural donde la demanda debería mantenerse fuerte durante al menos una década.',
-        },
-        {
-          type: 'p',
-          text: 'El tercer pilar es la regulación. Los gobiernos de todo el mundo están imponiendo estándares de eficiencia energética cada vez más estrictos. En Europa, Estados Unidos y Asia, los edificios comerciales deben alcanzar objetivos de consumo que solo los equipos modernos y bien mantenidos permiten lograr. Esto crea una demanda continua de sustitución y actualización de los parques de equipos existentes. Trane, con sus gamas de alta eficiencia, está idealmente posicionada para captar estos flujos de renovación.',
-        },
-        {
-          type: 'h2',
-          text: 'La valoración: entender lo que el mercado ya descuenta',
-        },
-        {
-          type: 'p',
-          text: 'Trane Technologies se valora aproximadamente 33 veces su flujo de caja libre anual. Como recordatorio, el P/FCF (precio sobre flujo de caja libre) es el ratio que utilizo para medir lo que el mercado está dispuesto a pagar por cada dólar de efectivo generado. Una valoración de 33 veces significa que hoy pagas 33 años de flujo de caja libre actual para poseer la acción. No es barato. Por comparación, la media histórica del mercado estadounidense ronda las 20 a 25 veces.',
-        },
-        {
-          type: 'p',
-          text: 'Pero este múltiplo no es irrazonable para Trane. Refleja varios elementos justificados: la regularidad del crecimiento, la calidad del balance, la visibilidad de los ingresos recurrentes y el hecho de que la demanda de los data centers representa un motor de crecimiento adicional aún no plenamente reflejado en los números. La pregunta no es por tanto «¿es caro?» sino «¿justifican la calidad y las perspectivas este precio?». Nuestra respuesta es matizada: la calidad está ahí, pero el margen de seguridad es limitado. Un inversor que compra a este nivel apuesta por la continuación de una ejecución perfecta.',
-        },
-        {
-          type: 'p',
-          text: 'Para darte un punto de referencia concreto, comparo Trane con sus principales competidores en el HVAC. Carrier Global y Lennox International son rivales directos en el HVAC residencial y comercial. Daikin, el gigante japonés, domina en Asia. Estas comparaciones muestran que Trane cotiza con una prima, pero esa prima está en parte justificada por su superioridad en el segmento industrial y su diversificación gracias a Thermo King.',
-        },
-        {
-          type: 'table',
-          headers: ['Criterio', 'Trane TT', 'Carrier GTX', 'Lennox LII', 'Nuestro umbral'],
-          rows: [
-            ['Puntuación fundamental', '10/10', 'No revisado aquí', 'No revisado aquí', '8+/10'],
-            ['Capitalización', '~90.000 M$', '~60.000 M$', '~20.000 M$', '-'],
-            ['Valoración P/FCF', '33×', 'Variable', 'Variable', '<25× ideal'],
-            ['Foso data centers', 'Fuerte', 'Moderado', 'Débil', '-'],
-            ['Ingresos recurrentes', 'Altos (contratos)', 'Moderados', 'Moderados', 'Altos'],
-            ['Balance (deuda)', 'Sano', 'Moderado', 'Ajustado', 'Sano'],
-            ['Thermo King (transporte)', 'Sí (único)', 'No', 'No', '-'],
-          ],
-        },
-        {
-          type: 'h2',
-          text: 'Los riesgos que no hay que ignorar',
-        },
-        {
-          type: 'p',
-          text: 'La valoración es el riesgo número uno. A 33 veces el flujo de caja libre, cualquier decepción en el crecimiento o los márgenes puede provocar una corrección severa. El mercado paga por la perfección, y la perfección tiene tolerancia cero para las sorpresas negativas. Es un riesgo estructural inherente a las grandes empresas de calidad con alta valoración.',
-        },
-        {
-          type: 'p',
-          text: 'El segundo riesgo es la ciclicidad parcial de la construcción. Aunque los contratos de mantenimiento amortigüen los shocks, las nuevas instalaciones comerciales (edificios de oficinas, hoteles, centros comerciales) dependen de los ciclos de la construcción. Una desaceleración prolongada del sector inmobiliario comercial reduciría el volumen de nuevos pedidos de equipos, aunque la base instalada siga generando ingresos de servicio.',
-        },
-        {
-          type: 'p',
-          text: 'El tercer riesgo es la competencia. Carrier, Lennox y Daikin son competidores serios con recursos importantes. La competencia en precios puede intensificarse en ciertos segmentos, en particular el residencial. Y si uno de estos actores consiguiera construir una oferta para data centers comparable a la de Trane, la prima de valoración se comprimiría.',
-        },
-        {
-          type: 'h2',
-          text: 'Mi conclusión: una convicción de calidad, un punto de entrada a vigilar',
-        },
-        {
-          type: 'p',
-          text: 'Trane Technologies es exactamente el tipo de tesis que busco: una empresa con una ventaja competitiva duradera, generación de caja regular, exposición a tendencias estructurales de largo plazo (eficiencia energética, data centers) y una dirección que ha demostrado su capacidad de ejecución. La puntuación perfecta en nuestro screener no es una sorpresa para quien haya estudiado este dossier en profundidad.',
-        },
-        {
-          type: 'p',
-          text: 'La única fricción, y es real, es el precio. A 33 veces el flujo de caja libre, la acción ya descuenta la mayoría de las buenas noticias. Para un inversor que sigue nuestra metodología y busca un margen de seguridad, esperar una corrección o un punto de entrada más bajo sigue siendo la postura más coherente. Para seguir la evolución de este dossier, consulta el análisis detallado en <a href="/analyse/TT">/analyse/TT</a>. Para entender nuestra metodología de puntuación en detalle, lee <a href="/methodologie">nuestra metodología</a>. Y para explorar tesis comparables, el <a href="/screener">screener</a> es tu mejor herramienta.',
-        },
-      ],
-      faq: [
-        {
-          q: '¿Por qué Trane Technologies obtiene la puntuación perfecta en vuestro screener?',
-          a: 'Trane valida todos nuestros criterios fundamentales: crecimiento regular de los ingresos, márgenes de flujo de caja libre elevados para una empresa industrial, balance sano con deuda controlada, rendimiento sobre el capital por encima de nuestros umbrales y ausencia de dilución del accionista. Esta combinación es rara en el sector industrial.',
-        },
-        {
-          q: '¿Qué es el HVAC y por qué es un sector defensivo?',
-          a: 'HVAC son las siglas de Heating, Ventilation and Air Conditioning (calefacción, ventilación y aire acondicionado). Es un sector parcialmente defensivo porque una vez instalados los equipos, los contratos de mantenimiento generan ingresos recurrentes que los clientes renuevan automáticamente. Las regulaciones de eficiencia energética también crean una demanda continua de sustitución, independiente de los ciclos económicos.',
-        },
-        {
-          q: '¿Cuál es la relación entre Trane Technologies y los data centers?',
-          a: 'Los data centers modernos, especialmente los dedicados a la inteligencia artificial, generan importantes cantidades de calor que deben disiparse con sistemas de refrigeración industrial. Trane es uno de los líderes mundiales en estos equipos. La multiplicación de los centros de cómputo de IA crea por tanto una demanda estructural nueva que se suma a los mercados tradicionales de la empresa.',
-        },
-        {
-          q: '¿Es un problema la alta valoración para invertir en Trane?',
-          a: 'Una valoración de 33 veces el flujo de caja libre no es trivial. Significa que el mercado ya ha descontado varios años de crecimiento sólido. Si Trane continúa ejecutando perfectamente, el múltiplo puede justificarse con el tiempo. Pero si se produjera una decepción en el crecimiento o los márgenes, la corrección podría ser significativa. Por eso la paciencia en el punto de entrada es importante con este tipo de tesis.',
-        },
-        {
-          q: '¿Cuál es la diferencia entre Trane y Thermo King?',
-          a: 'Trane es la marca dedicada a soluciones HVAC para edificios residenciales, comerciales e industriales. Thermo King es la marca especializada en refrigeración del transporte: camiones frigoríficos, vagones de tren, contenedores marítimos y barcos. Ambas divisiones operan bajo el mismo grupo cotizado, Trane Technologies, y esta diversificación refuerza la resiliencia global del modelo de negocio.',
-        },
-      ],
-      tags: ['Trane Technologies', 'TT', 'HVAC', 'data centers', 'análisis fundamental', 'bolsa', 'inversión', 'Thermo King', 'eficiencia energética', 'acciones estadounidenses', 'score calidad', 'Lubin Investment'],
-      disclaimer: 'Este artículo está redactado con fines únicamente informativos y educativos. No constituye en modo alguno un consejo de inversión ni una recomendación de compra o venta de valores. La información presentada refleja la opinión personal del autor basada en datos públicos disponibles en la fecha de publicación. Invertir en los mercados financieros conlleva riesgo de pérdida de capital. Antes de tomar cualquier decisión de inversión, consulte con un asesor financiero autorizado. Los resultados pasados no son indicativos de resultados futuros.',
-    },
-  },
-};
-
 const wrb: Article = {
   slug: 'wr-berkley-wrb-analyse-fondamentale-assurance',
   date: '2026-06-22',
@@ -15543,6 +15116,432 @@ const wrb: Article = {
 };
 
 
+const articleTT: Article = {
+  slug: 'trane-technologies-tt-analyse-fondamentale',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'TT',
+  content: {
+    fr: {
+      title: 'Trane Technologies (TT) : notre analyse fondamentale',
+      excerpt: 'Trane Technologies obtient le score parfait dans notre screener. Leader mondial du HVAC avec des contrats de service récurrents et un moat renforcé par l\'explosion des data centers. Je décortique tout.',
+      metaDescription: 'Trane Technologies (TT) obtient la note maximale dans notre screener fondamental. Analyse complète : qualité, moat data centers, valorisation, risques. Un dossier d\'exception.',
+      answer: 'Trane Technologies est l\'une des rares entreprises à valider l\'intégralité des critères de notre méthode fondamentale. Leader mondial du HVAC, elle combine des revenus récurrents via ses contrats de maintenance, un moat structurel renforcé par la demande de refroidissement des data centers, et une génération de cash régulière. La valorisation actuelle est élevée mais cohérente avec la qualité du dossier.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Trane Technologies obtient le score parfait dans notre screener : toutes les cases fondamentales sont cochées, croissance, cash, bilan, rendement du capital.',
+            'Le moat est double : marques Trane et Thermo King dominantes dans le HVAC et la réfrigération transport, et des contrats de maintenance pluriannuels qui créent des revenus récurrents difficiles à concurrencer.',
+            'La demande de refroidissement des data centers est un catalyseur structurel inédit : chaque nouveau centre d\'IA nécessite des systèmes de climatisation industriels que Trane est l\'un des seuls à fournir à grande échelle.',
+            'La valorisation reflète cette qualité : à environ 33 fois son cash libre, le titre intègre déjà une grande partie de la croissance attendue. Le prix d\'entrée est un paramètre clé.',
+            'Le risque principal est la cyclicité partielle de la construction, qui peut ralentir les nouvelles commandes commerciales même si la base de contrats récurrents amortit les chocs.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Ce que fait vraiment Trane Technologies',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies est le leader mondial du HVAC (Heating, Ventilation, Air Conditioning), c\'est-à-dire du chauffage, de la ventilation et de la climatisation. Quand tu entres dans un grand immeuble de bureaux, un hôpital ou un centre commercial et que la température est parfaite été comme hiver, il y a de fortes chances que ce soit un système Trane qui tourne en arrière-plan. Le groupe opère sous deux marques principales : Trane pour les solutions résidentielles, commerciales et industrielles, et Thermo King pour la réfrigération des transports (camions frigorifiques, wagons ferroviaires, navires).',
+        },
+        {
+          type: 'p',
+          text: 'Ce qui rend ce modèle économique particulièrement solide, c\'est la structure de ses revenus. Trane ne vend pas uniquement des équipements. Elle accompagne ses clients sur des contrats de maintenance pluriannuels : inspections régulières, remplacement de pièces, mises à jour réglementaires. Ces contrats créent un flux de revenus récurrents qui continue de couler même quand le marché de la construction ralentit. C\'est ce que j\'appelle une base de revenus défensive dans un secteur qui peut paraître cyclique en surface.',
+        },
+        {
+          type: 'h2',
+          text: 'Le score parfait : pourquoi Trane coche toutes les cases',
+        },
+        {
+          type: 'p',
+          text: 'Dans notre méthode, j\'analyse chaque entreprise sur une grille de critères fondamentaux objectifs : est-ce que les revenus croissent régulièrement ? Est-ce que les marges de cash libre sont élevées ? Le bilan est-il sain, avec peu de dette ? L\'entreprise rachète-t-elle ses actions plutôt que de les diluer ? Le rendement sur le capital est-il suffisant pour justifier les investissements ? Trane Technologies valide chacun de ces points. C\'est rare. Dans mon screener, qui couvre des centaines d\'entreprises cotées, très peu atteignent le score maximal. Trane en fait partie.',
+        },
+        {
+          type: 'p',
+          text: 'La marge de cash libre est particulièrement élevée pour une entreprise industrielle. Le Cash ROCE (rendement du cash sur le capital employé) est également bien au-dessus de nos seuils. La croissance des revenus est régulière, sans les à-coups d\'une entreprise tech cyclique. Et la dette est maîtrisée. Ce profil financier est celui d\'une entreprise qui a un avantage concurrentiel durable : si la concurrence pouvait la copier facilement, les marges s\'éroderaient. Elles ne s\'érodent pas.',
+        },
+        {
+          type: 'h2',
+          text: 'Le moat : data centers, énergie et réglementations mondiales',
+        },
+        {
+          type: 'p',
+          text: 'Le vrai avantage compétitif de Trane repose sur trois jambes. La première, c\'est la position de marché : Trane et Thermo King sont des marques de référence dans des secteurs où l\'ingénierie, la fiabilité et le réseau de techniciens certifiés comptent énormément. Un facility manager qui gère l\'infrastructure technique d\'un campus hospitalier ne remplace pas son prestataire HVAC pour économiser 5 % sur le prix d\'un contrat. Le risque de dysfonctionnement et les contraintes réglementaires créent une inertie très forte.',
+        },
+        {
+          type: 'p',
+          text: 'La deuxième jambe, c\'est le catalyseur data centers. L\'explosion de l\'intelligence artificielle crée une demande de puissance de calcul sans précédent. Chaque GPU H100 ou B200 consomme des centaines de watts et dégage une chaleur considérable. Les data centers doivent dissiper cette chaleur avec des systèmes de refroidissement industriels sophistiqués. Trane est l\'un des rares acteurs à disposer de la gamme, de l\'expertise et du réseau de service pour équiper ces installations à grande échelle. C\'est un marché en croissance structurelle sur lequel la demande devrait rester forte pendant au moins une décennie.',
+        },
+        {
+          type: 'p',
+          text: 'La troisième jambe, c\'est la réglementation. Les gouvernements du monde entier imposent des standards d\'efficacité énergétique de plus en plus stricts. En Europe, aux États-Unis, en Asie, les bâtiments commerciaux doivent atteindre des objectifs de consommation que seuls les équipements modernes et bien entretenus permettent d\'atteindre. Cela crée une demande de remplacement et de mise à niveau continue pour les parcs d\'équipements existants. Trane, avec ses gammes à haute efficacité, est idéalement positionnée pour capter ces flux de renouvellement.',
+        },
+        {
+          type: 'h2',
+          text: 'La valorisation : comprendre ce que le marché intègre déjà',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies se valorise environ 33 fois son cash libre annuel. Pour rappel, le P/FCF (price to free cash flow) est le ratio que j\'utilise pour mesurer ce que le marché accepte de payer pour chaque euro de trésorerie générée. Un P/FCF de 33 signifie que tu paies aujourd\'hui 33 années de cash libre actuel pour détenir l\'action. Ce n\'est pas donné. Par comparaison, la moyenne historique du marché américain tourne autour de 20 à 25 fois.',
+        },
+        {
+          type: 'p',
+          text: 'Mais ce multiple n\'est pas absurde pour Trane. Il reflète plusieurs éléments justifiés : la régularité de la croissance, la qualité du bilan, la visibilité des revenus récurrents, et le fait que la demande data centers constitue un moteur de croissance supplémentaire non encore pleinement intégré dans les chiffres. La question n\'est donc pas « est-ce cher ? » mais « est-ce que la qualité et les perspectives justifient ce prix ? ». Notre réponse est nuancée : la qualité est là, mais la marge de sécurité est limitée. Un investisseur qui achète à ce niveau parie sur la continuation d\'une exécution parfaite.',
+        },
+        {
+          type: 'p',
+          text: 'Pour te donner un point de repère concret, je compare Trane à ses principaux concurrents dans le HVAC. Carrier Global et Lennox International sont les rivaux directs sur le HVAC résidentiel et commercial. Daikin, le géant japonais, est dominant en Asie. Ces comparaisons montrent que Trane se valorise avec une prime, mais cette prime est en partie justifiée par sa supériorité sur le segment industriel et sa diversification avec Thermo King.',
+        },
+        {
+          type: 'table',
+          headers: ['Critère', 'Trane TT', 'Carrier GTX', 'Lennox LII', 'Notre seuil'],
+          rows: [
+            ['Score fondamental', '10/10', 'Non vérifié ici', 'Non vérifié ici', '8+/10'],
+            ['Capitalisation', '~90 Mds $', '~60 Mds $', '~20 Mds $', '-'],
+            ['Valorisation P/FCF', '33×', 'Variable', 'Variable', '<25× idéal'],
+            ['Moat data centers', 'Fort', 'Modéré', 'Faible', '-'],
+            ['Revenus récurrents', 'Élevés (contrats)', 'Modérés', 'Modérés', 'Élevés'],
+            ['Bilan (dette)', 'Sain', 'Modéré', 'Tendu', 'Sain'],
+            ['Thermo King (transport)', 'Oui (unique)', 'Non', 'Non', '-'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas ignorer',
+        },
+        {
+          type: 'p',
+          text: 'La valorisation est le risque numéro un. À 33 fois le cash libre, toute déception sur la croissance ou les marges peut entraîner une correction sévère. Le marché paie pour la perfection, et la perfection a une tolérance zéro pour les mauvaises surprises. C\'est un risque structurel inhérent aux grandes entreprises de qualité à forte valorisation.',
+        },
+        {
+          type: 'p',
+          text: 'Le deuxième risque est la cyclicité partielle de la construction. Même si les contrats de maintenance amortissent les chocs, les nouvelles installations commerciales (immeubles de bureaux, hôtels, centres commerciaux) dépendent des cycles de construction. Un ralentissement prolongé de l\'immobilier commercial réduirait le volume de nouvelles commandes d\'équipements, même si la base installée continue de générer des revenus de service.',
+        },
+        {
+          type: 'p',
+          text: 'Le troisième risque est la compétition. Carrier, Lennox, et Daikin sont des concurrents sérieux avec des ressources importantes. La concurrence sur les prix peut s\'intensifier dans certains segments, notamment le résidentiel. Et si l\'un de ces acteurs réussissait à construire une offre data centers comparable à celle de Trane, la prime de valorisation se comprimerait.',
+        },
+        {
+          type: 'h2',
+          text: 'Ce que je retiens : une conviction de qualité, un point d\'entrée à surveiller',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies est exactement le type de dossier que je cherche : une entreprise avec un avantage compétitif durable, une génération de cash régulière, une exposition à des tendances structurelles de long terme (efficacité énergétique, data centers), et un management qui a prouvé sa capacité à exécuter. Le score parfait dans notre screener n\'est pas une surprise pour quiconque a étudié le dossier en profondeur.',
+        },
+        {
+          type: 'p',
+          text: 'La seule friction, et elle est réelle, c\'est le prix. À 33 fois le cash libre, l\'action intègre déjà la plupart des bonnes nouvelles. Pour un investisseur qui suit notre méthode et cherche une marge de sécurité, attendre une correction ou un point d\'entrée plus bas reste la posture la plus cohérente. Si tu veux suivre l\'évolution de ce dossier, retrouve l\'analyse détaillée sur <a href="/analyse/TT">/analyse/TT</a>. Pour comprendre notre méthode de notation en détail, lis <a href="/methodologie">notre méthodologie</a>. Et pour explorer d\'autres dossiers comparables, le <a href="/screener">screener</a> est ton meilleur outil.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Pourquoi Trane Technologies obtient-elle le score parfait dans votre screener ?',
+          a: 'Trane valide tous nos critères fondamentaux : croissance régulière des revenus, marges de cash libre élevées pour un industriel, bilan sain avec une dette maîtrisée, rendement sur le capital supérieur à nos seuils, et absence de dilution des actionnaires. Cette combinaison est rare dans le secteur industriel.',
+        },
+        {
+          q: 'Qu\'est-ce que le HVAC et pourquoi est-ce un secteur défensif ?',
+          a: 'Le HVAC désigne les systèmes de chauffage, ventilation et climatisation. C\'est un secteur partiellement défensif car une fois les équipements installés, les contrats de maintenance génèrent des revenus récurrents que les clients renouvellent automatiquement. Les réglementations d\'efficacité énergétique créent aussi une demande de remplacement continue, indépendante des cycles économiques.',
+        },
+        {
+          q: 'Quel est le lien entre Trane Technologies et les data centers ?',
+          a: 'Les data centers modernes, notamment ceux dédiés à l\'intelligence artificielle, génèrent d\'importantes quantités de chaleur qu\'il faut dissiper avec des systèmes de refroidissement industriels. Trane est l\'un des leaders mondiaux sur ces équipements. La multiplication des centres de calcul IA crée donc une demande structurelle nouvelle qui s\'ajoute aux marchés traditionnels de l\'entreprise.',
+        },
+        {
+          q: 'La valorisation élevée est-elle un problème pour investir dans Trane ?',
+          a: 'Une valorisation de 33 fois le cash libre n\'est pas anodine. Elle signifie que le marché intègre déjà plusieurs années de croissance solide. Si Trane continue d\'exécuter parfaitement, le multiple peut se justifier dans le temps. Mais si une déception survenait sur la croissance ou les marges, la correction pourrait être significative. C\'est pourquoi la patience sur le point d\'entrée est importante avec ce type de dossier.',
+        },
+        {
+          q: 'Quelle est la différence entre Trane et Thermo King ?',
+          a: 'Trane est la marque dédiée aux solutions HVAC pour les bâtiments résidentiels, commerciaux et industriels. Thermo King est la marque spécialisée dans la réfrigération des transports : camions frigorifiques, wagons de train, conteneurs maritimes et navires. Les deux divisions opèrent sous le même groupe coté Trane Technologies, et cette diversification renforce la résistance du modèle économique global.',
+        },
+      ],
+      tags: ['Trane Technologies', 'TT', 'HVAC', 'data centers', 'analyse fondamentale', 'bourse', 'investissement', 'Thermo King', 'énergie', 'actions américaines', 'score qualité', 'Lubin Investment'],
+      disclaimer: 'Cet article est rédigé à titre informatif et éducatif uniquement. Il ne constitue en aucun cas un conseil en investissement, une recommandation d\'achat ou de vente de valeurs mobilières. Les informations présentées reflètent l\'opinion personnelle de l\'auteur basée sur des données publiques disponibles à la date de publication. Investir en bourse comporte des risques de perte en capital. Avant toute décision d\'investissement, consultez un conseiller financier agréé. Les performances passées ne préjugent pas des performances futures.',
+    },
+    en: {
+      title: 'Trane Technologies (TT): our fundamental analysis',
+      excerpt: 'Trane Technologies scores a perfect grade in our screener. The global HVAC leader with recurring service contracts and a moat reinforced by the data center boom. A complete breakdown.',
+      metaDescription: 'Trane Technologies (TT) earns the top score in our fundamental screener. Full analysis: quality, data center moat, valuation, risks. An exceptional investment thesis.',
+      answer: 'Trane Technologies is one of the rare companies to validate every criterion in our fundamental method. The global HVAC leader combines recurring revenues through multi-year maintenance contracts, a structural moat reinforced by data center cooling demand, and consistent cash generation. Current valuation is high but consistent with the quality of the business.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Trane Technologies earns a perfect score in our screener: every fundamental box is checked — growth, cash generation, balance sheet, and return on capital.',
+            'The moat is twofold: dominant Trane and Thermo King brands in HVAC and transport refrigeration, and multi-year maintenance contracts that create recurring revenues that competitors struggle to displace.',
+            'Data center cooling demand is an unprecedented structural catalyst: every new AI facility requires industrial HVAC systems that Trane is one of the few players able to supply at scale.',
+            'Valuation reflects that quality: at roughly 33 times free cash flow, the stock already prices in much of the expected growth. Entry price is a key parameter.',
+            'The main risk is partial cyclicality in construction, which can slow new commercial orders even as the recurring contract base cushions shocks.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What Trane Technologies actually does',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies is the global leader in HVAC (Heating, Ventilation and Air Conditioning). When you walk into a large office building, a hospital, or a shopping center and the temperature is perfectly comfortable year-round, there is a strong chance a Trane system is running in the background. The group operates under two main brands: Trane for residential, commercial and industrial climate solutions, and Thermo King for transport refrigeration (refrigerated trucks, railway wagons, ships).',
+        },
+        {
+          type: 'p',
+          text: 'What makes this business model particularly robust is the structure of its revenues. Trane does not only sell equipment. It accompanies its customers with multi-year maintenance contracts: regular inspections, parts replacement, regulatory updates. These contracts create a stream of recurring revenues that keep flowing even when the construction market slows. This is what I call a defensive revenue base within a sector that can appear cyclical on the surface.',
+        },
+        {
+          type: 'h2',
+          text: 'The perfect score: why Trane checks every box',
+        },
+        {
+          type: 'p',
+          text: 'In our method, I analyze each company against a grid of objective fundamental criteria: does revenue grow consistently? Are free cash flow margins high? Is the balance sheet healthy, with limited debt? Does the company buy back shares rather than diluting them? Is return on capital sufficient to justify investments? Trane Technologies passes each of these tests. That is rare. In my screener, which covers hundreds of listed companies, very few reach the maximum score. Trane is one of them.',
+        },
+        {
+          type: 'p',
+          text: 'Free cash flow margins are particularly high for an industrial company. Cash ROCE (cash return on capital employed) is also well above our thresholds. Revenue growth is steady, without the lurches of a cyclical tech company. And debt is under control. This financial profile is that of a company with a durable competitive advantage: if competition could easily replicate it, margins would erode. They do not erode.',
+        },
+        {
+          type: 'h2',
+          text: 'The moat: data centers, energy efficiency and global regulations',
+        },
+        {
+          type: 'p',
+          text: 'Trane\'s real competitive advantage rests on three pillars. The first is market position: Trane and Thermo King are reference brands in sectors where engineering, reliability, and networks of certified technicians matter enormously. A facility manager overseeing the technical infrastructure of a hospital campus does not switch their HVAC provider to save 5% on a contract price. Regulatory constraints and the risk of failure create very strong inertia.',
+        },
+        {
+          type: 'p',
+          text: 'The second pillar is the data center catalyst. The explosion of artificial intelligence is creating unprecedented demand for computing power. Each H100 or B200 GPU consumes hundreds of watts and generates considerable heat. Data centers must dissipate that heat with sophisticated industrial cooling systems. Trane is one of the few players with the product range, expertise, and service network to equip these facilities at scale. This is a structurally growing market where demand should remain strong for at least a decade.',
+        },
+        {
+          type: 'p',
+          text: 'The third pillar is regulation. Governments worldwide are imposing increasingly strict energy efficiency standards. In Europe, the United States, and Asia, commercial buildings must meet consumption targets that only modern, well-maintained equipment can achieve. This creates a continuous replacement and upgrade demand for existing equipment fleets. Trane, with its high-efficiency product lines, is ideally positioned to capture these renewal flows.',
+        },
+        {
+          type: 'h2',
+          text: 'Valuation: understanding what the market already prices in',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies is valued at roughly 33 times its annual free cash flow. As a reminder, P/FCF (price to free cash flow) is the ratio I use to measure what the market is willing to pay for each dollar of cash generated. A P/FCF of 33 means you are paying today for 33 years of current free cash flow to own the stock. That is not cheap. By comparison, the historical average for the US market runs around 20 to 25 times.',
+        },
+        {
+          type: 'p',
+          text: 'But this multiple is not unreasonable for Trane. It reflects several justified elements: the consistency of growth, balance sheet quality, visibility of recurring revenues, and the fact that data center demand represents an additional growth engine not yet fully reflected in the numbers. The question is therefore not "is it expensive?" but "does the quality and outlook justify this price?" Our answer is nuanced: the quality is there, but the margin of safety is limited. An investor buying at this level is betting on the continuation of perfect execution.',
+        },
+        {
+          type: 'p',
+          text: 'To give you a concrete reference point, I compare Trane to its main HVAC competitors. Carrier Global and Lennox International are direct rivals in residential and commercial HVAC. Daikin, the Japanese giant, dominates in Asia. These comparisons show that Trane trades at a premium, but that premium is partly justified by its superiority in the industrial segment and its diversification through Thermo King.',
+        },
+        {
+          type: 'table',
+          headers: ['Criterion', 'Trane TT', 'Carrier GTX', 'Lennox LII', 'Our threshold'],
+          rows: [
+            ['Fundamental score', '10/10', 'Not reviewed here', 'Not reviewed here', '8+/10'],
+            ['Market cap', '~$90B', '~$60B', '~$20B', '-'],
+            ['P/FCF valuation', '33×', 'Variable', 'Variable', '<25× ideal'],
+            ['Data center moat', 'Strong', 'Moderate', 'Weak', '-'],
+            ['Recurring revenues', 'High (contracts)', 'Moderate', 'Moderate', 'High'],
+            ['Balance sheet (debt)', 'Healthy', 'Moderate', 'Stretched', 'Healthy'],
+            ['Thermo King (transport)', 'Yes (unique)', 'No', 'No', '-'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Risks not to overlook',
+        },
+        {
+          type: 'p',
+          text: 'Valuation is the number one risk. At 33 times free cash flow, any disappointment on growth or margins can trigger a sharp correction. The market is paying for perfection, and perfection has zero tolerance for negative surprises. This is a structural risk inherent in high-quality, high-valuation companies.',
+        },
+        {
+          type: 'p',
+          text: 'The second risk is partial cyclicality in construction. Even if maintenance contracts cushion shocks, new commercial installations (office buildings, hotels, shopping centers) depend on construction cycles. A prolonged slowdown in commercial real estate would reduce the volume of new equipment orders, even if the installed base continues to generate service revenues.',
+        },
+        {
+          type: 'p',
+          text: 'The third risk is competition. Carrier, Lennox, and Daikin are serious competitors with significant resources. Price competition can intensify in certain segments, particularly residential. And if one of these players managed to build a data center offering comparable to Trane\'s, the valuation premium would compress.',
+        },
+        {
+          type: 'h2',
+          text: 'My takeaway: a quality conviction, an entry point to monitor',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies is exactly the kind of thesis I look for: a company with a durable competitive advantage, consistent cash generation, exposure to long-term structural trends (energy efficiency, data centers), and management that has proven its ability to execute. The perfect score in our screener is no surprise to anyone who has studied this thesis in depth.',
+        },
+        {
+          type: 'p',
+          text: 'The only friction, and it is real, is price. At 33 times free cash flow, the stock already prices in most of the good news. For an investor following our method who seeks a margin of safety, waiting for a correction or a lower entry point remains the most coherent posture. To follow this thesis over time, see the detailed analysis at <a href="/analyse/TT">/analyse/TT</a>. To understand our scoring method in detail, read <a href="/methodologie">our methodology</a>. And to explore comparable theses, the <a href="/screener">screener</a> is your best tool.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Why does Trane Technologies earn a perfect score in your screener?',
+          a: 'Trane validates all our fundamental criteria: consistent revenue growth, high free cash flow margins for an industrial company, a healthy balance sheet with controlled debt, return on capital above our thresholds, and no shareholder dilution. This combination is rare in the industrial sector.',
+        },
+        {
+          q: 'What is HVAC and why is it a defensive sector?',
+          a: 'HVAC stands for Heating, Ventilation and Air Conditioning. It is a partially defensive sector because once equipment is installed, maintenance contracts generate recurring revenues that clients renew automatically. Energy efficiency regulations also create continuous replacement demand, independent of economic cycles.',
+        },
+        {
+          q: 'What is the connection between Trane Technologies and data centers?',
+          a: 'Modern data centers, particularly those dedicated to artificial intelligence, generate significant amounts of heat that must be dissipated using industrial cooling systems. Trane is one of the global leaders in this equipment. The multiplication of AI computing facilities therefore creates new structural demand that adds to the company\'s traditional markets.',
+        },
+        {
+          q: 'Is the high valuation a problem for investing in Trane?',
+          a: 'A valuation of 33 times free cash flow is significant. It means the market has already priced in several years of solid growth. If Trane continues to execute perfectly, the multiple can justify itself over time. But if a disappointment occurred on growth or margins, the correction could be substantial. This is why patience on the entry point matters with this type of thesis.',
+        },
+        {
+          q: 'What is the difference between Trane and Thermo King?',
+          a: 'Trane is the brand dedicated to HVAC solutions for residential, commercial and industrial buildings. Thermo King is the brand specialized in transport refrigeration: refrigerated trucks, railway wagons, maritime containers and ships. Both divisions operate under the same listed group, Trane Technologies, and this diversification strengthens the overall resilience of the business model.',
+        },
+      ],
+      tags: ['Trane Technologies', 'TT', 'HVAC', 'data centers', 'fundamental analysis', 'stock market', 'investing', 'Thermo King', 'energy efficiency', 'US stocks', 'quality score', 'Lubin Investment'],
+      disclaimer: 'This article is written for informational and educational purposes only. It does not constitute investment advice, nor a recommendation to buy or sell securities. The information presented reflects the personal opinion of the author based on publicly available data at the date of publication. Investing in financial markets involves risk of capital loss. Before making any investment decision, consult a licensed financial advisor. Past performance is not indicative of future results.',
+    },
+    es: {
+      title: 'Trane Technologies (TT): nuestro análisis fundamental',
+      excerpt: 'Trane Technologies obtiene la puntuación perfecta en nuestro screener. El líder mundial del HVAC con contratos de servicio recurrentes y un foso reforzado por la explosión de los data centers. Lo analizamos todo.',
+      metaDescription: 'Trane Technologies (TT) obtiene la nota máxima en nuestro screener fundamental. Análisis completo: calidad, foso data centers, valoración, riesgos. Una tesis de inversión excepcional.',
+      answer: 'Trane Technologies es una de las pocas empresas que valida todos los criterios de nuestro método fundamental. Líder mundial del HVAC, combina ingresos recurrentes a través de contratos de mantenimiento plurianuales, un foso estructural reforzado por la demanda de refrigeración de los data centers y una generación de caja regular. La valoración actual es elevada pero coherente con la calidad del negocio.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Trane Technologies obtiene la puntuación perfecta en nuestro screener: todas las casillas fundamentales están marcadas, crecimiento, caja, balance y rendimiento del capital.',
+            'El foso competitivo es doble: las marcas dominantes Trane y Thermo King en HVAC y refrigeración del transporte, más contratos de mantenimiento plurianuales que crean ingresos recurrentes difíciles de disputar.',
+            'La demanda de refrigeración de los data centers es un catalizador estructural inédito: cada nuevo centro de IA necesita sistemas de climatización industrial que Trane es uno de los pocos en suministrar a gran escala.',
+            'La valoración refleja esa calidad: a unas 33 veces su flujo de caja libre, el título ya integra gran parte del crecimiento esperado. El precio de entrada es un parámetro clave.',
+            'El principal riesgo es la ciclicidad parcial de la construcción, que puede ralentizar los nuevos pedidos comerciales aunque la base de contratos recurrentes amortigüe los shocks.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Qué hace realmente Trane Technologies',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies es el líder mundial del HVAC (Heating, Ventilation and Air Conditioning), es decir, calefacción, ventilación y aire acondicionado. Cuando entras en un gran edificio de oficinas, un hospital o un centro comercial y la temperatura es perfecta todo el año, hay muchas probabilidades de que sea un sistema Trane el que funciona en segundo plano. El grupo opera bajo dos marcas principales: Trane para soluciones residenciales, comerciales e industriales, y Thermo King para la refrigeración del transporte (camiones frigoríficos, vagones ferroviarios, barcos).',
+        },
+        {
+          type: 'p',
+          text: 'Lo que hace que este modelo de negocio sea particularmente sólido es la estructura de sus ingresos. Trane no solo vende equipos. Acompaña a sus clientes con contratos de mantenimiento plurianuales: inspecciones periódicas, reposición de piezas, actualizaciones regulatorias. Estos contratos crean un flujo de ingresos recurrentes que sigue fluyendo incluso cuando el mercado de la construcción se ralentiza. Eso es lo que llamo una base de ingresos defensiva en un sector que puede parecer cíclico en la superficie.',
+        },
+        {
+          type: 'h2',
+          text: 'La puntuación perfecta: por qué Trane marca todas las casillas',
+        },
+        {
+          type: 'p',
+          text: 'En nuestra metodología, analizo cada empresa con una cuadrícula de criterios fundamentales objetivos: ¿crecen los ingresos de forma regular? ¿Son elevados los márgenes de flujo de caja libre? ¿Es sano el balance, con poca deuda? ¿Recompra la empresa sus acciones en lugar de diluirlas? ¿Es suficiente el rendimiento sobre el capital para justificar las inversiones? Trane Technologies supera cada una de estas pruebas. Eso es raro. En mi screener, que cubre cientos de empresas cotizadas, muy pocas alcanzan la puntuación máxima. Trane es una de ellas.',
+        },
+        {
+          type: 'p',
+          text: 'Los márgenes de flujo de caja libre son especialmente elevados para una empresa industrial. El Cash ROCE (rendimiento del efectivo sobre el capital empleado) también está muy por encima de nuestros umbrales. El crecimiento de los ingresos es regular, sin los altibajos de una empresa tecnológica cíclica. Y la deuda está controlada. Este perfil financiero es el de una empresa con una ventaja competitiva duradera: si la competencia pudiera replicarla fácilmente, los márgenes se erosionarían. No se erosionan.',
+        },
+        {
+          type: 'h2',
+          text: 'El foso competitivo: data centers, energía y regulaciones mundiales',
+        },
+        {
+          type: 'p',
+          text: 'La verdadera ventaja competitiva de Trane se apoya en tres pilares. El primero es la posición de mercado: Trane y Thermo King son marcas de referencia en sectores donde la ingeniería, la fiabilidad y la red de técnicos certificados cuentan enormemente. Un facility manager que gestiona la infraestructura técnica de un campus hospitalario no cambia a su proveedor de HVAC para ahorrar un 5% en el precio de un contrato. Las limitaciones regulatorias y el riesgo de fallo crean una inercia muy fuerte.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo pilar es el catalizador de los data centers. La explosión de la inteligencia artificial está creando una demanda de capacidad de cómputo sin precedentes. Cada GPU H100 o B200 consume cientos de vatios y genera un calor considerable. Los data centers deben disipar ese calor con sistemas de refrigeración industrial sofisticados. Trane es uno de los pocos actores con la gama de productos, la experiencia y la red de servicio para equipar estas instalaciones a gran escala. Es un mercado en crecimiento estructural donde la demanda debería mantenerse fuerte durante al menos una década.',
+        },
+        {
+          type: 'p',
+          text: 'El tercer pilar es la regulación. Los gobiernos de todo el mundo están imponiendo estándares de eficiencia energética cada vez más estrictos. En Europa, Estados Unidos y Asia, los edificios comerciales deben alcanzar objetivos de consumo que solo los equipos modernos y bien mantenidos permiten lograr. Esto crea una demanda continua de sustitución y actualización de los parques de equipos existentes. Trane, con sus gamas de alta eficiencia, está idealmente posicionada para captar estos flujos de renovación.',
+        },
+        {
+          type: 'h2',
+          text: 'La valoración: entender lo que el mercado ya descuenta',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies se valora aproximadamente 33 veces su flujo de caja libre anual. Como recordatorio, el P/FCF (precio sobre flujo de caja libre) es el ratio que utilizo para medir lo que el mercado está dispuesto a pagar por cada dólar de efectivo generado. Una valoración de 33 veces significa que hoy pagas 33 años de flujo de caja libre actual para poseer la acción. No es barato. Por comparación, la media histórica del mercado estadounidense ronda las 20 a 25 veces.',
+        },
+        {
+          type: 'p',
+          text: 'Pero este múltiplo no es irrazonable para Trane. Refleja varios elementos justificados: la regularidad del crecimiento, la calidad del balance, la visibilidad de los ingresos recurrentes y el hecho de que la demanda de los data centers representa un motor de crecimiento adicional aún no plenamente reflejado en los números. La pregunta no es por tanto «¿es caro?» sino «¿justifican la calidad y las perspectivas este precio?». Nuestra respuesta es matizada: la calidad está ahí, pero el margen de seguridad es limitado. Un inversor que compra a este nivel apuesta por la continuación de una ejecución perfecta.',
+        },
+        {
+          type: 'p',
+          text: 'Para darte un punto de referencia concreto, comparo Trane con sus principales competidores en el HVAC. Carrier Global y Lennox International son rivales directos en el HVAC residencial y comercial. Daikin, el gigante japonés, domina en Asia. Estas comparaciones muestran que Trane cotiza con una prima, pero esa prima está en parte justificada por su superioridad en el segmento industrial y su diversificación gracias a Thermo King.',
+        },
+        {
+          type: 'table',
+          headers: ['Criterio', 'Trane TT', 'Carrier GTX', 'Lennox LII', 'Nuestro umbral'],
+          rows: [
+            ['Puntuación fundamental', '10/10', 'No revisado aquí', 'No revisado aquí', '8+/10'],
+            ['Capitalización', '~90.000 M$', '~60.000 M$', '~20.000 M$', '-'],
+            ['Valoración P/FCF', '33×', 'Variable', 'Variable', '<25× ideal'],
+            ['Foso data centers', 'Fuerte', 'Moderado', 'Débil', '-'],
+            ['Ingresos recurrentes', 'Altos (contratos)', 'Moderados', 'Moderados', 'Altos'],
+            ['Balance (deuda)', 'Sano', 'Moderado', 'Ajustado', 'Sano'],
+            ['Thermo King (transporte)', 'Sí (único)', 'No', 'No', '-'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no hay que ignorar',
+        },
+        {
+          type: 'p',
+          text: 'La valoración es el riesgo número uno. A 33 veces el flujo de caja libre, cualquier decepción en el crecimiento o los márgenes puede provocar una corrección severa. El mercado paga por la perfección, y la perfección tiene tolerancia cero para las sorpresas negativas. Es un riesgo estructural inherente a las grandes empresas de calidad con alta valoración.',
+        },
+        {
+          type: 'p',
+          text: 'El segundo riesgo es la ciclicidad parcial de la construcción. Aunque los contratos de mantenimiento amortigüen los shocks, las nuevas instalaciones comerciales (edificios de oficinas, hoteles, centros comerciales) dependen de los ciclos de la construcción. Una desaceleración prolongada del sector inmobiliario comercial reduciría el volumen de nuevos pedidos de equipos, aunque la base instalada siga generando ingresos de servicio.',
+        },
+        {
+          type: 'p',
+          text: 'El tercer riesgo es la competencia. Carrier, Lennox y Daikin son competidores serios con recursos importantes. La competencia en precios puede intensificarse en ciertos segmentos, en particular el residencial. Y si uno de estos actores consiguiera construir una oferta para data centers comparable a la de Trane, la prima de valoración se comprimiría.',
+        },
+        {
+          type: 'h2',
+          text: 'Mi conclusión: una convicción de calidad, un punto de entrada a vigilar',
+        },
+        {
+          type: 'p',
+          text: 'Trane Technologies es exactamente el tipo de tesis que busco: una empresa con una ventaja competitiva duradera, generación de caja regular, exposición a tendencias estructurales de largo plazo (eficiencia energética, data centers) y una dirección que ha demostrado su capacidad de ejecución. La puntuación perfecta en nuestro screener no es una sorpresa para quien haya estudiado este dossier en profundidad.',
+        },
+        {
+          type: 'p',
+          text: 'La única fricción, y es real, es el precio. A 33 veces el flujo de caja libre, la acción ya descuenta la mayoría de las buenas noticias. Para un inversor que sigue nuestra metodología y busca un margen de seguridad, esperar una corrección o un punto de entrada más bajo sigue siendo la postura más coherente. Para seguir la evolución de este dossier, consulta el análisis detallado en <a href="/analyse/TT">/analyse/TT</a>. Para entender nuestra metodología de puntuación en detalle, lee <a href="/methodologie">nuestra metodología</a>. Y para explorar tesis comparables, el <a href="/screener">screener</a> es tu mejor herramienta.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Por qué Trane Technologies obtiene la puntuación perfecta en vuestro screener?',
+          a: 'Trane valida todos nuestros criterios fundamentales: crecimiento regular de los ingresos, márgenes de flujo de caja libre elevados para una empresa industrial, balance sano con deuda controlada, rendimiento sobre el capital por encima de nuestros umbrales y ausencia de dilución del accionista. Esta combinación es rara en el sector industrial.',
+        },
+        {
+          q: '¿Qué es el HVAC y por qué es un sector defensivo?',
+          a: 'HVAC son las siglas de Heating, Ventilation and Air Conditioning (calefacción, ventilación y aire acondicionado). Es un sector parcialmente defensivo porque una vez instalados los equipos, los contratos de mantenimiento generan ingresos recurrentes que los clientes renuevan automáticamente. Las regulaciones de eficiencia energética también crean una demanda continua de sustitución, independiente de los ciclos económicos.',
+        },
+        {
+          q: '¿Cuál es la relación entre Trane Technologies y los data centers?',
+          a: 'Los data centers modernos, especialmente los dedicados a la inteligencia artificial, generan importantes cantidades de calor que deben disiparse con sistemas de refrigeración industrial. Trane es uno de los líderes mundiales en estos equipos. La multiplicación de los centros de cómputo de IA crea por tanto una demanda estructural nueva que se suma a los mercados tradicionales de la empresa.',
+        },
+        {
+          q: '¿Es un problema la alta valoración para invertir en Trane?',
+          a: 'Una valoración de 33 veces el flujo de caja libre no es trivial. Significa que el mercado ya ha descontado varios años de crecimiento sólido. Si Trane continúa ejecutando perfectamente, el múltiplo puede justificarse con el tiempo. Pero si se produjera una decepción en el crecimiento o los márgenes, la corrección podría ser significativa. Por eso la paciencia en el punto de entrada es importante con este tipo de tesis.',
+        },
+        {
+          q: '¿Cuál es la diferencia entre Trane y Thermo King?',
+          a: 'Trane es la marca dedicada a soluciones HVAC para edificios residenciales, comerciales e industriales. Thermo King es la marca especializada en refrigeración del transporte: camiones frigoríficos, vagones de tren, contenedores marítimos y barcos. Ambas divisiones operan bajo el mismo grupo cotizado, Trane Technologies, y esta diversificación refuerza la resiliencia global del modelo de negocio.',
+        },
+      ],
+      tags: ['Trane Technologies', 'TT', 'HVAC', 'data centers', 'análisis fundamental', 'bolsa', 'inversión', 'Thermo King', 'eficiencia energética', 'acciones estadounidenses', 'score calidad', 'Lubin Investment'],
+      disclaimer: 'Este artículo está redactado con fines únicamente informativos y educativos. No constituye en modo alguno un consejo de inversión ni una recomendación de compra o venta de valores. La información presentada refleja la opinión personal del autor basada en datos públicos disponibles en la fecha de publicación. Invertir en los mercados financieros conlleva riesgo de pérdida de capital. Antes de tomar cualquier decisión de inversión, consulte con un asesor financiero autorizado. Los resultados pasados no son indicativos de resultados futuros.',
+    },
+  },
+};
 const doximityDOCS2026: Article = {
   slug: 'doximity-docs-analyse-fondamentale-saas-medical',
   date: '2026-06-22',
@@ -19484,6 +19483,469 @@ const articleBSY: Article = {
       ],
       disclaimer:
         "Análisis con fines informativos y educativos, no constituye asesoramiento de inversión personalizado. Los datos citados provienen de información pública disponible en la fecha de publicación y están sujetos a cambios. Los resultados pasados no garantizan resultados futuros. Realiza tu propia investigación antes de tomar cualquier decisión de inversión.",
+    },
+  },
+};
+
+const articleBSYvsROP: Article = {
+  slug: 'bentley-systems-bsy-roper-technologies-rop-comparatif-logiciels',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 8,
+  ticker: 'BSY',
+  content: {
+    fr: {
+      title: 'Bentley Systems (BSY) face à Roper Technologies (ROP)',
+      excerpt:
+        'Deux logiciels parfaits selon mon screener, deux modèles très différents. Bentley Systems domine l\'ingénierie d\'infrastructure mondiale. Roper Technologies construit discrètement un empire de logiciels de niche. Laquelle convient le mieux à ton profil d\'investisseur ?',
+      metaDescription:
+        'Comparatif fondamental Bentley Systems (BSY) face à Roper Technologies (ROP) : marges, croissance, valorisation et profil investisseur. Deux logiciels de qualité maximale, deux histoires très différentes.',
+      answer:
+        'Bentley Systems et Roper Technologies obtiennent toutes deux la note maximale dans mon screener de qualité. Bentley est un pur acteur de l\'ingénierie numérique d\'infrastructure avec une croissance organique élevée. Roper est un serial acquirer de logiciels de niche dont la force réside dans l\'allocation du capital. La valorisation de Roper est aujourd\'hui plus attractive.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Bentley Systems (BSY) et Roper Technologies (ROP) obtiennent toutes deux un score de qualité maximum selon mes critères d\'analyse fondamentale.',
+            'BSY affiche une capitalisation boursière d\'environ 10 milliards de dollars ; ROP dépasse les 33 milliards, soit plus de trois fois la taille de BSY.',
+            'Les deux modèles sont opposés : BSY construit un produit unique pour l\'ingénierie d\'infrastructure, ROP rachète des dizaines de logiciels verticaux dans des niches variées.',
+            'BSY affiche une valorisation de 22 fois son free cash flow annuel ; ROP se valorise à 14,1 fois, ce qui en fait l\'option la moins chère des deux à qualité comparable.',
+            'BSY convient à un investisseur cherchant une exposition à la croissance des logiciels d\'infrastructure et aux marchés internationaux ; ROP convient davantage à un profil valeur à long terme, sensible à la discipline d\'allocation du capital.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Deux logiciels parfaits, deux histoires très différentes',
+        },
+        {
+          type: 'p',
+          text: 'Quand mon screener attribue une note de qualité maximale à une entreprise, c\'est rare. Quand deux entreprises du même secteur l\'obtiennent simultanément, c\'est encore plus inhabituel. C\'est pourtant le cas de Bentley Systems et de Roper Technologies, toutes deux cotées aux États-Unis dans la catégorie logiciels applicatifs. Mais ressembler sur une feuille de critères ne signifie pas se ressembler en réalité. Les deux entreprises ont des modèles, des tailles, des rythmes de croissance et des profils de risque fondamentalement différents. Ce comparatif existe pour t\'aider à comprendre ces différences, pas pour te dire laquelle acheter.',
+        },
+        {
+          type: 'p',
+          text: 'Ce que ces deux entreprises ont en commun : elles génèrent des marges de free cash flow exceptionnelles, leurs revenus sont très récurrents, leurs clients ne partent pas, et leur management alloue le capital avec discipline. C\'est là que s\'arrête la ressemblance. La nature du fossé concurrentiel, l\'exposition géographique, le moteur de croissance et la valorisation relative divergent significativement.',
+        },
+        {
+          type: 'h2',
+          text: 'Bentley Systems : l\'ingénierie numérique du monde physique',
+        },
+        {
+          type: 'p',
+          text: 'Bentley Systems vend des logiciels aux ingénieurs qui conçoivent et gèrent des infrastructures physiques : ponts, routes, réseaux d\'eau et d\'énergie, voies ferrées, ports, bâtiments industriels. Concrètement, quand un bureau d\'études lance un grand projet en Inde, en Allemagne ou au Brésil, il ouvre très souvent un logiciel BSY. L\'entreprise sert 200 000 ingénieurs actifs dans 190 pays, et plus de 75 % de ses revenus sont des abonnements récurrents. C\'est une visibilité exceptionnelle sur les revenus futurs.',
+        },
+        {
+          type: 'p',
+          text: 'Ce qui rend BSY particulièrement défendable, c\'est la profondeur de l\'intégration dans les processus de ses clients. Un bureau d\'études qui modélise un réseau ferroviaire pendant vingt ans dans les outils BSY ne peut pas simplement migrer vers un concurrent en six mois. Ses fichiers, ses normes internes, ses équipes formées, ses données historiques irremplaçables : tout dépend de l\'écosystème BSY. Le coût du changement est si élevé qu\'il devient une barrière économique naturelle. C\'est ce qu\'on appelle un switching cost extrême.',
+        },
+        {
+          type: 'p',
+          text: 'Financièrement, BSY affiche une marge brute de 82 % et une marge de free cash flow de 26,8 %. La croissance organique tourne autour de 10 % par an, portée par la numérisation accélérée des projets d\'infrastructure dans le monde entier, notamment sous l\'effet des plans de relance publics aux États-Unis, en Europe et en Asie. BSY bénéficie ainsi d\'un double moteur : la croissance de son parc de clients existants et la montée en charge des grands projets d\'infrastructure mondiale. Pour approfondir, tu peux consulter notre <a href="/analyse/BSY">analyse détaillée de BSY</a>.',
+        },
+        {
+          type: 'h2',
+          text: 'Roper Technologies : le serial acquirer discret',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies n\'a pas de produit phare unique que tu pourrais nommer en une phrase. Elle a un modèle. Depuis plus de vingt ans, elle identifie des logiciels verticaux leaders dans des niches très spécifiques : la gestion de la distribution d\'assurance, la planification financière hospitalière, les outils pour cabinets d\'avocats, la logistique du transport, les systèmes éducatifs. Elle les achète à un prix discipliné, les conserve indéfiniment, et réinvestit le cash qu\'ils génèrent dans de nouvelles acquisitions.',
+        },
+        {
+          type: 'p',
+          text: 'Ce modèle s\'appelle un serial acquirer. Il ne repose pas sur l\'innovation produit mais sur la qualité de la sélection et de l\'exécution. Chaque logiciel acquis par Roper est le système nerveux de son marché : les clients l\'utilisent depuis des années, leurs données y sont enfouies, et migrer coûterait des ressources considérables pour un risque opérationnel énorme. Résultat : des taux de rétention très élevés, une forte visibilité sur les revenus futurs, et la capacité à augmenter les prix modestement chaque année.',
+        },
+        {
+          type: 'p',
+          text: 'La force de Roper réside dans son allocation du capital. Neil Hunn, son dirigeant, a méthodiquement cédé les activités industrielles physiques de Roper (pompes, instruments de mesure) pour se concentrer exclusivement sur les logiciels à revenus récurrents. Ce repositionnement a allégé le bilan et fait grimper les marges. La marge de free cash flow de ROP atteint aujourd\'hui 29,9 %, et son cash ROCE (retour sur capital employé mesuré en cash) figure parmi les meilleurs de tout le marché coté. Pour aller plus loin, consulte notre <a href="/analyse/ROP">analyse complète de ROP</a>.',
+        },
+        {
+          type: 'h2',
+          text: 'La comparaison chiffrée',
+        },
+        {
+          type: 'table',
+          headers: ['Critère', 'Bentley Systems (BSY)', 'Roper Technologies (ROP)'],
+          rows: [
+            ['Capitalisation boursière', '~10 milliards $', '~33,5 milliards $'],
+            ['Marge de free cash flow', '26,8 %', '29,9 %'],
+            ['Valorisation (FCF)', '22,0 fois', '14,1 fois'],
+            ['Croissance organique estimée', '~10 % / an', '3 à 5 % / an'],
+            ['Modèle de revenus', 'SaaS infrastructure, abonnements', 'Portefeuille SaaS verticaux, abonnements'],
+            ['Revenus récurrents', '>75 %', '>80 %'],
+            ['Exposition géographique', 'Mondiale (Europe, Asie, Amériques)', 'Principalement Amérique du Nord'],
+            ['Moteur de croissance', 'Croissance organique + marchés émergents', 'Acquisitions disciplinées'],
+            ['Note de qualité screener', 'Maximale', 'Maximale'],
+            ['Secteur', 'Logiciels infrastructure physique', 'Logiciels verticaux de niche'],
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Ce tableau appelle quelques observations importantes. Premièrement, ROP affiche une marge de free cash flow légèrement supérieure à BSY (29,9 % contre 26,8 %), ce qui est contre-intuitif si l\'on compare un pur logiciel d\'ingénierie à un portefeuille d\'acquisitions. Deuxièmement, la différence de valorisation est significative : 22 fois pour BSY contre 14,1 fois pour ROP. Cette décote de ROP reflète en partie la perception du marché d\'un conglomérat moins attractif qu\'un pur acteur SaaS, et en partie la croissance organique plus modeste. Troisièmement, BSY offre une exposition géographique bien plus diversifiée, ce qui en fait une couverture naturelle sur la croissance des dépenses d\'infrastructure mondiales.',
+        },
+        {
+          type: 'h2',
+          text: 'Deux profils d\'investisseurs différents',
+        },
+        {
+          type: 'p',
+          text: 'BSY convient à un investisseur qui cherche une exposition directe à la mégatendance de la numérisation des infrastructures physiques mondiales. C\'est un pari sur l\'accélération des dépenses publiques et privées dans les routes, les réseaux d\'eau, l\'énergie et le rail, en particulier dans les économies émergentes d\'Asie et d\'Amérique latine. La croissance organique est là, visible, portée par un marché adressable encore largement sous-digitalisé. La valorisation à 22 fois le FCF reflète cette prime de croissance. Pour accepter ce prix, tu dois être convaincu que BSY maintient son avance technologique et sa position dominante dans sa niche au cours des cinq à dix prochaines années.',
+        },
+        {
+          type: 'p',
+          text: 'ROP convient davantage à un investisseur de la philosophie valeur et qualité, sensible à la notion de compounding, c\'est-à-dire à l\'accumulation de valeur sur le long terme grâce au réinvestissement discipliné du cash. La valorisation à 14,1 fois le FCF est basse pour la qualité des actifs sous-jacents. Ce profil accepte une croissance organique modeste en échange d\'une prévisibilité élevée et d\'un management dont le track record d\'allocation du capital dépasse vingt ans. C\'est un investissement de conviction tranquille, pas de momentum.',
+        },
+        {
+          type: 'p',
+          text: 'Il y a aussi une dimension taille à prendre en compte. BSY, avec une capitalisation d\'environ 10 milliards de dollars, a encore de la place pour croître significativement. Une expansion en Afrique ou en Asie du Sud-Est, des contrats avec de nouveaux grands donneurs d\'ordre publics, une accélération vers les jumeaux numériques d\'actifs en exploitation, tout cela peut représenter des catalyseurs de croissance supplémentaires. ROP, à 33,5 milliards, est déjà une grande capitalisation ; sa croissance viendra plus certainement de l\'amélioration des marges et de la qualité des acquisitions que d\'une re-cotation spectaculaire.',
+        },
+        {
+          type: 'h2',
+          text: 'Ma conclusion sans arbitrage',
+        },
+        {
+          type: 'p',
+          text: 'Je ne vais pas te dire laquelle acheter. Ce n\'est pas le rôle de cette analyse, et ce serait intellectuellement malhonnête car cela dépend de ta situation, de ton horizon, de ta tolérance au risque et de ce que tu as déjà en portefeuille. Ce que je peux dire, c\'est que ces deux entreprises représentent deux façons très différentes d\'avoir accès à des logiciels de qualité exceptionnelle à des niveaux de valorisation raisonnables pour leur catégorie.',
+        },
+        {
+          type: 'p',
+          text: 'Si tu cherches la croissance organique, l\'exposition internationale et un moat fondé sur l\'unicité du produit, BSY est la réponse. Si tu cherches la décote relative, la prévisibilité maximale du cash et un modèle de capital allocation prouvé sur deux décennies, ROP est la réponse. Les deux méritent d\'être dans ta liste de surveillance. Les deux obtiennent la note maximale dans mon screener. Et le fait que tu aies besoin de choisir entre les deux est, en soi, un bon problème à avoir.',
+        },
+      ],
+      faq: [
+        {
+          q: 'Qu\'est-ce qu\'un serial acquirer en bourse ?',
+          a: 'Un serial acquirer est une entreprise dont le modèle de croissance repose sur l\'acquisition régulière d\'autres sociétés. Elle génère du cash avec ses activités existantes, puis le réinvestit dans des rachats ciblés plutôt qu\'en dividendes ou en rachats d\'actions. Roper Technologies fait cela depuis plus de vingt ans, exclusivement dans des logiciels spécialisés dans des niches très précises.',
+        },
+        {
+          q: 'Quelle est la différence fondamentale entre BSY et ROP ?',
+          a: 'Bentley Systems construit un seul produit de logiciels d\'ingénierie très profond, dédié à l\'infrastructure physique mondiale, avec une croissance organique d\'environ 10 % par an. Roper Technologies gère un portefeuille de dizaines de logiciels verticaux dans des secteurs variés et croît principalement par acquisitions disciplinées. BSY mise sur l\'unicité du produit, ROP mise sur la qualité de la sélection et de l\'allocation du capital.',
+        },
+        {
+          q: 'Laquelle des deux est la moins chère aujourd\'hui ?',
+          a: 'Roper Technologies affiche une valorisation de 14,1 fois son free cash flow annuel, contre 22 fois pour Bentley Systems. ROP est donc sensiblement moins chère à qualité comparable. Cette décote reflète une croissance organique plus modeste et une perception de conglomérat que le marché n\'a pas encore entièrement corrigée.',
+        },
+        {
+          q: 'Quels sont les risques spécifiques à chacune des deux entreprises ?',
+          a: 'Pour BSY : la dépendance aux cycles d\'investissement public dans l\'infrastructure, et la pression concurrentielle d\'Autodesk et Hexagon sur des segments adjacents. Pour ROP : le risque que le pipeline d\'acquisitions se tarisse ou que le management paie trop cher une cible importante. La croissance organique de ROP seule ne suffit pas à justifier sa valorisation si les acquisitions s\'arrêtent.',
+        },
+      ],
+      tags: [
+        'Bentley Systems',
+        'BSY',
+        'Roper Technologies',
+        'ROP',
+        'logiciels',
+        'analyse fondamentale',
+        'comparatif',
+        'serial acquirer',
+        'infrastructure',
+        'SaaS',
+        'free cash flow',
+        'capital allocation',
+      ],
+      disclaimer:
+        'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches.',
+    },
+    en: {
+      title: 'Bentley Systems (BSY) vs Roper Technologies (ROP)',
+      excerpt:
+        'Two perfect software companies according to my screener, two very different models. Bentley Systems dominates global infrastructure engineering. Roper Technologies quietly builds an empire of niche software. Which one fits your investor profile?',
+      metaDescription:
+        'Fundamental comparison of Bentley Systems (BSY) and Roper Technologies (ROP): margins, growth, valuation and investor profile. Two top-quality software companies, two very different stories.',
+      answer:
+        'Bentley Systems and Roper Technologies both earn the top quality score in my fundamental screener. Bentley is a pure play on digital infrastructure engineering with strong organic growth. Roper is a serial acquirer of niche software whose strength lies in capital allocation discipline. Roper\'s valuation is significantly more attractive today.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Bentley Systems (BSY) and Roper Technologies (ROP) both achieve the maximum quality score under my fundamental analysis criteria.',
+            'BSY has a market cap of roughly $10 billion; ROP exceeds $33.5 billion, more than three times the size of BSY.',
+            'The two models are opposites: BSY builds a single deep product for infrastructure engineering, ROP acquires dozens of vertical software businesses across varied niches.',
+            'BSY trades at 22 times its annual free cash flow; ROP trades at 14.1 times, making it the cheaper option of the two at comparable quality.',
+            'BSY suits an investor seeking exposure to infrastructure software growth and international markets; ROP suits a long-term value profile focused on disciplined capital allocation.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Two perfect software companies, two very different stories',
+        },
+        {
+          type: 'p',
+          text: 'When my screener assigns the maximum quality score to a company, it is rare. When two companies in the same sector achieve it simultaneously, it is even more unusual. Yet that is the case for Bentley Systems and Roper Technologies, both listed in the United States in the software applications category. But looking similar on a criteria sheet does not mean being similar in reality. The two businesses have fundamentally different models, sizes, growth rates, and risk profiles. This comparison exists to help you understand those differences, not to tell you which one to buy.',
+        },
+        {
+          type: 'p',
+          text: 'What these two companies have in common: they generate exceptional free cash flow margins, their revenues are highly recurring, their customers do not leave, and their management allocates capital with discipline. That is where the resemblance ends. The nature of the competitive moat, the geographic exposure, the growth engine, and the relative valuation diverge significantly.',
+        },
+        {
+          type: 'h2',
+          text: 'Bentley Systems: the digital engineering of the physical world',
+        },
+        {
+          type: 'p',
+          text: 'Bentley Systems sells software to engineers who design and manage physical infrastructure: bridges, roads, water and energy networks, railways, ports, and industrial facilities. Concretely, when a design firm launches a major project in India, Germany, or Brazil, it very often opens a BSY product. The company serves 200,000 active engineers in 190 countries, and more than 75% of its revenues are recurring subscriptions. That translates into exceptional visibility on future revenues.',
+        },
+        {
+          type: 'p',
+          text: 'What makes BSY particularly defensible is the depth of integration into its customers\' workflows. A design firm that has modeled a rail network over twenty years using BSY tools cannot simply migrate to a competitor in six months. Its files, internal standards, trained teams, and irreplaceable historical data: everything depends on the BSY ecosystem. The cost of switching is so high that it becomes a natural economic barrier, known as extreme switching costs.',
+        },
+        {
+          type: 'p',
+          text: 'Financially, BSY posts an 82% gross margin and a 26.8% free cash flow margin. Organic growth runs around 10% per year, driven by the accelerating digitization of infrastructure projects worldwide, particularly under the influence of public stimulus plans in the United States, Europe, and Asia. BSY benefits from a dual engine: growth from its existing customer base and the ramp-up of major global infrastructure projects. For more detail, see our <a href="/analyse/BSY">detailed BSY analysis</a>.',
+        },
+        {
+          type: 'h2',
+          text: 'Roper Technologies: the quiet serial acquirer',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies has no single flagship product you could name in one sentence. It has a model. For more than twenty years, it has identified vertical software leaders in highly specific niches: insurance distribution management, hospital financial planning, tools for law firms, transportation logistics, and educational systems. It buys them at a disciplined price, holds them permanently, and reinvests the cash they generate into new acquisitions.',
+        },
+        {
+          type: 'p',
+          text: 'This model is called a serial acquirer. It does not rely on product innovation but on the quality of selection and execution. Each software acquired by Roper is the central nervous system of its market: customers have used it for years, their data is embedded in it, and migrating would require considerable resources at enormous operational risk. The result: very high retention rates, strong visibility on future revenues, and the ability to raise prices modestly each year.',
+        },
+        {
+          type: 'p',
+          text: 'Roper\'s strength lies in its capital allocation. CEO Neil Hunn has methodically divested Roper\'s physical industrial businesses (pumps, measurement instruments) to focus exclusively on recurring-revenue software. This repositioning has lightened the balance sheet and pushed margins higher. ROP\'s free cash flow margin now reaches 29.9%, and its cash ROCE ranks among the best in the entire listed market. For more detail, see our <a href="/analyse/ROP">full ROP analysis</a>.',
+        },
+        {
+          type: 'h2',
+          text: 'The numbers side by side',
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Bentley Systems (BSY)', 'Roper Technologies (ROP)'],
+          rows: [
+            ['Market cap', '~$10 billion', '~$33.5 billion'],
+            ['Free cash flow margin', '26.8%', '29.9%'],
+            ['Valuation (FCF multiple)', '22.0×', '14.1×'],
+            ['Estimated organic growth', '~10% / year', '3 to 5% / year'],
+            ['Revenue model', 'Infrastructure SaaS, subscriptions', 'Vertical SaaS portfolio, subscriptions'],
+            ['Recurring revenues', '>75%', '>80%'],
+            ['Geographic exposure', 'Global (Europe, Asia, Americas)', 'Primarily North America'],
+            ['Growth engine', 'Organic growth + emerging markets', 'Disciplined acquisitions'],
+            ['Quality screener score', 'Maximum', 'Maximum'],
+            ['Sector', 'Physical infrastructure software', 'Niche vertical software'],
+          ],
+        },
+        {
+          type: 'p',
+          text: 'This table prompts a few important observations. First, ROP posts a slightly higher free cash flow margin than BSY (29.9% vs 26.8%), which is counterintuitive when comparing a pure infrastructure software player to an acquisition portfolio. Second, the valuation gap is significant: 22 times for BSY versus 14.1 times for ROP. ROP\'s discount partly reflects the market\'s perception of a less exciting conglomerate versus a pure SaaS play, and partly its more modest organic growth. Third, BSY offers far more diversified geographic exposure, making it a natural hedge on global infrastructure spending growth.',
+        },
+        {
+          type: 'h2',
+          text: 'Two different investor profiles',
+        },
+        {
+          type: 'p',
+          text: 'BSY suits an investor seeking direct exposure to the megatrend of digitizing physical infrastructure worldwide. It is a bet on the acceleration of public and private spending on roads, water networks, energy, and rail, particularly in the emerging economies of Asia and Latin America. The organic growth is there, visible, driven by an addressable market that is still largely under-digitized. The 22 times FCF valuation reflects this growth premium. To accept that price, you must believe BSY maintains its technological lead and dominant position in its niche over the next five to ten years.',
+        },
+        {
+          type: 'p',
+          text: 'ROP suits an investor from the value and quality school, attuned to the concept of compounding: the long-term accumulation of value through disciplined cash reinvestment. The 14.1 times FCF valuation is low for the quality of the underlying assets. This profile accepts modest organic growth in exchange for high predictability and management whose capital allocation track record spans more than twenty years. It is a quietly confident investment, not a momentum play.',
+        },
+        {
+          type: 'p',
+          text: 'There is also a size dimension to consider. BSY, at roughly $10 billion in market cap, still has room to grow significantly. Expansion into Africa or Southeast Asia, contracts with new large public clients, an acceleration toward digital twins of assets in operation: all of this represents potential additional growth catalysts. ROP, at $33.5 billion, is already a large cap; its growth will more likely come from margin improvement and acquisition quality than from a spectacular re-rating.',
+        },
+        {
+          type: 'h2',
+          text: 'My conclusion without picking a side',
+        },
+        {
+          type: 'p',
+          text: 'I am not going to tell you which one to buy. That is not the role of this analysis, and it would be intellectually dishonest because it depends on your situation, your time horizon, your risk tolerance, and what you already hold in your portfolio. What I can say is that these two companies represent two very different ways of accessing exceptional quality software at valuations that are reasonable for their category.',
+        },
+        {
+          type: 'p',
+          text: 'If you are looking for organic growth, international exposure, and a moat built on product uniqueness, BSY is the answer. If you are looking for relative undervaluation, maximum cash predictability, and a capital allocation model proven over two decades, ROP is the answer. Both deserve a place on your watchlist. Both earn the top score in my screener. And the fact that you have to choose between them is, in itself, a good problem to have.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What is a serial acquirer in the stock market?',
+          a: 'A serial acquirer is a company whose growth model relies on regularly acquiring other businesses. It generates cash from its existing operations, then reinvests it in targeted buyouts rather than in dividends or share repurchases. Roper Technologies has done this for more than twenty years, exclusively in specialized software focused on very specific niches.',
+        },
+        {
+          q: 'What is the fundamental difference between BSY and ROP?',
+          a: 'Bentley Systems builds a single, deeply specialized infrastructure engineering software platform, serving 200,000 engineers across 190 countries, with organic growth of around 10% per year. Roper Technologies manages a portfolio of dozens of vertical software products across varied sectors and grows primarily through disciplined acquisitions. BSY bets on product uniqueness; ROP bets on selection quality and capital allocation.',
+        },
+        {
+          q: 'Which of the two is cheaper today?',
+          a: 'Roper Technologies trades at 14.1 times its annual free cash flow, versus 22 times for Bentley Systems. ROP is therefore meaningfully cheaper at comparable quality. This discount reflects more modest organic growth and a conglomerate perception that the market has not yet fully corrected.',
+        },
+        {
+          q: 'What are the specific risks for each company?',
+          a: 'For BSY: dependence on public infrastructure investment cycles, and competitive pressure from Autodesk and Hexagon on adjacent segments. For ROP: the risk that the acquisition pipeline dries up or that management overpays for an important target. ROP\'s organic growth alone is not sufficient to justify its valuation if acquisitions were to stop.',
+        },
+      ],
+      tags: [
+        'Bentley Systems',
+        'BSY',
+        'Roper Technologies',
+        'ROP',
+        'software',
+        'fundamental analysis',
+        'comparison',
+        'serial acquirer',
+        'infrastructure',
+        'SaaS',
+        'free cash flow',
+        'capital allocation',
+      ],
+      disclaimer:
+        'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures are as of the publication date and subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Bentley Systems (BSY) frente a Roper Technologies (ROP)',
+      excerpt:
+        'Dos empresas de software perfectas según mi screener, dos modelos muy diferentes. Bentley Systems domina la ingeniería digital de infraestructuras a nivel mundial. Roper Technologies construye discretamente un imperio de software de nicho. ¿Cuál encaja mejor con tu perfil inversor?',
+      metaDescription:
+        'Comparativa fundamental de Bentley Systems (BSY) y Roper Technologies (ROP): márgenes, crecimiento, valoración y perfil inversor. Dos empresas de software de máxima calidad, dos historias muy distintas.',
+      answer:
+        'Bentley Systems y Roper Technologies obtienen ambas la puntuación máxima de calidad en mi screener fundamental. Bentley es un puro exponente de la ingeniería digital de infraestructuras con alto crecimiento orgánico. Roper es un serial acquirer de software de nicho cuya fortaleza reside en la disciplina de asignación de capital. La valoración de Roper es hoy significativamente más atractiva.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Bentley Systems (BSY) y Roper Technologies (ROP) alcanzan ambas la puntuación máxima de calidad según mis criterios de análisis fundamental.',
+            'BSY tiene una capitalización bursátil de aproximadamente 10.000 millones de dólares; ROP supera los 33.500 millones, más del triple del tamaño de BSY.',
+            'Los dos modelos son opuestos: BSY construye un único producto profundo para la ingeniería de infraestructuras, ROP adquiere decenas de software verticales en nichos variados.',
+            'BSY se valoriza a 22 veces su free cash flow anual; ROP se valoriza a 14,1 veces, lo que la convierte en la opción más económica de las dos con calidad comparable.',
+            'BSY es adecuada para un inversor que busca exposición al crecimiento del software de infraestructuras y a los mercados internacionales; ROP encaja mejor con un perfil de valor a largo plazo sensible a la disciplina de asignación de capital.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Dos empresas de software perfectas, dos historias muy diferentes',
+        },
+        {
+          type: 'p',
+          text: 'Cuando mi screener asigna la puntuación máxima de calidad a una empresa, es poco frecuente. Cuando dos empresas del mismo sector la alcanzan simultáneamente, es todavía más inusual. Sin embargo, ese es el caso de Bentley Systems y Roper Technologies, ambas cotizadas en Estados Unidos en la categoría de aplicaciones de software. Pero parecerse en una hoja de criterios no significa parecerse en la realidad. Las dos empresas tienen modelos, tamaños, ritmos de crecimiento y perfiles de riesgo fundamentalmente distintos. Esta comparativa existe para ayudarte a entender esas diferencias, no para decirte cuál comprar.',
+        },
+        {
+          type: 'p',
+          text: 'Lo que estas dos empresas tienen en común: generan márgenes de free cash flow excepcionales, sus ingresos son muy recurrentes, sus clientes no se van, y su dirección asigna el capital con disciplina. Ahí termina el parecido. La naturaleza de la ventaja competitiva, la exposición geográfica, el motor de crecimiento y la valoración relativa difieren significativamente.',
+        },
+        {
+          type: 'h2',
+          text: 'Bentley Systems: la ingeniería digital del mundo físico',
+        },
+        {
+          type: 'p',
+          text: 'Bentley Systems vende software a los ingenieros que diseñan y gestionan infraestructuras físicas: puentes, carreteras, redes de agua y energía, ferrocarriles, puertos e instalaciones industriales. En concreto, cuando una consultora lanza un gran proyecto en India, Alemania o Brasil, muy a menudo abre un producto de BSY. La empresa sirve a 200.000 ingenieros activos en 190 países, y más del 75% de sus ingresos son suscripciones recurrentes. Eso se traduce en una visibilidad excepcional sobre los ingresos futuros.',
+        },
+        {
+          type: 'p',
+          text: 'Lo que hace que BSY sea especialmente defendible es la profundidad de integración en los procesos de trabajo de sus clientes. Una consultora que ha modelado una red ferroviaria durante veinte años con las herramientas de BSY no puede simplemente migrar a un competidor en seis meses. Sus archivos, estándares internos, equipos formados y datos históricos irremplazables: todo depende del ecosistema BSY. El coste de cambio es tan elevado que se convierte en una barrera económica natural, lo que se conoce como switching costs extremos.',
+        },
+        {
+          type: 'p',
+          text: 'Financieramente, BSY registra un margen bruto del 82% y un margen de free cash flow del 26,8%. El crecimiento orgánico ronda el 10% anual, impulsado por la aceleración de la digitalización de proyectos de infraestructuras en todo el mundo, en particular bajo el efecto de los planes de estímulo públicos en Estados Unidos, Europa y Asia. BSY se beneficia de un motor dual: el crecimiento de su base de clientes existente y el impulso de los grandes proyectos de infraestructura global. Para más detalle, consulta nuestro <a href="/analyse/BSY">análisis detallado de BSY</a>.',
+        },
+        {
+          type: 'h2',
+          text: 'Roper Technologies: el discreto serial acquirer',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies no tiene un único producto estrella que puedas nombrar en una frase. Tiene un modelo. Durante más de veinte años ha identificado líderes de software vertical en nichos muy específicos: gestión de distribución de seguros, planificación financiera hospitalaria, herramientas para bufetes de abogados, logística del transporte y sistemas educativos. Los compra a un precio disciplinado, los retiene indefinidamente y reinvierte el efectivo que generan en nuevas adquisiciones.',
+        },
+        {
+          type: 'p',
+          text: 'Este modelo se llama serial acquirer. No se basa en la innovación de productos sino en la calidad de la selección y la ejecución. Cada software adquirido por Roper es el sistema nervioso central de su mercado: los clientes lo llevan usando años, sus datos están integrados en él, y migrar requeriría recursos considerables con un enorme riesgo operativo. El resultado: tasas de retención muy elevadas, fuerte visibilidad sobre los ingresos futuros y capacidad para subir precios modestamente cada año.',
+        },
+        {
+          type: 'p',
+          text: 'La fortaleza de Roper reside en su asignación de capital. El CEO Neil Hunn ha desinvertido metódicamente los negocios industriales físicos de Roper (bombas, instrumentos de medición) para concentrarse exclusivamente en software de ingresos recurrentes. Este reposicionamiento ha aligerado el balance y elevado los márgenes. El margen de free cash flow de ROP alcanza hoy el 29,9%, y su cash ROCE se sitúa entre los mejores de todo el mercado cotizado. Para más detalle, consulta nuestro <a href="/analyse/ROP">análisis completo de ROP</a>.',
+        },
+        {
+          type: 'h2',
+          text: 'Los números frente a frente',
+        },
+        {
+          type: 'table',
+          headers: ['Métrica', 'Bentley Systems (BSY)', 'Roper Technologies (ROP)'],
+          rows: [
+            ['Capitalización bursátil', '~10.000 M$', '~33.500 M$'],
+            ['Margen de free cash flow', '26,8%', '29,9%'],
+            ['Valoración (múltiplo FCF)', '22,0 veces', '14,1 veces'],
+            ['Crecimiento orgánico estimado', '~10% / año', '3 a 5% / año'],
+            ['Modelo de ingresos', 'SaaS infraestructuras, suscripciones', 'Cartera SaaS verticales, suscripciones'],
+            ['Ingresos recurrentes', '>75%', '>80%'],
+            ['Exposición geográfica', 'Mundial (Europa, Asia, Américas)', 'Principalmente América del Norte'],
+            ['Motor de crecimiento', 'Crecimiento orgánico + mercados emergentes', 'Adquisiciones disciplinadas'],
+            ['Puntuación screener calidad', 'Máxima', 'Máxima'],
+            ['Sector', 'Software infraestructuras físicas', 'Software vertical de nicho'],
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Esta tabla sugiere varias observaciones importantes. En primer lugar, ROP registra un margen de free cash flow ligeramente superior al de BSY (29,9% frente a 26,8%), lo que resulta contraintuitivo al comparar un puro especialista en software de ingeniería con una cartera de adquisiciones. En segundo lugar, la diferencia de valoración es significativa: 22 veces para BSY frente a 14,1 veces para ROP. El descuento de ROP refleja en parte la percepción del mercado de un conglomerado menos atractivo que un puro SaaS, y en parte su crecimiento orgánico más moderado. En tercer lugar, BSY ofrece una exposición geográfica mucho más diversificada, lo que la convierte en una cobertura natural sobre el crecimiento del gasto en infraestructuras mundial.',
+        },
+        {
+          type: 'h2',
+          text: 'Dos perfiles de inversores diferentes',
+        },
+        {
+          type: 'p',
+          text: 'BSY encaja con un inversor que busca exposición directa a la megatendencia de digitalización de las infraestructuras físicas mundiales. Es una apuesta por la aceleración del gasto público y privado en carreteras, redes de agua, energía y ferrocarril, en particular en las economías emergentes de Asia y América Latina. El crecimiento orgánico está ahí, visible, impulsado por un mercado total todavía ampliamente infra-digitalizado. La valoración de 22 veces el FCF refleja esta prima de crecimiento. Para aceptar ese precio, debes creer que BSY mantiene su ventaja tecnológica y su posición dominante en su nicho durante los próximos cinco a diez años.',
+        },
+        {
+          type: 'p',
+          text: 'ROP encaja mejor con un inversor de la escuela del valor y la calidad, sensible al concepto de compounding: la acumulación de valor a largo plazo mediante el reinvestimento disciplinado del efectivo. La valoración de 14,1 veces el FCF es baja para la calidad de los activos subyacentes. Este perfil acepta un crecimiento orgánico moderado a cambio de una alta previsibilidad y un equipo directivo cuyo historial de asignación de capital supera los veinte años. Es una inversión de convicción tranquila, no de momentum.',
+        },
+        {
+          type: 'p',
+          text: 'También hay una dimensión de tamaño a considerar. BSY, con una capitalización de unos 10.000 millones de dólares, aún tiene margen para crecer significativamente. Una expansión en África o el Sudeste Asiático, contratos con nuevos grandes clientes públicos, una aceleración hacia los gemelos digitales de activos en explotación: todo ello puede representar catalizadores de crecimiento adicionales. ROP, a 33.500 millones, ya es una gran capitalización; su crecimiento vendrá más probablemente de la mejora de márgenes y de la calidad de las adquisiciones que de una reclasificación espectacular.',
+        },
+        {
+          type: 'h2',
+          text: 'Mi conclusión sin tomar partido',
+        },
+        {
+          type: 'p',
+          text: 'No voy a decirte cuál comprar. Ese no es el papel de este análisis, y sería intelectualmente deshonesto porque depende de tu situación, tu horizonte temporal, tu tolerancia al riesgo y lo que ya tienes en cartera. Lo que sí puedo decir es que estas dos empresas representan dos formas muy distintas de acceder a software de calidad excepcional a valoraciones razonables para su categoría.',
+        },
+        {
+          type: 'p',
+          text: 'Si buscas crecimiento orgánico, exposición internacional y una ventaja competitiva basada en la unicidad del producto, BSY es la respuesta. Si buscas infravaloración relativa, máxima previsibilidad del efectivo y un modelo de asignación de capital probado durante dos décadas, ROP es la respuesta. Ambas merecen estar en tu lista de seguimiento. Ambas obtienen la puntuación máxima en mi screener. Y el hecho de que tengas que elegir entre las dos es, en sí mismo, un buen problema que tener.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es un serial acquirer en bolsa?',
+          a: 'Un serial acquirer es una empresa cuyo modelo de crecimiento se basa en adquirir regularmente otras empresas. Genera efectivo con sus actividades existentes y luego lo reinvierte en compras selectivas en lugar de en dividendos o recompras de acciones. Roper Technologies lleva haciendo esto más de veinte años, exclusivamente en software especializado enfocado en nichos muy concretos.',
+        },
+        {
+          q: '¿Cuál es la diferencia fundamental entre BSY y ROP?',
+          a: 'Bentley Systems construye una única plataforma de software de ingeniería de infraestructuras muy especializada, al servicio de 200.000 ingenieros en 190 países, con un crecimiento orgánico de alrededor del 10% anual. Roper Technologies gestiona una cartera de decenas de software verticales en sectores variados y crece principalmente mediante adquisiciones disciplinadas. BSY apuesta por la unicidad del producto; ROP apuesta por la calidad de la selección y la asignación de capital.',
+        },
+        {
+          q: '¿Cuál de las dos es más económica hoy?',
+          a: 'Roper Technologies cotiza a 14,1 veces su free cash flow anual, frente a las 22 veces de Bentley Systems. ROP es por tanto sensiblemente más económica con calidad comparable. Este descuento refleja un crecimiento orgánico más moderado y una percepción de conglomerado que el mercado todavía no ha corregido del todo.',
+        },
+        {
+          q: '¿Cuáles son los riesgos específicos de cada empresa?',
+          a: 'Para BSY: la dependencia de los ciclos de inversión pública en infraestructuras, y la presión competitiva de Autodesk y Hexagon en segmentos adyacentes. Para ROP: el riesgo de que el flujo de adquisiciones se agote o de que la dirección pague demasiado por un objetivo importante. El crecimiento orgánico de ROP por sí solo no es suficiente para justificar su valoración si las adquisiciones se detienen.',
+        },
+      ],
+      tags: [
+        'Bentley Systems',
+        'BSY',
+        'Roper Technologies',
+        'ROP',
+        'software',
+        'análisis fundamental',
+        'comparativa',
+        'serial acquirer',
+        'infraestructura',
+        'SaaS',
+        'free cash flow',
+        'asignación de capital',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no constituye asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Los datos citados corresponden a la fecha de publicación y están sujetos a cambios. Realiza tu propia investigación.',
     },
   },
 };
@@ -24077,7 +24539,1280 @@ const articlePYPL: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [accentureQ3FY2026, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, articleTT, wrb, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL];
+const articleAYI: Article = {
+  slug: 'acuity-brands-ayi-avant-resultats-25-juin-2026',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'AYI',
+  content: {
+    fr: {
+      title: 'Acuity Brands (AYI) : notre analyse avant le 25 juin 2026',
+      excerpt:
+        "Acuity Brands coche presque tous mes critères de qualité, génère du cash de façon régulière, et publie ses résultats dans trois jours. Voici ce que j'ai trouvé en regardant cette entreprise de près, et pourquoi elle vaut la peine d'être suivie.",
+      metaDescription:
+        "Acuity Brands (AYI) analysée avant ses résultats du 25 juin 2026 : qualité du business, valorisation par le cash généré, critères manquants et ce qu'on peut attendre des prochains chiffres.",
+      answer:
+        "Acuity Brands est le leader américain des luminaires LED et des systèmes d'éclairage intelligent. Elle coche 9 de mes 10 critères de qualité, génère régulièrement du cash, et publie ses résultats trimestriels le 25 juin 2026. Une entreprise solide, pas donnée, mais dont la valorisation reste raisonnable pour sa qualité.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Acuity Brands est le leader américain de l'éclairage LED et des systèmes d'éclairage intelligent pour bâtiments, municipalités et data centers.",
+            "Elle valide 9 de mes 10 critères de qualité fondamentale, un niveau très élevé que peu d'entreprises atteignent.",
+            "Sa valorisation ressort à 19,6 fois le cash qu'elle génère annuellement, ce qui est raisonnable pour cette qualité de business.",
+            "Les résultats du troisième trimestre de son exercice fiscal 2026 sont attendus le 25 juin 2026, dans trois jours.",
+            "Le critère manquant n'est pas un signal d'alarme, mais il mérite d'être compris avant d'aller plus loin.",
+          ],
+        },
+        { type: 'h2', text: "Acuity Brands, c'est quoi exactement ?" },
+        {
+          type: 'p',
+          text: "Quand tu allumes une lampe LED dans un couloir d'hôpital, un entrepôt logistique ou un parking municipal, il y a de bonnes chances que le luminaire soit signé Acuity Brands. Cette entreprise basée à Atlanta est le numéro un américain de l'éclairage professionnel, avec une gamme qui couvre autant les ampoules industrielles que les capteurs et systèmes de gestion intelligente de la lumière.",
+        },
+        {
+          type: 'p',
+          text: "Mais Acuity ne fait pas que vendre des luminaires. Depuis plusieurs années, elle opère une transition stratégique vers ce qu'elle appelle l'Intelligent Spaces Group : des solutions logicielles et connectées qui permettent à un gestionnaire d'immeuble de piloter l'éclairage à distance, d'analyser les flux de personnes, et de réduire la consommation énergétique. Ce virage vers le logiciel est important, parce qu'il change le profil économique de l'entreprise. Un logiciel récurrent se vend avec des marges bien supérieures à un luminaire physique.",
+        },
+        {
+          type: 'p',
+          text: "Ses clients sont variés : municipalités (rénovation de l'éclairage public), data centers (éclairage et gestion intelligente de grandes salles de serveurs), hôpitaux, aéroports, surfaces commerciales. Beaucoup de ces contrats sont longs et renouvelables, ce qui donne à Acuity une base de revenus relativement prévisible. Son modèle devient de plus en plus asset-light : elle externalise une partie de la fabrication pour se concentrer sur la conception, le logiciel et les services.",
+        },
+        {
+          type: 'p',
+          text: "Le chiffre d'affaires annuel tourne autour de 3,8 milliards de dollars, et la capitalisation boursière avoisine 9,2 milliards. Ce n'est pas une startup, mais ce n'est pas non plus un mastodonte qui peine à bouger. C'est une entreprise de taille intermédiaire, dans un secteur en pleine mutation énergétique, avec une position dominante sur son marché.",
+        },
+        { type: 'h2', text: "9 critères sur 10 : qu'est-ce qui manque ?" },
+        {
+          type: 'p',
+          text: "Je ne note pas une entreprise à l'intuition. Je la passe au crible de 10 critères de qualité fondamentale, déclinés en sous-critères concrets. Ces critères couvrent quatre piliers : la rentabilité (est-ce que l'entreprise gagne vraiment de l'argent ?), la croissance (est-ce que ses ventes et son cash progressent dans le temps ?), le rendement du capital (pour chaque euro investi dans le business, combien est-ce qu'il recrache ?), et la solidité du bilan (est-ce que la dette est maîtrisée, est-ce que l'entreprise rend de l'argent à ses actionnaires de façon raisonnable ?).",
+        },
+        {
+          type: 'p',
+          text: "Acuity Brands obtient un 9 sur 10 dans mon screener. C'est un score très élevé. Pour donner un ordre de grandeur : sur les milliers d'entreprises cotées aux États-Unis, seule une infime minorité atteint ce niveau. Un 9/10 signifie que l'entreprise valide presque tout ce que je cherche dans un business de qualité.",
+        },
+        {
+          type: 'p',
+          text: "Le critère manquant concerne la dynamique de croissance récente. Acuity a traversé une période de ralentissement de ses ventes ces derniers trimestres, en partie liée au cycle de l'immobilier commercial et à un marché de la rénovation qui digère les commandes post-Covid. Sa croissance organique a été modeste, parfois nulle, sur certains trimestres récents. Ce n'est pas une catastrophe, et ce n'est pas non plus un signal structurel négatif, mais dans ma méthode, un critère de croissance insuffisant sur la période récente empêche d'obtenir la note maximale.",
+        },
+        {
+          type: 'p',
+          text: "Ce qu'il faut bien comprendre, c'est que le 9/10 n'est pas une mauvaise note. C'est même excellent. Cela signifie simplement que l'entreprise ne coche pas le critère de dynamique de croissance à court terme, mais que ses fondamentaux de rentabilité, de génération de cash et de solidité du bilan sont au rendez-vous. La question que je me pose toujours dans ce cas : est-ce un problème structurel ou un creux cyclique ? Pour Acuity, mon analyse penche clairement vers le creux cyclique.",
+        },
+        { type: 'h2', text: "La valorisation d'Acuity : ce que révèle le cash généré" },
+        {
+          type: 'p',
+          text: "Pour mesurer si une action est chère ou bon marché, j'utilise principalement le ratio prix sur free cash flow, souvent abrégé P/FCF. Ce ratio répond à une question simple : si tu achètes l'action aujourd'hui, combien d'années de cash généré par l'entreprise es-tu en train de payer ? Le free cash flow, c'est l'argent qui reste vraiment dans les caisses après toutes les dépenses, y compris les investissements. C'est ce cash qui sert à rembourser les dettes, racheter des actions, verser des dividendes, ou réinvestir.",
+        },
+        {
+          type: 'p',
+          text: "Acuity Brands affiche une marge de free cash flow de 11,1 %, ce qui signifie que sur 100 dollars de chiffre d'affaires, 11 dollars environ finissent en cash réellement disponible. Ce n'est pas exceptionnel comparé à un éditeur de logiciels (qui peut atteindre 30 à 40 %), mais c'est très correct pour une entreprise industrielle en transition. À titre de comparaison, beaucoup d'industriels similaires génèrent 7 à 9 % de marge de free cash flow.",
+        },
+        {
+          type: 'p',
+          text: "Son ratio P/FCF ressort à 19,6 fois. Cela veut dire qu'au rythme actuel de génération de cash, tu paies l'équivalent d'un peu moins de vingt ans de ce cash. Ce n'est pas une valorisation bradée, loin de là. Mais ce n'est pas non plus excessif pour une entreprise de cette qualité, dans un secteur qui bénéficie de vents porteurs structurels (efficacité énergétique, rénovation des bâtiments, expansion des data centers). Pour qu'une valorisation à 19,6 fois soit justifiée, il faut que la croissance reprenne. C'est précisément ce que les résultats du 25 juin vont nous dire.",
+        },
+        {
+          type: 'table',
+          headers: ['Métrique', 'Acuity Brands (AYI)', 'Secteur (médiane)'],
+          rows: [
+            ['Score de qualité', '9 / 10', '5 / 10'],
+            ['Marge de free cash flow', '11,1 %', '7,5 %'],
+            ['Valorisation (P/FCF)', '19,6 fois', '17,0 fois'],
+            ['Capitalisation boursière', '9,2 Mds $', '—'],
+            ['Résultats suivants', '25 juin 2026', '—'],
+          ],
+        },
+        { type: 'h2', text: "Les résultats du 25 juin : ce que j'attends" },
+        {
+          type: 'p',
+          text: "Le 25 juin 2026, Acuity Brands publie ses résultats du troisième trimestre de son exercice fiscal 2026. C'est le rendez-vous concret autour duquel tourne cet article. Pourquoi ce trimestre est-il important ? Parce qu'il va nous donner une lecture fraîche sur la dynamique de croissance, qui est précisément le critère que l'entreprise ne coche pas encore pleinement.",
+        },
+        {
+          type: 'p',
+          text: "Plusieurs tendances macro jouent en faveur d'Acuity en ce moment. D'abord, les data centers. L'explosion de l'intelligence artificielle a entraîné une course à la construction de nouveaux centres de données aux États-Unis, et ces bâtiments ont besoin d'éclairage industriel de haute qualité, souvent connecté. Acuity est bien positionnée pour capter ces marchés, qui sont moins exposés au cycle immobilier résidentiel.",
+        },
+        {
+          type: 'p',
+          text: "Ensuite, l'efficacité énergétique. Les entreprises américaines sont de plus en plus incitées, parfois contraintes, à rénover leurs installations d'éclairage pour réduire leur consommation. Les luminaires LED intelligents d'Acuity répondent exactement à ce besoin. Et les contrats municipaux, qui représentent une part significative de son activité, sont des engagements pluriannuels qui donnent de la visibilité.",
+        },
+        {
+          type: 'p',
+          text: "Ce que j'attends concrètement : une confirmation que la croissance organique repart, même modestement. Si Acuity publie une croissance de ses ventes de 2 à 4 % et maintient ses marges, ça valide la thèse du creux cyclique derrière nous. Si la croissance reste nulle ou si les marges se compriment, le critère manquant reste manquant, et la valorisation à 19,6 fois devient plus difficile à défendre.",
+        },
+        { type: 'h2', text: 'Mon verdict avant les résultats' },
+        {
+          type: 'p',
+          text: "Acuity Brands est une bonne entreprise. Un 9 sur 10 dans mon screener, c'est rare, et ça veut dire quelque chose : la rentabilité est là, la génération de cash est là, le bilan est solide, le modèle économique est en train d'évoluer dans le bon sens. Le seul point que je surveille, c'est la reprise de la croissance.",
+        },
+        {
+          type: 'p',
+          text: "Sa valorisation à 19,6 fois le cash généré n'est pas une aubaine, mais elle est raisonnable pour ce niveau de qualité. Elle n'est pas non plus excessive au point d'être dangereuse. C'est le profil d'une entreprise dont le marché reconnaît la qualité, sans lui accorder un premium de croissance qu'elle n'a pas encore retrouvé.",
+        },
+        {
+          type: 'p',
+          text: "Dans trois jours, les résultats du 25 juin 2026 vont apporter une réponse partielle à la question centrale : est-ce que la croissance revient ? Si oui, Acuity Brands mérite d'être regardée de très près. Si non, il faudra attendre un trimestre de plus. Ce n'est pas une raison de fuir, mais ce n'est pas non plus une raison de se précipiter.",
+        },
+        {
+          type: 'p',
+          text: "Je ne vends pas de certitudes. Ce que je fais, c'est analyser la qualité d'un business et son prix, séparément, pour pouvoir dire : à ce prix, et avec cette qualité, est-ce que le rapport est favorable ? Sur Acuity Brands aujourd'hui, la réponse est : probablement oui, sous réserve de confirmation de la croissance dans les prochains résultats.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce qu'Acuity Brands fait concrètement ?",
+          a: "Acuity Brands est le leader américain des luminaires LED professionnels et des systèmes d'éclairage intelligent pour bâtiments, municipalités et data centers. L'entreprise est en transition vers des solutions logicielles connectées (Intelligent Spaces Group), ce qui améliore progressivement ses marges et la récurrence de ses revenus.",
+        },
+        {
+          q: "Quelle est la différence entre un 9/10 et un 10/10 dans ta méthode ?",
+          a: "Un 10 sur 10 signifie que l'entreprise valide l'intégralité de mes critères, y compris la dynamique de croissance récente. Acuity Brands obtient 9 sur 10 parce que sa croissance organique a été faible sur plusieurs trimestres récents, ce qui reflète un cycle difficile dans l'immobilier commercial. Ce n'est pas structurel selon mon analyse, mais tant que la croissance ne reprend pas, le critère reste non validé.",
+        },
+        {
+          q: "Comment interpréter une valorisation de 19,6 fois le cash généré ?",
+          a: "Une valorisation à 19,6 fois le free cash flow signifie qu'au rythme actuel, tu paies l'équivalent de presque vingt ans de cash généré. Ce n'est pas bon marché, mais c'est raisonnable pour une entreprise de cette qualité. Pour comparer : des industriels de moindre qualité se valorisent entre 12 et 15 fois, tandis que des entreprises technologiques de haute qualité dépassent souvent 30 fois.",
+        },
+        {
+          q: "Quels sont les catalyseurs pour Acuity Brands en 2026 ?",
+          a: "Trois catalyseurs principaux : la construction de data centers liée à l'IA, qui génère une demande forte en éclairage industriel connecté ; les programmes de rénovation énergétique aux États-Unis, qui poussent les entreprises à remplacer leurs anciens luminaires ; et la montée en puissance du segment logiciel (Intelligent Spaces Group), qui améliore la récurrence et les marges. Les résultats du 25 juin 2026 seront un premier test de ces catalyseurs.",
+        },
+      ],
+      tags: ['Acuity Brands', 'AYI', 'luminaires LED', 'éclairage connecté', 'analyse fondamentale'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Acuity Brands (AYI): our analysis before June 25, 2026',
+      excerpt:
+        'Acuity Brands meets almost all my quality criteria, generates cash consistently, and reports earnings in three days. Here is what I found looking closely at this business, and why it deserves attention.',
+      metaDescription:
+        'Acuity Brands (AYI) analyzed before its June 25, 2026 earnings: business quality, cash-based valuation, missing criteria, and what to expect from the upcoming numbers.',
+      answer:
+        'Acuity Brands is the leading American maker of LED luminaires and intelligent lighting systems. It meets 9 of my 10 quality criteria, generates cash consistently, and reports quarterly earnings on June 25, 2026. A solid business, not cheap, but whose valuation remains reasonable for its quality.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Acuity Brands is the US leader in LED lighting and intelligent lighting systems for buildings, municipalities, and data centers.',
+            'It meets 9 of my 10 fundamental quality criteria, a very high level that few companies reach.',
+            'Its valuation stands at 19.6 times the cash it generates annually, which is reasonable for a business of this quality.',
+            'Third-quarter results for its fiscal year 2026 are due on June 25, 2026, in three days.',
+            'The missing criterion is not a red flag, but it is worth understanding before going further.',
+          ],
+        },
+        { type: 'h2', text: 'What exactly does Acuity Brands do?' },
+        {
+          type: 'p',
+          text: 'When you switch on an LED fixture in a hospital corridor, a logistics warehouse, or a municipal parking lot, there is a good chance the luminaire is an Acuity Brands product. This Atlanta-based company is the number one American maker of professional lighting, with a range that spans industrial bulbs through sensors and intelligent lighting management systems.',
+        },
+        {
+          type: 'p',
+          text: 'But Acuity does not just sell luminaires. For several years it has been executing a strategic shift toward what it calls the Intelligent Spaces Group: connected software solutions that let a building manager control lighting remotely, analyse foot traffic, and cut energy consumption. This pivot toward software matters because it changes the economic profile of the business. Recurring software sells with far higher margins than a physical fixture.',
+        },
+        {
+          type: 'p',
+          text: 'Its customers are diverse: municipalities (public lighting retrofits), data centers (lighting and intelligent management of large server rooms), hospitals, airports, and retail spaces. Many of these contracts are long-term and renewable, giving Acuity a relatively predictable revenue base. Its model is becoming increasingly asset-light: it outsources part of manufacturing to focus on design, software, and services.',
+        },
+        {
+          type: 'p',
+          text: 'Annual revenue runs around 3.8 billion dollars, and the market capitalization is close to 9.2 billion. This is not a startup, but it is not a lumbering giant either. It is a mid-size company in a sector undergoing a deep energy transformation, with a dominant position in its market.',
+        },
+        { type: 'h2', text: '9 criteria out of 10: what is missing?' },
+        {
+          type: 'p',
+          text: 'I do not score a company on a hunch. I run it through 10 fundamental quality criteria, broken into concrete sub-criteria. These criteria cover four pillars: profitability (does the company truly make money?), growth (are its sales and cash progressing over time?), return on capital (for every dollar invested in the business, how much does it spit back?), and balance sheet strength (is debt under control, does the company return money to shareholders sensibly?).',
+        },
+        {
+          type: 'p',
+          text: "Acuity Brands scores 9 out of 10 in my screener. That is a very high score. To put it in perspective: out of the thousands of listed companies in the United States, only a tiny minority reaches this level. A 9/10 means the company passes almost everything I look for in a quality business.",
+        },
+        {
+          type: 'p',
+          text: 'The missing criterion concerns recent growth momentum. Acuity went through a period of slowing sales over the past several quarters, partly tied to the commercial real estate cycle and a renovation market digesting post-Covid orders. Its organic growth was modest, sometimes flat, in certain recent quarters. That is not a disaster, and it is not a structural negative signal either, but in my method, insufficient recent growth momentum prevents the maximum score.',
+        },
+        {
+          type: 'p',
+          text: 'What matters to understand is that 9/10 is not a bad grade. It is excellent. It simply means the company does not tick the recent growth momentum criterion, but that its profitability, cash generation, and balance sheet fundamentals are all present. The question I always ask in this case: is it a structural problem or a cyclical trough? For Acuity, my analysis clearly leans toward a cyclical trough.',
+        },
+        { type: 'h2', text: "Acuity's valuation: what the cash generated reveals" },
+        {
+          type: 'p',
+          text: 'To measure whether a stock is expensive or cheap, I primarily use the price-to-free-cash-flow ratio, often abbreviated P/FCF. This ratio answers a simple question: if you buy the stock today, how many years of cash generated by the company are you paying for? Free cash flow is the money that truly stays in the bank after all expenses, including investments. That is the cash used to pay down debt, buy back shares, pay dividends, or reinvest.',
+        },
+        {
+          type: 'p',
+          text: 'Acuity Brands has a free cash flow margin of 11.1%, meaning that out of every 100 dollars of revenue, roughly 11 dollars end up as genuinely available cash. That is not exceptional compared to a software company (which can reach 30 to 40%), but it is very solid for an industrial company in transition. For comparison, many similar industrials generate 7 to 9% free cash flow margins.',
+        },
+        {
+          type: 'p',
+          text: 'Its P/FCF ratio comes in at 19.6 times. That means at the current pace of cash generation, you are paying the equivalent of just under twenty years of that cash. That is not a bargain price, far from it. But it is not excessive either for a business of this quality, in a sector with structural tailwinds (energy efficiency, building retrofits, data center expansion). For a valuation of 19.6 times to be justified, growth needs to come back. That is precisely what the June 25 results will tell us.',
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Acuity Brands (AYI)', 'Sector (median)'],
+          rows: [
+            ['Quality score', '9 / 10', '5 / 10'],
+            ['Free cash flow margin', '11.1%', '7.5%'],
+            ['Valuation (P/FCF)', '19.6x', '17.0x'],
+            ['Market cap', '$9.2B', '—'],
+            ['Next earnings', 'June 25, 2026', '—'],
+          ],
+        },
+        { type: 'h2', text: 'The June 25 earnings: what I am expecting' },
+        {
+          type: 'p',
+          text: 'On June 25, 2026, Acuity Brands reports its third-quarter results for fiscal year 2026. This is the concrete appointment this article revolves around. Why does this quarter matter? Because it will give us a fresh read on growth momentum, which is precisely the criterion the company does not yet fully meet.',
+        },
+        {
+          type: 'p',
+          text: 'Several macro trends are blowing in Acuity\'s favor right now. First, data centers. The explosion of artificial intelligence has triggered a race to build new data centers across the United States, and these buildings need high-quality industrial lighting, often connected. Acuity is well positioned to capture these markets, which are less exposed to the residential real estate cycle.',
+        },
+        {
+          type: 'p',
+          text: "Second, energy efficiency. American companies are increasingly incentivized, sometimes compelled, to retrofit their lighting installations to cut consumption. Acuity's intelligent LED luminaires answer exactly that need. And municipal contracts, which represent a significant share of its business, are multi-year commitments that provide visibility.",
+        },
+        {
+          type: 'p',
+          text: "What I am concretely expecting: confirmation that organic growth is resuming, even modestly. If Acuity reports sales growth of 2 to 4% and maintains its margins, that validates the thesis that the cyclical trough is behind us. If growth remains flat or margins compress, the missing criterion stays missing, and the 19.6 times valuation becomes harder to defend.",
+        },
+        { type: 'h2', text: 'My verdict before the results' },
+        {
+          type: 'p',
+          text: 'Acuity Brands is a good company. A 9 out of 10 in my screener is rare, and it means something: profitability is there, cash generation is there, the balance sheet is solid, the business model is evolving in the right direction. The single point I am watching is the return of growth.',
+        },
+        {
+          type: 'p',
+          text: 'Its valuation at 19.6 times cash generated is not a bargain, but it is reasonable for this quality level. It is also not so excessive as to be dangerous. This is the profile of a company whose quality the market recognizes, without granting it a growth premium it has not yet earned back.',
+        },
+        {
+          type: 'p',
+          text: 'In three days, the June 25, 2026 results will provide a partial answer to the central question: is growth coming back? If yes, Acuity Brands deserves very close attention. If not, it will mean waiting one more quarter. Not a reason to flee, but not a reason to rush in either.',
+        },
+        {
+          type: 'p',
+          text: "I do not sell certainties. What I do is analyze business quality and its price, separately, so I can say: at this price, and with this quality, is the setup favorable? On Acuity Brands today, the answer is: probably yes, pending confirmation of the growth trajectory in the upcoming results.",
+        },
+      ],
+      faq: [
+        {
+          q: 'What does Acuity Brands actually do?',
+          a: "Acuity Brands is the leading American maker of professional LED luminaires and intelligent lighting systems for buildings, municipalities, and data centers. The company is transitioning toward connected software solutions (Intelligent Spaces Group), which is gradually improving its margins and revenue recurring nature.",
+        },
+        {
+          q: "What is the difference between a 9/10 and a 10/10 in your method?",
+          a: "A 10 out of 10 means the company meets all my criteria, including recent growth momentum. Acuity Brands scores 9 out of 10 because its organic growth has been weak over several recent quarters, reflecting a difficult cycle in commercial real estate. My analysis does not view this as structural, but until growth resumes the criterion stays unmet.",
+        },
+        {
+          q: 'How should I interpret a valuation of 19.6 times cash generated?',
+          a: "A valuation at 19.6 times free cash flow means at the current pace you are paying the equivalent of nearly twenty years of cash generated. That is not cheap, but it is reasonable for a business of this quality. For comparison: industrials of lower quality typically trade between 12 and 15 times, while high-quality technology businesses often exceed 30 times.",
+        },
+        {
+          q: 'What are the catalysts for Acuity Brands in 2026?',
+          a: 'Three main catalysts: data center construction driven by AI, which generates strong demand for connected industrial lighting; US energy retrofit programs pushing companies to replace old fixtures; and the ramp-up of the software segment (Intelligent Spaces Group), which improves both recurring revenue and margins. The June 25, 2026 results will be a first test of these catalysts.',
+        },
+      ],
+      tags: ['Acuity Brands', 'AYI', 'LED lighting', 'intelligent lighting', 'fundamental analysis'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.",
+    },
+    es: {
+      title: 'Acuity Brands (AYI): nuestro análisis antes del 25 de junio de 2026',
+      excerpt:
+        'Acuity Brands cumple casi todos mis criterios de calidad, genera caja de forma regular y publica resultados en tres días. Esto es lo que encontré al analizar este negocio en detalle, y por qué merece seguimiento.',
+      metaDescription:
+        'Acuity Brands (AYI) analizada antes de sus resultados del 25 de junio de 2026: calidad del negocio, valoración por el efectivo generado, criterios pendientes y qué esperar de las próximas cifras.',
+      answer:
+        'Acuity Brands es el líder estadounidense en luminarias LED y sistemas de iluminación inteligente. Cumple 9 de mis 10 criterios de calidad, genera caja con regularidad y publica resultados trimestrales el 25 de junio de 2026. Un negocio sólido, no barato, pero cuya valoración sigue siendo razonable para su calidad.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Acuity Brands es el líder estadounidense en luminarias LED y sistemas de iluminación inteligente para edificios, municipios y centros de datos.',
+            'Cumple 9 de mis 10 criterios de calidad fundamental, un nivel muy alto que pocas empresas alcanzan.',
+            'Su valoración se sitúa en 19,6 veces el efectivo que genera anualmente, lo cual es razonable para un negocio de esta calidad.',
+            'Los resultados del tercer trimestre de su ejercicio fiscal 2026 se esperan para el 25 de junio de 2026, en tres días.',
+            'El criterio que falta no es una señal de alarma, pero vale la pena entenderlo antes de ir más lejos.',
+          ],
+        },
+        { type: 'h2', text: '¿Qué hace exactamente Acuity Brands?' },
+        {
+          type: 'p',
+          text: 'Cuando enciendes una lámpara LED en el pasillo de un hospital, un almacén logístico o un aparcamiento municipal, hay muchas probabilidades de que la luminaria sea de Acuity Brands. Esta empresa con sede en Atlanta es la número uno en iluminación profesional en Estados Unidos, con una gama que va desde bombillas industriales hasta sensores y sistemas de gestión inteligente de la luz.',
+        },
+        {
+          type: 'p',
+          text: 'Pero Acuity no solo vende luminarias. Desde hace varios años ejecuta una transición estratégica hacia lo que denomina Intelligent Spaces Group: soluciones de software conectadas que permiten al gestor de un edificio controlar la iluminación a distancia, analizar los flujos de personas y reducir el consumo energético. Este giro hacia el software es relevante porque cambia el perfil económico del negocio. Un software recurrente se vende con márgenes muy superiores a una luminaria física.',
+        },
+        {
+          type: 'p',
+          text: 'Sus clientes son variados: municipios (renovación del alumbrado público), centros de datos (iluminación y gestión inteligente de grandes salas de servidores), hospitales, aeropuertos y superficies comerciales. Muchos de estos contratos son de larga duración y renovables, lo que otorga a Acuity una base de ingresos relativamente predecible. Su modelo es cada vez más asset-light: externaliza parte de la fabricación para centrarse en el diseño, el software y los servicios.',
+        },
+        {
+          type: 'p',
+          text: 'La facturación anual ronda los 3.800 millones de dólares y la capitalización bursátil se aproxima a los 9.200 millones. No es una startup, pero tampoco un gigante que no puede moverse. Es una empresa de tamaño mediano en un sector en plena transformación energética, con una posición dominante en su mercado.',
+        },
+        { type: 'h2', text: '9 criterios de 10: ¿qué falta?' },
+        {
+          type: 'p',
+          text: 'No califico una empresa por intuición. La paso por 10 criterios de calidad fundamental, desglosados en subcriterios concretos. Estos criterios cubren cuatro pilares: rentabilidad (¿gana realmente dinero la empresa?), crecimiento (¿avanzan sus ventas y su caja a lo largo del tiempo?), rentabilidad sobre el capital (¿cuánto devuelve por cada euro invertido en el negocio?) y solidez del balance (¿está la deuda bajo control y devuelve dinero a sus accionistas de forma razonable?).',
+        },
+        {
+          type: 'p',
+          text: 'Acuity Brands obtiene un 9 sobre 10 en mi screener. Es una puntuación muy alta. Para dar perspectiva: de los miles de empresas cotizadas en Estados Unidos, solo una minoría ínfima llega a este nivel. Un 9/10 significa que la empresa supera casi todo lo que busco en un negocio de calidad.',
+        },
+        {
+          type: 'p',
+          text: 'El criterio que falta tiene que ver con el dinamismo reciente del crecimiento. Acuity atravesó un período de desaceleración de ventas en los últimos trimestres, vinculado en parte al ciclo inmobiliario comercial y a un mercado de renovación que digería los pedidos pospandemia. Su crecimiento orgánico fue modesto, a veces nulo, en algunos trimestres recientes. No es un desastre, ni tampoco una señal negativa estructural, pero en mi método, un dinamismo de crecimiento reciente insuficiente impide obtener la nota máxima.',
+        },
+        {
+          type: 'p',
+          text: 'Lo importante es entender que un 9/10 no es una mala nota. Es excelente. Simplemente significa que la empresa no supera el criterio de dinamismo de crecimiento reciente, pero que sus fundamentos de rentabilidad, generación de caja y solidez del balance están presentes. La pregunta que siempre me hago en este caso: ¿es un problema estructural o un valle cíclico? Para Acuity, mi análisis se inclina claramente hacia el valle cíclico.',
+        },
+        { type: 'h2', text: 'La valoración de Acuity: lo que revela el efectivo generado' },
+        {
+          type: 'p',
+          text: 'Para medir si una acción está cara o barata, utilizo principalmente el ratio precio sobre flujo de caja libre, abreviado P/FCF. Este ratio responde a una pregunta sencilla: si compras la acción hoy, ¿cuántos años de efectivo generado por la empresa estás pagando? El free cash flow es el dinero que realmente queda en caja después de todos los gastos, incluidas las inversiones. Es el efectivo que sirve para amortizar deuda, recomprar acciones, pagar dividendos o reinvertir.',
+        },
+        {
+          type: 'p',
+          text: 'Acuity Brands registra un margen de free cash flow del 11,1%, lo que significa que de cada 100 dólares de facturación, unos 11 acaban como efectivo genuinamente disponible. No es excepcional comparado con una empresa de software (que puede alcanzar el 30-40%), pero es muy sólido para una empresa industrial en transición. A modo de comparación, muchos industriales similares generan márgenes de free cash flow del 7 al 9%.',
+        },
+        {
+          type: 'p',
+          text: 'Su ratio P/FCF se sitúa en 19,6 veces. Eso significa que al ritmo actual de generación de caja, pagas el equivalente a poco menos de veinte años de ese efectivo. No es un precio de ganga, ni mucho menos. Pero tampoco es excesivo para un negocio de esta calidad, en un sector con vientos de cola estructurales (eficiencia energética, renovación de edificios, expansión de centros de datos). Para que una valoración de 19,6 veces esté justificada, el crecimiento debe retomar. Eso es precisamente lo que nos dirán los resultados del 25 de junio.',
+        },
+        {
+          type: 'table',
+          headers: ['Métrica', 'Acuity Brands (AYI)', 'Sector (mediana)'],
+          rows: [
+            ['Puntuación de calidad', '9 / 10', '5 / 10'],
+            ['Margen de free cash flow', '11,1 %', '7,5 %'],
+            ['Valoración (P/FCF)', '19,6 veces', '17,0 veces'],
+            ['Capitalización bursátil', '9.200 M$', '—'],
+            ['Próximos resultados', '25 jun. 2026', '—'],
+          ],
+        },
+        { type: 'h2', text: 'Los resultados del 25 de junio: lo que espero' },
+        {
+          type: 'p',
+          text: 'El 25 de junio de 2026, Acuity Brands publica los resultados de su tercer trimestre del ejercicio fiscal 2026. Es la cita concreta alrededor de la cual gira este artículo. ¿Por qué importa este trimestre? Porque nos dará una lectura fresca sobre el dinamismo del crecimiento, que es precisamente el criterio que la empresa aún no supera del todo.',
+        },
+        {
+          type: 'p',
+          text: "Varias tendencias macro soplan a favor de Acuity en este momento. Primero, los centros de datos. La explosión de la inteligencia artificial ha desencadenado una carrera por construir nuevos centros de datos en Estados Unidos, y estos edificios necesitan iluminación industrial de alta calidad, a menudo conectada. Acuity está bien posicionada para capturar estos mercados, que están menos expuestos al ciclo inmobiliario residencial.",
+        },
+        {
+          type: 'p',
+          text: 'Segundo, la eficiencia energética. Las empresas estadounidenses están cada vez más incentivadas, a veces obligadas, a renovar sus instalaciones de iluminación para reducir el consumo. Las luminarias LED inteligentes de Acuity responden exactamente a esa necesidad. Y los contratos municipales, que representan una parte significativa de su actividad, son compromisos plurianuales que aportan visibilidad.',
+        },
+        {
+          type: 'p',
+          text: 'Lo que espero concretamente: una confirmación de que el crecimiento orgánico retoma, aunque sea de forma modesta. Si Acuity publica un crecimiento de ventas del 2 al 4% y mantiene sus márgenes, eso valida la tesis de que el valle cíclico ha quedado atrás. Si el crecimiento sigue plano o los márgenes se comprimen, el criterio que falta sigue faltando, y la valoración de 19,6 veces se vuelve más difícil de defender.',
+        },
+        { type: 'h2', text: 'Mi veredicto antes de los resultados' },
+        {
+          type: 'p',
+          text: 'Acuity Brands es una buena empresa. Un 9 sobre 10 en mi screener es raro y significa algo: la rentabilidad está ahí, la generación de caja está ahí, el balance es sólido, el modelo de negocio evoluciona en la dirección correcta. El único punto que vigilo es la recuperación del crecimiento.',
+        },
+        {
+          type: 'p',
+          text: 'Su valoración a 19,6 veces el efectivo generado no es una ganga, pero es razonable para este nivel de calidad. Tampoco es tan excesiva como para ser peligrosa. Es el perfil de una empresa cuya calidad el mercado reconoce, sin otorgarle una prima de crecimiento que todavía no ha recuperado.',
+        },
+        {
+          type: 'p',
+          text: 'En tres días, los resultados del 25 de junio de 2026 darán una respuesta parcial a la pregunta central: ¿vuelve el crecimiento? Si es así, Acuity Brands merece atención muy cercana. Si no, habrá que esperar un trimestre más. No es razón para huir, pero tampoco para precipitarse.',
+        },
+        {
+          type: 'p',
+          text: 'No vendo certezas. Lo que hago es analizar la calidad de un negocio y su precio, por separado, para poder decir: a este precio y con esta calidad, ¿la relación es favorable? Con Acuity Brands hoy, la respuesta es: probablemente sí, pendiente de confirmar la trayectoria de crecimiento en los próximos resultados.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué hace concretamente Acuity Brands?',
+          a: 'Acuity Brands es el líder estadounidense en luminarias LED profesionales y sistemas de iluminación inteligente para edificios, municipios y centros de datos. La empresa está en transición hacia soluciones de software conectadas (Intelligent Spaces Group), lo que mejora progresivamente sus márgenes y la recurrencia de sus ingresos.',
+        },
+        {
+          q: '¿Cuál es la diferencia entre un 9/10 y un 10/10 en tu método?',
+          a: 'Un 10 sobre 10 significa que la empresa supera la totalidad de mis criterios, incluido el dinamismo de crecimiento reciente. Acuity Brands obtiene un 9 sobre 10 porque su crecimiento orgánico ha sido débil en varios trimestres recientes, reflejo de un ciclo difícil en el inmobiliario comercial. Mi análisis no lo considera estructural, pero mientras el crecimiento no retome, el criterio sigue sin validarse.',
+        },
+        {
+          q: '¿Cómo interpretar una valoración de 19,6 veces el efectivo generado?',
+          a: 'Una valoración a 19,6 veces el free cash flow significa que al ritmo actual pagas el equivalente a casi veinte años de efectivo generado. No es barato, pero es razonable para un negocio de esta calidad. Para comparar: los industriales de menor calidad suelen valorarse entre 12 y 15 veces, mientras que las empresas tecnológicas de alta calidad superan a menudo las 30 veces.',
+        },
+        {
+          q: '¿Cuáles son los catalizadores para Acuity Brands en 2026?',
+          a: 'Tres catalizadores principales: la construcción de centros de datos impulsada por la IA, que genera una fuerte demanda de iluminación industrial conectada; los programas de renovación energética en Estados Unidos, que empujan a las empresas a sustituir sus antiguas luminarias; y el despegue del segmento software (Intelligent Spaces Group), que mejora tanto los ingresos recurrentes como los márgenes. Los resultados del 25 de junio de 2026 serán una primera prueba de estos catalizadores.',
+        },
+      ],
+      tags: ['Acuity Brands', 'AYI', 'luminarias LED', 'iluminación inteligente', 'análisis fundamental'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a fecha de publicación, sujetas a cambios. Haz tu propia investigación antes de tomar cualquier decisión.',
+    },
+  },
+};
+
+const articleScore9vs10: Article = {
+  slug: 'score-9-sur-10-vs-10-sur-10-difference-stock-picking',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 6,
+  ticker: undefined,
+  content: {
+    fr: {
+      title: 'Presque parfait en bourse : le critère manquant, ça compte ?',
+      excerpt:
+        'Notre screener note les actions sur 10 critères fondamentaux. Quelle différence concrète entre un 9/10 et un 10/10 pour ton stock-picking ?',
+      metaDescription:
+        'Comprendre la différence entre une action notée 9/10 et 10/10 dans notre screener fondamental. Exemples concrets, tableau comparatif et impact réel sur le stock-picking.',
+      answer:
+        "Un 9/10 signifie qu'un seul critère fondamental échoue : croissance légèrement ralentie, bilan un peu tendu ou rachats insuffisants une année. En pratique, un 9/10 reste une excellente entreprise. La vraie différence pour le stock-picking vient souvent de la valorisation, pas du seul point manquant.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Notre screener évalue 5 000+ actions sur 10 critères fondamentaux : ROIC, croissance du free cash flow, marge FCF, solidité du bilan, rachats d'actions, etc.",
+            "Un 10/10 signifie que les 10 critères sont tous satisfaits simultanément. C'est rare : BSY, ROP, ASML, PYPL en font partie.",
+            "Un 9/10 signifie qu'un seul critère échoue légèrement. AYI (Acuity Brands) et PAYX (Paychex) en sont de bons exemples.",
+            'La différence en termes de qualité réelle est nuancée : un 9/10 est souvent une très bonne action.',
+            'La valorisation (P/FCF) compte autant que la note : un 10/10 très cher peut sous-performer un 9/10 bien valorisé.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Notre méthode de notation en 30 secondes'
+        },
+        {
+          type: 'p',
+          text: "Chez lubin-investment.com, j'analyse les actions en m'appuyant sur 10 critères fondamentaux quantitatifs. L'idée est simple : plutôt que de lire des dizaines de pages de rapports annuels, je veux une notation objective et reproductible qui me permette de comparer 5 000 actions sur le même pied d'égalité."
+        },
+        {
+          type: 'p',
+          text: "Les 10 critères couvrent les dimensions clés de la qualité d'une entreprise. Voici ce qu'ils mesurent :"
+        },
+        {
+          type: 'ul',
+          items: [
+            "ROIC élevé (Return On Invested Capital) : l'entreprise génère-t-elle beaucoup de valeur pour chaque euro investi dans son activité ? Un ROIC supérieur à 15 % est un signal fort.",
+            "Croissance régulière du free cash flow : les flux de trésorerie disponibles augmentent-ils d'année en année, sans trop d'irrégularités ?",
+            "Marge FCF élevée : quelle part du chiffre d'affaires se transforme en cash réel pour les actionnaires ?",
+            "Bilan propre : la dette est-elle raisonnable par rapport aux bénéfices générés ? Une dette nette inférieure à 3 fois l'EBITDA est un repère courant.",
+            "Rachats d'actions réguliers : l'entreprise réduit-elle son nombre d'actions en circulation, augmentant mécaniquement la part de chaque actionnaire ?",
+            "Rentabilité constante : l'entreprise est-elle profitable de façon durable, sans exercices déficitaires ?",
+            "Croissance du chiffre d'affaires : le moteur commercial progresse-t-il sur le long terme ?",
+            "Marge opérationnelle stable ou en hausse : la rentabilité opérationnelle se maintient-elle malgré la compétition et l'inflation ?",
+            'Historique de résultats sans surprises majeures : les résultats publiés sont-ils prévisibles et cohérents ?',
+            "Génération de valeur pour l'actionnaire sur le long terme : dividendes, rachats et réinvestissement créent-ils de la richesse durable ?"
+          ]
+        },
+        {
+          type: 'p',
+          text: "Chaque critère est évalué de façon binaire (satisfait ou non). La note finale est simplement le nombre de critères satisfaits. Un 10/10 veut dire que les 10 cases sont cochées en même temps. C'est rare, et c'est précisément pourquoi c'est intéressant."
+        },
+        {
+          type: 'h2',
+          text: "Ce qui différencie un 9/10 d'un 10/10"
+        },
+        {
+          type: 'p',
+          text: "La différence entre un 9/10 et un 10/10 tient à un seul critère manquant. Mais lequel ? Et pourquoi est-ce que ça compte ? Voici les cas de figure les plus fréquents."
+        },
+        {
+          type: 'p',
+          text: "La croissance du free cash flow légèrement irrégulière est la raison numéro un. Une excellente entreprise peut traverser une année difficile : acquisition intégrée, investissement exceptionnel, recul cyclique du secteur. Le FCF baisse une fois, alors que la qualité structurelle de l'entreprise est intacte. Résultat : 9/10 au lieu de 10/10. Ce n'est pas une catastrophe."
+        },
+        {
+          type: 'p',
+          text: "Un bilan légèrement tendu est une autre cause courante. Si la dette nette dépasse un peu le seuil retenu (par exemple 3,2 fois l'EBITDA au lieu de 3), le critère \"bilan propre\" n'est pas validé. Mais l'entreprise reste solide. Ce léger dépassement peut refléter une acquisition récente bien exécutée plutôt qu'un problème de fond."
+        },
+        {
+          type: 'p',
+          text: "Les rachats d'actions insuffisants une année constituent le troisième cas typique. Certaines entreprises rachètent massivement leurs titres certaines années et moins d'autres. Si la moyenne reste favorable mais qu'une année passe sous le seuil, le critère n'est pas validé pour cet exercice."
+        },
+        {
+          type: 'p',
+          text: "Ce qu'il faut retenir : le passage de 9/10 à 10/10 ne signifie pas forcément une rupture qualitative majeure. Cela signifie surtout que l'entreprise satisfait tous ses critères en même temps, ce qui est un signal de régularité et de discipline opérationnelle très élevée. C'est exigeant, et c'est normal que peu d'entreprises y arrivent."
+        },
+        {
+          type: 'h2',
+          text: 'Des exemples concrets dans notre screener'
+        },
+        {
+          type: 'p',
+          text: 'Regardons des exemples réels pour rendre la distinction concrète.'
+        },
+        {
+          type: 'p',
+          text: "Acuity Brands (AYI) est noté 9/10 dans notre screener avec un P/FCF de 19,6×. C'est un fabricant américain de solutions d'éclairage intelligent. Le ROIC est élevé, la marge FCF est solide, le bilan est raisonnable et les rachats d'actions sont réguliers. Le critère manquant est probablement lié à la croissance : le secteur de l'éclairage industriel connaît une demande cyclique, et la croissance du FCF n'a pas été parfaitement régulière sur toutes les années retenues. Pourtant, c'est une très bonne entreprise."
+        },
+        {
+          type: 'p',
+          text: "Paychex (PAYX) est noté 9/10 avec un P/FCF d'environ 18×. Paychex est l'un des leaders de la gestion de paie et des ressources humaines pour les PME américaines. Modèle récurrent, marges excellentes, bilan solide. Le critère manquant est subtil, peut-être une légère irrégularité dans la croissance du FCF lors d'un exercice spécifique. Cela ne remet pas en cause la solidité du modèle."
+        },
+        {
+          type: 'p',
+          text: "Bentley Systems (BSY) est noté 10/10 avec un P/FCF de 22×. C'est un éditeur de logiciels d'infrastructure (ponts, routes, bâtiments industriels). Croissance régulière, ROIC élevé, marge FCF structurellement forte, bilan maîtrisé, rachats d'actions cohérents. Les 10 critères sont satisfaits simultanément. La valorisation à 22× est modérée pour ce niveau de qualité."
+        },
+        {
+          type: 'p',
+          text: "Roper Technologies (ROP) est noté 10/10 avec un P/FCF de 14×. Roper est un conglomérat industriel de niche spécialisé dans les logiciels et l'instrumentation. Modèle de croissance par acquisitions disciplinées, FCF très régulier, marge élevée, bilan maîtrisé. À 14× le FCF, c'est l'un des 10/10 les moins valorisés du screener."
+        },
+        {
+          type: 'table',
+          headers: ['Entreprise', 'Ticker', 'Note', 'P/FCF', 'Profil'],
+          rows: [
+            ['Acuity Brands', 'AYI', '9/10', '19,6×', 'Éclairage intelligent, FCF légèrement irrégulier'],
+            ['Paychex', 'PAYX', '9/10', '~18×', 'Gestion de paie PME, critère FCF manquant une année'],
+            ['Bentley Systems', 'BSY', '10/10', '22×', 'Logiciels infrastructure, 10 critères simultanés'],
+            ['Roper Technologies', 'ROP', '10/10', '14×', 'Conglomérat niche, FCF très régulier, valorisation basse'],
+            ['ASML', 'ASML', '10/10', '51×', 'Lithographie semi-conducteurs, valorisation très élevée'],
+            ['PayPal', 'PYPL', '10/10', '8×', '10/10 avec valorisation exceptionnellement basse']
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Pour le stock-picking, est-ce que ça change grand chose ?'
+        },
+        {
+          type: 'p',
+          text: "La réponse honnête est : pas autant qu'on pourrait le croire. Et c'est une des nuances importantes à comprendre si tu veux utiliser ce screener intelligemment."
+        },
+        {
+          type: 'p',
+          text: "Un 9/10 bien valorisé peut très facilement surperformer un 10/10 cher. Prenons un exemple théorique : une entreprise 10/10 valorisée à 50× son FCF et une entreprise 9/10 valorisée à 15× son FCF. Si les deux ont une croissance similaire, la seconde offre une marge de sécurité bien plus grande et un potentiel de rendement supérieur. La note reflète la qualité, mais la performance dépend aussi du prix payé."
+        },
+        {
+          type: 'p',
+          text: "ASML illustre ce point parfaitement. C'est un 10/10 : le leader mondial incontesté de la lithographie pour semi-conducteurs, avec un moat quasi infranchissable. Mais à 51× le FCF, la valorisation intègre déjà énormément d'optimisme. Un investisseur achetant ASML aujourd'hui paie une prime très élevée pour cette qualité. Ce n'est pas forcément une erreur, mais c'est un point à considérer sérieusement."
+        },
+        {
+          type: 'p',
+          text: "À l'inverse, PayPal est noté 10/10 et se valorise à seulement 8× son FCF. La qualité fondamentale est là, et le marché applique une décote sévère pour des raisons perçues (ralentissement de la croissance, concurrence des wallets). C'est exactement le type de configuration que je cherche : qualité élevée, valorisation basse."
+        },
+        {
+          type: 'p',
+          text: "La note 9/10 ou 10/10 est donc un filtre de qualité minimum, pas une garantie de performance. Elle t'indique que l'entreprise est solide. Mais le rendement futur dépend aussi du prix auquel tu l'achètes aujourd'hui."
+        },
+        {
+          type: 'h2',
+          text: 'La vraie question : qualité et valorisation combinées'
+        },
+        {
+          type: 'p',
+          text: "Ma méthode repose sur deux piliers indissociables : la qualité fondamentale (mesurée par la note /10) et la valorisation (mesurée par le P/FCF). Une action qui satisfait les deux critères simultanément est ce que je cherche en priorité."
+        },
+        {
+          type: 'p',
+          text: "Un 10/10 avec un P/FCF inférieur à 20× est une configuration rare et attractive. Roper Technologies (ROP) à 14× en est un bon exemple. Un 9/10 avec un P/FCF inférieur à 20× est également très intéressant : la légère imperfection de la note est largement compensée par la marge de sécurité offerte par la valorisation."
+        },
+        {
+          type: 'p',
+          text: "En pratique, voici comment j'utilise ces deux dimensions ensemble :"
+        },
+        {
+          type: 'ul',
+          items: [
+            'Note 10/10 + P/FCF bas (< 20×) : configuration idéale, priorité maximale.',
+            "Note 10/10 + P/FCF élevé (> 40×) : qualité indéniable, mais la valorisation demande de la patience ou une croissance très soutenue pour justifier le prix.",
+            "Note 9/10 + P/FCF bas (< 18×) : très intéressant. Le critère manquant est souvent mineur, et la valorisation offre une vraie marge de sécurité.",
+            "Note 9/10 + P/FCF élevé (> 35×) : à surveiller, pas à acheter dans l'urgence.",
+            "Note < 7/10 : je ne m'y attarde pas, quelle que soit la valorisation."
+          ]
+        },
+        {
+          type: 'p',
+          text: 'Le screener disponible sur <a href="/screener">lubin-investment.com/screener</a> te permet de filtrer les actions selon la note et le P/FCF simultanément. C\'est là que la distinction 9/10 vs 10/10 prend tout son sens : en combinant les deux dimensions, tu identifies rapidement les opportunités à analyser en priorité.'
+        },
+        {
+          type: 'p',
+          text: 'Tu veux aller plus loin sur une action précise ? L\'outil <a href="/analyser">d\'analyse individuelle</a> décompose les 10 critères un par un, te montre lequel échoue et pourquoi, et te donne le P/FCF actuel avec une mise en perspective historique. C\'est la façon la plus efficace de comprendre pourquoi une action est notée 9/10 plutôt que 10/10.'
+        }
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce qu'un 10/10 dans votre screener ?",
+          a: "Un 10/10 signifie que l'entreprise satisfait simultanément les 10 critères fondamentaux retenus : ROIC élevé, croissance régulière du free cash flow, marge FCF élevée, bilan propre, rachats d'actions cohérents, rentabilité durable, croissance du chiffre d'affaires, marge opérationnelle stable, résultats prévisibles et création de valeur long terme. C'est rare : parmi 5 000+ actions analysées, seule une petite minorité atteint ce score."
+        },
+        {
+          q: 'Un 9/10 est-il vraiment inférieur à un 10/10 ?',
+          a: "Pas nécessairement en termes de qualité réelle. Un 9/10 signifie qu'un seul critère n'est pas satisfait, souvent pour une raison ponctuelle (une année de FCF légèrement en baisse, une dette un peu trop élevée temporairement, des rachats insuffisants une année). La différence qualitative peut être très faible. Ce qui compte autant, c'est la valorisation : un 9/10 bien valorisé peut surperformer un 10/10 très cher."
+        },
+        {
+          q: "Pourquoi ASML est-il noté 10/10 alors qu'il est si cher ?",
+          a: "La note mesure la qualité fondamentale, pas la valorisation. ASML satisfait les 10 critères : ROIC très élevé, FCF en croissance régulière, marge FCF exceptionnelle, bilan solide, rachats d'actions. En revanche, son P/FCF autour de 51× reflète une prime de qualité très élevée. La note et la valorisation sont deux dimensions distinctes dans notre méthode."
+        },
+        {
+          q: 'Comment trouver des actions bien notées et bien valorisées ?',
+          a: "Le screener disponible sur lubin-investment.com te permet de filtrer simultanément par note (ex. : uniquement les 9/10 et 10/10) et par P/FCF (ex. : inférieur à 20×). C'est la combinaison des deux qui crée les opportunités les plus intéressantes. Tu peux ensuite analyser chaque action individuellement pour comprendre quel critère manque et pourquoi."
+        }
+      ],
+      tags: ['analyse fondamentale', 'méthode', 'qualité', 'screener', 'stock-picking'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches."
+    },
+    en: {
+      title: 'Almost perfect stocks: what the missing criterion changes',
+      excerpt:
+        'Our screener rates stocks on 10 fundamental criteria. What is the real difference between a 9/10 and a 10/10 for your stock-picking?',
+      metaDescription:
+        'Understanding the difference between a stock rated 9/10 and 10/10 in our fundamental screener. Concrete examples, comparison table, and real impact on stock-picking.',
+      answer:
+        'A 9/10 means one fundamental criterion fails: slightly slowing growth, a marginally stretched balance sheet, or insufficient buybacks in one year. In practice, a 9/10 remains an excellent company. The real difference for stock-picking often comes from valuation, not just the missing point.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Our screener evaluates 5,000+ stocks on 10 fundamental criteria: ROIC, free cash flow growth, FCF margin, balance sheet strength, share buybacks, and more.',
+            'A 10/10 means all 10 criteria are met simultaneously. This is rare: BSY, ROP, ASML, and PYPL are examples.',
+            'A 9/10 means only one criterion falls short. AYI (Acuity Brands) and PAYX (Paychex) are good examples.',
+            'The difference in actual quality is nuanced: a 9/10 is often an excellent stock.',
+            'Valuation (P/FCF) matters as much as the score: an expensive 10/10 can underperform a well-valued 9/10.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Our scoring method in 30 seconds'
+        },
+        {
+          type: 'p',
+          text: 'At lubin-investment.com, I analyze stocks using 10 quantitative fundamental criteria. The idea is straightforward: rather than reading dozens of pages of annual reports, I want an objective and reproducible rating that lets me compare 5,000 stocks on equal footing.'
+        },
+        {
+          type: 'p',
+          text: 'The 10 criteria cover the key dimensions of business quality. Here is what they measure:'
+        },
+        {
+          type: 'ul',
+          items: [
+            'High ROIC (Return On Invested Capital): does the company generate significant value for every dollar invested in its operations? An ROIC above 15% is a strong signal.',
+            'Regular free cash flow growth: are free cash flows growing year over year without too much volatility?',
+            'High FCF margin: what share of revenue converts into real cash for shareholders?',
+            'Clean balance sheet: is debt reasonable relative to earnings? Net debt below 3x EBITDA is a common benchmark.',
+            "Regular share buybacks: is the company reducing its share count, mechanically increasing each shareholder's stake?",
+            'Consistent profitability: is the company durably profitable, without loss-making years?',
+            'Revenue growth: is the commercial engine progressing over the long term?',
+            'Stable or improving operating margin: does operating profitability hold up despite competition and inflation?',
+            'Predictable results history: are reported results consistent and free from major surprises?',
+            'Long-term shareholder value creation: do dividends, buybacks, and reinvestment create lasting wealth?'
+          ]
+        },
+        {
+          type: 'p',
+          text: 'Each criterion is evaluated in binary fashion (met or not). The final score is simply the number of criteria met. A 10/10 means all 10 boxes are checked simultaneously. That is rare, and precisely why it is interesting.'
+        },
+        {
+          type: 'h2',
+          text: 'What separates a 9/10 from a 10/10'
+        },
+        {
+          type: 'p',
+          text: 'The difference between a 9/10 and a 10/10 comes down to a single failing criterion. But which one? And why does it matter? Here are the most common scenarios.'
+        },
+        {
+          type: 'p',
+          text: 'Slightly irregular free cash flow growth is the number one reason. An excellent company can go through a difficult year: an integrated acquisition, an exceptional investment, or a cyclical sector downturn. FCF drops once while the structural quality of the business remains intact. The result: 9/10 instead of 10/10. That is not a catastrophe.'
+        },
+        {
+          type: 'p',
+          text: 'A slightly stretched balance sheet is another common cause. If net debt slightly exceeds the threshold (say, 3.2x EBITDA instead of 3x), the clean balance sheet criterion is not validated. But the company remains solid. That slight overshoot may reflect a well-executed recent acquisition rather than a fundamental problem.'
+        },
+        {
+          type: 'p',
+          text: 'Insufficient buybacks in one year is the third typical case. Some companies buy back heavily in certain years and less in others. If the average remains favorable but one year falls below the threshold, the criterion is not validated for that period.'
+        },
+        {
+          type: 'p',
+          text: 'The key takeaway: moving from 9/10 to 10/10 does not necessarily signal a major qualitative break. It mainly signals that the company meets all its criteria simultaneously, which is a sign of very high consistency and operational discipline. It is demanding, and it is normal that few companies achieve it.'
+        },
+        {
+          type: 'h2',
+          text: 'Concrete examples from our screener'
+        },
+        {
+          type: 'p',
+          text: 'Let us look at real examples to make the distinction concrete.'
+        },
+        {
+          type: 'p',
+          text: 'Acuity Brands (AYI) is rated 9/10 in our screener with a P/FCF of 19.6×. It is an American manufacturer of intelligent lighting solutions. ROIC is high, FCF margin is solid, the balance sheet is reasonable, and share buybacks are consistent. The missing criterion is likely related to growth: the industrial lighting sector experiences cyclical demand, and FCF growth has not been perfectly regular across all periods. Yet this is a very good company.'
+        },
+        {
+          type: 'p',
+          text: 'Paychex (PAYX) is rated 9/10 with a P/FCF of approximately 18×. Paychex is one of the leading payroll and HR management providers for American SMEs. Recurring model, excellent margins, solid balance sheet. The missing criterion is subtle, perhaps a slight irregularity in FCF growth during a specific period. It does not challenge the solidity of the model.'
+        },
+        {
+          type: 'p',
+          text: 'Bentley Systems (BSY) is rated 10/10 with a P/FCF of 22×. It is an infrastructure software publisher (bridges, roads, industrial buildings). Regular growth, high ROIC, structurally strong FCF margin, controlled balance sheet, consistent share buybacks. All 10 criteria are met simultaneously. The valuation at 22× is moderate for this quality level.'
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies (ROP) is rated 10/10 with a P/FCF of 14×. Roper is a niche industrial conglomerate specializing in software and instrumentation. Disciplined acquisition-driven growth model, very consistent FCF, high margins, controlled balance sheet. At 14× FCF, it is one of the least expensively valued 10/10 stocks in the screener.'
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Ticker', 'Score', 'P/FCF', 'Profile'],
+          rows: [
+            ['Acuity Brands', 'AYI', '9/10', '19.6×', 'Smart lighting, slightly irregular FCF'],
+            ['Paychex', 'PAYX', '9/10', '~18×', 'SME payroll, FCF criterion missed one year'],
+            ['Bentley Systems', 'BSY', '10/10', '22×', 'Infrastructure software, all 10 criteria met'],
+            ['Roper Technologies', 'ROP', '10/10', '14×', 'Niche conglomerate, very consistent FCF, low valuation'],
+            ['ASML', 'ASML', '10/10', '51×', 'Semiconductor lithography, very high valuation'],
+            ['PayPal', 'PYPL', '10/10', '8×', '10/10 with exceptionally low valuation']
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'For stock-picking, does it really change much?'
+        },
+        {
+          type: 'p',
+          text: 'The honest answer is: not as much as you might think. And that is one of the important nuances to understand if you want to use this screener intelligently.'
+        },
+        {
+          type: 'p',
+          text: 'A well-valued 9/10 can very easily outperform an expensive 10/10. A theoretical example: a 10/10 company valued at 50× its FCF versus a 9/10 company valued at 15× its FCF. If both have similar growth, the second offers a much greater margin of safety and a higher return potential. The score reflects quality, but performance also depends on the price you pay.'
+        },
+        {
+          type: 'p',
+          text: 'ASML illustrates this perfectly. It is a 10/10: the uncontested world leader in semiconductor lithography, with a near-unbreachable moat. But at 51× FCF, the valuation already incorporates a great deal of optimism. An investor buying ASML today pays a very high premium for that quality. That is not necessarily a mistake, but it is a point to consider seriously.'
+        },
+        {
+          type: 'p',
+          text: 'Conversely, PayPal is rated 10/10 and is valued at only 8× its FCF. The fundamental quality is there, and the market applies a severe discount for perceived reasons (growth slowdown, wallet competition). That is exactly the configuration I look for: high quality, low valuation.'
+        },
+        {
+          type: 'p',
+          text: 'A score of 9/10 or 10/10 is therefore a minimum quality filter, not a performance guarantee. It tells you the company is solid. But future returns also depend on the price at which you buy today.'
+        },
+        {
+          type: 'h2',
+          text: 'The real question: quality and valuation combined'
+        },
+        {
+          type: 'p',
+          text: 'My method rests on two inseparable pillars: fundamental quality (measured by the score out of 10) and valuation (measured by P/FCF). A stock that meets both criteria simultaneously is what I prioritize.'
+        },
+        {
+          type: 'p',
+          text: 'A 10/10 with a P/FCF below 20× is a rare and attractive configuration. Roper Technologies (ROP) at 14× is a good example. A 9/10 with a P/FCF below 20× is also very interesting: the slight score imperfection is largely offset by the margin of safety provided by the valuation.'
+        },
+        {
+          type: 'p',
+          text: 'In practice, here is how I use these two dimensions together:'
+        },
+        {
+          type: 'ul',
+          items: [
+            'Score 10/10 + low P/FCF (< 20×): ideal configuration, maximum priority.',
+            'Score 10/10 + high P/FCF (> 40×): undeniable quality, but the valuation requires patience or very sustained growth to justify the price.',
+            'Score 9/10 + low P/FCF (< 18×): very interesting. The missing criterion is often minor, and the valuation provides a real margin of safety.',
+            'Score 9/10 + high P/FCF (> 35×): worth monitoring, not worth rushing into.',
+            'Score < 7/10: I do not spend time here, regardless of valuation.'
+          ]
+        },
+        {
+          type: 'p',
+          text: 'The screener available at <a href="/screener">lubin-investment.com/screener</a> lets you filter stocks by score and P/FCF simultaneously. That is where the 9/10 vs 10/10 distinction becomes most useful: by combining both dimensions, you quickly identify the opportunities worth analyzing first.'
+        },
+        {
+          type: 'p',
+          text: 'Want to go deeper on a specific stock? The <a href="/analyser">individual analysis tool</a> breaks down all 10 criteria one by one, shows you which one fails and why, and gives you the current P/FCF with historical context. It is the most efficient way to understand why a stock scores 9/10 rather than 10/10.'
+        }
+      ],
+      faq: [
+        {
+          q: 'What does a 10/10 mean in your screener?',
+          a: 'A 10/10 means the company simultaneously meets all 10 fundamental criteria: high ROIC, regular free cash flow growth, high FCF margin, clean balance sheet, consistent share buybacks, durable profitability, revenue growth, stable operating margin, predictable results, and long-term shareholder value creation. This is rare: among 5,000+ stocks analyzed, only a small minority reaches this score.'
+        },
+        {
+          q: 'Is a 9/10 really inferior to a 10/10?',
+          a: 'Not necessarily in terms of actual quality. A 9/10 means one criterion is not met, often for a one-off reason: a year of slightly lower FCF, temporarily high debt, or insufficient buybacks in one year. The qualitative difference can be very small. What matters equally is valuation: a well-valued 9/10 can outperform an expensive 10/10.'
+        },
+        {
+          q: 'Why is ASML rated 10/10 when it is so expensive?',
+          a: 'The score measures fundamental quality, not valuation. ASML meets all 10 criteria: very high ROIC, regular FCF growth, exceptional FCF margin, solid balance sheet, share buybacks. Its P/FCF around 51× reflects a very high quality premium. The score and valuation are two separate dimensions in our method.'
+        },
+        {
+          q: 'How do I find highly rated and well-valued stocks?',
+          a: 'The screener at lubin-investment.com lets you filter simultaneously by score (e.g., only 9/10 and 10/10) and by P/FCF (e.g., below 20×). The combination of both creates the most interesting opportunities. You can then analyze each stock individually to understand which criterion is missing and why.'
+        }
+      ],
+      tags: ['fundamental analysis', 'method', 'quality', 'screener', 'stock-picking'],
+      disclaimer:
+        'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.'
+    },
+    es: {
+      title: 'Casi perfectas en bolsa: lo que cambia el criterio que falta',
+      excerpt:
+        'Nuestro screener evalúa acciones en 10 criterios fundamentales. ¿Qué diferencia concreta hay entre un 9/10 y un 10/10 para tu stock-picking?',
+      metaDescription:
+        'Entender la diferencia entre una acción con nota 9/10 y 10/10 en nuestro screener fundamental. Ejemplos concretos, tabla comparativa e impacto real en el stock-picking.',
+      answer:
+        'Un 9/10 significa que un solo criterio fundamental no se cumple: crecimiento ligeramente ralentizado, balance algo ajustado o recompras insuficientes un año. En la práctica, un 9/10 sigue siendo una empresa excelente. La diferencia real para el stock-picking viene a menudo de la valoración, no del punto que falta.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Nuestro screener evalúa más de 5.000 acciones en 10 criterios fundamentales: ROIC, crecimiento del free cash flow, margen FCF, solidez del balance, recompras de acciones, etc.',
+            'Un 10/10 significa que los 10 criterios se cumplen simultáneamente. Es raro: BSY, ROP, ASML y PYPL son ejemplos.',
+            'Un 9/10 significa que solo un criterio falla ligeramente. AYI (Acuity Brands) y PAYX (Paychex) son buenos ejemplos.',
+            'La diferencia en calidad real es matizada: un 9/10 es a menudo una acción excelente.',
+            'La valoración (P/FCF) importa tanto como la nota: un 10/10 muy caro puede rendir menos que un 9/10 bien valorado.'
+          ]
+        },
+        {
+          type: 'h2',
+          text: 'Nuestro método de puntuación en 30 segundos'
+        },
+        {
+          type: 'p',
+          text: 'En lubin-investment.com analizo las acciones apoyándome en 10 criterios fundamentales cuantitativos. La idea es sencilla: en lugar de leer decenas de páginas de informes anuales, quiero una puntuación objetiva y reproducible que me permita comparar 5.000 acciones en igualdad de condiciones.'
+        },
+        {
+          type: 'p',
+          text: 'Los 10 criterios cubren las dimensiones clave de la calidad de una empresa. Esto es lo que miden:'
+        },
+        {
+          type: 'ul',
+          items: [
+            'ROIC alto (Return On Invested Capital): ¿genera la empresa mucho valor por cada euro invertido en su actividad? Un ROIC superior al 15% es una señal fuerte.',
+            'Crecimiento regular del free cash flow: ¿aumentan los flujos de caja disponibles año a año, sin demasiadas irregularidades?',
+            'Margen FCF alto: ¿qué parte del volumen de negocio se convierte en cash real para los accionistas?',
+            'Balance saneado: ¿es la deuda razonable en relación con los beneficios generados? Una deuda neta inferior a 3 veces el EBITDA es un referente habitual.',
+            'Recompras de acciones regulares: ¿reduce la empresa su número de acciones en circulación, aumentando mecánicamente la participación de cada accionista?',
+            'Rentabilidad constante: ¿es la empresa rentable de forma duradera, sin ejercicios deficitarios?',
+            'Crecimiento del volumen de negocio: ¿avanza el motor comercial a largo plazo?',
+            'Margen operativo estable o en aumento: ¿se mantiene la rentabilidad operativa a pesar de la competencia y la inflación?',
+            'Historial de resultados sin grandes sorpresas: ¿son los resultados publicados previsibles y coherentes?',
+            'Creación de valor para el accionista a largo plazo: ¿crean riqueza duradera los dividendos, las recompras y la reinversión?'
+          ]
+        },
+        {
+          type: 'p',
+          text: 'Cada criterio se evalúa de forma binaria (cumplido o no). La nota final es simplemente el número de criterios cumplidos. Un 10/10 significa que las 10 casillas están marcadas al mismo tiempo. Es raro, y precisamente por eso es interesante.'
+        },
+        {
+          type: 'h2',
+          text: 'Lo que diferencia un 9/10 de un 10/10'
+        },
+        {
+          type: 'p',
+          text: 'La diferencia entre un 9/10 y un 10/10 se reduce a un único criterio que no se cumple. ¿Pero cuál? ¿Y por qué importa? Estos son los casos más frecuentes.'
+        },
+        {
+          type: 'p',
+          text: 'El crecimiento del free cash flow ligeramente irregular es la razón principal. Una empresa excelente puede atravesar un año difícil: una adquisición integrada, una inversión excepcional o un retroceso cíclico del sector. El FCF baja una vez mientras la calidad estructural del negocio permanece intacta. Resultado: 9/10 en lugar de 10/10. No es una catástrofe.'
+        },
+        {
+          type: 'p',
+          text: 'Un balance ligeramente ajustado es otra causa habitual. Si la deuda neta supera ligeramente el umbral fijado (por ejemplo, 3,2 veces el EBITDA en lugar de 3), el criterio de balance saneado no se valida. Pero la empresa sigue siendo sólida. Ese ligero exceso puede reflejar una adquisición reciente bien ejecutada más que un problema de fondo.'
+        },
+        {
+          type: 'p',
+          text: 'Las recompras de acciones insuficientes un año constituyen el tercer caso típico. Algunas empresas recompran masivamente sus títulos ciertos años y menos otros. Si la media sigue siendo favorable pero un año cae por debajo del umbral, el criterio no se valida para ese ejercicio.'
+        },
+        {
+          type: 'p',
+          text: 'Lo que hay que retener: pasar de 9/10 a 10/10 no significa necesariamente una ruptura cualitativa mayor. Significa sobre todo que la empresa cumple todos sus criterios simultáneamente, lo cual es una señal de regularidad y disciplina operativa muy elevadas. Es exigente, y es normal que pocas empresas lo consigan.'
+        },
+        {
+          type: 'h2',
+          text: 'Ejemplos concretos en nuestro screener'
+        },
+        {
+          type: 'p',
+          text: 'Veamos ejemplos reales para hacer la distinción concreta.'
+        },
+        {
+          type: 'p',
+          text: 'Acuity Brands (AYI) tiene una nota de 9/10 en nuestro screener con un P/FCF de 19,6×. Es un fabricante estadounidense de soluciones de iluminación inteligente. El ROIC es alto, el margen FCF es sólido, el balance es razonable y las recompras de acciones son regulares. El criterio que falta probablemente está relacionado con el crecimiento: el sector de la iluminación industrial experimenta una demanda cíclica y el crecimiento del FCF no ha sido perfectamente regular en todos los períodos analizados. Aun así, es una empresa muy buena.'
+        },
+        {
+          type: 'p',
+          text: 'Paychex (PAYX) tiene una nota de 9/10 con un P/FCF de aproximadamente 18×. Paychex es uno de los líderes en gestión de nóminas y recursos humanos para pymes estadounidenses. Modelo recurrente, márgenes excelentes, balance sólido. El criterio que falta es sutil, quizás una ligera irregularidad en el crecimiento del FCF durante un ejercicio específico. No cuestiona la solidez del modelo.'
+        },
+        {
+          type: 'p',
+          text: 'Bentley Systems (BSY) tiene una nota de 10/10 con un P/FCF de 22×. Es un editor de software de infraestructuras (puentes, carreteras, edificios industriales). Crecimiento regular, ROIC alto, margen FCF estructuralmente sólido, balance controlado, recompras de acciones coherentes. Los 10 criterios se cumplen simultáneamente. La valoración a 22× es moderada para este nivel de calidad.'
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies (ROP) tiene una nota de 10/10 con un P/FCF de 14×. Roper es un conglomerado industrial de nicho especializado en software e instrumentación. Modelo de crecimiento por adquisiciones disciplinadas, FCF muy regular, margen alto, balance controlado. A 14× el FCF, es uno de los 10/10 con valoración más baja del screener.'
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Ticker', 'Nota', 'P/FCF', 'Perfil'],
+          rows: [
+            ['Acuity Brands', 'AYI', '9/10', '19,6×', 'Iluminación inteligente, FCF ligeramente irregular'],
+            ['Paychex', 'PAYX', '9/10', '~18×', 'Nóminas pymes, criterio FCF fallido un año'],
+            ['Bentley Systems', 'BSY', '10/10', '22×', 'Software infraestructuras, 10 criterios cumplidos'],
+            ['Roper Technologies', 'ROP', '10/10', '14×', 'Conglomerado de nicho, FCF muy regular, valoración baja'],
+            ['ASML', 'ASML', '10/10', '51×', 'Litografía semiconductores, valoración muy elevada'],
+            ['PayPal', 'PYPL', '10/10', '8×', '10/10 con valoración excepcionalmente baja']
+          ]
+        },
+        {
+          type: 'h2',
+          text: '¿Para el stock-picking cambia realmente mucho?'
+        },
+        {
+          type: 'p',
+          text: 'La respuesta honesta es: no tanto como podría pensarse. Y esa es una de las matizaciones importantes que hay que entender si quieres usar este screener de forma inteligente.'
+        },
+        {
+          type: 'p',
+          text: 'Un 9/10 bien valorado puede fácilmente superar a un 10/10 caro. Un ejemplo teórico: una empresa 10/10 valorada a 50× su FCF y una empresa 9/10 valorada a 15× su FCF. Si ambas tienen un crecimiento similar, la segunda ofrece un margen de seguridad mucho mayor y un potencial de rentabilidad superior. La nota refleja la calidad, pero el rendimiento también depende del precio que se paga.'
+        },
+        {
+          type: 'p',
+          text: 'ASML ilustra este punto a la perfección. Es un 10/10: el líder mundial indiscutible en litografía para semiconductores, con un foso competitivo casi infranqueable. Pero a 51× el FCF, la valoración ya incorpora muchísimo optimismo. Un inversor que compra ASML hoy paga una prima muy elevada por esa calidad. No es necesariamente un error, pero es un punto a considerar seriamente.'
+        },
+        {
+          type: 'p',
+          text: 'Por el contrario, PayPal tiene una nota de 10/10 y se valoriza a solo 8× su FCF. La calidad fundamental está ahí y el mercado aplica un descuento severo por razones percibidas (ralentización del crecimiento, competencia de los wallets digitales). Es exactamente la configuración que busco: alta calidad, baja valoración.'
+        },
+        {
+          type: 'p',
+          text: 'La nota 9/10 o 10/10 es por tanto un filtro mínimo de calidad, no una garantía de rendimiento. Te indica que la empresa es sólida. Pero la rentabilidad futura también depende del precio al que la compras hoy.'
+        },
+        {
+          type: 'h2',
+          text: 'La pregunta real: calidad y valoración combinadas'
+        },
+        {
+          type: 'p',
+          text: 'Mi método se apoya en dos pilares inseparables: la calidad fundamental (medida por la nota sobre 10) y la valoración (medida por el P/FCF). Una acción que cumple ambos criterios simultáneamente es lo que busco con prioridad.'
+        },
+        {
+          type: 'p',
+          text: 'Un 10/10 con un P/FCF inferior a 20× es una configuración rara y atractiva. Roper Technologies (ROP) a 14× es un buen ejemplo. Un 9/10 con un P/FCF inferior a 20× también es muy interesante: la ligera imperfección de la nota queda ampliamente compensada por el margen de seguridad que ofrece la valoración.'
+        },
+        {
+          type: 'p',
+          text: 'En la práctica, así es como utilizo estas dos dimensiones juntas:'
+        },
+        {
+          type: 'ul',
+          items: [
+            'Nota 10/10 + P/FCF bajo (< 20×): configuración ideal, prioridad máxima.',
+            'Nota 10/10 + P/FCF alto (> 40×): calidad innegable, pero la valoración exige paciencia o un crecimiento muy sostenido para justificar el precio.',
+            'Nota 9/10 + P/FCF bajo (< 18×): muy interesante. El criterio que falta suele ser menor y la valoración ofrece un margen de seguridad real.',
+            'Nota 9/10 + P/FCF alto (> 35×): vale la pena vigilarla, no comprar con prisa.',
+            'Nota < 7/10: no le dedico tiempo, independientemente de la valoración.'
+          ]
+        },
+        {
+          type: 'p',
+          text: 'El screener disponible en <a href="/screener">lubin-investment.com/screener</a> te permite filtrar acciones por nota y P/FCF simultáneamente. Ahí es donde la distinción 9/10 vs 10/10 cobra todo su sentido: combinando las dos dimensiones, identificas rápidamente las oportunidades que merece la pena analizar primero.'
+        },
+        {
+          type: 'p',
+          text: 'La herramienta de <a href="/analyser">análisis individual</a> desglosa los 10 criterios uno a uno, te muestra cuál falla y por qué, y te da el P/FCF actual con una perspectiva histórica. Es la forma más eficaz de entender por qué una acción tiene una nota de 9/10 en lugar de 10/10.'
+        }
+      ],
+      faq: [
+        {
+          q: '¿Qué significa un 10/10 en vuestro screener?',
+          a: 'Un 10/10 significa que la empresa cumple simultáneamente los 10 criterios fundamentales: ROIC alto, crecimiento regular del free cash flow, margen FCF alto, balance saneado, recompras de acciones coherentes, rentabilidad duradera, crecimiento del volumen de negocio, margen operativo estable, resultados predecibles y creación de valor a largo plazo para el accionista. Es raro: entre más de 5.000 acciones analizadas, solo una pequeña minoría alcanza esta puntuación.'
+        },
+        {
+          q: '¿Es un 9/10 realmente inferior a un 10/10?',
+          a: 'No necesariamente en términos de calidad real. Un 9/10 significa que un criterio no se cumple, a menudo por una razón puntual: un año con FCF ligeramente a la baja, una deuda temporalmente alta o recompras insuficientes un año. La diferencia cualitativa puede ser muy pequeña. Lo que importa en igual medida es la valoración: un 9/10 bien valorado puede superar a un 10/10 muy caro.'
+        },
+        {
+          q: '¿Por qué ASML tiene una nota de 10/10 si es tan cara?',
+          a: 'La nota mide la calidad fundamental, no la valoración. ASML cumple los 10 criterios: ROIC muy alto, crecimiento regular del FCF, margen FCF excepcional, balance sólido, recompras de acciones. Su P/FCF de alrededor de 51× refleja una prima de calidad muy elevada. La nota y la valoración son dos dimensiones separadas en nuestro método.'
+        },
+        {
+          q: '¿Cómo encontrar acciones bien valoradas y con buena nota?',
+          a: 'El screener de lubin-investment.com te permite filtrar simultáneamente por nota (por ejemplo, solo 9/10 y 10/10) y por P/FCF (por ejemplo, inferior a 20×). La combinación de ambas dimensiones es la que crea las oportunidades más interesantes. Luego puedes analizar cada acción individualmente para entender qué criterio falta y por qué.'
+        }
+      ],
+      tags: ['análisis fundamental', 'método', 'calidad', 'screener', 'stock-picking'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a fecha de publicación, sujetas a cambios. Haz tu propia investigación antes de tomar cualquier decisión.'
+    }
+  }
+};
+
+
+const articleMU: Article = {
+  slug: 'micron-mu-avant-resultats-24-juin-2026',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'MU',
+  content: {
+    fr: {
+      title: 'Micron Technology (MU) : notre analyse avant le 24 juin 2026',
+      excerpt: "Dans deux jours, Micron publie ses résultats trimestriels au milieu d\'une euphorie autour de l\'IA. Les analystes attendent une explosion des bénéfices. Alors pourquoi notre méthode ne donne que 6 sur 10 ? Je t\'explique tout.",
+      metaDescription: "Micron Technology publie ses résultats le 24 juin 2026. Analyse complète : boom HBM, valorisation élevée, et pourquoi notre méthode attribue 6 sur 10 malgré l\'euphorie IA.",
+      answer: "Micron bénéficie d\'une demande explosive pour la mémoire HBM liée à l\'IA, avec des résultats attendus en forte hausse. Mais notre méthode attribue 6 sur 10 car les cycliques comme Micron affichent une volatilité historique qui pénalise les critères de régularité et de valorisation.",
+      body: [
+        { type: 'ul', items: [
+          "Résultats Q3 FY2026 attendus le 24 juin 2026 : bénéfice par action en hausse de +997 % et chiffre d\'affaires en hausse de +276 % sur un an selon les analystes.",
+          "La mémoire HBM (High Bandwidth Memory) est devenue indispensable pour les puces IA comme les H100 et B200 de Nvidia, et Micron en est l\'un des trois producteurs mondiaux.",
+          "Notre méthode attribue 6 sur 10 à Micron : le boom IA est réel, mais les cyclicités passées pèsent sur les critères de régularité des flux de trésorerie et de croissance.",
+          "Le ratio prix sur flux de trésorerie disponible affiche une valorisation de 148 fois : très élevé comparé aux entreprises de qualité qui se valorisent entre 12 et 25 fois.",
+          "Deux scénarios pour le 24 juin : euphorie si les résultats dépassent les attentes, ou correction sévère si les perspectives déçoivent.",
+        ] },
+        { type: 'h2', text: 'Le boom IA de Micron : des chiffres à couper le souffle' },
+        { type: 'p', text: "Quand on regarde les prévisions des analystes pour le trimestre qui se clôture le 24 juin 2026, les chiffres donnent le vertige. Le bénéfice par action est attendu en hausse de près de 997 % sur un an. Le chiffre d\'affaires, lui, devrait progresser de l\'ordre de 276 % sur la même période. Ce n\'est pas une erreur de saisie : c\'est l\'effet combiné d\'un cycle mémoire favorable et d\'une demande explosive pour la mémoire HBM portée par l\'essor de l\'intelligence artificielle générative. Il y a deux ans, Micron traversait une période de pertes massives. Aujourd\'hui, la même entreprise affiche une marge nette de 41,5 % et une marge de flux de trésorerie disponible de 15,8 %. C\'est précisément ce caractère cyclique qui rend l\'analyse de Micron si intéressante et si délicate à la fois." },
+        { type: 'h2', text: 'Pourquoi notre méthode donne 6 sur 10 malgré le boom' },
+        { type: 'p', text: "Notre méthode repose sur dix critères fondamentaux qui évaluent la qualité structurelle d\'une entreprise sur le long terme : régularité de la croissance des revenus sur cinq ans, stabilité des flux de trésorerie disponible, politique de rachat d\'actions soutenue, niveau d\'endettement maîtrisé, rentabilité persistante, et valorisation raisonnable par rapport aux flux générés. Micron coche certaines de ces cases avec brio aujourd\'hui, notamment la rentabilité récente et la croissance spectaculaire. Mais sur cinq ans, l\'historique raconte une autre histoire : des pertes nettes en 2023 et 2024, des flux de trésorerie disponible négatifs sur plusieurs exercices, et des rachats d\'actions inexistants pendant les périodes creuses du cycle. Ce n\'est pas un jugement sur la qualité du management ou du produit, c\'est simplement la réalité des entreprises cycliques : elles ne passent pas nos filtres de régularité, même au sommet du cycle. La note de 6 sur 10 reflète exactement cela : un profil intéressant, mais pas encore celui d\'une entreprise compoundeuse au sens strict." },
+        { type: 'h2', text: "Qu\'est-ce que la mémoire HBM et pourquoi ça change tout pour l\'IA" },
+        { type: 'p', text: "La mémoire HBM, ou High Bandwidth Memory, est une technologie de mémoire qui empile plusieurs couches de puces les unes sur les autres pour obtenir une bande passante très élevée dans un espace très compact. Concrètement, les processeurs graphiques utilisés pour entraîner les modèles d\'IA comme les GPU H100 ou B200 de Nvidia ont besoin de déplacer des quantités colossales de données à une vitesse extrême. La mémoire classique de type DDR ne suffit plus : c\'est là qu\'intervient la HBM. Aujourd\'hui, seulement trois entreprises dans le monde sont capables de produire cette mémoire à grande échelle : Samsung, SK Hynix, et Micron. Cette position d\'oligopole est l\'une des raisons pour lesquelles les investisseurs sont prêts à payer une prime très élevée pour détenir des actions Micron." },
+        { type: 'h2', text: 'La valorisation de Micron : ce que révèle le ratio prix sur flux de trésorerie' },
+        { type: 'p', text: "Le ratio prix sur flux de trésorerie disponible est l\'un des indicateurs que j\'utilise le plus dans ma méthode. Il répond à une question simple : combien d\'années de flux de trésorerie disponible le marché est-il prêt à payer pour posséder cette entreprise ? À 148 fois, Micron affiche une valorisation de 148 fois ses flux de trésorerie annuels actuels. Pour te donner un point de comparaison, les entreprises que je considère comme de haute qualité se valorisent généralement entre 12 et 25 fois leurs flux de trésorerie. À 148 fois, le marché intègre donc un scénario de croissance très optimiste sur une très longue période, avec très peu de marge d\'erreur." },
+        { type: 'h2', text: 'Deux scénarios pour le 24 juin' },
+        { type: 'p', text: "Le 24 juin 2026 sera une journée à surveiller de très près. Le premier scénario est celui de résultats qui battent les attentes : explosion des revenus HBM, perspectives solides pour le trimestre suivant, discours rassurant sur la demande IA à long terme. Dans ce cas, le titre pourrait progresser, mais une bonne partie de ces bonnes nouvelles est déjà intégrée dans le cours actuel. Le deuxième scénario est celui d\'une déception sur les perspectives. Si le management évoque un ralentissement de la demande HBM, une pression sur les prix, ou des problèmes de capacité, la correction pourrait être sévère. À 148 fois les flux de trésorerie, le droit à l\'erreur est quasi inexistant." },
+        { type: 'table', headers: ['Critère', 'Micron (MU)', 'Entreprise de qualité type'], rows: [
+          ['Note screener', '6 sur 10', '8 à 10 sur 10'],
+          ['Valorisation (flux de trésorerie)', '148 fois', '12 à 25 fois'],
+          ['Marge nette', '41,5 %', '20 à 40 %'],
+          ['Régularité croissance (5 ans)', 'Très irrégulière', 'Régulière et prévisible'],
+          ['Flux de trésorerie historique', 'Négatif en 2023 et 2024', 'Positif et croissant'],
+        ] },
+        { type: 'h2', text: 'Ce que je retiens avant le 24 juin' },
+        { type: 'p', text: "Micron est l\'un des dossiers les plus fascinants à suivre en ce moment, précisément parce qu\'il incarne la tension entre une opportunité sectorielle réelle et une valorisation qui laisse peu de place à la déception. Le boom de l\'IA est une réalité concrète, la demande HBM est structurellement forte, et Micron est bien positionné pour en bénéficier. Mais investir, ce n\'est pas seulement identifier une bonne tendance : c\'est aussi évaluer le prix qu\'on paie pour y participer. Mon rôle avec cette méthode n\'est pas de te dire quoi acheter ou vendre, mais de t\'aider à comprendre ce que les chiffres racontent réellement. Tu peux consulter l\'analyse complète sur la <a href=\'/analyse/MU\'>page dédiée à MU</a>." },
+      ],
+      faq: [
+        { q: "Qu\'est-ce que la mémoire HBM et pourquoi est-elle stratégique ?", a: "La mémoire HBM (High Bandwidth Memory) est une technologie qui empile des couches de puces mémoire pour offrir une très grande bande passante dans un espace réduit. Elle est indispensable pour les GPU utilisés dans l\'entraînement des modèles d\'intelligence artificielle. Seuls trois producteurs mondiaux la maîtrisent à grande échelle, ce qui confère à Micron une position stratégique." },
+        { q: "Pourquoi Micron n\'obtient que 6 sur 10 malgré le boom IA ?", a: "Notre méthode évalue la qualité structurelle d\'une entreprise sur le long terme. Micron a affiché des pertes nettes et des flux de trésorerie négatifs en 2023 et 2024. Cette irrégularité historique pénalise les critères de régularité de la croissance et de stabilité des flux, aboutissant à 6 sur 10 même en période de forte rentabilité." },
+        { q: "Que signifie une valorisation de 148 fois les flux de trésorerie ?", a: "Cela signifie que le prix actuel représente 148 années de flux de trésorerie au niveau actuel. Pour comparaison, les entreprises de haute qualité se valorisent généralement entre 12 et 25 fois. À 148 fois, le marché parie sur une croissance très forte et très longue, avec une marge d\'erreur quasi nulle." },
+        { q: "Faut-il acheter avant les résultats du 24 juin ?", a: "Ce n\'est pas un conseil en investissement. Une grande partie des bonnes nouvelles est déjà intégrée dans le cours. Si les résultats dépassent les attentes, la hausse pourrait être limitée. En revanche, une déception pourrait provoquer une correction sévère compte tenu de la valorisation. Fais tes propres recherches." },
+      ],
+      tags: ['Micron Technology', 'MU', 'semiconducteurs', 'IA', 'HBM', 'analyse fondamentale'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Micron Technology (MU): our analysis before June 24, 2026',
+      excerpt: 'In two days, Micron reports quarterly earnings amid an AI frenzy. Analysts expect an earnings explosion. So why does our method score it only 6 out of 10? I break it all down.',
+      metaDescription: 'Micron Technology reports earnings on June 24, 2026. Full analysis: HBM boom, stretched valuation, and why our method scores 6 out of 10 despite AI euphoria.',
+      answer: 'Micron benefits from explosive HBM memory demand driven by AI, with results expected to surge sharply. Our method scores it 6 out of 10 because cyclicals like Micron show historical volatility that penalizes our consistency and valuation criteria.',
+      body: [
+        { type: 'ul', items: [
+          'Q3 FY2026 results expected June 24, 2026: earnings per share up +997% and revenue up +276% year-over-year per analyst consensus.',
+          'HBM (High Bandwidth Memory) has become essential for AI chips like Nvidia H100 and B200, and Micron is one of only three global producers.',
+          'Our method scores Micron 6 out of 10: the AI boom is real, but past cyclicality weighs on our cash flow consistency and growth criteria.',
+          'Price-to-free-cash-flow shows a valuation of 148 times: very high compared to quality companies typically at 12 to 25 times.',
+          'Two scenarios for June 24: euphoria if results beat expectations, or sharp correction if guidance disappoints.',
+        ] },
+        { type: 'h2', text: "Micron's AI boom: staggering numbers" },
+        { type: 'p', text: "Analyst forecasts for the quarter ending June 24, 2026 are breathtaking. Earnings per share are expected up nearly 997% year-over-year. Revenue is projected to grow around 276% over the same period. This is the combined effect of a favorable memory cycle and explosive HBM demand driven by generative AI. Two years ago, Micron was posting massive losses. Today, the same company reports a 41.5% net margin and a 15.8% free cash flow margin. That cyclical nature makes Micron both fascinating and tricky to analyze." },
+        { type: 'h2', text: 'Why our method scores 6 out of 10 despite the boom' },
+        { type: 'p', text: "Our method rests on ten fundamental criteria assessing structural quality over the long term: revenue growth consistency over five years, free cash flow stability, sustained buyback programs, controlled debt, persistent profitability, and reasonable valuation relative to cash generated. Micron excels on some criteria today, especially recent profitability and spectacular growth. But over five years, history tells a different story: net losses in 2023 and 2024, negative free cash flow over several fiscal years, and no buybacks during lean cycle years. The 6 out of 10 reflects exactly that: an interesting profile, but not yet a true compounder by our strict standards." },
+        { type: 'h2', text: 'What is HBM memory and why it matters for AI' },
+        { type: 'p', text: "HBM (High Bandwidth Memory) stacks multiple layers of memory chips to deliver very high bandwidth in a compact space. The graphics processors used to train AI models like Nvidia H100 and B200 GPUs need to move colossal amounts of data at extreme speed, and standard DDR memory is no longer sufficient. Only three companies worldwide produce HBM at scale: Samsung, SK Hynix, and Micron. This oligopoly position is why investors are willing to pay a very high premium for Micron shares." },
+        { type: 'h2', text: "Micron's valuation: what the price-to-free-cash-flow ratio reveals" },
+        { type: 'p', text: "The price-to-free-cash-flow ratio answers a simple question: how many years of free cash flow is the market willing to pay? At 148 times, Micron shows a valuation of 148 times its current annual free cash flows. For comparison, the high-quality companies I follow typically trade at 12 to 25 times. At 148 times, the market prices in a very optimistic growth scenario over a very long period, with very little room for error." },
+        { type: 'h2', text: 'Two scenarios for June 24' },
+        { type: 'p', text: "The first scenario is results beating expectations: HBM revenue explosion, solid next-quarter guidance, reassuring AI demand commentary. The stock could rise, but much good news is already priced in. The second scenario is guidance disappointment. If management signals HBM demand slowdown, DRAM pricing pressure, or capacity constraints, the correction could be severe. At 148 times free cash flow, the margin for error is essentially zero." },
+        { type: 'table', headers: ['Criterion', 'Micron (MU)', 'Typical quality company'], rows: [
+          ['Screener score', '6 out of 10', '8 to 10 out of 10'],
+          ['Valuation (free cash flow)', '148 times', '12 to 25 times'],
+          ['Net margin', '41.5%', '20% to 40%'],
+          ['Revenue growth consistency (5 years)', 'Very irregular', 'Regular and predictable'],
+          ['Historical free cash flow', 'Negative in 2023 and 2024', 'Positive and growing'],
+        ] },
+        { type: 'h2', text: 'My takeaway before June 24' },
+        { type: 'p', text: "Micron is one of the most fascinating cases to follow right now, embodying the tension between a real sectoral opportunity and a valuation that leaves little room for disappointment. The AI boom is real, HBM demand is structurally strong, and Micron is well-positioned. But investing is not just about identifying a good trend: it is also about evaluating the price you pay. My role with this method is not to tell you what to buy, but to help you understand what the numbers actually say. You can see the full analysis on the <a href='/analyse/MU'>MU analysis page</a>." },
+      ],
+      faq: [
+        { q: 'What is HBM memory and why is it strategic?', a: 'HBM (High Bandwidth Memory) stacks memory chip layers to deliver very high bandwidth in a compact space. It is essential for AI training GPUs like the Nvidia H100 and B200. Only three producers worldwide master this at scale, giving Micron a strategic position in the AI value chain.' },
+        { q: 'Why does Micron only score 6 out of 10 despite the AI boom?', a: 'Our method evaluates structural quality over the long term. Micron posted net losses and negative free cash flow in 2023 and 2024. This historical irregularity penalizes our revenue growth consistency and cash flow stability criteria, resulting in 6 out of 10 even during strong profitability.' },
+        { q: 'What does a valuation of 148 times free cash flow mean?', a: 'It means the current share price represents 148 years of free cash flow at the current level. Quality companies typically trade at 12 to 25 times. At 148 times, the market bets on very strong, very long growth with essentially no margin for error if results or guidance disappoint.' },
+        { q: 'Should we buy before the June 24 results?', a: 'This is not investment advice. Much good news is already priced in. If results beat expectations, the upside may be limited. A guidance disappointment could trigger a sharp correction given the current valuation. Do your own research.' },
+      ],
+      tags: ['Micron Technology', 'MU', 'semiconductors', 'AI', 'HBM', 'fundamental analysis'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Micron Technology (MU): análisis antes del 24 de junio de 2026',
+      excerpt: 'En dos días, Micron publica sus resultados trimestrales en medio de una euforia por la IA. Los analistas esperan una explosión de beneficios. ¿Por qué nuestro método solo le da 6 sobre 10? Te lo explico.',
+      metaDescription: 'Micron Technology publica resultados el 24 de junio de 2026. Análisis completo: boom HBM, valoración elevada, y por qué nuestro método le otorga 6 sobre 10 pese a la euforia por la IA.',
+      answer: 'Micron se beneficia de una demanda explosiva de memoria HBM impulsada por la IA. Pero nuestro método le otorga 6 sobre 10 porque las cíclicas como Micron muestran una volatilidad histórica que penaliza los criterios de regularidad y valoración.',
+      body: [
+        { type: 'ul', items: [
+          'Resultados Q3 FY2026 previstos el 24 de junio de 2026: beneficio por acción esperado con un alza de +997 % y facturación con un alza de +276 % interanual.',
+          'La memoria HBM (High Bandwidth Memory) es indispensable para los chips de IA como el H100 y B200 de Nvidia, y Micron es uno de los tres únicos productores mundiales.',
+          'Nuestro método otorga a Micron un 6 sobre 10: el boom de la IA es real, pero la ciclicidad pasada pesa sobre los criterios de regularidad de los flujos de caja y del crecimiento.',
+          'El ratio precio sobre flujo de caja libre muestra una valoración de 148 veces: muy elevada comparada con empresas de calidad que suelen valorarse entre 12 y 25 veces.',
+          'Dos escenarios para el 24 de junio: euforia si los resultados superan expectativas, o corrección severa si las perspectivas decepcionan.',
+        ] },
+        { type: 'h2', text: 'El boom de la IA en Micron: cifras que quitan el aliento' },
+        { type: 'p', text: "Las previsiones de los analistas para el trimestre que cierra el 24 de junio de 2026 son impresionantes. El beneficio por acción se espera con un alza de casi el 997 % interanual. La facturación debería crecer alrededor de un 276 %. Es el efecto combinado de un ciclo de memoria favorable y una demanda explosiva de memoria HBM por el auge de la inteligencia artificial generativa. Hace dos años, Micron registraba pérdidas masivas. Hoy, la misma empresa presenta un margen neto del 41,5 % y un margen de flujo de caja libre del 15,8 %. Es precisamente ese carácter cíclico lo que hace el análisis de Micron tan fascinante y tan delicado." },
+        { type: 'h2', text: 'Por qué nuestro método da 6 sobre 10 pese al boom' },
+        { type: 'p', text: "Nuestro método se basa en diez criterios fundamentales que evalúan la calidad estructural de una empresa a largo plazo. Micron cumple algunos de estos criterios brillantemente hoy, especialmente la rentabilidad reciente y el crecimiento espectacular. Pero en cinco años, el historial cuenta otra historia: pérdidas netas en 2023 y 2024, flujos de caja libres negativos durante varios ejercicios y ausencia de recompras de acciones durante los años bajos del ciclo. La nota de 6 sobre 10 refleja exactamente eso." },
+        { type: 'h2', text: 'Qué es la memoria HBM y por qué lo cambia todo para la IA' },
+        { type: 'p', text: "La memoria HBM apila varias capas de chips de memoria para obtener un ancho de banda muy elevado en un espacio muy reducido. Los GPU utilizados para entrenar modelos de IA necesitan mover cantidades colosales de datos a velocidad extrema, y la memoria DDR convencional ya no es suficiente. Solo tres empresas en el mundo producen HBM a gran escala: Samsung, SK Hynix y Micron. Esta posición de oligopolio explica la prima que los inversores están dispuestos a pagar." },
+        { type: 'h2', text: 'La valoración de Micron: lo que revela el ratio' },
+        { type: 'p', text: "El ratio precio sobre flujo de caja libre responde a una pregunta simple: ¿cuántos años de flujo de caja libre está dispuesto a pagar el mercado? Con 148 veces, Micron muestra una valoración de 148 veces sus flujos de caja anuales actuales. Para comparar, las empresas de alta calidad suelen valorarse entre 12 y 25 veces. A 148 veces, el mercado descuenta un escenario de crecimiento muy optimista con margen de error prácticamente inexistente." },
+        { type: 'h2', text: 'Dos escenarios para el 24 de junio' },
+        { type: 'p', text: "El primer escenario es el de resultados que superan las expectativas: explosión de ingresos HBM, perspectivas sólidas, discurso tranquilizador. El título podría subir, pero buena parte de las buenas noticias ya está en el precio. El segundo escenario es el de una decepción en las perspectivas. Si el equipo directivo menciona desaceleración de la demanda HBM o presión sobre precios, la corrección podría ser severa. A 148 veces el flujo de caja, el margen de error es prácticamente nulo." },
+        { type: 'table', headers: ['Criterio', 'Micron (MU)', 'Empresa de calidad tipo'], rows: [
+          ['Nota screener', '6 sobre 10', '8 a 10 sobre 10'],
+          ['Valoración (flujo de caja)', '148 veces', '12 a 25 veces'],
+          ['Margen neto', '41,5 %', '20 % a 40 %'],
+          ['Regularidad del crecimiento (5 años)', 'Muy irregular', 'Regular y predecible'],
+          ['Flujo de caja histórico', 'Negativo en 2023 y 2024', 'Positivo y creciente'],
+        ] },
+        { type: 'h2', text: 'Lo que me llevo antes del 24 de junio' },
+        { type: 'p', text: "Micron es uno de los expedientes más fascinantes de seguir ahora mismo, porque encarna la tensión entre una oportunidad sectorial real y una valoración que deja muy poco margen para la decepción. El boom de la IA es real, la demanda HBM es estructuralmente sólida, y Micron está bien posicionada. Pero invertir no es solo identificar una buena tendencia: también es evaluar el precio que se paga. Puedes consultar el análisis completo en la <a href='/analyse/MU'>página de análisis de MU</a>." },
+      ],
+      faq: [
+        { q: '¿Qué es la memoria HBM y por qué es estratégica?', a: 'La memoria HBM apila capas de chips de memoria para ofrecer un ancho de banda muy elevado en un espacio reducido. Es indispensable para los GPU de entrenamiento de IA como el H100 y B200 de Nvidia. Solo tres productores mundiales dominan esto a gran escala, otorgando a Micron una posición estratégica.' },
+        { q: '¿Por qué Micron solo obtiene 6 sobre 10 pese al boom de la IA?', a: 'Nuestro método evalúa la calidad estructural a largo plazo. Micron registró pérdidas netas y flujos de caja negativos en 2023 y 2024. Esta irregularidad histórica penaliza los criterios de regularidad del crecimiento y estabilidad de los flujos, resultando en 6 sobre 10 incluso en período de alta rentabilidad.' },
+        { q: '¿Qué significa una valoración de 148 veces el flujo de caja?', a: 'Significa que el precio actual representa 148 años de flujo de caja al nivel actual. Las empresas de alta calidad suelen valorarse entre 12 y 25 veces. A 148 veces, el mercado apuesta por crecimiento muy fuerte y prolongado, con margen de error prácticamente nulo.' },
+        { q: '¿Hay que comprar antes de los resultados del 24 de junio?', a: 'Esto no es un consejo de inversión. Gran parte de las buenas noticias ya está en el precio. Una decepción podría desencadenar una corrección severa dada la valoración actual. Haz tu propia investigación.' },
+      ],
+      tags: ['Micron Technology', 'MU', 'semiconductores', 'IA', 'HBM', 'análisis fundamental'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación.',
+    },
+  },
+};
+
+const nikeNKE: Article = {
+  slug: 'nike-nke-avant-resultats-q4-fy2026-analyse-fondamentale',
+  date: '2026-06-22',
+  updated: '2026-06-22',
+  readingTime: 7,
+  ticker: 'NKE',
+  content: {
+    fr: {
+      title: 'Nike (NKE) : notre analyse avant les résultats du 30 juin',
+      excerpt: "Nike est la marque de sport la plus connue au monde. Mais une marque iconique et une entreprise solide, ce n\'est pas la même chose. Voici ce que disent vraiment les chiffres, huit jours avant ses résultats.",
+      metaDescription: "Nike publie ses résultats le 30 juin 2026. Analyse fondamentale complète : marge, croissance, valorisation, retour d\'Elliott Hill. La marque et les fondamentaux, ce n\'est pas pareil.",
+      answer: "Nike est l\'une des marques les plus puissantes du monde, mais ses fondamentaux financiers racontent une autre histoire : croissance des revenus nulle sur cinq ans, marge de flux de trésorerie de 0,7 % et valorisation très élevée. Notre screener lui donne 3 sur 10. Pas parce que Nike est une mauvaise entreprise, mais parce que ses chiffres actuels ne passent pas nos critères de qualité.",
+      body: [
+        { type: 'ul', items: [
+          "Les résultats Q4 FY2026 sont attendus le 30 juin 2026, dans huit jours.",
+          "Notre screener attribue à Nike une note de 3 sur 10 : une des plus basses pour une entreprise de cette notoriété.",
+          "La marge de flux de trésorerie disponible ressort à 0,7 % : sur 100 euros de ventes, moins de 1 euro finit en cash réel.",
+          "La croissance des revenus est nulle sur cinq ans, et le flux de trésorerie par action recule de 17,7 % par an.",
+          "On analyse même les notes basses : comprendre pourquoi Nike ne passe pas nos critères est au moins aussi utile que comprendre pourquoi Kinsale les passe tous.",
+        ] },
+        { type: 'h2', text: "Nike, c\'est quoi vraiment comme business ?" },
+        { type: 'p', text: "Nike est le numéro un mondial de la chaussure et du vêtement de sport. La marque au swoosh habille les athlètes depuis 1964, et son nom est l\'un des rares que tout le monde reconnaît dans n\'importe quel pays. Mais derrière cette notoriété, il y a un business concret qu\'il faut comprendre avant de regarder les chiffres. Nike ne fabrique pratiquement rien. Elle conçoit, elle commercialise, elle distribue. Ses usines sont chez des sous-traitants, principalement en Asie. Ce modèle a longtemps été une force, mais il crée aussi une dépendance aux chaînes logistiques mondiales." },
+        { type: 'p', text: "Sur le mode de distribution, Nike a connu une transformation profonde. Pendant des années, l\'entreprise vendait principalement en gros à des revendeurs multimarques. Puis elle a décidé de pousser sa vente directe au consommateur, le DTC : ses propres boutiques, son application, son site. Le pari était séduisant sur le papier. L\'exécution, elle, a été douloureuse." },
+        { type: 'h2', text: 'Pourquoi notre screener donne une note basse à Nike' },
+        { type: 'p', text: "Notre méthode repose sur 10 critères de qualité fondamentale. On ne juge pas une entreprise à son nom ou à sa réputation. On regarde ce que les chiffres disent réellement. Sur ces critères, Nike déçoit sur plusieurs points. Le premier, le plus frappant : la marge de flux de trésorerie disponible. Elle ressort à 0,7 %. Ce ratio mesure combien d\'euros de cash une entreprise garde réellement sur 100 euros de ventes. À 0,7 %, Nike génère moins d\'un euro de cash pour cent euros encaissés. La plupart des entreprises que nous considérons comme de qualité affichent une marge supérieure à 10 %." },
+        { type: 'p', text: "Le deuxième signal : la croissance des revenus. Sur cinq ans, Nike affiche 0,0 % de croissance annuelle. Une entreprise qui stagne n\'est pas nécessairement mauvaise, mais dans un marché du sport qui croît, c\'est le signe d\'une perte de part de marché ou d\'une exécution difficile. Le troisième critère défaillant : le flux de trésorerie par action recule de 17,7 % par an sur cinq ans. Quand le cash disponible par actionnaire diminue année après année, l\'entreprise détruit de la valeur." },
+        { type: 'table', headers: ['Critère', 'Nike (NKE)', 'Entreprise de qualité type'], rows: [
+          ['Marge de flux de trésorerie', '0,7 %', '> 10 %'],
+          ['Croissance des revenus (5 ans)', '0,0 % / an', '> 10 % / an'],
+          ['Croissance flux de trésorerie / action', '- 17,7 % / an', '> 10 % / an'],
+          ['Valorisation (flux de trésorerie)', '196 fois', '15 à 30 fois'],
+          ['Note qualité', '3 sur 10', '10 sur 10'],
+        ] },
+        { type: 'h2', text: "La valorisation de Nike : ce que dit notre calcul" },
+        { type: 'p', text: "Pour mesurer ce que le marché accepte de payer, nous utilisons le ratio qui divise la capitalisation boursière par le flux de trésorerie disponible. Nike affiche une valorisation de 196 fois son flux de trésorerie. Pour comparaison, une entreprise raisonnablement valorisée se valorise généralement entre 15 et 30 fois. À 196 fois, le marché n\'achète pas Nike telle qu\'elle est aujourd\'hui : il achète Nike telle qu\'il espère qu\'elle sera demain. Notre calcul fait ressortir une surcote de 91,2 %, avec une capitalisation boursière d\'environ 68,5 milliards de dollars." },
+        { type: 'h2', text: "Le retour d\'Elliott Hill : peut-il changer la donne ?" },
+        { type: 'p', text: "En octobre 2024, Nike a nommé Elliott Hill à sa tête. Il a passé plus de trente ans chez Nike, y a commencé comme stagiaire, et connaît la maison de l\'intérieur. Son retour marque un changement de cap visible : réduction des promotions, réconciliation avec les revendeurs multimarques, et retour à la performance sportive pure. Ces mouvements vont dans le bon sens. Mais ils prennent du temps. Les effets ne sont pas encore visibles dans les chiffres." },
+        { type: 'h2', text: 'Les résultats du 30 juin : deux scénarios' },
+        { type: 'p', text: "Les attentes sont basses après plusieurs trimestres difficiles. Premier scénario : les résultats déçoivent encore. La valorisation, déjà très élevée, deviendrait encore plus difficile à justifier. Deuxième scénario : les résultats surprennent positivement. Les premiers signes de stabilisation de la marge ou de retour de croissance pourraient confirmer le retournement attendu. La stock a de la place pour rebondir fort précisément parce que les attentes sont basses. Dans les deux cas : Nike est une marque exceptionnelle, mais les fondamentaux actuels ne justifient pas la valorisation." },
+        { type: 'h2', text: 'La leçon de méthode : marque ne signifie pas qualité fondamentale' },
+        { type: 'p', text: "Nike illustre parfaitement le piège le plus courant en investissement : confondre la qualité de la marque et la qualité financière de l\'entreprise. Une marque forte signifie que les consommateurs choisissent ton produit plutôt qu\'un autre. Mais ça ne garantit pas une marge élevée, une croissance solide, ou un cash abondant. C\'est exactement pourquoi nous avons construit un screener basé sur des critères financiers objectifs et non sur la réputation. Le nom sur la chaussure ne dit rien du flux de trésorerie à l\'intérieur des comptes. Tu peux consulter les données complètes sur la <a href=\'/analyse/NKE\'>page d\'analyse Nike</a>." },
+      ],
+      faq: [
+        { q: "Pourquoi Nike a-t-elle une note basse si c\'est une si grande marque ?", a: "Parce que nous notons la qualité financière du business, pas la force de la marque. Nike a une marque exceptionnelle, mais ses chiffres actuels montrent une marge de flux de trésorerie très faible (0,7 %), une croissance nulle des revenus sur cinq ans et un flux de trésorerie par action en recul." },
+        { q: "Qu\'est-ce que la marge de flux de trésorerie et pourquoi est-ce important ?", a: "C\'est le pourcentage du chiffre d\'affaires qui se transforme en cash réellement disponible, après avoir payé toutes les dépenses. À 0,7 %, sur 100 euros de ventes, moins de 1 euro finit en cash. La plupart des entreprises de qualité dépassent 10 %." },
+        { q: "Elliott Hill peut-il redresser Nike ?", a: "C\'est possible. Il va dans la bonne direction, mais un redressement de cette ampleur prend plusieurs années, et les effets ne sont pas encore visibles dans les chiffres. Le marché valorise aujourd\'hui l\'espoir de ce retournement, pas les résultats actuels." },
+        { q: "Faut-il acheter l\'action Nike avant les résultats du 30 juin ?", a: "Nous ne donnons pas de conseil en investissement. Les attentes sont basses, donc une bonne surprise peut créer un rebond fort, mais les fondamentaux actuels ne justifient pas la valorisation selon nos critères. Fais tes propres recherches." },
+      ],
+      tags: ['Nike', 'NKE', 'résultats', 'analyse fondamentale', 'marque', 'bourse'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Nike (NKE): our analysis before the June 30 earnings',
+      excerpt: 'Nike is the most recognizable sports brand in the world. But an iconic brand and a solid business are not the same thing. Here is what the numbers actually say, eight days before earnings.',
+      metaDescription: 'Nike reports earnings on June 30, 2026. Full fundamental analysis: margin, growth, valuation, Elliott Hill return. The brand and the fundamentals are two different things.',
+      answer: "Nike is one of the world's most powerful brands, but its financial fundamentals tell a different story: zero revenue growth over five years, a 0.7% free cash flow margin, and a very high valuation. Our screener gives it 3 out of 10. Not because Nike is bad, but because its current numbers do not pass our quality criteria.",
+      body: [
+        { type: 'ul', items: [
+          'Q4 FY2026 earnings expected June 30, 2026, eight days from now.',
+          'Our screener gives Nike 3 out of 10: one of the lowest scores for a company of this profile.',
+          'Free cash flow margin: 0.7%. Out of 100 dollars of sales, less than 1 dollar ends up as real cash.',
+          'Revenue growth is zero over five years, and free cash flow per share declines 17.7% annually.',
+          'We analyze low scores too: understanding why Nike fails our criteria is at least as valuable as understanding why Kinsale passes them all.',
+        ] },
+        { type: 'h2', text: 'What is Nike as a business?' },
+        { type: 'p', text: "Nike is the world's number one in athletic footwear and apparel. The swoosh brand has dressed athletes since 1964, and its name is recognized everywhere. But behind that fame, there is a real business to understand before looking at the numbers. Nike barely manufactures anything: it designs, markets, and distributes. Its factories belong to subcontractors, mostly in Asia. This model was long a strength but creates supply chain dependencies." },
+        { type: 'p', text: "On distribution, Nike went through a deep transformation. For years it sold mainly wholesale to multi-brand retailers. Then it pushed its direct-to-consumer model. The bet looked attractive on paper, higher margins, richer customer data. The execution proved painful." },
+        { type: 'h2', text: 'Why our screener gives Nike a low score' },
+        { type: 'p', text: "Our method rests on 10 fundamental quality criteria. We do not judge companies by name or reputation. On those criteria, Nike falls short. The most striking: its free cash flow margin stands at 0.7%. This ratio measures how much cash the company keeps per 100 dollars of sales. At 0.7%, Nike generates less than 1 dollar of real cash per 100 collected. Most quality companies exceed 10%. The best exceed 30%." },
+        { type: 'p', text: "Second warning: revenue growth. Over five years, Nike shows 0.0% annual growth. In a growing sports market, that signals market share loss or poor execution, or both. Third failing criterion: free cash flow per share declining 17.7% per year over five years. When cash available per shareholder shrinks year after year, the company destroys value even if it looks profitable on paper." },
+        { type: 'table', headers: ['Criterion', 'Nike (NKE)', 'Quality company benchmark'], rows: [
+          ['Free cash flow margin', '0.7%', '> 10%'],
+          ['Revenue growth (5 years)', '0.0% / year', '> 10% / year'],
+          ['FCF per share growth', '-17.7% / year', '> 10% / year'],
+          ['Valuation (free cash flow)', '196 times', '15 to 30 times'],
+          ['Quality score', '3 out of 10', '10 out of 10'],
+        ] },
+        { type: 'h2', text: "Nike's valuation: what our calculation shows" },
+        { type: 'p', text: "We measure market willingness to pay by dividing market cap by annual free cash flow. Nike shows a valuation of 196 times. For comparison, companies we consider reasonably priced trade at 15 to 30 times. At 196 times, the market is not buying Nike as it is today: it is buying Nike as it hopes it will be tomorrow. Our valuation model shows a 91.2% premium to fair value, with a market cap around 68.5 billion dollars." },
+        { type: 'h2', text: "Elliott Hill's return: can he change the picture?" },
+        { type: 'p', text: "In October 2024, Nike appointed Elliott Hill as CEO. He spent over thirty years at Nike, starting as an intern, and knows the company from the inside. His predecessor John Donahoe came from tech and accelerated the DTC shift with disappointing results. Hill is reducing promotions, reconciling with multi-brand retailers, and refocusing on pure sports performance. The direction is right. But turnarounds take time and the effects are not yet visible in the numbers." },
+        { type: 'h2', text: 'June 30 earnings: two scenarios' },
+        { type: 'p', text: "Expectations are low after several difficult quarters. First scenario: results disappoint again. An already very high valuation becomes even harder to justify. Second scenario: results beat expectations. First signs of margin stabilization or returning growth could confirm the turnaround narrative. The stock has room to rebound sharply precisely because expectations are low. In either case: Nike is an exceptional brand, but current fundamentals do not justify the current valuation." },
+        { type: 'h2', text: 'The method lesson: brand does not mean fundamental quality' },
+        { type: 'p', text: "Nike perfectly illustrates the most common investing trap: confusing brand quality with business financial quality. A strong brand means consumers choose your product. But it does not guarantee high margins, solid growth, or abundant cash. That is why we built a screener based on objective financial criteria rather than reputation. The logo on the shoe says nothing about the free cash flow inside the accounts. You can see the full analysis on the <a href='/analyse/NKE'>Nike analysis page</a>." },
+      ],
+      faq: [
+        { q: 'Why does Nike score low if it is such a great brand?', a: 'Because we score financial business quality, not brand strength. Nike has an exceptional brand, but its current numbers show a very low free cash flow margin (0.7%), zero revenue growth over five years, and declining free cash flow per share.' },
+        { q: 'What is the free cash flow margin and why does it matter?', a: "It is the share of revenue that turns into genuinely available cash after paying all expenses. A margin of 0.7% means less than 1 dollar of real cash per 100 dollars of sales. Most quality companies exceed 10%." },
+        { q: 'Can Elliott Hill turn Nike around?', a: 'It is possible. He is moving in the right direction. But a turnaround of this scale takes several years and the effects are not yet visible in the numbers. The market today prices in the hope of that turnaround, not current results.' },
+        { q: 'Should we buy Nike before the June 30 earnings?', a: 'We do not give investment advice. Expectations are low, so a positive surprise can create a strong rebound, but current fundamentals do not justify current valuation on our criteria. Do your own research.' },
+      ],
+      tags: ['Nike', 'NKE', 'earnings', 'fundamental analysis', 'brand', 'stock market'],
+      disclaimer: 'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Nike (NKE): nuestro análisis antes de los resultados del 30 de junio',
+      excerpt: 'Nike es la marca deportiva más reconocida del mundo. Pero una marca icónica y una empresa sólida no son lo mismo. Esto es lo que dicen los números de verdad, ocho días antes de sus resultados.',
+      metaDescription: 'Nike publica sus resultados el 30 de junio de 2026. Análisis fundamental completo: margen, crecimiento, valoración, retorno de Elliott Hill. La marca y los fundamentos no son lo mismo.',
+      answer: "Nike es una de las marcas más poderosas del mundo, pero sus fundamentos financieros cuentan otra historia: crecimiento de ingresos nulo en cinco años, margen de flujo de caja libre del 0,7 % y una valoración muy elevada. Nuestro screener le da 3 sobre 10. No porque Nike sea mala, sino porque sus cifras actuales no superan nuestros criterios de calidad.",
+      body: [
+        { type: 'ul', items: [
+          'Los resultados Q4 FY2026 se esperan para el 30 de junio de 2026, dentro de ocho días.',
+          'Nuestro screener otorga a Nike una nota de 3 sobre 10: una de las más bajas para una empresa de este perfil.',
+          'El margen de flujo de caja libre se sitúa en el 0,7 %: de cada 100 dólares de ventas, menos de 1 dólar termina como caja real.',
+          'El crecimiento de ingresos es nulo en cinco años, y el flujo de caja libre por acción cae un 17,7 % al año.',
+          'También analizamos notas bajas: entender por qué Nike no supera nuestros criterios es al menos tan valioso como entender por qué Kinsale los supera todos.',
+        ] },
+        { type: 'h2', text: '¿Qué es Nike realmente como negocio?' },
+        { type: 'p', text: "Nike es el número uno mundial en calzado y ropa deportiva. La marca del swoosh viste a los deportistas desde 1964 y su nombre es reconocido en todo el mundo. Pero detrás de esa notoriedad hay un negocio concreto que hay que entender. Nike prácticamente no fabrica nada: diseña, comercializa, distribuye. Sus fábricas son de subcontratistas, principalmente en Asia. Nike también vivió una transformación profunda en distribución: de venta al por mayor a revendedores, hacia un modelo directo al consumidor cuya ejecución ha sido dolorosa." },
+        { type: 'h2', text: 'Por qué nuestro screener da una nota baja a Nike' },
+        { type: 'p', text: "Nuestro método se basa en 10 criterios de calidad fundamental. No juzgamos empresas por su nombre. El primer criterio deficiente: el margen de flujo de caja libre al 0,7 %. De cada 100 dólares de ventas, menos de 1 dólar termina como caja real. La mayoría de empresas de calidad superan el 10 %. El segundo: crecimiento de ingresos del 0,0 % en cinco años en un mercado que crece. El tercero: el flujo de caja por acción cae un 17,7 % al año durante cinco años, lo que destruye valor." },
+        { type: 'table', headers: ['Criterio', 'Nike (NKE)', 'Empresa de calidad tipo'], rows: [
+          ['Margen de flujo de caja libre', '0,7 %', '> 10 %'],
+          ['Crecimiento de ingresos (5 años)', '0,0 % / año', '> 10 % / año'],
+          ['Crecimiento flujo de caja / acción', '-17,7 % / año', '> 10 % / año'],
+          ['Valoración (flujo de caja)', '196 veces', '15 a 30 veces'],
+          ['Nota de calidad', '3 sobre 10', '10 sobre 10'],
+        ] },
+        { type: 'h2', text: 'La valoración de Nike: lo que dice nuestro cálculo' },
+        { type: 'p', text: "Nike muestra una valoración de 196 veces su flujo de caja libre. Una empresa razonablemente valorada suele cotizar entre 15 y 30 veces. A 196 veces, el mercado compra a Nike tal como espera que sea mañana, no como es hoy. Nuestro cálculo arroja una sobrevaloración del 91,2 %, con una capitalización bursátil de unos 68.500 millones de dólares." },
+        { type: 'h2', text: 'El regreso de Elliott Hill: ¿puede cambiar el panorama?' },
+        { type: 'p', text: "En octubre de 2024, Nike nombró a Elliott Hill como CEO. Lleva más de treinta años en Nike y conoce la empresa desde dentro. Está reduciendo las promociones, reconciliándose con los distribuidores multimarca y volviendo al rendimiento deportivo puro. La dirección es la correcta. Pero una recuperación de esta magnitud lleva tiempo, y los efectos aún no son visibles en los números." },
+        { type: 'h2', text: 'Los resultados del 30 de junio: dos escenarios' },
+        { type: 'p', text: "Las expectativas son bajas. Primer escenario: los resultados decepcionan, la valoración sería aún más difícil de justificar. Segundo escenario: los resultados sorprenden positivamente, lo que podría confirmar el esperado giro. En cualquier caso: Nike es una marca excepcional, pero los fundamentos actuales no justifican la valoración. Puedes consultar el análisis completo en la <a href='/analyse/NKE'>página de análisis de Nike</a>." },
+        { type: 'h2', text: 'La lección de método: marca no significa calidad fundamental' },
+        { type: 'p', text: "Nike ilustra perfectamente la trampa más común en inversión: confundir la calidad de la marca con la calidad financiera del negocio. Una marca fuerte no garantiza un margen elevado, crecimiento sólido o caja abundante. Por eso construimos un screener basado en criterios financieros objetivos, no en reputación. El nombre en la zapatilla no dice nada del flujo de caja en las cuentas." },
+      ],
+      faq: [
+        { q: '¿Por qué Nike tiene una nota baja si es una marca tan grande?', a: 'Porque calificamos la calidad financiera del negocio, no la fuerza de la marca. Sus cifras muestran un margen de flujo de caja libre muy bajo (0,7 %), crecimiento nulo de ingresos en cinco años y un flujo de caja por acción en descenso.' },
+        { q: '¿Qué es el margen de flujo de caja libre y por qué importa?', a: 'Es el porcentaje del volumen de negocio que se convierte en caja disponible después de pagar todos los gastos. Al 0,7 %, de cada 100 dólares de ventas, menos de 1 termina como caja real. Las empresas de calidad superan el 10 %.' },
+        { q: '¿Puede Elliott Hill dar la vuelta a Nike?', a: 'Es posible. Va en la dirección correcta, pero lleva tiempo y los efectos no son todavía visibles en los números. El mercado hoy valora la esperanza de esa recuperación, no los resultados actuales.' },
+        { q: '¿Hay que comprar antes de los resultados del 30 de junio?', a: 'No damos consejos de inversión. Las expectativas son bajas, por lo que una sorpresa positiva puede crear un rebote fuerte, pero los fundamentos actuales no justifican la valoración según nuestros criterios. Haz tu propia investigación.' },
+      ],
+      tags: ['Nike', 'NKE', 'resultados', 'análisis fundamental', 'marca', 'bolsa'],
+      disclaimer: 'Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación.',
+    },
+  },
+};
+
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
