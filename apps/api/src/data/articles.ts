@@ -32398,7 +32398,625 @@ const articleRendementTotal: Article = {
 };
 
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal];
+const articleRealtyIncome: Article = {
+  slug: 'realty-income-o-reit-triple-net-analyse',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'O',
+  content: {
+    fr: {
+      title: "Realty Income (O) : 6/10, la machine à dividende mensuel",
+      excerpt: "Realty Income est le plus célèbre des REITs triple-net. Dividende mensuel depuis 30 ans, 15 000 locataires dans 86 pays. Notre screener lui donne 6 sur 10 — et le prix actuel est deux fois au-dessus de notre cible.",
+      metaDescription: "Realty Income (O) analyse fondamentale : score 6/10 dans notre screener, dividende mensuel, triple-net REIT. Locataires Walgreens, 7-Eleven, Dollar General. Notre verdict.",
+      answer: "Realty Income est le REIT triple-net le plus connu au monde — dividende mensuel depuis 1969, 15 000 propriétés dans 86 pays. Notre screener lui attribue 6 sur 10. Les faiblesses : dilution massive (+15 %/an par émissions d'actions), faible croissance du FCF/action, dette élevée à 7,26×. Et le prix actuel de 60,58 $ est plus du double de notre cible d'entrée de 29,94 $.",
+      body: [
+        { type: 'h2', text: "Realty Income : le REIT dont tout le monde parle" },
+        { type: 'p', text: "Realty Income Corporation (NYSE : O) est le REIT triple-net le plus connu et le plus suivi par les investisseurs particuliers. Il possède plus de 15 000 propriétés commerciales dans 86 pays (dont une présence significative en Europe). Ses locataires incluent Walgreens, 7-Eleven, Dollar General, Dollar Tree et des centaines de chaînes de restauration et de retail. Il verse un dividende mensuel depuis 1969 — 55 ans consécutifs — et augmente ce dividende chaque année. C'est le 'S&P 500 des REITs' en termes de notoriété auprès des investisseurs DIY." },
+        { type: 'h2', text: "Score fondamental réel au 23 juin 2026" },
+        { type: 'table', headers: ['Critère', 'Valeur', 'Statut'], rows: [
+          ['Rentabilité (marge nette)', '18,9 %', '✅ Pass'],
+          ['Croissance des ventes (5 ans)', '28,7 %/an', '✅ Pass'],
+          ['Croissance FCF/action (5 ans)', '1,1 %/an', '❌ Très faible'],
+          ['Dilution des actionnaires', '+15,11 %/an', '❌ Émissions massives'],
+          ['Profitabilité cash (FCF margin)', '68,4 %', '✅ Pass'],
+          ['Expansion des marges', 'Compression', '❌ Marges en recul'],
+          ['ROIC', '11,8 %', '❌ Légèrement sous seuil'],
+          ['Endettement', '7,26×', '❌ Très élevé'],
+          ['Conversion bénéfices → cash', '3,61×', '✅ Pass'],
+          ['DSO', '-2 j', '✅ Pass'],
+          ['Valorisation', '60,58 $ vs cible 29,94 $', '❌ 102 % au-dessus cible']
+        ]},
+        { type: 'h2', text: "Le paradoxe du dividende mensuel : croissance vs dilution" },
+        { type: 'p', text: "Realty Income verse un dividende mensuel croissant — et c'est précisément son problème selon notre méthode. Pour acheter de nouvelles propriétés et continuer à croître, les REITs émettent régulièrement de nouvelles actions. Realty Income a une dilution de +15,11 %/an — pour chaque action que vous possédez aujourd'hui, il y aura 15 % d'actions supplémentaires dans un an. En contrepartie, le FCF total croît, mais le FCF par action ne progresse que de 1,1 %/an. Notre méthode penalise fortement cette dilution." },
+        { type: 'h2', text: "Pourquoi le prix est deux fois notre cible : la prime REIT" },
+        { type: 'p', text: "Notre cible d'entrée est de 29,94 $ (FCF/action × 7× multiple). Le prix actuel de 60,58 $ est 102 % au-dessus. Pourquoi le marché paie-t-il autant ? Les investisseurs REIT utilisent l'AFFO (Adjusted Funds From Operations) au lieu du FCF — méthode spécifique aux REITs qui réintègre les dépréciations immobilières. En AFFO, le multiple de Realty Income est d'environ 18-20×, considéré raisonnable pour un REIT de cette qualité. Notre méthode standard P/FCF n'est pas conçue pour les REITs — c'est une limite connue et assumée." }
+      ],
+      faq: [
+        { q: "Realty Income est-il un bon investissement malgré le score 6/10 ?", a: "Realty Income est une action de qualité reconnue — dividende mensuel fiable, locataires solides, diversification géographique. Pour les investisseurs cherchant du revenu mensuel, c'est un pilier de portefeuille. Pour notre méthode FCF de croissance composée, ce n'est pas un dossier prioritaire." },
+        { q: "Pourquoi la dilution de +15 %/an est-elle si élevée ?", a: "Les REITs doivent distribuer 90 % de leurs revenus imposables (obligation légale). Pour financer les acquisitions, ils ne peuvent pas retenir de cash — ils émettent de nouvelles actions. Cette dilution est structurelle au modèle REIT, pas un signe de mauvaise gestion." },
+        { q: "Le dividende de Realty Income est-il sûr ?", a: "Realty Income a un taux de couverture du dividende solide (payout ratio AFFO ~75 %). Avec des locataires investment-grade et des baux triple-net (locataire paie tout), le dividende est très bien couvert. Il n'a jamais été coupé depuis 1969." },
+        { q: "Qu'est-ce qu'un REIT triple-net ?", a: "Dans un bail triple-net (NNN), le locataire paie le loyer + les taxes foncières + les assurances + la maintenance. Le propriétaire (Realty Income) n'a quasi aucune charge d'exploitation. C'est le modèle immobilier le plus passif possible." },
+        { q: "Realty Income paie-t-il vraiment chaque mois ?", a: "Oui. Realty Income est l'un des rares REITs à verser un dividende mensuel (la plupart versent trimestriellement). C'est son principal argument marketing auprès des investisseurs à la recherche de revenus réguliers." }
+      ],
+      tags: ['Realty Income', 'O', 'REIT', 'triple-net', 'dividende mensuel', 'screener 6/10', 'immobilier coté'],
+      disclaimer: "Analyse fondamentale réalisée via notre screener propriétaire au 23 juin 2026. Notre méthode P/FCF n'est pas optimisée pour les REITs (AFFO est le standard du secteur). Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "Realty Income (O): 6/10, the monthly dividend machine",
+      excerpt: "Realty Income is the most famous triple-net REIT. Monthly dividends for 30+ years, 15,000 tenants in 86 countries. Our screener rates it 6/10 — and the current price is twice our target.",
+      metaDescription: "Realty Income (O) fundamental analysis: 6/10 screener score, monthly dividend, triple-net REIT. Walgreens, 7-Eleven, Dollar General tenants. Our verdict.",
+      answer: "Realty Income is the world's most well-known triple-net REIT — monthly dividends since 1969, 15,000+ properties in 86 countries. Our screener rates it 6/10. Weaknesses: massive dilution (+15%/year from share issuances), weak FCF/share growth, high debt at 7.26×. And at $60.58, the price is twice our entry target of $29.94.",
+      body: [
+        { type: 'h2', text: "Realty Income: the REIT everyone talks about" },
+        { type: 'p', text: "Realty Income Corporation (NYSE: O) is the best-known triple-net REIT, with over 15,000 commercial properties in 86 countries. Tenants include Walgreens, 7-Eleven, Dollar General, Dollar Tree, and hundreds of restaurant and retail chains. It has paid monthly dividends since 1969 — 55+ consecutive years — with annual increases. It's the 'S&P 500 of REITs' in terms of DIY investor popularity." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'table', headers: ['Criterion', 'Value', 'Status'], rows: [
+          ['Net margin', '18.9%', '✅ Pass'],
+          ['Revenue growth (5Y)', '28.7%/yr', '✅ Pass'],
+          ['FCF/share growth (5Y)', '1.1%/yr', '❌ Very low'],
+          ['Share dilution', '+15.11%/yr', '❌ Massive issuances'],
+          ['FCF margin', '68.4%', '✅ Pass'],
+          ['Margin expansion', 'Compression', '❌ Declining'],
+          ['ROIC', '11.8%', '❌ Slightly below threshold'],
+          ['Debt', '7.26×', '❌ Very high'],
+          ['Cash conversion', '3.61×', '✅ Pass'],
+          ['DSO', '-2 days', '✅ Pass'],
+          ['Valuation', '$60.58 vs $29.94 target', '❌ 102% above target']
+        ]},
+        { type: 'h2', text: "The monthly dividend paradox: growth vs dilution" },
+        { type: 'p', text: "Realty Income pays a growing monthly dividend — and that's precisely its problem per our method. To buy new properties and continue growing, REITs must regularly issue new shares. Realty Income has +15.11%/year dilution — for each share you hold today, there'll be 15% more shares next year. Total FCF grows, but FCF per share grows only 1.1%/year. Our method penalizes this dilution heavily." },
+        { type: 'h2', text: "Why the price is twice our target: the REIT premium" },
+        { type: 'p', text: "Our entry target is $29.94 (FCF/share × 7× multiple). The current price of $60.58 is 102% above. Why does the market pay so much? REIT investors use AFFO (Adjusted Funds From Operations) instead of FCF — a REIT-specific metric that adds back real estate depreciation. In AFFO terms, Realty Income's multiple is ~18-20×, considered reasonable for this quality REIT. Our standard P/FCF method isn't designed for REITs — a known and acknowledged limitation." }
+      ],
+      faq: [
+        { q: "Is Realty Income a good investment despite the 6/10 score?", a: "Realty Income is a recognized quality income stock — reliable monthly dividend, solid tenants, geographic diversification. For investors seeking monthly income, it's a portfolio staple. For our compound-growth FCF method, it's not a priority name." },
+        { q: "Why is dilution so high (+15.11%/year)?", a: "REITs must distribute 90% of taxable income (legal requirement). To fund acquisitions, they can't retain cash — they issue new shares. This dilution is structural to the REIT model, not a management failure." },
+        { q: "Is Realty Income's dividend safe?", a: "Realty Income has a solid dividend coverage ratio (AFFO payout ratio ~75%). With investment-grade tenants and triple-net leases (tenant pays everything), the dividend is very well covered. It has never been cut since 1969." },
+        { q: "What is a triple-net REIT?", a: "In a triple-net (NNN) lease, the tenant pays rent + property taxes + insurance + maintenance. The landlord (Realty Income) has virtually no operating expenses. It's the most passive real estate model possible." },
+        { q: "Does Realty Income really pay monthly?", a: "Yes. Realty Income is one of the few REITs paying a monthly dividend (most pay quarterly). This is its main marketing argument to income-seeking investors." }
+      ],
+      tags: ['Realty Income', 'O', 'REIT', 'triple-net', 'monthly dividend', '6/10 screener', 'listed real estate'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Our P/FCF method is not optimized for REITs (AFFO is the sector standard). This content is informational and not investment advice."
+    },
+    es: {
+      title: "Realty Income (O): 6/10, la máquina de dividendo mensual",
+      excerpt: "Realty Income es el REIT triple-net más famoso. Dividendo mensual durante 30+ años, 15.000 inquilinos en 86 países. Nuestro screener le da 6/10 — y el precio actual es el doble de nuestro objetivo.",
+      metaDescription: "Realty Income (O) análisis fundamental: puntuación 6/10, dividendo mensual, triple-net REIT. Inquilinos Walgreens, 7-Eleven, Dollar General. Nuestro veredicto.",
+      answer: "Realty Income es el REIT triple-net más conocido del mundo — dividendo mensual desde 1969, más de 15.000 propiedades en 86 países. Nuestro screener le da 6/10. Debilidades: dilución masiva (+15 %/año), bajo crecimiento del FCF/acción, deuda elevada de 7,26×. Y el precio actual de 60,58 $ es el doble de nuestro objetivo de entrada de 29,94 $.",
+      body: [
+        { type: 'h2', text: "Realty Income: el REIT del que todos hablan" },
+        { type: 'p', text: "Realty Income Corporation (NYSE: O) es el REIT triple-net más conocido, con más de 15.000 propiedades en 86 países. Sus inquilinos incluyen Walgreens, 7-Eleven, Dollar General, Dollar Tree. Paga dividendo mensual desde 1969 — más de 55 años consecutivos — con aumentos anuales." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'table', headers: ['Criterio', 'Valor', 'Estado'], rows: [
+          ['Margen neto', '18,9 %', '✅ Pasa'],
+          ['Crecimiento ventas (5 años)', '28,7 %/año', '✅ Pasa'],
+          ['Crecimiento FCF/acción (5 años)', '1,1 %/año', '❌ Muy bajo'],
+          ['Dilución accionistas', '+15,11 %/año', '❌ Emisiones masivas'],
+          ['Margen FCF', '68,4 %', '✅ Pasa'],
+          ['Expansión márgenes', 'Compresión', '❌ En declive'],
+          ['ROIC', '11,8 %', '❌ Ligeramente bajo umbral'],
+          ['Endeudamiento', '7,26×', '❌ Muy elevado'],
+          ['Conversión beneficios → caja', '3,61×', '✅ Pasa'],
+          ['DSO', '-2 días', '✅ Pasa'],
+          ['Valoración', '60,58 $ vs objetivo 29,94 $', '❌ 102 % sobre objetivo']
+        ]},
+        { type: 'h2', text: "La paradoja del dividendo mensual: crecimiento vs dilución" },
+        { type: 'p', text: "Realty Income paga un dividendo mensual creciente — y eso es precisamente su problema según nuestra metodología. Para adquirir nuevas propiedades, los REITs emiten regularmente nuevas acciones. Realty Income tiene una dilución del +15,11 %/año. El FCF total crece, pero el FCF por acción solo crece un 1,1 %/año. Nuestra metodología penaliza fuertemente esta dilución." },
+        { type: 'h2', text: "Por qué el precio es el doble de nuestro objetivo: la prima REIT" },
+        { type: 'p', text: "Nuestro objetivo de entrada es 29,94 $ (FCF/acción × 7×). El precio actual de 60,58 $ está un 102 % por encima. Los inversores REIT usan el AFFO (Adjusted Funds from Operations) en lugar del FCF — métrica específica de REITs que reintegra las depreciaciones inmobiliarias. En términos de AFFO, el múltiplo de Realty Income es ~18-20×, considerado razonable. Nuestra metodología estándar P/FCF no está diseñada para REITs." }
+      ],
+      faq: [
+        { q: "¿Es Realty Income una buena inversión a pesar del 6/10?", a: "Realty Income es una acción de renta de calidad reconocida — dividendo mensual fiable, inquilinos sólidos, diversificación geográfica. Para inversores que buscan renta mensual, es un pilar de cartera. Para nuestra metodología FCF de crecimiento compuesto, no es una prioridad." },
+        { q: "¿Por qué la dilución es tan alta (+15,11 %/año)?", a: "Los REITs deben distribuir el 90 % de sus ingresos imponibles (obligación legal). Para financiar adquisiciones, no pueden retener efectivo — emiten nuevas acciones. Esta dilución es estructural al modelo REIT, no una mala gestión." },
+        { q: "¿Es seguro el dividendo de Realty Income?", a: "Realty Income tiene una cobertura sólida del dividendo (ratio de pago AFFO ~75 %). Con inquilinos de grado de inversión y arrendamientos triple-net, el dividendo está muy bien cubierto y nunca ha sido recortado desde 1969." },
+        { q: "¿Qué es un REIT triple-net?", a: "En un arrendamiento triple-net (NNN), el inquilino paga el alquiler + los impuestos sobre la propiedad + los seguros + el mantenimiento. El propietario (Realty Income) tiene prácticamente ningún gasto operativo." },
+        { q: "¿Realty Income realmente paga cada mes?", a: "Sí. Realty Income es uno de los pocos REITs que paga dividendo mensual (la mayoría paga trimestralmente). Este es su principal argumento de marketing para inversores que buscan ingresos regulares." }
+      ],
+      tags: ['Realty Income', 'O', 'REIT', 'triple-net', 'dividendo mensual', '6/10 screener', 'inmobiliario cotizado'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Nuestra metodología P/FCF no está optimizada para REITs (el AFFO es el estándar del sector). Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleNNNReit: Article = {
+  slug: 'nnn-reit-triple-net-analyse-fondamentale',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  ticker: 'NNN',
+  content: {
+    fr: {
+      title: "NNN REIT : le triple-net moins connu que Realty Income",
+      excerpt: "NNN REIT est la deuxième plus grande foncière triple-net américaine, avec 35 ans consécutifs de hausse de dividende. Notre screener lui donne 6 sur 10 — même analyse que Realty Income, multiple légèrement inférieur.",
+      metaDescription: "NNN REIT analyse fondamentale : score 6/10 screener, triple-net REIT, 35 ans de hausse dividende. Locataires retail diversifiés. Comparaison avec Realty Income (O).",
+      answer: "NNN REIT est la deuxième grande foncière triple-net américaine après Realty Income. 35 ans consécutifs de hausse de dividende, 3 500 propriétés, locataires retail diversifiés. Notre screener lui attribue 6 sur 10 — profil similaire à Realty Income mais légèrement moins cher (P/FCF 13,1× vs 14,0× pour O). Le prix actuel de 45,16 $ est 107 % au-dessus de notre cible de 21,78 $.",
+      body: [
+        { type: 'h2', text: "NNN REIT : le concurrent direct de Realty Income" },
+        { type: 'p', text: "NNN REIT Inc. (NYSE : NNN) est la deuxième foncière triple-net américaine, avec environ 3 500 propriétés dans 49 États américains. Ses locataires sont des chaînes de retail, restauration rapide, stations-service et fitness — des secteurs à forte récurrence de visite. NNN est plus petite que Realty Income (capitalisation ~14 milliards vs ~55 milliards pour O) mais affiche 35 années consécutives de hausse de dividende — qualificatif du 'Dividend Champion'." },
+        { type: 'h2', text: "Score fondamental au 23 juin 2026" },
+        { type: 'table', headers: ['Critère', 'Valeur', 'Statut'], rows: [
+          ['Rentabilité (marge nette)', '41,4 %', '✅ Pass'],
+          ['Croissance des ventes (5 ans)', '6,6 %/an', '❌ Sous seuil 10 %'],
+          ['Croissance FCF/action (5 ans)', '3,1 %/an', '❌ Faible'],
+          ['Dilution des actionnaires', '+1,20 %/an', '❌ Dilution légère'],
+          ['Profitabilité cash (FCF margin)', '69,6 %', '✅ Pass'],
+          ['Expansion des marges', 'En expansion', '✅ Pass'],
+          ['ROIC', '14,8 %', '❌ Sous seuil'],
+          ['Endettement', '7,45×', '❌ Très élevé'],
+          ['Conversion bénéfices → cash', '1,68×', '✅ Pass'],
+          ['DSO', 'Non calculable', '❌'],
+          ['Valorisation', '45,16 $ vs cible 21,78 $', '❌ 107 % au-dessus cible']
+        ]},
+        { type: 'h2', text: "NNN vs Realty Income : comparaison directe" },
+        { type: 'table', headers: ['Critère', 'NNN REIT', 'Realty Income (O)'], rows: [
+          ['Score dans notre screener', '6/10', '6/10'],
+          ['P/FCF actuel', '13,1×', '14,0×'],
+          ['Croissance FCF/action (5 ans)', '3,1 %/an', '1,1 %/an'],
+          ['Dilution', '+1,20 %/an', '+15,11 %/an'],
+          ['Nombre de propriétés', '3 500', '15 000+'],
+          ['Années de hausse dividende', '35 ans', '55 ans'],
+          ['Capitalisation boursière', '~14 Md$', '~55 Md$']
+        ]},
+        { type: 'h2', text: "Avantage NNN : une dilution bien plus faible" },
+        { type: 'p', text: "Le principal avantage de NNN par rapport à Realty Income est sa dilution beaucoup plus faible : +1,20 %/an vs +15,11 %/an. Cela signifie que la croissance FCF/action de NNN (3,1 %/an) est réelle — pas effacée par des émissions massives d'actions. L'investisseur de long terme dans NNN dilue moins ses rendements que dans Realty Income. En contrepartie, NNN est plus petite, moins diversifiée géographiquement, et la marque est moins connue." }
+      ],
+      faq: [
+        { q: "NNN REIT ou Realty Income : lequel est le meilleur ?", a: "Notre analyse favorise NNN en termes de dilution (1,2 %/an vs 15 %/an) et de croissance FCF/action légèrement supérieure. Mais les deux ont le même score de 6/10. Realty Income est plus grande, plus diversifiée et plus liquide. Pour l'investisseur orienté revenus, les deux sont des options valables." },
+        { q: "Quels sont les principaux locataires de NNN REIT ?", a: "Les 10 premiers locataires de NNN incluent 7-Eleven, Sunoco (stations-service), BJ's Wholesale, Mister Car Wash, Camping World — tous des secteurs à visites fréquentes et revenus récurrents. Aucun locataire ne représente plus de 5 % des loyers." },
+        { q: "NNN verse-t-il un dividende trimestriel ou mensuel ?", a: "NNN verse un dividende trimestriel — contrairement à Realty Income qui paye mensuellement. Si vous cherchez un flux mensuel, Realty Income est plus adapté. Si vous cherchez simplement un dividende croissant et fiable, NNN est une excellente alternative." },
+        { q: "NNN est-il moins risqué que Realty Income ?", a: "Les deux ont un profil de risque similaire. NNN est légèrement moins diversifié géographiquement (US only vs O qui a de l'Europe). Mais NNN dilue moins, ce qui est un avantage structurel pour les actionnaires existants." },
+        { q: "Pourquoi NNN et Realty Income sont-ils si au-dessus de votre cible ?", a: "Notre cible est calculée sur la base FCF/action × 7×. Les REITs se valorisent traditionnellement en AFFO, qui est plus élevé que le FCF car il réintègre les amortissements immobiliers. Les investisseurs paient une prime pour la fiabilité du dividende et la qualité des baux triple-net — prime que notre méthode FCF standard ne reconnaît pas." }
+      ],
+      tags: ['NNN REIT', 'NNN', 'triple-net', 'REIT', 'dividende', 'immobilier coté', 'screener 6/10'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Notre méthode P/FCF n'est pas optimisée pour les REITs. Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "NNN REIT: the triple-net alternative to Realty Income",
+      excerpt: "NNN REIT is the second-largest US triple-net REIT, with 35 consecutive years of dividend increases. Our screener rates it 6/10 — similar profile to Realty Income, slightly cheaper multiple.",
+      metaDescription: "NNN REIT fundamental analysis: 6/10 screener score, triple-net REIT, 35 years of dividend growth. Diversified retail tenants. Comparison with Realty Income (O).",
+      answer: "NNN REIT is the second-largest US triple-net landlord after Realty Income. 35 consecutive years of dividend growth, 3,500 properties, diversified retail tenants. Our screener rates it 6/10 — similar to Realty Income but slightly cheaper (13.1× vs 14.0× for O). At $45.16, the price is 107% above our entry target of $21.78.",
+      body: [
+        { type: 'h2', text: "NNN REIT: Realty Income's direct competitor" },
+        { type: 'p', text: "NNN REIT Inc. (NYSE: NNN) is the second-largest US triple-net landlord, with ~3,500 properties in 49 states. Tenants are retail, quick-service restaurant, gas station, and fitness chains — sectors with high frequency of visits. NNN is smaller than Realty Income ($14B vs $55B market cap) but boasts 35 consecutive years of dividend growth — 'Dividend Champion' status." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'table', headers: ['Criterion', 'Value', 'Status'], rows: [
+          ['Net margin', '41.4%', '✅ Pass'],
+          ['Revenue growth (5Y)', '6.6%/yr', '❌ Below 10% threshold'],
+          ['FCF/share growth (5Y)', '3.1%/yr', '❌ Low'],
+          ['Share dilution', '+1.20%/yr', '❌ Slight dilution'],
+          ['FCF margin', '69.6%', '✅ Pass'],
+          ['Margin expansion', 'Expanding', '✅ Pass'],
+          ['ROIC', '14.8%', '❌ Below threshold'],
+          ['Debt', '7.45×', '❌ Very high'],
+          ['Cash conversion', '1.68×', '✅ Pass'],
+          ['DSO', 'Not calculable', '❌'],
+          ['Valuation', '$45.16 vs $21.78 target', '❌ 107% above target']
+        ]},
+        { type: 'h2', text: "NNN vs Realty Income: direct comparison" },
+        { type: 'table', headers: ['Criterion', 'NNN REIT', 'Realty Income (O)'], rows: [
+          ['Screener score', '6/10', '6/10'],
+          ['Current FCF multiple', '13.1×', '14.0×'],
+          ['FCF/share growth (5Y)', '3.1%/yr', '1.1%/yr'],
+          ['Dilution', '+1.20%/yr', '+15.11%/yr'],
+          ['Number of properties', '3,500', '15,000+'],
+          ['Years of dividend growth', '35 years', '55 years'],
+          ['Market cap', '~$14B', '~$55B']
+        ]},
+        { type: 'h2', text: "NNN's advantage: much lower dilution" },
+        { type: 'p', text: "NNN's main advantage over Realty Income is far lower dilution: +1.20%/yr vs +15.11%/yr. This means NNN's FCF/share growth (3.1%/yr) is real — not erased by massive share issuances. A long-term NNN investor dilutes their returns far less than a Realty Income investor. Tradeoff: NNN is smaller, less geographically diversified, and less well-known." }
+      ],
+      faq: [
+        { q: "NNN REIT or Realty Income: which is better?", a: "Our analysis favors NNN on dilution (1.2%/yr vs 15%/yr) and slightly better FCF/share growth. But both score 6/10. Realty Income is larger, more diversified, and more liquid. For income investors, both are valid options." },
+        { q: "Who are NNN REIT's main tenants?", a: "NNN's top 10 tenants include 7-Eleven, Sunoco (gas stations), BJ's Wholesale, Mister Car Wash, Camping World — all high-frequency-visit sectors with recurring revenues. No single tenant exceeds 5% of rents." },
+        { q: "Does NNN pay monthly or quarterly dividends?", a: "NNN pays quarterly dividends — unlike Realty Income which pays monthly. If you want monthly cash flow, Realty Income is more appropriate. If you just want a reliable growing dividend, NNN is an excellent alternative." },
+        { q: "Is NNN less risky than Realty Income?", a: "Both have similar risk profiles. NNN is slightly less geographically diversified (US only vs O which has European exposure). But NNN dilutes shareholders less — a structural advantage for existing holders." },
+        { q: "Why are NNN and Realty Income so far above your targets?", a: "Our target uses FCF/share × 7×. REITs are traditionally valued on AFFO (higher than FCF as it adds back real estate depreciation). Investors pay a premium for dividend reliability and triple-net lease quality — a premium our standard FCF method doesn't recognize." }
+      ],
+      tags: ['NNN REIT', 'NNN', 'triple-net', 'REIT', 'dividend', 'listed real estate', '6/10 screener'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Our P/FCF method is not optimized for REITs. Informational content, not investment advice."
+    },
+    es: {
+      title: "NNN REIT: el triple-net alternativo a Realty Income",
+      excerpt: "NNN REIT es el segundo mayor REIT triple-net estadounidense, con 35 años consecutivos de aumento de dividendo. Nuestro screener le da 6/10 — perfil similar a Realty Income, múltiplo ligeramente inferior.",
+      metaDescription: "NNN REIT análisis fundamental: puntuación 6/10, triple-net REIT, 35 años crecimiento dividendo. Inquilinos retail diversificados. Comparación con Realty Income (O).",
+      answer: "NNN REIT es el segundo mayor triple-net estadounidense tras Realty Income. 35 años consecutivos de aumento de dividendo, 3.500 propiedades. Nuestro screener le da 6/10 — perfil similar a Realty Income pero ligeramente más barato (13,1× vs 14,0× para O). El precio actual de 45,16 $ está un 107 % por encima de nuestro objetivo de 21,78 $.",
+      body: [
+        { type: 'h2', text: "NNN REIT: el competidor directo de Realty Income" },
+        { type: 'p', text: "NNN REIT Inc. (NYSE: NNN) es el segundo triple-net estadounidense, con ~3.500 propiedades en 49 estados. Sus inquilinos son cadenas de retail, restauración rápida, gasolineras y fitness — sectores con alta frecuencia de visitas. NNN tiene 35 años consecutivos de aumento de dividendo — estatus de 'Dividend Champion'." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'table', headers: ['Criterio', 'Valor', 'Estado'], rows: [
+          ['Margen neto', '41,4 %', '✅ Pasa'],
+          ['Crecimiento ventas (5 años)', '6,6 %/año', '❌ Bajo umbral'],
+          ['Crecimiento FCF/acción (5 años)', '3,1 %/año', '❌ Bajo'],
+          ['Dilución accionistas', '+1,20 %/año', '❌ Dilución leve'],
+          ['Margen FCF', '69,6 %', '✅ Pasa'],
+          ['Expansión márgenes', 'En expansión', '✅ Pasa'],
+          ['ROIC', '14,8 %', '❌ Bajo umbral'],
+          ['Endeudamiento', '7,45×', '❌ Muy elevado'],
+          ['Conversión beneficios → caja', '1,68×', '✅ Pasa'],
+          ['Valoración', '45,16 $ vs objetivo 21,78 $', '❌ 107 % sobre objetivo']
+        ]},
+        { type: 'h2', text: "NNN vs Realty Income: comparación directa" },
+        { type: 'table', headers: ['Criterio', 'NNN REIT', 'Realty Income (O)'], rows: [
+          ['Puntuación screener', '6/10', '6/10'],
+          ['Múltiplo FCF actual', '13,1×', '14,0×'],
+          ['Crecimiento FCF/acción (5 años)', '3,1 %/año', '1,1 %/año'],
+          ['Dilución', '+1,20 %/año', '+15,11 %/año'],
+          ['Número de propiedades', '3.500', '15.000+'],
+          ['Años de aumento dividendo', '35 años', '55 años']
+        ]},
+        { type: 'h2', text: "La ventaja de NNN: dilución mucho menor" },
+        { type: 'p', text: "La principal ventaja de NNN sobre Realty Income es la dilución mucho menor: +1,20 %/año vs +15,11 %/año. El crecimiento del FCF/acción de NNN (3,1 %/año) es real — no borrado por emisiones masivas. Los accionistas de NNN diluyen menos sus rendimientos a largo plazo." }
+      ],
+      faq: [
+        { q: "¿NNN REIT o Realty Income: cuál es mejor?", a: "Nuestro análisis favorece a NNN en dilución (1,2 %/año vs 15 %/año) y crecimiento del FCF/acción ligeramente superior. Pero ambos puntúan 6/10. Realty Income es más grande, más diversificada y más líquida." },
+        { q: "¿Cuáles son los principales inquilinos de NNN REIT?", a: "Los 10 principales incluyen 7-Eleven, Sunoco (gasolineras), BJ's Wholesale, Mister Car Wash, Camping World — sectores de alta frecuencia de visitas. Ningún inquilino supera el 5 % de las rentas." },
+        { q: "¿NNN paga dividendo mensual o trimestral?", a: "NNN paga dividendo trimestral — a diferencia de Realty Income que paga mensualmente. Si busca flujo mensual, Realty Income es más adecuado. Si busca un dividendo fiable y creciente, NNN es excelente." },
+        { q: "¿Por qué NNN y Realty Income están tan por encima de su objetivo?", a: "Nuestro objetivo usa FCF/acción × 7×. Los REITs se valoran tradicionalmente en AFFO (superior al FCF ya que reintegra depreciaciones inmobiliarias). Los inversores pagan una prima por la fiabilidad del dividendo y la calidad de los arrendamientos triple-net." }
+      ],
+      tags: ['NNN REIT', 'NNN', 'triple-net', 'REIT', 'dividendo', 'inmobiliario cotizado', '6/10 screener'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Nuestra metodología P/FCF no está optimizada para REITs. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleTripleNet: Article = {
+  slug: 'triple-net-reits-o-nnn-adc-comparatif-2026',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  content: {
+    fr: {
+      title: "Triple-net REITs 2026 : O, NNN et ADC comparés",
+      excerpt: "Realty Income, NNN REIT et Agree Realty sont les trois piliers du triple-net US. Notre palmarès data avec les scores et valorisations réels pour choisir selon votre méthode d'investissement.",
+      metaDescription: "Triple-net REITs comparatif 2026 : Realty Income (O), NNN REIT et Agree Realty (ADC) — scores, P/FCF, dividendes et baux comparés. Palmarès data pour investisseurs.",
+      answer: "Realty Income (O), NNN REIT et Agree Realty (ADC) sont les trois principaux REITs triple-net américains. Nos scores : O=6/10, NNN=6/10, ADC=5/10. En termes de valorisation P/FCF, NNN est le moins cher (13,1×), suivi d'O (14,0×) et ADC (17,3×). Tous trois sont largement au-dessus de nos cibles d'entrée.",
+      body: [
+        { type: 'h2', text: "Qu'est-ce qu'un REIT triple-net ?" },
+        { type: 'p', text: "Un REIT triple-net (Triple Net ou NNN lease) est une foncière dont les locataires paient le loyer + les taxes foncières + les assurances + la maintenance. Le propriétaire perçoit un flux de loyers quasi-passif, sans charges d'exploitation. C'est le modèle REIT le plus défensif, particulièrement apprécié par les investisseurs cherchant des revenus stables et prévisibles sur de longues durées." },
+        { type: 'h2', text: "Palmarès data des trois acteurs principaux" },
+        { type: 'table', headers: ['Critère', 'Realty Income (O)', 'NNN REIT (NNN)', 'Agree Realty (ADC)'], rows: [
+          ['Score screener Lubin', '6/10', '6/10', '5/10'],
+          ['P/FCF actuel', '14,0×', '13,1×', '17,3×'],
+          ['Prix actuel', '60,58 $', '45,16 $', '73,39 $'],
+          ['Cible d\'entrée (méthode Lubin)', '29,94 $', '21,78 $', '36,97 $'],
+          ['Écart prix/cible', '+102 %', '+107 %', '+98 %'],
+          ['FCF/action croissance (5 ans)', '1,1 %/an', '3,1 %/an', 'n/a'],
+          ['Dilution', '+15,1 %/an', '+1,2 %/an', 'forte'],
+          ['Années hausse dividende', '55 ans', '35 ans', '10 ans'],
+          ['Capitalisation boursière', '~55 Md$', '~14 Md$', '~7 Md$'],
+          ['Locataires principaux', 'Walgreens, 7-Eleven', '7-Eleven, Sunoco', 'Walmart, TJX, Best Buy']
+        ]},
+        { type: 'h2', text: "Le profil de chaque acteur" },
+        { type: 'p', text: "Realty Income (O) est le géant du secteur — le plus grand, le plus diversifié (86 pays), le plus liquide. Son dividende mensuel depuis 1969 en fait le choix par défaut des investisseurs orientés revenus. Sa dilution massive (+15 %/an) pénalise notre méthode. NNN REIT offre le profil le plus propre en termes de dilution (+1,2 %/an) avec 35 ans de hausse dividende. Sa croissance FCF/action (3,1 %/an) est légèrement supérieure à O (1,1 %/an). Agree Realty (ADC) est le plus récent (10 ans de hausse dividende) mais se spécialise dans les locataires de qualité investment-grade (Walmart, TJX, Best Buy). Son score plus faible (5/10) reflète une historique de FCF moins établie." },
+        { type: 'h2', text: "Nos conclusions : aucun n'est en zone d'achat selon notre méthode" },
+        { type: 'p', text: "Les trois REITs triple-net sont entre 98 % et 107 % au-dessus de nos cibles d'entrée FCF. Notre méthode standard n'est pas adaptée aux REITs : le P/FCF surestime le prix en ignorant les amortissements immobiliers (la méthode AFFO est le standard du secteur). Pour les investisseurs qui veulent des REITs, nous recommandons d'utiliser l'AFFO et le dividend yield ajusté plutôt que notre méthode propriétaire." }
+      ],
+      faq: [
+        { q: "Parmi les trois, lequel choisiriez-vous pour un investisseur orienté revenus ?", a: "Pour un investisseur orienté revenus purs, NNN REIT offre le meilleur profil : dilution minimale, historique de dividende long (35 ans), P/FCF légèrement plus faible. Realty Income est préférable si vous voulez un dividende mensuel (vs trimestriel pour NNN)." },
+        { q: "Agree Realty est-il vraiment meilleur que O et NNN ?", a: "ADC a des locataires de meilleure qualité en moyenne (Walmart, TJX vs chaînes de pharmacie/station-service). Mais son historique est plus court et notre screener lui donne 5/10 vs 6/10 pour O et NNN. Le 'meilleur' dépend de votre critère prioritaire." },
+        { q: "Ces REITs sont-ils exposés à l'essor du e-commerce ?", a: "Partiellement. Les locataires comme Walgreens et Dollar General ont résisté au e-commerce car leurs services sont de proximité ou non-substituables en ligne. Les loyers triple-net sont garantis contractuellement indépendamment des ventes du locataire." },
+        { q: "Comment comparer ces REITs avec leur AFFO ?", a: "En AFFO, les trois REITs se traitent à 18-22× — valorisation raisonnable pour le secteur. C'est la métrique appropriée pour les REITs. Notre P/FCF n'est qu'un filtre comparatif : il vous dit que les REITs ne passent pas notre méthode, pas qu'ils sont de mauvais investissements en soi." }
+      ],
+      tags: ['triple-net REIT', 'Realty Income', 'NNN REIT', 'Agree Realty', 'O', 'NNN', 'ADC', 'comparatif', 'REIT'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Notre méthode P/FCF n'est pas optimisée pour les REITs. Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "Triple-net REITs 2026: O, NNN and ADC compared",
+      excerpt: "Realty Income, NNN REIT and Agree Realty are the three pillars of US triple-net. Our data ranking with real scores and valuations to choose based on your investment method.",
+      metaDescription: "Triple-net REITs comparison 2026: Realty Income (O), NNN REIT and Agree Realty (ADC) — scores, FCF multiples, dividends and leases compared. Data ranking for investors.",
+      answer: "Realty Income (O), NNN REIT and Agree Realty (ADC) are the three leading US triple-net REITs. Our scores: O=6/10, NNN=6/10, ADC=5/10. In FCF multiples, NNN is cheapest (13.1×), followed by O (14.0×) and ADC (17.3×). All three are well above our entry targets.",
+      body: [
+        { type: 'h2', text: "What is a triple-net REIT?" },
+        { type: 'p', text: "A triple-net (NNN lease) REIT is a landlord whose tenants pay rent + property taxes + insurance + maintenance. The owner receives a quasi-passive rent stream with no operating expenses. It's the most defensive REIT model, particularly valued by investors seeking stable, long-duration income." },
+        { type: 'h2', text: "Data ranking of the three main players" },
+        { type: 'table', headers: ['Criterion', 'Realty Income (O)', 'NNN REIT (NNN)', 'Agree Realty (ADC)'], rows: [
+          ['Lubin screener score', '6/10', '6/10', '5/10'],
+          ['Current FCF multiple', '14.0×', '13.1×', '17.3×'],
+          ['Current price', '$60.58', '$45.16', '$73.39'],
+          ['Lubin entry target', '$29.94', '$21.78', '$36.97'],
+          ['Price vs target', '+102%', '+107%', '+98%'],
+          ['FCF/share growth (5Y)', '1.1%/yr', '3.1%/yr', 'n/a'],
+          ['Dilution', '+15.1%/yr', '+1.2%/yr', 'high'],
+          ['Years of dividend growth', '55 years', '35 years', '10 years'],
+          ['Market cap', '~$55B', '~$14B', '~$7B'],
+          ['Key tenants', 'Walgreens, 7-Eleven', '7-Eleven, Sunoco', 'Walmart, TJX, Best Buy']
+        ]},
+        { type: 'h2', text: "Each player's profile" },
+        { type: 'p', text: "Realty Income (O) is the sector giant — largest, most diversified (86 countries), most liquid. Its monthly dividend since 1969 makes it the default choice for income investors. Its massive dilution (+15%/yr) penalizes our method. NNN REIT offers the cleanest profile on dilution (+1.2%/yr) with 35 years of dividend growth. Agree Realty (ADC) specializes in investment-grade tenants (Walmart, TJX, Best Buy) but has shorter history (10 years dividend growth)." },
+        { type: 'h2', text: "Our conclusion: none are in our buy zone" },
+        { type: 'p', text: "All three triple-net REITs are 98-107% above our FCF entry targets. Our standard method isn't designed for REITs: P/FCF overstates the price by ignoring real estate depreciation (AFFO is the sector standard). For investors who want REITs, we recommend using AFFO and adjusted dividend yield rather than our proprietary method." }
+      ],
+      faq: [
+        { q: "Among the three, which would you choose for an income investor?", a: "For pure income investors, NNN REIT offers the best profile: minimal dilution, long dividend history (35 years), slightly cheaper FCF multiple. Realty Income is better if you want monthly (vs quarterly) dividends." },
+        { q: "Is Agree Realty actually better than O and NNN?", a: "ADC has higher average tenant quality (Walmart, TJX vs pharmacy/gas station chains). But shorter history and our screener rates it 5/10 vs 6/10 for O and NNN. 'Better' depends on your priority criterion." },
+        { q: "Are these REITs exposed to e-commerce growth?", a: "Partially. Tenants like Walgreens and Dollar General have resisted e-commerce because their services are proximity-based or non-substitutable online. Triple-net leases guarantee rents contractually regardless of tenant sales performance." },
+        { q: "How to compare these REITs using AFFO?", a: "In AFFO terms, all three trade at 18-22× — reasonable for the sector. That's the appropriate metric for REITs. Our P/FCF is only a comparative filter: it tells you these REITs don't pass our method, not that they're poor investments per se." }
+      ],
+      tags: ['triple-net REIT', 'Realty Income', 'NNN REIT', 'Agree Realty', 'O', 'NNN', 'ADC', 'comparison', 'REIT'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Our P/FCF method is not optimized for REITs. Informational content, not investment advice."
+    },
+    es: {
+      title: "Triple-net REITs 2026: O, NNN y ADC comparados",
+      excerpt: "Realty Income, NNN REIT y Agree Realty son los tres pilares del triple-net estadounidense. Nuestro ranking de datos con puntuaciones y valoraciones reales para elegir según su metodología de inversión.",
+      metaDescription: "REITs triple-net comparativa 2026: Realty Income (O), NNN REIT y Agree Realty (ADC) — puntuaciones, múltiplos FCF, dividendos y arrendamientos comparados.",
+      answer: "Realty Income (O), NNN REIT y Agree Realty (ADC) son los tres principales REITs triple-net de EE.UU. Nuestras puntuaciones: O=6/10, NNN=6/10, ADC=5/10. En términos de múltiplo FCF, NNN es el más barato (13,1×), seguido de O (14,0×) y ADC (17,3×). Los tres están muy por encima de nuestros objetivos de entrada.",
+      body: [
+        { type: 'h2', text: "¿Qué es un REIT triple-net?" },
+        { type: 'p', text: "Un REIT triple-net (arrendamiento NNN) es un propietario cuyos inquilinos pagan el alquiler + los impuestos sobre la propiedad + los seguros + el mantenimiento. El propietario recibe un flujo de rentas casi pasivo sin gastos operativos. Es el modelo REIT más defensivo, especialmente valorado por inversores que buscan ingresos estables a largo plazo." },
+        { type: 'h2', text: "Ranking de datos de los tres principales actores" },
+        { type: 'table', headers: ['Criterio', 'Realty Income (O)', 'NNN REIT (NNN)', 'Agree Realty (ADC)'], rows: [
+          ['Puntuación screener Lubin', '6/10', '6/10', '5/10'],
+          ['Múltiplo FCF actual', '14,0×', '13,1×', '17,3×'],
+          ['Precio actual', '60,58 $', '45,16 $', '73,39 $'],
+          ['Objetivo entrada Lubin', '29,94 $', '21,78 $', '36,97 $'],
+          ['Diferencia precio/objetivo', '+102 %', '+107 %', '+98 %'],
+          ['Años de aumento dividendo', '55 años', '35 años', '10 años'],
+          ['Inquilinos principales', 'Walgreens, 7-Eleven', '7-Eleven, Sunoco', 'Walmart, TJX, Best Buy']
+        ]},
+        { type: 'h2', text: "El perfil de cada actor" },
+        { type: 'p', text: "Realty Income (O) es el gigante del sector — más grande, más diversificado (86 países), más líquido. NNN REIT ofrece el perfil más limpio en dilución (+1,2 %/año) con 35 años de crecimiento de dividendo. Agree Realty (ADC) se especializa en inquilinos de alta calidad crediticia (Walmart, TJX, Best Buy) pero con historial más corto." },
+        { type: 'h2', text: "Nuestra conclusión: ninguno está en zona de compra" },
+        { type: 'p', text: "Los tres REITs triple-net están entre un 98 % y un 107 % por encima de nuestros objetivos de entrada FCF. Nuestra metodología estándar no está diseñada para REITs: el P/FCF sobreestima el precio al ignorar las amortizaciones inmobiliarias (el AFFO es el estándar del sector)." }
+      ],
+      faq: [
+        { q: "Entre los tres, ¿cuál elegiría para un inversor orientado a ingresos?", a: "Para inversores de renta pura, NNN REIT ofrece el mejor perfil: dilución mínima, largo historial de dividendo (35 años), múltiplo FCF ligeramente inferior. Realty Income es mejor si quiere dividendo mensual (vs trimestral de NNN)." },
+        { q: "¿Está Agree Realty realmente en mejor posición que O y NNN?", a: "ADC tiene inquilinos de mayor calidad crediticia media (Walmart, TJX vs cadenas de farmacia/gasolinera). Pero historial más corto y nuestro screener le da 5/10 vs 6/10 para O y NNN." },
+        { q: "¿Cómo comparar estos REITs usando el AFFO?", a: "En términos de AFFO, los tres cotizan a 18-22× — valoración razonable para el sector. Esa es la métrica apropiada para REITs. Nuestro P/FCF es solo un filtro comparativo: le dice que estos REITs no pasan nuestra metodología, no que sean malas inversiones." }
+      ],
+      tags: ['triple-net REIT', 'Realty Income', 'NNN REIT', 'Agree Realty', 'O', 'NNN', 'ADC', 'comparativa', 'REIT'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Nuestra metodología P/FCF no está optimizada para REITs. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleStripCenters: Article = {
+  slug: 'strip-center-reits-brixmor-kimco-regency-analyse-2026',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  content: {
+    fr: {
+      title: "Strip centers REITs 2026 : BRX, KIM, REG, PECO comparés",
+      excerpt: "Brixmor, Kimco, Regency Centers et Phillips Edison sont les 4 grands REITs de strip centers américains — centres commerciaux de proximité ancrés sur les supermarchés. Notre palmarès data complet.",
+      metaDescription: "Strip centers REITs 2026 : Brixmor (BRX), Kimco (KIM), Regency Centers (REG), Phillips Edison (PECO) — scores, P/FCF, occupation, résistance e-commerce. Comparatif data.",
+      answer: "Brixmor (BRX), Kimco (KIM), Regency Centers (REG) et Phillips Edison (PECO) sont les 4 grands REITs de centres commerciaux de proximité américains (strip centers). Notre screener leur attribue 6 sur 10 à tous — profil similaire : forte FCF margin, dette élevée, croissance limitée, valorisation au-dessus de nos cibles.",
+      body: [
+        { type: 'h2', text: "Qu'est-ce qu'un strip center REIT ?" },
+        { type: 'p', text: "Un strip center est un centre commercial de proximité ancré sur un supermarché (Kroger, Publix, Whole Foods, Walmart Neighborhood). Les boutiques adjacentes (salons de coiffure, pharmacies, restaurants, fitness) bénéficient du trafic généré par l'ancre alimentaire. Ce sous-secteur est réputé 'e-commerce resistant' car les supermarchés ne peuvent pas être remplacés par Amazon — vous ne pouvez pas télécharger une pizza ou un coupe de cheveux." },
+        { type: 'h2', text: "Palmarès data des 4 acteurs principaux" },
+        { type: 'table', headers: ['Critère', 'BRX', 'KIM', 'REG', 'PECO'], rows: [
+          ['Score screener Lubin', '6/10', '6/10', '6/10', '6/10'],
+          ['P/FCF actuel', '14,8×', '15,4×', '17,8×', '17,2×'],
+          ['Prix actuel', '31,18 $', '24,69 $', '77,36 $', '41,09 $'],
+          ['Cible d\'entrée Lubin', '15,94 $', '12,05 $', '40,15 $', '21,12 $'],
+          ['Écart prix/cible', '+96 %', '+105 %', '+93 %', '+95 %'],
+          ['Capitalisation boursière', '~8 Md$', '~17 Md$', '~14 Md$', '~5 Md$'],
+          ['Nombre de propriétés', '~360', '~520', '~480', '~290'],
+          ['Taux d\'occupation', '~95 %', '~96 %', '~95 %', '~98 %']
+        ]},
+        { type: 'h2', text: "Profils différenciés : de Brixmor à Regency" },
+        { type: 'p', text: "Brixmor (BRX) est le plus focalisé sur les marchés secondaires et la transformation de centres obsolètes en actifs modernes — stratégie de création de valeur par rénovation. Kimco (KIM) est le plus grand par capitalisation, très présent sur les côtes américaines (où les rendements immobiliers sont plus faibles mais les valorisations plus élevées). Regency Centers (REG) est le plus premium — locataires de meilleure qualité (Whole Foods, Publix), marchés aisés. Phillips Edison (PECO) est le plus concentré sur les supermarchés alimentaires — 98 % de ses propriétés ont un supermarché comme ancre, le plus élevé de la catégorie." },
+        { type: 'h2', text: "Pourquoi ces REITs résistent au e-commerce" },
+        { type: 'p', text: "Les strip centers ancrés sur des supermarchés ont montré une résilience remarquable à l'essor du e-commerce. Le taux de vacance dans les strip centers est à des niveaux historiquement bas (~4 %) en 2026 — meilleur que les malls et les centres high-street. L'alimentation de proximité, la restauration, les services personnels (coiffure, esthétique, médical) et le fitness ne peuvent pas être remplacés par la livraison à domicile. Ce 'necessity-based retail' est l'un des rares sous-secteurs immobiliers qui a résisté à Amazon." }
+      ],
+      faq: [
+        { q: "Parmi les 4, lequel recommanderiez-vous ?", a: "Pour un investisseur cherchant la plus haute exposition aux supermarchés (anti-Amazon) : PECO (98 % de propriétés avec ancre alimentaire). Pour un investisseur cherchant liquidité et diversification : KIM (le plus grand). Pour la qualité des locataires et des marchés : REG. Pour la valeur ajoutée par rénovation : BRX." },
+        { q: "Les strip centers sont-ils vraiment 'e-commerce resistant' ?", a: "Très largement oui. Le grocery-anchored retail a des taux d'occupation historiquement élevés (~95-98 %) même en 2023-2024 post-COVID. Amazon Fresh n'a pas canniballisé les supermarchés locaux. Les locataires de service (médical, beauté) sont par nature en présentiel." },
+        { q: "Ces REITs versent-ils de bons dividendes ?", a: "Tous versent des dividendes trimestriels avec des rendements de 3-5 %. Les 4 ont maintenu ou augmenté leurs dividendes après COVID. Leurs bilans sont solides par rapport aux malls en déclin." },
+        { q: "Comment se comparent les strip centers aux triple-net REITs ?", a: "Les strip centers ont des taux d'occupation légèrement moins prévisibles (rénovation, locataires qui tournent) mais des opportunités de hausse des loyers plus grandes. Les triple-net REITs (O, NNN) ont des revenus plus prévisibles (bail long, loyer fixe indexé). Les deux sous-secteurs ont des scores similaires (6/10) dans notre screener." }
+      ],
+      tags: ['strip centers', 'Brixmor', 'Kimco', 'Regency Centers', 'Phillips Edison', 'BRX', 'KIM', 'REG', 'PECO', 'REIT', 'grocery-anchored'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Notre méthode P/FCF n'est pas optimisée pour les REITs. Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "Strip center REITs 2026: BRX, KIM, REG, PECO compared",
+      excerpt: "Brixmor, Kimco, Regency Centers and Phillips Edison are the 4 major US grocery-anchored strip center REITs. Our complete data ranking.",
+      metaDescription: "Strip center REITs 2026: Brixmor (BRX), Kimco (KIM), Regency Centers (REG), Phillips Edison (PECO) — scores, FCF multiples, occupancy, e-commerce resistance. Data comparison.",
+      answer: "Brixmor (BRX), Kimco (KIM), Regency Centers (REG), and Phillips Edison (PECO) are the 4 main US grocery-anchored strip center REITs. Our screener rates all 6/10 — similar profile: high FCF margin, high debt, limited growth, prices well above our targets.",
+      body: [
+        { type: 'h2', text: "What is a strip center REIT?" },
+        { type: 'p', text: "A strip center is an open-air neighborhood shopping center anchored by a grocery store (Kroger, Publix, Whole Foods, Walmart Neighborhood). Adjacent shops (hair salons, pharmacies, restaurants, fitness) benefit from traffic generated by the grocery anchor. This sub-sector is known as 'e-commerce resistant' — you can't download a pizza or a haircut." },
+        { type: 'h2', text: "Data ranking of the 4 main players" },
+        { type: 'table', headers: ['Criterion', 'BRX', 'KIM', 'REG', 'PECO'], rows: [
+          ['Lubin screener score', '6/10', '6/10', '6/10', '6/10'],
+          ['Current FCF multiple', '14.8×', '15.4×', '17.8×', '17.2×'],
+          ['Current price', '$31.18', '$24.69', '$77.36', '$41.09'],
+          ['Lubin entry target', '$15.94', '$12.05', '$40.15', '$21.12'],
+          ['Price vs target', '+96%', '+105%', '+93%', '+95%'],
+          ['Market cap', '~$8B', '~$17B', '~$14B', '~$5B'],
+          ['Number of properties', '~360', '~520', '~480', '~290'],
+          ['Occupancy rate', '~95%', '~96%', '~95%', '~98%']
+        ]},
+        { type: 'h2', text: "Differentiated profiles: from Brixmor to Regency" },
+        { type: 'p', text: "Brixmor (BRX) focuses on secondary markets and transforming obsolete centers into modern assets — value creation through renovation. Kimco (KIM) is the largest by cap, heavy coastal US presence. Regency Centers (REG) is the most premium — higher-quality tenants (Whole Foods, Publix), affluent markets. Phillips Edison (PECO) is the most concentrated on grocery anchors — 98% of properties have a supermarket as anchor, highest in the category." },
+        { type: 'h2', text: "Why these REITs resist e-commerce" },
+        { type: 'p', text: "Grocery-anchored strip centers have shown remarkable resilience to e-commerce. Vacancy rates are at historic lows (~4%) in 2026 — better than malls and high streets. Proximity food, dining, personal services (hair, beauty, medical), and fitness can't be replaced by home delivery. This 'necessity-based retail' is one of the few real estate sub-sectors that has resisted Amazon." }
+      ],
+      faq: [
+        { q: "Among the 4, which would you recommend?", a: "For highest grocery/anti-Amazon exposure: PECO (98% grocery-anchored). For liquidity and diversification: KIM (the largest). For tenant quality and market quality: REG. For value-add renovation potential: BRX." },
+        { q: "Are strip centers truly e-commerce resistant?", a: "Largely yes. Grocery-anchored retail has historically high occupancy (~95-98%) even post-COVID. Amazon Fresh hasn't cannibalized local grocers. Service tenants (medical, beauty) are inherently in-person." },
+        { q: "Do these REITs pay good dividends?", a: "All pay quarterly dividends with 3-5% yields. All four maintained or grew dividends post-COVID. Their balance sheets are solid compared to declining malls." },
+        { q: "How do strip centers compare to triple-net REITs?", a: "Strip centers have slightly less predictable occupancy (renovation, tenant turnover) but greater rent growth opportunities. Triple-net REITs (O, NNN) have more predictable income (long leases, fixed indexed rents). Both sub-sectors score similarly (6/10) in our screener." }
+      ],
+      tags: ['strip centers', 'Brixmor', 'Kimco', 'Regency Centers', 'Phillips Edison', 'BRX', 'KIM', 'REG', 'PECO', 'REIT', 'grocery-anchored'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Our P/FCF method is not optimized for REITs. Informational content, not investment advice."
+    },
+    es: {
+      title: "Strip center REITs 2026: BRX, KIM, REG, PECO comparados",
+      excerpt: "Brixmor, Kimco, Regency Centers y Phillips Edison son los 4 grandes REITs de strip centers con ancla alimentaria de EE.UU. Nuestro ranking de datos completo.",
+      metaDescription: "Strip centers REITs 2026: Brixmor (BRX), Kimco (KIM), Regency Centers (REG), Phillips Edison (PECO) — puntuaciones, múltiplos FCF, ocupación, resistencia al e-commerce.",
+      answer: "Brixmor (BRX), Kimco (KIM), Regency Centers (REG) y Phillips Edison (PECO) son los 4 principales REITs de strip centers con ancla alimentaria. Nuestro screener les da 6/10 a todos — perfil similar: alto margen FCF, deuda elevada, crecimiento limitado, precios muy por encima de nuestros objetivos.",
+      body: [
+        { type: 'h2', text: "¿Qué es un strip center REIT?" },
+        { type: 'p', text: "Un strip center es un centro comercial de proximidad anclado en un supermercado (Kroger, Publix, Whole Foods). Las tiendas adyacentes (peluquerías, farmacias, restaurantes, gimnasios) se benefician del tráfico generado por el ancla alimentaria. Este subsector es conocido como 'resistente al e-commerce' — no se puede descargar una pizza o un corte de pelo." },
+        { type: 'h2', text: "Ranking de datos de los 4 principales actores" },
+        { type: 'table', headers: ['Criterio', 'BRX', 'KIM', 'REG', 'PECO'], rows: [
+          ['Puntuación screener Lubin', '6/10', '6/10', '6/10', '6/10'],
+          ['Múltiplo FCF actual', '14,8×', '15,4×', '17,8×', '17,2×'],
+          ['Precio actual', '31,18 $', '24,69 $', '77,36 $', '41,09 $'],
+          ['Objetivo entrada Lubin', '15,94 $', '12,05 $', '40,15 $', '21,12 $'],
+          ['Diferencia precio/objetivo', '+96 %', '+105 %', '+93 %', '+95 %'],
+          ['Capitalización bursátil', '~8.000 M$', '~17.000 M$', '~14.000 M$', '~5.000 M$'],
+          ['Tasa de ocupación', '~95 %', '~96 %', '~95 %', '~98 %']
+        ]},
+        { type: 'h2', text: "Perfiles diferenciados: de Brixmor a Regency" },
+        { type: 'p', text: "Brixmor (BRX) se centra en mercados secundarios y transformación de centros obsoletos. Kimco (KIM) es el más grande por capitalización, fuerte presencia costera. Regency Centers (REG) es el más premium — inquilinos de mayor calidad (Whole Foods, Publix), mercados prósperos. Phillips Edison (PECO) tiene la mayor concentración en anclas alimentarias (98 % de propiedades)." },
+        { type: 'h2', text: "Por qué estos REITs resisten al e-commerce" },
+        { type: 'p', text: "Los strip centers con ancla alimentaria han mostrado notable resiliencia al e-commerce. Las tasas de vacancia están en mínimos históricos (~4 %) en 2026. El comercio de necesidades (alimentación, servicios personales, médico, fitness) no puede ser reemplazado por la entrega a domicilio." }
+      ],
+      faq: [
+        { q: "Entre los 4, ¿cuál recomendaría?", a: "Para máxima exposición alimentaria/anti-Amazon: PECO (98 % con ancla alimentaria). Para liquidez y diversificación: KIM (el más grande). Para calidad de inquilinos y mercados: REG. Para valor añadido por renovación: BRX." },
+        { q: "¿Son los strip centers realmente resistentes al e-commerce?", a: "En gran medida sí. El retail con ancla alimentaria tiene tasas de ocupación históricamente altas (~95-98 %). Los inquilinos de servicios (médico, belleza) son inherentemente presenciales." },
+        { q: "¿Cómo se comparan los strip centers con los REITs triple-net?", a: "Los strip centers tienen ocupación ligeramente menos predecible pero mayores oportunidades de crecimiento de rentas. Los REITs triple-net tienen ingresos más predecibles. Ambos subsectores puntúan de manera similar (6/10) en nuestro screener." }
+      ],
+      tags: ['strip centers', 'Brixmor', 'Kimco', 'Regency Centers', 'Phillips Edison', 'BRX', 'KIM', 'REG', 'PECO', 'REIT', 'grocery-anchored'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Nuestra metodología P/FCF no está optimizada para REITs. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleSTAGIndustrial: Article = {
+  slug: 'stag-industrial-reit-meilleur-score-analyse',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  ticker: 'STAG',
+  content: {
+    fr: {
+      title: "STAG Industrial : le REIT avec le meilleur score",
+      excerpt: "STAG Industrial est un REIT de logistique industrielle qui obtient 7 sur 10 dans notre screener — le meilleur score REIT. Entrepôts e-commerce, leasing single-tenant. Pourquoi l'industriel bat le retail.",
+      metaDescription: "STAG Industrial (STAG) analyse fondamentale : score 7/10, meilleur REIT dans notre screener. REIT logistique industrielle, leasing single-tenant. Notre verdict.",
+      answer: "STAG Industrial obtient 7 sur 10 dans notre screener — le meilleur score parmi tous les REITs analysés. STAG possède des entrepôts industriels loués à un seul locataire (single-tenant) principalement dans les marchés secondaires américains. Son modèle moins capitalistique et sa croissance supérieure lui permettent de battre les REITs retail et triple-net dans notre méthode.",
+      body: [
+        { type: 'h2', text: "STAG Industrial : le REIT qui passe le mieux notre filtre" },
+        { type: 'p', text: "STAG Industrial Inc. (NYSE : STAG) est un REIT spécialisé dans l'immobilier industriel — entrepôts, centres de distribution, espaces de fabrication légère. Contrairement à Prologis (qui vise les hubs logistiques premium), STAG se concentre sur les marchés secondaires américains où les rendements locatifs sont plus élevés. Ses locataires sont des PME et grandes entreprises louant un bâtiment entier en single-tenant lease." },
+        { type: 'h2', text: "Score fondamental au 23 juin 2026" },
+        { type: 'table', headers: ['Critère', 'Valeur', 'Statut'], rows: [
+          ['Rentabilité (marge nette)', '28,3 %', '✅ Pass'],
+          ['Croissance des ventes (5 ans)', '9,8 %/an', '❌ Légèrement sous seuil'],
+          ['Croissance FCF/action (5 ans)', '6,1 %/an', '❌ Sous seuil 10 %'],
+          ['Dilution des actionnaires', '+1,84 %/an', '❌ Dilution légère'],
+          ['Profitabilité cash (FCF margin)', '53,7 %', '✅ Pass'],
+          ['Expansion des marges', 'En expansion', '✅ Pass'],
+          ['ROIC', '12,9 %', '❌ Sous seuil'],
+          ['Endettement', '6,86×', '❌ Élevé'],
+          ['Conversion bénéfices → cash', '1,90×', '✅ Pass'],
+          ['DSO', '-19 j', '✅ Pass (pré-paiement)'],
+          ['Valorisation', '38,58 $ vs cible 21,12 $', '❌ 83 % au-dessus cible']
+        ]},
+        { type: 'h2', text: "Pourquoi l'industriel bat le retail et le triple-net" },
+        { type: 'table', headers: ['Critère', 'STAG Industrial', 'Realty Income (O)', 'Strip centers (moy.)'], rows: [
+          ['Score screener Lubin', '7/10', '6/10', '6/10'],
+          ['FCF/action croissance (5 ans)', '6,1 %/an', '1,1 %/an', '~2-4 %/an'],
+          ['Dilution', '+1,84 %/an', '+15,11 %/an', '~3-8 %/an'],
+          ['FCF margin', '53,7 %', '68,4 %', '~65 %'],
+          ['Expansion marges', 'Oui', 'Non', 'Mixte']
+        ]},
+        { type: 'h2', text: "Le dividende mensuel de STAG : un avantage sous-estimé" },
+        { type: 'p', text: "Comme Realty Income, STAG Industrial verse un dividende mensuel — rare dans la catégorie industrielle. En 2026, le rendement est d'environ 4,5 %. La croissance du dividende suit la croissance du AFFO/action, soit environ 5 %/an sur 5 ans. Pour les investisseurs cherchant à combiner revenu mensuel et exposition à la logistique e-commerce, STAG offre un profil unique." }
+      ],
+      faq: [
+        { q: "STAG Industrial vs Prologis : lequel est le meilleur REIT industriel ?", a: "Prologis est le leader mondial (hubs logistiques premium, Amazon, UPS) mais très cher. STAG est sur les marchés secondaires (rendements plus élevés) mais moins de puissance de pricing sur les renouvellements. Les deux ont des scores différents dans notre screener — STAG est plus accessible mais moins qualitatif que Prologis." },
+        { q: "STAG bénéficie-t-il de la croissance du e-commerce ?", a: "Indirectement. Les marchés secondaires où STAG opère voient la demande d'entrepôts augmenter grâce au dernier kilomètre logistique (Amazon, Walmart, UPS). Mais STAG n'a pas de contrats directs avec ces géants — ses locataires sont des PME et des fournisseurs de niveau 2." },
+        { q: "STAG verse-t-il un dividende mensuel ?", a: "Oui — STAG est l'un des rares REITs industriels à verser un dividende mensuel. En 2026, le rendement est d'environ 4,5 % avec une croissance de ~5 %/an sur les 5 dernières années." },
+        { q: "Pourquoi STAG choisit-il les marchés secondaires ?", a: "Les marchés secondaires (Midwest, Sud US) offrent des rendements locatifs initiaux plus élevés (cap rates de 6-7 % vs 4-5 % pour les marchés primaires). La concurrence entre investisseurs y est moindre. La croissance des loyers est certes plus lente, mais le point d'entrée est plus favorable." },
+        { q: "STAG est-il solide en cas de récession ?", a: "STAG a bien résisté en 2020 (COVID) — le taux d'occupation est resté au-dessus de 95 %. L'industriel léger (entrepôts, PME) est moins cyclique que les bureaux ou les malls. Les baux single-tenant à 3-5 ans offrent une visibilité sur les revenus." }
+      ],
+      tags: ['STAG Industrial', 'STAG', 'REIT industriel', 'logistique', 'entrepôts', 'single-tenant', 'dividende mensuel', 'screener 7/10'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Notre méthode P/FCF n'est pas optimisée pour les REITs (AFFO est le standard). Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "STAG Industrial: the REIT with our best score",
+      excerpt: "STAG Industrial is an industrial logistics REIT scoring 7/10 in our screener — the best REIT score. E-commerce warehouses, single-tenant leasing. Why industrial beats retail.",
+      metaDescription: "STAG Industrial (STAG) fundamental analysis: 7/10 score, best-scoring REIT in our screener. Industrial logistics REIT, single-tenant leasing. Our verdict.",
+      answer: "STAG Industrial scores 7/10 in our screener — the best score among all REITs analyzed. STAG owns industrial warehouses leased to single tenants, primarily in secondary US markets. Its less capital-intensive model and superior growth let it outperform retail and triple-net REITs in our method.",
+      body: [
+        { type: 'h2', text: "STAG Industrial: the REIT that best passes our filter" },
+        { type: 'p', text: "STAG Industrial Inc. (NYSE: STAG) is an industrial real estate REIT — warehouses, distribution centers, light manufacturing. Unlike Prologis (which targets premium logistics hubs), STAG focuses on secondary US markets with higher rental yields. Its tenants are SMEs and larger companies renting an entire building under single-tenant leases." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'table', headers: ['Criterion', 'Value', 'Status'], rows: [
+          ['Net margin', '28.3%', '✅ Pass'],
+          ['Revenue growth (5Y)', '9.8%/yr', '❌ Slightly below threshold'],
+          ['FCF/share growth (5Y)', '6.1%/yr', '❌ Below 10% threshold'],
+          ['Share dilution', '+1.84%/yr', '❌ Slight dilution'],
+          ['FCF margin', '53.7%', '✅ Pass'],
+          ['Margin expansion', 'Expanding', '✅ Pass'],
+          ['ROIC', '12.9%', '❌ Below threshold'],
+          ['Debt', '6.86×', '❌ High'],
+          ['Cash conversion', '1.90×', '✅ Pass'],
+          ['DSO', '-19 days', '✅ Pass (advance payment)'],
+          ['Valuation', '$38.58 vs $21.12 target', '❌ 83% above target']
+        ]},
+        { type: 'h2', text: "Why industrial beats retail and triple-net" },
+        { type: 'table', headers: ['Criterion', 'STAG Industrial', 'Realty Income (O)', 'Strip centers (avg.)'], rows: [
+          ['Lubin screener score', '7/10', '6/10', '6/10'],
+          ['FCF/share growth (5Y)', '6.1%/yr', '1.1%/yr', '~2-4%/yr'],
+          ['Dilution', '+1.84%/yr', '+15.11%/yr', '~3-8%/yr'],
+          ['FCF margin', '53.7%', '68.4%', '~65%'],
+          ['Margin expansion', 'Yes', 'No', 'Mixed']
+        ]},
+        { type: 'h2', text: "STAG's monthly dividend: an underrated advantage" },
+        { type: 'p', text: "Like Realty Income, STAG Industrial pays a monthly dividend — rare in the industrial category. In 2026, the yield is about 4.5%. Dividend growth tracks AFFO/share growth at about 5%/year over 5 years. For investors seeking to combine monthly income with e-commerce logistics exposure, STAG offers a unique profile." }
+      ],
+      faq: [
+        { q: "STAG Industrial vs Prologis: which is the better industrial REIT?", a: "Prologis is the global leader (premium logistics hubs, Amazon, UPS) but very expensive. STAG is in secondary markets (higher yields) but less pricing power on lease renewals. Both have different screener scores — STAG is more accessible but less quality-premium than Prologis." },
+        { q: "Does STAG benefit from e-commerce growth?", a: "Indirectly. Secondary markets where STAG operates see rising warehouse demand from last-mile logistics (Amazon, Walmart, UPS). But STAG doesn't have direct contracts with these giants — its tenants are SMEs and tier-2 suppliers." },
+        { q: "Does STAG pay a monthly dividend?", a: "Yes — STAG is one of the few industrial REITs paying monthly dividends. In 2026, the yield is about 4.5% with ~5%/year growth over the past 5 years." },
+        { q: "Why does STAG choose secondary markets?", a: "Secondary markets (US Midwest, South) offer higher initial rental yields (cap rates 6-7% vs 4-5% for primary markets). Investor competition is lower. Rent growth is slower but the entry point is more favorable." },
+        { q: "Is STAG solid in a recession?", a: "STAG held up well in 2020 (COVID) — occupancy stayed above 95%. Light industrial is less cyclical than offices or malls. Single-tenant 3-5 year leases provide revenue visibility." }
+      ],
+      tags: ['STAG Industrial', 'STAG', 'industrial REIT', 'logistics', 'warehouses', 'single-tenant', 'monthly dividend', '7/10 screener'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Our P/FCF method is not optimized for REITs (AFFO is the standard). Informational content, not investment advice."
+    },
+    es: {
+      title: "STAG Industrial: el REIT con nuestra mejor puntuación",
+      excerpt: "STAG Industrial es un REIT logístico industrial que obtiene 7/10 en nuestro screener — la mejor puntuación REIT. Almacenes de e-commerce, arrendamiento single-tenant. Por qué el industrial supera al retail.",
+      metaDescription: "STAG Industrial (STAG) análisis fundamental: puntuación 7/10, mejor REIT en nuestro screener. REIT de logística industrial, arrendamiento single-tenant. Nuestro veredicto.",
+      answer: "STAG Industrial obtiene 7/10 en nuestro screener — la mejor puntuación entre todos los REITs analizados. STAG posee almacenes industriales arrendados a inquilinos únicos, principalmente en mercados secundarios de EE.UU. Su modelo menos intensivo en capital y crecimiento superior le permiten superar a los REITs retail y triple-net en nuestra metodología.",
+      body: [
+        { type: 'h2', text: "STAG Industrial: el REIT que mejor pasa nuestro filtro" },
+        { type: 'p', text: "STAG Industrial Inc. (NYSE: STAG) es un REIT especializado en inmuebles industriales — almacenes, centros de distribución, fabricación ligera. A diferencia de Prologis (que apunta a los hubs logísticos premium), STAG se centra en mercados secundarios de EE.UU. con rendimientos de alquiler más elevados. Sus inquilinos son pymes y grandes empresas que arriendan un edificio completo en régimen de arrendamiento single-tenant." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'table', headers: ['Criterio', 'Valor', 'Estado'], rows: [
+          ['Margen neto', '28,3 %', '✅ Pasa'],
+          ['Crecimiento ventas (5 años)', '9,8 %/año', '❌ Ligeramente bajo umbral'],
+          ['Crecimiento FCF/acción (5 años)', '6,1 %/año', '❌ Bajo umbral 10 %'],
+          ['Dilución accionistas', '+1,84 %/año', '❌ Dilución leve'],
+          ['Margen FCF', '53,7 %', '✅ Pasa'],
+          ['Expansión márgenes', 'En expansión', '✅ Pasa'],
+          ['ROIC', '12,9 %', '❌ Bajo umbral'],
+          ['Endeudamiento', '6,86×', '❌ Elevado'],
+          ['Conversión beneficios → caja', '1,90×', '✅ Pasa'],
+          ['DSO', '-19 días', '✅ Pasa (pago anticipado)'],
+          ['Valoración', '38,58 $ vs objetivo 21,12 $', '❌ 83 % sobre objetivo']
+        ]},
+        { type: 'h2', text: "Por qué el industrial supera al retail y al triple-net" },
+        { type: 'table', headers: ['Criterio', 'STAG Industrial', 'Realty Income (O)', 'Strip centers (prom.)'], rows: [
+          ['Puntuación screener Lubin', '7/10', '6/10', '6/10'],
+          ['Crecimiento FCF/acción (5 años)', '6,1 %/año', '1,1 %/año', '~2-4 %/año'],
+          ['Dilución', '+1,84 %/año', '+15,11 %/año', '~3-8 %/año'],
+          ['Expansión márgenes', 'Sí', 'No', 'Mixto']
+        ]},
+        { type: 'h2', text: "El dividendo mensual de STAG: una ventaja subestimada" },
+        { type: 'p', text: "Como Realty Income, STAG Industrial paga dividendo mensual — poco frecuente en la categoría industrial. En 2026, la rentabilidad es de aproximadamente 4,5 % con crecimiento de ~5 %/año en los últimos 5 años." }
+      ],
+      faq: [
+        { q: "STAG Industrial vs Prologis: ¿cuál es el mejor REIT industrial?", a: "Prologis es el líder mundial (hubs logísticos premium) pero muy caro. STAG opera en mercados secundarios (mayores rendimientos) pero con menos poder de fijación de precios en las renovaciones. STAG es más accesible pero menos premium que Prologis." },
+        { q: "¿STAG se beneficia del crecimiento del e-commerce?", a: "Indirectamente. Los mercados secundarios donde opera STAG ven crecer la demanda de almacenes por la logística de último kilómetro. Pero STAG no tiene contratos directos con Amazon o Walmart — sus inquilinos son pymes y proveedores de segundo nivel." },
+        { q: "¿STAG paga dividendo mensual?", a: "Sí — STAG es uno de los pocos REITs industriales que paga dividendo mensual. En 2026, la rentabilidad es de aproximadamente 4,5 % con crecimiento de ~5 %/año." },
+        { q: "¿Por qué STAG elige los mercados secundarios?", a: "Los mercados secundarios (Medio Oeste, Sur de EE.UU.) ofrecen tasas de capitalización más elevadas (6-7 % vs 4-5 % en mercados primarios). La competencia inversora es menor y el punto de entrada más favorable." },
+        { q: "¿Es STAG sólido en una recesión?", a: "STAG aguantó bien en 2020 (COVID) — la tasa de ocupación se mantuvo por encima del 95 %. El industrial ligero es menos cíclico que las oficinas o los centros comerciales. Los arrendamientos single-tenant de 3-5 años ofrecen visibilidad sobre los ingresos." }
+      ],
+      tags: ['STAG Industrial', 'STAG', 'REIT industrial', 'logística', 'almacenes', 'single-tenant', 'dividendo mensual', '7/10 screener'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Nuestra metodología P/FCF no está optimizada para REITs (el AFFO es el estándar). Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
