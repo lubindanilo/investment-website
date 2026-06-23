@@ -24,7 +24,7 @@ import { prisma } from '../db/client.js';
 // ⚠️ Imports de valeur (`getArticleBySlug`, `toArticleLang`) interdits depuis '@lubin/shared'
 //, pas de build dist/, crash lambda Vercel. On consomme la copie locale apps/api/src/data/.
 // Les types restent OK à puiser depuis '@lubin/shared' (effacés à la compilation).
-import { getArticleBySlug, toArticleLang } from '../data/articles.js';
+import { getArticleBySlug, listArticles, toArticleLang } from '../data/articles.js';
 import type { Article, ArticleLang } from '@lubin/shared';
 
 export const seoPrerenderRouter: Router = Router();
@@ -456,6 +456,19 @@ export function renderTickerHtml(
     { q: tr.faqWhereFull(displayName), a: tr.faqWhereFullA(canonical) },
   ];
 
+  // Maillage interne sur les ARTICLES qui mentionnent ce ticker (article.ticker).
+  // Renforce le crawl Googlebot fiche → articles (les articles seuls étaient orphelins).
+  const articlesForTicker = listArticles()
+    .filter((a) => a.ticker && a.ticker.toUpperCase() === t.ticker.toUpperCase())
+    .slice(0, 5);
+  const articlesHeading = lang === 'en' ? `Articles about ${displayName}` : lang === 'es' ? `Artículos sobre ${displayName}` : `Articles sur ${displayName}`;
+  const articlesSection = articlesForTicker.length > 0
+    ? `\n\n<h2>${articlesHeading}</h2>\n<ul>\n${articlesForTicker.map((a) => {
+        const c = a.content[lang] || a.content.fr;
+        const title = c?.title ? escapeHtml(c.title) : escapeHtml(a.slug);
+        return `<li><a href="${SITE_URL}/blog/${encodeURIComponent(a.slug)}${lq}">${title}</a> <small>(${escapeHtml(a.date)})</small></li>`;
+      }).join('\n')}\n</ul>`
+    : '';
   // Maillage interne : 3-5 tickers comparables (même secteur), liens cliquables avec score + P/FCF
   // en anchor text. La langue se propage dans les liens (?lng=) pour rester cohérent côté nav bot.
   const sectorLabel = t.sector ? escapeHtml(displaySector(t.sector)) : null;
@@ -587,6 +600,7 @@ ${tr.criteria.map((c) => `<li>${c}</li>`).join('\n')}
 
 <h2>${tr.faqH2}</h2>
 ${faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n')}
+${articlesSection}
 ${relatedSection}
 
 <h2>${tr.goFurtherH2}</h2>
@@ -1048,6 +1062,29 @@ const STATIC_TR: Record<ArticleLang, {
   es: { home: 'Inicio', criteriaH2: 'Los 10 criterios en detalle', criteriaLdName: 'Los 10 criterios de calidad de Lubin Investment', formula: 'Fórmula', threshold: 'Umbral', ogLocale: 'es_ES', nav: 'Metodología' },
 };
 
+// Bloc HTML qui liste des articles (titre + date + lien trilingue).
+// Sert le maillage interne : la page /blog ne servait AUCUN lien vers les articles
+// (cause confirmée des 50% URL unknown to Google dans l'audit 2026-06-23).
+function renderArticleListBlock(lang: ArticleLang, lq: string, limit?: number): string {
+  const headings = {
+    fr: { h2Recent: 'Derniers articles du blog', h2All: 'Tous les articles', viewAll: 'Voir tous les articles', date: 'date', noTitle: 'Article' },
+    en: { h2Recent: 'Latest blog articles', h2All: 'All articles', viewAll: 'See all articles', date: 'date', noTitle: 'Article' },
+    es: { h2Recent: 'Últimos artículos del blog', h2All: 'Todos los artículos', viewAll: 'Ver todos los artículos', date: 'fecha', noTitle: 'Artículo' },
+  } as const;
+  const t = headings[lang];
+  const all = listArticles();
+  const list = limit ? all.slice(0, limit) : all;
+  if (list.length === 0) return '';
+  const items = list.map((a) => {
+    const c = a.content[lang] || a.content.fr;
+    const title = c?.title ? escapeHtml(c.title) : `${t.noTitle} ${escapeHtml(a.slug)}`;
+    return `<li><a href="${SITE_URL}/blog/${encodeURIComponent(a.slug)}${lq}">${title}</a> <small>(${escapeHtml(a.date)})</small></li>`;
+  }).join('\n');
+  const h2 = limit ? t.h2Recent : t.h2All;
+  const viewAllLink = limit ? `\n<p><a href="${SITE_URL}/blog${lq}">${t.viewAll}</a></p>` : '';
+  return `<h2>${h2}</h2>\n<ul>\n${items}\n</ul>${viewAllLink}`;
+}
+
 function renderStaticHtml(o: StaticSeo, lang: ArticleLang): string {
   const tr = STATIC_TR[lang];
   const c = o.content[lang];
@@ -1127,6 +1164,8 @@ ${hreflang}
 <h1>${escapeHtml(c.h1)}</h1>
 <p>${escapeHtml(c.intro)}</p>
 ${sectionsHtml}
+${o.path === '/blog' ? renderArticleListBlock(lang, lq) : ''}
+${o.path === '/' ? renderArticleListBlock(lang, lq, 5) : ''}
 ${criteriaHtml}
 <p>${linksHtml}</p>
 </main>
