@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { currentLocale } from '../i18n/index.js';
 import type { ScreenerTopRow, ScreenerStats } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
@@ -37,7 +38,7 @@ function valOf(r: ScreenerTopRow, col: SortCol): number {
 function formatEarnings(iso?: string | null): string {
   if (!iso) return '—';
   const d = new Date(iso + 'T12:00:00Z');
-  return Number.isNaN(d.getTime()) ? '—' : d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+  return Number.isNaN(d.getTime()) ? '—' : d.toLocaleDateString(currentLocale(), { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
 /** Bouton « Filtres » → popover multi-sélection de secteurs (recherche + Valider/Réinitialiser). */
@@ -254,7 +255,7 @@ export function ScreenerPage() {
                 <span className="num tiny" style={{ fontWeight: 700, color: progress >= 100 ? 'var(--good)' : 'var(--brand-ink)' }}>{progress >= 100 ? t('screener.progress.upToDate') : progress + ' %'}</span>
               </div>
               <div className="scr-progress-track"><div className="scr-progress-fill" style={{ width: `${progress}%`, background: progress >= 100 ? 'var(--good)' : 'var(--brand)' }} /></div>
-              <span className="tiny muted num">{t('screener.progress.scored', { scored: stats.scored.toLocaleString('fr-FR'), total: stats.total.toLocaleString('fr-FR') })}</span>
+              <span className="tiny muted num">{t('screener.progress.scored', { scored: stats.scored.toLocaleString(currentLocale()), total: stats.total.toLocaleString(currentLocale()) })}</span>
             </div>
           )}
         </div>
@@ -394,7 +395,7 @@ export function ScreenerPage() {
         {!loading && isPro && visibleCount < sorted.length && (
           <div className="row" style={{ justifyContent: 'center', marginTop: 16 }}>
             <button type="button" className="btn btn-ghost" onClick={() => setVisibleCount((v) => v + 60)}>
-              {t('screener.loadMore', { defaultValue: 'Charger plus' })} ({sorted.length - visibleCount})
+              {t('screener.loadMore')} ({sorted.length - visibleCount})
             </button>
           </div>
         )}

@@ -58,4 +58,10 @@ export function currentLang(): Lang {
   return (SUPPORTED_LANGS as readonly string[]).includes(base) ? (base as Lang) : 'fr';
 }
 
+/** Locale BCP-47 courante pour les API Intl (toLocaleDateString, toLocaleString, etc.). */
+export function currentLocale(): 'fr-FR' | 'en-US' | 'es-ES' {
+  const l = currentLang();
+  return l === 'en' ? 'en-US' : l === 'es' ? 'es-ES' : 'fr-FR';
+}
+
 export default i18n;

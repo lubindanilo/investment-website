@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import type { NewsItem } from '@lubin/shared';
 import './NewsPanel.css';
 
@@ -10,12 +11,13 @@ const TYPE_COLORS: Record<NewsItem['type'], string> = {
 };
 
 export function NewsPanel({ ticker, news }: { ticker: string; news: NewsItem[] }) {
+  const { t } = useTranslation();
   if (news.length === 0) return null;
   return (
     <div className="news-section">
       <div className="news-title">
-        <span>Actualités récentes — {ticker}</span>
-        <span className="news-subtitle">60 derniers jours</span>
+        <span>{t('news.title', { ticker })}</span>
+        <span className="news-subtitle">{t('news.subtitle')}</span>
       </div>
       <div className="news-list">
         {news.map((n, i) => (

@@ -263,7 +263,7 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
     <div className="scr">
       <SeoHead title={meta.title} description={meta.desc} pathname={path} />
       <div className="wrap-wide scr-wrap">
-        <nav aria-label="Fil d'Ariane" className="tiny muted" style={{ marginBottom: 6 }}>
+        <nav aria-label={t('common.breadcrumb')} className="tiny muted" style={{ marginBottom: 6 }}>
           <Link to="/">{S.crumbHome}</Link> {'›'} <Link to="/screener">{S.crumbScreener}</Link> {'›'} {meta.h1}
         </nav>
 

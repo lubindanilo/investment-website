@@ -75,7 +75,7 @@ export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
             type="button"
             className={'crit-hist-btn' + (!isPro ? ' crit-hist-btn-pro' : '')}
             onClick={() => { if (!isPro) { setUpgrade(true); return; } setOpen(true); }}
-            title={!isPro ? 'Graphique détaillé — Pro' : undefined}
+            title={!isPro ? t('chart.proTooltip') : undefined}
           >
             <Icon name="bars" size={13} /> {t('dividend.evolution')}
             {!isPro && <span className="crit-pro-tag">PRO</span>}
