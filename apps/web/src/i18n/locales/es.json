@@ -70,7 +70,21 @@
     "add": "Añadir",
     "retry": "Reintentar",
     "close": "Cerrar",
-    "viaYahoo": "vía Yahoo"
+    "viaYahoo": "vía Yahoo",
+    "error": "Error",
+    "moreInfo": "Saber más",
+    "breadcrumb": "Migas de pan"
+  },
+  "blog": {
+    "ctaSeeAnalysis": "Ver el análisis de {{ticker}}",
+    "ctaAnalyzeStock": "Analizar una acción"
+  },
+  "scoreCard": {
+    "inWatchlist": "En tus favoritos",
+    "addWatchlist": "Añadir a favoritos"
+  },
+  "marketBeat": {
+    "deleteConfirm": "¿Eliminar esta posición?"
   },
   "nav": {
     "analyse": "Analizar",

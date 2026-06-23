@@ -95,7 +95,7 @@ function renderBlock(block: ArticleBlock, i: number) {
 
 export function BlogArticlePage() {
   const { slug } = useParams<{ slug: string }>();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const article = slug ? getArticleBySlug(slug) : undefined;
 
   if (!article) return <Navigate to="/blog" replace />;
@@ -111,7 +111,7 @@ export function BlogArticlePage() {
       <SeoHead title={c.title} description={c.metaDescription} type="article" />
       <div className="wrap article-wrap">
 
-        <nav className="article-breadcrumb" aria-label="Fil d'Ariane">
+        <nav className="article-breadcrumb" aria-label={t('common.breadcrumb')}>
           <Link to="/">Lubin Investment</Link> <span>›</span> <Link to="/blog">Blog</Link>
         </nav>
 
@@ -149,11 +149,11 @@ export function BlogArticlePage() {
         <section className="article-cta">
           {article.ticker ? (
             <Link to={`/analyse/${article.ticker}`} className="btn btn-brand">
-              Voir l'analyse {article.ticker} <Icon name="arrowRight" size={16} />
+              {t('blog.ctaSeeAnalysis', { ticker: article.ticker })} <Icon name="arrowRight" size={16} />
             </Link>
           ) : (
             <Link to="/analyser" className="btn btn-brand">
-              Analyser une action <Icon name="arrowRight" size={16} />
+              {t('blog.ctaAnalyzeStock')} <Icon name="arrowRight" size={16} />
             </Link>
           )}
         </section>

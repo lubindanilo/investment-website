@@ -6,7 +6,21 @@
     "add": "Add",
     "retry": "Retry",
     "close": "Close",
-    "viaYahoo": "via Yahoo"
+    "viaYahoo": "via Yahoo",
+    "error": "Error",
+    "moreInfo": "Learn more",
+    "breadcrumb": "Breadcrumb"
+  },
+  "blog": {
+    "ctaSeeAnalysis": "See {{ticker}} analysis",
+    "ctaAnalyzeStock": "Analyze a stock"
+  },
+  "scoreCard": {
+    "inWatchlist": "In your watchlist",
+    "addWatchlist": "Add to watchlist"
+  },
+  "marketBeat": {
+    "deleteConfirm": "Delete this position?"
   },
   "search": {
     "searching": "Searching…",

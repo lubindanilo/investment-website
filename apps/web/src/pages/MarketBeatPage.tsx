@@ -63,7 +63,7 @@ function ForwardCompare() {
     catch (e) { setErr(e instanceof ApiError ? e.userMessage : (e as Error).message); } finally { setBusy(false); }
   }
   async function delPos(id: string) {
-    if (!window.confirm('Supprimer cette position ?')) return;
+    if (!window.confirm(t('marketBeat.deleteConfirm'))) return;
     setBusy(true); setErr(null);
     try { await api.portfolio.remove(id); reload(); } catch (e) { setErr(e instanceof ApiError ? e.userMessage : (e as Error).message); } finally { setBusy(false); }
   }
