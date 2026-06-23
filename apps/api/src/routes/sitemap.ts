@@ -77,15 +77,38 @@ function buildStaticUrlBlock(path: string, changefreq: string, priority: number,
   ].join('\n');
 }
 
-/** Construit un bloc <url> pour une page d'analyse ticker. */
-function buildTickerUrlBlock(ticker: string, lastmod: string): string {
-  const loc = xmlEscape(`${SITE_URL}/analyse/${encodeURIComponent(ticker)}`);
+/** Construit un bloc <url> pour une page d'analyse ticker.
+ *  - hreflang fr/en/es + x-default : signale à Google les 3 variantes linguistiques.
+ *  - priority différenciée par scoreRatio : Google rationne le crawl budget sur 5000 fiches
+ *    si toutes ont la même priority. On surnage les meilleures notes.
+ *  - lastmod réel = dernière analyse (lastScoredAt), pas la date du build : signal de
+ *    fraîcheur fiable pour Google.
+ */
+function buildTickerUrlBlock(ticker: string, lastmod: string, scoreRatio: number | null): string {
+  const base = `${SITE_URL}/analyse/${encodeURIComponent(ticker)}`;
+  const loc = xmlEscape(base);
+  // Bucket priority : top quality (>= 0.8) = 0.8, top quartile (>= 0.6) = 0.7,
+  // mediane (>= 0.4) = 0.5, queue = 0.3. Sans score : 0.4 (low default).
+  const priority = scoreRatio == null
+    ? 0.4
+    : scoreRatio >= 0.8 ? 0.8
+    : scoreRatio >= 0.6 ? 0.7
+    : scoreRatio >= 0.4 ? 0.5
+    : 0.3;
+  // changefreq weekly : les notes bougent mais pas chaque jour ; daily faisait perdre
+  // de la crédibilité auprès de Google sur 5000 URLs (signal jugé spammeux).
+  const altLinks = LOCALES.map((lng) => {
+    const href = lng === 'fr' ? base : `${base}?lng=${lng}`;
+    return `    <xhtml:link rel="alternate" hreflang="${lng}" href="${xmlEscape(href)}"/>`;
+  }).join('\n');
   return [
     '  <url>',
     `    <loc>${loc}</loc>`,
     `    <lastmod>${lastmod}</lastmod>`,
-    `    <changefreq>daily</changefreq>`,
-    `    <priority>0.6</priority>`,
+    `    <changefreq>weekly</changefreq>`,
+    `    <priority>${priority.toFixed(1)}</priority>`,
+    altLinks,
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${loc}"/>`,
     '  </url>',
   ].join('\n');
 }
@@ -115,11 +138,13 @@ async function buildSitemap(): Promise<string> {
   const lastmod = new Date().toISOString().slice(0, 10);
 
   // Tickers scorés, meilleurs ratios en premier (limite Google : 50 000 URLs / sitemap).
+  // On récupère scoreRatio (pour différencier la priority) et lastScoredAt (lastmod réel)
+  // afin d'envoyer à Google de vrais signaux de fraîcheur + d'importance par fiche.
   const tickers = await prisma.screenerTicker.findMany({
     where: { status: 'scored' },
     orderBy: { scoreRatio: 'desc' },
     take: 5000,
-    select: { ticker: true },
+    select: { ticker: true, scoreRatio: true, lastScoredAt: true, updatedAt: true },
   });
 
   // Hubs secteur : un par secteur ayant au moins un ticker scoré (pages d'indexation/maillage).
@@ -147,7 +172,11 @@ async function buildSitemap(): Promise<string> {
     buildHubUrlBlock('/classement/sous-evaluees', lastmod),
     ...sectorSlugs.map((slug) => buildHubUrlBlock(`/secteur/${slug}`, lastmod)),
   ];
-  const tickerBlocks = tickers.map((t) => buildTickerUrlBlock(t.ticker, lastmod));
+  const tickerBlocks = tickers.map((t) => {
+    // lastmod réel : dernière analyse (lastScoredAt) > updatedAt > date du jour.
+    const tickerLastmod = (t.lastScoredAt ?? t.updatedAt)?.toISOString().slice(0, 10) ?? lastmod;
+    return buildTickerUrlBlock(t.ticker, tickerLastmod, t.scoreRatio);
+  });
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',

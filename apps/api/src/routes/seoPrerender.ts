@@ -120,9 +120,249 @@ function render404(ticker: string): string {
 </html>`;
 }
 
+// Dictionnaire trilingue (fr/en/es) pour le HTML pré-rendu d'une fiche ticker.
+// Le rendering UI passe par ces clés ; tout ajout de texte user-facing doit avoir ses 3 variantes.
+type TickerTr = {
+  ogLocale: string;
+  inLanguage: string;
+  titlePrefix: string;
+  titleSuffix: string;
+  metaDescription: (name: string) => string;
+  sectorUnknown: string;
+  oppLabel: string;
+  oppBody: (name: string) => string;
+  updatedOn: string;
+  introVerdict: (name: string, score: string, quality: string, pfcfClause: string) => string;
+  sectorPriceLine: (sector: string, exchange: string, price: string) => string;
+  methodH2: string;
+  methodBody: (name: string, ticker: string) => string;
+  criteriaH2: string;
+  criteria: string[]; // 10 items HTML-ready (avec <strong>)
+  faqH2: string;
+  faqQuality: (name: string) => string;
+  faqQualityA: (name: string, score: string, quality: string) => string;
+  faqHowScored: (name: string) => string;
+  faqHowScoredA: string;
+  faqPfcf: (name: string) => string;
+  faqPfcfA: (name: string, pfcf: string) => string;
+  faqWhereFull: (name: string) => string;
+  faqWhereFullA: (canonical: string) => string;
+  qualityHigh: string;
+  qualityMid: string;
+  qualityLow: string;
+  qualityPending: string;
+  relatedHeadingWithSector: (sector: string) => string;
+  relatedHeadingFallback: string;
+  scoreNoted: string;
+  scoreSuffix: string; // " / " or " out of " etc.
+  goFurtherH2: string;
+  goFurtherCta: (ticker: string) => string;
+  otherResources: string;
+  resMethod: string;
+  resSectorHub: (sector: string) => string;
+  resQuality10: string;
+  resTopQuality: string;
+  resPricing: string;
+  headerNav: { home: string; screener: string; method: string; pricing: string };
+  breadcrumbHome: string;
+  breadcrumbScreener: string;
+  disclaimer: string;
+  h1Analysis: string; // "Analyse fondamentale" / "Fundamental analysis" / ...
+  pfcfClauseTpl: (pfcf: string) => string;
+};
+
+const TICKER_TR: Record<ArticleLang, TickerTr> = {
+  fr: {
+    ogLocale: 'fr_FR',
+    inLanguage: 'fr-FR',
+    titlePrefix: "Faut-il acheter l'action ",
+    titleSuffix: ' ? Notre analyse complète.',
+    metaDescription: (n) => `On a analysé les fondamentaux et la valorisation de l'action ${n} : voici nos conclusions.`,
+    sectorUnknown: 'secteur non renseigné',
+    oppLabel: '⭐ Opportunité du moment',
+    oppBody: (n) => `${n} est dans son décile bas historique de valorisation (P/FCF ≤ 10ᵉ percentile sur 10 ans, ET ratio &lt; 25×). C'est un point d'entrée potentiellement intéressant pour les investisseurs long terme.`,
+    updatedOn: 'Mis à jour le',
+    introVerdict: (n, score, quality, pfcfClause) => `On a analysé l'action ${n} sur les 10 critères de qualité de Lubin Investment. L'entreprise obtient une note de <strong>${score}</strong> synonyme de qualité ${quality}${pfcfClause}.`,
+    sectorPriceLine: (sector, exchange, price) => `Secteur : ${sector}.${exchange ? ` Place de cotation : ${exchange}.` : ''} Cours actuel : ${price}.`,
+    methodH2: 'Méthode de notation Lubin',
+    methodBody: (n, ticker) => `La note de ${n} (${ticker}) est calculée automatiquement à partir de 10 critères financiers objectifs, sans intervention humaine ni opinion. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). La note finale est le total des validations.`,
+    criteriaH2: 'Les 10 critères chiffrés analysés',
+    criteria: [
+      "<strong>Rentable</strong> : marge nette positive",
+      "<strong>Ventes en croissance</strong> : chiffre d'affaires &gt; 10 %/an sur 5 ans",
+      "<strong>Profits par action en croissance</strong> : FCF par action ajusté de la rémunération en actions, &gt; 10 %/an sur 5 ans",
+      "<strong>Nombre d'actions maîtrisé</strong> : stable ou en baisse (rachats nets = création de valeur pour l'actionnaire)",
+      "<strong>Profitabilité cash</strong> : marge de free cash flow &gt; 10 % du chiffre d'affaires",
+      "<strong>Marges en expansion</strong> : la marge opérationnelle s'élargit sur 5 ans (operating leverage)",
+      "<strong>Rendement du capital investi</strong> : Cash ROCE Bettin-Mauboussin &gt; 15 % par an",
+      "<strong>Endettement maîtrisé</strong> : dette nette remboursable en moins de 3 ans de free cash flow",
+      "<strong>Bénéfices transformés en cash</strong> : le free cash flow excède le bénéfice net comptable",
+      "<strong>Délai d'encaissement net</strong> : cycle de trésorerie court ou négatif",
+    ],
+    faqH2: 'Questions fréquentes',
+    faqQuality: (n) => `L'action ${n} est-elle de qualité ?`,
+    faqQualityA: (n, score, q) => `L'action ${n} obtient une note de qualité de ${score} (qualité ${q}), calculée sur les 10 critères de Lubin Investment : rentabilité, croissance du chiffre d'affaires et du free cash flow, rachats d'actions, marges, endettement et rendement du capital.`,
+    faqHowScored: (n) => `Comment est calculée la note de ${n} ?`,
+    faqHowScoredA: 'La note est le total des critères validés (OUI / PARTIEL / NON) selon des seuils issus de la littérature financière (Warren Buffett, Mauboussin, Aswath Damodaran), de façon automatique et sans opinion humaine.',
+    faqPfcf: (n) => `Quel est le P/FCF de ${n} ?`,
+    faqPfcfA: (n, p) => `Le multiple cours / free cash flow (P/FCF) de l'action ${n} ressort à ${p}. Chez Lubin Investment, la valorisation est jugée séparément de la qualité.`,
+    faqWhereFull: (n) => `Où voir l'analyse complète de ${n} ?`,
+    faqWhereFullA: (c) => `L'analyse interactive complète (détail des 10 critères, historiques, valorisation P/FCF, comparaisons sectorielles) est disponible sur ${c}.`,
+    qualityHigh: 'élevée',
+    qualityMid: 'moyenne',
+    qualityLow: 'faible',
+    qualityPending: 'à analyser',
+    relatedHeadingWithSector: (s) => `Autres actions du secteur ${s}`,
+    relatedHeadingFallback: 'Autres actions à explorer',
+    scoreNoted: 'note',
+    scoreSuffix: ' / ',
+    goFurtherH2: 'Aller plus loin',
+    goFurtherCta: (ticker) => `Voir l'analyse complète et interactive de ${ticker}`,
+    otherResources: 'Autres ressources',
+    resMethod: 'Méthodologie détaillée',
+    resSectorHub: (s) => `Toutes les actions du secteur ${s}`,
+    resQuality10: 'Les actions notées 10 sur 10',
+    resTopQuality: 'Top des entreprises de qualité',
+    resPricing: 'Tarifs Lubin Investment',
+    headerNav: { home: 'Lubin Investment', screener: 'Screener', method: 'Méthodologie', pricing: 'Tarifs' },
+    breadcrumbHome: 'Accueil',
+    breadcrumbScreener: 'Screener',
+    disclaimer: "Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Ce service ne constitue pas un conseil en investissement personnalisé au sens de l'article L.321-1 du Code monétaire et financier. Les performances passées ne préjugent pas des performances futures.",
+    h1Analysis: 'Analyse fondamentale',
+    pfcfClauseTpl: (p) => `, et un multiple de valorisation P/FCF de ${p}`,
+  },
+  en: {
+    ogLocale: 'en_US',
+    inLanguage: 'en-US',
+    titlePrefix: 'Should you buy ',
+    titleSuffix: ' stock? Our full analysis.',
+    metaDescription: (n) => `We analyzed the fundamentals and valuation of ${n} stock: here are our conclusions.`,
+    sectorUnknown: 'sector not specified',
+    oppLabel: '⭐ Current opportunity',
+    oppBody: (n) => `${n} is in its historical low decile of valuation (P/FCF ≤ 10th percentile over 10 years, AND ratio &lt; 25×). This is a potentially interesting entry point for long-term investors.`,
+    updatedOn: 'Updated on',
+    introVerdict: (n, score, quality, pfcfClause) => `We analyzed ${n} stock against the 10 quality criteria of Lubin Investment. The company gets a quality score of <strong>${score}</strong>, meaning ${quality} quality${pfcfClause}.`,
+    sectorPriceLine: (sector, exchange, price) => `Sector: ${sector}.${exchange ? ` Listing: ${exchange}.` : ''} Current price: ${price}.`,
+    methodH2: 'Lubin scoring methodology',
+    methodBody: (n, ticker) => `${n} (${ticker})'s score is calculated automatically from 10 objective financial criteria, with no human intervention or opinion. Each criterion is validated (YES / PARTIAL / NO) based on thresholds drawn from the financial literature (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). The final score is the sum of validations.`,
+    criteriaH2: 'The 10 quantitative criteria analyzed',
+    criteria: [
+      "<strong>Profitable</strong>: positive net margin",
+      "<strong>Growing revenue</strong>: revenue growing &gt; 10%/year over 5 years",
+      "<strong>Growing earnings per share</strong>: FCF per share adjusted for stock-based compensation, &gt; 10%/year over 5 years",
+      "<strong>Share count under control</strong>: stable or declining (net buybacks = value creation for shareholders)",
+      "<strong>Cash profitability</strong>: free cash flow margin &gt; 10% of revenue",
+      "<strong>Expanding margins</strong>: operating margin widens over 5 years (operating leverage)",
+      "<strong>Return on invested capital</strong>: Bettin-Mauboussin Cash ROCE &gt; 15% per year",
+      "<strong>Debt under control</strong>: net debt repayable in less than 3 years of free cash flow",
+      "<strong>Earnings converted to cash</strong>: free cash flow exceeds accounting net income",
+      "<strong>Net collection period</strong>: short or negative cash conversion cycle",
+    ],
+    faqH2: 'Frequently asked questions',
+    faqQuality: (n) => `Is ${n} a quality stock?`,
+    faqQualityA: (n, score, q) => `${n} gets a quality score of ${score} (${q} quality), calculated over the 10 Lubin Investment criteria: profitability, revenue and free cash flow growth, share buybacks, margins, debt and return on capital.`,
+    faqHowScored: (n) => `How is ${n}'s score calculated?`,
+    faqHowScoredA: 'The score is the total of validated criteria (YES / PARTIAL / NO) using thresholds drawn from the financial literature (Warren Buffett, Mauboussin, Aswath Damodaran), automatically and with no human opinion.',
+    faqPfcf: (n) => `What is ${n}'s P/FCF?`,
+    faqPfcfA: (n, p) => `The price-to-free-cash-flow (P/FCF) multiple of ${n} stock is ${p}. At Lubin Investment, valuation is judged separately from quality.`,
+    faqWhereFull: (n) => `Where to see ${n}'s full analysis?`,
+    faqWhereFullA: (c) => `The full interactive analysis (10-criteria detail, history, P/FCF valuation, sector comparisons) is available at ${c}.`,
+    qualityHigh: 'high',
+    qualityMid: 'medium',
+    qualityLow: 'low',
+    qualityPending: 'pending analysis',
+    relatedHeadingWithSector: (s) => `Other stocks in the ${s} sector`,
+    relatedHeadingFallback: 'Other stocks to explore',
+    scoreNoted: 'score',
+    scoreSuffix: ' / ',
+    goFurtherH2: 'Go further',
+    goFurtherCta: (ticker) => `See the full interactive analysis of ${ticker}`,
+    otherResources: 'Other resources',
+    resMethod: 'Detailed methodology',
+    resSectorHub: (s) => `All stocks in the ${s} sector`,
+    resQuality10: 'Stocks rated 10 out of 10',
+    resTopQuality: 'Top quality companies',
+    resPricing: 'Lubin Investment pricing',
+    headerNav: { home: 'Lubin Investment', screener: 'Screener', method: 'Methodology', pricing: 'Pricing' },
+    breadcrumbHome: 'Home',
+    breadcrumbScreener: 'Screener',
+    disclaimer: 'Lubin Investment is a decision-support tool for individual investors. This service does not constitute personalized investment advice within the meaning of Article L.321-1 of the French Monetary and Financial Code. Past performance is no guarantee of future results.',
+    h1Analysis: 'Fundamental analysis',
+    pfcfClauseTpl: (p) => `, and a P/FCF valuation multiple of ${p}`,
+  },
+  es: {
+    ogLocale: 'es_ES',
+    inLanguage: 'es-ES',
+    titlePrefix: '¿Comprar la acción ',
+    titleSuffix: '? Nuestro análisis completo.',
+    metaDescription: (n) => `Analizamos los fundamentales y la valoración de la acción ${n}: aquí están nuestras conclusiones.`,
+    sectorUnknown: 'sector no especificado',
+    oppLabel: '⭐ Oportunidad del momento',
+    oppBody: (n) => `${n} está en su decil bajo histórico de valoración (P/FCF ≤ percentil 10 a 10 años, Y ratio &lt; 25×). Es un punto de entrada potencialmente interesante para inversores a largo plazo.`,
+    updatedOn: 'Actualizado el',
+    introVerdict: (n, score, quality, pfcfClause) => `Analizamos la acción ${n} con los 10 criterios de calidad de Lubin Investment. La empresa obtiene una nota de calidad de <strong>${score}</strong>, lo que significa calidad ${quality}${pfcfClause}.`,
+    sectorPriceLine: (sector, exchange, price) => `Sector: ${sector}.${exchange ? ` Bolsa de cotización: ${exchange}.` : ''} Precio actual: ${price}.`,
+    methodH2: 'Metodología de puntuación Lubin',
+    methodBody: (n, ticker) => `La nota de ${n} (${ticker}) se calcula automáticamente a partir de 10 criterios financieros objetivos, sin intervención humana ni opinión. Cada criterio se valida (SÍ / PARCIAL / NO) según umbrales sacados de la literatura financiera (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). La nota final es el total de las validaciones.`,
+    criteriaH2: 'Los 10 criterios cuantitativos analizados',
+    criteria: [
+      "<strong>Rentable</strong>: margen neto positivo",
+      "<strong>Ventas en crecimiento</strong>: ingresos &gt; 10%/año en 5 años",
+      "<strong>Beneficio por acción en crecimiento</strong>: FCF por acción ajustado de la remuneración en acciones, &gt; 10%/año en 5 años",
+      "<strong>Número de acciones controlado</strong>: estable o en bajada (recompras netas = creación de valor para el accionista)",
+      "<strong>Rentabilidad cash</strong>: margen de free cash flow &gt; 10% de los ingresos",
+      "<strong>Márgenes en expansión</strong>: el margen operativo se amplía en 5 años (operating leverage)",
+      "<strong>Rentabilidad del capital invertido</strong>: Cash ROCE Bettin-Mauboussin &gt; 15% al año",
+      "<strong>Deuda controlada</strong>: deuda neta amortizable en menos de 3 años de free cash flow",
+      "<strong>Beneficios transformados en cash</strong>: el free cash flow supera el beneficio neto contable",
+      "<strong>Plazo de cobro neto</strong>: ciclo de tesorería corto o negativo",
+    ],
+    faqH2: 'Preguntas frecuentes',
+    faqQuality: (n) => `¿Es ${n} una acción de calidad?`,
+    faqQualityA: (n, score, q) => `${n} obtiene una nota de calidad de ${score} (calidad ${q}), calculada con los 10 criterios de Lubin Investment: rentabilidad, crecimiento de los ingresos y del free cash flow, recompras de acciones, márgenes, deuda y rentabilidad del capital.`,
+    faqHowScored: (n) => `¿Cómo se calcula la nota de ${n}?`,
+    faqHowScoredA: 'La nota es el total de los criterios validados (SÍ / PARCIAL / NO) según umbrales sacados de la literatura financiera (Warren Buffett, Mauboussin, Aswath Damodaran), de forma automática y sin opinión humana.',
+    faqPfcf: (n) => `¿Cuál es el P/FCF de ${n}?`,
+    faqPfcfA: (n, p) => `El múltiplo precio / free cash flow (P/FCF) de la acción ${n} es ${p}. En Lubin Investment, la valoración se juzga por separado de la calidad.`,
+    faqWhereFull: (n) => `¿Dónde ver el análisis completo de ${n}?`,
+    faqWhereFullA: (c) => `El análisis interactivo completo (detalle de los 10 criterios, históricos, valoración P/FCF, comparaciones sectoriales) está disponible en ${c}.`,
+    qualityHigh: 'alta',
+    qualityMid: 'media',
+    qualityLow: 'baja',
+    qualityPending: 'por analizar',
+    relatedHeadingWithSector: (s) => `Otras acciones del sector ${s}`,
+    relatedHeadingFallback: 'Otras acciones para explorar',
+    scoreNoted: 'nota',
+    scoreSuffix: ' / ',
+    goFurtherH2: 'Saber más',
+    goFurtherCta: (ticker) => `Ver el análisis completo e interactivo de ${ticker}`,
+    otherResources: 'Otros recursos',
+    resMethod: 'Metodología detallada',
+    resSectorHub: (s) => `Todas las acciones del sector ${s}`,
+    resQuality10: 'Las acciones con nota 10 sobre 10',
+    resTopQuality: 'Top empresas de calidad',
+    resPricing: 'Tarifas Lubin Investment',
+    headerNav: { home: 'Lubin Investment', screener: 'Screener', method: 'Metodología', pricing: 'Tarifas' },
+    breadcrumbHome: 'Inicio',
+    breadcrumbScreener: 'Screener',
+    disclaimer: 'Lubin Investment es una herramienta de ayuda a la decisión para inversores particulares. Este servicio no constituye un consejo de inversión personalizado en el sentido del artículo L.321-1 del Código Monetario y Financiero francés. Las rentabilidades pasadas no garantizan rentabilidades futuras.',
+    h1Analysis: 'Análisis fundamental',
+    pfcfClauseTpl: (p) => `, y un múltiplo de valoración P/FCF de ${p}`,
+  },
+};
+
+function qualityLabelI18n(tr: TickerTr, score: number | null, max: number | null): string {
+  if (score == null || !max) return tr.qualityPending;
+  const ratio = score / max;
+  if (ratio >= 0.8) return tr.qualityHigh;
+  if (ratio >= 0.5) return tr.qualityMid;
+  return tr.qualityLow;
+}
+
 // HTML pré-rendu riche pour un ticker scoré. C'est le cœur du fix Soft 404 :
 // 3-5 Ko de texte indexable, structure sémantique H1/H2, vraies meta tags.
-function renderTickerHtml(
+// Exporté pour permettre les tests offline (cf. scripts/test-seo-trilingue.ts).
+export function renderTickerHtml(
   t: {
     ticker: string;
     name: string | null;
@@ -143,25 +383,35 @@ function renderTickerHtml(
     scoreChiffresMax: number | null;
     pfcfTTM: number | null;
   }> = [],
+  lang: ArticleLang = 'fr',
 ): string {
+  const tr = TICKER_TR[lang];
+  // Suffixe de langue pour les liens internes (fr = URL nue ; en/es = ?lng=).
+  const lq = lang === 'fr' ? '' : `?lng=${lang}`;
+  const lqAmp = lang === 'fr' ? '' : `&lng=${lang}`;
   const safeTicker = escapeHtml(t.ticker);
   const name = t.name ? escapeHtml(t.name) : safeTicker;
-  const sector = t.sector ? escapeHtml(t.sector) : 'secteur non renseigné';
+  const sector = t.sector ? escapeHtml(t.sector) : tr.sectorUnknown;
   const score = formatScore(t.scoreChiffres, t.scoreChiffresMax);
-  const quality = qualityLabel(t.scoreChiffres, t.scoreChiffresMax);
+  const quality = qualityLabelI18n(tr, t.scoreChiffres, t.scoreChiffresMax);
   const pfcf = t.pfcfTTM != null && isFinite(t.pfcfTTM) ? `${t.pfcfTTM.toFixed(1)}×` : ', ';
   // Clause P/FCF inline, ajoutée à la phrase de verdict UNIQUEMENT si on a la donnée.
   const pfcfClause = t.pfcfTTM != null && isFinite(t.pfcfTTM)
-    ? `, et un multiple de valorisation P/FCF de ${pfcf}`
+    ? tr.pfcfClauseTpl(pfcf)
     : '';
   const price = t.price != null && isFinite(t.price) ? `${t.price.toFixed(2)} ${escapeHtml(t.currency || 'USD')}` : ', ';
   const oppBadge = t.opportunity
-    ? `<p><strong>⭐ Opportunité du moment :</strong> ${name} est dans son décile bas historique de valorisation (P/FCF ≤ 10ᵉ percentile sur 10 ans, ET ratio &lt; 25×). C'est un point d'entrée potentiellement intéressant pour les investisseurs long terme.</p>`
+    ? `<p><strong>${tr.oppLabel} :</strong> ${tr.oppBody(name)}</p>`
     : '';
 
-  const canonical = `${SITE_URL}/analyse/${safeTicker}`;
+  const baseCanonical = `${SITE_URL}/analyse/${safeTicker}`;
+  const canonical = lang === 'fr' ? baseCanonical : `${baseCanonical}?lng=${lang}`;
+  // hreflang : pointe vers toutes les variantes linguistiques + x-default sur la version FR.
+  const hreflang = (['fr', 'en', 'es'] as const)
+    .map((l) => `<link rel="alternate" hreflang="${l}" href="${l === 'fr' ? baseCanonical : `${baseCanonical}?lng=${l}`}">`)
+    .join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${baseCanonical}">`;
   // Maillage hub-spoke : lien vers le hub de son secteur (réduit la profondeur de crawl).
-  const sectorHubHref = t.sector ? `${SITE_URL}/secteur/${slugifySector(t.sector)}` : null;
+  const sectorHubHref = t.sector ? `${SITE_URL}/secteur/${slugifySector(t.sector)}${lq}` : null;
   const sectorHubLabel = t.sector ? escapeHtml(displaySector(t.sector)) : null;
   const rawName = t.name || t.ticker;
   // Nom de marque (sans suffixe juridique) pour les textes user-facing.
@@ -170,55 +420,46 @@ function renderTickerHtml(
   const displayNameEsc = escapeHtml(displayName);
 
   // Titre format question + verdict, vraie phrase plutôt qu'assemblage de mots-clés.
-  // « l'action » + nom de marque (sans suffixe juridique) pour lire naturel.
   // Nom tronqué si besoin pour viser ≤ 60 car (Google tronque souvent au-delà).
-  const titlePrefix = `Faut-il acheter l'action `;
-  const titleSuffix = ' ? Notre analyse complète.';
   let titleName = displayName;
-  const nameBudget = 60 - titlePrefix.length - titleSuffix.length;
+  const nameBudget = 60 - tr.titlePrefix.length - tr.titleSuffix.length;
   if (titleName.length > nameBudget) {
     let cut = displayName.slice(0, Math.max(6, nameBudget - 1));
     const lastSpace = cut.lastIndexOf(' ');
     if (lastSpace > 8) cut = cut.slice(0, lastSpace); // coupe sur un mot entier
     titleName = cut.trimEnd() + '…';
   }
-  const rawTitle = `${titlePrefix}${titleName}${titleSuffix}`;
+  const rawTitle = `${tr.titlePrefix}${titleName}${tr.titleSuffix}`;
   const title = escapeHtml(rawTitle);
 
-  const rawDescription = `On a analysé les fondamentaux et la valorisation de l'action ${displayName} : voici nos conclusions.`;
+  const rawDescription = tr.metaDescription(displayName);
   const description = escapeHtml(rawDescription);
 
   // Fraîcheur, signal fort pour le SEO et les moteurs IA (contenu maintenu).
   const now = new Date();
   const isoDate = now.toISOString();
-  const dateFr = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()}`;
+  const dateLoc = (() => {
+    const dd = String(now.getDate()).padStart(2, '0');
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const yyyy = now.getFullYear();
+    // Format dd/mm/yyyy pour fr/es, mm/dd/yyyy pour en (convention locale).
+    return lang === 'en' ? `${mm}/${dd}/${yyyy}` : `${dd}/${mm}/${yyyy}`;
+  })();
 
   // FAQ, levier GEO majeur (FAQPage = ~3,2× plus de citations dans les AI Overviews).
   const faq: { q: string; a: string }[] = [
-    {
-      q: `L'action ${displayName} est-elle de qualité ?`,
-      a: `L'action ${displayName} obtient une note de qualité de ${score} (qualité ${quality}), calculée sur les 10 critères de Lubin Investment : rentabilité, croissance du chiffre d'affaires et du free cash flow, rachats d'actions, marges, endettement et rendement du capital.`,
-    },
-    {
-      q: `Comment est calculée la note de ${displayName} ?`,
-      a: `La note est le total des critères validés (OUI / PARTIEL / NON) selon des seuils issus de la littérature financière (Warren Buffett, Mauboussin, Aswath Damodaran), de façon automatique et sans opinion humaine.`,
-    },
+    { q: tr.faqQuality(displayName), a: tr.faqQualityA(displayName, score, quality) },
+    { q: tr.faqHowScored(displayName), a: tr.faqHowScoredA },
     ...(t.pfcfTTM != null && isFinite(t.pfcfTTM)
-      ? [{
-          q: `Quel est le P/FCF de ${displayName} ?`,
-          a: `Le multiple cours / free cash flow (P/FCF) de l'action ${displayName} ressort à ${pfcf}. Chez Lubin Investment, la valorisation est jugée séparément de la qualité.`,
-        }]
+      ? [{ q: tr.faqPfcf(displayName), a: tr.faqPfcfA(displayName, pfcf) }]
       : []),
-    {
-      q: `Où voir l'analyse complète de ${displayName} ?`,
-      a: `L'analyse interactive complète (détail des 10 critères, historiques, valorisation P/FCF, comparaisons sectorielles) est disponible sur ${canonical}.`,
-    },
+    { q: tr.faqWhereFull(displayName), a: tr.faqWhereFullA(canonical) },
   ];
 
   // Maillage interne : 3-5 tickers comparables (même secteur), liens cliquables avec score + P/FCF
-  // en anchor text pour donner du contexte à Google. Construit un graphe que Googlebot crawle facilement.
+  // en anchor text. La langue se propage dans les liens (?lng=) pour rester cohérent côté nav bot.
   const sectorLabel = t.sector ? escapeHtml(displaySector(t.sector)) : null;
-  const relatedHeading = sectorLabel ? `Autres actions du secteur ${sectorLabel}` : 'Autres actions à explorer';
+  const relatedHeading = sectorLabel ? tr.relatedHeadingWithSector(sectorLabel) : tr.relatedHeadingFallback;
   const relatedSection = related.length > 0 ? `
 
 <h2>${relatedHeading}</h2>
@@ -229,16 +470,16 @@ ${related.map((r) => {
   const rDisplayName = escapeHtml(stripLegalSuffix(rRawName));
   const rScore = r.scoreChiffres != null && r.scoreChiffresMax
     ? `${r.scoreChiffres}/${r.scoreChiffresMax}`
-    : 'non noté';
+    : (lang === 'en' ? 'not scored' : lang === 'es' ? 'sin nota' : 'non noté');
   const rPfcf = r.pfcfTTM != null && isFinite(r.pfcfTTM)
     ? `${r.pfcfTTM.toFixed(1)}×`
     : null;
-  return `<li><a href="${SITE_URL}/analyse/${rTicker}">${rDisplayName} (${rTicker})</a> — note ${rScore}${rPfcf ? `, P/FCF ${rPfcf}` : ''}</li>`;
+  return `<li><a href="${SITE_URL}/analyse/${rTicker}${lq}">${rDisplayName} (${rTicker})</a> — ${tr.scoreNoted} ${rScore}${rPfcf ? `, P/FCF ${rPfcf}` : ''}</li>`;
 }).join('\n')}
 </ul>` : '';
 
   return `<!DOCTYPE html>
-<html lang="fr">
+<html lang="${lang}">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -246,6 +487,7 @@ ${related.map((r) => {
 <meta name="description" content="${description}">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${canonical}">
+${hreflang}
 <link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
 
 <!-- Open Graph -->
@@ -254,7 +496,7 @@ ${related.map((r) => {
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="Lubin Investment">
-<meta property="og:locale" content="fr_FR">
+<meta property="og:locale" content="${tr.ogLocale}">
 <meta property="og:image" content="${SITE_URL}/og-default.png">
 
 <!-- Twitter Card -->
@@ -271,7 +513,7 @@ ${JSON.stringify({
   headline: rawTitle,
   description: rawDescription,
   url: canonical,
-  inLanguage: 'fr-FR',
+  inLanguage: tr.inLanguage,
   datePublished: isoDate,
   dateModified: isoDate,
   about: {
@@ -309,8 +551,8 @@ ${JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
-    { '@type': 'ListItem', position: 2, name: 'Screener', item: `${SITE_URL}/screener` },
+    { '@type': 'ListItem', position: 1, name: tr.breadcrumbHome, item: `${SITE_URL}/${lq}` },
+    { '@type': 'ListItem', position: 2, name: tr.breadcrumbScreener, item: `${SITE_URL}/screener${lq}` },
     { '@type': 'ListItem', position: 3, name: `${rawName} (${t.ticker})`, item: canonical },
   ],
 }, null, 2)}
@@ -319,56 +561,47 @@ ${JSON.stringify({
 <body>
 
 <header>
-  <p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/methodologie">Méthodologie</a> · <a href="${SITE_URL}/pricing">Tarifs</a></p>
+  <p><a href="${SITE_URL}/${lq}">${tr.headerNav.home}</a> · <a href="${SITE_URL}/screener${lq}">${tr.headerNav.screener}</a> · <a href="${SITE_URL}/methodologie${lq}">${tr.headerNav.method}</a> · <a href="${SITE_URL}/pricing${lq}">${tr.headerNav.pricing}</a></p>
 </header>
 
 <main>
 
-<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/screener">Screener</a> ${sectorHubHref ? `› <a href="${sectorHubHref}">${sectorHubLabel}</a> ` : ''}› ${name} (${safeTicker})</nav>
+<nav aria-label="${tr.breadcrumbHome}"><a href="${SITE_URL}/${lq}">${tr.breadcrumbHome}</a> › <a href="${SITE_URL}/screener${lq}">${tr.breadcrumbScreener}</a> ${sectorHubHref ? `› <a href="${sectorHubHref}">${sectorHubLabel}</a> ` : ''}› ${name} (${safeTicker})</nav>
 
-<h1>Analyse fondamentale ${safeTicker} (${name})</h1>
-<p><small>Mis à jour le ${dateFr}</small></p>
+<h1>${tr.h1Analysis} ${safeTicker} (${name})</h1>
+<p><small>${tr.updatedOn} ${dateLoc}</small></p>
 
-<p>On a analysé l'action ${displayNameEsc} sur les 10 critères de qualité de Lubin Investment. L'entreprise obtient une note de <strong>${score}</strong> synonyme de qualité ${quality}${pfcfClause}.</p>
+<p>${tr.introVerdict(displayNameEsc, score, quality, pfcfClause)}</p>
 
-<p>Secteur : ${sector}.${t.exchange ? ` Place de cotation : ${escapeHtml(t.exchange)}.` : ''} Cours actuel : ${price}.</p>
+<p>${tr.sectorPriceLine(sector, t.exchange ? escapeHtml(t.exchange) : '', price)}</p>
 
 ${oppBadge}
 
-<h2>Méthode de notation Lubin</h2>
-<p>La note de ${name} (${safeTicker}) est calculée automatiquement à partir de 10 critères financiers objectifs, sans intervention humaine ni opinion. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). La note finale est le total des validations.</p>
+<h2>${tr.methodH2}</h2>
+<p>${tr.methodBody(name, safeTicker)}</p>
 
-<h2>Les 10 critères chiffrés analysés</h2>
+<h2>${tr.criteriaH2}</h2>
 <ol>
-<li><strong>Rentable</strong> : marge nette positive</li>
-<li><strong>Ventes en croissance</strong> : chiffre d'affaires &gt; 10 %/an sur 5 ans</li>
-<li><strong>Profits par action en croissance</strong> : FCF par action ajusté de la rémunération en actions, &gt; 10 %/an sur 5 ans</li>
-<li><strong>Nombre d'actions maîtrisé</strong> : stable ou en baisse (rachats nets = création de valeur pour l'actionnaire)</li>
-<li><strong>Profitabilité cash</strong> : marge de free cash flow &gt; 10 % du chiffre d'affaires</li>
-<li><strong>Marges en expansion</strong> : la marge opérationnelle s'élargit sur 5 ans (operating leverage)</li>
-<li><strong>Rendement du capital investi</strong> : Cash ROCE Bettin-Mauboussin &gt; 15 % par an</li>
-<li><strong>Endettement maîtrisé</strong> : dette nette remboursable en moins de 3 ans de free cash flow</li>
-<li><strong>Bénéfices transformés en cash</strong> : le free cash flow excède le bénéfice net comptable</li>
-<li><strong>Délai d'encaissement net</strong> : cycle de trésorerie court ou négatif</li>
+${tr.criteria.map((c) => `<li>${c}</li>`).join('\n')}
 </ol>
 
-<h2>Questions fréquentes</h2>
+<h2>${tr.faqH2}</h2>
 ${faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n')}
 ${relatedSection}
 
-<h2>Aller plus loin</h2>
-<p>👉 <a href="${canonical}"><strong>Voir l'analyse complète et interactive de ${safeTicker}</strong></a> : tous les critères détaillés, graphiques d'historique, valorisation, comparaisons sectorielles, et qualitatif business pour les abonnés Pro.</p>
+<h2>${tr.goFurtherH2}</h2>
+<p>👉 <a href="${canonical}"><strong>${tr.goFurtherCta(safeTicker)}</strong></a></p>
 
-<p>Autres ressources :
-<a href="${SITE_URL}/methodologie">Méthodologie détaillée</a> ·
-${sectorHubHref ? `<a href="${sectorHubHref}">Toutes les actions du secteur ${sectorHubLabel}</a> ·\n` : ''}<a href="${SITE_URL}/classement/qualite-10-sur-10">Les actions notées 10 sur 10</a> ·
-<a href="${SITE_URL}/screener">Top des entreprises de qualité</a> ·
-<a href="${SITE_URL}/pricing">Tarifs Lubin Investment</a>.</p>
+<p>${tr.otherResources} :
+<a href="${SITE_URL}/methodologie${lq}">${tr.resMethod}</a> ·
+${sectorHubHref ? `<a href="${sectorHubHref}">${tr.resSectorHub(sectorHubLabel || '')}</a> ·\n` : ''}<a href="${SITE_URL}/classement/qualite-10-sur-10${lq}">${tr.resQuality10}</a> ·
+<a href="${SITE_URL}/screener${lq}">${tr.resTopQuality}</a> ·
+<a href="${SITE_URL}/pricing${lq}">${tr.resPricing}</a>.</p>
 
 </main>
 
 <footer>
-<p><small>Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Ce service ne constitue pas un conseil en investissement personnalisé au sens de l'article L.321-1 du Code monétaire et financier. Les performances passées ne préjugent pas des performances futures.</small></p>
+<p><small>${tr.disclaimer}</small></p>
 </footer>
 
 </body>
@@ -421,12 +654,16 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
         })
       : [];
 
+    // Langue demandée par le bot via ?lng= (les alternates hreflang du sitemap pointent
+    // vers ?lng=en / ?lng=es). Défaut fr. Le cache CDN distingue les langues car ?lng=
+    // fait partie de l'URL canonique.
+    const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
     // Cache CDN : on peut se permettre 1h, les notes bougent lentement.
     res
       .status(200)
       .set('Content-Type', 'text/html; charset=utf-8')
       .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
-      .send(renderTickerHtml(t, related));
+      .send(renderTickerHtml(t, related, lang));
   } catch (err) {
     // En cas d'erreur DB, on renvoie un 503 plutôt qu'une page vide, Google retentera plus tard.
     console.error('[seoPrerender]', ticker, (err as Error).message);
