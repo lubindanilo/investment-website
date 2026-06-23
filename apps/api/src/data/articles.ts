@@ -31288,7 +31288,521 @@ const articleAviationSecteur: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur];
+const articleHEROMOTOCO: Article = {
+  slug: 'hero-motorcorp-heromotoco-champion-indien-moto-qualite',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'HEROMOTOCO.NS',
+  content: {
+    fr: {
+      title: "Hero MotoCorp (HEROMOTOCO) : le champion indien de la moto",
+      excerpt: "Hero MotoCorp est le premier producteur mondial de motos par volume. Coté sur la bourse indienne (NSE), il obtient la note maximale dans notre screener avec un prix proche de notre cible d'entrée.",
+      metaDescription: "Hero MotoCorp (HEROMOTOCO.NS) analyse fondamentale : score qualité, valorisation et cible d'achat. Premier constructeur moto mondial, coté NSE Inde.",
+      answer: "Hero MotoCorp est le premier producteur mondial de motos par volume, avec plus de 6 millions de véhicules par an. Il obtient la note maximale dans notre screener à un multiple de 13,4 fois le flux de trésorerie disponible, avec un prix pratiquement à notre cible d'entrée.",
+      body: [
+        { type: 'h2', text: "Hero MotoCorp : premier constructeur de deux-roues au monde" },
+        { type: 'p', text: "Hero MotoCorp Limited est le leader mondial de la production de motos et scooters, basé à New Delhi. Fondée en 1984 comme coentreprise avec Honda, la société est devenue entièrement indépendante en 2011. Elle produit plus de 6 millions de véhicules par an — un record mondial — destinés principalement au marché indien mais aussi à l'Asie du Sud-Est, l'Afrique et l'Amérique Latine." },
+        { type: 'h2', text: "Données fondamentales réelles de notre screener" },
+        { type: 'p', text: "Selon notre analyse au 23 juin 2026 : Hero MotoCorp obtient la note maximale. Le multiple de valorisation est de 13,4 fois le flux de trésorerie disponible, avec un prix de ₹4 835 (roupies indiennes) très proche de notre cible d'entrée à ₹4 902. La décote est de 1,4 % — le titre est pratiquement à notre zone d'achat. Le flux de trésorerie par action est de ₹361." },
+        { type: 'h2', text: "Pourquoi Hero MotoCorp passe notre filtre qualité" },
+        { type: 'ul', items: [
+          "Croissance des ventes : marché indien de la mobilité deux-roues en expansion structurelle (urbanisation, classe moyenne montante)",
+          "Marges FCF solides : modèle asset-light comparé aux constructeurs auto traditionnels",
+          "Gestion du capital : retour aux actionnaires régulier (dividendes), faible endettement",
+          "Diversification géographique : présence dans 40 pays émergents",
+          "Rentabilité : profitabilité nette positive et en croissance"
+        ]},
+        { type: 'h2', text: "Risques spécifiques aux actions indiennes (NSE)" },
+        { type: 'p', text: "Hero MotoCorp est coté sur la National Stock Exchange indienne (NSE). Pour un investisseur européen ou américain, l'achat implique un risque de change EUR/INR ou USD/INR. La roupie indienne a tendance à se déprécier lentement contre les devises fortes sur le long terme, ce qui peut éroder les rendements. Par ailleurs, la gouvernance en Inde diffère des standards occidentaux. Notre screener analyse les fondamentaux sans ajustement de change." }
+      ],
+      faq: [
+        { q: "Hero MotoCorp est-elle accessible aux investisseurs européens ?", a: "Oui, via des courtiers permettant l'accès aux marchés indiens (NSE) ou via des ADR. Vérifiez la disponibilité chez votre courtier. Attention au risque de change EUR/INR." },
+        { q: "Quel est le concurrent principal de Hero MotoCorp ?", a: "Honda, Bajaj Auto et TVS Motor sont les principaux concurrents en Inde. Honda et Hero se disputent le leadership ; Honda reste fort dans les scooters premium." },
+        { q: "Hero MotoCorp verse-t-elle un dividende ?", a: "Oui, Hero MotoCorp verse un dividende régulier, avec un rendement généralement entre 2 % et 4 %. Ce dividende est exprimé en roupies indiennes." },
+        { q: "Pourquoi un constructeur moto peut-il être noté parmi les meilleurs ?", a: "La mobilité deux-roues dans les marchés émergents génère des flux de trésorerie stables et prévisibles. Hero MotoCorp a des coûts fixes maîtrisés et une demande structurelle, contrairement aux constructeurs auto premium très capitalistiques." },
+        { q: "Notre méthode s'applique-t-elle aux actions indiennes ?", a: "Oui. Nous appliquons les mêmes 10 critères fondamentaux — rentabilité, croissance FCF, gestion du capital, valorisation — quelle que soit la bourse de cotation. Pour les actions hors-US, nous recommandons une lecture attentive du rapport annuel en anglais." }
+      ],
+      tags: ['Hero MotoCorp', 'HEROMOTOCO', 'Inde', 'NSE', 'Auto Manufacturers', 'moto', 'marchés émergents', 'qualité'],
+      disclaimer: "Analyse fondamentale réalisée via notre screener propriétaire au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement. Hero MotoCorp est coté en roupies indiennes (INR) — risque de change à considérer pour les investisseurs hors Inde."
+    },
+    en: {
+      title: "Hero MotoCorp (HEROMOTOCO): India's top motorcycle champion",
+      excerpt: "Hero MotoCorp is the world's largest two-wheeler manufacturer by volume. Listed on India's NSE, it achieves a perfect score in our screener with pricing near our entry target.",
+      metaDescription: "Hero MotoCorp (HEROMOTOCO.NS) fundamental analysis: quality score, valuation and buy target. World's largest motorcycle producer, listed on NSE India.",
+      answer: "Hero MotoCorp is the world's largest motorcycle producer by volume (6M+ vehicles per year). It achieves a perfect score in our screener at 13.4x free cash flow, with the current price nearly at our entry target — a rare buying zone signal for a global two-wheeler leader.",
+      body: [
+        { type: 'h2', text: "World's #1 two-wheeler manufacturer" },
+        { type: 'p', text: "Hero MotoCorp, based in New Delhi, produces over 6 million motorcycles and scooters annually — the highest volume of any manufacturer globally. Originally a Honda joint venture, it has been fully independent since 2011, serving markets across India, Southeast Asia, Africa, and Latin America." },
+        { type: 'h2', text: "Screener fundamentals as of June 2026" },
+        { type: 'p', text: "Hero MotoCorp earns a perfect score in our methodology. The stock trades at 13.4x free cash flow, with a price of ₹4,835 (Indian Rupees) very close to our entry target of ₹4,902 — a 1.4% discount. FCF per share is ₹361. The company meets all 10 of our quality criteria." },
+        { type: 'h2', text: "Why Hero MotoCorp passes our quality filter" },
+        { type: 'ul', items: [
+          "Structural demand growth: India's two-wheeler market is expanding with urbanization",
+          "Asset-light model: lower capex than car manufacturers",
+          "Capital discipline: regular dividends, low debt",
+          "Geographic diversification across 40+ emerging markets",
+          "Consistent FCF generation across economic cycles"
+        ]},
+        { type: 'h2', text: "Currency risk for international investors" },
+        { type: 'p', text: "As an NSE-listed company, Hero MotoCorp's price is in Indian Rupees (INR). International investors face INR/USD or INR/EUR currency risk. The Indian Rupee has historically depreciated gradually against major currencies, which can erode returns. Our screener applies the same fundamental criteria regardless of listing country, without currency adjustment." }
+      ],
+      faq: [
+        { q: "Can European investors buy Hero MotoCorp?", a: "Yes, through brokers offering NSE access or via ADR instruments. Check availability with your broker and factor in currency conversion costs." },
+        { q: "Who are Hero MotoCorp's main competitors?", a: "Honda, Bajaj Auto, and TVS Motor are the main Indian competitors. Honda leads in premium scooters while Hero dominates the mass-market commuter segment." },
+        { q: "Does Hero MotoCorp pay dividends?", a: "Yes, Hero MotoCorp pays regular dividends denominated in Indian Rupees, typically yielding 2-4% annually." },
+        { q: "Why does a motorcycle company score so highly?", a: "Two-wheeler manufacturing in emerging markets generates stable, predictable cash flows with relatively low capex versus car manufacturing. Hero's dominant market position creates pricing power and economies of scale." },
+        { q: "Does your methodology apply to Indian stocks?", a: "Yes. We apply the same 10 fundamental criteria — profitability, FCF growth, capital management, valuation — regardless of the listing exchange. For non-US stocks, we recommend reading the English-language annual report for full context." }
+      ],
+      tags: ['Hero MotoCorp', 'HEROMOTOCO', 'India', 'NSE', 'Auto Manufacturers', 'motorcycle', 'emerging markets', 'quality'],
+      disclaimer: "Fundamental analysis conducted via our proprietary screener as of June 23, 2026. This content is informational and does not constitute investment advice. Hero MotoCorp is listed in Indian Rupees (INR) — currency risk applies for non-Indian investors."
+    },
+    es: {
+      title: "Hero MotoCorp (HEROMOTOCO): el campeón indio de las motos",
+      excerpt: "Hero MotoCorp es el mayor fabricante mundial de motocicletas por volumen. Cotizada en la bolsa india NSE, obtiene la máxima puntuación en nuestro screener con precio cerca de nuestro objetivo de entrada.",
+      metaDescription: "Hero MotoCorp (HEROMOTOCO.NS) análisis fundamental: puntuación de calidad, valoración y precio objetivo. Mayor fabricante de motos del mundo, cotizada en NSE India.",
+      answer: "Hero MotoCorp es el mayor fabricante mundial de motocicletas por volumen (más de 6 millones por año). Obtiene la puntuación máxima en nuestro screener a 13,4 veces el flujo de caja libre, con el precio casi en nuestro objetivo de entrada.",
+      body: [
+        { type: 'h2', text: "El mayor fabricante de dos ruedas del mundo" },
+        { type: 'p', text: "Hero MotoCorp, con sede en Nueva Delhi, produce más de 6 millones de motocicletas y scooters al año, el mayor volumen de cualquier fabricante a nivel mundial. Fue una empresa conjunta con Honda hasta 2011, cuando se independizó completamente." },
+        { type: 'h2', text: "Datos fundamentales en nuestro screener" },
+        { type: 'p', text: "Hero MotoCorp obtiene la puntuación máxima en nuestra metodología. La acción cotiza a 13,4 veces el flujo de caja libre, con un precio de ₹4.835 (rupias indias) muy cerca de nuestro objetivo de entrada de ₹4.902. La acción está prácticamente en zona de compra." },
+        { type: 'h2', text: "Por qué supera nuestro filtro de calidad" },
+        { type: 'ul', items: [
+          "Crecimiento estructural de la demanda en India",
+          "Modelo asset-light con menor capex que los fabricantes de automóviles",
+          "Disciplina de capital: dividendos regulares, baja deuda",
+          "Presencia en más de 40 mercados emergentes",
+          "Generación constante de flujo de caja libre"
+        ]},
+        { type: 'h2', text: "Riesgo de divisa para inversores internacionales" },
+        { type: 'p', text: "Al estar cotizada en la NSE india, el precio de Hero MotoCorp está en rupias indias (INR). Los inversores internacionales asumen riesgo de cambio INR/EUR o INR/USD. Nuestro screener aplica los mismos criterios fundamentales independientemente del país de cotización." }
+      ],
+      faq: [
+        { q: "¿Pueden comprar Hero MotoCorp los inversores europeos?", a: "Sí, a través de brokers con acceso a la NSE o mediante instrumentos ADR. Verifique la disponibilidad con su broker y considere los costes de conversión de divisas." },
+        { q: "¿Cuáles son los principales competidores de Hero MotoCorp?", a: "Honda, Bajaj Auto y TVS Motor son los principales competidores en India. Honda lidera en scooters premium mientras Hero domina el segmento commuter masivo." },
+        { q: "¿Hero MotoCorp paga dividendos?", a: "Sí, Hero MotoCorp paga dividendos regulares en rupias indias, con una rentabilidad por dividendo típicamente entre el 2% y el 4% anual." },
+        { q: "¿Por qué una empresa de motos puede tener tan alta puntuación?", a: "La fabricación de dos ruedas en mercados emergentes genera flujos de caja estables con capex relativamente bajo versus la fabricación de automóviles." },
+        { q: "¿Su metodología se aplica a acciones indias?", a: "Sí. Aplicamos los mismos 10 criterios fundamentales independientemente de la bolsa de cotización. Para acciones no estadounidenses, recomendamos leer el informe anual en inglés para un contexto completo." }
+      ],
+      tags: ['Hero MotoCorp', 'HEROMOTOCO', 'India', 'NSE', 'Auto Manufacturers', 'moto', 'mercados emergentes', 'calidad'],
+      disclaimer: "Análisis fundamental realizado a través de nuestro screener propietario el 23 de junio de 2026. Este contenido es informativo y no constituye asesoramiento de inversión. Hero MotoCorp cotiza en rupias indias (INR) — existe riesgo de divisa para inversores fuera de India."
+    }
+  }
+};
+
+const articleWHD: Article = {
+  slug: 'cactus-whd-services-petroliers-qualite-zone-achat',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'WHD',
+  content: {
+    fr: {
+      title: "Cactus (WHD) : services pétroliers de qualité en zone d'achat",
+      excerpt: "Cactus Inc est un équipementier spécialisé dans les têtes de puits pétroliers. Noté au maximum dans notre screener, son prix actuel est légèrement sous notre cible d'entrée — une opportunité rare dans le secteur pétrolier.",
+      metaDescription: "Cactus Inc (WHD) analyse fondamentale : score qualité maximal, P/FCF 11,7x, en zone d'achat. Équipementier pétrolier wellhead, services O&G Equipment.",
+      answer: "Cactus Inc est un leader des équipements de tête de puits pour l'exploration pétrolière. Il obtient la note maximale dans notre screener à 11,7 fois le flux de trésorerie disponible, avec un prix de 54,22 $ légèrement sous notre cible d'entrée à 57,56 $ — soit 5,7 % de décote.",
+      body: [
+        { type: 'h2', text: "Cactus Inc : spécialiste des têtes de puits pétroliers" },
+        { type: 'p', text: "Cactus Inc (NYSE : WHD) est un fabricant américain d'équipements de tête de puits (wellheads) et de systèmes de contrôle de pression pour l'industrie pétrolière et gazière. Fondée en 2011, la société se concentre sur le segment onshore américain — principalement les bassins Permian, Eagle Ford et DJ Basin — avec un modèle de production standardisée qui génère des marges FCF élevées pour le secteur." },
+        { type: 'h2', text: "Données fondamentales réelles au 23 juin 2026" },
+        { type: 'p', text: "Cactus obtient la note maximale dans notre screener. Le multiple est de 11,7 fois le flux de trésorerie disponible — valorisation raisonnable pour un acteur de qualité dans le secteur pétrolier. Le prix actuel de 54,22 $ est sous notre cible d'entrée de 57,56 $, soit une décote de 5,7 %. Le flux de trésorerie par action est de 4,63 $." },
+        { type: 'h2', text: "Avantages compétitifs de Cactus (WHD)" },
+        { type: 'ul', items: [
+          "Standardisation : production de wellheads en série = économies d'échelle, délais courts",
+          "Part de marché solide dans les bassins Permian et Eagle Ford, zones les plus actives des USA",
+          "Modèle asset-light relatif : moins capitalistique que les majors services pétroliers (SLB, HAL)",
+          "Marges FCF élevées pour le secteur O&G Equipment",
+          "Croissance liée à l'activité de forage américaine (rig count)"
+        ]},
+        { type: 'h2', text: "Risques liés au cycle pétrolier" },
+        { type: 'p', text: "Le secteur Oil & Gas Equipment est cyclique. Quand le prix du pétrole chute et que les foreurs réduisent le rig count, la demande pour les wellheads baisse rapidement. Ce risque cyclique est compensé par les marges FCF élevées de Cactus en période haute — permettant de constituer une trésorerie de sécurité. Notre méthode exige une historique de FCF croissant sur 5 ans, ce que Cactus respecte malgré les cycles." }
+      ],
+      faq: [
+        { q: "Qu'est-ce qu'une tête de puits (wellhead) ?", a: "La tête de puits est l'équipement installé en surface sur un puits pétrolier pour contrôler la pression, sécuriser l'extraction et connecter les pipelines. C'est un équipement obligatoire pour tout puits foré." },
+        { q: "Cactus est-il différent de Schlumberger (SLB) ?", a: "Oui. SLB est un acteur complet (forage, logging, fracturing) présent mondialement. Cactus est spécialisé uniquement dans les wellheads, principalement aux USA. Son modèle est plus ciblé, avec des marges FCF généralement supérieures." },
+        { q: "Le prix du pétrole affecte-t-il directement WHD ?", a: "Indirectement. Cactus vend ses équipements aux foreurs (E&P companies). Si le pétrole est élevé, les foreurs investissent davantage et commandent plus de wellheads. Si le pétrole chute, l'activité de forage ralentit." },
+        { q: "Cactus verse-t-elle un dividende ?", a: "Cactus verse un dividende modeste et effectue des rachats d'actions. Le rendement du dividende est faible, l'entreprise préférant réinvestir son FCF dans la croissance organique et les rachats." },
+        { q: "Pourquoi WHD est-il en zone d'achat selon votre méthode ?", a: "Notre cible d'entrée est calculée à partir du FCF par action (4,63 $) multiplié par notre multiple cible de 7×. Cela donne une cible de 57,56 $. Avec un prix actuel de 54,22 $, l'action se négocie 5,7 % sous cette cible — selon notre grille, c'est une zone d'achat." }
+      ],
+      tags: ['Cactus', 'WHD', 'Oil & Gas Equipment', 'wellhead', 'pétrole', 'services pétroliers', 'zone achat', 'qualité'],
+      disclaimer: "Analyse fondamentale réalisée via notre screener propriétaire au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement. Le secteur pétrolier est cyclique — les performances passées ne préjugent pas des performances futures."
+    },
+    en: {
+      title: "Cactus (WHD): quality oil services in our buy zone",
+      excerpt: "Cactus Inc specializes in wellhead equipment for the oil industry. It earns a perfect score in our screener with current price slightly below our entry target — a rare buy opportunity in the O&G equipment sector.",
+      metaDescription: "Cactus Inc (WHD) fundamental analysis: perfect quality score, 11.7x FCF, in buy zone. Wellhead equipment leader, O&G Equipment sector.",
+      answer: "Cactus Inc is a wellhead equipment specialist for US oil exploration. It earns a perfect score in our screener at 11.7x free cash flow, with a current price of $54.22 slightly below our entry target of $57.56 — a 5.7% discount that puts it in our buy zone.",
+      body: [
+        { type: 'h2', text: "Cactus Inc: wellhead equipment specialist" },
+        { type: 'p', text: "Cactus Inc (NYSE: WHD) manufactures wellheads and pressure control equipment for the US onshore oil and gas industry. Founded in 2011, the company focuses on the Permian, Eagle Ford, and DJ basins with a standardized production model that generates high FCF margins for the sector." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'p', text: "Cactus earns a perfect score in our screener. The valuation multiple is 11.7x free cash flow — reasonable for a quality O&G equipment player. Current price of $54.22 sits below our entry target of $57.56, a 5.7% discount. FCF per share is $4.63." },
+        { type: 'h2', text: "Cactus competitive advantages" },
+        { type: 'ul', items: [
+          "Standardized production: serial manufacturing = economies of scale, fast delivery",
+          "Strong market share in the Permian and Eagle Ford basins",
+          "Asset-light relative to major oilfield services companies",
+          "Above-average FCF margins for the O&G Equipment sector",
+          "Growth tied to US drilling activity (rig count)"
+        ]},
+        { type: 'h2', text: "Oil cycle risks" },
+        { type: 'p', text: "The O&G Equipment sector is cyclical. When oil prices fall and drillers reduce rig counts, wellhead demand drops quickly. Cactus mitigates this with high FCF margins during peak periods. Our method requires 5-year FCF growth history, which Cactus meets through the cycles." }
+      ],
+      faq: [
+        { q: "What is a wellhead?", a: "A wellhead is the surface equipment installed on an oil well to control pressure, secure extraction, and connect to pipelines. It's a mandatory component for every drilled well." },
+        { q: "How is Cactus different from Schlumberger (SLB)?", a: "SLB is a full-service oilfield company (drilling, logging, fracturing) operating globally. Cactus specializes exclusively in wellheads, primarily in the US. Its focused model typically generates higher FCF margins." },
+        { q: "Does oil price directly affect WHD?", a: "Indirectly. Cactus sells to E&P companies. When oil prices are high, drillers invest more and order more wellheads. When oil falls, drilling activity and wellhead orders slow down." },
+        { q: "Does Cactus pay dividends?", a: "Yes, a modest dividend plus share buybacks. The dividend yield is low as the company prefers to reinvest FCF into organic growth and buybacks." },
+        { q: "Why is WHD in our buy zone?", a: "Our entry target is FCF per share ($4.63) × 7x target multiple = $57.56. At the current $54.22 price, the stock trades 5.7% below this target — our buy zone signal." }
+      ],
+      tags: ['Cactus', 'WHD', 'Oil & Gas Equipment', 'wellhead', 'oil services', 'buy zone', 'quality'],
+      disclaimer: "Fundamental analysis conducted via our proprietary screener as of June 23, 2026. This content is informational and does not constitute investment advice. The oil sector is cyclical — past performance does not guarantee future results."
+    },
+    es: {
+      title: "Cactus (WHD): servicios petroleros de calidad en zona de compra",
+      excerpt: "Cactus Inc se especializa en equipos wellhead para la industria petrolera. Obtiene la máxima puntuación en nuestro screener con precio ligeramente por debajo de nuestro objetivo de entrada.",
+      metaDescription: "Cactus Inc (WHD) análisis fundamental: puntuación máxima, 11,7x FCF, en zona de compra. Líder en equipos wellhead, sector O&G Equipment.",
+      answer: "Cactus Inc es especialista en equipos wellhead para la exploración petrolera en EE.UU. Obtiene la puntuación máxima en nuestro screener a 11,7x el flujo de caja libre, con precio de 54,22 $ ligeramente bajo nuestro objetivo de entrada de 57,56 $ — un descuento del 5,7 %.",
+      body: [
+        { type: 'h2', text: "Cactus Inc: especialista en equipos wellhead" },
+        { type: 'p', text: "Cactus Inc (NYSE: WHD) fabrica equipos de cabezas de pozo y control de presión para la industria petrolera onshore de EE.UU. Fundada en 2011, se concentra en las cuencas Permian, Eagle Ford y DJ Basin con un modelo de producción estandarizada que genera márgenes FCF elevados para el sector." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'p', text: "Cactus obtiene la puntuación máxima en nuestro screener. Cotiza a 11,7x el flujo de caja libre. El precio actual de 54,22 $ está por debajo de nuestro objetivo de entrada de 57,56 $, un descuento del 5,7 %. El flujo de caja por acción es de 4,63 $." },
+        { type: 'h2', text: "Ventajas competitivas de Cactus" },
+        { type: 'ul', items: [
+          "Producción estandarizada: fabricación en serie con economías de escala",
+          "Fuerte cuota de mercado en las cuencas Permian y Eagle Ford",
+          "Modelo relativamente asset-light frente a grandes compañías de servicios",
+          "Márgenes FCF superiores a la media del sector O&G Equipment",
+          "Crecimiento vinculado a la actividad de perforación en EE.UU."
+        ]},
+        { type: 'h2', text: "Riesgos del ciclo petrolero" },
+        { type: 'p', text: "El sector O&G Equipment es cíclico. Cuando los precios del petróleo caen y los perforadores reducen actividad, la demanda de wellheads disminuye rápidamente. Cactus mitiga esto con altos márgenes FCF durante los períodos pico." }
+      ],
+      faq: [
+        { q: "¿Qué es un wellhead?", a: "Un wellhead es el equipo instalado en la superficie de un pozo petrolero para controlar la presión, asegurar la extracción y conectar con los oleoductos. Es obligatorio en cada pozo perforado." },
+        { q: "¿Cómo difiere Cactus de Schlumberger (SLB)?", a: "SLB es un proveedor completo de servicios petrolíferos (perforación, logging, fracturación) a nivel mundial. Cactus se especializa exclusivamente en wellheads, principalmente en EE.UU., con márgenes FCF típicamente superiores." },
+        { q: "¿El precio del petróleo afecta directamente a WHD?", a: "Indirectamente. Cactus vende a compañías E&P. Cuando el petróleo sube, los perforadores invierten más y piden más wellheads. Si el petróleo baja, la actividad de perforación se ralentiza." },
+        { q: "¿Cactus paga dividendos?", a: "Sí, un dividendo modesto más recompras de acciones. La rentabilidad por dividendo es baja, prefiriendo reinvertir el FCF en crecimiento orgánico y recompras." },
+        { q: "¿Por qué WHD está en zona de compra según su metodología?", a: "Nuestro objetivo de entrada es FCF por acción (4,63 $) × 7x múltiplo objetivo = 57,56 $. Al precio actual de 54,22 $, la acción cotiza un 5,7% por debajo de este objetivo." }
+      ],
+      tags: ['Cactus', 'WHD', 'Oil & Gas Equipment', 'wellhead', 'petróleo', 'zona compra', 'calidad'],
+      disclaimer: "Análisis fundamental realizado a través de nuestro screener propietario el 23 de junio de 2026. Este contenido es informativo y no constituye asesoramiento de inversión. El sector petrolero es cíclico."
+    }
+  }
+};
+
+const articleSLB: Article = {
+  slug: 'slb-schlumberger-geant-services-petroliers-analyse',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'SLB',
+  content: {
+    fr: {
+      title: "Schlumberger (SLB) : le géant des services pétroliers",
+      excerpt: "SLB (anciennement Schlumberger) est le leader mondial des services pétroliers. Notre screener lui attribue la note maximale — mais le prix actuel est supérieur à notre cible d'entrée. Un dossier de qualité à surveiller.",
+      metaDescription: "SLB Schlumberger analyse fondamentale : note maximale dans notre screener, P/FCF 16,8x, prix au-dessus de la cible d'entrée. Leader mondial services pétroliers.",
+      answer: "SLB, anciennement Schlumberger, est le leader mondial des services pétroliers avec une présence dans 120 pays. Notre screener lui attribue la note maximale, mais le prix actuel de 47,95 $ est 16,6 % au-dessus de notre cible d'entrée de 40,18 $ — nous attendons une meilleure opportunité.",
+      body: [
+        { type: 'h2', text: "SLB : 100 ans d'histoire dans les services pétroliers" },
+        { type: 'p', text: "SLB (anciennement Schlumberger) a été fondée en 1926 par les frères Conrad et Marcel Schlumberger. Avec plus de 99 000 employés dans 120 pays, c'est de loin le plus grand acteur des services pétroliers au monde. En 2022, l'entreprise a adopté officiellement le nom SLB pour refléter sa transformation vers le numérique et l'énergie à faible carbone. Ses activités couvrent le forage directionnel, le logging (mesure en fond de trou), la stimulation (fracturing), la production et le numérique." },
+        { type: 'h2', text: "Données fondamentales réelles au 23 juin 2026" },
+        { type: 'p', text: "SLB obtient la note maximale dans notre screener. Le multiple de valorisation est de 16,8 fois le flux de trésorerie disponible. Cependant, le prix actuel de 47,95 $ est 16,6 % au-dessus de notre cible d'entrée de 40,18 $. Le flux de trésorerie par action est de 2,85 $. Notre cible est basée sur notre multiple standard de 7× le FCF par action — dans un secteur cyclique, ce multiple conservateur est justifié." },
+        { type: 'h2', text: "Pourquoi SLB obtient la note maximale malgré les cycles" },
+        { type: 'ul', items: [
+          "Diversification géographique : présence dans 120 pays réduit la dépendance à un marché",
+          "Mix technologique propriétaire : software de simulation, capteurs sous-marins, outils de logging différenciants",
+          "Transformation numérique : division SLB Digital, partenariats AWS/Microsoft, marge logicielle en hausse",
+          "Rentabilité maintenue en bas de cycle : coûts fixes maîtrisés, variable cost model",
+          "Dividende maintenu même en période basse"
+        ]},
+        { type: 'h2', text: "Quand envisager d'acheter SLB ?" },
+        { type: 'p', text: "Notre méthode est disciplinée sur le prix d'entrée. Avec une cible de 40,18 $, nous attendons soit une correction du prix de l'action (repli du pétrole, sentiment négatif sur le secteur), soit une croissance du FCF par action qui élève notre cible. Dans le secteur pétrolier, les opportunités d'entrée se présentent lors des creux de cycle — historiquement tous les 3 à 5 ans." }
+      ],
+      faq: [
+        { q: "Pourquoi SLB s'est-il rebaptisé ?", a: "En 2022, Schlumberger a adopté le nom SLB pour refléter sa transformation au-delà du pétrole — services numériques, énergie propre, technologies de capture de carbone. Le ticker reste SLB sur NYSE." },
+        { q: "SLB est-il plus solide que ses concurrents HAL et BKR ?", a: "SLB est le leader incontesté avec la plus grande part de marché mondiale. HAL (Halliburton) est plus fort en Amérique du Nord. BKR (Baker Hughes) est fort dans le LNG et les équipements. SLB a les meilleures marges FCF à long terme." },
+        { q: "Quel impact a le prix du pétrole sur SLB ?", a: "Quand le Brent dépasse 70 $, les compagnies pétrolières augmentent leurs budgets exploration/production — SLB en bénéficie directement. En dessous de 60 $, les budgets se contractent. SLB a prouvé sa résilience à 50 $/baril grâce à ses coûts variables." },
+        { q: "SLB verse-t-il un dividende ?", a: "Oui, SLB verse un dividende trimestriel régulier, avec un rendement généralement entre 1,5 % et 3 %. La direction a un historique de maintien du dividende même en période de creux pétrolier." },
+        { q: "À quel prix envisagez-vous d'acheter SLB ?", a: "Notre cible d'entrée est de 40,18 $ selon notre méthode FCF × 7× au niveau actuel du FCF/action. Cette cible évolue avec la croissance du FCF. Une baisse du prix ou une hausse du FCF rapprochera le dossier de notre zone d'achat." }
+      ],
+      tags: ['SLB', 'Schlumberger', 'Oil & Gas Equipment', 'services pétroliers', 'secteur énergie', 'qualité', 'surveillance'],
+      disclaimer: "Analyse fondamentale réalisée via notre screener propriétaire au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement. Le secteur pétrolier est soumis à des cycles importants liés au prix du pétrole."
+    },
+    en: {
+      title: "Schlumberger (SLB): giant of global oilfield services",
+      excerpt: "SLB, formerly Schlumberger, is the world's largest oilfield services company. Our screener gives it a perfect score — but the current price exceeds our entry target. A quality name to monitor.",
+      metaDescription: "SLB Schlumberger fundamental analysis: perfect screener score, 16.8x FCF, price above entry target. World leader in oilfield services.",
+      answer: "SLB (formerly Schlumberger) is the world's leading oilfield services company, operating in 120 countries. Our screener awards it a perfect score, but at $47.95 the current price is 16.6% above our entry target of $40.18 — we're watching for a better entry point.",
+      body: [
+        { type: 'h2', text: "SLB: 100 years of oilfield services history" },
+        { type: 'p', text: "SLB (formerly Schlumberger) was founded in 1926 by brothers Conrad and Marcel Schlumberger. With over 99,000 employees in 120 countries, it is the world's largest oilfield services company by far. In 2022, the company officially adopted the SLB name to reflect its digital transformation. Its services cover directional drilling, logging, stimulation (fracturing), production, and digital solutions." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'p', text: "SLB earns a perfect score in our screener. The valuation multiple is 16.8x free cash flow. However, at $47.95 the current price is 16.6% above our entry target of $40.18. FCF per share is $2.85. Our target applies a conservative 7x multiple to FCF per share — justified in a cyclical sector." },
+        { type: 'h2', text: "Why SLB earns a perfect score despite cyclicality" },
+        { type: 'ul', items: [
+          "Geographic diversification: 120 countries reduces single-market dependency",
+          "Proprietary technology mix: simulation software, subsea sensors, differentiating logging tools",
+          "Digital transformation: SLB Digital division, AWS/Microsoft partnerships, growing software margins",
+          "Through-cycle profitability: lean fixed cost structure maintained in down cycles",
+          "Consistent dividend even in low oil price periods"
+        ]},
+        { type: 'h2', text: "When to consider buying SLB?" },
+        { type: 'p', text: "Our method is disciplined on entry price. With a target of $40.18, we'd wait for either a price correction (oil downturn, negative sector sentiment) or FCF per share growth that raises our target. In the oil sector, entry opportunities historically arise every 3-5 years at cycle troughs." }
+      ],
+      faq: [
+        { q: "Why did Schlumberger rebrand to SLB?", a: "In 2022, Schlumberger adopted the SLB name to reflect its transformation beyond oil — digital services, clean energy, carbon capture technologies. The NYSE ticker remains SLB." },
+        { q: "Is SLB stronger than competitors HAL and BKR?", a: "SLB is the undisputed leader with the largest global market share. HAL (Halliburton) is stronger in North American stimulation. BKR (Baker Hughes) leads in LNG equipment. SLB has the best long-term FCF margins." },
+        { q: "How does oil price affect SLB?", a: "When Brent exceeds $70, oil companies increase E&P budgets and SLB benefits directly. Below $60, budgets contract. SLB has proven resilience at $50/barrel through its variable cost model." },
+        { q: "Does SLB pay dividends?", a: "Yes, SLB pays a regular quarterly dividend with a yield typically between 1.5% and 3%. Management has a track record of maintaining the dividend even through oil price downturns." },
+        { q: "At what price would you consider buying SLB?", a: "Our entry target is $40.18 based on FCF per share × 7x at current FCF levels. This target evolves with FCF growth. A price correction or FCF improvement would bring SLB into our buy zone." }
+      ],
+      tags: ['SLB', 'Schlumberger', 'Oil & Gas Equipment', 'oilfield services', 'energy sector', 'quality', 'watchlist'],
+      disclaimer: "Fundamental analysis conducted via our proprietary screener as of June 23, 2026. This content is informational and does not constitute investment advice. The oil sector is subject to significant cycles tied to oil prices."
+    },
+    es: {
+      title: "Schlumberger (SLB): el gigante de los servicios petroleros",
+      excerpt: "SLB, antes Schlumberger, es la mayor empresa de servicios petrolíferos del mundo. Nuestro screener le da la puntuación máxima, pero el precio actual supera nuestro objetivo de entrada. Un dossier de calidad a vigilar.",
+      metaDescription: "SLB Schlumberger análisis fundamental: puntuación máxima en nuestro screener, 16,8x FCF, precio por encima del objetivo de entrada. Líder mundial en servicios petrolíferos.",
+      answer: "SLB, anteriormente Schlumberger, es el mayor proveedor mundial de servicios petrolíferos con presencia en 120 países. Nuestro screener le otorga la puntuación máxima, pero a 47,95 $ el precio actual supera nuestro objetivo de entrada de 40,18 $ en un 16,6 %.",
+      body: [
+        { type: 'h2', text: "SLB: 100 años de historia en servicios petrolíferos" },
+        { type: 'p', text: "SLB (antes Schlumberger) fue fundada en 1926 por los hermanos Conrad y Marcel Schlumberger. Con más de 99.000 empleados en 120 países, es la mayor empresa de servicios petrolíferos del mundo. En 2022 adoptó el nombre SLB para reflejar su transformación digital. Sus servicios abarcan perforación direccional, logging, estimulación (fracturación), producción y soluciones digitales." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'p', text: "SLB obtiene la puntuación máxima en nuestro screener. El múltiplo de valoración es de 16,8x el flujo de caja libre. Sin embargo, el precio actual de 47,95 $ supera en un 16,6 % nuestro objetivo de entrada de 40,18 $. El FCF por acción es de 2,85 $." },
+        { type: 'h2', text: "Por qué SLB obtiene la puntuación máxima pese a la ciclicidad" },
+        { type: 'ul', items: [
+          "Diversificación geográfica: 120 países reducen la dependencia de un solo mercado",
+          "Tecnología propietaria diferenciadora: software de simulación, sensores submarinos",
+          "Transformación digital: división SLB Digital, márgenes software en aumento",
+          "Rentabilidad mantenida en ciclos bajos gracias a estructura de costes variables",
+          "Dividendo constante incluso en períodos de precios bajos del petróleo"
+        ]},
+        { type: 'h2', text: "¿Cuándo considerar comprar SLB?" },
+        { type: 'p', text: "Nuestra metodología es disciplinada en el precio de entrada. Con objetivo de 40,18 $, esperamos una corrección del precio (bajada del petróleo) o un crecimiento del FCF por acción que eleve nuestro objetivo. En el sector petrolero, las oportunidades de entrada históricamente aparecen en los mínimos de ciclo, cada 3-5 años." }
+      ],
+      faq: [
+        { q: "¿Por qué Schlumberger cambió su nombre a SLB?", a: "En 2022 adoptó el nombre SLB para reflejar su transformación más allá del petróleo: servicios digitales, energía limpia y tecnologías de captura de carbono. El ticker en NYSE sigue siendo SLB." },
+        { q: "¿Es SLB más sólido que sus competidores HAL y BKR?", a: "SLB es el líder indiscutible con la mayor cuota de mercado mundial. HAL es más fuerte en estimulación en América del Norte. BKR lidera en equipos LNG. SLB tiene los mejores márgenes FCF a largo plazo." },
+        { q: "¿Cómo afecta el precio del petróleo a SLB?", a: "Cuando el Brent supera 70 $, las petroleras aumentan sus presupuestos de exploración y SLB se beneficia directamente. Por debajo de 60 $, los presupuestos se contraen." },
+        { q: "¿SLB paga dividendos?", a: "Sí, SLB paga un dividendo trimestral regular con una rentabilidad típicamente entre el 1,5 % y el 3 %." },
+        { q: "¿A qué precio consideraría comprar SLB?", a: "Nuestro objetivo de entrada es 40,18 $ basado en FCF por acción × 7x al nivel actual. Una corrección del precio o mejora del FCF llevaría a SLB a nuestra zona de compra." }
+      ],
+      tags: ['SLB', 'Schlumberger', 'Oil & Gas Equipment', 'servicios petrolíferos', 'sector energía', 'calidad', 'vigilancia'],
+      disclaimer: "Análisis fundamental realizado a través de nuestro screener propietario el 23 de junio de 2026. Este contenido es informativo y no constituye asesoramiento de inversión. El sector petrolero está sujeto a importantes ciclos ligados al precio del petróleo."
+    }
+  }
+};
+
+const articleDefenseSecteur: Article = {
+  slug: 'secteur-defense-lmt-noc-rtx-lhx-scores-screener-lubin',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  content: {
+    fr: {
+      title: "Secteur défense : Lockheed, Raytheon, Northrop décortiqués",
+      excerpt: "Les grands groupes de défense américains peinent dans notre screener de qualité malgré leurs milliards de chiffre d'affaires. Voici pourquoi, avec les scores réels de LMT, NOC, RTX et LHX.",
+      metaDescription: "Défense US : scores de Lockheed Martin (LMT), Northrop Grumman (NOC), Raytheon (RTX) et L3Harris (LHX) dans notre screener. Pourquoi ce secteur est difficile pour notre méthode.",
+      answer: "Les grands groupes de défense américains obtiennent des scores de 6 à 8 sur 10 dans notre screener — honorables mais rarement maximaux. Les contrats gouvernementaux à marge fixe, les longs cycles de développement et les contraintes de croissance organique expliquent pourquoi ce secteur est difficile pour notre méthode.",
+      body: [
+        { type: 'h2', text: "Les scores réels de la défense américaine dans notre screener" },
+        { type: 'table', headers: ['Ticker', 'Note', 'Secteur', 'Points faibles principaux'], rows: [
+          ['LMT', '6/10', 'Aerospace & Defense', 'Croissance faible, FCF/action en baisse, marges comprimées'],
+          ['NOC', '6/10', 'Aerospace & Defense', 'Conversion bénéfices→cash faible, croissance limitée'],
+          ['RTX', '8/10', 'Aerospace & Defense', 'Valorisation au-dessus de notre cible (seul fail)'],
+          ['LHX', '7/10', 'Aerospace & Defense', 'Croissance et marges sous nos seuils'],
+          ['HEI', '9/10', 'Aerospace & Defense', 'Valorisation élevée (DSO, P/FCF élevé)'],
+          ['TDG', '8/10', 'Aerospace & Defense', 'Endettement, DSO, valorisation']
+        ]},
+        { type: 'h2', text: "Pourquoi la défense est structurellement difficile pour notre méthode" },
+        { type: 'p', text: "Premièrement, les contrats gouvernementaux sont à marge fixe (LPTA — Lowest Price Technically Acceptable). Les défenseurs ne peuvent pas augmenter librement leurs prix. Deuxièmement, les cycles de développement sont très longs — 10 à 15 ans entre l'appel d'offres et la livraison du F-35. Pendant ce temps, les coûts s'accumulent mais le FCF est nul. Troisièmement, le budget de défense américain est voté annuellement — l'incertitude pèse sur les planifications à long terme." },
+        { type: 'h2', text: "Raytheon (RTX) : le meilleur score de la défense (8/10)" },
+        { type: 'p', text: "RTX se distingue avec un score de 8/10 — le meilleur dans le secteur pure défense. Le seul critère en tension est la valorisation : le prix actuel de 181,83 $ est 14,8 % au-dessus de notre cible d'entrée. RTX bénéficie d'une diversification unique : moteurs d'avion civils (Pratt & Whitney), systèmes de missiles (Raytheon), avionique (Collins Aerospace). Cette diversification civil/militaire amortit les cycles budgétaires." },
+        { type: 'h2', text: "Les équipementiers de niche font mieux : HEI et TDG" },
+        { type: 'p', text: "Heico (HEI, 9/10) et TransDigm (TDG, 8/10) obtiennent de meilleurs scores que les primes contractors. Pourquoi ? Ils fournissent des pièces de rechange pour avions militaires et civils — marché moins régulé que les contrats primaires, avec un pricing power élevé. HEI est quasi-monopole sur certaines pièces FAA-approved alternatives. TDG pratique des acquisitions en série de niches monopolistiques." }
+      ],
+      faq: [
+        { q: "RTX est-il recommandé pour un achat selon votre méthode ?", a: "RTX a un excellent profil fondamental (8/10) mais le prix actuel dépasse notre cible d'entrée de 14,8 %. Nous attendons une correction du prix ou une croissance du FCF pour rétablir l'opportunité d'entrée." },
+        { q: "Pourquoi LMT n'est-il que 6/10 malgré son statut de leader mondial ?", a: "Lockheed Martin a une croissance des ventes faible (quasi-stagflation du budget défense), une conversion bénéfices→cash décevante (en raison des provisions pour contrats à risque partagé) et des marges en compression sur le programme F-35. Notre méthode est exigeante sur ces critères de qualité fondamentale." },
+        { q: "L'augmentation des budgets défense en Europe bénéficie-t-elle à ces entreprises ?", a: "Partiellement. LMT, NOC, RTX vendent à des gouvernements européens — les livraisons de missiles, F-35 et systèmes de défense augmentent. Mais les cycles de commande restent longs (3-5 ans avant la livraison effective) et l'impact FCF prend du temps." },
+        { q: "Comment choisir entre HEI et TDG pour un investisseur de long terme ?", a: "HEI (9/10) a les meilleurs fondamentaux fondamentaux mais est très chère (P/FCF 50× environ). TDG (8/10) est aussi chère avec beaucoup de dette. Les deux sont de qualité mais aucune n'est dans notre zone d'achat actuellement." },
+        { q: "Quels sous-secteurs de la défense passent le mieux votre filtre ?", a: "Les équipementiers de niche (HEI, TDG) et les acteurs duaux civil/militaire (RTX) s'en sortent le mieux. Les primes contractors pur jeu (LMT, NOC) sont pénalisés par leur dépendance aux contrats gouvernementaux à marge fixe." }
+      ],
+      tags: ['défense', 'Lockheed Martin', 'Raytheon', 'Northrop Grumman', 'L3Harris', 'LMT', 'RTX', 'NOC', 'LHX', 'aerospace', 'screener'],
+      disclaimer: "Analyse fondamentale réalisée via notre screener propriétaire au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement. Les données reflètent les métriques FCF TTM et peuvent évoluer significativement selon les cycles de contrats gouvernementaux."
+    },
+    en: {
+      title: "Defense sector: Lockheed, Raytheon, Northrop, our scores",
+      excerpt: "Major US defense companies struggle in our quality screener despite billions in revenue. Here are the real scores for LMT, NOC, RTX and LHX — and why this sector is challenging for our method.",
+      metaDescription: "US defense scores: Lockheed Martin (LMT), Northrop Grumman (NOC), Raytheon (RTX), L3Harris (LHX) in our screener. Why the defense sector is hard for our quality method.",
+      answer: "Major US defense companies score 6-8 out of 10 in our screener — respectable but rarely perfect. Fixed-price government contracts, long development cycles, and limited organic growth explain why this sector is structurally challenging for our quality methodology.",
+      body: [
+        { type: 'h2', text: "Real defense sector scores in our screener" },
+        { type: 'table', headers: ['Ticker', 'Score', 'Main weaknesses'], rows: [
+          ['LMT', '6/10', 'Slow growth, declining FCF/share, compressed margins'],
+          ['NOC', '6/10', 'Poor earnings-to-cash conversion, limited growth'],
+          ['RTX', '8/10', 'Valuation above our entry target (only fail)'],
+          ['LHX', '7/10', 'Growth and margins below our thresholds'],
+          ['HEI', '9/10', 'High valuation (DSO, high FCF multiple)'],
+          ['TDG', '8/10', 'High debt, DSO, valuation']
+        ]},
+        { type: 'h2', text: "Why defense is structurally hard for our method" },
+        { type: 'p', text: "First, government contracts are fixed-price (LPTA). Defense primes cannot freely raise prices. Second, development cycles are very long — 10-15 years from contract award to F-35 delivery. FCF is near-zero during development. Third, the US defense budget is voted annually — uncertainty weighs on long-term planning." },
+        { type: 'h2', text: "Raytheon (RTX): best defense score at 8/10" },
+        { type: 'p', text: "RTX stands out with an 8/10 score — the best in pure defense. The only criterion in tension is valuation: at $181.83, the price is 14.8% above our entry target. RTX benefits from unique diversification: commercial aircraft engines (Pratt & Whitney), missile systems (Raytheon), avionics (Collins Aerospace). This civil/military diversification smooths budget cycles." },
+        { type: 'h2', text: "Niche component makers do better: HEI and TDG" },
+        { type: 'p', text: "Heico (HEI, 9/10) and TransDigm (TDG, 8/10) score better than the prime contractors. Why? They supply replacement parts for military and commercial aircraft — less regulated than prime contracts, with high pricing power. HEI holds near-monopoly positions on certain FAA-approved alternative parts." }
+      ],
+      faq: [
+        { q: "Is RTX recommended for buying under your method?", a: "RTX has an excellent fundamental profile (8/10) but the current price exceeds our entry target by 14.8%. We're waiting for a price correction or FCF improvement to create a buying opportunity." },
+        { q: "Why is LMT only 6/10 despite being a global leader?", a: "Lockheed Martin has near-stagnant revenue growth, poor earnings-to-cash conversion (risk-sharing contract provisions), and compressed margins on the F-35 program. Our method is demanding on these fundamental quality criteria." },
+        { q: "Does Europe's defense spending increase benefit these companies?", a: "Partially. LMT, NOC, RTX sell to European governments. Missile, F-35, and defense system deliveries are increasing. But contract cycles remain long (3-5 years to actual delivery) and FCF impact takes time to materialize." },
+        { q: "How to choose between HEI and TDG for a long-term investor?", a: "HEI (9/10) has the best fundamentals but is very expensive (FCF multiple ~50x). TDG (8/10) is also expensive with significant debt. Both are quality names but neither is currently in our buy zone." },
+        { q: "Which defense sub-sectors pass your filter best?", a: "Niche component makers (HEI, TDG) and dual civil/military players (RTX) perform best. Pure-play prime contractors (LMT, NOC) are penalized by their dependence on fixed-price government contracts." }
+      ],
+      tags: ['defense', 'Lockheed Martin', 'Raytheon', 'Northrop Grumman', 'LMT', 'RTX', 'NOC', 'LHX', 'aerospace', 'screener'],
+      disclaimer: "Fundamental analysis conducted via our proprietary screener as of June 23, 2026. This content is informational and does not constitute investment advice. Data reflects TTM FCF metrics and can evolve significantly with government contract cycles."
+    },
+    es: {
+      title: "Sector defensa: Lockheed, Raytheon, Northrop analizados",
+      excerpt: "Los grandes grupos de defensa estadounidenses tienen dificultades en nuestro screener de calidad a pesar de sus miles de millones en ingresos. Aquí están las puntuaciones reales de LMT, NOC, RTX y LHX.",
+      metaDescription: "Defensa US: puntuaciones de Lockheed Martin (LMT), Northrop Grumman (NOC), Raytheon (RTX) y L3Harris (LHX) en nuestro screener. Por qué el sector defensa es difícil para nuestra metodología.",
+      answer: "Los grandes grupos de defensa estadounidenses obtienen puntuaciones de 6 a 8 sobre 10 en nuestro screener. Los contratos gubernamentales a precio fijo, los largos ciclos de desarrollo y el limitado crecimiento orgánico explican por qué este sector es estructuralmente difícil para nuestra metodología.",
+      body: [
+        { type: 'h2', text: "Puntuaciones reales del sector defensa en nuestro screener" },
+        { type: 'table', headers: ['Ticker', 'Puntuación', 'Principales debilidades'], rows: [
+          ['LMT', '6/10', 'Crecimiento lento, FCF/acción decreciente, márgenes comprimidos'],
+          ['NOC', '6/10', 'Conversión beneficios→caja deficiente'],
+          ['RTX', '8/10', 'Valoración sobre nuestro objetivo (único fallo)'],
+          ['LHX', '7/10', 'Crecimiento y márgenes bajo umbrales'],
+          ['HEI', '9/10', 'Valoración elevada'],
+          ['TDG', '8/10', 'Deuda alta, DSO, valoración']
+        ]},
+        { type: 'h2', text: "Por qué la defensa es estructuralmente difícil para nuestra metodología" },
+        { type: 'p', text: "Los contratos gubernamentales son a precio fijo (LPTA). Las empresas de defensa no pueden subir libremente sus precios. Los ciclos de desarrollo son muy largos — 10-15 años — durante los cuales el FCF es prácticamente nulo. El presupuesto de defensa de EE.UU. se vota anualmente, creando incertidumbre a largo plazo." },
+        { type: 'h2', text: "Raytheon (RTX): mejor puntuación defensiva con 8/10" },
+        { type: 'p', text: "RTX destaca con 8/10, el mejor en defensa pura. El único criterio en tensión es la valoración: el precio actual de 181,83 $ supera en un 14,8 % nuestro objetivo de entrada. RTX se beneficia de una diversificación única: motores de avión civiles (Pratt & Whitney), misiles (Raytheon), aviónica (Collins Aerospace)." },
+        { type: 'h2', text: "Los fabricantes de nicho lo hacen mejor: HEI y TDG" },
+        { type: 'p', text: "Heico (HEI, 9/10) y TransDigm (TDG, 8/10) obtienen mejores puntuaciones que los grandes contratistas. Suministran piezas de repuesto para aviones militares y civiles — mercado menos regulado con alto poder de fijación de precios. HEI tiene posiciones cuasi-monopolísticas en ciertas piezas aprobadas por la FAA." }
+      ],
+      faq: [
+        { q: "¿RTX está recomendado para comprar según su metodología?", a: "RTX tiene excelente perfil fundamental (8/10) pero el precio actual supera nuestro objetivo de entrada en un 14,8 %. Esperamos una corrección del precio para crear una oportunidad de entrada." },
+        { q: "¿Por qué LMT es solo 6/10 siendo líder mundial?", a: "Lockheed Martin tiene crecimiento de ventas casi nulo, conversión beneficios→caja deficiente y márgenes comprimidos en el programa F-35. Nuestra metodología es exigente en estos criterios de calidad fundamental." },
+        { q: "¿El aumento del gasto en defensa europeo beneficia a estas empresas?", a: "Parcialmente. Pero los ciclos de contratos son largos (3-5 años hasta entrega efectiva) y el impacto en FCF tarda en materializarse." },
+        { q: "¿Cuál elegir entre HEI y TDG para un inversor a largo plazo?", a: "HEI (9/10) tiene los mejores fundamentales pero es muy cara (~50x FCF). TDG (8/10) también es cara con deuda significativa. Ambas son de calidad pero ninguna está en zona de compra actualmente." },
+        { q: "¿Qué subsectores de defensa pasan mejor su filtro?", a: "Los fabricantes de nicho (HEI, TDG) y los actores duales civil/militar (RTX) obtienen mejores resultados. Los grandes contratistas puros (LMT, NOC) son penalizados por su dependencia de contratos a precio fijo." }
+      ],
+      tags: ['defensa', 'Lockheed Martin', 'Raytheon', 'Northrop Grumman', 'LMT', 'RTX', 'NOC', 'LHX', 'aerospace', 'screener'],
+      disclaimer: "Análisis fundamental realizado a través de nuestro screener propietario el 23 de junio de 2026. Este contenido es informativo y no constituye asesoramiento de inversión."
+    }
+  }
+};
+
+const articleGoodwill: Article = {
+  slug: 'goodwill-comptable-acquisitions-valeur-fcf-methode',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  content: {
+    fr: {
+      title: "Goodwill : quand les acquisitions détruisent la valeur FCF",
+      excerpt: "Le goodwill est la prime payée lors d'une acquisition au-dessus de la valeur comptable. Invisible dans le FCF courant, il peut révéler une destruction de valeur passée ou future. Notre méthode vous protège de ce piège.",
+      metaDescription: "Goodwill comptable expliqué : définition, impact sur le FCF et les acquisitions, comment notre méthode identifie les risques. Guide pour investisseurs DIY.",
+      answer: "Le goodwill est l'excédent payé lors d'une acquisition au-dessus de la valeur comptable des actifs. Il reflète la marque, la clientèle, les brevets. Si l'acquisition déçoit, il est déprécié — charge non-cash qui plombe les bénéfices. Notre méthode FCF-first est naturellement résistante à ce biais comptable.",
+      body: [
+        { type: 'h2', text: "Qu'est-ce que le goodwill en comptabilité ?" },
+        { type: 'p', text: "Lorsqu'une entreprise en acquiert une autre, elle paie souvent une prime au-dessus de la valeur comptable (actifs - dettes). Cette prime est enregistrée au bilan comme 'goodwill'. Elle représente la valeur des actifs intangibles : marque, clients, brevets, savoir-faire, position concurrentielle. Exemple simple : si une entreprise vaut 100 M$ en valeur comptable et est acquise pour 160 M$, le goodwill est de 60 M$." },
+        { type: 'h2', text: "Le risque de dépréciation du goodwill (impairment)" },
+        { type: 'p', text: "Si l'acquisition ne performe pas comme prévu, la direction doit déprécier le goodwill — c'est l''impairment'. Cette dépréciation est une charge non-cash (elle ne sort pas d'argent du compte bancaire) mais elle plombe le bénéfice net. Exemple célèbre : AOL Time Warner a déprécié 45 milliards de dollars de goodwill après la fusion ratée de 2001. General Electric a déprécié son aviation et énergie entre 2017 et 2019. Dans ces cas, le bénéfice GAAP est catastrophique — mais le FCF peut rester positif." },
+        { type: 'h2', text: "Comment notre méthode FCF-first est robuste au goodwill" },
+        { type: 'p', text: "Notre screener utilise le Free Cash Flow, pas le bénéfice net GAAP. Les dépréciations de goodwill sont non-cash et n'affectent pas le FCF. Ainsi, une entreprise comme GE aurait été exclue de notre screener bien AVANT les dépréciations — car le FCF de GE Capital et Energy Division était déjà en déclin. Notre méthode est prospective : elle regarde la trajectoire du FCF, pas les charges exceptionnelles comptables." },
+        { type: 'h2', text: "Exemples positifs : serial acquéreurs avec FCF croissant" },
+        { type: 'ul', items: [
+          "Roper Technologies (ROP, 10/10) : acquiert des logiciels verticaux de niche — FCF croissant malgré le goodwill accumulé",
+          "Danaher : acquiert des sociétés scientifiques — modèle Danaher Business System crée de la valeur post-acquisition",
+          "Berkshire Hathaway : achète des entreprises sous-évaluées — goodwill contrôlé par la discipline de Buffett",
+          "Contre-exemple : AT&T/Time Warner (85 Md$ de goodwill déprécié en 2021-2022)"
+        ]}
+      ],
+      faq: [
+        { q: "Le goodwill apparaît-il dans le calcul du FCF ?", a: "Non. Le goodwill est une charge non-cash (sauf à l'acquisition initiale où le cash sort effectivement). Les dépréciations ultérieures (impairments) sont des charges comptables sans impact trésorerie — ce qui rend le FCF plus robuste que le bénéfice net pour l'analyse fondamentale." },
+        { q: "Comment évaluer si une entreprise accumule trop de goodwill ?", a: "Regardez le ratio Goodwill / Total Actifs. Au-dessus de 50 %, c'est élevé. Regardez aussi si le goodwill croît plus vite que le FCF — signe que les acquisitions ne créent pas de valeur proportionnelle." },
+        { q: "Roper Technologies (ROP) a beaucoup de goodwill — est-ce un risque ?", a: "ROP est un serial acquéreur de logiciels verticaux. Son goodwill est élevé mais le FCF est croissant — preuve que les acquisitions créent de la valeur réelle. Notre screener confirme : ROP est 10/10. Le goodwill en lui-même n'est pas un problème si le FCF suit." },
+        { q: "La dépréciation du goodwill peut-elle ruiner un investissement ?", a: "Oui, dans les cas extrêmes. Mais si vous utilisez le FCF comme critère principal (comme notre méthode), vous aurez probablement déjà vu la dégradation du FCF AVANT la dépréciation comptable — signal d'alerte précoce." },
+        { q: "Comment Microsoft gère-t-il son goodwill (Activision 70 Md$) ?", a: "Microsoft a un FCF massif (~70 Md$ annuels) qui absorbe les acquisitions. Même avec Activision (70 Md$), le goodwill est raisonnable par rapport au FCF. Le risque de dépréciation est faible car Activision continue de générer des revenus (Call of Duty, Xbox Game Pass)." }
+      ],
+      tags: ['goodwill', 'acquisitions', 'comptabilité', 'FCF', 'dépréciation', 'impairment', 'méthode Lubin', 'M&A', 'pédago'],
+      disclaimer: "Analyse fondamentale et pédagogique réalisée au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement. Les exemples cités sont illustratifs des principes comptables."
+    },
+    en: {
+      title: "Goodwill: when acquisitions destroy FCF value",
+      excerpt: "Goodwill is the premium paid in an acquisition above book value. Invisible in current FCF, it can reveal past or future value destruction. Our method protects you from this accounting trap.",
+      metaDescription: "Goodwill explained: definition, impact on FCF and acquisitions, how our method identifies risks. Guide for DIY investors.",
+      answer: "Goodwill is the excess paid in an acquisition above book value. It reflects brand value, customers, patents. If the acquisition disappoints, goodwill is impaired — a non-cash charge that hurts reported earnings. Our FCF-first method is naturally resistant to this accounting bias.",
+      body: [
+        { type: 'h2', text: "What is goodwill in accounting?" },
+        { type: 'p', text: "When a company acquires another, it often pays a premium above book value (assets minus liabilities). This premium is recorded on the balance sheet as 'goodwill.' It represents intangible asset value: brand, customers, patents, know-how, competitive position. Simple example: if a company has $100M book value but is acquired for $160M, the goodwill is $60M." },
+        { type: 'h2', text: "The goodwill impairment risk" },
+        { type: 'p', text: "If the acquisition underperforms, management must impair (write down) the goodwill. This impairment is a non-cash charge — no cash leaves the bank account — but it devastates reported net income. Famous examples: AOL Time Warner impaired $45B of goodwill after its failed 2001 merger. GE impaired aviation and energy goodwill from 2017-2019. GAAP earnings were catastrophic — but FCF could remain positive." },
+        { type: 'h2', text: "How our FCF-first method is robust to goodwill" },
+        { type: 'p', text: "Our screener uses Free Cash Flow, not GAAP net income. Goodwill impairments are non-cash and don't affect FCF. So a company like GE would have been excluded from our screener well BEFORE the impairments — because GE's FCF was already declining. Our method is forward-looking: it tracks FCF trajectory, not exceptional accounting charges." },
+        { type: 'h2', text: "Positive examples: serial acquirers with growing FCF" },
+        { type: 'ul', items: [
+          "Roper Technologies (ROP, perfect score): acquires niche vertical software — FCF growing despite accumulated goodwill",
+          "Danaher: acquires scientific companies — Danaher Business System creates post-acquisition value",
+          "Berkshire Hathaway: buys undervalued companies — goodwill controlled by Buffett discipline",
+          "Counter-example: AT&T/Time Warner ($85B goodwill impaired in 2021-2022)"
+        ]}
+      ],
+      faq: [
+        { q: "Does goodwill appear in FCF calculation?", a: "No. Goodwill is a non-cash item (except at initial acquisition when cash actually leaves). Subsequent impairments are accounting charges with no cash impact — which makes FCF more robust than net income for fundamental analysis." },
+        { q: "How to evaluate if a company has too much goodwill?", a: "Check the Goodwill / Total Assets ratio. Above 50% is high. Also check if goodwill grows faster than FCF — a sign acquisitions aren't creating proportional value." },
+        { q: "Roper Technologies (ROP) has lots of goodwill — is it a risk?", a: "ROP is a serial acquirer of vertical software. Its goodwill is high but FCF is growing — proof that acquisitions create real value. Our screener confirms: ROP earns a perfect score. Goodwill itself isn't a problem if FCF follows." },
+        { q: "Can goodwill impairment ruin an investment?", a: "Yes, in extreme cases. But if you use FCF as your primary criterion (as our method does), you'll likely have already seen FCF deterioration BEFORE the accounting impairment — an early warning signal." },
+        { q: "How does Microsoft manage its goodwill (Activision $70B)?", a: "Microsoft has massive FCF (~$70B annually) that absorbs acquisitions. Even with Activision ($70B), goodwill is manageable relative to FCF. Impairment risk is low as Activision continues generating revenue (Call of Duty, Xbox Game Pass)." }
+      ],
+      tags: ['goodwill', 'acquisitions', 'accounting', 'FCF', 'impairment', 'Lubin method', 'M&A', 'education'],
+      disclaimer: "Fundamental and educational analysis as of June 23, 2026. This content is informational and does not constitute investment advice. Examples cited are illustrative of accounting principles."
+    },
+    es: {
+      title: "Goodwill: cuando las adquisiciones destruyen el valor FCF",
+      excerpt: "El goodwill es la prima pagada en una adquisición por encima del valor contable. Invisible en el FCF actual, puede revelar destrucción de valor pasada o futura. Nuestra metodología te protege de esta trampa contable.",
+      metaDescription: "Goodwill contable explicado: definición, impacto en FCF y adquisiciones, cómo nuestra metodología identifica los riesgos. Guía para inversores DIY.",
+      answer: "El goodwill es el exceso pagado en una adquisición sobre el valor contable. Refleja el valor de la marca, clientes y patentes. Si la adquisición decepciona, se deteriora — cargo no monetario que perjudica los beneficios reportados. Nuestra metodología FCF-first es naturalmente resistente a este sesgo contable.",
+      body: [
+        { type: 'h2', text: "¿Qué es el goodwill en contabilidad?" },
+        { type: 'p', text: "Cuando una empresa adquiere otra, a menudo paga una prima sobre el valor contable (activos menos pasivos). Esta prima se registra en el balance como 'goodwill'. Representa el valor de activos intangibles: marca, clientes, patentes, conocimiento, posición competitiva. Ejemplo simple: si una empresa tiene 100 M$ de valor contable pero se adquiere por 160 M$, el goodwill es de 60 M$." },
+        { type: 'h2', text: "El riesgo de deterioro del goodwill (impairment)" },
+        { type: 'p', text: "Si la adquisición no rinde como se esperaba, la dirección debe deteriorar el goodwill. Este deterioro es un cargo no monetario — no sale dinero del banco — pero destruye el beneficio neto reportado. Ejemplos célebres: AOL Time Warner deterioró 45.000 M$ en 2001. GE deterioró aviación y energía entre 2017-2019. Nuestro método FCF-first habría identificado estas situaciones antes que el deterioro contable." },
+        { type: 'h2', text: "Cómo nuestra metodología FCF-first es robusta al goodwill" },
+        { type: 'p', text: "Nuestro screener utiliza el Flujo de Caja Libre, no el beneficio neto GAAP. Los deterioros de goodwill son no monetarios y no afectan al FCF. Así, empresas como GE habrían sido excluidas de nuestro screener mucho ANTES de los deterioros — porque el FCF ya estaba en declive." },
+        { type: 'h2', text: "Ejemplos positivos: acquirers en serie con FCF creciente" },
+        { type: 'ul', items: [
+          "Roper Technologies (ROP, puntuación máxima): adquiere software vertical de nicho con FCF creciente",
+          "Danaher: adquiere empresas científicas con el Danaher Business System",
+          "Berkshire Hathaway: compra empresas infravaloradas con disciplina",
+          "Contraejemplo: AT&T/Time Warner (85.000 M$ deteriorados en 2021-2022)"
+        ]}
+      ],
+      faq: [
+        { q: "¿El goodwill aparece en el cálculo del FCF?", a: "No. El goodwill es un elemento no monetario. Los deterioros posteriores son cargos contables sin impacto en tesorería, lo que hace al FCF más robusto que el beneficio neto para el análisis fundamental." },
+        { q: "¿Cómo evaluar si una empresa acumula demasiado goodwill?", a: "Observe el ratio Goodwill / Activos Totales. Por encima del 50% es elevado. También verifique si el goodwill crece más rápido que el FCF — señal de que las adquisiciones no crean valor proporcional." },
+        { q: "Roper Technologies (ROP) tiene mucho goodwill — ¿es un riesgo?", a: "ROP es un acquirer en serie de software vertical. Su goodwill es alto pero el FCF crece — prueba de que las adquisiciones crean valor real. Nuestro screener confirma: ROP tiene puntuación máxima." },
+        { q: "¿Puede el deterioro del goodwill arruinar una inversión?", a: "Sí, en casos extremos. Pero si usa el FCF como criterio principal, probablemente ya habrá visto el deterioro del FCF ANTES del deterioro contable — señal de alerta temprana." },
+        { q: "¿Cómo gestiona Microsoft su goodwill (Activision 70.000 M$)?", a: "Microsoft tiene un FCF masivo (~70.000 M$ anuales) que absorbe las adquisiciones. Incluso con Activision, el goodwill es manejable en relación al FCF. El riesgo de deterioro es bajo dado que Activision sigue generando ingresos." }
+      ],
+      tags: ['goodwill', 'adquisiciones', 'contabilidad', 'FCF', 'deterioro', 'impairment', 'método Lubin', 'M&A', 'educación'],
+      disclaimer: "Análisis fundamental y educativo realizado el 23 de junio de 2026. Este contenido es informativo y no constituye asesoramiento de inversión. Los ejemplos citados son ilustrativos de principios contables."
+    }
+  }
+};
+
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
