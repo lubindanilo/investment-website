@@ -33590,7 +33590,530 @@ const articleOrMining: Article = {
 };
 
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining];
+const articleLatAm: Article = {
+  slug: 'amerique-latine-meli-afya-totvs-10-sur-10-palmares',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  content: {
+    fr: {
+      title: "Amérique latine : MELI, AFYA et TOTVS, les 3 seuls 10/10",
+      excerpt: "MercadoLibre, Afya et TOTVS sont les trois seules entreprises latino-américaines notées 10 sur 10 dans notre screener parmi 5 000 actions. Trois secteurs, trois pays, un palmarès data inédit.",
+      metaDescription: "MercadoLibre (MELI), Afya (AFYA) et TOTVS (TOTS3) : les 3 seuls 10/10 latino-américains sur 5000 actions. Palmarès data FCF avec P/FCF, buy targets. Investir en Amérique latine.",
+      answer: "Sur plus de 5 000 actions analysées dans notre screener, seules trois entreprises d'Amérique latine atteignent la note parfaite de 10 sur 10 : MercadoLibre (MELI), leader e-commerce/fintech d'Argentine coté sur le Nasdaq ; Afya (AFYA), leader de la formation médicale au Brésil ; et TOTVS (TOTS3.SA), leader des logiciels ERP pour PME brésiliennes.",
+      body: [
+        { type: 'h2', text: "Pourquoi si peu de 10/10 en Amérique latine ?" },
+        { type: 'p', text: "L'Amérique latine représente 650 millions d'habitants et environ 5 % du PIB mondial. Pourtant, sur 5 000 actions analysées toutes géographies confondues, seules 3 entreprises de la région atteignent notre note de 10 sur 10. Les raisons : risque de change structurel (peso argentin, real brésilien volatils), instabilité réglementaire fréquente, ROIC moyen plus faible qu'en Asie ou en Europe du Nord, et marchés de capitaux moins profonds qui limitent la discipline financière des entreprises cotées." },
+        { type: 'h2', text: "Les 3 seuls 10/10 d'Amérique latine" },
+        { type: 'table', headers: ['Entreprise', 'Ticker', 'Pays', 'Secteur', 'Score', 'P/FCF'], rows: [
+          ['MercadoLibre', 'MELI (Nasdaq)', 'Argentine/LatAm', 'E-commerce & Fintech', '10/10', '6,82×'],
+          ['Afya', 'AFYA (Nasdaq)', 'Brésil', 'Formation médicale', '10/10', '1,11×'],
+          ['TOTVS', 'TOTS3.SA (B3)', 'Brésil', 'Logiciels ERP PME', '10/10', '20,94×']
+        ]},
+        { type: 'h2', text: "MercadoLibre (MELI) : l'Amazon + PayPal d'Amérique latine" },
+        { type: 'p', text: "MercadoLibre est la plus grande entreprise d'e-commerce et de fintech d'Amérique latine — présente dans 18 pays. Sa plateforme MELI combine une marketplace (comme Amazon), une solution de paiement (MercadoPago — comme PayPal), un service logistique (MercadoEnvíos) et une offre de crédit aux marchands. P/FCF de 6,82× — l'une des valorisations les plus attrayantes parmi nos 10/10 toutes géographies. Le prix actuel de 1 589 $ est sous notre cible de 2 884 $." },
+        { type: 'h2', text: "Afya (AFYA) : le Harvard de la médecine brésilienne" },
+        { type: 'p', text: "Afya est le plus grand groupe privé de formation médicale au Brésil — universités de médecine + formation continue pour médecins + solutions digitales de santé. Le marché brésilien de la médecine est réglementé (quotas d'étudiants par l'État), ce qui crée une barrière à l'entrée structurelle. Afya opère dans un oligopole de facto. Son P/FCF de 1,11× est très bas — à surveiller avec des données à jour (l'action AFYA a subi une correction significative en 2025-2026)." },
+        { type: 'h2', text: "TOTVS (TOTS3.SA) : l'Oracle des PME brésiliennes" },
+        { type: 'p', text: "TOTVS est le leader des logiciels ERP (Enterprise Resource Planning) pour petites et moyennes entreprises brésiliennes — 300 000+ clients PME, soit une part de marché de ~50 % sur son segment. Son modèle SaaS récurrent, son ancrage profond dans l'écosystème des PME brésiliennes et sa faible exposition au dollar lui confèrent une résilience remarquable aux crises monétaires. P/FCF de 20,94×, coté uniquement sur la Bourse de São Paulo (B3)." }
+      ],
+      faq: [
+        { q: "Comment investir dans TOTVS depuis la France ?", a: "TOTVS est coté uniquement sur la B3 (Bolsa de São Paulo) sous le ticker TOTS3.SA. Il est accessible via Interactive Brokers (accès aux marchés brésiliens). Il n'est pas disponible sur les brokers européens standards. La conversion USD/BRL implique un risque de change." },
+        { q: "MercadoLibre est-il aussi une banque ?", a: "Oui. MercadoPago, la branche fintech, est devenu une néo-banque dans plusieurs pays — crédit aux marchands, comptes épargne, cartes prépayées, assurances. Les revenus fintech représentent désormais plus de 50 % du chiffre d'affaires total de MELI. C'est la transformation la plus remarquable : d'e-commerce pur à conglomérat fintech dominant." },
+        { q: "Le risque de change est-il gérable pour MELI ?", a: "MELI est coté en USD sur le Nasdaq — c'est votre exposition directe. Les revenus sous-jacents sont en devises locales (pesos, reais), mais MELI gère activement ce risque via couvertures. La dévaluation du peso argentin a eu un impact ponctuel sur les résultats (charges de change), mais le modèle économique reste très sain en termes opérationnels." },
+        { q: "Afya est-il vraiment à P/FCF 1,11× ?", a: "Les données affichées par notre screener au 23 juin 2026 indiquent P/FCF 1,11×. Ce multiple très faible doit être vérifié avec les états financiers récents d'Afya — il peut refléter un FCF exceptionnel ou une anomalie de calcul. Toujours croiser avec les données de Morningstar, Bloomberg ou les rapports officiels avant toute décision." }
+      ],
+      tags: ['MercadoLibre', 'MELI', 'Afya', 'TOTVS', 'Amérique latine', 'Brésil', 'Argentine', 'actions internationales', '10/10'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Investir en Amérique latine comporte des risques spécifiques (change, réglementation). Contenu informatif, non un conseil en investissement."
+    },
+    en: {
+      title: "Latin America: MELI, AFYA and TOTVS, the only 3 10/10s",
+      excerpt: "MercadoLibre, Afya and TOTVS are the only three Latin American companies rated 10/10 in our screener among 5,000 stocks. Three sectors, three countries, a unique data ranking.",
+      metaDescription: "MercadoLibre (MELI), Afya (AFYA) and TOTVS (TOTS3): the only 3 Latin American 10/10s out of 5,000 stocks. FCF data ranking with P/FCF and buy targets.",
+      answer: "Among 5,000+ stocks in our screener, only three Latin American companies score 10/10: MercadoLibre (MELI), Latin America's e-commerce/fintech leader; Afya (AFYA), Brazil's medical education leader; and TOTVS (TOTS3.SA), Brazil's dominant ERP software for SMEs.",
+      body: [
+        { type: 'h2', text: "Why so few 10/10s in Latin America?" },
+        { type: 'p', text: "Latin America represents 650M people and ~5% of world GDP. Yet only 3 of 5,000 analyzed stocks from the region score 10/10. Reasons: structural FX risk (volatile peso, real), frequent regulatory instability, lower average ROIC vs Asia or Northern Europe, and shallower capital markets limiting financial discipline." },
+        { type: 'h2', text: "The only 3 Latin American 10/10s" },
+        { type: 'table', headers: ['Company', 'Ticker', 'Country', 'Sector', 'Score', 'P/FCF'], rows: [
+          ['MercadoLibre', 'MELI (Nasdaq)', 'Argentina/LatAm', 'E-commerce & Fintech', '10/10', '6.82×'],
+          ['Afya', 'AFYA (Nasdaq)', 'Brazil', 'Medical Education', '10/10', '1.11×'],
+          ['TOTVS', 'TOTS3.SA (B3)', 'Brazil', 'ERP Software for SMEs', '10/10', '20.94×']
+        ]},
+        { type: 'h2', text: "MercadoLibre (MELI): Latin America's Amazon + PayPal" },
+        { type: 'p', text: "MercadoLibre is Latin America's largest e-commerce and fintech company — present in 18 countries. Its MELI platform combines a marketplace (like Amazon), a payment solution (MercadoPago — like PayPal), logistics (MercadoEnvíos), and merchant lending. P/FCF of 6.82× — one of the most attractive valuations among our 10/10s globally. Current price $1,589 is below our target of $2,884." },
+        { type: 'h2', text: "Afya (AFYA): the Harvard of Brazilian medicine" },
+        { type: 'p', text: "Afya is Brazil's largest private medical education group — medical universities + continuing education for doctors + digital health solutions. The Brazilian medical market is regulated (government student quotas), creating a structural barrier to entry. Afya operates in a de facto oligopoly. Its P/FCF of 1.11× is very low — verify with current financial statements." },
+        { type: 'h2', text: "TOTVS (TOTS3.SA): the Oracle of Brazilian SMEs" },
+        { type: 'p', text: "TOTVS is the leading ERP software vendor for small and medium Brazilian businesses — 300,000+ SME clients, ~50% market share in its segment. Its recurring SaaS model, deep roots in the Brazilian SME ecosystem, and low dollar exposure give it remarkable resilience to currency crises. P/FCF 20.94×, listed only on the São Paulo Stock Exchange (B3)." }
+      ],
+      faq: [
+        { q: "How do I invest in TOTVS from outside Brazil?", a: "TOTVS is listed only on B3 (São Paulo Stock Exchange) under TOTS3.SA. Accessible via Interactive Brokers (Brazilian market access). Not available on standard European brokers. BRL/USD conversion involves FX risk." },
+        { q: "Is MercadoLibre also a bank?", a: "Yes. MercadoPago, the fintech arm, has become a neo-bank in several countries — merchant lending, savings accounts, prepaid cards, insurance. Fintech revenues now represent 50%+ of MELI's total revenue. The transformation from pure e-commerce to dominant fintech conglomerate is remarkable." },
+        { q: "Is the FX risk manageable for MELI?", a: "MELI is Nasdaq-listed in USD — that's your direct exposure. Underlying revenues are in local currencies (pesos, reais), but MELI actively hedges this risk. Argentine peso devaluation has had one-time P&L impacts, but the underlying business economics remain very healthy." },
+        { q: "Is Afya really at 1.11× P/FCF?", a: "Our screener shows 1.11× P/FCF as of June 23, 2026. This very low multiple should be verified with Afya's recent financial statements — it may reflect exceptional FCF or a calculation anomaly. Always cross-check with Morningstar, Bloomberg, or official filings before any decision." }
+      ],
+      tags: ['MercadoLibre', 'MELI', 'Afya', 'TOTVS', 'Latin America', 'Brazil', 'Argentina', 'international stocks', '10/10'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Investing in Latin America involves specific risks (FX, regulation). Informational content, not investment advice."
+    },
+    es: {
+      title: "América Latina: MELI, AFYA y TOTVS, los únicos 3 con 10/10",
+      excerpt: "MercadoLibre, Afya y TOTVS son las únicas tres empresas latinoamericanas con nota 10/10 en nuestro screener entre 5.000 acciones. Tres sectores, tres países, un ranking de datos inédito.",
+      metaDescription: "MercadoLibre (MELI), Afya (AFYA) y TOTVS (TOTS3): los únicos 3 latinoamericanos 10/10 de 5.000 acciones. Ranking de datos FCF con P/FCF y objetivos de compra.",
+      answer: "Entre más de 5.000 acciones analizadas en nuestro screener, solo tres empresas latinoamericanas alcanzan la nota perfecta de 10/10: MercadoLibre (MELI), líder de e-commerce/fintech de América Latina; Afya (AFYA), líder de formación médica en Brasil; y TOTVS (TOTS3.SA), líder de software ERP para pymes brasileñas.",
+      body: [
+        { type: 'h2', text: "¿Por qué tan pocos 10/10 en América Latina?" },
+        { type: 'p', text: "América Latina representa 650 millones de personas y ~5 % del PIB mundial. Sin embargo, de 5.000 acciones analizadas en todas las geografías, solo 3 empresas de la región alcanzan nuestra nota de 10/10. Razones: riesgo cambiario estructural (peso argentino, real brasileño volátiles), inestabilidad regulatoria frecuente, ROIC medio más bajo que en Asia o Europa del Norte." },
+        { type: 'h2', text: "Los únicos 3 latinoamericanos 10/10" },
+        { type: 'table', headers: ['Empresa', 'Ticker', 'País', 'Sector', 'Puntuación', 'P/FCF'], rows: [
+          ['MercadoLibre', 'MELI (Nasdaq)', 'Argentina/LatAm', 'E-commerce y Fintech', '10/10', '6,82×'],
+          ['Afya', 'AFYA (Nasdaq)', 'Brasil', 'Formación médica', '10/10', '1,11×'],
+          ['TOTVS', 'TOTS3.SA (B3)', 'Brasil', 'Software ERP pymes', '10/10', '20,94×']
+        ]},
+        { type: 'h2', text: "MercadoLibre (MELI): el Amazon + PayPal de América Latina" },
+        { type: 'p', text: "MercadoLibre es la mayor empresa de e-commerce y fintech de América Latina — presente en 18 países. Su plataforma MELI combina un marketplace, una solución de pago (MercadoPago), logística (MercadoEnvíos) y crédito a comerciantes. P/FCF de 6,82× — una de las valoraciones más atractivas entre nuestros 10/10 globales. El precio actual de 1.589 $ está por debajo de nuestro objetivo de 2.884 $." },
+        { type: 'h2', text: "Afya (AFYA): el Harvard de la medicina brasileña" },
+        { type: 'p', text: "Afya es el mayor grupo privado de formación médica de Brasil — universidades de medicina + formación continua para médicos + soluciones digitales de salud. El mercado médico brasileño está regulado (cuotas de estudiantes por el Estado), lo que crea una barrera estructural. Afya opera en un oligopolio de facto. Su P/FCF de 1,11× es muy bajo — verificar con datos financieros recientes." },
+        { type: 'h2', text: "TOTVS (TOTS3.SA): el Oracle de las pymes brasileñas" },
+        { type: 'p', text: "TOTVS es el líder de software ERP para pequeñas y medianas empresas brasileñas — más de 300.000 clientes pymes, ~50 % de cuota de mercado en su segmento. Su modelo SaaS recurrente y su arraigo profundo en el ecosistema pyme brasileño le otorgan una resiliencia notable ante las crisis monetarias. P/FCF de 20,94×, cotiza solo en la Bolsa de São Paulo (B3)." }
+      ],
+      faq: [
+        { q: "¿Cómo invertir en TOTVS desde España o Francia?", a: "TOTVS cotiza solo en la B3 (Bolsa de São Paulo) bajo el ticker TOTS3.SA. Accesible a través de Interactive Brokers (acceso a mercados brasileños). No disponible en brokers europeos estándar. La conversión BRL/EUR implica riesgo de cambio." },
+        { q: "¿MercadoLibre es también un banco?", a: "Sí. MercadoPago, el brazo fintech, se ha convertido en un neobanco en varios países — crédito a comerciantes, cuentas de ahorro, tarjetas prepago, seguros. Los ingresos fintech representan más del 50 % del volumen de negocio total de MELI." },
+        { q: "¿Es el riesgo cambiario manejable para MELI?", a: "MELI cotiza en Nasdaq en USD — esa es su exposición directa. Los ingresos subyacentes están en monedas locales (pesos, reales), pero MELI gestiona activamente este riesgo con coberturas. La devaluación del peso argentino ha tenido impactos puntuales, pero la economía del negocio sigue siendo muy sana." }
+      ],
+      tags: ['MercadoLibre', 'MELI', 'Afya', 'TOTVS', 'América Latina', 'Brasil', 'Argentina', 'acciones internacionales', '10/10'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Invertir en América Latina conlleva riesgos específicos (divisa, regulación). Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleMidcaps: Article = {
+  slug: 'midcaps-10-sur-10-qualite-maximale-sous-le-radar-2026',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  content: {
+    fr: {
+      title: "Midcaps 10/10 en 2026 : la qualité sous le radar",
+      excerpt: "NSSC, SIGI, AIZ, GRC, KGC et DPM : des capitalisations entre 700 millions et 12 milliards qui atteignent 10 sur 10. Ces entreprises cumulent qualité fondamentale maximale et taille ignorée des grands fonds.",
+      metaDescription: "Midcaps 10/10 en 2026 : NSSC, SIGI, AIZ, GRC, KGC, DPM — petites capitalisations à note parfaite dans notre screener. Données FCF réelles, secteurs variés.",
+      answer: "Plusieurs entreprises entre 700 millions et 12 milliards de capitalisation atteignent 10 sur 10 dans notre screener. Parmi les plus intéressantes : NSSC (sécurité IoT), SIGI (assurance commerciale), AIZ (smartphones), GRC (pompes industrielles), KGC (or) et DPM (or). Certaines sont en zone d'achat — notamment NSSC à 3,5 % sous sa cible.",
+      body: [
+        { type: 'h2', text: "Pourquoi les midcaps peuvent battre les méga-caps" },
+        { type: 'p', text: "Les grandes capitalisations (Apple, Microsoft, Nvidia) concentrent l'essentiel de l'attention des analystes et des fonds. Les entreprises entre 500 M$ et 15 Md$ de capitalisation sont souvent sous-suivies — parfois couvertes par 5 à 10 analystes au lieu de 40-50 pour les méga-caps. Cette asymétrie d'information crée des opportunités : des entreprises avec une qualité fondamentale maximale qui se traitent à des multiples plus faibles que leur qualité ne le justifierait." },
+        { type: 'h2', text: "Les midcaps 10/10 dans notre screener au 23 juin 2026" },
+        { type: 'table', headers: ['Entreprise', 'Ticker', 'Secteur', 'Score', 'P/FCF', 'Capi. boursière', 'Zone achat ?'], rows: [
+          ['Napco Security', 'NSSC', 'Sécurité IoT', '10/10', '24,3×', '~$700M', '✅ Oui (-3,5 %)'],
+          ['Selective Insurance', 'SIGI', 'Assurance commerciale', '10/10', '5,0×', '~$5Md', 'Non (+7 %)'],
+          ['Assurant', 'AIZ', 'Assurance smartphones', '10/10', '9,6×', '~$12Md', 'Non (+16 %)'],
+          ['Gorman-Rupp', 'GRC', 'Pompes industrielles', '10/10', '24,0×', '~$500M', 'Non'],
+          ['Kinross Gold', 'KGC', 'Or minier', '10/10', '12,6×', '~$12Md', '✅ Oui (-7,8 %)'],
+          ['DPM Precious Metals', 'DPM', 'Or minier', '10/10', '13,1×', '~$3,5Md', '✅ Oui (-4 %)']
+        ]},
+        { type: 'h2', text: "NSSC : 10/10 et en zone d'achat" },
+        { type: 'p', text: "Napco Security Technologies (Nasdaq : NSSC) est le cas le plus intéressant de notre liste. Capitalisation ~700 millions de dollars — l'une des plus petites parmi nos 10/10. NSSC fabrique des alarmes, systèmes de contrôle d'accès et solutions de sécurité connectée (IoT) pour immeubles résidentiels et commerciaux. Son modèle de revenus récurrents (licences software de monitoring) en fait une entreprise atypique dans le secteur des équipements de sécurité. Au 23 juin 2026, NSSC cote à 37,50 $ pour une cible de 39,51 $ — soit 3,5 % sous notre cible d'achat." },
+        { type: 'h2', text: "Selective Insurance (SIGI) : 10/10 à P/FCF 5×" },
+        { type: 'p', text: "Selective Insurance Group (Nasdaq : SIGI) est un assureur commercial spécialisé de l'Est américain avec une histoire de 100 ans. Son score 10/10 à P/FCF 5,03× en fait l'un des actifs les mieux notés et les moins chers de notre screener. Le secteur assurance P&C commercial est structurellement attractif : les primes augmentent (hardening market), les sinistres sont prévisibles sur les lignes commerciales standards, et la discipline en souscription de SIGI est reconnue." }
+      ],
+      faq: [
+        { q: "Les midcaps sont-elles plus risquées que les méga-caps ?", a: "Elles sont plus volatiles (liquidité plus faible, moins de couverture analyst, sensibilité plus grande aux news microéconomiques). Mais le risque fondamental n'est pas plus élevé pour des entreprises avec 10/10 — ce sont des bilans solides. La volatilité est une opportunité pour l'investisseur de long terme." },
+        { q: "NSSC est-elle vraiment en zone d'achat ?", a: "Au 23 juin 2026, NSSC cote à 37,50 $ pour une cible d'achat de 39,51 $ — soit 3,5 % sous notre cible. C'est une zone d'achat technique. La capitalisation de 700M$ signifie que l'action peut être volatiles avec peu de volume journalier. À n'investir qu'avec des ordres limités et une position raisonnable." },
+        { q: "Pourquoi GRC (Gorman-Rupp) n'est-il pas mentionné comme zone d'achat ?", a: "GRC ne passe pas notre critère de valorisation actuellement — son prix est au-dessus de notre cible d'achat. Son score 10/10 reste valide d'un point de vue fondamental, mais notre méthode exige le critère valorisation pour qu'une action soit 'actionnable'." },
+        { q: "Comment surveiller les midcaps 10/10 ?", a: "Notre screener met à jour les scores en temps réel. Les midcaps en zone d'achat (comme NSSC aujourd'hui) sont des opportunités tactiques. Configurez une alerte de prix sur votre broker à notre cible d'achat — quand le prix passe sous la cible, c'est le signal." }
+      ],
+      tags: ['midcaps', 'NSSC', 'SIGI', 'AIZ', 'GRC', 'KGC', 'DPM', '10/10', 'petites capitalisations', 'zone achat'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Les midcaps comportent une liquidité plus faible que les méga-caps. Contenu informatif, non un conseil en investissement."
+    },
+    en: {
+      title: "10/10 midcaps in 2026: maximum quality under the radar",
+      excerpt: "NSSC, SIGI, AIZ, GRC, KGC and DPM: market caps between $700M and $12B scoring 10/10. These companies combine maximum fundamental quality with size that large funds ignore.",
+      metaDescription: "10/10 midcaps in 2026: NSSC, SIGI, AIZ, GRC, KGC, DPM — small-cap stocks with perfect screener scores. Real FCF data, diverse sectors.",
+      answer: "Several companies between $700M and $12B market cap score 10/10 in our screener. Among the most interesting: NSSC (IoT security), SIGI (commercial insurance), AIZ (smartphones), GRC (industrial pumps), KGC (gold), DPM (gold). Some are in buy territory — notably NSSC at 3.5% below target.",
+      body: [
+        { type: 'h2', text: "Why midcaps can beat mega-caps" },
+        { type: 'p', text: "Large caps (Apple, Microsoft, Nvidia) attract most analyst attention and fund flow. Companies between $500M and $15B in market cap are often under-followed — sometimes covered by 5-10 analysts vs 40-50 for mega-caps. This information asymmetry creates opportunities: companies with maximum fundamental quality trading at lower multiples than their quality would justify." },
+        { type: 'h2', text: "10/10 midcaps in our screener as of June 23, 2026" },
+        { type: 'table', headers: ['Company', 'Ticker', 'Sector', 'Score', 'P/FCF', 'Market cap', 'Buy zone?'], rows: [
+          ['Napco Security', 'NSSC', 'IoT Security', '10/10', '24.3×', '~$700M', '✅ Yes (-3.5%)'],
+          ['Selective Insurance', 'SIGI', 'Commercial Insurance', '10/10', '5.0×', '~$5B', 'No (+7%)'],
+          ['Assurant', 'AIZ', 'Smartphone Insurance', '10/10', '9.6×', '~$12B', 'No (+16%)'],
+          ['Gorman-Rupp', 'GRC', 'Industrial Pumps', '10/10', '24.0×', '~$500M', 'No'],
+          ['Kinross Gold', 'KGC', 'Gold Mining', '10/10', '12.6×', '~$12B', '✅ Yes (-7.8%)'],
+          ['DPM Precious Metals', 'DPM', 'Gold Mining', '10/10', '13.1×', '~$3.5B', '✅ Yes (-4%)']
+        ]},
+        { type: 'h2', text: "NSSC: 10/10 and in buy territory" },
+        { type: 'p', text: "Napco Security Technologies (Nasdaq: NSSC) is the most interesting case on our list. Market cap ~$700M — one of the smallest among our 10/10s. NSSC makes alarms, access control systems, and connected security solutions (IoT) for residential and commercial buildings. Its recurring revenue model (monitoring software licenses) makes it atypical among security hardware companies. On June 23, 2026, NSSC trades at $37.50 vs a target of $39.51 — 3.5% below our buy target." },
+        { type: 'h2', text: "Selective Insurance (SIGI): 10/10 at 5× FCF" },
+        { type: 'p', text: "Selective Insurance Group (Nasdaq: SIGI) is a 100-year-old specialized commercial insurer in the eastern US. Its 10/10 score at P/FCF 5.03× makes it one of the best-rated and cheapest assets in our screener. The commercial P&C insurance sector is structurally attractive: premiums are rising (hardening market), claims are predictable on standard commercial lines, and SIGI's underwriting discipline is recognized." }
+      ],
+      faq: [
+        { q: "Are midcaps riskier than mega-caps?", a: "They are more volatile (lower liquidity, less analyst coverage, more sensitivity to microeconomic news). But fundamental risk is no higher for 10/10 companies — these are solid balance sheets. Volatility is an opportunity for long-term investors." },
+        { q: "Is NSSC really in buy territory?", a: "On June 23, 2026, NSSC trades at $37.50 vs a buy target of $39.51 — 3.5% below. That's a technical buy zone. The $700M market cap means the stock can be volatile on low daily volume. Only invest with limit orders and a reasonable position size." },
+        { q: "How to monitor 10/10 midcaps?", a: "Our screener updates scores in real time. Midcaps in buy territory (like NSSC today) are tactical opportunities. Set a price alert on your broker at our buy target — when the price falls below the target, that's the signal." }
+      ],
+      tags: ['midcaps', 'NSSC', 'SIGI', 'AIZ', 'GRC', 'KGC', 'DPM', '10/10', 'small-cap stocks', 'buy zone'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Midcaps have lower liquidity than mega-caps. Informational content, not investment advice."
+    },
+    es: {
+      title: "Midcaps 10/10 en 2026: calidad máxima bajo el radar",
+      excerpt: "NSSC, SIGI, AIZ, GRC, KGC y DPM: capitalizaciones entre 700 millones y 12.000 millones que alcanzan 10/10. Estas empresas combinan calidad fundamental máxima con tamaño ignorado por los grandes fondos.",
+      metaDescription: "Midcaps 10/10 en 2026: NSSC, SIGI, AIZ, GRC, KGC, DPM — acciones de pequeña capitalización con puntuación perfecta en nuestro screener. Datos FCF reales, sectores variados.",
+      answer: "Varias empresas con capitalización entre 700 millones y 12.000 millones alcanzan 10/10 en nuestro screener. Entre las más interesantes: NSSC (seguridad IoT), SIGI (seguros comerciales), AIZ (smartphones), GRC (bombas industriales), KGC (oro) y DPM (oro). Algunas están en zona de compra — especialmente NSSC un 3,5 % por debajo de su objetivo.",
+      body: [
+        { type: 'h2', text: "Por qué las midcaps pueden batir a las megacapitalizaciones" },
+        { type: 'p', text: "Las grandes capitalizaciones (Apple, Microsoft, Nvidia) concentran la mayor parte de la atención de los analistas y los fondos. Las empresas entre 500 M$ y 15.000 M$ de capitalización suelen estar infraanalizadas — a veces cubiertas por 5-10 analistas en lugar de 40-50 para las megacaps. Esta asimetría de información crea oportunidades: empresas con calidad fundamental máxima que cotizan a múltiplos más bajos de lo que su calidad justificaría." },
+        { type: 'h2', text: "Midcaps 10/10 en nuestro screener al 23 de junio de 2026" },
+        { type: 'table', headers: ['Empresa', 'Ticker', 'Sector', 'Puntuación', 'P/FCF', 'Capi. bursátil', '¿Zona compra?'], rows: [
+          ['Napco Security', 'NSSC', 'Seguridad IoT', '10/10', '24,3×', '~700 M$', '✅ Sí (-3,5 %)'],
+          ['Selective Insurance', 'SIGI', 'Seguros comerciales', '10/10', '5,0×', '~5.000 M$', 'No (+7 %)'],
+          ['Assurant', 'AIZ', 'Seguros smartphones', '10/10', '9,6×', '~12.000 M$', 'No (+16 %)'],
+          ['Gorman-Rupp', 'GRC', 'Bombas industriales', '10/10', '24,0×', '~500 M$', 'No'],
+          ['Kinross Gold', 'KGC', 'Minería aurífera', '10/10', '12,6×', '~12.000 M$', '✅ Sí (-7,8 %)'],
+          ['DPM Precious Metals', 'DPM', 'Minería aurífera', '10/10', '13,1×', '~3.500 M$', '✅ Sí (-4 %)']
+        ]},
+        { type: 'h2', text: "NSSC: 10/10 y en zona de compra" },
+        { type: 'p', text: "Napco Security Technologies (Nasdaq: NSSC) es el caso más interesante de nuestra lista. Capitalización ~700 millones de dólares — una de las más pequeñas entre nuestros 10/10. NSSC fabrica alarmas, sistemas de control de acceso y soluciones de seguridad conectada (IoT) para edificios residenciales y comerciales. El 23 de junio de 2026, NSSC cotiza a 37,50 $ frente a un objetivo de 39,51 $ — un 3,5 % por debajo de nuestro objetivo de compra." },
+        { type: 'h2', text: "Selective Insurance (SIGI): 10/10 a P/FCF 5×" },
+        { type: 'p', text: "Selective Insurance Group (Nasdaq: SIGI) es un asegurador comercial especializado del Este de EE.UU. con 100 años de historia. Su puntuación 10/10 a P/FCF 5,03× lo convierte en uno de los activos mejor valorados y más baratos de nuestro screener. El sector asegurador P&C comercial es estructuralmente atractivo: las primas suben (mercado endurecido), los siniestros son predecibles en las líneas comerciales estándar." }
+      ],
+      faq: [
+        { q: "¿Son las midcaps más arriesgadas que las megacaps?", a: "Son más volátiles (menor liquidez, menos cobertura analista). Pero el riesgo fundamental no es mayor para empresas 10/10 — son balances sólidos. La volatilidad es una oportunidad para el inversor de largo plazo." },
+        { q: "¿NSSC está realmente en zona de compra?", a: "El 23 de junio de 2026, NSSC cotiza a 37,50 $ frente a un objetivo de compra de 39,51 $ — un 3,5 % por debajo. Eso es una zona de compra técnica. La capitalización de 700 M$ significa que la acción puede ser volátil con poco volumen diario. Solo invertir con órdenes limitadas y una posición razonable." },
+        { q: "¿Cómo monitorizar las midcaps 10/10?", a: "Nuestro screener actualiza las puntuaciones en tiempo real. Las midcaps en zona de compra (como NSSC hoy) son oportunidades tácticas. Configure una alerta de precio en su broker en nuestro objetivo de compra — cuando el precio caiga por debajo del objetivo, esa es la señal." }
+      ],
+      tags: ['midcaps', 'NSSC', 'SIGI', 'AIZ', 'GRC', 'KGC', 'DPM', '10/10', 'pequeña capitalización', 'zona compra'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Las midcaps tienen menor liquidez que las megacaps. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleHorsUS: Article = {
+  slug: 'actions-hors-us-10-sur-10-palmares-monde-2026',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  content: {
+    fr: {
+      title: "8 actions hors-US à 10/10 : les pépites mondiales",
+      excerpt: "TOTVS, Hero MotoCorp, HKEX, Bandai Namco, Advantest, UCB, DPM et FUTU : les 8 entreprises non-américaines notées 10 sur 10 dans notre screener. Trois continents, huit secteurs.",
+      metaDescription: "Actions hors-US 10/10 en 2026 : TOTVS (Brésil), Hero MotoCorp (Inde), HKEX (HK), Bandai Namco, Advantest (Japon), UCB (Belgique), DPM (Canada), FUTU (Chine). Palmarès data.",
+      answer: "Notre screener couvre plus de 5 000 actions toutes géographies. Parmi les non-américaines, 8 atteignent 10 sur 10 : TOTVS (Brésil, SaaS ERP), Hero MotoCorp (Inde, motos), HKEX (HK, bourse), Bandai Namco (Japon, jeux), Advantest (Japon, semi-conducteurs test), UCB (Belgique, pharma), DPM (Canada, or) et FUTU (Chine/Nasdaq, courtage).",
+      body: [
+        { type: 'h2', text: "Les 8 entreprises non-US notées 10/10" },
+        { type: 'table', headers: ['Entreprise', 'Pays/Place', 'Secteur', 'P/FCF', 'Accès'], rows: [
+          ['TOTVS (TOTS3.SA)', 'Brésil / B3', 'SaaS ERP PME', '20,9×', 'IBKR / marché brésilien'],
+          ['Hero MotoCorp', 'Inde / NSE', 'Deux-roues', '13,4×', 'NSE (HEROMOTOCO.NS)'],
+          ['HKEX (0388.HK)', 'Hong Kong / HKEX', 'Bourse & marchés', '21,0×', 'IBKR / marché HK'],
+          ['Bandai Namco (7832.T)', 'Japon / TSE', 'Jeux & divertissement', '16,7×', 'IBKR / marché JP'],
+          ['Advantest (6857.T)', 'Japon / TSE', 'Test semi-conducteurs', '74,2×', 'ADR sur NYSE (ATEYY)'],
+          ['UCB (UCB.BR)', 'Belgique / Euronext BXL', 'Pharma (neurologie)', '27,5×', 'Euronext Brussels'],
+          ['DPM Precious Metals', 'Canada / TSX', 'Or minier', '13,1×', 'TSX (DPM)'],
+          ['FUTU Holdings', 'Chine/HK / Nasdaq', 'Courtage en ligne', '0,34×', 'Nasdaq (FUTU)']
+        ]},
+        { type: 'h2', text: "Les profils les plus intéressants" },
+        { type: 'p', text: "HKEX (Hong Kong Exchanges) est la bourse de Hong Kong — monopole réglementaire sur les marchés HK et en partie sur la liaison avec les marchés chinois (Shanghai Connect). C'est l'un des meilleurs business models au monde : revenus récurrents sur les transactions, listing fees, et produits dérivés. P/FCF de 21× pour un quasi-monopole boursier — comparable à CME ou ICE aux États-Unis. Bandai Namco (7832.T) est le groupe japonais derrière Dragon Ball, One Piece, Gundam, Dark Souls (FromSoftware via acquisition) et Pac-Man. Son modèle est unique : IP (propriété intellectuelle) à durée de vie très longue, monétisée en jeux vidéo, jouets, licences. Advantest (6857.T) est le leader mondial des équipements de test de semi-conducteurs — une niche oligopolistique avec KLA et Teradyne. Le P/FCF de 74,2× reflète le boom des investissements dans les semi-conducteurs IA." },
+        { type: 'h2', text: "UCB : la pharma belge que les investisseurs français ignorent" },
+        { type: 'p', text: "UCB SA (Euronext Brussels : UCB) est un groupe pharmaceutique belge spécialisé en neurologie et immunologie. Ses médicaments phares : Briviact et Vimpat (épilepsie), Bimzelx et Cimzia (dermatologie/rhumatologie). Capitalisation ~20 milliards €. 10/10 dans notre screener, P/FCF ~27,5×. UCB est très peu connue des investisseurs français car cotée à Bruxelles — mais accessible via la plupart des brokers européens (Euronext Brussels)." }
+      ],
+      faq: [
+        { q: "FUTU à P/FCF 0,34× : est-ce réel ?", a: "FUTU Holdings est un courtier en ligne chinois coté sur le Nasdaq. Un P/FCF de 0,34× signifierait que la valorisation représente à peine 1/3 de son FCF annuel — extrêmement rare. Ce chiffre doit être vérifié avec les états financiers récents de FUTU. Les actions chinoises ont subi des dépréciations massives post-2021 à cause des régulations (Didi, Alibaba), ce qui peut expliquer une valorisation très basse." },
+        { q: "Comment accéder aux actions japonaises ?", a: "Les actions japonaises (Bandai Namco 7832.T, Advantest 6857.T) sont accessibles via Interactive Brokers (marché japonais direct) ou via des ADR américains. Advantest a un ADR sur NYSE sous le ticker ATEYY. Attention au risque de change yen/euro." },
+        { q: "UCB est-elle accessible pour un investisseur français ?", a: "Oui. UCB cote sur Euronext Brussels — accessible via BNP, Société Générale, Boursorama, ou tout broker permettant les actions européennes. Pas de conversion de devise (UCB est en EUR). C'est l'une des pépites européennes les plus accessibles de notre screener." },
+        { q: "Pourquoi si peu d'entreprises non-US obtiennent 10/10 ?", a: "Notre screener est calibré sur des entreprises générant du FCF croissant, avec peu de dilution et un ROIC élevé. Ce profil est plus commun dans les marchés américains (gouvernance, discipline de capital allocation, marchés de capitaux développés). Les marchés émergents ont de belles exceptions (MELI, TOTVS, HEROMOTOCO) mais la proportion est plus faible." }
+      ],
+      tags: ['hors-US', 'international', 'TOTVS', 'Hero MotoCorp', 'HKEX', 'Bandai Namco', 'Advantest', 'UCB', 'DPM', 'FUTU', '10/10', 'actions mondiales'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Les données non-US (tickers étrangers) peuvent présenter des délais ou anomalies. Contenu informatif, non un conseil en investissement."
+    },
+    en: {
+      title: "8 non-US stocks at 10/10: the world's hidden gems",
+      excerpt: "TOTVS, Hero MotoCorp, HKEX, Bandai Namco, Advantest, UCB, DPM and FUTU: the 8 non-American companies rated 10/10 in our screener. Three continents, eight sectors.",
+      metaDescription: "Non-US 10/10 stocks in 2026: TOTVS (Brazil), Hero MotoCorp (India), HKEX (HK), Bandai Namco, Advantest (Japan), UCB (Belgium), DPM (Canada), FUTU (China). Data ranking.",
+      answer: "Our screener covers 5,000+ stocks globally. Among non-US companies, 8 score 10/10: TOTVS (Brazil, ERP SaaS), Hero MotoCorp (India, motorcycles), HKEX (HK, exchange), Bandai Namco (Japan, games), Advantest (Japan, semiconductor test), UCB (Belgium, pharma), DPM (Canada, gold) and FUTU (China/Nasdaq, brokerage).",
+      body: [
+        { type: 'h2', text: "The 8 non-US companies rated 10/10" },
+        { type: 'table', headers: ['Company', 'Country/Exchange', 'Sector', 'P/FCF', 'Access'], rows: [
+          ['TOTVS (TOTS3.SA)', 'Brazil / B3', 'ERP SaaS for SMEs', '20.9×', 'IBKR / Brazilian market'],
+          ['Hero MotoCorp', 'India / NSE', 'Two-wheelers', '13.4×', 'NSE (HEROMOTOCO.NS)'],
+          ['HKEX (0388.HK)', 'Hong Kong / HKEX', 'Exchange & markets', '21.0×', 'IBKR / HK market'],
+          ['Bandai Namco (7832.T)', 'Japan / TSE', 'Games & entertainment', '16.7×', 'IBKR / JP market'],
+          ['Advantest (6857.T)', 'Japan / TSE', 'Semiconductor testing', '74.2×', 'ADR on NYSE (ATEYY)'],
+          ['UCB (UCB.BR)', 'Belgium / Euronext BXL', 'Pharma (neurology)', '27.5×', 'Euronext Brussels'],
+          ['DPM Precious Metals', 'Canada / TSX', 'Gold mining', '13.1×', 'TSX (DPM)'],
+          ['FUTU Holdings', 'China/HK / Nasdaq', 'Online brokerage', '0.34×', 'Nasdaq (FUTU)']
+        ]},
+        { type: 'h2', text: "The most interesting profiles" },
+        { type: 'p', text: "HKEX (Hong Kong Exchanges) is the Hong Kong Stock Exchange — a regulatory monopoly on HK markets and partly on Chinese market connectivity (Shanghai Connect). One of the best business models globally: recurring revenue on transactions, listing fees, and derivatives. P/FCF of 21× for a stock exchange quasi-monopoly — comparable to CME or ICE in the US. Bandai Namco (7832.T) is the Japanese group behind Dragon Ball, One Piece, Gundam, Dark Souls (via FromSoftware) and Pac-Man — very long-duration IP monetized in video games, toys, and licensing. Advantest (6857.T) is the world leader in semiconductor test equipment — oligopolistic niche with KLA and Teradyne. The 74.2× P/FCF reflects the AI semiconductor investment boom." },
+        { type: 'h2', text: "UCB: the Belgian pharma most investors don't know" },
+        { type: 'p', text: "UCB SA (Euronext Brussels: UCB) is a Belgian pharmaceutical group specializing in neurology and immunology. Key drugs: Briviact and Vimpat (epilepsy), Bimzelx and Cimzia (dermatology/rheumatology). Market cap ~€20B. 10/10 in our screener, P/FCF ~27.5×. UCB is little known to US/European investors outside Belgium — but accessible through most European brokers (Euronext Brussels)." }
+      ],
+      faq: [
+        { q: "FUTU at 0.34× P/FCF: is that real?", a: "FUTU Holdings is a Chinese online broker listed on Nasdaq. A P/FCF of 0.34× would mean the valuation is barely 1/3 of its annual FCF — extremely rare. This figure must be verified with FUTU's recent financials. Chinese stocks suffered massive derating post-2021 due to regulations (Didi, Alibaba), which could explain a very low valuation." },
+        { q: "How to access Japanese stocks?", a: "Japanese stocks (Bandai Namco 7832.T, Advantest 6857.T) are accessible via Interactive Brokers (direct Japanese market) or via US ADRs. Advantest has an ADR on NYSE under ticker ATEYY. Watch for JPY/USD FX risk." },
+        { q: "Is UCB accessible for a US or European investor?", a: "Yes. UCB is listed on Euronext Brussels — accessible via most European brokers or Interactive Brokers. Listed in EUR so no currency conversion for European investors." },
+        { q: "Why so few non-US companies score 10/10?", a: "Our screener is calibrated for companies generating growing FCF with low dilution and high ROIC. This profile is more common in US markets (governance, capital allocation discipline, developed capital markets). Emerging markets have beautiful exceptions (MELI, TOTVS, HEROMOTOCO) but the proportion is lower." }
+      ],
+      tags: ['non-US', 'international', 'TOTVS', 'Hero MotoCorp', 'HKEX', 'Bandai Namco', 'Advantest', 'UCB', 'DPM', 'FUTU', '10/10', 'global stocks'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Non-US data (foreign tickers) may have delays or anomalies. Informational content, not investment advice."
+    },
+    es: {
+      title: "8 acciones no estadounidenses con 10/10: las joyas mundiales",
+      excerpt: "TOTVS, Hero MotoCorp, HKEX, Bandai Namco, Advantest, UCB, DPM y FUTU: las 8 empresas no estadounidenses con nota 10/10 en nuestro screener. Tres continentes, ocho sectores.",
+      metaDescription: "Acciones no-US 10/10 en 2026: TOTVS (Brasil), Hero MotoCorp (India), HKEX (HK), Bandai Namco, Advantest (Japón), UCB (Bélgica), DPM (Canadá), FUTU (China). Ranking de datos.",
+      answer: "Nuestro screener cubre más de 5.000 acciones en todas las geografías. Entre las no estadounidenses, 8 alcanzan 10/10: TOTVS (Brasil, SaaS ERP), Hero MotoCorp (India, motocicletas), HKEX (HK, bolsa), Bandai Namco (Japón, videojuegos), Advantest (Japón, test de semiconductores), UCB (Bélgica, pharma), DPM (Canadá, oro) y FUTU (China/Nasdaq, correduría).",
+      body: [
+        { type: 'h2', text: "Las 8 empresas no estadounidenses con nota 10/10" },
+        { type: 'table', headers: ['Empresa', 'País/Bolsa', 'Sector', 'P/FCF', 'Acceso'], rows: [
+          ['TOTVS (TOTS3.SA)', 'Brasil / B3', 'SaaS ERP pymes', '20,9×', 'IBKR / mercado brasileño'],
+          ['Hero MotoCorp', 'India / NSE', 'Dos ruedas', '13,4×', 'NSE (HEROMOTOCO.NS)'],
+          ['HKEX (0388.HK)', 'Hong Kong / HKEX', 'Bolsa y mercados', '21,0×', 'IBKR / mercado HK'],
+          ['Bandai Namco (7832.T)', 'Japón / TSE', 'Videojuegos y entretenimiento', '16,7×', 'IBKR / mercado JP'],
+          ['Advantest (6857.T)', 'Japón / TSE', 'Test semiconductores', '74,2×', 'ADR en NYSE (ATEYY)'],
+          ['UCB (UCB.BR)', 'Bélgica / Euronext BXL', 'Pharma (neurología)', '27,5×', 'Euronext Brussels'],
+          ['DPM Precious Metals', 'Canadá / TSX', 'Minería aurífera', '13,1×', 'TSX (DPM)'],
+          ['FUTU Holdings', 'China/HK / Nasdaq', 'Correduría en línea', '0,34×', 'Nasdaq (FUTU)']
+        ]},
+        { type: 'h2', text: "Los perfiles más interesantes" },
+        { type: 'p', text: "HKEX (Hong Kong Exchanges) es la bolsa de Hong Kong — monopolio regulatorio sobre los mercados de HK y parcialmente sobre la conectividad con los mercados chinos (Shanghai Connect). Uno de los mejores modelos de negocio del mundo: ingresos recurrentes sobre transacciones, listing fees y derivados. P/FCF de 21× para un cuasi-monopolio bursátil — comparable a CME o ICE en EE.UU. Bandai Namco (7832.T) es el grupo japonés detrás de Dragon Ball, One Piece, Gundam, Dark Souls y Pac-Man — propiedad intelectual de muy larga duración monetizada en videojuegos, juguetes y licencias. Advantest (6857.T) es el líder mundial de equipos de test de semiconductores. El P/FCF de 74,2× refleja el boom de las inversiones en semiconductores de IA." },
+        { type: 'h2', text: "UCB: la farmacéutica belga que los inversores ignoran" },
+        { type: 'p', text: "UCB SA (Euronext Brussels: UCB) es un grupo farmacéutico belga especializado en neurología e inmunología. Sus medicamentos estrella: Briviact y Vimpat (epilepsia), Bimzelx y Cimzia (dermatología/reumatología). Capitalización ~20.000 M€. 10/10 en nuestro screener, P/FCF ~27,5×. UCB es muy poco conocida por los inversores no belgas — pero accesible a través de la mayoría de los brokers europeos (Euronext Brussels)." }
+      ],
+      faq: [
+        { q: "FUTU a P/FCF 0,34×: ¿es real?", a: "FUTU Holdings es un corredor en línea chino cotizado en Nasdaq. Un P/FCF de 0,34× significaría que la valoración representa apenas 1/3 de su FCF anual — extremadamente raro. Esta cifra debe verificarse con los estados financieros recientes de FUTU. Las acciones chinas sufrieron una gran desvaloración post-2021 debido a las regulaciones (Didi, Alibaba), lo que podría explicar una valoración muy baja." },
+        { q: "¿Cómo acceder a acciones japonesas?", a: "Las acciones japonesas (Bandai Namco 7832.T, Advantest 6857.T) son accesibles a través de Interactive Brokers (mercado japonés directo) o mediante ADR estadounidenses. Advantest tiene un ADR en NYSE bajo el ticker ATEYY. Atención al riesgo de cambio yen/euro." },
+        { q: "¿Es UCB accesible para un inversor europeo?", a: "Sí. UCB cotiza en Euronext Brussels — accesible a través de la mayoría de los brokers europeos. Cotiza en EUR, por lo que no hay conversión de divisa para inversores europeos." }
+      ],
+      tags: ['fuera de EE.UU.', 'internacional', 'TOTVS', 'Hero MotoCorp', 'HKEX', 'Bandai Namco', 'Advantest', 'UCB', 'DPM', 'FUTU', '10/10', 'acciones globales'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Los datos no-US pueden tener retrasos o anomalías. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleBilanS1: Article = {
+  slug: 'bilan-s1-2026-nos-10-sur-10-vs-sp500',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  content: {
+    fr: {
+      title: "Bilan S1 2026 : nos 10/10 vs le S&P 500",
+      excerpt: "Le S&P 500 gagne 8,5 % au premier semestre 2026. Nos 60 actions notées 10/10 font-elles mieux ? Données réelles, performances et signaux clés de ce premier semestre.",
+      metaDescription: "Bilan S1 2026 : performances du screener Lubin Investment vs S&P 500. Nos 10/10 (RMD, KGC, DPM en zone achat) vs marché. Résultats ACN, LULU. Rapport mi-année.",
+      answer: "Au 23 juin 2026, le S&P 500 affiche une hausse d'environ 8,5 % depuis janvier. Notre screener signale 3 actions 10/10 en zone d'achat : ResMed (RMD, -3,6 % sous cible), Kinross Gold (KGC, -7,8 % sous cible) et DPM (-4 % sous cible). Le semestre a été marqué par des corrections importantes : ACN -18 % post-résultats, LULU -46 % YTD, RMD -28 % depuis son pic.",
+      body: [
+        { type: 'h2', text: "Le marché au 23 juin 2026" },
+        { type: 'p', text: "Le S&P 500 est en hausse d'environ 8,5 % depuis le 1er janvier 2026. Les catalyseurs principaux : la résilience de l'économie américaine (pas de récession), les révisions en hausse des bénéfices IA (Nvidia en tête), et la pause de la Fed sur les taux (politique monétaire neutre). Les secteurs les plus performants sont les semi-conducteurs et le software IA. Les secteurs sous-performants : immobilier commercial (REITs en difficulté), retail discrétionnaire, et certaines pharmas spécialisées." },
+        { type: 'h2', text: "Signaux en zone d'achat au 23 juin 2026" },
+        { type: 'table', headers: ['Action', 'Ticker', 'Score', 'P/FCF', 'Prix', 'Cible', 'Écart'], rows: [
+          ['ResMed', 'RMD', '10/10', '16,7×', '188,45 $', '195,55 $', '-3,6 %'],
+          ['Napco Security', 'NSSC', '10/10', '24,3×', '37,50 $', '39,51 $', '-3,5 %'],
+          ['Kinross Gold', 'KGC', '10/10', '12,6×', '26,30 $', '28,52 $', '-7,8 %'],
+          ['DPM Precious Metals', 'DPM', '10/10', '13,1×', '44,45 $', '46,31 $', '-4,0 %'],
+          ['MercadoLibre', 'MELI', '10/10', '6,8×', '1 589 $', '2 884 $', '-45 % (très sous cible)']
+        ]},
+        { type: 'h2', text: "Les événements majeurs du S1 2026" },
+        { type: 'p', text: "Accenture (ACN, 8/10) a plongé de 18 % le 18 juin après un miss revenus et une guidance revue à la baisse — le niveau le plus bas depuis 2016. ACN est désormais à P/FCF 7,6×. Lululemon (LULU, 8/10) est en baisse de 46 % YTD à 112 $ — nouveau CEO ex-Nike, restructuration du management. Carnival (CCL, 7/10) a publié ses résultats Q2 le 23 juin — forte reprise du voyage maritime confirmée. FedEx (FDX, 4/10) a publié Q4 FY2026 — résultats attendus sous pression concurrentielle de UPS et Amazon Logistics. Nvidia (NVDA, 9/10) reste à 45× P/FCF — valorisation exigeante mais croissance IA toujours forte." },
+        { type: 'h2', text: "Notre méthode a-t-elle surperformé le marché ?" },
+        { type: 'p', text: "Nos 10/10 sont, par construction, des entreprises à croissance de FCF supérieure. Sur le long terme, cette qualité fondamentale se traduit généralement en surperformance vs le marché. Sur le S1 2026, le signal le plus important est la ZONE D'ACHAT sur 4 actions 10/10 simultanément (RMD, NSSC, KGC, DPM). Ces opportunités d'entrée se présentent rarement et sont des signaux forts selon notre méthode. La capacité à les saisir est ce qui différencie l'investisseur méthodique de l'investisseur passif." }
+      ],
+      faq: [
+        { q: "Combien d'actions 10/10 sont en zone d'achat en ce moment ?", a: "Au 23 juin 2026 : 4 actions 10/10 sont sous leur cible d'achat — RMD (-3,6 %), NSSC (-3,5 %), KGC (-7,8 %) et DPM (-4 %). MercadoLibre (MELI) est à -45 % sous cible (signal très fort, mais avec un risque de change LatAm à considérer)." },
+        { q: "Pourquoi ACN a-t-il baissé de 18 % si c'est un 8/10 ?", a: "ACN a publié un miss de revenus de 80 M$ et réduit sa guidance annuelle à +3-4 % (vs +4-7 % attendu). La chute de 18 % est excessive selon notre analyse — les fondamentaux à long terme restent solides. Mais notre méthode ne recommande pas ACN à P/FCF 7,6× (au-dessus de notre cible de 5,5 $ d'entrée)." },
+        { q: "LULU à -46 % YTD est-elle une opportunité ?", a: "LULU est 8/10 — pas 10/10. Notre méthode ne la signale pas comme achat prioritaire. Le risque de transition de management est réel (nouveau CEO). Pour les 10/10 en zone d'achat (RMD, KGC, DPM), les opportunités sont plus claires." },
+        { q: "Faut-il acheter maintenant ou attendre ?", a: "Notre méthode est un screener fondamental, pas un signal de timing de marché. 'En zone d'achat' signifie que le prix est sous notre valeur intrinsèque calculée via P/FCF × 7×. Nous ne prédisons pas les mouvements à court terme. La discipline est d'acheter des 10/10 sous leur cible et de les garder 5-10 ans." }
+      ],
+      tags: ['bilan S1 2026', 'S&P 500', 'performance', 'RMD', 'KGC', 'DPM', 'NSSC', 'ACN', 'LULU', 'zone achat', 'screener'],
+      disclaimer: "Analyse et bilan au 23 juin 2026 via notre screener. Les performances passées ne préjugent pas des performances futures. Contenu informatif, non un conseil en investissement."
+    },
+    en: {
+      title: "H1 2026 review: our 10/10 stocks vs the S&P 500",
+      excerpt: "The S&P 500 is up 8.5% in H1 2026. How do our 60 10/10 stocks compare? Real data, performance, and key signals from the first half.",
+      metaDescription: "H1 2026 review: Lubin Investment screener performance vs S&P 500. Our 10/10 stocks (RMD, KGC, DPM in buy zone) vs market. ACN, LULU results. Mid-year report.",
+      answer: "As of June 23, 2026, the S&P 500 is up ~8.5% since January. Our screener shows 3 10/10 stocks in buy territory: ResMed (RMD, -3.6% below target), Kinross Gold (KGC, -7.8% below target) and DPM (-4% below target). H1 was marked by major corrections: ACN -18% post-earnings, LULU -46% YTD, RMD -28% from peak.",
+      body: [
+        { type: 'h2', text: "The market as of June 23, 2026" },
+        { type: 'p', text: "S&P 500 is up ~8.5% since January 1, 2026. Main catalysts: US economic resilience (no recession), AI earnings upgrades (Nvidia leading), and Fed pause on rates (neutral monetary policy). Best-performing sectors: AI semiconductors and software. Underperforming: commercial real estate (REITs under pressure), discretionary retail, and some specialty pharmas." },
+        { type: 'h2', text: "Stocks in buy territory as of June 23, 2026" },
+        { type: 'table', headers: ['Stock', 'Ticker', 'Score', 'P/FCF', 'Price', 'Target', 'Gap'], rows: [
+          ['ResMed', 'RMD', '10/10', '16.7×', '$188.45', '$195.55', '-3.6%'],
+          ['Napco Security', 'NSSC', '10/10', '24.3×', '$37.50', '$39.51', '-3.5%'],
+          ['Kinross Gold', 'KGC', '10/10', '12.6×', '$26.30', '$28.52', '-7.8%'],
+          ['DPM Precious Metals', 'DPM', '10/10', '13.1×', '$44.45', '$46.31', '-4.0%'],
+          ['MercadoLibre', 'MELI', '10/10', '6.8×', '$1,589', '$2,884', '-45% (very deep)']
+        ]},
+        { type: 'h2', text: "Major H1 2026 events" },
+        { type: 'p', text: "Accenture (ACN, 8/10) dropped 18% on June 18 after a revenue miss and guidance cut — lowest level since 2016. ACN now at P/FCF 7.6×. Lululemon (LULU, 8/10) is down 46% YTD at $112 — new ex-Nike CEO, management restructuring. Carnival (CCL, 7/10) reported Q2 on June 23 — strong cruise travel recovery confirmed. Nvidia (NVDA, 9/10) remains at 45× P/FCF — demanding but AI growth still strong." },
+        { type: 'h2', text: "Has our method outperformed the market?" },
+        { type: 'p', text: "Our 10/10 stocks are, by construction, companies with above-average FCF growth. Long-term, this fundamental quality generally translates to market outperformance. In H1 2026, the key signal is 4 simultaneous 10/10 buy-territory opportunities (RMD, NSSC, KGC, DPM). These entry points arise rarely and are strong signals by our method. Capturing them is what differentiates the methodical investor from the passive investor." }
+      ],
+      faq: [
+        { q: "How many 10/10 stocks are in buy territory right now?", a: "As of June 23, 2026: 4 10/10 stocks are below their buy targets — RMD (-3.6%), NSSC (-3.5%), KGC (-7.8%) and DPM (-4%). MercadoLibre (MELI) is -45% below target (very strong signal, but with LatAm FX risk to consider)." },
+        { q: "Why did ACN drop 18% if it's an 8/10?", a: "ACN reported an $80M revenue miss and cut annual guidance to +3-4% (vs +4-7% expected). The 18% drop is excessive per our analysis — long-term fundamentals remain solid. But our method doesn't recommend ACN at P/FCF 7.6× (above our $5.5 entry target)." },
+        { q: "Is LULU at -46% YTD an opportunity?", a: "LULU is 8/10 — not 10/10. Our method doesn't flag it as a priority buy. Management transition risk is real (new CEO). For 10/10 stocks in buy territory (RMD, KGC, DPM), opportunities are clearer." },
+        { q: "Should I buy now or wait?", a: "Our method is a fundamental screener, not a market timing signal. 'In buy territory' means the price is below our intrinsic value calculated via P/FCF × 7×. We don't predict short-term movements. Discipline means buying 10/10s below target and holding 5-10 years." }
+      ],
+      tags: ['H1 2026 review', 'S&P 500', 'performance', 'RMD', 'KGC', 'DPM', 'NSSC', 'ACN', 'LULU', 'buy zone', 'screener'],
+      disclaimer: "Analysis and review as of June 23, 2026 via our screener. Past performance does not predict future performance. Informational content, not investment advice."
+    },
+    es: {
+      title: "Balance S1 2026: nuestros 10/10 vs el S&P 500",
+      excerpt: "El S&P 500 sube un 8,5 % en el primer semestre de 2026. ¿Cómo se comparan nuestras 60 acciones 10/10? Datos reales, rentabilidades y señales clave del primer semestre.",
+      metaDescription: "Balance S1 2026: rentabilidad del screener Lubin Investment vs S&P 500. Nuestros 10/10 (RMD, KGC, DPM en zona de compra) vs mercado. Resultados ACN, LULU. Informe semestral.",
+      answer: "Al 23 de junio de 2026, el S&P 500 registra una subida de aproximadamente un 8,5 % desde enero. Nuestro screener señala 4 acciones 10/10 en zona de compra: ResMed (RMD, -3,6 % bajo objetivo), Napco Security (NSSC, -3,5 %), Kinross Gold (KGC, -7,8 %) y DPM (-4 %). El semestre estuvo marcado por correcciones importantes: ACN -18 % tras resultados, LULU -46 % en el año.",
+      body: [
+        { type: 'h2', text: "El mercado al 23 de junio de 2026" },
+        { type: 'p', text: "El S&P 500 sube ~8,5 % desde el 1 de enero de 2026. Principales catalizadores: resiliencia de la economía estadounidense (sin recesión), revisiones al alza de beneficios de IA (Nvidia a la cabeza) y pausa de la Fed en los tipos (política monetaria neutra). Sectores más rentables: semiconductores IA y software. Sectores rezagados: inmobiliario comercial (REITs bajo presión), retail discrecional." },
+        { type: 'h2', text: "Acciones en zona de compra al 23 de junio de 2026" },
+        { type: 'table', headers: ['Acción', 'Ticker', 'Puntuación', 'P/FCF', 'Precio', 'Objetivo', 'Diferencia'], rows: [
+          ['ResMed', 'RMD', '10/10', '16,7×', '188,45 $', '195,55 $', '-3,6 %'],
+          ['Napco Security', 'NSSC', '10/10', '24,3×', '37,50 $', '39,51 $', '-3,5 %'],
+          ['Kinross Gold', 'KGC', '10/10', '12,6×', '26,30 $', '28,52 $', '-7,8 %'],
+          ['DPM Precious Metals', 'DPM', '10/10', '13,1×', '44,45 $', '46,31 $', '-4,0 %'],
+          ['MercadoLibre', 'MELI', '10/10', '6,8×', '1.589 $', '2.884 $', '-45 % (muy por debajo)']
+        ]},
+        { type: 'h2', text: "Los grandes eventos del S1 2026" },
+        { type: 'p', text: "Accenture (ACN, 8/10) cayó un 18 % el 18 de junio tras un miss de ingresos y una guía rebajada — nivel más bajo desde 2016. ACN ahora a P/FCF 7,6×. Lululemon (LULU, 8/10) baja un 46 % en el año a 112 $ — nuevo CEO ex-Nike, reestructuración de la dirección. Nvidia (NVDA, 9/10) sigue a 45× P/FCF — valoración exigente pero crecimiento IA todavía fuerte." },
+        { type: 'h2', text: "¿Ha superado nuestra metodología al mercado?" },
+        { type: 'p', text: "Nuestros 10/10 son, por construcción, empresas con crecimiento de FCF superior a la media. A largo plazo, esta calidad fundamental generalmente se traduce en una rentabilidad superior al mercado. En el S1 2026, la señal clave son 4 oportunidades simultáneas en zona de compra entre acciones 10/10 (RMD, NSSC, KGC, DPM). Estas oportunidades de entrada son raras y son señales fuertes según nuestra metodología." }
+      ],
+      faq: [
+        { q: "¿Cuántas acciones 10/10 están en zona de compra ahora mismo?", a: "Al 23 de junio de 2026: 4 acciones 10/10 están por debajo de sus objetivos de compra — RMD (-3,6 %), NSSC (-3,5 %), KGC (-7,8 %) y DPM (-4 %). MercadoLibre (MELI) está un -45 % bajo objetivo (señal muy fuerte, pero con riesgo cambiario LatAm a considerar)." },
+        { q: "¿Por qué ACN bajó un 18 % siendo un 8/10?", a: "ACN publicó un miss de ingresos de 80 M$ y recortó la guía anual a +3-4 %. La caída del 18 % es excesiva según nuestro análisis — los fundamentos a largo plazo siguen siendo sólidos. Pero nuestra metodología no recomienda ACN a P/FCF 7,6× (por encima de nuestro objetivo de entrada)." },
+        { q: "¿LULU a -46 % en el año es una oportunidad?", a: "LULU es 8/10 — no 10/10. Nuestra metodología no la señala como compra prioritaria. El riesgo de transición directiva es real (nuevo CEO). Para acciones 10/10 en zona de compra (RMD, KGC, DPM), las oportunidades son más claras." }
+      ],
+      tags: ['balance S1 2026', 'S&P 500', 'rentabilidad', 'RMD', 'KGC', 'DPM', 'NSSC', 'ACN', 'LULU', 'zona compra', 'screener'],
+      disclaimer: "Análisis y balance al 23 de junio de 2026 a través de nuestro screener. Las rentabilidades pasadas no presuponen las futuras. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleCalendrierEarnings: Article = {
+  slug: 'calendrier-resultats-bourse-q3-2026-nos-actions',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 3,
+  content: {
+    fr: {
+      title: "Calendrier résultats Q3 2026 : nos actions phares",
+      excerpt: "Micron (24 juin), PAYX (24 juin), AYI (25 juin), Nike (30 juin), SHOP (4 août)… Le calendrier complet des prochains earnings pour les actions phares de notre screener. Mis à jour en temps réel.",
+      metaDescription: "Calendrier résultats bourse Q3 2026 : MU, PAYX, AYI, NKE, LULU, FTI, CALM, SHOP, et nos 10/10. Dates, attentes, et ce que notre screener dit de chaque dossier.",
+      answer: "Les prochains résultats importants pour notre screener : Micron (MU, 24 juin — EPS attendu +997 %, test séminal pour la thèse mémoire IA), PAYX (24 juin), AYI (25 juin), Nike (NKE, 30 juin), LULU (automne 2026), FTI (juillet), CALM (juillet/août), SHOP (août). Mise à jour au 23 juin 2026.",
+      body: [
+        { type: 'h2', text: "Cette semaine (23-27 juin 2026)" },
+        { type: 'table', headers: ['Date', 'Entreprise', 'Ticker', 'Score', 'Attente EPS', 'Note'], rows: [
+          ['24 juin', 'Micron Technology', 'MU', 'Post-correction', 'EPS ~3,29 $ (+997 % YoY)', 'Test mémoire IA haute bande passante'],
+          ['24 juin', 'Paychex', 'PAYX', '9/10', 'EPS ~1,08 $', 'Résultats Q4 FY2026 — en prod'],
+          ['25 juin', 'Acuity Brands', 'AYI', 'Screener', 'EPS ~4,1 $ attendu', 'Éclairage LED et IoT industriel'],
+          ['26 juin', 'Carnival', 'CCL', '7/10', 'Q2 déjà publié (23 juin)', 'Reprise voyage maritime confirmée']
+        ]},
+        { type: 'h2', text: "Fin juin et juillet 2026" },
+        { type: 'table', headers: ['Date estimée', 'Entreprise', 'Ticker', 'Score', 'Note'], rows: [
+          ['30 juin', 'Nike', 'NKE', 'Screener', 'Q4 FY2026 — marque en restructuration'],
+          ['Juillet (mi)', 'FTI Consulting', 'FTI', '9/10 (en prod)', 'Q2 2026 — consulting litigation et ESG'],
+          ['Juillet (fin)', 'Cal-Maine Foods', 'CALM', 'Screener', 'Q4 FY2026 — volatilité prix œufs'],
+          ['Fin juillet', 'Lululemon', 'LULU', '8/10 (en prod)', 'Q2 2026 — premier rapport nouveau CEO']
+        ]},
+        { type: 'h2', text: "Août et septembre 2026" },
+        { type: 'table', headers: ['Date estimée', 'Entreprise', 'Ticker', 'Score', 'Note'], rows: [
+          ['4-5 août', 'Shopify', 'SHOP', '9/10 (en prod)', 'Q2 2026 — traction GMV et merchant solutions'],
+          ['Mi-août', 'ServiceNow', 'NOW', '10/10 (en prod)', 'Q2 2026 — croissance RPO et IA workflows'],
+          ['Mi-août', 'Dexcom', 'DXCM', 'Screener 10/10', 'Q2 2026 — CGM wearables diabète'],
+          ['Fin août', 'Autodesk', 'ADSK', '9/10 (en prod)', 'Q2 FY2027 — transition transaction model → subscription']
+        ]},
+        { type: 'h2', text: "Micron (MU) le 24 juin : le test à surveiller" },
+        { type: 'p', text: "Micron Technology rapporte ses résultats Q3 FY2026 le 24 juin. L'attente est un EPS de ~3,29 $ — soit +997 % par rapport à l'année précédente. Ce rebond massif est dû au supercycle du DRAM HBM (High Bandwidth Memory) lié à l'IA : les GPU Nvidia H100/H200/B200 nécessitent de la HBM4 de Micron. Si MU confirme ses guidances de HBM et montre une montée en puissance des prix DRAM, c'est un signal fort pour l'investissement en mémoire IA. Notre screener analyse MU en tant que stock cyclique — pas un 10/10 permanent mais un dossier à surveiller de près." }
+      ],
+      faq: [
+        { q: "Micron est-il un 10/10 ?", a: "Non. Micron est dans un secteur cyclique (mémoire DRAM/NAND) avec des prix fortement volatils selon les cycles d'offre/demande. Notre screener le pénalise sur la régularité de la croissance du FCF. Mais en période de supercycle IA (HBM), les fondamentaux peuvent s'améliorer significativement — à suivre après les résultats du 24 juin." },
+        { q: "Nike est-il analysé dans votre screener ?", a: "Nike est dans notre screener mais son score a baissé avec la correction stratégique (chute des ventes, transition DTC vs wholesale, concurrence On Running/Hoka). Nous publierons notre analyse post-résultats Q4 FY2026 du 30 juin." },
+        { q: "Pourquoi DXCM (Dexcom) est mentionné mais pas analysé ?", a: "Dexcom est 10/10 dans notre screener selon nos données internes mais nous n'avons pas encore publié d'article dédié. C'est dans notre file d'attente. Les résultats Q2 de mi-août seront l'occasion de publier notre analyse." },
+        { q: "Comment accéder au calendrier des earnings en temps réel ?", a: "Pour les dates précises et actualisées, référencez Earnings Whispers, Nasdaq Earnings Calendar ou Simply Wall St. Notre calendrier est basé sur les annonces officielles au 23 juin 2026 — les dates peuvent être décalées d'un ou deux jours selon les entreprises." }
+      ],
+      tags: ['calendrier earnings', 'résultats bourse', 'Q3 2026', 'Micron', 'MU', 'Nike', 'NKE', 'Shopify', 'SHOP', 'ServiceNow', 'Dexcom'],
+      disclaimer: "Calendrier basé sur les annonces officielles au 23 juin 2026. Les dates peuvent évoluer. Contenu informatif, non un conseil en investissement."
+    },
+    en: {
+      title: "Q3 2026 earnings calendar: our key stocks",
+      excerpt: "Micron (June 24), PAYX (June 24), AYI (June 25), Nike (June 30), SHOP (August 4)… The complete upcoming earnings calendar for key stocks in our screener.",
+      metaDescription: "Q3 2026 stock market earnings calendar: MU, PAYX, AYI, NKE, LULU, FTI, CALM, SHOP and our 10/10 stocks. Dates, expectations, and our screener verdict on each.",
+      answer: "Upcoming important earnings for our screener: Micron (MU, June 24 — EPS expected +997%, key test for the AI memory thesis), PAYX (June 24), AYI (June 25), Nike (NKE, June 30), LULU (fall 2026), FTI (July), CALM (July/Aug), SHOP (August). Updated June 23, 2026.",
+      body: [
+        { type: 'h2', text: "This week (June 23-27, 2026)" },
+        { type: 'table', headers: ['Date', 'Company', 'Ticker', 'Score', 'EPS consensus', 'Note'], rows: [
+          ['June 24', 'Micron Technology', 'MU', 'Post-correction', 'EPS ~$3.29 (+997% YoY)', 'AI HBM memory supercycle test'],
+          ['June 24', 'Paychex', 'PAYX', '9/10', 'EPS ~$1.08', 'Q4 FY2026 results'],
+          ['June 25', 'Acuity Brands', 'AYI', 'Screener', 'EPS ~$4.1', 'LED lighting and industrial IoT'],
+          ['June 26', 'Carnival', 'CCL', '7/10', 'Q2 already published (June 23)', 'Cruise travel recovery confirmed']
+        ]},
+        { type: 'h2', text: "Late June and July 2026" },
+        { type: 'table', headers: ['Est. date', 'Company', 'Ticker', 'Score', 'Note'], rows: [
+          ['June 30', 'Nike', 'NKE', 'Screener', 'Q4 FY2026 — brand restructuring'],
+          ['July (mid)', 'FTI Consulting', 'FTI', '9/10 (in prod)', 'Q2 2026 — litigation and ESG consulting'],
+          ['July (late)', 'Cal-Maine Foods', 'CALM', 'Screener', 'Q4 FY2026 — egg price volatility'],
+          ['Late July', 'Lululemon', 'LULU', '8/10 (in prod)', 'Q2 2026 — first report from new CEO']
+        ]},
+        { type: 'h2', text: "August and September 2026" },
+        { type: 'table', headers: ['Est. date', 'Company', 'Ticker', 'Score', 'Note'], rows: [
+          ['Aug 4-5', 'Shopify', 'SHOP', '9/10 (in prod)', 'Q2 2026 — GMV traction and merchant solutions'],
+          ['Mid-August', 'ServiceNow', 'NOW', '10/10 (in prod)', 'Q2 2026 — RPO growth and AI workflows'],
+          ['Mid-August', 'Dexcom', 'DXCM', '10/10 screener', 'Q2 2026 — CGM diabetes wearables'],
+          ['Late August', 'Autodesk', 'ADSK', '9/10 (in prod)', 'Q2 FY2027 — transaction to subscription model']
+        ]},
+        { type: 'h2', text: "Micron (MU) on June 24: the key report to watch" },
+        { type: 'p', text: "Micron Technology reports Q3 FY2026 on June 24. Consensus expects EPS of ~$3.29 — a +997% year-over-year increase. This massive rebound is driven by the HBM DRAM supercycle (High Bandwidth Memory) for AI: Nvidia H100/H200/B200 GPUs require Micron's HBM4. If MU confirms HBM guidance and shows DRAM price recovery momentum, it's a strong signal for AI memory investment. Our screener analyzes MU as a cyclical stock — not a permanent 10/10 but a key watchlist name." }
+      ],
+      faq: [
+        { q: "Is Micron a 10/10?", a: "No. Micron operates in a cyclical sector (DRAM/NAND memory) with highly volatile prices depending on supply/demand cycles. Our screener penalizes it on FCF growth consistency. But during AI supercycles (HBM), fundamentals can improve significantly — to monitor after June 24 results." },
+        { q: "Is Nike analyzed in your screener?", a: "Nike is in our screener but its score has declined with the strategic correction (sales decline, DTC vs wholesale transition, On Running/Hoka competition). We'll publish our post-earnings analysis after Q4 FY2026 results on June 30." },
+        { q: "Why is DXCM (Dexcom) mentioned but not analyzed?", a: "Dexcom scores 10/10 in our screener per our internal data but we haven't published a dedicated article yet. It's in our queue. Mid-August Q2 results will be the occasion to publish our analysis." },
+        { q: "How to get real-time earnings dates?", a: "For precise, updated dates, reference Earnings Whispers, Nasdaq Earnings Calendar, or Simply Wall St. Our calendar is based on official announcements as of June 23, 2026 — dates may shift by 1-2 days depending on the company." }
+      ],
+      tags: ['earnings calendar', 'stock results', 'Q3 2026', 'Micron', 'MU', 'Nike', 'NKE', 'Shopify', 'SHOP', 'ServiceNow', 'Dexcom'],
+      disclaimer: "Calendar based on official announcements as of June 23, 2026. Dates may change. Informational content, not investment advice."
+    },
+    es: {
+      title: "Calendario de resultados Q3 2026: nuestras acciones clave",
+      excerpt: "Micron (24 junio), PAYX (24 junio), AYI (25 junio), Nike (30 junio), SHOP (4 agosto)… El calendario completo de los próximos resultados para las acciones clave de nuestro screener.",
+      metaDescription: "Calendario de resultados bolsa Q3 2026: MU, PAYX, AYI, NKE, LULU, FTI, CALM, SHOP y nuestros 10/10. Fechas, expectativas y nuestro veredicto de screener sobre cada uno.",
+      answer: "Próximos resultados importantes para nuestro screener: Micron (MU, 24 junio — BPA esperado +997 %, test clave para la tesis de memoria IA), PAYX (24 junio), AYI (25 junio), Nike (NKE, 30 junio), LULU (otoño 2026), FTI (julio), CALM (julio/agosto), SHOP (agosto). Actualizado el 23 de junio de 2026.",
+      body: [
+        { type: 'h2', text: "Esta semana (23-27 de junio de 2026)" },
+        { type: 'table', headers: ['Fecha', 'Empresa', 'Ticker', 'Puntuación', 'BPA consenso', 'Nota'], rows: [
+          ['24 junio', 'Micron Technology', 'MU', 'Post-corrección', 'BPA ~3,29 $ (+997 % interanual)', 'Test superciclo memoria HBM para IA'],
+          ['24 junio', 'Paychex', 'PAYX', '9/10', 'BPA ~1,08 $', 'Resultados Q4 FY2026'],
+          ['25 junio', 'Acuity Brands', 'AYI', 'Screener', 'BPA ~4,1 $', 'Iluminación LED e IoT industrial'],
+          ['26 junio', 'Carnival', 'CCL', '7/10', 'Q2 ya publicado (23 junio)', 'Recuperación viajes en crucero confirmada']
+        ]},
+        { type: 'h2', text: "Finales de junio y julio de 2026" },
+        { type: 'table', headers: ['Fecha estimada', 'Empresa', 'Ticker', 'Puntuación', 'Nota'], rows: [
+          ['30 junio', 'Nike', 'NKE', 'Screener', 'Q4 FY2026 — marca en reestructuración'],
+          ['Julio (med.)', 'FTI Consulting', 'FTI', '9/10 (en producción)', 'Q2 2026 — consultoría litigios y ESG'],
+          ['Julio (fin.)', 'Cal-Maine Foods', 'CALM', 'Screener', 'Q4 FY2026 — volatilidad precio huevos'],
+          ['Fin julio', 'Lululemon', 'LULU', '8/10 (en producción)', 'Q2 2026 — primer informe nuevo CEO']
+        ]},
+        { type: 'h2', text: "Agosto y septiembre de 2026" },
+        { type: 'table', headers: ['Fecha estimada', 'Empresa', 'Ticker', 'Puntuación', 'Nota'], rows: [
+          ['4-5 agosto', 'Shopify', 'SHOP', '9/10 (en producción)', 'Q2 2026 — GMV y merchant solutions'],
+          ['Mediados agosto', 'ServiceNow', 'NOW', '10/10 (en producción)', 'Q2 2026 — crecimiento RPO y IA workflows'],
+          ['Mediados agosto', 'Dexcom', 'DXCM', '10/10 screener', 'Q2 2026 — CGM wearables diabetes'],
+          ['Fin agosto', 'Autodesk', 'ADSK', '9/10 (en producción)', 'Q2 FY2027 — transición a modelo suscripción']
+        ]},
+        { type: 'h2', text: "Micron (MU) el 24 de junio: el informe clave a seguir" },
+        { type: 'p', text: "Micron Technology publica sus resultados Q3 FY2026 el 24 de junio. El consenso espera un BPA de ~3,29 $ — un aumento del +997 % interanual. Este masivo rebote se debe al superciclo del DRAM HBM (High Bandwidth Memory) para IA: los GPU Nvidia H100/H200/B200 requieren la HBM4 de Micron. Si MU confirma sus guías de HBM y muestra una recuperación de los precios DRAM, es una señal fuerte para la inversión en memoria IA." }
+      ],
+      faq: [
+        { q: "¿Es Micron un 10/10?", a: "No. Micron opera en un sector cíclico (memoria DRAM/NAND) con precios muy volátiles según los ciclos de oferta/demanda. Nuestro screener lo penaliza por la irregularidad del crecimiento del FCF. Pero durante superciclos de IA (HBM), los fundamentos pueden mejorar significativamente." },
+        { q: "¿Está Nike analizado en su screener?", a: "Nike está en nuestro screener pero su puntuación ha bajado con la corrección estratégica (caída de ventas, transición DTC vs distribución, competencia On Running/Hoka). Publicaremos nuestro análisis post-resultados Q4 FY2026 del 30 de junio." },
+        { q: "¿Por qué se menciona DXCM (Dexcom) pero no se analiza?", a: "Dexcom obtiene 10/10 en nuestro screener según nuestros datos internos, pero aún no hemos publicado un artículo dedicado. Los resultados Q2 de mediados de agosto serán la ocasión de publicar nuestro análisis." }
+      ],
+      tags: ['calendario earnings', 'resultados bolsa', 'Q3 2026', 'Micron', 'MU', 'Nike', 'NKE', 'Shopify', 'SHOP', 'ServiceNow', 'Dexcom'],
+      disclaimer: "Calendario basado en anuncios oficiales al 23 de junio de 2026. Las fechas pueden variar. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
