@@ -30080,7 +30080,611 @@ const articleSBC: Article = {
 };
 
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC];
+
+const articleFTI: Article = {
+  slug: 'technipfmc-fti-ingenierie-petroliere-qualite-zone-achat',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'FTI',
+  content: {
+    fr: {
+      title: "TechnipFMC (FTI) : l'ingénierie pétrolière en zone d'achat",
+      excerpt:
+        "TechnipFMC est l'un des rares leaders mondiaux du secteur Oil & Gas Equipment à atteindre le score maximum dans notre screener. Le prix actuel est légèrement inférieur à notre cible d'entrée : l'action est en zone d'achat selon notre méthode.",
+      metaDescription:
+        "TechnipFMC (FTI) atteint le score maximum dans notre screener qualité. Avec un free cash flow par action de 3,29 $ et un prix légèrement sous notre cible, l'action est en zone d'achat selon notre méthode.",
+      answer:
+        "TechnipFMC (FTI) est un leader mondial des technologies et services pour l'industrie pétrolière offshore et onshore. Dans notre screener, l'entreprise atteint le score maximum. Son free cash flow par action s'élève à 3,29 $. Le prix actuel de 67,39 $ est légèrement inférieur à notre cible d'entrée de 68,98 $, ce qui la place en zone d'achat selon notre méthode.",
+      body: [
+        { type: 'ul', items: [
+          "TechnipFMC atteint le score maximum dans notre screener qualité.",
+          "Free cash flow par action : 3,29 $. Prix actuel : 67,39 $.",
+          "Notre cible d'entrée est fixée à 68,98 $ : le prix actuel est 2,4 % en dessous.",
+          "L'action est en zone d'achat selon notre méthode disciplinée.",
+          "Secteur rare dans notre top qualité : Oil & Gas Equipment & Services.",
+        ] },
+        { type: 'h2', text: "Qui est TechnipFMC ?" },
+        { type: 'p', text: "TechnipFMC est un groupe franco-britannique coté à New York et à Paris, spécialisé dans les technologies et les services pour l'industrie pétrolière et gazière. L'entreprise intervient sur deux grands segments : les technologies de surface (séparation, traitement du gaz, LNG) et les technologies sous-marines (flexibles, équipements de fond de mer, réinjection). Ses clients sont les grands groupes pétroliers mondiaux (Total, Shell, BP, Saudi Aramco). TechnipFMC opère dans un duopole de fait avec SLB (Schlumberger) sur les projets offshore d'envergure." },
+        { type: 'h2', text: "Le modèle hybride : technologies propriétaires + services" },
+        { type: 'p', text: "Ce qui distingue TechnipFMC de ses concurrents, c'est son modèle hybride. L'entreprise ne se contente pas d'exécuter des projets d'ingénierie : elle détient des technologies propriétaires (flexibles sous-marins, systèmes de séparation sous-marine) qui lui confèrent un avantage concurrentiel durable. Ce modèle génère des revenus récurrents sur la maintenance et les pièces de remplacement, en plus des contrats de construction. C'est cette combinaison qui lui permet de convertir ses bénéfices en free cash flow de façon consistante, un critère essentiel dans notre méthode." },
+        { type: 'h2', text: "Score maximum : pourquoi c'est rare dans l'Oil & Gas" },
+        { type: 'p', text: "Le secteur Oil & Gas Equipment & Services est rarement représenté dans notre top qualité. Les cycles de prix du pétrole créent une volatilité des revenus qui pénalise souvent la croissance du free cash flow. TechnipFMC fait exception : sa structure de revenus (mix produits propriétaires + services à long terme) lui permet de maintenir une qualité financière élevée indépendamment des fluctuations du prix du baril. Notre screener évalue dix critères fondamentaux, et TechnipFMC les valide tous. C'est la définition d'une entreprise structurellement saine." },
+        { type: 'h2', text: "La zone d'achat : méthode et discipline" },
+        { type: 'p', text: "Notre cible d'entrée est calculée à partir du free cash flow par action actuel (3,29 $) et d'un multiple conservateur cohérent avec la qualité de l'entreprise et les conditions de marché. Cette cible ressort à 68,98 $. Le prix actuel de 67,39 $ est 2,4 % en dessous de cette cible. Selon notre méthode, lorsque le prix d'une action est inférieur ou égal à notre cible, l'action entre en zone d'achat. Ce n'est pas une recommandation d'achat, mais un signal méthodologique qui indique que le prix est aligné avec notre estimation de la valeur fondamentale." },
+        { type: 'h2', text: "Ce que cette analyse n'est pas" },
+        { type: 'p', text: "Être en zone d'achat selon notre méthode ne signifie pas que l'action va monter. La méthode évalue la qualité et le prix ; elle ne prédit pas les mouvements de marché à court terme. Le secteur pétrolier reste exposé aux cycles du prix du pétrole, aux tensions géopolitiques et aux transitions énergétiques. TechnipFMC est une entreprise de qualité à un prix raisonnable aujourd'hui, pas une certitude de rendement futur. Notre cadre est éducatif et analytique, pas un conseil en investissement." },
+      ],
+      faq: [
+        { q: "Qu'est-ce que TechnipFMC fait concrètement ?", a: "TechnipFMC conçoit et installe des équipements pour l'extraction pétrolière offshore et onshore : flexibles sous-marins, systèmes de séparation et de réinjection, équipements LNG. L'entreprise travaille pour les grands groupes pétroliers mondiaux sur des projets d'ingénierie complexes." },
+        { q: "Pourquoi le secteur Oil & Gas est-il rare dans votre screener ?", a: "Les entreprises pétrolières souffrent souvent d'une volatilité de free cash flow liée aux cycles du prix du pétrole. Notre screener exige une croissance régulière du FCF sur plusieurs années, ce qui élimine la plupart des acteurs de ce secteur. TechnipFMC est une exception grâce à son mix produits propriétaires et services récurrents." },
+        { q: "Comment est calculée votre cible d'entrée ?", a: "Notre cible d'entrée est dérivée du free cash flow par action et d'un multiple prudent ajusté à la qualité de l'entreprise. Pour FTI, le FCF par action est de 3,29 $ et la cible ressort à 68,98 $. Lorsque le prix est inférieur à cette cible, l'action entre en zone d'achat selon notre méthode." },
+        { q: "La zone d'achat garantit-elle un rendement positif ?", a: "Non. La zone d'achat est un signal méthodologique, pas une garantie. Elle indique que le prix est cohérent avec notre estimation de la valeur fondamentale. L'avenir dépend de l'évolution des résultats de l'entreprise, des conditions de marché et des prix du pétrole." },
+        { q: "TechnipFMC est-elle exposée à la transition énergétique ?", a: "Oui, comme toutes les entreprises du secteur pétrolier. TechnipFMC investit cependant dans les technologies de capture de carbone et les énergies marines pour diversifier ses activités. À court et moyen terme, la demande mondiale de pétrole et de gaz reste le principal moteur de ses revenus." },
+      ],
+      tags: ['TechnipFMC', 'FTI', 'Oil & Gas', 'Zone achat', 'Screener qualité', 'Free cash flow', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "TechnipFMC (FTI): oil engineering services in our buy zone",
+      excerpt:
+        "TechnipFMC is one of the rare Oil & Gas Equipment leaders to reach the maximum score in our quality screener. At $67.39, the current price is slightly below our $68.98 entry target, placing the stock in our buy zone.",
+      metaDescription:
+        "TechnipFMC (FTI) earns the maximum score in our quality screener. With a free cash flow per share of $3.29 and a price just below our entry target, FTI is in our buy zone according to our disciplined method.",
+      answer:
+        "TechnipFMC (FTI) is a global leader in technologies and services for the offshore and onshore oil industry. In our quality screener, the company achieves the maximum score. Its free cash flow per share stands at $3.29. The current price of $67.39 is slightly below our entry target of $68.98 — placing it in our buy zone according to our disciplined valuation method.",
+      body: [
+        { type: 'ul', items: [
+          "TechnipFMC achieves the maximum score in our quality screener.",
+          "Free cash flow per share: $3.29. Current price: $67.39.",
+          "Our entry target is set at $68.98: the current price is 2.4% below.",
+          "The stock is in our buy zone according to our disciplined method.",
+          "A rare sector in our quality top: Oil & Gas Equipment & Services.",
+        ] },
+        { type: 'h2', text: "Who is TechnipFMC?" },
+        { type: 'p', text: "TechnipFMC is a Franco-British group listed in New York and Paris, specializing in technologies and services for the oil and gas industry. The company operates in two main segments: surface technologies (separation, gas processing, LNG) and subsea technologies (flexible pipes, seabed equipment, reinjection). Its clients include the world's major oil groups (Total, Shell, BP, Saudi Aramco). TechnipFMC operates in a de facto duopoly with SLB (Schlumberger) on large-scale offshore projects." },
+        { type: 'h2', text: "The hybrid model: proprietary technologies + services" },
+        { type: 'p', text: "What sets TechnipFMC apart from competitors is its hybrid model. The company does not merely execute engineering projects: it holds proprietary technologies (subsea flexible pipes, subsea separation systems) that give it a durable competitive advantage. This model generates recurring revenues on maintenance and replacement parts, in addition to construction contracts. It is this combination that allows TechnipFMC to consistently convert earnings into free cash flow — a key criterion in our method." },
+        { type: 'h2', text: "Maximum score: why this is rare in Oil & Gas" },
+        { type: 'p', text: "The Oil & Gas Equipment & Services sector is rarely represented in our quality top. Oil price cycles create revenue volatility that often penalizes free cash flow growth. TechnipFMC is an exception: its revenue structure (mix of proprietary products and long-term services) allows it to maintain high financial quality regardless of oil price fluctuations. Our screener evaluates ten fundamental criteria, and TechnipFMC validates all of them. That is the definition of a structurally healthy company." },
+        { type: 'h2', text: "The buy zone: method and discipline" },
+        { type: 'p', text: "Our entry target is calculated from the current free cash flow per share ($3.29) and a conservative multiple consistent with the company's quality and market conditions. This target stands at $68.98. The current price of $67.39 is 2.4% below this target. According to our method, when a stock's price is at or below our target, it enters our buy zone. This is not a buy recommendation, but a methodological signal indicating that the price is aligned with our estimate of fundamental value." },
+        { type: 'h2', text: "What this analysis is not" },
+        { type: 'p', text: "Being in our buy zone does not mean the stock will rise. Our method evaluates quality and price; it does not predict short-term market movements. The oil sector remains exposed to oil price cycles, geopolitical tensions, and energy transitions. TechnipFMC is a quality company at a reasonable price today — not a guarantee of future returns. Our framework is educational and analytical, never investment advice." },
+      ],
+      faq: [
+        { q: "What does TechnipFMC actually do?", a: "TechnipFMC designs and installs equipment for offshore and onshore oil extraction: subsea flexible pipes, separation and reinjection systems, LNG equipment. The company works with major global oil groups on complex engineering projects." },
+        { q: "Why is Oil & Gas rare in your screener?", a: "Oil companies often suffer from free cash flow volatility tied to oil price cycles. Our screener requires consistent FCF growth over several years, which eliminates most players in this sector. TechnipFMC is an exception thanks to its mix of proprietary products and recurring services." },
+        { q: "How is your entry target calculated?", a: "Our entry target is derived from the free cash flow per share and a prudent multiple adjusted to the company's quality. For FTI, the FCF per share is $3.29 and the target stands at $68.98. When the price is below this target, the stock enters our buy zone." },
+        { q: "Does the buy zone guarantee a positive return?", a: "No. The buy zone is a methodological signal, not a guarantee. It indicates that the price is consistent with our estimate of fundamental value. The future depends on the company's earnings trajectory, market conditions, and oil prices." },
+        { q: "Is TechnipFMC exposed to the energy transition?", a: "Yes, like all oil sector companies. TechnipFMC is investing in carbon capture technologies and marine energies to diversify its activities. In the short to medium term, global demand for oil and gas remains the main driver of its revenues." },
+      ],
+      tags: ['TechnipFMC', 'FTI', 'Oil & Gas', 'Buy zone', 'Quality screener', 'Free cash flow', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "TechnipFMC (FTI): ingeniería petrolera en zona de compra",
+      excerpt:
+        "TechnipFMC es uno de los raros líderes de Oil & Gas Equipment en alcanzar la puntuación máxima en nuestro screener de calidad. El precio actual de 67,39 $ está ligeramente por debajo de nuestro objetivo de entrada de 68,98 $.",
+      metaDescription:
+        "TechnipFMC (FTI) alcanza la puntuación máxima en nuestro screener de calidad. Con un free cash flow por acción de 3,29 $ y un precio por debajo de nuestro objetivo de entrada, FTI está en zona de compra según nuestro método.",
+      answer:
+        "TechnipFMC (FTI) es un líder mundial en tecnologías y servicios para la industria petrolera offshore y onshore. En nuestro screener de calidad, la empresa alcanza la puntuación máxima. Su free cash flow por acción es de 3,29 $. El precio actual de 67,39 $ está ligeramente por debajo de nuestro objetivo de entrada de 68,98 $, lo que la sitúa en zona de compra según nuestro método disciplinado.",
+      body: [
+        { type: 'ul', items: [
+          "TechnipFMC alcanza la puntuación máxima en nuestro screener de calidad.",
+          "Free cash flow por acción: 3,29 $. Precio actual: 67,39 $.",
+          "Nuestro objetivo de entrada es de 68,98 $: el precio actual está un 2,4% por debajo.",
+          "La acción está en zona de compra según nuestro método disciplinado.",
+          "Un sector raro en nuestro top de calidad: Oil & Gas Equipment & Services.",
+        ] },
+        { type: 'h2', text: "¿Quién es TechnipFMC?" },
+        { type: 'p', text: "TechnipFMC es un grupo franco-británico cotizado en Nueva York y París, especializado en tecnologías y servicios para la industria petrolera y del gas. La empresa opera en dos grandes segmentos: tecnologías de superficie (separación, tratamiento de gas, LNG) y tecnologías submarinas (tuberías flexibles, equipos de fondo marino, reinyección). Sus clientes son los grandes grupos petroleros mundiales (Total, Shell, BP, Saudi Aramco). TechnipFMC opera en un duopolio de facto con SLB (Schlumberger) en proyectos offshore de gran envergadura." },
+        { type: 'h2', text: "El modelo híbrido: tecnologías propias + servicios" },
+        { type: 'p', text: "Lo que distingue a TechnipFMC de sus competidores es su modelo híbrido. La empresa no se limita a ejecutar proyectos de ingeniería: posee tecnologías propias (tuberías flexibles submarinas, sistemas de separación submarina) que le confieren una ventaja competitiva duradera. Este modelo genera ingresos recurrentes en mantenimiento y piezas de repuesto, además de los contratos de construcción. Es esta combinación la que permite a TechnipFMC convertir sus beneficios en free cash flow de forma consistente, un criterio esencial en nuestro método." },
+        { type: 'h2', text: "Puntuación máxima: por qué es raro en Oil & Gas" },
+        { type: 'p', text: "El sector Oil & Gas Equipment & Services raramente está representado en nuestro top de calidad. Los ciclos del precio del petróleo crean una volatilidad de ingresos que a menudo penaliza el crecimiento del free cash flow. TechnipFMC es una excepción: su estructura de ingresos (mezcla de productos propios y servicios a largo plazo) le permite mantener una alta calidad financiera independientemente de las fluctuaciones del precio del barril. Nuestro screener evalúa diez criterios fundamentales, y TechnipFMC los valida todos." },
+        { type: 'h2', text: "La zona de compra: método y disciplina" },
+        { type: 'p', text: "Nuestro objetivo de entrada se calcula a partir del free cash flow por acción actual (3,29 $) y un múltiplo conservador coherente con la calidad de la empresa y las condiciones del mercado. Este objetivo es de 68,98 $. El precio actual de 67,39 $ está un 2,4% por debajo de este objetivo. Según nuestro método, cuando el precio de una acción está por debajo o igual a nuestro objetivo, la acción entra en zona de compra. No es una recomendación de compra, sino una señal metodológica." },
+        { type: 'h2', text: "Lo que este análisis no es" },
+        { type: 'p', text: "Estar en zona de compra según nuestro método no significa que la acción vaya a subir. El método evalúa la calidad y el precio; no predice movimientos de mercado a corto plazo. El sector petrolero sigue expuesto a los ciclos del precio del petróleo, las tensiones geopolíticas y las transiciones energéticas. TechnipFMC es una empresa de calidad a un precio razonable hoy, no una certeza de rentabilidad futura." },
+      ],
+      faq: [
+        { q: "¿Qué hace concretamente TechnipFMC?", a: "TechnipFMC diseña e instala equipos para la extracción petrolera offshore y onshore: tuberías flexibles submarinas, sistemas de separación y reinyección, equipos LNG. La empresa trabaja con los grandes grupos petroleros mundiales en proyectos de ingeniería complejos." },
+        { q: "¿Por qué el sector Oil & Gas es raro en su screener?", a: "Las empresas petroleras suelen sufrir de una volatilidad del free cash flow vinculada a los ciclos del precio del petróleo. Nuestro screener exige un crecimiento regular del FCF durante varios años, lo que elimina a la mayoría de los actores de este sector. TechnipFMC es una excepción gracias a su mezcla de productos propios y servicios recurrentes." },
+        { q: "¿Cómo se calcula su objetivo de entrada?", a: "Nuestro objetivo de entrada se deriva del free cash flow por acción y de un múltiplo prudente ajustado a la calidad de la empresa. Para FTI, el FCF por acción es de 3,29 $ y el objetivo es de 68,98 $. Cuando el precio está por debajo de este objetivo, la acción entra en zona de compra." },
+        { q: "¿La zona de compra garantiza una rentabilidad positiva?", a: "No. La zona de compra es una señal metodológica, no una garantía. Indica que el precio es coherente con nuestra estimación del valor fundamental. El futuro depende de la evolución de los resultados de la empresa, las condiciones del mercado y los precios del petróleo." },
+        { q: "¿Está TechnipFMC expuesta a la transición energética?", a: "Sí, como todas las empresas del sector petrolero. TechnipFMC invierte en tecnologías de captura de carbono y energías marinas para diversificar sus actividades. A corto y medio plazo, la demanda mundial de petróleo y gas sigue siendo el principal motor de sus ingresos." },
+      ],
+      tags: ['TechnipFMC', 'FTI', 'Oil & Gas', 'Zona de compra', 'Screener calidad', 'Free cash flow', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+const articleSHOP: Article = {
+  slug: 'shopify-shop-qualite-parfaite-valorisation-hors-portee',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'SHOP',
+  content: {
+    fr: {
+      title: "Shopify (SHOP) : qualité parfaite, prix hors de portée",
+      excerpt:
+        "Shopify atteint le score maximum dans notre screener qualité. Mais son prix actuel de 107,98 $ est 56 % au-dessus de notre cible d'entrée de 47,24 $. La qualité d'une entreprise et le bon prix d'entrée sont deux choses distinctes.",
+      metaDescription:
+        "Shopify (SHOP) est une plateforme e-commerce d'élite avec un score maximal dans notre screener. Mais le prix actuel dépasse notre cible d'entrée de 56 %. Analyse qualité et valorisation selon notre méthode.",
+      answer:
+        "Shopify est la plateforme e-commerce leader pour les PME, avec plus d'un million de marchands. Notre screener lui attribue le score maximum grâce à sa croissance de free cash flow et ses revenus récurrents. Mais son prix actuel de 107,98 $ est 56 % au-dessus de notre cible d'entrée de 47,24 $. La qualité ne suffit pas : le prix d'entrée est tout aussi déterminant.",
+      body: [
+        { type: 'ul', items: [
+          "Shopify atteint le score maximum dans notre screener qualité.",
+          "Prix actuel : 107,98 $. Notre cible d'entrée : 47,24 $.",
+          "L'action est 56,3 % au-dessus de notre cible d'entrée.",
+          "Pour entrer selon notre méthode, Shopify devrait être divisé par 2,3.",
+          "La qualité d'une entreprise et le bon prix d'entrée sont deux choses distinctes.",
+        ] },
+        { type: 'h2', text: "Shopify : la plateforme e-commerce des PME" },
+        { type: 'p', text: "Shopify est la plateforme de commerce en ligne la plus utilisée par les petites et moyennes entreprises dans le monde. Plus de 1,2 million de marchands l'utilisent pour vendre leurs produits en ligne, en boutique ou sur les marketplaces. Son modèle économique combine des abonnements SaaS (Shopify Basic, Shopify, Advanced) et une part croissante de revenus liés aux paiements (Shopify Payments), aux prêts (Shopify Capital) et à la logistique (Shopify Fulfillment Network). C'est cette diversification qui rend le modèle économique particulièrement solide." },
+        { type: 'h2', text: "Score maximum : pourquoi Shopify excelle dans notre screener" },
+        { type: 'p', text: "Notre screener évalue dix critères financiers fondamentaux. Shopify valide l'ensemble de ces critères : croissance régulière du free cash flow, revenus récurrents à forte proportion, amélioration des marges, maîtrise de la dilution par les stock-based compensations. C'est l'archétype de l'entreprise SaaS de qualité en phase de maturation : après des années de forte croissance avec des pertes, Shopify génère désormais un free cash flow substantiel et croissant. Son free cash flow par action s'élève à 1,27 $." },
+        { type: 'h2', text: "Le problème : une valorisation qui ne laisse aucune marge" },
+        { type: 'p', text: "Malgré cette qualité maximale, notre méthode signale une difficulté majeure : le prix. À 107,98 $ par action, Shopify se valorise à un multiple de free cash flow très élevé. Notre cible d'entrée, calculée à partir du free cash flow par action (1,27 $) et d'un multiple prudent cohérent avec la qualité de l'entreprise, ressort à 47,24 $. L'action est donc 56,3 % au-dessus de notre cible. Pour que le prix rejoigne notre zone d'entrée, Shopify devrait perdre plus de la moitié de sa valeur boursière actuelle. C'est le type de décote qui n'arrive généralement qu'en cas de crise systémique ou de déception majeure sur les résultats." },
+        { type: 'h2', text: "La leçon : qualité et prix sont deux décisions distinctes" },
+        { type: 'p', text: "Shopify rejoint la famille des dossiers comme Autodesk (ADSK) ou Netflix (NFLX) dans notre base : des entreprises d'élite que notre méthode reconnaît, mais auxquelles elle ne permet pas d'accéder au prix actuel. Ce n'est pas un échec du screener : c'est précisément son utilité. Identifier la qualité ne suffit pas. Il faut aussi discipliner le prix d'entrée. Une entreprise extraordinaire achetée à un prix extraordinaire peut générer une performance ordinaire ou négative pendant des années." },
+        { type: 'h2', text: "Ce qu'il faudrait pour que Shopify entre en zone d'achat" },
+        { type: 'p', text: "Deux scénarios peuvent rapprocher Shopify de notre zone d'entrée. Premier scénario : une baisse significative du prix de l'action, par exemple lors d'une correction de marché ou d'une déception sur les résultats trimestriels. Deuxième scénario : une croissance très forte et continue du free cash flow par action qui relève notre cible d'entrée de façon importante. Dans les deux cas, la patience est le principal outil. Notre méthode n'impose pas de délai : elle attend que qualité et prix convergent." },
+      ],
+      faq: [
+        { q: "Pourquoi Shopify a-t-il un score parfait malgré son prix élevé ?", a: "Le score évalue la qualité fondamentale de l'entreprise : croissance du FCF, revenus récurrents, marges, dilution. Le prix est évalué séparément. Shopify est fondamentalement excellente ; simplement, son prix actuel intègre déjà des anticipations de croissance très optimistes, ce qui ne laisse aucune marge de sécurité selon notre méthode." },
+        { q: "Combien de temps faudra-t-il attendre pour que Shopify soit en zone d'achat ?", a: "C'est impossible à prédire. Cela peut prendre des années, ou ne jamais arriver si l'entreprise continue de croître suffisamment vite pour justifier sa valorisation. Notre méthode ne fixe pas de délai : elle identifie le prix auquel elle serait prête à entrer, et attend." },
+        { q: "Ne vaut-il pas mieux acheter une grande entreprise même à prix élevé ?", a: "C'est une thèse défendable, mais elle implique un pari sur la croissance future. Notre méthode est plus conservatrice : elle préfère entrer avec une marge de sécurité. Une entreprise exceptionnelle achetée trop cher peut générer une performance médiocre pendant de nombreuses années, même si l'entreprise continue de bien performer." },
+        { q: "Shopify est-elle menacée par Amazon ou d'autres concurrents ?", a: "Shopify et Amazon sont positionnés différemment : Shopify aide les marchands à construire leur propre marque, tandis qu'Amazon les rend dépendants de sa plateforme. La concurrence existe mais le moat de Shopify (écosystème d'applications, Shopify Payments, intégrations) est solide. Notre évaluation porte sur la qualité financière, pas sur l'analyse concurrentielle seule." },
+        { q: "Comment est calculée votre cible d'entrée pour Shopify ?", a: "Notre cible d'entrée est dérivée du free cash flow par action (1,27 $ pour SHOP) et d'un multiple prudent ajusté à la qualité et aux conditions de marché. Pour Shopify, le résultat est 47,24 $. Cette cible évolue avec le FCF par action : si Shopify double son FCF par action, notre cible d'entrée augmenterait en conséquence." },
+      ],
+      tags: ['Shopify', 'SHOP', 'E-commerce', 'SaaS', 'Valorisation', 'Screener qualité', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "Shopify (SHOP): perfect score, price out of our reach",
+      excerpt:
+        "Shopify achieves the maximum score in our quality screener. But its current price of $107.98 is 56% above our entry target of $47.24. Company quality and the right entry price are two distinct decisions.",
+      metaDescription:
+        "Shopify (SHOP) is an elite e-commerce platform with a maximum score in our screener. But the current price exceeds our entry target by 56%. Quality and valuation analysis using our method.",
+      answer:
+        "Shopify is the leading e-commerce platform for SMBs, with over 1.2 million merchants. Our screener gives it the maximum score thanks to its free cash flow growth and recurring revenues. But its current price of $107.98 is 56% above our entry target of $47.24. Quality is not enough: the entry price matters just as much.",
+      body: [
+        { type: 'ul', items: [
+          "Shopify achieves the maximum score in our quality screener.",
+          "Current price: $107.98. Our entry target: $47.24.",
+          "The stock is 56.3% above our entry target.",
+          "For our method to give an entry signal, Shopify would need to fall by more than half.",
+          "Company quality and the right entry price are two distinct decisions.",
+        ] },
+        { type: 'h2', text: "Shopify: the e-commerce platform for SMBs" },
+        { type: 'p', text: "Shopify is the most widely used online commerce platform by small and medium-sized businesses worldwide. Over 1.2 million merchants use it to sell products online, in-store, or on marketplaces. Its business model combines SaaS subscriptions (Shopify Basic, Shopify, Advanced) and a growing share of payment-linked revenues (Shopify Payments), loans (Shopify Capital), and logistics (Shopify Fulfillment Network). This diversification makes the business model particularly solid." },
+        { type: 'h2', text: "Maximum score: why Shopify excels in our screener" },
+        { type: 'p', text: "Our screener evaluates ten fundamental financial criteria. Shopify validates all of them: consistent free cash flow growth, high recurring revenue proportion, margin improvement, controlled dilution from stock-based compensation. It is the archetype of a quality SaaS company in its maturation phase: after years of high growth with losses, Shopify now generates substantial and growing free cash flow. Its free cash flow per share stands at $1.27." },
+        { type: 'h2', text: "The problem: a valuation that leaves no margin of safety" },
+        { type: 'p', text: "Despite this maximum quality, our method signals a major difficulty: the price. At $107.98 per share, Shopify is valued at a very high free cash flow multiple. Our entry target, calculated from the free cash flow per share ($1.27) and a prudent multiple consistent with the company's quality, stands at $47.24. The stock is therefore 56.3% above our target. For the price to reach our entry zone, Shopify would need to lose more than half of its current market value." },
+        { type: 'h2', text: "The lesson: quality and price are two distinct decisions" },
+        { type: 'p', text: "Shopify joins the family of stocks like Autodesk (ADSK) or Netflix (NFLX) in our database: elite companies that our method recognizes but cannot access at the current price. This is not a failure of the screener: it is precisely its usefulness. Identifying quality is not enough. The entry price must also be disciplined. An extraordinary company bought at an extraordinary price can generate ordinary or negative performance for years." },
+        { type: 'h2', text: "What it would take for Shopify to enter our buy zone" },
+        { type: 'p', text: "Two scenarios can bring Shopify closer to our entry zone. First scenario: a significant drop in the stock price, for example during a market correction or a disappointing quarterly earnings report. Second scenario: very strong and consistent growth in free cash flow per share that significantly raises our entry target. In both cases, patience is the primary tool. Our method sets no deadline: it waits for quality and price to converge." },
+      ],
+      faq: [
+        { q: "Why does Shopify have a perfect score despite its high price?", a: "The score evaluates the fundamental quality of the company: FCF growth, recurring revenues, margins, dilution. The price is evaluated separately. Shopify is fundamentally excellent; its current price simply already incorporates very optimistic growth expectations, leaving no margin of safety according to our method." },
+        { q: "How long will it take for Shopify to be in our buy zone?", a: "This is impossible to predict. It could take years, or never happen if the company continues growing fast enough to justify its valuation. Our method sets no deadline: it identifies the price at which it would be willing to enter, and waits." },
+        { q: "Is it not better to buy a great company even at a high price?", a: "This is a defensible thesis, but it involves a bet on future growth. Our method is more conservative: it prefers to enter with a margin of safety. An exceptional company bought too expensively can generate mediocre performance for many years, even if the company continues to perform well." },
+        { q: "Is Shopify threatened by Amazon or other competitors?", a: "Shopify and Amazon are positioned differently: Shopify helps merchants build their own brand, while Amazon makes them dependent on its platform. Competition exists but Shopify's moat (app ecosystem, Shopify Payments, integrations) is solid. Our evaluation focuses on financial quality, not competitive analysis alone." },
+        { q: "How is your entry target for Shopify calculated?", a: "Our entry target is derived from the free cash flow per share ($1.27 for SHOP) and a prudent multiple adjusted to quality and market conditions. For Shopify, the result is $47.24. This target evolves with the FCF per share: if Shopify doubles its FCF per share, our entry target would increase accordingly." },
+      ],
+      tags: ['Shopify', 'SHOP', 'E-commerce', 'SaaS', 'Valuation', 'Quality screener', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "Shopify (SHOP): puntuación perfecta, precio fuera de alcance",
+      excerpt:
+        "Shopify alcanza la puntuación máxima en nuestro screener de calidad. Pero su precio actual de 107,98 $ está un 56% por encima de nuestro objetivo de entrada de 47,24 $. Calidad y precio de entrada son dos decisiones distintas.",
+      metaDescription:
+        "Shopify (SHOP) es una plataforma e-commerce de élite con puntuación máxima en nuestro screener. Pero el precio actual supera nuestro objetivo de entrada en un 56%. Análisis de calidad y valoración según nuestro método.",
+      answer:
+        "Shopify es la plataforma e-commerce líder para pymes, con más de 1,2 millones de comerciantes. Nuestro screener le otorga la puntuación máxima gracias al crecimiento de su free cash flow y sus ingresos recurrentes. Pero su precio actual de 107,98 $ está un 56% por encima de nuestro objetivo de entrada de 47,24 $. La calidad no es suficiente: el precio de entrada es igualmente determinante.",
+      body: [
+        { type: 'ul', items: [
+          "Shopify alcanza la puntuación máxima en nuestro screener de calidad.",
+          "Precio actual: 107,98 $. Nuestro objetivo de entrada: 47,24 $.",
+          "La acción está un 56,3% por encima de nuestro objetivo de entrada.",
+          "Para que nuestro método dé una señal de entrada, Shopify debería perder más de la mitad de su valor.",
+          "Calidad y precio de entrada son dos decisiones distintas.",
+        ] },
+        { type: 'h2', text: "Shopify: la plataforma e-commerce para pymes" },
+        { type: 'p', text: "Shopify es la plataforma de comercio online más utilizada por las pequeñas y medianas empresas del mundo. Más de 1,2 millones de comerciantes la usan para vender sus productos online, en tienda o en marketplaces. Su modelo económico combina suscripciones SaaS (Shopify Basic, Shopify, Advanced) y una parte creciente de ingresos vinculados a los pagos (Shopify Payments), préstamos (Shopify Capital) y logística (Shopify Fulfillment Network). Esta diversificación hace que el modelo económico sea especialmente sólido." },
+        { type: 'h2', text: "Puntuación máxima: por qué Shopify destaca en nuestro screener" },
+        { type: 'p', text: "Nuestro screener evalúa diez criterios financieros fundamentales. Shopify los valida todos: crecimiento regular del free cash flow, alta proporción de ingresos recurrentes, mejora de márgenes, control de la dilución por compensación en acciones. Es el arquetipo de empresa SaaS de calidad en fase de maduración: tras años de fuerte crecimiento con pérdidas, Shopify genera ahora un free cash flow sustancial y creciente. Su free cash flow por acción es de 1,27 $." },
+        { type: 'h2', text: "El problema: una valoración que no deja margen de seguridad" },
+        { type: 'p', text: "A pesar de esta calidad máxima, nuestro método señala una dificultad mayor: el precio. A 107,98 $ por acción, Shopify se valoriza a un múltiplo de free cash flow muy elevado. Nuestro objetivo de entrada, calculado a partir del free cash flow por acción (1,27 $) y un múltiplo prudente coherente con la calidad de la empresa, es de 47,24 $. La acción está por tanto un 56,3% por encima de nuestro objetivo. Para que el precio alcance nuestra zona de entrada, Shopify debería perder más de la mitad de su valor bursátil actual." },
+        { type: 'h2', text: "La lección: calidad y precio son dos decisiones distintas" },
+        { type: 'p', text: "Shopify se une a la familia de valores como Autodesk (ADSK) o Netflix (NFLX) en nuestra base: empresas de élite que nuestro método reconoce pero a las que no puede acceder al precio actual. No es un fallo del screener: es precisamente su utilidad. Identificar la calidad no es suficiente. También hay que disciplinar el precio de entrada. Una empresa extraordinaria comprada a un precio extraordinario puede generar una rentabilidad ordinaria o negativa durante años." },
+        { type: 'h2', text: "Qué se necesitaría para que Shopify entre en zona de compra" },
+        { type: 'p', text: "Dos escenarios pueden acercar a Shopify a nuestra zona de entrada. Primer escenario: una caída significativa del precio de la acción, por ejemplo durante una corrección del mercado o una decepción en los resultados trimestrales. Segundo escenario: un crecimiento muy fuerte y continuo del free cash flow por acción que eleve significativamente nuestro objetivo de entrada. En ambos casos, la paciencia es la principal herramienta." },
+      ],
+      faq: [
+        { q: "¿Por qué Shopify tiene una puntuación perfecta pese a su precio elevado?", a: "La puntuación evalúa la calidad fundamental de la empresa: crecimiento del FCF, ingresos recurrentes, márgenes, dilución. El precio se evalúa por separado. Shopify es fundamentalmente excelente; simplemente, su precio actual ya incorpora expectativas de crecimiento muy optimistas, sin dejar margen de seguridad según nuestro método." },
+        { q: "¿Cuánto tiempo habrá que esperar para que Shopify esté en zona de compra?", a: "Es imposible predecirlo. Puede llevar años, o no ocurrir nunca si la empresa sigue creciendo suficientemente rápido para justificar su valoración. Nuestro método no fija plazos: identifica el precio al que estaría dispuesto a entrar y espera." },
+        { q: "¿No es mejor comprar una gran empresa aunque sea cara?", a: "Es una tesis defendible, pero implica apostar por el crecimiento futuro. Nuestro método es más conservador: prefiere entrar con un margen de seguridad. Una empresa excepcional comprada demasiado cara puede generar una rentabilidad mediocre durante muchos años, aunque la empresa siga funcionando bien." },
+        { q: "¿Está Shopify amenazada por Amazon u otros competidores?", a: "Shopify y Amazon están posicionados de forma diferente: Shopify ayuda a los comerciantes a construir su propia marca, mientras Amazon los hace dependientes de su plataforma. La competencia existe pero el moat de Shopify (ecosistema de aplicaciones, Shopify Payments, integraciones) es sólido." },
+        { q: "¿Cómo se calcula su objetivo de entrada para Shopify?", a: "Nuestro objetivo de entrada se deriva del free cash flow por acción (1,27 $ para SHOP) y de un múltiplo prudente ajustado a la calidad y las condiciones del mercado. Para Shopify, el resultado es 47,24 $. Este objetivo evoluciona con el FCF por acción: si Shopify dobla su FCF por acción, nuestro objetivo de entrada aumentaría en consecuencia." },
+      ],
+      tags: ['Shopify', 'SHOP', 'E-commerce', 'SaaS', 'Valoración', 'Screener calidad', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+const articleGAFAM: Article = {
+  slug: 'gafam-google-apple-meta-amazon-microsoft-scores-screener',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 6,
+  content: {
+    fr: {
+      title: "GAFAM dans notre screener : les vrais scores des 5 géants",
+      excerpt:
+        "Google, Apple, Meta, Amazon, Microsoft. Les 5 géants tech les plus connus du monde. Comment se comportent-ils dans notre grille qualité ? Les scores réels, les cibles d'entrée et les critères qui posent question, dossier par dossier.",
+      metaDescription:
+        "Alphabet, Apple, Meta, Amazon, Microsoft passés au crible de notre screener qualité. Scores réels, cibles d'entrée et critères défaillants pour chacun des 5 géants GAFAM. Analyse éducative et données concrètes.",
+      answer:
+        "Les cinq géants GAFAM présentent des profils très différents dans notre screener. Alphabet se distingue nettement avec le score le plus élevé et une valorisation relative moins tendue. Apple et Meta ont des scores élevés mais des prix très au-dessus de nos cibles d'entrée. Amazon et Microsoft présentent des critères fondamentaux qui posent question malgré leur notoriété.",
+      body: [
+        { type: 'ul', items: [
+          "Les GAFAM ne sont pas un bloc homogène : leurs scores dans notre screener varient fortement.",
+          "Alphabet se distingue nettement parmi les cinq.",
+          "Apple et Meta ont des scores élevés mais des prix très au-dessus de nos cibles d'entrée.",
+          "Amazon et Microsoft présentent des critères fondamentaux qui posent question.",
+          "Notre screener évalue la qualité et le prix séparément : deux décisions distinctes.",
+        ] },
+        { type: 'h2', text: "Alphabet (GOOGL) : le meilleur des cinq" },
+        { type: 'p', text: "Alphabet est le seul des cinq GAFAM à atteindre le score maximal dans notre screener. Son modèle économique — publicité numérique dominante, cloud Google Cloud Platform en forte croissance, YouTube, Waymo, DeepMind — génère un free cash flow abondant avec des marges élevées. Nous avons publié une analyse détaillée d'Alphabet Q1 2026 sur notre blog. Alphabet se valorise à un multiple de free cash flow relativement modéré pour une entreprise tech de cette qualité. C'est notre premier choix parmi les GAFAM selon notre méthode." },
+        { type: 'h2', text: "Apple (AAPL) : 23/25, mais prix très au-dessus de la cible" },
+        { type: 'p', text: "Apple obtient 23/25 dans notre screener. Les critères défaillants sont au nombre de deux : la croissance des ventes (qui ralentit à un rythme faible) et la valorisation actuelle. Le prix de l'action (297,01 $) est 54,4 % au-dessus de notre cible d'entrée (135,47 $). Apple reste une machine à cash extraordinaire : marges FCF élevées, rachats d'actions massifs, écosystème fermé très défensif. Mais la croissance ralentit et le prix intègre des anticipations optimistes que notre méthode ne peut pas valider à ce niveau." },
+        { type: 'h2', text: "Meta Platforms (META) : 22/25, investissements Metaverse pesants" },
+        { type: 'p', text: "Meta obtient 22/25. Les critères défaillants portent sur la conversion des bénéfices en cash, le délai d'encaissement et la valorisation. Le prix actuel (563,85 $) est 62,8 % au-dessus de notre cible d'entrée (209,98 $). L'explication est structurelle : Meta réinvestit massivement dans ses projets Metaverse (Reality Labs) et dans l'infrastructure IA (datacenter, GPU). Ces investissements pèsent sur le free cash flow GAAP actuel mais pourraient générer des retours futurs. Notre méthode évalue le FCF présent : ces paris ne sont pas encore visibles dans les chiffres." },
+        { type: 'h2', text: "Amazon (AMZN) et Microsoft (MSFT) : des critères qui posent question" },
+        { type: 'p', text: "Amazon obtient 6/10 dans notre screener. Son free cash flow apparent est très élevé, mais le ratio prix/free cash flow ressort à 168,6 fois. Notre cible d'entrée est fixée à 30,90 $, soit 86,7 % en dessous du prix actuel. L'explication : le e-commerce d'Amazon absorbe des capitaux colossaux (logistique, AWS, Prime Video) qui réduisent le FCF réellement disponible pour l'actionnaire. Microsoft obtient 8/10. Son ratio prix/free cash flow s'élève à 45,2 fois, avec une cible d'entrée à 144,30 $ (60,7 % en dessous du prix actuel). Le ralentissement de la croissance des bénéfices par action, les stock-based compensations élevées et le capex massif lié à l'IA pèsent sur notre évaluation." },
+        { type: 'h2', text: "La synthèse : les GAFAM ne sont pas un bloc" },
+        { type: 'p', text: "L'erreur la plus fréquente est de traiter les GAFAM comme une catégorie homogène. Notre analyse montre qu'ils ont des profils très différents. Alphabet se distingue nettement. Apple et Meta ont une qualité élevée mais des prix très supérieurs à nos cibles d'entrée. Amazon et Microsoft ont des critères fondamentaux qui questionnent la qualité du free cash flow réel. Notre méthode permet de les distinguer avec précision, sans se laisser influencer par la notoriété ou la taille des entreprises." },
+      ],
+      faq: [
+        { q: "Pourquoi Alphabet est-il le meilleur GAFAM selon votre méthode ?", a: "Alphabet combine un score maximal dans notre screener (qualité financière, FCF, marges, rachats) avec une valorisation relative moins tendue que les autres. Son modèle publicitaire génère un FCF abondant, et Google Cloud accélère. Nous avons publié une analyse complète d'Alphabet Q1 2026 sur notre blog." },
+        { q: "Comment Amazon peut-il avoir un score aussi bas malgré sa taille ?", a: "Notre screener évalue la qualité du free cash flow réel disponible pour l'actionnaire, pas la taille ou le chiffre d'affaires. Amazon réinvestit massivement dans la logistique, AWS et la tech : le FCF apparent est élevé, mais le capex est colossal. La rentabilité FCF rapportée au prix de l'action ressort à un multiple de 168 fois, ce qui est difficile à justifier selon notre méthode." },
+        { q: "Apple est-elle en déclin selon votre analyse ?", a: "Non. Apple reste une entreprise d'élite : marges FCF élevées, écosystème défensif, rachats massifs d'actions. Mais sa croissance ralentit, et le prix actuel intègre des anticipations que notre méthode ne peut valider. Ce n'est pas un jugement sur la qualité de l'entreprise en absolu, mais sur le rapport qualité/prix aujourd'hui." },
+        { q: "Les investissements de Meta dans le Metaverse et l'IA sont-ils un problème ?", a: "Pour notre méthode, ces investissements pèsent sur le free cash flow actuel sans générer de retour visible aujourd'hui. Ils peuvent être justifiés à long terme, mais notre méthode évalue ce qui est mesurable maintenant. C'est pourquoi Meta perd des critères sur la conversion bénéfices-cash et la valorisation." },
+        { q: "Votre méthode défavorise-t-elle les entreprises qui investissent pour l'avenir ?", a: "Oui, par construction. Notre méthode évalue le free cash flow actuel et la valorisation par rapport à ce FCF. Les entreprises qui réinvestissent massivement (Amazon, Meta) ont un FCF apparent plus faible ou des multiples plus élevés. C'est un choix méthodologique : nous privilégions la certitude du cash présent sur les promesses de cash futur." },
+      ],
+      tags: ['GAFAM', 'Alphabet', 'Apple', 'Meta', 'Amazon', 'Microsoft', 'Screener qualité', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "GAFAM in our screener: the real scores of the 5 tech giants",
+      excerpt:
+        "Google, Apple, Meta, Amazon, Microsoft. The 5 most famous tech giants in the world. How do they perform in our quality framework? Real scores, entry targets and failing criteria, company by company.",
+      metaDescription:
+        "Alphabet, Apple, Meta, Amazon, Microsoft put through our quality screener. Real scores, entry targets and failing criteria for each of the 5 GAFAM giants. Educational analysis with concrete data.",
+      answer:
+        "The five GAFAM giants show very different profiles in our screener. Alphabet stands out clearly with the highest score and a relatively less stretched valuation. Apple and Meta have high scores but prices far above our entry targets. Amazon and Microsoft show fundamental criteria that raise questions despite their notoriety.",
+      body: [
+        { type: 'ul', items: [
+          "The GAFAM are not a homogeneous bloc: their scores in our screener vary widely.",
+          "Alphabet stands out clearly among the five.",
+          "Apple and Meta have high scores but prices far above our entry targets.",
+          "Amazon and Microsoft show fundamental criteria that raise questions.",
+          "Our screener evaluates quality and price separately: two distinct decisions.",
+        ] },
+        { type: 'h2', text: "Alphabet (GOOGL): the best of the five" },
+        { type: 'p', text: "Alphabet is the only one of the five GAFAM to achieve the maximum score in our screener. Its business model — dominant digital advertising, rapidly growing Google Cloud Platform, YouTube, Waymo, DeepMind — generates abundant free cash flow with high margins. We published a detailed analysis of Alphabet Q1 2026 on our blog. Alphabet is valued at a relatively moderate free cash flow multiple for a tech company of this quality. It is our first choice among the GAFAM according to our method." },
+        { type: 'h2', text: "Apple (AAPL): 23/25, but price far above target" },
+        { type: 'p', text: "Apple scores 23/25 in our screener. The failing criteria are two: sales growth (slowing to a low pace) and current valuation. The stock price ($297.01) is 54.4% above our entry target ($135.47). Apple remains an extraordinary cash machine: high FCF margins, massive share buybacks, highly defensive closed ecosystem. But growth is slowing and the price incorporates optimistic expectations that our method cannot validate at this level." },
+        { type: 'h2', text: "Meta Platforms (META): 22/25, heavy Metaverse investments" },
+        { type: 'p', text: "Meta scores 22/25. The failing criteria concern the conversion of earnings to cash, the cash collection delay, and valuation. The current price ($563.85) is 62.8% above our entry target ($209.98). The explanation is structural: Meta is massively reinvesting in its Metaverse projects (Reality Labs) and AI infrastructure (datacenters, GPUs). These investments weigh on the current GAAP free cash flow but could generate future returns. Our method evaluates current FCF: these bets are not yet visible in the numbers." },
+        { type: 'h2', text: "Amazon (AMZN) and Microsoft (MSFT): criteria that raise questions" },
+        { type: 'p', text: "Amazon scores 6/10 in our screener. Its apparent free cash flow is very high, but the price-to-free-cash-flow ratio comes out at 168.6 times. Our entry target is set at $30.90, or 86.7% below the current price. The explanation: Amazon's e-commerce absorbs colossal capital (logistics, AWS, Prime Video) that reduces the FCF actually available to shareholders. Microsoft scores 8/10. Its price-to-FCF ratio stands at 45.2 times, with an entry target at $144.30 (60.7% below the current price). The slowdown in earnings per share growth, high stock-based compensations, and massive AI-related capex weigh on our assessment." },
+        { type: 'h2', text: "The synthesis: GAFAM are not a bloc" },
+        { type: 'p', text: "The most common mistake is to treat the GAFAM as a homogeneous category. Our analysis shows they have very different profiles. Alphabet stands out clearly. Apple and Meta have high quality but prices far above our entry targets. Amazon and Microsoft have fundamental criteria that question the quality of actual free cash flow. Our method allows us to distinguish them precisely, without being influenced by the notoriety or size of the companies." },
+      ],
+      faq: [
+        { q: "Why is Alphabet the best GAFAM according to your method?", a: "Alphabet combines a maximum score in our screener (financial quality, FCF, margins, buybacks) with a relatively less stretched valuation than the others. Its advertising model generates abundant FCF, and Google Cloud is accelerating. We published a full analysis of Alphabet Q1 2026 on our blog." },
+        { q: "How can Amazon have such a low score despite its size?", a: "Our screener evaluates the quality of real free cash flow available to shareholders, not size or revenue. Amazon reinvests massively in logistics, AWS, and technology: apparent FCF is high, but capex is colossal. The FCF return relative to the stock price comes out at a multiple of 168 times, which is difficult to justify under our method." },
+        { q: "Is Apple in decline according to your analysis?", a: "No. Apple remains an elite company: high FCF margins, defensive ecosystem, massive share buybacks. But its growth is slowing, and the current price incorporates expectations that our method cannot validate. This is not an absolute judgment on the quality of the company, but on the quality-to-price ratio today." },
+        { q: "Are Meta's investments in Metaverse and AI a problem?", a: "For our method, these investments weigh on current free cash flow without generating visible returns today. They may be justified long-term, but our method evaluates what is measurable now. That is why Meta loses criteria on earnings-to-cash conversion and valuation." },
+        { q: "Does your method disadvantage companies that invest for the future?", a: "Yes, by design. Our method evaluates current free cash flow and valuation relative to that FCF. Companies that reinvest massively (Amazon, Meta) have lower apparent FCF or higher multiples. This is a methodological choice: we prioritize the certainty of current cash over promises of future cash." },
+      ],
+      tags: ['GAFAM', 'Alphabet', 'Apple', 'Meta', 'Amazon', 'Microsoft', 'Quality screener', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "GAFAM en nuestro screener: las puntuaciones reales de los 5 gigantes",
+      excerpt:
+        "Google, Apple, Meta, Amazon, Microsoft. Los 5 gigantes tecnológicos más conocidos del mundo. ¿Cómo se comportan en nuestra cuadrícula de calidad? Puntuaciones reales, objetivos de entrada y criterios fallidos, empresa por empresa.",
+      metaDescription:
+        "Alphabet, Apple, Meta, Amazon, Microsoft analizados con nuestro screener de calidad. Puntuaciones reales, objetivos de entrada y criterios fallidos para cada uno de los 5 gigantes GAFAM. Análisis educativo con datos concretos.",
+      answer:
+        "Los cinco gigantes GAFAM muestran perfiles muy diferentes en nuestro screener. Alphabet destaca claramente con la puntuación más alta y una valoración relativamente menos tensa. Apple y Meta tienen puntuaciones altas pero precios muy por encima de nuestros objetivos de entrada. Amazon y Microsoft presentan criterios fundamentales que plantean preguntas pese a su notoriedad.",
+      body: [
+        { type: 'ul', items: [
+          "Los GAFAM no son un bloque homogéneo: sus puntuaciones en nuestro screener varían ampliamente.",
+          "Alphabet destaca claramente entre los cinco.",
+          "Apple y Meta tienen puntuaciones altas pero precios muy por encima de nuestros objetivos de entrada.",
+          "Amazon y Microsoft presentan criterios fundamentales que plantean preguntas.",
+          "Nuestro screener evalúa la calidad y el precio por separado: dos decisiones distintas.",
+        ] },
+        { type: 'h2', text: "Alphabet (GOOGL): el mejor de los cinco" },
+        { type: 'p', text: "Alphabet es el único de los cinco GAFAM en alcanzar la puntuación máxima en nuestro screener. Su modelo económico — publicidad digital dominante, Google Cloud Platform en fuerte crecimiento, YouTube, Waymo, DeepMind — genera un free cash flow abundante con márgenes elevados. Publicamos un análisis detallado de Alphabet Q1 2026 en nuestro blog. Alphabet se valoriza a un múltiplo de free cash flow relativamente moderado para una empresa tech de esta calidad. Es nuestra primera elección entre los GAFAM según nuestro método." },
+        { type: 'h2', text: "Apple (AAPL): 23/25, pero precio muy por encima del objetivo" },
+        { type: 'p', text: "Apple obtiene 23/25 en nuestro screener. Los criterios fallidos son dos: el crecimiento de las ventas (que se desacelera a un ritmo bajo) y la valoración actual. El precio de la acción (297,01 $) está un 54,4% por encima de nuestro objetivo de entrada (135,47 $). Apple sigue siendo una extraordinaria máquina de cash: altos márgenes FCF, recompras masivas de acciones, ecosistema cerrado muy defensivo. Pero el crecimiento se desacelera y el precio incorpora expectativas optimistas que nuestro método no puede validar a este nivel." },
+        { type: 'h2', text: "Meta Platforms (META): 22/25, inversiones Metaverse pesantes" },
+        { type: 'p', text: "Meta obtiene 22/25. Los criterios fallidos se refieren a la conversión de beneficios en cash, el plazo de cobro y la valoración. El precio actual (563,85 $) está un 62,8% por encima de nuestro objetivo de entrada (209,98 $). La explicación es estructural: Meta reinvierte masivamente en sus proyectos Metaverse (Reality Labs) y en la infraestructura de IA (centros de datos, GPU). Estas inversiones pesan sobre el free cash flow GAAP actual pero podrían generar rendimientos futuros." },
+        { type: 'h2', text: "Amazon (AMZN) y Microsoft (MSFT): criterios que plantean preguntas" },
+        { type: 'p', text: "Amazon obtiene 6/10 en nuestro screener. Su free cash flow aparente es muy elevado, pero el ratio precio/free cash flow es de 168,6 veces. Nuestro objetivo de entrada es de 30,90 $, un 86,7% por debajo del precio actual. La explicación: el e-commerce de Amazon absorbe capitales colosales (logística, AWS, Prime Video) que reducen el FCF realmente disponible para el accionista. Microsoft obtiene 8/10. Su ratio precio/FCF es de 45,2 veces, con un objetivo de entrada de 144,30 $ (un 60,7% por debajo del precio actual). La desaceleración del crecimiento del BPA, las elevadas compensaciones en acciones y el capex masivo vinculado a la IA pesan en nuestra evaluación." },
+        { type: 'h2', text: "La síntesis: los GAFAM no son un bloque" },
+        { type: 'p', text: "El error más frecuente es tratar a los GAFAM como una categoría homogénea. Nuestro análisis muestra que tienen perfiles muy diferentes. Alphabet destaca claramente. Apple y Meta tienen alta calidad pero precios muy superiores a nuestros objetivos de entrada. Amazon y Microsoft tienen criterios fundamentales que cuestionan la calidad del free cash flow real. Nuestro método permite distinguirlos con precisión, sin dejarse influir por la notoriedad o el tamaño de las empresas." },
+      ],
+      faq: [
+        { q: "¿Por qué Alphabet es el mejor GAFAM según su método?", a: "Alphabet combina una puntuación máxima en nuestro screener (calidad financiera, FCF, márgenes, recompras) con una valoración relativamente menos tensa que los demás. Su modelo publicitario genera un FCF abundante, y Google Cloud se acelera. Publicamos un análisis completo de Alphabet Q1 2026 en nuestro blog." },
+        { q: "¿Cómo puede Amazon tener una puntuación tan baja pese a su tamaño?", a: "Nuestro screener evalúa la calidad del free cash flow real disponible para el accionista, no el tamaño ni el volumen de negocio. Amazon reinvierte masivamente en logística, AWS y tecnología: el FCF aparente es elevado, pero el capex es colosal. La rentabilidad FCF en relación al precio de la acción resulta en un múltiplo de 168 veces, difícil de justificar según nuestro método." },
+        { q: "¿Está Apple en declive según su análisis?", a: "No. Apple sigue siendo una empresa de élite: altos márgenes FCF, ecosistema defensivo, recompras masivas de acciones. Pero su crecimiento se desacelera y el precio actual incorpora expectativas que nuestro método no puede validar. No es un juicio absoluto sobre la calidad de la empresa, sino sobre la relación calidad/precio hoy." },
+        { q: "¿Las inversiones de Meta en el Metaverso y la IA son un problema?", a: "Para nuestro método, estas inversiones pesan sobre el free cash flow actual sin generar rendimientos visibles hoy. Pueden estar justificadas a largo plazo, pero nuestro método evalúa lo que es medible ahora. Por eso Meta pierde criterios en la conversión beneficios-cash y la valoración." },
+        { q: "¿Su método perjudica a las empresas que invierten para el futuro?", a: "Sí, por diseño. Nuestro método evalúa el free cash flow actual y la valoración respecto a ese FCF. Las empresas que reinvierten masivamente (Amazon, Meta) tienen un FCF aparente más bajo o múltiplos más elevados. Es una elección metodológica: priorizamos la certeza del cash presente sobre las promesas de cash futuro." },
+      ],
+      tags: ['GAFAM', 'Alphabet', 'Apple', 'Meta', 'Amazon', 'Microsoft', 'Screener calidad', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+const articleHMO: Article = {
+  slug: 'hmo-assureurs-sante-unh-cigna-humana-absents-screener',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  content: {
+    fr: {
+      title: "HMO : pourquoi UNH, Cigna, Humana ratent notre screener",
+      excerpt:
+        "Les assureurs santé américains (HMO) sont des mastodontes boursiers. Pourtant, UnitedHealth, Humana et Cigna peinent dans notre screener qualité. Explication dossier par dossier des critères défaillants et des raisons structurelles.",
+      metaDescription:
+        "UnitedHealth (UNH), Humana et Cigna passés au crible de notre screener qualité. Scores réels, critères défaillants et raisons structurelles pour lesquelles les HMO américains sont absents de notre top qualité.",
+      answer:
+        "Les HMO (Health Maintenance Organizations) sont les assureurs santé dominants aux États-Unis. Malgré leur taille, UnitedHealth, Humana et Cigna peinent dans notre screener qualité. Les raisons sont structurelles : marges FCF réelles faibles, pression réglementaire, cycles de sinistres imprévisibles et valorisations supérieures à nos cibles d'entrée.",
+      body: [
+        { type: 'ul', items: [
+          "Les HMO sont les assureurs santé dominants aux États-Unis, valorisés à des centaines de milliards.",
+          "Malgré leur taille, UNH, Humana et Cigna peinent dans notre screener qualité.",
+          "UNH obtient 6/10. Humana 5/10. Cigna 7/10.",
+          "Les raisons sont structurelles : marges FCF faibles, réglementation, cycles de sinistres.",
+          "Les assureurs P&C et vie passent mieux notre screener que les HMO.",
+        ] },
+        { type: 'h2', text: "Qu'est-ce qu'un HMO ?" },
+        { type: 'p', text: "Un HMO (Health Maintenance Organization) est un type d'assureur santé aux États-Unis qui fonctionne comme un réseau géré. Les assurés choisissent un médecin traitant dans le réseau (Primary Care Physician), et l'assureur prend en charge les soins en échange d'une prime mensuelle. Les principaux acteurs sont UnitedHealth Group (UNH), Cigna (CI) et Humana (HUM). Ces entreprises gèrent des dizaines de millions d'assurés et pèsent des centaines de milliards de dollars en capitalisation boursière. Pourtant, dans notre screener qualité, leurs scores sont décevants." },
+        { type: 'h2', text: "UnitedHealth (UNH) : 6/10, scandales et pression sur les marges" },
+        { type: 'p', text: "UnitedHealth obtient 6/10 dans notre screener. Son free cash flow par action ressort à un niveau tel que notre cible d'entrée est fixée à 201,58 $, contre un prix actuel de 406,68 $, soit une surcote de 50 %. Les critères défaillants incluent la baisse du FCF par action, une profitabilité cash faible, une compression des marges et une valorisation élevée. Sur le plan fondamental, UNH fait face à des vents contraires structurels : scandales d'assurance (refus de remboursement, enquêtes gouvernementales), pression politique croissante sur les pratiques de facturation et d'autorisation préalable. Ces éléments pèsent sur la qualité perçue du modèle." },
+        { type: 'h2', text: "Humana (HUM) : 5/10, pression Medicare Advantage" },
+        { type: 'p', text: "Humana obtient 5/10. L'entreprise est très concentrée sur Medicare Advantage, le programme gouvernemental d'assurance santé pour les seniors américains. Ce marché est réglementé par le Centre for Medicare & Medicaid Services (CMS), qui fixe les tarifs de remboursement chaque année. Lorsque le CMS réduit ses taux, les marges de Humana s'effondrent. L'entreprise a subi plusieurs trimestres de pertes liées à ce mécanisme. Notre screener identifie cette fragilité structurelle : la croissance du FCF n'est ni régulière ni suffisamment solide." },
+        { type: 'h2', text: "Cigna (CI) : 7/10, le meilleur des trois mais des failles" },
+        { type: 'p', text: "Cigna obtient 7/10, ce qui en fait le meilleur des trois HMO dans notre screener. Mais des critères restent défaillants : la conversion des bénéfices en cash et la valorisation. Cigna a diversifié son modèle avec Express Scripts (gestion des médicaments) qui génère des revenus plus récurrents. Mais le coeur de métier d'assurance santé présente les mêmes fragilités structurelles que ses concurrents : marges FCF réelles limitées, exposition à la réglementation CMS et incertitudes politiques sur l'Affordable Care Act." },
+        { type: 'h2', text: "Pourquoi les HMO peinent dans notre méthode" },
+        { type: 'p', text: "La raison fondamentale est simple : les HMO ont des marges FCF réelles structurellement faibles. Ils collectent des primes mais paient les soins médicaux de leurs assurés. Les paiements médicaux (Medical Loss Ratio) absorbent en moyenne 80 à 90 cents de chaque dollar de prime. Ce qu'il reste pour l'administration, le marketing, et le profit est limité. La réglementation impose de maintenir ce ratio dans une fourchette étroite. Cela contraste fortement avec les assureurs de biens et de responsabilité (P&C) comme Cincinnati Financial (CINF), Kinsale Capital ou Erie Indemnity, ou les assureurs spécialisés comme AIZ ou SIGI, qui ont des modèles économiques très différents et passent régulièrement notre screener avec des scores élevés." },
+      ],
+      faq: [
+        { q: "Qu'est-ce qu'un HMO exactement ?", a: "Un HMO est un assureur santé américain qui gère un réseau de médecins et d'hôpitaux. Les assurés paient une prime mensuelle et consultent dans le réseau. L'assureur prend en charge les soins. Les principaux HMO sont UnitedHealth, Humana, Cigna, Aetna (CVS Health) et Centene." },
+        { q: "Pourquoi les assureurs P&C passent-ils mieux votre screener que les HMO ?", a: "Les assureurs P&C (biens et responsabilité) ont des modèles économiques différents : ils collectent des primes sur des risques (incendies, accidents, catastrophes) et investissent le flottant. Leurs marges FCF réelles sont structurellement plus élevées que celles des HMO. Des entreprises comme CINF, SIGI, Erie Indemnity ou Kinsale Capital atteignent des scores très élevés dans notre screener." },
+        { q: "Les scandales d'UNH affectent-ils votre analyse ?", a: "Notre analyse est principalement financière : nous évaluons la qualité des chiffres, pas les scandales. Mais les scandales ont un effet financier : ils créent des provisions, des coûts juridiques, une pression politique qui peut modifier la réglementation. Ces éléments se reflètent dans la trajectoire des marges et du FCF, que notre screener détecte." },
+        { q: "Peut-on investir dans les HMO malgré ces scores faibles ?", a: "Notre méthode n'interdit pas d'investir dans des entreprises avec des scores faibles : elle identifie des entreprises de qualité maximale à des prix raisonnables. Un score de 6/10 ou 7/10 peut correspondre à une entreprise correcte, pas à une entreprise d'élite. Certains investisseurs peuvent être attirés par les valorisations relatives des HMO ou par leur dividende. Ce n'est pas notre approche, mais ce n'est pas non plus un jugement universel." },
+        { q: "Y a-t-il des assureurs santé qui passent votre screener ?", a: "Oui. Certains assureurs plus spécialisés ou avec des modèles différents peuvent passer notre screener avec de meilleurs scores. Notre base comprend des assureurs spécialisés dans la P&C (Cincinnati Financial, Erie Indemnity, Kinsale, SIGI, AIZ) qui ont des profils de FCF bien différents des HMO traditionnels." },
+      ],
+      tags: ['HMO', 'UnitedHealth', 'Humana', 'Cigna', 'Assurance santé', 'Screener qualité', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "HMO: why UNH, Cigna, Humana fail our quality screen",
+      excerpt:
+        "American health insurers (HMOs) are stock market giants. Yet UnitedHealth, Humana and Cigna struggle in our quality screener. An explanation company by company of the failing criteria and structural reasons.",
+      metaDescription:
+        "UnitedHealth (UNH), Humana and Cigna put through our quality screener. Real scores, failing criteria and structural reasons why American HMOs are absent from our quality top.",
+      answer:
+        "HMOs (Health Maintenance Organizations) are the dominant health insurers in the United States. Despite their size, UnitedHealth, Humana and Cigna struggle in our quality screener. The reasons are structural: low real FCF margins, regulatory pressure, unpredictable claim cycles, and valuations above our entry targets.",
+      body: [
+        { type: 'ul', items: [
+          "HMOs are the dominant health insurers in the US, valued at hundreds of billions.",
+          "Despite their size, UNH, Humana and Cigna struggle in our quality screener.",
+          "UNH scores 6/10. Humana 5/10. Cigna 7/10.",
+          "The reasons are structural: low FCF margins, regulation, claim cycles.",
+          "P&C and life insurers pass our screener better than HMOs.",
+        ] },
+        { type: 'h2', text: "What is an HMO?" },
+        { type: 'p', text: "An HMO (Health Maintenance Organization) is a type of health insurer in the United States that operates as a managed network. Insured members choose a Primary Care Physician within the network, and the insurer covers care in exchange for a monthly premium. The main players are UnitedHealth Group (UNH), Cigna (CI) and Humana (HUM). These companies manage tens of millions of insured members and are valued at hundreds of billions of dollars. Yet in our quality screener, their scores are disappointing." },
+        { type: 'h2', text: "UnitedHealth (UNH): 6/10, scandals and margin pressure" },
+        { type: 'p', text: "UnitedHealth scores 6/10 in our screener. Its free cash flow per share is at a level where our entry target is set at $201.58, against a current price of $406.68, a 50% premium. Failing criteria include declining FCF per share, low cash profitability, margin compression, and high valuation. On the fundamental side, UNH faces structural headwinds: insurance scandals (claim denials, government investigations), growing political pressure on billing and prior authorization practices. These factors weigh on the perceived quality of the model." },
+        { type: 'h2', text: "Humana (HUM): 5/10, Medicare Advantage pressure" },
+        { type: 'p', text: "Humana scores 5/10. The company is highly concentrated in Medicare Advantage, the government health insurance program for American seniors. This market is regulated by the Centers for Medicare & Medicaid Services (CMS), which sets reimbursement rates annually. When CMS reduces its rates, Humana's margins collapse. The company has suffered several loss-making quarters due to this mechanism. Our screener identifies this structural fragility: FCF growth is neither regular nor sufficiently solid." },
+        { type: 'h2', text: "Cigna (CI): 7/10, the best of the three but with flaws" },
+        { type: 'p', text: "Cigna scores 7/10, making it the best of the three HMOs in our screener. But some criteria remain failing: the conversion of earnings to cash and valuation. Cigna has diversified its model with Express Scripts (drug management) which generates more recurring revenues. But the core health insurance business has the same structural fragilities as its competitors: limited real FCF margins, exposure to CMS regulation, and political uncertainties around the Affordable Care Act." },
+        { type: 'h2', text: "Why HMOs struggle in our method" },
+        { type: 'p', text: "The fundamental reason is simple: HMOs have structurally low real FCF margins. They collect premiums but pay their insured members' medical care. Medical payments (Medical Loss Ratio) absorb an average of 80 to 90 cents of every premium dollar. What remains for administration, marketing, and profit is limited. Regulation requires maintaining this ratio within a narrow range. This contrasts sharply with property and casualty (P&C) insurers like Cincinnati Financial (CINF), Kinsale Capital, or Erie Indemnity, or specialty insurers like AIZ or SIGI, which have very different business models and regularly pass our screener with high scores." },
+      ],
+      faq: [
+        { q: "What exactly is an HMO?", a: "An HMO is an American health insurer that manages a network of doctors and hospitals. Insured members pay a monthly premium and consult within the network. The insurer covers care. The main HMOs are UnitedHealth, Humana, Cigna, Aetna (CVS Health) and Centene." },
+        { q: "Why do P&C insurers pass your screener better than HMOs?", a: "P&C (property and casualty) insurers have different business models: they collect premiums on risks (fires, accidents, disasters) and invest the float. Their real FCF margins are structurally higher than HMOs. Companies like CINF, SIGI, Erie Indemnity or Kinsale Capital achieve very high scores in our screener." },
+        { q: "Do UNH's scandals affect your analysis?", a: "Our analysis is primarily financial: we evaluate the quality of the numbers, not the scandals. But scandals have a financial effect: they create provisions, legal costs, political pressure that can change regulation. These elements are reflected in the trajectory of margins and FCF, which our screener detects." },
+        { q: "Can one invest in HMOs despite these low scores?", a: "Our method does not forbid investing in companies with low scores: it identifies maximum quality companies at reasonable prices. A score of 6/10 or 7/10 can correspond to a decent company, not an elite one. Some investors may be attracted by HMO relative valuations or dividends. This is not our approach, but it is not a universal judgment either." },
+        { q: "Are there health insurers that pass your screener?", a: "Yes. Some more specialized insurers or those with different models can pass our screener with better scores. Our database includes specialty P&C insurers (Cincinnati Financial, Erie Indemnity, Kinsale, SIGI, AIZ) that have very different FCF profiles from traditional HMOs." },
+      ],
+      tags: ['HMO', 'UnitedHealth', 'Humana', 'Cigna', 'Health insurance', 'Quality screener', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "HMO: por qué UNH, Cigna, Humana no pasan nuestro screener",
+      excerpt:
+        "Los aseguradores de salud americanos (HMO) son gigantes bursátiles. Sin embargo, UnitedHealth, Humana y Cigna tienen dificultades en nuestro screener de calidad. Explicación empresa por empresa de los criterios fallidos y las razones estructurales.",
+      metaDescription:
+        "UnitedHealth (UNH), Humana y Cigna analizados con nuestro screener de calidad. Puntuaciones reales, criterios fallidos y razones estructurales por las que los HMO americanos están ausentes de nuestro top de calidad.",
+      answer:
+        "Los HMO (Health Maintenance Organizations) son los aseguradores de salud dominantes en Estados Unidos. A pesar de su tamaño, UnitedHealth, Humana y Cigna tienen dificultades en nuestro screener de calidad. Las razones son estructurales: bajos márgenes FCF reales, presión regulatoria, ciclos de siniestros imprevisibles y valoraciones superiores a nuestros objetivos de entrada.",
+      body: [
+        { type: 'ul', items: [
+          "Los HMO son los aseguradores de salud dominantes en EE.UU., valorados en cientos de miles de millones.",
+          "A pesar de su tamaño, UNH, Humana y Cigna tienen dificultades en nuestro screener de calidad.",
+          "UNH obtiene 6/10. Humana 5/10. Cigna 7/10.",
+          "Las razones son estructurales: bajos márgenes FCF, regulación, ciclos de siniestros.",
+          "Los aseguradores P&C y de vida pasan mejor nuestro screener que los HMO.",
+        ] },
+        { type: 'h2', text: "¿Qué es un HMO?" },
+        { type: 'p', text: "Un HMO (Health Maintenance Organization) es un tipo de asegurador de salud en Estados Unidos que funciona como una red gestionada. Los asegurados eligen un médico de cabecera dentro de la red (Primary Care Physician), y el asegurador cubre la atención a cambio de una prima mensual. Los principales actores son UnitedHealth Group (UNH), Cigna (CI) y Humana (HUM). Estas empresas gestionan decenas de millones de asegurados y valen cientos de miles de millones de dólares. Sin embargo, en nuestro screener de calidad, sus puntuaciones son decepcionantes." },
+        { type: 'h2', text: "UnitedHealth (UNH): 6/10, escándalos y presión sobre márgenes" },
+        { type: 'p', text: "UnitedHealth obtiene 6/10 en nuestro screener. Su free cash flow por acción está en un nivel donde nuestro objetivo de entrada es de 201,58 $, frente a un precio actual de 406,68 $, una sobrevaloración del 50%. Los criterios fallidos incluyen la caída del FCF por acción, baja rentabilidad en cash, compresión de márgenes y valoración elevada. En el plano fundamental, UNH enfrenta vientos en contra estructurales: escándalos de seguros (denegaciones de reembolso, investigaciones gubernamentales), creciente presión política sobre las prácticas de facturación y autorización previa." },
+        { type: 'h2', text: "Humana (HUM): 5/10, presión en Medicare Advantage" },
+        { type: 'p', text: "Humana obtiene 5/10. La empresa está muy concentrada en Medicare Advantage, el programa gubernamental de seguro de salud para los jubilados americanos. Este mercado está regulado por el Centro de Servicios de Medicare y Medicaid (CMS), que fija las tarifas de reembolso cada año. Cuando el CMS reduce sus tasas, los márgenes de Humana se desploman. La empresa ha sufrido varios trimestres de pérdidas vinculadas a este mecanismo. Nuestro screener identifica esta fragilidad estructural: el crecimiento del FCF no es ni regular ni suficientemente sólido." },
+        { type: 'h2', text: "Cigna (CI): 7/10, la mejor de las tres pero con fallos" },
+        { type: 'p', text: "Cigna obtiene 7/10, lo que la convierte en la mejor de los tres HMO en nuestro screener. Pero algunos criterios siguen fallando: la conversión de beneficios en cash y la valoración. Cigna ha diversificado su modelo con Express Scripts (gestión de medicamentos) que genera ingresos más recurrentes. Pero el núcleo del negocio de seguros de salud presenta las mismas fragilidades estructurales que sus competidores: bajos márgenes FCF reales, exposición a la regulación del CMS e incertidumbres políticas en torno al Affordable Care Act." },
+        { type: 'h2', text: "Por qué los HMO tienen dificultades en nuestro método" },
+        { type: 'p', text: "La razón fundamental es simple: los HMO tienen márgenes FCF reales estructuralmente bajos. Cobran primas pero pagan la atención médica de sus asegurados. Los pagos médicos (Medical Loss Ratio) absorben en promedio entre 80 y 90 céntimos de cada dólar de prima. Lo que queda para administración, marketing y beneficio es limitado. La regulación obliga a mantener este ratio en un rango estrecho. Esto contrasta fuertemente con los aseguradores de bienes y responsabilidad (P&C) como Cincinnati Financial (CINF), Kinsale Capital o Erie Indemnity, o los aseguradores especializados como AIZ o SIGI, que tienen modelos económicos muy diferentes y pasan regularmente nuestro screener con puntuaciones altas." },
+      ],
+      faq: [
+        { q: "¿Qué es exactamente un HMO?", a: "Un HMO es un asegurador de salud americano que gestiona una red de médicos y hospitales. Los asegurados pagan una prima mensual y consultan dentro de la red. El asegurador cubre la atención. Los principales HMO son UnitedHealth, Humana, Cigna, Aetna (CVS Health) y Centene." },
+        { q: "¿Por qué los aseguradores P&C pasan mejor su screener que los HMO?", a: "Los aseguradores P&C (bienes y responsabilidad) tienen modelos económicos diferentes: cobran primas sobre riesgos (incendios, accidentes, catástrofes) e invierten el float. Sus márgenes FCF reales son estructuralmente más altos que los HMO. Empresas como CINF, SIGI, Erie Indemnity o Kinsale Capital alcanzan puntuaciones muy altas en nuestro screener." },
+        { q: "¿Los escándalos de UNH afectan su análisis?", a: "Nuestro análisis es principalmente financiero: evaluamos la calidad de los números, no los escándalos. Pero los escándalos tienen un efecto financiero: crean provisiones, costes jurídicos, presión política que puede cambiar la regulación. Estos elementos se reflejan en la trayectoria de los márgenes y el FCF, que nuestro screener detecta." },
+        { q: "¿Se puede invertir en HMO pese a estas bajas puntuaciones?", a: "Nuestro método no prohíbe invertir en empresas con bajas puntuaciones: identifica empresas de máxima calidad a precios razonables. Una puntuación de 6/10 o 7/10 puede corresponder a una empresa correcta, no a una empresa de élite. Algunos inversores pueden sentirse atraídos por las valoraciones relativas de los HMO o por su dividendo. No es nuestro enfoque, pero tampoco es un juicio universal." },
+        { q: "¿Hay aseguradores de salud que pasen su screener?", a: "Sí. Algunos aseguradores más especializados o con modelos diferentes pueden pasar nuestro screener con mejores puntuaciones. Nuestra base incluye aseguradores P&C especializados (Cincinnati Financial, Erie Indemnity, Kinsale, SIGI, AIZ) que tienen perfiles FCF muy diferentes de los HMO tradicionales." },
+      ],
+      tags: ['HMO', 'UnitedHealth', 'Humana', 'Cigna', 'Seguro de salud', 'Screener calidad', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+const articleALLE: Article = {
+  slug: 'allegion-alle-securite-acces-qualite-screener-lubin',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'ALLE',
+  content: {
+    fr: {
+      title: "Allegion (ALLE) : verrous et accès numériques, qualité reconnue",
+      excerpt:
+        "Allegion est le leader mondial des serrures intelligentes et des systèmes d'accès physique. Avec un score de 9/10 dans notre screener, la qualité est reconnue. Mais le prix actuel de 130,93 $ dépasse notre cible d'entrée de 106,41 $ de 18,7 %.",
+      metaDescription:
+        "Allegion (ALLE) : serrures intelligentes, systèmes d'accès, score 9/10 dans notre screener qualité. Prix actuel 130,93 $, cible d'entrée 106,41 $. Analyse qualité et valorisation selon notre méthode Lubin.",
+      answer:
+        "Allegion (ALLE) est le leader mondial des serrures intelligentes et des systèmes d'accès physique (marques Schlage, Von Duprin, LCN). Dans notre screener, l'entreprise obtient 9/10 : seul le critère de délai d'encaissement est légèrement au-dessus du seuil. Son FCF par action s'élève à 7,52 $. Mais le prix actuel de 130,93 $ est 18,7 % au-dessus de notre cible d'entrée de 106,41 $.",
+      body: [
+        { type: 'ul', items: [
+          "Allegion obtient 9/10 dans notre screener qualité.",
+          "Free cash flow par action : 7,52 $. Prix actuel : 130,93 $.",
+          "Notre cible d'entrée est fixée à 106,41 $ : le prix actuel est 18,7 % au-dessus.",
+          "Seul le critère DSO (délai d'encaissement) est légèrement au-dessus du seuil.",
+          "Duopole avec ASSA ABLOY sur le marché nord-américain des serrures intelligentes.",
+        ] },
+        { type: 'h2', text: "Qui est Allegion ?" },
+        { type: 'p', text: "Allegion est une société irlandaise-américaine spécialisée dans les systèmes de sécurité physique : serrures intelligentes, systèmes d'accès, contrôle de porte. Ses marques phares sont Schlage (serrures résidentielles et commerciales), Von Duprin (barres antipanique) et LCN (ferme-portes). L'entreprise a été scindée d'Ingersoll Rand en 2013 et est cotée au NYSE. Elle opère principalement en Amérique du Nord (environ 80 % des revenus) et dans 130 pays au total. Son marché principal est l'accès sécurisé dans les bâtiments commerciaux, les établissements de santé et l'éducation." },
+        { type: 'h2', text: "Un score de 9/10 : presque parfait" },
+        { type: 'p', text: "Dans notre screener, Allegion obtient 9 critères sur 10. Le seul critère légèrement défaillant est le DSO (Days Sales Outstanding), le délai moyen d'encaissement des créances clients. Ce critère est légèrement au-dessus de notre seuil, ce qui suggère que les clients d'Allegion mettent un peu plus de temps que la norme de notre base à régler leurs factures. Ce n'est pas un signal d'alarme majeur, mais c'est ce qui empêche l'entreprise d'atteindre le score parfait. Tous les autres critères sont validés : croissance du FCF, marges, rachats d'actions, profitabilité cash, valorisation relative au FCF." },
+        { type: 'h2', text: "Le modèle économique : duopole et revenus récurrents" },
+        { type: 'p', text: "Allegion opère dans un duopole de facto avec le suédois ASSA ABLOY sur le marché nord-américain des serrures intelligentes et des systèmes d'accès. Cette position de leader confère à l'entreprise un pouvoir de tarification significatif. Le modèle économique génère des revenus récurrents via deux mécanismes : les abonnements aux services cloud (gestion des accès à distance, badges numériques) et le remplacement régulier des serrures et des systèmes d'accès (cycle de vie de 7 à 10 ans en moyenne). Ces caractéristiques structurelles expliquent pourquoi le FCF par action s'élève à 7,52 $ et la qualité de conversion des bénéfices en cash est élevée." },
+        { type: 'h2', text: "18,7 % au-dessus de notre cible : attente requise" },
+        { type: 'p', text: "Notre cible d'entrée, calculée à partir du FCF par action (7,52 $) et d'un multiple cohérent avec la qualité de l'entreprise, ressort à 106,41 $. Le prix actuel de 130,93 $ est 18,7 % au-dessus. Ce n'est pas la surcote la plus élevée de notre base (Shopify est à 56 %, Apple à 54 %) mais c'est suffisant pour que notre méthode ne donne pas de signal d'entrée aujourd'hui. La décote requise est de 18,7 % : modeste par rapport à d'autres, mais discipline oblige." },
+        { type: 'h2', text: "Allegion dans le contexte sécurité physique" },
+        { type: 'p', text: "Le marché des serrures intelligentes et des systèmes d'accès est en croissance structurelle. La numérisation des bâtiments (smart buildings), la demande de sécurité dans les établissements de santé et d'éducation, et la transition vers les accès sans clé physique sont des tendances de long terme qui bénéficient directement à Allegion. Sa position dans ce duopole lui permet de bénéficier de ces tendances avec une concurrence limitée. C'est un profil qui mérite surveillance : si le prix revient vers notre cible, l'action deviendra attractive selon notre méthode." },
+      ],
+      faq: [
+        { q: "Qu'est-ce qu'Allegion fait concrètement ?", a: "Allegion conçoit et commercialise des serrures intelligentes, des systèmes de contrôle d'accès, des barres antipanique et des ferme-portes. Ses marques principales sont Schlage, Von Duprin et LCN. Elle vend principalement aux bâtiments commerciaux, hôpitaux, écoles et immeubles résidentiels haut de gamme." },
+        { q: "Qu'est-ce que le DSO et pourquoi est-il défaillant chez Allegion ?", a: "Le DSO (Days Sales Outstanding) mesure le nombre de jours moyen que met une entreprise à encaisser ses créances clients. Un DSO élevé signifie que les clients paient lentement, ce qui peut indiquer une pression commerciale ou des clients publics (qui paient plus lentement). Chez Allegion, le DSO est légèrement au-dessus de notre seuil, probablement lié à sa clientèle de grands comptes institutionnels (hôpitaux, écoles). Ce n'est pas un signal critique mais c'est le seul critère qui l'empêche d'atteindre le score parfait." },
+        { q: "Qu'est-ce qu'un duopole et pourquoi c'est un avantage ?", a: "Un duopole est un marché dominé par deux acteurs principaux. Dans le cas d'Allegion, le marché nord-américain des serrures intelligentes est dominé par Allegion et ASSA ABLOY. Cette structure de marché réduit la concurrence sur les prix et permet à Allegion de maintenir des marges élevées. C'est l'équivalent d'un moat (fossé concurrentiel) structurel." },
+        { q: "Allegion est-elle exposée à la concurrence de la tech (Google, Apple) ?", a: "Oui, partiellement. Google (Nest) et Apple (HomeKit) ont des ambitions dans la domotique et les serrures connectées. Mais le marché commercial et institutionnel — la majorité des revenus d'Allegion — est très différent du résidentiel grand public. Les normes de sécurité, les certifications et les relations institutionnelles créent des barrières à l'entrée importantes pour les acteurs tech." },
+        { q: "Quand Allegion pourrait-elle être en zone d'achat ?", a: "Allegion entrerait dans notre zone d'achat si son prix descend à 106,41 $ ou en dessous. Cela représente une baisse de 18,7 % par rapport au prix actuel. Cette décote peut arriver lors d'une correction de marché, d'une publication de résultats décevante, ou d'une révision à la baisse des anticipations de croissance. Notre méthode attend ce moment sans forcer l'entrée." },
+      ],
+      tags: ['Allegion', 'ALLE', 'Serrures intelligentes', 'Sécurité physique', 'Screener qualité', 'Free cash flow', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "Allegion (ALLE): smart locks and digital access, top quality",
+      excerpt:
+        "Allegion is the global leader in smart locks and physical access systems. With a score of 9/10 in our screener, the quality is recognized. But the current price of $130.93 exceeds our entry target of $106.41 by 18.7%.",
+      metaDescription:
+        "Allegion (ALLE): smart locks, access systems, 9/10 score in our quality screener. Current price $130.93, entry target $106.41. Quality and valuation analysis using our Lubin method.",
+      answer:
+        "Allegion (ALLE) is the global leader in smart locks and physical access systems (brands: Schlage, Von Duprin, LCN). In our screener, the company scores 9/10: only the cash collection delay criterion is slightly above our threshold. Its FCF per share stands at $7.52. But the current price of $130.93 is 18.7% above our entry target of $106.41.",
+      body: [
+        { type: 'ul', items: [
+          "Allegion scores 9/10 in our quality screener.",
+          "Free cash flow per share: $7.52. Current price: $130.93.",
+          "Our entry target is set at $106.41: the current price is 18.7% above.",
+          "Only the DSO (cash collection delay) criterion is slightly above our threshold.",
+          "Duopoly with ASSA ABLOY on the North American smart lock market.",
+        ] },
+        { type: 'h2', text: "Who is Allegion?" },
+        { type: 'p', text: "Allegion is an Irish-American company specializing in physical security systems: smart locks, access systems, door control. Its flagship brands are Schlage (residential and commercial locks), Von Duprin (panic hardware), and LCN (door closers). The company was spun off from Ingersoll Rand in 2013 and is listed on the NYSE. It operates primarily in North America (approximately 80% of revenues) and in 130 countries in total. Its main market is secure access in commercial buildings, healthcare facilities, and educational institutions." },
+        { type: 'h2', text: "A score of 9/10: almost perfect" },
+        { type: 'p', text: "In our screener, Allegion passes 9 out of 10 criteria. The only slightly failing criterion is DSO (Days Sales Outstanding), the average days it takes to collect customer receivables. This criterion is slightly above our threshold, suggesting that Allegion's customers take slightly longer than our database norm to pay their invoices. This is not a major red flag, but it prevents the company from achieving a perfect score. All other criteria are validated: FCF growth, margins, share buybacks, cash profitability, valuation relative to FCF." },
+        { type: 'h2', text: "The business model: duopoly and recurring revenues" },
+        { type: 'p', text: "Allegion operates in a de facto duopoly with Swedish company ASSA ABLOY on the North American smart lock and access systems market. This leadership position gives the company significant pricing power. The business model generates recurring revenues through two mechanisms: subscriptions to cloud services (remote access management, digital badges) and the regular replacement of locks and access systems (average lifecycle of 7 to 10 years). These structural characteristics explain why the FCF per share stands at $7.52 and the quality of earnings-to-cash conversion is high." },
+        { type: 'h2', text: "18.7% above our target: patience required" },
+        { type: 'p', text: "Our entry target, calculated from the FCF per share ($7.52) and a multiple consistent with the company's quality, stands at $106.41. The current price of $130.93 is 18.7% above. This is not the highest premium in our database (Shopify is at 56%, Apple at 54%) but it is sufficient for our method not to give an entry signal today. The required discount is 18.7%: modest compared to others, but discipline requires consistency." },
+        { type: 'h2', text: "Allegion in the physical security context" },
+        { type: 'p', text: "The smart lock and access systems market is in structural growth. The digitization of buildings (smart buildings), the demand for security in healthcare and educational facilities, and the transition to keyless physical access are long-term trends that directly benefit Allegion. Its position in this duopoly allows it to benefit from these trends with limited competition. This is a profile worth watching: if the price returns toward our target, the stock will become attractive under our method." },
+      ],
+      faq: [
+        { q: "What does Allegion actually do?", a: "Allegion designs and markets smart locks, access control systems, panic hardware, and door closers. Its main brands are Schlage, Von Duprin, and LCN. It sells primarily to commercial buildings, hospitals, schools, and high-end residential properties." },
+        { q: "What is DSO and why is it slightly failing at Allegion?", a: "DSO (Days Sales Outstanding) measures the average number of days a company takes to collect its customer receivables. A high DSO means customers pay slowly, which may indicate commercial pressure or public-sector customers (who pay more slowly). At Allegion, the DSO is slightly above our threshold, probably related to its institutional customer base (hospitals, schools). It is not a critical signal but it is the only criterion preventing it from achieving a perfect score." },
+        { q: "What is a duopoly and why is it an advantage?", a: "A duopoly is a market dominated by two main players. In Allegion's case, the North American smart lock market is dominated by Allegion and ASSA ABLOY. This market structure reduces price competition and allows Allegion to maintain high margins. This is equivalent to a structural moat (competitive moat)." },
+        { q: "Is Allegion exposed to competition from tech companies (Google, Apple)?", a: "Yes, partially. Google (Nest) and Apple (HomeKit) have ambitions in home automation and smart locks. But the commercial and institutional market — the majority of Allegion's revenues — is very different from the mass residential market. Security standards, certifications, and institutional relationships create significant barriers to entry for tech players." },
+        { q: "When could Allegion be in our buy zone?", a: "Allegion would enter our buy zone if its price falls to $106.41 or below. This represents an 18.7% decline from the current price. This discount can occur during a market correction, a disappointing earnings release, or a downward revision of growth expectations. Our method waits for this moment without forcing entry." },
+      ],
+      tags: ['Allegion', 'ALLE', 'Smart locks', 'Physical security', 'Quality screener', 'Free cash flow', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "Allegion (ALLE): cerraduras y acceso digital, alta calidad",
+      excerpt:
+        "Allegion es el líder mundial en cerraduras inteligentes y sistemas de acceso físico. Con una puntuación de 9/10 en nuestro screener, la calidad está reconocida. Pero el precio actual de 130,93 $ supera nuestro objetivo de entrada de 106,41 $ en un 18,7%.",
+      metaDescription:
+        "Allegion (ALLE): cerraduras inteligentes, sistemas de acceso, puntuación 9/10 en nuestro screener de calidad. Precio actual 130,93 $, objetivo de entrada 106,41 $. Análisis de calidad y valoración según nuestro método Lubin.",
+      answer:
+        "Allegion (ALLE) es el líder mundial en cerraduras inteligentes y sistemas de acceso físico (marcas: Schlage, Von Duprin, LCN). En nuestro screener, la empresa obtiene 9/10: solo el criterio de plazo de cobro está ligeramente por encima de nuestro umbral. Su FCF por acción es de 7,52 $. Pero el precio actual de 130,93 $ está un 18,7% por encima de nuestro objetivo de entrada de 106,41 $.",
+      body: [
+        { type: 'ul', items: [
+          "Allegion obtiene 9/10 en nuestro screener de calidad.",
+          "Free cash flow por acción: 7,52 $. Precio actual: 130,93 $.",
+          "Nuestro objetivo de entrada es de 106,41 $: el precio actual está un 18,7% por encima.",
+          "Solo el criterio DSO (plazo de cobro) está ligeramente por encima de nuestro umbral.",
+          "Duopolio con ASSA ABLOY en el mercado norteamericano de cerraduras inteligentes.",
+        ] },
+        { type: 'h2', text: "¿Quién es Allegion?" },
+        { type: 'p', text: "Allegion es una empresa irlandesa-americana especializada en sistemas de seguridad física: cerraduras inteligentes, sistemas de acceso, control de puertas. Sus marcas insignia son Schlage (cerraduras residenciales y comerciales), Von Duprin (barras antipánico) y LCN (cierrapuertas). La empresa se escindió de Ingersoll Rand en 2013 y cotiza en el NYSE. Opera principalmente en América del Norte (aproximadamente el 80% de los ingresos) y en 130 países en total. Su mercado principal es el acceso seguro en edificios comerciales, centros de salud e instituciones educativas." },
+        { type: 'h2', text: "Una puntuación de 9/10: casi perfecta" },
+        { type: 'p', text: "En nuestro screener, Allegion supera 9 de los 10 criterios. El único criterio ligeramente fallido es el DSO (Days Sales Outstanding), el plazo medio de cobro de las cuentas a cobrar de clientes. Este criterio está ligeramente por encima de nuestro umbral, lo que sugiere que los clientes de Allegion tardan algo más que la norma de nuestra base en pagar sus facturas. No es una señal de alarma importante, pero impide a la empresa alcanzar la puntuación perfecta. Todos los demás criterios están validados: crecimiento del FCF, márgenes, recompras de acciones, rentabilidad en cash, valoración relativa al FCF." },
+        { type: 'h2', text: "El modelo económico: duopolio e ingresos recurrentes" },
+        { type: 'p', text: "Allegion opera en un duopolio de facto con la sueca ASSA ABLOY en el mercado norteamericano de cerraduras inteligentes y sistemas de acceso. Esta posición de liderazgo confiere a la empresa un poder de fijación de precios significativo. El modelo económico genera ingresos recurrentes a través de dos mecanismos: las suscripciones a servicios cloud (gestión de accesos a distancia, tarjetas digitales) y la sustitución regular de cerraduras y sistemas de acceso (ciclo de vida medio de 7 a 10 años). Estas características estructurales explican por qué el FCF por acción es de 7,52 $ y la calidad de conversión de beneficios en cash es elevada." },
+        { type: 'h2', text: "Un 18,7% por encima de nuestro objetivo: paciencia requerida" },
+        { type: 'p', text: "Nuestro objetivo de entrada, calculado a partir del FCF por acción (7,52 $) y un múltiplo coherente con la calidad de la empresa, es de 106,41 $. El precio actual de 130,93 $ está un 18,7% por encima. No es la sobrevaloración más alta de nuestra base (Shopify está al 56%, Apple al 54%) pero es suficiente para que nuestro método no dé hoy una señal de entrada. La descuento requerido es del 18,7%: modesto en comparación con otros, pero la disciplina exige coherencia." },
+        { type: 'h2', text: "Allegion en el contexto de la seguridad física" },
+        { type: 'p', text: "El mercado de las cerraduras inteligentes y los sistemas de acceso está en crecimiento estructural. La digitalización de los edificios (smart buildings), la demanda de seguridad en centros de salud e instituciones educativas, y la transición hacia los accesos sin llave física son tendencias a largo plazo que benefician directamente a Allegion. Su posición en este duopolio le permite beneficiarse de estas tendencias con una competencia limitada. Es un perfil que merece seguimiento: si el precio vuelve hacia nuestro objetivo, la acción se volverá atractiva según nuestro método." },
+      ],
+      faq: [
+        { q: "¿Qué hace concretamente Allegion?", a: "Allegion diseña y comercializa cerraduras inteligentes, sistemas de control de acceso, barras antipánico y cierrapuertas. Sus principales marcas son Schlage, Von Duprin y LCN. Vende principalmente a edificios comerciales, hospitales, escuelas e inmuebles residenciales de alto nivel." },
+        { q: "¿Qué es el DSO y por qué falla ligeramente en Allegion?", a: "El DSO (Days Sales Outstanding) mide el número medio de días que tarda una empresa en cobrar sus cuentas a cobrar de clientes. Un DSO alto significa que los clientes pagan lentamente, lo que puede indicar presión comercial o clientes del sector público (que pagan más lentamente). En Allegion, el DSO está ligeramente por encima de nuestro umbral, probablemente relacionado con su cartera de grandes cuentas institucionales (hospitales, escuelas). No es una señal crítica, pero es el único criterio que le impide alcanzar la puntuación perfecta." },
+        { q: "¿Qué es un duopolio y por qué es una ventaja?", a: "Un duopolio es un mercado dominado por dos actores principales. En el caso de Allegion, el mercado norteamericano de cerraduras inteligentes está dominado por Allegion y ASSA ABLOY. Esta estructura de mercado reduce la competencia en precios y permite a Allegion mantener márgenes elevados. Es el equivalente de un moat (foso competitivo) estructural." },
+        { q: "¿Está Allegion expuesta a la competencia de empresas tech (Google, Apple)?", a: "Sí, parcialmente. Google (Nest) y Apple (HomeKit) tienen ambiciones en domótica y cerraduras conectadas. Pero el mercado comercial e institucional — la mayoría de los ingresos de Allegion — es muy diferente del residencial masivo. Las normas de seguridad, las certificaciones y las relaciones institucionales crean barreras de entrada importantes para los actores tech." },
+        { q: "¿Cuándo podría Allegion estar en zona de compra?", a: "Allegion entraría en nuestra zona de compra si su precio cae a 106,41 $ o por debajo. Esto representa una caída del 18,7% respecto al precio actual. Este descuento puede producirse durante una corrección del mercado, una publicación de resultados decepcionante, o una revisión a la baja de las expectativas de crecimiento. Nuestro método espera ese momento sin forzar la entrada." },
+      ],
+      tags: ['Allegion', 'ALLE', 'Cerraduras inteligentes', 'Seguridad física', 'Screener calidad', 'Free cash flow', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
