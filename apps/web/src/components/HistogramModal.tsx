@@ -3,6 +3,7 @@ import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine,
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
+import { currentLocale } from '../i18n/index.js';
 import type { TimeseriesPeriod, CriterionHistogram, TimeseriesPoint } from '@lubin/shared';
 import { PERIOD_YEARS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
@@ -249,8 +250,8 @@ function formatCompact(v: number, unit: CriterionHistogram['unit']): string {
 function formatFull(v: number, unit: CriterionHistogram['unit'], currency = 'USD'): string {
   if (unit === 'percent') return v.toFixed(2) + '%';
   if (unit === 'multiple') return v.toFixed(2) + '×';
-  if (unit === 'count') return v.toLocaleString('fr-FR');
-  return `${v.toLocaleString('fr-FR', { maximumFractionDigits: 0 })} ${currency}`;
+  if (unit === 'count') return v.toLocaleString(currentLocale());
+  return `${v.toLocaleString(currentLocale(), { maximumFractionDigits: 0 })} ${currency}`;
 }
 
 function formatQuarter(isoDate: string): string {

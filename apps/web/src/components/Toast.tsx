@@ -10,6 +10,7 @@
  * Seul `ToastProvider` lui-même consomme le state (pour rendre la stack).
  */
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import './Toast.css';
 
 export type ToastKind = 'info' | 'success' | 'error' | 'warn';
@@ -28,16 +29,17 @@ interface ToastActions {
 const ToastActionsContext = createContext<ToastActions | null>(null);
 
 export function ToastProvider({ children }: { children: ReactNode }) {
+  const { t } = useTranslation();
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   const push = useCallback((kind: ToastKind, message: string) => {
     const id = Date.now() + Math.random();
     setToasts(prev => [...prev, { id, kind, message }]);
-    setTimeout(() => setToasts(prev => prev.filter(t => t.id !== id)), 4000);
+    setTimeout(() => setToasts(prev => prev.filter(item => item.id !== id)), 4000);
   }, []);
 
   const dismiss = useCallback((id: number) => {
-    setToasts(prev => prev.filter(t => t.id !== id));
+    setToasts(prev => prev.filter(item => item.id !== id));
   }, []);
 
   // Objet stable : ne change JAMAIS car push et dismiss sont stable (useCallback []).
@@ -47,10 +49,10 @@ export function ToastProvider({ children }: { children: ReactNode }) {
     <ToastActionsContext.Provider value={actions}>
       {children}
       <div className="toast-stack">
-        {toasts.map(t => (
-          <div key={t.id} className={`toast toast-${t.kind}`}>
-            <span className="toast-message">{t.message}</span>
-            <button className="toast-close" onClick={() => dismiss(t.id)} aria-label="Fermer">×</button>
+        {toasts.map(toast => (
+          <div key={toast.id} className={`toast toast-${toast.kind}`}>
+            <span className="toast-message">{toast.message}</span>
+            <button className="toast-close" onClick={() => dismiss(toast.id)} aria-label={t('common.close')}>×</button>
           </div>
         ))}
       </div>

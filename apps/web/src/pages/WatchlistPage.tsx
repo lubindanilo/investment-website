@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { currentLocale } from '../i18n/index.js';
 import type { WatchlistEntry } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
@@ -41,7 +42,7 @@ function sortItems(items: WatchlistEntry[], { key, dir }: SortState): WatchlistE
 function formatEarnings(iso?: string | null): string {
   if (!iso) return '—';
   const d = new Date(iso + 'T12:00:00Z');
-  return Number.isNaN(d.getTime()) ? '—' : d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+  return Number.isNaN(d.getTime()) ? '—' : d.toLocaleDateString(currentLocale(), { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
 // Limite watchlist côté Free — synchro avec apps/api/src/routes/watchlist.ts.

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { currentLang } from '../i18n/index.js';
 import './TradingViewChart.css';
 
 const RANGES = ['1M', '3M', '6M', '1A', '5A'] as const;
@@ -13,7 +14,7 @@ export function TradingViewChart({ ticker }: { ticker: string }) {
   const src = `https://s.tradingview.com/widgetembed/?frameElementId=tv_${ticker}`
     + `&symbol=${encodeURIComponent(ticker)}`
     + `&interval=D&hidesidetoolbar=1&hidetoptoolbar=1&hidelegend=0&saveimage=0`
-    + `&theme=light&style=3&range=${tvRange}&locale=fr&utm_source=lubin-investment`;
+    + `&theme=light&style=3&range=${tvRange}&locale=${currentLang()}&utm_source=lubin-investment`;
 
   return (
     <div className="chart-section">

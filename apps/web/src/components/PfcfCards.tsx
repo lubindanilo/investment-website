@@ -60,7 +60,7 @@ export function PfcfRatioCard({ pfcfTTM, pfcfPercentile, sectorBenchmark, ticker
             type="button"
             className={'crit-hist-btn' + (!isPro ? ' crit-hist-btn-pro' : '')}
             onClick={() => { if (!isPro) { setUpgrade(true); return; } setHistOpen(true); }}
-            title={!isPro ? 'Graphique détaillé — Pro' : undefined}
+            title={!isPro ? t('chart.proTooltip') : undefined}
           >
             <Icon name="bars" size={13} /> {t('valuation.pfcfHistory')}
             {!isPro && <span className="crit-pro-tag">PRO</span>}

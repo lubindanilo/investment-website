@@ -136,7 +136,7 @@ export function CccChartModal({ ticker, onClose }: Props) {
                   />
                   <YAxis
                     tick={{ fontSize: 10, fill: 'var(--text3)' }}
-                    tickFormatter={v => `${v} j`}
+                    tickFormatter={v => `${v} ${t('chart.unitDays')}`}
                     width={50}
                   />
                   <Tooltip

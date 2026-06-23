@@ -78,7 +78,7 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
               type="button"
               className={'crit-hist-btn' + (isProChart && !isPro ? ' crit-hist-btn-pro' : '')}
               onClick={onChartClick}
-              title={isProChart && !isPro ? 'Graphique détaillé — Pro' : undefined}
+              title={isProChart && !isPro ? t('chart.proTooltip') : undefined}
             >
               <Icon name="bars" size={13} /> {t('criteria.history')}
               {isProChart && !isPro && <span className="crit-pro-tag">PRO</span>}

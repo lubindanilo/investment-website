@@ -12,6 +12,7 @@ import {
   LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine,
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
+import { currentLocale } from '../i18n/index.js';
 import type { TimeseriesPeriod, CashRoceHistoryPoint } from '@lubin/shared';
 import { PERIOD_YEARS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
@@ -212,12 +213,12 @@ function Stat({ label, value, accent }: { label: string; value: string; accent?:
 function formatDateTick(isoDate: string, period: TimeseriesPeriod): string {
   if (period === '1Y') {
     const d = new Date(isoDate);
-    return d.toLocaleDateString('fr-FR', { month: 'short' });
+    return d.toLocaleDateString(currentLocale(), { month: 'short' });
   }
   return isoDate.slice(2, 7).replace('-', '/');
 }
 
 function formatDateFull(isoDate: string): string {
   const d = new Date(isoDate);
-  return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+  return d.toLocaleDateString(currentLocale(), { day: '2-digit', month: 'short', year: 'numeric' });
 }

@@ -79,6 +79,17 @@
     "ctaSeeAnalysis": "Ver el análisis de {{ticker}}",
     "ctaAnalyzeStock": "Analizar una acción"
   },
+  "chart": {
+    "proTooltip": "Gráfico detallado — Pro",
+    "unitDays": "d"
+  },
+  "news": {
+    "title": "Noticias recientes — {{ticker}}",
+    "subtitle": "Últimos 60 días"
+  },
+  "screener": {
+    "loadMore": "Cargar más"
+  },
   "scoreCard": {
     "inWatchlist": "En tus favoritos",
     "addWatchlist": "Añadir a favoritos"

@@ -15,6 +15,17 @@
     "ctaSeeAnalysis": "See {{ticker}} analysis",
     "ctaAnalyzeStock": "Analyze a stock"
   },
+  "chart": {
+    "proTooltip": "Detailed chart — Pro",
+    "unitDays": "d"
+  },
+  "news": {
+    "title": "Latest news — {{ticker}}",
+    "subtitle": "Last 60 days"
+  },
+  "screener": {
+    "loadMore": "Load more"
+  },
   "scoreCard": {
     "inWatchlist": "In your watchlist",
     "addWatchlist": "Add to watchlist"
