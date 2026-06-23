@@ -30684,7 +30684,611 @@ const articleALLE: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE];
+
+const articleSEZL: Article = {
+  slug: 'sezzle-sezl-fintech-bnpl-rentable-zone-achat',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'SEZL',
+  content: {
+    fr: {
+      title: "Sezzle (SEZL) : fintech BNPL rentable en zone d'achat",
+      excerpt:
+        "Sezzle est une fintech américaine Buy Now Pay Later qui, contrairement à Affirm ou Klarna, génère un free cash flow positif. Score parfait dans notre screener. Prix actuel : 156,47 $, légèrement sous notre cible de 164,68 $.",
+      metaDescription:
+        "Sezzle (SEZL) : fintech BNPL américaine rentable, score parfait dans notre screener qualité. FCF par action 6,66 $, cible d'entrée 164,68 $, prix actuel 156,47 $. Analyse méthode Lubin.",
+      answer:
+        "Sezzle (SEZL) est une fintech américaine spécialisée dans le Buy Now Pay Later (BNPL). Elle se distingue de ses concurrents Affirm et Klarna par sa rentabilité réelle : FCF par action de 6,66 $, score parfait dans notre screener. Le prix actuel de 156,47 $ est 5,2 % sous notre cible de 164,68 $, ce qui place l'action en zone d'achat selon notre méthode.",
+      body: [
+        { type: 'ul', items: [
+          "Sezzle obtient le score parfait dans notre screener qualité.",
+          "Free cash flow par action : 6,66 $. Prix actuel : 156,47 $.",
+          "Cible d'entrée : 164,68 $ — le prix est 5,2 % en dessous, zone d'achat.",
+          "Secteur Credit Services : premier BNPL rentable dans notre base.",
+          "Modèle opposé à Affirm et Klarna qui consomment du cash.",
+        ] },
+        { type: 'h2', text: "Qu'est-ce que le BNPL ?" },
+        { type: 'p', text: "Le Buy Now Pay Later (BNPL) est une alternative aux cartes de crédit pour les achats en ligne. Le consommateur paie en 4 versements sans intérêt apparent, et la fintech se rémunère via des frais marchands. C'est un marché en forte croissance : en 2024, le BNPL représentait plus de 330 milliards de dollars de volume en Amérique du Nord. Sezzle opère principalement aux États-Unis et au Canada, ciblant les consommateurs sous-bancarisés ou souhaitant éviter la dette revolving des cartes de crédit." },
+        { type: 'h2', text: "La différence Sezzle : rentabilité réelle" },
+        { type: 'p', text: "La quasi-totalité des acteurs BNPL brûlent du cash. Affirm a perdu des centaines de millions de dollars depuis son introduction en bourse. Klarna a repoussé sa rentabilité plusieurs fois. Sezzle fait l'inverse : l'entreprise a structuré son modèle autour de la discipline financière dès le départ. Résultat : un FCF par action de 6,66 $, une structure de coûts maîtrisée, et un score parfait dans notre screener sur tous les critères qualitatifs. C'est la première fintech BNPL rentable à figurer dans notre base." },
+        { type: 'h2', text: "Valorisation et zone d'achat" },
+        { type: 'p', text: "Notre méthode calcule une cible d'entrée à partir du FCF par action et d'un multiple cohérent avec la qualité de l'entreprise. Pour Sezzle, cette cible ressort à 164,68 $. Le prix actuel de 156,47 $ est 5,2 % en dessous de cette cible. Selon notre méthode, une action est en zone d'achat quand son prix est inférieur à notre cible calculée. C'est le cas ici. Le multiple implicite de 23,5 fois le FCF reflète une prime de croissance raisonnable pour une fintech rentable dans un marché en expansion." },
+        { type: 'h2', text: "Risques et limites" },
+        { type: 'p', text: "Le BNPL est un secteur exposé à la qualité de crédit des consommateurs. En période de récession ou de hausse du chômage, les défauts de paiement augmentent et pèsent sur les revenus. Sezzle est également plus petite que ses concurrents, ce qui la rend plus vulnérable aux changements réglementaires sur le crédit à la consommation. Enfin, sa concentration géographique sur l'Amérique du Nord limite sa diversification. Ces éléments justifient une position de taille raisonnable dans un portefeuille diversifié." },
+        { type: 'h2', text: "Premier BNPL de notre screener" },
+        { type: 'p', text: "L'entrée de Sezzle dans notre base représente un signal sectoriel : le BNPL peut être rentable si la discipline financière est au coeur du modèle. Sezzle prouve qu'une fintech peut croître tout en générant du cash. C'est précisément ce que notre méthode cherche : des entreprises qui convertissent leur croissance en free cash flow réel, pas en promesses futures. À surveiller de près si le prix remonte au-dessus de la cible." },
+      ],
+      faq: [
+        { q: "Qu'est-ce que Sezzle fait concrètement ?", a: "Sezzle propose aux consommateurs américains et canadiens de payer leurs achats en ligne en 4 versements sans intérêt. Elle se rémunère via des frais facturés aux marchands partenaires. Sa clientèle cible est les jeunes adultes et les consommateurs sous-bancarisés qui préfèrent éviter les cartes de crédit à taux élevé." },
+        { q: "Pourquoi Sezzle est-elle rentable quand Affirm ne l'est pas ?", a: "Sezzle a adopté une approche plus conservatrice : sélection stricte des marchands, frais de retard appliqués aux consommateurs défaillants, coûts opérationnels maîtrisés. Affirm a privilégié la croissance agressive et les partenariats coûteux (Apple, Amazon) au détriment de la rentabilité. Sezzle est plus petite mais structurellement plus saine du point de vue du cash flow." },
+        { q: "Que signifie être en zone d'achat dans votre méthode ?", a: "Une action est en zone d'achat quand son prix actuel est inférieur à notre cible d'entrée calculée à partir du FCF par action. Pour Sezzle, la cible est 164,68 $ et le prix est 156,47 $, soit 5,2 % en dessous. Cela ne signifie pas que le prix va monter immédiatement, mais que la valorisation est cohérente avec la qualité selon notre méthode." },
+        { q: "Quel est le risque principal sur Sezzle ?", a: "Le risque principal est le crédit consommateur. Si l'économie américaine ralentit fortement, les défauts de paiement augmentent, ce qui réduit les revenus nets de Sezzle. Un risque secondaire est réglementaire : le BNPL fait l'objet d'une attention croissante des régulateurs américains qui pourraient imposer des règles similaires aux cartes de crédit." },
+        { q: "Comment Sezzle se compare à GoDaddy ou Mastercard dans votre screener ?", a: "Sezzle partage le score parfait avec des sociétés comme Mastercard ou GoDaddy, mais dans un secteur très différent. Sa taille est plus modeste et son secteur plus risqué. En revanche, elle est en zone d'achat aujourd'hui, ce qui n'est pas le cas de Mastercard. C'est un profil risque-rendement différent, adapté à un investisseur qui accepte plus de volatilité sectorielle." },
+      ],
+      tags: ['Sezzle', 'SEZL', 'BNPL', 'Fintech', 'Buy Now Pay Later', 'Screener qualité', 'Zone achat', 'Free cash flow', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "Sezzle (SEZL): profitable BNPL fintech in our buy zone",
+      excerpt:
+        "Sezzle is an American Buy Now Pay Later fintech that, unlike Affirm or Klarna, generates positive free cash flow. Perfect score in our screener. Current price: $156.47, slightly below our target of $164.68.",
+      metaDescription:
+        "Sezzle (SEZL): profitable American BNPL fintech, perfect score in our quality screener. FCF per share $6.66, entry target $164.68, current price $156.47. Lubin method analysis.",
+      answer:
+        "Sezzle (SEZL) is an American fintech specializing in Buy Now Pay Later (BNPL). It stands out from competitors Affirm and Klarna through real profitability: FCF per share of $6.66, perfect score in our screener. The current price of $156.47 is 5.2% below our target of $164.68, placing the stock in our buy zone.",
+      body: [
+        { type: 'ul', items: [
+          "Sezzle achieves a perfect score in our quality screener.",
+          "Free cash flow per share: $6.66. Current price: $156.47.",
+          "Entry target: $164.68 — price is 5.2% below, buy zone confirmed.",
+          "Credit Services sector: first profitable BNPL in our database.",
+          "Opposite model to Affirm and Klarna which burn cash.",
+        ] },
+        { type: 'h2', text: "What is BNPL?" },
+        { type: 'p', text: "Buy Now Pay Later (BNPL) is an alternative to credit cards for online purchases. The consumer pays in 4 interest-free installments, and the fintech earns through merchant fees. It is a high-growth market: in 2024, BNPL represented over $330 billion in volume in North America. Sezzle operates primarily in the US and Canada, targeting underbanked consumers or those wishing to avoid revolving credit card debt." },
+        { type: 'h2', text: "The Sezzle difference: real profitability" },
+        { type: 'p', text: "Nearly all BNPL players burn cash. Affirm has lost hundreds of millions of dollars since its IPO. Klarna has delayed its profitability targets multiple times. Sezzle does the opposite: the company built its model around financial discipline from the start. The result: FCF per share of $6.66, controlled cost structure, and a perfect score in our screener across all qualitative criteria. It is the first profitable BNPL fintech in our database." },
+        { type: 'h2', text: "Valuation and buy zone" },
+        { type: 'p', text: "Our method calculates an entry target from FCF per share and a multiple consistent with the company's quality. For Sezzle, this target stands at $164.68. The current price of $156.47 is 5.2% below this target. Under our method, a stock is in the buy zone when its price is below our calculated target. That is the case here. The implied multiple of 23.5x FCF reflects a reasonable growth premium for a profitable fintech in an expanding market." },
+        { type: 'h2', text: "Risks and limitations" },
+        { type: 'p', text: "BNPL is a sector exposed to consumer credit quality. During a recession or rising unemployment, defaults increase and weigh on revenues. Sezzle is also smaller than its competitors, making it more vulnerable to regulatory changes on consumer credit. Finally, its geographic concentration in North America limits diversification. These elements justify a reasonably sized position in a diversified portfolio." },
+        { type: 'h2', text: "First BNPL in our screener" },
+        { type: 'p', text: "Sezzle's entry into our database represents a sector signal: BNPL can be profitable when financial discipline is at the core of the model. Sezzle proves that a fintech can grow while generating cash. This is precisely what our method seeks: companies that convert their growth into real free cash flow, not future promises. Worth watching closely if the price rises back above the target." },
+      ],
+      faq: [
+        { q: "What does Sezzle actually do?", a: "Sezzle offers American and Canadian consumers the ability to pay for online purchases in 4 interest-free installments. It earns revenue through fees charged to merchant partners. Its target customer base is young adults and underbanked consumers who prefer to avoid high-rate credit cards." },
+        { q: "Why is Sezzle profitable when Affirm is not?", a: "Sezzle adopted a more conservative approach: strict merchant selection, late fees applied to defaulting consumers, controlled operating costs. Affirm prioritized aggressive growth and costly partnerships (Apple, Amazon) at the expense of profitability. Sezzle is smaller but structurally sounder from a cash flow perspective." },
+        { q: "What does being in the buy zone mean in your method?", a: "A stock is in the buy zone when its current price is below our entry target calculated from FCF per share. For Sezzle, the target is $164.68 and the price is $156.47, or 5.2% below. This does not mean the price will rise immediately, but that the valuation is consistent with quality according to our method." },
+        { q: "What is the main risk on Sezzle?", a: "The main risk is consumer credit. If the US economy slows sharply, defaults increase, which reduces Sezzle's net revenues. A secondary risk is regulatory: BNPL is receiving increasing scrutiny from US regulators who could impose rules similar to credit cards." },
+        { q: "How does Sezzle compare to GoDaddy or Mastercard in your screener?", a: "Sezzle shares the perfect score with companies like Mastercard or GoDaddy, but in a very different sector. Its size is more modest and its sector riskier. However, it is in the buy zone today, which is not the case for Mastercard. It is a different risk-reward profile, suited to an investor who accepts more sector volatility." },
+      ],
+      tags: ['Sezzle', 'SEZL', 'BNPL', 'Fintech', 'Buy Now Pay Later', 'Quality screener', 'Buy zone', 'Free cash flow', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "Sezzle (SEZL): fintech BNPL rentable en zona de compra",
+      excerpt:
+        "Sezzle es una fintech americana de Buy Now Pay Later que, a diferencia de Affirm o Klarna, genera free cash flow positivo. Puntuación perfecta en nuestro screener. Precio actual: 156,47 $, ligeramente por debajo de nuestro objetivo de 164,68 $.",
+      metaDescription:
+        "Sezzle (SEZL): fintech americana BNPL rentable, puntuación perfecta en nuestro screener de calidad. FCF por acción 6,66 $, objetivo de entrada 164,68 $, precio actual 156,47 $. Análisis método Lubin.",
+      answer:
+        "Sezzle (SEZL) es una fintech americana especializada en Buy Now Pay Later (BNPL). Se distingue de sus competidores Affirm y Klarna por su rentabilidad real: FCF por acción de 6,66 $, puntuación perfecta en nuestro screener. El precio actual de 156,47 $ está un 5,2% por debajo de nuestro objetivo de 164,68 $, lo que sitúa la acción en zona de compra según nuestro método.",
+      body: [
+        { type: 'ul', items: [
+          "Sezzle obtiene la puntuación perfecta en nuestro screener de calidad.",
+          "Free cash flow por acción: 6,66 $. Precio actual: 156,47 $.",
+          "Objetivo de entrada: 164,68 $ — el precio está un 5,2% por debajo, zona de compra.",
+          "Sector Credit Services: primer BNPL rentable en nuestra base.",
+          "Modelo opuesto al de Affirm y Klarna que consumen cash.",
+        ] },
+        { type: 'h2', text: "¿Qué es el BNPL?" },
+        { type: 'p', text: "El Buy Now Pay Later (BNPL) es una alternativa a las tarjetas de crédito para compras online. El consumidor paga en 4 cuotas sin intereses aparentes, y la fintech cobra a través de comisiones a los comerciantes. Es un mercado en fuerte crecimiento: en 2024, el BNPL representó más de 330.000 millones de dólares en volumen en América del Norte. Sezzle opera principalmente en EE.UU. y Canadá, dirigiéndose a consumidores no bancarizados o que desean evitar la deuda rotativa de las tarjetas de crédito." },
+        { type: 'h2', text: "La diferencia Sezzle: rentabilidad real" },
+        { type: 'p', text: "La práctica totalidad de los actores BNPL queman cash. Affirm ha perdido cientos de millones de dólares desde su salida a bolsa. Klarna ha retrasado su rentabilidad varias veces. Sezzle hace lo contrario: la empresa estructuró su modelo en torno a la disciplina financiera desde el principio. El resultado: FCF por acción de 6,66 $, estructura de costes controlada y puntuación perfecta en nuestro screener en todos los criterios cualitativos. Es la primera fintech BNPL rentable en nuestra base." },
+        { type: 'h2', text: "Valoración y zona de compra" },
+        { type: 'p', text: "Nuestro método calcula un objetivo de entrada a partir del FCF por acción y un múltiplo coherente con la calidad de la empresa. Para Sezzle, este objetivo es de 164,68 $. El precio actual de 156,47 $ está un 5,2% por debajo de este objetivo. Según nuestro método, una acción está en zona de compra cuando su precio es inferior a nuestro objetivo calculado. Ese es el caso aquí. El múltiplo implícito de 23,5 veces el FCF refleja una prima de crecimiento razonable para una fintech rentable en un mercado en expansión." },
+        { type: 'h2', text: "Riesgos y limitaciones" },
+        { type: 'p', text: "El BNPL es un sector expuesto a la calidad crediticia de los consumidores. En un período de recesión o aumento del desempleo, los impagos aumentan y pesan sobre los ingresos. Sezzle también es más pequeña que sus competidores, lo que la hace más vulnerable a los cambios regulatorios sobre el crédito al consumo. Finalmente, su concentración geográfica en América del Norte limita su diversificación. Estos elementos justifican una posición de tamaño razonable en una cartera diversificada." },
+        { type: 'h2', text: "Primer BNPL de nuestro screener" },
+        { type: 'p', text: "La entrada de Sezzle en nuestra base representa una señal sectorial: el BNPL puede ser rentable si la disciplina financiera está en el corazón del modelo. Sezzle demuestra que una fintech puede crecer generando cash. Esto es precisamente lo que busca nuestro método: empresas que convierten su crecimiento en free cash flow real, no en promesas futuras. Vale la pena seguirla de cerca si el precio sube por encima del objetivo." },
+      ],
+      faq: [
+        { q: "¿Qué hace Sezzle concretamente?", a: "Sezzle ofrece a los consumidores americanos y canadienses la posibilidad de pagar sus compras online en 4 cuotas sin intereses. Genera ingresos a través de comisiones cobradas a los comerciantes asociados. Su público objetivo son los adultos jóvenes y los consumidores no bancarizados que prefieren evitar las tarjetas de crédito de alta tasa." },
+        { q: "¿Por qué Sezzle es rentable cuando Affirm no lo es?", a: "Sezzle adoptó un enfoque más conservador: selección estricta de comerciantes, comisiones por retraso aplicadas a los consumidores morosos, costes operativos controlados. Affirm priorizó el crecimiento agresivo y las asociaciones costosas (Apple, Amazon) en detrimento de la rentabilidad. Sezzle es más pequeña pero estructuralmente más sana desde el punto de vista del cash flow." },
+        { q: "¿Qué significa estar en zona de compra en su método?", a: "Una acción está en zona de compra cuando su precio actual es inferior a nuestro objetivo de entrada calculado a partir del FCF por acción. Para Sezzle, el objetivo es 164,68 $ y el precio es 156,47 $, un 5,2% por debajo. Esto no significa que el precio vaya a subir inmediatamente, sino que la valoración es coherente con la calidad según nuestro método." },
+        { q: "¿Cuál es el principal riesgo de Sezzle?", a: "El principal riesgo es el crédito al consumo. Si la economía americana se desacelera bruscamente, los impagos aumentan, lo que reduce los ingresos netos de Sezzle. Un riesgo secundario es regulatorio: el BNPL recibe una atención creciente de los reguladores americanos que podrían imponer normas similares a las tarjetas de crédito." },
+        { q: "¿Cómo se compara Sezzle con GoDaddy o Mastercard en su screener?", a: "Sezzle comparte la puntuación perfecta con empresas como Mastercard o GoDaddy, pero en un sector muy diferente. Su tamaño es más modesto y su sector más arriesgado. Sin embargo, está en zona de compra hoy, lo que no es el caso de Mastercard. Es un perfil riesgo-rentabilidad diferente, adecuado para un inversor que acepta más volatilidad sectorial." },
+      ],
+      tags: ['Sezzle', 'SEZL', 'BNPL', 'Fintech', 'Buy Now Pay Later', 'Screener calidad', 'Zona compra', 'Free cash flow', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+const articleFCFS: Article = {
+  slug: 'firstcash-fcfs-leader-pret-sur-gage-qualite',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'FCFS',
+  content: {
+    fr: {
+      title: "FirstCash (FCFS) : le leader du prêt sur gage de qualité",
+      excerpt:
+        "FirstCash est le leader mondial du prêt sur gage avec plus de 3 000 magasins aux États-Unis, au Mexique et en Amérique Latine. Score parfait dans notre screener, FCF par action de 13,37 $. Le prix actuel de 228,89 $ est légèrement au-dessus de notre cible.",
+      metaDescription:
+        "FirstCash (FCFS) : leader mondial du prêt sur gage, score parfait dans notre screener qualité. FCF par action 13,37 $, cible d'entrée 218,04 $, prix actuel 228,89 $. Analyse méthode Lubin.",
+      answer:
+        "FirstCash (FCFS) est le leader mondial du prêt sur gage (pawnshop) avec plus de 3 000 magasins aux États-Unis, au Mexique et en Amérique Latine. Score parfait dans notre screener qualité, FCF par action de 13,37 $. Le prix actuel de 228,89 $ est 4,7 % au-dessus de notre cible d'entrée de 218,04 $ : qualité reconnue, légère attente requise.",
+      body: [
+        { type: 'ul', items: [
+          "FirstCash obtient le score parfait dans notre screener qualité.",
+          "Free cash flow par action : 13,37 $. Prix actuel : 228,89 $.",
+          "Cible d'entrée : 218,04 $ — le prix est 4,7 % au-dessus, légère attente.",
+          "Plus de 3 000 magasins de prêt sur gage aux États-Unis et en Amérique Latine.",
+          "Secteur non-cyclique : le prêt sur gage est anti-fragile en période de crise.",
+        ] },
+        { type: 'h2', text: "Le modèle prêt sur gage" },
+        { type: 'p', text: "Un prêteur sur gage (pawnshop) prête de l'argent en échange d'un objet de valeur déposé en garantie (bijoux, électronique, instruments de musique). Si le client rembourse avec intérêts, il récupère son bien. Sinon, le prêteur vend l'objet. Ce modèle est extrêmement récurrent : les mêmes clients reviennent régulièrement pour de nouveaux prêts. FirstCash est le leader de ce marché en Amérique du Nord et en Amérique Latine, avec une présence particulièrement forte au Mexique." },
+        { type: 'h2', text: "Anti-fragile en période de crise" },
+        { type: 'p', text: "Le prêt sur gage est l'un des rares secteurs qui bénéficie des crises économiques. Quand les consommateurs ont besoin de liquidités rapidement — perte d'emploi, dépenses imprévues, accès difficile au crédit bancaire — ils se tournent vers les prêteurs sur gage. FirstCash voit donc son activité s'accélérer quand l'économie ralentit. Cette caractéristique anti-fragile est rare : la plupart des entreprises souffrent pendant les récessions. FirstCash, au contraire, y prospère structurellement." },
+        { type: 'h2', text: "Score parfait et FCF solide" },
+        { type: 'p', text: "Dans notre screener, FirstCash valide tous les critères : croissance du FCF, marges, qualité du bilan, rachats d'actions, profitabilité cash. Le FCF par action de 13,37 $ est particulièrement élevé pour le secteur. Notre méthode calcule une cible d'entrée de 218,04 $. Le prix actuel de 228,89 $ est 4,7 % au-dessus : la surcote est modeste. Pour un investisseur patient, une correction légère suffit à ramener l'action dans notre zone d'achat." },
+        { type: 'h2', text: "Présence en Amérique Latine" },
+        { type: 'p', text: "FirstCash est le leader incontesté du prêt sur gage au Mexique, avec des centaines de magasins sous la marque FirstCash et des acquisitions régulières. Cette présence en Amérique Latine est un avantage compétitif important : le marché mexicain est moins mature que le marché américain, ce qui offre des perspectives de croissance plus élevées. La clientèle latino-américaine est souvent sous-bancarisée, ce qui amplifie le besoin pour des services de prêt alternatifs comme le prêt sur gage." },
+        { type: 'h2', text: "Valorisation et patience" },
+        { type: 'p', text: "FirstCash est une entreprise de très haute qualité à un prix légèrement trop élevé selon notre méthode. La surcote de 4,7 % est la plus faible parmi les entreprises parfaites mais hors zone dans notre base. Une correction de marché de 5 % suffit à la ramener en zone d'achat. C'est une situation que notre méthode qualifie de surveillance active : la qualité est indéniable, seule la valorisation retient l'entrée aujourd'hui." },
+      ],
+      faq: [
+        { q: "Qu'est-ce que FirstCash fait concrètement ?", a: "FirstCash exploite plus de 3 000 magasins de prêt sur gage aux États-Unis, au Mexique et en Amérique Latine. Elle prête de l'argent aux particuliers en échange d'objets de valeur mis en garantie. Elle vend également des objets d'occasion (bijoux, électronique) dans ses magasins. C'est le leader mondial de ce secteur." },
+        { q: "Pourquoi le prêt sur gage est-il anti-fragile ?", a: "En période de crise économique, les consommateurs qui ont besoin de liquidités rapidement se tournent vers les prêteurs sur gage. Ils n'ont pas accès aux crédits bancaires classiques ou préfèrent éviter les procédures longues. Le prêt sur gage est donc un service de dernier recours dont la demande augmente quand l'économie se détériore, à l'inverse de la plupart des secteurs." },
+        { q: "Quelle est la différence entre FirstCash et EZCorp ?", a: "FirstCash et EZCorp sont les deux principaux acteurs du prêt sur gage en Amérique du Nord. FirstCash est significativement plus grande, avec une présence plus forte au Mexique. EZCorp est davantage concentrée sur les États-Unis. Dans notre screener, seul FirstCash obtient un score parfait, ce qui reflète sa supériorité en termes de discipline financière et de génération de FCF." },
+        { q: "Quand FirstCash sera-t-elle en zone d'achat ?", a: "FirstCash entrerait dans notre zone d'achat si son prix descend à 218,04 $ ou en dessous. Cela représente une baisse de 4,7 % par rapport au prix actuel. Une correction légère du marché ou une publication de résultats légèrement décevante pourrait suffire à créer cette opportunité." },
+        { q: "Le prêt sur gage est-il un secteur éthique ?", a: "C'est une question légitime. Les critiques soulignent que les taux d'intérêt des prêts sur gage sont élevés. Les défenseurs répondent que le service est volontaire, transparent et souvent la seule alternative pour des personnes exclues du système bancaire classique. FirstCash est régulée et respecte les lois en vigueur dans chaque pays où elle opère. Notre méthode évalue la qualité financière, pas les aspects ESG — nous laissons ce jugement à l'investisseur." },
+      ],
+      tags: ['FirstCash', 'FCFS', 'Prêt sur gage', 'Pawnshop', 'Credit Services', 'Screener qualité', 'Free cash flow', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "FirstCash (FCFS): the quality leader in pawn lending",
+      excerpt:
+        "FirstCash is the world leader in pawn lending with over 3,000 stores in the US, Mexico, and Latin America. Perfect score in our screener, FCF per share of $13.37. Current price of $228.89 is slightly above our target.",
+      metaDescription:
+        "FirstCash (FCFS): world leader in pawn lending, perfect score in our quality screener. FCF per share $13.37, entry target $218.04, current price $228.89. Lubin method analysis.",
+      answer:
+        "FirstCash (FCFS) is the world leader in pawn lending with over 3,000 stores in the US, Mexico, and Latin America. Perfect score in our quality screener, FCF per share of $13.37. The current price of $228.89 is 4.7% above our entry target of $218.04: recognized quality, slight patience required.",
+      body: [
+        { type: 'ul', items: [
+          "FirstCash achieves a perfect score in our quality screener.",
+          "Free cash flow per share: $13.37. Current price: $228.89.",
+          "Entry target: $218.04 — price is 4.7% above, slight patience needed.",
+          "Over 3,000 pawn lending stores in the US and Latin America.",
+          "Non-cyclical sector: pawn lending is anti-fragile during economic crises.",
+        ] },
+        { type: 'h2', text: "The pawn lending model" },
+        { type: 'p', text: "A pawnshop lends money in exchange for a valuable item deposited as collateral (jewelry, electronics, musical instruments). If the customer repays with interest, they get their item back. If not, the lender sells the item. This model is extremely recurring: the same customers return regularly for new loans. FirstCash is the leader of this market in North America and Latin America, with a particularly strong presence in Mexico." },
+        { type: 'h2', text: "Anti-fragile during economic crises" },
+        { type: 'p', text: "Pawn lending is one of the rare sectors that benefits from economic crises. When consumers need liquidity quickly — job loss, unexpected expenses, difficult access to bank credit — they turn to pawnshops. FirstCash therefore sees its activity accelerate when the economy slows down. This anti-fragile characteristic is rare: most companies suffer during recessions. FirstCash, on the contrary, structurally thrives during them." },
+        { type: 'h2', text: "Perfect score and solid FCF" },
+        { type: 'p', text: "In our screener, FirstCash validates all criteria: FCF growth, margins, balance sheet quality, share buybacks, cash profitability. The FCF per share of $13.37 is particularly high for the sector. Our method calculates an entry target of $218.04. The current price of $228.89 is 4.7% above: the premium is modest. For a patient investor, a slight correction is enough to bring the stock into our buy zone." },
+        { type: 'h2', text: "Latin American presence" },
+        { type: 'p', text: "FirstCash is the undisputed leader in pawn lending in Mexico, with hundreds of stores under the FirstCash brand and regular acquisitions. This Latin American presence is an important competitive advantage: the Mexican market is less mature than the US market, offering higher growth prospects. The Latin American customer base is often underbanked, amplifying the need for alternative lending services like pawn lending." },
+        { type: 'h2', text: "Valuation and patience" },
+        { type: 'p', text: "FirstCash is a very high quality company at a price slightly too high according to our method. The 4.7% premium is the smallest among perfect-scoring companies outside our buy zone. A 5% market correction is enough to bring it into the buy zone. This is a situation our method calls active surveillance: quality is undeniable, only valuation holds back entry today." },
+      ],
+      faq: [
+        { q: "What does FirstCash actually do?", a: "FirstCash operates over 3,000 pawn lending stores in the US, Mexico, and Latin America. It lends money to individuals in exchange for valuable items placed as collateral. It also sells second-hand items (jewelry, electronics) in its stores. It is the world leader in this sector." },
+        { q: "Why is pawn lending anti-fragile?", a: "During an economic crisis, consumers who need liquidity quickly turn to pawnshops. They do not have access to traditional bank credit or prefer to avoid lengthy procedures. Pawn lending is therefore a last-resort service whose demand increases when the economy deteriorates, unlike most sectors." },
+        { q: "What is the difference between FirstCash and EZCorp?", a: "FirstCash and EZCorp are the two main players in pawn lending in North America. FirstCash is significantly larger, with a stronger presence in Mexico. EZCorp is more concentrated in the US. In our screener, only FirstCash achieves a perfect score, reflecting its superiority in terms of financial discipline and FCF generation." },
+        { q: "When will FirstCash be in the buy zone?", a: "FirstCash would enter our buy zone if its price falls to $218.04 or below. This represents a 4.7% decline from the current price. A slight market correction or a slightly disappointing earnings release could be enough to create this opportunity." },
+        { q: "Is pawn lending an ethical sector?", a: "This is a legitimate question. Critics point out that pawn lending interest rates are high. Defenders respond that the service is voluntary, transparent, and often the only alternative for people excluded from the traditional banking system. FirstCash is regulated and complies with the laws in each country where it operates. Our method evaluates financial quality, not ESG aspects — we leave that judgment to the investor." },
+      ],
+      tags: ['FirstCash', 'FCFS', 'Pawn lending', 'Pawnshop', 'Credit Services', 'Quality screener', 'Free cash flow', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "FirstCash (FCFS): el líder de calidad en préstamos de empeño",
+      excerpt:
+        "FirstCash es el líder mundial en préstamos de empeño con más de 3.000 tiendas en EE.UU., México y América Latina. Puntuación perfecta en nuestro screener, FCF por acción de 13,37 $. El precio actual de 228,89 $ está ligeramente por encima de nuestro objetivo.",
+      metaDescription:
+        "FirstCash (FCFS): líder mundial en préstamos de empeño, puntuación perfecta en nuestro screener de calidad. FCF por acción 13,37 $, objetivo de entrada 218,04 $, precio actual 228,89 $. Análisis método Lubin.",
+      answer:
+        "FirstCash (FCFS) es el líder mundial en préstamos de empeño con más de 3.000 tiendas en EE.UU., México y América Latina. Puntuación perfecta en nuestro screener de calidad, FCF por acción de 13,37 $. El precio actual de 228,89 $ está un 4,7% por encima de nuestro objetivo de entrada de 218,04 $: calidad reconocida, ligera paciencia requerida.",
+      body: [
+        { type: 'ul', items: [
+          "FirstCash obtiene la puntuación perfecta en nuestro screener de calidad.",
+          "Free cash flow por acción: 13,37 $. Precio actual: 228,89 $.",
+          "Objetivo de entrada: 218,04 $ — el precio está un 4,7% por encima, ligera espera.",
+          "Más de 3.000 casas de empeño en EE.UU. y América Latina.",
+          "Sector no cíclico: el empeño es anti-frágil en periodos de crisis.",
+        ] },
+        { type: 'h2', text: "El modelo de préstamo de empeño" },
+        { type: 'p', text: "Una casa de empeño presta dinero a cambio de un objeto de valor depositado como garantía (joyas, electrónica, instrumentos musicales). Si el cliente devuelve el préstamo con intereses, recupera su objeto. Si no, el prestamista vende el objeto. Este modelo es extremadamente recurrente: los mismos clientes vuelven regularmente para nuevos préstamos. FirstCash es el líder de este mercado en América del Norte y América Latina, con una presencia especialmente fuerte en México." },
+        { type: 'h2', text: "Anti-frágil en periodos de crisis" },
+        { type: 'p', text: "El empeño es uno de los pocos sectores que se beneficia de las crisis económicas. Cuando los consumidores necesitan liquidez rápidamente — pérdida de empleo, gastos imprevistos, difícil acceso al crédito bancario — acuden a las casas de empeño. FirstCash ve por tanto su actividad acelerarse cuando la economía se ralentiza. Esta característica anti-frágil es poco común: la mayoría de las empresas sufren durante las recesiones. FirstCash, al contrario, prospera estructuralmente durante ellas." },
+        { type: 'h2', text: "Puntuación perfecta y FCF sólido" },
+        { type: 'p', text: "En nuestro screener, FirstCash valida todos los criterios: crecimiento del FCF, márgenes, calidad del balance, recompras de acciones, rentabilidad en cash. El FCF por acción de 13,37 $ es particularmente elevado para el sector. Nuestro método calcula un objetivo de entrada de 218,04 $. El precio actual de 228,89 $ está un 4,7% por encima: la prima es modesta. Para un inversor paciente, una ligera corrección es suficiente para llevar la acción a nuestra zona de compra." },
+        { type: 'h2', text: "Presencia en América Latina" },
+        { type: 'p', text: "FirstCash es el líder indiscutible del empeño en México, con cientos de tiendas bajo la marca FirstCash y adquisiciones regulares. Esta presencia en América Latina es una importante ventaja competitiva: el mercado mexicano es menos maduro que el americano, lo que ofrece mayores perspectivas de crecimiento. La clientela latinoamericana suele estar poco bancarizada, lo que amplifica la necesidad de servicios de préstamo alternativos como el empeño." },
+        { type: 'h2', text: "Valoración y paciencia" },
+        { type: 'p', text: "FirstCash es una empresa de muy alta calidad a un precio ligeramente demasiado elevado según nuestro método. La prima del 4,7% es la más pequeña entre las empresas perfectas pero fuera de zona en nuestra base. Una corrección del mercado del 5% es suficiente para llevarla a la zona de compra. Esta es una situación que nuestro método califica de vigilancia activa: la calidad es innegable, solo la valoración retiene la entrada hoy." },
+      ],
+      faq: [
+        { q: "¿Qué hace concretamente FirstCash?", a: "FirstCash explota más de 3.000 casas de empeño en EE.UU., México y América Latina. Presta dinero a particulares a cambio de objetos de valor puestos como garantía. También vende artículos de segunda mano (joyas, electrónica) en sus tiendas. Es el líder mundial de este sector." },
+        { q: "¿Por qué el empeño es anti-frágil?", a: "En periodos de crisis económica, los consumidores que necesitan liquidez rápidamente acuden a las casas de empeño. No tienen acceso al crédito bancario tradicional o prefieren evitar procedimientos largos. El empeño es por tanto un servicio de último recurso cuya demanda aumenta cuando la economía se deteriora, a diferencia de la mayoría de los sectores." },
+        { q: "¿Cuál es la diferencia entre FirstCash y EZCorp?", a: "FirstCash y EZCorp son los dos principales actores del empeño en América del Norte. FirstCash es significativamente más grande, con una presencia más fuerte en México. EZCorp está más concentrada en EE.UU. En nuestro screener, solo FirstCash obtiene una puntuación perfecta, lo que refleja su superioridad en términos de disciplina financiera y generación de FCF." },
+        { q: "¿Cuándo estará FirstCash en zona de compra?", a: "FirstCash entraría en nuestra zona de compra si su precio baja a 218,04 $ o por debajo. Esto representa una caída del 4,7% respecto al precio actual. Una ligera corrección del mercado o una publicación de resultados ligeramente decepcionante podría ser suficiente para crear esta oportunidad." },
+        { q: "¿Es el empeño un sector ético?", a: "Es una pregunta legítima. Los críticos señalan que los tipos de interés de los préstamos de empeño son elevados. Los defensores responden que el servicio es voluntario, transparente y a menudo la única alternativa para personas excluidas del sistema bancario tradicional. FirstCash está regulada y cumple las leyes vigentes en cada país donde opera. Nuestro método evalúa la calidad financiera, no los aspectos ESG — dejamos ese juicio al inversor." },
+      ],
+      tags: ['FirstCash', 'FCFS', 'Préstamo de empeño', 'Casa de empeño', 'Credit Services', 'Screener calidad', 'Free cash flow', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+const articleDPM: Article = {
+  slug: 'dundee-precious-metals-dpm-mineur-or-qualite-zone-achat',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'DPM',
+  content: {
+    fr: {
+      title: "Dundee Precious Metals (DPM) : le mineur d'or de qualité",
+      excerpt:
+        "Dundee Precious Metals est un producteur d'or coté à Toronto, avec des mines en Bulgarie et en Namibie. Score parfait dans notre screener, FCF par action de 3,39 $. Prix actuel de 44,45 $, légèrement sous notre cible de 46,31 $, en zone d'achat.",
+      metaDescription:
+        "Dundee Precious Metals (DPM) : producteur d'or canadien, score parfait dans notre screener qualité. FCF par action 3,39 $, cible d'entrée 46,31 $, prix actuel 44,45 $. Premier mineur d'or analysé, méthode Lubin.",
+      answer:
+        "Dundee Precious Metals (DPM) est un producteur d'or canadien (mines en Bulgarie et Namibie), coté à la Bourse de Toronto. Score parfait dans notre screener qualité, FCF par action de 3,39 $. Le prix actuel de 44,45 $ est 4,2 % sous notre cible d'entrée de 46,31 $, ce qui place l'action en zone d'achat selon notre méthode. Premier article sur le secteur Or dans notre blog.",
+      body: [
+        { type: 'ul', items: [
+          "Dundee Precious Metals obtient le score parfait dans notre screener qualité.",
+          "Free cash flow par action : 3,39 $. Prix actuel : 44,45 $.",
+          "Cible d'entrée : 46,31 $ — le prix est 4,2 % en dessous, zone d'achat.",
+          "Mines en Bulgarie (Chelopech) et en Namibie (Tsumeb).",
+          "AISC (coût tout compris) bas : gestion rigoureuse des coûts de production.",
+        ] },
+        { type: 'h2', text: "Un producteur d'or atypique" },
+        { type: 'p', text: "Dundee Precious Metals est un producteur d'or canadien relativement méconnu du grand public, mais bien établi dans l'industrie minière. Ses deux actifs principaux sont la mine de Chelopech en Bulgarie (production d'or et cuivre) et la fonderie de Tsumeb en Namibie. La combinaison de ces deux actifs géographiquement diversifiés et opérationnellement complémentaires contribue à la stabilité du FCF. DPM est cotée sur le TSX (Toronto Stock Exchange) et fait partie de l'indice TSX Composite." },
+        { type: 'h2', text: "AISC bas : l'avantage de coûts" },
+        { type: 'p', text: "L'AISC (All-In Sustaining Cost) est le coût complet de production d'une once d'or, incluant les frais miniers, les coûts administratifs et le capex de maintien. Un AISC bas signifie que l'entreprise génère des marges élevées même quand le prix de l'or baisse. Dundee Precious Metals maintient un AISC structurellement bas grâce à ses mines à haute teneur et à sa discipline opérationnelle. C'est ce qui distingue DPM de nombreux mineurs d'or qui voient leurs marges s'effondrer lors des corrections du cours de l'or." },
+        { type: 'h2', text: "L'or comme couverture contre l'inflation" },
+        { type: 'p', text: "L'or a une corrélation historiquement négative avec le dollar américain et joue un rôle de valeur refuge lors des crises. Les mineurs d'or comme DPM offrent un levier opérationnel sur le prix de l'or : si le cours monte de 10 %, les marges et le FCF peuvent augmenter de 20 à 30 % grâce à l'effet levier des coûts fixes. C'est une caractéristique structurelle qui rend les mineurs d'or attractifs dans un contexte inflationniste ou de dévaluation monétaire." },
+        { type: 'h2', text: "Score parfait en zone d'achat" },
+        { type: 'p', text: "Dans notre screener, DPM valide tous les critères qualité. Le FCF par action de 3,39 $ et notre multiple calculé donnent une cible de 46,31 $. Le prix actuel de 44,45 $ est 4,2 % en dessous. C'est la situation idéale selon notre méthode : qualité maximale et valorisation légèrement inférieure à la cible. Le multiple implicite de 13,1 fois le FCF est remarquablement bas pour un producteur d'or de qualité, reflétant une décote sectorielle persistante sur les mineurs." },
+        { type: 'h2', text: "Premier article Or de notre blog" },
+        { type: 'p', text: "DPM est le premier article du secteur Gold dans notre blog, ce qui reflète la rareté des mineurs d'or qui passent nos critères qualitatifs stricts. La plupart des mineurs ont des FCF cycliques, des bilans tendus ou des coûts mal maîtrisés. DPM fait exception. Pour les investisseurs souhaitant exposer leur portefeuille à l'or sans passer par un ETF ou un tracker, DPM représente une option de qualité rare." },
+      ],
+      faq: [
+        { q: "Où sont situées les mines de Dundee Precious Metals ?", a: "Dundee Precious Metals opère principalement sur deux actifs : la mine de Chelopech en Bulgarie (or et cuivre) et la fonderie de Tsumeb en Namibie. Ces deux actifs sont géographiquement diversifiés, ce qui réduit le risque pays. DPM est également active dans l'exploration en Serbie et en Équateur via des participations dans des projets en développement." },
+        { q: "Qu'est-ce que l'AISC et pourquoi est-il important ?", a: "L'AISC (All-In Sustaining Cost) est le coût total de production d'une once d'or, incluant tous les frais opérationnels et le capex de maintien. C'est la métrique clé pour évaluer la rentabilité d'un mineur d'or. Un AISC de 900 $/once avec un cours de l'or à 2 000 $/once signifie une marge de 1 100 $ par once. Dundee Precious Metals maintient un AISC bas, ce qui lui confère une marge de sécurité élevée face aux baisses du cours de l'or." },
+        { q: "Pourquoi les mineurs d'or sont-ils décotés par rapport à leur FCF ?", a: "Les mineurs d'or souffrent d'une décote structurelle pour plusieurs raisons : risque géopolitique (mines dans des pays émergents), risque de réserves (durée de vie des mines), coûts cycliques liés au cours de l'or, et réputation historique de mauvaise gestion du capital. DPM est une exception qui surmonte ces obstacles avec une gestion disciplinée, mais la décote sectorielle persiste partiellement." },
+        { q: "Comment l'or dans un portefeuille diversifié ?", a: "L'or a une corrélation faible ou négative avec les actions et les obligations en période de stress. Les économistes recommandent généralement une allocation de 5 à 10 % en or dans un portefeuille diversifié. Un mineur d'or comme DPM offre un accès à cette classe d'actifs avec un levier opérationnel sur le prix de l'or, ce qui peut amplifier les gains en période haussière mais aussi les pertes en période baissière." },
+        { q: "DPM verse-t-elle un dividende ?", a: "Dundee Precious Metals verse un dividende, bien que modeste par rapport à son FCF. La priorité de l'entreprise est de réinvestir dans ses opérations et ses projets d'exploration pour maintenir sa base de réserves. Notre méthode valorise le FCF total, pas uniquement le dividende versé : le FCF réinvesti dans la croissance crée de la valeur à long terme pour l'actionnaire." },
+      ],
+      tags: ['Dundee Precious Metals', 'DPM', 'Or', 'Mineur or', 'Gold', 'AISC', 'Screener qualité', 'Zone achat', 'Free cash flow', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "Dundee Precious Metals (DPM): the quality gold miner",
+      excerpt:
+        "Dundee Precious Metals is a gold producer listed in Toronto, with mines in Bulgaria and Namibia. Perfect score in our screener, FCF per share of $3.39. Current price of $44.45, slightly below our target of $46.31, in our buy zone.",
+      metaDescription:
+        "Dundee Precious Metals (DPM): Canadian gold producer, perfect score in our quality screener. FCF per share $3.39, entry target $46.31, current price $44.45. First gold miner analyzed, Lubin method.",
+      answer:
+        "Dundee Precious Metals (DPM) is a Canadian gold producer (mines in Bulgaria and Namibia), listed on the Toronto Stock Exchange. Perfect score in our quality screener, FCF per share of $3.39. The current price of $44.45 is 4.2% below our entry target of $46.31, placing the stock in our buy zone. First article on the Gold sector in our blog.",
+      body: [
+        { type: 'ul', items: [
+          "Dundee Precious Metals achieves a perfect score in our quality screener.",
+          "Free cash flow per share: $3.39. Current price: $44.45.",
+          "Entry target: $46.31 — price is 4.2% below, buy zone confirmed.",
+          "Mines in Bulgaria (Chelopech) and Namibia (Tsumeb).",
+          "Low AISC (all-in sustaining cost): rigorous production cost management.",
+        ] },
+        { type: 'h2', text: "An atypical gold producer" },
+        { type: 'p', text: "Dundee Precious Metals is a Canadian gold producer relatively unknown to the general public, but well established in the mining industry. Its two main assets are the Chelopech mine in Bulgaria (gold and copper production) and the Tsumeb smelter in Namibia. The combination of these two geographically diversified and operationally complementary assets contributes to FCF stability. DPM is listed on the TSX (Toronto Stock Exchange) and is part of the TSX Composite index." },
+        { type: 'h2', text: "Low AISC: the cost advantage" },
+        { type: 'p', text: "The AISC (All-In Sustaining Cost) is the total cost of producing an ounce of gold, including mining costs, administrative expenses, and sustaining capex. A low AISC means the company generates high margins even when the gold price falls. Dundee Precious Metals maintains a structurally low AISC thanks to its high-grade mines and operational discipline. This is what distinguishes DPM from many gold miners who see their margins collapse during gold price corrections." },
+        { type: 'h2', text: "Gold as an inflation hedge" },
+        { type: 'p', text: "Gold has historically had a negative correlation with the US dollar and plays the role of a safe haven during crises. Gold miners like DPM offer operational leverage on the gold price: if the price rises 10%, margins and FCF can increase by 20 to 30% thanks to the fixed cost leverage effect. This is a structural characteristic that makes gold miners attractive in an inflationary or monetary devaluation context." },
+        { type: 'h2', text: "Perfect score in the buy zone" },
+        { type: 'p', text: "In our screener, DPM validates all quality criteria. The FCF per share of $3.39 and our calculated multiple give a target of $46.31. The current price of $44.45 is 4.2% below. This is the ideal situation under our method: maximum quality and valuation slightly below the target. The implied multiple of 13.1x FCF is remarkably low for a quality gold producer, reflecting a persistent sector discount on miners." },
+        { type: 'h2', text: "First Gold article in our blog" },
+        { type: 'p', text: "DPM is the first Gold sector article on our blog, reflecting the rarity of gold miners that pass our strict qualitative criteria. Most miners have cyclical FCF, stretched balance sheets, or poorly controlled costs. DPM is an exception. For investors wishing to add gold exposure to their portfolio without going through an ETF or tracker, DPM represents a rare quality option." },
+      ],
+      faq: [
+        { q: "Where are Dundee Precious Metals' mines located?", a: "Dundee Precious Metals operates primarily on two assets: the Chelopech mine in Bulgaria (gold and copper) and the Tsumeb smelter in Namibia. These two assets are geographically diversified, reducing country risk. DPM is also active in exploration in Serbia and Ecuador through stakes in development projects." },
+        { q: "What is AISC and why is it important?", a: "The AISC (All-In Sustaining Cost) is the total cost of producing one ounce of gold, including all operating costs and sustaining capex. It is the key metric for evaluating the profitability of a gold miner. An AISC of $900/oz with a gold price of $2,000/oz means a margin of $1,100 per ounce. Dundee Precious Metals maintains a low AISC, giving it a high margin of safety against gold price declines." },
+        { q: "Why are gold miners discounted relative to their FCF?", a: "Gold miners suffer from a structural discount for several reasons: geopolitical risk (mines in emerging countries), reserve risk (mine lifespan), cyclical costs linked to the gold price, and a historical reputation for poor capital management. DPM is an exception that overcomes these obstacles with disciplined management, but the sector discount partially persists." },
+        { q: "How does gold fit in a diversified portfolio?", a: "Gold has low or negative correlation with stocks and bonds during periods of stress. Economists generally recommend a 5-10% gold allocation in a diversified portfolio. A gold miner like DPM offers access to this asset class with operational leverage on the gold price, which can amplify gains during bull markets but also losses during bear markets." },
+        { q: "Does DPM pay a dividend?", a: "Dundee Precious Metals pays a dividend, though modest relative to its FCF. The company's priority is to reinvest in its operations and exploration projects to maintain its reserve base. Our method values total FCF, not just the dividend paid: FCF reinvested in growth creates long-term value for the shareholder." },
+      ],
+      tags: ['Dundee Precious Metals', 'DPM', 'Gold', 'Gold miner', 'AISC', 'Quality screener', 'Buy zone', 'Free cash flow', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "Dundee Precious Metals (DPM): el minero de oro de calidad",
+      excerpt:
+        "Dundee Precious Metals es un productor de oro cotizado en Toronto, con minas en Bulgaria y Namibia. Puntuación perfecta en nuestro screener, FCF por acción de 3,39 $. Precio actual de 44,45 $, ligeramente por debajo de nuestro objetivo de 46,31 $, en zona de compra.",
+      metaDescription:
+        "Dundee Precious Metals (DPM): productor de oro canadiense, puntuación perfecta en nuestro screener de calidad. FCF por acción 3,39 $, objetivo de entrada 46,31 $, precio actual 44,45 $. Primer minero de oro analizado, método Lubin.",
+      answer:
+        "Dundee Precious Metals (DPM) es un productor de oro canadiense (minas en Bulgaria y Namibia), cotizado en la Bolsa de Toronto. Puntuación perfecta en nuestro screener de calidad, FCF por acción de 3,39 $. El precio actual de 44,45 $ está un 4,2% por debajo de nuestro objetivo de entrada de 46,31 $, situando la acción en zona de compra. Primer artículo sobre el sector Oro en nuestro blog.",
+      body: [
+        { type: 'ul', items: [
+          "Dundee Precious Metals obtiene la puntuación perfecta en nuestro screener de calidad.",
+          "Free cash flow por acción: 3,39 $. Precio actual: 44,45 $.",
+          "Objetivo de entrada: 46,31 $ — el precio está un 4,2% por debajo, zona de compra.",
+          "Minas en Bulgaria (Chelopech) y Namibia (Tsumeb).",
+          "AISC (coste total de mantenimiento) bajo: gestión rigurosa de los costes de producción.",
+        ] },
+        { type: 'h2', text: "Un productor de oro atípico" },
+        { type: 'p', text: "Dundee Precious Metals es un productor de oro canadiense relativamente desconocido para el gran público, pero bien establecido en la industria minera. Sus dos activos principales son la mina de Chelopech en Bulgaria (producción de oro y cobre) y la fundición de Tsumeb en Namibia. La combinación de estos dos activos geográficamente diversificados y operativamente complementarios contribuye a la estabilidad del FCF. DPM cotiza en el TSX (Toronto Stock Exchange) y forma parte del índice TSX Composite." },
+        { type: 'h2', text: "AISC bajo: la ventaja de costes" },
+        { type: 'p', text: "El AISC (All-In Sustaining Cost) es el coste total de producción de una onza de oro, incluyendo los costes mineros, los gastos administrativos y el capex de mantenimiento. Un AISC bajo significa que la empresa genera márgenes elevados incluso cuando el precio del oro baja. Dundee Precious Metals mantiene un AISC estructuralmente bajo gracias a sus minas de alta ley y a su disciplina operativa. Esto es lo que distingue a DPM de muchos mineros de oro que ven sus márgenes derrumbarse durante las correcciones del precio del oro." },
+        { type: 'h2', text: "El oro como cobertura contra la inflación" },
+        { type: 'p', text: "El oro tiene históricamente una correlación negativa con el dólar americano y juega el papel de valor refugio durante las crisis. Los mineros de oro como DPM ofrecen un apalancamiento operativo sobre el precio del oro: si el precio sube un 10%, los márgenes y el FCF pueden aumentar entre un 20 y un 30% gracias al efecto palanca de los costes fijos. Esta es una característica estructural que hace a los mineros de oro atractivos en un contexto inflacionario o de devaluación monetaria." },
+        { type: 'h2', text: "Puntuación perfecta en zona de compra" },
+        { type: 'p', text: "En nuestro screener, DPM valida todos los criterios de calidad. El FCF por acción de 3,39 $ y nuestro múltiplo calculado dan un objetivo de 46,31 $. El precio actual de 44,45 $ está un 4,2% por debajo. Esta es la situación ideal según nuestro método: calidad máxima y valoración ligeramente inferior al objetivo. El múltiplo implícito de 13,1 veces el FCF es notablemente bajo para un productor de oro de calidad, lo que refleja un descuento sectorial persistente sobre los mineros." },
+        { type: 'h2', text: "Primer artículo Oro de nuestro blog" },
+        { type: 'p', text: "DPM es el primer artículo del sector Oro en nuestro blog, lo que refleja la rareza de los mineros de oro que superan nuestros estrictos criterios cualitativos. La mayoría de los mineros tienen FCF cíclico, balances ajustados o costes mal controlados. DPM es una excepción. Para los inversores que desean añadir exposición al oro en su cartera sin pasar por un ETF o un tracker, DPM representa una opción de calidad excepcional." },
+      ],
+      faq: [
+        { q: "¿Dónde están las minas de Dundee Precious Metals?", a: "Dundee Precious Metals opera principalmente en dos activos: la mina de Chelopech en Bulgaria (oro y cobre) y la fundición de Tsumeb en Namibia. Estos dos activos están geográficamente diversificados, lo que reduce el riesgo país. DPM también está activa en exploración en Serbia y Ecuador a través de participaciones en proyectos en desarrollo." },
+        { q: "¿Qué es el AISC y por qué es importante?", a: "El AISC (All-In Sustaining Cost) es el coste total de producción de una onza de oro, incluyendo todos los costes operativos y el capex de mantenimiento. Es la métrica clave para evaluar la rentabilidad de un minero de oro. Un AISC de 900 $/oz con un precio del oro de 2.000 $/oz significa un margen de 1.100 $ por onza. Dundee Precious Metals mantiene un AISC bajo, lo que le confiere un alto margen de seguridad frente a las bajadas del precio del oro." },
+        { q: "¿Por qué los mineros de oro están descontados respecto a su FCF?", a: "Los mineros de oro sufren un descuento estructural por varias razones: riesgo geopolítico (minas en países emergentes), riesgo de reservas (vida útil de las minas), costes cíclicos ligados al precio del oro, y una reputación histórica de mala gestión del capital. DPM es una excepción que supera estos obstáculos con una gestión disciplinada, pero el descuento sectorial persiste parcialmente." },
+        { q: "¿Cómo encaja el oro en una cartera diversificada?", a: "El oro tiene baja o negativa correlación con las acciones y los bonos en periodos de estrés. Los economistas generalmente recomiendan una asignación del 5 al 10% en oro en una cartera diversificada. Un minero de oro como DPM ofrece acceso a esta clase de activos con apalancamiento operativo sobre el precio del oro, lo que puede amplificar las ganancias en mercados alcistas pero también las pérdidas en mercados bajistas." },
+        { q: "¿Paga DPM un dividendo?", a: "Dundee Precious Metals paga un dividendo, aunque modesto en relación a su FCF. La prioridad de la empresa es reinvertir en sus operaciones y proyectos de exploración para mantener su base de reservas. Nuestro método valora el FCF total, no solo el dividendo pagado: el FCF reinvertido en el crecimiento crea valor a largo plazo para el accionista." },
+      ],
+      tags: ['Dundee Precious Metals', 'DPM', 'Oro', 'Minero oro', 'Gold', 'AISC', 'Screener calidad', 'Zona compra', 'Free cash flow', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+const articleTSY: Article = {
+  slug: 'rendement-total-actionnaire-dividendes-rachats-methode',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  content: {
+    fr: {
+      title: "Rendement total : dividendes et rachats pour l'actionnaire",
+      excerpt:
+        "Le Total Shareholder Yield combine dividendes et rachats d'actions pour mesurer le vrai rendement versé aux actionnaires. Notre méthode FCF-first capture naturellement les entreprises à fort potentiel de TSY sans l'exiger comme critère.",
+      metaDescription:
+        "Total Shareholder Yield (TSY) : comprendre le rendement total actionnaire, dividendes plus rachats d'actions. Exemples avec Mastercard, Cincinnati Financial, GoDaddy. Comment notre méthode FCF-first l'intègre naturellement.",
+      answer:
+        "Le Total Shareholder Yield (TSY) mesure le rendement total qu'une entreprise verse à ses actionnaires : dividendes plus rachats d'actions, divisés par la capitalisation boursière. C'est plus complet que le seul rendement du dividende. Notre méthode FCF-first capture naturellement les entreprises à fort TSY potentiel, car le free cash flow est la source de tout retour aux actionnaires.",
+      body: [
+        { type: 'ul', items: [
+          "Le TSY combine dividendes et rachats d'actions pour mesurer le rendement total.",
+          "Mastercard (MA) : TSY d'environ 2,5% (rachats massifs, faible dividende).",
+          "Cincinnati Financial (CINF) : TSY d'environ 3,5% (Dividend King historique).",
+          "GoDaddy (GDDY) : TSY d'environ 4% (principalement rachats d'actions).",
+          "SkyWest (SKYW) : TSY proche de 0% mais FCF réinvesti dans la flotte.",
+        ] },
+        { type: 'h2', text: "Qu'est-ce que le Total Shareholder Yield ?" },
+        { type: 'p', text: "Le Total Shareholder Yield (TSY) est la somme du rendement du dividende et du rendement des rachats d'actions, divisée par la capitalisation boursière. Exemple : une entreprise capitalisant 10 milliards de dollars qui verse 200 millions de dividendes et rachète 300 millions d'actions a un TSY de 5 %. Ce chiffre est plus pertinent que le seul rendement du dividende, car il inclut la totalité du cash que l'entreprise redistribue à ses actionnaires, quelle que soit la forme choisie." },
+        { type: 'h2', text: "Dividendes vs rachats : deux façons de rémunérer" },
+        { type: 'p', text: "Le dividende est un versement direct en cash à l'actionnaire, imposé comme revenu dans la plupart des pays. Le rachat d'actions réduit le nombre de titres en circulation, ce qui augmente mécaniquement la part de chaque actionnaire dans les bénéfices futurs. Les rachats sont fiscalement plus efficaces dans de nombreuses juridictions, car la plus-value n'est réalisée que si l'actionnaire vend. C'est pourquoi des entreprises comme Mastercard ou GoDaddy privilégient les rachats aux dividendes pour rémunérer leurs actionnaires." },
+        { type: 'h2', text: "Exemples réels de notre screener" },
+        { type: 'p', text: "Mastercard (MA) affiche un TSY d'environ 2,5 % : dividende modeste (environ 0,5 %) et rachats significatifs (environ 2 %). Cincinnati Financial (CINF), Dividend King historique, a un TSY d'environ 3,5 %, principalement via dividendes croissants depuis plus de 60 ans. GoDaddy (GDDY) a un TSY d'environ 4 %, quasi-exclusivement via rachats massifs. SkyWest (SKYW) a un TSY proche de zéro : pas de dividende, rachats symboliques, mais le FCF est réinvesti dans la flotte d'avions pour générer de la croissance future." },
+        { type: 'h2', text: "Notre méthode FCF-first et le TSY" },
+        { type: 'p', text: "Notre méthode ne filtre pas explicitement sur le TSY, mais le capture indirectement via le free cash flow. Une entreprise avec un FCF élevé et un bilan sain a la capacité de maintenir ou d'augmenter son TSY. Inversement, une entreprise qui verse un dividende élevé mais dont le FCF est insuffisant est en danger : elle devra couper son dividende ou s'endetter. Notre approche FCF-first sélectionne naturellement les entreprises capables de maintenir un TSY durable dans le temps." },
+        { type: 'h2', text: "Le TSY dans une analyse d'investissement" },
+        { type: 'p', text: "Utiliser le TSY seul pour sélectionner des actions est insuffisant. Une entreprise peut avoir un TSY élevé en s'endettant pour financer ses rachats (risque), ou un TSY nul tout en créant de la valeur par réinvestissement (croissance). Le TSY est un complément utile à l'analyse du FCF et de la valorisation. Notre méthode intègre ces trois dimensions : qualité du FCF, valorisation relative (multiple), et capacité de retour aux actionnaires." },
+      ],
+      faq: [
+        { q: "Qu'est-ce que le Total Shareholder Yield exactement ?", a: "Le Total Shareholder Yield (TSY) est la somme du rendement du dividende (dividende annuel / cours de l'action) et du rendement des rachats (montant des rachats / capitalisation boursière). Il mesure le pourcentage du capital que l'entreprise redistribue à ses actionnaires chaque année via toutes les formes de retour de cash." },
+        { q: "Pourquoi les rachats sont-ils préférés aux dividendes par certaines entreprises ?", a: "Les rachats d'actions sont souvent fiscalement plus efficaces : l'actionnaire ne paie d'impôt que s'il vend ses actions. Les dividendes sont imposés à la réception dans la plupart des pays. De plus, les rachats sont plus flexibles : une entreprise peut les réduire ou les arrêter sans signal négatif fort, alors qu'une coupe de dividende est généralement perçue comme un signal d'alarme par le marché." },
+        { q: "Comment calculer le TSY d'une action ?", a: "TSY = (dividende annuel + montant des rachats d'actions) / capitalisation boursière. Pour les rachats, on utilise généralement le montant des 12 derniers mois issu du tableau de flux de trésorerie. Par exemple : capitalisation 10 Md$, dividendes 0,3 Md$, rachats 0,5 Md$ = TSY de 8 %." },
+        { q: "Pourquoi SkyWest a un TSY proche de zéro malgré un FCF fort ?", a: "SkyWest réinvestit massivement son FCF dans le renouvellement et l'expansion de sa flotte d'avions. C'est un choix stratégique : plutôt que de redistribuer le cash, l'entreprise préfère investir dans sa capacité opérationnelle pour générer plus de FCF à l'avenir. Notre méthode valorise ce réinvestissement via la croissance future du FCF par action." },
+        { q: "Un TSY élevé est-il toujours un bon signe ?", a: "Non. Un TSY très élevé peut être financé par la dette (dangereux) ou signifier que l'entreprise n'a pas de projets rentables pour réinvestir son cash (stagnation). L'idéal est un TSY durable financé par un FCF croissant. Notre méthode vérifie la solidité du FCF avant de considérer le TSY comme un signal positif." },
+      ],
+      tags: ['Total Shareholder Yield', 'TSY', 'Dividendes', 'Rachats actions', 'Free cash flow', 'Mastercard', 'GoDaddy', 'Cincinnati Financial', 'SkyWest', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "Total shareholder yield: dividends and buybacks explained",
+      excerpt:
+        "Total Shareholder Yield combines dividends and share buybacks to measure the true return paid to shareholders. Our FCF-first method naturally captures companies with strong TSY potential without requiring it as a criterion.",
+      metaDescription:
+        "Total Shareholder Yield (TSY): understanding total shareholder return, dividends plus share buybacks. Examples with Mastercard, Cincinnati Financial, GoDaddy. How our FCF-first method integrates it naturally.",
+      answer:
+        "Total Shareholder Yield (TSY) measures the total return a company pays to its shareholders: dividends plus share buybacks, divided by market capitalization. It is more comprehensive than dividend yield alone. Our FCF-first method naturally captures companies with strong TSY potential, since free cash flow is the source of all shareholder returns.",
+      body: [
+        { type: 'ul', items: [
+          "TSY combines dividends and buybacks to measure total yield.",
+          "Mastercard (MA): TSY of approximately 2.5% (massive buybacks, low dividend).",
+          "Cincinnati Financial (CINF): TSY of approximately 3.5% (historical Dividend King).",
+          "GoDaddy (GDDY): TSY of approximately 4% (primarily share buybacks).",
+          "SkyWest (SKYW): TSY near 0% but FCF reinvested in fleet expansion.",
+        ] },
+        { type: 'h2', text: "What is Total Shareholder Yield?" },
+        { type: 'p', text: "Total Shareholder Yield (TSY) is the sum of dividend yield and buyback yield, divided by market capitalization. Example: a company with a $10 billion market cap that pays $200 million in dividends and buys back $300 million in shares has a TSY of 5%. This figure is more relevant than dividend yield alone, as it includes all the cash the company redistributes to its shareholders, regardless of the form chosen." },
+        { type: 'h2', text: "Dividends vs buybacks: two ways to reward shareholders" },
+        { type: 'p', text: "A dividend is a direct cash payment to the shareholder, taxed as income in most countries. A share buyback reduces the number of shares outstanding, which mechanically increases each shareholder's share of future earnings. Buybacks are more tax-efficient in many jurisdictions, since the capital gain is only realized when the shareholder sells. This is why companies like Mastercard or GoDaddy prefer buybacks over dividends to reward their shareholders." },
+        { type: 'h2', text: "Real examples from our screener" },
+        { type: 'p', text: "Mastercard (MA) shows a TSY of approximately 2.5%: modest dividend (approximately 0.5%) and significant buybacks (approximately 2%). Cincinnati Financial (CINF), a historical Dividend King, has a TSY of approximately 3.5%, primarily through dividends growing for over 60 years. GoDaddy (GDDY) has a TSY of approximately 4%, almost exclusively through massive buybacks. SkyWest (SKYW) has a TSY near zero: no dividend, symbolic buybacks, but FCF is reinvested in the aircraft fleet to generate future growth." },
+        { type: 'h2', text: "Our FCF-first method and TSY" },
+        { type: 'p', text: "Our method does not explicitly filter on TSY, but captures it indirectly through free cash flow. A company with high FCF and a healthy balance sheet has the ability to maintain or increase its TSY. Conversely, a company paying a high dividend but with insufficient FCF is at risk: it will have to cut its dividend or take on debt. Our FCF-first approach naturally selects companies capable of maintaining a sustainable TSY over time." },
+        { type: 'h2', text: "TSY in investment analysis" },
+        { type: 'p', text: "Using TSY alone to select stocks is insufficient. A company can have a high TSY by borrowing to finance its buybacks (risky), or a zero TSY while creating value through reinvestment (growth). TSY is a useful complement to FCF and valuation analysis. Our method integrates all three dimensions: FCF quality, relative valuation (multiple), and shareholder return capacity." },
+      ],
+      faq: [
+        { q: "What exactly is Total Shareholder Yield?", a: "Total Shareholder Yield (TSY) is the sum of dividend yield (annual dividend / share price) and buyback yield (buyback amount / market cap). It measures the percentage of capital the company redistributes to its shareholders each year through all forms of cash return." },
+        { q: "Why do some companies prefer buybacks over dividends?", a: "Share buybacks are often more tax-efficient: the shareholder only pays tax when they sell their shares. Dividends are taxed upon receipt in most countries. Additionally, buybacks are more flexible: a company can reduce or stop them without a strong negative signal, whereas a dividend cut is generally perceived as a red flag by the market." },
+        { q: "How do you calculate TSY for a stock?", a: "TSY = (annual dividend + share buyback amount) / market capitalization. For buybacks, the last 12 months' amount from the cash flow statement is generally used. For example: market cap $10B, dividends $0.3B, buybacks $0.5B = TSY of 8%." },
+        { q: "Why does SkyWest have near-zero TSY despite strong FCF?", a: "SkyWest massively reinvests its FCF in renewing and expanding its aircraft fleet. This is a strategic choice: rather than redistributing cash, the company prefers to invest in its operational capacity to generate more FCF in the future. Our method values this reinvestment through future growth in FCF per share." },
+        { q: "Is a high TSY always a good sign?", a: "No. A very high TSY can be debt-financed (dangerous) or signal that the company has no profitable projects to reinvest its cash in (stagnation). The ideal is a sustainable TSY financed by growing FCF. Our method verifies FCF strength before considering TSY as a positive signal." },
+      ],
+      tags: ['Total Shareholder Yield', 'TSY', 'Dividends', 'Share buybacks', 'Free cash flow', 'Mastercard', 'GoDaddy', 'Cincinnati Financial', 'SkyWest', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "Rendimiento total del accionista: dividendos y recompras",
+      excerpt:
+        "El Total Shareholder Yield combina dividendos y recompras de acciones para medir el rendimiento real pagado a los accionistas. Nuestro método FCF-first captura naturalmente las empresas con alto potencial de TSY sin exigirlo como criterio.",
+      metaDescription:
+        "Total Shareholder Yield (TSY): entender el rendimiento total del accionista, dividendos más recompras de acciones. Ejemplos con Mastercard, Cincinnati Financial, GoDaddy. Cómo nuestro método FCF-first lo integra naturalmente.",
+      answer:
+        "El Total Shareholder Yield (TSY) mide el rendimiento total que una empresa paga a sus accionistas: dividendos más recompras de acciones, divididos por la capitalización bursátil. Es más completo que solo el rendimiento del dividendo. Nuestro método FCF-first captura naturalmente las empresas con alto potencial de TSY, ya que el free cash flow es la fuente de todo retorno a los accionistas.",
+      body: [
+        { type: 'ul', items: [
+          "El TSY combina dividendos y recompras para medir el rendimiento total.",
+          "Mastercard (MA): TSY de aproximadamente 2,5% (recompras masivas, dividendo bajo).",
+          "Cincinnati Financial (CINF): TSY de aproximadamente 3,5% (Dividend King histórico).",
+          "GoDaddy (GDDY): TSY de aproximadamente 4% (principalmente recompras de acciones).",
+          "SkyWest (SKYW): TSY cercano a 0% pero FCF reinvertido en la flota.",
+        ] },
+        { type: 'h2', text: "¿Qué es el Total Shareholder Yield?" },
+        { type: 'p', text: "El Total Shareholder Yield (TSY) es la suma del rendimiento del dividendo y el rendimiento de las recompras, dividida por la capitalización bursátil. Ejemplo: una empresa con capitalización de 10.000 millones de dólares que paga 200 millones en dividendos y recompra 300 millones en acciones tiene un TSY del 5%. Este dato es más relevante que el solo rendimiento del dividendo, ya que incluye todo el efectivo que la empresa redistribuye a sus accionistas, independientemente de la forma elegida." },
+        { type: 'h2', text: "Dividendos vs recompras: dos formas de remunerar" },
+        { type: 'p', text: "El dividendo es un pago directo en efectivo al accionista, gravado como ingreso en la mayoría de los países. La recompra de acciones reduce el número de títulos en circulación, lo que aumenta mecánicamente la participación de cada accionista en los beneficios futuros. Las recompras son más eficientes fiscalmente en muchas jurisdicciones, ya que la plusvalía solo se realiza cuando el accionista vende. Por eso empresas como Mastercard o GoDaddy prefieren las recompras a los dividendos para remunerar a sus accionistas." },
+        { type: 'h2', text: "Ejemplos reales de nuestro screener" },
+        { type: 'p', text: "Mastercard (MA) muestra un TSY de aproximadamente 2,5%: dividendo modesto (aproximadamente 0,5%) y recompras significativas (aproximadamente 2%). Cincinnati Financial (CINF), Dividend King histórico, tiene un TSY de aproximadamente 3,5%, principalmente a través de dividendos crecientes durante más de 60 años. GoDaddy (GDDY) tiene un TSY de aproximadamente 4%, casi exclusivamente a través de recompras masivas. SkyWest (SKYW) tiene un TSY cercano a cero: sin dividendo, recompras simbólicas, pero el FCF se reinvierte en la flota de aviones para generar crecimiento futuro." },
+        { type: 'h2', text: "Nuestro método FCF-first y el TSY" },
+        { type: 'p', text: "Nuestro método no filtra explícitamente sobre el TSY, pero lo captura indirectamente a través del free cash flow. Una empresa con FCF elevado y balance saneado tiene la capacidad de mantener o aumentar su TSY. Por el contrario, una empresa que paga un dividendo elevado pero con FCF insuficiente está en peligro: tendrá que recortar su dividendo o endeudarse. Nuestro enfoque FCF-first selecciona naturalmente las empresas capaces de mantener un TSY sostenible a lo largo del tiempo." },
+        { type: 'h2', text: "El TSY en el análisis de inversión" },
+        { type: 'p', text: "Usar el TSY solo para seleccionar acciones es insuficiente. Una empresa puede tener un TSY elevado endeudándose para financiar sus recompras (peligroso), o un TSY nulo mientras crea valor mediante reinversión (crecimiento). El TSY es un complemento útil al análisis del FCF y la valoración. Nuestro método integra estas tres dimensiones: calidad del FCF, valoración relativa (múltiplo) y capacidad de retorno a los accionistas." },
+      ],
+      faq: [
+        { q: "¿Qué es exactamente el Total Shareholder Yield?", a: "El Total Shareholder Yield (TSY) es la suma del rendimiento del dividendo (dividendo anual / precio de la acción) y el rendimiento de las recompras (importe de recompras / capitalización bursátil). Mide el porcentaje del capital que la empresa redistribuye a sus accionistas cada año a través de todas las formas de retorno de efectivo." },
+        { q: "¿Por qué algunas empresas prefieren las recompras a los dividendos?", a: "Las recompras de acciones suelen ser más eficientes fiscalmente: el accionista solo paga impuestos cuando vende sus acciones. Los dividendos se gravan en el momento de su percepción en la mayoría de los países. Además, las recompras son más flexibles: una empresa puede reducirlas o detenerlas sin una señal negativa fuerte, mientras que un recorte de dividendo es generalmente percibido como una señal de alarma por el mercado." },
+        { q: "¿Cómo se calcula el TSY de una acción?", a: "TSY = (dividendo anual + importe de recompras de acciones) / capitalización bursátil. Para las recompras, se utiliza generalmente el importe de los últimos 12 meses del estado de flujos de caja. Por ejemplo: capitalización 10.000 M$, dividendos 300 M$, recompras 500 M$ = TSY del 8%." },
+        { q: "¿Por qué SkyWest tiene un TSY cercano a cero a pesar de un FCF fuerte?", a: "SkyWest reinvierte masivamente su FCF en la renovación y expansión de su flota de aviones. Es una elección estratégica: en lugar de redistribuir el efectivo, la empresa prefiere invertir en su capacidad operativa para generar más FCF en el futuro. Nuestro método valora esta reinversión a través del crecimiento futuro del FCF por acción." },
+        { q: "¿Un TSY elevado es siempre una buena señal?", a: "No. Un TSY muy elevado puede financiarse con deuda (peligroso) o indicar que la empresa no tiene proyectos rentables para reinvertir su efectivo (estancamiento). Lo ideal es un TSY sostenible financiado por un FCF creciente. Nuestro método verifica la solidez del FCF antes de considerar el TSY como una señal positiva." },
+      ],
+      tags: ['Total Shareholder Yield', 'TSY', 'Dividendos', 'Recompras acciones', 'Free cash flow', 'Mastercard', 'GoDaddy', 'Cincinnati Financial', 'SkyWest', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+const articleAviationSecteur: Article = {
+  slug: 'secteur-aerien-skyw-seul-note-parfaite-our-screener',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  content: {
+    fr: {
+      title: "Secteur aérien : pourquoi seul SkyWest passe notre filtre",
+      excerpt:
+        "L'industrie aérienne est réputée pour détruire de la valeur. Pourtant, SkyWest obtient le score parfait dans notre screener avec un multiple très bas. Analyse des acteurs aéronautiques dans notre base.",
+      metaDescription:
+        "Secteur aérien et aéronautique dans notre screener qualité : SkyWest score parfait, OMAB aéroports, Heico pièces détachées. Pourquoi les grandes compagnies aériennes échouent nos critères. Méthode Lubin.",
+      answer:
+        "Dans notre screener, le secteur aérien au sens large révèle des disparités saisissantes. SkyWest (SKYW) obtient le score parfait avec un multiple très bas et une forte décote. OMAB (aéroports mexicains) obtient aussi le score parfait. Heico (pièces aéronautiques) obtient 9/10 mais est très surévalué. Les grandes compagnies aériennes (Delta, United, Southwest) obtiennent généralement des scores de 5 à 7/10.",
+      body: [
+        { type: 'ul', items: [
+          "SkyWest (SKYW) : score parfait, multiple très bas, forte décote selon notre méthode.",
+          "OMAB (aéroports Mexique) : score parfait, multiple extrêmement bas.",
+          "Heico (pièces aéronautiques) : 9/10 mais fortement surévalué.",
+          "TransDigm (composants) : 8/10, valorisation élevée.",
+          "Les grandes compagnies aériennes : scores généralement entre 5 et 7/10.",
+        ] },
+        { type: 'h2', text: "Pourquoi l'aviation détruit de la valeur" },
+        { type: 'p', text: "Warren Buffett a déclaré un jour que les actionnaires auraient été mieux lotis si quelqu'un avait abattu l'avion des frères Wright à Kitty Hawk. L'industrie aérienne cumule les désavantages structurels : coûts fixes colossaux (avions, maintenance, aéroports), salaires élevés des pilotes, kérosène comme principal coût variable, concurrence tarifaire féroce, et sensibilité extrême aux chocs économiques, sanitaires ou géopolitiques. La plupart des grandes compagnies ont fait faillite au moins une fois. Le FCF est structurellement imprévisible." },
+        { type: 'h2', text: "SkyWest : l'exception absolue" },
+        { type: 'p', text: "SkyWest Airlines est une compagnie régionale américaine qui vole pour le compte des grandes majors (Delta, United, American, Alaska) sous contrat fixe. Ce modèle est radicalement différent de celui d'une compagnie traditionnelle : SkyWest est payée par avion opéré et par heure de vol, indépendamment du taux de remplissage. Le risque de remplissage est porté par la major, pas par SkyWest. Résultat : un FCF prévisible, une structure financière saine, et un score parfait dans notre screener. Son multiple très bas reflète la décote persistante que le marché applique à tout acteur aérien, même le plus qualitatif." },
+        { type: 'h2', text: "OMAB : les aéroports comme infrastructure" },
+        { type: 'p', text: "Grupo Aeroportuario del Centro Norte (OMAB) exploite 13 aéroports dans le nord et le centre du Mexique, dont l'aéroport de Monterrey. Les aéroports sont des infrastructures quasi-monopolistiques : une ville n'a généralement qu'un seul aéroport principal. OMAB bénéficie de concessions longue durée accordées par l'État mexicain, avec des revenus indexés sur le trafic passagers. FCF stable et prévisible. Score parfait dans notre screener, avec un multiple extrêmement bas." },
+        { type: 'h2', text: "Heico et TransDigm : la supply chain aéronautique" },
+        { type: 'p', text: "Heico (HEI) et TransDigm (TDG) opèrent dans la fabrication et distribution de pièces détachées et composants pour l'industrie aéronautique. Ces acteurs bénéficient de barrières à l'entrée élevées (certifications FAA, relations constructeurs) et de revenus récurrents. Heico obtient 9/10 dans notre screener, seul le DSO est légèrement défaillant. Mais son multiple de plus de 50 fois le FCF le rend très peu attractif selon notre méthode. TransDigm obtient 8/10 avec une valorisation également élevée." },
+        { type: 'h2', text: "Notre verdict sectoriel" },
+        { type: 'p', text: "Le secteur aérien au sens large n'est pas homogène. Les compagnies aériennes traditionnelles sont structurellement peu attractives pour notre méthode. En revanche, les modèles contractuels (SkyWest), les infrastructures (OMAB) et la supply chain de qualité (Heico, TransDigm) offrent des profils nettement supérieurs. SkyWest est en zone d'achat aujourd'hui selon notre méthode, ce qui en fait le cas le plus attractif du secteur dans notre base." },
+      ],
+      faq: [
+        { q: "Pourquoi les grandes compagnies aériennes échouent votre screener ?", a: "Les grandes compagnies aériennes (Delta, United, Southwest, Air France) ont des FCF structurellement volatils, des dettes élevées liées aux flottes, des coûts fixes immenses et une sensibilité extrême aux chocs externes (COVID, récession, flambée du kérosène). Nos critères valorisent la prévisibilité et la qualité du FCF, deux qualités rares dans le transport aérien classique. Les scores de 5 à 7/10 reflètent des failles sur plusieurs critères simultanément." },
+        { q: "Comment fonctionne le modèle contractuel de SkyWest ?", a: "SkyWest opère des vols régionaux pour Delta, United, American et Alaska sous des contrats de capacité (Capacity Purchase Agreements). La major définit les routes, les horaires et les prix des billets. SkyWest est payée par avion opéré, par heure de vol ou par passager transporté selon les contrats. Elle ne supporte pas le risque de remplissage. Ce modèle génère un FCF stable et prévisible, très différent d'une compagnie en concurrence directe sur les prix des billets." },
+        { q: "Qu'est-ce qu'OMAB et pourquoi est-il dans notre screener ?", a: "OMAB (Grupo Aeroportuario del Centro Norte) est un opérateur d'aéroports mexicain coté sur le NYSE et le BMV. Il exploite 13 aéroports dont Monterrey (le plus actif), Culiacán, Mazatlán et Ciudad Juárez. C'est une infrastructure quasi-monopolistique avec des concessions longue durée. Le FCF est stable et prévisible, les marges sont élevées. Score parfait dans notre screener, secteur Airports and Air Services." },
+        { q: "Heico est-elle chère par rapport à sa qualité ?", a: "Heico est une entreprise de très haute qualité (9/10) qui fabrique des pièces aéronautiques alternatives certifiées FAA. Mais avec un multiple de plus de 50 fois le FCF, la valorisation est très élevée selon notre méthode. Cela signifie que les perspectives de croissance futures sont déjà largement dans le prix. Notre méthode attend une correction significative avant de donner un signal d'entrée sur Heico." },
+        { q: "Pourquoi Warren Buffett a-t-il vendu ses compagnies aériennes en 2020 ?", a: "En mai 2020, au plus fort de la crise COVID, Berkshire Hathaway a vendu toutes ses positions dans les grandes compagnies aériennes (Delta, United, American, Southwest) en acceptant de larges pertes. Buffett a reconnu avoir sous-estimé la fragilité structurelle du secteur face aux chocs exogènes. L'aviation traditionnelle consomme du capital massivement, génère peu de FCF en période normale, et peut rapidement passer à un FCF fortement négatif lors d'une crise. Notre méthode capture cette fragilité via ses critères de qualité FCF." },
+      ],
+      tags: ['Secteur aérien', 'SkyWest', 'SKYW', 'OMAB', 'Heico', 'TransDigm', 'Aéronautique', 'Screener qualité', 'Free cash flow', 'Méthode Lubin'],
+      disclaimer: "Article à visée informative et éducative uniquement. Pas de conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: "Airlines sector: why only SkyWest passes our quality screen",
+      excerpt:
+        "The airline industry is known for destroying value. Yet SkyWest achieves a perfect score in our screener with a very low multiple. Analysis of aviation players in our database.",
+      metaDescription:
+        "Aviation and airline sector in our quality screener: SkyWest perfect score, OMAB airports, Heico spare parts. Why major airlines fail our criteria. Lubin method.",
+      answer:
+        "In our screener, the broad aviation sector reveals striking disparities. SkyWest (SKYW) achieves a perfect score with a very low multiple and a large discount. OMAB (Mexican airports) also achieves a perfect score. Heico (aeronautical parts) scores 9/10 but is very overvalued. Major airlines (Delta, United, Southwest) generally score between 5 and 7/10.",
+      body: [
+        { type: 'ul', items: [
+          "SkyWest (SKYW): perfect score, very low multiple, large discount by our method.",
+          "OMAB (Mexico airports): perfect score, extremely low multiple.",
+          "Heico (aeronautical parts): 9/10 but significantly overvalued.",
+          "TransDigm (components): 8/10, high valuation.",
+          "Major airlines: scores generally between 5 and 7/10.",
+        ] },
+        { type: 'h2', text: "Why aviation destroys value" },
+        { type: 'p', text: "Warren Buffett once said that shareholders would have been better served if someone had shot down the Wright Brothers' plane at Kitty Hawk. The airline industry accumulates structural disadvantages: colossal fixed costs (planes, maintenance, airports), high pilot salaries, jet fuel as the main variable cost, fierce price competition, and extreme sensitivity to economic, health, or geopolitical shocks. Most major airlines have filed for bankruptcy at least once. Free cash flow is structurally unpredictable." },
+        { type: 'h2', text: "SkyWest: the absolute exception" },
+        { type: 'p', text: "SkyWest Airlines is an American regional carrier that flies on behalf of the major airlines (Delta, United, American, Alaska) under fixed contracts. This model is radically different from a traditional airline: SkyWest is paid per aircraft operated and per flight hour, regardless of load factor. The load risk is borne by the major, not SkyWest. The result: predictable FCF, sound financial structure, and a perfect score in our screener. Its very low multiple reflects the persistent discount the market applies to all aviation players, even the highest quality ones." },
+        { type: 'h2', text: "OMAB: airports as infrastructure" },
+        { type: 'p', text: "Grupo Aeroportuario del Centro Norte (OMAB) operates 13 airports in northern and central Mexico, including Monterrey airport. Airports are quasi-monopolistic infrastructure: a city generally has only one main airport. OMAB benefits from long-term concessions granted by the Mexican government, with revenues indexed to passenger traffic. Stable and predictable FCF. Perfect score in our screener, with an extremely low multiple." },
+        { type: 'h2', text: "Heico and TransDigm: the aeronautical supply chain" },
+        { type: 'p', text: "Heico (HEI) and TransDigm (TDG) operate in the manufacturing and distribution of spare parts and components for the aeronautical industry. These players benefit from high entry barriers (FAA certifications, manufacturer relationships) and recurring revenues. Heico scores 9/10 in our screener, with only the DSO slightly failing. But its multiple of over 50 times FCF makes it very unattractive under our method. TransDigm scores 8/10 with similarly high valuation." },
+        { type: 'h2', text: "Our sector verdict" },
+        { type: 'p', text: "The broad aviation sector is not homogeneous. Traditional airlines are structurally unattractive for our method. However, contract models (SkyWest), infrastructure (OMAB), and quality supply chain players (Heico, TransDigm) offer significantly superior profiles. SkyWest is in our buy zone today, making it the most attractive case in the sector within our database." },
+      ],
+      faq: [
+        { q: "Why do major airlines fail your screener?", a: "Major airlines (Delta, United, Southwest, Air France) have structurally volatile FCF, high fleet-related debt, enormous fixed costs, and extreme sensitivity to external shocks (COVID, recession, fuel price spikes). Our criteria value FCF predictability and quality, two rare qualities in traditional air transport. Scores of 5 to 7/10 reflect failures on multiple criteria simultaneously." },
+        { q: "How does SkyWest's contract model work?", a: "SkyWest operates regional flights for Delta, United, American, and Alaska under Capacity Purchase Agreements. The major defines routes, schedules, and ticket prices. SkyWest is paid per aircraft operated, per flight hour, or per passenger transported depending on the contracts. It does not bear load risk. This model generates stable and predictable FCF, very different from an airline competing directly on ticket prices." },
+        { q: "What is OMAB and why is it in our screener?", a: "OMAB (Grupo Aeroportuario del Centro Norte) is a Mexican airport operator listed on the NYSE and BMV. It operates 13 airports including Monterrey (the most active), Culiacán, Mazatlán, and Ciudad Juárez. It is quasi-monopolistic infrastructure with long-term concessions. FCF is stable and predictable, margins are high. Perfect score in our screener, Airports and Air Services sector." },
+        { q: "Is Heico expensive relative to its quality?", a: "Heico is a very high quality company (9/10) that manufactures FAA-certified alternative aeronautical parts. But with a multiple of over 50 times FCF, the valuation is very high under our method. This means future growth prospects are already largely priced in. Our method waits for a significant correction before giving an entry signal on Heico." },
+        { q: "Why did Warren Buffett sell his airline holdings in 2020?", a: "In May 2020, at the height of the COVID crisis, Berkshire Hathaway sold all its positions in major airlines (Delta, United, American, Southwest) at large losses. Buffett admitted he had underestimated the structural fragility of the sector to exogenous shocks. Traditional aviation is massively capital-intensive, generates little FCF in normal periods, and can quickly turn to deeply negative FCF during a crisis. Our method captures this fragility through its FCF quality criteria." },
+      ],
+      tags: ['Aviation sector', 'SkyWest', 'SKYW', 'OMAB', 'Heico', 'TransDigm', 'Aeronautics', 'Quality screener', 'Free cash flow', 'Lubin method'],
+      disclaimer: "Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.",
+    },
+    es: {
+      title: "Sector aéreo: por qué solo SkyWest pasa nuestro filtro",
+      excerpt:
+        "La industria aérea es conocida por destruir valor. Sin embargo, SkyWest obtiene la puntuación perfecta en nuestro screener con un múltiplo muy bajo. Análisis de los actores aeronáuticos en nuestra base.",
+      metaDescription:
+        "Sector aéreo y aeronáutico en nuestro screener de calidad: SkyWest puntuación perfecta, OMAB aeropuertos, Heico repuestos. Por qué las grandes aerolíneas fallan nuestros criterios. Método Lubin.",
+      answer:
+        "En nuestro screener, el sector aéreo en sentido amplio revela disparidades llamativas. SkyWest (SKYW) obtiene la puntuación perfecta con un múltiplo muy bajo y un gran descuento. OMAB (aeropuertos mexicanos) también obtiene la puntuación perfecta. Heico (piezas aeronáuticas) obtiene 9/10 pero está muy sobrevalorado. Las grandes aerolíneas (Delta, United, Southwest) generalmente obtienen puntuaciones de 5 a 7/10.",
+      body: [
+        { type: 'ul', items: [
+          "SkyWest (SKYW): puntuación perfecta, múltiplo muy bajo, gran descuento según nuestro método.",
+          "OMAB (aeropuertos México): puntuación perfecta, múltiplo extremadamente bajo.",
+          "Heico (piezas aeronáuticas): 9/10 pero significativamente sobrevalorado.",
+          "TransDigm (componentes): 8/10, valoración elevada.",
+          "Las grandes aerolíneas: puntuaciones generalmente entre 5 y 7/10.",
+        ] },
+        { type: 'h2', text: "Por qué la aviación destruye valor" },
+        { type: 'p', text: "Warren Buffett dijo una vez que los accionistas habrían estado mejor si alguien hubiera derribado el avión de los hermanos Wright en Kitty Hawk. La industria aérea acumula desventajas estructurales: costes fijos colosales (aviones, mantenimiento, aeropuertos), altos salarios de pilotos, queroseno como principal coste variable, feroz competencia en precios, y extrema sensibilidad a los choques económicos, sanitarios o geopolíticos. La mayoría de las grandes aerolíneas han quebrado al menos una vez. El FCF es estructuralmente impredecible." },
+        { type: 'h2', text: "SkyWest: la excepción absoluta" },
+        { type: 'p', text: "SkyWest Airlines es una aerolínea regional americana que vuela en nombre de las grandes compañías (Delta, United, American, Alaska) bajo contratos fijos. Este modelo es radicalmente diferente al de una aerolínea tradicional: SkyWest cobra por avión operado y por hora de vuelo, independientemente del factor de ocupación. El riesgo de ocupación lo asume la major, no SkyWest. El resultado: FCF predecible, estructura financiera sólida y puntuación perfecta en nuestro screener. Su múltiplo muy bajo refleja el descuento persistente que el mercado aplica a todos los actores aéreos, incluso los de mayor calidad." },
+        { type: 'h2', text: "OMAB: los aeropuertos como infraestructura" },
+        { type: 'p', text: "Grupo Aeroportuario del Centro Norte (OMAB) opera 13 aeropuertos en el norte y centro de México, incluido el aeropuerto de Monterrey. Los aeropuertos son infraestructuras casi monopolísticas: una ciudad generalmente tiene solo un aeropuerto principal. OMAB se beneficia de concesiones a largo plazo otorgadas por el gobierno mexicano, con ingresos indexados al tráfico de pasajeros. FCF estable y predecible. Puntuación perfecta en nuestro screener, con un múltiplo extremadamente bajo." },
+        { type: 'h2', text: "Heico y TransDigm: la cadena de suministro aeronáutica" },
+        { type: 'p', text: "Heico (HEI) y TransDigm (TDG) operan en la fabricación y distribución de repuestos y componentes para la industria aeronáutica. Estos actores se benefician de altas barreras de entrada (certificaciones FAA, relaciones con fabricantes) e ingresos recurrentes. Heico obtiene 9/10 en nuestro screener, con solo el DSO ligeramente defectuoso. Pero su múltiplo de más de 50 veces el FCF lo hace muy poco atractivo según nuestro método. TransDigm obtiene 8/10 con una valoración igualmente elevada." },
+        { type: 'h2', text: "Nuestro veredicto sectorial" },
+        { type: 'p', text: "El sector aéreo en sentido amplio no es homogéneo. Las aerolíneas tradicionales son estructuralmente poco atractivas para nuestro método. Sin embargo, los modelos contractuales (SkyWest), las infraestructuras (OMAB) y los actores de calidad en la cadena de suministro (Heico, TransDigm) ofrecen perfiles notablemente superiores. SkyWest está en zona de compra hoy según nuestro método, lo que lo convierte en el caso más atractivo del sector en nuestra base." },
+      ],
+      faq: [
+        { q: "¿Por qué las grandes aerolíneas fallan su screener?", a: "Las grandes aerolíneas (Delta, United, Southwest, Air France) tienen FCF estructuralmente volátil, alta deuda relacionada con la flota, enormes costes fijos y extrema sensibilidad a los choques externos (COVID, recesión, subida del combustible). Nuestros criterios valoran la previsibilidad y calidad del FCF, dos cualidades raras en el transporte aéreo tradicional. Las puntuaciones de 5 a 7/10 reflejan fallos en múltiples criterios simultáneamente." },
+        { q: "¿Cómo funciona el modelo contractual de SkyWest?", a: "SkyWest opera vuelos regionales para Delta, United, American y Alaska bajo Capacity Purchase Agreements. La major define las rutas, horarios y precios de los billetes. SkyWest cobra por avión operado, por hora de vuelo o por pasajero transportado según los contratos. No asume el riesgo de ocupación. Este modelo genera un FCF estable y predecible, muy diferente al de una aerolínea que compite directamente en precios de billetes." },
+        { q: "¿Qué es OMAB y por qué está en su screener?", a: "OMAB (Grupo Aeroportuario del Centro Norte) es un operador de aeropuertos mexicano cotizado en el NYSE y BMV. Opera 13 aeropuertos, incluido Monterrey (el más activo), Culiacán, Mazatlán y Ciudad Juárez. Es una infraestructura casi monopolística con concesiones a largo plazo. El FCF es estable y predecible, los márgenes son elevados. Puntuación perfecta en nuestro screener, sector Airports and Air Services." },
+        { q: "¿Es Heico cara en relación a su calidad?", a: "Heico es una empresa de muy alta calidad (9/10) que fabrica piezas aeronáuticas alternativas certificadas por la FAA. Pero con un múltiplo de más de 50 veces el FCF, la valoración es muy elevada según nuestro método. Esto significa que las perspectivas de crecimiento futuro ya están ampliamente reflejadas en el precio. Nuestro método espera una corrección significativa antes de dar una señal de entrada en Heico." },
+        { q: "¿Por qué Warren Buffett vendió sus aerolíneas en 2020?", a: "En mayo de 2020, en plena crisis COVID, Berkshire Hathaway vendió todas sus posiciones en las grandes aerolíneas (Delta, United, American, Southwest) asumiendo grandes pérdidas. Buffett admitió haber subestimado la fragilidad estructural del sector ante choques exógenos. La aviación tradicional consume capital masivamente, genera poco FCF en periodos normales, y puede pasar rápidamente a un FCF fuertemente negativo durante una crisis. Nuestro método captura esta fragilidad a través de sus criterios de calidad FCF." },
+      ],
+      tags: ['Sector aéreo', 'SkyWest', 'SKYW', 'OMAB', 'Heico', 'TransDigm', 'Aeronáutica', 'Screener calidad', 'Free cash flow', 'Método Lubin'],
+      disclaimer: "Artículo con fines informativos y educativos únicamente. Sin asesoramiento de inversión. Los datos financieros proceden de fuentes públicas y pueden cambiar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
