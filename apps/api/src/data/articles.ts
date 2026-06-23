@@ -31802,7 +31802,603 @@ const articleGoodwill: Article = {
 };
 
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill];
+const articleMSCI: Article = {
+  slug: 'msci-indices-bourse-analyse-fondamentale',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'MSCI',
+  content: {
+    fr: {
+      title: "MSCI : les indices qui pèsent sur les marchés mondiaux",
+      excerpt: "MSCI crée les indices MSCI World, EM et ESG que suivent les fonds institutionnels mondiaux. Un quasi-monopole sur les benchmarks avec des revenus sur licences récurrents. Notre screener lui attribue 9 sur 10.",
+      metaDescription: "MSCI (MSCI) analyse fondamentale : score 9/10, quasi-monopole indices institutionnels, P/FCF 29,5×, ROIC 222 %. Revenus récurrents sur licences. Notre verdict.",
+      answer: "MSCI crée les indices MSCI World, Emerging Markets et ESG que suivent quasi-tous les fonds institutionnels mondiaux. Ce quasi-monopole génère des revenus sur licences extrêmement récurrents. Notre screener attribue 9 sur 10 avec un ROIC de 222 % — le seul frein est une dette de 4,17× et un DSO de 98 jours.",
+      body: [
+        { type: 'h2', text: "MSCI : le créateur des indices que suit le monde entier" },
+        { type: 'p', text: "MSCI Inc. (NYSE : MSCI) crée et maintient les indices boursiers utilisés comme benchmarks par les gestionnaires de fonds institutionnels mondiaux. Le MSCI World regroupe 1 500 entreprises dans 23 pays développés. Le MSCI Emerging Markets couvre 800 entreprises dans 24 marchés émergents. L'MSCI ACWI combine les deux. Ces indices servent de référence à des milliers de fonds ETF et actifs représentant des milliers de milliards de dollars d'actifs sous gestion — et chaque gestionnaire paie une licence annuelle pour les utiliser." },
+        { type: 'h2', text: "Score fondamental dans notre screener au 23 juin 2026" },
+        { type: 'table', headers: ['Critère', 'Valeur', 'Statut'], rows: [
+          ['Rentabilité (marge nette)', '40,7 %', '✅ Pass'],
+          ['Croissance des ventes (5 ans)', '11,8 %/an', '✅ Pass'],
+          ['Croissance FCF/action (5 ans)', '16,2 %/an', '✅ Pass'],
+          ['Dilution', '-1,85 %/an', '✅ Pass (rachats)'],
+          ['Profitabilité cash (FCF margin)', '44,6 %', '✅ Pass'],
+          ['Expansion des marges', 'En expansion', '✅ Pass'],
+          ['ROIC', '222,4 %', '✅ Pass (exceptionnel)'],
+          ['Endettement', '4,17×', '❌ Au-dessus seuil 3×'],
+          ['Conversion bénéfices → cash', '1,09×', '✅ Pass'],
+          ['DSO (délai créances)', '98 j', '❌ Au-dessus seuil']
+        ]},
+        { type: 'h2', text: "Le ROIC de 222 % : un chiffre qui s'explique" },
+        { type: 'p', text: "MSCI affiche un ROIC de 222 %. Ce chiffre s'explique par la nature du modèle : MSCI vend des licences d'indices (revenus récurrents) avec des coûts variables quasi-nuls. L'actif physique déployé est minime (bases de données, propriété intellectuelle) comparé aux revenus. Ce profil est typique des entreprises de données — comparable à S&P Global (SPGI) ou FactSet (FDS)." },
+        { type: 'h2', text: "Notre cible d'entrée : 433 $ face à un prix de 580 $" },
+        { type: 'p', text: "Notre cible d'entrée est calculée à 433,66 $ (FCF/action × multiple cible). Au prix actuel de 580,85 $, l'action est 34 % au-dessus. MSCI est sur notre liste de surveillance prioritaire. La seule dette de 4,17× (contractée pour racheter massivement des actions — MSCI a racheté plus de 40 % de ses actions en 10 ans) est le seul vrai obstacle fondamental." }
+      ],
+      faq: [
+        { q: "L'indice MSCI et MSCI Inc. : même nom, deux choses différentes ?", a: "Oui. L'indice 'MSCI World' est créé par MSCI Inc. (ticker MSCI). En achetant l'action MSCI sur NYSE, vous investissez dans la société qui vend des licences d'indices — pas dans l'indice lui-même." },
+        { q: "Qu'est-ce qui menace le quasi-monopole de MSCI ?", a: "Risques principaux : (1) FTSE Russell (London Stock Exchange) réduisant les parts en Europe ; (2) grandes maisons qui créent leurs propres indices (BlackRock, Vanguard) ; (3) réglementation ESG remettant en cause la standardisation des indices." },
+        { q: "MSCI est-il différent de S&P Global (SPGI) ?", a: "S&P Global est connu pour ses agences de notation et le S&P 500. MSCI se spécialise dans les indices globaux (tous marchés mondiaux) et les outils analytiques (ESG, risque). Deux modèles complémentaires sur des marchés adjacents." },
+        { q: "Pourquoi MSCI a-t-il autant de dette pour une entreprise si profitable ?", a: "MSCI a contracté de la dette pour racheter massivement ses actions. L'entreprise génère plus de FCF qu'elle ne peut réinvestir organiquement, alors elle retourne ce cash aux actionnaires via rachats. La dette est gérée mais dépasse notre critère formel de 3×." },
+        { q: "À quel prix MSCI serait dans votre zone d'achat ?", a: "Notre cible actuelle est 433,66 $ selon notre méthode FCF. Le prix actuel de 580,85 $ est 34 % au-dessus. Une correction ou hausse du FCF/action rapprochera MSCI de notre zone d'achat." }
+      ],
+      tags: ['MSCI', 'indices boursiers', 'benchmarks', 'Financial Data', 'quasi-monopole', 'licences', 'screener', '9/10'],
+      disclaimer: "Analyse fondamentale réalisée via notre screener propriétaire au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "MSCI: the index creator that moves global markets",
+      excerpt: "MSCI creates the MSCI World, EM and ESG indices followed by global institutional funds. A near-monopoly on benchmarks with highly recurring license revenues. Our screener rates it 9/10.",
+      metaDescription: "MSCI (MSCI) fundamental analysis: 9/10 score, near-monopoly on institutional indices, 29.5x FCF, 222% ROIC. Recurring license revenues. Our verdict.",
+      answer: "MSCI creates the MSCI World, Emerging Markets, and ESG indices followed by virtually all global institutional funds. This near-monopoly generates highly recurring license revenues with a 222% ROIC. Our screener awards 9/10 — the only obstacles are high debt at 4.17× and a 98-day DSO.",
+      body: [
+        { type: 'h2', text: "MSCI: creator of the indices the world follows" },
+        { type: 'p', text: "MSCI Inc. (NYSE: MSCI) creates and maintains equity indices used as benchmarks by global institutional fund managers. The MSCI World covers 1,500 companies in 23 developed countries. The MSCI Emerging Markets covers 800 companies in 24 emerging markets. The MSCI ACWI combines both. These indices serve as references for thousands of ETFs and active funds representing trillions in AUM — and every manager pays an annual license to use them." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'table', headers: ['Criterion', 'Value', 'Status'], rows: [
+          ['Net margin', '40.7%', '✅ Pass'],
+          ['Revenue growth (5Y)', '11.8%/yr', '✅ Pass'],
+          ['FCF/share growth (5Y)', '16.2%/yr', '✅ Pass'],
+          ['Share dilution', '-1.85%/yr', '✅ Pass (buybacks)'],
+          ['FCF margin', '44.6%', '✅ Pass'],
+          ['Margin expansion', 'Expanding', '✅ Pass'],
+          ['ROIC', '222.4%', '✅ Pass (exceptional)'],
+          ['Debt', '4.17×', '❌ Above 3× threshold'],
+          ['Cash conversion', '1.09×', '✅ Pass'],
+          ['DSO', '98 days', '❌ Above threshold']
+        ]},
+        { type: 'h2', text: "The 222% ROIC: explained" },
+        { type: 'p', text: "MSCI shows a 222% ROIC — reflecting its business model: selling index licenses (recurring revenues) with near-zero variable costs. Physical assets deployed are minimal (databases, intellectual property) versus revenues generated. This profile is typical of data companies — comparable to S&P Global (SPGI) or FactSet (FDS)." },
+        { type: 'h2', text: "Our entry target: $433 vs current price of $580" },
+        { type: 'p', text: "Our entry target is $433.66 (FCF/share × target multiple). At $580.85, the stock is 34% above. MSCI is on our priority watchlist. The 4.17× debt (taken on to fund massive buybacks — MSCI repurchased 40%+ of shares outstanding in 10 years) is the only real fundamental obstacle." }
+      ],
+      faq: [
+        { q: "MSCI the index and MSCI Inc.: same name, different things?", a: "Yes. The 'MSCI World' index is created by MSCI Inc. (ticker: MSCI). Buying MSCI stock on NYSE means investing in the company selling index licenses — not in the index itself." },
+        { q: "What threatens MSCI's near-monopoly?", a: "Key risks: (1) FTSE Russell (London Stock Exchange) winning European share; (2) large managers building proprietary indices (BlackRock, Vanguard); (3) ESG regulation disrupting index standardization." },
+        { q: "How does MSCI differ from S&P Global (SPGI)?", a: "S&P Global is known for ratings agencies and the S&P 500. MSCI specializes in global indices (all world markets) and analytical tools (ESG, risk). Complementary recurring-license models on adjacent markets." },
+        { q: "Why does MSCI carry so much debt for such a profitable company?", a: "MSCI took on debt to fund massive share buybacks — it repurchased 40%+ of its shares over 10 years. The company generates more FCF than it can organically reinvest, so it returns cash to shareholders. Debt is manageable but exceeds our formal 3× threshold." },
+        { q: "At what price would MSCI be in your buy zone?", a: "Our current target is $433.66. The current price of $580.85 is 34% above. A market correction or FCF improvement would bring MSCI closer to our buy zone." }
+      ],
+      tags: ['MSCI', 'indices', 'benchmarks', 'Financial Data', 'near-monopoly', 'licenses', 'screener', '9/10'],
+      disclaimer: "Fundamental analysis conducted via our proprietary screener as of June 23, 2026. This content is informational and does not constitute investment advice."
+    },
+    es: {
+      title: "MSCI: los índices que mueven los mercados mundiales",
+      excerpt: "MSCI crea los índices MSCI World, EM y ESG que siguen los fondos institucionales mundiales. Un cuasi-monopolio sobre benchmarks con ingresos por licencias muy recurrentes. Nuestro screener le da 9/10.",
+      metaDescription: "MSCI (MSCI) análisis fundamental: puntuación 9/10, cuasi-monopolio en índices institucionales, P/FCF 29,5×, ROIC 222 %. Ingresos recurrentes por licencias. Nuestro veredicto.",
+      answer: "MSCI crea los índices MSCI World, Emerging Markets y ESG que siguen prácticamente todos los fondos institucionales mundiales. Este cuasi-monopolio genera ingresos muy recurrentes con un ROIC del 222 %. Nuestro screener otorga 9/10 — los únicos obstáculos son deuda de 4,17× y DSO de 98 días.",
+      body: [
+        { type: 'h2', text: "MSCI: creador de los índices que sigue el mundo" },
+        { type: 'p', text: "MSCI Inc. (NYSE: MSCI) crea y mantiene índices bursátiles usados como benchmarks por gestores institucionales mundiales. El MSCI World cubre 1.500 empresas en 23 países desarrollados. El MSCI Emerging Markets cubre 800 empresas en 24 mercados emergentes. Estos índices sirven de referencia para miles de ETFs y fondos activos — cada gestor paga una licencia anual para utilizarlos." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'table', headers: ['Criterio', 'Valor', 'Estado'], rows: [
+          ['Margen neto', '40,7 %', '✅ Pasa'],
+          ['Crecimiento ventas (5 años)', '11,8 %/año', '✅ Pasa'],
+          ['Crecimiento FCF/acción (5 años)', '16,2 %/año', '✅ Pasa'],
+          ['Dilución', '-1,85 %/año', '✅ Pasa (recompras)'],
+          ['Margen FCF', '44,6 %', '✅ Pasa'],
+          ['Expansión márgenes', 'En expansión', '✅ Pasa'],
+          ['ROIC', '222,4 %', '✅ Pasa (excepcional)'],
+          ['Endeudamiento', '4,17×', '❌ Sobre umbral 3×'],
+          ['Conversión beneficios → caja', '1,09×', '✅ Pasa'],
+          ['DSO', '98 días', '❌ Sobre umbral']
+        ]},
+        { type: 'h2', text: "El ROIC del 222 %: explicado" },
+        { type: 'p', text: "MSCI muestra un ROIC del 222 % — reflejo de su modelo: vende licencias de índices (ingresos recurrentes) con costes variables casi nulos. Los activos físicos son mínimos (bases de datos, propiedad intelectual) frente a los ingresos generados. Perfil típico de empresas de datos, comparable a S&P Global (SPGI) o FactSet (FDS)." },
+        { type: 'h2', text: "Nuestro objetivo de entrada: 433 $ frente a precio de 580 $" },
+        { type: 'p', text: "Nuestro objetivo de entrada es 433,66 $ (FCF/acción × múltiplo objetivo). Al precio actual de 580,85 $, la acción está un 34 % por encima. MSCI está en nuestra lista de vigilancia prioritaria. La deuda de 4,17× (contraída para recomprar acciones masivamente) es el único obstáculo fundamental real." }
+      ],
+      faq: [
+        { q: "¿El índice MSCI y MSCI Inc.: el mismo nombre, cosas diferentes?", a: "Sí. El índice 'MSCI World' lo crea MSCI Inc. (ticker: MSCI). Comprar acciones MSCI en NYSE significa invertir en la empresa que vende licencias de índices — no en el índice en sí." },
+        { q: "¿Qué amenaza el cuasi-monopolio de MSCI?", a: "Riesgos clave: (1) FTSE Russell ganando cuota en Europa; (2) grandes gestores creando índices propios; (3) regulación ESG que podría alterar la estandarización." },
+        { q: "¿Cómo difiere MSCI de S&P Global (SPGI)?", a: "S&P Global es conocida por sus agencias de calificación y el S&P 500. MSCI se especializa en índices globales y herramientas analíticas (ESG, riesgo). Modelos complementarios de licencias recurrentes en mercados adyacentes." },
+        { q: "¿Por qué MSCI tiene tanta deuda siendo tan rentable?", a: "Contrajo deuda para recomprar masivamente acciones — más del 40 % en 10 años. Genera más FCF del que puede reinvertir orgánicamente. La deuda es manejable pero supera nuestro umbral formal del 3×." },
+        { q: "¿A qué precio MSCI estaría en su zona de compra?", a: "Nuestro objetivo actual es 433,66 $. El precio de 580,85 $ está un 34 % por encima. Una corrección de mercado o mejora del FCF acercaría a MSCI a nuestra zona." }
+      ],
+      tags: ['MSCI', 'índices bursátiles', 'benchmarks', 'Financial Data', 'cuasi-monopolio', 'licencias', 'screener', '9/10'],
+      disclaimer: "Análisis fundamental realizado a través de nuestro screener propietario el 23 de junio de 2026. Este contenido es informativo y no constituye asesoramiento de inversión."
+    }
+  }
+};
+
+const articleCCLPost: Article = {
+  slug: 'carnival-ccl-q2-2026-chiffres-verdict',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  ticker: 'CCL',
+  content: {
+    fr: {
+      title: "Carnival (CCL) Q2 2026 : notre verdict post-résultats",
+      excerpt: "Carnival publie ses résultats Q2 2026 le 23 juin. Noté 7 sur 10 dans notre screener, le titre est légèrement sous notre cible d'entrée. Notre analyse fondamentale post-résultats sur le leader mondial des croisières.",
+      metaDescription: "Carnival CCL Q2 2026 post-résultats : score 7/10, en zone d'achat à 30,19 $. Résultats croisière, reprise du voyage, verdict fondamental. FCF, dette et valorisation analysés.",
+      answer: "Carnival obtient 7 sur 10 dans notre screener après ses résultats Q2 2026. Fait notable : le prix actuel de 30,19 $ est légèrement sous notre cible d'entrée de 30,69 $, signalant une zone d'achat selon notre méthode. La croissance du FCF est remarquable (+60 %/an) mais la dette à 8,29× reste le principal frein.",
+      body: [
+        { type: 'h2', text: "Carnival Q2 2026 : une reprise du voyage qui se confirme" },
+        { type: 'p', text: "Carnival Corporation (NYSE : CCL) est le plus grand opérateur de croisières au monde avec les marques Carnival, Princess, Holland America, Costa et AIDA. Après l'effondrement pandémique de 2020-2021 (FCF négatif, dettes massives), la reprise affiche des métriques spectaculaires sur 5 ans : ventes +59,5 %/an, FCF +60,7 %/an." },
+        { type: 'h2', text: "Score fondamental au 23 juin 2026" },
+        { type: 'table', headers: ['Critère', 'Valeur', 'Statut'], rows: [
+          ['Rentabilité (marge nette)', '11,5 %', '✅ Pass'],
+          ['Croissance des ventes (5 ans)', '59,5 %/an', '✅ Pass'],
+          ['Croissance FCF/action (5 ans)', '60,7 %/an', '✅ Pass'],
+          ['Dilution des actionnaires', '+5,34 %/an', '❌ Émissions COVID'],
+          ['Profitabilité cash (FCF margin)', '10,7 %', '✅ Pass'],
+          ['Expansion des marges', 'En expansion', '✅ Pass'],
+          ['ROIC', '7,6 %', '❌ Sous seuil 10 %'],
+          ['Endettement', '8,29×', '❌ Très élevé'],
+          ['Conversion bénéfices → cash', '0,93×', '❌ Sous seuil'],
+          ['DSO', '-9 j', '✅ Pass (pré-paiement clients)'],
+          ['Valorisation', '30,19 $ vs cible 30,69 $', '✅ Zone d\'achat (-1,6 %)']
+        ]},
+        { type: 'h2', text: "Les trois faiblesses structurelles" },
+        { type: 'p', text: "Carnival fait face à trois défis persistants. Premièrement, la dette de 8,29× — contractée pendant la pandémie pour survivre — se réduit lentement grâce au FCF positif. Deuxièmement, la dilution de +5,34 %/an reflète les émissions massives d'actions COVID. En temps normal, Carnival effectuait des rachats. Troisièmement, le ROIC de 7,6 % est sous notre seuil : les croisières nécessitent des bateaux très capitalistiques." },
+        { type: 'h2', text: "Le signal rare : Carnival est dans notre zone d'achat" },
+        { type: 'p', text: "Pour une entreprise notée 7/10, être dans notre zone d'achat est remarquable. Le prix de 30,19 $ est 1,6 % sous notre cible de 30,69 $. Techniquement, c'est une zone d'achat selon notre méthode — mais avec 7/10, c'est une qualité secondaire par rapport à nos 10/10. Nous notons l'opportunité sans en faire une priorité absolue." }
+      ],
+      faq: [
+        { q: "Carnival est-il une opportunité d'achat selon votre méthode ?", a: "Techniquement oui — prix légèrement sous notre cible. Mais avec 7/10 (dette très élevée, dilution, ROIC faible), c'est qualité secondaire. Notre préférence reste les 10/10 en zone d'achat." },
+        { q: "La dette de Carnival va-t-elle se réduire ?", a: "Progressivement. Avec FCF margin de 10,7 % sur 25+ milliards de CA, la dette devrait se normaliser vers 4-5× en 2027-2028 — signal d'amélioration du score." },
+        { q: "Pourquoi la dilution est-elle élevée (+5,34 %/an) ?", a: "Pendant la pandémie (2020-2021), Carnival ne pouvait pas opérer et a émis massivement des actions pour survivre. En temps normal (avant COVID), Carnival effectuait des rachats d'actions." },
+        { q: "Pourquoi le DSO est-il négatif (-9 jours) ?", a: "Un DSO négatif signifie que Carnival encaisse les paiements (réservations) avant de livrer la croisière. Les clients paient 3-6 mois à l'avance — trésorerie anticipée sans intérêt pour l'entreprise." },
+        { q: "Carnival vs Royal Caribbean : lequel préférez-vous ?", a: "Royal Caribbean (RCL) obtient généralement un meilleur score que Carnival dans notre screener grâce à une meilleure gestion de la dette post-pandémique et de meilleures marges." }
+      ],
+      tags: ['Carnival', 'CCL', 'croisières', 'Travel Services', 'Q2 2026', 'post-résultats', 'zone achat', 'dette'],
+      disclaimer: "Analyse fondamentale réalisée via notre screener au 23 juin 2026, date de publication des résultats Q2 2026. Ce contenu est informatif et non un conseil en investissement. Le secteur croisière reste exposé aux risques géopolitiques et épidémiques."
+    },
+    en: {
+      title: "Carnival (CCL) Q2 2026: our post-results verdict",
+      excerpt: "Carnival reports Q2 2026 results on June 23. Rated 7/10 in our screener, the stock is slightly below our entry target — our post-results fundamental analysis.",
+      metaDescription: "Carnival CCL Q2 2026 post-results: 7/10 score, in buy zone at $30.19. Cruise results, travel recovery, fundamental verdict. FCF, debt and valuation analyzed.",
+      answer: "Carnival scores 7/10 in our screener after Q2 2026 results. Notable: the current price of $30.19 is slightly below our entry target of $30.69, signaling a buy zone. FCF growth is remarkable (+60%/year) but debt at 8.29× remains the main concern.",
+      body: [
+        { type: 'h2', text: "Carnival Q2 2026: the travel recovery continues" },
+        { type: 'p', text: "Carnival Corporation (NYSE: CCL) is the world's largest cruise operator with Carnival, Princess, Holland America, Costa, and AIDA brands. After the 2020-2021 pandemic collapse (negative FCF, massive debt), the recovery shows spectacular 5-year metrics: sales +59.5%/year, FCF +60.7%/year." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'table', headers: ['Criterion', 'Value', 'Status'], rows: [
+          ['Net margin', '11.5%', '✅ Pass'],
+          ['Revenue growth (5Y)', '59.5%/yr', '✅ Pass'],
+          ['FCF/share growth (5Y)', '60.7%/yr', '✅ Pass'],
+          ['Share dilution', '+5.34%/yr', '❌ COVID issuances'],
+          ['FCF margin', '10.7%', '✅ Pass'],
+          ['Margin expansion', 'Expanding', '✅ Pass'],
+          ['ROIC', '7.6%', '❌ Below 10% threshold'],
+          ['Debt', '8.29×', '❌ Very high'],
+          ['Cash conversion', '0.93×', '❌ Below threshold'],
+          ['DSO', '-9 days', '✅ Pass (advance payment)'],
+          ['Valuation', '$30.19 vs $30.69 target', '✅ Buy zone (-1.6%)']
+        ]},
+        { type: 'h2', text: "Three structural weaknesses" },
+        { type: 'p', text: "Carnival faces three persistent challenges: (1) debt at 8.29× contracting slowly with positive FCF; (2) +5.34%/yr dilution from pandemic-era stock issuances; (3) ROIC of 7.6% below our threshold — cruise ships are highly capital-intensive assets." },
+        { type: 'h2', text: "The rare signal: Carnival is in our buy zone" },
+        { type: 'p', text: "For a 7/10 company, being in our buy zone is noteworthy. At $30.19 (1.6% below our $30.69 target), it's technically a buy — but secondary quality versus our 10/10 names. We note the opportunity without making it a top priority." }
+      ],
+      faq: [
+        { q: "Is Carnival a buying opportunity per your method?", a: "Technically yes — price slightly below our target. But with 7/10 (very high debt, dilution, low ROIC), it's secondary quality. We prefer 10/10 names in the buy zone." },
+        { q: "Will Carnival's debt be reduced?", a: "Gradually. With 10.7% FCF margin on $25B+ revenue, debt should normalize to 4-5× by 2027-2028 — a score improvement signal." },
+        { q: "Why is dilution so high (+5.34%/yr)?", a: "During the pandemic (2020-2021), Carnival couldn't operate and massively issued shares to survive. In normal times pre-COVID, Carnival conducted share buybacks." },
+        { q: "Why is DSO negative (-9 days)?", a: "A negative DSO means Carnival collects payments (bookings) before delivering the cruise. Customers pay 3-6 months in advance — interest-free advance cash for the company." },
+        { q: "Carnival vs Royal Caribbean: which do you prefer?", a: "Royal Caribbean (RCL) typically scores better than Carnival in our screener due to better post-pandemic debt management and higher margins." }
+      ],
+      tags: ['Carnival', 'CCL', 'cruises', 'Travel Services', 'Q2 2026', 'post-results', 'buy zone', 'debt'],
+      disclaimer: "Fundamental analysis conducted via our screener as of June 23, 2026, Q2 2026 results publication date. This content is informational and does not constitute investment advice. The cruise sector remains exposed to geopolitical and epidemic risks."
+    },
+    es: {
+      title: "Carnival (CCL) Q2 2026: nuestro veredicto post-resultados",
+      excerpt: "Carnival publica resultados Q2 2026 el 23 de junio. Con 7/10 en nuestro screener y precio ligeramente bajo nuestro objetivo de entrada — nuestro análisis fundamental post-resultados.",
+      metaDescription: "Carnival CCL Q2 2026 post-resultados: puntuación 7/10, en zona de compra a 30,19 $. Resultados cruceros, recuperación del viaje, veredicto fundamental.",
+      answer: "Carnival obtiene 7/10 en nuestro screener tras sus resultados Q2 2026. El precio actual de 30,19 $ está ligeramente por debajo de nuestro objetivo de entrada de 30,69 $, señalando una zona de compra. El crecimiento del FCF es notable (+60 %/año) pero la deuda de 8,29× sigue siendo el principal freno.",
+      body: [
+        { type: 'h2', text: "Carnival Q2 2026: la recuperación del viaje se confirma" },
+        { type: 'p', text: "Carnival Corporation (NYSE: CCL) es el mayor operador de cruceros mundial con las marcas Carnival, Princess, Holland America, Costa y AIDA. Tras el colapso pandémico, la recuperación muestra métricas espectaculares a 5 años: ventas +59,5 %/año, FCF +60,7 %/año." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'table', headers: ['Criterio', 'Valor', 'Estado'], rows: [
+          ['Margen neto', '11,5 %', '✅ Pasa'],
+          ['Crecimiento ventas (5 años)', '59,5 %/año', '✅ Pasa'],
+          ['Crecimiento FCF/acción (5 años)', '60,7 %/año', '✅ Pasa'],
+          ['Dilución accionistas', '+5,34 %/año', '❌ Emisiones COVID'],
+          ['Margen FCF', '10,7 %', '✅ Pasa'],
+          ['Expansión márgenes', 'En expansión', '✅ Pasa'],
+          ['ROIC', '7,6 %', '❌ Bajo umbral 10 %'],
+          ['Endeudamiento', '8,29×', '❌ Muy elevado'],
+          ['Conversión beneficios → caja', '0,93×', '❌ Bajo umbral'],
+          ['DSO', '-9 días', '✅ Pasa (pago anticipado)'],
+          ['Valoración', '30,19 $ vs objetivo 30,69 $', '✅ Zona de compra (-1,6 %)']
+        ]},
+        { type: 'h2', text: "Las tres debilidades estructurales" },
+        { type: 'p', text: "Carnival enfrenta tres desafíos persistentes: (1) deuda de 8,29×, contratada en pandemia, reduciéndose lentamente; (2) dilución de +5,34 %/año por emisiones COVID; (3) ROIC de 7,6 % — los barcos de crucero son activos muy intensivos en capital." },
+        { type: 'h2', text: "La señal rara: Carnival está en nuestra zona de compra" },
+        { type: 'p', text: "Para una empresa con 7/10, estar en zona de compra es notable. A 30,19 $ (1,6 % bajo nuestro objetivo de 30,69 $), es técnicamente zona de compra — pero calidad secundaria frente a nuestros 10/10." }
+      ],
+      faq: [
+        { q: "¿Es Carnival una oportunidad de compra según su metodología?", a: "Técnicamente sí — precio ligeramente bajo nuestro objetivo. Pero con 7/10 (deuda muy alta, dilución, ROIC bajo), es calidad secundaria. Preferimos los 10/10 en zona de compra." },
+        { q: "¿Se reducirá la deuda de Carnival?", a: "Gradualmente. Con margen FCF del 10,7 % sobre 25.000 M$+ de ingresos, la deuda debería normalizarse hacia 4-5× para 2027-2028." },
+        { q: "¿Por qué la dilución es tan alta (+5,34 %/año)?", a: "Durante la pandemia, Carnival emitió masivamente acciones para sobrevivir. En tiempos normales (pre-COVID), realizaba recompras de acciones." },
+        { q: "¿Por qué el DSO es negativo (-9 días)?", a: "Un DSO negativo significa que Carnival cobra los pagos (reservas) antes de prestar el servicio. Los clientes pagan con 3-6 meses de antelación." },
+        { q: "Carnival vs Royal Caribbean: ¿cuál prefiere?", a: "Royal Caribbean (RCL) generalmente obtiene mejor puntuación en nuestro screener por mejor gestión de deuda post-pandémica y márgenes superiores." }
+      ],
+      tags: ['Carnival', 'CCL', 'cruceros', 'Travel Services', 'Q2 2026', 'post-resultados', 'zona compra', 'deuda'],
+      disclaimer: "Análisis fundamental realizado a través de nuestro screener el 23 de junio de 2026, fecha de publicación de resultados Q2 2026. Este contenido es informativo y no constituye asesoramiento de inversión."
+    }
+  }
+};
+
+const articleFDXPost: Article = {
+  slug: 'fedex-fdx-q4-fy2026-chiffres-verdict',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  ticker: 'FDX',
+  content: {
+    fr: {
+      title: "FedEx (FDX) Q4 FY2026 : notre verdict post-résultats",
+      excerpt: "FedEx publie ses résultats Q4 FY2026 le 23 juin. Notre screener lui attribue 3 sur 10 — l'un des scores les plus bas parmi les grandes capitalisations. Notre verdict fondamental post-résultats.",
+      metaDescription: "FedEx FDX Q4 FY2026 post-résultats : score 3/10, très en dessous de notre cible d'achat. Croissance négative, marges en compression. Notre analyse fondamentale.",
+      answer: "FedEx obtient 3 sur 10 dans notre screener après ses résultats Q4 FY2026. La croissance des ventes est négative (-0,6 %/an sur 5 ans), les marges compriment, le ROIC est sous nos seuils, et le titre à 328 $ est 103 % au-dessus de notre cible d'entrée. FedEx n'est pas un dossier pour notre méthode.",
+      body: [
+        { type: 'h2', text: "FedEx face à notre méthode : 3/10" },
+        { type: 'p', text: "FedEx Corporation (NYSE : FDX) est l'un des deux grands acteurs mondiaux de la livraison express (avec UPS). 500 000 employés, 700 avions, 220 pays desservis. Un opérateur logistique remarquable — mais notre méthode s'intéresse aux fondamentaux financiers, et ce tableau est préoccupant." },
+        { type: 'h2', text: "Score fondamental au 23 juin 2026" },
+        { type: 'table', headers: ['Critère', 'Valeur', 'Statut'], rows: [
+          ['Rentabilité (marge nette)', '4,9 %', '❌ Faible'],
+          ['Croissance des ventes (5 ans)', '-0,6 %/an', '❌ Déclin'],
+          ['Croissance FCF/action (5 ans)', '3,8 %/an', '❌ Sous seuil 10 %'],
+          ['Dilution des actionnaires', '-3,03 %/an', '✅ Pass (rachats)'],
+          ['Profitabilité cash (FCF margin)', '4,6 %', '❌ Sous seuil'],
+          ['Expansion des marges', 'Compression', '❌ Marges en recul'],
+          ['ROIC', '6,5 %', '❌ Sous seuil'],
+          ['Endettement', '4,11×', '❌ Au-dessus seuil 3×'],
+          ['Conversion bénéfices → cash', '0,94×', '❌ Sous seuil'],
+          ['DSO', '29 j', '❌ Au-dessus seuil'],
+          ['Valorisation', '328,78 $ vs cible 161,67 $', '❌ 103 % au-dessus cible']
+        ]},
+        { type: 'h2', text: "Pourquoi FedEx est en difficulté fondamentale" },
+        { type: 'p', text: "FedEx souffre de trois problèmes structurels. La fin du boom e-commerce post-COVID : les ventes déclinent (-0,6 %/an). La concurrence d'Amazon : le géant de la distribution développe sa propre flotte de livraison, cannibilisant les volumes de FedEx. Le modèle capitalistique lourd : avions, camions, entrepôts — le ROIC de 6,5 % reflète ce poids en capital. Ces défis ne se résolvent pas rapidement." },
+        { type: 'h2', text: "L'écart abyssal : cible 161 $ vs prix 328 $" },
+        { type: 'p', text: "Notre cible d'entrée est calculée mécaniquement à 161,67 $ (FCF/action × multiple cible). Au prix de 328,78 $, l'action se négocie 103 % au-dessus — le double de notre cible. Le marché valorise FedEx sur des espoirs de restructuration (programme DRIVE), pas sur les fondamentaux actuels. Notre méthode reste ancrée sur le FCF réel." }
+      ],
+      faq: [
+        { q: "FedEx vs UPS : lequel est le mieux noté dans votre screener ?", a: "UPS obtient généralement un meilleur score que FedEx grâce à de meilleures marges et un FCF plus stable. Cependant, UPS reste en dessous de notre seuil de qualité premium — les deux souffrent de la concurrence Amazon." },
+        { q: "FedEx peut-il redresser ses fondamentaux avec le programme DRIVE ?", a: "Le programme DRIVE (4 milliards de réduction de coûts sur 3 ans) est en cours. Il pourrait améliorer les marges. Mais FedEx doit aussi inverser le déclin des ventes et améliorer son ROIC — objectifs plus complexes que des coupes de coûts." },
+        { q: "Pourquoi votre cible est-elle à 161 $ si l'action vaut 328 $ ?", a: "Notre cible est calculée mécaniquement : FCF actuel/action × multiple cible = 161,67 $. Le marché valorise FedEx sur des espoirs futurs, pas sur les fondamentaux actuels. Notre méthode est ancrée sur le cash généré aujourd'hui." },
+        { q: "FedEx verse-t-il un dividende ?", a: "Oui, dividende trimestriel avec rendement d'environ 2,5 %. Et rachats d'actions (-3,03 %/an — notre seule case cochée). Mais cela ne compense pas les faiblesses fondamentales." },
+        { q: "Que pensez-vous de la scission de FedEx Freight ?", a: "FedEx a annoncé la séparation de sa division Freight (fret camion). C'est une décision stratégique classique. Notre screener analyse les fondamentaux actuels, pas les promesses futures — nous attendrons de voir si les métriques FCF s'améliorent concrètement." }
+      ],
+      tags: ['FedEx', 'FDX', 'logistique', 'livraison', 'Freight', 'Q4 FY2026', 'post-résultats', 'faible score'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026, date des résultats Q4 FY2026. Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "FedEx (FDX) Q4 FY2026: our post-results verdict",
+      excerpt: "FedEx reports Q4 FY2026 results on June 23. Our screener rates it 3/10 — one of the lowest scores among large caps. Our post-results fundamental verdict.",
+      metaDescription: "FedEx FDX Q4 FY2026 post-results: 3/10 score, well below our buy target. Negative growth, compressing margins. Our fundamental analysis.",
+      answer: "FedEx scores 3/10 in our screener after Q4 FY2026 results. Revenue growth is negative (-0.6%/year), margins are compressing, ROIC is below our thresholds, and at $328 the stock is 103% above our entry target. FedEx is not a candidate for our method.",
+      body: [
+        { type: 'h2', text: "FedEx through our method: 3/10" },
+        { type: 'p', text: "FedEx Corporation (NYSE: FDX) is one of two major global express delivery players (alongside UPS). 500,000 employees, 700 aircraft, 220 countries. A remarkable logistics operator — but our method focuses on financial fundamentals, and that picture is concerning." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'table', headers: ['Criterion', 'Value', 'Status'], rows: [
+          ['Net margin', '4.9%', '❌ Low'],
+          ['Revenue growth (5Y)', '-0.6%/yr', '❌ Declining'],
+          ['FCF/share growth (5Y)', '3.8%/yr', '❌ Below 10% threshold'],
+          ['Share dilution', '-3.03%/yr', '✅ Pass (buybacks)'],
+          ['FCF margin', '4.6%', '❌ Below threshold'],
+          ['Margin expansion', 'Compressing', '❌ Margins declining'],
+          ['ROIC', '6.5%', '❌ Below threshold'],
+          ['Debt', '4.11×', '❌ Above 3× threshold'],
+          ['Cash conversion', '0.94×', '❌ Below threshold'],
+          ['DSO', '29 days', '❌ Above threshold'],
+          ['Valuation', '$328.78 vs $161.67 target', '❌ 103% above target']
+        ]},
+        { type: 'h2', text: "Why FedEx faces fundamental difficulties" },
+        { type: 'p', text: "FedEx suffers from three structural problems: (1) end of the post-COVID e-commerce boom with declining revenues; (2) Amazon competition — the e-commerce giant is building its own delivery fleet, cannibalizing FedEx volumes; (3) capital-heavy model (aircraft, trucks, warehouses) — 6.5% ROIC reflects this capital burden." },
+        { type: 'h2', text: "The enormous gap: $161 target vs $328 price" },
+        { type: 'p', text: "Our entry target is mechanically calculated at $161.67 (FCF/share × target multiple). At $328.78, the stock trades 103% above — twice our target. The market prices FedEx on restructuring hopes (DRIVE program), not current fundamentals. Our method stays anchored to real FCF." }
+      ],
+      faq: [
+        { q: "FedEx vs UPS: which scores better in your screener?", a: "UPS typically scores better than FedEx with better margins and more stable FCF. However, UPS also falls below our premium quality threshold — both suffer from Amazon competition." },
+        { q: "Can FedEx turn around with the DRIVE program?", a: "The DRIVE program ($4B in cost cuts over 3 years) is underway and could improve margins. But FedEx also needs to reverse revenue decline and improve ROIC — more complex than cost cuts alone." },
+        { q: "Why is your target $161 when the stock trades at $328?", a: "Our target is mechanically calculated: current FCF/share × target multiple = $161.67. The market values FedEx on future recovery hopes, not current fundamentals. Our method stays anchored to today's generated cash." },
+        { q: "Does FedEx pay dividends?", a: "Yes, quarterly dividend with ~2.5% yield. Plus buybacks (-3.03%/yr — our only passing criterion). But neither compensates for the fundamental weaknesses." },
+        { q: "What do you think of the FedEx Freight spinoff?", a: "FedEx announced separating its Freight division — a classic strategic move. Our screener analyzes current fundamentals, not future promises — we'll wait to see if FCF metrics actually improve." }
+      ],
+      tags: ['FedEx', 'FDX', 'logistics', 'delivery', 'Freight', 'Q4 FY2026', 'post-results', 'low score'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026, Q4 FY2026 results date. This content is informational and does not constitute investment advice."
+    },
+    es: {
+      title: "FedEx (FDX) Q4 FY2026: nuestro veredicto post-resultados",
+      excerpt: "FedEx publica resultados Q4 FY2026 el 23 de junio. Nuestro screener le da 3/10 — una de las puntuaciones más bajas entre las grandes capitalizaciones. Nuestro veredicto fundamental post-resultados.",
+      metaDescription: "FedEx FDX Q4 FY2026 post-resultados: puntuación 3/10, muy por debajo de nuestro objetivo de compra. Crecimiento negativo, márgenes en compresión. Análisis fundamental.",
+      answer: "FedEx obtiene 3/10 en nuestro screener tras sus resultados Q4 FY2026. El crecimiento de ventas es negativo (-0,6 %/año), los márgenes se comprimen, el ROIC está bajo nuestros umbrales, y la acción a 328 $ está un 103 % por encima de nuestro objetivo de entrada.",
+      body: [
+        { type: 'h2', text: "FedEx ante nuestra metodología: 3/10" },
+        { type: 'p', text: "FedEx Corporation (NYSE: FDX) es uno de los dos grandes actores mundiales de entrega urgente (junto a UPS). 500.000 empleados, 700 aviones, 220 países. Un operador logístico notable — pero nuestra metodología se centra en fundamentos financieros, y ese cuadro es preocupante." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'table', headers: ['Criterio', 'Valor', 'Estado'], rows: [
+          ['Margen neto', '4,9 %', '❌ Bajo'],
+          ['Crecimiento ventas (5 años)', '-0,6 %/año', '❌ En declive'],
+          ['Crecimiento FCF/acción (5 años)', '3,8 %/año', '❌ Bajo umbral 10 %'],
+          ['Dilución accionistas', '-3,03 %/año', '✅ Pasa (recompras)'],
+          ['Margen FCF', '4,6 %', '❌ Bajo umbral'],
+          ['Expansión márgenes', 'Compresión', '❌ Márgenes en declive'],
+          ['ROIC', '6,5 %', '❌ Bajo umbral'],
+          ['Endeudamiento', '4,11×', '❌ Sobre umbral 3×'],
+          ['Conversión beneficios → caja', '0,94×', '❌ Bajo umbral'],
+          ['DSO', '29 días', '❌ Sobre umbral'],
+          ['Valoración', '328,78 $ vs objetivo 161,67 $', '❌ 103 % sobre objetivo']
+        ]},
+        { type: 'h2', text: "Por qué FedEx tiene dificultades fundamentales" },
+        { type: 'p', text: "FedEx sufre tres problemas estructurales: (1) fin del boom del e-commerce post-COVID con ventas en declive; (2) competencia de Amazon que desarrolla su propia flota de reparto; (3) modelo intensivo en capital (aviones, camiones, almacenes) con ROIC del 6,5 %." },
+        { type: 'h2', text: "La brecha abismal: objetivo 161 $ vs precio 328 $" },
+        { type: 'p', text: "Nuestro objetivo de entrada es 161,67 $ (FCF/acción × múltiplo objetivo). Al precio de 328,78 $, la acción cotiza un 103 % por encima — el doble de nuestro objetivo. El mercado valora a FedEx en esperanzas de reestructuración, no en fundamentos actuales." }
+      ],
+      faq: [
+        { q: "FedEx vs UPS: ¿cuál puntúa mejor en su screener?", a: "UPS generalmente puntúa mejor con mejores márgenes y FCF más estable. Sin embargo, UPS tampoco alcanza nuestro umbral de calidad premium — ambas sufren la competencia de Amazon." },
+        { q: "¿Puede FedEx mejorar con el programa DRIVE?", a: "El programa DRIVE (4.000 M$ de reducción de costes en 3 años) podría mejorar márgenes. Pero FedEx también necesita invertir el declive de ventas y mejorar el ROIC — más complejo que simples recortes." },
+        { q: "¿Por qué su objetivo es 161 $ si la acción vale 328 $?", a: "Nuestro objetivo se calcula mecánicamente: FCF actual/acción × múltiplo objetivo = 161,67 $. El mercado valora a FedEx en esperanzas futuras, no en fundamentos actuales." },
+        { q: "¿FedEx paga dividendos?", a: "Sí, dividendo trimestral con rentabilidad de ~2,5 % más recompras (-3,03 %/año — nuestro único criterio aprobado). Pero no compensan las debilidades fundamentales." },
+        { q: "¿Qué opina de la escisión de FedEx Freight?", a: "Es una decisión estratégica clásica. Nuestro screener analiza fundamentos actuales, no promesas futuras — esperaremos ver si las métricas FCF mejoran concretamente." }
+      ],
+      tags: ['FedEx', 'FDX', 'logística', 'entrega urgente', 'Freight', 'Q4 FY2026', 'post-resultados', 'puntuación baja'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026, fecha de resultados Q4 FY2026. Este contenido es informativo y no constituye asesoramiento de inversión."
+    }
+  }
+};
+
+const articleLULU: Article = {
+  slug: 'lululemon-lulu-analyse-fondamentale-8-sur-10',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'LULU',
+  content: {
+    fr: {
+      title: "Lululemon (LULU) : 8/10, une chute de 46% YTD analysée",
+      excerpt: "Lululemon a perdu 46 % depuis janvier 2026. Notre screener lui donne 8 sur 10 — des fondamentaux solides mais pas maximaux. Nouveau CEO ex-Nike. Notre analyse fondamentale du leader du sportswear premium.",
+      metaDescription: "Lululemon LULU analyse fondamentale : score 8/10, chute -46 % YTD. Nouveau CEO Heidi O'Neill ex-Nike. FCF, marges, valorisation analysés. Notre verdict.",
+      answer: "Lululemon obtient 8 sur 10 dans notre screener malgré une chute de 46 % depuis janvier 2026. Ses fondamentaux restent solides : ventes +16 %/an, profits/action +19 %/an, pas de dette. Le frein : FCF margin de 7,7 % (sous notre seuil de 8 %) et DSO de 108 jours. Le prix actuel de 105,43 $ est 26 % au-dessus de notre cible d'entrée.",
+      body: [
+        { type: 'h2', text: "Lululemon : le leader du sportswear premium en pleine turbulence" },
+        { type: 'p', text: "Lululemon Athletica (NASDAQ : LULU) est le leader mondial du vêtement de sport premium (yoga pants, leggings, sweats) avec des prix unitaires 3 à 5 fois supérieurs aux marques mass market. Fondée en 1998 à Vancouver, l'entreprise a construit une communauté de marque fidèle — et des marges brutes remarquables pour le secteur textile. En 2026, l'action a perdu 46 % de sa valeur depuis le 1er janvier, reflétant des inquiétudes sur la croissance et le changement de direction." },
+        { type: 'h2', text: "Score fondamental réel au 23 juin 2026" },
+        { type: 'table', headers: ['Critère', 'Valeur', 'Statut'], rows: [
+          ['Rentabilité (marge nette)', '13,0 %', '✅ Pass'],
+          ['Croissance des ventes (5 ans)', '15,9 %/an', '✅ Pass'],
+          ['Croissance FCF/action (5 ans)', '19,1 %/an', '✅ Pass'],
+          ['Dilution des actionnaires', '-1,75 %/an', '✅ Pass (rachats)'],
+          ['Profitabilité cash (FCF margin)', '7,7 %', '❌ Sous seuil 8 %'],
+          ['Expansion des marges', 'En expansion', '✅ Pass'],
+          ['ROIC', '16,3 %', '✅ Pass'],
+          ['Endettement', '-1,76× (cash net)', '✅ Pass'],
+          ['Conversion bénéfices → cash', '0,59×', '❌ Faible'],
+          ['DSO', '108 j', '❌ Très élevé'],
+          ['Valorisation', '105,43 $ vs cible 83,54 $', '❌ 26 % au-dessus cible']
+        ]},
+        { type: 'h2', text: "Pourquoi 8/10 malgré la chute de 46 %" },
+        { type: 'p', text: "Les fondamentaux opérationnels de Lululemon restent solides. La croissance des ventes de 15,9 %/an et du FCF de 19,1 %/an sont au-dessus de nos seuils. Le bilan est sain (cash net, pas de dette). Les deux faiblesses sont : la FCF margin de 7,7 % (juste sous notre seuil de 8 %) et le DSO de 108 jours (lié aux délais de vente en gros aux détaillants partenaires). La chute de l'action ne reflète pas une dégradation des fondamentaux mais une correction de valorisation après des années de prime élevée." },
+        { type: 'h2', text: "Le nouveau CEO : Heidi O'Neill, ex-Nike" },
+        { type: 'p', text: "En juin 2026, Lululemon a annoncé la nomination de Heidi O'Neill comme CEO — ancienne présidente de Nike (consumer & marketplace). Ce changement est significatif : O'Neill a géré la transformation digitale et l'expansion internationale de Nike. Pour Lululemon, il s'agit de réaccélérer la croissance internationale (Europe, Chine, Asie du Sud-Est) et de moderniser la distribution digitale. Le marché verra les premiers signaux stratégiques dans 6 à 12 mois." }
+      ],
+      faq: [
+        { q: "Lululemon est-il une opportunité après sa chute de 46 % ?", a: "Selon notre méthode, non encore — le prix actuel de 105,43 $ est 26 % au-dessus de notre cible d'entrée de 83,54 $. Pour nous, il faudrait une baisse supplémentaire vers 83-85 $ ou une croissance du FCF qui élève notre cible." },
+        { q: "Qu'est-ce qui manque à Lululemon pour obtenir 10/10 ?", a: "Trois critères : FCF margin (7,7 % vs seuil 8 %), conversion bénéfices→cash (0,59 × vs seuil 0,80×), et DSO de 108 jours. Ces métriques s'amélioreront si Lululemon simplifie sa structure de distribution et réduit sa dépendance aux ventes en gros." },
+        { q: "La chute de -46 % depuis janvier 2026 est-elle justifiée ?", a: "Partiellement. La chute reflète : (1) ralentissement de la croissance aux USA (marché mature) ; (2) manque de CEO en début d'année ; (3) concurrence accrue (Alo Yoga, Vuori, Sweaty Betty). Les fondamentaux restent bons — la chute est davantage une compression de multiple (de 30-40× à 14×) qu'une dégradation fondamentale." },
+        { q: "Le changement de CEO est-il positif pour Lululemon ?", a: "Potentiellement très positif. Heidi O'Neill a supervisé la transformation digitale de Nike et son expansion internationale. Pour Lululemon, ces deux domaines sont précisément les leviers de croissance : marché hors-US encore peu pénétré (25 % du CA) et app directe peu développée." },
+        { q: "Lululemon verse-t-il un dividende ?", a: "Non. Lululemon ne verse pas de dividende — préférant réinvestir dans la croissance et effectuer des rachats d'actions (-1,75 %/an). C'est cohérent avec son stade de développement et son opportunité de marché international." }
+      ],
+      tags: ['Lululemon', 'LULU', 'sportswear', 'Apparel Retail', 'CEO Heidi O\'Neill', 'screener 8/10', 'chute action'],
+      disclaimer: "Analyse fondamentale réalisée via notre screener propriétaire au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement. Lululemon est dans une phase de transition managériale qui peut affecter les fondamentaux futurs."
+    },
+    en: {
+      title: "Lululemon (LULU): 8/10, why the -46% YTD matters",
+      excerpt: "Lululemon has lost 46% since January 2026. Our screener rates it 8/10 — solid fundamentals but not maximal. New CEO from Nike. Our fundamental analysis of the premium sportswear leader.",
+      metaDescription: "Lululemon LULU fundamental analysis: 8/10 score, -46% YTD drop. New CEO Heidi O'Neill from Nike. FCF, margins, valuation analyzed. Our verdict.",
+      answer: "Lululemon scores 8/10 in our screener despite a 46% drop since January 2026. Fundamentals remain solid: sales +16%/year, earnings/share +19%/year, no debt. The drag: FCF margin of 7.7% (just below our 8% threshold) and DSO of 108 days. At $105.43, the stock is 26% above our entry target.",
+      body: [
+        { type: 'h2', text: "Lululemon: the premium sportswear leader in turbulence" },
+        { type: 'p', text: "Lululemon Athletica (NASDAQ: LULU) is the global leader in premium athletic wear (yoga pants, leggings, sweats) with unit prices 3-5x above mass-market brands. Founded in 1998 in Vancouver, the company has built a loyal brand community with remarkable gross margins for the textile sector. In 2026, the stock has lost 46% since January 1, reflecting growth concerns and the leadership change." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'table', headers: ['Criterion', 'Value', 'Status'], rows: [
+          ['Net margin', '13.0%', '✅ Pass'],
+          ['Revenue growth (5Y)', '15.9%/yr', '✅ Pass'],
+          ['FCF/share growth (5Y)', '19.1%/yr', '✅ Pass'],
+          ['Share dilution', '-1.75%/yr', '✅ Pass (buybacks)'],
+          ['FCF margin', '7.7%', '❌ Just below 8% threshold'],
+          ['Margin expansion', 'Expanding', '✅ Pass'],
+          ['ROIC', '16.3%', '✅ Pass'],
+          ['Debt', '-1.76× (net cash)', '✅ Pass'],
+          ['Cash conversion', '0.59×', '❌ Low'],
+          ['DSO', '108 days', '❌ Very high'],
+          ['Valuation', '$105.43 vs $83.54 target', '❌ 26% above target']
+        ]},
+        { type: 'h2', text: "Why 8/10 despite the 46% drop" },
+        { type: 'p', text: "Lululemon's operational fundamentals remain solid. Revenue growth of 15.9%/year and FCF growth of 19.1%/year are above our thresholds. The balance sheet is healthy (net cash, no debt). The two weaknesses: FCF margin of 7.7% (just below our 8% threshold) and 108-day DSO (linked to wholesale timing). The stock decline reflects a valuation multiple compression (from 30-40× to 14×) rather than fundamental deterioration." },
+        { type: 'h2', text: "New CEO: Heidi O'Neill, ex-Nike" },
+        { type: 'p', text: "In June 2026, Lululemon announced Heidi O'Neill as CEO — former Nike president (consumer & marketplace). O'Neill oversaw Nike's digital transformation and international expansion. For Lululemon, these are the exact growth levers: international markets still underpenetrated (25% of revenue) and underbuilt direct digital channel. First strategic signals expected in 6-12 months." }
+      ],
+      faq: [
+        { q: "Is Lululemon an opportunity after the -46% drop?", a: "Per our method, not yet — at $105.43 the price is 26% above our entry target of $83.54. We'd need a further drop toward $83-85 or FCF/share growth that raises our target." },
+        { q: "What does Lululemon need for a 10/10 score?", a: "Three criteria: FCF margin (7.7% vs 8% threshold), cash conversion (0.59× vs 0.80× threshold), and DSO of 108 days. These will improve if Lululemon simplifies its distribution structure and reduces wholesale dependence." },
+        { q: "Is the -46% drop since January 2026 justified?", a: "Partially. The drop reflects: (1) US market growth slowdown (maturing market); (2) early-year CEO vacancy; (3) increased competition (Alo Yoga, Vuori, Sweaty Betty). Fundamentals remain good — it's primarily a multiple compression (30-40× to 14×) rather than fundamental deterioration." },
+        { q: "Is the CEO change positive for Lululemon?", a: "Potentially very positive. Heidi O'Neill oversaw Nike's digital transformation and international expansion. For Lululemon, these are precisely the growth levers: international markets still underpenetrated (25% of revenue) and underdeveloped direct app." },
+        { q: "Does Lululemon pay dividends?", a: "No. Lululemon doesn't pay dividends, preferring to reinvest in growth and conduct share buybacks (-1.75%/year). Consistent with its growth stage and international market opportunity." }
+      ],
+      tags: ['Lululemon', 'LULU', 'sportswear', 'Apparel Retail', 'CEO Heidi O\'Neill', '8/10', 'stock drop'],
+      disclaimer: "Fundamental analysis conducted via our proprietary screener as of June 23, 2026. This content is informational and does not constitute investment advice. Lululemon is in a management transition phase that may affect future fundamentals."
+    },
+    es: {
+      title: "Lululemon (LULU): 8/10, la caída del -46 % YTD analizada",
+      excerpt: "Lululemon ha perdido el 46 % desde enero de 2026. Nuestro screener le da 8/10 — fundamentales sólidos pero no máximos. Nueva CEO ex-Nike. Nuestro análisis fundamental del líder del sportswear premium.",
+      metaDescription: "Lululemon LULU análisis fundamental: puntuación 8/10, caída -46 % YTD. Nueva CEO Heidi O'Neill ex-Nike. FCF, márgenes, valoración analizados. Nuestro veredicto.",
+      answer: "Lululemon obtiene 8/10 en nuestro screener a pesar de una caída del 46 % desde enero de 2026. Los fundamentos siguen siendo sólidos: ventas +16 %/año, FCF/acción +19 %/año, sin deuda. El freno: margen FCF del 7,7 % (ligeramente bajo nuestro umbral del 8 %) y DSO de 108 días.",
+      body: [
+        { type: 'h2', text: "Lululemon: el líder del sportswear premium en turbulencia" },
+        { type: 'p', text: "Lululemon Athletica (NASDAQ: LULU) es el líder mundial de ropa deportiva premium con precios 3-5 veces superiores a las marcas de masas. Fundada en 1998 en Vancouver, ha construido una comunidad de marca leal y márgenes brutos notables para el sector textil. En 2026, la acción ha perdido el 46 % desde el 1 de enero, reflejando preocupaciones sobre el crecimiento y el cambio de dirección." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'table', headers: ['Criterio', 'Valor', 'Estado'], rows: [
+          ['Margen neto', '13,0 %', '✅ Pasa'],
+          ['Crecimiento ventas (5 años)', '15,9 %/año', '✅ Pasa'],
+          ['Crecimiento FCF/acción (5 años)', '19,1 %/año', '✅ Pasa'],
+          ['Dilución accionistas', '-1,75 %/año', '✅ Pasa (recompras)'],
+          ['Margen FCF', '7,7 %', '❌ Bajo umbral 8 %'],
+          ['Expansión márgenes', 'En expansión', '✅ Pasa'],
+          ['ROIC', '16,3 %', '✅ Pasa'],
+          ['Endeudamiento', '-1,76× (caja neta)', '✅ Pasa'],
+          ['Conversión beneficios → caja', '0,59×', '❌ Baja'],
+          ['DSO', '108 días', '❌ Muy elevado'],
+          ['Valoración', '105,43 $ vs objetivo 83,54 $', '❌ 26 % sobre objetivo']
+        ]},
+        { type: 'h2', text: "Por qué 8/10 a pesar de la caída del 46 %" },
+        { type: 'p', text: "Los fundamentos operativos de Lululemon siguen siendo sólidos. El crecimiento de ventas del 15,9 %/año y del FCF del 19,1 %/año superan nuestros umbrales. El balance es sano (caja neta, sin deuda). Las dos debilidades: margen FCF del 7,7 % (ligeramente bajo nuestro umbral del 8 %) y DSO de 108 días. La caída de la acción refleja una compresión de múltiplo (de 30-40× a 14×) más que un deterioro fundamental." },
+        { type: 'h2', text: "Nueva CEO: Heidi O'Neill, ex-Nike" },
+        { type: 'p', text: "En junio de 2026, Lululemon anunció a Heidi O'Neill como CEO — ex presidenta de Nike (consumer & marketplace). O'Neill supervisó la transformación digital de Nike y su expansión internacional. Para Lululemon, estas son exactamente las palancas de crecimiento: mercados internacionales todavía poco penetrados (25 % del CA) y canal digital directo poco desarrollado." }
+      ],
+      faq: [
+        { q: "¿Es Lululemon una oportunidad tras la caída del -46 %?", a: "Según nuestra metodología, todavía no — a 105,43 $ el precio está un 26 % por encima de nuestro objetivo de entrada de 83,54 $. Necesitaríamos una bajada adicional hacia 83-85 $ o crecimiento del FCF/acción que eleve nuestro objetivo." },
+        { q: "¿Qué le falta a Lululemon para obtener 10/10?", a: "Tres criterios: margen FCF (7,7 % vs umbral 8 %), conversión beneficios→caja (0,59× vs umbral 0,80×) y DSO de 108 días. Mejorarán si Lululemon simplifica su distribución y reduce la dependencia del mayorista." },
+        { q: "¿Está justificada la caída del -46 % desde enero de 2026?", a: "Parcialmente. Refleja: (1) ralentización del crecimiento en EE.UU. (mercado maduro); (2) vacante de CEO a principios de año; (3) mayor competencia (Alo Yoga, Vuori). Los fundamentales siguen siendo buenos — es principalmente una compresión de múltiplo." },
+        { q: "¿Es el cambio de CEO positivo para Lululemon?", a: "Potencialmente muy positivo. Heidi O'Neill supervisó la transformación digital de Nike y su expansión internacional. Para Lululemon, estas son precisamente las palancas de crecimiento pendientes." },
+        { q: "¿Lululemon paga dividendos?", a: "No. Lululemon no paga dividendos, prefiriendo reinvertir en crecimiento y realizar recompras de acciones (-1,75 %/año). Coherente con su etapa de desarrollo y oportunidad de mercado internacional." }
+      ],
+      tags: ['Lululemon', 'LULU', 'sportswear', 'Apparel Retail', 'CEO Heidi O\'Neill', '8/10', 'caída acción'],
+      disclaimer: "Análisis fundamental realizado a través de nuestro screener propietario el 23 de junio de 2026. Este contenido es informativo y no constituye asesoramiento de inversión. Lululemon está en una transición de gestión que puede afectar a los fundamentales futuros."
+    }
+  }
+};
+
+const articleRendementTotal: Article = {
+  slug: 'rendement-total-actionnarial-dividende-rachat-fcf',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  content: {
+    fr: {
+      title: "Rendement total : dividendes, rachats et FCF expliqués",
+      excerpt: "Le rendement du dividende seul trompe. Le rendement total actionnarial — dividendes + rachats d'actions + désendettement — donne le vrai retour aux actionnaires. Notre guide méthodologique avec exemples réels.",
+      metaDescription: "Rendement total actionnarial expliqué : dividendes, rachats d'actions, réduction de dette. Comment calculer le vrai rendement sur nos 10/10 (RNR, ROP, PGR). Guide méthodologique.",
+      answer: "Le rendement total actionnarial combine dividendes, rachats d'actions et désendettement. Un dividende de 2 % avec des rachats à 5 %/an donne un rendement réel de 7 %. Notre méthode FCF intègre naturellement cette logique — les 10/10 avec rachats actifs génèrent un rendement total souvent supérieur à des actions à dividende élevé apparent.",
+      body: [
+        { type: 'h2', text: "Pourquoi le rendement du dividende seul est insuffisant" },
+        { type: 'p', text: "Un investisseur qui compare deux actions uniquement sur le dividende peut se tromper. Exemple : Action A verse 5 % de dividende mais dilue les actionnaires de 8 %/an (émissions d'actions massives) — rendement réel négatif de -3 %. Action B verse 1 % de dividende mais rachète 6 % de ses actions — rendement réel de 7 %. Notre méthode surveille la dilution (l'une de nos 10 métriques) pour éviter ce piège." },
+        { type: 'h2', text: "Les trois composantes du rendement total actionnarial" },
+        { type: 'ul', items: [
+          "Dividende : cash versé directement à l'actionnaire — le plus visible, mais pas toujours le plus important",
+          "Rachat d'actions : l'entreprise rachète ses propres actions — réduit le nombre d'actions en circulation, augmentant mécaniquement le bénéfice et le FCF par action",
+          "Désendettement : remboursement de la dette — améliore la solidité du bilan et la qualité future du FCF"
+        ]},
+        { type: 'h2', text: "Exemples concrets sur nos 10/10" },
+        { type: 'table', headers: ['Ticker', 'Dividende', 'Rachats/an', 'Rendement total estimé'], rows: [
+          ['RNR (RenaissanceRe)', '~0,8 %', '~8-10 %', '~9-11 %'],
+          ['ROP (Roper Tech)', '~0,6 %', '~5-7 %', '~6-8 %'],
+          ['PGR (Progressive)', '~0,3 % + special', '~4-6 %', '~5-7 %'],
+          ['MSCI (MSCI)', '~1,0 %', '~8-10 %', '~9-11 %'],
+          ['ACGL (Arch Capital)', '0 %', '~5-8 %', '~5-8 %']
+        ]},
+        { type: 'h2', text: "Comment notre méthode intègre le rendement total" },
+        { type: 'p', text: "Notre critère 'dilution' surveille directement cette logique. Une dilution négative de -5 %/an signifie que l'entreprise rachète 5 % de ses actions — mécanisme de création de valeur silencieux mais puissant sur 10 ans. Sur une période de 10 ans à -5 %/an de dilution, le nombre d'actions diminue de 40 %. Pour le même bénéfice total de l'entreprise, chaque actionnaire restant possède 67 % de plus qu'au départ. C'est l'intérêt composé inversé sur les actions." }
+      ],
+      faq: [
+        { q: "Les rachats d'actions valent-ils mieux que les dividendes ?", a: "Ni l'un ni l'autre n'est systématiquement meilleur. Les rachats sont fiscalement plus avantageux dans les pays où les dividendes sont taxés à la source. Les dividendes donnent un flux de trésorerie régulier. Notre méthode surveille les deux via la dilution nette." },
+        { q: "Comment calculer le rendement total d'une action ?", a: "Rendement total = (Dividende annuel / Prix) + (Rachats annuels / Capitalisation boursière) + (Réduction de dette / Capitalisation). Pour une estimation rapide : cherchez le dividende yield + la variation annuelle du nombre d'actions en circulation (signe négatif = rachats)." },
+        { q: "Un dividende élevé est-il signe de qualité ?", a: "Pas nécessairement. Un dividende de 8 % peut signifier que l'entreprise distribue plus qu'elle ne génère — signe de FCF insuffisant pour couvrir le dividende. Notre méthode préfère un FCF margin élevé et une faible dilution à un dividende élevé non couvert par le cash." },
+        { q: "Pourquoi RNR (RenaissanceRe) n'a-t-il pas beaucoup de dividende malgré ses rachats massifs ?", a: "RNR est un réassureur : il préfère conserver du capital pour faire face aux catastrophes naturelles et réinvestir dans les primes élevées après sinistre. Les rachats sont effectués quand le prix est attrayant. C'est une allocation de capital disciplinée." },
+        { q: "Les entreprises qui ne versent pas de dividende sont-elles mauvaises ?", a: "Absolument pas. Berkshire Hathaway ne verse aucun dividende — et a créé plus de valeur que presque n'importe quelle entreprise au monde. ACGL (Arch Capital), BKNG (Booking Holdings) ne versent pas de dividende et rachètent massivement. Ce qui compte : le rendement total, pas le dividende isolé." }
+      ],
+      tags: ['rendement total', 'dividende', 'rachats actions', 'FCF', 'shareholder yield', 'méthode Lubin', 'pédago'],
+      disclaimer: "Contenu éducatif et méthodologique réalisé au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "Total shareholder return: dividends, buybacks and FCF",
+      excerpt: "Dividend yield alone misleads. Total shareholder return — dividends + share buybacks + deleveraging — gives the true return to shareholders. Our methodological guide with real examples.",
+      metaDescription: "Total shareholder return explained: dividends, share buybacks, debt reduction. How to calculate the real yield on our 10/10 stocks (RNR, ROP, PGR). Methodological guide.",
+      answer: "Total shareholder return combines dividends, share buybacks, and deleveraging. A 2% dividend yield with 5%/year buybacks gives a real yield of 7%. Our FCF method naturally incorporates this logic — 10/10 names with active buybacks often deliver higher total returns than apparent high-dividend stocks.",
+      body: [
+        { type: 'h2', text: "Why dividend yield alone is insufficient" },
+        { type: 'p', text: "An investor comparing stocks only on dividend yield can be badly misled. Example: Stock A pays 5% dividend but dilutes shareholders by 8%/year (massive stock issuances) — real yield of -3%. Stock B pays 1% dividend but buys back 6% of shares — real yield of 7%. Our method tracks dilution (one of our 10 metrics) to avoid this trap." },
+        { type: 'h2', text: "Three components of total shareholder return" },
+        { type: 'ul', items: [
+          "Dividends: cash paid directly to shareholders — most visible, but not always most important",
+          "Share buybacks: company repurchases its own shares — reduces shares outstanding, mechanically increasing EPS and FCF per share",
+          "Deleveraging: debt repayment — improves balance sheet strength and future FCF quality"
+        ]},
+        { type: 'h2', text: "Concrete examples from our 10/10 names" },
+        { type: 'table', headers: ['Ticker', 'Dividend', 'Buybacks/yr', 'Est. total return'], rows: [
+          ['RNR (RenaissanceRe)', '~0.8%', '~8-10%', '~9-11%'],
+          ['ROP (Roper Tech)', '~0.6%', '~5-7%', '~6-8%'],
+          ['PGR (Progressive)', '~0.3% + special', '~4-6%', '~5-7%'],
+          ['MSCI (MSCI)', '~1.0%', '~8-10%', '~9-11%'],
+          ['ACGL (Arch Capital)', '0%', '~5-8%', '~5-8%']
+        ]},
+        { type: 'h2', text: "How our method integrates total return" },
+        { type: 'p', text: "Our 'dilution' criterion directly monitors this logic. A negative dilution of -5%/year means the company buys back 5% of shares — a silent but powerful value creation mechanism over 10 years. Over 10 years at -5%/year dilution, share count decreases by 40%. For the same total company earnings, each remaining shareholder owns 67% more than at the start. This is compound interest in reverse on share count." }
+      ],
+      faq: [
+        { q: "Are buybacks better than dividends?", a: "Neither is systematically better. Buybacks are more tax-efficient in countries where dividends are taxed at source. Dividends provide regular cash flow. Our method monitors both via net dilution." },
+        { q: "How do you calculate a stock's total shareholder return?", a: "Total return = (Annual dividend / Price) + (Annual buybacks / Market cap) + (Debt reduction / Market cap). Quick estimate: find the dividend yield + annual change in shares outstanding (negative sign = buybacks)." },
+        { q: "Is a high dividend a quality signal?", a: "Not necessarily. An 8% dividend might mean the company is distributing more than it generates — a sign of insufficient FCF to cover the dividend. Our method prefers high FCF margin and low dilution over a high but uncovered dividend." },
+        { q: "Why doesn't RNR have much dividend despite massive buybacks?", a: "RNR is a reinsurer: it prefers retaining capital to face natural catastrophes and reinvest in post-disaster elevated premiums. Buybacks are conducted when pricing is attractive. Disciplined capital allocation." },
+        { q: "Are no-dividend companies bad investments?", a: "Absolutely not. Berkshire Hathaway pays no dividend and has created more value than almost any company in the world. ACGL, BKNG pay no dividends and buy back massively. What matters: total return, not the dividend in isolation." }
+      ],
+      tags: ['total shareholder return', 'dividends', 'share buybacks', 'FCF', 'shareholder yield', 'Lubin method', 'education'],
+      disclaimer: "Educational and methodological content as of June 23, 2026. This content is informational and does not constitute investment advice."
+    },
+    es: {
+      title: "Rendimiento total: dividendos, recompras y FCF explicados",
+      excerpt: "La rentabilidad por dividendo sola engaña. El rendimiento total al accionista — dividendos + recompras + desapalancamiento — da el retorno real. Nuestra guía metodológica con ejemplos reales.",
+      metaDescription: "Rendimiento total al accionista explicado: dividendos, recompras de acciones, reducción de deuda. Cómo calcular el rendimiento real en nuestros 10/10 (RNR, ROP, PGR). Guía metodológica.",
+      answer: "El rendimiento total al accionista combina dividendos, recompras de acciones y desapalancamiento. Un dividendo del 2 % con recompras del 5 %/año da un rendimiento real del 7 %. Nuestra metodología FCF incorpora naturalmente esta lógica — los 10/10 con recompras activas generan frecuentemente mayor rendimiento total que acciones de alto dividendo aparente.",
+      body: [
+        { type: 'h2', text: "Por qué la rentabilidad por dividendo sola es insuficiente" },
+        { type: 'p', text: "Un inversor que compara acciones solo por el dividendo puede equivocarse. Ejemplo: Acción A paga 5 % de dividendo pero diluye a los accionistas un 8 %/año (emisiones masivas) — rendimiento real de -3 %. Acción B paga 1 % de dividendo pero recompra el 6 % de sus acciones — rendimiento real del 7 %. Nuestra metodología vigila la dilución (una de nuestras 10 métricas) para evitar esta trampa." },
+        { type: 'h2', text: "Los tres componentes del rendimiento total al accionista" },
+        { type: 'ul', items: [
+          "Dividendos: efectivo pagado directamente al accionista — el más visible, pero no siempre el más importante",
+          "Recompras de acciones: la empresa recompra sus propias acciones — reduce el número de acciones en circulación, aumentando mecánicamente el BPA y el FCF por acción",
+          "Desapalancamiento: amortización de deuda — mejora la solidez del balance y la calidad futura del FCF"
+        ]},
+        { type: 'h2', text: "Ejemplos concretos en nuestros 10/10" },
+        { type: 'table', headers: ['Ticker', 'Dividendo', 'Recompras/año', 'Rendimiento total estimado'], rows: [
+          ['RNR (RenaissanceRe)', '~0,8 %', '~8-10 %', '~9-11 %'],
+          ['ROP (Roper Tech)', '~0,6 %', '~5-7 %', '~6-8 %'],
+          ['PGR (Progressive)', '~0,3 % + especial', '~4-6 %', '~5-7 %'],
+          ['MSCI (MSCI)', '~1,0 %', '~8-10 %', '~9-11 %'],
+          ['ACGL (Arch Capital)', '0 %', '~5-8 %', '~5-8 %']
+        ]},
+        { type: 'h2', text: "Cómo nuestra metodología integra el rendimiento total" },
+        { type: 'p', text: "Nuestro criterio de 'dilución' monitorea directamente esta lógica. Una dilución negativa del -5 %/año significa que la empresa recompra el 5 % de sus acciones — mecanismo silencioso pero poderoso de creación de valor a 10 años. Con un -5 %/año durante 10 años, el número de acciones disminuye un 40 %. Para el mismo beneficio total de la empresa, cada accionista restante posee un 67 % más que al inicio." }
+      ],
+      faq: [
+        { q: "¿Son las recompras mejores que los dividendos?", a: "Ninguno es sistemáticamente mejor. Las recompras son más eficientes fiscalmente en países donde los dividendos están gravados en la fuente. Los dividendos proporcionan flujo de caja regular. Nuestra metodología monitorea ambos a través de la dilución neta." },
+        { q: "¿Cómo se calcula el rendimiento total de una acción?", a: "Rendimiento total = (Dividendo anual / Precio) + (Recompras anuales / Capitalización) + (Reducción deuda / Capitalización). Estimación rápida: busque la rentabilidad por dividendo + la variación anual en acciones en circulación (signo negativo = recompras)." },
+        { q: "¿Un dividendo alto es señal de calidad?", a: "No necesariamente. Un dividendo del 8 % puede significar que la empresa distribuye más de lo que genera — señal de FCF insuficiente para cubrir el dividendo. Nuestra metodología prefiere alto margen FCF y baja dilución sobre un dividendo alto no cubierto por el efectivo." },
+        { q: "¿Por qué RNR no tiene mucho dividendo a pesar de las recompras masivas?", a: "RNR es una reaseguradora: prefiere retener capital para afrontar catástrofes naturales y reinvertir en primas elevadas post-siniestro. Las recompras se realizan cuando el precio es atractivo. Asignación disciplinada de capital." },
+        { q: "¿Son malas inversiones las empresas sin dividendo?", a: "En absoluto. Berkshire Hathaway no paga dividendo y ha creado más valor que casi cualquier empresa del mundo. ACGL, BKNG no pagan dividendo y recompran masivamente. Lo que importa: el rendimiento total, no el dividendo aislado." }
+      ],
+      tags: ['rendimiento total', 'dividendo', 'recompras acciones', 'FCF', 'shareholder yield', 'método Lubin', 'educación'],
+      disclaimer: "Contenido educativo y metodológico realizado el 23 de junio de 2026. Este contenido es informativo y no constituye asesoramiento de inversión."
+    }
+  }
+};
+
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
