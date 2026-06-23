@@ -33016,7 +33016,581 @@ const articleSTAGIndustrial: Article = {
 };
 
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial];
+const articleFRT: Article = {
+  slug: 'federal-realty-frt-reit-pfcf-77-analyse',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  ticker: 'FRT',
+  content: {
+    fr: {
+      title: "Federal Realty (FRT) : le REIT premium à P/FCF 77×",
+      excerpt: "Federal Realty est le seul REIT à statut 'Dividend King' — 57 ans consécutifs de hausse de dividende. Notre screener lui donne 6 sur 10 et un P/FCF de 77×, bien au-dessus des autres REITs. Pourquoi le marché paie autant ?",
+      metaDescription: "Federal Realty (FRT) analyse fondamentale : 6/10, P/FCF 77×, unique Dividend King parmi les REITs. Centres premium Bethesda, Silicon Valley. Notre décryptage.",
+      answer: "Federal Realty Investment Trust est le seul REIT américain à statut 'Dividend King' — 57 années consécutives de hausse du dividende. Notre screener lui attribue 6 sur 10, comme les autres REITs retail, mais avec un P/FCF de 76,6× — 5× plus élevé que Realty Income ou NNN. Prix actuel de 121,72 $ contre une cible de 58,96 $.",
+      body: [
+        { type: 'h2', text: "Federal Realty : le seul Dividend King parmi les REITs" },
+        { type: 'p', text: "Federal Realty Investment Trust (NYSE : FRT) est unique : c'est le seul REIT américain à avoir augmenté son dividende pendant 57 années consécutives — le record absolu de toute la catégorie REIT, et l'un des très rares 'Dividend Kings' de la bourse américaine. Ses propriétés sont des centres commerciaux et mixed-use de haute gamme situés dans les marchés les plus denses et aisés des États-Unis : Bethesda (Maryland), Silicon Valley, Boston, Los Angeles." },
+        { type: 'h2', text: "Score fondamental au 23 juin 2026" },
+        { type: 'table', headers: ['Critère', 'Valeur', 'Statut'], rows: [
+          ['Score screener Lubin', '6/10', '—'],
+          ['P/FCF actuel', '76,6×', '❌ Très élevé'],
+          ['Prix actuel', '121,72 $', '—'],
+          ['Cible d\'entrée (méthode Lubin)', '58,96 $', '—'],
+          ['Écart prix/cible', '+106 %', '❌ Au-dessus cible']
+        ]},
+        { type: 'h2', text: "Pourquoi le P/FCF est si élevé : 3 raisons" },
+        { type: 'p', text: "1. La prime 'Dividend King' : les investisseurs paient une prime considérable pour 57 ans d'historial ininterrompu. C'est une garantie implicite de qualité qui se monétise en valorisation. 2. Les marchés premium : les propriétés FRT sont dans des zip codes à revenus élevés — les loyers sont 2 à 3× supérieurs aux strip centers ordinaires, avec des taux d'occupation proches de 100 % depuis des décennies. 3. La méthode AFFO : en AFFO, le multiple de FRT est d'environ 25-30× — élevé mais pas aberrant pour la meilleure localisation de la catégorie. Notre P/FCF 77× reflète principalement des amortissements élevés sur des actifs immobiliers anciens." },
+        { type: 'h2', text: "Comparaison FRT vs autres REITs retail" },
+        { type: 'table', headers: ['REIT', 'Score', 'P/FCF', 'Années hausse dividende', 'Niche'], rows: [
+          ['FRT', '6/10', '76,6×', '57 ans', 'Mixed-use premium'],
+          ['O (Realty Income)', '6/10', '14,0×', '55 ans', 'Triple-net US+EU'],
+          ['NNN REIT', '6/10', '13,1×', '35 ans', 'Triple-net US'],
+          ['REG (Regency Centers)', '6/10', '17,8×', '~20 ans', 'Strip grocery-anchored'],
+          ['BRX (Brixmor)', '6/10', '14,8×', '~7 ans', 'Strip secondaire']
+        ]},
+        { type: 'h2', text: "Notre conclusion : une prime justifiée, mais pas à notre méthode" },
+        { type: 'p', text: "Federal Realty est objectivement l'un des REITs les mieux gérés de l'histoire. Son bilan de 57 ans est inégalé. Mais notre méthode P/FCF lui attribue 6 sur 10 — comme Realty Income ou NNN — et le prix actuel est 106 % au-dessus de notre cible. Pour les investisseurs revenus recherchant la sécurité absolue du dividende, FRT est un choix de qualité extrême. Pour notre méthode de croissance composée, ce n'est pas un dossier prioritaire." }
+      ],
+      faq: [
+        { q: "Federal Realty est-il vraiment le seul REIT 'Dividend King' ?", a: "Oui. Le statut 'Dividend King' exige 50+ années consécutives de hausse du dividende. Parmi tous les REITs américains, seul FRT atteint ce seuil (57 ans). Realty Income (55 ans) y est aussi — les deux sont des Dividend Kings REIT. C'est extrêmement rare toutes catégories confondues." },
+        { q: "Pourquoi FRT se concentre-t-il sur les marchés premium ?", a: "Les marchés denses et aisés (Bethesda, Silicon Valley) ont des barrières à l'entrée très élevées — on ne peut pas construire de nouveau centre commercial en face de Bethesda Row. Ces actifs sont irremplaçables, ce qui justifie des loyers élevés et une prime de valorisation permanente." },
+        { q: "Le P/FCF de 77× ne signifie-t-il pas que FRT est surévalué ?", a: "En FCF standard, oui. En AFFO (la méthode REIT), le multiple est d'environ 25-30×, plus raisonnable. Le P/FCF 77× reflète principalement les amortissements élevés sur des actifs immobiliers d'âge moyen élevé. Ce n'est pas une anomalie mais une limite méthodologique du P/FCF appliqué aux REITs." },
+        { q: "FRT est-il exposé au déclin du retail américain ?", a: "Beaucoup moins que les malls. FRT possède des mixed-use premium (appartements + retail + restaurants + bureaux) dans des quartiers urbains denses. Ces actifs attirent des concepts food&beverage et lifestyle qui résistent à Amazon. Le taux d'occupation de FRT est historiquement parmi les plus élevés du secteur." }
+      ],
+      tags: ['Federal Realty', 'FRT', 'Dividend King', 'REIT retail', 'mixed-use', 'premium', 'immobilier coté'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "Federal Realty (FRT): the premium REIT at 77× FCF",
+      excerpt: "Federal Realty is the only REIT with 'Dividend King' status — 57 consecutive years of dividend increases. Our screener rates it 6/10 with a 77× FCF multiple, far above other REITs. Why does the market pay so much?",
+      metaDescription: "Federal Realty (FRT) fundamental analysis: 6/10, 77× FCF multiple, unique Dividend King REIT. Premium Bethesda and Silicon Valley assets. Our breakdown.",
+      answer: "Federal Realty Investment Trust is the only US REIT with Dividend King status — 57 consecutive years of dividend increases. Our screener rates it 6/10 with a P/FCF of 76.6×, 5× higher than Realty Income or NNN. Current price $121.72 vs our target of $58.96.",
+      body: [
+        { type: 'h2', text: "Federal Realty: the only Dividend King among REITs" },
+        { type: 'p', text: "Federal Realty Investment Trust (NYSE: FRT) is unique: the only US REIT with 57 consecutive years of dividend growth — the all-time REIT record. Its properties are high-end mixed-use and retail centers in the densest, most affluent US markets: Bethesda (Maryland), Silicon Valley, Boston, Los Angeles." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026" },
+        { type: 'table', headers: ['Metric', 'Value', 'Status'], rows: [
+          ['Lubin screener score', '6/10', '—'],
+          ['Current P/FCF', '76.6×', '❌ Very high'],
+          ['Current price', '$121.72', '—'],
+          ['Lubin entry target', '$58.96', '—'],
+          ['Price vs target', '+106%', '❌ Above target']
+        ]},
+        { type: 'h2', text: "Why the FCF multiple is so high: 3 reasons" },
+        { type: 'p', text: "1. The Dividend King premium: investors pay a significant premium for 57 years of uninterrupted history. 2. Premium markets: FRT properties are in high-income zip codes with rents 2-3× above ordinary strip centers and near-100% occupancy for decades. 3. AFFO method: in AFFO, FRT's multiple is ~25-30× — elevated but not unreasonable for the best-located assets. Our P/FCF of 77× mainly reflects high depreciation on older real estate assets." },
+        { type: 'h2', text: "FRT vs other retail REITs" },
+        { type: 'table', headers: ['REIT', 'Score', 'P/FCF', 'Years dividend growth', 'Niche'], rows: [
+          ['FRT', '6/10', '76.6×', '57 years', 'Premium mixed-use'],
+          ['O (Realty Income)', '6/10', '14.0×', '55 years', 'Triple-net US+EU'],
+          ['NNN REIT', '6/10', '13.1×', '35 years', 'Triple-net US'],
+          ['REG (Regency Centers)', '6/10', '17.8×', '~20 years', 'Grocery strip'],
+          ['BRX (Brixmor)', '6/10', '14.8×', '~7 years', 'Secondary strip']
+        ]},
+        { type: 'h2', text: "Our conclusion: a justified premium, but not by our method" },
+        { type: 'p', text: "Federal Realty is objectively one of the best-managed REITs in history. Its 57-year track record is unmatched. But our P/FCF method rates it 6/10 — same as Realty Income or NNN — and the price is 106% above our target. For income investors seeking absolute dividend safety, FRT is an extremely high-quality choice. For our compound-growth method, it's not a priority." }
+      ],
+      faq: [
+        { q: "Is Federal Realty really the only REIT 'Dividend King'?", a: "Yes — and so is Realty Income (55 years). Dividend King status requires 50+ consecutive years of increases. Among all US REITs, only FRT (57 years) and O (55 years) qualify. Extremely rare across all categories." },
+        { q: "Why does FRT focus on premium markets?", a: "Dense, affluent markets (Bethesda, Silicon Valley) have very high entry barriers — you can't build a new shopping center across from Bethesda Row. These irreplaceable assets command premium rents and a permanent valuation premium." },
+        { q: "Doesn't a 77× P/FCF mean FRT is overvalued?", a: "In standard FCF terms, yes. In AFFO (the REIT standard), the multiple is ~25-30×, more reasonable. The 77× P/FCF mainly reflects high depreciation on older real estate assets. Not an anomaly but a methodological limitation of applying P/FCF to REITs." },
+        { q: "Is FRT exposed to US retail decline?", a: "Much less than malls. FRT owns premium mixed-use assets (apartments + retail + restaurants + offices) in dense urban neighborhoods. These attract Amazon-resistant food&beverage and lifestyle concepts. FRT occupancy is historically among the sector's highest." }
+      ],
+      tags: ['Federal Realty', 'FRT', 'Dividend King', 'retail REIT', 'mixed-use', 'premium', 'listed real estate'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Informational content, not investment advice."
+    },
+    es: {
+      title: "Federal Realty (FRT): el REIT premium a 77× FCF",
+      excerpt: "Federal Realty es el único REIT con estatus 'Dividend King' — 57 años consecutivos de aumentos de dividendo. Nuestro screener le da 6/10 con un múltiplo FCF de 77×, muy por encima de otros REITs.",
+      metaDescription: "Federal Realty (FRT) análisis fundamental: 6/10, múltiplo FCF 77×, único Dividend King REIT. Activos premium en Bethesda y Silicon Valley. Nuestro análisis.",
+      answer: "Federal Realty es el único REIT estadounidense con estatus 'Dividend King' — 57 años consecutivos de aumento del dividendo. Nuestro screener le da 6/10 con un P/FCF de 76,6×, 5× más alto que Realty Income o NNN. Precio actual 121,72 $ frente a nuestro objetivo de 58,96 $.",
+      body: [
+        { type: 'h2', text: "Federal Realty: el único Dividend King entre los REITs" },
+        { type: 'p', text: "Federal Realty Investment Trust (NYSE: FRT) es único: el único REIT con 57 años consecutivos de aumento del dividendo — el récord absoluto en la categoría REIT. Sus propiedades son centros mixtos y comerciales de alta gama en los mercados más densos y prósperos de EE.UU.: Bethesda (Maryland), Silicon Valley, Boston, Los Ángeles." },
+        { type: 'h2', text: "Datos fundamentales a 23 de junio de 2026" },
+        { type: 'table', headers: ['Métrica', 'Valor', 'Estado'], rows: [
+          ['Puntuación screener Lubin', '6/10', '—'],
+          ['P/FCF actual', '76,6×', '❌ Muy elevado'],
+          ['Precio actual', '121,72 $', '—'],
+          ['Objetivo entrada Lubin', '58,96 $', '—'],
+          ['Diferencia precio/objetivo', '+106 %', '❌ Por encima del objetivo']
+        ]},
+        { type: 'h2', text: "Por qué el múltiplo FCF es tan elevado: 3 razones" },
+        { type: 'p', text: "1. La prima 'Dividend King': los inversores pagan una prima considerable por 57 años de historial ininterrumpido. 2. Mercados premium: las propiedades de FRT están en código postal de altos ingresos con alquileres 2-3× superiores a los strip centers ordinarios. 3. Método AFFO: en AFFO, el múltiplo de FRT es ~25-30×, más razonable. Nuestro P/FCF de 77× refleja principalmente altas amortizaciones sobre activos inmobiliarios antiguos." },
+        { type: 'h2', text: "FRT vs otros REITs retail" },
+        { type: 'table', headers: ['REIT', 'Puntuación', 'P/FCF', 'Años subida dividendo'], rows: [
+          ['FRT', '6/10', '76,6×', '57 años'],
+          ['O (Realty Income)', '6/10', '14,0×', '55 años'],
+          ['NNN REIT', '6/10', '13,1×', '35 años'],
+          ['REG (Regency Centers)', '6/10', '17,8×', '~20 años'],
+          ['BRX (Brixmor)', '6/10', '14,8×', '~7 años']
+        ]},
+        { type: 'h2', text: "Nuestra conclusión: prima justificada, pero no según nuestra metodología" },
+        { type: 'p', text: "Federal Realty es objetivamente uno de los REITs mejor gestionados de la historia. Pero nuestra metodología P/FCF le da 6/10 — igual que Realty Income o NNN — y el precio está un 106 % por encima de nuestro objetivo. Para inversores de renta que buscan seguridad absoluta del dividendo, FRT es una elección de calidad extrema." }
+      ],
+      faq: [
+        { q: "¿Es Federal Realty realmente el único REIT 'Dividend King'?", a: "Sí — y también Realty Income (55 años). El estatus Dividend King requiere 50+ años consecutivos de aumento. Entre todos los REITs de EE.UU., solo FRT (57 años) y O (55 años) califican. Extremadamente raro en todas las categorías." },
+        { q: "¿Por qué FRT se centra en mercados premium?", a: "Los mercados densos y prósperos tienen barreras de entrada muy altas — no se puede construir un nuevo centro comercial frente a Bethesda Row. Estos activos irremplazables generan alquileres premium y una prima de valoración permanente." },
+        { q: "¿Un P/FCF de 77× no significa que FRT está sobrevalorado?", a: "En FCF estándar, sí. En AFFO (el estándar REIT), el múltiplo es ~25-30×, más razonable. El P/FCF de 77× refleja principalmente altas amortizaciones sobre activos inmobiliarios antiguos. No es una anomalía sino una limitación metodológica." }
+      ],
+      tags: ['Federal Realty', 'FRT', 'Dividend King', 'REIT retail', 'mixed-use', 'premium', 'inmobiliario cotizado'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleSPGMAC: Article = {
+  slug: 'simon-property-macerich-reit-mall-comparatif-2026',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  content: {
+    fr: {
+      title: "REITs malls 2026 : Simon Property vs Macerich",
+      excerpt: "Simon Property Group (5/10) et Macerich (3/10) sont les deux grands REITs de malls américains. Le premier se réinvente en mixed-use, le second lutte pour sa survie. Nos données comparatives.",
+      metaDescription: "Simon Property Group vs Macerich 2026 : SPG 5/10 à P/FCF 21× vs MAC 3/10 à P/FCF 21×. REITs malls américains — occupation, dette, réinvention. Comparatif data.",
+      answer: "Simon Property Group (SPG, 5/10) et Macerich (MAC, 3/10) sont les deux principaux REITs de malls américains. SPG est le plus grand et diversifié — ses Outlet Centers et mixed-use lui ont permis de résister. MAC est en situation difficile avec des actifs de moindre qualité. Les deux se traitent à un P/FCF similaire (~21×) mais avec des profils de risque très différents.",
+      body: [
+        { type: 'h2', text: "Le sous-secteur le plus difficile des REITs" },
+        { type: 'p', text: "Les malls américains ont subi une transformation radicale depuis 2015 : faillites de grands locataires (Sears, JCPenney, Forever 21, J.Crew), montée du e-commerce, désaffection des millennials pour la grande distribution. Seuls les malls premium de classe A résistent — ceux en position de monopole dans leur bassin de chalandise. Simon Property Group et Macerich sont les deux derniers grands REITs de malls cotés en bourse." },
+        { type: 'h2', text: "Simon Property Group vs Macerich : données comparatives" },
+        { type: 'table', headers: ['Critère', 'Simon Property (SPG)', 'Macerich (MAC)'], rows: [
+          ['Score screener Lubin', '5/10', '3/10'],
+          ['P/FCF actuel', '21,6×', '21,4×'],
+          ['Prix actuel', '214,57 $', '24,04 $'],
+          ['Cible d\'entrée Lubin', '103,12 $', '11,65 $'],
+          ['Écart prix/cible', '+108 %', '+106 %'],
+          ['Capitalisation boursière', '~65 Md$', '~2,5 Md$'],
+          ['Nombre de propriétés', '~200', '~45'],
+          ['Type de malls', 'Premium + Outlet', 'Malls classe B/A-'],
+          ['Taux d\'occupation', '~95 %', '~92 %']
+        ]},
+        { type: 'h2', text: "Simon Property : le plus résistant des malls" },
+        { type: 'p', text: "Simon Property Group (NYSE : SPG) est le plus grand REIT au monde par capitalisation. Sa force est la qualité de ses actifs — les malls les plus fréquentés des États-Unis, les Simon Premium Outlets (marques luxe discount), et ses développements mixed-use (résidentiel + bureaux + hôtels sur les parkings de malls). SPG a racheté des marques en faillite (Brooks Brothers, J.Crew) pour les convertir en locataires captifs. Son bilan s'est amélioré post-2020. Le score 5/10 reflète la dette (typique des malls) et une croissance FCF/action modérée." },
+        { type: 'h2', text: "Macerich : le risque le plus élevé" },
+        { type: 'p', text: "Macerich (NYSE : MAC) possède des malls de classe A- et B+ principalement en Californie, Arizona et Mid-Atlantic. Son score 3/10 reflète des problèmes structurels : croissance des ventes négative, marges en compression, dette élevée avec des covenants contraignants. MAC a dû vendre des actifs pour réduire sa dette. Ses malls sont moins bien positionnés que SPG — moins de monopoles locaux, moins d'upside mixed-use. La distribution du dividende a été coupée en 2020 et n'a pas retrouvé son niveau pré-COVID." }
+      ],
+      faq: [
+        { q: "Les malls américains sont-ils condamnés ?", a: "Pas tous. Les malls classe A en position de monopole local (seul centre commercial premium dans un rayon de 40 km) résistent. C'est le positionnement de SPG. Les malls classe B/C sans ancre forte ni position monopolistique sont en danger structurel." },
+        { q: "Simon Property est-il un bon investissement malgré le score 5/10 ?", a: "Pour les investisseurs à revenus, SPG offre un dividende de ~4,5 % avec une couverture solide. Pour notre méthode de croissance compoundée, les malls ne sont pas prioritaires. C'est un bon actif défensif dans un portefeuille orienté revenus, pas une action de croissance." },
+        { q: "Pourquoi Macerich est-il noté seulement 3/10 ?", a: "Macerich échoue sur la plupart de nos critères : croissance des ventes faible, marges en recul, FCF/action déclinant, dilution élevée, dette très lourde. Son portefeuille est moins premium que SPG. Le risque de bilanciel est réel si les marchés immobiliers commerciaux se dégradent." },
+        { q: "Comment les malls se réinventent-ils ?", a: "Les meilleurs malls transforment leurs espaces vides en appartements, hôtels, salles de sport, écoles, centres médicaux. Simon Property l'a fait avec succès dans plusieurs marchés. Cette diversification mixed-use est le seul vrai levier de création de valeur à long terme pour le secteur." }
+      ],
+      tags: ['Simon Property Group', 'SPG', 'Macerich', 'MAC', 'REIT mall', 'retail américain', 'mixed-use', 'comparatif'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "Mall REITs 2026: Simon Property vs Macerich",
+      excerpt: "Simon Property Group (5/10) and Macerich (3/10) are the two major US mall REITs. One reinvents itself as mixed-use, the other fights for survival. Our comparative data.",
+      metaDescription: "Simon Property Group vs Macerich 2026: SPG 5/10 at 21× FCF vs MAC 3/10 at 21× FCF. US mall REITs — occupancy, debt, reinvention. Data comparison.",
+      answer: "Simon Property Group (SPG, 5/10) and Macerich (MAC, 3/10) are the two main US mall REITs. SPG is the largest and most diversified — its Outlet Centers and mixed-use development have helped it resist. MAC faces more difficulty with lower-quality assets. Both trade at similar FCF multiples (~21×) but with very different risk profiles.",
+      body: [
+        { type: 'h2', text: "The hardest REIT sub-sector" },
+        { type: 'p', text: "US malls have undergone radical transformation since 2015: major tenant bankruptcies (Sears, JCPenney, Forever 21, J.Crew), e-commerce growth, millennial disengagement from department stores. Only Class A premium malls in monopoly positions in their trade areas are holding up. Simon Property Group and Macerich are the last two major publicly traded mall REITs." },
+        { type: 'h2', text: "Simon Property Group vs Macerich: data comparison" },
+        { type: 'table', headers: ['Criterion', 'Simon Property (SPG)', 'Macerich (MAC)'], rows: [
+          ['Lubin screener score', '5/10', '3/10'],
+          ['Current P/FCF', '21.6×', '21.4×'],
+          ['Current price', '$214.57', '$24.04'],
+          ['Lubin entry target', '$103.12', '$11.65'],
+          ['Price vs target', '+108%', '+106%'],
+          ['Market cap', '~$65B', '~$2.5B'],
+          ['Number of properties', '~200', '~45'],
+          ['Mall type', 'Premium + Outlet', 'Class B/A- malls'],
+          ['Occupancy rate', '~95%', '~92%']
+        ]},
+        { type: 'h2', text: "Simon Property: the most resilient mall REIT" },
+        { type: 'p', text: "Simon Property Group (NYSE: SPG) is the world's largest REIT by market cap. Its strength is asset quality — America's most visited malls, Simon Premium Outlets (luxury discount brands), and mixed-use developments (residential + offices + hotels on mall parking lots). SPG acquired bankrupt brands (Brooks Brothers, J.Crew) to convert them into captive tenants. Its balance sheet has improved post-2020. The 5/10 score reflects typical mall debt and moderate FCF/share growth." },
+        { type: 'h2', text: "Macerich: the higher-risk player" },
+        { type: 'p', text: "Macerich (NYSE: MAC) owns Class A- and B+ malls mainly in California, Arizona, and Mid-Atlantic. Its 3/10 score reflects structural issues: negative revenue growth, margin compression, heavy debt with restrictive covenants. MAC has sold assets to reduce debt. Its malls are less well-positioned than SPG — fewer local monopolies, less mixed-use upside. Its dividend was cut in 2020 and hasn't recovered to pre-COVID levels." }
+      ],
+      faq: [
+        { q: "Are US malls doomed?", a: "Not all of them. Class A malls in local monopoly positions (only premium center within 25 miles) are holding up. That's SPG's positioning. Class B/C malls without strong anchors or monopoly positions face structural danger." },
+        { q: "Is Simon Property a good investment despite the 5/10 score?", a: "For income investors, SPG offers ~4.5% yield with solid coverage. For our compounding growth method, malls aren't a priority. It's a decent defensive income asset, not a growth stock." },
+        { q: "Why is Macerich only rated 3/10?", a: "Macerich fails most of our criteria: weak revenue growth, declining margins, falling FCF/share, high dilution, very heavy debt. Its portfolio is less premium than SPG's. Balance sheet risk is real if commercial real estate markets deteriorate." },
+        { q: "How are malls reinventing themselves?", a: "The best malls transform empty spaces into apartments, hotels, gyms, schools, medical centers. Simon Property has done this successfully in several markets. Mixed-use diversification is the only real long-term value creation lever for the sector." }
+      ],
+      tags: ['Simon Property Group', 'SPG', 'Macerich', 'MAC', 'mall REIT', 'US retail', 'mixed-use', 'comparison'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Informational content, not investment advice."
+    },
+    es: {
+      title: "REITs de centros comerciales 2026: Simon Property vs Macerich",
+      excerpt: "Simon Property Group (5/10) y Macerich (3/10) son los dos grandes REITs de centros comerciales de EE.UU. Uno se reinventa como mixed-use, el otro lucha por su supervivencia.",
+      metaDescription: "Simon Property Group vs Macerich 2026: SPG 5/10 a 21× FCF vs MAC 3/10 a 21× FCF. REITs de centros comerciales de EE.UU. — ocupación, deuda, reinvención.",
+      answer: "Simon Property Group (SPG, 5/10) y Macerich (MAC, 3/10) son los dos principales REITs de centros comerciales de EE.UU. SPG es el más grande y diversificado. MAC enfrenta más dificultades con activos de menor calidad. Ambos cotizan a múltiplos FCF similares (~21×) pero con perfiles de riesgo muy diferentes.",
+      body: [
+        { type: 'h2', text: "El subsector más difícil de los REITs" },
+        { type: 'p', text: "Los centros comerciales (malls) de EE.UU. han sufrido una transformación radical desde 2015: quiebras de grandes inquilinos (Sears, JCPenney), crecimiento del e-commerce, desinterés de los millennials. Solo los malls clase A en posición de monopolio local resisten. Simon Property Group y Macerich son los dos últimos grandes REITs de malls cotizados en bolsa." },
+        { type: 'h2', text: "Simon Property Group vs Macerich: datos comparativos" },
+        { type: 'table', headers: ['Criterio', 'Simon Property (SPG)', 'Macerich (MAC)'], rows: [
+          ['Puntuación screener Lubin', '5/10', '3/10'],
+          ['P/FCF actual', '21,6×', '21,4×'],
+          ['Precio actual', '214,57 $', '24,04 $'],
+          ['Objetivo entrada Lubin', '103,12 $', '11,65 $'],
+          ['Diferencia precio/objetivo', '+108 %', '+106 %'],
+          ['Capitalización bursátil', '~65.000 M$', '~2.500 M$'],
+          ['Tipo de centros', 'Premium + Outlet', 'Clase B/A-'],
+          ['Tasa de ocupación', '~95 %', '~92 %']
+        ]},
+        { type: 'h2', text: "Simon Property: el más resistente" },
+        { type: 'p', text: "Simon Property Group (NYSE: SPG) es el mayor REIT del mundo por capitalización. Su fortaleza es la calidad de los activos — los centros comerciales más visitados de EE.UU., los Simon Premium Outlets y sus desarrollos mixed-use. SPG adquirió marcas en quiebra (Brooks Brothers, J.Crew) para convertirlas en inquilinos captivos. Su balance ha mejorado tras 2020." },
+        { type: 'h2', text: "Macerich: el riesgo más elevado" },
+        { type: 'p', text: "Macerich (NYSE: MAC) posee malls de clase A- y B+ principalmente en California, Arizona y Mid-Atlantic. Su puntuación de 3/10 refleja problemas estructurales: crecimiento de ventas negativo, compresión de márgenes, deuda muy elevada. MAC ha vendido activos para reducir deuda. Su dividendo fue recortado en 2020 y no ha recuperado los niveles pre-COVID." }
+      ],
+      faq: [
+        { q: "¿Están condenados los centros comerciales de EE.UU.?", a: "No todos. Los malls clase A en posición de monopolio local resisten. Esa es la posición de SPG. Los malls clase B/C sin ancla fuerte ni posición monopolística enfrentan peligro estructural." },
+        { q: "¿Es Simon Property una buena inversión a pesar del 5/10?", a: "Para inversores de renta, SPG ofrece ~4,5 % de rentabilidad con cobertura sólida. Para nuestra metodología de crecimiento compuesto, los malls no son una prioridad. Es un activo defensivo de renta decente, no una acción de crecimiento." },
+        { q: "¿Por qué Macerich solo puntúa 3/10?", a: "Macerich falla la mayoría de nuestros criterios: crecimiento de ventas débil, márgenes en declive, FCF/acción cayendo, dilución elevada, deuda muy pesada. Su cartera es menos premium que la de SPG." }
+      ],
+      tags: ['Simon Property Group', 'SPG', 'Macerich', 'MAC', 'REIT centros comerciales', 'retail americano', 'mixed-use'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleAFFO: Article = {
+  slug: 'affo-vs-fcf-reits-pourquoi-methode-pfcf-diverge',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  content: {
+    fr: {
+      title: "AFFO vs FCF : comment analyser un REIT",
+      excerpt: "Notre méthode utilise le P/FCF. Les analystes REIT utilisent l'AFFO. Pourquoi ces deux ratios donnent-ils des résultats si différents pour Realty Income ou STAG ? Explication méthodologique avec exemples.",
+      metaDescription: "AFFO vs FCF pour les REITs : pourquoi notre screener P/FCF diverge des analystes REIT. Différences AFFO et FCF, exemples sur O, NNN, STAG. Guide méthodologique.",
+      answer: "L'AFFO (Adjusted Funds From Operations) est le standard des analystes REIT. Notre méthode utilise le P/FCF standard. La différence principale : les REITs ont des amortissements immobiliers très élevés qui réduisent le FCF comptable, mais ces amortissements ne représentent pas de sorties de cash réelles. En réintégrant ces amortissements, l'AFFO révèle le cash réellement disponible pour le dividende — et des valorisations beaucoup moins 'chères' que notre P/FCF le suggère.",
+      body: [
+        { type: 'h2', text: "Le problème fondamental : les REITs amortissent beaucoup" },
+        { type: 'p', text: "Les REITs possèdent des immeubles physiques. Ces immeubles s'amortissent comptablement — sur 27,5 ans pour le résidentiel, 39 ans pour le commercial aux États-Unis. Une propriété de 100 M$ génère ~2,5 M$/an d'amortissement comptable. Pour un REIT avec 15 milliards d'actifs (comme Realty Income), c'est des centaines de millions d'amortissements annuels qui pèsent sur le résultat net... sans représenter une sortie de cash réelle. Ce cash reste dans le business et finance le dividende." },
+        { type: 'h2', text: "FCF vs AFFO : la différence en chiffres" },
+        { type: 'table', headers: ['Concept', 'FCF standard', 'AFFO (méthode REIT)'], rows: [
+          ['Point de départ', 'Résultat net', 'Résultat net'],
+          ['Amortissements immobiliers', 'Déjà déduits', 'Réintégrés (+)'],
+          ['Capex maintenance (straight-line)', 'Déduit', 'Déduit'],
+          ['SBC (stock-based comp)', 'Non ajusté', 'Parfois réintégré'],
+          ['Résultat', 'FCF très bas pour les REITs', 'Cash réellement distributable'],
+          ['Valorisation typique', '60-80× P/FCF pour REITs', '15-25× P/AFFO pour REITs']
+        ]},
+        { type: 'h2', text: "Exemple concret : Realty Income" },
+        { type: 'p', text: "Realty Income (O) : notre screener donne P/FCF = 14,0× ce qui semble 'raisonnable'. Mais notre cible d'achat de 29,94 $ est basée sur FCF/action × 7×. Or le prix de 60,58 $ suggère que le marché paie 14×. En AFFO, le multiple est d'environ 20-22× — ce qui est le standard du secteur. La divergence entre notre P/FCF (14×) et l'AFFO (20-22×) vient du fait que l'AFFO exclut une partie des capex que notre FCF inclut. Notre méthode n'est pas 'fausse' pour les REITs — elle est simplement plus conservatrice, ce qui explique pourquoi notre cible est 2× en dessous du prix marché." },
+        { type: 'h2', text: "Exemple STAG : le mieux noté dans notre screener" },
+        { type: 'p', text: "STAG Industrial obtient 7/10 dans notre screener — le meilleur score REIT. Son profil est plus 'compatible' avec notre méthode parce que ses amortissements sont moins élevés (actifs industriels moins valorisés que le retail premium) et sa dilution est plus faible (+1,84 %/an). Cela signifie que l'écart entre notre P/FCF (15,9×) et l'AFFO STAG (~20×) est moins grand que pour Realty Income. STAG est le REIT qui 'ressemble' le plus à une action de croissance selon nos critères." },
+        { type: 'h2', text: "Recommandation : comment analyser un REIT" },
+        { type: 'p', text: "Pour analyser un REIT correctement, combinez 3 métriques : 1/ Le P/AFFO (multiple standard du secteur, cible 15-20× pour un REIT de qualité). 2/ Le dividend yield et le payout ratio AFFO (cible <85 % pour sécurité). 3/ La croissance de l'AFFO/action sur 5 ans (cible >3 %/an). Notre screener P/FCF reste utile pour comparer les REITs entre eux et avec d'autres secteurs, mais la cible d'achat ne s'applique pas à la lettre pour les REITs." }
+      ],
+      faq: [
+        { q: "Notre méthode P/FCF est-elle inutile pour les REITs ?", a: "Non — elle reste un outil de comparaison cross-secteur. Elle vous dit qu'un REIT est moins 'efficace' en cash que, par exemple, ServiceNow ou Realty Income vs une action tech. Mais la cible d'achat FCF × 7× est trop conservative pour les REITs et ne doit pas être utilisée telle quelle." },
+        { q: "Qu'est-ce que les REITs sont obligés de distribuer ?", a: "Les REITs américains doivent distribuer au moins 90 % de leur revenu imposable pour bénéficier du statut fiscal REIT (pas d'impôt au niveau de la société). C'est pourquoi ils ne peuvent pas thésauriser du cash pour croître — ils émettent des actions et de la dette pour financer leurs acquisitions." },
+        { q: "L'AFFO est-il manipulable par les managements ?", a: "Oui. L'AFFO est une métrique 'non-GAAP' — chaque REIT peut définir ses propres ajustements. Certains excluent les SBC, d'autres non. Certains incluent des 'recurring capex' différemment. C'est pourquoi comparer l'AFFO entre REITs nécessite de lire les notes comptables en détail." },
+        { q: "Quel est le meilleur outil pour comparer les REITs ?", a: "Pour un investisseur particulier, le P/AFFO normalisé (calculé par les analystes REIT comme Green Street) est le plus fiable. Le dividend yield + payout ratio AFFO + croissance AFFO/action sur 5 ans forment un tableau de bord simple et efficace." }
+      ],
+      tags: ['AFFO', 'FCF', 'REIT', 'méthode', 'P/FCF', 'Funds from Operations', 'valorisation immobilier coté', 'pédago'],
+      disclaimer: "Contenu pédagogique au 23 juin 2026. Notre méthode P/FCF a des limitations spécifiques aux REITs. Ce guide est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "AFFO vs FCF: how to analyze a REIT",
+      excerpt: "Our method uses P/FCF. REIT analysts use AFFO. Why do these two ratios give such different results for Realty Income or STAG? Methodological explanation with examples.",
+      metaDescription: "AFFO vs FCF for REITs: why our P/FCF screener diverges from REIT analysts. AFFO and FCF differences, examples on O, NNN, STAG. Methodological guide.",
+      answer: "AFFO (Adjusted Funds from Operations) is the standard for REIT analysts. Our method uses standard P/FCF. The key difference: REITs have very high real estate depreciation that reduces accounting FCF, but this depreciation doesn't represent real cash outflows. Adding it back, AFFO reveals the cash actually available for dividends — and much less 'expensive' valuations than our P/FCF suggests.",
+      body: [
+        { type: 'h2', text: "The fundamental problem: REITs depreciate a lot" },
+        { type: 'p', text: "REITs own physical buildings. These buildings depreciate on paper — over 27.5 years for residential, 39 years for commercial in the US. A $100M property generates ~$2.5M/year of accounting depreciation. For a REIT with $15 billion in assets (like Realty Income), this means hundreds of millions in annual depreciation weighing on net income... without representing real cash outflows. This cash stays in the business and funds the dividend." },
+        { type: 'h2', text: "FCF vs AFFO: the difference in numbers" },
+        { type: 'table', headers: ['Concept', 'Standard FCF', 'AFFO (REIT method)'], rows: [
+          ['Starting point', 'Net income', 'Net income'],
+          ['Real estate depreciation', 'Already deducted', 'Added back (+)'],
+          ['Maintenance capex (straight-line)', 'Deducted', 'Deducted'],
+          ['SBC (stock-based comp)', 'Not adjusted', 'Sometimes added back'],
+          ['Result', 'Very low FCF for REITs', 'Actually distributable cash'],
+          ['Typical valuation', '60-80× P/FCF for REITs', '15-25× P/AFFO for REITs']
+        ]},
+        { type: 'h2', text: "Real example: Realty Income" },
+        { type: 'p', text: "Realty Income (O): our screener shows P/FCF = 14.0×, which seems 'reasonable'. But our buy target of $29.94 is based on FCF/share × 7×. The market price of $60.58 implies the market pays 14×. In AFFO terms, the multiple is ~20-22× — the sector standard. The gap between our P/FCF (14×) and AFFO (20-22×) comes from AFFO excluding some capex that our FCF includes. Our method isn't 'wrong' for REITs — it's simply more conservative, which explains why our target is 2× below the market price." },
+        { type: 'h2', text: "STAG example: the best-scored REIT in our screener" },
+        { type: 'p', text: "STAG Industrial scores 7/10 — the best REIT score. Its profile is more 'compatible' with our method because its depreciation is lower (industrial assets less valued than premium retail) and dilution is smaller (+1.84%/yr). This means the gap between our P/FCF (15.9×) and STAG's AFFO (~20×) is narrower than for Realty Income. STAG is the REIT that most resembles a growth stock by our criteria." },
+        { type: 'h2', text: "Recommendation: how to analyze a REIT" },
+        { type: 'p', text: "To analyze a REIT properly, combine 3 metrics: 1/ P/AFFO (sector standard multiple, target 15-20× for a quality REIT). 2/ Dividend yield and AFFO payout ratio (target <85% for safety). 3/ AFFO/share growth over 5 years (target >3%/yr). Our P/FCF screener remains useful for comparing REITs vs other sectors, but the FCF × 7× buy target doesn't apply literally to REITs." }
+      ],
+      faq: [
+        { q: "Is our P/FCF method useless for REITs?", a: "No — it remains a cross-sector comparison tool. It tells you a REIT is less 'cash efficient' than, say, ServiceNow. But the FCF × 7× buy target is too conservative for REITs and shouldn't be used literally." },
+        { q: "What are REITs required to distribute?", a: "US REITs must distribute at least 90% of taxable income to benefit from REIT tax status (no corporate-level tax). That's why they can't retain cash to grow — they issue equity and debt to fund acquisitions." },
+        { q: "Is AFFO manipulable by management?", a: "Yes. AFFO is a 'non-GAAP' metric — each REIT defines its own adjustments. Some exclude SBC, others don't. Some include 'recurring capex' differently. Comparing AFFO between REITs requires reading accounting footnotes carefully." },
+        { q: "What's the best tool for comparing REITs?", a: "For retail investors, normalized P/AFFO (calculated by REIT analysts like Green Street) is most reliable. Dividend yield + AFFO payout ratio + 5-year AFFO/share growth forms a simple, effective dashboard." }
+      ],
+      tags: ['AFFO', 'FCF', 'REIT', 'methodology', 'P/FCF', 'Funds from Operations', 'listed real estate valuation', 'educational'],
+      disclaimer: "Educational content as of June 23, 2026. Our P/FCF method has specific limitations for REITs. Informational guide, not investment advice."
+    },
+    es: {
+      title: "AFFO vs FCF: cómo analizar un REIT",
+      excerpt: "Nuestra metodología usa el P/FCF. Los analistas de REITs usan el AFFO. ¿Por qué estos dos ratios dan resultados tan diferentes para Realty Income o STAG? Explicación metodológica con ejemplos.",
+      metaDescription: "AFFO vs FCF para REITs: por qué nuestro screener P/FCF diverge de los analistas REIT. Diferencias entre AFFO y FCF, ejemplos en O, NNN, STAG. Guía metodológica.",
+      answer: "El AFFO (Adjusted Funds from Operations) es el estándar de los analistas de REITs. Nuestra metodología usa el P/FCF estándar. La diferencia clave: los REITs tienen amortizaciones inmobiliarias muy elevadas que reducen el FCF contable, pero estas amortizaciones no representan salidas reales de efectivo. Al reintegrarlas, el AFFO revela el efectivo realmente disponible para el dividendo — y valoraciones mucho menos 'caras' de lo que sugiere nuestro P/FCF.",
+      body: [
+        { type: 'h2', text: "El problema fundamental: los REITs amortizan mucho" },
+        { type: 'p', text: "Los REITs poseen edificios físicos que se amortizan contablemente — 27,5 años para residencial, 39 años para comercial en EE.UU. Una propiedad de 100 M$ genera ~2,5 M$/año de amortización contable. Para un REIT con 15.000 M$ en activos (como Realty Income), son cientos de millones en amortizaciones anuales que pesan sobre el resultado neto... sin representar salidas reales de efectivo." },
+        { type: 'h2', text: "FCF vs AFFO: la diferencia en cifras" },
+        { type: 'table', headers: ['Concepto', 'FCF estándar', 'AFFO (método REIT)'], rows: [
+          ['Punto de partida', 'Resultado neto', 'Resultado neto'],
+          ['Amortizaciones inmobiliarias', 'Ya deducidas', 'Reintegradas (+)'],
+          ['Capex de mantenimiento', 'Deducido', 'Deducido'],
+          ['Resultado', 'FCF muy bajo para REITs', 'Efectivo realmente distribuible'],
+          ['Valoración típica', '60-80× P/FCF para REITs', '15-25× P/AFFO para REITs']
+        ]},
+        { type: 'h2', text: "Ejemplo concreto: Realty Income" },
+        { type: 'p', text: "Realty Income (O): nuestro screener muestra P/FCF = 14,0×, que parece 'razonable'. Pero nuestro objetivo de compra de 29,94 $ se basa en FCF/acción × 7×. En términos de AFFO, el múltiplo es ~20-22× — el estándar del sector. La divergencia entre nuestro P/FCF (14×) y el AFFO (20-22×) proviene de que el AFFO excluye parte del capex que incluye nuestro FCF." },
+        { type: 'h2', text: "Ejemplo STAG: el mejor puntuado en nuestro screener" },
+        { type: 'p', text: "STAG Industrial obtiene 7/10 — la mejor puntuación REIT. Su perfil es más 'compatible' con nuestra metodología porque sus amortizaciones son menores y su dilución es más baja (+1,84 %/año). STAG es el REIT que más se parece a una acción de crecimiento según nuestros criterios." },
+        { type: 'h2', text: "Recomendación: cómo analizar un REIT" },
+        { type: 'p', text: "Para analizar un REIT correctamente, combine 3 métricas: 1/ P/AFFO (múltiplo estándar del sector, objetivo 15-20× para un REIT de calidad). 2/ Rentabilidad por dividendo y ratio de pago AFFO (objetivo <85 %). 3/ Crecimiento del AFFO/acción en 5 años (objetivo >3 %/año)." }
+      ],
+      faq: [
+        { q: "¿Es inútil nuestra metodología P/FCF para los REITs?", a: "No — sigue siendo una herramienta de comparación entre sectores. Le dice que un REIT es menos 'eficiente en efectivo' que, por ejemplo, ServiceNow. Pero el objetivo de compra FCF × 7× es demasiado conservador para los REITs." },
+        { q: "¿Qué están obligados a distribuir los REITs?", a: "Los REITs de EE.UU. deben distribuir al menos el 90 % de sus ingresos imponibles para beneficiarse del estatus fiscal REIT (sin impuesto a nivel corporativo). Por eso no pueden retener efectivo para crecer — emiten acciones y deuda para financiar adquisiciones." },
+        { q: "¿El AFFO puede ser manipulado por la dirección?", a: "Sí. El AFFO es una métrica 'non-GAAP' — cada REIT define sus propios ajustes. Comparar el AFFO entre REITs requiere leer detenidamente las notas contables." },
+        { q: "¿Cuál es la mejor herramienta para comparar REITs?", a: "Para el inversor particular, el P/AFFO normalizado (calculado por analistas REIT como Green Street) es el más fiable. Rentabilidad por dividendo + ratio de pago AFFO + crecimiento del AFFO/acción en 5 años forma un panel de control simple y eficaz." }
+      ],
+      tags: ['AFFO', 'FCF', 'REIT', 'metodología', 'P/FCF', 'Funds from Operations', 'valoración inmobiliario cotizado', 'educativo'],
+      disclaimer: "Contenido educativo al 23 de junio de 2026. Nuestra metodología P/FCF tiene limitaciones específicas para los REITs. Guía informativa, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleRMD: Article = {
+  slug: 'resmed-rmd-10-sur-10-analyse-fondamentale-2026',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 5,
+  ticker: 'RMD',
+  content: {
+    fr: {
+      title: "ResMed (RMD) : 10/10, le leader mondial du sommeil connecté",
+      excerpt: "ResMed obtient 10 sur 10 dans notre screener et son prix actuel de 188 $ est légèrement sous notre cible de 195 $. Le seul 10/10 en zone d'achat parmi les dispositifs médicaux. Notre analyse fondamentale.",
+      metaDescription: "ResMed (RMD) analyse fondamentale 2026 : 10/10, P/FCF 16,7×, prix 188 $ vs cible 195 $. Leader mondial CPAP et monitoring respiratoire. Zone d'achat identifiée.",
+      answer: "ResMed est le leader mondial des dispositifs CPAP pour l'apnée du sommeil et du monitoring respiratoire connecté. Il obtient 10 sur 10 dans notre screener au 23 juin 2026, avec un P/FCF de 16,7×. Son prix actuel de 188,45 $ est légèrement sous notre cible d'achat de 195,55 $ — ce qui en fait l'un des rares 10/10 en zone d'achat actuellement.",
+      body: [
+        { type: 'h2', text: "ResMed : monopole mondial de l'apnée du sommeil connectée" },
+        { type: 'p', text: "ResMed Inc. (NYSE : RMD) est le leader mondial des dispositifs CPAP (Continuous Positive Airway Pressure) — les masques et machines qui traitent l'apnée du sommeil. Ses machines, logiciels de télé-monitoring (myAir, AirView) et accessoires équipent plus de 900 millions de patients dans 140 pays. Son concurrent historique est Philips Respironics, qui a subi un rappel massif en 2021 à cause de matériaux toxiques — évènement qui a accéléré le transfert de parts de marché vers ResMed. RMD est aussi présent dans la ventilation mécanique (soins intensifs), le dispositif médical de santé mentale et les SaaS de gestion des prestataires de soins à domicile." },
+        { type: 'h2', text: "Score fondamental au 23 juin 2026 : 10/10" },
+        { type: 'table', headers: ['Critère', 'Résultat', 'Statut'], rows: [
+          ['Rentabilité (marge nette)', '✅ Pass', 'Pass'],
+          ['Croissance des ventes (5 ans)', '✅ Pass', 'Pass'],
+          ['Croissance FCF/action (5 ans)', '✅ Pass', 'Pass'],
+          ['Dilution des actionnaires', '✅ Pass', 'Pass'],
+          ['Profitabilité cash (FCF margin)', '✅ Pass', 'Pass'],
+          ['Expansion des marges', '✅ Pass', 'Pass'],
+          ['ROIC', '✅ Pass', 'Pass'],
+          ['Endettement maîtrisé', '✅ Pass', 'Pass'],
+          ['Conversion bénéfices → cash', '✅ Pass', 'Pass'],
+          ['DSO', '⚠ Warn (proche seuil)', 'Warn'],
+          ['P/FCF actuel : 16,7×', '✅ Pass', 'Pass'],
+          ['Valorisation (prix vs cible)', '✅ Pass (188 $ vs cible 195 $)', 'ZONE D\'ACHAT']
+        ]},
+        { type: 'h2', text: "Signal fort : prix sous notre cible d'achat" },
+        { type: 'p', text: "Au 23 juin 2026, ResMed cote à 188,45 $ contre une cible d'achat calculée à 195,55 $ par notre méthode (FCF/action × 7×). Le prix est 3,6 % sous la cible — techniquement en zone d'achat selon notre screener. C'est rare pour un 10/10 : la plupart des actions avec une note parfaite se traitent 50 % à 200 % au-dessus de notre cible. RMD a subi une correction depuis son pic (~260 $) liée aux inquiétudes sur l'impact des traitements GLP-1 (Ozempic, Wegovy) sur le marché de l'apnée du sommeil — crainte que l'obésité étant traitée, le nombre de patients CPAP diminue." },
+        { type: 'h2', text: "La thèse sur l'apnée du sommeil : bien plus qu'une question de poids" },
+        { type: 'p', text: "La crainte GLP-1 est réelle mais exagérée selon ResMed et les data cliniques. Sur 936 millions de personnes souffrant d'apnée du sommeil dans le monde, seul un sous-ensemble est obèse — une partie significative a une apnée structurelle (anatomie des voies respiratoires, génétique) non liée au poids. Par ailleurs, le marché est massivement sous-diagnostiqué : seuls ~30 % des cas sont détectés. Les GLP-1 peuvent traiter certains patients mais ne font pas disparaître le marché — ils peuvent même l'élargir en améliorant la santé globale des patients existants." }
+      ],
+      faq: [
+        { q: "Pourquoi ResMed a-t-il baissé malgré ses bons résultats ?", a: "La correction de RMD est liée à la peur que les médicaments GLP-1 (Ozempic, Wegovy) réduisent l'incidence de l'apnée du sommeil. Les investisseurs craignent une réduction du marché à long terme. Les résultats financiers de ResMed restent très solides — la correction est de nature 'narrative' plus que fondamentale." },
+        { q: "ResMed a-t-il bénéficié du rappel Philips ?", a: "Massivement. Le rappel de 5,5 millions de dispositifs Philips Respironics en 2021 (mousse de polyuréthane potentiellement cancérigène) a accéléré le transfert de parts de marché vers ResMed. RMD a gagné des millions de nouveaux patients et a consolidé son leadership à 60 %+ de parts de marché mondial CPAP." },
+        { q: "Le modèle d'abonnement de ResMed est-il récurrent ?", a: "Oui. ResMed gagne sur le hardware (machines CPAP, masques) mais aussi sur les accessoires récurrents (masques à remplacer tous les 3 mois) et les licences logicielles (myAir, AirView pour les prestataires). Les revenus logiciels et accessoires représentent une part croissante du chiffre d'affaires — modèle razor-and-blades classique." },
+        { q: "Comment se situe ResMed vs Philips dans l'apnée du sommeil ?", a: "Philips a perdu sa position de numéro 2 après le rappel de 2021 — ses parts de marché CPAP ont chuté et les litiges juridiques pèsent encore sur le bilan. ResMed est maintenant le leader incontesté avec plus de 60 % du marché mondial des dispositifs CPAP, laissant loin derrière Fisher & Paykel et les généralistes médicaux." },
+        { q: "Quel est le risque principal pour ResMed ?", a: "1. L'impact GLP-1 à long terme — à surveiller via les données cliniques. 2. La concurrence asiatique sur le hardware bas-de-gamme (Chine). 3. La pression des assureurs sur le remboursement des dispositifs CPAP. Ces risques sont réels mais gérables pour un leader aussi bien positionné technologiquement." }
+      ],
+      tags: ['ResMed', 'RMD', '10/10', 'dispositifs médicaux', 'CPAP', 'apnée du sommeil', 'zone d\'achat', 'screener'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Le prix de 188,45 $ en zone d'achat est calculé selon notre méthode P/FCF × 7×. Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "ResMed (RMD): 10/10, world leader in connected sleep therapy",
+      excerpt: "ResMed scores 10/10 in our screener and its current price of $188 is slightly below our $195 target. The only 10/10 in buy territory among medical devices. Our fundamental analysis.",
+      metaDescription: "ResMed (RMD) fundamental analysis 2026: 10/10, 16.7× FCF, price $188 vs target $195. World leader CPAP and respiratory monitoring. Buy zone identified.",
+      answer: "ResMed is the world leader in CPAP devices for sleep apnea and connected respiratory monitoring. It scores 10/10 in our screener as of June 23, 2026, with a P/FCF of 16.7×. Its current price of $188.45 is slightly below our buy target of $195.55 — making it one of the few 10/10 stocks currently in buy territory.",
+      body: [
+        { type: 'h2', text: "ResMed: global monopoly in connected sleep apnea therapy" },
+        { type: 'p', text: "ResMed Inc. (NYSE: RMD) is the world leader in CPAP (Continuous Positive Airway Pressure) devices — masks and machines treating sleep apnea. Its machines, remote monitoring software (myAir, AirView) and accessories serve 900M+ patients in 140 countries. Its historic competitor Philips Respironics suffered a massive recall in 2021 due to toxic materials — accelerating market share transfer to ResMed." },
+        { type: 'h2', text: "Screener fundamentals as of June 23, 2026: 10/10" },
+        { type: 'table', headers: ['Criterion', 'Result', 'Status'], rows: [
+          ['Net margin', '✅ Pass', 'Pass'],
+          ['Revenue growth (5Y)', '✅ Pass', 'Pass'],
+          ['FCF/share growth (5Y)', '✅ Pass', 'Pass'],
+          ['Share dilution', '✅ Pass', 'Pass'],
+          ['FCF margin', '✅ Pass', 'Pass'],
+          ['Margin expansion', '✅ Pass', 'Pass'],
+          ['ROIC', '✅ Pass', 'Pass'],
+          ['Debt', '✅ Pass', 'Pass'],
+          ['Cash conversion', '✅ Pass', 'Pass'],
+          ['DSO', '⚠ Warn (near threshold)', 'Warn'],
+          ['P/FCF: 16.7×', '✅ Pass', 'Pass'],
+          ['Valuation ($188 vs $195 target)', '✅ Pass', 'BUY ZONE']
+        ]},
+        { type: 'h2', text: "Strong signal: price below our buy target" },
+        { type: 'p', text: "As of June 23, 2026, ResMed trades at $188.45 vs our buy target of $195.55 (FCF/share × 7×). The price is 3.6% below target — technically in buy territory by our screener. This is rare for a 10/10: most perfect-scoring stocks trade 50-200% above our target. RMD has corrected from its peak (~$260) due to concerns about GLP-1 drugs (Ozempic, Wegovy) impacting the sleep apnea market — fears that treating obesity would reduce CPAP patients." },
+        { type: 'h2', text: "The sleep apnea thesis: much more than a weight issue" },
+        { type: 'p', text: "The GLP-1 fear is real but exaggerated per ResMed and clinical data. Of 936M people with sleep apnea globally, only a subset is obese — a significant portion has structural apnea (airway anatomy, genetics) unrelated to weight. Additionally, the market is massively under-diagnosed: only ~30% of cases are detected. GLP-1s may treat some patients but won't eliminate the market — they may even expand it by improving overall patient health." }
+      ],
+      faq: [
+        { q: "Why has ResMed declined despite strong results?", a: "RMD's correction is driven by fear that GLP-1 drugs (Ozempic, Wegovy) will reduce sleep apnea incidence. Investors worry about long-term market shrinkage. ResMed's financial results remain very strong — the correction is 'narrative' rather than fundamental." },
+        { q: "Did ResMed benefit from the Philips recall?", a: "Massively. The 5.5M device Philips Respironics recall in 2021 (potentially carcinogenic polyurethane foam) accelerated market share transfer to ResMed. RMD gained millions of new patients and consolidated leadership at 60%+ of global CPAP market share." },
+        { q: "Is ResMed's subscription model truly recurring?", a: "Yes. ResMed earns on hardware (CPAP machines, masks) plus recurring accessories (masks replaced every 3 months) and software licenses (myAir, AirView for providers). Software and accessories represent a growing share of revenue — classic razor-and-blades model." },
+        { q: "What is ResMed's main risk?", a: "1. Long-term GLP-1 impact — monitor via clinical data. 2. Asian competition on low-end hardware (China). 3. Insurer pressure on CPAP device reimbursement. These are real but manageable risks for such a technologically well-positioned leader." }
+      ],
+      tags: ['ResMed', 'RMD', '10/10', 'medical devices', 'CPAP', 'sleep apnea', 'buy zone', 'screener'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. The $188.45 price in buy territory is calculated using our P/FCF × 7× method. Informational content, not investment advice."
+    },
+    es: {
+      title: "ResMed (RMD): 10/10, líder mundial en terapia del sueño conectada",
+      excerpt: "ResMed obtiene 10/10 en nuestro screener y su precio actual de 188 $ está ligeramente por debajo de nuestro objetivo de 195 $. El único 10/10 en zona de compra entre los dispositivos médicos.",
+      metaDescription: "ResMed (RMD) análisis fundamental 2026: 10/10, P/FCF 16,7×, precio 188 $ vs objetivo 195 $. Líder mundial CPAP y monitorización respiratoria. Zona de compra identificada.",
+      answer: "ResMed es el líder mundial de dispositivos CPAP para la apnea del sueño y la monitorización respiratoria conectada. Obtiene 10/10 en nuestro screener el 23 de junio de 2026, con un P/FCF de 16,7×. Su precio actual de 188,45 $ está ligeramente por debajo de nuestro objetivo de compra de 195,55 $ — convirtiéndolo en uno de los pocos 10/10 actualmente en zona de compra.",
+      body: [
+        { type: 'h2', text: "ResMed: monopolio mundial en terapia de apnea del sueño conectada" },
+        { type: 'p', text: "ResMed Inc. (NYSE: RMD) es el líder mundial de dispositivos CPAP (Presión Positiva Continua en las Vías Respiratorias) — máscaras y máquinas que tratan la apnea del sueño. Sus máquinas, software de telemonitorización (myAir, AirView) y accesorios equipan a más de 900 millones de pacientes en 140 países. Su competidor histórico Philips Respironics sufrió un recall masivo en 2021 por materiales tóxicos — evento que aceleró la transferencia de cuota de mercado hacia ResMed." },
+        { type: 'h2', text: "Puntuación fundamental al 23 de junio de 2026: 10/10" },
+        { type: 'table', headers: ['Criterio', 'Resultado', 'Estado'], rows: [
+          ['Margen neto', '✅ Pasa', 'Pasa'],
+          ['Crecimiento ventas (5 años)', '✅ Pasa', 'Pasa'],
+          ['Crecimiento FCF/acción (5 años)', '✅ Pasa', 'Pasa'],
+          ['Dilución accionistas', '✅ Pasa', 'Pasa'],
+          ['Margen FCF', '✅ Pasa', 'Pasa'],
+          ['Expansión márgenes', '✅ Pasa', 'Pasa'],
+          ['ROIC', '✅ Pasa', 'Pasa'],
+          ['Endeudamiento', '✅ Pasa', 'Pasa'],
+          ['Conversión beneficios → caja', '✅ Pasa', 'Pasa'],
+          ['DSO', '⚠ Aviso (cerca del umbral)', 'Aviso'],
+          ['P/FCF: 16,7×', '✅ Pasa', 'Pasa'],
+          ['Valoración (188 $ vs objetivo 195 $)', '✅ Pasa', 'ZONA DE COMPRA']
+        ]},
+        { type: 'h2', text: "Señal fuerte: precio por debajo de nuestro objetivo de compra" },
+        { type: 'p', text: "Al 23 de junio de 2026, ResMed cotiza a 188,45 $ frente a un objetivo de compra calculado en 195,55 $ por nuestra metodología (FCF/acción × 7×). El precio está un 3,6 % por debajo del objetivo — técnicamente en zona de compra según nuestro screener. Esto es raro para un 10/10: la mayoría de las acciones con puntuación perfecta cotizan un 50-200 % por encima de nuestro objetivo. RMD ha sufrido una corrección desde su máximo (~260 $) debido a las preocupaciones sobre el impacto de los medicamentos GLP-1 (Ozempic, Wegovy) en el mercado de la apnea del sueño." },
+        { type: 'h2', text: "La tesis sobre la apnea del sueño: mucho más que una cuestión de peso" },
+        { type: 'p', text: "El temor GLP-1 es real pero exagerado según ResMed y los datos clínicos. De los 936 millones de personas con apnea del sueño en todo el mundo, solo un subconjunto es obeso — una parte significativa tiene apnea estructural (anatomía de las vías respiratorias, genética) no relacionada con el peso. Además, el mercado está masivamente infradiagnosticado: solo ~30 % de los casos son detectados." }
+      ],
+      faq: [
+        { q: "¿Por qué ha bajado ResMed a pesar de sus buenos resultados?", a: "La corrección de RMD está impulsada por el temor a que los medicamentos GLP-1 (Ozempic, Wegovy) reduzcan la incidencia de la apnea del sueño. Los resultados financieros de ResMed siguen siendo muy sólidos — la corrección es de naturaleza 'narrativa' más que fundamental." },
+        { q: "¿Se benefició ResMed del recall de Philips?", a: "Masivamente. El recall de 5,5 millones de dispositivos de Philips Respironics en 2021 (espuma de poliuretano potencialmente cancerígena) aceleró la transferencia de cuota de mercado hacia ResMed. RMD ganó millones de nuevos pacientes y consolidó su liderazgo con más del 60 % de cuota de mercado mundial de CPAP." },
+        { q: "¿El modelo de suscripción de ResMed es realmente recurrente?", a: "Sí. ResMed gana en hardware (máquinas CPAP, máscaras) más accesorios recurrentes (máscaras a reemplazar cada 3 meses) y licencias de software (myAir, AirView para proveedores). Los ingresos de software y accesorios representan una parte creciente del volumen de negocio — modelo clásico de cuchilla y maquinilla." },
+        { q: "¿Cuál es el principal riesgo para ResMed?", a: "1. El impacto GLP-1 a largo plazo — a seguir a través de datos clínicos. 2. La competencia asiática en hardware de gama baja (China). 3. La presión de las aseguradoras sobre el reembolso de dispositivos CPAP." }
+      ],
+      tags: ['ResMed', 'RMD', '10/10', 'dispositivos médicos', 'CPAP', 'apnea del sueño', 'zona de compra', 'screener'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. El precio de 188,45 $ en zona de compra se calcula usando nuestra metodología P/FCF × 7×. Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+const articleOrMining: Article = {
+  slug: 'kinross-dpm-miniers-or-10-sur-10-palmares-2026',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 4,
+  content: {
+    fr: {
+      title: "Or 2026 : KGC et DPM, les seuls miniers 10/10",
+      excerpt: "Kinross Gold (P/FCF 12,5×) et DPM Precious Metals (P/FCF 13×) sont les deux seuls producteurs aurifères notés 10 sur 10 parmi 5 000 actions analysées. Les deux sont sous leurs cibles d'achat.",
+      metaDescription: "Kinross Gold (KGC) et DPM Precious Metals 2026 : les 2 seuls miniers aurifères 10/10 dans notre screener. Données FCF, valorisation, dividendes. Les deux sous leur cible.",
+      answer: "Kinross Gold (KGC) et DPM Precious Metals sont les deux seuls producteurs d'or notés 10 sur 10 dans notre screener parmi plus de 5 000 actions analysées. KGC cote à 26,30 $ pour une cible de 28,52 $ (-7,8 %). DPM cote à 44,45 $ pour une cible de 46,31 $ (-4,0 %). Les deux sont sous leurs cibles — conditions d'achat rares pour des 10/10.",
+      body: [
+        { type: 'h2', text: "Le secteur minier aurifère : un secteur difficile pour notre méthode" },
+        { type: 'p', text: "La plupart des producteurs d'or échouent dans notre screener : croissance des ventes liée au prix de l'or (exogène), FCF volatile selon le cours de l'or, ROIC faible en période de cours bas, endettement élevé pour financer les mines. Barrick Gold, Newmont et Agnico Eagle — les trois leaders mondiaux — ont des scores inférieurs à 8/10. Kinross et DPM sont les exceptions : deux sociétés qui ont réussi à maintenir une qualité fondamentale élevée même en période de cours de l'or modéré." },
+        { type: 'h2', text: "Kinross Gold (KGC) et DPM : données comparatives" },
+        { type: 'table', headers: ['Critère', 'Kinross Gold (KGC)', 'DPM Precious Metals (DPM)'], rows: [
+          ['Score screener Lubin', '10/10', '10/10'],
+          ['P/FCF actuel', '12,55×', '13,06×'],
+          ['Prix actuel', '26,30 $', '44,45 $'],
+          ['Cible d\'entrée Lubin', '28,52 $', '46,31 $'],
+          ['Écart prix/cible', '-7,8 % (sous cible)', '-4,0 % (sous cible)'],
+          ['Capitalisation boursière', '~12 Md$', '~3,5 Md$'],
+          ['Production annuelle (or)', '~2,1 Moz', '~0,3 Moz'],
+          ['Actifs miniers principaux', 'Tasiast (Mauritanie), Round Mountain (Nevada)', 'Chelopech (Bulgarie), Ada Tepe (Bulgarie)']
+        ]},
+        { type: 'h2', text: "Kinross Gold : la multinationale diversifiée" },
+        { type: 'p', text: "Kinross Gold Corporation (NYSE/TSX : KGC) est un producteur aurifère intermédiaire avec des mines en Mauritanie (Tasiast — sa mine phare), aux États-Unis (Nevada), au Brésil et en Afrique du Sud. Sa mine Tasiast est l'une des mines les moins chères du monde en All-in Sustaining Cost (AISC) — ce qui lui donne une rentabilité exceptionnelle même à des cours de l'or modérés. KGC a une production de 2,1 millions d'onces/an, ce qui en fait un mid-tier minier avec la qualité d'actifs d'un major." },
+        { type: 'h2', text: "DPM Precious Metals : la pépite européenne peu connue" },
+        { type: 'p', text: "DPM Precious Metals Inc. (TSX : DPM) est un producteur d'or et de cuivre coté à Toronto, moins connu des investisseurs français. Ses deux mines principales en Bulgarie (Chelopech, Ada Tepe) produisent de l'or avec des co-produits cuivre qui améliorent les marges. DPM est plus petit que KGC (capitalisation ~3,5 Md$) mais affiche des métriques de qualité similaires — et il cote sur le TSX canadien, moins accessible aux investisseurs français." },
+        { type: 'h2', text: "Signal d'achat : les deux sont sous nos cibles" },
+        { type: 'p', text: "Situation inhabituelle : deux 10/10 sont sous leurs cibles simultanément. KGC à -7,8 % sous cible, DPM à -4 % sous cible. Depuis le début 2026, les actions aurifères ont légèrement corrigé après leur forte hausse de 2024-2025 liée à la flambée de l'or (gold spot ~2 000-2 500$/oz). Le cours de l'or reste soutenu par les achats des banques centrales émergentes, la géopolitique et la dédollarisation. Si l'or reste au-dessus de 2 000$/oz, KGC et DPM devraient continuer à générer des FCF solides." }
+      ],
+      faq: [
+        { q: "Pourquoi seulement 2 miniers aurifères obtiennent 10/10 sur 5 000 actions ?", a: "Le secteur minier est structurellement difficile pour notre méthode : les FCF dépendent du cours de l'or (variable exogène), les AISC varient par mine, et la plupart des majors ont des stratégies M&A coûteuses (Barrick avec Randgold, Newmont avec Goldcorp). KGC et DPM ont réussi à maintenir une qualité fondamentale élevée grâce à des actifs exceptionnels et une discipline financière supérieure." },
+        { q: "Comment investir dans DPM depuis la France ?", a: "DPM est coté sur le Toronto Stock Exchange (TSX) sous le ticker DPM. Il est accessible via la plupart des courtiers permettant les achats d'actions canadiennes (Interactive Brokers, Degiro, certains courtiers français avec frais de change). Il n'est pas coté en Europe." },
+        { q: "Les actions minières protègent-elles contre l'inflation ?", a: "Partiellement. Les miniers amplified le mouvement de l'or — quand l'or monte de 10 %, les miniers profitables peuvent monter de 20-30 % (effet de levier opérationnel). Mais ils n'offrent pas la protection directe de l'or physique — il y a un risque opérationnel (mines, permis, politique) en plus du risque prix." },
+        { q: "Quid de Barrick, Newmont et Agnico Eagle ?", a: "Les trois majors n'atteignent pas 10/10 dans notre screener. Leur taille implique des acquisitions M&A fréquentes (goodwill, dilution), une diversification géographique avec plus d'actifs de moindre qualité, et des frais AISC plus élevés en moyenne. Les mid-tiers comme KGC ont souvent un meilleur ratio qualité/prix que les majors." }
+      ],
+      tags: ['Kinross Gold', 'KGC', 'DPM Precious Metals', 'or', 'minier aurifère', '10/10', 'zone d\'achat', 'screener'],
+      disclaimer: "Analyse fondamentale via notre screener au 23 juin 2026. Investir dans des mines d'or comporte des risques spécifiques (prix de l'or, risques opérationnels/pays). Ce contenu est informatif et non un conseil en investissement."
+    },
+    en: {
+      title: "Gold 2026: KGC and DPM, the only 10/10 miners",
+      excerpt: "Kinross Gold (12.5× FCF) and DPM Precious Metals (13× FCF) are the only two gold miners rated 10/10 among 5,000 analyzed stocks. Both are trading below their buy targets.",
+      metaDescription: "Kinross Gold (KGC) and DPM Precious Metals 2026: the 2 only 10/10 gold miners in our screener. FCF data, valuation, dividends. Both below their targets.",
+      answer: "Kinross Gold (KGC) and DPM Precious Metals are the only two gold producers rated 10/10 in our screener among 5,000+ analyzed stocks. KGC trades at $26.30 vs target $28.52 (-7.8%). DPM trades at $44.45 vs target $46.31 (-4.0%). Both are below their targets — rare buy conditions for 10/10 stocks.",
+      body: [
+        { type: 'h2', text: "Gold mining: a difficult sector for our method" },
+        { type: 'p', text: "Most gold producers fail our screener: revenue growth tied to the gold price (exogenous), volatile FCF depending on gold price, low ROIC in low-price periods, high debt to finance mines. Barrick Gold, Newmont, and Agnico Eagle — the three global leaders — score below 8/10. Kinross and DPM are exceptions: two companies that have maintained high fundamental quality even in moderate gold price environments." },
+        { type: 'h2', text: "Kinross Gold (KGC) and DPM: comparative data" },
+        { type: 'table', headers: ['Criterion', 'Kinross Gold (KGC)', 'DPM Precious Metals (DPM)'], rows: [
+          ['Lubin screener score', '10/10', '10/10'],
+          ['Current P/FCF', '12.55×', '13.06×'],
+          ['Current price', '$26.30', '$44.45'],
+          ['Lubin entry target', '$28.52', '$46.31'],
+          ['Price vs target', '-7.8% (below target)', '-4.0% (below target)'],
+          ['Market cap', '~$12B', '~$3.5B'],
+          ['Annual production (gold)', '~2.1 Moz', '~0.3 Moz'],
+          ['Key mining assets', 'Tasiast (Mauritania), Round Mountain (Nevada)', 'Chelopech (Bulgaria), Ada Tepe (Bulgaria)']
+        ]},
+        { type: 'h2', text: "Kinross Gold: the diversified mid-tier" },
+        { type: 'p', text: "Kinross Gold Corporation (NYSE/TSX: KGC) is a mid-tier gold producer with mines in Mauritania (Tasiast — its flagship), the US (Nevada), Brazil, and South Africa. Tasiast is one of the world's lowest-cost mines on an All-in Sustaining Cost (AISC) basis — giving exceptional profitability even at moderate gold prices. KGC produces 2.1M oz/year, making it a mid-tier with major-quality assets." },
+        { type: 'h2', text: "DPM Precious Metals: the little-known European gem" },
+        { type: 'p', text: "DPM Precious Metals Inc. (TSX: DPM) is a gold and copper producer listed on the Toronto Stock Exchange, less known to French investors. Its two main mines in Bulgaria (Chelopech, Ada Tepe) produce gold with copper by-products that improve margins. DPM is smaller than KGC (~$3.5B market cap) but displays similar quality metrics." },
+        { type: 'h2', text: "Buy signal: both are below our targets" },
+        { type: 'p', text: "Unusual situation: two 10/10 stocks are simultaneously below their targets. KGC at -7.8% below target, DPM at -4% below target. Since early 2026, gold stocks have slightly corrected after their strong 2024-2025 run driven by gold's surge. Gold remains supported by emerging central bank purchases, geopolitics, and de-dollarization. If gold stays above $2,000/oz, KGC and DPM should continue generating solid FCF." }
+      ],
+      faq: [
+        { q: "Why do only 2 gold miners score 10/10 out of 5,000 stocks?", a: "Mining is structurally challenging for our method: FCF depends on gold price (exogenous variable), AISC varies by mine, and most majors have costly M&A strategies. KGC and DPM maintained high fundamental quality through exceptional assets and superior financial discipline." },
+        { q: "Do gold mining stocks protect against inflation?", a: "Partially. Miners amplify gold's movement — when gold rises 10%, profitable miners can rise 20-30% (operating leverage). But they don't offer the direct protection of physical gold — there's operational risk (mines, permits, politics) on top of price risk." },
+        { q: "What about Barrick, Newmont and Agnico Eagle?", a: "The three majors don't score 10/10 in our screener. Their size implies frequent M&A acquisitions (goodwill, dilution), geographic diversification with more lower-quality assets, and higher average AISC. Mid-tiers like KGC often have better quality-to-price ratios than majors." },
+        { q: "How is gold's outlook for 2026-2027?", a: "Gold has been supported by central bank diversification away from USD (especially China, India, Russia), ongoing geopolitical uncertainty, and strong retail demand in Asia. Analyst consensus targets $2,200-2,800/oz for 2026-2027. Both KGC and DPM have significant operating leverage to gold prices above $1,800/oz." }
+      ],
+      tags: ['Kinross Gold', 'KGC', 'DPM Precious Metals', 'gold', 'gold mining', '10/10', 'buy zone', 'screener'],
+      disclaimer: "Fundamental analysis via our screener as of June 23, 2026. Investing in gold mines involves specific risks (gold price, operational/country risks). Informational content, not investment advice."
+    },
+    es: {
+      title: "Oro 2026: KGC y DPM, los únicos mineros 10/10",
+      excerpt: "Kinross Gold (P/FCF 12,5×) y DPM Precious Metals (P/FCF 13×) son los únicos dos productores de oro con nota 10/10 entre 5.000 acciones analizadas. Los dos están por debajo de sus objetivos de compra.",
+      metaDescription: "Kinross Gold (KGC) y DPM Precious Metals 2026: los 2 únicos mineros auriferos 10/10 en nuestro screener. Datos FCF, valoración, dividendos. Los dos bajo su objetivo.",
+      answer: "Kinross Gold (KGC) y DPM Precious Metals son los únicos dos productores de oro con nota 10/10 en nuestro screener entre más de 5.000 acciones analizadas. KGC cotiza a 26,30 $ frente a un objetivo de 28,52 $ (-7,8 %). DPM cotiza a 44,45 $ frente a un objetivo de 46,31 $ (-4,0 %). Los dos están por debajo de sus objetivos — condiciones de compra raras para acciones 10/10.",
+      body: [
+        { type: 'h2', text: "La minería aurífera: un sector difícil para nuestra metodología" },
+        { type: 'p', text: "La mayoría de los productores de oro fallan en nuestro screener: crecimiento de ventas ligado al precio del oro (variable exógena), FCF volátil según el precio del oro, ROIC bajo en períodos de precio bajo, endeudamiento elevado para financiar minas. Barrick Gold, Newmont y Agnico Eagle — los tres líderes mundiales — puntúan por debajo de 8/10. Kinross y DPM son excepciones." },
+        { type: 'h2', text: "Kinross Gold (KGC) y DPM: datos comparativos" },
+        { type: 'table', headers: ['Criterio', 'Kinross Gold (KGC)', 'DPM Precious Metals (DPM)'], rows: [
+          ['Puntuación screener Lubin', '10/10', '10/10'],
+          ['P/FCF actual', '12,55×', '13,06×'],
+          ['Precio actual', '26,30 $', '44,45 $'],
+          ['Objetivo entrada Lubin', '28,52 $', '46,31 $'],
+          ['Diferencia precio/objetivo', '-7,8 % (bajo objetivo)', '-4,0 % (bajo objetivo)'],
+          ['Capitalización bursátil', '~12.000 M$', '~3.500 M$'],
+          ['Producción anual (oro)', '~2,1 Moz', '~0,3 Moz']
+        ]},
+        { type: 'h2', text: "Kinross Gold: el mid-tier diversificado" },
+        { type: 'p', text: "Kinross Gold Corporation (NYSE/TSX: KGC) es un productor de oro intermedio con minas en Mauritania (Tasiast — su mina estrella), EE.UU. (Nevada), Brasil y Sudáfrica. Tasiast es una de las minas más baratas del mundo en términos de AISC (All-in Sustaining Cost) — lo que le otorga una rentabilidad excepcional incluso a precios moderados del oro." },
+        { type: 'h2', text: "DPM Precious Metals: la joya europea poco conocida" },
+        { type: 'p', text: "DPM Precious Metals Inc. (TSX: DPM) es un productor de oro y cobre cotizado en la Bolsa de Toronto, poco conocido por los inversores franceses. Sus dos minas principales en Bulgaria (Chelopech, Ada Tepe) producen oro con subproductos de cobre que mejoran los márgenes." },
+        { type: 'h2', text: "Señal de compra: los dos están por debajo de nuestros objetivos" },
+        { type: 'p', text: "Situación inusual: dos acciones 10/10 están simultáneamente por debajo de sus objetivos. KGC un -7,8 % bajo objetivo, DPM un -4 % bajo objetivo. Desde principios de 2026, las acciones auriferas han corregido ligeramente tras su fuerte subida de 2024-2025. Si el oro se mantiene por encima de 2.000 $/oz, KGC y DPM deberían seguir generando FCF sólidos." }
+      ],
+      faq: [
+        { q: "¿Por qué solo 2 mineros auriferos obtienen 10/10 de 5.000 acciones?", a: "La minería es estructuralmente difícil para nuestra metodología: el FCF depende del precio del oro (variable exógena), el AISC varía por mina, y la mayoría de las grandes empresas tienen estrategias de fusiones y adquisiciones costosas. KGC y DPM mantuvieron una alta calidad fundamental gracias a activos excepcionales y disciplina financiera superior." },
+        { q: "¿Las acciones mineras protegen contra la inflación?", a: "Parcialmente. Los mineros amplifican el movimiento del oro — cuando el oro sube un 10 %, los mineros rentables pueden subir un 20-30 % (apalancamiento operativo). Pero no ofrecen la protección directa del oro físico — hay un riesgo operativo adicional." },
+        { q: "¿Qué pasa con Barrick, Newmont y Agnico Eagle?", a: "Los tres grandes no alcanzan el 10/10 en nuestro screener. Su tamaño implica frecuentes adquisiciones (goodwill, dilución), diversificación geográfica con activos de menor calidad y AISC medio más elevado. Los medianos como KGC suelen tener mejor ratio calidad/precio que los grandes." }
+      ],
+      tags: ['Kinross Gold', 'KGC', 'DPM Precious Metals', 'oro', 'minería aurífera', '10/10', 'zona de compra', 'screener'],
+      disclaimer: "Análisis fundamental a través de nuestro screener el 23 de junio de 2026. Invertir en minas de oro conlleva riesgos específicos (precio del oro, riesgos operacionales/país). Contenido informativo, no asesoramiento de inversión."
+    }
+  }
+};
+
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
