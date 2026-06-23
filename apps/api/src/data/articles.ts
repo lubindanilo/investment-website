@@ -34113,7 +34113,1622 @@ const articleCalendrierEarnings: Article = {
 };
 
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings];
+const articleUCB: Article = {
+  slug: 'ucb-ucbbr-pharma-belge-immunologie-analyse-fondamentale',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 7,
+  ticker: 'UCB.BR',
+  content: {
+    fr: {
+      title: 'UCB SA (UCB.BR) : la pharma belge en bourse',
+      excerpt:
+        "UCB SA est une biopharmaceutique belge qui domine la neurologie et l'immunologie depuis près d'un siècle. Son cash augmente plus vite que ses ventes, son bilan est solide comme un roc, et le dividende a grandi 25 années de suite. Voici pourquoi je la surveille de tres pres.",
+      metaDescription:
+        "UCB SA (UCB.BR) analyse fondamentale : la pharma belge specialisee en neurologie et immunologie, son avantage concurrentiel, ses chiffres cles et ce que vaut l'action cotee a Bruxelles.",
+      answer:
+        "UCB SA est une biopharmaceutique belge fondee en 1928, cotee a Bruxelles, qui dirige deux franchises mondiales : la neurologie (epilepsie) et l'immunologie (psoriasis, maladies osseuses). Son free cash flow par action a augmente de 43 % par an en moyenne sur cinq ans, son bilan est sans dette nette, et elle a augmente son dividende 25 annees de suite. C'est une machine a cash discrete, loin des radars des investisseurs francophones.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "UCB SA est une pharma belge specialisee en neurologie (Briviact, Vimpat pour l'epilepsie) et immunologie (Bimzelx pour le psoriasis, Evenity pour les os).",
+            "Son free cash flow par action a cru de 43,4 % par an sur cinq ans : c'est exceptionnel meme dans la pharma mondiale.",
+            "Le bilan est en cash net : aucune dette nette, ratio dette/FCF a 0,0. L'entreprise pourrait tout rembourser demain.",
+            "25 annees consecutives de croissance du dividende, signe d'une discipline de gestion rare.",
+            "L'action se valorise 27,5 fois son free cash flow, une valorisation elevee mais justifiee par la qualite du profil de croissance.",
+          ],
+        },
+        { type: 'h2', text: "Qui est UCB SA ?" },
+        {
+          type: 'p',
+          text: "UCB SA n'est pas un nom qui fait la une des journaux financiers francophones, et c'est precisement pour ca que je la trouve interessante. Fondee a Bruxelles en 1928, elle a mis des decennies a concentrer toute son energie sur deux domaines : les maladies du systeme nerveux central et les maladies du systeme immunitaire. Resultat : elle figure aujourd'hui parmi les leaders mondiaux sur ces deux fronts, avec une capitalisation d'environ 56 milliards de dollars.",
+        },
+        {
+          type: 'p',
+          text: "Son portefeuille de medicaments est lisible : Briviact et Vimpat pour l'epilepsie, Bimzelx (bimekizumab) approuve pour le psoriasis en plaques et en cours d'expansion vers d'autres indications, et Evenity pour les maladies osseuses comme l'osteoporose. Ce ne sont pas des blockbusters de hasard : chacun repond a un besoin medical non satisfait dans un marche ou UCB a bati un savoir-faire difficile a copier.",
+        },
+        { type: 'h2', text: "Pourquoi le free cash flow est le vrai thermometre" },
+        {
+          type: 'p',
+          text: "Avant d'aller plus loin, un mot sur le free cash flow, parce que c'est la mesure que j'utilise partout. Le free cash flow, c'est l'argent qui reste reellement dans les caisses apres avoir paye tout ce qu'il faut pour faire tourner et investir l'entreprise : salaires, usines, machines, impots. C'est plus difficile a maquiller que le benefice comptable, donc je m'y fie davantage.",
+        },
+        {
+          type: 'p',
+          text: "Chez UCB, la marge de free cash flow atteint 23,8 %. Cela signifie que sur 100 euros de ventes, 23,80 euros finissent en cash reellement disponible. C'est deja tres correct dans la pharma. Mais ce qui m'a vraiment arrete, c'est le FCF/share CAGR 5Y : le taux de croissance annuel moyen du free cash flow par action sur cinq ans. Il ressort a 43,4 %. C'est exceptionnel, meme dans un secteur ou les marges sont generalement elevees.",
+        },
+        { type: 'h2', text: "Les chiffres cles d'UCB SA" },
+        {
+          type: 'table',
+          headers: ['Metrique', 'Valeur UCB.BR', 'Signification'],
+          rows: [
+            ['Note qualite', '10 / 10', 'Score maximum sur 10 criteres fondamentaux'],
+            ['P/FCF', '27,5 x', 'Prix paye pour 1 euro de free cash flow annuel'],
+            ['Capitalisation', '~56 Md$', 'Valeur totale en bourse (~50,7 Md EUR)'],
+            ['Marge nette', '20,1 %', '20 euros de benefice net pour 100 euros de ventes'],
+            ['Marge FCF', '23,8 %', '23,80 euros de cash libre pour 100 euros de ventes'],
+            ['Cash ROCE', '28,0 %', 'Cash genere par euro de capital employe'],
+            ['CAGR ventes 5 ans', '12,0 % / an', 'Croissance annuelle moyenne du chiffre d\'affaires'],
+            ['CAGR FCF/action 5 ans', '43,4 % / an', 'Croissance annuelle du free cash flow par action'],
+            ['Dette / FCF', '0,0', 'Bilan en cash net : aucune dette nette'],
+            ['Dividende', '0,6 % / an', '25 annees consecutives de croissance du dividende'],
+          ],
+        },
+        { type: 'h2', text: "La note 10/10 et le Cash ROCE : ce que ca veut dire" },
+        {
+          type: 'p',
+          text: "Je note chaque entreprise sur 10 criteres de qualite fondamentale : rentabilite, croissance des ventes et du cash, conversion du benefice en cash reel, solidite du bilan, rendement du capital, politique actionnariale. Une entreprise qui valide tout obtient 10 sur 10. UCB obtient le score maximum. Ce n'est pas frequent.",
+        },
+        {
+          type: 'p',
+          text: "Le Cash ROCE (cash return on capital employed) repond a une question simple : pour chaque euro investi dans le business, combien de cash est-ce que ca rapporte chaque annee ? Chez UCB, la reponse est 28,0 cents par euro et par an. C'est bien au-dessus du seuil que je considere comme excellent. En clair, chaque euro de capital travaille fort, et la direction ne gaspille pas l'argent des actionnaires.",
+        },
+        { type: 'h2', text: "Le moat d'UCB : ce qui protege la franchise" },
+        {
+          type: 'p',
+          text: "Un moat, c'est le fossé concurrentiel d'une entreprise : ce qui empeche un rival de venir prendre sa place. Dans la pharma specialisee, ce fossé a trois composantes. D'abord la propriete intellectuelle : les brevets qui donnent a UCB l'exclusivite sur ses molecules pendant des annees. Ensuite les barrieres reglementaires : obtenir l'approbation de la FDA ou de l'EMA pour une indication prend une decennie et des milliards d'euros. Enfin l'expertise clinique : UCB a accumule des donnees et des relations avec les medecins specialistes en neurologie et en immunologie que personne ne peut copier en quelques annees.",
+        },
+        {
+          type: 'p',
+          text: "Bimzelx illustre bien cette dynamique. Le bimekizumab inhibe a la fois l'IL-17A et l'IL-17F, deux molecules impliquees dans l'inflammation. C'est une approche differente des inhibiteurs IL-17A seuls (comme le secukinumab d'un concurrent). Des etudes cliniques montrent une clairance cutanee superieure dans le psoriasis en plaques. UCB etend maintenant les indications vers le rhumatisme psoriasique, la spondylarthrite ankylosante et d'autres maladies inflammatoires. Chaque nouvelle indication ouvre un nouveau marche sans avoir a reinventer la molecule.",
+        },
+        { type: 'h2', text: "La valorisation : ce que paye 27,5 fois le free cash flow" },
+        {
+          type: 'p',
+          text: "Pour mesurer ce que le marche accepte de payer, j'utilise le P/FCF (price to free cash flow) : le cours de l'action divise par le free cash flow genere par action chaque annee. Un P/FCF de 27,5, cela signifie que tu paies aujourd'hui l'equivalent de 27,5 annees de ce cash. C'est une valorisation elevee, et il faut etre honnete la-dessus.",
+        },
+        {
+          type: 'p',
+          text: "Mais voila le contexte : quand le free cash flow par action croit de 43 % par an, un P/FCF de 27,5 se digere beaucoup plus vite qu'il n'y parait. Si cette croissance continue a un rythme meme moitie moindre, le cash double en trois a quatre ans. Ce genre de profil justifie une prime de valorisation, a condition que la qualite tienne. Et jusqu'ici, elle tient.",
+        },
+        { type: 'h2', text: "Le dividende : 25 ans de croissance consecutive" },
+        {
+          type: 'p',
+          text: "Le yield du dividende est modeste : 0,6 % par an. Ce n'est pas une action de rendement au sens traditionnel du terme. Mais ce qui m'importe, c'est la regularite : 25 annees consecutives de hausse du dividende. Cela signifie qu'UCB a augmente son dividende chaque annee depuis 2001, traversant des recessions, des crises financieres et une pandemie. C'est un signal fort sur la qualite de la gestion et la robustesse des flux de tresorerie.",
+        },
+        { type: 'h2', text: "Les risques a ne pas oublier" },
+        {
+          type: 'p',
+          text: "La pharma specialisee n'est pas sans risques. Le principal : la dependance aux brevets. Quand un brevet expire, des generiques arrivent et le prix s'effondre. UCB doit continuellement remplir son pipeline pour compenser les pertes futures. Deuxieme risque : les essais cliniques echouent. Meme un candidat prometteur peut ne pas obtenir son approbation reglementaire, ou etre approuve pour une indication plus etroite que prevu. Troisieme risque : la concurrence. Sur le marche du psoriasis en particulier, les inhibiteurs IL-17 et IL-23 se multiplient. UCB doit prouver que Bimzelx est cliniquement superieur, pas seulement competitif.",
+        },
+        {
+          type: 'p',
+          text: "Enfin, le risque de valorisation. Un P/FCF de 27,5 laisse peu de marge d'erreur. Si la croissance ralentit significativement, ou si un essai clinique majeur decoit, le marche peut renoter l'action rapidement. La qualite du business est la, mais le prix est exigeant. Je juge les deux separement, et je sais que le prix actuel ne laisse pas beaucoup de coussin.",
+        },
+        { type: 'h2', text: "En resume" },
+        {
+          type: 'p',
+          text: "UCB SA est une biopharmaceutique belge de premier rang : bilan en cash net, 25 ans de dividende croissant, free cash flow par action qui monte de 43 % par an, Cash ROCE de 28 %, note 10/10 dans mon screener. L'action se valorise 27,5 fois son cash, ce qui est exigeant mais reflete un profil de croissance rare. C'est une entreprise que je surveille de pres, et dont l'analyse complete est disponible sur la page UCB.BR de mon site.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce que le P/FCF et pourquoi l'utiliser pour UCB ?",
+          a: "Le P/FCF (price to free cash flow) divise le cours de l'action par le free cash flow genere par action chaque annee. C'est plus fiable que le P/E car le free cash flow est plus difficile a maquiller que le benefice comptable. Pour UCB, il ressort a 27,5 : tu paies 27,5 annees de cash actuel. C'est eleve, mais justifie par une croissance du FCF/action de 43 % par an.",
+        },
+        {
+          q: "Qu'est-ce que le Cash ROCE et pourquoi 28 % est-il exceptionnel ?",
+          a: "Le Cash ROCE mesure le cash genere chaque annee pour chaque euro de capital employe dans le business. A 28 %, UCB rapporte 28 cents de cash par euro investi par an. C'est environ deux a trois fois le seuil que je considere comme excellent, signe que la direction alloue le capital efficacement.",
+        },
+        {
+          q: "UCB est-elle vraiment une entreprise de biotechnologie ?",
+          a: "Le screener la classe en biotechnologie, mais en realite UCB est une biopharmaceutique specialisee : elle developpe, fabrique et commercialise ses propres medicaments approuves, avec des revenus stables et recurents. Ce n'est pas un pur biotech en phase clinique sans revenus.",
+        },
+        {
+          q: "Pourquoi le dividende est-il si faible (0,6 %) si l'entreprise est si rentable ?",
+          a: "UCB reinvestit une grande partie de son cash dans la R&D et l'expansion clinique de Bimzelx. Le faible rendement reflete un choix strategique : creer de la valeur par la croissance plutot que par la distribution. Les 25 ans de hausse consecutive montrent la solidite des flux, pas leur absence.",
+        },
+        {
+          q: "Ou puis-je voir l'analyse complete d'UCB.BR ?",
+          a: "L'analyse detaillee avec tous les criteres, les comparables sectoriels et le detail du scoring est disponible sur la page /analyse/UCB.BR de Lubin Investment. Cet article est une introduction, pas un conseil en investissement.",
+        },
+      ],
+      tags: ['Analyse', 'UCB', 'Pharma', 'Immunologie', 'Neurologie', 'Belgique', 'Euronext'],
+      disclaimer:
+        "Analyse a but informatif et educatif, pas un conseil en investissement personalise. Les performances passees ne prejugent pas du futur. Chiffres a la date de publication, susceptibles d'evoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'UCB SA (UCB.BR): the Belgian pharma stock explained',
+      excerpt:
+        'UCB SA is a Belgian biopharmaceutical company that has dominated neurology and immunology for nearly a century. Its free cash flow per share has grown 43% a year for five years, its balance sheet is debt-free, and it has raised its dividend for 25 consecutive years. Here is why I watch it closely.',
+      metaDescription:
+        'UCB SA (UCB.BR) fundamental analysis: the Belgian pharma specialising in neurology and immunology, its competitive edge, key metrics, and what the Brussels-listed stock is worth.',
+      answer:
+        'UCB SA is a Belgian biopharmaceutical company founded in 1928, listed in Brussels, running two global franchises: neurology (epilepsy) and immunology (psoriasis, bone diseases). Its free cash flow per share has grown 43% a year on average over five years, its balance sheet carries zero net debt, and it has raised its dividend for 25 consecutive years. It is a quiet cash machine, well under the radar of most English-speaking investors.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'UCB SA is a Belgian pharma focused on neurology (Briviact, Vimpat for epilepsy) and immunology (Bimzelx for psoriasis, Evenity for bone diseases).',
+            'Its free cash flow per share has grown 43.4% a year over five years: exceptional even by global pharma standards.',
+            'The balance sheet is net cash: zero net debt, debt-to-FCF ratio of 0.0. The company could repay everything tomorrow.',
+            '25 consecutive years of dividend growth, a sign of rare management discipline.',
+            'The stock trades at 27.5 times its free cash flow, a premium multiple justified by the quality of its growth profile.',
+          ],
+        },
+        { type: 'h2', text: 'Who is UCB SA?' },
+        {
+          type: 'p',
+          text: "UCB SA does not make headlines in most financial media, and that is precisely what makes it interesting to me. Founded in Brussels in 1928, it spent decades concentrating all its energy on two fields: central nervous system diseases and immune system diseases. The result: it now ranks among the global leaders on both fronts, with a market capitalisation of around 56 billion dollars.",
+        },
+        {
+          type: 'p',
+          text: "Its drug portfolio is readable: Briviact and Vimpat for epilepsy, Bimzelx (bimekizumab) approved for plaque psoriasis and expanding towards other indications, and Evenity for bone diseases like osteoporosis. These are not accidental blockbusters: each one addresses an unmet medical need in a market where UCB has built expertise that is hard to copy.",
+        },
+        { type: 'h2', text: 'Why free cash flow is the real thermometer' },
+        {
+          type: 'p',
+          text: "Before going further, a word on free cash flow, because it is the measure I use everywhere. Free cash flow is the money that truly stays in the bank after paying everything needed to run and invest in the company: wages, factories, machines, taxes. It is harder to dress up than accounting profit, so I trust it more.",
+        },
+        {
+          type: 'p',
+          text: "At UCB, the free cash flow margin reaches 23.8%. That means for every 100 euros of sales, 23.80 euros end up as genuinely available cash. That is already very solid in pharma. But what really stopped me was the FCF per share CAGR over five years: 43.4% a year. That is exceptional, even in a sector where margins are generally high.",
+        },
+        { type: 'h2', text: "UCB SA key metrics" },
+        {
+          type: 'table',
+          headers: ['Metric', 'UCB.BR Value', 'What it means'],
+          rows: [
+            ['Quality score', '10 / 10', 'Maximum score across 10 fundamental criteria'],
+            ['P/FCF', '27.5x', 'Price paid for 1 euro of annual free cash flow'],
+            ['Market cap', '~$56B', 'Total stock market value (~EUR 50.7B)'],
+            ['Net margin', '20.1%', '20 euros of net profit per 100 euros of sales'],
+            ['FCF margin', '23.8%', '23.80 euros of free cash per 100 euros of sales'],
+            ['Cash ROCE', '28.0%', 'Cash generated per euro of capital employed'],
+            ['Revenue CAGR 5Y', '12.0% / yr', 'Average annual revenue growth'],
+            ['FCF/share CAGR 5Y', '43.4% / yr', 'Annual growth of free cash flow per share'],
+            ['Debt / FCF', '0.0', 'Net cash balance sheet: zero net debt'],
+            ['Dividend', '0.6% / yr', '25 consecutive years of dividend growth'],
+          ],
+        },
+        { type: 'h2', text: 'The 10/10 score and Cash ROCE: what they mean' },
+        {
+          type: 'p',
+          text: "I score every company against 10 fundamental quality criteria: profitability, growth in sales and cash, conversion of accounting profit into real cash, balance sheet strength, return on capital, shareholder policy. A company that passes everything gets 10 out of 10. UCB gets the maximum score. That is not common.",
+        },
+        {
+          type: 'p',
+          text: "Cash ROCE (cash return on capital employed) answers a simple question: for every euro invested in the business, how much cash does it return each year? At UCB, the answer is 28.0 cents per euro per year. That is well above the threshold I consider excellent. In plain terms, every euro of capital works hard, and management does not waste shareholders' money.",
+        },
+        { type: 'h2', text: "UCB's moat: what protects the franchise" },
+        {
+          type: 'p',
+          text: "A moat is a company's competitive trench: what stops a rival from taking its place. In specialised pharma, that trench has three components. First, intellectual property: patents giving UCB exclusivity on its molecules for years. Second, regulatory barriers: getting FDA or EMA approval for an indication takes a decade and billions of euros. Third, clinical expertise: UCB has built data and relationships with specialist physicians in neurology and immunology that no one can copy in a few years.",
+        },
+        {
+          type: 'p',
+          text: "Bimzelx illustrates this dynamic well. Bimekizumab inhibits both IL-17A and IL-17F, two molecules involved in inflammation. That is a different approach from IL-17A-only inhibitors (like a competitor's secukinumab). Clinical studies show superior skin clearance in plaque psoriasis. UCB is now expanding indications to psoriatic arthritis, ankylosing spondylitis, and other inflammatory diseases. Each new indication opens a new market without having to reinvent the molecule.",
+        },
+        { type: 'h2', text: 'The valuation: what 27.5 times free cash flow buys' },
+        {
+          type: 'p',
+          text: "To measure what the market is willing to pay, I use the P/FCF (price to free cash flow): the share price divided by the free cash flow generated per share each year. A P/FCF of 27.5 means you are paying today the equivalent of 27.5 years of that cash. That is a demanding valuation, and I will be honest about that.",
+        },
+        {
+          type: 'p',
+          text: "But here is the context: when free cash flow per share grows 43% a year, a P/FCF of 27.5 is digested much faster than it looks. If that growth continues at even half that pace, the cash doubles in three to four years. This kind of profile justifies a premium, as long as the quality holds. And so far, it holds.",
+        },
+        { type: 'h2', text: 'The dividend: 25 consecutive years of growth' },
+        {
+          type: 'p',
+          text: "The dividend yield is modest: 0.6% a year. This is not an income stock in the traditional sense. But what matters to me is consistency: 25 consecutive years of dividend increases. That means UCB has raised its dividend every year since 2001, through recessions, financial crises, and a pandemic. That is a strong signal about the quality of management and the robustness of cash flows.",
+        },
+        { type: 'h2', text: 'Risks not to forget' },
+        {
+          type: 'p',
+          text: "Specialised pharma is not risk-free. The main one: patent dependency. When a patent expires, generics arrive and the price collapses. UCB must continuously fill its pipeline to offset future losses. Second risk: clinical trials fail. Even a promising candidate may not get regulatory approval, or may be approved for a narrower indication than expected. Third risk: competition. In the psoriasis market in particular, IL-17 and IL-23 inhibitors are multiplying. UCB must prove that Bimzelx is clinically superior, not just competitive.",
+        },
+        {
+          type: 'p',
+          text: "Finally, valuation risk. A P/FCF of 27.5 leaves little margin for error. If growth slows significantly, or if a major clinical trial disappoints, the market can reprice the stock quickly. The business quality is real, but the price is demanding. I judge both separately, and I know the current price does not leave much cushion.",
+        },
+        { type: 'h2', text: 'In short' },
+        {
+          type: 'p',
+          text: "UCB SA is a top-tier Belgian biopharmaceutical: net cash balance sheet, 25 years of rising dividends, free cash flow per share growing 43% a year, Cash ROCE of 28%, 10/10 score on my screener. The stock trades at 27.5 times its cash, which is demanding but reflects a rare growth profile. It is a company I watch closely, and the full analysis is available on the UCB.BR page of my site.",
+        },
+      ],
+      faq: [
+        {
+          q: 'What is the P/FCF and why use it for UCB?',
+          a: "The P/FCF (price to free cash flow) divides the share price by the free cash flow generated per share each year. It is more reliable than the P/E because free cash flow is harder to dress up than accounting profit. For UCB, it comes in at 27.5: you are paying 27.5 years of current cash. That is high, but justified by FCF per share growth of 43% a year.",
+        },
+        {
+          q: 'What is Cash ROCE and why is 28% exceptional?',
+          a: "Cash ROCE measures the cash generated each year per euro of capital employed in the business. At 28%, UCB returns 28 cents of cash per euro invested per year. That is two to three times the threshold I consider excellent, a sign that management allocates capital efficiently.",
+        },
+        {
+          q: 'Is UCB really a biotechnology company?',
+          a: "The screener classifies it as biotechnology, but in reality UCB is a specialised biopharmaceutical: it develops, manufactures, and commercialises its own approved drugs, with stable and recurring revenues. It is not a pure clinical-stage biotech with no revenue.",
+        },
+        {
+          q: 'Why is the dividend so low (0.6%) if the company is so profitable?',
+          a: "UCB reinvests a large portion of its cash into R&D and the clinical expansion of Bimzelx. The low yield reflects a strategic choice: create value through growth rather than distribution. The 25 consecutive years of dividend increases show the strength of cash flows, not their absence.",
+        },
+        {
+          q: 'Where can I find the full UCB.BR analysis?',
+          a: "The detailed analysis with all criteria, sector comparables and scoring breakdown is available on the /analyse/UCB.BR page of Lubin Investment. This article is an introduction, not investment advice.",
+        },
+      ],
+      tags: ['Analysis', 'UCB', 'Pharma', 'Immunology', 'Neurology', 'Belgium', 'Euronext'],
+      disclaimer:
+        'Analysis for informational and educational purposes, not personalised investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'UCB SA (UCB.BR): la farmaceutica belga en bolsa',
+      excerpt:
+        'UCB SA es una biofarmaceutica belga que domina la neurologia y la inmunologia desde hace casi un siglo. Su flujo de caja libre por accion ha crecido un 43 % al ano durante cinco anos, su balance no tiene deuda neta y ha aumentado su dividendo 25 anos consecutivos. Aqui explico por que la sigo de cerca.',
+      metaDescription:
+        'UCB SA (UCB.BR) analisis fundamental: la farmaceutica belga especializada en neurologia e inmunologia, su ventaja competitiva, sus cifras clave y lo que vale la accion cotizada en Bruselas.',
+      answer:
+        'UCB SA es una biofarmaceutica belga fundada en 1928, cotizada en Bruselas, con dos franquicias mundiales: neurologia (epilepsia) e inmunologia (psoriasis, enfermedades oseas). Su flujo de caja libre por accion ha crecido un 43 % al ano de media en cinco anos, su balance no tiene deuda neta y ha aumentado su dividendo 25 anos seguidos. Es una maquina de cash discreta, lejos del radar de la mayoria de inversores europeos.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'UCB SA es una farmaceutica belga centrada en neurologia (Briviact, Vimpat para epilepsia) e inmunologia (Bimzelx para psoriasis, Evenity para los huesos).',
+            'Su flujo de caja libre por accion ha crecido un 43,4 % al ano en cinco anos: excepcional incluso para la farmaceutica mundial.',
+            'El balance esta en cash neto: deuda neta cero, ratio deuda/FCF de 0,0. La empresa podria devolver todo manana.',
+            '25 anos consecutivos de crecimiento del dividendo, senal de una disciplina de gestion poco comun.',
+            'La accion se valoriza 27,5 veces su flujo de caja libre, un multiplo exigente justificado por la calidad del perfil de crecimiento.',
+          ],
+        },
+        { type: 'h2', text: 'Quien es UCB SA?' },
+        {
+          type: 'p',
+          text: "UCB SA no es un nombre que aparezca habitualmente en los medios financieros en espanol, y precisamente eso es lo que me resulta interesante. Fundada en Bruselas en 1928, lleva decadas concentrando toda su energia en dos ambitos: las enfermedades del sistema nervioso central y las del sistema inmunologico. El resultado: hoy figura entre los lideres mundiales en ambos frentes, con una capitalizacion de unos 56.000 millones de dolares.",
+        },
+        {
+          type: 'p',
+          text: "Su cartera de medicamentos es clara: Briviact y Vimpat para la epilepsia, Bimzelx (bimekizumab) aprobado para el psoriasis en placas y en expansion hacia otras indicaciones, y Evenity para enfermedades oseas como la osteoporosis. No son blockbusters de azar: cada uno responde a una necesidad medica no cubierta en un mercado donde UCB ha construido un saber hacer dificil de copiar.",
+        },
+        { type: 'h2', text: 'Por que el flujo de caja libre es el verdadero termometro' },
+        {
+          type: 'p',
+          text: "Antes de ir mas lejos, una aclaracion sobre el flujo de caja libre, porque es la medida que uso en todas partes. El flujo de caja libre es el dinero que de verdad queda en las arcas despues de pagar todo lo necesario para operar e invertir en la empresa: sueldos, fabricas, maquinas, impuestos. Es mas dificil de maquillar que el beneficio contable, por eso me fio mas de el.",
+        },
+        {
+          type: 'p',
+          text: "En UCB, el margen de flujo de caja libre alcanza el 23,8 %. Eso significa que de cada 100 euros de ventas, 23,80 euros acaban como cash realmente disponible. Ya es muy solido en el sector farmaceutico. Pero lo que me llamo la atencion fue el CAGR del FCF por accion a cinco anos: 43,4 % al ano. Es excepcional, incluso en un sector donde los margenes suelen ser elevados.",
+        },
+        { type: 'h2', text: 'Cifras clave de UCB SA' },
+        {
+          type: 'table',
+          headers: ['Metrica', 'Valor UCB.BR', 'Significado'],
+          rows: [
+            ['Puntuacion calidad', '10 / 10', 'Maximo en 10 criterios fundamentales'],
+            ['P/FCF', '27,5 x', 'Precio pagado por 1 euro de FCF anual'],
+            ['Capitalizacion', '~56 Md$', 'Valor total en bolsa (~50,7 Md EUR)'],
+            ['Margen neto', '20,1 %', '20 euros de beneficio neto por 100 de ventas'],
+            ['Margen FCF', '23,8 %', '23,80 euros de caja libre por 100 de ventas'],
+            ['Cash ROCE', '28,0 %', 'Cash generado por euro de capital empleado'],
+            ['CAGR ventas 5 anos', '12,0 % / ano', 'Crecimiento anual medio del cifra de negocio'],
+            ['CAGR FCF/accion 5 anos', '43,4 % / ano', 'Crecimiento anual del flujo de caja por accion'],
+            ['Deuda / FCF', '0,0', 'Balance en cash neto: deuda neta cero'],
+            ['Dividendo', '0,6 % / ano', '25 anos consecutivos de crecimiento del dividendo'],
+          ],
+        },
+        { type: 'h2', text: 'La nota 10/10 y el Cash ROCE: que significan' },
+        {
+          type: 'p',
+          text: "Evaluo cada empresa con 10 criterios de calidad fundamental: rentabilidad, crecimiento de ventas y caja, conversion del beneficio contable en cash real, solidez del balance, rendimiento del capital, politica accionarial. Una empresa que supera todo obtiene 10 sobre 10. UCB obtiene la puntuacion maxima. Eso no es frecuente.",
+        },
+        {
+          type: 'p',
+          text: "El Cash ROCE (cash return on capital employed) responde a una pregunta sencilla: por cada euro invertido en el negocio, cuanto cash devuelve cada ano? En UCB, la respuesta es 28,0 centimos por euro y por ano. Esta muy por encima del umbral que considero excelente. En terminos simples, cada euro de capital trabaja duro y la direccion no malgasta el dinero de los accionistas.",
+        },
+        { type: 'h2', text: 'El foso de UCB: lo que protege la franquicia' },
+        {
+          type: 'p',
+          text: "Un foso es la trinchera competitiva de una empresa: lo que impide a un rival ocupar su lugar. En la farmaceutica especializada, esa trinchera tiene tres componentes. Primero, la propiedad intelectual: las patentes que dan a UCB la exclusividad sobre sus moleculas durante anos. Segundo, las barreras regulatorias: conseguir la aprobacion de la FDA o la EMA para una indicacion lleva una decada y miles de millones de euros. Tercero, la experiencia clinica: UCB ha acumulado datos y relaciones con medicos especialistas en neurologia e inmunologia que nadie puede copiar en pocos anos.",
+        },
+        {
+          type: 'p',
+          text: "Bimzelx ilustra bien esta dinamica. El bimekizumab inhibe tanto la IL-17A como la IL-17F, dos moleculas implicadas en la inflamacion. Es un enfoque diferente al de los inhibidores solo de IL-17A (como el secukinumab de un competidor). Estudios clinicos muestran una mayor limpieza cutanea en el psoriasis en placas. UCB esta ampliando ahora las indicaciones hacia la artritis psoriasica, la espondilitis anquilosante y otras enfermedades inflamatorias. Cada nueva indicacion abre un nuevo mercado sin tener que reinventar la molecula.",
+        },
+        { type: 'h2', text: 'La valoracion: que compra 27,5 veces el flujo de caja libre' },
+        {
+          type: 'p',
+          text: "Para medir lo que el mercado esta dispuesto a pagar, uso el P/FCF (price to free cash flow): el precio de la accion dividido entre el flujo de caja libre generado por accion cada ano. Un P/FCF de 27,5 significa que pagas hoy el equivalente de 27,5 anos de ese cash. Es una valoracion exigente, y hay que ser honesto al respecto.",
+        },
+        {
+          type: 'p',
+          text: "Pero aqui esta el contexto: cuando el flujo de caja libre por accion crece un 43 % al ano, un P/FCF de 27,5 se digiere mucho mas rapido de lo que parece. Si ese crecimiento continua a la mitad de ese ritmo, el cash se duplica en tres o cuatro anos. Este tipo de perfil justifica una prima de valoracion, siempre que la calidad se mantenga. Y de momento, se mantiene.",
+        },
+        { type: 'h2', text: 'El dividendo: 25 anos consecutivos de crecimiento' },
+        {
+          type: 'p',
+          text: "La rentabilidad por dividendo es modesta: 0,6 % al ano. No es una accion de renta en el sentido tradicional. Pero lo que me importa es la regularidad: 25 anos consecutivos de aumento del dividendo. Eso significa que UCB ha subido su dividendo cada ano desde 2001, atravesando recesiones, crisis financieras y una pandemia. Es una senal clara sobre la calidad de la gestion y la solidez de los flujos de caja.",
+        },
+        { type: 'h2', text: 'Riesgos que no hay que olvidar' },
+        {
+          type: 'p',
+          text: "La farmaceutica especializada no esta exenta de riesgos. El principal: la dependencia de las patentes. Cuando expira una patente, llegan los genericos y el precio se desploma. UCB debe rellenar continuamente su pipeline para compensar las perdidas futuras. Segundo riesgo: los ensayos clinicos fracasan. Incluso un candidato prometedor puede no obtener la aprobacion regulatoria, o ser aprobado para una indicacion mas estrecha de lo previsto. Tercer riesgo: la competencia. En el mercado del psoriasis en particular, los inhibidores de IL-17 e IL-23 se multiplican. UCB debe demostrar que Bimzelx es clinicamente superior, no solo competitivo.",
+        },
+        {
+          type: 'p',
+          text: "Por ultimo, el riesgo de valoracion. Un P/FCF de 27,5 deja poco margen de error. Si el crecimiento se ralentiza significativamente, o si un ensayo clinico importante decepciona, el mercado puede ajustar el precio de la accion rapidamente. La calidad del negocio es real, pero el precio es exigente. Juzgo ambas cosas por separado, y se que el precio actual no deja mucho colchon.",
+        },
+        { type: 'h2', text: 'En resumen' },
+        {
+          type: 'p',
+          text: "UCB SA es una biofarmaceutica belga de primer nivel: balance en cash neto, 25 anos de dividendo creciente, flujo de caja libre por accion que sube un 43 % al ano, Cash ROCE del 28 %, puntuacion de 10/10 en mi screener. La accion cotiza a 27,5 veces su caja, lo cual es exigente pero refleja un perfil de crecimiento poco comun. Es una empresa que sigo de cerca, y el analisis completo esta disponible en la pagina UCB.BR de mi sitio.",
+        },
+      ],
+      faq: [
+        {
+          q: 'Que es el P/FCF y por que usarlo para UCB?',
+          a: "El P/FCF (price to free cash flow) divide el precio de la accion entre el flujo de caja libre generado por accion cada ano. Es mas fiable que el P/E porque el flujo de caja libre es mas dificil de maquillar que el beneficio contable. Para UCB, resulta 27,5: estas pagando 27,5 anos de caja actual. Es alto, pero justificado por un crecimiento del FCF por accion del 43 % al ano.",
+        },
+        {
+          q: 'Que es el Cash ROCE y por que el 28 % es excepcional?',
+          a: "El Cash ROCE mide el cash generado cada ano por cada euro de capital empleado en el negocio. Al 28 %, UCB devuelve 28 centimos de cash por euro invertido al ano. Eso es dos o tres veces el umbral que considero excelente, senal de que la direccion asigna el capital de forma eficiente.",
+        },
+        {
+          q: 'Es UCB realmente una empresa de biotecnologia?',
+          a: "El screener la clasifica como biotecnologia, pero en realidad UCB es una biofarmaceutica especializada: desarrolla, fabrica y comercializa sus propios medicamentos aprobados, con ingresos estables y recurrentes. No es una biotecnologica pura en fase clinica sin ingresos.",
+        },
+        {
+          q: 'Por que el dividendo es tan bajo (0,6 %) si la empresa es tan rentable?',
+          a: "UCB reinvierte una gran parte de su cash en I+D y en la expansion clinica de Bimzelx. El bajo rendimiento refleja una eleccion estrategica: crear valor a traves del crecimiento mas que de la distribucion. Los 25 anos consecutivos de aumentos del dividendo demuestran la solidez de los flujos, no su ausencia.",
+        },
+        {
+          q: 'Donde puedo encontrar el analisis completo de UCB.BR?',
+          a: "El analisis detallado con todos los criterios, comparables sectoriales y el desglose de la puntuacion esta disponible en la pagina /analyse/UCB.BR de Lubin Investment. Este articulo es una introduccion, no un consejo de inversion.",
+        },
+      ],
+      tags: ['Analisis', 'UCB', 'Farma', 'Inmunologia', 'Neurologia', 'Belgica', 'Euronext'],
+      disclaimer:
+        'Analisis con fines informativos y educativos, no asesoramiento de inversion personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha de publicacion, sujetas a cambios. Haz tu propia investigacion.',
+    },
+  },
+};
+
+const articleSecteurInattendus: Article = {
+  slug: 'secteurs-inattendus-hst-cwco-omab-imax-10-sur-10',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 7,
+  content: {
+    fr: {
+      title: 'Secteurs inattendus : HST, CWCO, OMAB, IMAX en bourse',
+      excerpt:
+        "Hôtels, eau, aéroports, cinéma : quatre secteurs que personne ne met en haut de sa liste. Pourtant ces quatre actions obtiennent le score maximum dans mon screener. Je t'explique pourquoi et ce que les chiffres révèlent vraiment.",
+      metaDescription:
+        "Quatre secteurs inattendus au score maximum dans le screener Lubin : hôtels (HST), eau (CWCO), aéroports (OMAB), cinéma (IMAX). Qualité, rentabilité et valorisation passées au crible.",
+      answer:
+        "Host Hotels, Consolidated Water, Grupo Aeroportuario OMAB et IMAX Corporation n'ont rien en commun à première vue. Pourtant, les quatre obtiennent le score maximum dans mon screener en juin 2026 : marges élevées, croissance du cash durable, très faible endettement. Chaque secteur inattendu cache parfois les meilleures métriques de rentabilité.",
+      body: [
+        { type: 'ul', items: [
+          "Quatre secteurs que personne ne cite spontanément : hôtels (REIT), eau, aéroports mexicains, cinéma.",
+          "Chacun affiche des marges de free cash flow entre 20 % et 45 %, bien au-dessus de la moyenne du marché.",
+          "OMAB se valorise à une fraction de son cash annuel, ce qui est très rare pour une entreprise en croissance.",
+          "CWCO est une micro-capitalisation quasi inconnue, mais son cash par action a progressé de près de 22 % par an sur cinq ans.",
+          "IMAX présente la croissance du cash la plus explosive du groupe, avec un bilan nettement assaini.",
+        ] },
+        { type: 'h2', text: 'Pourquoi ces secteurs sont souvent ignorés' },
+        { type: 'p', text: "Quand on parle de valeurs de qualité en bourse, on pense souvent aux logiciels, à la technologie ou aux plateformes numériques. Les hôtels, l'eau, les aéroports régionaux ou le cinéma n'ont pas l'image « moderne ». Résultat : ils sont moins suivis, moins analysés, et leurs métriques financières surprennent quand on prend le temps de les lire." },
+        { type: 'p', text: "Mon screener ne fait pas de distinction entre secteurs. Il mesure la qualité financière sur des critères objectifs : rentabilité du capital, croissance des ventes et du cash, solidité du bilan, valorisation. Quand un secteur inattendu obtient le score maximum, c'est le signe qu'il mérite une attention sérieuse." },
+        { type: 'h2', text: 'Le tableau comparatif des quatre actions' },
+        { type: 'table', headers: ['Ticker', 'Secteur', 'Score', 'Valorisation (P/FCF)', 'Capitalisation'], rows: [
+          ['HST', 'REIT Hôtels', '10/10', '11,2×', '$16,9 Md'],
+          ['CWCO', "Services d'eau", '10/10', '18,2×', '$478 M'],
+          ['OMAB', 'Aéroports', '10/10', '0,71×', '$4,68 Md'],
+          ['IMAX', 'Cinéma', '10/10', '28,4×', '$2,14 Md'],
+        ]},
+        { type: 'p', text: "Le P/FCF (price to free cash flow) mesure combien d'années de cash l'action représente au prix actuel. Un chiffre de 11 signifie que tu paies onze années de cash disponible. Plus ce ratio est bas, plus la valorisation est basse. OMAB à 0,71 fois son cash annuel est une anomalie que je n'avais pas vue depuis longtemps sur une entreprise en bonne santé et en croissance." },
+        { type: 'h2', text: 'HST : le REIT hôtelier que le marché sous-estime' },
+        { type: 'p', text: "Host Hotels & Resorts est le plus grand REIT hôtelier coté aux États-Unis. Un REIT (Real Estate Investment Trust) est une structure qui possède des actifs immobiliers et distribue ses revenus sous forme de dividendes. Host détient un portefeuille de 75 hôtels haut de gamme. Sa capitalisation dépasse 16 milliards de dollars et son dividende atteint 3,2 %." },
+        { type: 'p', text: "Ce qui m'a convaincu : la marge de free cash flow de 24,7 % pour un REIT hôtelier est élevée, et le rendement du capital en cash (Cash ROCE) de 22,3 % montre que l'entreprise utilise bien ses actifs. Les revenus ont progressé de 11,6 % par an en moyenne sur cinq ans, ce qui est solide pour un secteur perçu comme mature. La dette représente 2,12 années de cash : confortable. Tu peux lire l'analyse complète sur la page de l'action : /analyse/HST." },
+        { type: 'h2', text: "CWCO : la micro-capitalisation de l'eau à croissance rapide" },
+        { type: 'p', text: "Consolidated Water est une entreprise américaine spécialisée dans la production d'eau potable par dessalement, principalement dans les Caraïbes et en Amérique centrale. Avec une capitalisation de 478 millions de dollars, elle entre dans la catégorie des micro-capitalisations, pratiquement ignorée par les grandes institutions." },
+        { type: 'p', text: "Ses métriques sont remarquables pour sa taille : marge de free cash flow de 20,3 %, rendement du capital en cash de 27,5 %, croissance des revenus de 16,1 % par an sur cinq ans, et croissance du cash par action de 21,9 % par an. Le bilan est net de toute dette nette. Ce type de croissance composée sur une durée aussi longue, dans un secteur aussi défensif que l'eau, est très rare. Analyse disponible sur /analyse/CWCO." },
+        { type: 'h2', text: "OMAB : l'aéroport mexicain à valorisation basse" },
+        { type: 'p', text: "Grupo Aeroportuario del Centro Norte (OMAB) opère 13 aéroports au Mexique, dont celui de Monterrey. C'est une concession à longue durée, un actif quasi monopolistique dans ses régions. La capitalisation s'établit à 4,68 milliards de dollars." },
+        { type: 'p', text: "La marge de free cash flow de 45,6 % est l'une des plus élevées que j'aie vues dans mon screener, toutes classes d'actifs confondues. Le rendement du capital en cash atteint 29,9 %. Les revenus progressent de 10,2 % par an et le cash par action de 13,6 % par an. Le dividende est versé sans interruption depuis 2007, à hauteur de 5,3 % actuellement. Et pourtant l'action se valorise à seulement 0,71 fois son cash annuel : une valorisation basse difficile à expliquer par la seule aversion au risque mexicain. Analyse complète sur /analyse/OMAB." },
+        { type: 'h2', text: 'IMAX : le cinéma premium qui génère un cash exceptionnel' },
+        { type: 'p', text: "IMAX Corporation n'est pas un exploitant de salles classique. L'entreprise concède sa technologie d'affichage grand format à des partenaires dans le monde entier et touche des redevances sur chaque billet vendu. Ce modèle léger en actifs explique en partie ses métriques de qualité." },
+        { type: 'p', text: "La marge de free cash flow de 22,1 % et le rendement du capital en cash de 30,9 % sont cohérents avec un modèle de redevances. Mais c'est la croissance du cash par action qui frappe : 92,3 % par an en moyenne sur cinq ans. Ce chiffre reflète à la fois la reprise après la crise sanitaire et l'amélioration structurelle du bilan. La dette représente 1,62 années de cash, une charge très gérable. La valorisation à 28,4 fois le cash reste la plus élevée du groupe, ce qui suppose une conviction plus forte sur la durabilité de la croissance. Analyse disponible sur /analyse/IMAX." },
+        { type: 'h2', text: 'Ce que ces quatre actions ont en commun' },
+        { type: 'p', text: "Des secteurs différents, des tailles différentes, des valorisations différentes. Mais une discipline financière identique : chaque entreprise génère un cash réel, croissant, et gère sa dette avec rigueur. C'est précisément ce que mon screener mesure, indépendamment du secteur ou de l'image qu'on en a." },
+        { type: 'p', text: "Le score maximum ne veut pas dire que ces actions sont à acheter à n'importe quel prix. Il signifie que la qualité financière est au rendez-vous. La valorisation, elle, dépend de chaque profil et de chaque horizon. Mon screener pose la première question : est-ce que l'entreprise est bonne ? À toi de répondre à la deuxième : est-ce le bon prix pour toi ?" },
+      ],
+      faq: [
+        { q: "Qu'est-ce que le free cash flow et pourquoi c'est important ?", a: "Le free cash flow est l'argent qui reste réellement dans les caisses de l'entreprise après toutes les dépenses nécessaires à son fonctionnement et à ses investissements. C'est plus difficile à maquiller que le bénéfice comptable, donc c'est le chiffre sur lequel je me concentre pour évaluer la qualité d'une entreprise." },
+        { q: "Pourquoi OMAB a-t-il une valorisation aussi basse ?", a: "OMAB se valorise actuellement à moins d'une fois son cash annuel, ce qui est très rare pour une entreprise en croissance. Les explications possibles incluent l'aversion au risque géopolitique mexicain et la faible couverture par les analystes. Cela ne signifie pas que c'est une occasion certaine, mais que le marché applique une décote inhabituelle." },
+        { q: "CWCO est-il risqué à cause de sa petite taille ?", a: "Consolidated Water est effectivement une micro-capitalisation, ce qui implique une liquidité plus faible et une volatilité potentiellement plus élevée. Mais sa qualité financière est réelle : croissance constante, bilan sans dette nette, secteur défensif. La taille est un facteur de risque de marché, pas un facteur de qualité intrinsèque." },
+        { q: "IMAX est-il encore pertinent face au streaming ?", a: "La croissance du cash par action d'IMAX sur cinq ans montre que le modèle de redevances sur les technologies d'affichage premium résiste bien à la concurrence du streaming. L'expérience grand format reste différenciée, et IMAX continue d'ouvrir des salles à l'international, notamment en Asie. C'est une thèse sur la différenciation de l'expérience, pas sur le cinéma traditionnel." },
+        { q: "Comment mon screener attribue-t-il le score maximum ?", a: "Mon screener évalue chaque action sur dix critères financiers : rentabilité, croissance des revenus, croissance du cash, solidité du bilan, rachat d'actions, rendement du capital, etc. Un score de dix sur dix signifie que l'entreprise passe tous les critères au niveau requis. Ce n'est pas un jugement sur le cours de l'action, seulement sur la qualité de l'entreprise." },
+      ],
+      tags: ['HST', 'CWCO', 'OMAB', 'IMAX', 'Screener', 'Qualité', 'Secteurs', 'Valorisation', 'REIT', 'Aéroports'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Unexpected sectors: HST, CWCO, OMAB, IMAX in the screener',
+      excerpt:
+        "Hotels, water, airports, cinema: four sectors no one puts at the top of their list. Yet these four stocks reach the maximum score in my screener. Here is why and what the numbers actually reveal.",
+      metaDescription:
+        "Four unexpected sectors score maximum in the Lubin screener: hotels (HST), water (CWCO), airports (OMAB), cinema (IMAX). Quality, profitability and valuation examined.",
+      answer:
+        "Host Hotels, Consolidated Water, Grupo Aeroportuario OMAB and IMAX Corporation share nothing at first glance. Yet all four reach the maximum score in my screener in June 2026: high margins, durable cash growth, very low debt. Every unexpected sector sometimes hides the best profitability metrics.",
+      body: [
+        { type: 'ul', items: [
+          "Four sectors no one spontaneously names: hotels (REIT), water, Mexican airports, cinema.",
+          "Each shows free cash flow margins between 20% and 45%, well above the market average.",
+          "OMAB is valued at a fraction of its annual cash, which is very rare for a growing company.",
+          "CWCO is a near-unknown micro-cap, but its cash per share grew nearly 22% per year over five years.",
+          "IMAX shows the most explosive cash growth in the group, with a significantly cleaner balance sheet.",
+        ] },
+        { type: 'h2', text: 'Why these sectors are often ignored' },
+        { type: 'p', text: "When people talk about quality stocks, they usually think of software, technology or digital platforms. Hotels, water utilities, regional airports or cinema do not carry a modern image. As a result, they are less followed, less analyzed, and their financial metrics are surprising when you take the time to read them." },
+        { type: 'p', text: "My screener makes no distinction between sectors. It measures financial quality on objective criteria: return on capital, revenue and cash growth, balance sheet strength, valuation. When an unexpected sector achieves the maximum score, that is a sign it deserves serious attention." },
+        { type: 'h2', text: 'Comparative table of the four stocks' },
+        { type: 'table', headers: ['Ticker', 'Sector', 'Score', 'Valuation (P/FCF)', 'Market cap'], rows: [
+          ['HST', 'Hotel REIT', '10/10', '11.2×', '$16.9B'],
+          ['CWCO', 'Water services', '10/10', '18.2×', '$478M'],
+          ['OMAB', 'Airports', '10/10', '0.71×', '$4.68B'],
+          ['IMAX', 'Cinema', '10/10', '28.4×', '$2.14B'],
+        ]},
+        { type: 'p', text: "The P/FCF (price to free cash flow) measures how many years of cash the stock represents at the current price. A ratio of 11 means you are paying eleven years of available cash. The lower this ratio, the lower the valuation. OMAB at 0.71 times its annual cash is an anomaly I had not seen in a long time on a healthy, growing company." },
+        { type: 'h2', text: 'HST: the hotel REIT the market underestimates' },
+        { type: 'p', text: "Host Hotels & Resorts is the largest hotel REIT listed in the United States. A REIT (Real Estate Investment Trust) is a structure that owns real estate assets and distributes its income as dividends. Host holds a portfolio of 75 upscale hotels. Its market cap exceeds $16 billion and its dividend yield stands at 3.2%." },
+        { type: 'p', text: "What convinced me: a 24.7% free cash flow margin for a hotel REIT is high, and the Cash ROCE of 22.3% shows the company uses its assets well. Revenue grew at an average of 11.6% per year over five years, which is solid for a sector perceived as mature. Debt represents 2.12 years of cash: comfortable. You can read the full analysis on the stock page: /analyse/HST." },
+        { type: 'h2', text: 'CWCO: the fast-growing water micro-cap' },
+        { type: 'p', text: "Consolidated Water is a US company specializing in drinking water production through desalination, mainly in the Caribbean and Central America. With a market cap of $478 million, it falls into the micro-cap category, practically ignored by large institutions." },
+        { type: 'p', text: "Its metrics are remarkable for its size: 20.3% free cash flow margin, 27.5% Cash ROCE, 16.1% annual revenue growth over five years, and 21.9% annual cash per share growth. The balance sheet carries no net debt. This kind of compounded growth over such a long period, in a sector as defensive as water, is very rare. Analysis available at /analyse/CWCO." },
+        { type: 'h2', text: 'OMAB: the Mexican airport at a low valuation' },
+        { type: 'p', text: "Grupo Aeroportuario del Centro Norte (OMAB) operates 13 airports in Mexico, including Monterrey. It is a long-term concession, a near-monopoly asset in its regions. Market cap stands at $4.68 billion." },
+        { type: 'p', text: "The 45.6% free cash flow margin is one of the highest I have seen in my screener across all asset classes. Cash ROCE reaches 29.9%. Revenue grows at 10.2% per year and cash per share at 13.6% per year. The dividend has been paid without interruption since 2007, currently at 5.3%. Yet the stock is valued at only 0.71 times its annual cash: a low valuation that is hard to explain by Mexican risk aversion alone. Full analysis at /analyse/OMAB." },
+        { type: 'h2', text: 'IMAX: the premium cinema generating exceptional cash' },
+        { type: 'p', text: "IMAX Corporation is not a traditional theater operator. The company licenses its large-format display technology to partners worldwide and collects royalties on every ticket sold. This asset-light model partly explains its quality metrics." },
+        { type: 'p', text: "The 22.1% free cash flow margin and 30.9% Cash ROCE are consistent with a royalty model. But the cash per share growth stands out: 92.3% per year on average over five years. This figure reflects both the post-pandemic recovery and a structural improvement in the balance sheet. Debt represents 1.62 years of cash, a very manageable load. The valuation at 28.4 times cash remains the highest in the group, which requires stronger conviction on growth durability. Analysis available at /analyse/IMAX." },
+        { type: 'h2', text: 'What these four stocks share' },
+        { type: 'p', text: "Different sectors, different sizes, different valuations. But the same financial discipline: each company generates real, growing cash and manages its debt rigorously. That is exactly what my screener measures, regardless of sector or perceived image." },
+        { type: 'p', text: "The maximum score does not mean these stocks should be bought at any price. It means the financial quality is there. Valuation depends on each investor profile and time horizon. My screener answers the first question: is the company good? You answer the second: is this the right price for you?" },
+      ],
+      faq: [
+        { q: "What is free cash flow and why does it matter?", a: "Free cash flow is the money that genuinely remains in a company's accounts after all expenses required to operate and invest. It is harder to dress up than accounting profit, which is why I focus on it to assess company quality." },
+        { q: "Why does OMAB have such a low valuation?", a: "OMAB is currently valued at less than one times its annual cash, which is very rare for a growing company. Possible explanations include geopolitical risk aversion on Mexico and low analyst coverage. It does not mean it is a guaranteed opportunity, but that the market is applying an unusual discount." },
+        { q: "Is CWCO risky because of its small size?", a: "Consolidated Water is indeed a micro-cap, which implies lower liquidity and potentially higher volatility. But its financial quality is real: consistent growth, debt-free balance sheet, defensive sector. Size is a market risk factor, not an intrinsic quality factor." },
+        { q: "Is IMAX still relevant against streaming?", a: "IMAX's five-year cash per share growth shows that its premium display technology royalty model holds up well against streaming competition. The large-format experience remains differentiated, and IMAX continues to open venues internationally, especially in Asia. This is a thesis on experiential differentiation, not on traditional cinema." },
+        { q: "How does my screener assign the maximum score?", a: "My screener rates each stock on ten financial criteria: profitability, revenue growth, cash growth, balance sheet strength, share buybacks, return on capital, and more. A score of ten out of ten means the company passes every criterion at the required level. It is not a judgment on the stock price, only on company quality." },
+      ],
+      tags: ['HST', 'CWCO', 'OMAB', 'IMAX', 'Screener', 'Quality', 'Sectors', 'Valuation', 'REIT', 'Airports'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.",
+    },
+    es: {
+      title: 'Sectores inesperados: HST, CWCO, OMAB, IMAX en bolsa',
+      excerpt:
+        "Hoteles, agua, aeropuertos, cine: cuatro sectores que nadie pone en lo alto de su lista. Sin embargo, estas cuatro acciones alcanzan la puntuación máxima en mi screener. Te explico por qué y qué revelan realmente los números.",
+      metaDescription:
+        "Cuatro sectores inesperados con puntuación máxima en el screener Lubin: hoteles (HST), agua (CWCO), aeropuertos (OMAB), cine (IMAX). Calidad, rentabilidad y valoración bajo análisis.",
+      answer:
+        "Host Hotels, Consolidated Water, Grupo Aeroportuario OMAB e IMAX Corporation no tienen nada en común a primera vista. Sin embargo, los cuatro obtienen la puntuación máxima en mi screener en junio de 2026: márgenes elevados, crecimiento sostenido del cash, deuda muy baja. Cada sector inesperado esconde a veces las mejores métricas de rentabilidad.",
+      body: [
+        { type: 'ul', items: [
+          "Cuatro sectores que nadie nombra espontáneamente: hoteles (REIT), agua, aeropuertos mexicanos, cine.",
+          "Cada uno muestra márgenes de flujo de caja libre entre el 20 % y el 45 %, muy por encima de la media del mercado.",
+          "OMAB se valora a una fracción de su caja anual, algo muy raro para una empresa en crecimiento.",
+          "CWCO es una micro-capitalización casi desconocida, pero su caja por acción creció cerca de un 22 % anual durante cinco años.",
+          "IMAX presenta el crecimiento de caja más explosivo del grupo, con un balance significativamente saneado.",
+        ] },
+        { type: 'h2', text: 'Por qué estos sectores suelen ignorarse' },
+        { type: 'p', text: "Cuando se habla de valores de calidad en bolsa, se piensa habitualmente en software, tecnología o plataformas digitales. Los hoteles, el agua, los aeropuertos regionales o el cine no tienen una imagen moderna. Como resultado, están menos seguidos, menos analizados, y sus métricas financieras sorprenden cuando uno se toma el tiempo de leerlas." },
+        { type: 'p', text: "Mi screener no distingue entre sectores. Mide la calidad financiera sobre criterios objetivos: rentabilidad del capital, crecimiento de ingresos y caja, solidez del balance, valoración. Cuando un sector inesperado alcanza la puntuación máxima, es señal de que merece una atención seria." },
+        { type: 'h2', text: 'Tabla comparativa de las cuatro acciones' },
+        { type: 'table', headers: ['Ticker', 'Sector', 'Puntuación', 'Valoración (P/FCF)', 'Capitalización'], rows: [
+          ['HST', 'REIT Hoteles', '10/10', '11,2×', '$16,9 Md'],
+          ['CWCO', 'Servicios de agua', '10/10', '18,2×', '$478 M'],
+          ['OMAB', 'Aeropuertos', '10/10', '0,71×', '$4,68 Md'],
+          ['IMAX', 'Cine', '10/10', '28,4×', '$2,14 Md'],
+        ]},
+        { type: 'p', text: "El P/FCF (precio sobre flujo de caja libre) mide cuántos años de caja representa la acción al precio actual. Un ratio de 11 significa que pagas once años de caja disponible. Cuanto más bajo sea este ratio, más baja es la valoración. OMAB a 0,71 veces su caja anual es una anomalía que no había visto en mucho tiempo en una empresa sana y en crecimiento." },
+        { type: 'h2', text: 'HST: el REIT hotelero que el mercado subestima' },
+        { type: 'p', text: "Host Hotels & Resorts es el mayor REIT hotelero cotizado en Estados Unidos. Un REIT (Real Estate Investment Trust) es una estructura que posee activos inmobiliarios y distribuye sus ingresos en forma de dividendos. Host cuenta con una cartera de 75 hoteles de lujo. Su capitalización supera los 16.000 millones de dólares y su dividendo alcanza el 3,2 %." },
+        { type: 'p', text: "Lo que me convenció: un margen de flujo de caja libre del 24,7 % para un REIT hotelero es elevado, y el rendimiento del capital en caja (Cash ROCE) del 22,3 % muestra que la empresa utiliza bien sus activos. Los ingresos crecieron a un promedio del 11,6 % anual durante cinco años, lo que es sólido para un sector percibido como maduro. La deuda representa 2,12 años de caja: una carga cómoda. Puedes leer el análisis completo en la página de la acción: /analyse/HST." },
+        { type: 'h2', text: 'CWCO: la micro-capitalización del agua de rápido crecimiento' },
+        { type: 'p', text: "Consolidated Water es una empresa estadounidense especializada en la producción de agua potable por desalinización, principalmente en el Caribe y Centroamérica. Con una capitalización de 478 millones de dólares, entra en la categoría de micro-capitalizaciones, prácticamente ignorada por las grandes instituciones." },
+        { type: 'p', text: "Sus métricas son notables para su tamaño: margen de flujo de caja libre del 20,3 %, rendimiento del capital en caja del 27,5 %, crecimiento de ingresos del 16,1 % anual durante cinco años, y crecimiento de la caja por acción del 21,9 % anual. El balance no tiene deuda neta. Este tipo de crecimiento compuesto durante tanto tiempo, en un sector tan defensivo como el agua, es muy raro. Análisis disponible en /analyse/CWCO." },
+        { type: 'h2', text: 'OMAB: el aeropuerto mexicano con valoración baja' },
+        { type: 'p', text: "Grupo Aeroportuario del Centro Norte (OMAB) opera 13 aeropuertos en México, incluido el de Monterrey. Es una concesión a largo plazo, un activo casi monopolístico en sus regiones. La capitalización asciende a 4.680 millones de dólares." },
+        { type: 'p', text: "El margen de flujo de caja libre del 45,6 % es uno de los más elevados que he visto en mi screener en todas las clases de activos. El rendimiento del capital en caja alcanza el 29,9 %. Los ingresos crecen un 10,2 % anual y la caja por acción un 13,6 % anual. El dividendo se paga sin interrupciones desde 2007, actualmente al 5,3 %. Y sin embargo la acción se valora a tan solo 0,71 veces su caja anual: una valoración baja difícil de justificar solo por la aversión al riesgo mexicano. Análisis completo en /analyse/OMAB." },
+        { type: 'h2', text: 'IMAX: el cine premium que genera una caja excepcional' },
+        { type: 'p', text: "IMAX Corporation no es un operador de salas tradicional. La empresa licencia su tecnología de pantallas de gran formato a socios en todo el mundo y cobra regalías por cada entrada vendida. Este modelo ligero en activos explica en parte sus métricas de calidad." },
+        { type: 'p', text: "El margen de flujo de caja libre del 22,1 % y el rendimiento del capital en caja del 30,9 % son coherentes con un modelo de regalías. Pero es el crecimiento de la caja por acción lo que llama la atención: un 92,3 % anual de media durante cinco años. Esta cifra refleja tanto la recuperación tras la crisis sanitaria como la mejora estructural del balance. La deuda representa 1,62 años de caja, una carga muy manejable. La valoración a 28,4 veces la caja sigue siendo la más elevada del grupo, lo que requiere mayor convicción sobre la durabilidad del crecimiento. Análisis disponible en /analyse/IMAX." },
+        { type: 'h2', text: 'Lo que estas cuatro acciones tienen en común' },
+        { type: 'p', text: "Sectores distintos, tamaños distintos, valoraciones distintas. Pero la misma disciplina financiera: cada empresa genera caja real y creciente, y gestiona su deuda con rigor. Eso es exactamente lo que mide mi screener, independientemente del sector o de la imagen que tengamos de él." },
+        { type: 'p', text: "La puntuación máxima no significa que estas acciones deban comprarse a cualquier precio. Significa que la calidad financiera está ahí. La valoración depende del perfil y el horizonte de cada inversor. Mi screener responde a la primera pregunta: ¿la empresa es buena? Tú respondes a la segunda: ¿es este el precio adecuado para ti?" },
+      ],
+      faq: [
+        { q: "¿Qué es el flujo de caja libre y por qué importa?", a: "El flujo de caja libre es el dinero que realmente queda en las cuentas de la empresa después de todos los gastos necesarios para funcionar e invertir. Es más difícil de maquillar que el beneficio contable, por eso me centro en él para evaluar la calidad de una empresa." },
+        { q: "¿Por qué OMAB tiene una valoración tan baja?", a: "OMAB cotiza actualmente a menos de una vez su caja anual, algo muy raro para una empresa en crecimiento. Las posibles explicaciones incluyen la aversión al riesgo geopolítico sobre México y la escasa cobertura de analistas. No significa que sea una oportunidad garantizada, sino que el mercado aplica un descuento inusual." },
+        { q: "¿Es arriesgada CWCO por su pequeño tamaño?", a: "Consolidated Water es efectivamente una micro-capitalización, lo que implica menor liquidez y potencialmente mayor volatilidad. Pero su calidad financiera es real: crecimiento constante, balance sin deuda neta, sector defensivo. El tamaño es un factor de riesgo de mercado, no un factor de calidad intrínseca." },
+        { q: "¿Sigue siendo relevante IMAX frente al streaming?", a: "El crecimiento de la caja por acción de IMAX durante cinco años muestra que su modelo de regalías sobre tecnología de pantalla premium resiste bien la competencia del streaming. La experiencia en gran formato sigue siendo diferenciada, e IMAX continúa abriendo salas internacionalmente, especialmente en Asia. Es una tesis sobre la diferenciación de la experiencia, no sobre el cine tradicional." },
+        { q: "¿Cómo asigna mi screener la puntuación máxima?", a: "Mi screener evalúa cada acción en diez criterios financieros: rentabilidad, crecimiento de ingresos, crecimiento de la caja, solidez del balance, recompra de acciones, rentabilidad del capital, entre otros. Una puntuación de diez sobre diez significa que la empresa supera todos los criterios al nivel requerido. No es un juicio sobre el precio de la acción, solo sobre la calidad de la empresa." },
+      ],
+      tags: ['HST', 'CWCO', 'OMAB', 'IMAX', 'Screener', 'Calidad', 'Sectores', 'Valoración', 'REIT', 'Aeropuertos'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación.",
+    },
+  },
+};
+
+const articlePFCFSectoriel: Article = {
+  slug: 'pfcf-sectoriel-saas-assurance-interpretation-ratio',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 6,
+  content: {
+    fr: {
+      title: 'Prix par flux de trésorerie : tout dépend du secteur',
+      excerpt: 'Un logiciel coté 44 fois ses flux de trésorerie peut être moins cher qu\'une assurance cotée 5 fois. Je t\'explique pourquoi le même ratio dit des choses très différentes selon le secteur — et comment l\'utiliser intelligemment.',
+      metaDescription: 'Comprendre pourquoi un ratio prix/flux de trésorerie élevé peut signifier "bon marché" dans certains secteurs et "cher" dans d\'autres. Guide pédagogique avec exemples concrets.',
+      answer: 'Le ratio prix/flux de trésorerie (P/FCF) ne se compare qu\'entre entreprises du même secteur. Un SaaS à 44× peut être moins cher qu\'une assurance à 5× si sa croissance est 4 fois plus rapide. Ce qui compte, c\'est le prix payé par point de croissance attendue.',
+      body: [
+        { type: 'ul', items: [
+          'Le P/FCF (prix divisé par le free cash flow) mesure combien tu paies pour chaque euro de trésorerie générée.',
+          'Un multiple élevé dans le SaaS reflète une croissance forte et des flux très récurrents — pas forcément une cherté.',
+          'Un multiple bas dans l\'assurance reflète un secteur mature et cyclique — pas forcément une aubaine.',
+          'La vraie question : combien paies-tu par point de croissance annuelle du flux de trésorerie ?',
+          'ServiceNow à 44× avec +20 %/an de croissance peut battre une assurance à 5× avec +5 %/an sur 10 ans.',
+        ]},
+        { type: 'h2', text: 'C\'est quoi, le P/FCF ?' },
+        { type: 'p', text: 'Le P/FCF, ou Price to Free Cash Flow, est un ratio de valorisation boursière. Il se calcule simplement : tu divises la capitalisation boursière de l\'entreprise (le prix total de toutes ses actions) par son free cash flow annuel (l\'argent qu\'elle génère réellement après avoir payé ses investissements). Si une entreprise vaut 1 milliard d\'euros et génère 100 millions de free cash flow, son P/FCF est de 10×. Concrètement, ça signifie que tu paies 10 euros pour chaque euro de trésorerie annuelle.' },
+        { type: 'p', text: 'Pourquoi ce ratio plutôt que le classique PER (Price to Earnings) ? Parce que le free cash flow est beaucoup plus difficile à manipuler comptablement que le bénéfice net. Une entreprise peut afficher des profits tout en ayant des problèmes de trésorerie. Avec le P/FCF, on regarde l\'argent qui rentre vraiment dans les caisses.' },
+        { type: 'h2', text: 'Le problème : comparer des pommes et des oranges' },
+        { type: 'p', text: 'L\'erreur classique est de comparer des P/FCF entre secteurs différents. Quand je vois ServiceNow (NOW) à 44× et une assurance comme Mercury General (MCY) à 3,9×, mon réflexe naturel est de penser que l\'assurance est dix fois moins chère. C\'est faux. Ce serait comme comparer la vitesse d\'un TGV et d\'un cargo maritime en disant que le cargo est "trop lent" — ils ne font pas le même métier.' },
+        { type: 'p', text: 'Chaque secteur a une logique de valorisation qui lui est propre, dictée par sa croissance, sa cyclicité, la qualité de ses flux de trésorerie, et ses besoins en capital. Voyons les grandes familles.' },
+        { type: 'h2', text: 'Pourquoi le SaaS mérite un multiple élevé' },
+        { type: 'p', text: 'Le SaaS (Software as a Service) désigne les logiciels vendus par abonnement en ligne — pense à ServiceNow, Shopify, ou Intuit. Ces entreprises ont trois caractéristiques qui justifient un multiple élevé. Premièrement, leur croissance : elles augmentent leur free cash flow de 15 à 30 % par an, contre 5 à 7 % pour un secteur mature. Deuxièmement, leur récurrence : un abonnement annuel se renouvelle automatiquement dans 90 % des cas — ce cash flow est quasi-garanti. Troisièmement, leur levier opérationnel : chaque nouveau client coûte très peu à servir (pas d\'usine, pas de stock), donc la marge FCF s\'améliore structurellement avec la taille.' },
+        { type: 'p', text: 'Un euro de free cash flow SaaS vaut intrinsèquement plus qu\'un euro de free cash flow cyclique, parce qu\'il est plus prévisible, en croissance, et s\'améliore dans le temps. C\'est pour ça que le marché accepte de payer 44× pour ServiceNow ou 85× pour Shopify.' },
+        { type: 'h2', text: 'Pourquoi l\'assurance a structurellement un multiple bas' },
+        { type: 'p', text: 'L\'assurance dommages (P&C : property & casualty) est un secteur mature. La croissance des primes est corrélée à l\'inflation et à la démographie — on parle de 5 à 8 % par an dans les meilleurs cas. Mais il y a une subtilité importante : le "float d\'assurance". Les assureurs perçoivent les primes à l\'avance et les remboursent plus tard sous forme de sinistres. Cette trésorerie intermédiaire (le float) appartient techniquement aux assurés, pas à l\'entreprise. Le free cash flow apparent peut donc être artificiellement élevé en période de collecte de primes, et s\'effondrer quand les sinistres arrivent (catastrophes naturelles, vagues de litiges).' },
+        { type: 'p', text: 'Un P/FCF bas en assurance n\'est donc pas forcément une aubaine : il reflète une croissance limitée, une cyclicité réelle, et une qualité de cash flow inférieure à celle du SaaS. Progressive (PGR) à 7,4× est une excellente entreprise — mais ce multiple ne se compare pas à celui de ServiceNow.' },
+        { type: 'h2', text: 'Le tableau comparatif des secteurs' },
+        { type: 'table', headers: ['Secteur', 'Entreprise', 'Ticker', 'P/FCF', 'CAGR FCF estimé', 'P/FCF ÷ CAGR'], rows: [
+          ['SaaS / Logiciel', 'ServiceNow', 'NOW', '44×', '~22 %', '2,0'],
+          ['SaaS / Logiciel', 'Shopify', 'SHOP', '85×', '~35 %', '2,4'],
+          ['SaaS / Logiciel', 'Autodesk', 'ADSK', '24×', '~15 %', '1,6'],
+          ['SaaS / Logiciel', 'Roper Tech.', 'ROP', '13×', '~10 %', '1,3'],
+          ['SaaS / Logiciel', 'Paycom', 'PCTY', '17×', '~12 %', '1,4'],
+          ['SaaS / Logiciel', 'Intuit', 'INTU', '14×', '~12 %', '1,2'],
+          ['Assurance P&C', 'Progressive', 'PGR', '7,4×', '~10 %', '0,74'],
+          ['Assurance P&C', 'Kinsale Capital', 'KNSL', '7×', '~15 %', '0,47'],
+          ['Assurance P&C', 'Selective Ins.', 'SIGI', '5×', '~7 %', '0,71'],
+          ['Assurance P&C', 'Mercury General', 'MCY', '3,9×', '~5 %', '0,78'],
+          ['Assurance P&C', 'Universal Ins.', 'UVE', '2,9×', '~4 %', '0,73'],
+          ['REIT', 'Realty Income', 'O', '14×', '~4 %', '3,5'],
+          ['REIT', 'STAG Industrial', 'STAG', '15×', '~5 %', '3,0'],
+          ['Or / Mines', 'Kinross Gold', 'KGC', '12,5×', '~8 %', '1,6'],
+          ['Or / Mines', 'Dundee Prec. Met.', 'DPM', '13×', '~8 %', '1,6'],
+          ['Tourisme / Réservation', 'Booking Holdings', 'BKNG', '15×', '~12 %', '1,3'],
+          ['Tourisme / Réservation', 'Airbnb', 'ABNB', '28×', '~18 %', '1,6'],
+          ['FinTech', 'PayPal', 'PYPL', '8×', '~8 %', '1,0'],
+          ['FinTech', 'Futu Holdings', 'FUTU', '0,34×', '~5 %', '0,07'],
+          ['Aéroports', 'OMAB', 'OMAB', '0,71×', '~6 %', '0,12'],
+          ['Aviation régionale', 'SkyWest', 'SKYW', '3,9×', '~8 %', '0,49'],
+        ]},
+        { type: 'h2', text: 'La formule qui change tout : P/FCF divisé par la croissance' },
+        { type: 'p', text: 'La vraie question n\'est pas "quel est le P/FCF ?" mais "combien d\'années de trésorerie paies-tu par point de croissance annuelle attendue ?". La formule est simple : P/FCF ÷ CAGR_FCF_attendu (où CAGR désigne le taux de croissance annuel composé, en %). Ce ratio — que l\'on peut appeler le ratio de croissance ajustée — te dit si tu es bien rémunéré pour la croissance que tu achètes.' },
+        { type: 'p', text: 'Exemple concret : ServiceNow à 44× de P/FCF avec un CAGR FCF estimé à 22 % donne 44 ÷ 22 = 2,0. Progressive à 7,4× avec un CAGR de 10 % donne 7,4 ÷ 10 = 0,74. Lequel est moins cher ? Progressive, si l\'on s\'en tient à ce ratio. Mais ServiceNow n\'est pas deux fois plus cher qu\'il n\'y paraît — il offre une qualité de cash flow et une durabilité de croissance que Progressive ne peut pas atteindre structurellement. Ce ratio est un outil de comparaison, pas une vérité absolue.' },
+        { type: 'h2', text: 'Les REIT : un cas à part entière' },
+        { type: 'p', text: 'Les REIT (Real Estate Investment Trusts, ou sociétés d\'investissement immobilier cotées) comme Realty Income (O) ou STAG Industrial affichent des P/FCF de 14 à 15×. Mais attention : pour les REIT, le free cash flow standard sous-estime la réalité économique. On utilise plutôt l\'AFFO (Adjusted Funds From Operations), une mesure qui tient compte des amortissements immobiliers. Un P/FCF de 14× sur un REIT en croissance de 4 %/an donne un ratio de croissance ajustée de 3,5 — c\'est élevé, mais le rendement en dividendes (souvent 4 à 6 %) compense partiellement le faible potentiel de plus-value.' },
+        { type: 'h2', text: 'Les cas extrêmes : OMAB et FUTU' },
+        { type: 'p', text: 'Certains P/FCF inférieurs à 1× peuvent signifier deux choses très différentes. OMAB (aéroports mexicains) à 0,71× traduit une situation exceptionnelle : un pic de cash flow lié à des concessions aéroportuaires très profitables et une faible valorisation boursière. FUTU Holdings (courtier en ligne asiatique) à 0,34× reflète une décote de risque géopolitique majeure (exposition à la Chine et à Hong Kong). Dans les deux cas, le P/FCF bas ne signifie pas automatiquement que l\'action est bon marché — il faut comprendre pourquoi le marché applique cette décote.' },
+        { type: 'h2', text: 'Comment je l\'utilise dans mon screener' },
+        { type: 'p', text: 'Dans notre screener Lubin Investment, nous comparons le P/FCF d\'une entreprise uniquement à la médiane de son secteur. Une entreprise SaaS avec un P/FCF de 20× peut obtenir une bonne note de valorisation si la médiane sectorielle est de 30×. La même note de 20× pour une compagnie d\'assurance serait alarmante. Nous croisons ensuite ce ratio avec le CAGR FCF historique sur 3 et 5 ans pour calculer le ratio de croissance ajustée. C\'est ce double filtre qui nous permet d\'identifier des actions qui combinent qualité et valorisation raisonnable.' },
+        { type: 'p', text: 'La morale de cette histoire : ne jamais comparer des P/FCF entre secteurs différents sans ajustement. Un seul chiffre ne dit rien — c\'est son contexte sectoriel et sa relation avec la croissance attendue qui font toute la différence.' },
+      ],
+      faq: [
+        { q: 'C\'est quoi exactement le free cash flow ?', a: 'Le free cash flow (flux de trésorerie disponible) est l\'argent qu\'une entreprise génère après avoir payé ses dépenses d\'exploitation et ses investissements (achats de machines, logiciels, etc.). C\'est l\'argent que l\'entreprise pourrait théoriquement verser à ses actionnaires ou réinvestir pour croître.' },
+        { q: 'Un P/FCF bas est-il toujours un signal d\'achat ?', a: 'Non. Un P/FCF bas peut refléter une croissance faible, une cyclicité élevée, un risque de disruption, ou une qualité de cash flow médiocre. Il faut toujours comparer à la médiane sectorielle et croiser avec la croissance attendue.' },
+        { q: 'Pourquoi le SaaS mérite-t-il un multiple plus élevé que l\'industrie ?', a: 'Parce que les flux SaaS sont récurrents (abonnements renouvelés automatiquement), en forte croissance (15-30 %/an), et s\'améliorent avec la taille (levier opérationnel). Chaque euro de FCF SaaS est plus prévisible et en croissance qu\'un euro de FCF industriel cyclique.' },
+        { q: 'Comment comparer des actions de secteurs différents ?', a: 'En divisant le P/FCF par le CAGR FCF attendu (taux de croissance annuel composé). Ce ratio de croissance ajustée permet une comparaison plus équitable. Mais rien ne remplace une analyse qualitative du secteur et du modèle économique.' },
+        { q: 'ServiceNow à 44 fois les flux de trésorerie, ce n\'est pas risqué ?', a: 'C\'est un multiple élevé qui intègre une forte croissance attendue. Le risque principal : si la croissance ralentit à 10 %/an au lieu de 20 %/an, le titre devrait être revalorisé fortement à la baisse. C\'est un pari sur la durabilité de la croissance — documenté, mais réel.' },
+      ],
+      tags: ['P/FCF', 'valorisation', 'SaaS', 'assurance', 'secteurs', 'free cash flow', 'ServiceNow', 'Progressive', 'ratio sectoriel', 'investissement'],
+      disclaimer: "Contenu pédagogique uniquement, ne constitue pas un conseil en investissement. Les données P/FCF sont issues du screener Lubin Investment au 23 juin 2026 et peuvent évoluer. Tout investissement comporte un risque de perte en capital.",
+    },
+    en: {
+      title: 'Price-to-cash-flow: everything depends on the sector',
+      excerpt: 'A software company trading at 44 times its cash flow can be cheaper than an insurer trading at 5 times. I explain why the same ratio means very different things depending on the sector — and how to use it intelligently.',
+      metaDescription: 'Why a high price-to-free-cash-flow ratio can mean "cheap" in some sectors and "expensive" in others. Educational guide with real examples from our stock screener.',
+      answer: 'The P/FCF ratio (price divided by free cash flow) only makes sense when compared within the same sector. A SaaS company at 44× can be cheaper than an insurer at 5× if its growth is four times faster. What matters is the price you pay per point of expected growth.',
+      body: [
+        { type: 'ul', items: [
+          'P/FCF (price divided by free cash flow) measures how much you pay for each dollar of cash generated.',
+          'A high multiple in SaaS reflects strong growth and very recurring cash flows — not necessarily overvaluation.',
+          'A low multiple in insurance reflects a mature, cyclical sector — not necessarily a bargain.',
+          'The real question: how much are you paying per point of annual free cash flow growth?',
+          'ServiceNow at 44× with +20%/year growth can outperform an insurer at 5× with +5%/year over 10 years.',
+        ]},
+        { type: 'h2', text: 'What is P/FCF?' },
+        { type: 'p', text: 'P/FCF, or Price to Free Cash Flow, is a stock valuation ratio. It is calculated simply: divide the company\'s market capitalization (the total price of all its shares) by its annual free cash flow (the money it actually generates after paying for its investments). If a company is worth $1 billion and generates $100 million in free cash flow, its P/FCF is 10×. Concretely, it means you are paying $10 for every $1 of annual cash flow.' },
+        { type: 'p', text: 'Why this ratio rather than the classic P/E (Price to Earnings)? Because free cash flow is much harder to manipulate accounting-wise than net profit. A company can show profits while having cash flow problems. With P/FCF, we look at the money actually coming into the business.' },
+        { type: 'h2', text: 'The problem: comparing apples and oranges' },
+        { type: 'p', text: 'The classic mistake is comparing P/FCF ratios across different sectors. When I see ServiceNow (NOW) at 44× and an insurer like Mercury General (MCY) at 3.9×, my natural reflex is to think insurance is ten times cheaper. That is wrong. It would be like comparing the speed of a high-speed train and a cargo ship and saying the cargo ship is "too slow" — they do not do the same job.' },
+        { type: 'p', text: 'Each sector has its own valuation logic, driven by its growth rate, cyclicality, quality of cash flows, and capital requirements. Let us look at the main families.' },
+        { type: 'h2', text: 'Why SaaS deserves a high multiple' },
+        { type: 'p', text: 'SaaS (Software as a Service) refers to subscription-based software sold online — think ServiceNow, Shopify, or Intuit. These companies have three characteristics that justify a high multiple. First, growth: they increase their free cash flow by 15 to 30% per year, versus 5 to 7% for a mature sector. Second, recurrence: an annual subscription renews automatically in 90% of cases — this cash flow is nearly guaranteed. Third, operating leverage: each new customer costs very little to serve (no factory, no inventory), so FCF margins improve structurally with scale.' },
+        { type: 'p', text: 'One dollar of SaaS free cash flow is intrinsically worth more than one dollar of cyclical free cash flow, because it is more predictable, growing, and improving over time. That is why the market accepts paying 44× for ServiceNow or 85× for Shopify.' },
+        { type: 'h2', text: 'Why insurance structurally carries a low multiple' },
+        { type: 'p', text: 'P&C (property & casualty) insurance is a mature sector. Premium growth is correlated with inflation and demographics — we are talking 5 to 8% per year in the best cases. But there is an important subtlety: the "insurance float." Insurers collect premiums upfront and reimburse them later as claims. This intermediate cash (the float) technically belongs to policyholders, not the company. Apparent free cash flow can therefore be artificially high during premium collection periods, and collapse when claims arrive (natural disasters, litigation waves).' },
+        { type: 'p', text: 'A low P/FCF in insurance is therefore not necessarily a bargain: it reflects limited growth, real cyclicality, and lower-quality cash flow than SaaS. Progressive (PGR) at 7.4× is an excellent company — but this multiple does not compare with ServiceNow.' },
+        { type: 'h2', text: 'Sector comparison table' },
+        { type: 'table', headers: ['Sector', 'Company', 'Ticker', 'P/FCF', 'Est. FCF CAGR', 'P/FCF ÷ CAGR'], rows: [
+          ['SaaS / Software', 'ServiceNow', 'NOW', '44×', '~22%', '2.0'],
+          ['SaaS / Software', 'Shopify', 'SHOP', '85×', '~35%', '2.4'],
+          ['SaaS / Software', 'Autodesk', 'ADSK', '24×', '~15%', '1.6'],
+          ['SaaS / Software', 'Roper Tech.', 'ROP', '13×', '~10%', '1.3'],
+          ['SaaS / Software', 'Paycom', 'PCTY', '17×', '~12%', '1.4'],
+          ['SaaS / Software', 'Intuit', 'INTU', '14×', '~12%', '1.2'],
+          ['P&C Insurance', 'Progressive', 'PGR', '7.4×', '~10%', '0.74'],
+          ['P&C Insurance', 'Kinsale Capital', 'KNSL', '7×', '~15%', '0.47'],
+          ['P&C Insurance', 'Selective Ins.', 'SIGI', '5×', '~7%', '0.71'],
+          ['P&C Insurance', 'Mercury General', 'MCY', '3.9×', '~5%', '0.78'],
+          ['P&C Insurance', 'Universal Ins.', 'UVE', '2.9×', '~4%', '0.73'],
+          ['REIT', 'Realty Income', 'O', '14×', '~4%', '3.5'],
+          ['REIT', 'STAG Industrial', 'STAG', '15×', '~5%', '3.0'],
+          ['Gold / Mining', 'Kinross Gold', 'KGC', '12.5×', '~8%', '1.6'],
+          ['Gold / Mining', 'Dundee Prec. Met.', 'DPM', '13×', '~8%', '1.6'],
+          ['Travel / Booking', 'Booking Holdings', 'BKNG', '15×', '~12%', '1.3'],
+          ['Travel / Booking', 'Airbnb', 'ABNB', '28×', '~18%', '1.6'],
+          ['FinTech', 'PayPal', 'PYPL', '8×', '~8%', '1.0'],
+          ['FinTech', 'Futu Holdings', 'FUTU', '0.34×', '~5%', '0.07'],
+          ['Airports', 'OMAB', 'OMAB', '0.71×', '~6%', '0.12'],
+          ['Regional Aviation', 'SkyWest', 'SKYW', '3.9×', '~8%', '0.49'],
+        ]},
+        { type: 'h2', text: 'The formula that changes everything: P/FCF divided by growth' },
+        { type: 'p', text: 'The real question is not "what is the P/FCF?" but "how many years of cash flow are you paying per point of expected annual growth?" The formula is simple: P/FCF ÷ expected FCF CAGR (where CAGR stands for Compound Annual Growth Rate, expressed as %). This ratio — which we can call the growth-adjusted ratio — tells you whether you are being adequately compensated for the growth you are buying.' },
+        { type: 'p', text: 'Concrete example: ServiceNow at 44× P/FCF with an estimated FCF CAGR of 22% gives 44 ÷ 22 = 2.0. Progressive at 7.4× with a 10% CAGR gives 7.4 ÷ 10 = 0.74. Which is cheaper? Progressive, based on this ratio alone. But ServiceNow is not twice as expensive as it appears — it offers a quality and durability of cash flow growth that Progressive structurally cannot match. This ratio is a comparison tool, not an absolute truth.' },
+        { type: 'h2', text: 'REITs: a special case' },
+        { type: 'p', text: 'REITs (Real Estate Investment Trusts) like Realty Income (O) or STAG Industrial show P/FCF ratios of 14 to 15×. But beware: for REITs, standard free cash flow understates the economic reality. We use AFFO (Adjusted Funds From Operations) instead, a measure that accounts for real estate depreciation. A P/FCF of 14× on a REIT growing at 4%/year gives a growth-adjusted ratio of 3.5 — that is high, but the dividend yield (often 4 to 6%) partially compensates for the low capital gain potential.' },
+        { type: 'h2', text: 'Extreme cases: OMAB and FUTU' },
+        { type: 'p', text: 'Some P/FCF ratios below 1× can mean two very different things. OMAB (Mexican airports) at 0.71× reflects an exceptional situation: a cash flow peak tied to highly profitable airport concessions and a low stock market valuation. FUTU Holdings (Asian online broker) at 0.34× reflects a major geopolitical risk discount (exposure to China and Hong Kong). In both cases, a low P/FCF does not automatically mean the stock is cheap — you need to understand why the market applies that discount.' },
+        { type: 'h2', text: 'How I use it in my screener' },
+        { type: 'p', text: 'In our Lubin Investment screener, we compare a company\'s P/FCF only to the median within its sector. A SaaS company with a P/FCF of 20× can receive a good valuation score if the sector median is 30×. The same 20× for an insurance company would be alarming. We then cross this ratio with the historical 3- and 5-year FCF CAGR to calculate the growth-adjusted ratio. It is this double filter that allows us to identify stocks combining quality and reasonable valuation.' },
+        { type: 'p', text: 'The moral of the story: never compare P/FCF ratios across different sectors without adjustment. A single number says nothing — it is the sectoral context and its relationship with expected growth that make all the difference.' },
+      ],
+      faq: [
+        { q: 'What exactly is free cash flow?', a: 'Free cash flow is the money a company generates after paying its operating expenses and capital expenditures (purchases of equipment, software, etc.). It is the money the company could theoretically return to shareholders or reinvest to grow.' },
+        { q: 'Is a low P/FCF always a buy signal?', a: 'No. A low P/FCF can reflect weak growth, high cyclicality, disruption risk, or poor cash flow quality. Always compare to the sector median and cross-reference with expected growth.' },
+        { q: 'Why does SaaS deserve a higher multiple than industry?', a: 'Because SaaS cash flows are recurring (subscriptions renewed automatically), fast-growing (15-30%/year), and improve with scale (operating leverage). Each dollar of SaaS FCF is more predictable and growing than a dollar of cyclical industrial FCF.' },
+        { q: 'How do you compare stocks from different sectors?', a: 'By dividing P/FCF by the expected FCF CAGR (compound annual growth rate). This growth-adjusted ratio allows for a fairer comparison. But nothing replaces qualitative analysis of the sector and business model.' },
+        { q: 'Is ServiceNow at 44 times cash flow not risky?', a: 'It is a high multiple that prices in strong expected growth. The main risk: if growth slows to 10%/year instead of 20%/year, the stock should be significantly repriced downward. It is a bet on the sustainability of growth — documented, but real.' },
+      ],
+      tags: ['P/FCF', 'valuation', 'SaaS', 'insurance', 'sectors', 'free cash flow', 'ServiceNow', 'Progressive', 'sector ratio', 'investing'],
+      disclaimer: "Educational content only, does not constitute investment advice. P/FCF data sourced from the Lubin Investment screener as of June 23, 2026 and may change. All investments involve risk of capital loss.",
+    },
+    es: {
+      title: 'Precio por flujo de caja: todo depende del sector',
+      excerpt: 'Un software cotizando a 44 veces su flujo de caja puede ser más barato que una aseguradora a 5 veces. Te explico por qué el mismo ratio dice cosas muy diferentes según el sector — y cómo usarlo de forma inteligente.',
+      metaDescription: 'Por qué un ratio precio/flujo de caja libre elevado puede significar "barato" en algunos sectores y "caro" en otros. Guía pedagógica con ejemplos reales de nuestro screener.',
+      answer: 'El ratio P/FCF (precio dividido entre el flujo de caja libre) solo tiene sentido comparado dentro del mismo sector. Un SaaS a 44× puede ser más barato que una aseguradora a 5× si su crecimiento es cuatro veces más rápido. Lo que importa es el precio que pagas por punto de crecimiento esperado.',
+      body: [
+        { type: 'ul', items: [
+          'El P/FCF (precio dividido entre el free cash flow) mide cuánto pagas por cada euro de tesorería generada.',
+          'Un múltiplo alto en SaaS refleja un fuerte crecimiento y flujos muy recurrentes — no necesariamente una acción cara.',
+          'Un múltiplo bajo en seguros refleja un sector maduro y cíclico — no necesariamente una ganga.',
+          'La pregunta real: ¿cuánto pagas por punto de crecimiento anual esperado del flujo de caja?',
+          'ServiceNow a 44× con +20 %/año de crecimiento puede superar a una aseguradora a 5× con +5 %/año en 10 años.',
+        ]},
+        { type: 'h2', text: '¿Qué es el P/FCF?' },
+        { type: 'p', text: 'El P/FCF, o Price to Free Cash Flow (precio sobre flujo de caja libre), es un ratio de valoración bursátil. Se calcula de forma sencilla: divides la capitalización de mercado de la empresa (el precio total de todas sus acciones) entre su free cash flow anual (el dinero que genera realmente después de pagar sus inversiones). Si una empresa vale 1.000 millones de euros y genera 100 millones de free cash flow, su P/FCF es 10×. Concretamente, significa que pagas 10 euros por cada euro de tesorería anual.' },
+        { type: 'p', text: '¿Por qué este ratio y no el clásico PER (Precio/Beneficio)? Porque el free cash flow es mucho más difícil de manipuler contablemente que el beneficio neto. Una empresa puede mostrar beneficios mientras tiene problemas de tesorería. Con el P/FCF, miramos el dinero que realmente entra en caja.' },
+        { type: 'h2', text: 'El problema: comparar manzanas con naranjas' },
+        { type: 'p', text: 'El error clásico es comparar P/FCF entre sectores diferentes. Cuando veo ServiceNow (NOW) a 44× y una aseguradora como Mercury General (MCY) a 3,9×, mi reflejo natural es pensar que el seguro es diez veces más barato. Eso es incorrecto. Sería como comparar la velocidad de un AVE y un carguero marítimo y decir que el carguero es "demasiado lento" — no hacen el mismo trabajo.' },
+        { type: 'p', text: 'Cada sector tiene su propia lógica de valoración, dictada por su crecimiento, su ciclicidad, la calidad de sus flujos de caja y sus necesidades de capital. Veamos las grandes familias.' },
+        { type: 'h2', text: 'Por qué el SaaS merece un múltiplo elevado' },
+        { type: 'p', text: 'El SaaS (Software as a Service) designa los programas vendidos por suscripción en línea — piensa en ServiceNow, Shopify o Intuit. Estas empresas tienen tres características que justifican un múltiplo elevado. Primero, el crecimiento: aumentan su free cash flow un 15 a 30 % al año, frente al 5 a 7 % de un sector maduro. Segundo, la recurrencia: una suscripción anual se renueva automáticamente en el 90 % de los casos — este flujo de caja está prácticamente garantizado. Tercero, el apalancamiento operativo: cada nuevo cliente cuesta muy poco atender (sin fábrica, sin inventario), por lo que el margen FCF mejora estructuralmente con el tamaño.' },
+        { type: 'p', text: 'Un euro de free cash flow SaaS vale intrínsecamente más que un euro de free cash flow cíclico, porque es más predecible, está en crecimiento y mejora con el tiempo. Por eso el mercado acepta pagar 44× por ServiceNow o 85× por Shopify.' },
+        { type: 'h2', text: 'Por qué los seguros tienen estructuralmente un múltiplo bajo' },
+        { type: 'p', text: 'El seguro de daños (P&C: property & casualty) es un sector maduro. El crecimiento de las primas está correlacionado con la inflación y la demografía — hablamos de un 5 a 8 % anual en los mejores casos. Pero hay una sutileza importante: el "float de seguros". Las aseguradoras cobran las primas por adelantado y las reembolsan más tarde en forma de siniestros. Esta tesorería intermedia (el float) pertenece técnicamente a los asegurados, no a la empresa. El free cash flow aparente puede por tanto ser artificialmente alto en períodos de cobro de primas, y derrumbarse cuando llegan los siniestros (catástrofes naturales, oleadas de litigios).' },
+        { type: 'p', text: 'Un P/FCF bajo en seguros no es por tanto necesariamente una ganga: refleja un crecimiento limitado, una ciclicidad real y una calidad de flujo de caja inferior a la del SaaS. Progressive (PGR) a 7,4× es una empresa excelente — pero este múltiplo no se compara con el de ServiceNow.' },
+        { type: 'h2', text: 'Tabla comparativa por sectores' },
+        { type: 'table', headers: ['Sector', 'Empresa', 'Ticker', 'P/FCF', 'CAGR FCF estim.', 'P/FCF ÷ CAGR'], rows: [
+          ['SaaS / Software', 'ServiceNow', 'NOW', '44×', '~22 %', '2,0'],
+          ['SaaS / Software', 'Shopify', 'SHOP', '85×', '~35 %', '2,4'],
+          ['SaaS / Software', 'Autodesk', 'ADSK', '24×', '~15 %', '1,6'],
+          ['SaaS / Software', 'Roper Tech.', 'ROP', '13×', '~10 %', '1,3'],
+          ['SaaS / Software', 'Paycom', 'PCTY', '17×', '~12 %', '1,4'],
+          ['SaaS / Software', 'Intuit', 'INTU', '14×', '~12 %', '1,2'],
+          ['Seguros P&C', 'Progressive', 'PGR', '7,4×', '~10 %', '0,74'],
+          ['Seguros P&C', 'Kinsale Capital', 'KNSL', '7×', '~15 %', '0,47'],
+          ['Seguros P&C', 'Selective Ins.', 'SIGI', '5×', '~7 %', '0,71'],
+          ['Seguros P&C', 'Mercury General', 'MCY', '3,9×', '~5 %', '0,78'],
+          ['Seguros P&C', 'Universal Ins.', 'UVE', '2,9×', '~4 %', '0,73'],
+          ['REIT', 'Realty Income', 'O', '14×', '~4 %', '3,5'],
+          ['REIT', 'STAG Industrial', 'STAG', '15×', '~5 %', '3,0'],
+          ['Oro / Minería', 'Kinross Gold', 'KGC', '12,5×', '~8 %', '1,6'],
+          ['Oro / Minería', 'Dundee Prec. Met.', 'DPM', '13×', '~8 %', '1,6'],
+          ['Turismo / Reservas', 'Booking Holdings', 'BKNG', '15×', '~12 %', '1,3'],
+          ['Turismo / Reservas', 'Airbnb', 'ABNB', '28×', '~18 %', '1,6'],
+          ['FinTech', 'PayPal', 'PYPL', '8×', '~8 %', '1,0'],
+          ['FinTech', 'Futu Holdings', 'FUTU', '0,34×', '~5 %', '0,07'],
+          ['Aeropuertos', 'OMAB', 'OMAB', '0,71×', '~6 %', '0,12'],
+          ['Aviación regional', 'SkyWest', 'SKYW', '3,9×', '~8 %', '0,49'],
+        ]},
+        { type: 'h2', text: 'La fórmula que lo cambia todo: P/FCF dividido entre el crecimiento' },
+        { type: 'p', text: 'La pregunta real no es "¿cuál es el P/FCF?" sino "¿cuántos años de tesorería pagas por punto de crecimiento anual esperado?". La fórmula es sencilla: P/FCF ÷ CAGR_FCF_esperado (donde CAGR significa tasa de crecimiento anual compuesto, en %). Este ratio — que podemos llamar el ratio de crecimiento ajustado — te dice si estás siendo bien remunerado por el crecimiento que compras.' },
+        { type: 'p', text: 'Ejemplo concreto: ServiceNow a 44× de P/FCF con un CAGR FCF estimado del 22 % da 44 ÷ 22 = 2,0. Progressive a 7,4× con un CAGR del 10 % da 7,4 ÷ 10 = 0,74. ¿Cuál es más barato? Progressive, si nos atenemos a este ratio. Pero ServiceNow no es el doble de caro de lo que parece — ofrece una calidad de flujo de caja y una durabilidad del crecimiento que Progressive no puede alcanzar estructuralmente. Este ratio es una herramienta de comparación, no una verdad absoluta.' },
+        { type: 'h2', text: 'Los REIT: un caso especial' },
+        { type: 'p', text: 'Los REIT (Real Estate Investment Trusts, o sociedades de inversión inmobiliaria cotadas) como Realty Income (O) o STAG Industrial muestran P/FCF de 14 a 15×. Pero atención: para los REIT, el free cash flow estándar subestima la realidad económica. Se usa en su lugar el AFFO (Adjusted Funds From Operations), una medida que tiene en cuenta las amortizaciones inmobiliarias. Un P/FCF de 14× en un REIT que crece al 4 %/año da un ratio de crecimiento ajustado de 3,5 — es alto, pero la rentabilidad por dividendo (a menudo del 4 al 6 %) compensa parcialmente el bajo potencial de plusvalía.' },
+        { type: 'h2', text: 'Los casos extremos: OMAB y FUTU' },
+        { type: 'p', text: 'Algunos P/FCF inferiores a 1× pueden significar dos cosas muy diferentes. OMAB (aeropuertos mexicanos) a 0,71× refleja una situación excepcional: un pico de flujo de caja ligado a concesiones aeroportuarias muy rentables y una baja valoración bursátil. FUTU Holdings (bróker online asiático) a 0,34× refleja un importante descuento por riesgo geopolítico (exposición a China y Hong Kong). En ambos casos, un P/FCF bajo no significa automáticamente que la acción esté barata — hay que entender por qué el mercado aplica ese descuento.' },
+        { type: 'h2', text: 'Cómo lo uso en mi screener' },
+        { type: 'p', text: 'En nuestro screener de Lubin Investment, comparamos el P/FCF de una empresa únicamente con la mediana de su sector. Una empresa SaaS con un P/FCF de 20× puede obtener una buena nota de valoración si la mediana sectorial es de 30×. La misma nota de 20× para una compañía de seguros sería alarmante. Luego cruzamos este ratio con el CAGR FCF histórico a 3 y 5 años para calcular el ratio de crecimiento ajustado. Es este doble filtro el que nos permite identificar acciones que combinan calidad y valoración razonable.' },
+        { type: 'p', text: 'La moraleja de esta historia: nunca comparar P/FCF entre sectores diferentes sin ajuste. Un solo número no dice nada — es su contexto sectorial y su relación con el crecimiento esperado lo que marca toda la diferencia.' },
+      ],
+      faq: [
+        { q: '¿Qué es exactamente el free cash flow?', a: 'El free cash flow (flujo de caja libre) es el dinero que genera una empresa después de pagar sus gastos operativos e inversiones (compra de maquinaria, software, etc.). Es el dinero que la empresa podría teóricamente distribuir a sus accionistas o reinvertir para crecer.' },
+        { q: '¿Es siempre un P/FCF bajo una señal de compra?', a: 'No. Un P/FCF bajo puede reflejar un crecimiento débil, una alta ciclicidad, riesgo de disrupción o una calidad de flujo de caja mediocre. Siempre hay que comparar con la mediana sectorial y cruzar con el crecimiento esperado.' },
+        { q: '¿Por qué el SaaS merece un múltiplo más alto que la industria?', a: 'Porque los flujos SaaS son recurrentes (suscripciones renovadas automáticamente), de fuerte crecimiento (15-30 %/año) y mejoran con el tamaño (apalancamiento operativo). Cada euro de FCF SaaS es más predecible y creciente que un euro de FCF industrial cíclico.' },
+        { q: '¿Cómo comparar acciones de sectores diferentes?', a: 'Dividiendo el P/FCF entre el CAGR FCF esperado (tasa de crecimiento anual compuesto). Este ratio de crecimiento ajustado permite una comparación más justa. Pero nada reemplaza el análisis cualitativo del sector y del modelo de negocio.' },
+        { q: '¿ServiceNow a 44 veces el flujo de caja no es arriesgado?', a: 'Es un múltiplo elevado que incorpora un fuerte crecimiento esperado. El riesgo principal: si el crecimiento se ralentiza al 10 %/año en lugar del 20 %/año, el título debería revalorizarse fuertemente a la baja. Es una apuesta por la sostenibilidad del crecimiento — documentada, pero real.' },
+      ],
+      tags: ['P/FCF', 'valoración', 'SaaS', 'seguros', 'sectores', 'free cash flow', 'ServiceNow', 'Progressive', 'ratio sectorial', 'inversión'],
+      disclaimer: "Contenido pedagógico únicamente, no constituye asesoramiento de inversión. Los datos P/FCF proceden del screener de Lubin Investment a 23 de junio de 2026 y pueden variar. Toda inversión conlleva riesgo de pérdida de capital.",
+    },
+  },
+};
+
+const articleRecurrenceRevenus: Article = {
+  slug: 'revenus-recurrents-fil-rouge-actions-note-parfaite-lubin',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 6,
+  content: {
+    fr: {
+      title: 'Revenus récurrents : le critère clé des notes parfaites',
+      excerpt:
+        "Pourquoi les meilleures entreprises de ma méthode génèrent-elles toutes du cash de façon régulière et prévisible ? Abonnements, primes d'assurance, licences, péages : ce que ces modèles ont en commun que Nike et Micron n'ont pas.",
+      metaDescription:
+        "Abonnements, primes d'assurance, licences logicielles, péages : les modèles à revenus récurrents génèrent un cash prévisible et croissant. Voici pourquoi ma méthode les récompense systématiquement.",
+      answer:
+        "Les entreprises qui obtiennent les meilleures notes dans ma méthode ont presque toutes un point commun : leurs revenus rentrent régulièrement, que le marché soit calme ou agité. Abonnements logiciels, primes d'assurance, licences, péages — ces modèles produisent un flux de trésorerie libre (l'argent réellement généré après toutes les dépenses) prévisible et croissant. C'est exactement ce que récompense ma méthode.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Environ 90 % des entreprises qui obtiennent les meilleures notes dans ma méthode ont des revenus récurrents.",
+            "Le flux de trésorerie libre — l'argent qui reste après toutes les dépenses et tous les investissements — est le cœur de ma méthode.",
+            "La récurrence crée deux avantages : régularité du cash et marges élevées, car les coûts variables ne croissent pas proportionnellement.",
+            "Nike, Micron, Carnival : sans récurrence, le cash est erratique et la note chute mécaniquement.",
+            "SaaS, assurances, logiciels, péages, services à contrat : cinq familles de récurrence, une même logique.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Ce que j'entends par flux de trésorerie libre",
+        },
+        {
+          type: 'p',
+          text: "Avant tout, je veux être précis sur un terme que j'utilise dans toute ma méthode : le flux de trésorerie libre (en anglais, free cash flow). C'est l'argent qui reste réellement dans les caisses d'une entreprise après qu'elle a payé toutes ses charges opérationnelles — salaires, loyers, impôts — et tous ses investissements pour maintenir et développer son activité. Ce n'est pas le bénéfice comptable, qui peut être manipulé. C'est du cash réel. Sur 100 euros de chiffre d'affaires, combien en reste-t-il vraiment ? Voilà la question que je me pose en premier.",
+        },
+        {
+          type: 'p',
+          text: "Ma méthode évalue chaque entreprise sur dix critères. Deux d'entre eux sont directement liés à la qualité du flux de trésorerie libre : sa croissance sur cinq ans et sa marge (c'est-à-dire quelle part du chiffre d'affaires se transforme en cash). Et j'ai constaté quelque chose de très clair : les entreprises qui valident ces deux critères sont, dans leur immense majorité, des entreprises à revenus récurrents. Ce n'est pas une coïncidence. C'est mécanique.",
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi la récurrence transforme le cash en moteur',
+        },
+        {
+          type: 'p',
+          text: "Imagine deux entreprises qui font 100 millions d'euros de chiffre d'affaires cette année. La première vend des abonnements logiciels : ses clients renouvellent automatiquement chaque mois, et le logiciel ne coûte quasiment rien à livrer en plus (pas d'usine, pas de matières premières). La deuxième vend des chaussures de sport : chaque paire nécessite des matières premières, de la fabrication, de la logistique, et le client devra peut-être ne plus acheter pendant deux ans. Laquelle génère un flux de trésorerie libre plus stable et plus prévisible ? La première, sans hésitation.",
+        },
+        {
+          type: 'p',
+          text: "La récurrence crée deux avantages structurels que ma méthode récompense directement. D'abord, la régularité : un abonné qui renouvelle en janvier, en juillet et en décembre génère un cash prévisible sur lequel l'entreprise peut baser ses décisions. Ma méthode mesure la croissance du flux de trésorerie libre sur cinq ans — une entreprise récurrente valide ce critère presque automatiquement, car son cash ne dépend pas d'une conjoncture particulière. Ensuite, les marges : quand tu as déjà un client abonné, le coût pour lui livrer le service le mois suivant est quasi nul. Le logiciel, la prime d'assurance, l'accès au réseau de péage — ils ne coûtent pas proportionnellement plus cher à fournir à 10 millions de clients qu'à 1 million. C'est l'effet d'échelle pur.",
+        },
+        {
+          type: 'h2',
+          text: 'Les cinq familles de récurrence que je retrouve dans les meilleures notes',
+        },
+        {
+          type: 'p',
+          text: "Au fil de mes analyses, j'ai identifié cinq grandes familles de modèles à revenus récurrents. Chacune a sa propre logique, mais toutes partagent cette caractéristique fondamentale : le client revient sans qu'on ait besoin de le reconquérir.",
+        },
+        {
+          type: 'p',
+          text: "La première famille, c'est le logiciel par abonnement (SaaS, pour Software as a Service). ServiceNow (NOW), Autodesk (ADSK), Shopify (SHOP), Paylocity (PCTY), Intuit (INTU), Qualys (QLYS), Nutanix (NTNX), GoDaddy (GDDY) : ces entreprises ont en commun que leur client paie chaque mois ou chaque année pour accéder au logiciel. Le coût de remplacement est souvent énorme — des années de données, de formation, d'intégrations — ce qui crée ce qu'on appelle un coût de commutation élevé. Le client reste parce qu'il ne peut pas partir facilement.",
+        },
+        {
+          type: 'p',
+          text: "La deuxième famille, c'est l'assurance. Kinsale Capital (KNSL), Progressive (PGR), Mercury General (MCY), Universal Insurance (UVE), Selective Insurance (SIGI), Assurant (AIZ), Arch Capital (ACGL), W. R. Berkley (WRB), Cincinnati Financial (CINF), RenaissanceRe (RNR) : chaque année, les assurés renouvellent leur contrat. La prime est prélevée en début d'année, avant même que le sinistre éventuel se produise. C'est l'un des modèles économiques les plus récurrents qui existe.",
+        },
+        {
+          type: 'p',
+          text: "La troisième famille regroupe les consommables et dispositifs à renouvellement régulier. ResMed (RMD) vend des appareils CPAP pour l'apnée du sommeil, mais surtout les masques et consommables que les patients remplacent régulièrement. Haemonetics (HAE) fournit des équipements de traitement du sang aux hôpitaux, avec des consommables à usage unique. Dexcom (DXCM) fabrique des capteurs de glycémie qui doivent être remplacés tous les dix jours. Napco Security (NSSC) combine la vente de matériel avec des abonnements de surveillance récurrents.",
+        },
+        {
+          type: 'p',
+          text: "La quatrième famille, ce sont les services à contrat. Rollins (ROL) fait du traitement antiparasitaire par abonnement : tu paies chaque trimestre pour que ta maison reste protégée. Frontdoor (FTDR) vend des garanties maison à renouvellement annuel. Doximity (DOCS) est la plateforme médicale où les médecins ont un abonnement professionnel. Dans tous ces cas, le client signe pour une durée et renouvelle automatiquement.",
+        },
+        {
+          type: 'p',
+          text: "La cinquième famille, c'est l'infrastructure monopolistique. CME Group, ICE et S&P Global (SPGI) prélèvent des frais sur chaque transaction financière — à chaque fois qu'une action change de mains sur leurs places de marché, ils touchent une commission. ASML vend des machines de lithographie et les maintient ensuite sous contrat de service. TSMC reçoit des commandes continues de wafers (galettes de silicium) de la part d'Apple, Nvidia et AMD. Ces entreprises ne conquièrent pas de nouveaux marchés — elles en détiennent un.",
+        },
+        {
+          type: 'h2',
+          text: 'Tableau comparatif : type de récurrence et exemples',
+        },
+        {
+          type: 'table',
+          headers: ['Type de récurrence', 'Exemples de tickers', 'Logique du renouvellement'],
+          rows: [
+            ['SaaS / abonnements logiciels', 'NOW, ADSK, SHOP, PCTY, INTU, QLYS, NTNX, GDDY', 'Renouvellement mensuel ou annuel automatique, coût de commutation élevé'],
+            ["Primes d'assurance", 'KNSL, PGR, MCY, UVE, SIGI, AIZ, ACGL, WRB, CINF, RNR', 'Prime annuelle prélevée en début de période, renouvellement contractuel'],
+            ['Consommables à remplacement régulier', 'RMD, HAE, DXCM, NSSC', 'Dispositif médical + consommable remplacé périodiquement par nécessité'],
+            ['Services à contrat', 'ROL, FTDR, DOCS', 'Abonnement trimestriel ou annuel pour un service continu'],
+            ['Infrastructure monopolistique', 'CME, ICE, SPGI, TSM, ASML, OMAB, SKYW', 'Frais sur chaque transaction ou commande, position incontournable'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Ce que ma méthode pénalise : l'absence de récurrence",
+        },
+        {
+          type: 'p',
+          text: "Pour bien comprendre pourquoi la récurrence est si importante, regarde ce qui se passe sans elle. Micron Technology fabrique des puces mémoire DRAM. Son problème ? Le marché des puces mémoire est cyclique : quand l'offre dépasse la demande, les prix s'effondrent et le flux de trésorerie libre de Micron devient négatif. Quand la demande explose (comme avec l'IA), les marges s'envolent. Ce yo-yo permanent est exactement ce que ma méthode pénalise : le critère de croissance du flux de trésorerie libre sur cinq ans devient difficile à valider quand une année est brillante et la suivante catastrophique. Résultat : Micron obtient environ 6 sur 10 dans ma méthode.",
+        },
+        {
+          type: 'p',
+          text: "Nike est un autre exemple instructif. La marque est puissante, le nom est connu dans le monde entier, mais le modèle économique repose sur la vente de chaussures et de vêtements. Chaque saison, Nike doit reconquérir ses clients. La concurrence d'On Running et de Hoka érode sa position. Les revenus sont volatils selon les tendances mode et sport. Le flux de trésorerie libre suit ces fluctuations. Ma méthode donne à Nike environ 2 sur 10 — non pas parce que c'est une mauvaise entreprise, mais parce que son modèle n'est pas structurellement récurrent.",
+        },
+        {
+          type: 'p',
+          text: "Carnival Corporation, le géant des croisières, illustre le même problème amplifié. Non seulement les revenus ne sont pas récurrents (une croisière est un achat ponctuel), mais le secteur est extrêmement sensible aux chocs externes — pandémie, crise économique, prix du carburant. Le flux de trésorerie libre peut passer du positif au très négatif d'une année sur l'autre. Les constructeurs de maisons individuelles ont le même profil : ils vendent quand les taux d'intérêt sont bas et le marché immobilier est favorable, et leurs ventes s'effondrent sinon.",
+        },
+        {
+          type: 'h2',
+          text: "La récurrence n'est pas une garantie : ce que je vérifie aussi",
+        },
+        {
+          type: 'p',
+          text: "Je veux être honnête sur quelque chose : avoir des revenus récurrents ne suffit pas pour obtenir une bonne note. Une entreprise peut avoir des abonnements et quand même perdre de l'argent si elle dépense trop pour acquérir ses clients ou si elle est trop endettée. Ce que ma méthode cherche, c'est la combinaison de la récurrence ET de la rentabilité.",
+        },
+        {
+          type: 'p',
+          text: "Concrètement, voici ce que je vérifie au-delà de la récurrence. La marge de flux de trésorerie libre doit être élevée — idéalement au-dessus de 15 % du chiffre d'affaires. La croissance du flux de trésorerie libre doit être positive et régulière sur au moins cinq ans. La dette ne doit pas écraser le cash généré. Et l'entreprise doit utiliser son cash intelligemment : racheter ses actions, investir dans sa croissance, plutôt que de payer des acquisitions ruineuses.",
+        },
+        {
+          type: 'p',
+          text: "Roper Technologies (ROP) est un excellent exemple de ce que je cherche : un conglomérat de logiciels de niche, tous en mode abonnement, avec des marges de flux de trésorerie libre autour de 25 % et une croissance régulière depuis plus d'une décennie. OMAB, l'opérateur d'aéroports mexicains, a une récurrence liée au trafic de passagers — chaque avion qui atterrit génère une redevance. SKYW (SkyWest) opère sous des contrats à long terme avec les grandes compagnies aériennes : ses revenus sont fixés à l'avance pour plusieurs années.",
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi je construis ma méthode autour de ce critère',
+        },
+        {
+          type: 'p',
+          text: "Je vais te dire ce qui m'a conduit à mettre autant de poids sur la récurrence dans ma méthode. Quand je regarde les entreprises qui ont le mieux traversé les crises — la pandémie de 2020, les hausses de taux de 2022, la récession de 2008 — ce sont presque toujours des entreprises dont les revenus continuaient de rentrer. ServiceNow n'a pas vu ses abonnements s'annuler en 2020. Progressive a continué d'encaisser ses primes. ROL a continué ses tournées antiparasitaires. Pendant ce temps, Nike perdait des ventes, Carnival immobilisait ses navires, et Micron traversait une chute de prix catastrophique.",
+        },
+        {
+          type: 'p',
+          text: "L'investissement que je pratique n'est pas de la spéculation sur le prochain trimestre. C'est l'identification d'entreprises capables de générer du cash de façon prévisible sur dix ou vingt ans. Et la récurrence des revenus est le meilleur prédicteur que je connaisse de cette capacité. C'est pour ça que dans ma méthode, une entreprise sans récurrence a très peu de chances d'atteindre les meilleures notes — et que les entreprises qui les atteignent ont, dans environ 90 % des cas, un modèle récurrent au cœur de leur activité.",
+        },
+      ],
+      faq: [
+        {
+          q: "C'est quoi exactement un revenu récurrent ?",
+          a: "C'est un revenu qui rentre régulièrement, souvent automatiquement, sans que l'entreprise ait besoin de reconquérir le client à chaque fois. Un abonnement mensuel, une prime d'assurance annuelle, une redevance d'aéroport à chaque décollage : le client est déjà engagé, le cash arrive de façon prévisible.",
+        },
+        {
+          q: 'Pourquoi le flux de trésorerie libre est-il plus fiable que le bénéfice ?',
+          a: "Le bénéfice comptable peut être ajusté par des écritures comptables — amortissements, provisions, dépréciation d'actifs. Le flux de trésorerie libre, lui, mesure le cash réel qui entre et sort. Il est beaucoup plus difficile à maquiller et reflète mieux la santé réelle de l'entreprise.",
+        },
+        {
+          q: 'Une entreprise sans récurrence peut-elle quand même bien performer en bourse ?',
+          a: "Bien sûr. Mais elle le fait généralement de façon moins prévisible, avec des hauts et des bas plus marqués. Ma méthode ne cherche pas les coups de bourse — elle cherche des entreprises dont la progression du cash est régulière et défendable sur le long terme. Sans récurrence, c'est beaucoup plus difficile à garantir.",
+        },
+        {
+          q: "Pourquoi Micron ne passe-t-il pas le filtre malgré ses bonnes années ?",
+          a: "Parce que ma méthode évalue la régularité sur cinq ans, pas le pic. Micron a des années brillantes quand les prix DRAM montent, mais aussi des années très difficiles quand l'offre dépasse la demande. Cette irrégularité est précisément ce que mes critères de croissance et de marge du flux de trésorerie libre détectent et pénalisent.",
+        },
+        {
+          q: 'Les péages et les aéroports sont-ils vraiment récurrents ?',
+          a: "Oui, dans la mesure où le trafic est structurellement stable et que l'opérateur détient un monopole géographique. OMAB opère des aéroports mexicains dans des régions touristiques dynamiques : chaque avion qui atterrit génère une redevance, indépendamment de qui le gère. La récurrence vient ici du monopole d'infrastructure, pas d'un contrat d'abonnement classique.",
+        },
+      ],
+      tags: [
+        'revenus récurrents',
+        'SaaS',
+        'assurance',
+        'abonnements',
+        'flux de trésorerie libre',
+        'méthode Lubin',
+        'qualité fondamentale',
+        'ServiceNow',
+        'Progressive',
+        'Rollins',
+      ],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Recurring revenue: the key to top-rated stocks',
+      excerpt:
+        'Why do the best-scoring companies in my method almost all generate cash regularly and predictably? SaaS subscriptions, insurance premiums, licenses, tolls: what these models share that Nike and Micron do not.',
+      metaDescription:
+        'SaaS subscriptions, insurance premiums, software licenses, tolls: recurring revenue models generate predictable, growing cash. Here is why my method consistently rewards them.',
+      answer:
+        'Companies that score highest in my method almost all share one trait: their revenue comes in regularly, whether markets are calm or turbulent. Software subscriptions, insurance premiums, licenses, tolls — these models produce free cash flow (cash actually generated after all expenses) that is predictable, regular and growing. That is precisely what my method rewards.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'About 90% of top-scoring companies in my method have recurring revenues.',
+            'Free cash flow — cash remaining after all expenses and investments — is the heart of my method.',
+            'Recurrence creates two advantages: cash regularity and high margins, because variable costs do not scale proportionally.',
+            'Nike, Micron, Carnival: without recurrence, cash is erratic and scores drop mechanically.',
+            'SaaS, insurance, software, tolls, contract services: five recurrence families, one shared logic.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What I mean by free cash flow',
+        },
+        {
+          type: 'p',
+          text: "Before anything else, I want to be precise about a term I use throughout my method: free cash flow. This is the cash that actually stays in a company's accounts after it has paid all its operating costs — salaries, rent, taxes — and all its investments to maintain and grow its business. It is not the accounting profit, which can be manipulated. It is real cash. Out of every $100 in revenue, how much actually stays? That is the first question I ask.",
+        },
+        {
+          type: 'p',
+          text: 'My method evaluates each company on ten criteria. Two of them are directly tied to free cash flow quality: its five-year growth and its margin (what share of revenue converts into cash). And I have noticed something very clear: companies that pass both criteria are, in the vast majority of cases, companies with recurring revenues. This is not a coincidence. It is mechanical.',
+        },
+        {
+          type: 'h2',
+          text: 'Why recurrence turns cash into an engine',
+        },
+        {
+          type: 'p',
+          text: 'Imagine two companies each doing $100 million in revenue this year. The first sells software subscriptions: customers auto-renew every month, and delivering the software costs almost nothing extra (no factory, no raw materials). The second sells athletic shoes: each pair requires raw materials, manufacturing, logistics, and the customer might not buy again for two years. Which generates more stable and predictable free cash flow? The first, without question.',
+        },
+        {
+          type: 'p',
+          text: 'Recurrence creates two structural advantages that my method rewards directly. First, regularity: a subscriber who renews in January, July, and December generates predictable cash that the company can build decisions around. My method measures free cash flow growth over five years — a recurring business passes this criterion almost automatically because its cash does not depend on any particular market environment. Second, margins: once you already have a subscriber, the cost to deliver the service the following month is nearly zero. The software, the insurance premium, the toll road access — these do not cost proportionally more to provide to 10 million customers than to 1 million. That is pure scale.',
+        },
+        {
+          type: 'h2',
+          text: 'The five recurrence families I find in top-rated stocks',
+        },
+        {
+          type: 'p',
+          text: 'Through my analyses, I have identified five major families of recurring revenue models. Each has its own logic, but all share the fundamental characteristic: the customer comes back without needing to be re-acquired.',
+        },
+        {
+          type: 'p',
+          text: 'The first family is subscription software (SaaS, or Software as a Service). ServiceNow (NOW), Autodesk (ADSK), Shopify (SHOP), Paylocity (PCTY), Intuit (INTU), Qualys (QLYS), Nutanix (NTNX), GoDaddy (GDDY): these companies share the fact that their customers pay monthly or annually to access software. The switching cost is often enormous — years of data, training, integrations — creating what is called a high switching cost. The customer stays because leaving is too expensive.',
+        },
+        {
+          type: 'p',
+          text: 'The second family is insurance. Kinsale Capital (KNSL), Progressive (PGR), Mercury General (MCY), Universal Insurance (UVE), Selective Insurance (SIGI), Assurant (AIZ), Arch Capital (ACGL), W. R. Berkley (WRB), Cincinnati Financial (CINF), RenaissanceRe (RNR): every year, policyholders renew their contracts. The premium is collected at the start of the year, before any claim occurs. It is one of the most inherently recurring business models that exists.',
+        },
+        {
+          type: 'p',
+          text: 'The third family groups together consumables and regularly replaced devices. ResMed (RMD) sells CPAP devices for sleep apnea, but more importantly the masks and consumables that patients replace regularly. Haemonetics (HAE) supplies blood processing equipment to hospitals, along with single-use consumables. Dexcom (DXCM) makes continuous glucose monitoring sensors that must be replaced every ten days. Napco Security (NSSC) combines hardware sales with recurring monitoring subscriptions.',
+        },
+        {
+          type: 'p',
+          text: 'The fourth family is contract-based services. Rollins (ROL) does pest control by subscription: you pay quarterly to keep your home protected. Frontdoor (FTDR) sells annual home warranties. Doximity (DOCS) is the medical platform where physicians hold professional subscriptions. In all these cases, the customer signs up for a term and renews automatically.',
+        },
+        {
+          type: 'p',
+          text: 'The fifth family is monopolistic infrastructure. CME Group, ICE, and S&P Global (SPGI) collect fees on every financial transaction — every time a stock changes hands on their exchanges, they earn a commission. ASML sells lithography machines and then maintains them under service contracts. TSM (TSMC) receives continuous wafer orders from Apple, Nvidia, and AMD. These businesses are not conquering new markets — they own one.',
+        },
+        {
+          type: 'h2',
+          text: 'Comparison table: recurrence type and examples',
+        },
+        {
+          type: 'table',
+          headers: ['Recurrence type', 'Example tickers', 'Renewal logic'],
+          rows: [
+            ['SaaS / software subscriptions', 'NOW, ADSK, SHOP, PCTY, INTU, QLYS, NTNX, GDDY', 'Monthly or annual auto-renewal, high switching cost'],
+            ['Insurance premiums', 'KNSL, PGR, MCY, UVE, SIGI, AIZ, ACGL, WRB, CINF, RNR', 'Annual premium collected upfront, contractual renewal'],
+            ['Regularly replaced consumables', 'RMD, HAE, DXCM, NSSC', 'Medical device + consumable replaced periodically by necessity'],
+            ['Contract-based services', 'ROL, FTDR, DOCS', 'Quarterly or annual subscription for a continuous service'],
+            ['Monopolistic infrastructure', 'CME, ICE, SPGI, TSM, ASML, OMAB, SKYW', 'Fee on every transaction or order, indispensable position'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'What my method penalizes: the absence of recurrence',
+        },
+        {
+          type: 'p',
+          text: "To understand why recurrence matters so much, look at what happens without it. Micron Technology manufactures DRAM memory chips. Its problem? The memory chip market is cyclical: when supply exceeds demand, prices collapse and Micron's free cash flow turns negative. When demand explodes (as with AI), margins surge. This constant yo-yo is exactly what my method penalizes: the five-year free cash flow growth criterion becomes nearly impossible to pass when one year is brilliant and the next is catastrophic. Result: Micron scores around 6 out of 10 in my method.",
+        },
+        {
+          type: 'p',
+          text: 'Nike is another instructive example. The brand is powerful, the name is known worldwide, but the business model relies on selling shoes and apparel. Every season, Nike must re-win its customers. Competition from On Running and Hoka is eroding its position. Revenue fluctuates with fashion and sport trends. Free cash flow follows these swings. My method gives Nike around 2 out of 10 — not because it is a bad company, but because its model is not structurally recurring.',
+        },
+        {
+          type: 'p',
+          text: 'Carnival Corporation illustrates the same problem amplified. Not only are revenues non-recurring (a cruise is a one-off purchase), but the sector is extremely sensitive to external shocks — pandemic, economic crisis, fuel prices. Free cash flow can swing from deeply positive to deeply negative in a single year. Homebuilders share the same profile: they sell when interest rates are low and the housing market is favorable, and their sales collapse otherwise.',
+        },
+        {
+          type: 'h2',
+          text: 'Recurrence is not a guarantee: what else I check',
+        },
+        {
+          type: 'p',
+          text: 'I want to be honest about something: having recurring revenues is not enough on its own to earn a top score. A company can have subscriptions and still lose money if it spends too much to acquire customers or carries too much debt. What my method looks for is the combination of recurrence AND profitability.',
+        },
+        {
+          type: 'p',
+          text: 'Concretely, here is what I verify beyond recurrence. Free cash flow margin must be high — ideally above 15% of revenue. Free cash flow growth must be positive and consistent for at least five years. Debt must not crush the cash generated. And the company must deploy its cash intelligently: buying back shares, investing in growth, rather than paying for ruinous acquisitions.',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies (ROP) is an excellent example of what I look for: a conglomerate of niche software companies, all subscription-based, with free cash flow margins around 25% and steady growth for over a decade. OMAB, the Mexican airport operator, has recurrence tied to passenger traffic — every plane that lands generates an airport fee. SKYW (SkyWest) operates under long-term contracts with major airlines: its revenues are fixed in advance for several years.',
+        },
+        {
+          type: 'h2',
+          text: 'Why I built my method around this criterion',
+        },
+        {
+          type: 'p',
+          text: 'Let me explain what led me to weight recurrence so heavily in my method. When I look at companies that best navigated the crises — the 2020 pandemic, the 2022 rate hikes, the 2008 recession — they are almost always companies whose revenues kept coming in. ServiceNow did not see its subscriptions cancelled in 2020. Progressive kept collecting its premiums. ROL kept doing its pest control rounds. Meanwhile Nike was losing sales, Carnival was docking ships, and Micron was navigating a catastrophic price collapse.',
+        },
+        {
+          type: 'p',
+          text: 'The investing I practice is not speculation on the next quarter. It is identifying companies capable of generating cash predictably over ten or twenty years. And revenue recurrence is the best predictor I know of that capability. That is why in my method, a company without recurrence has very little chance of reaching top scores — and why companies that do reach them have, in around 90% of cases, a recurring model at the heart of their business.',
+        },
+      ],
+      faq: [
+        {
+          q: 'What exactly is recurring revenue?',
+          a: 'It is revenue that comes in regularly, often automatically, without the company needing to re-acquire the customer each time. A monthly subscription, an annual insurance premium, an airport fee on every landing: the customer is already committed, and cash arrives predictably.',
+        },
+        {
+          q: 'Why is free cash flow more reliable than profit?',
+          a: 'Accounting profit can be adjusted through bookkeeping entries — depreciation, provisions, asset write-downs. Free cash flow measures the real cash coming in and going out. It is much harder to manipulate and better reflects the true health of a business.',
+        },
+        {
+          q: 'Can a company without recurrence still perform well in the stock market?',
+          a: 'Absolutely. But it generally does so less predictably, with sharper ups and downs. My method is not looking for market timing opportunities — it seeks companies whose cash progression is regular and defensible over the long term. Without recurrence, that is much harder to guarantee.',
+        },
+        {
+          q: 'Why does Micron not pass the filter despite its strong years?',
+          a: 'Because my method evaluates consistency over five years, not peak performance. Micron has brilliant years when DRAM prices rise, but also very difficult years when supply exceeds demand. This irregularity is precisely what my free cash flow growth and margin criteria detect and penalize.',
+        },
+        {
+          q: 'Are tolls and airports really recurring?',
+          a: 'Yes, insofar as traffic is structurally stable and the operator holds a geographic monopoly. OMAB operates airports in dynamic Mexican tourist regions: every plane that lands generates a fee, regardless of who manages it. The recurrence here comes from infrastructure monopoly, not from a traditional subscription contract.',
+        },
+      ],
+      tags: [
+        'recurring revenue',
+        'SaaS',
+        'insurance',
+        'subscriptions',
+        'free cash flow',
+        'Lubin method',
+        'fundamental quality',
+        'ServiceNow',
+        'Progressive',
+        'Rollins',
+      ],
+      disclaimer:
+        'Informational and educational analysis, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Ingresos recurrentes: el criterio de las mejores notas',
+      excerpt:
+        '¿Por qué las mejores empresas de mi método generan todas ellas flujo de caja de forma regular y predecible? Suscripciones SaaS, primas de seguro, licencias, peajes: lo que estos modelos tienen en común que Nike y Micron no tienen.',
+      metaDescription:
+        'Suscripciones SaaS, primas de seguro, licencias de software, peajes: los modelos de ingresos recurrentes generan un flujo de caja predecible y creciente. Por qué mi método los premia sistemáticamente.',
+      answer:
+        'Las mejores empresas de mi método comparten casi todas lo mismo: sus ingresos entran de forma regular, pase lo que pase en el mercado. Suscripciones, primas de seguro, licencias, peajes — estos modelos producen un flujo de caja libre (el efectivo real tras todos los gastos) predecible y creciente. Eso es exactamente lo que premia mi método.',
+      body: [
+        {
+          type: 'ul',
+          items: [
+            'Aproximadamente el 90% de las empresas con las mejores notas en mi método tienen ingresos recurrentes.',
+            'El flujo de caja libre — el efectivo que queda después de todos los gastos e inversiones — es el núcleo de mi método.',
+            'La recurrencia crea dos ventajas: regularidad del efectivo y márgenes altos, porque los costes variables no crecen proporcionalmente.',
+            'Nike, Micron, Carnival: sin recurrencia, el flujo de caja es errático y la nota cae mecánicamente.',
+            'SaaS, seguros, software, peajes, servicios por contrato: cinco familias de recurrencia, una misma lógica.',
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Lo que entiendo por flujo de caja libre',
+        },
+        {
+          type: 'p',
+          text: 'Antes de todo, quiero ser preciso sobre un término que uso a lo largo de todo mi método: el flujo de caja libre (en inglés, free cash flow). Es el efectivo que realmente queda en las cuentas de una empresa después de haber pagado todos sus costes operativos — salarios, alquileres, impuestos — y todas sus inversiones para mantener y desarrollar su negocio. No es el beneficio contable, que puede manipularse. Es efectivo real. De cada 100 euros de facturación, ¿cuánto queda realmente? Esa es la primera pregunta que me hago.',
+        },
+        {
+          type: 'p',
+          text: 'Mi método evalúa cada empresa sobre diez criterios. Dos de ellos están directamente relacionados con la calidad del flujo de caja libre: su crecimiento a cinco años y su margen (qué parte de la facturación se convierte en efectivo). Y he observado algo muy claro: las empresas que superan ambos criterios son, en su inmensa mayoría, empresas con ingresos recurrentes. No es una coincidencia. Es mecánico.',
+        },
+        {
+          type: 'h2',
+          text: 'Por qué la recurrencia convierte el efectivo en un motor',
+        },
+        {
+          type: 'p',
+          text: 'Imagina dos empresas que facturan 100 millones de euros este año. La primera vende suscripciones de software: sus clientes renuevan automáticamente cada mes, y entregar el software casi no cuesta nada adicional (sin fábrica, sin materias primas). La segunda vende zapatillas de deporte: cada par requiere materias primas, fabricación, logística, y el cliente quizás no vuelva a comprar durante dos años. ¿Cuál genera un flujo de caja libre más estable y predecible? La primera, sin duda.',
+        },
+        {
+          type: 'p',
+          text: 'La recurrencia crea dos ventajas estructurales que mi método premia directamente. Primero, la regularidad: un suscriptor que renueva en enero, julio y diciembre genera un flujo de caja predecible sobre el que la empresa puede basar sus decisiones. Mi método mide el crecimiento del flujo de caja libre a cinco años — una empresa recurrente supera este criterio casi automáticamente, porque su efectivo no depende de ninguna coyuntura particular. Luego, los márgenes: cuando ya tienes un cliente suscrito, el coste de entregarle el servicio el mes siguiente es casi nulo. El software, la prima de seguro, el acceso a la autopista de peaje — no cuestan proporcionalmente más si los usamos con 10 millones de clientes que con 1 millón. Eso es el puro efecto escala.',
+        },
+        {
+          type: 'h2',
+          text: 'Las cinco familias de recurrencia que encuentro en las mejores notas',
+        },
+        {
+          type: 'p',
+          text: 'A lo largo de mis análisis, he identificado cinco grandes familias de modelos de ingresos recurrentes. Cada una tiene su propia lógica, pero todas comparten esta característica fundamental: el cliente vuelve sin que haya que reconquistarlo.',
+        },
+        {
+          type: 'p',
+          text: 'La primera familia es el software por suscripción (SaaS, o Software as a Service). ServiceNow (NOW), Autodesk (ADSK), Shopify (SHOP), Paylocity (PCTY), Intuit (INTU), Qualys (QLYS), Nutanix (NTNX), GoDaddy (GDDY): estas empresas tienen en común que su cliente paga mensual o anualmente para acceder al software. El coste de cambio es a menudo enorme — años de datos, formación, integraciones — lo que crea lo que se llama un alto coste de cambio. El cliente se queda porque marcharse es demasiado caro.',
+        },
+        {
+          type: 'p',
+          text: 'La segunda familia es el seguro. Kinsale Capital (KNSL), Progressive (PGR), Mercury General (MCY), Universal Insurance (UVE), Selective Insurance (SIGI), Assurant (AIZ), Arch Capital (ACGL), W. R. Berkley (WRB), Cincinnati Financial (CINF), RenaissanceRe (RNR): cada año, los asegurados renuevan su póliza. La prima se cobra a principios del año, antes de que se produzca ningún siniestro. Es uno de los modelos de negocio más inherentemente recurrentes que existe.',
+        },
+        {
+          type: 'p',
+          text: 'La tercera familia agrupa los consumibles y dispositivos de sustitución regular. ResMed (RMD) vende dispositivos CPAP para la apnea del sueño, pero sobre todo las máscaras y consumibles que los pacientes reemplazan regularmente. Haemonetics (HAE) suministra equipos de procesamiento de sangre a hospitales, con consumibles de un solo uso. Dexcom (DXCM) fabrica sensores de glucosa en sangre que deben reemplazarse cada diez días. Napco Security (NSSC) combina la venta de equipos con suscripciones de monitoreo recurrentes.',
+        },
+        {
+          type: 'p',
+          text: 'La cuarta familia son los servicios por contrato. Rollins (ROL) hace control de plagas por suscripción: pagas cada trimestre para que tu hogar esté protegido. Frontdoor (FTDR) vende garantías de hogar de renovación anual. Doximity (DOCS) es la plataforma médica donde los médicos tienen una suscripción profesional. En todos estos casos, el cliente firma por un período y renueva automáticamente.',
+        },
+        {
+          type: 'p',
+          text: 'La quinta familia es la infraestructura monopolística. CME Group, ICE y S&P Global (SPGI) cobran tarifas por cada transacción financiera — cada vez que una acción cambia de manos en sus bolsas, cobran una comisión. ASML vende máquinas de litografía y luego las mantiene bajo contratos de servicio. TSM (TSMC) recibe pedidos continuos de obleas (wafers de silicio) de Apple, Nvidia y AMD. Estas empresas no conquistan nuevos mercados — los poseen.',
+        },
+        {
+          type: 'h2',
+          text: 'Tabla comparativa: tipo de recurrencia y ejemplos',
+        },
+        {
+          type: 'table',
+          headers: ['Tipo de recurrencia', 'Ejemplos de tickers', 'Lógica de renovación'],
+          rows: [
+            ['SaaS / suscripciones de software', 'NOW, ADSK, SHOP, PCTY, INTU, QLYS, NTNX, GDDY', 'Renovación mensual o anual automática, alto coste de cambio'],
+            ['Primas de seguro', 'KNSL, PGR, MCY, UVE, SIGI, AIZ, ACGL, WRB, CINF, RNR', 'Prima anual cobrada por adelantado, renovación contractual'],
+            ['Consumibles de sustitución regular', 'RMD, HAE, DXCM, NSSC', 'Dispositivo médico + consumible reemplazado periódicamente por necesidad'],
+            ['Servicios por contrato', 'ROL, FTDR, DOCS', 'Suscripción trimestral o anual para un servicio continuo'],
+            ['Infraestructura monopolística', 'CME, ICE, SPGI, TSM, ASML, OMAB, SKYW', 'Tarifa por cada transacción o pedido, posición indispensable'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Lo que penaliza mi método: la ausencia de recurrencia',
+        },
+        {
+          type: 'p',
+          text: 'Para entender bien por qué la recurrencia importa tanto, fíjate en lo que ocurre sin ella. Micron Technology fabrica chips de memoria DRAM. Su problema: el mercado de chips de memoria es cíclico — cuando la oferta supera la demanda, los precios se hunden y el flujo de caja libre de Micron se vuelve negativo. Cuando la demanda explota (como con la IA), los márgenes se disparan. Este vaivén constante es exactamente lo que penaliza mi método: el criterio de crecimiento del flujo de caja libre a cinco años se vuelve casi imposible de superar cuando un año es brillante y el siguiente catastrófico. Resultado: Micron obtiene alrededor de 6 sobre 10 en mi método.',
+        },
+        {
+          type: 'p',
+          text: 'Nike es otro ejemplo ilustrativo. La marca es poderosa, el nombre es conocido en todo el mundo, pero el modelo de negocio se basa en la venta de zapatillas y ropa. Cada temporada, Nike debe reconquistar a sus clientes. La competencia de On Running y Hoka erosiona su posición. Los ingresos fluctúan según las tendencias de moda y deporte. El flujo de caja libre sigue estas oscilaciones. Mi método otorga a Nike alrededor de 2 sobre 10 — no porque sea una mala empresa, sino porque su modelo no es estructuralmente recurrente.',
+        },
+        {
+          type: 'p',
+          text: 'Carnival Corporation ilustra el mismo problema amplificado. No solo los ingresos no son recurrentes (un crucero es una compra puntual), sino que el sector es extremadamente sensible a los choques externos — pandemia, crisis económica, precios del combustible. El flujo de caja libre puede pasar de muy positivo a muy negativo en un solo año. Los constructores de viviendas tienen el mismo perfil: venden cuando los tipos de interés son bajos y el mercado inmobiliario es favorable, y sus ventas se desploman en caso contrario.',
+        },
+        {
+          type: 'h2',
+          text: 'La recurrencia no es una garantía: qué más verifico',
+        },
+        {
+          type: 'p',
+          text: 'Quiero ser honesto sobre algo: tener ingresos recurrentes no basta por sí solo para obtener una buena nota. Una empresa puede tener suscripciones y aun así perder dinero si gasta demasiado en adquirir clientes o si tiene demasiada deuda. Lo que busca mi método es la combinación de recurrencia Y rentabilidad.',
+        },
+        {
+          type: 'p',
+          text: 'Concretamente, esto es lo que verifico más allá de la recurrencia. El margen de flujo de caja libre debe ser alto — idealmente por encima del 15% de la facturación. El crecimiento del flujo de caja libre debe ser positivo y regular durante al menos cinco años. La deuda no debe aplastar el efectivo generado. Y la empresa debe utilizar su efectivo con inteligencia: recomprando sus acciones, invirtiendo en su crecimiento, en lugar de pagar adquisiciones ruinosas.',
+        },
+        {
+          type: 'p',
+          text: 'Roper Technologies (ROP) es un excelente ejemplo de lo que busco: un conglomerado de software de nicho, todo en modo suscripción, con márgenes de flujo de caja libre alrededor del 25% y un crecimiento regular durante más de una década. OMAB, el operador de aeropuertos mexicanos, tiene una recurrencia ligada al tráfico de pasajeros — cada avión que aterriza genera una tasa aeroportuaria. SKYW (SkyWest) opera bajo contratos a largo plazo con las grandes aerolíneas: sus ingresos están fijados de antemano durante varios años.',
+        },
+        {
+          type: 'h2',
+          text: 'Por qué construí mi método alrededor de este criterio',
+        },
+        {
+          type: 'p',
+          text: 'Déjame explicar qué me llevó a dar tanto peso a la recurrencia en mi método. Cuando analizo las empresas que mejor atravesaron las crisis — la pandemia de 2020, las subidas de tipos de 2022, la recesión de 2008 — son casi siempre empresas cuyos ingresos seguían entrando. ServiceNow no vio cancelarse sus suscripciones en 2020. Progressive siguió cobrando sus primas. ROL siguió haciendo sus rondas de control de plagas. Mientras tanto, Nike perdía ventas, Carnival amarraba sus barcos y Micron atravesaba un desplome catastrófico de precios.',
+        },
+        {
+          type: 'p',
+          text: 'La inversión que practico no es especulación sobre el próximo trimestre. Es la identificación de empresas capaces de generar flujo de caja de forma predecible durante diez o veinte años. Y la recurrencia de los ingresos es el mejor predictor que conozco de esa capacidad. Por eso en mi método, una empresa sin recurrencia tiene muy pocas posibilidades de alcanzar las mejores notas — y las empresas que las alcanzan tienen, en aproximadamente el 90% de los casos, un modelo recurrente en el corazón de su actividad.',
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es exactamente un ingreso recurrente?',
+          a: 'Es un ingreso que entra de forma regular, a menudo automáticamente, sin que la empresa tenga que reconquistar al cliente cada vez. Una suscripción mensual, una prima de seguro anual, una tasa de aeropuerto en cada aterrizaje: el cliente ya está comprometido y el efectivo llega de manera predecible.',
+        },
+        {
+          q: '¿Por qué el flujo de caja libre es más fiable que el beneficio?',
+          a: 'El beneficio contable puede ajustarse mediante apuntes contables — amortizaciones, provisiones, deterioros de activos. El flujo de caja libre mide el efectivo real que entra y sale. Es mucho más difícil de manipular y refleja mejor la salud real de la empresa.',
+        },
+        {
+          q: '¿Puede una empresa sin recurrencia rendir bien en bolsa igualmente?',
+          a: 'Por supuesto. Pero lo hace generalmente de forma menos predecible, con subidas y bajadas más marcadas. Mi método no busca golpes de bolsa — busca empresas cuya progresión del flujo de caja sea regular y defendible a largo plazo. Sin recurrencia, eso es mucho más difícil de garantizar.',
+        },
+        {
+          q: '¿Por qué Micron no supera el filtro a pesar de sus buenos años?',
+          a: 'Porque mi método evalúa la regularidad a cinco años, no el pico. Micron tiene años brillantes cuando los precios DRAM suben, pero también años muy difíciles cuando la oferta supera la demanda. Esta irregularidad es precisamente lo que detectan y penalizan mis criterios de crecimiento y margen del flujo de caja libre.',
+        },
+        {
+          q: '¿Son realmente recurrentes los peajes y aeropuertos?',
+          a: 'Sí, en la medida en que el tráfico es estructuralmente estable y el operador posee un monopolio geográfico. OMAB opera aeropuertos mexicanos en regiones turísticas dinámicas: cada avión que aterriza genera una tasa, independientemente de quién lo gestione. La recurrencia viene aquí del monopolio de infraestructura, no de un contrato de suscripción clásico.',
+        },
+      ],
+      tags: [
+        'ingresos recurrentes',
+        'SaaS',
+        'seguros',
+        'suscripciones',
+        'flujo de caja libre',
+        'método Lubin',
+        'calidad fundamental',
+        'ServiceNow',
+        'Progressive',
+        'Rollins',
+      ],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación.',
+    },
+  },
+};
+
+const articleFCFDurabilite: Article = {
+  slug: 'fcf-regularite-5-ans-critere-qualite-methode-lubin',
+  date: '2026-06-23',
+  updated: '2026-06-23',
+  readingTime: 6,
+  content: {
+    fr: {
+      title: 'FCF régulier sur 5 ans : le filtre éliminatoire',
+      excerpt:
+        "Un bon FCF en 2026 ne suffit pas. La méthode Lubin exige cinq années consécutives sans trou : c'est ce qui sépare les vrais compounders des cycliques et des feux de paille.",
+      metaDescription:
+        "Pourquoi la méthode Lubin exige 5 ans de régularité du FCF par action, pas juste une bonne année. Explication du filtre éliminatoire avec les exemples Micron, Nike, Kinsale et ServiceNow.",
+      answer:
+        "La méthode mesure le CAGR du FCF par action sur 5 ans ET vérifie qu'aucune année n'est négative. Un seul FCF négatif sur la période est éliminatoire. Cinq ans, c'est la durée minimale pour traverser un cycle économique complet et distinguer une croissance structurelle d'un simple effet ponctuel.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Un bon FCF (free cash flow, ou flux de trésorerie disponible) en 2026 seul ne suffit pas : la méthode exige 5 années consécutives sans année négative.",
+            "Le CAGR FCF/action sur 5 ans mesure la vitesse de croissance annuelle composée du cash généré par action — un seul trou négatif rend ce critère éliminatoire.",
+            "5 ans couvre au moins un cycle économique complet (récession + expansion), sans être si long que les données ne reflètent plus le modèle actuel.",
+            "Ce filtre élimine les cycliques (acier, énergie, semi-conducteurs de commodité), les feux de paille (COVID, pic de demande) et les FCF artificiellement gonflés (cessions d'actifs).",
+            "Ce qu'il garde : abonnements SaaS, assurances premium, monopoles naturels, services récurrents — tout ce dont le FCF croît de façon structurelle.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Pourquoi un bon FCF 2026 ne suffit pas",
+        },
+        {
+          type: 'p',
+          text: "Le FCF — free cash flow, c'est-à-dire l'argent qui reste vraiment dans les caisses une fois toutes les dépenses payées, y compris les investissements — peut exploser une seule année pour des raisons ponctuelles : hausse des prix des matières premières, contrat exceptionnel, cession d'actif, reprise de provisions. Rien de tout cela ne reflète la solidité du moteur économique. La durabilité, c'est la capacité à générer du cash de façon régulière, année après année, quelles que soient les conditions de marché.",
+        },
+        {
+          type: 'h2',
+          text: "Pourquoi 5 ans : ni trop court, ni trop long",
+        },
+        {
+          type: 'p',
+          text: "La plupart des cycles économiques durent entre 4 et 7 ans. Une fenêtre de 5 ans a donc de très bonnes chances de contenir au moins une période difficile : ralentissement des ventes, hausse des coûts, compression des marges. Si l'entreprise génère du FCF positif et croissant même pendant ce creux, c'est la preuve que son modèle est robuste. Pourquoi pas 10 ans ? Les données deviennent moins représentatives de l'entreprise actuelle. 3 ans ? Trop court pour détecter un cyclique déguisé.",
+        },
+        {
+          type: 'h2',
+          text: "Le double critère : CAGR ET absence de trou",
+        },
+        {
+          type: 'p',
+          text: "La méthode utilise deux mesures complémentaires. Le CAGR FCF/action sur 5 ans — taux de croissance annuel composé — mesure la vitesse de croissance. Un CAGR de 15 % signifie que le FCF par action a doublé en moins de 5 ans. Mais un seul exercice avec un FCF négatif sur les 5 dernières années est éliminatoire. Pas une pénalité, pas une note en baisse : l'exclusion pure et simple de la sélection. Un FCF négatif révèle que l'entreprise a consommé plus de cash qu'elle n'en a généré — incompatible avec la notion de durabilité.",
+        },
+        {
+          type: 'h2',
+          text: "Ce que ce filtre élimine : les cycliques et les feux de paille",
+        },
+        {
+          type: 'p',
+          text: "Les secteurs cycliques — acier, énergie fossile, semi-conducteurs de commodité — voient leur FCF s'effondrer dès que le cycle se retourne. Micron (MU) illustre parfaitement ce cas : FCF négatif en FY2023, puis records en FY2024-2026 grâce à la demande IA/HBM. Ce n'est pas de la durabilité, c'est un spike cyclique. Un seul FCF négatif = hors sélection, score 6/10. Nike (NKE) illustre l'autre cas : déclin structurel du FCF sur 3 ans dû aux problèmes DTC et au marché chinois. Score 2/10.",
+        },
+        {
+          type: 'h2',
+          text: "Ce que ce filtre garde : les modèles à FCF structurel",
+        },
+        {
+          type: 'p',
+          text: "Kinsale Capital (KNSL) est l'exemple parfait du 10/10 : FCF par action en croissance chaque année depuis plus de 5 ans, pas un seul trou, pas une seule année négative. Cette assurance spécialisée dans les risques excédentaires génère du cash de façon mécanique grâce au renouvellement annuel des primes. ServiceNow (NOW) obtient également 10/10 : 5 ans de croissance continue grâce aux abonnements SaaS récurrents. AppLovin (APP) aussi — à surveiller pour confirmer que la durabilité se poursuit malgré la valorisation élevée.",
+        },
+        {
+          type: 'table',
+          headers: ['Ticker', 'FCF régulier / irrégulier', 'Score méthode'],
+          rows: [
+            ['KNSL (Kinsale Capital)', 'Régulier — croissance chaque année +5 ans', '10 / 10'],
+            ['NOW (ServiceNow)', 'Régulier — SaaS récurrent, 5 ans continus', '10 / 10'],
+            ['APP (AppLovin)', 'Régulier — croissance explosive récente', '10 / 10 (valorisation à surveiller)'],
+            ['MU (Micron)', 'Irrégulier — FCF négatif FY2023, spike cyclique IA', '6 / 10'],
+            ['NKE (Nike)', 'Irrégulier — déclin structurel FCF sur 3 ans', '2 / 10'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: "La régularité comme boussole, pas comme garantie",
+        },
+        {
+          type: 'p',
+          text: "Ce filtre ne prédit pas l'avenir. Une entreprise avec 5 ans de FCF croissant peut voir son modèle se dégrader à l'année 6. Ce que le filtre mesure, c'est la cohérence passée — et la cohérence passée est le meilleur indicateur disponible de la solidité structurelle du modèle économique. Ce n'est pas une certitude, c'est une probabilité. Mon rôle n'est pas de te dire quoi acheter, mais de t'aider à comprendre ce que les chiffres racontent réellement sur la qualité d'une entreprise.",
+        },
+      ],
+      faq: [
+        {
+          q: "Pourquoi un FCF négatif est-il éliminatoire et pas juste pénalisant ?",
+          a: "Un FCF négatif signifie que l'entreprise a consommé plus de cash qu'elle n'en a généré. C'est incompatible avec la notion de durabilité que mesure la méthode. Une pénalité laisserait passer des profils cycliques ou fragiles. L'élimination est la seule cohérence.",
+        },
+        {
+          q: "Pourquoi mesurer le FCF par action et non le FCF total ?",
+          a: "Le FCF par action tient compte des rachats d'actions et des émissions dilutives. Une entreprise qui dilue ses actionnaires peut faire croître son FCF total tout en appauvrissant chaque actionnaire. Le FCF par action est la mesure juste de ce que chaque titre génère réellement.",
+        },
+        {
+          q: "5 ans de régularité suffisent-ils pour identifier un vrai compounder ?",
+          a: "5 ans est le seuil minimum. Les meilleurs dossiers ont souvent 7, 8 ou 10 ans de régularité. Mais 5 ans assure d'avoir traversé au moins un cycle économique complet. En dessous, la série est trop courte pour être significative.",
+        },
+        {
+          q: "Micron (MU) peut-il un jour obtenir un meilleur score ?",
+          a: "Oui, si Micron maintient un FCF positif et croissant pendant 5 années consécutives — ce qui supposerait que la demande IA transforme durablement son profil. Pour l'instant, l'historique contient encore des années négatives. Le score évoluera avec les données.",
+        },
+        {
+          q: "Ce critère élimine-t-il des entreprises de qualité injustement ?",
+          a: "Il peut exclure une entreprise en transformation qui avait une année difficile ponctuelle. C'est un coût accepté : la méthode préfère rater une bonne entreprise plutôt que sélectionner une cyclique déguisée. La rigueur du filtre est précisément ce qui donne de la valeur à la sélection finale.",
+        },
+      ],
+      tags: ['FCF régularité', 'méthode Lubin', 'free cash flow', 'critère qualité', 'cycliques', 'durabilité', 'CAGR', 'screener'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Regular FCF over 5 years: the eliminatory filter',
+      excerpt:
+        "A good FCF in 2026 alone is not enough. The Lubin method requires five consecutive years with no negative year: that is what separates true compounders from cyclicals and one-hit wonders.",
+      metaDescription:
+        "Why the Lubin method requires 5 years of FCF per share regularity, not just one good year. The eliminatory filter explained with real examples: Micron, Nike, Kinsale, ServiceNow.",
+      answer:
+        "The method measures the 5-year FCF per share CAGR AND verifies that no year is negative. A single negative FCF over the period is eliminatory. Five years is the minimum window to cross a complete economic cycle and distinguish structural growth from a one-off effect.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "A good FCF (free cash flow — cash left after all expenses including capital expenditure) in 2026 alone is not enough: the method requires 5 consecutive years with no negative year.",
+            "The 5-year FCF per share CAGR measures the average annual growth speed of cash generated per share — a single negative year makes this criterion eliminatory.",
+            "5 years covers at least one full economic cycle (recession + expansion) without data becoming too stale to represent the current business.",
+            "This filter eliminates cyclicals (steel, energy, commodity semiconductors), one-hit wonders (COVID tailwinds, demand spikes), and artificially inflated FCF (asset sales, provision reversals).",
+            "What it keeps: SaaS subscriptions, premium insurance, natural monopolies, recurring services — all businesses whose FCF grows structurally.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Why a good 2026 FCF is not enough",
+        },
+        {
+          type: 'p',
+          text: "FCF — free cash flow, the cash that truly remains after all expenses including investments — can spike in a single year for one-off reasons: a commodity price surge, an exceptional contract, an asset disposal, an accounting provision reversal. None of that reflects the robustness of the business engine. Durability is the ability to generate cash consistently, year after year, regardless of market conditions.",
+        },
+        {
+          type: 'h2',
+          text: "Why 5 years: neither too short nor too long",
+        },
+        {
+          type: 'p',
+          text: "Most economic cycles last between 4 and 7 years. A 5-year window therefore has a very good chance of containing at least one difficult period: a sales slowdown, a cost spike, a margin compression. If the company generates positive and growing FCF even during that trough, it proves the model is structurally robust. Why not 10 years? Data becomes less representative of the current company. 3 years? Too short to detect a disguised cyclical.",
+        },
+        {
+          type: 'h2',
+          text: "The dual criterion: CAGR AND no missing year",
+        },
+        {
+          type: 'p',
+          text: "The method uses two complementary measures. The 5-year FCF per share CAGR — Compound Annual Growth Rate — measures growth speed. A 15% CAGR means FCF per share doubled in under 5 years. But a single fiscal year with negative FCF over the past 5 years is eliminatory. Not a penalty, not a lower score: outright exclusion from the selection. Negative FCF reveals the company consumed more cash than it generated — fundamentally incompatible with durability.",
+        },
+        {
+          type: 'h2',
+          text: "What this filter eliminates: cyclicals and one-hit wonders",
+        },
+        {
+          type: 'p',
+          text: "Cyclical sectors — steel, fossil energy, commodity semiconductors — see FCF collapse when the cycle turns. Micron (MU) illustrates this perfectly: negative FCF in FY2023, then records in FY2024-2026 driven by AI/HBM demand. That is not durability, it is a cyclical spike. One negative FCF year = out of the selection, score 6/10. Nike (NKE) illustrates the other case: structural FCF decline over 3 years due to DTC strategy problems and the Chinese market. Score 2/10.",
+        },
+        {
+          type: 'h2',
+          text: "What this filter keeps: structural FCF business models",
+        },
+        {
+          type: 'p',
+          text: "Kinsale Capital (KNSL) is the perfect 10/10 example: FCF per share growing every single year for 5+ years, not a single gap, not a single negative year. This specialty insurer generates cash mechanically through annual premium renewals. ServiceNow (NOW) also scores 10/10: 5 years of continuous FCF growth driven by recurring SaaS subscriptions. AppLovin (APP) as well — to monitor to confirm durability continues despite the high valuation.",
+        },
+        {
+          type: 'table',
+          headers: ['Ticker', 'Regular / Irregular FCF', 'Method score'],
+          rows: [
+            ['KNSL (Kinsale Capital)', 'Regular — growing every year 5+ years', '10 / 10'],
+            ['NOW (ServiceNow)', 'Regular — recurring SaaS, 5 continuous years', '10 / 10'],
+            ['APP (AppLovin)', 'Regular — recent explosive growth', '10 / 10 (valuation to monitor)'],
+            ['MU (Micron)', 'Irregular — negative FCF FY2023, AI cyclical spike', '6 / 10'],
+            ['NKE (Nike)', 'Irregular — structural FCF decline over 3 years', '2 / 10'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Regularity as a compass, not a guarantee",
+        },
+        {
+          type: 'p',
+          text: "This filter does not predict the future. A company with 5 years of growing FCF can see its model deteriorate in year 6. What the filter measures is past consistency — and past consistency is the best available indicator of structural robustness. It is not a certainty; it is a probability. My role with this method is not to tell you what to buy, but to help you understand what the numbers actually say about the quality of a company.",
+        },
+      ],
+      faq: [
+        {
+          q: "Why is a negative FCF eliminatory rather than just penalizing?",
+          a: "A negative FCF means the company consumed more cash than it generated. That is fundamentally incompatible with the durability concept the method measures. A penalty would let cyclical or fragile profiles slip through. Elimination is the only consistent choice.",
+        },
+        {
+          q: "Why measure FCF per share rather than total company FCF?",
+          a: "FCF per share accounts for buybacks and dilutive share issuances. A company that dilutes shareholders can grow total FCF while making each share worth less. FCF per share is the correct measure of what each unit of ownership actually generates.",
+        },
+        {
+          q: "Is 5 years of regularity enough to identify a true compounder?",
+          a: "5 years is the minimum threshold. The best cases often show 7, 8, or 10 years of regularity. But 5 years ensures at least one full economic cycle has been crossed. Below that, the series is too short to be statistically meaningful.",
+        },
+        {
+          q: "Can Micron (MU) ever score higher despite its cyclical nature?",
+          a: "Yes, if Micron sustains positive and growing FCF for 5 consecutive years — requiring AI demand to permanently transform its financial profile. For now, the 5-year history still contains negative years. The score will evolve as new data comes in.",
+        },
+        {
+          q: "Does this criterion unfairly eliminate quality companies?",
+          a: "It can exclude a transforming company that had one genuinely difficult year. That is an accepted cost: the method prefers missing a good company over selecting a disguised cyclical. The rigor of the filter is precisely what gives value to the final selection.",
+        },
+      ],
+      tags: ['FCF regularity', 'Lubin method', 'free cash flow', 'quality criterion', 'cyclicals', 'durability', 'CAGR', 'screener'],
+      disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'FCF regular 5 años: el criterio eliminatorio',
+      excerpt:
+        "Un buen FCF en 2026 solo no basta. El método Lubin exige cinco años consecutivos sin ningún año negativo: eso es lo que separa los verdaderos compounders de las cíclicas y los fuegos de paja.",
+      metaDescription:
+        "Por qué el método Lubin exige 5 años de regularidad del FCF por acción, no solo un buen año. El criterio eliminatorio explicado con ejemplos reales: Micron, Nike, Kinsale y ServiceNow.",
+      answer:
+        "El método mide el CAGR del FCF por acción a 5 años Y verifica que ningún año sea negativo. Un solo FCF negativo en el período es eliminatorio. Cinco años es el mínimo para cruzar un ciclo económico completo y distinguir crecimiento estructural de un efecto puntual.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Un buen FCF (flujo de caja libre — el efectivo que queda después de todos los gastos incluidas las inversiones) en 2026 solo no es suficiente: el método exige 5 años consecutivos sin año negativo.",
+            "El CAGR del FCF por acción a 5 años — tasa de crecimiento anual compuesta — se calcula solo si todos los años son positivos; un solo año negativo convierte el criterio en eliminatorio.",
+            "5 años cubre al menos un ciclo económico completo (recesión + expansión) sin que los datos queden obsoletos respecto al modelo actual.",
+            "Este filtro elimina las cíclicas (acero, energía, semiconductores de bajo valor), los fuegos de paja (demanda COVID, picos de precio) y los FCF inflados artificialmente (ventas de activos).",
+            "Lo que conserva: suscripciones SaaS, seguros premium, monopolios naturales, servicios recurrentes — todo aquello cuyo FCF crece de forma estructural.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Por qué un buen FCF en 2026 no es suficiente",
+        },
+        {
+          type: 'p',
+          text: "El FCF — flujo de caja libre, el dinero que verdaderamente queda en caja una vez pagados todos los gastos incluidas las inversiones — puede dispararse un solo año por razones puntuales: subida de precios de materias primas, contrato excepcional, venta de activos, reversión de provisiones contables. Nada de eso refleja la solidez del motor económico. La durabilidad es la capacidad de generar efectivo de forma regular, año tras año, independientemente de las condiciones del mercado.",
+        },
+        {
+          type: 'h2',
+          text: "Por qué 5 años: ni muy corto ni muy largo",
+        },
+        {
+          type: 'p',
+          text: "La mayoría de los ciclos económicos duran entre 4 y 7 años. Una ventana de 5 años tiene por tanto muy buenas probabilidades de contener al menos un período difícil: una desaceleración de ventas, una subida de costes, una compresión de márgenes. Si la empresa genera FCF positivo y creciente incluso durante ese mínimo cíclico, eso demuestra que su modelo es estructuralmente robusto. ¿Por qué no 10 años? Los datos se vuelven menos representativos de la empresa actual. ¿3 años? Demasiado corto para detectar una cíclica disfrazada.",
+        },
+        {
+          type: 'h2',
+          text: "El doble criterio: CAGR Y ausencia de año negativo",
+        },
+        {
+          type: 'p',
+          text: "El método utiliza dos medidas complementarias. El CAGR del FCF por acción a 5 años mide la velocidad de crecimiento. Un CAGR del 15 % significa que el FCF por acción se duplicó en menos de 5 años. Pero un solo ejercicio con FCF negativo en los últimos 5 años es eliminatorio. No una penalización, no una nota más baja: exclusión directa de la selección. Un FCF negativo revela que la empresa consumió más efectivo del que generó — incompatible con la durabilidad.",
+        },
+        {
+          type: 'h2',
+          text: "Lo que elimina este filtro: las cíclicas y los fuegos de paja",
+        },
+        {
+          type: 'p',
+          text: "Los sectores cíclicos — acero, energía fósil, semiconductores de commodity — ven su FCF derrumbarse cuando el ciclo se invierte. Micron (MU) ilustra esto perfectamente: FCF negativo en FY2023, luego récords en FY2024-2026 impulsados por la demanda IA/HBM. No es durabilidad, es un pico cíclico. Un año de FCF negativo = fuera de la selección, nota 6/10. Nike (NKE) ilustra el otro caso: declive estructural del FCF durante 3 años. Nota 2/10.",
+        },
+        {
+          type: 'h2',
+          text: "Lo que conserva este filtro: los modelos de FCF estructural",
+        },
+        {
+          type: 'p',
+          text: "Kinsale Capital (KNSL) es el ejemplo perfecto del 10/10: FCF por acción creciendo cada año durante más de 5 años, ni un solo hueco, ni un solo año negativo. Esta aseguradora especializada genera efectivo mecánicamente gracias a la renovación anual de primas. ServiceNow (NOW) también obtiene 10/10: 5 años de crecimiento continuo del FCF gracias a suscripciones SaaS recurrentes. AppLovin (APP) igualmente — a vigilar para confirmar que la durabilidad continúa pese a la valoración elevada.",
+        },
+        {
+          type: 'table',
+          headers: ['Ticker', 'FCF regular / irregular', 'Score método'],
+          rows: [
+            ['KNSL (Kinsale Capital)', 'Regular — crecimiento cada año +5 años', '10 / 10'],
+            ['NOW (ServiceNow)', 'Regular — SaaS recurrente, 5 años continuos', '10 / 10'],
+            ['APP (AppLovin)', 'Regular — crecimiento explosivo reciente', '10 / 10 (valoración a vigilar)'],
+            ['MU (Micron)', 'Irregular — FCF negativo FY2023, pico cíclico IA', '6 / 10'],
+            ['NKE (Nike)', 'Irregular — declive estructural FCF en 3 años', '2 / 10'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: "La regularidad como brújula, no como garantía",
+        },
+        {
+          type: 'p',
+          text: "Este filtro no predice el futuro. Una empresa con 5 años de FCF creciente puede ver su modelo deteriorarse en el año 6. Lo que el filtro mide es la coherencia pasada — y la coherencia pasada es el mejor indicador disponible de la solidez estructural del modelo de negocio. No es una certeza, es una probabilidad. Mi papel no es decirte qué comprar, sino ayudarte a entender lo que las cifras cuentan realmente sobre la calidad de una empresa.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Por qué un FCF negativo es eliminatorio y no solo penalizador?",
+          a: "Un FCF negativo significa que la empresa consumió más efectivo del que generó. Eso es fundamentalmente incompatible con el concepto de durabilidad que mide el método. Una penalización dejaría pasar perfiles cíclicos o frágiles. La eliminación es la única elección coherente.",
+        },
+        {
+          q: "¿Por qué medir el FCF por acción y no el FCF total de la empresa?",
+          a: "El FCF por acción tiene en cuenta las recompras y las emisiones dilutivas. Una empresa que diluye a sus accionistas puede hacer crecer su FCF total mientras empobrece a cada accionista. El FCF por acción es la medida justa de lo que cada título genera realmente.",
+        },
+        {
+          q: "¿Son suficientes 5 años de regularidad para identificar un verdadero compounder?",
+          a: "5 años es el umbral mínimo. Los mejores expedientes suelen mostrar 7, 8 o 10 años de regularidad. Pero 5 años garantiza haber cruzado al menos un ciclo económico completo. Por debajo, la serie es demasiado corta para ser significativa.",
+        },
+        {
+          q: "¿Puede Micron (MU) algún día obtener una nota mejor?",
+          a: "Sí, si Micron logra mantener un FCF positivo y creciente durante 5 años consecutivos — lo que requeriría que la demanda IA transforme de forma duradera su perfil financiero. Por ahora, el historial aún contiene años negativos. La nota evolucionará con los nuevos datos.",
+        },
+        {
+          q: "¿Elimina este criterio injustamente empresas de calidad?",
+          a: "Puede excluir una empresa en transformación que tuvo un año puntualmente difícil. Es un coste aceptado: el método prefiere no seleccionar una buena empresa antes que elegir una cíclica disfrazada. El rigor del filtro es precisamente lo que da valor a la selección final.",
+        },
+      ],
+      tags: ['regularidad FCF', 'método Lubin', 'flujo de caja libre', 'criterio calidad', 'cíclicas', 'durabilidad', 'CAGR', 'screener'],
+      disclaimer: 'Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación.',
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
