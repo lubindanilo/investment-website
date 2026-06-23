@@ -206,7 +206,7 @@ export function InfoPop({ title, why, calc }: { title: string; why: string; calc
   }, [open]);
   return (
     <span ref={ref} style={{ position: 'relative', display: 'inline-flex' }}>
-      <button type="button" onClick={(e) => { e.stopPropagation(); setOpen(!open); }} aria-label="En savoir plus"
+      <button type="button" onClick={(e) => { e.stopPropagation(); setOpen(!open); }} aria-label={t('common.moreInfo')}
         style={{ display: 'inline-flex', width: 22, height: 22, borderRadius: 6, alignItems: 'center', justifyContent: 'center',
           border: '1px solid var(--line)', background: open ? 'var(--brand-soft)' : 'transparent', color: open ? 'var(--brand-ink)' : 'var(--ink-4)', transition: 'all .14s' }}>
         <Icon name="info" size={13} />

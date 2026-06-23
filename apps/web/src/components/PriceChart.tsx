@@ -104,8 +104,8 @@ export function PriceChart({ ticker, currency }: Props) {
         </div>
       </div>
 
-      {loading && <div className="chart-state"><span className="spinner" /> Chargement…</div>}
-      {error && !loading && <div className="chart-state chart-state-error">Erreur : {error}</div>}
+      {loading && <div className="chart-state"><span className="spinner" /> {t('common.loading')}</div>}
+      {error && !loading && <div className="chart-state chart-state-error">{t('common.error')} : {error}</div>}
 
       {!loading && !error && data.length > 0 && (
         <div className="chart-iframe-wrap" style={{ height: 380, padding: '8px 14px' }}>

@@ -8,17 +8,19 @@
  */
 import type { ReactNode } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext.js';
 
 export function RequireAuth({ children }: { children: ReactNode }) {
   const { user, loading } = useAuth();
   const location = useLocation();
+  const { t } = useTranslation();
 
   if (loading) {
     return (
       <div className="empty-state">
         <div className="empty-state-icon"><span className="spinner" /></div>
-        <div className="empty-state-text">Chargement…</div>
+        <div className="empty-state-text">{t('common.loading')}</div>
       </div>
     );
   }

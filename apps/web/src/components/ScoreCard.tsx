@@ -1,4 +1,5 @@
 import type { AnalyzeResponse } from '@lubin/shared';
+import { useTranslation } from 'react-i18next';
 import './ScoreCard.css';
 
 export function ScoreCard({ analysis, onAddWatchlist, alreadyInWatchlist }: {
@@ -6,6 +7,7 @@ export function ScoreCard({ analysis, onAddWatchlist, alreadyInWatchlist }: {
   onAddWatchlist: () => void;
   alreadyInWatchlist: boolean;
 }) {
+  const { t } = useTranslation();
   const pct = analysis.score / analysis.scoreMax;
   const cls = pct >= 0.75 ? 'high' : pct >= 0.5 ? 'mid' : 'low';
 
@@ -25,7 +27,7 @@ export function ScoreCard({ analysis, onAddWatchlist, alreadyInWatchlist }: {
             onClick={onAddWatchlist}
             disabled={alreadyInWatchlist}
           >
-            {alreadyInWatchlist ? 'Dans ta watchlist' : 'Ajouter à la watchlist'}
+            {alreadyInWatchlist ? t('scoreCard.inWatchlist') : t('scoreCard.addWatchlist')}
           </button>
         </div>
         {analysis.verdict_direct?.trim() && <p className="verdict-direct">{analysis.verdict_direct}</p>}
