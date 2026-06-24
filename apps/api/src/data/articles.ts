@@ -35728,7 +35728,1339 @@ const articleFCFDurabilite: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
+const ryanairRYAAY: Article = {
+  slug: 'ryanair-ryaay-lowcost-europeen-analyse-fondamentale',
+  date: '2026-06-24',
+  updated: '2026-06-24',
+  readingTime: 7,
+  ticker: 'RYAAY',
+  content: {
+    fr: {
+      title: 'Ryanair (RYAAY) : le meilleur de l\'aérien mondial',
+      excerpt:
+        "Ryanair est la seule compagnie aérienne qui passe mes 10 critères de qualité. Score 9/10 dans mon screener, cash flow robuste, bilan sans dette nette. Voici pourquoi le modèle low-cost ultra-discipliné de Michael O\'Leary est dans une catégorie à part.",
+      metaDescription:
+        "Ryanair (RYAAY) analysée selon mes critères financiers : P/FCF 18,8x, marge FCF 11,6 %, score 9/10. Pourquoi c\'est la seule compagnie aérienne qui passe mon screener.",
+      answer:
+        "Ryanair est la compagnie aérienne n°1 d\'Europe par passagers, avec une marge de free cash flow de 11,6 %, aucune dette nette et un rendement du capital de 20,6 %. Son modèle low-cost ultra-discipliné, sa flotte unique Boeing 737 et sa structure de coûts obsessionnelle lui permettent de générer du cash là où ses concurrents détruisent de la valeur. Score 9/10 dans mon screener.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Score 9/10 dans mon screener : seule compagnie aérienne à passer mes critères de qualité financière.",
+            "Free cash flow positif et croissant : marge FCF de 11,6 %, CAGR du FCF par action de 8,9 % sur 5 ans.",
+            "Bilan solide : position de trésorerie nette (pas de dette nette), Cash ROCE de 20,6 %.",
+            "Valorisation raisonnable : P/FCF de 18,8x pour la meilleure machine à cash de l\'aérien mondial.",
+            "Risques réels : carburant (35-40 % des coûts), grèves de pilotes, régulation européenne à surveiller.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi l\'aérien est un secteur que j\'évite, en général',
+        },
+        {
+          type: 'p',
+          text: "Quand je passe le secteur des compagnies aériennes dans mon screener, le résultat est systématiquement brutal. Delta, United, Air France-KLM : zéro, ou presque. La raison est simple. L\'aérien est l\'un des secteurs les plus capital-intensifs qui soit : chaque avion coûte des dizaines de millions d\'euros, les créneaux aéroportuaires se négocient à prix d\'or, la maintenance est permanente. Résultat, la quasi-totalité du cash généré repart immédiatement dans l\'outil de production. Le free cash flow, c\'est l\'argent qui reste réellement dans les caisses après avoir payé toutes les factures, l\'investissement compris. Dans l\'aérien classique, il est souvent négatif ou erratique. Ajoutez à ça une cyclicité brutale (les crises, les pandémies, les chocs pétroliers frappent d\'abord les compagnies aériennes) et un endettement chronique, et vous avez un secteur que Warren Buffett lui-même a qualifié de destructeur de valeur structurel.",
+        },
+        {
+          type: 'p',
+          text: "Et pourtant, une entreprise du secteur passe mes 10 critères avec un score de 9/10. Une seule. Ryanair.",
+        },
+        {
+          type: 'h2',
+          text: 'Le modèle low-cost : une discipline que les majors ne peuvent pas copier',
+        },
+        {
+          type: 'p',
+          text: "Ryanair Holdings plc, cotée sous le ticker RYAAY sur le NASDAQ (en tant qu\'ADR) et RYA.I sur Euronext Dublin, transporte plus de 200 millions de passagers par an dans 37 pays, via 245 aéroports. C\'est la compagnie aérienne la plus fréquentée d\'Europe. Mais la taille n\'est pas ce qui m\'intéresse. Ce qui m\'intéresse, c\'est la structure des coûts.",
+        },
+        {
+          type: 'p',
+          text: "Le modèle low-cost de Ryanair repose sur trois piliers. Premier pilier : les aéroports secondaires. Ryanair atterrit à Beauvais plutôt qu\'à CDG, à Bergame plutôt qu\'à Milan Linate. Ces aéroports sont moins congestionnés, moins chers en redevances, et offrent souvent des subventions pour attirer le trafic. Résultat : des coûts aéroportuaires structurellement inférieurs à ceux des compagnies traditionnelles. Deuxième pilier : la flotte unique. Ryanair n\'opère qu\'un seul type d\'appareil, le Boeing 737. Une seule flotte, c\'est une formation des pilotes unifiée, une maintenance simplifiée, des pièces de rechange standardisées. C\'est de la discipline de coût poussée à l\'extrême. Troisième pilier : les revenus ancillaires (ancillary revenue), c\'est-à-dire tout ce qui ne rentre pas dans le prix du billet. Bagages en soute, priorité d\'embarquement, réservation d\'hôtels, location de voitures : ces revenus représentent une part croissante du chiffre d\'affaires et permettent de maintenir des prix de billets très bas tout en préservant la marge.",
+        },
+        {
+          type: 'p',
+          text: "Michael O\'Leary dirige Ryanair depuis 1994. Provocateur, médiatique, obsessionnel sur les coûts : il est l\'architecte de ce modèle. Sa longévité à la tête de l\'entreprise est un signe de stabilité. Il ne gère pas une compagnie aérienne : il gère une machine à comprimer les coûts.",
+        },
+        {
+          type: 'h2',
+          text: 'Ce que disent les chiffres : pourquoi Ryanair est dans une catégorie à part',
+        },
+        {
+          type: 'p',
+          text: "Mon screener évalue 10 critères financiers objectifs. Ryanair en valide 9. Voici les données brutes.",
+        },
+        {
+          type: 'table',
+          headers: ['Critère', 'Valeur', 'Lecture'],
+          rows: [
+            ['P/FCF', '18,8x', 'Prix payé pour chaque dollar de free cash flow annuel'],
+            ['Capitalisation', '~30,3 Mds $', 'Valorisation boursière totale'],
+            ['Prix', '63,73 $', 'Prix de l\'action RYAAY au NASDAQ'],
+            ['Marge FCF', '11,6 %', 'Part du chiffre d\'affaires convertie en cash libre'],
+            ['Marge nette', '14,0 %', 'Bénéfice net rapporté aux revenus'],
+            ['CAGR revenus 5 ans', '13,0 %', 'Croissance annuelle moyenne des revenus'],
+            ['CAGR FCF/action 5 ans', '8,9 %', 'Croissance annuelle du free cash flow par action'],
+            ['Cash ROCE', '20,6 %', 'Rendement du capital employé (en cash)'],
+            ['Endettement net', 'Négatif (-0,69)', 'Trésorerie nette : l\'entreprise a plus de cash que de dette'],
+            ['Score screener', '9/10', 'Seule compagnie aérienne à ce niveau dans mon screener'],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Commençons par le P/FCF (price-to-free-cash-flow), le ratio que j\'utilise pour évaluer la valorisation. Il mesure combien d\'années de free cash flow vous payez aujourd\'hui pour acquérir l\'entreprise. Un P/FCF de 18,8x, c\'est raisonnable pour une entreprise qui croît à 13 % par an et qui génère un Cash ROCE de 20,6 %. Ce n\'est ni donné, ni excessif. C\'est le prix d\'une qualité rare dans un secteur qui, d\'ordinaire, détruit de la valeur.",
+        },
+        {
+          type: 'p',
+          text: "La marge FCF de 11,6 % est remarquable pour une compagnie aérienne. Pour comparaison, la plupart des majors comme Air France ou United affichent des marges FCF proches de zéro, voire négatives sur cycle. Chez Ryanair, sur 100 euros de revenus, 11,60 euros finissent en cash réellement disponible pour racheter des actions, rembourser de la dette ou investir. C\'est la preuve que le modèle low-cost fonctionne réellement, pas seulement sur le papier.",
+        },
+        {
+          type: 'p',
+          text: "L\'endettement net négatif mérite une explication. Un ratio dette nette sur FCF de -0,69 signifie que Ryanair dispose de plus de liquidités que de dettes financières nettes. C\'est une position de trésorerie nette, chose rarissime dans un secteur habitué à s\'endetter massivement pour financer ses flottes. Ryanair a financé sa croissance sans se ruiner au bilan.",
+        },
+        {
+          type: 'h2',
+          text: 'Le seul critère manquant : le working capital, et pourquoi c\'est logique',
+        },
+        {
+          type: 'p',
+          text: "Mon screener note 9/10 et pas 10/10. Le critère manquant est le NWC ratio (working capital ratio). Le working capital, c\'est la différence entre les actifs à court terme (ce que l\'entreprise possède ou va encaisser bientôt) et les passifs à court terme (ce qu\'elle doit payer bientôt). Un working capital légèrement négatif signifie que l\'entreprise doit plus à court terme qu\'elle n\'a de liquidités immédiates.",
+        },
+        {
+          type: 'p',
+          text: "Chez Ryanair, le NWC ratio est de 0,90 : légèrement négatif. Mais voici le contexte : les clients paient leur billet avant de monter dans l\'avion. La compagnie encaisse donc des millions de billets des semaines ou mois à l\'avance, avant de payer le carburant, les salaires et les redevances correspondantes. Ce décalage crée mécaniquement un working capital négatif. C\'est un signe de pouvoir de marché, pas de fragilité financière. Ma méthode est conservatrice et applique le même filtre à toutes les entreprises sans exception. Ryanair perd ce point non pas parce qu\'elle est fragile, mais parce que mon screener est rigoureux.",
+        },
+        {
+          type: 'h2',
+          text: 'Pourquoi Delta, United et Air France échouent là où Ryanair réussit',
+        },
+        {
+          type: 'p',
+          text: "La question revient souvent : pourquoi les grandes compagnies traditionnelles ne passent-elles pas mes critères ? La réponse est structurelle. Un major comme Air France-KLM opère des dizaines de types d\'appareils (Airbus A320, A330, A350, Boeing 777, etc.), des hubs aéroportuaires parmi les plus coûteux du monde, des systèmes de connexions complexes qui nécessitent des équipages abondants. Les coûts unitaires sont deux à trois fois supérieurs à ceux de Ryanair. La marge FCF est quasi nulle sur cycle. L\'endettement est chronique : Air France-KLM a été nationalisée deux fois en vingt ans.",
+        },
+        {
+          type: 'p',
+          text: "Les compagnies américaines comme Delta ou United ont un profil légèrement différent, mais partagent les mêmes failles : capital-intensivité extrême, cyclicité brutale, et une structure de coûts rigide (accords syndicaux, pensions, créneaux Heathrow ou JFK à prix d\'or). Leurs bilans portent des dettes colossales. Leurs FCF sont positifs en haut de cycle et négatifs en bas. Mon screener cherche de la régularité. Il ne la trouve pas dans l\'aérien traditionnel.",
+        },
+        {
+          type: 'p',
+          text: "Ryanair a résolu ce problème par la discipline. Pas par la taille, pas par le prestige. Par l\'obsession du coût unitaire le plus bas possible, répétée pendant 30 ans.",
+        },
+        {
+          type: 'h2',
+          text: 'Les risques à ne pas ignorer',
+        },
+        {
+          type: 'p',
+          text: "Ryanair est une exception dans son secteur, mais ce n\'est pas une entreprise sans risques. Le premier risque est le carburant. Le kérosène représente entre 35 et 40 % des coûts d\'exploitation de Ryanair. Un choc pétrolier majeur comprime directement les marges. Ryanair se couvre partiellement via des instruments financiers (hedging), mais une envolée durable du pétrole reste le principal risque exogène sur le modèle.",
+        },
+        {
+          type: 'p',
+          text: "Le deuxième risque est social. Les grèves de pilotes ont déjà coûté cher à Ryanair, notamment en Irlande et en Espagne. Michael O\'Leary a longtemps refusé de reconnaître les syndicats. Il a finalement cédé en 2018 sous la pression d\'une vague de grèves coordonnées. Le risque social est structurel dans l\'aérien et peut surgir lors des renouvellements de conventions collectives.",
+        },
+        {
+          type: 'p',
+          text: "Le troisième risque est réglementaire. La Commission européenne surveille les pratiques tarifaires des compagnies low-cost, notamment les frais ancillaires parfois jugés opaques. L\'agenda environnemental (taxe carbone, quotas d\'émissions ETS) pèse également sur les coûts à long terme. Enfin, toute crise majeure (pandémie, conflit géopolitique fermant l\'espace aérien européen) frappe Ryanair en plein vol : sa dépendance aux courts-courriers européens est une concentration géographique et sectorielle.",
+        },
+        {
+          type: 'h2',
+          text: 'Le moat de Ryanair : pourquoi il est difficile à copier',
+        },
+        {
+          type: 'p',
+          text: "Un moat, c\'est le fossé concurrentiel d\'une entreprise : ce qui empêche un concurrent de venir lui prendre ses parts de marché. Dans l\'aérien low-cost, le moat de Ryanair est réel mais différent de celui d\'un logiciel ou d\'un assureur spécialisé.",
+        },
+        {
+          type: 'p',
+          text: "Il repose d\'abord sur des accords exclusifs avec des aéroports secondaires qui lui donnent des avantages tarifaires négociés sur le long terme. Ces accords, une fois en place, créent une barrière à l\'entrée pour un concurrent qui voudrait s\'installer sur les mêmes liaisons. Il repose ensuite sur l\'échelle : avec 200 millions de passagers par an, Ryanair obtient des prix d\'achat d\'avions parmi les plus bas du monde (sa commande de 300 Boeing 737 MAX en 2023 a été négociée avec des remises massives). La taille crée des avantages de coût que les petits opérateurs ne peuvent pas répliquer. Enfin, la marque low-cost la plus connue d\'Europe génère une distribution directe massive (la majorité des billets se vendent sans agence, sans commission). Ce sont des avantages réels, même s\'ils sont moins profonds que ceux d\'un éditeur de logiciels.",
+        },
+        {
+          type: 'h2',
+          text: 'Verdict : 9/10, valorisation raisonnable, à surveiller',
+        },
+        {
+          type: 'p',
+          text: "Ryanair est une anomalie. Dans un secteur que j\'évite structurellement, elle est la seule entreprise qui passe mes filtres de qualité. Son free cash flow est régulier et croissant. Son bilan est sain. Son rendement du capital est élevé. Son modèle low-cost ultra-discipliné est une machine à comprimer les coûts que ses concurrents, lestés de décennies de mauvaises habitudes, ne savent pas imiter.",
+        },
+        {
+          type: 'p',
+          text: "A un P/FCF de 18,8x, ce n\'est pas une opportunité criante. C\'est une valorisation raisonnable pour un actif de qualité dans un secteur difficile. Si le prix corrigeait sur un choc pétrolier ou une crise de confiance passagère, elle deviendrait potentiellement très intéressante à surveiller de près. Pour l\'instant, je la suis, je note le prix, et j\'attends le bon point d\'entrée. C\'est tout l\'objet de mon screener.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu\'est-ce que le free cash flow (FCF) ?",
+          a: "Le free cash flow, c\'est l\'argent qui reste réellement dans les caisses d\'une entreprise après avoir payé toutes ses dépenses opérationnelles et ses investissements. C\'est le chiffre que je préfère au bénéfice comptable, parce qu\'il est beaucoup plus difficile à maquiller.",
+        },
+        {
+          q: "Que signifie un P/FCF de 18,8x ?",
+          a: "Le P/FCF (price-to-free-cash-flow) mesure combien d\'années de free cash flow vous payez pour acquérir l\'entreprise au prix actuel. Un P/FCF de 18,8 signifie que vous payez 18,8 fois le free cash flow annuel. C\'est raisonnable pour une entreprise qui croît de 13 % par an avec un rendement du capital de 20 %.",
+        },
+        {
+          q: "Pourquoi Ryanair a-t-elle un working capital négatif, et est-ce un problème ?",
+          a: "Non, ce n\'est pas un problème dans ce cas. Le working capital est négatif parce que les clients paient leurs billets à l\'avance, avant que Ryanair ne règle ses fournisseurs (carburant, aéroports, etc.). Ce décalage est un signe de pouvoir de marché, pas de fragilité. Mon screener est conservateur et note ce critère, mais c\'est le seul point manquant.",
+        },
+        {
+          q: "Pourquoi Air France ou Delta n\'ont-elles pas le même score ?",
+          a: "Parce que les compagnies traditionnelles souffrent d\'une structure de coûts rigide, d\'une capital-intensivité extrême, d\'un endettement chronique et d\'une cyclicité brutale. Leur free cash flow est souvent nul ou négatif sur cycle. Ryanair a résolu ces problèmes par une discipline de coût que ses concurrents n\'ont pas réussi à répliquer.",
+        },
+        {
+          q: "Est-ce un conseil d\'achat sur Ryanair (RYAAY) ?",
+          a: "Non. Cet article est une analyse informative et éducative. Je partage ma méthode et mes observations financières, pas des recommandations personnalisées. Fais tes propres recherches et consulte un professionnel si nécessaire.",
+        },
+      ],
+      tags: ['Analyse', 'Ryanair', 'Valorisation', 'Airlines', 'Low-cost', 'FCF'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: 'Ryanair (RYAAY): the best airline in my screener',
+      excerpt:
+        "Ryanair is the only airline that passes my 10 quality criteria. Score 9/10, robust free cash flow, net cash balance sheet. Here is why Michael O\'Leary\'s ultra-disciplined low-cost model is in a category of its own.",
+      metaDescription:
+        "Ryanair (RYAAY) analyzed through my financial criteria: P/FCF 18.8x, FCF margin 11.6%, score 9/10. Why it is the only airline that passes my screener.",
+      answer:
+        "Ryanair is Europe\'s number one airline by passengers, with a free cash flow margin of 11.6%, no net debt, and a capital return of 20.6%. Its ultra-disciplined low-cost model, single Boeing 737 fleet and obsessive cost structure allow it to generate cash where competitors destroy value. Score 9 out of 10 in my screener.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Score 9/10 in my screener: the only airline to pass my financial quality criteria.",
+            "Positive and growing free cash flow: FCF margin of 11.6%, 5-year FCF per share CAGR of 8.9%.",
+            "Sound balance sheet: net cash position (no net debt), Cash ROCE of 20.6%.",
+            "Reasonable valuation: P/FCF of 18.8x for the best cash machine in global aviation.",
+            "Real risks: fuel (35-40% of costs), pilot strikes, European regulation to monitor.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Why I generally avoid the airline sector',
+        },
+        {
+          type: 'p',
+          text: "When I run the airline sector through my screener, the result is systematically brutal. Delta, United, Air France-KLM: zero, or close to it. The reason is simple. Aviation is one of the most capital-intensive sectors that exists: every plane costs tens of millions of dollars, airport slots are worth a fortune, and maintenance never stops. As a result, almost all the cash generated goes straight back into the production tool. Free cash flow, the money that truly remains in the bank after paying every bill including investment, is often negative or erratic in traditional aviation. Add brutal cyclicality (crises, pandemics and oil shocks hit airlines first) and chronic debt, and you have a sector that Warren Buffett himself called a structural value destroyer.",
+        },
+        {
+          type: 'p',
+          text: "And yet, one company in the sector passes my 10 criteria with a score of 9/10. Just one. Ryanair.",
+        },
+        {
+          type: 'h2',
+          text: 'The low-cost model: a discipline the majors cannot copy',
+        },
+        {
+          type: 'p',
+          text: "Ryanair Holdings plc, listed as RYAAY on NASDAQ (as an ADR) and RYA.I on Euronext Dublin, carries more than 200 million passengers a year across 37 countries via 245 airports. It is Europe\'s busiest airline. But size is not what interests me. What interests me is the cost structure.",
+        },
+        {
+          type: 'p',
+          text: "Ryanair\'s low-cost model rests on three pillars. First: secondary airports. Ryanair lands at Beauvais rather than CDG, at Bergamo rather than Milan Linate. These airports are less congested, cheaper in fees, and often offer subsidies to attract traffic. The result: airport costs structurally below those of traditional carriers. Second: a single fleet. Ryanair only operates one type of aircraft, the Boeing 737. One fleet means unified pilot training, simplified maintenance and standardized spare parts. That is cost discipline taken to the extreme. Third: ancillary revenue, meaning everything outside the base ticket price. Checked bags, priority boarding, hotel bookings, car rentals: these revenues are a growing share of turnover and allow very low ticket prices while preserving margin.",
+        },
+        {
+          type: 'p',
+          text: "Michael O\'Leary has run Ryanair since 1994. Provocative, outspoken, obsessive about costs: he is the architect of this model. His longevity at the helm is a sign of stability. He does not manage an airline; he manages a cost-compression machine.",
+        },
+        {
+          type: 'h2',
+          text: 'What the numbers say: why Ryanair is in a category of its own',
+        },
+        {
+          type: 'p',
+          text: "My screener evaluates 10 objective financial criteria. Ryanair validates 9 of them. Here is the raw data.",
+        },
+        {
+          type: 'table',
+          headers: ['Criterion', 'Value', 'Reading'],
+          rows: [
+            ['P/FCF', '18.8x', 'Price paid for each dollar of annual free cash flow'],
+            ['Market cap', '~$30.3bn', 'Total market capitalization'],
+            ['Price', '$63.73', 'RYAAY share price on NASDAQ'],
+            ['FCF margin', '11.6%', 'Share of revenue converted to free cash'],
+            ['Net margin', '14.0%', 'Net profit relative to revenue'],
+            ['5-year revenue CAGR', '13.0%', 'Average annual revenue growth'],
+            ['5-year FCF/share CAGR', '8.9%', 'Annual free cash flow per share growth'],
+            ['Cash ROCE', '20.6%', 'Return on capital employed (cash basis)'],
+            ['Net debt', 'Negative (-0.69)', 'Net cash: the company holds more cash than debt'],
+            ['Screener score', '9/10', 'Only airline at this level in my screener'],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Start with the P/FCF (price-to-free-cash-flow), the ratio I use to assess valuation. It measures how many years of free cash flow you are paying today to own the business. A P/FCF of 18.8x is reasonable for a company growing at 13% per year with a Cash ROCE of 20.6%. It is neither cheap nor excessive. It is the price of rare quality in a sector that normally destroys value.",
+        },
+        {
+          type: 'p',
+          text: "An FCF margin of 11.6% is remarkable for an airline. For comparison, most majors such as Air France or United show FCF margins close to zero, or even negative over the cycle. At Ryanair, for every 100 dollars of revenue, 11.60 end up as genuinely available cash to buy back shares, repay debt or invest. That is proof the low-cost model actually works, not just on paper.",
+        },
+        {
+          type: 'p',
+          text: "The negative net debt deserves an explanation. A net debt to FCF ratio of -0.69 means Ryanair holds more liquid assets than net financial debt. That is a net cash position, an extremely rare thing in a sector accustomed to borrowing heavily to fund fleets. Ryanair has financed its growth without wrecking its balance sheet.",
+        },
+        {
+          type: 'h2',
+          text: 'The only missing criterion: working capital, and why it makes sense',
+        },
+        {
+          type: 'p',
+          text: "My screener gives a score of 9/10 rather than 10/10. The missing criterion is the NWC ratio (net working capital ratio). Working capital is the difference between short-term assets (what the company owns or will collect soon) and short-term liabilities (what it must pay soon). A slightly negative working capital means the company owes more in the short term than it has in immediate liquidity.",
+        },
+        {
+          type: 'p',
+          text: "At Ryanair, the NWC ratio is 0.90, slightly negative. But here is the context: customers pay for their tickets before they board the plane. The company therefore collects millions of ticket payments weeks or months in advance, before paying the corresponding fuel, salaries and fees. This timing gap mechanically creates a negative working capital. It is a sign of market power, not financial fragility. My method is conservative and applies the same filter to every company without exception. Ryanair loses this point not because it is fragile, but because my screener is rigorous.",
+        },
+        {
+          type: 'h2',
+          text: 'Why Delta, United and Air France fail where Ryanair succeeds',
+        },
+        {
+          type: 'p',
+          text: "The question comes up often: why don\'t the big traditional carriers pass my criteria? The answer is structural. A major like Air France-KLM operates dozens of aircraft types, some of the world\'s most expensive airport hubs, and complex connection systems requiring large crews. Unit costs are two to three times higher than Ryanair\'s. The FCF margin is near zero over the cycle. Debt is chronic: Air France-KLM has been nationalized twice in twenty years.",
+        },
+        {
+          type: 'p',
+          text: "American carriers like Delta or United have a slightly different profile but share the same flaws: extreme capital intensity, brutal cyclicality, and a rigid cost structure (union agreements, pensions, slots at Heathrow or JFK at extraordinary prices). Their balance sheets carry colossal debt. Their FCF is positive at the top of the cycle and negative at the bottom. My screener looks for consistency. It does not find it in traditional aviation.",
+        },
+        {
+          type: 'p',
+          text: "Ryanair solved this problem through discipline. Not through size, not through prestige. Through obsession with the lowest possible unit cost, repeated for 30 years.",
+        },
+        {
+          type: 'h2',
+          text: 'Risks that cannot be ignored',
+        },
+        {
+          type: 'p',
+          text: "Ryanair is an exception in its sector, but it is not a company without risks. The first risk is fuel. Jet fuel represents between 35 and 40% of Ryanair\'s operating costs. A major oil shock directly compresses margins. Ryanair partially hedges via financial instruments, but a sustained oil price surge remains the main exogenous risk to the model.",
+        },
+        {
+          type: 'p',
+          text: "The second risk is industrial relations. Pilot strikes have already cost Ryanair dearly, notably in Ireland and Spain. Michael O\'Leary long refused to recognize unions. He finally relented in 2018 under the pressure of coordinated strike waves. Social risk is structural in aviation and can flare up at collective bargaining renewals.",
+        },
+        {
+          type: 'p',
+          text: "The third risk is regulatory. The European Commission monitors low-cost carriers\' pricing practices, particularly ancillary fees sometimes seen as opaque. The environmental agenda (carbon tax, ETS emission quotas) also weighs on long-term costs. Finally, any major crisis (pandemic, geopolitical conflict closing European airspace) hits Ryanair hard: its dependence on short-haul European routes is a geographic and sectoral concentration.",
+        },
+        {
+          type: 'h2',
+          text: "Ryanair\'s moat: why it is hard to copy",
+        },
+        {
+          type: 'p',
+          text: "A moat is a company\'s competitive advantage: what stops a competitor from taking its market share. In low-cost aviation, Ryanair\'s moat is real but different from that of a software company or a specialty insurer.",
+        },
+        {
+          type: 'p',
+          text: "It rests first on exclusive agreements with secondary airports that give it long-term negotiated fee advantages. Once in place, these agreements create an entry barrier for any competitor wanting to operate the same routes. It also rests on scale: with 200 million passengers a year, Ryanair obtains among the world\'s lowest aircraft purchase prices (its 2023 order for 300 Boeing 737 MAX was negotiated with massive discounts). Scale creates cost advantages that smaller operators cannot replicate. Finally, Europe\'s best-known low-cost brand generates massive direct distribution (the majority of tickets are sold without an agency, without commission). These are real advantages, even if they are less deep than those of a software publisher.",
+        },
+        {
+          type: 'h2',
+          text: 'Verdict: 9/10, reasonable valuation, worth watching',
+        },
+        {
+          type: 'p',
+          text: "Ryanair is an anomaly. In a sector I structurally avoid, it is the only company that passes my quality filters. Its free cash flow is regular and growing. Its balance sheet is sound. Its return on capital is high. Its ultra-disciplined low-cost model is a cost-compression machine that its competitors, weighed down by decades of bad habits, have not managed to replicate.",
+        },
+        {
+          type: 'p',
+          text: "At a P/FCF of 18.8x, this is not a screaming opportunity. It is a reasonable valuation for a quality asset in a difficult sector. If the price were to correct on an oil shock or a passing crisis of confidence, it could become potentially very interesting to watch closely. For now, I follow it, I note the price, and I wait for the right entry point. That is the whole point of my screener.",
+        },
+      ],
+      faq: [
+        {
+          q: 'What is free cash flow (FCF)?',
+          a: "Free cash flow is the money that truly remains in a company\'s bank account after paying all its operating expenses and investments. It is the number I prefer over accounting profit because it is much harder to dress up.",
+        },
+        {
+          q: 'What does a P/FCF of 18.8x mean?',
+          a: "The P/FCF (price-to-free-cash-flow) measures how many years of free cash flow you are paying to acquire the business at the current price. A P/FCF of 18.8 means you are paying 18.8 times the annual free cash flow. That is reasonable for a company growing at 13% per year with a 20% return on capital.",
+        },
+        {
+          q: 'Why does Ryanair have negative working capital, and is it a problem?',
+          a: "No, it is not a problem in this case. Working capital is negative because customers pay for their tickets in advance, before Ryanair settles its suppliers (fuel, airports, etc.). This timing gap is a sign of market power, not fragility. My screener is conservative and flags this criterion, but it is the only missing point.",
+        },
+        {
+          q: 'Why do Air France or Delta not score as high?',
+          a: "Because traditional carriers suffer from a rigid cost structure, extreme capital intensity, chronic debt and brutal cyclicality. Their free cash flow is often zero or negative over the cycle. Ryanair has solved these problems through cost discipline that its competitors have not managed to replicate.",
+        },
+        {
+          q: 'Is this a buy recommendation on Ryanair (RYAAY)?',
+          a: "No. This article is informational and educational analysis. I share my method and my financial observations, not personalized recommendations. Do your own research and consult a professional if needed.",
+        },
+      ],
+      tags: ['Analysis', 'Ryanair', 'Valuation', 'Airlines', 'Low-cost', 'FCF'],
+      disclaimer:
+        'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: 'Ryanair (RYAAY): la mejor aerolínea en mi screener',
+      excerpt:
+        "Ryanair es la única aerolínea que supera mis 10 criterios de calidad. Puntuación 9/10, flujo de caja libre robusto, balance sin deuda neta. Por qué el modelo low-cost ultra-disciplinado de Michael O\'Leary está en una categoría aparte.",
+      metaDescription:
+        "Ryanair (RYAAY) analizada con mis criterios financieros: P/FCF 18,8x, margen FCF 11,6 %, puntuación 9/10. Por qué es la única aerolínea que pasa mi screener.",
+      answer:
+        "Ryanair es la aerolínea n.º 1 de Europa por pasajeros, con un margen de flujo de caja libre del 11,6 %, sin deuda neta y una rentabilidad del capital del 20,6 %. Su modelo low-cost ultra-disciplinado, flota única de Boeing 737 y estructura de costes obsesiva le permiten generar caja donde sus competidores destruyen valor. Puntuación 9 sobre 10 en mi screener.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Puntuación 9/10 en mi screener: la única aerolínea que supera mis criterios de calidad financiera.",
+            "Flujo de caja libre positivo y creciente: margen FCF del 11,6 %, CAGR del FCF por acción del 8,9 % en 5 años.",
+            "Balance sólido: posición de caja neta (sin deuda neta), Cash ROCE del 20,6 %.",
+            "Valoración razonable: P/FCF de 18,8x para la mejor máquina de caja de la aviación mundial.",
+            "Riesgos reales: combustible (35-40 % de los costes), huelgas de pilotos, regulación europea a vigilar.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Por qué evito el sector aéreo en general',
+        },
+        {
+          type: 'p',
+          text: "Cuando paso el sector de las aerolíneas por mi screener, el resultado es sistemáticamente brutal. Delta, United, Air France-KLM: cero, o casi. La razón es sencilla. La aviación es uno de los sectores más intensivos en capital que existen: cada avión cuesta decenas de millones de dólares, los slots aeroportuarios se negocian a precio de oro y el mantenimiento no para nunca. Como resultado, casi toda la caja generada vuelve directamente al utillaje productivo. El flujo de caja libre, el dinero que de verdad queda en caja después de pagar todas las facturas incluida la inversión, suele ser negativo o errático en la aviación tradicional. Añade ciclicidad brutal (las crisis, las pandemias y los shocks petrolíferos golpean primero a las aerolíneas) y deuda crónica, y tienes un sector que el propio Warren Buffett calificó de destructor de valor estructural.",
+        },
+        {
+          type: 'p',
+          text: "Y sin embargo, una empresa del sector supera mis 10 criterios con una puntuación de 9/10. Solo una. Ryanair.",
+        },
+        {
+          type: 'h2',
+          text: 'El modelo low-cost: una disciplina que las majors no pueden copiar',
+        },
+        {
+          type: 'p',
+          text: "Ryanair Holdings plc, cotizada como RYAAY en el NASDAQ (como ADR) y RYA.I en Euronext Dublín, transporta más de 200 millones de pasajeros al año en 37 países a través de 245 aeropuertos. Es la aerolínea más frecuentada de Europa. Pero el tamaño no es lo que me interesa. Lo que me interesa es la estructura de costes.",
+        },
+        {
+          type: 'p',
+          text: "El modelo low-cost de Ryanair se apoya en tres pilares. Primero: aeropuertos secundarios. Ryanair aterriza en Beauvais en vez de en CDG, en Bérgamo en vez de en Milán Linate. Estos aeropuertos son menos congestionados, más baratos en tasas y a menudo ofrecen subvenciones para atraer tráfico. Resultado: costes aeroportuarios estructuralmente inferiores a los de las compañías tradicionales. Segundo: flota única. Ryanair solo opera un tipo de avión, el Boeing 737. Una sola flota significa formación de pilotos unificada, mantenimiento simplificado y repuestos estandarizados. Eso es disciplina de costes llevada al extremo. Tercero: los ingresos ancilares (ancillary revenue), es decir, todo lo que no forma parte del precio base del billete. Equipaje facturado, embarque prioritario, reservas de hotel, alquiler de coches: estos ingresos representan una parte creciente de la facturación y permiten mantener precios de billete muy bajos conservando el margen.",
+        },
+        {
+          type: 'p',
+          text: "Michael O\'Leary dirige Ryanair desde 1994. Provocador, mediático, obsesionado con los costes: es el arquitecto de este modelo. Su longevidad al frente de la empresa es una señal de estabilidad. No gestiona una aerolínea; gestiona una máquina de comprimir costes.",
+        },
+        {
+          type: 'h2',
+          text: 'Lo que dicen los números: por qué Ryanair está en una categoría aparte',
+        },
+        {
+          type: 'p',
+          text: "Mi screener evalúa 10 criterios financieros objetivos. Ryanair valida 9 de ellos. Aquí están los datos brutos.",
+        },
+        {
+          type: 'table',
+          headers: ['Criterio', 'Valor', 'Lectura'],
+          rows: [
+            ['P/FCF', '18,8x', 'Precio pagado por cada dólar de flujo de caja libre anual'],
+            ['Capitalización', '~30.300 M$', 'Valoración bursátil total'],
+            ['Precio', '63,73 $', 'Precio de la acción RYAAY en el NASDAQ'],
+            ['Margen FCF', '11,6 %', 'Parte del ingreso convertida en caja libre'],
+            ['Margen neto', '14,0 %', 'Beneficio neto sobre ingresos'],
+            ['CAGR ingresos 5 años', '13,0 %', 'Crecimiento anual medio de ingresos'],
+            ['CAGR FCF/acción 5 años', '8,9 %', 'Crecimiento anual del flujo de caja libre por acción'],
+            ['Cash ROCE', '20,6 %', 'Rentabilidad del capital empleado (en caja)'],
+            ['Deuda neta', 'Negativa (-0,69)', 'Caja neta: la empresa tiene más caja que deuda'],
+            ['Puntuación screener', '9/10', 'Única aerolínea a este nivel en mi screener'],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Empecemos por el P/FCF (price-to-free-cash-flow), el ratio que uso para evaluar la valoración. Mide cuántos años de flujo de caja libre estás pagando hoy para ser propietario del negocio. Un P/FCF de 18,8x es razonable para una empresa que crece al 13 % anual con un Cash ROCE del 20,6 %. No está regalada, pero tampoco es cara. Es el precio de una calidad rara en un sector que normalmente destruye valor.",
+        },
+        {
+          type: 'p',
+          text: "Un margen FCF del 11,6 % es notable para una aerolínea. A modo de comparación, la mayoría de las majors como Air France o United muestran márgenes FCF cercanos a cero, o incluso negativos a lo largo del ciclo. En Ryanair, de cada 100 dólares de ingresos, 11,60 acaban en caja realmente disponible para recomprar acciones, pagar deuda o invertir. Esa es la prueba de que el modelo low-cost funciona de verdad, no solo sobre el papel.",
+        },
+        {
+          type: 'p',
+          text: "La deuda neta negativa merece una explicación. Un ratio deuda neta sobre FCF de -0,69 significa que Ryanair dispone de más activos líquidos que deuda financiera neta. Eso es una posición de caja neta, algo extremadamente raro en un sector acostumbrado a endeudarse masivamente para financiar sus flotas. Ryanair ha financiado su crecimiento sin arruinar su balance.",
+        },
+        {
+          type: 'h2',
+          text: 'El único criterio ausente: el capital circulante, y por qué tiene sentido',
+        },
+        {
+          type: 'p',
+          text: "Mi screener da 9/10 y no 10/10. El criterio ausente es el NWC ratio (ratio de capital circulante neto). El capital circulante es la diferencia entre los activos a corto plazo (lo que la empresa posee o va a cobrar pronto) y los pasivos a corto plazo (lo que debe pagar pronto). Un capital circulante ligeramente negativo significa que la empresa debe más a corto plazo de lo que tiene en liquidez inmediata.",
+        },
+        {
+          type: 'p',
+          text: "En Ryanair, el NWC ratio es de 0,90: ligeramente negativo. Pero el contexto lo explica todo: los clientes pagan su billete antes de subir al avión. La compañía cobra por tanto millones de billetes con semanas o meses de antelación, antes de pagar el combustible, los salarios y las tasas correspondientes. Este desfase crea mecánicamente un capital circulante negativo. Es una señal de poder de mercado, no de fragilidad financiera. Mi método es conservador y aplica el mismo filtro a todas las empresas sin excepción. Ryanair pierde este punto no porque sea frágil, sino porque mi screener es riguroso.",
+        },
+        {
+          type: 'h2',
+          text: 'Por qué Delta, United y Air France fracasan donde Ryanair triunfa',
+        },
+        {
+          type: 'p',
+          text: "La pregunta surge a menudo: ¿por qué las grandes compañías tradicionales no pasan mis criterios? La respuesta es estructural. Una major como Air France-KLM opera decenas de tipos de aparatos, hubs aeroportuarios entre los más caros del mundo y sistemas de conexión complejos que requieren tripulaciones abundantes. Los costes unitarios son dos o tres veces superiores a los de Ryanair. El margen FCF es casi nulo en el ciclo. El endeudamiento es crónico: Air France-KLM ha sido nacionalizada dos veces en veinte años.",
+        },
+        {
+          type: 'p',
+          text: "Las compañías americanas como Delta o United tienen un perfil algo diferente, pero comparten los mismos defectos: capital-intensividad extrema, ciclicidad brutal y una estructura de costes rígida (convenios sindicales, pensiones, slots en Heathrow o JFK a precios astronómicos). Sus balances cargan con deudas colosales. Su FCF es positivo en lo alto del ciclo y negativo en el suelo. Mi screener busca regularidad. No la encuentra en la aviación tradicional.",
+        },
+        {
+          type: 'p',
+          text: "Ryanair resolvió este problema gracias a la disciplina. No por el tamaño, no por el prestigio. Por la obsesión con el coste unitario más bajo posible, repetida durante 30 años.",
+        },
+        {
+          type: 'h2',
+          text: 'Los riesgos que no se pueden ignorar',
+        },
+        {
+          type: 'p',
+          text: "Ryanair es una excepción en su sector, pero no es una empresa sin riesgos. El primer riesgo es el combustible. El queroseno representa entre el 35 y el 40 % de los costes operativos de Ryanair. Un shock petrolífero mayor comprime directamente los márgenes. Ryanair se cubre parcialmente mediante instrumentos financieros (hedging), pero una subida sostenida del petróleo sigue siendo el principal riesgo exógeno del modelo.",
+        },
+        {
+          type: 'p',
+          text: "El segundo riesgo es laboral. Las huelgas de pilotos ya han salido caras a Ryanair, en particular en Irlanda y España. Michael O\'Leary se negó durante mucho tiempo a reconocer a los sindicatos. Finalmente cedió en 2018 bajo la presión de una oleada de huelgas coordinadas. El riesgo laboral es estructural en la aviación y puede resurgir en las negociaciones de convenios colectivos.",
+        },
+        {
+          type: 'p',
+          text: "El tercer riesgo es regulatorio. La Comisión Europea vigila las prácticas tarifarias de las aerolíneas de bajo coste, en particular las tasas ancilares a veces consideradas opacas. La agenda medioambiental (tasa de carbono, cuotas de emisiones ETS) también pesa sobre los costes a largo plazo. Por último, cualquier crisis mayor (pandemia, conflicto geopolítico que cierre el espacio aéreo europeo) golpea a Ryanair de lleno: su dependencia de los vuelos de corto radio europeos es una concentración geográfica y sectorial.",
+        },
+        {
+          type: 'h2',
+          text: 'El foso de Ryanair: por qué es difícil de copiar',
+        },
+        {
+          type: 'p',
+          text: "Un foso (moat) es la ventaja competitiva de una empresa: lo que impide a un competidor arrebatarle su cuota de mercado. En la aviación de bajo coste, el foso de Ryanair es real pero distinto al de una empresa de software o un asegurador especializado.",
+        },
+        {
+          type: 'p',
+          text: "Se apoya primero en acuerdos exclusivos con aeropuertos secundarios que le dan ventajas tarifarias negociadas a largo plazo. Una vez firmados, estos acuerdos crean una barrera de entrada para cualquier competidor que quisiera operar las mismas rutas. Se apoya también en la escala: con 200 millones de pasajeros al año, Ryanair obtiene precios de compra de aviones entre los más bajos del mundo (su pedido de 300 Boeing 737 MAX en 2023 se negoció con descuentos masivos). La escala crea ventajas de coste que los operadores más pequeños no pueden replicar. Por último, la marca low-cost más conocida de Europa genera una distribución directa masiva (la mayoría de los billetes se venden sin agencia, sin comisión). Son ventajas reales, aunque menos profundas que las de un editor de software.",
+        },
+        {
+          type: 'h2',
+          text: 'Veredicto: 9/10, valoración razonable, a vigilar',
+        },
+        {
+          type: 'p',
+          text: "Ryanair es una anomalía. En un sector que evito estructuralmente, es la única empresa que supera mis filtros de calidad. Su flujo de caja libre es regular y creciente. Su balance es sano. Su rentabilidad del capital es elevada. Su modelo low-cost ultra-disciplinado es una máquina de comprimir costes que sus competidores, lastrados por décadas de malos hábitos, no han logrado replicar.",
+        },
+        {
+          type: 'p',
+          text: "Con un P/FCF de 18,8x, no es una oportunidad evidente. Es una valoración razonable para un activo de calidad en un sector difícil. Si el precio corrigiera ante un shock petrolífero o una crisis de confianza pasajera, podría volverse potencialmente muy interesante para seguir de cerca. Por ahora, la sigo, anoto el precio y espero el punto de entrada adecuado. Ese es todo el propósito de mi screener.",
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué es el flujo de caja libre (FCF)?',
+          a: "El flujo de caja libre es el dinero que de verdad le queda a una empresa en caja después de pagar todos sus gastos operativos e inversiones. Es el dato que prefiero al beneficio contable, porque es mucho más difícil de maquillar.",
+        },
+        {
+          q: '¿Qué significa un P/FCF de 18,8x?',
+          a: "El P/FCF (price-to-free-cash-flow) mide cuántos años de flujo de caja libre estás pagando para adquirir la empresa al precio actual. Un P/FCF de 18,8 significa que pagas 18,8 veces el flujo de caja libre anual. Es razonable para una empresa que crece al 13 % anual con una rentabilidad del capital del 20 %.",
+        },
+        {
+          q: '¿Por qué Ryanair tiene capital circulante negativo, y es un problema?',
+          a: "No, no es un problema en este caso. El capital circulante es negativo porque los clientes pagan sus billetes por adelantado, antes de que Ryanair liquide a sus proveedores (combustible, aeropuertos, etc.). Este desfase es una señal de poder de mercado, no de fragilidad. Mi screener es conservador y marca este criterio, pero es el único punto ausente.",
+        },
+        {
+          q: '¿Por qué Air France o Delta no tienen la misma puntuación?',
+          a: "Porque las compañías tradicionales sufren una estructura de costes rígida, capital-intensividad extrema, deuda crónica y ciclicidad brutal. Su flujo de caja libre suele ser nulo o negativo en el ciclo. Ryanair ha resuelto estos problemas gracias a una disciplina de costes que sus competidores no han logrado replicar.",
+        },
+        {
+          q: '¿Es esto una recomendación de compra sobre Ryanair (RYAAY)?',
+          a: "No. Este artículo es un análisis informativo y educativo. Comparto mi método y mis observaciones financieras, no recomendaciones personalizadas. Haz tu propia investigación y consulta a un profesional si es necesario.",
+        },
+      ],
+      tags: ['Análisis', 'Ryanair', 'Valoración', 'Airlines', 'Low-cost', 'FCF'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación.',
+    },
+  },
+};
+
+const micronQ3Post: Article = {
+  slug: 'micron-mu-q3-fy2026-resultats-beat-analyse',
+  date: '2026-06-24',
+  updated: '2026-06-24',
+  readingTime: 7,
+  ticker: 'MU',
+  content: {
+    fr: {
+      title: "Micron (MU) en bourse après le beat massif de Q3 FY2026",
+      excerpt:
+        "Micron explose toutes les attentes : +24 % sur le bénéfice par action, +16 % sur le chiffre d'affaires, et une guidance Q4 à 50 milliards de dollars qui laisse les analystes sans voix. Mais notre méthode garde la tête froide. Score : 6 sur 10. Je t'explique pourquoi.",
+      metaDescription:
+        "Micron (MU) publie des résultats Q3 FY2026 exceptionnels le 24 juin 2026 : BPA 25,11 $ vs 20,20 $ attendu, CA 41,46 Mds $. Action +16 % after-hours. Notre score reste 6 sur 10 malgré le beat.",
+      answer:
+        "Micron a publié le 24 juin 2026 des résultats Q3 FY2026 historiques : bénéfice par action de 25,11 dollars contre 20,20 dollars attendus, et chiffre d'affaires de 41,46 milliards de dollars contre 35,59 milliards attendus. La guidance Q4 vise 50 milliards de dollars, soit 16 % au-dessus du consensus. L'action a bondi de 16 % après la clôture. Notre score reste 6 sur 10 : le free cash flow cyclique de Micron limite la note, même au sommet du cycle.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "BPA (bénéfice par action) Q3 FY2026 : 25,11 $ contre 20,20 $ attendu par les analystes, soit un dépassement de +24,3 %.",
+            "Chiffre d'affaires Q3 : 41,46 milliards de dollars contre 35,59 milliards attendus, soit +16,5 % au-dessus du consensus.",
+            "Guidance Q4 FY2026 : environ 50 milliards de dollars (±1 Md $), contre 42,9 milliards attendus par les analystes.",
+            "16 contrats long terme signés, représentant 22 milliards de dollars sur 3 à 5 ans : la demande IA se contractualise.",
+            "Réaction du marché : +16 % en séance after-hours (hors bourse normale). Notre score Micron reste 6 sur 10.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: 'Des résultats historiques : le beat que personne n\'attendait à cette échelle',
+        },
+        {
+          type: 'p',
+          text: "Le 24 juin 2026, après la clôture de Wall Street, Micron Technology a publié des résultats qui ont sidéré même les analystes les plus optimistes. Le bénéfice par action (BPA), c'est-à-dire le profit net divisé par le nombre d'actions en circulation, a atteint 25,11 dollars pour le troisième trimestre de l'exercice fiscal 2026. Les analystes attendaient 20,20 dollars. L'écart est de 24,3 %. Ce n'est pas un léger dépassement de quelques centimes, c'est un choc. Le chiffre d'affaires, lui, a atteint 41,46 milliards de dollars contre 35,59 milliards attendus. En bourse, un tel écart entre les résultats réels et les prévisions des analystes s'appelle un beat massif, et il a provoqué une hausse immédiate de l'action de 16 % en séance after-hours.",
+        },
+        {
+          type: 'h2',
+          text: "La guidance Q4 : le vrai choc qui a tout embrasé",
+        },
+        {
+          type: 'p',
+          text: "Si les résultats trimestriels étaient déjà impressionnants, c'est la guidance pour le quatrième trimestre qui a vraiment électrisé les marchés. La guidance, c'est la prévision officielle que le management donne aux investisseurs sur le trimestre à venir. Micron a annoncé viser environ 50 milliards de dollars de chiffre d'affaires pour Q4 FY2026, avec une marge d'incertitude de plus ou moins un milliard. Le consensus des analystes tablait sur 42,9 milliards. L'écart est de plus de 16 %. En termes boursiers, c'est colossal : le marché révisait ses modèles en direct, et les positions short (les paris à la baisse sur l'action) se couvraient dans l'urgence, amplifiant la hausse.",
+        },
+        {
+          type: 'h2',
+          text: "22 milliards de dollars de contrats : la demande IA se structure sur le long terme",
+        },
+        {
+          type: 'p',
+          text: "Au-delà des chiffres trimestriels, un fait structurel retient toute mon attention : Micron a signé 16 contrats long terme pour un montant total de 22 milliards de dollars sur trois à cinq ans. Ce type de contrat engage des clients majeurs à acheter des volumes de mémoire à des prix prénégociés sur plusieurs années. Pour une entreprise cyclique comme Micron, où les ventes peuvent s'effondrer d'un exercice à l'autre selon les aléas du cycle mémoire, ces engagements contractuels changent la donne. Ils signifient que certains des plus grands acheteurs mondiaux de mémoire HBM ne spéculent pas sur un trimestre, mais s'engagent sur une demi-décennie. C'est une forme de visibilité que Micron n'avait historiquement pas.",
+        },
+        {
+          type: 'h2',
+          text: "Qu'est-ce que la mémoire HBM et pourquoi elle transforme tout",
+        },
+        {
+          type: 'p',
+          text: "La mémoire HBM, pour High Bandwidth Memory (mémoire à haute bande passante), est la technologie qui permet aux puces d'intelligence artificielle de traiter des quantités colossales de données à une vitesse extrême. Imagine une autoroute à dix voies au lieu d'une route à deux voies pour faire circuler l'information entre le processeur et la mémoire. Sans HBM, les GPU utilisés pour entraîner les grands modèles de langage et les systèmes d'IA générative seraient des goulots d'étranglement. Seuls trois producteurs mondiaux maîtrisent cette technologie à grande échelle : Samsung, SK Hynix et Micron. Cette position d'oligopole, dans un marché en croissance exponentielle, explique pourquoi les clients signent maintenant des contrats pluriannuels. L'IA ne va pas ralentir, et les fabricants veulent sécuriser leur approvisionnement.",
+        },
+        {
+          type: 'h2',
+          text: "Pourquoi notre score reste 6 sur 10 malgré ces résultats fabuleux",
+        },
+        {
+          type: 'p',
+          text: "C'est ici que ma méthode se distingue de la réaction émotionnelle des marchés. Notre score de 6 sur 10 ne bouge pas après ces résultats, et c'est délibéré. La question que je pose n'est pas \"est-ce que les résultats de ce trimestre sont bons ?\", mais \"est-ce que ce profil de qualité est structurellement durable sur cinq ans et au-delà ?\". La notion clé est celle de free cash flow (flux de trésorerie disponible), c'est-à-dire l'argent réellement généré par l'entreprise après avoir payé ses dépenses d'exploitation et d'investissement. C'est plus difficile à maquiller que le bénéfice comptable, et c'est ce que j'utilise comme thermomètre de qualité.",
+        },
+        {
+          type: 'h2',
+          text: "Le FCF cyclique : ce que l'histoire de Micron raconte vraiment",
+        },
+        {
+          type: 'p',
+          text: "Micron opère dans le secteur de la mémoire DRAM et NAND, deux marchés structurellement cycliques. En 2023 et 2024, l'entreprise a affiché des free cash flows négatifs : elle dépensait plus qu'elle ne gagnait. Ce n'est pas un incident isolé, c'est la nature profonde du secteur. Quand la demande recule et que les prix mémoire s'effondrent, comme ce fut le cas après la surchauffe post-COVID, les marges de Micron peuvent plonger en territoire négatif en quelques trimestres. La régularité du free cash flow sur cinq ans est l'un des critères fondamentaux de ma méthode. Une entreprise qui alterne pertes et profits spectaculaires ne satisfait pas ce critère, même si les sommets de cycle sont impressionnants. C'est précisément ce profil irrégulier qui plafonne le score de Micron à 6 sur 10.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Résultat réel Q3 FY2026', 'Consensus analystes', 'Écart'],
+          rows: [
+            ['BPA (bénéfice par action)', '25,11 $', '20,20 $', '+24,3 %'],
+            ["Chiffre d'affaires", '41,46 Mds $', '35,59 Mds $', '+16,5 %'],
+            ['Guidance Q4 FY2026', '~50 Mds $ (±1 Md)', '42,9 Mds $', '+16,5 %'],
+            ['Réaction action (after-hours)', '+16 %', 'N/A', 'N/A'],
+            ['Score méthode Lubin', '6 sur 10', 'N/A', 'Inchangé'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: "La tension fascinante : résultats fabuleux, méthode disciplinée",
+        },
+        {
+          type: 'p',
+          text: "C'est précisément cette tension qui rend Micron si intéressante à analyser. D'un côté, une entreprise qui publie des résultats historiques, qui signe 22 milliards de dollars de contrats long terme, qui bénéficie d'un positionnement stratégique unique dans l'infrastructure de l'IA. De l'autre, une méthode qui ne cède pas à l'euphorie post-résultats et qui rappelle qu'un trimestre exceptionnel, aussi brillant soit-il, ne reécrit pas cinq ans d'historique financier. Investir, ce n'est pas réagir à une nuit de résultats. C'est évaluer la qualité structurelle d'une entreprise et le prix qu'on paie pour y accéder, séparément et sans émotion.",
+        },
+        {
+          type: 'h2',
+          text: "Ce que les contrats long terme changent (et ce qu'ils ne changent pas)",
+        },
+        {
+          type: 'p',
+          text: "Les 16 contrats long terme pour 22 milliards de dollars sont un signal sérieux que la demande IA n'est pas un phénomène de mode à court terme. Ils réduisent le risque de voir la demande s'évaporer brusquement comme cela s'est produit lors des cycles précédents. Mais ils ne transforment pas mécaniquement le profil de free cash flow de Micron. L'entreprise doit encore livrer à grande échelle, gérer ses coûts de production, et traverser les prochains cycles de prix sans retomber dans des free cash flows négatifs. La question que je me pose : si dans 18 mois, pour une raison quelconque, la demande ralentit, est-ce que Micron sera capable de maintenir un free cash flow positif ? L'historique dit non. Les nouveaux contrats plaident pour un oui possible. Nous surveillons.",
+        },
+        {
+          type: 'h2',
+          text: "Mon verdict : impressionnant, mais on ne cède pas à l'émotion",
+        },
+        {
+          type: 'p',
+          text: "Mon rôle n'est pas de te dire que Micron va monter ou descendre. Mon rôle est de t'expliquer ce que les chiffres racontent vraiment. Ce soir, les chiffres racontent une entreprise qui exécute à un niveau exceptionnel, dans un secteur en transformation structurelle. Mais ma méthode ne change pas de règles au gré des résultats trimestriels : le score de 6 sur 10 restera à 6 sur 10 jusqu'à ce que Micron prouve cinq années consécutives de free cash flow positif et croissant. C'est la barre. Pas une punition, pas un jugement sur la qualité du management, juste un critère objectif. Tu peux consulter l'analyse complète sur la page dédiée à MU pour suivre l'évolution de ce profil en temps réel.",
+        },
+      ],
+      faq: [
+        {
+          q: "Pourquoi l'action Micron a-t-elle bondi de 16 % après les résultats ?",
+          a: "Le bénéfice par action a dépassé les attentes de 24,3 % et la guidance Q4 est 16 % au-dessus du consensus des analystes. Un tel écart force les investisseurs sceptiques et les positions short à réviser leurs modèles en urgence, amplifiant mécaniquement la hausse.",
+        },
+        {
+          q: "Qu'est-ce que le free cash flow et pourquoi est-il si important pour noter Micron ?",
+          a: "Le free cash flow (flux de trésorerie disponible) est l'argent réellement généré par l'entreprise après avoir réglé toutes ses dépenses d'exploitation et d'investissement. C'est le thermomètre le plus fiable de la santé financière d'une entreprise car il est difficile à manipuler comptablement. Micron a affiché des free cash flows négatifs en 2023 et 2024, ce qui pénalise notre critère de régularité sur cinq ans.",
+        },
+        {
+          q: "Les 22 milliards de dollars de contrats long terme changent-ils le score de Micron ?",
+          a: "Non, pas immédiatement. Ces contrats réduisent le risque de demande et améliorent la visibilité, mais ils ne réécrivent pas l'historique de free cash flow. Le score évoluera si Micron prouve cinq années consécutives de free cash flow positif et croissant. Les contrats sont un signal positif pour l'avenir, pas une preuve rétroactive de régularité.",
+        },
+        {
+          q: "Pourquoi Micron est qualifié de cyclique et en quoi cela pénalise-t-il sa note ?",
+          a: "Micron fabrique de la mémoire DRAM et NAND, des produits dont les prix varient énormément selon l'offre et la demande mondiale. Lors des creux de cycle, les prix mémoire s'effondrent et Micron peut passer de marges spectaculaires à des pertes massives en quelques trimestres. Cette irrégularité structurelle empêche l'entreprise de satisfaire nos critères de régularité du free cash flow, même si le sommet de cycle actuel est impressionnant.",
+        },
+        {
+          q: "Faut-il acheter l'action Micron après ce beat massif ?",
+          a: "Ce n'est pas un conseil en investissement. Les résultats sont exceptionnels et la dynamique IA est réelle. Mais une grande partie de ces bonnes nouvelles est déjà intégrée dans la hausse de 16 % after-hours. La valorisation restera élevée au regard des flux de trésorerie. La vraie question est : es-tu prêt à payer un prix élevé pour une entreprise cyclique en sommet de cycle ? Fais tes propres recherches.",
+        },
+      ],
+      tags: ['Micron', 'MU', 'résultats Q3 FY2026', 'HBM', 'IA', 'semiconducteurs', 'analyse fondamentale', 'beat'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches.",
+    },
+    en: {
+      title: "Micron (MU) stock after massive Q3 FY2026 earnings beat",
+      excerpt:
+        "Micron smashes all expectations: EPS beats by +24%, revenue beats by +16%, and Q4 guidance of 50 billion dollars leaves analysts speechless. But our method stays cool. Score: 6 out of 10. Here is why.",
+      metaDescription:
+        "Micron (MU) delivers historic Q3 FY2026 results on June 24, 2026: EPS 25.11 $ vs 20.20 $ expected, revenue 41.46 B$. Stock up +16% after-hours. Our score stays 6 out of 10 despite the beat.",
+      answer:
+        "Micron reported historic Q3 FY2026 results on June 24, 2026: earnings per share of 25.11 dollars versus 20.20 dollars expected, and revenue of 41.46 billion dollars versus 35.59 billion expected. Q4 guidance targets 50 billion dollars, 16% above consensus. The stock jumped 16% after hours. Our score stays 6 out of 10: Micron's cyclical free cash flow limits the rating even at the peak of the cycle.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "EPS (earnings per share) Q3 FY2026: 25.11 $ vs analyst consensus of 20.20 $, a beat of +24.3%.",
+            "Q3 revenue: 41.46 billion dollars vs 35.59 billion expected, +16.5% above consensus.",
+            "Q4 FY2026 guidance: approximately 50 billion dollars (±1 B$), vs analyst consensus of 42.9 billion.",
+            "16 long-term contracts signed for 22 billion dollars over 3 to 5 years: AI demand is being locked in.",
+            "Market reaction: +16% in after-hours trading. Our Micron score stays 6 out of 10.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Historic results: the beat nobody expected at this scale",
+        },
+        {
+          type: 'p',
+          text: "On June 24, 2026, after Wall Street's close, Micron Technology reported results that stunned even the most optimistic analysts. Earnings per share (EPS), the net profit divided by the number of shares outstanding, reached 25.11 dollars for the third quarter of fiscal year 2026. Analysts had been expecting 20.20 dollars. The gap is 24.3%. This is not a slight beat of a few cents: it is a shock. Revenue came in at 41.46 billion dollars versus 35.59 billion expected. In stock market terms, such a gap between actual results and analyst forecasts is called a massive beat, and it triggered an immediate 16% jump in the stock in after-hours trading.",
+        },
+        {
+          type: 'h2',
+          text: "Q4 guidance: the real bombshell that ignited everything",
+        },
+        {
+          type: 'p',
+          text: "If the quarterly results were already impressive, it is the Q4 guidance that truly electrified markets. Guidance is the official forecast management gives investors for the quarter ahead. Micron announced it is targeting approximately 50 billion dollars in revenue for Q4 FY2026, with a margin of uncertainty of plus or minus one billion. The analyst consensus had been sitting at 42.9 billion. The gap is more than 16%. In market terms, that is colossal: analysts were revising their models in real time, and short positions (bets against the stock) scrambled to cover, amplifying the move.",
+        },
+        {
+          type: 'h2',
+          text: "22 billion dollars in contracts: AI demand is being locked in for the long term",
+        },
+        {
+          type: 'p',
+          text: "Beyond the quarterly figures, one structural fact holds my full attention: Micron signed 16 long-term contracts totaling 22 billion dollars over three to five years. These contracts commit major customers to purchasing memory volumes at pre-negotiated prices over several years. For a cyclical company like Micron, where sales can collapse from one fiscal year to the next depending on the memory cycle, these contractual commitments change the picture. They mean some of the world's largest HBM buyers are not speculating on one quarter: they are committing to half a decade. That is a kind of visibility Micron historically never had.",
+        },
+        {
+          type: 'h2',
+          text: "What HBM memory is and why it transforms everything",
+        },
+        {
+          type: 'p',
+          text: "HBM, or High Bandwidth Memory, is the technology that allows AI chips to process colossal amounts of data at extreme speed. Think of a ten-lane highway instead of a two-lane road for moving information between the processor and the memory. Without HBM, the GPUs used to train large language models and generative AI systems would be the bottleneck. Only three producers worldwide master this technology at scale: Samsung, SK Hynix, and Micron. This oligopoly position, in an exponentially growing market, explains why customers are now signing multi-year contracts. AI demand is not slowing down, and manufacturers want to secure their supply.",
+        },
+        {
+          type: 'h2',
+          text: "Why our score stays 6 out of 10 despite these outstanding results",
+        },
+        {
+          type: 'p',
+          text: "This is where my method differs from the emotional market reaction. Our score of 6 out of 10 does not move after these results, and that is intentional. The question I ask is not 'are this quarter's results good?' but 'is this quality profile structurally durable over five years and beyond?' The key concept is free cash flow: the money actually generated by the company after paying its operating and capital expenditures. It is harder to dress up than accounting profit, and it is what I use as my quality thermometer.",
+        },
+        {
+          type: 'h2',
+          text: "Cyclical free cash flow: what Micron's history really tells us",
+        },
+        {
+          type: 'p',
+          text: "Micron operates in the DRAM and NAND memory sector, two structurally cyclical markets. In 2023 and 2024, the company posted negative free cash flows: it was spending more than it earned. This is not an isolated incident, it is the deep nature of the sector. When demand drops and memory prices collapse, as happened after the post-COVID overheating, Micron's margins can plunge into negative territory within a few quarters. Free cash flow consistency over five years is one of the fundamental criteria of my method. A company that alternates between losses and spectacular profits does not meet that criterion, even if cycle peaks are impressive. That is precisely the irregular profile that caps Micron's score at 6 out of 10.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicator', 'Actual Q3 FY2026', 'Analyst consensus', 'Gap'],
+          rows: [
+            ['EPS (earnings per share)', '25.11 $', '20.20 $', '+24.3%'],
+            ['Revenue', '41.46 B$', '35.59 B$', '+16.5%'],
+            ['Q4 FY2026 guidance', '~50 B$ (±1 B)', '42.9 B$', '+16.5%'],
+            ['Stock reaction (after-hours)', '+16%', 'N/A', 'N/A'],
+            ['Lubin method score', '6 out of 10', 'N/A', 'Unchanged'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: "The fascinating tension: outstanding results, disciplined method",
+        },
+        {
+          type: 'p',
+          text: "That tension is precisely what makes Micron so interesting to analyze. On one side, a company reporting historic results, signing 22 billion dollars in long-term contracts, holding a unique strategic position in AI infrastructure. On the other, a method that does not cave to post-earnings euphoria and reminds us that one exceptional quarter, however brilliant, does not rewrite five years of financial history. Investing is not about reacting to one night of results. It is about evaluating the structural quality of a company and the price you pay to access it, separately and without emotion.",
+        },
+        {
+          type: 'h2',
+          text: "What long-term contracts change (and what they do not)",
+        },
+        {
+          type: 'p',
+          text: "The 16 long-term contracts worth 22 billion dollars are a serious signal that AI demand is not a short-term trend. They reduce the risk of demand evaporating abruptly as it did in previous cycles. But they do not mechanically transform Micron's free cash flow profile. The company still needs to deliver at scale, manage production costs, and navigate future price cycles without falling back into negative free cash flows. The question I ask: if 18 months from now demand slows for any reason, will Micron be able to maintain positive free cash flow? History says no. The new contracts argue for a possible yes. We are watching closely.",
+        },
+        {
+          type: 'h2',
+          text: "My verdict: impressive, but we do not give in to emotion",
+        },
+        {
+          type: 'p',
+          text: "My role is not to tell you Micron will go up or down. My role is to explain what the numbers actually say. Tonight, the numbers tell the story of a company executing at an exceptional level, in a sector undergoing structural transformation. But my method does not change its rules based on quarterly results: the score of 6 out of 10 will stay at 6 out of 10 until Micron proves five consecutive years of positive and growing free cash flow. That is the bar. Not a punishment, not a judgment on management quality, just an objective criterion. You can check the full analysis on the MU dedicated page to follow the evolution of this profile in real time.",
+        },
+      ],
+      faq: [
+        {
+          q: "Why did Micron's stock jump 16% after earnings?",
+          a: "Earnings per share beat expectations by 24.3% and Q4 guidance came in 16% above analyst consensus. Such a gap forces skeptical investors and short positions to revise their models urgently, mechanically amplifying the move.",
+        },
+        {
+          q: "What is free cash flow and why is it so important for scoring Micron?",
+          a: "Free cash flow is the money actually generated by the company after paying all its operating and capital expenditures. It is the most reliable gauge of financial health because it is hard to manipulate through accounting. Micron posted negative free cash flow in 2023 and 2024, which penalizes our five-year consistency criterion.",
+        },
+        {
+          q: "Do the 22 billion dollars in long-term contracts change Micron's score?",
+          a: "No, not immediately. These contracts reduce demand risk and improve visibility, but they do not rewrite free cash flow history. The score will evolve if Micron proves five consecutive years of positive and growing free cash flow. The contracts are a positive signal for the future, not retroactive proof of consistency.",
+        },
+        {
+          q: "Why is Micron called cyclical and how does that penalize its score?",
+          a: "Micron makes DRAM and NAND memory, products whose prices vary enormously with global supply and demand. During cycle troughs, memory prices collapse and Micron can swing from spectacular margins to massive losses within a few quarters. That structural irregularity prevents the company from meeting our free cash flow consistency criteria, even when the current cycle peak is impressive.",
+        },
+        {
+          q: "Should you buy Micron stock after this massive beat?",
+          a: "This is not investment advice. The results are exceptional and the AI dynamic is real. But much of this good news is already priced into the 16% after-hours jump. Valuation will remain elevated relative to free cash flows. The real question is: are you willing to pay a high price for a cyclical company at the top of its cycle? Do your own research.",
+        },
+      ],
+      tags: ['Micron', 'MU', 'Q3 FY2026 results', 'HBM', 'AI', 'semiconductors', 'fundamental analysis', 'earnings beat'],
+      disclaimer:
+        'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.',
+    },
+    es: {
+      title: "Micron (MU) en bolsa tras el beat masivo de Q3 FY2026",
+      excerpt:
+        "Micron supera todas las expectativas: BPA +24 %, ingresos +16 %, y una guía Q4 de 50.000 millones de dólares que deja a los analistas sin palabras. Pero nuestro método mantiene la cabeza fría. Nota: 6 sobre 10. Te explico por qué.",
+      metaDescription:
+        "Micron (MU) publica resultados históricos Q3 FY2026 el 24 de junio de 2026: BPA 25,11 $ vs 20,20 $ esperado, facturación 41.460 M$. Acción +16 % after-hours. Nuestra nota sigue en 6 sobre 10.",
+      answer:
+        "Micron publicó el 24 de junio de 2026 resultados históricos del Q3 FY2026: beneficio por acción de 25,11 dólares frente a 20,20 dólares esperados, e ingresos de 41.460 millones de dólares frente a 35.590 millones esperados. La guía para Q4 apunta a 50.000 millones, un 16 % por encima del consenso. La acción subió un 16 % en el mercado fuera de horario. Nuestra nota se mantiene en 6 sobre 10: el flujo de caja libre cíclico de Micron limita la puntuación incluso en el pico del ciclo.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "BPA (beneficio por acción) Q3 FY2026: 25,11 $ frente al consenso de analistas de 20,20 $, un beat de +24,3 %.",
+            "Facturación Q3: 41.460 millones de dólares frente a 35.590 millones esperados, +16,5 % por encima del consenso.",
+            "Guía Q4 FY2026: aproximadamente 50.000 millones de dólares (±1.000 M$), frente al consenso de 42.900 millones.",
+            "16 contratos a largo plazo firmados por 22.000 millones de dólares a 3-5 años: la demanda IA se formaliza.",
+            "Reacción del mercado: +16 % en el mercado fuera de horario. Nuestra nota de Micron sigue en 6 sobre 10.",
+          ],
+        },
+        {
+          type: 'h2',
+          text: "Resultados históricos: el beat que nadie esperaba a esta escala",
+        },
+        {
+          type: 'p',
+          text: "El 24 de junio de 2026, tras el cierre de Wall Street, Micron Technology publicó resultados que dejaron atónitos incluso a los analistas más optimistas. El beneficio por acción (BPA), es decir, el beneficio neto dividido entre el número de acciones en circulación, alcanzó los 25,11 dólares en el tercer trimestre del ejercicio fiscal 2026. Los analistas esperaban 20,20 dólares. La diferencia es del 24,3 %. No es un ligero superar las previsiones en unos pocos céntimos; es un choque. Los ingresos se situaron en 41.460 millones de dólares frente a los 35.590 millones esperados. En bolsa, una diferencia tan grande entre los resultados reales y las previsiones de los analistas se llama un beat masivo, y provocó una subida inmediata del 16 % de la acción en el mercado fuera de horario.",
+        },
+        {
+          type: 'h2',
+          text: "La guía Q4: la bomba real que encendió todo",
+        },
+        {
+          type: 'p',
+          text: "Si los resultados trimestrales ya eran impresionantes, fue la guía para el cuarto trimestre lo que realmente electrizó los mercados. La guía es la previsión oficial que la dirección da a los inversores para el próximo trimestre. Micron anunció que apunta a unos 50.000 millones de dólares en ingresos para el Q4 FY2026, con un margen de incertidumbre de más o menos 1.000 millones. El consenso de analistas estaba en 42.900 millones. La diferencia es de más del 16 %. En términos de mercado, eso es colosal: los analistas revisaban sus modelos en tiempo real y las posiciones cortas (apuestas a la baja sobre la acción) se cubrían con urgencia, amplificando la subida.",
+        },
+        {
+          type: 'h2',
+          text: "22.000 millones en contratos: la demanda IA se fija a largo plazo",
+        },
+        {
+          type: 'p',
+          text: "Más allá de las cifras trimestrales, un hecho estructural concentra toda mi atención: Micron firmó 16 contratos a largo plazo por un importe total de 22.000 millones de dólares a tres o cinco años. Este tipo de contrato compromete a grandes clientes a comprar volúmenes de memoria a precios prenegociados durante varios años. Para una empresa cíclica como Micron, donde las ventas pueden desplomarse de un ejercicio a otro según los vaivenes del ciclo de memoria, estos compromisos contractuales cambian las reglas del juego. Significan que algunos de los mayores compradores mundiales de memoria HBM no especulan sobre un trimestre, sino que se comprometen durante media década. Es un tipo de visibilidad que Micron históricamente no tenía.",
+        },
+        {
+          type: 'h2',
+          text: "Qué es la memoria HBM y por qué lo transforma todo",
+        },
+        {
+          type: 'p',
+          text: "La memoria HBM, o High Bandwidth Memory (memoria de gran ancho de banda), es la tecnología que permite a los chips de inteligencia artificial procesar cantidades colosales de datos a velocidad extrema. Imagina una autopista de diez carriles en lugar de una carretera de dos para mover la información entre el procesador y la memoria. Sin HBM, los GPU utilizados para entrenar grandes modelos de lenguaje y sistemas de IA generativa serían el cuello de botella. Solo tres productores mundiales dominan esta tecnología a gran escala: Samsung, SK Hynix y Micron. Esta posición de oligopolio, en un mercado de crecimiento exponencial, explica por qué los clientes firman ahora contratos plurianuales. La demanda de IA no va a frenarse, y los fabricantes quieren asegurar su suministro.",
+        },
+        {
+          type: 'h2',
+          text: "Por qué nuestra nota sigue en 6 sobre 10 pese a estos resultados fabulosos",
+        },
+        {
+          type: 'p',
+          text: "Aquí es donde mi método se diferencia de la reacción emocional de los mercados. Nuestra nota de 6 sobre 10 no se mueve tras estos resultados, y es deliberado. La pregunta que me hago no es '¿son buenos los resultados de este trimestre?' sino '¿es este perfil de calidad estructuralmente duradero durante cinco años y más allá?'. El concepto clave es el flujo de caja libre (free cash flow): el dinero realmente generado por la empresa tras pagar sus gastos operativos y de inversión. Es más difícil de maquillar que el beneficio contable, y es lo que uso como termómetro de calidad.",
+        },
+        {
+          type: 'h2',
+          text: "El flujo de caja libre cíclico: lo que el historial de Micron realmente cuenta",
+        },
+        {
+          type: 'p',
+          text: "Micron opera en el sector de la memoria DRAM y NAND, dos mercados estructuralmente cíclicos. En 2023 y 2024, la empresa registró flujos de caja libres negativos: gastaba más de lo que ganaba. Esto no es un incidente aislado; es la naturaleza profunda del sector. Cuando la demanda retrocede y los precios de la memoria se desploman, como ocurrió tras el sobrecalentamiento post-COVID, los márgenes de Micron pueden caer en territorio negativo en pocos trimestres. La regularidad del flujo de caja libre durante cinco años es uno de los criterios fundamentales de mi método. Una empresa que alterna entre pérdidas y beneficios espectaculares no cumple ese criterio, aunque los picos de ciclo sean impresionantes. Es precisamente ese perfil irregular el que limita la nota de Micron a 6 sobre 10.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Resultado real Q3 FY2026', 'Consenso analistas', 'Diferencia'],
+          rows: [
+            ['BPA (beneficio por acción)', '25,11 $', '20,20 $', '+24,3 %'],
+            ['Facturación', '41.460 M$', '35.590 M$', '+16,5 %'],
+            ['Guía Q4 FY2026', '~50.000 M$ (±1.000 M)', '42.900 M$', '+16,5 %'],
+            ['Reacción acción (after-hours)', '+16 %', 'N/A', 'N/A'],
+            ['Nota método Lubin', '6 sobre 10', 'N/A', 'Sin cambios'],
+          ],
+        },
+        {
+          type: 'h2',
+          text: "La tensión fascinante: resultados fabulosos, método disciplinado",
+        },
+        {
+          type: 'p',
+          text: "Es precisamente esa tensión lo que hace a Micron tan interesante de analizar. Por un lado, una empresa que publica resultados históricos, que firma 22.000 millones de dólares en contratos a largo plazo, que ocupa una posición estratégica única en la infraestructura de la IA. Por otro, un método que no cede a la euforia post-resultados y recuerda que un trimestre excepcional, por brillante que sea, no reescribe cinco años de historial financiero. Invertir no es reaccionar a una noche de resultados. Es evaluar la calidad estructural de una empresa y el precio que se paga para acceder a ella, por separado y sin emoción.",
+        },
+        {
+          type: 'h2',
+          text: "Lo que los contratos a largo plazo cambian (y lo que no cambian)",
+        },
+        {
+          type: 'p',
+          text: "Los 16 contratos a largo plazo por 22.000 millones de dólares son una señal seria de que la demanda de IA no es un fenómeno pasajero. Reducen el riesgo de ver la demanda evaporarse bruscamente como ocurrió en ciclos anteriores. Pero no transforman mecánicamente el perfil de flujo de caja libre de Micron. La empresa aún tiene que entregar a gran escala, gestionar los costes de producción y atravesar los próximos ciclos de precios sin volver a flujos de caja libres negativos. La pregunta que me hago: si dentro de 18 meses la demanda se ralentiza por cualquier razón, ¿será Micron capaz de mantener un flujo de caja libre positivo? El historial dice que no. Los nuevos contratos abogan por un posible sí. Seguimos vigilando.",
+        },
+        {
+          type: 'h2',
+          text: "Mi veredicto: impresionante, pero no cedemos a la emoción",
+        },
+        {
+          type: 'p',
+          text: "Mi papel no es decirte si Micron va a subir o bajar. Mi papel es explicarte lo que los números realmente cuentan. Esta noche, los números narran la historia de una empresa que ejecuta a un nivel excepcional, en un sector en transformación estructural. Pero mi método no cambia sus reglas en función de los resultados trimestrales: la nota de 6 sobre 10 se mantendrá en 6 sobre 10 hasta que Micron demuestre cinco años consecutivos de flujo de caja libre positivo y creciente. Esa es la barra. No es un castigo, no es un juicio sobre la calidad de la dirección, es simplemente un criterio objetivo. Puedes consultar el análisis completo en la página dedicada a MU para seguir la evolución de este perfil en tiempo real.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Por qué la acción de Micron subió un 16 % después de los resultados?",
+          a: "El beneficio por acción superó las expectativas en un 24,3 % y la guía Q4 llegó un 16 % por encima del consenso de analistas. Una diferencia tan grande obliga a los inversores escépticos y a las posiciones cortas a revisar sus modelos con urgencia, amplificando mecánicamente la subida.",
+        },
+        {
+          q: "¿Qué es el flujo de caja libre y por qué es tan importante para puntuar a Micron?",
+          a: "El flujo de caja libre es el dinero realmente generado por la empresa tras pagar todos sus gastos operativos y de inversión. Es el indicador más fiable de la salud financiera porque es difícil de manipular contablemente. Micron registró flujos de caja libres negativos en 2023 y 2024, lo que penaliza nuestro criterio de regularidad a cinco años.",
+        },
+        {
+          q: "¿Cambian los 22.000 millones en contratos a largo plazo la nota de Micron?",
+          a: "No, no de inmediato. Estos contratos reducen el riesgo de demanda y mejoran la visibilidad, pero no reescriben el historial de flujo de caja libre. La nota evolucionará si Micron demuestra cinco años consecutivos de flujo de caja libre positivo y creciente. Los contratos son una señal positiva para el futuro, no una prueba retroactiva de regularidad.",
+        },
+        {
+          q: "¿Por qué se llama a Micron empresa cíclica y cómo penaliza eso su nota?",
+          a: "Micron fabrica memoria DRAM y NAND, productos cuyos precios varían enormemente con la oferta y la demanda mundial. En los valles del ciclo, los precios de la memoria se desploman y Micron puede pasar de márgenes espectaculares a pérdidas masivas en pocos trimestres. Esa irregularidad estructural impide a la empresa cumplir nuestros criterios de regularidad del flujo de caja libre, incluso cuando el pico del ciclo actual es impresionante.",
+        },
+        {
+          q: "¿Hay que comprar la acción de Micron tras este beat masivo?",
+          a: "Esto no es un consejo de inversión. Los resultados son excepcionales y la dinámica de la IA es real. Pero gran parte de estas buenas noticias ya está reflejada en la subida del 16 % en el mercado fuera de horario. La valoración seguirá siendo elevada respecto a los flujos de caja. La verdadera pregunta es: ¿estás dispuesto a pagar un precio elevado por una empresa cíclica en el pico de su ciclo? Haz tu propia investigación.",
+        },
+      ],
+      tags: ['Micron', 'MU', 'resultados Q3 FY2026', 'HBM', 'IA', 'semiconductores', 'análisis fundamental', 'beat'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación.',
+    },
+  },
+};
+
+const futuHoldings: Article = {
+  slug: 'futu-holdings-plateforme-trading-asiatique-analyse',
+  date: '2026-06-24',
+  updated: '2026-06-24',
+  readingTime: 7,
+  ticker: 'FUTU',
+  content: {
+    fr: {
+      title: 'FUTU Holdings (FUTU) : l\'action de courtage digital asiatique',
+      excerpt: "Futu Holdings coche tous les critères de qualité dans mon screener : croissance explosive, marge nette proche de 50%, et une valorisation que le marché ne remarque pas encore. Je t\'explique pourquoi, et quels risques comprendre avant d\'investir.",
+      metaDescription: "Analyse de l\'action FUTU Holdings (FUTU) : courtage digital mobile, marge nette 49,6%, croissance 44% par an, valorisation attractive. Risques géopolitiques inclus.",
+      answer: "Futu Holdings (FUTU) est une plateforme de courtage digital mobile cotée au NYSE, opérant via les applications moomoo et Futu en Asie, Singapour, Australie, États-Unis et Canada. Elle affiche une marge nette de 49,6%, une croissance annuelle des revenus de 44,2% sur cinq ans, et une valorisation très basse par rapport au cash qu\'elle génère. Le principal risque est l\'exposition géopolitique Chine/Hong Kong.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Futu Holdings (FUTU) est la plateforme de courtage digital la plus rentable que j\'ai analysée cette année : marge nette de 49,6% et croissance des revenus de 44,2% par an sur cinq ans.",
+            "La valorisation est exceptionnellement basse pour un dossier de cette qualité, en raison du mode de calcul du FCF (flux de trésorerie disponible) dans le secteur financier.",
+            "Le moat (avantage concurrentiel durable) repose sur une application mobile primée, une fidélisation forte de la diaspora asiatique et des coûts de transfert très élevés pour les clients.",
+            "Le risque principal est géopolitique : exposition à Hong Kong et à la Chine, régulation américaine sur les ADR chinois, et cyclicité du marché retail.",
+            "Mon verdict : dossier fascinant avec un rapport qualité/valorisation rare, mais le risque géopolitique est réel et doit être pleinement compris avant toute décision.",
+          ],
+        },
+        { type: 'h2', text: "Ce qu\'est Futu Holdings et comment ça marche" },
+        {
+          type: 'p',
+          text: "Futu Holdings Limited est une société fondée à Hong Kong en 2012, cotée au NYSE sous forme d\'ADR (American Depositary Receipt, c\'est-à-dire un certificat représentant des actions étrangères échangeable sur une bourse américaine). Elle opère deux plateformes : Futu, dédiée au marché chinois et hongkongais, et moomoo, son application internationale disponible à Singapour, en Australie, au Japon, aux États-Unis et au Canada.",
+        },
+        {
+          type: 'p',
+          text: "Le modèle économique est celui d\'une banque de courtage entièrement digitale. Les revenus proviennent des commissions sur les transactions boursières, des intérêts sur les marges prêtées aux clients (margin lending), des frais de souscription aux introductions en bourse (IPO), et des services de gestion de patrimoine. La particularité de ce modèle : l\'essentiel du chiffre d\'affaires est récurrent. Un client qui investit régulièrement génère des commissions chaque mois, sans que Futu ait besoin de le reconquérir.",
+        },
+        { type: 'h2', text: "Pourquoi mon screener lui donne un score maximum" },
+        {
+          type: 'p',
+          text: "Mon screener évalue chaque action sur 10 critères financiers : la croissance des revenus, la progression du FCF (flux de trésorerie disponible, c\'est-à-dire le cash réellement généré après toutes les dépenses d\'exploitation et d\'investissement), la marge de FCF, le Cash ROCE (rendement du capital employé mesuré en cash réel plutôt qu\'en bénéfice comptable), la solidité du bilan, les rachats d\'actions, et la régularité de ces métriques dans le temps. Futu obtient un score parfait.",
+        },
+        {
+          type: 'p',
+          text: "Les chiffres sont éloquents. La croissance annuelle des revenus sur cinq ans est de 44,2% par an : c\'est un rythme que très peu d\'entreprises cotées maintiennent aussi longtemps. La marge nette atteint 49,6%, ce qui signifie que presque un euro de revenu sur deux devient du bénéfice net. Le Cash ROCE est de 133% (1,33x), c\'est-à-dire que pour chaque euro de capital employé dans le business, l\'entreprise génère 1,33 euro de cash. C\'est un niveau extraordinaire, réservé aux entreprises avec un avantage concurrentiel très fort.",
+        },
+        { type: 'h2', text: "Le P/FCF à 0,34x : comprendre pourquoi c\'est si bas" },
+        {
+          type: 'p',
+          text: "Le P/FCF (price-to-free-cash-flow) est le ratio que j\'utilise pour évaluer si une action est chère ou non. Concrètement, il divise le prix de l\'action par le FCF par action : un P/FCF de 10 signifie que tu paies l\'équivalent de dix années de cash. Plus il est bas, moins l\'action est chère. Futu affiche un P/FCF de 0,34x, ce qui, en lecture directe, voudrait dire que tu récupères ta mise en moins de cinq mois. Comment est-ce possible ?",
+        },
+        {
+          type: 'p',
+          text: "La réponse tient au secteur. Futu est une entreprise financière. Dans les sociétés de courtage et de banque, le FCF est calculé différemment des entreprises industrielles ou logicielles. Les dépôts clients, les marges prêtées, les flux de trésorerie liés aux activités de marché créent des entrées de cash massives qui s\'ajoutent aux revenus comptables classiques. Le FCF des financières peut donc dépasser largement le bénéfice net déclaré, ce qui donne mécaniquement un P/FCF très bas. Ce n\'est pas une anomalie : c\'est la structure normale d\'un courtier digital ultra-efficace.",
+        },
+        {
+          type: 'p',
+          text: "La capitalisation boursière de Futu est d\'environ 14,6 milliards de dollars (14 576 millions) pour un prix d\'action autour de 98,3 dollars. Rapportée à la qualité intrinsèque du dossier, cette valorisation reste très basse, que l\'on utilise le P/FCF ou d\'autres métriques ajustées au secteur financier.",
+        },
+        { type: 'h2', text: "Le moat de Futu : pourquoi les clients ne partent pas" },
+        {
+          type: 'p',
+          text: "Le moat (avantage concurrentiel durable, littéralement le fossé qui protège l\'entreprise de ses concurrents) de Futu repose sur trois piliers. Premier pilier : l\'expérience produit. L\'application moomoo est régulièrement primée parmi les meilleures applications de courtage au monde, avec des outils d\'analyse avancés, des flux de données en temps réel, et une interface pensée pour l\'investisseur actif. La différence avec un courtier traditionnel est immédiatement perceptible.",
+        },
+        {
+          type: 'p',
+          text: "Deuxième pilier : la fidélisation de la diaspora asiatique. Futu a été construit dès le départ pour les investisseurs d\'Asie de l\'Est, en mandarin et en anglais, avec un service client adapté. À Singapour, à Hong Kong, en Australie, parmi les communautés asiatiques américaines, moomoo est devenu la référence. Ce positionnement crée une communauté, un bouche-à-oreille puissant, et une rétention naturelle.",
+        },
+        {
+          type: 'p',
+          text: "Troisième pilier : les switching costs (coûts de transfert). Un client qui a rapatrié tous ses comptes-titres, ses positions en marge, ses données d\'historique, ses alertes et son réseau social d\'investisseurs sur une seule plateforme n\'a aucune envie de tout déplacer ailleurs. Ces coûts de transfert sont élevés dans le courtage digital, et Futu les exploite intelligemment en multipliant les services (gestion de patrimoine, souscription IPO, fonds) pour rendre l\'écosystème encore plus difficile à quitter.",
+        },
+        { type: 'h2', text: "Les risques honnêtes que je ne minimise pas" },
+        {
+          type: 'p',
+          text: "Il serait malhonnête de présenter Futu sans ses risques. Le premier, et le plus important, est géopolitique. Futu est une entreprise de droit des Îles Caïmans, dont les opérations principales sont à Hong Kong et en Chine. La relation entre Pékin et Washington influence directement le statut des ADR chinois cotés aux États-Unis. En 2021-2022, la menace d\'une radiation forcée (delisting) de ces ADR avait fait chuter beaucoup de ces valeurs de 60 à 80%. Ce risque n\'a pas disparu : il s\'est juste assoupi.",
+        },
+        {
+          type: 'p',
+          text: "Le deuxième risque est réglementaire. La Commission des valeurs mobilières américaine (SEC) a renforcé ses exigences d\'audit pour les entreprises chinoises cotées aux États-Unis. Futu s\'est mis en conformité, mais la situation peut évoluer. Par ailleurs, en Chine et à Hong Kong, le régulateur local (SFC) peut modifier les règles du courtage à tout moment.",
+        },
+        {
+          type: 'p',
+          text: "Le troisième risque est la cyclicité. Une plateforme de courtage retail dépend du volume de transactions de ses clients. Quand les marchés sont actifs et haussiers, les volumes explosent. Quand les marchés se calment, les commissions baissent. Futu compense cela par les revenus d\'intérêts sur les marges (plus stables), mais le chiffre d\'affaires reste partiellement lié au sentiment de marché.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Valeur'],
+          rows: [
+            ['Ticker', 'FUTU (NYSE ADR)'],
+            ['Capitalisation boursière', '~14,6 Mds $'],
+            ['Prix de l\'action', '~98,3 $'],
+            ['Marge nette', '49,6 %'],
+            ['Croissance revenus 5 ans (CAGR)', '+44,2 % / an'],
+            ['Cash ROCE', '133 % (1,33x)'],
+            ['P/FCF', '0,34x'],
+            ['Endettement net', 'Trésorerie nette'],
+            ['Score screener', '10/10'],
+          ],
+        },
+        { type: 'h2', text: "Mon verdict sur FUTU" },
+        {
+          type: 'p',
+          text: "Futu Holdings est l\'un des dossiers les plus fascinants que j\'ai analysés. La qualité intrinsèque est difficile à contester : croissance à 44% par an sur cinq ans, marge nette proche de 50%, Cash ROCE à 133%, bilan sans dette nette significative. Ce niveau de performance, maintenu sur plusieurs années, correspond exactement à ce que mon screener cherche.",
+        },
+        {
+          type: 'p',
+          text: "La valorisation est basse, mais pour des raisons structurelles compréhensibles : le marché applique une décote géopolitique sur les ADR chinois, et le calcul du FCF dans les financières génère mécaniquement un ratio P/FCF très faible. Ce n\'est pas une action que l\'on achète sans se poser de questions, mais c\'est une action que l\'on peut étudier sérieusement si l\'on comprend et accepte le risque géopolitique.",
+        },
+        {
+          type: 'p',
+          text: "Si tu veux retrouver Futu dans notre screener avec ses données à jour et la comparaison avec d\'autres valeurs de grande qualité, tu peux y accéder directement sur notre outil en ligne. C\'est là que je construis mes propres analyses avant d\'investir.",
+        },
+      ],
+      faq: [
+        {
+          q: "Futu Holdings est-elle une action chinoise ou américaine ?",
+          a: "Futu Holdings est une entreprise de droit des Îles Caïmans, dont les opérations sont principalement à Hong Kong et en Chine. Elle est cotée au NYSE sous forme d\'ADR (American Depositary Receipt), ce qui permet aux investisseurs américains et européens de l\'acheter comme n\'importe quelle action américaine. Mais son risque est celui d\'une entreprise exposée à la Chine et à Hong Kong.",
+        },
+        {
+          q: "Qu\'est-ce qu\'un ADR et comment en acheter depuis la France ?",
+          a: "Un ADR (American Depositary Receipt) est un certificat représentant des actions d\'une entreprise étrangère, échangeable sur une bourse américaine comme le NYSE ou le Nasdaq. Tu peux en acheter depuis la France via n\'importe quel courtier qui donne accès aux marchés américains : Interactive Brokers, Degiro, Saxo ou les courtiers en ligne classiques.",
+        },
+        {
+          q: "Pourquoi le P/FCF de Futu est-il aussi bas par rapport aux autres valeurs de grande qualité ?",
+          a: "Le FCF (flux de trésorerie disponible) d\'une entreprise financière comme Futu est calculé différemment de celui d\'une entreprise technologique ou industrielle. Les dépôts clients, les intérêts sur marges et les flux de marché créent des entrées de cash massives qui gonflent le FCF au-delà du bénéfice net. Le P/FCF est donc très bas structurellement, et non parce que l\'entreprise est en difficulté.",
+        },
+        {
+          q: "Quel est le vrai risque géopolitique sur FUTU ?",
+          a: "Le principal risque est une escalade des tensions sino-américaines qui pourrait mener à un delisting forcé des ADR chinois du NYSE. Ce scénario s\'est déjà produit avec d\'autres entreprises, et bien qu\'un accord d\'audit entre les autorités américaines et chinoises ait réduit ce risque depuis 2022, il n\'est pas nul. Par ailleurs, une restriction de l\'activité de Futu en Chine par les autorités locales est aussi un risque réglementaire à surveiller.",
+        },
+        {
+          q: "Futu verse-t-elle des dividendes ?",
+          a: "Non, Futu Holdings ne verse pas de dividende régulier. L\'entreprise réinvestit son cash dans sa croissance et dans des rachats d\'actions ponctuels. Pour un investisseur orienté rendement immédiat, ce n\'est pas le bon dossier. Pour un investisseur orienté croissance du capital, la progression de la valeur intrinsèque est le levier principal.",
+        },
+      ],
+      tags: ['FUTU', 'Futu Holdings', 'moomoo', 'courtage digital', 'action asiatique', 'ADR chinois', 'bourse Hong Kong', 'screener actions', 'note 10 sur 10', 'P/FCF', 'moat'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches avant d\'investir.",
+    },
+    en: {
+      title: 'FUTU Holdings (FUTU): the Asian digital brokerage stock',
+      excerpt: "Futu Holdings scores at the top of my screener: explosive growth, nearly 50% net margin, and a valuation the market has not yet noticed. Here is why, and what risks you need to understand before investing.",
+      metaDescription: "Analysis of FUTU Holdings (FUTU) stock: mobile digital brokerage, 49.6% net margin, 44% annual revenue growth, attractive valuation. Geopolitical risks included.",
+      answer: "Futu Holdings (FUTU) is a mobile digital brokerage platform listed on the NYSE, operating through the moomoo and Futu apps in Asia, Singapore, Australia, the US and Canada. It posts a 49.6% net margin, 44.2% annual revenue growth over five years, and a very low valuation relative to the cash it generates. The main risk is geopolitical exposure to China and Hong Kong.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Futu Holdings (FUTU) is the most profitable digital brokerage I have analysed this year: 49.6% net margin and 44.2% annual revenue growth over five years.",
+            "The valuation is exceptionally low for a business of this quality, driven by how FCF (free cash flow) is calculated in the financial sector.",
+            "The moat (durable competitive advantage) rests on an award-winning mobile app, strong retention among the Asian diaspora, and very high switching costs.",
+            "The main risk is geopolitical: exposure to Hong Kong and China, US regulation of Chinese ADRs, and the cyclical nature of retail trading volumes.",
+            "My verdict: a fascinating opportunity with a rare quality-to-valuation ratio, but the geopolitical risk is real and must be fully understood before any decision.",
+          ],
+        },
+        { type: 'h2', text: "What Futu Holdings is and how it works" },
+        {
+          type: 'p',
+          text: "Futu Holdings Limited is a company founded in Hong Kong in 2012, listed on the NYSE as an ADR (American Depositary Receipt, a certificate representing foreign shares tradeable on a US exchange). It operates two platforms: Futu, aimed at the Chinese and Hong Kong market, and moomoo, its international app available in Singapore, Australia, Japan, the US and Canada.",
+        },
+        {
+          type: 'p',
+          text: "The business model is that of an entirely digital brokerage. Revenue comes from trading commissions, interest on margin lending to clients, IPO subscription fees, and wealth management services. The key feature of this model: most revenue is recurring. A client who invests regularly generates commissions every month without Futu needing to re-acquire them.",
+        },
+        { type: 'h2', text: "Why my screener gives it the top score" },
+        {
+          type: 'p',
+          text: "My screener rates each stock on 10 financial criteria: revenue growth, FCF (free cash flow, meaning the cash actually generated after all operating and capital expenditure) progression, FCF margin, Cash ROCE (return on capital employed measured in real cash rather than accounting profit), balance sheet strength, share buybacks, and the consistency of these metrics over time. Futu scores at the top.",
+        },
+        {
+          type: 'p',
+          text: "The numbers speak for themselves. Annual revenue growth over five years is 44.2% per year, a pace very few listed companies sustain for that long. Net margin reaches 49.6%, meaning nearly one dollar in two of revenue becomes net profit. Cash ROCE is 133% (1.33x): for every dollar of capital employed in the business, the company generates 1.33 dollars of cash. That is an extraordinary level, reserved for companies with a very strong competitive advantage.",
+        },
+        { type: 'h2', text: "The 0.34x P/FCF: why it is so low" },
+        {
+          type: 'p',
+          text: "P/FCF (price-to-free-cash-flow) is the ratio I use to judge whether a stock is expensive or not. Concretely, it divides the share price by FCF per share: a P/FCF of 10 means you are paying the equivalent of ten years of cash. The lower, the cheaper. Futu shows a P/FCF of 0.34x, which at face value would mean you recover your investment in less than five months. How is that possible?",
+        },
+        {
+          type: 'p',
+          text: "The answer lies in the sector. Futu is a financial company. In brokerage and banking businesses, FCF is calculated differently from industrial or software companies. Client deposits, margin lending, and market-related cash flows create massive cash inflows that add to standard accounting revenues. The FCF of a financial business can therefore far exceed reported net income, mechanically producing a very low P/FCF. This is not an anomaly: it is the normal structure of an ultra-efficient digital broker.",
+        },
+        {
+          type: 'p',
+          text: "Futu's market capitalisation is approximately 14.6 billion dollars (14,576 million) at a share price around 98.3 dollars. Relative to the intrinsic quality of the business, this valuation remains very low, whether you use P/FCF or other metrics adjusted for the financial sector.",
+        },
+        { type: 'h2', text: "Futu's moat: why clients do not leave" },
+        {
+          type: 'p',
+          text: "Futu's moat (durable competitive advantage, literally the moat that protects the business from competitors) rests on three pillars. First pillar: the product experience. The moomoo app is regularly ranked among the world's best brokerage applications, with advanced analysis tools, real-time data feeds, and an interface built for the active investor. The difference from a traditional broker is immediately noticeable.",
+        },
+        {
+          type: 'p',
+          text: "Second pillar: retention among the Asian diaspora. Futu was built from the start for East Asian investors, in Mandarin and English, with adapted customer service. In Singapore, Hong Kong, Australia, and among Asian-American communities, moomoo has become the reference. This positioning creates a community, powerful word-of-mouth, and natural retention.",
+        },
+        {
+          type: 'p',
+          text: "Third pillar: switching costs. A client who has consolidated all their brokerage accounts, margin positions, historical data, alerts, and investor social network on one platform has no desire to move everything elsewhere. Switching costs are high in digital brokerage, and Futu exploits them intelligently by multiplying services (wealth management, IPO subscriptions, funds) to make the ecosystem even harder to leave.",
+        },
+        { type: 'h2', text: "The honest risks I do not minimise" },
+        {
+          type: 'p',
+          text: "It would be dishonest to present Futu without its risks. The first, and most important, is geopolitical. Futu is a Cayman Islands-incorporated company whose main operations are in Hong Kong and China. Relations between Beijing and Washington directly influence the status of Chinese ADRs listed in the US. In 2021-2022, the threat of forced delisting of these ADRs caused many of them to fall 60-80%. That risk has not disappeared: it has merely gone quiet.",
+        },
+        {
+          type: 'p',
+          text: "The second risk is regulatory. The SEC has strengthened its audit requirements for Chinese companies listed in the US. Futu has complied, but the situation can evolve. Additionally, in China and Hong Kong, the local regulator (SFC) can change brokerage rules at any time.",
+        },
+        {
+          type: 'p',
+          text: "The third risk is cyclicality. A retail brokerage platform depends on the trading volume of its clients. When markets are active and rising, volumes surge. When markets calm down, commissions fall. Futu offsets this with margin interest income (more stable), but revenue remains partially tied to market sentiment.",
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Value'],
+          rows: [
+            ['Ticker', 'FUTU (NYSE ADR)'],
+            ['Market cap', '~$14.6 bn'],
+            ['Share price', '~$98.3'],
+            ['Net margin', '49.6%'],
+            ['5-year revenue CAGR', '+44.2% / year'],
+            ['Cash ROCE', '133% (1.33x)'],
+            ['P/FCF', '0.34x'],
+            ['Net debt', 'Net cash'],
+            ['Screener score', '10/10'],
+          ],
+        },
+        { type: 'h2', text: "My verdict on FUTU" },
+        {
+          type: 'p',
+          text: "Futu Holdings is one of the most fascinating cases I have analysed. The intrinsic quality is hard to dispute: 44% annual growth over five years, nearly 50% net margin, 133% Cash ROCE, a balance sheet with no significant net debt. This level of performance, sustained over several years, is exactly what my screener looks for.",
+        },
+        {
+          type: 'p',
+          text: "The valuation is low, but for understandable structural reasons: the market applies a geopolitical discount to Chinese ADRs, and the FCF calculation in financial companies mechanically produces a very low P/FCF ratio. This is not a stock you buy without questions, but it is one you can study seriously if you understand and accept the geopolitical risk.",
+        },
+        {
+          type: 'p',
+          text: "If you want to find Futu in our screener with up-to-date data and a comparison with other high-quality stocks, you can access it directly on our online tool. That is where I build my own analysis before investing.",
+        },
+      ],
+      faq: [
+        {
+          q: "Is Futu Holdings a Chinese or American stock?",
+          a: "Futu Holdings is incorporated in the Cayman Islands, with its main operations in Hong Kong and China. It is listed on the NYSE as an ADR (American Depositary Receipt), which allows US and European investors to buy it like any American stock. But its risk profile is that of a company exposed to China and Hong Kong.",
+        },
+        {
+          q: "What is an ADR and how do you buy one from outside the US?",
+          a: "An ADR (American Depositary Receipt) is a certificate representing shares of a foreign company, tradeable on a US exchange like the NYSE or Nasdaq. You can buy one through any broker that provides access to US markets: Interactive Brokers, Degiro, Saxo, or standard online brokers.",
+        },
+        {
+          q: "Why is Futu's P/FCF so low compared to other high-quality stocks?",
+          a: "The FCF (free cash flow) of a financial company like Futu is calculated differently from a tech or industrial company. Client deposits, margin interest, and market-related flows create massive cash inflows that push FCF well above reported net income. The P/FCF is therefore structurally very low, not because the company is in trouble.",
+        },
+        {
+          q: "What is the real geopolitical risk on FUTU?",
+          a: "The main risk is a US-China escalation that could lead to the forced delisting of Chinese ADRs from the NYSE. This scenario has already happened with other companies, and while an audit agreement between US and Chinese authorities has reduced this risk since 2022, it is not zero. A restriction of Futu's operations in China by local authorities is also a regulatory risk to monitor.",
+        },
+        {
+          q: "Does Futu pay dividends?",
+          a: "No, Futu Holdings does not pay a regular dividend. The company reinvests its cash into growth and occasional share buybacks. For an investor seeking immediate yield, this is not the right stock. For a capital-growth investor, the progression of intrinsic value is the main lever.",
+        },
+      ],
+      tags: ['FUTU', 'Futu Holdings', 'moomoo', 'digital brokerage', 'Asian stock', 'Chinese ADR', 'Hong Kong stock exchange', 'stock screener', 'P/FCF', 'moat'],
+      disclaimer: "Analysis for informational and educational purposes only, not personalised investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research before investing.",
+    },
+    es: {
+      title: 'FUTU Holdings (FUTU): la acción de corretaje digital asiático',
+      excerpt: "Futu Holdings obtiene la puntuación máxima en mi screener: crecimiento explosivo, margen neto cercano al 50% y una valoración que el mercado todavía no ha descubierto. Te explico por qué, y qué riesgos debes entender antes de invertir.",
+      metaDescription: "Análisis de la acción FUTU Holdings (FUTU): corretaje digital móvil, margen neto del 49,6%, crecimiento de ingresos del 44% anual, valoración atractiva. Riesgos geopolíticos incluidos.",
+      answer: "Futu Holdings (FUTU) es una plataforma de corretaje digital móvil cotizada en el NYSE, que opera mediante las aplicaciones moomoo y Futu en Asia, Singapur, Australia, EE. UU. y Canadá. Presenta un margen neto del 49,6%, un crecimiento anual de ingresos del 44,2% durante cinco años y una valoración muy baja respecto al efectivo que genera. El principal riesgo es la exposición geopolítica a China y Hong Kong.",
+      body: [
+        {
+          type: 'ul',
+          items: [
+            "Futu Holdings (FUTU) es la plataforma de corretaje digital más rentable que he analizado este año: margen neto del 49,6% y crecimiento de ingresos del 44,2% anual durante cinco años.",
+            "La valoración es excepcionalmente baja para un negocio de esta calidad, debido a cómo se calcula el FCF (flujo de caja libre) en el sector financiero.",
+            "El moat (ventaja competitiva duradera) se apoya en una aplicación móvil galardonada, una fuerte fidelización de la diáspora asiática y costes de cambio muy elevados.",
+            "El riesgo principal es geopolítico: exposición a Hong Kong y China, regulación estadounidense sobre los ADR chinos y la ciclicidad del mercado retail.",
+            "Mi veredicto: un expediente fascinante con una relación calidad/valoración poco habitual, pero el riesgo geopolítico es real y debe entenderse bien antes de cualquier decisión.",
+          ],
+        },
+        { type: 'h2', text: "Qué es Futu Holdings y cómo funciona" },
+        {
+          type: 'p',
+          text: "Futu Holdings Limited es una empresa fundada en Hong Kong en 2012, cotizada en el NYSE en forma de ADR (American Depositary Receipt, es decir, un certificado que representa acciones extranjeras negociable en una bolsa estadounidense). Opera dos plataformas: Futu, dirigida al mercado chino y hongkonés, y moomoo, su aplicación internacional disponible en Singapur, Australia, Japón, EE. UU. y Canadá.",
+        },
+        {
+          type: 'p',
+          text: "El modelo de negocio es el de un bróker enteramente digital. Los ingresos provienen de las comisiones por operaciones bursátiles, de los intereses sobre los préstamos de margen a clientes, de las tarifas de suscripción a salidas a bolsa (OPV) y de los servicios de gestión patrimonial. La clave de este modelo: la mayor parte de los ingresos es recurrente. Un cliente que invierte con regularidad genera comisiones cada mes sin que Futu necesite reconquistarlo.",
+        },
+        { type: 'h2', text: "Por qué mi screener le da la puntuación máxima" },
+        {
+          type: 'p',
+          text: "Mi screener evalúa cada acción en 10 criterios financieros: crecimiento de ingresos, progresión del FCF (flujo de caja libre, es decir, el efectivo realmente generado tras todos los gastos operativos y de inversión), margen de FCF, Cash ROCE (rentabilidad del capital empleado medida en efectivo real y no en beneficio contable), solidez del balance, recompra de acciones y la consistencia de estas métricas a lo largo del tiempo. Futu obtiene la puntuación máxima.",
+        },
+        {
+          type: 'p',
+          text: "Los números hablan por sí solos. El crecimiento anual de ingresos durante cinco años es del 44,2% por año, un ritmo que muy pocas empresas cotizadas mantienen tanto tiempo. El margen neto alcanza el 49,6%, lo que significa que casi un dólar de cada dos en ingresos se convierte en beneficio neto. El Cash ROCE es del 133% (1,33x): por cada dólar de capital empleado en el negocio, la empresa genera 1,33 dólares de efectivo. Es un nivel extraordinario, reservado a empresas con una ventaja competitiva muy sólida.",
+        },
+        { type: 'h2', text: "El P/FCF de 0,34x: por qué es tan bajo" },
+        {
+          type: 'p',
+          text: "El P/FCF (price-to-free-cash-flow, precio sobre flujo de caja libre) es el ratio que utilizo para valorar si una acción está cara o no. Concretamente, divide el precio de la acción por el FCF por acción: un P/FCF de 10 significa que pagas el equivalente a diez años de ese efectivo. Cuanto más bajo, más barata está la acción. Futu muestra un P/FCF de 0,34x, lo que en lectura directa significaría que recuperas tu inversión en menos de cinco meses. ¿Cómo es posible?",
+        },
+        {
+          type: 'p',
+          text: "La respuesta está en el sector. Futu es una empresa financiera. En las compañías de corretaje y banca, el FCF se calcula de forma diferente a las empresas industriales o de software. Los depósitos de clientes, los préstamos de margen y los flujos relacionados con el mercado generan entradas masivas de efectivo que se suman a los ingresos contables habituales. El FCF de las financieras puede superar ampliamente el beneficio neto declarado, lo que produce mecánicamente un P/FCF muy bajo. No es una anomalía: es la estructura normal de un bróker digital ultra-eficiente.",
+        },
+        {
+          type: 'p',
+          text: "La capitalización bursátil de Futu es de aproximadamente 14.600 millones de dólares (14.576 millones) con un precio de acción en torno a los 98,3 dólares. En relación con la calidad intrínseca del negocio, esta valoración sigue siendo muy baja, tanto si se usa el P/FCF como otras métricas ajustadas al sector financiero.",
+        },
+        { type: 'h2', text: "El moat de Futu: por qué los clientes no se van" },
+        {
+          type: 'p',
+          text: "El moat (ventaja competitiva duradera, literalmente el foso que protege a la empresa de sus competidores) de Futu descansa en tres pilares. Primer pilar: la experiencia de producto. La aplicación moomoo es reconocida regularmente como una de las mejores plataformas de corretaje del mundo, con herramientas de análisis avanzadas, datos en tiempo real y una interfaz diseñada para el inversor activo. La diferencia respecto a un bróker tradicional es inmediata.",
+        },
+        {
+          type: 'p',
+          text: "Segundo pilar: la fidelización de la diáspora asiática. Futu fue construido desde el principio para inversores del Este asiático, en mandarín e inglés, con un servicio de atención al cliente adaptado. En Singapur, Hong Kong, Australia y entre las comunidades asiáticas en EE. UU., moomoo se ha convertido en la referencia. Este posicionamiento crea comunidad, un boca a boca poderoso y una retención natural.",
+        },
+        {
+          type: 'p',
+          text: "Tercer pilar: los switching costs (costes de cambio). Un cliente que ha consolidado todas sus cuentas de valores, posiciones en margen, datos históricos, alertas y su red social de inversores en una sola plataforma no tiene ningún deseo de moverlo todo a otro sitio. Los costes de cambio son elevados en el corretaje digital, y Futu los aprovecha de forma inteligente multiplicando los servicios (gestión patrimonial, suscripción a OPV, fondos) para hacer el ecosistema aún más difícil de abandonar.",
+        },
+        { type: 'h2', text: "Los riesgos honestos que no minimizo" },
+        {
+          type: 'p',
+          text: "Sería deshonesto presentar Futu sin sus riesgos. El primero, y más importante, es el geopolítico. Futu es una empresa constituida en las Islas Caimán, cuyas operaciones principales están en Hong Kong y China. Las relaciones entre Pekín y Washington influyen directamente en el estatus de los ADR chinos cotizados en EE. UU. En 2021-2022, la amenaza de un delisting forzado de estos ADR provocó caídas del 60 al 80% en muchos de ellos. Ese riesgo no ha desaparecido: simplemente se ha calmado.",
+        },
+        {
+          type: 'p',
+          text: "El segundo riesgo es regulatorio. La SEC ha reforzado sus requisitos de auditoría para las empresas chinas cotizadas en EE. UU. Futu ha cumplido, pero la situación puede evolucionar. Además, en China y Hong Kong, el regulador local (SFC) puede modificar las reglas del corretaje en cualquier momento.",
+        },
+        {
+          type: 'p',
+          text: "El tercer riesgo es la ciclicidad. Una plataforma de corretaje retail depende del volumen de operaciones de sus clientes. Cuando los mercados están activos y al alza, los volúmenes se disparan. Cuando los mercados se calman, las comisiones caen. Futu compensa esto con los ingresos por intereses de margen (más estables), pero los ingresos siguen estando parcialmente ligados al sentimiento del mercado.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Valor'],
+          rows: [
+            ['Ticker', 'FUTU (NYSE ADR)'],
+            ['Capitalización bursátil', '~14.600 M$'],
+            ['Precio de la acción', '~98,3 $'],
+            ['Margen neto', '49,6 %'],
+            ['CAGR ingresos 5 años', '+44,2 % / año'],
+            ['Cash ROCE', '133 % (1,33x)'],
+            ['P/FCF', '0,34x'],
+            ['Deuda neta', 'Caja neta'],
+            ['Puntuación screener', '10/10'],
+          ],
+        },
+        { type: 'h2', text: "Mi veredicto sobre FUTU" },
+        {
+          type: 'p',
+          text: "Futu Holdings es uno de los expedientes más fascinantes que he analizado. La calidad intrínseca es difícil de cuestionar: crecimiento anual del 44% durante cinco años, margen neto cercano al 50%, Cash ROCE del 133%, balance sin deuda neta significativa. Este nivel de desempeño, mantenido durante varios años, es exactamente lo que busca mi screener.",
+        },
+        {
+          type: 'p',
+          text: "La valoración es baja, pero por razones estructurales comprensibles: el mercado aplica un descuento geopolítico a los ADR chinos, y el cálculo del FCF en las empresas financieras produce mecánicamente un ratio P/FCF muy bajo. No es una acción que se compre sin hacerse preguntas, pero sí una que se puede estudiar seriamente si se comprende y acepta el riesgo geopolítico.",
+        },
+        {
+          type: 'p',
+          text: "Si quieres encontrar a Futu en nuestro screener con datos actualizados y una comparación con otras acciones de alta calidad, puedes acceder directamente a nuestra herramienta en línea. Es donde construyo mis propios análisis antes de invertir.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Es Futu Holdings una acción china o americana?",
+          a: "Futu Holdings está constituida en las Islas Caimán, con sus operaciones principales en Hong Kong y China. Cotiza en el NYSE en forma de ADR (American Depositary Receipt), lo que permite a los inversores estadounidenses y europeos comprarla como cualquier acción americana. Pero su perfil de riesgo es el de una empresa expuesta a China y Hong Kong.",
+        },
+        {
+          q: "¿Qué es un ADR y cómo comprarlo desde España?",
+          a: "Un ADR (American Depositary Receipt) es un certificado que representa acciones de una empresa extranjera, negociable en una bolsa estadounidense como el NYSE o el Nasdaq. Puedes comprarlo a través de cualquier bróker que dé acceso a los mercados americanos: Interactive Brokers, Degiro, Saxo u otros brókeres en línea.",
+        },
+        {
+          q: "¿Por qué el P/FCF de Futu es tan bajo en comparación con otras acciones de alta calidad?",
+          a: "El FCF (flujo de caja libre) de una empresa financiera como Futu se calcula de forma diferente al de una empresa tecnológica o industrial. Los depósitos de clientes, los intereses de margen y los flujos del mercado generan entradas masivas de efectivo que elevan el FCF muy por encima del beneficio neto declarado. El P/FCF es, por tanto, estructuralmente muy bajo, y no porque la empresa tenga problemas.",
+        },
+        {
+          q: "¿Cuál es el riesgo geopolítico real en FUTU?",
+          a: "El principal riesgo es una escalada de tensiones entre EE. UU. y China que pudiera llevar al delisting forzado de los ADR chinos del NYSE. Este escenario ya se ha dado con otras empresas y, aunque un acuerdo de auditoría entre las autoridades estadounidenses y chinas ha reducido este riesgo desde 2022, no es nulo. También hay que vigilar una posible restricción de las operaciones de Futu en China por parte de las autoridades locales.",
+        },
+        {
+          q: "¿Paga dividendos Futu Holdings?",
+          a: "No, Futu Holdings no paga un dividendo regular. La empresa reinvierte su efectivo en crecimiento y en recompras de acciones puntuales. Para un inversor orientado al rendimiento inmediato, no es el valor adecuado. Para un inversor orientado al crecimiento del capital, la progresión del valor intrínseco es el principal motor.",
+        },
+      ],
+      tags: ['FUTU', 'Futu Holdings', 'moomoo', 'corretaje digital', 'acción asiática', 'ADR chino', 'bolsa Hong Kong', 'screener acciones', 'P/FCF', 'moat'],
+      disclaimer: "Análisis con fines informativos y educativos, no asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Haz tu propia investigación antes de invertir.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
