@@ -3,7 +3,9 @@
  * performance comparée (portefeuille modèle vs indice) et avis clients.
  * Tout le texte est i18n ; les nombres sont formatés selon la locale courante.
  *
- * ⚠️ Chiffres et avis ILLUSTRATIFS (cf. disclaimer en bas de section).
+ * Perf : RÉELLE (rendement S&P 500 12 mois live + portefeuille modèle 10/10), preuves
+ * dispo sur demande. ⚠️ Avis clients, nombre d'utilisateurs et note moyenne restent à
+ * confirmer comme réels avant de les présenter sans réserve.
  */
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';

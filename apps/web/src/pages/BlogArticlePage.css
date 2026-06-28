@@ -30,6 +30,13 @@
 
 .article-cta { margin: 2.5rem 0 1.5rem; }
 
+.article-author-intro { font-weight: 600; margin: 0 0 0.6rem; }
+.article-author-quote {
+  margin: 0; font-style: italic; line-height: 1.65;
+  padding: 1rem 1.25rem; border-left: 3px solid var(--brand, #6366f1);
+  background: rgba(99, 102, 241, 0.06); border-radius: 0 8px 8px 0;
+}
+
 .article-disclaimer {
   font-size: 0.8rem; opacity: 0.55; line-height: 1.5;
   border-top: 1px solid rgba(128, 128, 128, 0.2); padding-top: 1rem; margin-top: 2rem;

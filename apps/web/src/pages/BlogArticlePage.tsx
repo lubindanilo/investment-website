@@ -15,21 +15,24 @@ const LOCALE: Record<string, string> = { fr: 'fr-FR', en: 'en-US', es: 'es-ES' }
 
 // Auteur (E-E-A-T / YMYL) : signature + bio courte, basées sur l'expérience réelle
 // (autodidacte, investit son propre argent), affichées aussi aux lecteurs humains.
-const AUTHOR: Record<ArticleLang, { byline: string; heading: string; bio: string }> = {
+const AUTHOR: Record<ArticleLang, { byline: string; heading: string; intro: string; quote: string }> = {
   fr: {
     byline: 'Par Lubin Danilo',
     heading: "À propos de l'auteur",
-    bio: "Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, l'analyse fondamentale me passionne et m'a donné d'excellents résultats. Cela fait désormais trois années que ma performance bat le S&P 500. Mais analyser chaque action me prenait trop de temps : des sites aux données incomplètes, des méthodes de calcul et des critères jamais alignés sur les miens. Et repérer les meilleures actions était tout aussi chronophage, même avec ma liste de critères bien définie. J'ai donc mis mon expérience en développement à profit pour créer ce logiciel, bâtir ma stratégie d'investissement sur les résultats de celui-ci et en faire profiter les gens partageant la même passion que moi.",
+    intro: 'Lubin Danilo, fondateur de Lubin Investment.',
+    quote: "Investisseur particulier autodidacte, l'analyse fondamentale me passionne et m'a donné d'excellents résultats. Cela fait désormais trois années que ma performance bat le S&P 500. Mais analyser chaque action me prenait trop de temps : des sites aux données incomplètes, des méthodes de calcul et des critères jamais alignés sur les miens. Et repérer les meilleures actions était tout aussi chronophage, même avec ma liste de critères bien définie. J'ai donc mis mon expérience en développement à profit pour créer ce logiciel, bâtir ma stratégie d'investissement sur les résultats de celui-ci et en faire profiter les gens partageant la même passion que moi.",
   },
   en: {
     byline: 'By Lubin Danilo',
     heading: 'About the author',
-    bio: 'Lubin Danilo, founder of Lubin Investment. A self-taught individual investor, I find fundamental analysis fascinating, and it has delivered excellent results. For three years now, my performance has beaten the S&P 500. But analyzing every stock took too much time: sites with incomplete data, calculation methods and criteria never aligned with mine. And spotting the best stocks was just as time-consuming, even with my own well-defined checklist. So I put my software development background to work to build this software, base my investment strategy on its results, and share it with people who share the same passion as me.',
+    intro: 'Lubin Danilo, founder of Lubin Investment.',
+    quote: 'A self-taught individual investor, I find fundamental analysis fascinating, and it has delivered excellent results. For three years now, my performance has beaten the S&P 500. But analyzing every stock took too much time: sites with incomplete data, calculation methods and criteria never aligned with mine. And spotting the best stocks was just as time-consuming, even with my own well-defined checklist. So I put my software development background to work to build this software, base my investment strategy on its results, and share it with people who share the same passion as me.',
   },
   es: {
     byline: 'Por Lubin Danilo',
     heading: 'Sobre el autor',
-    bio: 'Lubin Danilo, fundador de Lubin Investment. Inversor particular autodidacta, el análisis fundamental me apasiona y me ha dado resultados excelentes. Desde hace ya tres años, mi rentabilidad supera al S&P 500. Pero analizar cada acción me llevaba demasiado tiempo: sitios con datos incompletos, métodos de cálculo y criterios nunca alineados con los míos. Y detectar las mejores acciones era igual de laborioso, incluso con mi lista de criterios bien definida. Por eso aproveché mi experiencia en desarrollo para crear este software, basar mi estrategia de inversión en los resultados de este y compartirlo con quienes comparten la misma pasión que yo.',
+    intro: 'Lubin Danilo, fundador de Lubin Investment.',
+    quote: 'Inversor particular autodidacta, el análisis fundamental me apasiona y me ha dado resultados excelentes. Desde hace ya tres años, mi rentabilidad supera al S&P 500. Pero analizar cada acción me llevaba demasiado tiempo: sitios con datos incompletos, métodos de cálculo y criterios nunca alineados con los míos. Y detectar las mejores acciones era igual de laborioso, incluso con mi lista de criterios bien definida. Por eso aproveché mi experiencia en desarrollo para crear este software, basar mi estrategia de inversión en los resultados de este y compartirlo con quienes comparten la misma pasión que yo.',
   },
 };
 
@@ -160,7 +163,8 @@ export function BlogArticlePage() {
 
         <section className="article-author">
           <h2 className="article-h2">{AUTHOR[lang].heading}</h2>
-          <p>{AUTHOR[lang].bio}</p>
+          <p className="article-author-intro">{AUTHOR[lang].intro}</p>
+          <blockquote className="article-author-quote">{AUTHOR[lang].quote}</blockquote>
         </section>
 
         <p className="article-disclaimer">{c.disclaimer}</p>
