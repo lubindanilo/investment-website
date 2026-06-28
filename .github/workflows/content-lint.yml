@@ -1,13 +1,14 @@
 name: Content lint (no em/en dash in articles)
 
 # Garde-fou déterministe : un article de blog ne doit JAMAIS contenir de tiret long (—)
-# ni de tiret moyen (–) — ni dans les titres, ni dans le corps. Échoue la PR si trouvé.
+# ni de tiret moyen (–), ni dans les titres, ni dans le corps. Échoue la PR si trouvé.
 # (Préférence éditoriale Lubin : séparateurs en deux-points, jamais de tiret.)
+#
+# Tourne sur TOUTES les PRs (pas de filtre de chemin) : c'est un required check de la
+# protection de branche `main`, donc il doit reporter un statut sur chaque PR pour que
+# l'auto-merge des articles (gh pr merge --auto) puisse se débloquer.
 on:
   pull_request:
-    paths:
-      - 'packages/shared/src/articles.ts'
-      - 'apps/api/src/data/articles.ts'
   workflow_dispatch: {}
 
 jobs:
