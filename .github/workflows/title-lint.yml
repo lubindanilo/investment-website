@@ -1,0 +1,27 @@
+name: Title lint (no jargon before click)
+
+# Garde-fou éditorial (skill lubin-blog-writer §4) : aucun jargon AVANT le clic
+# (title / metaDescription / excerpt) — pas de « 10/10 », « X/10 », « P/FCF »,
+# « EV/EBITDA », ni ratio chiffré « 18x ». Diff-only : ne juge QUE les lignes
+# ajoutées dans la PR, donc les articles legacy ne bloquent pas.
+#
+# Tourne sur TOUTES les PRs : c'est un required check de la protection de branche
+# `main`, il doit reporter un statut sur chaque PR pour débloquer l'auto-merge.
+on:
+  pull_request:
+  workflow_dispatch: {}
+
+jobs:
+  title-jargon:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: '24' }
+      - name: Vérifier les titres/metas ajoutés
+        run: |
+          BASE="${{ github.event.pull_request.base.sha }}"
+          [ -n "$BASE" ] || BASE="$(git rev-parse HEAD~1)"
+          git diff "$BASE...HEAD" -- packages/shared/src/articles.ts apps/api/src/data/articles.ts > /tmp/articles.diff || true
+          node scripts/check-article-titles.mjs /tmp/articles.diff
