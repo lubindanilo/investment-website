@@ -73,24 +73,32 @@ priceHistoryRouter.get('/', asyncHandler(async (req: Request, res: Response) => 
     return;
   }
 
-  // Résolution Yahoo (cache 24h interne) — gère les suffixes EU automatiquement
-  const resolved = await resolveYahooTicker(ticker);
-  if (!resolved) {
-    throw new ApiError(404, `Ticker ${ticker} introuvable sur Yahoo`);
+  // Benchmarks / ETF (SPY, QQQ…) : resolveYahooTicker rejette tout ce qui n'est pas EQUITY,
+  // or ces symboles répondent parfaitement sur le chart Yahoo. On bypasse la résolution
+  // pour cet allowlist et on fetch le symbol tel quel (ex. la courbe S&P 500 de la landing).
+  const DIRECT_SYMBOLS = new Set(['SPY', 'QQQ', 'DIA', 'IWM', 'VOO', 'VTI']);
+  let symbol: string;
+  let currency: string;
+  if (DIRECT_SYMBOLS.has(ticker)) {
+    symbol = ticker;
+    currency = 'USD';
+  } else {
+    // Résolution Yahoo (cache 24h interne) — gère les suffixes EU automatiquement
+    const resolved = await resolveYahooTicker(ticker);
+    if (!resolved) {
+      throw new ApiError(404, `Ticker ${ticker} introuvable sur Yahoo`);
+    }
+    symbol = resolved.symbol;
+    currency = resolved.currency;
   }
 
-  const points = await fetchYahooPrices(resolved.symbol, years, interval);
-  cache.set(cacheKey, {
-    points,
-    symbol: resolved.symbol,
-    currency: resolved.currency,
-    cachedAt: Date.now(),
-  });
+  const points = await fetchYahooPrices(symbol, years, interval);
+  cache.set(cacheKey, { points, symbol, currency, cachedAt: Date.now() });
 
   res.json({
     ticker,
-    symbol: resolved.symbol,
-    currency: resolved.currency,
+    symbol,
+    currency,
     years,
     interval,
     points,
