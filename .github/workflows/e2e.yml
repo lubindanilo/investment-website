@@ -17,8 +17,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      # Pas de `version:` ici : pnpm/action-setup lit `packageManager` dans package.json
+      # (pnpm@11.x). Figer une version differente (ex. 9) fait echouer l'action avec
+      # ERR_PNPM_BAD_PM_VERSION avant meme d'installer les deps.
       - uses: pnpm/action-setup@v4
-        with: { version: 9 }
       - uses: actions/setup-node@v4
         with: { node-version: '24', cache: 'pnpm' }
       - run: pnpm install --frozen-lockfile
