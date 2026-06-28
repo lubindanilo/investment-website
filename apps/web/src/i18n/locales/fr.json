@@ -635,7 +635,7 @@
   "social": {
     "kicker": "La preuve par les chiffres",
     "title": "Ils ne cherchent plus les pépites. Ils les reçoivent.",
-    "subtitle": "Des milliers d'investisseurs « quality » s'appuient sur Lubin pour décider vite, sur des chiffres fiables.",
+    "subtitle": "Des milliers d'investisseurs s'appuient sur Lubin pour décider vite, sur des chiffres fiables.",
     "metrics": {
       "users": "investisseurs utilisent Lubin au quotidien",
       "perf10": "perf. moyenne des actions notées 10/10 · 12 mois",
@@ -644,7 +644,7 @@
     },
     "perf": {
       "kicker": "Portefeuille modèle · notes 10/10",
-      "desc": "Performance moyenne sur 12 mois des actions détectées et notées 10/10 par la veille, contre {{idx}} pour l'indice de référence.",
+      "desc": "Performance moyenne sur 12 mois des actions détectées et notées 10/10 par la veille, contre {{idx}} pour le S&P 500, l'indice de référence.",
       "legendStocks": "Actions 10/10",
       "legendIndex": "Indice de référence",
       "row1y": "1 an",

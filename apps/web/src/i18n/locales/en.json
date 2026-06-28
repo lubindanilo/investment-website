@@ -635,7 +635,7 @@
   "social": {
     "kicker": "Proof in the numbers",
     "title": "They no longer hunt for gems. They receive them.",
-    "subtitle": "Thousands of quality investors rely on Lubin to decide fast, on reliable numbers.",
+    "subtitle": "Thousands of investors rely on Lubin to decide fast, on reliable numbers.",
     "metrics": {
       "users": "investors use Lubin every day",
       "perf10": "avg. performance of 10/10-rated stocks · 12 months",
@@ -644,7 +644,7 @@
     },
     "perf": {
       "kicker": "Model portfolio · 10/10 ratings",
-      "desc": "Average 12-month performance of stocks detected and rated 10/10 by the monitor, vs {{idx}} for the benchmark index.",
+      "desc": "Average 12-month performance of stocks detected and rated 10/10 by the monitor, vs {{idx}} for the S&P 500, the benchmark index.",
       "legendStocks": "10/10 stocks",
       "legendIndex": "Benchmark index",
       "row1y": "1 year",

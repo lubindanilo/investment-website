@@ -8,7 +8,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { currentLang } from '../../i18n/index.js';
+import { api } from '../../lib/api.js';
 import './SocialProof.css';
+
+/** Repli si le fetch du rendement S&P 500 échoue (ne jamais afficher de vide). */
+const IDX_1Y_FALLBACK = 12.1;
 
 /** Détecte l'entrée dans le viewport via IntersectionObserver (déclenche les animations). */
 function useInView(): [React.RefObject<HTMLElement>, boolean] {
@@ -80,18 +84,25 @@ function Stars({ n = 5 }: { n?: number }) {
   );
 }
 
-const PERF_ROWS = [
-  { rowKey: 'social.perf.row1y', lubin: 24.9, idx: 12.1 },
-  { rowKey: 'social.perf.row3y', lubin: 21.8, idx: 9.4 },
-  { rowKey: 'social.perf.row5y', lubin: 19.2, idx: 8.7 },
-];
 const PERF_MAX = 30;
 
-function PerfCompare({ run, lang }: { run: boolean; lang: string }) {
+/** Formate un rendement avec son signe : +18,2 % / -3,4 %. */
+function fmtPct(v: number, lang: string): string {
+  return `${v >= 0 ? '+' : ''}${fmtNum(v, 1, lang)} %`;
+}
+
+function PerfCompare({ run, lang, idx1y }: { run: boolean; lang: string; idx1y: number | null }) {
   const { t } = useTranslation();
+  const idxVal = idx1y ?? IDX_1Y_FALLBACK;
+  // Le rendement 1 an de l'indice (S&P 500) est LIVE ; 3 ans / 5 ans restent illustratifs.
+  const rows = [
+    { rowKey: 'social.perf.row1y', lubin: 24.9, idx: idxVal },
+    { rowKey: 'social.perf.row3y', lubin: 21.8, idx: 9.4 },
+    { rowKey: 'social.perf.row5y', lubin: 19.2, idx: 8.7 },
+  ];
   const Bar = ({ pct, color, delay }: { pct: number; color: string; delay: number }) => (
     <div className="sp-bar-track">
-      <div style={{ width: run ? `${(pct / PERF_MAX) * 100}%` : 0, height: '100%', background: color, borderRadius: 99, transition: `width .9s cubic-bezier(.3,.7,.3,1) ${delay}s` }} />
+      <div style={{ width: run ? `${(Math.max(0, pct) / PERF_MAX) * 100}%` : 0, height: '100%', background: color, borderRadius: 99, transition: `width .9s cubic-bezier(.3,.7,.3,1) ${delay}s` }} />
     </div>
   );
   return (
@@ -99,18 +110,18 @@ function PerfCompare({ run, lang }: { run: boolean; lang: string }) {
       <div className="sp-perf-left">
         <span className="kicker">{t('social.perf.kicker')}</span>
         <div className="num sp-perf-big">+{fmtNum(24.9, 1, lang)} %</div>
-        <p className="sp-perf-desc">{t('social.perf.desc', { idx: `+${fmtNum(12.1, 1, lang)} %` })}</p>
+        <p className="sp-perf-desc">{t('social.perf.desc', { idx: fmtPct(idxVal, lang) })}</p>
         <div className="row gap-16" style={{ marginTop: 16, flexWrap: 'wrap' }}>
           <span className="row gap-6 tiny sp-legend"><span className="sp-legend-dot" style={{ background: 'var(--brand)' }} /> {t('social.perf.legendStocks')}</span>
           <span className="row gap-6 tiny sp-legend" style={{ color: 'var(--ink-3)' }}><span className="sp-legend-dot" style={{ background: 'var(--ink-4)' }} /> {t('social.perf.legendIndex')}</span>
         </div>
       </div>
       <div className="sp-perf-right">
-        {PERF_ROWS.map((r, i) => (
+        {rows.map((r, i) => (
           <div key={i} className="col gap-8">
             <span className="tiny sp-row-h">{t(r.rowKey)}</span>
             <div className="row gap-10"><Bar pct={r.lubin} color="var(--brand)" delay={i * 0.12} /><span className="num sp-row-v" style={{ color: 'var(--brand-ink)' }}>+{fmtNum(r.lubin, 1, lang)} %</span></div>
-            <div className="row gap-10"><Bar pct={r.idx} color="var(--ink-4)" delay={i * 0.12 + 0.06} /><span className="num sp-row-v" style={{ color: 'var(--ink-3)', fontWeight: 600 }}>+{fmtNum(r.idx, 1, lang)} %</span></div>
+            <div className="row gap-10"><Bar pct={r.idx} color="var(--ink-4)" delay={i * 0.12 + 0.06} /><span className="num sp-row-v" style={{ color: 'var(--ink-3)', fontWeight: 600 }}>{fmtPct(r.idx, lang)}</span></div>
           </div>
         ))}
       </div>
@@ -156,6 +167,21 @@ export function SocialProofSection() {
   const lang = currentLang();
   const testimonials = (t('social.testimonials', { returnObjects: true }) as Testimonial[]) ?? [];
 
+  // Rendement live du S&P 500 sur 12 mois (proxy SPY, close ajusté) : plus de valeur en dur.
+  const [idx1y, setIdx1y] = useState<number | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    api.priceHistory('SPY', 1, '1mo')
+      .then(res => {
+        const pts = res.points;
+        if (cancelled || !pts || pts.length < 2) return;
+        const first = pts[0]!.value, last = pts[pts.length - 1]!.value;
+        if (first > 0) setIdx1y((last / first - 1) * 100);
+      })
+      .catch(() => { /* repli IDX_1Y_FALLBACK */ });
+    return () => { cancelled = true; };
+  }, []);
+
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className="sp">
       <div className="wrap sp-wrap">
@@ -169,7 +195,7 @@ export function SocialProofSection() {
           {METRICS.map((m, i) => <Metric key={i} m={m} run={seen} lang={lang} />)}
         </div>
 
-        <PerfCompare run={seen} lang={lang} />
+        <PerfCompare run={seen} lang={lang} idx1y={idx1y} />
 
         <div className="sp-testis">
           {Array.isArray(testimonials) && testimonials.map((tt, i) => <TestimonialCard key={i} t={tt} />)}

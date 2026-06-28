@@ -635,7 +635,7 @@
   "social": {
     "kicker": "La prueba en las cifras",
     "title": "Ya no buscan las joyas. Las reciben.",
-    "subtitle": "Miles de inversores «quality» se apoyan en Lubin para decidir rápido, con cifras fiables.",
+    "subtitle": "Miles de inversores se apoyan en Lubin para decidir rápido, con cifras fiables.",
     "metrics": {
       "users": "inversores usan Lubin a diario",
       "perf10": "rentab. media de acciones con 10/10 · 12 meses",
@@ -644,7 +644,7 @@
     },
     "perf": {
       "kicker": "Cartera modelo · notas 10/10",
-      "desc": "Rentabilidad media a 12 meses de las acciones detectadas y valoradas con 10/10 por la vigilancia, frente a {{idx}} del índice de referencia.",
+      "desc": "Rentabilidad media a 12 meses de las acciones detectadas y valoradas con 10/10 por la vigilancia, frente a {{idx}} del S&P 500, el índice de referencia.",
       "legendStocks": "Acciones 10/10",
       "legendIndex": "Índice de referencia",
       "row1y": "1 año",
