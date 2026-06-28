@@ -566,6 +566,7 @@
     "pfcfSub": "Computed: price × shares ÷ FCF (TTM)",
     "pfcfAnnualOnlyTag": "4 annual years (max available for this ticker)",
     "pfcfNoData": "Not enough history to compute P/FCF over this period.",
+    "insufficientHistory": "Not enough history to plot a reliable trend.",
     "pfcfVerdictBelow": "The latest multiple ({{latest}}×) is below the historical median ({{median}}×), attractive relative valuation.",
     "pfcfVerdictAbove": "The latest multiple ({{latest}}×) is above the historical median ({{median}}×), stretched vs its own past.",
     "croceSub": "Formula: FCF (SBC-adjusted) ÷ (Assets − CurLiab − Goodwill − Excess cash), Bettin/Mauboussin. Excess cash = max(0, cash − 2% × revenue).",

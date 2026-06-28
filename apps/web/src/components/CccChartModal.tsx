@@ -118,11 +118,12 @@ export function CccChartModal({ ticker, onClose }: Props) {
 
         {loading && <div className="hist-loading"><span className="spinner" /> {t('common.loading')}</div>}
         {error && !loading && <div className="hist-error">{t('chart.error', { msg: error })}</div>}
-        {!loading && !error && data && data.points.length === 0 && (
+        {/* Gate sparsité : < 3 points ne fait pas une tendance lisible. */}
+        {!loading && !error && data && data.points.length < 3 && (
           <div className="hist-error">{data.reason ?? t('ccc.chart.noData')}</div>
         )}
 
-        {!loading && !error && data && data.points.length > 0 && (
+        {!loading && !error && data && data.points.length >= 3 && (
           <>
             <div className="hist-chart-wrap">
               <ResponsiveContainer width="100%" height={360}>

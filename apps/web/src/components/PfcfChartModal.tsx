@@ -114,11 +114,12 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
           <div className="pfcf-error">{t('chart.error', { msg: error })}</div>
         )}
 
-        {!loading && !error && data && data.length === 0 && (
+        {/* Gate sparsité : < 3 points ne fait pas une tendance lisible (SPAC, IPO récente, no-data). */}
+        {!loading && !error && data && data.length < 3 && (
           <div className="pfcf-error">{t('chart.pfcfNoData')}</div>
         )}
 
-        {!loading && !error && data && data.length > 0 && (
+        {!loading && !error && data && data.length >= 3 && (
           <>
             <div className="pfcf-chart-wrap">
               <ResponsiveContainer width="100%" height={340}>

@@ -38,8 +38,15 @@ function useWidth(initial = 700): [React.RefObject<HTMLDivElement>, number] {
 }
 
 // ─── Courbe de cours ─────────────────────────────────────────────────────────
-export function PriceChart({ data, color = 'var(--brand)', height = 240, currency = '$' }: {
-  data: number[]; color?: string; height?: number; currency?: string;
+/** Formate une date ISO (YYYY-MM-DD) en libellé lisible « 14 mars 2024 », locale du navigateur. */
+function fmtDate(iso: string, locale?: string): string {
+  const d = new Date(iso + 'T00:00:00');
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleDateString(locale || undefined, { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+export function PriceChart({ data, dates, locale, color = 'var(--brand)', height = 240, currency = '$' }: {
+  data: number[]; dates?: string[]; locale?: string; color?: string; height?: number; currency?: string;
 }) {
   const [ref, w] = useWidth(700);
   const [hover, setHover] = useState<{ x: number; y: number; v: number; i: number } | null>(null);
@@ -93,7 +100,7 @@ export function PriceChart({ data, color = 'var(--brand)', height = 240, currenc
       </svg>
       {hover && (
         <div className="num" style={{ fontSize: 12, color: 'var(--ink-2)', marginTop: 2 }}>
-          Point {hover.i + 1} · <b style={{ color: 'var(--ink)' }}>{currency}{hover.v.toFixed(2)}</b>
+          {dates?.[hover.i] ? fmtDate(dates[hover.i]!, locale) : `Point ${hover.i + 1}`} · <b style={{ color: 'var(--ink)' }}>{currency}{hover.v.toFixed(2)}</b>
         </div>
       )}
     </div>

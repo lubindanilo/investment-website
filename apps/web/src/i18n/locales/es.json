@@ -566,6 +566,7 @@
     "pfcfSub": "Calculado: precio × acciones ÷ FCF (TTM)",
     "pfcfAnnualOnlyTag": "4 años anuales (máx. disponible para este ticker)",
     "pfcfNoData": "Histórico insuficiente para calcular el P/FCF en este periodo.",
+    "insufficientHistory": "Histórico insuficiente para trazar una tendencia fiable.",
     "pfcfVerdictBelow": "El último múltiplo ({{latest}}×) está por debajo de la mediana histórica ({{median}}×), valoración relativa atractiva.",
     "pfcfVerdictAbove": "El último múltiplo ({{latest}}×) está por encima de la mediana histórica ({{median}}×), valoración tensa frente a su propio pasado.",
     "croceSub": "Fórmula: FCF (ajustado SBC) ÷ (Activos − Pasivo corriente − Fondo de comercio − Caja excedente), Bettin/Mauboussin. Caja excedente = máx(0, caja − 2 % × ventas).",

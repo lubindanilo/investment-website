@@ -167,11 +167,12 @@ export function HistogramModal({ ticker, criterionName, config, currency = 'USD'
           <div className="hist-error">{t('chart.error', { msg: error })}</div>
         )}
 
-        {!loading && !error && data && data.length === 0 && (
+        {/* Gate sparsité : < 3 points ne fait pas une distribution lisible. */}
+        {!loading && !error && data && data.length < 3 && (
           <div className="hist-error">{t('chart.noQuarterlyData')}</div>
         )}
 
-        {!loading && !error && data && data.length > 0 && (
+        {!loading && !error && data && data.length >= 3 && (
           <>
             <div className="hist-chart-wrap">
               <ResponsiveContainer width="100%" height={320}>

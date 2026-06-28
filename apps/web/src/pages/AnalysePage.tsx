@@ -485,17 +485,17 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
 
 // ─── Section cours (SVG via priceHistory) ────────────────────────────────────
 function PriceSection({ ticker, currency }: { ticker: string; currency: string }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [horizon, setHorizon] = useState('5A');
-  const [data, setData] = useState<number[] | null>(null);
+  const [points, setPoints] = useState<{ date: string; value: number }[] | null>(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
     const { years, interval } = HORIZONS[horizon]!;
     api.priceHistory(ticker, years, interval)
-      .then(res => { if (!cancelled) setData(res.points.map(p => p.value)); })
-      .catch(() => { if (!cancelled) setData([]); })
+      .then(res => { if (!cancelled) setPoints(res.points); })
+      .catch(() => { if (!cancelled) setPoints([]); })
       .finally(() => { if (!cancelled) setLoading(false); });
     return () => { cancelled = true; };
   }, [ticker, horizon]);
@@ -507,7 +507,10 @@ function PriceSection({ ticker, currency }: { ticker: string; currency: string }
       ))}</div>}>
       <div className="card anl-price-card">
         {loading ? <div className="skel-ui" style={{ height: 240 }} />
-          : data && data.length >= 2 ? <PriceChart data={data} currency={currency === 'USD' ? '$' : ''} />
+          : points && points.length >= 5
+            ? <PriceChart data={points.map(p => p.value)} dates={points.map(p => p.date)} locale={i18n.language} currency={currency === 'USD' ? '$' : ''} />
+          : points && points.length > 0
+            ? <div className="anl-price-empty">{t('chart.insufficientHistory')}</div>
           : <div className="anl-price-empty">{t('analyse.priceUnavailable')}</div>}
       </div>
     </Section>
