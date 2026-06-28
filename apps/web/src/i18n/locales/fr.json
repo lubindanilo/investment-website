@@ -276,7 +276,8 @@
     "login": "Connexion",
     "signup": "Créer un compte",
     "logout": "Se déconnecter",
-    "loggedOut": "Déconnecté"
+    "loggedOut": "Déconnecté",
+    "account": "Mon compte"
   },
   "langSwitcher": {
     "label": "Langue"
@@ -401,7 +402,11 @@
       "h2Line1": "La donnée tranche,",
       "h2Line2": "pas les opinions.",
       "p": "Une note de qualité sur 10, une valorisation séparée, et une veille qui surveille tout le marché pour toi."
-    }
+    },
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "firstNamePlaceholder": "Marie",
+    "lastNamePlaceholder": "Dupont"
   },
   "watchlist": {
     "title": "Watchlist",

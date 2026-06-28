@@ -28,17 +28,23 @@ const CredentialsSchema = z.object({
   password: z.string().min(8, 'Mot de passe : 8 caractères minimum').max(200),
 });
 
-function publicUser(u: { id: string; email: string; createdAt: Date }) {
-  return { id: u.id, email: u.email, createdAt: u.createdAt.toISOString() };
+const NameSchema = z.string().trim().min(1, 'Champ requis').max(80);
+const SignupSchema = CredentialsSchema.extend({
+  firstName: NameSchema,
+  lastName: NameSchema,
+});
+
+function publicUser(u: { id: string; email: string; firstName: string | null; lastName: string | null; createdAt: Date }) {
+  return { id: u.id, email: u.email, firstName: u.firstName, lastName: u.lastName, createdAt: u.createdAt.toISOString() };
 }
 
 authRouter.post('/signup', authLimiter, asyncHandler(async (req: Request, res: Response) => {
   const lang = parseLang(req.headers['accept-language']);
-  const parse = CredentialsSchema.safeParse(req.body);
-  // Les messages de champ Zod (email/mdp) sont déjà filtrés côté front avant l'appel ;
+  const parse = SignupSchema.safeParse(req.body);
+  // Les messages de champ Zod (email/mdp/nom) sont déjà filtrés côté front avant l'appel ;
   // on garde un fallback localisé générique si une validation serveur passe quand même.
   if (!parse.success) throw new ApiError(400, parse.error.issues[0]?.message ?? tt(lang, 'auth.invalidPayload'));
-  const { email, password } = parse.data;
+  const { email, password, firstName, lastName } = parse.data;
 
   const existing = await prisma.user.findUnique({ where: { email } });
   if (existing) {
@@ -47,7 +53,7 @@ authRouter.post('/signup', authLimiter, asyncHandler(async (req: Request, res: R
   }
 
   const passwordHash = await hashPassword(password);
-  const user = await prisma.user.create({ data: { email, passwordHash } });
+  const user = await prisma.user.create({ data: { email, passwordHash, firstName, lastName } });
 
   const token = signToken({ userId: user.id, email: user.email });
   res.cookie(COOKIE_NAME, token, cookieOptions());

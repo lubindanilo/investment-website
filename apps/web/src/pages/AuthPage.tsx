@@ -22,6 +22,8 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
   const location = useLocation();
 
   const [mode, setMode] = useState<Mode>(initialMode);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
@@ -46,12 +48,13 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     setError(null);
+    if (mode === 'signup' && (!firstName.trim() || !lastName.trim())) { setError(t('auth.error.required')); return; }
     if (!email.trim() || !password) { setError(t('auth.error.required')); return; }
     if (password.length < 8) { setError(t('auth.error.passwordTooShort')); return; }
     if (mode === 'signup' && password !== confirm) { setError(t('auth.error.passwordMismatch')); return; }
     setSubmitting(true);
     try {
-      if (mode === 'signup') await signup(email.trim(), password);
+      if (mode === 'signup') await signup(email.trim(), password, firstName.trim(), lastName.trim());
       else await login(email.trim(), password);
       const from = (location.state as { from?: string } | null)?.from ?? '/';
       navigate(from, { replace: true });
@@ -78,11 +81,25 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
           <p className="muted auth-sub">{isSignup ? t('auth.signup.subtitle') : t('auth.login.subtitle')}</p>
 
           <form onSubmit={onSubmit} className="col gap-16" autoComplete="on">
+            {isSignup && (
+              <div className="row gap-10">
+                <div className="col gap-6" style={{ flex: 1 }}>
+                  <label className="label">{t('auth.firstName')}</label>
+                  <input className="input" type="text" value={firstName} autoComplete="given-name" autoFocus
+                    onChange={e => setFirstName(e.target.value)} placeholder={t('auth.firstNamePlaceholder')} required />
+                </div>
+                <div className="col gap-6" style={{ flex: 1 }}>
+                  <label className="label">{t('auth.lastName')}</label>
+                  <input className="input" type="text" value={lastName} autoComplete="family-name"
+                    onChange={e => setLastName(e.target.value)} placeholder={t('auth.lastNamePlaceholder')} required />
+                </div>
+              </div>
+            )}
             <div className="col gap-6">
               <label className="label">{t('auth.email')}</label>
               <div className="auth-field">
                 <Icon name="mail" size={16} className="auth-field-icon" />
-                <input className="input auth-input" type="email" value={email} autoComplete="email" autoFocus
+                <input className="input auth-input" type="email" value={email} autoComplete="email" autoFocus={!isSignup}
                   onChange={e => setEmail(e.target.value)} placeholder={t('auth.emailPlaceholder')} required />
               </div>
             </div>

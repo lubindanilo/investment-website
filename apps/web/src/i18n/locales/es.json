@@ -276,7 +276,8 @@
     "login": "Iniciar sesión",
     "signup": "Crear cuenta",
     "logout": "Cerrar sesión",
-    "loggedOut": "Sesión cerrada"
+    "loggedOut": "Sesión cerrada",
+    "account": "Mi cuenta"
   },
   "langSwitcher": {
     "label": "Idioma"
@@ -376,7 +377,11 @@
       "h2Line1": "Que decidan los datos,",
       "h2Line2": "no las opiniones.",
       "p": "Una nota de calidad sobre 10, una valoración independiente y un seguimiento que vigila todo el mercado por ti."
-    }
+    },
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "firstNamePlaceholder": "María",
+    "lastNamePlaceholder": "García"
   },
   "watchlist": {
     "title": "Watchlist",

@@ -11,7 +11,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import request from 'supertest';
 
 // ─── Mock Prisma (DOIT être défini AVANT l'import de server.js) ────────────
-interface FakeUser { id: string; email: string; passwordHash: string; createdAt: Date }
+interface FakeUser { id: string; email: string; passwordHash: string; firstName: string | null; lastName: string | null; createdAt: Date }
 const userStore = new Map<string, FakeUser>();      // key = email
 const userById = new Map<string, FakeUser>();       // key = id
 let nextId = 1;
@@ -25,11 +25,13 @@ vi.mock('@prisma/client', () => {
           if (where.id) return userById.get(where.id) ?? null;
           return null;
         }),
-        create: vi.fn(async ({ data }: { data: { email: string; passwordHash: string } }) => {
+        create: vi.fn(async ({ data }: { data: { email: string; passwordHash: string; firstName?: string | null; lastName?: string | null } }) => {
           const u: FakeUser = {
             id: `user_${nextId++}`,
             email: data.email,
             passwordHash: data.passwordHash,
+            firstName: data.firstName ?? null,
+            lastName: data.lastName ?? null,
             createdAt: new Date(),
           };
           userStore.set(u.email, u);
@@ -60,18 +62,20 @@ describe('POST /api/auth/signup', () => {
   it('crée un user + set cookie sur signup valide', async () => {
     const res = await request(app)
       .post('/api/auth/signup')
-      .send({ email: 'alice@example.com', password: 'password123' });
+      .send({ email: 'alice@example.com', password: 'password123', firstName: 'Alice', lastName: 'Martin' });
 
     expect(res.status).toBe(201);
     expect(res.body.email).toBe('alice@example.com');
+    expect(res.body.firstName).toBe('Alice');
+    expect(res.body.lastName).toBe('Martin');
     expect(res.body.passwordHash).toBeUndefined(); // jamais exposé
     expect(res.headers['set-cookie']?.[0]).toMatch(/^auth=/);
     expect(res.headers['set-cookie']?.[0]).toContain('HttpOnly');
   });
 
   it('refuse email déjà utilisé (409)', async () => {
-    await request(app).post('/api/auth/signup').send({ email: 'bob@example.com', password: 'password123' });
-    const res = await request(app).post('/api/auth/signup').send({ email: 'bob@example.com', password: 'password123' });
+    await request(app).post('/api/auth/signup').send({ email: 'bob@example.com', password: 'password123', firstName: 'Bob', lastName: 'Durand' });
+    const res = await request(app).post('/api/auth/signup').send({ email: 'bob@example.com', password: 'password123', firstName: 'Bob', lastName: 'Durand' });
     expect(res.status).toBe(409);
     expect(res.body.error).toMatch(/déjà utilisé/i);
   });
@@ -87,7 +91,7 @@ describe('POST /api/auth/signup', () => {
   });
 
   it('normalise l\'email en lowercase + trim', async () => {
-    const res = await request(app).post('/api/auth/signup').send({ email: '  DAVID@Example.COM  ', password: 'password123' });
+    const res = await request(app).post('/api/auth/signup').send({ email: '  DAVID@Example.COM  ', password: 'password123', firstName: 'David', lastName: 'Petit' });
     expect(res.status).toBe(201);
     expect(res.body.email).toBe('david@example.com');
   });
@@ -95,7 +99,7 @@ describe('POST /api/auth/signup', () => {
 
 describe('POST /api/auth/login', () => {
   beforeEach(async () => {
-    await request(app).post('/api/auth/signup').send({ email: 'eve@example.com', password: 'password123' });
+    await request(app).post('/api/auth/signup').send({ email: 'eve@example.com', password: 'password123', firstName: 'Eve', lastName: 'Roux' });
   });
 
   it('login valide → 200 + cookie', async () => {
@@ -127,7 +131,7 @@ describe('GET /api/auth/me', () => {
 
   it('renvoie le user avec cookie valide', async () => {
     const agent = request.agent(app);
-    await agent.post('/api/auth/signup').send({ email: 'frank@example.com', password: 'password123' });
+    await agent.post('/api/auth/signup').send({ email: 'frank@example.com', password: 'password123', firstName: 'Frank', lastName: 'Blanc' });
     const res = await agent.get('/api/auth/me');
     expect(res.status).toBe(200);
     expect(res.body.email).toBe('frank@example.com');
@@ -137,7 +141,7 @@ describe('GET /api/auth/me', () => {
 describe('POST /api/auth/logout', () => {
   it('clear le cookie auth', async () => {
     const agent = request.agent(app);
-    await agent.post('/api/auth/signup').send({ email: 'grace@example.com', password: 'password123' });
+    await agent.post('/api/auth/signup').send({ email: 'grace@example.com', password: 'password123', firstName: 'Grace', lastName: 'Noir' });
     const res = await agent.post('/api/auth/logout');
     expect(res.status).toBe(200);
     expect(res.body.ok).toBe(true);

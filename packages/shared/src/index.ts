@@ -624,6 +624,9 @@ export interface CashRoceHistoryResponse {
 export interface PublicUser {
   id: string;
   email: string;
+  /** Prénom / nom (null pour les comptes créés avant la collecte du nom). */
+  firstName: string | null;
+  lastName: string | null;
   /** ISO 8601 */
   createdAt: string;
 }

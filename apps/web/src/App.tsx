@@ -12,6 +12,19 @@ import { Logo } from './components/ui/primitives.js';
 import AppFooter from './components/AppFooter.js';
 import { NotFoundPage } from './pages/NotFoundPage.js';
 
+/** Initiales pour l'avatar du menu : prénom+nom si dispo, sinon dérivées de l'email
+ *  (comptes créés avant la collecte du nom). Ex. "lubin.danilo@x" → "LD". */
+function userInitials(u: { firstName?: string | null; lastName?: string | null; email: string }): string {
+  const f = (u.firstName ?? '').trim();
+  const l = (u.lastName ?? '').trim();
+  const fromName = `${f.charAt(0)}${l.charAt(0)}`.toUpperCase();
+  if (fromName) return fromName;
+  const local = (u.email.split('@')[0] ?? '').replace(/[^a-zA-Z0-9]+/g, ' ').trim();
+  const parts = local.split(/\s+/).filter(Boolean);
+  if (parts.length >= 2) return (parts[0]!.charAt(0) + parts[1]!.charAt(0)).toUpperCase();
+  return local.slice(0, 2).toUpperCase() || '?';
+}
+
 // ── Pages lazy-loadées : routes secondaires, on évite de gonfler le bundle critique.
 // La forme `.then(m => ({ default: m.X }))` est nécessaire car ces modules exportent
 // des named exports (et non un default export).
@@ -216,8 +229,10 @@ function UserMenu() {
 
   return (
     <div className="user-menu">
-      {/* Email cliquable → page /compte (gérer abonnement, voir statut Pro, etc.) */}
-      <NavLink to="/compte" className="user-menu-email" title={user.email}>{user.email}</NavLink>
+      {/* Avatar initiales cliquable → page /compte (gérer abonnement, voir statut Pro, etc.) */}
+      <NavLink to="/compte" className="user-menu-avatar" title={user.email} aria-label={t('userMenu.account')}>
+        {userInitials(user)}
+      </NavLink>
       <button type="button" className="user-menu-logout" onClick={onLogout}>{t('userMenu.logout')}</button>
     </div>
   );

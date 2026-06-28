@@ -26,6 +26,10 @@ model User {
   id           String   @id @default(cuid())
   email        String   @unique
   passwordHash String
+  /// Prénom / nom saisis à l'inscription. Nullable : les comptes créés avant cette
+  /// colonne n'en ont pas (les initiales du menu sont alors dérivées de l'email).
+  firstName    String?
+  lastName     String?
   createdAt    DateTime @default(now())
 
   // ─── Abonnement Stripe ─────────────────────────────────────────────────────

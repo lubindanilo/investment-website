@@ -23,7 +23,7 @@ interface AuthState {
 
 interface AuthActions {
   login: (email: string, password: string) => Promise<PublicUser>;
-  signup: (email: string, password: string) => Promise<PublicUser>;
+  signup: (email: string, password: string, firstName: string, lastName: string) => Promise<PublicUser>;
   logout: () => Promise<void>;
   /** Force un re-fetch du /me — utile après une opération qui peut invalider la session. */
   refresh: () => Promise<void>;
@@ -55,8 +55,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return u;
   }, []);
 
-  const signup = useCallback(async (email: string, password: string) => {
-    const u = await api.auth.signup(email, password);
+  const signup = useCallback(async (email: string, password: string, firstName: string, lastName: string) => {
+    const u = await api.auth.signup(email, password, firstName, lastName);
     setUser(u);
     return u;
   }, []);

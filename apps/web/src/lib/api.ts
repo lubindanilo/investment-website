@@ -265,10 +265,10 @@ export const api = {
         throw e;
       }
     },
-    signup: (email: string, password: string) =>
+    signup: (email: string, password: string, firstName: string, lastName: string) =>
       safeRequest<PublicUser>('/api/auth/signup', {
         method: 'POST',
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, firstName, lastName }),
       }),
     login: (email: string, password: string) =>
       safeRequest<PublicUser>('/api/auth/login', {

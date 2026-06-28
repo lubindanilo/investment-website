@@ -276,7 +276,8 @@
     "login": "Sign in",
     "signup": "Create account",
     "logout": "Sign out",
-    "loggedOut": "Signed out"
+    "loggedOut": "Signed out",
+    "account": "My account"
   },
   "langSwitcher": {
     "label": "Language"
@@ -376,7 +377,11 @@
       "h2Line1": "Let the data decide,",
       "h2Line2": "not opinions.",
       "p": "A quality score out of 10, a separate valuation, and monitoring that watches the entire market for you."
-    }
+    },
+    "firstName": "First name",
+    "lastName": "Last name",
+    "firstNamePlaceholder": "Mary",
+    "lastNamePlaceholder": "Smith"
   },
   "watchlist": {
     "title": "Watchlist",
