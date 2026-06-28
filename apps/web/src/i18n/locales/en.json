@@ -13,25 +13,187 @@
   },
   "blog": {
     "ctaSeeAnalysis": "See {{ticker}} analysis",
-    "ctaAnalyzeStock": "Analyze a stock"
+    "ctaAnalyzeStock": "Analyze a stock",
+    "hero": {
+      "chipComing": "Coming soon",
+      "chipLive": "The blog",
+      "title": "Understand markets with method",
+      "lede": "Fundamental analyses, method deep-dives, plunges into the fundamentals of quality companies. The content we wish we had read before investing our first euro."
+    },
+    "empty": {
+      "title": "First article being written",
+      "text": "We're laying the groundwork. The first article, on the pitfalls of accounting net income vs free cash flow, will be out in the coming weeks.",
+      "also": {
+        "prefix": "In the meantime, check out the full",
+        "methodology": "scoring methodology",
+        "middle": " across our 10 criteria, or explore the",
+        "screener": "screener",
+        "suffix": " of the highest-rated companies in our monitor."
+      }
+    },
+    "upcoming": {
+      "title": "What's coming next",
+      "items": [
+        "The Lubin method explained criterion by criterion",
+        "Read a 10-K in 15 minutes: the cheat sheet",
+        "Cash ROCE vs ROIC: why we picked the Bettin-Mauboussin version",
+        "5 Yahoo Finance pitfalls nobody talks about",
+        "Why we exclude gold and commodities from our universe"
+      ]
+    },
+    "cta": {
+      "title": "While you wait: start analyzing",
+      "sub": "The best way to understand the method is to apply it. Type a ticker, get a score in seconds.",
+      "button": "Analyze a stock"
+    },
+    "card": {
+      "readingTime": "{{minutes}} min read"
+    }
   },
   "chart": {
     "proTooltip": "Detailed chart — Pro",
-    "unitDays": "d"
+    "unitDays": "d",
+    "close": "Close",
+    "error": "Error: {{msg}}",
+    "perYear": "%/yr",
+    "freqQuarterly": "quarterly data",
+    "freqAnnual": "annual data",
+    "histSub": "Criterion: {{name}} · {{freq}}",
+    "annualOnlyTag": "Annual data",
+    "noQuarterlyData": "No quarterly data available for this period.",
+    "pfcfSub": "Computed: price × shares ÷ FCF (TTM)",
+    "pfcfAnnualOnlyTag": "4 annual years (max available for this ticker)",
+    "pfcfNoData": "Not enough history to compute P/FCF over this period.",
+    "insufficientHistory": "Not enough history to plot a reliable trend.",
+    "pfcfVerdictBelow": "The latest multiple ({{latest}}×) is below the historical median ({{median}}×), attractive relative valuation.",
+    "pfcfVerdictAbove": "The latest multiple ({{latest}}×) is above the historical median ({{median}}×), stretched vs its own past.",
+    "croceSub": "Formula: FCF (SBC-adjusted) ÷ (Assets − CurLiab − Goodwill − Excess cash), Bettin/Mauboussin. Excess cash = max(0, cash − 2% × revenue).",
+    "croceAnnualOnlyTag": "Annual (max available for this ticker)",
+    "croceNoData": "Not enough history to compute Cash ROCE over this period (needs positive FCF + positive capital employed over ≥ 4 quarters / 2 fiscal years).",
+    "croceThreshold": "15% threshold",
+    "median": "median {{v}}",
+    "croceVerdictHigh": "Cash ROCE durably above 15% ({{n}}/{{total}} periods), consistent operating value creation.",
+    "croceVerdictMid": "Cash ROCE above the threshold in {{n}}/{{total}} periods, average quality, watch closely.",
+    "croceVerdictLow": "Cash ROCE rarely above 15% ({{n}}/{{total}} periods), weak operating value creation.",
+    "tooltipQuarter": "Quarter {{q}}",
+    "tooltipYear": "Year {{y}}",
+    "stat": {
+      "avg": "Period average",
+      "cagr": "CAGR over period",
+      "median": "Period median",
+      "minmax": "Min / Max",
+      "percentile": "Percentile",
+      "points": "Points",
+      "lastQuarter": "Last quarter",
+      "lastYear": "Last year",
+      "quarters": "Quarters",
+      "years": "Years",
+      "current": "Current",
+      "lastAnnualClose": "Last annual close",
+      "lastClose": "Last close",
+      "currentTtm": "Current (TTM)",
+      "periodsAbove": "Periods ≥ 15%"
+    }
   },
   "news": {
     "title": "Latest news — {{ticker}}",
     "subtitle": "Last 60 days"
   },
   "screener": {
-    "loadMore": "Load more"
+    "loadMore": "Load more",
+    "title": "Screener",
+    "subtitle": "The highest scores across the universe, ranked by our monitoring. The 10/10s on top.",
+    "progress": {
+      "label": "Universe monitoring",
+      "upToDate": "Up to date",
+      "scored": "{{scored}} / {{total}} stocks re-evaluated"
+    },
+    "filters": {
+      "kicker": "Filters",
+      "minScore": "Minimum score",
+      "maxPfcf": "Max P/FCF",
+      "sector": "Sector",
+      "allSectors": "All sectors",
+      "apply": "Apply",
+      "reset": "Reset",
+      "nSectors": "{{count}} sectors"
+    },
+    "results_one": "{{count}} result",
+    "results_other": "{{count}} results",
+    "empty": {
+      "title": "No company above this threshold",
+      "desc": "Monitoring scores the universe gradually, check back later, or lower the threshold."
+    },
+    "col": {
+      "company": "Company",
+      "sector": "Sector",
+      "score": "Score",
+      "price": "Price",
+      "change": "Chg.",
+      "oneYear": "1Y",
+      "earnings": "Next earnings"
+    },
+    "proLock": {
+      "badge": "PRO",
+      "oppTitle": "Opportunities of the moment, reserved for Pro subscribers",
+      "maxPfcfTitle": "Max P/FCF filter, reserved for Pro subscribers",
+      "overlayTitle": "See the full top {{count}} rated companies",
+      "overlaySub": "The Pro screener unlocks the entire universe, the Opportunities of the moment filter and all EU + International data.",
+      "overlayCta": "Go Pro"
+    }
   },
   "scoreCard": {
     "inWatchlist": "In your watchlist",
     "addWatchlist": "Add to watchlist"
   },
   "marketBeat": {
-    "deleteConfirm": "Delete this position?"
+    "deleteConfirm": "Delete this position?",
+    "title": "Portfolio Strategy",
+    "subtitle": "Private tracking: my selection vs the systematic value + momentum basket vs the S&P 500. The basket takes, among the top 50% of S&P 500 stocks by 12-month performance, the 20 cheapest on P/FCF (equal-weighted). Live price and market cap.",
+    "col": {
+      "company": "Company",
+      "sector": "Sector",
+      "momentum": "12-month momentum",
+      "price": "Price",
+      "marketCap": "Market cap",
+      "weight": "Weight"
+    },
+    "empty": {
+      "title": "Basket unavailable right now",
+      "desc": "Our monitoring fills the universe progressively, check back in a moment."
+    },
+    "compare": {
+      "title": "Live tracking vs the market",
+      "since": "since {{date}}",
+      "vsMarket": "vs market",
+      "mine": "My selection",
+      "system": "Value + Momentum",
+      "sp500": "S&P 500"
+    },
+    "portfolio": {
+      "title": "My selection",
+      "subtitle": "Your buys/sells. Returns and opportunity flags recompute on every open.",
+      "add": "Add a buy",
+      "ticker": "Ticker",
+      "buyDate": "Buy date",
+      "buyPrice": "Buy price",
+      "note": "Note (optional)",
+      "save": "Add",
+      "cancel": "Cancel",
+      "sellTitle": "Close the position",
+      "sellDate": "Sell date",
+      "sellPrice": "Sell price",
+      "confirmSell": "Sell",
+      "close": "Sell",
+      "delete": "Delete",
+      "open": "Open",
+      "closed": "Sold",
+      "gem": "Opportunity",
+      "empty": "No positions yet. Add your first buy above.",
+      "colReturn": "Return",
+      "colStatus": "Status",
+      "since": "since"
+    }
   },
   "search": {
     "searching": "Searching…",
@@ -214,96 +376,6 @@
       "h2Line1": "Let the data decide,",
       "h2Line2": "not opinions.",
       "p": "A quality score out of 10, a separate valuation, and monitoring that watches the entire market for you."
-    }
-  },
-  "marketBeat": {
-    "title": "Portfolio Strategy",
-    "subtitle": "Private tracking: my selection vs the systematic value + momentum basket vs the S&P 500. The basket takes, among the top 50% of S&P 500 stocks by 12-month performance, the 20 cheapest on P/FCF (equal-weighted). Live price and market cap.",
-    "col": {
-      "company": "Company",
-      "sector": "Sector",
-      "momentum": "12-month momentum",
-      "price": "Price",
-      "marketCap": "Market cap",
-      "weight": "Weight"
-    },
-    "empty": {
-      "title": "Basket unavailable right now",
-      "desc": "Our monitoring fills the universe progressively, check back in a moment."
-    },
-    "compare": {
-      "title": "Live tracking vs the market",
-      "since": "since {{date}}",
-      "vsMarket": "vs market",
-      "mine": "My selection",
-      "system": "Value + Momentum",
-      "sp500": "S&P 500"
-    },
-    "portfolio": {
-      "title": "My selection",
-      "subtitle": "Your buys/sells. Returns and opportunity flags recompute on every open.",
-      "add": "Add a buy",
-      "ticker": "Ticker",
-      "buyDate": "Buy date",
-      "buyPrice": "Buy price",
-      "note": "Note (optional)",
-      "save": "Add",
-      "cancel": "Cancel",
-      "sellTitle": "Close the position",
-      "sellDate": "Sell date",
-      "sellPrice": "Sell price",
-      "confirmSell": "Sell",
-      "close": "Sell",
-      "delete": "Delete",
-      "open": "Open",
-      "closed": "Sold",
-      "gem": "Opportunity",
-      "empty": "No positions yet. Add your first buy above.",
-      "colReturn": "Return",
-      "colStatus": "Status",
-      "since": "since"
-    }
-  },
-  "screener": {
-    "title": "Screener",
-    "subtitle": "The highest scores across the universe, ranked by our monitoring. The 10/10s on top.",
-    "progress": {
-      "label": "Universe monitoring",
-      "upToDate": "Up to date",
-      "scored": "{{scored}} / {{total}} stocks re-evaluated"
-    },
-    "filters": {
-      "kicker": "Filters",
-      "minScore": "Minimum score",
-      "maxPfcf": "Max P/FCF",
-      "sector": "Sector",
-      "allSectors": "All sectors",
-      "apply": "Apply",
-      "reset": "Reset",
-      "nSectors": "{{count}} sectors"
-    },
-    "results_one": "{{count}} result",
-    "results_other": "{{count}} results",
-    "empty": {
-      "title": "No company above this threshold",
-      "desc": "Monitoring scores the universe gradually, check back later, or lower the threshold."
-    },
-    "col": {
-      "company": "Company",
-      "sector": "Sector",
-      "score": "Score",
-      "price": "Price",
-      "change": "Chg.",
-      "oneYear": "1Y",
-      "earnings": "Next earnings"
-    },
-    "proLock": {
-      "badge": "PRO",
-      "oppTitle": "Opportunities of the moment, reserved for Pro subscribers",
-      "maxPfcfTitle": "Max P/FCF filter, reserved for Pro subscribers",
-      "overlayTitle": "See the full top {{count}} rated companies",
-      "overlaySub": "The Pro screener unlocks the entire universe, the Opportunities of the moment filter and all EU + International data.",
-      "overlayCta": "Go Pro"
     }
   },
   "watchlist": {
@@ -552,49 +624,6 @@
       "noData": "Not enough quarterly history to reconstruct the CCC.",
       "approxBadge": "Estimated.",
       "approxNote": "Cost of revenue is not published for this stock, DIO/DPO are computed via revenue (less precise in absolute terms, but the trend remains reliable)."
-    }
-  },
-  "chart": {
-    "close": "Close",
-    "error": "Error: {{msg}}",
-    "perYear": "%/yr",
-    "freqQuarterly": "quarterly data",
-    "freqAnnual": "annual data",
-    "histSub": "Criterion: {{name}} · {{freq}}",
-    "annualOnlyTag": "Annual data",
-    "noQuarterlyData": "No quarterly data available for this period.",
-    "pfcfSub": "Computed: price × shares ÷ FCF (TTM)",
-    "pfcfAnnualOnlyTag": "4 annual years (max available for this ticker)",
-    "pfcfNoData": "Not enough history to compute P/FCF over this period.",
-    "insufficientHistory": "Not enough history to plot a reliable trend.",
-    "pfcfVerdictBelow": "The latest multiple ({{latest}}×) is below the historical median ({{median}}×), attractive relative valuation.",
-    "pfcfVerdictAbove": "The latest multiple ({{latest}}×) is above the historical median ({{median}}×), stretched vs its own past.",
-    "croceSub": "Formula: FCF (SBC-adjusted) ÷ (Assets − CurLiab − Goodwill − Excess cash), Bettin/Mauboussin. Excess cash = max(0, cash − 2% × revenue).",
-    "croceAnnualOnlyTag": "Annual (max available for this ticker)",
-    "croceNoData": "Not enough history to compute Cash ROCE over this period (needs positive FCF + positive capital employed over ≥ 4 quarters / 2 fiscal years).",
-    "croceThreshold": "15% threshold",
-    "median": "median {{v}}",
-    "croceVerdictHigh": "Cash ROCE durably above 15% ({{n}}/{{total}} periods), consistent operating value creation.",
-    "croceVerdictMid": "Cash ROCE above the threshold in {{n}}/{{total}} periods, average quality, watch closely.",
-    "croceVerdictLow": "Cash ROCE rarely above 15% ({{n}}/{{total}} periods), weak operating value creation.",
-    "tooltipQuarter": "Quarter {{q}}",
-    "tooltipYear": "Year {{y}}",
-    "stat": {
-      "avg": "Period average",
-      "cagr": "CAGR over period",
-      "median": "Period median",
-      "minmax": "Min / Max",
-      "percentile": "Percentile",
-      "points": "Points",
-      "lastQuarter": "Last quarter",
-      "lastYear": "Last year",
-      "quarters": "Quarters",
-      "years": "Years",
-      "current": "Current",
-      "lastAnnualClose": "Last annual close",
-      "lastClose": "Last close",
-      "currentTtm": "Current (TTM)",
-      "periodsAbove": "Periods ≥ 15%"
     }
   },
   "errorBoundary": {
@@ -963,18 +992,66 @@
       "title": "Detailed comparison",
       "feature": "Feature",
       "rows": [
-        { "label": "Analyses per day", "free": "10", "pro": "Unlimited" },
-        { "label": "Full analysis of a stock", "free": true, "pro": true },
-        { "label": "Score /10 on 10 financial criteria", "free": true, "pro": true },
-        { "label": "Watchlist", "free": "10 stocks", "pro": "Unlimited" },
-        { "label": "Screener", "free": "Top 10", "pro": "Unlimited" },
-        { "label": "Compare multiple stocks", "free": "2 stocks", "pro": "Up to 5" },
-        { "label": "Detailed analysis of Business Model and Management", "free": false, "pro": true },
-        { "label": "Access to current opportunities", "free": false, "pro": true },
-        { "label": "Analysis of market share evolution", "free": false, "pro": true },
-        { "label": "Detailed charts (valuation, cash ROCE, cycle, dividend)", "free": false, "pro": true },
-        { "label": "Sector benchmarks", "free": false, "pro": true },
-        { "label": "Number of stocks analyzed", "free": "~4,000 (US)", "pro": "7,200+ (International)" }
+        {
+          "label": "Analyses per day",
+          "free": "10",
+          "pro": "Unlimited"
+        },
+        {
+          "label": "Full analysis of a stock",
+          "free": true,
+          "pro": true
+        },
+        {
+          "label": "Score /10 on 10 financial criteria",
+          "free": true,
+          "pro": true
+        },
+        {
+          "label": "Watchlist",
+          "free": "10 stocks",
+          "pro": "Unlimited"
+        },
+        {
+          "label": "Screener",
+          "free": "Top 10",
+          "pro": "Unlimited"
+        },
+        {
+          "label": "Compare multiple stocks",
+          "free": "2 stocks",
+          "pro": "Up to 5"
+        },
+        {
+          "label": "Detailed analysis of Business Model and Management",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Access to current opportunities",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Analysis of market share evolution",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Detailed charts (valuation, cash ROCE, cycle, dividend)",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Sector benchmarks",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Number of stocks analyzed",
+          "free": "~4,000 (US)",
+          "pro": "7,200+ (International)"
+        }
       ]
     },
     "faq": {
@@ -1105,43 +1182,6 @@
     },
     "disclaimerShort": "Decision-support tool. Does not constitute personalized investment advice."
   },
-  "blog": {
-    "hero": {
-      "chipComing": "Coming soon",
-      "chipLive": "The blog",
-      "title": "Understand markets with method",
-      "lede": "Fundamental analyses, method deep-dives, plunges into the fundamentals of quality companies. The content we wish we had read before investing our first euro."
-    },
-    "empty": {
-      "title": "First article being written",
-      "text": "We're laying the groundwork. The first article, on the pitfalls of accounting net income vs free cash flow, will be out in the coming weeks.",
-      "also": {
-        "prefix": "In the meantime, check out the full",
-        "methodology": "scoring methodology",
-        "middle": " across our 10 criteria, or explore the",
-        "screener": "screener",
-        "suffix": " of the highest-rated companies in our monitor."
-      }
-    },
-    "upcoming": {
-      "title": "What's coming next",
-      "items": [
-        "The Lubin method explained criterion by criterion",
-        "Read a 10-K in 15 minutes: the cheat sheet",
-        "Cash ROCE vs ROIC: why we picked the Bettin-Mauboussin version",
-        "5 Yahoo Finance pitfalls nobody talks about",
-        "Why we exclude gold and commodities from our universe"
-      ]
-    },
-    "cta": {
-      "title": "While you wait: start analyzing",
-      "sub": "The best way to understand the method is to apply it. Type a ticker, get a score in seconds.",
-      "button": "Analyze a stock"
-    },
-    "card": {
-      "readingTime": "{{minutes}} min read"
-    }
-  },
   "account": {
     "title": "My account",
     "subscription": {
@@ -1203,25 +1243,100 @@
       "why": "Why"
     },
     "criteres": [
-      { "num": 1, "nom": "Profitable", "formule": "Net margin = Net income / Revenue", "seuil": "> 0 %", "pourquoi": "A company that doesn't make money isn't an investment case. This first filter eliminates structurally loss-making companies." },
-      { "num": 2, "nom": "Growing sales", "formule": "Revenue growth over 5 years", "seuil": "> 10 % per year", "pourquoi": "Revenue growth remains the best driver of long-term value creation. We measure the 5-year trend to smooth out exceptional years." },
-      { "num": 3, "nom": "Growing earnings per share", "formule": "Cash per share growth over 5 years", "seuil": "> 10 % per year", "pourquoi": "What really matters to you as a shareholder is the cash generated per share. We strip out the shares handed to employees, which shrink your slice." },
-      { "num": 4, "nom": "Share count under control", "formule": "Annual change in diluted share count over 5 years", "seuil": "Stable or declining", "pourquoi": "Dilution is when a company issues new shares: your slice of the pie shrinks. The best companies do the opposite, buying back shares instead of issuing them." },
-      { "num": 5, "nom": "Cash profitability", "formule": "Cash margin = free cash flow / revenue", "seuil": "> 10 %", "pourquoi": "Free cash flow is the money actually left in the bank once everything is paid, far more reliable than accounting earnings. A high margin means each euro of revenue generates real cash." },
-      { "num": 6, "nom": "Expanding margins", "formule": "Operating margin trend over 5 years", "seuil": "Rising", "pourquoi": "Margins rising over the years reveal a real advantage: the company can raise prices or produce more cheaply. A sign of durable quality." },
-      { "num": 7, "nom": "Return on invested capital", "formule": "Cash generated per €100 invested in the business (Cash ROCE)", "seuil": "> 15 %", "pourquoi": "How much cash the company generates for each euro actually invested in its business. Above 15 %, it puts its money to work very efficiently." },
-      { "num": 8, "nom": "Debt under control", "formule": "Net debt / free cash flow", "seuil": "< 3 years", "pourquoi": "How many years of cash it would take to repay all the debt. Above 3 years, the risk becomes serious if things turn sour." },
-      { "num": 9, "nom": "Earnings converted to cash", "formule": "Free cash flow / net income", "seuil": "> 1", "pourquoi": "Checks that reported profits turn into real money, not just an accounting entry. A ratio durably below 1 is a warning sign." },
-      { "num": 10, "nom": "Net collection cycle", "formule": "Days the company's cash stays tied up in its cycle (customers, inventory, suppliers)", "seuil": "Low or negative", "pourquoi": "The number of days cash is tied up between paying suppliers and getting paid by customers. Short or negative is excellent: its suppliers finance its growth (Apple, Amazon)." }
+      {
+        "num": 1,
+        "nom": "Profitable",
+        "formule": "Net margin = Net income / Revenue",
+        "seuil": "> 0 %",
+        "pourquoi": "A company that doesn't make money isn't an investment case. This first filter eliminates structurally loss-making companies."
+      },
+      {
+        "num": 2,
+        "nom": "Growing sales",
+        "formule": "Revenue growth over 5 years",
+        "seuil": "> 10 % per year",
+        "pourquoi": "Revenue growth remains the best driver of long-term value creation. We measure the 5-year trend to smooth out exceptional years."
+      },
+      {
+        "num": 3,
+        "nom": "Growing earnings per share",
+        "formule": "Cash per share growth over 5 years",
+        "seuil": "> 10 % per year",
+        "pourquoi": "What really matters to you as a shareholder is the cash generated per share. We strip out the shares handed to employees, which shrink your slice."
+      },
+      {
+        "num": 4,
+        "nom": "Share count under control",
+        "formule": "Annual change in diluted share count over 5 years",
+        "seuil": "Stable or declining",
+        "pourquoi": "Dilution is when a company issues new shares: your slice of the pie shrinks. The best companies do the opposite, buying back shares instead of issuing them."
+      },
+      {
+        "num": 5,
+        "nom": "Cash profitability",
+        "formule": "Cash margin = free cash flow / revenue",
+        "seuil": "> 10 %",
+        "pourquoi": "Free cash flow is the money actually left in the bank once everything is paid, far more reliable than accounting earnings. A high margin means each euro of revenue generates real cash."
+      },
+      {
+        "num": 6,
+        "nom": "Expanding margins",
+        "formule": "Operating margin trend over 5 years",
+        "seuil": "Rising",
+        "pourquoi": "Margins rising over the years reveal a real advantage: the company can raise prices or produce more cheaply. A sign of durable quality."
+      },
+      {
+        "num": 7,
+        "nom": "Return on invested capital",
+        "formule": "Cash generated per €100 invested in the business (Cash ROCE)",
+        "seuil": "> 15 %",
+        "pourquoi": "How much cash the company generates for each euro actually invested in its business. Above 15 %, it puts its money to work very efficiently."
+      },
+      {
+        "num": 8,
+        "nom": "Debt under control",
+        "formule": "Net debt / free cash flow",
+        "seuil": "< 3 years",
+        "pourquoi": "How many years of cash it would take to repay all the debt. Above 3 years, the risk becomes serious if things turn sour."
+      },
+      {
+        "num": 9,
+        "nom": "Earnings converted to cash",
+        "formule": "Free cash flow / net income",
+        "seuil": "> 1",
+        "pourquoi": "Checks that reported profits turn into real money, not just an accounting entry. A ratio durably below 1 is a warning sign."
+      },
+      {
+        "num": 10,
+        "nom": "Net collection cycle",
+        "formule": "Days the company's cash stays tied up in its cycle (customers, inventory, suppliers)",
+        "seuil": "Low or negative",
+        "pourquoi": "The number of days cash is tied up between paying suppliers and getting paid by customers. Short or negative is excellent: its suppliers finance its growth (Apple, Amazon)."
+      }
     ],
     "limites": {
       "title": "Limits, what the method does not do",
       "items": [
-        { "title": "The method is retrospective.", "text": "It judges a company's historical quality. A quality compounder can perfectly well disappoint in the years to come, and a mediocre company can turn around." },
-        { "title": "It ignores valuation.", "text": "The 10 criteria say nothing about the price paid. An excellent company bought too expensive remains a bad investment. We separately publish valuation indicators (P/E, FCF yield, EV/EBITDA)." },
-        { "title": "It's unsuitable for some sectors.", "text": "Banks, insurance, listed real estate (REITs), pre-profitability companies: net margin, Cash ROCE or CCC criteria don't apply as-is." },
-        { "title": "The data isn't perfect.", "text": "Some of it comes from reports the companies filled in poorly. We fix issues continuously, but residual errors can remain." },
-        { "title": "No method replaces your judgment.", "text": "Scores are a decision-support tool, not a buy recommendation. You remain the sole judge." }
+        {
+          "title": "The method is retrospective.",
+          "text": "It judges a company's historical quality. A quality compounder can perfectly well disappoint in the years to come, and a mediocre company can turn around."
+        },
+        {
+          "title": "It ignores valuation.",
+          "text": "The 10 criteria say nothing about the price paid. An excellent company bought too expensive remains a bad investment. We separately publish valuation indicators (P/E, FCF yield, EV/EBITDA)."
+        },
+        {
+          "title": "It's unsuitable for some sectors.",
+          "text": "Banks, insurance, listed real estate (REITs), pre-profitability companies: net margin, Cash ROCE or CCC criteria don't apply as-is."
+        },
+        {
+          "title": "The data isn't perfect.",
+          "text": "Some of it comes from reports the companies filled in poorly. We fix issues continuously, but residual errors can remain."
+        },
+        {
+          "title": "No method replaces your judgment.",
+          "text": "Scores are a decision-support tool, not a buy recommendation. You remain the sole judge."
+        }
       ]
     },
     "cta": {
@@ -1233,4 +1348,3 @@
     "disclaimer": "Lubin Investment provides a tool for the fundamental analysis of listed stocks, for informational and educational purposes. The scores displayed constitute neither investment advice nor a buy or sell recommendation. Past performance does not guarantee future returns. Do your own research and consult a licensed advisor before any investment decision."
   }
 }
-

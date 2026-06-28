@@ -13,25 +13,187 @@
   },
   "blog": {
     "ctaSeeAnalysis": "Voir l'analyse {{ticker}}",
-    "ctaAnalyzeStock": "Analyser une action"
+    "ctaAnalyzeStock": "Analyser une action",
+    "hero": {
+      "chipComing": "Bientôt en ligne",
+      "chipLive": "Le blog",
+      "title": "Comprendre les marchés avec méthode",
+      "lede": "Analyses fondamentales, décryptages de méthode, plongées dans les fondamentaux des entreprises de qualité. Le contenu que nous aurions aimé lire avant d'investir notre premier euro."
+    },
+    "empty": {
+      "title": "Premier article en cours de rédaction",
+      "text": "On prépare le terrain. Le premier article, sur les pièges du bénéfice net comptable face au free cash flow, sortira dans les prochaines semaines.",
+      "also": {
+        "prefix": "En attendant, tu peux consulter la",
+        "methodology": "méthodologie complète",
+        "middle": " du scoring sur 10 critères, ou explorer le",
+        "screener": "screener",
+        "suffix": " des meilleures entreprises notées par notre veille."
+      }
+    },
+    "upcoming": {
+      "title": "Ce qui arrive bientôt",
+      "items": [
+        "La méthode Lubin expliquée critère par critère",
+        "Lire un 10-K en 15 minutes : la cheat sheet",
+        "Cash ROCE vs ROIC : pourquoi nous avons choisi la version de Bettin-Mauboussin",
+        "5 pièges des fiches Yahoo Finance que personne ne mentionne",
+        "Pourquoi nous excluons l'or et les commodities de notre univers"
+      ]
+    },
+    "cta": {
+      "title": "En attendant : commence à analyser",
+      "sub": "La meilleure façon de comprendre la méthode, c'est de l'appliquer. Tape un ticker, obtiens une note en quelques secondes.",
+      "button": "Analyser une action"
+    },
+    "card": {
+      "readingTime": "{{minutes}} min de lecture"
+    }
   },
   "chart": {
     "proTooltip": "Graphique détaillé — Pro",
-    "unitDays": "j"
+    "unitDays": "j",
+    "close": "Fermer",
+    "error": "Erreur : {{msg}}",
+    "perYear": "%/an",
+    "freqQuarterly": "données trimestrielles",
+    "freqAnnual": "données annuelles",
+    "histSub": "Critère : {{name}} · {{freq}}",
+    "annualOnlyTag": "Données annuelles",
+    "noQuarterlyData": "Aucune donnée trimestrielle disponible pour cette période.",
+    "pfcfSub": "Calculé : prix × actions ÷ FCF (TTM)",
+    "pfcfAnnualOnlyTag": "4 ans annuels (max disponible pour ce ticker)",
+    "pfcfNoData": "Pas assez d'historique pour calculer le P/FCF sur cette période.",
+    "insufficientHistory": "Historique insuffisant pour tracer une tendance fiable.",
+    "pfcfVerdictBelow": "Le dernier multiple ({{latest}}×) est sous la médiane historique ({{median}}×), valorisation relative attractive.",
+    "pfcfVerdictAbove": "Le dernier multiple ({{latest}}×) est au-dessus de la médiane historique ({{median}}×), valorisation tendue vs son propre passé.",
+    "croceSub": "Formule : FCF (ajusté SBC) ÷ (Assets − CurLiab − Goodwill − Cash excédentaire), Bettin/Mauboussin. Cash excédentaire = max(0, cash − 2 % × revenue).",
+    "croceAnnualOnlyTag": "Annuel (max disponible pour ce ticker)",
+    "croceNoData": "Pas assez d'historique pour calculer le Cash ROCE sur cette période (besoin de FCF positif + capital employé positif sur ≥ 4 trimestres / 2 exercices).",
+    "croceThreshold": "seuil 15 %",
+    "median": "médiane {{v}}",
+    "croceVerdictHigh": "Cash ROCE durablement au-dessus de 15 % ({{n}}/{{total}} périodes), création de valeur opérationnelle constante.",
+    "croceVerdictMid": "Cash ROCE au-dessus du seuil sur {{n}}/{{total}} périodes, qualité moyenne, à surveiller.",
+    "croceVerdictLow": "Cash ROCE rarement au-dessus de 15 % ({{n}}/{{total}} périodes), création de valeur opérationnelle faible.",
+    "tooltipQuarter": "Trimestre {{q}}",
+    "tooltipYear": "Année {{y}}",
+    "stat": {
+      "avg": "Moyenne période",
+      "cagr": "CAGR sur période",
+      "median": "Médiane période",
+      "minmax": "Min / Max",
+      "percentile": "Percentile",
+      "points": "Points",
+      "lastQuarter": "Dernier trimestre",
+      "lastYear": "Dernière année",
+      "quarters": "Trimestres",
+      "years": "Années",
+      "current": "Actuel",
+      "lastAnnualClose": "Dernière clôture annuelle",
+      "lastClose": "Dernière clôture",
+      "currentTtm": "Actuel (TTM)",
+      "periodsAbove": "Périodes ≥ 15 %"
+    }
   },
   "news": {
     "title": "Actualités récentes — {{ticker}}",
     "subtitle": "60 derniers jours"
   },
   "screener": {
-    "loadMore": "Charger plus"
+    "loadMore": "Charger plus",
+    "title": "Screener",
+    "subtitle": "Les meilleures notes de l'univers, triées par la veille. Les 10/10 en tête.",
+    "progress": {
+      "label": "Veille de l'univers",
+      "upToDate": "À jour",
+      "scored": "{{scored}} / {{total}} titres réévalués"
+    },
+    "filters": {
+      "kicker": "Filtres",
+      "minScore": "Note minimale",
+      "maxPfcf": "P/FCF max",
+      "sector": "Secteur",
+      "allSectors": "Tous les secteurs",
+      "apply": "Valider",
+      "reset": "Réinitialiser",
+      "nSectors": "{{count}} secteurs"
+    },
+    "results_one": "{{count}} résultat",
+    "results_other": "{{count}} résultats",
+    "empty": {
+      "title": "Aucune entreprise au-dessus de ce seuil",
+      "desc": "La veille note l'univers progressivement, reviens plus tard, ou baisse le seuil."
+    },
+    "col": {
+      "company": "Société",
+      "sector": "Secteur",
+      "score": "Note",
+      "price": "Cours",
+      "change": "Var.",
+      "oneYear": "1 an",
+      "earnings": "Prochains résultats"
+    },
+    "proLock": {
+      "badge": "PRO",
+      "oppTitle": "Opportunités du moment, réservé aux abonnés Pro",
+      "maxPfcfTitle": "Filtre Max P/FCF, réservé aux abonnés Pro",
+      "overlayTitle": "Voir tout le top {{count}} entreprises notées",
+      "overlaySub": "Le screener Pro débloque l'ensemble de l'univers, le filtre « Opportunités du moment » et toutes les données EU + International.",
+      "overlayCta": "Passer Pro"
+    }
   },
   "scoreCard": {
     "inWatchlist": "Dans ta watchlist",
     "addWatchlist": "Ajouter à la watchlist"
   },
   "marketBeat": {
-    "deleteConfirm": "Supprimer cette position ?"
+    "deleteConfirm": "Supprimer cette position ?",
+    "title": "Stratégie portefeuille",
+    "subtitle": "Suivi privé : ma sélection vs le panier systématique value + momentum vs le S&P 500. Le panier retient, parmi le top 50 % des actions du S&P 500 par performance 12 mois, les 20 les moins chères en P/FCF (équipondéré). Prix et capitalisation en direct.",
+    "col": {
+      "company": "Société",
+      "sector": "Secteur",
+      "momentum": "Momentum 12 mois",
+      "price": "Cours",
+      "marketCap": "Capitalisation",
+      "weight": "Poids"
+    },
+    "empty": {
+      "title": "Panier indisponible pour le moment",
+      "desc": "La veille remplit l'univers progressivement, reviens dans un moment."
+    },
+    "compare": {
+      "title": "Suivi en direct vs le marché",
+      "since": "depuis le {{date}}",
+      "vsMarket": "vs marché",
+      "mine": "Ma sélection",
+      "system": "Value + Momentum",
+      "sp500": "S&P 500"
+    },
+    "portfolio": {
+      "title": "Ma sélection",
+      "subtitle": "Tes achats/ventes. Le rendement et les pépites se recalculent à chaque ouverture.",
+      "add": "Ajouter un achat",
+      "ticker": "Ticker",
+      "buyDate": "Date d'achat",
+      "buyPrice": "Prix d'achat",
+      "note": "Note (optionnel)",
+      "save": "Ajouter",
+      "cancel": "Annuler",
+      "sellTitle": "Clôturer la position",
+      "sellDate": "Date de vente",
+      "sellPrice": "Prix de vente",
+      "confirmSell": "Vendre",
+      "close": "Vendre",
+      "delete": "Supprimer",
+      "open": "Ouverte",
+      "closed": "Vendue",
+      "gem": "Pépite",
+      "empty": "Aucune position. Ajoute ton premier achat ci-dessus.",
+      "colReturn": "Rendement",
+      "colStatus": "Statut",
+      "since": "depuis"
+    }
   },
   "search": {
     "searching": "Recherche…",
@@ -239,96 +401,6 @@
       "h2Line1": "La donnée tranche,",
       "h2Line2": "pas les opinions.",
       "p": "Une note de qualité sur 10, une valorisation séparée, et une veille qui surveille tout le marché pour toi."
-    }
-  },
-  "marketBeat": {
-    "title": "Stratégie portefeuille",
-    "subtitle": "Suivi privé : ma sélection vs le panier systématique value + momentum vs le S&P 500. Le panier retient, parmi le top 50 % des actions du S&P 500 par performance 12 mois, les 20 les moins chères en P/FCF (équipondéré). Prix et capitalisation en direct.",
-    "col": {
-      "company": "Société",
-      "sector": "Secteur",
-      "momentum": "Momentum 12 mois",
-      "price": "Cours",
-      "marketCap": "Capitalisation",
-      "weight": "Poids"
-    },
-    "empty": {
-      "title": "Panier indisponible pour le moment",
-      "desc": "La veille remplit l'univers progressivement, reviens dans un moment."
-    },
-    "compare": {
-      "title": "Suivi en direct vs le marché",
-      "since": "depuis le {{date}}",
-      "vsMarket": "vs marché",
-      "mine": "Ma sélection",
-      "system": "Value + Momentum",
-      "sp500": "S&P 500"
-    },
-    "portfolio": {
-      "title": "Ma sélection",
-      "subtitle": "Tes achats/ventes. Le rendement et les pépites se recalculent à chaque ouverture.",
-      "add": "Ajouter un achat",
-      "ticker": "Ticker",
-      "buyDate": "Date d'achat",
-      "buyPrice": "Prix d'achat",
-      "note": "Note (optionnel)",
-      "save": "Ajouter",
-      "cancel": "Annuler",
-      "sellTitle": "Clôturer la position",
-      "sellDate": "Date de vente",
-      "sellPrice": "Prix de vente",
-      "confirmSell": "Vendre",
-      "close": "Vendre",
-      "delete": "Supprimer",
-      "open": "Ouverte",
-      "closed": "Vendue",
-      "gem": "Pépite",
-      "empty": "Aucune position. Ajoute ton premier achat ci-dessus.",
-      "colReturn": "Rendement",
-      "colStatus": "Statut",
-      "since": "depuis"
-    }
-  },
-  "screener": {
-    "title": "Screener",
-    "subtitle": "Les meilleures notes de l'univers, triées par la veille. Les 10/10 en tête.",
-    "progress": {
-      "label": "Veille de l'univers",
-      "upToDate": "À jour",
-      "scored": "{{scored}} / {{total}} titres réévalués"
-    },
-    "filters": {
-      "kicker": "Filtres",
-      "minScore": "Note minimale",
-      "maxPfcf": "P/FCF max",
-      "sector": "Secteur",
-      "allSectors": "Tous les secteurs",
-      "apply": "Valider",
-      "reset": "Réinitialiser",
-      "nSectors": "{{count}} secteurs"
-    },
-    "results_one": "{{count}} résultat",
-    "results_other": "{{count}} résultats",
-    "empty": {
-      "title": "Aucune entreprise au-dessus de ce seuil",
-      "desc": "La veille note l'univers progressivement, reviens plus tard, ou baisse le seuil."
-    },
-    "col": {
-      "company": "Société",
-      "sector": "Secteur",
-      "score": "Note",
-      "price": "Cours",
-      "change": "Var.",
-      "oneYear": "1 an",
-      "earnings": "Prochains résultats"
-    },
-    "proLock": {
-      "badge": "PRO",
-      "oppTitle": "Opportunités du moment, réservé aux abonnés Pro",
-      "maxPfcfTitle": "Filtre Max P/FCF, réservé aux abonnés Pro",
-      "overlayTitle": "Voir tout le top {{count}} entreprises notées",
-      "overlaySub": "Le screener Pro débloque l'ensemble de l'univers, le filtre « Opportunités du moment » et toutes les données EU + International.",
-      "overlayCta": "Passer Pro"
     }
   },
   "watchlist": {
@@ -552,49 +624,6 @@
       "noData": "Pas assez d'historique trimestriel pour reconstituer le CCC.",
       "approxBadge": "Estimé.",
       "approxNote": "Le coût des ventes n'est pas publié pour ce titre, DIO/DPO sont calculés via le chiffre d'affaires (moins précis en absolu, mais la tendance reste fiable)."
-    }
-  },
-  "chart": {
-    "close": "Fermer",
-    "error": "Erreur : {{msg}}",
-    "perYear": "%/an",
-    "freqQuarterly": "données trimestrielles",
-    "freqAnnual": "données annuelles",
-    "histSub": "Critère : {{name}} · {{freq}}",
-    "annualOnlyTag": "Données annuelles",
-    "noQuarterlyData": "Aucune donnée trimestrielle disponible pour cette période.",
-    "pfcfSub": "Calculé : prix × actions ÷ FCF (TTM)",
-    "pfcfAnnualOnlyTag": "4 ans annuels (max disponible pour ce ticker)",
-    "pfcfNoData": "Pas assez d'historique pour calculer le P/FCF sur cette période.",
-    "insufficientHistory": "Historique insuffisant pour tracer une tendance fiable.",
-    "pfcfVerdictBelow": "Le dernier multiple ({{latest}}×) est sous la médiane historique ({{median}}×), valorisation relative attractive.",
-    "pfcfVerdictAbove": "Le dernier multiple ({{latest}}×) est au-dessus de la médiane historique ({{median}}×), valorisation tendue vs son propre passé.",
-    "croceSub": "Formule : FCF (ajusté SBC) ÷ (Assets − CurLiab − Goodwill − Cash excédentaire), Bettin/Mauboussin. Cash excédentaire = max(0, cash − 2 % × revenue).",
-    "croceAnnualOnlyTag": "Annuel (max disponible pour ce ticker)",
-    "croceNoData": "Pas assez d'historique pour calculer le Cash ROCE sur cette période (besoin de FCF positif + capital employé positif sur ≥ 4 trimestres / 2 exercices).",
-    "croceThreshold": "seuil 15 %",
-    "median": "médiane {{v}}",
-    "croceVerdictHigh": "Cash ROCE durablement au-dessus de 15 % ({{n}}/{{total}} périodes), création de valeur opérationnelle constante.",
-    "croceVerdictMid": "Cash ROCE au-dessus du seuil sur {{n}}/{{total}} périodes, qualité moyenne, à surveiller.",
-    "croceVerdictLow": "Cash ROCE rarement au-dessus de 15 % ({{n}}/{{total}} périodes), création de valeur opérationnelle faible.",
-    "tooltipQuarter": "Trimestre {{q}}",
-    "tooltipYear": "Année {{y}}",
-    "stat": {
-      "avg": "Moyenne période",
-      "cagr": "CAGR sur période",
-      "median": "Médiane période",
-      "minmax": "Min / Max",
-      "percentile": "Percentile",
-      "points": "Points",
-      "lastQuarter": "Dernier trimestre",
-      "lastYear": "Dernière année",
-      "quarters": "Trimestres",
-      "years": "Années",
-      "current": "Actuel",
-      "lastAnnualClose": "Dernière clôture annuelle",
-      "lastClose": "Dernière clôture",
-      "currentTtm": "Actuel (TTM)",
-      "periodsAbove": "Périodes ≥ 15 %"
     }
   },
   "errorBoundary": {
@@ -963,18 +992,66 @@
       "title": "Comparaison détaillée",
       "feature": "Fonctionnalité",
       "rows": [
-        { "label": "Analyses par jour", "free": "10", "pro": "Illimitées" },
-        { "label": "Analyse complète d'un titre", "free": true, "pro": true },
-        { "label": "Note /10 sur 10 critères chiffrés", "free": true, "pro": true },
-        { "label": "Watchlist", "free": "10 titres", "pro": "Illimitée" },
-        { "label": "Screener", "free": "Top 10", "pro": "Illimité" },
-        { "label": "Comparer plusieurs titres", "free": "2 titres", "pro": "Jusqu'à 5" },
-        { "label": "Analyse détaillée du Business Model et du Management", "free": false, "pro": true },
-        { "label": "Accéder aux opportunités du moment", "free": false, "pro": true },
-        { "label": "Analyse de l'évolution des parts de marché", "free": false, "pro": true },
-        { "label": "Graphiques détaillés (valorisation, cash ROCE, cycle, dividende)", "free": false, "pro": true },
-        { "label": "Benchmark sectoriel", "free": false, "pro": true },
-        { "label": "Nombre d'actions analysées", "free": "~4 000 (US)", "pro": "7 200+ (International)" }
+        {
+          "label": "Analyses par jour",
+          "free": "10",
+          "pro": "Illimitées"
+        },
+        {
+          "label": "Analyse complète d'un titre",
+          "free": true,
+          "pro": true
+        },
+        {
+          "label": "Note /10 sur 10 critères chiffrés",
+          "free": true,
+          "pro": true
+        },
+        {
+          "label": "Watchlist",
+          "free": "10 titres",
+          "pro": "Illimitée"
+        },
+        {
+          "label": "Screener",
+          "free": "Top 10",
+          "pro": "Illimité"
+        },
+        {
+          "label": "Comparer plusieurs titres",
+          "free": "2 titres",
+          "pro": "Jusqu'à 5"
+        },
+        {
+          "label": "Analyse détaillée du Business Model et du Management",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Accéder aux opportunités du moment",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Analyse de l'évolution des parts de marché",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Graphiques détaillés (valorisation, cash ROCE, cycle, dividende)",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Benchmark sectoriel",
+          "free": false,
+          "pro": true
+        },
+        {
+          "label": "Nombre d'actions analysées",
+          "free": "~4 000 (US)",
+          "pro": "7 200+ (International)"
+        }
       ]
     },
     "faq": {
@@ -1105,43 +1182,6 @@
     },
     "disclaimerShort": "Outil d'aide à la décision. Ne constitue pas un conseil en investissement personnalisé."
   },
-  "blog": {
-    "hero": {
-      "chipComing": "Bientôt en ligne",
-      "chipLive": "Le blog",
-      "title": "Comprendre les marchés avec méthode",
-      "lede": "Analyses fondamentales, décryptages de méthode, plongées dans les fondamentaux des entreprises de qualité. Le contenu que nous aurions aimé lire avant d'investir notre premier euro."
-    },
-    "empty": {
-      "title": "Premier article en cours de rédaction",
-      "text": "On prépare le terrain. Le premier article, sur les pièges du bénéfice net comptable face au free cash flow, sortira dans les prochaines semaines.",
-      "also": {
-        "prefix": "En attendant, tu peux consulter la",
-        "methodology": "méthodologie complète",
-        "middle": " du scoring sur 10 critères, ou explorer le",
-        "screener": "screener",
-        "suffix": " des meilleures entreprises notées par notre veille."
-      }
-    },
-    "upcoming": {
-      "title": "Ce qui arrive bientôt",
-      "items": [
-        "La méthode Lubin expliquée critère par critère",
-        "Lire un 10-K en 15 minutes : la cheat sheet",
-        "Cash ROCE vs ROIC : pourquoi nous avons choisi la version de Bettin-Mauboussin",
-        "5 pièges des fiches Yahoo Finance que personne ne mentionne",
-        "Pourquoi nous excluons l'or et les commodities de notre univers"
-      ]
-    },
-    "cta": {
-      "title": "En attendant : commence à analyser",
-      "sub": "La meilleure façon de comprendre la méthode, c'est de l'appliquer. Tape un ticker, obtiens une note en quelques secondes.",
-      "button": "Analyser une action"
-    },
-    "card": {
-      "readingTime": "{{minutes}} min de lecture"
-    }
-  },
   "account": {
     "title": "Mon compte",
     "subscription": {
@@ -1203,25 +1243,100 @@
       "why": "Pourquoi"
     },
     "criteres": [
-      { "num": 1, "nom": "Rentable", "formule": "Marge nette = Résultat net / Chiffre d'affaires", "seuil": "> 0 %", "pourquoi": "Une entreprise qui ne gagne pas d'argent n'est pas une affaire d'investissement. Ce premier filtre élimine les sociétés structurellement déficitaires." },
-      { "num": 2, "nom": "Ventes en croissance", "formule": "Croissance du chiffre d'affaires sur 5 ans", "seuil": "> 10 % par an", "pourquoi": "La croissance des ventes reste le meilleur moteur de création de valeur sur le long terme. On mesure la tendance sur 5 ans pour gommer les années exceptionnelles." },
-      { "num": 3, "nom": "Profits par action en croissance", "formule": "Croissance du cash par action sur 5 ans", "seuil": "> 10 % par an", "pourquoi": "Ce qui compte vraiment pour toi, actionnaire, c'est le cash généré par action. On retire au passage les actions distribuées aux salariés, qui réduisent ta part." },
-      { "num": 4, "nom": "Nombre d'actions maîtrisé", "formule": "Variation annuelle du nombre d'actions dilué sur 5 ans", "seuil": "Stable ou en baisse", "pourquoi": "La dilution, c'est quand l'entreprise crée de nouvelles actions : ta part du gâteau rétrécit. Les meilleures font l'inverse, elles rachètent leurs actions au lieu d'en émettre." },
-      { "num": 5, "nom": "Profitabilité cash", "formule": "Marge de cash = cash disponible (free cash flow) / chiffre d'affaires", "seuil": "> 10 %", "pourquoi": "Le free cash flow, c'est l'argent qui reste vraiment en caisse une fois tout payé, bien plus fiable que le bénéfice comptable. Une marge élevée veut dire que chaque euro de vente génère du vrai cash." },
-      { "num": 6, "nom": "Marges en expansion", "formule": "Évolution de la marge opérationnelle sur 5 ans", "seuil": "En hausse", "pourquoi": "Des marges qui montent au fil des années révèlent un vrai avantage : l'entreprise peut imposer ses prix ou produire moins cher. Un signe de qualité durable." },
-      { "num": 7, "nom": "Rendement du capital investi", "formule": "Cash généré pour 100 € investis dans l'activité (Cash ROCE)", "seuil": "> 15 %", "pourquoi": "Combien de cash l'entreprise génère pour chaque euro réellement investi dans son activité. Au-dessus de 15 %, elle fait travailler son argent très efficacement." },
-      { "num": 8, "nom": "Endettement maîtrisé", "formule": "Dette nette / cash disponible (free cash flow)", "seuil": "< 3 ans", "pourquoi": "Combien d'années de cash il faudrait pour rembourser toute la dette. Au-delà de 3 ans, le risque devient sérieux en cas de coup dur." },
-      { "num": 9, "nom": "Bénéfices transformés en cash", "formule": "Cash disponible / bénéfice net", "seuil": "> 1", "pourquoi": "Vérifie que les profits annoncés deviennent du vrai argent, pas juste une écriture comptable. Un ratio durablement sous 1 est un signal d'alerte." },
-      { "num": 10, "nom": "Délai d'encaissement net", "formule": "Jours pendant lesquels l'argent reste bloqué dans le cycle (clients, stocks, fournisseurs)", "seuil": "Faible ou négatif", "pourquoi": "Le temps, en jours, pendant lequel l'argent est immobilisé entre le moment où l'entreprise paie ses fournisseurs et celui où ses clients la paient. Court ou négatif, c'est excellent : ses fournisseurs financent sa croissance (Apple, Amazon)." }
+      {
+        "num": 1,
+        "nom": "Rentable",
+        "formule": "Marge nette = Résultat net / Chiffre d'affaires",
+        "seuil": "> 0 %",
+        "pourquoi": "Une entreprise qui ne gagne pas d'argent n'est pas une affaire d'investissement. Ce premier filtre élimine les sociétés structurellement déficitaires."
+      },
+      {
+        "num": 2,
+        "nom": "Ventes en croissance",
+        "formule": "Croissance du chiffre d'affaires sur 5 ans",
+        "seuil": "> 10 % par an",
+        "pourquoi": "La croissance des ventes reste le meilleur moteur de création de valeur sur le long terme. On mesure la tendance sur 5 ans pour gommer les années exceptionnelles."
+      },
+      {
+        "num": 3,
+        "nom": "Profits par action en croissance",
+        "formule": "Croissance du cash par action sur 5 ans",
+        "seuil": "> 10 % par an",
+        "pourquoi": "Ce qui compte vraiment pour toi, actionnaire, c'est le cash généré par action. On retire au passage les actions distribuées aux salariés, qui réduisent ta part."
+      },
+      {
+        "num": 4,
+        "nom": "Nombre d'actions maîtrisé",
+        "formule": "Variation annuelle du nombre d'actions dilué sur 5 ans",
+        "seuil": "Stable ou en baisse",
+        "pourquoi": "La dilution, c'est quand l'entreprise crée de nouvelles actions : ta part du gâteau rétrécit. Les meilleures font l'inverse, elles rachètent leurs actions au lieu d'en émettre."
+      },
+      {
+        "num": 5,
+        "nom": "Profitabilité cash",
+        "formule": "Marge de cash = cash disponible (free cash flow) / chiffre d'affaires",
+        "seuil": "> 10 %",
+        "pourquoi": "Le free cash flow, c'est l'argent qui reste vraiment en caisse une fois tout payé, bien plus fiable que le bénéfice comptable. Une marge élevée veut dire que chaque euro de vente génère du vrai cash."
+      },
+      {
+        "num": 6,
+        "nom": "Marges en expansion",
+        "formule": "Évolution de la marge opérationnelle sur 5 ans",
+        "seuil": "En hausse",
+        "pourquoi": "Des marges qui montent au fil des années révèlent un vrai avantage : l'entreprise peut imposer ses prix ou produire moins cher. Un signe de qualité durable."
+      },
+      {
+        "num": 7,
+        "nom": "Rendement du capital investi",
+        "formule": "Cash généré pour 100 € investis dans l'activité (Cash ROCE)",
+        "seuil": "> 15 %",
+        "pourquoi": "Combien de cash l'entreprise génère pour chaque euro réellement investi dans son activité. Au-dessus de 15 %, elle fait travailler son argent très efficacement."
+      },
+      {
+        "num": 8,
+        "nom": "Endettement maîtrisé",
+        "formule": "Dette nette / cash disponible (free cash flow)",
+        "seuil": "< 3 ans",
+        "pourquoi": "Combien d'années de cash il faudrait pour rembourser toute la dette. Au-delà de 3 ans, le risque devient sérieux en cas de coup dur."
+      },
+      {
+        "num": 9,
+        "nom": "Bénéfices transformés en cash",
+        "formule": "Cash disponible / bénéfice net",
+        "seuil": "> 1",
+        "pourquoi": "Vérifie que les profits annoncés deviennent du vrai argent, pas juste une écriture comptable. Un ratio durablement sous 1 est un signal d'alerte."
+      },
+      {
+        "num": 10,
+        "nom": "Délai d'encaissement net",
+        "formule": "Jours pendant lesquels l'argent reste bloqué dans le cycle (clients, stocks, fournisseurs)",
+        "seuil": "Faible ou négatif",
+        "pourquoi": "Le temps, en jours, pendant lequel l'argent est immobilisé entre le moment où l'entreprise paie ses fournisseurs et celui où ses clients la paient. Court ou négatif, c'est excellent : ses fournisseurs financent sa croissance (Apple, Amazon)."
+      }
     ],
     "limites": {
       "title": "Limites, ce que la méthode ne fait pas",
       "items": [
-        { "title": "La méthode est rétrospective.", "text": "Elle juge la qualité historique d'une société. Un compounder de qualité peut très bien décevoir dans les années à venir, et une société médiocre peut se redresser." },
-        { "title": "Elle ignore la valorisation.", "text": "Les 10 critères ne disent rien du prix payé. Une excellente société achetée trop cher reste un mauvais investissement. Nous publions séparément des indicateurs de valorisation (PER, FCF yield, EV/EBITDA)." },
-        { "title": "Elle est inadaptée à certains secteurs.", "text": "Banques, assurances, foncières cotées (REIT), sociétés en phase de pré-rentabilité : les critères de marge nette, de Cash ROCE ou de CCC ne s'appliquent pas tels quels." },
-        { "title": "Les données ne sont pas parfaites.", "text": "Certaines viennent de rapports mal renseignés par les entreprises. On corrige en continu, mais des erreurs résiduelles peuvent subsister." },
-        { "title": "Aucune méthode ne remplace ton jugement.", "text": "Les scores sont une aide à la décision, pas une recommandation d'achat. Tu restes seul juge." }
+        {
+          "title": "La méthode est rétrospective.",
+          "text": "Elle juge la qualité historique d'une société. Un compounder de qualité peut très bien décevoir dans les années à venir, et une société médiocre peut se redresser."
+        },
+        {
+          "title": "Elle ignore la valorisation.",
+          "text": "Les 10 critères ne disent rien du prix payé. Une excellente société achetée trop cher reste un mauvais investissement. Nous publions séparément des indicateurs de valorisation (PER, FCF yield, EV/EBITDA)."
+        },
+        {
+          "title": "Elle est inadaptée à certains secteurs.",
+          "text": "Banques, assurances, foncières cotées (REIT), sociétés en phase de pré-rentabilité : les critères de marge nette, de Cash ROCE ou de CCC ne s'appliquent pas tels quels."
+        },
+        {
+          "title": "Les données ne sont pas parfaites.",
+          "text": "Certaines viennent de rapports mal renseignés par les entreprises. On corrige en continu, mais des erreurs résiduelles peuvent subsister."
+        },
+        {
+          "title": "Aucune méthode ne remplace ton jugement.",
+          "text": "Les scores sont une aide à la décision, pas une recommandation d'achat. Tu restes seul juge."
+        }
       ]
     },
     "cta": {
