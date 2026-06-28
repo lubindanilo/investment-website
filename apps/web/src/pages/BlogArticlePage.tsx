@@ -19,17 +19,17 @@ const AUTHOR: Record<ArticleLang, { byline: string; heading: string; bio: string
   fr: {
     byline: 'Par Lubin Danilo',
     heading: "À propos de l'auteur",
-    bio: "Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, j'analyse les actions par les fondamentaux depuis plusieurs années et j'investis mon propre argent avec cette méthode, que j'ai codifiée dans cet outil.",
+    bio: "Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, l'analyse fondamentale me passionne et donne de superbes résultats. Mais analyser chaque action me prenait trop de temps : des sites aux données incomplètes, des méthodes de calcul et des critères jamais alignés sur les miens. Repérer les pépites était tout aussi chronophage, même avec ma liste de critères bien définie. J'ai donc mis mon expérience de développeur à profit pour créer cet outil, l'appliquer à mon propre argent et en faire profiter tout le monde.",
   },
   en: {
     byline: 'By Lubin Danilo',
     heading: 'About the author',
-    bio: 'Lubin Danilo, founder of Lubin Investment. A self-taught individual investor, I have analyzed stocks through their fundamentals for several years and invest my own money with this method, which I codified into this tool.',
+    bio: 'Lubin Danilo, founder of Lubin Investment. A self-taught individual investor, I find fundamental analysis fascinating and it delivers great results. But analyzing every stock took too much time: sites with incomplete data, calculation methods and criteria never aligned with mine. Spotting the gems was just as time-consuming, even with my own well-defined checklist. So I put my developer background to work to build this tool, apply it to my own money, and make it public for everyone.',
   },
   es: {
     byline: 'Por Lubin Danilo',
     heading: 'Sobre el autor',
-    bio: 'Lubin Danilo, fundador de Lubin Investment. Inversor particular autodidacta, analizo acciones por sus fundamentales desde hace varios años e invierto mi propio dinero con este método, que codifiqué en esta herramienta.',
+    bio: 'Lubin Danilo, fundador de Lubin Investment. Inversor particular autodidacta, el análisis fundamental me apasiona y da resultados excelentes. Pero analizar cada acción me llevaba demasiado tiempo: sitios con datos incompletos, métodos de cálculo y criterios nunca alineados con los míos. Detectar las joyas era igual de laborioso, incluso con mi lista de criterios bien definida. Por eso aproveché mi experiencia como desarrollador para crear esta herramienta, aplicarla a mi propio dinero y compartirla con todos.',
   },
 };
 
