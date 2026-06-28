@@ -57,6 +57,48 @@ export function verifyToken(token: string): TokenPayload | null {
   }
 }
 
+// ─── Tokens d'action (vérification email + reset mot de passe) ────────────────
+// Stateless (aucune table) : JWT court signé avec un `purpose`. Pour le reset, on
+// signe avec `secret + bindHash` (= le passwordHash courant) → dès que le mot de
+// passe change, l'ancien lien devient invalide = usage unique sans stockage.
+type ActionPurpose = 'verify' | 'reset';
+const ACTION_TTL_SEC: Record<ActionPurpose, number> = {
+  verify: 24 * 60 * 60, // 24 h
+  reset: 60 * 60,       // 1 h
+};
+
+export function signActionToken(purpose: ActionPurpose, userId: string, bindHash = ''): string {
+  return jwt.sign({ userId, purpose }, getSecret() + bindHash, {
+    expiresIn: ACTION_TTL_SEC[purpose],
+    algorithm: 'HS256',
+  });
+}
+
+/** Lit le userId d'un token SANS vérifier la signature (pour aller chercher le bindHash). */
+export function peekActionUserId(token: string): string | null {
+  try {
+    const d = jwt.decode(token);
+    if (typeof d !== 'object' || d === null) return null;
+    const { userId } = d as { userId?: unknown };
+    return typeof userId === 'string' ? userId : null;
+  } catch {
+    return null;
+  }
+}
+
+/** Vérifie un token d'action et renvoie le userId si valide (purpose + signature + expiration). */
+export function verifyActionToken(purpose: ActionPurpose, token: string, bindHash = ''): string | null {
+  try {
+    const d = jwt.verify(token, getSecret() + bindHash, { algorithms: ['HS256'] });
+    if (typeof d !== 'object' || d === null) return null;
+    const { userId, purpose: p } = d as { userId?: unknown; purpose?: unknown };
+    if (typeof userId !== 'string' || p !== purpose) return null;
+    return userId;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Options pour res.cookie() — communes login/signup/logout.
  *   - httpOnly : protège contre XSS (le JS ne peut pas lire le cookie)

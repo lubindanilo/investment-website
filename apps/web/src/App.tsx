@@ -33,6 +33,8 @@ const ScreenerPage = lazy(() => import('./pages/ScreenerPage.js').then((m) => ({
 const ComparePage = lazy(() => import('./pages/ComparePage.js').then((m) => ({ default: m.ComparePage })));
 const PricingPage = lazy(() => import('./pages/PricingPage.js').then((m) => ({ default: m.PricingPage })));
 const AuthPage = lazy(() => import('./pages/AuthPage.js').then((m) => ({ default: m.AuthPage })));
+const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage.js').then((m) => ({ default: m.ResetPasswordPage })));
+const VerifyEmailPage = lazy(() => import('./pages/VerifyEmailPage.js').then((m) => ({ default: m.VerifyEmailPage })));
 const MarketBeatPage = lazy(() => import('./pages/MarketBeatPage.js').then((m) => ({ default: m.MarketBeatPage })));
 const MethodologyPage = lazy(() => import('./pages/MethodologyPage.js').then((m) => ({ default: m.MethodologyPage })));
 const BlogPage = lazy(() => import('./pages/BlogPage.js').then((m) => ({ default: m.BlogPage })));
@@ -62,7 +64,7 @@ export function App() {
   const isOwner = (user?.email ?? '').toLowerCase() === OWNER_EMAIL;
   // Onglets d'app masqués uniquement sur les pages d'auth. Présents sur l'accueil pour
   // garder Watchlist / Screener / Analyser accessibles depuis la landing.
-  const showNav = pathname !== '/login' && pathname !== '/signup';
+  const showNav = !['/login', '/signup', '/reset', '/verify'].includes(pathname);
   // Le footer suit la même règle d'affichage que la nav.
   const showFooter = showNav;
 
@@ -184,6 +186,8 @@ export function App() {
             <Route path="/confidentialite" element={<ConfidentialitePage />} />
             <Route path="/login" element={<AuthPage initialMode="login" />} />
             <Route path="/signup" element={<AuthPage initialMode="signup" />} />
+            <Route path="/reset" element={<ResetPasswordPage />} />
+            <Route path="/verify" element={<VerifyEmailPage />} />
             {/* Catch-all : page 404 dédiée (évite le warning React Router et le titre générique). */}
             <Route path="*" element={<NotFoundPage />} />
           </Routes>

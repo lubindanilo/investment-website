@@ -627,6 +627,8 @@ export interface PublicUser {
   /** Prénom / nom (null pour les comptes créés avant la collecte du nom). */
   firstName: string | null;
   lastName: string | null;
+  /** Email confirmé via le lien de vérification. */
+  emailVerified: boolean;
   /** ISO 8601 */
   createdAt: string;
 }

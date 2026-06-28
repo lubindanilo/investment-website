@@ -276,6 +276,14 @@ export const api = {
         body: JSON.stringify({ email, password }),
       }),
     logout: () => safeRequest<{ ok: true }>('/api/auth/logout', { method: 'POST' }),
+    forgotPassword: (email: string) =>
+      safeRequest<{ ok: true }>('/api/auth/forgot-password', { method: 'POST', body: JSON.stringify({ email }) }),
+    resetPassword: (token: string, password: string) =>
+      safeRequest<{ ok: true }>('/api/auth/reset-password', { method: 'POST', body: JSON.stringify({ token, password }) }),
+    verifyEmail: (token: string) =>
+      safeRequest<{ ok: true }>('/api/auth/verify-email', { method: 'POST', body: JSON.stringify({ token }) }),
+    resendVerification: () =>
+      safeRequest<{ ok: true }>('/api/auth/resend-verification', { method: 'POST' }),
   },
   /**
    * Billing — checkout (créer une session de paiement) et portail (gérer un abonnement

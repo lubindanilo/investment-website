@@ -381,7 +381,8 @@
     "firstName": "Nombre",
     "lastName": "Apellido",
     "firstNamePlaceholder": "María",
-    "lastNamePlaceholder": "García"
+    "lastNamePlaceholder": "García",
+    "forgotPassword": "¿Olvidaste tu contraseña?"
   },
   "watchlist": {
     "title": "Watchlist",
@@ -1351,5 +1352,36 @@
       "buttonGuest": "Crear una cuenta gratuita"
     },
     "disclaimer": "Lubin Investment proporciona una herramienta de ayuda al análisis fundamental de acciones cotizadas, con fines informativos y educativos. Las notas mostradas no constituyen asesoramiento de inversión ni una recomendación de compra o venta. Los rendimientos pasados no garantizan rendimientos futuros. Realiza tus propias investigaciones y consulta a un asesor autorizado antes de cualquier decisión de inversión."
+  },
+  "reset": {
+    "forgot": {
+      "title": "Contraseña olvidada",
+      "sub": "Introduce tu correo y te enviamos un enlace para elegir una nueva.",
+      "submit": "Enviar el enlace",
+      "sentTitle": "Revisa tu correo",
+      "sentText": "Si existe una cuenta para esta dirección, acabamos de enviar un enlace de restablecimiento."
+    },
+    "set": {
+      "title": "Nueva contraseña",
+      "sub": "Elige una nueva contraseña para tu cuenta.",
+      "newPassword": "Nueva contraseña",
+      "submit": "Restablecer e iniciar sesión"
+    },
+    "backToLogin": "Volver a iniciar sesión"
+  },
+  "verify": {
+    "loading": "Verificando…",
+    "ok": {
+      "title": "Correo confirmado",
+      "text": "Gracias, tu dirección está confirmada."
+    },
+    "error": {
+      "title": "Enlace no válido",
+      "text": "Este enlace de confirmación no es válido o ha caducado. Puedes solicitar otro desde tu cuenta."
+    },
+    "goAccount": "Ir a mi cuenta",
+    "goLogin": "Iniciar sesión",
+    "resend": "Reenviar enlace de confirmación",
+    "resent": "Enlace reenviado, revisa tu correo."
   }
 }

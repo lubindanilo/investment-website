@@ -111,6 +111,8 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'auth.invalidCredentials': 'Email ou mot de passe invalide',
     'auth.emailTaken': 'Cet email est déjà utilisé',
     'auth.invalidPayload': 'Données invalides',
+    'auth.tokenInvalid': 'Lien invalide ou expiré',
+    'auth.resetLinkInvalid': 'Lien de réinitialisation invalide ou expiré',
   },
   en: {
     'netMargin.name': 'Profitable',
@@ -177,6 +179,8 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'auth.invalidCredentials': 'Invalid email or password',
     'auth.emailTaken': 'This email is already in use',
     'auth.invalidPayload': 'Invalid data',
+    'auth.tokenInvalid': 'Invalid or expired link',
+    'auth.resetLinkInvalid': 'Invalid or expired reset link',
   },
   es: {
     'netMargin.name': 'Rentable',
@@ -243,5 +247,7 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'auth.invalidCredentials': 'Correo electrónico o contraseña no válidos',
     'auth.emailTaken': 'Este correo electrónico ya está en uso',
     'auth.invalidPayload': 'Datos no válidos',
+    'auth.tokenInvalid': 'Enlace no válido o caducado',
+    'auth.resetLinkInvalid': 'Enlace de restablecimiento no válido o caducado',
   },
 };

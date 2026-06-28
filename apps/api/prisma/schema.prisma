@@ -30,6 +30,8 @@ model User {
   /// colonne n'en ont pas (les initiales du menu sont alors dérivées de l'email).
   firstName    String?
   lastName     String?
+  /// Email vérifié via le lien envoyé à l'inscription. Non bloquant (signal de confiance).
+  emailVerified Boolean @default(false)
   createdAt    DateTime @default(now())
 
   // ─── Abonnement Stripe ─────────────────────────────────────────────────────

@@ -114,6 +114,11 @@ export function AuthPage({ initialMode = 'login' }: { initialMode?: Mode }) {
               </div>
               {isSignup && <span className="tiny muted">{t('auth.passwordHint')}</span>}
             </div>
+            {!isSignup && (
+              <Link to="/reset" className="tiny auth-link" style={{ alignSelf: 'flex-start', marginTop: -8 }}>
+                {t('auth.forgotPassword')}
+              </Link>
+            )}
             {isSignup && (
               <div className="col gap-6">
                 <label className="label">{t('auth.confirmPassword')}</label>

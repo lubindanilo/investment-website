@@ -381,7 +381,8 @@
     "firstName": "First name",
     "lastName": "Last name",
     "firstNamePlaceholder": "Mary",
-    "lastNamePlaceholder": "Smith"
+    "lastNamePlaceholder": "Smith",
+    "forgotPassword": "Forgot password?"
   },
   "watchlist": {
     "title": "Watchlist",
@@ -1351,5 +1352,36 @@
       "buttonGuest": "Create a free account"
     },
     "disclaimer": "Lubin Investment provides a tool for the fundamental analysis of listed stocks, for informational and educational purposes. The scores displayed constitute neither investment advice nor a buy or sell recommendation. Past performance does not guarantee future returns. Do your own research and consult a licensed advisor before any investment decision."
+  },
+  "reset": {
+    "forgot": {
+      "title": "Forgot password",
+      "sub": "Enter your email and we'll send you a link to choose a new one.",
+      "submit": "Send the link",
+      "sentTitle": "Check your inbox",
+      "sentText": "If an account exists for this address, a reset link has just been sent."
+    },
+    "set": {
+      "title": "New password",
+      "sub": "Choose a new password for your account.",
+      "newPassword": "New password",
+      "submit": "Reset and sign in"
+    },
+    "backToLogin": "Back to sign in"
+  },
+  "verify": {
+    "loading": "Verifying…",
+    "ok": {
+      "title": "Email confirmed",
+      "text": "Thanks, your address is confirmed."
+    },
+    "error": {
+      "title": "Invalid link",
+      "text": "This confirmation link is invalid or has expired. You can request a new one from your account."
+    },
+    "goAccount": "Go to my account",
+    "goLogin": "Sign in",
+    "resend": "Resend confirmation link",
+    "resent": "Link resent, check your inbox."
   }
 }

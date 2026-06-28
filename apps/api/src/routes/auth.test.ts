@@ -11,7 +11,7 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 import request from 'supertest';
 
 // ─── Mock Prisma (DOIT être défini AVANT l'import de server.js) ────────────
-interface FakeUser { id: string; email: string; passwordHash: string; firstName: string | null; lastName: string | null; createdAt: Date }
+interface FakeUser { id: string; email: string; passwordHash: string; firstName: string | null; lastName: string | null; emailVerified: boolean; createdAt: Date }
 const userStore = new Map<string, FakeUser>();      // key = email
 const userById = new Map<string, FakeUser>();       // key = id
 let nextId = 1;
@@ -32,10 +32,17 @@ vi.mock('@prisma/client', () => {
             passwordHash: data.passwordHash,
             firstName: data.firstName ?? null,
             lastName: data.lastName ?? null,
+            emailVerified: false,
             createdAt: new Date(),
           };
           userStore.set(u.email, u);
           userById.set(u.id, u);
+          return u;
+        }),
+        update: vi.fn(async ({ where, data }: { where: { id: string }; data: Partial<FakeUser> }) => {
+          const u = userById.get(where.id);
+          if (!u) return null;
+          Object.assign(u, data);
           return u;
         }),
       };
