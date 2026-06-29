@@ -36358,7 +36358,341 @@ const articleAYIPost: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
+const articleFISV: Article = {
+  slug: 'fiserv-fisv-paiements-bancaires-analyse-fondamentale',
+  date: '2026-06-29',
+  updated: '2026-06-29',
+  readingTime: 8,
+  ticker: 'FISV',
+  content: {
+    fr: {
+      title: "Fiserv (FISV) : l'action méconnue des paiements bancaires",
+      excerpt: "Fiserv traite les paiements pour plus de 6 000 banques américaines. Un business récurrent, difficile à déloger, et une valorisation que le marché sous-estime. Voici mon analyse.",
+      metaDescription: "Fiserv (FISV) : analyse fondamentale de l'action. Modèle récurrent B2B, qualité du business, risques et avis de Lubin Danilo sur cette opportunité en bourse.",
+      answer: "Fiserv est l'infrastructure invisible des paiements bancaires américains : elle traite les transactions pour plus de 6 000 banques. Son business récurrent et difficile à déloger lui vaut une note de 9 sur 10 dans ma grille d'analyse. La valorisation actuelle est attractive. Les résultats du 21 juillet 2026 seront un test clé.",
+      body: [
+        { type: 'h2', text: "Ce que fait vraiment Fiserv (et pourquoi presque personne n'en parle)" },
+        {
+          type: 'p',
+          text: "La première fois que j'ai regardé Fiserv de près, j'ai eu une réaction que tu as peut-être déjà eue : c'est quoi exactement ? Ni une banque, ni un réseau de cartes comme Mastercard, ni une appli de paiement comme PayPal. Fiserv est l'entreprise qui traite les paiements pour plus de 6 000 banques et coopératives de crédit aux États-Unis. Quand tu glisses ta carte dans le distributeur d'une petite banque régionale américaine, c'est souvent Fiserv qui gère la transaction en coulisse.",
+        },
+        {
+          type: 'p',
+          text: "C'est ce que j'appelle un business invisible. Personne ne sait que Fiserv existe, mais presque tout le monde l'utilise indirectement chaque jour. Et cette invisibilité est précisément ce qui en fait une position forte : les banques ne changent pas de prestataire de paiements facilement. Les coûts de migration sont colossaux, les intégrations techniques prennent des années, et pour une banque, une erreur de traitement est existentielle. C'est ce qu'on appelle un moat, ou fossé concurrentiel : ce qui protège durablement l'entreprise de ses rivaux.",
+        },
+        { type: 'h2', text: "Comment j'évalue la qualité d'une action" },
+        {
+          type: 'p',
+          text: "Avant de parler de prix ou d'opportunité, je sépare toujours deux questions que la plupart des investisseurs confondent. Première : est-ce une bonne entreprise ? Deuxième, complètement à part : est-ce le bon prix aujourd'hui ? Une excellente entreprise achetée trop cher reste une mauvaise décision. Et une entreprise médiocre, même bradée, reste médiocre. C'est l'erreur numéro un que je vois chez les investisseurs particuliers.",
+        },
+        {
+          type: 'p',
+          text: "Pour juger la qualité, j'utilise une grille de critères objectifs : la rentabilité (est-ce que l'entreprise génère vraiment du cash ?), la croissance de ses revenus et de son free cash flow, la solidité de son bilan, et la gestion du capital (rachète-t-elle ses propres actions ?). Chaque critère est noté, et la note globale va de 0 à 10. Fiserv obtient 9 sur 10.",
+        },
+        { type: 'h2', text: "Les chiffres qui confortent ce niveau de qualité" },
+        {
+          type: 'p',
+          text: "Le free cash flow, c'est l'argent qui reste vraiment dans les caisses une fois que l'entreprise a payé ses salaires, ses investissements et ses impôts. C'est l'indicateur que je préfère, parce qu'il est beaucoup plus difficile à maquiller comptablement que le bénéfice net. Pour Fiserv, la marge de free cash flow atteint environ 18 %. Sur 100 dollars de chiffre d'affaires, 18 finissent en cash réellement disponible. Pour un acteur des services financiers B2B, c'est solide.",
+        },
+        {
+          type: 'p',
+          text: "Ce qui m'impressionne davantage, c'est la croissance du free cash flow par action : plus de 20 % par an sur cinq ans. Ce chiffre dépasse largement la croissance des revenus (autour de 7 % par an), pour une raison simple : Fiserv rachète ses propres actions à un rythme d'environ 5 % du flottant chaque année. Concrètement, si l'entreprise génère le même cash total d'une année sur l'autre, chaque action représente 5 % de cash en plus. C'est un levier discret mais puissant.",
+        },
+        {
+          type: 'p',
+          text: "Le Cash ROCE (rendement du capital employé) atteint environ 20 %. Ce ratio mesure combien de cash l'entreprise génère pour chaque euro investi dans son activité. Un seuil de 15 % est souvent cité comme niveau d'excellence. Fiserv est au-dessus. Pour mettre ces chiffres en perspective, Mastercard (MA) affiche un Cash ROCE supérieur à 40 %, mais sa valorisation reflète déjà cette excellence. Fiserv est plus discrète, et donc moins chère.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Fiserv (FISV) : 9/10 dans ma grille, croissance du free cash flow par action de plus de 20 % par an, moat fort par les coûts de migration",
+            "Mastercard (MA) : 10/10, leader des réseaux cartes, valorisation plus élevée, analyse disponible sur ce site",
+            "PayPal (PYPL) : note plus faible, exposé aux marchands en ligne, risque de disruption plus direct",
+          ],
+        },
+        { type: 'h2', text: "Pourquoi le marché valorise cette action à un niveau aussi bas" },
+        {
+          type: 'p',
+          text: "Fiserv n'est pas une action glamour. Elle ne fait pas la une des médias tech. Sa croissance des revenus, autour de 7 % par an, est correcte mais pas explosive. Et surtout, elle porte encore le poids de l'acquisition de First Data en 2019 : un rachat qui lui a laissé une dette nette représentant environ 7 fois son free cash flow annuel. C'est élevé, et c'est pour ça que le marché applique une décote.",
+        },
+        {
+          type: 'p',
+          text: "Cette décote me semble aujourd'hui exagérée. Fiserv génère assez de cash pour rembourser sa dette progressivement, et le management a fait de la réduction du levier financier une priorité explicite. Au premier trimestre 2026, le bénéfice par action a atteint 1,79 dollar contre 1,60 estimé par le consensus. La machine à cash tourne bien.",
+        },
+        { type: 'h2', text: "La dette de Fiserv est-elle un vrai danger ?" },
+        {
+          type: 'p',
+          text: "À environ 7 fois le free cash flow annuel, la dette est au-dessus de ce que j'accepte généralement. Mais Fiserv génère suffisamment chaque année pour la résorber sur dix ans, sans coup d'accélérateur spectaculaire. Le risque principal serait une remontée durable des taux d'intérêt, qui pèserait sur le coût de refinancement. Avec des flux récurrents et prévisibles, ce risque est réel mais modéré.",
+        },
+        { type: 'h2', text: "La valorisation : ce que le prix dit vraiment" },
+        {
+          type: 'p',
+          text: "Pour mesurer si une action est chère ou pas, j'utilise principalement le P/FCF : le prix de l'action divisé par le free cash flow par action qu'elle génère chaque année. Un P/FCF de 7, ça veut dire que tu paies aujourd'hui l'équivalent de 7 années de ce cash. Pour donner un point de comparaison : la moyenne historique des marchés actions se situe entre 15 et 25 fois. Fiserv affiche une valorisation d'environ 7 fois son free cash flow. C'est très bas pour une entreprise de cette qualité.",
+        },
+        {
+          type: 'p',
+          text: "Il y a deux façons de lire cette valorisation basse. Soit le marché a raison de douter (croissance modeste, dette élevée, secteur peu porteur) et c'est un piège. Soit le marché exagère la décote, et c'est une opportunité. Mon analyse penche vers la deuxième lecture, en gardant un oeil sur le désendettement. Pour aller plus loin sur ma méthode d'évaluation, j'en parle en détail dans ma page de méthodologie (/methodologie).",
+        },
+        { type: 'h2', text: "Ce que j'attends des résultats du 21 juillet 2026" },
+        {
+          type: 'p',
+          text: "Le 21 juillet 2026, Fiserv publie ses résultats du deuxième trimestre. Les attentes du consensus tournent autour de 5,14 milliards de dollars de chiffre d'affaires. Pour moi, deux indicateurs comptent davantage que le chiffre de revenus brut : l'évolution de la marge de free cash flow, et le rythme de désendettement. Si Fiserv confirme que la dette baisse et que les marges progressent, la thèse d'investissement se renforce. Si au contraire les marges se compriment et la dette stagne, la décote s'explique mieux.",
+        },
+        {
+          type: 'p',
+          text: "C'est exactement ce genre de suivi, action par action, que j'ai voulu pouvoir faire en quelques secondes pour n'importe quel titre. L'analyse complète de Fiserv, avec toutes les métriques mises à jour, est disponible sur lubin-investment.com/analyse/FISV.",
+        },
+        {
+          type: 'p',
+          text: "Écrit par Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, l'analyse fondamentale me passionne et m'a donné d'excellents résultats. Cela fait désormais trois années que ma performance bat le S&P 500. Mais analyser chaque action me prenait trop de temps : des sites aux données incomplètes, des méthodes de calcul jamais alignées sur les miennes. J'ai donc créé ce logiciel pour bâtir ma stratégie sur des résultats fiables et en faire profiter les personnes partageant la même passion.",
+        },
+      ],
+      faq: [
+        {
+          q: "C'est quoi exactement le business de Fiserv ?",
+          a: "Fiserv fournit aux banques et coopératives de crédit les infrastructures pour traiter les paiements, gérer les comptes et les transactions. C'est un prestataire B2B récurrent : les banques paient des abonnements et des frais par transaction, ce qui génère des revenus stables et prévisibles.",
+        },
+        {
+          q: "Pourquoi la valorisation de Fiserv est-elle aussi basse ?",
+          a: "Le marché applique une décote principalement à cause de la dette élevée héritée de l'acquisition de First Data en 2019, et d'une croissance des revenus jugée modeste. Cette décote me semble exagérée au regard de la qualité du business récurrent et du potentiel de désendettement.",
+        },
+        {
+          q: "Fiserv est-elle menacée par les fintechs ?",
+          a: "Le risque est limité sur le segment coeur de Fiserv : les banques traditionnelles. Les fintechs s'attaquent davantage aux interfaces clients (Stripe, PayPal) qu'aux infrastructures bancaires back-end. Les coûts de migration sont trop élevés pour que les banques changent facilement de prestataire.",
+        },
+        {
+          q: "Quelle différence entre Fiserv, Mastercard et PayPal ?",
+          a: "Mastercard gère les réseaux de cartes entre banques et commerçants. PayPal est une interface de paiement pour les marchands en ligne. Fiserv traite les paiements côté bancaire B2B : c'est l'infrastructure que les banques utilisent pour leurs propres transactions. Trois acteurs, trois positionnements distincts.",
+        },
+        {
+          q: "L'action Fiserv est-elle un bon investissement en 2026 ?",
+          a: "Ce n'est pas un conseil en investissement. Ce que je peux dire : la qualité du business est élevée (9/10 dans ma grille), la valorisation est basse, mais la dette est un risque réel à surveiller. Les résultats du 21 juillet 2026 seront un catalyseur important. Fais tes propres recherches.",
+        },
+      ],
+      tags: ['FISV', 'Fiserv', 'paiements', 'fintech', 'analyse-fondamentale', 'action-qualité', 'valorisation-attractive'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date indiquée, susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'Fiserv (FISV): the quiet giant of bank payments',
+      excerpt: "Fiserv processes payments for over 6,000 US banks. A recurring B2B business that is hard to displace, and a valuation the market is overlooking. Here is my analysis.",
+      metaDescription: "Fiserv (FISV): fundamental stock analysis. Recurring B2B model, business quality, risks, and Lubin Danilo's take on this investment opportunity.",
+      answer: 'Fiserv is the invisible infrastructure behind US bank payments, processing transactions for over 6,000 banks. Its recurring, hard-to-displace business model earns a 9 out of 10 in my quality framework. The current valuation looks unusually cheap. The July 21, 2026 earnings will be a key test.',
+      body: [
+        { type: 'h2', text: 'What Fiserv actually does (and why almost nobody talks about it)' },
+        {
+          type: 'p',
+          text: "The first time I looked at Fiserv closely, I had a reaction you might recognize: what exactly is this company? Not a bank, not a card network like Mastercard, not a payment app like PayPal. Fiserv is the company that processes payments for over 6,000 banks and credit unions in the United States. When you swipe your card at an ATM from a small regional bank, it is often Fiserv running the transaction behind the scenes.",
+        },
+        {
+          type: 'p',
+          text: "I call this an invisible business. Nobody knows Fiserv exists, yet almost everyone uses it indirectly every day. And that invisibility is exactly what makes it a strong competitive position: banks do not switch payment processors easily. Migration costs are enormous, technical integrations take years, and for a bank, a payment processing error is existential. This is what we call a moat: a competitive advantage that durably protects the business from rivals.",
+        },
+        { type: 'h2', text: 'How I assess the quality of a stock' },
+        {
+          type: 'p',
+          text: "Before talking about price or opportunity, I always separate two questions that most investors confuse. First: is this a good business? Second, completely separately: is this the right price today? A great business bought at too high a price is still a bad decision. A mediocre business, even cheap, stays mediocre. That is the number one mistake I see among individual investors.",
+        },
+        {
+          type: 'p',
+          text: "To judge quality, I use an objective scoring framework: profitability (does the company truly generate cash?), growth of revenues and free cash flow, balance sheet strength, and capital allocation (is it buying back its own shares?). Each criterion is scored, and the total runs from 0 to 10. Fiserv scores 9 out of 10.",
+        },
+        { type: 'h2', text: 'The numbers that support this quality score' },
+        {
+          type: 'p',
+          text: "Free cash flow is the money that actually stays in the company's bank account after paying salaries, investments, and taxes. It is my preferred metric because it is much harder to manipulate than net income. Fiserv's free cash flow margin is around 18%. On every 100 dollars of revenue, 18 end up as real available cash. For a B2B financial services company, that is solid.",
+        },
+        {
+          type: 'p',
+          text: "What impresses me more is the free cash flow per share growth: over 20% per year for five years. This far outpaces revenue growth (around 7% per year) for a simple reason: Fiserv buys back its own shares at roughly 5% of the float each year. Concretely, if the company generates the same total cash year over year, each share represents 5% more of that cash. It is a quiet but powerful lever.",
+        },
+        {
+          type: 'p',
+          text: "Cash ROCE (return on capital employed) stands at around 20%. This ratio measures how much cash the business generates for every dollar invested in its operations. A 15% threshold is often cited as a mark of excellence. Fiserv is above that. For context, Mastercard (MA) shows a Cash ROCE above 40%, but its valuation already reflects that excellence. Fiserv is more discreet, and therefore cheaper.",
+        },
+        {
+          type: 'ul',
+          items: [
+            'Fiserv (FISV): 9/10 in my framework, free cash flow per share growing 20%+ per year, strong moat via switching costs',
+            'Mastercard (MA): 10/10, card network leader, higher valuation, analysis available on this site',
+            'PayPal (PYPL): lower score, exposed to online merchants, more direct disruption risk',
+          ],
+        },
+        { type: 'h2', text: 'Why the market prices this stock so cheaply' },
+        {
+          type: 'p',
+          text: "Fiserv is not a glamour stock. It does not make tech headlines. Revenue growth, around 7% per year, is decent but not explosive. And it still carries the weight of the 2019 First Data acquisition: a deal that left net debt at roughly 7 times annual free cash flow. That is elevated, and that is why the market applies a discount.",
+        },
+        {
+          type: 'p',
+          text: "That discount looks excessive to me today. Fiserv generates enough cash to repay debt progressively, and management has made deleveraging an explicit priority. In Q1 2026, earnings per share came in at $1.79 versus the consensus estimate of $1.60. The cash machine is running well.",
+        },
+        { type: 'h2', text: "Is Fiserv's debt a real danger?" },
+        {
+          type: 'p',
+          text: "At roughly 7 times annual free cash flow, the debt is above what I usually accept. But Fiserv generates enough each year to pay it down over a decade at current rates. The main risk would be a sustained rise in interest rates, which would push up refinancing costs. With recurring and predictable cash flows, that risk is real but manageable.",
+        },
+        { type: 'h2', text: 'Valuation: what the current price is actually saying' },
+        {
+          type: 'p',
+          text: "To measure whether a stock is cheap or expensive, I primarily use the P/FCF ratio: the stock price divided by free cash flow per share generated annually. A P/FCF of 7 means you are paying the equivalent of 7 years of that cash today. For context: the historical average for equity markets sits between 15 and 25 times. Fiserv is at roughly 7 times. That is very low for a business of this quality.",
+        },
+        {
+          type: 'p',
+          text: "There are two ways to read a low valuation like this. Either the market is right to worry (modest growth, high debt, unfashionable sector) and it is a value trap. Or the market is overdoing the discount, and it is an opportunity. My analysis leans toward the second reading, while keeping a close eye on debt reduction. You can find more detail on my valuation methodology at /methodologie.",
+        },
+        { type: 'h2', text: 'What I am watching in the July 21 earnings' },
+        {
+          type: 'p',
+          text: "On July 21, 2026, Fiserv reports Q2 results. Consensus estimates call for around $5.14 billion in revenue. For me, two things matter more than the top-line number: the direction of the free cash flow margin, and the pace of deleveraging. If Fiserv confirms that debt is falling and margins are expanding, the investment thesis gets stronger. If margins compress and debt stalls, the discount makes more sense.",
+        },
+        {
+          type: 'p',
+          text: "This kind of per-stock tracking, before every earnings release, is exactly what I built my investment site to do in seconds. The full Fiserv analysis, with all metrics updated, is available at lubin-investment.com/analyse/FISV.",
+        },
+        {
+          type: 'p',
+          text: "Written by Lubin Danilo, founder of Lubin Investment. Self-taught individual investor passionate about fundamental analysis, with a track record of beating the S&P 500 for three years running. I built this site because analyzing each stock the right way took too long with existing tools. Now I share the results with anyone who has the same passion.",
+        },
+      ],
+      faq: [
+        {
+          q: 'What does Fiserv actually do?',
+          a: 'Fiserv provides banks and credit unions with the infrastructure to process payments, manage accounts, and handle transactions. It is a B2B recurring revenue business: banks pay subscriptions and per-transaction fees, generating stable and predictable income.',
+        },
+        {
+          q: "Why is Fiserv's valuation so low?",
+          a: 'The market applies a discount mainly due to the high debt inherited from the 2019 First Data acquisition, and modest revenue growth. I think this discount is excessive given the quality of the recurring business model and the deleveraging potential.',
+        },
+        {
+          q: 'Is Fiserv threatened by fintechs?',
+          a: "The risk is limited on Fiserv's core segment: traditional banks. Fintechs target customer-facing interfaces (Stripe, PayPal) more than back-end banking infrastructure. Migration costs are too high for banks to switch providers easily.",
+        },
+        {
+          q: 'How is Fiserv different from Mastercard and PayPal?',
+          a: 'Mastercard runs card networks between issuing banks and merchants. PayPal is a payment interface for online merchants. Fiserv handles B2B banking payments: it is the infrastructure banks use for their own transactions. Three companies, three distinct positions.',
+        },
+        {
+          q: 'Is Fiserv a good investment in 2026?',
+          a: 'This is not investment advice. What I can say: business quality is high (9/10 in my framework), valuation is low, but debt is a real risk to watch. The July 21 earnings will be an important catalyst. Do your own research.',
+        },
+      ],
+      tags: ['FISV', 'Fiserv', 'payments', 'fintech', 'fundamental-analysis', 'quality-stock'],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the date indicated, subject to change. Do your own research before any investment decision.',
+    },
+    es: {
+      title: 'Fiserv (FISV): la acción silenciosa de los pagos bancarios',
+      excerpt: 'Fiserv procesa pagos para más de 6.000 bancos estadounidenses. Un negocio recurrente B2B difícil de desplazar, con una valoración que el mercado ignora. Mi análisis.',
+      metaDescription: 'Fiserv (FISV): análisis fundamental de la acción. Modelo recurrente B2B, calidad del negocio, riesgos y la opinión de Lubin Danilo sobre esta oportunidad en bolsa.',
+      answer: 'Fiserv es la infraestructura invisible de los pagos bancarios estadounidenses: procesa transacciones para más de 6.000 bancos. Su modelo recurrente y difícil de reemplazar le otorga un 9 sobre 10 en mi metodología. La valoración actual es atractiva. Los resultados del 21 de julio de 2026 serán una prueba clave.',
+      body: [
+        { type: 'h2', text: 'Lo que hace realmente Fiserv (y por qué casi nadie habla de ello)' },
+        {
+          type: 'p',
+          text: "La primera vez que estudié Fiserv en detalle, tuve una reacción que quizás tú también hayas tenido: ¿qué es exactamente esta empresa? No es un banco, ni una red de tarjetas como Mastercard, ni una aplicación de pago como PayPal. Fiserv es la empresa que procesa los pagos para más de 6.000 bancos y cooperativas de crédito en Estados Unidos. Cuando deslizas tu tarjeta en el cajero de un banco regional pequeño, a menudo es Fiserv quien gestiona la transacción entre bastidores.",
+        },
+        {
+          type: 'p',
+          text: "Lo llamo un negocio invisible. Nadie sabe que Fiserv existe, pero casi todo el mundo lo usa indirectamente cada día. Y esa invisibilidad es precisamente lo que hace que su posición sea sólida: los bancos no cambian de proveedor de pagos fácilmente. Los costes de migración son enormes, las integraciones técnicas llevan años, y para un banco, un error en el procesamiento de pagos es existencial. Eso es lo que llamamos un moat o foso competitivo: lo que protege durablemente a la empresa de sus rivales.",
+        },
+        { type: 'h2', text: 'Cómo evalúo la calidad de una acción' },
+        {
+          type: 'p',
+          text: "Antes de hablar de precio u oportunidad, siempre separo dos preguntas que la mayoría de los inversores confunden. Primera: ¿es un buen negocio? Segunda, completamente aparte: ¿es el precio correcto hoy? Una empresa excelente comprada a un precio demasiado alto sigue siendo una mala decisión. Y una empresa mediocre, aunque esté barata, sigue siendo mediocre. Es el error número uno que veo entre los inversores particulares.",
+        },
+        {
+          type: 'p',
+          text: "Para juzgar la calidad, uso una metodología con criterios objetivos: rentabilidad (¿genera realmente efectivo?), crecimiento de ingresos y free cash flow, solidez del balance, y gestión del capital (¿recompra sus propias acciones?). Cada criterio recibe una puntuación, y el total va de 0 a 10. Fiserv obtiene 9 sobre 10.",
+        },
+        { type: 'h2', text: 'Los datos que respaldan esta calificación' },
+        {
+          type: 'p',
+          text: "El free cash flow es el dinero que realmente queda en caja una vez que la empresa ha pagado salarios, inversiones e impuestos. Es el indicador que prefiero porque es mucho más difícil de manipular contablemente que el beneficio neto. El margen de free cash flow de Fiserv es de aproximadamente el 18 %. Por cada 100 dólares de ingresos, 18 se convierten en efectivo real disponible. Para un actor de servicios financieros B2B, eso es sólido.",
+        },
+        {
+          type: 'p',
+          text: "Lo que me impresiona más es el crecimiento del free cash flow por acción: más del 20 % anual durante cinco años. Esto supera ampliamente el crecimiento de ingresos (alrededor del 7 % anual) por una razón simple: Fiserv recompra sus propias acciones a un ritmo de aproximadamente el 5 % del capital flotante cada año. En concreto, si la empresa genera el mismo efectivo total de un año para otro, cada acción representa un 5 % más de ese efectivo. Es una palanca discreta pero poderosa.",
+        },
+        {
+          type: 'p',
+          text: "El Cash ROCE (rentabilidad sobre el capital empleado) alcanza alrededor del 20 %. Este ratio mide cuánto efectivo genera la empresa por cada euro invertido en su actividad. Un umbral del 15 % se cita a menudo como nivel de excelencia. Fiserv está por encima. Para poner estos números en perspectiva, Mastercard (MA) supera el 40 % de Cash ROCE, pero su valoración ya refleja esa excelencia. Fiserv es más discreta y, por tanto, más barata.",
+        },
+        {
+          type: 'ul',
+          items: [
+            'Fiserv (FISV): 9/10 en mi metodología, crecimiento del free cash flow por acción del 20 %+ anual, moat fuerte por costes de migración',
+            'Mastercard (MA): 10/10, líder en redes de tarjetas, valoración más elevada, análisis disponible en este sitio',
+            'PayPal (PYPL): puntuación inferior, expuesta a comerciantes online, riesgo de disrupción más directo',
+          ],
+        },
+        { type: 'h2', text: 'Por qué el mercado valora esta acción tan bajo' },
+        {
+          type: 'p',
+          text: "Fiserv no es una acción de moda. No aparece en los titulares tecnológicos. Su crecimiento de ingresos, alrededor del 7 % anual, es correcto pero no explosivo. Y sobre todo, todavía carga con el peso de la adquisición de First Data en 2019: una operación que le dejó una deuda neta de aproximadamente 7 veces su free cash flow anual. Es elevado, y por eso el mercado aplica un descuento.",
+        },
+        {
+          type: 'p',
+          text: "Ese descuento me parece hoy exagerado. Fiserv genera suficiente efectivo para reducir su deuda progresivamente, y la dirección ha hecho del desapalancamiento una prioridad explícita. En el primer trimestre de 2026, el beneficio por acción fue de 1,79 dólares frente a los 1,60 estimados por el consenso. La máquina de generación de efectivo funciona bien.",
+        },
+        { type: 'h2', text: '¿Es la deuda de Fiserv un peligro real para la acción?' },
+        {
+          type: 'p',
+          text: "A aproximadamente 7 veces el free cash flow anual, la deuda está por encima de lo que generalmente acepto. Pero Fiserv genera suficiente cada año para amortizarla en una década al ritmo actual. El principal riesgo sería una subida sostenida de los tipos de interés, que presionaría el coste de refinanciación. Con flujos de caja recurrentes y predecibles, ese riesgo es real pero moderado.",
+        },
+        { type: 'h2', text: 'Valoración: lo que el precio dice realmente' },
+        {
+          type: 'p',
+          text: "Para medir si una acción está cara o barata, uso principalmente el P/FCF: el precio de la acción dividido por el free cash flow por acción que genera cada año. Un P/FCF de 7 significa que hoy pagas el equivalente a 7 años de ese efectivo. Para dar un punto de comparación: la media histórica de los mercados de renta variable se sitúa entre 15 y 25 veces. Fiserv cotiza a unas 7 veces su free cash flow. Es muy bajo para una empresa de esta calidad.",
+        },
+        {
+          type: 'p',
+          text: "Hay dos formas de leer esta valoración baja. O el mercado tiene razón en dudar (crecimiento modesto, deuda elevada, sector poco atractivo) y es una trampa de valor. O el mercado exagera el descuento, y es una oportunidad. Mi análisis se inclina por la segunda lectura, manteniendo un ojo puesto en el desapalancamiento. En mi guía de metodología (/methodologie) explico con detalle cómo calculo el precio de entrada.",
+        },
+        { type: 'h2', text: 'Qué espero de los resultados del 21 de julio de 2026' },
+        {
+          type: 'p',
+          text: "El 21 de julio de 2026, Fiserv publica sus resultados del segundo trimestre. Las estimaciones del consenso apuntan a unos ingresos de alrededor de 5.140 millones de dólares. Para mí, dos indicadores importan más que la cifra de ingresos bruta: la evolución del margen de free cash flow y el ritmo de desapalancamiento. Si Fiserv confirma que la deuda baja y los márgenes mejoran, la tesis de inversión se refuerza. Si los márgenes se comprimen y la deuda se estanca, el descuento tiene más sentido.",
+        },
+        {
+          type: 'p',
+          text: "Es exactamente este tipo de seguimiento, acción por acción, lo que construí para poder hacer en cuestión de segundos. El análisis completo de Fiserv, con todos los indicadores actualizados, está disponible en lubin-investment.com/analyse/FISV.",
+        },
+        {
+          type: 'p',
+          text: "Escrito por Lubin Danilo, fundador de Lubin Investment. Inversor particular autodidacta apasionado por el análisis fundamental, con una trayectoria de superar al S&P 500 durante tres años consecutivos. Creé este sitio porque analizar cada acción correctamente llevaba demasiado tiempo con las herramientas disponibles. Ahora comparto los resultados con todos los que comparten esta pasión.",
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué hace exactamente Fiserv?',
+          a: 'Fiserv proporciona a los bancos y cooperativas de crédito la infraestructura para procesar pagos, gestionar cuentas y transacciones. Es un negocio B2B recurrente: los bancos pagan suscripciones y comisiones por transacción, lo que genera ingresos estables y predecibles.',
+        },
+        {
+          q: '¿Por qué la valoración de Fiserv es tan baja?',
+          a: 'El mercado aplica un descuento principalmente por la elevada deuda heredada de la adquisición de First Data en 2019 y por un crecimiento de ingresos considerado modesto. Ese descuento me parece exagerado dado la calidad del modelo de negocio recurrente y el potencial de desapalancamiento.',
+        },
+        {
+          q: '¿Las fintechs amenazan a Fiserv?',
+          a: "El riesgo es limitado en el segmento principal de Fiserv: los bancos tradicionales. Las fintechs atacan más las interfaces de cara al cliente (Stripe, PayPal) que las infraestructuras bancarias de back-end. Los costes de migración son demasiado elevados para que los bancos cambien de proveedor fácilmente.",
+        },
+        {
+          q: '¿Cuál es la diferencia entre Fiserv, Mastercard y PayPal?',
+          a: 'Mastercard gestiona redes de tarjetas entre bancos emisores y comerciantes. PayPal es una interfaz de pago para comerciantes online. Fiserv gestiona los pagos bancarios B2B: es la infraestructura que usan los bancos para sus propias transacciones. Tres empresas, tres posicionamientos distintos.',
+        },
+        {
+          q: '¿Es la acción Fiserv una buena inversión en 2026?',
+          a: 'No ofrezco consejos de inversión personalizados. Lo que puedo decir: la calidad del negocio es alta (9/10 en mi metodología), la valoración es baja, pero la deuda es un riesgo real a vigilar. Los resultados del 21 de julio serán un catalizador importante. Haz tus propias investigaciones.',
+        },
+      ],
+      tags: ['FISV', 'Fiserv', 'pagos', 'fintech', 'análisis-fundamental', 'acción-calidad'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no constituye asesoramiento personalizado de inversión. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha indicada, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
