@@ -36692,7 +36692,563 @@ const articleFISV: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
+const articleMANH: Article = {
+  slug: 'manhattan-associates-manh-supply-chain-saas-analyse-fondamentale',
+  date: '2026-06-29',
+  updated: '2026-06-29',
+  readingTime: 7,
+  ticker: 'MANH',
+  content: {
+    fr: {
+      title: 'Manhattan Associates (MANH) : roi discret de la logistique',
+      excerpt: "Manhattan Associates équipe les entrepôts de 1 200 entreprises mondiales. SaaS de supply chain en pleine croissance, qualité élevée et résultats attendus le 20 juillet. Mon analyse.",
+      metaDescription: "Manhattan Associates (MANH) : analyse fondamentale de l'action supply chain. Croissance FCF +21 %/an, modèle SaaS récurrent, risques et avis de Lubin Danilo.",
+      answer: "Manhattan Associates est le leader mondial du logiciel de gestion d'entrepôts et de commandes, avec 15 % de croissance de ses revenus par an depuis cinq ans. Son modèle SaaS récurrent et ses marges élevées lui valent 9 sur 10 dans ma grille. La valorisation est exigeante. Les résultats du 20 juillet 2026 seront décisifs.",
+      body: [
+        { type: 'h2', text: "Ce que fait Manhattan Associates (et pourquoi c'est une position difficile à attaquer)" },
+        {
+          type: 'p',
+          text: "Manhattan Associates est l'une de ces entreprises dont vous avez probablement déjà utilisé le produit sans le savoir. Quand vous commandez en ligne et que le colis arrive le lendemain, ou quand une grande surface réapprovisionne ses rayons sans rupture, il y a souvent un logiciel derrière : le WMS (Warehouse Management System) ou l'OMS (Order Management System). Manhattan Associates fournit exactement ces outils à plus de 1 200 entreprises dans le monde.",
+        },
+        {
+          type: 'p',
+          text: "Concrètement, un WMS pilote tout ce qui se passe dans un entrepôt : entrées, sorties, emplacements, picking, expédition. L'OMS gère les commandes clients sur tous les canaux (web, magasin, app). Ce sont des systèmes critiques que les entreprises intègrent en profondeur dans leurs opérations. Remplacer Manhattan Associates prend des années. C'est le type de moat, ou fossé concurrentiel, qui se construit progressivement et devient presque inexpugnable.",
+        },
+        { type: 'h2', text: "Comment j'évalue la qualité d'une entreprise" },
+        {
+          type: 'p',
+          text: "Avant de parler de prix, je sépare systématiquement deux questions. Première : est-ce une bonne entreprise ? Deuxième, à part : est-ce le bon prix ? Pour juger la qualité, j'utilise une grille de critères objectifs : rentabilité, croissance des revenus et du free cash flow, solidité du bilan, et gestion du capital. Chaque critère est noté. Manhattan Associates obtient 9 sur 10.",
+        },
+        { type: 'h2', text: "Des chiffres qui ne mentent pas" },
+        {
+          type: 'p',
+          text: "Le free cash flow, c'est l'argent qui reste vraiment en caisse une fois toutes les factures payées. C'est l'indicateur que je préfère parce qu'il est plus difficile à maquiller que le bénéfice net. La marge de free cash flow de Manhattan Associates atteint 24,6 %. Sur 100 dollars de chiffre d'affaires, près de 25 finissent en cash réellement disponible. Pour un éditeur de logiciels, c'est un niveau d'excellence.",
+        },
+        {
+          type: 'p',
+          text: "La croissance est le point fort de l'histoire. Les revenus ont progressé de 15,3 % par an sur cinq ans. Le free cash flow par action a crû de 21,3 % par an sur la même période. Au premier trimestre 2026, le bénéfice par action a atteint 1,24 dollar contre 1,14 dollar estimé par le consensus. C'est un business en pleine forme.",
+        },
+        {
+          type: 'p',
+          text: "L'entreprise est aussi remarquablement légère en capital. Elle n'a quasiment pas besoin d'immobilisations pour fonctionner : c'est une caractéristique des meilleurs éditeurs de logiciels cloud, qui génèrent beaucoup de cash sans investissements lourds.",
+        },
+        { type: 'h2', text: "La vraie question : ce prix est-il justifié ?" },
+        {
+          type: 'p',
+          text: "Pour mesurer si une action est chère ou pas, j'utilise le P/FCF : le prix de l'action divisé par le free cash flow par action généré chaque année. Un P/FCF de 7 signifie que tu paies 7 années de cash. Un P/FCF de 30 signifie que tu paies 30 années. Manhattan Associates se valorise à environ 30 fois son free cash flow. La médiane sectorielle est à 24 fois. C'est cher.",
+        },
+        {
+          type: 'p',
+          text: "Mais est-ce trop cher ? Une entreprise qui croît à 15 % par an et qui double son free cash flow par action tous les cinq ans mérite une prime de valorisation. Selon mon modèle, la valorisation actuelle intègre déjà les bonnes nouvelles, avec un léger excès d'environ 10 % au-dessus de mon prix d'achat raisonnable. Pas une anomalie majeure, mais pas une affaire non plus.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Manhattan Associates (MANH) : 9/10, revenus +15 %/an, FCF/action +21 %/an, P/FCF 30× (valorisation exigeante)",
+            "Salesforce (CRM) : analysé sur ce site, logiciel CRM, valorisation encore plus élevée",
+            "Bentley Systems (BSY) : analysé sur ce site, logiciel BTP, moat infrastructure similaire",
+          ],
+        },
+        { type: 'h2', text: "Ce que j'attends des résultats du 20 juillet 2026" },
+        {
+          type: 'p',
+          text: "Le 20 juillet 2026, Manhattan Associates publie ses résultats du deuxième trimestre. Le consensus table sur un bénéfice par action de 1,35 dollar. Après le beat du T1 (+0,10 dollar), les attentes sont légitimement élevées. Pour moi, deux indicateurs comptent plus que le chiffre de revenus brut : la croissance des abonnements cloud, et l'évolution de la marge de free cash flow. Si les deux progressent, la thèse reste entière.",
+        },
+        {
+          type: 'p',
+          text: "À ce niveau de valorisation, une déception même mineure sur la guidance peut faire baisser le cours. C'est le revers de la médaille des entreprises très bien notées : le marché n'accorde pas de marge d'erreur. Les résultats du 20 juillet sont à la fois une confirmation et un test de prix d'entrée.",
+        },
+        {
+          type: 'p',
+          text: "L'analyse complète de Manhattan Associates, avec toutes les métriques mises à jour, est disponible sur lubin-investment.com/analyse/MANH. C'est exactement ce genre de tableau de bord, action par action, que j'ai construit pour consulter en quelques secondes.",
+        },
+        {
+          type: 'p',
+          text: "Écrit par Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, l'analyse fondamentale me passionne et m'a donné d'excellents résultats. Cela fait désormais trois années que ma performance bat le S&P 500. J'ai créé ce site pour analyser chaque action avec ma propre méthode, rapidement et fiablement.",
+        },
+      ],
+      faq: [
+        {
+          q: "C'est quoi exactement le business de Manhattan Associates ?",
+          a: "Manhattan Associates édite des logiciels de gestion d'entrepôts (WMS) et de gestion des commandes (OMS) pour les grandes entreprises de retail, logistique et industrie. C'est un modèle SaaS cloud récurrent : les clients paient des abonnements annuels pour des systèmes profondément intégrés à leurs opérations.",
+        },
+        {
+          q: "Pourquoi Manhattan Associates est-elle si chère en bourse ?",
+          a: "La valorisation élevée (environ 30 fois le free cash flow) reflète une croissance forte et régulière : les revenus augmentent de 15 % par an, le free cash flow par action de 21 % par an. Les marchés paient une prime pour cette visibilité. La question est de savoir si cette prime est excessive.",
+        },
+        {
+          q: "Quel est le risque principal pour l'action MANH ?",
+          a: "Le principal risque est la valorisation : à 30 fois le FCF, une déception sur la croissance ou la guidance peut déclencher une correction sévère. Il y a aussi un risque de compétition de SAP et d'Oracle, même si les coûts de migration restent un rempart solide.",
+        },
+        {
+          q: "En quoi Manhattan Associates se différencie-t-elle de Salesforce ?",
+          a: "Salesforce (CRM) gère la relation client et le pipeline commercial. Manhattan Associates gère ce qui se passe physiquement dans les entrepôts et le parcours de la commande client jusqu'à la livraison. Deux logiciels d'entreprise, deux positionnements distincts dans la chaîne de valeur.",
+        },
+        {
+          q: "Manhattan Associates est-elle une bonne action à acheter maintenant ?",
+          a: "Ce n'est pas un conseil en investissement. La qualité est élevée (9/10), mais la valorisation est légèrement au-dessus de mon prix d'achat raisonnable. Les résultats du 20 juillet 2026 seront une étape clé. Fais tes propres recherches.",
+        },
+      ],
+      tags: ['MANH', 'Manhattan Associates', 'supply chain', 'SaaS', 'logistique', 'analyse-fondamentale'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date indiquée, susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'Manhattan Associates (MANH): a quality play on logistics',
+      excerpt: 'Manhattan Associates equips the warehouses of 1,200 companies worldwide. A fast-growing supply chain SaaS, high quality, with earnings on July 20. My analysis.',
+      metaDescription: "Manhattan Associates (MANH): fundamental stock analysis. FCF growing 21% per year, recurring SaaS model, risks, and Lubin Danilo's take on this opportunity.",
+      answer: 'Manhattan Associates is the global leader in warehouse and order management software, with 15% annual revenue growth over five years. Its recurring SaaS model and high margins earn a 9 out of 10 in my quality framework. The valuation is demanding. The July 20, 2026 earnings will be decisive.',
+      body: [
+        { type: 'h2', text: 'What Manhattan Associates does (and why it is so hard to replace)' },
+        {
+          type: 'p',
+          text: "Manhattan Associates is one of those companies whose product you have probably used without knowing it. When you order online and the package arrives the next day, or when a large retailer never runs out of stock, there is often software behind it: a WMS (Warehouse Management System) or OMS (Order Management System). Manhattan Associates provides exactly these tools to over 1,200 companies worldwide.",
+        },
+        {
+          type: 'p',
+          text: "A WMS controls everything that happens inside a warehouse: inbound, outbound, locations, picking, shipping. The OMS manages customer orders across all channels: web, store, app. These are mission-critical systems that companies embed deeply in their operations. Replacing Manhattan Associates takes years. It is the kind of moat that builds gradually and becomes nearly impregnable.",
+        },
+        { type: 'h2', text: 'How I assess the quality of a business' },
+        {
+          type: 'p',
+          text: "Before talking about price, I always separate two questions. First: is this a good business? Second, completely apart: is this the right price? To judge quality, I use an objective framework: profitability, revenue and free cash flow growth, balance sheet strength, and capital allocation. Each criterion is scored. Manhattan Associates scores 9 out of 10.",
+        },
+        { type: 'h2', text: 'The numbers that speak for themselves' },
+        {
+          type: 'p',
+          text: "Free cash flow is the money that actually remains in the company's bank account after paying all expenses. It is my preferred metric because it is harder to manipulate than net income. Manhattan Associates' free cash flow margin stands at 24.6%. On every 100 dollars of revenue, nearly 25 end up as real available cash. For a software company, that is an excellent level.",
+        },
+        {
+          type: 'p',
+          text: "Growth is the highlight of this story. Revenue has grown at 15.3% per year for five years. Free cash flow per share has grown at 21.3% per year over the same period. In Q1 2026, earnings per share came in at $1.24 versus the consensus estimate of $1.14. This business is in excellent shape.",
+        },
+        {
+          type: 'p',
+          text: "The company is also remarkably asset-light. It requires almost no physical capital to operate, a characteristic of the best cloud software companies: they generate significant cash without heavy capital investment.",
+        },
+        { type: 'h2', text: 'The real question: is this price justified?' },
+        {
+          type: 'p',
+          text: "To measure whether a stock is cheap or expensive, I use the P/FCF ratio: the stock price divided by free cash flow per share generated annually. A P/FCF of 7 means you are paying 7 years of cash. A P/FCF of 30 means you are paying 30 years. Manhattan Associates trades at roughly 30 times its free cash flow. The sector median is 24 times. That is expensive.",
+        },
+        {
+          type: 'p',
+          text: "But is it too expensive? A company growing at 15% per year and doubling its free cash flow per share every five years deserves a premium valuation. According to my model, the current valuation already prices in the good news, with a slight excess of around 10% above my fair buy price. Not a major anomaly, but not a bargain either.",
+        },
+        {
+          type: 'ul',
+          items: [
+            'Manhattan Associates (MANH): 9/10, revenue growing 15%/yr, FCF/share growing 21%/yr, P/FCF 30× (demanding valuation)',
+            'Salesforce (CRM): analyzed on this site, CRM software, even higher valuation',
+            'Bentley Systems (BSY): analyzed on this site, infrastructure software, similar moat profile',
+          ],
+        },
+        { type: 'h2', text: 'What I am watching in the July 20 earnings' },
+        {
+          type: 'p',
+          text: "On July 20, 2026, Manhattan Associates reports Q2 results. Consensus estimates point to earnings per share of $1.35. After the Q1 beat (+$0.10), expectations are legitimately high. For me, two indicators matter more than the revenue line: cloud subscription growth, and the direction of the free cash flow margin. If both progress, the thesis holds.",
+        },
+        {
+          type: 'p',
+          text: "At this valuation level, even a minor disappointment on guidance can trigger a sharp correction. That is the flip side of highly rated companies: the market allows no margin for error. The July 20 results are both a confirmation and a potential entry point test.",
+        },
+        {
+          type: 'p',
+          text: "The full Manhattan Associates analysis, with all updated metrics, is available at lubin-investment.com/analyse/MANH. Written by Lubin Danilo, founder of Lubin Investment, self-taught investor who has beaten the S&P 500 for three years running.",
+        },
+      ],
+      faq: [
+        {
+          q: 'What does Manhattan Associates actually do?',
+          a: 'Manhattan Associates builds warehouse management software (WMS) and order management software (OMS) for large companies in retail, logistics, and manufacturing. It is a cloud SaaS recurring model: customers pay annual subscriptions for systems deeply embedded in their operations.',
+        },
+        {
+          q: 'Why is Manhattan Associates stock so expensive?',
+          a: 'The high valuation (around 30 times free cash flow) reflects strong and consistent growth: revenue up 15% per year, free cash flow per share up 21% per year. Markets pay a premium for that visibility. The question is whether the premium is excessive.',
+        },
+        {
+          q: 'What is the main risk for MANH stock?',
+          a: 'The main risk is valuation: at 30 times FCF, any disappointment on growth or guidance can trigger a sharp correction. There is also competitive risk from SAP and Oracle, even though migration costs remain a strong barrier.',
+        },
+        {
+          q: 'How is Manhattan Associates different from Salesforce?',
+          a: 'Salesforce manages customer relationships and sales pipelines. Manhattan Associates manages what happens physically in warehouses and the customer order journey through to delivery. Two enterprise software companies, two distinct positions in the value chain.',
+        },
+        {
+          q: 'Is Manhattan Associates stock a good buy right now?',
+          a: 'This is not investment advice. Quality is high (9/10), but the valuation is slightly above my fair buy price. The July 20 earnings will be a key step. Do your own research.',
+        },
+      ],
+      tags: ['MANH', 'Manhattan Associates', 'supply chain', 'SaaS', 'logistics', 'fundamental-analysis'],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the date indicated, subject to change. Do your own research before any investment decision.',
+    },
+    es: {
+      title: 'Manhattan Associates (MANH): calidad en software logístico',
+      excerpt: 'Manhattan Associates equipa los almacenes de 1.200 empresas mundiales. SaaS de supply chain en pleno crecimiento, alta calidad y resultados el 20 de julio. Mi análisis.',
+      metaDescription: 'Manhattan Associates (MANH): análisis fundamental de la acción. FCF creciendo al 21 %/año, modelo SaaS recurrente, riesgos y la opinión de Lubin Danilo.',
+      answer: 'Manhattan Associates es el líder mundial en software de gestión de almacenes y pedidos, con un crecimiento de ingresos del 15 % anual durante cinco años. Su modelo SaaS recurrente y sus altos márgenes le otorgan 9 sobre 10 en mi metodología. La valoración es exigente. Los resultados del 20 de julio de 2026 serán decisivos.',
+      body: [
+        { type: 'h2', text: 'Lo que hace Manhattan Associates (y por qué es tan difícil de reemplazar)' },
+        {
+          type: 'p',
+          text: "Manhattan Associates es una de esas empresas cuyo producto probablemente hayas usado sin saberlo. Cuando haces un pedido online y el paquete llega al día siguiente, o cuando un gran supermercado nunca se queda sin stock, a menudo hay un software detrás: un WMS (sistema de gestión de almacenes) u OMS (sistema de gestión de pedidos). Manhattan Associates proporciona exactamente estas herramientas a más de 1.200 empresas en todo el mundo.",
+        },
+        {
+          type: 'p',
+          text: "Un WMS controla todo lo que sucede dentro de un almacén: entradas, salidas, ubicaciones, picking, envíos. El OMS gestiona los pedidos de clientes en todos los canales: web, tienda, app. Son sistemas críticos que las empresas integran profundamente en sus operaciones. Reemplazar Manhattan Associates lleva años. Es el tipo de moat o foso competitivo que se construye gradualmente y se vuelve casi inexpugnable.",
+        },
+        { type: 'h2', text: 'Cómo evalúo la calidad de un negocio' },
+        {
+          type: 'p',
+          text: "Antes de hablar de precio, siempre separo dos preguntas. Primera: ¿es un buen negocio? Segunda, completamente aparte: ¿es el precio correcto? Para juzgar la calidad, uso una metodología con criterios objetivos: rentabilidad, crecimiento de ingresos y free cash flow, solidez del balance, y gestión del capital. Cada criterio recibe una puntuación. Manhattan Associates obtiene 9 sobre 10.",
+        },
+        { type: 'h2', text: 'Los números que hablan por sí solos' },
+        {
+          type: 'p',
+          text: "El free cash flow es el dinero que realmente queda en caja una vez pagadas todas las facturas. Es el indicador que prefiero porque es más difícil de manipular que el beneficio neto. El margen de free cash flow de Manhattan Associates alcanza el 24,6 %. Por cada 100 dólares de ingresos, casi 25 se convierten en efectivo real disponible. Para un editor de software, eso es un nivel de excelencia.",
+        },
+        {
+          type: 'p',
+          text: "El crecimiento es el punto fuerte de esta historia. Los ingresos han crecido al 15,3 % anual durante cinco años. El free cash flow por acción ha crecido al 21,3 % anual en el mismo período. En el primer trimestre de 2026, el beneficio por acción fue de 1,24 dólares frente a los 1,14 del consenso. Este negocio está en plena forma.",
+        },
+        {
+          type: 'p',
+          text: "La empresa es también notablemente ligera en capital, una característica de los mejores editores de software cloud: generan mucho efectivo sin necesitar grandes inversiones.",
+        },
+        { type: 'h2', text: 'La pregunta real: ¿está justificado este precio?' },
+        {
+          type: 'p',
+          text: "Para medir si una acción está cara o barata, uso el P/FCF: el precio de la acción dividido por el free cash flow por acción que genera cada año. Un P/FCF de 7 significa que pagas 7 años de efectivo. Un P/FCF de 30 significa que pagas 30 años. Manhattan Associates cotiza a unas 30 veces su free cash flow. La mediana sectorial está en 24 veces. Es caro.",
+        },
+        {
+          type: 'p',
+          text: "Pero ¿es demasiado caro? Una empresa que crece al 15 % anual y duplica su free cash flow por acción cada cinco años merece una prima de valoración. Según mi modelo, la valoración actual ya integra las buenas noticias, con un ligero exceso de alrededor del 10 % sobre mi precio de compra razonable. No es una anomalía importante, pero tampoco es una ganga.",
+        },
+        {
+          type: 'ul',
+          items: [
+            'Manhattan Associates (MANH): 9/10, ingresos +15 %/año, FCF/acción +21 %/año, P/FCF 30× (valoración exigente)',
+            'Salesforce (CRM): analizado en este sitio, software CRM, valoración aún más elevada',
+            'Bentley Systems (BSY): analizado en este sitio, software de infraestructura, perfil de moat similar',
+          ],
+        },
+        { type: 'h2', text: 'Qué espero de los resultados del 20 de julio de 2026' },
+        {
+          type: 'p',
+          text: "El 20 de julio de 2026, Manhattan Associates publica sus resultados del segundo trimestre. El consenso apunta a un beneficio por acción de 1,35 dólares. Tras el beat del T1 (+0,10 dólares), las expectativas son legítimamente altas. Para mí, dos indicadores importan más que la cifra de ingresos: el crecimiento de las suscripciones cloud y la evolución del margen de free cash flow. Si ambos mejoran, la tesis se mantiene.",
+        },
+        {
+          type: 'p',
+          text: "A este nivel de valoración, incluso una pequeña decepción en la guía puede desencadenar una corrección brusca. Los resultados del 20 de julio son a la vez una confirmación y una posible prueba de precio de entrada.",
+        },
+        {
+          type: 'p',
+          text: "El análisis completo de Manhattan Associates, con todos los indicadores actualizados, está disponible en lubin-investment.com/analyse/MANH. Escrito por Lubin Danilo, fundador de Lubin Investment, inversor autodidacta que ha superado al S&P 500 durante tres años consecutivos.",
+        },
+      ],
+      faq: [
+        {
+          q: '¿Qué hace exactamente Manhattan Associates?',
+          a: 'Manhattan Associates desarrolla software de gestión de almacenes (WMS) y de gestión de pedidos (OMS) para grandes empresas de retail, logística e industria. Es un modelo SaaS cloud recurrente: los clientes pagan suscripciones anuales por sistemas profundamente integrados en sus operaciones.',
+        },
+        {
+          q: '¿Por qué la acción Manhattan Associates cotiza tan cara?',
+          a: 'La alta valoración (unas 30 veces el free cash flow) refleja un crecimiento fuerte y regular: ingresos +15 % anual, free cash flow por acción +21 % anual. Los mercados pagan una prima por esa visibilidad. La pregunta es si la prima es excesiva.',
+        },
+        {
+          q: '¿Cuál es el principal riesgo de la acción MANH?',
+          a: 'El principal riesgo es la valoración: a 30 veces el FCF, cualquier decepción en el crecimiento o la guía puede desencadenar una corrección severa. También hay riesgo competitivo de SAP y Oracle, aunque los costes de migración siguen siendo un sólido escudo.',
+        },
+        {
+          q: '¿En qué se diferencia Manhattan Associates de Salesforce?',
+          a: 'Salesforce gestiona la relación con el cliente y el pipeline de ventas. Manhattan Associates gestiona lo que ocurre físicamente en los almacenes y el recorrido del pedido del cliente hasta la entrega. Dos empresas de software empresarial, dos posicionamientos distintos en la cadena de valor.',
+        },
+        {
+          q: '¿Es Manhattan Associates una buena inversión ahora?',
+          a: 'No ofrezco consejos de inversión personalizados. La calidad es alta (9/10), pero la valoración está ligeramente por encima de mi precio de compra razonable. Los resultados del 20 de julio serán una etapa clave. Haz tus propias investigaciones.',
+        },
+      ],
+      tags: ['MANH', 'Manhattan Associates', 'supply chain', 'SaaS', 'logística', 'análisis-fundamental'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no constituye asesoramiento personalizado de inversión. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha indicada, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleALL: Article = {
+  slug: 'allstate-all-assurance-auto-analyse-fondamentale',
+  date: '2026-06-29',
+  updated: '2026-06-29',
+  readingTime: 7,
+  ticker: 'ALL',
+  content: {
+    fr: {
+      title: "Allstate (ALL) : l'action d'assurance auto sous-estimée",
+      excerpt: "Allstate est le 2ème assureur auto américain, l'une des meilleures notes de ma grille, à un prix nettement inférieur à son concurrent Progressive. Son T1 2026 a dépassé les attentes. Mon analyse.",
+      metaDescription: "Allstate (ALL) : analyse fondamentale de l'action. Assureur auto et habitation américain de haute qualité, Cash ROCE 32 %, risques et avis de Lubin Danilo.",
+      answer: "Allstate est le deuxième assureur auto américain, avec un Cash ROCE de 32 % et un free cash flow par action en hausse de 25 % par an sur cinq ans. Son résultat T1 2026 a écrasé les prévisions. La valorisation est attractive comparée à son concurrent Progressive (10/10), ce qui en fait un cas d'école sur la qualité à un prix raisonnable.",
+      body: [
+        { type: 'h2', text: "Ce que fait Allstate (et comment le comparer à Progressive)" },
+        {
+          type: 'p',
+          text: "Si tu es américain, tu as probablement vu les publicités Allstate : « You're in good hands ». Allstate est le deuxième assureur auto et habitation aux États-Unis, derrière State Farm et devant Progressive. Il assure des millions de foyers américains contre les accidents de voiture, les dégâts chez eux, et les aléas de la vie quotidienne. C'est un modèle simple : tu paies une prime chaque mois, et si quelque chose arrive, Allstate paie.",
+        },
+        {
+          type: 'p',
+          text: "Son concurrent le plus souvent cité dans mon univers d'analyse est Progressive (PGR), que j'ai noté 10/10 dans ma grille. La question naturelle est : pourquoi Progressive obtient-il une meilleure note qu'Allstate ? La réponse tient à deux critères : le ratio combiné (la discipline de souscription) et le taux de croissance des primes. Progressive excelle sur les deux. Allstate est solide, mais moins précis. C'est la différence entre un 10/10 et un 9/10.",
+        },
+        { type: 'h2', text: "Ma méthode d'analyse" },
+        {
+          type: 'p',
+          text: "Je sépare toujours deux questions. Première : est-ce une bonne entreprise ? Deuxième : est-ce le bon prix ? Pour juger la qualité, je regarde des critères objectifs : rentabilité, croissance du free cash flow, discipline du bilan, rachats d'actions. Allstate obtient 9 sur 10 dans ma grille. Ce n'est pas parfait, mais c'est une très bonne entreprise.",
+        },
+        { type: 'h2', text: "Les chiffres qui font d'Allstate une entreprise solide" },
+        {
+          type: 'p',
+          text: "Le Cash ROCE (rendement du capital employé) d'Allstate atteint 32 %. Ce ratio mesure combien de cash l'entreprise génère pour chaque dollar investi dans son activité. Un seuil de 15 % est souvent cité comme niveau d'excellence. Allstate est plus du double. C'est un signe que l'allocation du capital est rigoureuse.",
+        },
+        {
+          type: 'p',
+          text: "Le free cash flow par action a progressé de 25,5 % par an sur cinq ans. Pour une entreprise d'assurance traditionnelle, c'est remarquable. La marge de free cash flow atteint 16,9 %. Et au premier trimestre 2026, les résultats ont écrasé les attentes : bénéfice par action de 10,65 dollars contre 7,36 estimés par le consensus. Ce beat massif témoigne d'une amélioration structurelle de la rentabilité après plusieurs années difficiles sur les sinistres.",
+        },
+        {
+          type: 'p',
+          text: "Allstate rachète aussi ses propres actions, à un rythme modeste d'environ 1,4 % du flottant par an, mais de façon régulière. C'est un signe que le management ne gaspille pas le cash disponible.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Allstate (ALL) : 9/10, P/FCF 5,5×, Cash ROCE 32 %, FCF/action +25 %/an, valorisation attractive",
+            "Progressive (PGR) : 10/10 dans ma grille, P/FCF plus élevé, discipline de souscription supérieure, analyse disponible sur ce site",
+            "Kinsale Capital (KNSL) : 10/10, assurance spécialisée, valorisation premium, secteur différent",
+          ],
+        },
+        { type: 'h2', text: "Pourquoi le marché la valorise à seulement 5,5 fois son free cash flow" },
+        {
+          type: 'p',
+          text: "Pour mesurer si une action est chère ou pas, j'utilise le P/FCF : le prix de l'action divisé par le free cash flow par action généré chaque année. Allstate affiche un P/FCF d'environ 5,5. Pour donner un point de comparaison, son concurrent Progressive tourne autour de 7 à 8 fois, et la moyenne des marchés actions est de 15 à 25 fois. Allstate est très bas.",
+        },
+        {
+          type: 'p',
+          text: "La décote s'explique par le passé récent. Allstate a subi plusieurs années difficiles entre 2021 et 2023 : sinistres liés aux catastrophes naturelles, inflation des réparations auto, et pertes de parts de marché. Le marché a gardé la mémoire de cette période. Mais les actions du management (hausse des primes, discipline de souscription renforcée) commencent à porter leurs fruits, comme le montre le T1 2026.",
+        },
+        { type: 'h2', text: "Ce que j'attends des résultats du 5 août 2026" },
+        {
+          type: 'p',
+          text: "Le 5 août 2026, Allstate publie ses résultats du deuxième trimestre. Le consensus attend un bénéfice par action de 5,17 dollars. Ce chiffre est bien inférieur au T1 (10,65 dollars), ce qui reflète des attentes plus prudentes. Pour moi, ce qui compte, c'est la tendance du ratio combiné et l'évolution des primes. Si le ratio combiné reste sous 100 % et que les primes continuent de croître, la thèse s'affirme.",
+        },
+        {
+          type: 'p',
+          text: "C'est exactement ce genre d'analyse, action par action, que j'ai voulu pouvoir faire en quelques secondes. L'analyse complète d'Allstate est disponible sur lubin-investment.com/analyse/ALL.",
+        },
+        {
+          type: 'p',
+          text: "Écrit par Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, l'analyse fondamentale me passionne et m'a donné d'excellents résultats. Cela fait désormais trois années que ma performance bat le S&P 500. J'ai créé ce site pour analyser chaque action avec ma propre méthode, rapidement et sans dépendre d'outils incomplets.",
+        },
+      ],
+      faq: [
+        {
+          q: "C'est quoi le business d'Allstate ?",
+          a: "Allstate est le deuxième assureur auto et habitation américain. Son modèle est simple : les clients paient des primes régulières, et Allstate paie en cas de sinistre. Les revenus sont récurrents par nature : les polices d'assurance se renouvellent chaque année, souvent par tacite reconduction.",
+        },
+        {
+          q: "Pourquoi Allstate est-elle moins chère que Progressive en bourse ?",
+          a: "Allstate (P/FCF environ 5,5×) est moins chère que Progressive (P/FCF environ 7 à 8×) parce que le marché lui attribue moins de confiance sur la discipline de souscription et la régularité de la croissance. Progressive a historiquement un ratio combiné plus bas et une croissance des primes plus forte.",
+        },
+        {
+          q: "Pourquoi Allstate a-t-elle eu de si bons résultats au T1 2026 ?",
+          a: "Le bénéfice par action Q1 2026 a atteint 10,65 dollars contre 7,36 estimés (beat de 44 %). Cela reflète l'effet combiné des hausses de primes mises en place depuis 2022-2023 et d'une amélioration du ratio de sinistres. Les marchés avaient sous-estimé l'ampleur du rebond.",
+        },
+        {
+          q: "Allstate est-elle menacée par les fintechs d'assurance ?",
+          a: "Les assurtechs (Lemonade, Root) ont pris des parts de marché sur les jeunes clients digitaux, mais restent très minoritaires. Allstate réinvestit massivement dans ses outils numériques. Son réseau de distribution physique reste un avantage durable sur les petits marchés locaux.",
+        },
+        {
+          q: "L'action Allstate est-elle un bon investissement en 2026 ?",
+          a: "Ce n'est pas un conseil en investissement. La qualité est élevée (9/10), la valorisation est basse (P/FCF 5,5×), mais Allstate a un historique de sinistres élevés en cas de catastrophes naturelles. Les résultats du 5 août 2026 seront un test important. Fais tes propres recherches.",
+        },
+      ],
+      tags: ['ALL', 'Allstate', 'assurance', 'assurance-auto', 'analyse-fondamentale', 'action-qualité'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date indiquée, susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'Allstate (ALL): the overlooked auto insurer',
+      excerpt: 'Allstate is the second-largest US auto insurer, among the top scores in my framework, at a much cheaper price than rival Progressive. Its Q1 2026 crushed expectations. My analysis.',
+      metaDescription: "Allstate (ALL): fundamental stock analysis. US auto and home insurer, top-tier quality, Cash ROCE 32%, risks, and Lubin Danilo's take on this opportunity.",
+      answer: 'Allstate is the second-largest US auto insurer, with a Cash ROCE of 32% and free cash flow per share growing 25% per year over five years. Its Q1 2026 result crushed forecasts by 44%. The valuation is attractive compared to rival Progressive (10/10), making it a textbook case of quality at a reasonable price.',
+      body: [
+        { type: 'h2', text: 'What Allstate does (and how it compares to Progressive)' },
+        {
+          type: 'p',
+          text: "If you have spent time in the United States, you have probably seen the Allstate ads: \"You're in good hands.\" Allstate is the second-largest auto and home insurer in America, behind State Farm and ahead of Progressive. It insures millions of American households against car accidents, home damage, and the uncertainties of daily life. The model is simple: you pay a monthly premium, and if something happens, Allstate pays.",
+        },
+        {
+          type: 'p',
+          text: "The most frequently compared competitor in my analysis is Progressive (PGR), which I rate 10/10. The natural question is: why does Progressive score higher? The answer comes down to two criteria: the combined ratio (underwriting discipline) and premium growth rate. Progressive excels on both. Allstate is solid, but less precise. That is the difference between a 10/10 and a 9/10.",
+        },
+        { type: 'h2', text: 'How I analyze quality' },
+        {
+          type: 'p',
+          text: "I always separate two questions. First: is this a good business? Second: is this the right price? To judge quality, I look at objective criteria: profitability, free cash flow growth, balance sheet discipline, share buybacks. Allstate scores 9 out of 10 in my framework. Not perfect, but a very strong business.",
+        },
+        { type: 'h2', text: "The numbers that make Allstate a solid company" },
+        {
+          type: 'p',
+          text: "Allstate's Cash ROCE (return on capital employed) stands at 32%. This ratio measures how much cash the company generates for every dollar invested in its operations. A 15% threshold is often cited as excellence. Allstate is more than double that. It is a sign that capital allocation is rigorous.",
+        },
+        {
+          type: 'p',
+          text: "Free cash flow per share has grown at 25.5% per year for five years. For a traditional insurance company, that is remarkable. The free cash flow margin stands at 16.9%. And in Q1 2026, results crushed expectations: earnings per share of $10.65 versus the consensus estimate of $7.36, a 44% beat. This reflects a structural improvement in profitability after several difficult years on claims.",
+        },
+        {
+          type: 'p',
+          text: "Allstate also buys back its own shares, at a modest pace (around 1.4% of the float per year) but consistently. It is a sign that management does not waste available cash.",
+        },
+        {
+          type: 'ul',
+          items: [
+            'Allstate (ALL): 9/10, P/FCF 5.5×, Cash ROCE 32%, FCF/share growing 25%/year, attractive valuation',
+            'Progressive (PGR): 10/10 in my framework, higher P/FCF, superior underwriting discipline, analysis available on this site',
+            'Kinsale Capital (KNSL): 10/10, specialty E&S insurance, premium valuation, different sector focus',
+          ],
+        },
+        { type: 'h2', text: 'Why the market prices this at only 5.5 times free cash flow' },
+        {
+          type: 'p',
+          text: "To measure whether a stock is cheap or expensive, I use the P/FCF ratio: the stock price divided by free cash flow per share generated annually. Allstate trades at roughly 5.5 times. For context, rival Progressive trades around 7 to 8 times, and the average for equity markets is 15 to 25 times. Allstate is very cheap.",
+        },
+        {
+          type: 'p',
+          text: "The discount reflects a difficult recent history. Allstate suffered several tough years between 2021 and 2023: natural disaster claims, auto repair inflation, and market share losses. The market retained that memory. But management actions (rate increases, stronger underwriting discipline) are now bearing fruit, as Q1 2026 results showed.",
+        },
+        { type: 'h2', text: 'What I am watching in the August 5 earnings' },
+        {
+          type: 'p',
+          text: "On August 5, 2026, Allstate reports Q2 results. Consensus expects earnings per share of $5.17. This is well below Q1 ($10.65), reflecting more cautious expectations. For me, what matters is the combined ratio trend (claims costs plus operating expenses divided by premiums) and the premium portfolio trajectory. If the combined ratio stays below 100% and premiums keep growing, the thesis strengthens.",
+        },
+        {
+          type: 'p',
+          text: "The full Allstate analysis, with all updated metrics, is available at lubin-investment.com/analyse/ALL. Written by Lubin Danilo, founder of Lubin Investment, self-taught investor who has beaten the S&P 500 for three years running.",
+        },
+      ],
+      faq: [
+        {
+          q: "What is Allstate's business?",
+          a: "Allstate is the second-largest US auto and home insurer. Its model is simple: customers pay regular premiums, and Allstate pays out on claims. Revenue is recurring by nature: insurance policies renew every year, often automatically.",
+        },
+        {
+          q: 'Why is Allstate cheaper than Progressive?',
+          a: 'Allstate (P/FCF around 5.5×) trades cheaper than Progressive (P/FCF around 7 to 8×) because the market has less confidence in its underwriting discipline and growth consistency. Progressive has historically had a lower combined ratio and stronger premium growth.',
+        },
+        {
+          q: "Why did Allstate's Q1 result beat estimates by so much?",
+          a: 'Q1 2026 EPS came in at $10.65 versus $7.36 estimated (a 44% beat). This reflects the combined effect of rate increases implemented since 2022-2023 and an improvement in the loss ratio. Markets had underestimated the magnitude of the rebound.',
+        },
+        {
+          q: 'Is Allstate threatened by insurtech startups?',
+          a: 'Insurtechs (Lemonade, Root) have taken some market share among younger digital customers, but remain very small. Allstate is investing heavily in digital tools. Its physical distribution network remains a durable advantage in smaller local markets.',
+        },
+        {
+          q: 'Is Allstate stock a good investment in 2026?',
+          a: 'This is not investment advice. Quality is high (9/10), valuation is low (P/FCF 5.5×), but Allstate has a history of elevated claims in natural disaster years. The August 5 earnings will be an important test. Do your own research.',
+        },
+      ],
+      tags: ['ALL', 'Allstate', 'insurance', 'auto insurance', 'fundamental-analysis', 'quality-stock'],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the date indicated, subject to change. Do your own research before any investment decision.',
+    },
+    es: {
+      title: 'Allstate (ALL): aseguradora de autos con alta calidad',
+      excerpt: 'Allstate es la segunda aseguradora de autos de EE.UU., con una de las mejores notas en mi metodología y valoración inferior a su rival Progressive. Su T1 2026 batió expectativas. Mi análisis.',
+      metaDescription: 'Allstate (ALL): análisis fundamental de la acción. Aseguradora de autos y hogar en EE.UU., alta calidad, Cash ROCE 32 %, riesgos y la opinión de Lubin Danilo.',
+      answer: 'Allstate es la segunda aseguradora de autos de Estados Unidos, con un Cash ROCE del 32 % y un free cash flow por acción que crece al 25 % anual durante cinco años. Su resultado T1 2026 aplastó las previsiones en un 44 %. La valoración es atractiva comparada con su rival Progressive (10/10), lo que la convierte en un caso de libro sobre calidad a precio razonable.',
+      body: [
+        { type: 'h2', text: 'Lo que hace Allstate (y cómo compararla con Progressive)' },
+        {
+          type: 'p',
+          text: "Si has pasado tiempo en Estados Unidos, probablemente hayas visto los anuncios de Allstate: \"You're in good hands\". Allstate es la segunda aseguradora de autos y hogar de América, detrás de State Farm y por delante de Progressive. Asegura a millones de hogares estadounidenses contra accidentes de coche, daños en el hogar e imprevistos cotidianos. El modelo es simple: pagas una prima mensual y, si ocurre algo, Allstate paga.",
+        },
+        {
+          type: 'p',
+          text: "El competidor más frecuentemente comparado en mi análisis es Progressive (PGR), al que califico con 10/10. La pregunta natural es: ¿por qué Progressive obtiene mejor puntuación? La respuesta radica en dos criterios: el ratio combinado (disciplina de suscripción) y la tasa de crecimiento de las primas. Progressive destaca en ambos. Allstate es sólida, pero menos precisa. Esa es la diferencia entre un 10/10 y un 9/10.",
+        },
+        { type: 'h2', text: 'Mi método de análisis' },
+        {
+          type: 'p',
+          text: "Siempre separo dos preguntas. Primera: ¿es un buen negocio? Segunda: ¿es el precio correcto? Para juzgar la calidad, observo criterios objetivos: rentabilidad, crecimiento del free cash flow, disciplina del balance, recompras de acciones. Allstate obtiene 9 sobre 10 en mi metodología. No es perfecto, pero es un negocio muy sólido.",
+        },
+        { type: 'h2', text: 'Los números que hacen de Allstate una empresa sólida' },
+        {
+          type: 'p',
+          text: "El Cash ROCE (rentabilidad sobre el capital empleado) de Allstate alcanza el 32 %. Este ratio mide cuánto efectivo genera la empresa por cada dólar invertido en su actividad. Un umbral del 15 % se cita a menudo como nivel de excelencia. Allstate más que lo duplica. Es una señal de que la asignación del capital es rigurosa.",
+        },
+        {
+          type: 'p',
+          text: "El free cash flow por acción ha crecido al 25,5 % anual durante cinco años. Para una aseguradora tradicional, eso es notable. El margen de free cash flow alcanza el 16,9 %. Y en el primer trimestre de 2026, los resultados aplastaron las expectativas: beneficio por acción de 10,65 dólares frente a los 7,36 estimados (un beat del 44 %). Eso refleja una mejora estructural de la rentabilidad tras varios años difíciles en siniestros.",
+        },
+        {
+          type: 'p',
+          text: "Allstate también recompra sus propias acciones a un ritmo modesto pero regular, señal de que la dirección no malgasta el efectivo disponible.",
+        },
+        {
+          type: 'ul',
+          items: [
+            'Allstate (ALL): 9/10, P/FCF 5,5×, Cash ROCE 32 %, FCF/acción +25 %/año, valoración atractiva',
+            'Progressive (PGR): 10/10 en mi metodología, P/FCF más elevado, disciplina de suscripción superior, análisis disponible en este sitio',
+            'Kinsale Capital (KNSL): 10/10, seguro especializado, valoración premium, enfoque sectorial distinto',
+          ],
+        },
+        { type: 'h2', text: 'Por qué el mercado la valora a solo 5,5 veces su free cash flow' },
+        {
+          type: 'p',
+          text: "Para medir si una acción está cara o barata, uso el P/FCF: el precio de la acción dividido por el free cash flow por acción que genera cada año. Allstate cotiza a unas 5,5 veces. Para dar una referencia, su rival Progressive cotiza alrededor de 7 a 8 veces, y la media de los mercados de renta variable es de 15 a 25 veces. Allstate está muy barata.",
+        },
+        {
+          type: 'p',
+          text: "El descuento refleja una historia reciente difícil. Allstate sufrió varios años duros entre 2021 y 2023: siniestros por catástrofes naturales, inflación en reparaciones de autos y pérdida de cuota de mercado. El mercado guarda ese recuerdo. Pero las acciones de la dirección (subidas de primas, mayor disciplina de suscripción) empiezan a dar frutos, como muestran los resultados del T1 2026.",
+        },
+        { type: 'h2', text: 'Qué espero de los resultados del 5 de agosto de 2026' },
+        {
+          type: 'p',
+          text: "El 5 de agosto de 2026, Allstate publica sus resultados del segundo trimestre. El consenso espera un beneficio por acción de 5,17 dólares. Cifra muy por debajo del T1 (10,65 dólares), lo que refleja expectativas más prudentes. Para mí, lo que importa es la tendencia del ratio combinado y la evolución de la cartera de primas. Si el ratio combinado se mantiene por debajo del 100 % y las primas siguen creciendo, la tesis se refuerza.",
+        },
+        {
+          type: 'p',
+          text: "El análisis completo de Allstate, con todos los indicadores actualizados, está disponible en lubin-investment.com/analyse/ALL. Escrito por Lubin Danilo, fundador de Lubin Investment, inversor autodidacta que ha superado al S&P 500 durante tres años consecutivos.",
+        },
+      ],
+      faq: [
+        {
+          q: '¿En qué consiste el negocio de Allstate?',
+          a: 'Allstate es la segunda aseguradora de autos y hogar de EE.UU. Su modelo es simple: los clientes pagan primas regulares y Allstate paga en caso de siniestro. Los ingresos son recurrentes por naturaleza: las pólizas se renuevan cada año, a menudo automáticamente.',
+        },
+        {
+          q: '¿Por qué Allstate es más barata que Progressive?',
+          a: 'Allstate (P/FCF alrededor de 5,5×) cotiza más barata que Progressive (P/FCF alrededor de 7 a 8×) porque el mercado tiene menos confianza en su disciplina de suscripción y en la regularidad de su crecimiento. Progressive ha tenido históricamente un ratio combinado más bajo y un crecimiento de primas más fuerte.',
+        },
+        {
+          q: '¿Por qué el T1 2026 de Allstate fue tan superior a las estimaciones?',
+          a: 'El BPA del T1 2026 fue de 10,65 dólares frente a 7,36 estimados (un beat del 44 %). Refleja el efecto combinado de las subidas de primas implementadas desde 2022-2023 y una mejora en el ratio de siniestros. Los mercados habían subestimado la magnitud del rebote.',
+        },
+        {
+          q: '¿Allstate está amenazada por las insurtechs?',
+          a: 'Las insurtechs (Lemonade, Root) han capturado algo de cuota de mercado entre los jóvenes digitales, pero siguen siendo muy pequeñas. Allstate está invirtiendo en herramientas digitales. Su red de distribución física sigue siendo una ventaja duradera en los mercados locales más pequeños.',
+        },
+        {
+          q: '¿Es la acción Allstate una buena inversión en 2026?',
+          a: 'No ofrezco consejos de inversión personalizados. La calidad es alta (9/10), la valoración es baja (P/FCF 5,5×), pero Allstate tiene un historial de siniestros elevados en años de catástrofes naturales. Los resultados del 5 de agosto serán una prueba importante. Haz tus propias investigaciones.',
+        },
+      ],
+      tags: ['ALL', 'Allstate', 'seguro', 'seguro-auto', 'análisis-fundamental', 'acción-calidad'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no constituye asesoramiento personalizado de inversión. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha indicada, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
