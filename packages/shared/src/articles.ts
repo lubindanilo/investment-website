@@ -23999,7 +23999,7 @@ const articleScore9vs10: Article = {
 const articleMU: Article = {
   slug: 'micron-mu-avant-resultats-24-juin-2026',
   date: '2026-06-22',
-  updated: '2026-06-22',
+  updated: '2026-06-29',
   readingTime: 7,
   ticker: 'MU',
   content: {
@@ -24009,6 +24009,7 @@ const articleMU: Article = {
       metaDescription: "Micron Technology publie ses résultats le 24 juin 2026. Analyse complète : boom HBM, valorisation élevée, et pourquoi notre méthode attribue 6 sur 10 malgré l\'euphorie IA.",
       answer: "Micron bénéficie d\'une demande explosive pour la mémoire HBM liée à l\'IA, avec des résultats attendus en forte hausse. Mais notre méthode attribue 6 sur 10 car les cycliques comme Micron affichent une volatilité historique qui pénalise les critères de régularité et de valorisation.",
       body: [
+        { type: 'p', text: "<strong>Mise à jour (29 juin 2026) :</strong> Micron a publié ses résultats Q3 FY2026 le 24 juin. Pour les chiffres réels et notre verdict, lisez <a href='/blog/micron-mu-q3-fy2026-resultats-beat-analyse'>notre analyse post-résultats</a>." },
         { type: 'h2', text: 'Le boom IA de Micron : des chiffres à couper le souffle' },
         { type: 'p', text: "Quand on regarde les prévisions des analystes pour le trimestre qui se clôture le 24 juin 2026, les chiffres donnent le vertige. Le bénéfice par action est attendu en hausse de près de 997 % sur un an. Le chiffre d\'affaires, lui, devrait progresser de l\'ordre de 276 % sur la même période. Ce n\'est pas une erreur de saisie : c\'est l\'effet combiné d\'un cycle mémoire favorable et d\'une demande explosive pour la mémoire HBM portée par l\'essor de l\'intelligence artificielle générative. Il y a deux ans, Micron traversait une période de pertes massives. Aujourd\'hui, la même entreprise affiche une marge nette de 41,5 % et une marge de flux de trésorerie disponible de 15,8 %. C\'est précisément ce caractère cyclique qui rend l\'analyse de Micron si intéressante et si délicate à la fois." },
         { type: 'h2', text: 'Pourquoi notre méthode donne 6 sur 10 malgré le boom' },
@@ -24044,6 +24045,7 @@ const articleMU: Article = {
       metaDescription: 'Micron Technology reports earnings on June 24, 2026. Full analysis: HBM boom, stretched valuation, and why our method scores 6 out of 10 despite AI euphoria.',
       answer: 'Micron benefits from explosive HBM memory demand driven by AI, with results expected to surge sharply. Our method scores it 6 out of 10 because cyclicals like Micron show historical volatility that penalizes our consistency and valuation criteria.',
       body: [
+        { type: 'p', text: "<strong>Update (June 29, 2026):</strong> Micron reported Q3 FY2026 results on June 24. For the actual numbers and our verdict, read <a href='/blog/micron-mu-q3-fy2026-resultats-beat-analyse'>our post-earnings analysis</a>." },
         { type: 'h2', text: "Micron's AI boom: staggering numbers" },
         { type: 'p', text: "Analyst forecasts for the quarter ending June 24, 2026 are breathtaking. Earnings per share are expected up nearly 997% year-over-year. Revenue is projected to grow around 276% over the same period. This is the combined effect of a favorable memory cycle and explosive HBM demand driven by generative AI. Two years ago, Micron was posting massive losses. Today, the same company reports a 41.5% net margin and a 15.8% free cash flow margin. That cyclical nature makes Micron both fascinating and tricky to analyze." },
         { type: 'h2', text: 'Why our method scores 6 out of 10 despite the boom' },
@@ -24079,6 +24081,7 @@ const articleMU: Article = {
       metaDescription: 'Micron Technology publica resultados el 24 de junio de 2026. Análisis completo: boom HBM, valoración elevada, y por qué nuestro método le otorga 6 sobre 10 pese a la euforia por la IA.',
       answer: 'Micron se beneficia de una demanda explosiva de memoria HBM impulsada por la IA. Pero nuestro método le otorga 6 sobre 10 porque las cíclicas como Micron muestran una volatilidad histórica que penaliza los criterios de regularidad y valoración.',
       body: [
+        { type: 'p', text: "<strong>Actualización (29 de junio de 2026):</strong> Micron publicó sus resultados Q3 FY2026 el 24 de junio. Para las cifras reales y nuestro veredicto, lee <a href='/blog/micron-mu-q3-fy2026-resultats-beat-analyse'>nuestro análisis post-resultados</a>." },
         { type: 'h2', text: 'El boom de la IA en Micron: cifras que quitan el aliento' },
         { type: 'p', text: "Las previsiones de los analistas para el trimestre que cierra el 24 de junio de 2026 son impresionantes. El beneficio por acción se espera con un alza de casi el 997 % interanual. La facturación debería crecer alrededor de un 276 %. Es el efecto combinado de un ciclo de memoria favorable y una demanda explosiva de memoria HBM por el auge de la inteligencia artificial generativa. Hace dos años, Micron registraba pérdidas masivas. Hoy, la misma empresa presenta un margen neto del 41,5 % y un margen de flujo de caja libre del 15,8 %. Es precisamente ese carácter cíclico lo que hace el análisis de Micron tan fascinante y tan delicado." },
         { type: 'h2', text: 'Por qué nuestro método da 6 sobre 10 pese al boom' },
@@ -34396,7 +34399,7 @@ const pricingPowerFcf: Article = {
   readingTime: 11,
   content: {
     fr: {
-      title: "Pricing power : comment les meilleures entreprises en bourse protègent leurs marges",
+      title: "Pricing power : le secret des meilleures actions FCF",
       excerpt: "Certaines entreprises augmentent leurs prix chaque année sans perdre un seul client. D'autres perdent des parts de marché dès qu'un concurrent baisse le sien de cinq euros. Ce mécanisme, le pouvoir de fixation des prix, est l'un des premiers critères que j'analyse avant d'investir.",
       metaDescription: "Découvrez ce qu'est le pouvoir de fixation des prix, pourquoi il protège la rentabilité des meilleures entreprises en bourse, et comment il se traduit en cash durable. Exemples concrets : ASML, Verisign, CME.",
       answer: "Le pricing power, c'est la capacité d'une entreprise à augmenter ses prix sans perdre ses clients. Quand ce pouvoir est réel et durable, il se traduit mécaniquement en free cash flow croissant, année après année, sans efforts supplémentaires. C'est le critère qui distingue les entreprises d'élite des autres, et le premier que j'examine dans ma méthode d'analyse.",
@@ -34466,7 +34469,7 @@ const pricingPowerFcf: Article = {
       disclaimer: "Cet article est rédigé à titre informatif et éducatif uniquement. Il ne constitue pas un conseil en investissement personnalisé. Les données et scores mentionnés reflètent la méthodologie propre à Lubin Investment et ne sauraient être interprétés comme une recommandation d'achat ou de vente de quelque titre que ce soit. Les performances passées ne préjugent pas des performances futures. Tout investissement comporte un risque de perte en capital. Faites vos propres recherches et consultez un conseiller financier si nécessaire.",
     },
     en: {
-      title: "Pricing power: how the best stocks protect their profit margins",
+      title: "Pricing power: how top stocks protect their margins",
       excerpt: "Some companies raise their prices every year without losing a single customer. Others lose market share the moment a competitor drops their price by five dollars. This mechanism, pricing power, is one of the first things I look at before investing in any stock.",
       metaDescription: "Learn what pricing power is, why it protects the profitability of the best stocks, and how it translates into durable cash generation. Real examples: ASML, Verisign, CME Group.",
       answer: "Pricing power is a company's ability to raise prices without losing customers. When this power is real and lasting, it mechanically translates into growing free cash flow, year after year, without extra effort. It's the criterion that separates elite businesses from average ones, and the first thing I examine in my analysis method.",
@@ -34490,7 +34493,7 @@ const pricingPowerFcf: Article = {
       disclaimer: "This article is for informational and educational purposes only. Not personalized investment advice. Past performance is not indicative of future results. All investments carry risk of capital loss.",
     },
     es: {
-      title: "Pricing power: cómo las mejores empresas en bolsa protegen sus márgenes",
+      title: "Pricing power: cómo las mejores acciones protegen sus márgenes",
       excerpt: "Algunas empresas suben sus precios cada año sin perder un solo cliente. Otras pierden cuota de mercado en cuanto un competidor baja el suyo. Este mecanismo, el poder de fijación de precios, es uno de los primeros criterios que analizo antes de invertir.",
       metaDescription: "Descubre qué es el poder de fijación de precios, por qué protege la rentabilidad de las mejores acciones y cómo se traduce en flujo de caja duradero. Ejemplos: ASML, Verisign, CME Group.",
       answer: "El pricing power es la capacidad de una empresa para subir sus precios sin perder clientes. Cuando es real y duradero, se traduce mecánicamente en free cash flow creciente, año tras año. Es el criterio que separa las empresas de élite de las demás, y el primero que examino en mi método.",
@@ -34519,7 +34522,7 @@ const pharmaPalmares2026: Article = {
   readingTime: 9,
   content: {
     fr: {
-      title: "UCB (UCB.BR) et Collegium (COLL) : les meilleures actions pharma en bourse",
+      title: "UCB (UCB.BR) et Collegium (COLL) : pharma de qualité 2026",
       excerpt: "Sur des centaines de valeurs pharmaceutiques analysées, deux seulement passent tous mes critères de qualité et de valorisation. UCB SA et Collegium Pharmaceutical ont tout pour plaire, mais avec des modèles opposés. Voici pourquoi la pharma est si difficile à analyser, et ce qui rend ces deux actions exceptionnelles.",
       metaDescription: "UCB SA et Collegium Pharmaceutical sont les deux seules actions pharma qui passent tous mes critères d'analyse fondamentale en 2026. Découvrez pourquoi, et en quoi leurs modèles diffèrent.",
       answer: "Sur des centaines de valeurs pharmaceutiques, deux seulement passent l'intégralité de mes critères en 2026 : UCB SA (Bruxelles, spécialiste neurologie et immunologie) et Collegium Pharmaceutical (NASDAQ, gestion de la douleur). Des modèles opposés, une même solidité financière. Voici le comparatif.",
@@ -34561,7 +34564,7 @@ const pharmaPalmares2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (24 juin 2026), susceptibles d'évoluer. Fais tes propres recherches avant d'investir.",
     },
     en: {
-      title: "UCB (UCB.BR) and Collegium (COLL): the top pharma stocks in 2026",
+      title: "UCB (UCB.BR) and Collegium (COLL): best-quality pharma stocks",
       excerpt: "Out of hundreds of pharmaceutical stocks screened, only two pass all my quality and valuation criteria in 2026: UCB SA and Collegium Pharmaceutical. Opposite business models, the same financial solidity.",
       metaDescription: "UCB SA and Collegium Pharmaceutical are the only two pharma stocks that pass all my fundamental analysis criteria in 2026. Find out why, and how their models differ.",
       answer: "Out of hundreds of pharmaceutical stocks, only two pass all ten of my criteria in 2026: UCB SA (Brussels, neurology and immunology specialist) and Collegium Pharmaceutical (NASDAQ, chronic pain management). Opposite models, the same financial robustness.",
@@ -34583,7 +34586,7 @@ const pharmaPalmares2026: Article = {
       disclaimer: "For informational and educational purposes only. Not personalized investment advice. Past performance does not guarantee future results. All investments carry risk.",
     },
     es: {
-      title: "UCB (UCB.BR) y Collegium (COLL): las mejores acciones farmacéuticas en bolsa",
+      title: "UCB (UCB.BR) y Collegium (COLL): farmacéuticas de calidad 2026",
       excerpt: "De cientos de valores farmacéuticos analizados, solo dos superan todos mis criterios de calidad y valoración en 2026: UCB SA y Collegium Pharmaceutical. Modelos opuestos, la misma solidez financiera.",
       metaDescription: "UCB SA y Collegium Pharmaceutical son las únicas dos acciones farmacéuticas que superan todos mis criterios de análisis fundamental en 2026. Descubre por qué y en qué difieren sus modelos.",
       answer: "De cientos de valores farmacéuticos, solo dos superan la totalidad de mis diez criterios en 2026: UCB SA (Bruselas, especialista en neurología e inmunología) y Collegium Pharmaceutical (NASDAQ, gestión del dolor crónico). Modelos opuestos, la misma robustez financiera.",
