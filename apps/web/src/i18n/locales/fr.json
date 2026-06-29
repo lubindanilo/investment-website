@@ -259,6 +259,21 @@
       "detail": "Force un nouvel appel GPT pour ré-évaluer le management."
     }
   },
+  "signupModal": {
+    "badge": "GRATUIT",
+    "title": "Crée ton compte pour accéder à l'analyse qualitative",
+    "sub": "L'analyse qualitative IA (business model + management) est réservée aux membres. La création de compte est gratuite.",
+    "benefits": [
+      "Analyse qualitative IA sur n'importe quelle action",
+      "10 analyses fondamentales par jour",
+      "Watchlist pour suivre tes entreprises préférées",
+      "Accès au screener des meilleures actions notées"
+    ],
+    "ctaPrimary": "Créer un compte gratuit",
+    "ctaSecondary": "Plus tard",
+    "loginHint": "Déjà membre ?",
+    "loginLink": "Connecte-toi"
+  },
   "nav": {
     "analyse": "Analyser",
     "watchlist": "Mes favoris",
