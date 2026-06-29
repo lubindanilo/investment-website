@@ -147,11 +147,7 @@ export function AnalysePage() {
 
   async function addToWatchlist() {
     if (!analysis) return;
-    if (!user) {
-      navigate('/login', { state: { from: `/analyse/${analysis.ticker}` } });
-      toast.push('warn', t('analyse.toast.loginWatchlist'));
-      return;
-    }
+    if (!user) { setShowSignupModal(true); return; }
     try {
       await api.watchlist.add(analysis.ticker);
       setInWatchlist(prev => new Set(prev).add(analysis.ticker));
