@@ -36985,8 +36985,8 @@ const articleALL: Article = {
   content: {
     fr: {
       title: "Allstate (ALL) : l'action d'assurance auto sous-estimée",
-      excerpt: "Allstate est le 2ème assureur auto américain, 9/10 dans ma grille, à un prix nettement inférieur à son concurrent Progressive. Son T1 2026 a dépassé les attentes. Mon analyse.",
-      metaDescription: "Allstate (ALL) : analyse fondamentale de l'action. Assureur auto et habitation américain, qualité 9/10, Cash ROCE 32 %, risques et avis de Lubin Danilo en bourse.",
+      excerpt: "Allstate est le 2ème assureur auto américain, l'une des meilleures notes de ma grille, à un prix nettement inférieur à son concurrent Progressive. Son T1 2026 a dépassé les attentes. Mon analyse.",
+      metaDescription: "Allstate (ALL) : analyse fondamentale de l'action. Assureur auto et habitation américain de haute qualité, Cash ROCE 32 %, risques et avis de Lubin Danilo.",
       answer: "Allstate est le deuxième assureur auto américain, avec un Cash ROCE de 32 % et un free cash flow par action en hausse de 25 % par an sur cinq ans. Son résultat T1 2026 a écrasé les prévisions. La valorisation est attractive comparée à son concurrent Progressive (10/10), ce qui en fait un cas d'école sur la qualité à un prix raisonnable.",
       body: [
         { type: 'h2', text: "Ce que fait Allstate (et comment le comparer à Progressive)" },
@@ -37075,8 +37075,8 @@ const articleALL: Article = {
     },
     en: {
       title: 'Allstate (ALL): the overlooked auto insurer',
-      excerpt: 'Allstate is the second-largest US auto insurer, scoring 9/10 in my framework, at a much cheaper price than rival Progressive. Its Q1 2026 crushed expectations. My analysis.',
-      metaDescription: "Allstate (ALL): fundamental stock analysis. US auto and home insurer, 9/10 quality score, Cash ROCE 32%, risks, and Lubin Danilo's take on this opportunity.",
+      excerpt: 'Allstate is the second-largest US auto insurer, among the top scores in my framework, at a much cheaper price than rival Progressive. Its Q1 2026 crushed expectations. My analysis.',
+      metaDescription: "Allstate (ALL): fundamental stock analysis. US auto and home insurer, top-tier quality, Cash ROCE 32%, risks, and Lubin Danilo's take on this opportunity.",
       answer: 'Allstate is the second-largest US auto insurer, with a Cash ROCE of 32% and free cash flow per share growing 25% per year over five years. Its Q1 2026 result crushed forecasts by 44%. The valuation is attractive compared to rival Progressive (10/10), making it a textbook case of quality at a reasonable price.',
       body: [
         { type: 'h2', text: 'What Allstate does (and how it compares to Progressive)' },
@@ -37161,8 +37161,8 @@ const articleALL: Article = {
     },
     es: {
       title: 'Allstate (ALL): aseguradora de autos con alta calidad',
-      excerpt: 'Allstate es la segunda aseguradora de autos de EE.UU., con 9/10 en mi metodología y valoración inferior a su rival Progressive. Su T1 2026 batió expectativas. Mi análisis.',
-      metaDescription: 'Allstate (ALL): análisis fundamental de la acción. Aseguradora de autos y hogar en EE.UU., calidad 9/10, Cash ROCE 32 %, riesgos y la opinión de Lubin Danilo.',
+      excerpt: 'Allstate es la segunda aseguradora de autos de EE.UU., con una de las mejores notas en mi metodología y valoración inferior a su rival Progressive. Su T1 2026 batió expectativas. Mi análisis.',
+      metaDescription: 'Allstate (ALL): análisis fundamental de la acción. Aseguradora de autos y hogar en EE.UU., alta calidad, Cash ROCE 32 %, riesgos y la opinión de Lubin Danilo.',
       answer: 'Allstate es la segunda aseguradora de autos de Estados Unidos, con un Cash ROCE del 32 % y un free cash flow por acción que crece al 25 % anual durante cinco años. Su resultado T1 2026 aplastó las previsiones en un 44 %. La valoración es atractiva comparada con su rival Progressive (10/10), lo que la convierte en un caso de libro sobre calidad a precio razonable.',
       body: [
         { type: 'h2', text: 'Lo que hace Allstate (y cómo compararla con Progressive)' },
