@@ -63,6 +63,21 @@
       "detail": "Fuerza una nueva llamada GPT para reevaluar la gestión."
     }
   },
+  "signupModal": {
+    "badge": "GRATIS",
+    "title": "Crea tu cuenta para acceder al análisis cualitativo",
+    "sub": "El análisis cualitativo IA (modelo de negocio + gestión) es para miembros. La creación de cuenta es gratuita.",
+    "benefits": [
+      "Análisis cualitativo IA en cualquier acción",
+      "10 análisis fundamentales al día",
+      "Lista de seguimiento para tus empresas favoritas",
+      "Acceso al screener de las mejores acciones"
+    ],
+    "ctaPrimary": "Crear cuenta gratis",
+    "ctaSecondary": "Más tarde",
+    "loginHint": "¿Ya eres miembro?",
+    "loginLink": "Inicia sesión"
+  },
   "common": {
     "loading": "Cargando…",
     "refresh": "Actualizar",

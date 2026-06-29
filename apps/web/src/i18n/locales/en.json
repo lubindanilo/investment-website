@@ -259,6 +259,21 @@
       "detail": "Force a new GPT call to re-evaluate management."
     }
   },
+  "signupModal": {
+    "badge": "FREE",
+    "title": "Create your account to access the qualitative analysis",
+    "sub": "AI qualitative analysis (business model + management) is for members only. Creating an account is free.",
+    "benefits": [
+      "AI qualitative analysis on any stock",
+      "10 fundamental analyses per day",
+      "Watchlist to track your favourite companies",
+      "Access to the screener of top-rated stocks"
+    ],
+    "ctaPrimary": "Create a free account",
+    "ctaSecondary": "Later",
+    "loginHint": "Already a member?",
+    "loginLink": "Sign in"
+  },
   "nav": {
     "analyse": "Analyze",
     "watchlist": "My favorites",

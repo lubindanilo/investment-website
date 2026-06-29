@@ -63,6 +63,7 @@ export function AnalysePage() {
   // Modale d'upgrade Pro déclenchée par les 403 PRO_REQUIRED (qualitatif IA, etc.)
   // et 429 QUOTA_EXCEEDED (10 analyses/jour atteint). Le contenu varie selon la cause.
   const [upgrade, setUpgrade] = useState<{ feature: string; detail?: string } | null>(null);
+  const [showSignupModal, setShowSignupModal] = useState(false);
 
   useEffect(() => { setInWatchlist(new Set()); }, [user]);
 
@@ -160,6 +161,7 @@ export function AnalysePage() {
 
   async function generateQualitative() {
     if (!analysis) return;
+    if (!user) { setShowSignupModal(true); return; }
     setGeneratingQual(true);
     try { setAnalysis(await api.generateQualitative(analysis.ticker)); toast.push('success', t('analyse.toast.qualGenerated')); }
     catch (e) {
@@ -264,6 +266,12 @@ export function AnalysePage() {
           feature={upgrade.feature}
           detail={upgrade.detail}
           onClose={() => setUpgrade(null)}
+        />
+      )}
+      {showSignupModal && (
+        <SignupModal
+          ticker={analysis?.ticker ?? null}
+          onClose={() => setShowSignupModal(false)}
         />
       )}
     </div>
@@ -658,5 +666,59 @@ function RelatedTickers({ ticker, sector }: { ticker: string; sector: string | n
             })}
       </div>
     </section>
+  );
+}
+
+// ─── Modale d'inscription pour les anonymes ───────────────────────────────────
+function SignupModal({ ticker, onClose }: { ticker: string | null; onClose: () => void }) {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  const benefits = t('signupModal.benefits', { returnObjects: true }) as string[];
+  const signupTarget = ticker ? `/signup?from=/analyse/${ticker}` : '/signup';
+  const loginTarget = ticker ? `/login?from=/analyse/${ticker}` : '/login';
+
+  return (
+    <div className="upgrade-overlay" onClick={onClose} role="dialog" aria-modal="true">
+      <div className="upgrade-modal" onClick={e => e.stopPropagation()}>
+        <button type="button" className="upgrade-close" onClick={onClose} aria-label={t('common.close')}>×</button>
+        <div className="upgrade-badge">{t('signupModal.badge')}</div>
+        <h2 className="upgrade-title">{t('signupModal.title')}</h2>
+        <p className="upgrade-sub">{t('signupModal.sub')}</p>
+        <ul className="upgrade-features">
+          {benefits.map((b, i) => (
+            <li key={i}><Icon name="check" size={14} /><span>{b}</span></li>
+          ))}
+        </ul>
+        <div className="upgrade-cta-row">
+          <button
+            type="button"
+            className="btn btn-brand upgrade-cta"
+            onClick={() => { onClose(); navigate(signupTarget); }}
+          >
+            {t('signupModal.ctaPrimary')} <Icon name="arrowRight" size={14} />
+          </button>
+          <button type="button" className="upgrade-cta-secondary" onClick={onClose}>
+            {t('signupModal.ctaSecondary')}
+          </button>
+        </div>
+        <p className="upgrade-disclaimer">
+          {t('signupModal.loginHint')}{' '}
+          <button
+            type="button"
+            style={{ background: 'none', border: 'none', padding: 0, color: 'var(--brand)', cursor: 'pointer', fontSize: 'inherit', textDecoration: 'underline' }}
+            onClick={() => { onClose(); navigate(loginTarget); }}
+          >
+            {t('signupModal.loginLink')}
+          </button>
+        </p>
+      </div>
+    </div>
   );
 }
