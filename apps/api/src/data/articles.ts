@@ -36976,6 +36976,576 @@ const articleMANH: Article = {
   },
 };
 
+const articleBAH: Article = {
+  slug: 'booz-allen-hamilton-bah-consulting-federal-analyse-fondamentale',
+  date: '2026-06-30',
+  updated: '2026-06-30',
+  readingTime: 8,
+  ticker: 'BAH',
+  content: {
+    fr: {
+      title: "Booz Allen Hamilton (BAH) : l'action de qualité soldée",
+      excerpt: "Booz Allen, le consultant historique du gouvernement américain, a perdu près de la moitié de sa valeur en un an à cause des coupes budgétaires fédérales. Une des meilleures notes de ma grille, à un prix rarement vu. Mon analyse.",
+      metaDescription: "Booz Allen Hamilton (BAH) : analyse fondamentale. Consultant fédéral américain de haute qualité chahuté par les coupes budgétaires. L'avis de Lubin Danilo.",
+      answer: "Booz Allen Hamilton est le consultant de référence du gouvernement et de la défense américaine. L'action a chuté d'environ 50 % en un an, victime des coupes budgétaires fédérales. Pourtant, la qualité reste parmi les meilleures de ma grille, avec un rendement du capital très élevé et une valorisation basse. La qualité est là, et le prix aussi.",
+      body: [
+        { type: 'h2', text: "Ce que fait Booz Allen Hamilton" },
+        {
+          type: 'p',
+          text: "Booz Allen Hamilton existe depuis 1914, et c'est aujourd'hui le consultant de référence du gouvernement américain. Près de 98 % de son chiffre d'affaires vient d'agences fédérales : la défense, le renseignement, les agences civiles. Concrètement, l'entreprise place des milliers d'ingénieurs, d'analystes de données et d'experts en cybersécurité au coeur de l'appareil d'État, pour moderniser des systèmes, exploiter des données sensibles ou déployer de l'intelligence artificielle sur des missions critiques.",
+        },
+        {
+          type: 'p',
+          text: "Son avantage concurrentiel, ce que j'appelle le moat (la douve qui protège l'entreprise de ses rivaux), tient à deux choses peu spectaculaires mais très solides. D'abord, une grande partie de ses salariés détiennent des habilitations de sécurité (security clearances) : des autorisations d'accès à des informations classifiées qui prennent des mois, parfois des années, à obtenir. Un concurrent ne peut pas recruter cette main-d'oeuvre du jour au lendemain. Ensuite, des décennies de relations avec les mêmes agences, où Booz Allen connaît les systèmes mieux que le client lui-même. On ne remplace pas ça facilement.",
+        },
+        { type: 'h2', text: "Pourquoi l'action a perdu près de la moitié de sa valeur" },
+        {
+          type: 'p',
+          text: "Il y a un an, l'action valait plus de 120 dollars. Elle en vaut aujourd'hui environ 61, tout près de son plus bas sur douze mois. La cause tient en un sigle : DOGE, l'initiative de réduction des dépenses fédérales lancée par l'administration américaine. Quand ta clientèle est le gouvernement à 98 %, une vague de coupes budgétaires te touche de plein fouet.",
+        },
+        {
+          type: 'p',
+          text: "Les faits sont réels. Au trimestre publié en janvier 2026, le chiffre d'affaires reculait déjà de 10 % sur un an. Booz Allen a annoncé la suppression d'environ 7 % de ses effectifs, soit près de 2 500 postes, surtout sur les missions liées aux agences civiles, les plus exposées aux coupes. Le Trésor américain a même résilié l'ensemble de ses contrats avec le groupe après une fuite de données par un ancien salarié. Le marché a fait ses comptes et a fui.",
+        },
+        { type: 'h2', text: "Ma méthode : juger la qualité avant le prix" },
+        {
+          type: 'p',
+          text: "Je sépare toujours deux questions. Première : est-ce une bonne entreprise ? Deuxième : est-ce le bon prix ? Pour la qualité, je passe chaque société dans une grille de critères objectifs : rentabilité, croissance du free cash flow (le cash qui reste réellement une fois toutes les factures et les investissements payés), rendement du capital, discipline du bilan, rachats d'actions. Booz Allen obtient 9 sur 10. Ce n'est pas parfait, mais c'est une très belle entreprise, et cette note n'a rien à voir avec l'humeur du marché : elle mesure la solidité du business.",
+        },
+        { type: 'h2', text: "Les chiffres qui font la qualité de Booz Allen" },
+        {
+          type: 'p',
+          text: "Le rendement du capital (Cash ROCE), qui mesure combien de cash l'entreprise génère pour chaque dollar investi dans son activité, atteint près de 37 %. Un seuil de 15 % est déjà considéré comme excellent : Booz Allen est plus du double. Le free cash flow par action a progressé d'environ 21 % par an sur cinq ans, et le nombre d'actions baisse d'environ 2 % par an grâce aux rachats. Une entreprise qui compose son cash à ce rythme tout en réduisant son nombre d'actions crée de la valeur pour l'actionnaire, année après année.",
+        },
+        {
+          type: 'p',
+          text: "Alors pourquoi 9 sur 10 et pas la note maximale ? À cause d'un seul critère : la marge de free cash flow, autour de 8 %, reste sous mon seuil de 10 %. C'est logique pour du conseil : le principal coût, ce sont les salaires de milliers d'experts, ce qui laisse une marge de cash plus fine que dans un logiciel. C'est le compromis à accepter : une machine à rendement du capital exceptionnel, mais une marge de cash modeste par nature.",
+        },
+        {
+          type: 'table',
+          headers: ["Critère", "Booz Allen", "Ce que je regarde"],
+          rows: [
+            ["Note de qualité", "9/10", "8 critères sur 9 validés"],
+            ["Rendement du capital (Cash ROCE)", "37 %", "au-dessus de 15 % = excellent"],
+            ["Croissance du free cash flow par action", "21 %/an sur 5 ans", "au-dessus de 10 %/an"],
+            ["Valorisation (P/FCF)", "environ 8×", "moyenne des marchés : 15 à 25×"],
+            ["Rendement du dividende", "3,9 %", "versé sur 32 % du cash généré"],
+          ],
+        },
+        { type: 'h2', text: "Pourquoi le marché la valorise si bas" },
+        {
+          type: 'p',
+          text: "Pour mesurer si une action est chère ou bon marché, j'utilise le P/FCF (price-to-free-cash-flow) : le prix de l'action rapporté au cash qu'elle génère vraiment chaque année. Un P/FCF de 8 veut dire que tu paies environ 8 années de ce cash. Booz Allen se valorise autour de 8 fois son free cash flow, quand la médiane de son secteur du conseil tourne plutôt vers 12 et la moyenne des marchés entre 15 et 25. Autrement dit, l'action est nettement sous-évaluée par rapport à sa propre histoire et à ses pairs.",
+        },
+        {
+          type: 'p',
+          text: "Mon prix d'achat raisonnable, calculé sur des hypothèses prudentes, ressort autour de 76 dollars. L'action cotant environ 61, elle affiche une décote d'environ 25 % sous ce seuil. Elle est donc, pour la première fois depuis longtemps, dans ma zone d'achat. Verse en plus un dividende qui rapporte près de 4 %, financé par seulement un tiers du cash généré, donc confortablement couvert.",
+        },
+        {
+          type: 'p',
+          text: "Mais la décote a une raison, et il faut la regarder en face. Le risque, c'est justement la concentration : dépendre à 98 % d'un seul client, l'État fédéral, te rend otage du cycle politique et budgétaire. Si les coupes s'aggravent, le chiffre d'affaires et le cash souffriront encore. C'est le vrai débat sur ce dossier : une entreprise de grande qualité, à un prix bas, mais dont la faiblesse (la dépendance à un seul payeur) est aussi ce qui la rend si bon marché aujourd'hui.",
+        },
+        { type: 'h2', text: "Ce que je surveille aux résultats du 24 juillet 2026" },
+        {
+          type: 'p',
+          text: "Le 24 juillet 2026, Booz Allen publie son premier trimestre de l'exercice 2027. Le consensus attend un bénéfice par action de 1,51 dollar. Le trimestre précédent avait largement dépassé les attentes (1,78 dollar contre 1,35 estimé), ce qui montre que l'entreprise encaisse le choc mieux que redouté. Ce que je regarderai vraiment, ce n'est pas le bénéfice du trimestre, mais le carnet de commandes et le discours du management sur l'exposition au budget fédéral. Si les prises de commandes tiennent, la thèse se renforce.",
+        },
+        {
+          type: 'p',
+          text: "C'est exactement ce genre d'analyse, action par action, que j'ai voulu pouvoir faire en quelques secondes. Le même exercice sur Accenture (ACN), autre victime des coupes fédérales, est disponible sur lubin-investment.com/analyse/ACN, et l'analyse complète de Booz Allen sur lubin-investment.com/analyse/BAH. Ma grille de critères est détaillée sur lubin-investment.com/methodologie.",
+        },
+        {
+          type: 'p',
+          text: "Écrit par Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, l'analyse fondamentale me passionne et m'a donné d'excellents résultats. Cela fait désormais trois années que ma performance bat le S&P 500. J'ai créé ce site pour analyser chaque action avec ma propre méthode, rapidement et sans dépendre d'outils incomplets.",
+        },
+      ],
+      faq: [
+        {
+          q: "C'est quoi le business de Booz Allen Hamilton ?",
+          a: "Booz Allen Hamilton est le consultant de référence du gouvernement américain, avec près de 98 % de son chiffre d'affaires issu des agences fédérales : défense, renseignement, agences civiles. Elle fournit des services de conseil, de données, de cybersécurité et d'intelligence artificielle sur des missions souvent classifiées.",
+        },
+        {
+          q: "Pourquoi l'action Booz Allen a-t-elle autant chuté ?",
+          a: "L'action a perdu près de la moitié de sa valeur en un an à cause des coupes budgétaires fédérales (initiative DOGE). Comme 98 % de ses revenus viennent de l'État, chaque réduction de dépenses la touche directement. Le groupe a supprimé environ 7 % de ses effectifs et vu son chiffre d'affaires reculer.",
+        },
+        {
+          q: "Pourquoi Booz Allen obtient 9 sur 10 et pas la note maximale ?",
+          a: "Un seul critère la prive du 10 sur 10 : sa marge de free cash flow, autour de 8 %, reste sous mon seuil de 10 %. C'est normal pour une activité de conseil, où les salaires des experts sont le principal coût. Le rendement du capital, lui, est exceptionnel (près de 37 %).",
+        },
+        {
+          q: "Le dividende de Booz Allen est-il sûr ?",
+          a: "Le dividende rapporte près de 4 % et n'absorbe qu'environ un tiers du cash généré chaque année. Cette marge de sécurité est confortable. Il a par ailleurs progressé d'environ 11 % par an sur cinq ans. Le vrai risque n'est pas le dividende lui-même, mais une baisse durable du chiffre d'affaires fédéral.",
+        },
+        {
+          q: "L'action Booz Allen est-elle un bon investissement en 2026 ?",
+          a: "Ce n'est pas un conseil en investissement. La qualité est élevée (9/10), la valorisation est basse et l'action est dans ma zone d'achat. Mais le risque de concentration (98 % de revenus fédéraux) est réel : les coupes budgétaires peuvent durer. Fais tes propres recherches avant toute décision.",
+        },
+      ],
+      tags: ['BAH', 'Booz Allen Hamilton', 'conseil', 'défense', 'gouvernement', 'analyse-fondamentale', 'action-qualité'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date indiquée, susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'Booz Allen Hamilton (BAH): a quality stock on sale',
+      excerpt: "Booz Allen, the historic consultant to the US government, has lost nearly half its value in a year on federal budget cuts. One of the top scores in my framework, at a price rarely seen. My analysis.",
+      metaDescription: "Booz Allen Hamilton (BAH): fundamental stock analysis. High-quality US federal consultant hit by budget cuts. Risks and Lubin Danilo's take on this opportunity.",
+      answer: "Booz Allen Hamilton is the go-to consultant for the US government and defense. The stock has fallen about 50% in a year, hit by federal budget cuts. Yet quality remains among the best in my framework, with a very high return on capital and a low valuation. The quality is there, and so is the price.",
+      body: [
+        { type: 'h2', text: 'What Booz Allen Hamilton does' },
+        {
+          type: 'p',
+          text: "Booz Allen Hamilton has existed since 1914, and today it is the go-to consultant for the US government. Nearly 98% of its revenue comes from federal agencies: defense, intelligence, civilian agencies. In practice, the firm embeds thousands of engineers, data analysts and cybersecurity experts inside the machinery of the state, to modernize systems, exploit sensitive data or deploy artificial intelligence on critical missions.",
+        },
+        {
+          type: 'p',
+          text: "Its competitive advantage, what I call the moat (the ditch that protects a company from its rivals), rests on two unglamorous but very sturdy things. First, a large share of its staff hold security clearances: authorizations to access classified information that take months, sometimes years, to obtain. A competitor cannot hire that workforce overnight. Second, decades of relationships with the same agencies, where Booz Allen knows the systems better than the client itself. That is not easy to replace.",
+        },
+        { type: 'h2', text: 'Why the stock has lost nearly half its value' },
+        {
+          type: 'p',
+          text: "A year ago, the stock traded above 120 dollars. Today it sits around 61, close to its twelve-month low. The cause fits in one acronym: DOGE, the federal spending-cut initiative launched by the US administration. When your customer is the government at 98%, a wave of budget cuts hits you head-on.",
+        },
+        {
+          type: 'p',
+          text: "The facts are real. In the quarter reported in January 2026, revenue was already down 10% year over year. Booz Allen announced the elimination of roughly 7% of its workforce, about 2,500 jobs, mostly on civilian-agency work, the most exposed to cuts. The US Treasury even terminated all its contracts with the group after a data leak by a former employee. The market did the math and ran.",
+        },
+        { type: 'h2', text: 'My method: judge quality before price' },
+        {
+          type: 'p',
+          text: "I always separate two questions. First: is this a good business? Second: is this the right price? For quality, I run every company through a grid of objective criteria: profitability, free cash flow growth (the cash truly left once every bill and investment is paid), return on capital, balance sheet discipline, share buybacks. Booz Allen scores 9 out of 10. Not perfect, but a very fine business, and that score has nothing to do with the market's mood: it measures how solid the business is.",
+        },
+        { type: 'h2', text: 'The numbers behind Booz Allen quality' },
+        {
+          type: 'p',
+          text: "Return on capital (Cash ROCE), which measures how much cash the company generates for every dollar invested in its operations, reaches nearly 37%. A 15% threshold is already seen as excellent: Booz Allen is more than double that. Free cash flow per share has grown about 21% per year over five years, and the share count falls roughly 2% a year thanks to buybacks. A company compounding its cash at that pace while shrinking its share count creates value for shareholders, year after year.",
+        },
+        {
+          type: 'p',
+          text: "So why 9 out of 10 and not the top score? Because of a single criterion: the free cash flow margin, around 8%, stays below my 10% threshold. That makes sense for consulting: the main cost is the salaries of thousands of experts, which leaves a thinner cash margin than software. That is the trade-off to accept: an exceptional return-on-capital machine, but a modest cash margin by nature.",
+        },
+        {
+          type: 'table',
+          headers: ['Criterion', 'Booz Allen', 'What I look for'],
+          rows: [
+            ['Quality score', '9/10', '8 of 9 criteria passed'],
+            ['Return on capital (Cash ROCE)', '37%', 'above 15% = excellent'],
+            ['Free cash flow per share growth', '21%/yr over 5 years', 'above 10%/yr'],
+            ['Valuation (P/FCF)', 'about 8x', 'market average: 15 to 25x'],
+            ['Dividend yield', '3.9%', 'paid from 32% of cash generated'],
+          ],
+        },
+        { type: 'h2', text: 'Why the market prices it so low' },
+        {
+          type: 'p',
+          text: "To measure whether a stock is cheap or expensive, I use P/FCF (price-to-free-cash-flow): the stock price relative to the cash it truly generates each year. A P/FCF of 8 means you pay about 8 years of that cash. Booz Allen trades around 8 times its free cash flow, when its consulting sector median is closer to 12 and the market average is 15 to 25. In other words, the stock is clearly undervalued versus its own history and its peers.",
+        },
+        {
+          type: 'p',
+          text: "My reasonable buy price, on prudent assumptions, comes out around 76 dollars. With the stock near 61, that is a discount of about 25% below the threshold. So for the first time in a while, it sits in my buy zone. On top of that it pays a dividend yielding nearly 4%, funded by only a third of the cash generated, so comfortably covered.",
+        },
+        {
+          type: 'p',
+          text: "But the discount has a reason, and you have to face it. The risk is precisely the concentration: depending 98% on a single customer, the federal government, makes you hostage to the political and budget cycle. If cuts deepen, revenue and cash will suffer further. That is the real debate here: a high-quality business, at a low price, but whose weakness (reliance on one payer) is also what makes it so cheap today.",
+        },
+        { type: 'h2', text: 'What I am watching in the July 24 earnings' },
+        {
+          type: 'p',
+          text: "On July 24, 2026, Booz Allen reports the first quarter of fiscal 2027. Consensus expects earnings per share of 1.51 dollars. The prior quarter beat expectations by a wide margin (1.78 versus 1.35 estimated), showing the company is absorbing the shock better than feared. What I will really watch is not the quarter's profit, but the order book and management's tone on federal budget exposure. If bookings hold, the thesis strengthens.",
+        },
+        {
+          type: 'p',
+          text: "This is exactly the kind of analysis, stock by stock, I wanted to run in seconds. The same exercise on Accenture (ACN), another victim of federal cuts, is available at lubin-investment.com/analyse/ACN, and the full Booz Allen analysis at lubin-investment.com/analyse/BAH. My criteria grid is detailed at lubin-investment.com/methodologie. Written by Lubin Danilo, founder of Lubin Investment, a self-taught investor who has beaten the S&P 500 for three years running.",
+        },
+      ],
+      faq: [
+        {
+          q: "What is Booz Allen Hamilton's business?",
+          a: "Booz Allen Hamilton is the go-to consultant for the US government, with nearly 98% of revenue from federal agencies: defense, intelligence, civilian agencies. It provides consulting, data, cybersecurity and artificial intelligence services on often classified missions.",
+        },
+        {
+          q: 'Why has Booz Allen stock fallen so much?',
+          a: "The stock lost nearly half its value in a year on federal budget cuts (the DOGE initiative). Because 98% of revenue comes from the government, every spending reduction hits it directly. The group cut about 7% of its workforce and saw revenue decline.",
+        },
+        {
+          q: 'Why does Booz Allen score 9 out of 10, not the top mark?',
+          a: "A single criterion keeps it from 10 out of 10: its free cash flow margin, around 8%, stays below my 10% threshold. That is normal for consulting, where expert salaries are the main cost. Return on capital, by contrast, is exceptional (nearly 37%).",
+        },
+        {
+          q: 'Is the Booz Allen dividend safe?',
+          a: "The dividend yields nearly 4% and consumes only about a third of the cash generated each year. That safety margin is comfortable. It has also grown about 11% per year over five years. The real risk is not the dividend itself, but a lasting decline in federal revenue.",
+        },
+        {
+          q: 'Is Booz Allen stock a good investment in 2026?',
+          a: "This is not investment advice. Quality is high (9/10), the valuation is low and the stock sits in my buy zone. But concentration risk (98% federal revenue) is real: budget cuts can last. Do your own research before any decision.",
+        },
+      ],
+      tags: ['BAH', 'Booz Allen Hamilton', 'consulting', 'defense', 'government', 'fundamental-analysis', 'quality-stock'],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the date indicated, subject to change. Do your own research before any investment decision.',
+    },
+    es: {
+      title: 'Booz Allen Hamilton (BAH): acción de calidad barata',
+      excerpt: 'Booz Allen, la consultora histórica del gobierno de EE.UU., ha perdido casi la mitad de su valor en un año por los recortes presupuestarios federales. Una de las mejores notas de mi metodología, a un precio rara vez visto. Mi análisis.',
+      metaDescription: 'Booz Allen Hamilton (BAH): análisis fundamental de la acción. Consultora federal de EE.UU. de alta calidad golpeada por los recortes. La opinión de Lubin Danilo.',
+      answer: 'Booz Allen Hamilton es la consultora de referencia del gobierno y la defensa de EE.UU. La acción ha caído cerca del 50 % en un año por los recortes presupuestarios federales. Aun así, la calidad sigue entre las mejores de mi metodología, con una rentabilidad del capital muy alta y una valoración baja. La calidad está, y el precio también.',
+      body: [
+        { type: 'h2', text: 'Lo que hace Booz Allen Hamilton' },
+        {
+          type: 'p',
+          text: "Booz Allen Hamilton existe desde 1914, y hoy es la consultora de referencia del gobierno de Estados Unidos. Cerca del 98 % de su facturación procede de agencias federales: defensa, inteligencia, agencias civiles. En la práctica, la empresa coloca a miles de ingenieros, analistas de datos y expertos en ciberseguridad en el corazón del aparato del Estado, para modernizar sistemas, explotar datos sensibles o desplegar inteligencia artificial en misiones críticas.",
+        },
+        {
+          type: 'p',
+          text: "Su ventaja competitiva, lo que llamo el moat (el foso que protege a una empresa de sus rivales), se apoya en dos cosas poco vistosas pero muy sólidas. Primero, gran parte de su plantilla posee habilitaciones de seguridad (security clearances): autorizaciones para acceder a información clasificada que tardan meses, a veces años, en obtenerse. Un competidor no puede contratar esa mano de obra de la noche a la mañana. Segundo, décadas de relación con las mismas agencias, donde Booz Allen conoce los sistemas mejor que el propio cliente. Eso no se reemplaza fácilmente.",
+        },
+        { type: 'h2', text: 'Por qué la acción ha perdido casi la mitad de su valor' },
+        {
+          type: 'p',
+          text: "Hace un año, la acción cotizaba por encima de 120 dólares. Hoy ronda los 61, muy cerca de su mínimo de doce meses. La causa cabe en una sigla: DOGE, la iniciativa de recorte del gasto federal lanzada por la administración estadounidense. Cuando tu cliente es el gobierno al 98 %, una ola de recortes te golpea de lleno.",
+        },
+        {
+          type: 'p',
+          text: "Los hechos son reales. En el trimestre publicado en enero de 2026, la facturación ya caía un 10 % interanual. Booz Allen anunció la eliminación de cerca del 7 % de su plantilla, unos 2.500 puestos, sobre todo en el trabajo con agencias civiles, las más expuestas a los recortes. El Tesoro de EE.UU. incluso rescindió todos sus contratos con el grupo tras una fuga de datos de un antiguo empleado. El mercado hizo cuentas y huyó.",
+        },
+        { type: 'h2', text: 'Mi método: juzgar la calidad antes que el precio' },
+        {
+          type: 'p',
+          text: "Siempre separo dos preguntas. Primera: ¿es un buen negocio? Segunda: ¿es el precio correcto? Para la calidad, paso cada empresa por una cuadrícula de criterios objetivos: rentabilidad, crecimiento del free cash flow (el efectivo que queda realmente tras pagar todas las facturas e inversiones), rentabilidad del capital, disciplina del balance, recompras de acciones. Booz Allen obtiene 9 sobre 10. No es perfecto, pero es un negocio excelente, y esa nota no tiene nada que ver con el humor del mercado: mide lo sólido que es el negocio.",
+        },
+        { type: 'h2', text: 'Los números que sostienen la calidad de Booz Allen' },
+        {
+          type: 'p',
+          text: "La rentabilidad del capital (Cash ROCE), que mide cuánto efectivo genera la empresa por cada dólar invertido en su actividad, alcanza casi el 37 %. Un umbral del 15 % ya se considera excelente: Booz Allen más que lo duplica. El free cash flow por acción ha crecido alrededor del 21 % anual durante cinco años, y el número de acciones baja cerca del 2 % al año gracias a las recompras. Una empresa que compone su efectivo a ese ritmo mientras reduce sus acciones crea valor para el accionista, año tras año.",
+        },
+        {
+          type: 'p',
+          text: "Entonces, ¿por qué 9 sobre 10 y no la nota máxima? Por un solo criterio: el margen de free cash flow, en torno al 8 %, se queda por debajo de mi umbral del 10 %. Es lógico en consultoría: el coste principal son los salarios de miles de expertos, lo que deja un margen de caja más fino que el software. Ese es el compromiso a aceptar: una máquina de rentabilidad del capital excepcional, pero con un margen de caja modesto por naturaleza.",
+        },
+        {
+          type: 'table',
+          headers: ['Criterio', 'Booz Allen', 'Qué observo'],
+          rows: [
+            ['Nota de calidad', '9/10', '8 de 9 criterios superados'],
+            ['Rentabilidad del capital (Cash ROCE)', '37 %', 'por encima del 15 % = excelente'],
+            ['Crecimiento del free cash flow por acción', '21 %/año en 5 años', 'por encima del 10 %/año'],
+            ['Valoración (P/FCF)', 'unas 8×', 'media del mercado: 15 a 25×'],
+            ['Rentabilidad por dividendo', '3,9 %', 'pagado con el 32 % del efectivo generado'],
+          ],
+        },
+        { type: 'h2', text: 'Por qué el mercado la valora tan bajo' },
+        {
+          type: 'p',
+          text: "Para medir si una acción está cara o barata, uso el P/FCF (price-to-free-cash-flow): el precio de la acción respecto al efectivo que genera de verdad cada año. Un P/FCF de 8 significa que pagas unos 8 años de ese efectivo. Booz Allen cotiza en torno a 8 veces su free cash flow, cuando la mediana de su sector de consultoría se acerca a 12 y la media del mercado va de 15 a 25. Dicho de otro modo, la acción está claramente infravalorada frente a su propia historia y a sus pares.",
+        },
+        {
+          type: 'p',
+          text: "Mi precio de compra razonable, con hipótesis prudentes, sale en torno a 76 dólares. Con la acción cerca de 61, eso es un descuento de alrededor del 25 % bajo ese umbral. Así que, por primera vez en mucho tiempo, está en mi zona de compra. Además paga un dividendo que renta casi el 4 %, financiado con solo un tercio del efectivo generado, por lo que está cómodamente cubierto.",
+        },
+        {
+          type: 'p',
+          text: "Pero el descuento tiene un motivo, y hay que mirarlo de frente. El riesgo es precisamente la concentración: depender al 98 % de un único cliente, el gobierno federal, te hace rehén del ciclo político y presupuestario. Si los recortes se agravan, la facturación y el efectivo sufrirán más. Ese es el verdadero debate aquí: un negocio de gran calidad, a precio bajo, pero cuya debilidad (la dependencia de un solo pagador) es también lo que hoy la hace tan barata.",
+        },
+        { type: 'h2', text: 'Qué vigilo en los resultados del 24 de julio de 2026' },
+        {
+          type: 'p',
+          text: "El 24 de julio de 2026, Booz Allen publica el primer trimestre del ejercicio 2027. El consenso espera un beneficio por acción de 1,51 dólares. El trimestre anterior superó ampliamente las expectativas (1,78 frente a 1,35 estimado), lo que muestra que la empresa absorbe el golpe mejor de lo temido. Lo que de verdad vigilaré no es el beneficio del trimestre, sino la cartera de pedidos y el discurso de la dirección sobre la exposición al presupuesto federal. Si los pedidos aguantan, la tesis se refuerza.",
+        },
+        {
+          type: 'p',
+          text: "Este es exactamente el tipo de análisis, acción por acción, que quería poder hacer en segundos. El mismo ejercicio sobre Accenture (ACN), otra víctima de los recortes federales, está disponible en lubin-investment.com/analyse/ACN, y el análisis completo de Booz Allen en lubin-investment.com/analyse/BAH. Mi cuadrícula de criterios se detalla en lubin-investment.com/methodologie. Escrito por Lubin Danilo, fundador de Lubin Investment, inversor autodidacta que ha superado al S&P 500 durante tres años consecutivos.",
+        },
+      ],
+      faq: [
+        {
+          q: '¿En qué consiste el negocio de Booz Allen Hamilton?',
+          a: 'Booz Allen Hamilton es la consultora de referencia del gobierno de EE.UU., con cerca del 98 % de su facturación procedente de agencias federales: defensa, inteligencia, agencias civiles. Ofrece servicios de consultoría, datos, ciberseguridad e inteligencia artificial en misiones a menudo clasificadas.',
+        },
+        {
+          q: '¿Por qué ha caído tanto la acción de Booz Allen?',
+          a: 'La acción perdió casi la mitad de su valor en un año por los recortes presupuestarios federales (iniciativa DOGE). Como el 98 % de sus ingresos vienen del gobierno, cada reducción del gasto la golpea directamente. El grupo recortó cerca del 7 % de su plantilla y vio caer su facturación.',
+        },
+        {
+          q: '¿Por qué Booz Allen obtiene 9 sobre 10 y no la nota máxima?',
+          a: 'Un solo criterio le impide el 10 sobre 10: su margen de free cash flow, en torno al 8 %, se queda por debajo de mi umbral del 10 %. Es normal en consultoría, donde los salarios de los expertos son el coste principal. La rentabilidad del capital, en cambio, es excepcional (casi el 37 %).',
+        },
+        {
+          q: '¿Es seguro el dividendo de Booz Allen?',
+          a: 'El dividendo renta casi el 4 % y solo consume alrededor de un tercio del efectivo generado cada año. Ese margen de seguridad es cómodo. Además ha crecido cerca del 11 % anual durante cinco años. El verdadero riesgo no es el dividendo en sí, sino una caída duradera de los ingresos federales.',
+        },
+        {
+          q: '¿Es la acción Booz Allen una buena inversión en 2026?',
+          a: 'No es un consejo de inversión. La calidad es alta (9/10), la valoración es baja y la acción está en mi zona de compra. Pero el riesgo de concentración (98 % de ingresos federales) es real: los recortes pueden durar. Haz tu propia investigación antes de cualquier decisión.',
+        },
+      ],
+      tags: ['BAH', 'Booz Allen Hamilton', 'consultoría', 'defensa', 'gobierno', 'análisis-fundamental', 'acción-calidad'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no constituye asesoramiento personalizado de inversión. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha indicada, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+
+const articleNKEPost: Article = {
+  slug: 'nike-nke-q4-fy2026-resultats-verdict',
+  date: '2026-07-01',
+  updated: '2026-07-01',
+  readingTime: 7,
+  ticker: 'NKE',
+  content: {
+    fr: {
+      title: "Nike (NKE) : ce que ses résultats Q4 cachent vraiment",
+      excerpt: "Nike a publié un bénéfice qui a battu les attentes. Mais l'essentiel est ailleurs : la moitié de ce profit vient d'un remboursement exceptionnel de droits de douane. Ce que ma méthode voit derrière le gros titre. Mon analyse.",
+      metaDescription: "Nike (NKE) : analyse des résultats du 4e trimestre fiscal 2026. Pourquoi le bénéfice publié trompe et ce que dit vraiment le cash. L'avis de Lubin Danilo.",
+      answer: "Nike a publié le 30 juin 2026 un bénéfice par action de 0,72 dollar, au-dessus des attentes. Mais 0,52 dollar vient d'un remboursement exceptionnel de droits de douane : le vrai bénéfice courant n'est que de 0,20 dollar. Le chiffre d'affaires recule encore, surtout en Chine, et le cash généré reste faible. Ma méthode reste prudente.",
+      body: [
+        { type: 'h2', text: "Les chiffres du trimestre, et le piège du gros titre" },
+        {
+          type: 'p',
+          text: "Le 30 juin 2026, après la clôture, Nike a publié son quatrième trimestre de l'exercice 2026. Le chiffre d'affaires ressort à 11,0 milliards de dollars, en léger recul (moins 1 % affiché, moins 4 % à taux de change constant), mais juste au-dessus des attentes. Le bénéfice par action publié atteint 0,72 dollar, quand le consensus tablait sur 0,13. Sur le papier, c'est un carton. Sauf que ce chiffre est trompeur.",
+        },
+        {
+          type: 'p',
+          text: "Sur ces 0,72 dollar, environ 0,52 provient d'un élément exceptionnel : un remboursement attendu de droits de douane américains (dispositif IEEPA) de près de 986 millions de dollars, qui a gonflé la marge brute d'environ 9 points, à 49,2 %. Une fois cet effet retiré, le bénéfice courant tombe à 0,20 dollar. C'est le vrai niveau d'activité. Un remboursement de taxes, ce n'est pas du cash gagné en vendant des chaussures : ça n'arrivera pas tous les trimestres.",
+        },
+        { type: 'h2', text: "Pourquoi ma méthode ne s'emballe pas" },
+        {
+          type: 'p',
+          text: "Ma méthode ne juge pas le bénéfice comptable, elle juge le cash. La question que je me pose est simple : combien de free cash flow (le cash qui reste vraiment une fois toutes les factures et les investissements payés) l'entreprise génère-t-elle, et à quel rythme ce cash grandit-il ? Sur ce terrain, Nike obtient une note faible dans ma grille : 3 sur 10.",
+        },
+        {
+          type: 'p',
+          text: "Les raisons sont nettes. La marge de free cash flow est tombée autour de 1 %, le cash par action recule d'environ 12 % par an sur cinq ans, et le chiffre d'affaires est quasiment stable sur la même période. Quand une entreprise ne transforme presque plus sa croissance en cash, ma grille le sanctionne, quels que soient les gros titres sur le bénéfice. Le bénéfice comptable et le cash réel sont deux choses différentes, et c'est le cash qui paie les dividendes, les rachats et la dette.",
+        },
+        {
+          type: 'p',
+          text: "Un mot sur un chiffre qui peut surprendre : le P/FCF (le prix rapporté au cash annuel) de Nike ressort à un niveau extrême, plus de 180. Ce n'est pas parce que l'action est chère en absolu, mais parce que le cash généré sur les douze derniers mois s'est effondré : quand le dénominateur devient minuscule, le ratio explose. Le message est simple : aujourd'hui, le cash n'est pas là.",
+        },
+        { type: 'h2', text: "La Chine, le vrai problème de fond" },
+        {
+          type: 'p',
+          text: "Le point le plus inquiétant du trimestre n'est pas le bénéfice, c'est la Chine. Les ventes en Grande Chine ont chuté de 12 %, à 1,30 milliard de dollars. Ce n'est pas un accident ponctuel : les marques locales comme Anta et Li-Ning gagnent du terrain, l'attrait de la marque Nike s'est émoussé, et le groupe assainit ses stocks et ses réseaux de distribution dans le cadre du redressement lancé par sa direction. Ces choses prennent du temps.",
+        },
+        {
+          type: 'table',
+          headers: ["Indicateur", "Q4 FY2026", "Lecture"],
+          rows: [
+            ["Chiffre d'affaires", "11,0 Md$ (-1 %)", "léger dépassement, mais en recul"],
+            ["Bénéfice par action publié", "0,72 $", "gonflé par un élément exceptionnel"],
+            ["Bénéfice par action courant", "0,20 $", "le vrai niveau d'activité"],
+            ["Chine (Grande Chine)", "1,30 Md$ (-12 %)", "faiblesse persistante"],
+            ["Marge brute", "49,2 %", "dopée par le remboursement douanier"],
+          ],
+        },
+        { type: 'h2', text: "Qualité contre prix : mon verdict" },
+        {
+          type: 'p',
+          text: "L'action Nike a perdu environ la moitié de sa valeur sur un an et cote près de son plus bas annuel, autour de 41 dollars. La tentation de dire c'est devenu pas cher est grande. Mais je sépare toujours deux questions : est-ce une bonne entreprise, et est-ce le bon prix ? Ici, la qualité est faible aujourd'hui (3 sur 10), parce que la machine à cash est grippée. Un prix bas sur une entreprise qui ne génère quasiment plus de cash n'est pas une aubaine : c'est un piège tant que le cash ne repart pas.",
+        },
+        {
+          type: 'p',
+          text: "Ça ne veut pas dire que Nike ne rebondira jamais. La marque reste iconique, le bilan tient, et un redressement réussi changerait la donne. Mais ma méthode attend des preuves dans le cash, pas des promesses. Avant ces résultats, j'avais posé les attentes sur lubin-investment.com/blog/nike-nke-avant-resultats-q4-fy2026-analyse-fondamentale, et l'idée que le bénéfice comptable peut tromper est détaillée sur lubin-investment.com/blog/pe-vs-pfcf-pourquoi-ratio-benefices-trompe-methode-lubin. L'analyse complète et à jour de Nike est sur lubin-investment.com/analyse/NKE.",
+        },
+        {
+          type: 'p',
+          text: "Écrit par Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, l'analyse fondamentale me passionne et m'a donné d'excellents résultats. Cela fait désormais trois années que ma performance bat le S&P 500. J'ai créé ce site pour analyser chaque action avec ma propre méthode, rapidement et sans dépendre d'outils incomplets.",
+        },
+      ],
+      faq: [
+        {
+          q: "Nike a-t-elle battu les attentes au 4e trimestre fiscal 2026 ?",
+          a: "Oui sur le papier : le bénéfice par action publié (0,72 dollar) et le chiffre d'affaires (11,0 milliards) ont dépassé le consensus. Mais l'essentiel du dépassement vient d'un remboursement exceptionnel de droits de douane. Le bénéfice courant, hors cet effet, n'est que de 0,20 dollar.",
+        },
+        {
+          q: "Pourquoi le bénéfice publié de Nike est-il trompeur ?",
+          a: "Parce que sur 0,72 dollar de bénéfice par action, environ 0,52 provient d'un remboursement attendu de droits de douane américains (près de 986 millions de dollars), un élément exceptionnel non récurrent. Ce n'est pas du cash gagné en vendant des produits. Le vrai bénéfice courant est de 0,20 dollar.",
+        },
+        {
+          q: "Pourquoi Nike a-t-elle une note faible dans ta méthode ?",
+          a: "Parce que ma méthode juge le cash, pas le bénéfice comptable. La marge de free cash flow de Nike est tombée autour de 1 %, le cash par action recule d'environ 12 % par an sur cinq ans et les ventes stagnent. Une entreprise qui ne transforme plus sa croissance en cash obtient une note basse : 3 sur 10.",
+        },
+        {
+          q: "Que se passe-t-il avec Nike en Chine ?",
+          a: "Les ventes en Grande Chine ont reculé de 12 % au trimestre, à 1,30 milliard de dollars. Les marques locales (Anta, Li-Ning) gagnent des parts, l'attrait de Nike s'est émoussé et le groupe assainit ses stocks et sa distribution. Le redressement de ce marché prendra du temps.",
+        },
+        {
+          q: "Faut-il acheter l'action Nike après ces résultats ?",
+          a: "Ce n'est pas un conseil en investissement. L'action est bon marché en apparence, près de son plus bas annuel, mais la qualité est faible aujourd'hui (3 sur 10) car le cash s'est effondré. Un prix bas sur une machine à cash grippée n'est pas une aubaine. Fais tes propres recherches.",
+        },
+      ],
+      tags: ['NKE', 'Nike', 'résultats', 'earnings', 'Chine', 'analyse-fondamentale'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date indiquée, susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'Nike (NKE): what the Q4 beat really hides',
+      excerpt: "Nike posted earnings that beat expectations. But the point lies elsewhere: half of that profit comes from a one-off tariff refund. What my method sees behind the headline. My analysis.",
+      metaDescription: "Nike (NKE): analysis of fiscal Q4 2026 results. Why the reported profit misleads and what the cash really says. Lubin Danilo's take.",
+      answer: "On June 30, 2026, Nike reported earnings per share of 0.72 dollars, above expectations. But 0.52 dollars came from a one-off tariff refund: real operating earnings were only 0.20 dollars. Revenue is still declining, especially in China, and the cash generated stays weak. My method remains cautious.",
+      body: [
+        { type: 'h2', text: 'The quarter figures, and the headline trap' },
+        {
+          type: 'p',
+          text: "On June 30, 2026, after the close, Nike reported the fourth quarter of fiscal 2026. Revenue came in at 11.0 billion dollars, slightly down (minus 1% reported, minus 4% currency-neutral), but just above expectations. Reported earnings per share hit 0.72 dollars, when consensus expected 0.13. On paper, a blowout. Except that number is misleading.",
+        },
+        {
+          type: 'p',
+          text: "Of that 0.72 dollars, about 0.52 came from a one-off item: an expected refund of US tariffs (the IEEPA framework) of nearly 986 million dollars, which lifted gross margin by roughly 9 points, to 49.2%. Strip that effect out and operating earnings fall to 0.20 dollars. That is the real level of activity. A tax refund is not cash earned by selling shoes: it will not happen every quarter.",
+        },
+        { type: 'h2', text: 'Why my method does not get carried away' },
+        {
+          type: 'p',
+          text: "My method does not judge accounting profit, it judges cash. The question I ask is simple: how much free cash flow (the cash truly left once every bill and investment is paid) does the company generate, and how fast is that cash growing? On that ground, Nike scores low in my framework: 3 out of 10.",
+        },
+        {
+          type: 'p',
+          text: "The reasons are clear. The free cash flow margin has fallen to around 1%, cash per share is dropping about 12% per year over five years, and revenue is nearly flat over the same period. When a company barely converts its growth into cash, my grid penalizes it, whatever the headlines say about profit. Accounting profit and real cash are two different things, and it is cash that pays dividends, buybacks and debt.",
+        },
+        {
+          type: 'p',
+          text: "A word on a figure that may surprise: Nike's P/FCF (price relative to annual cash) comes out at an extreme level, above 180. Not because the stock is expensive in absolute terms, but because the cash generated over the last twelve months has collapsed: when the denominator becomes tiny, the ratio explodes. The message is simple: right now, the cash is not there.",
+        },
+        { type: 'h2', text: 'China, the real underlying problem' },
+        {
+          type: 'p',
+          text: "The most worrying part of the quarter is not profit, it is China. Greater China sales dropped 12%, to 1.30 billion dollars. This is not a one-off: local brands like Anta and Li-Ning are gaining ground, Nike's brand heat has cooled, and the group is cleaning up its inventory and distribution channels as part of the turnaround its management launched. These things take time.",
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Q4 FY2026', 'Reading'],
+          rows: [
+            ['Revenue', '$11.0B (-1%)', 'slight beat, but declining'],
+            ['Reported earnings per share', '$0.72', 'inflated by a one-off item'],
+            ['Operating earnings per share', '$0.20', 'the real level of activity'],
+            ['Greater China', '$1.30B (-12%)', 'persistent weakness'],
+            ['Gross margin', '49.2%', 'boosted by the tariff refund'],
+          ],
+        },
+        { type: 'h2', text: 'Quality versus price: my verdict' },
+        {
+          type: 'p',
+          text: "Nike stock has lost about half its value in a year and trades near its twelve-month low, around 41 dollars. The temptation to say it has gotten cheap is strong. But I always separate two questions: is this a good business, and is this the right price? Here, quality is weak today (3 out of 10), because the cash machine is jammed. A low price on a company that barely generates cash is not a bargain: it is a trap until the cash comes back.",
+        },
+        {
+          type: 'p',
+          text: "This does not mean Nike will never rebound. The brand remains iconic, the balance sheet holds, and a successful turnaround would change the picture. But my method waits for proof in the cash, not promises. Before these results, I set out the expectations at lubin-investment.com/blog/nike-nke-avant-resultats-q4-fy2026-analyse-fondamentale, and the idea that accounting profit can mislead is detailed at lubin-investment.com/blog/pe-vs-pfcf-pourquoi-ratio-benefices-trompe-methode-lubin. The full, up-to-date Nike analysis is at lubin-investment.com/analyse/NKE.",
+        },
+        {
+          type: 'p',
+          text: "Written by Lubin Danilo, founder of Lubin Investment. A self-taught individual investor, fundamental analysis is my passion and has delivered excellent results. I have now beaten the S&P 500 for three years running. I built this site to analyze every stock with my own method, quickly and without relying on incomplete tools.",
+        },
+      ],
+      faq: [
+        {
+          q: 'Did Nike beat expectations in fiscal Q4 2026?',
+          a: "On paper, yes: reported earnings per share (0.72 dollars) and revenue (11.0 billion) both topped consensus. But most of the beat came from a one-off tariff refund. Operating earnings, excluding that effect, were only 0.20 dollars.",
+        },
+        {
+          q: "Why is Nike's reported profit misleading?",
+          a: "Because of the 0.72 dollars of earnings per share, about 0.52 came from an expected US tariff refund (nearly 986 million dollars), a one-off, non-recurring item. That is not cash earned by selling products. Real operating earnings were 0.20 dollars.",
+        },
+        {
+          q: 'Why does Nike score low in your method?',
+          a: "Because my method judges cash, not accounting profit. Nike's free cash flow margin has fallen to around 1%, cash per share is down about 12% per year over five years, and sales are flat. A company that no longer turns growth into cash gets a low score: 3 out of 10.",
+        },
+        {
+          q: 'What is happening with Nike in China?',
+          a: "Greater China sales fell 12% in the quarter, to 1.30 billion dollars. Local brands (Anta, Li-Ning) are gaining share, Nike's appeal has cooled, and the group is cleaning up inventory and distribution. Turning that market around will take time.",
+        },
+        {
+          q: 'Should you buy Nike stock after these results?',
+          a: "This is not investment advice. The stock looks cheap, near its twelve-month low, but quality is weak today (3 out of 10) because cash has collapsed. A low price on a jammed cash machine is not a bargain. Do your own research.",
+        },
+      ],
+      tags: ['NKE', 'Nike', 'earnings', 'results', 'China', 'fundamental-analysis'],
+      disclaimer:
+        'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the date indicated, subject to change. Do your own research before any investment decision.',
+    },
+    es: {
+      title: 'Nike (NKE): lo que sus resultados Q4 esconden',
+      excerpt: 'Nike publicó un beneficio que batió las expectativas. Pero lo esencial está en otro lado: la mitad de ese beneficio viene de un reembolso excepcional de aranceles. Lo que mi método ve detrás del titular. Mi análisis.',
+      metaDescription: 'Nike (NKE): análisis de los resultados del 4o trimestre fiscal 2026. Por qué el beneficio publicado engaña y qué dice de verdad el efectivo. La opinión de Lubin Danilo.',
+      answer: 'El 30 de junio de 2026, Nike publicó un beneficio por acción de 0,72 dólares, por encima de las expectativas. Pero 0,52 dólares vienen de un reembolso excepcional de aranceles: el beneficio corriente real es de solo 0,20 dólares. La facturación sigue cayendo, sobre todo en China, y el efectivo generado sigue siendo débil. Mi método se mantiene prudente.',
+      body: [
+        { type: 'h2', text: 'Las cifras del trimestre, y la trampa del titular' },
+        {
+          type: 'p',
+          text: "El 30 de junio de 2026, tras el cierre, Nike publicó el cuarto trimestre del ejercicio 2026. La facturación fue de 11,0 mil millones de dólares, en ligera caída (menos 1 % declarado, menos 4 % a tipo de cambio constante), pero justo por encima de las expectativas. El beneficio por acción publicado alcanzó 0,72 dólares, cuando el consenso esperaba 0,13. Sobre el papel, un exitazo. Salvo que esa cifra engaña.",
+        },
+        {
+          type: 'p',
+          text: "De esos 0,72 dólares, cerca de 0,52 vienen de un elemento excepcional: un reembolso esperado de aranceles estadounidenses (mecanismo IEEPA) de casi 986 millones de dólares, que infló el margen bruto en unos 9 puntos, hasta el 49,2 %. Quitado ese efecto, el beneficio corriente cae a 0,20 dólares. Ese es el nivel real de actividad. Un reembolso de impuestos no es efectivo ganado vendiendo zapatillas: no va a ocurrir cada trimestre.",
+        },
+        { type: 'h2', text: 'Por qué mi método no se entusiasma' },
+        {
+          type: 'p',
+          text: "Mi método no juzga el beneficio contable, juzga el efectivo. La pregunta que me hago es simple: ¿cuánto free cash flow (el efectivo que queda de verdad tras pagar todas las facturas e inversiones) genera la empresa, y a qué ritmo crece ese efectivo? En ese terreno, Nike obtiene una nota baja en mi metodología: 3 sobre 10.",
+        },
+        {
+          type: 'p',
+          text: "Las razones son claras. El margen de free cash flow ha caído a alrededor del 1 %, el efectivo por acción baja cerca del 12 % anual durante cinco años, y la facturación está casi plana en el mismo periodo. Cuando una empresa apenas convierte su crecimiento en efectivo, mi cuadrícula la penaliza, digan lo que digan los titulares sobre el beneficio. El beneficio contable y el efectivo real son dos cosas distintas, y es el efectivo el que paga dividendos, recompras y deuda.",
+        },
+        {
+          type: 'p',
+          text: "Una palabra sobre una cifra que puede sorprender: el P/FCF (el precio respecto al efectivo anual) de Nike sale en un nivel extremo, por encima de 180. No porque la acción esté cara en términos absolutos, sino porque el efectivo generado en los últimos doce meses se ha desplomado: cuando el denominador se vuelve minúsculo, el ratio se dispara. El mensaje es simple: hoy, el efectivo no está.",
+        },
+        { type: 'h2', text: 'China, el verdadero problema de fondo' },
+        {
+          type: 'p',
+          text: "Lo más preocupante del trimestre no es el beneficio, es China. Las ventas en la Gran China cayeron un 12 %, hasta 1,30 mil millones de dólares. No es un accidente puntual: marcas locales como Anta y Li-Ning ganan terreno, el atractivo de la marca Nike se ha enfriado, y el grupo está saneando sus inventarios y sus redes de distribución dentro del plan de recuperación lanzado por su dirección. Estas cosas llevan tiempo.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Q4 FY2026', 'Lectura'],
+          rows: [
+            ['Facturación', '11,0 mil M$ (-1 %)', 'ligero superávit, pero en caída'],
+            ['Beneficio por acción publicado', '0,72 $', 'inflado por un elemento excepcional'],
+            ['Beneficio por acción corriente', '0,20 $', 'el nivel real de actividad'],
+            ['Gran China', '1,30 mil M$ (-12 %)', 'debilidad persistente'],
+            ['Margen bruto', '49,2 %', 'impulsado por el reembolso arancelario'],
+          ],
+        },
+        { type: 'h2', text: 'Calidad frente a precio: mi veredicto' },
+        {
+          type: 'p',
+          text: "La acción Nike ha perdido cerca de la mitad de su valor en un año y cotiza cerca de su mínimo de doce meses, en torno a 41 dólares. La tentación de decir se ha puesto barata es grande. Pero siempre separo dos preguntas: ¿es un buen negocio, y es el precio correcto? Aquí, la calidad es débil hoy (3 sobre 10), porque la máquina de efectivo está atascada. Un precio bajo en una empresa que apenas genera efectivo no es una ganga: es una trampa mientras el efectivo no vuelva.",
+        },
+        {
+          type: 'p',
+          text: "Eso no significa que Nike nunca vaya a rebotar. La marca sigue siendo icónica, el balance aguanta, y una recuperación exitosa cambiaría el panorama. Pero mi método espera pruebas en el efectivo, no promesas. Antes de estos resultados, dejé las expectativas en lubin-investment.com/blog/nike-nke-avant-resultats-q4-fy2026-analyse-fondamentale, y la idea de que el beneficio contable puede engañar se detalla en lubin-investment.com/blog/pe-vs-pfcf-pourquoi-ratio-benefices-trompe-methode-lubin. El análisis completo y actualizado de Nike está en lubin-investment.com/analyse/NKE.",
+        },
+        {
+          type: 'p',
+          text: "Escrito por Lubin Danilo, fundador de Lubin Investment. Inversor particular autodidacta, el análisis fundamental me apasiona y me ha dado excelentes resultados. Llevo ya tres años batiendo al S&P 500. Creé este sitio para analizar cada acción con mi propio método, rápido y sin depender de herramientas incompletas.",
+        },
+      ],
+      faq: [
+        {
+          q: '¿Nike batió las expectativas en el 4o trimestre fiscal 2026?',
+          a: 'Sobre el papel, sí: el beneficio por acción publicado (0,72 dólares) y la facturación (11,0 mil millones) superaron el consenso. Pero la mayor parte del superávit vino de un reembolso excepcional de aranceles. El beneficio corriente, sin ese efecto, fue de solo 0,20 dólares.',
+        },
+        {
+          q: '¿Por qué el beneficio publicado de Nike engaña?',
+          a: 'Porque de los 0,72 dólares de beneficio por acción, cerca de 0,52 vinieron de un reembolso esperado de aranceles estadounidenses (casi 986 millones de dólares), un elemento excepcional no recurrente. No es efectivo ganado vendiendo productos. El beneficio corriente real fue de 0,20 dólares.',
+        },
+        {
+          q: '¿Por qué Nike tiene una nota baja en tu método?',
+          a: 'Porque mi método juzga el efectivo, no el beneficio contable. El margen de free cash flow de Nike ha caído a alrededor del 1 %, el efectivo por acción baja cerca del 12 % anual durante cinco años y las ventas están planas. Una empresa que ya no convierte su crecimiento en efectivo obtiene una nota baja: 3 sobre 10.',
+        },
+        {
+          q: '¿Qué ocurre con Nike en China?',
+          a: 'Las ventas en la Gran China cayeron un 12 % en el trimestre, hasta 1,30 mil millones de dólares. Las marcas locales (Anta, Li-Ning) ganan cuota, el atractivo de Nike se ha enfriado y el grupo sanea inventarios y distribución. Recuperar ese mercado llevará tiempo.',
+        },
+        {
+          q: '¿Hay que comprar la acción Nike tras estos resultados?',
+          a: 'No es un consejo de inversión. La acción parece barata, cerca de su mínimo de doce meses, pero la calidad es débil hoy (3 sobre 10) porque el efectivo se ha desplomado. Un precio bajo sobre una máquina de efectivo atascada no es una ganga. Haz tu propia investigación.',
+        },
+      ],
+      tags: ['NKE', 'Nike', 'resultados', 'earnings', 'China', 'análisis-fundamental'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no constituye asesoramiento personalizado de inversión. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha indicada, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+
 const articleALL: Article = {
   slug: 'allstate-all-assurance-auto-analyse-fondamentale',
   date: '2026-06-29',
@@ -37248,7 +37818,7 @@ const articleALL: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
+export const ARTICLES: Article[] = [articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
