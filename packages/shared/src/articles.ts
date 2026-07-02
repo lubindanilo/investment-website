@@ -24004,9 +24004,9 @@ const articleMU: Article = {
   ticker: 'MU',
   content: {
     fr: {
-      title: 'Micron Technology (MU) : notre analyse avant le 24 juin 2026',
+      title: 'Micron Technology (MU) : demande IA, guidance, vrai risque',
       excerpt: "Dans deux jours, Micron publie ses résultats trimestriels au milieu d\'une euphorie autour de l\'IA. Les analystes attendent une explosion des bénéfices. Alors pourquoi notre méthode ne donne que 6 sur 10 ? Je t\'explique tout.",
-      metaDescription: "Micron Technology publie ses résultats le 24 juin 2026. Analyse complète : boom HBM, valorisation élevée, et pourquoi notre méthode attribue 6 sur 10 malgré l\'euphorie IA.",
+      metaDescription: "Micron profite d'un boom de la demande IA porté par la mémoire HBM. Notre analyse complète explique pourquoi la guidance laisse un vrai risque de valorisation.",
       answer: "Micron bénéficie d\'une demande explosive pour la mémoire HBM liée à l\'IA, avec des résultats attendus en forte hausse. Mais notre méthode attribue 6 sur 10 car les cycliques comme Micron affichent une volatilité historique qui pénalise les critères de régularité et de valorisation.",
       body: [
         { type: 'p', text: "<strong>Mise à jour (29 juin 2026) :</strong> Micron a publié ses résultats Q3 FY2026 le 24 juin. Pour les chiffres réels et notre verdict, lisez <a href='/blog/micron-mu-q3-fy2026-resultats-beat-analyse'>notre analyse post-résultats</a>." },
@@ -24040,9 +24040,9 @@ const articleMU: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: 'Micron Technology (MU): our analysis before June 24, 2026',
+      title: 'Micron Technology (MU): AI demand, guidance, real risk',
       excerpt: 'In two days, Micron reports quarterly earnings amid an AI frenzy. Analysts expect an earnings explosion. So why does our method score it only 6 out of 10? I break it all down.',
-      metaDescription: 'Micron Technology reports earnings on June 24, 2026. Full analysis: HBM boom, stretched valuation, and why our method scores 6 out of 10 despite AI euphoria.',
+      metaDescription: 'Micron rides an AI memory boom driven by HBM demand. Our full analysis explains why guidance still leaves a real valuation risk.',
       answer: 'Micron benefits from explosive HBM memory demand driven by AI, with results expected to surge sharply. Our method scores it 6 out of 10 because cyclicals like Micron show historical volatility that penalizes our consistency and valuation criteria.',
       body: [
         { type: 'p', text: "<strong>Update (June 29, 2026):</strong> Micron reported Q3 FY2026 results on June 24. For the actual numbers and our verdict, read <a href='/blog/micron-mu-q3-fy2026-resultats-beat-analyse'>our post-earnings analysis</a>." },
@@ -24076,9 +24076,9 @@ const articleMU: Article = {
       disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.',
     },
     es: {
-      title: 'Micron Technology (MU): análisis antes del 24 de junio de 2026',
+      title: 'Micron Technology (MU): demanda IA, guidance, riesgo real',
       excerpt: 'En dos días, Micron publica sus resultados trimestrales en medio de una euforia por la IA. Los analistas esperan una explosión de beneficios. ¿Por qué nuestro método solo le da 6 sobre 10? Te lo explico.',
-      metaDescription: 'Micron Technology publica resultados el 24 de junio de 2026. Análisis completo: boom HBM, valoración elevada, y por qué nuestro método le otorga 6 sobre 10 pese a la euforia por la IA.',
+      metaDescription: 'Micron se beneficia de un boom de demanda de IA impulsado por la memoria HBM. Nuestro análisis explica por qué la guidance deja un riesgo real de valoración.',
       answer: 'Micron se beneficia de una demanda explosiva de memoria HBM impulsada por la IA. Pero nuestro método le otorga 6 sobre 10 porque las cíclicas como Micron muestran una volatilidad histórica que penaliza los criterios de regularidad y valoración.',
       body: [
         { type: 'p', text: "<strong>Actualización (29 de junio de 2026):</strong> Micron publicó sus resultados Q3 FY2026 el 24 de junio. Para las cifras reales y nuestro veredicto, lee <a href='/blog/micron-mu-q3-fy2026-resultats-beat-analyse'>nuestro análisis post-resultados</a>." },
