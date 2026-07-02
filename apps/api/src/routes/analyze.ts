@@ -149,7 +149,7 @@ function buildResponse(args: {
     scoreMax,
     achat: scoreMax > 0 && score / scoreMax >= 0.7,
     verdict_direct: verdictDirect ?? '',
-    news: filterNews(rawNews),
+    news: filterNews(rawNews, ticker, company),
     valuation,
     valoParams,
     businessCachedAt: businessCachedAt?.toISOString() ?? null,

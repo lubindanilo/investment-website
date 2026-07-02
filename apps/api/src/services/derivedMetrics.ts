@@ -627,20 +627,76 @@ export function buildValuation(
 import type { FinnhubNewsItem } from './finnhub.js';
 import type { NewsItem, NewsType } from '@lubin/shared';
 
-export function filterNews(raw: FinnhubNewsItem[]): NewsItem[] {
+/** Échappe les métacaractères regex (tickers avec « . » ou « - » : BRK.B, RDS-A…). */
+function escapeRegex(s: string): string {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/**
+ * Nom de marque sans suffixe juridique (« Adobe Inc » → « Adobe », « Berkshire Hathaway
+ * Inc Class B » → « Berkshire Hathaway »). Version locale minimale : on ne cherche qu'à
+ * tester la pertinence d'une news, pas à produire un titre SEO — la variante complète vit
+ * dans seoPrerender pour les titles/descs (pas d'import cross-couche route→service).
+ */
+function brandName(company: string): string {
+  const cleaned = company
+    .replace(/\s+Class\s+[A-Z]$/i, '')
+    .replace(/\s+(Incorporated|Inc|Corporation|Corp|Company|Co|Limited|Ltd|PLC|LLC|LP|N\.?V\.?|S\.?A\.?|AG|SE|AB|Holdings?|Group)\.?$/i, '')
+    .replace(/[,;&]+\s*$/g, '')
+    .trim();
+  return cleaned || company;
+}
+
+/**
+ * Filtre les news Finnhub pour ne garder que le signal pertinent (5 max).
+ *
+ * Trois garde-fous :
+ *  1. Pertinence — la news doit VRAIMENT parler de l'entreprise (ticker en toutes lettres,
+ *     nom de marque complet, ou premier mot du nom ≥ 3 car). Élimine les roundups marché où
+ *     l'action n'est qu'un tag (« Michael Burry doubles down on China tech »).
+ *  2. Classification par type (rachat/dividende/résultats/M&A/mgmt), regex resserrées :
+ *     `\bbeats?\b` (plus de faux positif sur « beaten-down »), plus de `deal` nu (trop large).
+ *  3. Formats agrégateurs / putaclic rejetés même si le ticker est cité (« Deal Dispatch »,
+ *     « stocks to buy », « top 10 », « why X jumped today »…).
+ *
+ * `ticker`/`company` sont optionnels : sans eux, le garde-fou 1 est désactivé (rétrocompat).
+ */
+export function filterNews(raw: FinnhubNewsItem[], ticker?: string, company?: string): NewsItem[] {
+  const brand = company ? brandName(company) : '';
+  const brandToken = brand.split(/\s+/)[0] ?? '';
+  const tickerRe = ticker ? new RegExp(`\\b${escapeRegex(ticker)}\\b`, 'i') : null;
+  const brandTokenRe = brandToken.length >= 3 ? new RegExp(`\\b${escapeRegex(brandToken)}\\b`, 'i') : null;
+
+  // La news mentionne-t-elle CETTE entreprise ? (titre + résumé)
+  const mentionsCompany = (text: string): boolean => {
+    if (tickerRe && tickerRe.test(text)) return true;
+    if (brand && text.toLowerCase().includes(brand.toLowerCase())) return true;
+    if (brandTokenRe && brandTokenRe.test(text)) return true;
+    return false;
+  };
+
+  // Formats agrégateurs / putaclic : bruit quasi systématique même quand le ticker est cité.
+  const isRoundup = (h: string): boolean =>
+    /deal dispatch|market wrap|morning brief|midday movers|stocks? to (buy|watch|sell|avoid)|top \d+|best (stocks|deals)|\d+ (stocks|things)|why .* (jump|fell|soar|plung|tank|surg|drop|rall|rose|sank)/i.test(h);
+
   const classify = (h: string): NewsType | null => {
     const s = h.toLowerCase();
     if (/lawsuit|class action|securities fraud|investor alert|investigating potential|sec investigation|reminds.*investors|deadline.*action|vs\.|vs medp| vs |which.*better|which.*stock/.test(s)) return null;
     if (/buyback|repurchase|rachat/.test(s)) return 'rachat';
     if (/dividend/.test(s)) return 'dividende';
-    if (/\bq[1-4]\b|earnings|results|revenue|beats?|misses|guidance|raises outlook|cuts outlook/.test(s)) return 'résultats';
-    if (/acquir|merger|\bdeal\b|m&a|acquisition|spin[- ]off|divest/.test(s)) return 'M&A';
+    if (/\bq[1-4]\b|earnings|results|revenue|\bbeats?\b|\bmisses\b|guidance|raises outlook|cuts outlook/.test(s)) return 'résultats';
+    if (/acquir|merger|acquisition|spin[- ]off|divest|m&a/.test(s)) return 'M&A';
     if (/\bceo\b|\bcfo\b|chief.*officer|appoints|named .* (ceo|cfo|chair)|founder|board chair|resigns|steps down/.test(s)) return 'mgmt';
     return null;
   };
 
   return raw
     .map(n => {
+      // 1. Pertinence : doit parler de l'entreprise (si on connaît ticker/nom).
+      if ((tickerRe || brand) && !mentionsCompany(`${n.headline} ${n.summary ?? ''}`)) return null;
+      // 3. Rejette les formats roundup / clickbait sur le titre.
+      if (isRoundup(n.headline)) return null;
+      // 2. Classification par type.
       const type = classify(n.headline);
       if (!type) return null;
       return {
