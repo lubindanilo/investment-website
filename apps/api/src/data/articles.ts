@@ -34399,16 +34399,16 @@ const ryanairRYAAY: Article = {
 const micronQ3Post: Article = {
   slug: 'micron-mu-q3-fy2026-resultats-beat-analyse',
   date: '2026-06-24',
-  updated: '2026-06-24',
+  updated: '2026-07-02',
   readingTime: 7,
   ticker: 'MU',
   content: {
     fr: {
-      title: "Micron (MU) en bourse après le beat massif de Q3 FY2026",
+      title: "Micron (MU) : des résultats record, mon verdict nuancé",
       excerpt:
-        "Micron explose toutes les attentes : +24 % sur le bénéfice par action, +16 % sur le chiffre d'affaires, et une guidance Q4 à 50 milliards de dollars qui laisse les analystes sans voix. Mais notre méthode garde la tête froide. Score : 6 sur 10. Je t'explique pourquoi.",
+        "Micron a explosé toutes les attentes, portée par l'explosion de la mémoire pour l'IA. Mais un trimestre record ne fait pas une action de qualité. Pourquoi ma méthode garde la tête froide. Mon analyse.",
       metaDescription:
-        "Micron (MU) publie des résultats Q3 FY2026 exceptionnels le 24 juin 2026 : BPA 25,11 $ vs 20,20 $ attendu, CA 41,46 Mds $. Action +16 % after-hours. Notre score reste 6 sur 10 malgré le beat.",
+        "Micron (MU) a écrasé les attentes au trimestre de juin 2026, portée par la mémoire pour l'IA. Pourquoi je reste prudent malgré le record. Mon analyse.",
       answer:
         "Micron a publié le 24 juin 2026 des résultats Q3 FY2026 historiques : bénéfice par action de 25,11 dollars contre 20,20 dollars attendus, et chiffre d'affaires de 41,46 milliards de dollars contre 35,59 milliards attendus. La guidance Q4 vise 50 milliards de dollars, soit 16 % au-dessus du consensus. L'action a bondi de 16 % après la clôture. Notre score reste 6 sur 10 : le free cash flow cyclique de Micron limite la note, même au sommet du cycle.",
       body: [
@@ -34523,11 +34523,11 @@ const micronQ3Post: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Micron (MU) stock after massive Q3 FY2026 earnings beat",
+      title: "Micron (MU): record results, my cautious verdict",
       excerpt:
-        "Micron smashes all expectations: EPS beats by +24%, revenue beats by +16%, and Q4 guidance of 50 billion dollars leaves analysts speechless. But our method stays cool. Score: 6 out of 10. Here is why.",
+        "Micron blew past every expectation, powered by the AI memory boom. But a record quarter does not make a quality stock. Why my method keeps a cool head. My analysis.",
       metaDescription:
-        "Micron (MU) delivers historic Q3 FY2026 results on June 24, 2026: EPS 25.11 $ vs 20.20 $ expected, revenue 41.46 B$. Stock up +16% after-hours. Our score stays 6 out of 10 despite the beat.",
+        "Micron (MU) crushed expectations in the June 2026 quarter, driven by AI memory demand. Why I stay cautious despite the record. Analysis by Lubin Danilo.",
       answer:
         "Micron reported historic Q3 FY2026 results on June 24, 2026: earnings per share of 25.11 dollars versus 20.20 dollars expected, and revenue of 41.46 billion dollars versus 35.59 billion expected. Q4 guidance targets 50 billion dollars, 16% above consensus. The stock jumped 16% after hours. Our score stays 6 out of 10: Micron's cyclical free cash flow limits the rating even at the peak of the cycle.",
       body: [
@@ -34642,11 +34642,11 @@ const micronQ3Post: Article = {
         'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research.',
     },
     es: {
-      title: "Micron (MU) en bolsa tras el beat masivo de Q3 FY2026",
+      title: "Micron (MU): resultados récord, mi veredicto prudente",
       excerpt:
-        "Micron supera todas las expectativas: BPA +24 %, ingresos +16 %, y una guía Q4 de 50.000 millones de dólares que deja a los analistas sin palabras. Pero nuestro método mantiene la cabeza fría. Nota: 6 sobre 10. Te explico por qué.",
+        "Micron superó con creces todas las expectativas, impulsada por el auge de la memoria para IA. Pero un trimestre récord no hace una acción de calidad. Por qué mi método mantiene la cabeza fría. Mi análisis.",
       metaDescription:
-        "Micron (MU) publica resultados históricos Q3 FY2026 el 24 de junio de 2026: BPA 25,11 $ vs 20,20 $ esperado, facturación 41.460 M$. Acción +16 % after-hours. Nuestra nota sigue en 6 sobre 10.",
+        "Micron (MU) aplastó las expectativas en junio de 2026, impulsada por la memoria para IA. Por qué me mantengo prudente pese al récord. Mi análisis.",
       answer:
         "Micron publicó el 24 de junio de 2026 resultados históricos del Q3 FY2026: beneficio por acción de 25,11 dólares frente a 20,20 dólares esperados, e ingresos de 41.460 millones de dólares frente a 35.590 millones esperados. La guía para Q4 apunta a 50.000 millones, un 16 % por encima del consenso. La acción subió un 16 % en el mercado fuera de horario. Nuestra nota se mantiene en 6 sobre 10: el flujo de caja libre cíclico de Micron limita la puntuación incluso en el pico del ciclo.",
       body: [
