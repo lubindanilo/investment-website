@@ -483,7 +483,8 @@
       },
       "actualites": {
         "title": "Recent news",
-        "sub": "The context, without the noise"
+        "sub": "The context, without the noise",
+        "blogSource": "Lubin Blog"
       },
       "cours": {
         "title": "Price",

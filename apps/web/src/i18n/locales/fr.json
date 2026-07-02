@@ -508,7 +508,8 @@
       },
       "actualites": {
         "title": "Actualités récentes",
-        "sub": "Le contexte, sans le bruit"
+        "sub": "Le contexte, sans le bruit",
+        "blogSource": "Blog Lubin"
       },
       "cours": {
         "title": "Cours",
