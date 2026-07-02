@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { listArticles, toArticleLang } from '@lubin/shared';
 import type { AnalyzeResponse, ScreenerTopRow, Criterion } from '@lubin/shared';
 import { api, ApiError, type TickerPreview } from '../lib/api.js';
 import { AnalysisPreview } from '../components/AnalysisPreview.js';
@@ -39,6 +40,16 @@ function score10(items: Criterion[]): number {
 }
 function compositionCounts(items: Criterion[]) {
   return items.reduce((a, c) => { a[toDataStatus(c.statut)]++; return a; }, { good: 0, warn: 0, bad: 0 });
+}
+/** Date d'article ISO (YYYY-MM-DD) → JJ/MM/AA, même format que le flux d'actus Finnhub. */
+function toNewsDate(iso: string): string {
+  const [y, m, d] = iso.split('-');
+  return `${d}/${m}/${y?.slice(2)}`;
+}
+/** Date du flux d'actus (JJ/MM/AA) → clé triable ISO (YYYY-MM-DD). */
+function newsDateToIso(d: string): string {
+  const [dd, mm, yy] = d.split('/');
+  return `20${yy}-${mm}-${dd}`;
 }
 
 export function AnalysePage() {
@@ -323,11 +334,25 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
   watched: boolean; onWatch: () => void; onGenerateQual: () => void; generatingQual: boolean;
   refreshingQual: boolean; onRefreshMgmt: () => void;
 }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const s10 = score10(chiffres);
   const counts = compositionCounts(chiffres);
   const currency = analysis.currency || 'USD';
   const annualOnly = analysis.fundamentalsSource === 'yahoo';
+  // Fil d'actus unifié, trié du plus récent au plus ancien : les 5 actus externes les plus
+  // fraîches (flux Finnhub, déjà plafonné à 5 par le backend) + les articles du blog liés à
+  // ce ticker (article.ticker, liens internes /blog/:slug — miroir SPA du maillage bots de
+  // seoPrerender, max 3). Les articles s'INSÈRENT à leur position chronologique sans évincer
+  // d'actus ni être évincés. À date égale, le blog passe devant (tri stable, entrées en tête).
+  const articleLang = toArticleLang(i18n.language);
+  const actuRows = useMemo(() => {
+    const blog = listArticles()
+      .filter((a) => a.ticker?.toUpperCase() === analysis.ticker.toUpperCase())
+      .slice(0, 3)
+      .map((a) => ({ kind: 'blog' as const, sortKey: a.date, article: a }));
+    const news = analysis.news.map((n) => ({ kind: 'news' as const, sortKey: newsDateToIso(n.date), item: n }));
+    return [...blog, ...news].sort((x, y) => (x.sortKey < y.sortKey ? 1 : -1));
+  }, [analysis.ticker, analysis.news]);
 
   // Action non couverte : on n'a NI fundamentals NI cours. Plutôt que d'afficher
   // une note 5/10 par défaut et 10 critères « Non calculable » qui induisent en
@@ -468,15 +493,21 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
           <ValuationBlock price={analysis.price} pfcfTTM={analysis.metrics.pfcfTTM} currency={currency} valoParams={analysis.valoParams} />
         </Section>
 
-        {/* Actualités */}
-        {analysis.news.length > 0 && (
+        {/* Actualités : fil unifié blog + flux externe, du plus récent au plus ancien */}
+        {actuRows.length > 0 && (
           <Section title={t('analyse.sections.actualites.title')} sub={t('analyse.sections.actualites.sub')}>
             <div className="card anl-news">
-              {analysis.news.map((n, i) => (
-                <a key={i} href={n.url} target="_blank" rel="noopener noreferrer" className="anl-news-row">
-                  <span className="anl-news-src">{n.source}</span>
-                  <span className="anl-news-title">{n.titre}</span>
-                  <span className="num anl-news-time">{n.date}</span>
+              {actuRows.map((r, i) => r.kind === 'blog' ? (
+                <Link key={`b-${r.article.slug}`} to={`/blog/${r.article.slug}`} className="anl-news-row anl-news-row--blog">
+                  <span className="anl-news-src">{t('analyse.sections.actualites.blogSource')}</span>
+                  <span className="anl-news-title">{r.article.content[articleLang].title}</span>
+                  <span className="num anl-news-time">{toNewsDate(r.article.date)}</span>
+                </Link>
+              ) : (
+                <a key={`n-${i}`} href={r.item.url} target="_blank" rel="noopener noreferrer" className="anl-news-row">
+                  <span className="anl-news-src">{r.item.source}</span>
+                  <span className="anl-news-title">{r.item.titre}</span>
+                  <span className="num anl-news-time">{r.item.date}</span>
                 </a>
               ))}
             </div>

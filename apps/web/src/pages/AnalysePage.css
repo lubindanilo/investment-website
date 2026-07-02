@@ -69,6 +69,9 @@
 }
 .anl-news-row:last-child { border-bottom: none; }
 .anl-news-row:hover { background: var(--brand-softer); }
+/* Articles maison (liens internes /blog/:slug) : fond teinté pour les distinguer du flux externe. */
+.anl-news-row--blog { background: color-mix(in oklch, var(--brand-softer) 45%, transparent); text-decoration: none; }
+.anl-news-row--blog:hover { background: var(--brand-softer); }
 .anl-news-src { font-size: 12px; font-weight: 700; color: var(--brand-ink); min-width: 84px; flex-shrink: 0; }
 .anl-news-title { font-size: 14px; color: var(--ink); flex: 1; min-width: 0; }
 .anl-news-time { font-size: 12px; color: var(--ink-3); white-space: nowrap; flex-shrink: 0; }

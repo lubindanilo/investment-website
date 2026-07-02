@@ -483,7 +483,8 @@
       },
       "actualites": {
         "title": "Noticias recientes",
-        "sub": "El contexto, sin el ruido"
+        "sub": "El contexto, sin el ruido",
+        "blogSource": "Blog Lubin"
       },
       "cours": {
         "title": "Cotización",
