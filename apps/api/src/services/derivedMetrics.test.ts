@@ -369,4 +369,35 @@ describe('filterNews', () => {
     const lots = Array.from({ length: 10 }, (_, i) => make(`Q${(i % 4) + 1} 2026 earnings result ${i}`));
     expect(filterNews(lots)).toHaveLength(5);
   });
+
+  it('garde-fou pertinence : drop les news qui ne parlent pas de l\'entreprise', () => {
+    const news = filterNews([
+      make('Adobe Q3 2026 Earnings Beat Estimates'),
+      make('Michael Burry doubles down on beaten-down China tech'), // "beat" dans "beaten" ne doit plus matcher, et hors sujet
+    ], 'ADBE', 'Adobe Inc');
+    expect(news).toHaveLength(1);
+    expect(news[0]!.titre).toContain('Adobe');
+  });
+
+  it('garde-fou pertinence : matche sur ticker (titre) OU nom de marque (résumé)', () => {
+    const news = filterNews([
+      make('ADBE beats Q3 estimates', 'strong quarter'),   // ticker dans le titre
+      make('Analyst raises outlook after results', 'Adobe posts record revenue'), // nom dans le résumé
+    ], 'ADBE', 'Adobe Inc');
+    expect(news).toHaveLength(2);
+  });
+
+  it('garde-fou roundup : drop les formats agrégateurs même si le ticker est cité', () => {
+    const news = filterNews([
+      make('Deal Dispatch: Penske Buys Vox Media, Adobe and AbbVie among movers'),
+      make('10 stocks to buy now, including Adobe'),
+      make('Why Adobe fell today'),
+    ], 'ADBE', 'Adobe Inc');
+    expect(news).toHaveLength(0);
+  });
+
+  it('"beaten-down" ne matche plus le type résultats', () => {
+    // Sans ticker/nom (garde-fou 1 désactivé) : seul le fix regex \bbeats?\b doit jouer.
+    expect(filterNews([make('A beaten-down sector rebounds')])).toHaveLength(0);
+  });
 });
