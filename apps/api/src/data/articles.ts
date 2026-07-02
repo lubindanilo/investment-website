@@ -36976,6 +36976,319 @@ const articleMANH: Article = {
   },
 };
 
+const articleFDS: Article = {
+  slug: 'factset-research-fds-analyse-fondamentale-resultats-q3-2026',
+  date: '2026-07-01',
+  updated: '2026-07-02',
+  readingTime: 7,
+  ticker: 'FDS',
+  content: {
+    fr: {
+      title: 'FactSet Research (FDS) : le monopole des données financières',
+      excerpt:
+        "FactSet Research Systems a publié ses résultats Q3 FY2026 le 1er juillet : croissance des abonnements portée par l'IA, chiffres au-dessus des attentes. Notre screener lui attribue un score de qualité élevé, mais l'action reste chère. Notre analyse fondamentale.",
+      metaDescription:
+        "FactSet Research (FDS) : analyse des résultats Q3 FY2026 du 1er juillet. Abonnements en hausse portés par l'IA, moat solide, mais valorisation élevée. Analyse Lubin Danilo.",
+      answer:
+        "FactSet Research Systems a publié son troisième trimestre fiscal 2026 le 1er juillet 2026 : chiffre d'affaires de 622,9 millions de dollars en hausse de 6,4 %, bénéfice ajusté de 4,53 dollars au-dessus des attentes, et valeur des abonnements en hausse de 7,1 % portée par l'IA. Notre méthode lui attribue 9 sur 10, mais la valorisation reste élevée.",
+      body: [
+        {
+          type: 'p',
+          text: "FactSet Research Systems a publié ce 1er juillet 2026 les résultats de son troisième trimestre fiscal 2026. Pour beaucoup d'investisseurs particuliers, FactSet reste un nom discret. Pourtant, quand tu confies de l'argent à un fonds de gestion, à un hedge fund ou à une banque privée, il y a de bonnes chances que leurs analystes travaillent avec FactSet. Notre méthode lui attribue aujourd'hui 9 sur 10 dans notre grille de qualité. Voici pourquoi.",
+        },
+        { type: 'h2', text: "FactSet, le terminal de données des professionnels de la finance" },
+        {
+          type: 'p',
+          text: "FactSet Research Systems, fondée en 1978 et cotée à New York sous le symbole FDS, fournit des données financières et des outils d'analyse à une clientèle très spécifique : les investisseurs professionnels. Asset managers, hedge funds, analystes de banques d'investissement, équipes de recherche institutionnelle. Ces professionnels paient un abonnement annuel pour accéder à une plateforme qui agrège des données sur des milliers d'entreprises cotées dans le monde entier : comptes financiers, estimations d'analystes, prix historiques, données de marché.",
+        },
+        {
+          type: 'p',
+          text: "Ce qui rend FactSet particulièrement intéressant pour notre méthode, c'est le concept de switching cost, c'est-à-dire le coût de changement. Quand un fonds intègre FactSet dans ses processus, il connecte ses feuilles Excel, ses modèles de valorisation et ses rapports aux données de FactSet. Après deux ou trois ans, toute l'infrastructure analytique de l'équipe repose sur ce terminal. Changer de plateforme signifie reformater des centaines de modèles, réentraîner les équipes et migrer des années de données historiques. Ce coût invisible mais réel explique pourquoi FactSet fidélise ses clients d'année en année, avec des taux de rétention supérieurs à 90%.",
+        },
+        { type: 'h2', text: "Pourquoi notre méthode lui attribue un score élevé" },
+        {
+          type: 'p',
+          text: "Ma méthode évalue les entreprises sur dix critères. L'idée centrale est de séparer la qualité du business, c'est-à-dire sa capacité à générer du free cash flow (le cash qui reste vraiment après toutes les factures et les investissements), de la question du prix. Un bon score de qualité ne signifie pas automatiquement que c'est le bon moment pour acheter : la valorisation est jugée séparément. FactSet obtient 9 sur 10 dans notre grille, ce qui le place parmi les meilleures entreprises que nous analysons sur plus de 5 000 actions.",
+        },
+        {
+          type: 'p',
+          text: "Plusieurs critères expliquent ce score élevé. D'abord, plus de 95% des revenus de FactSet proviennent d'abonnements annuels ou pluriannuels. Cela donne une visibilité exceptionnelle sur le chiffre d'affaires à venir : les revenus de l'année suivante sont en grande partie contractuellement sécurisés avant même le début de l'exercice. Ensuite, les marges de free cash flow sont solides, parce que le modèle d'abonnement ne nécessite pas des investissements massifs en capital pour maintenir la croissance. Enfin, la clientèle institutionnelle (fonds, banques d'investissement) est naturellement stable et peu sensible aux cycles économiques courts.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'FactSet Research (FDS), résultats Q3 FY2026'],
+          rows: [
+            ['Score de qualité Lubin', '9 sur 10'],
+            ['Chiffre d\'affaires Q3 (publié)', '622,9 M$ (+6,4% sur un an)'],
+            ['Bénéfice par action ajusté Q3 (publié)', '4,53 $ (au-dessus des 4,45 $ attendus)'],
+            ['Valeur des abonnements (ASV), croissance', '+7,1% sur un an, portée par l\'IA'],
+            ['Valorisation (prix rapporté au cash annuel)', 'environ 14 fois'],
+            ['Part des revenus récurrents', 'plus de 95%'],
+          ],
+        },
+        { type: 'h2', text: "Les résultats Q3 FY2026 : ce que je regarde vraiment" },
+        {
+          type: 'p',
+          text: "Sur la période mars-mai 2026, FactSet a affiché un chiffre d'affaires de 622,9 millions de dollars, en hausse de 6,4% sur un an (7,0% en organique), légèrement au-dessus des 618 millions attendus. Le bénéfice par action ajusté ressort à 4,53 dollars, contre 4,45 attendus : un dépassement modeste mais net. L'entreprise a par ailleurs réaffirmé ses objectifs pour l'exercice 2026 complet. Rien de spectaculaire, mais exactement le genre de régularité qu'on attend d'un abonnement.",
+        },
+        {
+          type: 'p',
+          text: "Mais le chiffre qui compte vraiment n'est pas le bénéfice publié. C'est l'ASV, pour Annual Subscription Value, la valeur totale des abonnements annuels contractuels. C'est une sorte de carnet de commandes projeté sur les douze mois suivants : si l'ASV progresse, les revenus futurs sont déjà en grande partie sécurisés. Ce trimestre, l'ASV organique a progressé de 7,1% sur un an, une accélération que le management attribue à l'adoption de ses outils d'intelligence artificielle. Le free cash flow a grimpé de 11,1% à 254 millions de dollars, et l'entreprise a rendu 243 millions à ses actionnaires via rachats et dividendes. Pour notre méthode, cette combinaison (visibilité qui monte, cash qui suit) compte plus que le simple écart avec le consensus.",
+        },
+        { type: 'h2', text: "La valorisation : une prime structurellement justifiée ?" },
+        {
+          type: 'p',
+          text: "FactSet se valorise aujourd'hui environ 14 fois son free cash flow annuel. Le price-to-free-cash-flow (P/FCF), c'est simplement le prix de l'action rapporté au cash que l'entreprise génère réellement par action chaque année. Un ratio de 14 fois signifie que tu paies 14 ans de ce cash généré au prix d'aujourd'hui. Ce n'est pas bon marché, et notre prix d'achat raisonnable reste nettement sous le cours actuel (environ 246 dollars), ce qui explique pourquoi FactSet obtient 9 sur 10 plutôt que 10 sur 10.",
+        },
+        {
+          type: 'p',
+          text: "Cette prime est néanmoins structurellement explicable. Une entreprise dont les revenus futurs sont contractuels vaut plus cher qu'une entreprise dont les revenus sont incertains, à qualité de cash égale. FactSet n'est pas bon marché, mais il n'est pas non plus aussi cher qu'il y paraît si on tient compte de la visibilité exceptionnelle de ses revenus. La vraie question est de savoir si cette visibilité justifie le prix d'entrée au regard du rendement espéré sur dix ans. Pour l'instant, notre discipline de prix maintient FactSet en dehors de notre zone d'achat.",
+        },
+        { type: 'h2', text: "Mon verdict : qualité réelle, prix à surveiller" },
+        {
+          type: 'p',
+          text: "FactSet Research Systems est l'un des rares exemples où qualité du business et prévisibilité des revenus se combinent avec cohérence. 9 sur 10 dans notre grille n'est pas un score que la plupart des entreprises atteignent, et ce trimestre confirme la thèse : croissance régulière, ASV en accélération, cash en hausse. Le risque principal reste la valorisation : au prix actuel, le rendement espéré sur dix ans est inférieur à notre cible. Le risque secondaire, plus subtil, est justement l'IA : elle dope aujourd'hui les ventes de FactSet, mais pourrait demain démocratiser l'accès aux données financières et éroder la valeur du terminal. C'est la vraie question stratégique pour les années à venir.",
+        },
+        {
+          type: 'p',
+          text: "J'ai analysé FactSet dans notre comparatif des cinq grands acteurs des infrastructures de données financières sur lubin-investment.com/blog/donnees-financieres-cme-spgi-ice-fds-msci-analyse. L'analyse complète de FactSet, avec les dix critères détaillés et les données mises à jour ce trimestre, est disponible sur lubin-investment.com/analyse/FDS. C'est exactement le type de couverture systématique que j'ai voulu construire pour analyser plus de 5 000 actions avec une méthode cohérente.",
+        },
+        {
+          type: 'p',
+          text: "Écrit par Lubin Danilo, fondateur de Lubin Investment. Investisseur particulier autodidacte, l'analyse fondamentale me passionne et m'a donné d'excellents résultats. Cela fait désormais trois années que ma performance bat le S&P 500. J'ai créé ce site pour analyser chaque action avec ma propre méthode, rapidement et sans dépendre d'outils incomplets.",
+        },
+      ],
+      faq: [
+        {
+          q: "Que fait FactSet Research Systems ?",
+          a: "FactSet est une plateforme de données financières pour les professionnels de l'investissement : fonds de gestion, banques d'investissement, hedge funds. Elle agrège des millions de données sur les entreprises cotées (comptes financiers, estimations d'analystes, prix historiques) accessibles via abonnement annuel. Ses clients intègrent ces données dans leurs modèles de valorisation et leurs processus de recherche.",
+        },
+        {
+          q: "Pourquoi FactSet a-t-il un score élevé dans ta méthode ?",
+          a: "Parce que plus de 95% de ses revenus sont récurrents (abonnements annuels), ses taux de rétention dépassent 90% et ses marges de free cash flow sont solides. Notre grille évalue dix critères centrés sur la qualité du cash généré. FactSet coche presque toutes les cases. Il n'obtient pas la note maximale uniquement parce que sa valorisation actuelle dépasse notre cible d'entrée.",
+        },
+        {
+          q: "Quelle est la différence entre FactSet et Bloomberg Terminal ?",
+          a: "Bloomberg Terminal domine le trading en temps réel et les marchés monétaires. FactSet est positionné sur la recherche fondamentale buy-side : les gestionnaires de fonds qui évaluent des entreprises sur le long terme. LSEG Refinitiv couvre aussi ce segment. Ces trois acteurs coexistent plus qu'ils ne se concurrencent frontalement, chacun dominant un segment distinct.",
+        },
+        {
+          q: "Qu'ont montré les résultats Q3 FY2026 de FactSet ?",
+          a: "Un chiffre d'affaires de 622,9 millions de dollars (+6,4% sur un an) et un bénéfice ajusté de 4,53 dollars, au-dessus des attentes. Surtout, la valeur des abonnements (ASV) a progressé de 7,1% sur un an, portée par l'adoption de l'IA, et le free cash flow a grimpé de 11,1%. Pour notre méthode, c'est cette visibilité des revenus qui compte le plus.",
+        },
+        {
+          q: "FactSet est-il une bonne action à acheter en 2026 ?",
+          a: "Ce n'est pas un conseil en investissement. La qualité du business est élevée (9 sur 10 dans notre grille), mais la valorisation actuelle dépasse notre cible d'entrée. Un prix élevé sur un excellent business donne un rendement espéré plus faible. L'analyse complète et à jour est sur lubin-investment.com/analyse/FDS. Fais tes propres recherches.",
+        },
+      ],
+      tags: ['FDS', 'FactSet', 'données-financières', 'terminal-financier', 'analyse-fondamentale', 'abonnement'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date indiquée, susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'FactSet Research (FDS): the financial data monopoly',
+      excerpt:
+        "FactSet Research Systems reported Q3 FY2026 results on July 1: subscription growth driven by AI, figures above expectations. Our screener gives it a high quality score, but the stock stays expensive. Our fundamental analysis.",
+      metaDescription:
+        "FactSet Research (FDS): analysis of the Q3 FY2026 results on July 1. Subscriptions rising on AI, solid moat, but a high valuation. Analysis by Lubin Danilo.",
+      answer:
+        "FactSet Research Systems reported its third quarter fiscal 2026 on July 1, 2026: revenue of $622.9 million up 6.4%, adjusted earnings of $4.53 above expectations, and subscription value up 7.1% driven by AI. Our method scores it 9 out of 10, but the valuation stays high.",
+      body: [
+        {
+          type: 'p',
+          text: "FactSet Research Systems reported its fiscal third quarter 2026 results on July 1, 2026. For most retail investors, FactSet remains a low-profile name. Yet when you invest through a fund, a hedge fund or a private bank, there is a good chance their analysts work with FactSet. Our method gives it 9 out of 10 in our quality framework today. Here is why.",
+        },
+        { type: 'h2', text: "FactSet: the data terminal for investment professionals" },
+        {
+          type: 'p',
+          text: "FactSet Research Systems, founded in 1978 and listed on the New York Stock Exchange under the ticker FDS, provides financial data and analytical tools to a very specific clientele: professional investors. Asset managers, hedge funds, investment bank analysts, institutional research teams. These professionals pay an annual subscription to access a platform that aggregates data on thousands of listed companies worldwide: financial statements, analyst estimates, historical prices, market data.",
+        },
+        {
+          type: 'p',
+          text: "What makes FactSet particularly interesting for our method is the concept of switching cost. When a fund integrates FactSet into its processes, it connects its Excel models, valuation spreadsheets and research reports to FactSet's data feeds. After two or three years, the entire analytical infrastructure of the team runs on this terminal. Switching platforms means reformatting hundreds of models, retraining teams and migrating years of historical data. This invisible but real cost explains why FactSet retains its clients year after year, with retention rates above 90%.",
+        },
+        { type: 'h2', text: "Why our method gives it a high score" },
+        {
+          type: 'p',
+          text: "My method evaluates companies across ten criteria. The central idea is to separate business quality, meaning the ability to generate free cash flow (the cash that remains after all expenses and investments), from the question of price. A high quality score does not automatically mean it is the right time to buy: valuation is assessed separately. FactSet scores 9 out of 10 in our framework, placing it among the best companies we analyze across more than 5,000 stocks.",
+        },
+        {
+          type: 'p',
+          text: "Several criteria explain this high score. First, more than 95% of FactSet's revenues come from annual or multi-year subscriptions. This gives exceptional visibility into future revenues: next year's income is largely locked in contractually before the fiscal year even starts. Second, free cash flow margins are solid, because the subscription model does not require heavy capital investment to sustain growth. Third, the institutional client base (funds, investment banks) is naturally stable and relatively insensitive to short economic cycles.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicator', 'FactSet Research (FDS), Q3 FY2026 results'],
+          rows: [
+            ['Lubin quality score', '9 out of 10'],
+            ['Q3 revenue (reported)', '$622.9M (+6.4% year-over-year)'],
+            ['Q3 adjusted EPS (reported)', '$4.53 (above the $4.45 expected)'],
+            ['Annual Subscription Value (ASV) growth', '+7.1% year-over-year, driven by AI'],
+            ['Valuation (price to annual cash)', 'roughly 14 times'],
+            ['Share of recurring revenues', 'over 95%'],
+          ],
+        },
+        { type: 'h2', text: "Q3 FY2026 results: what I actually look at" },
+        {
+          type: 'p',
+          text: "For the March-May 2026 period, FactSet posted revenue of $622.9 million, up 6.4% year over year (7.0% organic), slightly above the $618 million expected. Adjusted earnings per share came in at $4.53, versus $4.45 expected: a modest but clear beat. The company also reaffirmed its full-year 2026 guidance. Nothing spectacular, but exactly the kind of consistency you expect from a subscription business.",
+        },
+        {
+          type: 'p',
+          text: "But the number that truly matters is not the reported earnings. It is the ASV, Annual Subscription Value, the total value of annual contracted subscriptions. It is essentially a forward-looking backlog for the next twelve months: if ASV grows, future revenues are already largely secured. This quarter, organic ASV grew 7.1% year over year, an acceleration management attributes to adoption of its artificial intelligence tools. Free cash flow rose 11.1% to $254 million, and the company returned $243 million to shareholders through buybacks and dividends. For our method, this combination (rising visibility, cash following) matters more than the simple beat-or-miss versus consensus.",
+        },
+        { type: 'h2', text: "Valuation: a structurally justified premium?" },
+        {
+          type: 'p',
+          text: "FactSet is valued today at roughly 14 times its annual free cash flow. The price-to-free-cash-flow ratio (P/FCF) is simply the stock price divided by the cash the company actually generates per share each year. A ratio of 14 times means you are paying 14 years of that generated cash at today's price. That is not cheap, and our reasonable buy price stays well below the current price (around $246), which is why FactSet scores 9 out of 10 rather than 10 out of 10.",
+        },
+        {
+          type: 'p',
+          text: "This premium is nonetheless structurally explainable. A company whose future revenues are contractual is worth more than one whose revenues are uncertain, all else equal in terms of cash quality. FactSet is not cheap, but it is not as expensive as it appears when you factor in the exceptional visibility of its revenues. The real question is whether this visibility justifies the entry price relative to the expected ten-year return. For now, our price discipline keeps FactSet outside our buying zone.",
+        },
+        { type: 'h2', text: "My verdict: real quality, price to watch" },
+        {
+          type: 'p',
+          text: "FactSet Research Systems is one of the rare examples where business quality and revenue predictability genuinely combine. Scoring 9 out of 10 in our framework is not something most companies achieve, and this quarter confirms the thesis: steady growth, accelerating ASV, rising cash. The primary risk remains valuation: at the current price, the expected ten-year return is below our target. The secondary risk, more subtle, is AI itself: it is boosting FactSet's sales today, but could tomorrow democratize access to financial data and erode the value of the terminal. That is the real strategic question for the years ahead.",
+        },
+        {
+          type: 'p',
+          text: "I analyzed FactSet in our comparative study of the five major financial data infrastructure players at lubin-investment.com/blog/donnees-financieres-cme-spgi-ice-fds-msci-analyse. The full FactSet analysis, with all ten criteria detailed and data updated this quarter, is available at lubin-investment.com/analyse/FDS. That is exactly the kind of systematic coverage I wanted to build to analyze more than 5,000 stocks with a consistent method.",
+        },
+        {
+          type: 'p',
+          text: "Written by Lubin Danilo, founder of Lubin Investment. Self-taught individual investor, fundamental analysis is my passion and has delivered excellent results. For three years now my performance has beaten the S&P 500. I built this site to analyze every stock with my own method, quickly and without relying on incomplete tools.",
+        },
+      ],
+      faq: [
+        {
+          q: "What does FactSet Research Systems do?",
+          a: "FactSet is a financial data platform for investment professionals: asset managers, investment banks, hedge funds. It aggregates millions of data points on listed companies (financial statements, analyst estimates, historical prices) accessible via annual subscription. Clients integrate this data into their valuation models and research workflows.",
+        },
+        {
+          q: "Why does FactSet score high in your method?",
+          a: "Because more than 95% of its revenues are recurring (annual subscriptions), retention rates exceed 90% and free cash flow margins are solid. Our framework evaluates ten criteria centered on the quality of cash generated. FactSet checks nearly every box. It does not get the top score only because its current valuation exceeds our disciplined entry target.",
+        },
+        {
+          q: "What is the difference between FactSet and Bloomberg Terminal?",
+          a: "Bloomberg Terminal dominates real-time trading and money markets. FactSet is positioned for buy-side fundamental research: fund managers who evaluate companies over the long term. LSEG Refinitiv also covers this segment. These three players coexist more than they compete head-on, each dominating a distinct segment.",
+        },
+        {
+          q: "What did FactSet's Q3 FY2026 results show?",
+          a: "Revenue of $622.9 million (+6.4% year over year) and adjusted earnings of $4.53, above expectations. Above all, Annual Subscription Value (ASV) grew 7.1% year over year, driven by AI adoption, and free cash flow rose 11.1%. For our method, this revenue visibility is what matters most.",
+        },
+        {
+          q: "Is FactSet a good stock to buy in 2026?",
+          a: "This is not investment advice. Business quality is high (9 out of 10 in our framework), but the current valuation exceeds our entry target. A high price on an excellent business delivers a lower expected return. The full up-to-date analysis is at lubin-investment.com/analyse/FDS. Do your own research.",
+        },
+      ],
+      tags: ['FDS', 'FactSet', 'financial-data', 'data-terminal', 'fundamental-analysis', 'subscription'],
+      disclaimer:
+        "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the date indicated, subject to change. Do your own research before any investment decision.",
+    },
+    es: {
+      title: 'FactSet Research (FDS): el monopolio de datos financieros',
+      excerpt:
+        "FactSet Research Systems publicó sus resultados del T3 EF2026 el 1 de julio: crecimiento de las suscripciones impulsado por la IA, cifras por encima de lo esperado. Nuestro screener le otorga una puntuación de calidad alta, pero la acción sigue cara. Nuestro análisis fundamental.",
+      metaDescription:
+        "FactSet Research (FDS): análisis de los resultados del T3 EF2026 del 1 de julio. Suscripciones al alza por la IA, foso sólido, pero valoración elevada. Análisis de Lubin Danilo.",
+      answer:
+        "FactSet Research Systems publicó su tercer trimestre del ejercicio fiscal 2026 el 1 de julio de 2026: ingresos de 622,9 millones de dólares con un alza del 6,4%, beneficio ajustado de 4,53 dólares por encima de lo esperado, y valor de las suscripciones al alza del 7,1% impulsado por la IA. Nuestra metodología le otorga 9 sobre 10, pero la valoración sigue alta.",
+      body: [
+        {
+          type: 'p',
+          text: "FactSet Research Systems publicó este 1 de julio de 2026 los resultados de su tercer trimestre fiscal 2026. Para la mayoría de los inversores particulares, FactSet sigue siendo un nombre discreto. Sin embargo, cuando confías tu dinero a un fondo de gestión, a un hedge fund o a un banco privado, hay muchas posibilidades de que sus analistas trabajen con FactSet. Nuestra metodología le otorga hoy 9 sobre 10 en nuestra escala de calidad. Te explicamos por qué.",
+        },
+        { type: 'h2', text: "FactSet, el terminal de datos de los profesionales de la inversión" },
+        {
+          type: 'p',
+          text: "FactSet Research Systems, fundada en 1978 y cotizada en la Bolsa de Nueva York bajo el símbolo FDS, proporciona datos financieros y herramientas de análisis a una clientela muy específica: los inversores profesionales. Gestoras de activos, hedge funds, analistas de banca de inversión, equipos de investigación institucional. Estos profesionales pagan una suscripción anual para acceder a una plataforma que agrega datos sobre miles de empresas cotizadas en todo el mundo: cuentas financieras, estimaciones de analistas, precios históricos, datos de mercado.",
+        },
+        {
+          type: 'p',
+          text: "Lo que hace a FactSet especialmente interesante para nuestra metodología es el concepto de coste de cambio (switching cost). Cuando un fondo integra FactSet en sus procesos, conecta sus hojas de cálculo Excel, sus modelos de valoración y sus informes a los datos de FactSet. Después de dos o tres años, toda la infraestructura analítica del equipo depende de este terminal. Cambiar de plataforma significa reformatear cientos de modelos, reentrenar a los equipos y migrar años de datos históricos. Este coste invisible pero real explica por qué FactSet fideliza a sus clientes año tras año, con tasas de retención superiores al 90%.",
+        },
+        { type: 'h2', text: "Por qué nuestra metodología le otorga una puntuación alta" },
+        {
+          type: 'p',
+          text: "Mi metodología evalúa las empresas en diez criterios. La idea central es separar la calidad del negocio, es decir, su capacidad de generar flujo de caja libre (el efectivo que queda realmente después de todos los gastos e inversiones), de la cuestión del precio. Una buena puntuación de calidad no significa automáticamente que sea el momento adecuado para comprar: la valoración se evalúa por separado. FactSet obtiene 9 sobre 10 en nuestra escala, lo que lo sitúa entre las mejores empresas que analizamos entre más de 5.000 acciones.",
+        },
+        {
+          type: 'p',
+          text: "Varios criterios explican esta puntuación elevada. En primer lugar, más del 95% de los ingresos de FactSet provienen de suscripciones anuales o plurianuales. Esto proporciona una visibilidad excepcional sobre los ingresos futuros: los ingresos del año siguiente están en gran parte asegurados contractualmente antes de que empiece el ejercicio fiscal. En segundo lugar, los márgenes de flujo de caja libre son sólidos, porque el modelo de suscripción no requiere grandes inversiones de capital para mantener el crecimiento. Por último, la base de clientes institucionales (fondos, bancos de inversión) es naturalmente estable y poco sensible a los ciclos económicos cortos.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'FactSet Research (FDS), resultados T3 EF2026'],
+          rows: [
+            ['Puntuación de calidad Lubin', '9 sobre 10'],
+            ['Ingresos T3 (publicados)', '622,9 M$ (+6,4% interanual)'],
+            ['BPA ajustado T3 (publicado)', '4,53 $ (por encima de los 4,45 $ esperados)'],
+            ['Valor de las suscripciones (ASV), crecimiento', '+7,1% interanual, impulsado por la IA'],
+            ['Valoración (precio respecto al efectivo anual)', 'unas 14 veces'],
+            ['Proporción de ingresos recurrentes', 'más del 95%'],
+          ],
+        },
+        { type: 'h2', text: "Resultados del T3 EF2026: qué miro realmente" },
+        {
+          type: 'p',
+          text: "En el periodo marzo-mayo de 2026, FactSet registró ingresos de 622,9 millones de dólares, un alza del 6,4% interanual (7,0% orgánico), ligeramente por encima de los 618 millones esperados. El beneficio por acción ajustado fue de 4,53 dólares, frente a los 4,45 esperados: un superávit modesto pero claro. La empresa además reafirmó sus objetivos para el ejercicio 2026 completo. Nada espectacular, pero exactamente el tipo de regularidad que se espera de un negocio de suscripción.",
+        },
+        {
+          type: 'p',
+          text: "Pero el dato que realmente importa no es el beneficio publicado. Es el ASV, Annual Subscription Value (el valor total de las suscripciones anuales bajo contrato). Es como una cartera de pedidos proyectada sobre los doce meses siguientes: si el ASV crece, los ingresos futuros ya están en gran parte asegurados. Este trimestre, el ASV orgánico creció un 7,1% interanual, una aceleración que la dirección atribuye a la adopción de sus herramientas de inteligencia artificial. El flujo de caja libre subió un 11,1% hasta 254 millones de dólares, y la empresa devolvió 243 millones a sus accionistas mediante recompras y dividendos. Para nuestra metodología, esta combinación (visibilidad al alza, efectivo que la acompaña) importa más que la simple diferencia respecto al consenso.",
+        },
+        { type: 'h2', text: "La valoración: ¿una prima estructuralmente justificada?" },
+        {
+          type: 'p',
+          text: "FactSet se valora hoy a unas 14 veces su flujo de caja libre anual. El price-to-free-cash-flow (P/FCF) es simplemente el precio de la acción dividido por el efectivo que la empresa genera realmente por acción cada año. Un ratio de 14 veces significa que pagas 14 años de ese efectivo generado al precio actual. No es barato, y nuestro precio de compra razonable sigue muy por debajo del precio actual (unos 246 dólares), lo que explica por qué FactSet obtiene 9 sobre 10 en lugar de 10 sobre 10.",
+        },
+        {
+          type: 'p',
+          text: "Esta prima es no obstante estructuralmente explicable. Una empresa cuyos ingresos futuros son contractuales vale más que una cuyos ingresos son inciertos, a igual calidad de efectivo. FactSet no es barato, pero tampoco es tan caro como parece si se tiene en cuenta la visibilidad excepcional de sus ingresos. La verdadera pregunta es si esa visibilidad justifica el precio de entrada respecto a la rentabilidad esperada a diez años. Por ahora, nuestra disciplina de precios mantiene a FactSet fuera de nuestra zona de compra.",
+        },
+        { type: 'h2', text: "Mi veredicto: calidad real, precio a vigilar" },
+        {
+          type: 'p',
+          text: "FactSet Research Systems es uno de los pocos ejemplos en que la calidad del negocio y la previsibilidad de los ingresos se combinan con coherencia. Obtener 9 sobre 10 en nuestra escala no es algo que la mayoría de las empresas logre, y este trimestre confirma la tesis: crecimiento regular, ASV en aceleración, efectivo al alza. El riesgo principal sigue siendo la valoración: al precio actual, la rentabilidad esperada a diez años está por debajo de nuestro objetivo. El riesgo secundario, más sutil, es la propia IA: hoy impulsa las ventas de FactSet, pero mañana podría democratizar el acceso a los datos financieros y erosionar el valor del terminal. Esa es la verdadera pregunta estratégica para los próximos años.",
+        },
+        {
+          type: 'p',
+          text: "Analicé FactSet en nuestro comparativo de los cinco grandes actores de infraestructuras de datos financieros en lubin-investment.com/blog/donnees-financieres-cme-spgi-ice-fds-msci-analyse. El análisis completo de FactSet, con los diez criterios detallados y los datos actualizados este trimestre, está disponible en lubin-investment.com/analyse/FDS. Es exactamente el tipo de cobertura sistemática que quise construir para analizar más de 5.000 acciones con una metodología coherente.",
+        },
+        {
+          type: 'p',
+          text: "Escrito por Lubin Danilo, fundador de Lubin Investment. Inversor particular autodidacta, el análisis fundamental me apasiona y me ha dado excelentes resultados. Llevo ya tres años batiendo al S&P 500. Creé este sitio para analizar cada acción con mi propio método, con rapidez y sin depender de herramientas incompletas.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qué hace FactSet Research Systems?",
+          a: "FactSet es una plataforma de datos financieros para profesionales de la inversión: gestoras de activos, bancos de inversión, hedge funds. Agrega millones de datos sobre empresas cotizadas (cuentas financieras, estimaciones de analistas, precios históricos) accesibles mediante suscripción anual. Sus clientes integran estos datos en sus modelos de valoración y sus procesos de investigación.",
+        },
+        {
+          q: "¿Por qué FactSet obtiene una puntuación alta en tu metodología?",
+          a: "Porque más del 95% de sus ingresos son recurrentes (suscripciones anuales), las tasas de retención superan el 90% y los márgenes de flujo de caja libre son sólidos. Nuestra escala evalúa diez criterios centrados en la calidad del efectivo generado. FactSet cumple casi todos los requisitos. No obtiene la puntuación máxima únicamente porque su valoración actual supera nuestro objetivo de entrada.",
+        },
+        {
+          q: "¿Cuál es la diferencia entre FactSet y Bloomberg Terminal?",
+          a: "Bloomberg Terminal domina el trading en tiempo real y los mercados monetarios. FactSet está posicionado para la investigación fundamental buy-side: los gestores de fondos que evalúan empresas a largo plazo. LSEG Refinitiv también cubre este segmento. Estos tres actores coexisten más que compiten directamente, cada uno dominando un segmento distinto.",
+        },
+        {
+          q: "¿Qué mostraron los resultados del T3 EF2026 de FactSet?",
+          a: "Ingresos de 622,9 millones de dólares (+6,4% interanual) y un beneficio ajustado de 4,53 dólares, por encima de lo esperado. Sobre todo, el valor de las suscripciones (ASV) creció un 7,1% interanual, impulsado por la adopción de la IA, y el flujo de caja libre subió un 11,1%. Para nuestra metodología, esa visibilidad de los ingresos es lo que más importa.",
+        },
+        {
+          q: "¿Es FactSet una buena acción para comprar en 2026?",
+          a: "No es un consejo de inversión. La calidad del negocio es alta (9 sobre 10 en nuestra escala), pero la valoración actual supera nuestro objetivo de entrada. Un precio alto sobre un negocio excelente ofrece una rentabilidad esperada menor. El análisis completo y actualizado está en lubin-investment.com/analyse/FDS. Haz tu propia investigación.",
+        },
+      ],
+      tags: ['FDS', 'FactSet', 'datos-financieros', 'terminal-financiero', 'análisis-fundamental', 'suscripción'],
+      disclaimer:
+        'Análisis con fines informativos y educativos, no constituye asesoramiento personalizado de inversión. Las rentabilidades pasadas no garantizan resultados futuros. Cifras a la fecha indicada, sujetas a cambios. Realiza tu propia investigación antes de cualquier decisión de inversión.',
+    },
+  },
+};
+
 const articleBAH: Article = {
   slug: 'booz-allen-hamilton-bah-consulting-federal-analyse-fondamentale',
   date: '2026-06-30',
@@ -37818,7 +38131,7 @@ const articleALL: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
+export const ARTICLES: Article[] = [articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
