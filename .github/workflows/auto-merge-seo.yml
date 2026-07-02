@@ -1,0 +1,43 @@
+name: Auto-merge SEO PRs
+
+# Filet de securite deterministe : active l'auto-merge natif de GitHub sur toute PR
+# dont la branche commence par "seo/" (articles produits par le bot SEO de second-brain).
+# GitHub fusionne alors AUTOMATIQUEMENT la PR une fois les checks requis verts
+# (no-dashes + title-jargon, exiges par la protection de main). Ne merge JAMAIS une PR
+# en conflit ou dont un check echoue : c'est GitHub qui garde la main sur la condition.
+#
+# Pourquoi ce workflow : jusqu'ici l'auto-merge etait demande au LLM (gh pr merge --auto)
+# dans run-ci.sh cote second-brain. Si le LLM crashe apres avoir ouvert la PR (ex. coupure
+# de connexion), la PR restait ouverte indefiniment (cas de la PR #79). Ce workflow retire
+# cette dependance : l'activation de l'auto-merge devient deterministe, cote plateforme.
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: auto-merge-seo-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  enable-automerge:
+    # Uniquement les PR d'articles du bot (branche seo/...), non-draft, vers main.
+    if: >
+      startsWith(github.head_ref, 'seo/') &&
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Activer l'auto-merge (squash) sur la PR seo/*
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Activation de l'auto-merge sur PR #${{ github.event.pull_request.number }} (branche ${{ github.head_ref }})."
+          echo "GitHub fusionnera des que no-dashes + title-jargon seront verts. Une PR en conflit reste ouverte."
+          gh pr merge "${{ github.event.pull_request.number }}" \
+            --repo "${{ github.repository }}" \
+            --squash --auto --delete-branch
