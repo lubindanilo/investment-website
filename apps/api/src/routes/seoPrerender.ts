@@ -574,12 +574,12 @@ ${JSON.stringify({
 <body>
 
 <header>
-  <p><a href="${SITE_URL}/${lq}">${tr.headerNav.home}</a> · <a href="${SITE_URL}/screener${lq}">${tr.headerNav.screener}</a> · <a href="${SITE_URL}/methodologie${lq}">${tr.headerNav.method}</a> · <a href="${SITE_URL}/pricing${lq}">${tr.headerNav.pricing}</a></p>
+  <p><span data-nosnippet><a href="${SITE_URL}/${lq}">${tr.headerNav.home}</a> · <a href="${SITE_URL}/screener${lq}">${tr.headerNav.screener}</a> · <a href="${SITE_URL}/methodologie${lq}">${tr.headerNav.method}</a> · <a href="${SITE_URL}/pricing${lq}">${tr.headerNav.pricing}</a></span></p>
 </header>
 
 <main>
 
-<nav aria-label="${tr.breadcrumbHome}"><a href="${SITE_URL}/${lq}">${tr.breadcrumbHome}</a> › <a href="${SITE_URL}/screener${lq}">${tr.breadcrumbScreener}</a> ${sectorHubHref ? `› <a href="${sectorHubHref}">${sectorHubLabel}</a> ` : ''}› ${name} (${safeTicker})</nav>
+<nav aria-label="${tr.breadcrumbHome}"><span data-nosnippet><a href="${SITE_URL}/${lq}">${tr.breadcrumbHome}</a> › <a href="${SITE_URL}/screener${lq}">${tr.breadcrumbScreener}</a> ${sectorHubHref ? `› <a href="${sectorHubHref}">${sectorHubLabel}</a> ` : ''}› ${name} (${safeTicker})</span></nav>
 
 <h1>${tr.h1Analysis} ${safeTicker} (${name})</h1>
 <p><small>${tr.updatedOn} ${dateLoc}</small></p>
@@ -615,7 +615,7 @@ ${sectorHubHref ? `<a href="${sectorHubHref}">${tr.resSectorHub(sectorHubLabel |
 </main>
 
 <footer>
-<p><small>${tr.disclaimer}</small></p>
+<p><small><span data-nosnippet>${tr.disclaimer}</span></small></p>
 </footer>
 
 </body>
@@ -810,10 +810,10 @@ ${hreflang}
 </head>
 <body>
 <header>
-  <p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/blog">Blog</a></p>
+  <p><span data-nosnippet><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/blog">Blog</a></span></p>
 </header>
 <main>
-<nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/blog">Blog</a></nav>
+<nav aria-label="Fil d'Ariane"><span data-nosnippet><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/blog">Blog</a></span></nav>
 <h1>${escapeHtml(c.title)}</h1>
 <p><small>${escapeHtml(article.date)} · <span rel="author">${escapeHtml(AUTHOR_BYLINE[lang])}</span></small></p>
 <p><strong>${renderInline(c.answer)}</strong></p>
@@ -823,7 +823,7 @@ ${faqHtml}
 <p><a href="${ctaHref}"><strong>${article.ticker ? `Voir l'analyse ${escapeHtml(article.ticker)} sur Lubin Investment` : 'Analyser une action sur Lubin Investment'}</strong></a></p>
 <h2>${lang === 'en' ? 'About the author' : lang === 'es' ? 'Sobre el autor' : "À propos de l'auteur"}</h2>
 <p>${escapeHtml(AUTHOR_BIO[lang])}</p>
-<footer><p><small>${escapeHtml(c.disclaimer)}</small></p></footer>
+<footer><p><small><span data-nosnippet>${escapeHtml(c.disclaimer)}</span></small></p></footer>
 </main>
 </body>
 </html>`;
