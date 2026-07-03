@@ -183,7 +183,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     oppBody: (n) => `${n} est dans son décile bas historique de valorisation (P/FCF ≤ 10ᵉ percentile sur 10 ans, ET ratio &lt; 25×). C'est un point d'entrée potentiellement intéressant pour les investisseurs long terme.`,
     updatedOn: 'Mis à jour le',
     introVerdict: (n, score, quality, pfcfClause) => `On a analysé l'action ${n} sur les 10 critères de qualité de Lubin Investment. L'entreprise obtient une note de <strong>${score}</strong> synonyme de qualité ${quality}${pfcfClause}.`,
-    sectorPriceLine: (sector, exchange, price) => `Secteur : ${sector}.${exchange ? ` Place de cotation : ${exchange}.` : ''} Cours actuel : ${price}.`,
+    sectorPriceLine: (sector, exchange, price) => `Secteur : ${sector}.${exchange ? ` Place de cotation : ${exchange}.` : ''}${price ? ` Cours actuel : ${price}.` : ''}`,
     methodH2: 'Méthode de notation Lubin',
     methodBody: (n, ticker) => `La note de ${n} (${ticker}) est calculée automatiquement à partir de 10 critères financiers objectifs, sans intervention humaine ni opinion. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). La note finale est le total des validations.`,
     criteriaH2: 'Les 10 critères chiffrés analysés',
@@ -242,7 +242,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     oppBody: (n) => `${n} is in its historical low decile of valuation (P/FCF ≤ 10th percentile over 10 years, AND ratio &lt; 25×). This is a potentially interesting entry point for long-term investors.`,
     updatedOn: 'Updated on',
     introVerdict: (n, score, quality, pfcfClause) => `We analyzed ${n} stock against the 10 quality criteria of Lubin Investment. The company gets a quality score of <strong>${score}</strong>, meaning ${quality} quality${pfcfClause}.`,
-    sectorPriceLine: (sector, exchange, price) => `Sector: ${sector}.${exchange ? ` Listing: ${exchange}.` : ''} Current price: ${price}.`,
+    sectorPriceLine: (sector, exchange, price) => `Sector: ${sector}.${exchange ? ` Listing: ${exchange}.` : ''}${price ? ` Current price: ${price}.` : ''}`,
     methodH2: 'Lubin scoring methodology',
     methodBody: (n, ticker) => `${n} (${ticker})'s score is calculated automatically from 10 objective financial criteria, with no human intervention or opinion. Each criterion is validated (YES / PARTIAL / NO) based on thresholds drawn from the financial literature (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). The final score is the sum of validations.`,
     criteriaH2: 'The 10 quantitative criteria analyzed',
@@ -301,7 +301,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     oppBody: (n) => `${n} está en su decil bajo histórico de valoración (P/FCF ≤ percentil 10 a 10 años, Y ratio &lt; 25×). Es un punto de entrada potencialmente interesante para inversores a largo plazo.`,
     updatedOn: 'Actualizado el',
     introVerdict: (n, score, quality, pfcfClause) => `Analizamos la acción ${n} con los 10 criterios de calidad de Lubin Investment. La empresa obtiene una nota de calidad de <strong>${score}</strong>, lo que significa calidad ${quality}${pfcfClause}.`,
-    sectorPriceLine: (sector, exchange, price) => `Sector: ${sector}.${exchange ? ` Bolsa de cotización: ${exchange}.` : ''} Precio actual: ${price}.`,
+    sectorPriceLine: (sector, exchange, price) => `Sector: ${sector}.${exchange ? ` Bolsa de cotización: ${exchange}.` : ''}${price ? ` Precio actual: ${price}.` : ''}`,
     methodH2: 'Metodología de puntuación Lubin',
     methodBody: (n, ticker) => `La nota de ${n} (${ticker}) se calcula automáticamente a partir de 10 criterios financieros objetivos, sin intervención humana ni opinión. Cada criterio se valida (SÍ / PARCIAL / NO) según umbrales sacados de la literatura financiera (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). La nota final es el total de las validaciones.`,
     criteriaH2: 'Los 10 criterios cuantitativos analizados',
@@ -375,6 +375,7 @@ export function renderTickerHtml(
     opportunity: boolean;
     region: string;
     exchange: string | null;
+    lastScoredAt: Date | null;
   },
   related: Array<{
     ticker: string;
@@ -399,7 +400,11 @@ export function renderTickerHtml(
   const pfcfClause = t.pfcfTTM != null && isFinite(t.pfcfTTM)
     ? tr.pfcfClauseTpl(pfcf)
     : '';
-  const price = t.price != null && isFinite(t.price) ? `${t.price.toFixed(2)} ${escapeHtml(t.currency || 'USD')}` : ', ';
+  const price = t.price != null && isFinite(t.price) ? `${t.price.toFixed(2)} ${escapeHtml(t.currency || 'USD')}` : '';
+  // Fiche « mince » : ni valorisation (P/FCF) ni cours → quasi que du template partagé.
+  // noindex,follow pour concentrer le budget de crawl sur les vraies fiches (aussi exclue du sitemap).
+  const thin = t.pfcfTTM == null && t.price == null;
+  const robots = thin ? 'noindex,follow' : 'index,follow';
   const oppBadge = t.opportunity
     ? `<p><strong>${tr.oppLabel} :</strong> ${tr.oppBody(name)}</p>`
     : '';
@@ -435,13 +440,16 @@ export function renderTickerHtml(
   const rawDescription = tr.metaDescription(displayName);
   const description = escapeHtml(rawDescription);
 
-  // Fraîcheur, signal fort pour le SEO et les moteurs IA (contenu maintenu).
-  const now = new Date();
-  const isoDate = now.toISOString();
+  // Fraîcheur = date RÉELLE du dernier scoring (lastScoredAt), pas la date du rendu.
+  // Un dateModified qui change à chaque crawl est un signal de contenu auto-généré de
+  // faible valeur (contribue au « Explorée, actuellement non indexée »). lastScoredAt ne
+  // bouge qu'au re-scoring (≈ aux earnings) → signal de fraîcheur honnête et stable.
+  const scoredAt = t.lastScoredAt ?? new Date();
+  const isoDate = scoredAt.toISOString();
   const dateLoc = (() => {
-    const dd = String(now.getDate()).padStart(2, '0');
-    const mm = String(now.getMonth() + 1).padStart(2, '0');
-    const yyyy = now.getFullYear();
+    const dd = String(scoredAt.getDate()).padStart(2, '0');
+    const mm = String(scoredAt.getMonth() + 1).padStart(2, '0');
+    const yyyy = scoredAt.getFullYear();
     // Format dd/mm/yyyy pour fr/es, mm/dd/yyyy pour en (convention locale).
     return lang === 'en' ? `${mm}/${dd}/${yyyy}` : `${dd}/${mm}/${yyyy}`;
   })();
@@ -498,7 +506,7 @@ ${related.map((r) => {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
 <meta name="description" content="${description}">
-<meta name="robots" content="index,follow">
+<meta name="robots" content="${robots}">
 <link rel="canonical" href="${canonical}">
 ${hreflang}
 <link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
@@ -648,6 +656,7 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
         region: true,
         exchange: true,
         status: true,
+        lastScoredAt: true,
       },
     });
 

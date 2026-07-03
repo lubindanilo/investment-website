@@ -141,7 +141,9 @@ async function buildSitemap(): Promise<string> {
   // On récupère scoreRatio (pour différencier la priority) et lastScoredAt (lastmod réel)
   // afin d'envoyer à Google de vrais signaux de fraîcheur + d'importance par fiche.
   const tickers = await prisma.screenerTicker.findMany({
-    where: { status: 'scored' },
+    // Exclut les fiches « minces » (ni P/FCF ni cours) : elles sont en noindex côté
+    // seoPrerender, inutile de les advertise dans le sitemap (cohérence des signaux).
+    where: { status: 'scored', NOT: { pfcfTTM: null, price: null } },
     orderBy: { scoreRatio: 'desc' },
     take: 5000,
     select: { ticker: true, scoreRatio: true, lastScoredAt: true, updatedAt: true },
