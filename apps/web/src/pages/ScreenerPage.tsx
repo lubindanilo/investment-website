@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../i18n/index.js';
-import type { ScreenerTopRow, ScreenerStats } from '@lubin/shared';
+import type { ScreenerTopRow } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { sectorSlug } from '../lib/sector.js';
@@ -175,7 +175,6 @@ export function ScreenerPage() {
   const [upgrade, setUpgrade] = useState(false);
   const [searchParams] = useSearchParams();
   const [rows, setRows] = useState<ScreenerTopRow[]>([]);
-  const [stats, setStats] = useState<ScreenerStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [minScore, setMinScore] = useState(6);
@@ -208,11 +207,8 @@ export function ScreenerPage() {
   const load = useCallback(async () => {
     setLoading(true); setError(null);
     try {
-      const [top, st] = await Promise.all([
-        api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300, opportunities: onlyOpp, sector: selectedSectors.length ? selectedSectors.join(',') : undefined }),
-        api.screener.stats(),
-      ]);
-      setRows(top); setStats(st);
+      const top = await api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300, opportunities: onlyOpp, sector: selectedSectors.length ? selectedSectors.join(',') : undefined });
+      setRows(top);
     } catch (e) {
       setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
     } finally { setLoading(false); }
@@ -236,7 +232,6 @@ export function ScreenerPage() {
     : Math.min(sorted.length, FREE_SCREENER_TOP + 12);
   const visible = sorted.slice(0, renderCount);
 
-  const progress = stats && stats.total > 0 ? Math.round(((stats.scored + stats.nodata + stats.error) / stats.total) * 100) : 0;
 
   const SortTh = ({ label, col }: { label: string; col: SortCol }) => {
     const active = sort.col === col;
@@ -257,16 +252,6 @@ export function ScreenerPage() {
             <h1 className="scr-title">{t('screener.title')}</h1>
             <p className="muted" style={{ fontSize: 14 }}>{t('screener.subtitle')}</p>
           </div>
-          {stats && (
-            <div className="col gap-6 scr-progress">
-              <div className="row between wide">
-                <span className="tiny muted" style={{ fontWeight: 600 }}>{t('screener.progress.label')}</span>
-                <span className="num tiny" style={{ fontWeight: 700, color: progress >= 100 ? 'var(--good)' : 'var(--brand-ink)' }}>{progress >= 100 ? t('screener.progress.upToDate') : progress + ' %'}</span>
-              </div>
-              <div className="scr-progress-track"><div className="scr-progress-fill" style={{ width: `${progress}%`, background: progress >= 100 ? 'var(--good)' : 'var(--brand)' }} /></div>
-              <span className="tiny muted num">{t('screener.progress.scored', { scored: stats.scored.toLocaleString(currentLocale()), total: stats.total.toLocaleString(currentLocale()) })}</span>
-            </div>
-          )}
         </div>
 
         {/* Filtres */}
@@ -320,7 +305,6 @@ export function ScreenerPage() {
             {t('opportunity.filter')}
             {!isPro && <span className="scr-pro-tag">PRO</span>}
           </button>
-          <span className="tiny muted" style={{ marginLeft: 'auto' }}>{t('screener.results', { count: sorted.length })}</span>
         </div>
 
         {error && <div className="card scr-msg">{error}</div>}
