@@ -12,7 +12,7 @@
     "breadcrumb": "Breadcrumb"
   },
   "blog": {
-    "ctaSeeAnalysis": "See {{ticker}} analysis",
+    "ctaSeeAnalysis": "{{name}}: see the full analysis",
     "ctaAnalyzeStock": "Analyze a stock",
     "hero": {
       "chipComing": "Coming soon",

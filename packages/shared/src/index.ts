@@ -5,6 +5,7 @@
 
 // ─── Contenu éditorial (blog) — source unique web + api ─────────────────────
 export * from './articles.js';
+export * from './companyNames.js';
 
 // ─── Critères ──────────────────────────────────────────────────────────────
 

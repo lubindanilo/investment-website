@@ -91,7 +91,7 @@
     "breadcrumb": "Migas de pan"
   },
   "blog": {
-    "ctaSeeAnalysis": "Ver el análisis de {{ticker}}",
+    "ctaSeeAnalysis": "{{name}}: ver el análisis completo",
     "ctaAnalyzeStock": "Analizar una acción",
     "hero": {
       "chipComing": "Próximamente",

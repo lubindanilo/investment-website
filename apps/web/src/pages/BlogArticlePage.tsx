@@ -6,7 +6,7 @@
 import type { ReactNode } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { getArticleBySlug, toArticleLang, type ArticleBlock, type ArticleLang } from '@lubin/shared';
+import { getArticleBySlug, toArticleLang, companyDisplayName, type ArticleBlock, type ArticleLang } from '@lubin/shared';
 import SeoHead from '../components/SeoHead.js';
 import { Icon } from '../components/ui/primitives.js';
 import './BlogArticlePage.css';
@@ -109,6 +109,17 @@ export function BlogArticlePage() {
     day: 'numeric', month: 'long', year: 'numeric',
   });
 
+  // CTA identique en tête (sous le titre) et en fin d'article. Nom de société propre si connu.
+  const cta = article.ticker ? (
+    <Link to={`/analyse/${article.ticker}`} className="btn btn-brand">
+      {t('blog.ctaSeeAnalysis', { name: companyDisplayName(article.ticker) })} <Icon name="arrowRight" size={16} />
+    </Link>
+  ) : (
+    <Link to="/analyser" className="btn btn-brand">
+      {t('blog.ctaAnalyzeStock')} <Icon name="arrowRight" size={16} />
+    </Link>
+  );
+
   return (
     <div className="blog">
       <SeoHead title={c.title} description={c.metaDescription} type="article" />
@@ -128,6 +139,7 @@ export function BlogArticlePage() {
             <time dateTime={article.date}>· {dateLabel}</time>
             <span>· {article.readingTime} min</span>
           </div>
+          <div className="article-header-cta">{cta}</div>
         </header>
 
         {/* Réponse auto-portée (answer-first) */}
@@ -149,17 +161,7 @@ export function BlogArticlePage() {
         </section>
 
         {/* CTA */}
-        <section className="article-cta">
-          {article.ticker ? (
-            <Link to={`/analyse/${article.ticker}`} className="btn btn-brand">
-              {t('blog.ctaSeeAnalysis', { ticker: article.ticker })} <Icon name="arrowRight" size={16} />
-            </Link>
-          ) : (
-            <Link to="/analyser" className="btn btn-brand">
-              {t('blog.ctaAnalyzeStock')} <Icon name="arrowRight" size={16} />
-            </Link>
-          )}
-        </section>
+        <section className="article-cta">{cta}</section>
 
         <section className="article-author">
           <h2 className="article-h2">{AUTHOR[lang].heading}</h2>
