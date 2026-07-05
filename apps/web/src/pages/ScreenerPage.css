@@ -15,10 +15,11 @@
 .scr-filter-kicker { font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-3); }
 .scr-pfcf-filter { flex: 1; min-width: 220px; max-width: 340px; }
 
-/* Cellule Société : ticker gras mono + nom gris tronqué */
-.scr-soc { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.scr-soc-ticker { font-family: var(--mono); font-weight: 700; font-size: 13.5px; color: var(--ink); min-width: 46px; flex-shrink: 0; }
-.scr-soc-name { color: var(--ink-2); font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 280px; }
+/* Cellule Société : nom d'entreprise en gras au-dessus, ticker petit et gris en dessous.
+   column-reverse → le nom (2e dans le DOM) passe en haut sans toucher au JSX des 3 tables. */
+.scr-soc { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 2px; min-width: 0; }
+.scr-soc-ticker { font-family: var(--mono); font-weight: 500; font-size: 11.5px; color: var(--ink-3); }
+.scr-soc-name { color: var(--ink); font-weight: 700; font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 280px; }
 .scr-th-inner { display: inline-flex; align-items: center; gap: 4px; }
 .scr-tbl td:first-child { max-width: 360px; }
 

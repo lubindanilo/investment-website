@@ -332,8 +332,8 @@ function TitleHeaderCard({ company, onRemove, removable }: { company: CompanyVie
       )}
       <ScoreCircle score={s10} size={62} stroke={6} animate={false} />
       <div className="col" style={{ gap: 3, minWidth: 0, flex: 1, paddingRight: removable ? 18 : 0 }}>
-        <span className="num" style={{ fontWeight: 800, fontSize: 15 }}>{company.ticker}</span>
-        <span style={{ fontSize: 12.5, fontWeight: 600, color: 'var(--ink)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{company.company}</span>
+        <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--ink)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{company.company}</span>
+        <span className="num" style={{ fontSize: 12, fontWeight: 500, color: 'var(--ink-3)' }}>{company.ticker}</span>
         {company.sector && <span className="tiny muted" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t(`industries.${sectorSlug(company.sector)}`, { defaultValue: company.sector })}</span>}
         <div className="row gap-8" style={{ marginTop: 3, flexWrap: 'wrap' }}>
           <span className="num tiny" style={{ fontWeight: 600 }}>{formatPrice(company.price, company.currency)}</span>

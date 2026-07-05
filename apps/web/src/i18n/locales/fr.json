@@ -486,7 +486,7 @@
     "qualCtaText": "L'analyse qualitative évalue le moat, la prévisibilité des revenus et la qualité du management, au-delà des seuls chiffres.",
     "horizonAll": "Tout",
     "priceUnavailable": "Graphique de cours indisponible pour ce symbole.",
-    "landingKicker": "Issu de la veille · les mieux notées",
+    "landingKicker": "Les plus populaires",
     "related": {
       "title": "Autres actions du secteur {{sector}}"
     },
@@ -719,7 +719,7 @@
     "subtitle": "Mets 2 à {{max}} titres côte à côte. La donnée tranche, ligne par ligne.",
     "tickersLabel": "Titres",
     "addTicker": "Ajouter un titre",
-    "searchPlaceholder": "Rechercher un ticker…",
+    "searchPlaceholder": "Rechercher une entreprise…",
     "noResult": "Aucun résultat.",
     "slots": "{{n}}/{{max}} · minimum 2 pour comparer",
     "remove": "Retirer",

@@ -461,7 +461,7 @@
     "qualCtaText": "The qualitative analysis assesses the moat, revenue predictability and management quality, beyond the numbers alone.",
     "horizonAll": "All",
     "priceUnavailable": "Price chart unavailable for this symbol.",
-    "landingKicker": "From our watch · top rated",
+    "landingKicker": "Most popular",
     "related": {
       "title": "Other {{sector}} stocks"
     },
@@ -719,7 +719,7 @@
     "subtitle": "Put 2 to {{max}} stocks side by side. The data decides, row by row.",
     "tickersLabel": "Stocks",
     "addTicker": "Add a stock",
-    "searchPlaceholder": "Search a ticker…",
+    "searchPlaceholder": "Search a company…",
     "noResult": "No result.",
     "slots": "{{n}}/{{max}} · minimum 2 to compare",
     "remove": "Remove",

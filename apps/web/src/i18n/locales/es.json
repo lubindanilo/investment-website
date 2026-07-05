@@ -461,7 +461,7 @@
     "qualCtaText": "El análisis cualitativo evalúa el moat, la previsibilidad de los ingresos y la calidad de la dirección, más allá de las cifras.",
     "horizonAll": "Todo",
     "priceUnavailable": "Gráfico de cotización no disponible para este símbolo.",
-    "landingKicker": "De nuestro seguimiento · las mejor valoradas",
+    "landingKicker": "Las más populares",
     "related": {
       "title": "Otras acciones del sector {{sector}}"
     },
@@ -719,7 +719,7 @@
     "subtitle": "Pon 2 o 3 valores uno al lado del otro. Deciden los datos, línea por línea.",
     "tickersLabel": "Valores",
     "addTicker": "Añadir un valor",
-    "searchPlaceholder": "Buscar un ticker…",
+    "searchPlaceholder": "Buscar una empresa…",
     "noResult": "Sin resultados.",
     "slots": "{{n}}/3 · mínimo 2 para comparar",
     "remove": "Quitar",
