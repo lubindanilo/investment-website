@@ -63,6 +63,9 @@
 .btn-ghost:hover:not(:disabled) { background: var(--surface-2); border-color: oklch(0.88 0.006 270); }
 .btn-soft { background: var(--brand-soft); color: var(--brand-ink); }
 .btn-soft:hover:not(:disabled) { background: oklch(0.93 0.045 277); }
+/* Variante discrète : fond gris + texte noir. Pour les actions volontairement peu mises en avant. */
+.btn-muted { background: var(--line); color: var(--ink); }
+.btn-muted:hover:not(:disabled) { background: oklch(0.89 0.006 270); }
 .btn-sm { height: 32px; font-size: 13px; padding: 0 12px; border-radius: var(--r-xs); }
 .btn-lg { height: 50px; font-size: 15.5px; padding: 0 24px; border-radius: var(--r-md); }
 .btn-block { width: 100%; }

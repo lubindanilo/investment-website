@@ -14,6 +14,7 @@
   "blog": {
     "ctaSeeAnalysis": "{{name}}: see the full analysis",
     "ctaAnalyzeStock": "Analyze a stock",
+    "ctaOpportunities": "Our opportunities of the moment",
     "hero": {
       "chipComing": "Coming soon",
       "chipLive": "The blog",

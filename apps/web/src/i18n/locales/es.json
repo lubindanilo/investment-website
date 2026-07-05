@@ -93,6 +93,7 @@
   "blog": {
     "ctaSeeAnalysis": "{{name}}: ver el análisis completo",
     "ctaAnalyzeStock": "Analizar una acción",
+    "ctaOpportunities": "Nuestras oportunidades del momento",
     "hero": {
       "chipComing": "Próximamente",
       "chipLive": "El blog",

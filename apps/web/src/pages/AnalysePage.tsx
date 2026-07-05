@@ -408,7 +408,7 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
                   <div className="num anl-price">{currency} {analysis.price.toFixed(2)}</div>
                 )}
               </div>
-              <button className={'btn ' + (watched ? 'btn-soft' : 'btn-brand')} onClick={onWatch}>
+              <button className={'btn ' + (watched ? 'btn-soft' : 'btn-muted')} onClick={onWatch}>
                 {watched ? <><Icon name="check" size={16} /> {t('analyse.inWatchlist')}</> : <><Icon name="plus" size={16} /> {t('analyse.addToWatchlist')}</>}
               </button>
             </div>
