@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../i18n/index.js';
 import type { ScreenerTopRow, ScreenerStats } from '@lubin/shared';
@@ -171,8 +171,9 @@ function SectorItem({ label, count, checked, onClick }: { label: string; count?:
 export function ScreenerPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { isPro } = useSubscription();
+  const { isPro, loading: subLoading } = useSubscription();
   const [upgrade, setUpgrade] = useState(false);
+  const [searchParams] = useSearchParams();
   const [rows, setRows] = useState<ScreenerTopRow[]>([]);
   const [stats, setStats] = useState<ScreenerStats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -184,6 +185,14 @@ export function ScreenerPage() {
   const [sectors, setSectors] = useState<{ sector: string; count: number }[]>([]);
   const [sort, setSort] = useState<SortState>({ col: 'score', dir: 'desc' });
   const [visibleCount, setVisibleCount] = useState(60);   // pagination "charger plus" (Pro)
+
+  // Deep-link « Nos opportunités du moment » (?opp=1, ex. depuis le blog) : une fois l'abonnement
+  // connu, on active le filtre pour un Pro, sinon on ouvre l'upgrade (le filtre est réservé Pro).
+  useEffect(() => {
+    if (subLoading || searchParams.get('opp') !== '1') return;
+    if (isPro) setOnlyOpp(true);
+    else setUpgrade(true);
+  }, [subLoading, isPro, searchParams]);
 
   // Liste des industries disponibles (une fois) → options du filtre, triées par libellé traduit.
   useEffect(() => {

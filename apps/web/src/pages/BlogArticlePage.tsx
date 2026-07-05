@@ -109,15 +109,23 @@ export function BlogArticlePage() {
     day: 'numeric', month: 'long', year: 'numeric',
   });
 
-  // CTA identique en tête (sous le titre) et en fin d'article. Nom de société propre si connu.
-  const cta = article.ticker ? (
-    <Link to={`/analyse/${article.ticker}`} className="btn btn-brand">
-      {t('blog.ctaSeeAnalysis', { name: companyDisplayName(article.ticker) })} <Icon name="arrowRight" size={16} />
-    </Link>
-  ) : (
-    <Link to="/analyser" className="btn btn-brand">
-      {t('blog.ctaAnalyzeStock')} <Icon name="arrowRight" size={16} />
-    </Link>
+  // Groupe de CTA identique en tête (sous le titre) et en fin d'article.
+  // L'analyse de la société de l'article est en secondaire (fond blanc, btn-ghost) ;
+  // les 2 CTA génériques (analyser / opportunités) sont en primaire (fond bleu, btn-brand).
+  const ctaGroup = (
+    <div className="article-cta-group">
+      {article.ticker && (
+        <Link to={`/analyse/${article.ticker}`} className="btn btn-ghost">
+          {t('blog.ctaSeeAnalysis', { name: companyDisplayName(article.ticker) })} <Icon name="arrowRight" size={16} />
+        </Link>
+      )}
+      <Link to="/analyser" className="btn btn-brand">
+        {t('blog.ctaAnalyzeStock')} <Icon name="arrowRight" size={16} />
+      </Link>
+      <Link to="/screener?opp=1" className="btn btn-brand">
+        {t('blog.ctaOpportunities')} <Icon name="arrowRight" size={16} />
+      </Link>
+    </div>
   );
 
   return (
@@ -139,7 +147,7 @@ export function BlogArticlePage() {
             <time dateTime={article.date}>· {dateLabel}</time>
             <span>· {article.readingTime} min</span>
           </div>
-          <div className="article-header-cta">{cta}</div>
+          <div className="article-header-cta">{ctaGroup}</div>
         </header>
 
         {/* Réponse auto-portée (answer-first) */}
@@ -161,7 +169,7 @@ export function BlogArticlePage() {
         </section>
 
         {/* CTA */}
-        <section className="article-cta">{cta}</section>
+        <section className="article-cta">{ctaGroup}</section>
 
         <section className="article-author">
           <h2 className="article-h2">{AUTHOR[lang].heading}</h2>
