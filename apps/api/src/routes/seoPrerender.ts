@@ -25,6 +25,7 @@ import { prisma } from '../db/client.js';
 //, pas de build dist/, crash lambda Vercel. On consomme la copie locale apps/api/src/data/.
 // Les types restent OK à puiser depuis '@lubin/shared' (effacés à la compilation).
 import { getArticleBySlug, listArticles, toArticleLang } from '../data/articles.js';
+import { companyDisplayName } from '../data/companyNames.js';
 import type { Article, ArticleLang } from '@lubin/shared';
 
 export const seoPrerenderRouter: Router = Router();
@@ -790,6 +791,16 @@ function renderArticleHtml(article: Article, lang: ArticleLang): string {
   };
 
   const ctaHref = article.ticker ? `${SITE_URL}/analyse/${article.ticker}` : `${SITE_URL}/analyser`;
+  // CTA identique en tête (sous le titre) et en fin d'article ; nom de société propre si connu.
+  const ctaName = companyDisplayName(article.ticker);
+  const ctaLabel = article.ticker
+    ? (lang === 'en' ? `${ctaName}: see the full analysis on Lubin Investment`
+      : lang === 'es' ? `${ctaName}: ver el análisis completo en Lubin Investment`
+      : `${ctaName} : voir l'analyse complète sur Lubin Investment`)
+    : (lang === 'en' ? 'Analyze a stock on Lubin Investment'
+      : lang === 'es' ? 'Analizar una acción en Lubin Investment'
+      : 'Analyser une action sur Lubin Investment');
+  const ctaHtml = `<p><a href="${ctaHref}"><strong>${escapeHtml(ctaLabel)}</strong></a></p>`;
 
   return `<!DOCTYPE html>
 <html lang="${htmlLang}">
@@ -825,11 +836,12 @@ ${hreflang}
 <nav aria-label="Fil d'Ariane"><span data-nosnippet><a href="${SITE_URL}/">Accueil</a> › <a href="${SITE_URL}/blog">Blog</a></span></nav>
 <h1>${escapeHtml(c.title)}</h1>
 <p><small>${escapeHtml(article.date)} · <span rel="author">${escapeHtml(AUTHOR_BYLINE[lang])}</span></small></p>
+${ctaHtml}
 <p><strong>${renderInline(c.answer)}</strong></p>
 ${bodyHtml}
 <h2>FAQ</h2>
 ${faqHtml}
-<p><a href="${ctaHref}"><strong>${article.ticker ? `Voir l'analyse ${escapeHtml(article.ticker)} sur Lubin Investment` : 'Analyser une action sur Lubin Investment'}</strong></a></p>
+${ctaHtml}
 <h2>${lang === 'en' ? 'About the author' : lang === 'es' ? 'Sobre el autor' : "À propos de l'auteur"}</h2>
 <p>${escapeHtml(AUTHOR_BIO[lang])}</p>
 <footer><p><small><span data-nosnippet>${escapeHtml(c.disclaimer)}</span></small></p></footer>

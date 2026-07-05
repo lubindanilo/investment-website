@@ -12,7 +12,7 @@
     "breadcrumb": "Fil d'Ariane"
   },
   "blog": {
-    "ctaSeeAnalysis": "Voir l'analyse {{ticker}}",
+    "ctaSeeAnalysis": "{{name}} : voir l'analyse complète",
     "ctaAnalyzeStock": "Analyser une action",
     "hero": {
       "chipComing": "Bientôt en ligne",
