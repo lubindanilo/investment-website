@@ -124,8 +124,8 @@
   transition: transform .12s, box-shadow .14s;
 }
 .anl-landing-card:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
-.anl-landing-ticker { font-weight: 700; font-size: 15px; }
-.anl-landing-name { max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.anl-landing-name { font-weight: 700; font-size: 14px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.anl-landing-ticker { font-size: 12px; color: var(--ink-3); }
 .anl-landing-foot { border-top: 1px solid var(--line-soft); padding-top: 10px; }
 
 /* Maillage interne : autres actions du même secteur, en bas de la page d'analyse. */
@@ -139,8 +139,8 @@
   transition: transform .12s, box-shadow .14s;
 }
 .anl-related-card:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
-.anl-related-ticker { font-weight: 700; font-size: 15px; color: var(--ink); }
-.anl-related-name { max-width: 130px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.anl-related-name { font-weight: 700; font-size: 14px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.anl-related-ticker { font-size: 12px; color: var(--ink-3); }
 .anl-related-foot { border-top: 1px solid var(--line-soft); padding-top: 10px; }
 
 @media (max-width: 880px) {

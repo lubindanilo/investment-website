@@ -592,16 +592,26 @@ function ErrorState({ error, ticker, onRetry }: { error: ApiError; ticker: strin
   );
 }
 
-// ─── Vitrine (état vide) — les mieux notées ──────────────────────────────────
+// ─── Vitrine (état vide) — les actions les plus populaires du monde ───────────
+// On montre à l'anonyme des méga-caps que tout le monde reconnaît (Apple, Microsoft…)
+// plutôt que des pépites obscures issues de la veille : point d'entrée plus engageant,
+// et cohérent avec le placeholder « Apple, Microsoft, Nvidia… » de la barre de recherche.
+const POPULAR_TICKERS = ['AAPL', 'MSFT', 'NVDA', 'AMZN', 'GOOGL', 'META'];
+
 function LandingDiscovery({ onPick }: { onPick: (ticker: string) => void }) {
   const { t } = useTranslation();
-  const [picks, setPicks] = useState<ScreenerTopRow[]>([]);
+  const [picks, setPicks] = useState<TickerPreview[]>([]);
   const [loaded, setLoaded] = useState(false);
   useEffect(() => {
     let cancelled = false;
-    api.screener.top({ minRatio: 0.9, minMax: 8, limit: 6 })
-      .then(p => { if (!cancelled) { setPicks(p); setLoaded(true); } })
-      .catch(() => { if (!cancelled) setLoaded(true); });
+    // allSettled : si un ticker n'est pas (encore) scoré, on garde simplement les autres,
+    // en conservant l'ordre de POPULAR_TICKERS.
+    Promise.allSettled(POPULAR_TICKERS.map(tk => api.screener.tickerPreview(tk)))
+      .then(results => {
+        if (cancelled) return;
+        setPicks(results.flatMap(r => (r.status === 'fulfilled' ? [r.value] : [])));
+        setLoaded(true);
+      });
     return () => { cancelled = true; };
   }, []);
   if (loaded && picks.length === 0) return null;
@@ -619,9 +629,9 @@ function LandingDiscovery({ onPick }: { onPick: (ticker: string) => void }) {
               return (
                 <button key={p.ticker} className="card anl-landing-card" onClick={() => onPick(p.ticker)}>
                   <div className="row between">
-                    <div className="col gap-2" style={{ minWidth: 0 }}>
+                    <div className="col gap-2" style={{ minWidth: 0, flex: 1 }}>
+                      <span className="anl-landing-name">{p.name ?? p.ticker}</span>
                       <span className="num anl-landing-ticker">{p.ticker}</span>
-                      <span className="tiny muted anl-landing-name">{p.name ?? p.ticker}</span>
                     </div>
                     <ScorePill score={s} />
                   </div>
@@ -676,9 +686,9 @@ function RelatedTickers({ ticker, sector }: { ticker: string; sector: string | n
               return (
                 <Link key={r.ticker} to={`/analyse/${r.ticker}`} className="card anl-related-card">
                   <div className="row between">
-                    <div className="col gap-2" style={{ minWidth: 0 }}>
+                    <div className="col gap-2" style={{ minWidth: 0, flex: 1 }}>
+                      <span className="anl-related-name">{r.name ?? r.ticker}</span>
                       <span className="num anl-related-ticker">{r.ticker}</span>
-                      <span className="tiny muted anl-related-name">{r.name ?? r.ticker}</span>
                     </div>
                     <ScorePill score={s10} />
                   </div>
