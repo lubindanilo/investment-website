@@ -117,7 +117,16 @@
       "allSectors": "All sectors",
       "apply": "Apply",
       "reset": "Reset",
-      "nSectors": "{{count}} sectors"
+      "nSectors": "{{count}} sectors",
+      "marketCap": "Market cap",
+      "cap": {
+        "small": "Small cap",
+        "mid": "Mid cap",
+        "large": "Large cap",
+        "smallRange": "< $2B",
+        "midRange": "$2-10B",
+        "largeRange": "> $10B"
+      }
     },
     "results_one": "{{count}} result",
     "results_other": "{{count}} results",

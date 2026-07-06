@@ -382,6 +382,9 @@ export interface ScreenerTopRow {
   opportunity: boolean;
   /** Percentile actuel du P/FCF vs historique (0-100). Null si indisponible. */
   pfcfPercentile: number | null;
+  /** Capitalisation boursière (prix × actions), devise locale. Null si indisponible.
+   *  Alimente le filtre Small/Mid/Large cap. */
+  marketCap: number | null;
 }
 
 /**

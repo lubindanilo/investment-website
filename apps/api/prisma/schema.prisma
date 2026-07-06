@@ -219,6 +219,10 @@ model ScreenerTicker {
   price              Float?
   /// Variation du jour en %
   dayChangePct       Float?
+  /// Capitalisation boursière (prix × actions), figée au scoring. Devise locale du titre
+  /// (approximation US-first, comme marketBeat). Null si prix ou nb d'actions indisponible.
+  /// Alimente le filtre Small/Mid/Large cap du screener.
+  marketCap          Float?
   /// Closes mensuels ~1 an pour la sparkline (number[])
   spark              Json?
   fundamentalsSource String?

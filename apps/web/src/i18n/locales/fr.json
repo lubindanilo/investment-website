@@ -117,7 +117,16 @@
       "allSectors": "Tous les secteurs",
       "apply": "Valider",
       "reset": "Réinitialiser",
-      "nSectors": "{{count}} secteurs"
+      "nSectors": "{{count}} secteurs",
+      "marketCap": "Capitalisation",
+      "cap": {
+        "small": "Small cap",
+        "mid": "Mid cap",
+        "large": "Large cap",
+        "smallRange": "< 2 Md$",
+        "midRange": "2-10 Md$",
+        "largeRange": "> 10 Md$"
+      }
     },
     "results_one": "{{count}} résultat",
     "results_other": "{{count}} résultats",
