@@ -15,8 +15,8 @@ export function HomePage() {
   const BENEFITS: { icon: IconName; title: string; text: string }[] = [
     { icon: 'bars', title: t('home.benefits.0.title'), text: t('home.benefits.0.text') },
     { icon: 'pulse', title: t('home.benefits.1.title'), text: t('home.benefits.1.text') },
-    { icon: 'shield', title: t('home.benefits.2.title'), text: t('home.benefits.2.text') },
-    { icon: 'scale', title: t('home.benefits.3.title'), text: t('home.benefits.3.text') },
+    { icon: 'scale', title: t('home.benefits.2.title'), text: t('home.benefits.2.text') },
+    { icon: 'shield', title: t('home.benefits.3.title'), text: t('home.benefits.3.text') },
   ];
 
   // Étapes « Comment ça marche » — libellés traduits via i18n
@@ -24,6 +24,14 @@ export function HomePage() {
     { n: '01', title: t('home.steps.0.title'), text: t('home.steps.0.text') },
     { n: '02', title: t('home.steps.1.title'), text: t('home.steps.1.text') },
     { n: '03', title: t('home.steps.2.title'), text: t('home.steps.2.text') },
+  ];
+
+  // Vitrine fonctionnalités — cartes liées aux pages produit (libellés i18n)
+  const FEATURES: { icon: IconName; key: string; to: string }[] = [
+    { icon: 'filter', key: 'screener', to: '/screener' },
+    { icon: 'eye', key: 'quali', to: '/analyser' },
+    { icon: 'layers', key: 'compare', to: '/compare' },
+    { icon: 'star', key: 'watchlist', to: user ? '/watchlist' : '/signup' },
   ];
 
   return (
@@ -49,7 +57,7 @@ export function HomePage() {
               <Link to="/screener" className="btn btn-ghost btn-lg">{t('home.hero.ctaScreener')}</Link>
             </div>
             <div className="home-stats">
-              <div><span className="num home-stat-n">10</span><span className="home-stat-l">{t('home.stats.criteria')}</span></div>
+              <div><span className="num home-stat-n">{t('home.stats.perfValue')}</span><span className="home-stat-l">{t('home.stats.perfLabel')}</span></div>
               <div><span className="num home-stat-n">7&nbsp;000+</span><span className="home-stat-l">{t('home.stats.tickers')}</span></div>
             </div>
           </div>
@@ -88,6 +96,24 @@ export function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Vitrine fonctionnalités ── */}
+      <section className="wrap home-section home-features">
+        <div className="home-how-head">
+          <span className="kicker">{t('home.features.kicker')}</span>
+          <h2 className="home-h2">{t('home.features.title')}</h2>
+        </div>
+        <div className="home-cards">
+          {FEATURES.map(f => (
+            <Link key={f.key} to={f.to} className="home-card home-feature-card">
+              <div className="home-card-icon"><Icon name={f.icon} size={21} /></div>
+              <div className="home-card-title">{t(`home.features.items.${f.key}.title`)}</div>
+              <p>{t(`home.features.items.${f.key}.text`)}</p>
+              <span className="home-feature-cta">{t(`home.features.items.${f.key}.cta`)} <Icon name="arrowRight" size={15} /></span>
+            </Link>
+          ))}
         </div>
       </section>
 

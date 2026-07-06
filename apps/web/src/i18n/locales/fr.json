@@ -345,58 +345,85 @@
   "home": {
     "hero": {
       "chip": "Analyse fondamentale automatisée",
-      "titleLine1": "Achète des entreprises de qualité",
-      "titleAccent": "au bon prix.",
-      "lede": "Tape le symbole d'une action (son « ticker », ex. AAPL) : en quelques secondes, tu sais si l'entreprise est solide (sa note sur 10) et si son prix est raisonnable. Fini de payer une bonne action trop cher, ou de passer des heures sur des bilans.",
-      "valueLine": "Une note sur 10, une analyse de son activité et de ses dirigeants, et un prix d'achat conseillé.",
+      "titleLine1": "Surperforme le marché avec des actions",
+      "titleAccent": "de qualité au bon prix.",
+      "lede": "La veille note 7 000+ actions sur 10 critères, en continu, et fait remonter les meilleures. Toi, tu vérifies que le prix suit, et tu décides.",
+      "valueLine": "Chaque action notée sur 10 critères fondamentaux, analyse de valorisation actuelle avec prix d'achat conseillé.",
       "ctaAnalyze": "Analyser une action",
       "ctaScreener": "Explorer le screener"
     },
     "stats": {
-      "criteria": "critères chiffrés",
+      "perfValue": "+24,9 %",
+      "perfLabel": "perf. annualisée · actions 10/10",
       "tickers": "titres surveillés"
     },
     "benefits": {
       "0": {
-        "title": "Des chiffres, pas du bla-bla",
-        "text": "Tu sais en quelques secondes si une entreprise est solide, sans démêler les avis contradictoires des forums."
+        "title": "Bats l'indice, pas le hasard",
+        "text": "Les actions notées 10/10 ont surperformé le S&P 500 sur 1, 3 et 5 ans. La qualité, ça se mesure. Et ça paie."
       },
       "1": {
-        "title": "Toute la cote, surveillée",
-        "text": "Tu ne rates plus aucune pépite : la veille scanne tout le marché en continu."
+        "title": "Toute la cote, notée en continu",
+        "text": "Tu ne rates plus une pépite : la veille scanne 7 000+ titres et fait remonter les meilleurs, toute seule."
       },
       "2": {
-        "title": "La méthode des grands investisseurs",
-        "text": "Tu appliques les critères des meilleurs investisseurs (Buffett, Terry Smith), sans avoir à les calculer toi-même."
+        "title": "Qualité et prix, jugés séparément",
+        "text": "Une bonne entreprise n'est pas toujours une bonne action. On note la qualité, puis on te dit à quel prix elle vaut le coup."
       },
       "3": {
-        "title": "Qualité et prix, séparés",
-        "text": "Tu n'achètes plus une bonne entreprise au mauvais prix : la qualité et le prix sont jugés séparément."
+        "title": "La méthode des grands investisseurs",
+        "text": "10 critères fondamentaux inspirés de Warren Buffett, Terry Smith et bien d'autres, directement affichés sur chaque action."
       }
     },
     "how": {
       "kicker": "Comment ça marche",
-      "title": "Une action jugée en un coup d'œil"
+      "title": "Les meilleures actions, sans les chercher"
     },
     "steps": {
       "0": {
-        "title": "Tape un ticker",
-        "text": "Entre le symbole d'une action. La note de qualité s'affiche en quelques secondes."
+        "title": "La veille note tout le marché",
+        "text": "7 000+ titres scorés en continu sur 10 critères. Les 10/10 remontent en tête, tout seuls."
       },
       "1": {
-        "title": "Lis la note et sa composition",
-        "text": "Une note sur 10, sa répartition vert/orange/rouge, et le détail des 10 critères."
+        "title": "Tu ouvres la fiche",
+        "text": "Note sur 10, répartition vert/orange/rouge, détail des 10 critères. L'essentiel d'une entreprise sur une page."
       },
       "2": {
-        "title": "Décide du prix d'entrée",
-        "text": "Ajuste tes hypothèses pour obtenir le prix d'achat conseillé, séparé de la qualité."
+        "title": "Tu vérifies le prix, tu décides",
+        "text": "La valorisation sort un prix d'achat conseillé, séparé de la qualité. Tu sais quoi acheter, et à quel prix."
+      }
+    },
+    "features": {
+      "kicker": "Ta boîte à outils",
+      "title": "De la découverte à la décision",
+      "items": {
+        "screener": {
+          "title": "Screener",
+          "text": "Découvre de nouvelles actions : filtre tout le marché par secteur, par meilleures notes ou par P/FCF le plus attractif.",
+          "cta": "Ouvrir le screener"
+        },
+        "quali": {
+          "title": "Analyse qualitative IA",
+          "text": "Comprends le business en 2 minutes : activité, dirigeants et risques, ce que les chiffres ne disent pas.",
+          "cta": "Analyser une action"
+        },
+        "compare": {
+          "title": "Comparateur",
+          "text": "Tu hésites entre plusieurs titres ? Mets-les face à face : le meilleur de chaque critère ressort, ligne par ligne.",
+          "cta": "Comparer des actions"
+        },
+        "watchlist": {
+          "title": "Watchlist",
+          "text": "Ne rate plus le bon moment : cours, note et prochains résultats de tes favoris, suivis pour toi.",
+          "cta": "Voir ma watchlist"
+        }
       }
     },
     "cta": {
       "title": "Trouve les 10/10 sans les chercher",
-      "subtitle": "La veille note l'univers en continu, tu récoltes les meilleures.",
+      "subtitle": "La veille note tout le marché en continu, tu récoltes les meilleures. Gratuit, sans carte bancaire.",
       "analyze": "Analyser une action",
-      "signup": "Créer un compte"
+      "signup": "Commencer gratuitement"
     }
   },
   "auth": {
@@ -700,36 +727,36 @@
     "testimonials": [
       {
         "name": "Camille D.",
-        "role": "Ingénieure logiciel · Nantes",
+        "role": "Ingénieure logiciel",
         "perf": "+24 % / an",
-        "quote": "J'ai arrêté de scroller les forums. La note me dit en trois secondes si une boîte vaut le coup d'œil, le reste, je creuse seulement si le score suit."
+        "quote": "Avant, je perdais mes soirées sur les forums. Maintenant la note me dit en trois secondes si une action tient la route, et je ne creuse que celles qui le méritent. Un temps fou de gagné."
       },
       {
         "name": "Henri L.",
-        "role": "Jeune retraité · Lyon",
-        "quote": "Enfin un outil qui sépare la qualité du business du prix d'entrée. Je n'achète plus de bonnes entreprises au pire moment."
+        "role": "Jeune retraité",
+        "quote": "Séparer la qualité de l'entreprise et son prix d'entrée a changé mes rendements, pas juste mes décisions. Je n'achète plus une bonne action au mauvais moment."
       },
       {
         "name": "Sofia M.",
-        "role": "Médecin · Genève",
+        "role": "Médecin",
         "perf": "+19 % / an",
-        "quote": "Aucun temps pour éplucher des bilans. La veille fait le tri sur tout le marché, je ne regarde que les 10/10 qui remontent."
+        "quote": "Je n'ai pas une minute pour éplucher des bilans. La veille scanne tout le marché à ma place, je ne regarde que les 10/10 qui remontent. Et ça performe."
       },
       {
         "name": "Thomas R.",
-        "role": "Chef d'entreprise · Bruxelles",
-        "quote": "Le P/FCF et le cash conversion mis en avant, c'est exactement ce que je calculais à la main pendant des heures. Gain de temps énorme."
+        "role": "Chef d'entreprise",
+        "quote": "Ce que je calculais à la main pendant des heures est déjà là, sur chaque action. Je décide plus vite et je rate beaucoup moins d'opportunités."
       },
       {
         "name": "Adrien P.",
-        "role": "Investisseur particulier · Montréal",
+        "role": "Investisseur particulier",
         "perf": "+31 % / an",
-        "quote": "J'ai repéré trois compounders via le screener avant qu'ils ne décollent vraiment. La méthode est limpide et tient sur la durée."
+        "quote": "J'ai repéré trois compounders via le screener avant qu'ils ne décollent. Une vraie longueur d'avance, c'est la première fois qu'une méthode me la donne."
       },
       {
         "name": "Léa V.",
-        "role": "Consultante · Paris",
-        "quote": "Aussi propre et dense qu'un terminal pro, mais lisible et sans le prix d'un terminal pro. Les chiffres en monospace, ça change la vie."
+        "role": "Consultante",
+        "quote": "Je décide sur des chiffres clairs, plus sur des tuyaux ou des impressions. J'investis enfin avec méthode, et sans y passer mes week-ends."
       }
     ]
   },

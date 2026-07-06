@@ -52,6 +52,13 @@
 .home-card-title { font-size: 16.5px; font-weight: 700; margin-bottom: 7px; letter-spacing: -0.02em; }
 .home-card p { font-size: 12.5px; line-height: 1.55; color: var(--ink-3); }
 
+/* ── Vitrine fonctionnalités ── */
+.home-features { padding: 64px 28px 56px; }
+.home-feature-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: border-color .15s ease, transform .15s ease; }
+.home-feature-card:hover { border-color: var(--brand); transform: translateY(-2px); }
+.home-feature-card p { flex: 1; }
+.home-feature-cta { margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; color: var(--brand-ink); font-weight: 700; font-size: 13px; }
+
 /* ── Comment ça marche ── */
 .home-how { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 72px 0; }
 .home-how-head { text-align: center; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 10px; }

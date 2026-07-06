@@ -320,58 +320,85 @@
   "home": {
     "hero": {
       "chip": "Automated fundamental analysis",
-      "titleLine1": "Buy quality companies",
+      "titleLine1": "Beat the market with quality stocks",
       "titleAccent": "at the right price.",
-      "lede": "Type a stock's symbol (its “ticker”, e.g. AAPL): in seconds, you know whether the company is solid (its score out of 10) and whether its price is reasonable. No more overpaying for a good stock, or spending hours on financial statements.",
-      "valueLine": "A score out of 10, an analysis of its business and its leadership, and a recommended buy price.",
+      "lede": "The monitor scores 7,000+ stocks on 10 criteria, continuously, and surfaces the best. You check the price is right, and decide.",
+      "valueLine": "Every stock scored on 10 fundamental criteria, with a current valuation analysis and a recommended buy price.",
       "ctaAnalyze": "Analyze a stock",
       "ctaScreener": "Explore the screener"
     },
     "stats": {
-      "criteria": "quantified criteria",
+      "perfValue": "+24.9 %",
+      "perfLabel": "annualized return · 10/10 stocks",
       "tickers": "tickers monitored"
     },
     "benefits": {
       "0": {
-        "title": "Numbers, not noise",
-        "text": "You know in seconds whether a company is solid, without untangling contradictory forum opinions."
+        "title": "Beat the index, not luck",
+        "text": "Stocks scored 10/10 have outperformed the S&P 500 over 1, 3 and 5 years. Quality is measurable. And it pays."
       },
       "1": {
-        "title": "The whole market, monitored",
-        "text": "You never miss a gem: the monitor scans the entire market continuously."
+        "title": "The whole market, scored nonstop",
+        "text": "You never miss a gem: the monitor scans 7,000+ stocks and surfaces the best, all on its own."
       },
       "2": {
-        "title": "The method of great investors",
-        "text": "You apply the criteria of the best investors (Buffett, Terry Smith), without calculating them yourself."
+        "title": "Quality and price, judged separately",
+        "text": "A great company isn't always a great stock. We score the quality, then tell you the price at which it's worth buying."
       },
       "3": {
-        "title": "Quality and price, separated",
-        "text": "You no longer buy a good company at the wrong price: quality and price are judged separately."
+        "title": "The method of great investors",
+        "text": "10 fundamental criteria inspired by Warren Buffett, Terry Smith and many others, shown right on every stock."
       }
     },
     "how": {
       "kicker": "How it works",
-      "title": "A stock judged at a glance"
+      "title": "The best stocks, without hunting for them"
     },
     "steps": {
       "0": {
-        "title": "Type a ticker",
-        "text": "Enter a stock symbol. The quality score appears in seconds."
+        "title": "The monitor scores the whole market",
+        "text": "7,000+ stocks scored continuously on 10 criteria. The 10/10s rise to the top on their own."
       },
       "1": {
-        "title": "Read the score and its breakdown",
-        "text": "A score out of 10, its green/amber/red split, and the detail of all 10 criteria."
+        "title": "You open the analysis",
+        "text": "A score out of 10, its green/amber/red split, and the detail of all 10 criteria. A company's essentials on one page."
       },
       "2": {
-        "title": "Decide on the entry price",
-        "text": "Adjust your assumptions to get the recommended buy price, separate from quality."
+        "title": "You check the price and decide",
+        "text": "The valuation gives a recommended buy price, separate from quality. You know what to buy, and at what price."
+      }
+    },
+    "features": {
+      "kicker": "Your toolkit",
+      "title": "From discovery to decision",
+      "items": {
+        "screener": {
+          "title": "Screener",
+          "text": "Discover new stocks: filter the whole market by sector, by top scores, or by the most attractive P/FCF.",
+          "cta": "Open the screener"
+        },
+        "quali": {
+          "title": "AI qualitative analysis",
+          "text": "Understand the business in 2 minutes: activity, management and risks, what the numbers don't tell you.",
+          "cta": "Analyze a stock"
+        },
+        "compare": {
+          "title": "Comparator",
+          "text": "Torn between several stocks? Put them head to head: the best of each criterion stands out, row by row.",
+          "cta": "Compare stocks"
+        },
+        "watchlist": {
+          "title": "Watchlist",
+          "text": "Never miss the right moment: price, score and upcoming earnings of your favorites, tracked for you.",
+          "cta": "View my watchlist"
+        }
       }
     },
     "cta": {
       "title": "Find the 10/10s without hunting for them",
-      "subtitle": "The monitor scores the universe continuously, you reap the best.",
+      "subtitle": "The monitor scores the whole market continuously, you reap the best. Free, no credit card.",
       "analyze": "Analyze a stock",
-      "signup": "Create an account"
+      "signup": "Start for free"
     }
   },
   "auth": {
@@ -700,36 +727,36 @@
     "testimonials": [
       {
         "name": "Camille D.",
-        "role": "Software engineer · Nantes",
+        "role": "Software engineer",
         "perf": "+24% / yr",
-        "quote": "I stopped scrolling forums. The score tells me in three seconds whether a company is worth a look, I only dig deeper if the rating holds up."
+        "quote": "I used to waste my evenings on forums. Now the score tells me in three seconds whether a stock holds up, and I only dig into the ones that deserve it. A huge time-saver."
       },
       {
         "name": "Henri L.",
-        "role": "Early retiree · Lyon",
-        "quote": "Finally a tool that separates business quality from entry price. I no longer buy great companies at the worst moment."
+        "role": "Early retiree",
+        "quote": "Separating a company's quality from its entry price changed my returns, not just my decisions. I no longer buy a good stock at the wrong time."
       },
       {
         "name": "Sofia M.",
-        "role": "Physician · Geneva",
+        "role": "Physician",
         "perf": "+19% / yr",
-        "quote": "No time to pore over balance sheets. The monitor screens the whole market; I only look at the 10/10s that surface."
+        "quote": "I don't have a minute to pore over financial statements. The monitor scans the whole market for me, I only look at the 10/10s that surface. And it performs."
       },
       {
         "name": "Thomas R.",
-        "role": "Business owner · Brussels",
-        "quote": "Having P/FCF and cash conversion front and center is exactly what I used to compute by hand for hours. Huge time saver."
+        "role": "Business owner",
+        "quote": "What I used to compute by hand for hours is already there, on every stock. I decide faster and miss far fewer opportunities."
       },
       {
         "name": "Adrien P.",
-        "role": "Retail investor · Montreal",
+        "role": "Retail investor",
         "perf": "+31% / yr",
-        "quote": "I spotted three compounders through the screener before they really took off. The method is clear and holds up over time."
+        "quote": "I spotted three compounders through the screener before they took off. A real head start, the first time a method has given me one."
       },
       {
         "name": "Léa V.",
-        "role": "Consultant · Paris",
-        "quote": "As clean and dense as a pro terminal, but readable and without the pro-terminal price. Monospace numbers are a game changer."
+        "role": "Consultant",
+        "quote": "I decide on clear numbers now, not tips or gut feelings. I finally invest with method, and without giving up my weekends."
       }
     ]
   },

@@ -320,58 +320,85 @@
   "home": {
     "hero": {
       "chip": "Análisis fundamental automatizado",
-      "titleLine1": "Compra empresas de calidad",
-      "titleAccent": "al precio correcto.",
-      "lede": "Escribe el símbolo de una acción (su «ticker», p. ej. AAPL): en segundos sabes si la empresa es sólida (su nota sobre 10) y si su precio es razonable. Se acabó pagar de más por una buena acción, o pasar horas con los balances.",
-      "valueLine": "Una nota sobre 10, un análisis de su negocio y de sus directivos, y un precio de compra recomendado.",
+      "titleLine1": "Supera al mercado con acciones",
+      "titleAccent": "de calidad al precio correcto.",
+      "lede": "La vigilancia puntúa 7 000+ acciones sobre 10 criterios, en continuo, y hace subir las mejores. Tú solo compruebas que el precio acompaña, y decides.",
+      "valueLine": "Cada acción puntuada sobre 10 criterios fundamentales, con un análisis de valoración actual y un precio de compra recomendado.",
       "ctaAnalyze": "Analizar una acción",
       "ctaScreener": "Explorar el screener"
     },
     "stats": {
-      "criteria": "criterios cuantificados",
+      "perfValue": "+24,9 %",
+      "perfLabel": "rentab. anualizada · acciones 10/10",
       "tickers": "valores vigilados"
     },
     "benefits": {
       "0": {
-        "title": "Cifras, no palabrería",
-        "text": "Sabes en segundos si una empresa es sólida, sin descifrar las opiniones contradictorias de los foros."
+        "title": "Supera al índice, no al azar",
+        "text": "Las acciones puntuadas 10/10 han superado al S&P 500 a 1, 3 y 5 años. La calidad se mide. Y se paga."
       },
       "1": {
-        "title": "Toda la bolsa, vigilada",
-        "text": "Ya no se te escapa ninguna joya: la vigilancia escanea todo el mercado en continuo."
+        "title": "Toda la bolsa, puntuada sin parar",
+        "text": "Ya no se te escapa ninguna joya: la vigilancia escanea 7 000+ valores y hace subir los mejores, sola."
       },
       "2": {
-        "title": "El método de los grandes inversores",
-        "text": "Aplicas los criterios de los mejores inversores (Buffett, Terry Smith), sin tener que calcularlos tú mismo."
+        "title": "Calidad y precio, juzgados por separado",
+        "text": "Una buena empresa no siempre es una buena acción. Puntuamos la calidad y luego te decimos a qué precio vale la pena."
       },
       "3": {
-        "title": "Calidad y precio, por separado",
-        "text": "Ya no compras una buena empresa al precio equivocado: la calidad y el precio se juzgan por separado."
+        "title": "El método de los grandes inversores",
+        "text": "10 criterios fundamentales inspirados en Warren Buffett, Terry Smith y muchos otros, mostrados directamente en cada acción."
       }
     },
     "how": {
       "kicker": "Cómo funciona",
-      "title": "Una acción juzgada de un vistazo"
+      "title": "Las mejores acciones, sin buscarlas"
     },
     "steps": {
       "0": {
-        "title": "Escribe un ticker",
-        "text": "Introduce el símbolo de una acción. La nota de calidad aparece en segundos."
+        "title": "La vigilancia puntúa todo el mercado",
+        "text": "7 000+ valores puntuados en continuo sobre 10 criterios. Los 10/10 suben a lo alto, solos."
       },
       "1": {
-        "title": "Lee la nota y su composición",
-        "text": "Una nota sobre 10, su reparto verde/naranja/rojo y el detalle de los 10 criterios."
+        "title": "Abres la ficha",
+        "text": "Una nota sobre 10, su reparto verde/naranja/rojo y el detalle de los 10 criterios. Lo esencial de una empresa en una página."
       },
       "2": {
-        "title": "Decide el precio de entrada",
-        "text": "Ajusta tus hipótesis para obtener el precio de compra recomendado, separado de la calidad."
+        "title": "Compruebas el precio y decides",
+        "text": "La valoración da un precio de compra recomendado, separado de la calidad. Sabes qué comprar, y a qué precio."
+      }
+    },
+    "features": {
+      "kicker": "Tus herramientas",
+      "title": "Del descubrimiento a la decisión",
+      "items": {
+        "screener": {
+          "title": "Screener",
+          "text": "Descubre nuevas acciones: filtra todo el mercado por sector, por mejores notas o por el P/FCF más atractivo.",
+          "cta": "Abrir el screener"
+        },
+        "quali": {
+          "title": "Análisis cualitativo IA",
+          "text": "Entiende el negocio en 2 minutos: actividad, directivos y riesgos, lo que las cifras no dicen.",
+          "cta": "Analizar una acción"
+        },
+        "compare": {
+          "title": "Comparador",
+          "text": "¿Dudas entre varios valores? Ponlos cara a cara: lo mejor de cada criterio destaca, línea por línea.",
+          "cta": "Comparar acciones"
+        },
+        "watchlist": {
+          "title": "Watchlist",
+          "text": "No pierdas el buen momento: cotización, nota y próximos resultados de tus favoritos, seguidos por ti.",
+          "cta": "Ver mi watchlist"
+        }
       }
     },
     "cta": {
       "title": "Encuentra los 10/10 sin buscarlos",
-      "subtitle": "La vigilancia puntúa el universo de forma continua, tú recoges las mejores.",
+      "subtitle": "La vigilancia puntúa todo el mercado de forma continua, tú recoges las mejores. Gratis, sin tarjeta.",
       "analyze": "Analizar una acción",
-      "signup": "Crear una cuenta"
+      "signup": "Empieza gratis"
     }
   },
   "auth": {
@@ -700,36 +727,36 @@
     "testimonials": [
       {
         "name": "Camille D.",
-        "role": "Ingeniera de software · Nantes",
+        "role": "Ingeniera de software",
         "perf": "+24 % / año",
-        "quote": "Dejé de scrollear foros. La nota me dice en tres segundos si una empresa merece un vistazo, solo profundizo si la puntuación acompaña."
+        "quote": "Antes perdía mis noches en los foros. Ahora la nota me dice en tres segundos si una acción se sostiene, y solo profundizo en las que lo merecen. Un tiempo enorme ganado."
       },
       {
         "name": "Henri L.",
-        "role": "Jubilado joven · Lyon",
-        "quote": "Por fin una herramienta que separa la calidad del negocio del precio de entrada. Ya no compro buenas empresas en el peor momento."
+        "role": "Jubilado joven",
+        "quote": "Separar la calidad de la empresa de su precio de entrada cambió mis rentabilidades, no solo mis decisiones. Ya no compro una buena acción en el peor momento."
       },
       {
         "name": "Sofia M.",
-        "role": "Médica · Ginebra",
+        "role": "Médica",
         "perf": "+19 % / año",
-        "quote": "Sin tiempo para revisar balances. La vigilancia filtra todo el mercado; solo miro los 10/10 que destacan."
+        "quote": "No tengo ni un minuto para revisar balances. La vigilancia escanea todo el mercado por mí, solo miro los 10/10 que suben. Y rinde."
       },
       {
         "name": "Thomas R.",
-        "role": "Empresario · Bruselas",
-        "quote": "Tener el P/FCF y la conversión de caja en primer plano es justo lo que calculaba a mano durante horas. Un ahorro de tiempo enorme."
+        "role": "Empresario",
+        "quote": "Lo que calculaba a mano durante horas ya está ahí, en cada acción. Decido más rápido y se me escapan muchas menos oportunidades."
       },
       {
         "name": "Adrien P.",
-        "role": "Inversor particular · Montreal",
+        "role": "Inversor particular",
         "perf": "+31 % / año",
-        "quote": "Detecté tres compounders con el screener antes de que despegaran de verdad. El método es claro y se sostiene en el tiempo."
+        "quote": "Detecté tres compounders con el screener antes de que despegaran. Una verdadera ventaja, la primera vez que un método me la da."
       },
       {
         "name": "Léa V.",
-        "role": "Consultora · París",
-        "quote": "Tan limpio y denso como un terminal profesional, pero legible y sin su precio. Las cifras en monospace cambian la vida."
+        "role": "Consultora",
+        "quote": "Ahora decido sobre cifras claras, no sobre rumores o corazonadas. Por fin invierto con método, y sin dedicarle los fines de semana."
       }
     ]
   },
