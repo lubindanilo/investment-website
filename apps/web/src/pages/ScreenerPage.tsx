@@ -17,13 +17,16 @@ import './ScreenerPage.css';
  *  l'API renvoie toujours toute la liste pour le SEO/sitemap. */
 const FREE_SCREENER_TOP = 10;
 
-const SCORE_OPTS = [4, 6, 8, 9, 10];
 const DEFAULT_MIN_SCORE = 6;
 const PFCF_MAX = 50; // valeur haute = pas de filtre P/FCF
 
 /** Tranches de capitalisation (standards US) — filtre multi-choix, gratuit. */
 type CapBucket = 'small' | 'mid' | 'large';
 const CAP_OPTS: CapBucket[] = ['small', 'mid', 'large'];
+
+/** Zones géographiques / éligibilité PEA — filtre multi-choix, gratuit. */
+type GeoZone = 'pea' | 'us' | 'intl';
+const ZONE_OPTS: GeoZone[] = ['pea', 'us', 'intl'];
 
 type SortCol = 'score' | 'pfcf' | 'price' | 'earnings';
 interface SortState { col: SortCol; dir: 'asc' | 'desc' }
@@ -52,16 +55,18 @@ export interface AppliedFilters {
   minScore: number;
   maxPfcf: number;
   caps: CapBucket[];
+  zones: GeoZone[];
 }
 
-const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, maxPfcf: PFCF_MAX, caps: [] };
+const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, maxPfcf: PFCF_MAX, caps: [], zones: [] };
 
 /** Nombre d'axes de filtre non-défaut (pour le badge du bouton). « Opportunités » est géré à part. */
 function countActive(v: AppliedFilters): number {
   return (v.sectors.length > 0 ? 1 : 0)
     + (v.minScore !== DEFAULT_MIN_SCORE ? 1 : 0)
     + (v.maxPfcf < PFCF_MAX ? 1 : 0)
-    + (v.caps.length > 0 ? 1 : 0);
+    + (v.caps.length > 0 ? 1 : 0)
+    + (v.zones.length > 0 ? 1 : 0);
 }
 
 /**
@@ -97,6 +102,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
 
   const toggleSector = (s: string) => setDraft(d => ({ ...d, sectors: d.sectors.includes(s) ? d.sectors.filter(x => x !== s) : [...d.sectors, s] }));
   const toggleCap = (c: CapBucket) => setDraft(d => ({ ...d, caps: d.caps.includes(c) ? d.caps.filter(x => x !== c) : [...d.caps, c] }));
+  const toggleZone = (z: GeoZone) => setDraft(d => ({ ...d, zones: d.zones.includes(z) ? d.zones.filter(x => x !== z) : [...d.zones, z] }));
   const apply = () => { onApply(draft); setOpen(false); setQuery(''); };
   const reset = () => setDraft(DEFAULT_FILTERS);
   const lockedPfcf = () => { setOpen(false); onLockedPfcf(); };
@@ -139,10 +145,21 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             display: 'flex', flexDirection: 'column', gap: 14,
           }}
         >
-          {/* Note minimale */}
+          {/* Note minimale — slider gratuit (même présentation que le P/FCF, sans verrou) */}
           <div className="col gap-6">
             <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.minScore')}</span>
-            <div className="seg">{SCORE_OPTS.map(s => <button key={s} type="button" data-active={draft.minScore === s} onClick={() => setDraft(d => ({ ...d, minScore: s }))}>{s}+</button>)}</div>
+            <div className="row gap-10">
+              <input
+                type="range"
+                min={0}
+                max={10}
+                step={1}
+                value={draft.minScore}
+                onChange={e => setDraft(d => ({ ...d, minScore: +e.target.value }))}
+                style={{ flex: 1, accentColor: 'var(--brand)', cursor: 'pointer' }}
+              />
+              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{draft.minScore <= 0 ? t('screener.filters.scoreAll') : draft.minScore + '+'}</span>
+            </div>
           </div>
 
           {/* Capitalisation (Small / Mid / Large) — multi-choix, gratuit */}
@@ -167,6 +184,35 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
                   >
                     <span style={{ fontWeight: 700, fontSize: 12.5 }}>{t(`screener.filters.cap.${c}`)}</span>
                     <span className="num" style={{ fontSize: 10, opacity: 0.7 }}>{t(`screener.filters.cap.${c}Range`)}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Marché / éligibilité PEA (PEA / US / International) — multi-choix, gratuit */}
+          <div className="col gap-6">
+            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.market')}</span>
+            <div className="row gap-6">
+              {ZONE_OPTS.map(z => {
+                const on = draft.zones.includes(z);
+                return (
+                  <button
+                    key={z}
+                    type="button"
+                    onClick={() => toggleZone(z)}
+                    data-active={on}
+                    title={t(`screener.filters.zone.${z}Sub`)}
+                    style={{
+                      flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1,
+                      padding: '7px 4px', borderRadius: 8, cursor: 'pointer', transition: 'all .14s',
+                      border: '1px solid ' + (on ? 'var(--brand)' : 'var(--line)'),
+                      background: on ? 'var(--brand-soft)' : 'var(--surface)',
+                      color: on ? 'var(--brand-ink)' : 'var(--ink-2)',
+                    }}
+                  >
+                    <span style={{ fontWeight: 700, fontSize: 12.5 }}>{t(`screener.filters.zone.${z}`)}</span>
+                    <span className="num" style={{ fontSize: 10, opacity: 0.7 }}>{t(`screener.filters.zone.${z}Sub`)}</span>
                   </button>
                 );
               })}
@@ -316,6 +362,7 @@ export function ScreenerPage() {
         opportunities: onlyOpp,
         sector: filters.sectors.length ? filters.sectors.join(',') : undefined,
         caps: filters.caps.length ? filters.caps.join(',') : undefined,
+        zones: filters.zones.length ? filters.zones.join(',') : undefined,
       });
       setRows(top);
     } catch (e) {

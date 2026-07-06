@@ -49,6 +49,27 @@ function capBucketWhere(b: CapBucket): { gt?: number; gte?: number; lt?: number 
   return { gte: CAP_LARGE_MIN };
 }
 
+/**
+ * Zones géographiques / éligibilité PEA pour le filtre multi-choix :
+ *   - 'pea'  : actions européennes éligibles au PEA (bourses UE/EEE). On EXCLUT le UK (.L) et
+ *              la Suisse (.SW) : hors UE/EEE, non éligibles, bien que classés region 'EU'.
+ *   - 'us'   : actions américaines (region 'US').
+ *   - 'intl' : tout le reste (region 'INTL' + les européens non-PEA type UK/Suisse).
+ * Approximation par place de cotation (le PEA exige aussi le siège UE/EEE, quasi toujours aligné
+ * pour les grandes caps européennes). Défini sur region + exchange, déjà en base (pas de colonne).
+ */
+export type GeoZone = 'pea' | 'us' | 'intl';
+/** Bourses du bucket 'EU' NON éligibles au PEA (hors UE/EEE) : Londres, SIX Swiss. */
+const NON_PEA_EU_EXCHANGES = ['L', 'SW'];
+
+/** Condition Prisma (region + exchange) pour une zone géographique. */
+function geoZoneWhere(z: GeoZone): object {
+  if (z === 'us') return { region: 'US' };
+  if (z === 'pea') return { region: 'EU', exchange: { notIn: NON_PEA_EU_EXCHANGES } };
+  // intl : hors US et hors PEA → INTL, plus les européens non-PEA (UK/Suisse).
+  return { OR: [{ region: 'INTL' }, { region: 'EU', exchange: { in: NON_PEA_EU_EXCHANGES } }] };
+}
+
 /** Types Finnhub qu'on garde (on écarte ETF, warrants, droits, fonds, etc.). */
 const KEPT_TYPES = new Set(['Common Stock', 'ADR', 'REIT', '']);
 /** Symbole compatible avec le reste de l'app (TickerSchema). */
@@ -467,13 +488,15 @@ export interface TopRow {
 }
 
 /** Meilleures notes pour la vue screener. Tri par ratio décroissant, indexé. */
-export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean; sectors?: string[]; caps?: CapBucket[] } = {}): Promise<TopRow[]> {
-  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false, sectors, caps } = opts;
-  // Filtre capitalisation : OR des tranches cochées. 0 ou les 3 → aucun filtre (= toutes tailles).
+export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean; sectors?: string[]; caps?: CapBucket[]; zones?: GeoZone[] } = {}): Promise<TopRow[]> {
+  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false, sectors, caps, zones } = opts;
+  // Capitalisation et zone géographique : chacun un OR des options cochées (0 ou toutes → aucun
+  // filtre). Les deux étant des groupes OR indépendants, on les combine via un AND explicite.
   const capBuckets = caps?.filter((c): c is CapBucket => c === 'small' || c === 'mid' || c === 'large') ?? [];
-  const capFilter = capBuckets.length > 0 && capBuckets.length < 3
-    ? { OR: capBuckets.map(b => ({ marketCap: capBucketWhere(b) })) }
-    : {};
+  const zoneList = zones?.filter((z): z is GeoZone => z === 'pea' || z === 'us' || z === 'intl') ?? [];
+  const andClauses: object[] = [];
+  if (capBuckets.length > 0 && capBuckets.length < 3) andClauses.push({ OR: capBuckets.map(b => ({ marketCap: capBucketWhere(b) })) });
+  if (zoneList.length > 0 && zoneList.length < 3) andClauses.push({ OR: zoneList.map(geoZoneWhere) });
   return prisma.screenerTicker.findMany({
     where: {
       status: 'scored',
@@ -482,7 +505,7 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
       ...(maxPfcf != null ? { pfcfTTM: { gt: 0, lte: maxPfcf } } : {}),
       ...(onlyOpportunities ? { opportunity: true } : {}),
       ...(sectors && sectors.length ? { sector: { in: sectors } } : {}),   // 1+ industries (valeurs canoniques anglaises)
-      ...capFilter,
+      ...(andClauses.length ? { AND: andClauses } : {}),
     },
     orderBy: [{ scoreRatio: 'desc' }, { scoreChiffresMax: 'desc' }],
     take: Math.min(limit, 500),

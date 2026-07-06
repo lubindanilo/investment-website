@@ -205,6 +205,16 @@
         "smallRange": "< 2 mil M$",
         "midRange": "2-10 mil M$",
         "largeRange": "> 10 mil M$"
+      },
+      "scoreAll": "Todas",
+      "market": "Mercado",
+      "zone": {
+        "pea": "PEA",
+        "us": "US",
+        "intl": "Mundo",
+        "peaSub": "UE/EEE",
+        "usSub": "EE. UU.",
+        "intlSub": "excl. PEA/US"
       }
     },
     "results_one": "{{count}} resultado",

@@ -208,7 +208,7 @@ export const api = {
     }>(`/api/price-history?${q}`);
   },
   screener: {
-    top: (params: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; opportunities?: boolean; sector?: string; caps?: string } = {}) => {
+    top: (params: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; opportunities?: boolean; sector?: string; caps?: string; zones?: string } = {}) => {
       const q = new URLSearchParams();
       for (const [k, v] of Object.entries(params)) if (v != null && v !== false && v !== '') q.set(k, String(v));
       const qs = q.toString();

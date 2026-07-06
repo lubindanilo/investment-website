@@ -126,6 +126,16 @@
         "smallRange": "< $2B",
         "midRange": "$2-10B",
         "largeRange": "> $10B"
+      },
+      "scoreAll": "All",
+      "market": "Market",
+      "zone": {
+        "pea": "PEA",
+        "us": "US",
+        "intl": "World",
+        "peaSub": "EU/EEA",
+        "usSub": "United States",
+        "intlSub": "ex-PEA/US"
       }
     },
     "results_one": "{{count}} result",
