@@ -111,6 +111,12 @@ export interface DerivedMetrics {
   revenueCagr: number | null;
   fcfPerShareCagr: number | null;
   /**
+   * Croissance FCF/action MOYENNE des 2 derniers exercices (YoY), base annuelle Yahoo.
+   * Source du défaut de croissance en valorisation (moyenne 2 ans − 2 pts).
+   * Null si moins de 2 années valides (repli sur le CAGR/heuristique côté route).
+   */
+  fcfPerShareGrowth2Y?: number | null;
+  /**
    * CAGR (sur ~4-5 ans) du nombre d'actions en circulation.
    * Négatif = rachats nets (création de valeur), positif = dilution.
    * Source : Yahoo Finance (raw) en primaire, dérivation Finnhub en fallback.
@@ -382,6 +388,9 @@ export interface ScreenerTopRow {
   opportunity: boolean;
   /** Percentile actuel du P/FCF vs historique (0-100). Null si indisponible. */
   pfcfPercentile: number | null;
+  /** Capitalisation boursière (prix × actions), devise locale. Null si indisponible.
+   *  Alimente le filtre Small/Mid/Large cap. */
+  marketCap: number | null;
 }
 
 /**

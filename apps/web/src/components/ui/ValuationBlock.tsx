@@ -38,7 +38,7 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams }:
 }) {
   const { t } = useTranslation();
   const fcfPerShare = price != null && pfcfTTM != null && pfcfTTM > 0 ? price / pfcfTTM : null;
-  const [growth, setGrowth] = useState(() => clamp(Math.round((valoParams?.fcfGrowth ?? 0.1) * 100), 0, 30));
+  const [growth, setGrowth] = useState(() => clamp(Math.round((valoParams?.fcfGrowth ?? 0.1) * 100), -20, 30));
   const [exitMult, setExitMult] = useState(() => clamp(Math.round(valoParams?.targetMultiple ?? 20), 8, 40));
   const [ret, setRet] = useState(() => clamp(Math.round((valoParams?.targetReturn ?? 0.15) * 100), 6, 20));
 
@@ -66,7 +66,7 @@ export function ValuationBlock({ price, pfcfTTM, currency = 'USD', valoParams }:
           <span className="valb-kicker">{t('valuation.assumptions')}</span>
         </div>
         <div className="col valb-sliders">
-          <Slider label={t('valuation.growth')} value={growth} set={setGrowth} min={0} max={30} step={1} suffix=" %" />
+          <Slider label={t('valuation.growth')} value={growth} set={setGrowth} min={-20} max={30} step={1} suffix=" %" />
           <Slider label={t('valuation.exitMultiple')} value={exitMult} set={setExitMult} min={8} max={40} step={1} suffix="×" />
           <Slider label={t('valuation.targetReturn')} value={ret} set={setRet} min={6} max={20} step={1} suffix=" %" />
         </div>

@@ -13,7 +13,7 @@
  * Avec ce service partagé : impossible de diverger, c'est mathématique.
  */
 import { getMetric, getProfile2, getQuote, getCompanyNews, type FinnhubNewsItem } from './finnhub.js';
-import { getSharesHistory, computeSharesCagr, computeFcfPerShareCagr, getEarningsInfoYahoo, getAssetProfileYahoo } from './yahoo.js';
+import { getSharesHistory, computeSharesCagr, computeFcfPerShareCagr, computeFcfPerShareGrowth2Y, getEarningsInfoYahoo, getAssetProfileYahoo } from './yahoo.js';
 import {
   computeFcfPerShareCagrFromQuarterlies,
   computeRevenueGrowthFromQuarterlies,
@@ -274,6 +274,11 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
       metrics = computeDerivedMetrics({ metric, profile: fhProfile, quote });
     }
   }
+
+  // Croissance FCF/action des 2 derniers exercices (base annuelle Yahoo) → défaut de
+  // croissance en valorisation. Calculée ici car sharesHistory (annuel) est disponible pour
+  // TOUS les chemins (Finnhub, Yahoo ADR, Yahoo pur), là où le CAGR dépend de la source.
+  if (metrics) metrics.fcfPerShareGrowth2Y = computeFcfPerShareGrowth2Y(sharesHistory);
 
   const fundamentalsAvailable = fundamentalsSource !== null;
   const company = companyFromSource ?? fhProfile?.name ?? ticker;

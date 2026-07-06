@@ -78,6 +78,19 @@ export function pfcfDecileThreshold(points: PfcfHistoryPoint[]): number | null {
   return threshold;
 }
 
+/**
+ * Médiane du P/FCF historique (valeurs > 0). Sert de multiple de sortie par défaut en
+ * valorisation : « à combien ce titre s'est-il payé, historiquement ». Null si historique
+ * insuffisant (même seuil de fiabilité que le percentile).
+ */
+export function pfcfMedian(points: PfcfHistoryPoint[]): number | null {
+  const vals = points.map(p => p.pfcf).filter(v => Number.isFinite(v) && v > 0).sort((a, b) => a - b);
+  const n = vals.length;
+  if (n < PFCF_PERCENTILE_MIN_POINTS) return null;
+  const mid = Math.floor(n / 2);
+  return n % 2 === 0 ? (vals[mid - 1]! + vals[mid]!) / 2 : vals[mid]!;
+}
+
 /** Vrai si le P/FCF est dans son décile bas historique ET sous le plafond (test P/FCF pur). */
 export function isPfcfOpportunity(percentile: number | null, pfcf: number | null): boolean {
   return percentile != null && pfcf != null && pfcf > 0 && percentile <= PFCF_OPP_PERCENTILE && pfcf < PFCF_OPP_MAX;
