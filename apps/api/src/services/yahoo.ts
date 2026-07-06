@@ -350,6 +350,32 @@ export function computeFcfPerShareCagr(history: SharesHistoryPoint[] | null): Fc
   return guardFcfPsCagr(Math.pow(newest.ratio / oldest.ratio, 1 / span) - 1);
 }
 
+/**
+ * Croissance FCF/action MOYENNE des 2 derniers exercices (taux YoY), base annuelle.
+ * Sert de défaut de croissance en valorisation (la route retire ensuite 2 pts).
+ *   - ≥ 3 années valides → moyenne des 2 derniers taux YoY.
+ *   - exactement 2 années → l'unique taux YoY.
+ *   - sinon → null (repli sur le CAGR/heuristique côté appelant).
+ * Le taux peut être négatif (FCF/action en repli mais toujours > 0) — c'est voulu.
+ * On exige des bornes > 0 : un FCF/action ≤ 0 rend le taux ininterprétable.
+ */
+export function computeFcfPerShareGrowth2Y(history: SharesHistoryPoint[] | null): number | null {
+  if (!history) return null;
+  const valid = history
+    .filter(p => p.fcf != null && p.fcf > 0 && p.dilutedShares > 0)
+    .sort((a, b) => a.fiscalYear - b.fiscalYear);
+  if (valid.length < 2) return null;
+  const last3 = valid.slice(-3).map(p => p.fcf! / p.dilutedShares);
+  const rates: number[] = [];
+  for (let i = 1; i < last3.length; i++) {
+    const prev = last3[i - 1]!;
+    const cur = last3[i]!;
+    if (prev > 0 && cur > 0) rates.push(cur / prev - 1);
+  }
+  if (rates.length === 0) return null;
+  return rates.reduce((s, v) => s + v, 0) / rates.length;
+}
+
 // ═══════════════════════════════════════════════════════════════
 // ── Séries temporelles trimestrielles (pour histogrammes UI) ────
 // ═══════════════════════════════════════════════════════════════

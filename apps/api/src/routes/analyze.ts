@@ -21,7 +21,7 @@ import { loadQuantData } from '../services/quantSnapshot.js';
 import { fetchBusinessAnalysis, fetchManagementAnalysis, fetchMarketShare } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
 import { writeCachedSnapshot, getServableSnapshot, type CachedQuantSnapshot } from '../services/quantCache.js';
-import { pfcfPercentile, isPfcfOpportunity, getPfcfHistory, PFCF_OPP_MIN_SCORE10 } from '../services/pfcfHistory.js';
+import { pfcfPercentile, pfcfMedian, isPfcfOpportunity, getPfcfHistory, PFCF_OPP_MIN_SCORE10 } from '../services/pfcfHistory.js';
 import { ttlUntilNextEarnings } from '../services/earnings.js';
 import * as chartCache from '../lib/timeseriesCache.js';
 import { prisma } from '../db/client.js';
@@ -88,6 +88,7 @@ function buildResponse(args: {
   businessCachedAt: Date | null;
   managementCachedAt: Date | null;
   pfcfPercentile?: number | null;
+  pfcfMedian?: number | null;
   opportunity?: boolean;
   marketShare?: MarketShare | null;
   sectorBenchmark?: SectorBenchmark | null;
@@ -100,11 +101,22 @@ function buildResponse(args: {
   const chiffres = buildQuantitativeCriteria(metrics, lang);     // 10 critères qualité (localisés)
   const pfcfCriterion = buildPfcfCriterion(metrics);       // P/FCF actuel — affiché en valorisation
 
+  // Croissance par défaut : MOYENNE des 2 derniers exercices (FCF/action) − 2 pts.
+  // Bornée à [−20 %, +20 %] (le slider descend jusqu'à −20 %). Repli quand la série
+  // annuelle manque : ancienne heuristique (CAGR 5 ans × 0,75), puis 10 %.
+  const growth2Y = metrics.fcfPerShareGrowth2Y;
   const histGrowth = metrics.fcfPerShareCagr ?? metrics.revenueCagr;
-  const fcfGrowth = histGrowth != null ? Math.max(0.03, Math.min(histGrowth * 0.75, 0.20)) : 0.10;
-  const targetMultiple = metrics.pfcfTTM && metrics.pfcfTTM > 0
-    ? Math.max(10, Math.min(Math.round(metrics.pfcfTTM * 0.85), 30))
-    : 20;
+  const fcfGrowth = growth2Y != null
+    ? Math.max(-0.20, Math.min(growth2Y - 0.02, 0.20))
+    : histGrowth != null ? Math.max(0.03, Math.min(histGrowth * 0.75, 0.20)) : 0.10;
+  // Multiple de sortie par défaut : MÉDIANE historique du P/FCF (bornée à la plage du
+  // slider [8×, 40×]). Repli quand l'historique manque : P/FCF courant × 0,85, puis 20×.
+  const pfcfMed = args.pfcfMedian;
+  const targetMultiple = pfcfMed != null && pfcfMed > 0
+    ? Math.max(8, Math.min(Math.round(pfcfMed), 40))
+    : metrics.pfcfTTM && metrics.pfcfTTM > 0
+      ? Math.max(10, Math.min(Math.round(metrics.pfcfTTM * 0.85), 30))
+      : 20;
   const valoParams: ValoParams = { targetReturn: 0.15, fcfGrowth, targetMultiple };
   const valuation = buildValuation(metrics, valoParams);   // Buy price Buffett-style
 
@@ -188,7 +200,7 @@ async function computeOpportunity(
   cachedPfcf: number | null,
   adjFcfTtm: number | null,
   sharesOutstanding: number | null,
-): Promise<{ pfcfPercentile: number | null; opportunity: boolean }> {
+): Promise<{ pfcfPercentile: number | null; pfcfMedian: number | null; opportunity: boolean }> {
   // 1) Distribution HISTORIQUE du P/FCF (lente, cadence earnings → cache OK).
   const key = chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj', OPP_YEARS);
   let points: { date: string; pfcf: number }[] = [];
@@ -207,7 +219,7 @@ async function computeOpportunity(
       where: { ticker },
       select: { pfcfPercentile: true, opportunity: true },
     }).catch(() => null);
-    return { pfcfPercentile: row?.pfcfPercentile ?? null, opportunity: row?.opportunity ?? false };
+    return { pfcfPercentile: row?.pfcfPercentile ?? null, pfcfMedian: null, opportunity: row?.opportunity ?? false };
   }
 
   // 2) P/FCF COURANT en LIVE — la pépite dépend du cours, qui change chaque jour.
@@ -231,7 +243,8 @@ async function computeOpportunity(
     current = cachedPfcf; // snapshot : pfcfTTM déjà live + base prix×shares/adjFcfTtm
   }
   const pct = pfcfPercentile(points, current);
-  return { pfcfPercentile: pct, opportunity: isPfcfOpportunity(pct, current) };
+  // Médiane sur la MÊME série historique (base prix × shares / adjFcfTtm) que le percentile.
+  return { pfcfPercentile: pct, pfcfMedian: pfcfMedian(points), opportunity: isPfcfOpportunity(pct, current) };
 }
 
 // ─── GET /api/analyze ──────────────────────────────────────────────────────
@@ -274,7 +287,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
   // « Opportunité du moment » : percentile du P/FCF live vs historique (cache).
-  const { pfcfPercentile: pct, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
+  const { pfcfPercentile: pct, pfcfMedian: pfcfMed, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
   // Benchmark sectoriel du P/FCF (médiane des pairs cotés de l'industrie) + dividende (Yahoo).
   const [sectorBenchmark, dividend] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
@@ -290,6 +303,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
     businessCachedAt: business ? businessRow!.createdAt : null,
     managementCachedAt: management ? managementRow!.updatedAt : null,
     pfcfPercentile: pct,
+    pfcfMedian: pfcfMed,
     opportunity,
     marketShare,
     sectorBenchmark,
@@ -500,6 +514,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePr
     managementCachedAt: upserted.updatedAt,
     marketShare,
     pfcfPercentile: opp.pfcfPercentile,
+    pfcfMedian: opp.pfcfMedian,
     opportunity: opp.opportunity,
     sectorBenchmark,
     dividend,
