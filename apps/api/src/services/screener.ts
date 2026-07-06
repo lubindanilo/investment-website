@@ -33,6 +33,22 @@ const US_PRIORITY = 0;
 const EU_PRIORITY = 1;
 const INTL_PRIORITY = 2;
 
+/**
+ * Tranches de capitalisation (standards US) pour le filtre multi-choix du screener :
+ * Small < 2 Md, Mid 2–10 Md, Large ≥ 10 Md. Seuils en devise locale du titre (approximation
+ * US-first, comme marketBeat). Un marketCap null ou ≤ 0 n'appartient à aucune tranche.
+ */
+export type CapBucket = 'small' | 'mid' | 'large';
+const CAP_MID_MIN = 2e9;
+const CAP_LARGE_MIN = 10e9;
+
+/** Condition Prisma sur marketCap pour une tranche de capitalisation. */
+function capBucketWhere(b: CapBucket): { gt?: number; gte?: number; lt?: number } {
+  if (b === 'small') return { gt: 0, lt: CAP_MID_MIN };
+  if (b === 'mid') return { gte: CAP_MID_MIN, lt: CAP_LARGE_MIN };
+  return { gte: CAP_LARGE_MIN };
+}
+
 /** Types Finnhub qu'on garde (on écarte ETF, warrants, droits, fonds, etc.). */
 const KEPT_TYPES = new Set(['Common Stock', 'ADR', 'REIT', '']);
 /** Symbole compatible avec le reste de l'app (TickerSchema). */
@@ -294,6 +310,10 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     const pfcfConsistent = (snap.adjFcfTtm != null && snap.adjFcfTtm !== 0 && snap.sharesOutstanding != null && snap.metrics.price != null && snap.metrics.price > 0)
       ? (snap.metrics.price * snap.sharesOutstanding) / snap.adjFcfTtm
       : snap.metrics.pfcfTTM ?? null;
+    // Capitalisation (prix × actions), figée au scoring → alimente le filtre Small/Mid/Large cap.
+    const marketCap = (snap.metrics.price != null && snap.metrics.price > 0 && snap.sharesOutstanding != null && snap.sharesOutstanding > 0)
+      ? snap.metrics.price * snap.sharesOutstanding
+      : null;
     const opp = hasScore
       ? await computeOpportunityAtScore(ticker, score10, pfcfConsistent, snap.nextEarningsDate ?? null)
       : { opportunity: false, pfcfPercentile: null, pfcfDecile10: null };
@@ -311,6 +331,7 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
         sector: snap.sector ?? null,
         price: snap.metrics.price ?? null,
         dayChangePct: snap.dayChangePct ?? null,
+        marketCap,
         spark: spark.length >= 2 ? spark : undefined,
         opportunity: opp.opportunity,
         pfcfPercentile: opp.pfcfPercentile,
@@ -442,11 +463,17 @@ export interface TopRow {
   spark: number[] | null;
   opportunity: boolean;
   pfcfPercentile: number | null;
+  marketCap: number | null;
 }
 
 /** Meilleures notes pour la vue screener. Tri par ratio décroissant, indexé. */
-export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean; sectors?: string[] } = {}): Promise<TopRow[]> {
-  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false, sectors } = opts;
+export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean; sectors?: string[]; caps?: CapBucket[] } = {}): Promise<TopRow[]> {
+  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false, sectors, caps } = opts;
+  // Filtre capitalisation : OR des tranches cochées. 0 ou les 3 → aucun filtre (= toutes tailles).
+  const capBuckets = caps?.filter((c): c is CapBucket => c === 'small' || c === 'mid' || c === 'large') ?? [];
+  const capFilter = capBuckets.length > 0 && capBuckets.length < 3
+    ? { OR: capBuckets.map(b => ({ marketCap: capBucketWhere(b) })) }
+    : {};
   return prisma.screenerTicker.findMany({
     where: {
       status: 'scored',
@@ -455,6 +482,7 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
       ...(maxPfcf != null ? { pfcfTTM: { gt: 0, lte: maxPfcf } } : {}),
       ...(onlyOpportunities ? { opportunity: true } : {}),
       ...(sectors && sectors.length ? { sector: { in: sectors } } : {}),   // 1+ industries (valeurs canoniques anglaises)
+      ...capFilter,
     },
     orderBy: [{ scoreRatio: 'desc' }, { scoreChiffresMax: 'desc' }],
     take: Math.min(limit, 500),
@@ -462,7 +490,7 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
       ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true,
       pfcfTTM: true, currency: true, nextEarningsDate: true,
       sector: true, price: true, dayChangePct: true, spark: true,
-      opportunity: true, pfcfPercentile: true,
+      opportunity: true, pfcfPercentile: true, marketCap: true,
     },
   }) as Promise<TopRow[]>;
 }

@@ -53,6 +53,10 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
   const sectors = typeof req.query.sector === 'string' && req.query.sector.trim()
     ? req.query.sector.split(',').map(s => s.trim()).filter(Boolean)
     : undefined;
+  // Tranches de capitalisation (Small/Mid/Large), multi-choix : ?caps=small,mid
+  const caps = typeof req.query.caps === 'string' && req.query.caps.trim()
+    ? req.query.caps.split(',').map(s => s.trim().toLowerCase()).filter((c): c is 'small' | 'mid' | 'large' => c === 'small' || c === 'mid' || c === 'large')
+    : undefined;
   const onlyOpportunities = req.query.opportunities === 'true';
   // Vue « opportunités » : on ré-évalue le flag AU PRIX DU JOUR avant de filtrer (auto-throttlé
   // ~10 min). La pépite dépend du cours → on ne veut pas servir un flag figé au dernier earnings.
@@ -67,6 +71,7 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
     limit: num(req.query.limit),
     onlyOpportunities,
     sectors,
+    caps,
   });
   res.json(rows);
 }));

@@ -18,7 +18,12 @@ import './ScreenerPage.css';
 const FREE_SCREENER_TOP = 10;
 
 const SCORE_OPTS = [4, 6, 8, 9, 10];
+const DEFAULT_MIN_SCORE = 6;
 const PFCF_MAX = 50; // valeur haute = pas de filtre P/FCF
+
+/** Tranches de capitalisation (standards US) — filtre multi-choix, gratuit. */
+type CapBucket = 'small' | 'mid' | 'large';
+const CAP_OPTS: CapBucket[] = ['small', 'mid', 'large'];
 
 type SortCol = 'score' | 'pfcf' | 'price' | 'earnings';
 interface SortState { col: SortCol; dir: 'asc' | 'desc' }
@@ -41,19 +46,43 @@ function formatEarnings(iso?: string | null): string {
   return Number.isNaN(d.getTime()) ? '—' : d.toLocaleDateString(currentLocale(), { day: '2-digit', month: 'short', year: 'numeric' });
 }
 
-/** Bouton « Filtres » → popover multi-sélection de secteurs (recherche + Valider/Réinitialiser). */
-function SectorFilter({ sectors, value, onChange }: {
+/** Jeu de filtres appliqués, regroupés sous le bouton unique « Filtres ». */
+export interface AppliedFilters {
+  sectors: string[];
+  minScore: number;
+  maxPfcf: number;
+  caps: CapBucket[];
+}
+
+const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, maxPfcf: PFCF_MAX, caps: [] };
+
+/** Nombre d'axes de filtre non-défaut (pour le badge du bouton). « Opportunités » est géré à part. */
+function countActive(v: AppliedFilters): number {
+  return (v.sectors.length > 0 ? 1 : 0)
+    + (v.minScore !== DEFAULT_MIN_SCORE ? 1 : 0)
+    + (v.maxPfcf < PFCF_MAX ? 1 : 0)
+    + (v.caps.length > 0 ? 1 : 0);
+}
+
+/**
+ * Bouton « Filtres » unique → popover regroupant TOUS les filtres du screener (note minimale,
+ * capitalisation, P/FCF max, secteurs). Le tout en brouillon : rien ne s'applique tant que
+ * « Valider » n'est pas cliqué. « Opportunités du moment » reste un toggle séparé (hors panneau).
+ */
+function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
   sectors: { sector: string; count: number }[];
-  value: string[];
-  onChange: (v: string[]) => void;
+  value: AppliedFilters;
+  onApply: (v: AppliedFilters) => void;
+  isPro: boolean;
+  onLockedPfcf: () => void;
 }) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [draft, setDraft] = useState<string[]>(value);
+  const [draft, setDraft] = useState<AppliedFilters>(value);
   const ref = useRef<HTMLDivElement>(null);
 
-  // À l'ouverture, on repart de la sélection appliquée.
+  // À l'ouverture, on repart des filtres appliqués.
   useEffect(() => { if (open) setDraft(value); }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!open) return;
@@ -65,13 +94,15 @@ function SectorFilter({ sectors, value, onChange }: {
   const label = (raw: string) => t(`industries.${sectorSlug(raw)}`, { defaultValue: raw });
   const q = query.trim().toLowerCase();
   const filtered = q ? sectors.filter(s => label(s.sector).toLowerCase().includes(q)) : sectors;
-  const toggle = (s: string) => setDraft(d => d.includes(s) ? d.filter(x => x !== s) : [...d, s]);
-  const apply = (next: string[]) => { onChange(next); setOpen(false); setQuery(''); };
 
-  const btnLabel = value.length === 0
-    ? t('screener.filters.kicker')
-    : value.length === 1 ? label(value[0]!) : t('screener.filters.nSectors', { count: value.length });
-  const active = value.length > 0;
+  const toggleSector = (s: string) => setDraft(d => ({ ...d, sectors: d.sectors.includes(s) ? d.sectors.filter(x => x !== s) : [...d.sectors, s] }));
+  const toggleCap = (c: CapBucket) => setDraft(d => ({ ...d, caps: d.caps.includes(c) ? d.caps.filter(x => x !== c) : [...d.caps, c] }));
+  const apply = () => { onApply(draft); setOpen(false); setQuery(''); };
+  const reset = () => setDraft(DEFAULT_FILTERS);
+  const lockedPfcf = () => { setOpen(false); onLockedPfcf(); };
+
+  const activeCount = countActive(value);
+  const active = activeCount > 0;
 
   return (
     <div ref={ref} style={{ position: 'relative', display: 'inline-flex' }}>
@@ -84,54 +115,125 @@ function SectorFilter({ sectors, value, onChange }: {
           borderRadius: 8, fontWeight: 700, fontSize: 12.5, cursor: 'pointer',
           border: '1px solid ' + (active ? 'var(--brand)' : 'var(--line)'),
           background: active ? 'var(--brand-soft)' : 'var(--surface)',
-          color: active ? 'var(--brand-ink)' : 'var(--ink-3)', transition: 'all .14s', maxWidth: 260,
+          color: active ? 'var(--brand-ink)' : 'var(--ink-3)', transition: 'all .14s',
         }}
       >
         <Icon name="filter" size={14} />
-        <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{btnLabel}</span>
+        <span>{t('screener.filters.kicker')}</span>
+        {active && (
+          <span className="num" style={{
+            display: 'inline-flex', alignItems: 'center', justifyContent: 'center', minWidth: 17, height: 17,
+            padding: '0 5px', borderRadius: 999, fontSize: 10.5, fontWeight: 800,
+            background: 'var(--brand)', color: '#fff',
+          }}>{activeCount}</span>
+        )}
         <Icon name="chevronD" size={13} style={{ opacity: 0.6 }} />
       </button>
 
       {open && (
         <div
           style={{
-            position: 'absolute', top: 'calc(100% + 6px)', left: 0, zIndex: 30, width: 290,
+            position: 'absolute', top: 'calc(100% + 6px)', left: 0, zIndex: 30, width: 320,
             background: 'var(--surface)', border: '1px solid var(--line)', borderRadius: 12,
-            boxShadow: 'var(--sh-md, 0 10px 30px rgba(0,0,0,.12))', padding: 8,
+            boxShadow: 'var(--sh-md, 0 10px 30px rgba(0,0,0,.12))', padding: 12,
+            display: 'flex', flexDirection: 'column', gap: 14,
           }}
         >
-          <div className="row between" style={{ padding: '4px 8px 6px' }}>
-            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.sector')}</span>
-            {draft.length > 0 && <span className="tiny num" style={{ fontWeight: 700, color: 'var(--brand-ink)' }}>{draft.length}</span>}
+          {/* Note minimale */}
+          <div className="col gap-6">
+            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.minScore')}</span>
+            <div className="seg">{SCORE_OPTS.map(s => <button key={s} type="button" data-active={draft.minScore === s} onClick={() => setDraft(d => ({ ...d, minScore: s }))}>{s}+</button>)}</div>
           </div>
-          <div className="anl-search-field" style={{ marginBottom: 6 }}>
-            <Icon name="search" size={14} className="anl-search-icon" />
-            <input
-              autoFocus
-              className="anl-search-input"
-              style={{ height: 34, paddingLeft: 34, fontSize: 13 }}
-              value={query}
-              placeholder={t('screener.filters.sector')}
-              onChange={e => setQuery(e.target.value)}
-            />
+
+          {/* Capitalisation (Small / Mid / Large) — multi-choix, gratuit */}
+          <div className="col gap-6">
+            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.marketCap')}</span>
+            <div className="row gap-6">
+              {CAP_OPTS.map(c => {
+                const on = draft.caps.includes(c);
+                return (
+                  <button
+                    key={c}
+                    type="button"
+                    onClick={() => toggleCap(c)}
+                    data-active={on}
+                    style={{
+                      flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1,
+                      padding: '7px 4px', borderRadius: 8, cursor: 'pointer', transition: 'all .14s',
+                      border: '1px solid ' + (on ? 'var(--brand)' : 'var(--line)'),
+                      background: on ? 'var(--brand-soft)' : 'var(--surface)',
+                      color: on ? 'var(--brand-ink)' : 'var(--ink-2)',
+                    }}
+                  >
+                    <span style={{ fontWeight: 700, fontSize: 12.5 }}>{t(`screener.filters.cap.${c}`)}</span>
+                    <span className="num" style={{ fontSize: 10, opacity: 0.7 }}>{t(`screener.filters.cap.${c}Range`)}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
-          <div style={{ maxHeight: 260, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 1 }}>
-            {filtered.map(s => (
-              <SectorItem
-                key={s.sector}
-                label={label(s.sector)}
-                count={s.count}
-                checked={draft.includes(s.sector)}
-                onClick={() => toggle(s.sector)}
+
+          {/* P/FCF max — verrouillé pour les Free (tag PRO + clic → modale d'upgrade) */}
+          <div
+            className={'col gap-6' + (!isPro ? ' scr-filter-locked' : '')}
+            onClick={() => { if (!isPro) lockedPfcf(); }}
+            title={!isPro ? t('screener.proLock.maxPfcfTitle') : undefined}
+          >
+            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>
+              {t('screener.filters.maxPfcf')}
+              {!isPro && <span className="scr-pro-tag" style={{ marginLeft: 6 }}>PRO</span>}
+            </span>
+            <div className="row gap-10">
+              <input
+                type="range"
+                min={10}
+                max={PFCF_MAX}
+                value={draft.maxPfcf}
+                disabled={!isPro}
+                onChange={e => { if (isPro) setDraft(d => ({ ...d, maxPfcf: +e.target.value })); }}
+                onMouseDown={e => { if (!isPro) { e.preventDefault(); lockedPfcf(); } }}
+                style={{ flex: 1, accentColor: 'var(--brand)', cursor: !isPro ? 'not-allowed' : 'pointer' }}
               />
-            ))}
-            {filtered.length === 0 && <div className="tiny muted" style={{ padding: '8px' }}>—</div>}
+              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{draft.maxPfcf >= PFCF_MAX ? '∞' : draft.maxPfcf + '×'}</span>
+            </div>
           </div>
-          <div className="row gap-8" style={{ marginTop: 8, paddingTop: 8, borderTop: '1px solid var(--line)' }}>
-            <button type="button" className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={() => apply([])}>
+
+          {/* Secteur — recherche + multi-sélection */}
+          <div className="col gap-6">
+            <div className="row between">
+              <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.sector')}</span>
+              {draft.sectors.length > 0 && <span className="tiny num" style={{ fontWeight: 700, color: 'var(--brand-ink)' }}>{draft.sectors.length}</span>}
+            </div>
+            <div className="anl-search-field">
+              <Icon name="search" size={14} className="anl-search-icon" />
+              <input
+                className="anl-search-input"
+                style={{ height: 34, paddingLeft: 34, fontSize: 13 }}
+                value={query}
+                placeholder={t('screener.filters.sector')}
+                onChange={e => setQuery(e.target.value)}
+              />
+            </div>
+            <div style={{ maxHeight: 200, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 1 }}>
+              {filtered.map(s => (
+                <SectorItem
+                  key={s.sector}
+                  label={label(s.sector)}
+                  count={s.count}
+                  checked={draft.sectors.includes(s.sector)}
+                  onClick={() => toggleSector(s.sector)}
+                />
+              ))}
+              {filtered.length === 0 && <div className="tiny muted" style={{ padding: '8px' }}>—</div>}
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="row gap-8" style={{ paddingTop: 10, borderTop: '1px solid var(--line)' }}>
+            <button type="button" className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={reset}>
               {t('screener.filters.reset')}
             </button>
-            <button type="button" className="btn btn-brand btn-sm" style={{ flex: 1 }} onClick={() => apply(draft)}>
+            <button type="button" className="btn btn-brand btn-sm" style={{ flex: 1 }} onClick={apply}>
               {t('screener.filters.apply')}
             </button>
           </div>
@@ -177,10 +279,9 @@ export function ScreenerPage() {
   const [rows, setRows] = useState<ScreenerTopRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [minScore, setMinScore] = useState(6);
-  const [maxPfcf, setMaxPfcf] = useState(PFCF_MAX);
-  const [onlyOpp, setOnlyOpp] = useState(false);
-  const [selectedSectors, setSelectedSectors] = useState<string[]>([]);   // [] = tous les secteurs
+  // Tous les filtres du screener sous un seul bouton (secteurs, note, P/FCF, capitalisation).
+  const [filters, setFilters] = useState<AppliedFilters>(DEFAULT_FILTERS);
+  const [onlyOpp, setOnlyOpp] = useState(false);   // « Opportunités du moment » : toggle séparé
   const [sectors, setSectors] = useState<{ sector: string; count: number }[]>([]);
   const [sort, setSort] = useState<SortState>({ col: 'score', dir: 'desc' });
   const [visibleCount, setVisibleCount] = useState(60);   // pagination "charger plus" (Pro)
@@ -207,12 +308,20 @@ export function ScreenerPage() {
   const load = useCallback(async () => {
     setLoading(true); setError(null);
     try {
-      const top = await api.screener.top({ minRatio: minScore / 10, maxPfcf: maxPfcf >= PFCF_MAX ? undefined : maxPfcf, minMax: 8, limit: 300, opportunities: onlyOpp, sector: selectedSectors.length ? selectedSectors.join(',') : undefined });
+      const top = await api.screener.top({
+        minRatio: filters.minScore / 10,
+        maxPfcf: filters.maxPfcf >= PFCF_MAX ? undefined : filters.maxPfcf,
+        minMax: 8,
+        limit: 300,
+        opportunities: onlyOpp,
+        sector: filters.sectors.length ? filters.sectors.join(',') : undefined,
+        caps: filters.caps.length ? filters.caps.join(',') : undefined,
+      });
       setRows(top);
     } catch (e) {
       setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
     } finally { setLoading(false); }
-  }, [minScore, maxPfcf, onlyOpp, selectedSectors]);
+  }, [filters, onlyOpp]);
 
   useEffect(() => { load(); }, [load]);
 
@@ -222,7 +331,7 @@ export function ScreenerPage() {
   }, [rows, sort]);
 
   // Reset de la pagination quand les données / le tri / les filtres changent.
-  useEffect(() => { setVisibleCount(60); }, [rows, sort, minScore, maxPfcf, onlyOpp, selectedSectors]);
+  useEffect(() => { setVisibleCount(60); }, [rows, sort, filters, onlyOpp]);
 
   // Évite de rendre des centaines de lignes (page de 18-24k px sur mobile). Free : top
   // gratuit + ~12 lignes floutées sous l'overlay (le total est annoncé PAR l'overlay, pas en
@@ -231,7 +340,6 @@ export function ScreenerPage() {
     ? Math.min(visibleCount, sorted.length)
     : Math.min(sorted.length, FREE_SCREENER_TOP + 12);
   const visible = sorted.slice(0, renderCount);
-
 
   const SortTh = ({ label, col }: { label: string; col: SortCol }) => {
     const active = sort.col === col;
@@ -254,38 +362,15 @@ export function ScreenerPage() {
           </div>
         </div>
 
-        {/* Filtres */}
+        {/* Filtres — tout regroupé sous un bouton unique, sauf « Opportunités du moment » (toggle à droite). */}
         <div className="card scr-filters">
-          <SectorFilter sectors={sectors} value={selectedSectors} onChange={setSelectedSectors} />
-          <div className="row gap-12">
-            <span className="label">{t('screener.filters.minScore')}</span>
-            <div className="seg">{SCORE_OPTS.map(s => <button key={s} type="button" data-active={minScore === s} onClick={() => setMinScore(s)}>{s}+</button>)}</div>
-          </div>
-          {/* Filtre Max P/FCF — verrouillé pour les Free (paywall via UpgradeModal).
-              On affiche le slider quand même (signal qu'il existe) mais on intercepte
-              tout changement de valeur et tout focus pour ouvrir la modale Pro. Visuel
-              grisé + curseur not-allowed pour signaler clairement le verrouillage. */}
-          <div
-            className={'row gap-12 scr-pfcf-filter' + (!isPro ? ' scr-filter-locked' : '')}
-            onClick={() => { if (!isPro) setUpgrade(true); }}
-            title={!isPro ? t('screener.proLock.maxPfcfTitle') : undefined}
-          >
-            <span className="label" style={{ whiteSpace: 'nowrap' }}>
-              {t('screener.filters.maxPfcf')}
-              {!isPro && <span className="scr-pro-tag" style={{ marginLeft: 6 }}>PRO</span>}
-            </span>
-            <input
-              type="range"
-              min={10}
-              max={PFCF_MAX}
-              value={maxPfcf}
-              disabled={!isPro}
-              onChange={e => { if (isPro) setMaxPfcf(+e.target.value); }}
-              onMouseDown={(e) => { if (!isPro) { e.preventDefault(); setUpgrade(true); } }}
-              style={{ flex: 1, accentColor: 'var(--brand)', cursor: !isPro ? 'not-allowed' : 'pointer' }}
-            />
-            <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{maxPfcf >= PFCF_MAX ? '∞' : maxPfcf + '×'}</span>
-          </div>
+          <FiltersPanel
+            sectors={sectors}
+            value={filters}
+            onApply={setFilters}
+            isPro={isPro}
+            onLockedPfcf={() => setUpgrade(true)}
+          />
           <button
             type="button"
             onClick={() => { if (!isPro) { setUpgrade(true); return; } setOnlyOpp(v => !v); }}
