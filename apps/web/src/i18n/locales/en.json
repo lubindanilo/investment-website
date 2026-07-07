@@ -190,6 +190,10 @@
       "system": "Value + Momentum",
       "sp500": "S&P 500"
     },
+    "systemDetail": {
+      "title": "Value + Momentum, stock by stock",
+      "subtitle": "The systematic basket frozen at launch. Buy price and return for each stock since {{date}}."
+    },
     "portfolio": {
       "title": "My selection",
       "subtitle": "Your buys/sells. Returns and opportunity flags recompute on every open.",

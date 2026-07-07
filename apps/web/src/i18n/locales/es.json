@@ -269,6 +269,10 @@
       "system": "Value + Momentum",
       "sp500": "S&P 500"
     },
+    "systemDetail": {
+      "title": "Value + Momentum, acción por acción",
+      "subtitle": "La cesta sistemática fijada en el lanzamiento. Precio de compra y rendimiento de cada acción desde el {{date}}."
+    },
     "portfolio": {
       "title": "Mi selección",
       "subtitle": "Tus compras/ventas. El rendimiento y las oportunidades se recalculan al abrir.",

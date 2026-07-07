@@ -134,6 +134,42 @@ function ForwardCompare() {
           </div>
         )}
       </div>
+
+      {/* Value + Momentum, détail par action : prix d'achat figé au lancement + rendement live */}
+      {system && system.positions.length > 0 && (
+        <div className="card" style={{ padding: 16, marginBottom: 14 }}>
+          <div className="row between" style={{ marginBottom: 4, flexWrap: 'wrap', gap: 8 }}>
+            <span style={{ fontWeight: 800, fontSize: 15 }}>{t('marketBeat.systemDetail.title')}</span>
+            <span className="tiny muted">{t('marketBeat.compare.since', { date: fmtDate(data.inception) })}</span>
+          </div>
+          <p className="tiny muted" style={{ marginBottom: 10 }}>{t('marketBeat.systemDetail.subtitle', { date: fmtDate(data.inception) })}</p>
+          <div className="scroll-x">
+            <table className="tbl scr-tbl">
+              <thead><tr>
+                <th>{t('marketBeat.col.company')}</th>
+                <th>{t('marketBeat.portfolio.buyPrice')}</th>
+                <th>{t('marketBeat.col.price')}</th>
+                <th>{t('marketBeat.portfolio.colReturn')}</th>
+              </tr></thead>
+              <tbody>
+                {[...system.positions].sort((a, b) => (b.ret ?? -Infinity) - (a.ret ?? -Infinity)).map((p) => (
+                  <tr key={p.ticker} className={p.opportunity ? 'is-opp' : undefined}>
+                    <td>
+                      <div className="scr-soc">
+                        <span className="num scr-soc-ticker row gap-6">{p.ticker}{p.opportunity && <OpportunityBadge compact />}</span>
+                        <span className="scr-soc-name">{p.name ?? p.ticker}</span>
+                      </div>
+                    </td>
+                    <td className="num">{p.entry != null ? formatPrice(p.entry, null) : '—'}</td>
+                    <td className="num">{p.live != null ? formatPrice(p.live, null) : '—'}</td>
+                    <td className="num" style={{ fontWeight: 700, color: pctColor(p.ret) }}>{fmtPct(p.ret)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
     </>
   );
 }
