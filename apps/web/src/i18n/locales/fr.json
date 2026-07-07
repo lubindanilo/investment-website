@@ -171,6 +171,10 @@
       "system": "Value + Momentum",
       "sp500": "S&P 500"
     },
+    "systemDetail": {
+      "title": "Value + Momentum, action par action",
+      "subtitle": "Le panier systématique figé au lancement. Prix d'achat et rendement de chaque action depuis le {{date}}."
+    },
     "portfolio": {
       "title": "Ma sélection",
       "subtitle": "Tes achats/ventes. Le rendement et les pépites se recalculent à chaque ouverture.",
