@@ -59,8 +59,11 @@ function findLatestAsOf<T extends { date: string }>(
  */
 export async function getCashRoceHistory(ticker: string, years: number): Promise<CashRoceHistoryPoint[]> {
   // Route US/EU selon résolution Yahoo (même logique que pfcfHistory.ts)
+  // EU / non-US = devise ≠ USD. On se base sur la DEVISE et non sur « symbol ≠ ticker » :
+  // un ticker déjà suffixé (EL.PA, NESN.SW) résout vers lui-même, donc l'ancien test le
+  // classait à tort en US → Finnhub renvoie 403 sur ces symboles → 502.
   const resolved = await resolveYahooTicker(ticker).catch(() => null);
-  const isEuTicker = !!resolved && resolved.symbol !== ticker;
+  const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
     return getCashRoceHistoryAnnualYahoo(resolved.symbol, years);

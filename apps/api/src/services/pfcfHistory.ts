@@ -190,7 +190,11 @@ export async function getPfcfHistory(ticker: string, years: number): Promise<Pfc
   // EU ticker (NESN.SW, COPN.SW…) : Yahoo n'a QUE l'annuel → on calcule un P/FCF
   // par année (4 points max). US ticker : Finnhub quarterly + TTM rolling (60+ pts).
   const resolved = await resolveYahooTicker(ticker).catch(() => null);
-  const isEuTicker = !!resolved && resolved.symbol !== ticker;
+  // EU / non-US = listing dont la devise n'est pas l'USD. On se base sur la DEVISE et non sur
+  // « symbol ≠ ticker » : un ticker déjà suffixé (EL.PA, NESN.SW) résout vers lui-même, donc
+  // l'ancien test le classait à tort en US → Finnhub renvoie 403 sur ces symboles → 502.
+  // Les ADR US (NSRGY, ASML…) restent en USD → chemin US, avec fallback annuel si Finnhub vide.
+  const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
     return getPfcfHistoryAnnualYahoo(resolved.symbol, years);

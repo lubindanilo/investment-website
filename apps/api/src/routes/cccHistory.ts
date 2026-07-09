@@ -9,7 +9,7 @@
  */
 import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
-import { computeCccSeries } from '../services/finnhubFundamentals.js';
+import { getCccHistory } from '../services/cccHistory.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { requireAuth } from '../middleware/auth.js';
 import { requirePro } from '../middleware/subscription.js';
@@ -28,7 +28,7 @@ cccHistoryRouter.get('/', analyzeLimiter, requireAuth, requirePro, asyncHandler(
   if (!parsed.success) throw new ApiError(400, 'Paramètres invalides', parsed.error.flatten());
   const { ticker, years } = parsed.data;
 
-  const r = await computeCccSeries(ticker, Math.max(years + 1, 6));
+  const r = await getCccHistory(ticker, Math.max(years + 1, 6));
   res.json({
     ticker,
     points: r.points,
