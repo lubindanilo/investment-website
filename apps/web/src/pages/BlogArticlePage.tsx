@@ -36,19 +36,22 @@ const AUTHOR: Record<ArticleLang, { byline: string; heading: string; intro: stri
   },
 };
 
-// Rend le texte en transformant les liens markdown [libellé](/url) en vrais liens.
+// Rend le texte en transformant les liens en vrais liens. On accepte les DEUX
+// formats présents dans les articles : markdown [libellé](/url) ET HTML brut
+// <a href="/url">libellé</a> (sinon les balises s'affichent littéralement).
 // Interne (/...) -> <Link> (navigation SPA) ; externe (http...) -> <a target=_blank>.
-const MD_LINK = /\[([^\]]+)\]\(([^)]+)\)/g;
+const LINK_RE = /\[([^\]]+)\]\(([^)]+)\)|<a\s+href="([^"]+)"[^>]*>(.*?)<\/a>/g;
 function renderText(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
   let last = 0;
   let k = 0;
   let m: RegExpExecArray | null;
-  MD_LINK.lastIndex = 0;
-  while ((m = MD_LINK.exec(text)) !== null) {
+  LINK_RE.lastIndex = 0;
+  while ((m = LINK_RE.exec(text)) !== null) {
     if (m.index > last) nodes.push(text.slice(last, m.index));
-    const label = m[1] ?? '';
-    const href = m[2] ?? '';
+    // m[1]/m[2] = format markdown ; m[3]/m[4] = format HTML brut.
+    const label = (m[1] ?? m[4]) ?? '';
+    const href = (m[2] ?? m[3]) ?? '';
     if (href.startsWith('/')) {
       nodes.push(<Link key={k++} to={href}>{label}</Link>);
     } else {
