@@ -24,6 +24,40 @@
   margin: 48px 0 22px;
 }
 
+/* Barre de recherche par titre */
+.blog-search {
+  position: relative; display: flex; align-items: center;
+  max-width: 520px; margin: 28px auto 8px;
+}
+.blog-search-icon {
+  position: absolute; left: 14px; color: var(--ink-4); pointer-events: none;
+}
+.blog-search-input {
+  width: 100%; padding: 12px 40px; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--surface, #fff);
+  color: var(--ink); font-size: 15px; line-height: 1.4;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.blog-search-input::placeholder { color: var(--ink-4); }
+.blog-search-input:focus {
+  outline: none; border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--brand) 20%, transparent);
+}
+/* Masque la croix native du type=search (on fournit la nôtre) */
+.blog-search-input::-webkit-search-cancel-button { display: none; }
+.blog-search-clear {
+  position: absolute; right: 10px; display: inline-flex;
+  align-items: center; justify-content: center;
+  width: 26px; height: 26px; border: none; border-radius: 8px;
+  background: transparent; color: var(--ink-4); cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+.blog-search-clear:hover { background: var(--brand-softer); color: var(--brand); }
+.blog-search-empty {
+  text-align: center; color: var(--ink-2); font-size: 15px;
+  margin: 40px 0 48px;
+}
+
 /* État vide (pas d'articles encore) */
 .blog-empty { margin: 24px 0 48px; }
 .blog-empty-card {

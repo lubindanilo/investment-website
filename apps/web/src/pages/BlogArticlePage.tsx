@@ -6,7 +6,7 @@
 import type { ReactNode } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { getArticleBySlug, toArticleLang, companyDisplayName, type ArticleBlock, type ArticleLang } from '@lubin/shared';
+import { getArticleBySlug, getRelatedArticles, toArticleLang, companyDisplayName, type ArticleBlock, type ArticleLang } from '@lubin/shared';
 import SeoHead from '../components/SeoHead.js';
 import { Icon } from '../components/ui/primitives.js';
 import './BlogArticlePage.css';
@@ -108,6 +108,8 @@ export function BlogArticlePage() {
   const dateLabel = new Date(article.date + 'T12:00:00Z').toLocaleDateString(LOCALE[lang], {
     day: 'numeric', month: 'long', year: 'numeric',
   });
+  // Articles liés (mêmes tags), pour la section « À lire aussi » en fin d'article.
+  const related = getRelatedArticles(article.slug, lang, 3);
 
   // Groupe de CTA identique en tête (sous le titre) et en fin d'article.
   // L'analyse de la société de l'article est en secondaire (fond blanc, btn-ghost) ;
@@ -170,6 +172,28 @@ export function BlogArticlePage() {
 
         {/* CTA */}
         <section className="article-cta">{ctaGroup}</section>
+
+        {/* Articles liés (même thématique) */}
+        {related.length > 0 && (
+          <section className="article-related">
+            <h2 className="article-h2">{t('blog.related.title')}</h2>
+            <ul className="article-related-list">
+              {related.map((r) => {
+                const rc = r.content[lang];
+                return (
+                  <li key={r.slug} className="article-related-item">
+                    <Link to={`/blog/${r.slug}`} className="article-related-link">
+                      <span className="article-related-title">{rc.title}</span>
+                      <span className="article-related-meta">
+                        {r.readingTime} {t('blog.related.min')}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        )}
 
         <section className="article-author">
           <h2 className="article-h2">{AUTHOR[lang].heading}</h2>

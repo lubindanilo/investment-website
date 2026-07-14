@@ -49,6 +49,15 @@
     },
     "card": {
       "readingTime": "{{minutes}} min read"
+    },
+    "search": {
+      "placeholder": "Search articles by title",
+      "noResults": "No article matches “{{query}}”.",
+      "clear": "Clear search"
+    },
+    "related": {
+      "title": "More on the same topic",
+      "min": "min read"
     }
   },
   "chart": {

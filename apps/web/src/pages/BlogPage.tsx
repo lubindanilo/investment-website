@@ -11,6 +11,7 @@
  *
  * TODO i18n : extraire vers locales/*.json en sprint 3 quand on aura plusieurs articles.
  */
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { listArticles, toArticleLang } from '@lubin/shared';
@@ -45,6 +46,17 @@ export function BlogPage() {
   // Liste des thèmes à venir (signal éditorial). Lue depuis les locales pour FR/EN/ES.
   const upcomingTopics: string[] = (t('blog.upcoming.items', { returnObjects: true }) as string[]) ?? [];
 
+  // Recherche par titre. Normalisation (minuscules + suppression des accents) pour
+  // que « chemins » matche « Chemins » et « societe » matche « société ».
+  const [query, setQuery] = useState('');
+  const normalize = (s: string) =>
+    s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const filteredArticles = useMemo(() => {
+    const q = normalize(query.trim());
+    if (!q) return articles;
+    return articles.filter((a) => normalize(a.title).includes(q));
+  }, [articles, query]);
+
   return (
     <div className="blog">
       <SeoHead titleKey="seo.blog.title" descKey="seo.blog.desc" />
@@ -57,12 +69,39 @@ export function BlogPage() {
           <p className="blog-hero-lede">{t('blog.hero.lede')}</p>
         </header>
 
+        {/* Barre de recherche (affichée seulement s'il y a des articles) */}
+        {articles.length > 0 && (
+          <div className="blog-search">
+            <Icon name="search" size={18} className="blog-search-icon" />
+            <input
+              type="search"
+              className="blog-search-input"
+              placeholder={t('blog.search.placeholder')}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              aria-label={t('blog.search.placeholder')}
+            />
+            {query && (
+              <button
+                type="button"
+                className="blog-search-clear"
+                onClick={() => setQuery('')}
+                aria-label={t('blog.search.clear')}
+              >
+                <Icon name="x" size={16} />
+              </button>
+            )}
+          </div>
+        )}
+
         {/* État liste d'articles */}
         {articles.length === 0 ? (
           <ComingSoonState />
+        ) : filteredArticles.length === 0 ? (
+          <p className="blog-search-empty">{t('blog.search.noResults', { query: query.trim() })}</p>
         ) : (
           <section className="blog-list">
-            {articles.map(article => (
+            {filteredArticles.map(article => (
               <ArticleCard key={article.slug} article={article} locale={i18n.language} />
             ))}
           </section>
