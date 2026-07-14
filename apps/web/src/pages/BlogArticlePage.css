@@ -32,6 +32,25 @@
 
 .article-cta { margin: 2.5rem 0 1.5rem; }
 
+/* Articles liés (même thématique) */
+.article-related { margin: 2.5rem 0 1.5rem; }
+.article-related-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.article-related-item { margin: 0; }
+.article-related-link {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  padding: 0.85rem 1.1rem; border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 10px; text-decoration: none; color: inherit;
+  transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+.article-related-link:hover {
+  border-color: var(--brand, #6366f1);
+  background: rgba(99, 102, 241, 0.06);
+  transform: translateX(2px);
+}
+.article-related-title { font-weight: 600; line-height: 1.4; }
+.article-related-link:hover .article-related-title { color: var(--brand, #6366f1); }
+.article-related-meta { flex: none; font-size: 0.85rem; opacity: 0.6; white-space: nowrap; }
+
 .article-author-intro { font-weight: 600; margin: 0 0 0.6rem; }
 .article-author-quote {
   margin: 0; font-style: italic; line-height: 1.65;
