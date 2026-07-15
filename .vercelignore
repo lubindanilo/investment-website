@@ -5,6 +5,7 @@ scripts/*
 # Forme `scripts/*` + négation : `scripts/` + négation ne marcherait pas (gitignore ne
 # ré-inclut pas un fichier si son dossier parent est exclu).
 !scripts/check-api-shared-imports.mjs
+!scripts/check-articles-order.mjs
 !scripts/migrate-vercel.mjs
 cron/
 

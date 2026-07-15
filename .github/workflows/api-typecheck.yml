@@ -1,0 +1,31 @@
+name: API typecheck (tsc noEmit)
+
+# Typecheck de l'API (apps/api). Volontairement en CI et PAS dans build:vercel :
+# le build Vercel restaure un cache (`Restored build cache` + `Already up to date`)
+# qui peut desynchroniser node_modules de la lockfile pour la resolution de types,
+# et faire echouer `tsc` a tort (l'API tourne pourtant en prod). Ici l'install est
+# toujours fraiche (`--frozen-lockfile`), donc le typecheck est reproductible.
+# Attrape les vraies erreurs de type de l'API avant merge, sans bloquer le deploiement.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  api-typecheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      # Pas de `version:` : pnpm/action-setup lit `packageManager` dans package.json.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      # Le client Prisma doit exister pour que tsc resolve @prisma/client (hermetique, sans DB).
+      - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
+      - run: pnpm --filter @lubin/api run lint
