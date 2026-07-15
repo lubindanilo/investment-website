@@ -1,4 +1,4 @@
-name: Content lint (articles : tirets + ordre des déclarations)
+name: Content lint articles (tirets et ordre des declarations)
 
 # Garde-fous déterministes sur les fichiers d'articles. Deux invariants dans le MÊME job
 # `no-dashes` (required check de la protection de branche `main`), donc les deux bloquent
