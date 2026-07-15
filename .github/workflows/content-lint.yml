@@ -1,12 +1,13 @@
-name: Content lint (no em/en dash in articles)
+name: Content lint articles (tirets et ordre des declarations)
 
-# Garde-fou déterministe : un article de blog ne doit JAMAIS contenir de tiret long (—)
-# ni de tiret moyen (–), ni dans les titres, ni dans le corps. Échoue la PR si trouvé.
-# (Préférence éditoriale Lubin : séparateurs en deux-points, jamais de tiret.)
+# Garde-fous déterministes sur les fichiers d'articles. Deux invariants dans le MÊME job
+# `no-dashes` (required check de la protection de branche `main`), donc les deux bloquent
+# l'auto-merge des PR `seo/*` :
+#   1. AUCUN tiret long (—) ni moyen (–) (préférence éditoriale Lubin : deux-points/virgule).
+#   2. `export const ARTICLES = [...]` déclaré APRÈS toutes ses consts (sinon TDZ =>
+#      crash de la fonction Vercel à l'import, HTTP 500 sur tout le site : incident 2026-07-15).
 #
-# Tourne sur TOUTES les PRs (pas de filtre de chemin) : c'est un required check de la
-# protection de branche `main`, donc il doit reporter un statut sur chaque PR pour que
-# l'auto-merge des articles (gh pr merge --auto) puisse se débloquer.
+# Tourne sur TOUTES les PRs (pas de filtre de chemin) pour toujours reporter un statut.
 on:
   pull_request:
   workflow_dispatch: {}
@@ -24,3 +25,5 @@ jobs:
             exit 1
           fi
           echo "✅ Aucun tiret long/moyen dans les articles."
+      - name: Vérifier l'ordre des déclarations d'articles (anti-TDZ)
+        run: node scripts/check-articles-order.mjs
