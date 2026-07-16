@@ -1196,11 +1196,15 @@ ${criteriaHtml}
 
 const STATIC_SEO: StaticSeo[] = [
   {
+    // 🔒 VERROU PRODUIT : le title de la home est une décision manuelle (title long avec la
+    // marque en suffixe). Les agents SEO NE DOIVENT PAS le raccourcir/modifier. Garde-fou :
+    // scripts/check-home-title.mjs (job requis `no-dashes`). Le title de la home a 3 sources qui
+    // doivent rester cohérentes (ici + apps/web/index.html + i18n seo.home.title fr/en/es).
     path: '/',
     website: true,
     content: {
       fr: {
-        title: 'Actions de qualité au bon prix | Lubin Investment',
+        title: 'Surperforme le marché avec des actions de qualité au bon prix | Lubin Investment',
         desc: "Repère en un clin d'œil les meilleures opportunités d'investissement parmi des milliers d'entreprises analysées en continu.",
         h1: "Trouve les actions à acheter aujourd'hui, en un coup d'œil",
         intro: "Achète des actions de qualité au bon prix : la stratégie d'investissement qui surperforme le marché sur le long terme.",
@@ -1219,7 +1223,7 @@ const STATIC_SEO: StaticSeo[] = [
         ],
       },
       en: {
-        title: 'Quality stocks at the right price | Lubin Investment',
+        title: 'Beat the market with quality stocks at the right price | Lubin Investment',
         desc: 'Spot the best investment opportunities at a glance, among thousands of companies analyzed continuously.',
         h1: 'Find the stocks to buy today, at a glance',
         intro: 'Buy quality stocks at the right price: the investment strategy that beats the market over the long term.',
@@ -1238,7 +1242,7 @@ const STATIC_SEO: StaticSeo[] = [
         ],
       },
       es: {
-        title: 'Acciones de calidad al precio justo | Lubin Investment',
+        title: 'Supera al mercado con acciones de calidad al precio justo | Lubin Investment',
         desc: 'Detecta de un vistazo las mejores oportunidades de inversión entre miles de empresas analizadas en continuo.',
         h1: 'Encuentra las acciones para comprar hoy, de un vistazo',
         intro: 'Compra acciones de calidad al precio justo: la estrategia de inversión que supera al mercado a largo plazo.',
