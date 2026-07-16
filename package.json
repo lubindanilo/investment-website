@@ -9,7 +9,7 @@
     "dev:api": "./scripts/ensure-db.sh && pnpm --filter @lubin/api run dev",
     "dev:fast": "pnpm -r --parallel --reporter=append-only run dev",
     "build": "pnpm -r run build",
-    "build:vercel": "export DIRECT_URL=\"${DIRECT_URL:-$DATABASE_URL}\"; node scripts/check-api-shared-imports.mjs && node scripts/check-articles-order.mjs && node scripts/check-home-title.mjs && node scripts/migrate-vercel.mjs && pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma && pnpm --filter @lubin/web run build",
+    "build:vercel": "export DIRECT_URL=\"${DIRECT_URL:-$DATABASE_URL}\"; node scripts/check-api-shared-imports.mjs && node scripts/check-articles-order.mjs && node scripts/migrate-vercel.mjs && pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma && pnpm --filter @lubin/web run build",
     "check:api-shared": "node scripts/check-api-shared-imports.mjs",
     "check:articles-order": "node scripts/check-articles-order.mjs",
     "check:home-title": "node scripts/check-home-title.mjs",
