@@ -6,6 +6,8 @@ name: Content lint articles (tirets et ordre des declarations)
 #   1. AUCUN tiret long (—) ni moyen (–) (préférence éditoriale Lubin : deux-points/virgule).
 #   2. `export const ARTICLES = [...]` déclaré APRÈS toutes ses consts (sinon TDZ =>
 #      crash de la fonction Vercel à l'import, HTTP 500 sur tout le site : incident 2026-07-15).
+#   3. Le title de la home n'est PAS modifié (décision produit verrouillée, cf.
+#      scripts/check-home-title.mjs) : empêche les agents SEO de le raccourcir/réécrire.
 #
 # Tourne sur TOUTES les PRs (pas de filtre de chemin) pour toujours reporter un statut.
 on:
@@ -27,3 +29,5 @@ jobs:
           echo "✅ Aucun tiret long/moyen dans les articles."
       - name: Vérifier l'ordre des déclarations d'articles (anti-TDZ)
         run: node scripts/check-articles-order.mjs
+      - name: 🔒 Verrouiller le title de la home (décision produit, non modifiable par les agents)
+        run: node scripts/check-home-title.mjs
