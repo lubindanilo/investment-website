@@ -40,7 +40,7 @@
 /* ScoreCard */
 .anl-scorecard { padding: 24px; display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; }
 .anl-scorecard-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-.anl-company { font-size: 26px; font-weight: 700; letter-spacing: -0.025em; }
+.anl-company { font-size: 26px; font-weight: 700; letter-spacing: 0; }
 .anl-ticker-badge {
   font-weight: 700; font-size: 13px; color: var(--ink-3); background: var(--bg-soft);
   padding: 3px 9px; border-radius: 7px; align-self: center;
@@ -55,6 +55,15 @@
 .anl-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; }
 .anl-section-title { font-size: 18.5px; font-weight: 700; letter-spacing: -0.02em; }
 .anl-qual-kicker { color: var(--ink-3); }
+.anl-section-total { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-2); font-size: 12px; }
+.anl-section-total strong { color: var(--ink); }
+
+/* Le contenu des dix cartes reste identique. Quatre colonnes gardent chaque KPI lisible. */
+.criteria-grid.anl-quality-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+
+/* Les cinq dimensions management tiennent sur une ligne sur grand écran. */
+.qual-grid.anl-management-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.anl-management-actions { display: flex; align-items: center; gap: 12px; }
 
 /* Cours */
 .anl-price-card { padding: 16px 16px 8px; }
@@ -146,4 +155,17 @@
 @media (max-width: 880px) {
   .anl-scorecard { grid-template-columns: 1fr; gap: 18px; }
   .anl-scorecard-head { flex-direction: column; }
+  .criteria-grid.anl-quality-grid,
+  .qual-grid.anl-management-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 881px) and (max-width: 1120px) {
+  .criteria-grid.anl-quality-grid,
+  .qual-grid.anl-management-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .criteria-grid.anl-quality-grid,
+  .qual-grid.anl-management-grid { grid-template-columns: 1fr; }
+  .anl-management-actions { width: 100%; align-items: flex-start; flex-direction: column; }
 }

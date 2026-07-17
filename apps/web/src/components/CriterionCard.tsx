@@ -115,13 +115,14 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
   );
 }
 
-export function CriteriaGrid({ items, ticker, currency, annualOnly, trailing }: {
+export function CriteriaGrid({ items, ticker, currency, annualOnly, trailing, className = '' }: {
   items: Criterion[]; ticker?: string; currency?: string; annualOnly?: boolean;
   /** Élément rendu DANS la grille après les critères (ex. carte « Ratio P/FCF » sur 2 colonnes). */
   trailing?: ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="criteria-grid">
+    <div className={`criteria-grid ${className}`.trim()}>
       {items.map((c, i) => (
         <CriterionCard key={i} c={c} ticker={ticker} currency={currency} annualOnly={annualOnly} />
       ))}
@@ -188,16 +189,17 @@ function MarketShareQualCard({ c, ms, onGenerate, generating }: {
  * — le critère « Gagne des parts de marché », toujours en position finale de la liste business —
  * est enrichie (part de marché + graphe). Les autres grilles (management) ne le passent pas.
  */
-export function QualGrid({ items, marketShare, onGenerateMarketShare, generatingMarketShare }: {
+export function QualGrid({ items, marketShare, onGenerateMarketShare, generatingMarketShare, className = '' }: {
   items: Criterion[];
   marketShare?: MarketShare | null;
   onGenerateMarketShare?: () => void;
   generatingMarketShare?: boolean;
+  className?: string;
 }) {
   const enhanced = marketShare !== undefined || !!onGenerateMarketShare;
   const lastIdx = items.length - 1;
   return (
-    <div className="qual-grid">
+    <div className={`qual-grid ${className}`.trim()}>
       {items.map((c, i) => (
         enhanced && i === lastIdx
           ? <MarketShareQualCard key={i} c={c} ms={marketShare} onGenerate={onGenerateMarketShare} generating={generatingMarketShare} />

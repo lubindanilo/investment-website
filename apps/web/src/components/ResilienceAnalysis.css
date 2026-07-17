@@ -1,0 +1,339 @@
+.anl-analysis-head {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+}
+
+.anl-company-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.anl-company-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.anl-score-stories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.anl-score-story {
+  display: grid;
+  grid-template-columns: 102px minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.anl-score-unit {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+}
+
+.anl-score-ring {
+  width: 102px;
+  height: 102px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  border-radius: 50%;
+  background: conic-gradient(var(--score-ring-color) var(--score-ring-progress), var(--line) 0);
+}
+
+.anl-score-ring::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: var(--surface);
+}
+
+.anl-score-ring.is-pending {
+  background: var(--line);
+}
+
+.anl-score-ring-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  line-height: 1;
+}
+
+.anl-quality-number {
+  color: var(--score-ring-color);
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.anl-quality-number small {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.anl-resilience-grade {
+  color: var(--score-ring-color);
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.anl-resilience-number {
+  margin-top: 4px;
+  color: var(--ink-3);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.anl-score-kind {
+  color: var(--ink-3);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.anl-score-story-text {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.anl-resilience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.anl-resilience-card {
+  min-height: 198px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-sm);
+}
+
+.anl-resilience-card-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.anl-resilience-card h3 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.anl-resilience-score {
+  padding: 4px 8px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.anl-resilience-level {
+  margin-top: 16px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.anl-resilience-card > p {
+  margin: 8px 0 16px;
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.tone-strong .anl-resilience-score { color: var(--good-ink); background: var(--good-bg); }
+.tone-strong .anl-resilience-level { color: var(--good-ink); }
+.tone-solid .anl-resilience-score { color: var(--brand-ink); background: var(--brand-soft); }
+.tone-solid .anl-resilience-level { color: var(--brand-ink); }
+.tone-mixed .anl-resilience-score { color: var(--warn-ink); background: var(--warn-bg); }
+.tone-mixed .anl-resilience-level { color: var(--warn-ink); }
+.tone-fragile .anl-resilience-score { color: var(--bad-ink); background: var(--bad-bg); }
+.tone-fragile .anl-resilience-level { color: var(--bad-ink); }
+.tone-review .anl-resilience-score { color: var(--ink-2); background: var(--bg-soft); }
+.tone-review .anl-resilience-level { color: var(--ink-3); }
+
+.anl-resilience-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.anl-resilience-details {
+  position: relative;
+}
+
+.anl-resilience-info {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--ink-3);
+  cursor: pointer;
+}
+
+.anl-resilience-info:hover,
+.anl-resilience-info[aria-expanded='true'] {
+  color: var(--brand);
+  border-color: var(--brand);
+  background: var(--brand-softer);
+}
+
+.anl-resilience-panel {
+  width: min(410px, calc(100vw - 48px));
+  max-height: min(560px, calc(100vh - var(--nav-h) - 24px));
+  position: fixed;
+  z-index: 90;
+  overflow-y: auto;
+  padding: 16px;
+  border-radius: var(--r-sm);
+  background: var(--ink);
+  color: white;
+  box-shadow: var(--sh-lg);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.anl-resilience-panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid color-mix(in oklch, white 16%, transparent);
+}
+
+.anl-resilience-panel-head strong {
+  font-size: 12.5px;
+}
+
+.anl-resilience-panel-head > span {
+  flex: 0 0 auto;
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.anl-resilience-panel p {
+  margin: 0 0 10px;
+  color: color-mix(in oklch, white 88%, var(--ink));
+}
+
+.anl-resilience-panel .anl-resilience-score-explanation {
+  padding: 9px 10px;
+  border-left: 3px solid var(--brand);
+  border-radius: 0 6px 6px 0;
+  background: color-mix(in oklch, var(--brand) 14%, transparent);
+  color: white;
+}
+
+.anl-resilience-detail-label {
+  display: block;
+  margin: 13px 0 4px;
+  color: color-mix(in oklch, white 66%, var(--brand));
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.anl-resilience-audit {
+  display: grid;
+  border: 1px solid color-mix(in oklch, white 14%, transparent);
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.anl-resilience-audit-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+  padding: 7px 9px;
+  border-bottom: 1px solid color-mix(in oklch, white 10%, transparent);
+}
+
+.anl-resilience-audit-row:last-child { border-bottom: 0; }
+.anl-resilience-audit-row > span { color: color-mix(in oklch, white 78%, var(--ink)); }
+.anl-resilience-audit-row > strong { max-width: 160px; text-align: right; font-size: 11.5px; }
+.anl-resilience-audit-row > strong.tone-positive { color: var(--good); }
+.anl-resilience-audit-row > strong.tone-neutral { color: color-mix(in oklch, white 78%, var(--warn)); }
+.anl-resilience-audit-row > strong.tone-negative { color: color-mix(in oklch, white 72%, var(--bad)); }
+
+.anl-resilience-panel .anl-resilience-empty {
+  color: color-mix(in oklch, white 58%, var(--ink));
+  font-style: italic;
+}
+
+.anl-resilience-links {
+  display: grid;
+  gap: 6px;
+}
+
+.anl-resilience-links a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 5px;
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.anl-resilience-links svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.anl-resilience-pending {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0;
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+@media (max-width: 880px) {
+  .anl-score-stories { grid-template-columns: 1fr; }
+  .anl-resilience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .anl-analysis-head { gap: 18px; padding: 18px; }
+  .anl-company-head { flex-direction: column; }
+  .anl-company-head .btn { width: 100%; justify-content: center; }
+  .anl-score-stories { gap: 18px; padding-top: 18px; }
+  .anl-score-story { grid-template-columns: 92px minmax(0, 1fr); gap: 15px; }
+  .anl-score-ring { width: 92px; height: 92px; }
+  .anl-resilience-grid { grid-template-columns: 1fr; }
+}

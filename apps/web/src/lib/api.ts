@@ -165,6 +165,13 @@ export const api = {
       body: JSON.stringify({ ticker }),
     }, { attempts: 1, timeoutMs: 60_000 });
   },
+  /** Génère le bloc management s'il manque. */
+  generateManagement(ticker: string) {
+    return safeRequest<AnalyzeResponse>(`/api/analyze/management`, {
+      method: 'POST',
+      body: JSON.stringify({ ticker }),
+    }, { attempts: 1, timeoutMs: 60_000 });
+  },
   /** Force un GPT call pour MANAGEMENT uniquement. Business reste intouchable. */
   refreshManagement(ticker: string) {
     return safeRequest<AnalyzeResponse>(`/api/analyze/refresh-management`, {
