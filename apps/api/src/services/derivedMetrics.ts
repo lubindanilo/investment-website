@@ -390,6 +390,8 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
   const unavailable = tt(lang, 'common.unavailable');
   const NOT_CALC = tt(lang, 'common.notCalc');
   const perYear = tt(lang, 'common.perYear');
+  const days = tt(lang, 'common.days');
+  const years = tt(lang, 'common.years');
   return [
     {
       key: 'netMargin',
@@ -486,7 +488,11 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
     {
       key: 'netDebtFcf',
       nom: tt(lang, 'netDebtFcf.name'),
-      valeur: m.netDebtFcf == null ? NOT_CALC : fmtRaw(m.netDebtFcf),
+      valeur: m.netDebtFcf == null
+        ? NOT_CALC
+        : m.netDebtFcf < 0
+          ? tt(lang, 'netDebtFcf.netcashShort')
+          : `${fmtRaw(m.netDebtFcf)} ${years}`,
       cible: tt(lang, 'netDebtFcf.target'),
       statut: m.netDebtFcf == null ? 'warn' : m.netDebtFcf < 3 ? 'pass' : m.netDebtFcf < 5 ? 'warn' : 'fail',
       explication: m.netDebtFcf == null
@@ -500,7 +506,7 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
     {
       key: 'cashConversion',
       nom: tt(lang, 'cashConversion.name'),
-      valeur: m.ccr == null ? NOT_CALC : fmtRaw(m.ccr),
+      valeur: m.ccr == null ? NOT_CALC : fmtPct(m.ccr, '%', 0),
       cible: tt(lang, 'cashConversion.target'),
       statut: m.ccr == null ? 'warn' : m.ccr > 1 ? 'pass' : m.ccr > 0.7 ? 'warn' : 'fail',
       explication: m.ccr == null
@@ -520,7 +526,7 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
       // verdict (pass/warn/fail) reste piloté par la tendance qui elle est fiable.
       const valeur = ccc == null
         ? NOT_CALC
-        : `${Math.round(ccc)} j${isApprox ? ' (estimé)' : ''}`;
+        : `${Math.round(ccc)} ${days}${isApprox ? ` (${tt(lang, 'common.estimated')})` : ''}`;
       let statut: 'pass' | 'warn' | 'fail' = 'warn';
       let explication = reasonOr(m, 'ccc', tt(lang, 'ccc.unavailable'), lang);
       if (ccc != null) {

@@ -28,6 +28,61 @@ export interface Criterion {
   explication: string;
 }
 
+// ─── Resilience v2.5 ───────────────────────────────────────────────────────
+
+export type LocalizedText = Record<'fr' | 'en' | 'es', string>;
+
+export type ResilienceCriterionId =
+  | 'moat'
+  | 'disruption_resilience'
+  | 'residual_dependencies'
+  | 'structural_demand_capture'
+  | 'economic_persistence'
+  | 'recurrence_balance';
+
+export type ResilienceGrade = 'A' | 'B' | 'C' | 'D' | 'E';
+export type ResilienceStatus = 'scored' | 'review_required';
+export type ResilienceCriterionStatus = 'scored' | 'unknown' | 'review_required';
+
+export interface ResilienceEvidence {
+  label: LocalizedText;
+  url: string;
+  date?: string;
+}
+
+export type ResilienceAuditValue =
+  | string
+  | number
+  | boolean
+  | null
+  | ResilienceAuditValue[]
+  | { [key: string]: ResilienceAuditValue };
+
+export interface ResilienceCriterion {
+  id: ResilienceCriterionId;
+  score: number | null;
+  maxScore: 2 | 3;
+  status: ResilienceCriterionStatus;
+  summary: LocalizedText;
+  evidence: ResilienceEvidence[];
+  watchpoints: LocalizedText[];
+  /** Sous-tests structurés ayant produit le score, conservés pour audit et reproductibilité. */
+  audit: Record<string, ResilienceAuditValue>;
+}
+
+export interface ResilienceAnalysis {
+  version: '2.6.0';
+  asOf: string;
+  status: ResilienceStatus;
+  rawScore: number | null;
+  finalScore: number | null;
+  grade: ResilienceGrade | null;
+  verdict: LocalizedText;
+  confidence: 'high' | 'medium' | 'low';
+  gates: string[];
+  criteria: ResilienceCriterion[];
+}
+
 export type CriteriaCategory = 'chiffres' | 'business' | 'management' | 'valorisation';
 
 /** Un pair coté du secteur avec son P/FCF (pour le détail concurrentiel). */
@@ -229,6 +284,13 @@ export interface AnalyzeResponse {
   achat: boolean;
   /** 1-2 phrases percutantes (GPT) */
   verdict_direct: string;
+  /** Phrase deterministe construite depuis les 10 criteres financiers. Optionnel tant que le backend ne l'expose pas. */
+  qualityVerdict?: string;
+  /** Snapshot Resilience v2.5 pre-calcule par la veille. Null/absent tant que le cron ne l'a pas couvert. */
+  resilience?: ResilienceAnalysis | null;
+  /** Management explicite, separe de l'ancien tableau positionnel `criteres`. Optionnel tant que le backend ne l'expose pas. */
+  management?: Criterion[] | null;
+  managementAvailable?: boolean;
   /** Vraies news Finnhub des 60 derniers jours */
   news: NewsItem[];
   /** Valorisation DCF avec params en input */

@@ -12,10 +12,11 @@ import { ValuationBlock } from '../components/ui/ValuationBlock.js';
 import { PfcfRatioCard } from '../components/PfcfCards.js';
 import { DividendCard } from '../components/DividendCard.js';
 import { EarningsPanel } from '../components/EarningsPanel.js';
-import { Icon, ScoreCircle, ScorePill, OpportunityBadge, toDataStatus } from '../components/ui/primitives.js';
+import { Icon, ScorePill } from '../components/ui/primitives.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
-import { CompositionBar, PriceChart } from '../components/ui/charts.js';
+import { PriceChart } from '../components/ui/charts.js';
+import { AnalysisHeader, ResilienceGrid } from '../components/ResilienceAnalysis.js';
 import SeoHead from '../components/SeoHead.js';
 import './AnalysePage.css';
 
@@ -37,9 +38,6 @@ function score10(items: Criterion[]): number {
   const pass = items.filter(c => c.statut === 'pass').length;
   const warn = items.filter(c => c.statut === 'warn').length;
   return Math.round(((pass + 0.5 * warn) / items.length) * 10);
-}
-function compositionCounts(items: Criterion[]) {
-  return items.reduce((a, c) => { a[toDataStatus(c.statut)]++; return a; }, { good: 0, warn: 0, bad: 0 });
 }
 /** Date d'article ISO (YYYY-MM-DD) → JJ/MM/AA, même format que le flux d'actus Finnhub. */
 function toNewsDate(iso: string): string {
@@ -67,8 +65,8 @@ export function AnalysePage() {
   // de la session avant de lancer la requête (cf. useEffect), pour ne pas flasher l'écran de saisie.
   const [loading, setLoading] = useState(!!routeTicker);
   const [error, setError] = useState<ApiError | null>(null);
-  const [refreshingQual, setRefreshingQual] = useState(false);
-  const [generatingQual, setGeneratingQual] = useState(false);
+  const [refreshingManagement, setRefreshingManagement] = useState(false);
+  const [generatingManagement, setGeneratingManagement] = useState(false);
   const [inWatchlist, setInWatchlist] = useState<Set<string>>(new Set());
   const [lastTicker, setLastTicker] = useState('');
   // Modale d'upgrade Pro déclenchée par les 403 PRO_REQUIRED (qualitatif IA, etc.)
@@ -166,25 +164,26 @@ export function AnalysePage() {
     } catch (e) { toast.push('error', (e as Error).message); }
   }
 
-  async function generateQualitative() {
+  async function generateManagement() {
     if (!analysis) return;
     if (!user) { setShowSignupModal(true); return; }
-    setGeneratingQual(true);
-    try { setAnalysis(await api.generateQualitative(analysis.ticker)); toast.push('success', t('analyse.toast.qualGenerated')); }
+    setGeneratingManagement(true);
+    try { setAnalysis(await api.generateManagement(analysis.ticker)); toast.push('success', t('analyse.toast.managementGenerated')); }
     catch (e) {
       const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
       if (err.requiresPro) {
-        setUpgrade({ feature: t('upgrade.qualitative.feature'), detail: t('upgrade.qualitative.detail') });
+        setUpgrade({ feature: t('upgrade.management.feature'), detail: t('upgrade.management.detail') });
       } else {
         toast.push('error', err.userMessage);
       }
     }
-    finally { setGeneratingQual(false); }
+    finally { setGeneratingManagement(false); }
   }
 
   async function refreshManagementOnly() {
     if (!analysis) return;
-    setRefreshingQual(true);
+    if (!user) { setShowSignupModal(true); return; }
+    setRefreshingManagement(true);
     try { setAnalysis(await api.refreshManagement(analysis.ticker)); toast.push('success', t('analyse.toast.mgmtUpdated')); }
     catch (e) {
       const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
@@ -194,12 +193,11 @@ export function AnalysePage() {
         toast.push('error', err.userMessage);
       }
     }
-    finally { setRefreshingQual(false); }
+    finally { setRefreshingManagement(false); }
   }
 
   const chiffres = analysis?.criteres.slice(0, 10) ?? [];
-  const business = analysis?.qualitativeAvailable ? analysis.criteres.slice(10, 20) : [];
-  const management = analysis?.qualitativeAvailable ? analysis.criteres.slice(20, 25) : [];
+  const management = analysis?.management ?? [];
   const watched = !!analysis && (analysis.inWatchlist === true || inWatchlist.has(analysis.ticker));
 
   return (
@@ -253,13 +251,12 @@ export function AnalysePage() {
             <AnalysisView
               analysis={analysis}
               chiffres={chiffres}
-              business={business}
               management={management}
               watched={watched}
               onWatch={addToWatchlist}
-              onGenerateQual={generateQualitative}
-              generatingQual={generatingQual}
-              refreshingQual={refreshingQual}
+              onGenerateManagement={generateManagement}
+              generatingManagement={generatingManagement}
+              refreshingManagement={refreshingManagement}
               onRefreshMgmt={refreshManagementOnly}
             />
             {/* Maillage interne : 5 actions du même secteur les mieux notées, cliquables.
@@ -328,15 +325,14 @@ function Section({ title, sub, right, children }: {
 }
 
 // ─── Vue remplie ─────────────────────────────────────────────────────────────
-function AnalysisView({ analysis, chiffres, business, management, watched, onWatch, onGenerateQual, generatingQual, refreshingQual, onRefreshMgmt }: {
+function AnalysisView({ analysis, chiffres, management, watched, onWatch, onGenerateManagement, generatingManagement, refreshingManagement, onRefreshMgmt }: {
   analysis: AnalyzeResponse;
-  chiffres: Criterion[]; business: Criterion[]; management: Criterion[];
-  watched: boolean; onWatch: () => void; onGenerateQual: () => void; generatingQual: boolean;
-  refreshingQual: boolean; onRefreshMgmt: () => void;
+  chiffres: Criterion[]; management: Criterion[];
+  watched: boolean; onWatch: () => void; onGenerateManagement: () => void; generatingManagement: boolean;
+  refreshingManagement: boolean; onRefreshMgmt: () => void;
 }) {
   const { t, i18n } = useTranslation();
   const s10 = score10(chiffres);
-  const counts = compositionCounts(chiffres);
   const currency = analysis.currency || 'USD';
   const annualOnly = analysis.fundamentalsSource === 'yahoo';
   // Fil d'actus unifié, trié du plus récent au plus ancien : les 5 actus externes les plus
@@ -393,48 +389,29 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
           </div>
         )}
 
-        {/* ScoreCard */}
-        <div className="card anl-scorecard">
-          <ScoreCircle score={s10} />
-          <div className="col gap-12 grow">
-            <div className="anl-scorecard-head">
-              <div className="col gap-4">
-                <div className="row gap-10">
-                  <h1 className="anl-company">{analysis.company}</h1>
-                  <span className="num anl-ticker-badge">{analysis.ticker}</span>
-                  {annualOnly && <span className="num anl-ticker-badge" title={t('analyse.viaYahooTitle')}>{t('analyse.viaYahoo')}</span>}
-                </div>
-                {analysis.price != null && (
-                  <div className="num anl-price">{currency} {analysis.price.toFixed(2)}</div>
-                )}
-              </div>
-              <button className={'btn ' + (watched ? 'btn-soft' : 'btn-muted')} onClick={onWatch}>
-                {watched ? <><Icon name="check" size={16} /> {t('analyse.inWatchlist')}</> : <><Icon name="plus" size={16} /> {t('analyse.addToWatchlist')}</>}
-              </button>
-            </div>
-            {analysis.verdict_direct?.trim() && <p className="anl-verdict">{analysis.verdict_direct}</p>}
-            <div className="col gap-6 anl-composition">
-              <div className="row between">
-                <span className="tiny muted">{t('analyse.scoreComposition')}</span>
-                <span className="num tiny anl-comp-counts">
-                  <span style={{ color: 'var(--good)' }}>{t('analyse.compYes', { count: counts.good })}</span> · <span style={{ color: 'var(--warn)' }}>{t('analyse.compPartial', { count: counts.warn })}</span> · <span style={{ color: 'var(--bad)' }}>{t('analyse.compNo', { count: counts.bad })}</span>
-                </span>
-              </div>
-              <CompositionBar counts={counts} />
-            </div>
-          </div>
-        </div>
+        <AnalysisHeader
+          analysis={analysis}
+          qualityScore={s10}
+          watched={watched}
+          onWatch={onWatch}
+          annualOnly={annualOnly}
+        />
 
         {/* Cours */}
         <PriceSection ticker={analysis.ticker} currency={currency} />
 
-        {/* 10 critères + carte « Ratio P/FCF » (hors notation, sur 2 colonnes, complète la rangée) */}
-        <Section title={t('analyse.sections.chiffres.title')} sub={t('analyse.sections.chiffres.sub')}>
+        {/* Les dix critères et les deux cartes hors note partagent la même grille. */}
+        <Section
+          title={t('analyse.sections.chiffres.title')}
+          sub={t('analyse.sections.chiffres.sub')}
+          right={<span className="anl-section-total">{t('analyse.qualityScore')} <strong className="num">{s10}/10</strong></span>}
+        >
           <CriteriaGrid
             items={chiffres}
             ticker={analysis.ticker}
             currency={currency}
             annualOnly={annualOnly}
+            className="anl-quality-grid"
             trailing={<>
               <PfcfRatioCard
                 pfcfTTM={analysis.metrics.pfcfTTM}
@@ -448,34 +425,31 @@ function AnalysisView({ analysis, chiffres, business, management, watched, onWat
           />
         </Section>
 
-        {/* Qualitatif (à la demande) */}
+        <Section title={t('analyse.sections.resilience.title')} sub={t('analyse.sections.resilience.sub')}>
+          <ResilienceGrid analysis={analysis.resilience ?? null} />
+        </Section>
+
+        {/* Le management reste le seul bloc qualitatif à la demande. */}
         <Section
-          title={t('analyse.sections.qualitative.title')}
-          sub={t('analyse.sections.qualitative.sub')}
-          right={analysis.qualitativeAvailable
-            ? <button className="btn btn-ghost btn-sm" onClick={onRefreshMgmt} disabled={refreshingQual}>
-                {refreshingQual ? <><span className="spinner" /> {t('analyse.updating')}</> : <><Icon name="refresh" size={14} /> {t('analyse.management')}</>}
-              </button>
+          title={t('analyse.sections.management.title')}
+          sub={t('analyse.sections.management.sub')}
+          right={analysis.managementAvailable
+            ? <div className="anl-management-actions">
+                <span className="anl-section-total">{t('analyse.managementEvaluation')} <strong className="num">{scoreOf(management)}</strong></span>
+                <button className="btn btn-ghost btn-sm" onClick={onRefreshMgmt} disabled={refreshingManagement}>
+                  {refreshingManagement ? <><span className="spinner" /> {t('analyse.updating')}</> : <><Icon name="refresh" size={14} /> {t('analyse.refreshManagement')}</>}
+                </button>
+              </div>
             : undefined}
         >
-          {analysis.qualitativeAvailable ? (
-            <div className="col gap-20">
-              <div className="col gap-10">
-                <span className="kicker anl-qual-kicker">{t('analyse.businessModel')} · {scoreOf(business)}</span>
-                {/* La dernière carte business (« Gagne des parts de marché ») porte la part de marché + le graphe. */}
-                <QualGrid items={business} marketShare={analysis.marketShare ?? null} onGenerateMarketShare={onGenerateQual} generatingMarketShare={generatingQual} />
-              </div>
-              <div className="col gap-10">
-                <span className="kicker anl-qual-kicker">{t('analyse.management')} · {scoreOf(management)}</span>
-                <QualGrid items={management} />
-              </div>
-            </div>
+          {analysis.managementAvailable ? (
+            <QualGrid items={management} className="anl-management-grid" />
           ) : (
             <div className="card anl-qual-cta">
               <div className="anl-qual-cta-icon"><Icon name="layers" size={22} /></div>
-              <p>{t('analyse.qualCtaText')}</p>
-              <button className="btn btn-soft" onClick={onGenerateQual} disabled={generatingQual}>
-                {generatingQual ? <><span className="spinner" /> {t('analyse.generating')}</> : t('analyse.generateQual')}
+              <p>{t('analyse.managementCtaText')}</p>
+              <button className="btn btn-soft" onClick={onGenerateManagement} disabled={generatingManagement}>
+                {generatingManagement ? <><span className="spinner" /> {t('analyse.generating')}</> : t('analyse.generateManagement')}
               </button>
             </div>
           )}
