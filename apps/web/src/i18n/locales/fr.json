@@ -1661,7 +1661,7 @@
     "hero": {
       "kicker": "Backtest · opportunités passées",
       "title": "Quand la méthode repère un gagnant très tôt",
-      "lede": "Voici des cas où le signal « opportunité du moment » a pointé une action des années avant que le marché ne la rattrape. Chiffres tirés de notre backtest."
+      "lede": "Certaines actions ont explosé bien avant que le marché ne s'en aperçoive. Notre signal « opportunité du moment » les avait repérées des années plus tôt, quand elles cotaient encore au plus bas."
     },
     "card": {
       "opportunity": "Opportunité",
