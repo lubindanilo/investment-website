@@ -376,6 +376,8 @@ export function renderTickerHtml(
     opportunity: boolean;
     region: string;
     exchange: string | null;
+    marketCap?: number | null;
+    scoreRatio?: number | null;
     lastScoredAt: Date | null;
   },
   related: Array<{
@@ -402,10 +404,22 @@ export function renderTickerHtml(
     ? tr.pfcfClauseTpl(pfcf)
     : '';
   const price = t.price != null && isFinite(t.price) ? `${t.price.toFixed(2)} ${escapeHtml(t.currency || 'USD')}` : '';
-  // Fiche « mince » : ni valorisation (P/FCF) ni cours → quasi que du template partagé.
-  // noindex,follow pour concentrer le budget de crawl sur les vraies fiches (aussi exclue du sitemap).
-  const thin = t.pfcfTTM == null && t.price == null;
-  const robots = thin ? 'noindex,follow' : 'index,follow';
+  // Règle d'indexation (audit SEO 2026-07-19) : on ne garde en index que les fiches à valeur.
+  // noindex,follow sur le « bas » — note < 5/10 ET (very small cap US < 500 M$ OU pas de P/FCF
+  // OU penny < 1 $) — SAUF opportunité du moment ou ticker rattaché à un article. Concentre le
+  // budget de crawl et remonte le signal qualité du domaine (des milliers de fiches quasi
+  // dupliquées étaient « explorées, non indexées » par Google). ⚠️ Doit rester STRICTEMENT
+  // cohérent avec le filtre de sitemap.ts, sinon on advertise dans le sitemap des pages noindex.
+  const ratio = t.scoreChiffres != null && t.scoreChiffresMax ? t.scoreChiffres / t.scoreChiffresMax : null;
+  const hasArticle = listArticles().some(
+    (a) => !!a.ticker && a.ticker.toUpperCase() === t.ticker.toUpperCase(),
+  );
+  const verySmallCapUS = t.region === 'US' && t.marketCap != null && t.marketCap < 500_000_000;
+  const lowScore = ratio != null && ratio < 0.5;
+  const noindex =
+    lowScore && !t.opportunity && !hasArticle &&
+    (verySmallCapUS || t.pfcfTTM == null || (t.price != null && t.price < 1));
+  const robots = noindex ? 'noindex,follow' : 'index,follow';
   const oppBadge = t.opportunity
     ? `<p><strong>${tr.oppLabel} :</strong> ${tr.oppBody(name)}</p>`
     : '';
@@ -655,6 +669,8 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
         price: true,
         opportunity: true,
         region: true,
+        marketCap: true,
+        scoreRatio: true,
         exchange: true,
         status: true,
         lastScoredAt: true,

@@ -140,10 +140,35 @@ async function buildSitemap(): Promise<string> {
   // Tickers scorés, meilleurs ratios en premier (limite Google : 50 000 URLs / sitemap).
   // On récupère scoreRatio (pour différencier la priority) et lastScoredAt (lastmod réel)
   // afin d'envoyer à Google de vrais signaux de fraîcheur + d'importance par fiche.
+  // Tickers à INDEXER — cohérent avec la règle robots de seoPrerender (renderTickerHtml) :
+  // on exclut le « bas » (note < 5/10 ET (very small cap US < 500 M$ OU pas de P/FCF OU penny
+  // < 1 $)), SAUF opportunité du moment ou ticker rattaché à un article. Cf. audit SEO 2026-07-19.
+  // ⚠️ Toute évolution de cette règle DOIT être répliquée dans seoPrerender.ts (sinon on advertise
+  // des pages en noindex, signaux incohérents).
+  const articleTickers = Array.from(
+    new Set(
+      listArticles()
+        .map((a) => (a.ticker ? a.ticker.toUpperCase() : ''))
+        .filter((s) => s.length > 0),
+    ),
+  );
   const tickers = await prisma.screenerTicker.findMany({
-    // Exclut les fiches « minces » (ni P/FCF ni cours) : elles sont en noindex côté
-    // seoPrerender, inutile de les advertise dans le sitemap (cohérence des signaux).
-    where: { status: 'scored', NOT: { pfcfTTM: null, price: null } },
+    where: {
+      status: 'scored',
+      OR: [
+        { scoreRatio: { gte: 0.5 } },
+        { scoreRatio: null },
+        { opportunity: true },
+        { ticker: { in: articleTickers } },
+        {
+          AND: [
+            { pfcfTTM: { not: null } },
+            { OR: [{ price: null }, { price: { gte: 1 } }] },
+            { NOT: { region: 'US', marketCap: { lt: 500_000_000 } } },
+          ],
+        },
+      ],
+    },
     orderBy: { scoreRatio: 'desc' },
     take: 5000,
     select: { ticker: true, scoreRatio: true, lastScoredAt: true, updatedAt: true },
