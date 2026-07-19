@@ -1661,7 +1661,7 @@
     "hero": {
       "kicker": "Backtest · oportunidades pasadas",
       "title": "Cuando el método detecta un ganador muy pronto",
-      "lede": "Estos son casos en los que la señal «oportunidad del momento» detectó una acción años antes de que el mercado la alcanzara. Cifras de nuestro backtest."
+      "lede": "Algunas acciones se dispararon mucho antes de que el mercado se diera cuenta. Nuestra señal «oportunidad del momento» ya las había detectado años antes, cuando aún cotizaban en mínimos."
     },
     "card": {
       "opportunity": "Oportunidad",

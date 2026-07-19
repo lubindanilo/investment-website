@@ -1337,7 +1337,7 @@ const STATIC_SEO: StaticSeo[] = [
         h1: 'Quand la méthode repère un gagnant très tôt',
         intro: "Le signal « opportunité du moment » (note de qualité ≥ 8/10 et P/FCF au plus bas de son historique) a parfois pointé des actions des années avant que le marché ne les rattrape. Voici des exemples issus de notre backtest point-in-time.",
         sections: [
-          { h2: 'Des gagnants repérés tôt', p: "Comfort Systems USA (FIX), Lam Research (LRCX), Micron (MU), Apple (AAPL), Ciena (CIEN), Amphenol (APH), Arista Networks (ANET) et Quanta Services (PWR) figuraient parmi les opportunités du backtest et ont largement dépassé le S&P 500 sur leur période de détention." },
+          { h2: 'Des gagnants repérés tôt', p: "Comfort Systems USA (FIX), Lam Research (LRCX), Micron (MU), Ciena (CIEN), Apple (AAPL), Rambus (RMBS), Mueller Industries (MLI), Quanta Services (PWR), Arista Networks (ANET), FormFactor (FORM), Amphenol (APH) ou PulteGroup (PHM) figuraient parmi les opportunités du backtest et ont largement dépassé le S&P 500 sur leur période de détention." },
           { h2: 'Lecture honnête', p: "Ce sont les meilleurs cas, pas la moyenne : sur 310 opportunités du backtest (entrées de 2014 à 2022), environ 34 % seulement ont battu le S&P 500, avec un biais de survie assumé. Les performances passées ne préjugent pas des performances futures et rien ici n'est un conseil en investissement." },
         ],
         links: [
@@ -1351,7 +1351,7 @@ const STATIC_SEO: StaticSeo[] = [
         h1: 'When the method spots a winner early',
         intro: 'The "opportunity of the moment" signal (quality score ≥ 8/10 and P/FCF at the low of its own history) has at times flagged stocks years before the market caught up. Here are examples from our point-in-time backtest.',
         sections: [
-          { h2: 'Winners spotted early', p: 'Comfort Systems USA (FIX), Lam Research (LRCX), Micron (MU), Apple (AAPL), Ciena (CIEN), Amphenol (APH), Arista Networks (ANET) and Quanta Services (PWR) were among the backtest opportunities and far outpaced the S&P 500 over their holding period.' },
+          { h2: 'Winners spotted early', p: 'Comfort Systems USA (FIX), Lam Research (LRCX), Micron (MU), Ciena (CIEN), Apple (AAPL), Rambus (RMBS), Mueller Industries (MLI), Quanta Services (PWR), Arista Networks (ANET), FormFactor (FORM), Amphenol (APH) and PulteGroup (PHM) were among the backtest opportunities and far outpaced the S&P 500 over their holding period.' },
           { h2: 'Honest reading', p: 'These are the best cases, not the average: of 310 opportunities in the backtest (entries from 2014 to 2022), only about 34% beat the S&P 500, with survivorship bias acknowledged. Past performance does not guarantee future results, and nothing here is investment advice.' },
         ],
         links: [
@@ -1365,7 +1365,7 @@ const STATIC_SEO: StaticSeo[] = [
         h1: 'Cuando el método detecta un ganador muy pronto',
         intro: 'La señal «oportunidad del momento» (nota de calidad ≥ 8/10 y P/FCF en el mínimo de su propio historial) a veces detectó acciones años antes de que el mercado las alcanzara. Aquí tienes ejemplos de nuestro backtest point-in-time.',
         sections: [
-          { h2: 'Ganadores detectados pronto', p: 'Comfort Systems USA (FIX), Lam Research (LRCX), Micron (MU), Apple (AAPL), Ciena (CIEN), Amphenol (APH), Arista Networks (ANET) y Quanta Services (PWR) estaban entre las oportunidades del backtest y superaron con creces al S&P 500 durante su periodo de tenencia.' },
+          { h2: 'Ganadores detectados pronto', p: 'Comfort Systems USA (FIX), Lam Research (LRCX), Micron (MU), Ciena (CIEN), Apple (AAPL), Rambus (RMBS), Mueller Industries (MLI), Quanta Services (PWR), Arista Networks (ANET), FormFactor (FORM), Amphenol (APH) o PulteGroup (PHM) estaban entre las oportunidades del backtest y superaron con creces al S&P 500 durante su periodo de tenencia.' },
           { h2: 'Lectura honesta', p: 'Son los mejores casos, no el promedio: de 310 oportunidades del backtest (entradas de 2014 a 2022), solo alrededor del 34 % superaron al S&P 500, con sesgo de supervivencia asumido. Las rentabilidades pasadas no garantizan resultados futuros y nada aquí es asesoramiento de inversión.' },
         ],
         links: [
