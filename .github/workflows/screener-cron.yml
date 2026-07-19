@@ -35,6 +35,10 @@ on:
     # Maintenance generique 2x/jour (04:00 et 16:00 UTC) : rafraichit l'univers par priorite
     # (US d'abord). Draine aussi l'EU pending residuel une fois l'US a jour.
     - cron: '0 4,16 * * *'
+    # Drain EU dedie 4x/jour (01/07/13/19 UTC) : le generique etant "US d'abord", l'EU serait
+    # affame sinon. Ce creneau draine le backlog EU pending PUIS re-tente les erreurs a chaque
+    # cycle. S'arrete tot (picked=0) une fois l'EU a jour → quasi gratuit ensuite (repo public).
+    - cron: '0 1,7,13,19 * * *'
 
 permissions:
   contents: read
@@ -50,6 +54,8 @@ jobs:
     env:
       SCREENER_TOKEN: ${{ secrets.SCREENER_TOKEN }}
       CONFIGURED_SITE_URL: ${{ vars.SCREENER_SITE_URL }}
+      EVENT_NAME: ${{ github.event_name }}
+      EVENT_SCHEDULE: ${{ github.event.schedule }}
       MANUAL_REGION: ${{ inputs.region }}
       MANUAL_N: ${{ inputs.n }}
       MANUAL_DEADLINE: ${{ inputs.deadline }}
@@ -65,13 +71,21 @@ jobs:
           fi
 
           SITE_URL="${CONFIGURED_SITE_URL:-https://lubin-investment.com}"
-          # Sur schedule (pas d'inputs) : maintenance generique, lot borne, budget serverless.
-          REGION="${MANUAL_REGION:-}"
-          N="${MANUAL_N:-25}"
-          # 30s par defaut (schedule) : laisse tenir les titres non-US (budget 20s/titre cote API,
-          # Yahoo lent depuis Vercel) tout en restant sous la limite lambda (60s).
-          DEADLINE="${MANUAL_DEADLINE:-30}"
-          PASSES="${MANUAL_PASSES:-60}"
+          # Selection selon l'evenement :
+          #   - workflow_dispatch : on suit les inputs (defaut region=EU).
+          #   - schedule '0 1,7,13,19 * * *' : drain EU dedie (gros lot, budget large).
+          #   - schedule generique '0 4,16 * * *' : maintenance US-first, lot borne.
+          if [ "${EVENT_NAME:-}" = "workflow_dispatch" ]; then
+            REGION="${MANUAL_REGION:-}"
+            N="${MANUAL_N:-25}"
+            DEADLINE="${MANUAL_DEADLINE:-45}"
+            PASSES="${MANUAL_PASSES:-400}"
+          elif [ "${EVENT_SCHEDULE:-}" = "0 1,7,13,19 * * *" ]; then
+            REGION="EU"; N="25"; DEADLINE="45"; PASSES="400"
+          else
+            # Generique : 30s laisse tenir les non-US (budget 20s/titre) sous la limite lambda (60s).
+            REGION=""; N="25"; DEADLINE="30"; PASSES="60"
+          fi
 
           QS="n=${N}&deadline=${DEADLINE}"
           if [ -n "${REGION}" ]; then QS="${QS}&region=${REGION}"; fi
