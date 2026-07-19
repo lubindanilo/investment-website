@@ -216,8 +216,10 @@ export function InfoPop({ title, why, calc }: { title: string; why: string; calc
           <span className="pop-arrow" style={{ top: -5, left: '50%', marginLeft: -5 }} />
           <b style={{ display: 'block', marginBottom: 6, fontSize: 12.5 }}>{title}</b>
           <span style={{ display: 'block', opacity: 0.85, marginBottom: 8 }}>{why}</span>
-          <span style={{ display: 'block', fontSize: 11, opacity: 0.6, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 2 }}>{t('criteria.calc')}</span>
-          <span className="mono" style={{ display: 'block', fontSize: 11.5, opacity: 0.8 }}>{calc}</span>
+          <span style={{ display: 'block', marginTop: 10, padding: '9px 11px', background: 'rgba(255,255,255,0.07)', borderRadius: 8 }}>
+            <span style={{ display: 'block', fontSize: 10.5, opacity: 0.55, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 5 }}>{t('criteria.calc')}</span>
+            <span style={{ display: 'block', fontSize: 12, lineHeight: 1.55, opacity: 0.92 }}>{calc}</span>
+          </span>
         </span>
       )}
     </span>

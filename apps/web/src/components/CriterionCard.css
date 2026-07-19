@@ -22,11 +22,16 @@
 /* Valeur au-dessus, cible en légende dessous (pleine largeur) → pas de tassement latéral. */
 .crit-card-vrow { display: flex; flex-direction: column; gap: 3px; }
 .crit-card-value {
-  font-size: 23px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em;
+  font-size: 19px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em;
   line-height: 1.1; overflow-wrap: break-word;
 }
-/* Valeur textuelle / unité longue ('✓ Expansion', '-6.12%/an') : typo réduite. */
-.crit-card-value.is-long { font-size: 16px; line-height: 1.25; letter-spacing: 0; }
+/* Valeur KPI + ligne cible : sans de la marque plutôt que le monospace de .num (sélecteur
+   composé pour battre `.num { font-family: var(--mono) }` à spécificité égale). */
+.crit-card-value.num,
+.crit-card-target.num { font-family: var(--sans); }
+
+/* Cartes hors notation (P/FCF, Dividende) : fond grisé, pas d'accent bleu ni de badge. */
+.crit-card-muted { background: var(--bg-soft); box-shadow: none; }
 .crit-card-target {
   font-size: 11.5px; color: var(--ink-3); line-height: 1.35;
 }

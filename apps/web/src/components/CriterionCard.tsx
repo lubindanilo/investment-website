@@ -12,14 +12,32 @@ import { useSubscription } from '../contexts/SubscriptionContext.js';
 import { Icon, InfoPop, StatusBadge, toDataStatus } from './ui/primitives.js';
 import './CriterionCard.css';
 
+/** Premier nombre signé d'une chaîne affichée ('27.2%'→27.2, '-2.71%/an'→-2.71, '10 %/an sur 5 ans'→10). */
+function firstNumber(s: string): number | null {
+  const m = s.match(/-?\d[\d.,]*/);
+  if (!m) return null;
+  const n = Number(m[0].replace(/\s/g, '').replace(',', '.'));
+  return Number.isFinite(n) ? n : null;
+}
+
 /**
- * Une valeur est "compacte" (→ grande typo) si c'est un nombre court avec au plus une unité
- * simple (%, ×). Les valeurs textuelles ('✓ Expansion') ou à unité longue ('-6.12%/an',
- * '26.6%/an') passent en typo réduite, sans coupure de mot.
+ * Ligne cible affichée sous la valeur. Si la cible commence par un opérateur ('> 10 %…'), on le
+ * remplace par l'opérateur RÉEL valeur↔seuil (>, <, =) pour ne pas afficher un '>' trompeur quand
+ * le critère échoue. Les cibles en prose ('Stable ou en baisse', 'Remboursable en moins de 3 ans')
+ * sont affichées telles quelles.
  */
-function isCompactValue(v: string): boolean {
-  const t = v.trim();
-  return t.length <= 7 && /^[-+]?[\d.,]+\s*[%×x]?$/.test(t);
+function targetLine(valeur: string, cible: string): string {
+  const op = cible.match(/^\s*([<>]=?|=|≤|≥)\s*/);
+  if (!op) return cible;
+  const rest = cible.slice(op[0].length);
+  const actual = firstNumber(valeur);
+  const threshold = firstNumber(rest);
+  if (actual == null || threshold == null) return cible;
+  // Comparaison fiable seulement si valeur et seuil partagent l'unité : un ratio '1.16' face à
+  // '100 %' ne se compare pas numériquement (116 % > 100 %). Sinon on garde la cible d'origine.
+  if (valeur.includes('%') !== rest.includes('%')) return cible;
+  const real = actual > threshold ? '>' : actual < threshold ? '<' : '=';
+  return `${real} ${rest}`;
 }
 
 /** Multiple P/FCF parsé depuis la valeur affichée (pour le ReferenceLine de la modale). */
@@ -65,10 +83,9 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
           <StatusBadge status={toDataStatus(c.statut)} />
         </div>
         <div className="crit-card-vrow">
-          <span className={'num crit-card-value' + (isCompactValue(c.valeur) ? '' : ' is-long')}>{c.valeur}</span>
-          <span className="num crit-card-target">{t('criteria.target', { target: c.cible })}</span>
+          <span className="num crit-card-value">{c.valeur}</span>
+          <span className="num crit-card-target">{targetLine(c.valeur, c.cible)}</span>
         </div>
-        <p className="crit-card-note">{c.explication}</p>
         <div className="crit-card-foot">
           {hasBrief
             ? <InfoPop title={c.nom} why={t(`briefs.${c.key}.why`)} calc={t(`briefs.${c.key}.how`)} />

@@ -1474,6 +1474,7 @@
     "none": "Ne verse pas de dividende",
     "growthLabel": "Croissance annualisée · 5 ans",
     "growthNA": "Historique < 5 ans",
+    "perYear": "%/an",
     "statYield": "rendement {{v}} %",
     "statPayout": "distribution {{v}} %",
     "iYield": "Le rendement du dividende de {{company}} ({{ticker}}) est de {{yield}} %, ce qui signifie que pour chaque tranche de 100 {{cur}} investie, les investisseurs reçoivent {{yield}} {{cur}} de dividendes par an.",

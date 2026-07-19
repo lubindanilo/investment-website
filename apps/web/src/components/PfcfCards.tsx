@@ -10,20 +10,11 @@
  */
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import type { SectorBenchmark, DataStatus } from '@lubin/shared';
-import { Icon, StatusBadge } from './ui/primitives.js';
+import type { SectorBenchmark } from '@lubin/shared';
+import { Icon } from './ui/primitives.js';
 import { PfcfChartModal } from './PfcfChartModal.js';
 import { UpgradeModal } from './UpgradeModal.js';
 import { useSubscription } from '../contexts/SubscriptionContext.js';
-
-const INK = { good: 'var(--good-ink)', warn: 'var(--warn-ink)', bad: 'var(--bad-ink)' } as const;
-
-function ratioStatus(pfcf: number | null, percentile: number | null): DataStatus | null {
-  if (pfcf == null || pfcf <= 0) return null;
-  if (pfcf >= 25) return 'bad';                                   // « Non » si P/FCF ≥ 25
-  if (percentile != null && percentile <= 25) return 'good';      // « Oui » si top 25e percentile + ratio < 25
-  return 'warn';                                                  // « Partiel »
-}
 
 export function PfcfRatioCard({ pfcfTTM, pfcfPercentile, sectorBenchmark, ticker, annualOnly = false }: {
   pfcfTTM: number | null;
@@ -36,17 +27,15 @@ export function PfcfRatioCard({ pfcfTTM, pfcfPercentile, sectorBenchmark, ticker
   const { isPro } = useSubscription();
   const [histOpen, setHistOpen] = useState(false);
   const [upgrade, setUpgrade] = useState(false);
-  const status = ratioStatus(pfcfTTM, pfcfPercentile);
 
   return (
-    <div className="crit-card" style={{ border: '1.5px solid var(--brand)' }}>
+    <div className="crit-card crit-card-muted">
       <div className="crit-card-head">
         <span className="crit-card-label">{t('pfcfCards.title')}</span>
-        {status && <StatusBadge status={status} />}
       </div>
       <div className="crit-card-vrow">
-        <span className="num crit-card-value" style={{ color: status ? INK[status] : undefined }}>
-          {pfcfTTM != null && pfcfTTM > 0 ? `${pfcfTTM.toFixed(1)}×` : '—'}
+        <span className="num crit-card-value">
+          {pfcfTTM != null && pfcfTTM > 0 ? pfcfTTM.toFixed(1) : '—'}
         </span>
       </div>
       <p className="crit-card-note">
@@ -54,7 +43,7 @@ export function PfcfRatioCard({ pfcfTTM, pfcfPercentile, sectorBenchmark, ticker
         {sectorBenchmark && sectorBenchmark.meanPfcf > 0 && <> · {t('pfcfCards.sectorMean', { value: sectorBenchmark.meanPfcf.toFixed(1) })}</>}
       </p>
       <div className="crit-card-foot">
-        <span className="pfcf-card-tag">{t('pfcfCards.notScored')}</span>
+        <span />
         {pfcfTTM != null && pfcfTTM > 0 && (
           <button
             type="button"

@@ -25,7 +25,10 @@ export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
   const cur = currency === 'USD' ? '$' : currency;
   const hasHistory = dividend.payments.length > 0;
   const g = dividend.growth5yPct;
-  const growthColor = g == null ? undefined : g > 0 ? 'var(--good-ink)' : g < 0 ? 'var(--bad-ink)' : undefined;
+  // Rendement qui s'arrondit à 0,00 % = pas de dividende réel : on affiche l'état « ne verse pas »
+  // plutôt qu'un « – / Historique < 5 ans · rendement 0.00 % » qui n'a aucun sens.
+  const zeroYield = dividend.yieldPct != null && dividend.yieldPct < 0.005;
+  const paysReal = dividend.paysDividend && !zeroYield;
 
   const statLine = [
     dividend.yieldPct != null ? t('dividend.statYield', { v: dividend.yieldPct.toFixed(2) }) : null,
@@ -33,10 +36,10 @@ export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
   ].filter(Boolean).join(' · ');
 
   return (
-    <div className="crit-card" style={{ border: '1.5px solid var(--brand)' }}>
+    <div className="crit-card crit-card-muted">
       <div className="crit-card-head">
         <span className="crit-card-label">{t('dividend.title')}</span>
-        {dividend.paysDividend && dividend.yieldPct != null && (
+        {paysReal && dividend.yieldPct != null && (
           <DividendInfoPop
             title={t('dividend.title')}
             yieldText={t('dividend.iYield', { company, ticker, yield: dividend.yieldPct.toFixed(2), cur })}
@@ -47,18 +50,18 @@ export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
         )}
       </div>
 
-      {dividend.paysDividend ? (
+      {paysReal ? (
         <>
           <div className="crit-card-vrow">
-            <span className="num crit-card-value" style={{ color: growthColor }}>
+            <span className="num crit-card-value">
               {/* Placeholder « valeur non disponible » : hyphen ASCII (court neutre)
                   pour conserver une UI cohérente sans recourir à l'em dash. */}
-              {g != null ? `${g > 0 ? '+' : ''}${g.toFixed(1)} %/an` : '–'}
+              {g != null ? `${g > 0 ? '+' : ''}${g.toFixed(1)} ${t('dividend.perYear')}` : '–'}
             </span>
           </div>
           <p className="crit-card-note">
-            <span style={{ fontWeight: 600, color: 'var(--ink-2)' }}>{g != null ? t('dividend.growthLabel') : t('dividend.growthNA')}</span>
-            {statLine && <> · {statLine}</>}
+            {g == null && <><span style={{ fontWeight: 600, color: 'var(--ink-2)' }}>{t('dividend.growthNA')}</span>{statLine && ' · '}</>}
+            {statLine}
           </p>
         </>
       ) : (
@@ -69,8 +72,8 @@ export function DividendCard({ dividend, currency = 'USD', company, ticker }: {
       )}
 
       <div className="crit-card-foot">
-        <span className="pfcf-card-tag">{t('pfcfCards.notScored')}</span>
-        {hasHistory && (
+        <span />
+        {paysReal && hasHistory && (
           <button
             type="button"
             className={'crit-hist-btn' + (!isPro ? ' crit-hist-btn-pro' : '')}
