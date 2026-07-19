@@ -2,6 +2,7 @@
 .criteria-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+  grid-auto-rows: 1fr; /* toutes les cards a la meme hauteur (celle de la plus grande) */
   gap: 14px;
 }
 
@@ -40,6 +41,7 @@
 
 .crit-card-foot {
   display: flex; align-items: center; justify-content: space-between;
+  margin-top: auto; /* pied epingle en bas quand la card est etiree a hauteur commune */
   border-top: 1px solid var(--line-soft);
   padding-top: 9px;
 }
