@@ -1,0 +1,95 @@
+name: Screener scoring
+
+# Note la file du screener via l'endpoint HTTP déployé (mêmes clés/IP que la prod).
+#   - workflow_dispatch : drain manuel d'une zone (defaut EU) — sert à rattraper le backlog
+#     EU pending (ex : Renault RNO.PA) sans etre affame par la priorite US.
+#   - schedule : petit tick de maintenance generique (garde l'univers frais apres coup).
+
+on:
+  workflow_dispatch:
+    inputs:
+      region:
+        description: 'Zone a drainer (EU, US, INTL, ou vide = univers entier)'
+        required: false
+        default: 'EU'
+      n:
+        description: 'Titres demandes par appel (max 25)'
+        required: false
+        default: '25'
+      deadline:
+        description: 'Budget scoring par appel en secondes (max 50)'
+        required: false
+        default: '45'
+      passes:
+        description: 'Nombre max d appels avant arret'
+        required: false
+        default: '400'
+  schedule:
+    # Maintenance generique 2x/jour (04:00 et 16:00 UTC) : rafraichit l'univers par priorite
+    # (US d'abord). Draine aussi l'EU pending residuel une fois l'US a jour.
+    - cron: '0 4,16 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: screener-scoring
+  cancel-in-progress: false
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SCREENER_TOKEN: ${{ secrets.SCREENER_TOKEN }}
+      CONFIGURED_SITE_URL: ${{ vars.SCREENER_SITE_URL }}
+      MANUAL_REGION: ${{ inputs.region }}
+      MANUAL_N: ${{ inputs.n }}
+      MANUAL_DEADLINE: ${{ inputs.deadline }}
+      MANUAL_PASSES: ${{ inputs.passes }}
+    steps:
+      - name: Score due tickers
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${SCREENER_TOKEN:-}" ]; then
+            echo "::error::Le secret GitHub SCREENER_TOKEN est requis pour le cron screener."
+            exit 1
+          fi
+
+          SITE_URL="${CONFIGURED_SITE_URL:-https://lubin-investment.com}"
+          # Sur schedule (pas d'inputs) : maintenance generique, lot borne, budget serverless.
+          REGION="${MANUAL_REGION:-}"
+          N="${MANUAL_N:-25}"
+          DEADLINE="${MANUAL_DEADLINE:-15}"
+          PASSES="${MANUAL_PASSES:-60}"
+
+          QS="n=${N}&deadline=${DEADLINE}"
+          if [ -n "${REGION}" ]; then QS="${QS}&region=${REGION}"; fi
+          echo "Cible : ${SITE_URL}/api/screener/tick?${QS} (max ${PASSES} appels)"
+
+          total_scored=0
+          for pass in $(seq 1 "${PASSES}"); do
+            response="$(curl --fail-with-body --silent --show-error --max-time 60 \
+              -X POST \
+              -H "x-screener-token: ${SCREENER_TOKEN}" \
+              "${SITE_URL}/api/screener/tick?${QS}")"
+            picked="$(jq -r '.picked // 0' <<< "$response")"
+            scored="$(jq -r '.scored // 0' <<< "$response")"
+            nodata="$(jq -r '.nodata // 0' <<< "$response")"
+            errors="$(jq -r '.error // 0' <<< "$response")"
+            timeout="$(jq -r '.timeout // 0' <<< "$response")"
+            echo "Pass ${pass}: picked=${picked} scored=${scored} nodata=${nodata} error=${errors} timeout=${timeout}"
+
+            # Rien a piocher → la zone est drainee : on s'arrete.
+            if [ "$picked" -eq 0 ]; then
+              echo "File vide — arret anticipe."
+              break
+            fi
+            total_scored=$((total_scored + scored))
+            sleep 2
+          done
+
+          echo "Total note sur ce run : ${total_scored}"
+          echo "Etat global :"
+          curl --fail --silent --show-error "${SITE_URL}/api/screener/stats" | jq .

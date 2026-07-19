@@ -175,14 +175,17 @@ async function seedEu(): Promise<SeedResult> {
  *   2. Le reste : jamais noté (front de progression), dates inconnues (TTL), erreurs — par
  *      priorité de région puis ancienneté.
  */
-async function pickDueTickers(limit: number): Promise<{ ticker: string }[]> {
+async function pickDueTickers(limit: number, region?: string): Promise<{ ticker: string }[]> {
   const today = new Date().toISOString().slice(0, 10);
   const ttlCutoff = new Date(Date.now() - RESCORE_TTL_MS);
   const cooldownCutoff = new Date(Date.now() - RESCORE_COOLDOWN_MS);
+  // Filtre région optionnel : permet à un cron de backfill de DRAINER une zone précise
+  // (ex : EU pending) sans être affamée par la priorité US (priority 0). Vide = univers entier.
+  const regionFilter = region ? { region } : {};
 
   // Phase 1 — earnings atteint (au plus une fois par cooldown si la date ne progresse pas).
   const earningsDue = await prisma.screenerTicker.findMany({
-    where: { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff } },
+    where: { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff }, ...regionFilter },
     orderBy: [{ nextEarningsDate: 'asc' }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
     take: limit,
     select: { ticker: true },
@@ -192,6 +195,7 @@ async function pickDueTickers(limit: number): Promise<{ ticker: string }[]> {
   // Phase 2 — comble le reste du lot.
   const rest = await prisma.screenerTicker.findMany({
     where: {
+      ...regionFilter,
       OR: [
         { status: 'pending' },
         { status: 'scored', nextEarningsDate: null, lastScoredAt: { lt: ttlCutoff } },
@@ -414,9 +418,9 @@ const CHART_WARM_MS = 6_000;
 /** Combien de titres "jamais warmés" combler par tick, en plus des fraîchement scorés. */
 const WARM_FILL = 6;
 
-export async function tick(limit: number, softDeadlineMs = SCORE_DEADLINE_MS): Promise<TickResult> {
+export async function tick(limit: number, softDeadlineMs = SCORE_DEADLINE_MS, region?: string): Promise<TickResult> {
   const start = Date.now();
-  const due = await pickDueTickers(limit);
+  const due = await pickDueTickers(limit, region);
   let scored = 0, nodata = 0, error = 0, timeout = 0;
   const justScored: string[] = [];
   for (const t of due) {
