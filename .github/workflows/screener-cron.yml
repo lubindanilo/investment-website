@@ -68,7 +68,9 @@ jobs:
           # Sur schedule (pas d'inputs) : maintenance generique, lot borne, budget serverless.
           REGION="${MANUAL_REGION:-}"
           N="${MANUAL_N:-25}"
-          DEADLINE="${MANUAL_DEADLINE:-15}"
+          # 30s par defaut (schedule) : laisse tenir les titres non-US (budget 20s/titre cote API,
+          # Yahoo lent depuis Vercel) tout en restant sous la limite lambda (60s).
+          DEADLINE="${MANUAL_DEADLINE:-30}"
           PASSES="${MANUAL_PASSES:-60}"
 
           QS="n=${N}&deadline=${DEADLINE}"

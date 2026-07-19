@@ -140,17 +140,24 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   ] as const);
   const batch2Early = ticker.includes('.') ? null : runFinancials();
 
+  // Finnhub free tier ne couvre QUE les tickers US (sans suffixe) : tout symbole suffixé
+  // (.PA, .L, .MI, .DE…) renvoie 403 sur metric/profile2/quote/news/earnings. On saute donc
+  // ces appels pour les titres non-US → moins de latence, pas de gaspillage du limiteur
+  // Finnhub, et on part directement sur Yahoo (seule source qui les couvre). Sans ce court-circuit,
+  // chaque titre EU perdait 4-5 allers-retours Finnhub voués au 403 avant de basculer.
+  const isNonUs = ticker.includes('.');
+
   // Tous les fetches "data layer" en parallèle. Les optionnels (news, earnings) sont
   // remplacés par des Promise.resolve si exclus pour économiser des calls Finnhub.
   const [metric, fhProfile, quote, rawNews, sharesHistory, earnings] = await Promise.all([
-    timed('finnhub metric',    getMetric(ticker)).catch(() => null),
-    timed('finnhub profile2',  getProfile2(ticker)).catch(() => null),
-    timed('finnhub quote',     getQuote(ticker)).catch(() => null),
-    includeNews
+    isNonUs ? Promise.resolve(null) : timed('finnhub metric',    getMetric(ticker)).catch(() => null),
+    isNonUs ? Promise.resolve(null) : timed('finnhub profile2',  getProfile2(ticker)).catch(() => null),
+    isNonUs ? Promise.resolve(null) : timed('finnhub quote',     getQuote(ticker)).catch(() => null),
+    (includeNews && !isNonUs)
       ? timed('finnhub news',    getCompanyNews(ticker)).catch(() => [] as FinnhubNewsItem[])
       : Promise.resolve([] as FinnhubNewsItem[]),
     timed('yahoo shares',      getSharesHistory(ticker)).catch(() => null),
-    includeEarnings
+    (includeEarnings && !isNonUs)
       ? timed('finnhub earnings', getEarningsInfo(ticker)).catch(() => ({ next: null, last: null } as EarningsInfo))
       : Promise.resolve({ next: null, last: null } as EarningsInfo),
   ]);

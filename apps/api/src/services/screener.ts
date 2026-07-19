@@ -389,6 +389,13 @@ export interface TickResult { picked: number; scored: number; nodata: number; er
  * ticker (marqué error → re-tenté plus tard, deprioritisé) et on passe au suivant.
  */
 const PER_TICKER_MS = 10_000;
+/**
+ * Titres non-US (symbole suffixé .PA/.L/.MI/.DE…) : notés UNIQUEMENT via Yahoo (Finnhub free
+ * tier = US only), or Yahoo est throttlé depuis les IP Vercel et peut traîner 10-30s. Avec un
+ * budget de 10s ils dépassaient systématiquement et tombaient en `error`. On leur laisse donc
+ * un budget élargi (au prix de moins de titres par appel — acceptable pour un backfill).
+ */
+const PER_TICKER_MS_NON_US = 20_000;
 
 const TIMEOUT_SENTINEL = Symbol('timeout');
 
@@ -424,9 +431,11 @@ export async function tick(limit: number, softDeadlineMs = SCORE_DEADLINE_MS, re
   let scored = 0, nodata = 0, error = 0, timeout = 0;
   const justScored: string[] = [];
   for (const t of due) {
+    // Budget adapté à la source : non-US (Yahoo, lent depuis Vercel) → plus large.
+    const perTicker = t.ticker.includes('.') ? PER_TICKER_MS_NON_US : PER_TICKER_MS;
     // Pas assez de budget pour garantir un cycle complet → on s'arrête net.
-    if (Date.now() - start + PER_TICKER_MS > softDeadlineMs) break;
-    const timer = new Promise<typeof TIMEOUT_SENTINEL>((res) => setTimeout(() => res(TIMEOUT_SENTINEL), PER_TICKER_MS));
+    if (Date.now() - start + perTicker > softDeadlineMs) break;
+    const timer = new Promise<typeof TIMEOUT_SENTINEL>((res) => setTimeout(() => res(TIMEOUT_SENTINEL), perTicker));
     // scoreOne ne rejette pas (catch interne) ; en cas de timeout il continue en arrière-plan
     // et finira par écrire sa ligne (la lambda tient 60s) — la donnée converge.
     const r = await Promise.race([scoreOne(t.ticker), timer]);
