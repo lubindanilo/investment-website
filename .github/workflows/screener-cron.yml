@@ -1,0 +1,148 @@
+name: Screener scoring
+
+# Note la file du screener via l'endpoint HTTP déployé (mêmes clés/IP que la prod).
+#   - workflow_dispatch : drain manuel d'une zone (defaut EU) — sert à rattraper le backlog
+#     EU pending (ex : Renault RNO.PA) sans etre affame par la priorite US.
+#   - schedule : petit tick de maintenance generique (garde l'univers frais apres coup).
+#
+# Alerte (point 3) : le job ECHOUE bruyamment si l'endpoint est injoignable, si le token est
+# rejete, ou si le scoreur ne traite plus rien (garde anti-stall) — c'est exactement la panne
+# silencieuse du 9 juin 2026. Sur un run planifie, GitHub notifie par email en cas d'echec ;
+# en plus, si le secret SLACK_WEBHOOK_URL est defini, une alerte Slack est postee.
+# NB : GitHub desactive un workflow planifie apres 60 j d'INACTIVITE du repo — ici le repo
+# est actif quotidiennement (PR SEO), donc ce risque ne s'applique pas en pratique.
+
+on:
+  workflow_dispatch:
+    inputs:
+      region:
+        description: 'Zone a drainer (EU, US, INTL, ou vide = univers entier)'
+        required: false
+        default: 'EU'
+      n:
+        description: 'Titres demandes par appel (max 25)'
+        required: false
+        default: '25'
+      deadline:
+        description: 'Budget scoring par appel en secondes (max 50)'
+        required: false
+        default: '45'
+      passes:
+        description: 'Nombre max d appels avant arret'
+        required: false
+        default: '400'
+  schedule:
+    # Maintenance generique 2x/jour (04:00 et 16:00 UTC) : rafraichit l'univers par priorite
+    # (US d'abord). Draine aussi l'EU pending residuel une fois l'US a jour.
+    - cron: '0 4,16 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: screener-scoring
+  cancel-in-progress: false
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SCREENER_TOKEN: ${{ secrets.SCREENER_TOKEN }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      CONFIGURED_SITE_URL: ${{ vars.SCREENER_SITE_URL }}
+      MANUAL_REGION: ${{ inputs.region }}
+      MANUAL_N: ${{ inputs.n }}
+      MANUAL_DEADLINE: ${{ inputs.deadline }}
+      MANUAL_PASSES: ${{ inputs.passes }}
+    steps:
+      - name: Score due tickers
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${SCREENER_TOKEN:-}" ]; then
+            echo "::error::Le secret GitHub SCREENER_TOKEN est requis pour le cron screener."
+            exit 1
+          fi
+
+          SITE_URL="${CONFIGURED_SITE_URL:-https://lubin-investment.com}"
+          # Sur schedule (pas d'inputs) : maintenance generique, lot borne, budget serverless.
+          REGION="${MANUAL_REGION:-}"
+          N="${MANUAL_N:-25}"
+          DEADLINE="${MANUAL_DEADLINE:-15}"
+          PASSES="${MANUAL_PASSES:-60}"
+
+          QS="n=${N}&deadline=${DEADLINE}"
+          if [ -n "${REGION}" ]; then QS="${QS}&region=${REGION}"; fi
+          echo "Cible : ${SITE_URL}/api/screener/tick?${QS} (max ${PASSES} appels)"
+
+          total_scored=0
+          run_processed=0
+          dead_streak=0
+          last_picked=0
+          for pass in $(seq 1 "${PASSES}"); do
+            # --fail-with-body : sort en erreur (donc job en echec -> alerte) sur HTTP >= 400,
+            # ce qui couvre endpoint down, token rejete, deploiement casse.
+            response="$(curl --fail-with-body --silent --show-error --max-time 60 \
+              -X POST \
+              -H "x-screener-token: ${SCREENER_TOKEN}" \
+              "${SITE_URL}/api/screener/tick?${QS}")"
+            picked="$(jq -r '.picked // 0' <<< "$response")"
+            scored="$(jq -r '.scored // 0' <<< "$response")"
+            nodata="$(jq -r '.nodata // 0' <<< "$response")"
+            errors="$(jq -r '.error // 0' <<< "$response")"
+            timeout="$(jq -r '.timeout // 0' <<< "$response")"
+            processed=$((scored + nodata + errors + timeout))
+            echo "Pass ${pass}: picked=${picked} scored=${scored} nodata=${nodata} error=${errors} timeout=${timeout}"
+
+            last_picked="$picked"
+            # Rien a piocher → la zone est drainee : on s'arrete proprement.
+            if [ "$picked" -eq 0 ]; then
+              echo "File vide — arret anticipe."
+              break
+            fi
+
+            # Garde anti-stall : l'endpoint repond 200 mais ne traite RIEN alors qu'il y a du
+            # travail (picked>0). 3 fois d'affilee = scoreur casse -> on echoue (alerte).
+            # NB : une erreur de scoring (ex 403 Finnhub sur un ticker EU) compte dans
+            # `processed`, donc ne declenche PAS de faux positif ici.
+            if [ "$processed" -eq 0 ]; then
+              dead_streak=$((dead_streak + 1))
+              if [ "$dead_streak" -ge 3 ]; then
+                echo "::error::Scoreur bloque : picked>0 mais 0 titre traite sur 3 appels consecutifs."
+                exit 1
+              fi
+            else
+              dead_streak=0
+            fi
+
+            total_scored=$((total_scored + scored))
+            run_processed=$((run_processed + processed))
+            sleep 2
+          done
+
+          echo "Total note sur ce run : ${total_scored} (traites : ${run_processed})"
+          echo "Etat global :"
+          curl --fail --silent --show-error "${SITE_URL}/api/screener/stats" | jq .
+
+          # Filet final : il restait du travail (last_picked>0) mais on n'a rien traite du tout.
+          if [ "${last_picked}" -gt 0 ] && [ "${run_processed}" -eq 0 ]; then
+            echo "::error::Aucun titre traite alors que la file n'etait pas vide."
+            exit 1
+          fi
+
+      - name: Alerte Slack en cas d echec
+        if: failure()
+        shell: bash
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -u
+          if [ -z "${SLACK_WEBHOOK_URL:-}" ]; then
+            echo "SLACK_WEBHOOK_URL absent — alerte Slack ignoree (l'email GitHub reste actif)."
+            exit 0
+          fi
+          msg=":rotating_light: Cron *Screener scoring* en echec — la notation risque d'etre a l'arret (cf. panne du 9 juin). Run : ${RUN_URL}"
+          payload="$(jq -n --arg t "$msg" '{text:$t}')"
+          curl -fsS -X POST -H 'Content-type: application/json' -d "$payload" "${SLACK_WEBHOOK_URL}" >/dev/null \
+            && echo "slack: envoye" || echo "slack: echec POST"

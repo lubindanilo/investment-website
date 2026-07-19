@@ -40,7 +40,13 @@ screenerRouter.post('/seed', requireScreenerToken, asyncHandler(async (req: Requ
 // ── POST /tick?n=10 ─────────────────────────────────────────────────────────
 screenerRouter.post('/tick', requireScreenerToken, asyncHandler(async (req: Request, res: Response) => {
   const n = Math.max(1, Math.min(Number(req.query.n ?? 10) || 10, 25));
-  const result = await tick(n);
+  // Budget scoring par appel (s) : 15 s par défaut (cadence cron serverless), montable jusqu'à
+  // 50 s pour un backfill (lambda maxDuration 60 s) → ~6-8 titres/appel au lieu de ~2-3.
+  const deadlineMs = Math.max(1, Math.min(Number(req.query.deadline ?? 15) || 15, 50)) * 1_000;
+  // Région optionnelle (US/EU/INTL) : draine une zone précise sans famine par la priorité US.
+  const rawRegion = String(req.query.region ?? '').toUpperCase();
+  const region = ['US', 'EU', 'INTL'].includes(rawRegion) ? rawRegion : undefined;
+  const result = await tick(n, deadlineMs, region);
   res.json(result);
 }));
 
