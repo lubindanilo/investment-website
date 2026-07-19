@@ -319,6 +319,7 @@
     "compare": "Comparer",
     "blog": "Blog",
     "methodologie": "Notre méthode",
+    "palmares": "Palmarès",
     "pricing": "Tarifs",
     "pricingPro": "Passer Pro",
     "subscription": "Mon abonnement",
@@ -418,6 +419,11 @@
           "title": "Screener",
           "text": "Découvre de nouvelles actions : filtre tout le marché par secteur, par meilleures notes ou par P/FCF le plus attractif.",
           "cta": "Ouvrir le screener"
+        },
+        "palmares": {
+          "title": "Palmarès",
+          "text": "Vois les opportunités passées qui ont battu le marché, en backtest, avec la lecture honnête (biais et taux de réussite compris).",
+          "cta": "Voir le palmarès"
         },
         "quali": {
           "title": "Analyse qualitative IA",
@@ -1651,10 +1657,36 @@
     },
     "disclaimer": "Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Ce service ne constitue pas un conseil en investissement personnalisé au sens de l'article L.321-1 du Code monétaire et financier. Les performances passées d'une stratégie ne préjugent pas des performances futures. Toute décision d'investissement reste sous votre seule responsabilité. Avant toute opération, vérifiez l'adéquation entre le titre et votre profil de risque."
   },
+  "palmares": {
+    "hero": {
+      "kicker": "Backtest · opportunités passées",
+      "title": "Quand la méthode repère un gagnant très tôt",
+      "lede": "Voici des cas où le signal « opportunité du moment » a pointé une action des années avant que le marché ne la rattrape. Chiffres tirés de notre backtest."
+    },
+    "card": {
+      "opportunity": "Opportunité",
+      "entry": "Repérée en",
+      "held": "Détenue",
+      "years": "{{years}} ans",
+      "index": "S&P 500, même période",
+      "excess": "Écart"
+    },
+    "cta": {
+      "title": "Repère les opportunités d'aujourd'hui",
+      "sub": "Le même signal tourne en continu sur des milliers d'actions. À toi de juger la qualité et le prix avant d'entrer.",
+      "screener": "Voir les opportunités du moment",
+      "method": "Comment ça marche"
+    },
+    "disclaimer": "Lubin Investment n'est pas un conseiller en investissement et ces contenus ne constituent pas une recommandation personnalisée."
+  },
   "seo": {
     "home": {
       "title": "Surperforme le marché avec des actions de qualité au bon prix | Lubin Investment",
       "desc": "Repère en un clin d'œil les meilleures opportunités d'investissement parmi des milliers d'entreprises analysées en continu."
+    },
+    "palmares": {
+      "title": "Palmarès : des opportunités repérées avant le marché | Lubin Investment",
+      "desc": "Des cas réels où le signal « opportunité du moment » a pointé une action des années avant le marché, mesurés en backtest, biais de survie assumé."
     },
     "analyse": {
       "title": "Analyser une action : qualité, résilience et valorisation",

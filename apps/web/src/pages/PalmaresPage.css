@@ -1,0 +1,153 @@
+/* PalmaresPage — vitrine des opportunités notables (backtest). Réutilise les tokens globaux
+   (--brand, --ink, --card, --line, --good…) et les utilitaires (.wrap, .card, .kicker, .num). */
+
+.pal {
+  padding-bottom: 64px;
+}
+
+/* ── Hero ── */
+.pal-hero {
+  padding: 48px 28px 24px;
+  text-align: center;
+}
+.pal-title {
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  margin: 10px auto 0;
+  max-width: 18ch;
+}
+.pal-lede {
+  color: var(--ink-3);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.55;
+  max-width: 60ch;
+  margin: 14px auto 0;
+}
+/* ── Sections ── */
+.pal-section { padding: 24px 28px; }
+.pal-h2 {
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ── Grille de cartes ── */
+.pal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.pal-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
+  height: 100%;
+}
+.pal-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.pal-card-ticker { font-weight: 800; font-size: 1.05rem; letter-spacing: -0.01em; }
+.pal-card-name {
+  font-size: 0.82rem;
+  color: var(--ink-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.pal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--good-bg);
+  color: var(--good-ink);
+  border: 1px solid color-mix(in oklch, var(--good) 30%, transparent);
+  white-space: nowrap;
+}
+
+.pal-card-ret {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.pal-card-ret-n {
+  font-size: clamp(1.5rem, 3.6vw, 2rem);
+  font-weight: 800;
+  color: var(--good-ink);
+  letter-spacing: -0.02em;
+}
+.pal-card-mult {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--good-ink);
+  background: var(--good-bg);
+  border-radius: 6px;
+  padding: 2px 7px;
+}
+
+.pal-card-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+}
+.pal-card-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+.pal-card-row dt {
+  color: var(--ink-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.pal-card-row dd { margin: 0; font-weight: 600; }
+.pal-card-cap { text-transform: capitalize; }
+.pal-card-idx { color: var(--ink-3); font-weight: 600; }
+.pal-card-row--excess dt svg { color: var(--good-ink); }
+.pal-card-excess { color: var(--good-ink); font-weight: 800; }
+
+.pal-card-sector {
+  margin-top: auto;
+  font-size: 0.72rem;
+  color: var(--ink-4);
+}
+
+/* ── CTA ── */
+.pal-cta { text-align: center; }
+.pal-cta-sub {
+  color: var(--ink-3);
+  max-width: 52ch;
+  margin: 10px auto 20px;
+  line-height: 1.55;
+}
+
+.pal-disclaimer {
+  display: block;
+  text-align: center;
+  margin: 8px auto 0;
+  max-width: 70ch;
+  line-height: 1.5;
+}
+
+@media (max-width: 560px) {
+  .pal-hero { padding-top: 36px; }
+}
