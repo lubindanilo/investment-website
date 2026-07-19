@@ -37,6 +37,7 @@ const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage.js').then
 const VerifyEmailPage = lazy(() => import('./pages/VerifyEmailPage.js').then((m) => ({ default: m.VerifyEmailPage })));
 const MarketBeatPage = lazy(() => import('./pages/MarketBeatPage.js').then((m) => ({ default: m.MarketBeatPage })));
 const MethodologyPage = lazy(() => import('./pages/MethodologyPage.js').then((m) => ({ default: m.MethodologyPage })));
+const PalmaresPage = lazy(() => import('./pages/PalmaresPage.js').then((m) => ({ default: m.PalmaresPage })));
 const BlogPage = lazy(() => import('./pages/BlogPage.js').then((m) => ({ default: m.BlogPage })));
 const AccountPage = lazy(() => import('./pages/AccountPage.js').then((m) => ({ default: m.AccountPage })));
 const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage.js').then((m) => ({ default: m.BlogArticlePage })));
@@ -119,6 +120,9 @@ export function App() {
           <NavLink to="/screener" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.screener')}
           </NavLink>
+          <NavLink to="/palmares" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
+            {t('nav.palmares')}
+          </NavLink>
           <NavLink to="/watchlist" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.watchlist')}
           </NavLink>
@@ -177,6 +181,7 @@ export function App() {
             <Route path="/compare" element={<ComparePage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/methodologie" element={<MethodologyPage />} />
+            <Route path="/palmares" element={<PalmaresPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogArticlePage />} />
             <Route path="/compte" element={<RequireAuth><AccountPage /></RequireAuth>} />

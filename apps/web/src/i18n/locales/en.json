@@ -319,6 +319,7 @@
     "compare": "Compare",
     "blog": "Blog",
     "methodologie": "Our method",
+    "palmares": "Track record",
     "pricing": "Pricing",
     "pricingPro": "Go Pro",
     "subscription": "My subscription",
@@ -393,6 +394,11 @@
           "title": "Screener",
           "text": "Discover new stocks: filter the whole market by sector, by top scores, or by the most attractive P/FCF.",
           "cta": "Open the screener"
+        },
+        "palmares": {
+          "title": "Track record",
+          "text": "See past opportunities that beat the market, in a backtest, with the honest reading (bias and hit rate included).",
+          "cta": "See the track record"
         },
         "quali": {
           "title": "AI qualitative analysis",
@@ -1651,10 +1657,36 @@
     },
     "disclaimer": "Lubin Investment is a decision-support tool for retail investors. This service does not constitute personalized investment advice. Past performance of any strategy is not indicative of future results. All investment decisions remain your sole responsibility. Before any transaction, verify that the stock matches your risk profile."
   },
+  "palmares": {
+    "hero": {
+      "kicker": "Backtest · past opportunities",
+      "title": "When the method spots a winner early",
+      "lede": "Here are cases where the \"opportunity of the moment\" signal flagged a stock years before the market caught up. Figures come from our backtest."
+    },
+    "card": {
+      "opportunity": "Opportunity",
+      "entry": "Spotted in",
+      "held": "Held",
+      "years": "{{years}} yrs",
+      "index": "S&P 500, same period",
+      "excess": "Excess"
+    },
+    "cta": {
+      "title": "Spot today's opportunities",
+      "sub": "The same signal runs continuously across thousands of stocks. It's up to you to judge quality and price before entering.",
+      "screener": "See the opportunities of the moment",
+      "method": "How it works"
+    },
+    "disclaimer": "Lubin Investment is not an investment adviser and this content is not a personalized recommendation."
+  },
   "seo": {
     "home": {
       "title": "Beat the market with quality stocks at the right price | Lubin Investment",
       "desc": "Spot the best investment opportunities at a glance, among thousands of companies analyzed continuously."
+    },
+    "palmares": {
+      "title": "Track record: opportunities spotted before the market | Lubin Investment",
+      "desc": "Real cases where the \"opportunity of the moment\" signal flagged a stock years before the market, measured in a backtest, survivorship bias acknowledged."
     },
     "analyse": {
       "title": "Analyze a stock: quality, resilience and valuation",

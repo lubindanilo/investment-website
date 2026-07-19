@@ -29,6 +29,7 @@ export function HomePage() {
   // Vitrine fonctionnalités — cartes liées aux pages produit (libellés i18n)
   const FEATURES: { icon: IconName; key: string; to: string }[] = [
     { icon: 'filter', key: 'screener', to: '/screener' },
+    { icon: 'target', key: 'palmares', to: '/palmares' },
     { icon: 'eye', key: 'quali', to: '/analyser' },
     { icon: 'layers', key: 'compare', to: '/compare' },
     { icon: 'star', key: 'watchlist', to: user ? '/watchlist' : '/signup' },
