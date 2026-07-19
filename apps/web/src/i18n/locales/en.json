@@ -1064,52 +1064,52 @@
   },
   "briefs": {
     "netMargin": {
-      "why": "A positive net margin proves the company actually makes money once all its costs are paid, the foundation of any quality investment.",
-      "how": "Net income ÷ revenue (trailing 12 months). Benchmark: > 5% = good, ≤ 0 = loss-making."
+      "why": "Out of €100 in sales, how much becomes profit once every expense is paid (production, wages, taxes, interest). It's the basic proof that the company makes money.",
+      "how": "Net income ÷ sales, over the last 12 months."
     },
     "revenueGrowth5y": {
-      "why": "Revenue that grows over time is the engine of value creation, without growth, compounding is hard.",
-      "how": "Trend (regression) of trailing revenue over ~5 years. Benchmark: > 10%/year = good."
+      "why": "Is the company selling more and more, year after year? Without rising sales, its profits have little chance of growing.",
+      "how": "Average sales growth over the last 5 years."
     },
     "fcfGrowth5y": {
-      "why": "Free cash flow PER SHARE is what truly enriches the shareholder: it accounts for dilution (share issuance). A company can grow while diluting, here we look at what actually accrues to you.",
-      "how": "Trend of adjusted FCF (free cash minus stock-based compensation) divided by share count, over 5 years. Benchmark: > 10%/year = good."
+      "why": "The cash that comes back to each share. A company can grow while creating new shares, which shrinks your slice. Here we measure what really comes back to you, share by share.",
+      "how": "Growth of free cash per share over the last 5 years (free cash is the money left after paying for investments)."
     },
     "fcfMargin": {
-      "why": "Measures how much truly free cash each euro of sales generates, AFTER accounting for stock-based compensation (often hidden). This is the cash that can be returned or reinvested.",
-      "how": "(Operating cash flow − stock-based compensation − capital expenditures) ÷ revenue. Benchmark: > 10% = good."
+      "why": "Out of €100 in sales, how much turns into cash that's actually available, once investments are paid. This is the cash that can be paid back to you or reinvested.",
+      "how": "Free cash ÷ sales."
     },
     "operatingLeverage": {
-      "why": "Margins that improve as revenue rises reveal a scale advantage: the company becomes more profitable as it grows.",
-      "how": "Slope of the operating margin (trailing 12 months) over ~5 years. Rising = good."
+      "why": "Are sales growing faster than costs over the years? If so, margins widen (a favorable scissors effect) and the company gets more profitable as it grows; if costs rise faster, margins compress.",
+      "how": "We track the operating margin (the share of sales left after running costs) over the last 5 years, to see whether the gap between sales and costs works in the company's favor."
     },
     "cashRoce": {
-      "why": "Return on the capital actually employed, the core of business quality (Buffett/Bettin-Mauboussin approach). Above the cost of capital (~8-10%), the company creates wealth; below it, it destroys wealth.",
-      "how": "Adjusted FCF ÷ (assets − current liabilities − goodwill − excess cash). Benchmark: > 15% = good, > 25% = excellent."
+      "why": "For €100 invested in the business, how much cash the company generates each year. The higher it is, the more value it creates for shareholders; too low, it destroys value.",
+      "how": "Free cash ÷ capital employed in the business (what the company has tied up to operate)."
     },
     "netDebtFcf": {
-      "why": "Shows how many years of free cash it would take to repay the debt, a good proxy for financial risk and fragility in a downturn.",
-      "how": "(Total debt − cash) ÷ FCF. Benchmark: < 3 = healthy, > 5 = stretched."
+      "why": "If the company put all its free cash toward repaying its debt, how many years would it take? The shorter, the less fragile it is in a rough patch.",
+      "how": "(Debt − cash) ÷ annual free cash, which gives a number of years. No net debt means the company holds more cash than debt."
     },
     "cashConversion": {
-      "why": "Checks that accounting earnings actually convert into real cash. A persistent gap signals \"paper\" profits (rising receivables, bloating inventories…).",
-      "how": "Ratio of earnings to cash generated (derived from the P/E and P/FCF). Benchmark: > 1 = cash keeps up with (or exceeds) earnings."
+      "why": "Does the reported profit actually turn into cash? If cash doesn't keep up over time, the profit is only on paper (customers who haven't paid yet, inventories piling up).",
+      "how": "Free cash ÷ net income, as a %."
     },
     "ccc": {
-      "why": "Days between buying inventory and collecting from customers, net of the supplier payment delay. Measures working-capital efficiency and business-model quality. A negative CCC (float model) means customers finance the operations, the operational Holy Grail.",
-      "how": "CCC = DSO + DIO − DPO (in days). DSO = receivables/revenue × 365, DIO = inventory/cost of revenue × 365, DPO = payables/cost of revenue × 365. Trend over 5 years: compression = positive signal, lengthening = red flag."
+      "why": "The number of days between when the company pays for its inventory and when its customers pay it. The shorter, the faster its cash turns over. Negative is ideal: customers finance the operations (like Amazon or Costco).",
+      "how": "Days to get paid by customers + days of inventory − days to pay suppliers. We track the trend over the last 5 years."
     },
     "pfcf": {
-      "why": "The price paid for €1 of annual free cash: the most telling valuation measure. An excellent company bought too dear is still a poor investment at the wrong time.",
-      "how": "Market capitalization ÷ FCF (trailing 12 months). Benchmark: < 25× = reasonable, > 35× = expensive."
+      "why": "The price you pay today for €1 of the company's annual free cash. Even an excellent company becomes a bad buy if you pay too much for it.",
+      "how": "Market value ÷ free cash (last 12 months)."
     },
     "valuation": {
       "why": "Gives an indicative buy price to target a desired return: the right \"entry timing.\" This criterion does NOT factor into the quality score, a good company stays good, it's just not yet at the right price.",
       "how": "Discounting of future cash (DCF) based on the target return, the growth assumption and the exit multiple."
     },
     "shareCount5y": {
-      "why": "The share count decides your slice of the pie: net buybacks concentrate value, dilution disperses it. A compounder buys back or stays flat.",
-      "how": "CAGR of diluted share count over ~5 years. Benchmark: declining = buybacks (good), flat = neutral, rising = dilution."
+      "why": "The share count decides the size of your slice. When the company buys back its shares, your slice grows; when it issues new ones (dilution), your slice shrinks.",
+      "how": "Change in the share count over the last 5 years. Falling = buybacks, rising = dilution."
     }
   },
   "criteria": {

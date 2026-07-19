@@ -1089,52 +1089,52 @@
   },
   "briefs": {
     "netMargin": {
-      "why": "Une marge nette positive prouve que l'entreprise gagne réellement de l'argent une fois toutes ses charges payées, la base de tout investissement de qualité.",
-      "how": "Bénéfice net ÷ chiffre d'affaires (sur 12 mois glissants). Repère : > 5 % = bon, ≤ 0 = en perte."
+      "why": "Sur 100 € de ventes, combien deviennent du bénéfice une fois toutes les dépenses payées (production, salaires, impôts, intérêts). C'est la preuve de base que l'entreprise gagne de l'argent.",
+      "how": "Bénéfice net ÷ ventes, sur les 12 derniers mois."
     },
     "revenueGrowth5y": {
-      "why": "Un chiffre d'affaires qui grandit dans la durée est le moteur de la création de valeur, sans croissance, difficile de composer.",
-      "how": "Tendance (régression) du chiffre d'affaires glissant sur ~5 ans. Repère : > 10 %/an = bon."
+      "why": "Est-ce que l'entreprise vend de plus en plus, année après année ? Sans ventes qui progressent, ses bénéfices ont peu de chances de grandir.",
+      "how": "Croissance moyenne des ventes sur les 5 dernières années."
     },
     "fcfGrowth5y": {
-      "why": "Le free cash flow PAR ACTION est ce qui enrichit vraiment l'actionnaire : il tient compte de la dilution (création d'actions). Une boîte peut croître tout en diluant, ici on regarde ce qui te revient.",
-      "how": "Tendance du FCF ajusté (cash libre moins rémunération en actions) divisé par le nombre d'actions, sur 5 ans. Repère : > 10 %/an = bon."
+      "why": "Le cash qui revient à chaque action. Une entreprise peut grandir tout en créant de nouvelles actions, ce qui réduit ta part. Ici on mesure ce qui te revient vraiment, action par action.",
+      "how": "Croissance du cash libre par action sur les 5 dernières années (le cash libre, c'est l'argent qui reste après avoir payé les investissements)."
     },
     "fcfMargin": {
-      "why": "Mesure combien de cash réellement libre chaque euro de vente génère, APRÈS avoir compté la rémunération en actions (souvent cachée). C'est le cash qui peut être rendu ou réinvesti.",
-      "how": "(Flux d'exploitation − rémunération en actions − investissements) ÷ chiffre d'affaires. Repère : > 10 % = bon."
+      "why": "Sur 100 € de ventes, combien se transforment en cash réellement disponible, une fois les investissements payés. C'est ce cash qui peut t'être reversé ou réinvesti.",
+      "how": "Cash libre ÷ ventes."
     },
     "operatingLeverage": {
-      "why": "Des marges qui s'améliorent quand le chiffre d'affaires monte révèlent un avantage d'échelle : la boîte devient plus rentable en grandissant.",
-      "how": "Pente de la marge opérationnelle (sur 12 mois glissants) au fil de ~5 ans. Croissante = bon."
+      "why": "Est-ce que les ventes progressent plus vite que les coûts au fil des années ? Si oui, les marges s'élargissent (effet de ciseau favorable) et l'entreprise devient plus rentable en grandissant ; si les coûts montent plus vite, les marges se compriment.",
+      "how": "On suit la marge d'exploitation (part des ventes qui reste après les coûts de fonctionnement) sur les 5 dernières années, pour voir si l'écart entre ventes et coûts joue en faveur de l'entreprise."
     },
     "cashRoce": {
-      "why": "Rentabilité du capital réellement employé, le cœur de la qualité d'un business (approche Buffett/Bettin-Mauboussin). Au-dessus du coût du capital (~8-10 %), la boîte crée de la richesse ; en dessous, elle en détruit.",
-      "how": "FCF ajusté ÷ (actifs − passifs courants − goodwill − cash excédentaire). Repère : > 15 % = bon, > 25 % = excellent."
+      "why": "Pour 100 € investis dans l'activité, combien de cash l'entreprise génère chaque année. Plus c'est élevé, plus elle crée de la valeur pour ses actionnaires ; trop bas, elle en détruit.",
+      "how": "Cash libre ÷ capital employé dans l'activité (ce que l'entreprise a mobilisé pour fonctionner)."
     },
     "netDebtFcf": {
-      "why": "Indique combien d'années de cash libre il faudrait pour rembourser la dette, un bon proxy du risque financier et de la fragilité en cas de retournement.",
-      "how": "(Dette totale − trésorerie) ÷ FCF. Repère : < 3 = sain, > 5 = tendu."
+      "why": "Si l'entreprise consacrait tout son cash libre à rembourser sa dette, combien d'années lui faudrait-il ? Plus c'est court, moins elle est fragile en cas de coup dur.",
+      "how": "(Dette − trésorerie) ÷ cash libre annuel, ce qui donne un nombre d'années. « Pas de dette nette » = l'entreprise a plus de cash que de dette."
     },
     "cashConversion": {
-      "why": "Vérifie que les bénéfices comptables se transforment bien en vrai cash. Un écart durable signale des bénéfices « de papier » (créances, stocks qui gonflent…).",
-      "how": "Rapport entre bénéfice et cash généré (dérivé du PER et du P/FCF). Repère : > 1 = le cash suit (ou dépasse) le bénéfice."
+      "why": "Le bénéfice annoncé se transforme-t-il vraiment en cash ? Si le cash ne suit pas dans la durée, le bénéfice est « sur le papier » (clients qui n'ont pas encore payé, stocks qui s'accumulent).",
+      "how": "Cash libre ÷ bénéfice net, en %."
     },
     "ccc": {
-      "why": "Le nombre de jours entre l'achat des stocks et l'encaissement du client, net du délai accordé par les fournisseurs. Mesure l'efficacité du BFR et la qualité du business model. Un CCC négatif (modèle « float ») signifie que les clients financent l'activité, c'est le Saint Graal opérationnel.",
-      "how": "CCC = DSO + DIO − DPO (en jours). DSO = créances/CA × 365, DIO = stocks/coût des ventes × 365, DPO = fournisseurs/coût des ventes × 365. On regarde la tendance sur 5 ans : compression = signe positif, allongement = drapeau rouge."
+      "why": "Le nombre de jours entre le moment où l'entreprise paie ses stocks et celui où ses clients la paient. Plus c'est court, plus sa trésorerie tourne vite. Négatif, c'est l'idéal : ce sont les clients qui financent l'activité (comme Amazon ou Costco).",
+      "how": "Jours pour être payé par les clients + jours de stockage − jours pour payer les fournisseurs. On suit la tendance sur les 5 dernières années."
     },
     "pfcf": {
-      "why": "Le prix payé pour 1 € de cash libre annuel : la mesure de valorisation la plus parlante. Une excellente entreprise payée trop cher reste un mauvais investissement au mauvais moment.",
-      "how": "Capitalisation boursière ÷ FCF (12 mois glissants). Repère : < 25× = raisonnable, > 35× = cher."
+      "why": "Le prix que tu paies aujourd'hui pour 1 € de cash libre annuel de l'entreprise. Même une excellente société devient un mauvais achat si tu la paies trop cher.",
+      "how": "Valeur en Bourse ÷ cash libre (12 derniers mois)."
     },
     "valuation": {
       "why": "Donne un prix d'achat indicatif pour viser un rendement cible : le bon « timing d'entrée ». Ce critère n'entre PAS dans la note qualité, une bonne boîte le reste, juste pas encore au bon prix.",
       "how": "Actualisation du cash futur (DCF) selon le rendement visé, l'hypothèse de croissance et le multiple de sortie."
     },
     "shareCount5y": {
-      "why": "Le nombre d'actions en circulation décide de ta part du gâteau : des rachats nets concentrent la valeur, la dilution la disperse. Un compounder rachète ou reste stable.",
-      "how": "CAGR du nombre d'actions diluées sur ~5 ans. Repère : en baisse = rachats (bon), stable = neutre, en hausse = dilution."
+      "why": "Le nombre d'actions décide de la taille de ta part. Quand l'entreprise rachète ses actions, ta part grossit ; quand elle en émet de nouvelles (dilution), ta part rétrécit.",
+      "how": "Évolution du nombre d'actions sur les 5 dernières années. En baisse = rachats, en hausse = dilution."
     }
   },
   "valuation": {

@@ -1064,52 +1064,52 @@
   },
   "briefs": {
     "netMargin": {
-      "why": "Un margen neto positivo demuestra que la empresa gana dinero de verdad una vez pagados todos sus gastos, la base de toda inversión de calidad.",
-      "how": "Beneficio neto ÷ ingresos (últimos 12 meses). Referencia: > 5 % = bueno, ≤ 0 = en pérdidas."
+      "why": "De cada 100 € de ventas, cuánto se convierte en beneficio una vez pagados todos los gastos (producción, salarios, impuestos, intereses). Es la prueba básica de que la empresa gana dinero.",
+      "how": "Beneficio neto ÷ ventas, en los últimos 12 meses."
     },
     "revenueGrowth5y": {
-      "why": "Unos ingresos que crecen de forma sostenida son el motor de la creación de valor, sin crecimiento, es difícil componer.",
-      "how": "Tendencia (regresión) de los ingresos móviles a lo largo de ~5 años. Referencia: > 10 %/año = bueno."
+      "why": "¿La empresa vende cada vez más, año tras año? Sin ventas que progresen, sus beneficios tienen pocas probabilidades de crecer.",
+      "how": "Crecimiento medio de las ventas en los últimos 5 años."
     },
     "fcfGrowth5y": {
-      "why": "El flujo de caja libre POR ACCIÓN es lo que realmente enriquece al accionista: tiene en cuenta la dilución (emisión de acciones). Una empresa puede crecer diluyendo, aquí miramos lo que de verdad te corresponde.",
-      "how": "Tendencia del FCF ajustado (caja libre menos remuneración en acciones) dividido por el número de acciones, a lo largo de 5 años. Referencia: > 10 %/año = bueno."
+      "why": "La caja que le corresponde a cada acción. Una empresa puede crecer creando nuevas acciones, lo que reduce tu parte. Aquí medimos lo que de verdad te corresponde, acción por acción.",
+      "how": "Crecimiento de la caja libre por acción en los últimos 5 años (la caja libre es el dinero que queda tras pagar las inversiones)."
     },
     "fcfMargin": {
-      "why": "Mide cuánta caja realmente libre genera cada euro de ventas, DESPUÉS de contar la remuneración en acciones (a menudo oculta). Es la caja que puede devolverse o reinvertirse.",
-      "how": "(Flujo de explotación − remuneración en acciones − inversiones) ÷ ingresos. Referencia: > 10 % = bueno."
+      "why": "De cada 100 € de ventas, cuánto se convierte en caja realmente disponible, una vez pagadas las inversiones. Es la caja que puede devolvértele o reinvertirse.",
+      "how": "Caja libre ÷ ventas."
     },
     "operatingLeverage": {
-      "why": "Unos márgenes que mejoran cuando suben los ingresos revelan una ventaja de escala: la empresa se vuelve más rentable a medida que crece.",
-      "how": "Pendiente del margen operativo (últimos 12 meses) a lo largo de ~5 años. Creciente = bueno."
+      "why": "¿Las ventas crecen más rápido que los costes con los años? Si es así, los márgenes se amplían (efecto tijera favorable) y la empresa se vuelve más rentable al crecer; si los costes suben más rápido, los márgenes se comprimen.",
+      "how": "Seguimos el margen operativo (la parte de las ventas que queda tras los costes de funcionamiento) en los últimos 5 años, para ver si la brecha entre ventas y costes juega a favor de la empresa."
     },
     "cashRoce": {
-      "why": "Rentabilidad del capital realmente empleado, el núcleo de la calidad de un negocio (enfoque Buffett/Bettin-Mauboussin). Por encima del coste del capital (~8-10 %), la empresa crea riqueza; por debajo, la destruye.",
-      "how": "FCF ajustado ÷ (activos − pasivos corrientes − fondo de comercio − caja excedente). Referencia: > 15 % = bueno, > 25 % = excelente."
+      "why": "Por cada 100 € invertidos en el negocio, cuánta caja genera la empresa cada año. Cuanto más alto, más valor crea para sus accionistas; demasiado bajo, lo destruye.",
+      "how": "Caja libre ÷ capital empleado en el negocio (lo que la empresa ha movilizado para funcionar)."
     },
     "netDebtFcf": {
-      "why": "Indica cuántos años de caja libre harían falta para devolver la deuda, un buen indicador del riesgo financiero y de la fragilidad ante un retroceso.",
-      "how": "(Deuda total − tesorería) ÷ FCF. Referencia: < 3 = sano, > 5 = tensionado."
+      "why": "Si la empresa dedicara toda su caja libre a devolver su deuda, ¿cuántos años tardaría? Cuanto más corto, menos frágil es ante un mal momento.",
+      "how": "(Deuda − tesorería) ÷ caja libre anual, lo que da un número de años. «Sin deuda neta» = la empresa tiene más caja que deuda."
     },
     "cashConversion": {
-      "why": "Comprueba que los beneficios contables se transforman realmente en caja. Una brecha persistente señala beneficios «de papel» (cuentas por cobrar, inventarios que se inflan…).",
-      "how": "Relación entre beneficio y caja generada (derivada del PER y del P/FCF). Referencia: > 1 = la caja acompaña (o supera) al beneficio."
+      "why": "¿El beneficio anunciado se convierte de verdad en caja? Si la caja no acompaña con el tiempo, el beneficio es solo sobre el papel (clientes que aún no han pagado, inventarios que se acumulan).",
+      "how": "Caja libre ÷ beneficio neto, en %."
     },
     "ccc": {
-      "why": "Días entre la compra del inventario y el cobro al cliente, neto del plazo concedido por los proveedores. Mide la eficiencia del capital circulante y la calidad del modelo de negocio. Un CCC negativo (modelo float) significa que los clientes financian la operación, el Santo Grial operativo.",
-      "how": "CCC = DSO + DIO − DPO (en días). DSO = cuentas por cobrar/ingresos × 365, DIO = inventario/coste de ventas × 365, DPO = cuentas por pagar/coste de ventas × 365. Tendencia a 5 años: compresión = señal positiva, alargamiento = bandera roja."
+      "why": "El número de días entre que la empresa paga sus inventarios y que sus clientes le pagan. Cuanto más corto, más rápido rota su tesorería. Negativo es lo ideal: son los clientes quienes financian la actividad (como Amazon o Costco).",
+      "how": "Días en cobrar de los clientes + días de inventario − días en pagar a los proveedores. Seguimos la tendencia en los últimos 5 años."
     },
     "pfcf": {
-      "why": "El precio pagado por 1 € de caja libre anual: la medida de valoración más reveladora. Una empresa excelente comprada demasiado cara sigue siendo una mala inversión en el momento equivocado.",
-      "how": "Capitalización bursátil ÷ FCF (últimos 12 meses). Referencia: < 25× = razonable, > 35× = caro."
+      "why": "El precio que pagas hoy por 1 € de caja libre anual de la empresa. Incluso una empresa excelente se convierte en una mala compra si la pagas demasiado cara.",
+      "how": "Valor en bolsa ÷ caja libre (últimos 12 meses)."
     },
     "valuation": {
       "why": "Ofrece un precio de compra indicativo para apuntar a una rentabilidad objetivo: el buen «momento de entrada». Este criterio NO entra en la nota de calidad, una buena empresa lo sigue siendo, solo que aún no al precio adecuado.",
       "how": "Descuento de la caja futura (DCF) según la rentabilidad objetivo, la hipótesis de crecimiento y el múltiplo de salida."
     },
     "shareCount5y": {
-      "why": "El número de acciones decide tu parte del pastel: las recompras netas concentran el valor, la dilución lo dispersa. Un compounder recompra o se mantiene estable.",
-      "how": "CAGR del número de acciones diluidas a lo largo de ~5 años. Referencia: a la baja = recompras (bueno), estable = neutro, al alza = dilución."
+      "why": "El número de acciones decide el tamaño de tu parte. Cuando la empresa recompra sus acciones, tu parte crece; cuando emite nuevas (dilución), tu parte se reduce.",
+      "how": "Evolución del número de acciones en los últimos 5 años. A la baja = recompras, al alza = dilución."
     }
   },
   "criteria": {
