@@ -319,14 +319,41 @@ export async function refreshOpportunitiesLive(): Promise<{ refreshed: number; f
   return { refreshed: priced.length, flipped };
 }
 
+/**
+ * ANTI-DÉGRADATION du statut ScreenerTicker : un échec de (re)scoring — exception, timeout,
+ * ou `nodata` — ne doit PAS rétrograder un titre DÉJÀ noté avec une donnée valide. Sinon un
+ * throttle transitoire (Yahoo depuis les IP Vercel) fait basculer un titre `scored`→`error` et
+ * il disparaît de la liste alors qu'on a toujours sa dernière note. On ne pose donc `error`/
+ * `nodata` que si le titre n'avait PAS encore de note valide ; s'il en avait une, on la conserve
+ * et on ne bump que `attempts` + `lastScoredAt` (pour la cadence de re-tentative / cooldown).
+ */
+async function markScoreFailure(ticker: string, status: Exclude<ScoreOutcome, 'scored'>): Promise<void> {
+  const existing = await prisma.screenerTicker
+    .findUnique({ where: { ticker }, select: { status: true, scoreChiffresMax: true } })
+    .catch(() => null);
+  const wasScored = existing?.status === 'scored' && (existing.scoreChiffresMax ?? 0) > 0;
+  await prisma.screenerTicker.update({
+    where: { ticker },
+    data: wasScored
+      ? { attempts: { increment: 1 }, lastScoredAt: new Date() }
+      : { status, attempts: { increment: 1 }, lastScoredAt: new Date() },
+  }).catch(() => {});
+}
+
 /** Note un ticker (quanti only) et met à jour sa ligne ScreenerTicker. */
 export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
   try {
     const snap = await buildAndCacheQuantSnapshot(ticker, { includeEarnings: true });
     const hasScore = snap.scoreChiffresMax > 0;
-    const status: ScoreOutcome = snap.fundamentalsAvailable && hasScore ? 'scored' : 'nodata';
+    // Pas de note calculable ce passage (fondamentaux indispo / source vide) : on NE dégrade
+    // PAS un titre déjà noté → garde-fou anti-dégradation.
+    if (!(snap.fundamentalsAvailable && hasScore)) {
+      await markScoreFailure(ticker, 'nodata');
+      return 'nodata';
+    }
+    const status: ScoreOutcome = 'scored';
     // Sparkline 1 an pour les titres notés (non bloquant si Yahoo échoue → []).
-    const spark = hasScore ? await getSparkSeries(ticker).catch(() => []) : [];
+    const spark = await getSparkSeries(ticker).catch(() => []);
     // « Opportunité du moment » (gated aux candidats note ≥ 8/10 & P/FCF < 25 pour borner le coût).
     // ⚠ COHÉRENCE : on classe le P/FCF courant sur la MÊME base que l'historique (prix × shares /
     // adjFcfTtm), pas sur metrics.pfcfTTM qui peut être sur une base marketCap Finnhub différente
@@ -371,10 +398,7 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     return status;
   } catch (e) {
     console.warn(`[screener score ${ticker}] échec : ${(e as Error).message}`);
-    await prisma.screenerTicker.update({
-      where: { ticker },
-      data: { status: 'error', attempts: { increment: 1 }, lastScoredAt: new Date() },
-    }).catch(() => {});
+    await markScoreFailure(ticker, 'error');
     return 'error';
   }
 }
@@ -401,11 +425,9 @@ const TIMEOUT_SENTINEL = Symbol('timeout');
 
 /** Marque un ticker abandonné (timeout) : incrémente attempts + lastScoredAt (le deprioritise). */
 async function markTimedOut(ticker: string): Promise<void> {
-  console.warn(`[screener score ${ticker}] timeout (> ${PER_TICKER_MS}ms) — abandonné, re-tenté plus tard`);
-  await prisma.screenerTicker.update({
-    where: { ticker },
-    data: { status: 'error', attempts: { increment: 1 }, lastScoredAt: new Date() },
-  }).catch(() => {});
+  console.warn(`[screener score ${ticker}] timeout — abandonné, re-tenté plus tard`);
+  // Anti-dégradation : un timeout ne rétrograde pas un titre déjà noté (cf. markScoreFailure).
+  await markScoreFailure(ticker, 'error');
 }
 
 /**
