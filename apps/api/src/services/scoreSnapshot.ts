@@ -11,6 +11,15 @@ import { loadQuantData } from './quantSnapshot.js';
 import { buildQuantitativeCriteria } from './derivedMetrics.js';
 import { writeCachedSnapshot, type CachedQuantSnapshot } from './quantCache.js';
 import { accumulateYahooQuarterly, accumulateStockanalysisQuarterly } from './yahooAnnualStore.js';
+import { readSeries } from './fundamentalsStore.js';
+
+/**
+ * Seuil (nb de trimestres de CA en base) sous lequel on complète un titre US via stockanalysis.
+ * Les vrais déposants US ont 20+ trimestres (Finnhub + EDGAR) → aucun fetch. Les émetteurs
+ * étrangers cotés US (ex SHOP, ex-40-F) n'ont que ~5 trimestres récents Finnhub et EDGAR ne
+ * couvre pas leur période pré-domestique → on va chercher l'historique chez stockanalysis.
+ */
+const US_STOCKANALYSIS_MIN_QUARTERS = 8;
 
 export async function buildAndCacheQuantSnapshot(
   ticker: string,
@@ -76,6 +85,17 @@ export async function buildAndCacheQuantSnapshot(
   if (quant.fundamentalsSource === 'yahoo' && quant.yahooSymbol) {
     await accumulateYahooQuarterly(ticker, quant.yahooSymbol, Date.now()).catch(() => {});
     await accumulateStockanalysisQuarterly(ticker, Date.now()).catch(() => {});
+  } else if (quant.fundamentalsSource === 'finnhub' && !ticker.includes('.')) {
+    // US : Finnhub + EDGAR couvrent la quasi-totalité. Mais un émetteur étranger coté US
+    // (SHOP, ex-40-F/6-K) n'a que ~5 trimestres récents chez Finnhub et EDGAR ne connaît pas
+    // sa période pré-domestique (pas de 10-Q) → trous historiques (ex : tout 2023). Si le CA
+    // stocké est trop court, on va chercher l'historique profond chez stockanalysis (5 ans).
+    // GATÉ au cas court → aucun fetch pour les milliers de titres US déjà pleins (auto-limitant :
+    // une fois complété, le compteur repasse au-dessus du seuil et on ne re-fetch plus).
+    const revenue = await readSeries(ticker, 'revenue').catch(() => null);
+    if ((revenue?.points?.length ?? 0) < US_STOCKANALYSIS_MIN_QUARTERS) {
+      await accumulateStockanalysisQuarterly(ticker, Date.now()).catch(() => {});
+    }
   }
 
   return effective;
