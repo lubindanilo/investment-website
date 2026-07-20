@@ -74,19 +74,36 @@ function decumulateFlow(entries: ConceptEntry[]): TimeseriesPoint[] {
   // On groupe par start, on dédoublonne par end (restatements), on dé-cumule par ordre de fin.
   const valid = entries.filter(e => e.start && e.end && Number.isFinite(e.val) && (e.form === '10-Q' || e.form === '10-K'));
   const byStart = new Map<string, Map<string, number>>(); // start → (end → val), dédup end
+  // Périodes DIRECTEMENT trimestrielles (~3 mois) : certains émetteurs publient à la fois le
+  // cumulé YTD (start = début d'exercice) ET le trimestre isolé (start = début de trimestre)
+  // pour un même `end`. Sans dédup, on émettait alors 2 points à la même date (doublon observé
+  // sur SHOP : 2024-06-30 ×2). On mémorise la valeur trimestrielle directe → elle prime.
+  const directQuarter = new Map<string, number>();       // end → val (période ~90j)
   for (const e of valid) {
     const dur = daysBetween(e.start!, e.end);
     if (dur < 60 || dur > 400) continue;               // garde Q1(~90)/H1(~180)/9M(~270)/FY(~365)
+    if (dur <= 100 && !directQuarter.has(e.end)) directQuarter.set(e.end, e.val);
     if (!byStart.has(e.start!)) byStart.set(e.start!, new Map());
     byStart.get(e.start!)!.set(e.end, e.val);          // dernier gagne (restatement)
   }
-  const out: TimeseriesPoint[] = [];
+  // Dé-cumul par chaîne YTD, PUIS dédup par `end` : une même fin de trimestre ne produit qu'UN
+  // point. La période trimestrielle directe (si elle existe) prime sur la valeur dé-cumulée
+  // (plus fiable — pas d'erreur de dé-cumul quand un maillon YTD intermédiaire manque).
+  const byEnd = new Map<string, number>();
   for (const ends of byStart.values()) {
     const chain = [...ends.entries()].sort((a, b) => a[0].localeCompare(b[0])); // par end croissant
     let prev = 0;
-    for (const [end, val] of chain) { out.push({ date: end, value: val - prev }); prev = val; }
+    for (const [end, val] of chain) {
+      const q = val - prev;
+      prev = val;
+      byEnd.set(end, directQuarter.get(end) ?? q);
+    }
   }
-  return out.sort((a, b) => a.date.localeCompare(b.date));
+  // Trimestres directs jamais rencontrés dans une chaîne YTD (sécurité).
+  for (const [end, val] of directQuarter) if (!byEnd.has(end)) byEnd.set(end, val);
+  return [...byEnd.entries()]
+    .map(([date, value]) => ({ date, value }))
+    .sort((a, b) => a.date.localeCompare(b.date));
 }
 
 /** Métrique de STOCK / non-cumulative : shares (moyenne 3 mois) ou bilan (instantané). */
