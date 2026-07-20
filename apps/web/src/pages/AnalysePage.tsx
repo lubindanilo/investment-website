@@ -39,7 +39,7 @@ function score10(items: Criterion[]): number {
   const warn = items.filter(c => c.statut === 'warn').length;
   return Math.round(((pass + 0.5 * warn) / items.length) * 10);
 }
-/** Date d'article ISO (YYYY-MM-DD) → JJ/MM/AA, même format que le flux d'actus Finnhub. */
+/** Date d'article ISO (YYYY-MM-DD) → JJ/MM/AA, même format que le flux d'actus. */
 function toNewsDate(iso: string): string {
   const [y, m, d] = iso.split('-');
   return `${d}/${m}/${y?.slice(2)}`;
@@ -336,7 +336,7 @@ function AnalysisView({ analysis, chiffres, management, watched, onWatch, onGene
   const currency = analysis.currency || 'USD';
   const annualOnly = analysis.fundamentalsSource === 'yahoo';
   // Fil d'actus unifié, trié du plus récent au plus ancien : les 5 actus externes les plus
-  // fraîches (flux Finnhub, déjà plafonné à 5 par le backend) + les articles du blog liés à
+  // fraîches (flux d'actus externe, déjà plafonné à 5 par le backend) + les articles du blog liés à
   // ce ticker (article.ticker, liens internes /blog/:slug — miroir SPA du maillage bots de
   // seoPrerender, max 3). Les articles s'INSÈRENT à leur position chronologique sans évincer
   // d'actus ni être évincés. À date égale, le blog passe devant (tri stable, entrées en tête).
@@ -394,7 +394,6 @@ function AnalysisView({ analysis, chiffres, management, watched, onWatch, onGene
           qualityScore={s10}
           watched={watched}
           onWatch={onWatch}
-          annualOnly={annualOnly}
         />
 
         {/* Cours */}

@@ -55,13 +55,11 @@ export function AnalysisHeader({
   qualityScore,
   watched,
   onWatch,
-  annualOnly,
 }: {
   analysis: AnalyzeResponse;
   qualityScore: number;
   watched: boolean;
   onWatch: () => void;
-  annualOnly: boolean;
 }) {
   const { t, i18n } = useTranslation();
   const lang = currentLang(i18n.language);
@@ -76,11 +74,6 @@ export function AnalysisHeader({
           <div className="anl-company-line">
             <h1 id="analysis-company-name" className="anl-company">{analysis.company}</h1>
             <span className="num anl-ticker-badge">{analysis.ticker}</span>
-            {annualOnly && (
-              <span className="num anl-ticker-badge" title={t('analyse.viaYahooTitle')}>
-                {t('analyse.viaYahoo')}
-              </span>
-            )}
           </div>
           {analysis.price != null && (
             <div className="num anl-price">{currency} {analysis.price.toFixed(2)}</div>
