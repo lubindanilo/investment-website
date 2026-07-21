@@ -71,15 +71,31 @@ function computeExpiry(lastEnd: string | null, nowMs: number, cadence: ExpiryCad
  * date n'est PAS déjà présente (à ±20j près). Renvoie la série fusionnée triée ASC.
  */
 export function appendOnlyMerge(existing: TimeseriesPoint[], built: TimeseriesPoint[]): TimeseriesPoint[] {
-  if (existing.length === 0) return [...built].sort(byDate);
-  const existingTs = existing.map(p => Date.parse(p.date));
+  // Dédup EXACTE par date : d'anciennes séries contiennent des doublons (même `end` émis 2x par
+  // l'ancien décumul EDGAR YTD+trimestre, avant le correctif). Ces doublons corrompent les calculs
+  // TTM en aval (P/FCF, CAGR). On nettoie l'existant à chaque écriture → auto-réparation.
+  const clean = dedupeByDate(existing);
+  if (clean.length === 0) return dedupeByDate([...built].sort(byDate));
+  const existingTs = clean.map(p => Date.parse(p.date));
   const isKnown = (t: number) => existingTs.some(h => Math.abs(h - t) < PROXIMITY_MS);
   const fresh = built.filter(b => !isKnown(Date.parse(b.date)));
-  if (fresh.length === 0) return existing; // rien de nouveau
-  return [...existing, ...fresh].sort(byDate);
+  if (fresh.length === 0) return clean; // rien de nouveau (existant déjà dédupliqué)
+  return dedupeByDate([...clean, ...fresh].sort(byDate));
 }
 
 const byDate = (a: TimeseriesPoint, b: TimeseriesPoint) => a.date.localeCompare(b.date);
+
+/** Supprime les points à date EXACTEMENT identique (garde le 1er rencontré). */
+export function dedupeByDate(points: TimeseriesPoint[]): TimeseriesPoint[] {
+  const seen = new Set<string>();
+  const out: TimeseriesPoint[] = [];
+  for (const p of points) {
+    if (seen.has(p.date)) continue;
+    seen.add(p.date);
+    out.push(p);
+  }
+  return out;
+}
 
 /**
  * Fusionne append-only puis upsert. Renvoie la série EFFECTIVE (stockée) à utiliser.
