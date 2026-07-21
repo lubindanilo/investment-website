@@ -13,7 +13,6 @@ import { api, ApiError } from '../lib/api.js';
 import { Icon, ScoreCircle, scoreColor, StatusBadge, InfoPop } from '../components/ui/primitives.js';
 import { ResilienceBadge } from '../components/ResilienceBadge.js';
 import { TickerSearch } from '../components/TickerSearch.js';
-import { formatPrice } from '../lib/format.js';
 import SeoHead from '../components/SeoHead.js';
 import './ComparePage.css';
 
@@ -225,6 +224,12 @@ function CompareTable({ companies, criteria, onRemove }: { companies: CompanyVie
         {criteria.map(crit => <CritRow key={crit.key} crit={crit} companies={companies} />)}
 
         <div className="cmp-sec">
+          <span className="kicker">{t('compare.sections.resilience')}</span>
+          <span className="tiny muted" style={{ marginLeft: 10 }}>{t('compare.sections.resilienceSub')}</span>
+        </div>
+        <ResilienceRow companies={companies} />
+
+        <div className="cmp-sec">
           <span className="kicker">{t('compare.sections.valuation')}</span>
           <span className="tiny muted" style={{ marginLeft: 10 }}>{t('compare.sections.valuationSub')}</span>
         </div>
@@ -250,6 +255,36 @@ function CritRow({ crit, companies }: { crit: CompareCriterionDef; companies: Co
         </div>
       </div>
       {companies.map(c => <ValueCell key={c.ticker} company={c} critKey={crit.key} best={isLive(c) && best === c.ticker} />)}
+    </>
+  );
+}
+
+/** Ligne « Résilience » de la comparaison : grade + score par ticker (le meilleur score surligné). */
+function ResilienceRow({ companies }: { companies: CompanyView[] }) {
+  const { t } = useTranslation();
+  const scores = companies.map(c => (isLive(c) ? c.resilience?.score ?? null : null));
+  const max = Math.max(...scores.filter((s): s is number => s != null), -Infinity);
+  const soleBest = scores.filter(s => s === max).length === 1 ? companies[scores.indexOf(max)]?.ticker : null;
+  return (
+    <>
+      <div className="cmp-label">
+        <div className="col gap-3">
+          <span style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--ink)', lineHeight: 1.25 }}>{t('compare.sections.resilienceRow')}</span>
+          <span className="num tiny muted">{t('compare.sections.resilienceSub')}</span>
+        </div>
+      </div>
+      {companies.map(c => {
+        const live = isLive(c) && c.resilience ? c.resilience : null;
+        const best = live != null && soleBest === c.ticker;
+        return (
+          <div className="cmp-cellw" key={c.ticker}>
+            <div className="cmp-cell" style={best ? { boxShadow: 'inset 0 0 0 2px var(--good)', borderColor: 'var(--good)' } : undefined}>
+              {best && <span className="cmp-cell-mark" title={t('compare.best')}><Icon name="check" size={14} stroke={2.6} /></span>}
+              {live ? <ResilienceBadge summary={live} showScore /> : <span className="num muted">—</span>}
+            </div>
+          </div>
+        );
+      })}
     </>
   );
 }
@@ -323,7 +358,6 @@ function TitleHeaderCard({ company, onRemove, removable }: { company: CompanyVie
     );
   }
   const s10 = score10(company);
-  const up = (company.dayChangePct ?? 0) >= 0;
   return (
     <div className="card cmp-thcard">
       {removable && (
@@ -336,13 +370,6 @@ function TitleHeaderCard({ company, onRemove, removable }: { company: CompanyVie
         <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--ink)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{company.company}</span>
         <span className="num" style={{ fontSize: 12, fontWeight: 500, color: 'var(--ink-3)' }}>{company.ticker}</span>
         {company.sector && <span className="tiny muted" style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{t(`industries.${sectorSlug(company.sector)}`, { defaultValue: company.sector })}</span>}
-        <div className="row gap-8" style={{ marginTop: 3, flexWrap: 'wrap' }}>
-          <span className="num tiny" style={{ fontWeight: 600 }}>{formatPrice(company.price, company.currency)}</span>
-          {company.dayChangePct != null && (
-            <span className="num tiny" style={{ color: up ? 'var(--good)' : 'var(--bad)', fontWeight: 600 }}>{up ? '+' : ''}{company.dayChangePct.toFixed(1)} %</span>
-          )}
-          {company.resilience && <ResilienceBadge summary={company.resilience} showScore size="sm" />}
-        </div>
       </div>
     </div>
   );

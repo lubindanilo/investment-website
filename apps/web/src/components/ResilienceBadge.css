@@ -17,7 +17,6 @@
 .res-badge-sm .res-badge-grade { width: 19px; height: 19px; font-size: 11px; border-radius: 5px; }
 
 .res-badge-score {
-  color: var(--ink-2);
   font-size: 12px;
   font-weight: 700;
 }
@@ -26,3 +25,8 @@
 .res-badge-brand .res-badge-grade { color: var(--brand-ink); background: var(--brand-soft); }
 .res-badge-warn .res-badge-grade { color: var(--warn-ink); background: var(--warn-bg); }
 .res-badge-bad .res-badge-grade { color: var(--bad-ink); background: var(--bad-bg); }
+
+.res-badge-good .res-badge-score { color: var(--good-ink); }
+.res-badge-brand .res-badge-score { color: var(--brand-ink); }
+.res-badge-warn .res-badge-score { color: var(--warn-ink); }
+.res-badge-bad .res-badge-score { color: var(--bad-ink); }

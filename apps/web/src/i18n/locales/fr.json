@@ -123,6 +123,7 @@
     "filters": {
       "kicker": "Filtres",
       "minScore": "Note minimale",
+      "minResilience": "Résilience minimale",
       "maxPfcf": "P/FCF max",
       "sector": "Secteur",
       "allSectors": "Tous les secteurs",
@@ -1281,7 +1282,10 @@
       "chiffres": "Les chiffres",
       "chiffresSub": "10 critères · le meilleur de chaque ligne est surligné",
       "valuation": "Valorisation",
-      "valuationSub": "jugée séparément de la qualité"
+      "valuationSub": "jugée séparément de la qualité",
+      "resilience": "Résilience",
+      "resilienceSub": "grade global A–E · robustesse du modèle face aux chocs",
+      "resilienceRow": "Note de résilience"
     },
     "pfcf": {
       "label": "P/FCF actuel",

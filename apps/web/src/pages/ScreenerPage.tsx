@@ -29,12 +29,13 @@ const CAP_OPTS: CapBucket[] = ['small', 'mid', 'large'];
 type GeoZone = 'pea' | 'us' | 'intl';
 const ZONE_OPTS: GeoZone[] = ['pea', 'us', 'intl'];
 
-type SortCol = 'score' | 'pfcf' | 'price' | 'earnings';
+type SortCol = 'score' | 'resilience' | 'pfcf' | 'price' | 'earnings';
 interface SortState { col: SortCol; dir: 'asc' | 'desc' }
 
 function ratioOf(r: ScreenerTopRow) { return r.scoreChiffresMax ? (r.scoreChiffres ?? 0) / r.scoreChiffresMax : 0; }
 function valOf(r: ScreenerTopRow, col: SortCol): number {
   if (col === 'score') return ratioOf(r);
+  if (col === 'resilience') return r.resilience?.score ?? -Infinity;   // non scoré → en bas (desc)
   if (col === 'pfcf') return r.pfcfTTM ?? Infinity;
   if (col === 'price') return r.price ?? -Infinity;
   // earnings : null → en bas (date "infinie"). Sinon Date.parse → ms (asc = plus proche en premier).
@@ -54,17 +55,21 @@ function formatEarnings(iso?: string | null): string {
 export interface AppliedFilters {
   sectors: string[];
   minScore: number;
+  /** Score de résilience minimum (0–100). 0 = pas de filtre. Filtré côté client (le score
+   *  n'est pas un critère de la requête API). > 0 masque les tickers non scorés. */
+  minResilience: number;
   maxPfcf: number;
   caps: CapBucket[];
   zones: GeoZone[];
 }
 
-const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, maxPfcf: PFCF_MAX, caps: [], zones: [] };
+const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, minResilience: 0, maxPfcf: PFCF_MAX, caps: [], zones: [] };
 
 /** Nombre d'axes de filtre non-défaut (pour le badge du bouton). « Opportunités » est géré à part. */
 function countActive(v: AppliedFilters): number {
   return (v.sectors.length > 0 ? 1 : 0)
     + (v.minScore !== DEFAULT_MIN_SCORE ? 1 : 0)
+    + (v.minResilience > 0 ? 1 : 0)
     + (v.maxPfcf < PFCF_MAX ? 1 : 0)
     + (v.caps.length > 0 ? 1 : 0)
     + (v.zones.length > 0 ? 1 : 0);
@@ -160,6 +165,23 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
                 style={{ flex: 1, accentColor: 'var(--brand)', cursor: 'pointer' }}
               />
               <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{draft.minScore <= 0 ? t('screener.filters.scoreAll') : draft.minScore + '+'}</span>
+            </div>
+          </div>
+
+          {/* Résilience minimale (0–100) — filtre client. > 0 ne garde que les titres scorés. */}
+          <div className="col gap-6">
+            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.minResilience')}</span>
+            <div className="row gap-10">
+              <input
+                type="range"
+                min={0}
+                max={100}
+                step={10}
+                value={draft.minResilience}
+                onChange={e => setDraft(d => ({ ...d, minResilience: +e.target.value }))}
+                style={{ flex: 1, accentColor: 'var(--brand)', cursor: 'pointer' }}
+              />
+              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{draft.minResilience <= 0 ? t('screener.filters.scoreAll') : draft.minResilience + '+'}</span>
             </div>
           </div>
 
@@ -375,8 +397,12 @@ export function ScreenerPage() {
 
   const sorted = useMemo(() => {
     const dir = sort.dir === 'desc' ? -1 : 1;
-    return [...rows].sort((a, b) => (valOf(a, sort.col) - valOf(b, sort.col)) * dir);
-  }, [rows, sort]);
+    // Filtre « résilience minimale » côté client (> 0 ne garde que les titres scorés au-dessus du seuil).
+    const base = filters.minResilience > 0
+      ? rows.filter(r => (r.resilience?.score ?? -1) >= filters.minResilience)
+      : rows;
+    return [...base].sort((a, b) => (valOf(a, sort.col) - valOf(b, sort.col)) * dir);
+  }, [rows, sort, filters.minResilience]);
 
   // Reset de la pagination quand les données / le tri / les filtres changent.
   useEffect(() => { setVisibleCount(60); }, [rows, sort, filters, onlyOpp]);
@@ -457,7 +483,7 @@ export function ScreenerPage() {
                   <th>{t('screener.col.company')}</th>
                   <th>{t('screener.col.sector')}</th>
                   <SortTh label={t('screener.col.score')} col="score" />
-                  <th>{t('analyse.resilience')}</th>
+                  <SortTh label={t('analyse.resilience')} col="resilience" />
                   <SortTh label="P/FCF" col="pfcf" />
                   <SortTh label={t('screener.col.price')} col="price" />
                   <SortTh label={t('screener.col.earnings')} col="earnings" />

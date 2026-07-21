@@ -14,7 +14,7 @@ import SeoHead from '../components/SeoHead.js';
 import { formatPrice } from '../lib/format.js';
 import './WatchlistPage.css';
 
-type SortKey = 'default' | 'price' | 'pfcf' | 'score' | 'earnings';
+type SortKey = 'default' | 'price' | 'pfcf' | 'score' | 'resilience' | 'earnings';
 type SortDir = 'asc' | 'desc';
 interface SortState { key: SortKey; dir: SortDir }
 const SORT_STORAGE_KEY = 'li_watchlist_sort';
@@ -22,7 +22,7 @@ const SORT_STORAGE_KEY = 'li_watchlist_sort';
 function loadSort(): SortState {
   try {
     const s = JSON.parse(localStorage.getItem(SORT_STORAGE_KEY) ?? '');
-    if (s && ['default', 'price', 'pfcf', 'score', 'earnings'].includes(s.key) && ['asc', 'desc'].includes(s.dir)) return s as SortState;
+    if (s && ['default', 'price', 'pfcf', 'score', 'resilience', 'earnings'].includes(s.key) && ['asc', 'desc'].includes(s.dir)) return s as SortState;
   } catch { /* ignore */ }
   return { key: 'score', dir: 'desc' };
 }
@@ -34,6 +34,7 @@ function sortItems(items: WatchlistEntry[], { key, dir }: SortState): WatchlistE
     let cmp = 0;
     if (key === 'price') { const av = a.price, bv = b.price; if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
     else if (key === 'pfcf') { const av = a.pfcfTTM, bv = b.pfcfTTM; if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
+    else if (key === 'resilience') { const av = a.resilience?.score, bv = b.resilience?.score; if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
     else if (key === 'earnings') { const av = a.nextEarningsDate, bv = b.nextEarningsDate; if (!av) return 1; if (!bv) return -1; cmp = av.localeCompare(bv); }
     else { const ra = a.scoreChiffresMax > 0 ? a.scoreChiffres / a.scoreChiffresMax : -1; const rb = b.scoreChiffresMax > 0 ? b.scoreChiffres / b.scoreChiffresMax : -1; cmp = ra - rb; }
     return dir === 'asc' ? cmp : -cmp;
@@ -237,7 +238,7 @@ export function WatchlistPage() {
                   <SortTh label={t('watchlist.col.price')} col="price" />
                   <SortTh label="P/FCF" col="pfcf" />
                   <SortTh label={t('watchlist.col.score')} col="score" />
-                  <th>{t('analyse.resilience')}</th>
+                  <SortTh label={t('analyse.resilience')} col="resilience" align="left" />
                   <SortTh label={t('watchlist.col.earnings')} col="earnings" align="left" />
                   <th style={{ width: 50 }}></th>
                 </tr>
