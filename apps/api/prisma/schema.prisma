@@ -132,6 +132,40 @@ model ManagementAnalysis {
   @@id([ticker, lang])
 }
 
+/// Snapshot Resilience publie, calcule hors du chemin de lecture d'Analyze.
+model ResilienceAnalysis {
+  ticker        String
+  version       String
+  status        String
+  analysis      Json?
+  researchDossier String?
+  researchHash  String?
+  asOf          DateTime?
+  attempts      Int      @default(0)
+  lastError     String?
+  lastAttemptAt DateTime?
+  createdAt     DateTime @default(now())
+  refreshedAt   DateTime @default(now())
+
+  @@id([ticker, version])
+  @@index([version, status, refreshedAt])
+}
+
+model ResilienceAnalysisHistory {
+  id              String   @id @default(cuid())
+  ticker          String
+  version         String
+  asOf            DateTime
+  analysis        Json
+  researchDossier String?
+  researchHash    String?
+  diff            Json?
+  createdAt       DateTime @default(now())
+
+  @@unique([ticker, version, asOf])
+  @@index([ticker, version, asOf])
+}
+
 /// Cache GLOBAL par ticker du résultat de l'analyse quant.
 ///
 /// Source unique de vérité partagée entre /api/analyze et /api/watchlist :
