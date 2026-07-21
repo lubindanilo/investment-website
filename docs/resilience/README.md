@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.11`.
+Version canonique candidate : `2.9.1-pilot.12`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -91,8 +91,9 @@ Trois forces sont toujours testees : `ai_agents`, `automation_robotics` et
 - Une compression de prix ou un avantage devenu standard n'est pas une disparition du role.
 
 Scores : deux menaces ou disparition directe `0`; une menace `1`; aucune menace controlee
-`2`; au moins **deux** renforcements controles `3`. Une seule force positive ne suffit plus
-a transformer une entreprise simplement exposee a un theme en grand beneficiaire.
+`2`; au moins **deux mecanismes de renforcement distincts et controles** `3`. Une seule
+force positive ne suffit pas, deux forces decrivant le meme gain ne comptent qu'une fois,
+et une efficacite generique accessible aux concurrents ne constitue pas un renforcement.
 
 ### 3. Dependances futures - 10%, note 0 a 2
 
@@ -177,6 +178,12 @@ Cette regle degrade Salesforce-like, mais preserve un ERP transactionnel, un pla
 controle cloud/identite, un rail de paiement ou un enforcement de securite lorsque leur
 execution reste effectivement controlee par le fournisseur.
 
+Lorsque le client possede l'etat, que le workflow est reconstruisible, qu'aucune execution
+qualifiee ne protege le coeur et que la migration est la barriere principale, une conclusion
+contraire du modele ne suffit plus : la plausibilite du remplacement est derivee et le score
+est plafonne a D49. Une stack proprietaire d'enforcement securite avec controle specifique
+et sans bypass majoritaire reste un contre-exemple explicite.
+
 La pression de prix de l'IA est egalement scindee en deux champs : l'existence d'une
 compression et sa couverture de plus de 50% du coeur. Une interface minoritaire comprimee
 ne suffit plus a annuler la capture majoritaire d'un operateur durable.
@@ -188,9 +195,9 @@ financement, adaptation deja deployee et contraintes legacy. Les donnees financi
 servent qu'ici et ne dupliquent pas Quality.
 
 `scaledAdaptationEvidence=true` ne compte que si l'adaptation est un deploiement materiel
-sur le coeur et qu'un effet operationnel mesure ou une monetisation materielle est observe.
-Une annonce, un partenariat, un pilote, une acquisition non integree ou un module marginal
-ne suffit pas.
+sur le coeur et qu'un effet operationnel mesure ou une monetisation materielle est observe
+et causalement attribue au deploiement. La croissance generale ne suffit pas. Une annonce,
+un partenariat, un pilote, une acquisition non integree ou un module marginal ne suffit pas.
 
 ## Poids et grades
 
@@ -265,7 +272,7 @@ obligatoires absents, les forces dupliquees et les structures incorrectes.
 
 Le runner de cohorte `resilience:future:pilot` persiste chaque resultat valide dans les
 tables existantes `ResilienceAnalysis` et `ResilienceAnalysisHistory`, sous la version de
-grille `2.9.1-pilot.11`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
+grille `2.9.1-pilot.12`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
 encore servies par l'UI.
 
 Le JSON `analysis` conserve le score, le grade, les gates, les six cartes (`reason`,
@@ -321,6 +328,20 @@ Moody's, NextEra, Palo Alto, SEB, S&P Global et Toyota. L'audit complet est cons
 `apps/api/benchmarks/resilience-future-holdout-20-p11-audit.md`. Les runs de repetition 2
 et 3 n'ont pas ete lances : il faut d'abord corriger les sous-tests encore fautifs, puis
 mesurer la variance d'un contrat economiquement acceptable.
+
+`pilot.12` encode ces corrections : les renforcements nomment un mecanisme strategique et
+les mecanismes identiques sont dedupliques, une efficacite generique ne suffit plus, la
+demande stable reste directe lorsqu'elle est directement servie, la migration seule ne
+protege plus un workflow client reconstruisible, et un resultat de transition doit etre
+causalement attribue au deploiement. Cette version est en validation ciblee sur Hermes,
+ServiceNow et STEF ; elle n'est pas encore acceptee.
+
+La validation ciblee est terminee. Le holdout atteint `12/20` : Hermes A81 et ServiceNow
+D49 rejoignent leur bande ; STEF descend de B79 a B70 mais reste un point au-dessus de sa
+bande C provisoire. Palo Alto reste B72, ce qui confirme l'absence de regression sur
+l'enforcement de securite. Les huit ecarts restants sont maintenant des arbitrages de
+bandes provisoires, listes dans
+`apps/api/benchmarks/resilience-future-holdout-20-p12-audit.md`.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis

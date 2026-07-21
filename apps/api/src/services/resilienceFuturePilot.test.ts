@@ -20,9 +20,9 @@ function fixture() {
       },
       disruption_positioning: {
         forces: [
-          { force: 'ai_agents', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialDirectBenefit: true, responseControlsOutcome: true },
-          { force: 'automation_robotics', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialDirectBenefit: true, responseControlsOutcome: true },
-          { force: 'china_engineering', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialDirectBenefit: false, responseControlsOutcome: false },
+          { force: 'ai_agents', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialDirectBenefit: true, responseControlsOutcome: true, benefitMechanism: 'external_demand_expansion' },
+          { force: 'automation_robotics', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialDirectBenefit: true, responseControlsOutcome: true, benefitMechanism: 'company_specific_cost_or_capacity_advantage' },
+          { force: 'china_engineering', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialDirectBenefit: false, responseControlsOutcome: false, benefitMechanism: 'none' },
         ],
         ...common,
       },
@@ -42,6 +42,7 @@ function fixture() {
         scaledAdaptationType: 'material_core_deployment',
         measuredOperatingEffect: true,
         monetizedMaterialOutcome: true,
+        outcomeCausallyAttributedToAdaptation: true,
         legacyConstraintManageable: true,
         ...common,
       },
@@ -324,7 +325,7 @@ describe('scoreFutureResilience', () => {
     expect(result.criteria[0]!.audit.customerOwnedWorkflowCapApplied).toBe(true);
   });
 
-  it('derive le remplacement quand seule la conclusion reste inconnue mais les mecanismes convergent', () => {
+  it('derive le remplacement quand la migration est la seule barriere restante', () => {
     const input = fixture();
     Object.assign(input.criteria.future_control, { controlType: 'installed_base' });
     const workflowReplacement = {
@@ -344,11 +345,14 @@ describe('scoreFutureResilience', () => {
     expect(derived.criteria[1]!.score).toBe(1);
     expect(derived.criteria[4]!.score).toBe(1);
     expect(derived.criteria[0]!.audit.majorityReplacementDerivedFromWorkflowMechanics).toBe(true);
+    expect(derived.finalScore).toBe(49);
+    expect(derived.gates).toContain('customer_owned_workflow_replacement');
 
     workflowReplacement.majorityCustomReplacementEconomicallyPlausibleBy2033 = false;
     const explicitlyRefuted = scoreFutureResilience(input);
-    expect(explicitlyRefuted.criteria[0]!.score).toBe(2);
-    expect(explicitlyRefuted.criteria[1]!.score).toBe(3);
+    expect(explicitlyRefuted.criteria[0]!.score).toBe(1);
+    expect(explicitlyRefuted.criteria[1]!.score).toBe(1);
+    expect(explicitlyRefuted.finalScore).toBe(49);
   });
 
   it('preserve un systeme qui controle une execution reglementee ou irreversible', () => {
@@ -372,6 +376,28 @@ describe('scoreFutureResilience', () => {
     expect(result.criteria[1]!.score).toBe(3);
     expect(result.criteria[4]!.score).toBe(2);
     expect(result.criteria[0]!.audit.customerOwnedWorkflowCapApplied).toBeUndefined();
+  });
+
+  it('ne confond pas une stack proprietaire d enforcement securite avec un workflow client', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_value_capture, {
+      roleArchetype: 'proprietary_stack_operator',
+      companySpecificControl: true,
+      credibleMajorityBypass: false,
+      workflowReplacement: {
+        applies: true,
+        customerOwnsCoreState: true,
+        workflowRebuildableByAgents: true,
+        vendorControlsRegulatedOrIrreversibleExecution: false,
+        vendorExecutionType: 'security_enforcement',
+        vendorExecutionCoversMajorityCore: false,
+        majorityCustomReplacementEconomicallyPlausibleBy2033: false,
+        migrationComplexityPrimaryBarrier: true,
+      },
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.gates).not.toContain('customer_owned_workflow_replacement');
+    expect(result.criteria[4]!.audit.proprietarySecurityEnforcementCandidate).toBe(true);
   });
 
   it('refuse une execution critique seulement declaree sans type ni couverture majoritaire', () => {
@@ -481,7 +507,16 @@ describe('scoreFutureResilience', () => {
       scaledAdaptationType: 'announcement_or_pilot',
       measuredOperatingEffect: false,
       monetizedMaterialOutcome: false,
+      outcomeCausallyAttributedToAdaptation: false,
     });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[5]!.score).toBe(1);
+    expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(false);
+  });
+
+  it('refuse un resultat general non attribue au deploiement d adaptation', () => {
+    const input = fixture();
+    input.criteria.transition_capacity.outcomeCausallyAttributedToAdaptation = false;
     const result = scoreFutureResilience(input);
     expect(result.criteria[5]!.score).toBe(1);
     expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(false);
@@ -519,6 +554,26 @@ describe('scoreFutureResilience', () => {
 
   it('reserve 3 sur 3 a au moins deux forces positives', () => {
     const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[1]!, {
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+    });
+    expect(scoreFutureResilience(input).criteria[1]!.score).toBe(2);
+  });
+
+  it('ne compte qu une fois deux forces positives fondees sur le meme mecanisme', () => {
+    const input = fixture();
+    input.criteria.disruption_positioning.forces[1]!.benefitMechanism = 'external_demand_expansion';
+    expect(scoreFutureResilience(input).criteria[1]!.score).toBe(2);
+  });
+
+  it('refuse un gain d efficacite generique sans mecanisme controle', () => {
+    const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[0]!, {
+      materialDirectBenefit: true,
+      responseControlsOutcome: true,
+      benefitMechanism: 'none',
+    });
     Object.assign(input.criteria.disruption_positioning.forces[1]!, {
       materialDirectBenefit: false,
       responseControlsOutcome: false,
