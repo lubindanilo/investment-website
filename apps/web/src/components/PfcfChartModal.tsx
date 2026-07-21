@@ -103,6 +103,17 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
     return [start, end];
   }, [period, chartData]);
 
+  // Zone « pas de données » : partie de la fenêtre ANTÉRIEURE au plus ancien contenu (1er point
+  // OU 1re borne de zone négative). Distincte du grisé « FCF négatif » : ici on ne sait pas (on
+  // n'a pas l'historique si loin). Uniquement pour les périodes fixes (« All » s'ajuste aux données).
+  const noDataZone = useMemo<{ from: number; to: number } | null>(() => {
+    if (period === 'All' || chartData.length === 0) return null;
+    const start = xDomain[0];
+    if (typeof start !== 'number') return null;
+    const earliest = chartData[0]!.ts; // chartData trié par ts croissant
+    return earliest > start ? { from: start, to: earliest } : null;
+  }, [period, chartData, xDomain]);
+
   return (
     <div className="pfcf-overlay" onClick={onClose}>
       <div className="pfcf-modal" onClick={e => e.stopPropagation()}>
@@ -147,6 +158,15 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
         {!loading && !error && data && data.length >= 3 && (
           <>
             <div className="pfcf-chart-wrap">
+              {/* Motif hachuré pour la zone « pas de données » (référençable par id document-wide). */}
+              <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden>
+                <defs>
+                  <pattern id="pfcf-nodata-hatch" width={6} height={6} patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                    <rect width={6} height={6} fill="var(--text3)" fillOpacity={0.04} />
+                    <line x1={0} y1={0} x2={0} y2={6} stroke="var(--text3)" strokeOpacity={0.3} strokeWidth={1} />
+                  </pattern>
+                </defs>
+              </svg>
               <ResponsiveContainer width="100%" height={340}>
                 <LineChart data={chartData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
@@ -172,6 +192,16 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
                     formatter={(v) => [Number(v).toFixed(2) + '×', 'P/FCF']}
                     labelFormatter={ts => formatDateFull(new Date(Number(ts)).toISOString().slice(0, 10))}
                   />
+                  {/* Zone « pas de données » (hachurée) : antérieure au plus ancien contenu. */}
+                  {noDataZone && (
+                    <ReferenceArea
+                      x1={noDataZone.from}
+                      x2={noDataZone.to}
+                      fill="url(#pfcf-nodata-hatch)"
+                      strokeOpacity={0}
+                      ifOverflow="hidden"
+                    />
+                  )}
                   {/* Zones à FCF négatif : P/FCF non calculable → ombrées (≠ trou de données) */}
                   {intervals.map((iv, i) => (
                     <ReferenceArea
@@ -224,6 +254,13 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
                   aria-hidden
                 />
                 {t('chart.pfcfNegativeFcf')}
+              </div>
+            )}
+
+            {noDataZone && (
+              <div className="pfcf-legend-neg">
+                <span className="pfcf-legend-swatch pfcf-legend-swatch--hatch" aria-hidden />
+                {t('chart.pfcfNoDataZone')}
               </div>
             )}
 
