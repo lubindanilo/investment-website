@@ -6,6 +6,7 @@ import type { WatchlistEntry } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
+import { ResilienceBadge } from '../components/ResilienceBadge.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
 import { useSubscription } from '../contexts/SubscriptionContext.js';
@@ -236,6 +237,7 @@ export function WatchlistPage() {
                   <SortTh label={t('watchlist.col.price')} col="price" />
                   <SortTh label="P/FCF" col="pfcf" />
                   <SortTh label={t('watchlist.col.score')} col="score" />
+                  <th>{t('analyse.resilience')}</th>
                   <SortTh label={t('watchlist.col.earnings')} col="earnings" align="left" />
                   <th style={{ width: 50 }}></th>
                 </tr>
@@ -254,6 +256,7 @@ export function WatchlistPage() {
                       <td className="num-cell num" style={{ fontWeight: 600 }}>{formatPrice(w.price, w.currency)}</td>
                       <td className="num-cell num">{w.pfcfTTM != null && w.pfcfTTM > 0 ? w.pfcfTTM.toFixed(1) + '×' : '—'}</td>
                       <td className="num-cell">{s != null ? <ScorePill score={s} /> : <span className="muted">—</span>}</td>
+                      <td>{w.resilience ? <ResilienceBadge summary={w.resilience} showScore /> : <span className="muted">—</span>}</td>
                       <td><span className="num tiny wl-earn"><Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />{formatEarnings(w.nextEarningsDate)}</span></td>
                       <td className="num-cell" style={{ width: 50 }}>
                         <button className="wl-remove" onClick={e => { e.stopPropagation(); remove(w.ticker); }} aria-label={t('watchlist.remove')}>

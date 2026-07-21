@@ -384,6 +384,8 @@ export interface WatchlistEntry {
   opportunity?: boolean;
   /** Percentile actuel du P/FCF vs historique (0-100). Null si indisponible. */
   pfcfPercentile?: number | null;
+  /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
+  resilience?: ResilienceSummary | null;
   // ─── Champs internes pour recompute P/FCF live ──────────────────────────
   // Ces 2 champs ne changent qu'à chaque earnings (FCF) ou très peu (shares).
   // Ils permettent de recomputer pfcfTTM = (price × shares) / adjFcfTtm avec un
