@@ -465,6 +465,8 @@ export interface ScreenerTopRow {
   /** Capitalisation boursière (prix × actions), devise locale. Null si indisponible.
    *  Alimente le filtre Small/Mid/Large cap. */
   marketCap: number | null;
+  /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
+  resilience?: ResilienceSummary | null;
 }
 
 /**
