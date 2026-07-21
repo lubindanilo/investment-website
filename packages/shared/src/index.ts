@@ -71,7 +71,7 @@ export interface ResilienceCriterion {
 }
 
 export interface ResilienceAnalysis {
-  version: '2.6.0';
+  version: '2.8.13';
   asOf: string;
   status: ResilienceStatus;
   rawScore: number | null;
