@@ -1,6 +1,10 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { FUTURE_RESILIENCE_VERSION, scoreFutureResilience } from './resilienceFuturePilot.js';
+import {
+  buildFutureResiliencePilotPrompt,
+  FUTURE_RESILIENCE_VERSION,
+  scoreFutureResilience,
+} from './resilienceFuturePilot.js';
 
 const common = {
   reason: 'Raison factuelle.',
@@ -71,6 +75,18 @@ describe('scoreFutureResilience', () => {
     expect(result.criteria.map(criterion => criterion.score)).toEqual([2, 3, 2, 2, 2, 2]);
     expect(result.finalScore).toBe(79);
     expect(result.grade).toBe('B');
+  });
+
+  it('exige les effets macro de second ordre sans les convertir en moat', () => {
+    const prompt = buildFutureResiliencePilotPrompt({
+      ticker: 'TEST',
+      company: 'Test Company',
+      industry: 'Test Industry',
+      dossier: 'Dossier fige.',
+    });
+    expect(prompt).toContain('effets economiques de premier ET de second ordre');
+    expect(prompt).toContain('force macro -> variation du nombre de besoins');
+    expect(prompt).toContain('ne prouve jamais le controle specifique, la capture ou le pricing power');
   });
 
   it('reserve le grade A a un controle futur exceptionnel', () => {

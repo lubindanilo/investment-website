@@ -1,4 +1,4 @@
-export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.13' as const;
+export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.14' as const;
 export const FUTURE_SCENARIO_YEAR = 2033 as const;
 
 export const FUTURE_RESILIENCE_WEIGHTS = {
@@ -658,6 +658,7 @@ DISCIPLINE DE PROJECTION
 - Aucune recherche web. Aucun chiffre ou fait absent du dossier.
 - Cherche d'abord le scenario adverse: absorption par agent/plateforme, commoditisation, substitution chinoise, automatisation, perte de controle ou dependance de continuite.
 - Les champs true/false decrivent ton scenario CENTRAL le plus probable en 2033, pas une certitude historique. Formule une projection causale a partir du scenario fige et du modele economique.
+- Pour chaque force du scenario, examine les effets economiques de premier ET de second ordre. Construis explicitement la chaine force macro -> variation du nombre de besoins, produits, transactions ou volumes a servir -> evolution de la categorie -> exposition du coeur de l'entreprise. L'IA peut par exemple creer de nouveaux volumes en amont tout en automatisant une partie de leur traitement en aval; ne limite jamais l'analyse a l'effet direct sur les processus actuels.
 - Le passe et le present contraignent la projection mais ne donnent aucun point automatique: croissance, marge, taille ou moat actuel ne suffisent jamais seuls.
 - Inversement, n'exige pas une preuve litterale venue de 2033. Si le mecanisme economique devrait raisonnablement persister et qu'aucune voie adverse majoritaire credible ne domine le scenario central, tranche true et baisse confidence si necessaire.
 - Utilise null seulement si le dossier ne permet meme pas d'identifier le mecanisme ou l'exposition. L'incertitude normale d'une prevision doit etre exprimee par confidence, pas par une accumulation de null.
@@ -683,7 +684,7 @@ DISCIPLINE DE PROJECTION
 - credibleMajorityBypass=true lorsqu'une voie technique ET economique permet aux agents, fournisseurs, flottes ou plateformes de contourner l'entreprise sur plus de 50% du coeur d'ici 2033.
 - roleCoversMajorityCore mesure la part de l'activite propre de l'entreprise couverte par le role paye decrit. Il ne mesure ni son moat, ni sa part de marche, ni le caractere unique du role. Une entreprise peut donc avoir roleCoversMajorityCore=true et companySpecificControl=false.
 - aiPriceCommoditization signale toute pression de prix causee par l'IA. aiPriceCommoditizationCoversMajorityCore=true uniquement si cette pression detruit le pouvoir de capture sur plus de 50% du coeur; la commoditisation d'une interface minoritaire ou d'une couche analytique vaut false pour ce second champ.
-- Dans structural_demand, futureCategoryTrend et causalDirectness sont independants. Un besoin stable directement servi par le coeur vaut causalDirectness=direct, meme s'il ne resout aucun probleme qui s'aggrave. rising exige une croissance structurelle du besoin ou de la categorie jusqu'en 2033; la seule persistance du besoin vaut stable.
+- Dans structural_demand, futureCategoryTrend et causalDirectness sont independants. Un besoin stable directement servi par le coeur vaut causalDirectness=direct, meme s'il ne resout aucun probleme qui s'aggrave. rising exige une croissance structurelle du besoin ou de la categorie jusqu'en 2033; elle peut provenir d'un effet macro de second ordre du scenario si la chaine causale est explicite et si aucun effet adverse plus fort ne la domine. La seule persistance du besoin vaut stable. Un tailwind de categorie ne prouve jamais le controle specifique, la capture ou le pricing power de l'entreprise et ne doit pas etre recompte comme renforcement dans disruption_positioning sans mecanisme de capture controle.
 - Pour un portefeuille de brevets ou droits reglementaires temporaires, rightsVisibilityThroughScenario=true exige une protection documentee ou raisonnablement projetable sur la majorite du portefeuille economique jusqu'en 2033. Une promesse generale de renouvellement du pipeline ne suffit pas.
 - roleArchetype=weak_digital_interface lorsque le role principal est une interface, un workflow ou une API reproductible sans actif, droit, liquidite ou systeme d'autorite specifique. Ne classe jamais un fabricant physique, un operateur d'actifs ou un rail transactionnel dans cette categorie.
 - Les finances actuelles ne servent qu'a transition_capacity.

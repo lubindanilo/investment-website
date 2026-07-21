@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.13`.
+Version canonique candidate : `2.9.1-pilot.14`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -124,6 +124,14 @@ Le besoin futur doit etre relie directement au coeur de l'entreprise.
 
 La demande du secteur ne prouve pas la capture par l'entreprise. Chegg peut donc obtenir
 `2/2` en demande et rester E si son role est absorbe.
+
+L'analyse recherche aussi les effets macro de premier et de second ordre du scenario 2033.
+Elle explicite la chaine `force macro -> variation des besoins ou volumes -> categorie ->
+exposition du coeur`. Une recherche plus productive peut ainsi augmenter les volumes de
+validation reglementee meme si l'IA automatise simultanement une partie de leur traitement.
+Un tel tailwind peut etablir la demande `2/2`, mais jamais a lui seul le moat, la capture ou
+le pricing power. Il n'est recompte dans les ruptures que si l'entreprise controle un
+mecanisme distinct lui permettant d'en capter materiellement la valeur.
 
 ### 5. Capture de valeur future - 25%, note 0 a 2
 
@@ -278,7 +286,7 @@ obligatoires absents, les forces dupliquees et les structures incorrectes.
 
 Le runner de cohorte `resilience:future:pilot` persiste chaque resultat valide dans les
 tables existantes `ResilienceAnalysis` et `ResilienceAnalysisHistory`, sous la version de
-grille `2.9.1-pilot.13`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
+grille `2.9.1-pilot.14`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
 encore servies par l'UI.
 
 Le JSON `analysis` conserve le score, le grade, les gates, les six cartes (`reason`,
@@ -365,6 +373,11 @@ de transfert et de revalidation d'un essai actif etablissent un controle regleme
 pas un moat large : les CRO concurrentes peuvent gagner de nouveaux mandats et aucun
 paiement de rente durable n'est encore demontre. L'efficacite IA reste un potentiel de
 transition, sans bonus tant que son effet n'est ni specifique ni mesure.
+
+`pilot.14` rend ensuite obligatoire l'analyse des effets macro de premier et de second ordre
+de l'IA. Il ne modifie ni les poids ni le scorer de `pilot.13`; le `20/20` reste donc la
+baseline deterministe archivee, pas une validation du nouveau contrat d'adjudication. Une
+validation fraiche et limitee de ce contrat doit preceder les trois runs de stabilite.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
