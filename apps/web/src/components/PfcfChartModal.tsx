@@ -13,11 +13,11 @@
  */
 import { useEffect, useMemo, useState } from 'react';
 import {
-  LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine,
+  LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine, ReferenceArea,
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../i18n/index.js';
-import type { TimeseriesPeriod, PfcfHistoryPoint } from '@lubin/shared';
+import type { TimeseriesPeriod, PfcfHistoryPoint, NegativeFcfInterval } from '@lubin/shared';
 import { PERIOD_YEARS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import './PfcfChartModal.css';
@@ -37,6 +37,7 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
   const { t } = useTranslation();
   const [period, setPeriod] = useState<TimeseriesPeriod>('5Y');
   const [data, setData] = useState<PfcfHistoryPoint[] | null>(null);
+  const [intervals, setIntervals] = useState<NegativeFcfInterval[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -46,7 +47,7 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
     setLoading(true);
     setError(null);
     api.pfcfHistory(ticker, PERIOD_YEARS[period])
-      .then(res => { if (!cancelled) setData(res.points); })
+      .then(res => { if (!cancelled) { setData(res.points); setIntervals(res.negativeFcfIntervals ?? []); } })
       .catch(e => {
         if (!cancelled) setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
       })
@@ -77,6 +78,20 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
     const percentile = (belowOrEqual / sorted.length) * 100;
     return { median, min, max, latest, percentile };
   }, [data]);
+
+  // Données du graphe : axe X en timestamps (échelle de temps) pour que la fenêtre couvre AUSSI
+  // les périodes à FCF négatif (souvent hors de la plage des points tracés). On insère un point
+  // `pfcf: null` à chaque borne de zone négative → la ligne ne traverse pas la zone (connectNulls
+  // = false) et l'axe s'étend pour la rendre visible/ombrable.
+  const chartData = useMemo(() => {
+    if (!data) return [];
+    const pts: { ts: number; pfcf: number | null }[] = data.map(p => ({ ts: Date.parse(p.date), pfcf: p.pfcf }));
+    for (const iv of intervals) {
+      pts.push({ ts: Date.parse(iv.from), pfcf: null });
+      pts.push({ ts: Date.parse(iv.to), pfcf: null });
+    }
+    return pts.sort((a, b) => a.ts - b.ts);
+  }, [data, intervals]);
 
   return (
     <div className="pfcf-overlay" onClick={onClose}>
@@ -123,12 +138,15 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
           <>
             <div className="pfcf-chart-wrap">
               <ResponsiveContainer width="100%" height={340}>
-                <LineChart data={data} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
+                <LineChart data={chartData} margin={{ top: 8, right: 16, left: 8, bottom: 8 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" vertical={false} />
                   <XAxis
-                    dataKey="date"
+                    dataKey="ts"
+                    type="number"
+                    scale="time"
+                    domain={['dataMin', 'dataMax']}
                     tick={{ fontSize: 10, fill: 'var(--text3)' }}
-                    tickFormatter={d => formatDateTick(d, period)}
+                    tickFormatter={ts => formatDateTick(new Date(ts).toISOString().slice(0, 10), period)}
                     interval="preserveStartEnd"
                     minTickGap={32}
                   />
@@ -141,8 +159,20 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
                     contentStyle={{ background: '#fff', border: '1px solid var(--border)', borderRadius: 6, fontSize: 12 }}
                     labelStyle={{ color: 'var(--text2)', fontFamily: 'var(--mono)' }}
                     formatter={(v) => [Number(v).toFixed(2) + '×', 'P/FCF']}
-                    labelFormatter={d => formatDateFull(String(d))}
+                    labelFormatter={ts => formatDateFull(new Date(Number(ts)).toISOString().slice(0, 10))}
                   />
+                  {/* Zones à FCF négatif : P/FCF non calculable → ombrées (≠ trou de données) */}
+                  {intervals.map((iv, i) => (
+                    <ReferenceArea
+                      key={`neg-${i}`}
+                      x1={Date.parse(iv.from)}
+                      x2={Date.parse(iv.to)}
+                      fill="var(--text3)"
+                      fillOpacity={0.13}
+                      strokeOpacity={0}
+                      ifOverflow="extendDomain"
+                    />
+                  ))}
                   {/* Médiane historique → repère mean-reversion */}
                   {stats && (
                     <ReferenceLine
@@ -174,6 +204,17 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
                 </LineChart>
               </ResponsiveContainer>
             </div>
+
+            {intervals.length > 0 && (
+              <div className="pfcf-legend-neg">
+                <span
+                  className="pfcf-legend-swatch"
+                  style={{ background: 'var(--text3)', opacity: 0.13 }}
+                  aria-hidden
+                />
+                {t('chart.pfcfNegativeFcf')}
+              </div>
+            )}
 
             {stats && (
               <div className="pfcf-stats">

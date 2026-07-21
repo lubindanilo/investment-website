@@ -74,6 +74,7 @@
     "pfcfSub": "Calculé : prix × actions ÷ FCF (TTM)",
     "pfcfAnnualOnlyTag": "4 ans annuels (max disponible pour ce ticker)",
     "pfcfNoData": "Pas assez d'historique pour calculer le P/FCF sur cette période.",
+    "pfcfNegativeFcf": "Zone grisée : FCF négatif sur la période, P/FCF non calculable.",
     "insufficientHistory": "Historique insuffisant pour tracer une tendance fiable.",
     "pfcfVerdictBelow": "Le dernier multiple ({{latest}}×) est sous la médiane historique ({{median}}×), valorisation relative attractive.",
     "pfcfVerdictAbove": "Le dernier multiple ({{latest}}×) est au-dessus de la médiane historique ({{median}}×), valorisation tendue vs son propre passé.",

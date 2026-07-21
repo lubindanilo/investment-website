@@ -11,7 +11,7 @@ import { z } from 'zod';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { requireAuth } from '../middleware/auth.js';
 import { requirePro } from '../middleware/subscription.js';
-import { getPfcfHistory } from '../services/pfcfHistory.js';
+import { getPfcfHistory, getPfcfNegativeIntervals } from '../services/pfcfHistory.js';
 import { getNextEarningsDate, ttlUntilNextEarnings } from '../services/earnings.js';
 import * as cache from '../lib/timeseriesCache.js';
 
@@ -35,14 +35,17 @@ pfcfHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req: Req
   // On stocke dans le même cache que timeseries en utilisant un "metric" virtuel "pfcf-history"
   const key = cache.cacheKey(ticker, 'pfcf-history', 'computed-adj', years);
 
-  // 1. Cache hit ?
+  // 1. Cache hit ? (les intervalles FCF négatif sont recalculés à la volée — lecture DB légère,
+  //    pas d'appel Yahoo — pour ne pas alourdir le cache typé TimeseriesPoint.)
   const hit = await cache.get(key);
   if (hit) {
+    const negativeFcfIntervals = await getPfcfNegativeIntervals(ticker, years).catch(() => []);
     res.json({
       ticker,
       years,
       // points sont stockés en TimeseriesPoint mais on les présente en {date, pfcf} pour le client
       points: hit.points.map(p => ({ date: p.date, pfcf: p.value })),
+      negativeFcfIntervals,
       cached: true,
       ageMs: Date.now() - hit.storedAt,
     });
@@ -52,7 +55,10 @@ pfcfHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req: Req
   // 2. Fetch + compute
   const startedAt = Date.now();
   const earningsPromise = getNextEarningsDate(ticker);
-  const points = await getPfcfHistory(ticker, years);
+  const [points, negativeFcfIntervals] = await Promise.all([
+    getPfcfHistory(ticker, years),
+    getPfcfNegativeIntervals(ticker, years).catch(() => []),
+  ]);
   const elapsedMs = Date.now() - startedAt;
 
   // 3. TTL basé sur le prochain earnings — un nouveau Q recalcule TTM_FCF
@@ -70,6 +76,7 @@ pfcfHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req: Req
     ticker,
     years,
     points,
+    negativeFcfIntervals,
     cached: false,
     fetchedInMs: elapsedMs,
     cacheTtlHours: Math.round(ttlMs / 3_600_000),

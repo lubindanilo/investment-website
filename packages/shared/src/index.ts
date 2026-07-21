@@ -664,10 +664,20 @@ export interface PfcfHistoryPoint {
   pfcf: number;
 }
 
+/** Période où le FCF (ajusté TTM) est ≤ 0 → P/FCF non calculable. Ombré sur le graphe. */
+export interface NegativeFcfInterval {
+  /** YYYY-MM-DD — début de la période à FCF négatif (clippé à la fenêtre visible). */
+  from: string;
+  /** YYYY-MM-DD — fin (date où le FCF redevient positif, ou dernière donnée si encore négatif). */
+  to: string;
+}
+
 export interface PfcfHistoryResponse {
   ticker: string;
   years: number;
   points: PfcfHistoryPoint[];
+  /** Intervalles à FCF négatif dans la fenêtre : le ratio n'existe pas là (≠ trou de données). */
+  negativeFcfIntervals?: NegativeFcfInterval[];
   cached: boolean;
   ageMs?: number;
   fetchedInMs?: number;
