@@ -83,6 +83,16 @@ export interface ResilienceAnalysis {
   criteria: ResilienceCriterion[];
 }
 
+/**
+ * Résumé compact du score de résilience, pour l'afficher hors de la page analyse
+ * (screener, watchlist, compare, home). Absent/null quand le ticker n'est pas scoré.
+ */
+export interface ResilienceSummary {
+  grade: ResilienceGrade;
+  /** Score final publié, 0–100. */
+  score: number;
+}
+
 export type CriteriaCategory = 'chiffres' | 'business' | 'management' | 'valorisation';
 
 /** Un pair coté du secteur avec son P/FCF (pour le détail concurrentiel). */
