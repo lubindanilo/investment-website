@@ -7,12 +7,6 @@ import type {
 
 export const PUBLISHED_RESILIENCE_VERSION = '2.8.13' as const;
 
-// Publication is editorially explicit: generated or provisional snapshots stay hidden.
-const APPROVED_TICKERS = new Set([
-  'CAT', 'CEG', 'CHGG', 'CRWD', 'DOCU', 'LLY', 'MCO',
-  'NEE', 'NVDA', 'NVO', 'PANW', 'SPGI', 'UBER', 'UNP',
-]);
-
 const CRITERIA: Array<{ id: ResilienceCriterionId; maxScore: 2 | 3 }> = [
   { id: 'moat', maxScore: 3 },
   { id: 'disruption_resilience', maxScore: 3 },
@@ -36,10 +30,6 @@ function criterion(value: unknown, expected: (typeof CRITERIA)[number]): value i
   if (!localized(item.summary) || !Array.isArray(item.evidence) || !Array.isArray(item.watchpoints)) return false;
   if (item.watchpoints.length < 1 || !item.watchpoints.every(localized)) return false;
   return !!item.audit && typeof item.audit === 'object' && !Array.isArray(item.audit);
-}
-
-export function isApprovedResilienceTicker(ticker: string): boolean {
-  return APPROVED_TICKERS.has(ticker);
 }
 
 export function isPublishedResilienceAnalysis(value: unknown): value is ResilienceAnalysis {

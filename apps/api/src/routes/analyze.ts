@@ -30,7 +30,6 @@ import { analyzeLimiter } from '../middleware/rateLimit.js';
 import { optionalAuth, requireAuth } from '../middleware/auth.js';
 import { requirePro } from '../middleware/subscription.js';
 import {
-  isApprovedResilienceTicker,
   isPublishedResilienceAnalysis,
   PUBLISHED_RESILIENCE_VERSION,
 } from '../services/resiliencePublished.js';
@@ -64,7 +63,6 @@ function isMarketShareValid(data: unknown): data is MarketShare {
 }
 
 async function getPublishedResilience(ticker: string): Promise<ResilienceAnalysis | null> {
-  if (!isApprovedResilienceTicker(ticker)) return null;
   const row = await prisma.resilienceAnalysis.findUnique({
     where: { ticker_version: { ticker, version: PUBLISHED_RESILIENCE_VERSION } },
     select: { analysis: true, status: true },

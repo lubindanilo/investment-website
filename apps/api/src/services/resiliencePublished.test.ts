@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import {
-  isApprovedResilienceTicker,
   isPublishedResilienceAnalysis,
   PUBLISHED_RESILIENCE_VERSION,
 } from './resiliencePublished.js';
@@ -40,11 +39,6 @@ function validAnalysis() {
 }
 
 describe('published resilience snapshots', () => {
-  it('publishes only explicitly approved tickers', () => {
-    expect(isApprovedResilienceTicker('NVDA')).toBe(true);
-    expect(isApprovedResilienceTicker('NOW')).toBe(false);
-  });
-
   it('accepts the complete UI contract and rejects incomplete criteria', () => {
     const analysis = validAnalysis();
     expect(isPublishedResilienceAnalysis(analysis)).toBe(true);
