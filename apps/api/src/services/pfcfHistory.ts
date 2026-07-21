@@ -24,7 +24,7 @@
 import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundamentals.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 import { yahooLimiter } from '../lib/limiter.js';
-import type { TimeseriesPoint } from '@lubin/shared';
+import type { TimeseriesPoint, NegativeFcfInterval } from '@lubin/shared';
 
 const CHART_BASE = 'https://query1.finance.yahoo.com/v8/finance/chart';
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Lubin-Investment/0.1';
@@ -210,6 +210,43 @@ export async function getPfcfHistory(ticker: string, years: number): Promise<Pfc
     return getPfcfHistoryAnnualYahoo(resolved?.symbol ?? ticker, years);
   }
   return usResult;
+}
+
+/**
+ * Périodes de la fenêtre `years` où le FCF est ≤ 0 (US : FCF ajusté SBC TTM, comme le graphe ;
+ * EU : FCF annuel) → le P/FCF n'y est PAS calculable et le point est omis. On renvoie ces
+ * intervalles pour que le graphe les OMBRE explicitement (≠ trou de données). Best-effort : [].
+ */
+export async function getPfcfNegativeIntervals(ticker: string, years: number): Promise<NegativeFcfInterval[]> {
+  const windowStartMs = Date.now() - Math.ceil(years * 365.25) * 24 * 3600 * 1000;
+  const resolved = await resolveYahooTicker(ticker).catch(() => null);
+  const isEuTicker = !!resolved && resolved.currency !== 'USD';
+  let series: TimeseriesPoint[] = [];
+  if (isEuTicker && resolved) {
+    series = await fetchYahooAnnualBasic(resolved.symbol, 'annualFreeCashFlow').catch(() => [] as TimeseriesPoint[]);
+  } else {
+    series = await getAdjustedFcfTtmSeries(ticker, years + 1).catch(() => [] as TimeseriesPoint[]);
+  }
+  return negativeRuns(series, windowStartMs);
+}
+
+/** Regroupe les runs contigus de valeurs ≤ 0 en intervalles {from,to}, clippés à la fenêtre. */
+function negativeRuns(series: TimeseriesPoint[], windowStartMs: number): NegativeFcfInterval[] {
+  const pts = series.filter(p => Number.isFinite(p.value)).sort((a, b) => a.date.localeCompare(b.date));
+  if (pts.length === 0) return [];
+  const runs: NegativeFcfInterval[] = [];
+  let runStart: string | null = null;
+  for (const p of pts) {
+    const neg = p.value <= 0;
+    if (neg && runStart === null) runStart = p.date;               // début d'une zone négative
+    else if (!neg && runStart !== null) { runs.push({ from: runStart, to: p.date }); runStart = null; } // borne = retour positif
+  }
+  if (runStart !== null) runs.push({ from: runStart, to: pts[pts.length - 1]!.date }); // encore négatif au dernier point
+  // Ne garde que les zones qui chevauchent la fenêtre visible, en remontant `from` à son début.
+  const startIso = new Date(windowStartMs).toISOString().slice(0, 10);
+  return runs
+    .filter(r => r.to >= startIso)
+    .map(r => ({ from: r.from < startIso ? startIso : r.from, to: r.to }));
 }
 
 /** Path US : Finnhub quarterly + TTM rolling, ~60-240 points selon l'interval. */

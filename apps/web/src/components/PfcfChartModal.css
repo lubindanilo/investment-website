@@ -92,6 +92,22 @@
   padding-top: 6px;
 }
 
+.pfcf-legend-neg {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: -8px 0 14px;
+  font-size: 11px;
+  color: var(--text3);
+}
+.pfcf-legend-swatch {
+  display: inline-block;
+  width: 14px;
+  height: 10px;
+  border-radius: 2px;
+  flex: none;
+}
+
 .pfcf-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
