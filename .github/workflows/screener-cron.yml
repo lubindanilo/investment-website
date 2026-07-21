@@ -32,16 +32,15 @@ on:
         required: false
         default: '400'
   schedule:
-    # Maintenance generique 2x/jour (04:00 et 16:00 UTC) : rafraichit l'univers par priorite
-    # (US d'abord). Draine aussi l'EU pending residuel une fois l'US a jour.
-    - cron: '0 4,16 * * *'
-    # Drain EU dedie 4x/jour (01/07/13/19 UTC) : le generique etant "US d'abord", l'EU serait
-    # affame sinon. Ce creneau draine le backlog EU pending PUIS re-tente les erreurs a chaque
-    # cycle. S'arrete tot (picked=0) une fois l'EU a jour → quasi gratuit ensuite (repo public).
-    - cron: '0 1,7,13,19 * * *'
-    # Drain US dedie 4x/jour (02/08/14/20 UTC) : rattrape le stock US perime (Finnhub ~5-6/min
-    # → ~1000/run, ~1-2 jours pour les ~5500) puis se limite tout seul sur le cycle TTL 14j.
-    - cron: '0 2,8,14,20 * * *'
+    # UN SEUL petit lot par jour (06:00 UTC). Volontairement minimal : la base Neon (plan Free,
+    # 100 CU-h/mois) facture le TEMPS DE COMPUTE ACTIF. Les anciens crons (US/EU dediees, ~10
+    # runs/j jusqu'a 180 min) gardaient le compute actif ~24/7 et ont crame le quota en 2 jours.
+    # Ce run court (~15 min) suffit : la priorite "earnings d'abord" rafraichit ce qui compte
+    # (societes qui viennent de publier), et le reste trickle du plus ancien. Le comble-trous
+    # (EDGAR + stockanalysis) reste AUTOMATIQUE par-ticker → les trous historiques se bouchent
+    # progressivement au fil du trickle, sans surcout (le comblage ne pese pas, c'est le VOLUME
+    # qui pesait). Les rattrapages massifs se font a la main (workflow_dispatch), ponctuellement.
+    - cron: '0 6 * * *'
 
 permissions:
   contents: read
@@ -58,7 +57,6 @@ jobs:
       SCREENER_TOKEN: ${{ secrets.SCREENER_TOKEN }}
       CONFIGURED_SITE_URL: ${{ vars.SCREENER_SITE_URL }}
       EVENT_NAME: ${{ github.event_name }}
-      EVENT_SCHEDULE: ${{ github.event.schedule }}
       MANUAL_REGION: ${{ inputs.region }}
       MANUAL_N: ${{ inputs.n }}
       MANUAL_DEADLINE: ${{ inputs.deadline }}
@@ -75,21 +73,19 @@ jobs:
 
           SITE_URL="${CONFIGURED_SITE_URL:-https://lubin-investment.com}"
           # Selection selon l'evenement :
-          #   - workflow_dispatch : on suit les inputs (defaut region=EU).
-          #   - schedule '0 1,7,13,19 * * *' : drain EU dedie (gros lot, budget large).
-          #   - schedule generique '0 4,16 * * *' : maintenance US-first, lot borne.
+          #   - workflow_dispatch : on suit les inputs (rattrapage manuel ponctuel, gros lot OK
+          #     car declenche a la demande en connaissant le cout compute).
+          #   - schedule (le run quotidien) : lot COURT, toutes regions, priorite earnings.
           if [ "${EVENT_NAME:-}" = "workflow_dispatch" ]; then
             REGION="${MANUAL_REGION:-}"
             N="${MANUAL_N:-25}"
             DEADLINE="${MANUAL_DEADLINE:-45}"
             PASSES="${MANUAL_PASSES:-400}"
-          elif [ "${EVENT_SCHEDULE:-}" = "0 1,7,13,19 * * *" ]; then
-            REGION="EU"; N="25"; DEADLINE="45"; PASSES="400"
-          elif [ "${EVENT_SCHEDULE:-}" = "0 2,8,14,20 * * *" ]; then
-            REGION="US"; N="25"; DEADLINE="45"; PASSES="400"
           else
-            # Generique : 30s laisse tenir les non-US (budget 20s/titre) sous la limite lambda (60s).
-            REGION=""; N="25"; DEADLINE="30"; PASSES="60"
+            # Run quotidien minimal : ~40 appels x ~20s = ~15 min de compute Neon/jour (tiny vs
+            # les 100 CU-h/mois). Earnings d'abord (phase 1), puis trickle du plus ancien → le
+            # comble-trous historiques suit ce trickle. 30s laisse tenir les non-US (budget 20s/titre).
+            REGION=""; N="25"; DEADLINE="30"; PASSES="40"
           fi
 
           QS="n=${N}&deadline=${DEADLINE}"
