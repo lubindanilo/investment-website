@@ -400,6 +400,52 @@ describe('scoreFutureResilience', () => {
     expect(result.criteria[4]!.audit.proprietarySecurityEnforcementCandidate).toBe(true);
   });
 
+  it('ne confond pas une capacite de service reglementee avec son logiciel de workflow', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'regulated_execution_capability',
+      systemBottleneck: false,
+      multipleIndependentControls: false,
+    });
+    Object.assign(input.criteria.future_value_capture, {
+      roleArchetype: 'regulated_operator',
+      workflowReplacement: {
+        applies: true,
+        customerOwnsCoreState: true,
+        workflowRebuildableByAgents: true,
+        vendorControlsRegulatedOrIrreversibleExecution: false,
+        vendorExecutionType: 'none',
+        vendorExecutionCoversMajorityCore: false,
+        majorityCustomReplacementEconomicallyPlausibleBy2033: true,
+        migrationComplexityPrimaryBarrier: false,
+      },
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[0]!.score).toBe(2);
+    expect(result.criteria[1]!.score).toBe(3);
+    expect(result.gates).not.toContain('customer_owned_workflow_replacement');
+    expect(result.criteria[4]!.audit.regulatedExecutionServiceCandidate).toBe(true);
+
+    input.criteria.future_control.futureRentPaid = false;
+    expect(scoreFutureResilience(input).criteria[0]!.score).toBe(0);
+  });
+
+  it('garde un controle reglemente etroit quand la barriere est prouvee mais la rente inconnue', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'regulated_execution_capability',
+      controlStillNeeded: true,
+      companySpecific: true,
+      majorityCoreCoverage: null,
+      scarcitySurvivesAiChina: false,
+      replicableWithinFiveYears: true,
+      futureRentPaid: null,
+      systemBottleneck: false,
+      multipleIndependentControls: false,
+    });
+    expect(scoreFutureResilience(input).criteria[0]!.score).toBe(1);
+  });
+
   it('refuse une execution critique seulement declaree sans type ni couverture majoritaire', () => {
     const input = fixture();
     Object.assign(input.criteria.future_control, { controlType: 'installed_base' });

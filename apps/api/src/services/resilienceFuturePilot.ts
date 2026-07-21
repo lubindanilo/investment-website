@@ -1,4 +1,4 @@
-export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.12' as const;
+export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.13' as const;
 export const FUTURE_SCENARIO_YEAR = 2033 as const;
 
 export const FUTURE_RESILIENCE_WEIGHTS = {
@@ -93,7 +93,8 @@ function scoreFutureControl(raw: Record<string, unknown>): FutureCriterionResult
   const audit = {
     controlType: choice(raw.controlType, [
       'scarce_asset', 'regulated_right', 'trusted_brand', 'network_liquidity',
-      'proprietary_stack_or_ip', 'cost_supply_chain', 'installed_base', 'none',
+      'proprietary_stack_or_ip', 'cost_supply_chain', 'installed_base',
+      'regulated_execution_capability', 'none',
     ] as const, 'future_control.controlType'),
     controlStillNeeded: tri(raw.controlStillNeeded, 'future_control.controlStillNeeded'),
     companySpecific: tri(raw.companySpecific, 'future_control.companySpecific'),
@@ -121,9 +122,12 @@ function scoreFutureControl(raw: Record<string, unknown>): FutureCriterionResult
   ].filter(Boolean).length;
   const wideControl = foundation && audit.companySpecific === true &&
     audit.majorityCoreCoverage === true && !erosionProven;
+  const regulatedExecutionNarrowControl = audit.controlType === 'regulated_execution_capability' &&
+    audit.controlStillNeeded === true && audit.companySpecific === true &&
+    audit.majorityCoreCoverage !== false && audit.futureRentPaid !== false;
   const controlRejected = audit.controlType === 'none' || audit.controlStillNeeded === false ||
     audit.companySpecific === false || audit.futureRentPaid === false ||
-    (erosionProven && audit.majorityCoreCoverage !== true);
+    (erosionProven && audit.majorityCoreCoverage !== true && !regulatedExecutionNarrowControl);
   const score = controlRejected
     ? 0
     : erosionProven
@@ -461,14 +465,23 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
     futureValueCapture.audit.roleArchetype === 'proprietary_stack_operator' &&
     futureValueCapture.audit.companySpecificControl === true &&
     futureValueCapture.audit.credibleMajorityBypass === false;
+  const regulatedExecutionServiceCandidate =
+    futureControl.audit.controlType === 'regulated_execution_capability' &&
+    futureValueCapture.audit.roleArchetype === 'regulated_operator' &&
+    futureValueCapture.audit.roleCoversMajorityCore === true;
   const customerOwnedWorkflowMechanicsQualified =
     workflowReplacement?.applies === true &&
     workflowReplacement.customerOwnsCoreState === true &&
     workflowReplacement.workflowRebuildableByAgents === true &&
-    !qualifiedVendorExecution && !legacyVendorExecution && !proprietarySecurityEnforcementCandidate;
+    !qualifiedVendorExecution && !legacyVendorExecution && !proprietarySecurityEnforcementCandidate &&
+    !regulatedExecutionServiceCandidate;
   if (proprietarySecurityEnforcementCandidate) {
     futureControl.audit.proprietarySecurityEnforcementCandidate = true;
     futureValueCapture.audit.proprietarySecurityEnforcementCandidate = true;
+  }
+  if (regulatedExecutionServiceCandidate) {
+    futureControl.audit.regulatedExecutionServiceCandidate = true;
+    futureValueCapture.audit.regulatedExecutionServiceCandidate = true;
   }
   const majorityReplacementDerivedFromWorkflowMechanics =
     customerOwnedWorkflowMechanicsQualified &&
@@ -662,6 +675,9 @@ DISCIPLINE DE PROJECTION
 - agentsNeedControlledAccess=true seulement si les agents doivent acceder a un inventaire, droit, actif, transaction ou systeme controle par l'entreprise pour accomplir la majorite du besoin. Un lien, une API generique ou un canal utile mais substituable vaut false.
 - Pour une stack proprietaire, l'acces controle inclut le plan de controle du calcul, des donnees, de l'identite, des permissions ou de l'execution. Une interface tierce n'annule pas cet acces si les workloads majoritaires doivent encore passer par ce plan de controle specifique.
 - Les donnees, configurations, permissions et workflows appartenant au client ne constituent pas seuls un controle specifique du fournisseur. Pour les logiciels de workflow et systemes d'autorite, remplis workflowReplacement afin de distinguer une friction de migration d'une execution reglementee ou irreversible reellement controlee par le fournisseur.
+- Une entreprise de services ne devient pas un logiciel de workflow parce qu'elle utilise une plateforme proprietaire. Si la majorite du role paye reste l'execution humaine, clinique, physique ou reglementaire d'un mandat complexe, workflowReplacement.applies=false. Les agents peuvent rendre le processus plus efficace sans permettre au client de vibe-coder l'accreditation, le reseau operationnel, la responsabilite reglementaire ou le savoir-faire d'execution.
+- controlType=regulated_execution_capability designe une capacite d'execution reglementee et specialisee couvrant le coeur, avec savoir-faire, reseau operationnel ou historique de conformite difficile a reproduire. La reglementation sectorielle seule ne suffit pas: il faut une rente ou des switching costs payes et une replication majoritaire non plausible dans les cinq ans.
+- Pour une capacite d'execution reglementee, une revalidation ou un transfert reglementaire documente pendant un mandat actif peut etablir un controle etroit meme si des concurrents savent gagner de nouveaux mandats. Les concurrents rendent replicableWithinFiveYears=true et interdisent le controle large; ils ne justifient pas controlType=none si la barriere de transition propre au mandat est prouvee. L'absence de taux de retention ou de prime de prix publiee donne futureRentPaid=null, jamais false; false exige une contre-preuve economique affirmative.
 - Dans workflowReplacement, vendorControlsRegulatedOrIrreversibleExecution=true n'est publiable que si vendorExecutionType nomme un type admissible et si vendorExecutionCoversMajorityCore=true. Une CMDB, un workflow configurable, un journal d'audit, des permissions client ou une integration ne sont pas en eux-memes une execution reglementee ou irreversible.
 - majorityCustomReplacementEconomicallyPlausibleBy2033=true exige qu'une grande entreprise puisse reconstruire et exploiter economiquement plus de 50% du role avec ses donnees, ses agents et son infrastructure d'ici 2033; une simple maquette ou une interface personnalisee ne suffit pas. Lorsque le client possede l'etat, que les agents peuvent reconstruire le workflow, qu'aucune execution fournisseur qualifiee ne couvre le coeur et que la migration est la barriere principale, la migration seule ne peut justifier false dans le scenario 2033.
 - credibleMajorityBypass=true lorsqu'une voie technique ET economique permet aux agents, fournisseurs, flottes ou plateformes de contourner l'entreprise sur plus de 50% du coeur d'ici 2033.
@@ -679,7 +695,7 @@ Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette f
   "scenarioYear": 2033,
   "criteria": {
     "future_control": {
-      "controlType": "scarce_asset|regulated_right|trusted_brand|network_liquidity|proprietary_stack_or_ip|cost_supply_chain|installed_base|none",
+      "controlType": "scarce_asset|regulated_right|trusted_brand|network_liquidity|proprietary_stack_or_ip|cost_supply_chain|installed_base|regulated_execution_capability|none",
       "controlStillNeeded": true|false|null,
       "companySpecific": true|false|null,
       "majorityCoreCoverage": true|false|null,
@@ -769,6 +785,7 @@ SCENARIO 2033
 
 REGLES
 - applies=true seulement si une part materielle du coeur est un logiciel de workflow, un systeme d'autorite, un outil de productivite ou une stack numerique que le client pourrait reconstruire ou remplacer.
+- applies=false si le logiciel ne fait qu'assister un service dont le coeur paye reste une execution humaine, clinique, physique ou reglementaire complexe; coder l'interface ne remplace ni l'accreditation, ni le reseau operationnel, ni la responsabilite, ni le savoir-faire d'execution.
 - customerOwnsCoreState=true si les donnees, configurations, regles et historique economiquement utiles appartiennent principalement au client et peuvent etre exportes ou reconstruits; l'hebergement actuel chez le fournisseur ne vaut pas propriete.
 - workflowRebuildableByAgents=true si des agents et outils de code devraient pouvoir reconstruire les interfaces, automatisations et logique metier majoritaires. Ne confonds pas interface reconstruisible et moteur transactionnel critique.
 - vendorControlsRegulatedOrIrreversibleExecution=true seulement si le fournisseur controle encore une execution que le client ne peut pas raisonnablement internaliser: ledger reglemente, mouvement d'argent, enforcement securite, calcul/identite systemique, transaction irreversible ou droit externe. Audit, permissions et integrations configurables par le client ne suffisent pas seuls.

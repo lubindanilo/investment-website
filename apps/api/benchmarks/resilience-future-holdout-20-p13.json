@@ -1,0 +1,26 @@
+{
+  "version": "2.9.1-pilot.13",
+  "scenarioYear": 2033,
+  "companies": [
+    { "ticker": "ABNB", "company": "Airbnb", "industry": "Travel Marketplace", "expected": { "minScore": 70, "maxScore": 79 }, "status": "provisional" },
+    { "ticker": "AMZN", "company": "Amazon", "industry": "E-commerce and Cloud Infrastructure", "expected": { "minScore": 80, "maxScore": 100 }, "status": "approved" },
+    { "ticker": "CEG", "company": "Constellation Energy", "industry": "Nuclear Power Generation", "expected": { "minScore": 80, "maxScore": 100 }, "status": "provisional" },
+    { "ticker": "CRWD", "company": "CrowdStrike", "industry": "Cybersecurity", "expected": { "minScore": 70, "maxScore": 79 }, "status": "provisional" },
+    { "ticker": "INTC", "company": "Intel", "industry": "Semiconductors", "expected": { "minScore": 36, "maxScore": 49 }, "status": "provisional" },
+    { "ticker": "ISRG", "company": "Intuitive Surgical", "industry": "Medical Robotics", "expected": { "minScore": 80, "maxScore": 100 }, "status": "approved" },
+    { "ticker": "LLY", "company": "Eli Lilly", "industry": "Pharmaceuticals", "expected": { "minScore": 80, "maxScore": 100 }, "status": "approved" },
+    { "ticker": "MC.PA", "company": "LVMH", "industry": "Luxury Goods", "expected": { "minScore": 70, "maxScore": 79 }, "status": "approved" },
+    { "ticker": "MCO", "company": "Moody's", "industry": "Credit Ratings and Financial Data", "expected": { "minScore": 80, "maxScore": 100 }, "status": "provisional" },
+    { "ticker": "MEDP", "company": "Medpace", "industry": "Clinical Research Services", "expected": { "minScore": 50, "maxScore": 69 }, "status": "provisional" },
+    { "ticker": "NEE", "company": "NextEra Energy", "industry": "Regulated Utility and Renewable Power", "expected": { "minScore": 80, "maxScore": 100 }, "status": "provisional" },
+    { "ticker": "NOW", "company": "ServiceNow", "industry": "Enterprise Workflow Software", "expected": { "minScore": 36, "maxScore": 49 }, "status": "provisional" },
+    { "ticker": "PANW", "company": "Palo Alto Networks", "industry": "Cybersecurity", "expected": { "minScore": 70, "maxScore": 79 }, "status": "provisional" },
+    { "ticker": "QLYS", "company": "Qualys", "industry": "Cybersecurity", "expected": { "minScore": 36, "maxScore": 49 }, "status": "approved" },
+    { "ticker": "RMS.PA", "company": "Hermes International", "industry": "Luxury Goods", "expected": { "minScore": 80, "maxScore": 100 }, "status": "provisional" },
+    { "ticker": "SEB.PA", "company": "Groupe SEB", "industry": "Small Domestic Appliances", "expected": { "minScore": 36, "maxScore": 49 }, "status": "provisional" },
+    { "ticker": "SPGI", "company": "S&P Global", "industry": "Credit Ratings and Financial Data", "expected": { "minScore": 80, "maxScore": 100 }, "status": "provisional" },
+    { "ticker": "STF.PA", "company": "STEF", "industry": "Temperature-controlled Logistics", "expected": { "minScore": 70, "maxScore": 79 }, "status": "approved" },
+    { "ticker": "TM", "company": "Toyota Motor", "industry": "Automotive Manufacturing", "expected": { "minScore": 50, "maxScore": 69 }, "status": "provisional" },
+    { "ticker": "TTE", "company": "TotalEnergies", "industry": "Integrated Energy", "expected": { "minScore": 80, "maxScore": 100 }, "status": "approved" }
+  ]
+}

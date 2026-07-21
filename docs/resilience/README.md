@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.12`.
+Version canonique candidate : `2.9.1-pilot.13`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -61,7 +61,8 @@ champs manquants et ne doit pas regenerer les criteres deja resolus.
 ### 1. Controle economique futur - 25%, note 0 a 3
 
 Controle admissible : actif rare, droit regule, marque recherchee, liquidite de reseau,
-stack/IP proprietaire, avantage industriel/supply chain ou installed base.
+stack/IP proprietaire, avantage industriel/supply chain, installed base ou capacite
+d'execution reglementee specialisee.
 
 - `0` : aucun controle specifique futur, controle hors coeur ou rente explicitement perdue.
 - `1` : controle etroit, conteste ou replicable, mais encore paye sur le coeur.
@@ -78,6 +79,11 @@ Une stack numerique reste un controle fort lorsque son plan de controle majorita
 meme si l'interface visible devient agentique ou commoditisee. Pour les brevets et droits
 temporaires reglementes, `2/3` exige en revanche une visibilite majoritaire explicite jusqu'a
 2033 ; la seule promesse de renouveler le pipeline reste plafonnee a `1/3`.
+
+Une capacite d'execution reglementee ne qualifie un controle que si elle couvre le coeur,
+produit une rente ou des switching costs payes et combine savoir-faire, reseau operationnel
+ou historique de conformite difficile a reproduire. La reglementation sectorielle ou
+l'usage d'un logiciel proprietaire ne donnent aucun point a eux seuls.
 
 ### 2. Position face aux ruptures - 20%, note 0 a 3
 
@@ -272,7 +278,7 @@ obligatoires absents, les forces dupliquees et les structures incorrectes.
 
 Le runner de cohorte `resilience:future:pilot` persiste chaque resultat valide dans les
 tables existantes `ResilienceAnalysis` et `ResilienceAnalysisHistory`, sous la version de
-grille `2.9.1-pilot.12`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
+grille `2.9.1-pilot.13`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
 encore servies par l'UI.
 
 Le JSON `analysis` conserve le score, le grade, les gates, les six cartes (`reason`,
@@ -346,6 +352,19 @@ bandes provisoires, listes dans
 Apres revue utilisateur, Amazon A, Lilly A, LVMH B, STEF B et TotalEnergies A sont valides.
 L'accord courant passe a `17/20`; seuls Intuitive Surgical, Medpace et Qualys restent a
 trancher.
+
+Lubin valide ensuite Qualys D et Intuitive Surgical A. `pilot.13` ajoute le contre-exemple
+des services reglementes : une plateforme qui assiste une execution clinique, physique ou
+reglementaire ne transforme pas cette activite en workflow vibe-codable. La regle est en
+validation ciblee sur Medpace, dernier cas ouvert.
+
+La validation ciblee place Intuitive Surgical a A86, Qualys a D42 et Medpace a C57. Le
+holdout atteint ainsi `20/20` bandes, dont 19 attentes approuvees et la bande C de Medpace
+encore provisoire jusqu'a validation explicite de Lubin. Pour Medpace, les switching costs
+de transfert et de revalidation d'un essai actif etablissent un controle reglemente etroit,
+pas un moat large : les CRO concurrentes peuvent gagner de nouveaux mandats et aucun
+paiement de rente durable n'est encore demontre. L'efficacite IA reste un potentiel de
+transition, sans bonus tant que son effet n'est ni specifique ni mesure.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
