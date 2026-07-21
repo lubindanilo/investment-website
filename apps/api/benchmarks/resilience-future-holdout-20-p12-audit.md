@@ -28,6 +28,6 @@ vecteur est coherent : controle physique et capture d'execution `2/2`, mais aucu
 tailwind ni bonus de transition. Modifier les poids pour gagner ce point serait de la
 sur-calibration.
 
-Les huit ecarts restants sont donc des bandes provisoires a arbitrer : Amazon A95,
-Intuitive Surgical A93, Lilly A88, LVMH B78, Medpace D42, Qualys D42, STEF B70 et
-TotalEnergies A88. Aucun nouveau run complet ne doit etre lance avant cet arbitrage.
+Lubin valide ensuite Amazon A, Lilly A, LVMH B, STEF B et TotalEnergies A. Le benchmark
+courant atteint donc `17/20`. Trois cas restent ouverts : Intuitive Surgical A93, Medpace
+D42 et Qualys D42. Aucun nouveau run complet ne doit etre lance avant leur revue ciblee.

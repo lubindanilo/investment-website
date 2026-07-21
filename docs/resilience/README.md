@@ -343,6 +343,10 @@ l'enforcement de securite. Les huit ecarts restants sont maintenant des arbitrag
 bandes provisoires, listes dans
 `apps/api/benchmarks/resilience-future-holdout-20-p12-audit.md`.
 
+Apres revue utilisateur, Amazon A, Lilly A, LVMH B, STEF B et TotalEnergies A sont valides.
+L'accord courant passe a `17/20`; seuls Intuitive Surgical, Medpace et Qualys restent a
+trancher.
+
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
 si trois runs du meme modele sur les memes dossiers produisent moins de 5% de sous-tests
