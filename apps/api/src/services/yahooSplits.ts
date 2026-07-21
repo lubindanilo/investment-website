@@ -181,23 +181,34 @@ export function splitAdjustWithDiscontinuity(
   if (splits.length === 0 || points.length < 1) return points;
   const sorted = [...points].sort((a, b) => a.date.localeCompare(b.date));
 
-  for (const split of splits) {
-    const factor = split.numerator / split.denominator;
-    // Tolérance ±30% — un quarter-over-quarter normal varie de quelques %, donc une
-    // valeur entre 0.7×factor et 1.3×factor est très probablement le split.
-    const tol = 0.3;
+  // Tolérance ±30% sur le ratio pour reconnaître le saut de split.
+  const tol = 0.3;
+  // Le saut du split doit être PROCHE de sa date (≤ ~1 an). Sinon on risque de confondre le
+  // split avec un autre saut d'actions non-split (ex : émission massive lors d'une acquisition
+  // 100% actions — Fiserv a ~doublé son flottant à l'acquisition de First Data en 2019, ratio ≈2×
+  // comme un split 2:1). Traiter les splits du plus ANCIEN au plus récent (ratios invariants).
+  const MAX_DIST_MS = 366 * 24 * 3600 * 1000;
+  const ordered = [...splits].sort((a, b) => a.ts - b.ts);
 
-    // Cherche l'index où le ratio match (= entre i et i+1, la valeur est multipliée
-    // par ~factor, donc on multiplie tous les points 0..i par factor pour homogénéiser).
+  for (const split of ordered) {
+    const factor = split.numerator / split.denominator;
+    const splitMs = split.ts * 1000;
+
+    // Cherche le saut ~factor le PLUS PROCHE de la DATE du split (et NON le 1er de la série).
+    // Crucial : la détection « 1er saut » était dépendante de la fenêtre (10Y vs 20Y) et pouvait
+    // attraper le mauvais saut quand plusieurs sauts ≈factor existent (2 splits + 1 acquisition
+    // chez FISV) → même date affichée avec des P/FCF différents (pile ×2) selon la période.
     let transitionIdx = -1;
+    let bestDist = Infinity;
     for (let i = 0; i < sorted.length - 1; i++) {
       const a = sorted[i]!.value;
       const b = sorted[i + 1]!.value;
       if (a <= 0) continue;
-      const ratio = b / a;
-      if (Math.abs(ratio - factor) / factor < tol) {
+      if (Math.abs(b / a - factor) / factor >= tol) continue;
+      const dist = Math.abs(new Date(sorted[i + 1]!.date + 'T00:00:00Z').getTime() - splitMs);
+      if (dist <= MAX_DIST_MS && dist < bestDist) {
+        bestDist = dist;
         transitionIdx = i;
-        break;
       }
     }
 
