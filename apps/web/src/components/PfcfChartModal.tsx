@@ -93,6 +93,16 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
     return pts.sort((a, b) => a.ts - b.ts);
   }, [data, intervals]);
 
+  // Domaine X = la FENÊTRE demandée (5Y = 5 ans, 10Y = 10 ans…), pas juste l'étendue des points.
+  // Sinon 5Y/10Y/All rendent à l'identique quand l'historique est court (ex SHOP, données depuis
+  // 2022 seulement). « All » s'ajuste aux données. Le point le plus récent ancre la droite (~auj).
+  const xDomain = useMemo<[number | string, number | string]>(() => {
+    if (period === 'All' || chartData.length === 0) return ['dataMin', 'dataMax'];
+    const end = chartData[chartData.length - 1]!.ts;
+    const start = end - PERIOD_YEARS[period] * 365.25 * 24 * 3600 * 1000;
+    return [start, end];
+  }, [period, chartData]);
+
   return (
     <div className="pfcf-overlay" onClick={onClose}>
       <div className="pfcf-modal" onClick={e => e.stopPropagation()}>
@@ -144,7 +154,8 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
                     dataKey="ts"
                     type="number"
                     scale="time"
-                    domain={['dataMin', 'dataMax']}
+                    domain={xDomain}
+                    allowDataOverflow
                     tick={{ fontSize: 10, fill: 'var(--text3)' }}
                     tickFormatter={ts => formatDateTick(new Date(ts).toISOString().slice(0, 10), period)}
                     interval="preserveStartEnd"
@@ -170,7 +181,7 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
                       fill="var(--text3)"
                       fillOpacity={0.13}
                       strokeOpacity={0}
-                      ifOverflow="extendDomain"
+                      ifOverflow="hidden"
                     />
                   ))}
                   {/* Médiane historique → repère mean-reversion */}
@@ -230,7 +241,6 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
                   value={`${stats.percentile.toFixed(0)}e`}
                   accent={stats.percentile < 30 ? 'green' : stats.percentile > 70 ? 'red' : undefined}
                 />
-                <Stat label={t('chart.stat.points')} value={String(data.length)} />
               </div>
             )}
 
