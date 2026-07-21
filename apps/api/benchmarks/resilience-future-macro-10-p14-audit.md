@@ -25,12 +25,12 @@ Date : 2026-07-21
 | Uber | C57 | `1/2/1/2/1/1` | C | pass |
 | Booking | B73 | `2/2/1/1/2/2` | B | pass |
 | Adobe | C59 | `1/2/1/2/1/2` | C | pass |
-| Salesforce | D49 | `1/1/1/2/1/2` | D provisoire | pass |
-| Novo Nordisk | C51 | `0/2/1/2/1/2` | B | mismatch |
+| Salesforce | D49 | `1/1/1/2/1/2` | D approuve | pass |
+| Novo Nordisk | C51 | `0/2/1/2/1/2` | C approuve | pass |
 | Boeing | B76 | `3/2/1/1/2/0` | B | pass |
 
-Le resultat est `9/10`, sans ecart de deux grades. Le replay des 20 ancres approuvees reste
-`20/20` apres les corrections du scorer.
+Apres arbitrage utilisateur de Novo C51 et Salesforce D49, le resultat est `10/10` attentes
+approuvees. Le replay des 20 ancres approuvees reste `20/20` apres les corrections du scorer.
 
 ## Corrections universelles
 
@@ -51,5 +51,7 @@ semaglutide representant environ 74% des ventes 2025 perdent leur protection pub
 couvrant plus de 50% du coeur n'est prouve dans le dossier. Le besoin futur est fort, mais
 la capture specifique par Novo reste ouverte.
 
-La prochaine decision est economique : approuver Novo C ou conserver B et identifier la
-preuve universelle manquante. Les runs de stabilite et le cron restent bloques jusque-la.
+Lubin approuve Novo C51 : la forte demande future ne compense pas une capture specifique non
+prouvee apres l'expiration des brevets actuels. Il approuve aussi Salesforce D49, avec un
+watchpoint E si les agents absorbent demain plus de 50% du role paye. Les runs de stabilite
+restent necessaires avant le cron.

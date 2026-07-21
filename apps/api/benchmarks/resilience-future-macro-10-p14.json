@@ -10,8 +10,8 @@
     { "ticker": "UBER", "company": "Uber Technologies", "industry": "Mobility Platforms", "expected": { "minScore": 50, "maxScore": 69 }, "status": "approved" },
     { "ticker": "BKNG", "company": "Booking Holdings", "industry": "Travel Services", "expected": { "minScore": 70, "maxScore": 79 }, "status": "approved" },
     { "ticker": "ADBE", "company": "Adobe", "industry": "Software - Application", "expected": { "minScore": 50, "maxScore": 69 }, "status": "approved" },
-    { "ticker": "CRM", "company": "Salesforce", "industry": "Enterprise Software", "expected": { "minScore": 36, "maxScore": 49 }, "status": "provisional" },
-    { "ticker": "NVO", "company": "Novo Nordisk", "industry": "Pharmaceuticals", "expected": { "minScore": 70, "maxScore": 79 }, "status": "approved" },
+    { "ticker": "CRM", "company": "Salesforce", "industry": "Enterprise Software", "expected": { "minScore": 36, "maxScore": 49 }, "status": "approved" },
+    { "ticker": "NVO", "company": "Novo Nordisk", "industry": "Pharmaceuticals", "expected": { "minScore": 50, "maxScore": 69 }, "status": "approved" },
     { "ticker": "BA", "company": "Boeing", "industry": "Aerospace Manufacturing", "expected": { "minScore": 70, "maxScore": 79 }, "status": "approved" }
   ]
 }

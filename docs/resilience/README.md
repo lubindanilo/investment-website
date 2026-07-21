@@ -383,7 +383,8 @@ transition, sans bonus tant que son effet n'est ni specifique ni mesure.
 de l'IA. Sa validation fraiche sur dix entreprises atteint `9/10`, sans erreur apres reprise
 ciblee d'une reponse non JSON. Medpace C57, NVIDIA B79, Constellation A86, Qualys D42, Uber
 C57, Booking B73, Adobe C59, Salesforce D49 et Boeing B76 rejoignent leur bande. Novo Nordisk
-C51 reste le seul ecart face a l'attente B.
+C51 reste initialement le seul ecart face a l'attente B. Lubin valide ensuite Novo C51 et
+Salesforce D49 : la cohorte macro atteint `10/10` attentes approuvees.
 
 L'audit a corrige trois incoherences universelles du scorer : un `false` explicite interdit
 desormais de deriver un remplacement de workflow majoritaire ; une pression tarifaire
@@ -392,6 +393,14 @@ exige un controle futur d'au moins `2/3`, sauf plan proprietaire d'enforcement d
 Le replay des 20 ancres reste `20/20`, notamment Palo Alto B72. Novo n'est pas force dans sa
 bande : son dossier montre que 74% des ventes 2025 reposent sur des produits dont les brevets
 publies expirent avant 2033, sans rente post-semaglutide couvrant le coeur deja prouvee.
+Salesforce reste D49 plutot que E car le besoin et un role paye majoritaire persistent dans
+le scenario central ; un remplacement economique de plus de 50% de ce role declencherait
+en revanche la degradation vers E.
+
+Les 20 ancres approuvees sont rejouees par le scorer `pilot.14` puis persistees dans
+`ResilienceAnalysis` et `ResilienceAnalysisHistory`. La verification DB retourne 20 lignes
+`scored`, sans ticker manquant ; les adjudications macro fraiches remplacent les anciennes
+sur les titres concernes avant le replay.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
