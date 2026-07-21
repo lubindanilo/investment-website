@@ -3,7 +3,7 @@
  * Données : /api/compare (cache-servi, quasi instantané). Recherche : /api/screener/search.
  * Réutilise les primitives (ScoreCircle, StatusBadge, InfoPop, Icon) + i18n + tokens.
  */
-import { useCallback, useEffect, useState } from 'react';
+import { Fragment, useCallback, useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { sectorSlug } from '../lib/sector.js';
@@ -227,7 +227,7 @@ function CompareTable({ companies, criteria, onRemove }: { companies: CompanyVie
           <span className="kicker">{t('compare.sections.resilience')}</span>
           <span className="tiny muted" style={{ marginLeft: 10 }}>{t('compare.sections.resilienceSub')}</span>
         </div>
-        <ResilienceRow companies={companies} />
+        <ResilienceRows companies={companies} />
 
         <div className="cmp-sec">
           <span className="kicker">{t('compare.sections.valuation')}</span>
@@ -259,8 +259,26 @@ function CritRow({ crit, companies }: { crit: CompareCriterionDef; companies: Co
   );
 }
 
-/** Ligne « Résilience » de la comparaison : grade + score par ticker (le meilleur score surligné). */
-function ResilienceRow({ companies }: { companies: CompanyView[] }) {
+const RESILIENCE_CRITERIA_IDS = [
+  'moat', 'disruption_resilience', 'residual_dependencies',
+  'structural_demand_capture', 'economic_persistence', 'recurrence_balance',
+] as const;
+
+/** Couleur du score d'un critère selon le ratio atteint (mêmes paliers que les cartes analyze). */
+function critScoreColor(score: number | null, maxScore: number): string {
+  if (score == null || maxScore <= 0) return 'var(--ink-3)';
+  const r = score / maxScore;
+  if (r === 1) return 'var(--good-ink)';
+  if (r >= 0.66) return 'var(--brand-ink)';
+  if (r >= 0.5) return 'var(--warn-ink)';
+  return 'var(--bad-ink)';
+}
+
+/**
+ * Section « Résilience » de la comparaison : une ligne de synthèse (grade + score global, meilleur
+ * surligné) puis les 6 critères détaillés (score /max par ticker, coloré selon le ratio).
+ */
+function ResilienceRows({ companies }: { companies: CompanyView[] }) {
   const { t } = useTranslation();
   const scores = companies.map(c => (isLive(c) ? c.resilience?.score ?? null : null));
   const max = Math.max(...scores.filter((s): s is number => s != null), -Infinity);
@@ -268,10 +286,7 @@ function ResilienceRow({ companies }: { companies: CompanyView[] }) {
   return (
     <>
       <div className="cmp-label">
-        <div className="col gap-3">
-          <span style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--ink)', lineHeight: 1.25 }}>{t('compare.sections.resilienceRow')}</span>
-          <span className="num tiny muted">{t('compare.sections.resilienceSub')}</span>
-        </div>
+        <span style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--ink)', lineHeight: 1.25 }}>{t('compare.sections.resilienceRow')}</span>
       </div>
       {companies.map(c => {
         const live = isLive(c) && c.resilience ? c.resilience : null;
@@ -285,6 +300,25 @@ function ResilienceRow({ companies }: { companies: CompanyView[] }) {
           </div>
         );
       })}
+      {RESILIENCE_CRITERIA_IDS.map(id => (
+        <Fragment key={id}>
+          <div className="cmp-label">
+            <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--ink-2)', lineHeight: 1.3, paddingLeft: 4 }}>{t(`analyse.resilienceCriteria.${id}.label`)}</span>
+          </div>
+          {companies.map(c => {
+            const crit = isLive(c) ? (c.resilienceCriteria?.find(x => x.id === id) ?? null) : null;
+            return (
+              <div className="cmp-cellw" key={c.ticker}>
+                <div className="cmp-cell">
+                  {crit && crit.score != null
+                    ? <span className="num" style={{ fontSize: 15, fontWeight: 700, color: critScoreColor(crit.score, crit.maxScore) }}>{crit.score}/{crit.maxScore}</span>
+                    : <span className="num muted">—</span>}
+                </div>
+              </div>
+            );
+          })}
+        </Fragment>
+      ))}
     </>
   );
 }

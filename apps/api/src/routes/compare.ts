@@ -18,7 +18,7 @@ const MAX_COMPARE_TICKERS = 5;
 import { parseLang, type Lang } from '../i18n/index.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { getServableSnapshot } from '../services/quantCache.js';
-import { getPublishedResilienceSummaries } from '../services/resilienceSummary.js';
+import { getPublishedResilienceBreakdowns } from '../services/resilienceSummary.js';
 import { buildQuantitativeCriteria, buildPfcfCriterion, buildValuation } from '../services/derivedMetrics.js';
 import { getPfcfHistory, pfcfPercentile as computePfcfPercentile } from '../services/pfcfHistory.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
@@ -155,9 +155,13 @@ compareRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const lang = parseLang(req.headers['accept-language']);
   const results = await Promise.all(parsed.map(t => buildCompareTicker(t, lang).catch(() => null)));
   const tickers = results.filter((x): x is CompareTicker => x != null);
-  // Résilience publiée (batch) → badge par colonne. Absente = null (masqué UI).
-  const resiliences = await getPublishedResilienceSummaries(tickers.map(t => t.ticker));
-  for (const t of tickers) t.resilience = resiliences.get(t.ticker) ?? null;
+  // Résilience publiée (batch) → grade global + ventilation par critère. Absente = null (masqué UI).
+  const resiliences = await getPublishedResilienceBreakdowns(tickers.map(t => t.ticker));
+  for (const t of tickers) {
+    const r = resiliences.get(t.ticker);
+    t.resilience = r ? { grade: r.grade, score: r.score } : null;
+    t.resilienceCriteria = r ? r.criteria : null;
+  }
   // Définitions de lignes (label + cible localisés) — constantes par langue (les libellés ne
   // dépendent pas des valeurs), donc construites à partir de métriques nulles.
   const NULL_METRICS = {} as unknown as DerivedMetrics;

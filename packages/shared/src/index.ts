@@ -93,6 +93,13 @@ export interface ResilienceSummary {
   score: number;
 }
 
+/** Score d'un critère de résilience, pour la ventilation détaillée (comparateur). */
+export interface ResilienceCriterionScore {
+  id: ResilienceCriterionId;
+  score: number | null;
+  maxScore: number;
+}
+
 export type CriteriaCategory = 'chiffres' | 'business' | 'management' | 'valorisation';
 
 /** Un pair coté du secteur avec son P/FCF (pour le détail concurrentiel). */
@@ -423,6 +430,8 @@ export interface CompareTicker {
   buyPrice: number | null;
   /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
   resilience?: ResilienceSummary | null;
+  /** Ventilation par critère (6 lignes) pour la section Résilience. Null/absent si non scoré. */
+  resilienceCriteria?: ResilienceCriterionScore[] | null;
 }
 
 /** Définition (localisée) d'un critère pour les libellés de lignes de la comparaison. */
