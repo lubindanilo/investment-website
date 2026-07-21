@@ -485,7 +485,7 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
   }
   const majorityReplacementDerivedFromWorkflowMechanics =
     customerOwnedWorkflowMechanicsQualified &&
-    workflowReplacement?.majorityCustomReplacementEconomicallyPlausibleBy2033 !== true &&
+    workflowReplacement?.majorityCustomReplacementEconomicallyPlausibleBy2033 === null &&
     workflowReplacement.migrationComplexityPrimaryBarrier === true;
   const customerOwnedWorkflowReplacementQualified =
     customerOwnedWorkflowMechanicsQualified &&
@@ -515,6 +515,9 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
     futureValueCapture.audit.roleArchetype === 'proprietary_stack_operator' &&
     futureValueCapture.audit.agentsNeedControlledAccess === false &&
     futureValueCapture.audit.aiPriceCommoditization === true &&
+    (futureValueCapture.audit.aiPriceCommoditizationCoversMajorityCore === true ||
+      futureValueCapture.audit.credibleMajorityBypass === true ||
+      proprietarySecurityEnforcementCandidate) &&
     !durableDigitalControlPlane &&
     !chinaResponseControlsOutcome;
   if (digitalStackBenefitNotControlled) {
@@ -555,6 +558,11 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
       futureControl.score,
       marketplaceDurabilityOverride,
     );
+  }
+  if (futureControl.score < 2 && futureValueCapture.score === 2 &&
+      !proprietarySecurityEnforcementCandidate) {
+    futureValueCapture.score = 1;
+    futureValueCapture.audit.captureLimitedByNarrowControl = true;
   }
   const results: FutureCriterionResult[] = [
     futureControl,

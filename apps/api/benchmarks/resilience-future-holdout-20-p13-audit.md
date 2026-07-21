@@ -10,14 +10,13 @@ Date : 2026-07-21
   `future_value_capture` et `transition_capacity` pour Medpace.
 - Toutes les autres cartes sont conservees puis rejouees par le scorer deterministe
   `2.9.1-pilot.13`.
-- Qualys D et Intuitive Surgical A sont approuves par Lubin. La bande C de Medpace reste
-  provisoire jusqu'a validation explicite du resultat C57.
+- Qualys D, Intuitive Surgical A et Medpace C sont approuves par Lubin.
 
 ## Resultat
 
 - `20/20` bandes, contre `12/20` avant les arbitrages utilisateur de `pilot.12`.
 - Intuitive Surgical : A86, vecteur `3/2/1/2/2/1`, attendu A approuve.
-- Medpace : C57, vecteur `1/2/1/2/1/1`, attendu C provisoire.
+- Medpace : C57, vecteur `1/2/1/2/1/1`, attendu C approuve.
 - Qualys : D42, vecteur `0/1/1/2/1/1`, attendu D approuve.
 - Aucun des 17 cas deja alignes ne sort de sa bande au replay.
 
@@ -38,7 +37,7 @@ plausible partage avec les concurrents.
 ## Conclusion
 
 `pilot.13` ferme le dernier ecart de bande du holdout sans override par ticker et sans
-regression. Ce resultat valide la coherence de la cohorte de calibration, pas encore la
-generalisation. Apres validation utilisateur de Medpace C57, l'etape suivante est de lancer
-trois repetitions avec le meme modele et les memes dossiers, puis d'elargir au benchmark
-strict de 50 entreprises. Le cron reste desactive.
+regression. Les 20 bandes sont approuvees. Ce resultat valide la coherence de la cohorte de
+calibration, pas encore la generalisation. L'etape suivante est la validation ciblee du
+contrat macro `pilot.14`, puis trois repetitions avec le meme modele et les memes dossiers,
+avant l'elargissement au benchmark strict de 50 entreprises. Le cron reste desactive.

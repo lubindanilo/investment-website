@@ -142,6 +142,11 @@ et la commoditisation sont testes separement.
 - `1` : role paye encore plausible, mais controle rare ou pouvoir tarifaire non etabli.
 - `2` : role majoritaire, controle durable et mecanisme de paiement persistant.
 
+Un controle futur inferieur a `2/3` plafonne la capture a `1/2` : un role paye peut
+persister sans pouvoir de capture durable. L'exception est un plan proprietaire
+d'enforcement de securite qui controle encore une execution critique majoritaire sans
+bypass credible, deja audite separement du moat.
+
 Une voie technique et economique credible de contournement de plus de 50% interdit `2/2`,
 y compris pour un fabricant physique. Une marketplace ne peut echapper a cette regle que
 si sa checklist detaillee demontre qu'aucune alternative ne peut reproduire sa couverture,
@@ -366,18 +371,27 @@ des services reglementes : une plateforme qui assiste une execution clinique, ph
 reglementaire ne transforme pas cette activite en workflow vibe-codable. La regle est en
 validation ciblee sur Medpace, dernier cas ouvert.
 
-La validation ciblee place Intuitive Surgical a A86, Qualys a D42 et Medpace a C57. Le
-holdout atteint ainsi `20/20` bandes, dont 19 attentes approuvees et la bande C de Medpace
-encore provisoire jusqu'a validation explicite de Lubin. Pour Medpace, les switching costs
+La validation ciblee place Intuitive Surgical a A86, Qualys a D42 et Medpace a C57. Lubin
+valide ensuite explicitement Medpace C57 : le holdout atteint ainsi `20/20` bandes toutes
+approuvees. Pour Medpace, les switching costs
 de transfert et de revalidation d'un essai actif etablissent un controle reglemente etroit,
 pas un moat large : les CRO concurrentes peuvent gagner de nouveaux mandats et aucun
 paiement de rente durable n'est encore demontre. L'efficacite IA reste un potentiel de
 transition, sans bonus tant que son effet n'est ni specifique ni mesure.
 
 `pilot.14` rend ensuite obligatoire l'analyse des effets macro de premier et de second ordre
-de l'IA. Il ne modifie ni les poids ni le scorer de `pilot.13`; le `20/20` reste donc la
-baseline deterministe archivee, pas une validation du nouveau contrat d'adjudication. Une
-validation fraiche et limitee de ce contrat doit preceder les trois runs de stabilite.
+de l'IA. Sa validation fraiche sur dix entreprises atteint `9/10`, sans erreur apres reprise
+ciblee d'une reponse non JSON. Medpace C57, NVIDIA B79, Constellation A86, Qualys D42, Uber
+C57, Booking B73, Adobe C59, Salesforce D49 et Boeing B76 rejoignent leur bande. Novo Nordisk
+C51 reste le seul ecart face a l'attente B.
+
+L'audit a corrige trois incoherences universelles du scorer : un `false` explicite interdit
+desormais de deriver un remplacement de workflow majoritaire ; une pression tarifaire
+minoritaire ne detruit plus le controle d'une stack comme NVIDIA ; et une capture `2/2`
+exige un controle futur d'au moins `2/3`, sauf plan proprietaire d'enforcement de securite.
+Le replay des 20 ancres reste `20/20`, notamment Palo Alto B72. Novo n'est pas force dans sa
+bande : son dossier montre que 74% des ventes 2025 reposent sur des produits dont les brevets
+publies expirent avant 2033, sans rente post-semaglutide couvrant le coeur deja prouvee.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis

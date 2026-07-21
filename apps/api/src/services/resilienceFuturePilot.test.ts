@@ -130,7 +130,10 @@ describe('scoreFutureResilience', () => {
       scarcitySurvivesAiChina: false,
       replicableWithinFiveYears: true,
     });
-    expect(scoreFutureResilience(input).criteria[0]!.score).toBe(1);
+    const narrowControl = scoreFutureResilience(input);
+    expect(narrowControl.criteria[0]!.score).toBe(1);
+    expect(narrowControl.criteria[4]!.score).toBe(1);
+    expect(narrowControl.criteria[4]!.audit.captureLimitedByNarrowControl).toBe(true);
 
     Object.assign(input.criteria.future_control, { majorityCoreCoverage: false });
     expect(scoreFutureResilience(input).criteria[0]!.score).toBe(0);
@@ -274,7 +277,7 @@ describe('scoreFutureResilience', () => {
     expect(physicalOperator.finalScore).toBeGreaterThan(29);
   });
 
-  it('ne cumule pas controle exceptionnel et benefice IA pour une stack numerique commoditisee', () => {
+  it('ne penalise une stack numerique que si la commoditisation couvre le coeur', () => {
     const input = fixture();
     Object.assign(input.criteria.future_control, {
       systemBottleneck: false,
@@ -285,9 +288,14 @@ describe('scoreFutureResilience', () => {
       agentsNeedControlledAccess: false,
       aiPriceCommoditization: true,
     });
-    const result = scoreFutureResilience(input);
-    expect(result.criteria[0]!.score).toBe(1);
-    expect(result.criteria[1]!.score).toBe(2);
+    const minorityPricePressure = scoreFutureResilience(input);
+    expect(minorityPricePressure.criteria[0]!.score).toBe(3);
+    expect(minorityPricePressure.criteria[1]!.score).toBe(3);
+
+    input.criteria.future_value_capture.aiPriceCommoditizationCoversMajorityCore = true;
+    const majorityCommoditization = scoreFutureResilience(input);
+    expect(majorityCommoditization.criteria[0]!.score).toBe(1);
+    expect(majorityCommoditization.criteria[1]!.score).toBe(2);
 
     const china = input.criteria.disruption_positioning.forces[2]!;
     Object.assign(china, { responseControlsOutcome: true });
@@ -366,9 +374,10 @@ describe('scoreFutureResilience', () => {
 
     workflowReplacement.majorityCustomReplacementEconomicallyPlausibleBy2033 = false;
     const explicitlyRefuted = scoreFutureResilience(input);
-    expect(explicitlyRefuted.criteria[0]!.score).toBe(1);
-    expect(explicitlyRefuted.criteria[1]!.score).toBe(1);
-    expect(explicitlyRefuted.finalScore).toBe(49);
+    expect(explicitlyRefuted.criteria[0]!.score).toBe(2);
+    expect(explicitlyRefuted.criteria[1]!.score).toBe(3);
+    expect(explicitlyRefuted.criteria[4]!.score).toBe(2);
+    expect(explicitlyRefuted.gates).not.toContain('customer_owned_workflow_replacement');
   });
 
   it('preserve un systeme qui controle une execution reglementee ou irreversible', () => {
@@ -396,10 +405,17 @@ describe('scoreFutureResilience', () => {
 
   it('ne confond pas une stack proprietaire d enforcement securite avec un workflow client', () => {
     const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      systemBottleneck: false,
+      multipleIndependentControls: true,
+    });
     Object.assign(input.criteria.future_value_capture, {
       roleArchetype: 'proprietary_stack_operator',
+      agentsNeedControlledAccess: false,
       companySpecificControl: true,
       credibleMajorityBypass: false,
+      aiPriceCommoditization: true,
+      aiPriceCommoditizationCoversMajorityCore: false,
       workflowReplacement: {
         applies: true,
         customerOwnsCoreState: true,
@@ -413,6 +429,8 @@ describe('scoreFutureResilience', () => {
     });
     const result = scoreFutureResilience(input);
     expect(result.gates).not.toContain('customer_owned_workflow_replacement');
+    expect(result.criteria[0]!.score).toBe(1);
+    expect(result.criteria[4]!.score).toBe(2);
     expect(result.criteria[4]!.audit.proprietarySecurityEnforcementCandidate).toBe(true);
   });
 
@@ -584,7 +602,7 @@ describe('scoreFutureResilience', () => {
     expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(false);
   });
 
-  it('plafonne a C un role futur interchangeable', () => {
+  it('note C un role paye futur sans controle durable', () => {
     const input = fixture();
     Object.assign(input.criteria.future_control, {
       controlType: 'none', controlStillNeeded: false, companySpecific: false,
@@ -592,8 +610,10 @@ describe('scoreFutureResilience', () => {
       replicableWithinFiveYears: true, futureRentPaid: false,
     });
     const result = scoreFutureResilience(input);
-    expect(result.finalScore).toBe(69);
-    expect(result.gates).toContain('interchangeable_future_role');
+    expect(result.criteria[4]!.score).toBe(1);
+    expect(result.criteria[4]!.audit.captureLimitedByNarrowControl).toBe(true);
+    expect(result.finalScore).toBe(63);
+    expect(result.grade).toBe('C');
   });
 
   it('penalise uniquement une rupture avec voie majoritaire technique et economique', () => {
