@@ -74,7 +74,7 @@
     "pfcfSub": "Computed: price × shares ÷ FCF (TTM)",
     "pfcfAnnualOnlyTag": "4 annual years (max available for this ticker)",
     "pfcfNoData": "Not enough history to compute P/FCF over this period.",
-    "pfcfNegativeFcf": "Shaded area: negative FCF over that span, P/FCF not computable.",
+    "pfcfNegativeFcf": "Shaded area: negative or too-weak FCF, P/FCF not meaningful.",
     "insufficientHistory": "Not enough history to plot a reliable trend.",
     "pfcfVerdictBelow": "The latest multiple ({{latest}}×) is below the historical median ({{median}}×), attractive relative valuation.",
     "pfcfVerdictAbove": "The latest multiple ({{latest}}×) is above the historical median ({{median}}×), stretched vs its own past.",
