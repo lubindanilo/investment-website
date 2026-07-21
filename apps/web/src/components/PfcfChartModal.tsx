@@ -97,10 +97,15 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
   // Sinon 5Y/10Y/All rendent à l'identique quand l'historique est court (ex SHOP, données depuis
   // 2022 seulement). « All » s'ajuste aux données. Le point le plus récent ancre la droite (~auj).
   const xDomain = useMemo<[number | string, number | string]>(() => {
-    if (period === 'All' || chartData.length === 0) return ['dataMin', 'dataMax'];
+    if (chartData.length === 0) return ['dataMin', 'dataMax'];
     const end = chartData[chartData.length - 1]!.ts;
-    const start = end - PERIOD_YEARS[period] * 365.25 * 24 * 3600 * 1000;
-    return [start, end];
+    const dataStart = chartData[0]!.ts; // trié asc — plus ancien contenu (points + bornes de zones)
+    if (period === 'All') return [dataStart, end];
+    // On cadre sur les DONNÉES : jamais d'espace vide avant le 1er point/zone. Une période plus
+    // longue que l'historique se cale donc sur le même début (ex SHOP : 5Y=10Y=20Y=All). Ainsi
+    // « All » n'est jamais plus resserré que 20Y (paradoxe corrigé) et 1Y reste distinct.
+    const windowStart = end - PERIOD_YEARS[period] * 365.25 * 24 * 3600 * 1000;
+    return [Math.max(windowStart, dataStart), end];
   }, [period, chartData]);
 
   // Zone « pas de données » : partie de la fenêtre ANTÉRIEURE au plus ancien contenu (1er point
