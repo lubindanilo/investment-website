@@ -84,6 +84,23 @@ function setLink(rel: string, href: string): HTMLLinkElement {
   return el;
 }
 
+// Utilitaire : récupère ou crée un <link rel="alternate" hreflang="..."> et fixe son href.
+// Distinct de setLink : plusieurs <link rel="alternate"> coexistent (un par langue), on les
+// identifie donc par le couple (rel=alternate, hreflang).
+function setAlternate(hreflang: string, href: string): HTMLLinkElement {
+  let el = document.head.querySelector<HTMLLinkElement>(
+    `link[rel="alternate"][hreflang="${hreflang}"]`,
+  );
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', 'alternate');
+    el.setAttribute('hreflang', hreflang);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+  return el;
+}
+
 /**
  * <SeoHead /> — met à jour le head du document pour la page courante.
  * Les balises sont restaurées à leur état précédent au démontage du composant.
@@ -118,7 +135,13 @@ export default function SeoHead({
     const path =
       pathname ??
       (typeof window !== 'undefined' ? window.location.pathname : '/');
-    const canonicalUrl = toAbsoluteUrl(path);
+    // Base SANS query : les variantes de langue sont signalées via ?lng= (comme le prérendu
+    // bot). fr = URL nue, en/es = ?lng=. Aligné sur seoPrerender.ts pour que la version SPA
+    // ne déclare pas une canonical/hreflang incohérente avec le HTML pré-rendu servi aux bots.
+    const lng = (lang || 'fr').toLowerCase().split('-')[0];
+    const canonicalBase = toAbsoluteUrl(path.split('?')[0] ?? path);
+    const langSuffix = lng === 'en' ? '?lng=en' : lng === 'es' ? '?lng=es' : '';
+    const canonicalUrl = `${canonicalBase}${langSuffix}`;
     const imageUrl = toAbsoluteUrl(image || DEFAULT_OG_IMAGE);
 
     // <title> et attribut lang du <html>
@@ -145,8 +168,16 @@ export default function SeoHead({
     setMeta('name', 'twitter:description', description);
     setMeta('name', 'twitter:image', imageUrl);
 
-    // URL canonique
+    // URL canonique (auto-référencée par langue, avec le suffixe ?lng=)
     setLink('canonical', canonicalUrl);
+
+    // hreflang fr/en/es + x-default (aligné sur le prérendu bot). Le SPA ne les émettait pas :
+    // si Google rendait le JS, il voyait en/es sans alternates et avec une canonical pointant
+    // vers l'URL fr → risque de traiter en/es comme des doublons non indexés.
+    setAlternate('fr', canonicalBase);
+    setAlternate('en', `${canonicalBase}?lng=en`);
+    setAlternate('es', `${canonicalBase}?lng=es`);
+    setAlternate('x-default', canonicalBase);
 
     // Indexation (robots)
     setMeta('name', 'robots', noindex ? 'noindex,follow' : 'index,follow');
