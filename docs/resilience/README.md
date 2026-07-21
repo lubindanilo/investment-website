@@ -402,6 +402,21 @@ Les 20 ancres approuvees sont rejouees par le scorer `pilot.14` puis persistees 
 `scored`, sans ticker manquant ; les adjudications macro fraiches remplacent les anciennes
 sur les titres concernes avant le replay.
 
+Le benchmark strict de 50 est ensuite fige avant generation dans le commit `583a23a`, avec
+10 cohortes, 33 attentes approuvees et 17 provisoires. Les 20 ancres sont prechargees et 30
+adjudications nouvelles sont executees sur les dossiers `2.8.13` figes. Apres une reprise
+isolee de Chegg, les 50 sorties sont persistees et datees : `30/50` sont dans leur bande,
+dont `26/33` attentes approuvees. Broadcom et Costco presentent chacun un ecart de deux
+grades. L'audit complet est dans
+`apps/api/benchmarks/resilience-future-strict-50-p14-audit.md`.
+
+Le premier defaut structurel confirme concerne le scope du gate workflow : Broadcom est
+plafonne par la reconstruisibilite de VMware alors que la meme adjudication lui attribue un
+role physique majoritaire, paye et sans bypass credible. Les autres priorites sont la
+stabilite du test de transition sur NVIDIA, Adobe et Novo, celle des preuves marketplace sur
+Uber, puis le cap de dependance de TSM. Les attentes provisoires et les cas Tesla, Costco et
+Caterpillar doivent etre arbitres avant toute modification de poids.
+
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
 si trois runs du meme modele sur les memes dossiers produisent moins de 5% de sous-tests
