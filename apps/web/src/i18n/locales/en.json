@@ -544,6 +544,7 @@
     "managementCtaText": "Assess capital allocation, governance, alignment and the leadership team's ability to execute.",
     "resiliencePending": "This company has not yet been covered by the Resilience watch. No points are deducted while data is pending.",
     "resilienceDetails": "Understand this score",
+    "resilienceTechnicalToggle": "Technical detail",
     "resilienceReason": "Why this score",
     "resilienceScoreReading": "Factual context",
     "resilienceDecisionFactors": "Decisive factors",

@@ -1002,6 +1002,7 @@ function criterionScoreExplanation(criterion: ResilienceCriterion, t: TFunction)
 function CriterionDetails({ criterion, lang }: { criterion: ResilienceCriterion; lang: ResilienceLang }) {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
+  const [showTechnical, setShowTechnical] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
@@ -1094,29 +1095,11 @@ function CriterionDetails({ criterion, lang }: { criterion: ResilienceCriterion;
             <span className="num">{criterion.score == null ? t('analyse.resilienceUnknown') : `${criterion.score}/${criterion.maxScore}`}</span>
           </div>
 
-          <span className="anl-resilience-detail-label">{t('analyse.resilienceReason')}</span>
-          <p>{criterion.summary[lang]}</p>
-
           <span className="anl-resilience-detail-label">{t('analyse.resilienceScoreReading')}</span>
           <p className="anl-resilience-score-explanation">{scoreExplanation}</p>
 
-          <span className="anl-resilience-detail-label">{t('analyse.resilienceDecisionFactors')}</span>
-          {auditRows.length > 0 ? (
-            <div className="anl-resilience-audit">
-              {auditRows.map((row, index) => (
-                <div className="anl-resilience-audit-row" key={`${row.label}-${index}`}>
-                  <span>{row.label}</span>
-                  <strong className={`tone-${row.tone}`}>{row.value}</strong>
-                </div>
-              ))}
-            </div>
-          ) : <p className="anl-resilience-empty">{t('analyse.resilienceNoDecisionFactor')}</p>}
-
-          <span className="anl-resilience-detail-label">{t('analyse.resilienceMeasure')}</span>
-          <p>{t(`analyse.resilienceCriteria.${criterion.id}.measure`)}</p>
-
-          <span className="anl-resilience-detail-label">{t('analyse.resilienceScoringRule')}</span>
-          <p>{t(`analyse.resilienceCriteria.${criterion.id}.scoreRule`)}</p>
+          <span className="anl-resilience-detail-label">{t('analyse.resilienceReason')}</span>
+          <p>{criterion.summary[lang]}</p>
 
           <span className="anl-resilience-detail-label">{t('analyse.resilienceWatchpoints')}</span>
           {criterion.watchpoints.map((watchpoint, index) => <p key={index}>{watchpoint[lang]}</p>)}
@@ -1134,6 +1117,37 @@ function CriterionDetails({ criterion, lang }: { criterion: ResilienceCriterion;
               ))}
             </div>
           ) : <p className="anl-resilience-empty">{t('analyse.resilienceNoEvidence')}</p>}
+
+          <button
+            type="button"
+            className={`anl-resilience-tech-toggle${showTechnical ? ' is-open' : ''}`}
+            aria-expanded={showTechnical}
+            onClick={() => setShowTechnical(value => !value)}
+          >
+            <Icon name="chevronR" size={13} />
+            {t('analyse.resilienceTechnicalToggle')}
+          </button>
+          {showTechnical && (
+            <div className="anl-resilience-tech">
+              <span className="anl-resilience-detail-label">{t('analyse.resilienceDecisionFactors')}</span>
+              {auditRows.length > 0 ? (
+                <div className="anl-resilience-audit">
+                  {auditRows.map((row, index) => (
+                    <div className="anl-resilience-audit-row" key={`${row.label}-${index}`}>
+                      <span>{row.label}</span>
+                      <strong className={`tone-${row.tone}`}>{row.value}</strong>
+                    </div>
+                  ))}
+                </div>
+              ) : <p className="anl-resilience-empty">{t('analyse.resilienceNoDecisionFactor')}</p>}
+
+              <span className="anl-resilience-detail-label">{t('analyse.resilienceMeasure')}</span>
+              <p>{t(`analyse.resilienceCriteria.${criterion.id}.measure`)}</p>
+
+              <span className="anl-resilience-detail-label">{t('analyse.resilienceScoringRule')}</span>
+              <p>{t(`analyse.resilienceCriteria.${criterion.id}.scoreRule`)}</p>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -1160,6 +1174,7 @@ export function ResilienceGrid({ analysis }: { analysis: ResilienceAnalysis | nu
         const criterion = byId.get(id);
         if (!criterion) return [];
         const tone = criterionTone(criterion);
+        const cardText = auditLocalizedText(criterion.audit.researchSummary, lang) ?? criterion.summary[lang];
         return [
           <article className={`anl-resilience-card tone-${tone}`} key={id}>
             <div className="anl-resilience-card-head">
@@ -1169,7 +1184,7 @@ export function ResilienceGrid({ analysis }: { analysis: ResilienceAnalysis | nu
               </span>
             </div>
             <span className="anl-resilience-level">{t(`analyse.resilienceLevels.${tone}`)}</span>
-            <p>{criterion.summary[lang]}</p>
+            <p className="anl-resilience-card-body">{cardText}</p>
             <div className="anl-resilience-card-foot">
               <CriterionDetails criterion={criterion} lang={lang} />
             </div>

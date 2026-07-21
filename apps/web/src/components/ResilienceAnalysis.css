@@ -165,6 +165,13 @@
   line-height: 1.5;
 }
 
+.anl-resilience-card-body {
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .tone-strong .anl-resilience-score { color: var(--good-ink); background: var(--good-bg); }
 .tone-strong .anl-resilience-level { color: var(--good-ink); }
 .tone-solid .anl-resilience-score { color: var(--brand-ink); background: var(--brand-soft); }
@@ -312,6 +319,42 @@
 .anl-resilience-links svg {
   flex: 0 0 auto;
   margin-top: 3px;
+}
+
+.anl-resilience-tech-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 9px 10px;
+  border: 1px solid color-mix(in oklch, white 16%, transparent);
+  border-radius: 7px;
+  background: color-mix(in oklch, white 6%, transparent);
+  color: color-mix(in oklch, white 82%, var(--ink));
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.anl-resilience-tech-toggle:hover {
+  background: color-mix(in oklch, white 12%, transparent);
+  color: white;
+}
+
+.anl-resilience-tech-toggle svg {
+  flex: 0 0 auto;
+  transition: transform 0.15s ease;
+}
+
+.anl-resilience-tech-toggle.is-open svg {
+  transform: rotate(90deg);
+}
+
+.anl-resilience-tech {
+  margin-top: 6px;
 }
 
 .anl-resilience-pending {

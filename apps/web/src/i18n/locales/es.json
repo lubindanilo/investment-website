@@ -544,6 +544,7 @@
     "managementCtaText": "Evalúa la asignación de capital, el gobierno, la alineación y la capacidad de ejecución del equipo directivo.",
     "resiliencePending": "Esta empresa aún no ha sido cubierta por la vigilancia de Resiliencia. No se resta ningún punto mientras falten datos.",
     "resilienceDetails": "Entender esta nota",
+    "resilienceTechnicalToggle": "Detalle técnico",
     "resilienceReason": "Por qué esta nota",
     "resilienceScoreReading": "Contexto factual",
     "resilienceDecisionFactors": "Factores decisivos",
