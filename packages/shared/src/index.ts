@@ -421,6 +421,8 @@ export interface CompareTicker {
   cells: Record<string, CompareCell>;
   /** Prix d'achat conseillé (DCF) — pour la ligne Valorisation. */
   buyPrice: number | null;
+  /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
+  resilience?: ResilienceSummary | null;
 }
 
 /** Définition (localisée) d'un critère pour les libellés de lignes de la comparaison. */

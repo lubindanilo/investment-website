@@ -11,6 +11,7 @@ import type { CompareResponse, CompareTicker, CompareCriterionDef, DataStatus } 
 import { MAX_COMPARE_TICKERS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScoreCircle, scoreColor, StatusBadge, InfoPop } from '../components/ui/primitives.js';
+import { ResilienceBadge } from '../components/ResilienceBadge.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import { formatPrice } from '../lib/format.js';
 import SeoHead from '../components/SeoHead.js';
@@ -340,6 +341,7 @@ function TitleHeaderCard({ company, onRemove, removable }: { company: CompanyVie
           {company.dayChangePct != null && (
             <span className="num tiny" style={{ color: up ? 'var(--good)' : 'var(--bad)', fontWeight: 600 }}>{up ? '+' : ''}{company.dayChangePct.toFixed(1)} %</span>
           )}
+          {company.resilience && <ResilienceBadge summary={company.resilience} showScore size="sm" />}
         </div>
       </div>
     </div>
