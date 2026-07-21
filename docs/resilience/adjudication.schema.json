@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lubin-investment.local/schemas/resilience-2033-adjudication.json",
+  "$comment": "methodologyVersion: 2.9.1-pilot.11",
+  "title": "Lubin Investment Resilience 2033 Adjudication",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scenarioYear", "criteria"],
+  "properties": {
+    "scenarioYear": { "const": 2033 },
+    "criteria": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "future_control",
+        "disruption_positioning",
+        "future_dependencies",
+        "structural_demand",
+        "future_value_capture",
+        "transition_capacity"
+      ],
+      "properties": {
+        "future_control": { "$ref": "#/$defs/futureControl" },
+        "disruption_positioning": { "$ref": "#/$defs/disruption" },
+        "future_dependencies": { "$ref": "#/$defs/dependencies" },
+        "structural_demand": { "$ref": "#/$defs/demand" },
+        "future_value_capture": { "$ref": "#/$defs/valueCapture" },
+        "transition_capacity": { "$ref": "#/$defs/transition" }
+      }
+    }
+  },
+  "$defs": {
+    "triState": { "type": ["boolean", "null"] },
+    "confidence": { "enum": ["high", "medium", "low"] },
+    "common": {
+      "type": "object",
+      "required": ["reason", "adverseCase", "decisiveTrigger", "confidence"],
+      "properties": {
+        "reason": { "type": "string", "minLength": 1 },
+        "adverseCase": { "type": "string", "minLength": 1 },
+        "decisiveTrigger": { "type": "string", "minLength": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" }
+      }
+    },
+    "futureControl": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "controlType", "controlStillNeeded", "companySpecific", "majorityCoreCoverage",
+            "scarcitySurvivesAiChina", "replicableWithinFiveYears", "futureRentPaid",
+            "systemBottleneck", "multipleIndependentControls"
+          ],
+          "properties": {
+            "reason": true,
+            "adverseCase": true,
+            "decisiveTrigger": true,
+            "confidence": true,
+            "controlType": {
+              "enum": [
+                "scarce_asset", "regulated_right", "trusted_brand", "network_liquidity",
+                "proprietary_stack_or_ip", "cost_supply_chain", "installed_base", "none"
+              ]
+            },
+            "controlStillNeeded": { "$ref": "#/$defs/triState" },
+            "companySpecific": { "$ref": "#/$defs/triState" },
+            "majorityCoreCoverage": { "$ref": "#/$defs/triState" },
+            "scarcitySurvivesAiChina": { "$ref": "#/$defs/triState" },
+            "replicableWithinFiveYears": { "$ref": "#/$defs/triState" },
+            "futureRentPaid": { "$ref": "#/$defs/triState" },
+            "systemBottleneck": { "$ref": "#/$defs/triState" },
+            "multipleIndependentControls": { "$ref": "#/$defs/triState" },
+            "rightsVisibilityThroughScenario": { "$ref": "#/$defs/triState" }
+          }
+        }
+      ]
+    },
+    "force": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "force", "majorityCoreThreatPath", "technicalAndEconomicPath",
+        "materialDirectBenefit", "responseControlsOutcome"
+      ],
+      "properties": {
+        "force": { "enum": ["ai_agents", "automation_robotics", "china_engineering"] },
+        "majorityCoreThreatPath": { "$ref": "#/$defs/triState" },
+        "technicalAndEconomicPath": { "$ref": "#/$defs/triState" },
+        "materialDirectBenefit": { "$ref": "#/$defs/triState" },
+        "responseControlsOutcome": { "$ref": "#/$defs/triState" }
+      }
+    },
+    "disruption": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["forces"],
+          "properties": {
+            "reason": true,
+            "adverseCase": true,
+            "decisiveTrigger": true,
+            "confidence": true,
+            "forces": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": { "$ref": "#/$defs/force" }
+            }
+          }
+        }
+      ]
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "material", "continuityImpact", "mitigation"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "material": { "$ref": "#/$defs/triState" },
+        "continuityImpact": {
+          "enum": ["existential", "material_impairment", "non_core", "unproven"]
+        },
+        "mitigation": { "enum": ["strong", "medium", "none", "unproven"] }
+      }
+    },
+    "dependencies": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["coverageComplete", "clusters"],
+          "properties": {
+            "reason": true,
+            "adverseCase": true,
+            "decisiveTrigger": true,
+            "confidence": true,
+            "coverageComplete": { "$ref": "#/$defs/triState" },
+            "clusters": { "type": "array", "items": { "$ref": "#/$defs/dependency" } }
+          }
+        }
+      ]
+    },
+    "demand": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["futureCategoryTrend", "causalDirectness", "coreExposure"],
+          "properties": {
+            "reason": true,
+            "adverseCase": true,
+            "decisiveTrigger": true,
+            "confidence": true,
+            "futureCategoryTrend": { "enum": ["rising", "stable", "declining", "unproven"] },
+            "causalDirectness": { "enum": ["direct", "enabling", "indirect", "none", "unproven"] },
+            "coreExposure": { "enum": ["majority", "material_minority", "limited", "unproven"] }
+          }
+        }
+      ]
+    },
+    "marketplaceMechanics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "applies", "fragmentedCounterparties", "companyOperatesMatchingAndExecution",
+        "agentsRequireComparableCoverageOrLiquidity", "scaledAlternativeCanBypassMajorityBy2033"
+      ],
+      "properties": {
+        "applies": { "$ref": "#/$defs/triState" },
+        "fragmentedCounterparties": { "$ref": "#/$defs/triState" },
+        "companyOperatesMatchingAndExecution": { "$ref": "#/$defs/triState" },
+        "agentsRequireComparableCoverageOrLiquidity": { "$ref": "#/$defs/triState" },
+        "scaledAlternativeCanBypassMajorityBy2033": { "$ref": "#/$defs/triState" }
+      }
+    },
+    "workflowReplacement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "applies", "customerOwnsCoreState", "workflowRebuildableByAgents",
+        "vendorControlsRegulatedOrIrreversibleExecution",
+        "vendorExecutionType", "vendorExecutionCoversMajorityCore",
+        "majorityCustomReplacementEconomicallyPlausibleBy2033",
+        "migrationComplexityPrimaryBarrier"
+      ],
+      "properties": {
+        "applies": { "$ref": "#/$defs/triState" },
+        "customerOwnsCoreState": { "$ref": "#/$defs/triState" },
+        "workflowRebuildableByAgents": { "$ref": "#/$defs/triState" },
+        "vendorControlsRegulatedOrIrreversibleExecution": { "$ref": "#/$defs/triState" },
+        "vendorExecutionType": {
+          "enum": [
+            "none", "regulated_ledger_or_mandate", "money_movement", "security_enforcement",
+            "compute_identity_control_plane", "physical_or_transaction_execution", "unproven"
+          ]
+        },
+        "vendorExecutionCoversMajorityCore": { "$ref": "#/$defs/triState" },
+        "majorityCustomReplacementEconomicallyPlausibleBy2033": { "$ref": "#/$defs/triState" },
+        "migrationComplexityPrimaryBarrier": { "$ref": "#/$defs/triState" }
+      }
+    },
+    "valueCapture": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "marketplaceMechanics", "workflowReplacement", "roleArchetype", "agentsNeedControlledAccess",
+            "credibleMajorityBypass", "finalNeedPersists", "paidCompanyRolePersists",
+            "roleCoversMajorityCore", "majorityAbsorptionWithinSevenYears",
+            "companySpecificControl", "paymentMechanismPersists", "aiPriceCommoditization",
+            "aiPriceCommoditizationCoversMajorityCore"
+          ],
+          "properties": {
+            "reason": true,
+            "adverseCase": true,
+            "decisiveTrigger": true,
+            "confidence": true,
+            "marketplaceMechanics": { "$ref": "#/$defs/marketplaceMechanics" },
+            "workflowReplacement": { "$ref": "#/$defs/workflowReplacement" },
+            "roleArchetype": {
+              "enum": [
+                "weak_digital_interface", "authoritative_system",
+                "controlled_marketplace_liquidity", "transaction_or_asset_operator",
+                "physical_product_operator", "regulated_operator",
+                "proprietary_stack_operator", "brand_product_operator", "other", "unproven"
+              ]
+            },
+            "agentsNeedControlledAccess": { "$ref": "#/$defs/triState" },
+            "credibleMajorityBypass": { "$ref": "#/$defs/triState" },
+            "finalNeedPersists": { "$ref": "#/$defs/triState" },
+            "paidCompanyRolePersists": { "$ref": "#/$defs/triState" },
+            "roleCoversMajorityCore": { "$ref": "#/$defs/triState" },
+            "majorityAbsorptionWithinSevenYears": { "$ref": "#/$defs/triState" },
+            "companySpecificControl": { "$ref": "#/$defs/triState" },
+            "paymentMechanismPersists": { "$ref": "#/$defs/triState" },
+            "aiPriceCommoditization": { "$ref": "#/$defs/triState" },
+            "aiPriceCommoditizationCoversMajorityCore": { "$ref": "#/$defs/triState" }
+          }
+        }
+      ]
+    },
+    "transition": {
+      "allOf": [
+        { "$ref": "#/$defs/common" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "fundingCapacity", "scaledAdaptationEvidence", "scaledAdaptationType",
+            "measuredOperatingEffect", "monetizedMaterialOutcome", "legacyConstraintManageable"
+          ],
+          "properties": {
+            "reason": true,
+            "adverseCase": true,
+            "decisiveTrigger": true,
+            "confidence": true,
+            "fundingCapacity": { "$ref": "#/$defs/triState" },
+            "scaledAdaptationEvidence": { "$ref": "#/$defs/triState" },
+            "scaledAdaptationType": {
+              "enum": ["none", "announcement_or_pilot", "material_core_deployment", "unproven"]
+            },
+            "measuredOperatingEffect": { "$ref": "#/$defs/triState" },
+            "monetizedMaterialOutcome": { "$ref": "#/$defs/triState" },
+            "legacyConstraintManageable": { "$ref": "#/$defs/triState" }
+          }
+        }
+      ]
+    }
+  }
+}
