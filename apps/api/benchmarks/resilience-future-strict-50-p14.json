@@ -1,0 +1,66 @@
+{
+  "version": "2.9.1-pilot.14",
+  "scenarioYear": 2033,
+  "purpose": "Benchmark futur-first strict de 50 entreprises. Les attentes sont figees avant les nouvelles adjudications et ne sont jamais incluses dans le prompt.",
+  "companies": [
+    { "ticker": "NVDA", "company": "NVIDIA", "industry": "Semiconductors", "cohort": "semiconductors", "status": "approved", "expected": { "minScore": 79, "maxScore": 100 } },
+    { "ticker": "ASML", "company": "ASML Holding", "industry": "Semiconductor Equipment", "cohort": "semiconductors", "status": "provisional", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "TSM", "company": "Taiwan Semiconductor Manufacturing", "industry": "Semiconductor Foundry", "cohort": "semiconductors", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "AVGO", "company": "Broadcom", "industry": "Semiconductors and Infrastructure Software", "cohort": "semiconductors", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "INTC", "company": "Intel", "industry": "Semiconductors", "cohort": "semiconductors", "status": "approved", "expected": { "minScore": 36, "maxScore": 49 } },
+
+    { "ticker": "MSFT", "company": "Microsoft", "industry": "Cloud and Enterprise Platforms", "cohort": "platforms", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "AAPL", "company": "Apple", "industry": "Consumer Technology", "cohort": "platforms", "status": "provisional", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "GOOGL", "company": "Alphabet", "industry": "Internet Platforms and AI", "cohort": "platforms", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "AMZN", "company": "Amazon", "industry": "E-commerce and Cloud Infrastructure", "cohort": "platforms", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "SAP", "company": "SAP", "industry": "Enterprise Software", "cohort": "platforms", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+
+    { "ticker": "CRM", "company": "Salesforce", "industry": "Enterprise Software", "cohort": "software", "status": "approved", "expected": { "minScore": 36, "maxScore": 49 } },
+    { "ticker": "ADBE", "company": "Adobe", "industry": "Creative Software", "cohort": "software", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "DOCU", "company": "DocuSign", "industry": "Agreement Software", "cohort": "software", "status": "approved", "expected": { "minScore": 0, "maxScore": 35 } },
+    { "ticker": "CHGG", "company": "Chegg", "industry": "Digital Education", "cohort": "software", "status": "approved", "expected": { "minScore": 0, "maxScore": 35 } },
+    { "ticker": "NOW", "company": "ServiceNow", "industry": "Enterprise Workflow Software", "cohort": "software", "status": "approved", "expected": { "minScore": 36, "maxScore": 49 } },
+    { "ticker": "ZM", "company": "Zoom Communications", "industry": "Communications Software", "cohort": "software", "status": "provisional", "expected": { "minScore": 0, "maxScore": 35 } },
+
+    { "ticker": "V", "company": "Visa", "industry": "Payment Networks", "cohort": "financial_networks", "status": "provisional", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "PYPL", "company": "PayPal", "industry": "Digital Payments", "cohort": "financial_networks", "status": "provisional", "expected": { "minScore": 36, "maxScore": 49 } },
+    { "ticker": "FI", "company": "Fiserv", "industry": "Payments and Financial Technology", "cohort": "financial_networks", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "SPGI", "company": "S&P Global", "industry": "Credit Ratings and Financial Data", "cohort": "financial_networks", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "MCO", "company": "Moody's", "industry": "Credit Ratings and Financial Data", "cohort": "financial_networks", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "KNSL", "company": "Kinsale Capital Group", "industry": "Specialty Insurance", "cohort": "financial_networks", "status": "provisional", "expected": { "minScore": 36, "maxScore": 49 } },
+
+    { "ticker": "NEE", "company": "NextEra Energy", "industry": "Regulated Utility and Renewable Power", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "CEG", "company": "Constellation Energy", "industry": "Nuclear Power Generation", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "UNP", "company": "Union Pacific", "industry": "Freight Rail", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "TTE", "company": "TotalEnergies", "industry": "Integrated Energy", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "CAT", "company": "Caterpillar", "industry": "Heavy Equipment", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "BA", "company": "Boeing", "industry": "Aerospace Manufacturing", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
+
+    { "ticker": "COST", "company": "Costco Wholesale", "industry": "Membership Retail", "cohort": "consumer_brands", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "RMS.PA", "company": "Hermes International", "industry": "Luxury Goods", "cohort": "consumer_brands", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "MC.PA", "company": "LVMH", "industry": "Luxury Goods", "cohort": "consumer_brands", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "OR.PA", "company": "L'Oreal", "industry": "Beauty Products", "cohort": "consumer_brands", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "NFLX", "company": "Netflix", "industry": "Streaming Entertainment", "cohort": "consumer_brands", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+
+    { "ticker": "UBER", "company": "Uber Technologies", "industry": "Mobility Platforms", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "ABNB", "company": "Airbnb", "industry": "Travel Marketplace", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "BKNG", "company": "Booking Holdings", "industry": "Travel Services", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "TSLA", "company": "Tesla", "industry": "Electric Vehicles and Energy", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "TM", "company": "Toyota Motor", "industry": "Automotive Manufacturing", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "BYDDF", "company": "BYD", "industry": "Electric Vehicles and Batteries", "cohort": "mobility_travel", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+
+    { "ticker": "NVO", "company": "Novo Nordisk", "industry": "Pharmaceuticals", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "LLY", "company": "Eli Lilly", "industry": "Pharmaceuticals", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "ISRG", "company": "Intuitive Surgical", "industry": "Medical Robotics", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "MEDP", "company": "Medpace", "industry": "Clinical Research Services", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "PFE", "company": "Pfizer", "industry": "Pharmaceuticals", "cohort": "healthcare", "status": "provisional", "expected": { "minScore": 36, "maxScore": 49 } },
+
+    { "ticker": "FTNT", "company": "Fortinet", "industry": "Cybersecurity", "cohort": "cybersecurity", "status": "provisional", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "QLYS", "company": "Qualys", "industry": "Cybersecurity", "cohort": "cybersecurity", "status": "approved", "expected": { "minScore": 36, "maxScore": 49 } },
+    { "ticker": "CRWD", "company": "CrowdStrike", "industry": "Cybersecurity", "cohort": "cybersecurity", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "PANW", "company": "Palo Alto Networks", "industry": "Cybersecurity", "cohort": "cybersecurity", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
+
+    { "ticker": "SEB.PA", "company": "Groupe SEB", "industry": "Small Domestic Appliances", "cohort": "midcap_physical", "status": "approved", "expected": { "minScore": 36, "maxScore": 49 } },
+    { "ticker": "STF.PA", "company": "STEF", "industry": "Temperature-controlled Logistics", "cohort": "midcap_physical", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } }
+  ]
+}
