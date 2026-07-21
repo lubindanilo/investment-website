@@ -510,6 +510,8 @@ export interface ForwardComparePosition {
   ret: number | null;
   /** « Pépite du moment » actuelle (note≥8 + P/FCF<25 + percentile≤10). Le titre est-il AUSSI une pépite ? */
   opportunity: boolean;
+  /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
+  resilience?: ResilienceSummary | null;
   // ── Champs « Ma sélection » uniquement (positions gérées par l'utilisateur) ──
   id?: string;
   buyDate?: string;
