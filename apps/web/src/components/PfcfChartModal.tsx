@@ -268,12 +268,12 @@ function Stat({ label, value, accent }: { label: string; value: string; accent?:
 }
 
 function formatDateTick(isoDate: string, period: TimeseriesPeriod): string {
-  // 1Y : MMM 'YY (court) ; 5Y+ : MM/YY
+  // 1Y : mois court (janv., févr.…) ; 5Y+ : MM/AAAA (ex 03/2022) — sans ambiguïté jour/mois.
   if (period === '1Y') {
     const d = new Date(isoDate);
     return d.toLocaleDateString(currentLocale(), { month: 'short' });
   }
-  return isoDate.slice(2, 7).replace('-', '/');
+  return `${isoDate.slice(5, 7)}/${isoDate.slice(0, 4)}`;
 }
 
 function formatDateFull(isoDate: string): string {
