@@ -86,6 +86,10 @@ export function AnalysisHeader({
         </button>
       </div>
 
+      {analysis.businessDescription && (
+        <p className="anl-company-desc">{analysis.businessDescription}</p>
+      )}
+
       <div className="anl-score-stories" aria-label={t('analyse.scoreStoriesLabel')}>
         <div className="anl-score-story">
           <div className="anl-score-unit">

@@ -713,13 +713,41 @@ export async function getEarningsInfoYahoo(symbol: string): Promise<EarningsInfo
 // expose `sector` (large) ET `industry` (fin : « Information Technology Services »,
 // « Travel Services », « Semiconductors »…). On garde l'industry pour un affichage plus
 // précis. Couvre US + monde. Mémoïsé 30 j (le profil sectoriel ne bouge quasi jamais).
-export interface YahooAssetProfile { sector: string | null; industry: string | null }
+export interface YahooAssetProfile { sector: string | null; industry: string | null; description: string | null }
+
+/**
+ * Réduit le `longBusinessSummary` Yahoo (souvent un paragraphe entier) à sa 1ʳᵉ phrase,
+ * bornée à ~260 caractères. But : une ligne « ce que fait la boîte » lisible dans le header,
+ * sans pavé corporate.
+ */
+const SENTENCE_ABBR = /(?:Inc|Corp|Ltd|Co|Cos|plc|LLC|LP|SA|AG|NV|Bros|Mfg|Hldgs|Intl|St|Mt|Dr|No|vs|etc|approx|U\.S|U\.K)$/i;
+
+function firstSentence(text: string | undefined | null): string | null {
+  const clean = text?.replace(/\s+/g, ' ').trim();
+  if (!clean) return null;
+  const cap = (s: string) => (s.length > 260 ? `${s.slice(0, 257).trimEnd()}…` : s);
+  const boundary = /[.!?]/g;
+  let m: RegExpExecArray | null;
+  while ((m = boundary.exec(clean)) !== null) {
+    const end = m.index + 1;
+    // Vraie fin de phrase : suivie d'une espace (ou fin de texte), pas au milieu d'un « 3.5 ».
+    const after = clean.slice(end);
+    if (after && !/^\s/.test(after)) continue;
+    const candidate = clean.slice(0, end).trim();
+    // On saute les points d'abréviation (« Inc. », « Corp. ») et les fragments trop courts
+    // (le nom seul de la société, ex « Palo Alto Networks, Inc. »).
+    const lastWord = candidate.slice(0, -1).split(/[\s(]/).pop() ?? '';
+    if (SENTENCE_ABBR.test(lastWord) || candidate.length < 40) continue;
+    return cap(candidate);
+  }
+  return cap(clean);
+}
 const YAHOO_PROFILE_TTL_MS = 30 * 24 * 60 * 60 * 1000;
 interface CachedYahooProfile { data: YahooAssetProfile; cachedAt: number }
 const yahooProfileCache = new Map<string, CachedYahooProfile>();
 
 export async function getAssetProfileYahoo(symbol: string): Promise<YahooAssetProfile> {
-  const empty: YahooAssetProfile = { sector: null, industry: null };
+  const empty: YahooAssetProfile = { sector: null, industry: null, description: null };
   const cached = yahooProfileCache.get(symbol);
   if (cached && Date.now() - cached.cachedAt < YAHOO_PROFILE_TTL_MS) return cached.data;
 
@@ -742,12 +770,13 @@ export async function getAssetProfileYahoo(symbol: string): Promise<YahooAssetPr
         res = await fetchOnce(session);
       }
       if (!res.ok) throw new Error(`Yahoo quoteSummary HTTP ${res.status}`);
-      const data = await res.json() as { quoteSummary?: { result?: Array<{ assetProfile?: { sector?: string; industry?: string } }>; error?: { description?: string } | null } };
+      const data = await res.json() as { quoteSummary?: { result?: Array<{ assetProfile?: { sector?: string; industry?: string; longBusinessSummary?: string } }>; error?: { description?: string } | null } };
       if (data.quoteSummary?.error) throw new Error(data.quoteSummary.error.description ?? 'quoteSummary error');
       const p = data.quoteSummary?.result?.[0]?.assetProfile;
       const result: YahooAssetProfile = {
         sector: p?.sector?.trim() || null,
         industry: p?.industry?.trim() || null,
+        description: firstSentence(p?.longBusinessSummary),
       };
       yahooProfileCache.set(symbol, { data: result, cachedAt: Date.now() });
       return result;

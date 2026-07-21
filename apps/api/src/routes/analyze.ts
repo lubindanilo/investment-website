@@ -14,7 +14,7 @@ import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import type { AnalyzeResponse, ValoParams, Criterion, MarketShare, SectorBenchmark, DividendInfo, ResilienceAnalysis } from '@lubin/shared';
 import { getSectorPfcfBenchmark } from '../services/screener.js';
-import { getDividendInfoYahoo } from '../services/yahoo.js';
+import { getDividendInfoYahoo, getAssetProfileYahoo } from '../services/yahoo.js';
 import { parseLang, tt, type Lang } from '../i18n/index.js';
 import { getMetric, getQuote } from '../services/finnhub.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
@@ -107,6 +107,7 @@ function buildResponse(args: {
   marketShare?: MarketShare | null;
   sectorBenchmark?: SectorBenchmark | null;
   dividend?: DividendInfo | null;
+  businessDescription?: string | null;
   lang?: Lang;
 }): AnalyzeResponse {
   const { ticker, quant, business, verdictDirect, management, resilience, businessCachedAt, managementCachedAt, lang = 'fr' } = args;
@@ -192,6 +193,7 @@ function buildResponse(args: {
     marketShare: args.marketShare ?? null,
     sectorBenchmark: args.sectorBenchmark ?? null,
     dividend: args.dividend ?? null,
+    businessDescription: args.businessDescription ?? null,
   };
 }
 
@@ -305,9 +307,10 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   // « Opportunité du moment » : percentile du P/FCF live vs historique (cache).
   const { pfcfPercentile: pct, pfcfMedian: pfcfMed, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
   // Benchmark sectoriel du P/FCF (médiane des pairs cotés de l'industrie) + dividende (Yahoo).
-  const [sectorBenchmark, dividend] = await Promise.all([
+  const [sectorBenchmark, dividend, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
+    getAssetProfileYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
   ]);
 
   const response = buildResponse({
@@ -325,6 +328,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
     marketShare,
     sectorBenchmark,
     dividend,
+    businessDescription: profile?.description ?? null,
     lang,
   });
   if (userId) response.inWatchlist = watchlistRow != null;
@@ -477,14 +481,16 @@ analyzeRouter.post('/qualitative', analyzeLimiter, requireAuth, requirePro, asyn
   }
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
-  const [sectorBenchmark, dividend, resilience] = await Promise.all([
+  const [sectorBenchmark, dividend, resilience, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
     getPublishedResilience(ticker),
+    getAssetProfileYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
   ]);
   res.json(buildResponse({
     ticker, quant, business, verdictDirect, management, resilience, businessCachedAt, managementCachedAt,
-    pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, marketShare, sectorBenchmark, dividend, lang,
+    pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, marketShare, sectorBenchmark, dividend,
+    businessDescription: profile?.description ?? null, lang,
   }));
 }));
 
@@ -518,10 +524,11 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePr
   const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
-  const [sectorBenchmark, dividend, resilience] = await Promise.all([
+  const [sectorBenchmark, dividend, resilience, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
     getPublishedResilience(ticker),
+    getAssetProfileYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
   ]);
   res.json(buildResponse({
     ticker,
@@ -538,6 +545,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePr
     opportunity: opp.opportunity,
     sectorBenchmark,
     dividend,
+    businessDescription: profile?.description ?? null,
     lang,
   }));
 }));

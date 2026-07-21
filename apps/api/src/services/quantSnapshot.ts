@@ -312,7 +312,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   // Secteur détaillé : Yahoo assetProfile expose une `industry` granulaire (« Travel Services »,
   // « Information Technology Services »…) bien plus précise que le `finnhubIndustry` large.
   // Couvre aussi le non-US (où finnhubIndustry est null). Fallback en cascade. Mémoïsé 30 j.
-  const yProfile = await getAssetProfileYahoo(yahooSymbol ?? ticker).catch(() => ({ sector: null, industry: null }));
+  const yProfile = await getAssetProfileYahoo(yahooSymbol ?? ticker).catch(() => ({ sector: null, industry: null, description: null }));
   const detailedIndustry = yProfile.industry ?? yProfile.sector ?? fhProfile?.finnhubIndustry ?? null;
 
   return {

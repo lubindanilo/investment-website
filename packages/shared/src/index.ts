@@ -273,6 +273,8 @@ export interface NewsItem {
 export interface AnalyzeResponse {
   ticker: string;
   company: string;
+  /** 1ʳᵉ phrase du `longBusinessSummary` Yahoo : « ce que fait l'entreprise ». Null si indisponible. */
+  businessDescription?: string | null;
   /** Prix actuel (USD) */
   price: number | null;
   metrics: DerivedMetrics;
