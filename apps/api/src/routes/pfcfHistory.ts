@@ -17,6 +17,23 @@ import * as cache from '../lib/timeseriesCache.js';
 
 export const pfcfHistoryRouter: Router = Router();
 
+/**
+ * Étend une zone « FCF négatif » EN TÊTE jusqu'au 1er point P/FCF réellement tracé. Entre le
+ * retour du FCF à un positif MINUSCULE et le 1er ratio pertinent, le P/FCF explose (> 200×) et
+ * est filtré comme du bruit → il n'y avait alors NI grisé (pas négatif) NI courbe (filtré) =
+ * un trou inexpliqué. On grise donc tout ce « no man's land ». Ne touche PAS aux zones négatives
+ * EN MILIEU de série (la courbe existe avant/après → iv.to n'est pas < 1er point).
+ */
+function coverLeadingGap(
+  intervals: { from: string; to: string }[],
+  points: { date: string }[],
+): { from: string; to: string }[] {
+  if (points.length === 0) return intervals;
+  let firstPt = points[0]!.date;
+  for (const p of points) if (p.date < firstPt) firstPt = p.date;
+  return intervals.map(iv => (iv.to < firstPt ? { ...iv, to: firstPt } : iv));
+}
+
 const TickerSchema = z.string().trim().toUpperCase().regex(/^[A-Z0-9.\-]{1,15}$/);
 const YearsSchema = z.coerce.number().int().min(1).max(50).default(5);
 
@@ -39,13 +56,14 @@ pfcfHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req: Req
   //    pas d'appel Yahoo — pour ne pas alourdir le cache typé TimeseriesPoint.)
   const hit = await cache.get(key);
   if (hit) {
-    const negativeFcfIntervals = await getPfcfNegativeIntervals(ticker, years).catch(() => []);
+    // points sont stockés en TimeseriesPoint mais on les présente en {date, pfcf} pour le client
+    const points = hit.points.map(p => ({ date: p.date, pfcf: p.value }));
+    const rawIntervals = await getPfcfNegativeIntervals(ticker, years).catch(() => []);
     res.json({
       ticker,
       years,
-      // points sont stockés en TimeseriesPoint mais on les présente en {date, pfcf} pour le client
-      points: hit.points.map(p => ({ date: p.date, pfcf: p.value })),
-      negativeFcfIntervals,
+      points,
+      negativeFcfIntervals: coverLeadingGap(rawIntervals, points),
       cached: true,
       ageMs: Date.now() - hit.storedAt,
     });
@@ -55,10 +73,11 @@ pfcfHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req: Req
   // 2. Fetch + compute
   const startedAt = Date.now();
   const earningsPromise = getNextEarningsDate(ticker);
-  const [points, negativeFcfIntervals] = await Promise.all([
+  const [points, rawIntervals] = await Promise.all([
     getPfcfHistory(ticker, years),
     getPfcfNegativeIntervals(ticker, years).catch(() => []),
   ]);
+  const negativeFcfIntervals = coverLeadingGap(rawIntervals, points);
   const elapsedMs = Date.now() - startedAt;
 
   // 3. TTL basé sur le prochain earnings — un nouveau Q recalcule TTM_FCF
