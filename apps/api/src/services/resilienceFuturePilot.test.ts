@@ -18,19 +18,23 @@ function fixture() {
     scenarioYear: 2033,
     criteria: {
       future_control: {
+        futureProjectionContract: true,
         controlType: 'proprietary_stack_or_ip', controlStillNeeded: true, companySpecific: true,
         majorityCoreCoverage: true, scarcitySurvivesAiChina: true, replicableWithinFiveYears: false,
         futureRentPaid: true, systemBottleneck: false, multipleIndependentControls: false, ...common,
       },
       disruption_positioning: {
         forces: [
-          { force: 'ai_agents', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialDirectBenefit: true, responseControlsOutcome: true, benefitMechanism: 'external_demand_expansion' },
-          { force: 'automation_robotics', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialDirectBenefit: true, responseControlsOutcome: true, benefitMechanism: 'company_specific_cost_or_capacity_advantage' },
-          { force: 'china_engineering', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialDirectBenefit: false, responseControlsOutcome: false, benefitMechanism: 'none' },
+          { force: 'ai_agents', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialPressure: false, materialDirectBenefit: true, responseControlsOutcome: true, benefitMechanism: 'external_demand_expansion' },
+          { force: 'automation_robotics', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialPressure: false, materialDirectBenefit: true, responseControlsOutcome: true, benefitMechanism: 'company_specific_cost_or_capacity_advantage' },
+          { force: 'china_engineering', majorityCoreThreatPath: false, technicalAndEconomicPath: false, materialPressure: false, materialDirectBenefit: false, responseControlsOutcome: false, benefitMechanism: 'none' },
         ],
         ...common,
       },
-      future_dependencies: { residualOnlyAssessment: true, coverageComplete: true, clusters: [], ...common },
+      future_dependencies: {
+        residualOnlyAssessment: true, futureSeverityContract: true,
+        coverageComplete: true, clusters: [], ...common,
+      },
       structural_demand: {
         futureCategoryTrend: 'rising', causalDirectness: 'direct', coreExposure: 'majority',
         netExpansionAfterSubstitution: true, futureDriver: 'ai_agents', ...common,
@@ -44,12 +48,10 @@ function fixture() {
         aiPriceCommoditizationCoversMajorityCore: false, ...common,
       },
       transition_capacity: {
-        fundingCapacity: true,
-        scaledAdaptationEvidence: true,
-        scaledAdaptationType: 'material_core_deployment',
-        measuredOperatingEffect: true,
-        monetizedMaterialOutcome: true,
-        outcomeCausallyAttributedToAdaptation: true,
+        futureAdaptationContract: true,
+        adaptationLeversSurviveScenario: true,
+        coreReconfigurableWithinScenario: true,
+        adaptationLeadTimeFits: true,
         legacyConstraintManageable: true,
         ...common,
       },
@@ -91,8 +93,9 @@ describe('scoreFutureResilience', () => {
     expect(prompt).toContain('force macro -> variation du nombre de besoins');
     expect(prompt).toContain('ne prouve jamais le controle specifique, la capture ou le pricing power');
     expect(prompt).toContain('Aucun chiffre actuel de croissance, marge, taille, revenu, FCF ou part de marche');
+    expect(prompt).toContain('Une statistique presente peut identifier un point de depart, jamais fixer le score');
     expect(prompt).toContain('Une prevision sectorielle generique');
-    expect(prompt).toContain('Les finances actuelles ne donnent aucun point');
+    expect(prompt).toContain('Les finances et deploiements actuels ne donnent aucun point');
   });
 
   it('reserve le grade A a un controle futur exceptionnel', () => {
@@ -651,8 +654,8 @@ describe('scoreFutureResilience', () => {
     const input = fixture();
     input.criteria.future_control.systemBottleneck = true;
     Object.assign(input.criteria.transition_capacity, {
-      fundingCapacity: true,
-      scaledAdaptationEvidence: false,
+      coreReconfigurableWithinScenario: false,
+      adaptationLeadTimeFits: false,
       legacyConstraintManageable: false,
     });
     const result = scoreFutureResilience(input);
@@ -662,9 +665,9 @@ describe('scoreFutureResilience', () => {
     expect(result.gates).toContain('future_a_eligibility');
   });
 
-  it('ne donne aucun point de transition pour la seule capacite financiere actuelle', () => {
+  it('ne donne aucun point de transition pour la seule capacite financiere actuelle en legacy', () => {
     const input = fixture();
-    Object.assign(input.criteria.transition_capacity, {
+    input.criteria.transition_capacity = {
       fundingCapacity: true,
       scaledAdaptationEvidence: false,
       scaledAdaptationType: 'none',
@@ -672,63 +675,61 @@ describe('scoreFutureResilience', () => {
       monetizedMaterialOutcome: false,
       outcomeCausallyAttributedToAdaptation: false,
       legacyConstraintManageable: null,
-    });
+      ...common,
+    } as unknown as typeof input.criteria.transition_capacity;
     const result = scoreFutureResilience(input);
     expect(result.criteria[5]!.score).toBe(0);
     expect(result.criteria[5]!.audit.fundingCapacityScoresDirectly).toBe(false);
   });
 
-  it('ne qualifie pas une annonce ou un pilote comme adaptation a l echelle', () => {
+  it('preserve le contrat legacy pour une annonce ou un pilote', () => {
     const input = fixture();
-    Object.assign(input.criteria.transition_capacity, {
+    input.criteria.transition_capacity = {
+      fundingCapacity: true,
       scaledAdaptationEvidence: true,
       scaledAdaptationType: 'announcement_or_pilot',
       measuredOperatingEffect: false,
       monetizedMaterialOutcome: false,
       outcomeCausallyAttributedToAdaptation: false,
-    });
+      legacyConstraintManageable: true,
+      ...common,
+    } as unknown as typeof input.criteria.transition_capacity;
     const result = scoreFutureResilience(input);
     expect(result.criteria[5]!.score).toBe(1);
     expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(false);
   });
 
-  it('refuse un resultat general non attribue au deploiement d adaptation', () => {
-    const input = fixture();
-    input.criteria.transition_capacity.outcomeCausallyAttributedToAdaptation = false;
-    const result = scoreFutureResilience(input);
-    expect(result.criteria[5]!.score).toBe(1);
-    expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(false);
-  });
-
-  it('refuse le booleen legacy de transition sans sous-tests structures', () => {
+  it('note la capacite future sans exiger un deploiement actuel', () => {
     const input = fixture();
     Object.assign(input.criteria.transition_capacity, {
-      scaledAdaptationEvidence: true,
-      scaledAdaptationType: undefined,
-      measuredOperatingEffect: undefined,
-      monetizedMaterialOutcome: undefined,
-      outcomeCausallyAttributedToAdaptation: undefined,
+      adaptationLeversSurviveScenario: true,
+      coreReconfigurableWithinScenario: true,
+      adaptationLeadTimeFits: true,
+      legacyConstraintManageable: true,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[5]!.score).toBe(2);
+    expect(result.criteria[5]!.audit.currentDeploymentScoresDirectly).toBe(false);
+  });
+
+  it('garde un point quand la projection d adaptation reste mixte', () => {
+    const input = fixture();
+    Object.assign(input.criteria.transition_capacity, {
+      adaptationLeversSurviveScenario: true,
+      coreReconfigurableWithinScenario: null,
+      adaptationLeadTimeFits: false,
+      legacyConstraintManageable: true,
     });
     const result = scoreFutureResilience(input);
     expect(result.criteria[5]!.score).toBe(1);
-    expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(false);
-  });
-
-  it('preserve un deploiement structure quand seul le nouveau champ causal manque', () => {
-    const input = fixture();
-    Reflect.deleteProperty(input.criteria.transition_capacity, 'outcomeCausallyAttributedToAdaptation');
-    const result = scoreFutureResilience(input);
-    expect(result.criteria[5]!.score).toBe(2);
-    expect(result.criteria[5]!.audit.attributionFieldMissing).toBe(true);
-    expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(true);
   });
 
   it('refuse A face a deux chocs existentiels non fortement mitiges', () => {
     const input = fixture();
     input.criteria.future_control.systemBottleneck = true;
     (input.criteria.future_dependencies as { clusters: Array<Record<string, unknown>> }).clusters = [
-      { name: 'Pays operatoire', material: true, continuityImpact: 'existential', mitigation: 'medium' },
-      { name: 'Technologie critique', material: true, continuityImpact: 'existential', mitigation: 'medium' },
+      { name: 'Pays operatoire', material: true, continuityImpact: 'existential', mitigation: 'medium', coreContinuityAtRisk: true },
+      { name: 'Technologie critique', material: true, continuityImpact: 'existential', mitigation: 'medium', coreContinuityAtRisk: true },
     ];
     const result = scoreFutureResilience(input);
     expect(result.finalScore).toBe(79);
@@ -784,10 +785,26 @@ describe('scoreFutureResilience', () => {
     Object.assign(input.criteria.disruption_positioning.forces[0]!, {
       majorityCoreThreatPath: false,
       technicalAndEconomicPath: true,
+      materialPressure: true,
     });
     const result = scoreFutureResilience(input);
     expect(result.criteria[1]!.score).toBe(2);
     expect((result.criteria[1]!.audit.forces as Array<{ verdict: string }>)[0]!.verdict).toBe('pressure');
+  });
+
+  it('ne penalise pas une voie plausible dont l impact futur reste non materiel', () => {
+    const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[0]!, {
+      majorityCoreThreatPath: false,
+      technicalAndEconomicPath: true,
+      materialPressure: false,
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+      benefitMechanism: 'none',
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[1]!.score).toBe(3);
+    expect((result.criteria[1]!.audit.forces as Array<{ verdict: string }>)[0]!.verdict).toBe('neutral');
   });
 
   it('penalise deux pressions futures materielles non controlees', () => {
@@ -800,7 +817,9 @@ describe('scoreFutureResilience', () => {
       });
     }
     for (const force of input.criteria.disruption_positioning.forces.slice(0, 2)) {
-      Object.assign(force, { majorityCoreThreatPath: false, technicalAndEconomicPath: true });
+      Object.assign(force, {
+        majorityCoreThreatPath: false, technicalAndEconomicPath: true, materialPressure: true,
+      });
     }
     expect(scoreFutureResilience(input).criteria[1]!.score).toBe(1);
   });
@@ -830,7 +849,7 @@ describe('scoreFutureResilience', () => {
       .derivedUncontrolledAgenticPressure).toBe(true);
   });
 
-  it('ne qualifie pas de renforcement un benefice que l entreprise ne controle pas', () => {
+  it('reconnait une expansion externe directe sans exiger que l entreprise controle la force macro', () => {
     const input = fixture();
     Object.assign(input.criteria.disruption_positioning.forces[1]!, {
       materialDirectBenefit: false,
@@ -978,7 +997,7 @@ describe('scoreFutureResilience', () => {
       coverageComplete: true,
       clusters: [{
         name: 'Dependance critique', material: true, continuityImpact: 'existential',
-        mitigation: 'unproven',
+        mitigation: 'unproven', coreContinuityAtRisk: true,
       }],
     });
     expect(scoreFutureResilience(input).criteria[2]!.score).toBe(1);
@@ -990,29 +1009,44 @@ describe('scoreFutureResilience', () => {
       coverageComplete: true,
       clusters: [{
         name: 'Dependance materielle', material: true, continuityImpact: 'material_impairment',
-        mitigation: 'medium',
+        mitigation: 'medium', coreContinuityAtRisk: true,
       }],
     });
     expect(scoreFutureResilience(input).criteria[2]!.score).toBe(1);
     Object.assign(input.criteria.future_dependencies, {
       clusters: [{
         name: 'Dependance materielle', material: true, continuityImpact: 'material_impairment',
-        mitigation: 'strong',
+        mitigation: 'strong', coreContinuityAtRisk: true,
       }],
     });
     expect(scoreFutureResilience(input).criteria[2]!.score).toBe(2);
   });
 
-  it('note zero trois chocs futurs materiels non fortement mitiges', () => {
+  it('ne transforme pas trois risques ordinaires en menace de continuite du coeur', () => {
     const input = fixture();
     Object.assign(input.criteria.future_dependencies, {
       coverageComplete: true,
       clusters: ['Pays', 'Fournisseur', 'Travail'].map(name => ({
         name, material: true, continuityImpact: 'material_impairment', mitigation: 'medium',
+        coreContinuityAtRisk: false,
+      })),
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[2]!.score).toBe(2);
+    expect(result.criteria[2]!.audit.nonStrongMaterialShocks).toBe(3);
+  });
+
+  it('note zero deux chocs non mitiges menacant la continuite du coeur', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_dependencies, {
+      coverageComplete: true,
+      clusters: ['Pays', 'Infrastructure'].map(name => ({
+        name, material: true, continuityImpact: 'material_impairment', mitigation: 'none',
+        coreContinuityAtRisk: true,
       })),
     });
     const result = scoreFutureResilience(input);
     expect(result.criteria[2]!.score).toBe(0);
-    expect(result.criteria[2]!.audit.nonStrongMaterialShocks).toBe(3);
+    expect(result.criteria[2]!.audit.unmitigatedCoreContinuityShocks).toBe(2);
   });
 });

@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.18`.
+Version canonique candidate : `2.9.1-pilot.19`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -22,8 +22,9 @@ La note repond a une question unique :
 > devrait-elle conserver dans un monde profondement transforme par l'IA en 2033 ?
 
 Resilience ne mesure ni la valorisation, ni la performance boursiere attendue, ni une
-seconde fois la qualite fondamentale. Les chiffres passes peuvent prouver une rente, une
-dependance ou une capacite de transition, mais ne donnent jamais automatiquement des points.
+seconde fois la qualite fondamentale. Les faits passes et presents servent seulement a
+identifier le mecanisme de depart ; la presence actuelle d'une rente, d'une croissance,
+d'une marge ou d'une capacite financiere ne donne aucun point.
 
 ## Scenario 2033 fige
 
@@ -36,7 +37,7 @@ Toutes les entreprises sont comparees dans le meme scenario central :
 - les actifs physiques rares, droits regules, marques recherchees, liquidites de reseau,
   stacks proprietaires et supply chains difficiles a reproduire peuvent garder une rente.
 
-Le present contraint la projection, mais l'adjudication porte sur le scenario central 2033.
+Le present identifie le point de depart, mais l'adjudication porte sur le scenario central 2033.
 L'incertitude normale d'une prevision est stockee dans `confidence`; elle ne devient ni un
 bonus ni un echec automatique.
 
@@ -92,8 +93,10 @@ Trois forces sont toujours testees : `ai_agents`, `automation_robotics` et
 
 - Une force est negative seulement si une voie technique **et economique** peut faire perdre
   ou absorber plus de 50% du role, sans reponse qui controle l'issue.
-- Une force est positive seulement si le benefice est materiel et que l'entreprise controle
-  sa capture.
+- Une voie plausible ne devient une pression que si son impact economique attendu est
+  materiel. Une expansion externe directe de la demande peut etre positive sans que
+  l'entreprise controle la force macro ; les autres benefices exigent un mecanisme de
+  capture propre.
 - Une compression de prix ou un avantage devenu standard n'est pas une disparition du role.
 
 Scores : deux menaces ou disparition directe `0`; une menace `1`; aucune menace controlee
@@ -106,13 +109,14 @@ et une efficacite generique accessible aux concurrents ne constitue pas un renfo
 Les dependances sont regroupees par choc economique independant. Une mitigation inconnue
 n'est pas assimilee a une absence de mitigation.
 
-- `0` : choc existentiel explicitement non mitige ou au moins trois chocs materiels sans
-  mitigation.
-- `1` : exposition residuelle ou couverture incomplete.
-- `2` : couverture complete et tous les chocs materiels fortement mitiges.
+- `0` : au moins deux chocs non mitiges menacent reellement la continuite d'une part majeure
+  du coeur, ou deux chocs existentiels restent insuffisamment mitiges.
+- `1` : au moins un choc de continuite du coeur reste insuffisamment mitige, ou couverture
+  incomplete.
+- `2` : couverture complete et aucun choc non fortement mitige ne menace la continuite du coeur.
 
-Une mitigation moyenne vaut `1/2` : elle reduit le risque sans prouver son extinction.
-Deux chocs de continuite independants non fortement mitiges plafonnent egalement A a B79.
+Une baisse de marge, de volume ou d'utilisation n'est pas une interruption de continuite.
+Plusieurs risques ordinaires ne deviennent donc pas un zero par simple addition.
 
 ### 4. Demande structurelle - 15%, note 0 a 2
 
@@ -216,15 +220,10 @@ ne suffit plus a annuler la capture majoritaire d'un operateur durable.
 
 ### 6. Capacite de transition - 5%, note 0 a 2
 
-Ce critere faiblement pondere mesure la capacite a financer et executer l'adaptation :
-financement, adaptation deja deployee et contraintes legacy. Les donnees financieres ne
-servent qu'ici et ne dupliquent pas Quality.
-
-`scaledAdaptationEvidence=true` ne compte que si l'adaptation est un deploiement materiel
-sur le coeur et qu'un effet operationnel mesure ou une monetisation materielle est observe
-et causalement attribue au deploiement. La croissance generale ne suffit pas. Une annonce,
-un partenariat, un pilote, une acquisition non integree ou un module marginal ne suffit pas.
-L'ancien booleen declaratif, sans ces sous-tests structures, ne donne plus le second point.
+Ce critere faiblement pondere projette la capacite structurelle d'adaptation en 2033 :
+leviers encore accessibles, coeur reconfigurable, delai compatible avec la rupture et
+contraintes heritees gerables. Les finances, marges et deploiements actuels ne donnent aucun
+point. Ils peuvent uniquement aider a identifier un verrou de depart.
 
 ## Poids et grades
 
@@ -300,7 +299,7 @@ obligatoires absents, les forces dupliquees et les structures incorrectes.
 
 Le runner de cohorte `resilience:future:pilot` persiste chaque resultat valide dans les
 tables existantes `ResilienceAnalysis` et `ResilienceAnalysisHistory`, sous la version de
-grille `2.9.1-pilot.17`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
+grille candidate. Cette version distincte ne remplace donc pas les analyses `2.8.13`
 encore servies par l'UI.
 
 Le JSON `analysis` conserve le score, le grade, les gates, les six cartes (`reason`,
@@ -520,6 +519,29 @@ rare qui survit a l'IA et a la Chine n'est plus traite comme erode uniquement pa
 concurrent historique existe, mais le score exceptionnel `3/3` exige toujours une replication
 impossible sous cinq ans. Cette version doit etre rejouee sur les 70 dossiers figes avant un
 nouveau holdout ; le cron reste desactive.
+
+Le replay p18 preserve `50/50` sur le strict-50, mais son second holdout aveugle n'obtient
+que `4/20`. La formule est stable (`20/20` resultats bit-identiques au replay), tandis que
+l'adjudication reste biaisee vers le present : 18 entreprises recoivent `1/3` face aux
+ruptures, 12 recoivent `0/2` en dependances et les controles projetes sont refuses faute de
+statistique actuelle couvrant deja la majorite du coeur.
+
+`pilot.19` corrige ce contrat sans exception par ticker. Chaque rupture distingue desormais
+voie plausible et pression future materielle ; les dependances distinguent deterioration
+economique et menace de continuite du coeur ; le controle porte explicitement sur le mix
+economique projete en 2033 ; la transition mesure la reconfigurabilite future et non les
+deploiements ou finances actuels. Les adjudications p18 restent rejouables avec leur logique
+historique afin de mesurer les regressions. La cohorte aveugle doit etre readjudiquee une
+seule fois sous ce nouveau schema avant toute conclusion ; le cron reste desactive.
+
+Cette readjudication est terminee : `11/20` bandes, `0` erreur apres une reprise non-JSON,
+contre `4/20` sous p18. Les 20 analyses et leur historique sont persistes et dates sous p19.
+Le detail est conserve dans
+`apps/api/benchmarks/resilience-future-generalization-20b-p19-audit.md`. Quatre defauts
+universels restent ouverts : bilan net d'une force a la fois favorable et defavorable,
+portefeuille de controles independants, deduplication des dependances par choc et transition
+future trop peu discriminante (`2/2` pour 19/20). Les bandes provisoires ne sont pas
+recalibrees automatiquement et le cron reste desactive.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis

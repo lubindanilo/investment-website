@@ -1,4 +1,4 @@
-export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.18' as const;
+export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.19' as const;
 export const FUTURE_SCENARIO_YEAR = 2033 as const;
 
 export const FUTURE_RESILIENCE_WEIGHTS = {
@@ -91,6 +91,10 @@ function common(raw: Record<string, unknown>, id: FutureCriterionId) {
 
 function scoreFutureControl(raw: Record<string, unknown>): FutureCriterionResult {
   const audit = {
+    futureProjectionContract: optionalTri(
+      raw.futureProjectionContract,
+      'future_control.futureProjectionContract',
+    ),
     controlType: choice(raw.controlType, [
       'scarce_asset', 'regulated_right', 'trusted_brand', 'network_liquidity',
       'proprietary_stack_or_ip', 'cost_supply_chain', 'installed_base',
@@ -165,6 +169,8 @@ function scoreDisruption(
     const force = choice(item.force, DISRUPTION_FORCES, `disruption_positioning.forces[${index}].force`);
     const majorityCoreThreatPath = tri(item.majorityCoreThreatPath, `${force}.majorityCoreThreatPath`);
     const technicalAndEconomicPath = tri(item.technicalAndEconomicPath, `${force}.technicalAndEconomicPath`);
+    const materialPressure = optionalTri(item.materialPressure, `${force}.materialPressure`);
+    const pressureContractPresent = item.materialPressure !== undefined;
     const materialDirectBenefit = tri(item.materialDirectBenefit, `${force}.materialDirectBenefit`);
     const responseControlsOutcome = tri(item.responseControlsOutcome, `${force}.responseControlsOutcome`);
     const benefitMechanism = optionalChoice(item.benefitMechanism, [
@@ -183,13 +189,16 @@ function scoreDisruption(
     const pressure = !negative && !contradictedMarketplaceBypass &&
       (derivedUncontrolledAgenticPressure ||
         (majorityCoreThreatPath !== true && technicalAndEconomicPath === true &&
-          responseControlsOutcome !== true));
+          responseControlsOutcome !== true &&
+          (!pressureContractPresent || materialPressure === true)));
     const controlledBenefitMechanism = benefitMechanism !== 'none' && benefitMechanism !== 'unproven';
-    const positive = !negative && !pressure && materialDirectBenefit === true && responseControlsOutcome === true &&
+    const benefitDoesNotRequireCompanyControl = benefitMechanism === 'external_demand_expansion';
+    const positive = !negative && !pressure && materialDirectBenefit === true &&
+      (responseControlsOutcome === true || benefitDoesNotRequireCompanyControl) &&
       !contradictedDigitalStackBenefit && (legacyBenefitContract || controlledBenefitMechanism);
     return {
       force, majorityCoreThreatPath, technicalAndEconomicPath, materialDirectBenefit,
-      responseControlsOutcome, benefitMechanism, legacyBenefitContract,
+      materialPressure, pressureContractPresent, responseControlsOutcome, benefitMechanism, legacyBenefitContract,
       contradictedMarketplaceBypass, contradictedDigitalStackBenefit,
       derivedCustomerWorkflowThreat, derivedUncontrolledAgenticPressure,
       verdict: negative ? 'negative' : pressure ? 'pressure' : positive ? 'positive' : 'neutral',
@@ -219,6 +228,10 @@ function scoreDependencies(raw: Record<string, unknown>): FutureCriterionResult 
     raw.residualOnlyAssessment,
     'future_dependencies.residualOnlyAssessment',
   );
+  const futureSeverityContract = optionalTri(
+    raw.futureSeverityContract,
+    'future_dependencies.futureSeverityContract',
+  );
   if (!Array.isArray(raw.clusters)) throw new Error('future_dependencies.clusters: tableau requis');
   const clusters = raw.clusters.map((value, index) => {
     const item = record(value, `future_dependencies.clusters[${index}]`);
@@ -231,6 +244,10 @@ function scoreDependencies(raw: Record<string, unknown>): FutureCriterionResult 
       mitigation: choice(item.mitigation, [
         'strong', 'medium', 'none', 'unproven',
       ] as const, `future_dependencies.clusters[${index}].mitigation`),
+      coreContinuityAtRisk: optionalTri(
+        item.coreContinuityAtRisk,
+        `future_dependencies.clusters[${index}].coreContinuityAtRisk`,
+      ),
     };
   });
   const material = clusters.filter(item => item.material === true && item.continuityImpact !== 'non_core');
@@ -245,22 +262,37 @@ function scoreDependencies(raw: Record<string, unknown>): FutureCriterionResult 
   const nonStrongMaterialShocks = material.filter(item => item.mitigation !== 'strong').length;
   const strictResidualBurden = residualOnlyAssessment === true &&
     (nonStrongMaterialShocks >= 3 || existentialNonStrongShocks >= 2);
-  const score = existential || unmitigated >= 3 || strictResidualBurden
-    ? 0
-    : coverageComplete === true && material.every(item => item.mitigation === 'strong')
-      ? 2
-      : 1;
+  const coreContinuityShocks = material.filter(item => item.coreContinuityAtRisk === true);
+  const nonStrongCoreContinuityShocks = coreContinuityShocks.filter(item => item.mitigation !== 'strong');
+  const unmitigatedCoreContinuityShocks = coreContinuityShocks.filter(item => item.mitigation === 'none');
+  const strictFutureContinuityBurden = unmitigatedCoreContinuityShocks.length >= 2 ||
+    nonStrongCoreContinuityShocks.filter(item => item.continuityImpact === 'existential').length >= 2;
+  const score = futureSeverityContract === true
+    ? strictFutureContinuityBurden
+      ? 0
+      : coverageComplete === true && nonStrongCoreContinuityShocks.length === 0
+        ? 2
+        : 1
+    : existential || unmitigated >= 3 || strictResidualBurden
+      ? 0
+      : coverageComplete === true && material.every(item => item.mitigation === 'strong')
+        ? 2
+        : 1;
   return {
     ...common(raw, 'future_dependencies'),
     score,
     audit: {
       coverageComplete,
       residualOnlyAssessment,
+      futureSeverityContract,
       clusters,
       aBlockingContinuityShocks: aBlockingContinuityShocks.length,
       unmitigatedMaterialShocks,
       existentialNonStrongShocks,
       nonStrongMaterialShocks,
+      coreContinuityShocks: coreContinuityShocks.length,
+      nonStrongCoreContinuityShocks: nonStrongCoreContinuityShocks.length,
+      unmitigatedCoreContinuityShocks: unmitigatedCoreContinuityShocks.length,
     },
   };
 }
@@ -451,6 +483,48 @@ function scoreValueCapture(
 }
 
 function scoreTransition(raw: Record<string, unknown>): FutureCriterionResult {
+  const futureAdaptationContract = optionalTri(
+    raw.futureAdaptationContract,
+    'transition_capacity.futureAdaptationContract',
+  );
+  if (futureAdaptationContract === true) {
+    const audit = {
+      futureAdaptationContract,
+      adaptationLeversSurviveScenario: tri(
+        raw.adaptationLeversSurviveScenario,
+        'transition_capacity.adaptationLeversSurviveScenario',
+      ),
+      coreReconfigurableWithinScenario: tri(
+        raw.coreReconfigurableWithinScenario,
+        'transition_capacity.coreReconfigurableWithinScenario',
+      ),
+      adaptationLeadTimeFits: tri(
+        raw.adaptationLeadTimeFits,
+        'transition_capacity.adaptationLeadTimeFits',
+      ),
+      legacyConstraintManageable: tri(
+        raw.legacyConstraintManageable,
+        'transition_capacity.legacyConstraintManageable',
+      ),
+      currentFinancialsScoreDirectly: false,
+      currentDeploymentScoresDirectly: false,
+    };
+    const signals = [
+      audit.adaptationLeversSurviveScenario,
+      audit.coreReconfigurableWithinScenario,
+      audit.adaptationLeadTimeFits,
+      audit.legacyConstraintManageable,
+    ];
+    const positives = signals.filter(value => value === true).length;
+    const negatives = signals.filter(value => value === false).length;
+    const score = positives === signals.length
+      ? 2
+      : negatives >= 2 ||
+          (audit.coreReconfigurableWithinScenario === false && audit.adaptationLeadTimeFits === false)
+        ? 0
+        : 1;
+    return { ...common(raw, 'transition_capacity'), score, audit };
+  }
   const declaredScaledAdaptation = tri(raw.scaledAdaptationEvidence, 'transition_capacity.scaledAdaptationEvidence');
   const scaledAdaptationType = optionalChoice(raw.scaledAdaptationType, [
     'none', 'announcement_or_pilot', 'material_core_deployment', 'unproven',
@@ -486,6 +560,7 @@ function scoreTransition(raw: Record<string, unknown>): FutureCriterionResult {
     attributionFieldMissing,
     attributionQualified,
     legacyConstraintManageable: tri(raw.legacyConstraintManageable, 'transition_capacity.legacyConstraintManageable'),
+    fundingCapacityScoresDirectly: false,
   };
   const structuralAdaptation = audit.scaledAdaptationEvidence === true;
   const structuralFlexibility = audit.legacyConstraintManageable === true;
@@ -496,7 +571,6 @@ function scoreTransition(raw: Record<string, unknown>): FutureCriterionResult {
     : !structurallyBlocked && (structuralAdaptation || structuralFlexibility)
       ? 1
       : 0;
-  audit.fundingCapacityScoresDirectly = false;
   return { ...common(raw, 'transition_capacity'), score, audit };
 }
 
@@ -829,16 +903,18 @@ DISCIPLINE DE PROJECTION
 - Aucune recherche web. Aucun chiffre ou fait absent du dossier.
 - Cherche d'abord le scenario adverse: absorption par agent/plateforme, commoditisation, substitution chinoise, automatisation, perte de controle ou dependance de continuite.
 - Les champs true/false decrivent ton scenario CENTRAL le plus probable en 2033, pas une certitude historique. Formule une projection causale a partir du scenario fige et du modele economique.
+- Aucun champ ne demande que l'etat de 2033 soit deja demontre aujourd'hui. Les proportions actuelles n'imposent jamais seules majorityCoreCoverage=false : projette le mix economique le plus probable en 2033. Une statistique presente peut identifier un point de depart, jamais fixer le score.
 - Pour chaque force du scenario, examine les effets economiques de premier ET de second ordre. Construis explicitement la chaine force macro -> variation du nombre de besoins, produits, transactions ou volumes a servir -> evolution de la categorie -> exposition du coeur de l'entreprise. L'IA peut par exemple creer de nouveaux volumes en amont tout en automatisant une partie de leur traitement en aval; ne limite jamais l'analyse a l'effet direct sur les processus actuels.
 - Le passe et le present contraignent la projection mais ne donnent aucun point automatique: croissance, marge, taille ou moat actuel ne suffisent jamais seuls.
 - Inversement, n'exige pas une preuve litterale venue de 2033. Si le mecanisme economique devrait raisonnablement persister et qu'aucune voie adverse majoritaire credible ne domine le scenario central, tranche true et baisse confidence si necessaire.
 - Utilise null seulement si le dossier ne permet meme pas d'identifier le mecanisme ou l'exposition. L'incertitude normale d'une prevision doit etre exprimee par confidence, pas par une accumulation de null.
-- technicalAndEconomicPath=true des qu'une force dispose d'une voie technique ET economique plausible pour comprimer materiellement les volumes, prix, rentes ou le role de l'entreprise d'ici 2033, meme si cette voie reste inferieure a 50% du coeur. majorityCoreThreatPath indique separement si cette pression devrait depasser 50%. Une simple possibilite technique non economique reste false.
+- technicalAndEconomicPath=true des qu'une force dispose d'une voie technique ET economique plausible vers le coeur d'ici 2033. materialPressure=true seulement si cette voie devrait comprimer de facon non marginale les volumes, prix, rentes ou le role dans le scenario central; une concurrence generique, un risque ordinaire ou une possibilite sans impact economique net attendu vaut false. majorityCoreThreatPath indique separement si cette pression devrait depasser 50% du coeur.
 - majorityCoreThreatPath vaut true uniquement si la force devrait faire perdre ou absorber plus de 50% du role economique de l'entreprise en 2033. Une simple compression de prix, une concurrence accrue ou un avantage devenu standard ne suffit pas et reste traitee dans future_control/future_value_capture.
-- Une force avec technicalAndEconomicPath=true, majorityCoreThreatPath=false et responseControlsOutcome different de true constitue une pression materielle non controlee : elle doit etre publiee comme telle et ne peut etre neutralisee par la seule absence d'une disparition majoritaire.
+- Une force avec technicalAndEconomicPath=true, materialPressure=true, majorityCoreThreatPath=false et responseControlsOutcome different de true constitue une pression materielle non controlee. Une voie plausible mais non materielle n'est pas une pression de scoring.
 - materialDirectBenefit=true exige un effet strategique materiel controle par l'entreprise: expansion externe de la demande, renforcement d'un controle specifique, avantage durable de cout/capacite ou expansion de la capture. Une efficacite operationnelle generique egalement accessible aux concurrents vaut false.
 - benefitMechanism nomme cet effet. Deux forces fondees sur le meme mecanisme ne comptent qu'une fois; n'invente pas deux renforcements IA/robotique pour le meme gain de planification, d'automatisation ou de productivite.
 - Tous les champs "majorityCore" portent sur plus de 50% du chiffre d'affaires ou de l'activite economique propre de l'entreprise, jamais sur sa part du marche mondial. Un role peut couvrir 100% du coeur d'une entreprise qui ne detient que 10% de son marche. Ne confonds pas non plus couverture, specificite et defensibilite: ils sont testes separement.
+- Pour future_control, adjudique le controle qui devrait couvrir le mix economique de 2033. Une base installee, un reseau physique, une marque ou une capacite qualifiee peuvent former un controle meme si des concurrents comparables existent; leur existence joue sur rarete et replication, pas sur companySpecific. controlType=none exige l'absence projetee de tout controle economiquement paye, pas l'absence d'un monopole. futureRentPaid=true si le scenario central implique encore une preference, une friction, un acces ou une execution payee; n'exige pas une prime de prix publiee aujourd'hui.
 - companySpecific=true signifie que l'entreprise possede ou controle elle-meme l'actif, le droit, le reseau, la marque ou la stack. Cela n'exige pas qu'aucun concurrent ne possede un mecanisme comparable; la rarete et la replicabilite repondent a cette seconde question.
 - Ne confonds jamais croissance, marge, notoriete ou taille actuelle avec controle futur.
 - Une marque peut rester un controle futur si confiance, statut, authenticite ou preference payante devraient survivre aux agents et a la convergence qualite-prix; anciennete et notoriete seules restent insuffisantes.
@@ -857,12 +933,11 @@ DISCIPLINE DE PROJECTION
 - credibleMajorityBypass=true lorsqu'une voie technique ET economique permet aux agents, fournisseurs, flottes ou plateformes de contourner l'entreprise sur plus de 50% du coeur d'ici 2033.
 - roleCoversMajorityCore mesure la part de l'activite propre de l'entreprise couverte par le role paye decrit. Il ne mesure ni son moat, ni sa part de marche, ni le caractere unique du role. Une entreprise peut donc avoir roleCoversMajorityCore=true et companySpecificControl=false.
 - aiPriceCommoditization signale toute pression de prix causee par l'IA. aiPriceCommoditizationCoversMajorityCore=true uniquement si cette pression detruit le pouvoir de capture sur plus de 50% du coeur; la commoditisation d'une interface minoritaire ou d'une couche analytique vaut false pour ce second champ.
-- Dans future_dependencies, mets residualOnlyAssessment=true uniquement apres avoir examine les grandes categories pays, fournisseurs, clients, travail, infrastructure, reglementation et financement, puis ne liste que les chocs residuels qui pourraient encore interrompre ou deteriorer materiellement le role 2033 apres diversification et mitigation. Un fournisseur ordinaire, la conformite generale ou une exposition geographique diffuse ne sont pas des clusters materiels. mitigation=strong exige des alternatives interchangeables, une redondance ou un controle qui maintiendrait le coeur; medium signifie seulement une continuite partielle; none signifie qu'aucune solution economiquement deployable ne preserve le coeur. Trois clusters materiels non fortement mitiges ou deux chocs existentiels non fortement mitiges valent une vulnerabilite forte.
+- Dans future_dependencies, mets residualOnlyAssessment=true et futureSeverityContract=true uniquement apres avoir examine les grandes categories pays, fournisseurs, clients, travail, infrastructure, reglementation et financement, puis ne liste que les chocs residuels qui pourraient encore interrompre ou deteriorer materiellement le role 2033 apres diversification et mitigation. Un fournisseur ordinaire, un cycle de demande, la conformite generale, le financement courant ou une exposition geographique diffuse ne sont pas des clusters materiels. coreContinuityAtRisk=true uniquement si ce choc, pris seul dans le scenario central adverse plausible, pourrait interrompre ou rendre non viable une part majeure du coeur; une baisse d'utilisation, de marge ou de volume vaut false. mitigation=strong exige une redondance qui preserve le coeur, medium une continuite partielle et none aucune solution deployable. Plusieurs risques ordinaires ne deviennent pas mecaniquement un risque existentiel par addition.
 - Dans structural_demand, futureCategoryTrend et causalDirectness sont independants. Un besoin stable directement servi par le coeur vaut causalDirectness=direct, meme s'il ne resout aucun probleme qui s'aggrave. rising exige une expansion NETTE et structurelle jusqu'en 2033 causee par le scenario futur ou une autre force macro explicitement projetee, apres avoir soustrait automatisation, substitution, baisse de prix et destruction de volumes. Une prevision sectorielle generique, la croissance actuelle, un rebond, la seule adoption d'un produit ou la simple persistance du besoin valent stable ou unproven, jamais rising. Un tailwind de categorie ne prouve jamais le controle specifique, la capture ou le pricing power de l'entreprise et ne doit pas etre recompte comme renforcement dans disruption_positioning sans mecanisme de capture controle.
 - Pour un portefeuille de brevets ou droits reglementaires temporaires, rightsVisibilityThroughScenario=true exige une protection documentee ou raisonnablement projetable sur la majorite du portefeuille economique jusqu'en 2033. Une promesse generale de renouvellement du pipeline ne suffit pas.
 - roleArchetype=weak_digital_interface lorsque le role principal est une interface, un workflow ou une API reproductible sans actif, droit, liquidite ou systeme d'autorite specifique. Ne classe jamais un fabricant physique, un operateur d'actifs ou un rail transactionnel dans cette categorie.
-- Les finances actuelles ne donnent aucun point, y compris dans transition_capacity. fundingCapacity peut seulement signaler un blocage structurel si elle est false avec des contraintes heritees non gerables; une tresorerie, un FCF ou une marge elevee ne prouvent jamais l'adaptation future.
-- scaledAdaptationEvidence=true exige une capacite d'adaptation organisationnelle deja deployee sur une part materielle du coeur avec un effet operationnel ou une monetisation observable causalement attribue au deploiement. Le booleen seul ne donne aucun point : scaledAdaptationType, outcomeCausallyAttributedToAdaptation et au moins un resultat mesure ou monetise doivent aussi passer. Un nombre d'utilisateurs, d'actions IA, de licences ou de processus ne constitue pas un effet operationnel. La croissance generale, la marge globale ou une amelioration concomitante ne prouvent pas cette causalite. Une annonce, un partenariat, une acquisition non integree, un prototype ou un seul produit marginal ne suffit pas.
+- Les finances et deploiements actuels ne donnent aucun point dans transition_capacity. Evalue uniquement si, dans le scenario 2033, les leviers d'adaptation resteraient accessibles, si le coeur pourrait etre reconfigure avant que la rupture ne l'absorbe, si le delai d'adaptation serait compatible avec la vitesse de la rupture et si les contraintes heritees resteraient gerables. Une entreprise riche mais structurellement piegee peut valoir 0; une organisation sans preuve actuelle d'IA peut valoir 2 si son role et ses actifs sont reellement reconfigurables.
 - Les attentes du benchmark ne sont pas fournies. N'essaie pas d'anticiper une note.
 
 Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette forme. Chaque reason, adverseCase et decisiveTrigger est une phrase causale concise en francais. confidence mesure la solidite du scenario central, sans modifier directement le score.
@@ -870,6 +945,7 @@ Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette f
   "scenarioYear": 2033,
   "criteria": {
     "future_control": {
+      "futureProjectionContract": true,
       "controlType": "scarce_asset|regulated_right|trusted_brand|network_liquidity|proprietary_stack_or_ip|cost_supply_chain|installed_base|regulated_execution_capability|none",
       "controlStillNeeded": true|false|null,
       "companySpecific": true|false|null,
@@ -884,16 +960,17 @@ Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette f
     },
     "disruption_positioning": {
       "forces": [
-        {"force":"ai_agents","majorityCoreThreatPath":true|false|null,"technicalAndEconomicPath":true|false|null,"materialDirectBenefit":true|false|null,"responseControlsOutcome":true|false|null,"benefitMechanism":"none|external_demand_expansion|company_specific_control_strengthening|company_specific_cost_or_capacity_advantage|company_specific_value_capture_expansion|unproven"},
-        {"force":"automation_robotics","majorityCoreThreatPath":true|false|null,"technicalAndEconomicPath":true|false|null,"materialDirectBenefit":true|false|null,"responseControlsOutcome":true|false|null,"benefitMechanism":"none|external_demand_expansion|company_specific_control_strengthening|company_specific_cost_or_capacity_advantage|company_specific_value_capture_expansion|unproven"},
-        {"force":"china_engineering","majorityCoreThreatPath":true|false|null,"technicalAndEconomicPath":true|false|null,"materialDirectBenefit":true|false|null,"responseControlsOutcome":true|false|null,"benefitMechanism":"none|external_demand_expansion|company_specific_control_strengthening|company_specific_cost_or_capacity_advantage|company_specific_value_capture_expansion|unproven"}
+        {"force":"ai_agents","majorityCoreThreatPath":true|false|null,"technicalAndEconomicPath":true|false|null,"materialPressure":true|false|null,"materialDirectBenefit":true|false|null,"responseControlsOutcome":true|false|null,"benefitMechanism":"none|external_demand_expansion|company_specific_control_strengthening|company_specific_cost_or_capacity_advantage|company_specific_value_capture_expansion|unproven"},
+        {"force":"automation_robotics","majorityCoreThreatPath":true|false|null,"technicalAndEconomicPath":true|false|null,"materialPressure":true|false|null,"materialDirectBenefit":true|false|null,"responseControlsOutcome":true|false|null,"benefitMechanism":"none|external_demand_expansion|company_specific_control_strengthening|company_specific_cost_or_capacity_advantage|company_specific_value_capture_expansion|unproven"},
+        {"force":"china_engineering","majorityCoreThreatPath":true|false|null,"technicalAndEconomicPath":true|false|null,"materialPressure":true|false|null,"materialDirectBenefit":true|false|null,"responseControlsOutcome":true|false|null,"benefitMechanism":"none|external_demand_expansion|company_specific_control_strengthening|company_specific_cost_or_capacity_advantage|company_specific_value_capture_expansion|unproven"}
       ],
       "reason": "...", "adverseCase": "...", "decisiveTrigger": "...", "confidence": "high|medium|low"
     },
     "future_dependencies": {
       "residualOnlyAssessment": true,
+      "futureSeverityContract": true,
       "coverageComplete": true|false|null,
-      "clusters": [{"name":"...","material":true|false|null,"continuityImpact":"existential|material_impairment|non_core|unproven","mitigation":"strong|medium|none|unproven"}],
+      "clusters": [{"name":"...","material":true|false|null,"continuityImpact":"existential|material_impairment|non_core|unproven","mitigation":"strong|medium|none|unproven","coreContinuityAtRisk":true|false|null}],
       "reason": "...", "adverseCase": "...", "decisiveTrigger": "...", "confidence": "high|medium|low"
     },
     "structural_demand": {
@@ -937,12 +1014,10 @@ Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette f
       "reason": "...", "adverseCase": "...", "decisiveTrigger": "...", "confidence": "high|medium|low"
     },
       "transition_capacity": {
-      "fundingCapacity": true|false|null,
-      "scaledAdaptationEvidence": true|false|null,
-      "scaledAdaptationType": "none|announcement_or_pilot|material_core_deployment|unproven",
-      "measuredOperatingEffect": true|false|null,
-      "monetizedMaterialOutcome": true|false|null,
-      "outcomeCausallyAttributedToAdaptation": true|false|null,
+      "futureAdaptationContract": true,
+      "adaptationLeversSurviveScenario": true|false|null,
+      "coreReconfigurableWithinScenario": true|false|null,
+      "adaptationLeadTimeFits": true|false|null,
       "legacyConstraintManageable": true|false|null,
       "reason": "...", "adverseCase": "...", "decisiveTrigger": "...", "confidence": "high|medium|low"
     }

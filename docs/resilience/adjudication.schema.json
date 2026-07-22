@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://lubin-investment.local/schemas/resilience-2033-adjudication.json",
-  "$comment": "methodologyVersion: 2.9.1-pilot.18",
+  "$comment": "methodologyVersion: 2.9.1-pilot.19",
   "title": "Lubin Investment Resilience 2033 Adjudication",
   "type": "object",
   "additionalProperties": false,
@@ -49,6 +49,7 @@
           "type": "object",
           "additionalProperties": false,
           "required": [
+            "futureProjectionContract",
             "controlType", "controlStillNeeded", "companySpecific", "majorityCoreCoverage",
             "scarcitySurvivesAiChina", "replicableWithinFiveYears", "futureRentPaid",
             "systemBottleneck", "multipleIndependentControls"
@@ -58,6 +59,7 @@
             "adverseCase": true,
             "decisiveTrigger": true,
             "confidence": true,
+            "futureProjectionContract": { "const": true },
             "controlType": {
               "enum": [
                 "scarce_asset", "regulated_right", "trusted_brand", "network_liquidity",
@@ -83,12 +85,13 @@
       "additionalProperties": false,
       "required": [
         "force", "majorityCoreThreatPath", "technicalAndEconomicPath",
-        "materialDirectBenefit", "responseControlsOutcome", "benefitMechanism"
+        "materialPressure", "materialDirectBenefit", "responseControlsOutcome", "benefitMechanism"
       ],
       "properties": {
         "force": { "enum": ["ai_agents", "automation_robotics", "china_engineering"] },
         "majorityCoreThreatPath": { "$ref": "#/$defs/triState" },
         "technicalAndEconomicPath": { "$ref": "#/$defs/triState" },
+        "materialPressure": { "$ref": "#/$defs/triState" },
         "materialDirectBenefit": { "$ref": "#/$defs/triState" },
         "responseControlsOutcome": { "$ref": "#/$defs/triState" },
         "benefitMechanism": {
@@ -125,14 +128,15 @@
     "dependency": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "material", "continuityImpact", "mitigation"],
+      "required": ["name", "material", "continuityImpact", "mitigation", "coreContinuityAtRisk"],
       "properties": {
         "name": { "type": "string", "minLength": 1 },
         "material": { "$ref": "#/$defs/triState" },
         "continuityImpact": {
           "enum": ["existential", "material_impairment", "non_core", "unproven"]
         },
-        "mitigation": { "enum": ["strong", "medium", "none", "unproven"] }
+        "mitigation": { "enum": ["strong", "medium", "none", "unproven"] },
+        "coreContinuityAtRisk": { "$ref": "#/$defs/triState" }
       }
     },
     "dependencies": {
@@ -141,13 +145,14 @@
         {
           "type": "object",
           "additionalProperties": false,
-          "required": ["residualOnlyAssessment", "coverageComplete", "clusters"],
+          "required": ["residualOnlyAssessment", "futureSeverityContract", "coverageComplete", "clusters"],
           "properties": {
             "reason": true,
             "adverseCase": true,
             "decisiveTrigger": true,
             "confidence": true,
             "residualOnlyAssessment": { "const": true },
+            "futureSeverityContract": { "const": true },
             "coverageComplete": { "$ref": "#/$defs/triState" },
             "clusters": { "type": "array", "items": { "$ref": "#/$defs/dependency" } }
           }
@@ -275,23 +280,19 @@
           "type": "object",
           "additionalProperties": false,
           "required": [
-            "fundingCapacity", "scaledAdaptationEvidence", "scaledAdaptationType",
-            "measuredOperatingEffect", "monetizedMaterialOutcome",
-            "outcomeCausallyAttributedToAdaptation", "legacyConstraintManageable"
+            "futureAdaptationContract", "adaptationLeversSurviveScenario",
+            "coreReconfigurableWithinScenario", "adaptationLeadTimeFits",
+            "legacyConstraintManageable"
           ],
           "properties": {
             "reason": true,
             "adverseCase": true,
             "decisiveTrigger": true,
             "confidence": true,
-            "fundingCapacity": { "$ref": "#/$defs/triState" },
-            "scaledAdaptationEvidence": { "$ref": "#/$defs/triState" },
-            "scaledAdaptationType": {
-              "enum": ["none", "announcement_or_pilot", "material_core_deployment", "unproven"]
-            },
-            "measuredOperatingEffect": { "$ref": "#/$defs/triState" },
-            "monetizedMaterialOutcome": { "$ref": "#/$defs/triState" },
-            "outcomeCausallyAttributedToAdaptation": { "$ref": "#/$defs/triState" },
+            "futureAdaptationContract": { "const": true },
+            "adaptationLeversSurviveScenario": { "$ref": "#/$defs/triState" },
+            "coreReconfigurableWithinScenario": { "$ref": "#/$defs/triState" },
+            "adaptationLeadTimeFits": { "$ref": "#/$defs/triState" },
             "legacyConstraintManageable": { "$ref": "#/$defs/triState" }
           }
         }
