@@ -54,3 +54,78 @@ Distribution volontairement agressive : `1 A`, `7 B`, `6 C`, `4 D`, `2 E`.
   agents ; les partenariats et certificats ne prouvent pas un controle majoritaire rare.
 
 Le cron et la publication UI restent desactives pendant ce test.
+
+## Resultats du premier run
+
+Le run canonique unique utilise les dossiers `2.8.13` nouvellement recherches, sans web dans
+l'adjudication future, sans attentes dans le prompt et sans consensus multi-modeles. Les 20
+sorties sont persistees en base et se rejouent deterministiquement a l'identique.
+
+| Ticker | Sortie | Vecteur | Attente | Verdict |
+| --- | ---: | --- | ---: | --- |
+| SU.PA | D48 | 0/2/1/2/1/1 | A80-100 | mismatch |
+| LIN | B71 | 3/2/1/0/2/1 | B70-79 | pass |
+| ORCL | C57 | 1/2/1/2/1/1 | B70-79 | mismatch |
+| WDAY | C59 | 1/2/1/2/1/2 | D36-49 | mismatch |
+| TEAM | D49 | 1/1/1/2/1/1 | D36-49 | pass |
+| SNOW | C57 | 1/2/1/2/1/1 | C50-69 | pass |
+| ACN | D48 | 0/2/1/2/1/1 | D36-49 | pass |
+| DE | C63 | 1/3/1/2/1/1 | B70-79 | mismatch |
+| AIR.PA | C57 | 1/2/1/2/1/1 | B70-79 | mismatch |
+| RACE | B78 | 2/2/1/2/2/1 | B70-79 | pass |
+| DIS | B78 | 3/2/1/1/2/1 | C50-69 | mismatch |
+| NKE | B70 | 2/2/1/1/2/1 | C50-69 | mismatch |
+| SBUX | B78 | 2/2/1/2/2/1 | D36-49 | mismatch |
+| MELI | C57 | 1/2/1/2/1/1 | B70-79 | mismatch |
+| DASH | B78 | 2/2/1/2/2/1 | C50-69 | mismatch |
+| UPWK | D43 | 0/2/1/1/1/2 | E0-35 | mismatch |
+| VRTX | B70 | 2/2/1/1/2/1 | B70-79 | pass |
+| REGN | C51 | 0/2/1/2/1/2 | C50-69 | pass |
+| ACGL | D48 | 0/2/1/2/1/1 | C50-69 | mismatch |
+| COUR | E29 | 0/2/1/2/1/1 | E0-35 | pass |
+
+Resultat : `8/20` dans leur bande, `12/20` mismatches, aucune erreur technique. Ce holdout
+echoue donc clairement au test de generalisation. Le succes `50/50` du strict-50 etait un
+succes de calibration des ancres, pas encore la preuve d'un systeme stable.
+
+## Audit preliminaire des ecarts
+
+Trois concentrations montrent un probleme universel : `disruption_positioning` vaut `2`
+pour 18 entreprises sur 20, `future_dependencies` vaut `1` pour les 20, et
+`structural_demand` vaut `2` pour 15 entreprises sur 20. La grille est donc encore trop peu
+discriminante sur les forces futures, les dependances et les moteurs macro.
+
+Erreurs systeme ou adjudication fortement probables :
+
+- **Schneider D48** : le jugement declare les actifs electriques critiques et 83% du coeur
+  directement expose a une demande croissante, mais met simultanement `controlStillNeeded`
+  a false et le controle a zero. Le dossier n'a pas prouve le rent coverage, mais cette
+  contradiction transforme un trou de preuve de moat en disparition du controle.
+- **Airbus C57** : l'adjudication qualifie un systeme industriel certifie, specifique,
+  majoritaire et bottleneck, tout en mettant `replicableWithinFiveYears=true` parce que Boeing
+  existe et que COMAC progresse. Un concurrent existant n'est pas la preuve qu'un nouvel
+  acteur peut repliquer Airbus sous cinq ans.
+- **Workday C59** : `transition_capacity=2` repose sur des volumes d'usage IA et de processus,
+  sans effet operationnel causal ni monetisation materielle demontree. Cela viole le test de
+  deploiement a l'echelle et illustre aussi une lecture trop optimiste des nouveaux agents.
+- **Starbucks B78** : la meme rente de marque ordinaire produit a la fois controle `2` et
+  capture `2`, puis une projection de cafe hors domicile suffit a donner demande `2`. Le
+  mecanisme double-compte la marque et traite une croissance de categorie comme une rente.
+- **DoorDash B78 / MercadoLibre C57** : le test marketplace diverge dans le mauvais ordre.
+  DoorDash obtient une liquidite non replicable et sans bypass majoritaire, tandis que
+  MercadoLibre, pourtant integre a la logistique, au paiement et au credit, recoit un bypass
+  majoritaire sans absorption majoritaire. Les preuves de couverture et de perte de liquidite
+  ne sont pas appliquees de facon assez coherente.
+- **Upwork D43** : l'IA est decrite comme automatisant les missions et la decouverte, mais
+  `disruption_positioning` reste neutre a `2` faute de preuve d'une absorption majoritaire.
+  Le seuil majoritaire rend les menaces futures directes trop faciles a neutraliser.
+
+Cas qui demandent d'abord arbitrage plutot qu'une modification certaine du moteur : Oracle
+C57 peut etre un C honnete si son controle reste reproductible ; Disney B78 et Nike B70
+peuvent refleter des actifs et marques plus durables que l'attente initiale ; Deere C63 et
+Arch D48 sont proches de la frontiere superieure ; Upwork D43 n'est qu'un grade au-dessus de
+l'attente. Ces bandes restent provisoires.
+
+Le moteur ne doit pas etre corrige ticker par ticker. La prochaine modification devra agir
+sur les sous-tests universels identifies ci-dessus, etre rejouee sur les 70 dossiers figes,
+puis etre soumise a un nouveau holdout entierement neuf. Le cron reste desactive.

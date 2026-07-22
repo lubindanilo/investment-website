@@ -493,6 +493,17 @@ Le benchmark strict atteint desormais `50/50` attentes toutes approuvees. La gri
 figee pour un nouveau holdout ; ce succes sur les ancres calibrees ne remplace pas encore le
 test de generalisation ni les runs de stabilite, et le cron reste desactive.
 
+Le premier holdout aveugle de generalisation ajoute ensuite 20 entreprises absentes du
+strict-50, avec les bandes commitees avant toute recherche ou adjudication. Le run canonique
+`pilot.17` obtient seulement `8/20`, sans erreur technique et avec un replay deterministe
+identique. Les distributions `disruption_positioning=2` pour 18/20,
+`future_dependencies=1` pour 20/20 et `structural_demand=2` pour 15/20 montrent que ces trois
+criteres restent trop peu discriminants. Schneider D48, Airbus C57, Starbucks B78 et la
+divergence DoorDash B78 / MercadoLibre C57 exposent aussi des incoherences de controle et de
+capture. Le detail est conserve dans
+`apps/api/benchmarks/resilience-future-generalization-20-p17-audit.md`. Aucun de ces 20
+resultats provisoires n'est approuve et le cron reste desactive.
+
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
 si trois runs du meme modele sur les memes dossiers produisent moins de 5% de sous-tests
