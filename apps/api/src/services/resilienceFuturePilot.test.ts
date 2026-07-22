@@ -779,6 +779,74 @@ describe('scoreFutureResilience', () => {
     expect(scoreFutureResilience(input).criteria[1]!.score).toBe(2);
   });
 
+  it('reconnait la capture d un operateur physique par leadership de cout specifique', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'cost_supply_chain',
+      scarcitySurvivesAiChina: false,
+      replicableWithinFiveYears: true,
+      futureRentPaid: false,
+    });
+    Object.assign(input.criteria.future_value_capture, {
+      roleArchetype: 'physical_product_operator',
+      agentsNeedControlledAccess: false,
+      credibleMajorityBypass: true,
+      aiPriceCommoditization: true,
+      aiPriceCommoditizationCoversMajorityCore: false,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria.map(criterion => criterion.score)).toEqual([1, 3, 2, 2, 2, 2]);
+    expect(result.criteria[0]!.reason).toContain('contrôle industriel étroit');
+    expect(result.criteria[4]!.reason).toContain('volumes, des parts de marché');
+    expect(result.criteria[0]!.audit.physicalCostLeadershipFloor).toBe(true);
+    expect(result.criteria[4]!.audit.physicalCostLeadershipCapture).toBe(true);
+  });
+
+  it('ne bonifie pas un fabricant sans controle specifique de son avantage de cout', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'cost_supply_chain',
+      scarcitySurvivesAiChina: false,
+      replicableWithinFiveYears: true,
+      futureRentPaid: false,
+    });
+    Object.assign(input.criteria.future_value_capture, {
+      roleArchetype: 'physical_product_operator',
+      agentsNeedControlledAccess: false,
+      credibleMajorityBypass: true,
+      companySpecificControl: false,
+      aiPriceCommoditization: true,
+      aiPriceCommoditizationCoversMajorityCore: false,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[0]!.score).toBe(0);
+    expect(result.criteria[4]!.score).toBe(1);
+  });
+
+  it('ne bonifie pas un leader de cout expose a une force negative majoritaire', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'cost_supply_chain',
+      scarcitySurvivesAiChina: false,
+      replicableWithinFiveYears: true,
+      futureRentPaid: false,
+    });
+    Object.assign(input.criteria.future_value_capture, {
+      roleArchetype: 'physical_product_operator',
+      agentsNeedControlledAccess: false,
+      credibleMajorityBypass: true,
+      aiPriceCommoditization: true,
+      aiPriceCommoditizationCoversMajorityCore: false,
+    });
+    Object.assign(input.criteria.disruption_positioning.forces[2]!, {
+      majorityCoreThreatPath: true,
+      technicalAndEconomicPath: true,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[0]!.score).toBe(0);
+    expect(result.criteria[4]!.score).toBe(1);
+  });
+
   it('ne compte qu une fois deux forces positives fondees sur le meme mecanisme', () => {
     const input = fixture();
     input.criteria.disruption_positioning.forces[1]!.benefitMechanism = 'external_demand_expansion';

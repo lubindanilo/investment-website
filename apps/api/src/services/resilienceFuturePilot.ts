@@ -1,4 +1,4 @@
-export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.16' as const;
+export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.17' as const;
 export const FUTURE_SCENARIO_YEAR = 2033 as const;
 
 export const FUTURE_RESILIENCE_WEIGHTS = {
@@ -620,6 +620,14 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
   );
   const structuralDemand = scoreDemand(record(criteria.structural_demand, 'structural_demand'));
   const auditedDisruptionForces = Array.isArray(disruption.audit.forces) ? disruption.audit.forces : [];
+  const hasCompanySpecificCostAdvantage = auditedDisruptionForces.some(value =>
+    value && typeof value === 'object' && !Array.isArray(value) &&
+    (value as Record<string, unknown>).verdict === 'positive' &&
+    (value as Record<string, unknown>).benefitMechanism ===
+      'company_specific_cost_or_capacity_advantage');
+  const hasNegativeDisruptionForce = auditedDisruptionForces.some(value =>
+    value && typeof value === 'object' && !Array.isArray(value) &&
+    (value as Record<string, unknown>).verdict === 'negative');
   const companySpecificStructuralAdvantage = disruption.score === 2 && structuralDemand.score === 2 &&
     !digitalStackBenefitNotControlled &&
     auditedDisruptionForces.some(value => value && typeof value === 'object' && !Array.isArray(value) &&
@@ -628,11 +636,36 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
         'company_specific_value_capture_expansion'].includes(
         String((value as Record<string, unknown>).benefitMechanism),
       )) &&
-    !auditedDisruptionForces.some(value => value && typeof value === 'object' && !Array.isArray(value) &&
-      (value as Record<string, unknown>).verdict === 'negative');
+    !hasNegativeDisruptionForce;
   if (companySpecificStructuralAdvantage) {
     disruption.score = 3;
     disruption.audit.companySpecificStructuralAdvantage = true;
+  }
+  const physicalCostLeadershipCapture =
+    futureControl.audit.controlType === 'cost_supply_chain' &&
+    futureControl.audit.controlStillNeeded === true &&
+    futureControl.audit.companySpecific === true &&
+    futureControl.audit.majorityCoreCoverage === true &&
+    structuralDemand.score === 2 &&
+    hasCompanySpecificCostAdvantage &&
+    !hasNegativeDisruptionForce &&
+    futureValueCapture.audit.roleArchetype === 'physical_product_operator' &&
+    futureValueCapture.audit.finalNeedPersists === true &&
+    futureValueCapture.audit.paidCompanyRolePersists === true &&
+    futureValueCapture.audit.roleCoversMajorityCore === true &&
+    futureValueCapture.audit.majorityAbsorptionWithinSevenYears !== true &&
+    futureValueCapture.audit.companySpecificControl === true &&
+    futureValueCapture.audit.paymentMechanismPersists === true &&
+    futureValueCapture.audit.aiPriceCommoditizationCoversMajorityCore !== true;
+  if (physicalCostLeadershipCapture) {
+    futureControl.score = Math.max(futureControl.score, 1);
+    futureValueCapture.score = Math.max(futureValueCapture.score, 2);
+    futureControl.reason += ' Ce système productif constitue toutefois un contrôle industriel étroit ' +
+      'par ses coûts et sa capacité, sans prouver une rente rare.';
+    futureValueCapture.reason += ' La capture future peut donc venir des volumes, des parts de marché ' +
+      "et de la marge sur coût plutôt que d'une prime de prix.";
+    futureControl.audit.physicalCostLeadershipFloor = true;
+    futureValueCapture.audit.physicalCostLeadershipCapture = true;
   }
   const results: FutureCriterionResult[] = [
     futureControl,

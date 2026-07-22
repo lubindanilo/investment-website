@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.16`.
+Version canonique candidate : `2.9.1-pilot.17`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -300,7 +300,7 @@ obligatoires absents, les forces dupliquees et les structures incorrectes.
 
 Le runner de cohorte `resilience:future:pilot` persiste chaque resultat valide dans les
 tables existantes `ResilienceAnalysis` et `ResilienceAnalysisHistory`, sous la version de
-grille `2.9.1-pilot.16`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
+grille `2.9.1-pilot.17`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
 encore servies par l'UI.
 
 Le JSON `analysis` conserve le score, le grade, les gates, les six cartes (`reason`,
@@ -466,6 +466,20 @@ de D49 a B76 apres correction de la portee majoritaire de son workflow. Le repla
 atteint `48/50`, dont `41/41` attentes approuvees et `7/9` provisoires. SAP B76 et Fortinet
 C69 sont les deux ecarts restants ; BYD C55 reste a faire valider explicitement. L'audit est
 conserve dans `apps/api/benchmarks/resilience-future-strict-50-p16-audit.md`.
+
+`pilot.17` corrige ensuite la confusion entre rente de prix et capture de valeur chez les
+leaders industriels de cout. Un operateur physique peut obtenir un plancher de controle
+`1/3` et une capture `2/2` lorsque sa chaine de cout ou d'approvisionnement est specifique,
+couvre la majorite du coeur, beneficie directement d'une force du scenario, sert une
+demande `2/2` et ne subit ni force negative, ni absorption ou commoditisation majoritaire.
+Ce chemin ne cree jamais un moat large : il reconnait que volume, part de marche et marge
+sur cout peuvent capter de la valeur sans prime tarifaire.
+
+BYD passe ainsi de C55 a B76, avec le vecteur `1/3, 3/3, 1/2, 2/2, 2/2, 1/2`. Les 49 autres
+entreprises restent strictement inchangees, notamment Tesla D48 et Toyota C68 qui ne
+qualifient pas le mecanisme. Le benchmark reste `48/50`; BYD entre dans sa bande provisoire
+B70-79 et attend la validation explicite de Lubin. L'audit est conserve dans
+`apps/api/benchmarks/resilience-future-strict-50-p17-audit.md`.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
