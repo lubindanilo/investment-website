@@ -30,8 +30,11 @@ function fixture() {
         ],
         ...common,
       },
-      future_dependencies: { coverageComplete: true, clusters: [], ...common },
-      structural_demand: { futureCategoryTrend: 'rising', causalDirectness: 'direct', coreExposure: 'majority', ...common },
+      future_dependencies: { residualOnlyAssessment: true, coverageComplete: true, clusters: [], ...common },
+      structural_demand: {
+        futureCategoryTrend: 'rising', causalDirectness: 'direct', coreExposure: 'majority',
+        netExpansionAfterSubstitution: true, futureDriver: 'ai_agents', ...common,
+      },
       future_value_capture: {
         roleArchetype: 'proprietary_stack_operator', agentsNeedControlledAccess: true,
         credibleMajorityBypass: false,
@@ -87,6 +90,9 @@ describe('scoreFutureResilience', () => {
     expect(prompt).toContain('effets economiques de premier ET de second ordre');
     expect(prompt).toContain('force macro -> variation du nombre de besoins');
     expect(prompt).toContain('ne prouve jamais le controle specifique, la capture ou le pricing power');
+    expect(prompt).toContain('Aucun chiffre actuel de croissance, marge, taille, revenu, FCF ou part de marche');
+    expect(prompt).toContain('Une prevision sectorielle generique');
+    expect(prompt).toContain('Les finances actuelles ne donnent aucun point');
   });
 
   it('reserve le grade A a un controle futur exceptionnel', () => {
@@ -115,6 +121,16 @@ describe('scoreFutureResilience', () => {
     expect(scoreFutureResilience(input).criteria[3]!.score).toBe(1);
   });
 
+  it('refuse une prevision sectorielle generique comme moteur futur maximal', () => {
+    const input = fixture();
+    Object.assign(input.criteria.structural_demand, {
+      futureCategoryTrend: 'rising',
+      netExpansionAfterSubstitution: true,
+      futureDriver: 'generic_market_forecast',
+    });
+    expect(scoreFutureResilience(input).criteria[3]!.score).toBe(1);
+  });
+
   it('ne compte pas deux fois la meme preuve de resistance a la replication', () => {
     const input = fixture();
     Object.assign(input.criteria.future_control, {
@@ -137,6 +153,20 @@ describe('scoreFutureResilience', () => {
 
     Object.assign(input.criteria.future_control, { majorityCoreCoverage: false });
     expect(scoreFutureResilience(input).criteria[0]!.score).toBe(0);
+  });
+
+  it('ne confond pas un concurrent existant avec la replication d un controle rare', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'cost_supply_chain',
+      systemBottleneck: true,
+      multipleIndependentControls: true,
+      scarcitySurvivesAiChina: true,
+      replicableWithinFiveYears: true,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[0]!.score).toBe(2);
+    expect(result.criteria[0]!.score).not.toBe(3);
   });
 
   it('plafonne a E une entreprise dont le role paye disparait', () => {
@@ -632,6 +662,22 @@ describe('scoreFutureResilience', () => {
     expect(result.gates).toContain('future_a_eligibility');
   });
 
+  it('ne donne aucun point de transition pour la seule capacite financiere actuelle', () => {
+    const input = fixture();
+    Object.assign(input.criteria.transition_capacity, {
+      fundingCapacity: true,
+      scaledAdaptationEvidence: false,
+      scaledAdaptationType: 'none',
+      measuredOperatingEffect: false,
+      monetizedMaterialOutcome: false,
+      outcomeCausallyAttributedToAdaptation: false,
+      legacyConstraintManageable: null,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[5]!.score).toBe(0);
+    expect(result.criteria[5]!.audit.fundingCapacityScoresDirectly).toBe(false);
+  });
+
   it('ne qualifie pas une annonce ou un pilote comme adaptation a l echelle', () => {
     const input = fixture();
     Object.assign(input.criteria.transition_capacity, {
@@ -677,7 +723,7 @@ describe('scoreFutureResilience', () => {
     expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(true);
   });
 
-  it('plafonne A face a deux chocs de continuite non fortement mitiges', () => {
+  it('refuse A face a deux chocs existentiels non fortement mitiges', () => {
     const input = fixture();
     input.criteria.future_control.systemBottleneck = true;
     (input.criteria.future_dependencies as { clusters: Array<Record<string, unknown>> }).clusters = [
@@ -692,7 +738,8 @@ describe('scoreFutureResilience', () => {
     Object.assign(input.criteria.future_control, { controlType: 'installed_base' });
     const diversifiedPhysicalOperator = scoreFutureResilience(input);
     expect(diversifiedPhysicalOperator.gates).not.toContain('concentrated_continuity_dependencies');
-    expect(diversifiedPhysicalOperator.grade).toBe('A');
+    expect(diversifiedPhysicalOperator.criteria[2]!.score).toBe(0);
+    expect(diversifiedPhysicalOperator.grade).toBe('B');
   });
 
   it('note C un role paye futur sans controle durable', () => {
@@ -723,6 +770,64 @@ describe('scoreFutureResilience', () => {
     expect(scoreFutureResilience(input).criteria[1]!.score).toBe(2);
     ai.technicalAndEconomicPath = true;
     expect(scoreFutureResilience(input).criteria[1]!.score).toBe(1);
+  });
+
+  it('audite une pression future partielle sans la confondre avec une rupture majoritaire', () => {
+    const input = fixture();
+    for (const force of input.criteria.disruption_positioning.forces) {
+      Object.assign(force, {
+        materialDirectBenefit: false,
+        responseControlsOutcome: false,
+        benefitMechanism: 'none',
+      });
+    }
+    Object.assign(input.criteria.disruption_positioning.forces[0]!, {
+      majorityCoreThreatPath: false,
+      technicalAndEconomicPath: true,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[1]!.score).toBe(2);
+    expect((result.criteria[1]!.audit.forces as Array<{ verdict: string }>)[0]!.verdict).toBe('pressure');
+  });
+
+  it('penalise deux pressions futures materielles non controlees', () => {
+    const input = fixture();
+    for (const force of input.criteria.disruption_positioning.forces) {
+      Object.assign(force, {
+        materialDirectBenefit: false,
+        responseControlsOutcome: false,
+        benefitMechanism: 'none',
+      });
+    }
+    for (const force of input.criteria.disruption_positioning.forces.slice(0, 2)) {
+      Object.assign(force, { majorityCoreThreatPath: false, technicalAndEconomicPath: true });
+    }
+    expect(scoreFutureResilience(input).criteria[1]!.score).toBe(1);
+  });
+
+  it('derive une pression agentique pour un role commoditise sans controle', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'none', controlStillNeeded: false, companySpecific: false,
+      majorityCoreCoverage: true, scarcitySurvivesAiChina: false,
+      replicableWithinFiveYears: true, futureRentPaid: false,
+    });
+    Object.assign(input.criteria.future_value_capture, {
+      roleArchetype: 'other', agentsNeedControlledAccess: false,
+      companySpecificControl: false, aiPriceCommoditization: true,
+      aiPriceCommoditizationCoversMajorityCore: false,
+    });
+    for (const force of input.criteria.disruption_positioning.forces) {
+      Object.assign(force, {
+        materialDirectBenefit: false,
+        responseControlsOutcome: false,
+        benefitMechanism: 'none',
+      });
+    }
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[1]!.score).toBe(1);
+    expect((result.criteria[1]!.audit.forces as Array<{ derivedUncontrolledAgenticPressure: boolean }>)[0]!
+      .derivedUncontrolledAgenticPressure).toBe(true);
   });
 
   it('ne qualifie pas de renforcement un benefice que l entreprise ne controle pas', () => {
@@ -896,5 +1001,18 @@ describe('scoreFutureResilience', () => {
       }],
     });
     expect(scoreFutureResilience(input).criteria[2]!.score).toBe(2);
+  });
+
+  it('note zero trois chocs futurs materiels non fortement mitiges', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_dependencies, {
+      coverageComplete: true,
+      clusters: ['Pays', 'Fournisseur', 'Travail'].map(name => ({
+        name, material: true, continuityImpact: 'material_impairment', mitigation: 'medium',
+      })),
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[2]!.score).toBe(0);
+    expect(result.criteria[2]!.audit.nonStrongMaterialShocks).toBe(3);
   });
 });

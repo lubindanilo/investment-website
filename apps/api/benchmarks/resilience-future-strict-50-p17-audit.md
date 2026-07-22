@@ -58,11 +58,12 @@ Le cron reste desactive.
 Lubin valide ensuite ASML A86, TSM B79, Broadcom B79, Zoom E22, Fiserv C57 et L'Oreal
 B79. Un audit final sur sources primaires tranche les deux derniers cas :
 
-- **SAP B76 est valide.** Le Cloud ERP Suite atteint 18,1 Md EUR sur 36,8 Md EUR de chiffre
-  d'affaires 2025 et 86% du revenu total est plus previsible. Le clean core reduit les
-  personnalisations et decouple les extensions, ce qui limite la capture future a `1/2`,
-  mais les ecritures, autorisations, donnees gouvernees et controles restent dans un
-  systeme d'autorite dont le remplacement majoritaire n'est pas economiquement demontre.
+- **SAP B76 est valide.** Dans le scenario 2033, les agents peuvent absorber les interfaces
+  et reconstruire une partie des workflows, mais ils doivent encore faire executer les
+  ecritures, autorisations et controles dans un systeme d'autorite. Le clean core facilite
+  les extensions et les migrations, ce qui limite la capture future a `1/2`, sans demontrer
+  un remplacement economique majoritaire du moteur transactionnel. Les chiffres actuels
+  servent uniquement a identifier ce mecanisme de depart et ne donnent aucun point.
 - **Fortinet C69 est valide comme haut C.** Fortinet declare plus de 50% des unites firewall
   mondiales expediees, plus de 900 000 clients historiques, 4,58 Md USD de services sur
   6,80 Md USD de revenu 2025 et une stack FortiOS plus ASIC proprietaires. Cela justifie la

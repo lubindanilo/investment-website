@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.17`.
+Version canonique candidate : `2.9.1-pilot.18`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -483,8 +483,10 @@ conserve dans `apps/api/benchmarks/resilience-future-strict-50-p17-audit.md`.
 
 Lubin valide ensuite les six sorties provisoires deja dans leur bande : ASML A86, TSM B79,
 Broadcom B79, Zoom E22, Fiserv C57 et L'Oreal B79. L'audit final des deux ecarts conclut que
-SAP B76 est honnete : le systeme d'autorite reste central, tandis que les agents et le clean
-core limitent la capture a `1/2`. Fortinet C69 est egalement retenu comme haut C : FortiOS,
+SAP B76 est honnete dans la projection 2033 : les agents peuvent compresser les interfaces,
+mais doivent encore faire executer ecritures, autorisations et controles dans un systeme
+d'autorite ; le clean core limite la capture a `1/2`. Aucun chiffre present ne donne de point.
+Fortinet C69 est egalement retenu comme haut C : FortiOS,
 les ASIC, le parc et les services prouvent la persistance et la capture, mais la concurrence,
 le bundling cloud et les dependances de fabrication interdisent A. Les bandes sont donc
 arbitrees B70-79 pour SAP et C50-69 pour Fortinet.
@@ -503,6 +505,21 @@ divergence DoorDash B78 / MercadoLibre C57 exposent aussi des incoherences de co
 capture. Le detail est conserve dans
 `apps/api/benchmarks/resilience-future-generalization-20-p17-audit.md`. Aucun de ces 20
 resultats provisoires n'est approuve et le cron reste desactive.
+
+`pilot.18` corrige cet echec sans introduire de regle par ticker. Une voie technique et
+economique qui comprime materiellement une activite peut desormais penaliser
+`disruption_positioning` sans devoir prouver la disparition de plus de 50% du coeur ; le
+seuil majoritaire reste reserve aux ruptures les plus severes. Trois chocs futurs materiels
+non fortement mitiges, ou deux chocs existentiels non fortement mitiges, font tomber
+`future_dependencies` a zero. Le prompt reserve `structural_demand=rising` a une expansion
+nette projetee vers 2033 apres substitution et automatisation, et refuse les projections
+sectorielles generiques comme preuve suffisante. Enfin, les finances actuelles ne rapportent
+plus aucun point de transition : elles peuvent seulement prouver un blocage structurel ;
+une adaptation positive exige flexibilite et mecanisme d'adaptation a l'echelle. Un controle
+rare qui survit a l'IA et a la Chine n'est plus traite comme erode uniquement parce qu'un
+concurrent historique existe, mais le score exceptionnel `3/3` exige toujours une replication
+impossible sous cinq ans. Cette version doit etre rejouee sur les 70 dossiers figes avant un
+nouveau holdout ; le cron reste desactive.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
