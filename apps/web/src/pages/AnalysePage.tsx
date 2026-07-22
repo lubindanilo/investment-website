@@ -609,7 +609,7 @@ function LandingDiscovery({ onPick }: { onPick: (ticker: string) => void }) {
                     </div>
                     <div className="row gap-6" style={{ alignItems: 'center', flexShrink: 0 }}>
                       <ScorePill score={s} />
-                      {p.resilience && <ResilienceBadge summary={p.resilience} showScore size="sm" />}
+                      {p.resilience && <ResilienceBadge summary={p.resilience} showScore />}
                     </div>
                   </div>
                   {p.pfcfTTM != null && p.pfcfTTM > 0 && (

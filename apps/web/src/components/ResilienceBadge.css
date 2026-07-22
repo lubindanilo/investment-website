@@ -1,32 +1,21 @@
 .res-badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 8px;
+  font-weight: 800;
+  line-height: 1;
   vertical-align: middle;
 }
 
-.res-badge-grade {
-  display: grid;
-  place-items: center;
-  border-radius: 6px;
-  font-weight: 800;
-  line-height: 1;
-}
+.res-badge-md { min-width: 46px; padding: 4px 9px; font-size: 13.5px; }
+.res-badge-sm { min-width: 38px; padding: 3px 7px; font-size: 12px; border-radius: 7px; }
 
-.res-badge-md .res-badge-grade { width: 22px; height: 22px; font-size: 12px; }
-.res-badge-sm .res-badge-grade { width: 19px; height: 19px; font-size: 11px; border-radius: 5px; }
+/* Le score partage la couleur de la pastille, juste un poil moins appuyé (comme le « /10 »). */
+.res-badge-score { font-weight: 700; opacity: 0.72; }
 
-.res-badge-score {
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.res-badge-good .res-badge-grade { color: var(--good-ink); background: var(--good-bg); }
-.res-badge-brand .res-badge-grade { color: var(--brand-ink); background: var(--brand-soft); }
-.res-badge-warn .res-badge-grade { color: var(--warn-ink); background: var(--warn-bg); }
-.res-badge-bad .res-badge-grade { color: var(--bad-ink); background: var(--bad-bg); }
-
-.res-badge-good .res-badge-score { color: var(--good-ink); }
-.res-badge-brand .res-badge-score { color: var(--brand-ink); }
-.res-badge-warn .res-badge-score { color: var(--warn-ink); }
-.res-badge-bad .res-badge-score { color: var(--bad-ink); }
+.res-badge-good { color: var(--good-ink); background: var(--good-bg); }
+.res-badge-brand { color: var(--brand-ink); background: var(--brand-soft); }
+.res-badge-warn { color: var(--warn-ink); background: var(--warn-bg); }
+.res-badge-bad { color: var(--bad-ink); background: var(--bad-bg); }

@@ -1284,7 +1284,7 @@
       "valuation": "Valuation",
       "valuationSub": "judged separately from quality",
       "resilience": "Resilience",
-      "resilienceSub": "how well the business can withstand disruption over time, graded A (very solid) to E (fragile)",
+      "resilienceSub": "the company's ability to still exist and thrive in the future, graded A (very solid) to E (fragile)",
       "resilienceRow": "Resilience grade"
     },
     "pfcf": {

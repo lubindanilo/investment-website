@@ -12,8 +12,9 @@ function gradeTone(grade: string): 'good' | 'brand' | 'warn' | 'bad' {
 
 /**
  * Pastille compacte du score de résilience, réutilisée hors de la page analyse
- * (screener, watchlist, compare, home). Ne rend RIEN si le ticker n'est pas scoré,
- * ce qui masque proprement la résilience là où elle n'existe pas encore en DB.
+ * (screener, watchlist, compare, home). Grade + score DANS une seule pastille colorée
+ * (même gabarit que la note /10), pour lire « B 73 » comme une seule info et non deux
+ * objets détachés. Ne rend RIEN si le ticker n'est pas scoré → masquage propre.
  */
 export function ResilienceBadge({
   summary,
@@ -29,12 +30,12 @@ export function ResilienceBadge({
   const tone = gradeTone(summary.grade);
   return (
     <span
-      className={`res-badge res-badge-${tone} res-badge-${size}`}
+      className={`num res-badge res-badge-${tone} res-badge-${size}`}
       title={`${t('analyse.resilience')} ${summary.grade} · ${summary.score}/100`}
       aria-label={`${t('analyse.resilience')} ${summary.grade}, ${summary.score}/100`}
     >
       <span className="res-badge-grade">{summary.grade}</span>
-      {showScore && <span className="num res-badge-score">{summary.score}</span>}
+      {showScore && <span className="res-badge-score">{summary.score}</span>}
     </span>
   );
 }
