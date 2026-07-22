@@ -412,11 +412,12 @@ export function ScreenerPage() {
 
   const sorted = useMemo(() => {
     const dir = sort.dir === 'desc' ? -1 : 1;
-    // Filtre résilience par lettre côté client (sélection = seuls les grades cochés ; les non scorés,
-    // sans grade, sont exclus dès qu'un filtre est actif). Le tri par score s'applique par-dessus.
+    // Filtre résilience par lettre côté client. Un titre NON noté (pas encore évalué par la veille)
+    // ne doit PAS être pénalisé : on le garde visible même sous filtre. Le filtre ne retire donc que
+    // les grades explicitement écartés (ex. filtre « A » → garde A + non notés, masque B/C/D/E).
     const grades = filters.resilienceGrades;
     const base = grades.length > 0
-      ? rows.filter(r => r.resilience != null && grades.includes(r.resilience.grade))
+      ? rows.filter(r => r.resilience == null || grades.includes(r.resilience.grade))
       : rows;
     return [...base].sort((a, b) => (valOf(a, sort.col) - valOf(b, sort.col)) * dir);
   }, [rows, sort, filters.resilienceGrades]);
