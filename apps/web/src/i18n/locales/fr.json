@@ -569,6 +569,8 @@
     "managementCtaText": "Évalue l'allocation du capital, la gouvernance, l'alignement et la capacité d'exécution de l'équipe dirigeante.",
     "resiliencePending": "Cette entreprise n'a pas encore été couverte par la veille Résilience. Aucun point n'est retiré en attendant.",
     "resilienceDetails": "Comprendre cette note",
+    "resilienceTechnicalToggle": "Détail technique",
+    "resilienceNotScored": "Non noté",
     "resilienceReason": "Pourquoi cette note",
     "resilienceScoreReading": "Contexte factuel",
     "resilienceDecisionFactors": "Éléments décisifs",
@@ -1280,7 +1282,10 @@
       "chiffres": "Les chiffres",
       "chiffresSub": "10 critères · le meilleur de chaque ligne est surligné",
       "valuation": "Valorisation",
-      "valuationSub": "jugée séparément de la qualité"
+      "valuationSub": "jugée séparément de la qualité",
+      "resilience": "Résilience",
+      "resilienceSub": "capacité de l'entreprise à exister et prospérer dans le futur, notée de A (très solide) à E (fragile)",
+      "resilienceRow": "Note de résilience"
     },
     "pfcf": {
       "label": "P/FCF actuel",

@@ -2,13 +2,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../i18n/index.js';
-import type { ScreenerTopRow } from '@lubin/shared';
+import type { ScreenerTopRow, ResilienceGrade } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { sectorSlug } from '../lib/sector.js';
-import { formatPrice } from '../lib/format.js';
 import SeoHead from '../components/SeoHead.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
+import { ResilienceBadge, ResilienceNotScored } from '../components/ResilienceBadge.js';
 import { useSubscription } from '../contexts/SubscriptionContext.js';
 import './ScreenerPage.css';
 
@@ -27,13 +27,15 @@ const CAP_OPTS: CapBucket[] = ['small', 'mid', 'large'];
 /** Zones géographiques / éligibilité PEA — filtre multi-choix, gratuit. */
 type GeoZone = 'pea' | 'us' | 'intl';
 const ZONE_OPTS: GeoZone[] = ['pea', 'us', 'intl'];
+const GRADE_OPTS: ResilienceGrade[] = ['A', 'B', 'C', 'D', 'E'];
 
-type SortCol = 'score' | 'pfcf' | 'price' | 'earnings';
+type SortCol = 'score' | 'resilience' | 'pfcf' | 'price' | 'earnings';
 interface SortState { col: SortCol; dir: 'asc' | 'desc' }
 
 function ratioOf(r: ScreenerTopRow) { return r.scoreChiffresMax ? (r.scoreChiffres ?? 0) / r.scoreChiffresMax : 0; }
 function valOf(r: ScreenerTopRow, col: SortCol): number {
   if (col === 'score') return ratioOf(r);
+  if (col === 'resilience') return r.resilience?.score ?? -Infinity;   // non scoré → en bas (desc)
   if (col === 'pfcf') return r.pfcfTTM ?? Infinity;
   if (col === 'price') return r.price ?? -Infinity;
   // earnings : null → en bas (date "infinie"). Sinon Date.parse → ms (asc = plus proche en premier).
@@ -53,17 +55,21 @@ function formatEarnings(iso?: string | null): string {
 export interface AppliedFilters {
   sectors: string[];
   minScore: number;
+  /** Grades de résilience retenus (A–E). Vide = pas de filtre. Filtré côté client (la résilience
+   *  n'est pas un critère de la requête API). Non-vide masque les tickers non scorés. */
+  resilienceGrades: ResilienceGrade[];
   maxPfcf: number;
   caps: CapBucket[];
   zones: GeoZone[];
 }
 
-const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, maxPfcf: PFCF_MAX, caps: [], zones: [] };
+const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, resilienceGrades: [], maxPfcf: PFCF_MAX, caps: [], zones: [] };
 
 /** Nombre d'axes de filtre non-défaut (pour le badge du bouton). « Opportunités » est géré à part. */
 function countActive(v: AppliedFilters): number {
   return (v.sectors.length > 0 ? 1 : 0)
     + (v.minScore !== DEFAULT_MIN_SCORE ? 1 : 0)
+    + (v.resilienceGrades.length > 0 ? 1 : 0)
     + (v.maxPfcf < PFCF_MAX ? 1 : 0)
     + (v.caps.length > 0 ? 1 : 0)
     + (v.zones.length > 0 ? 1 : 0);
@@ -71,8 +77,8 @@ function countActive(v: AppliedFilters): number {
 
 /**
  * Bouton « Filtres » unique → popover regroupant TOUS les filtres du screener (note minimale,
- * capitalisation, P/FCF max, secteurs). Le tout en brouillon : rien ne s'applique tant que
- * « Valider » n'est pas cliqué. « Opportunités du moment » reste un toggle séparé (hors panneau).
+ * résilience, capitalisation, P/FCF max, secteurs). Filtrage LIVE : chaque contrôle applique
+ * immédiatement (pas de bouton « Valider »). « Opportunités du moment » reste un toggle séparé.
  */
 function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
   sectors: { sector: string; count: number }[];
@@ -84,11 +90,8 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [draft, setDraft] = useState<AppliedFilters>(value);
   const ref = useRef<HTMLDivElement>(null);
 
-  // À l'ouverture, on repart des filtres appliqués.
-  useEffect(() => { if (open) setDraft(value); }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!open) return;
     const h = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
@@ -100,11 +103,14 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
   const q = query.trim().toLowerCase();
   const filtered = q ? sectors.filter(s => label(s.sector).toLowerCase().includes(q)) : sectors;
 
-  const toggleSector = (s: string) => setDraft(d => ({ ...d, sectors: d.sectors.includes(s) ? d.sectors.filter(x => x !== s) : [...d.sectors, s] }));
-  const toggleCap = (c: CapBucket) => setDraft(d => ({ ...d, caps: d.caps.includes(c) ? d.caps.filter(x => x !== c) : [...d.caps, c] }));
-  const toggleZone = (z: GeoZone) => setDraft(d => ({ ...d, zones: d.zones.includes(z) ? d.zones.filter(x => x !== z) : [...d.zones, z] }));
-  const apply = () => { onApply(draft); setOpen(false); setQuery(''); };
-  const reset = () => setDraft(DEFAULT_FILTERS);
+  // Filtrage LIVE : chaque contrôle applique directement (plus de bouton « Valider »).
+  const toggleSector = (s: string) => onApply({ ...value, sectors: value.sectors.includes(s) ? value.sectors.filter(x => x !== s) : [...value.sectors, s] });
+  const toggleCap = (c: CapBucket) => onApply({ ...value, caps: value.caps.includes(c) ? value.caps.filter(x => x !== c) : [...value.caps, c] });
+  const toggleZone = (z: GeoZone) => onApply({ ...value, zones: value.zones.includes(z) ? value.zones.filter(x => x !== z) : [...value.zones, z] });
+  const toggleGrade = (g: ResilienceGrade) => onApply({ ...value, resilienceGrades: value.resilienceGrades.includes(g) ? value.resilienceGrades.filter(x => x !== g) : [...value.resilienceGrades, g] });
+  const setMinScore = (n: number) => onApply({ ...value, minScore: n });
+  const setMaxPfcf = (n: number) => onApply({ ...value, maxPfcf: n });
+  const reset = () => onApply(DEFAULT_FILTERS);
   const lockedPfcf = () => { setOpen(false); onLockedPfcf(); };
 
   const activeCount = countActive(value);
@@ -154,11 +160,41 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
                 min={0}
                 max={10}
                 step={1}
-                value={draft.minScore}
-                onChange={e => setDraft(d => ({ ...d, minScore: +e.target.value }))}
+                value={value.minScore}
+                onChange={e => setMinScore(+e.target.value)}
                 style={{ flex: 1, accentColor: 'var(--brand)', cursor: 'pointer' }}
               />
-              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{draft.minScore <= 0 ? t('screener.filters.scoreAll') : draft.minScore + '+'}</span>
+              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{value.minScore <= 0 ? t('screener.filters.scoreAll') : value.minScore + '+'}</span>
+            </div>
+          </div>
+
+          {/* Résilience — filtre par lettre (multi-choix, client). Vide = toutes ; sélection = seuls
+              les titres scorés dont le grade est coché. Le tri par score reste dispo par-dessus. */}
+          <div className="col gap-6">
+            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('analyse.resilience')}</span>
+            <div className="row gap-6">
+              {GRADE_OPTS.map(g => {
+                const on = value.resilienceGrades.includes(g);
+                return (
+                  <button
+                    key={g}
+                    type="button"
+                    onClick={() => toggleGrade(g)}
+                    data-active={on}
+                    className="num"
+                    style={{
+                      flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      padding: '7px 4px', borderRadius: 8, cursor: 'pointer', transition: 'all .14s',
+                      fontWeight: 800, fontSize: 13,
+                      border: '1px solid ' + (on ? 'var(--brand)' : 'var(--line)'),
+                      background: on ? 'var(--brand-soft)' : 'var(--surface)',
+                      color: on ? 'var(--brand-ink)' : 'var(--ink-2)',
+                    }}
+                  >
+                    {g}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -167,7 +203,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.marketCap')}</span>
             <div className="row gap-6">
               {CAP_OPTS.map(c => {
-                const on = draft.caps.includes(c);
+                const on = value.caps.includes(c);
                 return (
                   <button
                     key={c}
@@ -195,7 +231,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.market')}</span>
             <div className="row gap-6">
               {ZONE_OPTS.map(z => {
-                const on = draft.zones.includes(z);
+                const on = value.zones.includes(z);
                 return (
                   <button
                     key={z}
@@ -234,13 +270,13 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
                 type="range"
                 min={10}
                 max={PFCF_MAX}
-                value={draft.maxPfcf}
+                value={value.maxPfcf}
                 disabled={!isPro}
-                onChange={e => { if (isPro) setDraft(d => ({ ...d, maxPfcf: +e.target.value })); }}
+                onChange={e => { if (isPro) setMaxPfcf(+e.target.value); }}
                 onMouseDown={e => { if (!isPro) { e.preventDefault(); lockedPfcf(); } }}
                 style={{ flex: 1, accentColor: 'var(--brand)', cursor: !isPro ? 'not-allowed' : 'pointer' }}
               />
-              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{draft.maxPfcf >= PFCF_MAX ? '∞' : draft.maxPfcf + '×'}</span>
+              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{value.maxPfcf >= PFCF_MAX ? '∞' : value.maxPfcf + '×'}</span>
             </div>
           </div>
 
@@ -248,7 +284,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
           <div className="col gap-6">
             <div className="row between">
               <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.sector')}</span>
-              {draft.sectors.length > 0 && <span className="tiny num" style={{ fontWeight: 700, color: 'var(--brand-ink)' }}>{draft.sectors.length}</span>}
+              {value.sectors.length > 0 && <span className="tiny num" style={{ fontWeight: 700, color: 'var(--brand-ink)' }}>{value.sectors.length}</span>}
             </div>
             <div className="anl-search-field">
               <Icon name="search" size={14} className="anl-search-icon" />
@@ -266,7 +302,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
                   key={s.sector}
                   label={label(s.sector)}
                   count={s.count}
-                  checked={draft.sectors.includes(s.sector)}
+                  checked={value.sectors.includes(s.sector)}
                   onClick={() => toggleSector(s.sector)}
                 />
               ))}
@@ -274,13 +310,10 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             </div>
           </div>
 
-          {/* Actions */}
-          <div className="row gap-8" style={{ paddingTop: 10, borderTop: '1px solid var(--line)' }}>
+          {/* Filtrage live → une seule action : réinitialiser. */}
+          <div className="row" style={{ paddingTop: 10, borderTop: '1px solid var(--line)' }}>
             <button type="button" className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={reset}>
               {t('screener.filters.reset')}
-            </button>
-            <button type="button" className="btn btn-brand btn-sm" style={{ flex: 1 }} onClick={apply}>
-              {t('screener.filters.apply')}
             </button>
           </div>
         </div>
@@ -351,7 +384,11 @@ export function ScreenerPage() {
       .catch(() => {});
   }, [t]);
 
+  // Séquence de requête : le filtrage est LIVE, plusieurs fetches peuvent s'enchaîner (ex. slider).
+  // On ignore toute réponse qui n'est pas la plus récente pour éviter un affichage périmé.
+  const reqSeq = useRef(0);
   const load = useCallback(async () => {
+    const seq = ++reqSeq.current;
     setLoading(true); setError(null);
     try {
       const top = await api.screener.top({
@@ -364,18 +401,31 @@ export function ScreenerPage() {
         caps: filters.caps.length ? filters.caps.join(',') : undefined,
         zones: filters.zones.length ? filters.zones.join(',') : undefined,
       });
+      if (seq !== reqSeq.current) return;   // réponse périmée
       setRows(top);
     } catch (e) {
+      if (seq !== reqSeq.current) return;
       setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
-    } finally { setLoading(false); }
+    } finally { if (seq === reqSeq.current) setLoading(false); }
   }, [filters, onlyOpp]);
 
-  useEffect(() => { load(); }, [load]);
+  // Debounce : coalesce les changements rapides (glissement de slider) en une seule requête.
+  useEffect(() => {
+    const id = setTimeout(load, 200);
+    return () => clearTimeout(id);
+  }, [load]);
 
   const sorted = useMemo(() => {
     const dir = sort.dir === 'desc' ? -1 : 1;
-    return [...rows].sort((a, b) => (valOf(a, sort.col) - valOf(b, sort.col)) * dir);
-  }, [rows, sort]);
+    // Filtre résilience par lettre côté client. Un titre NON noté (pas encore évalué par la veille)
+    // ne doit PAS être pénalisé : on le garde visible même sous filtre. Le filtre ne retire donc que
+    // les grades explicitement écartés (ex. filtre « A » → garde A + non notés, masque B/C/D/E).
+    const grades = filters.resilienceGrades;
+    const base = grades.length > 0
+      ? rows.filter(r => r.resilience == null || grades.includes(r.resilience.grade))
+      : rows;
+    return [...base].sort((a, b) => (valOf(a, sort.col) - valOf(b, sort.col)) * dir);
+  }, [rows, sort, filters.resilienceGrades]);
 
   // Reset de la pagination quand les données / le tri / les filtres changent.
   useEffect(() => { setVisibleCount(60); }, [rows, sort, filters, onlyOpp]);
@@ -456,8 +506,8 @@ export function ScreenerPage() {
                   <th>{t('screener.col.company')}</th>
                   <th>{t('screener.col.sector')}</th>
                   <SortTh label={t('screener.col.score')} col="score" />
+                  <SortTh label={t('analyse.resilience')} col="resilience" />
                   <SortTh label="P/FCF" col="pfcf" />
-                  <SortTh label={t('screener.col.price')} col="price" />
                   <SortTh label={t('screener.col.earnings')} col="earnings" />
                   <th style={{ width: 40 }}></th>
                 </tr>
@@ -484,8 +534,8 @@ export function ScreenerPage() {
                       </td>
                       <td className="muted" style={{ fontSize: 13 }}>{r.sector ? t(`industries.${sectorSlug(r.sector)}`, { defaultValue: r.sector }) : '—'}</td>
                       <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
+                      <td>{r.resilience ? <ResilienceBadge summary={r.resilience} showScore /> : <ResilienceNotScored />}</td>
                       <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
-                      <td className="num">{formatPrice(r.price, r.currency)}</td>
                       <td>
                         <span className="num tiny wl-earn">
                           <Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />

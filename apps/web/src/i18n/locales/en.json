@@ -544,6 +544,8 @@
     "managementCtaText": "Assess capital allocation, governance, alignment and the leadership team's ability to execute.",
     "resiliencePending": "This company has not yet been covered by the Resilience watch. No points are deducted while data is pending.",
     "resilienceDetails": "Understand this score",
+    "resilienceTechnicalToggle": "Technical detail",
+    "resilienceNotScored": "Not scored",
     "resilienceReason": "Why this score",
     "resilienceScoreReading": "Factual context",
     "resilienceDecisionFactors": "Decisive factors",
@@ -1280,7 +1282,10 @@
       "chiffres": "The numbers",
       "chiffresSub": "10 criteria · the best of each row is highlighted",
       "valuation": "Valuation",
-      "valuationSub": "judged separately from quality"
+      "valuationSub": "judged separately from quality",
+      "resilience": "Resilience",
+      "resilienceSub": "the company's ability to still exist and thrive in the future, graded A (very solid) to E (fragile)",
+      "resilienceRow": "Resilience grade"
     },
     "pfcf": {
       "label": "Current P/FCF",

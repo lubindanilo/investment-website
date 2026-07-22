@@ -1,0 +1,30 @@
+.res-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 8px;
+  font-weight: 800;
+  vertical-align: middle;
+}
+
+/* Même gabarit exact que la pastille de note /10 (ScorePill) : padding + police identiques,
+   line-height hérité (ne PAS forcer à 1, sinon la pastille est plus courte). */
+.res-badge-md { min-width: 46px; padding: 4px 9px; font-size: 13.5px; }
+.res-badge-sm { min-width: 38px; padding: 3px 7px; font-size: 12px; border-radius: 7px; }
+
+/* Le score partage la couleur de la pastille, juste un poil moins appuyé (comme le « /10 »). */
+.res-badge-score { font-weight: 700; opacity: 0.72; }
+
+.res-badge-good { color: var(--good-ink); background: var(--good-bg); }
+.res-badge-brand { color: var(--brand-ink); background: var(--brand-soft); }
+.res-badge-warn { color: var(--warn-ink); background: var(--warn-bg); }
+.res-badge-bad { color: var(--bad-ink); background: var(--bad-bg); }
+
+/* « Non noté » : même gabarit/hauteur que les badges, ton neutre gris, texte (weight allégé). */
+.res-badge-empty {
+  color: var(--ink-3);
+  background: var(--bg-soft);
+  font-weight: 600;
+  white-space: nowrap;
+}

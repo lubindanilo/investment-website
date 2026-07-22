@@ -14,7 +14,7 @@ import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import type { AnalyzeResponse, ValoParams, Criterion, MarketShare, SectorBenchmark, DividendInfo, ResilienceAnalysis } from '@lubin/shared';
 import { getSectorPfcfBenchmark } from '../services/screener.js';
-import { getDividendInfoYahoo } from '../services/yahoo.js';
+import { getDividendInfoYahoo, getAssetProfileYahoo } from '../services/yahoo.js';
 import { parseLang, tt, type Lang } from '../i18n/index.js';
 import { getMetric, getQuote } from '../services/finnhub.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
@@ -30,10 +30,11 @@ import { analyzeLimiter } from '../middleware/rateLimit.js';
 import { optionalAuth, requireAuth } from '../middleware/auth.js';
 import { requirePro } from '../middleware/subscription.js';
 import {
-  isApprovedResilienceTicker,
   isPublishedResilienceAnalysis,
   PUBLISHED_RESILIENCE_VERSION,
 } from '../services/resiliencePublished.js';
+import { resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
+import { getLocalizedBusinessDescription } from '../services/translate.js';
 
 export const analyzeRouter: Router = Router();
 
@@ -64,7 +65,6 @@ function isMarketShareValid(data: unknown): data is MarketShare {
 }
 
 async function getPublishedResilience(ticker: string): Promise<ResilienceAnalysis | null> {
-  if (!isApprovedResilienceTicker(ticker)) return null;
   const row = await prisma.resilienceAnalysis.findUnique({
     where: { ticker_version: { ticker, version: PUBLISHED_RESILIENCE_VERSION } },
     select: { analysis: true, status: true },
@@ -109,6 +109,7 @@ function buildResponse(args: {
   marketShare?: MarketShare | null;
   sectorBenchmark?: SectorBenchmark | null;
   dividend?: DividendInfo | null;
+  businessDescription?: string | null;
   lang?: Lang;
 }): AnalyzeResponse {
   const { ticker, quant, business, verdictDirect, management, resilience, businessCachedAt, managementCachedAt, lang = 'fr' } = args;
@@ -165,7 +166,9 @@ function buildResponse(args: {
   const chiffresEval = fundamentalsAvailable ? chiffres : chiffres.filter(c => c.valeur !== 'N/A');
   const chiffresScore = chiffresEval.filter(c => c.statut === 'pass').length + Math.round(chiffresEval.filter(c => c.statut === 'warn').length * 0.5);
   const chiffresScore10 = chiffresEval.length > 0 ? Math.round((chiffresScore / chiffresEval.length) * 10) : 0;
-  const opportunity = (args.opportunity ?? false) && chiffresScore10 >= PFCF_OPP_MIN_SCORE10;
+  const opportunity = (args.opportunity ?? false)
+    && chiffresScore10 >= PFCF_OPP_MIN_SCORE10
+    && resilienceAllowsOpportunity(resilience?.grade);
 
   return {
     ticker,
@@ -194,6 +197,7 @@ function buildResponse(args: {
     marketShare: args.marketShare ?? null,
     sectorBenchmark: args.sectorBenchmark ?? null,
     dividend: args.dividend ?? null,
+    businessDescription: args.businessDescription ?? null,
   };
 }
 
@@ -307,9 +311,10 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   // « Opportunité du moment » : percentile du P/FCF live vs historique (cache).
   const { pfcfPercentile: pct, pfcfMedian: pfcfMed, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
   // Benchmark sectoriel du P/FCF (médiane des pairs cotés de l'industrie) + dividende (Yahoo).
-  const [sectorBenchmark, dividend] = await Promise.all([
+  const [sectorBenchmark, dividend, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
+    getAssetProfileYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
   ]);
 
   const response = buildResponse({
@@ -327,6 +332,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
     marketShare,
     sectorBenchmark,
     dividend,
+    businessDescription: await getLocalizedBusinessDescription(ticker, profile?.description, lang),
     lang,
   });
   if (userId) response.inWatchlist = watchlistRow != null;
@@ -479,14 +485,16 @@ analyzeRouter.post('/qualitative', analyzeLimiter, requireAuth, requirePro, asyn
   }
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
-  const [sectorBenchmark, dividend, resilience] = await Promise.all([
+  const [sectorBenchmark, dividend, resilience, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
     getPublishedResilience(ticker),
+    getAssetProfileYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
   ]);
   res.json(buildResponse({
     ticker, quant, business, verdictDirect, management, resilience, businessCachedAt, managementCachedAt,
-    pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, marketShare, sectorBenchmark, dividend, lang,
+    pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, marketShare, sectorBenchmark, dividend,
+    businessDescription: await getLocalizedBusinessDescription(ticker, profile?.description, lang), lang,
   }));
 }));
 
@@ -520,10 +528,11 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePr
   const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
-  const [sectorBenchmark, dividend, resilience] = await Promise.all([
+  const [sectorBenchmark, dividend, resilience, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
     getPublishedResilience(ticker),
+    getAssetProfileYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
   ]);
   res.json(buildResponse({
     ticker,
@@ -540,6 +549,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePr
     opportunity: opp.opportunity,
     sectorBenchmark,
     dividend,
+    businessDescription: await getLocalizedBusinessDescription(ticker, profile?.description, lang),
     lang,
   }));
 }));

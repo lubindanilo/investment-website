@@ -12,8 +12,10 @@
  * reste en cache ; dès qu'elle est atteinte, le ticker redevient "dû" et est re-noté
  * (ce qui récupère la nouvelle date). Fallback TTL pour les dates inconnues.
  */
+import type { ResilienceSummary } from '@lubin/shared';
 import { prisma } from '../db/client.js';
 import { getStockSymbols } from './finnhub.js';
+import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
 import { buildAndCacheQuantSnapshot } from './scoreSnapshot.js';
 import { getSparkSeries } from './priceSeries.js';
 import { warmChartCacheForTicker } from './chartWarm.js';
@@ -520,6 +522,7 @@ export interface TopRow {
   opportunity: boolean;
   pfcfPercentile: number | null;
   marketCap: number | null;
+  resilience: ResilienceSummary | null;
 }
 
 /** Meilleures notes pour la vue screener. Tri par ratio décroissant, indexé. */
@@ -532,7 +535,7 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
   const andClauses: object[] = [];
   if (capBuckets.length > 0 && capBuckets.length < 3) andClauses.push({ OR: capBuckets.map(b => ({ marketCap: capBucketWhere(b) })) });
   if (zoneList.length > 0 && zoneList.length < 3) andClauses.push({ OR: zoneList.map(geoZoneWhere) });
-  return prisma.screenerTicker.findMany({
+  const rows = await prisma.screenerTicker.findMany({
     where: {
       status: 'scored',
       scoreChiffresMax: { gte: minMax },       // dénominateur significatif (évite 2/2 = 100%)
@@ -550,7 +553,19 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
       sector: true, price: true, dayChangePct: true, spark: true,
       opportunity: true, pfcfPercentile: true, marketCap: true,
     },
-  }) as Promise<TopRow[]>;
+  }) as Omit<TopRow, 'resilience'>[];
+
+  // Résilience publiée (batch, 1 requête) → badge dans le tableau. Absente pour la
+  // plupart des titres (seuls ~50 sont scorés) : null = l'UI ne montre rien.
+  const resiliences = await getPublishedResilienceSummaries(rows.map(r => r.ticker));
+  const withRes = rows.map(r => {
+    const resilience = resiliences.get(r.ticker) ?? null;
+    // Opportunité du moment : on refuse en plus les résiliences fragiles (D/E) — cf. resilienceAllowsOpportunity.
+    const opportunity = r.opportunity && resilienceAllowsOpportunity(resilience?.grade);
+    return { ...r, resilience, opportunity };
+  });
+  // Quand on ne veut que les opportunités, on retire celles recalées par la résilience.
+  return onlyOpportunities ? withRes.filter(r => r.opportunity) : withRes;
 }
 
 /** Compteurs de progression de la veille. */

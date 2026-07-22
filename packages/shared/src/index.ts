@@ -83,6 +83,23 @@ export interface ResilienceAnalysis {
   criteria: ResilienceCriterion[];
 }
 
+/**
+ * Résumé compact du score de résilience, pour l'afficher hors de la page analyse
+ * (screener, watchlist, compare, home). Absent/null quand le ticker n'est pas scoré.
+ */
+export interface ResilienceSummary {
+  grade: ResilienceGrade;
+  /** Score final publié, 0–100. */
+  score: number;
+}
+
+/** Score d'un critère de résilience, pour la ventilation détaillée (comparateur). */
+export interface ResilienceCriterionScore {
+  id: ResilienceCriterionId;
+  score: number | null;
+  maxScore: number;
+}
+
 export type CriteriaCategory = 'chiffres' | 'business' | 'management' | 'valorisation';
 
 /** Un pair coté du secteur avec son P/FCF (pour le détail concurrentiel). */
@@ -273,6 +290,8 @@ export interface NewsItem {
 export interface AnalyzeResponse {
   ticker: string;
   company: string;
+  /** 1ʳᵉ phrase du `longBusinessSummary` Yahoo : « ce que fait l'entreprise ». Null si indisponible. */
+  businessDescription?: string | null;
   /** Prix actuel (USD) */
   price: number | null;
   metrics: DerivedMetrics;
@@ -372,6 +391,8 @@ export interface WatchlistEntry {
   opportunity?: boolean;
   /** Percentile actuel du P/FCF vs historique (0-100). Null si indisponible. */
   pfcfPercentile?: number | null;
+  /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
+  resilience?: ResilienceSummary | null;
   // ─── Champs internes pour recompute P/FCF live ──────────────────────────
   // Ces 2 champs ne changent qu'à chaque earnings (FCF) ou très peu (shares).
   // Ils permettent de recomputer pfcfTTM = (price × shares) / adjFcfTtm avec un
@@ -407,6 +428,10 @@ export interface CompareTicker {
   cells: Record<string, CompareCell>;
   /** Prix d'achat conseillé (DCF) — pour la ligne Valorisation. */
   buyPrice: number | null;
+  /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
+  resilience?: ResilienceSummary | null;
+  /** Ventilation par critère (6 lignes) pour la section Résilience. Null/absent si non scoré. */
+  resilienceCriteria?: ResilienceCriterionScore[] | null;
 }
 
 /** Définition (localisée) d'un critère pour les libellés de lignes de la comparaison. */
@@ -453,6 +478,8 @@ export interface ScreenerTopRow {
   /** Capitalisation boursière (prix × actions), devise locale. Null si indisponible.
    *  Alimente le filtre Small/Mid/Large cap. */
   marketCap: number | null;
+  /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
+  resilience?: ResilienceSummary | null;
 }
 
 /**
@@ -492,6 +519,8 @@ export interface ForwardComparePosition {
   ret: number | null;
   /** « Pépite du moment » actuelle (note≥8 + P/FCF<25 + percentile≤10). Le titre est-il AUSSI une pépite ? */
   opportunity: boolean;
+  /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
+  resilience?: ResilienceSummary | null;
   // ── Champs « Ma sélection » uniquement (positions gérées par l'utilisateur) ──
   id?: string;
   buyDate?: string;

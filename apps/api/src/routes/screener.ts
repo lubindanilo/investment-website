@@ -17,6 +17,7 @@ import { requireAuth } from '../middleware/auth.js';
 import { requireOwner } from '../middleware/owner.js';
 import { seedRegion, tick, getTop, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
 import { getMarketBeat, getForwardCompare } from '../services/marketBeat.js';
+import { getPublishedResilienceSummaries } from '../services/resilienceSummary.js';
 import { prisma } from '../db/client.js';
 
 export const screenerRouter: Router = Router();
@@ -188,5 +189,6 @@ screenerRouter.get('/ticker/:ticker', asyncHandler(async (req: Request, res: Res
     },
   });
   if (!row) { res.status(404).json({ error: 'Ticker non couvert ou non scoré', code: 'NOT_FOUND' }); return; }
-  res.json(row);
+  const resiliences = await getPublishedResilienceSummaries([ticker]);
+  res.json({ ...row, resilience: resiliences.get(ticker) ?? null });
 }));

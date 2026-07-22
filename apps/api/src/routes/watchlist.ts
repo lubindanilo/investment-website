@@ -28,6 +28,7 @@ import { getNextEarningsDate } from '../services/earnings.js';
 import { getEarningsInfoYahoo } from '../services/yahoo.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
+import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
 import { buildQuantitativeCriteria } from '../services/derivedMetrics.js';
 import {
   getCachedSnapshot, getCachedSnapshotsBatch, writeCachedSnapshot,
@@ -225,6 +226,20 @@ async function refreshStaleEarnings(
 // ─── GET /api/watchlist ────────────────────────────────────────────────────
 // Lecture pure : liste des tickers de l'user × cache global TickerQuantSnapshot.
 // Aucun recompute. Seul le prix est rafraîchi en live.
+/**
+ * Attache le résumé de résilience publié (batch, 1 requête) à des lignes watchlist, et applique
+ * la règle « opportunité du moment » : une résilience fragile (D/E) retire le statut opportunité.
+ */
+async function attachResilience(entries: WatchlistEntry[]): Promise<void> {
+  if (!entries.length) return;
+  const summaries = await getPublishedResilienceSummaries(entries.map(e => e.ticker));
+  for (const e of entries) {
+    const r = summaries.get(e.ticker) ?? null;
+    e.resilience = r;
+    if (e.opportunity && !resilienceAllowsOpportunity(r?.grade)) e.opportunity = false;
+  }
+}
+
 watchlistRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   const userId = req.user!.userId;
   const t0 = Date.now();
@@ -263,6 +278,9 @@ watchlistRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
       if (o) { e.opportunity = o.opportunity; e.pfcfPercentile = o.pfcfPercentile; }
     }
   }
+
+  // 6) Résilience publiée (batch) → badge sur chaque ligne. Absente = null (masqué UI).
+  await attachResilience(result);
 
   console.log(`[watchlist GET user=${userId.slice(0, 8)}] ${tickers.length} tickers, ${cacheByTicker.size} cached, live overlay in ${Date.now() - t0}ms`);
   res.json(result);
@@ -315,7 +333,9 @@ watchlistRouter.post('/', watchlistMutateLimiter, asyncHandler(async (req: Reque
       return;
     }
   }
-  res.json(toWatchlistEntry(snapshot));
+  const entry = toWatchlistEntry(snapshot);
+  await attachResilience([entry]);
+  res.json(entry);
 }));
 
 // ─── DELETE /api/watchlist/:ticker ─────────────────────────────────────────
@@ -354,6 +374,7 @@ watchlistRouter.post('/refresh', asyncHandler(async (req: Request, res: Response
   }
   // Live overlay sur le prix (même logique que GET)
   const enriched = await enrichWithLivePrice(results);
+  await attachResilience(enriched);
 
   console.log(`[watchlist refresh user=${userId.slice(0, 8)}] ${entries.length} tickers refreshed in ${Date.now() - t0}ms`);
   res.json(enriched);

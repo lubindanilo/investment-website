@@ -19,6 +19,7 @@ import type {
   ScreenerStats,
   CompareResponse,
   TickerSuggestion,
+  ResilienceSummary,
 } from '@lubin/shared';
 import { captureException } from './sentry.js';
 import { currentLang } from '../i18n/index.js';
@@ -34,6 +35,7 @@ export interface TickerPreview {
   price: number | null;
   currency: string | null;
   opportunity: boolean;
+  resilience?: ResilienceSummary | null;
 }
 
 /** Erreur typée que les composants peuvent inspecter. */

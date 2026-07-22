@@ -20,6 +20,7 @@ import { getYahooBatchQuotes } from './yahoo.js';
 import { getSp500Universe } from './sp500Universe.js';
 import { FORWARD_INCEPTION, SYSTEM_POSITIONS, SPY_ENTRY } from '../data/forwardCompare.js';
 import type { MarketBeatRow, ForwardCompareResponse, ForwardComparePosition } from '@lubin/shared';
+import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
 
 /**
  * Univers de sélection :
@@ -135,9 +136,10 @@ export async function getForwardCompare(userId?: string): Promise<ForwardCompare
   const mineRaw = dbPos.map((p) => ({ id: p.id as string | undefined, ticker: p.ticker, entry: p.buyPrice, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note }));
 
   const allTickers = [...new Set([...mineRaw.map((p) => p.ticker), ...SYSTEM_POSITIONS.map((p) => p.ticker), 'SPY'])];
-  const [quotes, meta] = await Promise.all([
+  const [quotes, meta, resiliences] = await Promise.all([
     getYahooBatchQuotes(allTickers).catch(() => new Map<string, number>()),
     prisma.screenerTicker.findMany({ where: { ticker: { in: allTickers } }, select: { ticker: true, name: true, opportunity: true } }),
+    getPublishedResilienceSummaries(allTickers),
   ]);
   const info = new Map(meta.map((m) => [m.ticker, m]));
   const ret = (entry: number | null, live: number | null) =>
@@ -148,12 +150,14 @@ export async function getForwardCompare(userId?: string): Promise<ForwardCompare
   const minePositions: ForwardComparePosition[] = mineRaw.map((p) => {
     const live = p.sellPrice != null ? p.sellPrice : (quotes.get(p.ticker.toUpperCase()) ?? null);
     const m = info.get(p.ticker);
-    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: m?.opportunity ?? false, id: p.id, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note };
+    const res = resiliences.get(p.ticker.toUpperCase()) ?? null;
+    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: (m?.opportunity ?? false) && resilienceAllowsOpportunity(res?.grade), resilience: res, id: p.id, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note };
   });
   const systemPositions: ForwardComparePosition[] = SYSTEM_POSITIONS.map((p) => {
     const live = quotes.get(p.ticker.toUpperCase()) ?? null;
     const m = info.get(p.ticker);
-    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: m?.opportunity ?? false };
+    const res = resiliences.get(p.ticker.toUpperCase()) ?? null;
+    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: (m?.opportunity ?? false) && resilienceAllowsOpportunity(res?.grade), resilience: res };
   });
 
   const spyLive = quotes.get('SPY') ?? null;
