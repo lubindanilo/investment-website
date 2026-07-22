@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.19`.
+Version canonique candidate : `2.9.1-pilot.20`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -34,6 +34,8 @@ Toutes les entreprises sont comparees dans le meme scenario central :
 - automatisation et robotique beaucoup plus avancees, sans automatisation magique ;
 - forte progression chinoise en ingenierie, supply chain et rapport qualite-prix ;
 - compression des interfaces, logiciels et intermediaires facilement reproductibles ;
+- certains logiciels deviennent la stack interne d'un operateur qui vend et assume un
+  service complet ; l'IA peut alors industrialiser l'execution plutot que supprimer le role ;
 - les actifs physiques rares, droits regules, marques recherchees, liquidites de reseau,
   stacks proprietaires et supply chains difficiles a reproduire peuvent garder une rente.
 
@@ -542,6 +544,23 @@ universels restent ouverts : bilan net d'une force a la fois favorable et defavo
 portefeuille de controles independants, deduplication des dependances par choc et transition
 future trop peu discriminante (`2/2` pour 19/20). Les bandes provisoires ne sont pas
 recalibrees automatiquement et le cron reste desactive.
+
+`pilot.20` ferme ces quatre sujets sans modifier les poids. Une force simultanement favorable
+et defavorable devient mixte ; un portefeuille de controles independants peut etablir au plus
+un controle etroit ; les dependances issues d'une meme famille causale ne comptent qu'une fois ;
+et `2/2` en transition exige un levier futur specifique, majoritaire et inaccessible aux
+concurrents. Deux checklists supplementaires distinguent aussi le logiciel reproductible du
+logiciel interne d'un operateur de service verticalise, ainsi qu'un workflow client d'un plan
+de controle operationnel transverse encore necessaire aux agents.
+
+Le replay p20 laisse les 50 references strictes exactement inchangees (`50/50`) et reproduit
+les 20 analyses avec un digest identique. Sur le second holdout, Eaton passe de B79 a A91,
+Thermo Fisher de D49 a C55, PDD gagne un point de dependances apres regroupement du choc
+souverain chinois et Palantir passe de D49 a B79 grace au test de plan de controle. Le score
+aveugle reste cependant de `10/20` bandes provisoires. Le detail et les ecarts encore ouverts
+sont conserves dans
+`apps/api/benchmarks/resilience-future-generalization-20b-p20-audit.md`. Les 20 snapshots p20
+sont dates en base, mais la candidate n'est pas publiee dans l'UI et le cron reste desactive.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis

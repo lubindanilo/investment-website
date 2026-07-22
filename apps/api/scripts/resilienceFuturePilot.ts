@@ -9,6 +9,7 @@ import { isResilienceProviderCapacityError } from '../src/services/resilienceCro
 import {
   buildFutureResiliencePilotPrompt,
   buildFutureMarketplaceRepairPrompt,
+  buildFutureP20RepairPrompt,
   FUTURE_RESILIENCE_VERSION,
   FUTURE_SCENARIO_YEAR,
   scoreFutureResilience,
@@ -178,6 +179,7 @@ async function main(): Promise<void> {
   const replay = process.argv.includes('--replay');
   const repairMarketplace = process.argv.includes('--repair-marketplace');
   const repairWorkflow = process.argv.includes('--repair-workflow');
+  const repairP20 = process.argv.includes('--repair-p20');
   const criteriaOption = option('--criteria');
   const readjudicateCriteria = Boolean(criteriaOption);
   const persistDatabaseOnly = process.argv.includes('--persist-db');
@@ -185,9 +187,9 @@ async function main(): Promise<void> {
   if (provider !== 'codex' && provider !== 'claude') {
     throw new Error('--provider doit valoir codex ou claude');
   }
-  if ([replay, repairMarketplace, repairWorkflow, readjudicateCriteria, persistDatabaseOnly]
+  if ([replay, repairMarketplace, repairWorkflow, repairP20, readjudicateCriteria, persistDatabaseOnly]
       .filter(Boolean).length > 1) {
-    throw new Error('--replay, --repair-marketplace, --repair-workflow, --criteria et --persist-db sont mutuellement exclusifs');
+    throw new Error('--replay, --repair-marketplace, --repair-workflow, --repair-p20, --criteria et --persist-db sont mutuellement exclusifs');
   }
   if (!replay && !persistDatabaseOnly && process.env.LUBIN_RESILIENCE_ALLOW_AI !== '1') {
     throw new Error('Pilot IA bloque: definir LUBIN_RESILIENCE_ALLOW_AI=1 apres autorisation explicite');
@@ -203,7 +205,8 @@ async function main(): Promise<void> {
   ].filter(Boolean));
   const requested = new Set(args
     .filter(value => value !== '--' && value !== '--replay' &&
-      value !== '--repair-marketplace' && value !== '--repair-workflow' && value !== '--persist-db')
+      value !== '--repair-marketplace' && value !== '--repair-workflow' &&
+      value !== '--repair-p20' && value !== '--persist-db')
     .filter(value => value !== '--benchmark' && value !== '--results' && value !== '--provider' &&
       value !== '--criteria')
     .filter(value => !optionValues.has(value))
@@ -214,7 +217,7 @@ async function main(): Promise<void> {
   const completed = new Set(stored.results.filter(result => result.status === 'scored').map(result => result.ticker));
   const pending = replay
     ? []
-    : repairMarketplace || repairWorkflow || readjudicateCriteria || persistDatabaseOnly
+    : repairMarketplace || repairWorkflow || repairP20 || readjudicateCriteria || persistDatabaseOnly
       ? selected
       : selected.filter(company => !completed.has(company.ticker));
   const sourceRows = replay ? [] : await prisma.resilienceAnalysis.findMany({
@@ -328,6 +331,86 @@ async function main(): Promise<void> {
           }
           (currentCriteria as Record<string, unknown>)[criterionId] = replacement;
         }
+      } else if (repairP20) {
+        if (existing?.status !== 'scored' || !existing.adjudication) {
+          throw new Error('Adjudication existante requise pour la reparation p20');
+        }
+        const repaired = await callAdjudicatorJson(
+          buildFutureP20RepairPrompt({
+            ticker: company.ticker,
+            company: company.company,
+            industry: company.industry,
+            dossier: source.researchDossier,
+            currentAdjudication: existing.adjudication,
+          }),
+          `future p20 repair ${company.ticker}`,
+          { repair: true },
+        );
+        adjudication = structuredClone(existing.adjudication);
+        const criteria = adjudication.criteria;
+        if (!criteria || typeof criteria !== 'object' || Array.isArray(criteria)) {
+          throw new Error('Criteria existants invalides');
+        }
+        const criteriaRecord = criteria as Record<string, unknown>;
+        const futureControl = criteriaRecord.future_control;
+        const dependencies = criteriaRecord.future_dependencies;
+        const valueCapture = criteriaRecord.future_value_capture;
+        const transition = criteriaRecord.transition_capacity;
+        if (!futureControl || typeof futureControl !== 'object' || Array.isArray(futureControl) ||
+            !dependencies || typeof dependencies !== 'object' || Array.isArray(dependencies) ||
+            !valueCapture || typeof valueCapture !== 'object' || Array.isArray(valueCapture) ||
+            !transition || typeof transition !== 'object' || Array.isArray(transition)) {
+          throw new Error('Structure des criteres p20 invalide');
+        }
+        const portfolio = repaired.controlPortfolio;
+        const serviceOperator = repaired.serviceOperatorMechanics;
+        const controlPlane = repaired.operationalControlPlaneMechanics;
+        const transitionDifferentiation = repaired.transitionDifferentiation;
+        const shockGroups = repaired.dependencyShockGroups;
+        if (!portfolio || typeof portfolio !== 'object' || Array.isArray(portfolio) ||
+            !serviceOperator || typeof serviceOperator !== 'object' || Array.isArray(serviceOperator) ||
+            !controlPlane || typeof controlPlane !== 'object' || Array.isArray(controlPlane) ||
+            !transitionDifferentiation || typeof transitionDifferentiation !== 'object' ||
+              Array.isArray(transitionDifferentiation) || !Array.isArray(shockGroups)) {
+          throw new Error('Reparation p20 incomplete');
+        }
+        const dependencyRecord = dependencies as Record<string, unknown>;
+        const clusters = dependencyRecord.clusters;
+        if (!Array.isArray(clusters)) throw new Error('Clusters de dependance existants invalides');
+        const groupByName = new Map<string, string>();
+        for (const value of shockGroups) {
+          if (!value || typeof value !== 'object' || Array.isArray(value)) {
+            throw new Error('Mapping shockGroup invalide');
+          }
+          const mapping = value as Record<string, unknown>;
+          if (typeof mapping.name !== 'string' || typeof mapping.shockGroup !== 'string' ||
+              !mapping.name.trim() || !mapping.shockGroup.trim() || groupByName.has(mapping.name)) {
+            throw new Error('Mapping shockGroup incomplet ou duplique');
+          }
+          groupByName.set(mapping.name, mapping.shockGroup);
+        }
+        const existingNames = clusters.map(value => {
+          if (!value || typeof value !== 'object' || Array.isArray(value) ||
+              typeof (value as Record<string, unknown>).name !== 'string') {
+            throw new Error('Cluster de dependance existant invalide');
+          }
+          return (value as Record<string, unknown>).name as string;
+        });
+        if (groupByName.size !== existingNames.length ||
+            existingNames.some(name => !groupByName.has(name))) {
+          throw new Error('Le mapping shockGroup doit couvrir exactement les clusters existants');
+        }
+        (futureControl as Record<string, unknown>).controlPortfolio = portfolio;
+        dependencyRecord.futureShockGroupContract = true;
+        dependencyRecord.clusters = clusters.map((value, clusterIndex) => ({
+          ...(value as Record<string, unknown>),
+          shockGroup: groupByName.get(existingNames[clusterIndex]!)!,
+        }));
+        (valueCapture as Record<string, unknown>).serviceOperatorMechanics = serviceOperator;
+        (valueCapture as Record<string, unknown>).operationalControlPlaneMechanics = controlPlane;
+        Object.assign(transition as Record<string, unknown>, transitionDifferentiation, {
+          futureDifferentiatedAdaptationContract: true,
+        });
       } else if (repairMarketplace || repairWorkflow) {
         if (existing?.status !== 'scored' || !existing.adjudication) {
           throw new Error('Adjudication existante requise pour la reparation structurelle');

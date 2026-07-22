@@ -22,6 +22,11 @@ function fixture() {
         controlType: 'proprietary_stack_or_ip', controlStillNeeded: true, companySpecific: true,
         majorityCoreCoverage: true, scarcitySurvivesAiChina: true, replicableWithinFiveYears: false,
         futureRentPaid: true, systemBottleneck: false, multipleIndependentControls: false, ...common,
+        controlPortfolio: {
+          applies: false,
+          nonOverlappingCombinedMajorityCoverage: false,
+          controls: [] as Array<Record<string, unknown>>,
+        },
       },
       disruption_positioning: {
         forces: [
@@ -33,7 +38,8 @@ function fixture() {
       },
       future_dependencies: {
         residualOnlyAssessment: true, futureSeverityContract: true,
-        coverageComplete: true, clusters: [], ...common,
+        futureShockGroupContract: true,
+        coverageComplete: true, clusters: [] as Array<Record<string, unknown>>, ...common,
       },
       structural_demand: {
         futureCategoryTrend: 'rising', causalDirectness: 'direct', coreExposure: 'majority',
@@ -46,13 +52,32 @@ function fixture() {
         majorityAbsorptionWithinSevenYears: false, companySpecificControl: true,
         paymentMechanismPersists: true, aiPriceCommoditization: false,
         aiPriceCommoditizationCoversMajorityCore: false, ...common,
+        serviceOperatorMechanics: {
+          applies: false, customerBuysOutcomeNotTool: false,
+          companyOwnsInternalOperatingStack: false,
+          companyControlsStructuredOperationalData: false,
+          companyRetainsExecutionAccountability: false, aiExpandsServiceCapacity: false,
+          serviceRoleCoversMajorityCore: false, customerCanInternalizeMajorityBy2033: true,
+        },
+        operationalControlPlaneMechanics: {
+          applies: false, vendorProvidesCrossSystemStateModel: false,
+          vendorEnforcesPermissionsAndActions: false, executionCoversMajorityCore: false,
+          agentsNeedCompanyRuntime: false,
+          customerCanReplicateAtEquivalentReliabilityBy2033: true,
+          hyperscalerCanBypassMajorityBy2033: true,
+        },
       },
       transition_capacity: {
         futureAdaptationContract: true,
+        futureDifferentiatedAdaptationContract: true,
         adaptationLeversSurviveScenario: true,
         coreReconfigurableWithinScenario: true,
         adaptationLeadTimeFits: true,
         legacyConstraintManageable: true,
+        adaptationAdvantageType: 'proprietary_internal_tooling_and_data',
+        companySpecificAdaptationLevers: true,
+        adaptationMechanismCoversMajorityCore: true,
+        competitorsCanAccessSameLevers: false,
         ...common,
       },
     },
@@ -170,6 +195,37 @@ describe('scoreFutureResilience', () => {
     const result = scoreFutureResilience(input);
     expect(result.criteria[0]!.score).toBe(2);
     expect(result.criteria[0]!.score).not.toBe(3);
+  });
+
+  it('accorde seulement un controle etroit a un portefeuille diversifie de rentes independantes', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'none', controlStillNeeded: false, companySpecific: false,
+      majorityCoreCoverage: false, scarcitySurvivesAiChina: false,
+      replicableWithinFiveYears: true, futureRentPaid: false,
+      controlPortfolio: {
+        applies: true,
+        nonOverlappingCombinedMajorityCoverage: true,
+        controls: [
+          {
+            controlType: 'installed_base', coreSegment: 'instruments',
+            materialMinorityCoverage: true, companySpecific: true, futureRentPaid: true,
+            survivesAiChina: true, independentFromOtherControls: true,
+          },
+          {
+            controlType: 'regulated_execution_capability', coreSegment: 'services',
+            materialMinorityCoverage: true, companySpecific: true, futureRentPaid: true,
+            survivesAiChina: true, independentFromOtherControls: true,
+          },
+        ],
+      },
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[0]!.score).toBe(1);
+    expect(result.criteria[0]!.audit.portfolioControlQualified).toBe(true);
+
+    input.criteria.future_control.controlPortfolio.nonOverlappingCombinedMajorityCoverage = false;
+    expect(scoreFutureResilience(input).criteria[0]!.score).toBe(0);
   });
 
   it('plafonne a E une entreprise dont le role paye disparait', () => {
@@ -488,6 +544,94 @@ describe('scoreFutureResilience', () => {
     expect(result.criteria[0]!.audit.customerOwnedWorkflowCapApplied).toBeUndefined();
   });
 
+  it('preserve un operateur de service verticalise sans transformer tout support en moat', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      scarcitySurvivesAiChina: false,
+      replicableWithinFiveYears: true,
+    });
+    Object.assign(input.criteria.future_value_capture, {
+      roleArchetype: 'vertical_service_operator',
+      credibleMajorityBypass: true,
+      serviceOperatorMechanics: {
+        applies: true,
+        customerBuysOutcomeNotTool: true,
+        companyOwnsInternalOperatingStack: true,
+        companyControlsStructuredOperationalData: true,
+        companyRetainsExecutionAccountability: true,
+        aiExpandsServiceCapacity: true,
+        serviceRoleCoversMajorityCore: true,
+        customerCanInternalizeMajorityBy2033: false,
+      },
+      workflowReplacement: {
+        applies: true,
+        customerOwnsCoreState: true,
+        workflowRebuildableByAgents: true,
+        vendorControlsRegulatedOrIrreversibleExecution: false,
+        vendorExecutionType: 'none',
+        vendorExecutionCoversMajorityCore: false,
+        workflowCoversMajorityCore: true,
+        majorityCustomReplacementEconomicallyPlausibleBy2033: true,
+        migrationComplexityPrimaryBarrier: true,
+      },
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[0]!.score).toBe(1);
+    expect(result.criteria[4]!.score).toBe(2);
+    expect(result.criteria[4]!.audit.verticalServiceOperatorCandidate).toBe(true);
+    expect(result.gates).not.toContain('customer_owned_workflow_replacement');
+
+    input.criteria.future_value_capture.serviceOperatorMechanics.customerCanInternalizeMajorityBy2033 = true;
+    const internalizable = scoreFutureResilience(input);
+    expect(internalizable.criteria[4]!.score).toBe(1);
+    expect(internalizable.gates).toContain('customer_owned_workflow_replacement');
+  });
+
+  it('preserve un plan de controle operationnel mais pas un CRM reconstruisible', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      systemBottleneck: false,
+      multipleIndependentControls: false,
+      scarcitySurvivesAiChina: false,
+      replicableWithinFiveYears: true,
+    });
+    Object.assign(input.criteria.future_value_capture, {
+      roleArchetype: 'proprietary_stack_operator',
+      agentsNeedControlledAccess: true,
+      credibleMajorityBypass: true,
+      operationalControlPlaneMechanics: {
+        applies: true,
+        vendorProvidesCrossSystemStateModel: true,
+        vendorEnforcesPermissionsAndActions: true,
+        executionCoversMajorityCore: null,
+        agentsNeedCompanyRuntime: true,
+        customerCanReplicateAtEquivalentReliabilityBy2033: false,
+        hyperscalerCanBypassMajorityBy2033: false,
+      },
+      workflowReplacement: {
+        applies: true,
+        customerOwnsCoreState: true,
+        workflowRebuildableByAgents: true,
+        vendorControlsRegulatedOrIrreversibleExecution: false,
+        vendorExecutionType: 'none',
+        vendorExecutionCoversMajorityCore: false,
+        workflowCoversMajorityCore: true,
+        majorityCustomReplacementEconomicallyPlausibleBy2033: true,
+        migrationComplexityPrimaryBarrier: true,
+      },
+    });
+    const controlPlane = scoreFutureResilience(input);
+    expect(controlPlane.criteria[0]!.score).toBe(2);
+    expect(controlPlane.criteria[4]!.score).toBe(2);
+    expect(controlPlane.gates).not.toContain('customer_owned_workflow_replacement');
+
+    input.criteria.future_value_capture.operationalControlPlaneMechanics.vendorEnforcesPermissionsAndActions = false;
+    const rebuildableCrm = scoreFutureResilience(input);
+    expect(rebuildableCrm.criteria[0]!.score).toBe(1);
+    expect(rebuildableCrm.criteria[4]!.score).toBe(1);
+    expect(rebuildableCrm.gates).toContain('customer_owned_workflow_replacement');
+  });
+
   it('ne confond pas une stack proprietaire d enforcement securite avec un workflow client', () => {
     const input = fixture();
     Object.assign(input.criteria.future_control, {
@@ -724,6 +868,23 @@ describe('scoreFutureResilience', () => {
     expect(result.criteria[5]!.score).toBe(1);
   });
 
+  it('reserve la transition maximale a un levier futur specifique et non partage', () => {
+    const input = fixture();
+    Object.assign(input.criteria.transition_capacity, {
+      futureDifferentiatedAdaptationContract: true,
+      adaptationAdvantageType: 'modular_physical_architecture',
+      companySpecificAdaptationLevers: true,
+      adaptationMechanismCoversMajorityCore: true,
+      competitorsCanAccessSameLevers: true,
+    });
+    expect(scoreFutureResilience(input).criteria[5]!.score).toBe(1);
+
+    input.criteria.transition_capacity.competitorsCanAccessSameLevers = false;
+    const differentiated = scoreFutureResilience(input);
+    expect(differentiated.criteria[5]!.score).toBe(2);
+    expect(differentiated.criteria[5]!.audit.differentiatedAdaptation).toBe(true);
+  });
+
   it('refuse A face a deux chocs existentiels non fortement mitiges', () => {
     const input = fixture();
     input.criteria.future_control.systemBottleneck = true;
@@ -805,6 +966,27 @@ describe('scoreFutureResilience', () => {
     const result = scoreFutureResilience(input);
     expect(result.criteria[1]!.score).toBe(3);
     expect((result.criteria[1]!.audit.forces as Array<{ verdict: string }>)[0]!.verdict).toBe('neutral');
+  });
+
+  it('conserve les deux faces materielles d une meme force comme effet mixte', () => {
+    const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[0]!, {
+      majorityCoreThreatPath: false,
+      technicalAndEconomicPath: true,
+      materialPressure: true,
+      materialDirectBenefit: true,
+      responseControlsOutcome: false,
+      benefitMechanism: 'external_demand_expansion',
+    });
+    Object.assign(input.criteria.disruption_positioning.forces[1]!, {
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+      benefitMechanism: 'none',
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[1]!.score).toBe(2);
+    expect((result.criteria[1]!.audit.forces as Array<{ verdict: string }>)[0]!.verdict).toBe('mixed');
+    expect(result.criteria[1]!.audit.mixedForces).toBe(1);
   });
 
   it('penalise deux pressions futures materielles non controlees', () => {
@@ -1048,5 +1230,29 @@ describe('scoreFutureResilience', () => {
     const result = scoreFutureResilience(input);
     expect(result.criteria[2]!.score).toBe(0);
     expect(result.criteria[2]!.audit.unmitigatedCoreContinuityShocks).toBe(2);
+  });
+
+  it('deduplique deux manifestations du meme choc de continuite', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_dependencies, {
+      futureShockGroupContract: true,
+      coverageComplete: true,
+      clusters: [
+        {
+          name: 'Retrait du droit d operer', shockGroup: 'state_access', material: true,
+          continuityImpact: 'existential', mitigation: 'none', coreContinuityAtRisk: true,
+        },
+        {
+          name: 'Coupure reseau par le meme Etat', shockGroup: 'state_access', material: true,
+          continuityImpact: 'existential', mitigation: 'none', coreContinuityAtRisk: true,
+        },
+      ],
+    });
+    const deduplicated = scoreFutureResilience(input);
+    expect(deduplicated.criteria[2]!.score).toBe(1);
+    expect(deduplicated.criteria[2]!.audit.independentShockCount).toBe(1);
+
+    input.criteria.future_dependencies.clusters[1]!.shockGroup = 'independent_network_failure';
+    expect(scoreFutureResilience(input).criteria[2]!.score).toBe(0);
   });
 });

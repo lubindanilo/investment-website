@@ -1,4 +1,4 @@
-export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.19' as const;
+export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.20' as const;
 export const FUTURE_SCENARIO_YEAR = 2033 as const;
 
 export const FUTURE_RESILIENCE_WEIGHTS = {
@@ -64,6 +64,10 @@ function optionalTri(value: unknown, label: string): TriState {
   return value === undefined ? null : tri(value, label);
 }
 
+function optionalText(value: unknown, label: string): string | null {
+  return value === undefined || value === null ? null : text(value, label);
+}
+
 function choice<T extends string>(value: unknown, values: readonly T[], label: string): T {
   if (typeof value === 'string' && values.includes(value as T)) return value as T;
   throw new Error(`${label}: valeur invalide`);
@@ -90,6 +94,58 @@ function common(raw: Record<string, unknown>, id: FutureCriterionId) {
 }
 
 function scoreFutureControl(raw: Record<string, unknown>): FutureCriterionResult {
+  const portfolioRaw = raw.controlPortfolio === undefined
+    ? {}
+    : record(raw.controlPortfolio, 'future_control.controlPortfolio');
+  const portfolioControls = Array.isArray(portfolioRaw.controls)
+    ? portfolioRaw.controls.map((value, index) => {
+        const item = record(value, `future_control.controlPortfolio.controls[${index}]`);
+        return {
+          controlType: choice(item.controlType, [
+            'scarce_asset', 'regulated_right', 'trusted_brand', 'network_liquidity',
+            'proprietary_stack_or_ip', 'cost_supply_chain', 'installed_base',
+            'regulated_execution_capability',
+          ] as const, `future_control.controlPortfolio.controls[${index}].controlType`),
+          coreSegment: text(item.coreSegment, `future_control.controlPortfolio.controls[${index}].coreSegment`),
+          materialMinorityCoverage: tri(
+            item.materialMinorityCoverage,
+            `future_control.controlPortfolio.controls[${index}].materialMinorityCoverage`,
+          ),
+          companySpecific: tri(
+            item.companySpecific,
+            `future_control.controlPortfolio.controls[${index}].companySpecific`,
+          ),
+          futureRentPaid: tri(
+            item.futureRentPaid,
+            `future_control.controlPortfolio.controls[${index}].futureRentPaid`,
+          ),
+          survivesAiChina: tri(
+            item.survivesAiChina,
+            `future_control.controlPortfolio.controls[${index}].survivesAiChina`,
+          ),
+          independentFromOtherControls: tri(
+            item.independentFromOtherControls,
+            `future_control.controlPortfolio.controls[${index}].independentFromOtherControls`,
+          ),
+        };
+      })
+    : [];
+  const controlPortfolio = {
+    applies: optionalTri(portfolioRaw.applies, 'future_control.controlPortfolio.applies'),
+    nonOverlappingCombinedMajorityCoverage: optionalTri(
+      portfolioRaw.nonOverlappingCombinedMajorityCoverage,
+      'future_control.controlPortfolio.nonOverlappingCombinedMajorityCoverage',
+    ),
+    controls: portfolioControls,
+  };
+  const qualifiedPortfolioControls = portfolioControls.filter(item =>
+    item.materialMinorityCoverage === true && item.companySpecific === true &&
+    item.futureRentPaid === true && item.survivesAiChina !== false &&
+    item.independentFromOtherControls === true);
+  const portfolioControlQualified = controlPortfolio.applies === true &&
+    controlPortfolio.nonOverlappingCombinedMajorityCoverage === true &&
+    qualifiedPortfolioControls.length >= 2 &&
+    new Set(qualifiedPortfolioControls.map(item => item.coreSegment)).size >= 2;
   const audit = {
     futureProjectionContract: optionalTri(
       raw.futureProjectionContract,
@@ -112,6 +168,9 @@ function scoreFutureControl(raw: Record<string, unknown>): FutureCriterionResult
       raw.rightsVisibilityThroughScenario,
       'future_control.rightsVisibilityThroughScenario',
     ),
+    controlPortfolio,
+    qualifiedPortfolioControls: qualifiedPortfolioControls.length,
+    portfolioControlQualified,
   };
   const foundation = audit.controlType !== 'none' && audit.controlStillNeeded === true &&
     audit.futureRentPaid === true;
@@ -138,7 +197,7 @@ function scoreFutureControl(raw: Record<string, unknown>): FutureCriterionResult
   const exceptionalControl = wideControl && audit.scarcitySurvivesAiChina === true &&
     audit.replicableWithinFiveYears === false &&
     (audit.systemBottleneck === true || audit.multipleIndependentControls === true);
-  const score = controlRejected
+  const baseScore = controlRejected
     ? 0
     : erosionProven
       ? 1
@@ -149,6 +208,7 @@ function scoreFutureControl(raw: Record<string, unknown>): FutureCriterionResult
         : audit.controlType !== 'none' && audit.controlStillNeeded === true
           ? 1
           : 0;
+  const score = portfolioControlQualified ? Math.max(baseScore, 1) : baseScore;
   return { ...common(raw, 'future_control'), score, audit };
 }
 
@@ -193,15 +253,17 @@ function scoreDisruption(
           (!pressureContractPresent || materialPressure === true)));
     const controlledBenefitMechanism = benefitMechanism !== 'none' && benefitMechanism !== 'unproven';
     const benefitDoesNotRequireCompanyControl = benefitMechanism === 'external_demand_expansion';
-    const positive = !negative && !pressure && materialDirectBenefit === true &&
+    const qualifiedBenefit = materialDirectBenefit === true &&
       (responseControlsOutcome === true || benefitDoesNotRequireCompanyControl) &&
       !contradictedDigitalStackBenefit && (legacyBenefitContract || controlledBenefitMechanism);
+    const mixed = pressure && qualifiedBenefit && !derivedUncontrolledAgenticPressure;
+    const positive = !negative && !pressure && qualifiedBenefit;
     return {
       force, majorityCoreThreatPath, technicalAndEconomicPath, materialDirectBenefit,
       materialPressure, pressureContractPresent, responseControlsOutcome, benefitMechanism, legacyBenefitContract,
       contradictedMarketplaceBypass, contradictedDigitalStackBenefit,
       derivedCustomerWorkflowThreat, derivedUncontrolledAgenticPressure,
-      verdict: negative ? 'negative' : pressure ? 'pressure' : positive ? 'positive' : 'neutral',
+      verdict: negative ? 'negative' : mixed ? 'mixed' : pressure ? 'pressure' : positive ? 'positive' : 'neutral',
     };
   });
   if (new Set(forces.map(item => item.force)).size !== DISRUPTION_FORCES.length) {
@@ -209,6 +271,7 @@ function scoreDisruption(
   }
   const negatives = forces.filter(item => item.verdict === 'negative').length;
   const pressures = forces.filter(item => item.verdict === 'pressure').length;
+  const mixed = forces.filter(item => item.verdict === 'mixed').length;
   const uncontrolledPressures = forces.filter(item =>
     item.verdict === 'pressure' && item.derivedUncontrolledAgenticPressure).length;
   const positiveMechanisms = new Set(forces
@@ -219,7 +282,7 @@ function scoreDisruption(
     : negatives === 1 || pressures >= 2 || uncontrolledPressures >= 1
       ? 1
       : positiveMechanisms.size >= 2 ? 3 : 2;
-  return { ...common(raw, 'disruption_positioning'), score, audit: { forces } };
+  return { ...common(raw, 'disruption_positioning'), score, audit: { forces, mixedForces: mixed } };
 }
 
 function scoreDependencies(raw: Record<string, unknown>): FutureCriterionResult {
@@ -231,6 +294,10 @@ function scoreDependencies(raw: Record<string, unknown>): FutureCriterionResult 
   const futureSeverityContract = optionalTri(
     raw.futureSeverityContract,
     'future_dependencies.futureSeverityContract',
+  );
+  const futureShockGroupContract = optionalTri(
+    raw.futureShockGroupContract,
+    'future_dependencies.futureShockGroupContract',
   );
   if (!Array.isArray(raw.clusters)) throw new Error('future_dependencies.clusters: tableau requis');
   const clusters = raw.clusters.map((value, index) => {
@@ -248,9 +315,41 @@ function scoreDependencies(raw: Record<string, unknown>): FutureCriterionResult 
         item.coreContinuityAtRisk,
         `future_dependencies.clusters[${index}].coreContinuityAtRisk`,
       ),
+      shockGroup: item.shockGroup === undefined
+        ? `legacy:${index}`
+        : text(item.shockGroup, `future_dependencies.clusters[${index}].shockGroup`),
     };
   });
-  const material = clusters.filter(item => item.material === true && item.continuityImpact !== 'non_core');
+  const impactRank = { non_core: 0, unproven: 1, material_impairment: 2, existential: 3 } as const;
+  const mitigationRank = { strong: 0, medium: 1, unproven: 2, none: 3 } as const;
+  const groupedClusters = futureShockGroupContract === true
+    ? [...clusters.reduce((groups, item) => {
+        const current = groups.get(item.shockGroup);
+        if (!current) {
+          groups.set(item.shockGroup, { ...item, names: [item.name] });
+          return groups;
+        }
+        current.names.push(item.name);
+        current.material = current.material === true || item.material === true
+          ? true
+          : current.material === false && item.material === false ? false : null;
+        if (impactRank[item.continuityImpact] > impactRank[current.continuityImpact]) {
+          current.continuityImpact = item.continuityImpact;
+        }
+        if (mitigationRank[item.mitigation] > mitigationRank[current.mitigation]) {
+          current.mitigation = item.mitigation;
+        }
+        current.coreContinuityAtRisk = current.coreContinuityAtRisk === true ||
+          item.coreContinuityAtRisk === true
+          ? true
+          : current.coreContinuityAtRisk === false && item.coreContinuityAtRisk === false
+            ? false
+            : null;
+        return groups;
+      }, new Map<string, typeof clusters[number] & { names: string[] }>()).values()]
+    : clusters.map(item => ({ ...item, names: [item.name] }));
+  const material = groupedClusters.filter(item =>
+    item.material === true && item.continuityImpact !== 'non_core');
   const existential = material.some(item => item.continuityImpact === 'existential' && item.mitigation === 'none');
   const unmitigated = material.filter(item => item.mitigation === 'none').length;
   const aBlockingContinuityShocks = material.filter(item =>
@@ -285,7 +384,11 @@ function scoreDependencies(raw: Record<string, unknown>): FutureCriterionResult 
       coverageComplete,
       residualOnlyAssessment,
       futureSeverityContract,
+      futureShockGroupContract,
       clusters,
+      groupedClusters,
+      rawClusterCount: clusters.length,
+      independentShockCount: groupedClusters.length,
       aBlockingContinuityShocks: aBlockingContinuityShocks.length,
       unmitigatedMaterialShocks,
       existentialNonStrongShocks,
@@ -406,13 +509,112 @@ function scoreValueCapture(
       'workflowReplacement.workflowCoversMajorityCore',
     ),
   };
+  const serviceRaw = raw.serviceOperatorMechanics === undefined
+    ? {}
+    : record(raw.serviceOperatorMechanics, 'future_value_capture.serviceOperatorMechanics');
+  const serviceOperatorMechanics = {
+    applies: optionalTri(serviceRaw.applies, 'serviceOperatorMechanics.applies'),
+    customerBuysOutcomeNotTool: optionalTri(
+      serviceRaw.customerBuysOutcomeNotTool,
+      'serviceOperatorMechanics.customerBuysOutcomeNotTool',
+    ),
+    companyOwnsInternalOperatingStack: optionalTri(
+      serviceRaw.companyOwnsInternalOperatingStack,
+      'serviceOperatorMechanics.companyOwnsInternalOperatingStack',
+    ),
+    companyControlsStructuredOperationalData: optionalTri(
+      serviceRaw.companyControlsStructuredOperationalData,
+      'serviceOperatorMechanics.companyControlsStructuredOperationalData',
+    ),
+    companyRetainsExecutionAccountability: optionalTri(
+      serviceRaw.companyRetainsExecutionAccountability,
+      'serviceOperatorMechanics.companyRetainsExecutionAccountability',
+    ),
+    aiExpandsServiceCapacity: optionalTri(
+      serviceRaw.aiExpandsServiceCapacity,
+      'serviceOperatorMechanics.aiExpandsServiceCapacity',
+    ),
+    serviceRoleCoversMajorityCore: optionalTri(
+      serviceRaw.serviceRoleCoversMajorityCore,
+      'serviceOperatorMechanics.serviceRoleCoversMajorityCore',
+    ),
+    customerCanInternalizeMajorityBy2033: optionalTri(
+      serviceRaw.customerCanInternalizeMajorityBy2033,
+      'serviceOperatorMechanics.customerCanInternalizeMajorityBy2033',
+    ),
+  };
+  const serviceOperatorQualified = Object.entries(serviceOperatorMechanics).every(([key, value]) =>
+    key === 'customerCanInternalizeMajorityBy2033' ? value === false : value === true);
+  const controlPlaneRaw = raw.operationalControlPlaneMechanics === undefined
+    ? {}
+    : record(raw.operationalControlPlaneMechanics, 'future_value_capture.operationalControlPlaneMechanics');
+  const operationalControlPlaneMechanics = {
+    applies: optionalTri(controlPlaneRaw.applies, 'operationalControlPlaneMechanics.applies'),
+    vendorProvidesCrossSystemStateModel: optionalTri(
+      controlPlaneRaw.vendorProvidesCrossSystemStateModel,
+      'operationalControlPlaneMechanics.vendorProvidesCrossSystemStateModel',
+    ),
+    vendorEnforcesPermissionsAndActions: optionalTri(
+      controlPlaneRaw.vendorEnforcesPermissionsAndActions,
+      'operationalControlPlaneMechanics.vendorEnforcesPermissionsAndActions',
+    ),
+    executionCoversMajorityCore: optionalTri(
+      controlPlaneRaw.executionCoversMajorityCore,
+      'operationalControlPlaneMechanics.executionCoversMajorityCore',
+    ),
+    agentsNeedCompanyRuntime: optionalTri(
+      controlPlaneRaw.agentsNeedCompanyRuntime,
+      'operationalControlPlaneMechanics.agentsNeedCompanyRuntime',
+    ),
+    customerCanReplicateAtEquivalentReliabilityBy2033: optionalTri(
+      controlPlaneRaw.customerCanReplicateAtEquivalentReliabilityBy2033,
+      'operationalControlPlaneMechanics.customerCanReplicateAtEquivalentReliabilityBy2033',
+    ),
+    hyperscalerCanBypassMajorityBy2033: optionalTri(
+      controlPlaneRaw.hyperscalerCanBypassMajorityBy2033,
+      'operationalControlPlaneMechanics.hyperscalerCanBypassMajorityBy2033',
+    ),
+  };
+  const operationalExecutionCoversMajority =
+    operationalControlPlaneMechanics.executionCoversMajorityCore === true ||
+    (operationalControlPlaneMechanics.executionCoversMajorityCore === null &&
+      raw.roleCoversMajorityCore === true && raw.agentsNeedControlledAccess === true);
+  const operationalControlPlaneQualified =
+    operationalControlPlaneMechanics.applies === true &&
+    operationalControlPlaneMechanics.vendorProvidesCrossSystemStateModel === true &&
+    operationalControlPlaneMechanics.vendorEnforcesPermissionsAndActions === true &&
+    operationalExecutionCoversMajority &&
+    operationalControlPlaneMechanics.agentsNeedCompanyRuntime === true &&
+    operationalControlPlaneMechanics.customerCanReplicateAtEquivalentReliabilityBy2033 === false &&
+    operationalControlPlaneMechanics.hyperscalerCanBypassMajorityBy2033 === false;
+  const operationalControlPlaneEvidence = {
+    runtimeNecessityMechanism: optionalText(
+      controlPlaneRaw.runtimeNecessityMechanism,
+      'operationalControlPlaneMechanics.runtimeNecessityMechanism',
+    ),
+    customerReplicationPath: optionalText(
+      controlPlaneRaw.customerReplicationPath,
+      'operationalControlPlaneMechanics.customerReplicationPath',
+    ),
+    hyperscalerBypassPath: optionalText(
+      controlPlaneRaw.hyperscalerBypassPath,
+      'operationalControlPlaneMechanics.hyperscalerBypassPath',
+    ),
+  };
   const audit = {
     marketplaceMechanics,
     workflowReplacement,
+    serviceOperatorMechanics,
+    serviceOperatorQualified,
+    operationalControlPlaneMechanics,
+    operationalExecutionCoversMajority,
+    operationalControlPlaneEvidence,
+    operationalControlPlaneQualified,
     roleArchetype: optionalChoice(raw.roleArchetype, [
       'weak_digital_interface', 'authoritative_system', 'controlled_marketplace_liquidity',
       'transaction_or_asset_operator', 'physical_product_operator', 'regulated_operator',
-      'proprietary_stack_operator', 'brand_product_operator', 'other', 'unproven',
+      'proprietary_stack_operator', 'brand_product_operator', 'vertical_service_operator',
+      'other', 'unproven',
     ] as const, 'unproven', 'future_value_capture.roleArchetype'),
     agentsNeedControlledAccess: optionalTri(
       raw.agentsNeedControlledAccess,
@@ -462,8 +664,17 @@ function scoreValueCapture(
     (audit.companySpecificControl === true && audit.paymentMechanismPersists === true &&
       !majorityCorePriceCommoditization && bypassNotProven) ||
       derivedFromFutureControl;
+  const durableServiceOperatorCapture = serviceOperatorQualified && futureControlScore >= 1 &&
+    audit.companySpecificControl === true &&
+    audit.paymentMechanismPersists === true && !majorityCorePriceCommoditization;
+  const durableOperationalControlPlaneCapture = operationalControlPlaneQualified &&
+    audit.roleArchetype === 'proprietary_stack_operator' &&
+    audit.companySpecificControl === true &&
+    audit.paymentMechanismPersists === true && !majorityCorePriceCommoditization;
   const durableCapture = roleFoundation &&
-    (marketplaceRole ? durableMarketplaceCapture : genericDurableCapture);
+    (marketplaceRole
+      ? durableMarketplaceCapture
+      : genericDurableCapture || durableServiceOperatorCapture || durableOperationalControlPlaneCapture);
   const score = durableCapture ? 2 : roleFoundation ? 1 : 0;
   return {
     ...common(raw, 'future_value_capture'),
@@ -478,6 +689,8 @@ function scoreValueCapture(
       majorityCorePriceCommoditization,
       derivedFromFutureControl,
       durableMarketplaceCapture,
+      durableServiceOperatorCapture,
+      durableOperationalControlPlaneCapture,
     },
   };
 }
@@ -488,8 +701,13 @@ function scoreTransition(raw: Record<string, unknown>): FutureCriterionResult {
     'transition_capacity.futureAdaptationContract',
   );
   if (futureAdaptationContract === true) {
+    const futureDifferentiatedAdaptationContract = optionalTri(
+      raw.futureDifferentiatedAdaptationContract,
+      'transition_capacity.futureDifferentiatedAdaptationContract',
+    );
     const audit = {
       futureAdaptationContract,
+      futureDifferentiatedAdaptationContract,
       adaptationLeversSurviveScenario: tri(
         raw.adaptationLeversSurviveScenario,
         'transition_capacity.adaptationLeversSurviveScenario',
@@ -506,6 +724,23 @@ function scoreTransition(raw: Record<string, unknown>): FutureCriterionResult {
         raw.legacyConstraintManageable,
         'transition_capacity.legacyConstraintManageable',
       ),
+      adaptationAdvantageType: optionalChoice(raw.adaptationAdvantageType, [
+        'proprietary_internal_tooling_and_data', 'modular_physical_architecture',
+        'regulated_learning_system', 'distribution_feedback_loop', 'none', 'unproven',
+      ] as const, 'unproven', 'transition_capacity.adaptationAdvantageType'),
+      companySpecificAdaptationLevers: optionalTri(
+        raw.companySpecificAdaptationLevers,
+        'transition_capacity.companySpecificAdaptationLevers',
+      ),
+      adaptationMechanismCoversMajorityCore: optionalTri(
+        raw.adaptationMechanismCoversMajorityCore,
+        'transition_capacity.adaptationMechanismCoversMajorityCore',
+      ),
+      competitorsCanAccessSameLevers: optionalTri(
+        raw.competitorsCanAccessSameLevers,
+        'transition_capacity.competitorsCanAccessSameLevers',
+      ),
+      differentiatedAdaptation: false,
       currentFinancialsScoreDirectly: false,
       currentDeploymentScoresDirectly: false,
     };
@@ -517,12 +752,23 @@ function scoreTransition(raw: Record<string, unknown>): FutureCriterionResult {
     ];
     const positives = signals.filter(value => value === true).length;
     const negatives = signals.filter(value => value === false).length;
-    const score = positives === signals.length
-      ? 2
-      : negatives >= 2 ||
-          (audit.coreReconfigurableWithinScenario === false && audit.adaptationLeadTimeFits === false)
-        ? 0
-        : 1;
+    const structurallyBlocked = negatives >= 2 ||
+      (audit.coreReconfigurableWithinScenario === false && audit.adaptationLeadTimeFits === false);
+    const differentiatedAdaptation = futureDifferentiatedAdaptationContract === true &&
+      !['none', 'unproven'].includes(audit.adaptationAdvantageType) &&
+      audit.companySpecificAdaptationLevers === true &&
+      audit.adaptationMechanismCoversMajorityCore === true &&
+      audit.competitorsCanAccessSameLevers === false;
+    const score = futureDifferentiatedAdaptationContract === true
+      ? !structurallyBlocked && positives === signals.length && differentiatedAdaptation
+        ? 2
+        : !structurallyBlocked && positives >= 2
+          ? 1
+          : 0
+      : positives === signals.length
+        ? 2
+        : structurallyBlocked ? 0 : 1;
+    audit.differentiatedAdaptation = differentiatedAdaptation;
     return { ...common(raw, 'transition_capacity'), score, audit };
   }
   const declaredScaledAdaptation = tri(raw.scaledAdaptationEvidence, 'transition_capacity.scaledAdaptationEvidence');
@@ -619,6 +865,20 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
     futureControl.audit.controlType === 'regulated_execution_capability' &&
     futureValueCapture.audit.roleArchetype === 'regulated_operator' &&
     futureValueCapture.audit.roleCoversMajorityCore === true;
+  const verticalServiceOperatorCandidate =
+    futureValueCapture.audit.serviceOperatorQualified === true &&
+    futureValueCapture.audit.roleArchetype === 'vertical_service_operator' &&
+    futureValueCapture.audit.roleCoversMajorityCore === true;
+  const operationalControlPlaneCandidate =
+    futureValueCapture.audit.operationalControlPlaneQualified === true &&
+    futureValueCapture.audit.roleArchetype === 'proprietary_stack_operator' &&
+    futureValueCapture.audit.agentsNeedControlledAccess === true &&
+    futureValueCapture.audit.roleCoversMajorityCore === true &&
+    futureControl.audit.controlType === 'proprietary_stack_or_ip' &&
+    futureControl.audit.controlStillNeeded === true &&
+    futureControl.audit.companySpecific === true &&
+    futureControl.audit.majorityCoreCoverage === true &&
+    futureControl.audit.futureRentPaid === true;
   const pureWorkflowCompany =
     futureValueCapture.audit.roleCoversMajorityCore === true &&
     ['weak_digital_interface', 'authoritative_system'].includes(
@@ -633,7 +893,8 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
     workflowReplacement.workflowRebuildableByAgents === true &&
     workflowCoversMajorityCore &&
     !qualifiedVendorExecution && !legacyVendorExecution && !proprietarySecurityEnforcementCandidate &&
-    !regulatedExecutionServiceCandidate;
+    !regulatedExecutionServiceCandidate && !verticalServiceOperatorCandidate &&
+    !operationalControlPlaneCandidate;
   if (proprietarySecurityEnforcementCandidate) {
     futureControl.audit.proprietarySecurityEnforcementCandidate = true;
     futureValueCapture.audit.proprietarySecurityEnforcementCandidate = true;
@@ -641,6 +902,19 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
   if (regulatedExecutionServiceCandidate) {
     futureControl.audit.regulatedExecutionServiceCandidate = true;
     futureValueCapture.audit.regulatedExecutionServiceCandidate = true;
+  }
+  if (verticalServiceOperatorCandidate) {
+    futureControl.audit.verticalServiceOperatorCandidate = true;
+    futureValueCapture.audit.verticalServiceOperatorCandidate = true;
+  }
+  if (operationalControlPlaneCandidate) {
+    futureControl.score = Math.max(futureControl.score, 2);
+    futureControl.audit.operationalControlPlaneCandidate = true;
+    futureValueCapture = scoreValueCapture(
+      record(criteria.future_value_capture, 'future_value_capture'),
+      futureControl.score,
+    );
+    futureValueCapture.audit.operationalControlPlaneCandidate = true;
   }
   futureValueCapture.audit.workflowCoversMajorityCore = workflowCoversMajorityCore;
   const majorityReplacementDerivedFromWorkflowMechanics =
@@ -730,7 +1004,8 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
     );
   }
   if (futureControl.score < 2 && futureValueCapture.score === 2 &&
-      !proprietarySecurityEnforcementCandidate) {
+      !proprietarySecurityEnforcementCandidate && !verticalServiceOperatorCandidate &&
+      !operationalControlPlaneCandidate) {
     futureValueCapture.score = 1;
     futureValueCapture.audit.captureLimitedByNarrowControl = true;
   }
@@ -891,6 +1166,7 @@ SCENARIO 2033 FIGE
 - Robotique nettement plus avancee, sans supposer une automatisation techniquement magique.
 - La Chine atteint ou conserve un avantage majeur d'ingenierie, de supply chain et de rapport qualite-prix dans les secteurs exposés.
 - Les interfaces, logiciels et intermediaires facilement reproductibles subissent une forte compression de prix.
+- Certains logiciels deviennent toutefois des outils internes d'operateurs de services verticalises: l'entreprise vend et assume le resultat metier, possede sa stack et ses donnees operationnelles, et utilise l'IA pour industrialiser l'execution plutot que vendre l'interface.
 - Les actifs physiques rares, droits regules, marques de confiance/statut, liquidites transactionnelles, stacks proprietaires et supply chains difficiles a reproduire peuvent conserver une rente si leur controle reste specifique a l'entreprise.
 
 QUESTION UNIQUE
@@ -912,9 +1188,11 @@ DISCIPLINE DE PROJECTION
 - majorityCoreThreatPath vaut true uniquement si la force devrait faire perdre ou absorber plus de 50% du role economique de l'entreprise en 2033. Une simple compression de prix, une concurrence accrue ou un avantage devenu standard ne suffit pas et reste traitee dans future_control/future_value_capture.
 - Une force avec technicalAndEconomicPath=true, materialPressure=true, majorityCoreThreatPath=false et responseControlsOutcome different de true constitue une pression materielle non controlee. Une voie plausible mais non materielle n'est pas une pression de scoring.
 - materialDirectBenefit=true exige un effet strategique materiel controle par l'entreprise: expansion externe de la demande, renforcement d'un controle specifique, avantage durable de cout/capacite ou expansion de la capture. Une efficacite operationnelle generique egalement accessible aux concurrents vaut false.
+- Une meme force peut avoir simultanement materialPressure=true et materialDirectBenefit=true. Ne supprime aucun des deux effets pour fabriquer un verdict simple: le scorer les traite comme un effet mixte, sauf menace majoritaire.
 - benefitMechanism nomme cet effet. Deux forces fondees sur le meme mecanisme ne comptent qu'une fois; n'invente pas deux renforcements IA/robotique pour le meme gain de planification, d'automatisation ou de productivite.
 - Tous les champs "majorityCore" portent sur plus de 50% du chiffre d'affaires ou de l'activite economique propre de l'entreprise, jamais sur sa part du marche mondial. Un role peut couvrir 100% du coeur d'une entreprise qui ne detient que 10% de son marche. Ne confonds pas non plus couverture, specificite et defensibilite: ils sont testes separement.
 - Pour future_control, adjudique le controle qui devrait couvrir le mix economique de 2033. Une base installee, un reseau physique, une marque ou une capacite qualifiee peuvent former un controle meme si des concurrents comparables existent; leur existence joue sur rarete et replication, pas sur companySpecific. controlType=none exige l'absence projetee de tout controle economiquement paye, pas l'absence d'un monopole. futureRentPaid=true si le scenario central implique encore une preference, une friction, un acces ou une execution payee; n'exige pas une prime de prix publiee aujourd'hui.
+- controlPortfolio s'applique seulement lorsqu'aucun controle unique ne couvre la majorite d'un groupe diversifie. Liste des controles independants sur des segments non chevauchants. Deux controles materiels, specifiques, encore payes et survivant au scenario, dont la couverture combinee depasse 50% du mix 2033, prouvent seulement un controle de portefeuille etroit: jamais un moat large ou exceptionnel.
 - companySpecific=true signifie que l'entreprise possede ou controle elle-meme l'actif, le droit, le reseau, la marque ou la stack. Cela n'exige pas qu'aucun concurrent ne possede un mecanisme comparable; la rarete et la replicabilite repondent a cette seconde question.
 - Ne confonds jamais croissance, marge, notoriete ou taille actuelle avec controle futur.
 - Une marque peut rester un controle futur si confiance, statut, authenticite ou preference payante devraient survivre aux agents et a la convergence qualite-prix; anciennete et notoriete seules restent insuffisantes.
@@ -925,6 +1203,8 @@ DISCIPLINE DE PROJECTION
 - Pour une stack proprietaire, l'acces controle inclut le plan de controle du calcul, des donnees, de l'identite, des permissions ou de l'execution. Une interface tierce n'annule pas cet acces si les workloads majoritaires doivent encore passer par ce plan de controle specifique.
 - Les donnees, configurations, permissions et workflows appartenant au client ne constituent pas seuls un controle specifique du fournisseur. Pour les logiciels de workflow et systemes d'autorite, remplis workflowReplacement afin de distinguer une friction de migration d'une execution reglementee ou irreversible reellement controlee par le fournisseur.
 - Une entreprise de services ne devient pas un logiciel de workflow parce qu'elle utilise une plateforme proprietaire. Si la majorite du role paye reste l'execution humaine, clinique, physique ou reglementaire d'un mandat complexe, workflowReplacement.applies=false. Les agents peuvent rendre le processus plus efficace sans permettre au client de vibe-coder l'accreditation, le reseau operationnel, la responsabilite reglementaire ou le savoir-faire d'execution.
+- serviceOperatorMechanics distingue le logiciel vendu comme outil du logiciel utilise en interne pour rendre un service. Il ne passe que si le client achete le resultat, si l'entreprise possede sa stack et ses donnees operationnelles, garde la responsabilite de l'execution, industrialise cette execution par l'IA sur la majorite du coeur et ne peut pas etre reinternalisee majoritairement. Un support humain, une agence utilisant une IA generique ou un module de service ne suffit pas.
+- operationalControlPlaneMechanics.applies=true des qu'une stack candidate maintient un modele d'etat transverse et fait respecter permissions et actions sur plusieurs systemes, meme si les tests de durabilite suivants echouent. Les donnees peuvent appartenir au client sans que le runtime proprietaire soit reconstruisible. Le test complet ne passe que si les agents ont encore besoin du runtime de l'entreprise sur la majorite du coeur et si ni le client ni un hyperscaler ne peuvent le remplacer a fiabilite equivalente d'ici 2033. Une CRM, une CMDB, des formulaires, des integrations ou des workflows configurables ne satisfont pas ce test seuls. Une reconstruction d'interface ou de workflow ne prouve pas la replication du modele semantique, des permissions et du write-back operationnel. Chaque verdict sur le runtime, la replication client et le bypass hyperscaler doit nommer son mecanisme causal; "les agents pourront coder une alternative" n'est pas un mecanisme suffisant.
 - controlType=regulated_execution_capability designe une capacite d'execution reglementee et specialisee couvrant le coeur, avec savoir-faire, reseau operationnel ou historique de conformite difficile a reproduire. La reglementation sectorielle seule ne suffit pas: il faut une rente ou des switching costs payes et une replication majoritaire non plausible dans les cinq ans.
 - Pour une capacite d'execution reglementee, une revalidation ou un transfert reglementaire documente pendant un mandat actif peut etablir un controle etroit meme si des concurrents savent gagner de nouveaux mandats. Les concurrents rendent replicableWithinFiveYears=true et interdisent le controle large; ils ne justifient pas controlType=none si la barriere de transition propre au mandat est prouvee. L'absence de taux de retention ou de prime de prix publiee donne futureRentPaid=null, jamais false; false exige une contre-preuve economique affirmative.
 - Dans workflowReplacement, vendorControlsRegulatedOrIrreversibleExecution=true n'est publiable que si vendorExecutionType nomme un type admissible et si vendorExecutionCoversMajorityCore=true. Une CMDB, un workflow configurable, un journal d'audit, des permissions client ou une integration ne sont pas en eux-memes une execution reglementee ou irreversible.
@@ -933,11 +1213,11 @@ DISCIPLINE DE PROJECTION
 - credibleMajorityBypass=true lorsqu'une voie technique ET economique permet aux agents, fournisseurs, flottes ou plateformes de contourner l'entreprise sur plus de 50% du coeur d'ici 2033.
 - roleCoversMajorityCore mesure la part de l'activite propre de l'entreprise couverte par le role paye decrit. Il ne mesure ni son moat, ni sa part de marche, ni le caractere unique du role. Une entreprise peut donc avoir roleCoversMajorityCore=true et companySpecificControl=false.
 - aiPriceCommoditization signale toute pression de prix causee par l'IA. aiPriceCommoditizationCoversMajorityCore=true uniquement si cette pression detruit le pouvoir de capture sur plus de 50% du coeur; la commoditisation d'une interface minoritaire ou d'une couche analytique vaut false pour ce second champ.
-- Dans future_dependencies, mets residualOnlyAssessment=true et futureSeverityContract=true uniquement apres avoir examine les grandes categories pays, fournisseurs, clients, travail, infrastructure, reglementation et financement, puis ne liste que les chocs residuels qui pourraient encore interrompre ou deteriorer materiellement le role 2033 apres diversification et mitigation. Un fournisseur ordinaire, un cycle de demande, la conformite generale, le financement courant ou une exposition geographique diffuse ne sont pas des clusters materiels. coreContinuityAtRisk=true uniquement si ce choc, pris seul dans le scenario central adverse plausible, pourrait interrompre ou rendre non viable une part majeure du coeur; une baisse d'utilisation, de marge ou de volume vaut false. mitigation=strong exige une redondance qui preserve le coeur, medium une continuite partielle et none aucune solution deployable. Plusieurs risques ordinaires ne deviennent pas mecaniquement un risque existentiel par addition.
+- Dans future_dependencies, mets residualOnlyAssessment=true, futureSeverityContract=true et futureShockGroupContract=true uniquement apres avoir examine les grandes categories pays, fournisseurs, clients, travail, infrastructure, reglementation et financement, puis ne liste que les chocs residuels qui pourraient encore interrompre ou deteriorer materiellement le role 2033 apres diversification et mitigation. Un fournisseur ordinaire, un cycle de demande, la conformite generale, le financement courant ou une exposition geographique diffuse ne sont pas des clusters materiels. coreContinuityAtRisk=true uniquement si ce choc, pris seul dans le scenario central adverse plausible, pourrait interrompre ou rendre non viable une part majeure du coeur; une baisse d'utilisation, de marge ou de volume vaut false. Toutes les manifestations du meme evenement causal recoivent exactement le meme shockGroup: par exemple retrait d'un droit d'operer et coupure reseau imposes par le meme Etat ne forment qu'un choc. mitigation=strong exige une redondance qui preserve le coeur, medium une continuite partielle et none aucune solution deployable.
 - Dans structural_demand, futureCategoryTrend et causalDirectness sont independants. Un besoin stable directement servi par le coeur vaut causalDirectness=direct, meme s'il ne resout aucun probleme qui s'aggrave. rising exige une expansion NETTE et structurelle jusqu'en 2033 causee par le scenario futur ou une autre force macro explicitement projetee, apres avoir soustrait automatisation, substitution, baisse de prix et destruction de volumes. Une prevision sectorielle generique, la croissance actuelle, un rebond, la seule adoption d'un produit ou la simple persistance du besoin valent stable ou unproven, jamais rising. Un tailwind de categorie ne prouve jamais le controle specifique, la capture ou le pricing power de l'entreprise et ne doit pas etre recompte comme renforcement dans disruption_positioning sans mecanisme de capture controle.
 - Pour un portefeuille de brevets ou droits reglementaires temporaires, rightsVisibilityThroughScenario=true exige une protection documentee ou raisonnablement projetable sur la majorite du portefeuille economique jusqu'en 2033. Une promesse generale de renouvellement du pipeline ne suffit pas.
 - roleArchetype=weak_digital_interface lorsque le role principal est une interface, un workflow ou une API reproductible sans actif, droit, liquidite ou systeme d'autorite specifique. Ne classe jamais un fabricant physique, un operateur d'actifs ou un rail transactionnel dans cette categorie.
-- Les finances et deploiements actuels ne donnent aucun point dans transition_capacity. Evalue uniquement si, dans le scenario 2033, les leviers d'adaptation resteraient accessibles, si le coeur pourrait etre reconfigure avant que la rupture ne l'absorbe, si le delai d'adaptation serait compatible avec la vitesse de la rupture et si les contraintes heritees resteraient gerables. Une entreprise riche mais structurellement piegee peut valoir 0; une organisation sans preuve actuelle d'IA peut valoir 2 si son role et ses actifs sont reellement reconfigurables.
+- Les finances et deploiements actuels ne donnent aucun point dans transition_capacity. Evalue uniquement si, dans le scenario 2033, les leviers d'adaptation resteraient accessibles, si le coeur pourrait etre reconfigure avant que la rupture ne l'absorbe, si le delai d'adaptation serait compatible avec la vitesse de la rupture et si les contraintes heritees resteraient gerables. Le maximum exige en plus un levier specifique couvrant la majorite du coeur et inaccessible aux concurrents: outil interne et donnees, architecture physique modulaire, apprentissage reglemente ou boucle distribution-feedback. Une flexibilite generique accessible a tous vaut au plus 1/2.
 - Les attentes du benchmark ne sont pas fournies. N'essaie pas d'anticiper une note.
 
 Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette forme. Chaque reason, adverseCase et decisiveTrigger est une phrase causale concise en francais. confidence mesure la solidite du scenario central, sans modifier directement le score.
@@ -956,6 +1236,11 @@ Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette f
       "systemBottleneck": true|false|null,
       "multipleIndependentControls": true|false|null,
       "rightsVisibilityThroughScenario": true|false|null,
+      "controlPortfolio": {
+        "applies": true|false|null,
+        "nonOverlappingCombinedMajorityCoverage": true|false|null,
+        "controls": [{"controlType":"scarce_asset|regulated_right|trusted_brand|network_liquidity|proprietary_stack_or_ip|cost_supply_chain|installed_base|regulated_execution_capability","coreSegment":"...","materialMinorityCoverage":true|false|null,"companySpecific":true|false|null,"futureRentPaid":true|false|null,"survivesAiChina":true|false|null,"independentFromOtherControls":true|false|null}]
+      },
       "reason": "...", "adverseCase": "...", "decisiveTrigger": "...", "confidence": "high|medium|low"
     },
     "disruption_positioning": {
@@ -969,8 +1254,9 @@ Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette f
     "future_dependencies": {
       "residualOnlyAssessment": true,
       "futureSeverityContract": true,
+      "futureShockGroupContract": true,
       "coverageComplete": true|false|null,
-      "clusters": [{"name":"...","material":true|false|null,"continuityImpact":"existential|material_impairment|non_core|unproven","mitigation":"strong|medium|none|unproven","coreContinuityAtRisk":true|false|null}],
+      "clusters": [{"name":"...","shockGroup":"...","material":true|false|null,"continuityImpact":"existential|material_impairment|non_core|unproven","mitigation":"strong|medium|none|unproven","coreContinuityAtRisk":true|false|null}],
       "reason": "...", "adverseCase": "...", "decisiveTrigger": "...", "confidence": "high|medium|low"
     },
     "structural_demand": {
@@ -1000,7 +1286,9 @@ Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette f
         "majorityCustomReplacementEconomicallyPlausibleBy2033": true|false|null,
         "migrationComplexityPrimaryBarrier": true|false|null
       },
-      "roleArchetype": "weak_digital_interface|authoritative_system|controlled_marketplace_liquidity|transaction_or_asset_operator|physical_product_operator|regulated_operator|proprietary_stack_operator|brand_product_operator|other|unproven",
+      "serviceOperatorMechanics": {"applies":true|false|null,"customerBuysOutcomeNotTool":true|false|null,"companyOwnsInternalOperatingStack":true|false|null,"companyControlsStructuredOperationalData":true|false|null,"companyRetainsExecutionAccountability":true|false|null,"aiExpandsServiceCapacity":true|false|null,"serviceRoleCoversMajorityCore":true|false|null,"customerCanInternalizeMajorityBy2033":true|false|null},
+      "operationalControlPlaneMechanics": {"applies":true|false|null,"vendorProvidesCrossSystemStateModel":true|false|null,"vendorEnforcesPermissionsAndActions":true|false|null,"executionCoversMajorityCore":true|false|null,"agentsNeedCompanyRuntime":true|false|null,"customerCanReplicateAtEquivalentReliabilityBy2033":true|false|null,"hyperscalerCanBypassMajorityBy2033":true|false|null,"runtimeNecessityMechanism":"...","customerReplicationPath":"... ou none","hyperscalerBypassPath":"... ou none"},
+      "roleArchetype": "weak_digital_interface|authoritative_system|controlled_marketplace_liquidity|transaction_or_asset_operator|physical_product_operator|regulated_operator|proprietary_stack_operator|brand_product_operator|vertical_service_operator|other|unproven",
       "agentsNeedControlledAccess": true|false|null,
       "credibleMajorityBypass": true|false|null,
       "finalNeedPersists": true|false|null,
@@ -1015,10 +1303,15 @@ Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette f
     },
       "transition_capacity": {
       "futureAdaptationContract": true,
+      "futureDifferentiatedAdaptationContract": true,
       "adaptationLeversSurviveScenario": true|false|null,
       "coreReconfigurableWithinScenario": true|false|null,
       "adaptationLeadTimeFits": true|false|null,
       "legacyConstraintManageable": true|false|null,
+      "adaptationAdvantageType": "proprietary_internal_tooling_and_data|modular_physical_architecture|regulated_learning_system|distribution_feedback_loop|none|unproven",
+      "companySpecificAdaptationLevers": true|false|null,
+      "adaptationMechanismCoversMajorityCore": true|false|null,
+      "competitorsCanAccessSameLevers": true|false|null,
       "reason": "...", "adverseCase": "...", "decisiveTrigger": "...", "confidence": "high|medium|low"
     }
   }
@@ -1066,6 +1359,50 @@ Retourne uniquement ce JSON strict:
   "workflowCoversMajorityCore": true|false|null,
   "majorityCustomReplacementEconomicallyPlausibleBy2033": true|false|null,
   "migrationComplexityPrimaryBarrier": true|false|null
+}`;
+}
+
+export function buildFutureP20RepairPrompt(args: {
+  ticker: string;
+  company: string;
+  industry: string;
+  dossier: string;
+  currentAdjudication: Record<string, unknown>;
+}): string {
+  return `Complete uniquement les sous-tests structurels ajoutes par pilot.20 pour ${args.company} (${args.ticker}), secteur ${args.industry}, dans le scenario central 2033. Ne revise, ne reformule et ne reproduis aucun autre champ de l'adjudication.
+
+SCENARIO 2033 FIGE
+- IA et agents largement adoptes, automatisation et robotique avancees.
+- Forte progression chinoise en ingenierie, supply chain et rapport qualite-prix.
+- Compression des interfaces, logiciels et intermediaires facilement reproductibles.
+- Des operateurs peuvent au contraire industrialiser un service complet avec leur propre logiciel, leurs donnees et leur responsabilite d'execution.
+
+REGLES DES CINQ SOUS-TESTS
+- controlPortfolio.applies=true seulement si aucun controle unique ne couvre la majorite, mais au moins deux controles independants couvrent des segments non chevauchants. nonOverlappingCombinedMajorityCoverage=true exige une couverture combinee de plus de 50% du mix economique propre projete en 2033. Ne liste que les controles materiels, specifiques, encore payes et survivant au scenario. Sinon applies=false et controls=[]. Si l'adjudication actuelle indique multipleIndependentControls=true et nomme plusieurs mecanismes, tu dois tester et restituer chacun; tu ne peux repondre false sans montrer qu'ils se chevauchent ou qu'un des tests de qualification echoue. Instruments installes avec consommables qualifies, capacites d'execution reglementees et reseaux de service peuvent former des controles independants lorsqu'ils portent sur des lignes d'activite distinctes; ne les fusionne pas tous sous une seule etiquette de portefeuille. L'absence d'une ventilation actuelle exacte ne prouve pas que leur combinaison projetee reste minoritaire: projette le mix 2033 et baisse confidence implicitement par les null seulement si aucune conclusion n'est possible.
+- dependencyShockGroups doit contenir exactement une entree par cluster existant, avec son nom copie a l'identique. Un shockGroup represente une famille causale correlee, pas seulement un libelle d'incident. Deux manifestations qu'un meme acteur ou une meme decision peut provoquer ensemble ont le meme shockGroup, meme si leurs canaux techniques different. Par exemple, retrait des droits d'operer et coupure d'acces numerique imposes par le meme Etat appartiennent au meme groupe de choc souverain. Deux chocs independants ont des groupes differents. Ne change ni materialite, ni impact, ni mitigation.
+- serviceOperatorMechanics passe seulement si le client achete un resultat metier plutot qu'un outil, si l'entreprise possede la stack et les donnees operationnelles, garde la responsabilite d'execution, si l'IA augmente la capacite du service sur la majorite du coeur et si le client ne peut pas reinternaliser cette majorite d'ici 2033. Un support humain, du conseil ou une IA generique ne suffit pas.
+- operationalControlPlaneMechanics.applies=true des que le fournisseur maintient un modele d'etat transverse et impose permissions et actions sur plusieurs systemes, meme si la durabilite echoue ensuite. Le test complet passe seulement si cette execution couvre la majorite du coeur, reste necessaire aux agents et ne peut etre remplacee a fiabilite equivalente ni par le client ni par un hyperscaler. CRM, CMDB, formulaires, integrations ou workflows configurables ne suffisent pas. N'utilise pas les anciens champs credibleMajorityBypass ou majorityCustomReplacement comme preuve: cette checklist existe precisement pour les decomposer. customerCanReplicate=true exige un chemin nomme qui remplace ensemble le modele semantique, les permissions, l'audit et les actions operationnelles a fiabilite equivalente sur la majorite du coeur; le code genere, une interface ou des integrations ne suffisent pas. hyperscalerCanBypass=true exige de meme une offre qui couvre economiquement la majorite des environnements pertinents, y compris les deploiements hors de son propre cloud si ceux-ci sont materiels. Si agentsNeedControlledAccess=true dans l'adjudication actuelle, agentsNeedCompanyRuntime=false exige de nommer le runtime alternatif qui fournit cet acces.
+- transitionDifferentiation teste un avantage d'adaptation FUTUR, jamais les performances actuelles. Le mecanisme doit etre specifique a l'entreprise, couvrir la majorite du coeur et ne pas etre accessible aux concurrents. Une flexibilite generique, du capital, des talents ou l'usage d'IA disponible a tous vaut type=none et au plus des champs non qualifies.
+- Toute reponse true/false decrit le scenario central le plus probable en 2033. Le dossier contraint la projection mais croissance, marge, taille et parts de marche actuelles ne donnent aucun point.
+- N'utilise null que si le mecanisme ne peut pas etre identifie dans le dossier. N'invente aucun fait et ne cherche pas une note attendue.
+
+ADJUDICATION ACTUELLE FIGEE
+${JSON.stringify(args.currentAdjudication)}
+
+DOSSIER FIGE
+${args.dossier}
+
+Retourne uniquement ce JSON strict:
+{
+  "controlPortfolio": {
+    "applies": true|false|null,
+    "nonOverlappingCombinedMajorityCoverage": true|false|null,
+    "controls": [{"controlType":"scarce_asset|regulated_right|trusted_brand|network_liquidity|proprietary_stack_or_ip|cost_supply_chain|installed_base|regulated_execution_capability","coreSegment":"...","materialMinorityCoverage":true|false|null,"companySpecific":true|false|null,"futureRentPaid":true|false|null,"survivesAiChina":true|false|null,"independentFromOtherControls":true|false|null}]
+  },
+  "dependencyShockGroups": [{"name":"nom exact du cluster existant","shockGroup":"identifiant_causal_stable"}],
+  "serviceOperatorMechanics": {"applies":true|false|null,"customerBuysOutcomeNotTool":true|false|null,"companyOwnsInternalOperatingStack":true|false|null,"companyControlsStructuredOperationalData":true|false|null,"companyRetainsExecutionAccountability":true|false|null,"aiExpandsServiceCapacity":true|false|null,"serviceRoleCoversMajorityCore":true|false|null,"customerCanInternalizeMajorityBy2033":true|false|null},
+  "operationalControlPlaneMechanics": {"applies":true|false|null,"vendorProvidesCrossSystemStateModel":true|false|null,"vendorEnforcesPermissionsAndActions":true|false|null,"executionCoversMajorityCore":true|false|null,"agentsNeedCompanyRuntime":true|false|null,"customerCanReplicateAtEquivalentReliabilityBy2033":true|false|null,"hyperscalerCanBypassMajorityBy2033":true|false|null,"runtimeNecessityMechanism":"...","customerReplicationPath":"... ou none","hyperscalerBypassPath":"... ou none"},
+  "transitionDifferentiation": {"adaptationAdvantageType":"proprietary_internal_tooling_and_data|modular_physical_architecture|regulated_learning_system|distribution_feedback_loop|none|unproven","companySpecificAdaptationLevers":true|false|null,"adaptationMechanismCoversMajorityCore":true|false|null,"competitorsCanAccessSameLevers":true|false|null}
 }`;
 }
 
