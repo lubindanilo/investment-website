@@ -1,0 +1,32 @@
+{
+  "version": "2.9.1-pilot.17",
+  "scenarioYear": 2033,
+  "purpose": "Holdout de generalisation futur-first sur 20 entreprises absentes du strict-50. Les attentes provisoires sont figees avant toute recherche ou adjudication, restent hors du prompt et ne peuvent etre modifiees qu'apres audit explicite.",
+  "companies": [
+    { "ticker": "SU.PA", "company": "Schneider Electric", "industry": "Energy Management and Industrial Automation", "cohort": "electrification_infrastructure", "status": "provisional", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "LIN", "company": "Linde", "industry": "Industrial Gases", "cohort": "electrification_infrastructure", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+
+    { "ticker": "ORCL", "company": "Oracle", "industry": "Database and Cloud Infrastructure", "cohort": "enterprise_systems", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "WDAY", "company": "Workday", "industry": "Human Capital and Financial Software", "cohort": "enterprise_systems", "status": "provisional", "expected": { "minScore": 36, "maxScore": 49 } },
+    { "ticker": "TEAM", "company": "Atlassian", "industry": "Collaboration and Developer Software", "cohort": "enterprise_systems", "status": "provisional", "expected": { "minScore": 36, "maxScore": 49 } },
+    { "ticker": "SNOW", "company": "Snowflake", "industry": "Cloud Data Platform", "cohort": "enterprise_systems", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "ACN", "company": "Accenture", "industry": "IT Services and Consulting", "cohort": "enterprise_systems", "status": "provisional", "expected": { "minScore": 36, "maxScore": 49 } },
+
+    { "ticker": "DE", "company": "Deere & Company", "industry": "Agricultural Machinery and Precision Agriculture", "cohort": "physical_industrial", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "AIR.PA", "company": "Airbus", "industry": "Aerospace Manufacturing", "cohort": "physical_industrial", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+
+    { "ticker": "RACE", "company": "Ferrari", "industry": "Luxury Automotive", "cohort": "brands_consumer", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "DIS", "company": "The Walt Disney Company", "industry": "Entertainment and Experiences", "cohort": "brands_consumer", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "NKE", "company": "Nike", "industry": "Athletic Apparel and Footwear", "cohort": "brands_consumer", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "SBUX", "company": "Starbucks", "industry": "Branded Coffee Retail", "cohort": "brands_consumer", "status": "provisional", "expected": { "minScore": 36, "maxScore": 49 } },
+
+    { "ticker": "MELI", "company": "MercadoLibre", "industry": "E-commerce, Payments and Logistics", "cohort": "marketplaces", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "DASH", "company": "DoorDash", "industry": "Local Commerce and Delivery Marketplace", "cohort": "marketplaces", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "UPWK", "company": "Upwork", "industry": "Freelance Talent Marketplace", "cohort": "marketplaces", "status": "provisional", "expected": { "minScore": 0, "maxScore": 35 } },
+
+    { "ticker": "VRTX", "company": "Vertex Pharmaceuticals", "industry": "Biopharmaceuticals", "cohort": "healthcare", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "REGN", "company": "Regeneron Pharmaceuticals", "industry": "Biopharmaceuticals", "cohort": "healthcare", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "ACGL", "company": "Arch Capital Group", "industry": "Specialty Insurance and Reinsurance", "cohort": "financial_risk", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "COUR", "company": "Coursera", "industry": "Online Education", "cohort": "digital_education", "status": "provisional", "expected": { "minScore": 0, "maxScore": 35 } }
+  ]
+}
