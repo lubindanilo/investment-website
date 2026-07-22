@@ -1,4 +1,4 @@
-export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.20' as const;
+export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.21' as const;
 export const FUTURE_SCENARIO_YEAR = 2033 as const;
 
 export const FUTURE_RESILIENCE_WEIGHTS = {
@@ -197,6 +197,9 @@ function scoreFutureControl(raw: Record<string, unknown>): FutureCriterionResult
   const exceptionalControl = wideControl && audit.scarcitySurvivesAiChina === true &&
     audit.replicableWithinFiveYears === false &&
     (audit.systemBottleneck === true || audit.multipleIndependentControls === true);
+  const durableMinorityControl = foundation && audit.companySpecific === true &&
+    audit.majorityCoreCoverage === false && audit.scarcitySurvivesAiChina === true &&
+    audit.controlType !== 'network_liquidity';
   const baseScore = controlRejected
     ? 0
     : erosionProven
@@ -208,8 +211,14 @@ function scoreFutureControl(raw: Record<string, unknown>): FutureCriterionResult
         : audit.controlType !== 'none' && audit.controlStillNeeded === true
           ? 1
           : 0;
-  const score = portfolioControlQualified ? Math.max(baseScore, 1) : baseScore;
-  return { ...common(raw, 'future_control'), score, audit };
+  const score = portfolioControlQualified
+    ? 1
+    : durableMinorityControl ? Math.max(baseScore, 1) : baseScore;
+  return {
+    ...common(raw, 'future_control'),
+    score,
+    audit: { ...audit, durableMinorityControl },
+  };
 }
 
 const DISRUPTION_FORCES = ['ai_agents', 'automation_robotics', 'china_engineering'] as const;
@@ -1031,6 +1040,9 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
   const hasNegativeDisruptionForce = auditedDisruptionForces.some(value =>
     value && typeof value === 'object' && !Array.isArray(value) &&
     (value as Record<string, unknown>).verdict === 'negative');
+  const hasMaterialAdverseDisruptionForce = auditedDisruptionForces.some(value =>
+    value && typeof value === 'object' && !Array.isArray(value) &&
+    ['negative', 'pressure', 'mixed'].includes(String((value as Record<string, unknown>).verdict)));
   const companySpecificStructuralAdvantage = disruption.score === 2 && structuralDemand.score === 2 &&
     !digitalStackBenefitNotControlled &&
     auditedDisruptionForces.some(value => value && typeof value === 'object' && !Array.isArray(value) &&
@@ -1039,7 +1051,7 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
         'company_specific_value_capture_expansion'].includes(
         String((value as Record<string, unknown>).benefitMechanism),
       )) &&
-    !hasNegativeDisruptionForce;
+    !hasMaterialAdverseDisruptionForce;
   if (companySpecificStructuralAdvantage) {
     disruption.score = 3;
     disruption.audit.companySpecificStructuralAdvantage = true;
@@ -1189,10 +1201,12 @@ DISCIPLINE DE PROJECTION
 - Une force avec technicalAndEconomicPath=true, materialPressure=true, majorityCoreThreatPath=false et responseControlsOutcome different de true constitue une pression materielle non controlee. Une voie plausible mais non materielle n'est pas une pression de scoring.
 - materialDirectBenefit=true exige un effet strategique materiel controle par l'entreprise: expansion externe de la demande, renforcement d'un controle specifique, avantage durable de cout/capacite ou expansion de la capture. Une efficacite operationnelle generique egalement accessible aux concurrents vaut false.
 - Une meme force peut avoir simultanement materialPressure=true et materialDirectBenefit=true. Ne supprime aucun des deux effets pour fabriquer un verdict simple: le scorer les traite comme un effet mixte, sauf menace majoritaire.
+- Pour china_engineering, une entreprise dont le coeur agrege, fabrique ou distribue directement l'offre industrielle chinoise doit aussi tester la chaine qualite-prix accrue -> demande ou transactions supplementaires -> capture par son role. Ce n'est jamais un bonus automatique : une plateforme sans controle de l'offre, un logiciel chinois ou une entreprise seulement domiciliee en Chine peut rester neutre ou negative.
 - benefitMechanism nomme cet effet. Deux forces fondees sur le meme mecanisme ne comptent qu'une fois; n'invente pas deux renforcements IA/robotique pour le meme gain de planification, d'automatisation ou de productivite.
 - Tous les champs "majorityCore" portent sur plus de 50% du chiffre d'affaires ou de l'activite economique propre de l'entreprise, jamais sur sa part du marche mondial. Un role peut couvrir 100% du coeur d'une entreprise qui ne detient que 10% de son marche. Ne confonds pas non plus couverture, specificite et defensibilite: ils sont testes separement.
 - Pour future_control, adjudique le controle qui devrait couvrir le mix economique de 2033. Une base installee, un reseau physique, une marque ou une capacite qualifiee peuvent former un controle meme si des concurrents comparables existent; leur existence joue sur rarete et replication, pas sur companySpecific. controlType=none exige l'absence projetee de tout controle economiquement paye, pas l'absence d'un monopole. futureRentPaid=true si le scenario central implique encore une preference, une friction, un acces ou une execution payee; n'exige pas une prime de prix publiee aujourd'hui.
 - controlPortfolio s'applique seulement lorsqu'aucun controle unique ne couvre la majorite d'un groupe diversifie. Liste des controles independants sur des segments non chevauchants. Deux controles materiels, specifiques, encore payes et survivant au scenario, dont la couverture combinee depasse 50% du mix 2033, prouvent seulement un controle de portefeuille etroit: jamais un moat large ou exceptionnel.
+- Si controlPortfolio.applies=true, majorityCoreCoverage doit rester false sauf si le controlType principal couvre a lui seul plus de 50% du coeur. multipleIndependentControls ne transforme jamais la somme du portefeuille en controle exceptionnel ; le portefeuille qualifie vaut exactement 1/3.
 - companySpecific=true signifie que l'entreprise possede ou controle elle-meme l'actif, le droit, le reseau, la marque ou la stack. Cela n'exige pas qu'aucun concurrent ne possede un mecanisme comparable; la rarete et la replicabilite repondent a cette seconde question.
 - Ne confonds jamais croissance, marge, notoriete ou taille actuelle avec controle futur.
 - Une marque peut rester un controle futur si confiance, statut, authenticite ou preference payante devraient survivre aux agents et a la convergence qualite-prix; anciennete et notoriete seules restent insuffisantes.

@@ -228,6 +228,45 @@ describe('scoreFutureResilience', () => {
     expect(scoreFutureResilience(input).criteria[0]!.score).toBe(0);
   });
 
+  it('ne laisse jamais un portefeuille qualifie devenir un controle large ou exceptionnel', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'installed_base', controlStillNeeded: true, companySpecific: true,
+      majorityCoreCoverage: true, scarcitySurvivesAiChina: true,
+      replicableWithinFiveYears: false, futureRentPaid: true,
+      systemBottleneck: true, multipleIndependentControls: true,
+      controlPortfolio: {
+        applies: true,
+        nonOverlappingCombinedMajorityCoverage: true,
+        controls: [
+          {
+            controlType: 'installed_base', coreSegment: 'automation',
+            materialMinorityCoverage: true, companySpecific: true, futureRentPaid: true,
+            survivesAiChina: true, independentFromOtherControls: true,
+          },
+          {
+            controlType: 'installed_base', coreSegment: 'rail',
+            materialMinorityCoverage: true, companySpecific: true, futureRentPaid: true,
+            survivesAiChina: true, independentFromOtherControls: true,
+          },
+        ],
+      },
+    });
+    expect(scoreFutureResilience(input).criteria[0]!.score).toBe(1);
+  });
+
+  it('conserve un point pour un controle minoritaire paye qui reste specifique', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      majorityCoreCoverage: false,
+      scarcitySurvivesAiChina: true,
+      replicableWithinFiveYears: true,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[0]!.score).toBe(1);
+    expect(result.criteria[0]!.audit.durableMinorityControl).toBe(true);
+  });
+
   it('plafonne a E une entreprise dont le role paye disparait', () => {
     const input = fixture();
     input.criteria.future_value_capture.paidCompanyRolePersists = false;
@@ -1062,6 +1101,25 @@ describe('scoreFutureResilience', () => {
     const result = scoreFutureResilience(input);
     expect(result.criteria[1]!.score).toBe(3);
     expect(result.criteria[1]!.audit.companySpecificStructuralAdvantage).toBe(true);
+  });
+
+  it('refuse le bonus structurel maximal en presence d une autre pression materielle', () => {
+    const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[0]!, {
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+      benefitMechanism: 'none',
+    });
+    Object.assign(input.criteria.disruption_positioning.forces[2]!, {
+      technicalAndEconomicPath: true,
+      materialPressure: true,
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+      benefitMechanism: 'none',
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[1]!.score).toBe(2);
+    expect(result.criteria[1]!.audit.companySpecificStructuralAdvantage).toBeUndefined();
   });
 
   it('ne bonifie pas un avantage specifique lorsque la demande structurelle n est pas maximale', () => {

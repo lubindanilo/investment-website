@@ -1,0 +1,227 @@
+{
+  "version": "2.9.1-pilot.21",
+  "scenarioYear": 2033,
+  "purpose": "Cohorte de calibration issue du second holdout p19. Les bandes Siemens, Stryker et PDD ont ete revisees apres audit sous pilot.21 et ne sont plus aveugles; Palantir B79 est approuve par Lubin. Les attentes restent hors du prompt.",
+  "companies": [
+    {
+      "ticker": "ETN",
+      "company": "Eaton",
+      "industry": "Electrical Power Management",
+      "cohort": "electrification_infrastructure",
+      "status": "provisional",
+      "expected": {
+        "minScore": 80,
+        "maxScore": 100
+      }
+    },
+    {
+      "ticker": "EQIX",
+      "company": "Equinix",
+      "industry": "Data Center and Interconnection Infrastructure",
+      "cohort": "electrification_infrastructure",
+      "status": "provisional",
+      "expected": {
+        "minScore": 80,
+        "maxScore": 100
+      }
+    },
+    {
+      "ticker": "ABB",
+      "company": "ABB",
+      "industry": "Electrification and Industrial Automation",
+      "cohort": "electrification_infrastructure",
+      "status": "provisional",
+      "expected": {
+        "minScore": 70,
+        "maxScore": 79
+      }
+    },
+    {
+      "ticker": "SIE.DE",
+      "company": "Siemens",
+      "industry": "Industrial Automation and Infrastructure",
+      "cohort": "electrification_infrastructure",
+      "status": "provisional",
+      "expected": {
+        "minScore": 50,
+        "maxScore": 69
+      }
+    },
+    {
+      "ticker": "ENR.DE",
+      "company": "Siemens Energy",
+      "industry": "Power Generation and Grid Equipment",
+      "cohort": "electrification_infrastructure",
+      "status": "provisional",
+      "expected": {
+        "minScore": 50,
+        "maxScore": 69
+      }
+    },
+    {
+      "ticker": "GE",
+      "company": "GE Aerospace",
+      "industry": "Aircraft Engines and Services",
+      "cohort": "physical_industrial",
+      "status": "provisional",
+      "expected": {
+        "minScore": 70,
+        "maxScore": 79
+      }
+    },
+    {
+      "ticker": "TMO",
+      "company": "Thermo Fisher Scientific",
+      "industry": "Life Science Tools and Services",
+      "cohort": "healthcare_infrastructure",
+      "status": "provisional",
+      "expected": {
+        "minScore": 70,
+        "maxScore": 79
+      }
+    },
+    {
+      "ticker": "SYK",
+      "company": "Stryker",
+      "industry": "Medical Devices",
+      "cohort": "healthcare_infrastructure",
+      "status": "provisional",
+      "expected": {
+        "minScore": 36,
+        "maxScore": 49
+      }
+    },
+    {
+      "ticker": "PLTR",
+      "company": "Palantir Technologies",
+      "industry": "AI and Data Platforms",
+      "cohort": "digital_platforms",
+      "status": "approved",
+      "expected": {
+        "minScore": 70,
+        "maxScore": 79
+      }
+    },
+    {
+      "ticker": "ADSK",
+      "company": "Autodesk",
+      "industry": "Design and Engineering Software",
+      "cohort": "digital_platforms",
+      "status": "provisional",
+      "expected": {
+        "minScore": 50,
+        "maxScore": 69
+      }
+    },
+    {
+      "ticker": "INTU",
+      "company": "Intuit",
+      "industry": "Accounting and Tax Software",
+      "cohort": "digital_platforms",
+      "status": "provisional",
+      "expected": {
+        "minScore": 36,
+        "maxScore": 49
+      }
+    },
+    {
+      "ticker": "SHOP",
+      "company": "Shopify",
+      "industry": "Commerce Infrastructure",
+      "cohort": "digital_platforms",
+      "status": "provisional",
+      "expected": {
+        "minScore": 50,
+        "maxScore": 69
+      }
+    },
+    {
+      "ticker": "NET",
+      "company": "Cloudflare",
+      "industry": "Internet Infrastructure and Security",
+      "cohort": "digital_platforms",
+      "status": "provisional",
+      "expected": {
+        "minScore": 50,
+        "maxScore": 69
+      }
+    },
+    {
+      "ticker": "SPOT",
+      "company": "Spotify",
+      "industry": "Audio Streaming",
+      "cohort": "digital_platforms",
+      "status": "provisional",
+      "expected": {
+        "minScore": 50,
+        "maxScore": 69
+      }
+    },
+    {
+      "ticker": "KO",
+      "company": "The Coca-Cola Company",
+      "industry": "Beverages",
+      "cohort": "brands_consumer",
+      "status": "provisional",
+      "expected": {
+        "minScore": 70,
+        "maxScore": 79
+      }
+    },
+    {
+      "ticker": "MCD",
+      "company": "McDonald's",
+      "industry": "Branded Restaurants",
+      "cohort": "brands_consumer",
+      "status": "provisional",
+      "expected": {
+        "minScore": 50,
+        "maxScore": 69
+      }
+    },
+    {
+      "ticker": "PDD",
+      "company": "PDD Holdings",
+      "industry": "Chinese E-commerce and Supply Chain",
+      "cohort": "china_platforms",
+      "status": "provisional",
+      "expected": {
+        "minScore": 36,
+        "maxScore": 49
+      }
+    },
+    {
+      "ticker": "JD",
+      "company": "JD.com",
+      "industry": "Chinese E-commerce and Logistics",
+      "cohort": "china_platforms",
+      "status": "provisional",
+      "expected": {
+        "minScore": 50,
+        "maxScore": 69
+      }
+    },
+    {
+      "ticker": "DUOL",
+      "company": "Duolingo",
+      "industry": "Digital Education",
+      "cohort": "ai_exposed_work",
+      "status": "provisional",
+      "expected": {
+        "minScore": 36,
+        "maxScore": 49
+      }
+    },
+    {
+      "ticker": "FVRR",
+      "company": "Fiverr International",
+      "industry": "Freelance Talent Marketplace",
+      "cohort": "ai_exposed_work",
+      "status": "provisional",
+      "expected": {
+        "minScore": 0,
+        "maxScore": 35
+      }
+    }
+  ]
+}

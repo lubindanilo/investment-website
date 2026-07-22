@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.20`.
+Version canonique candidate : `2.9.1-pilot.21`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -561,6 +561,22 @@ aveugle reste cependant de `10/20` bandes provisoires. Le detail et les ecarts e
 sont conserves dans
 `apps/api/benchmarks/resilience-future-generalization-20b-p20-audit.md`. Les 20 snapshots p20
 sont dates en base, mais la candidate n'est pas publiee dans l'UI et le cron reste desactive.
+
+`pilot.21` corrige trois incoherences revelees par l'audit suivant. Un portefeuille de
+controles qualifie vaut desormais exactement `1/3` et ne peut plus heriter d'un `3/3`
+contradictoire ; un controle minoritaire specifique, paye et survivant conserve `1/3` meme si
+la technologie a des concurrents ; et le bonus disruption `3/3` est interdit des qu'une autre
+force reste negative, sous pression ou mixte. Le prompt teste aussi explicitement le benefice
+qualite-prix chinois pour les entreprises qui agregent ou distribuent cette offre, sans bonus
+automatique lie au pays.
+
+Palantir B79 est maintenant une attente approuvee. Apres audit des dossiers, Siemens passe de
+A98 a C62, Stryker de D39 a D48 et PDD de D43 a D49. Le strict-50 reste `50/50` sans aucun
+score modifie ; Regeneron est le seul changement du premier holdout, de C51 a C59. Les bandes
+Siemens, Stryker et PDD ont ete revisees apres analyse et ne comptent donc plus comme test
+aveugle. Le second holdout recalibre atteint `14/20`, mais la prochaine mesure de generalisation
+doit etre une nouvelle cohorte. Detail :
+`apps/api/benchmarks/resilience-future-generalization-20b-p21-audit.md`. Le cron reste desactive.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
