@@ -481,6 +481,18 @@ qualifient pas le mecanisme. Lubin valide ensuite explicitement BYD B76. Le benc
 `48/50`, avec `42/42` attentes approuvees et `6/8` provisoires dans leur bande. L'audit est
 conserve dans `apps/api/benchmarks/resilience-future-strict-50-p17-audit.md`.
 
+Lubin valide ensuite les six sorties provisoires deja dans leur bande : ASML A86, TSM B79,
+Broadcom B79, Zoom E22, Fiserv C57 et L'Oreal B79. L'audit final des deux ecarts conclut que
+SAP B76 est honnete : le systeme d'autorite reste central, tandis que les agents et le clean
+core limitent la capture a `1/2`. Fortinet C69 est egalement retenu comme haut C : FortiOS,
+les ASIC, le parc et les services prouvent la persistance et la capture, mais la concurrence,
+le bundling cloud et les dependances de fabrication interdisent A. Les bandes sont donc
+arbitrees B70-79 pour SAP et C50-69 pour Fortinet.
+
+Le benchmark strict atteint desormais `50/50` attentes toutes approuvees. La grille p17 est
+figee pour un nouveau holdout ; ce succes sur les ancres calibrees ne remplace pas encore le
+test de generalisation ni les runs de stabilite, et le cron reste desactive.
+
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
 si trois runs du meme modele sur les memes dossiers produisent moins de 5% de sous-tests

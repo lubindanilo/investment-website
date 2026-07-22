@@ -52,3 +52,32 @@ sous-notes. Tesla reste D48, Toyota C68, Caterpillar B79 et Netflix B78.
 Lubin valide explicitement BYD B76. Le benchmark reste `48/50` : `42/42` attentes
 approuvees et `6/8` provisoires passent. SAP B76 et Fortinet C69 restent les deux ecarts.
 Le cron reste desactive.
+
+## Cloture des attentes
+
+Lubin valide ensuite ASML A86, TSM B79, Broadcom B79, Zoom E22, Fiserv C57 et L'Oreal
+B79. Un audit final sur sources primaires tranche les deux derniers cas :
+
+- **SAP B76 est valide.** Le Cloud ERP Suite atteint 18,1 Md EUR sur 36,8 Md EUR de chiffre
+  d'affaires 2025 et 86% du revenu total est plus previsible. Le clean core reduit les
+  personnalisations et decouple les extensions, ce qui limite la capture future a `1/2`,
+  mais les ecritures, autorisations, donnees gouvernees et controles restent dans un
+  systeme d'autorite dont le remplacement majoritaire n'est pas economiquement demontre.
+- **Fortinet C69 est valide comme haut C.** Fortinet declare plus de 50% des unites firewall
+  mondiales expediees, plus de 900 000 clients historiques, 4,58 Md USD de services sur
+  6,80 Md USD de revenu 2025 et une stack FortiOS plus ASIC proprietaires. Cela justifie la
+  persistance et la capture, mais pas un controle rare : le 10-K nomme de nombreux
+  concurrents, le bundling cloud peut absorber des couches de securite et les ASIC dependent
+  de fondeurs tiers. L'attente A initiale etait trop genereuse pour un filtre agressif.
+
+Sources primaires :
+
+- https://www.sap.com/integrated-reports/2025/en/datahub/financial-data/five-year-summary.html
+- https://www.sap.com/uk/products/erp/rise/methodology/clean-core.html
+- https://www.sec.gov/Archives/edgar/data/1000184/000110465926020058/sap-20251231x20f.htm
+- https://investor.fortinet.com/static-files/7058aea1-a50c-4b7b-905f-ba5aedb92f40
+- https://investor.fortinet.com/static-files/38d0dd08-09e6-4426-ae20-6e4c0e1ad992
+
+Les 50 attentes sont desormais approuvees et les 50 analyses sont dans leur bande. La
+grille est figee pour le nouveau holdout ; le cron reste desactive jusqu'au test de
+generalisation et de stabilite.
