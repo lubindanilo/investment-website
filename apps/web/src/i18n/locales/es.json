@@ -206,7 +206,6 @@
     "filters": {
       "kicker": "Filtros",
       "minScore": "Puntuación mínima",
-      "minResilience": "Resiliencia mínima",
       "maxPfcf": "P/FCF máx.",
       "sector": "Sector",
       "allSectors": "Todos los sectores",

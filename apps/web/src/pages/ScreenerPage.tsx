@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../i18n/index.js';
-import type { ScreenerTopRow } from '@lubin/shared';
+import type { ScreenerTopRow, ResilienceGrade } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { sectorSlug } from '../lib/sector.js';
@@ -28,6 +28,7 @@ const CAP_OPTS: CapBucket[] = ['small', 'mid', 'large'];
 /** Zones géographiques / éligibilité PEA — filtre multi-choix, gratuit. */
 type GeoZone = 'pea' | 'us' | 'intl';
 const ZONE_OPTS: GeoZone[] = ['pea', 'us', 'intl'];
+const GRADE_OPTS: ResilienceGrade[] = ['A', 'B', 'C', 'D', 'E'];
 
 type SortCol = 'score' | 'resilience' | 'pfcf' | 'price' | 'earnings';
 interface SortState { col: SortCol; dir: 'asc' | 'desc' }
@@ -55,21 +56,21 @@ function formatEarnings(iso?: string | null): string {
 export interface AppliedFilters {
   sectors: string[];
   minScore: number;
-  /** Score de résilience minimum (0–100). 0 = pas de filtre. Filtré côté client (le score
-   *  n'est pas un critère de la requête API). > 0 masque les tickers non scorés. */
-  minResilience: number;
+  /** Grades de résilience retenus (A–E). Vide = pas de filtre. Filtré côté client (la résilience
+   *  n'est pas un critère de la requête API). Non-vide masque les tickers non scorés. */
+  resilienceGrades: ResilienceGrade[];
   maxPfcf: number;
   caps: CapBucket[];
   zones: GeoZone[];
 }
 
-const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, minResilience: 0, maxPfcf: PFCF_MAX, caps: [], zones: [] };
+const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, resilienceGrades: [], maxPfcf: PFCF_MAX, caps: [], zones: [] };
 
 /** Nombre d'axes de filtre non-défaut (pour le badge du bouton). « Opportunités » est géré à part. */
 function countActive(v: AppliedFilters): number {
   return (v.sectors.length > 0 ? 1 : 0)
     + (v.minScore !== DEFAULT_MIN_SCORE ? 1 : 0)
-    + (v.minResilience > 0 ? 1 : 0)
+    + (v.resilienceGrades.length > 0 ? 1 : 0)
     + (v.maxPfcf < PFCF_MAX ? 1 : 0)
     + (v.caps.length > 0 ? 1 : 0)
     + (v.zones.length > 0 ? 1 : 0);
@@ -109,6 +110,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
   const toggleSector = (s: string) => setDraft(d => ({ ...d, sectors: d.sectors.includes(s) ? d.sectors.filter(x => x !== s) : [...d.sectors, s] }));
   const toggleCap = (c: CapBucket) => setDraft(d => ({ ...d, caps: d.caps.includes(c) ? d.caps.filter(x => x !== c) : [...d.caps, c] }));
   const toggleZone = (z: GeoZone) => setDraft(d => ({ ...d, zones: d.zones.includes(z) ? d.zones.filter(x => x !== z) : [...d.zones, z] }));
+  const toggleGrade = (g: ResilienceGrade) => setDraft(d => ({ ...d, resilienceGrades: d.resilienceGrades.includes(g) ? d.resilienceGrades.filter(x => x !== g) : [...d.resilienceGrades, g] }));
   const apply = () => { onApply(draft); setOpen(false); setQuery(''); };
   const reset = () => setDraft(DEFAULT_FILTERS);
   const lockedPfcf = () => { setOpen(false); onLockedPfcf(); };
@@ -168,20 +170,33 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             </div>
           </div>
 
-          {/* Résilience minimale (0–100) — filtre client. > 0 ne garde que les titres scorés. */}
+          {/* Résilience — filtre par lettre (multi-choix, client). Vide = toutes ; sélection = seuls
+              les titres scorés dont le grade est coché. Le tri par score reste dispo par-dessus. */}
           <div className="col gap-6">
-            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.minResilience')}</span>
-            <div className="row gap-10">
-              <input
-                type="range"
-                min={0}
-                max={100}
-                step={10}
-                value={draft.minResilience}
-                onChange={e => setDraft(d => ({ ...d, minResilience: +e.target.value }))}
-                style={{ flex: 1, accentColor: 'var(--brand)', cursor: 'pointer' }}
-              />
-              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{draft.minResilience <= 0 ? t('screener.filters.scoreAll') : draft.minResilience + '+'}</span>
+            <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('analyse.resilience')}</span>
+            <div className="row gap-6">
+              {GRADE_OPTS.map(g => {
+                const on = draft.resilienceGrades.includes(g);
+                return (
+                  <button
+                    key={g}
+                    type="button"
+                    onClick={() => toggleGrade(g)}
+                    data-active={on}
+                    className="num"
+                    style={{
+                      flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      padding: '7px 4px', borderRadius: 8, cursor: 'pointer', transition: 'all .14s',
+                      fontWeight: 800, fontSize: 13,
+                      border: '1px solid ' + (on ? 'var(--brand)' : 'var(--line)'),
+                      background: on ? 'var(--brand-soft)' : 'var(--surface)',
+                      color: on ? 'var(--brand-ink)' : 'var(--ink-2)',
+                    }}
+                  >
+                    {g}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -397,12 +412,14 @@ export function ScreenerPage() {
 
   const sorted = useMemo(() => {
     const dir = sort.dir === 'desc' ? -1 : 1;
-    // Filtre « résilience minimale » côté client (> 0 ne garde que les titres scorés au-dessus du seuil).
-    const base = filters.minResilience > 0
-      ? rows.filter(r => (r.resilience?.score ?? -1) >= filters.minResilience)
+    // Filtre résilience par lettre côté client (sélection = seuls les grades cochés ; les non scorés,
+    // sans grade, sont exclus dès qu'un filtre est actif). Le tri par score s'applique par-dessus.
+    const grades = filters.resilienceGrades;
+    const base = grades.length > 0
+      ? rows.filter(r => r.resilience != null && grades.includes(r.resilience.grade))
       : rows;
     return [...base].sort((a, b) => (valOf(a, sort.col) - valOf(b, sort.col)) * dir);
-  }, [rows, sort, filters.minResilience]);
+  }, [rows, sort, filters.resilienceGrades]);
 
   // Reset de la pagination quand les données / le tri / les filtres changent.
   useEffect(() => { setVisibleCount(60); }, [rows, sort, filters, onlyOpp]);

@@ -1,6 +1,15 @@
-import type { ResilienceAnalysis, ResilienceCriterionScore, ResilienceSummary } from '@lubin/shared';
+import type { ResilienceAnalysis, ResilienceCriterionScore, ResilienceGrade, ResilienceSummary } from '@lubin/shared';
 import { prisma } from '../db/client.js';
 import { PUBLISHED_RESILIENCE_VERSION, isPublishedResilienceAnalysis } from './resiliencePublished.js';
+
+/**
+ * Une « opportunité du moment » exige une résilience soit absente (ticker pas encore noté),
+ * soit au moins C : on refuse les modèles jugés fragiles (D ou E). Appliqué à la lecture,
+ * là où l'opportunité est exposée, pour rester cohérent quand la résilience évolue.
+ */
+export function resilienceAllowsOpportunity(grade: ResilienceGrade | null | undefined): boolean {
+  return grade == null || grade === 'A' || grade === 'B' || grade === 'C';
+}
 
 /**
  * Lecture BATCH des analyses de résilience PUBLIÉES (une seule requête, anti N+1).

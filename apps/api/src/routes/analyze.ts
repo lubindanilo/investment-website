@@ -33,6 +33,7 @@ import {
   isPublishedResilienceAnalysis,
   PUBLISHED_RESILIENCE_VERSION,
 } from '../services/resiliencePublished.js';
+import { resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
 
 export const analyzeRouter: Router = Router();
 
@@ -164,7 +165,9 @@ function buildResponse(args: {
   const chiffresEval = fundamentalsAvailable ? chiffres : chiffres.filter(c => c.valeur !== 'N/A');
   const chiffresScore = chiffresEval.filter(c => c.statut === 'pass').length + Math.round(chiffresEval.filter(c => c.statut === 'warn').length * 0.5);
   const chiffresScore10 = chiffresEval.length > 0 ? Math.round((chiffresScore / chiffresEval.length) * 10) : 0;
-  const opportunity = (args.opportunity ?? false) && chiffresScore10 >= PFCF_OPP_MIN_SCORE10;
+  const opportunity = (args.opportunity ?? false)
+    && chiffresScore10 >= PFCF_OPP_MIN_SCORE10
+    && resilienceAllowsOpportunity(resilience?.grade);
 
   return {
     ticker,

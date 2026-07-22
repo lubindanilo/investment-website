@@ -15,7 +15,7 @@
 import type { ResilienceSummary } from '@lubin/shared';
 import { prisma } from '../db/client.js';
 import { getStockSymbols } from './finnhub.js';
-import { getPublishedResilienceSummaries } from './resilienceSummary.js';
+import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
 import { buildAndCacheQuantSnapshot } from './scoreSnapshot.js';
 import { getSparkSeries } from './priceSeries.js';
 import { warmChartCacheForTicker } from './chartWarm.js';
@@ -558,7 +558,14 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
   // Résilience publiée (batch, 1 requête) → badge dans le tableau. Absente pour la
   // plupart des titres (seuls ~50 sont scorés) : null = l'UI ne montre rien.
   const resiliences = await getPublishedResilienceSummaries(rows.map(r => r.ticker));
-  return rows.map(r => ({ ...r, resilience: resiliences.get(r.ticker) ?? null }));
+  const withRes = rows.map(r => {
+    const resilience = resiliences.get(r.ticker) ?? null;
+    // Opportunité du moment : on refuse en plus les résiliences fragiles (D/E) — cf. resilienceAllowsOpportunity.
+    const opportunity = r.opportunity && resilienceAllowsOpportunity(resilience?.grade);
+    return { ...r, resilience, opportunity };
+  });
+  // Quand on ne veut que les opportunités, on retire celles recalées par la résilience.
+  return onlyOpportunities ? withRes.filter(r => r.opportunity) : withRes;
 }
 
 /** Compteurs de progression de la veille. */

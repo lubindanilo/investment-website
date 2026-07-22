@@ -20,7 +20,7 @@ import { getYahooBatchQuotes } from './yahoo.js';
 import { getSp500Universe } from './sp500Universe.js';
 import { FORWARD_INCEPTION, SYSTEM_POSITIONS, SPY_ENTRY } from '../data/forwardCompare.js';
 import type { MarketBeatRow, ForwardCompareResponse, ForwardComparePosition } from '@lubin/shared';
-import { getPublishedResilienceSummaries } from './resilienceSummary.js';
+import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
 
 /**
  * Univers de sélection :
@@ -150,12 +150,14 @@ export async function getForwardCompare(userId?: string): Promise<ForwardCompare
   const minePositions: ForwardComparePosition[] = mineRaw.map((p) => {
     const live = p.sellPrice != null ? p.sellPrice : (quotes.get(p.ticker.toUpperCase()) ?? null);
     const m = info.get(p.ticker);
-    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: m?.opportunity ?? false, resilience: resiliences.get(p.ticker.toUpperCase()) ?? null, id: p.id, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note };
+    const res = resiliences.get(p.ticker.toUpperCase()) ?? null;
+    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: (m?.opportunity ?? false) && resilienceAllowsOpportunity(res?.grade), resilience: res, id: p.id, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note };
   });
   const systemPositions: ForwardComparePosition[] = SYSTEM_POSITIONS.map((p) => {
     const live = quotes.get(p.ticker.toUpperCase()) ?? null;
     const m = info.get(p.ticker);
-    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: m?.opportunity ?? false, resilience: resiliences.get(p.ticker.toUpperCase()) ?? null };
+    const res = resiliences.get(p.ticker.toUpperCase()) ?? null;
+    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: (m?.opportunity ?? false) && resilienceAllowsOpportunity(res?.grade), resilience: res };
   });
 
   const spyLive = quotes.get('SPY') ?? null;

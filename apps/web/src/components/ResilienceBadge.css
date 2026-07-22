@@ -5,10 +5,11 @@
   gap: 4px;
   border-radius: 8px;
   font-weight: 800;
-  line-height: 1;
   vertical-align: middle;
 }
 
+/* Même gabarit exact que la pastille de note /10 (ScorePill) : padding + police identiques,
+   line-height hérité (ne PAS forcer à 1, sinon la pastille est plus courte). */
 .res-badge-md { min-width: 46px; padding: 4px 9px; font-size: 13.5px; }
 .res-badge-sm { min-width: 38px; padding: 3px 7px; font-size: 12px; border-radius: 7px; }
 

@@ -123,7 +123,6 @@
     "filters": {
       "kicker": "Filtres",
       "minScore": "Note minimale",
-      "minResilience": "Résilience minimale",
       "maxPfcf": "P/FCF max",
       "sector": "Secteur",
       "allSectors": "Tous les secteurs",
