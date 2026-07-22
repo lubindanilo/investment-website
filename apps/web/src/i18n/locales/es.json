@@ -1284,7 +1284,7 @@
       "valuation": "Valoración",
       "valuationSub": "evaluada por separado de la calidad",
       "resilience": "Resiliencia",
-      "resilienceSub": "grado global A–E · resiliencia del modelo ante choques",
+      "resilienceSub": "capacidad del modelo para resistir disrupciones en el tiempo, de A (muy sólido) a E (frágil)",
       "resilienceRow": "Nota de resiliencia"
     },
     "pfcf": {

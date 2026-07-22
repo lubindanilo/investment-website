@@ -308,7 +308,14 @@ function ResilienceRows({ companies }: { companies: CompanyView[] }) {
         return (
           <Fragment key={id}>
             <div className="cmp-label">
-              <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--ink-2)', lineHeight: 1.3, paddingLeft: 4 }}>{t(`analyse.resilienceCriteria.${id}.label`)}</span>
+              <div className="row gap-6" style={{ alignItems: 'center', paddingLeft: 4 }}>
+                <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--ink-2)', lineHeight: 1.3 }}>{t(`analyse.resilienceCriteria.${id}.label`)}</span>
+                <InfoPop
+                  title={t(`analyse.resilienceCriteria.${id}.label`)}
+                  why={t(`analyse.resilienceCriteria.${id}.measure`)}
+                  calc={t(`analyse.resilienceCriteria.${id}.scoreRule`)}
+                />
+              </div>
             </div>
             {companies.map(c => {
               const crit = isLive(c) ? (c.resilienceCriteria?.find(x => x.id === id) ?? null) : null;
