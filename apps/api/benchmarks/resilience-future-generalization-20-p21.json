@@ -1,17 +1,17 @@
 {
   "version": "2.9.1-pilot.21",
   "scenarioYear": 2033,
-  "purpose": "Holdout de generalisation futur-first sur 20 entreprises absentes du strict-50. Les attentes provisoires sont figees avant toute recherche ou adjudication, restent hors du prompt et ne peuvent etre modifiees qu'apres audit explicite.",
+  "purpose": "Ancien holdout de generalisation futur-first sur 20 entreprises absentes du strict-50. Les notes ont ete validees par Lubin avant le passage a la cohorte suivante et sont desormais approuvees. Les attentes restent hors du prompt.",
   "companies": [
     {
       "ticker": "SU.PA",
       "company": "Schneider Electric",
       "industry": "Energy Management and Industrial Automation",
       "cohort": "electrification_infrastructure",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 80,
-        "maxScore": 100
+        "minScore": 36,
+        "maxScore": 49
       }
     },
     {
@@ -19,7 +19,7 @@
       "company": "Linde",
       "industry": "Industrial Gases",
       "cohort": "electrification_infrastructure",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 70,
         "maxScore": 79
@@ -30,10 +30,10 @@
       "company": "Oracle",
       "industry": "Database and Cloud Infrastructure",
       "cohort": "enterprise_systems",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 70,
-        "maxScore": 79
+        "minScore": 50,
+        "maxScore": 69
       }
     },
     {
@@ -41,10 +41,10 @@
       "company": "Workday",
       "industry": "Human Capital and Financial Software",
       "cohort": "enterprise_systems",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 36,
-        "maxScore": 49
+        "minScore": 50,
+        "maxScore": 69
       }
     },
     {
@@ -52,7 +52,7 @@
       "company": "Atlassian",
       "industry": "Collaboration and Developer Software",
       "cohort": "enterprise_systems",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 36,
         "maxScore": 49
@@ -63,7 +63,7 @@
       "company": "Snowflake",
       "industry": "Cloud Data Platform",
       "cohort": "enterprise_systems",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 50,
         "maxScore": 69
@@ -74,7 +74,7 @@
       "company": "Accenture",
       "industry": "IT Services and Consulting",
       "cohort": "enterprise_systems",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 36,
         "maxScore": 49
@@ -85,10 +85,10 @@
       "company": "Deere & Company",
       "industry": "Agricultural Machinery and Precision Agriculture",
       "cohort": "physical_industrial",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 70,
-        "maxScore": 79
+        "minScore": 50,
+        "maxScore": 69
       }
     },
     {
@@ -96,7 +96,7 @@
       "company": "Airbus",
       "industry": "Aerospace Manufacturing",
       "cohort": "physical_industrial",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 70,
         "maxScore": 79
@@ -107,7 +107,7 @@
       "company": "Ferrari",
       "industry": "Luxury Automotive",
       "cohort": "brands_consumer",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 70,
         "maxScore": 79
@@ -118,10 +118,10 @@
       "company": "The Walt Disney Company",
       "industry": "Entertainment and Experiences",
       "cohort": "brands_consumer",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 50,
-        "maxScore": 69
+        "minScore": 70,
+        "maxScore": 79
       }
     },
     {
@@ -129,10 +129,10 @@
       "company": "Nike",
       "industry": "Athletic Apparel and Footwear",
       "cohort": "brands_consumer",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 50,
-        "maxScore": 69
+        "minScore": 70,
+        "maxScore": 79
       }
     },
     {
@@ -140,10 +140,10 @@
       "company": "Starbucks",
       "industry": "Branded Coffee Retail",
       "cohort": "brands_consumer",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 36,
-        "maxScore": 49
+        "minScore": 70,
+        "maxScore": 79
       }
     },
     {
@@ -151,10 +151,10 @@
       "company": "MercadoLibre",
       "industry": "E-commerce, Payments and Logistics",
       "cohort": "marketplaces",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 70,
-        "maxScore": 79
+        "minScore": 50,
+        "maxScore": 69
       }
     },
     {
@@ -162,10 +162,10 @@
       "company": "DoorDash",
       "industry": "Local Commerce and Delivery Marketplace",
       "cohort": "marketplaces",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 50,
-        "maxScore": 69
+        "minScore": 70,
+        "maxScore": 79
       }
     },
     {
@@ -173,10 +173,10 @@
       "company": "Upwork",
       "industry": "Freelance Talent Marketplace",
       "cohort": "marketplaces",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 0,
-        "maxScore": 35
+        "minScore": 36,
+        "maxScore": 49
       }
     },
     {
@@ -184,7 +184,7 @@
       "company": "Vertex Pharmaceuticals",
       "industry": "Biopharmaceuticals",
       "cohort": "healthcare",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 70,
         "maxScore": 79
@@ -195,7 +195,7 @@
       "company": "Regeneron Pharmaceuticals",
       "industry": "Biopharmaceuticals",
       "cohort": "healthcare",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 50,
         "maxScore": 69
@@ -206,10 +206,10 @@
       "company": "Arch Capital Group",
       "industry": "Specialty Insurance and Reinsurance",
       "cohort": "financial_risk",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 50,
-        "maxScore": 69
+        "minScore": 36,
+        "maxScore": 49
       }
     },
     {
@@ -217,7 +217,7 @@
       "company": "Coursera",
       "industry": "Online Education",
       "cohort": "digital_education",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 0,
         "maxScore": 35

@@ -85,18 +85,20 @@ async function persist(file: PilotResultsFile): Promise<void> {
 async function persistAnalysisToDatabase(input: {
   company: PilotCompany;
   source: SourceRow;
+  approvalStatus: PilotCompany['status'];
   result: PilotResult & {
     status: 'scored';
     adjudication: Record<string, unknown>;
     analysis: FutureResilienceAnalysis;
   };
 }): Promise<string> {
-  const { company, source, result } = input;
+  const { company, source, result, approvalStatus } = input;
   if (!source.researchDossier) throw new Error('Dossier source fige introuvable');
   const generatedAt = new Date(result.generatedAt);
   if (Number.isNaN(generatedAt.getTime())) throw new Error('Date de generation IA invalide');
   const persistedAt = new Date();
   const researchHash = createHash('sha256').update(source.researchDossier).digest('hex');
+  const approvedAt = approvalStatus === 'approved' ? persistedAt.toISOString() : null;
   const storedAnalysis = {
     ...result.analysis,
     methodology: 'future-first-2033',
@@ -105,6 +107,9 @@ async function persistAnalysisToDatabase(input: {
     industry: company.industry,
     generatedAt: result.generatedAt,
     adjudicationProvider: result.provider ?? 'codex',
+    approvalStatus,
+    approvedAt,
+    approvalSource: approvalStatus === 'approved' ? 'user_validated_cohort' : null,
     source: {
       version: result.sourceVersion ?? source.version,
       asOf: source.asOf?.toISOString() ?? null,
@@ -118,6 +123,9 @@ async function persistAnalysisToDatabase(input: {
     persistedAt: persistedAt.toISOString(),
     sourceVersion: result.sourceVersion ?? source.version,
     sourceAsOf: source.asOf?.toISOString() ?? null,
+    approvalStatus,
+    approvedAt,
+    approvalSource: approvalStatus === 'approved' ? 'user_validated_cohort' : null,
   };
 
   await prisma.$transaction([
@@ -292,6 +300,7 @@ async function main(): Promise<void> {
         const persistedAt = await persistAnalysisToDatabase({
           company,
           source,
+          approvalStatus: company.status,
           result: {
             ...existing,
             status: 'scored',
@@ -467,7 +476,12 @@ async function main(): Promise<void> {
         adjudication,
         analysis: scoreFutureResilience(adjudication),
       };
-      const persistedAt = await persistAnalysisToDatabase({ company, source, result: scoredResult });
+      const persistedAt = await persistAnalysisToDatabase({
+        company,
+        source,
+        approvalStatus: 'provisional',
+        result: scoredResult,
+      });
       return { ...scoredResult, persistedAt };
     }));
     const capacityFailure = settled.find(result =>

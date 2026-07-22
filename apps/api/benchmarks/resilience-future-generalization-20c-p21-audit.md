@@ -42,7 +42,8 @@ doit etre approuvee ni aucune regle modifiee avant validation economique explici
 ## Persistance
 
 Apres ce run, la base contient `110/110` snapshots `2.9.1-pilot.21` complets et `110/110`
-historiques : 50 references approuvees, deux cohortes precedentes de 20 et cette cohorte de 20.
+historiques : 90 notes approuvees sur les trois cohortes terminees et 20 notes provisoires dans
+cette cohorte en cours de revue.
 Chaque snapshot contient l'analyse, l'adjudication detaillee, le dossier source, son hash et la
-date. L'approbation officielle reste portee par `status=approved` dans les benchmarks, car la
-table de snapshots ne melange pas statut de calcul et validation humaine.
+date. L'approbation officielle est portee a la fois par `status=approved` dans le benchmark et
+par `approvalStatus`, `approvedAt` et `approvalSource` dans le snapshot et son historique.

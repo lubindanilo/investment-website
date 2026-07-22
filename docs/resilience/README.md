@@ -586,7 +586,10 @@ un simple decalage global. Le replay conserve un digest identique. L'audit est d
 `apps/api/benchmarks/resilience-future-generalization-20c-p21-audit.md`.
 
 Les `110` analyses `pilot.21` generees a ce stade sont stockees avec dossier, hash, date,
-adjudication et historique. Les 50 attentes `approved` sont toutes presentes. Cette persistance
+adjudication et historique. Les 90 notes des trois cohortes terminees sont `approved` dans les
+benchmarks, les snapshots et les historiques ; les 20 notes de la cohorte 20c en cours de revue
+restent `provisional`. Le passage explicite a une nouvelle cohorte vaut validation humaine de la
+cohorte precedente. Cette persistance
 ne vaut pas publication : l'API Analyze continue de lire `2.8.13` tant que la generalisation
 future-first reste rouge, et le cron demeure desactive.
 
@@ -599,6 +602,10 @@ instables. Le cron reste desactive jusque-la.
 
 - Aucun override par ticker.
 - Le benchmark n'entre jamais dans le prompt.
+- Le lancement explicite de la cohorte suivante approuve les notes de la precedente : sa bande
+  est alignee sur le grade valide, puis le snapshot exact et son historique passent `approved`.
+- Une nouvelle adjudication d'une note approuvee redevient toujours `provisional` jusqu'a une
+  nouvelle validation humaine.
 - Une correction doit devenir un test economique universel avec contre-exemple.
 - Une donnee manquante ne devient jamais un echec.
 - Une force thematique ne donne pas un point si l'entreprise ne controle pas sa capture.

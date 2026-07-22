@@ -100,6 +100,24 @@ describe('scoreFutureResilience', () => {
     }
   });
 
+  it('garde les cohortes terminees approuvees et la cohorte en revue provisoire', () => {
+    const benchmark = (name: string) => JSON.parse(readFileSync(
+      new URL(`../../benchmarks/${name}`, import.meta.url),
+      'utf8',
+    )) as { companies: Array<{ status: string }> };
+    const completed = [
+      'resilience-future-strict-50-p21.json',
+      'resilience-future-generalization-20-p21.json',
+      'resilience-future-generalization-20b-p21.json',
+    ];
+
+    for (const name of completed) {
+      expect(benchmark(name).companies.every(company => company.status === 'approved')).toBe(true);
+    }
+    expect(benchmark('resilience-future-generalization-20c-p21.json').companies
+      .every(company => company.status === 'provisional')).toBe(true);
+  });
+
   it('note le scenario 2033 sans utiliser de donnees Quality', () => {
     const result = scoreFutureResilience(fixture());
     expect(result.criteria.map(criterion => criterion.score)).toEqual([2, 3, 2, 2, 2, 2]);

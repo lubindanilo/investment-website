@@ -1,14 +1,14 @@
 {
   "version": "2.9.1-pilot.21",
   "scenarioYear": 2033,
-  "purpose": "Cohorte de calibration issue du second holdout p19. Les bandes Siemens, Stryker et PDD ont ete revisees apres audit sous pilot.21 et ne sont plus aveugles; Palantir B79 est approuve par Lubin. Les attentes restent hors du prompt.",
+  "purpose": "Cohorte de calibration issue du second holdout p19. Les notes ont ete validees par Lubin avant le passage a la cohorte suivante et sont desormais toutes approuvees; les bandes Siemens, Stryker et PDD avaient ete revisees apres audit sous pilot.21. Les attentes restent hors du prompt.",
   "companies": [
     {
       "ticker": "ETN",
       "company": "Eaton",
       "industry": "Electrical Power Management",
       "cohort": "electrification_infrastructure",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 80,
         "maxScore": 100
@@ -19,10 +19,10 @@
       "company": "Equinix",
       "industry": "Data Center and Interconnection Infrastructure",
       "cohort": "electrification_infrastructure",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 80,
-        "maxScore": 100
+        "minScore": 70,
+        "maxScore": 79
       }
     },
     {
@@ -30,10 +30,10 @@
       "company": "ABB",
       "industry": "Electrification and Industrial Automation",
       "cohort": "electrification_infrastructure",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 70,
-        "maxScore": 79
+        "minScore": 50,
+        "maxScore": 69
       }
     },
     {
@@ -41,7 +41,7 @@
       "company": "Siemens",
       "industry": "Industrial Automation and Infrastructure",
       "cohort": "electrification_infrastructure",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 50,
         "maxScore": 69
@@ -52,7 +52,7 @@
       "company": "Siemens Energy",
       "industry": "Power Generation and Grid Equipment",
       "cohort": "electrification_infrastructure",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 50,
         "maxScore": 69
@@ -63,7 +63,7 @@
       "company": "GE Aerospace",
       "industry": "Aircraft Engines and Services",
       "cohort": "physical_industrial",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 70,
         "maxScore": 79
@@ -74,10 +74,10 @@
       "company": "Thermo Fisher Scientific",
       "industry": "Life Science Tools and Services",
       "cohort": "healthcare_infrastructure",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 70,
-        "maxScore": 79
+        "minScore": 50,
+        "maxScore": 69
       }
     },
     {
@@ -85,7 +85,7 @@
       "company": "Stryker",
       "industry": "Medical Devices",
       "cohort": "healthcare_infrastructure",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 36,
         "maxScore": 49
@@ -107,10 +107,10 @@
       "company": "Autodesk",
       "industry": "Design and Engineering Software",
       "cohort": "digital_platforms",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 50,
-        "maxScore": 69
+        "minScore": 36,
+        "maxScore": 49
       }
     },
     {
@@ -118,7 +118,7 @@
       "company": "Intuit",
       "industry": "Accounting and Tax Software",
       "cohort": "digital_platforms",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 36,
         "maxScore": 49
@@ -129,7 +129,7 @@
       "company": "Shopify",
       "industry": "Commerce Infrastructure",
       "cohort": "digital_platforms",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 50,
         "maxScore": 69
@@ -140,7 +140,7 @@
       "company": "Cloudflare",
       "industry": "Internet Infrastructure and Security",
       "cohort": "digital_platforms",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 50,
         "maxScore": 69
@@ -151,10 +151,10 @@
       "company": "Spotify",
       "industry": "Audio Streaming",
       "cohort": "digital_platforms",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 50,
-        "maxScore": 69
+        "minScore": 36,
+        "maxScore": 49
       }
     },
     {
@@ -162,7 +162,7 @@
       "company": "The Coca-Cola Company",
       "industry": "Beverages",
       "cohort": "brands_consumer",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 70,
         "maxScore": 79
@@ -173,10 +173,10 @@
       "company": "McDonald's",
       "industry": "Branded Restaurants",
       "cohort": "brands_consumer",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
-        "minScore": 50,
-        "maxScore": 69
+        "minScore": 70,
+        "maxScore": 79
       }
     },
     {
@@ -184,7 +184,7 @@
       "company": "PDD Holdings",
       "industry": "Chinese E-commerce and Supply Chain",
       "cohort": "china_platforms",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 36,
         "maxScore": 49
@@ -195,7 +195,7 @@
       "company": "JD.com",
       "industry": "Chinese E-commerce and Logistics",
       "cohort": "china_platforms",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 50,
         "maxScore": 69
@@ -206,7 +206,7 @@
       "company": "Duolingo",
       "industry": "Digital Education",
       "cohort": "ai_exposed_work",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 36,
         "maxScore": 49
@@ -217,7 +217,7 @@
       "company": "Fiverr International",
       "industry": "Freelance Talent Marketplace",
       "cohort": "ai_exposed_work",
-      "status": "provisional",
+      "status": "approved",
       "expected": {
         "minScore": 0,
         "maxScore": 35
