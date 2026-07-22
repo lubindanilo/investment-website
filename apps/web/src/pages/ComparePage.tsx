@@ -300,25 +300,33 @@ function ResilienceRows({ companies }: { companies: CompanyView[] }) {
           </div>
         );
       })}
-      {RESILIENCE_CRITERIA_IDS.map(id => (
-        <Fragment key={id}>
-          <div className="cmp-label">
-            <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--ink-2)', lineHeight: 1.3, paddingLeft: 4 }}>{t(`analyse.resilienceCriteria.${id}.label`)}</span>
-          </div>
-          {companies.map(c => {
-            const crit = isLive(c) ? (c.resilienceCriteria?.find(x => x.id === id) ?? null) : null;
-            return (
-              <div className="cmp-cellw" key={c.ticker}>
-                <div className="cmp-cell">
-                  {crit && crit.score != null
-                    ? <span className="num" style={{ fontSize: 15, fontWeight: 700, color: critScoreColor(crit.score, crit.maxScore) }}>{crit.score}/{crit.maxScore}</span>
-                    : <span className="num muted">—</span>}
+      {RESILIENCE_CRITERIA_IDS.map(id => {
+        // Meilleur par ligne (comme les sections chiffres/valo) : gagnant unique, égalités non surlignées.
+        const rowScores = companies.map(c => (isLive(c) ? (c.resilienceCriteria?.find(x => x.id === id)?.score ?? null) : null));
+        const rowMax = Math.max(...rowScores.filter((s): s is number => s != null), -Infinity);
+        const rowBest = rowScores.filter(s => s === rowMax).length === 1 ? companies[rowScores.indexOf(rowMax)]?.ticker : null;
+        return (
+          <Fragment key={id}>
+            <div className="cmp-label">
+              <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--ink-2)', lineHeight: 1.3, paddingLeft: 4 }}>{t(`analyse.resilienceCriteria.${id}.label`)}</span>
+            </div>
+            {companies.map(c => {
+              const crit = isLive(c) ? (c.resilienceCriteria?.find(x => x.id === id) ?? null) : null;
+              const best = crit?.score != null && rowBest === c.ticker;
+              return (
+                <div className="cmp-cellw" key={c.ticker}>
+                  <div className="cmp-cell" style={best ? { boxShadow: 'inset 0 0 0 2px var(--good)', borderColor: 'var(--good)' } : undefined}>
+                    {best && <span className="cmp-cell-mark" title={t('compare.best')}><Icon name="check" size={14} stroke={2.6} /></span>}
+                    {crit && crit.score != null
+                      ? <span className="num" style={{ fontSize: 15, fontWeight: 700, color: critScoreColor(crit.score, crit.maxScore) }}>{crit.score}/{crit.maxScore}</span>
+                      : <span className="num muted">—</span>}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
-        </Fragment>
-      ))}
+              );
+            })}
+          </Fragment>
+        );
+      })}
     </>
   );
 }
