@@ -545,6 +545,7 @@
     "resiliencePending": "Esta empresa aún no ha sido cubierta por la vigilancia de Resiliencia. No se resta ningún punto mientras falten datos.",
     "resilienceDetails": "Entender esta nota",
     "resilienceTechnicalToggle": "Detalle técnico",
+    "resilienceNotScored": "Sin calificar",
     "resilienceReason": "Por qué esta nota",
     "resilienceScoreReading": "Contexto factual",
     "resilienceDecisionFactors": "Factores decisivos",

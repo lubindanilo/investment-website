@@ -39,3 +39,13 @@ export function ResilienceBadge({
     </span>
   );
 }
+
+/**
+ * Pastille « Non noté » (résilience pas encore évaluée par la veille). Même gabarit que le badge,
+ * ton neutre gris. À afficher là où l'absence de note doit être explicite (colonne screener),
+ * plutôt qu'un tiret discret.
+ */
+export function ResilienceNotScored({ size = 'md' }: { size?: 'sm' | 'md' }) {
+  const { t } = useTranslation();
+  return <span className={`res-badge res-badge-empty res-badge-${size}`}>{t('analyse.resilienceNotScored')}</span>;
+}

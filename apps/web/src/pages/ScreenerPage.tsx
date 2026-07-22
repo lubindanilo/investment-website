@@ -9,7 +9,7 @@ import { sectorSlug } from '../lib/sector.js';
 import { formatPrice } from '../lib/format.js';
 import SeoHead from '../components/SeoHead.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
-import { ResilienceBadge } from '../components/ResilienceBadge.js';
+import { ResilienceBadge, ResilienceNotScored } from '../components/ResilienceBadge.js';
 import { useSubscription } from '../contexts/SubscriptionContext.js';
 import './ScreenerPage.css';
 
@@ -530,7 +530,7 @@ export function ScreenerPage() {
                       </td>
                       <td className="muted" style={{ fontSize: 13 }}>{r.sector ? t(`industries.${sectorSlug(r.sector)}`, { defaultValue: r.sector }) : '—'}</td>
                       <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
-                      <td>{r.resilience ? <ResilienceBadge summary={r.resilience} showScore /> : <span className="muted">—</span>}</td>
+                      <td>{r.resilience ? <ResilienceBadge summary={r.resilience} showScore /> : <ResilienceNotScored />}</td>
                       <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
                       <td className="num">{formatPrice(r.price, r.currency)}</td>
                       <td>

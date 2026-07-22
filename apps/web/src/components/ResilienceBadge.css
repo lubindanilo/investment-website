@@ -20,3 +20,11 @@
 .res-badge-brand { color: var(--brand-ink); background: var(--brand-soft); }
 .res-badge-warn { color: var(--warn-ink); background: var(--warn-bg); }
 .res-badge-bad { color: var(--bad-ink); background: var(--bad-bg); }
+
+/* « Non noté » : même gabarit/hauteur que les badges, ton neutre gris, texte (weight allégé). */
+.res-badge-empty {
+  color: var(--ink-3);
+  background: var(--bg-soft);
+  font-weight: 600;
+  white-space: nowrap;
+}

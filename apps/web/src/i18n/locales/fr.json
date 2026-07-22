@@ -570,6 +570,7 @@
     "resiliencePending": "Cette entreprise n'a pas encore été couverte par la veille Résilience. Aucun point n'est retiré en attendant.",
     "resilienceDetails": "Comprendre cette note",
     "resilienceTechnicalToggle": "Détail technique",
+    "resilienceNotScored": "Non noté",
     "resilienceReason": "Pourquoi cette note",
     "resilienceScoreReading": "Contexte factuel",
     "resilienceDecisionFactors": "Éléments décisifs",
