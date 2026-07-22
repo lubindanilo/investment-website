@@ -711,6 +711,11 @@ describe('scoreFutureResilience', () => {
 
   it('penalise uniquement une rupture avec voie majoritaire technique et economique', () => {
     const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[1]!, {
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+      benefitMechanism: 'none',
+    });
     const ai = input.criteria.disruption_positioning.forces[0]!;
     ai.majorityCoreThreatPath = true;
     ai.technicalAndEconomicPath = false;
@@ -722,6 +727,11 @@ describe('scoreFutureResilience', () => {
 
   it('ne qualifie pas de renforcement un benefice que l entreprise ne controle pas', () => {
     const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[1]!, {
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+      benefitMechanism: 'none',
+    });
     const ai = input.criteria.disruption_positioning.forces[0]!;
     Object.assign(ai, { responseControlsOutcome: null });
     expect(scoreFutureResilience(input).criteria[1]!.score).toBe(2);
@@ -732,6 +742,39 @@ describe('scoreFutureResilience', () => {
     Object.assign(input.criteria.disruption_positioning.forces[1]!, {
       materialDirectBenefit: false,
       responseControlsOutcome: false,
+    });
+    expect(scoreFutureResilience(input).criteria[1]!.score).toBe(2);
+  });
+
+  it('accorde 3 sur 3 a un avantage structurel specifique aligne avec une demande majoritaire', () => {
+    const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[0]!, {
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+      benefitMechanism: 'none',
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[1]!.score).toBe(3);
+    expect(result.criteria[1]!.audit.companySpecificStructuralAdvantage).toBe(true);
+  });
+
+  it('ne bonifie pas un avantage specifique lorsque la demande structurelle n est pas maximale', () => {
+    const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[0]!, {
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+      benefitMechanism: 'none',
+    });
+    Object.assign(input.criteria.structural_demand, { futureCategoryTrend: 'stable' });
+    expect(scoreFutureResilience(input).criteria[1]!.score).toBe(2);
+  });
+
+  it('ne transforme pas une simple expansion externe de demande en avantage structurel specifique', () => {
+    const input = fixture();
+    Object.assign(input.criteria.disruption_positioning.forces[1]!, {
+      materialDirectBenefit: false,
+      responseControlsOutcome: false,
+      benefitMechanism: 'none',
     });
     expect(scoreFutureResilience(input).criteria[1]!.score).toBe(2);
   });

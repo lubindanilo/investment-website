@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://lubin-investment.local/schemas/resilience-2033-adjudication.json",
-  "$comment": "methodologyVersion: 2.9.1-pilot.15",
+  "$comment": "methodologyVersion: 2.9.1-pilot.16",
   "title": "Lubin Investment Resilience 2033 Adjudication",
   "type": "object",
   "additionalProperties": false,

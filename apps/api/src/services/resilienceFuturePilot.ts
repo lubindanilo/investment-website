@@ -1,4 +1,4 @@
-export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.15' as const;
+export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.16' as const;
 export const FUTURE_SCENARIO_YEAR = 2033 as const;
 
 export const FUTURE_RESILIENCE_WEIGHTS = {
@@ -612,16 +612,33 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
     futureValueCapture.score = 1;
     futureValueCapture.audit.captureLimitedByNarrowControl = true;
   }
+  const disruption = scoreDisruption(
+    disruptionRaw,
+    marketplaceQualified,
+    digitalStackBenefitNotControlled,
+    customerOwnedWorkflowReplacementQualified,
+  );
+  const structuralDemand = scoreDemand(record(criteria.structural_demand, 'structural_demand'));
+  const auditedDisruptionForces = Array.isArray(disruption.audit.forces) ? disruption.audit.forces : [];
+  const companySpecificStructuralAdvantage = disruption.score === 2 && structuralDemand.score === 2 &&
+    !digitalStackBenefitNotControlled &&
+    auditedDisruptionForces.some(value => value && typeof value === 'object' && !Array.isArray(value) &&
+      (value as Record<string, unknown>).verdict === 'positive' &&
+      ['company_specific_control_strengthening', 'company_specific_cost_or_capacity_advantage',
+        'company_specific_value_capture_expansion'].includes(
+        String((value as Record<string, unknown>).benefitMechanism),
+      )) &&
+    !auditedDisruptionForces.some(value => value && typeof value === 'object' && !Array.isArray(value) &&
+      (value as Record<string, unknown>).verdict === 'negative');
+  if (companySpecificStructuralAdvantage) {
+    disruption.score = 3;
+    disruption.audit.companySpecificStructuralAdvantage = true;
+  }
   const results: FutureCriterionResult[] = [
     futureControl,
-    scoreDisruption(
-      disruptionRaw,
-      marketplaceQualified,
-      digitalStackBenefitNotControlled,
-      customerOwnedWorkflowReplacementQualified,
-    ),
+    disruption,
     scoreDependencies(record(criteria.future_dependencies, 'future_dependencies')),
-    scoreDemand(record(criteria.structural_demand, 'structural_demand')),
+    structuralDemand,
     futureValueCapture,
     scoreTransition(record(criteria.transition_capacity, 'transition_capacity')),
   ];

@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.15`.
+Version canonique candidate : `2.9.1-pilot.16`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -300,7 +300,7 @@ obligatoires absents, les forces dupliquees et les structures incorrectes.
 
 Le runner de cohorte `resilience:future:pilot` persiste chaque resultat valide dans les
 tables existantes `ResilienceAnalysis` et `ResilienceAnalysisHistory`, sous la version de
-grille `2.9.1-pilot.15`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
+grille `2.9.1-pilot.16`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
 encore servies par l'UI.
 
 Le JSON `analysis` conserve le score, le grade, les gates, les six cartes (`reason`,
@@ -450,6 +450,22 @@ annule le controle rare du coeur automobile ; l'erosion de marque liee a Elon Mu
 watchpoint utilisateur a sourcer au prochain refresh, et Robotaxi un contrepoids potentiel.
 Les onze ecarts restants sont tous provisoires ; seul Fortinet conserve un ecart de deux
 grades. Le cron reste desactive jusqu'au seuil strict et au test de stabilite.
+
+`pilot.16` ajoute ensuite une exception etroite au critere de rupture : une seule force
+positive peut atteindre `3/3` lorsqu'elle repose sur un avantage de controle, de cout ou de
+capture propre a l'entreprise, qu'elle est alignee avec une demande majoritaire `2/2` et
+qu'aucune force negative n'est retenue. Une simple expansion externe du marche ou un gain
+numerique non controle ne qualifie jamais cette exception. Sur les 50 dossiers geles,
+seuls BYD et Caterpillar bougent : BYD passe de D48 a C55 et Caterpillar de B73 a B79, sans
+aucune regression.
+
+Lubin approuve egalement les bandes produites pour Microsoft A88, Apple B78, Alphabet A86,
+Visa B78, PayPal C57, Kinsale C57, Netflix B78 et Pfizer C57. Une seule relecture ciblee,
+sans nouvelle recherche, laisse Netflix B78 et Fortinet C69 inchanges, tandis que SAP passe
+de D49 a B76 apres correction de la portee majoritaire de son workflow. Le replay final
+atteint `48/50`, dont `41/41` attentes approuvees et `7/9` provisoires. SAP B76 et Fortinet
+C69 sont les deux ecarts restants ; BYD C55 reste a faire valider explicitement. L'audit est
+conserve dans `apps/api/benchmarks/resilience-future-strict-50-p16-audit.md`.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
