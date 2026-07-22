@@ -77,8 +77,8 @@ function countActive(v: AppliedFilters): number {
 
 /**
  * Bouton « Filtres » unique → popover regroupant TOUS les filtres du screener (note minimale,
- * capitalisation, P/FCF max, secteurs). Le tout en brouillon : rien ne s'applique tant que
- * « Valider » n'est pas cliqué. « Opportunités du moment » reste un toggle séparé (hors panneau).
+ * résilience, capitalisation, P/FCF max, secteurs). Filtrage LIVE : chaque contrôle applique
+ * immédiatement (pas de bouton « Valider »). « Opportunités du moment » reste un toggle séparé.
  */
 function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
   sectors: { sector: string; count: number }[];
@@ -90,11 +90,8 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
-  const [draft, setDraft] = useState<AppliedFilters>(value);
   const ref = useRef<HTMLDivElement>(null);
 
-  // À l'ouverture, on repart des filtres appliqués.
-  useEffect(() => { if (open) setDraft(value); }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (!open) return;
     const h = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
@@ -106,12 +103,14 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
   const q = query.trim().toLowerCase();
   const filtered = q ? sectors.filter(s => label(s.sector).toLowerCase().includes(q)) : sectors;
 
-  const toggleSector = (s: string) => setDraft(d => ({ ...d, sectors: d.sectors.includes(s) ? d.sectors.filter(x => x !== s) : [...d.sectors, s] }));
-  const toggleCap = (c: CapBucket) => setDraft(d => ({ ...d, caps: d.caps.includes(c) ? d.caps.filter(x => x !== c) : [...d.caps, c] }));
-  const toggleZone = (z: GeoZone) => setDraft(d => ({ ...d, zones: d.zones.includes(z) ? d.zones.filter(x => x !== z) : [...d.zones, z] }));
-  const toggleGrade = (g: ResilienceGrade) => setDraft(d => ({ ...d, resilienceGrades: d.resilienceGrades.includes(g) ? d.resilienceGrades.filter(x => x !== g) : [...d.resilienceGrades, g] }));
-  const apply = () => { onApply(draft); setOpen(false); setQuery(''); };
-  const reset = () => setDraft(DEFAULT_FILTERS);
+  // Filtrage LIVE : chaque contrôle applique directement (plus de bouton « Valider »).
+  const toggleSector = (s: string) => onApply({ ...value, sectors: value.sectors.includes(s) ? value.sectors.filter(x => x !== s) : [...value.sectors, s] });
+  const toggleCap = (c: CapBucket) => onApply({ ...value, caps: value.caps.includes(c) ? value.caps.filter(x => x !== c) : [...value.caps, c] });
+  const toggleZone = (z: GeoZone) => onApply({ ...value, zones: value.zones.includes(z) ? value.zones.filter(x => x !== z) : [...value.zones, z] });
+  const toggleGrade = (g: ResilienceGrade) => onApply({ ...value, resilienceGrades: value.resilienceGrades.includes(g) ? value.resilienceGrades.filter(x => x !== g) : [...value.resilienceGrades, g] });
+  const setMinScore = (n: number) => onApply({ ...value, minScore: n });
+  const setMaxPfcf = (n: number) => onApply({ ...value, maxPfcf: n });
+  const reset = () => onApply(DEFAULT_FILTERS);
   const lockedPfcf = () => { setOpen(false); onLockedPfcf(); };
 
   const activeCount = countActive(value);
@@ -161,11 +160,11 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
                 min={0}
                 max={10}
                 step={1}
-                value={draft.minScore}
-                onChange={e => setDraft(d => ({ ...d, minScore: +e.target.value }))}
+                value={value.minScore}
+                onChange={e => setMinScore(+e.target.value)}
                 style={{ flex: 1, accentColor: 'var(--brand)', cursor: 'pointer' }}
               />
-              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{draft.minScore <= 0 ? t('screener.filters.scoreAll') : draft.minScore + '+'}</span>
+              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{value.minScore <= 0 ? t('screener.filters.scoreAll') : value.minScore + '+'}</span>
             </div>
           </div>
 
@@ -175,7 +174,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('analyse.resilience')}</span>
             <div className="row gap-6">
               {GRADE_OPTS.map(g => {
-                const on = draft.resilienceGrades.includes(g);
+                const on = value.resilienceGrades.includes(g);
                 return (
                   <button
                     key={g}
@@ -204,7 +203,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.marketCap')}</span>
             <div className="row gap-6">
               {CAP_OPTS.map(c => {
-                const on = draft.caps.includes(c);
+                const on = value.caps.includes(c);
                 return (
                   <button
                     key={c}
@@ -232,7 +231,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.market')}</span>
             <div className="row gap-6">
               {ZONE_OPTS.map(z => {
-                const on = draft.zones.includes(z);
+                const on = value.zones.includes(z);
                 return (
                   <button
                     key={z}
@@ -271,13 +270,13 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
                 type="range"
                 min={10}
                 max={PFCF_MAX}
-                value={draft.maxPfcf}
+                value={value.maxPfcf}
                 disabled={!isPro}
-                onChange={e => { if (isPro) setDraft(d => ({ ...d, maxPfcf: +e.target.value })); }}
+                onChange={e => { if (isPro) setMaxPfcf(+e.target.value); }}
                 onMouseDown={e => { if (!isPro) { e.preventDefault(); lockedPfcf(); } }}
                 style={{ flex: 1, accentColor: 'var(--brand)', cursor: !isPro ? 'not-allowed' : 'pointer' }}
               />
-              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{draft.maxPfcf >= PFCF_MAX ? '∞' : draft.maxPfcf + '×'}</span>
+              <span className="num tiny" style={{ fontWeight: 700, color: 'var(--brand-ink)', minWidth: 36 }}>{value.maxPfcf >= PFCF_MAX ? '∞' : value.maxPfcf + '×'}</span>
             </div>
           </div>
 
@@ -285,7 +284,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
           <div className="col gap-6">
             <div className="row between">
               <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('screener.filters.sector')}</span>
-              {draft.sectors.length > 0 && <span className="tiny num" style={{ fontWeight: 700, color: 'var(--brand-ink)' }}>{draft.sectors.length}</span>}
+              {value.sectors.length > 0 && <span className="tiny num" style={{ fontWeight: 700, color: 'var(--brand-ink)' }}>{value.sectors.length}</span>}
             </div>
             <div className="anl-search-field">
               <Icon name="search" size={14} className="anl-search-icon" />
@@ -303,7 +302,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
                   key={s.sector}
                   label={label(s.sector)}
                   count={s.count}
-                  checked={draft.sectors.includes(s.sector)}
+                  checked={value.sectors.includes(s.sector)}
                   onClick={() => toggleSector(s.sector)}
                 />
               ))}
@@ -311,13 +310,10 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             </div>
           </div>
 
-          {/* Actions */}
-          <div className="row gap-8" style={{ paddingTop: 10, borderTop: '1px solid var(--line)' }}>
+          {/* Filtrage live → une seule action : réinitialiser. */}
+          <div className="row" style={{ paddingTop: 10, borderTop: '1px solid var(--line)' }}>
             <button type="button" className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={reset}>
               {t('screener.filters.reset')}
-            </button>
-            <button type="button" className="btn btn-brand btn-sm" style={{ flex: 1 }} onClick={apply}>
-              {t('screener.filters.apply')}
             </button>
           </div>
         </div>
@@ -388,7 +384,11 @@ export function ScreenerPage() {
       .catch(() => {});
   }, [t]);
 
+  // Séquence de requête : le filtrage est LIVE, plusieurs fetches peuvent s'enchaîner (ex. slider).
+  // On ignore toute réponse qui n'est pas la plus récente pour éviter un affichage périmé.
+  const reqSeq = useRef(0);
   const load = useCallback(async () => {
+    const seq = ++reqSeq.current;
     setLoading(true); setError(null);
     try {
       const top = await api.screener.top({
@@ -401,13 +401,19 @@ export function ScreenerPage() {
         caps: filters.caps.length ? filters.caps.join(',') : undefined,
         zones: filters.zones.length ? filters.zones.join(',') : undefined,
       });
+      if (seq !== reqSeq.current) return;   // réponse périmée
       setRows(top);
     } catch (e) {
+      if (seq !== reqSeq.current) return;
       setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
-    } finally { setLoading(false); }
+    } finally { if (seq === reqSeq.current) setLoading(false); }
   }, [filters, onlyOpp]);
 
-  useEffect(() => { load(); }, [load]);
+  // Debounce : coalesce les changements rapides (glissement de slider) en une seule requête.
+  useEffect(() => {
+    const id = setTimeout(load, 200);
+    return () => clearTimeout(id);
+  }, [load]);
 
   const sorted = useMemo(() => {
     const dir = sort.dir === 'desc' ? -1 : 1;
