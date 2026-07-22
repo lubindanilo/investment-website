@@ -47,7 +47,7 @@
     { "ticker": "BKNG", "company": "Booking Holdings", "industry": "Travel Services", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
     { "ticker": "TSLA", "company": "Tesla", "industry": "Electric Vehicles and Energy", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 36, "maxScore": 49 } },
     { "ticker": "TM", "company": "Toyota Motor", "industry": "Automotive Manufacturing", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
-    { "ticker": "BYDDF", "company": "BYD", "industry": "Electric Vehicles and Batteries", "cohort": "mobility_travel", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
+    { "ticker": "BYDDF", "company": "BYD", "industry": "Electric Vehicles and Batteries", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
 
     { "ticker": "NVO", "company": "Novo Nordisk", "industry": "Pharmaceuticals", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 36, "maxScore": 49 } },
     { "ticker": "LLY", "company": "Eli Lilly", "industry": "Pharmaceuticals", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },

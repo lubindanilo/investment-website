@@ -464,7 +464,7 @@ Visa B78, PayPal C57, Kinsale C57, Netflix B78 et Pfizer C57. Une seule relectur
 sans nouvelle recherche, laisse Netflix B78 et Fortinet C69 inchanges, tandis que SAP passe
 de D49 a B76 apres correction de la portee majoritaire de son workflow. Le replay final
 atteint `48/50`, dont `41/41` attentes approuvees et `7/9` provisoires. SAP B76 et Fortinet
-C69 sont les deux ecarts restants ; BYD C55 reste a faire valider explicitement. L'audit est
+C69 sont les deux ecarts restants ; BYD C55 n'etait pas valide a ce stade. L'audit est
 conserve dans `apps/api/benchmarks/resilience-future-strict-50-p16-audit.md`.
 
 `pilot.17` corrige ensuite la confusion entre rente de prix et capture de valeur chez les
@@ -477,9 +477,9 @@ sur cout peuvent capter de la valeur sans prime tarifaire.
 
 BYD passe ainsi de C55 a B76, avec le vecteur `1/3, 3/3, 1/2, 2/2, 2/2, 1/2`. Les 49 autres
 entreprises restent strictement inchangees, notamment Tesla D48 et Toyota C68 qui ne
-qualifient pas le mecanisme. Le benchmark reste `48/50`; BYD entre dans sa bande provisoire
-B70-79 et attend la validation explicite de Lubin. L'audit est conserve dans
-`apps/api/benchmarks/resilience-future-strict-50-p17-audit.md`.
+qualifient pas le mecanisme. Lubin valide ensuite explicitement BYD B76. Le benchmark reste
+`48/50`, avec `42/42` attentes approuvees et `6/8` provisoires dans leur bande. L'audit est
+conserve dans `apps/api/benchmarks/resilience-future-strict-50-p17-audit.md`.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis

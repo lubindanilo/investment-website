@@ -49,6 +49,6 @@ BYD passe de C55 a B76 :
 Les 49 autres entreprises conservent exactement leur score, leur grade et leurs six
 sous-notes. Tesla reste D48, Toyota C68, Caterpillar B79 et Netflix B78.
 
-Le benchmark reste `48/50` : `41/41` attentes approuvees et `7/9` provisoires passent. SAP
-B76 et Fortinet C69 restent les deux ecarts. BYD B76 entre dans sa nouvelle bande
-provisoire B70-79 et attend la validation explicite de Lubin. Le cron reste desactive.
+Lubin valide explicitement BYD B76. Le benchmark reste `48/50` : `42/42` attentes
+approuvees et `6/8` provisoires passent. SAP B76 et Fortinet C69 restent les deux ecarts.
+Le cron reste desactive.
