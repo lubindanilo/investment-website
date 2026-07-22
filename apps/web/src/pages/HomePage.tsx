@@ -15,8 +15,9 @@ export function HomePage() {
   const BENEFITS: { icon: IconName; title: string; text: string }[] = [
     { icon: 'bars', title: t('home.benefits.0.title'), text: t('home.benefits.0.text') },
     { icon: 'pulse', title: t('home.benefits.1.title'), text: t('home.benefits.1.text') },
+    { icon: 'shield', title: t('home.benefits.4.title'), text: t('home.benefits.4.text') },
     { icon: 'scale', title: t('home.benefits.2.title'), text: t('home.benefits.2.text') },
-    { icon: 'shield', title: t('home.benefits.3.title'), text: t('home.benefits.3.text') },
+    { icon: 'star', title: t('home.benefits.3.title'), text: t('home.benefits.3.text') },
   ];
 
   // Étapes « Comment ça marche » — libellés traduits via i18n

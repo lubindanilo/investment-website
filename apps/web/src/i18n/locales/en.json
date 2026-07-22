@@ -343,7 +343,7 @@
       "titleLine1": "Beat the market with quality stocks",
       "titleAccent": "at the right price.",
       "lede": "The monitor scores 7,000+ stocks on 10 criteria, continuously, and surfaces the best. You check the price is right, and decide.",
-      "valueLine": "Every stock scored on 10 fundamental criteria, with a current valuation analysis and a recommended buy price.",
+      "valueLine": "Every stock scored on 10 quality criteria and an A-to-E resilience grade, then a valuation analysis with a recommended buy price.",
       "ctaAnalyze": "Analyze a stock",
       "ctaScreener": "Explore the screener"
     },
@@ -368,6 +368,10 @@
       "3": {
         "title": "The method of great investors",
         "text": "10 fundamental criteria inspired by Warren Buffett, Terry Smith and many others, shown right on every stock."
+      },
+      "4": {
+        "title": "Strong today, resilient tomorrow",
+        "text": "Beyond the numbers, we grade each company's ability to still exist and thrive in the future, from A to E. Spot the fragile models before they break."
       }
     },
     "how": {
@@ -381,7 +385,7 @@
       },
       "1": {
         "title": "You open the analysis",
-        "text": "A score out of 10, its green/amber/red split, and the detail of all 10 criteria. A company's essentials on one page."
+        "text": "A quality score out of 10, an A-to-E resilience grade, and the detail of every criterion. A company's essentials on one page."
       },
       "2": {
         "title": "You check the price and decide",
