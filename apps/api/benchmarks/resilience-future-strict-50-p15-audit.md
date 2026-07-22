@@ -16,10 +16,10 @@ LLM et sans modification de ponderation. Quatre coherences universelles sont ajo
 
 ## Resultat apres arbitrage cible
 
-- `34/50` dans la bande, contre `30/50` en `pilot.14` et `33/50` au premier replay
-  `pilot.15`.
-- `28/33` attentes approuvees dans la bande, contre `26/33` en `pilot.14` et `27/33`
-  avant arbitrage cible.
+- `39/50` dans la bande, contre `30/50` en `pilot.14`, `33/50` au premier replay
+  `pilot.15` et `34/50` apres la relecture ciblee.
+- `33/33` attentes approuvees dans la bande, contre `26/33` en `pilot.14`, `27/33`
+  avant arbitrage cible et `28/33` apres cette relecture.
 - `6/17` attentes provisoires dans la bande, contre `4/17`.
 - Broadcom passe de D49 a B79, TSM de A88 a B79 et Uber de B78 a C57.
 - Une unique relecture ciblee des six ecarts approuves corrige Adobe de D49 a C57. Tesla
@@ -27,18 +27,21 @@ LLM et sans modification de ponderation. Quatre coherences universelles sont ajo
   Novo Nordisk gardent leur note.
 - Les 44 entreprises non ciblees restent strictement inchangees et aucune attente
   auparavant correcte ne sort de sa bande.
-- Deux ecarts de deux grades subsistent : Costco C52 face a A et Fortinet C69 face a A.
+- Lubin valide ensuite les sorties NVIDIA B78, Caterpillar B73, Costco C52, Tesla D48 et
+  Novo Nordisk D48. Leurs bandes historiques sont alignees sur ces arbitrages sans modifier
+  les scores, les poids ni les adjudications.
+- Le seul ecart de deux grades restant est provisoire : Fortinet C69 face a A.
 - Le seuil de 90% n'est pas atteint ; le cron reste desactive.
 
-## Ecarts approuves restants
+## Arbitrages approuves
 
-| Ticker | Attendu | Obtenu | Vecteur | Diagnostic |
+| Ticker | Bande validee | Obtenu | Vecteur | Diagnostic |
 | --- | --- | --- | --- | --- |
-| NVDA | 79-100 | B78 | 2/2/1/2/2/1 | La relecture ciblee confirme 1/2 en transition : l'ecart d'un point vient de la frontiere de grade, pas d'une case instable. |
-| CAT | C | B73 | 3/2/1/2/1/1 | Le parc et le reseau de service obtiennent 3/3 malgre la convergence chinoise ; arbitrage economique requis. |
-| COST | A | C52 | 1/2/1/1/1/2 | La relecture retire le controle rare : le membership reste utile mais substituable. L'attente A n'est pas soutenue par le contrat actuel. |
-| TSLA | C | D48 | 0/2/1/2/1/1 | L'exposition positive a l'automatisation est reconnue, mais aucun controle rare n'est prouve ; deux points seulement separent D de C. |
-| NVO | C | D48 | 0/2/1/2/1/1 | La relecture confirme 1/2 en transition : demande future 2/2, mais aucun controle post-brevet ni adaptation post-semaglutide materielle ne sont prouves. |
+| NVDA | B | B78 | 2/2/1/2/2/1 | La relecture ciblee confirme 1/2 en transition. Le meme vecteur produit legitimement la meme note que LVMH et Union Pacific. |
+| CAT | B | B73 | 3/2/1/2/1/1 | Le parc, les pieces et le reseau de service physique soutiennent un controle futur large malgre la concurrence chinoise sur les nouvelles machines. |
+| COST | C | C52 | 1/2/1/1/1/2 | Le membership et l'execution restent utiles, mais les substituts a l'echelle et le multihoming interdisent A dans une grille future-first agressive. |
+| TSLA | D | D48 | 0/2/1/2/1/1 | Le risque central est la convergence chinoise qualite-prix, qui annule la rarete sur le coeur automobile. La deterioration de marque liee a Elon Musk est un watchpoint utilisateur a sourcer au prochain refresh ; Robotaxi serait un contrepoids positif, pas la cause premiere de D. |
+| NVO | D | D48 | 0/2/1/2/1/1 | La demande future vaut 2/2, mais aucun controle post-brevet ni adaptation post-semaglutide materielle ne sont prouves jusqu'en 2033. |
 
 Adobe sort des ecarts approuves : la reparation structurelle etablit que le workflow
 reconstruisible ne couvre pas la majorite du coeur et retire le gate. Adobe passe de D49 a
@@ -62,16 +65,15 @@ C57 avec le vecteur `1/2/1/2/1/1`.
 
 ## Prochaine decision
 
-Le prochain gain ne doit pas venir d'une nouvelle regle globale appliquee aux 17 cas. Il
-faut d'abord trancher les vecteurs economiques, en priorite :
+Les `33/33` attentes approuvees sont desormais coherentes. Le prochain gain ne doit pas
+venir d'une nouvelle regle globale appliquee aux onze cas provisoires. Il faut les
+arbitrer par familles economiques, en priorite :
 
-1. attentes approuvees : trancher la frontiere de grade NVIDIA et Tesla, puis reexaminer
-   les attentes economiques de Caterpillar, Costco et Novo Nordisk sans nouvelle
-   readjudication ;
-2. sous-tests potentiellement fautifs : SAP, Netflix et Fortinet ;
-3. attentes provisoires probablement trop prudentes : Microsoft, PayPal, Kinsale et Pfizer.
+1. sous-tests potentiellement fautifs : SAP, Netflix et Fortinet ;
+2. attentes probablement trop prudentes : Microsoft, PayPal, Kinsale et Pfizer ;
+3. arbitrages de plateforme et de marque : Apple, Alphabet, Visa et BYD.
 
-La readjudication ciblee autorisee est maintenant consommee. Les cas inchanges ne doivent
-pas etre relances pour rechercher une meilleure note. Une nouvelle modification exige soit
-un arbitrage explicite de la bande, soit une contradiction universelle accompagnee de
+La readjudication ciblee des cas approuves est consommee. Les onze cas provisoires doivent
+d'abord etre audites sur leurs dossiers existants. Une nouvelle modification exige soit un
+arbitrage explicite de la bande, soit une contradiction universelle accompagnee de
 contre-exemples et de tests.

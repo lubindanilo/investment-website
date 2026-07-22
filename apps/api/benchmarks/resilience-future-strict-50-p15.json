@@ -1,9 +1,9 @@
 {
   "version": "2.9.1-pilot.15",
   "scenarioYear": 2033,
-  "purpose": "Benchmark futur-first strict de 50 entreprises. Les attentes sont figees avant les nouvelles adjudications et ne sont jamais incluses dans le prompt.",
+  "purpose": "Benchmark futur-first strict de 50 entreprises. Les attentes initiales sont figees avant les nouvelles adjudications, ne sont jamais incluses dans le prompt et ne changent ensuite qu'apres arbitrage explicite de Lubin.",
   "companies": [
-    { "ticker": "NVDA", "company": "NVIDIA", "industry": "Semiconductors", "cohort": "semiconductors", "status": "approved", "expected": { "minScore": 79, "maxScore": 100 } },
+    { "ticker": "NVDA", "company": "NVIDIA", "industry": "Semiconductors", "cohort": "semiconductors", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
     { "ticker": "ASML", "company": "ASML Holding", "industry": "Semiconductor Equipment", "cohort": "semiconductors", "status": "provisional", "expected": { "minScore": 80, "maxScore": 100 } },
     { "ticker": "TSM", "company": "Taiwan Semiconductor Manufacturing", "industry": "Semiconductor Foundry", "cohort": "semiconductors", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
     { "ticker": "AVGO", "company": "Broadcom", "industry": "Semiconductors and Infrastructure Software", "cohort": "semiconductors", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
@@ -33,10 +33,10 @@
     { "ticker": "CEG", "company": "Constellation Energy", "industry": "Nuclear Power Generation", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
     { "ticker": "UNP", "company": "Union Pacific", "industry": "Freight Rail", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
     { "ticker": "TTE", "company": "TotalEnergies", "industry": "Integrated Energy", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
-    { "ticker": "CAT", "company": "Caterpillar", "industry": "Heavy Equipment", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "CAT", "company": "Caterpillar", "industry": "Heavy Equipment", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
     { "ticker": "BA", "company": "Boeing", "industry": "Aerospace Manufacturing", "cohort": "physical_regulated", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
 
-    { "ticker": "COST", "company": "Costco Wholesale", "industry": "Membership Retail", "cohort": "consumer_brands", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
+    { "ticker": "COST", "company": "Costco Wholesale", "industry": "Membership Retail", "cohort": "consumer_brands", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
     { "ticker": "RMS.PA", "company": "Hermes International", "industry": "Luxury Goods", "cohort": "consumer_brands", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
     { "ticker": "MC.PA", "company": "LVMH", "industry": "Luxury Goods", "cohort": "consumer_brands", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
     { "ticker": "OR.PA", "company": "L'Oreal", "industry": "Beauty Products", "cohort": "consumer_brands", "status": "provisional", "expected": { "minScore": 70, "maxScore": 79 } },
@@ -45,11 +45,11 @@
     { "ticker": "UBER", "company": "Uber Technologies", "industry": "Mobility Platforms", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
     { "ticker": "ABNB", "company": "Airbnb", "industry": "Travel Marketplace", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
     { "ticker": "BKNG", "company": "Booking Holdings", "industry": "Travel Services", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 70, "maxScore": 79 } },
-    { "ticker": "TSLA", "company": "Tesla", "industry": "Electric Vehicles and Energy", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "TSLA", "company": "Tesla", "industry": "Electric Vehicles and Energy", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 36, "maxScore": 49 } },
     { "ticker": "TM", "company": "Toyota Motor", "industry": "Automotive Manufacturing", "cohort": "mobility_travel", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
     { "ticker": "BYDDF", "company": "BYD", "industry": "Electric Vehicles and Batteries", "cohort": "mobility_travel", "status": "provisional", "expected": { "minScore": 50, "maxScore": 69 } },
 
-    { "ticker": "NVO", "company": "Novo Nordisk", "industry": "Pharmaceuticals", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },
+    { "ticker": "NVO", "company": "Novo Nordisk", "industry": "Pharmaceuticals", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 36, "maxScore": 49 } },
     { "ticker": "LLY", "company": "Eli Lilly", "industry": "Pharmaceuticals", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
     { "ticker": "ISRG", "company": "Intuitive Surgical", "industry": "Medical Robotics", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 80, "maxScore": 100 } },
     { "ticker": "MEDP", "company": "Medpace", "industry": "Clinical Research Services", "cohort": "healthcare", "status": "approved", "expected": { "minScore": 50, "maxScore": 69 } },

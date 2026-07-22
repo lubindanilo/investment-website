@@ -442,6 +442,15 @@ provisoires, detailles dans
 `apps/api/benchmarks/resilience-future-strict-50-p15-audit.md`. Costco et Fortinet restent
 les deux ecarts de deux grades ; le cron reste desactive.
 
+Lubin arbitre ensuite explicitement les cinq ecarts approuves restants sans changer les
+adjudications : NVIDIA B78, Caterpillar B73, Costco C52, Tesla D48 et Novo Nordisk D48 sont
+valides. Le benchmark atteint ainsi `39/50`, dont `33/33` attentes approuvees et `6/17`
+provisoires. Pour Tesla, la causalite centrale est la convergence chinoise qualite-prix qui
+annule le controle rare du coeur automobile ; l'erosion de marque liee a Elon Musk reste un
+watchpoint utilisateur a sourcer au prochain refresh, et Robotaxi un contrepoids potentiel.
+Les onze ecarts restants sont tous provisoires ; seul Fortinet conserve un ecart de deux
+grades. Le cron reste desactive jusqu'au seuil strict et au test de stabilite.
+
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
 si trois runs du meme modele sur les memes dossiers produisent moins de 5% de sous-tests
