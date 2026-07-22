@@ -303,3 +303,15 @@ model WatchlistEntry {
   @@unique([userId, ticker])
   @@index([userId])
 }
+
+/// Phrase de présentation d'entreprise (longBusinessSummary Yahoo), traduite UNE FOIS puis
+/// stockée par ticker dans les 3 langues. Évite de re-traduire à chaque requête. `en` est la
+/// source Yahoo et sert de clé de fraîcheur : si elle change, fr/es sont ré-traduits.
+model BusinessDescription {
+  ticker    String   @id
+  en        String?
+  fr        String?
+  es        String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

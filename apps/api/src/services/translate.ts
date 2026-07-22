@@ -1,4 +1,5 @@
 import type { Lang } from '../i18n/index.js';
+import { prisma } from '../db/client.js';
 
 /**
  * Traduction automatique GRATUITE (pas de LLM) via MyMemory — sans clé API.
@@ -45,4 +46,41 @@ export async function translateBusinessText(text: string | null | undefined, tar
     console.warn(`[translate ${target}] échec, repli anglais : ${(e as Error).message}`);
     return clean;
   }
+}
+
+/**
+ * Phrase de présentation localisée, avec CACHE PERSISTANT en DB (table BusinessDescription).
+ *
+ * On ne traduit qu'une seule fois par ticker et par langue : le résultat est stocké, les requêtes
+ * suivantes le relisent sans rappeler MyMemory. `en` (source Yahoo) sert de clé de fraîcheur — si
+ * Yahoo change sa phrase, fr/es sont ré-traduits. Best-effort : si la lecture/écriture DB échoue
+ * (ex. table pas encore migrée en local), on retombe sur la traduction à la volée sans casser.
+ */
+export async function getLocalizedBusinessDescription(
+  ticker: string,
+  sourceEn: string | null | undefined,
+  lang: Lang,
+): Promise<string | null> {
+  const source = sourceEn?.trim() || null;
+  const row = await prisma.businessDescription.findUnique({ where: { ticker } }).catch(() => null);
+
+  // Yahoo indisponible cette fois : on sert ce qu'on a déjà en base (langue demandée, sinon anglais).
+  if (!source) return row?.[lang] ?? row?.en ?? null;
+
+  const sourceChanged = row != null && row.en !== source;
+  const cached = row && !sourceChanged ? row[lang] : null;
+  if (cached) return cached;
+
+  const value = lang === 'en' ? source : await translateBusinessText(source, lang) ?? source;
+
+  // Persistance. Si la source a changé, on repart de zéro pour fr/es (à re-traduire à la demande).
+  const patch: { en: string; fr?: string | null; es?: string | null } = { en: source };
+  if (sourceChanged) { patch.fr = null; patch.es = null; }
+  if (lang === 'fr') patch.fr = value;
+  if (lang === 'es') patch.es = value;
+  await prisma.businessDescription
+    .upsert({ where: { ticker }, update: patch, create: { ticker, ...patch } })
+    .catch(() => { /* table absente en local ou écriture concurrente : sans gravité */ });
+
+  return value;
 }

@@ -34,7 +34,7 @@ import {
   PUBLISHED_RESILIENCE_VERSION,
 } from '../services/resiliencePublished.js';
 import { resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
-import { translateBusinessText } from '../services/translate.js';
+import { getLocalizedBusinessDescription } from '../services/translate.js';
 
 export const analyzeRouter: Router = Router();
 
@@ -332,7 +332,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
     marketShare,
     sectorBenchmark,
     dividend,
-    businessDescription: await translateBusinessText(profile?.description, lang),
+    businessDescription: await getLocalizedBusinessDescription(ticker, profile?.description, lang),
     lang,
   });
   if (userId) response.inWatchlist = watchlistRow != null;
@@ -494,7 +494,7 @@ analyzeRouter.post('/qualitative', analyzeLimiter, requireAuth, requirePro, asyn
   res.json(buildResponse({
     ticker, quant, business, verdictDirect, management, resilience, businessCachedAt, managementCachedAt,
     pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, marketShare, sectorBenchmark, dividend,
-    businessDescription: await translateBusinessText(profile?.description, lang), lang,
+    businessDescription: await getLocalizedBusinessDescription(ticker, profile?.description, lang), lang,
   }));
 }));
 
@@ -549,7 +549,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePr
     opportunity: opp.opportunity,
     sectorBenchmark,
     dividend,
-    businessDescription: await translateBusinessText(profile?.description, lang),
+    businessDescription: await getLocalizedBusinessDescription(ticker, profile?.description, lang),
     lang,
   }));
 }));
