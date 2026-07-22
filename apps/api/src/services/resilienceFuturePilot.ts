@@ -1,4 +1,4 @@
-export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.14' as const;
+export const FUTURE_RESILIENCE_VERSION = '2.9.1-pilot.15' as const;
 export const FUTURE_SCENARIO_YEAR = 2033 as const;
 
 export const FUTURE_RESILIENCE_WEIGHTS = {
@@ -214,12 +214,28 @@ function scoreDependencies(raw: Record<string, unknown>): FutureCriterionResult 
   const material = clusters.filter(item => item.material === true && item.continuityImpact !== 'non_core');
   const existential = material.some(item => item.continuityImpact === 'existential' && item.mitigation === 'none');
   const unmitigated = material.filter(item => item.mitigation === 'none').length;
+  const aBlockingContinuityShocks = material.filter(item =>
+    item.mitigation === 'none' ||
+    (item.continuityImpact === 'existential' && item.mitigation !== 'strong'));
+  const unmitigatedMaterialShocks = material.filter(item => item.mitigation === 'none').length;
+  const existentialNonStrongShocks = material.filter(item =>
+    item.continuityImpact === 'existential' && item.mitigation !== 'strong').length;
   const score = existential || unmitigated >= 3
     ? 0
     : coverageComplete === true && material.every(item => item.mitigation === 'strong')
       ? 2
       : 1;
-  return { ...common(raw, 'future_dependencies'), score, audit: { coverageComplete, clusters } };
+  return {
+    ...common(raw, 'future_dependencies'),
+    score,
+    audit: {
+      coverageComplete,
+      clusters,
+      aBlockingContinuityShocks: aBlockingContinuityShocks.length,
+      unmitigatedMaterialShocks,
+      existentialNonStrongShocks,
+    },
+  };
 }
 
 function scoreDemand(raw: Record<string, unknown>): FutureCriterionResult {
@@ -311,6 +327,10 @@ function scoreValueCapture(
       workflowRaw.vendorExecutionCoversMajorityCore,
       'workflowReplacement.vendorExecutionCoversMajorityCore',
     ),
+    workflowCoversMajorityCore: optionalTri(
+      workflowRaw.workflowCoversMajorityCore,
+      'workflowReplacement.workflowCoversMajorityCore',
+    ),
   };
   const audit = {
     marketplaceMechanics,
@@ -343,6 +363,9 @@ function scoreValueCapture(
       'future_value_capture.aiPriceCommoditizationCoversMajorityCore',
     ),
   };
+  const marketplaceAssertionsConsistent = audit.agentsNeedControlledAccess !== false &&
+    audit.credibleMajorityBypass !== true;
+  const qualifiedMarketplaceChecklist = marketplaceChecklistQualified && marketplaceAssertionsConsistent;
   const roleLossProven = audit.finalNeedPersists === false || audit.paidCompanyRolePersists === false ||
     audit.majorityAbsorptionWithinSevenYears === true;
   const roleFoundation = audit.finalNeedPersists === true && audit.paidCompanyRolePersists === true &&
@@ -352,24 +375,30 @@ function scoreValueCapture(
     (audit.aiPriceCommoditizationCoversMajorityCore === null && audit.aiPriceCommoditization === true);
   const derivedFromFutureControl = futureControlScore >= 2 && bypassNotProven &&
     audit.paymentMechanismPersists === true && !majorityCorePriceCommoditization;
-  const marketplaceQualified = marketplaceChecklistQualified || marketplaceDurabilityOverride;
+  const marketplaceQualified = qualifiedMarketplaceChecklist || marketplaceDurabilityOverride;
+  const marketplaceRole = audit.roleArchetype === 'controlled_marketplace_liquidity';
   const durableMarketplaceCapture = futureControlScore >= 2 &&
     (audit.roleArchetype === 'controlled_marketplace_liquidity' || marketplaceQualified) &&
-    (audit.agentsNeedControlledAccess === true || marketplaceQualified) &&
-    (audit.credibleMajorityBypass === false || marketplaceQualified) &&
+    (audit.agentsNeedControlledAccess === true ||
+      (audit.agentsNeedControlledAccess === null && marketplaceQualified)) &&
+    (audit.credibleMajorityBypass === false ||
+      (audit.credibleMajorityBypass === null && marketplaceQualified)) &&
     audit.paymentMechanismPersists === true;
-  const durableCapture = roleFoundation && (
+  const genericDurableCapture =
     (audit.companySpecificControl === true && audit.paymentMechanismPersists === true &&
       !majorityCorePriceCommoditization && bypassNotProven) ||
-      derivedFromFutureControl || durableMarketplaceCapture
-  );
+      derivedFromFutureControl;
+  const durableCapture = roleFoundation &&
+    (marketplaceRole ? durableMarketplaceCapture : genericDurableCapture);
   const score = durableCapture ? 2 : roleFoundation ? 1 : 0;
   return {
     ...common(raw, 'future_value_capture'),
     score,
     audit: {
       ...audit,
-      marketplaceChecklistQualified,
+      marketplaceChecklistQualified: qualifiedMarketplaceChecklist,
+      marketplaceChecklistRawQualified: marketplaceChecklistQualified,
+      marketplaceAssertionsConsistent,
       marketplaceDurabilityOverride,
       roleLossProven,
       majorityCorePriceCommoditization,
@@ -396,16 +425,14 @@ function scoreTransition(raw: Record<string, unknown>): FutureCriterionResult {
     raw.outcomeCausallyAttributedToAdaptation,
     'transition_capacity.outcomeCausallyAttributedToAdaptation',
   );
-  const legacyOutcomeAttributionContract = raw.outcomeCausallyAttributedToAdaptation === undefined;
-  const legacyAdaptationContract = scaledAdaptationType === 'unproven' &&
-    measuredOperatingEffect === null && monetizedMaterialOutcome === null &&
-    outcomeCausallyAttributedToAdaptation === null;
-  const scaledAdaptationEvidence = declaredScaledAdaptation === true && (
-    legacyAdaptationContract ||
-    (scaledAdaptationType === 'material_core_deployment' &&
-      (legacyOutcomeAttributionContract || outcomeCausallyAttributedToAdaptation === true) &&
-      (measuredOperatingEffect === true || monetizedMaterialOutcome === true))
-  );
+  const attributionFieldMissing = raw.outcomeCausallyAttributedToAdaptation === undefined;
+  const attributionQualified = outcomeCausallyAttributedToAdaptation === true ||
+    (attributionFieldMissing && scaledAdaptationType === 'material_core_deployment' &&
+      (measuredOperatingEffect === true || monetizedMaterialOutcome === true));
+  const scaledAdaptationEvidence = declaredScaledAdaptation === true &&
+    scaledAdaptationType === 'material_core_deployment' &&
+    attributionQualified &&
+    (measuredOperatingEffect === true || monetizedMaterialOutcome === true);
   const audit = {
     fundingCapacity: tri(raw.fundingCapacity, 'transition_capacity.fundingCapacity'),
     declaredScaledAdaptation,
@@ -414,7 +441,8 @@ function scoreTransition(raw: Record<string, unknown>): FutureCriterionResult {
     measuredOperatingEffect,
     monetizedMaterialOutcome,
     outcomeCausallyAttributedToAdaptation,
-    legacyOutcomeAttributionContract,
+    attributionFieldMissing,
+    attributionQualified,
     legacyConstraintManageable: tri(raw.legacyConstraintManageable, 'transition_capacity.legacyConstraintManageable'),
   };
   const values = [audit.fundingCapacity, audit.scaledAdaptationEvidence, audit.legacyConstraintManageable];
@@ -469,10 +497,19 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
     futureControl.audit.controlType === 'regulated_execution_capability' &&
     futureValueCapture.audit.roleArchetype === 'regulated_operator' &&
     futureValueCapture.audit.roleCoversMajorityCore === true;
+  const pureWorkflowCompany =
+    futureValueCapture.audit.roleCoversMajorityCore === true &&
+    ['weak_digital_interface', 'authoritative_system'].includes(
+      String(futureValueCapture.audit.roleArchetype),
+    );
+  const workflowCoversMajorityCore =
+    workflowReplacement?.workflowCoversMajorityCore === true ||
+    (workflowReplacement?.workflowCoversMajorityCore === null && pureWorkflowCompany);
   const customerOwnedWorkflowMechanicsQualified =
     workflowReplacement?.applies === true &&
     workflowReplacement.customerOwnsCoreState === true &&
     workflowReplacement.workflowRebuildableByAgents === true &&
+    workflowCoversMajorityCore &&
     !qualifiedVendorExecution && !legacyVendorExecution && !proprietarySecurityEnforcementCandidate &&
     !regulatedExecutionServiceCandidate;
   if (proprietarySecurityEnforcementCandidate) {
@@ -483,6 +520,7 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
     futureControl.audit.regulatedExecutionServiceCandidate = true;
     futureValueCapture.audit.regulatedExecutionServiceCandidate = true;
   }
+  futureValueCapture.audit.workflowCoversMajorityCore = workflowCoversMajorityCore;
   const majorityReplacementDerivedFromWorkflowMechanics =
     customerOwnedWorkflowMechanicsQualified &&
     workflowReplacement?.majorityCustomReplacementEconomicallyPlausibleBy2033 === null &&
@@ -542,11 +580,21 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
   const marketplaceMechanics = futureValueCapture.audit.marketplaceMechanics as
     | Record<string, unknown>
     | undefined;
+  const marketplaceControlledAccessRefuted =
+    futureControl.audit.controlType === 'network_liquidity' &&
+    marketplaceMechanics?.applies === true &&
+    futureValueCapture.audit.agentsNeedControlledAccess === false;
+  if (marketplaceControlledAccessRefuted) {
+    futureControl.score = Math.min(futureControl.score, 1);
+    futureControl.audit.marketplaceControlledAccessRefuted = true;
+  }
   const marketplaceDurabilityOverride = futureControl.audit.controlType === 'network_liquidity' &&
     marketplaceMechanics?.applies === true &&
     marketplaceMechanics.fragmentedCounterparties === true &&
     marketplaceMechanics.companyOperatesMatchingAndExecution === true &&
     marketplaceMechanics.agentsRequireComparableCoverageOrLiquidity === true &&
+    futureValueCapture.audit.agentsNeedControlledAccess !== false &&
+    futureValueCapture.audit.credibleMajorityBypass !== true &&
     futureControl.audit.scarcitySurvivesAiChina === true &&
     futureControl.audit.replicableWithinFiveYears === false;
   const marketplaceQualified = checklistQualified || marketplaceDurabilityOverride;
@@ -615,6 +663,17 @@ export function scoreFutureResilience(rawValue: unknown): FutureResilienceAnalys
   if (customerOwnedWorkflowReplacementQualified && finalScore > 49) {
     finalScore = 49;
     gates.push('customer_owned_workflow_replacement');
+  }
+  const dependencyAudit = byId.get('future_dependencies')!.audit;
+  const concentratedContinuityDependencies =
+    Number(dependencyAudit.unmitigatedMaterialShocks) >= 2 ||
+    (Number(dependencyAudit.existentialNonStrongShocks) >= 2 &&
+      ['proprietary_stack_or_ip', 'cost_supply_chain'].includes(
+        String(byId.get('future_control')!.audit.controlType),
+      ));
+  if (concentratedContinuityDependencies && finalScore > 79) {
+    finalScore = 79;
+    gates.push('concentrated_continuity_dependencies');
   }
   if (byId.get('future_control')!.score === 0 && finalScore > 69) {
     finalScore = 69;
@@ -688,6 +747,7 @@ DISCIPLINE DE PROJECTION
 - controlType=regulated_execution_capability designe une capacite d'execution reglementee et specialisee couvrant le coeur, avec savoir-faire, reseau operationnel ou historique de conformite difficile a reproduire. La reglementation sectorielle seule ne suffit pas: il faut une rente ou des switching costs payes et une replication majoritaire non plausible dans les cinq ans.
 - Pour une capacite d'execution reglementee, une revalidation ou un transfert reglementaire documente pendant un mandat actif peut etablir un controle etroit meme si des concurrents savent gagner de nouveaux mandats. Les concurrents rendent replicableWithinFiveYears=true et interdisent le controle large; ils ne justifient pas controlType=none si la barriere de transition propre au mandat est prouvee. L'absence de taux de retention ou de prime de prix publiee donne futureRentPaid=null, jamais false; false exige une contre-preuve economique affirmative.
 - Dans workflowReplacement, vendorControlsRegulatedOrIrreversibleExecution=true n'est publiable que si vendorExecutionType nomme un type admissible et si vendorExecutionCoversMajorityCore=true. Une CMDB, un workflow configurable, un journal d'audit, des permissions client ou une integration ne sont pas en eux-memes une execution reglementee ou irreversible.
+- workflowCoversMajorityCore=true uniquement si le workflow reconstruisible represente lui-meme plus de 50% du chiffre d'affaires ou de l'activite propre de l'entreprise. Un produit logiciel minoritaire dans un groupe diversifie vaut false et ne peut plafonner les activites physiques, transactionnelles, reglementees ou d'infrastructure independantes.
 - majorityCustomReplacementEconomicallyPlausibleBy2033=true exige qu'une grande entreprise puisse reconstruire et exploiter economiquement plus de 50% du role avec ses donnees, ses agents et son infrastructure d'ici 2033; une simple maquette ou une interface personnalisee ne suffit pas. Lorsque le client possede l'etat, que les agents peuvent reconstruire le workflow, qu'aucune execution fournisseur qualifiee ne couvre le coeur et que la migration est la barriere principale, la migration seule ne peut justifier false dans le scenario 2033.
 - credibleMajorityBypass=true lorsqu'une voie technique ET economique permet aux agents, fournisseurs, flottes ou plateformes de contourner l'entreprise sur plus de 50% du coeur d'ici 2033.
 - roleCoversMajorityCore mesure la part de l'activite propre de l'entreprise couverte par le role paye decrit. Il ne mesure ni son moat, ni sa part de marche, ni le caractere unique du role. Une entreprise peut donc avoir roleCoversMajorityCore=true et companySpecificControl=false.
@@ -696,7 +756,7 @@ DISCIPLINE DE PROJECTION
 - Pour un portefeuille de brevets ou droits reglementaires temporaires, rightsVisibilityThroughScenario=true exige une protection documentee ou raisonnablement projetable sur la majorite du portefeuille economique jusqu'en 2033. Une promesse generale de renouvellement du pipeline ne suffit pas.
 - roleArchetype=weak_digital_interface lorsque le role principal est une interface, un workflow ou une API reproductible sans actif, droit, liquidite ou systeme d'autorite specifique. Ne classe jamais un fabricant physique, un operateur d'actifs ou un rail transactionnel dans cette categorie.
 - Les finances actuelles ne servent qu'a transition_capacity.
-- scaledAdaptationEvidence=true exige une adaptation deja deployee sur une part materielle du coeur avec un effet operationnel ou une monetisation observable causalement attribue au deploiement. La croissance generale, la marge globale ou une amelioration concomitante ne prouvent pas cette causalite. Une annonce, un partenariat, une acquisition non integree, un prototype ou un seul produit marginal ne suffit pas.
+- scaledAdaptationEvidence=true exige une adaptation deja deployee sur une part materielle du coeur avec un effet operationnel ou une monetisation observable causalement attribue au deploiement. Le booleen seul ne donne aucun point : scaledAdaptationType, outcomeCausallyAttributedToAdaptation et au moins un resultat mesure ou monetise doivent aussi passer. La croissance generale, la marge globale ou une amelioration concomitante ne prouvent pas cette causalite. Une annonce, un partenariat, une acquisition non integree, un prototype ou un seul produit marginal ne suffit pas.
 - Les attentes du benchmark ne sont pas fournies. N'essaie pas d'anticiper une note.
 
 Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette forme. Chaque reason, adverseCase et decisiveTrigger est une phrase causale concise en francais. confidence mesure la solidite du scenario central, sans modifier directement le score.
@@ -750,6 +810,7 @@ Retourne uniquement un objet JSON strict, sans markdown, exactement sous cette f
         "vendorControlsRegulatedOrIrreversibleExecution": true|false|null,
         "vendorExecutionType": "none|regulated_ledger_or_mandate|money_movement|security_enforcement|compute_identity_control_plane|physical_or_transaction_execution|unproven",
         "vendorExecutionCoversMajorityCore": true|false|null,
+        "workflowCoversMajorityCore": true|false|null,
         "majorityCustomReplacementEconomicallyPlausibleBy2033": true|false|null,
         "migrationComplexityPrimaryBarrier": true|false|null
       },
@@ -799,6 +860,7 @@ REGLES
 - workflowRebuildableByAgents=true si des agents et outils de code devraient pouvoir reconstruire les interfaces, automatisations et logique metier majoritaires. Ne confonds pas interface reconstruisible et moteur transactionnel critique.
 - vendorControlsRegulatedOrIrreversibleExecution=true seulement si le fournisseur controle encore une execution que le client ne peut pas raisonnablement internaliser: ledger reglemente, mouvement d'argent, enforcement securite, calcul/identite systemique, transaction irreversible ou droit externe. Audit, permissions et integrations configurables par le client ne suffisent pas seuls.
 - vendorExecutionType doit nommer le mecanisme exact. Utilise none pour un workflow, une CMDB, des permissions ou un audit configurables par le client; un type positif sans couverture de plus de 50% du coeur ne preserve pas la plateforme a l'echelle de l'entreprise.
+- workflowCoversMajorityCore=true uniquement si ce workflow reconstruisible represente lui-meme plus de 50% du coeur propre de l'entreprise. Un segment logiciel minoritaire d'un groupe diversifie vaut false.
 - majorityCustomReplacementEconomicallyPlausibleBy2033=true exige une voie technique ET economique permettant a une grande entreprise d'absorber plus de 50% du role sans le fournisseur d'ici 2033. Une maquette, un front-end personnalise ou quelques automatisations ne suffisent pas.
 - migrationComplexityPrimaryBarrier=true si l'avantage defendu repose surtout sur le cout historique de migration, les configurations et les integrations du client, plutot que sur un actif rare controle par le fournisseur.
 - Les faits du dossier contraignent la projection. N'ajoute aucun fait et ne cherche pas a reproduire une note attendue.
@@ -817,6 +879,7 @@ Retourne uniquement ce JSON strict:
   "vendorControlsRegulatedOrIrreversibleExecution": true|false|null,
   "vendorExecutionType": "none|regulated_ledger_or_mandate|money_movement|security_enforcement|compute_identity_control_plane|physical_or_transaction_execution|unproven",
   "vendorExecutionCoversMajorityCore": true|false|null,
+  "workflowCoversMajorityCore": true|false|null,
   "majorityCustomReplacementEconomicallyPlausibleBy2033": true|false|null,
   "migrationComplexityPrimaryBarrier": true|false|null
 }`;

@@ -1,6 +1,6 @@
 # Resilience economique 2033
 
-Version canonique candidate : `2.9.1-pilot.14`.
+Version canonique candidate : `2.9.1-pilot.15`.
 
 Source executable de verite :
 `apps/api/src/services/resilienceFuturePilot.ts`. Ce document decrit exactement cette
@@ -112,6 +112,7 @@ n'est pas assimilee a une absence de mitigation.
 - `2` : couverture complete et tous les chocs materiels fortement mitiges.
 
 Une mitigation moyenne vaut `1/2` : elle reduit le risque sans prouver son extinction.
+Deux chocs de continuite independants non fortement mitiges plafonnent egalement A a B79.
 
 ### 4. Demande structurelle - 15%, note 0 a 2
 
@@ -164,6 +165,8 @@ Le sous-test `marketplaceMechanics` evite de confondre multihoming et absence de
 
 Une possibilite d'appeler plusieurs API ou de reserver en direct ne prouve pas un bypass.
 Une flotte autonome integree peut en revanche creer une voie economique de contournement.
+Un `agentsNeedControlledAccess=false` ou `credibleMajorityBypass=true` explicite ne peut
+jamais etre ecrase par une checklist marketplace plus favorable.
 
 #### Interfaces numeriques faibles
 
@@ -179,6 +182,10 @@ accumulee chez le client en moat du fournisseur. Elle teste separement la propri
 l'etat et des donnees, la reconstruction des workflows par agents, la plausibilite
 economique d'un remplacement majoritaire et l'existence d'une execution reglementee ou
 irreversible encore controlee par le fournisseur.
+
+Le gate ne s'applique a l'entreprise entiere que si le workflow reconstruisible couvre
+lui-meme plus de 50% de son coeur. Un segment logiciel minoritaire ne plafonne donc plus
+un role physique, transactionnel, reglemente ou d'infrastructure majoritaire independant.
 
 Une execution protectrice doit maintenant nommer son type exact (`ledger` ou mandat
 reglemente, mouvement d'argent, enforcement de securite, plan de controle calcul/identite,
@@ -217,6 +224,7 @@ servent qu'ici et ne dupliquent pas Quality.
 sur le coeur et qu'un effet operationnel mesure ou une monetisation materielle est observe
 et causalement attribue au deploiement. La croissance generale ne suffit pas. Une annonce,
 un partenariat, un pilote, une acquisition non integree ou un module marginal ne suffit pas.
+L'ancien booleen declaratif, sans ces sous-tests structures, ne donne plus le second point.
 
 ## Poids et grades
 
@@ -241,7 +249,8 @@ Appliques dans cet ordre :
 3. controle futur nul : plafond C69 ;
 4. role paye mais commoditise, contournable, sans controle ni benefice futur direct :
    plafond D49 ;
-5. A exige controle `3/3`, ruptures `>=2`, dependances `>=1`, demande `>=1`, capture
+5. deux chocs de continuite independants non fortement mitiges plafonnent A a B79 ;
+6. A exige controle `3/3`, ruptures `>=2`, dependances `>=1`, demande `>=1`, capture
    `2/2` et transition `>=1`; sinon plafond B79.
 
 Une coherence supplementaire s'applique aux stacks numeriques : une stack commoditisee
@@ -291,7 +300,7 @@ obligatoires absents, les forces dupliquees et les structures incorrectes.
 
 Le runner de cohorte `resilience:future:pilot` persiste chaque resultat valide dans les
 tables existantes `ResilienceAnalysis` et `ResilienceAnalysisHistory`, sous la version de
-grille `2.9.1-pilot.14`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
+grille `2.9.1-pilot.15`. Cette version distincte ne remplace donc pas les analyses `2.8.13`
 encore servies par l'UI.
 
 Le JSON `analysis` conserve le score, le grade, les gates, les six cartes (`reason`,
@@ -416,6 +425,15 @@ role physique majoritaire, paye et sans bypass credible. Les autres priorites so
 stabilite du test de transition sur NVIDIA, Adobe et Novo, celle des preuves marketplace sur
 Uber, puis le cap de dependance de TSM. Les attentes provisoires et les cas Tesla, Costco et
 Caterpillar doivent etre arbitres avant toute modification de poids.
+
+`pilot.15` encode ces corrections sans changer les poids ni les attentes. Le gate workflow
+est desormais scope au workflow couvrant plus de 50% du coeur ; un `false` marketplace
+explicite n'est plus ecrase ; le booleen de transition nu ne suffit plus ; et deux chocs de
+continuite concentres peuvent plafonner A a B79. Le replay deterministe passe de `30/50` a
+`33/50` sans regression de bande : Broadcom devient B79, TSM B79 et Uber C57. Il reste six
+ecarts approuves et onze provisoires, detailles dans
+`apps/api/benchmarks/resilience-future-strict-50-p15-audit.md`. Costco et Fortinet restent
+les deux ecarts de deux grades ; le cron reste desactive.
 
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis

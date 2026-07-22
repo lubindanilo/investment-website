@@ -222,7 +222,30 @@ describe('scoreFutureResilience', () => {
     expect(scoreFutureResilience(input).criteria[4]!.score).toBe(1);
   });
 
-  it('resout les contradictions marketplace avec la checklist detaillee', () => {
+  it('necrase jamais un refus explicite d acces controle par la checklist marketplace', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, { controlType: 'network_liquidity' });
+    Object.assign(input.criteria.future_value_capture, {
+      marketplaceMechanics: {
+        applies: true,
+        fragmentedCounterparties: true,
+        companyOperatesMatchingAndExecution: true,
+        agentsRequireComparableCoverageOrLiquidity: true,
+        scaledAlternativeCanBypassMajorityBy2033: false,
+      },
+      roleArchetype: 'controlled_marketplace_liquidity',
+      agentsNeedControlledAccess: false,
+      credibleMajorityBypass: false,
+      aiPriceCommoditization: true,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[0]!.score).toBe(1);
+    expect(result.criteria[0]!.audit.marketplaceControlledAccessRefuted).toBe(true);
+    expect(result.criteria[4]!.score).toBe(1);
+    expect(result.criteria[4]!.audit.marketplaceChecklistQualified).toBe(false);
+  });
+
+  it('refuse qu une checklist marketplace ecrase des refus explicites', () => {
     const input = fixture();
     Object.assign(input.criteria.future_control, {
       controlType: 'network_liquidity', majorityCoreCoverage: false,
@@ -246,9 +269,9 @@ describe('scoreFutureResilience', () => {
       aiPriceCommoditization: true,
     });
     const result = scoreFutureResilience(input);
-    expect(result.criteria[0]!.score).toBe(2);
-    expect(result.criteria[1]!.score).toBe(2);
-    expect(result.criteria[4]!.score).toBe(2);
+    expect(result.criteria[0]!.score).toBe(1);
+    expect(result.criteria[1]!.score).toBe(1);
+    expect(result.criteria[4]!.score).toBe(1);
 
     Object.assign(input.criteria.future_control, { replicableWithinFiveYears: true });
     const replicableMarketplace = scoreFutureResilience(input);
@@ -347,6 +370,35 @@ describe('scoreFutureResilience', () => {
     expect(result.criteria[1]!.score).toBe(1);
     expect(result.criteria[4]!.score).toBe(1);
     expect(result.criteria[0]!.audit.customerOwnedWorkflowCapApplied).toBe(true);
+  });
+
+  it('ne laisse pas un workflow minoritaire plafonner un operateur physique majoritaire', () => {
+    const input = fixture();
+    Object.assign(input.criteria.future_control, {
+      controlType: 'proprietary_stack_or_ip',
+      systemBottleneck: true,
+      multipleIndependentControls: true,
+    });
+    Object.assign(input.criteria.future_value_capture, {
+      roleArchetype: 'physical_product_operator',
+      agentsNeedControlledAccess: false,
+      credibleMajorityBypass: false,
+      workflowReplacement: {
+        applies: true,
+        customerOwnsCoreState: true,
+        workflowRebuildableByAgents: true,
+        vendorControlsRegulatedOrIrreversibleExecution: false,
+        vendorExecutionType: 'none',
+        vendorExecutionCoversMajorityCore: false,
+        workflowCoversMajorityCore: false,
+        majorityCustomReplacementEconomicallyPlausibleBy2033: true,
+        migrationComplexityPrimaryBarrier: true,
+      },
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.gates).not.toContain('customer_owned_workflow_replacement');
+    expect(result.criteria[0]!.score).toBe(3);
+    expect(result.criteria[4]!.score).toBe(2);
   });
 
   it('derive le remplacement quand la migration est la seule barriere restante', () => {
@@ -600,6 +652,47 @@ describe('scoreFutureResilience', () => {
     const result = scoreFutureResilience(input);
     expect(result.criteria[5]!.score).toBe(1);
     expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(false);
+  });
+
+  it('refuse le booleen legacy de transition sans sous-tests structures', () => {
+    const input = fixture();
+    Object.assign(input.criteria.transition_capacity, {
+      scaledAdaptationEvidence: true,
+      scaledAdaptationType: undefined,
+      measuredOperatingEffect: undefined,
+      monetizedMaterialOutcome: undefined,
+      outcomeCausallyAttributedToAdaptation: undefined,
+    });
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[5]!.score).toBe(1);
+    expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(false);
+  });
+
+  it('preserve un deploiement structure quand seul le nouveau champ causal manque', () => {
+    const input = fixture();
+    Reflect.deleteProperty(input.criteria.transition_capacity, 'outcomeCausallyAttributedToAdaptation');
+    const result = scoreFutureResilience(input);
+    expect(result.criteria[5]!.score).toBe(2);
+    expect(result.criteria[5]!.audit.attributionFieldMissing).toBe(true);
+    expect(result.criteria[5]!.audit.scaledAdaptationEvidence).toBe(true);
+  });
+
+  it('plafonne A face a deux chocs de continuite non fortement mitiges', () => {
+    const input = fixture();
+    input.criteria.future_control.systemBottleneck = true;
+    (input.criteria.future_dependencies as { clusters: Array<Record<string, unknown>> }).clusters = [
+      { name: 'Pays operatoire', material: true, continuityImpact: 'existential', mitigation: 'medium' },
+      { name: 'Technologie critique', material: true, continuityImpact: 'existential', mitigation: 'medium' },
+    ];
+    const result = scoreFutureResilience(input);
+    expect(result.finalScore).toBe(79);
+    expect(result.grade).toBe('B');
+    expect(result.gates).toContain('concentrated_continuity_dependencies');
+
+    Object.assign(input.criteria.future_control, { controlType: 'installed_base' });
+    const diversifiedPhysicalOperator = scoreFutureResilience(input);
+    expect(diversifiedPhysicalOperator.gates).not.toContain('concentrated_continuity_dependencies');
+    expect(diversifiedPhysicalOperator.grade).toBe('A');
   });
 
   it('note C un role paye futur sans controle durable', () => {
