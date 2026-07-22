@@ -6,7 +6,6 @@ import type { ScreenerTopRow, ResilienceGrade } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { sectorSlug } from '../lib/sector.js';
-import { formatPrice } from '../lib/format.js';
 import SeoHead from '../components/SeoHead.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
 import { ResilienceBadge, ResilienceNotScored } from '../components/ResilienceBadge.js';
@@ -503,7 +502,6 @@ export function ScreenerPage() {
                   <SortTh label={t('screener.col.score')} col="score" />
                   <SortTh label={t('analyse.resilience')} col="resilience" />
                   <SortTh label="P/FCF" col="pfcf" />
-                  <SortTh label={t('screener.col.price')} col="price" />
                   <SortTh label={t('screener.col.earnings')} col="earnings" />
                   <th style={{ width: 40 }}></th>
                 </tr>
@@ -532,7 +530,6 @@ export function ScreenerPage() {
                       <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
                       <td>{r.resilience ? <ResilienceBadge summary={r.resilience} showScore /> : <ResilienceNotScored />}</td>
                       <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
-                      <td className="num">{formatPrice(r.price, r.currency)}</td>
                       <td>
                         <span className="num tiny wl-earn">
                           <Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />
