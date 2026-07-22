@@ -1,7 +1,7 @@
 {
   "version": "2.9.1-pilot.15",
   "scenarioYear": 2033,
-  "generatedAt": "2026-07-22T07:23:57.193Z",
+  "generatedAt": "2026-07-22T07:45:16.745Z",
   "results": [
     {
       "ticker": "CEG",
@@ -7158,7 +7158,7 @@
       "ticker": "NVDA",
       "status": "scored",
       "sourceVersion": "2.8.13",
-      "generatedAt": "2026-07-21T21:22:00.352Z",
+      "generatedAt": "2026-07-22T07:40:10.636Z",
       "provider": "codex",
       "adjudication": {
         "scenarioYear": 2033,
@@ -7302,14 +7302,14 @@
           "transition_capacity": {
             "fundingCapacity": true,
             "scaledAdaptationEvidence": false,
-            "scaledAdaptationType": "unproven",
+            "scaledAdaptationType": "announcement_or_pilot",
             "measuredOperatingEffect": false,
-            "monetizedMaterialOutcome": true,
+            "monetizedMaterialOutcome": false,
             "outcomeCausallyAttributedToAdaptation": false,
             "legacyConstraintManageable": true,
-            "reason": "La trésorerie nette et les flux de trésorerie positifs financent la transition, mais le revenu réseau matériel ne prouve pas que NVLink Fusion compense causalement les GPU perdus aux ASIC.",
-            "adverseCase": "Les engagements fournisseurs massifs et des cycles de produits rapides pourraient convertir une erreur de demande ou d'architecture en stocks, capacités inutilisées et baisse brutale de marge.",
-            "decisiveTrigger": "Une ventilation montrant que le réseau et le logiciel vendus aux systèmes ASIC remplacent matériellement la marge GPU perdue établirait une adaptation déployée et causalement monétisée.",
+            "reason": "La trésorerie nette et les flux de trésorerie positifs financent plusieurs transitions technologiques, mais le dossier n'attribue pas causalement un résultat matériel à une adaptation déjà déployée contre les ASIC ou la substitution chinoise.",
+            "adverseCase": "Les engagements d'approvisionnement et de cloud pourraient amplifier une erreur de cycle si la demande migre plus vite que prévu vers des architectures internes.",
+            "decisiveTrigger": "Une part matérielle de revenus réseau ou logiciel explicitement attribuée à l'intégration d'ASIC tiers établirait une adaptation déployée et monétisée à l'échelle du cœur.",
             "confidence": "high"
           }
         }
@@ -7514,18 +7514,18 @@
           {
             "id": "transition_capacity",
             "maxScore": 2,
-            "reason": "La trésorerie nette et les flux de trésorerie positifs financent la transition, mais le revenu réseau matériel ne prouve pas que NVLink Fusion compense causalement les GPU perdus aux ASIC.",
-            "adverseCase": "Les engagements fournisseurs massifs et des cycles de produits rapides pourraient convertir une erreur de demande ou d'architecture en stocks, capacités inutilisées et baisse brutale de marge.",
-            "decisiveTrigger": "Une ventilation montrant que le réseau et le logiciel vendus aux systèmes ASIC remplacent matériellement la marge GPU perdue établirait une adaptation déployée et causalement monétisée.",
+            "reason": "La trésorerie nette et les flux de trésorerie positifs financent plusieurs transitions technologiques, mais le dossier n'attribue pas causalement un résultat matériel à une adaptation déjà déployée contre les ASIC ou la substitution chinoise.",
+            "adverseCase": "Les engagements d'approvisionnement et de cloud pourraient amplifier une erreur de cycle si la demande migre plus vite que prévu vers des architectures internes.",
+            "decisiveTrigger": "Une part matérielle de revenus réseau ou logiciel explicitement attribuée à l'intégration d'ASIC tiers établirait une adaptation déployée et monétisée à l'échelle du cœur.",
             "confidence": "high",
             "score": 1,
             "audit": {
               "fundingCapacity": true,
               "declaredScaledAdaptation": false,
               "scaledAdaptationEvidence": false,
-              "scaledAdaptationType": "unproven",
+              "scaledAdaptationType": "announcement_or_pilot",
               "measuredOperatingEffect": false,
-              "monetizedMaterialOutcome": true,
+              "monetizedMaterialOutcome": false,
               "outcomeCausallyAttributedToAdaptation": false,
               "attributionFieldMissing": false,
               "attributionQualified": false,
@@ -7534,7 +7534,7 @@
           }
         ]
       },
-      "persistedAt": "2026-07-22T07:23:50.014Z"
+      "persistedAt": "2026-07-22T07:40:10.758Z"
     },
     {
       "ticker": "ASML",
@@ -10346,7 +10346,7 @@
       "ticker": "ADBE",
       "status": "scored",
       "sourceVersion": "2.8.13",
-      "generatedAt": "2026-07-21T21:25:57.884Z",
+      "generatedAt": "2026-07-22T07:44:59.502Z",
       "provider": "codex",
       "adjudication": {
         "scenarioYear": 2033,
@@ -10450,7 +10450,8 @@
               "vendorControlsRegulatedOrIrreversibleExecution": false,
               "vendorExecutionType": "none",
               "vendorExecutionCoversMajorityCore": false,
-              "majorityCustomReplacementEconomicallyPlausibleBy2033": true,
+              "workflowCoversMajorityCore": true,
+              "majorityCustomReplacementEconomicallyPlausibleBy2033": false,
               "migrationComplexityPrimaryBarrier": true
             },
             "roleArchetype": "weak_digital_interface",
@@ -10487,12 +10488,10 @@
       "analysis": {
         "version": "2.9.1-pilot.15",
         "scenarioYear": 2033,
-        "rawScore": 50,
-        "finalScore": 49,
-        "grade": "D",
-        "gates": [
-          "customer_owned_workflow_replacement"
-        ],
+        "rawScore": 57,
+        "finalScore": 57,
+        "grade": "C",
+        "gates": [],
         "criteria": [
           {
             "id": "future_control",
@@ -10512,8 +10511,7 @@
               "futureRentPaid": true,
               "systemBottleneck": false,
               "multipleIndependentControls": false,
-              "rightsVisibilityThroughScenario": false,
-              "customerOwnedWorkflowCapApplied": true
+              "rightsVisibilityThroughScenario": false
             }
           },
           {
@@ -10523,7 +10521,7 @@
             "adverseCase": "Des agents distribués par Canva, Microsoft ou des plateformes de modèles pourraient absorber conjointement la génération, l’édition et la distribution de plus de la moitié du rôle Adobe.",
             "decisiveTrigger": "Une monétisation IA nette et matérielle couvrant le cœur, avec rétention des workflows professionnels face aux agents tiers, ferait de l’IA une force contrôlée plutôt qu’une adaptation défensive.",
             "confidence": "medium",
-            "score": 1,
+            "score": 2,
             "audit": {
               "forces": [
                 {
@@ -10536,8 +10534,8 @@
                   "legacyBenefitContract": false,
                   "contradictedMarketplaceBypass": false,
                   "contradictedDigitalStackBenefit": false,
-                  "derivedCustomerWorkflowThreat": true,
-                  "verdict": "negative"
+                  "derivedCustomerWorkflowThreat": false,
+                  "verdict": "neutral"
                 },
                 {
                   "force": "automation_robotics",
@@ -10638,11 +10636,11 @@
                 "customerOwnsCoreState": true,
                 "workflowRebuildableByAgents": true,
                 "vendorControlsRegulatedOrIrreversibleExecution": false,
-                "majorityCustomReplacementEconomicallyPlausibleBy2033": true,
+                "majorityCustomReplacementEconomicallyPlausibleBy2033": false,
                 "migrationComplexityPrimaryBarrier": true,
                 "vendorExecutionType": "none",
                 "vendorExecutionCoversMajorityCore": false,
-                "workflowCoversMajorityCore": null
+                "workflowCoversMajorityCore": true
               },
               "roleArchetype": "weak_digital_interface",
               "agentsNeedControlledAccess": false,
@@ -10663,8 +10661,7 @@
               "majorityCorePriceCommoditization": false,
               "derivedFromFutureControl": false,
               "durableMarketplaceCapture": false,
-              "workflowCoversMajorityCore": true,
-              "customerOwnedWorkflowCapApplied": true
+              "workflowCoversMajorityCore": true
             }
           },
           {
@@ -10690,7 +10687,7 @@
           }
         ]
       },
-      "persistedAt": "2026-07-22T07:23:51.961Z"
+      "persistedAt": "2026-07-22T07:44:59.511Z"
     },
     {
       "ticker": "DOCU",
@@ -13615,7 +13612,7 @@
       "ticker": "CAT",
       "status": "scored",
       "sourceVersion": "2.8.13",
-      "generatedAt": "2026-07-21T21:31:01.207Z",
+      "generatedAt": "2026-07-22T07:43:16.068Z",
       "provider": "codex",
       "adjudication": {
         "scenarioYear": 2033,
@@ -13630,10 +13627,10 @@
             "futureRentPaid": true,
             "systemBottleneck": false,
             "multipleIndependentControls": true,
-            "rightsVisibilityThroughScenario": true,
-            "reason": "Le parc installé, le réseau physique de pièces et de techniciens, la marque de confiance et l'intégration machine-service resteront nécessaires sur la majorité du cœur et permettront à Caterpillar de capter une rente de disponibilité en 2033.",
-            "adverseCase": "La convergence chinoise de fiabilité et de couverture après-vente pourrait transformer le réseau Cat en simple avantage relatif et comprimer fortement la prime de marque lors des renouvellements de flotte.",
-            "decisiveTrigger": "Une perte durable de renouvellements de flotte accompagnée d'une baisse des services par actif connecté montrerait que le parc installé ne produit plus de rente future.",
+            "rightsVisibilityThroughScenario": null,
+            "reason": "Le parc installé, le réseau physique de pièces et de techniciens, la marque de confiance et l'intégration machine-service resteront nécessaires sur la majorité du cœur et soutiendront une rente de disponibilité en 2033.",
+            "adverseCase": "La convergence chinoise et l'ouverture des données de flotte pourraient banaliser les machines neuves puis réduire progressivement le parc captif et le premium de service.",
+            "decisiveTrigger": "Une perte durable de renouvellements accompagnée d'une convergence des valeurs résiduelles et des coûts par heure invaliderait le contrôle futur du parc.",
             "confidence": "medium"
           },
           "disruption_positioning": {
@@ -13663,9 +13660,9 @@
                 "benefitMechanism": "none"
               }
             ],
-            "reason": "Les agents réduiront surtout les frictions de sélection et de planification, tandis que l'autonomie augmentera la valeur de l'intégration MineStar-machine-service sans supprimer le besoin d'engins physiques, mais la Chine comprimera prix et parts lors des renouvellements.",
-            "adverseCase": "Des flottes électriques autonomes chinoises fiables, soutenues par un service local compétitif et une orchestration multimarque, pourraient déplacer simultanément la machine, la maintenance thermique et le plan de contrôle Cat.",
-            "decisiveTrigger": "Le basculement de plus de la moitié des renouvellements vers des architectures autonomes multimarques ou chinoises économiquement supérieures constituerait la voie de menace majoritaire.",
+            "reason": "Les agents amélioreront surtout l'achat et la planification, tandis que la robotisation accroîtra les volumes autonomes servis par MineStar et renforcera l'intégration de Cat sans supprimer le besoin majoritaire de machines physiques.",
+            "adverseCase": "Des constructeurs chinois combinant qualité suffisante, autonomie multimarque et prix nettement inférieur pourraient transférer la valeur des équipements vers une couche logicielle ou énergétique non contrôlée par Cat.",
+            "decisiveTrigger": "Le déploiement économiquement compétitif d'autonomie multimarque chinoise sur plus de la moitié des usages servis par Cat transformerait la compression concurrentielle en menace majoritaire.",
             "confidence": "medium"
           },
           "future_dependencies": {
@@ -13776,9 +13773,9 @@
           {
             "id": "future_control",
             "maxScore": 3,
-            "reason": "Le parc installé, le réseau physique de pièces et de techniciens, la marque de confiance et l'intégration machine-service resteront nécessaires sur la majorité du cœur et permettront à Caterpillar de capter une rente de disponibilité en 2033.",
-            "adverseCase": "La convergence chinoise de fiabilité et de couverture après-vente pourrait transformer le réseau Cat en simple avantage relatif et comprimer fortement la prime de marque lors des renouvellements de flotte.",
-            "decisiveTrigger": "Une perte durable de renouvellements de flotte accompagnée d'une baisse des services par actif connecté montrerait que le parc installé ne produit plus de rente future.",
+            "reason": "Le parc installé, le réseau physique de pièces et de techniciens, la marque de confiance et l'intégration machine-service resteront nécessaires sur la majorité du cœur et soutiendront une rente de disponibilité en 2033.",
+            "adverseCase": "La convergence chinoise et l'ouverture des données de flotte pourraient banaliser les machines neuves puis réduire progressivement le parc captif et le premium de service.",
+            "decisiveTrigger": "Une perte durable de renouvellements accompagnée d'une convergence des valeurs résiduelles et des coûts par heure invaliderait le contrôle futur du parc.",
             "confidence": "medium",
             "score": 3,
             "audit": {
@@ -13791,15 +13788,15 @@
               "futureRentPaid": true,
               "systemBottleneck": false,
               "multipleIndependentControls": true,
-              "rightsVisibilityThroughScenario": true
+              "rightsVisibilityThroughScenario": null
             }
           },
           {
             "id": "disruption_positioning",
             "maxScore": 3,
-            "reason": "Les agents réduiront surtout les frictions de sélection et de planification, tandis que l'autonomie augmentera la valeur de l'intégration MineStar-machine-service sans supprimer le besoin d'engins physiques, mais la Chine comprimera prix et parts lors des renouvellements.",
-            "adverseCase": "Des flottes électriques autonomes chinoises fiables, soutenues par un service local compétitif et une orchestration multimarque, pourraient déplacer simultanément la machine, la maintenance thermique et le plan de contrôle Cat.",
-            "decisiveTrigger": "Le basculement de plus de la moitié des renouvellements vers des architectures autonomes multimarques ou chinoises économiquement supérieures constituerait la voie de menace majoritaire.",
+            "reason": "Les agents amélioreront surtout l'achat et la planification, tandis que la robotisation accroîtra les volumes autonomes servis par MineStar et renforcera l'intégration de Cat sans supprimer le besoin majoritaire de machines physiques.",
+            "adverseCase": "Des constructeurs chinois combinant qualité suffisante, autonomie multimarque et prix nettement inférieur pourraient transférer la valeur des équipements vers une couche logicielle ou énergétique non contrôlée par Cat.",
+            "decisiveTrigger": "Le déploiement économiquement compétitif d'autonomie multimarque chinoise sur plus de la moitié des usages servis par Cat transformerait la compression concurrentielle en menace majoritaire.",
             "confidence": "medium",
             "score": 2,
             "audit": {
@@ -13979,7 +13976,7 @@
           }
         ]
       },
-      "persistedAt": "2026-07-22T07:23:54.013Z"
+      "persistedAt": "2026-07-22T07:43:16.081Z"
     },
     {
       "ticker": "BA",
@@ -14367,7 +14364,7 @@
       "ticker": "COST",
       "status": "scored",
       "sourceVersion": "2.8.13",
-      "generatedAt": "2026-07-21T21:31:59.681Z",
+      "generatedAt": "2026-07-22T07:44:30.750Z",
       "provider": "codex",
       "adjudication": {
         "scenarioYear": 2033,
@@ -14378,14 +14375,14 @@
             "companySpecific": true,
             "majorityCoreCoverage": true,
             "scarcitySurvivesAiChina": true,
-            "replicableWithinFiveYears": false,
+            "replicableWithinFiveYears": true,
             "futureRentPaid": true,
             "systemBottleneck": false,
             "multipleIndependentControls": false,
-            "rightsVisibilityThroughScenario": false,
-            "reason": "Le réseau détenu, les volumes concentrés sur moins de 4 000 références et le flywheel d'adhésion devraient préserver un coût d'exécution spécifique couvrant la majorité du cœur et rémunéré par les cotisations et marges en 2033.",
-            "adverseCase": "L'automatisation de concurrents déjà à l'échelle peut rapprocher leurs coûts et leur qualité sans devoir reproduire exactement le réseau de Costco.",
-            "decisiveTrigger": "Une convergence durable des prix de paniers comparables accompagnée d'une baisse marquée des renouvellements invaliderait la rente future du système.",
+            "rightsVisibilityThroughScenario": null,
+            "reason": "Le volume concentré sur moins de 4 000 références, la rotation rapide, le cross-docking, l'adhésion et le réseau détenu devraient encore abaisser le coût du cœur physique en 2033, mais cette rente restera modérée car des concurrents déjà à l'échelle possèdent des mécanismes comparables.",
+            "adverseCase": "L'automatisation concurrente et la comparaison agentique peuvent banaliser la sélection courte et transférer assez de volume vers Sam's Club, Walmart ou Amazon pour éroder cotisations et pouvoir d'achat.",
+            "decisiveTrigger": "Une baisse durable du renouvellement accompagnée de prix comparables chez plusieurs concurrents automatisés invaliderait la persistance d'une rente de coût propre à Costco.",
             "confidence": "medium"
           },
           "disruption_positioning": {
@@ -14483,6 +14480,7 @@
               "vendorControlsRegulatedOrIrreversibleExecution": false,
               "vendorExecutionType": "none",
               "vendorExecutionCoversMajorityCore": false,
+              "workflowCoversMajorityCore": false,
               "majorityCustomReplacementEconomicallyPlausibleBy2033": false,
               "migrationComplexityPrimaryBarrier": false
             },
@@ -14496,10 +14494,10 @@
             "companySpecificControl": true,
             "paymentMechanismPersists": true,
             "aiPriceCommoditization": true,
-            "aiPriceCommoditizationCoversMajorityCore": true,
-            "reason": "Costco devrait rester payé pour acheter, stocker et vendre des biens physiques, mais les agents n'ont pas besoin de son inventaire spécifique et accentueront la concurrence de prix sur la majorité du cœur.",
-            "adverseCase": "Walmart, Sam's Club, Amazon et d'autres réseaux automatisés peuvent agréger une couverture suffisante pour contourner Costco et rendre son adhésion moins rentable.",
-            "decisiveTrigger": "Une chute du renouvellement mondial accompagnée d'une perte majoritaire de transactions au profit de canaux agentiques démontrerait l'absorption du rôle payé.",
+            "aiPriceCommoditizationCoversMajorityCore": false,
+            "reason": "Costco devrait rester payé pour acheter, stocker et exécuter physiquement des ventes sur la majorité de son cœur, mais les agents n'auront pas besoin de son réseau particulier et renforceront la comparaison entre plusieurs opérateurs substituables.",
+            "adverseCase": "Des réseaux concurrents disposant d'une couverture comparable peuvent contourner Costco sur la majorité des besoins et convertir son avantage de prix en simple standard sectoriel.",
+            "decisiveTrigger": "Le maintien simultané d'un renouvellement proche des niveaux actuels et d'un avantage de panier après généralisation des agents confirmerait que le réseau conserve une capture spécifique.",
             "confidence": "medium"
           },
           "transition_capacity": {
@@ -14520,30 +14518,30 @@
       "analysis": {
         "version": "2.9.1-pilot.15",
         "scenarioYear": 2033,
-        "rawScore": 60,
-        "finalScore": 60,
+        "rawScore": 52,
+        "finalScore": 52,
         "grade": "C",
         "gates": [],
         "criteria": [
           {
             "id": "future_control",
             "maxScore": 3,
-            "reason": "Le réseau détenu, les volumes concentrés sur moins de 4 000 références et le flywheel d'adhésion devraient préserver un coût d'exécution spécifique couvrant la majorité du cœur et rémunéré par les cotisations et marges en 2033.",
-            "adverseCase": "L'automatisation de concurrents déjà à l'échelle peut rapprocher leurs coûts et leur qualité sans devoir reproduire exactement le réseau de Costco.",
-            "decisiveTrigger": "Une convergence durable des prix de paniers comparables accompagnée d'une baisse marquée des renouvellements invaliderait la rente future du système.",
+            "reason": "Le volume concentré sur moins de 4 000 références, la rotation rapide, le cross-docking, l'adhésion et le réseau détenu devraient encore abaisser le coût du cœur physique en 2033, mais cette rente restera modérée car des concurrents déjà à l'échelle possèdent des mécanismes comparables.",
+            "adverseCase": "L'automatisation concurrente et la comparaison agentique peuvent banaliser la sélection courte et transférer assez de volume vers Sam's Club, Walmart ou Amazon pour éroder cotisations et pouvoir d'achat.",
+            "decisiveTrigger": "Une baisse durable du renouvellement accompagnée de prix comparables chez plusieurs concurrents automatisés invaliderait la persistance d'une rente de coût propre à Costco.",
             "confidence": "medium",
-            "score": 2,
+            "score": 1,
             "audit": {
               "controlType": "cost_supply_chain",
               "controlStillNeeded": true,
               "companySpecific": true,
               "majorityCoreCoverage": true,
               "scarcitySurvivesAiChina": true,
-              "replicableWithinFiveYears": false,
+              "replicableWithinFiveYears": true,
               "futureRentPaid": true,
               "systemBottleneck": false,
               "multipleIndependentControls": false,
-              "rightsVisibilityThroughScenario": false
+              "rightsVisibilityThroughScenario": null
             }
           },
           {
@@ -14662,9 +14660,9 @@
           {
             "id": "future_value_capture",
             "maxScore": 2,
-            "reason": "Costco devrait rester payé pour acheter, stocker et vendre des biens physiques, mais les agents n'ont pas besoin de son inventaire spécifique et accentueront la concurrence de prix sur la majorité du cœur.",
-            "adverseCase": "Walmart, Sam's Club, Amazon et d'autres réseaux automatisés peuvent agréger une couverture suffisante pour contourner Costco et rendre son adhésion moins rentable.",
-            "decisiveTrigger": "Une chute du renouvellement mondial accompagnée d'une perte majoritaire de transactions au profit de canaux agentiques démontrerait l'absorption du rôle payé.",
+            "reason": "Costco devrait rester payé pour acheter, stocker et exécuter physiquement des ventes sur la majorité de son cœur, mais les agents n'auront pas besoin de son réseau particulier et renforceront la comparaison entre plusieurs opérateurs substituables.",
+            "adverseCase": "Des réseaux concurrents disposant d'une couverture comparable peuvent contourner Costco sur la majorité des besoins et convertir son avantage de prix en simple standard sectoriel.",
+            "decisiveTrigger": "Le maintien simultané d'un renouvellement proche des niveaux actuels et d'un avantage de panier après généralisation des agents confirmerait que le réseau conserve une capture spécifique.",
             "confidence": "medium",
             "score": 1,
             "audit": {
@@ -14684,7 +14682,7 @@
                 "migrationComplexityPrimaryBarrier": false,
                 "vendorExecutionType": "none",
                 "vendorExecutionCoversMajorityCore": false,
-                "workflowCoversMajorityCore": null
+                "workflowCoversMajorityCore": false
               },
               "roleArchetype": "transaction_or_asset_operator",
               "agentsNeedControlledAccess": false,
@@ -14696,13 +14694,13 @@
               "companySpecificControl": true,
               "paymentMechanismPersists": true,
               "aiPriceCommoditization": true,
-              "aiPriceCommoditizationCoversMajorityCore": true,
+              "aiPriceCommoditizationCoversMajorityCore": false,
               "marketplaceChecklistQualified": false,
               "marketplaceChecklistRawQualified": false,
               "marketplaceAssertionsConsistent": false,
               "marketplaceDurabilityOverride": false,
               "roleLossProven": false,
-              "majorityCorePriceCommoditization": true,
+              "majorityCorePriceCommoditization": false,
               "derivedFromFutureControl": false,
               "durableMarketplaceCapture": false,
               "workflowCoversMajorityCore": false
@@ -14731,7 +14729,7 @@
           }
         ]
       },
-      "persistedAt": "2026-07-22T07:23:54.264Z"
+      "persistedAt": "2026-07-22T07:44:30.753Z"
     },
     {
       "ticker": "OR.PA",
@@ -16292,25 +16290,25 @@
       "ticker": "TSLA",
       "status": "scored",
       "sourceVersion": "2.8.13",
-      "generatedAt": "2026-07-21T21:33:57.554Z",
+      "generatedAt": "2026-07-22T07:43:16.395Z",
       "provider": "codex",
       "adjudication": {
         "scenarioYear": 2033,
         "criteria": {
           "future_control": {
-            "controlType": "none",
-            "controlStillNeeded": false,
-            "companySpecific": false,
-            "majorityCoreCoverage": false,
+            "controlType": "cost_supply_chain",
+            "controlStillNeeded": true,
+            "companySpecific": true,
+            "majorityCoreCoverage": true,
             "scarcitySurvivesAiChina": false,
             "replicableWithinFiveYears": true,
             "futureRentPaid": false,
             "systemBottleneck": false,
             "multipleIndependentControls": false,
             "rightsVisibilityThroughScenario": false,
-            "reason": "La convergence chinoise coût-qualité rend la capacité automobile majoritaire substituable, tandis que le réseau de recharge contrôlé par Tesla ne protège qu'une fraction non démontrée du cœur.",
-            "adverseCase": "Des constructeurs chinois reproduisent ou dépassent le rapport qualité-prix de Tesla et les agents d'achat orientent les clients vers ces substituts sans coût de migration.",
-            "decisiveTrigger": "Une preuve que la marque, l'autonomie ou le réseau Tesla commande encore en 2033 une prime durable sur plus de la moitié du cœur ferait basculer cette conclusion.",
+            "reason": "Tesla contrôlera encore sa production physique et son réseau de recharge, mais la convergence chinoise coût-qualité rendra ces capacités insuffisamment rares pour protéger une rente sur la majorité du cœur automobile.",
+            "adverseCase": "Les constructeurs chinois reproduisent ou dépassent le rapport qualité-prix de Tesla tandis que les agents rendent les offres directement comparables et réduisent la prime de marque.",
+            "decisiveTrigger": "Une prime de prix durable ou un avantage de coût Tesla démontré face aux meilleurs concurrents chinois ferait basculer le contrôle futur vers une rente défendable.",
             "confidence": "medium"
           },
           "disruption_positioning": {
@@ -16321,7 +16319,7 @@
                 "technicalAndEconomicPath": false,
                 "materialDirectBenefit": false,
                 "responseControlsOutcome": false,
-                "benefitMechanism": "unproven"
+                "benefitMechanism": "none"
               },
               {
                 "force": "automation_robotics",
@@ -16329,20 +16327,20 @@
                 "technicalAndEconomicPath": false,
                 "materialDirectBenefit": false,
                 "responseControlsOutcome": false,
-                "benefitMechanism": "unproven"
+                "benefitMechanism": "none"
               },
               {
                 "force": "china_engineering",
-                "majorityCoreThreatPath": true,
+                "majorityCoreThreatPath": false,
                 "technicalAndEconomicPath": true,
                 "materialDirectBenefit": false,
                 "responseControlsOutcome": false,
                 "benefitMechanism": "none"
               }
             ],
-            "reason": "Les agents compriment l'interface commerciale et la robotique améliore toute l'industrie, mais l'avantage chinois déjà industrialisé menace directement la majorité des volumes automobiles sans réponse Tesla contrôlant clairement l'issue.",
-            "adverseCase": "La combinaison de véhicules chinois compétitifs, d'agents de comparaison et de flottes autonomes tierces réduit de plus de moitié le rôle automobile économique de Tesla.",
-            "decisiveTrigger": "Une autonomie Tesla rentable et déployée à grande échelle ou un avantage de coût propriétaire durable transformerait une force aujourd'hui adverse en bénéfice contrôlé.",
+            "reason": "Les agents et la robotique accroîtront l'efficacité et pourront déplacer l'interface ou certains achats vers des flottes, mais seule la concurrence chinoise possède une voie économique déjà observable pour comprimer largement les prix du cœur automobile sans probablement supprimer plus de la moitié du rôle productif de Tesla.",
+            "adverseCase": "Une plateforme autonome tierce pourrait agréger la demande, acheter des véhicules commoditisés et reléguer Tesla au rang de fournisseur industriel à faible marge.",
+            "decisiveTrigger": "Une activité Robotaxi Tesla rentable, autorisée à grande échelle et utilisée matériellement établirait un mécanisme propre de capture des bénéfices de l'IA et de la robotique.",
             "confidence": "medium"
           },
           "future_dependencies": {
@@ -16433,24 +16431,24 @@
       "analysis": {
         "version": "2.9.1-pilot.15",
         "scenarioYear": 2033,
-        "rawScore": 42,
-        "finalScore": 42,
+        "rawScore": 48,
+        "finalScore": 48,
         "grade": "D",
         "gates": [],
         "criteria": [
           {
             "id": "future_control",
             "maxScore": 3,
-            "reason": "La convergence chinoise coût-qualité rend la capacité automobile majoritaire substituable, tandis que le réseau de recharge contrôlé par Tesla ne protège qu'une fraction non démontrée du cœur.",
-            "adverseCase": "Des constructeurs chinois reproduisent ou dépassent le rapport qualité-prix de Tesla et les agents d'achat orientent les clients vers ces substituts sans coût de migration.",
-            "decisiveTrigger": "Une preuve que la marque, l'autonomie ou le réseau Tesla commande encore en 2033 une prime durable sur plus de la moitié du cœur ferait basculer cette conclusion.",
+            "reason": "Tesla contrôlera encore sa production physique et son réseau de recharge, mais la convergence chinoise coût-qualité rendra ces capacités insuffisamment rares pour protéger une rente sur la majorité du cœur automobile.",
+            "adverseCase": "Les constructeurs chinois reproduisent ou dépassent le rapport qualité-prix de Tesla tandis que les agents rendent les offres directement comparables et réduisent la prime de marque.",
+            "decisiveTrigger": "Une prime de prix durable ou un avantage de coût Tesla démontré face aux meilleurs concurrents chinois ferait basculer le contrôle futur vers une rente défendable.",
             "confidence": "medium",
             "score": 0,
             "audit": {
-              "controlType": "none",
-              "controlStillNeeded": false,
-              "companySpecific": false,
-              "majorityCoreCoverage": false,
+              "controlType": "cost_supply_chain",
+              "controlStillNeeded": true,
+              "companySpecific": true,
+              "majorityCoreCoverage": true,
               "scarcitySurvivesAiChina": false,
               "replicableWithinFiveYears": true,
               "futureRentPaid": false,
@@ -16462,11 +16460,11 @@
           {
             "id": "disruption_positioning",
             "maxScore": 3,
-            "reason": "Les agents compriment l'interface commerciale et la robotique améliore toute l'industrie, mais l'avantage chinois déjà industrialisé menace directement la majorité des volumes automobiles sans réponse Tesla contrôlant clairement l'issue.",
-            "adverseCase": "La combinaison de véhicules chinois compétitifs, d'agents de comparaison et de flottes autonomes tierces réduit de plus de moitié le rôle automobile économique de Tesla.",
-            "decisiveTrigger": "Une autonomie Tesla rentable et déployée à grande échelle ou un avantage de coût propriétaire durable transformerait une force aujourd'hui adverse en bénéfice contrôlé.",
+            "reason": "Les agents et la robotique accroîtront l'efficacité et pourront déplacer l'interface ou certains achats vers des flottes, mais seule la concurrence chinoise possède une voie économique déjà observable pour comprimer largement les prix du cœur automobile sans probablement supprimer plus de la moitié du rôle productif de Tesla.",
+            "adverseCase": "Une plateforme autonome tierce pourrait agréger la demande, acheter des véhicules commoditisés et reléguer Tesla au rang de fournisseur industriel à faible marge.",
+            "decisiveTrigger": "Une activité Robotaxi Tesla rentable, autorisée à grande échelle et utilisée matériellement établirait un mécanisme propre de capture des bénéfices de l'IA et de la robotique.",
             "confidence": "medium",
-            "score": 1,
+            "score": 2,
             "audit": {
               "forces": [
                 {
@@ -16475,7 +16473,7 @@
                   "technicalAndEconomicPath": false,
                   "materialDirectBenefit": false,
                   "responseControlsOutcome": false,
-                  "benefitMechanism": "unproven",
+                  "benefitMechanism": "none",
                   "legacyBenefitContract": false,
                   "contradictedMarketplaceBypass": false,
                   "contradictedDigitalStackBenefit": false,
@@ -16488,7 +16486,7 @@
                   "technicalAndEconomicPath": false,
                   "materialDirectBenefit": false,
                   "responseControlsOutcome": false,
-                  "benefitMechanism": "unproven",
+                  "benefitMechanism": "none",
                   "legacyBenefitContract": false,
                   "contradictedMarketplaceBypass": false,
                   "contradictedDigitalStackBenefit": false,
@@ -16497,7 +16495,7 @@
                 },
                 {
                   "force": "china_engineering",
-                  "majorityCoreThreatPath": true,
+                  "majorityCoreThreatPath": false,
                   "technicalAndEconomicPath": true,
                   "materialDirectBenefit": false,
                   "responseControlsOutcome": false,
@@ -16506,7 +16504,7 @@
                   "contradictedMarketplaceBypass": false,
                   "contradictedDigitalStackBenefit": false,
                   "derivedCustomerWorkflowThreat": false,
-                  "verdict": "negative"
+                  "verdict": "neutral"
                 }
               ]
             }
@@ -16632,7 +16630,7 @@
           }
         ]
       },
-      "persistedAt": "2026-07-22T07:23:55.300Z"
+      "persistedAt": "2026-07-22T07:43:16.396Z"
     },
     {
       "ticker": "BYDDF",
@@ -16996,7 +16994,7 @@
       "ticker": "NVO",
       "status": "scored",
       "sourceVersion": "2.8.13",
-      "generatedAt": "2026-07-21T21:35:02.682Z",
+      "generatedAt": "2026-07-22T07:42:01.595Z",
       "provider": "codex",
       "adjudication": {
         "scenarioYear": 2033,
@@ -17122,14 +17120,14 @@
           "transition_capacity": {
             "fundingCapacity": true,
             "scaledAdaptationEvidence": false,
-            "scaledAdaptationType": "unproven",
-            "measuredOperatingEffect": false,
+            "scaledAdaptationType": "none",
+            "measuredOperatingEffect": true,
             "monetizedMaterialOutcome": false,
-            "outcomeCausallyAttributedToAdaptation": false,
+            "outcomeCausallyAttributedToAdaptation": true,
             "legacyConstraintManageable": true,
-            "reason": "Le faible levier, les liquidités et le cash-flow donnent les moyens de renouveler le portefeuille, mais aucune adaptation nouvelle n'a encore produit un effet causal mesuré sur une part matérielle du cœur.",
-            "adverseCase": "Les lourds investissements industriels pourraient devenir des actifs sous-utilisés si le pipeline échoue pendant que les prix du semaglutide s'érodent.",
-            "decisiveTrigger": "La commercialisation rentable d'une plateforme post-semaglutide représentant au moins une part matérielle du cœur démontrerait une adaptation à l'échelle.",
+            "reason": "Le faible levier et les liquidités financent la transition, tandis que le comprimé Wegovy démontre une adoption causalement mesurée mais reste trop petit pour prouver une adaptation déployée sur une part matérielle du cœur.",
+            "adverseCase": "Le capex élevé et l'érosion du semaglutide absorbent le cash avant que les actifs industriels et le pipeline de remplacement ne produisent une contribution matérielle.",
+            "decisiveTrigger": "Une monétisation attribuable et matérielle d'un portefeuille post-semaglutide ou des nouvelles capacités industrielles établirait une adaptation à l'échelle du cœur.",
             "confidence": "high"
           }
         }
@@ -17316,27 +17314,27 @@
           {
             "id": "transition_capacity",
             "maxScore": 2,
-            "reason": "Le faible levier, les liquidités et le cash-flow donnent les moyens de renouveler le portefeuille, mais aucune adaptation nouvelle n'a encore produit un effet causal mesuré sur une part matérielle du cœur.",
-            "adverseCase": "Les lourds investissements industriels pourraient devenir des actifs sous-utilisés si le pipeline échoue pendant que les prix du semaglutide s'érodent.",
-            "decisiveTrigger": "La commercialisation rentable d'une plateforme post-semaglutide représentant au moins une part matérielle du cœur démontrerait une adaptation à l'échelle.",
+            "reason": "Le faible levier et les liquidités financent la transition, tandis que le comprimé Wegovy démontre une adoption causalement mesurée mais reste trop petit pour prouver une adaptation déployée sur une part matérielle du cœur.",
+            "adverseCase": "Le capex élevé et l'érosion du semaglutide absorbent le cash avant que les actifs industriels et le pipeline de remplacement ne produisent une contribution matérielle.",
+            "decisiveTrigger": "Une monétisation attribuable et matérielle d'un portefeuille post-semaglutide ou des nouvelles capacités industrielles établirait une adaptation à l'échelle du cœur.",
             "confidence": "high",
             "score": 1,
             "audit": {
               "fundingCapacity": true,
               "declaredScaledAdaptation": false,
               "scaledAdaptationEvidence": false,
-              "scaledAdaptationType": "unproven",
-              "measuredOperatingEffect": false,
+              "scaledAdaptationType": "none",
+              "measuredOperatingEffect": true,
               "monetizedMaterialOutcome": false,
-              "outcomeCausallyAttributedToAdaptation": false,
+              "outcomeCausallyAttributedToAdaptation": true,
               "attributionFieldMissing": false,
-              "attributionQualified": false,
+              "attributionQualified": true,
               "legacyConstraintManageable": true
             }
           }
         ]
       },
-      "persistedAt": "2026-07-22T07:23:55.559Z"
+      "persistedAt": "2026-07-22T07:42:01.611Z"
     },
     {
       "ticker": "PFE",

@@ -429,9 +429,16 @@ Caterpillar doivent etre arbitres avant toute modification de poids.
 `pilot.15` encode ces corrections sans changer les poids ni les attentes. Le gate workflow
 est desormais scope au workflow couvrant plus de 50% du coeur ; un `false` marketplace
 explicite n'est plus ecrase ; le booleen de transition nu ne suffit plus ; et deux chocs de
-continuite concentres peuvent plafonner A a B79. Le replay deterministe passe de `30/50` a
-`33/50` sans regression de bande : Broadcom devient B79, TSM B79 et Uber C57. Il reste six
-ecarts approuves et onze provisoires, detailles dans
+continuite concentres peuvent plafonner A a B79. Le premier replay deterministe passe de
+`30/50` a `33/50` sans regression de bande : Broadcom devient B79, TSM B79 et Uber C57.
+
+Une unique relecture ciblee des six ecarts approuves porte ensuite le benchmark a `34/50`
+et les attentes approuvees a `28/33`. Adobe passe de D49 a C57 apres confirmation que le
+workflow reconstruisible ne couvre pas la majorite de son coeur. Tesla progresse de D42 a
+D48 ; NVIDIA B78, Caterpillar B73 et Novo Nordisk D48 restent inchanges. Costco baisse de
+C60 a C52, ce qui fragilise l'attente A plutot que le contrat universel. Les 44 entreprises
+non ciblees restent strictement inchangees. Il reste cinq ecarts approuves et onze
+provisoires, detailles dans
 `apps/api/benchmarks/resilience-future-strict-50-p15-audit.md`. Costco et Fortinet restent
 les deux ecarts de deux grades ; le cron reste desactive.
 

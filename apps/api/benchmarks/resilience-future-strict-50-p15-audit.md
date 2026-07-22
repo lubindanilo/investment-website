@@ -14,26 +14,35 @@ LLM et sans modification de ponderation. Quatre coherences universelles sont ajo
 4. deux chocs de continuite totalement non mitiges, ou deux chocs existentiels d'une stack
    industrielle concentree, plafonnent A a B79.
 
-## Resultat
+## Resultat apres arbitrage cible
 
-- `33/50` dans la bande, contre `30/50` en `pilot.14`.
-- `27/33` attentes approuvees dans la bande, contre `26/33`.
+- `34/50` dans la bande, contre `30/50` en `pilot.14` et `33/50` au premier replay
+  `pilot.15`.
+- `28/33` attentes approuvees dans la bande, contre `26/33` en `pilot.14` et `27/33`
+  avant arbitrage cible.
 - `6/17` attentes provisoires dans la bande, contre `4/17`.
 - Broadcom passe de D49 a B79, TSM de A88 a B79 et Uber de B78 a C57.
-- Aucune attente auparavant correcte ne sort de sa bande.
-- Deux ecarts de deux grades subsistent : Costco C60 face a A et Fortinet C69 face a A.
+- Une unique relecture ciblee des six ecarts approuves corrige Adobe de D49 a C57. Tesla
+  progresse de D42 a D48, tandis que Costco baisse de C60 a C52. NVIDIA, Caterpillar et
+  Novo Nordisk gardent leur note.
+- Les 44 entreprises non ciblees restent strictement inchangees et aucune attente
+  auparavant correcte ne sort de sa bande.
+- Deux ecarts de deux grades subsistent : Costco C52 face a A et Fortinet C69 face a A.
 - Le seuil de 90% n'est pas atteint ; le cron reste desactive.
 
 ## Ecarts approuves restants
 
 | Ticker | Attendu | Obtenu | Vecteur | Diagnostic |
 | --- | --- | --- | --- | --- |
-| NVDA | 79-100 | B78 | 2/2/1/2/2/1 | Ecart d'un point : la transition structuree ne prouve pas encore une adaptation causale a l'echelle. |
-| ADBE | C | D49 | 1/1/1/2/1/1 | Le workflow majoritaire est juge reconstruisible et active le gate ; le desaccord porte sur la persistance de la stack creative, pas sur les poids. |
+| NVDA | 79-100 | B78 | 2/2/1/2/2/1 | La relecture ciblee confirme 1/2 en transition : l'ecart d'un point vient de la frontiere de grade, pas d'une case instable. |
 | CAT | C | B73 | 3/2/1/2/1/1 | Le parc et le reseau de service obtiennent 3/3 malgre la convergence chinoise ; arbitrage economique requis. |
-| COST | A | C60 | 2/2/1/1/1/2 | Moat et execution solides, mais demande seulement stable et capture substituable ; A n'est pas soutenu par le vecteur actuel. |
-| TSLA | C | D42 | 0/1/1/2/1/1 | La convergence chinoise annule le controle rare et aucune option autonomie n'est encore controlee dans le scenario central. |
-| NVO | C | D48 | 0/2/1/2/1/1 | Demande future 2/2, mais aucun controle post-brevet et aucune transition post-semaglutide materielle ne sont prouves. |
+| COST | A | C52 | 1/2/1/1/1/2 | La relecture retire le controle rare : le membership reste utile mais substituable. L'attente A n'est pas soutenue par le contrat actuel. |
+| TSLA | C | D48 | 0/2/1/2/1/1 | L'exposition positive a l'automatisation est reconnue, mais aucun controle rare n'est prouve ; deux points seulement separent D de C. |
+| NVO | C | D48 | 0/2/1/2/1/1 | La relecture confirme 1/2 en transition : demande future 2/2, mais aucun controle post-brevet ni adaptation post-semaglutide materielle ne sont prouves. |
+
+Adobe sort des ecarts approuves : la reparation structurelle etablit que le workflow
+reconstruisible ne couvre pas la majorite du coeur et retire le gate. Adobe passe de D49 a
+C57 avec le vecteur `1/2/1/2/1/1`.
 
 ## Ecarts provisoires restants
 
@@ -56,9 +65,13 @@ LLM et sans modification de ponderation. Quatre coherences universelles sont ajo
 Le prochain gain ne doit pas venir d'une nouvelle regle globale appliquee aux 17 cas. Il
 faut d'abord trancher les vecteurs economiques, en priorite :
 
-1. attentes approuvees : NVIDIA, Adobe, Caterpillar, Costco, Tesla et Novo Nordisk ;
+1. attentes approuvees : trancher la frontiere de grade NVIDIA et Tesla, puis reexaminer
+   les attentes economiques de Caterpillar, Costco et Novo Nordisk sans nouvelle
+   readjudication ;
 2. sous-tests potentiellement fautifs : SAP, Netflix et Fortinet ;
 3. attentes provisoires probablement trop prudentes : Microsoft, PayPal, Kinsale et Pfizer.
 
-Une fois ces decisions prises, seules les adjudications fautives seront reparees sur leur
-dossier fige. Les simples desaccords de bande ne doivent produire aucun changement de code.
+La readjudication ciblee autorisee est maintenant consommee. Les cas inchanges ne doivent
+pas etre relances pour rechercher une meilleure note. Une nouvelle modification exige soit
+un arbitrage explicite de la bande, soit une contradiction universelle accompagnee de
+contre-exemples et de tests.
