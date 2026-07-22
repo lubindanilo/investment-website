@@ -368,7 +368,7 @@
       "titleLine1": "Surperforme le marché avec des actions",
       "titleAccent": "de qualité au bon prix.",
       "lede": "La veille note 7 000+ actions sur 10 critères, en continu, et fait remonter les meilleures. Toi, tu vérifies que le prix suit, et tu décides.",
-      "valueLine": "Chaque action notée sur 10 critères de qualité et une note de résilience de A à E, puis une analyse de valorisation avec prix d'achat conseillé.",
+      "valueLine": "Chaque action notée sur 10 critères fondamentaux, analyse de valorisation actuelle avec prix d'achat conseillé.",
       "ctaAnalyze": "Analyser une action",
       "ctaScreener": "Explorer le screener"
     },
@@ -393,10 +393,6 @@
       "3": {
         "title": "La méthode des grands investisseurs",
         "text": "10 critères fondamentaux inspirés de Warren Buffett, Terry Smith et bien d'autres, directement affichés sur chaque action."
-      },
-      "4": {
-        "title": "Solide aujourd'hui, résiliente demain",
-        "text": "Au-delà des chiffres, on note la capacité de chaque entreprise à exister et prospérer dans le futur, de A à E. Tu repères les modèles fragiles avant qu'ils ne cassent."
       }
     },
     "how": {
@@ -410,7 +406,7 @@
       },
       "1": {
         "title": "Tu ouvres la fiche",
-        "text": "Note de qualité sur 10, note de résilience de A à E, détail des critères. L'essentiel d'une entreprise sur une page."
+        "text": "Note sur 10, répartition vert/orange/rouge, détail des 10 critères. L'essentiel d'une entreprise sur une page."
       },
       "2": {
         "title": "Tu vérifies le prix, tu décides",

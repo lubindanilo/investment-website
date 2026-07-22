@@ -343,7 +343,7 @@
       "titleLine1": "Supera al mercado con acciones",
       "titleAccent": "de calidad al precio correcto.",
       "lede": "La vigilancia puntúa 7 000+ acciones sobre 10 criterios, en continuo, y hace subir las mejores. Tú solo compruebas que el precio acompaña, y decides.",
-      "valueLine": "Cada acción puntuada en 10 criterios de calidad y una nota de resiliencia de A a E, y luego un análisis de valoración con precio de compra recomendado.",
+      "valueLine": "Cada acción puntuada sobre 10 criterios fundamentales, con un análisis de valoración actual y un precio de compra recomendado.",
       "ctaAnalyze": "Analizar una acción",
       "ctaScreener": "Explorar el screener"
     },
@@ -368,10 +368,6 @@
       "3": {
         "title": "El método de los grandes inversores",
         "text": "10 criterios fundamentales inspirados en Warren Buffett, Terry Smith y muchos otros, mostrados directamente en cada acción."
-      },
-      "4": {
-        "title": "Sólida hoy, resiliente mañana",
-        "text": "Más allá de las cifras, calificamos la capacidad de cada empresa para existir y prosperar en el futuro, de A a E. Detecta los modelos frágiles antes de que se rompan."
       }
     },
     "how": {
@@ -385,7 +381,7 @@
       },
       "1": {
         "title": "Abres la ficha",
-        "text": "Una nota de calidad sobre 10, una nota de resiliencia de A a E y el detalle de los criterios. Lo esencial de una empresa en una página."
+        "text": "Una nota sobre 10, su reparto verde/naranja/rojo y el detalle de los 10 criterios. Lo esencial de una empresa en una página."
       },
       "2": {
         "title": "Compruebas el precio y decides",
