@@ -578,6 +578,18 @@ aveugle. Le second holdout recalibre atteint `14/20`, mais la prochaine mesure d
 doit etre une nouvelle cohorte. Detail :
 `apps/api/benchmarks/resilience-future-generalization-20b-p21-audit.md`. Le cron reste desactive.
 
+Le troisieme holdout, compose de 20 entreprises entierement nouvelles et de bandes figees avant
+recherche, n'atteint que `7/20`. CME, Mastercard, Marriott, Arm, PepsiCo, eBay et HubSpot passent.
+Le test revele a la fois des sous-notations potentielles sur certains operateurs physiques ou
+reglementes et une generosite possible sur Roblox et Etsy ; il ne peut donc pas etre corrige par
+un simple decalage global. Le replay conserve un digest identique. L'audit est dans
+`apps/api/benchmarks/resilience-future-generalization-20c-p21-audit.md`.
+
+Les `110` analyses `pilot.21` generees a ce stade sont stockees avec dossier, hash, date,
+adjudication et historique. Les 50 attentes `approved` sont toutes presentes. Cette persistance
+ne vaut pas publication : l'API Analyze continue de lire `2.8.13` tant que la generalisation
+future-first reste rouge, et le cron demeure desactive.
+
 La candidate n'est publiable que si un benchmark strict de 50 entreprises approuvees et au
 moins huit cohortes variees atteint au moins 90% des bandes, sans ecart de deux grades, puis
 si trois runs du meme modele sur les memes dossiers produisent moins de 5% de sous-tests

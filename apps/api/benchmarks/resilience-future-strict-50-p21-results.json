@@ -1,7 +1,7 @@
 {
   "version": "2.9.1-pilot.21",
   "scenarioYear": 2033,
-  "generatedAt": "2026-07-22T18:41:07.443Z",
+  "generatedAt": "2026-07-22T18:49:13.021Z",
   "results": [
     {
       "ticker": "CEG",
@@ -498,7 +498,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:09.365Z"
     },
     {
       "ticker": "ABNB",
@@ -994,7 +994,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:10.876Z"
     },
     {
       "ticker": "AMZN",
@@ -1463,7 +1463,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:07.590Z"
     },
     {
       "ticker": "CRWD",
@@ -1936,7 +1936,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:12.481Z"
     },
     {
       "ticker": "INTC",
@@ -2405,7 +2405,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:07.090Z"
     },
     {
       "ticker": "ISRG",
@@ -2877,7 +2877,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:11.643Z"
     },
     {
       "ticker": "LLY",
@@ -3346,7 +3346,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:11.642Z"
     },
     {
       "ticker": "MC.PA",
@@ -3765,7 +3765,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:10.380Z"
     },
     {
       "ticker": "MCO",
@@ -4209,7 +4209,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:09.109Z"
     },
     {
       "ticker": "MEDP",
@@ -4734,7 +4734,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:12.007Z"
     },
     {
       "ticker": "NEE",
@@ -5278,7 +5278,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:09.364Z"
     },
     {
       "ticker": "NOW",
@@ -5779,7 +5779,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:08.362Z"
     },
     {
       "ticker": "PANW",
@@ -6251,7 +6251,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:12.482Z"
     },
     {
       "ticker": "QLYS",
@@ -6723,7 +6723,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:12.243Z"
     },
     {
       "ticker": "RMS.PA",
@@ -7167,7 +7167,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:10.133Z"
     },
     {
       "ticker": "SEB.PA",
@@ -7586,7 +7586,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:12.750Z"
     },
     {
       "ticker": "SPGI",
@@ -8055,7 +8055,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:08.872Z"
     },
     {
       "ticker": "STF.PA",
@@ -8528,7 +8528,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:12.753Z"
     },
     {
       "ticker": "TM",
@@ -8997,7 +8997,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:11.134Z"
     },
     {
       "ticker": "TTE",
@@ -9491,7 +9491,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:09.621Z"
     },
     {
       "ticker": "NVDA",
@@ -10014,7 +10014,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:05.933Z"
     },
     {
       "ticker": "ASML",
@@ -10488,7 +10488,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:05.943Z"
     },
     {
       "ticker": "TSM",
@@ -10963,7 +10963,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:06.805Z"
     },
     {
       "ticker": "AVGO",
@@ -11388,7 +11388,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:06.806Z"
     },
     {
       "ticker": "MSFT",
@@ -11861,7 +11861,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:07.092Z"
     },
     {
       "ticker": "AAPL",
@@ -12335,7 +12335,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:07.339Z"
     },
     {
       "ticker": "GOOGL",
@@ -12783,7 +12783,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:07.340Z"
     },
     {
       "ticker": "SAP",
@@ -13232,7 +13232,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:07.591Z"
     },
     {
       "ticker": "CRM",
@@ -13659,7 +13659,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:07.840Z"
     },
     {
       "ticker": "ADBE",
@@ -14108,7 +14108,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:07.841Z"
     },
     {
       "ticker": "DOCU",
@@ -14635,7 +14635,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:08.103Z"
     },
     {
       "ticker": "CHGG",
@@ -15133,7 +15133,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:08.105Z"
     },
     {
       "ticker": "ZM",
@@ -15583,7 +15583,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:08.364Z"
     },
     {
       "ticker": "V",
@@ -16081,7 +16081,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:08.627Z"
     },
     {
       "ticker": "PYPL",
@@ -16554,7 +16554,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:08.628Z"
     },
     {
       "ticker": "FI",
@@ -16978,7 +16978,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:08.871Z"
     },
     {
       "ticker": "KNSL",
@@ -17476,7 +17476,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:09.110Z"
     },
     {
       "ticker": "UNP",
@@ -17999,7 +17999,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:09.620Z"
     },
     {
       "ticker": "CAT",
@@ -18500,7 +18500,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:09.882Z"
     },
     {
       "ticker": "BA",
@@ -19023,7 +19023,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:09.883Z"
     },
     {
       "ticker": "COST",
@@ -19522,7 +19522,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:10.132Z"
     },
     {
       "ticker": "OR.PA",
@@ -20072,7 +20072,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:10.381Z"
     },
     {
       "ticker": "NFLX",
@@ -20570,7 +20570,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:10.634Z"
     },
     {
       "ticker": "UBER",
@@ -21169,7 +21169,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:10.635Z"
     },
     {
       "ticker": "BKNG",
@@ -21667,7 +21667,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:10.877Z"
     },
     {
       "ticker": "TSLA",
@@ -22115,7 +22115,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:11.133Z"
     },
     {
       "ticker": "BYDDF",
@@ -22591,7 +22591,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:11.385Z"
     },
     {
       "ticker": "NVO",
@@ -23039,7 +23039,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:11.386Z"
     },
     {
       "ticker": "PFE",
@@ -23538,7 +23538,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:12.009Z"
     },
     {
       "ticker": "FTNT",
@@ -24013,7 +24013,7 @@
           }
         ]
       },
-      "persistedAt": null
+      "persistedAt": "2026-07-22T18:49:12.242Z"
     }
   ]
 }

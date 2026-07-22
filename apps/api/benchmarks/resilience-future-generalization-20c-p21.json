@@ -1,0 +1,167 @@
+{
+  "version": "2.9.1-pilot.21",
+  "scenarioYear": 2033,
+  "purpose": "Troisieme holdout strictement aveugle. Entreprises absentes des 90 observations precedentes; bandes figees le 22 juillet 2026 avant recherche et avant toute sortie pilot.21. Les attentes restent hors du prompt et ne seront pas recalibrees sur cette cohorte.",
+  "companies": [
+    {
+      "ticker": "CME",
+      "company": "CME Group",
+      "industry": "Derivatives Exchanges and Market Infrastructure",
+      "cohort": "regulated_transaction_infrastructure",
+      "status": "provisional",
+      "expected": { "minScore": 80, "maxScore": 100 }
+    },
+    {
+      "ticker": "MA",
+      "company": "Mastercard",
+      "industry": "Payment Networks",
+      "cohort": "regulated_transaction_infrastructure",
+      "status": "provisional",
+      "expected": { "minScore": 70, "maxScore": 79 }
+    },
+    {
+      "ticker": "META",
+      "company": "Meta Platforms",
+      "industry": "Social Platforms and Digital Advertising",
+      "cohort": "digital_platforms",
+      "status": "provisional",
+      "expected": { "minScore": 70, "maxScore": 79 }
+    },
+    {
+      "ticker": "WMT",
+      "company": "Walmart",
+      "industry": "Omnichannel Retail and Logistics",
+      "cohort": "physical_distribution",
+      "status": "provisional",
+      "expected": { "minScore": 70, "maxScore": 79 }
+    },
+    {
+      "ticker": "LMT",
+      "company": "Lockheed Martin",
+      "industry": "Aerospace and Defense",
+      "cohort": "regulated_physical",
+      "status": "provisional",
+      "expected": { "minScore": 70, "maxScore": 79 }
+    },
+    {
+      "ticker": "DHR",
+      "company": "Danaher",
+      "industry": "Life Science and Diagnostic Tools",
+      "cohort": "healthcare_infrastructure",
+      "status": "provisional",
+      "expected": { "minScore": 70, "maxScore": 79 }
+    },
+    {
+      "ticker": "RELX",
+      "company": "RELX",
+      "industry": "Scientific Legal and Risk Information",
+      "cohort": "regulated_information",
+      "status": "provisional",
+      "expected": { "minScore": 70, "maxScore": 79 }
+    },
+    {
+      "ticker": "MAR",
+      "company": "Marriott International",
+      "industry": "Lodging Brands and Distribution",
+      "cohort": "brands_marketplaces",
+      "status": "provisional",
+      "expected": { "minScore": 70, "maxScore": 79 }
+    },
+    {
+      "ticker": "ARM",
+      "company": "Arm Holdings",
+      "industry": "Semiconductor Architecture and IP",
+      "cohort": "semiconductor_hardware",
+      "status": "provisional",
+      "expected": { "minScore": 70, "maxScore": 79 }
+    },
+    {
+      "ticker": "ADP",
+      "company": "Automatic Data Processing",
+      "industry": "Payroll and Human Capital Services",
+      "cohort": "regulated_workflow_services",
+      "status": "provisional",
+      "expected": { "minScore": 70, "maxScore": 79 }
+    },
+    {
+      "ticker": "ABBV",
+      "company": "AbbVie",
+      "industry": "Biopharmaceuticals",
+      "cohort": "pharma_healthcare",
+      "status": "provisional",
+      "expected": { "minScore": 50, "maxScore": 69 }
+    },
+    {
+      "ticker": "JPM",
+      "company": "JPMorgan Chase",
+      "industry": "Diversified Banking",
+      "cohort": "regulated_financial_services",
+      "status": "provisional",
+      "expected": { "minScore": 50, "maxScore": 69 }
+    },
+    {
+      "ticker": "UNH",
+      "company": "UnitedHealth Group",
+      "industry": "Managed Care and Health Services",
+      "cohort": "regulated_services",
+      "status": "provisional",
+      "expected": { "minScore": 50, "maxScore": 69 }
+    },
+    {
+      "ticker": "PEP",
+      "company": "PepsiCo",
+      "industry": "Beverages and Packaged Foods",
+      "cohort": "brands_consumer",
+      "status": "provisional",
+      "expected": { "minScore": 50, "maxScore": 69 }
+    },
+    {
+      "ticker": "RBLX",
+      "company": "Roblox",
+      "industry": "Interactive Entertainment Platform",
+      "cohort": "digital_platforms",
+      "status": "provisional",
+      "expected": { "minScore": 50, "maxScore": 69 }
+    },
+    {
+      "ticker": "EBAY",
+      "company": "eBay",
+      "industry": "Online Marketplace",
+      "cohort": "brands_marketplaces",
+      "status": "provisional",
+      "expected": { "minScore": 36, "maxScore": 49 }
+    },
+    {
+      "ticker": "ETSY",
+      "company": "Etsy",
+      "industry": "Online Marketplace",
+      "cohort": "brands_marketplaces",
+      "status": "provisional",
+      "expected": { "minScore": 36, "maxScore": 49 }
+    },
+    {
+      "ticker": "HUBS",
+      "company": "HubSpot",
+      "industry": "Customer Relationship Management Software",
+      "cohort": "replaceable_workflow_software",
+      "status": "provisional",
+      "expected": { "minScore": 36, "maxScore": 49 }
+    },
+    {
+      "ticker": "TWLO",
+      "company": "Twilio",
+      "industry": "Cloud Communications Software",
+      "cohort": "replaceable_workflow_software",
+      "status": "provisional",
+      "expected": { "minScore": 0, "maxScore": 35 }
+    },
+    {
+      "ticker": "DBX",
+      "company": "Dropbox",
+      "industry": "Cloud Content and Collaboration Software",
+      "cohort": "replaceable_workflow_software",
+      "status": "provisional",
+      "expected": { "minScore": 0, "maxScore": 35 }
+    }
+  ]
+}
