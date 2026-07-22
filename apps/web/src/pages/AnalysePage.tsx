@@ -17,6 +17,7 @@ import { TickerSearch } from '../components/TickerSearch.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
 import { PriceChart } from '../components/ui/charts.js';
 import { AnalysisHeader, ResilienceGrid } from '../components/ResilienceAnalysis.js';
+import { ResilienceBadge } from '../components/ResilienceBadge.js';
 import SeoHead from '../components/SeoHead.js';
 import './AnalysePage.css';
 
@@ -606,7 +607,10 @@ function LandingDiscovery({ onPick }: { onPick: (ticker: string) => void }) {
                       <span className="anl-landing-name">{p.name ?? p.ticker}</span>
                       <span className="num anl-landing-ticker">{p.ticker}</span>
                     </div>
-                    <ScorePill score={s} />
+                    <div className="row gap-6" style={{ alignItems: 'center', flexShrink: 0 }}>
+                      <ScorePill score={s} />
+                      {p.resilience && <ResilienceBadge summary={p.resilience} showScore size="sm" />}
+                    </div>
                   </div>
                   {p.pfcfTTM != null && p.pfcfTTM > 0 && (
                     <div className="row between anl-landing-foot">
