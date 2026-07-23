@@ -25,6 +25,22 @@
 .article-ul { margin: 0 0 1.1rem; padding-left: 1.25rem; }
 .article-ul li { margin-bottom: 0.5rem; }
 
+/* Liens dans le corps de l'article (markdown [texte](/url) rendu en <a>/<Link>).
+   Sans cette regle, ils heritaient de la couleur du texte, sans soulignement :
+   cliquables mais invisibles pour le lecteur (signale par Lubin le 2026-07-23). */
+.article-p a,
+.article-ul a,
+.article-faq-item p a {
+  color: var(--brand, #6366f1);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-p a:hover,
+.article-ul a:hover,
+.article-faq-item p a:hover {
+  text-decoration: none;
+}
+
 .article-faq { margin-top: 2.5rem; }
 .article-faq-item { border-top: 1px solid rgba(128, 128, 128, 0.2); padding: 0.9rem 0; }
 .article-faq-item summary { cursor: pointer; font-weight: 600; font-size: 1.05rem; }
