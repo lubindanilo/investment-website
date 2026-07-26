@@ -232,7 +232,10 @@ async function computeAnnualRatio(symbol: string, ratio: RatioMetricKey, years: 
 export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, years: number): Promise<RatioTimeseriesResult> {
   const unit = RATIO_UNIT[ratio];
   const resolved = await resolveYahooTicker(ticker).catch(() => null);
-  const isEuTicker = !!resolved && resolved.symbol !== ticker;
+  // Détection EU par DEVISE (≠ USD) et non « symbol ≠ ticker » : un ticker déjà suffixé
+  // (AF.PA, MC.PA…) résout vers lui-même → l'ancien test le classait à tort en US → Finnhub SEC
+  // renvoyait des ratios faux. Aligné sur pfcfHistory / cashRoceHistory / cccHistory / timeseries.
+  const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
     const points = await computeAnnualRatio(resolved.symbol, ratio, years);
