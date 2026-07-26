@@ -20,6 +20,7 @@ import { z } from 'zod';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { getReportedTimeseries, METRICS, type MetricKey } from '../services/finnhubFundamentals.js';
 import { getYahooMetricTimeseries } from '../services/yahoo.js';
+import { normalizeShareScale } from '../services/yahooSplits.js';
 import { getYahooAnnualSingleCached } from '../services/yahooAnnualStore.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { getNextEarningsDate, ttlUntilNextEarnings } from '../services/earnings.js';
@@ -217,6 +218,11 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
       }
     }
   }
+
+  // Normalisation d'échelle du nombre d'actions (÷1000/×1e6 intermittents des sources) : couvre
+  // les chemins Yahoo (EU/ADR annuel + quarterly). Le chemin US Finnhub est déjà normalisé en amont
+  // (getReportedTimeseries → splitAdjustIfNeeded) → ré-application idempotente. Cf. normalizeShareScale.
+  if (metric === 'shares') points = normalizeShareScale(points);
 
   // euAnnualOnly masque les boutons de période (UI) : réservé aux EU, 100 % annuels.
   // Pour un ADR on garde les boutons — 1Y reste trimestriel ; la granularité réelle de
