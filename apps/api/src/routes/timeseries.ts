@@ -119,7 +119,13 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // Optimisation : on tape le cache de resolveYahooTicker (24h) — pas un nouvel appel
   // sauf si premier hit pour ce ticker.
   const resolved = await resolveYahooTicker(ticker).catch(() => null);
-  const isEuTicker = !!resolved && resolved.symbol !== ticker;
+  // EU / non-US = listing dont la devise n'est pas l'USD. On se base sur la DEVISE et non sur
+  // « symbol ≠ ticker » : un ticker déjà suffixé (AF.PA, MC.PA, SAP.DE…) résout vers lui-même,
+  // donc l'ancien test le classait à tort en US → on tapait Finnhub /financials-reported (SEC)
+  // qui n'a aucun filing cohérent pour une société non-US et renvoyait des share counts aberrants
+  // (AF.PA : pics 1,8 Md / 6 M mélangeant pré/post regroupement 10:1 du 31/08/2023). Yahoo annual
+  // est propre et déjà ajusté des splits. Les ADR US (NSRGY, ASML…) restent en USD → chemin US.
+  const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   // Pour les tickers EU, Yahoo n'expose QUE l'annuel (4 ans max) — pas de quarterly.
   // On override le freq demandé par le client pour ne pas servir des séries vides.
