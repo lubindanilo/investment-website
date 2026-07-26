@@ -231,6 +231,86 @@ export function splitAdjustWithDiscontinuity(
   return sorted;
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+// Normalisation d'ÉCHELLE du nombre d'actions
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// Problème résolu :
+//   Finnhub /financials-reported, EDGAR et Yahoo reportent le share count dans des unités
+//   INCOHÉRENTES au sein d'une MÊME série : parfois en unités directes (289 000 000), parfois
+//   en milliers (289 000 = ÷1000), parfois en millions (720 = ÷1e6), et un ancien pansement
+//   ×1e6 pouvait produire des pics ×1e6 (327 000 → 327 Md). Le champ `unit` de la source ne
+//   le signale JAMAIS (NTNX : 241 490 000 et 288 829 tous deux tagués `u_shares`).
+//
+//   Impact : le graphe « Actions diluées » et le CRITÈRE DE SCORING « dilution » (qui lisent
+//   la même série) deviennent faux — ex NTNX voit son nombre d'actions « chuter » de 241M à
+//   290K → faux signal de rachat massif. ~600 tickers touchés (audit juillet 2026).
+//
+// Principe :
+//   La seule info fiable est la COHÉRENCE INTERNE : le nombre d'actions d'une société ne varie
+//   jamais d'un facteur ~1000 d'une période à l'autre. On prend comme référence la médiane des
+//   valeurs tombant dans la plage plausible d'une cotée [1e6, 5e11], puis on ramène tout point
+//   qui en dévie d'un facteur ≥ SEUIL vers la magnitude de la référence (facteur 1000^k). Le
+//   seuil (100) est supérieur au plus gros split réaliste (50:1) et à toute dilution/levée de
+//   capital réelle → on ne corrige QUE le bug d'échelle, jamais un vrai mouvement d'actions.
+
+/** Plage plausible d'un nombre d'actions de société cotée (bornes larges). */
+const SHARE_PLAUSIBLE_LO = 1e6;
+const SHARE_PLAUSIBLE_HI = 5e11;
+/** Facteur de déviation à la référence au-delà duquel c'est un bug d'échelle (jamais un split). */
+const SHARE_SCALE_THRESHOLD = 100;
+
+function medianOf(sortedOrNot: number[]): number {
+  const s = [...sortedOrNot].sort((a, b) => a - b);
+  return s[s.length >> 1] ?? 0;
+}
+
+/**
+ * Renvoie les valeurs de share count avec l'échelle normalisée (même longueur, même ordre).
+ * Idempotent : ré-appliquer ne change rien. Les valeurs ≤ 0 sont laissées telles quelles.
+ * Exporté pour tests unitaires.
+ */
+export function normalizeShareValues(values: number[]): number[] {
+  if (values.length < 3) return values;
+  const positives = values.filter(v => v > 0);
+  if (positives.length < 3) return values;
+
+  const plausible = positives.filter(v => v >= SHARE_PLAUSIBLE_LO && v <= SHARE_PLAUSIBLE_HI);
+  if (plausible.length > 0) {
+    // Cas dominant : au moins un point est à la bonne échelle → il ancre la référence, et on
+    // corrige les points incohérents (÷1000, ×1000, pic ×1e6) vers cette magnitude.
+    const ref = medianOf(plausible);
+    if (!(ref > 0)) return values;
+    return values.map(v => {
+      if (v <= 0) return v;
+      const ratio = v > ref ? v / ref : ref / v;
+      if (ratio < SHARE_SCALE_THRESHOLD) return v;
+      const k = Math.round(Math.log(ref / v) / Math.log(1000));
+      return k === 0 ? v : v * Math.pow(1000, k);
+    });
+  }
+
+  // Aucun point plausible : toute la série est hors [1e6, 5e11].
+  const ref = medianOf(positives);
+  // Série entièrement « en millions » (ex MCD : 715 = 715M) : aucune cotée n'a moins de 10 000
+  // actions, donc une référence < 1e4 signifie une échelle ÷1e6 uniforme → on rescale tout.
+  // Au-dessus (classe-A à faible flottant type Biglari 206K, Lotus 811K), on ne touche à rien :
+  // c'est une vraie petite base d'actions, cohérente entre elle.
+  if (ref > 0 && ref < 1e4) return values.map(v => (v > 0 ? v * 1e6 : v));
+  return values;
+}
+
+/**
+ * Applique normalizeShareValues à une série de points {date, value}. Filtre au passage les
+ * valeurs ≤ 0 (un share count nul = bruit de parsing, jamais légitime pour une cotée).
+ */
+export function normalizeShareScale(points: { date: string; value: number }[]): { date: string; value: number }[] {
+  const kept = points.filter(p => p.value > 0);
+  if (kept.length < 3) return kept;
+  const norm = normalizeShareValues(kept.map(p => p.value));
+  return kept.map((p, i) => ({ date: p.date, value: norm[i]! }));
+}
+
 /** Helper pour les tests : permet de vider le cache entre cas. */
 export function _resetSplitsCache(): void {
   splitsCache.clear();

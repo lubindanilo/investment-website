@@ -15,7 +15,7 @@
  */
 import type { EarningsInfo, EarningsResult, DividendInfo, DividendPayment } from '@lubin/shared';
 import { yahooLimiter } from '../lib/limiter.js';
-import { fetchSplitEvents, cumulativeSplitFactor } from './yahooSplits.js';
+import { fetchSplitEvents, cumulativeSplitFactor, normalizeShareValues } from './yahooSplits.js';
 
 const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
 const CHART_BASE = 'https://query1.finance.yahoo.com/v8/finance/chart';
@@ -204,8 +204,13 @@ export async function getSharesHistory(ticker: string): Promise<SharesHistoryPoi
       const diluted = extractSeries(data, 'annualDilutedAverageShares');
       const ordinary = extractSeries(data, 'annualOrdinarySharesNumber');
       const fcfSeries = extractSeries(data, 'annualFreeCashFlow');
-      const series = diluted.length >= 2 ? diluted : ordinary;
+      const rawSeries = diluted.length >= 2 ? diluted : ordinary;
       const source = diluted.length >= 2 ? 'diluted' : 'ordinary';
+      // Normalise l'échelle du share count (÷1000/×1e6 intermittents de Yahoo, ex ENOG.L, THEON.AS)
+      // AVANT tout calcul de CAGR de dilution / FCF-par-action — sinon un point ÷1000 fausse le
+      // critère de scoring « dilution ». Cf. normalizeShareValues (préserve ordre et longueur).
+      const normVals = normalizeShareValues(rawSeries.map(s => s.value));
+      const series = rawSeries.map((s, i) => ({ ...s, value: normVals[i]! }));
 
       if (series.length < 2) {
         console.log(`[yahoo ${ticker}] < 2 points (diluted=${diluted.length}, ordinary=${ordinary.length}) — fallback Finnhub`);

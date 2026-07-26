@@ -3,7 +3,7 @@
  * On NE teste PAS fetchSplitEvents (réseau externe Yahoo) — c'est best-effort.
  */
 import { describe, it, expect } from 'vitest';
-import { cumulativeSplitFactor, adjustForSplits, splitAdjustWithDiscontinuity, type SplitEvent } from './yahooSplits.js';
+import { cumulativeSplitFactor, adjustForSplits, splitAdjustWithDiscontinuity, normalizeShareValues, normalizeShareScale, type SplitEvent } from './yahooSplits.js';
 
 /** Construit un SplitEvent minimaliste pour les tests. */
 function split(dateIso: string, num: number, den: number): SplitEvent {
@@ -167,5 +167,74 @@ describe('splitAdjustWithDiscontinuity — algo pour sources qui restate (Finnhu
     const adjusted = splitAdjustWithDiscontinuity(points, splits);
     // Tous les ts > split.ts → cumulativeSplitFactor = 1 → pas d'ajustement
     expect(adjusted).toEqual(points);
+  });
+});
+
+describe('normalizeShareValues — bug d\'échelle du nombre d\'actions (÷1000 / ×1e6 intermittents)', () => {
+  it('rattrape les points ÷1000 même quand ils sont MAJORITAIRES (cas NTNX réel)', () => {
+    // Finnhub renvoie 241M correct puis ÷1000 sur tous les trimestres suivants. La médiane brute
+    // serait fausse (majorité ÷1000) → on ancre sur la médiane des valeurs PLAUSIBLES (≥1e6).
+    const out = normalizeShareValues([241_490_000, 288_829, 291_086, 293_000, 296_518, 292_000]);
+    expect(out[0]).toBe(241_490_000);       // point correct intact
+    expect(out[1]).toBe(288_829_000);       // 289K → 289M
+    expect(out[5]).toBe(292_000_000);       // 292K → 292M
+    for (const v of out) { expect(v).toBeGreaterThan(2e8); expect(v).toBeLessThan(3.1e8); }
+  });
+
+  it('rabaisse un pic ×1000 vers le haut (cas TBLA 327 Md, séquelle de l\'ancien pansement ×1e6)', () => {
+    const out = normalizeShareValues([344_000_000, 344_000_000, 342_000_000, 327_580_000_000, 319_000_000, 289_000_000]);
+    expect(out[3]).toBe(327_580_000);       // 327 Md → 327M
+    for (const v of out) expect(v).toBeLessThan(4e8);
+  });
+
+  it('NE touche PAS un vrai split 50:1 non ajusté (CMG) — le seuil 100 le protège', () => {
+    const vals = [28_000_000, 28_000_000, 28_000_000, 1_400_000_000, 1_400_000_000, 1_400_000_000];
+    expect(normalizeShareValues(vals)).toEqual(vals);
+  });
+
+  it('NE touche PAS une société classe-A à faible flottant (Biglari ~250-312K, cohérente)', () => {
+    const vals = [258_000, 290_000, 312_000, 305_000];
+    expect(normalizeShareValues(vals)).toEqual(vals);
+  });
+
+  it('rescale une série ENTIÈREMENT en millions (cas MCD : 715 = 715M)', () => {
+    expect(normalizeShareValues([715, 718, 720, 712])).toEqual([715e6, 718e6, 720e6, 712e6]);
+  });
+
+  it('NE touche PAS une vraie dilution forte (×4 sur la période)', () => {
+    const vals = [10_000_000, 15_000_000, 25_000_000, 40_000_000];
+    expect(normalizeShareValues(vals)).toEqual(vals);
+  });
+
+  it('est idempotent (ré-appliquer ne change rien)', () => {
+    const once = normalizeShareValues([241_490_000, 288_829, 291_086, 293_000, 296_518, 292_000]);
+    expect(normalizeShareValues(once)).toEqual(once);
+  });
+
+  it('laisse les séries trop courtes (< 3 points) telles quelles', () => {
+    expect(normalizeShareValues([100, 200])).toEqual([100, 200]);
+  });
+});
+
+describe('normalizeShareScale — wrapper points {date, value}', () => {
+  it('filtre les valeurs ≤ 0 (share count nul = bruit de parsing)', () => {
+    const out = normalizeShareScale([
+      { date: '2020-12-31', value: 0 },
+      { date: '2021-12-31', value: 290_000_000 },
+      { date: '2022-12-31', value: 291_000_000 },
+      { date: '2023-12-31', value: 292_000_000 },
+    ]);
+    expect(out).toHaveLength(3);
+    expect(out.every(p => p.value > 0)).toBe(true);
+  });
+
+  it('préserve les dates en corrigeant l\'échelle', () => {
+    const out = normalizeShareScale([
+      { date: '2023-12-31', value: 241_490_000 },
+      { date: '2024-12-31', value: 288_829 },
+      { date: '2025-12-31', value: 291_086 },
+    ]);
+    expect(out.map(p => p.date)).toEqual(['2023-12-31', '2024-12-31', '2025-12-31']);
+    expect(out[1]!.value).toBe(288_829_000);
   });
 });

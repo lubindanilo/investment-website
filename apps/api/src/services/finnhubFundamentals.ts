@@ -11,7 +11,7 @@
 import { finnhubLimiter } from '../lib/limiter.js';
 import { fetchWithRetry } from '../lib/retry.js';
 import type { TimeseriesPoint } from '@lubin/shared';
-import { fetchSplitEvents, splitAdjustWithDiscontinuity, type SplitEvent } from './yahooSplits.js';
+import { fetchSplitEvents, splitAdjustWithDiscontinuity, normalizeShareScale, type SplitEvent } from './yahooSplits.js';
 import { getEdgarQuarterlySeries } from './secEdgar.js';
 import { readSeries, isFresh, appendMergePersist } from './fundamentalsStore.js';
 
@@ -712,12 +712,10 @@ export async function getReportedTimeseries(
       let value = extractValue(f, cfg);
       if (value == null) return null;
       if (dropZero && value === 0) return null;
-      // Normalisation d'échelle SHARES : Finnhub a un bug de parsing intermittent qui
-      // renvoie les valeurs en MILLIONS d'actions au lieu d'unités directes (cas MCD 2024+ :
-      // 720 au lieu de 720_000_000, mélangé avec des points antérieurs en unités directes).
-      // On rescale toute valeur < 10M qui est manifestement aberrante (jamais une société cotée
-      // n'a moins de 10M d'actions en circulation).
-      if (metric === 'shares' && value > 0 && value < 1e7) value *= 1e6;
+      // NB : la normalisation d'échelle des shares (÷1000/×1e6 intermittents de Finnhub) n'est PAS
+      // faite ici mais À LA LECTURE via normalizeShareScale (splitAdjustIfNeeded). On stocke donc la
+      // valeur BRUTE : un rescale point-par-point à l'ingestion était faux (facteur ×1e6 fixe alors
+      // que le bug dominant est ÷1000) et cassait la médiane de référence en amont.
       return { date: f.endDate.slice(0, 10), value, year: f.year, quarter: f.quarter };
     })
     .filter((x): x is Raw => x !== null)
@@ -1626,8 +1624,12 @@ async function splitAdjustIfNeeded(
 ): Promise<TimeseriesPoint[]> {
   if (metric !== 'shares' || points.length === 0) return points;
   const splits = REPLAY ? REPLAY.splits(ticker) : await fetchSplitEvents(ticker);
-  if (splits.length === 0) return points;
-  return splitAdjustWithDiscontinuity(points, splits);
+  const adjusted = splits.length === 0 ? points : splitAdjustWithDiscontinuity(points, splits);
+  // Normalisation d'échelle APRÈS le split-adjust : la série est alors en base courante cohérente,
+  // ce qui rend la médiane de référence fiable pour rattraper les points ÷1000/×1e6 de la source
+  // (Finnhub reporte des unités incohérentes, cf. normalizeShareScale). Corrige aussi le legacy figé
+  // dans le store (append-only) sans réécriture. Ordre voulu : split d'abord, échelle ensuite.
+  return normalizeShareScale(adjusted);
 }
 
 function extractAndPack(filings: FinnhubFiling[], cfg: MetricConfig): TimeseriesPoint[] {
