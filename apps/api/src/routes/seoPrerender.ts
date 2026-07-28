@@ -761,6 +761,29 @@ function renderArticleHtml(article: Article, lang: ArticleLang): string {
 
   const faqHtml = c.faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${renderInline(f.a)}</p>`).join('\n');
 
+  // Maillage interne VISIBLE PAR LES BOTS (2026-07-28) : le SPA a une section « À lire aussi »,
+  // mais elle n'était PAS dans le HTML pré-rendu servi aux crawlers → aucun lien inter-articles
+  // pour Google. On rend ici 3 articles liés (score = ticker commun + tags partagés) en <a> réels,
+  // avec la langue propagée (?lng=). Bidirectionnel automatiquement (un nouvel article devient lié
+  // depuis les anciens dès sa publication).
+  const refTagsRel = new Set((c.tags || []).map((t) => t.toLowerCase()));
+  const lqRel = lang === 'fr' ? '' : `?lng=${lang}`;
+  const relatedList = listArticles()
+    .filter((a) => a.slug !== article.slug)
+    .map((a) => {
+      const rc = a.content[lang] || a.content.fr;
+      const shared = (rc.tags || []).filter((t) => refTagsRel.has(t.toLowerCase())).length;
+      const sameTicker = a.ticker && article.ticker && a.ticker.toUpperCase() === article.ticker.toUpperCase() ? 3 : 0;
+      return { a, rc, score: sameTicker + shared };
+    })
+    .filter((x) => x.score > 0)
+    .sort((x, y) => (y.score - x.score) || (x.a.date < y.a.date ? 1 : -1))
+    .slice(0, 3);
+  const relatedHeading = lang === 'en' ? 'Related reading' : lang === 'es' ? 'Lecturas relacionadas' : 'À lire aussi';
+  const relatedHtml = relatedList.length > 0
+    ? `<h2>${relatedHeading}</h2>\n<ul>\n${relatedList.map(({ a, rc }) => `<li><a href="${SITE_URL}/blog/${encodeURIComponent(a.slug)}${lqRel}">${escapeHtml(rc.title)}</a></li>`).join('\n')}\n</ul>`
+    : '';
+
   const articleLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -857,6 +880,7 @@ ${ctaHtml}
 ${bodyHtml}
 <h2>FAQ</h2>
 ${faqHtml}
+${relatedHtml}
 ${ctaHtml}
 <h2>${lang === 'en' ? 'About the author' : lang === 'es' ? 'Sobre el autor' : "À propos de l'auteur"}</h2>
 <p>${escapeHtml(AUTHOR_BIO[lang])}</p>
