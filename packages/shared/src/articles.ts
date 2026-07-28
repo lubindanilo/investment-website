@@ -78437,14 +78437,17 @@ export function getRelatedArticles(slug: string, lang: ArticleLang, limit = 3): 
   const ref = getArticleBySlug(slug);
   if (!ref) return [];
   const refTags = new Set(ref.content[lang].tags.map((t) => t.toLowerCase()));
-  if (refTags.size === 0) return [];
+  const refTicker = ref.ticker ? ref.ticker.toUpperCase() : null;
+  // Score = ticker commun (fort, +3) + tags partagés (+1 chacun). Maillage plus dense et
+  // pertinent qu'un simple recoupement de tags (2026-07-28).
   return ARTICLES.filter((a) => a.slug !== slug)
-    .map((a) => ({
-      article: a,
-      shared: a.content[lang].tags.filter((t) => refTags.has(t.toLowerCase())).length,
-    }))
-    .filter((x) => x.shared > 0)
-    .sort((x, y) => (y.shared - x.shared) || (x.article.date < y.article.date ? 1 : -1))
+    .map((a) => {
+      const sameTicker = refTicker && a.ticker && a.ticker.toUpperCase() === refTicker ? 3 : 0;
+      const shared = a.content[lang].tags.filter((t) => refTags.has(t.toLowerCase())).length;
+      return { article: a, score: sameTicker + shared };
+    })
+    .filter((x) => x.score > 0)
+    .sort((x, y) => (y.score - x.score) || (x.article.date < y.article.date ? 1 : -1))
     .slice(0, limit)
     .map((x) => x.article);
 }
