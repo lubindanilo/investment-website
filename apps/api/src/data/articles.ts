@@ -78167,7 +78167,7 @@ const articleOwnerEarnings: Article = {
   readingTime: 8,
   content: {
     fr: {
-      title: "Le bénéfice du propriétaire : la mesure préférée de Warren Buffett",
+      title: "Le bénéfice du propriétaire : la mesure préférée de Buffett",
       excerpt: "Warren Buffett ne se fie ni au bénéfice comptable ni au free cash flow classique pour juger une entreprise : il calcule ce qu'il appelle le bénéfice du propriétaire. Une mesure méconnue, plus juste que les deux autres pour savoir ce qu'une entreprise peut vraiment redistribuer, avec un exemple chiffré réel.",
       metaDescription: "Le bénéfice du propriétaire de Warren Buffett expliqué simplement : la formule, pourquoi elle diffère du free cash flow, avec un exemple chiffré réel.",
       answer: "Le bénéfice du propriétaire (owner's earnings), défini par Warren Buffett en 1986, se calcule ainsi : bénéfice net + amortissements et charges non monétaires, moins les seules dépenses d'investissement NÉCESSAIRES pour maintenir la position concurrentielle et les volumes de l'entreprise (pas la totalité des investissements, qui incluent souvent de la croissance).",
