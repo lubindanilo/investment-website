@@ -78643,7 +78643,7 @@ const articleCopart2026: Article = {
     fr: {
       title: "Faut-il acheter l'action Copart (CPRT) en 2026 ?",
       excerpt: "Copart valide 8 critères sur 10 dans mon filtre qualité, avec un signal rare : mon modèle indique une décote de plus de 100 %. Mais le nombre de véhicules qui lui arrivent via les assureurs recule. Voici comment je lis cette tension.",
-      metaDescription: "Copart (CPRT) analysée en 2026 : quasi aucune dette, P/FCF au plus bas de son historique, mais un flux de véhicules assureurs en repli. Mon verdict sur le prix.",
+      metaDescription: "Copart (CPRT) analysée en 2026 : quasi aucune dette, valorisation proche du plus bas de son historique. Mon verdict sur le prix.",
       answer: "Copart valide 8 critères sur 10 dans mon filtre qualité et affiche un signal rare : mon modèle de prix d'achat raisonnable pointe vers une décote de plus de 100 % par rapport au cours actuel. L'entreprise domine les enchères en ligne de véhicules accidentés, mais fait face à un paradoxe : la fréquence de perte totale grimpe, tandis que le nombre de véhicules qui lui arrivent via les assureurs américains recule. Voici comment je tranche.",
       body: [
         { type: 'h2', text: "Ce que fait Copart, et pourquoi c'est un métier étrange à première vue" },
@@ -78679,7 +78679,7 @@ const articleCopart2026: Article = {
     en: {
       title: "Should you buy Copart (CPRT) stock in 2026?",
       excerpt: "Copart passes 8 out of 10 criteria in my quality screen, with a rare signal: my model points to a discount of more than 100%. But the flow of vehicles it receives from insurers is declining. Here is how I read this tension.",
-      metaDescription: "Copart (CPRT) analyzed in 2026: near-zero debt, P/FCF at the low end of its own history, but a declining insurer vehicle flow. My verdict on the price.",
+      metaDescription: "Copart (CPRT) analyzed in 2026: near-zero debt, valuation near the low end of its own history, but a declining insurer vehicle flow. My verdict on the price.",
       answer: "Copart passes 8 out of 10 criteria in my quality screen and shows a rare signal: my reasonable buy-price model points to a discount of more than 100% versus the current price. The company dominates online salvage vehicle auctions, but faces a paradox: total-loss frequency is rising while the number of vehicles it receives from US insurers is declining. Here is how I settle it.",
       body: [
         { type: 'h2', text: "What Copart does, and why it looks like a strange business at first" },
@@ -78715,7 +78715,7 @@ const articleCopart2026: Article = {
     es: {
       title: "¿Hay que comprar acciones de Copart (CPRT) en 2026?",
       excerpt: "Copart valida 8 de 10 criterios en mi filtro de calidad, con una señal rara: mi modelo indica un descuento de más del 100 %. Pero el flujo de vehículos que recibe de las aseguradoras está cayendo. Así interpreto esta tensión.",
-      metaDescription: "Copart (CPRT) analizada en 2026: deuda casi nula, P/FCF en la parte baja de su historia, pero un flujo de vehículos de aseguradoras a la baja. Mi veredicto sobre el precio.",
+      metaDescription: "Copart (CPRT) analizada en 2026: deuda casi nula, valoración cerca del nivel más bajo de su historia, pero un flujo de vehículos de aseguradoras a la baja.",
       answer: "Copart valida 8 de 10 criterios en mi filtro de calidad y muestra una señal rara: mi modelo de precio de compra razonable apunta a un descuento de más del 100 % frente al precio actual. La empresa domina las subastas online de vehículos siniestrados, pero enfrenta una paradoja: la frecuencia de pérdida total aumenta mientras el número de vehículos que recibe de las aseguradoras estadounidenses cae. Así lo resuelvo.",
       body: [
         { type: 'h2', text: "Qué hace Copart, y por qué parece un negocio extraño a primera vista" },
@@ -78761,8 +78761,8 @@ const articleChubb2026: Article = {
   content: {
     fr: {
       title: "Faut-il acheter l'action Chubb (CB) en 2026 ?",
-      excerpt: "Chubb valide 9 critères sur 10 dans mon filtre qualité, à un P/FCF de seulement 9,4 fois. Mais mon modèle la juge surcotée de 38,8 %. Comment un multiple aussi bas peut-il être jugé cher ? Voici le mécanisme d'assurance qui explique ce paradoxe.",
-      metaDescription: "Chubb (CB) analysée en 2026 : assureur mondial noté 9/10, sous-évaluée en apparence à 9,4 fois le free cash flow. Mon verdict complet sur le prix.",
+      excerpt: "Chubb valide la quasi-totalité de mes critères qualité, à un prix qui semble bon marché sur son cash flow. Mais mon modèle la juge surcotée de 38,8 %. Comment un multiple aussi bas peut-il être jugé cher ? Voici le mécanisme d'assurance qui explique ce paradoxe.",
+      metaDescription: "Chubb (CB) analysée en 2026 : assureur mondial de grande qualité, sous-évaluée en apparence sur son cash flow. Mon verdict complet sur le prix.",
       answer: "Chubb valide 9 critères sur 10 dans mon filtre qualité, avec un ratio combiné de 83,8 % (l'assureur encaisse plus de primes qu'il ne paie de sinistres et de frais) et un P/FCF de seulement 9,4 fois qui semble bon marché en absolu. Mais mon modèle, qui tient compte de la trajectoire réelle de cash, la juge surcotée d'environ 39 %. Voici pourquoi un multiple aussi bas peut quand même signaler un prix trop élevé.",
       body: [
         { type: 'h2', text: "Ce qui vient de tomber : un trimestre technique solide" },
@@ -78795,8 +78795,8 @@ const articleChubb2026: Article = {
     },
     en: {
       title: "Should you buy Chubb (CB) stock in 2026?",
-      excerpt: "Chubb passes 9 out of 10 criteria in my quality screen, at a P/FCF of just 9.4 times. But my model judges it overvalued by 38.8%. How can such a low multiple still be judged expensive? Here is the insurance mechanic behind this paradox.",
-      metaDescription: "Chubb (CB) analyzed in 2026: global insurer rated 9/10, seemingly cheap at 9.4 times free cash flow. My full verdict on the price.",
+      excerpt: "Chubb passes nearly all criteria in my quality screen, at a price that looks cheap versus its cash flow. But my model judges it overvalued by 38.8%. How can such a low multiple still be judged expensive? Here is the insurance mechanic behind this paradox.",
+      metaDescription: "Chubb (CB) analyzed in 2026: high-quality global insurer, seemingly cheap versus its cash flow. My full verdict on the price.",
       answer: "Chubb passes 9 out of 10 criteria in my quality screen, with an 83.8% combined ratio (the insurer collects more in premiums than it pays out in claims and expenses) and a P/FCF of just 9.4 times that looks cheap in absolute terms. But my model, which accounts for the actual cash trajectory, judges it overvalued by about 39%. Here is why such a low multiple can still signal too high a price.",
       body: [
         { type: 'h2', text: "What just happened: a strong technical quarter" },
@@ -78829,8 +78829,8 @@ const articleChubb2026: Article = {
     },
     es: {
       title: "¿Hay que comprar acciones de Chubb (CB) en 2026?",
-      excerpt: "Chubb valida 9 de 10 criterios en mi filtro de calidad, a un P/FCF de solo 9,4 veces. Pero mi modelo la considera sobrevalorada un 38,8 %. ¿Cómo puede un múltiplo tan bajo considerarse caro? Este es el mecanismo asegurador que explica la paradoja.",
-      metaDescription: "Chubb (CB) analizada en 2026: aseguradora global calificada 9/10, aparentemente barata a 9,4 veces el flujo de caja libre. Mi veredicto completo sobre el precio.",
+      excerpt: "Chubb valida casi todos los criterios en mi filtro de calidad, a un precio que parece barato frente a su flujo de caja. Pero mi modelo la considera sobrevalorada un 38,8 %. ¿Cómo puede un múltiplo tan bajo considerarse caro? Este es el mecanismo asegurador que explica la paradoja.",
+      metaDescription: "Chubb (CB) analizada en 2026: aseguradora global de gran calidad, aparentemente barata frente a su flujo de caja. Mi veredicto sobre el precio.",
       answer: "Chubb valida 9 de 10 criterios en mi filtro de calidad, con un ratio combinado del 83,8 % (la aseguradora cobra más en primas de lo que paga en siniestros y gastos) y un P/FCF de solo 9,4 veces que parece barato en términos absolutos. Pero mi modelo, que tiene en cuenta la trayectoria real de caja, la considera sobrevalorada en torno a un 39 %. Te explico por qué un múltiplo tan bajo puede seguir señalando un precio demasiado alto.",
       body: [
         { type: 'h2', text: "Lo que acaba de ocurrir: un trimestre técnico sólido" },
