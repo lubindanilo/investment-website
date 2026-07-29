@@ -52,8 +52,14 @@ const SUFFIX_TO_SEG: Record<string, string> = {
   '.HK': 'hkg',  // Hong Kong
   '.AX': 'asx',  // Australia
   '.TO': 'tse',  // Toronto
-  '.SS': 'shh',  // Shanghai
-  '.SZ': 'shz',  // Shenzhen
+  '.SS': 'sha',  // Shanghai (⚠ slug 'sha', pas 'shh' — 'shh' renvoie 404)
+  '.SZ': 'she',  // Shenzhen (⚠ slug 'she', pas 'shz' — 'shz' renvoie 404)
+  '.KS': 'krx',  // Corée · Séoul
+  '.TW': 'tpe',  // Taïwan
+  '.NS': 'nse',  // Inde · NSE
+  '.JK': 'idx',  // Indonésie
+  '.BK': 'bkk',  // Thaïlande
+  '.SI': 'sgx',  // Singapour (mainboard ; Catalist 'sgxc' non couvert)
 };
 
 // Tickers qui ont une cotation US directe (NYSE/NASDAQ) : on préfère /stocks/{ticker}/
