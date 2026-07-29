@@ -78971,7 +78971,1720 @@ const articleDetteEbitdaFcf: Article = {
 };
 
 
-export const ARTICLES: Article[] = [articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articlePepsiCo, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleSBUXPre, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articleMSPre, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan];
+const articleMSFTQ4Post: Article = {
+  "slug": "microsoft-msft-resultats-t4-fy2026-verdict",
+  "date": "2026-07-29",
+  "updated": "2026-07-29",
+  "readingTime": 8,
+  "ticker": "MSFT",
+  "content": {
+    "fr": {
+      "title": "Microsoft (MSFT) : résultats T4 2026, mon verdict",
+      "excerpt": "Microsoft publie un trimestre record porté par Azure, mais son propre cash généré stagne sous le poids d'une dépense en intelligence artificielle jamais vue. Voici comment je lis ces résultats, entre qualité et prix.",
+      "metaDescription": "Microsoft (MSFT) : résultats du 4e trimestre fiscal 2026 analysés. Chiffre d'affaires, Azure, dépenses en IA et mon verdict sur le prix de l'action.",
+      "answer": "Microsoft a publié le 29 juillet 2026 un chiffre d'affaires de 90 milliards de dollars (+18 %), porté par Azure qui dépasse pour la première fois les 100 milliards de dollars de revenus annualisés. Mon filtre qualité valide 8 critères sur 10, mais une dépense en infrastructure d'intelligence artificielle jamais vue étouffe la croissance du cash par action. Voici ce que ça change pour le prix de l'action.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ce qui vient de tomber : un trimestre record, porté par Azure"
+        },
+        {
+          "type": "p",
+          "text": "Microsoft a publié le 29 juillet 2026, après la clôture des marchés, les résultats de son quatrième trimestre fiscal 2026 (clos le 30 juin 2026) : un chiffre d'affaires de 90 milliards de dollars, en hausse de 18 % sur un an, et un bénéfice par action GAAP de 4,81 dollars, au-dessus des attentes des analystes. Le moteur de ce trimestre est sans ambiguïté : Azure et les autres services cloud ont progressé de 43 % sur un an, et Azure a franchi pour la première fois de son histoire le seuil symbolique des 100 milliards de dollars de revenus annualisés. Microsoft 365 Copilot, l'assistant IA intégré à la suite bureautique, dépasse désormais 30 millions de sièges payants. Le PDG Satya Nadella a résumé le trimestre ainsi : « Nos résultats ce trimestre reflètent la demande croissante pour le cloud et les solutions d'IA, et notre capacité à générer de la valeur pour nos clients. »"
+        },
+        {
+          "type": "p",
+          "text": "Mais le vrai sujet du trimestre se trouve ailleurs, dans une ligne du bilan que peu de monde regarde d'aussi près que moi : les dépenses d'investissement (le capex, l'argent dépensé pour construire des actifs durables comme des centres de données ou acheter des puces). Rien que sur ce trimestre, le capex et les contrats de location-financement associés ont bondi de 69 % à 41 milliards de dollars. Sur l'ensemble de l'exercice fiscal 2026, le capex total atteint 115,95 milliards de dollars, en hausse de près de 80 % par rapport aux 64,55 milliards de l'exercice 2025. Et la direction a d'ores et déjà annoncé environ 190 milliards de dollars de capex prévus pour l'année civile 2026. Concrètement, Microsoft engage aujourd'hui une part énorme de sa trésorerie dans des bâtiments, des serveurs et des puces graphiques pour l'IA, avant même de savoir avec certitude combien de revenus additionnels ce pari va générer (j'explique comment juger un capex qui explose dans mon [guide sur le capex, bon ou mauvais signe](/blog/capex-investissement-bon-mauvais-signe-methode-lubin))."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi mon filtre valide 8 critères sur 10, malgré un signal d'alerte"
+        },
+        {
+          "type": "p",
+          "text": "Sur le plan strictement financier, Microsoft reste une machine redoutable. Sa marge nette de 39,3 % signifie que sur 100 dollars de chiffre d'affaires, près de 39 finissent en bénéfice net, un niveau que très peu d'entreprises industrielles ou de services approchent. Les ventes progressent de 13,9 % par an en moyenne sur cinq ans, le nombre d'actions diminue grâce à des rachats réguliers, la marge de free cash flow (la part du chiffre d'affaires qui se transforme en cash réellement disponible) atteint 16,4 %, et les marges s'élargissent dans la durée : les revenus croissent plus vite que les coûts. Sa dette nette se rembourserait en seulement 1,3 année de free cash flow, un bilan très solide. Dernier point technique mais parlant : son délai net d'encaissement (le temps entre le moment où Microsoft paie ses fournisseurs et celui où elle encaisse ses propres clients) est négatif, à -52 jours. Cela veut dire que Microsoft encaisse l'argent de ses clients (notamment via les abonnements cloud et logiciels payés d'avance) avant même d'avoir à régler ses propres factures, un mécanisme de trésorerie favorable qu'on retrouve aussi chez Costco ou Amazon."
+        },
+        {
+          "type": "p",
+          "text": "Mais deux critères échouent, et ce sont précisément eux qui racontent l'histoire du trimestre. D'abord, la croissance du free cash flow par action ne progresse que de 3,5 % par an en moyenne sur cinq ans, largement sous le seuil de 10 % que je considère comme sain. Ensuite, et c'est le signal le plus parlant : seulement 44 % des bénéfices comptables de Microsoft se transforment en cash réellement disponible, contre un objectif de plus de 100 % dans mon filtre. Ce ratio de conversion mesure très concrètement la part du bénéfice affiché qui finit vraiment dans les caisses de l'entreprise plutôt que d'être aussitôt réinjectée ailleurs. À 44 %, cela signifie que plus de la moitié du profit que Microsoft déclare chaque trimestre repart immédiatement dans la construction de centres de données et l'achat de puces, avant même d'avoir eu le temps de s'accumuler en trésorerie disponible."
+        },
+        {
+          "type": "p",
+          "text": "Ce n'est pas le signe d'une entreprise qui s'affaiblit : c'est le signe d'une entreprise qui a délibérément choisi de transformer une rentabilité déjà exceptionnelle en un pari d'infrastructure d'une ampleur inédite. Il y a encore deux ou trois ans, le free cash flow par action de Microsoft progressait confortablement au-dessus de 10 % par an. Ce qui a changé, ce n'est pas la qualité sous-jacente du business, c'est l'ampleur du chèque que la direction a décidé d'engager sur l'IA."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix : cher dans l'absolu, sans repère historique fiable ce trimestre"
+        },
+        {
+          "type": "p",
+          "text": "Microsoft se valorise actuellement 53,4 fois son free cash flow des douze derniers mois (le P/FCF, c'est-à-dire combien d'années de ce cash actuel il faudrait pour rembourser le prix payé aujourd'hui pour l'action). Je n'ai pas pu, ce trimestre, récupérer l'historique complet sur cinq ans de ce multiple pour Microsoft afin de le situer précisément dans son propre percentile de valorisation (un accès de données restreint côté site ce run) : je préfère le dire honnêtement plutôt que d'avancer un chiffre que je n'ai pas vérifié. Ce que je peux affirmer avec certitude, en revanche, c'est que 53,4 fois le cash pour une croissance de ce même cash par action de seulement 3,5 % par an est une combinaison arithmétique exigeante, quel que soit l'angle sous lequel on la regarde. Je notais déjà ce même Microsoft comme cher dans mon [comparatif des multiples de la tech (MSFT, GOOGL, ADBE)](/blog/tech-paie-trop-cher-cash-flows-msft-googl-adbe) publié en juin, à un niveau de valorisation proche de celui d'aujourd'hui."
+        },
+        {
+          "type": "p",
+          "text": "Mon modèle de prix d'achat raisonnable, qui projette la trajectoire réelle de génération de cash par action des cinq dernières années, ressort à 115,77 dollars, contre un cours actuel de 390,54 dollars : une surcote d'environ 70 %. Toute la thèse haussière repose sur un seul pari : que le capex actuel achète une croissance pluriannuelle d'Azure et de l'IA qui finira par se traduire en cash par action, et pas seulement en coût aujourd'hui. Si ce pari se matérialise, le prix d'aujourd'hui semblera rétrospectivement raisonnable. S'il déçoit, ou si la demande d'infrastructure IA ralentit à l'échelle du secteur, ce prix laisse très peu de marge d'erreur."
+        },
+        {
+          "type": "h2",
+          "text": "Ce qui pourrait dérailler la thèse"
+        },
+        {
+          "type": "p",
+          "text": "Le risque le plus direct est celui du retour sur investissement du capex : si la demande de cloud et d'IA générative ralentit, ou si l'industrie dans son ensemble surinvestit dans les centres de données (un risque régulièrement évoqué par les analystes sur l'ensemble du secteur), Microsoft se retrouverait avec des actifs coûteux et une trésorerie durablement comprimée. Le risque concurrentiel reste réel face à Amazon Web Services et Google Cloud, qui investissent eux aussi massivement. Enfin, la position dominante de Microsoft dans l'IA d'entreprise attire une attention réglementaire croissante aux Etats-Unis comme en Europe, un risque diffus mais à surveiller sur plusieurs années."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Microsoft a publié le 29 juillet 2026 un chiffre d'affaires de 90 Md$ (+18 %), porté par Azure qui dépasse pour la première fois 100 Md$ de revenus annualisés (+43 % sur un an).",
+            "Mon filtre qualité valide 8 critères sur 10 : marge nette 39,3 %, croissance des ventes 13,9 %/an, dette quasi nulle (1,3 an de FCF). Deux critères échouent : croissance du FCF par action seulement 3,5 %/an et conversion des bénéfices en cash à 44 % (contre >100 % visé), signe d'un capex IA d'une ampleur inédite (115,95 Md$ sur l'exercice, +80 % sur un an, ~190 Md$ prévus en 2026).",
+            "Le P/FCF de 53,4 fois est cher dans l'absolu, combiné à une croissance du cash par action de seulement 3,5 %/an. Mon modèle vise un prix d'achat de 115,77 $ contre un cours de 390,54 $, une surcote d'environ 70 %.",
+            "Le vrai pari : le capex IA actuel se traduira-t-il en croissance durable du cash par action, ou le marché paie-t-il aujourd'hui une promesse qui reste à prouver ? Ce n'est pas un conseil en investissement, fais tes propres recherches."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "C'est quoi la conversion des bénéfices en cash, et pourquoi Microsoft n'est qu'à 44 % ?",
+          "a": "C'est la part du bénéfice comptable qui se transforme réellement en cash disponible dans les caisses de l'entreprise. À 44 %, Microsoft dépense l'essentiel de son profit en investissements (centres de données, puces IA) avant qu'il n'ait le temps de s'accumuler en trésorerie. Ce n'est pas un signe de faiblesse, mais un choix délibéré de réinvestissement massif."
+        },
+        {
+          "q": "Pourquoi Azure qui dépasse 100 milliards de dollars ne suffit-il pas à rendre l'action bon marché ?",
+          "a": "Parce que le prix d'une action ne dépend pas seulement de la taille du chiffre d'affaires, mais de ce que le marché paie déjà pour cette croissance. À 53,4 fois le free cash flow, une grande partie de cette réussite est déjà intégrée dans le cours, ce qui explique pourquoi mon modèle juge l'action environ 70 % au-dessus d'un prix d'achat raisonnable."
+        },
+        {
+          "q": "Faut-il s'inquiéter des 190 milliards de dollars de capex prévus par Microsoft en 2026 ?",
+          "a": "Ce n'est ni bon ni mauvais en soi : c'est un pari. Si cette infrastructure génère la croissance de revenus attendue, le capex actuel se justifiera a posteriori. Le vrai risque serait un ralentissement de la demande d'IA à l'échelle du secteur, qui laisserait Microsoft avec des actifs coûteux et moins rentables que prévu."
+        },
+        {
+          "q": "Faut-il acheter l'action Microsoft après ces résultats ?",
+          "a": "La qualité du business reste réelle (8 critères sur 10), mais mon modèle de prix d'achat raisonnable vise 115,77 $ contre un cours de 390,54 $, soit une surcote d'environ 70 %. Acheter à ce prix revient à parier que le capex IA actuel se traduira en croissance durable du cash par action. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches."
+        }
+      ],
+      "tags": [
+        "Microsoft",
+        "MSFT",
+        "Cloud",
+        "Intelligence artificielle",
+        "Résultats trimestriels",
+        "Analyse fondamentale"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (29 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "Microsoft (MSFT): Q4 2026 results, my verdict",
+      "excerpt": "Microsoft posted a record quarter driven by Azure, but its own cash generation is stalling under an unprecedented AI spending wave. Here is how I read these results, between quality and price.",
+      "metaDescription": "Microsoft (MSFT): fiscal Q4 2026 results analyzed. Revenue, Azure, AI spending, and my verdict on the stock's valuation.",
+      "answer": "Microsoft reported on July 29, 2026 revenue of $90 billion (+18%), driven by Azure crossing $100 billion in annualized revenue for the first time. My quality screen validates 8 out of 10 criteria, but an unprecedented AI infrastructure spending wave is choking cash-per-share growth. Here is what that means for the stock's price.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "What just happened: a record quarter, driven by Azure"
+        },
+        {
+          "type": "p",
+          "text": "Microsoft reported after market close on July 29, 2026 its fiscal fourth-quarter 2026 results (period ended June 30, 2026): revenue of $90.0 billion, up 18% year over year, and GAAP earnings per share of $4.81, above analyst estimates. The engine behind this quarter is unambiguous: Azure and other cloud services grew 43% year over year, and Azure crossed the symbolic threshold of $100 billion in annualized revenue for the first time in its history. Microsoft 365 Copilot, the AI assistant built into the office suite, now counts more than 30 million paid seats. CEO Satya Nadella summed up the quarter: 'Our results this quarter reflect the growing demand for cloud and AI solutions, and our ability to deliver value to our customers.'"
+        },
+        {
+          "type": "p",
+          "text": "But the real story of the quarter sits elsewhere, in a line item few people scrutinize as closely as I do: capital expenditures (capex, the money spent building durable assets like data centers or buying chips). In this quarter alone, capex plus related finance leases jumped 69% to $41 billion. For the full fiscal year 2026, total capex reached $115.95 billion, up nearly 80% from $64.55 billion in fiscal 2025. And management has already guided to roughly $190 billion of capex for calendar year 2026. In plain terms, Microsoft is today committing an enormous share of its cash to buildings, servers, and AI chips, before knowing with certainty how much additional revenue this bet will generate (I explain how to judge exploding capex in my [guide on capex, good or bad signal](/blog/capex-investissement-bon-mauvais-signe-methode-lubin))."
+        },
+        {
+          "type": "h2",
+          "text": "Why my quality screen validates 8 out of 10 criteria, despite a warning sign"
+        },
+        {
+          "type": "p",
+          "text": "On strictly financial terms, Microsoft remains a formidable machine. Its 39.3% net margin means that out of every $100 of revenue, nearly $39 ends up as net profit, a level almost no industrial or services company gets close to. Sales grow 13.9% per year on average over five years, share count is declining thanks to steady buybacks, free cash flow margin (the share of revenue that becomes real, spendable cash) reaches 16.4%, and margins are expanding over time: revenue is growing faster than costs. Its net debt would take just 1.3 years of free cash flow to repay, a very solid balance sheet. One last, technical but telling point: its net cash collection cycle (the time between when Microsoft pays its suppliers and when it collects from its own customers) is negative, at -52 days. That means Microsoft collects cash from customers, largely through prepaid cloud and software subscriptions, before it even has to settle its own bills, a favorable cash mechanic also found at Costco or Amazon."
+        },
+        {
+          "type": "p",
+          "text": "But two criteria fail, and they are precisely the ones telling this quarter's real story. First, free cash flow per share growth is only 3.5% per year on average over five years, well below the 10% threshold I consider healthy. Second, and this is the most telling signal, only 44% of Microsoft's accounting profit converts into real, available cash, against a target of more than 100% in my screen. This conversion ratio very concretely measures how much of reported profit actually ends up in the company's coffers rather than being immediately redeployed elsewhere. At 44%, it means more than half of the profit Microsoft reports each quarter goes straight back into building data centers and buying chips, before it has even had time to accumulate as available cash."
+        },
+        {
+          "type": "p",
+          "text": "This is not a sign of a weakening business: it is the sign of a business that has deliberately chosen to turn already exceptional profitability into an infrastructure bet of unprecedented scale. Just two or three years ago, Microsoft's free cash flow per share was comfortably growing above 10% per year. What changed is not the underlying quality of the business, it is the size of the check management has decided to write on AI."
+        },
+        {
+          "type": "h2",
+          "text": "The price: expensive in absolute terms, without a reliable historical marker this quarter"
+        },
+        {
+          "type": "p",
+          "text": "Microsoft currently trades at 53.4 times its trailing-twelve-month free cash flow (the P/FCF, essentially how many years of today's cash it would take to repay the price paid for the stock today). This quarter I was not able to pull the full five-year history of this multiple for Microsoft to place it precisely within its own valuation percentile (a data access limitation on the site this run), and I would rather say so honestly than state a figure I have not verified. What I can say with confidence is that 53.4 times cash, paired with just 3.5% annual growth in that same cash per share, is a demanding combination by any measure. I already flagged this same Microsoft as expensive in my [tech valuation comparison (MSFT, GOOGL, ADBE)](/blog/tech-paie-trop-cher-cash-flows-msft-googl-adbe) published in June, at a valuation level close to today's."
+        },
+        {
+          "type": "p",
+          "text": "My reasonable buy-price model, which projects the actual five-year cash-per-share generation trajectory, comes out at $115.77, versus a current price of $390.54: roughly a 70% premium. The entire bull case rests on one bet: that today's capex is buying multi-year Azure and AI growth that will eventually show up as cash per share, not just as a cost today. If that bet pays off, today's price will look reasonable in hindsight. If it disappoints, or if industry-wide AI infrastructure demand slows, today's price leaves very little margin of safety."
+        },
+        {
+          "type": "h2",
+          "text": "What could derail the thesis"
+        },
+        {
+          "type": "p",
+          "text": "The most direct risk is capex return on investment: if generative AI and cloud demand slows, or if the industry as a whole overbuilds data center capacity (a risk regularly flagged by analysts across the sector), Microsoft would be left with expensive assets and durably compressed cash flow. Competitive risk remains real against Amazon Web Services and Google Cloud, which are also investing massively. Finally, Microsoft's dominant position in enterprise AI is drawing growing regulatory attention in both the US and Europe, a diffuse but multi-year risk to watch."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Microsoft reported on July 29, 2026 revenue of $90B (+18%), driven by Azure crossing $100B in annualized revenue for the first time (+43% year over year).",
+            "My quality screen validates 8 out of 10 criteria: 39.3% net margin, 13.9%/year sales growth, near-zero debt (1.3 years of FCF). Two criteria fail: free cash flow per share growth of only 3.5%/year and a cash conversion ratio of 44% (versus a >100% target), signaling an AI capex wave of unprecedented scale ($115.95B for the fiscal year, +80% year over year, ~$190B guided for 2026).",
+            "The 53.4x P/FCF is expensive in absolute terms, paired with just 3.5%/year cash-per-share growth. My model targets a $115.77 buy price against a $390.54 current price, roughly a 70% premium.",
+            "The real bet: will today's AI capex translate into durable cash-per-share growth, or is the market paying today for a promise that still needs to be proven? This is not investment advice, do your own research."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is cash conversion, and why is Microsoft's only 44%?",
+          "a": "It is the share of accounting profit that actually converts into available cash in the company's coffers. At 44%, Microsoft is spending most of its profit on investment (data centers, AI chips) before it has time to accumulate as cash. This is not a sign of weakness, but a deliberate choice of massive reinvestment."
+        },
+        {
+          "q": "Why doesn't Azure crossing $100 billion make the stock cheap?",
+          "a": "Because a stock's price does not depend only on the size of revenue, but on what the market is already paying for that growth. At 53.4 times free cash flow, much of this success is already priced in, which is why my model judges the stock roughly 70% above a reasonable buy price."
+        },
+        {
+          "q": "Should investors worry about Microsoft's $190 billion 2026 capex guidance?",
+          "a": "It is neither good nor bad on its own: it is a bet. If this infrastructure generates the expected revenue growth, today's capex will be justified in hindsight. The real risk would be an industry-wide slowdown in AI demand, which would leave Microsoft with expensive, less profitable assets than expected."
+        },
+        {
+          "q": "Should you buy Microsoft stock after these results?",
+          "a": "The quality of the business remains real (8 out of 10 criteria), but my reasonable buy-price model targets $115.77 against a $390.54 price, roughly a 70% premium. Buying at this price means betting that today's AI capex will translate into durable cash-per-share growth. This is not personalized investment advice, do your own research."
+        }
+      ],
+      "tags": [
+        "Microsoft",
+        "MSFT",
+        "Cloud",
+        "Artificial intelligence",
+        "Quarterly results",
+        "Fundamental analysis"
+      ],
+      "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 29, 2026), subject to change. Do your own research."
+    },
+    "es": {
+      "title": "Microsoft (MSFT): resultados T4 2026, mi veredicto",
+      "excerpt": "Microsoft publica un trimestre récord impulsado por Azure, pero su propia generación de caja se estanca bajo el peso de un gasto en inteligencia artificial sin precedentes. Así interpreto estos resultados, entre calidad y precio.",
+      "metaDescription": "Microsoft (MSFT): resultados del cuarto trimestre fiscal 2026 analizados. Ingresos, Azure, gasto en IA y mi veredicto sobre la valoración de la acción.",
+      "answer": "Microsoft publicó el 29 de julio de 2026 ingresos de 90.000 millones de dólares (+18 %), impulsados por Azure, que supera por primera vez los 100.000 millones de dólares de ingresos anualizados. Mi filtro de calidad valida 8 de 10 criterios, pero un gasto en infraestructura de IA sin precedentes asfixia el crecimiento del efectivo por acción. Te explico qué significa esto para el precio de la acción.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Lo que acaba de ocurrir: un trimestre récord, impulsado por Azure"
+        },
+        {
+          "type": "p",
+          "text": "Microsoft publicó el 29 de julio de 2026, tras el cierre de los mercados, los resultados de su cuarto trimestre fiscal 2026 (finalizado el 30 de junio de 2026): ingresos de 90.000 millones de dólares, un 18 % más interanual, y un beneficio por acción GAAP de 4,81 dólares, por encima de las estimaciones de los analistas. El motor de este trimestre es inequívoco: Azure y los demás servicios en la nube crecieron un 43 % interanual, y Azure superó por primera vez en su historia el umbral simbólico de los 100.000 millones de dólares de ingresos anualizados. Microsoft 365 Copilot, el asistente de IA integrado en la suite ofimática, supera ya los 30 millones de puestos de pago. El CEO Satya Nadella resumió el trimestre así: «Nuestros resultados este trimestre reflejan la creciente demanda de soluciones de nube e IA, y nuestra capacidad de generar valor para nuestros clientes»."
+        },
+        {
+          "type": "p",
+          "text": "Pero el verdadero tema del trimestre está en otra parte, en una partida que pocos vigilan tan de cerca como yo: la inversión de capital (el capex, el dinero gastado en construir activos duraderos como centros de datos o comprar chips). Solo en este trimestre, el capex y los contratos de arrendamiento financiero asociados se dispararon un 69 % hasta 41.000 millones de dólares. En todo el ejercicio fiscal 2026, el capex total alcanza los 115.950 millones de dólares, un 80 % más que los 64.550 millones del ejercicio 2025. Y la dirección ya ha anunciado unos 190.000 millones de dólares de capex previstos para el año natural 2026. En términos concretos, Microsoft está comprometiendo hoy una parte enorme de su caja en edificios, servidores y chips de IA, antes incluso de saber con certeza cuántos ingresos adicionales generará esta apuesta (explico cómo juzgar un capex que se dispara en mi [guía sobre el capex, buena o mala señal](/blog/capex-investissement-bon-mauvais-signe-methode-lubin))."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué mi filtro valida 8 de 10 criterios, pese a una señal de alerta"
+        },
+        {
+          "type": "p",
+          "text": "En el plano estrictamente financiero, Microsoft sigue siendo una máquina formidable. Su margen neto del 39,3 % significa que de cada 100 dólares de ingresos, casi 39 terminan en beneficio neto, un nivel al que casi ninguna empresa industrial o de servicios se acerca. Las ventas crecen un 13,9 % anual de media en cinco años, el número de acciones disminuye gracias a recompras constantes, el margen de flujo de caja libre (la parte de los ingresos que se convierte en efectivo realmente disponible) alcanza el 16,4 %, y los márgenes se amplían con el tiempo: los ingresos crecen más rápido que los costes. Su deuda neta tardaría solo 1,3 años de flujo de caja libre en amortizarse, un balance muy sólido. Un último detalle técnico pero revelador: su ciclo neto de cobro (el tiempo entre cuando Microsoft paga a sus proveedores y cuando cobra a sus propios clientes) es negativo, en -52 días. Esto significa que Microsoft cobra a sus clientes, principalmente mediante suscripciones de nube y software pagadas por adelantado, antes incluso de tener que pagar sus propias facturas, un mecanismo de caja favorable que también se observa en Costco o Amazon."
+        },
+        {
+          "type": "p",
+          "text": "Pero dos criterios fallan, y son precisamente los que cuentan la verdadera historia de este trimestre. Primero, el crecimiento del flujo de caja libre por acción es de solo un 3,5 % anual de media en cinco años, muy por debajo del umbral del 10 % que considero saludable. Segundo, y esta es la señal más reveladora, solo el 44 % del beneficio contable de Microsoft se convierte en efectivo realmente disponible, frente a un objetivo de más del 100 % en mi filtro. Este ratio de conversión mide muy concretamente qué parte del beneficio declarado termina realmente en las arcas de la empresa en lugar de reinvertirse de inmediato en otra parte. Con un 44 %, esto significa que más de la mitad del beneficio que Microsoft declara cada trimestre vuelve directamente a la construcción de centros de datos y la compra de chips, antes incluso de haber tenido tiempo de acumularse como efectivo disponible."
+        },
+        {
+          "type": "p",
+          "text": "Esto no es señal de un negocio que se debilita: es la señal de un negocio que ha decidido deliberadamente convertir una rentabilidad ya excepcional en una apuesta de infraestructura de escala sin precedentes. Hace apenas dos o tres años, el flujo de caja libre por acción de Microsoft crecía cómodamente por encima del 10 % anual. Lo que ha cambiado no es la calidad subyacente del negocio, es el tamaño del cheque que la dirección ha decidido firmar en IA."
+        },
+        {
+          "type": "h2",
+          "text": "El precio: caro en términos absolutos, sin una referencia histórica fiable este trimestre"
+        },
+        {
+          "type": "p",
+          "text": "Microsoft cotiza actualmente a 53,4 veces su flujo de caja libre de los últimos doce meses (el P/FCF, es decir, cuántos años de este efectivo actual harían falta para amortizar el precio pagado hoy por la acción). Este trimestre no pude obtener el historial completo de cinco años de este múltiplo para Microsoft y situarlo con precisión en su propio percentil de valoración (una limitación de acceso a datos del sitio en esta sesión), y prefiero decirlo con honestidad antes que dar una cifra que no he verificado. Lo que sí puedo afirmar con confianza es que 53,4 veces el efectivo, combinado con un crecimiento de ese mismo efectivo por acción de solo un 3,5 % anual, es una combinación exigente se mire como se mire. Ya señalé a este mismo Microsoft como caro en mi [comparativa de múltiplos tecnológicos (MSFT, GOOGL, ADBE)](/blog/tech-paie-trop-cher-cash-flows-msft-googl-adbe) publicada en junio, a un nivel de valoración cercano al de hoy."
+        },
+        {
+          "type": "p",
+          "text": "Mi modelo de precio de compra razonable, que proyecta la trayectoria real de generación de caja por acción de los últimos cinco años, arroja 115,77 dólares, frente a un precio actual de 390,54 dólares: una sobrevaloración de aproximadamente el 70 %. Toda la tesis alcista descansa en una sola apuesta: que el capex actual está comprando un crecimiento plurianual de Azure y la IA que terminará reflejándose en el efectivo por acción, y no solo en un coste hoy. Si esa apuesta se cumple, el precio de hoy parecerá razonable en retrospectiva. Si decepciona, o si la demanda de infraestructura de IA se ralentiza a escala del sector, este precio deja muy poco margen de error."
+        },
+        {
+          "type": "h2",
+          "text": "Qué podría descarrilar la tesis"
+        },
+        {
+          "type": "p",
+          "text": "El riesgo más directo es el retorno de la inversión del capex: si la demanda de IA generativa y de nube se ralentiza, o si el sector en su conjunto sobreinvierte en capacidad de centros de datos (un riesgo señalado regularmente por los analistas en todo el sector), Microsoft se quedaría con activos costosos y un flujo de caja comprimido de forma duradera. El riesgo competitivo sigue siendo real frente a Amazon Web Services y Google Cloud, que también invierten masivamente. Por último, la posición dominante de Microsoft en la IA empresarial atrae una atención regulatoria creciente tanto en Estados Unidos como en Europa, un riesgo difuso pero a vigilar durante varios años."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Microsoft publicó el 29 de julio de 2026 ingresos de 90.000 M$ (+18 %), impulsados por Azure, que supera por primera vez los 100.000 M$ de ingresos anualizados (+43 % interanual).",
+            "Mi filtro de calidad valida 8 de 10 criterios: margen neto 39,3 %, crecimiento de ventas 13,9 % anual, deuda casi nula (1,3 años de FCF). Dos criterios fallan: crecimiento del flujo de caja libre por acción de solo un 3,5 % anual y una conversión de beneficios en efectivo del 44 % (frente a un objetivo de >100 %), señal de una ola de capex en IA de escala sin precedentes (115.950 M$ en el ejercicio, +80 % interanual, ~190.000 M$ previstos en 2026).",
+            "El P/FCF de 53,4 veces es caro en términos absolutos, combinado con un crecimiento del efectivo por acción de solo un 3,5 % anual. Mi modelo apunta a un precio de compra de 115,77 $ frente a una cotización de 390,54 $, una sobrevaloración de aproximadamente el 70 %.",
+            "La verdadera apuesta: ¿se traducirá el capex de IA actual en un crecimiento duradero del efectivo por acción, o está pagando el mercado hoy por una promesa aún por demostrar? Esto no es asesoramiento de inversión, haz tu propia investigación."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Qué es la conversión de beneficios en efectivo, y por qué la de Microsoft es solo del 44 %?",
+          "a": "Es la parte del beneficio contable que realmente se convierte en efectivo disponible en las arcas de la empresa. Con un 44 %, Microsoft gasta la mayor parte de su beneficio en inversión (centros de datos, chips de IA) antes de que tenga tiempo de acumularse como efectivo. No es señal de debilidad, sino una elección deliberada de reinversión masiva."
+        },
+        {
+          "q": "¿Por qué Azure superando los 100.000 millones de dólares no hace barata la acción?",
+          "a": "Porque el precio de una acción no depende solo del tamaño de los ingresos, sino de lo que el mercado ya está pagando por ese crecimiento. A 53,4 veces el flujo de caja libre, gran parte de este éxito ya está incorporado en la cotización, lo que explica por qué mi modelo considera la acción sobrevalorada en torno a un 70 %."
+        },
+        {
+          "q": "¿Hay que preocuparse por los 190.000 millones de dólares de capex previstos por Microsoft en 2026?",
+          "a": "No es bueno ni malo en sí mismo: es una apuesta. Si esta infraestructura genera el crecimiento de ingresos esperado, el capex actual se justificará en retrospectiva. El riesgo real sería una ralentización de la demanda de IA a escala del sector, que dejaría a Microsoft con activos costosos y menos rentables de lo esperado."
+        },
+        {
+          "q": "¿Hay que comprar acciones de Microsoft tras estos resultados?",
+          "a": "La calidad del negocio sigue siendo real (8 de 10 criterios), pero mi modelo de precio de compra razonable apunta a 115,77 $ frente a una cotización de 390,54 $, una sobrevaloración de aproximadamente el 70 %. Comprar a este precio supone apostar a que el capex de IA actual se traducirá en un crecimiento duradero del efectivo por acción. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación."
+        }
+      ],
+      "tags": [
+        "Microsoft",
+        "MSFT",
+        "Nube",
+        "Inteligencia artificial",
+        "Resultados trimestrales",
+        "Análisis fundamental"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (29 de julio de 2026), sujetas a cambios. Haz tu propia investigación."
+    }
+  }
+};
+
+const articleMETAQ2Post: Article = {
+  "slug": "meta-platforms-meta-resultats-t2-2026-verdict",
+  "date": "2026-07-29",
+  "updated": "2026-07-29",
+  "readingTime": 8,
+  "ticker": "META",
+  "content": {
+    "fr": {
+      "title": "Meta Platforms (META) : résultats T2 2026, mon verdict",
+      "excerpt": "Meta bat le consensus sur les revenus, mais son bénéfice par action recule sur un an sous le poids d'une dépense en intelligence artificielle massive. Mon filtre qualité reste très favorable. Voici comment je sépare la publicité qui marche du pari qui coûte.",
+      "metaDescription": "Meta Platforms (META) : résultats du 2e trimestre 2026 analysés. Publicité, capex IA, Reality Labs et mon verdict sur la valorisation de l'action.",
+      "answer": "Meta a publié le 29 juillet 2026 un chiffre d'affaires de 60,8 milliards de dollars (+28 %), au-dessus du consensus, mais un bénéfice par action de 6,18 dollars, en baisse sur un an à cause d'une explosion des dépenses en infrastructure d'intelligence artificielle. Mon filtre qualité valide 23 critères sur 25. Mon modèle juge pourtant l'action très surcotée. Voici pourquoi.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ce qui vient de tomber : la publicité tient, le bénéfice recule"
+        },
+        {
+          "type": "p",
+          "text": "Meta Platforms a publié le 29 juillet 2026, après la clôture des marchés, les résultats de son deuxième trimestre 2026 : un chiffre d'affaires de 60,8 milliards de dollars, en hausse de 28 % sur un an et légèrement au-dessus des attentes des analystes (60,26 milliards estimés). Le moteur reste la publicité sur Facebook, Instagram et les autres applications, dont la demande ne faiblit pas. Mais le bénéfice par action ressort à 6,18 dollars, en baisse par rapport aux 7,14 dollars du même trimestre l'an dernier, et très en dessous des 7,23 dollars attendus par le marché. La marge opérationnelle (la part du chiffre d'affaires qui reste après les coûts d'exploitation) est tombée à 31 %, contre 43 % un an plus tôt. Pour le trimestre en cours, Meta table sur un chiffre d'affaires compris entre 61 et 64 milliards de dollars."
+        },
+        {
+          "type": "p",
+          "text": "La cause de cet écart entre des revenus qui accélèrent et un bénéfice qui recule est connue et assumée par la direction : les dépenses d'investissement (le capex, l'argent consacré aux centres de données et aux puces pour l'intelligence artificielle) ont atteint 31,08 milliards de dollars sur le seul trimestre, et Meta vise désormais entre 130 et 145 milliards de dollars de capex pour l'année 2026 entière. Le PDG Mark Zuckerberg a résumé sa confiance sur la trajectoire de ses propres modèles d'IA : « Je suis plutôt satisfait de la trajectoire sur laquelle nous sommes. Nous avons sorti quelques modèles que je trouve assez impressionnants sur notre échelle de montée en puissance actuelle, et nous sommes en train d'en faire monter en échelle de bien plus grands et avancés. » Autrement dit, Meta choisit sciemment de sacrifier du bénéfice immédiat pour financer une course technologique qu'elle juge décisive (le même arbitrage capex que j'analysais chez Microsoft le même jour dans mon [guide sur le capex, bon ou mauvais signe](/blog/capex-investissement-bon-mauvais-signe-methode-lubin))."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi mon filtre valide 23 critères sur 25"
+        },
+        {
+          "type": "p",
+          "text": "Pour les très grandes entreprises comme Meta, où beaucoup de données qualitatives sont disponibles (gouvernance, position concurrentielle, structure du marché), mon filtre élargit son modèle habituel de 10 critères à 25 pour capter davantage de nuances. Meta en valide 23, un score très élevé. Les fondamentaux restent excellents : marge nette de 32,8 % (près d'un tiers du chiffre d'affaires finit en bénéfice net), croissance des ventes de 17,8 % par an en moyenne sur cinq ans, nombre d'actions en baisse de 1,65 % par an grâce aux rachats, et un endettement net remboursable en seulement 1,36 année de free cash flow."
+        },
+        {
+          "type": "p",
+          "text": "Le qualitatif compte tout autant dans ce score. Le moat (l'avantage concurrentiel qui protège l'entreprise) de Meta repose sur deux piliers identifiés par mon filtre : l'effet de réseau (plus il y a d'utilisateurs sur Facebook et Instagram, plus la plateforme a de valeur pour chacun) et les économies d'échelle. Meta ne dépend d'aucun client majeur (le plus gros annonceur pèse moins de 15 % du chiffre d'affaires), continue de gagner des parts de marché face à des rivaux comme TikTok, et sa croissance reste organique plutôt qu'achetée par acquisitions. Côté gouvernance, Mark Zuckerberg est fondateur et dirigeant depuis 21,8 ans (bien au-dessus du seuil de 5 ans que je préfère pour juger un historique de décisions) et détient environ 13,5 % des actions de l'entreprise, un alignement d'intérêts personnel très fort. En juin 2025, Meta a investi 14,3 milliards de dollars dans la start-up Scale AI, valorisée 29 milliards de dollars, et recruté son PDG Alexandr Wang pour diriger ses efforts en intelligence artificielle, un pari d'allocation de capital jugé favorablement par mon filtre."
+        },
+        {
+          "type": "p",
+          "text": "Deux points font toutefois échouer ou nuancer le score. La conversion des bénéfices en cash (la part du profit comptable qui devient réellement disponible en trésorerie) n'atteint que 37 %, très loin de l'objectif de plus de 100 % : exactement le même phénomène que chez Microsoft ce trimestre, où l'argent gagné repart directement dans la construction d'infrastructure IA avant d'avoir eu le temps de s'accumuler en cash. Et mon filtre note que les rachats d'actions de Meta ne sont pas toujours effectués de façon opportuniste (c'est-à-dire achetés davantage quand l'action est bon marché), ce qui peut réduire leur efficacité pour les actionnaires sur la durée."
+        },
+        {
+          "type": "h2",
+          "text": "Reality Labs : le pari qui coûte cher, mais qui n'est plus qu'une perte sèche"
+        },
+        {
+          "type": "p",
+          "text": "La division Reality Labs, qui regroupe les casques de réalité virtuelle Quest et les lunettes connectées, a généré 431 millions de dollars de revenus ce trimestre, en hausse de 16 % sur un an grâce à la forte croissance des lunettes IA, qui compense des ventes de casques Quest en repli. Mais la division a aussi affiché une perte opérationnelle de 4,62 milliards de dollars sur le seul trimestre. Ce déficit n'est pas nouveau : Meta l'assume depuis plusieurs années comme le prix à payer pour construire une position sur ce qu'elle considère être la prochaine plateforme informatique après le smartphone. La différence avec il y a deux ans, c'est que les lunettes IA commencent à montrer une vraie traction commerciale, ce qui change la nature du pari : moins un scénario de science-fiction lointain, davantage un produit qui trouve progressivement son marché."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix : une surcote de plus de 60 % selon mon modèle"
+        },
+        {
+          "type": "p",
+          "text": "Meta se valorise actuellement 57,9 fois son free cash flow des douze derniers mois, un multiple élevé qui a mécaniquement grimpé cette année précisément parce que le capex comprime le cash généré aujourd'hui, sans que les revenus futurs promis par cet investissement ne soient encore au rendez-vous. Mon modèle de prix d'achat raisonnable, qui projette la trajectoire réelle de génération de cash par action sur cinq ans, ressort à 233,27 dollars, contre un cours actuel de 585,61 dollars : une surcote d'environ 60 %, l'une des plus marquées de tout mon univers de suivi ce trimestre."
+        },
+        {
+          "type": "p",
+          "text": "La question à trancher est similaire à celle de Microsoft, mais version publicité plutôt que cloud : le marché paie-t-il aujourd'hui une promesse d'IA (modèles génératifs, lunettes connectées, publicité mieux ciblée) qui reste à prouver en cash réel, ou cette promesse justifie-t-elle une prime légitime compte tenu de la position dominante de Meta dans son coeur de métier publicitaire ? Le score de qualité de 23 sur 25 dit que le business sous-jacent est solide. Le prix, lui, dit qu'il faut déjà croire fermement à la réussite du pari IA pour ne pas payer trop cher aujourd'hui."
+        },
+        {
+          "type": "h2",
+          "text": "Ce qui pourrait dérailler la thèse"
+        },
+        {
+          "type": "p",
+          "text": "Le risque le plus direct reste celui du retour sur investissement du capex, comme pour l'ensemble des géants technologiques cette saison de résultats. S'y ajoute un risque propre à Meta : la dépendance quasi totale aux revenus publicitaires, très sensibles à un ralentissement économique généralisé qui réduirait les budgets marketing des annonceurs. Enfin, Reality Labs continue de représenter un pari de plusieurs milliards de dollars par trimestre dont le succès commercial à grande échelle reste encore à confirmer sur plusieurs années."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Meta a publié le 29 juillet 2026 un chiffre d'affaires de 60,8 Md$ (+28 %, au-dessus du consensus), mais un bénéfice par action de 6,18 $ en baisse sur un an, la marge opérationnelle chutant de 43 % à 31 % sous le poids d'un capex IA de 31,08 Md$ ce trimestre (130-145 Md$ visés pour 2026).",
+            "Mon filtre qualité valide 23 critères sur 25 : marge nette 32,8 %, croissance des ventes 17,8 %/an, moat réseau + échelle, CEO fondateur avec 13,5 % des actions. Point faible : conversion des bénéfices en cash à seulement 37 %, comme chez Microsoft, absorbée par l'investissement IA.",
+            "Reality Labs (Quest, lunettes IA) génère 431 M$ de revenus (+16 %) mais une perte opérationnelle de 4,62 Md$ ce trimestre, un pari assumé sur la prochaine plateforme informatique.",
+            "Le P/FCF de 57,9 fois est très élevé. Mon modèle vise un prix d'achat de 233,27 $ contre un cours de 585,61 $, une surcote d'environ 60 %. Ce n'est pas un conseil en investissement, fais tes propres recherches."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Pourquoi le bénéfice par action de Meta baisse-t-il alors que ses revenus progressent de 28 % ?",
+          "a": "Parce que les dépenses d'investissement en infrastructure d'intelligence artificielle (31,08 milliards de dollars ce trimestre) ont fait chuter la marge opérationnelle de 43 % à 31 %. Les revenus publicitaires progressent bien, mais une part croissante de cet argent repart immédiatement en capex plutôt qu'en bénéfice net."
+        },
+        {
+          "q": "C'est quoi Reality Labs et pourquoi Meta tolère-t-elle ses pertes ?",
+          "a": "Reality Labs regroupe les casques de réalité virtuelle Quest et les lunettes connectées à intelligence artificielle. La division perd 4,62 milliards de dollars par trimestre, mais Meta y voit un pari sur ce qui pourrait devenir la prochaine plateforme informatique après le smartphone, financé par les profits très solides de la publicité."
+        },
+        {
+          "q": "Pourquoi le score qualité de Meta est-il noté sur 25 et pas sur 10 ?",
+          "a": "Pour les très grandes entreprises où beaucoup de données qualitatives sont disponibles (gouvernance, position concurrentielle, structure de marché), mon filtre élargit son modèle habituel de 10 critères à 25 afin de capter davantage de nuances. Meta en valide 23."
+        },
+        {
+          "q": "Faut-il acheter l'action Meta après ces résultats ?",
+          "a": "La qualité du business est réelle (23 critères sur 25), mais mon modèle de prix d'achat raisonnable vise 233,27 $ contre un cours de 585,61 $, une surcote d'environ 60 %. Payer ce prix revient à parier fermement sur la réussite du pari IA de Meta. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches."
+        }
+      ],
+      "tags": [
+        "Meta Platforms",
+        "META",
+        "Intelligence artificielle",
+        "Publicité",
+        "Résultats trimestriels",
+        "Analyse fondamentale"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (29 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "Meta Platforms (META): Q2 2026 results, my verdict",
+      "excerpt": "Meta beats the revenue consensus, but its earnings per share fell year over year under a massive AI spending wave. My quality screen stays very favorable. Here is how I separate the advertising engine that works from the bet that costs money.",
+      "metaDescription": "Meta Platforms (META): Q2 2026 results analyzed. Advertising, AI capex, Reality Labs, and my verdict on the stock's valuation.",
+      "answer": "Meta reported on July 29, 2026 revenue of $60.8 billion (+28%), above consensus, but earnings per share of $6.18, down year over year due to an explosion in AI infrastructure spending. My quality screen validates 23 out of 25 criteria. Yet my model judges the stock heavily overvalued. Here is why.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "What just happened: advertising holds up, profit falls"
+        },
+        {
+          "type": "p",
+          "text": "Meta Platforms reported after market close on July 29, 2026 its second-quarter 2026 results: revenue of $60.8 billion, up 28% year over year and slightly above analyst expectations ($60.26 billion estimated). The engine remains advertising on Facebook, Instagram, and Meta's other apps, where demand shows no sign of slowing. But earnings per share came in at $6.18, down from $7.14 in the same quarter last year, and well below the $7.23 the market expected. Operating margin (the share of revenue left after operating costs) fell to 31%, from 43% a year earlier. For the current quarter, Meta guided to revenue between $61 and $64 billion."
+        },
+        {
+          "type": "p",
+          "text": "The cause of this gap between accelerating revenue and falling profit is known and openly owned by management: capital expenditures (capex, the money spent on data centers and AI chips) reached $31.08 billion in this quarter alone, and Meta now targets between $130 and $145 billion of capex for the full year 2026. CEO Mark Zuckerberg summed up his confidence in the trajectory of Meta's own AI models: 'I'm quite happy with the trajectory that we're on. We've released a few models that I think are quite impressive on our early scaling ladder, and we're in the process of scaling much larger and more advanced models.' In other words, Meta is knowingly sacrificing near-term profit to fund a technology race it considers decisive (the same capex trade-off I analyzed at Microsoft the same day in my [guide on capex, good or bad signal](/blog/capex-investissement-bon-mauvais-signe-methode-lubin))."
+        },
+        {
+          "type": "h2",
+          "text": "Why my quality screen validates 23 out of 25 criteria"
+        },
+        {
+          "type": "p",
+          "text": "For very large companies like Meta, where rich qualitative data is available (governance, competitive position, market structure), my screen expands from its usual 10-criteria model to 25, to capture more nuance. Meta passes 23, a very high score. The fundamentals remain excellent: a 32.8% net margin (nearly a third of revenue ends up as net profit), 17.8%/year sales growth on average over five years, a share count declining 1.65%/year thanks to buybacks, and net debt that would take just 1.36 years of free cash flow to repay."
+        },
+        {
+          "type": "p",
+          "text": "Qualitative factors matter just as much in this score. Meta's moat (the competitive advantage that protects the business), as identified by my screen, rests on two pillars: network effects (the more users on Facebook and Instagram, the more valuable the platform becomes for each of them) and economies of scale. Meta has no major client dependency (its biggest advertiser accounts for less than 15% of revenue), keeps gaining market share against rivals like TikTok, and its growth remains organic rather than bought through acquisitions. On governance, Mark Zuckerberg has been founder and CEO for 21.8 years (well above the 5-year threshold I prefer for judging a track record of decisions) and owns roughly 13.5% of the company's shares, a very strong personal alignment of interests. In June 2025, Meta invested $14.3 billion in the startup Scale AI, valued at $29 billion, and hired its CEO Alexandr Wang to lead its AI efforts, a capital-allocation bet my screen views favorably."
+        },
+        {
+          "type": "p",
+          "text": "Two points, however, cause the score to fail or add nuance. Cash conversion (the share of accounting profit that actually becomes available cash) reaches only 37%, far below the greater-than-100% target: exactly the same phenomenon seen at Microsoft this quarter, where money earned goes straight back into building AI infrastructure before it has time to accumulate as cash. And my screen flags that Meta's share buybacks are not always executed opportunistically (meaning bought more heavily when the stock is cheap), which can reduce their efficiency for shareholders over time."
+        },
+        {
+          "type": "h2",
+          "text": "Reality Labs: an expensive bet, but no longer just a black hole"
+        },
+        {
+          "type": "p",
+          "text": "Reality Labs, the division behind the Quest virtual reality headsets and connected AI glasses, generated $431 million in revenue this quarter, up 16% year over year thanks to strong growth in AI glasses, offsetting lower Quest headset sales. But the division also posted an operating loss of $4.62 billion for the quarter alone. This deficit is nothing new: Meta has owned it for several years as the price of building a position in what it considers the next computing platform after the smartphone. The difference from two years ago is that AI glasses are starting to show real commercial traction, changing the nature of the bet: less a distant science-fiction scenario, more a product gradually finding its market."
+        },
+        {
+          "type": "h2",
+          "text": "The price: a premium of more than 60% according to my model"
+        },
+        {
+          "type": "p",
+          "text": "Meta currently trades at 57.9 times its trailing-twelve-month free cash flow, a rich multiple that has mechanically climbed this year precisely because capex is compressing cash generated today, while the future revenue this investment promises has not yet shown up. My reasonable buy-price model, which projects the actual five-year cash-per-share generation trajectory, comes out at $233.27, versus a current price of $585.61: a premium of roughly 60%, one of the largest in my entire coverage universe this quarter."
+        },
+        {
+          "type": "p",
+          "text": "The question to settle is similar to Microsoft's, but in the advertising business rather than cloud: is the market today paying for an AI promise (generative models, connected glasses, better-targeted ads) that still needs to be proven in real cash, or does this promise justify a legitimate premium given Meta's dominant position in its core advertising business? The 23-out-of-25 quality score says the underlying business is solid. The price says you already need to firmly believe in the success of Meta's AI bet to avoid overpaying today."
+        },
+        {
+          "type": "h2",
+          "text": "What could derail the thesis"
+        },
+        {
+          "type": "p",
+          "text": "The most direct risk remains capex return on investment, as with all tech giants this earnings season. A Meta-specific risk adds to that: near-total dependence on advertising revenue, highly sensitive to a broad economic slowdown that would cut advertiser marketing budgets. Finally, Reality Labs continues to represent a multi-billion-dollar-per-quarter bet whose large-scale commercial success still needs to be confirmed over several years."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Meta reported on July 29, 2026 revenue of $60.8B (+28%, above consensus), but earnings per share of $6.18 down year over year, as operating margin fell from 43% to 31% under a $31.08B AI capex bill this quarter ($130-145B guided for 2026).",
+            "My quality screen validates 23 out of 25 criteria: 32.8% net margin, 17.8%/year sales growth, network-plus-scale moat, founder CEO with 13.5% ownership. Weak point: cash conversion of only 37%, like Microsoft, absorbed by AI investment.",
+            "Reality Labs (Quest, AI glasses) generates $431M in revenue (+16%) but a $4.62B operating loss this quarter, a bet Meta owns on the next computing platform.",
+            "The 57.9x P/FCF is very high. My model targets a $233.27 buy price against a $585.61 current price, a premium of roughly 60%. This is not investment advice, do your own research."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why is Meta's earnings per share falling when revenue grows 28%?",
+          "a": "Because AI infrastructure capital spending ($31.08 billion this quarter) pushed operating margin down from 43% to 31%. Advertising revenue is growing well, but a growing share of that money goes straight into capex rather than net profit."
+        },
+        {
+          "q": "What is Reality Labs, and why does Meta tolerate its losses?",
+          "a": "Reality Labs covers the Quest virtual reality headsets and AI-connected glasses. The division loses $4.62 billion per quarter, but Meta sees it as a bet on what could become the next computing platform after the smartphone, funded by advertising's very solid profits."
+        },
+        {
+          "q": "Why is Meta's quality score out of 25 instead of 10?",
+          "a": "For very large companies where rich qualitative data is available (governance, competitive position, market structure), my screen expands from its usual 10-criteria model to 25 to capture more nuance. Meta passes 23 of them."
+        },
+        {
+          "q": "Should you buy Meta stock after these results?",
+          "a": "The quality of the business is real (23 out of 25 criteria), but my reasonable buy-price model targets $233.27 against a $585.61 price, a premium of roughly 60%. Paying this price means firmly betting on the success of Meta's AI bet. This is not personalized investment advice, do your own research."
+        }
+      ],
+      "tags": [
+        "Meta Platforms",
+        "META",
+        "Artificial intelligence",
+        "Advertising",
+        "Quarterly results",
+        "Fundamental analysis"
+      ],
+      "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 29, 2026), subject to change. Do your own research."
+    },
+    "es": {
+      "title": "Meta Platforms (META): resultados T2 2026, mi veredicto",
+      "excerpt": "Meta supera el consenso de ingresos, pero su beneficio por acción cae interanualmente bajo el peso de un gasto masivo en inteligencia artificial. Mi filtro de calidad sigue siendo muy favorable. Así separo la publicidad que funciona de la apuesta que cuesta dinero.",
+      "metaDescription": "Meta Platforms (META): resultados del segundo trimestre 2026 analizados. Publicidad, capex de IA, Reality Labs y mi veredicto sobre la valoración.",
+      "answer": "Meta publicó el 29 de julio de 2026 ingresos de 60.800 millones de dólares (+28 %), por encima del consenso, pero un beneficio por acción de 6,18 dólares, en caída interanual por una explosión del gasto en infraestructura de inteligencia artificial. Mi filtro de calidad valida 23 de 25 criterios. Sin embargo, mi modelo considera la acción muy sobrevalorada. Te explico por qué.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Lo que acaba de ocurrir: la publicidad aguanta, el beneficio cae"
+        },
+        {
+          "type": "p",
+          "text": "Meta Platforms publicó el 29 de julio de 2026, tras el cierre de los mercados, los resultados de su segundo trimestre de 2026: ingresos de 60.800 millones de dólares, un 28 % más interanual y ligeramente por encima de las expectativas de los analistas (60.260 millones estimados). El motor sigue siendo la publicidad en Facebook, Instagram y el resto de aplicaciones de Meta, cuya demanda no muestra signos de debilitarse. Pero el beneficio por acción se situó en 6,18 dólares, por debajo de los 7,14 dólares del mismo trimestre del año anterior, y muy por debajo de los 7,23 dólares que esperaba el mercado. El margen operativo (la parte de los ingresos que queda tras los costes operativos) cayó al 31 %, desde el 43 % un año antes. Para el trimestre en curso, Meta prevé ingresos de entre 61.000 y 64.000 millones de dólares."
+        },
+        {
+          "type": "p",
+          "text": "La causa de esta brecha entre unos ingresos que aceleran y un beneficio que cae es conocida y asumida abiertamente por la dirección: la inversión de capital (el capex, el dinero destinado a centros de datos y chips de IA) alcanzó los 31.080 millones de dólares solo en este trimestre, y Meta apunta ahora a entre 130.000 y 145.000 millones de dólares de capex para todo 2026. El CEO Mark Zuckerberg resumió su confianza en la trayectoria de los propios modelos de IA de Meta: «Estoy bastante contento con la trayectoria en la que estamos. Hemos lanzado algunos modelos que me parecen bastante impresionantes en nuestra escala de desarrollo actual, y estamos en proceso de escalar modelos mucho más grandes y avanzados». Dicho de otro modo, Meta sacrifica conscientemente beneficio inmediato para financiar una carrera tecnológica que considera decisiva (la misma disyuntiva de capex que analicé en Microsoft el mismo día en mi [guía sobre el capex, buena o mala señal](/blog/capex-investissement-bon-mauvais-signe-methode-lubin))."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué mi filtro valida 23 de 25 criterios"
+        },
+        {
+          "type": "p",
+          "text": "Para empresas muy grandes como Meta, donde se dispone de datos cualitativos ricos (gobernanza, posición competitiva, estructura de mercado), mi filtro amplía su modelo habitual de 10 criterios a 25 para captar más matices. Meta valida 23, una puntuación muy alta. Los fundamentales siguen siendo excelentes: un margen neto del 32,8 % (casi un tercio de los ingresos termina en beneficio neto), un crecimiento de las ventas del 17,8 % anual de media en cinco años, un número de acciones que cae un 1,65 % anual gracias a las recompras, y una deuda neta que tardaría solo 1,36 años de flujo de caja libre en amortizarse."
+        },
+        {
+          "type": "p",
+          "text": "Lo cualitativo pesa tanto como lo cuantitativo en esta puntuación. El moat (la ventaja competitiva que protege el negocio) de Meta, según mi filtro, descansa en dos pilares: el efecto de red (cuantos más usuarios hay en Facebook e Instagram, más valiosa se vuelve la plataforma para cada uno de ellos) y las economías de escala. Meta no depende de ningún cliente importante (su mayor anunciante representa menos del 15 % de los ingresos), sigue ganando cuota de mercado frente a rivales como TikTok, y su crecimiento sigue siendo orgánico en lugar de comprado mediante adquisiciones. En gobernanza, Mark Zuckerberg lleva 21,8 años como fundador y CEO (muy por encima del umbral de 5 años que prefiero para juzgar un historial de decisiones) y posee alrededor del 13,5 % de las acciones de la empresa, un alineamiento de intereses personal muy fuerte. En junio de 2025, Meta invirtió 14.300 millones de dólares en la startup Scale AI, valorada en 29.000 millones de dólares, y contrató a su CEO Alexandr Wang para liderar sus esfuerzos en IA, una apuesta de asignación de capital que mi filtro valora favorablemente."
+        },
+        {
+          "type": "p",
+          "text": "Sin embargo, dos puntos hacen fallar o matizan la puntuación. La conversión de beneficios en efectivo (la parte del beneficio contable que realmente se convierte en efectivo disponible) alcanza solo el 37 %, muy por debajo del objetivo de más del 100 %: exactamente el mismo fenómeno que en Microsoft este trimestre, donde el dinero ganado vuelve directamente a construir infraestructura de IA antes de tener tiempo de acumularse como efectivo. Y mi filtro señala que las recompras de acciones de Meta no siempre se ejecutan de forma oportunista (es decir, comprando más cuando la acción está barata), lo que puede reducir su eficacia para los accionistas con el tiempo."
+        },
+        {
+          "type": "h2",
+          "text": "Reality Labs: una apuesta cara, pero ya no solo un pozo sin fondo"
+        },
+        {
+          "type": "p",
+          "text": "La división Reality Labs, que agrupa los cascos de realidad virtual Quest y las gafas conectadas con IA, generó 431 millones de dólares en ingresos este trimestre, un 16 % más interanual gracias al fuerte crecimiento de las gafas de IA, que compensa la caída de las ventas de cascos Quest. Pero la división también registró una pérdida operativa de 4.620 millones de dólares solo en el trimestre. Este déficit no es nuevo: Meta lo asume desde hace varios años como el precio de construir una posición en lo que considera la próxima plataforma informática tras el smartphone. La diferencia con hace dos años es que las gafas de IA empiezan a mostrar una tracción comercial real, lo que cambia la naturaleza de la apuesta: menos un escenario de ciencia ficción lejano, más un producto que encuentra gradualmente su mercado."
+        },
+        {
+          "type": "h2",
+          "text": "El precio: una sobrevaloración de más del 60 % según mi modelo"
+        },
+        {
+          "type": "p",
+          "text": "Meta cotiza actualmente a 57,9 veces su flujo de caja libre de los últimos doce meses, un múltiplo elevado que ha subido mecánicamente este año precisamente porque el capex está comprimiendo el efectivo generado hoy, mientras los ingresos futuros que promete esta inversión aún no se han materializado. Mi modelo de precio de compra razonable, que proyecta la trayectoria real de generación de caja por acción de los últimos cinco años, arroja 233,27 dólares, frente a un precio actual de 585,61 dólares: una sobrevaloración de aproximadamente el 60 %, una de las más marcadas de todo mi universo de seguimiento este trimestre."
+        },
+        {
+          "type": "p",
+          "text": "La pregunta a resolver es similar a la de Microsoft, pero en el negocio publicitario en lugar de la nube: ¿está pagando hoy el mercado por una promesa de IA (modelos generativos, gafas conectadas, publicidad mejor dirigida) que aún debe demostrarse en efectivo real, o justifica esta promesa una prima legítima dada la posición dominante de Meta en su negocio publicitario principal? La puntuación de calidad de 23 sobre 25 dice que el negocio subyacente es sólido. El precio dice que ya hay que creer firmemente en el éxito de la apuesta de IA de Meta para no pagar de más hoy."
+        },
+        {
+          "type": "h2",
+          "text": "Qué podría descarrilar la tesis"
+        },
+        {
+          "type": "p",
+          "text": "El riesgo más directo sigue siendo el retorno de la inversión del capex, como en todos los gigantes tecnológicos esta temporada de resultados. A ello se suma un riesgo propio de Meta: la dependencia casi total de los ingresos publicitarios, muy sensibles a una desaceleración económica generalizada que reduciría los presupuestos de marketing de los anunciantes. Por último, Reality Labs sigue representando una apuesta de varios miles de millones de dólares por trimestre cuyo éxito comercial a gran escala aún debe confirmarse a lo largo de varios años."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Meta publicó el 29 de julio de 2026 ingresos de 60.800 M$ (+28 %, por encima del consenso), pero un beneficio por acción de 6,18 $ en caída interanual, con el margen operativo cayendo del 43 % al 31 % bajo una factura de capex de IA de 31.080 M$ este trimestre (130.000-145.000 M$ previstos para 2026).",
+            "Mi filtro de calidad valida 23 de 25 criterios: margen neto 32,8 %, crecimiento de ventas 17,8 % anual, moat de red más escala, CEO fundador con el 13,5 % de las acciones. Punto débil: conversión de beneficios en efectivo de solo el 37 %, como en Microsoft, absorbida por la inversión en IA.",
+            "Reality Labs (Quest, gafas de IA) genera 431 M$ en ingresos (+16 %) pero una pérdida operativa de 4.620 M$ este trimestre, una apuesta que Meta asume sobre la próxima plataforma informática.",
+            "El P/FCF de 57,9 veces es muy elevado. Mi modelo apunta a un precio de compra de 233,27 $ frente a una cotización de 585,61 $, una sobrevaloración de aproximadamente el 60 %. Esto no es asesoramiento de inversión, haz tu propia investigación."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por qué cae el beneficio por acción de Meta si los ingresos crecen un 28 %?",
+          "a": "Porque la inversión de capital en infraestructura de IA (31.080 millones de dólares este trimestre) hizo caer el margen operativo del 43 % al 31 %. Los ingresos publicitarios crecen bien, pero una parte creciente de ese dinero va directamente al capex en lugar de al beneficio neto."
+        },
+        {
+          "q": "¿Qué es Reality Labs y por qué Meta tolera sus pérdidas?",
+          "a": "Reality Labs agrupa los cascos de realidad virtual Quest y las gafas conectadas con IA. La división pierde 4.620 millones de dólares por trimestre, pero Meta lo ve como una apuesta por lo que podría convertirse en la próxima plataforma informática tras el smartphone, financiada por los sólidos beneficios de la publicidad."
+        },
+        {
+          "q": "¿Por qué la puntuación de calidad de Meta es sobre 25 y no sobre 10?",
+          "a": "Para empresas muy grandes donde se dispone de datos cualitativos ricos (gobernanza, posición competitiva, estructura de mercado), mi filtro amplía su modelo habitual de 10 criterios a 25 para captar más matices. Meta valida 23 de ellos."
+        },
+        {
+          "q": "¿Hay que comprar acciones de Meta tras estos resultados?",
+          "a": "La calidad del negocio es real (23 de 25 criterios), pero mi modelo de precio de compra razonable apunta a 233,27 $ frente a una cotización de 585,61 $, una sobrevaloración de aproximadamente el 60 %. Pagar este precio supone apostar firmemente por el éxito de la apuesta de IA de Meta. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación."
+        }
+      ],
+      "tags": [
+        "Meta Platforms",
+        "META",
+        "Inteligencia artificial",
+        "Publicidad",
+        "Resultados trimestrales",
+        "Análisis fundamental"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (29 de julio de 2026), sujetas a cambios. Haz tu propia investigación."
+    }
+  }
+};
+
+const articleQCOMQ3Post: Article = {
+  "slug": "qualcomm-qcom-resultats-t3-fy2026-verdict",
+  "date": "2026-07-29",
+  "updated": "2026-07-29",
+  "readingTime": 7,
+  "ticker": "QCOM",
+  "content": {
+    "fr": {
+      "title": "Qualcomm (QCOM) : résultats T3 2026, mon verdict",
+      "excerpt": "Le smartphone ralentit chez Qualcomm, mais l'automobile explose depuis six ans d'affilée. Mon filtre qualité reste favorable, et pour une fois ce trimestre, mon modèle juge le prix presque juste. Voici comment je lis la bascule en cours.",
+      "metaDescription": "Qualcomm (QCOM) : résultats du 3e trimestre fiscal 2026 analysés. Smartphone, automobile, diversification et mon verdict sur le prix de l'action.",
+      "answer": "Qualcomm a publié le 29 juillet 2026 un chiffre d'affaires de 9,95 milliards de dollars, en baisse de 4 % sur un an à cause d'un repli des puces smartphone, mais avec une automobile en hausse de 61 %. Mon filtre qualité valide 7 critères sur 10. Fait rare cette saison de résultats : mon modèle juge l'action légèrement sous-évaluée. Voici pourquoi.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ce qui vient de tomber : le smartphone recule, l'automobile explose"
+        },
+        {
+          "type": "p",
+          "text": "Qualcomm a publié le 29 juillet 2026 les résultats de son troisième trimestre fiscal 2026 (période close le 28 juin 2026) : un chiffre d'affaires de 9,947 milliards de dollars, en baisse de 4 % par rapport aux 10,365 milliards de l'an dernier, un bénéfice par action GAAP de 1,87 dollar et un bénéfice par action ajusté de 2,21 dollars. Les revenus battent l'estimation de 9,6 milliards de dollars, tandis que le bénéfice ajusté correspond exactement au consensus. Le PDG Cristiano Amon a résumé le trimestre ainsi : « Malgré un environnement mémoire et chaîne d'approvisionnement difficile, nos résultats du troisième trimestre reflètent une solide exécution de notre stratégie de croissance, avec des revenus trimestriels en haut de notre fourchette d'objectifs. »"
+        },
+        {
+          "type": "p",
+          "text": "Le détail par activité raconte la vraie histoire de Qualcomm en 2026 : les ventes de puces pour smartphones, qui restent la plus grosse part du chiffre d'affaires, reculent de 20 % sur un an à 5,1 milliards de dollars, un repli que la direction attribue à un plancher du marché chinois. À l'inverse, les revenus automobiles bondissent de 61 % sur un an à un record de 1,59 milliard de dollars, un 23e trimestre consécutif de croissance à deux chiffres. Les revenus liés à l'internet des objets (IoT, les capteurs et puces connectées hors smartphone et automobile) progressent de 9 % à 1,83 milliard de dollars. Amon a d'ailleurs précisé la trajectoire attendue : la croissance des revenus hors smartphone, y compris les centres de données, doit accélérer de 24 % sur l'exercice 2026 à plus de 60 % sur l'exercice 2027, un point d'inflexion que la direction présente comme central dans l'exécution de sa stratégie."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi mon filtre valide 7 critères sur 10"
+        },
+        {
+          "type": "p",
+          "text": "Qualcomm reste rentable et disciplinée sur le plan financier : marge nette de 22,3 % (sur 100 dollars de chiffre d'affaires, plus de 22 finissent en bénéfice net), croissance du free cash flow par action de 17,4 % par an en moyenne sur cinq ans (un rythme sain malgré des revenus totaux quasi stables), nombre d'actions en baisse de 1,06 % par an, marge de free cash flow de 21,2 % et un rendement du capital investi en cash (Cash ROCE, la rentabilité de l'argent réellement réinvesti dans l'activité) de 41,4 %, un niveau élevé (j'explique ce indicateur en détail dans mon [guide sur le Cash ROCE](/blog/cash-roce-capital-reinvesti-cree-t-il-valeur-methode-lubin)). Sa dette nette se rembourserait en seulement 1,04 année de free cash flow."
+        },
+        {
+          "type": "p",
+          "text": "Deux critères échouent, et ils sont directement liés à la maturité du marché du smartphone : la croissance des ventes totales ne progresse que de 4,1 % par an en moyenne sur cinq ans, un rythme faible qui reflète un marché des puces mobiles arrivé à maturité plutôt qu'en expansion, et les marges opérationnelles se compriment plutôt que de s'élargir sur la période, les coûts progressant plus vite que les revenus dans un contexte de diversification coûteuse. Un troisième critère, le délai net d'encaissement (le temps entre le paiement des fournisseurs et l'encaissement des clients), échoue à 115 jours : ce chiffre s'explique par la nature du métier de fondeur sans usine (fabless) de Qualcomm, qui doit immobiliser du stock de puces en cours de fabrication pendant de longues périodes (le délai de rotation des stocks à lui seul atteint 134 jours) avant de pouvoir les vendre, un mécanisme structurel du secteur des semi-conducteurs plutôt qu'un signal d'alarme isolé."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix : rare exception cette saison, mon modèle juge l'action presque juste"
+        },
+        {
+          "type": "p",
+          "text": "Qualcomm se valorise 17,6 fois son free cash flow des douze derniers mois, un multiple raisonnable qui tranche avec ceux de Microsoft (53,4 fois) ou Meta (57,9 fois) publiés le même jour. Mon modèle de prix d'achat raisonnable, qui projette la trajectoire réelle de génération de cash par action sur cinq ans, ressort à 163,00 dollars, contre un cours actuel de 155,68 dollars : une décote d'environ 4,7 %, ce qui signifie que l'action se négocie légèrement sous mon estimation de juste prix. C'est une exception notable dans mon suivi de cette saison de résultats des géants technologiques, où la plupart des noms liés à l'intelligence artificielle affichent des primes marquées."
+        },
+        {
+          "type": "p",
+          "text": "Cette modération du prix reflète le doute légitime du marché sur la trajectoire de Qualcomm : l'entreprise reste perçue avant tout comme un fournisseur de puces pour smartphones, un marché mature et en repli. Le pari de la diversification vers l'automobile et l'IoT, en forte croissance mais qui reste minoritaire dans le chiffre d'affaires total, n'est pas encore pleinement reconnu dans la valorisation. Si l'inflexion promise par Amon pour l'exercice 2027 se matérialise réellement, cette décote actuelle pourrait s'avérer être une anomalie temporaire plutôt qu'un prix durablement juste."
+        },
+        {
+          "type": "h2",
+          "text": "Ce qui pourrait dérailler la thèse"
+        },
+        {
+          "type": "p",
+          "text": "Le risque le plus direct reste la concentration persistante du chiffre d'affaires sur le smartphone, un marché mature où Qualcomm dépend fortement d'un client historique majeur (Apple, qui développe ses propres modems). La bascule vers l'automobile et les centres de données dépend de contrats pluriannuels dont l'exécution reste à confirmer, et la concurrence chinoise dans les puces mobiles d'entrée et de milieu de gamme s'intensifie. Enfin, l'environnement tendu sur les composants mémoire évoqué par Amon pourrait peser sur les marges à court terme si la pénurie persiste."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Qualcomm a publié le 29 juillet 2026 un chiffre d'affaires de 9,95 Md$ (-4 %), les puces smartphone reculant de 20 % à 5,1 Md$ tandis que l'automobile bondit de 61 % à un record de 1,59 Md$ (23e trimestre consécutif de croissance à deux chiffres).",
+            "Mon filtre qualité valide 7 critères sur 10 : marge nette 22,3 %, Cash ROCE 41,4 %, croissance du FCF par action 17,4 %/an. Points faibles : croissance des ventes totales seulement 4,1 %/an et marges opérationnelles en compression, reflet d'un marché smartphone mature.",
+            "Le P/FCF de 17,6 fois est raisonnable. Mon modèle vise un prix d'achat de 163,00 $ contre un cours de 155,68 $, une décote d'environ 4,7 % : une rare exception de prix presque juste cette saison de résultats.",
+            "Le vrai pari : la bascule vers l'automobile et les centres de données (croissance hors smartphone visée à plus de 60 % en 2027) compensera-t-elle le repli structurel du smartphone ? Ce n'est pas un conseil en investissement, fais tes propres recherches."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Pourquoi le chiffre d'affaires de Qualcomm baisse-t-il alors que l'automobile explose ?",
+          "a": "Parce que les puces smartphone restent la plus grosse part du chiffre d'affaires de Qualcomm, et elles reculent de 20 % sur un an (marché chinois en repli). La croissance automobile de 61 % est réelle et rapide, mais son poids dans le total reste encore minoritaire face au smartphone."
+        },
+        {
+          "q": "Pourquoi le délai net d'encaissement de Qualcomm est-il si long (115 jours) ?",
+          "a": "Parce que Qualcomm est un fondeur sans usine (fabless) : elle doit immobiliser du stock de puces en cours de fabrication pendant de longues périodes avant de pouvoir les vendre (134 jours de rotation des stocks à lui seul), un mécanisme structurel du secteur des semi-conducteurs plutôt qu'un signal d'alarme."
+        },
+        {
+          "q": "Pourquoi Qualcomm est-elle moins chère que Microsoft ou Meta ce trimestre ?",
+          "a": "Parce que le marché doute encore de la trajectoire de diversification de Qualcomm au-delà du smartphone, un marché mature en repli. Tant que l'automobile et les centres de données restent minoritaires dans le chiffre d'affaires total, le multiple reste modéré, contrairement aux géants dont la croissance IA est déjà largement reconnue et primée par le marché."
+        },
+        {
+          "q": "Faut-il acheter l'action Qualcomm après ces résultats ?",
+          "a": "Mon filtre qualité reste favorable (7 critères sur 10) et mon modèle de prix d'achat raisonnable vise 163,00 $ contre un cours de 155,68 $, une légère décote. C'est une situation rare où le prix ne semble pas exagéré, mais la thèse dépend de la réussite de la bascule vers l'automobile et les centres de données. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches."
+        }
+      ],
+      "tags": [
+        "Qualcomm",
+        "QCOM",
+        "Semi-conducteurs",
+        "Automobile",
+        "Résultats trimestriels",
+        "Analyse fondamentale"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (29 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "Qualcomm (QCOM): Q3 2026 results, my verdict",
+      "excerpt": "Smartphone chips are slowing at Qualcomm, but automotive has now grown for six straight years. My quality screen stays favorable, and for once this quarter, my model judges the price nearly fair. Here is how I read the shift underway.",
+      "metaDescription": "Qualcomm (QCOM): fiscal Q3 2026 results analyzed. Smartphone, automotive, diversification, and my verdict on the stock's valuation.",
+      "answer": "Qualcomm reported on July 29, 2026 revenue of $9.95 billion, down 4% year over year due to a decline in smartphone chips, but with automotive up 61%. My quality screen validates 7 out of 10 criteria. A rare thing this earnings season: my model judges the stock slightly undervalued. Here is why.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "What just happened: smartphones decline, automotive explodes"
+        },
+        {
+          "type": "p",
+          "text": "Qualcomm reported on July 29, 2026 its fiscal third-quarter 2026 results (period ended June 28, 2026): revenue of $9.947 billion, down 4% from $10.365 billion a year earlier, GAAP earnings per share of $1.87, and adjusted earnings per share of $2.21. Revenue beat the $9.6 billion estimate, while adjusted earnings matched consensus exactly. CEO Cristiano Amon summed up the quarter: 'Despite a challenging memory and supply environment, our third quarter results reflect solid execution of our growth strategy, with quarterly revenues at the high end of guidance.'"
+        },
+        {
+          "type": "p",
+          "text": "The breakdown by business line tells Qualcomm's real story in 2026: smartphone chip sales, still the largest share of revenue, fell 20% year over year to $5.1 billion, a decline management attributes to a bottoming in the China market. Automotive revenue, by contrast, jumped 61% year over year to a record $1.59 billion, the segment's 23rd consecutive quarter of double-digit growth. Internet-of-things revenue (IoT, sensors and connected chips outside smartphones and cars) grew 9% to $1.83 billion. Amon also spelled out the expected trajectory: non-handset revenue growth, including data center, is expected to accelerate from 24% in fiscal 2026 to more than 60% in fiscal 2027, an inflection point management frames as central to executing its strategy."
+        },
+        {
+          "type": "h2",
+          "text": "Why my quality screen validates 7 out of 10 criteria"
+        },
+        {
+          "type": "p",
+          "text": "Qualcomm remains profitable and financially disciplined: a 22.3% net margin (out of every $100 of revenue, more than $22 ends up as net profit), free cash flow per share growth of 17.4% per year on average over five years (a healthy pace despite roughly flat total revenue), share count declining 1.06% per year, a 21.2% free cash flow margin, and a Cash ROCE (the return on capital actually reinvested in the business) of 41.4%, a high level (I detail this metric in my [Cash ROCE guide](/blog/cash-roce-capital-reinvesti-cree-t-il-valeur-methode-lubin)). Its net debt would take just 1.04 years of free cash flow to repay."
+        },
+        {
+          "type": "p",
+          "text": "Two criteria fail, and they are directly tied to smartphone market maturity: total sales growth is only 4.1% per year on average over five years, a weak pace reflecting a mature rather than expanding mobile chip market, and operating margins are compressing rather than expanding over the period, as costs grow faster than revenue amid costly diversification. A third criterion, net cash collection cycle (the time between paying suppliers and collecting from customers), fails at 115 days: this reflects Qualcomm's fabless chip business model, which must tie up inventory of chips in production for long stretches (inventory turnover alone reaches 134 days) before it can sell them, a structural mechanic of the semiconductor sector rather than an isolated warning sign."
+        },
+        {
+          "type": "h2",
+          "text": "The price: a rare exception this season, my model judges it nearly fair"
+        },
+        {
+          "type": "p",
+          "text": "Qualcomm trades at 17.6 times its trailing-twelve-month free cash flow, a reasonable multiple that stands in sharp contrast to Microsoft's (53.4 times) or Meta's (57.9 times), both reported the same day. My reasonable buy-price model, which projects the actual five-year cash-per-share generation trajectory, comes out at $163.00, versus a current price of $155.68: a discount of roughly 4.7%, meaning the stock trades slightly below my fair-price estimate. This is a notable exception in my coverage of this earnings season among tech giants, where most AI-linked names carry marked premiums."
+        },
+        {
+          "type": "p",
+          "text": "This price restraint reflects the market's legitimate doubt about Qualcomm's trajectory: the company is still perceived first and foremost as a smartphone chip supplier, a mature and declining market. The diversification bet toward automotive and IoT, growing fast but still a minority of total revenue, is not yet fully recognized in the valuation. If the inflection Amon promised for fiscal 2027 truly materializes, today's discount could turn out to be a temporary anomaly rather than a durably fair price."
+        },
+        {
+          "type": "h2",
+          "text": "What could derail the thesis"
+        },
+        {
+          "type": "p",
+          "text": "The most direct risk remains persistent revenue concentration in smartphones, a mature market where Qualcomm depends heavily on one major historical client (Apple, which is developing its own modems). The shift toward automotive and data centers depends on multi-year contracts whose execution still needs to be confirmed, and Chinese competition in entry- and mid-tier mobile chips is intensifying. Finally, the tight memory component environment Amon flagged could weigh on margins in the near term if the shortage persists."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Qualcomm reported on July 29, 2026 revenue of $9.95B (-4%), with smartphone chips down 20% to $5.1B while automotive jumped 61% to a record $1.59B (23rd consecutive quarter of double-digit growth).",
+            "My quality screen validates 7 out of 10 criteria: 22.3% net margin, 41.4% Cash ROCE, 17.4%/year FCF-per-share growth. Weak points: total sales growth of only 4.1%/year and compressing operating margins, reflecting a mature smartphone market.",
+            "The 17.6x P/FCF is reasonable. My model targets a $163.00 buy price against a $155.68 current price, a discount of roughly 4.7%: a rare near-fair price this earnings season.",
+            "The real bet: will the shift toward automotive and data centers (non-handset growth targeted above 60% in 2027) offset the structural decline of smartphones? This is not investment advice, do your own research."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why is Qualcomm's revenue falling while automotive is booming?",
+          "a": "Because smartphone chips remain Qualcomm's largest revenue share, and they fell 20% year over year (declining China market). The 61% automotive growth is real and fast, but its weight in the total remains a minority next to smartphones."
+        },
+        {
+          "q": "Why is Qualcomm's net cash collection cycle so long (115 days)?",
+          "a": "Because Qualcomm is a fabless chipmaker: it must tie up inventory of chips in production for long stretches before it can sell them (inventory turnover alone reaches 134 days), a structural mechanic of the semiconductor sector rather than a warning sign."
+        },
+        {
+          "q": "Why is Qualcomm cheaper than Microsoft or Meta this quarter?",
+          "a": "Because the market still doubts Qualcomm's diversification trajectory beyond smartphones, a mature and declining market. As long as automotive and data centers remain a minority of total revenue, the multiple stays moderate, unlike the giants whose AI growth is already widely recognized and priced in by the market."
+        },
+        {
+          "q": "Should you buy Qualcomm stock after these results?",
+          "a": "My quality screen stays favorable (7 out of 10 criteria) and my reasonable buy-price model targets $163.00 against a $155.68 price, a slight discount. This is a rare situation where the price does not look stretched, but the thesis depends on the success of the shift toward automotive and data centers. This is not personalized investment advice, do your own research."
+        }
+      ],
+      "tags": [
+        "Qualcomm",
+        "QCOM",
+        "Semiconductors",
+        "Automotive",
+        "Quarterly results",
+        "Fundamental analysis"
+      ],
+      "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 29, 2026), subject to change. Do your own research."
+    },
+    "es": {
+      "title": "Qualcomm (QCOM): resultados T3 2026, mi veredicto",
+      "excerpt": "Los chips para móviles se ralentizan en Qualcomm, pero el automóvil ya suma seis años seguidos de crecimiento. Mi filtro de calidad sigue siendo favorable, y por una vez este trimestre, mi modelo considera el precio casi justo. Así interpreto el giro en curso.",
+      "metaDescription": "Qualcomm (QCOM): resultados del tercer trimestre fiscal 2026 analizados. Móviles, automóvil, diversificación y mi veredicto sobre la valoración.",
+      "answer": "Qualcomm publicó el 29 de julio de 2026 ingresos de 9.950 millones de dólares, un 4 % menos interanual por la caída de los chips para móviles, pero con el automóvil creciendo un 61 %. Mi filtro de calidad valida 7 de 10 criterios. Algo raro esta temporada de resultados: mi modelo considera la acción ligeramente infravalorada. Te explico por qué.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Lo que acaba de ocurrir: el móvil retrocede, el automóvil explota"
+        },
+        {
+          "type": "p",
+          "text": "Qualcomm publicó el 29 de julio de 2026 los resultados de su tercer trimestre fiscal 2026 (periodo finalizado el 28 de junio de 2026): ingresos de 9.947 millones de dólares, un 4 % menos que los 10.365 millones del año anterior, un beneficio por acción GAAP de 1,87 dólares y un beneficio por acción ajustado de 2,21 dólares. Los ingresos superaron la estimación de 9.600 millones de dólares, mientras que el beneficio ajustado coincidió exactamente con el consenso. El CEO Cristiano Amon resumió el trimestre así: «Pese a un entorno difícil de memoria y cadena de suministro, nuestros resultados del tercer trimestre reflejan una sólida ejecución de nuestra estrategia de crecimiento, con ingresos trimestrales en la parte alta de nuestro rango objetivo»."
+        },
+        {
+          "type": "p",
+          "text": "El desglose por línea de negocio cuenta la verdadera historia de Qualcomm en 2026: las ventas de chips para smartphones, que siguen siendo la mayor parte de los ingresos, cayeron un 20 % interanual hasta 5.100 millones de dólares, un retroceso que la dirección atribuye a un suelo en el mercado chino. Los ingresos de automoción, en cambio, se dispararon un 61 % interanual hasta un récord de 1.590 millones de dólares, el 23º trimestre consecutivo de crecimiento de dos dígitos. Los ingresos de internet de las cosas (IoT, sensores y chips conectados fuera del móvil y el automóvil) crecieron un 9 % hasta 1.830 millones de dólares. Amon también detalló la trayectoria esperada: el crecimiento de los ingresos fuera del móvil, incluyendo centros de datos, debe acelerar del 24 % en el ejercicio 2026 a más del 60 % en el ejercicio 2027, un punto de inflexión que la dirección presenta como central en la ejecución de su estrategia."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué mi filtro valida 7 de 10 criterios"
+        },
+        {
+          "type": "p",
+          "text": "Qualcomm sigue siendo rentable y disciplinada financieramente: un margen neto del 22,3 % (de cada 100 dólares de ingresos, más de 22 terminan en beneficio neto), un crecimiento del flujo de caja libre por acción del 17,4 % anual de media en cinco años (un ritmo saludable pese a unos ingresos totales casi estables), un número de acciones que cae un 1,06 % anual, un margen de flujo de caja libre del 21,2 % y un Cash ROCE (el rendimiento del capital realmente reinvertido en el negocio) del 41,4 %, un nivel elevado (explico este indicador en detalle en mi [guía sobre el Cash ROCE](/blog/cash-roce-capital-reinvesti-cree-t-il-valeur-methode-lubin)). Su deuda neta tardaría solo 1,04 años de flujo de caja libre en amortizarse."
+        },
+        {
+          "type": "p",
+          "text": "Dos criterios fallan, y están directamente ligados a la madurez del mercado de smartphones: el crecimiento de las ventas totales es de solo un 4,1 % anual de media en cinco años, un ritmo débil que refleja un mercado de chips móviles maduro más que en expansión, y los márgenes operativos se comprimen en lugar de ampliarse en el periodo, con los costes creciendo más rápido que los ingresos en un contexto de diversificación costosa. Un tercer criterio, el ciclo neto de cobro (el tiempo entre pagar a proveedores y cobrar de los clientes), falla en 115 días: esto se explica por el modelo de negocio fabless (sin fábrica propia) de Qualcomm, que debe inmovilizar inventario de chips en fabricación durante largos periodos (la rotación de inventario por sí sola alcanza 134 días) antes de poder venderlos, un mecanismo estructural del sector de semiconductores más que una señal de alarma aislada."
+        },
+        {
+          "type": "h2",
+          "text": "El precio: una rara excepción esta temporada, mi modelo lo considera casi justo"
+        },
+        {
+          "type": "p",
+          "text": "Qualcomm cotiza a 17,6 veces su flujo de caja libre de los últimos doce meses, un múltiplo razonable que contrasta claramente con los de Microsoft (53,4 veces) o Meta (57,9 veces), ambos publicados el mismo día. Mi modelo de precio de compra razonable, que proyecta la trayectoria real de generación de caja por acción de los últimos cinco años, arroja 163,00 dólares, frente a un precio actual de 155,68 dólares: una decote de aproximadamente el 4,7 %, lo que significa que la acción cotiza ligeramente por debajo de mi estimación de precio justo. Es una excepción notable en mi seguimiento de esta temporada de resultados de los gigantes tecnológicos, donde la mayoría de los nombres ligados a la IA muestran primas marcadas."
+        },
+        {
+          "type": "p",
+          "text": "Esta moderación del precio refleja la duda legítima del mercado sobre la trayectoria de Qualcomm: la empresa sigue siendo percibida ante todo como un proveedor de chips para smartphones, un mercado maduro y en declive. La apuesta de diversificación hacia el automóvil y el IoT, en fuerte crecimiento pero aún minoritaria en los ingresos totales, todavía no está plenamente reconocida en la valoración. Si la inflexión que promete Amon para el ejercicio 2027 se materializa realmente, esta decote actual podría resultar ser una anomalía temporal más que un precio justo y duradero."
+        },
+        {
+          "type": "h2",
+          "text": "Qué podría descarrilar la tesis"
+        },
+        {
+          "type": "p",
+          "text": "El riesgo más directo sigue siendo la persistente concentración de los ingresos en el smartphone, un mercado maduro donde Qualcomm depende en gran medida de un cliente histórico importante (Apple, que desarrolla sus propios módems). El giro hacia el automóvil y los centros de datos depende de contratos plurianuales cuya ejecución aún debe confirmarse, y la competencia china en chips móviles de gama de entrada y media se intensifica. Por último, el entorno tenso de componentes de memoria mencionado por Amon podría pesar sobre los márgenes a corto plazo si la escasez persiste."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Qualcomm publicó el 29 de julio de 2026 ingresos de 9.950 M$ (-4 %), con los chips para móviles cayendo un 20 % hasta 5.100 M$ mientras el automóvil se disparó un 61 % hasta un récord de 1.590 M$ (23º trimestre consecutivo de crecimiento de dos dígitos).",
+            "Mi filtro de calidad valida 7 de 10 criterios: margen neto 22,3 %, Cash ROCE 41,4 %, crecimiento del FCF por acción 17,4 % anual. Puntos débiles: crecimiento de ventas totales de solo un 4,1 % anual y márgenes operativos en compresión, reflejo de un mercado de móviles maduro.",
+            "El P/FCF de 17,6 veces es razonable. Mi modelo apunta a un precio de compra de 163,00 $ frente a una cotización de 155,68 $, una decote de aproximadamente el 4,7 %: una rara excepción de precio casi justo esta temporada de resultados.",
+            "La verdadera apuesta: ¿compensará el giro hacia el automóvil y los centros de datos (crecimiento fuera del móvil previsto por encima del 60 % en 2027) el declive estructural del smartphone? Esto no es asesoramiento de inversión, haz tu propia investigación."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por qué caen los ingresos de Qualcomm mientras el automóvil se dispara?",
+          "a": "Porque los chips para móviles siguen siendo la mayor parte de los ingresos de Qualcomm, y cayeron un 20 % interanual (mercado chino en declive). El crecimiento del 61 % en automoción es real y rápido, pero su peso en el total sigue siendo minoritario frente al móvil."
+        },
+        {
+          "q": "¿Por qué el ciclo neto de cobro de Qualcomm es tan largo (115 días)?",
+          "a": "Porque Qualcomm es un fabricante fabless (sin fábrica propia): debe inmovilizar inventario de chips en fabricación durante largos periodos antes de poder venderlos (la rotación de inventario por sí sola alcanza 134 días), un mecanismo estructural del sector de semiconductores más que una señal de alarma."
+        },
+        {
+          "q": "¿Por qué Qualcomm es más barata que Microsoft o Meta este trimestre?",
+          "a": "Porque el mercado todavía duda de la trayectoria de diversificación de Qualcomm más allá del móvil, un mercado maduro en declive. Mientras el automóvil y los centros de datos sigan siendo minoritarios en los ingresos totales, el múltiplo se mantiene moderado, a diferencia de los gigantes cuyo crecimiento en IA ya está ampliamente reconocido y valorado por el mercado."
+        },
+        {
+          "q": "¿Hay que comprar acciones de Qualcomm tras estos resultados?",
+          "a": "Mi filtro de calidad sigue siendo favorable (7 de 10 criterios) y mi modelo de precio de compra razonable apunta a 163,00 $ frente a una cotización de 155,68 $, una ligera decote. Es una situación rara en la que el precio no parece exagerado, pero la tesis depende del éxito del giro hacia el automóvil y los centros de datos. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación."
+        }
+      ],
+      "tags": [
+        "Qualcomm",
+        "QCOM",
+        "Semiconductores",
+        "Automóvil",
+        "Resultados trimestrales",
+        "Análisis fundamental"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (29 de julio de 2026), sujetas a cambios. Haz tu propia investigación."
+    }
+  }
+};
+
+const articlePGQ4Post: Article = {
+  "slug": "procter-gamble-pg-resultats-t4-fy2026-verdict",
+  "date": "2026-07-29",
+  "updated": "2026-07-29",
+  "readingTime": 7,
+  "ticker": "PG",
+  "content": {
+    "fr": {
+      "title": "Procter & Gamble (PG) : résultats T4 2026, mon verdict",
+      "excerpt": "Le moteur de croissance de P&G, la hausse des prix, vient de tomber à zéro. Mon filtre qualité reste bon sans être irréprochable, et mon modèle juge l'action nettement surcotée. Voici pourquoi un géant tranquille peut quand même être un mauvais prix.",
+      "metaDescription": "Procter & Gamble (PG) : résultats du 4e trimestre fiscal 2026 analysés. Croissance organique, tarifs douaniers, restructuration et mon verdict sur le prix.",
+      "answer": "Procter & Gamble a publié le 29 juillet 2026 un chiffre d'affaires de 21,2 milliards de dollars, avec une croissance organique tombée à zéro ce trimestre après quatre années portées par la hausse des prix. Mon filtre qualité valide 8 critères sur 10, mais mon modèle juge l'action surcotée d'environ 53 %. Voici comment je sépare la qualité réelle du prix à payer.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ce qui vient de tomber : la machine à hausses de prix s'arrête"
+        },
+        {
+          "type": "p",
+          "text": "Procter & Gamble a publié le 29 juillet 2026, avant l'ouverture des marchés, les résultats de son quatrième trimestre fiscal 2026 (clos fin juin 2026) : un chiffre d'affaires de 21,2 milliards de dollars, légèrement sous l'estimation de 21,38 milliards, et un bénéfice par action ajusté (dit « core ») de 1,43 dollar, au-dessus du consensus de 1,41 dollar mais en baisse de 3 % sur un an. Le bénéfice par action GAAP recule plus fortement, de 15 %, à 1,26 dollar. Sur l'ensemble de l'exercice fiscal 2026, le chiffre d'affaires progresse de 3 %, mais ce chiffre cache une réalité plus dure : deux des trois points de croissance viennent de l'effet des devises et un seul de la hausse des prix, tandis que le volume réel de produits vendus ce trimestre n'a strictement pas bougé. Le PDG Shailesh Jejurikar a résumé l'exercice en évoquant un « environnement géopolitique et économique difficile »."
+        },
+        {
+          "type": "p",
+          "text": "C'est ce dernier point qui mérite qu'on s'y arrête. Depuis plusieurs années, la croissance de P&G reposait sur un mécanisme simple : augmenter régulièrement les prix de ses marques (Tide, Pampers, Gillette, Ariel) plus vite que l'inflation, en pariant sur la fidélité de ses clients. Ce trimestre, ce moteur est retombé à zéro : ni le volume, ni le prix, ni le mix de produits n'ont contribué à la croissance organique. Le consommateur a manifestement atteint une limite de tolérance aux hausses de tarifs répétées. À cela s'ajoutent des vents contraires bien identifiés : un impact attendu de 1 milliard de dollars lié aux tarifs douaniers en 2026, et un plan de restructuration du portefeuille de marques et de l'organisation, annoncé en juin 2025, qui doit coûter entre 1 et 1,6 milliard de dollars avant impôts sur deux ans pour rationaliser les coûts et réinvestir dans la croissance."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi mon filtre valide 8 critères sur 10"
+        },
+        {
+          "type": "p",
+          "text": "Malgré ce ralentissement, P&G reste un business de très grande qualité sur le plan financier : marge nette de 19,2 % (près d'un cinquième du chiffre d'affaires finit en bénéfice net), nombre d'actions en baisse de 1,15 % par an grâce à des rachats réguliers, marge de free cash flow de 16,7 % (la part du chiffre d'affaires transformée en cash réellement disponible), marges qui s'élargissent sur la durée, et un rendement du capital investi en cash de 38,0 %, un niveau élevé pour un groupe de biens de consommation. Sa dette nette se rembourserait en 1,70 année de free cash flow, un bilan solide (voir mon [guide sur la dette dans la méthode Lubin](/blog/dette-dans-methode-lubin-filtre-bilan) pour comment je juge ce critère)."
+        },
+        {
+          "type": "p",
+          "text": "Un chiffre technique mérite d'être expliqué, car il illustre bien le rapport de force d'un géant comme P&G face à ses fournisseurs et distributeurs : son délai net d'encaissement est négatif, à -34 jours. Concrètement, P&G met en moyenne 127 jours à payer ses propres fournisseurs, alors qu'elle ne conserve son stock que 66 jours et encaisse ses clients (essentiellement des distributeurs comme Walmart ou Carrefour) en seulement 27 jours. Ce déséquilibre n'est pas un accident : c'est le résultat d'un pouvoir de négociation considérable sur ses fournisseurs, qui permet à P&G de faire financer une partie de son besoin en fonds de roulement par ses partenaires plutôt que par sa propre trésorerie, un privilège réservé aux très grands acteurs d'un secteur."
+        },
+        {
+          "type": "p",
+          "text": "Deux critères échouent néanmoins, et ils sont directement liés au ralentissement observé ce trimestre : la croissance des ventes ne progresse que de 2,3 % par an en moyenne sur cinq ans, et celle du free cash flow par action seulement 3,2 % par an, deux rythmes faibles pour une entreprise qui doit justifier une valorisation de croissance. Ce sont très exactement les deux critères qui matérialisent, chiffres à l'appui, ce que l'actualité du trimestre vient de confirmer : le moteur de la hausse des prix s'essouffle."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix : cher malgré un multiple qui semble raisonnable"
+        },
+        {
+          "type": "p",
+          "text": "P&G se valorise 24,3 fois son free cash flow des douze derniers mois, un multiple qui, pris isolément, ne semble pas extravagant : il reste sous le seuil de 25 fois que je considère comme raisonnable dans l'absolu. Mais un multiple ne se juge jamais seul : il faut le rapporter à la croissance qu'il est censé rémunérer. Mon modèle de prix d'achat raisonnable, qui projette la trajectoire réelle de génération de cash par action sur cinq ans, ressort à 69,27 dollars, contre un cours actuel de 146,10 dollars : une surcote d'environ 53 %."
+        },
+        {
+          "type": "p",
+          "text": "C'est la leçon la plus utile de cette analyse : un P/FCF de 24 fois n'est pas automatiquement bon marché si la croissance sous-jacente du cash par action ne progresse que de 3,2 % par an. Payer 24 années de cash pour une machine qui n'accélère quasiment plus revient à payer le prix d'une croissance qui ne se matérialise pas dans les chiffres. P&G reste un compounder tranquille et rentable, mais son prix intègre encore une dynamique de croissance que le trimestre qui vient de tomber contredit directement."
+        },
+        {
+          "type": "h2",
+          "text": "Ce qui pourrait dérailler la thèse"
+        },
+        {
+          "type": "p",
+          "text": "Le risque le plus immédiat est la poursuite de la résistance du consommateur aux hausses de prix, qui obligerait P&G à choisir entre défendre ses marges ou reconquérir des volumes, un arbitrage rarement indolore. Les tarifs douaniers (1 milliard de dollars d'impact attendu en 2026) et les coûts de restructuration (jusqu'à 1,6 milliard de dollars sur deux ans) pèsent directement sur le bénéfice à court terme. Enfin, la concurrence des marques de distributeur, moins chères, s'intensifie généralement quand le pouvoir d'achat des ménages se tend, un risque structurel pour l'ensemble du secteur des biens de consommation de marque."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Procter & Gamble a publié le 29 juillet 2026 un chiffre d'affaires de 21,2 Md$, avec une croissance organique tombée à zéro ce trimestre (volume, prix et mix tous à 0 %), après plusieurs années portées par la hausse des prix. Bénéfice ajusté 1,43 $ (au-dessus du consensus), bénéfice GAAP en baisse de 15 % à 1,26 $.",
+            "Mon filtre qualité valide 8 critères sur 10 : marge nette 19,2 %, Cash ROCE 38,0 %, dette maîtrisée (1,70 an de FCF). Points faibles : croissance des ventes seulement 2,3 %/an et du FCF par action 3,2 %/an sur 5 ans, reflet direct de l'essoufflement du moteur prix.",
+            "Le P/FCF de 24,3 fois semble raisonnable dans l'absolu, mais mon modèle vise un prix d'achat de 69,27 $ contre un cours de 146,10 $, une surcote d'environ 53 % : un multiple modéré peut rester cher si la croissance sous-jacente ralentit.",
+            "1 Md$ d'impact tarifs douaniers attendu en 2026, plan de restructuration de 1 à 1,6 Md$ sur deux ans. Ce n'est pas un conseil en investissement, fais tes propres recherches."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Pourquoi la croissance organique de Procter & Gamble est-elle tombée à zéro ?",
+          "a": "Parce que le moteur principal de sa croissance depuis plusieurs années, la hausse régulière des prix de ses marques, s'est arrêté ce trimestre : ni le volume, ni le prix, ni le mix de produits n'ont contribué à la croissance organique, signe que les consommateurs résistent désormais aux hausses de tarifs répétées."
+        },
+        {
+          "q": "Pourquoi le délai net d'encaissement de Procter & Gamble est-il négatif ?",
+          "a": "Parce que P&G met en moyenne 127 jours à payer ses fournisseurs, alors qu'elle encaisse ses propres clients en seulement 27 jours et tourne son stock en 66 jours. Ce pouvoir de négociation avec ses fournisseurs, réservé aux très grands groupes, lui permet de faire financer une partie de sa trésorerie par ses partenaires."
+        },
+        {
+          "q": "Un P/FCF de 24 fois est-il cher pour Procter & Gamble ?",
+          "a": "Le multiple seul ne semble pas extravagant, mais il faut le comparer à la croissance qu'il rémunère : avec un free cash flow par action qui ne progresse que de 3,2 % par an, mon modèle juge l'action surcotée d'environ 53 %. Un multiple modéré peut rester cher si la croissance sous-jacente ralentit."
+        },
+        {
+          "q": "Faut-il acheter l'action Procter & Gamble après ces résultats ?",
+          "a": "La qualité du business reste réelle (8 critères sur 10), mais mon modèle de prix d'achat raisonnable vise 69,27 $ contre un cours de 146,10 $, une surcote d'environ 53 %. Le ralentissement de la croissance organique à zéro ce trimestre rend ce prix d'autant plus exigeant. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches."
+        }
+      ],
+      "tags": [
+        "Procter & Gamble",
+        "PG",
+        "Biens de consommation",
+        "Résultats trimestriels",
+        "Analyse fondamentale"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (29 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "Procter & Gamble (PG): Q4 2026 results, my verdict",
+      "excerpt": "P&G's growth engine, price increases, just hit zero. My quality screen stays good without being flawless, and my model judges the stock significantly overvalued. Here is why a quiet giant can still be a bad price.",
+      "metaDescription": "Procter & Gamble (PG): fiscal Q4 2026 results analyzed. Organic growth, tariffs, restructuring, and my verdict on the stock's valuation.",
+      "answer": "Procter & Gamble reported on July 29, 2026 revenue of $21.2 billion, with organic growth hitting zero this quarter after four years driven by price increases. My quality screen validates 8 out of 10 criteria, but my model judges the stock overvalued by roughly 53%. Here is how I separate real quality from the price to pay.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "What just happened: the pricing engine stalls"
+        },
+        {
+          "type": "p",
+          "text": "Procter & Gamble reported before market open on July 29, 2026 its fiscal fourth-quarter 2026 results (period ended late June 2026): revenue of $21.2 billion, slightly below the $21.38 billion estimate, and adjusted ('core') earnings per share of $1.43, above the $1.41 consensus but down 3% year over year. GAAP earnings per share fell more sharply, down 15%, to $1.26. For the full fiscal year 2026, revenue grew 3%, but that figure hides a harsher reality: two of the three growth points came from currency effects and only one from price increases, while actual product volume sold this quarter did not move at all. CEO Shailesh Jejurikar summed up the year by pointing to a 'challenging geopolitical and economic environment.'"
+        },
+        {
+          "type": "p",
+          "text": "That last point is worth dwelling on. For several years, P&G's growth relied on a simple mechanism: regularly raising prices on its brands (Tide, Pampers, Gillette, Ariel) faster than inflation, betting on customer loyalty. This quarter, that engine fell to zero: neither volume, nor price, nor product mix contributed to organic growth. Consumers have clearly hit a limit of tolerance for repeated price hikes. Add to that some well-identified headwinds: an expected $1 billion tariff impact in 2026, and a brand-portfolio and organizational restructuring plan announced in June 2025, expected to cost between $1 and $1.6 billion pre-tax over two years to streamline costs and reinvest in growth."
+        },
+        {
+          "type": "h2",
+          "text": "Why my quality screen validates 8 out of 10 criteria"
+        },
+        {
+          "type": "p",
+          "text": "Despite this slowdown, P&G remains a very high-quality business financially: a 19.2% net margin (nearly a fifth of revenue ends up as net profit), a share count declining 1.15% per year thanks to steady buybacks, a 16.7% free cash flow margin (the share of revenue converted into real, spendable cash), margins expanding over time, and a Cash ROCE (return on capital actually reinvested in the business) of 38.0%, a high level for a consumer goods group. Its net debt would take 1.70 years of free cash flow to repay, a solid balance sheet (see my [guide on debt in the Lubin method](/blog/dette-dans-methode-lubin-filtre-bilan) for how I judge this criterion)."
+        },
+        {
+          "type": "p",
+          "text": "One technical figure is worth explaining, since it nicely illustrates the bargaining power of a giant like P&G over its suppliers and retailers: its net cash collection cycle is negative, at -34 days. Concretely, P&G takes on average 127 days to pay its own suppliers, while holding inventory for only 66 days and collecting from its customers (mostly retailers like Walmart or Carrefour) in just 27 days. This imbalance is no accident: it is the result of considerable negotiating power over suppliers, which lets P&G have part of its working capital needs financed by its partners rather than its own cash, a privilege reserved for only the very largest players in an industry."
+        },
+        {
+          "type": "p",
+          "text": "Two criteria still fail, and they are directly tied to this quarter's slowdown: sales growth is only 2.3% per year on average over five years, and free cash flow per share growth only 3.2% per year, both weak paces for a company that needs to justify a growth-oriented valuation. These are precisely the two criteria that put numbers behind what this quarter's news just confirmed: the pricing engine is running out of steam."
+        },
+        {
+          "type": "h2",
+          "text": "The price: expensive despite a multiple that looks reasonable"
+        },
+        {
+          "type": "p",
+          "text": "P&G trades at 24.3 times its trailing-twelve-month free cash flow, a multiple that, taken in isolation, does not look extravagant: it stays below the 25-times threshold I consider reasonable in absolute terms. But a multiple is never judged alone: it must be weighed against the growth it is supposed to compensate for. My reasonable buy-price model, which projects the actual five-year cash-per-share generation trajectory, comes out at $69.27, versus a current price of $146.10: a premium of roughly 53%."
+        },
+        {
+          "type": "p",
+          "text": "This is the most useful lesson from this analysis: a 24-times P/FCF is not automatically cheap if the underlying cash-per-share growth is only 3.2% per year. Paying 24 years of cash for a machine that has nearly stopped accelerating means paying the price of growth that is not showing up in the numbers. P&G remains a quiet, profitable compounder, but its price still bakes in a growth dynamic that this quarter's results directly contradict."
+        },
+        {
+          "type": "h2",
+          "text": "What could derail the thesis"
+        },
+        {
+          "type": "p",
+          "text": "The most immediate risk is continued consumer resistance to price increases, which would force P&G to choose between defending margins or winning back volume, a trade-off rarely painless. Tariffs (a $1 billion expected impact in 2026) and restructuring costs (up to $1.6 billion over two years) directly weigh on near-term profit. Finally, competition from cheaper private-label brands generally intensifies when household purchasing power tightens, a structural risk for the entire branded consumer goods sector."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Procter & Gamble reported on July 29, 2026 revenue of $21.2B, with organic growth hitting zero this quarter (volume, price, and mix all at 0%), after several years driven by price increases. Adjusted earnings $1.43 (above consensus), GAAP earnings down 15% to $1.26.",
+            "My quality screen validates 8 out of 10 criteria: 19.2% net margin, 38.0% Cash ROCE, manageable debt (1.70 years of FCF). Weak points: sales growth of only 2.3%/year and FCF per share growth of 3.2%/year over 5 years, a direct reflection of the fading pricing engine.",
+            "The 24.3x P/FCF looks reasonable in absolute terms, but my model targets a $69.27 buy price against a $146.10 current price, a premium of roughly 53%: a moderate multiple can still be expensive if underlying growth slows.",
+            "$1B tariff impact expected in 2026, restructuring plan of $1 to $1.6B over two years. This is not investment advice, do your own research."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why did Procter & Gamble's organic growth fall to zero?",
+          "a": "Because its main growth engine for several years, regularly raising brand prices, stalled this quarter: neither volume, price, nor product mix contributed to organic growth, a sign that consumers are now resisting repeated price hikes."
+        },
+        {
+          "q": "Why is Procter & Gamble's net cash collection cycle negative?",
+          "a": "Because P&G takes on average 127 days to pay its suppliers, while collecting from its own customers in just 27 days and turning inventory in 66 days. This negotiating power over suppliers, reserved for only the largest groups, lets it have part of its cash needs financed by partners."
+        },
+        {
+          "q": "Is a 24-times P/FCF expensive for Procter & Gamble?",
+          "a": "The multiple alone does not look extravagant, but it must be compared to the growth it compensates for: with free cash flow per share growing only 3.2% per year, my model judges the stock overvalued by roughly 53%. A moderate multiple can still be expensive if underlying growth slows."
+        },
+        {
+          "q": "Should you buy Procter & Gamble stock after these results?",
+          "a": "The quality of the business remains real (8 out of 10 criteria), but my reasonable buy-price model targets $69.27 against a $146.10 price, a premium of roughly 53%. The slowdown of organic growth to zero this quarter makes this price even more demanding. This is not personalized investment advice, do your own research."
+        }
+      ],
+      "tags": [
+        "Procter & Gamble",
+        "PG",
+        "Consumer goods",
+        "Quarterly results",
+        "Fundamental analysis"
+      ],
+      "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 29, 2026), subject to change. Do your own research."
+    },
+    "es": {
+      "title": "Procter & Gamble (PG): resultados T4 2026, mi veredicto",
+      "excerpt": "El motor de crecimiento de P&G, la subida de precios, acaba de caer a cero. Mi filtro de calidad sigue siendo bueno sin ser impecable, y mi modelo considera la acción claramente sobrevalorada. Te explico por qué un gigante tranquilo puede seguir siendo un mal precio.",
+      "metaDescription": "Procter & Gamble (PG): resultados del cuarto trimestre fiscal 2026 analizados. Crecimiento orgánico, aranceles, reestructuración y mi veredicto sobre el precio.",
+      "answer": "Procter & Gamble publicó el 29 de julio de 2026 ingresos de 21.200 millones de dólares, con un crecimiento orgánico que cayó a cero este trimestre tras cuatro años impulsados por las subidas de precios. Mi filtro de calidad valida 8 de 10 criterios, pero mi modelo considera la acción sobrevalorada en torno a un 53 %. Te explico cómo separo la calidad real del precio a pagar.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Lo que acaba de ocurrir: la máquina de subir precios se detiene"
+        },
+        {
+          "type": "p",
+          "text": "Procter & Gamble publicó el 29 de julio de 2026, antes de la apertura de los mercados, los resultados de su cuarto trimestre fiscal 2026 (finalizado a finales de junio de 2026): ingresos de 21.200 millones de dólares, ligeramente por debajo de la estimación de 21.380 millones, y un beneficio por acción ajustado («core») de 1,43 dólares, por encima del consenso de 1,41 dólares pero un 3 % menos interanual. El beneficio por acción GAAP cayó con más fuerza, un 15 %, hasta 1,26 dólares. En todo el ejercicio fiscal 2026, los ingresos crecieron un 3 %, pero esta cifra oculta una realidad más dura: dos de los tres puntos de crecimiento vinieron del efecto de las divisas y solo uno de la subida de precios, mientras que el volumen real de productos vendidos este trimestre no se movió en absoluto. El CEO Shailesh Jejurikar resumió el ejercicio señalando un «entorno geopolítico y económico difícil»."
+        },
+        {
+          "type": "p",
+          "text": "Este último punto merece atención. Desde hace varios años, el crecimiento de P&G se apoyaba en un mecanismo simple: subir regularmente los precios de sus marcas (Tide, Pampers, Gillette, Ariel) más rápido que la inflación, apostando por la fidelidad de sus clientes. Este trimestre, ese motor cayó a cero: ni el volumen, ni el precio, ni la mezcla de productos contribuyeron al crecimiento orgánico. El consumidor ha alcanzado claramente un límite de tolerancia a las subidas de precio repetidas. A esto se suman vientos en contra bien identificados: un impacto esperado de 1.000 millones de dólares por aranceles en 2026, y un plan de reestructuración de la cartera de marcas y de la organización, anunciado en junio de 2025, que costará entre 1.000 y 1.600 millones de dólares antes de impuestos en dos años para racionalizar costes y reinvertir en crecimiento."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué mi filtro valida 8 de 10 criterios"
+        },
+        {
+          "type": "p",
+          "text": "Pese a esta desaceleración, P&G sigue siendo un negocio de muy alta calidad financiera: un margen neto del 19,2 % (casi una quinta parte de los ingresos termina en beneficio neto), un número de acciones que cae un 1,15 % anual gracias a recompras constantes, un margen de flujo de caja libre del 16,7 % (la parte de los ingresos convertida en efectivo realmente disponible), márgenes que se amplían con el tiempo, y un Cash ROCE (rendimiento del capital realmente reinvertido en el negocio) del 38,0 %, un nivel elevado para un grupo de bienes de consumo. Su deuda neta tardaría 1,70 años de flujo de caja libre en amortizarse, un balance sólido (ver mi [guía sobre la deuda en el método Lubin](/blog/dette-dans-methode-lubin-filtre-bilan) para cómo juzgo este criterio)."
+        },
+        {
+          "type": "p",
+          "text": "Una cifra técnica merece explicación, porque ilustra bien el poder de negociación de un gigante como P&G frente a sus proveedores y distribuidores: su ciclo neto de cobro es negativo, en -34 días. En concreto, P&G tarda de media 127 días en pagar a sus propios proveedores, mientras que mantiene su inventario solo 66 días y cobra a sus clientes (principalmente distribuidores como Walmart o Carrefour) en solo 27 días. Este desequilibrio no es un accidente: es el resultado de un poder de negociación considerable sobre sus proveedores, que permite a P&G financiar parte de su necesidad de capital circulante con sus socios en lugar de con su propia caja, un privilegio reservado a los actores más grandes de un sector."
+        },
+        {
+          "type": "p",
+          "text": "Sin embargo, dos criterios fallan, y están directamente ligados a la desaceleración observada este trimestre: el crecimiento de las ventas es de solo un 2,3 % anual de media en cinco años, y el del flujo de caja libre por acción de solo un 3,2 % anual, dos ritmos débiles para una empresa que debe justificar una valoración de crecimiento. Son exactamente los dos criterios que ponen cifras a lo que la actualidad del trimestre acaba de confirmar: el motor de la subida de precios se queda sin fuerza."
+        },
+        {
+          "type": "h2",
+          "text": "El precio: caro pese a un múltiplo que parece razonable"
+        },
+        {
+          "type": "p",
+          "text": "P&G cotiza a 24,3 veces su flujo de caja libre de los últimos doce meses, un múltiplo que, tomado de forma aislada, no parece extravagante: se mantiene por debajo del umbral de 25 veces que considero razonable en términos absolutos. Pero un múltiplo nunca se juzga solo: hay que compararlo con el crecimiento que se supone debe compensar. Mi modelo de precio de compra razonable, que proyecta la trayectoria real de generación de caja por acción de los últimos cinco años, arroja 69,27 dólares, frente a un precio actual de 146,10 dólares: una sobrevaloración de aproximadamente el 53 %."
+        },
+        {
+          "type": "p",
+          "text": "Esta es la lección más útil de este análisis: un P/FCF de 24 veces no es automáticamente barato si el crecimiento subyacente del efectivo por acción es de solo un 3,2 % anual. Pagar 24 años de efectivo por una máquina que casi ha dejado de acelerar equivale a pagar el precio de un crecimiento que no se refleja en las cifras. P&G sigue siendo un compounder tranquilo y rentable, pero su precio todavía incorpora una dinámica de crecimiento que los resultados de este trimestre contradicen directamente."
+        },
+        {
+          "type": "h2",
+          "text": "Qué podría descarrilar la tesis"
+        },
+        {
+          "type": "p",
+          "text": "El riesgo más inmediato es que continúe la resistencia del consumidor a las subidas de precio, lo que obligaría a P&G a elegir entre defender márgenes o recuperar volumen, un dilema raramente indoloro. Los aranceles (1.000 millones de dólares de impacto esperado en 2026) y los costes de reestructuración (hasta 1.600 millones en dos años) pesan directamente sobre el beneficio a corto plazo. Por último, la competencia de las marcas blancas, más baratas, suele intensificarse cuando el poder adquisitivo de los hogares se tensiona, un riesgo estructural para todo el sector de bienes de consumo de marca."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Procter & Gamble publicó el 29 de julio de 2026 ingresos de 21.200 M$, con un crecimiento orgánico que cayó a cero este trimestre (volumen, precio y mezcla todos al 0 %), tras varios años impulsados por las subidas de precio. Beneficio ajustado 1,43 $ (por encima del consenso), beneficio GAAP cayendo un 15 % hasta 1,26 $.",
+            "Mi filtro de calidad valida 8 de 10 criterios: margen neto 19,2 %, Cash ROCE 38,0 %, deuda controlada (1,70 años de FCF). Puntos débiles: crecimiento de ventas de solo un 2,3 % anual y del FCF por acción del 3,2 % anual en 5 años, reflejo directo del agotamiento del motor de precios.",
+            "El P/FCF de 24,3 veces parece razonable en términos absolutos, pero mi modelo apunta a un precio de compra de 69,27 $ frente a una cotización de 146,10 $, una sobrevaloración de aproximadamente el 53 %: un múltiplo moderado puede seguir siendo caro si el crecimiento subyacente se ralentiza.",
+            "1.000 M$ de impacto arancelario esperado en 2026, plan de reestructuración de 1.000 a 1.600 M$ en dos años. Esto no es asesoramiento de inversión, haz tu propia investigación."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por qué el crecimiento orgánico de Procter & Gamble cayó a cero?",
+          "a": "Porque su principal motor de crecimiento durante varios años, la subida regular de los precios de sus marcas, se detuvo este trimestre: ni el volumen, ni el precio, ni la mezcla de productos contribuyeron al crecimiento orgánico, señal de que los consumidores ahora resisten las subidas de precio repetidas."
+        },
+        {
+          "q": "¿Por qué el ciclo neto de cobro de Procter & Gamble es negativo?",
+          "a": "Porque P&G tarda de media 127 días en pagar a sus proveedores, mientras que cobra a sus propios clientes en solo 27 días y rota su inventario en 66 días. Este poder de negociación sobre sus proveedores, reservado a los grupos más grandes, le permite financiar parte de su necesidad de caja con sus socios."
+        },
+        {
+          "q": "¿Es caro un P/FCF de 24 veces para Procter & Gamble?",
+          "a": "El múltiplo por sí solo no parece extravagante, pero hay que compararlo con el crecimiento que compensa: con un flujo de caja libre por acción que crece solo un 3,2 % anual, mi modelo considera la acción sobrevalorada en torno a un 53 %. Un múltiplo moderado puede seguir siendo caro si el crecimiento subyacente se ralentiza."
+        },
+        {
+          "q": "¿Hay que comprar acciones de Procter & Gamble tras estos resultados?",
+          "a": "La calidad del negocio sigue siendo real (8 de 10 criterios), pero mi modelo de precio de compra razonable apunta a 69,27 $ frente a una cotización de 146,10 $, una sobrevaloración de aproximadamente el 53 %. La desaceleración del crecimiento orgánico a cero este trimestre hace este precio aún más exigente. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación."
+        }
+      ],
+      "tags": [
+        "Procter & Gamble",
+        "PG",
+        "Bienes de consumo",
+        "Resultados trimestrales",
+        "Análisis fundamental"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (29 de julio de 2026), sujetas a cambios. Haz tu propia investigación."
+    }
+  }
+};
+
+const articleKLACQ4Post: Article = {
+  "slug": "kla-corporation-klac-resultats-t4-fy2026-verdict",
+  "date": "2026-07-29",
+  "updated": "2026-07-29",
+  "readingTime": 7,
+  "ticker": "KLAC",
+  "content": {
+    "fr": {
+      "title": "KLA Corporation (KLAC) : résultats T4 2026, mon verdict",
+      "excerpt": "KLA bat ses propres objectifs et relève ses prévisions sur l'IA, mais l'action recule quand même. Mon filtre qualité reste quasiment parfait. Voici pourquoi je préfère cette fois rester honnête sur ce que je ne peux pas encore chiffrer avec certitude.",
+      "metaDescription": "KLA Corporation (KLAC) : résultats du 4e trimestre fiscal 2026 analysés. Revenus record, demande IA, guidance relevée et mon verdict sur l'action.",
+      "answer": "KLA Corporation a publié le 28 juillet 2026 un chiffre d'affaires trimestriel record de 3,66 milliards de dollars et relevé sa prévision d'équipements de fabrication de puces pour 2026. Mon filtre qualité valide 9 critères sur 10, un score quasi parfait. L'action a pourtant reculé après l'annonce. Voici ce que je peux affirmer, et ce que je préfère ne pas chiffrer ce trimestre.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ce qui vient de tomber : un record porté par la demande d'infrastructure IA"
+        },
+        {
+          "type": "p",
+          "text": "KLA Corporation a publié le 28 juillet 2026, après la clôture des marchés, les résultats de son quatrième trimestre fiscal 2026 (clos le 30 juin 2026) : un chiffre d'affaires record de 3,66 milliards de dollars, en hausse de 7 % sur un trimestre et de 15 % sur un an, un bénéfice par action GAAP de 1,04 dollar et une marge brute de 62,4 %, tous deux en haut de la fourchette annoncée par la direction. Sur l'ensemble de l'exercice fiscal 2026, le chiffre d'affaires atteint 13,58 milliards de dollars. Le PDG Rick Wallace a résumé le trimestre ainsi : « Les résultats de KLA pour le trimestre de juin confirment que les tendances qui portent notre croissance se renforcent, et nous voyons l'élan s'accélérer sur l'ensemble de notre activité au second semestre de l'année civile 2026 et se poursuivre jusqu'en 2027. »"
+        },
+        {
+          "type": "p",
+          "text": "KLA fabrique les machines qui contrôlent la qualité des puces électroniques avant leur production en masse : un métier de niche critique, puisqu'une seule erreur non détectée dans le processus de fabrication peut ruiner un lot entier de semi-conducteurs coûteux à produire. Ce trimestre, Wallace a mis en avant un segment en particulier : les systèmes de contrôle qualité pour l'emballage avancé (advanced packaging, la technique qui permet d'empiler et de connecter plusieurs puces entre elles, essentielle pour les processeurs d'intelligence artificielle les plus puissants). KLA prévoit désormais environ 1,1 milliard de dollars de revenus sur ce seul segment en 2026, une croissance de plus de 70 % sur un an, contre une précédente prévision de croissance de seulement 50 % et quasiment le double du rythme attendu pour l'ensemble du marché de l'emballage avancé. La direction a aussi relevé sa prévision de marché total des équipements de fabrication de semi-conducteurs (WFE) pour 2026 à un peu plus de 150 milliards de dollars."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi mon filtre valide 9 critères sur 10"
+        },
+        {
+          "type": "p",
+          "text": "J'avais déjà consacré à KLA une [analyse fondamentale complète le 7 juillet 2026](/blog/kla-corporation-klac-controle-qualite-puces-analyse), où l'entreprise validait déjà 9 critères sur 10. Trois semaines plus tard, ce score n'a pas bougé, et les résultats qui viennent de tomber confirment chacun des points forts que j'y détaillais : une marge nette de 35,7 % (plus du tiers du chiffre d'affaires finit en bénéfice net), une croissance des ventes de 11,2 % par an en moyenne sur cinq ans qui s'accélère avec le supercycle IA, une croissance du free cash flow par action de 15,0 % par an, un nombre d'actions en baisse de 2,6 % par an, et un rendement du capital investi en cash de 37,9 %, un niveau très élevé pour un équipementier industriel."
+        },
+        {
+          "type": "p",
+          "text": "Le seul critère qui échoue franchement illustre une mécanique propre au métier d'équipementier de semi-conducteurs : le délai net d'encaissement atteint 275 jours, avec un délai de rotation des stocks à lui seul de 248 jours. Concrètement, KLA fabrique des machines complexes et sur mesure, souvent conçues et assemblées sur plusieurs mois avant d'être livrées et facturées : le stock immobilise donc énormément de cash pendant tout ce cycle de production, bien plus que dans la plupart des secteurs. C'est une contrainte structurelle du métier, pas un signal d'alerte isolé, et elle coexiste depuis toujours avec les marges et la rentabilité élevées de KLA."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix : pourquoi je préfère ne pas chiffrer ce trimestre"
+        },
+        {
+          "type": "p",
+          "text": "C'est le point où je choisis l'honnêteté plutôt que la précision de façade. Mon modèle de valorisation automatisé a produit, pour KLA ce trimestre, un chiffre de free cash flow par action qui ne se recoupe pas correctement avec la marge de free cash flow et le chiffre d'affaires que je viens de citer plus haut : les deux sources internes ne racontent pas la même histoire, un écart que je n'avais pas rencontré à ce point sur les autres résultats analysés aujourd'hui (Microsoft, Meta, Qualcomm, Procter & Gamble). Plutôt que de publier un P/FCF ou un prix d'achat que je ne peux pas vérifier avec confiance, je préfère le signaler comme une anomalie de données à corriger avant de trancher chiffres à l'appui, exactement comme je l'ai déjà fait par le passé pour d'autres tickers où un bug de devise ou de capitalisation faussait mes ratios."
+        },
+        {
+          "type": "p",
+          "text": "Ce que je peux dire sans données suspectes, en revanche, c'est la réaction du marché : l'action a reculé après la publication, malgré un trimestre qui bat les objectifs sur toute la ligne et une prévision d'emballage avancé relevée. C'est un signal en soi : quand une entreprise dépasse ses propres objectifs et voit son cours reculer, cela veut souvent dire que le marché attendait encore plus, ou doute de la durabilité du supercycle IA au-delà de l'horizon déjà couvert par la guidance. Dans mon [analyse du 7 juillet](/blog/kla-corporation-klac-controle-qualite-puces-analyse), je notais déjà que KLA se valorisait nettement moins cher que des pairs comme Applied Materials ou Lam Research pour une meilleure discipline financière : ce trimestre ne change rien à ce diagnostic qualitatif, même si je ne peux pas actualiser le chiffre précis aujourd'hui."
+        },
+        {
+          "type": "h2",
+          "text": "Ce qui pourrait dérailler la thèse"
+        },
+        {
+          "type": "p",
+          "text": "Le risque le plus structurel reste la cyclicité du secteur des équipements de semi-conducteurs : les investissements des fondeurs et fabricants de mémoire suivent des cycles marqués, et un supercycle porté par l'IA aujourd'hui peut se retourner en surcapacité demain si la demande de puces IA ralentit. Le marché, en faisant reculer l'action malgré un trimestre record, envoie peut-être déjà ce signal de prudence. La concentration de la demande sur un nombre restreint de très grands clients (les principales fonderies mondiales) est un risque additionnel à surveiller."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "KLA Corporation a publié le 28 juillet 2026 un chiffre d'affaires trimestriel record de 3,66 Md$ (+15 % sur un an), une marge brute de 62,4 % et relevé sa prévision de revenus sur l'emballage avancé (+70 % en 2026, contre +50 % anticipé auparavant).",
+            "Mon filtre qualité valide 9 critères sur 10 (identique à mon analyse du 7 juillet), porté par une marge nette de 35,7 %, un Cash ROCE de 37,9 % et une croissance du FCF par action de 15,0 %/an. Seul point faible : un cycle de stock très long (248 jours), propre à la fabrication d'équipements sur mesure.",
+            "Anomalie de données détectée ce trimestre sur mon calcul automatisé de P/FCF pour KLA : je préfère ne pas publier de chiffre non vérifié plutôt que d'inventer une précision que je n'ai pas. L'action a reculé malgré des résultats qui battent les objectifs, un signal de prudence du marché à noter.",
+            "Le vrai risque à surveiller : la cyclicité du secteur des équipements semi-conducteurs, où un supercycle IA peut se retourner en surcapacité. Ce n'est pas un conseil en investissement, fais tes propres recherches."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Pourquoi l'action KLA a-t-elle baissé malgré des résultats records ?",
+          "a": "Parce que dépasser ses propres objectifs ne suffit pas toujours à satisfaire un marché qui attendait davantage, ou qui s'interroge sur la durabilité du supercycle lié à l'intelligence artificielle au-delà de l'horizon déjà couvert par les prévisions de la direction. C'est un signal de prudence à noter, indépendamment de la qualité réelle du trimestre."
+        },
+        {
+          "q": "Pourquoi le délai de rotation des stocks de KLA est-il si long (248 jours) ?",
+          "a": "Parce que KLA fabrique des machines de contrôle qualité complexes et sur mesure, conçues et assemblées sur plusieurs mois avant d'être livrées et facturées. Le stock immobilise donc beaucoup de cash pendant ce cycle de production, une contrainte structurelle du métier d'équipementier plutôt qu'un signal d'alarme."
+        },
+        {
+          "q": "Pourquoi ne donnes-tu pas de P/FCF précis pour KLA ce trimestre ?",
+          "a": "Parce que mon modèle de valorisation automatisé a produit un chiffre de free cash flow par action qui ne se recoupe pas correctement avec les autres données disponibles (marge de FCF, chiffre d'affaires). Je préfère signaler cette anomalie et attendre une donnée fiable plutôt que publier un chiffre que je ne peux pas vérifier avec confiance."
+        },
+        {
+          "q": "Faut-il acheter l'action KLA après ces résultats ?",
+          "a": "Le score qualité reste quasi parfait (9 sur 10), confirmant mon analyse du 7 juillet. Je n'ai cependant pas de chiffre de valorisation fiable à te donner ce trimestre : la prudence du marché après des résultats pourtant records mérite d'être creusée avant de trancher. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches."
+        }
+      ],
+      "tags": [
+        "KLA Corporation",
+        "KLAC",
+        "Semi-conducteurs",
+        "Intelligence artificielle",
+        "Résultats trimestriels",
+        "Analyse fondamentale"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (29 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "KLA Corporation (KLAC): Q4 2026 results, my verdict",
+      "excerpt": "KLA beats its own targets and raises its AI-driven guidance, yet the stock still fell. My quality screen stays nearly perfect. Here is why, this time, I'd rather stay honest about what I cannot confidently quantify yet.",
+      "metaDescription": "KLA Corporation (KLAC): fiscal Q4 2026 results analyzed. Record revenue, AI demand, raised guidance, and my verdict on the stock.",
+      "answer": "KLA Corporation reported on July 28, 2026 record quarterly revenue of $3.66 billion and raised its 2026 chip-manufacturing-equipment outlook. My quality screen validates 9 out of 10 criteria, a near-perfect score. Yet the stock fell after the announcement. Here is what I can confidently say, and what I'd rather not quantify this quarter.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "What just happened: a record driven by AI infrastructure demand"
+        },
+        {
+          "type": "p",
+          "text": "KLA Corporation reported after market close on July 28, 2026 its fiscal fourth-quarter 2026 results (period ended June 30, 2026): record revenue of $3.66 billion, up 7% sequentially and 15% year over year, GAAP earnings per share of $1.04, and a gross margin of 62.4%, both at the high end of management's guidance. For the full fiscal year 2026, revenue reached $13.58 billion. CEO Rick Wallace summed up the quarter: 'KLA's June quarter results reinforce that the trends driving our growth are strengthening, and we see momentum across our business accelerating in the second half of calendar 2026 and continuing through 2027.'"
+        },
+        {
+          "type": "p",
+          "text": "KLA makes the machines that inspect the quality of computer chips before mass production: a critical niche business, since a single undetected error in the manufacturing process can ruin an entire batch of expensive-to-produce semiconductors. This quarter, Wallace highlighted one segment in particular: quality-control systems for advanced packaging (the technique of stacking and connecting multiple chips together, essential for the most powerful AI processors). KLA now expects roughly $1.1 billion in revenue from this segment alone in 2026, growth of more than 70% year over year, up from a prior guide of just 50% growth and nearly double the expected rate for the overall advanced-packaging market. Management also raised its 2026 total wafer fab equipment (WFE) market outlook to a bit above $150 billion."
+        },
+        {
+          "type": "h2",
+          "text": "Why my quality screen validates 9 out of 10 criteria"
+        },
+        {
+          "type": "p",
+          "text": "I already dedicated a [full fundamental analysis to KLA on July 7, 2026](/blog/kla-corporation-klac-controle-qualite-puces-analyse), where the company already validated 9 out of 10 criteria. Three weeks later, that score has not moved, and the results just released confirm each of the strengths I detailed there: a 35.7% net margin (more than a third of revenue ends up as net profit), 11.2%/year sales growth on average over five years that is accelerating with the AI supercycle, 15.0%/year free cash flow per share growth, a share count declining 2.6%/year, and a Cash ROCE of 37.9%, a very high level for an industrial equipment maker."
+        },
+        {
+          "type": "p",
+          "text": "The one criterion that clearly fails illustrates a mechanic specific to the semiconductor-equipment business: the net cash collection cycle reaches 275 days, with inventory turnover alone at 248 days. In practice, KLA builds complex, custom-made machines, often designed and assembled over several months before being shipped and billed: inventory ties up an enormous amount of cash throughout this production cycle, far more than in most industries. This is a structural constraint of the business, not an isolated warning sign, and it has always coexisted with KLA's high margins and profitability."
+        },
+        {
+          "type": "h2",
+          "text": "The price: why I'd rather not put a number on it this quarter"
+        },
+        {
+          "type": "p",
+          "text": "This is where I choose honesty over false precision. My automated valuation model produced, for KLA this quarter, a free cash flow per share figure that does not reconcile properly with the free cash flow margin and revenue I just cited above: the two internal data sources tell different stories, a gap I did not encounter to this degree in the other results analyzed today (Microsoft, Meta, Qualcomm, Procter & Gamble). Rather than publishing a P/FCF or buy price I cannot confidently verify, I would rather flag it as a data anomaly to be fixed before making a numbers-backed call, exactly as I have done in the past for other tickers where a currency or market-cap bug distorted my ratios."
+        },
+        {
+          "type": "p",
+          "text": "What I can say without relying on suspect data, however, is the market's reaction: the stock fell after the release, despite a quarter that beat targets across the board and a raised advanced-packaging outlook. That is a signal in itself: when a company beats its own targets and its stock still falls, it often means the market was expecting even more, or doubts the durability of the AI supercycle beyond the horizon already covered by guidance. In my [July 7 analysis](/blog/kla-corporation-klac-controle-qualite-puces-analyse), I already noted that KLA traded noticeably cheaper than peers like Applied Materials or Lam Research for better financial discipline: this quarter changes nothing about that qualitative diagnosis, even if I cannot update the precise figure today."
+        },
+        {
+          "type": "h2",
+          "text": "What could derail the thesis"
+        },
+        {
+          "type": "p",
+          "text": "The most structural risk remains the cyclicality of the semiconductor-equipment sector: spending by foundries and memory makers follows pronounced cycles, and a supercycle driven by AI today can turn into overcapacity tomorrow if AI chip demand slows. The market, by pushing the stock down despite a record quarter, may already be signaling this caution. Demand concentration among a small number of very large customers (the world's leading foundries) is an additional risk to watch."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "KLA Corporation reported on July 28, 2026 record quarterly revenue of $3.66B (+15% year over year), a 62.4% gross margin, and raised its advanced-packaging revenue outlook (+70% in 2026, up from a prior +50% guide).",
+            "My quality screen validates 9 out of 10 criteria (unchanged from my July 7 analysis), driven by a 35.7% net margin, a 37.9% Cash ROCE, and 15.0%/year FCF-per-share growth. Only weak point: a very long inventory cycle (248 days), specific to custom equipment manufacturing.",
+            "Data anomaly detected this quarter in my automated P/FCF calculation for KLA: I would rather not publish an unverified figure than invent a precision I do not have. The stock fell despite results that beat targets, a market caution signal worth noting.",
+            "The real risk to watch: cyclicality in the semiconductor-equipment sector, where an AI supercycle can turn into overcapacity. This is not investment advice, do your own research."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why did KLA's stock fall despite record results?",
+          "a": "Because beating your own targets is not always enough to satisfy a market that expected even more, or that questions the durability of the AI-driven supercycle beyond the horizon already covered by management's guidance. This is a caution signal worth noting, regardless of the quarter's actual quality."
+        },
+        {
+          "q": "Why is KLA's inventory turnover so long (248 days)?",
+          "a": "Because KLA builds complex, custom-made quality-control machines, designed and assembled over several months before being shipped and billed. Inventory ties up a lot of cash during this production cycle, a structural constraint of the equipment business rather than a warning sign."
+        },
+        {
+          "q": "Why don't you give a precise P/FCF for KLA this quarter?",
+          "a": "Because my automated valuation model produced a free cash flow per share figure that does not reconcile properly with other available data (FCF margin, revenue). I would rather flag this anomaly and wait for reliable data than publish a figure I cannot confidently verify."
+        },
+        {
+          "q": "Should you buy KLA stock after these results?",
+          "a": "The quality score stays near-perfect (9 out of 10), confirming my July 7 analysis. However, I do not have a reliable valuation figure to give you this quarter: the market's caution despite record results deserves further digging before making a call. This is not personalized investment advice, do your own research."
+        }
+      ],
+      "tags": [
+        "KLA Corporation",
+        "KLAC",
+        "Semiconductors",
+        "Artificial intelligence",
+        "Quarterly results",
+        "Fundamental analysis"
+      ],
+      "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 29, 2026), subject to change. Do your own research."
+    },
+    "es": {
+      "title": "KLA Corporation (KLAC): resultados T4 2026, mi veredicto",
+      "excerpt": "KLA supera sus propios objetivos y eleva sus previsiones sobre IA, pero la acción cae igualmente. Mi filtro de calidad sigue siendo casi perfecto. Te explico por qué, esta vez, prefiero ser honesto sobre lo que aún no puedo cuantificar con certeza.",
+      "metaDescription": "KLA Corporation (KLAC): resultados del cuarto trimestre fiscal 2026 analizados. Ingresos récord, demanda de IA, previsiones al alza y mi veredicto.",
+      "answer": "KLA Corporation publicó el 28 de julio de 2026 ingresos trimestrales récord de 3.660 millones de dólares y elevó sus previsiones de equipos de fabricación de chips para 2026. Mi filtro de calidad valida 9 de 10 criterios, una puntuación casi perfecta. Sin embargo, la acción cayó tras el anuncio. Te explico lo que puedo afirmar con certeza y lo que prefiero no cuantificar este trimestre.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Lo que acaba de ocurrir: un récord impulsado por la demanda de infraestructura de IA"
+        },
+        {
+          "type": "p",
+          "text": "KLA Corporation publicó el 28 de julio de 2026, tras el cierre de los mercados, los resultados de su cuarto trimestre fiscal 2026 (finalizado el 30 de junio de 2026): ingresos récord de 3.660 millones de dólares, un 7 % más trimestral y un 15 % más interanual, un beneficio por acción GAAP de 1,04 dólares y un margen bruto del 62,4 %, ambos en la parte alta de las previsiones de la dirección. En todo el ejercicio fiscal 2026, los ingresos alcanzan los 13.580 millones de dólares. El CEO Rick Wallace resumió el trimestre así: «Los resultados de KLA del trimestre de junio confirman que las tendencias que impulsan nuestro crecimiento se están reforzando, y vemos que el impulso se acelera en todo nuestro negocio en el segundo semestre del año natural 2026 y continúa hasta 2027»."
+        },
+        {
+          "type": "p",
+          "text": "KLA fabrica las máquinas que controlan la calidad de los chips electrónicos antes de su producción en masa: un negocio de nicho crítico, ya que un solo error no detectado en el proceso de fabricación puede arruinar todo un lote de semiconductores caros de producir. Este trimestre, Wallace destacó un segmento en particular: los sistemas de control de calidad para el empaquetado avanzado (advanced packaging, la técnica que permite apilar y conectar varios chips entre sí, esencial para los procesadores de inteligencia artificial más potentes). KLA prevé ahora unos 1.100 millones de dólares de ingresos solo en este segmento en 2026, un crecimiento de más del 70 % interanual, frente a una previsión anterior de un crecimiento de solo el 50 % y casi el doble del ritmo esperado para todo el mercado de empaquetado avanzado. La dirección también elevó su previsión de mercado total de equipos de fabricación de semiconductores (WFE) para 2026 a algo más de 150.000 millones de dólares."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué mi filtro valida 9 de 10 criterios"
+        },
+        {
+          "type": "p",
+          "text": "Ya dediqué a KLA un [análisis fundamental completo el 7 de julio de 2026](/blog/kla-corporation-klac-controle-qualite-puces-analyse), donde la empresa ya validaba 9 de 10 criterios. Tres semanas después, esa puntuación no ha cambiado, y los resultados que acaban de publicarse confirman cada uno de los puntos fuertes que detallé entonces: un margen neto del 35,7 % (más de un tercio de los ingresos termina en beneficio neto), un crecimiento de las ventas del 11,2 % anual de media en cinco años que se acelera con el superciclo de IA, un crecimiento del flujo de caja libre por acción del 15,0 % anual, un número de acciones que cae un 2,6 % anual, y un Cash ROCE del 37,9 %, un nivel muy elevado para un fabricante de equipos industriales."
+        },
+        {
+          "type": "p",
+          "text": "El único criterio que falla claramente ilustra una mecánica propia del negocio de equipos de semiconductores: el ciclo neto de cobro alcanza los 275 días, con una rotación de inventario por sí sola de 248 días. En la práctica, KLA fabrica máquinas complejas y a medida, a menudo diseñadas y ensambladas durante varios meses antes de ser entregadas y facturadas: el inventario inmoviliza por tanto una enorme cantidad de efectivo durante todo este ciclo de producción, mucho más que en la mayoría de los sectores. Es una limitación estructural del negocio, no una señal de alarma aislada, y siempre ha coexistido con los elevados márgenes y rentabilidad de KLA."
+        },
+        {
+          "type": "h2",
+          "text": "El precio: por qué prefiero no dar una cifra este trimestre"
+        },
+        {
+          "type": "p",
+          "text": "Este es el punto en el que elijo la honestidad frente a la falsa precisión. Mi modelo de valoración automatizado produjo, para KLA este trimestre, una cifra de flujo de caja libre por acción que no cuadra correctamente con el margen de flujo de caja libre y los ingresos que acabo de citar más arriba: las dos fuentes internas no cuentan la misma historia, una discrepancia que no había encontrado con este grado en los demás resultados analizados hoy (Microsoft, Meta, Qualcomm, Procter & Gamble). En lugar de publicar un P/FCF o un precio de compra que no puedo verificar con confianza, prefiero señalarlo como una anomalía de datos que corregir antes de decidir con cifras en la mano, tal como ya he hecho en el pasado con otros valores donde un error de divisa o de capitalización distorsionaba mis ratios."
+        },
+        {
+          "type": "p",
+          "text": "Lo que sí puedo afirmar sin depender de datos sospechosos es la reacción del mercado: la acción cayó tras la publicación, pese a un trimestre que supera los objetivos en todos los frentes y una previsión de empaquetado avanzado al alza. Es una señal en sí misma: cuando una empresa supera sus propios objetivos y su cotización cae igualmente, suele significar que el mercado esperaba aún más, o que duda de la durabilidad del superciclo de IA más allá del horizonte ya cubierto por las previsiones. En mi [análisis del 7 de julio](/blog/kla-corporation-klac-controle-qualite-puces-analyse), ya señalé que KLA cotizaba notablemente más barata que rivales como Applied Materials o Lam Research por una mejor disciplina financiera: este trimestre no cambia nada de ese diagnóstico cualitativo, aunque no pueda actualizar hoy la cifra precisa."
+        },
+        {
+          "type": "h2",
+          "text": "Qué podría descarrilar la tesis"
+        },
+        {
+          "type": "p",
+          "text": "El riesgo más estructural sigue siendo la ciclicidad del sector de equipos de semiconductores: la inversión de las fundiciones y los fabricantes de memoria sigue ciclos marcados, y un superciclo impulsado hoy por la IA puede convertirse mañana en exceso de capacidad si la demanda de chips de IA se ralentiza. El mercado, al hacer caer la acción pese a un trimestre récord, quizás ya esté enviando esa señal de cautela. La concentración de la demanda en un número reducido de clientes muy grandes (las principales fundiciones mundiales) es un riesgo adicional a vigilar."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "KLA Corporation publicó el 28 de julio de 2026 ingresos trimestrales récord de 3.660 M$ (+15 % interanual), un margen bruto del 62,4 % y elevó su previsión de ingresos de empaquetado avanzado (+70 % en 2026, frente al +50 % previsto anteriormente).",
+            "Mi filtro de calidad valida 9 de 10 criterios (sin cambios respecto a mi análisis del 7 de julio), impulsado por un margen neto del 35,7 %, un Cash ROCE del 37,9 % y un crecimiento del FCF por acción del 15,0 % anual. Único punto débil: un ciclo de inventario muy largo (248 días), propio de la fabricación de equipos a medida.",
+            "Anomalía de datos detectada este trimestre en mi cálculo automatizado de P/FCF para KLA: prefiero no publicar una cifra no verificada antes que inventar una precisión que no tengo. La acción cayó pese a unos resultados que superan los objetivos, una señal de cautela del mercado a tener en cuenta.",
+            "El riesgo real a vigilar: la ciclicidad del sector de equipos de semiconductores, donde un superciclo de IA puede convertirse en exceso de capacidad. Esto no es asesoramiento de inversión, haz tu propia investigación."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por qué cayó la acción de KLA pese a unos resultados récord?",
+          "a": "Porque superar los propios objetivos no siempre basta para satisfacer a un mercado que esperaba todavía más, o que duda de la durabilidad del superciclo ligado a la inteligencia artificial más allá del horizonte ya cubierto por las previsiones de la dirección. Es una señal de cautela a tener en cuenta, independientemente de la calidad real del trimestre."
+        },
+        {
+          "q": "¿Por qué la rotación de inventario de KLA es tan larga (248 días)?",
+          "a": "Porque KLA fabrica máquinas de control de calidad complejas y a medida, diseñadas y ensambladas durante varios meses antes de ser entregadas y facturadas. El inventario inmoviliza mucho efectivo durante este ciclo de producción, una limitación estructural del negocio de equipos más que una señal de alarma."
+        },
+        {
+          "q": "¿Por qué no das un P/FCF preciso para KLA este trimestre?",
+          "a": "Porque mi modelo de valoración automatizado produjo una cifra de flujo de caja libre por acción que no cuadra correctamente con otros datos disponibles (margen de FCF, ingresos). Prefiero señalar esta anomalía y esperar un dato fiable antes que publicar una cifra que no puedo verificar con confianza."
+        },
+        {
+          "q": "¿Hay que comprar acciones de KLA tras estos resultados?",
+          "a": "La puntuación de calidad sigue siendo casi perfecta (9 de 10), confirmando mi análisis del 7 de julio. Sin embargo, no tengo una cifra de valoración fiable que darte este trimestre: la cautela del mercado pese a unos resultados récord merece más análisis antes de decidir. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación."
+        }
+      ],
+      "tags": [
+        "KLA Corporation",
+        "KLAC",
+        "Semiconductores",
+        "Inteligencia artificial",
+        "Resultados trimestrales",
+        "Análisis fundamental"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (29 de julio de 2026), sujetas a cambios. Haz tu propia investigación."
+    }
+  }
+};
+
+const articleSBUXQ3Post: Article = {
+  "slug": "starbucks-sbux-resultats-t3-fy2026-verdict",
+  "date": "2026-07-29",
+  "updated": "2026-07-29",
+  "readingTime": 7,
+  "ticker": "SBUX",
+  "content": {
+    "fr": {
+      "title": "Starbucks (SBUX) : résultats T3 2026, mon verdict",
+      "excerpt": "Starbucks vient de signer son quatrième trimestre de suite de ventes en hausse, largement au-dessus des attentes. Mon filtre qualité reste faible, mais le redressement est réel. Voici où j'en suis, trois mois après avoir été sceptique.",
+      "metaDescription": "Starbucks (SBUX) : résultats du 3e trimestre fiscal 2026 analysés. Ventes comparables, redressement Niccol et mon verdict sur le prix de l'action.",
+      "answer": "Starbucks a publié le 29 juillet 2026 des ventes comparables en hausse de 7,9 %, bien au-dessus des 5,7 % attendus, et relevé sa prévision annuelle pour la deuxième fois. Mon filtre qualité ne valide que 5 critères sur 10, mais le redressement engagé par le PDG Brian Niccol devient de plus en plus difficile à ignorer. Voici comment j'ai fait évoluer mon avis depuis mon scepticisme de juillet.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Ce qui vient de tomber : un quatrième trimestre de suite de redressement"
+        },
+        {
+          "type": "p",
+          "text": "Starbucks a publié le 29 juillet 2026 les résultats de son troisième trimestre fiscal 2026 : un chiffre d'affaires de 9,32 milliards de dollars, légèrement sous l'estimation de 9,44 milliards, mais des ventes à magasins comparables en hausse de 7,9 %, très largement au-dessus des 5,7 % attendus par le marché et en accélération par rapport aux 6,2 % du trimestre précédent. Le bénéfice par action ressort à 0,91 dollar (0,85 dollar hors éléments exceptionnels), largement au-dessus des 0,66 dollar attendus par le consensus. C'est le quatrième trimestre consécutif de croissance positive des ventes comparables à l'échelle mondiale, et le deuxième trimestre de suite d'expansion des marges. Starbucks a relevé sa prévision annuelle de bénéfice par action ajusté à une fourchette de 2,55 à 2,65 dollars, contre 2,25 à 2,45 dollars précédemment."
+        },
+        {
+          "type": "p",
+          "text": "Le PDG Brian Niccol, arrivé pour redresser l'entreprise, a résumé le trimestre ainsi : « Notre plan Back to Starbucks reposait sur la conviction qu'un café d'exception, la connexion humaine et l'expérience client l'emportent chaque jour. Nos résultats du troisième trimestre en sont la preuve. » Concrètement, ce plan repose sur un recentrage sur l'expérience en magasin (moins d'attente, plus de personnalisation, un service plus rapide) après des années où Starbucks avait, selon une partie de la critique, sacrifié l'expérience du café de quartier au profit du volume et de la commande mobile."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi mon filtre ne valide encore que 5 critères sur 10"
+        },
+        {
+          "type": "p",
+          "text": "Malgré ce redressement opérationnel réel, le filtre financier reste sévère avec Starbucks, et il faut comprendre pourquoi. La marge nette n'est que de 3,9 %, un niveau faible qui dit que sur 100 dollars de chiffre d'affaires, moins de 4 finissent en bénéfice net une fois tous les coûts payés (loyers de milliers de magasins, personnel, matières premières), le tout premier critère que je regarde, expliqué dans mon [guide sur la marge nette](/blog/marge-nette-premier-filtre-methode-lubin). La croissance des ventes sur cinq ans n'est que de 5,3 % par an en moyenne, un chiffre qui inclut les années difficiles qui ont précédé l'arrivée de Niccol. Plus préoccupant : le free cash flow par action a reculé de 9,8 % par an en moyenne sur cinq ans, et la dette nette se rembourserait en 5,73 années de free cash flow, un niveau élevé qui limite les marges de manoeuvre. Les marges opérationnelles se sont comprimées sur la période plutôt que de s'élargir, cohérent avec les années de difficultés que l'entreprise cherche justement à corriger aujourd'hui."
+        },
+        {
+          "type": "p",
+          "text": "Un point positif mérite d'être noté : le ratio de conversion des bénéfices en cash atteint 158 %, très au-dessus de l'objectif de 100 % que je vise habituellement. Cela peut sembler contre-intuitif pour une entreprise aux marges nettes si faibles, mais cela s'explique par la structure du bilan de Starbucks : les charges non-cash comme les dépréciations d'un immense parc de magasins pèsent sur le bénéfice comptable sans consommer de trésorerie réelle, ce qui gonfle mécaniquement ce ratio par rapport au profit net déclaré. C'est un signe que le cash généré est au moins aussi solide que ce que suggère le bénéfice comptable, même si ce dernier reste faible dans l'absolu."
+        },
+        {
+          "type": "h2",
+          "text": "Ce qui a changé depuis mon scepticisme de juillet"
+        },
+        {
+          "type": "p",
+          "text": "J'avais publié le 12 juillet 2026 une analyse avant ces résultats, où mon filtre ne donnait que 5 sur 10 à Starbucks et où je notais une action chère malgré ces difficultés. Le score n'a pas bougé, mais la trajectoire, elle, a changé : quatre trimestres de suite de ventes comparables positives et deux trimestres de suite d'expansion des marges ne sont plus un simple effet de base après une mauvaise période, c'est un début de tendance. La vraie question n'est plus de savoir si Niccol peut arrêter l'hémorragie (les chiffres disent que oui), mais si ce rythme d'amélioration peut se maintenir assez longtemps pour faire remonter durablement les critères financiers qui échouent encore aujourd'hui, notamment la marge nette et la dette."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix : toujours cher, mais pour une thèse qui se précise"
+        },
+        {
+          "type": "p",
+          "text": "Starbucks se valorise 50,3 fois son free cash flow des douze derniers mois, un multiple élevé pour une entreprise dont le filtre qualité reste en dessous de la moyenne. Mon modèle de prix d'achat raisonnable, pénalisé par le recul récent du free cash flow par action, vise seulement 10,38 dollars contre un cours actuel de 104,14 dollars, une surcote très importante d'environ 90 %. Ce chiffre doit être lu avec prudence : mon modèle regarde en priorité la trajectoire des cinq dernières années, une période qui inclut les pires trimestres de Starbucks avant l'arrivée de Niccol, et capte donc encore mal l'inflexion récente. Si les quatre derniers trimestres de redressement se confirment sur la durée, ce prix d'achat remontera mécaniquement dans mes prochaines analyses. Pour l'instant, le pari reste un pari sur la poursuite du redressement, pas sur des chiffres de valorisation déjà favorables."
+        },
+        {
+          "type": "h2",
+          "text": "Ce qui pourrait dérailler la thèse"
+        },
+        {
+          "type": "p",
+          "text": "Le risque principal est que ce redressement reste un rebond de moyen terme sans se traduire en amélioration durable de la marge nette et de l'endettement, qui restent aujourd'hui les points faibles structurels de Starbucks. Le coût des matières premières (café, lait) et de la main-d'oeuvre dans la restauration rapide reste une pression constante. Enfin, une partie du redressement des ventes comparables peut venir d'un effet de comparaison favorable avec des trimestres particulièrement faibles l'an dernier, un effet qui s'atténuera mécaniquement à mesure que les trimestres de référence redeviennent plus normaux."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Starbucks a publié le 29 juillet 2026 des ventes comparables en hausse de 7,9 % (contre 5,7 % attendus), un 4e trimestre consécutif de croissance positive, et relevé sa prévision annuelle de bénéfice par action à 2,55-2,65 $.",
+            "Mon filtre qualité ne valide que 5 critères sur 10 : marge nette faible (3,9 %), dette élevée (5,73 ans de FCF), FCF par action en baisse de 9,8 %/an sur 5 ans. Point positif : conversion des bénéfices en cash à 158 %, portée par les dépréciations non-cash d'un vaste réseau de magasins.",
+            "Le P/FCF de 50,3 fois reste cher, et mon modèle (encore pénalisé par les années difficiles pré-Niccol) vise 10,38 $ contre un cours de 104,14 $. Ce prix devrait remonter si le redressement se confirme sur la durée.",
+            "Le vrai test : la 4e amélioration trimestrielle de suite est-elle un vrai redressement structurel ou un rebond après une période particulièrement faible ? Ce n'est pas un conseil en investissement, fais tes propres recherches."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Pourquoi le filtre qualité de Starbucks reste-t-il faible malgré de bons résultats ?",
+          "a": "Parce que mon filtre juge sur cinq ans de données, une période qui inclut les trimestres difficiles avant l'arrivée du PDG Brian Niccol : marge nette faible (3,9 %), dette élevée (5,73 années de free cash flow) et free cash flow par action en baisse de 9,8 % par an en moyenne. Le redressement récent, sur seulement quatre trimestres, n'a pas encore eu le temps de faire remonter ces moyennes longues."
+        },
+        {
+          "q": "Pourquoi la conversion des bénéfices en cash de Starbucks est-elle si élevée (158 %) malgré une faible marge nette ?",
+          "a": "Parce que les charges non-cash, notamment les dépréciations d'un immense parc de magasins, pèsent sur le bénéfice comptable sans consommer de trésorerie réelle. Cela gonfle mécaniquement ce ratio par rapport au profit net déclaré, un signe que le cash réellement généré est plus solide que ne le suggère le bénéfice comptable."
+        },
+        {
+          "q": "Le prix d'achat raisonnable de 10,38 dollars pour Starbucks est-il fiable ?",
+          "a": "Il faut le lire avec prudence : mon modèle se base sur la trajectoire des cinq dernières années, qui inclut les pires trimestres de Starbucks avant le redressement de Niccol. Si les quatre derniers trimestres d'amélioration se confirment sur la durée, ce prix remontera mécaniquement dans mes prochaines analyses."
+        },
+        {
+          "q": "Faut-il acheter l'action Starbucks après ces résultats ?",
+          "a": "Le redressement opérationnel est réel (4e trimestre consécutif de ventes comparables positives), mais mon filtre qualité et mon modèle de prix restent défavorables pour l'instant, encore marqués par les années difficiles. C'est un pari sur la poursuite du redressement, pas une action déjà bon marché sur mes chiffres. Ceci n'est pas un conseil en investissement personnalisé, fais tes propres recherches."
+        }
+      ],
+      "tags": [
+        "Starbucks",
+        "SBUX",
+        "Restauration",
+        "Redressement",
+        "Résultats trimestriels",
+        "Analyse fondamentale"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (29 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "Starbucks (SBUX): Q3 2026 results, my verdict",
+      "excerpt": "Starbucks just posted its fourth straight quarter of rising sales, well above expectations. My quality screen stays weak, but the turnaround is becoming real. Here is where I stand, three months after being skeptical.",
+      "metaDescription": "Starbucks (SBUX): fiscal Q3 2026 results analyzed. Comparable sales, the Niccol turnaround, and my verdict on the stock's valuation.",
+      "answer": "Starbucks reported on July 29, 2026 comparable sales up 7.9%, well above the 5.7% expected, and raised its annual guidance for the second time. My quality screen validates only 5 out of 10 criteria, but the turnaround led by CEO Brian Niccol is becoming harder to ignore. Here is how my view has evolved since my skepticism in July.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "What just happened: a fourth straight quarter of turnaround"
+        },
+        {
+          "type": "p",
+          "text": "Starbucks reported on July 29, 2026 its fiscal third-quarter 2026 results: revenue of $9.32 billion, slightly below the $9.44 billion estimate, but comparable store sales up 7.9%, well above the 5.7% the market expected and accelerating from 6.2% the prior quarter. Earnings per share came in at $0.91 ($0.85 excluding one-time items), well above the $0.66 consensus estimate. This is the fourth consecutive quarter of positive global comparable sales growth, and the second consecutive quarter of margin expansion. Starbucks raised its full-year adjusted earnings per share guidance to a range of $2.55 to $2.65, up from a prior $2.25 to $2.45."
+        },
+        {
+          "type": "p",
+          "text": "CEO Brian Niccol, brought in to turn the company around, summed up the quarter: 'Our Back to Starbucks plan was built on the belief that an extraordinary cup of coffee, human connection and customer experience win the day, every day. Our third quarter results are proof they do.' In practice, this plan centers on refocusing on the in-store experience (shorter waits, more personalization, faster service) after years during which Starbucks had, according to some critics, sacrificed the neighborhood coffee-shop experience in favor of volume and mobile ordering."
+        },
+        {
+          "type": "h2",
+          "text": "Why my quality screen still validates only 5 out of 10 criteria"
+        },
+        {
+          "type": "p",
+          "text": "Despite this real operational turnaround, the financial screen remains harsh on Starbucks, and it is worth understanding why. Net margin is only 3.9%, a low level meaning that out of every $100 of revenue, less than $4 ends up as net profit once all costs are paid (rent on thousands of stores, labor, raw materials), the very first criterion I look at, explained in my [net margin guide](/blog/marge-nette-premier-filtre-methode-lubin). Five-year sales growth averages only 5.3% per year, a figure that includes the difficult years before Niccol's arrival. More concerning: free cash flow per share has declined 9.8% per year on average over five years, and net debt would take 5.73 years of free cash flow to repay, a high level that limits financial flexibility. Operating margins compressed over the period rather than expanding, consistent with the difficult years the company is now working to fix."
+        },
+        {
+          "type": "p",
+          "text": "One positive point is worth noting: the cash conversion ratio reaches 158%, well above the 100% target I usually look for. This may seem counterintuitive for a company with such low net margins, but it is explained by Starbucks' balance sheet structure: non-cash charges like depreciation across a massive store network weigh on accounting profit without consuming real cash, which mechanically inflates this ratio relative to reported net income. It is a sign that the cash actually generated is at least as solid as the accounting profit suggests, even though that profit remains low in absolute terms."
+        },
+        {
+          "type": "h2",
+          "text": "What has changed since my skepticism in July"
+        },
+        {
+          "type": "p",
+          "text": "I published an analysis ahead of these results on July 12, 2026, where my screen gave Starbucks only 5 out of 10 and I flagged an expensive stock despite these struggles. The score has not moved, but the trajectory has: four straight quarters of positive comparable sales and two straight quarters of margin expansion are no longer just a base-effect bounce after a bad stretch, they are the start of a trend. The real question is no longer whether Niccol can stop the bleeding (the numbers say yes), but whether this pace of improvement can hold up long enough to durably lift the financial criteria that still fail today, notably net margin and debt."
+        },
+        {
+          "type": "h2",
+          "text": "The price: still expensive, but for a thesis coming into focus"
+        },
+        {
+          "type": "p",
+          "text": "Starbucks trades at 50.3 times its trailing-twelve-month free cash flow, a high multiple for a company whose quality screen remains below average. My reasonable buy-price model, penalized by the recent decline in free cash flow per share, targets only $10.38 versus a current price of $104.14, a very large premium of roughly 90%. This figure should be read with caution: my model primarily looks at the past five years' trajectory, a period that includes Starbucks' worst quarters before Niccol's arrival, and so it still poorly captures the recent inflection. If the last four quarters of turnaround hold up over time, this buy price will mechanically rise in my future analyses. For now, the bet remains a bet on the turnaround continuing, not on already favorable valuation numbers."
+        },
+        {
+          "type": "h2",
+          "text": "What could derail the thesis"
+        },
+        {
+          "type": "p",
+          "text": "The main risk is that this turnaround remains a medium-term bounce without translating into a durable improvement in net margin and debt, which remain Starbucks' structural weak points today. The cost of raw materials (coffee, milk) and labor in fast food remains a constant pressure. Finally, part of the comparable-sales recovery may come from a favorable comparison against particularly weak quarters last year, an effect that will mechanically fade as the comparison quarters return to normal."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Starbucks reported on July 29, 2026 comparable sales up 7.9% (versus 5.7% expected), a 4th consecutive quarter of positive growth, and raised its annual earnings per share guidance to $2.55-$2.65.",
+            "My quality screen validates only 5 out of 10 criteria: low net margin (3.9%), high debt (5.73 years of FCF), free cash flow per share down 9.8%/year over 5 years. Positive point: cash conversion at 158%, driven by non-cash depreciation across a vast store network.",
+            "The 50.3x P/FCF remains expensive, and my model (still penalized by the difficult pre-Niccol years) targets $10.38 against a $104.14 price. This price should rise if the turnaround holds up over time.",
+            "The real test: is the 4th consecutive quarterly improvement a genuine structural turnaround, or a bounce after a particularly weak period? This is not investment advice, do your own research."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "Why does Starbucks' quality screen stay weak despite good results?",
+          "a": "Because my screen judges five years of data, a period that includes the difficult quarters before CEO Brian Niccol's arrival: low net margin (3.9%), high debt (5.73 years of free cash flow), and free cash flow per share down 9.8% per year on average. The recent turnaround, over just four quarters, has not yet had time to lift these longer-term averages."
+        },
+        {
+          "q": "Why is Starbucks' cash conversion so high (158%) despite a low net margin?",
+          "a": "Because non-cash charges, notably depreciation across a massive store network, weigh on accounting profit without consuming real cash. This mechanically inflates the ratio relative to reported net income, a sign that the cash actually generated is stronger than the accounting profit suggests."
+        },
+        {
+          "q": "Is the $10.38 reasonable buy price for Starbucks reliable?",
+          "a": "It should be read with caution: my model is based on the past five years' trajectory, which includes Starbucks' worst quarters before Niccol's turnaround. If the last four quarters of improvement hold up over time, this price will mechanically rise in my future analyses."
+        },
+        {
+          "q": "Should you buy Starbucks stock after these results?",
+          "a": "The operational turnaround is real (4th consecutive quarter of positive comparable sales), but my quality screen and price model remain unfavorable for now, still shaped by the difficult years. This is a bet on the turnaround continuing, not an already-cheap stock by my numbers. This is not personalized investment advice, do your own research."
+        }
+      ],
+      "tags": [
+        "Starbucks",
+        "SBUX",
+        "Restaurants",
+        "Turnaround",
+        "Quarterly results",
+        "Fundamental analysis"
+      ],
+      "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 29, 2026), subject to change. Do your own research."
+    },
+    "es": {
+      "title": "Starbucks (SBUX): resultados T3 2026, mi veredicto",
+      "excerpt": "Starbucks acaba de firmar su cuarto trimestre consecutivo de ventas al alza, muy por encima de lo esperado. Mi filtro de calidad sigue siendo débil, pero el giro es cada vez más difícil de ignorar. Así ha evolucionado mi opinión desde mi escepticismo de julio.",
+      "metaDescription": "Starbucks (SBUX): resultados del tercer trimestre fiscal 2026 analizados. Ventas comparables, el giro de Niccol y mi veredicto sobre la valoración.",
+      "answer": "Starbucks publicó el 29 de julio de 2026 ventas comparables al alza del 7,9 %, muy por encima del 5,7 % esperado, y elevó su previsión anual por segunda vez. Mi filtro de calidad valida solo 5 de 10 criterios, pero el giro liderado por el CEO Brian Niccol es cada vez más difícil de ignorar. Te explico cómo ha evolucionado mi opinión desde mi escepticismo de julio.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Lo que acaba de ocurrir: un cuarto trimestre consecutivo de giro"
+        },
+        {
+          "type": "p",
+          "text": "Starbucks publicó el 29 de julio de 2026 los resultados de su tercer trimestre fiscal 2026: ingresos de 9.320 millones de dólares, ligeramente por debajo de la estimación de 9.440 millones, pero ventas en tiendas comparables al alza del 7,9 %, muy por encima del 5,7 % que esperaba el mercado y acelerando frente al 6,2 % del trimestre anterior. El beneficio por acción se situó en 0,91 dólares (0,85 dólares excluyendo partidas extraordinarias), muy por encima de los 0,66 dólares que esperaba el consenso. Es el cuarto trimestre consecutivo de crecimiento positivo de las ventas comparables a nivel global, y el segundo trimestre consecutivo de expansión de márgenes. Starbucks elevó su previsión anual de beneficio por acción ajustado a un rango de 2,55 a 2,65 dólares, frente a 2,25 a 2,45 dólares anteriormente."
+        },
+        {
+          "type": "p",
+          "text": "El CEO Brian Niccol, contratado para dar la vuelta a la empresa, resumió el trimestre así: «Nuestro plan Back to Starbucks se construyó sobre la convicción de que un café extraordinario, la conexión humana y la experiencia del cliente ganan cada día. Nuestros resultados del tercer trimestre son la prueba de ello». En la práctica, este plan se centra en volver a poner el foco en la experiencia en tienda (menos espera, más personalización, un servicio más rápido) tras años en los que Starbucks había, según parte de la crítica, sacrificado la experiencia de la cafetería de barrio en favor del volumen y el pedido móvil."
+        },
+        {
+          "type": "h2",
+          "text": "Por qué mi filtro todavía solo valida 5 de 10 criterios"
+        },
+        {
+          "type": "p",
+          "text": "Pese a este giro operativo real, el filtro financiero sigue siendo severo con Starbucks, y conviene entender por qué. El margen neto es de solo el 3,9 %, un nivel bajo que indica que de cada 100 dólares de ingresos, menos de 4 terminan en beneficio neto una vez pagados todos los costes (alquiler de miles de tiendas, personal, materias primas), el primer criterio que reviso, explicado en mi [guía sobre el margen neto](/blog/marge-nette-premier-filtre-methode-lubin). El crecimiento de las ventas en cinco años es de solo un 5,3 % anual de media, una cifra que incluye los años difíciles previos a la llegada de Niccol. Más preocupante: el flujo de caja libre por acción ha caído un 9,8 % anual de media en cinco años, y la deuda neta tardaría 5,73 años de flujo de caja libre en amortizarse, un nivel elevado que limita el margen de maniobra financiero. Los márgenes operativos se comprimieron en el periodo en lugar de ampliarse, coherente con los años difíciles que la empresa busca corregir ahora."
+        },
+        {
+          "type": "p",
+          "text": "Un punto positivo merece destacarse: el ratio de conversión de beneficios en efectivo alcanza el 158 %, muy por encima del objetivo del 100 % que suelo buscar. Esto puede parecer contraintuitivo para una empresa con márgenes netos tan bajos, pero se explica por la estructura del balance de Starbucks: los cargos no monetarios, como la depreciación de una enorme red de tiendas, pesan sobre el beneficio contable sin consumir efectivo real, lo que infla mecánicamente este ratio en relación con el beneficio neto declarado. Es una señal de que el efectivo realmente generado es al menos tan sólido como sugiere el beneficio contable, aunque este siga siendo bajo en términos absolutos."
+        },
+        {
+          "type": "h2",
+          "text": "Qué ha cambiado desde mi escepticismo de julio"
+        },
+        {
+          "type": "p",
+          "text": "Publiqué un análisis antes de estos resultados el 12 de julio de 2026, en el que mi filtro solo daba a Starbucks un 5 sobre 10 y señalaba una acción cara pese a estas dificultades. La puntuación no ha cambiado, pero la trayectoria sí: cuatro trimestres consecutivos de ventas comparables positivas y dos trimestres consecutivos de expansión de márgenes ya no son un simple efecto de comparación tras un mal periodo, es el inicio de una tendencia. La verdadera pregunta ya no es si Niccol puede detener la hemorragia (las cifras dicen que sí), sino si este ritmo de mejora puede mantenerse el tiempo suficiente para elevar de forma duradera los criterios financieros que todavía fallan hoy, en particular el margen neto y la deuda."
+        },
+        {
+          "type": "h2",
+          "text": "El precio: sigue caro, pero para una tesis que se va aclarando"
+        },
+        {
+          "type": "p",
+          "text": "Starbucks cotiza a 50,3 veces su flujo de caja libre de los últimos doce meses, un múltiplo elevado para una empresa cuyo filtro de calidad sigue por debajo de la media. Mi modelo de precio de compra razonable, penalizado por la reciente caída del flujo de caja libre por acción, apunta a solo 10,38 dólares frente a un precio actual de 104,14 dólares, una sobrevaloración muy importante de aproximadamente el 90 %. Esta cifra debe leerse con prudencia: mi modelo mira principalmente la trayectoria de los últimos cinco años, un periodo que incluye los peores trimestres de Starbucks antes de la llegada de Niccol, por lo que todavía capta mal la inflexión reciente. Si los últimos cuatro trimestres de giro se confirman con el tiempo, este precio de compra subirá mecánicamente en mis próximos análisis. Por ahora, la apuesta sigue siendo una apuesta por la continuidad del giro, no por unas cifras de valoración ya favorables."
+        },
+        {
+          "type": "h2",
+          "text": "Qué podría descarrilar la tesis"
+        },
+        {
+          "type": "p",
+          "text": "El riesgo principal es que este giro siga siendo un rebote de medio plazo sin traducirse en una mejora duradera del margen neto y de la deuda, que siguen siendo hoy los puntos débiles estructurales de Starbucks. El coste de las materias primas (café, leche) y de la mano de obra en la restauración rápida sigue siendo una presión constante. Por último, parte de la recuperación de las ventas comparables puede venir de una comparación favorable con trimestres particularmente débiles del año pasado, un efecto que se atenuará mecánicamente a medida que los trimestres de referencia vuelvan a la normalidad."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Starbucks publicó el 29 de julio de 2026 ventas comparables al alza del 7,9 % (frente al 5,7 % esperado), un 4º trimestre consecutivo de crecimiento positivo, y elevó su previsión anual de beneficio por acción a 2,55-2,65 $.",
+            "Mi filtro de calidad valida solo 5 de 10 criterios: margen neto bajo (3,9 %), deuda elevada (5,73 años de FCF), FCF por acción cayendo un 9,8 % anual en 5 años. Punto positivo: conversión de beneficios en efectivo del 158 %, impulsada por la depreciación no monetaria de una vasta red de tiendas.",
+            "El P/FCF de 50,3 veces sigue siendo caro, y mi modelo (todavía penalizado por los difíciles años pre-Niccol) apunta a 10,38 $ frente a una cotización de 104,14 $. Este precio debería subir si el giro se confirma con el tiempo.",
+            "La verdadera prueba: ¿es la 4ª mejora trimestral consecutiva un verdadero giro estructural o un rebote tras un periodo particularmente débil? Esto no es asesoramiento de inversión, haz tu propia investigación."
+          ]
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Por qué el filtro de calidad de Starbucks sigue siendo débil pese a buenos resultados?",
+          "a": "Porque mi filtro evalúa cinco años de datos, un periodo que incluye los trimestres difíciles antes de la llegada del CEO Brian Niccol: margen neto bajo (3,9 %), deuda elevada (5,73 años de flujo de caja libre) y flujo de caja libre por acción cayendo un 9,8 % anual de media. El giro reciente, en solo cuatro trimestres, todavía no ha tenido tiempo de elevar estas medias a largo plazo."
+        },
+        {
+          "q": "¿Por qué la conversión de beneficios en efectivo de Starbucks es tan alta (158 %) pese a un margen neto bajo?",
+          "a": "Porque los cargos no monetarios, en particular la depreciación de una enorme red de tiendas, pesan sobre el beneficio contable sin consumir efectivo real. Esto infla mecánicamente el ratio en relación con el beneficio neto declarado, señal de que el efectivo realmente generado es más sólido de lo que sugiere el beneficio contable."
+        },
+        {
+          "q": "¿Es fiable el precio de compra razonable de 10,38 dólares para Starbucks?",
+          "a": "Debe leerse con prudencia: mi modelo se basa en la trayectoria de los últimos cinco años, que incluye los peores trimestres de Starbucks antes del giro de Niccol. Si las últimas cuatro mejoras trimestrales se confirman con el tiempo, este precio subirá mecánicamente en mis próximos análisis."
+        },
+        {
+          "q": "¿Hay que comprar acciones de Starbucks tras estos resultados?",
+          "a": "El giro operativo es real (4º trimestre consecutivo de ventas comparables positivas), pero mi filtro de calidad y mi modelo de precio siguen siendo desfavorables por ahora, todavía marcados por los años difíciles. Es una apuesta por la continuidad del giro, no una acción ya barata según mis cifras. Esto no es asesoramiento de inversión personalizado, haz tu propia investigación."
+        }
+      ],
+      "tags": [
+        "Starbucks",
+        "SBUX",
+        "Restauración",
+        "Recuperación",
+        "Resultados trimestrales",
+        "Análisis fundamental"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (29 de julio de 2026), sujetas a cambios. Haz tu propia investigación."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, adobe, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, article_payx, accentureQ3FY2026, carnivalCCLAnalyse2026, fedexQ4FY26, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleAYI, articleScore9vs10, articleMU, nikeNKE, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articlePepsiCo, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleSBUXPre, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articleMSPre, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan];
 
 
 /** Articles triés du plus récent au plus ancien. */
