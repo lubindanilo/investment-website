@@ -82,8 +82,56 @@ export const watchlistMutateLimiter = rateLimit({
 });
 
 /**
+ * Enregistrement dynamique de clients OAuth (RFC 7591) — 20/min/IP.
+ * L'endpoint est NON authentifié par nature (le host MCP s'enregistre seul) et écrit en
+ * DB : sans plafond serré, n'importe qui peut faire grossir la table OAuthClient.
+ */
+export const oauthRegisterLimiter = rateLimit({
+  windowMs: 60_000,
+  limit: 20,
+  standardHeaders: 'draft-7',
+  legacyHeaders: false,
+  validate: { trustProxy: false },
+  message: { error: 'Trop d\'enregistrements de clients — patiente 1 minute.', scope: 'oauth-register' },
+  skip: () => SKIP_IN_TESTS,
+});
+
+/**
+ * Échange de tokens OAuth — 60/min/IP.
+ * Plus permissif que le login (un client légitime rafraîchit son token régulièrement),
+ * mais borné : le /token teste des secrets (code, code_verifier, refresh_token).
+ */
+export const oauthTokenLimiter = rateLimit({
+  windowMs: 60_000,
+  limit: 60,
+  standardHeaders: 'draft-7',
+  legacyHeaders: false,
+  validate: { trustProxy: false },
+  message: { error: 'Trop de requêtes de token — patiente 1 minute.', scope: 'oauth-token' },
+  skip: () => SKIP_IN_TESTS,
+});
+
+/**
+ * Endpoint MCP (/api/mcp) — 120/min/IP.
+ * Un client MCP est bavard (plusieurs tool calls par tour de conversation), mais chaque
+ * appel peut déclencher un compute lourd (analyze_watchlist). Plafond intermédiaire :
+ * confortable pour un usage humain, casse une boucle d'agent emballée.
+ */
+export const mcpLimiter = rateLimit({
+  windowMs: 60_000,
+  limit: 120,
+  standardHeaders: 'draft-7',
+  legacyHeaders: false,
+  validate: { trustProxy: false },
+  message: { error: 'Trop de requêtes MCP — patiente 1 minute.', scope: 'mcp' },
+  skip: () => SKIP_IN_TESTS,
+});
+
+/**
  * /auth signup/login — 10/min/IP.
  * Limite serrée pour casser les attaques brute-force sans gêner un humain qui se trompe.
+ * ⚠ À appliquer sur TOUT endpoint qui vérifie un mot de passe, y compris le POST
+ * /api/oauth/authorize du serveur d'autorisation MCP (sinon il devient un contournement).
  */
 export const authLimiter = rateLimit({
   windowMs: 60_000,

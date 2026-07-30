@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@lubin/shared": "workspace:*",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "@prisma/client": "^6.0.0",
     "@sentry/node": "^10.53.1",
     "bcryptjs": "^3.0.3",
