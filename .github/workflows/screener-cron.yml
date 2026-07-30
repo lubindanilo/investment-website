@@ -81,14 +81,17 @@ jobs:
             N="${MANUAL_N:-25}"
             DEADLINE="${MANUAL_DEADLINE:-45}"
             PASSES="${MANUAL_PASSES:-400}"
+            WARM="1"
           else
-            # Run quotidien minimal : ~40 appels x ~20s = ~15 min de compute Neon/jour (tiny vs
-            # les 100 CU-h/mois). Earnings d'abord (phase 1), puis trickle du plus ancien → le
-            # comble-trous historiques suit ce trickle. 30s laisse tenir les non-US (budget 20s/titre).
-            REGION=""; N="25"; DEADLINE="30"; PASSES="40"
+            # Run quotidien minimal, earnings d'abord (phase 1), puis trickle du plus ancien.
+            # Scoring en concurrence bornee cote API (K=4) → plus de titres par appel a compute
+            # Neon egal. warm=0 : on coupe la phase warm graphiques (fetch + ecritures ChartCache)
+            # sur le run quotidien pour economiser le compute Neon Free ; les graphes se
+            # reconstruisent a la 1re consultation. 30s/appel laisse tenir les non-US.
+            REGION=""; N="25"; DEADLINE="30"; PASSES="40"; WARM="0"
           fi
 
-          QS="n=${N}&deadline=${DEADLINE}"
+          QS="n=${N}&deadline=${DEADLINE}&warm=${WARM}"
           if [ -n "${REGION}" ]; then QS="${QS}&region=${REGION}"; fi
           echo "Cible : ${SITE_URL}/api/screener/tick?${QS} (max ${PASSES} appels)"
 

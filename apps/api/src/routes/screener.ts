@@ -47,7 +47,9 @@ screenerRouter.post('/tick', requireScreenerToken, asyncHandler(async (req: Requ
   // Région optionnelle (US/EU/INTL) : draine une zone précise sans famine par la priorité US.
   const rawRegion = String(req.query.region ?? '').toUpperCase();
   const region = ['US', 'EU', 'INTL'].includes(rawRegion) ? rawRegion : undefined;
-  const result = await tick(n, deadlineMs, region);
+  // warm=0 : désactive la phase warm graphiques (économie compute Neon Free sur le cron quotidien).
+  const warm = String(req.query.warm ?? '1') !== '0';
+  const result = await tick(n, deadlineMs, region, { warm });
   res.json(result);
 }));
 

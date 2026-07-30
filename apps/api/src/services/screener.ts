@@ -448,32 +448,61 @@ const WARM_DEADLINE_MS = 24_000;
 const CHART_WARM_MS = 6_000;
 /** Combien de titres "jamais warmés" combler par tick, en plus des fraîchement scorés. */
 const WARM_FILL = 6;
+/** Titres scorés en parallèle par tick. Le coût Neon = durée d'endpoint actif ; or un scoreOne
+ *  passe l'essentiel de son temps à ATTENDRE les API (stockanalysis/Yahoo, throttlées
+ *  globalement par Bottleneck). Traiter K titres de front sature le pipeline et raccourcit le
+ *  wall-clock du lot → moins de compute Neon PAR titre scoré, sans dépasser les quotas API
+ *  (les rate-limiters restent partagés). K modéré pour ne pas saturer le pool de connexions. */
+const SCORE_CONCURRENCY = 4;
 
-export async function tick(limit: number, softDeadlineMs = SCORE_DEADLINE_MS, region?: string): Promise<TickResult> {
+export interface TickOptions {
+  /** Phase warm graphiques (fetch + écritures ChartCache, coûteuse en compute Neon). Défaut true ;
+   *  le cron quotidien sur Neon Free la passe à false — les graphes se reconstruisent à la demande. */
+  warm?: boolean;
+  /** Concurrence de scoring (défaut SCORE_CONCURRENCY). */
+  concurrency?: number;
+}
+
+export async function tick(
+  limit: number,
+  softDeadlineMs = SCORE_DEADLINE_MS,
+  region?: string,
+  opts: TickOptions = {},
+): Promise<TickResult> {
   const start = Date.now();
   const due = await pickDueTickers(limit, region);
   let scored = 0, nodata = 0, error = 0, timeout = 0;
   const justScored: string[] = [];
-  for (const t of due) {
-    // Budget adapté à la source : non-US (Yahoo, lent depuis Vercel) → plus large.
-    const perTicker = t.ticker.includes('.') ? PER_TICKER_MS_NON_US : PER_TICKER_MS;
-    // Pas assez de budget pour garantir un cycle complet → on s'arrête net.
-    if (Date.now() - start + perTicker > softDeadlineMs) break;
-    const timer = new Promise<typeof TIMEOUT_SENTINEL>((res) => setTimeout(() => res(TIMEOUT_SENTINEL), perTicker));
-    // scoreOne ne rejette pas (catch interne) ; en cas de timeout il continue en arrière-plan
-    // et finira par écrire sa ligne (la lambda tient 60s) — la donnée converge.
-    const r = await Promise.race([scoreOne(t.ticker), timer]);
-    if (r === TIMEOUT_SENTINEL) { await markTimedOut(t.ticker); timeout++; }
-    else if (r === 'scored') { scored++; justScored.push(t.ticker); }
-    else if (r === 'nodata') nodata++;
-    else error++;
-  }
+
+  // Scoring en concurrence bornée (workers tirant dans une file partagée `due`).
+  const concurrency = Math.max(1, Math.min(opts.concurrency ?? SCORE_CONCURRENCY, due.length || 1));
+  let next = 0;
+  const worker = async (): Promise<void> => {
+    while (next < due.length) {
+      const t = due[next++]!;
+      // Budget adapté à la source : non-US (Yahoo, lent depuis Vercel) → plus large.
+      const perTicker = t.ticker.includes('.') ? PER_TICKER_MS_NON_US : PER_TICKER_MS;
+      // Pas assez de budget pour garantir un cycle complet → ce worker s'arrête.
+      if (Date.now() - start + perTicker > softDeadlineMs) break;
+      const timer = new Promise<typeof TIMEOUT_SENTINEL>((res) => setTimeout(() => res(TIMEOUT_SENTINEL), perTicker));
+      // scoreOne ne rejette pas (catch interne) ; en cas de timeout il continue en arrière-plan
+      // et finira par écrire sa ligne (la lambda tient 60s) — la donnée converge.
+      const r = await Promise.race([scoreOne(t.ticker), timer]);
+      if (r === TIMEOUT_SENTINEL) { await markTimedOut(t.ticker); timeout++; }
+      else if (r === 'scored') { scored++; justScored.push(t.ticker); }
+      else if (r === 'nodata') nodata++;
+      else error++;
+    }
+  };
+  await Promise.all(Array.from({ length: concurrency }, () => worker()));
 
   // ── Phase warm graphiques (best-effort, découplée du score) ──────────────────
   // La veille prérempli ChartCache pour TOUT l'univers, comme elle a scoré le screener.
   // 1) les titres fraîchement scorés (memo /financials-reported encore chaud → quasi gratuit),
   // 2) puis on comble des titres scorés jamais warmés (backfill progressif).
-  const warmed = await warmChartsPhase(justScored, start);
+  // Désactivé quand warm=false (cron Free) : économise le compute Neon (fetch + écritures
+  // ChartCache) ; les graphes se reconstruisent à la première consultation.
+  const warmed = opts.warm === false ? 0 : await warmChartsPhase(justScored, start);
 
   const elapsedMs = Date.now() - start;
   console.log(`[screener tick] picked=${due.length} scored=${scored} nodata=${nodata} error=${error} timeout=${timeout} warmed=${warmed} in ${elapsedMs}ms`);
