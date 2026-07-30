@@ -27,13 +27,14 @@ import { getQuote } from '../services/finnhub.js';
 import { getNextEarningsDate } from '../services/earnings.js';
 import { getEarningsInfoYahoo } from '../services/yahoo.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
-import { loadQuantData } from '../services/quantSnapshot.js';
 import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
-import { buildQuantitativeCriteria } from '../services/derivedMetrics.js';
 import {
   getCachedSnapshot, getCachedSnapshotsBatch, writeCachedSnapshot,
   type CachedQuantSnapshot,
 } from '../services/quantCache.js';
+// computeAndCache + la limite Free vivent dans un service partagé avec la couche MCP
+// (même score des deux côtés — cf. services/watchlistSnapshot.ts).
+import { computeAndCache, FREE_WATCHLIST_LIMIT } from '../services/watchlistSnapshot.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { watchlistMutateLimiter } from '../middleware/rateLimit.js';
 import { requireAuth } from '../middleware/auth.js';
@@ -43,64 +44,6 @@ export const watchlistRouter: Router = Router();
 watchlistRouter.use(requireAuth);
 
 const TickerSchema = z.string().trim().toUpperCase().regex(/^[A-Z0-9.\-]{1,15}$/);
-
-/** Limite watchlist pour les comptes Free. Les Pro sont illimités. */
-const FREE_WATCHLIST_LIMIT = 10;
-
-/**
- * Compute fresh + write to global cache. Utilisé quand un ticker n'a pas encore
- * de cache (ex : ajout watchlist d'un ticker jamais analysé) ou pour forcer un
- * refresh. Réutilise loadQuantData → même logique que /api/analyze, garanti.
- */
-async function computeAndCache(ticker: string): Promise<CachedQuantSnapshot> {
-  // On lit le snapshot précédent pour préserver la date d'earnings déjà cachée (évite de
-  // re-fetcher Finnhub dans le refresh lourd ; le GET la rafraîchit quand elle est passée).
-  const [quant, prev] = await Promise.all([
-    loadQuantData(ticker, { includeNews: false, includeEarnings: false, log: false }),
-    getCachedSnapshot(ticker).catch(() => null),
-  ]);
-
-  // Reconstitue les 10 chiffres + score (même formule que persistQuantCache dans analyze.ts)
-  const chiffres = buildQuantitativeCriteria(quant.metrics);
-  const evaluable = quant.fundamentalsSource === 'yahoo'
-    ? chiffres.filter(c => c.valeur !== 'N/A')
-    : chiffres;
-  const pass = evaluable.filter(c => c.statut === 'pass').length;
-  const warn = evaluable.filter(c => c.statut === 'warn').length;
-
-  // Extraction shares + adjFcfTtm pour le recompute P/FCF live
-  let adjFcfTtm: number | null = null;
-  let sharesOutstanding: number | null = null;
-  if (quant.fundamentalsSource === 'finnhub' && quant.rawFhFcfAdj && quant.rawFhCapEmp) {
-    adjFcfTtm = quant.rawFhFcfAdj.ttmFcfAdj;
-    sharesOutstanding = quant.rawFhCapEmp.sharesLatest;
-  } else if (quant.fundamentalsSource === 'yahoo') {
-    const m = quant.metrics;
-    sharesOutstanding = (m.marketCap != null && m.price != null && m.price > 0)
-      ? m.marketCap / m.price : null;
-    adjFcfTtm = (m.marketCap != null && m.pfcfTTM != null && m.pfcfTTM > 0)
-      ? m.marketCap / m.pfcfTTM : null;
-  }
-
-  const snapshot: CachedQuantSnapshot = {
-    ticker,
-    company: quant.company,
-    currency: quant.currency,
-    fundamentalsSource: quant.fundamentalsSource,
-    fundamentalsAvailable: quant.fundamentalsAvailable,
-    yahooSymbol: quant.yahooSymbol,
-    metrics: quant.metrics,
-    chiffres,
-    scoreChiffres: pass + Math.round(warn * 0.5),
-    scoreChiffresMax: evaluable.length,
-    adjFcfTtm,
-    sharesOutstanding,
-    nextEarningsDate: prev?.nextEarningsDate ?? null,
-    earningsCheckedAt: prev?.earningsCheckedAt ?? null,
-  };
-  await writeCachedSnapshot(ticker, snapshot);
-  return snapshot;
-}
 
 /**
  * Convertit un CachedQuantSnapshot (forme DB riche) vers WatchlistEntry (forme

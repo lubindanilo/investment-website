@@ -33,6 +33,8 @@ import { sitemapRouter } from './routes/sitemap.js';
 import { seoPrerenderRouter } from './routes/seoPrerender.js';
 import { billingRouter, meRouter } from './routes/billing.js';
 import { stripeWebhookRouter } from './routes/stripeWebhook.js';
+import { oauthRouter, wellKnownRouter } from './routes/oauth.js';
+import { mcpRouter } from './routes/mcp.js';
 import { apiLimiter } from './middleware/rateLimit.js';
 import { errorHandler } from './middleware/error.js';
 
@@ -91,9 +93,16 @@ app.get('/health', (_req, res) => {
   });
 });
 
+// Découverte OAuth (métadonnées .well-known) — servie à la RACINE, hors du rate-limit /api.
+// Cf. vercel.json : les chemins /.well-known/oauth-* sont réécrits vers cette lambda.
+app.use('/', wellKnownRouter);
+
 // Rate limit appliqué uniquement aux routes /api/*
 app.use('/api', apiLimiter);
 app.use('/api/auth', authRouter);
+// OAuth 2.1 (serveur d'autorisation) + endpoint MCP (protected resource).
+app.use('/api/oauth', oauthRouter);
+app.use('/api/mcp', mcpRouter);
 app.use('/api/analyze', analyzeRouter);
 app.use('/api/watchlist', watchlistRouter);
 app.use('/api/timeseries', timeseriesRouter);

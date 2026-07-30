@@ -176,6 +176,13 @@ authRouter.post('/reset-password', authLimiter, asyncHandler(async (req: Request
   }
   const passwordHash = await hashPassword(password);
   await prisma.user.update({ where: { id: user.id }, data: { passwordHash } });
+  // Un reset de mot de passe sert à COUPER un accès compromis : on révoque donc aussi les
+  // refresh tokens OAuth du connecteur MCP (TTL 60 j). Sans ça, un attaquant garderait
+  // l'accès à l'API bien après que la victime ait repris la main sur son compte.
+  await prisma.oAuthRefreshToken.updateMany({
+    where: { userId: user.id, revokedAt: null },
+    data: { revokedAt: new Date() },
+  }).catch(() => {});
   // Connecte l'utilisateur dans la foulée (UX : pas besoin de re-login après reset).
   const authToken = signToken({ userId: user.id, email: user.email });
   res.cookie(COOKIE_NAME, authToken, cookieOptions());
