@@ -342,7 +342,7 @@
       "chip": "Análisis fundamental automatizado",
       "titleLine1": "Supera al mercado con acciones",
       "titleAccent": "de calidad al precio correcto.",
-      "lede": "La vigilancia puntúa 7 000+ acciones sobre 10 criterios, en continuo, y hace subir las mejores. Tú solo compruebas que el precio acompaña, y decides.",
+      "lede": "La vigilancia puntúa 30 000+ acciones sobre 10 criterios, en continuo, y hace subir las mejores. Tú solo compruebas que el precio acompaña, y decides.",
       "valueLine": "Cada acción puntuada sobre 10 criterios fundamentales, con un análisis de valoración actual y un precio de compra recomendado.",
       "ctaAnalyze": "Analizar una acción",
       "ctaScreener": "Explorar el screener"
@@ -359,7 +359,7 @@
       },
       "1": {
         "title": "Toda la bolsa, puntuada sin parar",
-        "text": "Ya no se te escapa ninguna joya: la vigilancia escanea 7 000+ valores y hace subir los mejores, sola."
+        "text": "Ya no se te escapa ninguna joya: la vigilancia escanea 30 000+ valores y hace subir los mejores, sola."
       },
       "2": {
         "title": "Calidad y precio, juzgados por separado",
@@ -377,7 +377,7 @@
     "steps": {
       "0": {
         "title": "La vigilancia puntúa todo el mercado",
-        "text": "7 000+ valores puntuados en continuo sobre 10 criterios. Los 10/10 suben a lo alto, solos."
+        "text": "30 000+ valores puntuados en continuo sobre 10 criterios. Los 10/10 suben a lo alto, solos."
       },
       "1": {
         "title": "Abres la ficha",

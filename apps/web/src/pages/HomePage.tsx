@@ -59,7 +59,7 @@ export function HomePage() {
             </div>
             <div className="home-stats">
               <div><span className="num home-stat-n">{t('home.stats.perfValue')}</span><span className="home-stat-l">{t('home.stats.perfLabel')}</span></div>
-              <div><span className="num home-stat-n">7&nbsp;000+</span><span className="home-stat-l">{t('home.stats.tickers')}</span></div>
+              <div><span className="num home-stat-n">30&nbsp;000+</span><span className="home-stat-l">{t('home.stats.tickers')}</span></div>
             </div>
           </div>
           <div className="home-hero-right fade-up">
