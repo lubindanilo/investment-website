@@ -158,3 +158,24 @@
   font-size: 11.5px; color: var(--ink-4); line-height: 1.6;
   max-width: 760px; margin: 0 auto; font-style: italic;
 }
+
+/* Densité téléphone : les 64px d'écart inter-sections et les paddings de cartes
+   pensés pour le desktop rendaient la page interminable au doigt. */
+@media (max-width: 560px) {
+  .methodo { padding: 14px 0 40px; }
+  .methodo-wrap { padding: 0 14px; }
+  .methodo-hero { padding: 12px 0 20px; }
+  .methodo-hero-lede { font-size: 14.5px; }
+  .methodo-section-title { font-size: 18px; }
+  .methodo-why, .methodo-criteres, .methodo-theil, .methodo-sources, .methodo-limites { margin: 0 0 36px; }
+  .methodo-why-stack p { font-size: 13.5px; }
+  .methodo-critere-card { padding: 16px 14px; }
+  .methodo-critere-head { margin-bottom: 12px; padding-bottom: 10px; }
+  .methodo-critere-num { font-size: 19px; }
+  .methodo-critere-nom { font-size: 15px; }
+  .methodo-criteres-grid, .methodo-sources-grid { gap: 12px; }
+  .methodo-source-card { padding: 14px 13px; }
+  .methodo-theil-card, .methodo-limites-card { padding: 18px 16px; }
+  .methodo-cta { padding: 26px 16px; }
+  .methodo-cta-title { font-size: 20px; }
+}

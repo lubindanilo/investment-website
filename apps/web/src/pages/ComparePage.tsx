@@ -110,7 +110,9 @@ export function ComparePage() {
             ))}
           </div>
           {tickers.length < MAX_COMPARE_TICKERS && <AddTicker selected={tickers} onAdd={add} />}
-          <span className="tiny muted" style={{ marginLeft: 'auto' }}>{t('compare.slots', { n: tickers.length, max: MAX_COMPARE_TICKERS })}</span>
+          {/* Classe plutôt qu'un style inline : le `margin-left: auto` doit retomber à 0
+              quand la barre passe en colonne sur téléphone (cf. ComparePage.css). */}
+          <span className="tiny muted cmp-selector-count">{t('compare.slots', { n: tickers.length, max: MAX_COMPARE_TICKERS })}</span>
         </div>
 
         {error && <div className="card" style={{ padding: 16, color: 'var(--bad-ink)' }}>{error}</div>}
@@ -211,7 +213,9 @@ function CompareTable({ companies, criteria, onRemove }: { companies: CompanyVie
   ];
   return (
     <div className="cmp-scroll">
-      <div className="cmp-grid" style={{ gridTemplateColumns: `300px repeat(${N}, minmax(190px, 1fr))` }}>
+      {/* Largeurs pilotées par variables CSS : sur téléphone une colonne de libellés de
+          300px mangeait tout l'écran et les valeurs comparées tombaient hors champ. */}
+      <div className="cmp-grid" style={{ gridTemplateColumns: `var(--cmp-label-w) repeat(${N}, minmax(var(--cmp-col-w), 1fr))` }}>
         <div className="cmp-corner" />
         {companies.map((c, i) => (
           <div key={c.ticker || i} className="cmp-h"><TitleHeaderCard company={c} onRemove={onRemove} removable={N > 1} /></div>
@@ -356,7 +360,7 @@ function ValueCell({ company, critKey, best }: { company: CompanyView; critKey: 
     const pct = cell.n;
     valNode = (
       <div className="col gap-2">
-        <span className="num" style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{cell.d}</span>
+        <span className="num cmp-cell-val">{cell.d}</span>
         {pct != null && <span className="num tiny" style={{ color: 'var(--ink-3)' }}>{t('compare.pfcfPercentile.note', { pct: Math.round(pct) })}</span>}
       </div>
     );
@@ -368,7 +372,7 @@ function ValueCell({ company, critKey, best }: { company: CompanyView; critKey: 
       </span>
     );
   } else {
-    valNode = <span className="num" style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{cell.d}</span>;
+    valNode = <span className="num cmp-cell-val">{cell.d}</span>;
   }
 
   return (

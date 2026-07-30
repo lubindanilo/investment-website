@@ -33,6 +33,31 @@
   .scr-progress { width: 100%; align-items: flex-start; }
 }
 
+@media (max-width: 640px) {
+  .scr-wrap { padding-top: 14px; }
+  .scr-title { font-size: 21px; }
+  /* 28px de gap entre 2 blocs empilés = 2 trous verticaux dans la barre de filtres. */
+  .scr-filters { gap: 10px 16px; padding: 12px; margin-bottom: 12px; }
+  .scr-pfcf-filter { min-width: 0; max-width: none; width: 100%; }
+  /* Nom sur 2 lignes maxi : en `nowrap` la colonne poussait la table hors écran, en
+     libre elle montait à 3-4 lignes et faisait exploser la hauteur des lignes. */
+  .scr-soc-name {
+    max-width: 100%;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+  .scr-tbl td:first-child { max-width: none; }
+  .scr-pro-overlay { padding: 16px 12px 24px; }
+  .scr-pro-overlay-inner { padding: 16px 16px 14px; }
+  .scr-pro-overlay-title { font-size: 15px; }
+  .scr-pro-overlay-sub { font-size: 12.5px; }
+  .scr-empty { padding: 36px 16px; }
+}
+
 /* Date du prochain earnings — même style que la Watchlist. */
 .scr-tbl .wl-earn { color: var(--ink-2); display: inline-flex; align-items: center; gap: 6px; }
 

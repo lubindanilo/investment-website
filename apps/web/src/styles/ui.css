@@ -8,6 +8,21 @@
 .wrap { max-width: 1240px; margin: 0 auto; width: 100%; }
 .wrap-wide { max-width: 1440px; margin: 0 auto; width: 100%; }
 
+/* Conteneur scrollable horizontalement des tables larges (screener / watchlist / hubs).
+   La classe était posée dans le JSX mais n'existait nulle part en CSS : sur téléphone
+   la table (876px) était simplement coupée par l'`overflow: hidden` du .card, et les
+   colonnes Note / Résilience / P/FCF devenaient inatteignables. */
+.scroll-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Cellules de table sacrifiées sur téléphone (l'essentiel doit tenir sans scroll). */
+@media (max-width: 640px) {
+  .col-hide-sm { display: none; }
+}
+
 /* Tables denses (screener / watchlist) */
 .tbl { width: 100%; border-collapse: collapse; }
 .tbl th {
@@ -155,4 +170,21 @@
    sélecteurs de période des modales graphes). Desktop inchangé. */
 @media (max-width: 720px) {
   .seg button { min-height: 44px; padding: 8px 14px; }
+}
+
+/* Densité téléphone : les tables passent en 4 colonnes utiles, on récupère la
+   largeur en resserrant les cellules (16px de padding latéral × 7 colonnes = 224px
+   perdus sur un écran de 375). */
+@media (max-width: 560px) {
+  .tbl th { padding: 9px 8px; font-size: 10.5px; }
+  .tbl td { padding: 10px 8px; font-size: 13px; }
+  .tbl th:first-child, .tbl td:first-child { padding-left: 12px; }
+  .tbl th:last-child, .tbl td:last-child { padding-right: 12px; }
+  .tbl-soc-name { font-size: 13px; }
+
+  /* .btn garde ses 40px de haut : cible tactile (WCAG 2.5.5), on ne rogne que le
+     bouton XL qui n'a pas besoin de 50px sur téléphone. */
+  .btn-lg { height: 44px; font-size: 14.5px; padding: 0 18px; }
+  /* Le popover d'info dépassait l'écran (280px fixes + marges). */
+  .pop { width: min(280px, calc(100vw - 32px)); }
 }

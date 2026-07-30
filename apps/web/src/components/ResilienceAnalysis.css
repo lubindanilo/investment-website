@@ -119,6 +119,13 @@
   line-height: 1.55;
 }
 
+/* Verdict pas (encore) renseigné : sans ça la colonne de texte restait réservée et
+   l'anneau se retrouvait seul avec 200px de vide à sa droite. */
+.anl-score-story-text:empty { display: none; }
+/* `max-content` et pas `auto` : une colonne `auto` seule s'étire à toute la largeur et
+   l'anneau se retrouverait centré, désaligné de l'anneau voisin. */
+.anl-score-story:has(> .anl-score-story-text:empty) { grid-template-columns: max-content; }
+
 .anl-resilience-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -380,11 +387,25 @@
 }
 
 @media (max-width: 620px) {
-  .anl-analysis-head { gap: 18px; padding: 18px; }
+  .anl-analysis-head { gap: 14px; padding: 14px; }
   .anl-company-head { flex-direction: column; }
   .anl-company-head .btn { width: 100%; justify-content: center; }
-  .anl-score-stories { gap: 18px; padding-top: 18px; }
-  .anl-score-story { grid-template-columns: 92px minmax(0, 1fr); gap: 15px; }
-  .anl-score-ring { width: 92px; height: 92px; }
+  .anl-company-desc { font-size: 13px; line-height: 1.5; }
+  .anl-score-stories { gap: 14px; padding-top: 14px; }
+  .anl-score-story { grid-template-columns: 76px minmax(0, 1fr); gap: 13px; }
+  .anl-score-ring { width: 76px; height: 76px; }
+  .anl-score-ring::after { inset: 7px; }
+  .anl-quality-number { font-size: 21px; }
+  .anl-quality-number small { font-size: 10px; }
+  .anl-resilience-grade { font-size: 26px; }
+  .anl-score-story-text { font-size: 13px; line-height: 1.5; }
   .anl-resilience-grid { grid-template-columns: 1fr; }
+
+  /* La `min-height` sert à aligner 3 colonnes sur desktop ; en 1 colonne elle ne
+     fabrique que du vide (jusqu'à 60px par carte, ×6 critères). */
+  .anl-resilience-card { min-height: 0; padding: 13px; }
+  .anl-resilience-card > p { margin: 7px 0 12px; font-size: 12.5px; }
+  .anl-resilience-card-body { -webkit-line-clamp: 5; }
+  .anl-resilience-level { margin-top: 12px; }
+  .anl-resilience-card-foot { padding-top: 8px; }
 }

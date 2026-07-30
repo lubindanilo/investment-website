@@ -438,10 +438,28 @@ export function ScreenerPage() {
     : Math.min(sorted.length, FREE_SCREENER_TOP + 12);
   const visible = sorted.slice(0, renderCount);
 
-  const SortTh = ({ label, col }: { label: string; col: SortCol }) => {
+  // Haut de l'overlay « Voir tout — Pro » : mesuré sur la 1re ligne verrouillée.
+  // Un `top` en clamp()/% ne suit pas la hauteur réelle des lignes (qui grimpe quand
+  // les libellés passent sur 2-4 lignes en étroit) : l'overlay recouvrait alors les
+  // dernières lignes GRATUITES, qui devenaient incliquables (clic → modale d'upgrade).
+  const lockedRowRef = useRef<HTMLTableRowElement | null>(null);
+  const [overlayTop, setOverlayTop] = useState<number | null>(null);
+  useEffect(() => {
+    const row = lockedRowRef.current;
+    const table = row?.closest('table');
+    if (!row || !table) { setOverlayTop(null); return; }
+    // +50px : on laisse dépasser le début de la zone floutée (signal « il y en a plus »).
+    const measure = () => setOverlayTop(row.offsetTop + 50);
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(table);
+    return () => ro.disconnect();
+  }, [visible, isPro]);
+
+  const SortTh = ({ label, col, className }: { label: string; col: SortCol; className?: string }) => {
     const active = sort.col === col;
     return (
-      <th className="sortable" onClick={() => setSort({ col, dir: active && sort.dir === 'desc' ? 'asc' : 'desc' })}>
+      <th className={`sortable${className ? ` ${className}` : ''}`} onClick={() => setSort({ col, dir: active && sort.dir === 'desc' ? 'asc' : 'desc' })}>
         <span className="scr-th-inner">{label}<span style={{ opacity: active ? 1 : 0.25 }}><Icon name={active && sort.dir === 'asc' ? 'arrowUp' : 'arrowDown'} size={11} stroke={2.4} /></span></span>
       </th>
     );
@@ -499,17 +517,17 @@ export function ScreenerPage() {
             <p className="muted">{t('screener.empty.desc')}</p>
           </div>
         ) : (
-          <div className="card scroll-x scr-table-wrap" style={{ padding: 0, overflow: 'hidden', position: 'relative' }}>
+          <div className="card scroll-x scr-table-wrap" style={{ padding: 0, position: 'relative' }}>
             <table className="tbl scr-tbl">
               <thead>
                 <tr>
                   <th>{t('screener.col.company')}</th>
-                  <th>{t('screener.col.sector')}</th>
+                  <th className="col-hide-sm">{t('screener.col.sector')}</th>
                   <SortTh label={t('screener.col.score')} col="score" />
                   <SortTh label={t('analyse.resilience')} col="resilience" />
                   <SortTh label="P/FCF" col="pfcf" />
-                  <SortTh label={t('screener.col.earnings')} col="earnings" />
-                  <th style={{ width: 40 }}></th>
+                  <SortTh label={t('screener.col.earnings')} col="earnings" className="col-hide-sm" />
+                  <th className="col-hide-sm" style={{ width: 40 }}></th>
                 </tr>
               </thead>
               <tbody>
@@ -520,6 +538,7 @@ export function ScreenerPage() {
                   return (
                     <tr
                       key={r.ticker}
+                      ref={i === FREE_SCREENER_TOP ? lockedRowRef : undefined}
                       className={(r.opportunity && isPro ? 'is-opp' : '') + (locked ? ' scr-locked' : '')}
                       onClick={() => { if (locked) { setUpgrade(true); return; } navigate(`/analyse/${r.ticker}`); }}
                     >
@@ -532,17 +551,17 @@ export function ScreenerPage() {
                           <span className="scr-soc-name">{r.name ?? r.ticker}</span>
                         </div>
                       </td>
-                      <td className="muted" style={{ fontSize: 13 }}>{r.sector ? t(`industries.${sectorSlug(r.sector)}`, { defaultValue: r.sector }) : '—'}</td>
+                      <td className="muted col-hide-sm" style={{ fontSize: 13 }}>{r.sector ? t(`industries.${sectorSlug(r.sector)}`, { defaultValue: r.sector }) : '—'}</td>
                       <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
                       <td>{r.resilience ? <ResilienceBadge summary={r.resilience} showScore /> : <ResilienceNotScored />}</td>
                       <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
-                      <td>
+                      <td className="col-hide-sm">
                         <span className="num tiny wl-earn">
                           <Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />
                           {formatEarnings(r.nextEarningsDate)}
                         </span>
                       </td>
-                      <td style={{ width: 40, textAlign: 'right' }}><span style={{ color: 'var(--ink-4)' }}><Icon name="chevronR" size={16} /></span></td>
+                      <td className="col-hide-sm" style={{ width: 40, textAlign: 'right' }}><span style={{ color: 'var(--ink-4)' }}><Icon name="chevronR" size={16} /></span></td>
                     </tr>
                   );
                 })}
@@ -552,7 +571,11 @@ export function ScreenerPage() {
                 Le tableau reste structurellement présent (SEO + nombre total visible), mais
                 l'utilisateur Free ne peut pas piocher dans le top 7000+ sans Pro. */}
             {!isPro && sorted.length > FREE_SCREENER_TOP && (
-              <div className="scr-pro-overlay" onClick={() => setUpgrade(true)}>
+              <div
+                className="scr-pro-overlay"
+                style={overlayTop != null ? { top: overlayTop } : undefined}
+                onClick={() => setUpgrade(true)}
+              >
                 <div className="scr-pro-overlay-inner">
                   <div className="scr-pro-overlay-badge">{t('screener.proLock.badge')}</div>
                   <div className="scr-pro-overlay-title">

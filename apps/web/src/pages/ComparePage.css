@@ -6,6 +6,7 @@
 
 .cmp-selector { padding: 12px 14px; margin-bottom: 16px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .cmp-selector-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-3); }
+.cmp-selector-count { margin-left: auto; }
 .cmp-chip { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 6px 0 13px; border-radius: 999px; background: var(--brand); color: #fff; }
 .cmp-chip-x { width: 24px; height: 24px; border-radius: 50%; border: none; background: oklch(1 0 0 / 0.18); color: #fff; display: flex; align-items: center; justify-content: center; }
 .cmp-add { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border-radius: 999px; border: 1.5px dashed var(--line); background: var(--surface); color: var(--ink-2); font-weight: 600; font-size: 13.5px; transition: all .14s; cursor: pointer; }
@@ -36,7 +37,7 @@
 
 /* Grille */
 .cmp-scroll { width: 100%; }
-.cmp-grid { display: grid; align-items: stretch; }
+.cmp-grid { display: grid; align-items: stretch; --cmp-label-w: 300px; --cmp-col-w: 190px; }
 .cmp-h { position: sticky; top: 0; z-index: 4; background: var(--bg); padding: 0 7px 12px; }
 .cmp-corner { position: sticky; top: 0; left: 0; z-index: 6; background: var(--bg); }
 .cmp-label { position: sticky; left: 0; z-index: 3; background: var(--bg); padding: 14px 16px 14px 2px; display: flex; }
@@ -49,6 +50,9 @@
 
 .cmp-cell { position: relative; height: 100%; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--surface); padding: 11px 12px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
 .cmp-cell-mark { position: absolute; top: 7px; right: 8px; color: var(--good-ink); display: inline-flex; }
+/* Valeur chiffrée d'une cellule (classe et pas style inline : elle doit pouvoir
+   rétrécir sur téléphone, sinon « -2.65%/an » débordait sous la pastille ✓). */
+.cmp-cell-val { font-size: 16px; font-weight: 700; color: var(--ink); }
 .cmp-cell .num { white-space: nowrap; }
 
 /* en-tête titre (colonne) */
@@ -63,4 +67,36 @@
   .cmp-wrap { padding: 20px 14px 48px; }
   .cmp-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 8px; }
   .cmp-h { position: static; }
+}
+
+@media (max-width: 560px) {
+  .cmp-wrap { padding: 14px 14px 40px; }
+  .cmp-title { font-size: 21px; }
+  /* Le compteur « 0/5 · minimum 2 » se retrouvait seul sur une 2e ligne, aligné à
+     droite sous le bouton. On empile proprement label → bouton → compteur. */
+  .cmp-selector { flex-direction: column; align-items: stretch; gap: 8px; }
+  .cmp-add { width: 100%; justify-content: center; }
+  .cmp-selector-count { margin-left: 0; }
+  .cmp-invite { padding: 28px 16px; }
+  .cmp-invite-icon { width: 44px; height: 44px; border-radius: 13px; }
+
+  /* 140 + 2 × 118 : une comparaison à 2 titres tient presque sans scroll horizontal
+     (au-delà on scrolle, la colonne de libellés restant collée à gauche). */
+  .cmp-grid { --cmp-label-w: 140px; --cmp-col-w: 118px; }
+  .cmp-label { padding: 10px 8px 10px 2px; }
+  .cmp-cellw { padding: 4px 4px; }
+  .cmp-cell { padding: 9px 9px; }
+  /* Le `nowrap` de .cmp-cell .num protège les nombres, mais il s'appliquait aussi aux
+     légendes en prose (« 98ᵉ percentile sur l'historique ») qui étiraient la grille. */
+  .cmp-cell .num.tiny { white-space: normal; }
+  /* L'en-tête de section s'étend sur toute la grille : son texte sur une seule ligne
+     imposait une largeur minimale à la grille entière (scroll horizontal inutile). */
+  .cmp-sec { padding: 16px 2px 6px; flex-wrap: wrap; align-items: baseline; }
+  /* Anneau + nom côte à côte ne tiennent pas dans une colonne de 112px : on empile. */
+  .cmp-thcard { flex-direction: column; align-items: flex-start; height: auto; padding: 12px 10px; gap: 8px; }
+  /* La pastille « meilleur de la ligne » est en absolu et chevauchait les valeurs
+     longues (« -2.65%/an ») une fois les colonnes resserrées. */
+  .cmp-cell:has(.cmp-cell-mark) { padding-right: 24px; }
+  .cmp-cell-val { font-size: 14px; }
+  .cmp-verdict { padding: 12px 14px; }
 }

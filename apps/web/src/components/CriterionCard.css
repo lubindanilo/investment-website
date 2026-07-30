@@ -85,3 +85,21 @@
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4;
   overflow: hidden;
 }
+
+/* ── Téléphone : une seule colonne, donc `grid-auto-rows: 1fr` n'aligne plus rien —
+   il étire juste les 12 cartes à la hauteur de la plus haute (~70px de vide chacune,
+   soit ~800px de scroll inutile). On rend la hauteur au contenu et on resserre. ── */
+@media (max-width: 640px) {
+  .criteria-grid, .qual-grid { grid-auto-rows: auto; gap: 10px; }
+
+  .crit-card { padding: 12px 13px; gap: 7px; }
+  .crit-card-label { font-size: 12.5px; max-width: 68%; }
+  .crit-card-value { font-size: 17.5px; }
+  /* Réserve de 32px pour une note souvent absente → autant de vide en bas de carte. */
+  .crit-card-note { min-height: 0; font-size: 11.5px; }
+  .crit-card-foot { padding-top: 8px; }
+
+  .qual-card { padding: 12px 13px; gap: 6px; }
+  .qual-card-label { font-size: 13px; }
+  .qual-card-note { font-size: 12.5px; -webkit-line-clamp: 5; line-clamp: 5; }
+}
