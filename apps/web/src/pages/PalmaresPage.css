@@ -149,5 +149,8 @@
 }
 
 @media (max-width: 560px) {
-  .pal-hero { padding-top: 36px; }
+  .pal-hero { padding: 18px 14px 16px; }
+  .pal-section { padding: 16px 14px; }
+  .pal-card { padding: 14px; }
+  .pal-grid { gap: 12px; }
 }

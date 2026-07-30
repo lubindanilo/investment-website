@@ -261,7 +261,7 @@ export function MarketBeatPage() {
             <p className="muted">{t('marketBeat.empty.desc')}</p>
           </div>
         ) : (
-          <div className="card scroll-x" style={{ padding: 0, overflow: 'hidden' }}>
+          <div className="card scroll-x" style={{ padding: 0 }}>
             <div className="row between" style={{ padding: '12px 14px 0' }}>
               <span style={{ fontWeight: 800, fontSize: 15 }}>{t('marketBeat.compare.system')} · {rows.length}</span>
               {nbOpp > 0 && <span className="tiny" style={{ fontWeight: 700, color: 'var(--good-ink)' }}><Icon name="gem" size={12} stroke={2} /> {nbOpp} {t('marketBeat.portfolio.gem')}{nbOpp > 1 ? 's' : ''}</span>}

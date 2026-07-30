@@ -133,10 +133,10 @@ export function WatchlistPage() {
     catch (e) { toast.push('error', (e as Error).message); }
   }
 
-  const SortTh = ({ label, col, align = 'right' }: { label: string; col: Exclude<SortKey, 'default'>; align?: 'left' | 'right' }) => {
+  const SortTh = ({ label, col, align = 'right', className }: { label: string; col: Exclude<SortKey, 'default'>; align?: 'left' | 'right'; className?: string }) => {
     const active = sort.key === col;
     return (
-      <th className={'sortable' + (align === 'right' ? ' num-cell' : '')} onClick={() => toggleSort(col)}>
+      <th className={'sortable' + (align === 'right' ? ' num-cell' : '') + (className ? ` ${className}` : '')} onClick={() => toggleSort(col)}>
         <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, justifyContent: align === 'right' ? 'flex-end' : 'flex-start' }}>
           {label}<span style={{ opacity: active ? 1 : 0.25 }}><Icon name={active && sort.dir === 'asc' ? 'arrowUp' : 'arrowDown'} size={11} stroke={2.4} /></span>
         </span>
@@ -230,7 +230,7 @@ export function WatchlistPage() {
             <Link to="/screener" className="btn btn-brand" style={{ marginTop: 4 }}>{t('watchlist.empty.cta')}</Link>
           </div>
         ) : (
-          <div className="card scroll-x" style={{ padding: 0, overflow: 'hidden' }}>
+          <div className="card scroll-x" style={{ padding: 0 }}>
             <table className="tbl">
               <thead>
                 <tr>
@@ -239,7 +239,7 @@ export function WatchlistPage() {
                   <SortTh label="P/FCF" col="pfcf" />
                   <SortTh label={t('watchlist.col.score')} col="score" />
                   <SortTh label={t('analyse.resilience')} col="resilience" align="left" />
-                  <SortTh label={t('watchlist.col.earnings')} col="earnings" align="left" />
+                  <SortTh label={t('watchlist.col.earnings')} col="earnings" align="left" className="col-hide-sm" />
                   <th style={{ width: 50 }}></th>
                 </tr>
               </thead>
@@ -258,7 +258,7 @@ export function WatchlistPage() {
                       <td className="num-cell num">{w.pfcfTTM != null && w.pfcfTTM > 0 ? w.pfcfTTM.toFixed(1) + '×' : '—'}</td>
                       <td className="num-cell">{s != null ? <ScorePill score={s} /> : <span className="muted">—</span>}</td>
                       <td>{w.resilience ? <ResilienceBadge summary={w.resilience} showScore /> : <span className="muted">—</span>}</td>
-                      <td><span className="num tiny wl-earn"><Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />{formatEarnings(w.nextEarningsDate)}</span></td>
+                      <td className="col-hide-sm"><span className="num tiny wl-earn"><Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />{formatEarnings(w.nextEarningsDate)}</span></td>
                       <td className="num-cell" style={{ width: 50 }}>
                         <button className="wl-remove" onClick={e => { e.stopPropagation(); remove(w.ticker); }} aria-label={t('watchlist.remove')}>
                           <Icon name="trash" size={16} />

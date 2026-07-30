@@ -2,7 +2,7 @@
  * Graphiques SVG faits main — direction "Moderne fintech" (portés du handoff design/charts.jsx).
  * Courbes/barres en couleur de marque (indigo) ; vert/orange/rouge réservés à la donnée.
  */
-import { useEffect, useRef, useState } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 
 interface Pt { x: number; y: number }
 
@@ -28,10 +28,20 @@ export function smoothPath(pts: Pt[]): string {
 function useWidth(initial = 700): [React.RefObject<HTMLDivElement>, number] {
   const ref = useRef<HTMLDivElement>(null);
   const [w, setW] = useState(initial);
-  useEffect(() => {
-    if (!ref.current) return;
-    const ro = new ResizeObserver(es => setW(es[0]!.contentRect.width));
-    ro.observe(ref.current);
+  // useLayoutEffect + mesure synchrone : avec un simple useEffect, le premier rendu
+  // sortait à `initial` (700px), soit un SVG deux fois plus large que l'écran d'un
+  // téléphone, et la page entière gagnait un scroll horizontal le temps que
+  // l'observateur corrige (parfois jamais si l'observateur reste sur un noeud démonté).
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const measure = () => setW(prev => {
+      const next = el.getBoundingClientRect().width;
+      return next > 0 ? next : prev;
+    });
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
     return () => ro.disconnect();
   }, []);
   return [ref, w];
@@ -66,7 +76,7 @@ export function PriceChart({ data, dates, locale, color = 'var(--brand)', height
 
   return (
     <div ref={ref} style={{ width: '100%' }} onMouseLeave={() => setHover(null)}>
-      <svg width={w} height={height} style={{ display: 'block' }}
+      <svg width={w} height={height} style={{ display: 'block', maxWidth: '100%' }}
         aria-hidden="true" focusable="false"
         onMouseMove={(e) => {
           const rect = e.currentTarget.getBoundingClientRect();
@@ -157,7 +167,7 @@ export function CriterionChart({ series, type, height = 320, unit = '' }: {
 
   return (
     <div ref={ref} style={{ width: '100%' }} onMouseLeave={() => setHover(null)}>
-      <svg width={w} height={height} style={{ display: 'block' }}
+      <svg width={w} height={height} style={{ display: 'block', maxWidth: '100%' }}
         aria-hidden="true" focusable="false"
         onMouseMove={(e) => {
           const rect = e.currentTarget.getBoundingClientRect();

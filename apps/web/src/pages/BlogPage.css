@@ -173,3 +173,22 @@
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 22px; font-size: 14px; text-decoration: none;
 }
+
+@media (max-width: 560px) {
+  .blog { padding: 14px 0 40px; }
+  .blog-wrap { padding: 0 14px; }
+  .blog-hero { padding: 12px 0 20px; }
+  .blog-hero-sub { font-size: 14.5px; }
+  .blog-search { margin: 18px auto 8px; }
+
+  .blog-list { gap: 14px; margin: 0 0 28px; }
+  .blog-card { padding: 16px 16px 18px; }
+  /* `gap: 4px` sur un flex non wrappé : la date et le temps de lecture se coupaient
+     chacun sur 2 lignes au lieu de passer à la ligne proprement. */
+  .blog-card-meta { flex-wrap: wrap; gap: 2px 6px; font-size: 11.5px; margin-bottom: 8px; }
+  .blog-card-title { font-size: 18px; margin: 0 0 8px; }
+  .blog-card-excerpt { font-size: 13.5px; line-height: 1.55; margin: 0 0 12px; }
+
+  .blog-cta { padding: 24px 16px; }
+  .blog-cta-title { font-size: 19px; }
+}

@@ -290,23 +290,23 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
             <p className="muted">{S.empty}</p>
           </div>
         ) : (
-          <div className="card scroll-x" style={{ padding: 0, overflow: 'hidden' }}>
+          <div className="card scroll-x" style={{ padding: 0 }}>
             <table className="tbl scr-tbl">
               <thead>
                 <tr>
-                  <th style={{ width: 56 }}>{S.rank}</th>
+                  <th className="col-hide-sm" style={{ width: 56 }}>{S.rank}</th>
                   <th>{S.company}</th>
                   <th>{S.score}</th>
                   <th>{t('analyse.resilience')}</th>
                   <th>P/FCF</th>
-                  <th>{S.price}</th>
-                  <th style={{ width: 40 }}></th>
+                  <th className="col-hide-sm">{S.price}</th>
+                  <th className="col-hide-sm" style={{ width: 40 }}></th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((r, i) => (
                   <tr key={r.ticker} className={r.opportunity ? 'is-opp' : undefined} onClick={() => navigate(`/analyse/${r.ticker}`)}>
-                    <td className="num muted">{i + 1}</td>
+                    <td className="num muted col-hide-sm">{i + 1}</td>
                     <td>
                       <div className="scr-soc">
                         <span className="num scr-soc-ticker">{r.ticker}</span>
@@ -316,8 +316,8 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
                     <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
                     <td>{r.resilience ? <ResilienceBadge summary={r.resilience} showScore /> : <span className="muted">—</span>}</td>
                     <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
-                    <td className="num">{formatPrice(r.price, r.currency)}</td>
-                    <td style={{ width: 40, textAlign: 'right' }}>
+                    <td className="num col-hide-sm">{formatPrice(r.price, r.currency)}</td>
+                    <td className="col-hide-sm" style={{ width: 40, textAlign: 'right' }}>
                       <span style={{ color: 'var(--ink-4)' }}><Icon name="chevronR" size={16} /></span>
                     </td>
                   </tr>

@@ -376,7 +376,18 @@ input { font-family: inherit; }
 }
 
 @media (max-width: 720px) {
-  .app-header, .app-main { padding-left: 20px; padding-right: 20px; }
+  /* Header mobile compact : hauteur fixe = --nav-h, pour que tout ce qui se cale
+     dessous (barre de score collante, min-height des pages, menu déroulant) tombe
+     au bon endroit. Sans ça le burger de 44px gonflait le header à 73px alors que
+     --nav-h annonçait 60px → décalages sur les éléments sticky. */
+  :root { --nav-h: 56px; }
+
+  .app-header { height: var(--nav-h); padding: 0 14px; }
+  .app-main { padding: 16px 14px 24px; }
+
+  .logo { gap: 9px; }
+  .logo-mark { width: 28px; height: 28px; border-radius: 7px; font-size: 12px; }
+  .logo-text { font-size: 15px; }
 
   /* Header mobile = logo + burger uniquement. Langue + compte sont repliés dans le
      menu (sinon le header déborde la largeur de l'écran → scroll horizontal). */
@@ -395,7 +406,21 @@ input { font-family: inherit; }
     overflow-x: visible;
     display: none; /* fermée par défaut */
   }
-  .app-nav.open { display: flex; }
+  /* Ouverte : panneau ancré SOUS le header collant. En flux normal, le menu
+     s'affichait à sa position d'origine en haut du document — donc hors écran
+     (et invisible) dès que la page était scrollée : le burger semblait mort. */
+  .app-nav.open {
+    display: flex;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    z-index: 99;
+    max-height: calc(100vh - var(--nav-h));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    box-shadow: var(--sh-md);
+  }
 
   /* Liens en pleine largeur, hauteur ≥ 48px (cibles tactiles confortables). */
   .app-nav .tab {
@@ -434,4 +459,20 @@ input { font-family: inherit; }
     display: inline-flex;
     align-items: center;
   }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   Densité téléphone (≤ 560px). Le design est pensé desktop : sans ce palier,
+   les titres, les paddings de cartes et les blocs vides gardent leurs valeurs
+   larges et chaque page devient deux fois plus longue que nécessaire.
+   ════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 560px) {
+  .section-title { font-size: 20px; }
+  .section-sub { font-size: 12.5px; margin-bottom: 16px; }
+  .search-wrap { margin-bottom: 16px; }
+
+  .card { padding: 14px; }
+
+  .empty-state { padding: 36px 16px; }
+  .empty-state-icon { font-size: 30px; margin-bottom: 10px; }
 }

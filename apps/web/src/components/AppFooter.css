@@ -21,6 +21,20 @@
   }
 }
 
+/* Téléphone : 3 colonnes empilées = ~600px de pied de page. Deux colonnes suffisent
+   et le pied revient à ~300px. */
+@media (max-width: 560px) {
+  .app-footer { padding: 24px 14px 18px; margin-top: 36px; }
+  .app-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 14px;
+  }
+  .app-footer-col h3 { margin: 0 0 9px; }
+  .app-footer-col ul { gap: 7px; }
+  .app-footer-col a { font-size: 13px; }
+  .app-footer-bottom { margin-top: 22px; padding-top: 16px; }
+}
+
 .app-footer-col h3 {
   font-size: 12px;
   font-weight: 700;

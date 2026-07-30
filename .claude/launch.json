@@ -6,6 +6,15 @@
       "runtimeExecutable": "pnpm",
       "runtimeArgs": ["dev:fast"],
       "port": 5173
+    },
+    {
+      "name": "web-proxy-prod",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": [
+        "-c",
+        "VITE_API_URL=https://lubin-investment.com pnpm --filter @lubin/web run dev"
+      ],
+      "port": 5173
     }
   ]
 }

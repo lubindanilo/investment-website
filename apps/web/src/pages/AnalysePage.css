@@ -168,4 +168,31 @@
   .criteria-grid.anl-quality-grid,
   .qual-grid.anl-management-grid { grid-template-columns: 1fr; }
   .anl-management-actions { width: 100%; align-items: flex-start; flex-direction: column; }
+
+  .anl-wrap { padding-top: 14px; }
+  .anl-filled { padding-bottom: 32px; }
+  .anl-page-title { font-size: 21px; }
+  .anl-page-sub { font-size: 13px; }
+  .anl-company { font-size: 21px; }
+  .anl-section-title { font-size: 16.5px; }
+  .anl-section { gap: 10px; }
+  .anl-cta-block { gap: 6px; margin-bottom: 12px; }
+
+  /* En-tête de section : le titre + son sous-titre se battaient avec le sélecteur de
+     période / le total sur la même ligne (sous-titre coupé sur 2-3 lignes de 150px). */
+  .anl-section-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+  /* Ligne d'actualité : le titre était comprimé entre la source et la date
+     (flex-shrink: 0 des deux côtés) et tombait à ~100px de large, soit un mot par
+     ligne. On le passe en pleine largeur, source + date en dessous. */
+  .anl-news-row { flex-wrap: wrap; gap: 5px 10px; padding: 12px 14px; }
+  .anl-news-title { flex: 1 0 100%; order: -1; font-size: 13.5px; line-height: 1.4; }
+  .anl-news-src { min-width: 0; font-size: 11.5px; }
+  .anl-news-time { font-size: 11.5px; }
+
+  .anl-related { margin-top: 24px; padding-top: 18px; }
+  .anl-related-title { font-size: 16.5px; }
+  .anl-qual-cta { padding: 24px 16px; }
+  .anl-uncovered { padding: 40px 20px; }
+  .anl-uncovered-title { font-size: 18px; }
 }
