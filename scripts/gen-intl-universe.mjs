@@ -63,7 +63,7 @@ const CURATED_EXTRAS = { HONG_KONG: ['1681.HK'] }; // Consun Pharmaceutical
 const TICKER_RE = /^[A-Z0-9.\-]{1,15}$/;
 
 async function fetchExchange(seg) {
-  const url = `https://stockanalysis.com/_api/endpoints/screener/table?type=s&m=marketCap&s=desc&c=s,n,marketCap,country&f=exchangeCode-is-${seg}`;
+  const url = `https://stockanalysis.com/_api/endpoints/screener/table?type=s&m=marketCap&s=desc&c=s,n,marketCap,country,revenue&f=exchangeCode-is-${seg}`;
   let lastErr;
   for (let i = 0; i < 4; i++) {
     try {
@@ -87,6 +87,9 @@ function toYahoo(ex, rows) {
   for (const r of rows) {
     const country = r.country ?? null;
     if (homeCountry ? country !== homeCountry : (country == null || country === 'United States')) continue;
+    // Exige une revenue : écarte d'emblée les non-scorables (ETF, fonds, trusts, actions
+    // préférentielles/coquilles sans chiffre d'affaires) → tous seraient `nodata` de toute façon.
+    if (r.revenue == null) continue;
     const s = r.s; // "SEG-BASE"
     const dash = s.indexOf('-');
     if (dash < 0) continue;
@@ -152,7 +155,9 @@ async function main() {
     const rows = await fetchExchange(ex.seg);
     const tk = toYahoo(ex, rows);
     const extras = CURATED_EXTRAS[ex.group] ?? [];
-    const merged = NO_UNION.has(ex.group) ? [...tk, ...extras] : [...existingTickers(ex.group), ...tk, ...extras];
+    // Fresh (sans union) : le fetch screener est exhaustif + revenue-filtré → pas de junk réinjecté.
+    // CURATED_EXTRAS couvre les must-keep sous le cap (ex Consun).
+    const merged = [...tk, ...extras];
     generated[ex.group] = fmtArray(ex.group, ex.label, merged);
     console.log(`  ${ex.group.padEnd(13)}: ${String(rows.length).padStart(4)} bruts → ${tk.length} retenus (cap ${ex.cap}) → ${new Set(merged).size} avec union/extras`);
   }

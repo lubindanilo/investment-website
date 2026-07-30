@@ -45,7 +45,7 @@ const OTHER_LABELS = {
 const TICKER_RE = /^[A-Z0-9.\-]{1,15}$/;
 
 async function fetchExchange(seg) {
-  const url = `https://stockanalysis.com/_api/endpoints/screener/table?type=s&m=marketCap&s=desc&c=s,n,marketCap,country&f=exchangeCode-is-${seg}`;
+  const url = `https://stockanalysis.com/_api/endpoints/screener/table?type=s&m=marketCap&s=desc&c=s,n,marketCap,country,revenue&f=exchangeCode-is-${seg}`;
   let lastErr;
   for (let i = 0; i < 4; i++) {
     try {
@@ -63,6 +63,7 @@ function toYahoo(ex, rows) {
   const out = [];
   for (const r of rows) {
     if ((r.country ?? null) !== ex.country) continue; // pays d'origine → purge les DR étrangers
+    if (r.revenue == null) continue; // écarte ETF/fonds/trusts/prefs/coquilles sans CA (tous nodata)
     const dash = r.s.indexOf('-');
     if (dash < 0) continue;
     const yahoo = (r.s.slice(dash + 1) + ex.suffix).toUpperCase();
@@ -86,9 +87,11 @@ async function main() {
   const groups = {}; // suffixe → { label, tickers }
   for (const ex of REGEN) {
     const gen = toYahoo(ex, await fetchExchange(ex.seg));
-    const merged = [...new Set([...(existing[ex.suffix] ?? []), ...gen])].sort();
+    // Fresh (sans union) : fetch home-country + revenue-filtré, exhaustif → purge le junk
+    // (prefs/ETF/trusts/SOCIMIs sans CA) qui polluait via l'union.
+    const merged = [...new Set(gen)].sort();
     groups[ex.suffix] = { label: ex.label, tickers: merged };
-    console.log(`  ${ex.label.padEnd(24)} ${ex.suffix.padEnd(4)} : ${gen.length} générés → ${merged.length} avec l'existant`);
+    console.log(`  ${ex.label.padEnd(24)} ${ex.suffix.padEnd(4)} : ${merged.length} (revenue présente, pays d'origine)`);
   }
   // Suffixes non régénérés : conservés verbatim.
   const regenSuffixes = new Set(REGEN.map((e) => e.suffix));
