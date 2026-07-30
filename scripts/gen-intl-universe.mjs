@@ -2,20 +2,26 @@
  * gen-intl-universe.mjs — régénère la partie « grands marchés mondiaux » de
  * apps/api/src/data/intlLargeCaps.ts.
  *
- * Source : pages stockanalysis.com/list/{bourse}/ (top ~500 par capitalisation, champ JS embarqué
- * `stockData:[{s:"seg/base",marketCap,subtype},…]`). Convertit le slug stockanalysis (seg/base) en
- * symbole Yahoo (base + suffixe) — le format stocké par le site : prix + earnings via Yahoo,
- * fondamentaux via stockanalysis (SUFFIX_TO_SEG dans services/stockanalysisFundamentals.ts).
+ * Source : endpoint screener de stockanalysis (reverse-engineered) —
+ *   GET /_api/endpoints/screener/table?type=s&m=marketCap&s=desc&c=s,n,marketCap,country&f=exchangeCode-is-<SEG>
+ *   → renvoie la LISTE COMPLÈTE de la bourse (pas de plafond 500 comme les pages /list/),
+ *     triée par capitalisation décroissante, en JSON. `s` = "SEG-BASE" (ex "HKG-0700").
+ * On convertit SEG-BASE en symbole Yahoo (base + suffixe) — format stocké : prix + date d'earnings
+ * via Yahoo (pilote la cadence de re-scoring), fondamentaux via stockanalysis (SUFFIX_TO_SEG).
  *
- * Blocs européens (Nordiques) + Brésil préservés VERBATIM. Les autres blocs = union
- * (curé existant ∪ top-500 généré), triés, 8/ligne.
+ * FILTRAGE QUALITÉ (colonne country) :
+ *   - défaut ('exUsNull') : on garde country ≠ null (écarte les ETF) et ≠ "United States"
+ *     (les DR US cotés hors US ; l'US est couvert par sp500Universe). Garde les sociétés à
+ *     domicile offshore légitime (ex Tencent = Cayman Islands).
+ *   - 'home:<Pays>' (Canada, Australie) : on ne garde que country == <Pays>, car ces bourses
+ *     hébergent massivement des DR étrangers (ASML, Roche, LVMH sur TSX…) qui fausseraient le top.
  *
- * EXCLUSIONS assumées :
- *   - Malaisie : stockanalysis n'expose que le code alpha (MAYBANK), Yahoo exige le numérique
- *     (1155.KL) → prix live cassé. À traiter avec une table de correspondance dédiée.
- *   - Royaume-Uni / Suisse : déjà couverts par euLargeCaps (région EU) → éviter le double comptage.
- *   - Mexique : top-500 dominé par des DR étrangers (bmv/AAPL…) → bruité.
- *   - Brésil : pas de page list exploitable → on garde le bloc curé BRAZIL verbatim.
+ * PROFONDEUR : cap par marché (gros marchés 1200, autres 600-800) pour rester dans la capacité du
+ * cron (~1000 scorings/j) même avec ~15k INTL. Le re-scoring étranger est piloté par les earnings
+ * Yahoo (cf. quantSnapshot), le résidu sans date sur TTL 14j.
+ *
+ * EXCLUSIONS : Malaisie (code alpha ≠ numérique Yahoo → prix cassé), UK/Suisse (déjà EU),
+ * Mexique (DR étrangers), Philippines (Yahoo ne résout pas .PS), Brésil (bloc curé conservé).
  *
  * Usage :  node scripts/gen-intl-universe.mjs
  */
@@ -27,64 +33,67 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.resolve(__dirname, '../apps/api/src/data/intlLargeCaps.ts');
 const UA =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36';
+const REF = 'https://stockanalysis.com/stocks/screener/';
 
-// slug page liste → { seg attendu, suffixe Yahoo, const TS, libellé }. Ordre = ordre dans le fichier.
+// seg (exchangeCode API) → suffixe Yahoo, const TS, libellé, cap, mode de filtrage pays.
 const EXCHANGES = [
-  { slug: 'toronto-stock-exchange',        seg: 'tsx',     suffix: '.TO', group: 'CANADA',       label: 'Canada · Toronto (.TO)' },
-  { slug: 'australian-securities-exchange',seg: 'asx',     suffix: '.AX', group: 'AUSTRALIA',    label: 'Australie · ASX (.AX)' },
-  { slug: 'tokyo-stock-exchange',          seg: 'tyo',     suffix: '.T',  group: 'JAPAN',        label: 'Japon · Tokyo (.T)' },
-  { slug: 'hong-kong-stock-exchange',      seg: 'hkg',     suffix: '.HK', group: 'HONG_KONG',    label: 'Hong Kong (.HK)' },
-  { slug: 'shanghai-stock-exchange',       seg: 'sha',     suffix: '.SS', group: 'SHANGHAI',     label: 'Chine · Shanghai (.SS)' },
-  { slug: 'shenzhen-stock-exchange',       seg: 'she',     suffix: '.SZ', group: 'SHENZHEN',     label: 'Chine · Shenzhen (.SZ)' },
-  { slug: 'korea-stock-exchange',          seg: 'krx',     suffix: '.KS', group: 'KOREA',        label: 'Corée · Séoul (.KS)' },
-  { slug: 'taiwan-stock-exchange',         seg: 'tpe',     suffix: '.TW', group: 'TAIWAN',       label: 'Taïwan (.TW)' },
-  { slug: 'nse-india',                     seg: 'nse',     suffix: '.NS', group: 'INDIA',        label: 'Inde · NSE (.NS)' },
-  { slug: 'indonesia-stock-exchange',      seg: 'idx',     suffix: '.JK', group: 'INDONESIA',    label: 'Indonésie · IDX (.JK)' },
-  { slug: 'stock-exchange-of-thailand',    seg: 'bkk',     suffix: '.BK', group: 'THAILAND',     label: 'Thaïlande · SET (.BK)' },
-  { slug: 'singapore-exchange',            seg: 'sgx',     suffix: '.SI', group: 'SINGAPORE',    label: 'Singapour · SGX (.SI)' },
-  { slug: 'saudi-stock-exchange',          seg: 'tadawul', suffix: '.SR', group: 'SAUDI',        label: 'Arabie Saoudite · Tadawul (.SR)' },
-  { slug: 'johannesburg-stock-exchange',   seg: 'jse',     suffix: '.JO', group: 'SOUTH_AFRICA', label: 'Afrique du Sud · JSE (.JO)' },
-  { slug: 'borsa-istanbul',                seg: 'ist',     suffix: '.IS', group: 'TURKEY',       label: 'Turquie · BIST (.IS)' },
+  { seg: 'TSX',     suffix: '.TO', group: 'CANADA',       label: 'Canada · Toronto (.TO)',        cap: 800,  country: 'home:Canada' },
+  { seg: 'ASX',     suffix: '.AX', group: 'AUSTRALIA',    label: 'Australie · ASX (.AX)',         cap: 800,  country: 'home:Australia' },
+  { seg: 'TYO',     suffix: '.T',  group: 'JAPAN',        label: 'Japon · Tokyo (.T)',            cap: 1200, country: 'exUsNull' },
+  { seg: 'HKG',     suffix: '.HK', group: 'HONG_KONG',    label: 'Hong Kong (.HK)',               cap: 1200, country: 'exUsNull' },
+  { seg: 'SHA',     suffix: '.SS', group: 'SHANGHAI',     label: 'Chine · Shanghai (.SS)',        cap: 1200, country: 'exUsNull' },
+  { seg: 'SHE',     suffix: '.SZ', group: 'SHENZHEN',     label: 'Chine · Shenzhen (.SZ)',        cap: 1200, country: 'exUsNull' },
+  { seg: 'KRX',     suffix: '.KS', group: 'KOREA',        label: 'Corée · Séoul (.KS)',           cap: 1200, country: 'exUsNull' },
+  { seg: 'TPE',     suffix: '.TW', group: 'TAIWAN',       label: 'Taïwan (.TW)',                  cap: 1200, country: 'exUsNull' },
+  { seg: 'NSE',     suffix: '.NS', group: 'INDIA',        label: 'Inde · NSE (.NS)',              cap: 1200, country: 'exUsNull' },
+  { seg: 'IDX',     suffix: '.JK', group: 'INDONESIA',    label: 'Indonésie · IDX (.JK)',         cap: 800,  country: 'exUsNull' },
+  { seg: 'BKK',     suffix: '.BK', group: 'THAILAND',     label: 'Thaïlande · SET (.BK)',         cap: 800,  country: 'exUsNull' },
+  { seg: 'SGX',     suffix: '.SI', group: 'SINGAPORE',    label: 'Singapour · SGX (.SI)',         cap: 600,  country: 'exUsNull' },
+  { seg: 'HOSE',    suffix: '.VN', group: 'VIETNAM',      label: 'Vietnam · HOSE (.VN)',          cap: 600,  country: 'exUsNull' },
+  { seg: 'TADAWUL', suffix: '.SR', group: 'SAUDI',        label: 'Arabie Saoudite · Tadawul (.SR)', cap: 600, country: 'exUsNull' },
+  { seg: 'JSE',     suffix: '.JO', group: 'SOUTH_AFRICA', label: 'Afrique du Sud · JSE (.JO)',    cap: 600,  country: 'exUsNull' },
+  { seg: 'IST',     suffix: '.IS', group: 'TURKEY',       label: 'Turquie · BIST (.IS)',          cap: 600,  country: 'exUsNull' },
 ];
-// Groupes SANS bloc curé existant (pas d'union) — les autres unissent l'existant.
-const NEW_GROUPS = new Set(['SHANGHAI', 'SHENZHEN', 'INDONESIA', 'THAILAND', 'SAUDI', 'SOUTH_AFRICA', 'TURKEY']);
+// Groupes régénérés SANS union (purge d'anciens artefacts, ex DR sur Canada/Australie).
+const NO_UNION = new Set(['CANADA', 'AUSTRALIA']);
 // Blocs européens + Brésil : NON régénérés (préservés verbatim), placés après les blocs générés.
 const VERBATIM_TAIL = ['SWEDEN', 'DENMARK', 'NORWAY', 'FINLAND', 'BRAZIL'];
-
-// Titres qu'on veut TOUJOURS inclure même hors du top-500 par capi (données stockanalysis vérifiées).
-const CURATED_EXTRAS = {
-  HONG_KONG: ['1681.HK'], // Consun Pharmaceutical (~HK$11 Md, sous le cutoff top-500 ~HK$13,6 Md)
-};
+// Titres toujours inclus même hors cap (données stockanalysis vérifiées).
+const CURATED_EXTRAS = { HONG_KONG: ['1681.HK'] }; // Consun Pharmaceutical
 const TICKER_RE = /^[A-Z0-9.\-]{1,15}$/;
 
-async function fetchList(slug) {
+async function fetchExchange(seg) {
+  const url = `https://stockanalysis.com/_api/endpoints/screener/table?type=s&m=marketCap&s=desc&c=s,n,marketCap,country&f=exchangeCode-is-${seg}`;
   let lastErr;
   for (let i = 0; i < 4; i++) {
     try {
-      const res = await fetch(`https://stockanalysis.com/list/${slug}/`, { headers: { 'User-Agent': UA, Accept: 'text/html,*/*' } });
+      const res = await fetch(url, { headers: { 'User-Agent': UA, Referer: REF, Accept: 'application/json' } });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return res.text();
+      const json = await res.json();
+      const rows = json?.data?.data;
+      if (!Array.isArray(rows)) throw new Error('payload inattendu');
+      return rows;
     } catch (e) {
       lastErr = e;
-      await new Promise((r) => setTimeout(r, 1200 * (i + 1)));
+      await new Promise((r) => setTimeout(r, 1500 * (i + 1)));
     }
   }
   throw lastErr;
 }
 
-function parseTickers(html, ex) {
-  const start = html.indexOf('stockData:[');
-  if (start < 0) return [];
-  const objs = html.slice(start).match(/\{no:\d+,[^}]*\}/g) || [];
+function toYahoo(ex, rows) {
+  const homeCountry = ex.country.startsWith('home:') ? ex.country.slice(5) : null;
   const out = [];
-  for (const o of objs) {
-    const s = o.match(/\bs:"([^"]+)"/)?.[1];
-    const sub = o.match(/\bsubtype:"([^"]+)"/)?.[1] || 'stock';
-    if (!s || sub !== 'stock') continue;
-    const [seg, base] = s.split('/');
-    if (seg !== ex.seg || !base) continue; // écarte les segments secondaires (ex. sgxc Catalist)
+  for (const r of rows) {
+    const country = r.country ?? null;
+    if (homeCountry ? country !== homeCountry : (country == null || country === 'United States')) continue;
+    const s = r.s; // "SEG-BASE"
+    const dash = s.indexOf('-');
+    if (dash < 0) continue;
+    const base = s.slice(dash + 1);
     const yahoo = (base + ex.suffix).toUpperCase();
     if (TICKER_RE.test(yahoo)) out.push(yahoo);
+    if (out.length >= ex.cap) break; // rows déjà triées par capi décroissante
   }
   return out;
 }
@@ -103,47 +112,49 @@ function fmtArray(name, label, tickers) {
   const uniq = [...new Set(tickers)].sort();
   const lines = [];
   for (let i = 0; i < uniq.length; i += 8) lines.push('  ' + uniq.slice(i, i + 8).map((t) => `'${t}'`).join(', ') + ',');
-  return `// — ${label} — top ~500 par capitalisation (stockanalysis) ∪ curé —\nconst ${name}: string[] = [\n${lines.join('\n')}\n];`;
+  return `// — ${label} — top par capitalisation (screener stockanalysis) —\nconst ${name}: string[] = [\n${lines.join('\n')}\n];`;
 }
 
 const HEADER = `/**
  * Grandes & moyennes capitalisations mondiales (hors US couvert par sp500Universe, hors EU couvert
  * par euLargeCaps).
  *
- * Pourquoi une liste curée + élargie : Finnhub free ne liste que les symboles US. Pour le reste du
- * monde on fournit une sélection par place boursière, scorée via Yahoo (prix + date d'earnings, qui
- * pilote la cadence de re-scoring) et stockanalysis (fondamentaux trimestriels/semestriels).
+ * Généré par scripts/gen-intl-universe.mjs (à relancer pour rafraîchir) depuis l'endpoint screener
+ * de stockanalysis (/_api/endpoints/screener/table, filtré par exchangeCode) — liste complète par
+ * bourse, plafonnée par marché (gros marchés ~1200, autres 600-800) pour la capacité du cron.
+ * Ticker stocké = symbole Yahoo : prix + date d'earnings via Yahoo (pilotent le re-scoring),
+ * fondamentaux trimestriels/semestriels via stockanalysis (SUFFIX_TO_SEG).
  *
- * Univers (juillet 2026) : top ~500 par capitalisation de chaque bourse, extrait des pages
- * stockanalysis.com/list/{bourse}/ (champ \`stockData\`) via scripts/gen-intl-universe.mjs — à
- * relancer pour rafraîchir. Bourses : Canada, Australie, Tokyo, Hong Kong, Shanghai, Shenzhen,
- * Corée, Taïwan, Inde (NSE), Indonésie, Thaïlande, Singapour (mainboard), Arabie Saoudite, Afrique
- * du Sud, Turquie. Nordiques + Brésil restent curés. Exclus : Malaisie (code alpha ≠ code numérique
- * Yahoo → prix cassé), UK/Suisse (déjà en EU), Mexique (DR étrangers).
+ * Filtrage : on écarte les ETF (country null) et les DR US (country "United States", couverts par
+ * sp500Universe) ; Canada/Australie sont restreints à leur pays d'origine (ces bourses hébergent
+ * beaucoup de DR étrangers). Nordiques + Brésil restent curés (verbatim).
  *
  * Garantie « données disponibles » : le pipeline filtre — un ticker sans fondamentaux/prix
- * suffisants est marqué \`nodata\` et n'apparaît jamais dans le screener (scoreChiffresMax ≥ 8).
- * Élargir la liste n'introduit donc aucun faux résultat, seulement plus de candidats.
+ * suffisants est \`nodata\` et n'apparaît jamais dans le screener (scoreChiffresMax ≥ 8).
  *
- * Format = symbole Yahoo complet (suffixe d'exchange) :
- *   .TO Toronto · .AX Australie · .ST Stockholm · .CO Copenhague · .OL Oslo · .HE Helsinki
- *   .T Tokyo · .HK Hong Kong · .SS Shanghai · .SZ Shenzhen · .KS Corée · .TW Taïwan
- *   .NS Inde · .JK Indonésie · .BK Thaïlande · .SI Singapour · .SR Arabie Saoudite
- *   .JO Afrique du Sud · .IS Turquie · .SA Brésil
+ * Format = symbole Yahoo (suffixe d'exchange) :
+ *   .TO Canada · .AX Australie · .T Tokyo · .HK Hong Kong · .SS Shanghai · .SZ Shenzhen
+ *   .KS Corée · .TW Taïwan · .NS Inde · .JK Indonésie · .BK Thaïlande · .SI Singapour
+ *   .VN Vietnam · .SR Arabie Saoudite · .JO Afrique du Sud · .IS Turquie
+ *   .ST/.CO/.OL/.HE Nordiques · .SA Brésil
  *
- * ⚠️ Codes numériques (7203.T, 0700.HK, 600519.SS, 005930.KS, 2222.SR) ou symboles longs
- * (BAJAJFINSV.NS) et certaines classes nordiques à tiret (VOLV-B.ST) → le schéma de ticker accepte
- * chiffres/tiret et jusqu'à 15 caractères (cf. analyze.ts, screener.ts).
+ * Exclus : Malaisie (code alpha ≠ numérique Yahoo), UK/Suisse (déjà EU), Mexique (DR étrangers),
+ * Philippines (Yahoo ne résout pas .PS).
+ *
+ * ⚠️ Codes numériques (7203.T, 0700.HK, 600519.SS, 2222.SR) ou symboles longs (BAJAJFINSV.NS) et
+ * classes nordiques à tiret (VOLV-B.ST) → le schéma de ticker accepte chiffres/tiret et jusqu'à
+ * 15 caractères (cf. analyze.ts, screener.ts).
  */`;
 
 async function main() {
   const generated = {};
   for (const ex of EXCHANGES) {
-    const tk = parseTickers(await fetchList(ex.slug), ex);
+    const rows = await fetchExchange(ex.seg);
+    const tk = toYahoo(ex, rows);
     const extras = CURATED_EXTRAS[ex.group] ?? [];
-    const merged = NEW_GROUPS.has(ex.group) ? [...tk, ...extras] : [...existingTickers(ex.group), ...tk, ...extras];
+    const merged = NO_UNION.has(ex.group) ? [...tk, ...extras] : [...existingTickers(ex.group), ...tk, ...extras];
     generated[ex.group] = fmtArray(ex.group, ex.label, merged);
-    console.log(`  ${ex.group.padEnd(13)}: ${String(tk.length).padStart(3)} extraits → ${new Set(merged).size} après union`);
+    console.log(`  ${ex.group.padEnd(13)}: ${String(rows.length).padStart(4)} bruts → ${tk.length} retenus (cap ${ex.cap}) → ${new Set(merged).size} avec union/extras`);
   }
   const spread = EXCHANGES.map((e) => `...${e.group}`);
   const out = [

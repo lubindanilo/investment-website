@@ -63,6 +63,7 @@ const SUFFIX_TO_SEG: Record<string, string> = {
   '.SR': 'tadawul', // Arabie Saoudite (Tadawul)
   '.JO': 'jse',  // Afrique du Sud (Johannesburg)
   '.IS': 'ist',  // Turquie (Borsa Istanbul)
+  '.VN': 'hose', // Vietnam (Ho Chi Minh · HOSE)
 };
 
 // Tickers qui ont une cotation US directe (NYSE/NASDAQ) : on préfère /stocks/{ticker}/
