@@ -86,13 +86,26 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
     );
   };
 
+  const isNonUs = ticker.includes('.');
+  const EMPTY_EARNINGS: EarningsInfo = { next: null, last: null };
+  // Date du prochain earnings — pilote la cadence de re-scoring (nextEarningsDate). US : Finnhub
+  // (/calendar/earnings). Non-US : Finnhub est US-only → on lit calendarEvents.earnings chez Yahoo
+  // (le ticker app = symbole Yahoo pour les suffixés). Sans date (small caps, Chine continentale),
+  // le screener retombe sur le TTL de secours.
+  const fetchEarnings = (): Promise<EarningsInfo> => {
+    if (!includeEarnings) return Promise.resolve(EMPTY_EARNINGS);
+    return isNonUs
+      ? timed('yahoo earnings', getEarningsInfoYahoo(ticker)).catch(() => EMPTY_EARNINGS)
+      : timed('finnhub earnings', getEarningsInfo(ticker)).catch(() => EMPTY_EARNINGS);
+  };
+
   // ── CHEMIN RAPIDE : cache frais → 0 appel fondamental, prix recalculé live ──
   if (cached && cached.fundamentalsAvailable) {
     if (log) console.log(`[quant ${ticker}] FAST PATH (cache servable) — fondamentaux réutilisés`);
     const [quote, rawNews, earnings] = await Promise.all([
       timed('finnhub quote', getQuote(ticker)).catch(() => null),
       includeNews ? timed('finnhub news', getCompanyNews(ticker)).catch(() => [] as FinnhubNewsItem[]) : Promise.resolve([] as FinnhubNewsItem[]),
-      includeEarnings ? timed('earnings', getEarningsInfo(ticker)).catch(() => ({ next: null, last: null } as EarningsInfo)) : Promise.resolve({ next: null, last: null } as EarningsInfo),
+      fetchEarnings(),
     ]);
     const metrics: DerivedMetrics = { ...cached.metrics };
     const livePrice = quote?.c != null && quote.c > 0 ? quote.c : null;
@@ -145,7 +158,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   // ces appels pour les titres non-US → moins de latence, pas de gaspillage du limiteur
   // Finnhub, et on part directement sur Yahoo (seule source qui les couvre). Sans ce court-circuit,
   // chaque titre EU perdait 4-5 allers-retours Finnhub voués au 403 avant de basculer.
-  const isNonUs = ticker.includes('.');
+  // (isNonUs est défini plus haut, avant le chemin rapide.)
 
   // Tous les fetches "data layer" en parallèle. Les optionnels (news, earnings) sont
   // remplacés par des Promise.resolve si exclus pour économiser des calls Finnhub.
@@ -157,9 +170,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
       ? timed('finnhub news',    getCompanyNews(ticker)).catch(() => [] as FinnhubNewsItem[])
       : Promise.resolve([] as FinnhubNewsItem[]),
     timed('yahoo shares',      getSharesHistory(ticker)).catch(() => null),
-    (includeEarnings && !isNonUs)
-      ? timed('finnhub earnings', getEarningsInfo(ticker)).catch(() => ({ next: null, last: null } as EarningsInfo))
-      : Promise.resolve({ next: null, last: null } as EarningsInfo),
+    fetchEarnings(),
   ]);
   if (log) console.log(`[quant ${ticker}] data layer done in ${ms()}ms`);
 
