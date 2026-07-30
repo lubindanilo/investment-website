@@ -31,6 +31,10 @@ on:
         description: 'Nombre max d appels avant arret'
         required: false
         default: '400'
+      seed:
+        description: 'Seed uniquement (insere les tickers du code en base) : liste de regions ex "INTL,EU,US". Vide = pas de seed, scoring normal.'
+        required: false
+        default: ''
   schedule:
     # UN SEUL petit lot par jour (06:00 UTC). Volontairement minimal : la base Neon (plan Free,
     # 100 CU-h/mois) facture le TEMPS DE COMPUTE ACTIF. Les anciens crons (US/EU dediees, ~10
@@ -61,6 +65,7 @@ jobs:
       MANUAL_N: ${{ inputs.n }}
       MANUAL_DEADLINE: ${{ inputs.deadline }}
       MANUAL_PASSES: ${{ inputs.passes }}
+      MANUAL_SEED: ${{ inputs.seed }}
     steps:
       - name: Score due tickers
         shell: bash
@@ -72,6 +77,27 @@ jobs:
           fi
 
           SITE_URL="${CONFIGURED_SITE_URL:-https://lubin-investment.com}"
+
+          # ── Mode SEED (workflow_dispatch avec input 'seed' rempli) ──────────────────────
+          # Insere en base les tickers des tableaux du code (createMany skipDuplicates, idempotent,
+          # quelques secondes). NE FAIT PAS de scoring → aucun risque pour le quota Neon. A lancer
+          # une fois apres avoir elargi l'univers ; le cron quotidien score ensuite au fil de l'eau.
+          if [ -n "${MANUAL_SEED:-}" ]; then
+            echo "Mode SEED : regions = ${MANUAL_SEED}"
+            IFS=',' read -ra REGIONS <<< "${MANUAL_SEED}"
+            for raw in "${REGIONS[@]}"; do
+              reg="$(echo "$raw" | tr -d '[:space:]' | tr '[:lower:]' '[:upper:]')"
+              [ -z "$reg" ] && continue
+              echo "→ seed ${reg}…"
+              resp="$(curl --fail-with-body --silent --show-error --max-time 120 \
+                -X POST -H "x-screener-token: ${SCREENER_TOKEN}" \
+                "${SITE_URL}/api/screener/seed?region=${reg}")"
+              echo "  ${reg}: ${resp}"
+            done
+            echo "Seed termine. Le cron quotidien scorera les nouveaux titres au fil des jours."
+            exit 0
+          fi
+
           # Selection selon l'evenement :
           #   - workflow_dispatch : on suit les inputs (rattrapage manuel ponctuel, gros lot OK
           #     car declenche a la demande en connaissant le cout compute).
