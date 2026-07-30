@@ -12,6 +12,7 @@ import { buildQuantitativeCriteria } from './derivedMetrics.js';
 import { writeCachedSnapshot, type CachedQuantSnapshot } from './quantCache.js';
 import { accumulateYahooQuarterly, accumulateStockanalysisQuarterly } from './yahooAnnualStore.js';
 import { readSeries } from './fundamentalsStore.js';
+import { isChinaAshare, nextAshareDisclosure } from './marketTiers.js';
 
 /**
  * Seuil (nb de trimestres de CA en base) sous lequel on complète un titre US via stockanalysis.
@@ -66,7 +67,10 @@ export async function buildAndCacheQuantSnapshot(
     scoreChiffresMax: evaluable.length,
     adjFcfTtm,
     sharesOutstanding,
-    nextEarningsDate: quant.earnings?.next?.date ?? null,
+    // Date du prochain earnings : Yahoo/Finnhub, sinon (A-shares chinoises, non couvertes) on
+    // synthétise via le calendrier réglementaire CSRC (exercice au 31/12, dépôts avr/août/oct).
+    nextEarningsDate: quant.earnings?.next?.date
+      ?? (isChinaAshare(ticker) ? nextAshareDisclosure(new Date().toISOString().slice(0, 10)) : null),
     earningsCheckedAt: new Date().toISOString(),
     sector: quant.industry,
     dayChangePct: quant.dayChangePct,

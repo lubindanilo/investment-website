@@ -257,6 +257,10 @@ model ScreenerTicker {
   /// (approximation US-first, comme marketBeat). Null si prix ou nb d'actions indisponible.
   /// Alimente le filtre Small/Mid/Large cap du screener.
   marketCap          Float?
+  /// marketCap normalisé en USD (table de change statique, cf. marketTiers.ts) — pilote les tiers
+  /// de cadence de re-scoring (large/mid/small) de façon comparable entre bourses. Null tant que
+  /// le titre n'a pas été re-scoré avec cette version.
+  marketCapUsd       Float?
   /// Closes mensuels ~1 an pour la sparkline (number[])
   spark              Json?
   fundamentalsSource String?

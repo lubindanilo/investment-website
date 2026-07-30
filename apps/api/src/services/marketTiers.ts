@@ -1,0 +1,59 @@
+/**
+ * marketTiers — normalisation du market cap en USD + calendrier de publication, pour piloter la
+ * CADENCE de re-scoring par tier (cf. pickDueTickers dans screener.ts).
+ *
+ * Pourquoi : `marketCap` est stocké en DEVISE LOCALE (prix × actions, tous deux locaux). Un seuil
+ * unique « 10 Md » classerait mal un titre japonais (¥) vs indien (₹). On normalise en USD avec une
+ * table de change statique — précision suffisante pour BUCKETISER (large / mid / small), pas pour
+ * de l'affichage. À rafraîchir de temps en temps (ordres de grandeur, ça bouge lentement).
+ */
+
+/** Unités de devise locale pour 1 USD (approx, pour le bucketing). */
+export const FX_PER_USD: Record<string, number> = {
+  USD: 1, EUR: 0.92, GBP: 0.79, CHF: 0.88, SEK: 10.5, DKK: 6.9, NOK: 10.8,
+  JPY: 150, HKD: 7.8, CNY: 7.2, INR: 83, KRW: 1350, TWD: 32, IDR: 16000,
+  THB: 36, SGD: 1.35, VND: 25000, SAR: 3.75, ZAR: 18, TRY: 34, CAD: 1.37,
+  AUD: 1.5, BRL: 5.4,
+};
+
+/** Convertit un market cap local en USD (devise inconnue → supposée déjà ~USD). Null si absent. */
+export function marketCapToUsd(marketCap: number | null | undefined, currency: string | null | undefined): number | null {
+  if (marketCap == null || !isFinite(marketCap)) return null;
+  const fx = currency ? FX_PER_USD[currency.toUpperCase()] : 1;
+  return fx && fx > 0 ? marketCap / fx : marketCap;
+}
+
+// ── Seuils de tier (USD) et note ──────────────────────────────────────────────
+/** ≥ ce cap → tier « lendemain » (fraîcheur max). */
+export const DAYAFTER_CAP_USD = 10_000_000_000;   // 10 Md$
+/** ≥ ce cap → tier « mid » ; en dessous → « small ». */
+export const MID_CAP_USD = 1_000_000_000;         // 1 Md$
+/** Note (scoreChiffres/max) au-delà de laquelle un titre est prioritaire quelle que soit sa capi. */
+export const HIGH_SCORE_RATIO = 0.7;              // 7/10
+
+// ── Calendrier de publication des A-shares chinoises (.SS / .SZ) ───────────────
+// Exercice clos au 31/12 OBLIGATOIRE (règles CSRC/SSE/SZSE). Dates limites de dépôt :
+//   ~30 avril  : rapport annuel + T1     → on vise le 05/05 (buffer dépôt + ingestion stockanalysis)
+//   ~31 août   : rapport semestriel (S1) → 05/09
+//   ~31 octobre: rapport T3              → 05/11
+// Yahoo ne fournit pas de « next earnings » pour ces titres → on synthétise la prochaine échéance,
+// ce qui les rend pilotés par le calendrier réglementaire au lieu d'un poll aveugle.
+const ASHARE_DEADLINES = ['05-05', '09-05', '11-05'];
+
+/** Prochaine échéance de publication A-share strictement après `fromIso` (YYYY-MM-DD). */
+export function nextAshareDisclosure(fromIso: string): string {
+  const year = Number(fromIso.slice(0, 4));
+  for (const y of [year, year + 1]) {
+    for (const md of ASHARE_DEADLINES) {
+      const d = `${y}-${md}`;
+      if (d > fromIso) return d;
+    }
+  }
+  return `${year + 1}-${ASHARE_DEADLINES[0]}`;
+}
+
+/** True si le ticker est une A-share chinoise (bourses continentales). */
+export function isChinaAshare(ticker: string): boolean {
+  const u = ticker.toUpperCase();
+  return u.endsWith('.SS') || u.endsWith('.SZ');
+}
