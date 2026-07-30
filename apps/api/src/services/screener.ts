@@ -22,6 +22,7 @@ import { warmChartCacheForTicker } from './chartWarm.js';
 import { getPfcfHistory, pfcfPercentile, pfcfDecileThreshold, isOpportunity, PFCF_OPP_MIN_SCORE10, PFCF_OPP_MAX } from './pfcfHistory.js';
 import { getYahooBatchQuotes } from './yahoo.js';
 import { ttlUntilNextEarnings } from './earnings.js';
+import { marketCapToUsd, DAYAFTER_CAP_USD, MID_CAP_USD, HIGH_SCORE_RATIO } from './marketTiers.js';
 import * as chartCache from '../lib/timeseriesCache.js';
 import { EU_LARGE_CAPS } from '../data/euLargeCaps.js';
 import { INTL_LARGE_CAPS } from '../data/intlLargeCaps.js';
@@ -90,6 +91,12 @@ const MAX_ATTEMPTS = 5;
 // quelques jours/semaines plus tard chez Finnhub ou Yahoo). 90j laissait `nextEarningsDate`
 // nul trop longtemps ; 14j permet de rattraper la date dès qu'une source la publie.
 const RESCORE_TTL_MS = 14 * 24 * 3600 * 1000;
+// TTL de secours PAR TIER pour les titres à date d'earnings inconnue (surtout non-US sans date
+// Yahoo). Une société publie 2-4×/an : re-poller les petites capis tous les 14j gaspille le budget
+// du cron. On étale donc selon l'importance — large/haute note : réactif (14j) ; mid : ~30j ;
+// small : ~60j. Les A-shares chinoises n'y tombent plus (date synthétisée via le calendrier CSRC).
+const RESCORE_TTL_MID_MS = 30 * 24 * 3600 * 1000;
+const RESCORE_TTL_SMALL_MS = 60 * 24 * 3600 * 1000;
 /**
  * Cooldown anti-churn : un ticker fraîchement noté n'est PAS re-pioché avant ce délai, même si
  * son earnings est "dû". Indispensable car le fournisseur ne fait pas avancer la date du
@@ -185,33 +192,59 @@ async function pickDueTickers(limit: number, region?: string): Promise<{ ticker:
   // (ex : EU pending) sans être affamée par la priorité US (priority 0). Vide = univers entier.
   const regionFilter = region ? { region } : {};
 
-  // Phase 1 — earnings atteint (au plus une fois par cooldown si la date ne progresse pas).
-  const earningsDue = await prisma.screenerTicker.findMany({
-    where: { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff }, ...regionFilter },
-    orderBy: [{ nextEarningsDate: 'asc' }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
-    take: limit,
-    select: { ticker: true },
-  });
-  if (earningsDue.length >= limit) return earningsDue;
+  const midTtlCutoff = new Date(Date.now() - RESCORE_TTL_MID_MS);
+  const smallTtlCutoff = new Date(Date.now() - RESCORE_TTL_SMALL_MS);
 
-  // Phase 2 — comble le reste du lot.
-  const rest = await prisma.screenerTicker.findMany({
+  // Tier « fraîcheur maximale » (re-score le lendemain des résultats) : grosses capis OU haute note
+  // (≥ 7/10). Une petite pépite bien notée est donc aussi prioritaire qu'une large cap. marketCapUsd
+  // null (titre pas encore re-scoré avec cette version) → seul le critère note s'applique en attendant.
+  const priorityWhere = { OR: [{ marketCapUsd: { gte: DAYAFTER_CAP_USD } }, { scoreRatio: { gte: HIGH_SCORE_RATIO } }] };
+  const acc: { ticker: string }[] = [];
+  const room = () => limit - acc.length;
+
+  // Phase 1a — earnings atteint, TIER PRIORITAIRE (large cap / haute note) → le lendemain.
+  acc.push(...await prisma.screenerTicker.findMany({
+    where: { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff }, ...regionFilter, ...priorityWhere },
+    orderBy: [{ scoreRatio: { sort: 'desc', nulls: 'last' } }, { marketCapUsd: { sort: 'desc', nulls: 'last' } }, { nextEarningsDate: 'asc' }],
+    take: room(),
+    select: { ticker: true },
+  }));
+  if (room() <= 0) return acc;
+
+  // Phase 1b — earnings atteint, mid/small : classés par NOTE puis capi. Le budget étant limité, la
+  // traîne déborde d'elle-même sur les jours suivants (= « dans la semaine / le mois »).
+  acc.push(...await prisma.screenerTicker.findMany({
+    where: { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff }, ...regionFilter, NOT: priorityWhere },
+    orderBy: [{ scoreRatio: { sort: 'desc', nulls: 'last' } }, { marketCapUsd: { sort: 'desc', nulls: 'last' } }],
+    take: room(),
+    select: { ticker: true },
+  }));
+  if (room() <= 0) return acc;
+
+  // Phase 2 — comble : backfill des `pending` (priorité région, jamais notés d'abord), puis
+  // rafraîchissement TTL des titres à date d'earnings inconnue, étalé PAR TIER (large/haute note 14j,
+  // mid 30j, small 60j) pour ne pas gaspiller le budget sur la traîne. + auto-réparations.
+  acc.push(...await prisma.screenerTicker.findMany({
     where: {
       ...regionFilter,
       OR: [
         { status: 'pending' },
-        { status: 'scored', nextEarningsDate: null, lastScoredAt: { lt: ttlCutoff } },
+        { status: 'scored', nextEarningsDate: null, marketCapUsd: { gte: DAYAFTER_CAP_USD }, lastScoredAt: { lt: ttlCutoff } },
+        { status: 'scored', nextEarningsDate: null, scoreRatio: { gte: HIGH_SCORE_RATIO }, lastScoredAt: { lt: ttlCutoff } },
+        { status: 'scored', nextEarningsDate: null, marketCapUsd: { gte: MID_CAP_USD, lt: DAYAFTER_CAP_USD }, lastScoredAt: { lt: midTtlCutoff } },
+        { status: 'scored', nextEarningsDate: null, marketCapUsd: { lt: MID_CAP_USD }, lastScoredAt: { lt: smallTtlCutoff } },
+        // Cap USD pas encore renseigné (titre d'avant cette version) → refresh au rythme de base.
+        { status: 'scored', nextEarningsDate: null, marketCapUsd: null, lastScoredAt: { lt: ttlCutoff } },
         { status: 'error', attempts: { lt: MAX_ATTEMPTS }, lastScoredAt: { lt: cooldownCutoff } },
-        // Auto-réparation : titre noté mais sans cours (échec transitoire Finnhub/Yahoo au
-        // scoring de masse) → on le re-note pour récupérer cours / secteur / variation / spark.
+        // Auto-réparation : titre noté mais sans cours (échec transitoire au scoring de masse).
         { status: 'scored', price: null, lastScoredAt: { lt: cooldownCutoff } },
       ],
     },
     orderBy: [{ priority: 'asc' }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
-    take: limit - earningsDue.length,
+    take: room(),
     select: { ticker: true },
-  });
-  return [...earningsDue, ...rest];
+  }));
+  return acc;
 }
 
 type ScoreOutcome = 'scored' | 'nodata' | 'error';
@@ -368,6 +401,8 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     const marketCap = (snap.metrics.price != null && snap.metrics.price > 0 && snap.sharesOutstanding != null && snap.sharesOutstanding > 0)
       ? snap.metrics.price * snap.sharesOutstanding
       : null;
+    // Normalisation USD (devise locale → USD) pour comparer les capis entre bourses → tiers de cadence.
+    const marketCapUsd = marketCapToUsd(marketCap, snap.currency);
     const opp = hasScore
       ? await computeOpportunityAtScore(ticker, score10, pfcfConsistent, snap.nextEarningsDate ?? null)
       : { opportunity: false, pfcfPercentile: null, pfcfDecile10: null };
@@ -386,6 +421,7 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
         price: snap.metrics.price ?? null,
         dayChangePct: snap.dayChangePct ?? null,
         marketCap,
+        marketCapUsd,
         spark: spark.length >= 2 ? spark : undefined,
         opportunity: opp.opportunity,
         pfcfPercentile: opp.pfcfPercentile,
