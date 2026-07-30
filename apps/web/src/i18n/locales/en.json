@@ -342,7 +342,7 @@
       "chip": "Automated fundamental analysis",
       "titleLine1": "Beat the market with quality stocks",
       "titleAccent": "at the right price.",
-      "lede": "The monitor scores 7,000+ stocks on 10 criteria, continuously, and surfaces the best. You check the price is right, and decide.",
+      "lede": "The monitor scores 30,000+ stocks on 10 criteria, continuously, and surfaces the best. You check the price is right, and decide.",
       "valueLine": "Every stock scored on 10 fundamental criteria, with a current valuation analysis and a recommended buy price.",
       "ctaAnalyze": "Analyze a stock",
       "ctaScreener": "Explore the screener"
@@ -359,7 +359,7 @@
       },
       "1": {
         "title": "The whole market, scored nonstop",
-        "text": "You never miss a gem: the monitor scans 7,000+ stocks and surfaces the best, all on its own."
+        "text": "You never miss a gem: the monitor scans 30,000+ stocks and surfaces the best, all on its own."
       },
       "2": {
         "title": "Quality and price, judged separately",
@@ -377,7 +377,7 @@
     "steps": {
       "0": {
         "title": "The monitor scores the whole market",
-        "text": "7,000+ stocks scored continuously on 10 criteria. The 10/10s rise to the top on their own."
+        "text": "30,000+ stocks scored continuously on 10 criteria. The 10/10s rise to the top on their own."
       },
       "1": {
         "title": "You open the analysis",

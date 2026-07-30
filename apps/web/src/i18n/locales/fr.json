@@ -367,7 +367,7 @@
       "chip": "Analyse fondamentale automatisée",
       "titleLine1": "Surperforme le marché avec des actions",
       "titleAccent": "de qualité au bon prix.",
-      "lede": "La veille note 7 000+ actions sur 10 critères, en continu, et fait remonter les meilleures. Toi, tu vérifies que le prix suit, et tu décides.",
+      "lede": "La veille note 30 000+ actions sur 10 critères, en continu, et fait remonter les meilleures. Toi, tu vérifies que le prix suit, et tu décides.",
       "valueLine": "Chaque action notée sur 10 critères fondamentaux, analyse de valorisation actuelle avec prix d'achat conseillé.",
       "ctaAnalyze": "Analyser une action",
       "ctaScreener": "Explorer le screener"
@@ -384,7 +384,7 @@
       },
       "1": {
         "title": "Toute la cote, notée en continu",
-        "text": "Tu ne rates plus une pépite : la veille scanne 7 000+ titres et fait remonter les meilleurs, toute seule."
+        "text": "Tu ne rates plus une pépite : la veille scanne 30 000+ titres et fait remonter les meilleurs, toute seule."
       },
       "2": {
         "title": "Qualité et prix, jugés séparément",
@@ -402,7 +402,7 @@
     "steps": {
       "0": {
         "title": "La veille note tout le marché",
-        "text": "7 000+ titres scorés en continu sur 10 critères. Les 10/10 remontent en tête, tout seuls."
+        "text": "30 000+ titres scorés en continu sur 10 critères. Les 10/10 remontent en tête, tout seuls."
       },
       "1": {
         "title": "Tu ouvres la fiche",
