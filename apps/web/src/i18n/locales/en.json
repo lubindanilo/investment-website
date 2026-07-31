@@ -349,24 +349,6 @@
       "perfLabel": "annualized return · 10/10 stocks",
       "tickers": "tickers monitored"
     },
-    "benefits": {
-      "0": {
-        "title": "Beat the index, not luck",
-        "text": "Stocks scored 10/10 have outperformed the S&P 500 over 1, 3 and 5 years. Quality is measurable. And it pays."
-      },
-      "1": {
-        "title": "The whole market, scored nonstop",
-        "text": "You never miss a gem: the monitor scans 30,000+ stocks and surfaces the best, all on its own."
-      },
-      "2": {
-        "title": "Quality and price, judged separately",
-        "text": "A great company isn't always a great stock. We score the quality, then tell you the price at which it's worth buying."
-      },
-      "3": {
-        "title": "The method of great investors",
-        "text": "10 fundamental criteria inspired by Warren Buffett, Terry Smith and many others, shown right on every stock."
-      }
-    },
     "how": {
       "kicker": "How it works",
       "title": "The best stocks, without hunting for them"
@@ -1202,12 +1184,6 @@
     "kicker": "Proof in the numbers",
     "title": "They no longer hunt for gems. They receive them.",
     "subtitle": "Thousands of investors rely on Lubin to decide fast, on reliable numbers.",
-    "metrics": {
-      "users": "investors use Lubin every day",
-      "perf10": "avg. performance of 10/10-rated stocks · 12 months",
-      "medianReturn": "median return of tracked portfolios · 12 months",
-      "rating": "average rating from 1,240 verified reviews"
-    },
     "perf": {
       "kicker": "Model portfolio · 10/10 ratings",
       "desc": "Average 12-month performance of stocks detected and rated 10/10 by the monitor, vs {{idx}} for the S&P 500, the benchmark index.",

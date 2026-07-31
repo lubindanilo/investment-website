@@ -349,24 +349,6 @@
       "perfLabel": "rentab. anualizada · acciones 10/10",
       "tickers": "valores vigilados"
     },
-    "benefits": {
-      "0": {
-        "title": "Supera al índice, no al azar",
-        "text": "Las acciones puntuadas 10/10 han superado al S&P 500 a 1, 3 y 5 años. La calidad se mide. Y se paga."
-      },
-      "1": {
-        "title": "Toda la bolsa, puntuada sin parar",
-        "text": "Ya no se te escapa ninguna joya: la vigilancia escanea 30 000+ valores y hace subir los mejores, sola."
-      },
-      "2": {
-        "title": "Calidad y precio, juzgados por separado",
-        "text": "Una buena empresa no siempre es una buena acción. Puntuamos la calidad y luego te decimos a qué precio vale la pena."
-      },
-      "3": {
-        "title": "El método de los grandes inversores",
-        "text": "10 criterios fundamentales inspirados en Warren Buffett, Terry Smith y muchos otros, mostrados directamente en cada acción."
-      }
-    },
     "how": {
       "kicker": "Cómo funciona",
       "title": "Las mejores acciones, sin buscarlas"
@@ -1202,12 +1184,6 @@
     "kicker": "La prueba en las cifras",
     "title": "Ya no buscan las joyas. Las reciben.",
     "subtitle": "Miles de inversores se apoyan en Lubin para decidir rápido, con cifras fiables.",
-    "metrics": {
-      "users": "inversores usan Lubin a diario",
-      "perf10": "rentab. media de acciones con 10/10 · 12 meses",
-      "medianReturn": "rentabilidad mediana de las carteras seguidas · 12 meses",
-      "rating": "valoración media de 1.240 opiniones verificadas"
-    },
     "perf": {
       "kicker": "Cartera modelo · notas 10/10",
       "desc": "Rentabilidad media a 12 meses de las acciones detectadas y valoradas con 10/10 por la vigilancia, frente a {{idx}} del S&P 500, el índice de referencia.",
