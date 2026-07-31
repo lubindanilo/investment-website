@@ -224,56 +224,138 @@ function renderConsentPage(p: AuthorizeParams, clientName: string, opts: { error
   const errorBlock = opts.error
     ? `<p class="err">${escapeHtml(opts.error)}</p>`
     : '';
+  // Les tokens ci-dessous sont RECOPIÉS de apps/web/src/styles/global.css (:root) afin que
+  // cette page, rendue par l'API hors du bundle de la SPA, soit visuellement identique au
+  // site. À resynchroniser si la palette de la marque évolue.
   return `<!doctype html>
 <html lang="fr">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="noindex" />
-<title>Connexion — Lubin Investment</title>
+<meta name="theme-color" content="#0b0d10" />
+<title>Autoriser l'accès · Lubin Investment</title>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
-  :root { color-scheme: light dark; }
-  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 0; background: #0b1120; color: #e2e8f0; }
-  .wrap { max-width: 420px; margin: 8vh auto; padding: 32px 28px; background: #111827; border: 1px solid #1f2937; border-radius: 16px; }
-  h1 { font-size: 20px; margin: 0 0 4px; }
-  .sub { color: #94a3b8; font-size: 14px; margin: 0 0 24px; }
-  .client { font-weight: 600; color: #38bdf8; }
-  label { display: block; font-size: 13px; color: #cbd5e1; margin: 14px 0 6px; }
-  input[type=email], input[type=password] { width: 100%; box-sizing: border-box; padding: 11px 12px; border-radius: 10px; border: 1px solid #334155; background: #0b1120; color: #e2e8f0; font-size: 15px; }
+  :root {
+    color-scheme: light;
+    --bg: oklch(0.985 0.004 270);
+    --surface: oklch(1 0 0);
+    --surface-2: oklch(0.984 0.004 270);
+    --line: oklch(0.922 0.006 270);
+    --border-strong: oklch(0.88 0.006 270);
+    --ink: oklch(0.245 0.013 274);
+    --ink-2: oklch(0.475 0.012 273);
+    --ink-3: oklch(0.62 0.011 273);
+    --brand: oklch(0.515 0.193 277);
+    --brand-press: oklch(0.455 0.188 277);
+    --brand-soft: oklch(0.95 0.035 277);
+    --brand-ink: oklch(0.42 0.18 277);
+    --brand-dim: oklch(0.515 0.193 277 / 0.18);
+    --warn-bg: oklch(0.965 0.05 78);
+    --warn-ink: oklch(0.55 0.12 64);
+    --bad-bg: oklch(0.962 0.035 26);
+    --bad-ink: oklch(0.52 0.19 27);
+    --r-xs: 6px; --r-sm: 9px; --r-lg: 18px;
+    --sh-sm: 0 1px 2px oklch(0.3 0.02 274 / 0.05), 0 2px 6px oklch(0.3 0.02 274 / 0.05);
+    --sh-lg: 0 8px 18px oklch(0.3 0.02 274 / 0.07), 0 28px 60px oklch(0.3 0.02 274 / 0.13);
+    --sans: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: var(--sans); background: var(--bg); color: var(--ink);
+    font-size: 14px; line-height: 1.5; letter-spacing: -0.01em;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; }
+  .wrap { width: 100%; max-width: 440px; }
+  .brand {
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+    margin-bottom: 20px; font-weight: 800; font-size: 15px; letter-spacing: -0.02em;
+  }
+  .brand-mark {
+    width: 26px; height: 26px; border-radius: var(--r-xs);
+    background: var(--brand); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 800;
+  }
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--r-lg); box-shadow: var(--sh-lg); padding: 32px 30px;
+  }
+  h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 8px; }
+  .sub { font-size: 14.5px; color: var(--ink-2); margin-bottom: 20px; }
+  .client { font-weight: 700; color: var(--brand-ink); }
+  .dest {
+    background: var(--warn-bg); color: var(--warn-ink);
+    border-radius: var(--r-sm); padding: 11px 13px; font-size: 13px;
+    line-height: 1.45; margin-bottom: 20px;
+  }
+  .host { font-weight: 700; word-break: break-all; }
+  .err {
+    background: var(--bad-bg); color: var(--bad-ink); font-weight: 600;
+    border-radius: var(--r-sm); padding: 10px 13px; font-size: 13px; margin-bottom: 16px;
+  }
+  label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-2); margin-bottom: 6px; }
+  .field { margin-bottom: 16px; }
+  .input {
+    width: 100%; background: var(--surface); border: 1px solid var(--border-strong);
+    border-radius: var(--r-xs); padding: 12px 16px; font-size: 14px;
+    font-family: inherit; color: var(--ink); outline: none;
+    transition: border-color .15s, box-shadow .15s; box-shadow: var(--sh-sm);
+  }
+  .input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-dim); }
   .actions { display: flex; gap: 10px; margin-top: 24px; }
-  button { flex: 1; padding: 12px; border-radius: 10px; border: 0; font-size: 15px; font-weight: 600; cursor: pointer; }
-  .allow { background: #38bdf8; color: #05233a; }
-  .deny { background: transparent; color: #94a3b8; border: 1px solid #334155; }
-  .err { background: #7f1d1d; color: #fecaca; padding: 10px 12px; border-radius: 10px; font-size: 13px; }
-  .scope { font-size: 12px; color: #64748b; margin-top: 18px; }
-  .dest { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 10px 12px; font-size: 13px; color: #cbd5e1; margin-bottom: 4px; }
-  .host { font-weight: 700; color: #fbbf24; word-break: break-all; }
+  .btn {
+    flex: 1; border-radius: var(--r-xs); padding: 12px 22px; font-size: 13px;
+    font-weight: 600; font-family: inherit; cursor: pointer; transition: all .15s;
+  }
+  .btn-primary { background: var(--brand); color: #fff; border: none; }
+  .btn-primary:hover { background: var(--brand-press); }
+  .btn-secondary { background: var(--surface); color: var(--ink); border: 1px solid var(--border-strong); }
+  .btn-secondary:hover { border-color: var(--brand); color: var(--brand); }
+  .note { font-size: 12.5px; color: var(--ink-3); line-height: 1.5; margin-top: 20px; }
+  @media (max-width: 480px) {
+    .card { padding: 26px 20px; }
+    h1 { font-size: 21px; }
+  }
 </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Autoriser l'accès</h1>
-    <p class="sub"><span class="client">${escapeHtml(clientName || 'Une application')}</span> demande à accéder à ton compte Lubin Investment (screener, analyses, watchlist) selon ton offre.</p>
-    <p class="dest">Tes données seront envoyées à <span class="host">${escapeHtml(destHost)}</span>. Si tu ne reconnais pas ce site, refuse.</p>
-    ${errorBlock}
-    <form method="post" action="/api/oauth/authorize">
-      ${hidden('client_id', p.clientId)}
-      ${hidden('redirect_uri', p.redirectUri)}
-      ${hidden('scope', p.scope)}
-      ${hidden('state', p.state)}
-      ${hidden('code_challenge', p.codeChallenge)}
-      ${hidden('code_challenge_method', p.codeChallengeMethod)}
-      ${hidden('resource', p.resource)}
-      <label for="email">Email</label>
-      <input id="email" type="email" name="email" autocomplete="username" required />
-      <label for="password">Mot de passe</label>
-      <input id="password" type="password" name="password" autocomplete="current-password" required />
-      <div class="actions">
-        <button class="deny" type="submit" name="decision" value="deny">Refuser</button>
-        <button class="allow" type="submit" name="decision" value="allow">Autoriser</button>
-      </div>
-    </form>
-    <p class="scope">Pour révoquer cet accès, réinitialise le mot de passe de ton compte : toutes les connexions applicatives sont alors coupées.</p>
+    <div class="brand"><span class="brand-mark">L</span>Lubin Investment</div>
+    <div class="card">
+      <h1>Autoriser l'accès</h1>
+      <p class="sub"><span class="client">${escapeHtml(clientName || 'Une application')}</span> demande à accéder à ton compte Lubin Investment (screener, analyses, watchlist) selon ton offre.</p>
+      <p class="dest">Tes données seront envoyées à <span class="host">${escapeHtml(destHost)}</span>. Si tu ne reconnais pas ce site, refuse.</p>
+      ${errorBlock}
+      <form method="post" action="/api/oauth/authorize">
+        ${hidden('client_id', p.clientId)}
+        ${hidden('redirect_uri', p.redirectUri)}
+        ${hidden('scope', p.scope)}
+        ${hidden('state', p.state)}
+        ${hidden('code_challenge', p.codeChallenge)}
+        ${hidden('code_challenge_method', p.codeChallengeMethod)}
+        ${hidden('resource', p.resource)}
+        <div class="field">
+          <label for="email">Email</label>
+          <input class="input" id="email" type="email" name="email" autocomplete="username" autofocus required />
+        </div>
+        <div class="field">
+          <label for="password">Mot de passe</label>
+          <input class="input" id="password" type="password" name="password" autocomplete="current-password" required />
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" type="submit" name="decision" value="deny">Refuser</button>
+          <button class="btn btn-primary" type="submit" name="decision" value="allow">Autoriser</button>
+        </div>
+      </form>
+      <p class="note">Pour révoquer cet accès, réinitialise le mot de passe de ton compte : toutes les connexions applicatives sont alors coupées.</p>
+    </div>
   </div>
 </body>
 </html>`;
