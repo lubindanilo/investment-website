@@ -5,6 +5,44 @@ Spec : [SPEC.md](./SPEC.md). Branche : `claude/mcp-portfolio-analysis-3c5cd9`.
 
 ---
 
+## 2026-07-31 — Page de consentement : allègement du texte (décision produit)
+
+Deux blocs retirés de la page de consentement à la demande de Lubin, jugés trop lourds
+visuellement :
+
+1. Le bandeau **« Tes données seront envoyées à &lt;domaine&gt;. Si tu ne reconnais pas ce
+   site, refuse. »**
+2. La note **« Pour révoquer cet accès, réinitialise le mot de passe… »**
+
+### Ce que ça change côté sécurité (à assumer en connaissance de cause)
+
+Le bandeau (1) était le correctif du point **HIGH n°3** de la passe du 30/07. L'enregistrement
+dynamique de clients étant ouvert (exigence du connecteur claude.ai), n'importe qui peut
+enregistrer un client nommé « Lubin Investment » pointant vers son propre domaine, puis
+envoyer à une victime un lien vers la **vraie** page d'autorisation. Le domaine de destination
+était le seul élément non falsifiable affiché ; sans lui, l'utilisateur n'a plus aucun signal.
+
+Ce qui protège encore :
+- `redirect_uri` en **allowlist stricte par client** : le code ne part que vers une URI que
+  CE client a enregistrée (aucune redirection arbitraire possible).
+- Le mot de passe est exigé à chaque autorisation (pas d'approbation en un clic via cookie).
+- Révocation toujours effective via le reset de mot de passe, même si la page ne le dit plus.
+
+Le test `affiche la destination du code…` a été retiré (et non transformé en test d'absence,
+pour ne pas bloquer un futur retour en arrière). Un commentaire dans `renderConsentPage`
+signale que le retrait est un choix produit.
+
+**Piste si on veut le garde-fou sans le bandeau** : afficher le domaine de façon discrète
+dans la phrase d'introduction (« Claude (claude.ai) demande à accéder… ») plutôt qu'en
+encadré jaune. Non implémenté.
+
+### Gate
+
+`tsc --noEmit` vert, suite complète verte (199 tests). Rendu contrôlé au navigateur
+(variante nominale + variante avec erreur) : espacement de la carte toujours équilibré.
+
+---
+
 ## 2026-07-30 — Phase 3 : durcissement du connecteur + upsell
 
 ### Fait
@@ -52,8 +90,10 @@ du code puis verrouillés par des tests de non-régression quand c'était possib
    base, à volonté. → bornes `max(5)` / `max(500)` par URI + `oauthRegisterLimiter` (20/min).
 3. **Hameçonnage hébergé sur notre domaine** (HIGH). N'importe qui peut enregistrer un
    client nommé « Lubin Investment » pointant vers son domaine ; la page de consentement
-   affichait le nom du client mais **jamais où partirait le code**. → la page affiche
-   maintenant le domaine de destination.
+   affichait le nom du client mais **jamais où partirait le code**. → la page affichait
+   le domaine de destination. **⚠ REVENU EN ARRIÈRE le 31/07** (cf. entrée du 31/07
+   ci-dessous) : le bandeau a été retiré sur décision produit. Le risque décrit ici est
+   donc de nouveau ouvert, et assumé.
 4. **Issuer OAuth dérivé du header `Host`** (MEDIUM). Sans `SITE_URL`, les métadonnées de
    découverte annonçaient les endpoints d'un `Host:` forgé. → repli en dur sur le domaine
    de production dès qu'on est déployé, headers seulement en dev local.
