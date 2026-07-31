@@ -224,6 +224,22 @@ describe('OAuth — /authorize', () => {
     expect(res.text).toContain('name="password"');
   });
 
+  it('place « Autoriser » en premier submit du DOM (Entrée ne doit pas refuser)', async () => {
+    // Régression vécue : les deux boutons sont des submit et « Refuser » venait en premier.
+    // Valider le formulaire avec la touche Entrée (réflexe après le mot de passe) soumettait
+    // donc `decision=deny` → redirection error=access_denied. L'ordre visuel est géré en CSS.
+    const clientId = await registerClient();
+    const res = await request(app).get('/api/oauth/authorize').query({
+      response_type: 'code', client_id: clientId, redirect_uri: REDIRECT,
+      code_challenge: CHALLENGE, code_challenge_method: 'S256',
+    });
+    const allowAt = res.text.indexOf('value="allow"');
+    const denyAt = res.text.indexOf('value="deny"');
+    expect(allowAt).toBeGreaterThan(-1);
+    expect(denyAt).toBeGreaterThan(-1);
+    expect(allowAt).toBeLessThan(denyAt);
+  });
+
   it('échappe le nom du client dans la page (anti-XSS)', async () => {
     const reg = await request(app).post('/api/oauth/register')
       .send({ redirect_uris: [REDIRECT], client_name: '<script>alert(1)</script>' });
