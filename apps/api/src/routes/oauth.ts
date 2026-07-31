@@ -216,11 +216,10 @@ function resourceIsAllowed(resource: string, baseUrl: string): boolean {
 function renderConsentPage(p: AuthorizeParams, clientName: string, opts: { error?: string } = {}): string {
   const hidden = (name: string, value: string) =>
     `<input type="hidden" name="${escapeHtml(name)}" value="${escapeHtml(value)}" />`;
-  // Le nom du client est choisi par celui qui s'enregistre (l'enregistrement est ouvert) :
-  // il peut donc usurper « Lubin Investment ». Le SEUL élément non falsifiable est le
-  // domaine de destination du code — on l'affiche pour que l'utilisateur puisse juger.
-  let destHost: string;
-  try { destHost = new URL(p.redirectUri).host; } catch { destHost = p.redirectUri; }
+  // ⚠ Le nom du client est choisi librement par celui qui s'enregistre (l'enregistrement
+  // dynamique est ouvert) : il peut donc usurper « Lubin Investment ». Le domaine de
+  // destination du code était le seul élément non falsifiable affiché à l'utilisateur ; son
+  // retrait est un choix produit assumé (bandeau jugé trop intrusif). Cf. docs/mcp/WORKLOG.md.
   const errorBlock = opts.error
     ? `<p class="err">${escapeHtml(opts.error)}</p>`
     : '';
@@ -290,12 +289,6 @@ function renderConsentPage(p: AuthorizeParams, clientName: string, opts: { error
   h1 { font-size: 24px; font-weight: 700; letter-spacing: -0.025em; margin-bottom: 8px; }
   .sub { font-size: 14.5px; color: var(--ink-2); margin-bottom: 20px; }
   .client { font-weight: 700; color: var(--brand-ink); }
-  .dest {
-    background: var(--warn-bg); color: var(--warn-ink);
-    border-radius: var(--r-sm); padding: 11px 13px; font-size: 13px;
-    line-height: 1.45; margin-bottom: 20px;
-  }
-  .host { font-weight: 700; word-break: break-all; }
   .err {
     background: var(--bad-bg); color: var(--bad-ink); font-weight: 600;
     border-radius: var(--r-sm); padding: 10px 13px; font-size: 13px; margin-bottom: 16px;
@@ -318,7 +311,6 @@ function renderConsentPage(p: AuthorizeParams, clientName: string, opts: { error
   .btn-primary:hover { background: var(--brand-press); }
   .btn-secondary { background: var(--surface); color: var(--ink); border: 1px solid var(--border-strong); }
   .btn-secondary:hover { border-color: var(--brand); color: var(--brand); }
-  .note { font-size: 12.5px; color: var(--ink-3); line-height: 1.5; margin-top: 20px; }
   @media (max-width: 480px) {
     .card { padding: 26px 20px; }
     h1 { font-size: 21px; }
@@ -331,7 +323,6 @@ function renderConsentPage(p: AuthorizeParams, clientName: string, opts: { error
     <div class="card">
       <h1>Autoriser l'accès</h1>
       <p class="sub"><span class="client">${escapeHtml(clientName || 'Une application')}</span> demande à accéder à ton compte Lubin Investment (screener, analyses, watchlist) selon ton offre.</p>
-      <p class="dest">Tes données seront envoyées à <span class="host">${escapeHtml(destHost)}</span>. Si tu ne reconnais pas ce site, refuse.</p>
       ${errorBlock}
       <form method="post" action="/api/oauth/authorize">
         ${hidden('client_id', p.clientId)}
@@ -354,7 +345,6 @@ function renderConsentPage(p: AuthorizeParams, clientName: string, opts: { error
           <button class="btn btn-primary" type="submit" name="decision" value="allow">Autoriser</button>
         </div>
       </form>
-      <p class="note">Pour révoquer cet accès, réinitialise le mot de passe de ton compte : toutes les connexions applicatives sont alors coupées.</p>
     </div>
   </div>
 </body>

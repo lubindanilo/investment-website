@@ -393,18 +393,10 @@ describe('MCP — accès protégé par Bearer', () => {
 
 // ─── Non-régression des correctifs de la passe sécurité ─────────────────────
 describe('OAuth — durcissements', () => {
-  it('affiche la destination du code sur la page de consentement (anti-hameçonnage)', async () => {
-    // Un client peut s'enregistrer sous n'importe quel nom : le seul signal fiable pour
-    // l'utilisateur est le domaine qui recevra le code.
-    const reg = await request(app).post('/api/oauth/register')
-      .send({ redirect_uris: ['https://evil.tld/cb'], client_name: 'Lubin Investment' });
-    const res = await request(app).get('/api/oauth/authorize').query({
-      response_type: 'code', client_id: reg.body.client_id, redirect_uri: 'https://evil.tld/cb',
-      code_challenge: CHALLENGE, code_challenge_method: 'S256',
-    });
-    expect(res.status).toBe(200);
-    expect(res.text).toContain('evil.tld');
-  });
+  // NOTE : le test « affiche la destination du code » a été retiré volontairement — le bandeau
+  // qui exposait le domaine de redirection a été supprimé de la page (choix produit, cf.
+  // docs/mcp/WORKLOG.md). Il reste donc possible qu'un client usurpe un nom connu ; le
+  // garde-fou technique subsiste (redirect_uri en allowlist stricte par client enregistré).
 
   it('interdit l\'affichage de la page de consentement en iframe', async () => {
     const clientId = await registerClient();
