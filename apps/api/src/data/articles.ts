@@ -81393,7 +81393,7 @@ const articleCashROCEPalmares: Article = {
   "readingTime": 9,
   "content": {
     "fr": {
-      "title": "Quelles actions créent le plus de valeur avec le moins de capital ?",
+      "title": "Quelles actions créent le plus de valeur par capital ?",
       "excerpt": "J'ai classé des dizaines d'actions notées 8 à 10 sur 10 dans mon filtre qualité selon un seul critère : combien de cash chaque dollar réinvesti dans l'activité rapporte chaque année. Le classement révèle des noms très différents des palmarès habituels.",
       "metaDescription": "Classement des actions par Cash ROCE (rendement du capital réinvesti) : quelles entreprises créent le plus de valeur avec le moins de capital en 2026 ?",
       "answer": "J'ai classé des entreprises notées 8 à 10 sur 10 dans mon filtre qualité par leur Cash ROCE, le cash que rapporte chaque dollar réinvesti dans l'activité chaque année. En tête : AppLovin (205 %), Frontdoor (181 %) et Booking Holdings (162 %), des modèles économiques si légers en capital qu'ils transforment presque chaque dollar réinvesti en plusieurs dollars de cash annuel.",
