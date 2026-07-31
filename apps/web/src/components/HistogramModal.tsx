@@ -13,14 +13,13 @@ const PERIODS: TimeseriesPeriod[] = ['1Y', '5Y', '10Y', '20Y', 'All'];
 
 interface Props {
   ticker: string;
-  criterionName: string;
   config: CriterionHistogram;
   /** Devise reporting du ticker (USD, CHF, EUR…) — pour les axes/tooltips des séries currency */
   currency?: string;
   onClose: () => void;
 }
 
-export function HistogramModal({ ticker, criterionName, config, currency = 'USD', onClose }: Props) {
+export function HistogramModal({ ticker, config, currency = 'USD', onClose }: Props) {
   const { t } = useTranslation();
   const chartTitle = t(config.labelKey, { defaultValue: config.label });
   const [period, setPeriod] = useState<TimeseriesPeriod>('5Y');
@@ -136,9 +135,6 @@ export function HistogramModal({ ticker, criterionName, config, currency = 'USD'
           <div>
             <div className="hist-ticker">{ticker}</div>
             <h2 className="hist-title">{chartTitle}</h2>
-            <div className="hist-sub">
-              {t('chart.histSub', { name: criterionName, freq: t(freq === 'quarterly' ? 'chart.freqQuarterly' : 'chart.freqAnnual') })}
-            </div>
           </div>
           <button className="hist-close" onClick={onClose} aria-label={t('chart.close')}>×</button>
         </header>
