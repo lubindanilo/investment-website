@@ -302,7 +302,11 @@ function renderConsentPage(p: AuthorizeParams, clientName: string, opts: { error
     transition: border-color .15s, box-shadow .15s; box-shadow: var(--sh-sm);
   }
   .input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-dim); }
+  /* L'ordre DOM des boutons est dicté par la touche Entrée (cf. commentaire dans le
+     formulaire) ; la propriété order rétablit l'ordre visuel attendu : Refuser à gauche. */
   .actions { display: flex; gap: 10px; margin-top: 24px; }
+  .act-deny { order: 1; }
+  .act-allow { order: 2; }
   .btn {
     flex: 1; border-radius: var(--r-xs); padding: 12px 22px; font-size: 13px;
     font-weight: 600; font-family: inherit; cursor: pointer; transition: all .15s;
@@ -322,7 +326,7 @@ function renderConsentPage(p: AuthorizeParams, clientName: string, opts: { error
     <div class="brand"><span class="brand-mark">L</span>Lubin Investment</div>
     <div class="card">
       <h1>Autoriser l'accès</h1>
-      <p class="sub"><span class="client">${escapeHtml(clientName || 'Une application')}</span> demande à accéder à ton compte Lubin Investment (screener, analyses, watchlist) selon ton offre.</p>
+      <p class="sub"><span class="client">${escapeHtml(clientName || 'Une application')}</span> demande à accéder à ton compte Lubin Investment.</p>
       ${errorBlock}
       <form method="post" action="/api/oauth/authorize">
         ${hidden('client_id', p.clientId)}
@@ -341,8 +345,13 @@ function renderConsentPage(p: AuthorizeParams, clientName: string, opts: { error
           <input class="input" id="password" type="password" name="password" autocomplete="current-password" required />
         </div>
         <div class="actions">
-          <button class="btn btn-secondary" type="submit" name="decision" value="deny">Refuser</button>
-          <button class="btn btn-primary" type="submit" name="decision" value="allow">Autoriser</button>
+          <!-- ⚠ ORDRE DOM VOLONTAIRE : « Autoriser » est le PREMIER bouton submit du
+               formulaire, car un navigateur qui soumet via la touche Entrée (réflexe après
+               avoir tapé son mot de passe) déclenche le premier submit rencontré. Avec
+               « Refuser » en premier, appuyer sur Entrée renvoyait access_denied.
+               L'ordre VISUEL (Refuser à gauche) est rétabli par la propriété CSS order. -->
+          <button class="btn btn-primary act-allow" type="submit" name="decision" value="allow">Autoriser</button>
+          <button class="btn btn-secondary act-deny" type="submit" name="decision" value="deny">Refuser</button>
         </div>
       </form>
     </div>
