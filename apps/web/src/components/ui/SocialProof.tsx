@@ -158,11 +158,8 @@ export function SocialProofSection() {
           {Array.isArray(testimonials) && testimonials.map((tt, i) => <TestimonialCard key={i} t={tt} />)}
         </div>
 
-        <div className="row between sp-trust">
-          <div className="row gap-14">
-            <div className="row gap-8"><Stars n={5} /><span className="num" style={{ fontWeight: 700, fontSize: 15 }}>{fmtNum(4.8, 1, lang)}/5</span></div>
-            <span className="tiny muted">{t('social.trust.average')}</span>
-          </div>
+        {/* Mention de performance : conservée tant que des chiffres de perf sont affichés. */}
+        <div className="sp-trust">
           <span className="tiny muted sp-disclaimer">{t('social.trust.disclaimer')}</span>
         </div>
       </div>
