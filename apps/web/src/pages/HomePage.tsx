@@ -11,14 +11,6 @@ export function HomePage() {
   const { user } = useAuth();
   const { t } = useTranslation();
 
-  // Bénéfices — libellés traduits via i18n
-  const BENEFITS: { icon: IconName; title: string; text: string }[] = [
-    { icon: 'bars', title: t('home.benefits.0.title'), text: t('home.benefits.0.text') },
-    { icon: 'pulse', title: t('home.benefits.1.title'), text: t('home.benefits.1.text') },
-    { icon: 'scale', title: t('home.benefits.2.title'), text: t('home.benefits.2.text') },
-    { icon: 'shield', title: t('home.benefits.3.title'), text: t('home.benefits.3.text') },
-  ];
-
   // Étapes « Comment ça marche » — libellés traduits via i18n
   const STEPS: { n: string; title: string; text: string }[] = [
     { n: '01', title: t('home.steps.0.title'), text: t('home.steps.0.text') },
@@ -65,19 +57,6 @@ export function HomePage() {
           <div className="home-hero-right fade-up">
             <HeroPreview />
           </div>
-        </div>
-      </section>
-
-      {/* ── Bénéfices ── */}
-      <section className="wrap home-section">
-        <div className="home-cards">
-          {BENEFITS.map(b => (
-            <div key={b.title} className="home-card">
-              <div className="home-card-icon"><Icon name={b.icon} size={21} /></div>
-              <div className="home-card-title">{b.title}</div>
-              <p>{b.text}</p>
-            </div>
-          ))}
         </div>
       </section>
 

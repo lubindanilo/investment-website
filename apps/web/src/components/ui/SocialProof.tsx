@@ -35,43 +35,9 @@ function useInView(): [React.RefObject<HTMLElement>, boolean] {
   return [ref, seen];
 }
 
-/** Compteur animé 0 → valeur, déclenché par `run`. */
-function useCountUp(target: number, run: boolean, dur = 1300): number {
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    if (!run) return;
-    let raf = 0; let start: number | null = null;
-    const tick = (t: number) => {
-      if (start == null) start = t;
-      const p = Math.min(1, (t - start) / dur);
-      setVal(target * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) raf = requestAnimationFrame(tick); else setVal(target);
-    };
-    raf = requestAnimationFrame(tick);
-    const safety = setTimeout(() => setVal(target), dur + 250);
-    return () => { cancelAnimationFrame(raf); clearTimeout(safety); };
-  }, [run, target, dur]);
-  return val;
-}
-
 /** Formate un nombre selon la locale courante (séparateurs + décimales). */
 function fmtNum(v: number, decimals: number, lang: string): string {
   return v.toLocaleString(lang, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
-}
-
-interface MetricDef { value: number; prefix?: string; suffix?: string; decimals: number; labelKey: string; brand?: boolean }
-
-function Metric({ m, run, lang }: { m: MetricDef; run: boolean; lang: string }) {
-  const { t } = useTranslation();
-  const v = useCountUp(m.value, run);
-  return (
-    <div className="card sp-metric">
-      <div className="num sp-metric-n" style={{ color: m.brand ? 'var(--brand)' : 'var(--ink)' }}>
-        {m.prefix}{fmtNum(v, m.decimals, lang)}{m.suffix}
-      </div>
-      <span className="sp-metric-l">{t(m.labelKey)}</span>
-    </div>
-  );
 }
 
 function Stars({ n = 5 }: { n?: number }) {
@@ -156,13 +122,6 @@ function TestimonialCard({ t }: { t: Testimonial }) {
   );
 }
 
-const METRICS: MetricDef[] = [
-  { value: 3200, suffix: '+', decimals: 0, labelKey: 'social.metrics.users', brand: true },
-  { value: 24.9, prefix: '+', suffix: ' %', decimals: 1, labelKey: 'social.metrics.perf10' },
-  { value: 18.9, prefix: '+', suffix: ' %', decimals: 1, labelKey: 'social.metrics.medianReturn' },
-  { value: 4.8, suffix: '/5', decimals: 1, labelKey: 'social.metrics.rating' },
-];
-
 export function SocialProofSection() {
   const { t } = useTranslation();
   const [ref, seen] = useInView();
@@ -191,10 +150,6 @@ export function SocialProofSection() {
           <span className="kicker">{t('social.kicker')}</span>
           <h2 className="sp-title">{t('social.title')}</h2>
           <p className="muted sp-sub">{t('social.subtitle')}</p>
-        </div>
-
-        <div className="sp-metrics">
-          {METRICS.map((m, i) => <Metric key={i} m={m} run={seen} lang={lang} />)}
         </div>
 
         <PerfCompare run={seen} lang={lang} idx1y={idx1y} />
