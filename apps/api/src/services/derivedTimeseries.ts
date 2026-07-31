@@ -11,6 +11,10 @@
  *   marge(t)        = numérateur_TTM(t) / dénominateur_TTM(t)         (en %)
  *   netDebtFcf(t)   = (dette(t) − cash(t)) [snapshot] / FCF_adj_TTM(t) (en ×)
  *
+ * Garde-fou commun aux ratios en × (dette/FCF, conversion cash) et à tous les tickers : un
+ * point n'est tracé que si son dénominateur est MATÉRIEL (≥ 0,1 % du CA de la période).
+ * Cf. dropImmaterialDenominator.
+ *
  * Sources, comme les autres graphes-ratio :
  *   - US (Finnhub quarterly) : TTM glissant sur ~20 trimestres
  *   - EU + ADRs étrangers 20-F (Yahoo annual) : ratio par exercice (~4-5 ans)
@@ -83,6 +87,53 @@ function divideByDate(num: TimeseriesPoint[], den: TimeseriesPoint[], scale: num
   return out;
 }
 
+/**
+ * Seuil de MATÉRIALITÉ du dénominateur des ratios en × : dette/FCF (den = FCF ajusté TTM)
+ * et conversion cash (den = résultat net TTM).
+ *
+ * Un dénominateur qui frôle 0 fait exploser le multiple et produit du bruit affiché comme
+ * une donnée. Cas constatés en prod :
+ *   - AMZN Q1-2025 : FCF ajusté TTM de 0,07 Md$ (CFO 114 − CapEx 93 − SBC 21) pour une dette
+ *     nette de −41 Md$ → point à −580×, seul et hors échelle, qui écrasait les deux autres
+ *     points de la série
+ *   - LUV Q3-2021 : résultat net TTM à 0,008 % du CA → conversion cash à +1064×
+ *   - INTC Q4-2025 : résultat net TTM à 0,049 % du CA → conversion cash à −283×
+ * Ce ne sont pas « une dette énorme » ni « une conversion parfaite », ce sont des ratios non
+ * définis : le dénominateur n'est que le résidu d'arrondi entre des agrégats géants.
+ *
+ * Calibrage du seuil (mesuré sur les séries de prod d'une vingtaine de tickers, dont les
+ * profils à marge fine : WMT, KR, TGT, CVS, DAL, AAL, LUV, F, GM, INTC, BA) :
+ *   - les cas aberrants sont à 0,008-0,05 % du CA
+ *   - les périodes à dénominateur faible mais RÉEL (mauvaise année de cash ou de profit :
+ *     WMT 18×, NKE 14×, CVS 13×, KR 2×) vivent à 0,11 % du CA et au-delà
+ * → 0,1 % laisse un facteur 10 de marge sous le bruit et reste sous le plus serré des points
+ * légitimes. Un seuil à 1 % aurait supprimé 4 trimestres sensés chez WMT.
+ * Mieux vaut un trou qu'un chiffre faux, mais pas au prix d'un signal vrai.
+ */
+export const MIN_DENOMINATOR_PCT_OF_REVENUE = 0.001;
+
+/**
+ * Écarte du dénominateur les périodes où il est immatériel face au CA (cf seuil ci-dessus).
+ *
+ * `keyOf` permet de servir les deux granularités du service : date exacte côté US
+ * trimestriel, année côté Yahoo annuel (les exercices Yahoo ne tombent pas au même jour
+ * d'une série à l'autre). Pur → testable.
+ */
+export function dropImmaterialDenominator(
+  den: TimeseriesPoint[],
+  revenue: TimeseriesPoint[],
+  keyOf: (date: string) => string,
+): TimeseriesPoint[] {
+  const revByKey = new Map(revenue.map(p => [keyOf(p.date), p.value]));
+  return den.filter(p => {
+    const rev = revByKey.get(keyOf(p.date));
+    // Pas de CA de référence → on ne juge pas (garde-fou conservateur, aligné sur
+    // computeExcessCash : on ne coupe pas un point sur la base d'une hypothèse vide).
+    if (rev == null || rev <= 0) return true;
+    return Math.abs(p.value) >= rev * MIN_DENOMINATOR_PCT_OF_REVENUE;
+  });
+}
+
 /** a(t) − b(t) joint par date exacte (pour netDebt = dette − cash). */
 function subtractByDate(a: TimeseriesPoint[], b: TimeseriesPoint[]): TimeseriesPoint[] {
   const bByDate = new Map(b.map(p => [p.date, p.value]));
@@ -134,20 +185,26 @@ async function computeUsRatio(ticker: string, ratio: RatioMetricKey, years: numb
       break;
     }
     case 'cashConversion': {
-      // FCF_adj_TTM / Net Income_TTM (×). Skip les trimestres à NI ≤ 0 (ratio non pertinent).
-      const [fcf, ni] = await Promise.all([fcfAdjTtm(ticker, years), ttmOf(ticker, 'netIncome', W)]);
-      raw = divideByDate(fcf, ni, scale);
+      // FCF_adj_TTM / Net Income_TTM (×). Skip les trimestres à NI ≤ 0 (ratio non pertinent)
+      // ou à NI immatériel vs CA (bénéfice qui frôle 0 → conversion absurde).
+      const [fcf, ni, rev] = await Promise.all([
+        fcfAdjTtm(ticker, years),
+        ttmOf(ticker, 'netIncome', W),
+        ttmOf(ticker, 'revenue', W),
+      ]);
+      raw = divideByDate(fcf, dropImmaterialDenominator(ni, rev, d => d), scale);
       break;
     }
     case 'netDebtFcf': {
-      // (dette − cash) snapshot / FCF_adj_TTM (×). Skip si FCF ≤ 0.
-      const [fcf, debt, cash] = await Promise.all([
+      // (dette − cash) snapshot / FCF_adj_TTM (×). Skip si FCF ≤ 0 ou immatériel vs CA.
+      const [fcf, rev, debt, cash] = await Promise.all([
         fcfAdjTtm(ticker, years),
+        ttmOf(ticker, 'revenue', W),
         getReportedTimeseries(ticker, 'totalDebt', 'quarterly', W),
         getReportedTimeseries(ticker, 'cashAndEquivalents', 'quarterly', W),
       ]);
       const netDebt = subtractByDate(debt, cash);
-      raw = divideByDate(netDebt, fcf, scale);
+      raw = divideByDate(netDebt, dropImmaterialDenominator(fcf, rev, d => d), scale);
       break;
     }
   }
@@ -210,16 +267,22 @@ async function computeAnnualRatio(symbol: string, ratio: RatioMetricKey, years: 
     const [num, rev] = await Promise.all([fetchYahooAnnual(symbol, numType), fetchYahooAnnual(symbol, 'annualTotalRevenue')]);
     raw = divideByYear(num, rev, scale);
   } else if (ratio === 'cashConversion') {
-    const [fcf, ni] = await Promise.all([fetchYahooAnnual(symbol, 'annualFreeCashFlow'), fetchYahooAnnual(symbol, 'annualNetIncome')]);
-    raw = divideByYear(fcf, ni, scale);
-  } else { // netDebtFcf
-    const [fcf, debt, cash] = await Promise.all([
+    const [fcf, ni, rev] = await Promise.all([
       fetchYahooAnnual(symbol, 'annualFreeCashFlow'),
+      fetchYahooAnnual(symbol, 'annualNetIncome'),
+      fetchYahooAnnual(symbol, 'annualTotalRevenue'),
+    ]);
+    raw = divideByYear(fcf, dropImmaterialDenominator(ni, rev, d => d.slice(0, 4)), scale);
+  } else { // netDebtFcf
+    const [fcf, rev, debt, cash] = await Promise.all([
+      fetchYahooAnnual(symbol, 'annualFreeCashFlow'),
+      fetchYahooAnnual(symbol, 'annualTotalRevenue'),
       fetchYahooAnnual(symbol, 'annualTotalDebt'),
       fetchYahooAnnual(symbol, 'annualCashAndCashEquivalents'),
     ]);
     const netDebt = subtractByYear(debt, cash);
-    raw = divideByYear(netDebt, fcf, scale);
+    // Même garde-fou qu'en trimestriel US, indexé par exercice.
+    raw = divideByYear(netDebt, dropImmaterialDenominator(fcf, rev, d => d.slice(0, 4)), scale);
   }
   return filterWindow(raw, Math.max(years, 5));
 }

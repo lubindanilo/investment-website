@@ -105,7 +105,7 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
       </div>
 
       {open && ticker && chartKind === 'histogram' && histogramConfig && (
-        <HistogramModal ticker={ticker} criterionName={c.nom} config={histogramConfig} currency={currency} onClose={() => setOpen(false)} />
+        <HistogramModal ticker={ticker} config={histogramConfig} currency={currency} onClose={() => setOpen(false)} />
       )}
       {open && ticker && chartKind === 'line' && lineConfig?.kind === 'pfcf' && (
         <PfcfChartModal ticker={ticker} currentPfcf={extractPfcfMultiple(c)} annualOnly={annualOnly} onClose={() => setOpen(false)} />

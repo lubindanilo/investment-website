@@ -84,7 +84,11 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // Le `freq` demandé est ignoré : getRatioTimeseries choisit lui-même la granularité.
   if (RATIO_SET.has(requestedMetric)) {
     const ratioKey = requestedMetric as RatioMetricKey;
-    const key = cache.cacheKey(ticker, ratioKey, 'ratio', years);
+    // 'ratio2' : bump de génération après l'ajout du garde-fou de matérialité du
+    // dénominateur (cf. dropImmaterialDenominator). Sans ça les séries déjà en cache
+    // continueraient à servir leurs points aberrants jusqu'aux prochains résultats
+    // (TTL = date d'earnings, soit 2-3 mois). Les vieilles clés 'ratio' expirent seules.
+    const key = cache.cacheKey(ticker, ratioKey, 'ratio2', years);
     const hit = await cache.get(key);
     if (hit) {
       res.json({
