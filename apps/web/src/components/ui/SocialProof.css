@@ -24,8 +24,8 @@
 .sp-testi-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--brand-soft); color: var(--brand-ink); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13.5px; flex-shrink: 0; }
 .sp-testi-name { font-size: 13.5px; font-weight: 700; color: var(--ink); }
 
-.sp-trust { margin-top: 28px; padding: 18px 22px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--r-md); gap: 16px; flex-wrap: wrap; }
-.sp-disclaimer { max-width: 560px; line-height: 1.5; }
+.sp-trust { margin-top: 28px; padding: 18px 22px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--r-md); }
+.sp-disclaimer { line-height: 1.5; }
 
 @media (max-width: 880px) {
   .sp-wrap { padding: 48px 18px; }
@@ -45,7 +45,6 @@
     -webkit-overflow-scrolling: touch;
   }
   .sp-testi { scroll-snap-align: start; flex: 0 0 84%; }
-  .sp-trust { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 560px) {
   .sp-title { font-size: 28px; }
