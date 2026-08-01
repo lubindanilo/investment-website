@@ -144,6 +144,27 @@ describe('OAuth — découverte', () => {
     expect(res.body.resource).toMatch(/\/api\/mcp$/);
     expect(res.body.authorization_servers).toHaveLength(1);
   });
+
+  it('répond en JSON sur les variantes de découverte « path-aware »', async () => {
+    // Beaucoup de clients MCP tentent d'abord le chemin suffixé par la ressource. S'il
+    // n'est pas servi, la requête tombe dans le catch-all du SPA → 200 + HTML, et le
+    // client échoue à parser au lieu de retomber sur la racine. Régression coûteuse et
+    // silencieuse : on couvre donc explicitement chaque variante.
+    const chemins = [
+      '/.well-known/oauth-authorization-server/api/mcp',
+      '/.well-known/oauth-protected-resource/api/mcp',
+      '/.well-known/openid-configuration',
+      '/.well-known/openid-configuration/api/mcp',
+    ];
+    for (const chemin of chemins) {
+      const res = await request(app).get(chemin);
+      expect(res.status, chemin).toBe(200);
+      expect(res.headers['content-type'], chemin).toMatch(/application\/json/);
+      // Chaque variante doit porter une information exploitable par le client.
+      const utile = res.body.issuer || res.body.resource;
+      expect(utile, chemin).toBeTruthy();
+    }
+  });
 });
 
 describe('OAuth — enregistrement dynamique', () => {

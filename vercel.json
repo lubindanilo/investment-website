@@ -22,8 +22,11 @@
     { "source": "/sitemap.xml", "destination": "/api/[...all]" },
     { "source": "/health", "destination": "/api/[...all]" },
     { "source": "/.well-known/oauth-authorization-server", "destination": "/api/[...all]" },
+    { "source": "/.well-known/oauth-authorization-server/(.*)", "destination": "/api/[...all]" },
     { "source": "/.well-known/oauth-protected-resource", "destination": "/api/[...all]" },
     { "source": "/.well-known/oauth-protected-resource/(.*)", "destination": "/api/[...all]" },
+    { "source": "/.well-known/openid-configuration", "destination": "/api/[...all]" },
+    { "source": "/.well-known/openid-configuration/(.*)", "destination": "/api/[...all]" },
     { "source": "/api/(.*)", "destination": "/api/[...all]" },
     {
       "source": "/analyse/:ticker",
