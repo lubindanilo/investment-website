@@ -75,8 +75,9 @@ export interface LandingData {
   rows: LandingStock[];
   /** Résultat réel de la requête PEA illustrée dans la section Claude. */
   peaRows: LandingStock[];
-  /** true tant que les vraies valeurs ne sont pas arrivées (le repli est affiché). */
-  loading: boolean;
+  /** false tant que la vitrine n'est pas arrivée : on affiche un squelette, jamais un
+   *  titre de repli, sinon le visiteur voit une action puis une autre (effet de bascule). */
+  ready: boolean;
 }
 
 /**
@@ -138,7 +139,7 @@ export function useLandingData(): LandingData {
     pfcfPercentile: showcase?.pfcfPercentile ?? null,
     rows,
     peaRows,
-    loading,
+    ready: !loading,
   };
 }
 

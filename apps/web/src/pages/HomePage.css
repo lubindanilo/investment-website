@@ -469,3 +469,12 @@
 .lp[data-motion="soft"] .in .dots b.hit { animation-duration: .01s; }
 .lp[data-motion="soft"] .in .scanline { display: none; }
 .lp[data-motion="soft"] .split-title .w { transform: none; }
+
+/* ---------- squelettes de chargement ---------- */
+/* Aucun titre de repli n'est affiché avant l'arrivée des données : des barres neutres,
+   au même gabarit que la vraie fiche, pour éviter la bascule d'une action à une autre. */
+.lp .sk { display: inline-block; border-radius: 5px; background: linear-gradient(90deg, var(--line-soft), var(--line), var(--line-soft)); background-size: 200% 100%; animation: lp-shimmer 1.4s ease-in-out infinite; }
+@keyframes lp-shimmer { from { background-position: 200% 0; } to { background-position: -40% 0; } }
+.lp .sk-card { min-height: 430px; }
+.lp .sk-ring { border-radius: 50%; border: 9px solid var(--line-soft); }
+.lp[data-motion="off"] .sk { animation: none !important; }

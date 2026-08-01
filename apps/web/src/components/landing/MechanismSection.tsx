@@ -16,13 +16,14 @@ import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
 import { CompositionStrip, CriteriaList } from './HeroSection.js';
-import { Def, ScoreRing, useSectionIn, SplitTitle } from './bits.js';
+import { Def, ScoreRing, Sk, useSectionIn, SplitTitle } from './bits.js';
 import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
-export function MechanismSection({ featured, criteria, pfcfPercentile }: {
+export function MechanismSection({ featured, criteria, pfcfPercentile, ready }: {
   featured: LandingStock;
   criteria: LandingCriterion[];
   pfcfPercentile: number | null;
+  ready: boolean;
 }) {
   const { t } = useTranslation();
   const locale = currentLocale();
@@ -101,10 +102,10 @@ export function MechanismSection({ featured, criteria, pfcfPercentile }: {
               <div className="mcard" data-on={step === 0 ? '1' : '0'}>
                 <div className="panel mock" style={{ height: '100%' }}>
                   <div className="mock-head">
-                    <span className="tick-badge">{featured.ticker.split('.')[0]}</span>
+                    <span className="tick-badge">{ready ? featured.ticker.split('.')[0] : <Sk w={22} h={10} />}</span>
                     <div style={{ minWidth: 0 }}>
-                      <div className="acard-name">{featured.name}</div>
-                      <div className="tiny muted num">{featured.sector ?? featured.ticker}</div>
+                      <div className="acard-name">{ready ? featured.name : <Sk w={130} h={13} />}</div>
+                      <div className="tiny muted num">{ready ? (featured.sector ?? featured.ticker) : <Sk w={90} h={10} />}</div>
                     </div>
                     <span className="badge badge-brand" style={{ marginLeft: 'auto' }}>{featured.note10 ?? '—'}/10</span>
                   </div>
@@ -132,7 +133,7 @@ export function MechanismSection({ featured, criteria, pfcfPercentile }: {
                   <h4>{t('landing.mech.card2.quality')}</h4>
                   <div className="row" style={{ gap: 14 }}>
                     <ScoreRing note10={featured.note10} size={72} />
-                    <div className="tiny muted" style={{ lineHeight: 1.5 }}>{t('landing.mech.card2.qualityDesc', { name: featured.name })}</div>
+                    <div className="tiny muted" style={{ lineHeight: 1.5 }}>{ready ? t('landing.mech.card2.qualityDesc', { name: featured.name }) : <Sk w="90%" h={11} />}</div>
                   </div>
                   <div style={{ marginTop: 16 }}><CompositionStrip criteria={criteria} /></div>
                   <CriteriaList criteria={criteria.slice(0, 4)} compact />
@@ -207,7 +208,7 @@ export function MechanismSection({ featured, criteria, pfcfPercentile }: {
                       <p className="tiny muted" style={{ marginTop: 8, maxWidth: '38ch', lineHeight: 1.5 }}>{t('landing.mech.card3.explain')}</p>
                     </div>
                     <Link to={`/analyse/${encodeURIComponent(featured.ticker)}`} className="btn btn-brand btn-lg">
-                      {t('landing.mech.card3.cta', { ticker: featured.ticker })} <Icon name="arrowRight" size={15} />
+                      {ready ? t('landing.mech.card3.cta', { ticker: featured.ticker }) : '…'} <Icon name="arrowRight" size={15} />
                     </Link>
                   </div>
                 </div>
@@ -228,7 +229,7 @@ export function MechanismSection({ featured, criteria, pfcfPercentile }: {
 }
 
 /** Section 4 : la veille balaie le marché, les meilleures notes remontent. */
-export function VeilleSection({ rows }: { rows: LandingStock[] }) {
+export function VeilleSection({ rows, ready }: { rows: LandingStock[]; ready: boolean }) {
   const { t } = useTranslation();
   const [ref, seen] = useSectionIn<HTMLElement>(0.1);
   // Champ de points décoratif : positions figées (pas de Math.random au rendu, sinon
@@ -251,7 +252,13 @@ export function VeilleSection({ rows }: { rows: LandingStock[] }) {
           <div className="scanline" aria-hidden="true" />
         </div>
         <div className="screener-rows">
-          {rows.map(r => (
+          {!ready && Array.from({ length: 3 }).map((_, i) => (
+            <div key={`sk${i}`} className="srow" aria-hidden="true">
+              <Sk w={70} h={12} /><Sk w="60%" h={12} /><Sk w={40} h={12} />
+              <span className="hide-m"><Sk w={70} h={11} /></span><span className="hide-m" /><span />
+            </div>
+          ))}
+          {ready && rows.map(r => (
             <Link key={r.ticker} to={`/analyse/${encodeURIComponent(r.ticker)}`} className="srow">
               <span className="num" style={{ fontWeight: 700 }}>{r.ticker}</span>
               <span className="srow-name">{r.name}</span>

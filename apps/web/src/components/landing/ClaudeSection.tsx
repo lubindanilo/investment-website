@@ -64,7 +64,7 @@ function CopyUrl() {
   );
 }
 
-export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingStock; peaRows: LandingStock[]; rows: LandingStock[] }) {
+export function ClaudeSection({ featured, peaRows, rows, ready }: { featured: LandingStock; peaRows: LandingStock[]; rows: LandingStock[]; ready: boolean }) {
   const { t } = useTranslation();
   const locale = currentLocale();
   const [headRef, headIn] = useSectionIn<HTMLDivElement>();
@@ -114,6 +114,9 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
   }, [items]);
 
   useEffect(() => {
+    // Rien ne se joue avant que la vraie vitrine soit chargée : sinon la démo taperait
+    // le nom d'une action de repli, puis repartirait de zéro avec la bonne.
+    if (!ready) return;
     // Sans mouvement : la conversation complète, d'un bloc, sans animation.
     if (!motion) {
       setItems([
@@ -230,7 +233,7 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
     void run();
     return () => { cancelled = true; };
     // Le script dépend des libellés et des données affichées.
-  }, [motion, featured, peaRows, added, q1, q2, q3, q4, t]);
+  }, [ready, motion, featured, peaRows, added, q1, q2, q3, q4, t]);
 
   const chapters = [t('landing.claude.a.title'), t('landing.claude.b.title'), t('landing.claude.c.title')];
 

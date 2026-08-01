@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
-import { Def, ScoreRing, useParallax, useSectionIn } from './bits.js';
+import { Def, ScoreRing, Sk, useParallax, useSectionIn } from './bits.js';
 import { useMotion, useRichMotion } from './motion.js';
 import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
@@ -132,10 +132,11 @@ export function CriteriaList({ criteria, compact = false }: { criteria: LandingC
   );
 }
 
-export function HeroSection({ featured, criteria, resilience }: {
+export function HeroSection({ featured, criteria, resilience, ready }: {
   featured: LandingStock;
   criteria: LandingCriterion[];
   resilience: { grade: string; score: number } | null;
+  ready: boolean;
 }) {
   const { t } = useTranslation();
   const locale = currentLocale();
@@ -172,6 +173,7 @@ export function HeroSection({ featured, criteria, resilience }: {
         </div>
 
         <div className="hero-side" ref={parallaxRef}>
+          {!ready ? <SkeletonCard /> : (
           <div className="acard tilt" ref={cardRef}>
             <div className="acard-head">
               <span className="tick-badge">{featured.ticker.split('.')[0]}</span>
@@ -222,9 +224,36 @@ export function HeroSection({ featured, criteria, resilience }: {
               )}
             </div>
           </div>
+          )}
         </div>
       </div>
     </section>
+  );
+}
+
+/** Fiche d'attente : même gabarit que la vraie, valeurs remplacées par des barres. */
+function SkeletonCard() {
+  return (
+    <div className="acard sk-card" aria-hidden="true">
+      <div className="acard-head">
+        <span className="tick-badge"><Sk w={22} h={10} /></span>
+        <div style={{ display: 'grid', gap: 6 }}><Sk w={130} h={13} /><Sk w={90} h={10} /></div>
+      </div>
+      <div className="acard-score">
+        <div className="ring-wrap sk-ring" style={{ width: 96, height: 96 }} />
+        <div style={{ flex: 1, display: 'grid', gap: 8 }}><Sk w="70%" h={11} /><Sk w="100%" h={8} /></div>
+      </div>
+      <div className="crits">
+        {Array.from({ length: 10 }).map((_, i) => (
+          <div key={i} className="crit"><span className="cd" /><Sk w="60%" h={10} /></div>
+        ))}
+      </div>
+      <div className="acard-foot-grid">
+        {Array.from({ length: 3 }).map((_, i) => (
+          <div key={i} className="mini"><Sk w={44} h={9} /><Sk w={62} h={13} /></div>
+        ))}
+      </div>
+    </div>
   );
 }
 
