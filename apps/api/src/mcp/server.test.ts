@@ -76,6 +76,22 @@ describe('MCP server', () => {
     await server.close();
   });
 
+  it('expose le niveau de détail de analyze_watchlist, compact par défaut', async () => {
+    // La sortie complète sur une grosse watchlist sature le contexte : le mode compact
+    // doit être le défaut, et le mode complet rester accessible explicitement.
+    const { server, client } = await connect();
+    const { tools } = await client.listTools();
+    const schema = tools.find(t => t.name === 'analyze_watchlist')?.inputSchema as
+      | { properties?: Record<string, { enum?: string[]; default?: string }> }
+      | undefined;
+    const detail = schema?.properties?.detail;
+    expect(detail).toBeTruthy();
+    expect(detail?.enum).toEqual(['compact', 'complet']);
+    expect(detail?.default).toBe('compact');
+    await client.close();
+    await server.close();
+  });
+
   it('laisse un abonné Pro comparer au-delà du plafond gratuit', async () => {
     const { server, client } = await connect(true);
     const { tools } = await client.listTools();

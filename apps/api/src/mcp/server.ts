@@ -88,7 +88,7 @@ export function buildMcpServer(ctx: McpContext): McpServer {
 
   server.registerTool('get_resilience', {
     title: 'Résilience du modèle',
-    description: "Analyse de résilience publiée : grade A-E, score /100, verdict et 6 critères (moat, résistance à la disruption, dépendances résiduelles, captation de demande, persistance économique, équilibre de récurrence) avec points de vigilance.",
+    description: "Détail COMPLET de la résilience du modèle économique, là où analyze_stock n'en donne que le grade et le score. Renvoie le verdict rédigé, la confiance, et les 6 critères notés un par un (moat, résistance à la disruption, dépendances résiduelles, captation de demande, persistance économique, équilibre de récurrence) avec leurs points de vigilance. À utiliser pour expliquer POURQUOI un titre a ce grade.",
     inputSchema: { ticker: TickerSchema, lang: LangSchema },
     annotations: READ_ONLY,
   }, async ({ ticker, lang }) => {
@@ -98,7 +98,7 @@ export function buildMcpServer(ctx: McpContext): McpServer {
 
   server.registerTool('fundamentals_trend', {
     title: 'Tendance des fondamentaux',
-    description: "Signaux de tendance déjà calculés (croissance CA et FCF/action, dilution, marges, ROCE cash, dette/FCF, cycle de conversion) pour juger si les fondamentaux s'améliorent ou se dégradent.",
+    description: "Valeurs CHIFFRÉES de la trajectoire d'une entreprise, là où analyze_stock ne donne qu'un statut pass/warn/fail par critère. Renvoie les taux eux-mêmes : croissance du CA et du FCF par action (5 ans et 2 ans), dilution ou rachats d'actions, marges, ROCE cash, dette rapportée au FCF, cycle de conversion. À utiliser pour répondre « est-ce que ça s'améliore ou se dégrade, et de combien ».",
     inputSchema: { ticker: TickerSchema },
     annotations: READ_ONLY,
   }, async ({ ticker }) => {
@@ -134,10 +134,10 @@ export function buildMcpServer(ctx: McpContext): McpServer {
 
   server.registerTool('analyze_watchlist', {
     title: 'Analyser la watchlist',
-    description: "Passe en revue toute la watchlist et synthétise : note moyenne, maillons faibles (note basse ou résilience fragile), titres dont les fondamentaux se dégradent, titres au-dessus du prix d'achat « juste », opportunités. Les seuils utilisés sont renvoyés avec le résultat.",
-    inputSchema: { lang: LangSchema },
+    description: "Passe en revue toute la watchlist et synthétise : note moyenne, maillons faibles (note basse ou résilience fragile), titres dont les fondamentaux se dégradent, titres au-dessus du prix d'achat « juste », opportunités. Les seuils utilisés sont renvoyés avec le résultat. Par défaut la réponse est compacte (synthèse + une ligne par titre) ; passe detail='complet' pour obtenir aussi les critères, la valorisation et les tendances de chaque ligne.",
+    inputSchema: { lang: LangSchema, detail: z.enum(['compact', 'complet']).default('compact') },
     annotations: READ_ONLY,
-  }, async ({ lang }) => ok(await tools.analyzeWatchlist(ctx.userId, lang as Lang)));
+  }, async ({ lang, detail }) => ok(await tools.analyzeWatchlist(ctx.userId, lang as Lang, detail)));
 
   server.registerTool('add_to_watchlist', {
     title: 'Ajouter à la watchlist',
