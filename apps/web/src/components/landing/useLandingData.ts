@@ -69,6 +69,8 @@ export interface LandingData {
   /** Ses 10 critères de qualité et son grade de résilience (vue « analyser »). */
   criteria: LandingCriterion[];
   resilience: { grade: string; score: number } | null;
+  /** Percentile du P/FCF dans son historique (0 = jamais aussi bon marché). */
+  pfcfPercentile: number | null;
   /** Les lignes montrées dans la section veille. */
   rows: LandingStock[];
   /** Résultat réel de la requête PEA illustrée dans la section Claude. */
@@ -129,6 +131,7 @@ export function useLandingData(): LandingData {
     featured,
     criteria: showcase?.criteria?.length ? showcase.criteria : FALLBACK_CRITERIA,
     resilience: showcase?.resilience ?? null,
+    pfcfPercentile: showcase?.pfcfPercentile ?? null,
     rows,
     peaRows,
     loading,

@@ -41,6 +41,8 @@ export interface TickerPreview {
 /** Vitrine de la landing : opportunité du moment + détail des 10 critères (lecture publique). */
 export interface ShowcaseStock extends TickerPreview {
   criteria: Array<{ key: string | null; name: string; value: string; status: 'pass' | 'warn' | 'fail' }>;
+  /** Percentile du P/FCF vs son propre historique (0 = au plus bas, 100 = au plus haut). */
+  pfcfPercentile?: number | null;
 }
 
 /** Erreur typée que les composants peuvent inspecter. */

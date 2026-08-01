@@ -186,29 +186,76 @@ interface ShowcaseCache { at: number; lang: Lang; payload: unknown }
 let showcaseCache: ShowcaseCache | null = null;
 const SHOWCASE_TTL_MS = 10 * 60 * 1000;
 
-/** Noms grand public éligibles à la vitrine, par ordre de préférence. */
-const SHOWCASE_TICKERS = ['ASML.AS', 'ADBE', 'MC.PA', 'GOOGL', 'MSFT', 'RMS.PA'];
+/** Noms grand public préférés pour la vitrine, s'ils passent les seuils. */
+const SHOWCASE_TICKERS = ['ASML.AS', 'ADBE', 'MC.PA', 'GOOGL', 'MSFT', 'RMS.PA', 'NVO', 'V', 'NKE', 'SAP.DE'];
+/** Seuils de la vitrine : au moins 8/10 de qualité ET une résilience publiée A ou B. */
+const SHOWCASE_MIN_NOTE10 = 8;
+const SHOWCASE_GRADES = new Set(['A', 'B']);
+
+const SHOWCASE_SELECT = {
+  ticker: true, name: true, sector: true,
+  scoreChiffres: true, scoreChiffresMax: true,
+  pfcfTTM: true, price: true, currency: true, opportunity: true, marketCap: true,
+  pfcfPercentile: true,
+} as const;
 
 type ShowcaseRow = Awaited<ReturnType<typeof getTop>>[number];
 
-/** Première société reconnaissable réellement scorée, sinon la meilleure opportunité du jour. */
+/** Note ramenée sur 10 (le score brut est sur un dénominateur variable). */
+function note10Of(row: { scoreChiffres: number | null; scoreChiffresMax: number | null }): number {
+  const max = row.scoreChiffresMax ?? 0;
+  return row.scoreChiffres != null && max > 0 ? Math.round((row.scoreChiffres / max) * 10) : 0;
+}
+
+/**
+ * Titre de la vitrine : au moins 8/10, résilience publiée A ou B, et si possible un nom
+ * que tout le monde reconnaît. On tente d'abord la liste éditoriale, puis les plus grosses
+ * capitalisations bien notées ; à défaut de résilience publiée, la meilleure note l'emporte.
+ */
 async function pickShowcaseRow(): Promise<ShowcaseRow | undefined> {
-  const rows = await prisma.screenerTicker.findMany({
+  const preferred = await prisma.screenerTicker.findMany({
     where: { ticker: { in: SHOWCASE_TICKERS }, status: 'scored' },
-    select: {
-      ticker: true, name: true, sector: true,
-      scoreChiffres: true, scoreChiffresMax: true,
-      pfcfTTM: true, price: true, currency: true, opportunity: true,
-    },
+    select: SHOWCASE_SELECT,
   });
-  for (const wanted of SHOWCASE_TICKERS) {
-    const row = rows.find(r => r.ticker === wanted);
-    if (row) return row as ShowcaseRow;
+  // Grosses capitalisations bien notées : elles sont connues du grand public.
+  const bigCaps = await prisma.screenerTicker.findMany({
+    where: { status: 'scored', scoreChiffresMax: { gte: 8 }, marketCap: { gte: 50_000_000_000 } },
+    orderBy: [{ scoreRatio: 'desc' }, { marketCap: 'desc' }],
+    take: 60,
+    select: SHOWCASE_SELECT,
+  });
+
+  const seen = new Set<string>();
+  const candidates = [...preferred, ...bigCaps].filter(r => {
+    if (seen.has(r.ticker)) return false;
+    seen.add(r.ticker);
+    return note10Of(r) >= SHOWCASE_MIN_NOTE10;
+  });
+  if (!candidates.length) {
+    await refreshOpportunitiesLive().catch(() => {});
+    const [fallback] = await getTop({ onlyOpportunities: true, minMax: 8, limit: 5 });
+    return fallback;
   }
-  // Repli : `getTop` post-filtre son lot, donc on demande plusieurs lignes pour en garder une.
-  await refreshOpportunitiesLive().catch(() => {});
-  const [fallback] = await getTop({ onlyOpportunities: true, minMax: 8, limit: 5 });
-  return fallback;
+
+  const resiliences = await getPublishedResilienceSummaries(candidates.map(r => r.ticker));
+  const rank = (t: string) => {
+    const i = SHOWCASE_TICKERS.indexOf(t);
+    return i < 0 ? SHOWCASE_TICKERS.length : i;
+  };
+  // À qualité et résilience égales, on préfère un titre dont le percentile de P/FCF est
+  // connu : la jauge de valorisation de la landing n'a de sens que si elle a une position.
+  const solid = candidates
+    .filter(r => SHOWCASE_GRADES.has(resiliences.get(r.ticker)?.grade ?? ''))
+    .sort((a, b) =>
+      Number(b.pfcfPercentile != null) - Number(a.pfcfPercentile != null)
+      || rank(a.ticker) - rank(b.ticker)
+      || Number(b.marketCap ?? 0) - Number(a.marketCap ?? 0));
+
+  // Repli si aucune résilience A/B n'est publiée : la meilleure note, la plus grosse capi.
+  const best = solid[0] ?? candidates
+    .slice()
+    .sort((a, b) => note10Of(b) - note10Of(a) || Number(b.marketCap ?? 0) - Number(a.marketCap ?? 0))[0];
+  return best as ShowcaseRow | undefined;
 }
 
 screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response) => {
@@ -238,6 +285,8 @@ screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response)
     scoreChiffres: top.scoreChiffres,
     scoreChiffresMax: top.scoreChiffresMax,
     pfcfTTM: top.pfcfTTM,
+    // Position du P/FCF dans son propre historique (0 = jamais aussi bon marché).
+    pfcfPercentile: 'pfcfPercentile' in top ? top.pfcfPercentile : null,
     price: top.price,
     currency: top.currency,
     opportunity: top.opportunity,

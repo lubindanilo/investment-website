@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
-import { Def, ScoreRing, useSectionIn } from './bits.js';
+import { Def, ScoreRing, useParallax, useSectionIn } from './bits.js';
 import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
 /** Champ ticker + bouton : le point d'entrée réel de la page (hero et CTA final). */
@@ -139,6 +139,7 @@ export function HeroSection({ featured, criteria, resilience }: {
   const { t } = useTranslation();
   const locale = currentLocale();
   const cardRef = useTilt<HTMLDivElement>();
+  const parallaxRef = useParallax<HTMLDivElement>(46);
   const price = fmtPrice(featured.price, featured.currency, locale);
   const passCount = criteria.filter(c => c.status === 'pass').length;
 
@@ -168,7 +169,7 @@ export function HeroSection({ featured, criteria, resilience }: {
           </div>
         </div>
 
-        <div className="hero-side">
+        <div className="hero-side" ref={parallaxRef}>
           <div className="acard tilt" ref={cardRef}>
             <div className="acard-head">
               <span className="tick-badge">{featured.ticker.split('.')[0]}</span>

@@ -1,10 +1,14 @@
 /**
  * Sections 3 et 4 : le mécanisme (qualité, puis prix, puis prix d'achat) et la veille.
  *
- * Le passage 1 → 2 → 3 suit le scroll de PRÈS : sentinelles courtes (55 vh) et fenêtre de
- * déclenchement large, donc un petit mouvement de molette ou de doigt suffit. Les trois
- * étapes sont aussi cliquables, et une barre de progression montre où on en est.
- * Mobile : carrousel scroll-snap, l'étape active suit la carte visible.
+ * Les trois cartes sont de vraies maquettes de produit :
+ *   1. la fiche de qualité complète, avec un balayage qui « évalue » les 10 critères ;
+ *   2. la séparation physique qualité / prix, avec la jauge de P/FCF dans son historique ;
+ *   3. les hypothèses de valorisation qui bougent et le prix d'achat, verrouillé sur la fiche.
+ *
+ * Le passage 1 → 2 → 3 suit le scroll de PRÈS : sentinelles courtes et fenêtre de
+ * déclenchement large, donc un petit mouvement suffit. Les étapes sont aussi cliquables,
+ * et sur mobile le carrousel pilote l'étape active au doigt.
  */
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -12,16 +16,21 @@ import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
 import { CompositionStrip, CriteriaList } from './HeroSection.js';
-import { Def, ScoreRing, useSectionIn } from './bits.js';
+import { Def, ScoreRing, useSectionIn, SplitTitle } from './bits.js';
 import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
-export function MechanismSection({ featured, criteria }: { featured: LandingStock; criteria: LandingCriterion[] }) {
+export function MechanismSection({ featured, criteria, pfcfPercentile }: {
+  featured: LandingStock;
+  criteria: LandingCriterion[];
+  pfcfPercentile: number | null;
+}) {
   const { t } = useTranslation();
   const locale = currentLocale();
   const [step, setStep] = useState(0);
   const sentinels = useRef<Array<HTMLDivElement | null>>([]);
   const stageRef = useRef<HTMLDivElement>(null);
   const price = fmtPrice(featured.price, featured.currency, locale);
+  const passCount = criteria.filter(c => c.status === 'pass').length;
 
   // Desktop : sentinelles courtes + fenêtre large = la carte change au moindre scroll.
   useEffect(() => {
@@ -64,26 +73,21 @@ export function MechanismSection({ featured, criteria }: { featured: LandingStoc
   }
 
   const [headRef, headIn] = useSectionIn<HTMLDivElement>();
+  // Position du curseur sur la jauge de valorisation (bas = bon marché vs son historique).
+  const pct = pfcfPercentile != null ? Math.max(2, Math.min(98, pfcfPercentile)) : null;
 
   return (
     <section className="sec mech" id="mecanisme">
       <div className="wrap">
         <div ref={headRef} className={`sec-head ${headIn ? 'in' : ''}`} style={{ marginBottom: 48 }}>
           <span className="kicker rv">{t('landing.mech.kicker')}</span>
-          <h2 className="rv" data-d="1" style={{ marginTop: 12 }}>{t('landing.mech.title')}</h2>
+          <SplitTitle text={t('landing.mech.title')} className="rv" />
         </div>
 
         <div className="mech-grid">
           <div className="mech-steps">
             {[0, 1, 2].map(i => (
-              <button
-                key={i}
-                type="button"
-                className="mstep"
-                data-on={step === i ? '1' : '0'}
-                onClick={() => goto(i)}
-                aria-current={step === i}
-              >
+              <button key={i} type="button" className="mstep" data-on={step === i ? '1' : '0'} onClick={() => goto(i)} aria-current={step === i}>
                 <span className="n">{`0${i + 1}`}</span>
                 <h3>{t(`landing.mech.steps.${i}`)}</h3>
                 <span className="mstep-bar" aria-hidden="true"><i /></span>
@@ -93,11 +97,28 @@ export function MechanismSection({ featured, criteria }: { featured: LandingStoc
 
           <div>
             <div className="mech-stage" ref={stageRef}>
-              {/* 3a — la qualité : la vraie fiche, 10 critères notés */}
+              {/* ── 3a : la fiche de qualité, balayée critère par critère ── */}
               <div className="mcard" data-on={step === 0 ? '1' : '0'}>
-                <div className="panel" style={{ height: '100%' }}>
-                  <h4>{t('landing.mech.card1.title', { ticker: featured.ticker })}</h4>
-                  <CriteriaList criteria={criteria} compact />
+                <div className="panel mock" style={{ height: '100%' }}>
+                  <div className="mock-head">
+                    <span className="tick-badge">{featured.ticker.split('.')[0]}</span>
+                    <div style={{ minWidth: 0 }}>
+                      <div className="acard-name">{featured.name}</div>
+                      <div className="tiny muted num">{featured.sector ?? featured.ticker}</div>
+                    </div>
+                    <span className="badge badge-brand" style={{ marginLeft: 'auto' }}>{featured.note10 ?? '—'}/10</span>
+                  </div>
+                  <div className="mock-score">
+                    <ScoreRing note10={featured.note10} size={72} />
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div className="tiny muted" style={{ marginBottom: 8 }}>{t('landing.card.passCount', { count: passCount })}</div>
+                      <CompositionStrip criteria={criteria} />
+                    </div>
+                  </div>
+                  <div className="scanbox">
+                    <CriteriaList criteria={criteria} />
+                    {step === 0 && <span className="scanbar" aria-hidden="true" />}
+                  </div>
                   <div className="row panel-foot">
                     <span className="tiny muted" style={{ fontWeight: 600 }}>{t('landing.mech.card1.score')}</span>
                     <span className="num panel-score">{featured.note10 ?? '—'}/10</span>
@@ -105,26 +126,40 @@ export function MechanismSection({ featured, criteria }: { featured: LandingStoc
                 </div>
               </div>
 
-              {/* 3b — le prix, jugé à part */}
-              <div className="mcard mgrid2" data-on={step === 1 ? '1' : '0'}>
-                <div className="panel">
+              {/* ── 3b : la séparation qualité / prix, avec la jauge de valorisation ── */}
+              <div className="mcard mgrid2 splitcard" data-on={step === 1 ? '1' : '0'}>
+                <div className="panel mock side-l">
                   <h4>{t('landing.mech.card2.quality')}</h4>
                   <div className="row" style={{ gap: 14 }}>
-                    <ScoreRing note10={featured.note10} size={76} />
-                    <div className="tiny muted" style={{ lineHeight: 1.5 }}>
-                      {t('landing.mech.card2.qualityDesc', { name: featured.name })}
-                    </div>
+                    <ScoreRing note10={featured.note10} size={72} />
+                    <div className="tiny muted" style={{ lineHeight: 1.5 }}>{t('landing.mech.card2.qualityDesc', { name: featured.name })}</div>
                   </div>
                   <div style={{ marginTop: 16 }}><CompositionStrip criteria={criteria} /></div>
-                  <CriteriaList criteria={criteria.slice(0, 3)} compact />
+                  <CriteriaList criteria={criteria.slice(0, 4)} compact />
+                  <div className="verdict good">{t('landing.mech.card2.verdictQuality')}</div>
                 </div>
-                <div className="panel panel-alt">
+                <div className="panel mock panel-alt side-r">
                   <h4>{t('landing.mech.card2.valuation')}</h4>
                   <div className="num panel-big">{featured.pfcfTTM != null ? `${featured.pfcfTTM.toFixed(1)}x` : '—'}</div>
                   <div className="tiny muted" style={{ marginTop: 4 }}>
                     <Def def={t('landing.def.pfcf')}>P/FCF</Def> {t('landing.mech.card2.pfcfNote')}
                   </div>
-                  <div className="crits crits-compact" style={{ marginTop: 18 }}>
+                  {pct != null && (
+                    <div className="gauge">
+                      <div className="gauge-scale" aria-hidden="true">
+                        <span className="gauge-fill" style={{ width: `${pct}%` }} />
+                        <span className="gauge-mark" style={{ left: `${pct}%` }} />
+                      </div>
+                      <div className="gauge-legend tiny muted">
+                        <span>{t('landing.mech.card2.cheap')}</span>
+                        <span>{t('landing.mech.card2.expensive')}</span>
+                      </div>
+                      <p className="tiny" style={{ marginTop: 10, lineHeight: 1.5 }}>
+                        {t('landing.mech.card2.percentile', { pct: Math.round(pct) })}
+                      </p>
+                    </div>
+                  )}
+                  <div className="crits crits-compact" style={{ marginTop: 14 }}>
                     {price && <div className="crit"><span className="cd" /><span className="cn">{t('landing.card.price')}</span><span className="cv num">{price}</span></div>}
                     <div className="crit">
                       <span className="cd" />
@@ -132,35 +167,46 @@ export function MechanismSection({ featured, criteria }: { featured: LandingStoc
                       <span className="cv num">{featured.opportunity ? t('landing.mech.card2.yes') : t('landing.mech.card2.no')}</span>
                     </div>
                   </div>
-                  <div className="panel-note"><span className="tiny">{t('landing.mech.card2.separate')}</span></div>
+                  <div className="verdict">{t('landing.mech.card2.separate')}</div>
                 </div>
+                <span className="splitline" aria-hidden="true" />
               </div>
 
-              {/* 3c — les hypothèses, et le prix d'achat sur la fiche */}
+              {/* ── 3c : les hypothèses qui bougent, le prix d'achat sur la fiche ── */}
               <div className="mcard" data-on={step === 2 ? '1' : '0'}>
-                <div className="panel" style={{ height: '100%' }}>
+                <div className="panel mock" style={{ height: '100%' }}>
                   <h4>{t('landing.mech.card3.title')}</h4>
-                  <div className="col" style={{ gap: 18 }}>
+                  <div className="col" style={{ gap: 16 }}>
                     {[
-                      { k: 'growth', x: '62%', v: '8,5 %' },
-                      { k: 'multiple', x: '48%', v: '20,0x' },
-                      { k: 'target', x: '70%', v: '10,0 %' },
-                    ].map(s => (
+                      { k: 'growth', a: '38%', b: '62%', v: '8,5 %' },
+                      { k: 'multiple', a: '62%', b: '48%', v: '20,0x' },
+                      { k: 'target', a: '44%', b: '70%', v: '10,0 %' },
+                    ].map((s, i) => (
                       <div key={s.k} className="slider">
-                        {t(`landing.mech.card3.${s.k}`)}
-                        <div className="track" style={{ ['--x' as string]: s.x }}><u /><i /></div>
-                        <b className="num" style={{ width: 52, textAlign: 'right' }}>{s.v}</b>
+                        <span className="slider-l">{t(`landing.mech.card3.${s.k}`)}</span>
+                        <div
+                          className={`track ${step === 2 ? 'anim' : ''}`}
+                          style={{ ['--a' as string]: s.a, ['--b' as string]: s.b, animationDelay: `${i * 0.25}s` }}
+                        >
+                          <u /><i />
+                        </div>
+                        <b className="num slider-v">{s.v}</b>
                       </div>
                     ))}
                   </div>
-                  <div className="buyout">
+
+                  <div className="buyresult">
                     <div>
                       <span className="kicker" style={{ fontSize: 11 }}>{t('landing.mech.card3.buyPrice')}</span>
-                      <p className="tiny muted" style={{ marginTop: 6, maxWidth: '34ch', lineHeight: 1.5 }}>
-                        {t('landing.mech.card3.explain')}
-                      </p>
+                      <div className="masked num" aria-label={t('landing.mech.card3.locked')}>
+                        <span>{price ?? '···'}</span>
+                        <span className="lock">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><rect x="4" y="10" width="16" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>
+                        </span>
+                      </div>
+                      <p className="tiny muted" style={{ marginTop: 8, maxWidth: '38ch', lineHeight: 1.5 }}>{t('landing.mech.card3.explain')}</p>
                     </div>
-                    <Link to={`/analyse/${encodeURIComponent(featured.ticker)}`} className="btn btn-brand">
+                    <Link to={`/analyse/${encodeURIComponent(featured.ticker)}`} className="btn btn-brand btn-lg">
                       {t('landing.mech.card3.cta', { ticker: featured.ticker })} <Icon name="arrowRight" size={15} />
                     </Link>
                   </div>
@@ -168,8 +214,7 @@ export function MechanismSection({ featured, criteria }: { featured: LandingStoc
               </div>
             </div>
 
-            {/* Sentinelles de scroll (desktop uniquement). Courtes : le changement d'étape
-                se déclenche au moindre mouvement plutôt qu'après un écran entier. */}
+            {/* Sentinelles de scroll (desktop uniquement), courtes pour un déclenchement léger. */}
             <div className="only-desktop">
               {[0, 1, 2].map(i => (
                 <div key={i} className="msent" data-sent={i} ref={el => { sentinels.current[i] = el; }} />
@@ -195,7 +240,7 @@ export function VeilleSection({ rows }: { rows: LandingStock[] }) {
       <div className="wrap">
         <div className="sec-head">
           <span className="kicker rv">{t('landing.veille.kicker')}</span>
-          <h2 className="rv" data-d="1" style={{ marginTop: 12 }}>{t('landing.veille.title')}</h2>
+          <SplitTitle text={t('landing.veille.title')} className="rv" />
         </div>
         <div className="field rv" data-d="2">
           <div className="dots" aria-hidden="true">

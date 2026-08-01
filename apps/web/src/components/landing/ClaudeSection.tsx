@@ -1,26 +1,42 @@
 /**
- * Section 5 : le connecteur MCP, joué comme une démo vidéo.
+ * Section 5 : le connecteur MCP, joué comme une vidéo.
  *
- * Un seul écran de conversation qui se déroule tout seul et enchaîne trois scénarios
- * (il analyse, il cherche, il agit), avec une liste de chapitres cliquable et une barre
- * de progression. Remplace les trois cartes empilées et la grille d'outils : plus court,
- * et on VOIT ce que le connecteur fait au lieu de le lire.
+ * Un seul fil de conversation qui se déroule en direct : la question s'écrit caractère par
+ * caractère dans la barre de saisie, part dans le fil, l'appel d'outil MCP s'affiche avec sa
+ * durée, puis la réponse arrive mot à mot et la carte de données s'assemble. Trois échanges
+ * s'enchaînent, puis ça reboucle. Aucun bouton à cliquer : ça tourne tout seul.
  *
- * La donnée jouée est réelle : le titre mis en avant et le résultat de la requête PEA
- * (mêmes filtres que ceux affichés en chips). La revue de watchlist dépend du compte,
- * elle est donc marquée « exemple ».
+ * Les données jouées sont réelles (titre mis en avant, résultat de la requête PEA avec les
+ * filtres affichés). La revue de watchlist dépend du compte, elle est marquée « exemple ».
  *
- * Le texte des trois scénarios est présent dans le DOM dès le chargement (crawlers GEO) ;
- * le lecteur ne fait que révéler des blocs déjà rendus.
+ * Accessibilité et robots : le transcript complet est rendu en clair (classe `sr-only`) dès
+ * le chargement, et `prefers-reduced-motion` affiche la conversation entière d'un coup.
  */
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
-import { DotScore, useSectionIn } from './bits.js';
+import { DotScore, useSectionIn, SplitTitle } from './bits.js';
 import { fmtPrice, type LandingStock } from './useLandingData.js';
 
-/** Durée de chaque scénario, en ms (le lecteur passe au suivant à la fin). */
-const SCENARIO_MS = [7200, 7600, 8400];
+/** Un bloc affiché dans le fil. */
+type Item =
+  | { kind: 'user'; text: string }
+  | { kind: 'tool'; label: string; done: boolean; ms: number }
+  | { kind: 'text'; words: string[]; shown: number }
+  | { kind: 'card'; id: 'analyze' | 'screen' | 'watchlist' | 'added' };
+
+/** Une étape du scénario. Le lecteur les enchaîne comme une timeline vidéo. */
+type CardId = 'analyze' | 'screen' | 'watchlist' | 'added';
+type Step =
+  | { do: 'type'; text: string }
+  | { do: 'send'; text: string }
+  | { do: 'tool'; label: string; ms: number }
+  | { do: 'say'; text: string }
+  | { do: 'card'; id: CardId }
+  | { do: 'wait'; ms: number }
+  | { do: 'clear' };
+
+const sleep = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
 
 /** URL du connecteur MCP à coller dans Claude, avec copie en un clic. */
 function CopyUrl() {
@@ -47,81 +63,164 @@ function CopyUrl() {
   );
 }
 
-/**
- * Lecteur : avance de scénario en scénario tant qu'il est visible. `beat` monte les
- * blocs du scénario courant les uns après les autres (question, réflexion, réponse).
- */
-function usePlayer(count: number): {
-  ref: React.RefObject<HTMLDivElement>;
-  scenario: number;
-  beat: number;
-  playing: boolean;
-  select: (i: number) => void;
-} {
-  const ref = useRef<HTMLDivElement>(null);
-  const [scenario, setScenario] = useState(0);
-  const [beat, setBeat] = useState(0);
-  const [playing, setPlaying] = useState(false);
-
-  // Ne joue que quand la section est à l'écran (rien ne tourne en fond).
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced || typeof IntersectionObserver === 'undefined') { setBeat(9); return; }
-    const obs = new IntersectionObserver(es => setPlaying(es.some(e => e.isIntersecting)), { threshold: 0.25 });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  // Déroulé du scénario courant : un « beat » toutes ~1,6 s, puis on passe au suivant.
-  useEffect(() => {
-    if (!playing) return;
-    const total = SCENARIO_MS[scenario] ?? 8000;
-    const tick = setInterval(() => setBeat(b => b + 1), 1500);
-    const next = setTimeout(() => {
-      setBeat(0);
-      setScenario(s => (s + 1) % count);
-    }, total);
-    return () => { clearInterval(tick); clearTimeout(next); };
-  }, [playing, scenario, count]);
-
-  function select(i: number) { setScenario(i); setBeat(0); }
-  return { ref, scenario, beat, playing, select };
-}
-
-function Ask({ text, chars, dur, show }: { text: string; chars: number; dur: string; show: boolean }) {
-  return (
-    <div className={`bub-u ${show ? 'show' : ''}`}>
-      <span className="type" style={{ ['--tc' as string]: chars, ['--td' as string]: dur }}>{text}</span>
-    </div>
-  );
-}
-
-function Working({ show }: { show: boolean }) {
-  return <div className={`working ${show ? 'show' : ''}`} aria-hidden="true"><b /><b /><b /></div>;
-}
-
 export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingStock; peaRows: LandingStock[]; rows: LandingStock[] }) {
   const { t } = useTranslation();
   const locale = currentLocale();
   const [headRef, headIn] = useSectionIn<HTMLDivElement>();
   const price = fmtPrice(featured.price, featured.currency, locale);
   const added = rows[1] ?? rows[0] ?? featured;
-  const { ref, scenario, beat, playing, select } = usePlayer(3);
 
-  const chapters = [
-    { key: 'a', label: t('landing.claude.a.title'), desc: t('landing.claude.a.desc') },
-    { key: 'b', label: t('landing.claude.b.title'), desc: t('landing.claude.b.desc') },
-    { key: 'c', label: t('landing.claude.c.title'), desc: t('landing.claude.c.desc') },
-  ];
+  const [items, setItems] = useState<Item[]>([]);
+  const [input, setInput] = useState('');
+  const [chapter, setChapter] = useState(0);
+  const [live, setLive] = useState(false);
+  const threadRef = useRef<HTMLDivElement>(null);
+  const playerRef = useRef<HTMLDivElement>(null);
+
+  const q1 = t('landing.claude.a.question', { name: featured.name });
+  const q2 = t('landing.claude.b.question');
+  const q3 = t('landing.claude.c.question');
+  const q4 = t('landing.claude.c.question2', { name: added.name });
+
+  // Ne joue que quand la section est à l'écran.
+  useEffect(() => {
+    const el = playerRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') { setLive(true); return; }
+    const obs = new IntersectionObserver(es => setLive(es.some(e => e.isIntersecting)), { threshold: 0.2 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Le fil suit toujours le dernier message, comme une vraie conversation.
+  useEffect(() => {
+    const el = threadRef.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+  }, [items]);
+
+  useEffect(() => {
+    if (!live) return;
+    const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Mouvement réduit : la conversation complète, d'un bloc, sans animation.
+    if (reduced) {
+      setItems([
+        { kind: 'user', text: q1 },
+        { kind: 'tool', label: `analyze_stock("${featured.ticker}")`, done: true, ms: 240 },
+        { kind: 'text', words: t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' }).split(' '), shown: 999 },
+        { kind: 'card', id: 'analyze' },
+        { kind: 'user', text: q2 },
+        { kind: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15 })', done: true, ms: 380 },
+        { kind: 'card', id: 'screen' },
+        { kind: 'user', text: q3 },
+        { kind: 'tool', label: 'analyze_watchlist()', done: true, ms: 910 },
+        { kind: 'card', id: 'watchlist' },
+      ]);
+      return;
+    }
+
+    let cancelled = false;
+    const script: Step[] = [
+      // ── 1. Il analyse ───────────────────────────────────────────────
+      { do: 'type', text: q1 },
+      { do: 'send', text: q1 },
+      { do: 'tool', label: `analyze_stock("${featured.ticker}")`, ms: 240 },
+      { do: 'say', text: t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' }) },
+      { do: 'card', id: 'analyze' },
+      { do: 'wait', ms: 2600 },
+      // ── 2. Il cherche pour toi ──────────────────────────────────────
+      { do: 'type', text: q2 },
+      { do: 'send', text: q2 },
+      { do: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15 })', ms: 380 },
+      { do: 'say', text: t('landing.claude.b.answer', { count: peaRows.length }) },
+      { do: 'card', id: 'screen' },
+      { do: 'wait', ms: 2800 },
+      // ── 3. Il surveille, et il agit ─────────────────────────────────
+      { do: 'type', text: q3 },
+      { do: 'send', text: q3 },
+      { do: 'tool', label: 'analyze_watchlist()', ms: 910 },
+      { do: 'say', text: t('landing.claude.c.answer') },
+      { do: 'card', id: 'watchlist' },
+      { do: 'wait', ms: 2200 },
+      { do: 'type', text: q4 },
+      { do: 'send', text: q4 },
+      { do: 'tool', label: `add_to_watchlist("${added.ticker}")`, ms: 320 },
+      { do: 'card', id: 'added' },
+      { do: 'wait', ms: 3400 },
+      { do: 'clear' },
+    ];
+
+    async function run() {
+      // Reprend au début à chaque entrée dans le viewport.
+      setItems([]); setInput(''); setChapter(0);
+      while (!cancelled) {
+        for (const [i, step] of script.entries()) {
+          if (cancelled) return;
+          // Le chapitre suit la position dans le script (3 blocs).
+          setChapter(i < 6 ? 0 : i < 12 ? 1 : 2);
+          switch (step.do) {
+            case 'type': {
+              for (let c = 1; c <= step.text.length; c++) {
+                if (cancelled) return;
+                setInput(step.text.slice(0, c));
+                await sleep(step.text.length > 60 ? 16 : 26);
+              }
+              await sleep(420);
+              break;
+            }
+            case 'send': {
+              setInput('');
+              setItems(prev => [...prev, { kind: 'user', text: step.text }]);
+              await sleep(500);
+              break;
+            }
+            case 'tool': {
+              setItems(prev => [...prev, { kind: 'tool', label: step.label, done: false, ms: step.ms }]);
+              await sleep(700 + step.ms);
+              if (cancelled) return;
+              setItems(prev => prev.map((it, k) => (k === prev.length - 1 && it.kind === 'tool' ? { ...it, done: true } : it)));
+              await sleep(320);
+              break;
+            }
+            case 'say': {
+              const words = step.text.split(' ');
+              setItems(prev => [...prev, { kind: 'text', words, shown: 0 }]);
+              for (let w = 1; w <= words.length; w++) {
+                if (cancelled) return;
+                setItems(prev => prev.map((it, k) => (k === prev.length - 1 && it.kind === 'text' ? { ...it, shown: w } : it)));
+                await sleep(45);
+              }
+              await sleep(260);
+              break;
+            }
+            case 'card': {
+              setItems(prev => [...prev, { kind: 'card', id: step.id }]);
+              await sleep(900);
+              break;
+            }
+            case 'wait': await sleep(step.ms); break;
+            case 'clear': {
+              setItems([]);
+              await sleep(700);
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    void run();
+    return () => { cancelled = true; };
+    // Le script dépend des libellés et des données affichées.
+  }, [live, featured, peaRows, added, q1, q2, q3, q4, t]);
+
+  const chapters = [t('landing.claude.a.title'), t('landing.claude.b.title'), t('landing.claude.c.title')];
 
   return (
     <section className="claude" id="claude">
       <div className="wrap">
         <div ref={headRef} className={`sec-head ${headIn ? 'in' : ''}`}>
           <span className="kicker rv">{t('landing.claude.kicker')}</span>
-          <h2 className="rv" data-d="1" style={{ marginTop: 12 }}>{t('landing.claude.title')}</h2>
+          <SplitTitle text={t('landing.claude.title')} className="rv" />
           <p className="rv claude-sub" data-d="2">{t('landing.claude.sub')}</p>
           <div className="trust-band rv" data-d="3">
             <b>{t('landing.claude.band1')}</b><span className="sep">·</span>
@@ -130,145 +229,62 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
           </div>
         </div>
 
-        <div className="player" ref={ref}>
-          {/* Chapitres : cliquables, avec la barre de progression du chapitre en cours. */}
-          <div className="chapters">
-            {chapters.map((c, i) => (
-              <button
-                key={c.key}
-                type="button"
-                className="chapter"
-                data-on={scenario === i ? '1' : '0'}
-                onClick={() => select(i)}
-                aria-current={scenario === i}
-              >
-                <span className="num chapter-n">{`0${i + 1}`}</span>
-                <span className="chapter-txt">
-                  <b>{c.label}</b>
-                  <span className="tiny muted">{c.desc}</span>
-                </span>
-                <span className="chapter-bar" aria-hidden="true">
-                  <i
-                    key={`${i}-${scenario}-${playing}`}
-                    style={scenario === i && playing ? { animationDuration: `${SCENARIO_MS[i]}ms` } : { animation: 'none', width: 0 }}
-                  />
-                </span>
-              </button>
-            ))}
-          </div>
-
-          {/* L'écran de conversation : un seul, il rejoue le chapitre actif. */}
+        <div className="player" ref={playerRef}>
           <div className="screen">
-            <div className="screen-bar" aria-hidden="true"><i /><i /><i /><span className="num">claude · lubin-investment</span></div>
+            <div className="screen-bar">
+              <i /><i /><i />
+              <span className="num">claude · lubin-investment</span>
+              <span className={`live-dot ${live ? 'on' : ''}`} aria-hidden="true" />
+            </div>
 
-            <div className="thread" key={scenario}>
-              {scenario === 0 && (
-                <>
-                  <Ask text={t('landing.claude.a.question', { name: featured.name })} chars={47} dur="1.6s" show={beat >= 0} />
-                  <Working show={beat >= 1} />
-                  <div className={`reply ${beat >= 2 ? 'show' : ''}`}>
-                    <div className="lcard">
-                      <div className="lcard-h">
-                        <span className="tick-badge sm">{featured.ticker.split('.')[0]}</span>
-                        <b style={{ fontSize: 13.5 }}>{featured.name}</b>
-                        <span className="num lcard-note">{featured.note10 ?? '—'}/10</span>
-                      </div>
-                      <div className="lcard-b">
-                        <DotScore note10={featured.note10} />
-                        {featured.pfcfTTM != null && <div className="kv">P/FCF<b>{featured.pfcfTTM.toFixed(1)}x</b></div>}
-                        {price && <div className="kv">{t('landing.card.price')}<b>{price}</b></div>}
-                        <div className="kv">{t('landing.card.note')}<b style={{ color: 'var(--brand-ink)' }}>{featured.note10 ?? '—'}/10</b></div>
-                        {featured.opportunity && <div style={{ marginTop: 10 }}><span className="badge badge-brand">{t('landing.card.opportunity')}</span></div>}
-                      </div>
-                    </div>
-                  </div>
-                  <span className={`micro ${beat >= 3 ? 'show' : ''}`}>{t('landing.claude.a.micro')}</span>
-                </>
-              )}
+            {/* Chapitres : indicateur de progression, pas un menu (ça se joue tout seul). */}
+            <div className="steps-strip" aria-hidden="true">
+              {chapters.map((c, i) => (
+                <span key={c} className="strip-item" data-on={chapter === i ? '1' : '0'}>
+                  <b className="num">{`0${i + 1}`}</b>{c}
+                </span>
+              ))}
+            </div>
 
-              {scenario === 1 && (
-                <>
-                  <Ask text={t('landing.claude.b.question')} chars={88} dur="2.2s" show={beat >= 0} />
-                  <Working show={beat >= 1} />
-                  <div className={`reply ${beat >= 2 ? 'show' : ''}`}>
-                    <div className="lcard">
-                      <div className="lcard-h wrap-chips">
-                        <span className="chip sm">{t('landing.claude.b.chipZone')}</span>
-                        <span className="chip sm">{t('landing.claude.b.chipNote')}</span>
-                        <span className="chip sm">{t('landing.claude.b.chipPfcf')}</span>
-                      </div>
-                      <div className="lcard-b">
-                        <table className="ltable">
-                          <thead>
-                            <tr>
-                              <th>{t('landing.claude.b.thTicker')}</th>
-                              <th>{t('landing.claude.b.thName')}</th>
-                              <th style={{ textAlign: 'right' }}>{t('landing.claude.b.thNote')}</th>
-                              <th style={{ textAlign: 'right' }}>P/FCF</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {peaRows.slice(0, 4).map((r, i) => (
-                              <tr key={r.ticker} style={{ animationDelay: `${0.15 + i * 0.12}s` }}>
-                                <td>{r.ticker}</td>
-                                <td className="sans">{r.name}</td>
-                                <td style={{ textAlign: 'right', color: 'var(--brand-ink)', fontWeight: 700 }}>{r.note10}/10</td>
-                                <td style={{ textAlign: 'right' }}>{r.pfcfTTM != null ? `${r.pfcfTTM.toFixed(1)}x` : '—'}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
+            <div className="thread live" ref={threadRef}>
+              {items.map((it, i) => {
+                if (it.kind === 'user') return <div key={i} className="bub-u show">{it.text}</div>;
+                if (it.kind === 'tool') {
+                  return (
+                    <div key={i} className={`toolcall ${it.done ? 'done' : ''}`}>
+                      <span className="tc-dot" />
+                      <code className="num">{it.label}</code>
+                      <span className="tc-ms num">{it.done ? `${it.ms} ms` : '…'}</span>
                     </div>
-                  </div>
-                  <span className={`micro ${beat >= 3 ? 'show' : ''}`}>{t('landing.claude.b.micro')}</span>
-                </>
-              )}
+                  );
+                }
+                if (it.kind === 'text') {
+                  return (
+                    <p key={i} className="bub-a">
+                      {it.words.slice(0, it.shown).join(' ')}
+                      {it.shown < it.words.length && <span className="caret" />}
+                    </p>
+                  );
+                }
+                return <div key={i} className="reply show">{renderCard(it.id)}</div>;
+              })}
+            </div>
 
-              {scenario === 2 && (
-                <>
-                  <Ask text={t('landing.claude.c.question')} chars={24} dur="1s" show={beat >= 0} />
-                  <Working show={beat >= 1} />
-                  <div className={`reply ${beat >= 2 ? 'show' : ''}`}>
-                    <div className="lcard">
-                      <div className="lcard-b">
-                        <div className="row" style={{ justifyContent: 'flex-end', marginBottom: 8 }}>
-                          <span className="chip sm">{t('landing.claude.c.exampleTag')}</span>
-                        </div>
-                        <div className="tiles">
-                          {[
-                            { k: 'avg', v: '8,4/10', c: 'var(--brand-ink)' },
-                            { k: 'weak', v: '2', c: 'var(--bad-ink)' },
-                            { k: 'down', v: '3', c: 'var(--warn-ink)' },
-                            { k: 'above', v: '5', c: 'var(--warn-ink)' },
-                          ].map(tile => (
-                            <div key={tile.k} className="tile">
-                              <div className="tiny muted">{t(`landing.claude.c.${tile.k}`)}</div>
-                              <div className="num tile-v" style={{ color: tile.c }}>{tile.v}</div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <Ask text={t('landing.claude.c.question2', { name: added.name })} chars={33} dur="1.1s" show={beat >= 3} />
-                  <div className={`reply ${beat >= 4 ? 'show' : ''}`}>
-                    <div className="lcard">
-                      <div className="lcard-b added">
-                        <span className="check" aria-hidden="true">
-                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--good-ink)" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
-                        </span>
-                        <b className="num" style={{ fontSize: 13 }}>{added.ticker}</b>
-                        <span style={{ fontSize: 13 }}>{added.name}</span>
-                        <span className="num" style={{ marginLeft: 'auto', fontWeight: 700, color: 'var(--brand-ink)' }}>{added.note10}/10</span>
-                      </div>
-                    </div>
-                  </div>
-                  <span className={`micro ${beat >= 5 ? 'show' : ''}`}>{t('landing.claude.c.micro')}</span>
-                </>
-              )}
+            {/* Barre de saisie : c'est elle qui « tape » les questions. */}
+            <div className="composer">
+              <span className="composer-txt">{input}<span className="caret" /></span>
+              <span className="composer-send" aria-hidden="true">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </span>
             </div>
           </div>
+        </div>
+
+        {/* Transcript en clair pour les lecteurs d'écran et les robots qui n'exécutent pas le JS. */}
+        <div className="sr-only">
+          <p>{q1}</p><p>{t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' })}</p>
+          <p>{q2}</p><p>{t('landing.claude.b.answer', { count: peaRows.length })}</p>
+          <p>{q3}</p><p>{t('landing.claude.c.answer')}</p>
         </div>
 
         <div className="connect rv in">
@@ -286,4 +302,95 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
       </div>
     </section>
   );
+
+  /** Les cartes de données renvoyées par les outils, assemblées dans le fil. */
+  function renderCard(id: 'analyze' | 'screen' | 'watchlist' | 'added') {
+    if (id === 'analyze') {
+      return (
+        <div className="lcard">
+          <div className="lcard-h">
+            <span className="tick-badge sm">{featured.ticker.split('.')[0]}</span>
+            <b style={{ fontSize: 13.5 }}>{featured.name}</b>
+            <span className="num lcard-note">{featured.note10 ?? '—'}/10</span>
+          </div>
+          <div className="lcard-b">
+            <DotScore note10={featured.note10} />
+            {featured.pfcfTTM != null && <div className="kv">P/FCF<b>{featured.pfcfTTM.toFixed(1)}x</b></div>}
+            {price && <div className="kv">{t('landing.card.price')}<b>{price}</b></div>}
+            <div className="kv">{t('landing.card.note')}<b style={{ color: 'var(--brand-ink)' }}>{featured.note10 ?? '—'}/10</b></div>
+            {featured.opportunity && <div style={{ marginTop: 10 }}><span className="badge badge-brand">{t('landing.card.opportunity')}</span></div>}
+          </div>
+        </div>
+      );
+    }
+    if (id === 'screen') {
+      return (
+        <div className="lcard">
+          <div className="lcard-h wrap-chips">
+            <span className="chip sm">{t('landing.claude.b.chipZone')}</span>
+            <span className="chip sm">{t('landing.claude.b.chipNote')}</span>
+            <span className="chip sm">{t('landing.claude.b.chipPfcf')}</span>
+          </div>
+          <div className="lcard-b">
+            <table className="ltable">
+              <thead>
+                <tr>
+                  <th>{t('landing.claude.b.thTicker')}</th>
+                  <th>{t('landing.claude.b.thName')}</th>
+                  <th style={{ textAlign: 'right' }}>{t('landing.claude.b.thNote')}</th>
+                  <th style={{ textAlign: 'right' }}>P/FCF</th>
+                </tr>
+              </thead>
+              <tbody>
+                {peaRows.slice(0, 4).map((r, i) => (
+                  <tr key={r.ticker} style={{ animationDelay: `${0.1 + i * 0.13}s` }}>
+                    <td>{r.ticker}</td>
+                    <td className="sans">{r.name}</td>
+                    <td style={{ textAlign: 'right', color: 'var(--brand-ink)', fontWeight: 700 }}>{r.note10}/10</td>
+                    <td style={{ textAlign: 'right' }}>{r.pfcfTTM != null ? `${r.pfcfTTM.toFixed(1)}x` : '—'}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      );
+    }
+    if (id === 'watchlist') {
+      return (
+        <div className="lcard">
+          <div className="lcard-b">
+            <div className="row" style={{ justifyContent: 'flex-end', marginBottom: 8 }}>
+              <span className="chip sm">{t('landing.claude.c.exampleTag')}</span>
+            </div>
+            <div className="tiles">
+              {[
+                { k: 'avg', v: '8,4/10', c: 'var(--brand-ink)' },
+                { k: 'weak', v: '2', c: 'var(--bad-ink)' },
+                { k: 'down', v: '3', c: 'var(--warn-ink)' },
+                { k: 'above', v: '5', c: 'var(--warn-ink)' },
+              ].map((tile, i) => (
+                <div key={tile.k} className="tile" style={{ animationDelay: `${i * 0.09}s` }}>
+                  <div className="tiny muted">{t(`landing.claude.c.${tile.k}`)}</div>
+                  <div className="num tile-v" style={{ color: tile.c }}>{tile.v}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return (
+      <div className="lcard">
+        <div className="lcard-b added">
+          <span className="check" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--good-ink)" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+          </span>
+          <b className="num" style={{ fontSize: 13 }}>{added.ticker}</b>
+          <span style={{ fontSize: 13 }}>{added.name}</span>
+          <span className="num" style={{ marginLeft: 'auto', fontWeight: 700, color: 'var(--brand-ink)' }}>{added.note10}/10</span>
+        </div>
+      </div>
+    );
+  }
 }

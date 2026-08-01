@@ -383,6 +383,10 @@
         "pfcfNote": "actual, juzgado aparte de la nota",
         "yes": "sí",
         "no": "no",
+        "verdictQuality": "Un negocio de calidad, según las cifras publicadas.",
+        "cheap": "en su mínimo histórico",
+        "expensive": "en su máximo",
+        "percentile": "El P/FCF está en el percentil {{pct}} de su propio historial.",
         "separate": "El precio se evalúa de forma independiente de la calidad."
       },
       "card3": {
@@ -392,6 +396,7 @@
         "target": "Rentabilidad objetivo",
         "buyPrice": "Precio de compra recomendado",
         "explain": "Mueve una hipótesis y el precio de compra se recalcula sobre las cifras publicadas. Nada está oculto.",
+        "locked": "Precio de compra visible en la ficha",
         "cta": "Ver {{ticker}}"
       }
     },
@@ -409,33 +414,30 @@
       "band3": "tu cuenta, tus derechos",
       "a": {
         "title": "Analiza.",
-        "desc": "Una pregunta en lenguaje natural, una ficha Lubin completa de vuelta.",
-        "question": "¿{{name}} es una buena oportunidad ahora mismo?",
-        "micro": "Cifras calculadas por Lubin, no generadas."
+        "answer": "{{name}} obtiene {{note}}/10 en los 10 criterios de calidad. Aquí tienes el detalle, con el P/FCF y el grado de resiliencia.",
+        "question": "¿{{name}} es una buena oportunidad ahora mismo?"
       },
       "b": {
         "title": "Busca por ti.",
-        "desc": "Los filtros reales del screener, pilotados en lenguaje natural.",
+        "answer": "{{count}} empresas pasan tus filtros. Aquí están, ordenadas por nota de calidad.",
         "question": "Búscame empresas europeas con nota mínima de 8/10 y un P/FCF por debajo de 15.",
         "chipZone": "zona PEA",
         "chipNote": "nota ≥ 8",
         "chipPfcf": "P/FCF < 15",
         "thTicker": "Ticker",
         "thName": "Empresa",
-        "thNote": "Nota",
-        "micro": "Resultado real del screener, no una lista inventada."
+        "thNote": "Nota"
       },
       "c": {
         "title": "Vigila, y actúa.",
-        "desc": "Lee tu watchlist, la comenta y la actualiza.",
+        "answer": "Revisada toda tu watchlist. Nota media, eslabones débiles, fundamentales a la baja y valores por encima del precio justo.",
         "question": "Revisa mi watchlist.",
         "question2": "Añade {{name}} a mi watchlist.",
         "exampleTag": "ejemplo",
         "avg": "Nota media",
         "weak": "Eslabones débiles",
         "down": "Fundamentales a la baja",
-        "above": "Por encima del precio justo",
-        "micro": "Lee, compara y actualiza tu lista."
+        "above": "Por encima del precio justo"
       },
       "quotas": "Gratis: 10 análisis al día, 2 valores comparados, 10 líneas de watchlist. Pro: ilimitado, 5 valores comparados, watchlist sin límite.",
       "connect": {

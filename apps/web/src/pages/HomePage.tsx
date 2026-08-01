@@ -15,18 +15,20 @@ import { MechanismSection, VeilleSection } from '../components/landing/Mechanism
 import { ClaudeSection } from '../components/landing/ClaudeSection.js';
 import { ProofSection, ForWhoSection, FinalSection } from '../components/landing/ProofSection.js';
 import { useLandingData } from '../components/landing/useLandingData.js';
+import { ScrollProgress } from '../components/landing/bits.js';
 import './HomePage.css';
 
 export function HomePage() {
-  const { featured, criteria, resilience, rows, peaRows } = useLandingData();
+  const { featured, criteria, resilience, pfcfPercentile, rows, peaRows } = useLandingData();
 
   return (
     <div className="lp">
+      <ScrollProgress />
       {/* SEO : titre + meta description (i18n) injectés au montage. */}
       <SeoHead titleKey="seo.home.title" descKey="seo.home.desc" />
       <HeroSection featured={featured} criteria={criteria} resilience={resilience} />
       <FrictionSection />
-      <MechanismSection featured={featured} criteria={criteria} />
+      <MechanismSection featured={featured} criteria={criteria} pfcfPercentile={pfcfPercentile} />
       <VeilleSection rows={rows} />
       <ClaudeSection featured={featured} peaRows={peaRows} rows={rows} />
       <ProofSection />

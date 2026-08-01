@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { PALMARES_PICKS } from '../../data/palmares.js';
-import { Chev, Stars, useSectionIn } from './bits.js';
+import { Chev, Stars, useSectionIn, SplitTitle } from './bits.js';
 import { TickerForm } from './HeroSection.js';
 
 interface Testimonial { name: string; role: string; quote: string; perf?: string }
@@ -44,7 +44,7 @@ export function ProofSection() {
       <div className="wrap">
         <div className="sec-head">
           <span className="kicker rv">{t('landing.proof.kicker')}</span>
-          <h2 className="rv" data-d="1" style={{ marginTop: 12 }}>{t('landing.proof.title')}</h2>
+          <SplitTitle text={t('landing.proof.title')} className="rv" />
         </div>
 
         <div className="proof-grid">
@@ -177,7 +177,7 @@ export function FinalSection() {
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className={`final ${seen ? 'in' : ''}`}>
       <div className="wrap">
-        <h2 className="rv">{t('landing.final.title')}</h2>
+        <SplitTitle text={t('landing.final.title')} className="rv" />
         <div className="rv final-form" data-d="1"><TickerForm id="final-ticker" /></div>
         <div className="faq">
           {faq.map(i => (

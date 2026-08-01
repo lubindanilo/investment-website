@@ -383,6 +383,10 @@
         "pfcfNote": "current, judged apart from the score",
         "yes": "yes",
         "no": "no",
+        "verdictQuality": "A quality business, on published figures.",
+        "cheap": "cheapest in its history",
+        "expensive": "most expensive",
+        "percentile": "The P/FCF sits at the {{pct}}th percentile of its own history.",
         "separate": "Price is assessed independently from quality."
       },
       "card3": {
@@ -392,6 +396,7 @@
         "target": "Target return",
         "buyPrice": "Recommended buy price",
         "explain": "Move one assumption and the buy price recomputes on published figures. Nothing is hidden.",
+        "locked": "Buy price shown on the stock page",
         "cta": "See {{ticker}}"
       }
     },
@@ -409,33 +414,30 @@
       "band3": "your account, your rights",
       "a": {
         "title": "It analyzes.",
-        "desc": "One question in plain language, a full Lubin card in return.",
-        "question": "Is {{name}} a good deal right now?",
-        "micro": "Figures computed by Lubin, not generated."
+        "answer": "{{name}} scores {{note}}/10 across the 10 quality criteria. Here is the detail, with the P/FCF and the resilience grade.",
+        "question": "Is {{name}} a good deal right now?"
       },
       "b": {
         "title": "It searches for you.",
-        "desc": "The real screener filters, driven in plain language.",
+        "answer": "{{count}} companies match your filters. Here they are, ranked by quality score.",
         "question": "Find me European companies scored at least 8/10 with a P/FCF under 15.",
         "chipZone": "PEA zone",
         "chipNote": "score ≥ 8",
         "chipPfcf": "P/FCF < 15",
         "thTicker": "Ticker",
         "thName": "Company",
-        "thNote": "Score",
-        "micro": "Real screener output, not an invented list."
+        "thNote": "Score"
       },
       "c": {
         "title": "It watches, and it acts.",
-        "desc": "It reads your watchlist, comments on it, and updates it.",
+        "answer": "Reviewed your whole watchlist. Average score, weak links, deteriorating fundamentals and holdings above fair price.",
         "question": "Review my watchlist.",
         "question2": "Add {{name}} to my watchlist.",
         "exampleTag": "example",
         "avg": "Average score",
         "weak": "Weak links",
         "down": "Deteriorating fundamentals",
-        "above": "Above fair price",
-        "micro": "It reads, it compares, and it updates your list."
+        "above": "Above fair price"
       },
       "quotas": "Free: 10 analyses a day, 2 stocks compared, 10 watchlist rows. Pro: unlimited, 5 stocks compared, watchlist without limit.",
       "connect": {

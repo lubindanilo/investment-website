@@ -9,6 +9,7 @@
  */
 import { useEffect, useRef, useState } from 'react';
 
+
 /**
  * Pose la classe `in` sur l'élément une fois visible (une seule fois). `once` à false
  * pour un cycle qui doit se rejouer (boucle des conversations).
@@ -99,4 +100,71 @@ export function Chev({ size = 17 }: { size?: number }) {
 /** Terme de jargon avec sa définition au survol (infobulle CSS, pas de JS). */
 export function Def({ children, def }: { children: React.ReactNode; def: string }) {
   return <span className="def" data-def={def} tabIndex={0}>{children}</span>;
+}
+
+/**
+ * Barre de progression de lecture, en haut de la page. Donne le sentiment que le scroll
+ * « pilote » quelque chose, et situe le lecteur dans une page longue.
+ */
+export function ScrollProgress() {
+  const [p, setP] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        setP(max > 0 ? Math.min(1, window.scrollY / max) : 0);
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); cancelAnimationFrame(raf); };
+  }, []);
+  return <div className="lp-progress" aria-hidden="true"><i style={{ transform: `scaleX(${p})` }} /></div>;
+}
+
+/**
+ * Parallaxe pilotée par le scroll : l'élément se décale de `strength` pixels entre son
+ * entrée et sa sortie de l'écran. Neutralisée en mouvement réduit.
+ */
+export function useParallax<T extends HTMLElement>(strength = 40): React.RefObject<T> {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const r = el.getBoundingClientRect();
+        const center = r.top + r.height / 2;
+        // -1 (haut de l'écran) → +1 (bas de l'écran)
+        const rel = (center - window.innerHeight / 2) / (window.innerHeight / 2 + r.height / 2);
+        el.style.setProperty('--py', `${(rel * strength).toFixed(1)}px`);
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
+  }, [strength]);
+  return ref;
+}
+
+/**
+ * Titre révélé mot à mot à l'entrée dans l'écran. Le texte reste un seul nœud lisible
+ * pour les robots et les lecteurs d'écran (les mots sont juste enveloppés).
+ */
+export function SplitTitle({ text, className = '' }: { text: string; className?: string }) {
+  const [ref, seen] = useSectionIn<HTMLHeadingElement>(0.2);
+  const words = text.split(' ');
+  return (
+    <h2 ref={ref} className={`split-title ${seen ? 'in' : ''} ${className}`.trim()}>
+      {words.map((w, i) => (
+        <span key={i} className="w" style={{ ['--i' as string]: i }}>{w}{i < words.length - 1 ? ' ' : ''}</span>
+      ))}
+    </h2>
+  );
 }

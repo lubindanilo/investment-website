@@ -408,6 +408,10 @@
         "pfcfNote": "courant, jugé à part de la note",
         "yes": "oui",
         "no": "non",
+        "verdictQuality": "Business de qualité, sur les chiffres publiés.",
+        "cheap": "au plus bas de son historique",
+        "expensive": "au plus haut",
+        "percentile": "Le P/FCF est au {{pct}}ᵉ percentile de son propre historique.",
         "separate": "Le prix est évalué indépendamment de la qualité."
       },
       "card3": {
@@ -417,6 +421,7 @@
         "target": "Rendement visé",
         "buyPrice": "Prix d'achat conseillé",
         "explain": "Bouge une hypothèse, le prix d'achat se recalcule sur les chiffres publiés. Rien n'est caché.",
+        "locked": "Prix d’achat visible sur la fiche",
         "cta": "Voir {{ticker}}"
       }
     },
@@ -434,33 +439,30 @@
       "band3": "ton compte, tes droits",
       "a": {
         "title": "Il analyse.",
-        "desc": "Une question en langage naturel, une fiche Lubin complète en retour.",
-        "question": "Est-ce que {{name}} est une bonne affaire en ce moment ?",
-        "micro": "Chiffres calculés par Lubin, pas générés."
+        "answer": "{{name}} sort à {{note}}/10 sur les 10 critères de qualité. Voici le détail, avec le P/FCF et le grade de résilience.",
+        "question": "Est-ce que {{name}} est une bonne affaire en ce moment ?"
       },
       "b": {
         "title": "Il cherche pour toi.",
-        "desc": "Les vrais filtres du screener, pilotés en langage naturel.",
+        "answer": "{{count}} sociétés passent tes filtres. Les voici, classées par note de qualité.",
         "question": "Trouve-moi des sociétés éligibles au PEA, notées au moins 8/10, avec un P/FCF sous 15.",
         "chipZone": "zone PEA",
         "chipNote": "note ≥ 8",
         "chipPfcf": "P/FCF < 15",
         "thTicker": "Ticker",
         "thName": "Société",
-        "thNote": "Note",
-        "micro": "Résultat réel du screener, pas une liste inventée."
+        "thNote": "Note"
       },
       "c": {
         "title": "Il surveille, et il agit.",
-        "desc": "Il lit ta watchlist, il la commente, et il la met à jour.",
+        "answer": "Revue faite sur toute ta watchlist. Note moyenne, maillons faibles, fondamentaux en baisse et titres au-dessus du juste prix.",
         "question": "Passe ma watchlist en revue.",
         "question2": "Ajoute {{name}} à ma watchlist.",
         "exampleTag": "exemple",
         "avg": "Note moyenne",
         "weak": "Maillons faibles",
         "down": "Fondamentaux en baisse",
-        "above": "Au-dessus du juste prix",
-        "micro": "Il lit, il compare, et il met à jour ta liste."
+        "above": "Au-dessus du juste prix"
       },
       "quotas": "Gratuit : 10 analyses par jour, 2 titres comparés, 10 lignes de watchlist. Pro : illimité, 5 titres comparés, watchlist sans limite.",
       "connect": {
