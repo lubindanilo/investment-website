@@ -195,13 +195,26 @@ interface TickerHit {
   scoreChiffresMax: number | null;
 }
 
-/** Seuil de similarité trigramme. En dessous, les rapprochements deviennent du bruit. */
-const FUZZY_MIN_SIMILARITY = 0.3;
+/**
+ * Seuil de rapprochement. Calibré sur les données réelles : à 0.4 on retrouve
+ * « microsft » → MSFT, « lvhm » → LVMH, « nvida » → NVDA, « amazn » → AMZN, tandis
+ * qu'une saisie absurde ne ramène rien.
+ */
+const FUZZY_MIN_SIMILARITY = 0.4;
 
 /**
  * Repli tolérant aux fautes, via l'extension Postgres pg_trgm (cf. migration
  * `*_pg_trgm_search`). Utilisé UNIQUEMENT quand la recherche stricte ne rend rien :
  * un agent tape souvent un nom de mémoire (« microsft ») et repartait les mains vides.
+ *
+ * Deux mesures distinctes, parce que les deux colonnes n'ont pas la même forme :
+ *   - `similarity` sur le TICKER, qui est court, donc comparable en entier ;
+ *   - `word_similarity` sur le NOM, qui compare la saisie au meilleur MOT du nom.
+ *     Indispensable : `similarity('lvhm', 'LVMH Moët Hennessy - Louis Vuitton, Société
+ *     Européenne')` ne vaut que 0.038 (la longueur du nom écrase le score), là où
+ *     `word_similarity` vaut 0.40. Baisser le seuil n'aurait donc rien réglé.
+ *
+ * Ce chemin ne s'exécute qu'en repli, sur ~30k lignes : le balayage est négligeable.
  * Dégradation propre : si l'extension manque, on renvoie une liste vide plutôt qu'une erreur.
  */
 async function searchTickerFuzzy(q: string): Promise<TickerHit[]> {
@@ -211,8 +224,8 @@ async function searchTickerFuzzy(q: string): Promise<TickerHit[]> {
       FROM "ScreenerTicker"
       WHERE "status" = 'scored'
         AND (similarity("ticker", ${q}) > ${FUZZY_MIN_SIMILARITY}
-          OR similarity(COALESCE("name", ''), ${q}) > ${FUZZY_MIN_SIMILARITY})
-      ORDER BY GREATEST(similarity("ticker", ${q}), similarity(COALESCE("name", ''), ${q})) DESC,
+          OR word_similarity(${q}, COALESCE("name", '')) > ${FUZZY_MIN_SIMILARITY})
+      ORDER BY GREATEST(similarity("ticker", ${q}), word_similarity(${q}, COALESCE("name", ''))) DESC,
                "scoreRatio" DESC NULLS LAST
       LIMIT 8`;
   } catch (err) {
