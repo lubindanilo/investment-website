@@ -232,9 +232,18 @@ export function MechanismSection({ featured, criteria, pfcfPercentile, ready }: 
 export function VeilleSection({ rows, ready }: { rows: LandingStock[]; ready: boolean }) {
   const { t } = useTranslation();
   const [ref, seen] = useSectionIn<HTMLElement>(0.1);
-  // Champ de points décoratif : positions figées (pas de Math.random au rendu, sinon
-  // le prérendu et l'hydratation divergent).
-  const dots = Array.from({ length: 60 * 14 }, (_, i) => (i * 37) % 83 === 0);
+  // Champ de points : positions FIGÉES (pas de Math.random au rendu, sinon le prérendu et
+  // l'hydratation divergent). Chaque point retenu s'allume au moment précis où la ligne de
+  // balayage passe sur sa colonne : le délai est sa position horizontale × la durée du
+  // balayage. Sans ça, les points clignotaient au hasard et on ne comprenait pas le geste.
+  const COLS = 60, ROWS = 14, SCAN_S = 4.5;
+  const dots = Array.from({ length: COLS * ROWS }, (_, i) => {
+    const seed = (i * 2654435761) % 1000;      // hachage entier déterministe
+    const hit = seed < 48;                      // ~4,8 % du champ, soit une quarantaine
+    const strong = hit && seed < 12;            // les mieux notés : plus gros, ils montent
+    const col = i % COLS;
+    return { hit, strong, delay: (col / COLS) * SCAN_S };
+  });
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className={`sec veille ${seen ? 'in' : ''}`} id="veille">
@@ -245,8 +254,12 @@ export function VeilleSection({ rows, ready }: { rows: LandingStock[]; ready: bo
         </div>
         <div className="field rv" data-d="2">
           <div className="dots" aria-hidden="true">
-            {dots.map((hit, i) => (
-              <b key={i} className={hit ? 'hit' : ''} style={hit ? { ['--dl' as string]: `${(0.25 + ((i * 13) % 170) / 100).toFixed(2)}s` } : undefined} />
+            {dots.map((d, i) => (
+              <b
+                key={i}
+                className={d.hit ? (d.strong ? 'hit strong' : 'hit') : ''}
+                style={d.hit ? { ['--dl' as string]: `${d.delay.toFixed(2)}s` } : undefined}
+              />
             ))}
           </div>
           <div className="scanline" aria-hidden="true" />
