@@ -6,7 +6,7 @@
  * cours, devise, secteur, flag opportunité). Aucun chiffre inventé. Si l'appel échoue,
  * on retombe sur un repli neutre pour que la page reste lisible (et prérendue) sans data.
  */
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { ScreenerTopRow } from '@lubin/shared';
 import { api, type ShowcaseStock } from '../../lib/api.js';
 
@@ -113,19 +113,23 @@ export function useLandingData(): LandingData {
   }, []);
 
   // La vitrine pilote le hero ; à défaut, la meilleure opportunité du screener.
-  const max = showcase?.scoreChiffresMax ?? 0;
-  const featured: LandingStock = showcase
-    ? {
-        ticker: showcase.ticker,
-        name: showcase.name ?? showcase.ticker,
-        sector: showcase.sector,
-        note10: showcase.scoreChiffres != null && max > 0 ? Math.round((showcase.scoreChiffres / max) * 10) : null,
-        pfcfTTM: showcase.pfcfTTM,
-        price: showcase.price,
-        currency: showcase.currency,
-        opportunity: showcase.opportunity,
-      }
-    : rows[0] ?? FALLBACK[0]!;
+  // IDENTITÉ STABLE obligatoire : ce objet sert de dépendance à des effets qui jouent une
+  // animation longue (le lecteur MCP). Le recréer à chaque rendu relançait la boucle en
+  // continu, et le fil de conversation repartait de zéro sans jamais rien afficher.
+  const featured: LandingStock = useMemo(() => {
+    const max = showcase?.scoreChiffresMax ?? 0;
+    if (!showcase) return rows[0] ?? FALLBACK[0]!;
+    return {
+      ticker: showcase.ticker,
+      name: showcase.name ?? showcase.ticker,
+      sector: showcase.sector,
+      note10: showcase.scoreChiffres != null && max > 0 ? Math.round((showcase.scoreChiffres / max) * 10) : null,
+      pfcfTTM: showcase.pfcfTTM,
+      price: showcase.price,
+      currency: showcase.currency,
+      opportunity: showcase.opportunity,
+    };
+  }, [showcase, rows]);
 
   return {
     featured,

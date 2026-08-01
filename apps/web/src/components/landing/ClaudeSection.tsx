@@ -10,12 +10,13 @@
  * filtres affichés). La revue de watchlist dépend du compte, elle est marquée « exemple ».
  *
  * Accessibilité et robots : le transcript complet est rendu en clair (classe `sr-only`) dès
- * le chargement, et `prefers-reduced-motion` affiche la conversation entière d'un coup.
+ * le chargement, et le mode sans mouvement affiche la conversation entière d'un coup.
  */
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { DotScore, useSectionIn, SplitTitle } from './bits.js';
+import { useMotion } from './motion.js';
 import { fmtPrice, type LandingStock } from './useLandingData.js';
 
 /** Un bloc affiché dans le fil. */
@@ -67,12 +68,20 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
   const { t } = useTranslation();
   const locale = currentLocale();
   const [headRef, headIn] = useSectionIn<HTMLDivElement>();
+  const motion = useMotion();
   const price = fmtPrice(featured.price, featured.currency, locale);
-  const added = rows[1] ?? rows[0] ?? featured;
+  const added = useMemo(() => rows[1] ?? rows[0] ?? featured, [rows, featured]);
 
   const [items, setItems] = useState<Item[]>([]);
-  const [input, setInput] = useState('');
+  // La frappe passe par le DOM (ref) et non par un state : sinon chaque caractère
+  // re-rendrait toute la section, et la « vidéo » saccade sur les machines modestes.
+  const inputRef = useRef<HTMLSpanElement>(null);
+  const setInput = (v: string) => { if (inputRef.current) inputRef.current.textContent = v; };
   const [chapter, setChapter] = useState(0);
+  // Visibilité : une simple RÉFÉRENCE, pas un state. La boucle de lecture la consulte pour
+  // se mettre en pause hors écran ; en faire une dépendance d'effet tuait la lecture en
+  // cours dès que l'observer changeait d'avis (fil figé au milieu d'un échange).
+  const visibleRef = useRef(true);
   const [live, setLive] = useState(false);
   const threadRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<HTMLDivElement>(null);
@@ -86,9 +95,16 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
   useEffect(() => {
     const el = playerRef.current;
     if (!el || typeof IntersectionObserver === 'undefined') { setLive(true); return; }
-    const obs = new IntersectionObserver(es => setLive(es.some(e => e.isIntersecting)), { threshold: 0.2 });
+    const obs = new IntersectionObserver(es => {
+      const seen = es.some(e => e.isIntersecting);
+      visibleRef.current = seen;
+      if (seen) setLive(true);
+    }, { threshold: 0.2 });
     obs.observe(el);
-    return () => obs.disconnect();
+    // Filet : certains contextes (webviews, pages en arrière-plan, navigateurs embarqués)
+    // ne délivrent jamais de callback. Sans ça, la démo ne démarrerait jamais.
+    const fallback = setTimeout(() => { visibleRef.current = true; setLive(true); }, 1200);
+    return () => { obs.disconnect(); clearTimeout(fallback); };
   }, []);
 
   // Le fil suit toujours le dernier message, comme une vraie conversation.
@@ -98,11 +114,8 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
   }, [items]);
 
   useEffect(() => {
-    if (!live) return;
-    const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // Mouvement réduit : la conversation complète, d'un bloc, sans animation.
-    if (reduced) {
+    // Sans mouvement : la conversation complète, d'un bloc, sans animation.
+    if (!motion) {
       setItems([
         { kind: 'user', text: q1 },
         { kind: 'tool', label: `analyze_stock("${featured.ticker}")`, done: true, ms: 240 },
@@ -149,11 +162,17 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
       { do: 'clear' },
     ];
 
+    /** Met la lecture en pause tant que la section n'est pas à l'écran. */
+    async function waitVisible() {
+      while (!cancelled && !visibleRef.current) await sleep(300);
+    }
+
     async function run() {
-      // Reprend au début à chaque entrée dans le viewport.
       setItems([]); setInput(''); setChapter(0);
       while (!cancelled) {
         for (const [i, step] of script.entries()) {
+          if (cancelled) return;
+          await waitVisible();
           if (cancelled) return;
           // Le chapitre suit la position dans le script (3 blocs).
           setChapter(i < 6 ? 0 : i < 12 ? 1 : 2);
@@ -211,7 +230,7 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
     void run();
     return () => { cancelled = true; };
     // Le script dépend des libellés et des données affichées.
-  }, [live, featured, peaRows, added, q1, q2, q3, q4, t]);
+  }, [motion, featured, peaRows, added, q1, q2, q3, q4, t]);
 
   const chapters = [t('landing.claude.a.title'), t('landing.claude.b.title'), t('landing.claude.c.title')];
 
@@ -229,7 +248,7 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
           </div>
         </div>
 
-        <div className="player" ref={playerRef}>
+        <div className="player" ref={playerRef} data-live={live ? '1' : '0'} data-items={items.length}>
           <div className="screen">
             <div className="screen-bar">
               <i /><i /><i />
@@ -272,7 +291,7 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
 
             {/* Barre de saisie : c'est elle qui « tape » les questions. */}
             <div className="composer">
-              <span className="composer-txt">{input}<span className="caret" /></span>
+              <span className="composer-txt"><span ref={inputRef} /><span className="caret" /></span>
               <span className="composer-send" aria-hidden="true">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
               </span>

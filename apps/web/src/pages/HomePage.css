@@ -1,7 +1,8 @@
 /* ════════════════════════════════════════════════════════════════════════════
    Landing v2 — tout est scopé sous `.lp` pour ne pas fuir sur le reste du site.
    Les tokens (couleurs, radii, ombres, typo) viennent de styles/global.css.
-   Les animations sont neutralisées par prefers-reduced-motion en fin de fichier.
+   Le mouvement est piloté par l'attribut data-motion sur `.lp` (voir landing/motion.ts) :
+   data-motion="off" fige tout, y compris si le systeme demande de réduire les animations.
    ════════════════════════════════════════════════════════════════════════════ */
 
 .lp { --ease: cubic-bezier(.3, .7, .3, 1); background: var(--bg); }
@@ -414,25 +415,24 @@
 }
 
 /* ---------- accessibilité : mouvement réduit ---------- */
-@media (prefers-reduced-motion: reduce) {
-  .lp *, .lp *::before, .lp *::after { animation: none !important; transition: none !important; }
-  .lp .rv { opacity: 1; transform: none; }
-  .lp .crit, .lp .srow, .lp .reply, .lp .working, .lp .dotgrid span, .lp .ltable tbody tr { opacity: 1 !important; transform: none !important; }
-  .lp .pick-bar { transform: scaleX(1) !important; }
-  .lp .type { width: 100% !important; }
-  .lp .who.off { opacity: 1 !important; filter: none !important; }
-  .lp .stack .sheet { opacity: 1 !important; transform: translate(-50%, -50%) var(--t) !important; }
-  .lp .dots b.hit { background: var(--brand) !important; }
-  .lp .track i { left: var(--b) !important; }
-  .lp .track u { width: var(--b) !important; }
-  .lp .scanbar, .lp .splitline { display: none; }
-  .lp .bub-u, .lp .micro, .lp .working, .lp .toolcall { opacity: 1 !important; transform: none !important; }
-  .lp .thread.live { height: auto; overflow: visible; }
-  .lp .caret, .lp .live-dot.on { display: none; }
-  .lp .split i, .lp .crit { opacity: 1 !important; transform: none !important; }
-  .lp .aurora { display: none; }
-  .lp .acard.tilt { transform: none !important; }
-}
+/* Sans mouvement (réglage système ou ?motion=0) : tout le contenu reste visible, figé. */
+.lp[data-motion="off"] *, .lp[data-motion="off"] *::before, .lp[data-motion="off"] *::after { animation: none !important; transition: none !important; }
+.lp[data-motion="off"] .rv { opacity: 1; transform: none; }
+.lp[data-motion="off"] .crit, .lp[data-motion="off"] .srow, .lp[data-motion="off"] .reply, .lp[data-motion="off"] .working, .lp[data-motion="off"] .dotgrid span, .lp[data-motion="off"] .ltable tbody tr { opacity: 1 !important; transform: none !important; }
+.lp[data-motion="off"] .pick-bar { transform: scaleX(1) !important; }
+.lp[data-motion="off"] .type { width: 100% !important; }
+.lp[data-motion="off"] .who.off { opacity: 1 !important; filter: none !important; }
+.lp[data-motion="off"] .stack .sheet { opacity: 1 !important; transform: translate(-50%, -50%) var(--t) !important; }
+.lp[data-motion="off"] .dots b.hit { background: var(--brand) !important; }
+.lp[data-motion="off"] .track i { left: var(--b) !important; }
+.lp[data-motion="off"] .track u { width: var(--b) !important; }
+.lp[data-motion="off"] .scanbar, .lp[data-motion="off"] .splitline { display: none; }
+.lp[data-motion="off"] .bub-u, .lp[data-motion="off"] .micro, .lp[data-motion="off"] .working, .lp[data-motion="off"] .toolcall { opacity: 1 !important; transform: none !important; }
+.lp[data-motion="off"] .thread.live { height: auto; overflow: visible; }
+.lp[data-motion="off"] .caret, .lp[data-motion="off"] .live-dot.on { display: none; }
+.lp[data-motion="off"] .split i, .lp[data-motion="off"] .crit { opacity: 1 !important; transform: none !important; }
+.lp[data-motion="off"] .aurora { display: none; }
+.lp[data-motion="off"] .acard.tilt { transform: none !important; }
 
 /* ---------- dynamisme au scroll ---------- */
 /* Barre de lecture en haut de page. */
@@ -451,8 +451,5 @@
   .lp .split-title { font-size: 29px; }
   .lp .hero-side { transform: none; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .lp .split-title .w { opacity: 1 !important; transform: none !important; }
-  .lp-progress { display: none; }
-  .lp .hero-side { transform: none !important; }
-}
+.lp[data-motion="off"] .split-title .w { opacity: 1 !important; transform: none !important; }
+.lp[data-motion="off"] .hero-side { transform: none !important; }

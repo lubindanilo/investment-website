@@ -16,13 +16,17 @@ import { ClaudeSection } from '../components/landing/ClaudeSection.js';
 import { ProofSection, ForWhoSection, FinalSection } from '../components/landing/ProofSection.js';
 import { useLandingData } from '../components/landing/useLandingData.js';
 import { ScrollProgress } from '../components/landing/bits.js';
+import { MotionContext, useMotionPreference } from '../components/landing/motion.js';
 import './HomePage.css';
 
 export function HomePage() {
   const { featured, criteria, resilience, pfcfPercentile, rows, peaRows } = useLandingData();
+  // Une seule décision pour toute la page : le CSS la lit via data-motion, le JS via le contexte.
+  const motion = useMotionPreference();
 
   return (
-    <div className="lp">
+    <MotionContext.Provider value={motion}>
+    <div className="lp" data-motion={motion ? 'on' : 'off'}>
       <ScrollProgress />
       {/* SEO : titre + meta description (i18n) injectés au montage. */}
       <SeoHead titleKey="seo.home.title" descKey="seo.home.desc" />
@@ -35,5 +39,6 @@ export function HomePage() {
       <ForWhoSection />
       <FinalSection />
     </div>
+    </MotionContext.Provider>
   );
 }

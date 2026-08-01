@@ -129,12 +129,11 @@ export function ScrollProgress() {
  * Parallaxe pilotée par le scroll : l'élément se décale de `strength` pixels entre son
  * entrée et sa sortie de l'écran. Neutralisée en mouvement réduit.
  */
-export function useParallax<T extends HTMLElement>(strength = 40): React.RefObject<T> {
+export function useParallax<T extends HTMLElement>(strength = 40, motion = true): React.RefObject<T> {
   const ref = useRef<T>(null);
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!el || !motion) return;
     let raf = 0;
     const onScroll = () => {
       cancelAnimationFrame(raf);
@@ -149,7 +148,7 @@ export function useParallax<T extends HTMLElement>(strength = 40): React.RefObje
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
-  }, [strength]);
+  }, [strength, motion]);
   return ref;
 }
 

@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
 import { Def, ScoreRing, useParallax, useSectionIn } from './bits.js';
+import { useMotion } from './motion.js';
 import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
 /** Champ ticker + bouton : le point d'entrée réel de la page (hero et CTA final). */
@@ -51,9 +52,10 @@ export function TickerForm({ id }: { id: string }) {
 /** Compteur animé 0 → valeur, déclenché au montage (respecte reduced-motion). */
 function CountUp({ value, decimals = 1, prefix = '', suffix = '' }: { value: number; decimals?: number; prefix?: string; suffix?: string }) {
   const locale = currentLocale();
+  const motion = useMotion();
   const [v, setV] = useState(0);
   useEffect(() => {
-    if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) { setV(value); return; }
+    if (!motion) { setV(value); return; }
     let raf = 0; let start: number | null = null;
     const dur = 1200;
     const tick = (ts: number) => {
@@ -64,17 +66,16 @@ function CountUp({ value, decimals = 1, prefix = '', suffix = '' }: { value: num
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [value]);
+  }, [value, motion]);
   return <>{prefix}{v.toLocaleString(locale, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}{suffix}</>;
 }
 
 /** Parallaxe douce : la carte s'incline très légèrement vers le curseur. */
-function useTilt<T extends HTMLElement>() {
+function useTilt<T extends HTMLElement>(motion: boolean) {
   const ref = useRef<T>(null);
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-    if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!el || !motion) return;
     if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) return;
     let raf = 0;
     const onMove = (e: MouseEvent) => {
@@ -97,7 +98,7 @@ function useTilt<T extends HTMLElement>() {
     window.addEventListener('mousemove', onMove, { passive: true });
     el.addEventListener('mouseleave', onLeave);
     return () => { window.removeEventListener('mousemove', onMove); el.removeEventListener('mouseleave', onLeave); cancelAnimationFrame(raf); };
-  }, []);
+  }, [motion]);
   return ref;
 }
 
@@ -138,8 +139,9 @@ export function HeroSection({ featured, criteria, resilience }: {
 }) {
   const { t } = useTranslation();
   const locale = currentLocale();
-  const cardRef = useTilt<HTMLDivElement>();
-  const parallaxRef = useParallax<HTMLDivElement>(46);
+  const motion = useMotion();
+  const cardRef = useTilt<HTMLDivElement>(motion);
+  const parallaxRef = useParallax<HTMLDivElement>(46, motion);
   const price = fmtPrice(featured.price, featured.currency, locale);
   const passCount = criteria.filter(c => c.status === 'pass').length;
 
