@@ -105,7 +105,6 @@
     }
   },
   "news": {
-    "title": "Latest news — {{ticker}}",
     "subtitle": "Last 60 days"
   },
   "screener": {
@@ -334,75 +333,217 @@
   "langSwitcher": {
     "label": "Language"
   },
-  "home": {
+  "landing": {
     "hero": {
-      "chip": "Automated fundamental analysis",
-      "titleLine1": "Beat the market with quality stocks",
-      "titleAccent": "at the right price.",
-      "lede": "The monitor scores 30,000+ stocks on 10 criteria, continuously, and surfaces the best. You check the price is right, and decide.",
-      "valueLine": "Every stock scored on 10 fundamental criteria, with a current valuation analysis and a recommended buy price.",
-      "ctaAnalyze": "Analyze a stock",
-      "ctaScreener": "Explore the screener"
+      "chip": "Also available inside Claude",
+      "title": "Stop paying the wrong price for a great company.",
+      "subBefore": "Paste a ",
+      "subTicker": "ticker",
+      "subAfter": ": quality scored out of 10, and the price at which it is worth buying.",
+      "placeholder": "AAPL, MC.PA, 7203.T…",
+      "inputLabel": "Ticker of the stock to analyze",
+      "cta": "Analyze a stock",
+      "ctaSecondary": "Explore the screener",
+      "statPerfValue": "+24.9 %",
+      "statPerfLabel": "annualized return · 10/10 stocks",
+      "statTickers": "stocks monitored continuously"
     },
-    "stats": {
-      "perfValue": "+24.9 %",
-      "perfLabel": "annualized return · 10/10 stocks",
-      "tickers": "tickers monitored"
+    "def": {
+      "ticker": "Ticker: the short code of a listed stock, for example AAPL for Apple or MC.PA for LVMH in Paris.",
+      "pfcf": "P/FCF: share price divided by free cash flow per share. The lower it is, the less you pay for the cash generated."
     },
-    "how": {
-      "kicker": "How it works",
-      "title": "The best stocks, without hunting for them"
+    "card": {
+      "opportunity": "Opportunity",
+      "qualityKicker": "Fundamental quality",
+      "qualityDesc": "Scored {{note}}/10 across the 10 quality criteria, recomputed at every earnings release.",
+      "price": "Price",
+      "note": "Quality score",
+      "live": "Opportunity of the moment, straight from the live screener."
     },
-    "steps": {
+    "friction": {
+      "title": "Three hours of financial statements for one conviction. And still doubt about the price."
+    },
+    "criteria": {
+      "netMargin": "Net margin",
+      "revenue": "Revenue growth",
+      "fcfPerShare": "FCF per share growth",
+      "buybacks": "Share buybacks",
+      "fcfMargin": "Free cash flow margin",
+      "opLeverage": "Operating leverage",
+      "cashRoce": "Cash ROCE",
+      "netDebt": "Net debt / FCF",
+      "cashConv": "Cash conversion",
+      "ccc": "Cash conversion cycle"
+    },
+    "mech": {
+      "kicker": "The mechanism",
+      "title": "Quality first. Price next. Never the two mixed together.",
+      "measured": "measured",
+      "steps": {
+        "0": "Quality first. 10 criteria, not an opinion.",
+        "1": "Then the price. Judged separately, never blended in.",
+        "2": "You leave with a buy price, not a hot take."
+      },
+      "card1": {
+        "title": "The 10 quality criteria · {{ticker}}",
+        "score": "Quality score"
+      },
+      "card2": {
+        "quality": "Quality",
+        "qualityDesc": "The score of {{name}} depends on published figures only.",
+        "valuation": "Valuation",
+        "pfcfNote": "current, judged apart from the score",
+        "yes": "yes",
+        "no": "no",
+        "separate": "Price is assessed independently from quality."
+      },
+      "card3": {
+        "title": "Your valuation assumptions",
+        "growth": "FCF growth",
+        "multiple": "Exit multiple",
+        "target": "Target return",
+        "buyPrice": "Recommended buy price",
+        "explain": "Move one assumption and the buy price recomputes on published figures. Nothing is hidden.",
+        "cta": "See {{ticker}}"
+      }
+    },
+    "veille": {
+      "kicker": "The monitor",
+      "title": "30,000+ stocks scored continuously. The best rise on their own.",
+      "note": "Opportunities of the moment, exactly as the screener ranks them right now."
+    },
+    "claude": {
+      "kicker": "MCP connector",
+      "title": "Your analysis, inside the conversation.",
+      "sub": "Connect Lubin to Claude. It queries your scores, your screener and your watchlist.",
+      "band1": "10 tools",
+      "band2": "read and write",
+      "band3": "your account, your rights",
+      "a": {
+        "title": "It analyzes.",
+        "desc": "One question in plain language, a full Lubin card in return.",
+        "question": "Is {{name}} a good deal right now?",
+        "micro": "Figures computed by Lubin, not generated."
+      },
+      "b": {
+        "title": "It searches for you.",
+        "desc": "The real screener filters, driven in plain language.",
+        "question": "Find me European companies scored at least 8/10 with a P/FCF under 15.",
+        "chipZone": "PEA zone",
+        "chipNote": "score ≥ 8",
+        "chipPfcf": "P/FCF < 15",
+        "thTicker": "Ticker",
+        "thName": "Company",
+        "thNote": "Score",
+        "micro": "Real screener output, not an invented list."
+      },
+      "c": {
+        "title": "It watches, and it acts.",
+        "desc": "It reads your watchlist, comments on it, and updates it.",
+        "question": "Review my watchlist.",
+        "question2": "Add {{name}} to my watchlist.",
+        "exampleTag": "example",
+        "avg": "Average score",
+        "weak": "Weak links",
+        "down": "Deteriorating fundamentals",
+        "above": "Above fair price",
+        "micro": "It reads, it compares, and it updates your list."
+      },
+      "readLabel": "Read",
+      "readCount": "8 tools",
+      "writeLabel": "Write",
+      "writeCount": "2 tools",
+      "tools": {
+        "search": "Search a ticker",
+        "analyze": "Analyze a stock",
+        "screen": "Filter the screener",
+        "resilience": "Score resilience",
+        "trend": "Read the trend",
+        "compare": "Compare 5 stocks",
+        "listWatchlist": "List the watchlist",
+        "reviewWatchlist": "Review the watchlist",
+        "addWatchlist": "Add to the watchlist",
+        "removeWatchlist": "Remove from the watchlist"
+      },
+      "quotas": "Free: 10 analyses a day, 2 stocks compared, 10 watchlist rows. Pro: unlimited, 5 stocks compared, watchlist without limit.",
+      "connect": {
+        "kicker": "Connect in 30 seconds",
+        "step1": "In Claude, open settings, then connectors.",
+        "step2": "Add a connector and paste the URL shown here.",
+        "step3": "Authorize your Lubin account, and you are connected.",
+        "copy": "Copy the URL",
+        "copied": "Copied"
+      }
+    },
+    "proof": {
+      "kicker": "The proof",
+      "title": "The track record, unfiltered.",
+      "track": {
+        "title": "Past opportunities",
+        "badge": "Dated backtest",
+        "line": "{{years}} years held, index over the same period: {{index}}",
+        "legendLub": "Lubin opportunity",
+        "legendIdx": "S&P 500 over the same period",
+        "honest": "Honest reading: these are the best cases of the backtest, not the average. Across the 310 opportunities tested, about 34 % beat the S&P 500, and the test universe excludes delisted companies (survivorship bias).",
+        "cta": "See the full track record"
+      },
+      "method": {
+        "title": "Methodology, unfolded",
+        "good": "Good threshold",
+        "sources": "Sources and inspirations: Buffett, Terry Smith, Damodaran, Mauboussin. Every criterion has its formula and its thresholds.",
+        "cta": "See the 10 criteria",
+        "cashRoce": {
+          "name": "Cash ROCE",
+          "formula": "Cash ROCE = FCF / capital employed",
+          "good": "≥ 15 %",
+          "why": "Cash generated per unit of capital employed is far harder to dress up than accounting profit."
+        },
+        "cashConv": {
+          "name": "Cash conversion",
+          "formula": "Conversion = FCF / net income",
+          "good": "≥ 90 %",
+          "why": "Profit that never turns into cash rarely ends up in your pocket."
+        }
+      },
+      "testis": {
+        "title": "What users say"
+      }
+    },
+    "forwho": {
+      "kicker": "Who it is for",
+      "notForLabel": "Not for you",
+      "notFor": "Not for you if you want an ETF and zero decisions.",
+      "forLabel": "For you",
+      "for": "For you if you pick your own stocks and want to know at what price to enter."
+    },
+    "final": {
+      "title": "Find your next gem, at the right price."
+    },
+    "faq": {
       "0": {
-        "title": "The monitor scores the whole market",
-        "text": "30,000+ stocks scored continuously on 10 criteria. The 10/10s rise to the top on their own."
+        "q": "Does it actually work?",
+        "a": "The method is public: 10 fundamental criteria, formulas and thresholds shown on the Methodology page. The track record shows real, dated backtest cases with their honest reading. A backtest, not a promise."
       },
       "1": {
-        "title": "You open the analysis",
-        "text": "A score out of 10, its green/amber/red split, and the detail of all 10 criteria. A company's essentials on one page."
+        "q": "How is it different from a classic screener?",
+        "a": "A screener filters. Lubin judges. Business quality is scored on 10 criteria, and the price is assessed separately to produce a recommended buy price. An excellent company can be scored 10/10 and called too expensive on the same day."
       },
       "2": {
-        "title": "You check the price and decide",
-        "text": "The valuation gives a recommended buy price, separate from quality. You know what to buy, and at what price."
+        "q": "Does the AI make the numbers up?",
+        "a": "No. Scores are computed by Lubin from figures published by the companies. Inside Claude, the MCP connector only calls the 10 Lubin tools and reports their output: the model reads your figures, it does not produce them."
+      },
+      "3": {
+        "q": "Is this investment advice?",
+        "a": "No. Lubin is a decision-support tool. No personalized recommendation, no portfolio management. Buy and sell decisions remain yours."
+      },
+      "4": {
+        "q": "What is free, and what is Pro?",
+        "a": "Free: 10 analyses a day, 2 stocks compared, 10 watchlist rows, Claude connector included. Pro: unlimited analyses, 5 stocks compared, watchlist without limit."
+      },
+      "5": {
+        "q": "Where does the data come from?",
+        "a": "From published financial statements (annual and quarterly accounts) and market prices, refreshed continuously across more than 30,000 stocks. Every card shows the source and the date of the figures used."
       }
-    },
-    "features": {
-      "kicker": "Your toolkit",
-      "title": "From discovery to decision",
-      "items": {
-        "screener": {
-          "title": "Screener",
-          "text": "Discover new stocks: filter the whole market by sector, by top scores, or by the most attractive P/FCF.",
-          "cta": "Open the screener"
-        },
-        "palmares": {
-          "title": "Track record",
-          "text": "See past opportunities that beat the market, in a backtest, with the honest reading (bias and hit rate included).",
-          "cta": "See the track record"
-        },
-        "quali": {
-          "title": "AI qualitative analysis",
-          "text": "Understand the business in 2 minutes: activity, management and risks, what the numbers don't tell you.",
-          "cta": "Analyze a stock"
-        },
-        "compare": {
-          "title": "Comparator",
-          "text": "Torn between several stocks? Put them head to head: the best of each criterion stands out, row by row.",
-          "cta": "Compare stocks"
-        },
-        "watchlist": {
-          "title": "Watchlist",
-          "text": "Never miss the right moment: price, score and upcoming earnings of your favorites, tracked for you.",
-          "cta": "View my watchlist"
-        }
-      }
-    },
-    "cta": {
-      "title": "Find the 10/10s without hunting for them",
-      "subtitle": "The monitor scores the whole market continuously, you reap the best. Free, no credit card.",
-      "analyze": "Analyze a stock",
-      "signup": "Start for free"
     }
   },
   "auth": {
@@ -1181,18 +1322,6 @@
     "retry": "Retry"
   },
   "social": {
-    "kicker": "Proof in the numbers",
-    "title": "They no longer hunt for gems. They receive them.",
-    "subtitle": "Thousands of investors rely on Lubin to decide fast, on reliable numbers.",
-    "perf": {
-      "kicker": "Model portfolio · 10/10 ratings",
-      "desc": "Average 12-month performance of stocks detected and rated 10/10 by the monitor, vs {{idx}} for the S&P 500, the benchmark index.",
-      "legendStocks": "10/10 stocks",
-      "legendIndex": "Benchmark index",
-      "row1y": "1 year",
-      "row3y": "3 years · annualized",
-      "row5y": "5 years · annualized"
-    },
     "trust": {
       "disclaimer": "Real performance of the model portfolio of stocks rated 10/10. Past performance does not guarantee future results."
     },

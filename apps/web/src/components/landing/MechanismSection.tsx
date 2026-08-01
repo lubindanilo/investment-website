@@ -1,0 +1,199 @@
+/**
+ * Sections 3 et 4 : le mécanisme (qualité, puis prix, puis prix d'achat) et la veille.
+ *
+ * Desktop : trois sentinelles de scroll pilotent la carte affichée et l'étape active.
+ * Mobile : les trois cartes deviennent un carrousel scroll-snap (pas de scroll détourné).
+ *
+ * Les valeurs affichées (note, P/FCF, cours, opportunité) viennent du screener. Le prix
+ * d'achat n'est PAS exposé publiquement : la carte 3 montre les hypothèses et renvoie vers
+ * la fiche du titre plutôt que d'afficher un chiffre inventé.
+ */
+import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import { currentLocale } from '../../i18n/index.js';
+import { Icon } from '../ui/primitives.js';
+import { Def, ScoreRing, useSectionIn } from './bits.js';
+import { fmtPrice, type LandingStock } from './useLandingData.js';
+
+/** Clés i18n des 10 critères de qualité (mêmes libellés que la méthodologie). */
+const CRITERIA = ['netMargin', 'revenue', 'fcfPerShare', 'buybacks', 'fcfMargin', 'opLeverage', 'cashRoce', 'netDebt', 'cashConv', 'ccc'] as const;
+
+export function MechanismSection({ featured }: { featured: LandingStock }) {
+  const { t } = useTranslation();
+  const locale = currentLocale();
+  const [step, setStep] = useState(0);
+  const sentinels = useRef<Array<HTMLDivElement | null>>([]);
+  const price = fmtPrice(featured.price, featured.currency, locale);
+
+  // Sentinelles desktop : la carte visible suit la position de lecture.
+  useEffect(() => {
+    if (typeof IntersectionObserver === 'undefined') return;
+    if (typeof window !== 'undefined' && window.innerWidth <= 1000) return;
+    const obs = new IntersectionObserver(entries => {
+      for (const e of entries) {
+        if (e.isIntersecting) setStep(Number((e.target as HTMLElement).dataset.sent));
+      }
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    for (const el of sentinels.current) if (el) obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const [headRef, headIn] = useSectionIn<HTMLDivElement>();
+
+  return (
+    <section className="sec mech" id="mecanisme">
+      <div className="wrap">
+        <div ref={headRef} className={`sec-head ${headIn ? 'in' : ''}`} style={{ marginBottom: 48 }}>
+          <span className="kicker rv">{t('landing.mech.kicker')}</span>
+          <h2 className="rv" data-d="1" style={{ marginTop: 12 }}>{t('landing.mech.title')}</h2>
+        </div>
+
+        <div className="mech-grid">
+          <div className="mech-steps">
+            {[0, 1, 2].map(i => (
+              <div key={i} className="mstep" data-on={step === i ? '1' : '0'}>
+                <span className="n">{`0${i + 1}`}</span>
+                <h3>{t(`landing.mech.steps.${i}`)}</h3>
+              </div>
+            ))}
+          </div>
+
+          <div>
+            <div className="mech-stage">
+              {/* 3a — la qualité, 10 critères mesurés */}
+              <div className="mcard" data-on={step === 0 ? '1' : '0'}>
+                <div className="panel" style={{ height: '100%' }}>
+                  <h4>{t('landing.mech.card1.title', { ticker: featured.ticker })}</h4>
+                  <div className="crit-list">
+                    {CRITERIA.map((c, i) => (
+                      <div key={c} className="crit-line" style={{ transitionDelay: `${i * 0.07}s` }}>
+                        <span className="cdot" />
+                        {t(`landing.criteria.${c}`)}
+                        <span className="v">{t('landing.mech.measured')}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="row panel-foot">
+                    <span className="tiny muted" style={{ fontWeight: 600 }}>{t('landing.mech.card1.score')}</span>
+                    <span className="num panel-score">{featured.note10 ?? '—'}/10</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3b — le prix, jugé à part */}
+              <div className="mcard mgrid2" data-on={step === 1 ? '1' : '0'}>
+                <div className="panel">
+                  <h4>{t('landing.mech.card2.quality')}</h4>
+                  <div className="row" style={{ gap: 14 }}>
+                    <ScoreRing note10={featured.note10} size={76} />
+                    <div className="tiny muted" style={{ lineHeight: 1.5 }}>
+                      {t('landing.mech.card2.qualityDesc', { name: featured.name })}
+                    </div>
+                  </div>
+                </div>
+                <div className="panel panel-alt">
+                  <h4>{t('landing.mech.card2.valuation')}</h4>
+                  <div className="num panel-big">{featured.pfcfTTM != null ? `${featured.pfcfTTM.toFixed(1)}x` : '—'}</div>
+                  <div className="tiny muted" style={{ marginTop: 4 }}>
+                    <Def def={t('landing.def.pfcf')}>P/FCF</Def> {t('landing.mech.card2.pfcfNote')}
+                  </div>
+                  <div className="crit-list" style={{ marginTop: 18 }}>
+                    {price && <div className="crit-line" style={{ transitionDelay: '.1s' }}>{t('landing.card.price')}<span className="v">{price}</span></div>}
+                    <div className="crit-line" style={{ transitionDelay: '.16s' }}>
+                      {t('landing.card.opportunity')}
+                      <span className="v" style={{ color: featured.opportunity ? 'var(--good-ink)' : 'var(--ink-3)' }}>
+                        {featured.opportunity ? t('landing.mech.card2.yes') : t('landing.mech.card2.no')}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="panel-note"><span className="tiny">{t('landing.mech.card2.separate')}</span></div>
+                </div>
+              </div>
+
+              {/* 3c — les hypothèses, et le prix d'achat sur la fiche */}
+              <div className="mcard" data-on={step === 2 ? '1' : '0'}>
+                <div className="panel" style={{ height: '100%' }}>
+                  <h4>{t('landing.mech.card3.title')}</h4>
+                  <div className="col" style={{ gap: 18 }}>
+                    {[
+                      { k: 'growth', x: '62%', v: '8,5 %' },
+                      { k: 'multiple', x: '48%', v: '20,0x' },
+                      { k: 'target', x: '70%', v: '10,0 %' },
+                    ].map(s => (
+                      <div key={s.k} className="slider">
+                        {t(`landing.mech.card3.${s.k}`)}
+                        <div className="track" style={{ ['--x' as string]: s.x }}><u /><i /></div>
+                        <b className="num" style={{ width: 52, textAlign: 'right' }}>{s.v}</b>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="buyout">
+                    <div>
+                      <span className="kicker" style={{ fontSize: 11 }}>{t('landing.mech.card3.buyPrice')}</span>
+                      <p className="tiny muted" style={{ marginTop: 6, maxWidth: '34ch', lineHeight: 1.5 }}>
+                        {t('landing.mech.card3.explain')}
+                      </p>
+                    </div>
+                    <Link to={`/analyse/${encodeURIComponent(featured.ticker)}`} className="btn btn-brand">
+                      {t('landing.mech.card3.cta', { ticker: featured.ticker })} <Icon name="arrowRight" size={15} />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Sentinelles de scroll (desktop uniquement, aucune hauteur en mobile). */}
+            <div className="only-desktop">
+              {[0, 1, 2].map(i => (
+                <div key={i} className="msent" data-sent={i} ref={el => { sentinels.current[i] = el; }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Section 4 : la veille balaie le marché, les meilleures notes remontent. */
+export function VeilleSection({ rows }: { rows: LandingStock[] }) {
+  const { t } = useTranslation();
+  const [ref, seen] = useSectionIn<HTMLElement>();
+  // Champ de points décoratif : positions figées (pas de Math.random au rendu, sinon
+  // le prérendu et l'hydratation divergent).
+  const dots = Array.from({ length: 60 * 14 }, (_, i) => (i * 37) % 83 === 0);
+
+  return (
+    <section ref={ref as React.RefObject<HTMLElement>} className={`sec veille ${seen ? 'in' : ''}`} id="veille">
+      <div className="wrap">
+        <div className="sec-head">
+          <span className="kicker rv">{t('landing.veille.kicker')}</span>
+          <h2 className="rv" data-d="1" style={{ marginTop: 12 }}>{t('landing.veille.title')}</h2>
+        </div>
+        <div className="field rv" data-d="2">
+          <div className="dots" aria-hidden="true">
+            {dots.map((hit, i) => (
+              <b key={i} className={hit ? 'hit' : ''} style={hit ? { ['--dl' as string]: `${(0.25 + ((i * 13) % 170) / 100).toFixed(2)}s` } : undefined} />
+            ))}
+          </div>
+          <div className="scanline" aria-hidden="true" />
+        </div>
+        <div className="screener-rows">
+          {rows.map(r => (
+            <Link key={r.ticker} to={`/analyse/${encodeURIComponent(r.ticker)}`} className="srow">
+              <span className="num" style={{ fontWeight: 700 }}>{r.ticker}</span>
+              <span className="srow-name">{r.name}</span>
+              <span className="num" style={{ fontWeight: 700, color: 'var(--brand-ink)' }}>{r.note10}/10</span>
+              <span className="num tiny hide-m">{r.pfcfTTM != null ? `P/FCF ${r.pfcfTTM.toFixed(1)}x` : ''}</span>
+              <span className="hide-m" style={{ justifySelf: 'end' }}>
+                {r.opportunity && <span className="badge badge-good">{t('landing.card.opportunity')}</span>}
+              </span>
+            </Link>
+          ))}
+        </div>
+        <p className="tiny muted" style={{ marginTop: 14 }}>{t('landing.veille.note')}</p>
+      </div>
+    </section>
+  );
+}

@@ -1,117 +1,37 @@
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { useAuth } from '../contexts/AuthContext.js';
-import { Icon, type IconName } from '../components/ui/primitives.js';
-import { HeroPreview } from '../components/ui/HeroPreview.js';
-import { SocialProofSection } from '../components/ui/SocialProof.js';
+/**
+ * Landing v2 — parcours en 8 temps : résultat (hero) → friction → mécanisme (qualité,
+ * puis prix) → veille → connecteur Claude → preuve → pour qui → CTA + FAQ.
+ *
+ * Principe de la page : le texte porte le résultat, l'animation porte le mécanisme.
+ * Un seul objectif, analyser une action, donc un seul CTA répété (hero et fin).
+ *
+ * Les sections partagent une seule requête publique (`useLandingData`) pour n'afficher
+ * que des chiffres réels. Tout le texte est dans le DOM au chargement : les animations
+ * ne font que révéler du contenu déjà présent (crawlers GEO, `prefers-reduced-motion`).
+ */
 import SeoHead from '../components/SeoHead.js';
+import { HeroSection, FrictionSection } from '../components/landing/HeroSection.js';
+import { MechanismSection, VeilleSection } from '../components/landing/MechanismSection.js';
+import { ClaudeSection } from '../components/landing/ClaudeSection.js';
+import { ProofSection, ForWhoSection, FinalSection } from '../components/landing/ProofSection.js';
+import { useLandingData } from '../components/landing/useLandingData.js';
 import './HomePage.css';
 
 export function HomePage() {
-  const { user } = useAuth();
-  const { t } = useTranslation();
-
-  // Étapes « Comment ça marche » — libellés traduits via i18n
-  const STEPS: { n: string; title: string; text: string }[] = [
-    { n: '01', title: t('home.steps.0.title'), text: t('home.steps.0.text') },
-    { n: '02', title: t('home.steps.1.title'), text: t('home.steps.1.text') },
-    { n: '03', title: t('home.steps.2.title'), text: t('home.steps.2.text') },
-  ];
-
-  // Vitrine fonctionnalités — cartes liées aux pages produit (libellés i18n)
-  const FEATURES: { icon: IconName; key: string; to: string }[] = [
-    { icon: 'filter', key: 'screener', to: '/screener' },
-    { icon: 'target', key: 'palmares', to: '/palmares' },
-    { icon: 'eye', key: 'quali', to: '/analyser' },
-    { icon: 'layers', key: 'compare', to: '/compare' },
-    { icon: 'star', key: 'watchlist', to: user ? '/watchlist' : '/signup' },
-  ];
+  const { featured, rows, peaRows } = useLandingData();
 
   return (
-    <div className="home">
+    <div className="lp">
       {/* SEO : titre + meta description (i18n) injectés au montage. */}
       <SeoHead titleKey="seo.home.title" descKey="seo.home.desc" />
-      {/* ── Hero ── */}
-      <section className="home-hero">
-        <div className="home-hero-halo" aria-hidden="true" />
-        <div className="home-hero-grid wrap">
-          <div className="home-hero-left fade-up">
-            <span className="chip home-chip" data-active="true">{t('home.hero.chip')}</span>
-            <h1 className="home-title">
-              {t('home.hero.titleLine1')}<br />
-              <span className="home-accent">{t('home.hero.titleAccent')}</span>
-            </h1>
-            <p className="home-lede">
-              {t('home.hero.lede')}
-            </p>
-            <p className="home-hero-value">{t('home.hero.valueLine')}</p>
-            <div className="row gap-12" style={{ flexWrap: 'wrap' }}>
-              <Link to="/analyser" className="btn btn-brand btn-lg">{t('home.hero.ctaAnalyze')} <Icon name="arrowRight" size={17} /></Link>
-              <Link to="/screener" className="btn btn-ghost btn-lg">{t('home.hero.ctaScreener')}</Link>
-            </div>
-            <div className="home-stats">
-              <div><span className="num home-stat-n">{t('home.stats.perfValue')}</span><span className="home-stat-l">{t('home.stats.perfLabel')}</span></div>
-              <div><span className="num home-stat-n">30&nbsp;000+</span><span className="home-stat-l">{t('home.stats.tickers')}</span></div>
-            </div>
-          </div>
-          <div className="home-hero-right fade-up">
-            <HeroPreview />
-          </div>
-        </div>
-      </section>
-
-      {/* ── Comment ça marche ── */}
-      <section className="home-how">
-        <div className="wrap">
-          <div className="home-how-head">
-            <span className="kicker">{t('home.how.kicker')}</span>
-            <h2 className="home-h2">{t('home.how.title')}</h2>
-          </div>
-          <div className="home-steps">
-            {STEPS.map(s => (
-              <div key={s.n} className="home-step">
-                <div className="num home-step-num">{s.n}</div>
-                <div className="home-step-title">{s.title}</div>
-                <p>{s.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Vitrine fonctionnalités ── */}
-      <section className="wrap home-section home-features">
-        <div className="home-how-head">
-          <span className="kicker">{t('home.features.kicker')}</span>
-          <h2 className="home-h2">{t('home.features.title')}</h2>
-        </div>
-        <div className="home-cards">
-          {FEATURES.map(f => (
-            <Link key={f.key} to={f.to} className="home-card home-feature-card">
-              <div className="home-card-icon"><Icon name={f.icon} size={21} /></div>
-              <div className="home-card-title">{t(`home.features.items.${f.key}.title`)}</div>
-              <p>{t(`home.features.items.${f.key}.text`)}</p>
-              <span className="home-feature-cta">{t(`home.features.items.${f.key}.cta`)} <Icon name="arrowRight" size={15} /></span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Preuve sociale (chiffres + perf + avis) ── */}
-      <SocialProofSection />
-
-      {/* ── CTA final ── */}
-      <section className="wrap" style={{ padding: '24px 28px 64px' }}>
-        <div className="home-final">
-          <div className="home-final-halo" aria-hidden="true" />
-          <h2 className="home-final-title">{t('home.cta.title')}</h2>
-          <p className="home-final-sub">{t('home.cta.subtitle')}</p>
-          <div className="row gap-12 center" style={{ flexWrap: 'wrap' }}>
-            <Link to="/analyser" className="btn btn-brand btn-lg">{t('home.cta.analyze')}</Link>
-            {!user && <Link to="/signup" className="btn home-cta-light btn-lg">{t('home.cta.signup')}</Link>}
-          </div>
-        </div>
-      </section>
+      <HeroSection featured={featured} />
+      <FrictionSection />
+      <MechanismSection featured={featured} />
+      <VeilleSection rows={rows} />
+      <ClaudeSection featured={featured} peaRows={peaRows} rows={rows} />
+      <ProofSection />
+      <ForWhoSection />
+      <FinalSection />
     </div>
   );
 }

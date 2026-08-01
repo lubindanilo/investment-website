@@ -1,10 +1,11 @@
 /**
- * HeroPreview — mini-ScoreCard statique illustrative (accueil + auth).
+ * HeroPreview — mini-ScoreCard statique illustrative (page d'authentification).
  * Données fictives : sert uniquement à montrer le rendu d'une analyse.
  */
 import { useTranslation } from 'react-i18next';
 import { ScoreCircle, StatusBadge, type DataStatus } from './primitives.js';
 import { CompositionBar } from './charts.js';
+import './HeroPreview.css';
 
 const TILES: { labelKey: string; value: string; status: DataStatus }[] = [
   { labelKey: 'cashRoce', value: '31 %', status: 'good' },
