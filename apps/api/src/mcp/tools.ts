@@ -49,15 +49,22 @@ export interface CompactQuant {
   opportunity: boolean;
 }
 
+type LoadedQuant = NonNullable<Awaited<ReturnType<typeof loadQuantData>>>;
+
 /**
- * Bloc quant compact partagé par analyze_stock et compare_stocks. Chemin rapide via
- * le cache servable (0 appel lourd si l'univers est déjà scoré). Renvoie null si le
- * ticker n'est pas couvert.
+ * Charge le bloc quant d'un ticker UNE seule fois (chemin rapide via le cache servable :
+ * 0 appel lourd si l'univers est déjà scoré). Isolé pour que les appelants qui ont besoin
+ * de PLUSIEURS projections (analyse + tendance) ne paient pas deux chargements.
  */
-async function buildCompactQuant(ticker: string, lang: Lang): Promise<CompactQuant | null> {
+async function loadQuantOnce(ticker: string): Promise<LoadedQuant | null> {
   const cached = await getServableSnapshot(ticker).catch(() => null);
   const quant = await loadQuantData(ticker, { cached, includeNews: false, includeEarnings: false, log: false }).catch(() => null);
   if (!quant || !quant.fundamentalsAvailable) return null;
+  return quant;
+}
+
+/** Projection compacte à partir d'un quant DÉJÀ chargé. */
+async function toCompactQuant(quant: LoadedQuant, ticker: string, lang: Lang): Promise<CompactQuant> {
   const m = quant.metrics;
 
   const chiffres = buildQuantitativeCriteria(m, lang);
@@ -101,6 +108,12 @@ async function buildCompactQuant(ticker: string, lang: Lang): Promise<CompactQua
     discountToBuyPricePct,
     opportunity: row?.opportunity ?? false,
   };
+}
+
+/** Charge puis projette en un bloc compact. Null si le ticker n'est pas couvert. */
+async function buildCompactQuant(ticker: string, lang: Lang): Promise<CompactQuant | null> {
+  const quant = await loadQuantOnce(ticker);
+  return quant ? toCompactQuant(quant, ticker, lang) : null;
 }
 
 /** analyze_stock — bloc quant compact + résumé de résilience publié. */
@@ -150,9 +163,12 @@ export async function getResilience(ticker: string, lang: Lang) {
  * cycle de conversion). Répond directement à « est-ce que les fondamentaux s'améliorent ».
  */
 export async function fundamentalsTrend(ticker: string) {
-  const cached = await getServableSnapshot(ticker).catch(() => null);
-  const quant = await loadQuantData(ticker, { cached, includeNews: false, includeEarnings: false, log: false }).catch(() => null);
-  if (!quant || !quant.fundamentalsAvailable) return null;
+  const quant = await loadQuantOnce(ticker);
+  return quant ? toTrend(quant, ticker) : null;
+}
+
+/** Projection « tendance » à partir d'un quant DÉJÀ chargé. */
+function toTrend(quant: LoadedQuant, ticker: string) {
   const m = quant.metrics;
   return {
     ticker,
@@ -171,7 +187,58 @@ export async function fundamentalsTrend(ticker: string) {
   };
 }
 
-/** search_ticker — autocomplétion sur l'univers scoré (ticker/nom), max 8. */
+interface TickerHit {
+  ticker: string;
+  name: string | null;
+  sector: string | null;
+  scoreChiffres: number | null;
+  scoreChiffresMax: number | null;
+}
+
+/**
+ * Seuil de rapprochement. Calibré sur les données réelles : à 0.4 on retrouve
+ * « microsft » → MSFT, « lvhm » → LVMH, « nvida » → NVDA, « amazn » → AMZN, tandis
+ * qu'une saisie absurde ne ramène rien.
+ */
+const FUZZY_MIN_SIMILARITY = 0.4;
+
+/**
+ * Repli tolérant aux fautes, via l'extension Postgres pg_trgm (cf. migration
+ * `*_pg_trgm_search`). Utilisé UNIQUEMENT quand la recherche stricte ne rend rien :
+ * un agent tape souvent un nom de mémoire (« microsft ») et repartait les mains vides.
+ *
+ * Deux mesures distinctes, parce que les deux colonnes n'ont pas la même forme :
+ *   - `similarity` sur le TICKER, qui est court, donc comparable en entier ;
+ *   - `word_similarity` sur le NOM, qui compare la saisie au meilleur MOT du nom.
+ *     Indispensable : `similarity('lvhm', 'LVMH Moët Hennessy - Louis Vuitton, Société
+ *     Européenne')` ne vaut que 0.038 (la longueur du nom écrase le score), là où
+ *     `word_similarity` vaut 0.40. Baisser le seuil n'aurait donc rien réglé.
+ *
+ * Ce chemin ne s'exécute qu'en repli, sur ~30k lignes : le balayage est négligeable.
+ * Dégradation propre : si l'extension manque, on renvoie une liste vide plutôt qu'une erreur.
+ */
+async function searchTickerFuzzy(q: string): Promise<TickerHit[]> {
+  try {
+    return await prisma.$queryRaw<TickerHit[]>`
+      SELECT "ticker", "name", "sector", "scoreChiffres", "scoreChiffresMax"
+      FROM "ScreenerTicker"
+      WHERE "status" = 'scored'
+        AND (similarity("ticker", ${q}) > ${FUZZY_MIN_SIMILARITY}
+          OR word_similarity(${q}, COALESCE("name", '')) > ${FUZZY_MIN_SIMILARITY})
+      ORDER BY GREATEST(similarity("ticker", ${q}), word_similarity(${q}, COALESCE("name", ''))) DESC,
+               "scoreRatio" DESC NULLS LAST
+      LIMIT 8`;
+  } catch (err) {
+    console.warn(`[mcp search] repli trigramme indisponible : ${(err as Error).message}`);
+    return [];
+  }
+}
+
+/**
+ * search_ticker — autocomplétion sur l'univers scoré (ticker/nom), max 8.
+ * Recherche stricte d'abord (rapide, sur index) ; si elle ne rend rien, repli par
+ * similarité pour absorber les fautes de frappe.
+ */
 export async function searchTicker(query: string) {
   const q = query.trim();
   if (q.length < 1) return [];
@@ -187,6 +254,7 @@ export async function searchTicker(query: string) {
     take: 8,
     select: { ticker: true, name: true, sector: true, scoreChiffres: true, scoreChiffresMax: true },
   });
+  if (rows.length === 0) return searchTickerFuzzy(q);
   const qu = q.toUpperCase();
   rows.sort((a, b) => Number(b.ticker.startsWith(qu)) - Number(a.ticker.startsWith(qu)));
   return rows;
@@ -305,8 +373,15 @@ async function mapWithConcurrency<T, R>(items: T[], limit: number, fn: (item: T)
   return out;
 }
 
-/** Plafond d'analyse du composite : borne le temps d'exécution (lambda 60 s). */
-const ANALYZE_WATCHLIST_MAX = 25;
+/**
+ * Plafond d'analyse du composite : borne le temps d'exécution (lambda 60 s).
+ * Monté de 25 à 50 une fois le double chargement par ligne supprimé (loadQuantOnce) :
+ * à travail divisé par deux, 50 titres tiennent dans le même budget qu'avant 25.
+ */
+const ANALYZE_WATCHLIST_MAX = 50;
+
+/** Niveau de détail de la réponse du composite. */
+export type WatchlistDetail = 'compact' | 'complet';
 
 /** Seuils des heuristiques de synthèse, exposés dans la réponse (transparence). */
 const T = {
@@ -320,7 +395,7 @@ const T = {
  * synthétise (maillons faibles, fondamentaux en dégradation, titres au-dessus du
  * juste prix, opportunités). Les seuils sont renvoyés avec le résultat.
  */
-export async function analyzeWatchlist(userId: string, lang: Lang) {
+export async function analyzeWatchlist(userId: string, lang: Lang, detail: WatchlistDetail = 'compact') {
   const entries = await prisma.watchlistEntry.findMany({
     where: { userId },
     orderBy: { addedAt: 'asc' },
@@ -335,10 +410,12 @@ export async function analyzeWatchlist(userId: string, lang: Lang) {
   const skipped = all.slice(ANALYZE_WATCHLIST_MAX);
 
   const built = await mapWithConcurrency(selected, 4, async ticker => {
-    const q = await buildCompactQuant(ticker, lang).catch(() => null);
+    // UN SEUL chargement par ligne, dont on tire les deux projections (analyse + tendance).
+    const quant = await loadQuantOnce(ticker).catch(() => null);
+    if (!quant) return { ticker, covered: false as const };
+    const q = await toCompactQuant(quant, ticker, lang).catch(() => null);
     if (!q) return { ticker, covered: false as const };
-    const trend = await fundamentalsTrend(ticker).catch(() => null);
-    return { ticker, covered: true as const, quant: q, trend };
+    return { ticker, covered: true as const, quant: q, trend: toTrend(quant, ticker) };
   });
 
   const resilience = await getPublishedResilienceSummaries(
@@ -404,7 +481,19 @@ export async function analyzeWatchlist(userId: string, lang: Lang) {
     },
     disclaimer: "Données informatives issues des chiffres publiés, pas un conseil d'investissement personnalisé.",
     summary,
-    holdings,
+    // En mode compact (défaut) on ne renvoie qu'une ligne minimale par titre : la synthèse
+    // porte déjà l'essentiel, et le détail complet sur 50 lignes sature le contexte pour
+    // une lecture humaine. `detail: 'complet'` restitue tout (critères, tendance, valo).
+    detail,
+    holdings: detail === 'complet' ? holdings : holdings.map(h => ({
+      ticker: h.ticker,
+      company: h.company,
+      note10: h.note10,
+      grade: h.resilience?.grade ?? null,
+      opportunity: h.opportunity,
+      ...(h.weakReasons.length ? { weakReasons: h.weakReasons } : {}),
+      ...(h.deterioratingSignals.length ? { deterioratingSignals: h.deterioratingSignals } : {}),
+    })),
   };
 }
 
