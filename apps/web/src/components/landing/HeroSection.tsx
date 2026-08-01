@@ -15,7 +15,7 @@ import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
 import { Def, ScoreRing, useParallax, useSectionIn } from './bits.js';
-import { useMotion } from './motion.js';
+import { useMotion, useRichMotion } from './motion.js';
 import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
 /** Champ ticker + bouton : le point d'entrée réel de la page (hero et CTA final). */
@@ -139,9 +139,9 @@ export function HeroSection({ featured, criteria, resilience }: {
 }) {
   const { t } = useTranslation();
   const locale = currentLocale();
-  const motion = useMotion();
-  const cardRef = useTilt<HTMLDivElement>(motion);
-  const parallaxRef = useParallax<HTMLDivElement>(46, motion);
+  const rich = useRichMotion();
+  const cardRef = useTilt<HTMLDivElement>(rich);
+  const parallaxRef = useParallax<HTMLDivElement>(46, rich);
   const price = fmtPrice(featured.price, featured.currency, locale);
   const passCount = criteria.filter(c => c.status === 'pass').length;
 

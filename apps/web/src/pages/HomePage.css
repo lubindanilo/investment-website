@@ -453,3 +453,19 @@
 }
 .lp[data-motion="off"] .split-title .w { opacity: 1 !important; transform: none !important; }
 .lp[data-motion="off"] .hero-side { transform: none !important; }
+
+/* ---------- mode « soft » : la page reste vivante, on coupe ce qui gêne ----------
+   Servi quand le système demande de réduire les animations. On garde les apparitions,
+   la cascade des critères et la démo MCP ; on retire la parallaxe, le halo qui dérive,
+   l'inclinaison au curseur et toutes les boucles infinies. */
+.lp[data-motion="soft"] .aurora { display: none; }
+.lp[data-motion="soft"] .hero-side { transform: none !important; }
+.lp[data-motion="soft"] .acard.tilt { transform: none !important; }
+.lp[data-motion="soft"] .scanbar { display: none; }
+.lp[data-motion="soft"] .track.anim i, .lp[data-motion="soft"] .track.anim u { animation: none !important; }
+.lp[data-motion="soft"] .track i { left: var(--b); }
+.lp[data-motion="soft"] .track u { width: var(--b); }
+.lp[data-motion="soft"] .live-dot.on { animation: none !important; }
+.lp[data-motion="soft"] .in .dots b.hit { animation-duration: .01s; }
+.lp[data-motion="soft"] .in .scanline { display: none; }
+.lp[data-motion="soft"] .split-title .w { transform: none; }

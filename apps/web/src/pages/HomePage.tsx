@@ -26,7 +26,7 @@ export function HomePage() {
 
   return (
     <MotionContext.Provider value={motion}>
-    <div className="lp" data-motion={motion ? 'on' : 'off'}>
+    <div className="lp" data-motion={motion}>
       <ScrollProgress />
       {/* SEO : titre + meta description (i18n) injectés au montage. */}
       <SeoHead titleKey="seo.home.title" descKey="seo.home.desc" />
