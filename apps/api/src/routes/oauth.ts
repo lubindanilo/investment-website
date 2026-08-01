@@ -652,7 +652,17 @@ function corsPublic(res: Response): void {
   res.removeHeader('Access-Control-Allow-Credentials');
 }
 
-wellKnownRouter.get('/.well-known/oauth-authorization-server', (req: Request, res: Response) => {
+/**
+ * RFC 8414 — métadonnées du serveur d'autorisation.
+ *
+ * ⚠ Servie au chemin racine ET aux variantes SUFFIXÉES par le chemin de la ressource
+ * (`/.well-known/oauth-authorization-server/api/mcp`). Beaucoup de clients MCP tentent
+ * d'abord la découverte « path-aware » avant de retomber sur la racine. Sans cette route,
+ * la requête tombait dans le catch-all du SPA et renvoyait **200 avec du HTML** : un client
+ * qui prend ce 200 pour une réponse valide échoue à parser le JSON et peut abandonner la
+ * découverte au lieu d'essayer la racine. C'est un piège silencieux, d'où la couverture large.
+ */
+function authorizationServerMetadata(req: Request, res: Response): void {
   const base = getBaseUrl(req);
   corsPublic(res);
   res.json({
@@ -666,7 +676,12 @@ wellKnownRouter.get('/.well-known/oauth-authorization-server', (req: Request, re
     code_challenge_methods_supported: ['S256'],
     token_endpoint_auth_methods_supported: ['none', 'client_secret_basic', 'client_secret_post'],
   });
-});
+}
+wellKnownRouter.get('/.well-known/oauth-authorization-server', authorizationServerMetadata);
+wellKnownRouter.get('/.well-known/oauth-authorization-server/*', authorizationServerMetadata);
+// Variante OpenID Connect : certains clients tentent ce chemin avant les autres.
+wellKnownRouter.get('/.well-known/openid-configuration', authorizationServerMetadata);
+wellKnownRouter.get('/.well-known/openid-configuration/*', authorizationServerMetadata);
 
 // RFC 9728 — métadonnées de la protected resource (le endpoint MCP).
 // Servie au chemin racine ET au variant suffixé par la resource, que certains clients tentent.
@@ -681,4 +696,4 @@ function protectedResourceMetadata(req: Request, res: Response): void {
   });
 }
 wellKnownRouter.get('/.well-known/oauth-protected-resource', protectedResourceMetadata);
-wellKnownRouter.get('/.well-known/oauth-protected-resource/api/mcp', protectedResourceMetadata);
+wellKnownRouter.get('/.well-known/oauth-protected-resource/*', protectedResourceMetadata);
