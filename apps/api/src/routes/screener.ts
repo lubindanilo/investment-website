@@ -18,6 +18,9 @@ import { requireOwner } from '../middleware/owner.js';
 import { seedRegion, tick, getTop, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
 import { getMarketBeat, getForwardCompare } from '../services/marketBeat.js';
 import { getPublishedResilienceSummaries } from '../services/resilienceSummary.js';
+import { getCachedSnapshot } from '../services/quantCache.js';
+import { buildQuantitativeCriteria } from '../services/derivedMetrics.js';
+import { parseLang, type Lang } from '../i18n/index.js';
 import { prisma } from '../db/client.js';
 
 export const screenerRouter: Router = Router();
@@ -171,6 +174,78 @@ screenerRouter.get('/search', asyncHandler(async (req: Request, res: Response) =
   const qu = q.toUpperCase();
   rows.sort((a, b) => Number(b.ticker.startsWith(qu)) - Number(a.ticker.startsWith(qu)));
   res.json(rows as TickerSuggestion[]);
+}));
+
+// ── GET /showcase ─────────────────────────────────────────────────────────────
+// Vitrine de la landing : LE titre mis en avant du moment (meilleure opportunité), avec le
+// détail de ses 10 critères et son grade de résilience, pour montrer la vraie fiche produit
+// dès le hero. Volontairement limité à UN ticker choisi par le serveur : le détail par
+// critère d'un ticker ARBITRAIRE reste derrière l'inscription (cf. /ticker/:ticker).
+// Résultat mémoïsé 10 min (une page d'accueil ne doit pas taper la DB à chaque visite).
+interface ShowcaseCache { at: number; lang: Lang; payload: unknown }
+let showcaseCache: ShowcaseCache | null = null;
+const SHOWCASE_TTL_MS = 10 * 60 * 1000;
+
+/** Noms grand public éligibles à la vitrine, par ordre de préférence. */
+const SHOWCASE_TICKERS = ['ASML.AS', 'ADBE', 'MC.PA', 'GOOGL', 'MSFT', 'RMS.PA'];
+
+type ShowcaseRow = Awaited<ReturnType<typeof getTop>>[number];
+
+/** Première société reconnaissable réellement scorée, sinon la meilleure opportunité du jour. */
+async function pickShowcaseRow(): Promise<ShowcaseRow | undefined> {
+  const rows = await prisma.screenerTicker.findMany({
+    where: { ticker: { in: SHOWCASE_TICKERS }, status: 'scored' },
+    select: {
+      ticker: true, name: true, sector: true,
+      scoreChiffres: true, scoreChiffresMax: true,
+      pfcfTTM: true, price: true, currency: true, opportunity: true,
+    },
+  });
+  for (const wanted of SHOWCASE_TICKERS) {
+    const row = rows.find(r => r.ticker === wanted);
+    if (row) return row as ShowcaseRow;
+  }
+  // Repli : `getTop` post-filtre son lot, donc on demande plusieurs lignes pour en garder une.
+  await refreshOpportunitiesLive().catch(() => {});
+  const [fallback] = await getTop({ onlyOpportunities: true, minMax: 8, limit: 5 });
+  return fallback;
+}
+
+screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response) => {
+  const lang = parseLang(req.header('accept-language'));
+  if (showcaseCache && showcaseCache.lang === lang && Date.now() - showcaseCache.at < SHOWCASE_TTL_MS) {
+    res.json(showcaseCache.payload); return;
+  }
+
+  // Choix ÉDITORIAL du titre mis en avant : une société que tout le monde reconnaît, sinon
+  // la vitrine perd son effet (un inconnu bien noté ne parle à personne). On prend le premier
+  // nom de la liste réellement scoré, et à défaut la meilleure opportunité du moment.
+  const top = await pickShowcaseRow();
+  if (!top) { res.status(404).json({ error: 'Aucune opportunité disponible', code: 'NOT_FOUND' }); return; }
+
+  const snapshot = await getCachedSnapshot(top.ticker).catch(() => null);
+  const resiliences = await getPublishedResilienceSummaries([top.ticker]);
+  const criteria = snapshot
+    ? buildQuantitativeCriteria(snapshot.metrics, lang).map(c => ({
+        key: c.key ?? null, name: c.nom, value: c.valeur, status: c.statut,
+      }))
+    : [];
+
+  const payload = {
+    ticker: top.ticker,
+    name: top.name,
+    sector: top.sector,
+    scoreChiffres: top.scoreChiffres,
+    scoreChiffresMax: top.scoreChiffresMax,
+    pfcfTTM: top.pfcfTTM,
+    price: top.price,
+    currency: top.currency,
+    opportunity: top.opportunity,
+    resilience: resiliences.get(top.ticker) ?? null,
+    criteria,
+  };
+  showcaseCache = { at: Date.now(), lang, payload };
+  res.json(payload);
 }));
 
 // ── GET /ticker/:ticker ───────────────────────────────────────────────────────

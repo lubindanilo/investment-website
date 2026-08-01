@@ -353,32 +353,20 @@
       "pfcf": "P/FCF: precio de la acción dividido por el free cash flow por acción. Cuanto más bajo, menos pagas por el efectivo generado."
     },
     "card": {
+      "passCount": "{{count}} criterios en verde sobre 10, calculados con las cifras publicadas.",
+      "resilience": "Resiliencia",
+      "resilienceNone": "no publicada",
       "opportunity": "Oportunidad",
       "qualityKicker": "Calidad fundamental",
-      "qualityDesc": "Nota de {{note}}/10 sobre los 10 criterios de calidad, recalculada en cada publicación de resultados.",
       "price": "Cotización",
-      "note": "Nota de calidad",
-      "live": "Oportunidad del momento, salida del screener en directo."
+      "note": "Nota de calidad"
     },
     "friction": {
       "title": "Tres horas de balances para una convicción. Y siempre la duda sobre el precio."
     },
-    "criteria": {
-      "netMargin": "Margen neto",
-      "revenue": "Crecimiento de los ingresos",
-      "fcfPerShare": "Crecimiento del FCF por acción",
-      "buybacks": "Recompras de acciones",
-      "fcfMargin": "Margen de free cash flow",
-      "opLeverage": "Apalancamiento operativo",
-      "cashRoce": "Cash ROCE",
-      "netDebt": "Deuda neta / FCF",
-      "cashConv": "Conversión de caja",
-      "ccc": "Ciclo de conversión de caja"
-    },
     "mech": {
       "kicker": "El mecanismo",
       "title": "Primero la calidad. Luego el precio. Nunca los dos mezclados.",
-      "measured": "medido",
       "steps": {
         "0": "Primero la calidad. 10 criterios, no una opinión.",
         "1": "Luego el precio. Juzgado aparte, nunca mezclado.",
@@ -448,22 +436,6 @@
         "down": "Fundamentales a la baja",
         "above": "Por encima del precio justo",
         "micro": "Lee, compara y actualiza tu lista."
-      },
-      "readLabel": "Lectura",
-      "readCount": "8 herramientas",
-      "writeLabel": "Escritura",
-      "writeCount": "2 herramientas",
-      "tools": {
-        "search": "Buscar un ticker",
-        "analyze": "Analizar un valor",
-        "screen": "Filtrar el screener",
-        "resilience": "Puntuar la resiliencia",
-        "trend": "Leer la tendencia",
-        "compare": "Comparar 5 valores",
-        "listWatchlist": "Listar la watchlist",
-        "reviewWatchlist": "Revisar la watchlist",
-        "addWatchlist": "Añadir a la watchlist",
-        "removeWatchlist": "Quitar de la watchlist"
       },
       "quotas": "Gratis: 10 análisis al día, 2 valores comparados, 10 líneas de watchlist. Pro: ilimitado, 5 valores comparados, watchlist sin límite.",
       "connect": {

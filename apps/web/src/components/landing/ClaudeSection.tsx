@@ -1,15 +1,17 @@
 /**
- * Section 5 : le connecteur MCP. Trois conversations montrent ce que Claude fait
- * réellement avec les 10 outils Lubin (analyser, filtrer le screener, réviser et
- * MODIFIER la watchlist).
+ * Section 5 : le connecteur MCP, joué comme une démo vidéo.
  *
- * Les deux premières conversations affichent de la vraie donnée : le titre mis en avant
- * et le résultat réel de la requête PEA (mêmes filtres que ceux montrés en chips). La
- * troisième est une revue de watchlist, forcément propre à chaque compte : elle est
- * explicitement marquée « exemple ».
+ * Un seul écran de conversation qui se déroule tout seul et enchaîne trois scénarios
+ * (il analyse, il cherche, il agit), avec une liste de chapitres cliquable et une barre
+ * de progression. Remplace les trois cartes empilées et la grille d'outils : plus court,
+ * et on VOIT ce que le connecteur fait au lieu de le lire.
  *
- * La boucle d'animation ne monte/démonte rien : tout le texte est dans le DOM au
- * chargement (crawlers GEO), seule une classe CSS rejoue les transitions.
+ * La donnée jouée est réelle : le titre mis en avant et le résultat de la requête PEA
+ * (mêmes filtres que ceux affichés en chips). La revue de watchlist dépend du compte,
+ * elle est donc marquée « exemple ».
+ *
+ * Le texte des trois scénarios est présent dans le DOM dès le chargement (crawlers GEO) ;
+ * le lecteur ne fait que révéler des blocs déjà rendus.
  */
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -17,67 +19,14 @@ import { currentLocale } from '../../i18n/index.js';
 import { DotScore, useSectionIn } from './bits.js';
 import { fmtPrice, type LandingStock } from './useLandingData.js';
 
-/** Rejoue le cycle d'animation d'une conversation tant qu'elle est visible. */
-function useConvLoop(cycleMs: number): [React.RefObject<HTMLElement>, number] {
-  const ref = useRef<HTMLElement>(null);
-  const [tick, setTick] = useState(0);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced || typeof IntersectionObserver === 'undefined') { setTick(1); return; }
-    let timer: ReturnType<typeof setInterval> | null = null;
-    const obs = new IntersectionObserver(entries => {
-      const visible = entries.some(e => e.isIntersecting);
-      if (visible && !timer) {
-        setTick(t => t + 1);
-        timer = setInterval(() => setTick(t => t + 1), cycleMs + 3000);
-      } else if (!visible && timer) {
-        clearInterval(timer); timer = null;
-      }
-    }, { threshold: 0.3 });
-    obs.observe(el);
-    return () => { obs.disconnect(); if (timer) clearInterval(timer); };
-  }, [cycleMs]);
-  return [ref, tick];
-}
-
-function Conv({ index, cycleMs, title, desc, children }: {
-  index: string; cycleMs: number; title: string; desc: string; children: React.ReactNode;
-}) {
-  const [ref, tick] = useConvLoop(cycleMs);
-  return (
-    <article ref={ref as React.RefObject<HTMLElement>} className={`conv ${tick > 0 ? 'on' : ''}`} key={tick}>
-      <div className="lead">
-        <span className="n">{index}</span>
-        <h3>{title}</h3>
-        <p>{desc}</p>
-      </div>
-      <div className="thread" key={tick}>{children}</div>
-    </article>
-  );
-}
-
-/** Bulle utilisateur avec effet de frappe (largeur animée, texte toujours présent). */
-function Ask({ text, chars, dur, delay }: { text: string; chars: number; dur: string; delay?: string }) {
-  return (
-    <div className="bub-u">
-      <span className="type" style={{ ['--tc' as string]: chars, ['--td' as string]: dur, ...(delay ? { animationDelay: delay } : {}) }}>
-        {text}
-      </span>
-    </div>
-  );
-}
-
-function Working({ delay }: { delay: string }) {
-  return <div className="working" style={{ ['--dl' as string]: delay }} aria-hidden="true"><b /><b /><b /></div>;
-}
+/** Durée de chaque scénario, en ms (le lecteur passe au suivant à la fin). */
+const SCENARIO_MS = [7200, 7600, 8400];
 
 /** URL du connecteur MCP à coller dans Claude, avec copie en un clic. */
 function CopyUrl() {
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
-  // URL canonique du connecteur : jamais l'origine courante (localhost, preview Vercel).
+  // URL canonique : jamais l'origine courante (localhost, preview Vercel).
   const url = 'https://lubin-investment.com/api/mcp';
 
   async function copy() {
@@ -98,17 +47,74 @@ function CopyUrl() {
   );
 }
 
+/**
+ * Lecteur : avance de scénario en scénario tant qu'il est visible. `beat` monte les
+ * blocs du scénario courant les uns après les autres (question, réflexion, réponse).
+ */
+function usePlayer(count: number): {
+  ref: React.RefObject<HTMLDivElement>;
+  scenario: number;
+  beat: number;
+  playing: boolean;
+  select: (i: number) => void;
+} {
+  const ref = useRef<HTMLDivElement>(null);
+  const [scenario, setScenario] = useState(0);
+  const [beat, setBeat] = useState(0);
+  const [playing, setPlaying] = useState(false);
+
+  // Ne joue que quand la section est à l'écran (rien ne tourne en fond).
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || typeof IntersectionObserver === 'undefined') { setBeat(9); return; }
+    const obs = new IntersectionObserver(es => setPlaying(es.some(e => e.isIntersecting)), { threshold: 0.25 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Déroulé du scénario courant : un « beat » toutes ~1,6 s, puis on passe au suivant.
+  useEffect(() => {
+    if (!playing) return;
+    const total = SCENARIO_MS[scenario] ?? 8000;
+    const tick = setInterval(() => setBeat(b => b + 1), 1500);
+    const next = setTimeout(() => {
+      setBeat(0);
+      setScenario(s => (s + 1) % count);
+    }, total);
+    return () => { clearInterval(tick); clearTimeout(next); };
+  }, [playing, scenario, count]);
+
+  function select(i: number) { setScenario(i); setBeat(0); }
+  return { ref, scenario, beat, playing, select };
+}
+
+function Ask({ text, chars, dur, show }: { text: string; chars: number; dur: string; show: boolean }) {
+  return (
+    <div className={`bub-u ${show ? 'show' : ''}`}>
+      <span className="type" style={{ ['--tc' as string]: chars, ['--td' as string]: dur }}>{text}</span>
+    </div>
+  );
+}
+
+function Working({ show }: { show: boolean }) {
+  return <div className={`working ${show ? 'show' : ''}`} aria-hidden="true"><b /><b /><b /></div>;
+}
+
 export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingStock; peaRows: LandingStock[]; rows: LandingStock[] }) {
   const { t } = useTranslation();
   const locale = currentLocale();
   const [headRef, headIn] = useSectionIn<HTMLDivElement>();
-  const [capsRef, capsIn] = useSectionIn<HTMLDivElement>();
   const price = fmtPrice(featured.price, featured.currency, locale);
-  // Titre ajouté à la watchlist dans la 3ᵉ conversation : une vraie ligne du screener.
   const added = rows[1] ?? rows[0] ?? featured;
+  const { ref, scenario, beat, playing, select } = usePlayer(3);
 
-  const readTools = ['search', 'analyze', 'screen', 'resilience', 'trend', 'compare', 'listWatchlist', 'reviewWatchlist'] as const;
-  const writeTools = ['addWatchlist', 'removeWatchlist'] as const;
+  const chapters = [
+    { key: 'a', label: t('landing.claude.a.title'), desc: t('landing.claude.a.desc') },
+    { key: 'b', label: t('landing.claude.b.title'), desc: t('landing.claude.b.desc') },
+    { key: 'c', label: t('landing.claude.c.title'), desc: t('landing.claude.c.desc') },
+  ];
 
   return (
     <section className="claude" id="claude">
@@ -124,139 +130,158 @@ export function ClaudeSection({ featured, peaRows, rows }: { featured: LandingSt
           </div>
         </div>
 
-        <div className="conv-track">
-          {/* 5A — il analyse */}
-          <Conv index="5A" cycleMs={8000} title={t('landing.claude.a.title')} desc={t('landing.claude.a.desc')}>
-            <Ask text={t('landing.claude.a.question', { name: featured.name })} chars={47} dur="1.9s" />
-            <Working delay="2.0s" />
-            <div className="reply" style={{ ['--dl' as string]: '2.7s' }}>
-              <div className="lcard">
-                <div className="lcard-h">
-                  <span className="tick-badge sm">{featured.ticker.split('.')[0]}</span>
-                  <b style={{ fontSize: 13.5 }}>{featured.name}</b>
-                  <span className="num lcard-note">{featured.note10 ?? '—'}/10</span>
-                </div>
-                <div className="lcard-b">
-                  <DotScore note10={featured.note10} delayBase={2.9} />
-                  {featured.pfcfTTM != null && <div className="kv">P/FCF<b>{featured.pfcfTTM.toFixed(1)}x</b></div>}
-                  {price && <div className="kv">{t('landing.card.price')}<b>{price}</b></div>}
-                  <div className="kv">{t('landing.card.note')}<b style={{ color: 'var(--brand-ink)' }}>{featured.note10 ?? '—'}/10</b></div>
-                  {featured.opportunity && <div style={{ marginTop: 10 }}><span className="badge badge-brand">{t('landing.card.opportunity')}</span></div>}
-                </div>
-              </div>
-            </div>
-            <span className="micro">{t('landing.claude.a.micro')}</span>
-          </Conv>
+        <div className="player" ref={ref}>
+          {/* Chapitres : cliquables, avec la barre de progression du chapitre en cours. */}
+          <div className="chapters">
+            {chapters.map((c, i) => (
+              <button
+                key={c.key}
+                type="button"
+                className="chapter"
+                data-on={scenario === i ? '1' : '0'}
+                onClick={() => select(i)}
+                aria-current={scenario === i}
+              >
+                <span className="num chapter-n">{`0${i + 1}`}</span>
+                <span className="chapter-txt">
+                  <b>{c.label}</b>
+                  <span className="tiny muted">{c.desc}</span>
+                </span>
+                <span className="chapter-bar" aria-hidden="true">
+                  <i
+                    key={`${i}-${scenario}-${playing}`}
+                    style={scenario === i && playing ? { animationDuration: `${SCENARIO_MS[i]}ms` } : { animation: 'none', width: 0 }}
+                  />
+                </span>
+              </button>
+            ))}
+          </div>
 
-          {/* 5B — il cherche pour toi */}
-          <Conv index="5B" cycleMs={8000} title={t('landing.claude.b.title')} desc={t('landing.claude.b.desc')}>
-            <Ask text={t('landing.claude.b.question')} chars={88} dur="2.6s" />
-            <Working delay="2.7s" />
-            <div className="reply" style={{ ['--dl' as string]: '3.3s' }}>
-              <div className="lcard">
-                <div className="lcard-h wrap-chips">
-                  <span className="chip sm">{t('landing.claude.b.chipZone')}</span>
-                  <span className="chip sm">{t('landing.claude.b.chipNote')}</span>
-                  <span className="chip sm">{t('landing.claude.b.chipPfcf')}</span>
-                </div>
-                <div className="lcard-b">
-                  <table className="ltable">
-                    <thead>
-                      <tr>
-                        <th>{t('landing.claude.b.thTicker')}</th>
-                        <th>{t('landing.claude.b.thName')}</th>
-                        <th style={{ textAlign: 'right' }}>{t('landing.claude.b.thNote')}</th>
-                        <th style={{ textAlign: 'right' }}>P/FCF</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {peaRows.slice(0, 4).map((r, i) => (
-                        <tr key={r.ticker} style={{ animationDelay: `${3.5 + i * 0.12}s` }}>
-                          <td>{r.ticker}</td>
-                          <td className="sans">{r.name}</td>
-                          <td style={{ textAlign: 'right', color: 'var(--brand-ink)', fontWeight: 700 }}>{r.note10}/10</td>
-                          <td style={{ textAlign: 'right' }}>{r.pfcfTTM != null ? `${r.pfcfTTM.toFixed(1)}x` : '—'}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-            <span className="micro">{t('landing.claude.b.micro')}</span>
-          </Conv>
+          {/* L'écran de conversation : un seul, il rejoue le chapitre actif. */}
+          <div className="screen">
+            <div className="screen-bar" aria-hidden="true"><i /><i /><i /><span className="num">claude · lubin-investment</span></div>
 
-          {/* 5C — il surveille, et il agit */}
-          <Conv index="5C" cycleMs={9000} title={t('landing.claude.c.title')} desc={t('landing.claude.c.desc')}>
-            <Ask text={t('landing.claude.c.question')} chars={24} dur="1.1s" />
-            <Working delay="1.2s" />
-            <div className="reply" style={{ ['--dl' as string]: '1.8s' }}>
-              <div className="lcard">
-                <div className="lcard-b">
-                  <div className="row" style={{ justifyContent: 'flex-end', marginBottom: 8 }}>
-                    <span className="chip sm">{t('landing.claude.c.exampleTag')}</span>
-                  </div>
-                  <div className="tiles">
-                    {[
-                      { k: 'avg', v: '8,4/10', c: 'var(--brand-ink)' },
-                      { k: 'weak', v: '2', c: 'var(--bad-ink)' },
-                      { k: 'down', v: '3', c: 'var(--warn-ink)' },
-                      { k: 'above', v: '5', c: 'var(--warn-ink)' },
-                    ].map(tile => (
-                      <div key={tile.k} className="tile">
-                        <div className="tiny muted">{t(`landing.claude.c.${tile.k}`)}</div>
-                        <div className="num tile-v" style={{ color: tile.c }}>{tile.v}</div>
+            <div className="thread" key={scenario}>
+              {scenario === 0 && (
+                <>
+                  <Ask text={t('landing.claude.a.question', { name: featured.name })} chars={47} dur="1.6s" show={beat >= 0} />
+                  <Working show={beat >= 1} />
+                  <div className={`reply ${beat >= 2 ? 'show' : ''}`}>
+                    <div className="lcard">
+                      <div className="lcard-h">
+                        <span className="tick-badge sm">{featured.ticker.split('.')[0]}</span>
+                        <b style={{ fontSize: 13.5 }}>{featured.name}</b>
+                        <span className="num lcard-note">{featured.note10 ?? '—'}/10</span>
                       </div>
-                    ))}
+                      <div className="lcard-b">
+                        <DotScore note10={featured.note10} />
+                        {featured.pfcfTTM != null && <div className="kv">P/FCF<b>{featured.pfcfTTM.toFixed(1)}x</b></div>}
+                        {price && <div className="kv">{t('landing.card.price')}<b>{price}</b></div>}
+                        <div className="kv">{t('landing.card.note')}<b style={{ color: 'var(--brand-ink)' }}>{featured.note10 ?? '—'}/10</b></div>
+                        {featured.opportunity && <div style={{ marginTop: 10 }}><span className="badge badge-brand">{t('landing.card.opportunity')}</span></div>}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                  <span className={`micro ${beat >= 3 ? 'show' : ''}`}>{t('landing.claude.a.micro')}</span>
+                </>
+              )}
+
+              {scenario === 1 && (
+                <>
+                  <Ask text={t('landing.claude.b.question')} chars={88} dur="2.2s" show={beat >= 0} />
+                  <Working show={beat >= 1} />
+                  <div className={`reply ${beat >= 2 ? 'show' : ''}`}>
+                    <div className="lcard">
+                      <div className="lcard-h wrap-chips">
+                        <span className="chip sm">{t('landing.claude.b.chipZone')}</span>
+                        <span className="chip sm">{t('landing.claude.b.chipNote')}</span>
+                        <span className="chip sm">{t('landing.claude.b.chipPfcf')}</span>
+                      </div>
+                      <div className="lcard-b">
+                        <table className="ltable">
+                          <thead>
+                            <tr>
+                              <th>{t('landing.claude.b.thTicker')}</th>
+                              <th>{t('landing.claude.b.thName')}</th>
+                              <th style={{ textAlign: 'right' }}>{t('landing.claude.b.thNote')}</th>
+                              <th style={{ textAlign: 'right' }}>P/FCF</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {peaRows.slice(0, 4).map((r, i) => (
+                              <tr key={r.ticker} style={{ animationDelay: `${0.15 + i * 0.12}s` }}>
+                                <td>{r.ticker}</td>
+                                <td className="sans">{r.name}</td>
+                                <td style={{ textAlign: 'right', color: 'var(--brand-ink)', fontWeight: 700 }}>{r.note10}/10</td>
+                                <td style={{ textAlign: 'right' }}>{r.pfcfTTM != null ? `${r.pfcfTTM.toFixed(1)}x` : '—'}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <span className={`micro ${beat >= 3 ? 'show' : ''}`}>{t('landing.claude.b.micro')}</span>
+                </>
+              )}
+
+              {scenario === 2 && (
+                <>
+                  <Ask text={t('landing.claude.c.question')} chars={24} dur="1s" show={beat >= 0} />
+                  <Working show={beat >= 1} />
+                  <div className={`reply ${beat >= 2 ? 'show' : ''}`}>
+                    <div className="lcard">
+                      <div className="lcard-b">
+                        <div className="row" style={{ justifyContent: 'flex-end', marginBottom: 8 }}>
+                          <span className="chip sm">{t('landing.claude.c.exampleTag')}</span>
+                        </div>
+                        <div className="tiles">
+                          {[
+                            { k: 'avg', v: '8,4/10', c: 'var(--brand-ink)' },
+                            { k: 'weak', v: '2', c: 'var(--bad-ink)' },
+                            { k: 'down', v: '3', c: 'var(--warn-ink)' },
+                            { k: 'above', v: '5', c: 'var(--warn-ink)' },
+                          ].map(tile => (
+                            <div key={tile.k} className="tile">
+                              <div className="tiny muted">{t(`landing.claude.c.${tile.k}`)}</div>
+                              <div className="num tile-v" style={{ color: tile.c }}>{tile.v}</div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <Ask text={t('landing.claude.c.question2', { name: added.name })} chars={33} dur="1.1s" show={beat >= 3} />
+                  <div className={`reply ${beat >= 4 ? 'show' : ''}`}>
+                    <div className="lcard">
+                      <div className="lcard-b added">
+                        <span className="check" aria-hidden="true">
+                          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--good-ink)" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+                        </span>
+                        <b className="num" style={{ fontSize: 13 }}>{added.ticker}</b>
+                        <span style={{ fontSize: 13 }}>{added.name}</span>
+                        <span className="num" style={{ marginLeft: 'auto', fontWeight: 700, color: 'var(--brand-ink)' }}>{added.note10}/10</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span className={`micro ${beat >= 5 ? 'show' : ''}`}>{t('landing.claude.c.micro')}</span>
+                </>
+              )}
             </div>
-            <Ask text={t('landing.claude.c.question2', { name: added.name })} chars={33} dur="1.3s" delay="2.6s" />
-            <div className="reply" style={{ ['--dl' as string]: '4.3s' }}>
-              <div className="lcard">
-                <div className="lcard-b added">
-                  <span className="check" aria-hidden="true">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--good-ink)" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
-                  </span>
-                  <b className="num" style={{ fontSize: 13 }}>{added.ticker}</b>
-                  <span style={{ fontSize: 13 }}>{added.name}</span>
-                  <span className="num" style={{ marginLeft: 'auto', fontWeight: 700, color: 'var(--brand-ink)' }}>{added.note10}/10</span>
-                </div>
-              </div>
-            </div>
-            <span className="micro">{t('landing.claude.c.micro')}</span>
-          </Conv>
+          </div>
         </div>
 
-        <div ref={capsRef} className={capsIn ? 'in caps-block' : 'caps-block'}>
-          <div className="row rv caps-label">
-            <span className="kicker">{t('landing.claude.readLabel')}</span>
-            <span className="tiny muted">{t('landing.claude.readCount')}</span>
+        <div className="connect rv in">
+          <div>
+            <span className="kicker">{t('landing.claude.connect.kicker')}</span>
+            <ol className="connect-steps">
+              <li>{t('landing.claude.connect.step1')}</li>
+              <li>{t('landing.claude.connect.step2')}</li>
+              <li>{t('landing.claude.connect.step3')}</li>
+            </ol>
+            <p className="tiny muted" style={{ marginTop: 10, lineHeight: 1.6 }}>{t('landing.claude.quotas')}</p>
           </div>
-          <div className="caps rv" data-d="1">
-            {readTools.map(k => <span key={k} className="cap"><i className="d" />{t(`landing.claude.tools.${k}`)}</span>)}
-          </div>
-          <div className="row rv caps-label" data-d="2" style={{ marginTop: 26 }}>
-            <span className="kicker">{t('landing.claude.writeLabel')}</span>
-            <span className="tiny muted">{t('landing.claude.writeCount')}</span>
-          </div>
-          <div className="caps rv" data-d="3">
-            {writeTools.map(k => <span key={k} className="cap write"><i className="d" />{t(`landing.claude.tools.${k}`)}</span>)}
-          </div>
-          <p className="tiny muted rv" data-d="4" style={{ marginTop: 20, lineHeight: 1.6 }}>{t('landing.claude.quotas')}</p>
-
-          <div className="connect rv" data-d="5">
-            <div>
-              <span className="kicker">{t('landing.claude.connect.kicker')}</span>
-              <ol className="connect-steps">
-                <li>{t('landing.claude.connect.step1')}</li>
-                <li>{t('landing.claude.connect.step2')}</li>
-                <li>{t('landing.claude.connect.step3')}</li>
-              </ol>
-            </div>
-            <CopyUrl />
-          </div>
+          <CopyUrl />
         </div>
       </div>
     </section>

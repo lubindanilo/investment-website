@@ -1,32 +1,29 @@
 /**
  * Sections 3 et 4 : le mécanisme (qualité, puis prix, puis prix d'achat) et la veille.
  *
- * Desktop : trois sentinelles de scroll pilotent la carte affichée et l'étape active.
- * Mobile : les trois cartes deviennent un carrousel scroll-snap (pas de scroll détourné).
- *
- * Les valeurs affichées (note, P/FCF, cours, opportunité) viennent du screener. Le prix
- * d'achat n'est PAS exposé publiquement : la carte 3 montre les hypothèses et renvoie vers
- * la fiche du titre plutôt que d'afficher un chiffre inventé.
+ * Le passage 1 → 2 → 3 suit le scroll de PRÈS : sentinelles courtes (55 vh) et fenêtre de
+ * déclenchement large, donc un petit mouvement de molette ou de doigt suffit. Les trois
+ * étapes sont aussi cliquables, et une barre de progression montre où on en est.
+ * Mobile : carrousel scroll-snap, l'étape active suit la carte visible.
  */
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
+import { CompositionStrip, CriteriaList } from './HeroSection.js';
 import { Def, ScoreRing, useSectionIn } from './bits.js';
-import { fmtPrice, type LandingStock } from './useLandingData.js';
+import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
-/** Clés i18n des 10 critères de qualité (mêmes libellés que la méthodologie). */
-const CRITERIA = ['netMargin', 'revenue', 'fcfPerShare', 'buybacks', 'fcfMargin', 'opLeverage', 'cashRoce', 'netDebt', 'cashConv', 'ccc'] as const;
-
-export function MechanismSection({ featured }: { featured: LandingStock }) {
+export function MechanismSection({ featured, criteria }: { featured: LandingStock; criteria: LandingCriterion[] }) {
   const { t } = useTranslation();
   const locale = currentLocale();
   const [step, setStep] = useState(0);
   const sentinels = useRef<Array<HTMLDivElement | null>>([]);
+  const stageRef = useRef<HTMLDivElement>(null);
   const price = fmtPrice(featured.price, featured.currency, locale);
 
-  // Sentinelles desktop : la carte visible suit la position de lecture.
+  // Desktop : sentinelles courtes + fenêtre large = la carte change au moindre scroll.
   useEffect(() => {
     if (typeof IntersectionObserver === 'undefined') return;
     if (typeof window !== 'undefined' && window.innerWidth <= 1000) return;
@@ -34,10 +31,37 @@ export function MechanismSection({ featured }: { featured: LandingStock }) {
       for (const e of entries) {
         if (e.isIntersecting) setStep(Number((e.target as HTMLElement).dataset.sent));
       }
-    }, { rootMargin: '-45% 0px -45% 0px' });
+    }, { rootMargin: '-20% 0px -55% 0px', threshold: 0 });
     for (const el of sentinels.current) if (el) obs.observe(el);
     return () => obs.disconnect();
   }, []);
+
+  // Mobile : l'étape active suit la carte centrée dans le carrousel.
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el || typeof window === 'undefined' || window.innerWidth > 1000) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const i = Math.round(el.scrollLeft / Math.max(1, el.clientWidth * 0.86));
+        setStep(Math.max(0, Math.min(2, i)));
+      });
+    };
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => { el.removeEventListener('scroll', onScroll); cancelAnimationFrame(raf); };
+  }, []);
+
+  /** Clic sur une étape : on affiche la carte (desktop) ou on y fait glisser le carrousel. */
+  function goto(i: number) {
+    setStep(i);
+    const el = stageRef.current;
+    if (el && typeof window !== 'undefined' && window.innerWidth <= 1000) {
+      el.scrollTo({ left: i * el.clientWidth * 0.86, behavior: 'smooth' });
+    } else {
+      sentinels.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
 
   const [headRef, headIn] = useSectionIn<HTMLDivElement>();
 
@@ -52,28 +76,28 @@ export function MechanismSection({ featured }: { featured: LandingStock }) {
         <div className="mech-grid">
           <div className="mech-steps">
             {[0, 1, 2].map(i => (
-              <div key={i} className="mstep" data-on={step === i ? '1' : '0'}>
+              <button
+                key={i}
+                type="button"
+                className="mstep"
+                data-on={step === i ? '1' : '0'}
+                onClick={() => goto(i)}
+                aria-current={step === i}
+              >
                 <span className="n">{`0${i + 1}`}</span>
                 <h3>{t(`landing.mech.steps.${i}`)}</h3>
-              </div>
+                <span className="mstep-bar" aria-hidden="true"><i /></span>
+              </button>
             ))}
           </div>
 
           <div>
-            <div className="mech-stage">
-              {/* 3a — la qualité, 10 critères mesurés */}
+            <div className="mech-stage" ref={stageRef}>
+              {/* 3a — la qualité : la vraie fiche, 10 critères notés */}
               <div className="mcard" data-on={step === 0 ? '1' : '0'}>
                 <div className="panel" style={{ height: '100%' }}>
                   <h4>{t('landing.mech.card1.title', { ticker: featured.ticker })}</h4>
-                  <div className="crit-list">
-                    {CRITERIA.map((c, i) => (
-                      <div key={c} className="crit-line" style={{ transitionDelay: `${i * 0.07}s` }}>
-                        <span className="cdot" />
-                        {t(`landing.criteria.${c}`)}
-                        <span className="v">{t('landing.mech.measured')}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <CriteriaList criteria={criteria} compact />
                   <div className="row panel-foot">
                     <span className="tiny muted" style={{ fontWeight: 600 }}>{t('landing.mech.card1.score')}</span>
                     <span className="num panel-score">{featured.note10 ?? '—'}/10</span>
@@ -91,6 +115,8 @@ export function MechanismSection({ featured }: { featured: LandingStock }) {
                       {t('landing.mech.card2.qualityDesc', { name: featured.name })}
                     </div>
                   </div>
+                  <div style={{ marginTop: 16 }}><CompositionStrip criteria={criteria} /></div>
+                  <CriteriaList criteria={criteria.slice(0, 3)} compact />
                 </div>
                 <div className="panel panel-alt">
                   <h4>{t('landing.mech.card2.valuation')}</h4>
@@ -98,13 +124,12 @@ export function MechanismSection({ featured }: { featured: LandingStock }) {
                   <div className="tiny muted" style={{ marginTop: 4 }}>
                     <Def def={t('landing.def.pfcf')}>P/FCF</Def> {t('landing.mech.card2.pfcfNote')}
                   </div>
-                  <div className="crit-list" style={{ marginTop: 18 }}>
-                    {price && <div className="crit-line" style={{ transitionDelay: '.1s' }}>{t('landing.card.price')}<span className="v">{price}</span></div>}
-                    <div className="crit-line" style={{ transitionDelay: '.16s' }}>
-                      {t('landing.card.opportunity')}
-                      <span className="v" style={{ color: featured.opportunity ? 'var(--good-ink)' : 'var(--ink-3)' }}>
-                        {featured.opportunity ? t('landing.mech.card2.yes') : t('landing.mech.card2.no')}
-                      </span>
+                  <div className="crits crits-compact" style={{ marginTop: 18 }}>
+                    {price && <div className="crit"><span className="cd" /><span className="cn">{t('landing.card.price')}</span><span className="cv num">{price}</span></div>}
+                    <div className="crit">
+                      <span className="cd" />
+                      <span className="cn">{t('landing.card.opportunity')}</span>
+                      <span className="cv num">{featured.opportunity ? t('landing.mech.card2.yes') : t('landing.mech.card2.no')}</span>
                     </div>
                   </div>
                   <div className="panel-note"><span className="tiny">{t('landing.mech.card2.separate')}</span></div>
@@ -143,7 +168,8 @@ export function MechanismSection({ featured }: { featured: LandingStock }) {
               </div>
             </div>
 
-            {/* Sentinelles de scroll (desktop uniquement, aucune hauteur en mobile). */}
+            {/* Sentinelles de scroll (desktop uniquement). Courtes : le changement d'étape
+                se déclenche au moindre mouvement plutôt qu'après un écran entier. */}
             <div className="only-desktop">
               {[0, 1, 2].map(i => (
                 <div key={i} className="msent" data-sent={i} ref={el => { sentinels.current[i] = el; }} />
@@ -159,7 +185,7 @@ export function MechanismSection({ featured }: { featured: LandingStock }) {
 /** Section 4 : la veille balaie le marché, les meilleures notes remontent. */
 export function VeilleSection({ rows }: { rows: LandingStock[] }) {
   const { t } = useTranslation();
-  const [ref, seen] = useSectionIn<HTMLElement>();
+  const [ref, seen] = useSectionIn<HTMLElement>(0.1);
   // Champ de points décoratif : positions figées (pas de Math.random au rendu, sinon
   // le prérendu et l'hydratation divergent).
   const dots = Array.from({ length: 60 * 14 }, (_, i) => (i * 37) % 83 === 0);
@@ -189,6 +215,7 @@ export function VeilleSection({ rows }: { rows: LandingStock[] }) {
               <span className="hide-m" style={{ justifySelf: 'end' }}>
                 {r.opportunity && <span className="badge badge-good">{t('landing.card.opportunity')}</span>}
               </span>
+              <Icon name="arrowRight" size={15} />
             </Link>
           ))}
         </div>

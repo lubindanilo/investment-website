@@ -378,32 +378,20 @@
       "pfcf": "P/FCF : prix de l'action rapporté au free cash-flow par action. Plus il est bas, moins tu paies cher le cash généré."
     },
     "card": {
+      "passCount": "{{count}} critères au vert sur 10, calculés sur les chiffres publiés.",
+      "resilience": "Résilience",
+      "resilienceNone": "non publiée",
       "opportunity": "Opportunité",
       "qualityKicker": "Qualité fondamentale",
-      "qualityDesc": "Note de {{note}}/10 sur les 10 critères de qualité, recalculée à chaque publication de résultats.",
       "price": "Cours",
-      "note": "Note de qualité",
-      "live": "Opportunité du moment, sortie du screener en direct."
+      "note": "Note de qualité"
     },
     "friction": {
       "title": "Trois heures de bilans pour une conviction. Et toujours le doute sur le prix."
     },
-    "criteria": {
-      "netMargin": "Marge nette",
-      "revenue": "Croissance du chiffre d'affaires",
-      "fcfPerShare": "Croissance du FCF par action",
-      "buybacks": "Rachats d'actions",
-      "fcfMargin": "Marge de free cash-flow",
-      "opLeverage": "Levier opérationnel",
-      "cashRoce": "Cash ROCE",
-      "netDebt": "Dette nette / FCF",
-      "cashConv": "Conversion du cash",
-      "ccc": "Cycle de conversion du cash"
-    },
     "mech": {
       "kicker": "Le mécanisme",
       "title": "Qualité d'abord. Prix ensuite. Jamais les deux mélangés.",
-      "measured": "mesuré",
       "steps": {
         "0": "D'abord la qualité. 10 critères, pas un avis.",
         "1": "Ensuite le prix. Jugé à part, jamais mélangé.",
@@ -473,22 +461,6 @@
         "down": "Fondamentaux en baisse",
         "above": "Au-dessus du juste prix",
         "micro": "Il lit, il compare, et il met à jour ta liste."
-      },
-      "readLabel": "Lecture",
-      "readCount": "8 outils",
-      "writeLabel": "Écriture",
-      "writeCount": "2 outils",
-      "tools": {
-        "search": "Chercher un ticker",
-        "analyze": "Analyser un titre",
-        "screen": "Filtrer le screener",
-        "resilience": "Noter la résilience",
-        "trend": "Lire la tendance",
-        "compare": "Comparer 5 titres",
-        "listWatchlist": "Lister la watchlist",
-        "reviewWatchlist": "Passer la watchlist en revue",
-        "addWatchlist": "Ajouter à la watchlist",
-        "removeWatchlist": "Retirer de la watchlist"
       },
       "quotas": "Gratuit : 10 analyses par jour, 2 titres comparés, 10 lignes de watchlist. Pro : illimité, 5 titres comparés, watchlist sans limite.",
       "connect": {

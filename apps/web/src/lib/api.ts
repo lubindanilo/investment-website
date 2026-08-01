@@ -38,6 +38,11 @@ export interface TickerPreview {
   resilience?: ResilienceSummary | null;
 }
 
+/** Vitrine de la landing : opportunité du moment + détail des 10 critères (lecture publique). */
+export interface ShowcaseStock extends TickerPreview {
+  criteria: Array<{ key: string | null; name: string; value: string; status: 'pass' | 'warn' | 'fail' }>;
+}
+
 /** Erreur typée que les composants peuvent inspecter. */
 export class ApiError extends Error {
   constructor(
@@ -230,6 +235,8 @@ export const api = {
      *  à l'anonyme sur /analyse/:ticker au lieu de le rediriger vers /signup. */
     tickerPreview: (ticker: string) =>
       safeRequest<TickerPreview>(`/api/screener/ticker/${encodeURIComponent(ticker)}`),
+    /** Vitrine de la landing : l'opportunité du moment avec le détail de ses 10 critères. */
+    showcase: () => safeRequest<ShowcaseStock>('/api/screener/showcase'),
     /** Panier « Bat le marché » (value + momentum) — calcul live à la demande. */
     marketBeat: (params: { topPct?: number; n?: number; universe?: 'US' | 'ALL' } = {}) => {
       const q = new URLSearchParams();

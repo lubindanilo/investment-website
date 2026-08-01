@@ -8,7 +8,7 @@
  */
 import { useEffect, useState } from 'react';
 import type { ScreenerTopRow } from '@lubin/shared';
-import { api } from '../../lib/api.js';
+import { api, type ShowcaseStock } from '../../lib/api.js';
 
 export interface LandingStock {
   ticker: string;
@@ -53,9 +53,22 @@ const FALLBACK_PEA: LandingStock[] = [
 /** Filtres de la requête PEA, montrés en chips ET réellement envoyés à l'API. */
 export const PEA_QUERY = { zones: 'pea', minMax: 8, maxPfcf: 15, limit: 4 } as const;
 
+/** Critère affiché dans la fiche du hero (même vue que /analyser). */
+export interface LandingCriterion { name: string; value: string; status: 'pass' | 'warn' | 'fail' }
+
+/** Repli des 10 critères : structure réelle, valeurs neutres tant que l'API n'a pas répondu. */
+const FALLBACK_CRITERIA: LandingCriterion[] = [
+  'Marge nette', 'Ventes en croissance', 'Profits par action en croissance', 'Nombre d\'actions maîtrisé',
+  'Profitabilité cash', 'Marges en expansion', 'Rendement du capital investi', 'Endettement maîtrisé',
+  'Bénéfices transformés en cash', 'Délai d\'encaissement net',
+].map(name => ({ name, value: '—', status: 'pass' as const }));
+
 export interface LandingData {
   /** Le titre mis en avant (hero, mécanisme, conversation Claude). */
   featured: LandingStock;
+  /** Ses 10 critères de qualité et son grade de résilience (vue « analyser »). */
+  criteria: LandingCriterion[];
+  resilience: { grade: string; score: number } | null;
   /** Les lignes montrées dans la section veille. */
   rows: LandingStock[];
   /** Résultat réel de la requête PEA illustrée dans la section Claude. */
@@ -72,15 +85,18 @@ export interface LandingData {
 export function useLandingData(): LandingData {
   const [rows, setRows] = useState<LandingStock[]>(FALLBACK);
   const [peaRows, setPeaRows] = useState<LandingStock[]>(FALLBACK_PEA);
+  const [showcase, setShowcase] = useState<ShowcaseStock | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
     Promise.allSettled([
+      api.screener.showcase(),
       api.screener.top({ opportunities: true, minMax: 8, limit: 3 }),
       api.screener.top(PEA_QUERY),
-    ]).then(([top, pea]) => {
+    ]).then(([show, top, pea]) => {
       if (cancelled) return;
+      if (show.status === 'fulfilled') setShowcase(show.value);
       if (top.status === 'fulfilled') {
         const mapped = top.value.map(toStock).filter(s => s.note10 != null);
         if (mapped.length) setRows(mapped);
@@ -94,7 +110,29 @@ export function useLandingData(): LandingData {
     return () => { cancelled = true; };
   }, []);
 
-  return { featured: rows[0] ?? FALLBACK[0]!, rows, peaRows, loading };
+  // La vitrine pilote le hero ; à défaut, la meilleure opportunité du screener.
+  const max = showcase?.scoreChiffresMax ?? 0;
+  const featured: LandingStock = showcase
+    ? {
+        ticker: showcase.ticker,
+        name: showcase.name ?? showcase.ticker,
+        sector: showcase.sector,
+        note10: showcase.scoreChiffres != null && max > 0 ? Math.round((showcase.scoreChiffres / max) * 10) : null,
+        pfcfTTM: showcase.pfcfTTM,
+        price: showcase.price,
+        currency: showcase.currency,
+        opportunity: showcase.opportunity,
+      }
+    : rows[0] ?? FALLBACK[0]!;
+
+  return {
+    featured,
+    criteria: showcase?.criteria?.length ? showcase.criteria : FALLBACK_CRITERIA,
+    resilience: showcase?.resilience ?? null,
+    rows,
+    peaRows,
+    loading,
+  };
 }
 
 /** Formate un cours avec sa devise (symbole court, locale courante). */

@@ -18,15 +18,15 @@ import { useLandingData } from '../components/landing/useLandingData.js';
 import './HomePage.css';
 
 export function HomePage() {
-  const { featured, rows, peaRows } = useLandingData();
+  const { featured, criteria, resilience, rows, peaRows } = useLandingData();
 
   return (
     <div className="lp">
       {/* SEO : titre + meta description (i18n) injectés au montage. */}
       <SeoHead titleKey="seo.home.title" descKey="seo.home.desc" />
-      <HeroSection featured={featured} />
+      <HeroSection featured={featured} criteria={criteria} resilience={resilience} />
       <FrictionSection />
-      <MechanismSection featured={featured} />
+      <MechanismSection featured={featured} criteria={criteria} />
       <VeilleSection rows={rows} />
       <ClaudeSection featured={featured} peaRows={peaRows} rows={rows} />
       <ProofSection />

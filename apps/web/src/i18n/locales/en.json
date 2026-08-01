@@ -353,32 +353,20 @@
       "pfcf": "P/FCF: share price divided by free cash flow per share. The lower it is, the less you pay for the cash generated."
     },
     "card": {
+      "passCount": "{{count}} criteria in the green out of 10, computed on published figures.",
+      "resilience": "Resilience",
+      "resilienceNone": "not published",
       "opportunity": "Opportunity",
       "qualityKicker": "Fundamental quality",
-      "qualityDesc": "Scored {{note}}/10 across the 10 quality criteria, recomputed at every earnings release.",
       "price": "Price",
-      "note": "Quality score",
-      "live": "Opportunity of the moment, straight from the live screener."
+      "note": "Quality score"
     },
     "friction": {
       "title": "Three hours of financial statements for one conviction. And still doubt about the price."
     },
-    "criteria": {
-      "netMargin": "Net margin",
-      "revenue": "Revenue growth",
-      "fcfPerShare": "FCF per share growth",
-      "buybacks": "Share buybacks",
-      "fcfMargin": "Free cash flow margin",
-      "opLeverage": "Operating leverage",
-      "cashRoce": "Cash ROCE",
-      "netDebt": "Net debt / FCF",
-      "cashConv": "Cash conversion",
-      "ccc": "Cash conversion cycle"
-    },
     "mech": {
       "kicker": "The mechanism",
       "title": "Quality first. Price next. Never the two mixed together.",
-      "measured": "measured",
       "steps": {
         "0": "Quality first. 10 criteria, not an opinion.",
         "1": "Then the price. Judged separately, never blended in.",
@@ -448,22 +436,6 @@
         "down": "Deteriorating fundamentals",
         "above": "Above fair price",
         "micro": "It reads, it compares, and it updates your list."
-      },
-      "readLabel": "Read",
-      "readCount": "8 tools",
-      "writeLabel": "Write",
-      "writeCount": "2 tools",
-      "tools": {
-        "search": "Search a ticker",
-        "analyze": "Analyze a stock",
-        "screen": "Filter the screener",
-        "resilience": "Score resilience",
-        "trend": "Read the trend",
-        "compare": "Compare 5 stocks",
-        "listWatchlist": "List the watchlist",
-        "reviewWatchlist": "Review the watchlist",
-        "addWatchlist": "Add to the watchlist",
-        "removeWatchlist": "Remove from the watchlist"
       },
       "quotas": "Free: 10 analyses a day, 2 stocks compared, 10 watchlist rows. Pro: unlimited, 5 stocks compared, watchlist without limit.",
       "connect": {
