@@ -11,41 +11,105 @@
  */
 import { type FormEvent, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import type { TickerSuggestion } from '@lubin/shared';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
+import { api } from '../../lib/api.js';
 import { Def, ScoreRing, Sk, useParallax, useSectionIn } from './bits.js';
 import { useMotion, useRichMotion } from './motion.js';
 import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
-/** Champ ticker + bouton : le point d'entrée réel de la page (hero et CTA final). */
+/**
+ * Champ de recherche + bouton : le point d'entrée réel de la page (hero et CTA final).
+ *
+ * On demande le NOM de l'entreprise, pas son code boursier : « colle un ticker » suppose
+ * de connaître AAPL ou MC.PA, ce qui écarte une grande partie des visiteurs. Le champ
+ * interroge donc la recherche du screener (ticker OU nom) et propose les correspondances ;
+ * à la validation, le nom saisi est résolu vers son ticker avant d'ouvrir la fiche.
+ */
 export function TickerForm({ id }: { id: string }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [value, setValue] = useState('');
+  const [hits, setHits] = useState<TickerSuggestion[]>([]);
+  const [open, setOpen] = useState(false);
+  const boxRef = useRef<HTMLDivElement>(null);
 
-  function submit(e: FormEvent) {
+  // Suggestions au fil de la frappe (débounce court, résultat ignoré si on a déjà changé).
+  useEffect(() => {
+    const q = value.trim();
+    if (q.length < 2) { setHits([]); return; }
+    let cancelled = false;
+    const timer = setTimeout(() => {
+      api.screener.search(q)
+        .then(res => { if (!cancelled) { setHits(res.slice(0, 5)); setOpen(true); } })
+        .catch(() => { /* recherche indisponible : la saisie brute reste utilisable */ });
+    }, 180);
+    return () => { cancelled = true; clearTimeout(timer); };
+  }, [value]);
+
+  // Clic à l'extérieur : on referme la liste.
+  useEffect(() => {
+    const onDown = (e: MouseEvent) => {
+      if (boxRef.current && !boxRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', onDown);
+    return () => document.removeEventListener('mousedown', onDown);
+  }, []);
+
+  function go(ticker: string) { navigate(`/analyse/${encodeURIComponent(ticker)}`); }
+
+  async function submit(e: FormEvent) {
     e.preventDefault();
-    const ticker = value.trim().toUpperCase();
-    navigate(ticker ? `/analyse/${encodeURIComponent(ticker)}` : '/analyser');
+    const q = value.trim();
+    if (!q) { navigate('/analyser'); return; }
+    // Une suggestion affichée l'emporte : elle vient de l'univers réellement couvert.
+    if (hits[0]) { go(hits[0].ticker); return; }
+    try {
+      const res = await api.screener.search(q);
+      go(res[0]?.ticker ?? q.toUpperCase());
+    } catch {
+      go(q.toUpperCase());
+    }
   }
 
   return (
-    <form className="tickform" onSubmit={submit}>
-      <input
-        id={id}
-        className="input"
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        placeholder={t('landing.hero.placeholder')}
-        aria-label={t('landing.hero.inputLabel')}
-        autoComplete="off"
-        spellCheck={false}
-      />
-      <button type="submit" className="btn btn-brand btn-lg">
-        {t('landing.hero.cta')} <Icon name="arrowRight" size={17} />
-      </button>
-    </form>
+    <div className="tickbox" ref={boxRef}>
+      <form className="tickform" onSubmit={submit} role="search">
+        <input
+          id={id}
+          className="input"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+          onFocus={() => { if (hits.length) setOpen(true); }}
+          placeholder={t('landing.hero.placeholder')}
+          aria-label={t('landing.hero.inputLabel')}
+          autoComplete="off"
+          spellCheck={false}
+        />
+        <button type="submit" className="btn btn-brand btn-lg">
+          {t('landing.hero.cta')} <Icon name="arrowRight" size={17} />
+        </button>
+      </form>
+      {open && hits.length > 0 && (
+        <ul className="suggest" role="listbox" aria-label={t('landing.hero.inputLabel')}>
+          {hits.map(h => {
+            const max = h.scoreChiffresMax ?? 0;
+            const note = h.scoreChiffres != null && max > 0 ? Math.round((h.scoreChiffres / max) * 10) : null;
+            return (
+              <li key={h.ticker} role="option" aria-selected={false}>
+                <button type="button" onClick={() => go(h.ticker)}>
+                  <b className="num">{h.ticker}</b>
+                  <span className="sg-name">{h.name ?? h.ticker}</span>
+                  {note != null && <span className="num sg-note">{note}/10</span>}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
   );
 }
 
@@ -153,9 +217,7 @@ export function HeroSection({ featured, criteria, resilience, ready }: {
         <div className="hero-copy">
           <a className="hero-chip" href="#claude"><span className="dot" />{t('landing.hero.chip')}</a>
           <h1>{t('landing.hero.title')}</h1>
-          <p className="hero-sub">
-            {t('landing.hero.subBefore')}<Def def={t('landing.def.ticker')}>{t('landing.hero.subTicker')}</Def>{t('landing.hero.subAfter')}
-          </p>
+          <p className="hero-sub">{t('landing.hero.sub')}</p>
           <TickerForm id="hero-ticker" />
           <div style={{ marginTop: 12 }}>
             <a href="#veille" className="hero-second">{t('landing.hero.ctaSecondary')} →</a>
