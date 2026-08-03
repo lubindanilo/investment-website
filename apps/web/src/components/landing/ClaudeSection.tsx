@@ -40,6 +40,9 @@ type Step =
   | { do: 'clear' };
 
 const sleep = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
+const NEXT_PROMPT_DELAY_MS = 160;
+const ANSWER_WORD_DELAY_MS = 38;
+const CARD_REVEAL_DELAY_MS = 520;
 
 /**
  * Marque de Claude : l'ICÔNE OFFICIELLE, versionnée dans `public/claude-icon.png`.
@@ -194,29 +197,29 @@ export function ClaudeSection({ show, peaRows, rows }: {
       // ── 1. Il analyse ───────────────────────────────────────────────
       { do: 'type', text: q1 },
       { do: 'send', text: q1 },
-      { do: 'think', ms: 1100 },
+      { do: 'think', ms: 650 },
       { do: 'say', text: t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' }) },
       { do: 'card', id: 'analyze' },
-      { do: 'wait', ms: 3600 },
+      { do: 'wait', ms: NEXT_PROMPT_DELAY_MS },
       // ── 2. Il cherche pour toi ──────────────────────────────────────
       { do: 'type', text: q2 },
       { do: 'send', text: q2 },
-      { do: 'think', ms: 1300 },
+      { do: 'think', ms: 750 },
       { do: 'say', text: t('landing.claude.b.answer', { count: peaRows.length }) },
       { do: 'card', id: 'screen' },
-      { do: 'wait', ms: 3800 },
+      { do: 'wait', ms: NEXT_PROMPT_DELAY_MS },
       // ── 3. Il surveille, et il agit ─────────────────────────────────
       { do: 'type', text: q3 },
       { do: 'send', text: q3 },
-      { do: 'think', ms: 1600 },
+      { do: 'think', ms: 900 },
       { do: 'say', text: t('landing.claude.c.answer') },
       { do: 'card', id: 'watchlist' },
-      { do: 'wait', ms: 3000 },
+      { do: 'wait', ms: NEXT_PROMPT_DELAY_MS },
       { do: 'type', text: q4 },
       { do: 'send', text: q4 },
-      { do: 'think', ms: 900 },
+      { do: 'think', ms: 520 },
       { do: 'card', id: 'added' },
-      { do: 'wait', ms: 4000 },
+      { do: 'wait', ms: 1800 },
       { do: 'clear' },
     ];
 
@@ -260,14 +263,14 @@ export function ClaudeSection({ show, peaRows, rows }: {
               for (let w = 1; w <= words.length; w++) {
                 if (cancelled) return;
                 setItems(prev => prev.map((it, k) => (k === prev.length - 1 && it.kind === 'text' ? { ...it, shown: w } : it)));
-                await sleep(58);
+                await sleep(ANSWER_WORD_DELAY_MS);
               }
               await sleep(260);
               break;
             }
             case 'card': {
               setItems(prev => [...prev.filter(it => it.kind !== 'think'), { kind: 'card', id: step.id }]);
-              await sleep(900);
+              await sleep(CARD_REVEAL_DELAY_MS);
               break;
             }
             case 'wait': await sleep(step.ms); break;
