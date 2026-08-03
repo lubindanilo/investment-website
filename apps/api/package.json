@@ -13,7 +13,8 @@
     "db:studio": "prisma studio --schema=prisma/schema.prisma",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "resilience:stars:bench": "tsx scripts/resilienceStarsBench.ts"
   },
   "dependencies": {
     "@lubin/shared": "workspace:*",
