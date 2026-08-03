@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { marketCapToUsd, nextAshareDisclosure, isChinaAshare } from './marketTiers.js';
+import { marketCapToUsd, fxPerUsd, nextAshareDisclosure, isChinaAshare } from './marketTiers.js';
 
 describe('marketCapToUsd', () => {
   it('convertit la devise locale en USD', () => {
@@ -17,6 +17,25 @@ describe('marketCapToUsd', () => {
   it('null si market cap absent', () => {
     expect(marketCapToUsd(null, 'JPY')).toBeNull();
     expect(marketCapToUsd(undefined, 'JPY')).toBeNull();
+  });
+});
+
+describe('unités secondaires de cotation (GBp, ZAc, ILA)', () => {
+  it('les pence valent 100 fois moins que la livre', () => {
+    expect(fxPerUsd('GBp')).toBeCloseTo(fxPerUsd('GBP')! * 100, 6);
+  });
+
+  it('cents sud-africains et agorot israéliens suivent la même règle', () => {
+    expect(fxPerUsd('ZAc')).toBeCloseTo(fxPerUsd('ZAR')! * 100, 6);
+    expect(fxPerUsd('ILA')).toBeCloseTo(fxPerUsd('ILS')! * 100, 6);
+  });
+
+  it('GSK : une capi en pence n\'est plus comptée comme des livres', () => {
+    // 7,89e12 pence = 78,9 Md£ ≈ 100 Md$. Avant le correctif, `GBp` était uppercasé en `GBP` et
+    // la même valeur ressortait à ~9 988 Md$, ce qui plaçait GSK au-dessus d'Apple au classement.
+    const usd = marketCapToUsd(7.89e12, 'GBp')!;
+    expect(usd / 1e9).toBeGreaterThan(50);
+    expect(usd / 1e9).toBeLessThan(200);
   });
 });
 
@@ -43,5 +62,26 @@ describe('isChinaAshare', () => {
   it('exclut HK et le reste', () => {
     expect(isChinaAshare('1681.HK')).toBe(false);
     expect(isChinaAshare('AAPL')).toBe(false);
+  });
+});
+
+describe('FX_PER_USD — couverture de l\'univers', () => {
+  it('couvre toutes les devises des bourses réellement présentes en base', () => {
+    // Relevé le 03/08/2026 sur les titres notés. Une devise manquante fait compter la
+    // capitalisation locale comme des dollars : MOL (Budapest) est ainsi passé à 3 119 Md$.
+    const inUniverse = [
+      'USD', 'EUR', 'GBP', 'GBp', 'CHF', 'SEK', 'DKK', 'NOK', 'JPY', 'HKD', 'CNY', 'INR',
+      'KRW', 'TWD', 'IDR', 'THB', 'SGD', 'VND', 'SAR', 'ZAR', 'TRY', 'CAD', 'AUD', 'BRL',
+      'PLN', 'HUF', 'CZK', 'ILS',
+    ];
+    const missing = inUniverse.filter(c => fxPerUsd(c) == null);
+    expect(missing).toEqual([]);
+  });
+
+  it('MOL : les forints ne sont plus comptés pour des dollars', () => {
+    // ~2 200 Md HUF ≈ 6 Md$.
+    const usd = marketCapToUsd(2.2e12, 'HUF')!;
+    expect(usd / 1e9).toBeGreaterThan(2);
+    expect(usd / 1e9).toBeLessThan(20);
   });
 });

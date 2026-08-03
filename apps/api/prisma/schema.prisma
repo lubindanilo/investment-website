@@ -255,13 +255,14 @@ model ScreenerTicker {
   price              Float?
   /// Variation du jour en %
   dayChangePct       Float?
-  /// Capitalisation boursière (prix × actions), figée au scoring. Devise locale du titre
-  /// (approximation US-first, comme marketBeat). Null si prix ou nb d'actions indisponible.
-  /// Alimente le filtre Small/Mid/Large cap du screener.
+  /// Capitalisation boursière figée au scoring, en DEVISE LOCALE du titre (donc en pence pour
+  /// Londres, en yens pour Tokyo). Recoupée entre le recalcul prix × actions et la valeur publiée
+  /// par le fournisseur, cf. services/marketCapResolve.ts. Null quand rien n'est vérifiable.
+  /// Sert à l'AFFICHAGE ; ne jamais y appliquer un seuil en dollars.
   marketCap          Float?
-  /// marketCap normalisé en USD (table de change statique, cf. marketTiers.ts) — pilote les tiers
-  /// de cadence de re-scoring (large/mid/small) de façon comparable entre bourses. Null tant que
-  /// le titre n'a pas été re-scoré avec cette version.
+  /// marketCap normalisé en USD (table de change statique, cf. marketTiers.ts). C'est la colonne
+  /// COMPARABLE entre bourses : elle porte le filtre Small/Mid/Large du screener ET les tiers de
+  /// cadence de re-scoring. Null quand la capitalisation n'est pas déterminable.
   marketCapUsd       Float?
   /// Closes mensuels ~1 an pour la sparkline (number[])
   spark              Json?
