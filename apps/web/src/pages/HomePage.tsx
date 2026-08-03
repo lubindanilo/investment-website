@@ -32,7 +32,7 @@ export function HomePage() {
       <SeoHead titleKey="seo.home.title" descKey="seo.home.desc" />
       <HeroSection featured={featured} criteria={criteria} resilience={resilience} ready={ready} />
       <FrictionSection />
-      <MechanismSection featured={featured} criteria={criteria} pfcfPercentile={pfcfPercentile} ready={ready} />
+      <MechanismSection featured={featured} criteria={criteria} resilience={resilience} pfcfPercentile={pfcfPercentile} ready={ready} />
       <VeilleSection rows={rows} ready={ready} />
       <ClaudeSection featured={featured} peaRows={peaRows} rows={rows} ready={ready} />
       <ProofSection />

@@ -19,6 +19,24 @@
   gap: 10px;
 }
 
+/* Pastille du logo officiel, devant le nom de la société. Gabarit FIXE, occupé dès le premier
+   rendu : le logo arrive de façon asynchrone et ne doit pas décaler le titre en s'affichant. */
+.anl-company-logo {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 10px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text2);
+  letter-spacing: -0.02em;
+}
+
 .anl-company-desc {
   margin: -4px 0 0;
   max-width: 78ch;

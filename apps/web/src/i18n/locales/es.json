@@ -610,6 +610,15 @@
     "searchPlaceholder": "Apple, Microsoft, Nvidia…",
     "analyze": "Analizar",
     "analyzing": "Analizando…",
+    "loading": {
+      "title": "Analizando {{ticker}}",
+      "sub": "Leemos las cuentas publicadas, puntuamos los 10 criterios y situamos el precio. Unos segundos.",
+      "steps": [
+        "Recuperación de las cuentas publicadas",
+        "Puntuación de los 10 criterios de calidad",
+        "Posición del precio en su histórico"
+      ]
+    },
     "analyzeAnother": "Analizar otra acción",
     "opportunities": "Nuestras oportunidades del momento",
     "addToWatchlist": "Añadir a la watchlist",

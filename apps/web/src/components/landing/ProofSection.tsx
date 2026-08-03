@@ -85,24 +85,24 @@ export function ProofSection() {
         </div>
 
         {/* Track record réel, issu du backtest daté — pleine largeur, c'est LA preuve */}
-        <div className="track rv" data-d="1">
-          <div className="track-head">
+        <div className="pal rv" data-d="1">
+          <div className="pal-head">
             <div>
               <h3>{t('landing.proof.track.title')}</h3>
-              <p className="tiny muted track-sub">{t('landing.proof.track.sub')}</p>
+              <p className="tiny muted pal-sub">{t('landing.proof.track.sub')}</p>
             </div>
-            <div className="track-legend">
+            <div className="pal-legend">
               <span className="row tiny legend-i"><i className="sw lub" />{t('landing.proof.track.legendLub')}</span>
               <span className="row tiny muted legend-i"><i className="sw idx" />{t('landing.proof.track.legendIdx')}</span>
               <span className="badge badge-brand">{t('landing.proof.track.badge')}</span>
             </div>
           </div>
 
-          <div className="track-grid">
+          <div className="pal-grid">
             {picks.map((p, i) => <PickCard key={p.ticker} p={p} max={max} i={i} locale={locale} t={t} />)}
           </div>
 
-          <div className="track-foot">
+          <div className="pal-foot">
             <p className="tiny muted honest">{t('landing.proof.track.honest')}</p>
             <Link to="/palmares" className="proof-link">{t('landing.proof.track.cta')} →</Link>
           </div>

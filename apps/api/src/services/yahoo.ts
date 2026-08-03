@@ -718,7 +718,15 @@ export async function getEarningsInfoYahoo(symbol: string): Promise<EarningsInfo
 // expose `sector` (large) ET `industry` (fin : « Information Technology Services »,
 // « Travel Services », « Semiconductors »…). On garde l'industry pour un affichage plus
 // précis. Couvre US + monde. Mémoïsé 30 j (le profil sectoriel ne bouge quasi jamais).
-export interface YahooAssetProfile { sector: string | null; industry: string | null; description: string | null }
+export interface YahooAssetProfile {
+  sector: string | null;
+  industry: string | null;
+  description: string | null;
+  /** Site officiel de la société. Déjà présent dans la réponse `assetProfile` (aucune
+   *  requête de plus) : c'est notre seule source de DOMAINE pour les titres non-US, donc
+   *  la clé de leur logo officiel (cf. GET /api/screener/logo/:ticker). */
+  website: string | null;
+}
 
 /**
  * Réduit le `longBusinessSummary` Yahoo (souvent un paragraphe entier) à sa 1ʳᵉ phrase,
@@ -752,7 +760,7 @@ interface CachedYahooProfile { data: YahooAssetProfile; cachedAt: number }
 const yahooProfileCache = new Map<string, CachedYahooProfile>();
 
 export async function getAssetProfileYahoo(symbol: string): Promise<YahooAssetProfile> {
-  const empty: YahooAssetProfile = { sector: null, industry: null, description: null };
+  const empty: YahooAssetProfile = { sector: null, industry: null, description: null, website: null };
   const cached = yahooProfileCache.get(symbol);
   if (cached && Date.now() - cached.cachedAt < YAHOO_PROFILE_TTL_MS) return cached.data;
 
@@ -775,13 +783,14 @@ export async function getAssetProfileYahoo(symbol: string): Promise<YahooAssetPr
         res = await fetchOnce(session);
       }
       if (!res.ok) throw new Error(`Yahoo quoteSummary HTTP ${res.status}`);
-      const data = await res.json() as { quoteSummary?: { result?: Array<{ assetProfile?: { sector?: string; industry?: string; longBusinessSummary?: string } }>; error?: { description?: string } | null } };
+      const data = await res.json() as { quoteSummary?: { result?: Array<{ assetProfile?: { sector?: string; industry?: string; longBusinessSummary?: string; website?: string } }>; error?: { description?: string } | null } };
       if (data.quoteSummary?.error) throw new Error(data.quoteSummary.error.description ?? 'quoteSummary error');
       const p = data.quoteSummary?.result?.[0]?.assetProfile;
       const result: YahooAssetProfile = {
         sector: p?.sector?.trim() || null,
         industry: p?.industry?.trim() || null,
         description: firstSentence(p?.longBusinessSummary),
+        website: p?.website?.trim() || null,
       };
       yahooProfileCache.set(symbol, { data: result, cachedAt: Date.now() });
       return result;

@@ -196,3 +196,57 @@
   .anl-uncovered { padding: 40px 20px; }
   .anl-uncovered-title { font-size: 18px; }
 }
+
+/* ─── Attente d'une analyse ────────────────────────────────────────────────────
+   Une analyse prend plusieurs secondes. Sans mouvement, l'utilisateur ne sait pas si
+   ça travaille ou si la page est cassée : on annonce le ticker, on fait avancer une barre
+   et on allume les étapes réelles du calcul une par une. */
+.anl-loading { display: flex; flex-direction: column; gap: 16px; padding: 22px 24px; }
+.anl-loading-head { display: flex; align-items: center; gap: 14px; }
+.anl-loading-title { font-size: 16px; font-weight: 700; letter-spacing: -0.02em; }
+.anl-loading-sub { margin-top: 3px; line-height: 1.45; }
+/* Anneau qui tourne : le signal « ça travaille » le plus universellement compris. */
+.anl-loading-ring {
+  width: 34px; height: 34px; flex: none; border-radius: 50%;
+  border: 3px solid var(--bg-soft); border-top-color: var(--brand);
+  animation: anl-spin .8s linear infinite;
+}
+@keyframes anl-spin { to { transform: rotate(360deg); } }
+/* Barre indéterminée : elle balaie, elle ne prétend pas connaître un pourcentage. */
+.anl-loading-bar { height: 4px; border-radius: 99px; background: var(--bg-soft); overflow: hidden; }
+.anl-loading-bar i {
+  display: block; height: 100%; width: 38%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--brand), oklch(0.62 0.16 250));
+  animation: anl-sweep 1.5s cubic-bezier(.5, 0, .5, 1) infinite;
+}
+@keyframes anl-sweep { from { transform: translateX(-105%); } to { transform: translateX(305%); } }
+.anl-loading-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.anl-loading-steps li {
+  display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--text2);
+  transition: color .3s ease, opacity .3s ease; opacity: .5;
+}
+.anl-loading-steps li .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: var(--border); }
+.anl-loading-steps li[data-state="now"] { opacity: 1; color: var(--text); font-weight: 600; }
+.anl-loading-steps li[data-state="now"] .dot { background: var(--brand); animation: anl-pulse 1.1s ease-in-out infinite; }
+.anl-loading-steps li[data-state="done"] { opacity: 1; }
+.anl-loading-steps li[data-state="done"] .dot { background: var(--green); }
+@keyframes anl-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--brand-ring); }
+  50% { box-shadow: 0 0 0 5px transparent; }
+}
+
+/* Mouvement réduit : on RALENTIT, on n'éteint pas. Un indicateur d'attente parfaitement
+   immobile se lit comme une page plantée, ce qui est bien plus pénible que le mouvement
+   qu'on cherchait à éviter. La préférence vise les grands déplacements et le défilement
+   automatique, pas le signal « ça travaille ». */
+@media (prefers-reduced-motion: reduce) {
+  .anl-loading-ring { animation-duration: 1.6s; }
+  .anl-loading-bar i { animation-duration: 2.8s; }
+  .anl-loading-steps li[data-state="now"] .dot { animation: none; }
+}
+
+@media (max-width: 720px) {
+  .anl-loading { padding: 16px; gap: 13px; }
+  .anl-loading-title { font-size: 15px; }
+  .anl-loading-steps li { font-size: 13px; }
+}

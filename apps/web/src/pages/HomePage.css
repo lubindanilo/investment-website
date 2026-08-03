@@ -58,7 +58,10 @@
 .lp .hero-side { position: relative; }
 
 /* fiche d'analyse animée (vue « analyser » : 10 critères + composition + résilience) */
-.lp .acard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-lg); padding: 22px; position: relative; }
+/* `min-height` PARTAGÉ par le squelette et la vraie fiche : sans lui, la carte grandissait
+   d'une centaine de pixels à l'arrivée des données et tout le hero sautait (la grille est
+   centrée verticalement). C'est ce qui donnait l'impression d'un rendu cassé au chargement. */
+.lp .acard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-lg); padding: 22px; position: relative; min-height: 556px; }
 .lp .acard.tilt {
   transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(var(--tz, 0px));
   transition: transform .5s cubic-bezier(.2, .8, .2, 1), box-shadow .4s var(--ease);
@@ -77,18 +80,24 @@
 .lp .mini { display: flex; flex-direction: column; gap: 3px; }
 .lp .mini b { font-size: 13.5px; }
 
-/* second score de la fiche : la résilience, juste sous la qualité */
-.lp .acard-res { display: flex; align-items: center; gap: 12px; margin-top: 14px; padding: 11px 13px; border-radius: var(--r-sm); background: var(--bg-soft); border: 1px solid var(--line-soft); }
-.lp .res-grade { width: 34px; height: 34px; border-radius: 10px; flex: none; display: grid; place-items: center; font-family: var(--mono); font-weight: 700; font-size: 15px; background: var(--good-bg); color: var(--good-ink); }
-.lp .res-grade[data-g="C"] { background: var(--warn-bg); color: var(--warn-ink); }
-.lp .res-grade[data-g="D"], .lp .res-grade[data-g="E"] { background: var(--bad-bg); color: var(--bad-ink); }
-.lp .res-grade[data-g="-"] { background: var(--surface-2); color: var(--ink-4); }
-.lp .res-body { flex: 1; min-width: 0; }
-.lp .res-top { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+/* second score de la fiche : la résilience, juste sous la qualité.
+   Ligne 1 = le libellé et sa pastille de grade (le verdict). Ligne 2 = le détail chiffré. */
+.lp .acard-res { margin-top: 14px; padding: 11px 13px; border-radius: var(--r-sm); background: var(--bg-soft); border: 1px solid var(--line-soft); }
+.lp .res-top { display: flex; align-items: center; gap: 9px; }
 .lp .res-k { font-size: 11px; }
-.lp .res-score { font-size: 13px; font-weight: 700; }
-.lp .res-bar { height: 6px; border-radius: 99px; background: var(--line); margin-top: 7px; overflow: hidden; }
+.lp .res-pill {
+  display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px;
+  border-radius: var(--r-pill); font-family: var(--mono); font-weight: 700; font-size: 12px;
+  background: var(--good-bg); color: var(--good-ink);
+}
+.lp .res-pill[data-g="C"] { background: var(--warn-bg); color: var(--warn-ink); }
+.lp .res-pill[data-g="D"], .lp .res-pill[data-g="E"] { background: var(--bad-bg); color: var(--bad-ink); }
+.lp .res-pill[data-g="-"] { background: var(--surface-2); color: var(--ink-4); }
+.lp .res-detail { display: flex; align-items: center; gap: 11px; margin-top: 8px; }
+.lp .res-score { font-size: 13px; font-weight: 700; flex: none; }
+.lp .res-bar { flex: 1; min-width: 0; height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
 .lp .res-bar i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--good), oklch(0.68 0.14 168)); transform-origin: left; animation: lp-grow .9s var(--ease) .45s both; }
+.lp .acard-res.none .res-score { font-weight: 600; color: var(--ink-3); }
 .lp .acard-res.none .res-bar i { background: var(--line); }
 
 /* liste des 10 critères, cascade à l'apparition */
@@ -381,16 +390,16 @@
 /* Track record : la preuve occupe toute la largeur. Chaque cas montre le MULTIPLE en grand,
    puis les deux barres à la même échelle (le titre, l'indice). C'est l'écart entre les deux
    qui informe, pas le rendement du titre pris seul. */
-.lp .track { margin-top: 38px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-sm); padding: 24px; }
-.lp .track-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin-bottom: 22px; }
-.lp .track-head h3 { font-size: 20px; }
-.lp .track-sub { margin-top: 7px; max-width: 48ch; line-height: 1.5; }
-.lp .track-legend { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.lp .pal { margin-top: 38px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-sm); padding: 24px; }
+.lp .pal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin-bottom: 22px; }
+.lp .pal-head h3 { font-size: 20px; }
+.lp .pal-sub { margin-top: 7px; max-width: 48ch; line-height: 1.5; }
+.lp .pal-legend { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 .lp .legend-i { gap: 6px; font-weight: 600; }
 .lp .legend-i i, .lp .sw { width: 10px; height: 10px; border-radius: 3px; display: block; }
 .lp .sw.lub { background: var(--brand); }
 .lp .sw.idx { background: var(--ink-4); }
-.lp .track-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.lp .pal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .lp .tcard {
   background: linear-gradient(180deg, var(--brand-softer), var(--surface) 58%);
   border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px;
@@ -415,7 +424,7 @@
 .lp .tbar.idx i { background: var(--ink-4); }
 .lp .tbar-row b { font-size: 11.5px; font-weight: 700; min-width: 62px; text-align: right; }
 .lp .tcard-f { margin-top: auto; padding-top: 11px; border-top: 1px dashed var(--line-soft); line-height: 1.45; }
-.lp .track-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line-soft); }
+.lp .pal-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line-soft); }
 .lp .honest { line-height: 1.55; max-width: 92ch; }
 .lp .proof-link { font-size: 13.5px; font-weight: 600; margin-top: auto; }
 .lp .formula { font-family: var(--mono); font-size: 12px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 10px 12px; color: var(--ink-2); }
@@ -498,12 +507,12 @@
   .lp .proof-grid::-webkit-scrollbar { display: none; }
   .lp .pcard { min-width: 84vw; scroll-snap-align: center; }
   /* Track record : les 4 cas défilent au doigt, à la même échelle qu'en grand écran. */
-  .lp .track { padding: 16px; margin-top: 26px; }
-  .lp .track-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -16px; padding: 0 16px 10px; scrollbar-width: none; }
-  .lp .track-grid::-webkit-scrollbar { display: none; }
+  .lp .pal { padding: 16px; margin-top: 26px; }
+  .lp .pal-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -16px; padding: 0 16px 10px; scrollbar-width: none; }
+  .lp .pal-grid::-webkit-scrollbar { display: none; }
   .lp .tcard { min-width: 74vw; scroll-snap-align: center; }
-  .lp .track-head { margin-bottom: 16px; gap: 12px; }
-  .lp .track-head h3 { font-size: 18px; }
+  .lp .pal-head { margin-bottom: 16px; gap: 12px; }
+  .lp .pal-head h3 { font-size: 18px; }
   .lp .forwho { grid-template-columns: 1fr; }
   .lp .who { padding: 20px; }
   .lp .who h3 { font-size: 20px; }
@@ -512,7 +521,7 @@
   .lp .faq { margin-top: 36px; }
   .lp summary { padding: 14px 0; font-size: 14.5px; gap: 10px; }
   .lp details .ans { padding-bottom: 14px; font-size: 13.5px; }
-  .lp .acard { padding: 16px; }
+  .lp .acard { padding: 16px; min-height: 0; }
   .lp .acard-score { gap: 14px; margin-top: 14px; }
   .lp .pcard { padding: 18px; }
   .lp .hero { padding: 26px 0 30px; }
@@ -529,8 +538,8 @@
 .lp[data-motion="off"] .who.off { opacity: 1 !important; filter: none !important; }
 .lp[data-motion="off"] .stack .sheet { opacity: 1 !important; transform: translate(-50%, -50%) var(--t) !important; }
 .lp[data-motion="off"] .dots b.hit { background: var(--brand) !important; }
-.lp[data-motion="off"] .track i { left: var(--b) !important; }
-.lp[data-motion="off"] .track u { width: var(--b) !important; }
+.lp[data-motion="off"] .pal i { left: var(--b) !important; }
+.lp[data-motion="off"] .pal u { width: var(--b) !important; }
 .lp[data-motion="off"] .scanbar, .lp[data-motion="off"] .splitline { display: none; }
 .lp[data-motion="off"] .bub-u, .lp[data-motion="off"] .micro, .lp[data-motion="off"] .working, .lp[data-motion="off"] .toolcall { opacity: 1 !important; transform: none !important; }
 .lp[data-motion="off"] .thread.live { height: auto; overflow: visible; }
@@ -567,9 +576,9 @@
 .lp[data-motion="soft"] .hero-side { transform: none !important; }
 .lp[data-motion="soft"] .acard.tilt { transform: none !important; }
 .lp[data-motion="soft"] .scanbar { display: none; }
-.lp[data-motion="soft"] .track.anim i, .lp[data-motion="soft"] .track.anim u { animation: none !important; }
-.lp[data-motion="soft"] .track i { left: var(--b); }
-.lp[data-motion="soft"] .track u { width: var(--b); }
+.lp[data-motion="soft"] .pal.anim i, .lp[data-motion="soft"] .pal.anim u { animation: none !important; }
+.lp[data-motion="soft"] .pal i { left: var(--b); }
+.lp[data-motion="soft"] .pal u { width: var(--b); }
 .lp[data-motion="soft"] .live-dot.on { animation: none !important; }
 .lp[data-motion="soft"] .in .dots b.hit { animation: none; background: var(--brand); transform: scale(1.35); }
 .lp[data-motion="soft"] .in .dots b.hit.strong { transform: scale(2); }
@@ -581,7 +590,6 @@
    au même gabarit que la vraie fiche, pour éviter la bascule d'une action à une autre. */
 .lp .sk { display: inline-block; border-radius: 5px; background: linear-gradient(90deg, var(--line-soft), var(--line), var(--line-soft)); background-size: 200% 100%; animation: lp-shimmer 1.4s ease-in-out infinite; }
 @keyframes lp-shimmer { from { background-position: 200% 0; } to { background-position: -40% 0; } }
-.lp .sk-card { min-height: 430px; }
 .lp .sk-ring { border-radius: 50%; border: 9px solid var(--line-soft); }
 .lp[data-motion="off"] .sk { animation: none !important; }
 

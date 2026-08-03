@@ -158,7 +158,12 @@
   background: linear-gradient(90deg, var(--bg-soft) 25%, oklch(0.93 0.005 270) 37%, var(--bg-soft) 63%);
   background-size: 920px 100%; animation: shimmer-ui 1.4s linear infinite; border-radius: 8px;
 }
-@media (prefers-reduced-motion: reduce) { .skel-ui { animation: none; } }
+/* Mouvement réduit : on remplace le balayage par une respiration lente. Un squelette
+   totalement figé ne dit plus « ça charge », il dit « c'est cassé ». */
+@keyframes breathe-ui { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+@media (prefers-reduced-motion: reduce) {
+  .skel-ui { animation: breathe-ui 2.4s ease-in-out infinite; }
+}
 
 /* Animations */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }

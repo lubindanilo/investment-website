@@ -15,13 +15,15 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
-import { CompositionStrip, CriteriaList } from './HeroSection.js';
+import { CompositionStrip, CriteriaList, ResilienceRow } from './HeroSection.js';
+import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { Def, ScoreRing, Sk, Spark, useSectionIn, SplitTitle } from './bits.js';
 import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
-export function MechanismSection({ featured, criteria, pfcfPercentile, ready }: {
+export function MechanismSection({ featured, criteria, resilience, pfcfPercentile, ready }: {
   featured: LandingStock;
   criteria: LandingCriterion[];
+  resilience: { grade: string; score: number } | null;
   pfcfPercentile: number | null;
   ready: boolean;
 }) {
@@ -102,7 +104,7 @@ export function MechanismSection({ featured, criteria, pfcfPercentile, ready }: 
               <div className="mcard" data-on={step === 0 ? '1' : '0'}>
                 <div className="panel mock" style={{ height: '100%' }}>
                   <div className="mock-head">
-                    <span className="tick-badge">{ready ? featured.ticker.split('.')[0] : <Sk w={22} h={10} />}</span>
+                    <span className="tick-badge">{ready ? <CompanyLogo ticker={featured.ticker} name={featured.name} /> : <Sk w={22} h={10} />}</span>
                     <div style={{ minWidth: 0 }}>
                       <div className="acard-name">{ready ? featured.name : <Sk w={130} h={13} />}</div>
                       <div className="tiny muted num">{ready ? (featured.sector ?? featured.ticker) : <Sk w={90} h={10} />}</div>
@@ -116,6 +118,7 @@ export function MechanismSection({ featured, criteria, pfcfPercentile, ready }: 
                       <CompositionStrip criteria={criteria} />
                     </div>
                   </div>
+                  <ResilienceRow resilience={resilience} />
                   <div className="scanbox">
                     <CriteriaList criteria={criteria} />
                     {step === 0 && <span className="scanbar" aria-hidden="true" />}

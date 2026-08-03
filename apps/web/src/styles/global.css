@@ -372,8 +372,10 @@ input { font-family: inherit; }
   100% { background-position: 0 0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .skeleton { animation: none; }
+  /* Respiration au lieu du balayage : cf. .skel-ui dans ui.css, même raison. */
+  .skeleton { animation: breathe-skeleton 2.4s ease-in-out infinite; }
 }
+@keyframes breathe-skeleton { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
 
 @media (max-width: 720px) {
   /* Header mobile compact : hauteur fixe = --nav-h, pour que tout ce qui se cale

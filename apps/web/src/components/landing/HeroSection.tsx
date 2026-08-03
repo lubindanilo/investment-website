@@ -15,6 +15,7 @@ import type { TickerSuggestion } from '@lubin/shared';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
+import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { api } from '../../lib/api.js';
 import { Def, ScoreRing, Sk, useParallax, useSectionIn } from './bits.js';
 import { useMotion, useRichMotion } from './motion.js';
@@ -199,20 +200,22 @@ export function CriteriaList({ criteria, compact = false }: { criteria: LandingC
 /**
  * Second score de la fiche : la résilience, sous la qualité.
  *
- * Elle n'est calculée que pour les titres dont l'analyse est publiée. Quand elle manque, on
- * garde la ligne (le gabarit ne saute pas) mais on le DIT, plutôt que d'afficher un vide.
+ * Deux niveaux de lecture : le libellé et sa pastille de grade sur la première ligne (le
+ * verdict d'un coup d'œil), le détail chiffré en dessous. Elle n'est calculée que pour les
+ * titres dont l'analyse est publiée : quand elle manque, on garde la ligne (le gabarit ne
+ * saute pas) mais on le DIT, plutôt que d'afficher un vide.
  */
-function ResilienceRow({ resilience }: { resilience: { grade: string; score: number } | null }) {
+export function ResilienceRow({ resilience }: { resilience: { grade: string; score: number } | null }) {
   const { t } = useTranslation();
   const grade = resilience?.grade ?? null;
   return (
     <div className={`acard-res${resilience ? '' : ' none'}`}>
-      <span className="res-grade" data-g={grade ?? '-'}>{grade ?? '—'}</span>
-      <div className="res-body">
-        <div className="res-top">
-          <span className="kicker res-k"><Def def={t('landing.def.resilience')}>{t('landing.card.resilience')}</Def></span>
-          <b className="num res-score">{resilience ? `${resilience.score}/100` : t('landing.card.resilienceNone')}</b>
-        </div>
+      <div className="res-top">
+        <span className="kicker res-k"><Def def={t('landing.def.resilience')}>{t('landing.card.resilience')}</Def></span>
+        <span className="res-pill" data-g={grade ?? '-'}>{grade ?? '—'}</span>
+      </div>
+      <div className="res-detail">
+        <b className="num res-score">{resilience ? `${resilience.score}/100` : t('landing.card.resilienceNone')}</b>
         <div className="res-bar" aria-hidden="true">
           <i style={{ width: `${resilience?.score ?? 0}%` }} />
         </div>
@@ -263,7 +266,7 @@ export function HeroSection({ featured, criteria, resilience, ready }: {
           {!ready ? <SkeletonCard /> : (
           <div className="acard tilt" ref={cardRef}>
             <div className="acard-head">
-              <span className="tick-badge">{featured.ticker.split('.')[0]}</span>
+              <span className="tick-badge"><CompanyLogo ticker={featured.ticker} name={featured.name} /></span>
               <div style={{ minWidth: 0 }}>
                 <div className="acard-name">{featured.name}</div>
                 <div className="tiny muted num acard-sector">{featured.sector ?? featured.ticker}</div>
@@ -327,8 +330,8 @@ function SkeletonCard() {
         <div style={{ flex: 1, display: 'grid', gap: 8 }}><Sk w="70%" h={11} /><Sk w="100%" h={8} /></div>
       </div>
       <div className="acard-res">
-        <span className="res-grade" data-g="-"><Sk w={14} h={14} /></span>
-        <div className="res-body" style={{ display: 'grid', gap: 8 }}><Sk w="52%" h={10} /><Sk w="100%" h={6} /></div>
+        <div className="res-top"><Sk w={72} h={10} /><Sk w={24} h={20} /></div>
+        <div className="res-detail"><Sk w={48} h={12} /><Sk w="100%" h={6} /></div>
       </div>
       <div className="crits">
         {Array.from({ length: 10 }).map((_, i) => (

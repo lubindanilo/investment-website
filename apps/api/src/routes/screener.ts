@@ -18,6 +18,8 @@ import { requireOwner } from '../middleware/owner.js';
 import { seedRegion, tick, getTop, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
 import { getMarketBeat, getForwardCompare } from '../services/marketBeat.js';
 import { getPublishedResilienceSummaries } from '../services/resilienceSummary.js';
+import { getProfile2 } from '../services/finnhub.js';
+import { getAssetProfileYahoo } from '../services/yahoo.js';
 import { getCachedSnapshot } from '../services/quantCache.js';
 import { buildQuantitativeCriteria } from '../services/derivedMetrics.js';
 import { parseLang, type Lang } from '../i18n/index.js';
@@ -295,6 +297,65 @@ screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response)
   };
   showcaseCache = { at: Date.now(), lang, payload };
   res.json(payload);
+}));
+
+// ── GET /logo/:ticker ─────────────────────────────────────────────────────────
+// Logo officiel d'une société, servi par REDIRECTION (302) vers l'image d'origine.
+//
+// Deux sources, parce qu'aucune ne couvre l'univers entier :
+//   1. US            → Finnhub /stock/profile2 expose un champ `logo` (notre clé existante).
+//                      L'API répond 403 sur les symboles suffixés (.AS, .PA, .T) : inutilisable
+//                      hors US, d'où la seconde source.
+//   2. reste du monde → le DOMAINE officiel vient de Yahoo `assetProfile.website` (déjà
+//                      récupéré pour le secteur, donc aucune requête de plus), puis on
+//                      demande l'icône du domaine.
+//
+// La résolution est mémoïsée 24 h en RAM, y compris les échecs : un titre sans logo ne doit
+// pas retaper les deux fournisseurs à chaque visite. Le front dégrade tout seul sur les
+// initiales du ticker quand on répond 404 (cf. <CompanyLogo>).
+interface LogoCacheEntry { at: number; url: string | null }
+const logoCache = new Map<string, LogoCacheEntry>();
+const LOGO_TTL_MS = 24 * 60 * 60 * 1000;
+
+/** Icône officielle d'un domaine. Service public, sans clé, taille suffisante pour une pastille. */
+function iconOfWebsite(website: string | null): string | null {
+  if (!website) return null;
+  try {
+    const host = new URL(website.startsWith('http') ? website : `https://${website}`).hostname.replace(/^www\./, '');
+    return host.includes('.') ? `https://icons.duckduckgo.com/ip3/${host}.ico` : null;
+  } catch { return null; }
+}
+
+async function resolveLogo(ticker: string): Promise<string | null> {
+  // Symbole sans suffixe = titre US : Finnhub répond, et donne le logo directement.
+  if (!ticker.includes('.')) {
+    const p = await getProfile2(ticker).catch(() => null);
+    if (p?.logo) return p.logo;
+    const fromWeb = iconOfWebsite(p?.weburl ?? null);
+    if (fromWeb) return fromWeb;
+  }
+  const profile = await getAssetProfileYahoo(ticker).catch(() => null);
+  return iconOfWebsite(profile?.website ?? null);
+}
+
+screenerRouter.get('/logo/:ticker', asyncHandler(async (req: Request, res: Response) => {
+  const ticker = String(req.params.ticker ?? '').trim().toUpperCase().slice(0, 16);
+  if (!/^[A-Z0-9.\-]+$/.test(ticker)) { res.status(400).json({ error: 'Ticker invalide' }); return; }
+
+  const cached = logoCache.get(ticker);
+  const url = cached && Date.now() - cached.at < LOGO_TTL_MS
+    ? cached.url
+    : await resolveLogo(ticker).catch(() => null);
+  if (!cached || Date.now() - cached.at >= LOGO_TTL_MS) logoCache.set(ticker, { at: Date.now(), url });
+
+  if (!url) {
+    // Le front affiche les initiales : on le laisse mettre en cache le « pas de logo ».
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.status(404).json({ error: 'Aucun logo connu', code: 'NOT_FOUND' });
+    return;
+  }
+  res.setHeader('Cache-Control', 'public, max-age=604800');
+  res.redirect(302, url);
 }));
 
 // ── GET /ticker/:ticker ───────────────────────────────────────────────────────
