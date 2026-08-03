@@ -232,7 +232,6 @@ export function HeroSection({ show, ready }: { show: LandingShowcase; ready: boo
   const cardRef = useTilt<HTMLDivElement>(rich);
   const parallaxRef = useParallax<HTMLDivElement>(46, rich);
   const price = fmtPrice(featured.price, featured.currency, locale);
-  const passCount = criteria.filter(c => c.status === 'pass').length;
 
   return (
     <section className="wrap hero-wrap">
@@ -276,7 +275,6 @@ export function HeroSection({ show, ready }: { show: LandingShowcase; ready: boo
               <ScoreRing note10={featured.note10} animate />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div className="kicker" style={{ fontSize: 11 }}>{t('landing.card.qualityKicker')}</div>
-                <p className="acard-desc">{t('landing.card.passCount', { count: passCount })}</p>
                 <CompositionStrip criteria={criteria} />
               </div>
             </div>

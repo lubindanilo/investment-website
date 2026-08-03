@@ -28,7 +28,6 @@ export function MechanismSection({ show, ready }: { show: LandingShowcase; ready
   const sentinels = useRef<Array<HTMLDivElement | null>>([]);
   const stageRef = useRef<HTMLDivElement>(null);
   const price = fmtPrice(featured.price, featured.currency, locale);
-  const passCount = criteria.filter(c => c.status === 'pass').length;
 
   // Desktop : sentinelles courtes + fenêtre large = la carte change au moindre scroll.
   useEffect(() => {
@@ -104,12 +103,10 @@ export function MechanismSection({ show, ready }: { show: LandingShowcase; ready
                       <div className="acard-name">{ready ? featured.name : <Sk w={130} h={13} />}</div>
                       <div className="tiny muted num">{ready ? (featured.sector ?? featured.ticker) : <Sk w={90} h={10} />}</div>
                     </div>
-                    <span className="badge badge-brand" style={{ marginLeft: 'auto' }}>{featured.note10 ?? '—'}/10</span>
                   </div>
                   <div className="mock-score">
                     <ScoreRing note10={featured.note10} size={72} />
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div className="tiny muted" style={{ marginBottom: 8 }}>{t('landing.card.passCount', { count: passCount })}</div>
                       <CompositionStrip criteria={criteria} />
                     </div>
                   </div>

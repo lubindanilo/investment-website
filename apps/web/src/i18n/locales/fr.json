@@ -377,7 +377,6 @@
       "resilience": "Résilience : la capacité de l'entreprise à traverser une crise sans casser (dette, marge de sécurité, dépendance aux cycles). Notée de A à E."
     },
     "card": {
-      "passCount": "{{count}} critères au vert sur 10, calculés sur les chiffres publiés.",
       "resilience": "Résilience",
       "resilienceNone": "non publiée",
       "opportunity": "Opportunité",

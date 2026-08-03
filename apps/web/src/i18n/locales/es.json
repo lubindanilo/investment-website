@@ -352,7 +352,6 @@
       "resilience": "Resiliencia: la capacidad de la empresa para atravesar una crisis sin romperse (deuda, margen de seguridad, dependencia de los ciclos). Calificada de A a E."
     },
     "card": {
-      "passCount": "{{count}} criterios en verde sobre 10, calculados con las cifras publicadas.",
       "resilience": "Resiliencia",
       "resilienceNone": "no publicada",
       "opportunity": "Oportunidad",

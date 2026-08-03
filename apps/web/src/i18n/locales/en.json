@@ -352,7 +352,6 @@
       "resilience": "Resilience: how well the company can get through a crisis without breaking (debt, margin of safety, exposure to cycles). Graded A to E."
     },
     "card": {
-      "passCount": "{{count}} criteria in the green out of 10, computed on published figures.",
       "resilience": "Resilience",
       "resilienceNone": "not published",
       "opportunity": "Opportunity",

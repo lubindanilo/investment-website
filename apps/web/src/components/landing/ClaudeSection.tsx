@@ -48,28 +48,32 @@ const sleep = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
  * Les branches sont des losanges étirés qui s'affinent vers l'extérieur : quatre en croix,
  * quatre en diagonale et légèrement plus courtes, ce qui donne sa silhouette au symbole.
  */
+/**
+ * Marque de Claude : l'ICÔNE OFFICIELLE, versionnée dans `public/claude-icon.png`.
+ *
+ * Elle était auparavant redessinée en SVG, et c'était faux : la vraie marque est un astérisque
+ * IRRÉGULIER d'une dizaine de branches de longueurs et d'angles variables, pas une croix
+ * symétrique à huit branches. Aucune reconstruction à la main ne tombe juste, donc on sert le
+ * fichier d'origine (récupéré depuis claude.ai, ramené à 96 px).
+ */
 export function ClaudeMark({ size = 16 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-      {[0, 45, 90, 135, 180, 225, 270, 315].map(deg => (
-        <path
-          key={deg}
-          // Chaque branche part du CENTRE et s'affine vers l'extérieur. Pas de disque central :
-          // l'astérisque de Claude est fait de branches qui convergent, pas d'un moyeu.
-          d={deg % 90 === 0
-            ? 'M16 16 L14.1 4.6 Q16 2.6 17.9 4.6 Z'      // branches en croix, plus longues
-            : 'M16 16 L14.6 7.4 Q16 5.8 17.4 7.4 Z'}     // branches en diagonale, plus courtes
-          transform={`rotate(${deg} 16 16)`}
-        />
-      ))}
-    </svg>
+    <img
+      src="/claude-icon.png"
+      alt=""
+      width={size}
+      height={size}
+      loading="lazy"
+      decoding="async"
+      aria-hidden="true"
+    />
   );
 }
 
 /** Pastille de l'assistant dans le fil. */
 function AssistantMark() {
   return (
-    <span className="cl-av" aria-hidden="true"><ClaudeMark size={15} /></span>
+    <span className="cl-av" aria-hidden="true"><ClaudeMark size={28} /></span>
   );
 }
 
@@ -356,7 +360,6 @@ export function ClaudeSection({ show, peaRows, rows, ready }: {
    * est donc marquée « exemple ».
    */
   function renderCard(id: CardId) {
-    const passCount = criteria.filter(c => c.status === 'pass').length;
     const pct = pfcfPercentile != null ? Math.max(2, Math.min(98, pfcfPercentile)) : null;
 
     if (id === 'analyze') {
@@ -384,7 +387,6 @@ export function ClaudeSection({ show, peaRows, rows, ready }: {
                 </div>
               )}
               <div className="lc-crit">
-                <div className="tiny muted" style={{ marginBottom: 8 }}>{t('landing.card.passCount', { count: passCount })}</div>
                 <CompositionStrip criteria={criteria} />
                 <CriteriaList criteria={criteria.slice(0, 4)} compact />
               </div>
