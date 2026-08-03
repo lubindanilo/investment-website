@@ -14,7 +14,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "tsc --noEmit",
-    "resilience:stars:bench": "tsx scripts/resilienceStarsBench.ts"
+    "resilience:stars:bench": "tsx scripts/resilienceStarsBench.ts",
+    "resilience:stars:cron": "tsx scripts/resilienceStarsCron.ts"
   },
   "dependencies": {
     "@lubin/shared": "workspace:*",
