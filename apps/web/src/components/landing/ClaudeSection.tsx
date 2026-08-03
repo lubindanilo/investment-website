@@ -40,9 +40,9 @@ type Step =
   | { do: 'clear' };
 
 const sleep = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
-const NEXT_PROMPT_DELAY_MS = 160;
-const ANSWER_WORD_DELAY_MS = 38;
-const CARD_REVEAL_DELAY_MS = 520;
+const NEXT_PROMPT_DELAY_MS = 950;
+const ANSWER_WORD_DELAY_MS = 46;
+const CARD_REVEAL_DELAY_MS = 700;
 
 /**
  * Marque de Claude : l'ICÔNE OFFICIELLE, versionnée dans `public/claude-icon.png`.
