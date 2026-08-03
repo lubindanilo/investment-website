@@ -24,8 +24,8 @@ import { fmtPrice, type LandingShowcase, type LandingStock } from './useLandingD
 /** Un bloc affiché dans le fil. */
 type Item =
   | { kind: 'user'; text: string }
-  | { kind: 'tool'; label: string; done: boolean; ms: number }
   | { kind: 'text'; words: string[]; shown: number }
+  | { kind: 'think' }
   | { kind: 'card'; id: 'analyze' | 'screen' | 'watchlist' | 'added' };
 
 /** Une étape du scénario. Le lecteur les enchaîne comme une timeline vidéo. */
@@ -33,21 +33,14 @@ type CardId = 'analyze' | 'screen' | 'watchlist' | 'added';
 type Step =
   | { do: 'type'; text: string }
   | { do: 'send'; text: string }
-  | { do: 'tool'; label: string; ms: number }
   | { do: 'say'; text: string }
   | { do: 'card'; id: CardId }
+  | { do: 'think'; ms: number }
   | { do: 'wait'; ms: number }
   | { do: 'clear' };
 
 const sleep = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
 
-/**
- * Marque de Claude : l'astérisque à huit branches effilées. Tracé en SVG plutôt qu'importé
- * comme image, pour qu'il suive la couleur du contexte et reste net à toute taille.
- *
- * Les branches sont des losanges étirés qui s'affinent vers l'extérieur : quatre en croix,
- * quatre en diagonale et légèrement plus courtes, ce qui donne sa silhouette au symbole.
- */
 /**
  * Marque de Claude : l'ICÔNE OFFICIELLE, versionnée dans `public/claude-icon.png`.
  *
@@ -123,7 +116,10 @@ export function ClaudeSection({ show, peaRows, rows }: {
   // Visibilité : une simple RÉFÉRENCE, pas un state. La boucle de lecture la consulte pour
   // se mettre en pause hors écran ; en faire une dépendance d'effet tuait la lecture en
   // cours dès que l'observer changeait d'avis (fil figé au milieu d'un échange).
-  const visibleRef = useRef(true);
+  // Démarre à FALSE : la boucle de lecture attend d'être réellement à l'écran. À `true`, le
+  // scénario se déroulait dès le chargement de la page et le visiteur arrivait sur une
+  // conversation déjà à moitié jouée.
+  const visibleRef = useRef(false);
   const [live, setLive] = useState(false);
   const threadRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<HTMLDivElement>(null);
@@ -133,20 +129,43 @@ export function ClaudeSection({ show, peaRows, rows }: {
   const q3 = t('landing.claude.c.question');
   const q4 = t('landing.claude.c.question2', { name: added.name });
 
-  // Ne joue que quand la section est à l'écran.
+  /**
+   * La démo ne joue que quand la section est SOUS LES YEUX du visiteur.
+   *
+   * Volontairement SANS IntersectionObserver. Deux tentatives ont échoué avant celle-ci : un
+   * filet minuté qui forçait la visibilité sans rien vérifier (la conversation démarrait au
+   * chargement de la page, défaut signalé en production), puis une garde qui n'installait le
+   * repli que si l'observer restait muet — or un observer peut parler UNE fois puis se taire,
+   * et la démo ne démarrait alors jamais.
+   *
+   * Un contrôle géométrique sur le scroll est ici plus simple et vérifiable : il ne dépend
+   * d'aucun comportement d'API. Le coût est nul, la page installe déjà deux écouteurs de scroll
+   * du même genre (barre de progression, parallaxe), et celui-ci est limité par requestAnimationFrame.
+   */
   useEffect(() => {
     const el = playerRef.current;
-    if (!el || typeof IntersectionObserver === 'undefined') { setLive(true); return; }
-    const obs = new IntersectionObserver(es => {
-      const seen = es.some(e => e.isIntersecting);
+    if (!el) return;
+
+    // Lecture SYNCHRONE, pas dans un requestAnimationFrame : certains contextes (onglet en
+    // arrière-plan, webviews, navigateurs embarqués) n'exécutent jamais de frame, et la démo
+    // ne démarrait alors jamais. Un getBoundingClientRect par événement de scroll est du même
+    // ordre que ce que font déjà la barre de progression et la parallaxe de cette page.
+    const sync = () => {
+      const r = el.getBoundingClientRect();
+      const h = window.innerHeight || 0;
+      // Visible = le lecteur chevauche les 70 % centraux de la fenêtre.
+      const seen = r.bottom > h * 0.15 && r.top < h * 0.85;
       visibleRef.current = seen;
       if (seen) setLive(true);
-    }, { threshold: 0.2 });
-    obs.observe(el);
-    // Filet : certains contextes (webviews, pages en arrière-plan, navigateurs embarqués)
-    // ne délivrent jamais de callback. Sans ça, la démo ne démarrerait jamais.
-    const fallback = setTimeout(() => { visibleRef.current = true; setLive(true); }, 1200);
-    return () => { obs.disconnect(); clearTimeout(fallback); };
+    };
+
+    sync();
+    window.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    return () => {
+      window.removeEventListener('scroll', sync);
+      window.removeEventListener('resize', sync);
+    };
   }, []);
 
   // Le fil suit toujours le dernier message, comme une vraie conversation.
@@ -160,14 +179,11 @@ export function ClaudeSection({ show, peaRows, rows }: {
     if (!motion) {
       setItems([
         { kind: 'user', text: q1 },
-        { kind: 'tool', label: `analyze_stock("${featured.ticker}")`, done: true, ms: 240 },
         { kind: 'text', words: t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' }).split(' '), shown: 999 },
         { kind: 'card', id: 'analyze' },
         { kind: 'user', text: q2 },
-        { kind: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15, caps: "large" })', done: true, ms: 380 },
         { kind: 'card', id: 'screen' },
         { kind: 'user', text: q3 },
-        { kind: 'tool', label: 'analyze_watchlist()', done: true, ms: 910 },
         { kind: 'card', id: 'watchlist' },
       ]);
       return;
@@ -178,29 +194,29 @@ export function ClaudeSection({ show, peaRows, rows }: {
       // ── 1. Il analyse ───────────────────────────────────────────────
       { do: 'type', text: q1 },
       { do: 'send', text: q1 },
-      { do: 'tool', label: `analyze_stock("${featured.ticker}")`, ms: 240 },
+      { do: 'think', ms: 1100 },
       { do: 'say', text: t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' }) },
       { do: 'card', id: 'analyze' },
-      { do: 'wait', ms: 2600 },
+      { do: 'wait', ms: 3600 },
       // ── 2. Il cherche pour toi ──────────────────────────────────────
       { do: 'type', text: q2 },
       { do: 'send', text: q2 },
-      { do: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15, caps: "large" })', ms: 380 },
+      { do: 'think', ms: 1300 },
       { do: 'say', text: t('landing.claude.b.answer', { count: peaRows.length }) },
       { do: 'card', id: 'screen' },
-      { do: 'wait', ms: 2800 },
+      { do: 'wait', ms: 3800 },
       // ── 3. Il surveille, et il agit ─────────────────────────────────
       { do: 'type', text: q3 },
       { do: 'send', text: q3 },
-      { do: 'tool', label: 'analyze_watchlist()', ms: 910 },
+      { do: 'think', ms: 1600 },
       { do: 'say', text: t('landing.claude.c.answer') },
       { do: 'card', id: 'watchlist' },
-      { do: 'wait', ms: 2200 },
+      { do: 'wait', ms: 3000 },
       { do: 'type', text: q4 },
       { do: 'send', text: q4 },
-      { do: 'tool', label: `add_to_watchlist("${added.ticker}")`, ms: 320 },
+      { do: 'think', ms: 900 },
       { do: 'card', id: 'added' },
-      { do: 'wait', ms: 3400 },
+      { do: 'wait', ms: 4000 },
       { do: 'clear' },
     ];
 
@@ -232,27 +248,25 @@ export function ClaudeSection({ show, peaRows, rows }: {
               await sleep(500);
               break;
             }
-            case 'tool': {
-              setItems(prev => [...prev, { kind: 'tool', label: step.label, done: false, ms: step.ms }]);
-              await sleep(700 + step.ms);
-              if (cancelled) return;
-              setItems(prev => prev.map((it, k) => (k === prev.length - 1 && it.kind === 'tool' ? { ...it, done: true } : it)));
-              await sleep(320);
+            case 'think': {
+              setItems(prev => [...prev, { kind: 'think' }]);
+              await sleep(step.ms);
               break;
             }
             case 'say': {
               const words = step.text.split(' ');
-              setItems(prev => [...prev, { kind: 'text', words, shown: 0 }]);
+              // Les points de réflexion cèdent la place à la réponse.
+              setItems(prev => [...prev.filter(it => it.kind !== 'think'), { kind: 'text', words, shown: 0 }]);
               for (let w = 1; w <= words.length; w++) {
                 if (cancelled) return;
                 setItems(prev => prev.map((it, k) => (k === prev.length - 1 && it.kind === 'text' ? { ...it, shown: w } : it)));
-                await sleep(45);
+                await sleep(58);
               }
               await sleep(260);
               break;
             }
             case 'card': {
-              setItems(prev => [...prev, { kind: 'card', id: step.id }]);
+              setItems(prev => [...prev.filter(it => it.kind !== 'think'), { kind: 'card', id: step.id }]);
               await sleep(900);
               break;
             }
@@ -291,12 +305,11 @@ export function ClaudeSection({ show, peaRows, rows }: {
             <div className="thread live" ref={threadRef}>
               {items.map((it, i) => {
                 if (it.kind === 'user') return <div key={i} className="bub-u show">{it.text}</div>;
-                if (it.kind === 'tool') {
+                if (it.kind === 'think') {
                   return (
-                    <div key={i} className={`toolcall ${it.done ? 'done' : ''}`}>
-                      <span className="tc-dot" />
-                      <code className="num">{it.label}</code>
-                      <span className="tc-ms num">{it.done ? `${it.ms} ms` : '…'}</span>
+                    <div key={i} className="msg-a">
+                      <AssistantMark />
+                      <span className="working show" aria-hidden="true"><b /><b /><b /></span>
                     </div>
                   );
                 }
