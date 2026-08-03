@@ -433,16 +433,11 @@
       "kicker": "Connecteur MCP",
       "title": "Ton analyse, dans la conversation.",
       "sub": "Branche Lubin à Claude. Il interroge tes notes, ton screener et ta watchlist.",
-      "band1": "10 outils",
-      "band2": "lecture et écriture",
-      "band3": "ton compte, tes droits",
       "a": {
-        "title": "Il analyse.",
         "answer": "{{name}} sort à {{note}}/10 sur les 10 critères de qualité. Voici le détail, avec le P/FCF et le grade de résilience.",
         "question": "Est-ce que {{name}} est une bonne affaire en ce moment ?"
       },
       "b": {
-        "title": "Il cherche pour toi.",
         "answer": "{{count}} sociétés passent tes filtres. Les voici, classées par note de qualité.",
         "question": "Trouve-moi des sociétés éligibles au PEA, notées au moins 8/10, avec un P/FCF sous 15.",
         "chipZone": "zone PEA",

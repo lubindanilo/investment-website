@@ -285,8 +285,6 @@
 /* ---------- 5. Claude / MCP ---------- */
 .lp .claude { background: var(--bg); padding: 130px 0; }
 .lp .claude-sub { font-size: 17px; color: var(--ink-2); margin-top: 14px; line-height: 1.5; }
-.lp .trust-band { display: inline-flex; gap: 10px; align-items: center; font-family: var(--mono); font-size: 12px; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-pill); padding: 7px 14px; box-shadow: var(--sh-xs); margin-top: 18px; }
-.lp .trust-band .sep { color: var(--ink-4); }
 /* Lecteur : un seul écran, la conversation s'y joue toute seule. */
 .lp .player { margin-top: 44px; }
 .lp .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
@@ -306,19 +304,12 @@
   background: var(--cl-paper); border: 1px solid var(--cl-line); border-radius: var(--r-lg);
   box-shadow: var(--sh-lg); overflow: hidden; max-width: 1040px; margin: 0 auto;
 }
-/* Plus de fausse barre de fenêtre : elle faisait « capture d'écran de navigateur » au lieu de
-   « conversation en cours ». Le bandeau des chapitres sert désormais d'en-tête au lecteur. */
-.lp .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cl-line); margin-left: auto; flex: none; }
+/* Plus de barre de fenêtre ni de bandeau de chapitres : le lecteur est le fil, rien d'autre.
+   Le point « live » se pose donc en SURIMPRESSION, seul repère que la démo tourne. */
+.lp .screen { position: relative; }
+.lp .live-dot { position: absolute; top: 16px; right: 18px; z-index: 2; width: 7px; height: 7px; border-radius: 50%; background: var(--cl-line); }
 .lp .live-dot.on { background: var(--cl-accent); animation: lp-pulse 1.8s ease-in-out infinite; }
 @keyframes lp-pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 oklch(0.645 0.128 42 / .5); } 50% { opacity: .6; box-shadow: 0 0 0 5px oklch(0.645 0.128 42 / 0); } }
-
-/* Bandeau des 3 temps : indicateur de progression du scénario en cours. */
-.lp .steps-strip { display: flex; align-items: center; gap: 8px; padding: 14px 18px; border-bottom: 1px solid var(--cl-line); background: var(--surface-2); overflow-x: auto; scrollbar-width: none; }
-.lp .steps-strip::-webkit-scrollbar { display: none; }
-.lp .strip-item { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 600; color: var(--cl-ink-soft); background: var(--bg-soft); border: 1px solid transparent; border-radius: var(--r-pill); padding: 6px 12px; white-space: nowrap; transition: color .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease); }
-.lp .strip-item b { font-size: 10.5px; opacity: .6; }
-.lp .strip-item[data-on="1"] { color: var(--cl-accent); background: var(--cl-accent-soft); border-color: var(--cl-accent); }
-.lp .strip-item[data-on="1"] b { color: var(--cl-accent); opacity: 1; }
 
 /* Le fil : hauteur fixe, il défile tout seul comme une vraie fenêtre de chat.
    Sens de lecture d'une VRAIE conversation : ce que TU écris à droite, ce que l'assistant
@@ -563,7 +554,6 @@
   .lp .player { margin-top: 26px; }
   .lp .thread { padding: 14px; gap: 10px; }
   .lp .thread.live { height: 340px; }
-  .lp .strip-item { font-size: 11px; padding: 4px 9px; }
   .lp .toolcall code { max-width: 46vw; }
   .lp .lcard-b { padding: 11px; }
   .lp .reply { width: 100%; }

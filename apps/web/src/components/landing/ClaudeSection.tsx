@@ -117,7 +117,6 @@ export function ClaudeSection({ show, peaRows, rows, ready }: {
   // re-rendrait toute la section, et la « vidéo » saccade sur les machines modestes.
   const inputRef = useRef<HTMLSpanElement>(null);
   const setInput = (v: string) => { if (inputRef.current) inputRef.current.textContent = v; };
-  const [chapter, setChapter] = useState(0);
   // Visibilité : une simple RÉFÉRENCE, pas un state. La boucle de lecture la consulte pour
   // se mettre en pause hors écran ; en faire une dépendance d'effet tuait la lecture en
   // cours dès que l'observer changeait d'avis (fil figé au milieu d'un échange).
@@ -211,14 +210,12 @@ export function ClaudeSection({ show, peaRows, rows, ready }: {
     }
 
     async function run() {
-      setItems([]); setInput(''); setChapter(0);
+      setItems([]); setInput('');
       while (!cancelled) {
         for (const [i, step] of script.entries()) {
           if (cancelled) return;
           await waitVisible();
           if (cancelled) return;
-          // Le chapitre suit la position dans le script (3 blocs).
-          setChapter(i < 6 ? 0 : i < 12 ? 1 : 2);
           switch (step.do) {
             case 'type': {
               for (let c = 1; c <= step.text.length; c++) {
@@ -275,7 +272,6 @@ export function ClaudeSection({ show, peaRows, rows, ready }: {
     // Le script dépend des libellés et des données affichées.
   }, [ready, motion, featured, peaRows, added, q1, q2, q3, q4, t]);
 
-  const chapters = [t('landing.claude.a.title'), t('landing.claude.b.title'), t('landing.claude.c.title')];
 
   return (
     <section className="claude" id="claude">
@@ -284,24 +280,13 @@ export function ClaudeSection({ show, peaRows, rows, ready }: {
           <span className="kicker rv">{t('landing.claude.kicker')}</span>
           <SplitTitle text={t('landing.claude.title')} className="rv" />
           <p className="rv claude-sub" data-d="2">{t('landing.claude.sub')}</p>
-          <div className="trust-band rv" data-d="3">
-            <b>{t('landing.claude.band1')}</b><span className="sep">·</span>
-            {t('landing.claude.band2')}<span className="sep">·</span>
-            {t('landing.claude.band3')}
-          </div>
         </div>
 
         <div className="player" ref={playerRef} data-live={live ? '1' : '0'} data-items={items.length}>
           <div className="screen">
+            {/* Seul repère « ça tourne » depuis le retrait de la barre de fenêtre. */}
+            <span className={`live-dot ${live ? 'on' : ''}`} aria-hidden="true" />
             {/* Chapitres : indicateur de progression, pas un menu (ça se joue tout seul). */}
-            <div className="steps-strip" aria-hidden="true">
-              {chapters.map((c, i) => (
-                <span key={c} className="strip-item" data-on={chapter === i ? '1' : '0'}>
-                  <b className="num">{`0${i + 1}`}</b>{c}
-                </span>
-              ))}
-              <span className={`live-dot ${live ? 'on' : ''}`} aria-hidden="true" />
-            </div>
 
             <div className="thread live" ref={threadRef}>
               {items.map((it, i) => {

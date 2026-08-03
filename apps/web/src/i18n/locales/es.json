@@ -408,16 +408,11 @@
       "kicker": "Conector MCP",
       "title": "Tu análisis, dentro de la conversación.",
       "sub": "Conecta Lubin a Claude. Consulta tus notas, tu screener y tu watchlist.",
-      "band1": "10 herramientas",
-      "band2": "lectura y escritura",
-      "band3": "tu cuenta, tus derechos",
       "a": {
-        "title": "Analiza.",
         "answer": "{{name}} obtiene {{note}}/10 en los 10 criterios de calidad. Aquí tienes el detalle, con el P/FCF y el grado de resiliencia.",
         "question": "¿{{name}} es una buena oportunidad ahora mismo?"
       },
       "b": {
-        "title": "Busca por ti.",
         "answer": "{{count}} empresas pasan tus filtros. Aquí están, ordenadas por nota de calidad.",
         "question": "Búscame empresas europeas con nota mínima de 8/10 y un P/FCF por debajo de 15.",
         "chipZone": "zona PEA",
