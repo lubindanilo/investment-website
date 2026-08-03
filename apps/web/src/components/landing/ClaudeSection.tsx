@@ -24,7 +24,6 @@ import { fmtPrice, type LandingShowcase, type LandingStock } from './useLandingD
 /** Un bloc affiché dans le fil. */
 type Item =
   | { kind: 'user'; text: string }
-  | { kind: 'tool'; label: string; done: boolean; ms: number }
   | { kind: 'text'; words: string[]; shown: number }
   | { kind: 'think' }
   | { kind: 'card'; id: 'analyze' | 'screen' | 'watchlist' | 'added' };
@@ -34,7 +33,6 @@ type CardId = 'analyze' | 'screen' | 'watchlist' | 'added';
 type Step =
   | { do: 'type'; text: string }
   | { do: 'send'; text: string }
-  | { do: 'tool'; label: string; ms: number }
   | { do: 'say'; text: string }
   | { do: 'card'; id: CardId }
   | { do: 'think'; ms: number }
@@ -134,49 +132,40 @@ export function ClaudeSection({ show, peaRows, rows }: {
   /**
    * La démo ne joue que quand la section est SOUS LES YEUX du visiteur.
    *
-   * Le filet précédent forçait la visibilité au bout de 1,2 s sans rien vérifier : en production
-   * la conversation démarrait donc au chargement de la page, et le visiteur qui descendait
-   * tombait sur un échange déjà entamé. Le filet fait maintenant un vrai contrôle géométrique,
-   * qui ne déclenche rien si le lecteur est hors écran.
+   * Volontairement SANS IntersectionObserver. Deux tentatives ont échoué avant celle-ci : un
+   * filet minuté qui forçait la visibilité sans rien vérifier (la conversation démarrait au
+   * chargement de la page, défaut signalé en production), puis une garde qui n'installait le
+   * repli que si l'observer restait muet — or un observer peut parler UNE fois puis se taire,
+   * et la démo ne démarrait alors jamais.
+   *
+   * Un contrôle géométrique sur le scroll est ici plus simple et vérifiable : il ne dépend
+   * d'aucun comportement d'API. Le coût est nul, la page installe déjà deux écouteurs de scroll
+   * du même genre (barre de progression, parallaxe), et celui-ci est limité par requestAnimationFrame.
    */
   useEffect(() => {
     const el = playerRef.current;
     if (!el) return;
 
-    /** Le lecteur occupe-t-il vraiment une part de la fenêtre ? */
-    const isOnScreen = () => {
+    // Lecture SYNCHRONE, pas dans un requestAnimationFrame : certains contextes (onglet en
+    // arrière-plan, webviews, navigateurs embarqués) n'exécutent jamais de frame, et la démo
+    // ne démarrait alors jamais. Un getBoundingClientRect par événement de scroll est du même
+    // ordre que ce que font déjà la barre de progression et la parallaxe de cette page.
+    const sync = () => {
       const r = el.getBoundingClientRect();
       const h = window.innerHeight || 0;
-      return r.bottom > h * 0.15 && r.top < h * 0.85;
-    };
-    const sync = () => {
-      const seen = isOnScreen();
+      // Visible = le lecteur chevauche les 70 % centraux de la fenêtre.
+      const seen = r.bottom > h * 0.15 && r.top < h * 0.85;
       visibleRef.current = seen;
       if (seen) setLive(true);
     };
 
-    // Contextes sans IntersectionObserver (webviews anciennes) : on suit le scroll.
-    if (typeof IntersectionObserver === 'undefined') {
-      sync();
-      window.addEventListener('scroll', sync, { passive: true });
-      window.addEventListener('resize', sync);
-      return () => { window.removeEventListener('scroll', sync); window.removeEventListener('resize', sync); };
-    }
-
-    // `rootMargin` négatif plutôt qu'un `threshold` en ratio : un ratio de 25 % ne se déclenche
-    // jamais si le lecteur est plus haut que quatre fois la fenêtre (petits écrans, zoom fort).
-    // Ici la règle est géométrique et indépendante de la taille : le lecteur entre dans les 70 %
-    // centraux de la fenêtre.
-    const obs = new IntersectionObserver(es => {
-      const seen = es.some(e => e.isIntersecting);
-      visibleRef.current = seen;
-      if (seen) setLive(true);
-    }, { threshold: 0, rootMargin: '-15% 0px -15% 0px' });
-    obs.observe(el);
-    // Filet pour les contextes qui ne délivrent jamais de callback : un SEUL contrôle différé,
-    // et il ne démarre la démo que si le lecteur est effectivement visible.
-    const fallback = setTimeout(sync, 1500);
-    return () => { obs.disconnect(); clearTimeout(fallback); };
+    sync();
+    window.addEventListener('scroll', sync, { passive: true });
+    window.addEventListener('resize', sync);
+    return () => {
+      window.removeEventListener('scroll', sync);
+      window.removeEventListener('resize', sync);
+    };
   }, []);
 
   // Le fil suit toujours le dernier message, comme une vraie conversation.
@@ -190,14 +179,11 @@ export function ClaudeSection({ show, peaRows, rows }: {
     if (!motion) {
       setItems([
         { kind: 'user', text: q1 },
-        { kind: 'tool', label: `analyze_stock("${featured.ticker}")`, done: true, ms: 240 },
         { kind: 'text', words: t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' }).split(' '), shown: 999 },
         { kind: 'card', id: 'analyze' },
         { kind: 'user', text: q2 },
-        { kind: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15, caps: "large" })', done: true, ms: 380 },
         { kind: 'card', id: 'screen' },
         { kind: 'user', text: q3 },
-        { kind: 'tool', label: 'analyze_watchlist()', done: true, ms: 910 },
         { kind: 'card', id: 'watchlist' },
       ]);
       return;
@@ -208,31 +194,27 @@ export function ClaudeSection({ show, peaRows, rows }: {
       // ── 1. Il analyse ───────────────────────────────────────────────
       { do: 'type', text: q1 },
       { do: 'send', text: q1 },
-      { do: 'think', ms: 700 },
-      { do: 'tool', label: `analyze_stock("${featured.ticker}")`, ms: 240 },
+      { do: 'think', ms: 1100 },
       { do: 'say', text: t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' }) },
       { do: 'card', id: 'analyze' },
       { do: 'wait', ms: 3600 },
       // ── 2. Il cherche pour toi ──────────────────────────────────────
       { do: 'type', text: q2 },
       { do: 'send', text: q2 },
-      { do: 'think', ms: 800 },
-      { do: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15, caps: "large" })', ms: 380 },
+      { do: 'think', ms: 1300 },
       { do: 'say', text: t('landing.claude.b.answer', { count: peaRows.length }) },
       { do: 'card', id: 'screen' },
       { do: 'wait', ms: 3800 },
       // ── 3. Il surveille, et il agit ─────────────────────────────────
       { do: 'type', text: q3 },
       { do: 'send', text: q3 },
-      { do: 'think', ms: 900 },
-      { do: 'tool', label: 'analyze_watchlist()', ms: 910 },
+      { do: 'think', ms: 1600 },
       { do: 'say', text: t('landing.claude.c.answer') },
       { do: 'card', id: 'watchlist' },
       { do: 'wait', ms: 3000 },
       { do: 'type', text: q4 },
       { do: 'send', text: q4 },
-      { do: 'think', ms: 600 },
-      { do: 'tool', label: `add_to_watchlist("${added.ticker}")`, ms: 320 },
+      { do: 'think', ms: 900 },
       { do: 'card', id: 'added' },
       { do: 'wait', ms: 4000 },
       { do: 'clear' },
@@ -271,18 +253,10 @@ export function ClaudeSection({ show, peaRows, rows }: {
               await sleep(step.ms);
               break;
             }
-            case 'tool': {
-              // Les points de réflexion cèdent la place à l'appel d'outil.
-              setItems(prev => [...prev.filter(it => it.kind !== 'think'), { kind: 'tool', label: step.label, done: false, ms: step.ms }]);
-              await sleep(700 + step.ms);
-              if (cancelled) return;
-              setItems(prev => prev.map((it, k) => (k === prev.length - 1 && it.kind === 'tool' ? { ...it, done: true } : it)));
-              await sleep(320);
-              break;
-            }
             case 'say': {
               const words = step.text.split(' ');
-              setItems(prev => [...prev, { kind: 'text', words, shown: 0 }]);
+              // Les points de réflexion cèdent la place à la réponse.
+              setItems(prev => [...prev.filter(it => it.kind !== 'think'), { kind: 'text', words, shown: 0 }]);
               for (let w = 1; w <= words.length; w++) {
                 if (cancelled) return;
                 setItems(prev => prev.map((it, k) => (k === prev.length - 1 && it.kind === 'text' ? { ...it, shown: w } : it)));
@@ -292,7 +266,7 @@ export function ClaudeSection({ show, peaRows, rows }: {
               break;
             }
             case 'card': {
-              setItems(prev => [...prev, { kind: 'card', id: step.id }]);
+              setItems(prev => [...prev.filter(it => it.kind !== 'think'), { kind: 'card', id: step.id }]);
               await sleep(900);
               break;
             }
@@ -331,15 +305,6 @@ export function ClaudeSection({ show, peaRows, rows }: {
             <div className="thread live" ref={threadRef}>
               {items.map((it, i) => {
                 if (it.kind === 'user') return <div key={i} className="bub-u show">{it.text}</div>;
-                if (it.kind === 'tool') {
-                  return (
-                    <div key={i} className={`toolcall ${it.done ? 'done' : ''}`}>
-                      <span className="tc-dot" />
-                      <code className="num">{it.label}</code>
-                      <span className="tc-ms num">{it.done ? `${it.ms} ms` : '…'}</span>
-                    </div>
-                  );
-                }
                 if (it.kind === 'think') {
                   return (
                     <div key={i} className="msg-a">
