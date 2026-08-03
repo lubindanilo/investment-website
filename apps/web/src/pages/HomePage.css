@@ -313,7 +313,11 @@
    Sens de lecture d'une VRAIE conversation : ce que TU écris à droite, ce que l'assistant
    répond (texte, appels d'outils, cartes de données) à gauche, sous sa pastille. */
 .lp .thread { display: flex; flex-direction: column; gap: 18px; padding: 28px 30px; }
-.lp .thread.live { height: 520px; overflow-y: auto; scroll-behavior: smooth; scrollbar-width: none; }
+.lp .thread.live {
+  height: 520px; overflow-y: auto; scroll-behavior: smooth; scrollbar-width: none;
+  /* Les messages qui sortent par le haut s'estompent au lieu d'être tranchés par le bord. */
+  mask-image: linear-gradient(to bottom, transparent, #000 44px, #000 calc(100% - 8px), transparent);
+}
 .lp .thread.live::-webkit-scrollbar { display: none; }
 
 /* Appel d'outil MCP, avec sa durée : on VOIT quel outil Claude déclenche. */
@@ -343,9 +347,9 @@
 .lp .type { display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; max-width: 100%; }
 .lp .bub-u.show .type { animation: lp-type var(--td, 1.6s) steps(var(--tc, 40), end) forwards; }
 @keyframes lp-type { from { width: 0; } to { width: 100%; } }
-.lp .working { align-self: flex-start; display: flex; gap: 5px; padding: 8px 0; opacity: 0; transition: opacity .25s var(--ease); }
+.lp .working { display: flex; align-items: center; gap: 5px; padding: 10px 0; opacity: 0; transition: opacity .25s var(--ease); }
 .lp .working.show { opacity: 1; }
-.lp .working b { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-4); display: block; animation: lp-blip 1s ease-in-out infinite; }
+.lp .working b { width: 7px; height: 7px; border-radius: 50%; background: var(--cl-accent); display: block; animation: lp-blip 1s ease-in-out infinite; opacity: .45; }
 .lp .working b:nth-child(2) { animation-delay: .15s; }
 .lp .working b:nth-child(3) { animation-delay: .3s; }
 @keyframes lp-blip { 0%, 100% { opacity: .3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }

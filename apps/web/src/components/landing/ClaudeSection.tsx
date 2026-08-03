@@ -26,6 +26,7 @@ type Item =
   | { kind: 'user'; text: string }
   | { kind: 'tool'; label: string; done: boolean; ms: number }
   | { kind: 'text'; words: string[]; shown: number }
+  | { kind: 'think' }
   | { kind: 'card'; id: 'analyze' | 'screen' | 'watchlist' | 'added' };
 
 /** Une étape du scénario. Le lecteur les enchaîne comme une timeline vidéo. */
@@ -36,18 +37,12 @@ type Step =
   | { do: 'tool'; label: string; ms: number }
   | { do: 'say'; text: string }
   | { do: 'card'; id: CardId }
+  | { do: 'think'; ms: number }
   | { do: 'wait'; ms: number }
   | { do: 'clear' };
 
 const sleep = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
 
-/**
- * Marque de Claude : l'astérisque à huit branches effilées. Tracé en SVG plutôt qu'importé
- * comme image, pour qu'il suive la couleur du contexte et reste net à toute taille.
- *
- * Les branches sont des losanges étirés qui s'affinent vers l'extérieur : quatre en croix,
- * quatre en diagonale et légèrement plus courtes, ce qui donne sa silhouette au symbole.
- */
 /**
  * Marque de Claude : l'ICÔNE OFFICIELLE, versionnée dans `public/claude-icon.png`.
  *
@@ -123,7 +118,10 @@ export function ClaudeSection({ show, peaRows, rows }: {
   // Visibilité : une simple RÉFÉRENCE, pas un state. La boucle de lecture la consulte pour
   // se mettre en pause hors écran ; en faire une dépendance d'effet tuait la lecture en
   // cours dès que l'observer changeait d'avis (fil figé au milieu d'un échange).
-  const visibleRef = useRef(true);
+  // Démarre à FALSE : la boucle de lecture attend d'être réellement à l'écran. À `true`, le
+  // scénario se déroulait dès le chargement de la page et le visiteur arrivait sur une
+  // conversation déjà à moitié jouée.
+  const visibleRef = useRef(false);
   const [live, setLive] = useState(false);
   const threadRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<HTMLDivElement>(null);
@@ -133,19 +131,51 @@ export function ClaudeSection({ show, peaRows, rows }: {
   const q3 = t('landing.claude.c.question');
   const q4 = t('landing.claude.c.question2', { name: added.name });
 
-  // Ne joue que quand la section est à l'écran.
+  /**
+   * La démo ne joue que quand la section est SOUS LES YEUX du visiteur.
+   *
+   * Le filet précédent forçait la visibilité au bout de 1,2 s sans rien vérifier : en production
+   * la conversation démarrait donc au chargement de la page, et le visiteur qui descendait
+   * tombait sur un échange déjà entamé. Le filet fait maintenant un vrai contrôle géométrique,
+   * qui ne déclenche rien si le lecteur est hors écran.
+   */
   useEffect(() => {
     const el = playerRef.current;
-    if (!el || typeof IntersectionObserver === 'undefined') { setLive(true); return; }
+    if (!el) return;
+
+    /** Le lecteur occupe-t-il vraiment une part de la fenêtre ? */
+    const isOnScreen = () => {
+      const r = el.getBoundingClientRect();
+      const h = window.innerHeight || 0;
+      return r.bottom > h * 0.15 && r.top < h * 0.85;
+    };
+    const sync = () => {
+      const seen = isOnScreen();
+      visibleRef.current = seen;
+      if (seen) setLive(true);
+    };
+
+    // Contextes sans IntersectionObserver (webviews anciennes) : on suit le scroll.
+    if (typeof IntersectionObserver === 'undefined') {
+      sync();
+      window.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      return () => { window.removeEventListener('scroll', sync); window.removeEventListener('resize', sync); };
+    }
+
+    // `rootMargin` négatif plutôt qu'un `threshold` en ratio : un ratio de 25 % ne se déclenche
+    // jamais si le lecteur est plus haut que quatre fois la fenêtre (petits écrans, zoom fort).
+    // Ici la règle est géométrique et indépendante de la taille : le lecteur entre dans les 70 %
+    // centraux de la fenêtre.
     const obs = new IntersectionObserver(es => {
       const seen = es.some(e => e.isIntersecting);
       visibleRef.current = seen;
       if (seen) setLive(true);
-    }, { threshold: 0.2 });
+    }, { threshold: 0, rootMargin: '-15% 0px -15% 0px' });
     obs.observe(el);
-    // Filet : certains contextes (webviews, pages en arrière-plan, navigateurs embarqués)
-    // ne délivrent jamais de callback. Sans ça, la démo ne démarrerait jamais.
-    const fallback = setTimeout(() => { visibleRef.current = true; setLive(true); }, 1200);
+    // Filet pour les contextes qui ne délivrent jamais de callback : un SEUL contrôle différé,
+    // et il ne démarre la démo que si le lecteur est effectivement visible.
+    const fallback = setTimeout(sync, 1500);
     return () => { obs.disconnect(); clearTimeout(fallback); };
   }, []);
 
@@ -178,29 +208,33 @@ export function ClaudeSection({ show, peaRows, rows }: {
       // ── 1. Il analyse ───────────────────────────────────────────────
       { do: 'type', text: q1 },
       { do: 'send', text: q1 },
+      { do: 'think', ms: 700 },
       { do: 'tool', label: `analyze_stock("${featured.ticker}")`, ms: 240 },
       { do: 'say', text: t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' }) },
       { do: 'card', id: 'analyze' },
-      { do: 'wait', ms: 2600 },
+      { do: 'wait', ms: 3600 },
       // ── 2. Il cherche pour toi ──────────────────────────────────────
       { do: 'type', text: q2 },
       { do: 'send', text: q2 },
+      { do: 'think', ms: 800 },
       { do: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15, caps: "large" })', ms: 380 },
       { do: 'say', text: t('landing.claude.b.answer', { count: peaRows.length }) },
       { do: 'card', id: 'screen' },
-      { do: 'wait', ms: 2800 },
+      { do: 'wait', ms: 3800 },
       // ── 3. Il surveille, et il agit ─────────────────────────────────
       { do: 'type', text: q3 },
       { do: 'send', text: q3 },
+      { do: 'think', ms: 900 },
       { do: 'tool', label: 'analyze_watchlist()', ms: 910 },
       { do: 'say', text: t('landing.claude.c.answer') },
       { do: 'card', id: 'watchlist' },
-      { do: 'wait', ms: 2200 },
+      { do: 'wait', ms: 3000 },
       { do: 'type', text: q4 },
       { do: 'send', text: q4 },
+      { do: 'think', ms: 600 },
       { do: 'tool', label: `add_to_watchlist("${added.ticker}")`, ms: 320 },
       { do: 'card', id: 'added' },
-      { do: 'wait', ms: 3400 },
+      { do: 'wait', ms: 4000 },
       { do: 'clear' },
     ];
 
@@ -232,8 +266,14 @@ export function ClaudeSection({ show, peaRows, rows }: {
               await sleep(500);
               break;
             }
+            case 'think': {
+              setItems(prev => [...prev, { kind: 'think' }]);
+              await sleep(step.ms);
+              break;
+            }
             case 'tool': {
-              setItems(prev => [...prev, { kind: 'tool', label: step.label, done: false, ms: step.ms }]);
+              // Les points de réflexion cèdent la place à l'appel d'outil.
+              setItems(prev => [...prev.filter(it => it.kind !== 'think'), { kind: 'tool', label: step.label, done: false, ms: step.ms }]);
               await sleep(700 + step.ms);
               if (cancelled) return;
               setItems(prev => prev.map((it, k) => (k === prev.length - 1 && it.kind === 'tool' ? { ...it, done: true } : it)));
@@ -246,7 +286,7 @@ export function ClaudeSection({ show, peaRows, rows }: {
               for (let w = 1; w <= words.length; w++) {
                 if (cancelled) return;
                 setItems(prev => prev.map((it, k) => (k === prev.length - 1 && it.kind === 'text' ? { ...it, shown: w } : it)));
-                await sleep(45);
+                await sleep(58);
               }
               await sleep(260);
               break;
@@ -297,6 +337,14 @@ export function ClaudeSection({ show, peaRows, rows }: {
                       <span className="tc-dot" />
                       <code className="num">{it.label}</code>
                       <span className="tc-ms num">{it.done ? `${it.ms} ms` : '…'}</span>
+                    </div>
+                  );
+                }
+                if (it.kind === 'think') {
+                  return (
+                    <div key={i} className="msg-a">
+                      <AssistantMark />
+                      <span className="working show" aria-hidden="true"><b /><b /><b /></span>
                     </div>
                   );
                 }
