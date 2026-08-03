@@ -17,7 +17,7 @@ import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
 import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { api } from '../../lib/api.js';
-import { Def, ScoreRing, Sk, useParallax, useSectionIn } from './bits.js';
+import { Def, ScoreRing, useParallax, useSectionIn } from './bits.js';
 import { useMotion, useRichMotion } from './motion.js';
 import { fmtPrice, type LandingCriterion, type LandingShowcase } from './useLandingData.js';
 
@@ -224,7 +224,7 @@ export function ResilienceRow({ resilience }: { resilience: { grade: string; sco
   );
 }
 
-export function HeroSection({ show, ready }: { show: LandingShowcase; ready: boolean }) {
+export function HeroSection({ show }: { show: LandingShowcase }) {
   const { stock: featured, criteria, resilience } = show;
   const { t } = useTranslation();
   const locale = currentLocale();
@@ -258,7 +258,6 @@ export function HeroSection({ show, ready }: { show: LandingShowcase; ready: boo
         </div>
 
         <div className="hero-side" ref={parallaxRef}>
-          {!ready ? <SkeletonCard /> : (
           <div className="acard tilt" ref={cardRef}>
             <div className="acard-head">
               <span className="tick-badge"><CompanyLogo ticker={featured.ticker} name={featured.name} /></span>
@@ -304,40 +303,9 @@ export function HeroSection({ show, ready }: { show: LandingShowcase; ready: boo
               </div>
             </div>
           </div>
-          )}
         </div>
       </div>
     </section>
-  );
-}
-
-/** Fiche d'attente : même gabarit que la vraie, valeurs remplacées par des barres. */
-function SkeletonCard() {
-  return (
-    <div className="acard sk-card" aria-hidden="true">
-      <div className="acard-head">
-        <span className="tick-badge"><Sk w={22} h={10} /></span>
-        <div style={{ display: 'grid', gap: 6 }}><Sk w={130} h={13} /><Sk w={90} h={10} /></div>
-      </div>
-      <div className="acard-score">
-        <div className="ring-wrap sk-ring" style={{ width: 96, height: 96 }} />
-        <div style={{ flex: 1, display: 'grid', gap: 8 }}><Sk w="70%" h={11} /><Sk w="100%" h={8} /></div>
-      </div>
-      <div className="acard-res">
-        <div className="res-top"><Sk w={72} h={10} /><Sk w={24} h={20} /></div>
-        <div className="res-detail"><Sk w={48} h={12} /><Sk w="100%" h={6} /></div>
-      </div>
-      <div className="crits">
-        {Array.from({ length: 10 }).map((_, i) => (
-          <div key={i} className="crit"><span className="cd" /><Sk w="60%" h={10} /></div>
-        ))}
-      </div>
-      <div className="acard-foot-grid">
-        {Array.from({ length: 3 }).map((_, i) => (
-          <div key={i} className="mini"><Sk w={44} h={9} /><Sk w={62} h={13} /></div>
-        ))}
-      </div>
-    </div>
   );
 }
 

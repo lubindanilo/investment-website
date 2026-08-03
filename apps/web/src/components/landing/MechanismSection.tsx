@@ -17,10 +17,10 @@ import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
 import { CompositionStrip, CriteriaList, ResilienceRow } from './HeroSection.js';
 import { CompanyLogo } from '../ui/CompanyLogo.js';
-import { Def, ScoreRing, Sk, Spark, useSectionIn, SplitTitle } from './bits.js';
+import { Def, ScoreRing, Spark, useSectionIn, SplitTitle } from './bits.js';
 import { fmtPrice, type LandingShowcase, type LandingStock } from './useLandingData.js';
 
-export function MechanismSection({ show, ready }: { show: LandingShowcase; ready: boolean }) {
+export function MechanismSection({ show }: { show: LandingShowcase }) {
   const { stock: featured, criteria, resilience, pfcfPercentile } = show;
   const { t } = useTranslation();
   const locale = currentLocale();
@@ -98,10 +98,10 @@ export function MechanismSection({ show, ready }: { show: LandingShowcase; ready
               <div className="mcard" data-on={step === 0 ? '1' : '0'}>
                 <div className="panel mock" style={{ height: '100%' }}>
                   <div className="mock-head">
-                    <span className="tick-badge">{ready ? <CompanyLogo ticker={featured.ticker} name={featured.name} /> : <Sk w={22} h={10} />}</span>
+                    <span className="tick-badge"><CompanyLogo ticker={featured.ticker} name={featured.name} /></span>
                     <div style={{ minWidth: 0 }}>
-                      <div className="acard-name">{ready ? featured.name : <Sk w={130} h={13} />}</div>
-                      <div className="tiny muted num">{ready ? (featured.sector ?? featured.ticker) : <Sk w={90} h={10} />}</div>
+                      <div className="acard-name">{featured.name}</div>
+                      <div className="tiny muted num">{featured.sector ?? featured.ticker}</div>
                     </div>
                   </div>
                   <div className="mock-score">
@@ -128,7 +128,7 @@ export function MechanismSection({ show, ready }: { show: LandingShowcase; ready
                   <h4>{t('landing.mech.card2.quality')}</h4>
                   <div className="row" style={{ gap: 14 }}>
                     <ScoreRing note10={featured.note10} size={72} />
-                    <div className="tiny muted" style={{ lineHeight: 1.5 }}>{ready ? t('landing.mech.card2.qualityDesc', { name: featured.name }) : <Sk w="90%" h={11} />}</div>
+                    <div className="tiny muted" style={{ lineHeight: 1.5 }}>{t('landing.mech.card2.qualityDesc', { name: featured.name })}</div>
                   </div>
                   <div style={{ marginTop: 16 }}><CompositionStrip criteria={criteria} /></div>
                   <CriteriaList criteria={criteria.slice(0, 4)} compact />
@@ -203,7 +203,7 @@ export function MechanismSection({ show, ready }: { show: LandingShowcase; ready
                       <p className="tiny muted" style={{ marginTop: 8, maxWidth: '38ch', lineHeight: 1.5 }}>{t('landing.mech.card3.explain')}</p>
                     </div>
                     <Link to={`/analyse/${encodeURIComponent(featured.ticker)}`} className="btn btn-brand btn-lg">
-                      {ready ? t('landing.mech.card3.cta', { ticker: featured.ticker }) : '…'} <Icon name="arrowRight" size={15} />
+                      {t('landing.mech.card3.cta', { ticker: featured.ticker })} <Icon name="arrowRight" size={15} />
                     </Link>
                   </div>
                 </div>
@@ -224,7 +224,7 @@ export function MechanismSection({ show, ready }: { show: LandingShowcase; ready
 }
 
 /** Section 4 : la veille balaie le marché, les meilleures notes remontent. */
-export function VeilleSection({ rows, ready }: { rows: LandingStock[]; ready: boolean }) {
+export function VeilleSection({ rows }: { rows: LandingStock[] }) {
   const { t } = useTranslation();
   const [ref, seen] = useSectionIn<HTMLElement>(0.1);
   // Champ de points : positions FIGÉES (pas de Math.random au rendu, sinon le prérendu et
@@ -260,17 +260,7 @@ export function VeilleSection({ rows, ready }: { rows: LandingStock[]; ready: bo
           <div className="scanline" aria-hidden="true" />
         </div>
         <div className="screener-rows">
-          {!ready && Array.from({ length: 5 }).map((_, i) => (
-            <div key={`sk${i}`} className="srow" aria-hidden="true">
-              <span className="srow-badge"><Sk w={26} h={11} /></span>
-              <span><Sk w="55%" h={12} /></span>
-              <span className="srow-pill sk-pill" />
-              <span className="hide-m"><Sk w={64} h={22} /></span>
-              <span className="hide-m"><Sk w={70} h={11} /></span>
-              <span />
-            </div>
-          ))}
-          {ready && rows.map((r, i) => (
+          {rows.map((r, i) => (
             <Link key={r.ticker} to={`/analyse/${encodeURIComponent(r.ticker)}`} className="srow" style={{ ['--i' as string]: i }}>
               <span className="srow-badge" data-n={r.note10 ?? 0}><CompanyLogo ticker={r.ticker} name={r.name} /></span>
               <span className="srow-id">

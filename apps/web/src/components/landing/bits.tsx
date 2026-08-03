@@ -187,11 +187,3 @@ export function SplitTitle({ text, className = '' }: { text: string; className?:
     </h2>
   );
 }
-
-/**
- * Barre grise scintillante, affichée à la place d'une valeur tant que l'API n'a pas
- * répondu. Évite le pire des effets : montrer une action puis basculer sur une autre.
- */
-export function Sk({ w = 80, h = 12 }: { w?: number | string; h?: number }) {
-  return <span className="sk" style={{ width: typeof w === 'number' ? `${w}px` : w, height: h }} aria-hidden="true" />;
-}

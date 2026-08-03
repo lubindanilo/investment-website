@@ -102,11 +102,10 @@ function CopyUrl() {
   );
 }
 
-export function ClaudeSection({ show, peaRows, rows, ready }: {
+export function ClaudeSection({ show, peaRows, rows }: {
   show: LandingShowcase;
   peaRows: LandingStock[];
   rows: LandingStock[];
-  ready: boolean;
 }) {
   const { stock: featured, criteria, resilience, pfcfPercentile } = show;
   const { t } = useTranslation();
@@ -157,9 +156,6 @@ export function ClaudeSection({ show, peaRows, rows, ready }: {
   }, [items]);
 
   useEffect(() => {
-    // Rien ne se joue avant que la vraie vitrine soit chargée : sinon la démo taperait
-    // le nom d'une action de repli, puis repartirait de zéro avec la bonne.
-    if (!ready) return;
     // Sans mouvement : la conversation complète, d'un bloc, sans animation.
     if (!motion) {
       setItems([
@@ -274,7 +270,7 @@ export function ClaudeSection({ show, peaRows, rows, ready }: {
     void run();
     return () => { cancelled = true; };
     // Le script dépend des libellés et des données affichées.
-  }, [ready, motion, featured, peaRows, added, q1, q2, q3, q4, t]);
+  }, [motion, featured, peaRows, added, q1, q2, q3, q4, t]);
 
 
   return (

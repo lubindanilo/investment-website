@@ -21,7 +21,7 @@ import './HomePage.css';
 
 export function HomePage() {
   // Trois sociétés DIFFÉRENTES : le hero, la maquette du mécanisme et la démo du connecteur.
-  const { hero, mech, mcp, rows, peaRows, ready } = useLandingData();
+  const { hero, mech, mcp, rows, peaRows } = useLandingData();
   // Une seule décision pour toute la page : le CSS la lit via data-motion, le JS via le contexte.
   const motion = useMotionPreference();
 
@@ -31,11 +31,11 @@ export function HomePage() {
       <ScrollProgress />
       {/* SEO : titre + meta description (i18n) injectés au montage. */}
       <SeoHead titleKey="seo.home.title" descKey="seo.home.desc" />
-      <HeroSection show={hero} ready={ready} />
+      <HeroSection show={hero} />
       <FrictionSection />
-      <MechanismSection show={mech} ready={ready} />
-      <VeilleSection rows={rows} ready={ready} />
-      <ClaudeSection show={mcp} peaRows={peaRows} rows={rows} ready={ready} />
+      <MechanismSection show={mech} />
+      <VeilleSection rows={rows} />
+      <ClaudeSection show={mcp} peaRows={peaRows} rows={rows} />
       <ProofSection />
       <ForWhoSection />
       <FinalSection />
