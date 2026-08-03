@@ -83144,7 +83144,7 @@ const articleSanofi2026: Article = {
     fr: {
       title: "Faut-il acheter l'action Sanofi (SNY) en 2026 ?",
       excerpt: "Sanofi ne valide que 5 de mes 10 critères de qualité : rentable, mais une croissance et un free cash flow par action qui reculent. Le prix parait raisonnable, mon modèle indique pourtant une lourde surcote.",
-      metaDescription: "Sanofi (SNY) en 2026 : pourquoi mon modèle juge l'action bien plus chère qu'elle n'en a l'air, malgré un multiple de cash raisonnable et de bons résultats trimestriels.",
+      metaDescription: "Sanofi (SNY) en 2026 : pourquoi mon modèle juge l'action bien plus chère qu'elle n'en a l'air, malgré des résultats trimestriels solides.",
       answer: "Sanofi ne valide que 5 de mes 10 critères de qualité : une rentabilité correcte, mais une croissance des ventes et du free cash flow par action trop faibles, voire en déclin. Le prix semble raisonnable (16,5 fois le free cash flow), mais mon modèle indique une surcote sévère de 53 %. Voici comment une qualité moyenne et un prix apparemment sage peuvent quand même former un mauvais pari.",
       body: [
         { type: 'h2', text: "Le nom que tout le monde connaît, la question que presque personne ne pose" },
