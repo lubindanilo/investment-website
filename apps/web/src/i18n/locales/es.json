@@ -423,6 +423,7 @@
         "chipZone": "zona PEA",
         "chipNote": "nota ≥ 8",
         "chipPfcf": "P/FCF < 15",
+        "chipCap": "grandes capitalizaciones",
         "thTicker": "Ticker",
         "thName": "Empresa",
         "thNote": "Nota"

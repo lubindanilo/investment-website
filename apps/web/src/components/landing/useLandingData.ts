@@ -58,8 +58,15 @@ const FALLBACK_PEA: LandingStock[] = [
   { ticker: 'KER.PA', name: 'Kering', sector: 'Luxury Goods', note10: 8, pfcfTTM: 11.2, price: null, currency: 'EUR', opportunity: false, marketCap: null, dayChangePct: null, spark: null },
 ];
 
-/** Filtres de la requête PEA, montrés en chips ET réellement envoyés à l'API. */
-export const PEA_QUERY = { zones: 'pea', minMax: 8, maxPfcf: 15, limit: 4 } as const;
+/**
+ * Filtres de la requête PEA, montrés en chips ET réellement envoyés à l'API : la démo ne doit
+ * jamais afficher un filtre qu'elle n'applique pas.
+ *
+ * `caps` est là pour la même raison que dans MONITOR_QUERY : sans lui, les meilleures notes
+ * européennes sont des micro-caps (Philogen, Fiera Milano, Friedrich Vorwerk) qui ne parlent à
+ * personne. Avec, la démo montre Publicis, IAG, Bank of Ireland.
+ */
+export const PEA_QUERY = { zones: 'pea', minMax: 8, maxPfcf: 15, caps: 'large', limit: 4 } as const;
 
 /**
  * Lignes de la veille : les opportunités du moment parmi les GRANDES capitalisations.

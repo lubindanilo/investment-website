@@ -15,10 +15,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
-import { DotScore, useSectionIn, SplitTitle } from './bits.js';
+import { ScoreRing, useSectionIn, SplitTitle } from './bits.js';
+import { CompositionStrip, CriteriaList } from './HeroSection.js';
 import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { useMotion } from './motion.js';
-import { fmtPrice, type LandingStock } from './useLandingData.js';
+import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
 /** Un bloc affiché dans le fil. */
 type Item =
@@ -40,14 +41,34 @@ type Step =
 
 const sleep = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
 
-/** Pastille de l'assistant : une étoile à six branches, aux couleurs de Claude. */
+/**
+ * Marque de Claude : l'astérisque à huit branches effilées. Tracé en SVG plutôt qu'importé
+ * comme image, pour qu'il suive la couleur du contexte et reste net à toute taille.
+ *
+ * Les branches sont des losanges étirés qui s'affinent vers l'extérieur : quatre en croix,
+ * quatre en diagonale et légèrement plus courtes, ce qui donne sa silhouette au symbole.
+ */
+export function ClaudeMark({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      {[0, 45, 90, 135, 180, 225, 270, 315].map(deg => (
+        <path
+          key={deg}
+          d={deg % 90 === 0
+            ? 'M16 3.2 L17.55 13.1 L16 15.1 L14.45 13.1 Z'    // branches en croix, plus longues
+            : 'M16 6.4 L17.25 12.9 L16 14.6 L14.75 12.9 Z'}   // branches en diagonale
+          transform={`rotate(${deg} 16 16)`}
+        />
+      ))}
+      <circle cx="16" cy="16" r="1.9" />
+    </svg>
+  );
+}
+
+/** Pastille de l'assistant dans le fil. */
 function AssistantMark() {
   return (
-    <span className="cl-av" aria-hidden="true">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round">
-        <path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9" />
-      </svg>
-    </span>
+    <span className="cl-av" aria-hidden="true"><ClaudeMark size={15} /></span>
   );
 }
 
@@ -76,7 +97,15 @@ function CopyUrl() {
   );
 }
 
-export function ClaudeSection({ featured, peaRows, rows, ready }: { featured: LandingStock; peaRows: LandingStock[]; rows: LandingStock[]; ready: boolean }) {
+export function ClaudeSection({ featured, criteria, resilience, pfcfPercentile, peaRows, rows, ready }: {
+  featured: LandingStock;
+  criteria: LandingCriterion[];
+  resilience: { grade: string; score: number } | null;
+  pfcfPercentile: number | null;
+  peaRows: LandingStock[];
+  rows: LandingStock[];
+  ready: boolean;
+}) {
   const { t } = useTranslation();
   const locale = currentLocale();
   const [headRef, headIn] = useSectionIn<HTMLDivElement>();
@@ -137,7 +166,7 @@ export function ClaudeSection({ featured, peaRows, rows, ready }: { featured: La
         { kind: 'text', words: t('landing.claude.a.answer', { name: featured.name, note: featured.note10 ?? '—' }).split(' '), shown: 999 },
         { kind: 'card', id: 'analyze' },
         { kind: 'user', text: q2 },
-        { kind: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15 })', done: true, ms: 380 },
+        { kind: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15, caps: "large" })', done: true, ms: 380 },
         { kind: 'card', id: 'screen' },
         { kind: 'user', text: q3 },
         { kind: 'tool', label: 'analyze_watchlist()', done: true, ms: 910 },
@@ -158,7 +187,7 @@ export function ClaudeSection({ featured, peaRows, rows, ready }: { featured: La
       // ── 2. Il cherche pour toi ──────────────────────────────────────
       { do: 'type', text: q2 },
       { do: 'send', text: q2 },
-      { do: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15 })', ms: 380 },
+      { do: 'tool', label: 'screen_stocks({ zones: "pea", minMax: 8, maxPfcf: 15, caps: "large" })', ms: 380 },
       { do: 'say', text: t('landing.claude.b.answer', { count: peaRows.length }) },
       { do: 'card', id: 'screen' },
       { do: 'wait', ms: 2800 },
@@ -341,25 +370,67 @@ export function ClaudeSection({ featured, peaRows, rows, ready }: { featured: La
   );
 
   /** Les cartes de données renvoyées par les outils, assemblées dans le fil. */
-  function renderCard(id: 'analyze' | 'screen' | 'watchlist' | 'added') {
+  /**
+   * Cartes de données renvoyées par les outils MCP. Volontairement RICHES : c'est ce que le
+   * visiteur regarde pour juger de ce que l'intégration lui apporte. Tout vient de l'API
+   * (mêmes champs que la fiche du hero) ; seule la revue de watchlist dépend d'un compte, elle
+   * est donc marquée « exemple ».
+   */
+  function renderCard(id: CardId) {
+    const passCount = criteria.filter(c => c.status === 'pass').length;
+    const pct = pfcfPercentile != null ? Math.max(2, Math.min(98, pfcfPercentile)) : null;
+
     if (id === 'analyze') {
       return (
         <div className="lcard">
           <div className="lcard-h">
             <span className="tick-badge sm"><CompanyLogo ticker={featured.ticker} name={featured.name} /></span>
-            <b style={{ fontSize: 13.5 }}>{featured.name}</b>
-            <span className="num lcard-note">{featured.note10 ?? '—'}/10</span>
+            <div style={{ minWidth: 0 }}>
+              <b className="lcard-name">{featured.name}</b>
+              <div className="tiny muted">{featured.sector ?? featured.ticker}</div>
+            </div>
+            {featured.opportunity && <span className="badge badge-good lcard-flag">{t('landing.card.opportunity')}</span>}
           </div>
           <div className="lcard-b">
-            <DotScore note10={featured.note10} />
-            {featured.pfcfTTM != null && <div className="kv">P/FCF<b>{featured.pfcfTTM.toFixed(1)}x</b></div>}
-            {price && <div className="kv">{t('landing.card.price')}<b>{price}</b></div>}
-            <div className="kv">{t('landing.card.note')}<b style={{ color: 'var(--brand-ink)' }}>{featured.note10 ?? '—'}/10</b></div>
-            {featured.opportunity && <div style={{ marginTop: 10 }}><span className="badge badge-brand">{t('landing.card.opportunity')}</span></div>}
+            {/* Les deux scores côte à côte, comme sur la fiche : la qualité, puis la résilience. */}
+            <div className="lc-scores">
+              <div className="lc-score">
+                <ScoreRing note10={featured.note10} size={78} />
+                <span className="tiny muted">{t('landing.card.qualityKicker')}</span>
+              </div>
+              {resilience && (
+                <div className="lc-score">
+                  <span className="lc-grade" data-g={resilience.grade}>{resilience.grade}</span>
+                  <span className="tiny muted">{t('landing.card.resilience')} · {resilience.score}/100</span>
+                </div>
+              )}
+              <div className="lc-crit">
+                <div className="tiny muted" style={{ marginBottom: 8 }}>{t('landing.card.passCount', { count: passCount })}</div>
+                <CompositionStrip criteria={criteria} />
+                <CriteriaList criteria={criteria.slice(0, 4)} compact />
+              </div>
+            </div>
+            {/* Valorisation : le multiple ET sa position dans son propre historique. */}
+            <div className="lc-val">
+              <div className="lc-val-head">
+                <span className="tiny muted">P/FCF</span>
+                <b className="num lc-val-big">{featured.pfcfTTM != null ? `${featured.pfcfTTM.toFixed(1)}x` : '—'}</b>
+                {price && <span className="num lc-price">{price}</span>}
+              </div>
+              {pct != null && (
+                <>
+                  <div className="gauge-scale" aria-hidden="true">
+                    <span className="gauge-mark" style={{ left: `${pct}%` }} />
+                  </div>
+                  <p className="tiny muted lc-val-note">{t('landing.mech.card2.percentile', { pct: Math.round(pct) })}</p>
+                </>
+              )}
+            </div>
           </div>
         </div>
       );
     }
+
     if (id === 'screen') {
       return (
         <div className="lcard">
@@ -367,49 +438,22 @@ export function ClaudeSection({ featured, peaRows, rows, ready }: { featured: La
             <span className="chip sm">{t('landing.claude.b.chipZone')}</span>
             <span className="chip sm">{t('landing.claude.b.chipNote')}</span>
             <span className="chip sm">{t('landing.claude.b.chipPfcf')}</span>
+            <span className="chip sm">{t('landing.claude.b.chipCap')}</span>
+            <span className="num lcard-count">{peaRows.length}</span>
           </div>
           <div className="lcard-b">
-            <table className="ltable">
-              <thead>
-                <tr>
-                  <th>{t('landing.claude.b.thTicker')}</th>
-                  <th>{t('landing.claude.b.thName')}</th>
-                  <th style={{ textAlign: 'right' }}>{t('landing.claude.b.thNote')}</th>
-                  <th style={{ textAlign: 'right' }}>P/FCF</th>
-                </tr>
-              </thead>
-              <tbody>
-                {peaRows.slice(0, 4).map((r, i) => (
-                  <tr key={r.ticker} style={{ animationDelay: `${0.1 + i * 0.13}s` }}>
-                    <td>{r.ticker}</td>
-                    <td className="sans">{r.name}</td>
-                    <td style={{ textAlign: 'right', color: 'var(--brand-ink)', fontWeight: 700 }}>{r.note10}/10</td>
-                    <td style={{ textAlign: 'right' }}>{r.pfcfTTM != null ? `${r.pfcfTTM.toFixed(1)}x` : '—'}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      );
-    }
-    if (id === 'watchlist') {
-      return (
-        <div className="lcard">
-          <div className="lcard-b">
-            <div className="row" style={{ justifyContent: 'flex-end', marginBottom: 8 }}>
-              <span className="chip sm">{t('landing.claude.c.exampleTag')}</span>
-            </div>
-            <div className="tiles">
-              {[
-                { k: 'avg', v: '8,4/10', c: 'var(--brand-ink)' },
-                { k: 'weak', v: '2', c: 'var(--bad-ink)' },
-                { k: 'down', v: '3', c: 'var(--warn-ink)' },
-                { k: 'above', v: '5', c: 'var(--warn-ink)' },
-              ].map((tile, i) => (
-                <div key={tile.k} className="tile" style={{ animationDelay: `${i * 0.09}s` }}>
-                  <div className="tiny muted">{t(`landing.claude.c.${tile.k}`)}</div>
-                  <div className="num tile-v" style={{ color: tile.c }}>{tile.v}</div>
+            <div className="lc-rows">
+              {peaRows.slice(0, 4).map((r, i) => (
+                <div key={r.ticker} className="lc-row" style={{ animationDelay: `${0.1 + i * 0.12}s` }}>
+                  <span className="tick-badge sm"><CompanyLogo ticker={r.ticker} name={r.name} /></span>
+                  <span className="lc-row-id">
+                    <b className="lc-row-name">{r.name}</b>
+                    <span className="tiny muted num">{r.ticker}</span>
+                  </span>
+                  <span className="lc-pill num" data-n={r.note10 ?? 0}>{r.note10}/10</span>
+                  <span className="num lc-row-pfcf" data-cheap={r.pfcfTTM != null && r.pfcfTTM < 15 ? '1' : '0'}>
+                    {r.pfcfTTM != null ? `${r.pfcfTTM.toFixed(1)}x` : '—'}
+                  </span>
                 </div>
               ))}
             </div>
@@ -417,15 +461,49 @@ export function ClaudeSection({ featured, peaRows, rows, ready }: { featured: La
         </div>
       );
     }
+
+    if (id === 'watchlist') {
+      // Chiffres d'illustration : la revue porte sur LA watchlist du compte connecté, qu'on ne
+      // peut pas connaître depuis la page d'accueil. D'où le marquage explicite.
+      const tiles = [
+        { k: 'avg', v: '8,4/10', tone: 'brand', bar: 84 },
+        { k: 'weak', v: '2', tone: 'bad', bar: 20 },
+        { k: 'down', v: '3', tone: 'warn', bar: 30 },
+        { k: 'above', v: '5', tone: 'warn', bar: 50 },
+      ] as const;
+      return (
+        <div className="lcard">
+          <div className="lcard-h wrap-chips">
+            <b className="lcard-name">{t('landing.claude.c.title')}</b>
+            <span className="chip sm lcard-flag">{t('landing.claude.c.exampleTag')}</span>
+          </div>
+          <div className="lcard-b">
+            <div className="tiles">
+              {tiles.map((tile, i) => (
+                <div key={tile.k} className="tile" data-tone={tile.tone} style={{ animationDelay: `${i * 0.09}s` }}>
+                  <div className="tiny muted">{t(`landing.claude.c.${tile.k}`)}</div>
+                  <div className="num tile-v">{tile.v}</div>
+                  <span className="tile-bar" aria-hidden="true"><i style={{ width: `${tile.bar}%` }} /></span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     return (
-      <div className="lcard">
+      <div className="lcard lcard-added">
         <div className="lcard-b added">
           <span className="check" aria-hidden="true">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--good-ink)" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
           </span>
-          <b className="num" style={{ fontSize: 13 }}>{added.ticker}</b>
-          <span style={{ fontSize: 13 }}>{added.name}</span>
-          <span className="num" style={{ marginLeft: 'auto', fontWeight: 700, color: 'var(--brand-ink)' }}>{added.note10}/10</span>
+          <span className="tick-badge sm"><CompanyLogo ticker={added.ticker} name={added.name} /></span>
+          <span className="lc-row-id">
+            <b className="lc-row-name">{added.name}</b>
+            <span className="tiny muted num">{added.ticker}</span>
+          </span>
+          <span className="lc-pill num" data-n={added.note10 ?? 0}>{added.note10}/10</span>
         </div>
       </div>
     );

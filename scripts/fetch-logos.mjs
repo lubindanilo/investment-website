@@ -16,6 +16,7 @@
  * ouvertes) + les listes éditoriales codées en dur (vitrine, palmarès, découverte).
  *
  * Usage :  node scripts/fetch-logos.mjs            (défaut : 2500 titres)
+ *          node scripts/fetch-logos.mjs --all             (TOUT l'univers noté, ~6 800 titres)
  *          node scripts/fetch-logos.mjs --retry-misses   (retente les titres sans logo connu)
  *          node scripts/fetch-logos.mjs --limit=800
  *          node scripts/fetch-logos.mjs --only=V,MSFT,ASML.AS
@@ -40,6 +41,9 @@ const LIMIT = Number(argOf('limit') ?? 2500);
 const ONLY = argOf('only')?.split(',').map(s => s.trim().toUpperCase()).filter(Boolean);
 /** Force un nouvel essai sur les titres réputés sans logo (une société finit par publier le sien). */
 const RETRY_MISSES = args.includes('--retry-misses');
+/** Tout l'univers noté, sans filtre de capitalisation : la couverture maximale évite un appel
+ *  de fonction par ligne non stockée (le screener affiche ~50 sociétés d'un coup). */
+const ALL = args.includes('--all');
 
 // Charge .env sans dépendance (le repo n'a pas dotenv à la racine).
 for (const line of fs.readFileSync(path.join(ROOT, '.env'), 'utf8').split('\n')) {
@@ -354,12 +358,19 @@ async function tickerList() {
     // micro-caps stockées au-delà de 1 000 milliards), donc un tri brut remonte n'importe quoi.
     // Le plafond écarte l'absurde sans écarter les vraies grandes capis en devise locale
     // (Toyota vaut ~4e13 JPY, ce qui reste sous la limite).
-    const rows = await prisma.screenerTicker.findMany({
-      where: { status: 'scored', marketCap: { gt: 1e9, lt: MARKETCAP_SANITY_MAX } },
-      orderBy: { marketCap: 'desc' },
-      take: LIMIT,
-      select: { ticker: true },
-    });
+    const rows = ALL
+      // Tout ce qui est noté, donc affichable dans le screener ou une watchlist.
+      ? await prisma.screenerTicker.findMany({
+        where: { status: 'scored' },
+        orderBy: { marketCapUsd: { sort: 'desc', nulls: 'last' } },
+        select: { ticker: true },
+      })
+      : await prisma.screenerTicker.findMany({
+        where: { status: 'scored', marketCap: { gt: 1e9, lt: MARKETCAP_SANITY_MAX } },
+        orderBy: { marketCap: 'desc' },
+        take: LIMIT,
+        select: { ticker: true },
+      });
     // Les opportunités du moment : c'est le vivier dans lequel la landing puise ses lignes de
     // veille, donc des logos affichés en page d'accueil, quelle que soit leur capitalisation.
     const opps = await prisma.screenerTicker.findMany({

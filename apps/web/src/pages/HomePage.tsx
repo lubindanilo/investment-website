@@ -34,7 +34,7 @@ export function HomePage() {
       <FrictionSection />
       <MechanismSection featured={featured} criteria={criteria} resilience={resilience} pfcfPercentile={pfcfPercentile} ready={ready} />
       <VeilleSection rows={rows} ready={ready} />
-      <ClaudeSection featured={featured} peaRows={peaRows} rows={rows} ready={ready} />
+      <ClaudeSection featured={featured} criteria={criteria} resilience={resilience} pfcfPercentile={pfcfPercentile} peaRows={peaRows} rows={rows} ready={ready} />
       <ProofSection />
       <ForWhoSection />
       <FinalSection />

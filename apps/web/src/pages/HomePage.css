@@ -291,20 +291,22 @@
 .lp .player { margin-top: 44px; }
 .lp .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
-/* Le lecteur porte les couleurs de Claude (papier chaud, accent terracotta) : le visiteur
-   doit se projeter dans SON interface, pas dans une fenêtre de chat générique. Les tokens
-   sont locaux à `.screen` pour ne pas contaminer le reste de la landing. */
+/* Le lecteur imite l'interface de Claude sans la caricaturer : fond NEUTRE (le papier orangé
+   écrasait les cartes de données et jurait avec le reste du site), l'accent terracotta ne
+   subsistant que sur la marque, le curseur et les accents ponctuels. Plus large aussi, pour
+   qu'on s'y projette : c'est la démonstration centrale de la section.
+   Les tokens restent locaux à `.screen` pour ne pas contaminer la landing. */
 .lp .screen {
   --cl-accent: oklch(0.645 0.128 42);
-  --cl-accent-soft: oklch(0.94 0.035 45);
-  --cl-paper: oklch(0.972 0.007 75);
-  --cl-line: oklch(0.9 0.012 70);
-  --cl-ink: oklch(0.34 0.014 60);
-  --cl-ink-soft: oklch(0.56 0.012 60);
+  --cl-accent-soft: oklch(0.955 0.022 45);
+  --cl-paper: var(--surface);
+  --cl-line: var(--line);
+  --cl-ink: var(--ink);
+  --cl-ink-soft: var(--ink-3);
   background: var(--cl-paper); border: 1px solid var(--cl-line); border-radius: var(--r-lg);
-  box-shadow: var(--sh-lg); overflow: hidden; max-width: 860px; margin: 0 auto;
+  box-shadow: var(--sh-lg); overflow: hidden; max-width: 1040px; margin: 0 auto;
 }
-.lp .screen-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--cl-line); background: oklch(0.955 0.009 75); }
+.lp .screen-bar { display: flex; align-items: center; gap: 8px; padding: 12px 16px; border-bottom: 1px solid var(--cl-line); background: var(--surface-2); }
 .lp .screen-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--cl-line); display: block; }
 .lp .screen-bar span.num { margin-left: 10px; font-size: 11px; color: var(--cl-ink-soft); }
 .lp .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cl-line); margin-left: auto; }
@@ -314,7 +316,7 @@
 /* Bandeau des 3 temps : indicateur de progression du scénario en cours. */
 .lp .steps-strip { display: flex; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--cl-line); overflow-x: auto; scrollbar-width: none; }
 .lp .steps-strip::-webkit-scrollbar { display: none; }
-.lp .strip-item { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; color: var(--cl-ink-soft); background: oklch(0.955 0.009 75); border: 1px solid transparent; border-radius: var(--r-pill); padding: 5px 11px; white-space: nowrap; transition: color .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease); }
+.lp .strip-item { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 600; color: var(--cl-ink-soft); background: var(--bg-soft); border: 1px solid transparent; border-radius: var(--r-pill); padding: 6px 12px; white-space: nowrap; transition: color .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease); }
 .lp .strip-item b { font-size: 10.5px; opacity: .6; }
 .lp .strip-item[data-on="1"] { color: var(--cl-accent); background: var(--cl-accent-soft); border-color: var(--cl-accent); }
 .lp .strip-item[data-on="1"] b { color: var(--cl-accent); opacity: 1; }
@@ -322,12 +324,12 @@
 /* Le fil : hauteur fixe, il défile tout seul comme une vraie fenêtre de chat.
    Sens de lecture d'une VRAIE conversation : ce que TU écris à droite, ce que l'assistant
    répond (texte, appels d'outils, cartes de données) à gauche, sous sa pastille. */
-.lp .thread { display: flex; flex-direction: column; gap: 14px; padding: 22px; }
-.lp .thread.live { height: 420px; overflow-y: auto; scroll-behavior: smooth; scrollbar-width: none; }
+.lp .thread { display: flex; flex-direction: column; gap: 18px; padding: 28px 30px; }
+.lp .thread.live { height: 520px; overflow-y: auto; scroll-behavior: smooth; scrollbar-width: none; }
 .lp .thread.live::-webkit-scrollbar { display: none; }
 
 /* Appel d'outil MCP, avec sa durée : on VOIT quel outil Claude déclenche. */
-.lp .toolcall { align-self: flex-start; margin-left: 32px; display: inline-flex; align-items: center; gap: 9px; max-width: calc(100% - 32px); background: oklch(0.955 0.009 75); border: 1px solid var(--cl-line); border-radius: var(--r-pill); padding: 6px 12px; animation: lp-reply .3s var(--ease) both; }
+.lp .toolcall { align-self: flex-start; margin-left: 38px; display: inline-flex; align-items: center; gap: 10px; max-width: calc(100% - 38px); background: var(--bg-soft); border: 1px solid var(--cl-line); border-radius: var(--r-pill); padding: 7px 14px; animation: lp-reply .3s var(--ease) both; }
 .lp .toolcall code { font-size: 11.5px; color: var(--cl-ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lp .toolcall .tc-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cl-accent); flex: none; animation: lp-blip 1s ease-in-out infinite; }
 .lp .toolcall.done { border-color: oklch(0.85 0.06 156); background: var(--good-bg); }
@@ -335,17 +337,19 @@
 .lp .toolcall .tc-ms { font-size: 10.5px; color: var(--cl-ink-soft); flex: none; }
 
 /* Réponse de l'assistant : à gauche, sans bulle (comme chez Claude), avec sa pastille. */
-.lp .msg-a { align-self: flex-start; display: flex; align-items: flex-start; gap: 10px; width: min(100%, 500px); }
-.lp .cl-av { width: 22px; height: 22px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--cl-accent); color: #fff; margin-top: 1px; }
-.lp .bub-a { font-size: 13.5px; line-height: 1.55; color: var(--cl-ink); }
+.lp .msg-a { align-self: flex-start; display: flex; align-items: flex-start; gap: 12px; width: min(100%, 640px); }
+/* La marque de Claude, en couleur sur fond clair : plus lisible qu'un aplat terracotta, et
+   c'est bien le symbole qu'on reconnaît, pas la pastille. */
+.lp .cl-av { width: 26px; height: 26px; border-radius: 50%; flex: none; display: grid; place-items: center; background: var(--cl-accent-soft); color: var(--cl-accent); margin-top: 1px; }
+.lp .bub-a { font-size: 14.5px; line-height: 1.6; color: var(--cl-ink); }
 .lp .caret { display: inline-block; width: 2px; height: 1.05em; background: var(--cl-accent); vertical-align: text-bottom; margin-left: 2px; animation: lp-caret 1s steps(1) infinite; }
 @keyframes lp-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
 
 /* Barre de saisie : c'est elle qui tape les questions. */
-.lp .composer { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--cl-line); background: oklch(0.955 0.009 75); padding: 12px 16px; min-height: 52px; }
-.lp .composer-txt { flex: 1; font-size: 13.5px; color: var(--cl-ink); min-height: 1.2em; }
+.lp .composer { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--cl-line); background: var(--surface-2); padding: 14px 18px; min-height: 58px; }
+.lp .composer-txt { flex: 1; font-size: 14.5px; color: var(--cl-ink); min-height: 1.2em; }
 .lp .composer-send { width: 30px; height: 30px; border-radius: 50%; background: var(--cl-accent); color: #fff; display: grid; place-items: center; flex: none; opacity: .95; }
-.lp .bub-u { align-self: flex-end; max-width: 82%; background: var(--surface); border: 1px solid var(--cl-line); border-radius: 16px 16px 4px 16px; padding: 11px 14px; font-size: 13.5px; color: var(--cl-ink); box-shadow: var(--sh-xs); opacity: 0; transform: translateY(6px); transition: opacity .3s var(--ease), transform .3s var(--ease); }
+.lp .bub-u { align-self: flex-end; max-width: 78%; background: var(--bg-soft); border: 1px solid var(--cl-line); border-radius: 18px 18px 5px 18px; padding: 12px 16px; font-size: 14.5px; line-height: 1.5; color: var(--cl-ink); box-shadow: var(--sh-xs); opacity: 0; transform: translateY(6px); transition: opacity .3s var(--ease), transform .3s var(--ease); }
 .lp .bub-u.show { opacity: 1; transform: none; }
 .lp .type { display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; max-width: 100%; }
 .lp .bub-u.show .type { animation: lp-type var(--td, 1.6s) steps(var(--tc, 40), end) forwards; }
@@ -357,11 +361,57 @@
 .lp .working b:nth-child(3) { animation-delay: .3s; }
 @keyframes lp-blip { 0%, 100% { opacity: .3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
 @keyframes lp-fade { to { opacity: 1; } }
-.lp .reply { align-self: flex-start; margin-left: 32px; width: min(calc(100% - 32px), 440px); opacity: 0; transform: translateY(8px) scale(.97); transition: opacity .4s var(--ease), transform .4s var(--ease); }
+.lp .reply { align-self: flex-start; margin-left: 38px; width: min(calc(100% - 38px), 560px); opacity: 0; transform: translateY(8px) scale(.97); transition: opacity .4s var(--ease), transform .4s var(--ease); }
 .lp .reply.show { opacity: 1; transform: none; }
 .lp .micro { opacity: 0; transition: opacity .3s var(--ease); }
 .lp .micro.show { opacity: 1; }
-.lp .lcard { background: var(--surface); border: 1px solid var(--cl-line); border-radius: var(--r-md); box-shadow: var(--sh-sm); overflow: hidden; }
+/* ── Cartes de données renvoyées par les outils MCP ────────────────────────────
+   Ce sont elles que le visiteur scrute : elles doivent être aussi soignées qu'une vraie fiche
+   produit, pas des blocs de texte. Elles reprennent donc les mêmes composants que le hero
+   (anneau de note, barre de composition, jauge de valorisation). */
+.lp .lcard { background: var(--surface); border: 1px solid var(--cl-line); border-radius: var(--r-md); box-shadow: var(--sh-md); overflow: hidden; }
+.lp .lcard-name { font-size: 14px; font-weight: 700; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .lcard-flag { margin-left: auto; flex: none; }
+.lp .lcard-count { margin-left: auto; font-size: 12px; font-weight: 700; color: var(--brand-ink); background: var(--brand-softer); border-radius: var(--r-pill); padding: 3px 9px; }
+
+/* Les deux scores, puis les critères : la même lecture que la fiche d'analyse. */
+.lp .lc-scores { display: flex; align-items: flex-start; gap: 20px; }
+.lp .lc-score { display: grid; justify-items: center; gap: 6px; text-align: center; flex: none; }
+.lp .lc-grade {
+  width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--mono); font-size: 26px; font-weight: 800;
+  background: var(--good-bg); color: var(--good-ink); border: 3px solid var(--good);
+}
+.lp .lc-grade[data-g="C"] { background: var(--warn-bg); color: var(--warn-ink); border-color: var(--warn); }
+.lp .lc-grade[data-g="D"], .lp .lc-grade[data-g="E"] { background: var(--bad-bg); color: var(--bad-ink); border-color: var(--bad); }
+.lp .lc-crit { flex: 1; min-width: 0; }
+.lp .lc-crit .crits { margin-top: 10px; gap: 6px; }
+
+/* Valorisation : le multiple, le cours, et la position dans l'historique. */
+.lp .lc-val { margin-top: 16px; padding: 13px 14px; border-radius: var(--r-sm); background: var(--bg-soft); border: 1px solid var(--line-soft); }
+.lp .lc-val-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 11px; }
+.lp .lc-val-big { font-size: 22px; font-weight: 700; letter-spacing: -0.03em; }
+.lp .lc-price { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--ink-2); }
+.lp .lc-val-note { margin-top: 9px; line-height: 1.45; }
+
+/* Résultats du screener : des lignes, pas un tableau brut. */
+.lp .lc-rows { display: grid; gap: 8px; }
+.lp .lc-row {
+  display: flex; align-items: center; gap: 11px; padding: 9px 10px; border-radius: var(--r-sm);
+  background: var(--bg-soft); border: 1px solid var(--line-soft);
+  opacity: 0; transform: translateY(6px);
+}
+.lp .reply.show .lc-row { animation: lp-row .38s var(--ease) forwards; }
+.lp .lc-row-id { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.lp .lc-row-name { font-size: 13px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .lc-pill { flex: none; font-size: 12px; font-weight: 700; padding: 4px 9px; border-radius: var(--r-pill); background: var(--brand-soft); color: var(--brand-ink); }
+.lp .lc-pill[data-n="10"] { background: var(--good-bg); color: var(--good-ink); }
+.lp .lc-row-pfcf { flex: none; min-width: 46px; text-align: right; font-size: 12.5px; font-weight: 700; color: var(--ink-3); }
+.lp .lc-row-pfcf[data-cheap="1"] { color: var(--good-ink); }
+
+/* Confirmation d'écriture : le seul outil de la démo qui MODIFIE quelque chose. */
+.lp .lcard-added { border-color: oklch(0.85 0.06 156); background: linear-gradient(90deg, var(--good-bg), var(--surface) 60%); }
+.lp .lcard-added .check { color: var(--good-ink); background: var(--surface); border: 1px solid oklch(0.85 0.06 156); }
 .lp .lcard-h { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--cl-line); }
 .lp .lcard-h.wrap-chips { flex-wrap: wrap; gap: 6px; }
 .lp .lcard-note { margin-left: auto; font-size: 17px; font-weight: 700; color: var(--brand-ink); }
@@ -376,11 +426,19 @@
 .lp .ltable tbody tr { opacity: 0; transform: translateY(6px); }
 .lp .reply.show .ltable tbody tr { animation: lp-row .35s var(--ease) forwards; }
 @keyframes lp-row { to { opacity: 1; transform: none; } }
-.lp .tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.lp .tile { background: var(--surface-2); border: 1px solid var(--line-soft); border-radius: var(--r-sm); padding: 11px; }
-.lp .tile-v { font-size: 20px; font-weight: 700; }
-.lp .added { display: flex; align-items: center; gap: 10px; }
-.lp .added .check { width: 20px; height: 20px; border-radius: 50%; background: var(--good-bg); display: grid; place-items: center; flex: none; }
+.lp .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.lp .tile { background: var(--surface-2); border: 1px solid var(--line-soft); border-radius: var(--r-sm); padding: 12px; display: grid; gap: 7px; }
+.lp .tile-v { font-size: 21px; font-weight: 700; letter-spacing: -0.03em; }
+.lp .tile-bar { display: block; height: 4px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.lp .tile-bar i { display: block; height: 100%; border-radius: 99px; transform-origin: left; animation: lp-grow .8s var(--ease) .3s both; }
+.lp .tile[data-tone="brand"] .tile-v { color: var(--brand-ink); }
+.lp .tile[data-tone="brand"] .tile-bar i { background: var(--brand); }
+.lp .tile[data-tone="warn"] .tile-v { color: var(--warn-ink); }
+.lp .tile[data-tone="warn"] .tile-bar i { background: var(--warn); }
+.lp .tile[data-tone="bad"] .tile-v { color: var(--bad-ink); }
+.lp .tile[data-tone="bad"] .tile-bar i { background: var(--bad); }
+.lp .added { display: flex; align-items: center; gap: 11px; }
+.lp .added .check { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; flex: none; }
 .lp .micro { font-size: 11.5px; color: var(--ink-3); font-family: var(--mono); align-self: flex-start; margin-top: -4px; }
 .lp .connect { margin-top: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-sm); padding: 22px 24px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
 .lp .connect-steps { margin: 12px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2); line-height: 1.9; }
@@ -504,9 +562,14 @@
   .lp .toolcall code { max-width: 46vw; }
   .lp .lcard-b { padding: 11px; }
   .lp .reply { width: 100%; }
-  .lp .tiles { gap: 8px; }
-  .lp .tile { padding: 9px; }
+  .lp .tiles { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .lp .tile { padding: 10px; }
   .lp .tile-v { font-size: 18px; }
+  .lp .thread { padding: 16px; gap: 13px; }
+  .lp .lc-scores { flex-wrap: wrap; gap: 14px; }
+  .lp .lc-crit { flex-basis: 100%; }
+  .lp .toolcall, .lp .reply { margin-left: 0; max-width: 100%; width: 100%; }
+  .lp .msg-a { width: 100%; }
   .lp .connect { grid-template-columns: 1fr; gap: 14px; padding: 16px; margin-top: 18px; }
   .lp .connect-steps { line-height: 1.6; font-size: 13px; }
   .lp .connect-url code { font-size: 11.5px; padding: 9px 11px; word-break: break-all; }
