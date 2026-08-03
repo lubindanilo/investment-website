@@ -82968,7 +82968,7 @@ const articleMarriott2026: Article = {
     fr: {
       title: "Marriott (MAR) : résultats T2 2026, mon verdict",
       excerpt: "Marriott bat le consensus sur le bénéfice mais rate ses ventes, plombée par le recul du tourisme international. Mon modèle valide la qualité du groupe hôtelier mais juge le prix actuel trop élevé.",
-      metaDescription: "Marriott (MAR) a publié ce lundi un bénéfice supérieur aux attentes mais des ventes en retrait. Mon analyse fondamentale complète des résultats et de la valorisation.",
+      metaDescription: "Marriott (MAR) a publié ce lundi un bénéfice supérieur aux attentes mais des ventes en retrait. Mon analyse complète des résultats et de la valorisation.",
       answer: "Marriott a publié ce lundi un bénéfice par action supérieur aux attentes, mais des ventes en retrait, plombées par le recul du tourisme international lié aux tensions au Moyen-Orient. Mon modèle valide la qualité de l'entreprise (8 critères sur 10) mais juge le prix actuel excessif d'environ 29 % par rapport à ce que je suis prêt à payer.",
       body: [
         { type: 'h2', text: "Ce que Marriott a annoncé ce lundi matin" },
@@ -83078,7 +83078,7 @@ const articleMarriott2026: Article = {
     es: {
       title: "Marriott (MAR): resultados del T2 2026, mi veredicto",
       excerpt: "Marriott supera las expectativas de beneficio pero falla en ingresos, lastrada por la caída del turismo internacional. Mi modelo confirma la calidad del grupo hotelero pero considera el precio actual demasiado alto.",
-      metaDescription: "Marriott (MAR) publicó este lunes un beneficio superior a lo esperado pero unos ingresos por debajo de lo previsto. Mi análisis fundamental completo de los resultados y la valoración.",
+      metaDescription: "Marriott (MAR) publicó este lunes un beneficio superior a lo esperado pero unos ingresos por debajo de lo previsto. Análisis de los resultados y la valoración.",
       answer: "Marriott publicó este lunes un beneficio por acción ajustado superior a lo esperado, pero unos ingresos por debajo de lo previsto, lastrados por la caída del turismo internacional ligada a las tensiones en Oriente Medio. Mi modelo confirma la calidad de la empresa (8 de 10 criterios) pero considera el precio actual excesivo en torno a un 29 % frente a lo que estoy dispuesto a pagar.",
       body: [
         { type: 'h2', text: "Lo que anunció Marriott este lunes por la mañana" },
@@ -83143,8 +83143,8 @@ const articleSanofi2026: Article = {
   content: {
     fr: {
       title: "Faut-il acheter l'action Sanofi (SNY) en 2026 ?",
-      excerpt: "Sanofi ne valide que 5 de mes 10 critères de qualité : rentable, mais une croissance et un free cash flow par action qui reculent. Le P/FCF paraît raisonnable, mon modèle indique pourtant une lourde surcote.",
-      metaDescription: "Sanofi (SNY) en 2026 : pourquoi mon modèle juge l'action bien plus chère qu'elle n'en a l'air, malgré un P/FCF de 16,5 fois et de bons résultats trimestriels.",
+      excerpt: "Sanofi ne valide que 5 de mes 10 critères de qualité : rentable, mais une croissance et un free cash flow par action qui reculent. Le prix parait raisonnable, mon modèle indique pourtant une lourde surcote.",
+      metaDescription: "Sanofi (SNY) en 2026 : pourquoi mon modèle juge l'action bien plus chère qu'elle n'en a l'air, malgré un multiple de cash raisonnable et de bons résultats trimestriels.",
       answer: "Sanofi ne valide que 5 de mes 10 critères de qualité : une rentabilité correcte, mais une croissance des ventes et du free cash flow par action trop faibles, voire en déclin. Le prix semble raisonnable (16,5 fois le free cash flow), mais mon modèle indique une surcote sévère de 53 %. Voici comment une qualité moyenne et un prix apparemment sage peuvent quand même former un mauvais pari.",
       body: [
         { type: 'h2', text: "Le nom que tout le monde connaît, la question que presque personne ne pose" },
@@ -83183,8 +83183,8 @@ const articleSanofi2026: Article = {
     },
     en: {
       title: "Should you buy Sanofi (SNY) stock in 2026?",
-      excerpt: "Sanofi validates only 5 of my 10 quality criteria: profitable, but growth and free cash flow per share are shrinking. The P/FCF looks reasonable, yet my model flags a heavy overvaluation.",
-      metaDescription: "Sanofi (SNY) in 2026: why my model finds the stock far pricier than it looks, despite a 16.5x P/FCF and strong quarterly results.",
+      excerpt: "Sanofi validates only 5 of my 10 quality criteria: profitable, but growth and free cash flow per share are shrinking. The price looks reasonable, yet my model flags a heavy overvaluation.",
+      metaDescription: "Sanofi (SNY) in 2026: why my model finds the stock far pricier than it looks, despite a reasonable cash multiple and strong quarterly results.",
       answer: "Sanofi validates only 5 of my 10 quality criteria: decent profitability, but sales growth and free cash flow per share that are too weak, even declining. The price looks reasonable (16.5 times free cash flow), yet my model flags a severe 53% overvaluation. Here is how middling quality and a seemingly sensible price can still add up to a bad bet.",
       body: [
         { type: 'h2', text: "The name everyone knows, the question almost nobody asks" },
@@ -83223,8 +83223,8 @@ const articleSanofi2026: Article = {
     },
     es: {
       title: "¿Deberías comprar acciones de Sanofi (SNY) en 2026?",
-      excerpt: "Sanofi solo cumple 5 de mis 10 criterios de calidad: rentable, pero con crecimiento y flujo de caja libre por acción a la baja. El P/FCF parece razonable, pero mi modelo indica una fuerte sobrevaloración.",
-      metaDescription: "Sanofi (SNY) en 2026: por qué mi modelo la considera mucho más cara de lo que parece, pese a un P/FCF de 16,5 veces y buenos resultados trimestrales.",
+      excerpt: "Sanofi solo cumple 5 de mis 10 criterios de calidad: rentable, pero con crecimiento y flujo de caja libre por acción a la baja. El precio parece razonable, pero mi modelo indica una fuerte sobrevaloración.",
+      metaDescription: "Sanofi (SNY) en 2026: por qué mi modelo la considera mucho más cara de lo que parece, pese a un múltiplo de caja razonable y buenos resultados trimestrales.",
       answer: "Sanofi solo cumple 5 de mis 10 criterios de calidad: rentabilidad correcta, pero un crecimiento de ventas y un flujo de caja libre por acción demasiado débiles, incluso a la baja. El precio parece razonable (16,5 veces el flujo de caja libre), pero mi modelo indica una sobrevaloración severa del 53 %. Así es como una calidad mediocre y un precio aparentemente sensato pueden formar igualmente una mala apuesta.",
       body: [
         { type: 'h2', text: "El nombre que todos conocen, la pregunta que casi nadie hace" },
@@ -83359,7 +83359,7 @@ const articleImax2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Está infravalorada la acción de IMAX Corporation (IMAX) en 2026?",
+      title: "¿Está infravalorada la acción de IMAX Corporation (IMAX)?",
       excerpt: "IMAX cumple mis 10 criterios de calidad, una nota perfecta poco frecuente, Y mi modelo indica un descuento del 36,9 %. La marca de cine más reconocida del mundo, a un precio que mi modelo considera realmente barato.",
       metaDescription: "IMAX (IMAX) en 2026: nota de calidad perfecta y descuento del 36,9 % según mi modelo. El modelo de licencia detrás de una rentabilidad fuera de lo común.",
       answer: "IMAX Corporation cumple mis 10 criterios de calidad, una nota perfecta poco frecuente en mi screener, Y mi modelo indica un descuento del 36,9 % frente a su precio de compra razonable. Una combinación poco común: la marca de cine de gran formato más reconocida del mundo, a un precio que mi modelo considera realmente barato. Aquí explico por qué.",
@@ -83497,7 +83497,7 @@ const articleArgan2026: Article = {
     es: {
       title: "¿Deberías comprar acciones de Argan (AGX) en 2026?",
       excerpt: "Argan cumple mis 10 criterios de calidad, impulsada por la demanda explosiva de electricidad de los centros de datos de IA. Mi modelo indica aun así una sobrevaloración severa del 52 %: el relato es real, el precio ya lo ha incorporado en gran parte.",
-      metaDescription: "Argan (AGX) en 2026: nota de calidad perfecta y un rendimiento del capital extremo, pero mi modelo considera el precio ya demasiado alto frente al relato eléctrico de la IA.",
+      metaDescription: "Argan (AGX) en 2026: nota de calidad perfecta y un rendimiento del capital extremo, pero mi modelo considera el precio ya demasiado alto.",
       answer: "Argan cumple mis 10 criterios de calidad, una nota perfecta, impulsada por la demanda explosiva de electricidad de los centros de datos de IA. Pero mi modelo indica una sobrevaloración severa del 52 %: el relato es real, el precio ya ha incorporado gran parte de él. Así es como separo la historia del precio.",
       body: [
         { type: 'h2', text: "El contratista discreto detrás de la fiebre eléctrica de la IA" },
