@@ -280,7 +280,7 @@ export function VeilleSection({ rows, ready }: { rows: LandingStock[]; ready: bo
           ))}
           {ready && rows.map((r, i) => (
             <Link key={r.ticker} to={`/analyse/${encodeURIComponent(r.ticker)}`} className="srow" style={{ ['--i' as string]: i }}>
-              <span className="srow-badge" data-n={r.note10 ?? 0}>{r.ticker.split('.')[0]}</span>
+              <span className="srow-badge" data-n={r.note10 ?? 0}><CompanyLogo ticker={r.ticker} name={r.name} /></span>
               <span className="srow-id">
                 <span className="srow-name">{r.name}</span>
                 <span className="tiny muted srow-sector">{r.sector ?? r.ticker}</span>

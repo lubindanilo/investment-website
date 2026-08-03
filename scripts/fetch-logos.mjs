@@ -15,7 +15,8 @@
  * La liste stockée = les plus grosses capitalisations notées (ce sont les fiches réellement
  * ouvertes) + les listes éditoriales codées en dur (vitrine, palmarès, découverte).
  *
- * Usage :  node scripts/fetch-logos.mjs            (défaut : 400 titres)
+ * Usage :  node scripts/fetch-logos.mjs            (défaut : 2500 titres)
+ *          node scripts/fetch-logos.mjs --retry-misses   (retente les titres sans logo connu)
  *          node scripts/fetch-logos.mjs --limit=800
  *          node scripts/fetch-logos.mjs --only=V,MSFT,ASML.AS
  *
@@ -29,11 +30,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'apps/web/public/logos');
 const MANIFEST = path.join(ROOT, 'apps/web/src/data/logoManifest.ts');
+/** Titres pour lesquels AUCUNE source ne connaît de logo. Versionné pour que les passes
+ *  suivantes ne les réinterrogent pas (une centaine d'appels inutiles à chaque exécution). */
+const MISSES = path.join(__dirname, 'logo-misses.json');
 
 const args = process.argv.slice(2);
 const argOf = (name) => args.find(a => a.startsWith(`--${name}=`))?.split('=').slice(1).join('=');
-const LIMIT = Number(argOf('limit') ?? 400);
+const LIMIT = Number(argOf('limit') ?? 2500);
 const ONLY = argOf('only')?.split(',').map(s => s.trim().toUpperCase()).filter(Boolean);
+/** Force un nouvel essai sur les titres réputés sans logo (une société finit par publier le sien). */
+const RETRY_MISSES = args.includes('--retry-misses');
 
 // Charge .env sans dépendance (le repo n'a pas dotenv à la racine).
 for (const line of fs.readFileSync(path.join(ROOT, '.env'), 'utf8').split('\n')) {
@@ -55,6 +61,44 @@ const ALWAYS = [
 /** Au-delà, la capitalisation stockée est forcément fausse (aucune société cotée n'atteint
  *  ce niveau, même en yens ou en wons). Cf. le commentaire de tickerList(). */
 const MARKETCAP_SANITY_MAX = 6e14;
+
+/**
+ * Côté écran, un logo occupe une pastille de 34 à 40 px. Le stocker en 512 px coûtait ~23 Ko par
+ * titre (9,3 Mo pour 400 logos officiels Finnhub) et bornait de fait la couverture. On le ramène
+ * donc à 96 px, ce qui suffit au rendu HiDPI et fait tomber Visa de 28,4 Ko à 2,4 Ko.
+ */
+const TARGET_PX = 96;
+
+/** Palier gratuit Finnhub : ~60 appels/minute. On espace donc les titres qui l'interrogent. */
+const RATE_SLEEP_MS = 1_050;
+
+/** sharp est une dépendance de DÉVELOPPEMENT, chargée à la demande : sans elle le script
+ *  fonctionne toujours, il stocke simplement les images à leur taille d'origine. */
+let sharpMod;
+async function loadSharp() {
+  if (sharpMod !== undefined) return sharpMod;
+  try { sharpMod = (await import('sharp')).default; }
+  catch { sharpMod = null; console.warn('⚠️  sharp absent : images stockées sans redimensionnement (pnpm add -w -D sharp)'); }
+  return sharpMod;
+}
+
+/**
+ * Ramène une image à TARGET_PX en PNG. Renvoie l'original si le redimensionnement échoue (cas des
+ * .ico encodés en BMP, que sharp ne lit pas) ou s'il n'allège pas le fichier.
+ */
+async function shrink(buf, ext) {
+  const sharp = await loadSharp();
+  if (!sharp) return { buf, ext };
+  try {
+    const out = await sharp(buf)
+      .resize(TARGET_PX, TARGET_PX, { fit: 'inside', withoutEnlargement: true })
+      .png({ compressionLevel: 9, palette: true })
+      .toBuffer();
+    return out.length < buf.length ? { buf: out, ext: 'png' } : { buf, ext };
+  } catch {
+    return { buf, ext };
+  }
+}
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Lubin-Investment/0.1';
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
@@ -83,24 +127,37 @@ function iconOfWebsite(website) {
 
 /**
  * Même règle que looksForeign() dans apps/api/src/routes/screener.ts : `BRK.B` et `BF.B` sont des
- * classes d'actions américaines que Finnhub sert, pas des bourses étrangères. Londres (.L) est la
- * seule place à tenir en une lettre.
+ * classes d'actions américaines que Finnhub sert. Deux places seulement tiennent en une lettre,
+ * Tokyo (.T) et Londres (.L) ; toutes les autres terminaisons d'une lettre sont des classes US.
  */
+const SINGLE_LETTER_EXCHANGES = new Set(['T', 'L']);
+
 function looksForeign(ticker) {
   const i = ticker.lastIndexOf('.');
   if (i < 0) return false;
   const suffix = ticker.slice(i + 1).toUpperCase();
-  return suffix.length > 1 || suffix === 'L';
+  return suffix.length > 1 || SINGLE_LETTER_EXCHANGES.has(suffix);
 }
 
+/** Vrai si l'appel Finnhub a été tenté pour ce ticker (pilote la cadence, cf. RATE_SLEEP_MS). */
+let lastCallHitFinnhub = false;
+
 async function finnhubProfile(ticker) {
+  lastCallHitFinnhub = false;
   if (!FINNHUB_KEY || looksForeign(ticker)) return null;   // 403 garanti sur les bourses étrangères
-  try {
-    const r = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${encodeURIComponent(ticker)}`,
-      { headers: { 'X-Finnhub-Token': FINNHUB_KEY } });
-    if (!r.ok) return null;
-    return await r.json();
-  } catch { return null; }
+  lastCallHitFinnhub = true;
+  const url = `https://finnhub.io/api/v1/stock/profile2?symbol=${encodeURIComponent(ticker)}`;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const r = await fetch(url, { headers: { 'X-Finnhub-Token': FINNHUB_KEY } });
+      // 429 = quota par minute atteint. Sans cette attente, le titre US retombait en silence sur
+      // l'icône de son domaine alors que son logo OFFICIEL était disponible.
+      if (r.status === 429) { await sleep(20_000); continue; }
+      if (!r.ok) return null;
+      return await r.json();
+    } catch { return null; }
+  }
+  return null;
 }
 
 // Session Yahoo (cookies + crumb), nécessaire pour quoteSummary.
@@ -152,18 +209,25 @@ async function logoCandidates(ticker) {
   return out;
 }
 
+/** Provenance des logos obtenus, pour contrôler la QUALITÉ de la couverture. */
+const provenance = { official: 0, domain: 0 };
+
 /** Premier candidat qui donne un fichier exploitable et assez léger. */
 async function downloadFirst(urls) {
   for (const url of urls) {
     const file = await download(url);
-    if (file) return file;
+    if (file) {
+      if (url.includes('finnhub')) provenance.official++; else provenance.domain++;
+      return file;
+    }
   }
   return null;
 }
 
-/** Poids max d'un logo versionné. Au-delà on préfère ne pas le stocker : le filet côté API
- *  prendra le relais à l'affichage, et le repo ne gonfle pas pour une pastille de 34 px. */
-const MAX_BYTES = 48 * 1024;
+/** Filet de sécurité : après redimensionnement un logo pèse 2 à 4 Ko, donc rien ne devrait
+ *  approcher ce plafond. S'il est franchi, on préfère ne pas stocker (le repli côté API prend
+ *  le relais à l'affichage) plutôt que d'alourdir le repo pour une pastille de 34 px. */
+const MAX_BYTES = 24 * 1024;
 
 /**
  * Un .ico est un CONTENEUR : il empile toutes les résolutions (jusqu'à 364 Ko pour une seule
@@ -201,10 +265,12 @@ async function download(url) {
   // Une icône par défaut fait quelques dizaines d'octets : ce n'est pas un logo.
   if (buf.length < 200) return null;
 
+  // Un .ico empile toutes les résolutions : on en extrait une image PNG, que sharp saura lire.
   if (ext === 'ico') {
     const png = pngFromIco(buf);
     if (png && png.length < buf.length) { buf = png; ext = 'png'; }
   }
+  ({ buf, ext } = await shrink(buf, ext));
   if (buf.length > MAX_BYTES) return null;
   return { buf, ext };
 }
@@ -272,9 +338,32 @@ async function main() {
     if (m) existing.set(m[1].replace(/_/g, '.'), m[2]);
   }
 
-  let added = 0, kept = 0, missing = 0;
+  // Les fichiers déjà stockés l'ont été avant le redimensionnement : on les repasse dans `shrink`
+  // sur place, sans un seul appel réseau. Un fichier déjà optimal ressort inchangé.
+  let shrunkFrom = 0, shrunkTo = 0, shrunk = 0;
+  for (const [ticker, ext] of [...existing]) {
+    const file = `${ticker.replace(/\./g, '_')}.${ext}`;
+    const full = path.join(OUT_DIR, file);
+    const before = fs.readFileSync(full);
+    const out = await shrink(before, ext);
+    if (out.buf.length >= before.length) continue;
+    fs.writeFileSync(path.join(OUT_DIR, `${ticker.replace(/\./g, '_')}.${out.ext}`), out.buf);
+    if (out.ext !== ext) { fs.unlinkSync(full); existing.set(ticker, out.ext); }
+    shrunkFrom += before.length; shrunkTo += out.buf.length; shrunk++;
+  }
+  if (shrunk) {
+    console.log(`  ${shrunk} logos déjà stockés réduits : ${(shrunkFrom / 1024 / 1024).toFixed(1)} Mo → ${(shrunkTo / 1024 / 1024).toFixed(1)} Mo`);
+  }
+
+  // Échecs connus : on les saute, sauf --retry-misses.
+  const misses = new Set(
+    !RETRY_MISSES && fs.existsSync(MISSES) ? JSON.parse(fs.readFileSync(MISSES, 'utf8')) : [],
+  );
+
+  let added = 0, kept = 0, missing = 0, skipped = 0;
   for (const [i, ticker] of tickers.entries()) {
     if (existing.has(ticker)) { kept++; continue; }
+    if (misses.has(ticker)) { skipped++; continue; }
     const file = await downloadFirst(await logoCandidates(ticker));
     if (file) {
       // Le point d'un suffixe de bourse casserait l'extension : ASML.AS → ASML_AS.png
@@ -283,9 +372,10 @@ async function main() {
       added++;
     } else {
       missing++;
+      misses.add(ticker);
     }
     if ((i + 1) % 25 === 0) console.log(`  ${i + 1}/${tickers.length} — ${added} ajoutés, ${kept} déjà là, ${missing} sans logo`);
-    await sleep(120);   // on ménage les deux fournisseurs
+    await sleep(lastCallHitFinnhub ? RATE_SLEEP_MS : 120);
   }
 
   // Manifeste : le front sait quels tickers sont stockés, donc il n'émet aucune requête 404
@@ -300,7 +390,10 @@ async function main() {
     + entries.map(([t, ext]) => `  ${JSON.stringify(t)}: ${JSON.stringify(`${t.replace(/\./g, '_')}.${ext}`)},`).join('\n')
     + `\n};\n`);
 
-  console.log(`\n✅ ${entries.length} logos stockés (${added} nouveaux, ${missing} sans logo connu).`);
+  fs.writeFileSync(MISSES, `${JSON.stringify([...misses].sort(), null, 0)}\n`);
+
+  console.log(`\n✅ ${entries.length} logos stockés (${added} nouveaux, ${missing} sans logo connu, ${skipped} sautés car déjà sans logo).`);
+  console.log(`   Provenance des nouveaux : ${provenance.official} logos officiels Finnhub, ${provenance.domain} icônes de domaine.`);
   console.log(`   Images  : apps/web/public/logos/`);
   console.log(`   Manifeste : apps/web/src/data/logoManifest.ts`);
 }

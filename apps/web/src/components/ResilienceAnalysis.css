@@ -22,8 +22,8 @@
 /* Pastille du logo officiel, devant le nom de la société. Gabarit FIXE, occupé dès le premier
    rendu : le logo arrive de façon asynchrone et ne doit pas décaler le titre en s'affichant. */
 .anl-company-logo {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   flex: none;
   border-radius: 10px;
   background: var(--bg3);
@@ -36,6 +36,9 @@
   color: var(--text2);
   letter-spacing: -0.02em;
 }
+
+/* Logo présent → cadre transparent, le logo remplit la pastille (cf. CompanyLogo.css). */
+.anl-company-logo:has(.clogo) { background: none; border-color: transparent; }
 
 .anl-company-desc {
   margin: -4px 0 0;

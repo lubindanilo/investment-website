@@ -113,8 +113,11 @@
 .lp .crit .cn { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lp .crit .cv { margin-left: auto; font-size: 11.5px; font-weight: 600; color: var(--ink-3); white-space: nowrap; }
 .lp .crits-compact .cv { font-size: 12.5px; color: var(--ink); }
-.lp .tick-badge { width: 40px; height: 40px; border-radius: 11px; background: var(--bg-soft); border: 1px solid var(--line); display: grid; place-items: center; font-family: var(--mono); font-weight: 700; font-size: 13px; color: var(--ink-2); flex: none; }
-.lp .tick-badge.sm { width: 30px; height: 30px; border-radius: 8px; font-size: 10px; }
+.lp .tick-badge { width: 44px; height: 44px; border-radius: 11px; background: var(--bg-soft); border: 1px solid var(--line); display: grid; place-items: center; font-family: var(--mono); font-weight: 700; font-size: 13px; color: var(--ink-2); flex: none; }
+/* Logo présent → plus de cadre : on n'encadre pas une marque. Le gabarit est conservé, donc
+   aucun décalage de mise en page entre le repli et l'arrivée du logo. */
+.lp .tick-badge:has(.clogo) { background: none; border-color: transparent; }
+.lp .tick-badge.sm { width: 34px; height: 34px; border-radius: 8px; font-size: 10px; }
 .lp .ring-wrap { position: relative; flex: none; }
 .lp .ring-wrap svg { transform: rotate(-90deg); }
 .lp .ring-val { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--mono); font-weight: 700; letter-spacing: -0.04em; }
@@ -258,12 +261,16 @@
 .lp .srow-id { min-width: 0; display: grid; gap: 2px; }
 .lp .srow-name { font-weight: 700; font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lp .srow-sector { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* La pastille accueille le LOGO officiel quand il existe (fond neutre, pour que la marque se
+   lise), et retombe sinon sur le code boursier en blanc sur un dégradé coloré par la note. La
+   couleur de la note reste portée par la pastille /10 et par le liseré de gauche. */
 .lp .srow-badge {
-  display: grid; place-items: center; height: 34px; min-width: 56px; padding: 0 7px; border-radius: 9px;
+  display: grid; place-items: center; height: 38px; min-width: 56px; padding: 0 6px; border-radius: 9px;
   font-family: var(--mono); font-weight: 700; font-size: 11.5px; letter-spacing: -0.02em; color: #fff;
   background: linear-gradient(135deg, var(--brand), oklch(0.6 0.17 250));
 }
 .lp .srow-badge[data-n="10"] { background: linear-gradient(135deg, var(--good), oklch(0.64 0.15 168)); }
+.lp .srow-badge:has(.clogo) { background: none; }
 .lp .srow-pill { justify-self: start; font-size: 12.5px; font-weight: 700; padding: 5px 10px; border-radius: var(--r-pill); background: var(--brand-soft); color: var(--brand-ink); }
 .lp .srow-pill[data-n="10"] { background: var(--good-bg); color: var(--good-ink); }
 .lp .srow-spark { display: flex; align-items: center; }

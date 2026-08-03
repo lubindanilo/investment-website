@@ -122,6 +122,18 @@
 
 /* Cellule "Société" des tables : nom d'entreprise en gras au-dessus, ticker petit et gris en dessous.
    column-reverse → le nom (2e dans le DOM) passe en haut sans toucher au JSX. */
+/* Cellule « société » d'un tableau : logo officiel puis nom + code boursier.
+   Le cadre a un gabarit FIXE (le logo arrive de façon asynchrone, la colonne ne doit pas
+   bouger) et devient TRANSPARENT dès qu'un logo s'affiche : on n'encadre pas une marque.
+   Il ne subsiste que pour le repli en initiales, où un texte sans fond flotterait. */
+.tbl-soc-cell { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.tbl-soc-logo {
+  width: 34px; height: 34px; flex: none; border-radius: 8px;
+  background: var(--bg3); border: 1px solid var(--border);
+  display: grid; place-items: center;
+  font-family: var(--mono); font-size: 9.5px; font-weight: 700; color: var(--text2); letter-spacing: -0.02em;
+}
+.tbl-soc-logo:has(.clogo) { background: none; border-color: transparent; }
 .tbl-soc { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: 2px; min-width: 0; }
 .tbl-soc-ticker {
   font-family: var(--mono); font-weight: 500; font-size: 11.5px; letter-spacing: 0.02em;

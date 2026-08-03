@@ -1,10 +1,11 @@
-/* Le logo s'inscrit DANS la pastille qui l'accueille, sans la déformer : on garde une marge
-   pour que les logos carrés (Visa) et les icônes de domaine ne touchent pas le bord. */
+/* Le logo occupe TOUTE la pastille : celle-ci devient transparente et sans bordure dès qu'un
+   logo s'affiche (règles `:has(.clogo)` côté pages), pour ne pas encadrer la marque. Le cadre
+   ne subsiste que pour le repli en initiales, où un texte sans fond flotterait.
+   `contain` préserve les proportions : un logo large n'est jamais étiré. */
 .clogo {
-  width: 74%;
-  height: 74%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  border-radius: 4px;
   /* Apparition douce : un logo qui « pop » sur une carte déjà posée fait un clignotement. */
   animation: clogo-in .35s cubic-bezier(.3, .7, .3, 1) both;
 }

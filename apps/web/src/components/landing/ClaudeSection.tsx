@@ -16,6 +16,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { DotScore, useSectionIn, SplitTitle } from './bits.js';
+import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { useMotion } from './motion.js';
 import { fmtPrice, type LandingStock } from './useLandingData.js';
 
@@ -345,7 +346,7 @@ export function ClaudeSection({ featured, peaRows, rows, ready }: { featured: La
       return (
         <div className="lcard">
           <div className="lcard-h">
-            <span className="tick-badge sm">{featured.ticker.split('.')[0]}</span>
+            <span className="tick-badge sm"><CompanyLogo ticker={featured.ticker} name={featured.name} /></span>
             <b style={{ fontSize: 13.5 }}>{featured.name}</b>
             <span className="num lcard-note">{featured.note10 ?? '—'}/10</span>
           </div>

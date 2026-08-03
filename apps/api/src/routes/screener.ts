@@ -328,17 +328,20 @@ function iconOfWebsite(website: string | null): string | null {
 
 /**
  * Le point d'un ticker ne signale pas toujours une bourse étrangère : `BRK.B` et `BF.B` sont des
- * CLASSES D'ACTIONS américaines, que Finnhub sert très bien. Seuls les vrais suffixes de place
- * (.AS, .PA, .TW, .KS…) provoquent un 403. On les reconnaît à leur longueur, l'exception étant
- * Londres (.L), qui tient en une lettre comme une classe d'actions.
+ * CLASSES D'ACTIONS américaines, que Finnhub sert très bien. Les suffixes de place font en général
+ * deux lettres (.AS, .PA, .TW, .KS…), mais DEUX tiennent en une : Tokyo (.T) et Londres (.L), qui
+ * pèsent à elles seules 3 120 titres de l'univers. Relevé en base le 03/08/2026 : toutes les autres
+ * terminaisons d'une lettre (.A, .B, .C, .U, .V, .X, .Y, .Z) sont des classes d'actions US.
  *
  * Se tromper ne coûte qu'un appel inutile : le repli Yahoo suit derrière.
  */
+const SINGLE_LETTER_EXCHANGES = new Set(['T', 'L']);
+
 function looksForeign(ticker: string): boolean {
   const i = ticker.lastIndexOf('.');
   if (i < 0) return false;
   const suffix = ticker.slice(i + 1).toUpperCase();
-  return suffix.length > 1 || suffix === 'L';
+  return suffix.length > 1 || SINGLE_LETTER_EXCHANGES.has(suffix);
 }
 
 async function resolveLogo(ticker: string): Promise<string | null> {

@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { PALMARES_PICKS } from '../../data/palmares.js';
 import { Chev, Stars, useSectionIn, SplitTitle } from './bits.js';
+import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { TickerForm } from './HeroSection.js';
 
 interface Testimonial { name: string; role: string; quote: string; perf?: string }
@@ -37,7 +38,7 @@ function PickCard({ p, max, i, locale, t }: {
   return (
     <div className="tcard" style={{ ['--i' as string]: i }}>
       <div className="tcard-h">
-        <span className="tick-badge sm">{p.ticker}</span>
+        <span className="tick-badge sm"><CompanyLogo ticker={p.ticker} name={p.name} /></span>
         <div style={{ minWidth: 0 }}>
           <div className="tcard-name">{p.name}</div>
           <div className="tiny muted tcard-sector">{p.sector}</div>
