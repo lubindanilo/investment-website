@@ -1,134 +1,670 @@
-.home { background: var(--bg); }
+/* ════════════════════════════════════════════════════════════════════════════
+   Landing v2 — tout est scopé sous `.lp` pour ne pas fuir sur le reste du site.
+   Les tokens (couleurs, radii, ombres, typo) viennent de styles/global.css.
+   Le mouvement est piloté par l'attribut data-motion sur `.lp` (voir landing/motion.ts) :
+   data-motion="off" fige tout, y compris si le systeme demande de réduire les animations.
+   ════════════════════════════════════════════════════════════════════════════ */
 
-/* ── Hero ── */
-.home-hero { position: relative; overflow: hidden; }
-.home-hero-halo {
-  position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(900px 420px at 78% -8%, var(--brand-soft), transparent 62%);
-}
-.home-hero-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 40px;
-  align-items: center;
-  padding-top: 76px;
-  padding-bottom: 84px;
-}
-.home-hero-left { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
-.home-chip { cursor: default; }
-.home-title { font-size: 54px; line-height: 1.02; letter-spacing: -0.035em; font-weight: 800; }
-.home-accent { color: var(--brand); }
-.home-lede { font-size: 18px; line-height: 1.55; color: var(--ink-2); max-width: 480px; }
-.home-hero-right { display: flex; justify-content: flex-end; }
+.lp { --ease: cubic-bezier(.3, .7, .3, 1); background: var(--bg); }
+.lp section { position: relative; }
+.lp .sec { padding: 120px 0; }
+.lp .sec-head { max-width: 640px; }
+.lp .sec-head h2 { font-size: 40px; }
+.lp h1, .lp h2, .lp h3, .lp h4 { margin: 0; font-weight: 700; letter-spacing: -0.03em; line-height: 1.06; }
+.lp p { margin: 0; }
 
-.home-stats { display: flex; gap: 36px; margin-top: 6px; }
-.home-stats > div { display: flex; flex-direction: column; gap: 2px; }
-.home-stat-n { font-size: 24px; font-weight: 700; color: var(--ink); white-space: nowrap; }
-.home-stat-l { font-size: 12.5px; color: var(--ink-3); }
+/* ---------- révélation à l'entrée ---------- */
+.lp .rv { opacity: 0; transform: translateY(14px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.lp .in .rv, .lp .rv.in { opacity: 1; transform: none; }
+.lp .in .rv[data-d="1"] { transition-delay: .08s; }
+.lp .in .rv[data-d="2"] { transition-delay: .16s; }
+.lp .in .rv[data-d="3"] { transition-delay: .24s; }
+.lp .in .rv[data-d="4"] { transition-delay: .32s; }
+.lp .in .rv[data-d="5"] { transition-delay: .4s; }
 
-/* HeroPreview */
-.hero-preview { padding: 20px; width: 380px; max-width: 100%; box-shadow: var(--sh-lg); border-radius: var(--r-lg); }
-.home-hero-value { margin: -4px 0 4px; max-width: 46ch; font-size: 14.5px; font-weight: 600; color: var(--ink-2); }
-.hero-preview-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
-.hero-preview-tile {
-  display: flex; flex-direction: column; gap: 6px;
-  background: var(--surface-2); border: 1px solid var(--line-soft);
-  border-radius: var(--r-sm); padding: 10px 12px;
+/* ---------- jargon : infobulle de définition ---------- */
+.lp .def { border-bottom: 1px dashed var(--ink-4); cursor: help; position: relative; }
+.lp .def:hover::after, .lp .def:focus-visible::after {
+  content: attr(data-def); position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%);
+  width: 250px; background: var(--ink); color: #fff; border-radius: var(--r-sm); padding: 10px 12px;
+  font-size: 12px; line-height: 1.5; font-weight: 500; letter-spacing: 0; box-shadow: var(--sh-lg);
+  z-index: 80; text-transform: none; font-family: var(--sans);
 }
 
-/* ── Bénéfices ── */
-.home-section { padding: 16px 28px 36px; }
-.home-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-.home-card {
-  background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--r-md); padding: 22px; box-shadow: var(--sh-sm);
+/* ---------- 1. hero ---------- */
+.lp .hero-wrap { position: relative; }
+/* Halo vivant derrière le hero : deux nappes qui dérivent lentement. */
+.lp .aurora { position: absolute; inset: -80px 0 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.lp .aurora i {
+  position: absolute; display: block; border-radius: 50%; filter: blur(70px); opacity: .5;
 }
-.home-card-icon {
-  width: 42px; height: 42px; border-radius: 12px;
-  background: var(--brand-soft); color: var(--brand-ink);
-  display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+.lp .aurora i:nth-child(1) { width: 620px; height: 420px; right: -80px; top: -60px; background: var(--brand-soft); animation: lp-drift1 22s ease-in-out infinite; }
+.lp .aurora i:nth-child(2) { width: 460px; height: 340px; left: -120px; top: 180px; background: oklch(0.93 0.05 200); animation: lp-drift2 28s ease-in-out infinite; }
+@keyframes lp-drift1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-60px, 40px) scale(1.12); } }
+@keyframes lp-drift2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(70px, -30px) scale(1.08); } }
+.lp .hero { position: relative; z-index: 1; padding: 76px 0 96px; display: grid; grid-template-columns: 1fr 1.02fr; gap: 56px; align-items: center; }
+.lp .hero h1 { font-size: 57px; line-height: 1.02; max-width: 15ch; }
+.lp .hero-sub { font-size: 18px; line-height: 1.5; color: var(--ink-2); max-width: 44ch; margin-top: 20px; }
+.lp .hero-chip { display: inline-flex; align-items: center; gap: 7px; background: var(--brand-soft); color: var(--brand-ink); border-radius: var(--r-pill); padding: 5px 12px 5px 8px; font-size: 12.5px; font-weight: 700; margin-bottom: 22px; }
+.lp .hero-chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand); }
+.lp .hero-second { font-size: 13.5px; font-weight: 600; color: var(--ink-3); }
+.lp .tickform { display: flex; gap: 10px; margin-top: 28px; max-width: 470px; }
+.lp .tickform .input { flex: 1; height: 52px; padding: 0 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm); font-family: var(--mono); font-size: 14.5px; color: var(--ink); }
+.lp .tickform .input::placeholder { color: var(--ink-4); font-family: var(--mono); }
+.lp .tickform .input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3.5px var(--brand-ring); }
+.lp .hero-stats { display: flex; gap: 34px; margin-top: 26px; }
+.lp .hero-stats .v { font-family: var(--mono); font-size: 23px; font-weight: 700; letter-spacing: -0.03em; }
+.lp .hero-stats .l { font-size: 12.5px; color: var(--ink-3); margin-top: 3px; max-width: 19ch; line-height: 1.35; }
+.lp .hero-side { position: relative; }
+
+/* fiche d'analyse animée (vue « analyser » : 10 critères + composition + résilience) */
+/* `min-height` PARTAGÉ par le squelette et la vraie fiche : sans lui, la carte grandissait
+   d'une centaine de pixels à l'arrivée des données et tout le hero sautait (la grille est
+   centrée verticalement). C'est ce qui donnait l'impression d'un rendu cassé au chargement. */
+.lp .acard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-lg); padding: 22px; position: relative; min-height: 556px; }
+.lp .acard.tilt {
+  transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(var(--tz, 0px));
+  transition: transform .5s cubic-bezier(.2, .8, .2, 1), box-shadow .4s var(--ease);
+  will-change: transform;
 }
-.home-card-title { font-size: 16.5px; font-weight: 700; margin-bottom: 7px; letter-spacing: -0.02em; }
-.home-card p { font-size: 12.5px; line-height: 1.55; color: var(--ink-3); }
+.lp .acard.tilt:hover { box-shadow: 0 18px 40px oklch(0.3 0.02 274 / .12), 0 50px 90px oklch(0.45 0.19 277 / .12); }
+.lp .acard-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line-soft); }
+.lp .acard-name { font-weight: 700; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .acard-sector { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 22ch; }
+.lp .acard-score { display: flex; gap: 20px; align-items: center; margin-top: 18px; }
+.lp .split { height: 8px; border-radius: 99px; background: var(--bg-soft); overflow: hidden; display: flex; }
+.lp .split i { display: block; height: 100%; transform-origin: left; animation: lp-grow .9s var(--ease) .25s both; }
+@keyframes lp-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.lp .acard-foot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft); }
+.lp .mini { display: flex; flex-direction: column; gap: 3px; }
+.lp .mini b { font-size: 13.5px; }
 
-/* ── Vitrine fonctionnalités ── */
-.home-features { padding: 64px 28px 56px; }
-.home-feature-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: border-color .15s ease, transform .15s ease; }
-.home-feature-card:hover { border-color: var(--brand); transform: translateY(-2px); }
-.home-feature-card p { flex: 1; }
-.home-feature-cta { margin-top: 14px; display: inline-flex; align-items: center; gap: 6px; color: var(--brand-ink); font-weight: 700; font-size: 13px; }
-
-/* ── Comment ça marche ── */
-.home-how { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 72px 0; }
-.home-how-head { text-align: center; margin-bottom: 40px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.home-h2 { font-size: 34px; font-weight: 800; letter-spacing: -0.03em; }
-.home-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.home-step { display: flex; flex-direction: column; gap: 8px; }
-.home-step-num { font-size: 40px; font-weight: 700; color: var(--brand); line-height: 1; }
-.home-step-title { font-size: 19px; font-weight: 700; letter-spacing: -0.02em; }
-.home-step p { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
-
-/* ── CTA final ── */
-.home-final {
-  position: relative; overflow: hidden;
-  background: var(--ink); border-radius: var(--r-xl);
-  padding: 56px 48px; text-align: center; color: #fff;
+/* second score de la fiche : la résilience, juste sous la qualité.
+   Ligne 1 = le libellé et sa pastille de grade (le verdict). Ligne 2 = le détail chiffré. */
+.lp .acard-res { margin-top: 14px; padding: 11px 13px; border-radius: var(--r-sm); background: var(--bg-soft); border: 1px solid var(--line-soft); }
+.lp .res-top { display: flex; align-items: center; gap: 9px; }
+.lp .res-k { font-size: 11px; }
+.lp .res-pill {
+  display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 6px;
+  border-radius: var(--r-pill); font-family: var(--mono); font-weight: 700; font-size: 12px;
+  background: var(--good-bg); color: var(--good-ink);
 }
-.home-final-halo {
-  position: absolute; inset: 0; pointer-events: none;
-  background: radial-gradient(700px 300px at 50% 130%, oklch(0.515 0.193 277 / 0.55), transparent 60%);
+.lp .res-pill[data-g="C"] { background: var(--warn-bg); color: var(--warn-ink); }
+.lp .res-pill[data-g="D"], .lp .res-pill[data-g="E"] { background: var(--bad-bg); color: var(--bad-ink); }
+.lp .res-pill[data-g="-"] { background: var(--surface-2); color: var(--ink-4); }
+.lp .res-detail { display: flex; align-items: center; gap: 11px; margin-top: 8px; }
+.lp .res-score { font-size: 13px; font-weight: 700; flex: none; }
+.lp .res-bar { flex: 1; min-width: 0; height: 6px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.lp .res-bar i { display: block; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--good), oklch(0.68 0.14 168)); transform-origin: left; animation: lp-grow .9s var(--ease) .45s both; }
+.lp .acard-res.none .res-score { font-weight: 600; color: var(--ink-3); }
+.lp .acard-res.none .res-bar i { background: var(--line); }
+
+/* liste des 10 critères, cascade à l'apparition */
+.lp .crits { display: grid; grid-template-columns: 1fr 1fr; gap: 7px 18px; margin-top: 16px; }
+.lp .crits-compact { grid-template-columns: 1fr; gap: 9px; }
+.lp .crit { display: flex; align-items: center; gap: 9px; font-size: 12.5px; color: var(--ink-2); animation: lp-critIn .45s var(--ease) both; animation-delay: calc(.25s + var(--i, 0) * .06s); }
+.lp .crits-compact .crit { font-size: 13.5px; }
+@keyframes lp-critIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.lp .crit .cd { width: 7px; height: 7px; border-radius: 50%; flex: none; background: var(--ink-4); }
+.lp .crit.pass .cd { background: var(--good); }
+.lp .crit.warn .cd { background: var(--warn); }
+.lp .crit.fail .cd { background: var(--bad); }
+.lp .crit .cn { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .crit .cv { margin-left: auto; font-size: 11.5px; font-weight: 600; color: var(--ink-3); white-space: nowrap; }
+.lp .crits-compact .cv { font-size: 12.5px; color: var(--ink); }
+.lp .tick-badge { width: 44px; height: 44px; border-radius: 11px; background: var(--bg-soft); border: 1px solid var(--line); display: grid; place-items: center; font-family: var(--mono); font-weight: 700; font-size: 13px; color: var(--ink-2); flex: none; }
+/* Logo présent → plus de cadre : on n'encadre pas une marque. Le gabarit est conservé, donc
+   aucun décalage de mise en page entre le repli et l'arrivée du logo. */
+.lp .tick-badge:has(.clogo) { background: none; border-color: transparent; }
+.lp .tick-badge.sm { width: 34px; height: 34px; border-radius: 8px; font-size: 10px; }
+.lp .ring-wrap { position: relative; flex: none; }
+.lp .ring-wrap svg { transform: rotate(-90deg); }
+.lp .ring-val { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--mono); font-weight: 700; letter-spacing: -0.04em; }
+.lp .ring-val small { font-size: 12px; color: var(--ink-3); font-weight: 600; }
+.lp .dotgrid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 5px; margin-top: 18px; }
+.lp .dotgrid span { height: 6px; border-radius: 99px; background: var(--line); }
+.lp .kv { display: flex; justify-content: space-between; gap: 12px; font-size: 12.5px; padding: 7px 0; border-bottom: 1px dashed var(--line-soft); }
+.lp .kv:last-child { border-bottom: none; }
+.lp .kv b { font-family: var(--mono); font-weight: 700; }
+
+@keyframes lp-ring { from { stroke-dashoffset: var(--circ); } to { stroke-dashoffset: var(--off); } }
+@keyframes lp-pop { from { opacity: 0; transform: scaleX(.4); } to { opacity: 1; transform: none; } }
+.lp .acard.loop .ring-arc { animation: lp-ring 1.1s var(--ease) .2s both; }
+.lp .acard.loop .dotgrid span { animation: lp-pop .35s var(--ease) both; }
+
+/* ---------- 2. friction ---------- */
+.lp .friction { min-height: 78vh; display: grid; place-items: center; text-align: center; background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.lp .friction h2 { font-size: 38px; max-width: 19ch; margin: 0 auto; }
+.lp .stack { position: relative; height: 250px; width: min(560px, 86vw); margin: 0 auto 46px; }
+.lp .stack .sheet { position: absolute; left: 50%; top: 50%; width: 196px; height: 132px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-sm); box-shadow: var(--sh-sm); opacity: 0; transform: translate(-50%, -50%) rotate(0deg) scale(.9); }
+.lp .stack .sheet .l { position: absolute; left: 14px; right: 14px; height: 6px; border-radius: 3px; background: var(--line); }
+.lp .friction.in .stack .sheet { animation: lp-sheet .42s var(--ease) forwards; }
+@keyframes lp-sheet { to { opacity: 1; transform: translate(-50%, -50%) var(--t); } }
+
+/* ---------- 3. mécanisme ---------- */
+.lp .mech-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 56px; align-items: start; }
+.lp .mech-steps { position: sticky; top: calc(var(--nav-h) + 90px); display: flex; flex-direction: column; }
+.lp .mstep {
+  position: relative; text-align: left; background: none; border: 0; border-left: 2px solid var(--line);
+  padding: 16px 0 16px 20px; opacity: .38; cursor: pointer; font: inherit; color: inherit;
+  transition: border-color .25s var(--ease), opacity .25s var(--ease), transform .25s var(--ease);
 }
-.home-final-title { position: relative; font-size: 38px; font-weight: 800; letter-spacing: -0.03em; color: #fff; }
-.home-final-sub { position: relative; font-size: 15px; color: oklch(0.82 0.01 270); margin: 10px 0 26px; }
-.home-final .row { position: relative; }
-.home-cta-light { background: oklch(1 0 0 / 0.12); color: #fff; border: 1px solid oklch(1 0 0 / 0.22); }
-.home-cta-light:hover { background: oklch(1 0 0 / 0.2); }
+.lp .mstep:hover { opacity: .75; transform: translateX(2px); }
+.lp .mstep[data-on="1"] { border-left-color: var(--brand); opacity: 1; }
+.lp .mstep h3 { font-size: 25px; line-height: 1.15; max-width: 17ch; }
+.lp .mstep .n { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--brand-ink); letter-spacing: .06em; margin-bottom: 8px; display: block; }
+.lp .mstep-bar { display: block; height: 2px; border-radius: 2px; background: var(--line-soft); margin-top: 12px; overflow: hidden; }
+.lp .mstep-bar i { display: block; height: 100%; width: 0; background: var(--brand); transition: width .5s var(--ease); }
+.lp .mstep[data-on="1"] .mstep-bar i { width: 100%; }
+.lp .mech-stage { position: sticky; top: calc(var(--nav-h) + 60px); height: 560px; }
+/* Sentinelles courtes : l'étape change au moindre mouvement de scroll. */
+.lp .msent { height: 55vh; }
+.lp .mcard { position: absolute; inset: 0; display: grid; gap: 16px; transition: opacity .32s var(--ease), transform .32s var(--ease); }
+.lp .mcard[data-on="0"] { opacity: 0; transform: translateY(10px) scale(.99); pointer-events: none; }
+.lp .mgrid2 { grid-template-columns: 1fr 1fr; }
+.lp .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-md); padding: 22px; overflow: hidden; }
+.lp .panel-alt { background: var(--surface-2); }
+.lp .panel h4 { font-size: 13px; color: var(--ink-3); text-transform: uppercase; letter-spacing: .08em; font-weight: 700; margin-bottom: 16px; }
+.lp .panel-foot { justify-content: space-between; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line-soft); }
+.lp .panel-score { font-size: 22px; font-weight: 700; color: var(--brand-ink); }
+.lp .panel-big { font-size: 34px; font-weight: 700; letter-spacing: -0.04em; }
+.lp .panel-note { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line); color: var(--good-ink); font-weight: 700; }
+/* maquettes du mécanisme : vraies fiches produit, pas des blocs de texte */
+.lp .panel.mock { display: flex; flex-direction: column; }
+.lp .mock-head { display: flex; align-items: center; gap: 12px; padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--line-soft); }
+.lp .mock-score { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+/* balayage : les critères sont « évalués » sous une bande lumineuse */
+.lp .scanbox { position: relative; overflow: hidden; border-radius: var(--r-sm); }
+.lp .scanbar { position: absolute; left: 0; right: 0; height: 46px; top: -60px; pointer-events: none; background: linear-gradient(180deg, transparent, oklch(0.515 0.193 277 / .09), transparent); animation: lp-scanY 2.8s var(--ease) .3s infinite; }
+@keyframes lp-scanY { to { top: 105%; } }
+.lp .verdict { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line-soft); font-size: 12.5px; font-weight: 700; color: var(--ink-2); }
+.lp .verdict.good { color: var(--good-ink); }
+/* la séparation qualité / prix : les deux panneaux s'écartent, un trait les coupe */
+.lp .splitcard { position: relative; }
+.lp .splitcard .side-l, .lp .splitcard .side-r { transition: transform .5s var(--ease); }
+.lp .splitcard[data-on="1"] .side-l { animation: lp-split-l .6s var(--ease) both; }
+.lp .splitcard[data-on="1"] .side-r { animation: lp-split-r .6s var(--ease) .05s both; }
+@keyframes lp-split-l { from { transform: translateX(26px); opacity: .4; } to { transform: none; opacity: 1; } }
+@keyframes lp-split-r { from { transform: translateX(-26px); opacity: .4; } to { transform: none; opacity: 1; } }
+.lp .splitline { position: absolute; left: 50%; top: 8%; bottom: 8%; width: 2px; background: linear-gradient(180deg, transparent, var(--brand), transparent); opacity: 0; }
+.lp .splitcard[data-on="1"] .splitline { animation: lp-cut .7s var(--ease) both; }
+@keyframes lp-cut { 0% { opacity: 0; transform: scaleY(0); } 40% { opacity: 1; transform: scaleY(1); } 100% { opacity: .35; transform: scaleY(1); } }
+/* jauge : où se situe le P/FCF dans son propre historique */
+.lp .gauge { margin-top: 16px; }
+.lp .gauge-scale { position: relative; height: 8px; border-radius: 99px; background: linear-gradient(90deg, var(--good-bg), var(--warn-bg) 55%, var(--bad-bg)); }
+.lp .gauge-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 99px; background: oklch(0.515 0.193 277 / .18); }
+.lp .gauge-mark { position: absolute; top: -4px; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: var(--brand); border: 3px solid var(--surface); box-shadow: var(--sh-sm); animation: lp-mark .8s var(--ease) .2s both; }
+@keyframes lp-mark { from { transform: scale(0); } to { transform: scale(1); } }
+.lp .gauge-legend { display: flex; justify-content: space-between; margin-top: 7px; }
+/* hypothèses : les curseurs bougent tout seuls, comme si on les manipulait */
+.lp .slider { display: flex; align-items: center; gap: 12px; font-size: 12.5px; color: var(--ink-2); }
+.lp .slider-l { width: 42%; }
+.lp .slider-v { width: 52px; text-align: right; }
+.lp .track { flex: 1; height: 6px; border-radius: 99px; background: var(--bg-soft); position: relative; }
+.lp .track i { position: absolute; top: -4px; width: 14px; height: 14px; border-radius: 50%; background: var(--brand); box-shadow: var(--sh-xs); left: var(--a); }
+.lp .track u { position: absolute; left: 0; top: 0; bottom: 0; background: var(--brand-soft); border-radius: 99px; width: var(--a); }
+.lp .track.anim i { animation: lp-knob 4.5s var(--ease) infinite alternate; }
+.lp .track.anim u { animation: lp-fillw 4.5s var(--ease) infinite alternate; }
+@keyframes lp-knob { from { left: var(--a); } to { left: var(--b); } }
+@keyframes lp-fillw { from { width: var(--a); } to { width: var(--b); } }
+/* résultat : le prix d'achat est calculé sur la fiche, pas inventé ici */
+.lp .buyresult { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line-soft); display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.lp .masked { position: relative; display: inline-flex; align-items: center; gap: 10px; font-size: 30px; font-weight: 700; color: var(--brand-ink); letter-spacing: -0.04em; margin-top: 6px; }
+.lp .masked > span:first-child { filter: blur(7px); opacity: .55; user-select: none; }
+.lp .masked .lock { color: var(--brand-ink); opacity: .8; }
 
-@media (max-width: 980px) {
-  .home-hero-grid { grid-template-columns: 1fr; gap: 28px; padding-top: 48px; padding-bottom: 56px; }
-  .home-hero-right { display: none; }
-  .home-title { font-size: 38px; }
-  .home-lede { font-size: 16px; }
+/* ---------- 4. veille ---------- */
+.lp .veille { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
+.lp .field { position: relative; height: 300px; border-radius: var(--r-lg); border: 1px solid var(--line); background: var(--surface); overflow: hidden; margin-top: 36px; }
+.lp .dots { position: absolute; inset: 14px; display: grid; grid-template-columns: repeat(60, 1fr); gap: 3px; align-content: space-between; }
+.lp .dots b { display: block; aspect-ratio: 1; border-radius: 50%; background: oklch(0.9 0.006 270); }
+/* Le balayage TOURNE EN BOUCLE (4,5 s) : la section est vivante quand on arrive dessus,
+   quel que soit le moment. Chaque point retenu partage cette période et s'allume au
+   passage exact de la ligne (délai = sa colonne), puis retombe. */
+.lp .in .dots b.hit { animation: lp-hit 4.5s linear infinite; animation-delay: var(--dl); }
+@keyframes lp-hit {
+  0%   { background: oklch(0.9 0.006 270); transform: scale(1) translateY(0); }
+  3%   { background: var(--brand); transform: scale(2.2) translateY(0); }
+  12%  { background: var(--brand); transform: scale(1.5) translateY(0); }
+  55%  { background: var(--brand); transform: scale(1.35) translateY(0); }
+  92%, 100% { background: oklch(0.9 0.006 270); transform: scale(1) translateY(0); }
 }
-@media (max-width: 880px) {
-  .home-steps { grid-template-columns: 1fr; gap: 20px; }
-  .home-stats { gap: 24px; flex-wrap: wrap; }
-  /* Densité mobile : on resserre les grands espacements verticaux (page trop longue). */
-  .home-how { padding: 44px 0; }
-  .home-how-head { margin-bottom: 26px; }
-  .home-section { padding: 12px 18px 24px; }
-  .home-h2 { font-size: 27px; }
-  .home-final { padding: 40px 24px; }
-  .home-final-title { font-size: 28px; }
+/* Les mieux notés remontent : ils grossissent, s'éclairent et se décalent vers le haut. */
+.lp .in .dots b.hit.strong { animation-name: lp-hit-strong; }
+@keyframes lp-hit-strong {
+  0%   { background: oklch(0.9 0.006 270); transform: scale(1) translateY(0); box-shadow: none; }
+  3%   { background: var(--brand); transform: scale(2.6) translateY(0); }
+  30%  { background: var(--brand); transform: scale(2.1) translateY(-7px); box-shadow: 0 0 0 3px oklch(0.515 0.193 277 / .18); }
+  70%  { background: var(--brand); transform: scale(2.1) translateY(-9px); box-shadow: 0 0 0 3px oklch(0.515 0.193 277 / .14); }
+  92%, 100% { background: oklch(0.9 0.006 270); transform: scale(1) translateY(0); box-shadow: none; }
+}
+/* La ligne parcourt exactement le champ : on anime `left` (relatif au parent), pas un
+   translate en pourcentage de la ligne elle-même, dont la course dépendait de la fenêtre. */
+.lp .scanline { position: absolute; top: 0; bottom: 0; width: 140px; left: -160px; background: linear-gradient(90deg, transparent, oklch(0.515 0.193 277 / .16), transparent); }
+.lp .in .scanline { animation: lp-scan 4.5s linear infinite; }
+@keyframes lp-scan { from { left: -160px; } to { left: 100%; } }
+/* Les lignes retenues par la veille : couleur portée par la NOTE (badge, pastille, liseré),
+   courbe réelle du cours, et entrée en cascade juste après le premier balayage. */
+.lp .screener-rows { display: grid; gap: 10px; margin-top: 20px; }
+.lp .srow {
+  position: relative; display: grid; grid-template-columns: 56px minmax(0, 1fr) 66px 72px 106px 104px;
+  align-items: center; gap: 14px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-md); padding: 12px 16px 12px 19px; box-shadow: var(--sh-xs); overflow: hidden;
+  opacity: 0; transform: translateY(16px) scale(.99); color: var(--ink);
+  transition: opacity .5s var(--ease), transform .5s var(--ease), border-color .18s, box-shadow .18s;
+}
+.lp .srow::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--brand); }
+.lp .srow:has(.srow-pill[data-n="10"])::before { background: var(--good); }
+.lp .srow:hover { border-color: var(--brand); box-shadow: var(--sh-md); color: var(--ink); }
+.lp .srow:hover .srow-go svg { transform: translateX(3px); }
+.lp .srow-id { min-width: 0; display: grid; gap: 2px; }
+.lp .srow-name { font-weight: 700; font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .srow-sector { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* La pastille accueille le LOGO officiel quand il existe (fond neutre, pour que la marque se
+   lise), et retombe sinon sur le code boursier en blanc sur un dégradé coloré par la note. La
+   couleur de la note reste portée par la pastille /10 et par le liseré de gauche. */
+.lp .srow-badge {
+  display: grid; place-items: center; height: 38px; min-width: 56px; padding: 0 6px; border-radius: 9px;
+  font-family: var(--mono); font-weight: 700; font-size: 11.5px; letter-spacing: -0.02em; color: #fff;
+  background: linear-gradient(135deg, var(--brand), oklch(0.6 0.17 250));
+}
+.lp .srow-badge[data-n="10"] { background: linear-gradient(135deg, var(--good), oklch(0.64 0.15 168)); }
+.lp .srow-badge:has(.clogo) { background: none; }
+.lp .srow-pill { justify-self: start; font-size: 12.5px; font-weight: 700; padding: 5px 10px; border-radius: var(--r-pill); background: var(--brand-soft); color: var(--brand-ink); }
+.lp .srow-pill[data-n="10"] { background: var(--good-bg); color: var(--good-ink); }
+.lp .srow-spark { display: flex; align-items: center; }
+.lp .spark { display: block; overflow: visible; }
+.lp .srow-pfcf { justify-self: start; padding: 4px 8px; border-radius: var(--r-pill); background: var(--bg-soft); color: var(--ink-3); font-weight: 600; }
+.lp .srow-pfcf[data-cheap="1"] { background: var(--good-bg); color: var(--good-ink); }
+.lp .srow-go { display: flex; align-items: center; gap: 8px; justify-self: end; color: var(--ink-3); }
+.lp .srow-go svg { transition: transform .18s var(--ease); }
+.lp .in .srow { opacity: 1; transform: none; transition-delay: calc(.9s + var(--i, 0) * .12s); }
+
+/* ---------- 5. Claude / MCP ---------- */
+.lp .claude { background: var(--bg); padding: 130px 0; }
+.lp .claude-sub { font-size: 17px; color: var(--ink-2); margin-top: 14px; line-height: 1.5; }
+/* Lecteur : un seul écran, la conversation s'y joue toute seule. */
+.lp .player { margin-top: 44px; }
+.lp .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Le lecteur imite l'interface de Claude sans la caricaturer : fond NEUTRE (le papier orangé
+   écrasait les cartes de données et jurait avec le reste du site), l'accent terracotta ne
+   subsistant que sur la marque, le curseur et les accents ponctuels. Plus large aussi, pour
+   qu'on s'y projette : c'est la démonstration centrale de la section.
+   Les tokens restent locaux à `.screen` pour ne pas contaminer la landing. */
+.lp .screen {
+  --cl-accent: oklch(0.645 0.128 42);
+  --cl-accent-soft: oklch(0.955 0.022 45);
+  --cl-paper: var(--surface);
+  --cl-line: var(--line);
+  --cl-ink: var(--ink);
+  --cl-ink-soft: var(--ink-3);
+  background: var(--cl-paper); border: 1px solid var(--cl-line); border-radius: var(--r-lg);
+  box-shadow: var(--sh-lg); overflow: hidden; max-width: 1040px; margin: 0 auto;
+}
+/* Plus de barre de fenêtre ni de bandeau de chapitres : le lecteur est le fil, rien d'autre.
+   Le point « live » se pose donc en SURIMPRESSION, seul repère que la démo tourne. */
+.lp .screen { position: relative; }
+.lp .live-dot { position: absolute; top: 16px; right: 18px; z-index: 2; width: 7px; height: 7px; border-radius: 50%; background: var(--cl-line); }
+.lp .live-dot.on { background: var(--cl-accent); animation: lp-pulse 1.8s ease-in-out infinite; }
+@keyframes lp-pulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 oklch(0.645 0.128 42 / .5); } 50% { opacity: .6; box-shadow: 0 0 0 5px oklch(0.645 0.128 42 / 0); } }
+
+/* Le fil : hauteur fixe, il défile tout seul comme une vraie fenêtre de chat.
+   Sens de lecture d'une VRAIE conversation : ce que TU écris à droite, ce que l'assistant
+   répond (texte, appels d'outils, cartes de données) à gauche, sous sa pastille. */
+.lp .thread { display: flex; flex-direction: column; gap: 18px; padding: 28px 30px; }
+.lp .thread.live { height: 520px; overflow-y: auto; scroll-behavior: smooth; scrollbar-width: none; }
+.lp .thread.live::-webkit-scrollbar { display: none; }
+
+/* Appel d'outil MCP, avec sa durée : on VOIT quel outil Claude déclenche. */
+.lp .toolcall { align-self: flex-start; margin-left: 38px; display: inline-flex; align-items: center; gap: 10px; max-width: calc(100% - 38px); background: var(--bg-soft); border: 1px solid var(--cl-line); border-radius: var(--r-pill); padding: 7px 14px; animation: lp-reply .3s var(--ease) both; }
+.lp .toolcall code { font-size: 11.5px; color: var(--cl-ink-soft); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .toolcall .tc-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cl-accent); flex: none; animation: lp-blip 1s ease-in-out infinite; }
+.lp .toolcall.done { border-color: oklch(0.85 0.06 156); background: var(--good-bg); }
+.lp .toolcall.done .tc-dot { background: var(--good); animation: none; }
+.lp .toolcall .tc-ms { font-size: 10.5px; color: var(--cl-ink-soft); flex: none; }
+
+/* Réponse de l'assistant : à gauche, sans bulle (comme chez Claude), avec sa pastille. */
+.lp .msg-a { align-self: flex-start; display: flex; align-items: flex-start; gap: 12px; width: min(100%, 640px); }
+/* L'icône officielle porte déjà son fond crème : la pastille n'ajoute donc ni couleur ni
+   bordure, juste le gabarit et l'arrondi. */
+.lp .cl-av { width: 28px; height: 28px; border-radius: 8px; flex: none; overflow: hidden; display: grid; place-items: center; margin-top: 1px; }
+.lp .cl-av img { width: 100%; height: 100%; display: block; }
+.lp .bub-a { font-size: 14.5px; line-height: 1.6; color: var(--cl-ink); }
+.lp .caret { display: inline-block; width: 2px; height: 1.05em; background: var(--cl-accent); vertical-align: text-bottom; margin-left: 2px; animation: lp-caret 1s steps(1) infinite; }
+@keyframes lp-caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+
+/* Barre de saisie : c'est elle qui tape les questions. */
+.lp .composer { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--cl-line); background: var(--surface-2); padding: 14px 18px; min-height: 58px; }
+.lp .composer-txt { flex: 1; font-size: 14.5px; color: var(--cl-ink); min-height: 1.2em; }
+.lp .composer-send { width: 30px; height: 30px; border-radius: 50%; background: var(--cl-accent); color: #fff; display: grid; place-items: center; flex: none; opacity: .95; }
+.lp .bub-u { align-self: flex-end; max-width: 78%; background: var(--bg-soft); border: 1px solid var(--cl-line); border-radius: 18px 18px 5px 18px; padding: 12px 16px; font-size: 14.5px; line-height: 1.5; color: var(--cl-ink); box-shadow: var(--sh-xs); opacity: 0; transform: translateY(6px); transition: opacity .3s var(--ease), transform .3s var(--ease); }
+.lp .bub-u.show { opacity: 1; transform: none; }
+.lp .type { display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; max-width: 100%; }
+.lp .bub-u.show .type { animation: lp-type var(--td, 1.6s) steps(var(--tc, 40), end) forwards; }
+@keyframes lp-type { from { width: 0; } to { width: 100%; } }
+.lp .working { align-self: flex-start; display: flex; gap: 5px; padding: 8px 0; opacity: 0; transition: opacity .25s var(--ease); }
+.lp .working.show { opacity: 1; }
+.lp .working b { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-4); display: block; animation: lp-blip 1s ease-in-out infinite; }
+.lp .working b:nth-child(2) { animation-delay: .15s; }
+.lp .working b:nth-child(3) { animation-delay: .3s; }
+@keyframes lp-blip { 0%, 100% { opacity: .3; transform: translateY(0); } 50% { opacity: 1; transform: translateY(-3px); } }
+@keyframes lp-fade { to { opacity: 1; } }
+.lp .reply { align-self: flex-start; margin-left: 38px; width: min(calc(100% - 38px), 560px); opacity: 0; transform: translateY(8px) scale(.97); transition: opacity .4s var(--ease), transform .4s var(--ease); }
+.lp .reply.show { opacity: 1; transform: none; }
+.lp .micro { opacity: 0; transition: opacity .3s var(--ease); }
+.lp .micro.show { opacity: 1; }
+/* ── Cartes de données renvoyées par les outils MCP ────────────────────────────
+   Ce sont elles que le visiteur scrute : elles doivent être aussi soignées qu'une vraie fiche
+   produit, pas des blocs de texte. Elles reprennent donc les mêmes composants que le hero
+   (anneau de note, barre de composition, jauge de valorisation). */
+.lp .lcard { background: var(--surface); border: 1px solid var(--cl-line); border-radius: var(--r-md); box-shadow: var(--sh-md); overflow: hidden; min-width: 0; }
+.lp .lcard-b { min-width: 0; }
+.lp .lcard-name { font-size: 14px; font-weight: 700; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .lcard-flag { margin-left: auto; flex: none; }
+.lp .lcard-count { margin-left: auto; font-size: 12px; font-weight: 700; color: var(--brand-ink); background: var(--brand-softer); border-radius: var(--r-pill); padding: 3px 9px; }
+
+/* Les deux scores, puis les critères : la même lecture que la fiche d'analyse. */
+/* `min-width: 0` sur le conteneur ET la colonne : sans lui, la liste des critères impose sa
+   largeur de contenu, la carte déborde et les valeurs (« 51,7 % ») sont rognées à droite. */
+.lp .lc-scores { display: flex; align-items: flex-start; gap: 20px; min-width: 0; flex-wrap: wrap; }
+.lp .lc-score { display: grid; justify-items: center; gap: 6px; text-align: center; flex: none; }
+.lp .lc-grade {
+  width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center;
+  font-family: var(--mono); font-size: 26px; font-weight: 800;
+  background: var(--good-bg); color: var(--good-ink); border: 3px solid var(--good);
+}
+.lp .lc-grade[data-g="C"] { background: var(--warn-bg); color: var(--warn-ink); border-color: var(--warn); }
+.lp .lc-grade[data-g="D"], .lp .lc-grade[data-g="E"] { background: var(--bad-bg); color: var(--bad-ink); border-color: var(--bad); }
+.lp .lc-crit { flex: 1 1 220px; min-width: 0; }
+/* Une seule colonne : en deux colonnes les libellés longs (« Profits par action en croissance »)
+   poussaient la valeur hors de la carte. */
+.lp .lc-crit .crits { margin-top: 10px; gap: 6px; grid-template-columns: minmax(0, 1fr); }
+.lp .lc-crit .crit .cn { min-width: 0; }
+
+/* Valorisation : le multiple, le cours, et la position dans l'historique. */
+.lp .lc-val { margin-top: 16px; padding: 13px 14px; border-radius: var(--r-sm); background: var(--bg-soft); border: 1px solid var(--line-soft); }
+.lp .lc-val-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 11px; }
+.lp .lc-val-big { font-size: 22px; font-weight: 700; letter-spacing: -0.03em; }
+.lp .lc-price { margin-left: auto; font-size: 13px; font-weight: 700; color: var(--ink-2); }
+.lp .lc-val-note { margin-top: 9px; line-height: 1.45; }
+
+/* Résultats du screener : des lignes, pas un tableau brut. */
+.lp .lc-rows { display: grid; gap: 8px; }
+.lp .lc-row {
+  display: flex; align-items: center; gap: 11px; padding: 9px 10px; border-radius: var(--r-sm);
+  background: var(--bg-soft); border: 1px solid var(--line-soft);
+  opacity: 0; transform: translateY(6px);
+}
+.lp .reply.show .lc-row { animation: lp-row .38s var(--ease) forwards; }
+.lp .lc-row-id { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.lp .lc-row-name { font-size: 13px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .lc-pill { flex: none; font-size: 12px; font-weight: 700; padding: 4px 9px; border-radius: var(--r-pill); background: var(--brand-soft); color: var(--brand-ink); }
+.lp .lc-pill[data-n="10"] { background: var(--good-bg); color: var(--good-ink); }
+.lp .lc-row-pfcf { flex: none; min-width: 46px; text-align: right; font-size: 12.5px; font-weight: 700; color: var(--ink-3); }
+.lp .lc-row-pfcf[data-cheap="1"] { color: var(--good-ink); }
+
+/* Confirmation d'écriture : le seul outil de la démo qui MODIFIE quelque chose. */
+.lp .lcard-added { border-color: oklch(0.85 0.06 156); background: linear-gradient(90deg, var(--good-bg), var(--surface) 60%); }
+.lp .lcard-added .check { color: var(--good-ink); background: var(--surface); border: 1px solid oklch(0.85 0.06 156); }
+.lp .lcard-h { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--cl-line); }
+.lp .lcard-h.wrap-chips { flex-wrap: wrap; gap: 6px; }
+.lp .lcard-note { margin-left: auto; font-size: 17px; font-weight: 700; color: var(--brand-ink); }
+.lp .lcard-b { padding: 14px; }
+.lp .lcard-b .dotgrid { margin: 0 0 12px; }
+.lp .reply.show .lcard-b .dotgrid span { animation: lp-fade .3s var(--ease) both; }
+.lp .chip.sm { font-size: 11px; padding: 3px 9px; }
+.lp .ltable { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.lp .ltable th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); padding: 0 0 8px; font-weight: 700; }
+.lp .ltable td { padding: 7px 0; border-top: 1px solid var(--line-soft); font-family: var(--mono); font-size: 12.5px; }
+.lp .ltable td.sans { font-family: var(--sans); }
+.lp .ltable tbody tr { opacity: 0; transform: translateY(6px); }
+.lp .reply.show .ltable tbody tr { animation: lp-row .35s var(--ease) forwards; }
+@keyframes lp-row { to { opacity: 1; transform: none; } }
+.lp .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.lp .tile { background: var(--surface-2); border: 1px solid var(--line-soft); border-radius: var(--r-sm); padding: 12px; display: grid; gap: 7px; }
+.lp .tile-v { font-size: 21px; font-weight: 700; letter-spacing: -0.03em; }
+.lp .tile-bar { display: block; height: 4px; border-radius: 99px; background: var(--line); overflow: hidden; }
+.lp .tile-bar i { display: block; height: 100%; border-radius: 99px; transform-origin: left; animation: lp-grow .8s var(--ease) .3s both; }
+.lp .tile[data-tone="brand"] .tile-v { color: var(--brand-ink); }
+.lp .tile[data-tone="brand"] .tile-bar i { background: var(--brand); }
+.lp .tile[data-tone="warn"] .tile-v { color: var(--warn-ink); }
+.lp .tile[data-tone="warn"] .tile-bar i { background: var(--warn); }
+.lp .tile[data-tone="bad"] .tile-v { color: var(--bad-ink); }
+.lp .tile[data-tone="bad"] .tile-bar i { background: var(--bad); }
+.lp .added { display: flex; align-items: center; gap: 11px; }
+.lp .added .check { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; flex: none; }
+.lp .micro { font-size: 11.5px; color: var(--ink-3); font-family: var(--mono); align-self: flex-start; margin-top: -4px; }
+.lp .connect { margin-top: 22px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-sm); padding: 22px 24px; display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; }
+.lp .connect-steps { margin: 12px 0 0; padding-left: 18px; font-size: 13.5px; color: var(--ink-2); line-height: 1.9; }
+.lp .connect-url { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.lp .connect-url code { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 11px 14px; font-size: 13px; color: var(--ink); }
+
+/* ---------- 6. preuve ---------- */
+.lp .proof { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.lp .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 38px; align-items: stretch; }
+.lp .proof-grid.two { grid-template-columns: 1.05fr 1fr; }
+.lp .pcard { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-sm); padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+.lp .pcard h3 { font-size: 17px; }
+
+/* Track record : la preuve occupe toute la largeur. Chaque cas montre le MULTIPLE en grand,
+   puis les deux barres à la même échelle (le titre, l'indice). C'est l'écart entre les deux
+   qui informe, pas le rendement du titre pris seul. */
+.lp .pal { margin-top: 38px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); box-shadow: var(--sh-sm); padding: 24px; }
+.lp .pal-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin-bottom: 22px; }
+.lp .pal-head h3 { font-size: 20px; }
+.lp .pal-sub { margin-top: 7px; max-width: 48ch; line-height: 1.5; }
+.lp .pal-legend { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.lp .legend-i { gap: 6px; font-weight: 600; }
+.lp .legend-i i, .lp .sw { width: 10px; height: 10px; border-radius: 3px; display: block; }
+.lp .sw.lub { background: var(--brand); }
+.lp .sw.idx { background: var(--ink-4); }
+.lp .pal-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.lp .tcard {
+  background: linear-gradient(180deg, var(--brand-softer), var(--surface) 58%);
+  border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px;
+  display: flex; flex-direction: column; gap: 13px;
+  opacity: 0; transform: translateY(16px);
+  transition: opacity .55s var(--ease), transform .55s var(--ease), box-shadow .2s;
+  transition-delay: calc(var(--i, 0) * .1s);
+}
+.lp .in .tcard { opacity: 1; transform: none; }
+.lp .tcard:hover { box-shadow: var(--sh-md); }
+.lp .tcard-h { display: flex; align-items: center; gap: 10px; }
+.lp .tcard-name { font-size: 13.5px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .tcard-sector { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .tcard-x { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.lp .tcard-x b { font-size: 31px; font-weight: 700; letter-spacing: -0.045em; color: var(--brand-ink); line-height: 1; }
+.lp .tbars { display: grid; gap: 7px; }
+.lp .tbar-row { display: flex; align-items: center; gap: 9px; }
+.lp .tbar { flex: 1; min-width: 0; height: 9px; border-radius: 99px; background: var(--bg-soft); overflow: hidden; }
+.lp .tbar i { display: block; height: 100%; width: var(--w); border-radius: 99px; transform: scaleX(0); transform-origin: left; transition: transform .9s var(--ease); }
+.lp .in .tbar i { transform: scaleX(1); transition-delay: calc(.25s + var(--i, 0) * .1s); }
+.lp .tbar.lub i { background: linear-gradient(90deg, var(--brand), oklch(0.62 0.16 250)); }
+.lp .tbar.idx i { background: var(--ink-4); }
+.lp .tbar-row b { font-size: 11.5px; font-weight: 700; min-width: 62px; text-align: right; }
+.lp .tcard-f { margin-top: auto; padding-top: 11px; border-top: 1px dashed var(--line-soft); line-height: 1.45; }
+.lp .pal-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line-soft); }
+.lp .honest { line-height: 1.55; max-width: 92ch; }
+.lp .proof-link { font-size: 13.5px; font-weight: 600; margin-top: auto; }
+.lp .formula { font-family: var(--mono); font-size: 12px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--r-sm); padding: 10px 12px; color: var(--ink-2); }
+.lp .testi { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: var(--sh-xs); padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.lp .testi.flat { box-shadow: none; background: var(--surface-2); }
+.lp .testi p { font-size: 13.5px; line-height: 1.55; }
+.lp .testi-name { font-size: 13px; font-weight: 700; }
+.lp .av { width: 34px; height: 34px; border-radius: 50%; background: var(--brand-soft); color: var(--brand-ink); display: grid; place-items: center; font-weight: 700; font-size: 12.5px; flex: none; }
+.lp .stars { display: flex; gap: 2px; color: var(--brand); }
+
+/* ---------- 7. pour qui ---------- */
+.lp .forwho { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 34px; }
+.lp .who { border-radius: var(--r-lg); padding: 30px; border: 1px solid var(--line); background: var(--surface); transition: opacity .6s var(--ease), filter .6s var(--ease), border-color .6s var(--ease), box-shadow .6s var(--ease); }
+.lp .who h3 { font-size: 23px; max-width: 20ch; line-height: 1.2; }
+.lp .who .k { font-family: var(--mono); font-size: 11.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; display: block; }
+.lp .in .who.off { opacity: .42; filter: saturate(.2); }
+.lp .in .who.on { border-color: var(--brand); box-shadow: var(--sh-md); background: linear-gradient(180deg, var(--brand-softer), var(--surface) 60%); }
+.lp .in .who.on .k { color: var(--brand-ink); }
+
+/* ---------- 8. CTA final + FAQ ---------- */
+.lp .final { padding: 120px 0; text-align: center; }
+.lp .final h2 { font-size: 44px; max-width: 16ch; margin: 0 auto; }
+.lp .final-form { display: flex; justify-content: center; margin-top: 28px; }
+.lp .faq { max-width: 760px; margin: 64px auto 0; text-align: left; }
+.lp details { border-bottom: 1px solid var(--line); }
+.lp summary { list-style: none; cursor: pointer; padding: 18px 0; display: flex; align-items: center; gap: 14px; font-size: 15.5px; font-weight: 600; }
+.lp summary.sm { padding: 10px 0; font-size: 14px; }
+.lp summary::-webkit-details-marker { display: none; }
+.lp summary .chev { margin-left: auto; transition: transform .2s var(--ease); color: var(--ink-3); flex: none; display: inline-flex; }
+.lp details[open] summary .chev { transform: rotate(180deg); }
+.lp details .ans { padding: 0 0 18px; font-size: 14px; line-height: 1.6; color: var(--ink-2); max-width: 64ch; }
+
+/* ---------- responsive ---------- */
+.lp .only-mobile { display: none; }
+@media (max-width: 1000px) {
+  .lp .only-mobile { display: revert; }
+  .lp .only-desktop { display: none !important; }
+  .lp .sec { padding: 44px 0; }
+  .lp .sec-head h2 { font-size: 29px; }
+  .lp .hero { grid-template-columns: 1fr; gap: 24px; padding: 32px 0 36px; }
+  .lp .hero h1 { font-size: 35px; }
+  .lp .hero-sub { font-size: 16px; margin-top: 14px; }
+  .lp .tickform { flex-direction: column; max-width: none; }
+  .lp .tickform .btn { width: 100%; }
+  .lp .hero-stats { gap: 22px; }
+  .lp .friction { min-height: auto; padding: 34px 0; }
+  .lp .friction h2 { font-size: 26px; }
+  .lp .stack { height: 132px; margin-bottom: 18px; }
+  .lp .stack .sheet { width: 150px; height: 100px; }
+  .lp .mech-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .lp .mech-grid > div { min-width: 0; }
+  .lp .mech-steps { position: static; }
+  .lp .mstep { opacity: 1; padding: 9px 0 9px 14px; }
+  .lp .mstep h3 { font-size: 18px; }
+  .lp .mech-stage { position: static; height: auto; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -18px; padding: 2px 18px 12px; scrollbar-width: none; }
+  .lp .mech-stage::-webkit-scrollbar { display: none; }
+  .lp .mcard { position: static; opacity: 1 !important; transform: none !important; pointer-events: auto !important; min-width: 84vw; scroll-snap-align: center; align-content: start; }
+
+  .lp .mgrid2 { grid-template-columns: 1fr; }
+  .lp .field { height: 158px; }
+  .lp .dots { grid-template-columns: repeat(30, 1fr); }
+  .lp .srow { grid-template-columns: 50px minmax(0, 1fr) 60px 22px; font-size: 12.5px; padding: 10px 12px 10px 15px; gap: 10px; }
+  .lp .srow-badge { min-width: 50px; height: 30px; font-size: 10.5px; }
+  .lp .srow .hide-m { display: none; }
+  .lp .claude { padding: 50px 0; }
+  .lp .player { margin-top: 26px; }
+  .lp .thread { padding: 14px; gap: 10px; }
+  .lp .thread.live { height: 340px; }
+  .lp .toolcall code { max-width: 46vw; }
+  .lp .lcard-b { padding: 11px; }
+  .lp .reply { width: 100%; }
+  .lp .tiles { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .lp .tile { padding: 10px; }
+  .lp .tile-v { font-size: 18px; }
+  .lp .thread { padding: 16px; gap: 13px; }
+  .lp .lc-scores { flex-wrap: wrap; gap: 14px; }
+  .lp .lc-crit { flex-basis: 100%; }
+  .lp .toolcall, .lp .reply { margin-left: 0; max-width: 100%; width: 100%; }
+  .lp .msg-a { width: 100%; }
+  .lp .connect { grid-template-columns: 1fr; gap: 14px; padding: 16px; margin-top: 18px; }
+  .lp .connect-steps { line-height: 1.6; font-size: 13px; }
+  .lp .connect-url code { font-size: 11.5px; padding: 9px 11px; word-break: break-all; }
+  .lp .proof-grid, .lp .proof-grid.two { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 26px -18px 0; padding: 0 18px 12px; scrollbar-width: none; }
+  .lp .proof-grid::-webkit-scrollbar { display: none; }
+  .lp .pcard { min-width: 84vw; scroll-snap-align: center; }
+  /* Track record : les 4 cas défilent au doigt, à la même échelle qu'en grand écran. */
+  .lp .pal { padding: 16px; margin-top: 26px; }
+  .lp .pal-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -16px; padding: 0 16px 10px; scrollbar-width: none; }
+  .lp .pal-grid::-webkit-scrollbar { display: none; }
+  .lp .tcard { min-width: 74vw; scroll-snap-align: center; }
+  .lp .pal-head { margin-bottom: 16px; gap: 12px; }
+  .lp .pal-head h3 { font-size: 18px; }
+  .lp .forwho { grid-template-columns: 1fr; }
+  .lp .who { padding: 20px; }
+  .lp .who h3 { font-size: 20px; }
+  .lp .final { padding: 44px 0; }
+  .lp .final h2 { font-size: 30px; }
+  .lp .faq { margin-top: 36px; }
+  .lp summary { padding: 14px 0; font-size: 14.5px; gap: 10px; }
+  .lp details .ans { padding-bottom: 14px; font-size: 13.5px; }
+  .lp .acard { padding: 16px; min-height: 0; }
+  .lp .acard-score { gap: 14px; margin-top: 14px; }
+  .lp .pcard { padding: 18px; }
+  .lp .hero { padding: 26px 0 30px; }
 }
 
-/* Téléphone : le palier 980px laissait un titre de 38px et 48/56px de respiration
-   verticale dans le hero, soit ~2 écrans avant le premier contenu utile. */
-@media (max-width: 560px) {
-  .home-hero-grid { gap: 20px; padding-top: 26px; padding-bottom: 32px; }
-  .home-hero-left { gap: 16px; }
-  .home-title { font-size: 31px; letter-spacing: -0.03em; }
-  .home-lede { font-size: 15px; }
-  .home-hero-value { font-size: 13.5px; }
-  .home-stats { gap: 18px; }
-  .home-stat-n { font-size: 21px; }
-  .home-stat-l { font-size: 11.5px; }
+/* ---------- accessibilité : mouvement réduit ---------- */
+/* Sans mouvement (réglage système ou ?motion=0) : tout le contenu reste visible, figé. */
+.lp[data-motion="off"] *, .lp[data-motion="off"] *::before, .lp[data-motion="off"] *::after { animation: none !important; transition: none !important; }
+.lp[data-motion="off"] .rv { opacity: 1; transform: none; }
+.lp[data-motion="off"] .crit, .lp[data-motion="off"] .srow, .lp[data-motion="off"] .reply, .lp[data-motion="off"] .working, .lp[data-motion="off"] .dotgrid span, .lp[data-motion="off"] .ltable tbody tr { opacity: 1 !important; transform: none !important; }
+.lp[data-motion="off"] .tbar i, .lp[data-motion="off"] .res-bar i { transform: scaleX(1) !important; }
+.lp[data-motion="off"] .tcard { opacity: 1 !important; transform: none !important; }
+.lp[data-motion="off"] .type { width: 100% !important; }
+.lp[data-motion="off"] .who.off { opacity: 1 !important; filter: none !important; }
+.lp[data-motion="off"] .stack .sheet { opacity: 1 !important; transform: translate(-50%, -50%) var(--t) !important; }
+.lp[data-motion="off"] .dots b.hit { background: var(--brand) !important; }
+.lp[data-motion="off"] .pal i { left: var(--b) !important; }
+.lp[data-motion="off"] .pal u { width: var(--b) !important; }
+.lp[data-motion="off"] .scanbar, .lp[data-motion="off"] .splitline { display: none; }
+.lp[data-motion="off"] .bub-u, .lp[data-motion="off"] .micro, .lp[data-motion="off"] .working, .lp[data-motion="off"] .toolcall { opacity: 1 !important; transform: none !important; }
+.lp[data-motion="off"] .thread.live { height: auto; overflow: visible; }
+.lp[data-motion="off"] .caret, .lp[data-motion="off"] .live-dot.on { display: none; }
+.lp[data-motion="off"] .split i, .lp[data-motion="off"] .crit { opacity: 1 !important; transform: none !important; }
+.lp[data-motion="off"] .aurora { display: none; }
+.lp[data-motion="off"] .acard.tilt { transform: none !important; }
 
-  .home-features { padding: 32px 18px 28px; }
-  .home-card { padding: 16px; }
-  .home-card-icon { width: 36px; height: 36px; border-radius: 10px; margin-bottom: 10px; }
-  .home-card-title { font-size: 15.5px; }
-  .home-cards { gap: 12px; }
+/* ---------- dynamisme au scroll ---------- */
+/* Barre de lecture en haut de page. */
+.lp-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 200; pointer-events: none; background: transparent; }
+.lp-progress i { display: block; height: 100%; background: linear-gradient(90deg, var(--brand), oklch(0.62 0.16 250)); transform-origin: left; transition: transform .1s linear; }
 
-  .home-how { padding: 32px 0; }
-  .home-how-head { margin-bottom: 20px; }
-  .home-h2 { font-size: 23px; }
-  .home-step-num { font-size: 32px; }
-  .home-step-title { font-size: 17px; }
-  .home-step p { font-size: 13.5px; }
+/* Parallaxe : la colonne de droite du hero glisse un peu plus lentement que la page. */
+.lp .hero-side { transform: translateY(var(--py, 0px)); will-change: transform; }
 
-  .home-final { padding: 28px 18px; border-radius: var(--r-lg); }
-  .home-final-title { font-size: 23px; }
-  .home-final-sub { font-size: 13.5px; margin: 8px 0 18px; }
+/* Titres révélés mot à mot. */
+.lp .split-title { font-size: 40px; margin-top: 12px; }
+.lp .split-title .w { display: inline-block; opacity: 0; transform: translateY(16px) rotate(1.2deg); transition: opacity .5s var(--ease), transform .55s var(--ease); transition-delay: calc(var(--i, 0) * 45ms); white-space: pre; }
+.lp .split-title.in .w { opacity: 1; transform: none; }
+
+@media (max-width: 1000px) {
+  .lp .split-title { font-size: 29px; }
+  .lp .hero-side { transform: none; }
+}
+.lp[data-motion="off"] .split-title .w { opacity: 1 !important; transform: none !important; }
+.lp[data-motion="off"] .hero-side { transform: none !important; }
+
+/* ---------- mode « soft » : la page reste vivante, on coupe ce qui gêne ----------
+   Servi quand le système demande de réduire les animations. On garde les apparitions,
+   la cascade des critères et la démo MCP ; on retire la parallaxe, le halo qui dérive,
+   l'inclinaison au curseur et toutes les boucles infinies. */
+.lp[data-motion="soft"] .aurora { display: none; }
+.lp[data-motion="soft"] .hero-side { transform: none !important; }
+.lp[data-motion="soft"] .acard.tilt { transform: none !important; }
+.lp[data-motion="soft"] .scanbar { display: none; }
+.lp[data-motion="soft"] .pal.anim i, .lp[data-motion="soft"] .pal.anim u { animation: none !important; }
+.lp[data-motion="soft"] .pal i { left: var(--b); }
+.lp[data-motion="soft"] .pal u { width: var(--b); }
+.lp[data-motion="soft"] .live-dot.on { animation: none !important; }
+.lp[data-motion="soft"] .in .dots b.hit { animation: none; background: var(--brand); transform: scale(1.35); }
+.lp[data-motion="soft"] .in .dots b.hit.strong { transform: scale(2); }
+.lp[data-motion="soft"] .in .scanline { display: none; }
+.lp[data-motion="soft"] .split-title .w { transform: none; }
+
+/* ---------- recherche par nom d'entreprise ---------- */
+.lp .tickbox { position: relative; max-width: 470px; }
+.lp .final .tickbox { margin: 0 auto; }
+.lp .suggest {
+  position: absolute; z-index: 60; left: 0; right: 0; top: calc(100% + 6px); margin: 0; padding: 6px; list-style: none;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: var(--sh-lg);
+}
+.lp .suggest li { list-style: none; }
+.lp .suggest button {
+  display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: none; border: 0;
+  padding: 9px 10px; border-radius: var(--r-sm); font: inherit; color: var(--ink); cursor: pointer;
+}
+.lp .suggest button:hover { background: var(--brand-softer); }
+.lp .suggest b { font-size: 12.5px; min-width: 66px; }
+.lp .sg-name { font-size: 13.5px; color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.lp .sg-note { margin-left: auto; font-size: 12.5px; font-weight: 700; color: var(--brand-ink); }
+@media (max-width: 1000px) {
+  .lp .tickbox { max-width: none; }
 }

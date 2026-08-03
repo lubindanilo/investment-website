@@ -67,6 +67,9 @@ export interface FinnhubProfile2 {
   finnhubIndustry?: string;
   exchange?: string;
   weburl?: string;
+  /** Logo officiel hébergé par Finnhub. Présent pour les titres US seulement (l'API
+   *  répond 403 sur les symboles suffixés type ASML.AS, cf. resolveLogo). */
+  logo?: string;
 }
 
 export interface FinnhubQuote {

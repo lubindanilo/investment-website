@@ -188,7 +188,6 @@
     }
   },
   "news": {
-    "title": "Noticias recientes — {{ticker}}",
     "subtitle": "Últimos 60 días"
   },
   "screener": {
@@ -334,75 +333,188 @@
   "langSwitcher": {
     "label": "Idioma"
   },
-  "home": {
+  "landing": {
     "hero": {
-      "chip": "Análisis fundamental automatizado",
-      "titleLine1": "Supera al mercado con acciones",
-      "titleAccent": "de calidad al precio correcto.",
-      "lede": "La vigilancia puntúa 30 000+ acciones sobre 10 criterios, en continuo, y hace subir las mejores. Tú solo compruebas que el precio acompaña, y decides.",
-      "valueLine": "Cada acción puntuada sobre 10 criterios fundamentales, con un análisis de valoración actual y un precio de compra recomendado.",
-      "ctaAnalyze": "Analizar una acción",
-      "ctaScreener": "Explorar el screener"
+      "chip": "Disponible en Claude, ChatGPT, Mistral…",
+      "title": "Deja de pagar mal una buena empresa.",
+      "sub": "Escribe el nombre de una empresa: su calidad puntuada sobre 10, y el precio a partir del cual merece la pena.",
+      "placeholder": "Microsoft, LVMH, Visa…",
+      "inputLabel": "Nombre o ticker de la acción a analizar",
+      "cta": "Analizar una acción",
+      "ctaSecondary": "Explorar el screener",
+      "statPerfValue": "+24,9 %",
+      "statPerfLabel": "rentab. anualizada · acciones 10/10",
+      "statTickers": "valores vigilados en continuo"
     },
-    "stats": {
-      "perfValue": "+24,9 %",
-      "perfLabel": "rentab. anualizada · acciones 10/10",
-      "tickers": "valores vigilados"
+    "def": {
+      "ticker": "Ticker: el código corto de una acción en bolsa, por ejemplo AAPL para Apple o MC.PA para LVMH en París.",
+      "pfcf": "P/FCF: precio de la acción dividido por el free cash flow por acción. Cuanto más bajo, menos pagas por el efectivo generado.",
+      "resilience": "Resiliencia: la capacidad de la empresa para atravesar una crisis sin romperse (deuda, margen de seguridad, dependencia de los ciclos). Calificada de A a E."
     },
-    "how": {
-      "kicker": "Cómo funciona",
-      "title": "Las mejores acciones, sin buscarlas"
+    "card": {
+      "resilience": "Resiliencia",
+      "resilienceNone": "no publicada",
+      "opportunity": "Oportunidad",
+      "qualityKicker": "Calidad fundamental",
+      "price": "Cotización",
+      "note": "Nota de calidad"
     },
-    "steps": {
+    "friction": {
+      "title": "Tres horas de balances para una convicción. Y siempre la duda sobre el precio."
+    },
+    "mech": {
+      "kicker": "El mecanismo",
+      "title": "Primero la calidad. Luego el precio. Nunca los dos mezclados.",
+      "steps": {
+        "0": "Primero la calidad. 10 criterios, no una opinión.",
+        "1": "Luego el precio. Juzgado aparte, nunca mezclado.",
+        "2": "Te vas con un precio de compra, no con una opinión."
+      },
+      "card1": {
+        "title": "Los 10 criterios de calidad · {{ticker}}",
+        "score": "Nota de calidad"
+      },
+      "card2": {
+        "quality": "Calidad",
+        "qualityDesc": "La nota de {{name}} solo depende de las cifras publicadas.",
+        "valuation": "Valoración",
+        "pfcfNote": "actual, juzgado aparte de la nota",
+        "yes": "sí",
+        "no": "no",
+        "verdictQuality": "Un negocio de calidad, según las cifras publicadas.",
+        "cheap": "en su mínimo histórico",
+        "expensive": "en su máximo",
+        "percentile": "El P/FCF está en el percentil {{pct}} de su propio historial.",
+        "separate": "El precio se evalúa de forma independiente de la calidad."
+      },
+      "card3": {
+        "title": "Tus hipótesis de valoración",
+        "growth": "Crecimiento del FCF",
+        "multiple": "Múltiplo de salida",
+        "target": "Rentabilidad objetivo",
+        "buyPrice": "Precio de compra recomendado",
+        "explain": "Mueve una hipótesis y el precio de compra se recalcula sobre las cifras publicadas. Nada está oculto.",
+        "locked": "Precio de compra visible en la ficha",
+        "cta": "Ver {{ticker}}"
+      }
+    },
+    "veille": {
+      "kicker": "La vigilancia",
+      "title": "30 000+ valores puntuados en continuo. Los mejores suben solos.",
+      "note": "Oportunidades del momento, tal como el screener las clasifica ahora mismo."
+    },
+    "claude": {
+      "kicker": "Conector MCP",
+      "title": "Tu análisis, dentro de la conversación.",
+      "sub": "Conecta Lubin a Claude. Consulta tus notas, tu screener y tu watchlist.",
+      "a": {
+        "answer": "{{name}} obtiene {{note}}/10 en los 10 criterios de calidad. Aquí tienes el detalle, con el P/FCF y el grado de resiliencia.",
+        "question": "¿{{name}} es una buena oportunidad ahora mismo?"
+      },
+      "b": {
+        "answer": "{{count}} empresas pasan tus filtros. Aquí están, ordenadas por nota de calidad.",
+        "question": "Búscame empresas europeas con nota mínima de 8/10 y un P/FCF por debajo de 15.",
+        "chipZone": "zona PEA",
+        "chipNote": "nota ≥ 8",
+        "chipPfcf": "P/FCF < 15",
+        "chipCap": "grandes capitalizaciones",
+        "thTicker": "Ticker",
+        "thName": "Empresa",
+        "thNote": "Nota"
+      },
+      "c": {
+        "title": "Vigila, y actúa.",
+        "answer": "Revisada toda tu watchlist. Nota media, eslabones débiles, fundamentales a la baja y valores por encima del precio justo.",
+        "question": "Revisa mi watchlist.",
+        "question2": "Añade {{name}} a mi watchlist.",
+        "exampleTag": "ejemplo",
+        "avg": "Nota media",
+        "weak": "Eslabones débiles",
+        "down": "Fundamentales a la baja",
+        "above": "Por encima del precio justo"
+      },
+      "quotas": "Gratis: 10 análisis al día, 2 valores comparados, 10 líneas de watchlist. Pro: ilimitado, 5 valores comparados, watchlist sin límite.",
+      "connect": {
+        "kicker": "Conectar en 30 segundos",
+        "step1": "En Claude, abre los ajustes y luego los conectores.",
+        "step2": "Añade un conector y pega la URL de al lado.",
+        "step3": "Autoriza tu cuenta Lubin, y ya está conectado.",
+        "copy": "Copiar la URL",
+        "copied": "Copiado"
+      }
+    },
+    "proof": {
+      "kicker": "La prueba",
+      "title": "El track record, sin filtro.",
+      "track": {
+        "title": "Oportunidades pasadas",
+        "badge": "Backtest fechado",
+        "sub": "Los casos más llamativos de la señal, frente al S&P 500 en el mismo periodo.",
+        "multiple": "capital multiplicado",
+        "entry": "Entrada {{date}}",
+        "held": "{{years}} años en cartera",
+        "legendLub": "Oportunidad Lubin",
+        "legendIdx": "S&P 500 en el mismo periodo",
+        "honest": "Lectura honesta: estos son los mejores casos del backtest, no la media. De las 310 oportunidades probadas, alrededor del 34 % superó al S&P 500, y el universo de prueba excluye a las empresas excluidas de cotización (sesgo de supervivencia).",
+        "cta": "Ver todo el palmarés"
+      },
+      "method": {
+        "title": "Metodología, desplegada",
+        "good": "Umbral bueno",
+        "sources": "Fuentes e inspiraciones: Buffett, Terry Smith, Damodaran, Mauboussin. Cada criterio tiene su fórmula y sus umbrales.",
+        "cta": "Ver los 10 criterios",
+        "cashRoce": {
+          "name": "Cash ROCE",
+          "formula": "Cash ROCE = FCF / capital empleado",
+          "good": "≥ 15 %",
+          "why": "El efectivo generado por capital empleado es mucho más difícil de maquillar que el beneficio contable."
+        },
+        "cashConv": {
+          "name": "Conversión de caja",
+          "formula": "Conversión = FCF / beneficio neto",
+          "good": "≥ 90 %",
+          "why": "Un beneficio que no se convierte en efectivo rara vez acaba en tu bolsillo."
+        }
+      },
+      "testis": {
+        "title": "Lo que dicen los usuarios"
+      }
+    },
+    "forwho": {
+      "kicker": "Para quién",
+      "notForLabel": "No es para ti",
+      "notFor": "No es para ti si quieres un ETF y cero decisiones.",
+      "forLabel": "Es para ti",
+      "for": "Es para ti si eliges tus acciones y quieres saber a qué precio entrar."
+    },
+    "final": {
+      "title": "Encuentra tu próxima joya, al precio correcto."
+    },
+    "faq": {
       "0": {
-        "title": "La vigilancia puntúa todo el mercado",
-        "text": "30 000+ valores puntuados en continuo sobre 10 criterios. Los 10/10 suben a lo alto, solos."
+        "q": "¿Funciona de verdad?",
+        "a": "El método es público: 10 criterios fundamentales, fórmulas y umbrales publicados en la página de Metodología. El palmarés muestra casos reales del backtest, fechados, con su lectura honesta. Un backtest, no una promesa."
       },
       "1": {
-        "title": "Abres la ficha",
-        "text": "Una nota sobre 10, su reparto verde/naranja/rojo y el detalle de los 10 criterios. Lo esencial de una empresa en una página."
+        "q": "¿En qué se diferencia de un screener clásico?",
+        "a": "Un screener filtra. Lubin juzga. La calidad del negocio se puntúa sobre 10 criterios, y el precio se evalúa por separado para dar un precio de compra recomendado. Una empresa excelente puede tener un 10/10 y ser considerada cara el mismo día."
       },
       "2": {
-        "title": "Compruebas el precio y decides",
-        "text": "La valoración da un precio de compra recomendado, separado de la calidad. Sabes qué comprar, y a qué precio."
+        "q": "¿La IA se inventa las cifras?",
+        "a": "No. Las notas las calcula Lubin a partir de los datos publicados por las empresas. En Claude, el conector MCP solo llama a las 10 herramientas de Lubin y devuelve su resultado: el modelo lee tus cifras, no las produce."
+      },
+      "3": {
+        "q": "¿Esto es asesoramiento de inversión?",
+        "a": "No. Lubin es una herramienta de ayuda a la decisión. Sin recomendación personalizada, sin gestión de cartera. Las decisiones de compra y venta siguen siendo tuyas."
+      },
+      "4": {
+        "q": "¿Qué es gratis y qué es Pro?",
+        "a": "Gratis: 10 análisis al día, 2 valores comparados, 10 líneas de watchlist, conector Claude incluido. Pro: análisis ilimitados, 5 valores comparados, watchlist sin límite."
+      },
+      "5": {
+        "q": "¿De dónde vienen los datos?",
+        "a": "De los estados financieros publicados (cuentas anuales y trimestrales) y de las cotizaciones, actualizados en continuo sobre más de 30 000 valores. Cada ficha indica la fuente y la fecha de las cifras utilizadas."
       }
-    },
-    "features": {
-      "kicker": "Tus herramientas",
-      "title": "Del descubrimiento a la decisión",
-      "items": {
-        "screener": {
-          "title": "Screener",
-          "text": "Descubre nuevas acciones: filtra todo el mercado por sector, por mejores notas o por el P/FCF más atractivo.",
-          "cta": "Abrir el screener"
-        },
-        "palmares": {
-          "title": "Palmarés",
-          "text": "Mira las oportunidades pasadas que superaron al mercado, en backtest, con la lectura honesta (sesgo y tasa de acierto incluidos).",
-          "cta": "Ver el palmarés"
-        },
-        "quali": {
-          "title": "Análisis cualitativo IA",
-          "text": "Entiende el negocio en 2 minutos: actividad, directivos y riesgos, lo que las cifras no dicen.",
-          "cta": "Analizar una acción"
-        },
-        "compare": {
-          "title": "Comparador",
-          "text": "¿Dudas entre varios valores? Ponlos cara a cara: lo mejor de cada criterio destaca, línea por línea.",
-          "cta": "Comparar acciones"
-        },
-        "watchlist": {
-          "title": "Watchlist",
-          "text": "No pierdas el buen momento: cotización, nota y próximos resultados de tus favoritos, seguidos por ti.",
-          "cta": "Ver mi watchlist"
-        }
-      }
-    },
-    "cta": {
-      "title": "Encuentra los 10/10 sin buscarlos",
-      "subtitle": "La vigilancia puntúa todo el mercado de forma continua, tú recoges las mejores. Gratis, sin tarjeta.",
-      "analyze": "Analizar una acción",
-      "signup": "Empieza gratis"
     }
   },
   "auth": {
@@ -493,6 +605,15 @@
     "searchPlaceholder": "Apple, Microsoft, Nvidia…",
     "analyze": "Analizar",
     "analyzing": "Analizando…",
+    "loading": {
+      "title": "Analizando {{ticker}}",
+      "sub": "Leemos las cuentas publicadas, puntuamos los 10 criterios y situamos el precio. Unos segundos.",
+      "steps": [
+        "Recuperación de las cuentas publicadas",
+        "Puntuación de los 10 criterios de calidad",
+        "Posición del precio en su histórico"
+      ]
+    },
     "analyzeAnother": "Analizar otra acción",
     "opportunities": "Nuestras oportunidades del momento",
     "addToWatchlist": "Añadir a la watchlist",
@@ -1181,54 +1302,21 @@
     "retry": "Reintentar"
   },
   "social": {
-    "kicker": "La prueba en las cifras",
-    "title": "Ya no buscan las joyas. Las reciben.",
-    "subtitle": "Miles de inversores se apoyan en Lubin para decidir rápido, con cifras fiables.",
-    "perf": {
-      "kicker": "Cartera modelo · notas 10/10",
-      "desc": "Rentabilidad media a 12 meses de las acciones detectadas y valoradas con 10/10 por la vigilancia, frente a {{idx}} del S&P 500, el índice de referencia.",
-      "legendStocks": "Acciones 10/10",
-      "legendIndex": "Índice de referencia",
-      "row1y": "1 año",
-      "row3y": "3 años · anualizado",
-      "row5y": "5 años · anualizado"
-    },
     "trust": {
       "disclaimer": "Rentabilidad real de la cartera modelo de los valores valorados con 10/10. Las rentabilidades pasadas no garantizan resultados futuros."
     },
     "testimonials": [
       {
-        "name": "Camille D.",
-        "role": "Ingeniera de software",
-        "perf": "+24 % / año",
-        "quote": "Antes perdía mis noches en los foros. Ahora la nota me dice en tres segundos si una acción se sostiene, y solo profundizo en las que lo merecen. Un tiempo enorme ganado."
-      },
-      {
-        "name": "Henri L.",
-        "role": "Jubilado joven",
-        "quote": "Separar la calidad de la empresa de su precio de entrada cambió mis rentabilidades, no solo mis decisiones. Ya no compro una buena acción en el peor momento."
-      },
-      {
-        "name": "Sofia M.",
-        "role": "Médica",
-        "perf": "+19 % / año",
-        "quote": "No tengo ni un minuto para revisar balances. La vigilancia escanea todo el mercado por mí, solo miro los 10/10 que suben. Y rinde."
-      },
-      {
-        "name": "Thomas R.",
-        "role": "Empresario",
-        "quote": "Lo que calculaba a mano durante horas ya está ahí, en cada acción. Decido más rápido y se me escapan muchas menos oportunidades."
-      },
-      {
         "name": "Adrien P.",
-        "role": "Inversor particular",
+        "role": "Jubilado joven",
         "perf": "+31 % / año",
         "quote": "Detecté tres compounders con el screener antes de que despegaran. Una verdadera ventaja, la primera vez que un método me la da."
       },
       {
-        "name": "Léa V.",
-        "role": "Consultora",
-        "quote": "Ahora decido sobre cifras claras, no sobre rumores o corazonadas. Por fin invierto con método, y sin dedicarle los fines de semana."
+        "name": "Sofia M.",
+        "role": "Empresaria",
+        "perf": "+19 % / año",
+        "quote": "No tengo ni un minuto para revisar balances. La vigilancia escanea todo el mercado por mí, solo miro los 10/10 que suben. Y rinde."
       }
     ]
   },

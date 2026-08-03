@@ -11,6 +11,7 @@ import type { CompareResponse, CompareTicker, CompareCriterionDef, DataStatus } 
 import { MAX_COMPARE_TICKERS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScoreCircle, scoreColor, StatusBadge, InfoPop } from '../components/ui/primitives.js';
+import { CompanyLogo } from '../components/ui/CompanyLogo.js';
 import { ResilienceBadge } from '../components/ResilienceBadge.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import SeoHead from '../components/SeoHead.js';
@@ -404,6 +405,7 @@ function TitleHeaderCard({ company, onRemove, removable }: { company: CompanyVie
       <div className="card cmp-thcard" style={{ justifyContent: 'center' }}>
         {removable && <button className="cmp-thcard-x" onClick={() => onRemove(company.ticker)} aria-label="x"><Icon name="x" size={13} /></button>}
         <div className="col gap-4" style={{ alignItems: 'flex-start' }}>
+          <span className="cmp-logo" aria-hidden="true"><CompanyLogo ticker={company.ticker} /></span>
           <span className="num" style={{ fontWeight: 800, fontSize: 15 }}>{company.ticker}</span>
           <span className="tiny muted">—</span>
         </div>

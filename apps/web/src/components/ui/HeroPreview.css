@@ -1,0 +1,10 @@
+/* Aperçu de fiche utilisé sur la page d'authentification.
+   Les styles vivaient dans HomePage.css ; la landing v2 ne l'utilise plus, donc ils
+   sont rapatriés ici avec le composant. */
+.hero-preview { padding: 20px; width: 380px; max-width: 100%; box-shadow: var(--sh-lg); border-radius: var(--r-lg); }
+.hero-preview-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.hero-preview-tile {
+  display: flex; flex-direction: column; gap: 6px;
+  background: var(--surface-2); border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm); padding: 10px 12px;
+}

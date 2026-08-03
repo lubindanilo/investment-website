@@ -236,7 +236,7 @@ export function AnalysePage() {
         )}
 
         {error && <ErrorState error={error} ticker={lastTicker} onRetry={() => { setError(null); setAnalysis(null); }} />}
-        {loading && !analysis && <LoadingState />}
+        {loading && !analysis && <LoadingState ticker={(routeTicker ?? lastTicker ?? ticker).toUpperCase()} />}
         {!loading && !analysis && preview && (
           <>
             <AnalysisPreview data={preview} />
@@ -527,21 +527,49 @@ function PriceSection({ ticker, currency }: { ticker: string; currency: string }
 }
 
 // ─── Skeleton chargement ─────────────────────────────────────────────────────
-function LoadingState() {
+/**
+ * L'analyse d'un ticker prend plusieurs secondes (comptes publiés, 10 critères, valorisation).
+ * Des barres grises immobiles ne disent pas si ça travaille ou si c'est cassé : on montre donc
+ * le ticker en cours, une barre de progression et les étapes réelles qui s'allument l'une après
+ * l'autre. Le rythme est indicatif (le serveur ne renvoie pas d'avancement), mais l'ORDRE et le
+ * nom des étapes sont ceux du calcul.
+ */
+const LOADING_STEP_MS = 1500;
+
+function LoadingState({ ticker }: { ticker: string }) {
+  const { t } = useTranslation();
+  const [step, setStep] = useState(0);
+  useEffect(() => {
+    // La dernière étape reste allumée : on n'annonce jamais « fini » avant la réponse.
+    const id = setInterval(() => setStep(s => Math.min(2, s + 1)), LOADING_STEP_MS);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div className="fade-in col gap-20 anl-filled">
-      <div className="card anl-scorecard">
-        <div className="skel-ui" style={{ width: 116, height: 116, borderRadius: '50%' }} />
-        <div className="col gap-10 grow">
-          <div className="skel-ui" style={{ width: 220, height: 26 }} />
-          <div className="skel-ui" style={{ width: 320, height: 16 }} />
-          <div className="skel-ui" style={{ width: '70%', height: 14 }} />
-          <div className="skel-ui" style={{ width: 170, height: 40, marginTop: 8, borderRadius: 9 }} />
+      <div className="card anl-loading" role="status" aria-live="polite">
+        <div className="anl-loading-head">
+          <span className="anl-loading-ring" aria-hidden="true" />
+          <div>
+            <div className="anl-loading-title">{t('analyse.loading.title', { ticker })}</div>
+            <div className="anl-loading-sub tiny muted">{t('analyse.loading.sub')}</div>
+          </div>
         </div>
+        <div className="anl-loading-bar" aria-hidden="true"><i /></div>
+        <ol className="anl-loading-steps">
+          {[0, 1, 2].map(i => (
+            <li key={i} data-state={i < step ? 'done' : i === step ? 'now' : 'wait'}>
+              <span className="dot" aria-hidden="true" />
+              {t(`analyse.loading.steps.${i}`)}
+            </li>
+          ))}
+        </ol>
       </div>
       <div className="card skel-ui" style={{ height: 240 }} />
       <div className="criteria-grid">
-        {Array.from({ length: 6 }).map((_, i) => <div key={i} className="card skel-ui" style={{ height: 128 }} />)}
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className="card skel-ui" style={{ height: 128, animationDelay: `${i * 0.12}s` }} />
+        ))}
       </div>
     </div>
   );

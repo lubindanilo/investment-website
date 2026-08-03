@@ -100,3 +100,13 @@
   .cmp-cell-val { font-size: 14px; }
   .cmp-verdict { padding: 12px 14px; }
 }
+
+/* Logo officiel en tête de colonne du comparateur. Cadre transparent quand le logo existe,
+   neutre en repli sur le code boursier (cf. CompanyLogo.css). */
+.cmp-logo {
+  width: 38px; height: 38px; margin-bottom: 2px; border-radius: 9px;
+  background: var(--bg3); border: 1px solid var(--border);
+  display: grid; place-items: center;
+  font-family: var(--mono); font-size: 10px; font-weight: 700; color: var(--text2); letter-spacing: -0.02em;
+}
+.cmp-logo:has(.clogo) { background: none; border-color: transparent; }

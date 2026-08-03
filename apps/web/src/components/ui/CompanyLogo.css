@@ -1,0 +1,13 @@
+/* Le logo occupe TOUTE la pastille : celle-ci devient transparente et sans bordure dès qu'un
+   logo s'affiche (règles `:has(.clogo)` côté pages), pour ne pas encadrer la marque. Le cadre
+   ne subsiste que pour le repli en initiales, où un texte sans fond flotterait.
+   `contain` préserve les proportions : un logo large n'est jamais étiré. */
+.clogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Apparition douce : un logo qui « pop » sur une carte déjà posée fait un clignotement. */
+  animation: clogo-in .35s cubic-bezier(.3, .7, .3, 1) both;
+}
+@keyframes clogo-in { from { opacity: 0; transform: scale(.88); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .clogo { animation: none; } }

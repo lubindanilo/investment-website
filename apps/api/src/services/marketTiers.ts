@@ -8,18 +8,55 @@
  * de l'affichage. À rafraîchir de temps en temps (ordres de grandeur, ça bouge lentement).
  */
 
-/** Unités de devise locale pour 1 USD (approx, pour le bucketing). */
+/**
+ * Unités de devise locale pour 1 USD (approx, pour le bucketing).
+ *
+ * Une devise ABSENTE de cette table est traitée comme si elle valait le dollar : MOL (Budapest)
+ * ressortait ainsi à 3 119 Md$ au lieu de ~6 Md, ses forints étant comptés pour des dollars. Toute
+ * bourse ajoutée à l'univers doit donc apporter sa devise ici (cf. le test de couverture).
+ */
 export const FX_PER_USD: Record<string, number> = {
   USD: 1, EUR: 0.92, GBP: 0.79, CHF: 0.88, SEK: 10.5, DKK: 6.9, NOK: 10.8,
   JPY: 150, HKD: 7.8, CNY: 7.2, INR: 83, KRW: 1350, TWD: 32, IDR: 16000,
   THB: 36, SGD: 1.35, VND: 25000, SAR: 3.75, ZAR: 18, TRY: 34, CAD: 1.37,
   AUD: 1.5, BRL: 5.4,
+  // Europe centrale (Varsovie, Budapest, Prague) : présentes dans l'univers, absentes de la table
+  // jusqu'ici, donc leurs capitalisations étaient surévaluées de deux ordres de grandeur.
+  PLN: 3.6, HUF: 350, CZK: 21,
+  ILS: 3.7,
 };
+
+/**
+ * UNITÉS SECONDAIRES, à ne surtout pas confondre avec la devise principale : Yahoo cote les
+ * titres londoniens en PENCE (`GBp`, cent de livre), les sud-africains en cents (`ZAc`) et les
+ * israéliens en agorot (`ILA`). Le code passait par `toUpperCase()`, donc `GBp` devenait `GBP` et
+ * une capitalisation en pence était divisée comme si c'étaient des livres : ×100 d'un coup. GSK
+ * ressortait à 9 988 Md$ pour ~88 Md$ réels, et tout Londres occupait le haut du classement.
+ *
+ * La casse est donc SIGNIFIANTE ici, on résout avant de normaliser.
+ */
+const MINOR_UNIT_PER_MAJOR: Record<string, { major: string; per: number }> = {
+  GBp: { major: 'GBP', per: 100 },   // pence par livre
+  ZAc: { major: 'ZAR', per: 100 },   // cents par rand
+  ILA: { major: 'ILS', per: 100 },   // agorot par shekel
+};
+
+/** Unités de la devise de cotation pour 1 USD, en tenant compte des unités secondaires. */
+export function fxPerUsd(currency: string | null | undefined): number | null {
+  if (!currency) return 1;
+  const minor = MINOR_UNIT_PER_MAJOR[currency];
+  if (minor) {
+    const majorFx = FX_PER_USD[minor.major];
+    return majorFx && majorFx > 0 ? majorFx * minor.per : null;
+  }
+  const fx = FX_PER_USD[currency.toUpperCase()];
+  return fx && fx > 0 ? fx : null;
+}
 
 /** Convertit un market cap local en USD (devise inconnue → supposée déjà ~USD). Null si absent. */
 export function marketCapToUsd(marketCap: number | null | undefined, currency: string | null | undefined): number | null {
   if (marketCap == null || !isFinite(marketCap)) return null;
-  const fx = currency ? FX_PER_USD[currency.toUpperCase()] : 1;
+  const fx = fxPerUsd(currency);
   return fx && fx > 0 ? marketCap / fx : marketCap;
 }
 

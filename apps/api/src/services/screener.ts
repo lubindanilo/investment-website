@@ -23,6 +23,7 @@ import { getPfcfHistory, pfcfPercentile, pfcfDecileThreshold, isOpportunity, PFC
 import { getYahooBatchQuotes } from './yahoo.js';
 import { ttlUntilNextEarnings } from './earnings.js';
 import { marketCapToUsd, DAYAFTER_CAP_USD, MID_CAP_USD, HIGH_SCORE_RATIO } from './marketTiers.js';
+import { resolveMarketCap } from './marketCapResolve.js';
 import * as chartCache from '../lib/timeseriesCache.js';
 import { EU_LARGE_CAPS } from '../data/euLargeCaps.js';
 import { INTL_LARGE_CAPS } from '../data/intlLargeCaps.js';
@@ -38,18 +39,22 @@ const INTL_PRIORITY = 2;
 
 /**
  * Tranches de capitalisation (standards US) pour le filtre multi-choix du screener :
- * Small < 2 Md, Mid 2–10 Md, Large ≥ 10 Md. Seuils en devise locale du titre (approximation
- * US-first, comme marketBeat). Un marketCap null ou ≤ 0 n'appartient à aucune tranche.
+ * Small < 2 Md$, Mid 2–10 Md$, Large ≥ 10 Md$.
+ *
+ * Les seuils s'appliquent à `marketCapUsd`, PAS à `marketCap` : ce dernier est en devise
+ * LOCALE, donc comparer 10 Md à des yens ou des wons classait « large cap » des sociétés
+ * japonaises de 100 M$ (¥15 Md) et des coréennes du même ordre. Une capitalisation inconnue
+ * (null) n'appartient à aucune tranche, comme avant.
  */
 export type CapBucket = 'small' | 'mid' | 'large';
-const CAP_MID_MIN = 2e9;
-const CAP_LARGE_MIN = 10e9;
+const CAP_MID_MIN_USD = 2e9;
+const CAP_LARGE_MIN_USD = 10e9;
 
-/** Condition Prisma sur marketCap pour une tranche de capitalisation. */
+/** Condition Prisma sur marketCapUsd pour une tranche de capitalisation. */
 function capBucketWhere(b: CapBucket): { gt?: number; gte?: number; lt?: number } {
-  if (b === 'small') return { gt: 0, lt: CAP_MID_MIN };
-  if (b === 'mid') return { gte: CAP_MID_MIN, lt: CAP_LARGE_MIN };
-  return { gte: CAP_LARGE_MIN };
+  if (b === 'small') return { gt: 0, lt: CAP_MID_MIN_USD };
+  if (b === 'mid') return { gte: CAP_MID_MIN_USD, lt: CAP_LARGE_MIN_USD };
+  return { gte: CAP_LARGE_MIN_USD };
 }
 
 /**
@@ -397,10 +402,18 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     const pfcfConsistent = (snap.adjFcfTtm != null && snap.adjFcfTtm !== 0 && snap.sharesOutstanding != null && snap.metrics.price != null && snap.metrics.price > 0)
       ? (snap.metrics.price * snap.sharesOutstanding) / snap.adjFcfTtm
       : snap.metrics.pfcfTTM ?? null;
-    // Capitalisation (prix × actions), figée au scoring → alimente le filtre Small/Mid/Large cap.
-    const marketCap = (snap.metrics.price != null && snap.metrics.price > 0 && snap.sharesOutstanding != null && snap.sharesOutstanding > 0)
-      ? snap.metrics.price * snap.sharesOutstanding
-      : null;
+    // Capitalisation figée au scoring → alimente le filtre Small/Mid/Large cap. On PRÉFÈRE la
+    // valeur publiée par le fournisseur au recalcul prix × actions : le nombre d'actions de
+    // /financials-reported est parfois faux de plusieurs ordres de grandeur (cf. marketCapResolve).
+    const { marketCap } = resolveMarketCap(
+      {
+        fundamentalsSource: snap.fundamentalsSource,
+        reportedMarketCap: snap.metrics.marketCap ?? null,
+        price: snap.metrics.price ?? null,
+        sharesOutstanding: snap.sharesOutstanding,
+      },
+      value => marketCapToUsd(value, snap.currency),
+    );
     // Normalisation USD (devise locale → USD) pour comparer les capis entre bourses → tiers de cadence.
     const marketCapUsd = marketCapToUsd(marketCap, snap.currency);
     const opp = hasScore
@@ -598,7 +611,7 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
   const capBuckets = caps?.filter((c): c is CapBucket => c === 'small' || c === 'mid' || c === 'large') ?? [];
   const zoneList = zones?.filter((z): z is GeoZone => z === 'pea' || z === 'us' || z === 'intl') ?? [];
   const andClauses: object[] = [];
-  if (capBuckets.length > 0 && capBuckets.length < 3) andClauses.push({ OR: capBuckets.map(b => ({ marketCap: capBucketWhere(b) })) });
+  if (capBuckets.length > 0 && capBuckets.length < 3) andClauses.push({ OR: capBuckets.map(b => ({ marketCapUsd: capBucketWhere(b) })) });
   if (zoneList.length > 0 && zoneList.length < 3) andClauses.push({ OR: zoneList.map(geoZoneWhere) });
   const rows = await prisma.screenerTicker.findMany({
     where: {

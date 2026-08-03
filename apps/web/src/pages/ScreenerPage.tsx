@@ -9,6 +9,7 @@ import { sectorSlug } from '../lib/sector.js';
 import SeoHead from '../components/SeoHead.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
 import { ResilienceBadge, ResilienceNotScored } from '../components/ResilienceBadge.js';
+import { CompanyLogo } from '../components/ui/CompanyLogo.js';
 import { useSubscription } from '../contexts/SubscriptionContext.js';
 import './ScreenerPage.css';
 
@@ -543,12 +544,15 @@ export function ScreenerPage() {
                       onClick={() => { if (locked) { setUpgrade(true); return; } navigate(`/analyse/${r.ticker}`); }}
                     >
                       <td>
-                        <div className="scr-soc">
-                          <span className="num scr-soc-ticker row gap-6">
-                            {r.ticker}
-                            {r.opportunity && isPro && <OpportunityBadge compact />}
-                          </span>
-                          <span className="scr-soc-name">{r.name ?? r.ticker}</span>
+                        <div className="scr-soc-cell">
+                          <span className="scr-soc-logo" aria-hidden="true"><CompanyLogo ticker={r.ticker} /></span>
+                          <div className="scr-soc">
+                            <span className="num scr-soc-ticker row gap-6">
+                              {r.ticker}
+                              {r.opportunity && isPro && <OpportunityBadge compact />}
+                            </span>
+                            <span className="scr-soc-name">{r.name ?? r.ticker}</span>
+                          </div>
                         </div>
                       </td>
                       <td className="muted col-hide-sm" style={{ fontSize: 13 }}>{r.sector ? t(`industries.${sectorSlug(r.sector)}`, { defaultValue: r.sector }) : '—'}</td>

@@ -6,6 +6,7 @@ import type { WatchlistEntry } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
+import { CompanyLogo } from '../components/ui/CompanyLogo.js';
 import { ResilienceBadge } from '../components/ResilienceBadge.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
@@ -249,9 +250,12 @@ export function WatchlistPage() {
                   return (
                     <tr key={w.ticker} className={w.opportunity ? 'is-opp' : undefined} onClick={() => navigate(`/analyse/${w.ticker}`)}>
                       <td style={{ maxWidth: 340 }}>
-                        <div className="tbl-soc">
-                          <span className="num tbl-soc-ticker row gap-6">{w.ticker}{w.opportunity && <OpportunityBadge compact />}</span>
-                          <span className="tbl-soc-name">{w.name}</span>
+                        <div className="tbl-soc-cell">
+                          <span className="tbl-soc-logo" aria-hidden="true"><CompanyLogo ticker={w.ticker} /></span>
+                          <div className="tbl-soc">
+                            <span className="num tbl-soc-ticker row gap-6">{w.ticker}{w.opportunity && <OpportunityBadge compact />}</span>
+                            <span className="tbl-soc-name">{w.name}</span>
+                          </div>
                         </div>
                       </td>
                       <td className="num-cell num" style={{ fontWeight: 600 }}>{formatPrice(w.price, w.currency)}</td>
