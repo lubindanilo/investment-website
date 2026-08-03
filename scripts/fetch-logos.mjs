@@ -81,8 +81,20 @@ function iconOfWebsite(website) {
   } catch { return null; }
 }
 
+/**
+ * Même règle que looksForeign() dans apps/api/src/routes/screener.ts : `BRK.B` et `BF.B` sont des
+ * classes d'actions américaines que Finnhub sert, pas des bourses étrangères. Londres (.L) est la
+ * seule place à tenir en une lettre.
+ */
+function looksForeign(ticker) {
+  const i = ticker.lastIndexOf('.');
+  if (i < 0) return false;
+  const suffix = ticker.slice(i + 1).toUpperCase();
+  return suffix.length > 1 || suffix === 'L';
+}
+
 async function finnhubProfile(ticker) {
-  if (!FINNHUB_KEY || ticker.includes('.')) return null;   // 403 garanti sur les symboles suffixés
+  if (!FINNHUB_KEY || looksForeign(ticker)) return null;   // 403 garanti sur les bourses étrangères
   try {
     const r = await fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${encodeURIComponent(ticker)}`,
       { headers: { 'X-Finnhub-Token': FINNHUB_KEY } });

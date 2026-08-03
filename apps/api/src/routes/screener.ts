@@ -326,14 +326,30 @@ function iconOfWebsite(website: string | null): string | null {
   } catch { return null; }
 }
 
+/**
+ * Le point d'un ticker ne signale pas toujours une bourse étrangère : `BRK.B` et `BF.B` sont des
+ * CLASSES D'ACTIONS américaines, que Finnhub sert très bien. Seuls les vrais suffixes de place
+ * (.AS, .PA, .TW, .KS…) provoquent un 403. On les reconnaît à leur longueur, l'exception étant
+ * Londres (.L), qui tient en une lettre comme une classe d'actions.
+ *
+ * Se tromper ne coûte qu'un appel inutile : le repli Yahoo suit derrière.
+ */
+function looksForeign(ticker: string): boolean {
+  const i = ticker.lastIndexOf('.');
+  if (i < 0) return false;
+  const suffix = ticker.slice(i + 1).toUpperCase();
+  return suffix.length > 1 || suffix === 'L';
+}
+
 async function resolveLogo(ticker: string): Promise<string | null> {
-  // Symbole sans suffixe = titre US : Finnhub répond, et donne le logo directement.
-  if (!ticker.includes('.')) {
+  // Titre US (y compris les classes d'actions type BRK.B) : Finnhub donne le logo directement.
+  if (!looksForeign(ticker)) {
     const p = await getProfile2(ticker).catch(() => null);
     if (p?.logo) return p.logo;
     const fromWeb = iconOfWebsite(p?.weburl ?? null);
     if (fromWeb) return fromWeb;
   }
+  // Reste du monde (et repli des titres US sans logo Finnhub) : le domaine officiel via Yahoo.
   const profile = await getAssetProfileYahoo(ticker).catch(() => null);
   return iconOfWebsite(profile?.website ?? null);
 }
