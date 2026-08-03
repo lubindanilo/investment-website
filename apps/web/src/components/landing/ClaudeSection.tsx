@@ -19,7 +19,7 @@ import { ScoreRing, useSectionIn, SplitTitle } from './bits.js';
 import { CompositionStrip, CriteriaList } from './HeroSection.js';
 import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { useMotion } from './motion.js';
-import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
+import { fmtPrice, type LandingShowcase, type LandingStock } from './useLandingData.js';
 
 /** Un bloc affiché dans le fil. */
 type Item =
@@ -54,13 +54,14 @@ export function ClaudeMark({ size = 16 }: { size?: number }) {
       {[0, 45, 90, 135, 180, 225, 270, 315].map(deg => (
         <path
           key={deg}
+          // Chaque branche part du CENTRE et s'affine vers l'extérieur. Pas de disque central :
+          // l'astérisque de Claude est fait de branches qui convergent, pas d'un moyeu.
           d={deg % 90 === 0
-            ? 'M16 3.2 L17.55 13.1 L16 15.1 L14.45 13.1 Z'    // branches en croix, plus longues
-            : 'M16 6.4 L17.25 12.9 L16 14.6 L14.75 12.9 Z'}   // branches en diagonale
+            ? 'M16 16 L14.1 4.6 Q16 2.6 17.9 4.6 Z'      // branches en croix, plus longues
+            : 'M16 16 L14.6 7.4 Q16 5.8 17.4 7.4 Z'}     // branches en diagonale, plus courtes
           transform={`rotate(${deg} 16 16)`}
         />
       ))}
-      <circle cx="16" cy="16" r="1.9" />
     </svg>
   );
 }
@@ -97,15 +98,13 @@ function CopyUrl() {
   );
 }
 
-export function ClaudeSection({ featured, criteria, resilience, pfcfPercentile, peaRows, rows, ready }: {
-  featured: LandingStock;
-  criteria: LandingCriterion[];
-  resilience: { grade: string; score: number } | null;
-  pfcfPercentile: number | null;
+export function ClaudeSection({ show, peaRows, rows, ready }: {
+  show: LandingShowcase;
   peaRows: LandingStock[];
   rows: LandingStock[];
   ready: boolean;
 }) {
+  const { stock: featured, criteria, resilience, pfcfPercentile } = show;
   const { t } = useTranslation();
   const locale = currentLocale();
   const [headRef, headIn] = useSectionIn<HTMLDivElement>();
@@ -294,12 +293,6 @@ export function ClaudeSection({ featured, criteria, resilience, pfcfPercentile, 
 
         <div className="player" ref={playerRef} data-live={live ? '1' : '0'} data-items={items.length}>
           <div className="screen">
-            <div className="screen-bar">
-              <i /><i /><i />
-              <span className="num">claude · lubin-investment</span>
-              <span className={`live-dot ${live ? 'on' : ''}`} aria-hidden="true" />
-            </div>
-
             {/* Chapitres : indicateur de progression, pas un menu (ça se joue tout seul). */}
             <div className="steps-strip" aria-hidden="true">
               {chapters.map((c, i) => (
@@ -307,6 +300,7 @@ export function ClaudeSection({ featured, criteria, resilience, pfcfPercentile, 
                   <b className="num">{`0${i + 1}`}</b>{c}
                 </span>
               ))}
+              <span className={`live-dot ${live ? 'on' : ''}`} aria-hidden="true" />
             </div>
 
             <div className="thread live" ref={threadRef}>

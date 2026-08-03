@@ -20,7 +20,8 @@ import { MotionContext, useMotionPreference } from '../components/landing/motion
 import './HomePage.css';
 
 export function HomePage() {
-  const { featured, criteria, resilience, pfcfPercentile, rows, peaRows, ready } = useLandingData();
+  // Trois sociétés DIFFÉRENTES : le hero, la maquette du mécanisme et la démo du connecteur.
+  const { hero, mech, mcp, rows, peaRows, ready } = useLandingData();
   // Une seule décision pour toute la page : le CSS la lit via data-motion, le JS via le contexte.
   const motion = useMotionPreference();
 
@@ -30,11 +31,11 @@ export function HomePage() {
       <ScrollProgress />
       {/* SEO : titre + meta description (i18n) injectés au montage. */}
       <SeoHead titleKey="seo.home.title" descKey="seo.home.desc" />
-      <HeroSection featured={featured} criteria={criteria} resilience={resilience} ready={ready} />
+      <HeroSection show={hero} ready={ready} />
       <FrictionSection />
-      <MechanismSection featured={featured} criteria={criteria} resilience={resilience} pfcfPercentile={pfcfPercentile} ready={ready} />
+      <MechanismSection show={mech} ready={ready} />
       <VeilleSection rows={rows} ready={ready} />
-      <ClaudeSection featured={featured} criteria={criteria} resilience={resilience} pfcfPercentile={pfcfPercentile} peaRows={peaRows} rows={rows} ready={ready} />
+      <ClaudeSection show={mcp} peaRows={peaRows} rows={rows} ready={ready} />
       <ProofSection />
       <ForWhoSection />
       <FinalSection />

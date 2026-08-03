@@ -237,8 +237,9 @@ export const api = {
      *  à l'anonyme sur /analyse/:ticker au lieu de le rediriger vers /signup. */
     tickerPreview: (ticker: string) =>
       safeRequest<TickerPreview>(`/api/screener/ticker/${encodeURIComponent(ticker)}`),
-    /** Vitrine de la landing : l'opportunité du moment avec le détail de ses 10 critères. */
-    showcase: () => safeRequest<ShowcaseStock>('/api/screener/showcase'),
+    /** Vitrine de la landing : UN titre par emplacement (hero, mécanisme, connecteur), chacun
+     *  avec le détail de ses 10 critères, sa résilience et son percentile de P/FCF. */
+    showcase: () => safeRequest<ShowcaseStock[]>('/api/screener/showcase'),
     /** Panier « Bat le marché » (value + momentum) — calcul live à la demande. */
     marketBeat: (params: { topPct?: number; n?: number; universe?: 'US' | 'ALL' } = {}) => {
       const q = new URLSearchParams();

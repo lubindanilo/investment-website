@@ -19,7 +19,7 @@ import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { api } from '../../lib/api.js';
 import { Def, ScoreRing, Sk, useParallax, useSectionIn } from './bits.js';
 import { useMotion, useRichMotion } from './motion.js';
-import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
+import { fmtPrice, type LandingCriterion, type LandingShowcase } from './useLandingData.js';
 
 /**
  * Champ de recherche + bouton : le point d'entrée réel de la page (hero et CTA final).
@@ -224,12 +224,8 @@ export function ResilienceRow({ resilience }: { resilience: { grade: string; sco
   );
 }
 
-export function HeroSection({ featured, criteria, resilience, ready }: {
-  featured: LandingStock;
-  criteria: LandingCriterion[];
-  resilience: { grade: string; score: number } | null;
-  ready: boolean;
-}) {
+export function HeroSection({ show, ready }: { show: LandingShowcase; ready: boolean }) {
+  const { stock: featured, criteria, resilience } = show;
   const { t } = useTranslation();
   const locale = currentLocale();
   const rich = useRichMotion();

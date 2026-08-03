@@ -335,7 +335,7 @@
   },
   "landing": {
     "hero": {
-      "chip": "Also available inside Claude",
+      "chip": "Available in Claude, ChatGPT, Mistral…",
       "title": "Stop paying the wrong price for a great company.",
       "sub": "Type a company name: its quality scored out of 10, and the price at which it is worth buying.",
       "placeholder": "Microsoft, LVMH, Visa…",

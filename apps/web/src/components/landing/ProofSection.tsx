@@ -95,7 +95,6 @@ export function ProofSection() {
             <div className="pal-legend">
               <span className="row tiny legend-i"><i className="sw lub" />{t('landing.proof.track.legendLub')}</span>
               <span className="row tiny muted legend-i"><i className="sw idx" />{t('landing.proof.track.legendIdx')}</span>
-              <span className="badge badge-brand">{t('landing.proof.track.badge')}</span>
             </div>
           </div>
 

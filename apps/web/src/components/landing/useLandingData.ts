@@ -90,14 +90,27 @@ const FALLBACK_CRITERIA: LandingCriterion[] = [
   'Bénéfices transformés en cash', 'Délai d\'encaissement net',
 ].map(name => ({ name, value: '—', status: 'pass' as const }));
 
-export interface LandingData {
-  /** Le titre mis en avant (hero, mécanisme, conversation Claude). */
-  featured: LandingStock;
-  /** Ses 10 critères de qualité et son grade de résilience (vue « analyser »). */
+/**
+ * Un titre de vitrine AVEC tout ce que la landing affiche de lui. Trois emplacements en
+ * utilisent un : le hero, la maquette du « Mécanisme » et la démo du connecteur. Ils montrent
+ * des sociétés DIFFÉRENTES, sinon la page donne l'impression d'un catalogue d'un seul nom.
+ */
+export interface LandingShowcase {
+  stock: LandingStock;
+  /** Les 10 critères de qualité (même vue que /analyser). */
   criteria: LandingCriterion[];
   resilience: { grade: string; score: number } | null;
   /** Percentile du P/FCF dans son historique (0 = jamais aussi bon marché). */
   pfcfPercentile: number | null;
+}
+
+export interface LandingData {
+  /** Fiche du hero : le titre le mieux noté ET le mieux classé en résilience. */
+  hero: LandingShowcase;
+  /** Maquette du « Mécanisme » : une AUTRE société. */
+  mech: LandingShowcase;
+  /** Démo du connecteur MCP : une TROISIÈME société. */
+  mcp: LandingShowcase;
   /** Les lignes montrées dans la section veille. */
   rows: LandingStock[];
   /** Résultat réel de la requête PEA illustrée dans la section Claude. */
@@ -115,7 +128,7 @@ export interface LandingData {
 export function useLandingData(): LandingData {
   const [rows, setRows] = useState<LandingStock[]>(FALLBACK);
   const [peaRows, setPeaRows] = useState<LandingStock[]>(FALLBACK_PEA);
-  const [showcase, setShowcase] = useState<ShowcaseStock | null>(null);
+  const [showcase, setShowcase] = useState<ShowcaseStock[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -126,7 +139,7 @@ export function useLandingData(): LandingData {
       api.screener.top(PEA_QUERY),
     ]).then(async ([show, top, pea]) => {
       if (cancelled) return;
-      if (show.status === 'fulfilled') setShowcase(show.value);
+      if (show.status === 'fulfilled' && show.value.length) setShowcase(show.value);
       if (pea.status === 'fulfilled') {
         const mapped = pea.value.map(toStock).filter(s => s.note10 != null);
         if (mapped.length) setPeaRows(mapped);
@@ -152,35 +165,52 @@ export function useLandingData(): LandingData {
     return () => { cancelled = true; };
   }, []);
 
-  // La vitrine pilote le hero ; à défaut, la meilleure opportunité du screener.
-  // IDENTITÉ STABLE obligatoire : ce objet sert de dépendance à des effets qui jouent une
-  // animation longue (le lecteur MCP). Le recréer à chaque rendu relançait la boucle en
-  // continu, et le fil de conversation repartait de zéro sans jamais rien afficher.
-  const featured: LandingStock = useMemo(() => {
-    const max = showcase?.scoreChiffresMax ?? 0;
-    if (!showcase) return rows[0] ?? FALLBACK[0]!;
-    return {
-      ticker: showcase.ticker,
-      name: showcase.name ?? showcase.ticker,
-      sector: showcase.sector,
-      note10: showcase.scoreChiffres != null && max > 0 ? Math.round((showcase.scoreChiffres / max) * 10) : null,
-      pfcfTTM: showcase.pfcfTTM,
-      price: showcase.price,
-      currency: showcase.currency,
-      opportunity: showcase.opportunity,
-      // La vitrine ne sert ni la capitalisation ni la courbe : ces champs n'alimentent que
-      // les lignes de la veille, pas la fiche du hero.
-      marketCap: null,
-      dayChangePct: null,
-      spark: null,
+  /**
+   * Les trois emplacements, dans l'ordre servi par l'API. Quand la vitrine renvoie moins de
+   * titres que d'emplacements, on réutilise le premier plutôt que d'afficher un trou.
+   *
+   * IDENTITÉ STABLE obligatoire : ces objets servent de dépendance à des effets qui jouent une
+   * animation longue (le lecteur MCP). Les recréer à chaque rendu relançait la boucle en
+   * continu, et le fil de conversation repartait de zéro sans jamais rien afficher.
+   */
+  const slots: LandingShowcase[] = useMemo(() => {
+    const fallback: LandingShowcase = {
+      stock: rows[0] ?? FALLBACK[0]!,
+      criteria: FALLBACK_CRITERIA,
+      resilience: null,
+      pfcfPercentile: null,
     };
+    if (!showcase.length) return [fallback, fallback, fallback];
+    const mapped = showcase.map(s => {
+      const max = s.scoreChiffresMax ?? 0;
+      return {
+        stock: {
+          ticker: s.ticker,
+          name: s.name ?? s.ticker,
+          sector: s.sector,
+          note10: s.scoreChiffres != null && max > 0 ? Math.round((s.scoreChiffres / max) * 10) : null,
+          pfcfTTM: s.pfcfTTM,
+          price: s.price,
+          currency: s.currency,
+          opportunity: s.opportunity,
+          // La vitrine ne sert ni la capitalisation ni la courbe : ces champs n'alimentent
+          // que les lignes de la veille.
+          marketCap: null,
+          dayChangePct: null,
+          spark: null,
+        },
+        criteria: s.criteria?.length ? s.criteria : FALLBACK_CRITERIA,
+        resilience: s.resilience ?? null,
+        pfcfPercentile: s.pfcfPercentile ?? null,
+      } satisfies LandingShowcase;
+    });
+    return [0, 1, 2].map(i => mapped[i] ?? mapped[0]!);
   }, [showcase, rows]);
 
   return {
-    featured,
-    criteria: showcase?.criteria?.length ? showcase.criteria : FALLBACK_CRITERIA,
-    resilience: showcase?.resilience ?? null,
-    pfcfPercentile: showcase?.pfcfPercentile ?? null,
+    hero: slots[0]!,
+    mech: slots[1]!,
+    mcp: slots[2]!,
     rows,
     peaRows,
     ready: !loading,

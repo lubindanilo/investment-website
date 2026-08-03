@@ -188,20 +188,59 @@ interface ShowcaseCache { at: number; lang: Lang; payload: unknown }
 let showcaseCache: ShowcaseCache | null = null;
 const SHOWCASE_TTL_MS = 10 * 60 * 1000;
 
-/** Noms grand public préférés pour la vitrine, s'ils passent les seuils. */
-const SHOWCASE_TICKERS = ['ASML.AS', 'ADBE', 'MC.PA', 'GOOGL', 'MSFT', 'RMS.PA', 'NVO', 'V', 'NKE', 'SAP.DE'];
+/**
+ * Titres de la vitrine, DANS L'ORDRE des emplacements de la landing : le premier alimente la
+ * fiche du hero, le deuxième la maquette du « Mécanisme », le troisième la démo du connecteur.
+ *
+ * Trois sociétés DIFFÉRENTES : voir le même titre partout donnait l'impression d'un catalogue
+ * d'un seul nom. On privilégie donc des noms que le grand public suit en bourse, tout en
+ * exigeant des données complètes (cf. isShowcaseEligible) : sans percentile de P/FCF la jauge
+ * de valorisation disparaît, et sans résilience publiée il manque un des deux scores.
+ */
+const SHOWCASE_TICKERS = [
+  'V', 'NFLX', 'BKNG', 'SPGI', 'MCO', 'CME', 'CRM', 'MA', 'ADBE', 'INTU', 'UBER', 'ADSK',
+  'ASML.AS', 'MSFT', 'GOOGL', 'NVDA', 'SAP', 'MC.PA', 'RMS.PA', 'NVO', 'NKE',
+];
+/** Combien d'emplacements la landing sait remplir. */
+const SHOWCASE_COUNT = 3;
 /** Seuils de la vitrine : au moins 8/10 de qualité ET une résilience publiée A ou B. */
 const SHOWCASE_MIN_NOTE10 = 8;
 const SHOWCASE_GRADES = new Set(['A', 'B']);
+/**
+ * P/FCF au-delà duquel on n'affiche pas le titre en vitrine : soit la donnée est fausse
+ * (TSMC ressort à 2,2x, ce qui impliquerait 980 Md$ de free cash-flow), soit le multiple est si
+ * extrême qu'il brouille la démonstration au lieu de l'éclairer.
+ */
+const SHOWCASE_PFCF_RANGE = { min: 3, max: 60 };
 
 const SHOWCASE_SELECT = {
   ticker: true, name: true, sector: true,
   scoreChiffres: true, scoreChiffresMax: true,
   pfcfTTM: true, price: true, currency: true, opportunity: true, marketCap: true,
+  // Capitalisation NORMALISÉE : c'est la seule comparable entre bourses (cf. marketTiers.ts).
+  marketCapUsd: true,
   pfcfPercentile: true,
 } as const;
 
-type ShowcaseRow = Awaited<ReturnType<typeof getTop>>[number];
+/**
+ * Forme EXACTE d'une ligne de vitrine, alignée sur SHOWCASE_SELECT. Auparavant ce type était
+ * calqué sur le retour de getTop(), qui contient davantage de champs : il fallait alors des
+ * conversions forcées, et le compilateur ne vérifiait plus rien.
+ */
+interface ShowcaseRow {
+  ticker: string;
+  name: string | null;
+  sector: string | null;
+  scoreChiffres: number | null;
+  scoreChiffresMax: number | null;
+  pfcfTTM: number | null;
+  price: number | null;
+  currency: string | null;
+  opportunity: boolean;
+  marketCap: number | null;
+  marketCapUsd: number | null;
+  pfcfPercentile: number | null;
+}
 
 /** Note ramenée sur 10 (le score brut est sur un dénominateur variable). */
 function note10Of(row: { scoreChiffres: number | null; scoreChiffresMax: number | null }): number {
@@ -214,16 +253,42 @@ function note10Of(row: { scoreChiffres: number | null; scoreChiffresMax: number 
  * que tout le monde reconnaît. On tente d'abord la liste éditoriale, puis les plus grosses
  * capitalisations bien notées ; à défaut de résilience publiée, la meilleure note l'emporte.
  */
-async function pickShowcaseRow(): Promise<ShowcaseRow | undefined> {
+/**
+ * Un titre est présentable en vitrine s'il a TOUT ce que la landing affiche : les deux scores,
+ * les dix critères et une jauge de valorisation.
+ *
+ * `strictGrade` distingue les deux usages. La fiche du HERO exige une résilience A ou B : c'est
+ * la première chose que voit un visiteur, elle doit montrer le produit à son meilleur. Les autres
+ * emplacements se contentent d'une résilience PUBLIÉE, quelle qu'elle soit, ce qui laisse entrer
+ * des noms que le public suit vraiment (Netflix, Booking) au lieu de n'afficher que des A.
+ */
+function isShowcaseEligible(row: ShowcaseRow, grade: string | undefined, strictGrade: boolean): boolean {
+  if (note10Of(row) < SHOWCASE_MIN_NOTE10) return false;
+  if (strictGrade ? !SHOWCASE_GRADES.has(grade ?? '') : !grade) return false;
+  if (row.pfcfPercentile == null) return false;        // sans percentile, pas de jauge
+  const pfcf = row.pfcfTTM;
+  return pfcf != null && pfcf > SHOWCASE_PFCF_RANGE.min && pfcf < SHOWCASE_PFCF_RANGE.max;
+}
+
+/**
+ * Les N titres de la vitrine, distincts, dans l'ordre éditorial. Chacun doit être reconnaissable
+ * ET complet : la landing montre deux scores, dix critères et une jauge de valorisation, donc un
+ * titre à qui il manque une de ces pièces afficherait un trou.
+ *
+ * Repli en cascade : d'abord les noms de la liste éditoriale, puis les grosses capitalisations
+ * bien notées, puis — si vraiment rien ne passe les seuils — la meilleure opportunité du moment,
+ * quitte à ce qu'il lui manque la résilience.
+ */
+async function pickShowcaseRows(count: number): Promise<ShowcaseRow[]> {
   const preferred = await prisma.screenerTicker.findMany({
     where: { ticker: { in: SHOWCASE_TICKERS }, status: 'scored' },
     select: SHOWCASE_SELECT,
   });
   // Grosses capitalisations bien notées : elles sont connues du grand public.
   const bigCaps = await prisma.screenerTicker.findMany({
-    where: { status: 'scored', scoreChiffresMax: { gte: 8 }, marketCap: { gte: 50_000_000_000 } },
-    orderBy: [{ scoreRatio: 'desc' }, { marketCap: 'desc' }],
-    take: 60,
+    where: { status: 'scored', scoreChiffresMax: { gte: 8 }, marketCapUsd: { gte: 20_000_000_000 } },
+    orderBy: [{ marketCapUsd: 'desc' }],
+    take: 120,
     select: SHOWCASE_SELECT,
   });
 
@@ -231,33 +296,60 @@ async function pickShowcaseRow(): Promise<ShowcaseRow | undefined> {
   const candidates = [...preferred, ...bigCaps].filter(r => {
     if (seen.has(r.ticker)) return false;
     seen.add(r.ticker);
-    return note10Of(r) >= SHOWCASE_MIN_NOTE10;
+    return true;
   });
-  if (!candidates.length) {
-    await refreshOpportunitiesLive().catch(() => {});
-    const [fallback] = await getTop({ onlyOpportunities: true, minMax: 8, limit: 5 });
-    return fallback;
-  }
 
   const resiliences = await getPublishedResilienceSummaries(candidates.map(r => r.ticker));
   const rank = (t: string) => {
     const i = SHOWCASE_TICKERS.indexOf(t);
     return i < 0 ? SHOWCASE_TICKERS.length : i;
   };
-  // À qualité et résilience égales, on préfère un titre dont le percentile de P/FCF est
-  // connu : la jauge de valorisation de la landing n'a de sens que si elle a une position.
-  const solid = candidates
-    .filter(r => SHOWCASE_GRADES.has(resiliences.get(r.ticker)?.grade ?? ''))
-    .sort((a, b) =>
-      Number(b.pfcfPercentile != null) - Number(a.pfcfPercentile != null)
-      || rank(a.ticker) - rank(b.ticker)
-      || Number(b.marketCap ?? 0) - Number(a.marketCap ?? 0));
+  const byEditorialOrder = (a: ShowcaseRow, b: ShowcaseRow) =>
+    rank(a.ticker) - rank(b.ticker)
+    || (resiliences.get(b.ticker)?.score ?? 0) - (resiliences.get(a.ticker)?.score ?? 0)
+    || Number(b.marketCapUsd ?? 0) - Number(a.marketCapUsd ?? 0);
 
-  // Repli si aucune résilience A/B n'est publiée : la meilleure note, la plus grosse capi.
-  const best = solid[0] ?? candidates
-    .slice()
-    .sort((a, b) => note10Of(b) - note10Of(a) || Number(b.marketCap ?? 0) - Number(a.marketCap ?? 0))[0];
-  return best as ShowcaseRow | undefined;
+  // Une même société cotée deux fois (GOOG/GOOGL, BRK.A/BRK.B) ferait doublon à l'écran.
+  const dedupeByCompany = (rows: ShowcaseRow[]) => {
+    const byName = new Set<string>();
+    return rows.filter(r => {
+      const key = (r.name ?? r.ticker).toLowerCase().replace(/[^a-z]/g, '').slice(0, 12);
+      if (byName.has(key)) return false;
+      byName.add(key);
+      return true;
+    });
+  };
+
+  // Emplacement 1 (le hero) : exigence maximale sur la résilience.
+  const hero = dedupeByCompany(
+    candidates.filter(r => isShowcaseEligible(r, resiliences.get(r.ticker)?.grade, true)).sort(byEditorialOrder),
+  )[0];
+  // Emplacements suivants : toute résilience publiée, pour laisser entrer les noms suivis.
+  const rest = dedupeByCompany(
+    candidates
+      .filter(r => r.ticker !== hero?.ticker)
+      .filter(r => isShowcaseEligible(r, resiliences.get(r.ticker)?.grade, false))
+      .sort(byEditorialOrder),
+  );
+  const distinct = dedupeByCompany([...(hero ? [hero] : []), ...rest]);
+  if (distinct.length >= count) return distinct.slice(0, count);
+
+  // Pas assez de titres complets : on complète avec les mieux notés, puis les opportunités.
+  const filler = candidates
+    .filter(r => !distinct.some(d => d.ticker === r.ticker) && note10Of(r) >= SHOWCASE_MIN_NOTE10)
+    .sort((a, b) => note10Of(b) - note10Of(a) || Number(b.marketCapUsd ?? 0) - Number(a.marketCapUsd ?? 0));
+  const out = [...distinct, ...filler].slice(0, count);
+  if (out.length) return out;
+
+  // Dernier recours : les opportunités du moment, ramenées à la forme de la vitrine.
+  await refreshOpportunitiesLive().catch(() => {});
+  const top = await getTop({ onlyOpportunities: true, minMax: 8, limit: count + 4 });
+  return top.slice(0, count).map(r => ({
+    ticker: r.ticker, name: r.name, sector: r.sector,
+    scoreChiffres: r.scoreChiffres, scoreChiffresMax: r.scoreChiffresMax,
+    pfcfTTM: r.pfcfTTM, price: r.price, currency: r.currency, opportunity: r.opportunity,
+    marketCap: r.marketCap, marketCapUsd: null, pfcfPercentile: r.pfcfPercentile,
+  }));
 }
 
 screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response) => {
@@ -266,35 +358,35 @@ screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response)
     res.json(showcaseCache.payload); return;
   }
 
-  // Choix ÉDITORIAL du titre mis en avant : une société que tout le monde reconnaît, sinon
-  // la vitrine perd son effet (un inconnu bien noté ne parle à personne). On prend le premier
-  // nom de la liste réellement scoré, et à défaut la meilleure opportunité du moment.
-  const top = await pickShowcaseRow();
-  if (!top) { res.status(404).json({ error: 'Aucune opportunité disponible', code: 'NOT_FOUND' }); return; }
+  // Choix ÉDITORIAL : des sociétés que tout le monde reconnaît, sinon la vitrine perd son effet
+  // (un inconnu bien noté ne parle à personne). Une par emplacement de la landing.
+  const rows = await pickShowcaseRows(SHOWCASE_COUNT);
+  if (!rows.length) { res.status(404).json({ error: 'Aucune opportunité disponible', code: 'NOT_FOUND' }); return; }
 
-  const snapshot = await getCachedSnapshot(top.ticker).catch(() => null);
-  const resiliences = await getPublishedResilienceSummaries([top.ticker]);
-  const criteria = snapshot
-    ? buildQuantitativeCriteria(snapshot.metrics, lang).map(c => ({
-        key: c.key ?? null, name: c.nom, value: c.valeur, status: c.statut,
-      }))
-    : [];
-
-  const payload = {
-    ticker: top.ticker,
-    name: top.name,
-    sector: top.sector,
-    scoreChiffres: top.scoreChiffres,
-    scoreChiffresMax: top.scoreChiffresMax,
-    pfcfTTM: top.pfcfTTM,
-    // Position du P/FCF dans son propre historique (0 = jamais aussi bon marché).
-    pfcfPercentile: 'pfcfPercentile' in top ? top.pfcfPercentile : null,
-    price: top.price,
-    currency: top.currency,
-    opportunity: top.opportunity,
-    resilience: resiliences.get(top.ticker) ?? null,
-    criteria,
-  };
+  const resiliences = await getPublishedResilienceSummaries(rows.map(r => r.ticker));
+  const payload = await Promise.all(rows.map(async row => {
+    const snapshot = await getCachedSnapshot(row.ticker).catch(() => null);
+    const criteria = snapshot
+      ? buildQuantitativeCriteria(snapshot.metrics, lang).map(c => ({
+          key: c.key ?? null, name: c.nom, value: c.valeur, status: c.statut,
+        }))
+      : [];
+    return {
+      ticker: row.ticker,
+      name: row.name,
+      sector: row.sector,
+      scoreChiffres: row.scoreChiffres,
+      scoreChiffresMax: row.scoreChiffresMax,
+      pfcfTTM: row.pfcfTTM,
+      // Position du P/FCF dans son propre historique (0 = jamais aussi bon marché).
+      pfcfPercentile: row.pfcfPercentile,
+      price: row.price,
+      currency: row.currency,
+      opportunity: row.opportunity,
+      resilience: resiliences.get(row.ticker) ?? null,
+      criteria,
+    };
+  }));
   showcaseCache = { at: Date.now(), lang, payload };
   res.json(payload);
 }));

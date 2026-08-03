@@ -360,7 +360,7 @@
   },
   "landing": {
     "hero": {
-      "chip": "Disponible aussi dans Claude",
+      "chip": "Disponible dans Claude, ChatGPT, Mistral…",
       "title": "Ne paie plus une bonne entreprise au mauvais prix.",
       "sub": "Tape le nom d’une entreprise : sa qualité notée sur 10, et le prix à partir duquel elle vaut le coup.",
       "placeholder": "Microsoft, LVMH, Visa…",

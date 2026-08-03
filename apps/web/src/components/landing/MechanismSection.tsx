@@ -18,15 +18,10 @@ import { Icon } from '../ui/primitives.js';
 import { CompositionStrip, CriteriaList, ResilienceRow } from './HeroSection.js';
 import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { Def, ScoreRing, Sk, Spark, useSectionIn, SplitTitle } from './bits.js';
-import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
+import { fmtPrice, type LandingShowcase, type LandingStock } from './useLandingData.js';
 
-export function MechanismSection({ featured, criteria, resilience, pfcfPercentile, ready }: {
-  featured: LandingStock;
-  criteria: LandingCriterion[];
-  resilience: { grade: string; score: number } | null;
-  pfcfPercentile: number | null;
-  ready: boolean;
-}) {
+export function MechanismSection({ show, ready }: { show: LandingShowcase; ready: boolean }) {
+  const { stock: featured, criteria, resilience, pfcfPercentile } = show;
   const { t } = useTranslation();
   const locale = currentLocale();
   const [step, setStep] = useState(0);
