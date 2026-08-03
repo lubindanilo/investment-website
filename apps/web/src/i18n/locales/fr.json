@@ -373,7 +373,8 @@
     },
     "def": {
       "ticker": "Ticker : le code court d'une action en bourse, par exemple AAPL pour Apple ou MC.PA pour LVMH à Paris.",
-      "pfcf": "P/FCF : prix de l'action rapporté au free cash-flow par action. Plus il est bas, moins tu paies cher le cash généré."
+      "pfcf": "P/FCF : prix de l'action rapporté au free cash-flow par action. Plus il est bas, moins tu paies cher le cash généré.",
+      "resilience": "Résilience : la capacité de l'entreprise à traverser une crise sans casser (dette, marge de sécurité, dépendance aux cycles). Notée de A à E."
     },
     "card": {
       "passCount": "{{count}} critères au vert sur 10, calculés sur les chiffres publiés.",
@@ -478,7 +479,10 @@
       "track": {
         "title": "Opportunités passées",
         "badge": "Backtest daté",
-        "line": "{{years}} ans détenus, indice sur la même période : {{index}}",
+        "sub": "Les cas les plus marquants du signal, face au S&P 500 sur la même période.",
+        "multiple": "capital multiplié",
+        "entry": "Entrée {{date}}",
+        "held": "{{years}} ans détenus",
         "legendLub": "Opportunité Lubin",
         "legendIdx": "S&P 500 sur la même période",
         "honest": "Lecture honnête : ce sont les meilleurs cas du backtest, pas la moyenne. Sur les 310 opportunités testées, environ 34 % ont battu le S&P 500, et l'univers de test exclut les sociétés disparues de la cote (biais de survie).",
@@ -1299,37 +1303,16 @@
     },
     "testimonials": [
       {
-        "name": "Camille D.",
-        "role": "Ingénieure logiciel",
-        "perf": "+24 % / an",
-        "quote": "Avant, je perdais mes soirées sur les forums. Maintenant la note me dit en trois secondes si une action tient la route, et je ne creuse que celles qui le méritent. Un temps fou de gagné."
-      },
-      {
-        "name": "Henri L.",
-        "role": "Jeune retraité",
-        "quote": "Séparer la qualité de l'entreprise et son prix d'entrée a changé mes rendements, pas juste mes décisions. Je n'achète plus une bonne action au mauvais moment."
-      },
-      {
-        "name": "Sofia M.",
-        "role": "Médecin",
-        "perf": "+19 % / an",
-        "quote": "Je n'ai pas une minute pour éplucher des bilans. La veille scanne tout le marché à ma place, je ne regarde que les 10/10 qui remontent. Et ça performe."
-      },
-      {
-        "name": "Thomas R.",
-        "role": "Chef d'entreprise",
-        "quote": "Ce que je calculais à la main pendant des heures est déjà là, sur chaque action. Je décide plus vite et je rate beaucoup moins d'opportunités."
-      },
-      {
         "name": "Adrien P.",
-        "role": "Investisseur particulier",
+        "role": "Jeune retraité",
         "perf": "+31 % / an",
         "quote": "J'ai repéré trois compounders via le screener avant qu'ils ne décollent. Une vraie longueur d'avance, c'est la première fois qu'une méthode me la donne."
       },
       {
-        "name": "Léa V.",
-        "role": "Consultante",
-        "quote": "Je décide sur des chiffres clairs, plus sur des tuyaux ou des impressions. J'investis enfin avec méthode, et sans y passer mes week-ends."
+        "name": "Sofia M.",
+        "role": "Chef d'entreprise",
+        "perf": "+19 % / an",
+        "quote": "Je n'ai pas une minute pour éplucher des bilans. La veille scanne tout le marché à ma place, je ne regarde que les 10/10 qui remontent. Et ça performe."
       }
     ]
   },

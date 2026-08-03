@@ -348,7 +348,8 @@
     },
     "def": {
       "ticker": "Ticker: el código corto de una acción en bolsa, por ejemplo AAPL para Apple o MC.PA para LVMH en París.",
-      "pfcf": "P/FCF: precio de la acción dividido por el free cash flow por acción. Cuanto más bajo, menos pagas por el efectivo generado."
+      "pfcf": "P/FCF: precio de la acción dividido por el free cash flow por acción. Cuanto más bajo, menos pagas por el efectivo generado.",
+      "resilience": "Resiliencia: la capacidad de la empresa para atravesar una crisis sin romperse (deuda, margen de seguridad, dependencia de los ciclos). Calificada de A a E."
     },
     "card": {
       "passCount": "{{count}} criterios en verde sobre 10, calculados con las cifras publicadas.",
@@ -453,7 +454,10 @@
       "track": {
         "title": "Oportunidades pasadas",
         "badge": "Backtest fechado",
-        "line": "{{years}} años mantenidos, índice en el mismo periodo: {{index}}",
+        "sub": "Los casos más llamativos de la señal, frente al S&P 500 en el mismo periodo.",
+        "multiple": "capital multiplicado",
+        "entry": "Entrada {{date}}",
+        "held": "{{years}} años en cartera",
         "legendLub": "Oportunidad Lubin",
         "legendIdx": "S&P 500 en el mismo periodo",
         "honest": "Lectura honesta: estos son los mejores casos del backtest, no la media. De las 310 oportunidades probadas, alrededor del 34 % superó al S&P 500, y el universo de prueba excluye a las empresas excluidas de cotización (sesgo de supervivencia).",
@@ -1299,37 +1303,16 @@
     },
     "testimonials": [
       {
-        "name": "Camille D.",
-        "role": "Ingeniera de software",
-        "perf": "+24 % / año",
-        "quote": "Antes perdía mis noches en los foros. Ahora la nota me dice en tres segundos si una acción se sostiene, y solo profundizo en las que lo merecen. Un tiempo enorme ganado."
-      },
-      {
-        "name": "Henri L.",
-        "role": "Jubilado joven",
-        "quote": "Separar la calidad de la empresa de su precio de entrada cambió mis rentabilidades, no solo mis decisiones. Ya no compro una buena acción en el peor momento."
-      },
-      {
-        "name": "Sofia M.",
-        "role": "Médica",
-        "perf": "+19 % / año",
-        "quote": "No tengo ni un minuto para revisar balances. La vigilancia escanea todo el mercado por mí, solo miro los 10/10 que suben. Y rinde."
-      },
-      {
-        "name": "Thomas R.",
-        "role": "Empresario",
-        "quote": "Lo que calculaba a mano durante horas ya está ahí, en cada acción. Decido más rápido y se me escapan muchas menos oportunidades."
-      },
-      {
         "name": "Adrien P.",
-        "role": "Inversor particular",
+        "role": "Jubilado joven",
         "perf": "+31 % / año",
         "quote": "Detecté tres compounders con el screener antes de que despegaran. Una verdadera ventaja, la primera vez que un método me la da."
       },
       {
-        "name": "Léa V.",
-        "role": "Consultora",
-        "quote": "Ahora decido sobre cifras claras, no sobre rumores o corazonadas. Por fin invierto con método, y sin dedicarle los fines de semana."
+        "name": "Sofia M.",
+        "role": "Empresaria",
+        "perf": "+19 % / año",
+        "quote": "No tengo ni un minuto para revisar balances. La vigilancia escanea todo el mercado por mí, solo miro los 10/10 que suben. Y rinde."
       }
     ]
   },

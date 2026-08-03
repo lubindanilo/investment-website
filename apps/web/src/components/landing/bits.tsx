@@ -86,6 +86,26 @@ export function DotScore({ note10, delayBase = 0 }: { note10: number | null; del
   );
 }
 
+/**
+ * Courbe miniature d'un cours (closes mensuels ~1 an). Vraies données du screener : si la
+ * série manque ou est plate, on ne dessine rien plutôt que d'inventer une tendance.
+ * La ligne se trace à l'entrée dans l'écran (dash animé), d'où l'impression de vie.
+ */
+export function Spark({ points, up = true, w = 64, h = 22 }: { points: number[] | null; up?: boolean; w?: number; h?: number }) {
+  if (!points || points.length < 3) return null;
+  const min = Math.min(...points), max = Math.max(...points);
+  if (!(max > min)) return null;
+  const step = w / (points.length - 1);
+  const d = points
+    .map((v, i) => `${i === 0 ? 'M' : 'L'}${(i * step).toFixed(1)} ${(h - 2 - ((v - min) / (max - min)) * (h - 4)).toFixed(1)}`)
+    .join(' ');
+  return (
+    <svg className="spark" width={w} height={h} viewBox={`0 0 ${w} ${h}`} aria-hidden="true">
+      <path d={d} fill="none" stroke={up ? 'var(--good)' : 'var(--bad)'} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 /** Chevron d'accordéon. */
 export function Chev({ size = 17 }: { size?: number }) {
   return (

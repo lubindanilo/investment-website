@@ -16,7 +16,7 @@ import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
 import { CompositionStrip, CriteriaList } from './HeroSection.js';
-import { Def, ScoreRing, Sk, useSectionIn, SplitTitle } from './bits.js';
+import { Def, ScoreRing, Sk, Spark, useSectionIn, SplitTitle } from './bits.js';
 import { fmtPrice, type LandingCriterion, type LandingStock } from './useLandingData.js';
 
 export function MechanismSection({ featured, criteria, pfcfPercentile, ready }: {
@@ -265,22 +265,32 @@ export function VeilleSection({ rows, ready }: { rows: LandingStock[]; ready: bo
           <div className="scanline" aria-hidden="true" />
         </div>
         <div className="screener-rows">
-          {!ready && Array.from({ length: 3 }).map((_, i) => (
+          {!ready && Array.from({ length: 5 }).map((_, i) => (
             <div key={`sk${i}`} className="srow" aria-hidden="true">
-              <Sk w={70} h={12} /><Sk w="60%" h={12} /><Sk w={40} h={12} />
-              <span className="hide-m"><Sk w={70} h={11} /></span><span className="hide-m" /><span />
+              <span className="srow-badge"><Sk w={26} h={11} /></span>
+              <span><Sk w="55%" h={12} /></span>
+              <span className="srow-pill sk-pill" />
+              <span className="hide-m"><Sk w={64} h={22} /></span>
+              <span className="hide-m"><Sk w={70} h={11} /></span>
+              <span />
             </div>
           ))}
-          {ready && rows.map(r => (
-            <Link key={r.ticker} to={`/analyse/${encodeURIComponent(r.ticker)}`} className="srow">
-              <span className="num" style={{ fontWeight: 700 }}>{r.ticker}</span>
-              <span className="srow-name">{r.name}</span>
-              <span className="num" style={{ fontWeight: 700, color: 'var(--brand-ink)' }}>{r.note10}/10</span>
-              <span className="num tiny hide-m">{r.pfcfTTM != null ? `P/FCF ${r.pfcfTTM.toFixed(1)}x` : ''}</span>
-              <span className="hide-m" style={{ justifySelf: 'end' }}>
-                {r.opportunity && <span className="badge badge-good">{t('landing.card.opportunity')}</span>}
+          {ready && rows.map((r, i) => (
+            <Link key={r.ticker} to={`/analyse/${encodeURIComponent(r.ticker)}`} className="srow" style={{ ['--i' as string]: i }}>
+              <span className="srow-badge" data-n={r.note10 ?? 0}>{r.ticker.split('.')[0]}</span>
+              <span className="srow-id">
+                <span className="srow-name">{r.name}</span>
+                <span className="tiny muted srow-sector">{r.sector ?? r.ticker}</span>
               </span>
-              <Icon name="arrowRight" size={15} />
+              <span className="srow-pill num" data-n={r.note10 ?? 0}>{r.note10}/10</span>
+              <span className="hide-m srow-spark"><Spark points={r.spark} up={(r.dayChangePct ?? 0) >= 0} /></span>
+              <span className="num tiny hide-m srow-pfcf" data-cheap={r.pfcfTTM != null && r.pfcfTTM < 15 ? '1' : '0'}>
+                {r.pfcfTTM != null ? `P/FCF ${r.pfcfTTM.toFixed(1)}x` : ''}
+              </span>
+              <span className="srow-go">
+                {r.opportunity && <span className="badge badge-good hide-m">{t('landing.card.opportunity')}</span>}
+                <Icon name="arrowRight" size={15} />
+              </span>
             </Link>
           ))}
         </div>

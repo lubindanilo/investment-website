@@ -39,6 +39,17 @@ type Step =
 
 const sleep = (ms: number) => new Promise<void>(r => setTimeout(r, ms));
 
+/** Pastille de l'assistant : une étoile à six branches, aux couleurs de Claude. */
+function AssistantMark() {
+  return (
+    <span className="cl-av" aria-hidden="true">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round">
+        <path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9" />
+      </svg>
+    </span>
+  );
+}
+
 /** URL du connecteur MCP à coller dans Claude, avec copie en un clic. */
 function CopyUrl() {
   const { t } = useTranslation();
@@ -282,10 +293,13 @@ export function ClaudeSection({ featured, peaRows, rows, ready }: { featured: La
                 }
                 if (it.kind === 'text') {
                   return (
-                    <p key={i} className="bub-a">
-                      {it.words.slice(0, it.shown).join(' ')}
-                      {it.shown < it.words.length && <span className="caret" />}
-                    </p>
+                    <div key={i} className="msg-a">
+                      <AssistantMark />
+                      <p className="bub-a">
+                        {it.words.slice(0, it.shown).join(' ')}
+                        {it.shown < it.words.length && <span className="caret" />}
+                      </p>
+                    </div>
                   );
                 }
                 return <div key={i} className="reply show">{renderCard(it.id)}</div>;

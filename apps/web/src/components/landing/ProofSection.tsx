@@ -19,12 +19,50 @@ function initials(name: string): string {
   return name.split(/\s+/).map(w => w[0] ?? '').join('').slice(0, 2).toUpperCase();
 }
 
-/** Barre comparée « titre vs indice » sur la même période (rendement total en %). */
-function PickBar({ ret, sp, max }: { ret: number; sp: number; max: number }) {
+/**
+ * Un cas du backtest, en carte : le multiple du capital en grand, puis les DEUX barres
+ * comparées (le titre / l'indice sur la même période) à la même échelle. C'est l'écart entre
+ * les deux barres qui porte l'information, pas le chiffre du titre seul.
+ */
+function PickCard({ p, max, i, locale, t }: {
+  p: (typeof PALMARES_PICKS)[number];
+  max: number;
+  i: number;
+  locale: string;
+  t: (k: string, o?: Record<string, unknown>) => string;
+}) {
+  const fmtPct = (v: number) => `+${Math.round(v).toLocaleString(locale)} %`;
+  const mult = (n: number) => (1 + n / 100).toLocaleString(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  const entry = new Date(`${p.entry}T00:00:00Z`).toLocaleDateString(locale, { month: 'short', year: 'numeric', timeZone: 'UTC' });
   return (
-    <div className="pick-bars" aria-hidden="true">
-      <span className="pick-bar lub" style={{ width: `${Math.max(4, (ret / max) * 100)}%` }} />
-      <span className="pick-bar idx" style={{ width: `${Math.max(2, (sp / max) * 100)}%` }} />
+    <div className="tcard" style={{ ['--i' as string]: i }}>
+      <div className="tcard-h">
+        <span className="tick-badge sm">{p.ticker}</span>
+        <div style={{ minWidth: 0 }}>
+          <div className="tcard-name">{p.name}</div>
+          <div className="tiny muted tcard-sector">{p.sector}</div>
+        </div>
+      </div>
+
+      <div className="tcard-x">
+        <b className="num">×{mult(p.ret)}</b>
+        <span className="tiny muted">{t('landing.proof.track.multiple')}</span>
+      </div>
+
+      <div className="tbars" aria-hidden="true">
+        <div className="tbar-row">
+          <span className="tbar lub"><i style={{ ['--w' as string]: `${Math.max(6, (p.ret / max) * 100)}%` }} /></span>
+          <b className="num">{fmtPct(p.ret)}</b>
+        </div>
+        <div className="tbar-row">
+          <span className="tbar idx"><i style={{ ['--w' as string]: `${Math.max(3, (p.sp / max) * 100)}%` }} /></span>
+          <b className="num muted">{fmtPct(p.sp)}</b>
+        </div>
+      </div>
+
+      <div className="tcard-f tiny muted">
+        {t('landing.proof.track.entry', { date: entry })} · {t('landing.proof.track.held', { years: p.years.toLocaleString(locale) })}
+      </div>
     </div>
   );
 }
@@ -33,11 +71,10 @@ export function ProofSection() {
   const { t } = useTranslation();
   const locale = currentLocale();
   const [ref, seen] = useSectionIn<HTMLElement>();
-  const picks = PALMARES_PICKS.slice(0, 3);
+  const picks = PALMARES_PICKS.slice(0, 4);
   const max = Math.max(...picks.map(p => p.ret));
   const testimonials = (t('social.testimonials', { returnObjects: true }) as Testimonial[]) ?? [];
   const list = Array.isArray(testimonials) ? testimonials : [];
-  const fmtPct = (v: number) => `+${v.toLocaleString(locale)} %`;
 
   return (
     <section ref={ref as React.RefObject<HTMLElement>} className={`sec proof ${seen ? 'in' : ''}`} id="preuve">
@@ -47,38 +84,31 @@ export function ProofSection() {
           <SplitTitle text={t('landing.proof.title')} className="rv" />
         </div>
 
-        <div className="proof-grid">
-          {/* Track record réel, issu du backtest daté */}
-          <div className="pcard rv" data-d="1">
-            <div className="row" style={{ justifyContent: 'space-between', gap: 10 }}>
+        {/* Track record réel, issu du backtest daté — pleine largeur, c'est LA preuve */}
+        <div className="track rv" data-d="1">
+          <div className="track-head">
+            <div>
               <h3>{t('landing.proof.track.title')}</h3>
+              <p className="tiny muted track-sub">{t('landing.proof.track.sub')}</p>
+            </div>
+            <div className="track-legend">
+              <span className="row tiny legend-i"><i className="sw lub" />{t('landing.proof.track.legendLub')}</span>
+              <span className="row tiny muted legend-i"><i className="sw idx" />{t('landing.proof.track.legendIdx')}</span>
               <span className="badge badge-brand">{t('landing.proof.track.badge')}</span>
             </div>
-            <div className="picks">
-              {picks.map(p => (
-                <div key={p.ticker} className="pick">
-                  <div className="row" style={{ justifyContent: 'space-between' }}>
-                    <span className="pick-name"><b className="num">{p.ticker}</b> {p.name}</span>
-                    <span className="num pick-ret">{fmtPct(p.ret)}</span>
-                  </div>
-                  <PickBar ret={p.ret} sp={p.sp} max={max} />
-                  <div className="tiny muted">
-                    {t('landing.proof.track.line', {
-                      years: p.years.toLocaleString(locale),
-                      index: fmtPct(p.sp),
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="row legend">
-              <span className="row tiny legend-i"><i style={{ background: 'var(--brand)' }} />{t('landing.proof.track.legendLub')}</span>
-              <span className="row tiny muted legend-i"><i style={{ background: 'var(--ink-4)' }} />{t('landing.proof.track.legendIdx')}</span>
-            </div>
+          </div>
+
+          <div className="track-grid">
+            {picks.map((p, i) => <PickCard key={p.ticker} p={p} max={max} i={i} locale={locale} t={t} />)}
+          </div>
+
+          <div className="track-foot">
             <p className="tiny muted honest">{t('landing.proof.track.honest')}</p>
             <Link to="/palmares" className="proof-link">{t('landing.proof.track.cta')} →</Link>
           </div>
+        </div>
 
+        <div className="proof-grid two">
           {/* Méthodologie dépliée */}
           <div className="pcard rv" data-d="2">
             <h3>{t('landing.proof.method.title')}</h3>
@@ -96,11 +126,11 @@ export function ProofSection() {
             <Link to="/methodologie" className="proof-link">{t('landing.proof.method.cta')} →</Link>
           </div>
 
-          {/* Avis clients (les 2 premiers, le reste en carrousel plus bas) */}
+          {/* Avis clients : deux, réels, avec leur performance annualisée déclarée. */}
           <div className="pcard rv" data-d="3">
             <h3>{t('landing.proof.testis.title')}</h3>
             <div className="col" style={{ gap: 12 }}>
-              {list.slice(0, 2).map((tt, i) => (
+              {list.map((tt, i) => (
                 <div key={i} className="testi flat">
                   <div className="row" style={{ justifyContent: 'space-between' }}>
                     <Stars />
@@ -118,25 +148,6 @@ export function ProofSection() {
               ))}
             </div>
           </div>
-        </div>
-
-        <div className="testi-grid">
-          {list.slice(2, 5).map((tt, i) => (
-            <div key={i} className="testi">
-              <div className="row" style={{ justifyContent: 'space-between' }}>
-                <Stars />
-                {tt.perf && <span className="num badge badge-good">{tt.perf}</span>}
-              </div>
-              <p>« {tt.quote} »</p>
-              <div className="row" style={{ gap: 10, marginTop: 'auto' }}>
-                <span className="av">{initials(tt.name)}</span>
-                <div>
-                  <div className="testi-name">{tt.name}</div>
-                  <div className="tiny muted">{tt.role}</div>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
 
         <p className="tiny muted" style={{ marginTop: 18 }}>{t('social.trust.disclaimer')}</p>

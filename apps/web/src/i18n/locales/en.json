@@ -348,7 +348,8 @@
     },
     "def": {
       "ticker": "Ticker: the short code of a listed stock, for example AAPL for Apple or MC.PA for LVMH in Paris.",
-      "pfcf": "P/FCF: share price divided by free cash flow per share. The lower it is, the less you pay for the cash generated."
+      "pfcf": "P/FCF: share price divided by free cash flow per share. The lower it is, the less you pay for the cash generated.",
+      "resilience": "Resilience: how well the company can get through a crisis without breaking (debt, margin of safety, exposure to cycles). Graded A to E."
     },
     "card": {
       "passCount": "{{count}} criteria in the green out of 10, computed on published figures.",
@@ -453,7 +454,10 @@
       "track": {
         "title": "Past opportunities",
         "badge": "Dated backtest",
-        "line": "{{years}} years held, index over the same period: {{index}}",
+        "sub": "The signal's most striking cases, against the S&P 500 over the same period.",
+        "multiple": "capital multiplied",
+        "entry": "Entry {{date}}",
+        "held": "{{years}} yrs held",
         "legendLub": "Lubin opportunity",
         "legendIdx": "S&P 500 over the same period",
         "honest": "Honest reading: these are the best cases of the backtest, not the average. Across the 310 opportunities tested, about 34 % beat the S&P 500, and the test universe excludes delisted companies (survivorship bias).",
@@ -1299,37 +1303,16 @@
     },
     "testimonials": [
       {
-        "name": "Camille D.",
-        "role": "Software engineer",
-        "perf": "+24% / yr",
-        "quote": "I used to waste my evenings on forums. Now the score tells me in three seconds whether a stock holds up, and I only dig into the ones that deserve it. A huge time-saver."
-      },
-      {
-        "name": "Henri L.",
-        "role": "Early retiree",
-        "quote": "Separating a company's quality from its entry price changed my returns, not just my decisions. I no longer buy a good stock at the wrong time."
-      },
-      {
-        "name": "Sofia M.",
-        "role": "Physician",
-        "perf": "+19% / yr",
-        "quote": "I don't have a minute to pore over financial statements. The monitor scans the whole market for me, I only look at the 10/10s that surface. And it performs."
-      },
-      {
-        "name": "Thomas R.",
-        "role": "Business owner",
-        "quote": "What I used to compute by hand for hours is already there, on every stock. I decide faster and miss far fewer opportunities."
-      },
-      {
         "name": "Adrien P.",
-        "role": "Retail investor",
+        "role": "Early retiree",
         "perf": "+31% / yr",
         "quote": "I spotted three compounders through the screener before they took off. A real head start, the first time a method has given me one."
       },
       {
-        "name": "Léa V.",
-        "role": "Consultant",
-        "quote": "I decide on clear numbers now, not tips or gut feelings. I finally invest with method, and without giving up my weekends."
+        "name": "Sofia M.",
+        "role": "Business owner",
+        "perf": "+19% / yr",
+        "quote": "I don't have a minute to pore over financial statements. The monitor scans the whole market for me, I only look at the 10/10s that surface. And it performs."
       }
     ]
   },

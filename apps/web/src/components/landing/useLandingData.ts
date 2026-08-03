@@ -20,13 +20,18 @@ export interface LandingStock {
   price: number | null;
   currency: string | null;
   opportunity: boolean;
+  /** Capitalisation : sert à préférer les noms que le grand public reconnaît. */
+  marketCap: number | null;
+  dayChangePct: number | null;
+  /** Closes mensuels (~1 an) : la courbe miniature de la ligne de veille. */
+  spark: number[] | null;
 }
 
 /** Repli affiché tant que l'API n'a pas répondu (et si elle échoue). */
 const FALLBACK: LandingStock[] = [
-  { ticker: 'ASML.AS', name: 'ASML Holding', sector: 'Semiconductor Equipment', note10: 10, pfcfTTM: 19.2, price: null, currency: 'EUR', opportunity: true },
-  { ticker: 'ADBE', name: 'Adobe Inc.', sector: 'Software', note10: 9, pfcfTTM: 17.4, price: null, currency: 'USD', opportunity: true },
-  { ticker: 'RMS.PA', name: 'Hermès International', sector: 'Luxury Goods', note10: 10, pfcfTTM: 41.6, price: null, currency: 'EUR', opportunity: false },
+  { ticker: 'ASML.AS', name: 'ASML Holding', sector: 'Semiconductor Equipment', note10: 10, pfcfTTM: 19.2, price: null, currency: 'EUR', opportunity: true, marketCap: null, dayChangePct: null, spark: null },
+  { ticker: 'ADBE', name: 'Adobe Inc.', sector: 'Software', note10: 9, pfcfTTM: 17.4, price: null, currency: 'USD', opportunity: true, marketCap: null, dayChangePct: null, spark: null },
+  { ticker: 'RMS.PA', name: 'Hermès International', sector: 'Luxury Goods', note10: 10, pfcfTTM: 41.6, price: null, currency: 'EUR', opportunity: false, marketCap: null, dayChangePct: null, spark: null },
 ];
 
 function toStock(r: ScreenerTopRow): LandingStock {
@@ -40,18 +45,33 @@ function toStock(r: ScreenerTopRow): LandingStock {
     price: r.price,
     currency: r.currency,
     opportunity: r.opportunity,
+    marketCap: r.marketCap,
+    dayChangePct: r.dayChangePct,
+    spark: r.spark,
   };
 }
 
 /** Repli de la requête PEA illustrée dans la conversation Claude. */
 const FALLBACK_PEA: LandingStock[] = [
-  { ticker: 'SAP.DE', name: 'SAP SE', sector: 'Software', note10: 9, pfcfTTM: 14.1, price: null, currency: 'EUR', opportunity: false },
-  { ticker: 'MC.PA', name: 'LVMH', sector: 'Luxury Goods', note10: 8, pfcfTTM: 12.8, price: null, currency: 'EUR', opportunity: false },
-  { ticker: 'KER.PA', name: 'Kering', sector: 'Luxury Goods', note10: 8, pfcfTTM: 11.2, price: null, currency: 'EUR', opportunity: false },
+  { ticker: 'SAP.DE', name: 'SAP SE', sector: 'Software', note10: 9, pfcfTTM: 14.1, price: null, currency: 'EUR', opportunity: false, marketCap: null, dayChangePct: null, spark: null },
+  { ticker: 'MC.PA', name: 'LVMH', sector: 'Luxury Goods', note10: 8, pfcfTTM: 12.8, price: null, currency: 'EUR', opportunity: false, marketCap: null, dayChangePct: null, spark: null },
+  { ticker: 'KER.PA', name: 'Kering', sector: 'Luxury Goods', note10: 8, pfcfTTM: 11.2, price: null, currency: 'EUR', opportunity: false, marketCap: null, dayChangePct: null, spark: null },
 ];
 
 /** Filtres de la requête PEA, montrés en chips ET réellement envoyés à l'API. */
 export const PEA_QUERY = { zones: 'pea', minMax: 8, maxPfcf: 15, limit: 4 } as const;
+
+/**
+ * Lignes de la veille : les opportunités du moment parmi les GRANDES capitalisations.
+ * Le classement par score fait remonter des sociétés que personne ne connaît (Paylocity,
+ * Pinnacle Financial…), et une vitrine n'a d'effet que si le visiteur reconnaît les noms.
+ * On demande donc large cap, puis on trie par capitalisation et on garde les 5 premières.
+ */
+const MONITOR_QUERY = { opportunities: true, minMax: 8, caps: 'large', limit: 24 } as const;
+const MONITOR_COUNT = 5;
+
+/** Repli si la restriction « grandes capitalisations » ne remonte pas assez de titres. */
+const MONITOR_FALLBACK_QUERY = { opportunities: true, minMax: 8, limit: 8 } as const;
 
 /** Critère affiché dans la fiche du hero (même vue que /analyser). */
 export interface LandingCriterion { name: string; value: string; status: 'pass' | 'warn' | 'fail' }
@@ -95,19 +115,31 @@ export function useLandingData(): LandingData {
     let cancelled = false;
     Promise.allSettled([
       api.screener.showcase(),
-      api.screener.top({ opportunities: true, minMax: 8, limit: 3 }),
+      api.screener.top(MONITOR_QUERY),
       api.screener.top(PEA_QUERY),
-    ]).then(([show, top, pea]) => {
+    ]).then(async ([show, top, pea]) => {
       if (cancelled) return;
       if (show.status === 'fulfilled') setShowcase(show.value);
-      if (top.status === 'fulfilled') {
-        const mapped = top.value.map(toStock).filter(s => s.note10 != null);
-        if (mapped.length) setRows(mapped);
-      }
       if (pea.status === 'fulfilled') {
         const mapped = pea.value.map(toStock).filter(s => s.note10 != null);
         if (mapped.length) setPeaRows(mapped);
       }
+
+      let monitor = top.status === 'fulfilled'
+        ? top.value.map(toStock).filter(s => s.note10 != null)
+        : [];
+      // Trop peu de grandes capitalisations en opportunité : on reprend le classement complet
+      // plutôt que d'afficher une seule ligne.
+      if (monitor.length < 4) {
+        const wide = await api.screener.top(MONITOR_FALLBACK_QUERY).catch(() => []);
+        if (cancelled) return;
+        if (wide.length) monitor = wide.map(toStock).filter(s => s.note10 != null);
+      }
+      monitor = monitor
+        .slice()
+        .sort((a, b) => (b.marketCap ?? 0) - (a.marketCap ?? 0))
+        .slice(0, MONITOR_COUNT);
+      if (monitor.length) setRows(monitor);
       setLoading(false);
     });
     return () => { cancelled = true; };
@@ -129,6 +161,11 @@ export function useLandingData(): LandingData {
       price: showcase.price,
       currency: showcase.currency,
       opportunity: showcase.opportunity,
+      // La vitrine ne sert ni la capitalisation ni la courbe : ces champs n'alimentent que
+      // les lignes de la veille, pas la fiche du hero.
+      marketCap: null,
+      dayChangePct: null,
+      spark: null,
     };
   }, [showcase, rows]);
 

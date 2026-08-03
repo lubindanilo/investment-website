@@ -196,6 +196,31 @@ export function CriteriaList({ criteria, compact = false }: { criteria: LandingC
   );
 }
 
+/**
+ * Second score de la fiche : la résilience, sous la qualité.
+ *
+ * Elle n'est calculée que pour les titres dont l'analyse est publiée. Quand elle manque, on
+ * garde la ligne (le gabarit ne saute pas) mais on le DIT, plutôt que d'afficher un vide.
+ */
+function ResilienceRow({ resilience }: { resilience: { grade: string; score: number } | null }) {
+  const { t } = useTranslation();
+  const grade = resilience?.grade ?? null;
+  return (
+    <div className={`acard-res${resilience ? '' : ' none'}`}>
+      <span className="res-grade" data-g={grade ?? '-'}>{grade ?? '—'}</span>
+      <div className="res-body">
+        <div className="res-top">
+          <span className="kicker res-k"><Def def={t('landing.def.resilience')}>{t('landing.card.resilience')}</Def></span>
+          <b className="num res-score">{resilience ? `${resilience.score}/100` : t('landing.card.resilienceNone')}</b>
+        </div>
+        <div className="res-bar" aria-hidden="true">
+          <i style={{ width: `${resilience?.score ?? 0}%` }} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function HeroSection({ featured, criteria, resilience, ready }: {
   featured: LandingStock;
   criteria: LandingCriterion[];
@@ -257,6 +282,10 @@ export function HeroSection({ featured, criteria, resilience, ready }: {
               </div>
             </div>
 
+            {/* La résilience se lit JUSTE SOUS la qualité : deux notes, deux questions
+                différentes (est-elle bonne / tient-elle le choc), dans cet ordre. */}
+            <ResilienceRow resilience={resilience} />
+
             <CriteriaList criteria={criteria} />
 
             <div className="acard-foot-grid">
@@ -272,18 +301,10 @@ export function HeroSection({ featured, criteria, resilience, ready }: {
                   <b className="num">{price}</b>
                 </div>
               )}
-              {/* Résilience : affichée seulement si une analyse est publiée pour ce titre. */}
-              {resilience ? (
-                <div className="mini">
-                  <span className="tiny muted">{t('landing.card.resilience')}</span>
-                  <b className="num">{resilience.grade} · {resilience.score}/100</b>
-                </div>
-              ) : (
-                <div className="mini">
-                  <span className="tiny muted">{t('landing.card.note')}</span>
-                  <b className="num" style={{ color: 'var(--brand-ink)' }}>{featured.note10 ?? '—'}/10</b>
-                </div>
-              )}
+              <div className="mini">
+                <span className="tiny muted">{t('landing.card.note')}</span>
+                <b className="num" style={{ color: 'var(--brand-ink)' }}>{featured.note10 ?? '—'}/10</b>
+              </div>
             </div>
           </div>
           )}
@@ -304,6 +325,10 @@ function SkeletonCard() {
       <div className="acard-score">
         <div className="ring-wrap sk-ring" style={{ width: 96, height: 96 }} />
         <div style={{ flex: 1, display: 'grid', gap: 8 }}><Sk w="70%" h={11} /><Sk w="100%" h={8} /></div>
+      </div>
+      <div className="acard-res">
+        <span className="res-grade" data-g="-"><Sk w={14} h={14} /></span>
+        <div className="res-body" style={{ display: 'grid', gap: 8 }}><Sk w="52%" h={10} /><Sk w="100%" h={6} /></div>
       </div>
       <div className="crits">
         {Array.from({ length: 10 }).map((_, i) => (
