@@ -96,6 +96,11 @@ async function shrink(buf, ext) {
       .toBuffer();
     return out.length < buf.length ? { buf: out, ext: 'png' } : { buf, ext };
   } catch {
+    // sharp ne lit pas les .ico à entrées BMP : on se rabat sur l'allègement du conteneur.
+    if (ext === 'ico') {
+      const slim = slimIco(buf);
+      if (slim) return { buf: slim, ext: 'ico' };
+    }
     return { buf, ext };
   }
 }
@@ -236,6 +241,48 @@ const MAX_BYTES = 24 * 1024;
  *
  * Format : en-tête 6 o, puis N entrées de 16 o {largeur, hauteur, …, taille(4), offset(4)}.
  */
+/**
+ * Entrées d'un conteneur .ico : {largeur, blob, png}. Format : en-tête 6 o, puis N entrées de 16 o.
+ */
+function icoEntries(buf) {
+  if (buf.length < 6 || buf.readUInt16LE(0) !== 0 || buf.readUInt16LE(2) !== 1) return [];
+  const out = [];
+  for (let i = 0; i < buf.readUInt16LE(4); i++) {
+    const off = 6 + i * 16;
+    if (off + 16 > buf.length) break;
+    const width = buf[off] === 0 ? 256 : buf[off];       // 0 code une image de 256 px
+    const size = buf.readUInt32LE(off + 8);
+    const start = buf.readUInt32LE(off + 12);
+    if (size <= 0 || start + size > buf.length) continue;
+    const blob = buf.subarray(start, start + size);
+    const png = blob[0] === 0x89 && blob[1] === 0x50 && blob[2] === 0x4e && blob[3] === 0x47;
+    out.push({ width, blob, png });
+  }
+  return out;
+}
+
+/**
+ * Un .ico dont AUCUNE entrée n'est en PNG reste illisible par sharp (images en BMP brut). Plutôt
+ * que de le stocker entier avec toutes ses résolutions (jusqu'à 44 Ko pour une pastille de 34 px),
+ * on le RECONSTRUIT autour d'une seule entrée. Aucun pixel n'est décodé : on recopie l'entrée
+ * retenue et on réécrit l'en-tête.
+ */
+function slimIco(buf) {
+  const entries = icoEntries(buf).filter(e => e.width <= 128);
+  if (entries.length < 2) return null;   // rien à gagner s'il n'y a qu'une image
+  const best = entries.reduce((a, b) => (b.width > a.width ? b : a));
+  const header = Buffer.alloc(22);
+  header.writeUInt16LE(0, 0); header.writeUInt16LE(1, 2); header.writeUInt16LE(1, 4);
+  header[6] = best.width >= 256 ? 0 : best.width;        // largeur
+  header[7] = header[6];                                 // hauteur (icônes carrées)
+  header.writeUInt16LE(1, 10);                           // plans
+  header.writeUInt16LE(32, 12);                          // bits par pixel
+  header.writeUInt32LE(best.blob.length, 14);
+  header.writeUInt32LE(header.length, 18);               // offset = juste après l'en-tête
+  const out = Buffer.concat([header, best.blob]);
+  return out.length < buf.length ? out : null;
+}
+
 function pngFromIco(buf) {
   if (buf.length < 6 || buf.readUInt16LE(0) !== 0 || buf.readUInt16LE(2) !== 1) return null;
   const count = buf.readUInt16LE(4);
