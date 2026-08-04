@@ -62,7 +62,11 @@ jobs:
       DIRECT_URL: ${{ secrets.DATABASE_URL }}
       FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
       NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+      # Les deux sont optionnelles : le script decouvre le projet seul, y compris sur un compte
+      # ORGANISATION (ou `GET /projects` exige un org_id). Elles ne servent qu'a court-circuiter la
+      # decouverte si la cle voit plusieurs projets ou plusieurs organisations.
       NEON_PROJECT_ID: ${{ vars.NEON_PROJECT_ID }}
+      NEON_ORG_ID: ${{ vars.NEON_ORG_ID }}
       # Budget : 100 CU-h du plan Free, on ne vise que 80 % (marge), et le drain ne prend que la
       # moitie du solde quotidien — l'autre moitie finance le trafic du site et le cron earnings.
       NEON_MONTHLY_CU_H: ${{ vars.NEON_MONTHLY_CU_H || '100' }}

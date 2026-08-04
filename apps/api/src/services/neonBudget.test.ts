@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseNeonUsage, computeDrainBudget, budgetToMinutes, calendarPeriod, NEON_MIN_CU } from './neonBudget.js';
+import { parseNeonUsage, computeDrainBudget, budgetToMinutes, calendarPeriod, resolveNeonProjectId, NEON_MIN_CU, type NeonGetter } from './neonBudget.js';
 
 const NOW = new Date('2026-08-04T01:00:00Z');
 
@@ -36,6 +36,79 @@ describe('parseNeonUsage', () => {
     const u = parseNeonUsage({ id: 'p' }, NOW);
     expect(u.cuHours).toBe(0);
     expect(u.activeHours).toBe(0);
+  });
+});
+
+describe('resolveNeonProjectId', () => {
+  /** Faux getter : renvoie la réponse mappée au chemin, ou lève l'erreur associée. */
+  const fake = (routes: Record<string, unknown>, calls: string[] = []): NeonGetter =>
+    (async <T>(path: string): Promise<T> => {
+      calls.push(path);
+      const r = routes[path];
+      if (r === undefined) throw new Error(`Neon API ${path} → HTTP 404 not mapped`);
+      if (r instanceof Error) throw r;
+      return r as T;
+    }) as NeonGetter;
+
+  it('un projectId explicite court-circuite tout appel réseau', async () => {
+    const calls: string[] = [];
+    const id = await resolveNeonProjectId({ apiKey: 'k', projectId: 'proj-fixe', get: fake({}, calls) });
+    expect(id).toBe('proj-fixe');
+    expect(calls).toEqual([]);
+  });
+
+  it('compte simple : prend le projet unique de /projects', async () => {
+    const id = await resolveNeonProjectId({ apiKey: 'k', get: fake({ '/projects': { projects: [{ id: 'solo' }] } }) });
+    expect(id).toBe('solo');
+  });
+
+  it('compte organisation : enchaîne sur les orgs quand /projects répond 400 org_id is required', async () => {
+    const calls: string[] = [];
+    const id = await resolveNeonProjectId({
+      apiKey: 'k',
+      get: fake({
+        '/projects': new Error('Neon API /projects → HTTP 400 {"message":"org_id is required, you can find it on your organization settings page"}'),
+        '/users/me/organizations': { organizations: [{ id: 'org-abc' }] },
+        '/projects?org_id=org-abc': { projects: [{ id: 'proj-de-l-org' }] },
+      }, calls),
+    });
+    expect(id).toBe('proj-de-l-org');
+    expect(calls).toEqual(['/projects', '/users/me/organizations', '/projects?org_id=org-abc']);
+  });
+
+  it('orgId fourni : pas de découverte des organisations', async () => {
+    const calls: string[] = [];
+    const id = await resolveNeonProjectId({
+      apiKey: 'k',
+      orgId: 'org-xyz',
+      get: fake({
+        '/projects': { projects: [] },
+        '/projects?org_id=org-xyz': { projects: [{ id: 'p1' }] },
+      }, calls),
+    });
+    expect(id).toBe('p1');
+    expect(calls).not.toContain('/users/me/organizations');
+  });
+
+  it('plusieurs projets : refuse de deviner et liste les identifiants', async () => {
+    await expect(resolveNeonProjectId({
+      apiKey: 'k',
+      get: fake({ '/projects': { projects: [{ id: 'a' }, { id: 'b' }] } }),
+    })).rejects.toThrow(/2 projets Neon.*a, b/);
+  });
+
+  it('aucune organisation : message qui dit quoi renseigner', async () => {
+    await expect(resolveNeonProjectId({
+      apiKey: 'k',
+      get: fake({ '/projects': { projects: [] }, '/users/me/organizations': { organizations: [] } }),
+    })).rejects.toThrow(/NEON_PROJECT_ID/);
+  });
+
+  it('une autre erreur HTTP n est pas confondue avec le cas organisation', async () => {
+    await expect(resolveNeonProjectId({
+      apiKey: 'k',
+      get: fake({ '/projects': new Error('Neon API /projects → HTTP 401 credentials do not pass authentication') }),
+    })).rejects.toThrow(/401/);
   });
 });
 
