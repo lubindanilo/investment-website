@@ -35,7 +35,7 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": "(?i).*(googlebot|bingbot|google-inspectiontool|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|chatgpt-user|gptbot|claudebot|perplexitybot|google-extended).*"
+          "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*"
         }
       ],
       "destination": "/api/[...all]"
@@ -46,7 +46,7 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": "(?i).*(googlebot|bingbot|google-inspectiontool|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|chatgpt-user|gptbot|claudebot|perplexitybot|google-extended).*"
+          "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*"
         }
       ],
       "destination": "/api/[...all]"
@@ -57,7 +57,7 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": "(?i).*(googlebot|bingbot|google-inspectiontool|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|chatgpt-user|gptbot|claudebot|perplexitybot|google-extended).*"
+          "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*"
         }
       ],
       "destination": "/api/[...all]"
@@ -68,7 +68,7 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": "(?i).*(googlebot|bingbot|google-inspectiontool|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|chatgpt-user|gptbot|claudebot|perplexitybot|google-extended).*"
+          "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*"
         }
       ],
       "destination": "/api/[...all]"
@@ -79,19 +79,19 @@
         {
           "type": "header",
           "key": "user-agent",
-          "value": "(?i).*(googlebot|bingbot|google-inspectiontool|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|chatgpt-user|gptbot|claudebot|perplexitybot|google-extended).*"
+          "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*"
         }
       ],
       "destination": "/api/[...all]"
     },
     {
       "source": "/",
-      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(googlebot|bingbot|google-inspectiontool|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|chatgpt-user|gptbot|claudebot|perplexitybot|google-extended).*" }],
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*" }],
       "destination": "/api/[...all]"
     },
     {
       "source": "/(screener|methodologie|palmares|faq|blog|pricing|analyser|compare|mentions-legales|cgu|cgv|confidentialite)",
-      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(googlebot|bingbot|google-inspectiontool|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|chatgpt-user|gptbot|claudebot|perplexitybot|google-extended).*" }],
+      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*" }],
       "destination": "/api/[...all]"
     },
     { "source": "/(.*)", "destination": "/index.html" }

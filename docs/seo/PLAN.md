@@ -194,6 +194,11 @@ attendu sur effort. Total : environ deux jours de développement.
 
 **Fichier :** `vercel.json`, bloc `rewrites`.
 **Temps :** 30 minutes pour la version minimale, une demi-journée pour la bonne version.
+**État : version minimale FAITE le 4 août 2026.** Les 7 regex portent désormais 55 jetons au lieu
+de 27, et `apps/api/src/routes/seoBotRewrites.test.ts` verrouille le résultat : 21 robots doivent
+correspondre, 3 navigateurs humains ne doivent pas, et les 7 règles doivent porter le **même**
+motif (le vrai risque de régression étant d'en mettre une à jour et d'oublier les six autres). La
+bonne version, inverser la logique, reste à faire.
 
 La version minimale, à faire aujourd'hui : ajouter les jetons manquants à la regex des sept règles
 de réécriture.
@@ -225,6 +230,10 @@ exactement le type de panne silencieuse que personne ne voit passer.
 **Fichier :** `apps/api/src/routes/seoPrerender.ts`, entrée `/screener` de `STATIC_SEO` plus un
 nouveau bloc de rendu sur le modèle de `renderArticleListBlock`.
 **Temps :** 2 heures.
+**État : FAIT le 4 août 2026.** `renderScreenerHubBlock` : la page passe de 3 208 à 36 383 octets,
+de 8 à 293 liens, dont les **181 hubs secteur** et les **100 meilleures fiches**. Dégrade en bloc
+vide si la base ne répond pas, donc la page part toujours en 200. Cache CDN ramené de 24 h à 1 h
+sur cette page, puisque son contenu bouge au fil des re-scorings.
 
 Le pré-rendu de `/screener` doit contenir :
 
@@ -238,14 +247,28 @@ pages qui rapportent doivent être à deux ou trois clics de l'accueil, au-delà
 d'être alimentées par des liens (ch. 5). Un cas rapporte 6 fois plus d'impressions en 24 heures
 après correction des pages orphelines.
 
-Attention à ne pas surcharger : ne pas dépasser une centaine de liens sur cette page, et garder le
-menu principal court. Lier plus de 500 pages depuis la navigation divise l'autorité, et réduire un
-menu aux seules pages qui convertissent a augmenté leur classement (ch. 5).
+Attention à ne pas surcharger : garder le menu principal court. Lier plus de 500 pages depuis la
+navigation divise l'autorité, et réduire un menu aux seules pages qui convertissent a augmenté leur
+classement (ch. 5).
+
+**Écart assumé par rapport à la première version de ce plan**, qui prescrivait une centaine de
+liens au maximum sur cette page. L'implémentation en porte 293 (181 hubs plus 100 fiches plus la
+navigation). Raison : le seuil mesuré du corpus porte sur la navigation à l'échelle du site, à plus
+de 500 pages, pas sur une page d'index, et le précédent local est concluant. La page `/blog` porte
+355 liens depuis juin, et c'est précisément ce qui a corrigé les 50 % d'URL inconnues de Google
+constatés à l'audit du 23 juin. Les 181 hubs sont non négociables, ils étaient orphelins et chacun
+relie 60 fiches, ce qui couvre tout le catalogue. Les 100 fiches en tête sont le complément qui
+transmet de l'autorité aux meilleures notes depuis une page à deux clics de l'accueil.
 
 ### Q3. Faire de `/compare` le hub des 19 pages de comparaison
 
 **Fichier :** même fichier, entrée `/compare` de `STATIC_SEO`.
 **Temps :** 30 minutes.
+**État : FAIT le 4 août 2026.** `renderComparePairsBlock` : 19 liens, ancres construites avec le
+**nom réel des sociétés** lu en base et non le ticker (« Microsoft ou Alphabet : laquelle acheter »),
+parce qu'un décalage entre l'ancre et la page d'arrivée entraîne une rétrogradation mesurée. Repli
+sur le ticker si la base ne répond pas : dégradé, mais le lien existe, et c'est le lien qui porte
+l'indexation.
 
 Lister les 19 paires avec l'ancre « <Société A> ou <Société B> : laquelle acheter ». C'est le seul
 motif programmatique validé par un test du livre, 15 à 20 pages de comparaison en première page en
@@ -254,8 +277,17 @@ concernées. Ces pages captent aussi le trafic de marque des concurrents (ch. 2)
 
 ### Q4. Compléter le maillage de l'accueil et du pied de page
 
-**Fichiers :** `renderStaticHtml` et `renderTickerHtml` dans `seoPrerender.ts`.
+**Fichiers :** `renderStaticHtml`, `renderHubHtml` et `renderTickerHtml` dans `seoPrerender.ts`.
 **Temps :** 1 heure.
+**État : FAIT le 4 août 2026.** `renderFooterNav` émet le pied de page sur les trois familles de
+pages pré-rendues, dans les trois langues, avec le suffixe `?lng=` propagé.
+
+Un raffinement s'est imposé à l'écriture : **la règle du premier lien**. Google ne compte que le
+premier lien d'une page vers une URL donnée, donc répéter dans le pied de page une cible déjà
+présente dans le header ou le corps ne transmet rien et ne fait que gonfler le nombre de liens. Le
+code du site portait déjà cette précaution dans son bloc « Ressources » des fiches ticker. Chaque
+appelant passe donc la liste de ce qu'il relie déjà et seul le complément est émis : 4 liens sur une
+fiche ticker, 7 sur un hub secteur, 6 sur un classement (qui s'exclut lui-même), 4 sur l'accueil.
 
 Ajouter au pied de page pré-rendu, sur **toutes** les pages : `/screener`, `/compare`,
 `/classement/*`, `/palmares`, `/pricing`, `/faq`, `/methodologie`, `/blog`.
