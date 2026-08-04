@@ -303,6 +303,11 @@ que les termes métier) et que la FAQ est le correctif anti-hallucination.
 **Fichiers :** `HUB_COPY` et `renderTickerHtml` pour les titres de fiche, plus la règle éditoriale
 du playbook de l'agent.
 **Temps :** 2 heures de décision, puis appliqué à la génération.
+**État : FAIT le 4 août 2026.** La règle n'est pas seulement documentée, elle est **exécutoire** :
+`scripts/check-article-titles.mjs` (check requis `title-jargon`) refuse désormais tout titre
+d'article qui reprend le gabarit des fiches, dans les trois langues, avec un message qui donne
+l'angle de remplacement. Le check reste en diff-only, donc les 348 articles existants ne sont pas
+re-jugés et la CI ne casse pas rétroactivement.
 
 Règle proposée, à graver :
 
@@ -326,6 +331,9 @@ rapport se lit en dix minutes et c'est le geste qui a rapporté 400 % à GitHub.
 
 **Fichier :** `renderHubHtml` dans `seoPrerender.ts`.
 **Temps :** 15 minutes.
+**État : FAIT le 4 août 2026.** Les 183 hubs n'émettent plus de `<meta name="description">`. Le
+texte reste servi à Open Graph, où les réseaux sociaux le reprennent réellement tel quel : c'est
+un autre usage, et c'est la même distinction que les fiches ticker appliquent déjà.
 
 Les descriptions générées automatiquement par un gabarit sont mesurées comme **moins bonnes que pas
 de description du tout** (ch. 4, claim `test`). Les fiches ticker n'en émettent déjà pas, c'est
@@ -336,6 +344,16 @@ tarifs, FAQ, méthodologie, screener, palmarès, et les deux classements existan
 
 **Fichier :** `renderTickerHtml`.
 **Temps :** 1 heure, plus une repasse du garde-fou CI.
+**État : FAIT le 4 août 2026.** Le titre long des 5 000 fiches passe de « note de qualité 8/10,
+valorisation P/FCF 51.1× » à « qualité élevée sur 10 critères, valorisation face à son
+historique ». Le label de qualité reste calculé par fiche, donc le titre garde sa différenciation
+sans le chiffre brut. Le mot « gratuite » est ajouté. Longueur obtenue : 220 à 224 caractères,
+dans la fourchette mesurée, l'essentiel dans les 12 premiers mots.
+
+⚠️ **Conséquence sur l'A/B en cours.** Le code sert le titre long à la moitié des tickers
+(`useLongTitle`, bucket déterministe) pour comparer en Search Console. Le bras « long » a changé
+le 4 août : les données d'avant et d'après ne forment pas une seule série. Le test était de toute
+façon illisible, 220 impressions sur 28 jours et 5 requêtes.
 
 Le titre actuel de MSFT contient « note de qualité 8/10 » et « valorisation P/FCF 51.1× ». Le
 garde-fou `title-lint.yml` interdit déjà ce jargon sur les articles ; il faut l'étendre au
@@ -351,6 +369,21 @@ recherches (ch. 4). L'analyse est gratuite, le titre ne le dit pas.
 
 **Fichier :** `renderHubHtml`.
 **Temps :** 1 heure.
+**État : FAIT le 4 août 2026.** Chaque hub porte un résumé en gras avant le tableau, calculé
+depuis ses propres lignes sans requête supplémentaire, et un lien sortant pertinent (données
+sectorielles de Damodaran pour les hubs secteur, ressources de la SEC pour les classements).
+
+Exemple obtenu sur `/secteur/software-infrastructure` : « Sur les 60 actions listées ici, 4
+obtiennent la note de qualité maximale. La valorisation médiane du groupe ressort à 20,1 fois son
+free cash flow. Parmi celles qui ont la note maximale, la moins chère est GoDaddy (GDDY), à 8,4
+fois son free cash flow. »
+
+Deux détails qui ont demandé une décision. Le séparateur décimal suit la langue, un point dans une
+phrase française est une faute qui se voit. Et un **plancher de plausibilité à 3** écarte du résumé
+les multiples aberrants : PayPay ressortait à 0,1 et Afya à 1,1, tous deux cotés hors zone dollar,
+soit le motif de SPEC-004. On ne promeut pas un chiffre invraisemblable en tête de page sur un site
+qui parle d'argent. La ligne reste dans le tableau, et le vrai correctif est dans le pipeline de
+devises.
 
 Les fiches ont déjà les deux. Les 183 hubs n'ont ni l'un ni l'autre. Ajouter :
 
@@ -370,6 +403,24 @@ recherche substantielle et des données uniques à du contenu désindexé permet
 
 **Fichier :** `slugifySector` plus une table de correspondance, plus des redirections 301.
 **Temps :** 3 heures.
+**État : FAIT PARTIELLEMENT le 4 août 2026, et la migration d'URL est délibérément écartée.**
+
+Ce qui est fait : les noms de secteurs **affichés** (titre, H1, intro, ancres de liens, fil
+d'Ariane) sont traduits en français pour les **30 secteurs les plus peuplés**, soit environ 54 %
+des fiches. `/secteur/software-infrastructure` s'intitule maintenant « Meilleures actions de
+qualité du secteur Logiciels d'infrastructure ». La version `?lng=en` garde l'anglais, qui est sa
+langue d'origine. L'espagnol retombe sur l'anglais, comme avant, et reste à traiter.
+
+Ce qui n'est pas fait, et pourquoi : **les slugs restent en anglais, donc aucune URL ne change et
+aucune redirection n'est nécessaire.** Le coût réel de la traduction des 181 slugs n'est pas le
+code, ce sont 181 décisions de mots-clés. Le corpus est explicite là-dessus, « ne payez pas cher la
+traduction, payez l'étude des requêtes locales » : inventer 181 termes français sans vérifier ce
+que les investisseurs tapent réellement produirait 181 mauvais mots-clés maquillés en optimisation.
+Et le même effort rend beaucoup plus dans les collections d'intention du §6.1, qui sont nativement
+françaises et visent des requêtes réelles plutôt qu'une taxonomie sectorielle importée.
+
+Les 151 secteurs restants gardent leur libellé anglais. Une entrée absente de la table n'est pas un
+bug, c'est l'état d'avancement.
 
 `/secteur/software-infrastructure` et `/secteur/drug-manufacturers-general` sont du vocabulaire
 interne anglophone sur un site francophone. Passer du vocabulaire interne au vocabulaire client a
@@ -385,6 +436,42 @@ Impératif : redirections **301** et non 302, les 301 préservent les backlinks,
 
 **Fichiers :** la règle `noindex` posée en juillet, plus `MAX_TICKERS` dans `sitemap.ts`.
 **Temps :** 2 heures d'analyse, 30 minutes de code.
+**État : PALIER 1 FAIT le 4 août 2026. Palier 2 en attente du diagnostic.**
+
+Le catalogue mesuré ce jour, ce qui corrige au passage un chiffre du §2 : il y a **6 818 fiches
+scorées**, pas 5 000. Le sitemap en plafonnait 5 000, donc 1 818 fiches n'étaient même pas
+advertisées.
+
+| Mesure | Valeur |
+|---|---|
+| Fiches scorées | 6 818 |
+| Sans aucun multiple de valorisation | 2 004 |
+| Note sous 5 sur 10 | 1 932 |
+| Capitalisation sous 100 M$ | 1 369 |
+| Exclues par la règle de juillet | 1 228 |
+
+**Palier 1 appliqué : une fiche sans aucun multiple de valorisation passe en `noindex, follow`**,
+sauf si c'est une opportunité du moment ou si un article la traite. Le critère est de contenu, pas
+de trafic : sans multiple, la fiche ne peut répondre ni « sous-évaluée ou pas », ni « à quel prix
+acheter », c'est-à-dire ni à son propre titre ni à la moitié de la proposition de valeur du site.
+Ce sont massivement des biotechs sans free cash flow (596 fiches dans ce secteur) et des sociétés
+coquilles (238 fiches). Effet : 1 253 fiches en plus passent en `noindex`, l'index descend de 5 590
+à **4 337**, et le sitemap advertise maintenant 4 337 URL au lieu de 5 000.
+
+Un effet de bord utile : la règle existait en **deux exemplaires**, une expression TypeScript dans
+`seoPrerender.ts` et une clause Prisma dans `sitemap.ts`, avec un commentaire demandant de les
+garder synchrones à la main. C'était le prochain bug silencieux, celui qui advertise dans le
+sitemap des URL servies en `noindex`. Il y a maintenant un prédicat unique exporté,
+`shouldIndexTicker`, un test d'équivalence sur matrice exhaustive
+(`sitemap.indexRule.test.ts`), et l'équivalence a été vérifiée empiriquement contre la base de
+production : les deux expressions sélectionnent exactement les mêmes 4 337 tickers sur 6 818, zéro
+divergence.
+
+**Palier 2, non appliqué :** le seuil de capitalisation, qui retirerait environ 700 fiches de plus.
+Il attend le diagnostic de l'effondrement des impressions (§5.1). La raison est méthodologique : le
+maillage de `/screener` déployé le même jour va déclencher une vague d'exploration, et empiler une
+seconde variable rendrait les deux illisibles. Le seul claim du livre qui promette de battre ses
+concurrents quoi qu'on teste, c'est de tester une chose à la fois.
 
 5 000 fiches déclarées, environ la moitié indexée. Google consacre 30 à 40 % de son budget
 d'exploration à des pages sans aucun trafic organique, et certains sites atteignent 65 % (ch. 3).

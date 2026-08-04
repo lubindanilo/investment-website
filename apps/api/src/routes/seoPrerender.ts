@@ -257,9 +257,9 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     disclaimer: "Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Ce service ne constitue pas un conseil en investissement personnalisé au sens de l'article L.321-1 du Code monétaire et financier. Les performances passées ne préjugent pas des performances futures.",
     h1Analysis: 'Analyse fondamentale',
     pfcfClauseTpl: (p) => `, et un multiple de valorisation P/FCF de ${p}`,
-    titleLong: (n, ticker, score, pfcfPart, year) =>
-      `Faut-il acheter l'action ${n} (${ticker}) ? Avis et analyse fondamentale : note de qualité ${score}${pfcfPart}, sous-évaluée ou pas, les 10 critères chiffrés. Notre verdict ${year}.`,
-    titleLongPfcf: (p) => `, valorisation P/FCF ${p}`,
+    titleLong: (n, ticker, quality, pfcfPart, year) =>
+      `Faut-il acheter l'action ${n} (${ticker}) ? Avis et analyse fondamentale gratuite : qualité ${quality} sur 10 critères${pfcfPart}, sous-évaluée ou pas, prix d'achat conseillé. Notre verdict ${year}.`,
+    titleLongPfcf: (p) => `, valorisation face à son historique`,
     sourcesLiterature:
       `Les seuils viennent de la littérature financière, pas de nos préférences : voir les travaux de valorisation d'<a href="https://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a> et les <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">ressources pédagogiques de la SEC (investor.gov)</a>.`,
     sourcesFilings: (n, href) =>
@@ -338,9 +338,9 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     disclaimer: 'Lubin Investment is a decision-support tool for individual investors. This service does not constitute personalized investment advice within the meaning of Article L.321-1 of the French Monetary and Financial Code. Past performance is no guarantee of future results.',
     h1Analysis: 'Fundamental analysis',
     pfcfClauseTpl: (p) => `, and a P/FCF valuation multiple of ${p}`,
-    titleLong: (n, ticker, score, pfcfPart, year) =>
-      `Should you buy ${n} (${ticker}) stock? Review and fundamental analysis: quality score ${score}${pfcfPart}, undervalued or not, all 10 hard criteria. Our ${year} verdict.`,
-    titleLongPfcf: (p) => `, P/FCF valuation ${p}`,
+    titleLong: (n, ticker, quality, pfcfPart, year) =>
+      `Should you buy ${n} (${ticker}) stock? Free review and fundamental analysis: ${quality} quality on 10 criteria${pfcfPart}, undervalued or not, target buy price. Our ${year} verdict.`,
+    titleLongPfcf: (p) => `, valuation against its own history`,
     sourcesLiterature:
       `The thresholds come from the financial literature, not from our preferences: see the valuation work of <a href="https://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a> and the <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">SEC investor education resources (investor.gov)</a>.`,
     sourcesFilings: (n, href) =>
@@ -419,9 +419,9 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     disclaimer: 'Lubin Investment es una herramienta de ayuda a la decisión para inversores particulares. Este servicio no constituye un consejo de inversión personalizado en el sentido del artículo L.321-1 del Código Monetario y Financiero francés. Las rentabilidades pasadas no garantizan rentabilidades futuras.',
     h1Analysis: 'Análisis fundamental',
     pfcfClauseTpl: (p) => `, y un múltiplo de valoración P/FCF de ${p}`,
-    titleLong: (n, ticker, score, pfcfPart, year) =>
-      `¿Comprar la acción ${n} (${ticker})? Opinión y análisis fundamental: nota de calidad ${score}${pfcfPart}, infravalorada o no, los 10 criterios. Nuestro veredicto ${year}.`,
-    titleLongPfcf: (p) => `, valoración P/FCF ${p}`,
+    titleLong: (n, ticker, quality, pfcfPart, year) =>
+      `¿Comprar la acción ${n} (${ticker})? Opinión y análisis fundamental gratis: calidad ${quality} en 10 criterios${pfcfPart}, infravalorada o no, precio de compra aconsejado. Nuestro veredicto ${year}.`,
+    titleLongPfcf: (p) => `, valoración frente a su historial`,
     sourcesLiterature:
       `Los umbrales vienen de la literatura financiera, no de nuestras preferencias: ver los trabajos de valoración de <a href="https://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a> y los <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">recursos educativos de la SEC (investor.gov)</a>.`,
     sourcesFilings: (n, href) =>
@@ -482,6 +482,48 @@ function edgarFilingsUrl(ticker: string): string {
   return `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=${encodeURIComponent(
     ticker,
   )}&type=10-K&dateb=&owner=include&count=40`;
+}
+
+/** Les seuls champs qui décident de l'indexation d'une fiche. */
+export type TickerIndexInput = {
+  scoreRatio: number | null;
+  pfcfTTM: number | null;
+  price: number | null;
+  region: string | null;
+  marketCap: number | null;
+  opportunity: boolean;
+  /** Un article du blog pointe vers ce ticker. */
+  hasArticle: boolean;
+};
+
+/**
+ * SOURCE UNIQUE de la règle d'indexation des fiches /analyse/TICKER.
+ *
+ * Elle décide de deux choses qui doivent rester d'accord : la balise robots servie par
+ * `renderTickerHtml` et le contenu des sitemaps de fiches. Quand les deux divergent, on
+ * advertise dans le sitemap des URL en `noindex`, ce qui est un signal contradictoire envoyé
+ * à Google sur des milliers de pages. Ce fichier était jusqu'ici la référence et `sitemap.ts`
+ * en tenait une copie manuelle en clause Prisma, avec un avertissement en commentaire ; le
+ * test `sitemap.indexRule.test.ts` verrouille désormais l'équivalence sur une matrice
+ * exhaustive.
+ *
+ * La règle, dans l'ordre :
+ *   1. Opportunité du moment ou ticker traité par un article : toujours indexée. Ce sont les
+ *      pages sur lesquelles on a activement quelque chose à dire.
+ *   2. Sinon, un multiple de valorisation est OBLIGATOIRE (palier 1, 2026-08-04). Sans lui la
+ *      fiche ne peut répondre ni « sous-évaluée ou pas », ni « à quel prix acheter », c'est-à-dire
+ *      ni à son propre titre ni à la moitié de la proposition de valeur du site.
+ *   3. Et, si la note est sous 5/10, on écarte en plus les penny stocks et les micro
+ *      capitalisations américaines (règle de l'audit du 19 juillet 2026).
+ */
+export function shouldIndexTicker(t: TickerIndexInput): boolean {
+  if (t.opportunity || t.hasArticle) return true;
+  if (t.pfcfTTM == null) return false;
+  const lowScore = t.scoreRatio != null && t.scoreRatio < 0.5;
+  if (!lowScore) return true;
+  const isPenny = t.price != null && t.price < 1;
+  const verySmallCapUS = t.region === 'US' && t.marketCap != null && t.marketCap < 500_000_000;
+  return !isPenny && !verySmallCapUS;
 }
 
 /** Médiane d'une série (sert à situer le P/FCF d'une fiche face à ses comparables sectoriels). */
@@ -551,9 +593,34 @@ export function renderTickerHtml(
   );
   const verySmallCapUS = t.region === 'US' && t.marketCap != null && t.marketCap < 500_000_000;
   const lowScore = ratio != null && ratio < 0.5;
-  const noindex =
-    lowScore && !t.opportunity && !hasArticle &&
-    (verySmallCapUS || t.pfcfTTM == null || (t.price != null && t.price < 1));
+  //
+  // PALIER 1 de la réduction du catalogue (Q10 du plan SEO, 2026-08-04).
+  //
+  // Une fiche sans AUCUN multiple de valorisation ne peut pas répondre à la question que son
+  // propre titre pose. Elle n'a ni « sous-évaluée ou pas », ni prix d'achat conseillé, ni
+  // comparaison sectorielle : la moitié de la proposition de valeur du site manque, quelle que
+  // soit la note de qualité. Ce sont massivement des biotechs sans free cash flow (596 fiches
+  // dans ce secteur) et des sociétés coquilles (238 fiches). Le corpus est direct : une page
+  // doit exister parce qu'on a quelque chose à dire, pas parce qu'on veut classer un mot-clé.
+  //
+  // Mesuré sur le catalogue au 4 août 2026 : 6 818 fiches scorées, 2 004 sans multiple, dont
+  // 1 253 qui n'étaient pas déjà exclues par la règle de juillet. L'index passe de 5 590 à
+  // 4 337 fiches. Trois faits appuient la direction : Google dépense 30 à 40 % de son budget
+  // d'exploration sur des pages sans trafic, supprimer la moitié des pages à faible autorité
+  // d'un domaine a multiplié son trafic par 5, et environ la moitié des URL du site n'était pas
+  // indexée.
+  //
+  // `noindex, follow` et non 404 : la page reste lisible pour un humain qui la demande, elle
+  // transmet toujours ses liens, et le geste est réversible en un commit. Consolider vaut mieux
+  // que supprimer.
+  //
+  // Le palier 2 (seuil de capitalisation, environ 700 fiches de plus) attend le diagnostic de
+  // l'effondrement des impressions : deux variables à la fois rendraient la mesure illisible.
+  const noindex = !shouldIndexTicker({
+    scoreRatio: ratio, pfcfTTM: t.pfcfTTM ?? null, price: t.price ?? null,
+    region: t.region ?? null, marketCap: t.marketCap ?? null,
+    opportunity: t.opportunity, hasArticle,
+  });
   const robots = noindex ? 'noindex,follow' : 'index,follow';
   const oppBadge = t.opportunity
     ? `<p><strong>${tr.oppLabel} :</strong> ${tr.oppBody(name)}</p>`
@@ -567,7 +634,7 @@ export function renderTickerHtml(
     .join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${baseCanonical}">`;
   // Maillage hub-spoke : lien vers le hub de son secteur (réduit la profondeur de crawl).
   const sectorHubHref = t.sector ? `${SITE_URL}/secteur/${slugifySector(t.sector)}${lq}` : null;
-  const sectorHubLabel = t.sector ? escapeHtml(displaySector(t.sector)) : null;
+  const sectorHubLabel = t.sector ? escapeHtml(displaySector(t.sector, lang)) : null;
   const rawName = t.name || t.ticker;
   // Nom de marque (sans suffixe juridique) pour les textes user-facing.
   // Le nom officiel reste utilisé dans le JSON-LD Corporation (entity-matching).
@@ -590,11 +657,29 @@ export function renderTickerHtml(
   // Le vocabulaire est choisi pour recouper les sous-requêtes que les moteurs IA génèrent
   // au moment du « fan-out » (le corpus mesure que c'est ce vocabulaire, et non la question
   // complète de l'utilisateur, qui décide de la récupération).
+  //
+  // ⚠️ 2026-08-04 (Q7 du plan SEO) : le titre long ne porte plus de JARGON. Il disait
+  // « note de qualité 8/10, valorisation P/FCF 51.1× » ; il dit maintenant « qualité élevée
+  // sur 10 critères, valorisation face à son historique ». Trois raisons.
+  //   1. C'est une règle produit explicite : jamais de « X/10 » ni de « P/FCF » avant le clic.
+  //      Le garde-fou CI `title-lint` l'applique depuis des mois aux 348 articles, il ne
+  //      voyait pas les 5000 fiches. La règle protégeait 6 % des pages du site.
+  //   2. Un ratio brut avant le clic ne se comprend pas dans une page de résultats. Le
+  //      chiffre reste partout dans le corps de la page, là où il est expliqué.
+  //   3. Le mot « gratuite » est ajouté : le corpus mesure un passage de la position 7 à 2,5
+  //      sur un mot-clé à plusieurs millions de recherches par ce seul ajout, et l'analyse
+  //      est réellement gratuite ici.
+  // Le titre garde sa longueur et ses 4 intentions (faut-il acheter / avis / sous-évaluée /
+  // prix d'achat), et l'essentiel reste dans les 12 premiers mots.
+  //
+  // ⚠️ CONSÉQUENCE SUR L'A/B EN COURS : le bras « long » a changé le 2026-08-04. Les données
+  // GSC d'avant et d'après ne forment PAS une seule série, ne les additionnez pas. Le test
+  // était de toute façon illisible (220 impressions sur 28 jours au 3 août, 5 requêtes).
   const verdictYear = (t.lastScoredAt ?? new Date()).getFullYear();
   const longTitle = tr.titleLong(
     displayName,
     t.ticker,
-    score,
+    quality,
     t.pfcfTTM != null && isFinite(t.pfcfTTM) ? tr.titleLongPfcf(pfcf) : '',
     verdictYear,
   );
@@ -646,7 +731,7 @@ export function renderTickerHtml(
     : '';
   // Maillage interne : 3-5 tickers comparables (même secteur), liens cliquables avec score + P/FCF
   // en anchor text. La langue se propage dans les liens (?lng=) pour rester cohérent côté nav bot.
-  const sectorLabel = t.sector ? escapeHtml(displaySector(t.sector)) : null;
+  const sectorLabel = t.sector ? escapeHtml(displaySector(t.sector, lang)) : null;
   const relatedHeading = sectorLabel ? tr.relatedHeadingWithSector(sectorLabel) : tr.relatedHeadingFallback;
   const relatedSection = related.length > 0 ? `
 
@@ -1261,7 +1346,7 @@ ${JSON.stringify({
 <tbody>
 <tr><td>${escapeHtml(tr.thScore)}</td><td>${aScore}</td><td>${bScore}</td></tr>
 <tr><td>${escapeHtml(tr.thPfcf)}</td><td>${escapeHtml(aPfcf)}</td><td>${escapeHtml(bPfcf)}</td></tr>
-<tr><td>${escapeHtml(tr.thSector)}</td><td>${a.sector ? escapeHtml(displaySector(a.sector)) : escapeHtml(tr.na)}</td><td>${b.sector ? escapeHtml(displaySector(b.sector)) : escapeHtml(tr.na)}</td></tr>
+<tr><td>${escapeHtml(tr.thSector)}</td><td>${a.sector ? escapeHtml(displaySector(a.sector, lang)) : escapeHtml(tr.na)}</td><td>${b.sector ? escapeHtml(displaySector(b.sector, lang)) : escapeHtml(tr.na)}</td></tr>
 <tr><td>${escapeHtml(tr.thPrice)}</td><td>${fmtPrice(a)}</td><td>${fmtPrice(b)}</td></tr>
 <tr><td>${escapeHtml(tr.thCap)}</td><td>${escapeHtml(aCap)}</td><td>${escapeHtml(bCap)}</td></tr>
 </tbody>
@@ -1547,8 +1632,71 @@ export function slugifySector(s: string): string {
   return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
     .replace(/&/g, ' et ').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
-// Affichage propre du nom de secteur (sans tiret, préférence Lubin).
-function displaySector(s: string): string {
+/**
+ * Noms de secteurs en FRANÇAIS (Q9 du plan SEO, version sans migration d'URL).
+ *
+ * Les secteurs viennent du fournisseur de données en anglais (« Software - Infrastructure »).
+ * Sur un site francophone, c'est du vocabulaire interne importé : le corpus mesure +567 %
+ * d'événements clés et +64 % de chiffre d'affaires en passant du vocabulaire interne au
+ * vocabulaire client, et 841 % de hausse des ventes en remplaçant des catégories produit par
+ * des catégories d'intention.
+ *
+ * ⚠️ Ce qui est traduit ici, c'est L'AFFICHAGE : titre, H1, intro, ancres de liens et fil
+ * d'Ariane. Les SLUGS restent en anglais, donc AUCUNE URL ne change et aucune redirection
+ * n'est nécessaire. La traduction des 181 slugs est délibérément écartée : son coût réel n'est
+ * pas le code mais 181 décisions de mots-clés, et le corpus est explicite sur ce point,
+ * « ne payez pas cher la traduction, payez l'étude des requêtes locales ». Inventer 181 termes
+ * français sans vérifier ce que les investisseurs tapent réellement produirait 181 mauvais
+ * mots-clés maquillés en optimisation. Le même effort rend beaucoup plus dans les collections
+ * d'intention (§6.1 du plan), qui sont nativement françaises.
+ *
+ * Couverture : les 30 secteurs les plus peuplés, soit environ 54 % des fiches. Les 151 autres
+ * gardent leur libellé anglais jusqu'à traduction vérifiée. Une entrée absente n'est pas un
+ * bug, c'est l'état d'avancement.
+ *
+ * L'anglais reste servi tel quel sur les pages `?lng=en` (c'est sa langue d'origine).
+ * L'espagnol retombe sur l'anglais, comme aujourd'hui : à traiter dans un second temps.
+ */
+const SECTOR_FR: Record<string, string> = {
+  'Biotechnology': 'Biotechnologies',
+  'Banks - Regional': 'Banques régionales',
+  'Shell Companies': 'Sociétés coquilles',
+  'Software - Application': 'Logiciels applicatifs',
+  'Software - Infrastructure': "Logiciels d'infrastructure",
+  'Asset Management': "Gestion d'actifs",
+  'Medical Devices': 'Dispositifs médicaux',
+  'Aerospace & Defense': 'Aéronautique et défense',
+  'Specialty Industrial Machinery': 'Machines industrielles spécialisées',
+  'Drug Manufacturers - Specialty & Generic': 'Médicaments génériques et de spécialité',
+  'Information Technology Services': 'Services informatiques',
+  'Telecom Services': 'Télécommunications',
+  'Packaged Foods': 'Agroalimentaire',
+  'Capital Markets': 'Marchés de capitaux',
+  'Engineering & Construction': 'Ingénierie et construction',
+  'Semiconductors': 'Semi-conducteurs',
+  'Specialty Chemicals': 'Chimie de spécialité',
+  'Oil & Gas E&P': 'Exploration et production pétrolière',
+  'Internet Content & Information': 'Contenus et services en ligne',
+  'Medical Instruments & Supplies': 'Instruments et fournitures médicales',
+  'Auto Parts': 'Équipementiers automobiles',
+  'Other Industrial Metals & Mining': 'Métaux industriels et mines',
+  'Electrical Equipment & Parts': 'Équipements électriques',
+  'Restaurants': 'Restauration',
+  'Insurance - Property & Casualty': 'Assurance dommages',
+  'Specialty Retail': 'Distribution spécialisée',
+  'Electronic Components': 'Composants électroniques',
+  'Real Estate Services': 'Services immobiliers',
+  'Oil & Gas Equipment & Services': 'Services pétroliers',
+  'Gold': 'Or',
+};
+
+/** Affichage propre du nom de secteur (sans tiret, préférence Lubin), traduit en français
+ *  quand la traduction est vérifiée. La valeur brute reste la clé du slug : cf. SECTOR_FR. */
+function displaySector(s: string, lang: ArticleLang = 'en'): string {
+  if (lang === 'fr') {
+    const fr = SECTOR_FR[s.trim()];
+    if (fr) return fr;
+  }
   return s.replace(/\s*-\s*/g, ' ').trim();
 }
 
@@ -1643,11 +1791,112 @@ const HUB_T = {
   },
 } as const;
 
-function renderHubHtml(o: { title: string; h1: string; intro: string; path: string; rows: HubRow[]; lang: ArticleLang }): string {
+/**
+ * Plancher de plausibilité du multiple de valorisation, pour ce qui est PROMU en résumé.
+ *
+ * Sous 3, une société générerait chaque année l'équivalent d'un tiers ou plus de sa
+ * capitalisation en free cash flow. Sur le catalogue actuel, ces valeurs sont des bugs de
+ * devise ou d'unité, pas des aubaines : PayPay ressort à 0,1 et Afya à 1,1, tous deux cotés
+ * hors zone dollar, exactement le motif de SPEC-004 (capitalisations londoniennes en pence).
+ *
+ * On refuse de mettre un chiffre invraisemblable en tête de page sur un site qui parle
+ * d'argent : le corpus mesure que la confiance éditoriale est LA variable de survie en YMYL.
+ * La ligne reste dans le tableau, elle n'est simplement pas promue au rang de « meilleure
+ * affaire du groupe ». Le vrai correctif est en amont, dans le pipeline de devises.
+ */
+const PFCF_PLAUSIBILITY_FLOOR = 3;
+
+/** Nombre à une décimale, avec le séparateur de la langue (« 20,1 » en fr et es, « 20.1 » en
+ *  en). Les chiffres du résumé sont dans une PHRASE, pas dans un tableau : un point décimal
+ *  dans du texte français est une faute qui se voit. */
+function formatDecimal(v: number, lang: ArticleLang): string {
+  const s = v.toFixed(1);
+  return lang === 'en' ? s : s.replace('.', ',');
+}
+
+/** Résumé et lien sortant des hubs (Q8 du plan SEO), par langue. */
+const HUB_EXTRA_TR: Record<ArticleLang, {
+  summaryCount: (total: number, perfect: number) => string;
+  summaryMedian: (median: string) => string;
+  summaryCheapest: (name: string, ticker: string, pfcf: string) => string;
+  sourceSector: string;
+  sourceRanking: string;
+}> = {
+  fr: {
+    summaryCount: (total, perfect) => perfect > 0
+      ? `Sur les ${total} actions listées ici, ${perfect} obtiennent la note de qualité maximale.`
+      : `Sur les ${total} actions listées ici, aucune n'obtient pour l'instant la note de qualité maximale.`,
+    summaryMedian: (m) => `La valorisation médiane du groupe ressort à ${m} fois son free cash flow.`,
+    summaryCheapest: (n, tk, p) => `Parmi celles qui ont la note maximale, la moins chère est <a href="${SITE_URL}/analyse/${tk}">${n} (${tk})</a>, à ${p} fois son free cash flow.`,
+    sourceSector: `Pour situer ces multiples face aux moyennes du secteur, les données sectorielles publiques de référence sont celles d'<a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a>.`,
+    sourceRanking: `Les notions employées ici (free cash flow, rendement du capital, endettement) sont expliquées dans les <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">ressources pédagogiques de la SEC (investor.gov)</a>.`,
+  },
+  en: {
+    summaryCount: (total, perfect) => perfect > 0
+      ? `Of the ${total} stocks listed here, ${perfect} reach the maximum quality score.`
+      : `Of the ${total} stocks listed here, none currently reaches the maximum quality score.`,
+    summaryMedian: (m) => `The median valuation of the group comes out at ${m} times its free cash flow.`,
+    summaryCheapest: (n, tk, p) => `Among those with the maximum score, the cheapest is <a href="${SITE_URL}/analyse/${tk}">${n} (${tk})</a>, at ${p} times its free cash flow.`,
+    sourceSector: `To place these multiples against sector averages, the reference public sector data is <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html" target="_blank" rel="noopener nofollow">Aswath Damodaran's (NYU Stern)</a>.`,
+    sourceRanking: `The notions used here (free cash flow, return on capital, debt) are explained in the <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">SEC investor education resources (investor.gov)</a>.`,
+  },
+  es: {
+    summaryCount: (total, perfect) => perfect > 0
+      ? `De las ${total} acciones listadas aquí, ${perfect} alcanzan la nota de calidad máxima.`
+      : `De las ${total} acciones listadas aquí, ninguna alcanza por ahora la nota de calidad máxima.`,
+    summaryMedian: (m) => `La valoración mediana del grupo se sitúa en ${m} veces su flujo de caja libre.`,
+    summaryCheapest: (n, tk, p) => `Entre las que tienen la nota máxima, la más barata es <a href="${SITE_URL}/analyse/${tk}">${n} (${tk})</a>, a ${p} veces su flujo de caja libre.`,
+    sourceSector: `Para situar estos múltiplos frente a las medias del sector, los datos sectoriales públicos de referencia son los de <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a>.`,
+    sourceRanking: `Las nociones utilizadas aquí (flujo de caja libre, rendimiento del capital, deuda) se explican en los <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">recursos educativos de la SEC (investor.gov)</a>.`,
+  },
+};
+
+/**
+ * Résumé chiffré en tête de hub (Q8 du plan SEO), calculé depuis les lignes du hub, sans
+ * requête supplémentaire.
+ *
+ * Deux effets distincts, tous deux mesurés.
+ *   1. Un résumé de 2 à 3 phrases en tête de page mesure +33 % de conversion, six occurrences
+ *      indépendantes dans le corpus. C'est le meilleur rapport effort sur résultat du livre,
+ *      et la réponse doit tenir au-dessus de la ligne de flottaison.
+ *   2. Il rend chaque hub RÉELLEMENT différent des 182 autres. Un gabarit dont seul le nom de
+ *      secteur change est du mauvais côté de la ligne des 50 % de contenu unique, et l'ajout de
+ *      données propres est la seule réponse documentée à une désindexation de contenu généré.
+ */
+function renderHubSummary(rows: HubRow[], lang: ArticleLang): string {
+  if (rows.length === 0) return '';
+  const t = HUB_EXTRA_TR[lang];
+  const perfect = rows.filter((r) =>
+    r.scoreChiffres != null && r.scoreChiffresMax != null && r.scoreChiffres >= r.scoreChiffresMax);
+  const median = medianOf(rows.map((r) => r.pfcfTTM));
+  const cheapestPerfect = perfect
+    .filter((r) => r.pfcfTTM != null && isFinite(r.pfcfTTM) && r.pfcfTTM >= PFCF_PLAUSIBILITY_FLOOR)
+    .sort((a, b) => (a.pfcfTTM as number) - (b.pfcfTTM as number))[0];
+
+  const sentences = [t.summaryCount(rows.length, perfect.length)];
+  if (median != null && median >= PFCF_PLAUSIBILITY_FLOOR) sentences.push(t.summaryMedian(formatDecimal(median, lang)));
+  if (cheapestPerfect) {
+    sentences.push(t.summaryCheapest(
+      escapeHtml(stripLegalSuffix(cheapestPerfect.name || cheapestPerfect.ticker)),
+      escapeHtml(cheapestPerfect.ticker),
+      formatDecimal(cheapestPerfect.pfcfTTM as number, lang),
+    ));
+  }
+  return `<p><strong>${sentences.join(' ')}</strong></p>`;
+}
+
+function renderHubHtml(o: { title: string; h1: string; intro: string; path: string; rows: HubRow[]; lang: ArticleLang; outbound?: 'sector' | 'ranking' }): string {
   const tr = HUB_T[o.lang];
   const base = `${SITE_URL}${o.path}`;
   const canonical = o.lang === 'fr' ? base : `${base}?lng=${o.lang}`;
   const title = escapeHtml(o.title);
+  // ⚠️ Q6 du plan SEO : `description` n'alimente PLUS de <meta name="description">, seulement
+  // Open Graph. Les descriptions générées par GABARIT sont mesurées comme MOINS BONNES que pas
+  // de description du tout ; celles que Google écrit lui-même battent celles écrites à la main
+  // de 3 %, et il ignore la description fournie 63 % du temps. Les 181 hubs secteur partageaient
+  // la même phrase à un nom de secteur près : c'était exactement le cas mesuré. Les fiches
+  // ticker appliquent déjà cette règle. Open Graph est un autre usage : les réseaux sociaux
+  // reprennent le texte tel quel, donc là on le fournit.
   const description = escapeHtml(o.intro.slice(0, 158));
   const hreflang = (['fr', 'en', 'es'] as const)
     .map((l) => `<link rel="alternate" hreflang="${l}" href="${l === 'fr' ? base : `${base}?lng=${l}`}">`)
@@ -1680,7 +1929,6 @@ function renderHubHtml(o: { title: string; h1: string; intro: string; path: stri
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
-<meta name="description" content="${description}">
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="${canonical}">
 <link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
@@ -1699,6 +1947,7 @@ ${hreflang}
 <main>
 <nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">${tr.bcHome}</a> › <a href="${SITE_URL}/screener">Screener</a> › ${escapeHtml(o.h1)}</nav>
 <h1>${escapeHtml(o.h1)}</h1>
+${renderHubSummary(o.rows, o.lang)}
 <p>${escapeHtml(o.intro)}</p>
 <table>
 <thead><tr><th>#</th><th>${tr.thAction}</th><th>${tr.thScore}</th><th>P/FCF</th></tr></thead>
@@ -1707,6 +1956,7 @@ ${rowsHtml}
 </tbody>
 </table>
 <p>${tr.methodo} <a href="${SITE_URL}/methodologie">${tr.methodoLink}</a>.</p>
+<p>${o.outbound === 'sector' ? HUB_EXTRA_TR[o.lang].sourceSector : HUB_EXTRA_TR[o.lang].sourceRanking}</p>
 <p><a href="${SITE_URL}/screener">${tr.explore}</a></p>
 </main>
 <footer>
@@ -1749,8 +1999,8 @@ seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => 
     const rows = await prisma.screenerTicker.findMany({
       where: { status: 'scored', sector }, orderBy: { scoreRatio: 'desc' }, take: 60, select: HUB_SELECT,
     });
-    const disp = displaySector(sector);
     const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
+    const disp = displaySector(sector, lang);
     // Titre ≤ 60 car : on borne le nom de secteur à 26 (sinon Google tronque les noms
     // longs comme "Drug Manufacturers...") ; laisse la place au préfixe traduit.
     const dispTitle = disp.length > 26 ? disp.slice(0, 25).trimEnd() + '…' : disp;
@@ -1758,6 +2008,7 @@ seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => 
     res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
       title: HUB_COPY.secteur[lang](dispTitle).title,
       h1: copy.h1, intro: copy.intro, path: `/secteur/${slug}`, rows, lang,
+      outbound: 'sector',
     }));
   } catch (err) {
     console.error('[hub secteur]', slug, (err as Error).message);
@@ -1787,6 +2038,7 @@ seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) 
     }
     res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
       title: copy.title, h1: copy.h1, intro: copy.intro, path: `/classement/${slug}`, rows, lang,
+      outbound: 'ranking',
     }));
   } catch (err) {
     console.error('[hub classement]', slug, (err as Error).message);
@@ -1907,7 +2159,7 @@ async function renderScreenerHubBlock(lang: ArticleLang, lq: string): Promise<st
     const sectors = sectorRows
       .map((r) => r.sector)
       .filter((s): s is string => !!s)
-      .map((s) => ({ slug: slugifySector(s), label: displaySector(s) }))
+      .map((s) => ({ slug: slugifySector(s), label: displaySector(s, lang) }))
       .filter((s) => !!s.slug)
       .sort((a, b) => a.label.localeCompare(b.label));
 
