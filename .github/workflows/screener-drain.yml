@@ -1,0 +1,114 @@
+name: Screener drain (pending)
+
+# Vide la file des titres `pending` du screener DEPUIS LE RUNNER, pas depuis Vercel.
+#
+# Pourquoi ici et pas dans screener-cron.yml (qui, lui, appelle l'endpoint HTTP) :
+#   - Le repo est public → minutes Actions gratuites et illimitées, et l'IP du runner n'est pas
+#     throttlee par Yahoo (les IP Vercel le sont : 249 timeouts sur 255 tentatives le 04/08/2026).
+#   - Un seul process → les limiters Bottleneck (Yahoo 30 req/min) redeviennent honnetes, alors
+#     que chaque instance de lambda Vercel croyait disposer du quota entier et burstait.
+#   - Pas de lambda 60 s ni d'appel HTTP 30 s → plus besoin des budgets par titre qui faisaient
+#     abandonner presque tous les titres non-US en cours de route.
+#
+# Le garde-fou n'est plus la duree mais le SOLDE COMPUTE NEON : le script lit la consommation du
+# mois via l'API console, en deduit sa part de CU-heures, la convertit en duree a la taille de
+# compute mesuree, et s'arrete des que sa part est consommee. Sans NEON_API_KEY il se plafonne a
+# 60 min (drainer a l'aveugle est ce qui a suspendu la base le 20/07/2026).
+#
+# Secrets requis : DATABASE_URL, NEON_API_KEY, FINNHUB_API_KEY (+ MAIL_PASSWORD pour l'alerte).
+# Variable optionnelle : NEON_PROJECT_ID (inutile si la cle ne voit qu'un projet).
+
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: 'Duree demandee en minutes (plafond ; le solde Neon peut la reduire)'
+        required: false
+        default: '120'
+      region:
+        description: 'Zone a drainer (US, EU, INTL, ou vide = univers entier)'
+        required: false
+        default: ''
+      max_tickers:
+        description: 'Plafond de titres tentes sur le run'
+        required: false
+        default: '5000'
+      requeue_abandoned:
+        description: 'Remettre en file les titres abandonnes (attempts >= 5, sans note) : 1 pour oui'
+        required: false
+        default: '0'
+  schedule:
+    # 01:00 UTC (03:00 Paris) : loin du cron earnings de 06:00 UTC et du creux de trafic du site,
+    # pour que le temps d'eveil de la base ne se cumule pas avec autre chose.
+    - cron: '0 1 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: screener-drain
+  cancel-in-progress: false
+
+jobs:
+  drain:
+    runs-on: ubuntu-latest
+    # Plafond dur cote GitHub. La vraie borne est le budget CU-h calcule par le script ; celle-ci
+    # n'existe que pour qu'un process pendu ne tourne pas indefiniment.
+    timeout-minutes: 360
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      # Prisma exige `directUrl` a la generation (datasource du schema). Le drain ne migre rien :
+      # la meme URL suffit, comme dans build:vercel.
+      DIRECT_URL: ${{ secrets.DATABASE_URL }}
+      FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+      NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+      NEON_PROJECT_ID: ${{ vars.NEON_PROJECT_ID }}
+      # Budget : 100 CU-h du plan Free, on ne vise que 80 % (marge), et le drain ne prend que la
+      # moitie du solde quotidien — l'autre moitie finance le trafic du site et le cron earnings.
+      NEON_MONTHLY_CU_H: ${{ vars.NEON_MONTHLY_CU_H || '100' }}
+      NEON_TARGET_SHARE: ${{ vars.NEON_TARGET_SHARE || '0.8' }}
+      NEON_DRAIN_SHARE: ${{ vars.NEON_DRAIN_SHARE || '0.5' }}
+      # Premiere nuit : 120 min demandees (le solde peut reduire). Les runs planifies suivants
+      # reprennent cette valeur et s'ajustent seuls sur le solde.
+      DRAIN_MINUTES: ${{ inputs.minutes || '120' }}
+      DRAIN_REGION: ${{ inputs.region }}
+      DRAIN_MAX_TICKERS: ${{ inputs.max_tickers || '5000' }}
+      DRAIN_REQUEUE_ABANDONED: ${{ inputs.requeue_abandoned || '0' }}
+    steps:
+      - name: Garde-fou secrets
+        run: |
+          if [ -z "${DATABASE_URL:-}" ]; then
+            echo "::error::Le secret DATABASE_URL est requis (connexion Neon poolee)."
+            exit 1
+          fi
+          if [ -z "${NEON_API_KEY:-}" ]; then
+            echo "::warning::NEON_API_KEY absente — le drain tournera a l'aveugle, plafonne a 60 min."
+          fi
+      - uses: actions/checkout@v4
+      # Pas de `version:` : pnpm/action-setup lit `packageManager` dans package.json.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
+      - name: Drain
+        run: pnpm --filter @lubin/api run screener:drain
+
+      # Meme canal d'alerte que screener-cron.yml : action pinnee sur son SHA de release.
+      - name: Alerte e-mail en cas d echec
+        if: failure()
+        uses: dawidd6/action-send-mail@94de994a9f6fffee200243214e17002e2920bb59 # v18
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: lubindanilo2@gmail.com
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: Screener Drain <lubindanilo2@gmail.com>
+          to: lubindanilo2@gmail.com
+          subject: "[Lubin Investment] Drain Screener en ECHEC"
+          body: |
+            Le drain des titres pending a echoue (scoring degrade ou erreur du run).
+
+            Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            Declencheur : ${{ github.event_name }}

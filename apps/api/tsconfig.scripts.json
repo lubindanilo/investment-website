@@ -1,0 +1,21 @@
+// Typecheck des scripts CLI (apps/api/scripts), exclus du tsconfig principal parce que son
+// `rootDir` vaut ./src (le build n'émet que le serveur). Sans ce fichier, un script lancé par un
+// cron n'a AUCUNE couverture de types et son erreur n'apparaît qu'à l'exécution planifiée, la nuit.
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "rootDir": "."
+  },
+  "include": ["scripts/**/*", "src/**/*"],
+  // Scripts de mise au point (lancés à la main, jamais par un cron) déjà rouges avant l'ajout de
+  // ce typecheck : les corriger n'a rien à voir avec le drain, on ne les fait pas entrer ici.
+  // Tout script AUTOMATISÉ, lui, doit rester dans le périmètre.
+  "exclude": [
+    "node_modules",
+    "dist",
+    "scripts/resilienceStarsEscalateDemo.ts",
+    "scripts/test-blog-mesh.ts",
+    "scripts/test-seo-trilingue.ts"
+  ]
+}
