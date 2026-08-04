@@ -32,10 +32,10 @@ import { lookup } from 'node:dns/promises';
 import { isIP } from 'node:net';
 
 /** UA d'un robot IA réel — c'est LUI qui décide de ce que le site nous montre. */
-const AI_BOT_UA =
+export const AI_BOT_UA =
   'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko); compatible; GPTBot/1.1; +https://openai.com/gptbot';
 /** UA de navigateur — sert à lire le HTML brut, sans exécuter le JS. */
-const BROWSER_UA =
+export const BROWSER_UA =
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36';
 
 const FETCH_TIMEOUT_MS = 12_000;
@@ -146,7 +146,7 @@ export async function assertPublicUrl(raw: string): Promise<URL> {
 // Récupération
 // ─────────────────────────────────────────────────────────────────────────────
 
-interface FetchResult {
+export interface FetchResult {
   html: string;
   status: number;
   finalUrl: string;
@@ -158,7 +158,11 @@ interface FetchResult {
  * Récupère une URL avec un UA donné, en suivant les redirections à la main pour
  * revalider chaque saut (une redirection vers 127.0.0.1 est un contournement classique).
  */
-async function fetchWithUa(url: URL, ua: string): Promise<FetchResult> {
+export async function fetchWithUa(
+  url: URL,
+  ua: string,
+  opts: { allowXml?: boolean } = {},
+): Promise<FetchResult> {
   let current = url;
   for (let hop = 0; hop <= MAX_REDIRECTS; hop++) {
     const ctrl = new AbortController();
@@ -171,7 +175,9 @@ async function fetchWithUa(url: URL, ua: string): Promise<FetchResult> {
         signal: ctrl.signal,
         headers: {
           'user-agent': ua,
-          accept: 'text/html,application/xhtml+xml',
+          accept: opts.allowXml
+            ? 'application/xml,text/xml,text/plain,text/html'
+            : 'text/html,application/xhtml+xml',
           'accept-language': 'fr-FR,fr;q=0.9,en;q=0.8',
         },
       });
@@ -198,7 +204,10 @@ async function fetchWithUa(url: URL, ua: string): Promise<FetchResult> {
     // aux robots d'IA. C'est un cas de très bonne visibilité, pas une erreur — le rejeter
     // ferait échouer le vérificateur précisément sur les sites les mieux préparés.
     const ct = res.headers.get('content-type') ?? '';
-    if (ct && !/text\/html|application\/xhtml|text\/markdown|text\/plain/i.test(ct)) {
+    const allowed = opts.allowXml
+      ? /xml|text\/plain|text\/html/i
+      : /text\/html|application\/xhtml|text\/markdown|text\/plain/i;
+    if (ct && !allowed.test(ct)) {
       throw new CheckError(
         'Cette URL ne renvoie ni page HTML ni texte — vérifie qu’il s’agit bien d’une page.',
         'not_html',
@@ -249,7 +258,7 @@ const ENTITIES: Record<string, string> = {
   euro: '€', deg: '°', times: '×',
 };
 
-function unescapeHtml(s: string): string {
+export function unescapeHtml(s: string): string {
   return s.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, ent: string) => {
     const e = ent.toLowerCase();
     if (e.startsWith('#x')) return String.fromCodePoint(parseInt(e.slice(2), 16) || 32);
@@ -259,7 +268,7 @@ function unescapeHtml(s: string): string {
 }
 
 /** Texte réellement lisible : on retire ce qu'aucun lecteur ne lit. */
-function visibleText(html: string): string {
+export function visibleText(html: string): string {
   let s = html;
   s = s.replace(/<!--[\s\S]*?-->/g, ' ');
   s = s.replace(/<(script|style|noscript|template|svg|iframe|head)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ');
@@ -267,12 +276,12 @@ function visibleText(html: string): string {
   return unescapeHtml(s).replace(/\s+/g, ' ').trim();
 }
 
-function countWords(text: string): number {
+export function countWords(text: string): number {
   if (!text) return 0;
   return text.split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
 }
 
-function firstMatch(html: string, re: RegExp): string | null {
+export function firstMatch(html: string, re: RegExp): string | null {
   const m = re.exec(html);
   return m?.[1] ? unescapeHtml(m[1]).replace(/\s+/g, ' ').trim() : null;
 }

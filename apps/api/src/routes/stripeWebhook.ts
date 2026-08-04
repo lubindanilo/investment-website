@@ -16,7 +16,7 @@
 import express, { Router, type Request, type Response } from 'express';
 import Stripe from 'stripe';
 import { prisma } from '../db/client.js';
-import { getStripe, planFromPriceId, verifyWebhookSignature } from '../services/stripe.js';
+import { getStripe, planFromPriceId, seoTierFromPriceId, verifyWebhookSignature } from '../services/stripe.js';
 
 export const stripeWebhookRouter: Router = Router();
 
@@ -128,12 +128,18 @@ async function onSubscriptionUpsert(sub: Stripe.Subscription): Promise<void> {
     (item as unknown as { current_period_end?: number } | undefined)?.current_period_end
     ?? (sub as unknown as { current_period_end?: number }).current_period_end;
 
+  // Palier de l'offre SEO. `null` = ce price n'est pas un price SEO, donc on ne TOUCHE PAS
+  // au palier existant : sans ce garde, un changement d'abonnement « investissement »
+  // remettrait à zéro un abonnement SEO parfaitement valide.
+  const seoTier = seoTierFromPriceId(priceId);
+
   await prisma.user.update({
     where: { id: user.id },
     data: {
       stripeSubscriptionId: sub.id,
       subscriptionStatus: sub.status,           // 'active' | 'past_due' | 'canceled' | ...
       subscriptionPlan: plan,
+      ...(seoTier ? { seoTier } : {}),
       subscriptionCurrentPeriodEnd: typeof periodEnd === 'number'
         ? new Date(periodEnd * 1000)
         : null,
