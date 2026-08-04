@@ -237,6 +237,21 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
 
   const path = kind === 'sector' ? `/secteur/${slug}` : `/classement/${slug}`;
 
+  // La résilience est encore très peu couverte : relevé le 2026-08-04, 0 ligne sur 100 pour la
+  // collection PEA et 2 sur 100 pour les grandes capitalisations. Affichée telle quelle, la
+  // colonne montrait « Pending » sur presque toutes les lignes, ce qui fait paraître la page
+  // inachevée et vole de la largeur au P/FCF.
+  //
+  // Seuil à la moitié des lignes, et non « au moins une » : une colonne mérite sa place quand
+  // elle est majoritairement remplie. L'intérêt du seuil plutôt que d'un masquage en dur, c'est
+  // qu'il se réactive SEUL à mesure que le backfill de nuit couvre l'univers, sans qu'on ait à
+  // y repenser.
+  const hasResilience = useMemo(() => {
+    if (rows.length === 0) return false;
+    const scored = rows.filter((r) => r.resilienceStars != null).length;
+    return scored >= Math.ceil(rows.length / 2);
+  }, [rows]);
+
   const meta = useMemo(() => {
     if (kind === 'sector') {
       const label = sectorName ? t(`industries.${sectorSlug(sectorName)}`, { defaultValue: sectorName }) : '';
@@ -306,7 +321,7 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
                   <th className="col-hide-sm" style={{ width: 56 }}>{S.rank}</th>
                   <th>{S.company}</th>
                   <th>{S.score}</th>
-                  <th>{t('analyse.resilience')}</th>
+                  {hasResilience && <th>{t('analyse.resilience')}</th>}
                   <th>P/FCF</th>
                   <th className="col-hide-sm">{S.price}</th>
                   <th className="col-hide-sm" style={{ width: 40 }}></th>
@@ -323,7 +338,7 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
                       </div>
                     </td>
                     <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
-                    <td><ResilienceStarsBadge score={r.resilienceStars ?? null} /></td>
+                    {hasResilience && <td><ResilienceStarsBadge score={r.resilienceStars ?? null} /></td>}
                     <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
                     <td className="num col-hide-sm">{formatPrice(r.price, r.currency)}</td>
                     <td className="col-hide-sm" style={{ width: 40, textAlign: 'right' }}>
