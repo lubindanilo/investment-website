@@ -13,6 +13,7 @@ import { api, ApiError } from '../lib/api.js';
 import { Icon, ScoreCircle, scoreColor, StatusBadge, InfoPop } from '../components/ui/primitives.js';
 import { CompanyLogo } from '../components/ui/CompanyLogo.js';
 import { RESILIENCE_STAR_CRITERIA, ResilienceStarsBadge } from '../components/ResilienceStars.js';
+import { prettifyJustification } from '../lib/resilienceText.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import SeoHead from '../components/SeoHead.js';
 import './ComparePage.css';
@@ -326,7 +327,7 @@ function ResilienceRows({ companies }: { companies: CompanyView[] }) {
                   <div className="cmp-cell" style={best ? { boxShadow: 'inset 0 0 0 2px var(--good)', borderColor: 'var(--good)' } : undefined}>
                     {best && <span className="cmp-cell-mark" title={t('compare.best')}><Icon name="check" size={14} stroke={2.6} /></span>}
                     {crit
-                      ? <span className="num" title={crit.justification} style={{ fontSize: 15, fontWeight: 700, color: critScoreColor(crit.star, 1) }}>{crit.star}/1</span>
+                      ? <span className="num" title={prettifyJustification(crit.justification)} style={{ fontSize: 15, fontWeight: 700, color: critScoreColor(crit.star, 1) }}>{crit.star}/1</span>
                       : <span className="num muted">—</span>}
                   </div>
                 </div>

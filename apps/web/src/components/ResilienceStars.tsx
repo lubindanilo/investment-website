@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import type { ResilienceStarCriterionId, ResilienceStars as ResilienceStarsData } from '@lubin/shared';
+import { prettifyJustification } from '../lib/resilienceText.js';
 import { Icon } from './ui/primitives.js';
 import './ResilienceStars.css';
 
@@ -13,39 +14,6 @@ export const RESILIENCE_STAR_CRITERIA: ResilienceStarCriterionId[] = [
 
 function formatStars(value: number, language: string): string {
   return new Intl.NumberFormat(language, { minimumFractionDigits: value % 1 === 0 ? 0 : 1, maximumFractionDigits: 1 }).format(value);
-}
-
-const TEXT_FIXES: Array<[RegExp, string]> = [
-  [/\bpayee\b/gi, 'payée'],
-  [/\breseau\b/gi, 'réseau'],
-  [/\bsystemes\b/gi, 'systèmes'],
-  [/\beleves\b/gi, 'élevés'],
-  [/\bdependance\b/gi, 'dépendance'],
-  [/\bcoeur\b/gi, 'cœur'],
-  [/\bmitige\b/gi, 'mitigé'],
-  [/\blocalisee\b/gi, 'localisée'],
-  [/\breelle\b/gi, 'réelle'],
-  [/\bisole\b/gi, 'isolé'],
-  [/\bcontinuite\b/gi, 'continuité'],
-  [/\becosysteme\b/gi, 'écosystème'],
-  [/\blogiciel d'entreprise\b/gi, "logiciel d'entreprise"],
-  [/\bl'IA\b/g, "l'IA"],
-  [/\bIA\/robotique\b/g, 'IA/robotique'],
-  [/\bCUDA\b/gi, 'CUDA'],
-  [/\bASIC\b/gi, 'ASIC'],
-  [/\bTSMC\b/gi, 'TSMC'],
-  [/\bTaiwan\b/gi, 'Taïwan'],
-  [/\bChine\b/gi, 'Chine'],
-  [/\bInfiniBand\b/gi, 'InfiniBand'],
-];
-
-function prettifyJustification(text: string): string {
-  let out = text.trim().replace(/\s+/g, ' ');
-  for (const [pattern, replacement] of TEXT_FIXES) out = out.replace(pattern, replacement);
-  out = out.replace(/\s+([,.;:!?])/g, '$1');
-  out = out.replace(/([,.;:!?])(?=\S)/g, '$1 ');
-  out = out.replace(/(^|[.!?]\s+)([a-zà-ÿ])/g, (_, prefix: string, letter: string) => `${prefix}${letter.toUpperCase()}`);
-  return out;
 }
 
 export function StarMeter({ value, max = 5, label }: { value: number; max?: 1 | 5; label: string }) {
