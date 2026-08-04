@@ -168,7 +168,7 @@ const kinsale: Article = {
   ticker: 'KNSL',
   content: {
     fr: {
-      title: "Kinsale Capital (KNSL) est-elle sous-évaluée en 2026 ?",
+      title: "Kinsale (KNSL) : l'assureur qui dit oui aux autres non",
       excerpt:
         "Un assureur qui gagne de l'argent rien qu'en assurant, qui grandit de 33 % par an et qui est sous-évaluée. Voici pourquoi Kinsale coche mes 10 critères de qualité, et où se cache le piège.",
       metaDescription:
@@ -231,7 +231,7 @@ const kinsale: Article = {
         "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 10 juin 2026, susceptibles d'évoluer. Faites vos propres recherches.",
     },
     en: {
-      title: "Is Kinsale Capital (KNSL) stock undervalued in 2026?",
+      title: "Kinsale (KNSL): the insurer that says yes",
       excerpt:
         'An insurer that makes money just by insuring, grows 33% a year, and trades cheap. Here is why Kinsale meets my 10 quality criteria, and where the catch hides.',
       metaDescription:
@@ -294,7 +294,7 @@ const kinsale: Article = {
         'This article is an analysis for informational and educational purposes and is not personalized investment advice. Past performance does not guarantee future results. Figures as of June 10, 2026, subject to change. Do your own research.',
     },
     es: {
-      title: "¿Está infravalorada la acción Kinsale Capital (KNSL)?",
+      title: "Kinsale (KNSL): la aseguradora que dice sí",
       excerpt:
         'Una aseguradora que gana dinero solo con asegurar, que crece un 33 % al año y que cotiza barata. Aquí está por qué Kinsale cumple mis 10 criterios de calidad, y dónde se esconde la trampa.',
       metaDescription:
@@ -726,7 +726,7 @@ const afya: Article = {
   "ticker": "AFYA",
   "content": {
     "fr": {
-      "title": "Afya (AFYA) est-elle sous-évaluée en 2026 ?",
+      "title": "Afya : l'entreprise qui fabrique les médecins du Brésil",
       "excerpt": "Une entreprise qui forme les médecins du Brésil, de très grande qualité, et qui affiche une valorisation d'à peine un an de cash généré. Voici pourquoi Afya coche tous mes critères, et où se cache le piège.",
       "metaDescription": "Afya Limited (AFYA) expliqué simplement : ce que fait cet acteur de l'éducation médicale au Brésil, son moat réglementaire, ses risques, et pourquoi elle est de très grande qualité.",
       "answer": "Afya forme les médecins du Brésil, un métier protégé par des licences quasi introuvables. L'entreprise valide mes 10 critères de qualité, fait croître son cash de 28 % par an, et affiche une valorisation d'à peine un an de ce cash. La qualité est rare, le prix encore plus. Voici comment je lis ce dossier.",
@@ -904,7 +904,7 @@ const afya: Article = {
       "disclaimer": "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is Afya (AFYA) stock undervalued in 2026?",
+      "title": "Afya: the company that makes Brazil's doctors",
       "excerpt": "A company that trains Brazil's doctors, of the highest quality, trading at barely more than one year of the cash it generates. Here is why Afya meets all my criteria, and where the catch hides.",
       "metaDescription": "Afya Limited (AFYA) explained simply: what this Brazilian medical education player does, its regulatory moat, its risks, and why it is top quality.",
       "answer": "Afya trains Brazil's doctors, a trade protected by licenses that are nearly impossible to obtain. The company meets my 10 quality criteria, grows its cash 28% a year, and trades at barely more than one year of that cash. Quality this rare is unusual. The price even more so. Here is how I read it.",
@@ -1082,7 +1082,7 @@ const afya: Article = {
       "disclaimer": "This article is an analysis for informational and educational purposes, and does not constitute personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada la acción Afya (AFYA)?",
+      "title": "Afya: la empresa que forma a los médicos de Brasil",
       "excerpt": "Una empresa que forma a los médicos de Brasil, de altísima calidad, que cotiza a apenas algo más de un año de la caja que genera. Aquí explico por qué Afya cumple todos mis criterios, y dónde se esconde la trampa.",
       "metaDescription": "Afya Limited (AFYA) explicado simple: qué hace este actor de la educación médica en Brasil, su foso regulatorio, sus riesgos y por qué es de altísima calidad.",
       "answer": "Afya forma a los médicos de Brasil, un oficio protegido por licencias casi imposibles de obtener. La empresa cumple mis 10 criterios de calidad, hace crecer su caja un 28 % al año y cotiza a apenas algo más de un año de esa caja. La calidad es rara, el precio aún más. Así leo este caso.",
@@ -1270,7 +1270,7 @@ const rnr: Article = {
   "ticker": "RNR",
   "content": {
     "fr": {
-      "title": "RenaissanceRe (RNR) est-elle sous-évaluée en 2026 ?",
+      "title": "RenaissanceRe (RNR) : l'assureur des assureurs",
       "excerpt": "Un réassureur d'élite qui affiche aujourd'hui une valorisation parmi les plus basses de toute son histoire. Voici pourquoi RenaissanceRe coche mes critères de qualité, et le piège que cache son métier.",
       "metaDescription": "RenaissanceRe Holdings (RNR) expliqué simplement : ce que fait ce réassureur des Bermudes, son moat, ses risques, et pourquoi il figure parmi mes valeurs de meilleure qualité.",
       "answer": "RenaissanceRe est un réassureur des Bermudes d'élite : il assure les assureurs contre les grandes catastrophes, avec une discipline de souscription réputée. Il valide mes 10 critères de qualité et obtient 10 sur 10. Et il affiche aujourd'hui une valorisation parmi les plus basses de toute son histoire. La qualité est rare, ce prix aussi.",
@@ -1452,7 +1452,7 @@ const rnr: Article = {
       "disclaimer": "Cet article est une analyse à but informatif et éducatif, et ne constitue pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des performances futures. Chiffres au 11 juin 2026, susceptibles d'évoluer. Faites vos propres recherches."
     },
     "en": {
-      "title": "Is RenaissanceRe (RNR) stock undervalued in 2026?",
+      "title": "RenaissanceRe (RNR): the insurer of insurers",
       "excerpt": "An elite reinsurer, scored 10 out of 10, that trades today among the cheapest prices in its entire history. Here is why RenaissanceRe meets my quality criteria, and the trap its business hides.",
       "metaDescription": "RenaissanceRe Holdings (RNR) explained simply: what this Bermuda reinsurer does, its moat, its risks, and why it earns my 10 out of 10 quality score.",
       "answer": "RenaissanceRe is an elite Bermuda reinsurer: it insures the insurers against major catastrophes, with a renowned underwriting discipline. It meets my 10 quality criteria and scores 10 out of 10. And it trades today among the cheapest prices in its entire history. Quality this rare is unusual. So is the price.",
@@ -1634,7 +1634,7 @@ const rnr: Article = {
       "disclaimer": "This article is an analysis for informational and educational purposes and is not personalized investment advice. Past performance does not guarantee future results. Figures as of June 11, 2026, subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada RenaissanceRe (RNR)?",
+      "title": "RenaissanceRe (RNR): la aseguradora de aseguradoras",
       "excerpt": "Una reaseguradora de élite, con nota 10 sobre 10, que cotiza hoy entre los precios más bajos de toda su historia. Aquí está por qué RenaissanceRe cumple mis criterios de calidad, y la trampa que esconde su negocio.",
       "metaDescription": "RenaissanceRe Holdings (RNR) explicada de forma sencilla: qué hace esta reaseguradora de Bermudas, su moat, sus riesgos y por qué obtiene mi nota 10 sobre 10.",
       "answer": "RenaissanceRe es una reaseguradora de Bermudas de élite: asegura a las aseguradoras contra las grandes catástrofes, con una disciplina de suscripción reconocida. Cumple mis 10 criterios de calidad y obtiene un 10 sobre 10. Y cotiza hoy entre los precios más bajos de toda su historia. Una calidad así es rara. El precio también.",
@@ -1826,7 +1826,7 @@ const meli: Article = {
   "ticker": "MELI",
   "content": {
     "fr": {
-      "title": "MercadoLibre (MELI) est-elle sous-évaluée en 2026 ?",
+      "title": "MercadoLibre (MELI) : l'Amazon et le PayPal d'un continent",
       "excerpt": "Une machine à cash de très grande qualité, qui grandit de 41 % par an, et qui ne s'est jamais payée aussi peu cher de toute son histoire. Voici pourquoi je regarde MercadoLibre de très près, et où se cache le piège.",
       "metaDescription": "MercadoLibre (MELI) expliqué simplement : un business de très grande qualité au prix le plus bas de son histoire. Sa qualité, son moat, ses risques, et comment je tranche.",
       "answer": "MercadoLibre est l'Amazon plus PayPal de l'Amérique latine, noté 10 sur 10 dans ma méthode. Il grandit de 41 % par an, génère un cash exceptionnel, et ne s'est jamais payé aussi peu cher de toute son histoire. La qualité est rare, le prix l'est tout autant. Voici comment je tranche, sans emballement.",
@@ -1973,7 +1973,7 @@ const meli: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is MercadoLibre (MELI) stock undervalued in 2026?",
+      "title": "MercadoLibre (MELI): a continent's Amazon and PayPal",
       "excerpt": "A top-quality cash machine, growing 41% a year, that has never been this cheap in its entire history. Here is why I watch MercadoLibre very closely, and where the trap hides.",
       "metaDescription": "MercadoLibre (MELI) explained simply: a top-quality business at the cheapest price in its history. Its quality, its moat, its risks, and how I decide.",
       "answer": "MercadoLibre is Latin America's Amazon plus PayPal, rated 10 out of 10 in my method. It grows 41% a year, generates exceptional cash, and has never been this cheap in its entire history. Quality is rare, and so is the price. Here is how I decide, without getting carried away.",
@@ -2120,7 +2120,7 @@ const meli: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada MercadoLibre (MELI)?",
+      "title": "MercadoLibre (MELI): el Amazon y el PayPal de un continente",
       "excerpt": "Una máquina de generar caja de altísima calidad, que crece un 41 % al año, y que nunca se había pagado tan barata en toda su historia. Aquí explico por qué vigilo de cerca a MercadoLibre, y dónde se esconde la trampa.",
       "metaDescription": "MercadoLibre (MELI) explicado simple: un negocio de altísima calidad al precio más bajo de su historia. Su calidad, su foso, sus riesgos, y cómo decido.",
       "answer": "MercadoLibre es el Amazon más PayPal de América Latina, con nota 10 sobre 10 en mi método. Crece un 41 % al año, genera una caja excepcional, y nunca se había pagado tan barata en toda su historia. La calidad es rara, y el precio también. Así es como decido, sin dejarme llevar.",
@@ -4203,7 +4203,7 @@ const kgc: Article = {
   "ticker": "KGC",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Kinross Gold (KGC) ?",
+      "title": "Kinross Gold (KGC) : d'où vient l'explosion du cash",
       "excerpt": "Une minière d'or qui coche tous mes critères de qualité, dopée par un or au plus haut. Mais une note parfaite n'est pas une thèse : voici le pari réel, et le risque que personne ne te dit.",
       "metaDescription": "Kinross Gold (KGC), de très grande qualité, avec une trésorerie nette positive. Mais c'est un pari sur l'or, pas un compounder. Ma lecture honnête, qualité et prix.",
       "answer": "Kinross Gold coche tous mes critères de qualité financière : note 10 sur 10, marge de cash de 36 %, trésorerie nette positive, et un cash par action qui a plus que doublé sur un an avec la flambée de l'or. Mais une note parfaite n'est pas une thèse. Acheter Kinross, c'est d'abord parier sur le prix de l'or. Voici comment je sépare les deux.",
@@ -4370,7 +4370,7 @@ const kgc: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 11 juin 2026, susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy Kinross Gold (KGC) stock?",
+      "title": "Kinross Gold (KGC): where the cash surge comes from",
       "excerpt": "A gold miner that ticks every quality box, boosted by gold at record highs. But a perfect score is not a thesis: here is the real bet, and the risk nobody mentions.",
       "metaDescription": "Kinross Gold (KGC) is top quality, with net cash on the balance sheet. But it is a bet on gold, not a compounder. My honest read, quality and price kept separate.",
       "answer": "Kinross Gold ticks every one of my financial quality criteria: a 10 of 10 score, a 36% cash margin, net cash on the balance sheet, and cash per share that more than doubled in a year as gold surged. But a perfect score is not a thesis. Buying Kinross is, first of all, a bet on the price of gold. Here is how I keep the two apart.",
@@ -4537,7 +4537,7 @@ const kgc: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 11, 2026, subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de Kinross Gold (KGC)?",
+      "title": "Kinross Gold (KGC): de dónde viene la explosión de caja",
       "excerpt": "Una minera de oro que cumple todos mis criterios de calidad, impulsada por un oro en máximos. Pero una nota perfecta no es una tesis: aquí está la apuesta real y el riesgo que nadie te cuenta.",
       "metaDescription": "Kinross Gold (KGC) es de altísima calidad, con caja neta positiva. Pero es una apuesta por el oro, no un compounder. Mi lectura honesta, calidad y precio.",
       "answer": "Kinross Gold cumple todos mis criterios de calidad financiera: nota de 10 de 10, margen de caja del 36 %, caja neta positiva y una caja por acción que más que se duplicó en un año con la subida del oro. Pero una nota perfecta no es una tesis. Comprar Kinross es, ante todo, apostar por el precio del oro. Así separo las dos cosas.",
@@ -5033,7 +5033,7 @@ const gddy: Article = {
   ticker: 'GDDY',
   content: {
     fr: {
-      title: "GoDaddy (GDDY) est-elle sous-évaluée en 2026 ?",
+      title: "GoDaddy (GDDY) : ce n'est plus ce que tu crois",
       excerpt:
         "GoDaddy n'est plus un simple vendeur de noms de domaine. Derrière une croissance molle se cache une machine à cash payée bon marché. Mon analyse fondamentale.",
       metaDescription:
@@ -5105,7 +5105,7 @@ const gddy: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Is GoDaddy (GDDY) stock undervalued in 2026?",
+      title: "GoDaddy (GDDY): no longer what you think it is",
       excerpt:
         "GoDaddy is no longer just a domain name seller. Behind soft growth sits a cash machine priced cheaply. My fundamental analysis.",
       metaDescription:
@@ -5177,7 +5177,7 @@ const gddy: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "¿Está infravalorada la acción de GoDaddy (GDDY)?",
+      title: "GoDaddy (GDDY): ya no es lo que crees",
       excerpt:
         "GoDaddy ya no es un simple vendedor de dominios. Tras un crecimiento flojo se esconde una máquina de caja barata. Mi análisis fundamental.",
       metaDescription:
@@ -5940,7 +5940,7 @@ const bkng: Article = {
   ticker: 'BKNG',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Booking (BKNG) ?",
+      title: "Booking (BKNG) : bien plus que Booking.com",
       excerpt:
         "Derrière Booking.com se cache une des plus belles machines à cash de la cote, à un prix raisonnable. Mon analyse alors que le voyage mondial repart.",
       metaDescription:
@@ -6008,7 +6008,7 @@ const bkng: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 12 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Booking (BKNG) stock?",
+      title: "Booking (BKNG): far more than Booking.com",
       excerpt:
         "Behind Booking.com sits one of the finest cash machines on the market, at a reasonable price. My analysis as global travel rebounds.",
       metaDescription:
@@ -6076,7 +6076,7 @@ const bkng: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 12, 2026, subject to change. Do your own research.",
     },
     es: {
-      title: "¿Comprar acciones de Booking (BKNG)?",
+      title: "Booking (BKNG): mucho más que Booking.com",
       excerpt:
         "Tras Booking.com se esconde una de las mejores máquinas de caja del mercado, a un precio razonable. Mi análisis mientras el viaje mundial repunta.",
       metaDescription:
@@ -6814,7 +6814,7 @@ const pfcfEleve: Article = {
   readingTime: 8,
   content: {
     fr: {
-      title: 'Valorisation élevée : quand payer 20x une action de qualité ?',
+      title: "Quand payer vingt fois le cash d'une entreprise",
       excerpt: "Payer 20 fois le cash généré par une entreprise semble cher. Mais certains dossiers de qualité justifient ce multiple. Voici comment je distingue un P/FCF élevé justifié d'un piège de valorisation.",
       metaDescription: "Quand est-il justifié de payer 20x le free cash flow d'une action de qualité ? NSSC 23x, PCTY 17x, QLYS 12x : analyse des conditions qui rendent un multiple élevé acceptable.",
       answer: "Un P/FCF (prix divisé par le cash annuel généré) de 20x n'est pas automatiquement cher. Cela dépend de trois facteurs : la croissance attendue du FCF, la visibilité des revenus (récurrents ou non), et la solidité du moat (avantage concurrentiel). Une entreprise dont le FCF croît de 15% par an justifie un multiple plus élevé qu'une entreprise stagnante.",
@@ -6895,7 +6895,7 @@ const pfcfEleve: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication. Fais tes propres recherches.",
     },
     en: {
-      title: 'High valuation: when is paying 20x a quality stock justified?',
+      title: "When paying twenty times a company's cash is right",
       excerpt: "Paying 20 times a company's generated cash looks expensive. But some quality files justify this multiple. Here is how I distinguish a justified high P/FCF from a valuation trap.",
       metaDescription: "When is paying 20x free cash flow for a quality stock justified? NSSC 23x, PCTY 17x, QLYS 12x: analysis of the conditions that make a high multiple acceptable.",
       answer: "A P/FCF (price divided by annual cash generated) of 20x is not automatically expensive. It depends on three factors: expected FCF growth, revenue visibility (recurring or not), and the strength of the moat (competitive advantage). A company whose FCF grows 15% per year justifies a higher multiple than a stagnating one.",
@@ -6968,7 +6968,7 @@ const pfcfEleve: Article = {
       disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date. Do your own research before investing.",
     },
     es: {
-      title: 'Valoración alta: ¿cuándo pagar 20x una acción de calidad?',
+      title: "Cuándo pagar veinte veces la caja de una empresa",
       excerpt: "Pagar 20 veces el efectivo generado por una empresa parece caro. Pero algunos expedientes de calidad justifican ese múltiplo. Así es como distingo un P/FCF alto justificado de una trampa de valoración.",
       metaDescription: "Cuándo es justificado pagar 20x el free cash flow de una acción de calidad? NSSC 23x, PCTY 17x, QLYS 12x: análisis de las condiciones que hacen aceptable un múltiplo alto.",
       answer: "Un P/FCF (precio dividido entre el efectivo anual generado) de 20x no es automáticamente caro. Depende de tres factores: el crecimiento esperado del FCF, la visibilidad de los ingresos (recurrentes o no) y la solidez del moat (ventaja competitiva). Una empresa cuyo FCF crece un 15% anual justifica un múltiplo más alto que una empresa estancada.",
@@ -7272,7 +7272,7 @@ const oracleQ4FY26: Article = {
   ticker: 'ORCL',
   content: {
     fr: {
-      title: "Oracle (ORCL) : faut-il acheter après la chute ?",
+      title: "Oracle (ORCL) : le cloud paie, la dette pèse",
       excerpt: 'Oracle vient de publier des résultats record avec un cloud qui explose à +47%. Pourtant le titre a chuté de 10%. Je décortique ces chiffres avec ma méthode fondamentale.',
       metaDescription: 'Oracle Q4 FY26 : revenus 19,2 Md$ (+21%), cloud +47%, IaaS +93%. Score 8/10 mais valorisation très tendue. Mon analyse fondamentale complète.',
       answer: "Oracle a publié des résultats records en juin 2026 : 19,2 milliards de dollars de revenus au T4, cloud en hausse de 47%. Pourtant l'action a chuté de 10% dans la foulée. C'est le paradoxe classique du 'bon chiffre, mauvais marché' : les attentes étaient encore plus hautes. Mon analyse montre une belle entreprise, mais à un prix difficile à justifier.",
@@ -7393,7 +7393,7 @@ const oracleQ4FY26: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (16 juin 2026), susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement."
     },
     en: {
-      title: "Should you buy Oracle (ORCL) stock after the drop?",
+      title: "Oracle (ORCL): the cloud pays, the debt weighs",
       excerpt: 'Oracle just posted record results with cloud exploding at +47%. Yet the stock dropped 10%. I break down these numbers using my fundamental method.',
       metaDescription: 'Oracle Q4 FY26: revenue $19.2B (+21%), cloud +47%, IaaS +93%. Quality score 8/10 but stretched valuation. Full fundamental analysis.',
       answer: "Oracle posted record results in June 2026: $19.2 billion in Q4 revenue, cloud up 47%. Yet the stock fell 10% the next day. This is the classic 'good numbers, bad market' paradox: expectations were even higher. My analysis shows a great business, but at a price that's hard to justify right now.",
@@ -7514,7 +7514,7 @@ const oracleQ4FY26: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of publication date (June 16, 2026), subject to change. Do your own research before any investment decision."
     },
     es: {
-      title: "¿Comprar acciones de Oracle (ORCL) tras la caída?",
+      title: "Oracle (ORCL): la nube paga, la deuda pesa",
       excerpt: 'Oracle acaba de publicar resultados récord con un cloud que explota al +47%. Sin embargo, la acción cayó un 10%. Analizo estas cifras con mi método fundamental.',
       metaDescription: 'Oracle Q4 FY26: ingresos 19,2 Md$ (+21%), cloud +47%, IaaS +93%. Puntuación de calidad 8/10 pero valoración muy ajustada. Análisis fundamental completo.',
       answer: "Oracle publicó resultados récord en junio de 2026: 19.200 millones de dólares de ingresos en el T4, cloud en alza del 47%. Sin embargo la acción cayó un 10% al día siguiente. Es la paradoja clásica del 'buenos números, mal mercado': las expectativas eran todavía más altas. Mi análisis revela una gran empresa, pero a un precio difícil de justificar.",
@@ -8951,7 +8951,7 @@ const article_pcty: Article = {
   ticker: 'PCTY',
   content: {
     fr: {
-      title: "Paylocity (PCTY) est-elle sous-évaluée en bourse ?",
+      title: "Paylocity (PCTY) : la paie des PME américaines",
       excerpt: 'Paylocity gère la paie et les RH de milliers de PME américaines. Son score de qualité est parfait, sa valorisation reste raisonnable. Pourquoi le marché boursier l\'ignore-t-il encore ?',
       metaDescription: 'Analyse de Paylocity (PCTY) : score qualité, valorisation, moat SaaS RH, concurrence ADP et risques. Tout ce que l\'investisseur fondamental doit savoir.',
       answer: 'Paylocity est un SaaS RH de qualité exceptionnelle : croissance des revenus de 23 % par an sur cinq ans, marge de free cash flow de 20 %, trésorerie nette positive. Sa valorisation reste raisonnable pour ce niveau de qualité. Le risque principal : la décélération de la croissance dans un marché de l\'emploi US plus fragile.',
@@ -9067,7 +9067,7 @@ const article_pcty: Article = {
       disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 16 juin 2026, susceptibles d\'évoluer. Fais tes propres recherches avant toute décision d\'investissement.'
     },
     en: {
-      title: "Is Paylocity (PCTY) stock undervalued?",
+      title: "Paylocity (PCTY): payroll for US small business",
       excerpt: 'Paylocity handles payroll and HR for thousands of US mid-market companies. Its quality score is perfect and its valuation remains reasonable. Here is why the market still overlooks it.',
       metaDescription: 'Paylocity (PCTY) fundamental analysis: quality score, FCF valuation, SaaS moat, ADP competition, and key risks. Everything a long-term investor needs to know.',
       answer: 'Paylocity is an exceptional-quality HR SaaS: revenue growth of 23% per year over five years, a 20% free cash flow margin, and a net cash balance sheet. Its valuation remains reasonable for this quality level. The main risk: growth deceleration in a softer US employment market.',
@@ -9155,7 +9155,7 @@ const article_pcty: Article = {
       disclaimer: 'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of June 16, 2026, subject to change. Do your own research before any investment decision.'
     },
     es: {
-      title: "¿Está infravalorada la acción de Paylocity (PCTY)?",
+      title: "Paylocity (PCTY): las nóminas de las pymes de EE. UU.",
       excerpt: 'Paylocity gestiona las nóminas y los recursos humanos de miles de pymes estadounidenses. Su calidad es sobresaliente y su valoración sigue siendo razonable. ¿Por qué el mercado bursátil aún no lo ha descubierto?',
       metaDescription: 'Análisis fundamental de Paylocity (PCTY): puntuación de calidad, valoración, ventaja competitiva, competencia con ADP y principales riesgos para el inversor.',
       answer: 'Paylocity es un SaaS de recursos humanos de calidad excepcional: crecimiento de ingresos del 23% anual durante cinco años, margen de free cash flow del 20% y balance sin deuda neta. Su valoración sigue siendo razonable para este nivel de calidad. El principal riesgo: la desaceleración del crecimiento en un mercado laboral estadounidense más débil.',
@@ -9248,7 +9248,7 @@ const article_hae: Article = {
   ticker: 'HAE',
   content: {
     fr: {
-      title: "Haemonetics (HAE) est-elle sous-évaluée en 2026 ?",
+      title: "Haemonetics (HAE) : le sang comme infrastructure",
       excerpt: 'Haemonetics fabrique les machines qui collectent et traitent le sang et le plasma dans les hôpitaux du monde entier. Un business de niche discret, des fondamentaux solides, une valorisation historiquement basse.',
       metaDescription: 'Analyse de Haemonetics (HAE) : score qualité, valorisation, moat médical, marché du plasma et risques. Tout ce que l\'investisseur fondamental doit savoir sur cette action.',
       answer: 'Haemonetics est un équipementier médical de niche qui gère la collecte et le traitement du sang et du plasma. Avec un score de qualité parfait, une marge de free cash flow de 21 %, et une valorisation basse, l\'action représente une opportunité à surveiller de près malgré une dette légèrement élevée et des revenus FY2026 en légère baisse.',
@@ -9356,7 +9356,7 @@ const article_hae: Article = {
       disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 16 juin 2026, susceptibles d\'évoluer. Fais tes propres recherches avant toute décision d\'investissement.'
     },
     en: {
-      title: "Is Haemonetics (HAE) stock undervalued in 2026?",
+      title: "Haemonetics (HAE): blood as medical infrastructure",
       excerpt: 'Haemonetics builds the machines that collect and process blood and plasma in hospitals worldwide. A discreet niche business, strong fundamentals, and a historically low valuation.',
       metaDescription: 'Haemonetics (HAE) fundamental analysis: quality score, FCF valuation, hospital moat, plasma market tailwinds, and key risks. Everything a long-term investor needs to know.',
       answer: 'Haemonetics is a niche medical equipment company managing blood and plasma collection and processing. With a perfect quality score, a 21% free cash flow margin, and a low valuation, the stock is worth watching closely despite slightly elevated debt and a 2% revenue decline in FY2026.',
@@ -9432,7 +9432,7 @@ const article_hae: Article = {
       disclaimer: 'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of June 16, 2026, subject to change. Do your own research before any investment decision.'
     },
     es: {
-      title: "¿Haemonetics (HAE) está infravalorada en 2026?",
+      title: "Haemonetics (HAE): la sangre como infraestructura",
       excerpt: 'Haemonetics fabrica las máquinas que recolectan y procesan sangre y plasma en hospitales de todo el mundo. Un negocio discreto, fundamentos sólidos y una valoración históricamente baja.',
       metaDescription: 'Análisis fundamental de Haemonetics (HAE): puntuación de calidad, valoración, ventaja competitiva hospitalaria, mercado del plasma y riesgos clave para el inversor.',
       answer: 'Haemonetics es una empresa de equipamiento médico de nicho que gestiona la recolección y el tratamiento de sangre y plasma. Con una puntuación de calidad perfecta, un margen de free cash flow del 21% y una valoración baja en bolsa, es una acción que merece seguimiento estrecho, a pesar de un endeudamiento algo elevado y una ligera caída de ingresos en FY2026.',
@@ -9798,7 +9798,7 @@ const intu: Article = {
   ticker: 'INTU',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Intuit (INTU) en 2026 ?",
+      title: "Intuit (INTU) : pourquoi ses clients ne partent pas",
       excerpt:
         "Intuit, c'est TurboTax, QuickBooks et Mailchimp. Une entreprise que 100 millions d'Américains ne peuvent pas quitter. Je t'explique pourquoi elle obtient la note maximale dans ma méthode, ce que vaut l'action aujourd'hui et où je fixe mon seuil d'achat.",
       metaDescription:
@@ -9931,7 +9931,7 @@ const intu: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres issus de l'API lubin-investment.com et des résultats officiels SEC (Q3 FY2026), à la date du 2026-06-16. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Intuit (INTU) stock in 2026?",
+      title: "Intuit (INTU): why its customers never leave",
       excerpt:
         "Intuit owns TurboTax, QuickBooks and Mailchimp. More than 40 million Americans use TurboTax every year, and almost none of them switch. Here's why the stock scores 10 out of 10 in my analysis, and where I set my buy threshold.",
       metaDescription:
@@ -10064,7 +10064,7 @@ const intu: Article = {
         'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures from lubin-investment.com API and official SEC filings (Q3 FY2026), as of 2026-06-16. Do your own research.',
     },
     es: {
-      title: "¿Comprar acciones de Intuit (INTU) en 2026?",
+      title: "Intuit (INTU): por qué sus clientes no se van",
       excerpt:
         'Intuit es TurboTax, QuickBooks y Mailchimp. Más de 40 millones de americanos usan TurboTax cada año y casi ninguno cambia. Te explico por qué obtiene la máxima puntuación en mi método y dónde fijo mi precio de compra.',
       metaDescription:
@@ -13418,7 +13418,7 @@ const carMaxQ1FY27: Article = {
   ticker: 'KMX',
   content: {
     fr: {
-      title: "Faut-il acheter l'action CarMax (KMX) en 2026 ?",
+      title: "CarMax (KMX) : un léger beat qui ne change rien",
       excerpt:
         "CarMax a légèrement dépassé les attentes sur son BPA au premier trimestre FY2027. Pourtant, notre méthode fondamentale attribue un score très bas à ce titre. Voici pourquoi la distribution automobile reste structurellement difficile à noter en qualité.",
       metaDescription:
@@ -13547,7 +13547,7 @@ const carMaxQ1FY27: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Chiffres à la date du 22 juin 2026. Les performances passées ne préjugent pas du futur. Fais tes propres recherches avant toute décision d'investissement.",
     },
     en: {
-      title: "Should you buy CarMax (KMX) stock in 2026?",
+      title: "CarMax (KMX): a small beat that changes nothing",
       excerpt:
         'CarMax slightly beat EPS consensus in Q1 FY2027. Yet our fundamental method gives this stock a very low score. Here is why auto retail remains structurally hard to rate on quality.',
       metaDescription:
@@ -13676,7 +13676,7 @@ const carMaxQ1FY27: Article = {
         'Analysis for informational and educational purposes only, not personalized investment advice. Figures as of June 22, 2026. Past performance does not predict future results. Do your own research before any investment decision.',
     },
     es: {
-      title: "¿Comprar acciones de CarMax (KMX) en 2026?",
+      title: "CarMax (KMX): un ligero beat que no cambia nada",
       excerpt:
         'CarMax superó ligeramente el consenso de BPA en el Q1 FY2027. Sin embargo, nuestro método fundamental atribuye una puntuación muy baja a este título. Aquí explicamos por qué la distribución de automóviles sigue siendo estructuralmente difícil de calificar en calidad.',
       metaDescription:
@@ -13814,7 +13814,7 @@ const wrb: Article = {
   ticker: 'WRB',
   content: {
     fr: {
-      title: "W.R. Berkley (WRB) : faut-il acheter cette action ?",
+      title: "W.R. Berkley (WRB) : la discipline avant le volume",
       excerpt: 'W.R. Berkley est l\'une des rares compagnies d\'assurance à obtenir la note maximale dans mon modèle. Cinquante ans de discipline, une spécialité que ses concurrents évitent, et une valorisation encore abordable. Je t\'explique pourquoi ce dossier me convainc.',
       metaDescription: 'W.R. Berkley (WRB) : analyse fondamentale d\'un spécialiste E&S noté 10/10, valorisation attractive et 50 ans d\'excellence en souscription.',
       answer: 'W.R. Berkley est un spécialiste de l\'assurance sur des risques complexes que les assureurs classiques refusent. La qualité de son modèle est exceptionnelle : cinquante ans de rentabilité régulière, une discipline de souscription rare dans le secteur. Sa valorisation reste raisonnable pour un actif de cette qualité. C\'est le genre de dossier que je garde longtemps.',
@@ -13957,7 +13957,7 @@ const wrb: Article = {
       disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les chiffres sont établis à la date de publication et peuvent évoluer. Les performances passées ne préjugent pas des résultats futurs. Fais tes propres recherches avant toute décision d\'investissement.',
     },
     en: {
-      title: "Should you buy W.R. Berkley (WRB) stock?",
+      title: "W.R. Berkley (WRB): discipline before volume",
       excerpt: 'W.R. Berkley is one of the rare insurance companies to score a perfect rating in my model. Fifty years of discipline, a specialty its competitors avoid, and a valuation that is still accessible. Here is why this thesis convinces me.',
       metaDescription: 'W.R. Berkley (WRB): complete fundamental analysis of an E&S insurance specialist scoring 10/10, attractive valuation and 50 years of underwriting excellence.',
       answer: 'W.R. Berkley specializes in complex insurance risks that mainstream insurers refuse to write. Its business quality is exceptional: fifty years of consistent profitability and a rare underwriting discipline in the sector. Its valuation remains reasonable for an asset of this quality. This is the kind of stock I hold for the long term.',
@@ -14100,7 +14100,7 @@ const wrb: Article = {
       disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Figures are as of the date of publication and may change. Past performance does not predict future results. Do your own research before any investment decision.',
     },
     es: {
-      title: "¿Deberías comprar acciones de W.R. Berkley (WRB)?",
+      title: "W.R. Berkley (WRB): la disciplina antes del volumen",
       excerpt: 'W.R. Berkley es una de las pocas aseguradoras que obtiene la nota máxima en mi modelo. Cincuenta años de disciplina, una especialidad que sus competidores evitan, y una valoración todavía accesible. Te explico por qué esta tesis me convence.',
       metaDescription: 'W.R. Berkley (WRB): análisis fundamental de un especialista E&S con nota 10/10, valoración atractiva y 50 años de excelencia en suscripción.',
       answer: 'W.R. Berkley se especializa en seguros de riesgos complejos que las aseguradoras tradicionales rechazan. La calidad de su modelo es excepcional: cincuenta años de rentabilidad regular y una disciplina de suscripción muy poco común en el sector. Su valoración sigue siendo razonable para un activo de esta calidad. Es el tipo de empresa que mantengo en cartera a largo plazo.',
@@ -14650,7 +14650,7 @@ const doximityDOCS2026: Article = {
   ticker: 'DOCS',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Doximity (DOCS) en 2026 ?",
+      title: "Doximity (DOCS) : le réseau social des médecins",
       excerpt:
         "Doximity connecte 80 % des médecins américains sur une seule plateforme. Un moat rarissime, des marges parmi les meilleures du secteur technologique, et une valorisation qui reste raisonnable. Je décortique le dossier de A à Z.",
       metaDescription:
@@ -14794,7 +14794,7 @@ const doximityDOCS2026: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches avant toute décision financière.",
     },
     en: {
-      title: "Should you buy Doximity (DOCS) stock in 2026?",
+      title: "Doximity (DOCS): the social network of doctors",
       excerpt:
         "Doximity connects 80% of American physicians on a single platform. A rare moat, margins among the best in tech, and a valuation that remains reasonable. A full breakdown of the investment case.",
       metaDescription:
@@ -14938,7 +14938,7 @@ const doximityDOCS2026: Article = {
         'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research before making any financial decision.',
     },
     es: {
-      title: "¿Comprar acciones de Doximity (DOCS) en 2026?",
+      title: "Doximity (DOCS): la red social de los médicos",
       excerpt:
         "Doximity conecta al 80 % de los médicos estadounidenses en una sola plataforma. Un foso competitivo rarísimo, márgenes entre los mejores de la tecnología, y una valoración razonable. Análisis fundamental completo.",
       metaDescription:
@@ -15966,7 +15966,7 @@ const articleSKYW: Article = {
   ticker: 'SKYW',
   content: {
     fr: {
-      title: "SkyWest (SKYW) est-elle sous-évaluée en bourse ?",
+      title: "SkyWest (SKYW) : où se cache l'inefficience",
       excerpt:
         'SkyWest est le plus grand transporteur régional des États-Unis. Le marché la traite comme une compagnie aérienne ordinaire, mais ses revenus sont quasi fixes grâce à des contrats à long terme. Résultat : une valorisation anormalement basse pour une qualité d\'entreprise parfaite.',
       metaDescription:
@@ -16116,7 +16116,7 @@ const articleSKYW: Article = {
         'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les données sont celles disponibles à la date de publication et peuvent évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
     },
     en: {
-      title: "Is SkyWest (SKYW) stock undervalued right now?",
+      title: "SkyWest (SKYW): where the inefficiency hides",
       excerpt:
         'SkyWest is the largest regional carrier in the United States. The market treats it like a typical airline, but its revenues are near-fixed thanks to long-term contracts. The result: an unusually low valuation for a business with perfect quality fundamentals.',
       metaDescription:
@@ -16266,7 +16266,7 @@ const articleSKYW: Article = {
         'For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Data is as of the publication date and may change. Do your own research before making any investment decision.',
     },
     es: {
-      title: "¿Está infravalorada la acción SkyWest (SKYW)?",
+      title: "SkyWest (SKYW): dónde se esconde la ineficiencia",
       excerpt:
         'SkyWest es el mayor transportista regional de Estados Unidos. El mercado la trata como una aerolínea convencional, pero sus ingresos son casi fijos gracias a contratos a largo plazo. El resultado: una valoración anormalmente baja para una empresa con fundamentos de calidad perfecta.',
       metaDescription:
@@ -16426,7 +16426,7 @@ const articleMCY: Article = {
   ticker: 'MCY',
   content: {
     fr: {
-      title: "Mercury General (MCY) est-elle sous-évaluée en 2026 ?",
+      title: "Mercury General (MCY) : pourquoi le prix est si bas",
       excerpt:
         "Mercury General assure des voitures en Californie depuis 1962 et verse un dividende sans interruption depuis plus de 50 ans. Son action en bourse affiche aujourd'hui une valorisation extrêmement basse, pénalisée par deux peurs simultanées. Je t'explique pourquoi ce niveau de qualité à ce prix me semble rare.",
       metaDescription:
@@ -16563,7 +16563,7 @@ const articleMCY: Article = {
         "Analyse à but informatif et éducatif uniquement, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres sont ceux disponibles à la date de publication et sont susceptibles d'évoluer. Faites vos propres recherches avant toute décision d'investissement.",
     },
     en: {
-      title: "Is Mercury General (MCY) stock undervalued?",
+      title: "Mercury General (MCY): why the price is so low",
       excerpt:
         'Mercury General has been insuring cars in California since 1962 and has paid a dividend every year for over 50 consecutive years. Yet its stock trades at an extremely low valuation, penalized by two simultaneous fears. Here is why this quality level at this price strikes me as rare.',
       metaDescription:
@@ -16700,7 +16700,7 @@ const articleMCY: Article = {
         'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures are as of the publication date and are subject to change. Do your own research before making any investment decision.',
     },
     es: {
-      title: "¿Está infravalorada la acción de Mercury General (MCY)?",
+      title: "Mercury General (MCY): por qué el precio es tan bajo",
       excerpt:
         'Mercury General lleva asegurando coches en California desde 1962 y ha pagado dividendo sin interrupción durante más de 50 años consecutivos. Su acción en bolsa cotiza hoy a una valoración extremadamente baja, penalizada por dos miedos simultáneos. Te explico por qué este nivel de calidad a este precio me parece poco común.',
       metaDescription:
@@ -16847,7 +16847,7 @@ const articleUVE: Article = {
   ticker: 'UVE',
   content: {
     fr: {
-      title: "Universal Insurance (UVE) est-elle sous-évaluée en 2026 ?",
+      title: "Universal (UVE) : le marché que tous ont fui, sauf eux",
       excerpt:
         "Universal Insurance Holdings est l'un des rares assureurs à générer du cash de façon régulière en Floride, le marché le plus difficile des États-Unis. Le marché boursier lui applique une décote extrême à cause du risque ouragan. Mais est-ce vraiment justifié ? Voici ma lecture.",
       metaDescription:
@@ -16989,7 +16989,7 @@ const articleUVE: Article = {
         "Analyse à but informatif et éducatif uniquement, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres sont donnés à la date de publication et sont susceptibles d'évoluer. Lubin Danilo peut détenir ou non des positions sur les titres mentionnés.",
     },
     en: {
-      title: "Is Universal Insurance (UVE) stock undervalued in 2026?",
+      title: "Universal (UVE): the market everyone fled but them",
       excerpt:
         'Universal Insurance Holdings is one of the few insurers generating consistent cash flow in Florida, the toughest insurance market in the United States. The stock market applies an extreme discount because of hurricane risk. But is that really justified? Here is my take.',
       metaDescription:
@@ -17131,7 +17131,7 @@ const articleUVE: Article = {
         'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures are as of the publication date and subject to change. Lubin Danilo may or may not hold positions in the securities mentioned.',
     },
     es: {
-      title: "¿Universal Insurance (UVE) está infravalorada en 2026?",
+      title: "Universal (UVE): el mercado del que todos huyeron",
       excerpt:
         'Universal Insurance Holdings es uno de los pocos aseguradores que genera flujo de caja de forma regular en Florida, el mercado asegurador más difícil de Estados Unidos. La bolsa le aplica un descuento extremo por el riesgo de huracanes. ¿Pero está realmente justificado? Aquí mi análisis.',
       metaDescription:
@@ -17284,7 +17284,7 @@ const articleROP: Article = {
   ticker: 'ROP',
   content: {
     fr: {
-      title: "Roper Technologies (ROP) est-elle sous-évaluée en 2026 ?",
+      title: "Roper (ROP) : le modèle que presque personne ne comprend",
       excerpt:
         'Roper Technologies est un acquéreur en série de logiciels spécialisés avec 20 ans de track record. Le marché la traite comme un vieux conglomérat industriel, alors que ses marges et sa génération de cash rivalisent avec les meilleurs éditeurs SaaS. Voici pourquoi cette action mérite ton attention.',
       metaDescription:
@@ -17494,7 +17494,7 @@ const articleROP: Article = {
         'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres cités sont à la date de publication et susceptibles d\'évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
     },
     en: {
-      title: "Is Roper Technologies (ROP) undervalued in 2026?",
+      title: "Roper (ROP): the model almost nobody understands",
       excerpt:
         'Roper Technologies has been acquiring niche software businesses for over 20 years with exceptional discipline. The market still prices it like an old industrial conglomerate, while its cash margins rival the best SaaS companies. Here is why this stock deserves a serious look.',
       metaDescription:
@@ -17704,7 +17704,7 @@ const articleROP: Article = {
         'This is an informational and educational analysis, not personalized investment advice. Past performance does not guarantee future results. Figures are as of the publication date and subject to change. Do your own research before making any investment decision.',
     },
     es: {
-      title: "¿Está infravalorada Roper Technologies (ROP)?",
+      title: "Roper (ROP): el modelo que casi nadie entiende",
       excerpt:
         'Roper Technologies lleva más de 20 años adquiriendo software especializado en nichos donde los clientes no pueden irse. El mercado la trata como un viejo conglomerado industrial, mientras sus márgenes de caja rivalizan con los mejores editores SaaS. Te explico por qué esta acción merece tu atención.',
       metaDescription:
@@ -18782,7 +18782,7 @@ const articleCOLL: Article = {
   ticker: 'COLL',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Collegium (COLL) ?",
+      title: "Collegium (COLL) : pas de R&D, des marges hors norme",
       excerpt: 'Collegium Pharmaceutical fabrique des médicaments anti-douleur à formulation résistante aux abus. Le marché la confond avec les producteurs d\'opioïdes classiques et la valorise à un niveau extrêmement bas. Voici pourquoi cette confusion crée peut-être l\'une des opportunités les plus intéressantes du moment.',
       metaDescription: 'Collegium Pharmaceutical (COLL) : analyse fondamentale d\'une pharma spécialisée sous-évaluée. Moat défensif, cash flow exceptionnel, et un marché qui ne voit pas la différence.',
       answer: 'Collegium Pharmaceutical est une entreprise pharmaceutique spécialisée dans les médicaments anti-douleur à formulation résistante aux abus. Sa valorisation boursière est extrêmement basse parce que le marché la confond avec les fabricants d\'opioïdes classiques. Pourtant, son modèle est fondamentalement différent, et ses finances sont remarquables.',
@@ -18889,7 +18889,7 @@ const articleCOLL: Article = {
       disclaimer: 'Analyse à but informatif et éducatif uniquement, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres sont ceux disponibles à la date de publication et peuvent évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
     },
     en: {
-      title: "Should you buy Collegium (COLL) stock?",
+      title: "Collegium (COLL): no R&D, exceptional margins",
       excerpt: 'Collegium Pharmaceutical makes abuse-deterrent pain medications. The market lumps it together with traditional opioid makers and prices it at an extremely low valuation. Here is why that confusion might be creating one of the most interesting opportunities right now.',
       metaDescription: 'Collegium Pharmaceutical (COLL): fundamental analysis of an undervalued specialty pharma. Defensive moat, exceptional cash flow, and a market that misses the distinction.',
       answer: 'Collegium Pharmaceutical is a specialty pharma company focused on abuse-deterrent pain medications. Its stock valuation is extremely low because the market confuses it with traditional opioid makers. Yet its business model is fundamentally different, and its financials are exceptional. Here is how I analyze it.',
@@ -18996,7 +18996,7 @@ const articleCOLL: Article = {
       disclaimer: 'This article is for informational and educational purposes only and does not constitute personalized investment advice. Past performance does not predict future results. Figures are as of the publication date and may change. Do your own research before making any investment decision.',
     },
     es: {
-      title: "¿Comprar acciones de Collegium (COLL)?",
+      title: "Collegium (COLL): sin I+D, márgenes excepcionales",
       excerpt: 'Collegium Pharmaceutical fabrica medicamentos analgésicos con formulación resistente al abuso. El mercado la confunde con los fabricantes de opioides tradicionales y la valora a niveles muy bajos. Aquí explico por qué esa confusión puede estar creando una de las oportunidades más interesantes del momento.',
       metaDescription: 'Collegium Pharmaceutical (COLL): análisis fundamental de una farmacéutica especializada infravalorada. Ventaja competitiva defensiva, flujo de caja excepcional y un mercado que no distingue el modelo.',
       answer: 'Collegium Pharmaceutical es una empresa farmacéutica especializada en medicamentos analgésicos con formulación resistente al abuso. Su valoración bursátil es extremadamente baja porque el mercado la confunde con los fabricantes de opioides tradicionales. Sin embargo, su modelo de negocio es fundamentalmente distinto y sus finanzas son notables.',
@@ -20030,7 +20030,7 @@ const articlePGR: Article = {
   ticker: 'PGR',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Progressive (PGR) en 2026 ?",
+      title: "Progressive (PGR) : assureur ou entreprise tech ?",
       excerpt: 'Progressive est le premier assureur automobile américain par nombre de polices. Son avantage technologique lui permet de croître de 30 à 40 % par an tout en maintenant une rentabilité exceptionnelle. Voici pourquoi cette action affiche l\'une des meilleures valorisations parmi les entreprises que je suis.',
       metaDescription: 'Analyse fondamentale de Progressive (PGR) : moat technologique, combined ratio, free cash flow et valorisation. Pourquoi cette action obtient un score parfait dans notre screener.',
       answer: 'Progressive est le premier assureur automobile américain, mais surtout une entreprise technologique déguisée en assureur. Sa capacité à tarifer les risques mieux que tous ses concurrents lui assure une rentabilité structurelle et une croissance explosive. À sa valorisation actuelle, c\'est l\'une des opportunités les plus solides que j\'aie analysées.',
@@ -20166,7 +20166,7 @@ const articlePGR: Article = {
       disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Les chiffres mentionnés sont valables à la date de publication et susceptibles d\'évoluer. Faites vos propres recherches avant toute décision d\'investissement.',
     },
     en: {
-      title: "Should you buy Progressive (PGR) stock in 2026?",
+      title: "Progressive (PGR): insurer or technology company?",
       excerpt: 'Progressive is the largest auto insurer in the United States by number of policies. Its technological edge drives 30-40% annual premium growth while maintaining exceptional profitability. Here is why this stock earns a perfect score in our screener and offers one of the most compelling valuations I have analyzed.',
       metaDescription: 'Fundamental analysis of Progressive (PGR): technological moat, combined ratio, free cash flow and valuation. Why this stock earns a perfect score in our quality screener.',
       answer: 'Progressive is the top US auto insurer, but more importantly a technology company disguised as an insurer. Its ability to price risk more accurately than any competitor creates structural profitability and explosive growth. At its current valuation, it is one of the most solid opportunities I have analyzed.',
@@ -20298,7 +20298,7 @@ const articlePGR: Article = {
       disclaimer: 'This content is for informational and educational purposes only and does not constitute personalized investment advice. Past performance is not indicative of future results. Figures are as of the publication date and subject to change. Please do your own research before making any investment decision.',
     },
     es: {
-      title: "¿Comprar acciones de Progressive (PGR) en 2026?",
+      title: "Progressive (PGR): ¿aseguradora o tecnológica?",
       excerpt: 'Progressive es la mayor aseguradora de automóviles de Estados Unidos por número de pólizas. Su ventaja tecnológica impulsa un crecimiento de primas del 30 al 40 % anual con una rentabilidad excepcional. Aquí explico por qué esta acción obtiene la puntuación máxima en nuestro screener y ofrece una valoración muy atractiva.',
       metaDescription: 'Análisis fundamental de Progressive (PGR): ventaja tecnológica, combined ratio, free cash flow y valoración. Por qué esta acción obtiene puntuación perfecta en nuestro screener de calidad.',
       answer: 'Progressive es la aseguradora de autos número uno en Estados Unidos, pero sobre todo una empresa tecnológica disfrazada de aseguradora. Su capacidad para tarificar riesgos con más precisión que cualquier competidor le asegura rentabilidad estructural y un crecimiento explosivo. A su valoración actual, es una de las oportunidades más sólidas que he analizado.',
@@ -22578,7 +22578,7 @@ const articlePYPL: Article = {
   ticker: 'PYPL',
   content: {
     fr: {
-      title: "PayPal (PYPL) est-elle sous-évaluée en 2026 ?",
+      title: "PayPal (PYPL) : bonne entreprise n'est pas bon prix",
       excerpt: 'PayPal génère 4 à 5 milliards de dollars de cash chaque année, rachète massivement ses propres actions, et se valorise comme une entreprise en faillite. Voici pourquoi le marché se trompe, et comment j\'analyse cette situation sans émotion.',
       metaDescription: 'PayPal (PYPL) : analyse fondamentale complète. Moat, free cash flow, valorisation, risques et thèse d\'investissement expliqués simplement. Mise à jour juin 2026.',
       answer: 'PayPal est une entreprise solide avec 400 millions de comptes actifs, une marque mondiale de confiance et un free cash flow structurel de 4 à 5 milliards de dollars par an. Le marché la pénalise doublement : secteur fintech hors mode et croissance ralentie. Résultat, elle affiche aujourd\'hui une valorisation anormalement basse pour sa qualité réelle.',
@@ -22738,7 +22738,7 @@ const articlePYPL: Article = {
       disclaimer: 'Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas des résultats futurs. Chiffres à la date de publication, susceptibles d\'évoluer. Fais tes propres recherches avant toute décision.'
     },
     en: {
-      title: "Is PayPal (PYPL) stock undervalued in 2026?",
+      title: "PayPal (PYPL): good company is not a good price",
       excerpt: 'PayPal generates $4-5 billion in cash every year, aggressively buys back its own shares, and trades like a company in distress. Here is why I think the market is wrong, and how I analyze this situation without emotion.',
       metaDescription: 'PayPal (PYPL): complete fundamental analysis. Moat, free cash flow, valuation, risks and investment thesis explained simply. Updated June 2026.',
       answer: 'PayPal is a high-quality business with 400 million active accounts, a globally trusted brand, and structural free cash flow of $4-5 billion per year. The market is penalizing it twice: fintech is out of fashion, and growth has slowed. The result is an unusually low valuation for its actual quality. Here is how I break it down.',
@@ -22898,7 +22898,7 @@ const articlePYPL: Article = {
       disclaimer: 'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Do your own research before making any decision.'
     },
     es: {
-      title: "¿Está infravalorada la acción PayPal (PYPL)?",
+      title: "PayPal (PYPL): buena empresa no es buen precio",
       excerpt: 'PayPal genera entre 4 y 5 mil millones de dólares en efectivo cada año, recompra masivamente sus propias acciones y cotiza como si fuera una empresa en apuros. Aquí explico por qué creo que el mercado se equivoca y cómo analizo esta situación sin dejarse llevar por las emociones.',
       metaDescription: 'PayPal (PYPL): análisis fundamental completo. Moat, free cash flow, valoración, riesgos y tesis de inversión explicados de forma sencilla. Actualizado junio 2026.',
       answer: 'PayPal es una empresa sólida con 400 millones de cuentas activas, una marca de confianza mundial y un free cash flow estructural de 4 a 5 mil millones de dólares al año. El mercado la penaliza dos veces: el sector fintech está pasado de moda y el crecimiento se ha ralentizado. El resultado es una valoración anormalmente baja para su calidad real.',
@@ -27248,7 +27248,7 @@ const articleAIZ: Article = {
   ticker: 'AIZ',
   content: {
     fr: {
-      title: "Assurant (AIZ) est-elle sous-évaluée en 2026 ?",
+      title: "Assurant (AIZ) : un assureur hors des radars",
       excerpt: 'Assurant (AIZ) obtient la note maximale dans notre screener avec un P/FCF de 9,6x et un prix légèrement sous notre cible d\'entrée. Un assureur spécialisé peu connu du grand public, au modèle B2B2C très récurrent.',
       metaDescription: 'Analyse d\'Assurant (AIZ) : note 10/10 dans notre screener, P/FCF 9,6x, prix $261,58 vs cible $291,98. Modèle B2B2C avec AT&T, Verizon, Best Buy.',
       answer: 'Assurant (AIZ) est un assureur spécialisé dans la protection des appareils mobiles, garanties étendues et l\'assurance habitation locative. Son modèle B2B2C via des partenariats avec AT&T, Verizon et Best Buy génère un FCF très récurrent. Avec un P/FCF de 9,6x et un prix légèrement sous notre cible, AIZ coche toutes les cases de notre méthode.',
@@ -27286,7 +27286,7 @@ const articleAIZ: Article = {
       disclaimer: 'Article à visée informative et éducative. Aucun conseil en investissement. Les données financières sont issues de sources publiques et peuvent évoluer. Tout investissement comporte des risques de perte en capital.',
     },
     en: {
-      title: "Is Assurant (AIZ) stock undervalued in 2026?",
+      title: "Assurant (AIZ): an insurer off the radar",
       excerpt: 'Assurant (AIZ) earns a perfect score in our screener with a P/FCF of 9.6x and a price slightly below our entry target. A B2B2C specialty insurer flying under the radar of most investors.',
       metaDescription: 'Assurant (AIZ) analysis: perfect score in our screener, P/FCF 9.6x, price $261.58 vs target $291.98. B2B2C model via AT&T, Verizon, Best Buy partnerships.',
       answer: 'Assurant (AIZ) is a specialty insurer focused on mobile device protection, extended warranties, and renters insurance. Its B2B2C model through partnerships with AT&T, Verizon, and Best Buy generates highly recurring FCF. With a P/FCF of 9.6x and a price slightly below our entry target, AIZ checks every box in our methodology.',
@@ -27324,7 +27324,7 @@ const articleAIZ: Article = {
       disclaimer: 'Article for informational and educational purposes only. Not investment advice. Financial data sourced from public sources and may change. All investments carry risk of capital loss.',
     },
     es: {
-      title: "¿Está infravalorada la acción Assurant (AIZ)?",
+      title: "Assurant (AIZ): una aseguradora fuera del radar",
       excerpt: 'Assurant (AIZ) obtiene la nota máxima en nuestro screener con un P/FCF de 9,6x y un precio ligeramente por debajo de nuestro objetivo de entrada. Una aseguradora especializada B2B2C poco conocida por el gran público.',
       metaDescription: 'Análisis de Assurant (AIZ): nota perfecta en nuestro screener, P/FCF 9,6x, precio $261,58 vs objetivo $291,98. Modelo B2B2C con AT&T, Verizon, Best Buy.',
       answer: 'Assurant (AIZ) es una aseguradora especializada en la protección de dispositivos móviles, garantías extendidas y seguros de alquiler. Su modelo B2B2C a través de asociaciones con AT&T, Verizon y Best Buy genera un FCF muy recurrente. Con un P/FCF de 9,6x y un precio ligeramente por debajo de nuestro objetivo, AIZ cumple todos los criterios de nuestro método.',
@@ -29364,7 +29364,7 @@ const articleHEROMOTOCO: Article = {
   ticker: 'HEROMOTOCO.NS',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Hero MotoCorp (HEROMOTOCO) ?",
+      title: "Hero MotoCorp : premier constructeur mondial de deux-roues",
       excerpt: "Hero MotoCorp est le premier producteur mondial de motos par volume. Coté sur la bourse indienne (NSE), il obtient la note maximale dans notre screener avec un prix proche de notre cible d'entrée.",
       metaDescription: "Hero MotoCorp (HEROMOTOCO.NS) analyse fondamentale : score qualité, valorisation et cible d'achat. Premier constructeur moto mondial, coté NSE Inde.",
       answer: "Hero MotoCorp est le premier producteur mondial de motos par volume, avec plus de 6 millions de véhicules par an. Il obtient la note maximale dans notre screener à un multiple de 13,4 fois le flux de trésorerie disponible, avec un prix pratiquement à notre cible d'entrée.",
@@ -29395,7 +29395,7 @@ const articleHEROMOTOCO: Article = {
       disclaimer: "Analyse fondamentale réalisée via notre screener propriétaire au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement. Hero MotoCorp est coté en roupies indiennes (INR), risque de change à considérer pour les investisseurs hors Inde."
     },
     en: {
-      title: "Should you buy Hero MotoCorp (HEROMOTOCO) stock?",
+      title: "Hero MotoCorp: the world's top two wheeler maker",
       excerpt: "Hero MotoCorp is the world's largest two-wheeler manufacturer by volume. Listed on India's NSE, it achieves a perfect score in our screener with pricing near our entry target.",
       metaDescription: "Hero MotoCorp (HEROMOTOCO.NS) fundamental analysis: quality score, valuation and buy target. World's largest motorcycle producer, listed on NSE India.",
       answer: "Hero MotoCorp is the world's largest motorcycle producer by volume (6M+ vehicles per year). It achieves a perfect score in our screener at 13.4x free cash flow, with the current price nearly at our entry target, a rare buying zone signal for a global two-wheeler leader.",
@@ -29426,7 +29426,7 @@ const articleHEROMOTOCO: Article = {
       disclaimer: "Fundamental analysis conducted via our proprietary screener as of June 23, 2026. This content is informational and does not constitute investment advice. Hero MotoCorp is listed in Indian Rupees (INR), currency risk applies for non-Indian investors."
     },
     es: {
-      title: "¿Comprar acciones de Hero MotoCorp (HEROMOTOCO)?",
+      title: "Hero MotoCorp: primer fabricante mundial de dos ruedas",
       excerpt: "Hero MotoCorp es el mayor fabricante mundial de motocicletas por volumen. Cotizada en la bolsa india NSE, obtiene la máxima puntuación en nuestro screener con precio cerca de nuestro objetivo de entrada.",
       metaDescription: "Hero MotoCorp (HEROMOTOCO.NS) análisis fundamental: puntuación de calidad, valoración y precio objetivo. Mayor fabricante de motos del mundo, cotizada en NSE India.",
       answer: "Hero MotoCorp es el mayor fabricante mundial de motocicletas por volumen (más de 6 millones por año). Obtiene la puntuación máxima en nuestro screener a 13,4 veces el flujo de caja libre, con el precio casi en nuestro objetivo de entrada.",
@@ -30238,7 +30238,7 @@ const articleLULU: Article = {
   ticker: 'LULU',
   content: {
     fr: {
-      title: "Lululemon (LULU) : faut-il acheter après la chute de 46 % ?",
+      title: "Lululemon (LULU) : la marque après une chute de 46 %",
       excerpt: "Lululemon a perdu 46 % depuis janvier 2026. Notre screener lui donne 8 sur 10, des fondamentaux solides mais pas maximaux. Nouveau CEO ex-Nike. Notre analyse fondamentale du leader du sportswear premium.",
       metaDescription: "Lululemon LULU analyse fondamentale : score 8/10, chute -46 % YTD. Nouveau CEO Heidi O'Neill ex-Nike. FCF, marges, valorisation analysés. Notre verdict.",
       answer: "Lululemon obtient 8 sur 10 dans notre screener malgré une chute de 46 % depuis janvier 2026. Ses fondamentaux restent solides : ventes +16 %/an, profits/action +19 %/an, pas de dette. Le frein : FCF margin de 7,7 % (sous notre seuil de 8 %) et DSO de 108 jours. Le prix actuel de 105,43 $ est 26 % au-dessus de notre cible d'entrée.",
@@ -30275,7 +30275,7 @@ const articleLULU: Article = {
       disclaimer: "Analyse fondamentale réalisée via notre screener propriétaire au 23 juin 2026. Ce contenu est informatif et non un conseil en investissement. Lululemon est dans une phase de transition managériale qui peut affecter les fondamentaux futurs."
     },
     en: {
-      title: "Should you buy Lululemon (LULU) after its 46% drop?",
+      title: "Lululemon (LULU): the brand after a 46% fall",
       excerpt: "Lululemon has lost 46% since January 2026. Our screener rates it 8/10, solid fundamentals but not maximal. New CEO from Nike. Our fundamental analysis of the premium sportswear leader.",
       metaDescription: "Lululemon LULU fundamental analysis: 8/10 score, -46% YTD drop. New CEO Heidi O'Neill from Nike. FCF, margins, valuation analyzed. Our verdict.",
       answer: "Lululemon scores 8/10 in our screener despite a 46% drop since January 2026. Fundamentals remain solid: sales +16%/year, earnings/share +19%/year, no debt. The drag: FCF margin of 7.7% (just below our 8% threshold) and DSO of 108 days. At $105.43, the stock is 26% above our entry target.",
@@ -30312,7 +30312,7 @@ const articleLULU: Article = {
       disclaimer: "Fundamental analysis conducted via our proprietary screener as of June 23, 2026. This content is informational and does not constitute investment advice. Lululemon is in a management transition phase that may affect future fundamentals."
     },
     es: {
-      title: "¿Comprar Lululemon (LULU) tras su caída del 46 %?",
+      title: "Lululemon (LULU): la marca tras una caída del 46 %",
       excerpt: "Lululemon ha perdido el 46 % desde enero de 2026. Nuestro screener le da 8/10, fundamentales sólidos pero no máximos. Nueva CEO ex-Nike. Nuestro análisis fundamental del líder del sportswear premium.",
       metaDescription: "Lululemon LULU análisis fundamental: puntuación 8/10, caída -46 % YTD. Nueva CEO Heidi O'Neill ex-Nike. FCF, márgenes, valoración analizados. Nuestro veredicto.",
       answer: "Lululemon obtiene 8/10 en nuestro screener a pesar de una caída del 46 % desde enero de 2026. Los fundamentos siguen siendo sólidos: ventas +16 %/año, FCF/acción +19 %/año, sin deuda. El freno: margen FCF del 7,7 % (ligeramente bajo nuestro umbral del 8 %) y DSO de 108 días.",
@@ -35133,7 +35133,7 @@ const articleMEDP: Article = {
   ticker: 'MEDP',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Medpace Holdings (MEDP) ?",
+      title: "Medpace (MEDP) : un métier plus dur qu'il n'y paraît",
       excerpt:
         "Medpace organise les essais cliniques des labos pharma depuis 1992, avec un fondateur-médecin encore aux commandes. Une qualité rare, une valorisation raisonnable, et un signal d'achat déclenché. Voici ma thèse complète.",
       metaDescription:
@@ -35293,7 +35293,7 @@ const articleMEDP: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 28 juin 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Medpace Holdings (MEDP) stock?",
+      title: "Medpace (MEDP): a harder business than it looks",
       excerpt:
         'Medpace runs clinical trials for pharma and biotech since 1992, with a founder-physician still at the helm. Rare quality, a reasonable valuation, and a buy signal triggered. Here is my full thesis.',
       metaDescription:
@@ -35453,7 +35453,7 @@ const articleMEDP: Article = {
         'Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of June 28, 2026, subject to change. Do your own research.',
     },
     es: {
-      title: "¿Comprar acciones de Medpace Holdings (MEDP)?",
+      title: "Medpace (MEDP): un negocio más duro de lo que parece",
       excerpt:
         'Medpace gestiona ensayos clínicos para laboratorios farmacéuticos desde 1992, con un médico fundador aún al mando. Una calidad poco común, una valoración razonable y una señal de compra activada. Esta es mi tesis completa.',
       metaDescription:
@@ -37297,7 +37297,7 @@ const articleBAH: Article = {
   ticker: 'BAH',
   content: {
     fr: {
-      title: "Faut-il acheter Booz Allen Hamilton (BAH) après sa chute ?",
+      title: "Booz Allen (BAH) : ce que sa chute dit du budget fédéral",
       excerpt: "Booz Allen, le consultant historique du gouvernement américain, a perdu près de la moitié de sa valeur en un an à cause des coupes budgétaires fédérales. Une des meilleures notes de ma grille, à un prix rarement vu. Mon analyse.",
       metaDescription: "Booz Allen Hamilton (BAH) : analyse fondamentale. Consultant fédéral américain de haute qualité chahuté par les coupes budgétaires. L'avis de Lubin Danilo.",
       answer: "Booz Allen Hamilton est le consultant de référence du gouvernement et de la défense américaine. L'action a chuté d'environ 50 % en un an, victime des coupes budgétaires fédérales. Pourtant, la qualité reste parmi les meilleures de ma grille, avec un rendement du capital très élevé et une valorisation basse. La qualité est là, et le prix aussi.",
@@ -37399,7 +37399,7 @@ const articleBAH: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date indiquée, susceptibles d'évoluer. Fais tes propres recherches avant toute décision d'investissement.",
     },
     en: {
-      title: "Should you buy Booz Allen Hamilton (BAH) after its drop?",
+      title: "Booz Allen (BAH): what its drop says on federal budgets",
       excerpt: "Booz Allen, the historic consultant to the US government, has lost nearly half its value in a year on federal budget cuts. One of the top scores in my framework, at a price rarely seen. My analysis.",
       metaDescription: "Booz Allen Hamilton (BAH): fundamental stock analysis. High-quality US federal consultant hit by budget cuts. Risks and Lubin Danilo's take on this opportunity.",
       answer: "Booz Allen Hamilton is the go-to consultant for the US government and defense. The stock has fallen about 50% in a year, hit by federal budget cuts. Yet quality remains among the best in my framework, with a very high return on capital and a low valuation. The quality is there, and so is the price.",
@@ -37497,7 +37497,7 @@ const articleBAH: Article = {
         'For informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the date indicated, subject to change. Do your own research before any investment decision.',
     },
     es: {
-      title: "¿Comprar acciones de Booz Allen Hamilton (BAH) en 2026?",
+      title: "Booz Allen (BAH): qué dice su caída del gasto federal",
       excerpt: 'Booz Allen, la consultora histórica del gobierno de EE.UU., ha perdido casi la mitad de su valor en un año por los recortes presupuestarios federales. Una de las mejores notas de mi metodología, a un precio rara vez visto. Mi análisis.',
       metaDescription: 'Booz Allen Hamilton (BAH): análisis fundamental de la acción. Consultora federal de EE.UU. de alta calidad golpeada por los recortes. La opinión de Lubin Danilo.',
       answer: 'Booz Allen Hamilton es la consultora de referencia del gobierno y la defensa de EE.UU. La acción ha caído cerca del 50 % en un año por los recortes presupuestarios federales. Aun así, la calidad sigue entre las mejores de mi metodología, con una rentabilidad del capital muy alta y una valoración baja. La calidad está, y el precio también.',
@@ -38904,7 +38904,7 @@ const dexcomDXCM: Article = {
   ticker: 'DXCM',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Dexcom (DXCM) en 2026 ?",
+      title: "Dexcom (DXCM) : le capteur que seuls les patients voient",
       excerpt: "Le capteur qui remplace la piqûre au doigt pour des millions de diabétiques appartient à une entreprise que ma grille d'analyse ne trouve nulle part en défaut, et pourtant presque personne n'en parle. Voici pourquoi je m'y intéresse de près.",
       metaDescription: "Dexcom domine la mesure du glucose en continu pour diabétiques. Je décortique sa qualité, son avantage concurrentiel et son prix actuel en bourse, sans jargon.",
       answer: "Dexcom fabrique les capteurs qui mesurent le glucose en continu pour des millions de diabétiques, sans piqûre au doigt. Dans ma grille, l'entreprise coche les dix critères de qualité que je vérifie, un cas rare. Le prix actuel en bourse me semble raisonnable pour une affaire de cette solidité. Voici pourquoi, et où sont les risques.",
@@ -38961,7 +38961,7 @@ const dexcomDXCM: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres arrêtés au 3 juillet 2026, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Dexcom (DXCM) stock in 2026?",
+      title: "Dexcom (DXCM): the sensor only patients notice",
       excerpt: "The sensor that replaces finger pricks for millions of people with diabetes belongs to a company my screener cannot fault anywhere, and almost nobody talks about it. Here is why I am paying attention.",
       metaDescription: "Dexcom leads continuous glucose monitoring for diabetics. I break down its quality, its competitive edge and its current stock price, no jargon.",
       answer: "Dexcom makes the sensors that track glucose continuously for millions of people with diabetes, no finger prick needed. In my screener, the company checks every one of the ten quality boxes I look for, a rare result. Its current stock price looks reasonable for a business this solid. Here is why, and where the risks sit.",
@@ -39018,7 +39018,7 @@ const dexcomDXCM: Article = {
       disclaimer: "This analysis is for informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of July 3, 2026, and subject to change. Do your own research.",
     },
     es: {
-      title: "¿Comprar acciones de Dexcom (DXCM) en 2026?",
+      title: "Dexcom (DXCM): el sensor que solo ven los pacientes",
       excerpt: "El sensor que sustituye el pinchazo en el dedo para millones de diabéticos pertenece a una empresa a la que mi analizador no encuentra ningún fallo, y casi nadie habla de ella. Te cuento por qué le presto atención.",
       metaDescription: "Dexcom lidera la medición continua de glucosa para diabéticos. Analizo su calidad, su ventaja competitiva y su precio actual en bolsa, sin jerga.",
       answer: "Dexcom fabrica los sensores que miden la glucosa de forma continua para millones de diabéticos, sin pinchazo en el dedo. En mi analizador, la empresa cumple los diez criterios de calidad que reviso, un caso poco frecuente. Su precio actual en bolsa me parece razonable para un negocio de esta solidez. Te explico por qué, y dónde están los riesgos.",
@@ -39280,7 +39280,7 @@ const nutanixNTNX: Article = {
   ticker: "NTNX",
   content: {
     fr: {
-      title: "Faut-il acheter l'action Nutanix (NTNX) en 2026 ?",
+      title: "Nutanix (NTNX) : ce que le chaos VMware lui rapporte",
       excerpt:
         "Depuis le rachat de VMware par Broadcom, des milliers d'entreprises changent de fournisseur d'infrastructure cloud. Je regarde pourquoi Nutanix en profite, et si le prix de son action reste raisonnable.",
       metaDescription:
@@ -39419,7 +39419,7 @@ const nutanixNTNX: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Nutanix (NTNX) stock in 2026?",
+      title: "Nutanix (NTNX): what the VMware chaos brings it",
       excerpt:
         "Since Broadcom bought VMware, thousands of companies have been switching cloud infrastructure providers. I look at why Nutanix benefits, and whether the stock's price still makes sense.",
       metaDescription:
@@ -39558,7 +39558,7 @@ const nutanixNTNX: Article = {
         "This analysis is for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Do your own research.",
     },
     es: {
-      title: "¿Comprar acciones de Nutanix (NTNX) en 2026?",
+      title: "Nutanix (NTNX): lo que le aporta el caos de VMware",
       excerpt:
         "Desde que Broadcom compró VMware, miles de empresas están cambiando de proveedor de infraestructura en la nube. Analizo por qué Nutanix se beneficia, y si el precio de la acción todavía tiene sentido.",
       metaDescription:
@@ -41754,7 +41754,7 @@ const articleAZZ: Article = {
   ticker: 'AZZ',
   content: {
     fr: {
-      title: "AZZ Inc (AZZ) est-elle sous-évaluée avant résultats ?",
+      title: "AZZ : une publication sous tension",
       excerpt: "AZZ protège l'acier des infrastructures américaines contre la corrosion, et publie ses résultats le 8 juillet 2026. Voici ce que dit ma méthode d'analyse, avant que le marché ne tranche.",
       metaDescription: "AZZ publie ses résultats le 8 juillet 2026. Analyse fondamentale du protecteur de l'acier américain contre la corrosion, avant les chiffres.",
       answer: "AZZ Inc publie ses résultats du premier trimestre le 8 juillet 2026 après la clôture. Cette entreprise protège l'acier américain contre la corrosion et profite des dépenses d'infrastructure. Selon ma méthode d'analyse fondamentale, elle obtient une note de qualité élevée et se valorise nettement sous mon prix d'achat raisonnable. Voici comment je lis ce dossier avant les chiffres.",
@@ -41878,7 +41878,7 @@ const articleAZZ: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Chiffres à la date du 4 juillet 2026, susceptibles d'évoluer notamment après la publication des résultats du 8 juillet. Les performances passées ne préjugent pas du futur. Fais tes propres recherches avant toute décision d'investissement."
     },
     en: {
-      title: "Is AZZ Inc (AZZ) stock undervalued before earnings?",
+      title: "AZZ: results published under pressure",
       excerpt: "AZZ protects American infrastructure steel from corrosion, and reports earnings on July 8, 2026. Here is what my analysis method says, before the market decides.",
       metaDescription: "AZZ reports earnings on July 8, 2026. Fundamental analysis of the company protecting American steel from corrosion, before the numbers.",
       answer: "AZZ Inc reports first quarter results after market close on July 8, 2026. This company protects American steel from corrosion and benefits from infrastructure spending. Under my fundamental method, it scores high on quality and trades well below my reasonable buy price. Here is how I read this stock before the numbers.",
@@ -42002,7 +42002,7 @@ const articleAZZ: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Figures as of July 4, 2026, subject to change, especially after the July 8 earnings release. Past performance does not predict future results. Do your own research before any investment decision."
     },
     es: {
-      title: "¿Está infravalorada la acción AZZ Inc (AZZ)?",
+      title: "AZZ: una publicación bajo tensión",
       excerpt: "AZZ protege el acero de las infraestructuras estadounidenses contra la corrosión, y publica resultados el 8 de julio de 2026. Esto dice mi método de análisis, antes de que el mercado decida.",
       metaDescription: "AZZ publica resultados el 8 de julio de 2026. Análisis fundamental de la protectora del acero estadounidense contra la corrosión, antes de las cifras.",
       answer: "AZZ Inc publica los resultados del primer trimestre tras el cierre del mercado el 8 de julio de 2026. Esta empresa protege el acero estadounidense de la corrosión y se beneficia del gasto en infraestructuras. Según mi método fundamental, obtiene una nota de calidad alta y cotiza muy por debajo de mi precio de compra razonable. Así leo esta acción antes de las cifras.",
@@ -42760,7 +42760,7 @@ const getingeGETI: Article = {
   ticker: 'GETI-B.ST',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Getinge (GETI-B) ?",
+      title: "Getinge (GETI) : ce qui la sépare de son rival US",
       excerpt: "Getinge fabrique les machines qui stérilisent les instruments chirurgicaux de milliers d'hôpitaux dans le monde. Note de qualité quasi parfaite, mais l'action se paie aujourd'hui plus cher que mon prix d'entrée. Mon analyse complète.",
       metaDescription: "Getinge (GETI-B) expliqué simplement : ce que fait ce groupe suédois, son moat dans les hôpitaux, ses chiffres réels, et si le moment est bon pour s'y intéresser.",
       answer: "Getinge est un groupe suédois qui équipe les hôpitaux en machines de stérilisation, salles d'opération et soins intensifs. Il valide 9 de mes 10 critères de qualité, avec une rentabilité du capital solide et une dette bien maîtrisée. Mais au prix actuel, l'action se négocie environ 33 % au-dessus de ce que je considère comme un point d'entrée raisonnable. Une bonne entreprise, pas encore au bon prix.",
@@ -42796,7 +42796,7 @@ const getingeGETI: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (6 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Getinge (GETI-B) stock?",
+      title: "Getinge (GETI): what separates it from its US rival",
       excerpt: "Getinge makes the machines that sterilize surgical instruments in thousands of hospitals worldwide. Near-perfect quality score, but the stock trades above my entry price today. My full analysis.",
       metaDescription: "Getinge (GETI-B) explained simply: what this Swedish group does, its moat inside hospitals, real numbers, and whether now is a good time to look at it.",
       answer: "Getinge is a Swedish group that equips hospitals with sterilization machines, operating room equipment and intensive care devices. It passes 9 of my 10 quality criteria, with solid capital returns and manageable debt. But at the current price, the stock trades about 33% above what I consider a reasonable entry point. A good business, not yet at the right price.",
@@ -42832,7 +42832,7 @@ const getingeGETI: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 6, 2026), subject to change. Do your own research.",
     },
     es: {
-      title: "¿Comprar acciones de Getinge (GETI-B)?",
+      title: "Getinge (GETI): qué la separa de su rival de EE. UU.",
       excerpt: "Getinge fabrica las máquinas que esterilizan el instrumental quirúrgico de miles de hospitales en el mundo. Nota de calidad casi perfecta, pero la acción cotiza hoy por encima de mi precio de entrada. Mi análisis completo.",
       metaDescription: "Getinge (GETI-B) explicado con sencillez: qué hace este grupo sueco, su moat dentro de los hospitales, cifras reales, y si es buen momento para fijarse en ella.",
       answer: "Getinge es un grupo sueco que equipa a los hospitales con máquinas de esterilización, equipos de quirófano y dispositivos de cuidados intensivos. Supera 9 de mis 10 criterios de calidad, con un retorno del capital sólido y una deuda manejable. Pero al precio actual, la acción cotiza cerca de un 33% por encima de lo que considero un punto de entrada razonable. Un buen negocio, todavía no al precio adecuado.",
@@ -43765,7 +43765,7 @@ const articleOMAB: Article = {
   ticker: "OMAB",
   content: {
     fr: {
-      title: "Grupo Aeroportuario (OMAB) est-elle sous-évaluée ?",
+      title: "OMA (OMAB) : une rentabilité que peu atteignent",
       excerpt: "Treize aéroports mexicains sous concession publique, une note de qualité maximale dans notre méthode, et une valorisation qui ressemble à une erreur. Voici Grupo Aeroportuario del Centro Norte.",
       metaDescription: "Grupo Aeroportuario del Centro Norte (OMAB) obtient la note maximale de notre méthode, mais se valorise à un niveau extrêmement bas. Notre analyse.",
       answer: "Grupo Aeroportuario del Centro Norte exploite treize aéroports mexicains sous concession publique de cinquante ans, dont celui de Monterrey. Notre méthode lui attribue la note maximale : rentabilité de 33,5 %, croissance régulière, endettement maîtrisé. Pourtant l'action se valorise à peine 0,7 fois son cash-flow annuel, un niveau qu'on retrouve rarement sur une entreprise de cette qualité.",
@@ -43910,7 +43910,7 @@ const articleOMAB: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (6 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Is Grupo Aeroportuario (OMAB) undervalued?",
+      title: "OMA (OMAB): returns few listed firms reach",
       excerpt: "Thirteen Mexican airports under a public concession, a maximum quality score in our method, and a valuation that looks like a mistake. Meet Grupo Aeroportuario del Centro Norte.",
       metaDescription: "Grupo Aeroportuario del Centro Norte (OMAB) scores the maximum in our method, yet trades at an extremely low valuation. Our full fundamental analysis.",
       answer: "Grupo Aeroportuario del Centro Norte operates thirteen Mexican airports under a fifty year public concession, including Monterrey. Our method gives it the maximum score: 33.5% profitability, steady growth, controlled debt. Yet the stock trades at only 0.7 times its annual cash flow, a level rarely seen on a business of this quality.",
@@ -44055,7 +44055,7 @@ const articleOMAB: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 6, 2026), subject to change. Do your own research.",
     },
     es: {
-      title: "¿Está infravalorada Grupo Aeroportuario (OMAB)?",
+      title: "OMA (OMAB): una rentabilidad que pocos alcanzan",
       excerpt: "Trece aeropuertos mexicanos bajo concesión pública, una nota de calidad máxima en nuestro método, y una valoración que parece un error. Te presento Grupo Aeroportuario del Centro Norte.",
       metaDescription: "Grupo Aeroportuario del Centro Norte (OMAB) obtiene la nota máxima de nuestro método, pero cotiza muy barata. Nuestro análisis fundamental.",
       answer: "Grupo Aeroportuario del Centro Norte opera trece aeropuertos mexicanos bajo una concesión pública de cincuenta años, incluido el de Monterrey. Nuestro método le otorga la nota máxima: rentabilidad del 33,5 %, crecimiento constante, deuda controlada. Sin embargo, la acción se valora en apenas 0,7 veces su flujo de caja anual, un nivel poco frecuente en una empresa de esta calidad.",
@@ -44210,7 +44210,7 @@ const articleVeolia: Article = {
   ticker: "VIE.PA",
   content: {
     fr: {
-      title: "Veolia (VIE.PA) : faut-il acheter l'action ?",
+      title: "Veolia (VIE) : la rentabilité comptable qui ment",
       excerpt: "Veolia gère l'eau, les déchets et l'énergie pour des centaines de millions de personnes, et se valorise à peine 5 fois son cash-flow disponible. Note de qualité honorable, mais pas parfaite. Voici pourquoi.",
       metaDescription: "Veolia (VIE.PA) se valorise 5 fois son cash-flow disponible et obtient 7 sur 10 dans notre méthode. Faut-il acheter l'action ? Notre analyse.",
       answer: "Veolia gère l'eau, les déchets et l'énergie pour des centaines de millions de personnes dans 56 pays. Notre méthode lui attribue 7 sur 10 : rentabilité modeste, mais rendement du capital solide et conversion du bénéfice en cash exceptionnelle. L'action se valorise seulement 5 fois son cash-flow disponible, un niveau bas pour une infrastructure aussi essentielle. Voici ce que ça signifie vraiment.",
@@ -44356,7 +44356,7 @@ const articleVeolia: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (6 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Veolia (VIE.PA): should you buy the stock?",
+      title: "Veolia (VIE): when accounting returns mislead",
       excerpt: "Veolia manages water, waste, and energy for hundreds of millions of people, and trades at only 5 times its free cash flow. A solid but not perfect quality score. Here is why.",
       metaDescription: "Veolia (VIE.PA) trades at 5 times its free cash flow and scores 7 out of 10 in our method. Should you buy the stock? Our full fundamental analysis.",
       answer: "Veolia manages water, waste, and energy for hundreds of millions of people across 56 countries. Our method rates it 7 out of 10: modest profitability, but solid return on capital and exceptional cash conversion. The stock trades at only 5 times its free cash flow, a low level for such essential infrastructure. Here is what that really means.",
@@ -44502,7 +44502,7 @@ const articleVeolia: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 6, 2026), subject to change. Do your own research.",
     },
     es: {
-      title: "Veolia (VIE.PA): ¿hay que comprar la acción?",
+      title: "Veolia (VIE): la rentabilidad contable que engaña",
       excerpt: "Veolia gestiona el agua, los residuos y la energía para cientos de millones de personas, y cotiza en solo 5 veces su flujo de caja libre. Nota de calidad sólida, pero no perfecta. Aquí te explico por qué.",
       metaDescription: "Veolia (VIE.PA) cotiza a 5 veces su flujo de caja libre y obtiene 7 sobre 10 en nuestro método. ¿Hay que comprarla? Nuestro análisis completo.",
       answer: "Veolia gestiona el agua, los residuos y la energía para cientos de millones de personas en 56 países. Nuestro método le otorga 7 sobre 10: rentabilidad modesta, pero un retorno del capital sólido y una conversión del beneficio en efectivo excepcional. La acción cotiza en solo 5 veces su flujo de caja libre, un nivel bajo para una infraestructura tan esencial.",
@@ -46308,7 +46308,7 @@ const articleEricsson: Article = {
   "ticker": "ERIC",
   "content": {
     "fr": {
-      "title": "Ericsson (ERIC) est-elle sous-évaluée en 2026 ?",
+      "title": "Ericsson (ERIC) : pourquoi l'action se négocie si bas",
       "excerpt": "Ericsson valide presque tous mes critères de qualité et se négocie à peine plus d'un an de son cash flow. Le marché doute pourtant sérieusement de son avenir. Voici pourquoi.",
       "metaDescription": "Ericsson affiche une rentabilité solide et une valorisation extrême. Pourquoi le marché boude ce géant suédois des télécoms, selon ma méthode.",
       "answer": "Ericsson, le groupe suédois d'équipements télécoms, valide presque tous mes critères de qualité (rentabilité solide, dette quasi nulle, rendement du capital élevé) et se négocie à peine plus d'une année de son cash flow disponible. Mais ses ventes reculent depuis cinq ans. La question centrale : ce recul est-il en train de s'arrêter, ou le marché a-t-il raison de rester méfiant ?",
@@ -46413,7 +46413,7 @@ const articleEricsson: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is Ericsson (ERIC) stock undervalued in 2026?",
+      "title": "Ericsson (ERIC): why the stock trades so low",
       "excerpt": "Ericsson passes nearly all of my quality criteria and trades at barely more than a year of its cash flow. Yet the market is seriously doubting its future. Here's why.",
       "metaDescription": "Ericsson shows solid profitability and an extreme valuation. Why the market is shunning this Swedish telecom giant, and what my analysis method has to say.",
       "answer": "Ericsson, the Swedish telecom equipment group, passes almost every quality criterion in my screener (solid profitability, near-zero debt, high return on capital) and trades at barely more than one year of its annual free cash flow. But its sales have been declining for five years. The key question: is that decline stopping, or is the market right to stay wary?",
@@ -46518,7 +46518,7 @@ const articleEricsson: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada la acción Ericsson (ERIC)?",
+      "title": "Ericsson (ERIC): por qué la acción cotiza tan baja",
       "excerpt": "Ericsson cumple casi todos mis criterios de calidad y cotiza a poco más de un año de su flujo de caja. Sin embargo, el mercado duda seriamente de su futuro. Aquí explico por qué.",
       "metaDescription": "Ericsson muestra una rentabilidad sólida y una valoración extrema. Por qué el mercado evita a este gigante sueco de telecom, según mi método.",
       "answer": "Ericsson, el grupo sueco de equipos de telecomunicaciones, cumple casi todos los criterios de calidad de mi screener (rentabilidad sólida, deuda casi nula, alto retorno del capital) y cotiza a poco más de un año de su flujo de caja libre anual. Pero sus ventas llevan cinco años cayendo. La pregunta clave: ¿esa caída se está deteniendo, o el mercado tiene razón al seguir desconfiando?",
@@ -47599,7 +47599,7 @@ const articleFirstIndustrialRealty: Article = {
   "ticker": "FR",
   "content": {
     "fr": {
-      "title": "Faut-il acheter First Industrial Realty (FR) ?",
+      "title": "First Industrial (FR) : l'entrepôt comme rente longue",
       "excerpt": "First Industrial Realty décroche la meilleure note qualité que j'ai jamais vue chez un REIT dans mon screener. Voici ce qui distingue cette foncière logistique des autres.",
       "metaDescription": "First Industrial Realty (FR) obtient la meilleure note qualité jamais vue chez un REIT. Analyse fondamentale avant ses résultats du 22 juillet.",
       "answer": "First Industrial Realty, une foncière cotée spécialisée dans les entrepôts logistiques, obtient la meilleure note qualité que j'aie jamais vue chez un REIT dans mon screener : 9 critères sur 10 validés. Elle publie ses résultats le 22 juillet. Sa valorisation, environ 19 fois son cash flow disponible, suggère que le marché a déjà remarqué cette qualité.",
@@ -47708,7 +47708,7 @@ const articleFirstIndustrialRealty: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer avant l'annonce des résultats. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy First Industrial Realty (FR) stock?",
+      "title": "First Industrial (FR): warehouses as a long annuity",
       "excerpt": "First Industrial Realty earns the best quality score I've ever seen for a REIT in my screener. Here's what sets this logistics landlord apart from the rest.",
       "metaDescription": "First Industrial Realty (FR) earns the best quality score ever seen for a REIT in my screener. Full fundamental analysis ahead of its July 22 earnings.",
       "answer": "First Industrial Realty, a publicly traded logistics warehouse landlord, earns the best quality score I've ever seen for a REIT in my screener: 9 out of 10 criteria passed. It reports earnings on July 22. Its valuation, roughly 19 times free cash flow, suggests the market has already noticed that quality.",
@@ -47817,7 +47817,7 @@ const articleFirstIndustrialRealty: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change before the earnings announcement. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de First Industrial Realty (FR)?",
+      "title": "First Industrial (FR): el almacén como renta larga",
       "excerpt": "First Industrial Realty obtiene la mejor nota de calidad que he visto en un REIT en mi screener. Esto distingue a esta inmobiliaria logística del resto.",
       "metaDescription": "First Industrial Realty (FR) obtiene la mejor nota de calidad vista en un REIT. Análisis fundamental antes de resultados del 22 de julio.",
       "answer": "First Industrial Realty, una inmobiliaria cotizada especializada en almacenes logísticos, obtiene la mejor nota de calidad que he visto en un REIT en mi screener: 9 de 10 criterios cumplidos. Publica resultados el 22 de julio. Su valoración, unas 19 veces su flujo de caja libre, sugiere que el mercado ya ha notado esa calidad.",
@@ -47936,7 +47936,7 @@ const articleKongsberg: Article = {
   "ticker": "KOG.OL",
   "content": {
     "fr": {
-      "title": "Faut-il acheter Kongsberg Gruppen (KOG) ?",
+      "title": "Kongsberg (KOG) : la défense norvégienne sous tension",
       "excerpt": "Kongsberg Gruppen, groupe norvégien de défense et de technologie, obtient une note quasi parfaite dans mon screener. Le meilleur profil que j'aie trouvé dans tout le secteur.",
       "metaDescription": "Kongsberg Gruppen (KOG.OL) obtient une note de qualité quasi parfaite. Analyse du groupe de défense norvégien : moat, risques et valorisation.",
       "answer": "Kongsberg Gruppen, groupe norvégien de défense et de technologie maritime, valide 5 des 6 critères principaux de mon screener. C'est le profil le plus solide que j'aie trouvé dans tout le secteur de la défense, où aucune entreprise ne valide encore tous mes critères. Sa valorisation, environ 28 fois son cash flow disponible, reflète l'essor de la demande militaire européenne.",
@@ -48037,7 +48037,7 @@ const articleKongsberg: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy Kongsberg Gruppen (KOG) stock?",
+      "title": "Kongsberg (KOG): Norwegian defence under strain",
       "excerpt": "Kongsberg Gruppen, the Norwegian defense and technology group, earns a near-perfect score in my screener. The only near-10 I've found in the entire defense sector.",
       "metaDescription": "Kongsberg Gruppen (KOG.OL) earns a near-perfect quality score in my screener. Fundamental analysis of the Norwegian defense group: moat, risks, and valuation.",
       "answer": "Kongsberg Gruppen, the Norwegian defense and maritime technology group, passes 5 of the 6 main criteria in my screener. It's the strongest profile I've found in the entire defense sector, where no company yet passes every one of my criteria. Its valuation, roughly 28 times free cash flow, reflects the surge in European military demand.",
@@ -48138,7 +48138,7 @@ const articleKongsberg: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de Kongsberg Gruppen (KOG)?",
+      "title": "Kongsberg (KOG): la defensa noruega bajo tensión",
       "excerpt": "Kongsberg Gruppen, el grupo noruego de defensa y tecnología, obtiene una nota casi perfecta en mi screener. El único casi-10 que he encontrado en todo el sector defensa.",
       "metaDescription": "Kongsberg Gruppen (KOG.OL) obtiene una nota de calidad casi perfecta. Análisis del grupo de defensa noruego: moat, riesgos y valoración.",
       "answer": "Kongsberg Gruppen, el grupo noruego de defensa y tecnología marítima, cumple 5 de los 6 criterios principales de mi screener. Es el perfil más sólido que he encontrado en todo el sector defensa, donde ninguna empresa cumple aún todos mis criterios. Su valoración, unas 28 veces su flujo de caja libre, refleja el auge de la demanda militar europea.",
@@ -48249,7 +48249,7 @@ const articleChurchillDowns: Article = {
   "ticker": "CHDN",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Churchill Downs (CHDN) ?",
+      "title": "Churchill Downs (CHDN) : pourquoi le prix reste modeste",
       "excerpt": "Churchill Downs, organisateur du Kentucky Derby et des paris hippiques, obtient une très bonne note de qualité dans mon screener, à un prix qui ne semble pas exagéré.",
       "metaDescription": "Churchill Downs (CHDN) publie ses résultats le 29 juillet. Analyse fondamentale : qualité, moat, risques et valorisation de l'organisateur du Kentucky Derby.",
       "answer": "Churchill Downs, l'entreprise qui organise le Kentucky Derby et opère des paris hippiques et des casinos aux États-Unis, valide 9 des 10 critères de mon screener. L'action se valorise environ 7,7 fois son cash flow disponible, une valorisation modeste pour une entreprise aussi rentable. Elle publie ses résultats le 29 juillet.",
@@ -48354,7 +48354,7 @@ const articleChurchillDowns: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer avant l'annonce des résultats. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy Churchill Downs (CHDN) stock?",
+      "title": "Churchill Downs (CHDN): why the price stays modest",
       "excerpt": "Churchill Downs, the company behind the Kentucky Derby and horse race betting, earns a strong quality score in my screener, at a price that doesn't look excessive.",
       "metaDescription": "Churchill Downs (CHDN) reports earnings on July 29. Fundamental analysis: quality, moat, risks, and valuation of the company behind the Kentucky Derby.",
       "answer": "Churchill Downs, the company running the Kentucky Derby and operating horse race betting and casinos across the US, passes 9 of the 10 criteria in my screener. The stock trades at roughly 7.7 times its free cash flow, a modest valuation for such a profitable company. It reports earnings on July 29.",
@@ -48459,7 +48459,7 @@ const articleChurchillDowns: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change before the earnings announcement. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de Churchill Downs (CHDN)?",
+      "title": "Churchill Downs (CHDN): por qué el precio sigue bajo",
       "excerpt": "Churchill Downs, la empresa detrás del Kentucky Derby y las apuestas hípicas, obtiene una buena nota de calidad en mi screener, a un precio que no parece excesivo.",
       "metaDescription": "Churchill Downs (CHDN) publica resultados el 29 de julio. Análisis fundamental: calidad, moat, riesgos y valoración de la empresa del Kentucky Derby.",
       "answer": "Churchill Downs, la empresa que organiza el Kentucky Derby y opera apuestas hípicas y casinos en Estados Unidos, cumple 9 de los 10 criterios de mi screener. La acción cotiza a unas 7,7 veces su flujo de caja libre, una valoración modesta para una empresa tan rentable. Publica resultados el 29 de julio.",
@@ -50543,7 +50543,7 @@ const articleTravelers: Article = {
   "ticker": "TRV",
   "content": {
     "fr": {
-      "title": "Travelers (TRV) est-elle sous-évaluée en 2026 ?",
+      "title": "Travelers (TRV) : un prix bas pour un nom du Dow",
       "excerpt": "Travelers, l'un des plus grands assureurs dommages américains, publie ses résultats le 17 juillet. Note quasi parfaite dans mon screener, valorisation étonnamment basse.",
       "metaDescription": "Travelers publie ses résultats le 17 juillet 2026. Analyse fondamentale : qualité, moat et valorisation de cet assureur dommages membre du Dow Jones.",
       "answer": "Travelers, l'un des plus grands assureurs dommages américains et membre du Dow Jones, valide 9 des 10 critères de mon screener et se négocie à peine 6,7 fois son cash flow disponible. Elle publie ses résultats du deuxième trimestre le 17 juillet. Un profil de grande capitalisation indicielle rarement vu à ce prix dans mon univers suivi.",
@@ -50649,7 +50649,7 @@ const articleTravelers: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer avant l'annonce des résultats. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is Travelers (TRV) stock undervalued in 2026?",
+      "title": "Travelers (TRV): a low price for a Dow name",
       "excerpt": "Travelers, one of the largest US property and casualty insurers, reports earnings on July 17. A near-perfect score in my screener, a surprisingly low valuation.",
       "metaDescription": "Travelers reports earnings on July 17, 2026. Fundamental analysis: quality, moat, and valuation of this Dow Jones property and casualty insurer.",
       "answer": "Travelers, one of the largest US property and casualty insurers and a Dow Jones member, passes 9 of the 10 criteria in my screener and trades at barely 6.7 times its free cash flow. It reports second-quarter earnings on July 17. A blue-chip profile rarely seen at this price in my tracked universe.",
@@ -50755,7 +50755,7 @@ const articleTravelers: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change before the earnings announcement. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada la acción Travelers (TRV)?",
+      "title": "Travelers (TRV): un precio bajo para un nombre del Dow",
       "excerpt": "Travelers, una de las mayores aseguradoras de daños de EE. UU., publica resultados el 17 de julio. Nota casi perfecta en mi screener, valoración sorprendentemente baja.",
       "metaDescription": "Travelers publica resultados el 17 de julio de 2026. Análisis fundamental: calidad, moat y valoración de esta aseguradora de daños del Dow Jones.",
       "answer": "Travelers, una de las mayores aseguradoras de daños de Estados Unidos y miembro del Dow Jones, cumple 9 de los 10 criterios de mi screener y cotiza a apenas 6,7 veces su flujo de caja libre. Publica resultados del segundo trimestre el 17 de julio. Un perfil de gran capitalización indicial poco visto a este precio en mi universo seguido.",
@@ -50871,7 +50871,7 @@ const articleHKEX: Article = {
   "ticker": "0388.HK",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action HKEX (0388.HK) ?",
+      "title": "HKEX : une licence, pas une simple marque",
       "excerpt": "Cette entreprise possède littéralement la bourse de Hong Kong, l'un des marchés financiers les plus actifs d'Asie. Note de qualité maximale dans mon screener.",
       "metaDescription": "Hong Kong Exchanges and Clearing obtient la note de qualité maximale dans mon screener. Analyse fondamentale du quasi-monopole boursier asiatique.",
       "answer": "Hong Kong Exchanges and Clearing possède et exploite la bourse de Hong Kong et sa chambre de compensation, un quasi-monopole légal sur l'un des marchés financiers les plus actifs d'Asie. Elle valide l'intégralité des 10 critères de mon screener, un résultat rare, avec une marge de cash flow disponible qui dépasse même 100 % de son chiffre d'affaires.",
@@ -50968,7 +50968,7 @@ const articleHKEX: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy HKEX (0388.HK) stock?",
+      "title": "HKEX: a licence, not just a brand",
       "excerpt": "This company literally owns Hong Kong's stock exchange, one of Asia's most active financial markets. A perfect quality score in my screener.",
       "metaDescription": "Hong Kong Exchanges and Clearing earns a perfect quality score in my screener. Fundamental analysis of this Asian stock exchange near-monopoly.",
       "answer": "Hong Kong Exchanges and Clearing owns and operates the Hong Kong stock exchange and its clearing house, a legal near-monopoly on one of Asia's most active financial markets. It passes all 10 criteria in my screener, a rare feat, with a free cash flow margin that even exceeds 100% of revenue.",
@@ -51065,7 +51065,7 @@ const articleHKEX: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de HKEX (0388.HK)?",
+      "title": "HKEX: una licencia, no una simple marca",
       "excerpt": "Esta empresa posee literalmente la bolsa de Hong Kong, uno de los mercados financieros más activos de Asia. Nota de calidad máxima en mi screener.",
       "metaDescription": "Hong Kong Exchanges and Clearing obtiene la nota de calidad máxima en mi screener. Análisis fundamental de este casi monopolio bursátil asiático.",
       "answer": "Hong Kong Exchanges and Clearing posee y opera la bolsa de Hong Kong y su cámara de compensación, un casi monopolio legal en uno de los mercados financieros más activos de Asia. Cumple los 10 criterios de mi screener, un logro poco común, con un margen de flujo de caja libre que incluso supera el 100% de sus ingresos.",
@@ -51172,7 +51172,7 @@ const articleKLA: Article = {
   "ticker": "KLAC",
   "content": {
     "fr": {
-      "title": "KLA Corporation (KLAC) est-elle sous-évaluée ?",
+      "title": "KLA (KLAC) : le contraste avec ses deux rivaux",
       "excerpt": "KLA Corporation contrôle la qualité des puces électroniques avant leur fabrication en masse. Note de qualité élevée, mais valorisée bien moins cher que ses pairs.",
       "metaDescription": "KLA Corporation obtient une excellente note et se valorise moins cher que ses pairs des semi-conducteurs. Analyse fondamentale complète.",
       "answer": "KLA Corporation fabrique les machines qui contrôlent la qualité des semi-conducteurs avant leur production en masse, un métier de niche critique dans la chaîne de fabrication des puces. Elle valide 9 des 10 critères de mon screener et se valorise environ 7,7 fois son cash flow disponible, bien moins cher que la plupart de ses pairs pendant que le marché s'enthousiasme pour l'intelligence artificielle.",
@@ -51277,7 +51277,7 @@ const articleKLA: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer avant l'annonce des résultats. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is KLA Corporation (KLAC) stock undervalued?",
+      "title": "KLA (KLAC): the contrast with its two rivals",
       "excerpt": "KLA Corporation controls the quality of semiconductor chips before mass production. A high quality score, valued far cheaper than its peers.",
       "metaDescription": "KLA Corporation earns an excellent score in my screener and trades cheaper than its semiconductor equipment peers. Full fundamental analysis.",
       "answer": "KLA Corporation makes the machines that check semiconductor quality before mass production, a critical niche in the chipmaking supply chain. It passes 9 of the 10 criteria in my screener and trades at roughly 7.7 times its free cash flow, far cheaper than most of its peers while the market gets excited about artificial intelligence.",
@@ -51382,7 +51382,7 @@ const articleKLA: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change before the earnings announcement. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada KLA Corporation (KLAC)?",
+      "title": "KLA (KLAC): el contraste con sus dos rivales",
       "excerpt": "KLA Corporation controla la calidad de los chips semiconductores antes de su producción masiva. Nota de calidad alta, valorada mucho más barata que sus pares.",
       "metaDescription": "KLA Corporation obtiene una excelente nota en mi screener y cotiza más barata que sus pares de equipos de semiconductores. Análisis fundamental completo.",
       "answer": "KLA Corporation fabrica las máquinas que controlan la calidad de los semiconductores antes de su producción masiva, un nicho crítico en la cadena de fabricación de chips. Cumple 9 de los 10 criterios de mi screener y cotiza a unas 7,7 veces su flujo de caja libre, mucho más barata que la mayoría de sus pares mientras el mercado se entusiasma con la inteligencia artificial.",
@@ -51497,7 +51497,7 @@ const articlePerfectCorp: Article = {
   "ticker": "PERF",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Perfect Corp (PERF) ?",
+      "title": "Perfect Corp (PERF) : petite taille, forte volatilité",
       "excerpt": "Perfect Corp fournit la technologie d'essayage virtuel par IA à L'Oréal, Estée Lauder et Sephora. Note de qualité élevée, petite capitalisation, valorisation basse.",
       "metaDescription": "Perfect Corp (PERF) fournit la technologie d'essayage virtuel par IA aux grandes marques de beauté. Analyse fondamentale de cette petite capitalisation.",
       "answer": "Perfect Corp fournit la technologie d'essayage virtuel par intelligence artificielle (essayer un rouge à lèvres ou une coiffure via la caméra du téléphone) à des marques comme L'Oréal, Estée Lauder et Sephora. Elle valide 9 des 10 critères de mon screener, avec une valorisation d'environ 12 fois son cash flow disponible, pour une capitalisation boursière encore modeste d'environ 155 millions de dollars.",
@@ -51607,7 +51607,7 @@ const articlePerfectCorp: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer avant l'annonce des résultats. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy Perfect Corp (PERF) stock?",
+      "title": "Perfect Corp (PERF): small size, real volatility",
       "excerpt": "Perfect Corp supplies AI virtual try-on technology to L'Oréal, Estée Lauder, and Sephora. High quality score, small cap, low valuation.",
       "metaDescription": "Perfect Corp (PERF) supplies AI virtual try-on technology to major beauty brands. Fundamental analysis of this small-cap stock.",
       "answer": "Perfect Corp supplies AI-powered virtual try-on technology (trying a lipstick or a hairstyle through a phone camera) to brands like L'Oréal, Estée Lauder, and Sephora. It passes 9 of the 10 criteria in my screener, trading at roughly 12 times its free cash flow, with a still-modest market cap of around $155 million.",
@@ -51717,7 +51717,7 @@ const articlePerfectCorp: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change before the earnings announcement. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de Perfect Corp (PERF)?",
+      "title": "Perfect Corp (PERF): tamaño pequeño, alta volatilidad",
       "excerpt": "Perfect Corp suministra la tecnología de prueba virtual con IA a L'Oréal, Estée Lauder y Sephora. Nota de calidad alta, pequeña capitalización, valoración baja.",
       "metaDescription": "Perfect Corp (PERF) suministra tecnología de prueba virtual con IA a grandes marcas de belleza. Análisis fundamental de esta pequeña capitalización.",
       "answer": "Perfect Corp suministra tecnología de prueba virtual con inteligencia artificial (probar un labial o un peinado a través de la cámara del teléfono) a marcas como L'Oréal, Estée Lauder y Sephora. Cumple 9 de los 10 criterios de mi screener, cotizando a unas 12 veces su flujo de caja libre, con una capitalización bursátil todavía modesta de unos 155 millones de dólares.",
@@ -51837,7 +51837,7 @@ const articleYuanbao: Article = {
   "ticker": "YB",
   "content": {
     "fr": {
-      "title": "Yuanbao (YB) est-elle sous-évaluée en 2026 ?",
+      "title": "Yuanbao (YB) : pourquoi le marché la valorise si peu",
       "excerpt": "Yuanbao distribue de l'assurance santé et vie en ligne en Chine, rentable depuis 13 trimestres consécutifs. Note de qualité maximale, valorisation extrêmement basse.",
       "metaDescription": "Yuanbao (YB) obtient la note de qualité maximale dans mon screener et se valorise à peine une demi-année de son cash flow. Analyse fondamentale et risques.",
       "answer": "Yuanbao distribue de l'assurance santé et vie en ligne en Chine et valide l'intégralité des 10 critères de mon screener, avec des revenus en hausse de 72,6 % par an en moyenne sur 5 ans. L'action se valorise pourtant à peine 0,5 fois son cash flow disponible, l'une des valorisations les plus basses de tout mon univers suivi, un signe du risque géopolitique que le marché associe aux actions chinoises cotées à l'étranger.",
@@ -51943,7 +51943,7 @@ const articleYuanbao: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is Yuanbao (YB) stock undervalued in 2026?",
+      "title": "Yuanbao (YB): why the market values it so low",
       "excerpt": "Yuanbao distributes health and life insurance online in China, profitable for 13 straight quarters. Perfect quality score, extremely low valuation.",
       "metaDescription": "Yuanbao (YB) earns a perfect quality score in my screener and trades at barely half a year of its cash flow. Fundamental analysis and risks.",
       "answer": "Yuanbao distributes health and life insurance online in China and passes all 10 criteria in my screener, with revenue up 72.6% a year on average over 5 years. Yet the stock trades at barely 0.5 times its free cash flow, one of the lowest valuations in my entire tracked universe, a sign of the geopolitical risk the market attaches to Chinese stocks listed abroad.",
@@ -52049,7 +52049,7 @@ const articleYuanbao: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada la acción Yuanbao (YB)?",
+      "title": "Yuanbao (YB): por qué el mercado la valora tan poco",
       "excerpt": "Yuanbao distribuye seguros de salud y vida en línea en China, rentable durante 13 trimestres consecutivos. Nota de calidad máxima, valoración extremadamente baja.",
       "metaDescription": "Yuanbao (YB) obtiene la nota de calidad máxima en mi screener y cotiza a apenas medio año de su flujo de caja. Análisis fundamental y riesgos.",
       "answer": "Yuanbao distribuye seguros de salud y vida en línea en China y cumple los 10 criterios de mi screener, con ingresos creciendo un 72,6% anual de media en 5 años. Sin embargo, la acción cotiza a apenas 0,5 veces su flujo de caja libre, una de las valoraciones más bajas de todo mi universo seguido, señal del riesgo geopolítico que el mercado asocia a las acciones chinas cotizadas en el extranjero.",
@@ -52165,7 +52165,7 @@ const articleOrion: Article = {
   "ticker": "ORNBV.HE",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Orion Oyj (ORNBV) ?",
+      "title": "Orion : le bénéfice qui se convertit mal en cash",
       "excerpt": "Orion est un laboratoire pharmaceutique finlandais spécialisé dans le système nerveux central et les médicaments vétérinaires. Note de qualité élevée, prix qui ne l'est pas moins.",
       "metaDescription": "Orion Oyj obtient une note de qualité élevée dans mon screener. Analyse fondamentale de ce laboratoire pharmaceutique finlandais méconnu.",
       "answer": "Orion Oyj, un laboratoire pharmaceutique finlandais spécialisé dans les traitements du système nerveux central et les médicaments vétérinaires, valide 9 des 10 critères de mon screener. Sa qualité est réelle, mais l'action se valorise environ 45 fois son cash flow disponible, un prix qui laisse peu de place à la déception.",
@@ -52270,7 +52270,7 @@ const articleOrion: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy Orion Oyj (ORNBV) stock?",
+      "title": "Orion: profit that converts poorly into cash",
       "excerpt": "Orion is a Finnish pharmaceutical company specialized in central nervous system treatments and veterinary medicine. High quality score, price to match.",
       "metaDescription": "Orion Oyj earns a high quality score in my screener. Fundamental analysis of this overlooked Finnish pharmaceutical company.",
       "answer": "Orion Oyj, a Finnish pharmaceutical company specialized in central nervous system treatments and veterinary medicine, passes 9 of the 10 criteria in my screener. Its quality is real, but the stock trades at roughly 45 times its free cash flow, a price that leaves little room for disappointment.",
@@ -52375,7 +52375,7 @@ const articleOrion: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de Orion Oyj (ORNBV)?",
+      "title": "Orion: el beneficio que se convierte mal en caja",
       "excerpt": "Orion es una farmacéutica finlandesa especializada en tratamientos del sistema nervioso central y medicina veterinaria. Nota de calidad alta, precio a la altura.",
       "metaDescription": "Orion Oyj obtiene una nota de calidad alta en mi screener. Análisis fundamental de esta farmacéutica finlandesa poco conocida.",
       "answer": "Orion Oyj, una farmacéutica finlandesa especializada en tratamientos del sistema nervioso central y medicina veterinaria, cumple 9 de los 10 criterios de mi screener. Su calidad es real, pero la acción cotiza a unas 45 veces su flujo de caja libre, un precio que deja poco margen para la decepción.",
@@ -54180,7 +54180,7 @@ const articleSTERIS: Article = {
   "ticker": "STE",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action STERIS (STE) en 2026 ?",
+      "title": "STERIS (STE) : la stérilisation comme rente",
       "excerpt": "STERIS obtient la note maximale dans mon screener sur la stérilisation hospitalière, un métier invisible mais indispensable. Notre analyse fondamentale complète.",
       "metaDescription": "STERIS obtient la note de qualité maximale dans mon screener. Analyse fondamentale de ce leader discret de la stérilisation hospitalière.",
       "answer": "STERIS fournit les équipements et services de stérilisation qui empêchent la propagation des infections dans les hôpitaux et les usines pharmaceutiques. Elle valide l'intégralité des 10 critères de mon screener, avec une action qui se valorise environ 23 fois son cash flow disponible.",
@@ -54285,7 +54285,7 @@ const articleSTERIS: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy STERIS (STE) stock in 2026?",
+      "title": "STERIS (STE): sterilisation as an annuity",
       "excerpt": "STERIS earns the top score in my screener for hospital sterilization, an invisible but essential business. Full fundamental analysis.",
       "metaDescription": "STERIS earns a perfect quality score in my screener. Fundamental analysis of this quiet leader in hospital sterilization.",
       "answer": "STERIS supplies the equipment and services that sterilize medical instruments, preventing infections in hospitals and pharmaceutical plants. It passes all 10 criteria in my screener, with a stock trading at roughly 23 times its free cash flow.",
@@ -54390,7 +54390,7 @@ const articleSTERIS: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de STERIS (STE) en 2026?",
+      "title": "STERIS (STE): la esterilización como renta",
       "excerpt": "STERIS obtiene la nota máxima en mi screener en esterilización hospitalaria, un negocio invisible pero indispensable. Análisis fundamental completo.",
       "metaDescription": "STERIS obtiene una nota de calidad perfecta en mi screener. Análisis fundamental de este líder discreto de la esterilización hospitalaria.",
       "answer": "STERIS suministra el equipo y los servicios de esterilización que evitan la propagación de infecciones en hospitales y plantas farmacéuticas. Cumple los 10 criterios de mi screener, con una acción que cotiza a unas 23 veces su flujo de caja libre.",
@@ -54505,7 +54505,7 @@ const articlePaycom: Article = {
   "ticker": "PAYC",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Paycom (PAYC) ?",
+      "title": "Paycom (PAYC) : la conversion du cash à surveiller",
       "excerpt": "Paycom, troisième grand logiciel RH américain, souvent cité comme rival de Paylocity et Paychex mais jamais analysé seul. Notre analyse fondamentale.",
       "metaDescription": "Paycom obtient une excellente note de qualité dans mon screener. Analyse fondamentale de ce logiciel de gestion RH, rival méconnu de Paylocity et Paychex.",
       "answer": "Paycom, un logiciel de gestion des ressources humaines destiné aux entreprises américaines, valide 9 des 10 critères de mon screener. Souvent citée comme concurrent de Paylocity ou Paychex, déjà analysées sur mon site, elle n'avait jamais fait l'objet d'une analyse dédiée.",
@@ -54610,7 +54610,7 @@ const articlePaycom: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy Paycom (PAYC) stock?",
+      "title": "Paycom (PAYC): watch the cash conversion",
       "excerpt": "Paycom, the third major US HR software name, often cited as a rival to Paylocity and Paychex but never analyzed on its own. Our fundamental analysis.",
       "metaDescription": "Paycom earns an excellent quality score in my screener. Fundamental analysis of this HR management software, the overlooked rival of Paylocity and Paychex.",
       "answer": "Paycom, a human resources management software for US businesses, passes 9 of the 10 criteria in my screener. Often cited as a competitor to Paylocity or Paychex, already analyzed on my site, it had never received a dedicated analysis.",
@@ -54715,7 +54715,7 @@ const articlePaycom: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de Paycom (PAYC)?",
+      "title": "Paycom (PAYC): vigilar la conversión de caja",
       "excerpt": "Paycom, el tercer gran nombre del software de RRHH en EE. UU., a menudo citado como rival de Paylocity y Paychex pero nunca analizado por separado. Nuestro análisis.",
       "metaDescription": "Paycom obtiene una excelente nota en mi screener. Análisis fundamental de este software de RRHH, rival poco conocido de Paylocity y Paychex.",
       "answer": "Paycom, un software de gestión de recursos humanos para empresas estadounidenses, cumple 9 de los 10 criterios de mi screener. A menudo citada como competidora de Paylocity o Paychex, ya analizadas en mi sitio, nunca había recibido un análisis propio.",
@@ -54830,7 +54830,7 @@ const articleTCS: Article = {
   "ticker": "TCS.NS",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Tata Consultancy (TCS) ?",
+      "title": "Tata Consultancy (TCS) : le géant indien ralentit",
       "excerpt": "Tata Consultancy Services, l'un des plus grands prestataires informatiques au monde, méthodiquement rentable. Notre analyse du géant indien.",
       "metaDescription": "Tata Consultancy Services obtient une bonne note dans mon screener. Analyse fondamentale du géant indien des services informatiques, jamais couvert jusqu'ici.",
       "answer": "Tata Consultancy Services, l'un des plus grands prestataires de services informatiques au monde, valide 8 des 10 critères de mon screener. Premier acteur des services IT indiens que j'analyse, elle se valorise environ 17 fois son cash flow disponible, un niveau qui reste raisonnable pour sa taille et sa rentabilité.",
@@ -54935,7 +54935,7 @@ const articleTCS: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy Tata Consultancy (TCS) stock?",
+      "title": "Tata Consultancy (TCS): the Indian giant slows",
       "excerpt": "Tata Consultancy Services, one of the largest IT services providers in the world, methodically profitable. Our analysis of the Indian giant.",
       "metaDescription": "Tata Consultancy Services earns a good score in my screener. Fundamental analysis of the Indian IT services giant, never covered before now.",
       "answer": "Tata Consultancy Services, one of the largest IT services providers in the world, passes 8 of the 10 criteria in my screener. The first Indian IT services player I analyze, it trades at roughly 17 times its free cash flow, a level that remains reasonable given its size and profitability.",
@@ -55040,7 +55040,7 @@ const articleTCS: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de Tata Consultancy (TCS)?",
+      "title": "Tata Consultancy (TCS): el gigante indio frena",
       "excerpt": "Tata Consultancy Services, uno de los mayores proveedores de servicios informáticos del mundo, metódicamente rentable. Nuestro análisis del gigante indio.",
       "metaDescription": "Tata Consultancy Services obtiene una buena nota en mi screener. Análisis fundamental del gigante indio de servicios informáticos, nunca cubierto hasta ahora.",
       "answer": "Tata Consultancy Services, uno de los mayores proveedores de servicios informáticos del mundo, cumple 8 de los 10 criterios de mi screener. El primer actor de servicios IT indios que analizo, cotiza a unas 17 veces su flujo de caja libre, un nivel razonable dado su tamaño y rentabilidad.",
@@ -55155,7 +55155,7 @@ const articleMSCIndustrial: Article = {
   "ticker": "MSM",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action MSC Industrial (MSM) ?",
+      "title": "MSC Industrial (MSM) : une croissance qui plafonne",
       "excerpt": "MSC Industrial distribue les pièces et outils dont dépendent les usines américaines. Note moyenne, marges qui se compriment, prix qui ne le justifie pas.",
       "metaDescription": "MSC Industrial Direct obtient une note moyenne dans mon screener, avec des marges qui se compriment. Analyse fondamentale honnête de ce distributeur industriel.",
       "answer": "MSC Industrial Direct distribue les pièces détachées, outils et consommables dont dépendent les usines américaines. Elle ne valide que 7 des 10 critères de mon screener, avec des marges qui se compriment plutôt que de s'élargir, un signal qui mérite d'être pris au sérieux malgré une valorisation qui n'a rien d'excessif.",
@@ -55251,7 +55251,7 @@ const articleMSCIndustrial: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy MSC Industrial (MSM) stock?",
+      "title": "MSC Industrial (MSM): growth that has plateaued",
       "excerpt": "MSC Industrial distributes the parts and tools American factories depend on. Average score, compressing margins, a price that doesn't justify it.",
       "metaDescription": "MSC Industrial Direct earns an average score in my screener, with compressing margins. Honest fundamental analysis of this industrial distributor.",
       "answer": "MSC Industrial Direct distributes the spare parts, tools, and consumables American factories depend on. It passes only 7 of the 10 criteria in my screener, with margins compressing rather than expanding, a signal worth taking seriously despite a valuation that's nothing extreme.",
@@ -55347,7 +55347,7 @@ const articleMSCIndustrial: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de MSC Industrial (MSM)?",
+      "title": "MSC Industrial (MSM): un crecimiento que se estanca",
       "excerpt": "MSC Industrial distribuye las piezas y herramientas de las que dependen las fábricas estadounidenses. Nota media, márgenes que se comprimen, precio que no lo justifica.",
       "metaDescription": "MSC Industrial Direct obtiene una nota media en mi screener, con márgenes que se comprimen. Análisis fundamental honesto de este distribuidor industrial.",
       "answer": "MSC Industrial Direct distribuye las piezas de repuesto, herramientas y consumibles de los que dependen las fábricas estadounidenses. Cumple solo 7 de los 10 criterios de mi screener, con márgenes que se comprimen en lugar de ampliarse, una señal a tomar en serio pese a una valoración que no tiene nada de excesiva.",
@@ -57021,7 +57021,7 @@ const articleMakeMyTrip: Article = {
   "ticker": "MMYT",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action MakeMyTrip (MMYT) ?",
+      "title": "MakeMyTrip (MMYT) : un pari sur la durée en Inde",
       "excerpt": "MakeMyTrip domine la réservation de voyages en ligne en Inde, avec une note quasi parfaite. Petite capitalisation, forte croissance, notre analyse.",
       "metaDescription": "MakeMyTrip publie ses résultats le 28 juillet 2026. Analyse fondamentale : qualité, croissance et valorisation du leader du voyage en ligne en Inde.",
       "answer": "MakeMyTrip, la plateforme dominante de réservation de voyages en ligne en Inde, valide 9 des 10 critères de mon screener. Elle publie ses résultats le 28 juillet. Sa valorisation, environ 39 fois son cash flow disponible, reflète les attentes de croissance élevées portées par l'essor du tourisme domestique indien.",
@@ -57126,7 +57126,7 @@ const articleMakeMyTrip: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (7 juillet 2026), susceptibles d'évoluer avant l'annonce des résultats. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy MakeMyTrip (MMYT) stock?",
+      "title": "MakeMyTrip (MMYT): a bet on Indian travel lasting",
       "excerpt": "MakeMyTrip dominates online travel booking in India, with a near-perfect score. Small cap, strong growth, our analysis.",
       "metaDescription": "MakeMyTrip reports earnings on July 28, 2026. Fundamental analysis: quality, growth, and valuation of India's online travel leader.",
       "answer": "MakeMyTrip, the dominant online travel booking platform in India, passes 9 of the 10 criteria in my screener. It reports earnings on July 28. Its valuation, roughly 39 times its free cash flow, reflects high growth expectations driven by India's booming domestic tourism.",
@@ -57231,7 +57231,7 @@ const articleMakeMyTrip: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 7, 2026), subject to change before the earnings announcement. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de MakeMyTrip (MMYT)?",
+      "title": "MakeMyTrip (MMYT): una apuesta a la duración en India",
       "excerpt": "MakeMyTrip domina la reserva de viajes en línea en India, con una nota casi perfecta. Pequeña capitalización, fuerte crecimiento, nuestro análisis.",
       "metaDescription": "MakeMyTrip publica resultados el 28 de julio de 2026. Análisis fundamental: calidad, crecimiento y valoración del líder del viaje en línea en India.",
       "answer": "MakeMyTrip, la plataforma dominante de reserva de viajes en línea en India, cumple 9 de los 10 criterios de mi screener. Publica resultados el 28 de julio. Su valoración, unas 39 veces su flujo de caja libre, refleja altas expectativas de crecimiento impulsadas por el auge del turismo doméstico indio.",
@@ -57346,7 +57346,7 @@ const articleGS: Article = {
   "ticker": "GS",
   "content": {
     "fr": {
-      "title": "Goldman Sachs (GS) est-elle sous-évaluée en 2026 ?",
+      "title": "Goldman Sachs (GS) : le chiffre qui interpelle",
       "excerpt": "Goldman Sachs se paie 5,7 fois son cash disponible, un niveau rare pour une banque de cette qualité. Pourquoi un tel écart, et jusqu'où lui faire confiance ?",
       "metaDescription": "Goldman Sachs (GS) : rentabilité solide, valorisation basse en apparence, mais un point faible discret. Mon analyse fondamentale complète, chiffres à l'appui.",
       "answer": "Goldman Sachs affiche une rentabilité solide et un prix qui, sur le seul critère du cash généré, semble bradé : 5,7 fois son free cash flow contre une moyenne sectorielle de 16,4 fois. Mais une banque ne se juge pas tout à fait comme une action classique, et un point faible discret sur ses marges mérite d'être regardé avant de conclure à une aubaine.",
@@ -57444,7 +57444,7 @@ const articleGS: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (8 juillet 2026), susceptibles d'évoluer avant les résultats du 14 juillet. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is Goldman Sachs (GS) undervalued in 2026?",
+      "title": "Goldman Sachs (GS): the number that stands out",
       "excerpt": "Goldman Sachs trades at 5.7 times its available cash, a rare level for a bank of this quality. Why the gap, and how far should you trust it?",
       "metaDescription": "Goldman Sachs (GS): solid profitability, seemingly cheap valuation, but one quiet weak spot. My full fundamental analysis, numbers included.",
       "answer": "Goldman Sachs shows solid profitability and a price that, on cash generation alone, looks cheap: 5.7 times free cash flow versus a sector average of 16.4 times. But a bank isn't judged quite like a regular stock, and a quiet weakness in its margins deserves a look before calling this a bargain.",
@@ -57542,7 +57542,7 @@ const articleGS: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance doesn't guarantee future results. Figures as of publication date (July 8, 2026), subject to change ahead of the July 14 earnings report. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada la acción de Goldman Sachs (GS) en 2026?",
+      "title": "Goldman Sachs (GS): la cifra que llama la atención",
       "excerpt": "Goldman Sachs cotiza a 5,7 veces su caja disponible, un nivel raro para un banco de esta calidad. ¿Por qué esa diferencia, y hasta qué punto confiar en ella?",
       "metaDescription": "Goldman Sachs (GS): rentabilidad sólida, valoración aparentemente baja, pero un punto débil discreto. Mi análisis fundamental completo, con cifras reales.",
       "answer": "Goldman Sachs muestra una rentabilidad sólida y un precio que, solo por el efectivo generado, parece barato: 5,7 veces su flujo de caja libre frente a una media sectorial de 16,4 veces. Pero un banco no se juzga exactamente como una acción normal, y una debilidad discreta en sus márgenes merece atención antes de hablar de una ganga.",
@@ -57650,7 +57650,7 @@ const articleABB: Article = {
   "ticker": "ABBN.SW",
   "content": {
     "fr": {
-      "title": "ABB (ABBN) est-elle sous-évaluée en 2026 ?",
+      "title": "ABB (ABBN) : une machine à retour sur capital",
       "excerpt": "Le géant suisse de l'électrification et de l'automatisation industrielle affiche une qualité solide, mais une croissance qui ralentit. Le prix actuel reflète-t-il vraiment ce compromis ?",
       "metaDescription": "ABB (ABBN) : rendement du capital excellent, dette maîtrisée, mais des ventes qui progressent lentement. Mon analyse fondamentale complète, chiffres à l'appui.",
       "answer": "ABB est une entreprise de qualité élevée : rendement du capital de 30 %, dette remboursable en un an, marges qui s'élargissent. Son talon d'Achille est une croissance des ventes limitée à 4,1 % par an. Le titre se négocie à peu près à son prix d'achat raisonnable, ni une aubaine ni une folie.",
@@ -57732,7 +57732,7 @@ const articleABB: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (8 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is ABB (ABBN) undervalued in 2026?",
+      "title": "ABB (ABBN): a return on capital machine",
       "excerpt": "The Swiss electrification and industrial automation giant shows solid quality, but slowing growth. Does the current price really reflect that trade-off?",
       "metaDescription": "ABB (ABBN): excellent capital returns, well-managed debt, but slow-growing sales. My full fundamental analysis, numbers included.",
       "answer": "ABB is a high-quality company: 30% return on invested capital, debt payable within a year, expanding margins. Its Achilles' heel is sales growth capped at 4.1% a year. The stock trades roughly at its fair buy price, neither a bargain nor overpriced.",
@@ -57814,7 +57814,7 @@ const articleABB: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance doesn't guarantee future results. Figures as of publication date (July 8, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada la acción de ABB (ABBN) en 2026?",
+      "title": "ABB (ABBN): una máquina de retorno del capital",
       "excerpt": "El gigante suizo de la electrificación y la automatización industrial muestra una calidad sólida, pero un crecimiento que se ralentiza. ¿Refleja el precio actual ese equilibrio?",
       "metaDescription": "ABB (ABBN): excelente retorno del capital, deuda controlada, pero ventas que crecen despacio. Mi análisis fundamental completo, con cifras reales.",
       "answer": "ABB es una empresa de alta calidad: retorno del capital invertido del 30 %, deuda pagable en un año, márgenes en expansión. Su talón de Aquiles es un crecimiento de ventas limitado al 4,1 % anual. La acción cotiza aproximadamente a su precio de compra razonable, ni una ganga ni una locura.",
@@ -59648,7 +59648,7 @@ const articleJPM: Article = {
   "ticker": "JPM",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action JPMorgan (JPM) en 2026 ?",
+      "title": "JPMorgan (JPM) : la banque que tout le monde regarde",
       "excerpt": "JPMorgan Chase est l'une des banques les plus solides du monde, mais son prix actuel passe-t-il mon test de valorisation ? La réponse n'est pas aussi simple qu'un ratio bas le suggère.",
       "metaDescription": "JPMorgan Chase se négocie parmi les banques les moins chères de son secteur. Croissance ralentie, marges record : vaut-elle le détour ? Mon verdict.",
       "answer": "JPMorgan Chase valide 7 de mes 10 critères de qualité et se négocie à un prix qui semble bon marché pour une banque de cette taille. Mais mon calcul du juste prix, plus strict qu'un simple ratio, place la barre au dessus du cours actuel. Voici pourquoi je n'achète pas encore, malgré une entreprise que je juge sérieuse.",
@@ -59804,7 +59804,7 @@ const articleJPM: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (9 juillet 2026), susceptibles d'évoluer avant les résultats du 14 juillet. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy JPMorgan (JPM) stock in 2026?",
+      "title": "JPMorgan (JPM): the bank everyone watches",
       "excerpt": "JPMorgan Chase is one of the most powerful banks in the world, but does its current price pass my valuation test? The answer is not as simple as a low ratio suggests.",
       "metaDescription": "JPMorgan trades among the cheapest big banks by one measure. Slower growth, record margins: is it worth a look? My full verdict inside.",
       "answer": "JPMorgan Chase meets 7 of my 10 quality criteria and trades at a price that looks cheap for a bank this size. But my fair price calculation, stricter than a single ratio, sets the bar above the current price. Here is why I am not buying yet, despite a business I consider genuinely strong.",
@@ -59960,7 +59960,7 @@ const articleJPM: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 9, 2026), subject to change ahead of the July 14 earnings release. Do your own research."
     },
     "es": {
-      "title": "¿Deberías comprar la acción de JPMorgan (JPM) en 2026?",
+      "title": "JPMorgan (JPM): el banco que todos miran",
       "excerpt": "JPMorgan Chase es uno de los bancos más sólidos del mundo, pero ¿su precio actual pasa mi prueba de valoración? La respuesta no es tan simple como sugiere un ratio bajo.",
       "metaDescription": "JPMorgan cotiza entre los bancos más baratos por un indicador. Crecimiento más lento, márgenes récord: ¿vale la pena? Mi veredicto completo.",
       "answer": "JPMorgan Chase cumple 7 de mis 10 criterios de calidad y cotiza a un precio que parece barato para un banco de este tamaño. Pero mi cálculo del precio justo, más estricto que un simple ratio, fija el límite por encima del precio actual. Esto explica por qué todavía no compro, pese a considerarla una empresa sólida.",
@@ -60126,7 +60126,7 @@ const articleJBHT: Article = {
   "ticker": "JBHT",
   "content": {
     "fr": {
-      "title": "L'action J.B. Hunt (JBHT) est-elle sous-évaluée ?",
+      "title": "J.B. Hunt (JBHT) : des marges sous pression",
       "excerpt": "J.B. Hunt traverse une croissance des ventes en panne et une valorisation qui semble élevée au premier regard. Mes autres critères racontent une histoire plus nuancée.",
       "metaDescription": "J.B. Hunt, géant du transport routier américain, note qualité correcte mais valorisation qui semble élevée au premier regard. Est-ce vraiment le cas ?",
       "answer": "J.B. Hunt affiche une croissance des ventes en repli et un ratio de valorisation qui semble élevé au premier regard, mais 7 de mes 10 critères de qualité sont validés, et mon prix d'achat raisonnable place l'action nettement sous son cours actuel. Ce transporteur mérite un second regard malgré les apparences.",
@@ -60278,7 +60278,7 @@ const articleJBHT: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (9 juillet 2026), susceptibles d'évoluer avant les résultats du 15 juillet. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is J.B. Hunt (JBHT) stock undervalued right now?",
+      "title": "J.B. Hunt (JBHT): margins under pressure",
       "excerpt": "J.B. Hunt is going through stalled sales growth and a valuation ratio that looks rich at first glance. My other criteria tell a more nuanced story.",
       "metaDescription": "J.B. Hunt, a giant of US trucking, has a decent quality score but a valuation that looks rich at first glance. Is that really the case?",
       "answer": "J.B. Hunt shows declining sales and a valuation ratio that looks rich at first glance, but it meets 7 of my 10 quality criteria, and my fair buy price sits well above the current stock price. This trucking giant deserves a second look despite appearances.",
@@ -60430,7 +60430,7 @@ const articleJBHT: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 9, 2026), subject to change ahead of the July 15 earnings release. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada la acción de J.B. Hunt (JBHT)?",
+      "title": "J.B. Hunt (JBHT): márgenes bajo presión",
       "excerpt": "J.B. Hunt atraviesa un crecimiento de ventas estancado y un ratio de valoración que parece caro a primera vista. Mis otros criterios cuentan una historia más matizada.",
       "metaDescription": "J.B. Hunt, gigante del transporte por carretera en EE. UU., tiene una nota de calidad decente pero una valoración que parece cara a primera vista. ¿Es realmente así?",
       "answer": "J.B. Hunt muestra ventas en descenso y un ratio de valoración que parece caro a primera vista, pero cumple 7 de mis 10 criterios de calidad, y mi precio de compra razonable se sitúa muy por encima del precio actual de la acción. Este gigante del transporte merece una segunda mirada pese a las apariencias.",
@@ -63192,7 +63192,7 @@ const articleYELP2026: Article = {
   "ticker": "YELP",
   "content": {
     "fr": {
-      "title": "Yelp (YELP) est-elle sous-évaluée en 2026 ?",
+      "title": "Yelp : le préjugé qui colle à l'action",
       "excerpt": "Une entreprise que le marché a rangée au rayon des reliques du web, mais qui coche presque tous mes critères de qualité et se valorise moins cher que la quasi-totalité de son secteur. Voici comment je lis le dossier Yelp.",
       "metaDescription": "Yelp affiche une qualité rare et une valorisation parmi les plus basses de son secteur, mais sa croissance ralentit. Mon analyse complète.",
       "answer": "Yelp obtient une note de qualité quasi parfaite dans mon filtre : marges solides, rendement du capital élevé, dette presque nulle. Elle se valorise aussi nettement moins cher que la médiane de son secteur. Le vrai doute porte sur sa croissance qui ralentit face à la montée de la recherche par intelligence artificielle. Voici comment je lis ce dossier, sans trancher à l'aveugle.",
@@ -63331,7 +63331,7 @@ const articleYELP2026: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (10 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Is Yelp (YELP) stock undervalued in 2026?",
+      "title": "Yelp: the prejudice that sticks to the stock",
       "excerpt": "The market has filed Yelp under relics of the old web, yet it checks almost every one of my quality boxes and trades cheaper than nearly its whole sector. Here is how I read the Yelp file.",
       "metaDescription": "Yelp shows rare quality and one of the lowest valuations in its sector, but growth is slowing. My full analysis.",
       "answer": "Yelp scores nearly perfect on quality in my filter: solid margins, high return on capital, almost no debt. It also trades well below its sector's median valuation. The real doubt is slowing growth as AI search rises. Here is how I read this file without deciding blindly.",
@@ -63470,7 +63470,7 @@ const articleYELP2026: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 10, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Está infravalorada la acción de Yelp (YELP) en 2026?",
+      "title": "Yelp: el prejuicio que persigue a la acción",
       "excerpt": "El mercado archivó a Yelp entre las reliquias de la web antigua, pero cumple casi todos mis criterios de calidad y cotiza más barata que casi todo su sector. Así leo el caso Yelp.",
       "metaDescription": "Yelp muestra una calidad poco común y una de las valoraciones más bajas de su sector, pero su crecimiento se desacelera. Mi análisis completo.",
       "answer": "Yelp obtiene una nota de calidad casi perfecta en mi filtro: márgenes sólidos, alto retorno sobre el capital, deuda casi nula. También cotiza muy por debajo de la mediana de su sector. La verdadera duda es su crecimiento, que se desacelera frente al avance de la búsqueda con inteligencia artificial. Así leo este caso, sin decidir a ciegas.",
@@ -63619,7 +63619,7 @@ const articleRDDT2026: Article = {
   "ticker": "RDDT",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Reddit (RDDT) en 2026 ?",
+      "title": "Reddit (RDDT) : bien plus qu'un forum",
       "excerpt": "Reddit coche presque tous mes critères de qualité et grandit à toute vitesse grâce à la publicité et aux accords de données avec les IA. Mais le prix a-t-il déjà tout intégré ?",
       "metaDescription": "Reddit affiche une croissance et une qualité rares, mais son action est déjà valorisée bien au-dessus de son secteur. Mon analyse complète.",
       "answer": "Reddit coche presque tous mes critères de qualité : marges solides, croissance rapide, quasiment aucune dette. Mais l'action se valorise déjà bien plus cher que la médiane de son secteur, et la dilution liée aux rémunérations en actions reste forte. Une entreprise en excellente forme, à un prix qui laisse peu de place à l'erreur. Voici comment je le lis.",
@@ -63742,7 +63742,7 @@ const articleRDDT2026: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (10 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches."
     },
     "en": {
-      "title": "Should you buy Reddit (RDDT) stock in 2026?",
+      "title": "Reddit (RDDT): far more than a forum",
       "excerpt": "Reddit ticks almost every one of my quality boxes and is growing fast on advertising and AI data deals. But has the price already priced in the whole story?",
       "metaDescription": "Reddit shows rare growth and quality, but its stock already trades well above its sector. My full analysis of the file.",
       "answer": "Reddit ticks almost every quality box in my filter: solid margins, fast growth, next to no debt. But the stock already trades far above its sector's median valuation, and dilution from stock based pay remains heavy. A company in excellent shape, at a price that leaves little room for error. Here is how I read it.",
@@ -63865,7 +63865,7 @@ const articleRDDT2026: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 10, 2026), subject to change. Do your own research."
     },
     "es": {
-      "title": "¿Comprar acciones de Reddit (RDDT) en 2026?",
+      "title": "Reddit (RDDT): mucho más que un foro",
       "excerpt": "Reddit cumple casi todos mis criterios de calidad y crece muy rápido gracias a la publicidad y a los acuerdos de datos con la IA. ¿Pero ya lo refleja todo el precio?",
       "metaDescription": "Reddit muestra un crecimiento y una calidad poco comunes, pero su acción ya cotiza muy por encima de su sector. Mi análisis completo.",
       "answer": "Reddit cumple casi todos mis criterios de calidad: márgenes sólidos, crecimiento rápido, deuda casi nula. Pero la acción ya cotiza muy por encima de la mediana de su sector, y la dilución por compensación en acciones sigue siendo fuerte. Una empresa en excelente forma, a un precio que deja poco margen de error. Así lo leo.",
@@ -65977,7 +65977,7 @@ const articleWINA: Article = {
   ticker: 'WINA',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Winmark (WINA) ?",
+      title: "Winmark (WINA) : une entreprise qui ne vend rien",
       excerpt:
         "Winmark ne vend rien lui-même : il touche des royalties sur des enseignes de reprise comme Play It Again Sports. Un modèle qui a besoin de très peu de capital et redoutablement rentable, mais une action très chère aujourd'hui.",
       metaDescription:
@@ -66021,7 +66021,7 @@ const articleWINA: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 11 juillet 2026, susceptibles d'évoluer.",
     },
     en: {
-      title: 'Should you buy Winmark (WINA) stock?',
+      title: "Winmark (WINA): a company that sells nothing itself",
       excerpt:
         "Winmark sells nothing itself: it collects royalties from resale franchise brands like Play It Again Sports. A model that needs almost no capital and is remarkably profitable, but a stock that is very expensive today.",
       metaDescription:
@@ -66065,7 +66065,7 @@ const articleWINA: Article = {
       disclaimer: 'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of July 11, 2026, subject to change.',
     },
     es: {
-      title: '¿Deberías comprar la acción de Winmark (WINA)?',
+      title: "Winmark (WINA): una empresa que no vende nada",
       excerpt:
         'Winmark no vende nada por sí misma: cobra regalías de marcas de franquicias de segunda mano como Play It Again Sports. Un modelo que necesita muy poco capital y es enormemente rentable, pero una acción muy cara hoy.',
       metaDescription:
@@ -66119,7 +66119,7 @@ const articleUNTY: Article = {
   ticker: 'UNTY',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Unity Bancorp (UNTY) ?",
+      title: "Unity Bancorp (UNTY) : la petite banque qui grossit vite",
       excerpt:
         "Unity Bancorp est la petite banque la mieux notée de mon univers cette semaine : croissance à deux chiffres, marges solides. Mais elle se paie déjà cher pour ce qu'elle est.",
       metaDescription:
@@ -66160,7 +66160,7 @@ const articleUNTY: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 11 juillet 2026, susceptibles d'évoluer.",
     },
     en: {
-      title: 'Should you buy Unity Bancorp (UNTY) stock?',
+      title: "Unity Bancorp (UNTY): the small bank growing fast",
       excerpt:
         "Unity Bancorp is the highest-rated small bank in my universe this week: double-digit growth, solid margins. But it is already priced for that quality.",
       metaDescription:
@@ -66201,7 +66201,7 @@ const articleUNTY: Article = {
       disclaimer: 'Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of July 11, 2026, subject to change.',
     },
     es: {
-      title: '¿Deberías comprar la acción de Unity Bancorp (UNTY)?',
+      title: "Unity Bancorp (UNTY): el banco pequeño que crece rápido",
       excerpt:
         'Unity Bancorp es el pequeño banco mejor calificado de mi universo esta semana: crecimiento de dos dígitos, márgenes sólidos. Pero ya se paga cara para lo que es.',
       metaDescription:
@@ -67001,7 +67001,7 @@ const articleHLT: Article = {
   "ticker": "HLT",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Hilton (HLT) en 2026 ?",
+      "title": "Hilton (HLT) : un hôtelier qui ne possède pas d'hôtels",
       "excerpt": "Hilton obtient 9 sur 10 dans mon filtre qualité, mais l'action se valorise 38 fois son cash disponible. Une affaire d'hôtellerie sans les hôtels, mais à quel prix ? Mon analyse complète avant ses résultats du 28 juillet.",
       "metaDescription": "Hilton (HLT) : 9 sur 10 dans mon filtre qualité, mais une valorisation élevée avant ses résultats du 28 juillet 2026. Mon analyse fondamentale complète, qualité et prix séparés.",
       "answer": "Hilton est l'une des entreprises les plus rentables que j'ai analysées : elle ne possède presque aucun de ses hôtels. Mais cette qualité rare se paie cher en bourse, environ 25 % au-dessus du prix que je juge raisonnable. Une bonne entreprise et un bon moment pour l'acheter sont deux choses différentes, et c'est précisément ce que je sépare ici.",
@@ -67132,7 +67132,7 @@ const articleHLT: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer."
     },
     "en": {
-      "title": "Should You Buy Hilton (HLT) Stock in 2026?",
+      "title": "Hilton (HLT): a hotel group that owns no hotels",
       "excerpt": "Hilton scores 9 out of 10 in my quality screener, yet the stock trades at 38 times its free cash flow. A hotel business without the hotels, but at what price? My full analysis before its July 28 earnings.",
       "metaDescription": "Hilton (HLT): 9 out of 10 in my quality screener, but a rich valuation ahead of its July 28, 2026 earnings. My full fundamental analysis, quality and price judged separately.",
       "answer": "Hilton is one of the most profitable businesses I have analyzed: it owns almost none of its hotels. But this rare quality comes at a steep price on the stock market, roughly 25% above what I consider a reasonable entry point. A great business and a good time to buy it are two different things, and that is exactly what I separate here.",
@@ -67263,7 +67263,7 @@ const articleHLT: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change."
     },
     "es": {
-      "title": "¿Deberías comprar la acción de Hilton (HLT) en 2026?",
+      "title": "Hilton (HLT): un hotelero que no posee hoteles",
       "excerpt": "Hilton obtiene 9 sobre 10 en mi filtro de calidad, pero la acción se valora en 38 veces su flujo de caja libre. Un negocio hotelero sin hoteles propios, ¿pero a qué precio? Mi análisis completo antes de sus resultados del 28 de julio.",
       "metaDescription": "Hilton (HLT): 9 sobre 10 en mi filtro de calidad, pero una valoración elevada antes de sus resultados del 28 de julio de 2026. Mi análisis fundamental completo, calidad y precio por separado.",
       "answer": "Hilton es una de las empresas más rentables que he analizado: no posee casi ninguno de sus hoteles. Pero esta calidad excepcional se paga cara en bolsa, alrededor de un 25 % por encima de lo que considero un precio de entrada razonable. Una buena empresa y un buen momento para comprarla son dos cosas distintas, y eso es exactamente lo que separo aquí.",
@@ -67404,7 +67404,7 @@ const articleURI: Article = {
   "ticker": "URI",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action United Rentals (URI) ?",
+      "title": "United Rentals (URI) : louer plutôt que vendre",
       "excerpt": "United Rentals loue des grues et des engins de chantier plutôt que de les vendre, et en tire une marge de cash de 51 %. Un dossier à P/FCF bas mais avec un vrai point d'interrogation sur la croissance. Mon analyse avant ses résultats du 23 juillet.",
       "metaDescription": "United Rentals (URI) : 8 sur 10 dans mon filtre qualité, marge de cash de 51 %, mais des profits par action en recul. Mon analyse complète avant ses résultats du 23 juillet 2026.",
       "answer": "United Rentals loue du matériel de chantier plutôt que de le vendre, un modèle qui transforme 51 cents de chaque dollar de revenus en cash disponible. Le dossier obtient 8 sur 10 dans mon filtre, mais les profits par action reculent depuis 5 ans, une nuance importante avant d'y voir une évidence.",
@@ -67535,7 +67535,7 @@ const articleURI: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer."
     },
     "en": {
-      "title": "Should You Buy United Rentals (URI) Stock?",
+      "title": "United Rentals (URI): renting instead of selling",
       "excerpt": "United Rentals rents out cranes and construction equipment instead of selling it, generating a 51% cash margin. A low P/FCF stock with a real question mark on growth. My analysis before its July 23 earnings.",
       "metaDescription": "United Rentals (URI): 8 out of 10 in my quality screener, a 51% cash margin, but declining per-share profits. My full analysis before its July 23, 2026 earnings.",
       "answer": "United Rentals rents out construction equipment instead of selling it, a model that turns 51 cents of every revenue dollar into available cash. The stock scores 8 out of 10 in my screener, but free cash flow per share has been declining for 5 years, an important nuance before seeing this as an obvious buy.",
@@ -67666,7 +67666,7 @@ const articleURI: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change."
     },
     "es": {
-      "title": "¿Deberías comprar la acción de United Rentals (URI)?",
+      "title": "United Rentals (URI): alquilar en vez de vender",
       "excerpt": "United Rentals alquila grúas y maquinaria de construcción en lugar de venderlas, con un margen de caja del 51 %. Un expediente con P/FCF bajo pero con una duda real sobre el crecimiento. Mi análisis antes de sus resultados del 23 de julio.",
       "metaDescription": "United Rentals (URI): 8 sobre 10 en mi filtro de calidad, margen de caja del 51 %, pero beneficios por acción a la baja. Mi análisis completo antes de sus resultados del 23 de julio de 2026.",
       "answer": "United Rentals alquila maquinaria de construcción en lugar de venderla, un modelo que convierte 51 centavos de cada dólar de ingresos en efectivo disponible. La acción obtiene 8 sobre 10 en mi filtro, pero el flujo de caja libre por acción lleva 5 años en descenso, un matiz importante antes de verlo como una compra evidente.",
@@ -68317,7 +68317,7 @@ const articleTMUSvsVZ: Article = {
   "readingTime": 8,
   "content": {
     "fr": {
-      "title": "T-Mobile ou Verizon : quelle action acheter ?",
+      "title": "T-Mobile ou Verizon : qui gagne sur les chiffres",
       "excerpt": "T-Mobile et Verizon, deux géants américains des télécoms, jamais comparés ici. L'un a la meilleure qualité, l'autre le prix le plus bas. Lequel choisir selon ma méthode ?",
       "metaDescription": "T-Mobile (TMUS) contre Verizon (VZ) : comparatif fondamental complet entre les deux géants américains des télécoms. Qualité, valorisation et ce que dit mon filtre.",
       "answer": "T-Mobile et Verizon sont deux géants des télécoms américaines, mais très différents dans mon filtre. T-Mobile a la meilleure qualité (croissance du cash, structure plus légère), Verizon se valorise beaucoup moins cher mais stagne. Aucun des deux n'est parfait : voici ce qui les distingue vraiment.",
@@ -68450,7 +68450,7 @@ const articleTMUSvsVZ: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer."
     },
     "en": {
-      "title": "T-Mobile or Verizon: Which Stock Should You Buy?",
+      "title": "T-Mobile or Verizon: which one wins on the numbers",
       "excerpt": "T-Mobile and Verizon, two American telecom giants, never compared here before. One has the better quality, the other the lower price. Which one wins according to my method?",
       "metaDescription": "T-Mobile (TMUS) versus Verizon (VZ): a full fundamental comparison between the two US telecom giants. Quality, valuation, and what my screener says.",
       "answer": "T-Mobile and Verizon are two American telecom giants, but very different in my screener. T-Mobile has the better quality (cash growth, lighter structure), Verizon trades far cheaper but is stagnating. Neither is perfect: here is what really sets them apart.",
@@ -68583,7 +68583,7 @@ const articleTMUSvsVZ: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change."
     },
     "es": {
-      "title": "T-Mobile o Verizon: ¿qué acción comprar?",
+      "title": "T-Mobile o Verizon: quién gana en las cifras",
       "excerpt": "T-Mobile y Verizon, dos gigantes estadounidenses de las telecomunicaciones, nunca comparados aquí. Uno tiene la mejor calidad, el otro el precio más bajo. ¿Cuál elegir según mi método?",
       "metaDescription": "T-Mobile (TMUS) contra Verizon (VZ): comparativa fundamental completa entre los dos gigantes estadounidenses de telecomunicaciones. Calidad, valoración y qué dice mi filtro.",
       "answer": "T-Mobile y Verizon son dos gigantes de las telecomunicaciones estadounidenses, pero muy distintos en mi filtro. T-Mobile tiene la mejor calidad (crecimiento del efectivo, estructura más ligera), Verizon se valora mucho más barata pero se estanca. Ninguna de las dos es perfecta: esto es lo que realmente las distingue.",
@@ -69628,7 +69628,7 @@ const articleCMG: Article = {
   "ticker": "CMG",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Chipotle (CMG) en 2026 ?",
+      "title": "Chipotle (CMG) : la vitesse comme avantage durable",
       "excerpt": "Chipotle décroche la note parfaite dans mon filtre qualité. Le prix, lui, paraît tendu au premier regard mais mon modèle dit l'inverse. Voici pourquoi, et ce que je surveille avant ses résultats du 29 juillet.",
       "metaDescription": "Chipotle (CMG) analysée avant ses résultats du 29 juillet 2026 : note qualité parfaite, croissance du cash de 26 % par an, et une valorisation plus intéressante qu'il n'y paraît.",
       "answer": "Chipotle valide mes 10 critères de qualité, une note parfaite que je réserve à une poignée d'actions. Son cash généré progresse de 26 % par an. Le multiple de valorisation paraît élevé au premier regard (34 fois le cash annuel), mais mon modèle, qui tient compte de cette croissance, y voit une décote. La vraie question n'est pas la qualité, déjà excellente, mais la durabilité de cette croissance après un ralentissement des ventes en 2025.",
@@ -69727,7 +69727,7 @@ const articleCMG: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer."
     },
     "en": {
-      "title": "Should You Buy Chipotle (CMG) Stock in 2026?",
+      "title": "Chipotle (CMG): speed as the durable advantage",
       "excerpt": "Chipotle scores a perfect grade in my quality screener. The price looks stretched at first glance, but my model says the opposite. Here's why, and what I'm watching before its July 29 earnings.",
       "metaDescription": "Chipotle (CMG) analyzed ahead of its July 29, 2026 earnings: perfect quality score, 26% annual cash growth, and a valuation more attractive than it first appears.",
       "answer": "Chipotle passes all 10 of my quality criteria, a perfect score I reserve for a handful of stocks. Its cash generation grows 26% a year. The valuation multiple looks high at first glance (34 times annual cash flow), but my model, which accounts for that growth, sees a discount instead. The real question isn't quality, already excellent, but whether that growth rate can hold up after a 2025 sales slowdown.",
@@ -69826,7 +69826,7 @@ const articleCMG: Article = {
       "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change."
     },
     "es": {
-      "title": "¿Deberías comprar la acción de Chipotle (CMG) en 2026?",
+      "title": "Chipotle (CMG): la velocidad como ventaja duradera",
       "excerpt": "Chipotle obtiene la nota perfecta en mi filtro de calidad. El precio, a primera vista, parece exigente, pero mi modelo dice lo contrario. Por qué, y qué vigilo antes de sus resultados del 29 de julio.",
       "metaDescription": "Chipotle (CMG) analizada antes de sus resultados del 29 de julio de 2026: nota de calidad perfecta, crecimiento del efectivo del 26 % anual, y una valoración más atractiva de lo que parece.",
       "answer": "Chipotle valida mis 10 criterios de calidad, una nota perfecta que reservo para muy pocas acciones. Su efectivo generado crece un 26 % al año. El múltiplo de valoración parece alto a primera vista (34 veces el efectivo anual), pero mi modelo, que tiene en cuenta ese crecimiento, ve un descuento. La verdadera pregunta no es la calidad, ya excelente, sino si ese ritmo de crecimiento aguantará tras la ralentización de ventas de 2025.",
@@ -71393,7 +71393,7 @@ const articlePLDPre: Article =   {
     "ticker": "PLD",
     "content": {
       "fr": {
-        "title": "Faut-il acheter l'action Prologis (PLD) ?",
+        "title": "Prologis (PLD) : ce que le groupe possède vraiment",
         "excerpt": "Le plus grand propriétaire mondial d'entrepôts logistiques parie désormais sur les data centers. Un business superbe, mais une action tendue en bourse. Voici comment je tranche, sans me raconter d'histoire.",
         "metaDescription": "Prologis possède des entrepôts partout et parie sur les data centers. Business d'élite, valorisation tendue en bourse : comment je juge la qualité et le prix.",
         "answer": "Prologis est le plus grand propriétaire mondial d'entrepôts logistiques, un business superbe qui parie désormais sur les data centers pour l'IA. La qualité est bien réelle, mais l'action se valorise 27,5 fois son cash quand une foncière se situe d'ordinaire entre 15 et 20 fois. Je trouve le prix tendu : je note une cible et j'attends.",
@@ -71450,7 +71450,7 @@ const articlePLDPre: Article =   {
         "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer."
       },
       "en": {
-        "title": "Should you buy Prologis (PLD) stock?",
+        "title": "Prologis (PLD): what the group really owns",
         "excerpt": "The world's largest owner of logistics warehouses is now betting on data centers. A superb business, but a stretched stock. Here is how I decide, without kidding myself.",
         "metaDescription": "Prologis owns warehouses worldwide and is betting on data centers for AI. Elite business, stretched valuation: how I judge quality and price, separately.",
         "answer": "Prologis is the world's largest owner of logistics warehouses, a superb business now betting on data centers for AI. The quality is real, but the stock trades at 27.5 times its cash when a property company usually sits between 15 and 20 times. I find the price stretched: I set a target and wait.",
@@ -71507,7 +71507,7 @@ const articlePLDPre: Article =   {
         "disclaimer": "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change."
       },
       "es": {
-        "title": "¿Comprar acciones de Prologis (PLD)?",
+        "title": "Prologis (PLD): lo que el grupo posee realmente",
         "excerpt": "El mayor propietario mundial de naves logísticas ahora apuesta por los data centers. Un negocio excelente, pero una acción cara en bolsa. Así es como decido, sin engañarme.",
         "metaDescription": "Prologis posee naves logísticas por todo el mundo y apuesta por los data centers. Negocio de élite, valoración cara: cómo juzgo calidad y precio, por separado.",
         "answer": "Prologis es el mayor propietario mundial de naves logísticas, un negocio excelente que ahora apuesta por los data centers para la IA. La calidad es real, pero la acción se valora 27,5 veces su caja cuando una inmobiliaria suele situarse entre 15 y 20 veces. Me parece un precio exigente: fijo un objetivo y espero.",
@@ -71574,7 +71574,7 @@ const articleRRC: Article = {
   ticker: 'RRC',
   content: {
     fr: {
-      title: "Range Resources (RRC) est-elle sous-évaluée en 2026 ?",
+      title: "Range Resources (RRC) : le gaz que tout le monde ignore",
       excerpt:
         "Range Resources obtient 9 critères sur 10 dans mon filtre qualité, pour l'une des valorisations les plus basses de tout mon écran. Le gaz naturel américain est boudé, mais l'export de GNL pourrait tout changer.",
       metaDescription:
@@ -71622,7 +71622,7 @@ const articleRRC: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (mi-juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: 'Is Range Resources (RRC) stock undervalued in 2026?',
+      title: "Range Resources (RRC): the gas everyone ignores",
       excerpt:
         "Range Resources scores 9 out of 10 in my quality screen, at one of the lowest valuations across my entire universe. US natural gas is unloved, but the LNG export boom could change that.",
       metaDescription:
@@ -71670,7 +71670,7 @@ const articleRRC: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (mid-July 2026), subject to change. Do your own research.",
     },
     es: {
-      title: '¿Está infravalorada la acción de Range Resources (RRC)?',
+      title: "Range Resources (RRC): el gas que todos ignoran",
       excerpt:
         "Range Resources obtiene 9 de 10 en mi filtro de calidad, con una de las valoraciones más bajas de todo mi universo. El gas natural estadounidense está olvidado, pero el auge del GNL podría cambiarlo todo.",
       metaDescription:
@@ -71728,7 +71728,7 @@ const articleIPAR: Article = {
   ticker: 'IPAR',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Interparfums (IPAR) ?",
+      title: "Interparfums (IPAR) : du parfum sans posséder de marque",
       excerpt:
         "Interparfums obtient 9 critères sur 10 dans mon filtre qualité, avec un modèle de licences de parfums très peu capitalistique. Mais l'action n'est plus vraiment donnée. Mon analyse complète.",
       metaDescription:
@@ -71773,7 +71773,7 @@ const articleIPAR: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (mi-juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: 'Should you buy Interparfums (IPAR) stock?',
+      title: "Interparfums (IPAR): perfume without owning a brand",
       excerpt:
         "Interparfums scores 9 out of 10 in my quality screen, with a highly capital light perfume licensing model. But the stock is not really cheap anymore. My full analysis.",
       metaDescription:
@@ -71818,7 +71818,7 @@ const articleIPAR: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (mid-July 2026), subject to change. Do your own research.",
     },
     es: {
-      title: '¿Deberías comprar la acción de Interparfums (IPAR)?',
+      title: "Interparfums (IPAR): perfume sin poseer una marca",
       excerpt:
         "Interparfums obtiene 9 de 10 en mi filtro de calidad, con un modelo de licencias de perfumes muy poco intensivo en capital. Pero la acción ya no está tan barata. Mi análisis completo.",
       metaDescription:
@@ -72390,7 +72390,7 @@ const articleHOOD2026: Article = {
   ticker: 'HOOD',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Robinhood (HOOD) en 2026 ?",
+      title: "Robinhood (HOOD) : les marchés de prédiction tirent tout",
       excerpt:
         "Robinhood valide 9 critères sur 10 dans mon filtre qualité, portée par les marchés de prédiction et les actifs tokenisés. Mais l'action se valorise 39 fois son cash généré, loin au-dessus de son secteur. Mon analyse complète.",
       metaDescription:
@@ -72438,7 +72438,7 @@ const articleHOOD2026: Article = {
         "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (mi-juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: 'Should you buy Robinhood (HOOD) stock in 2026?',
+      title: "Robinhood (HOOD): prediction markets drive the growth",
       excerpt:
         "Robinhood passes 9 out of 10 criteria in my quality screen, driven by prediction markets and tokenized assets. But the stock trades at 39 times the cash it generates, far above its sector. My full analysis.",
       metaDescription:
@@ -72486,7 +72486,7 @@ const articleHOOD2026: Article = {
         "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (mid-July 2026), subject to change. Do your own research.",
     },
     es: {
-      title: '¿Deberías comprar la acción de Robinhood (HOOD) en 2026?',
+      title: "Robinhood (HOOD): los mercados de predicción tiran",
       excerpt:
         "Robinhood supera 9 de 10 criterios en mi filtro de calidad, impulsada por los mercados de predicción y los activos tokenizados. Pero la acción cotiza a 39 veces el efectivo que genera, muy por encima de su sector. Mi análisis completo.",
       metaDescription:
@@ -73957,7 +73957,7 @@ const articleMNST2026: Article = {
   ticker: 'MNST',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Monster Beverage (MNST) en 2026 ?",
+      title: "Monster (MNST) : les ventes montent, l'action doute",
       excerpt:
         "Monster Beverage valide la quasi-totalité de mes critères de qualité fondamentale, portée par une croissance internationale record. Mais le marché s'inquiète des médicaments GLP-1 et l'action se paie déjà cher. Mon verdict, chiffres à l'appui.",
       metaDescription:
@@ -74003,7 +74003,7 @@ const articleMNST2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy Monster Beverage (MNST) stock in 2026?",
+      title: "Monster (MNST): sales climb, the stock doubts",
       excerpt:
         "Monster Beverage passes nearly all of my quality criteria, driven by record international growth. But the market is worried about GLP-1 drugs, and the stock is already trading rich. Here's my full verdict, numbers included.",
       metaDescription:
@@ -74049,7 +74049,7 @@ const articleMNST2026: Article = {
       disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Comprar la acción Monster Beverage (MNST) en 2026?",
+      title: "Monster (MNST): las ventas suben, la acción duda",
       excerpt:
         "Monster Beverage cumple casi todos mis criterios de calidad, impulsada por un crecimiento internacional récord. Pero el mercado teme a los medicamentos GLP-1 y la acción ya cotiza cara. Mi veredicto completo, con datos.",
       metaDescription:
@@ -74105,7 +74105,7 @@ const articleGRMN2026: Article = {
   ticker: 'GRMN',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Garmin (GRMN) en 2026 ?",
+      title: "Garmin (GRMN) : bien plus qu'un fabricant de GPS",
       excerpt:
         "Garmin valide la quasi-totalité de mes critères de qualité : zéro dette, dividende en croissance, et trois métiers qui accélèrent en même temps (montres, aviation, marine). Mais l'action se paie 44 % au-dessus de mon prix cible. Mon verdict complet.",
       metaDescription:
@@ -74150,7 +74150,7 @@ const articleGRMN2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy Garmin (GRMN) stock in 2026?",
+      title: "Garmin (GRMN): far more than a GPS maker",
       excerpt:
         "Garmin passes nearly all of my quality criteria: zero debt, a growing dividend, and three businesses accelerating at once (watches, aviation, marine). But the stock trades 44% above my target price. Here's my full verdict.",
       metaDescription:
@@ -74195,7 +74195,7 @@ const articleGRMN2026: Article = {
       disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Comprar la acción Garmin (GRMN) en 2026?",
+      title: "Garmin (GRMN): mucho más que un fabricante de GPS",
       excerpt:
         "Garmin cumple casi todos mis criterios de calidad: cero deuda, dividendo en crecimiento, y tres negocios que aceleran a la vez (relojes, aviación, náutica). Pero la acción cotiza un 44% por encima de mi precio objetivo. Mi veredicto completo.",
       metaDescription:
@@ -74250,7 +74250,7 @@ const articleAAPL2026: Article = {
   ticker: 'AAPL',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Apple (AAPL) en 2026 ?",
+      title: "Apple (AAPL) : un record au changement de capitaine",
       excerpt:
         "Apple valide la quasi-totalité de mes critères de qualité, l'un des meilleurs scores que j'observe. Mais l'action se négocie au point le plus cher de son histoire récente, en pleine transition de direction. Qualité exceptionnelle, prix qui ne l'est plus : mon verdict.",
       metaDescription:
@@ -74295,7 +74295,7 @@ const articleAAPL2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy Apple (AAPL) stock in 2026?",
+      title: "Apple (AAPL): a record quarter as the captain changes",
       excerpt:
         "Apple passes nearly all criteria in my quality filter, one of the best scores I measure. But the stock trades at the priciest point of its recent history, in the middle of a leadership transition. Exceptional quality, a price that no longer is: my verdict.",
       metaDescription:
@@ -74340,7 +74340,7 @@ const articleAAPL2026: Article = {
       disclaimer: "For informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Comprar la acción Apple (AAPL) en 2026?",
+      title: "Apple (AAPL): un récord al cambiar de capitán",
       excerpt:
         "Apple cumple casi todos los criterios en mi filtro de calidad, una de las mejores puntuaciones que mido. Pero la acción cotiza en el punto más caro de su historia reciente, en plena transición de dirección. Calidad excepcional, un precio que ya no lo es: mi veredicto.",
       metaDescription:
@@ -74728,7 +74728,7 @@ const articlePLTR2026: Article = {
   ticker: "PLTR",
   content: {
     fr: {
-      title: "Faut-il acheter l'action Palantir (PLTR) en 2026 ?",
+      title: "Palantir (PLTR) : du rouge au vert, et après ?",
       excerpt:
         "Palantir obtient une bonne note dans mon filtre qualité, une trajectoire de cash spectaculaire depuis 2020. Mais l'action se valorise parmi les multiples les plus extrêmes que je suis. Mon verdict, qualité et prix séparés.",
       metaDescription:
@@ -74772,7 +74772,7 @@ const articlePLTR2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy Palantir (PLTR) stock in 2026?",
+      title: "Palantir (PLTR): from red to black, and then?",
       excerpt:
         "Palantir scores well in my quality filter, with a spectacular cash turnaround since 2020. But the stock trades at one of the most extreme multiples I track. My verdict, quality and price judged separately.",
       metaDescription:
@@ -74816,7 +74816,7 @@ const articlePLTR2026: Article = {
       disclaimer: "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Hay que comprar la acción de Palantir (PLTR) en 2026?",
+      title: "Palantir (PLTR): de rojo a verde, ¿y después?",
       excerpt:
         "Palantir obtiene una buena nota en mi filtro de calidad, con un giro espectacular del cash desde 2020. Pero la acción cotiza a uno de los múltiplos más extremos que sigo. Mi veredicto, calidad y precio juzgados por separado.",
       metaDescription:
@@ -74870,7 +74870,7 @@ const articleADP2026: Article = {
   ticker: "ADP",
   content: {
     fr: {
-      title: "Faut-il acheter l'action ADP (ADP) en 2026 ?",
+      title: "ADP : le vrai moat, c'est le coût de partir",
       excerpt: "ADP obtient une excellente note dans mon filtre qualité, avec un rendement du capital exceptionnel et une dette quasi inexistante. Mais le marché la paie-t-il au bon prix ? Mon analyse complète.",
       metaDescription: "ADP obtient une excellente note dans mon filtre qualité : cash abondant, rendement du capital exceptionnel. Le prix actuel est-il raisonnable ? Mon analyse.",
       answer: "ADP, le géant américain de la paie et des ressources humaines, coche presque tous mes critères de qualité : un rendement du capital exceptionnel, une dette quasi nulle, du cash généré en abondance. Sa croissance reste modeste, ce qui explique sa seule faiblesse. Le marché la valorise raisonnablement, sans l'offrir en solde. Voici comment je tranche.",
@@ -74909,7 +74909,7 @@ const articleADP2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (juillet 2026), susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy ADP stock (ADP) in 2026?",
+      title: "ADP: the real moat is the cost of leaving",
       excerpt: "ADP scores exceptionally well on my quality checklist, with an outstanding return on capital and almost no debt. But is the market pricing it right? My full analysis.",
       metaDescription: "ADP scores exceptionally well on my quality checklist: abundant cash generation, outstanding return on capital. Is the current price reasonable? My analysis.",
       answer: "ADP, the US payroll and HR giant, checks almost every box on my quality checklist: exceptional return on capital, almost no debt, abundant cash generation. Its growth is modest, which explains its one weak spot. The market prices it fairly, without a discount. Here is how I see it.",
@@ -74948,7 +74948,7 @@ const articleADP2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of publication date (July 2026), subject to change.",
     },
     es: {
-      title: "¿Comprar acciones de ADP (ADP) en 2026?",
+      title: "ADP: el verdadero moat es el coste de irse",
       excerpt: "ADP obtiene una nota excelente en mi filtro de calidad, con un rendimiento del capital excepcional y casi sin deuda. ¿Pero el mercado la valora al precio correcto? Mi análisis completo.",
       metaDescription: "ADP obtiene una nota excelente en mi filtro de calidad: efectivo en abundancia, rendimiento del capital excepcional. ¿Es razonable el precio actual?",
       answer: "ADP, el gigante estadounidense de la nómina y los recursos humanos, cumple casi todos mis criterios de calidad: rendimiento del capital excepcional, deuda casi nula, efectivo generado en abundancia. Su crecimiento es modesto, lo que explica su única debilidad. El mercado la valora razonablemente, sin ofrecerla en oferta. Así es como lo veo.",
@@ -77360,7 +77360,7 @@ const articleAmadeus2026: Article = {
   ticker: 'AMS.MC',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Amadeus (AMS.MC) en 2026 ?",
+      title: "Amadeus : le quasi-monopole dénoncé par son rival",
       excerpt: "Amadeus obtient la note parfaite dans mon filtre qualité et vient d'être accusée de quasi-monopole par son propre rival. Une machine à cash quasi invisible, mais est-elle encore à bon prix ?",
       metaDescription: "Amadeus (AMS.MC) analysée en 2026 : qualité parfaite selon mon filtre, accusation de monopole de Sabre, dette en chute libre. Mon verdict sur le prix.",
       answer: "Amadeus valide la totalité de mes critères de qualité : rentabilité, croissance, dette qui fond depuis la pandémie, dividende relancé. Mais mon modèle de valorisation la juge surcotée d'environ 35 %. Une entreprise que tu utilises sans le savoir à chaque réservation de vol, dont le rival vient d'accuser le quasi-monopole devant les analystes.",
@@ -77421,7 +77421,7 @@ const articleAmadeus2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (juillet 2026), susceptibles d'évoluer.",
     },
     en: {
-      title: "Is Amadeus (AMS.MC) stock a buy in 2026?",
+      title: "Amadeus: the near monopoly its own rival denounced",
       excerpt: "Amadeus scores a perfect grade in my quality filter and was just accused of near-monopoly power by its own rival. A near-invisible cash machine, but is it still a good price?",
       metaDescription: "Amadeus (AMS.MC) analyzed in 2026: perfect score in my filter, monopoly accusation from Sabre, debt collapsing. My verdict on the price.",
       answer: "Amadeus checks every one of my quality criteria: profitability, growth, debt that has been melting since the pandemic, a dividend back on track. But my valuation model judges it about 35% overpriced. A company you use without knowing it every time you book a flight, whose rival just accused it of near-monopoly power in front of analysts.",
@@ -77482,7 +77482,7 @@ const articleAmadeus2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not predict future results. Figures as of publication date (July 2026), subject to change.",
     },
     es: {
-      title: "¿Es la acción Amadeus (AMS.MC) una compra en 2026?",
+      title: "Amadeus: el casi monopolio que denuncia su rival",
       excerpt: "Amadeus obtiene la nota perfecta en mi filtro de calidad y su propio rival acaba de acusarla de casi monopolio. Una máquina de caja casi invisible, ¿pero sigue teniendo buen precio?",
       metaDescription: "Amadeus (AMS.MC) analizada en 2026: calidad perfecta según mi filtro, acusación de monopolio de Sabre, deuda en caída libre. Mi veredicto sobre el precio.",
       answer: "Amadeus cumple todos mis criterios de calidad: rentabilidad, crecimiento, una deuda que se derrite desde la pandemia, un dividendo relanzado. Pero mi modelo de valoración la considera sobrevalorada en torno a un 35 %. Una empresa que usas sin saberlo cada vez que reservas un vuelo, cuyo rival acaba de acusarla de casi monopolio ante los analistas.",
@@ -78041,7 +78041,7 @@ const articleBandaiNamco: Article = {
   ticker: '7832.T',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Bandai Namco (7832.T) en 2026 ?",
+      title: "Bandai Namco : une franchise, quatre sources de cash",
       excerpt: "Bandai Namco vient de publier son meilleur exercice en 20 ans, porté par un basculement inattendu : Gundam a détrôné Dragon Ball comme franchise la plus rentable du groupe. Mon filtre qualité valide la totalité de mes 10 critères sur ce conglomérat japonais du divertissement, encore jamais couvert sur mon site.",
       metaDescription: "Bandai Namco (7832.T) valide mes 10 critères de qualité, à un prix qui frôle mon seuil d'achat. Gundam, Dragon Ball, jeux vidéo : mon analyse complète.",
       answer: "Bandai Namco a publié en mai 2026 son meilleur exercice en 20 ans (chiffre d'affaires de 1 348 milliards de yens, +8,6 %), porté par Gundam qui détrône Dragon Ball comme franchise la plus rentable du groupe. Mon filtre qualité valide la totalité de mes 10 critères, et mon modèle de prix d'achat signale une action à peine sous son cours actuel, un signal d'achat rare.",
@@ -78080,7 +78080,7 @@ const articleBandaiNamco: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (27 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Bandai Namco (7832.T) stock in 2026?",
+      title: "Bandai Namco: one franchise, four cash streams",
       excerpt: "Bandai Namco just posted its best fiscal year in 20 years, driven by an unexpected shift: Gundam dethroned Dragon Ball as the group's most profitable franchise. My quality filter validates all 10 of my criteria on this Japanese entertainment conglomerate, never covered on my site before.",
       metaDescription: "Bandai Namco (7832.T) validates all 10 of my quality criteria, at a price close to my buy threshold. Gundam, Dragon Ball, video games: my full analysis.",
       answer: "Bandai Namco reported in May 2026 its best fiscal year in 20 years (revenue of 1,348 billion yen, +8.6%), driven by Gundam dethroning Dragon Ball as the group's most profitable franchise. My quality filter validates all 10 of my criteria, and my buy price model flags a stock trading barely below its current price, a rare buy signal.",
@@ -78119,7 +78119,7 @@ const articleBandaiNamco: Article = {
       disclaimer: "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 27, 2026), subject to change. Do your own research.",
     },
     es: {
-      title: "¿Debo comprar acciones de Bandai Namco (7832.T) en 2026?",
+      title: "Bandai Namco: una franquicia, cuatro fuentes de caja",
       excerpt: "Bandai Namco acaba de publicar su mejor ejercicio en 20 años, impulsado por un vuelco inesperado: Gundam destronó a Dragon Ball como la franquicia más rentable del grupo. Mi filtro de calidad valida los 10 de mis criterios en este conglomerado japonés del entretenimiento, nunca antes cubierto en mi sitio.",
       metaDescription: "Bandai Namco (7832.T) valida mis 10 criterios de calidad, a un precio cercano a mi umbral de compra. Gundam, Dragon Ball, videojuegos: mi análisis completo.",
       answer: "Bandai Namco publicó en mayo de 2026 su mejor ejercicio en 20 años (ingresos de 1.348 mil millones de yenes, +8,6 %), impulsado por Gundam, que destronó a Dragon Ball como la franquicia más rentable del grupo. Mi filtro de calidad valida los 10 de mis criterios, y mi modelo de precio de compra señala una acción apenas por debajo de su cotización actual, una señal de compra poco frecuente.",
@@ -78291,7 +78291,7 @@ const articleODFL: Article = {
   ticker: 'ODFL',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Old Dominion (ODFL) en 2026 ?",
+      title: "Old Dominion (ODFL) : la densité de terminaux protège",
       excerpt: "Old Dominion s'est bâti la réputation du transporteur routier le plus fiable des Etats-Unis, avec des marges qui font pâlir ses concurrents. Mais l'entreprise traverse sa pire récession de volumes en plusieurs années, et Amazon vient d'ouvrir son propre réseau de fret à tous les clients. Mon filtre qualité tranche malgré tout.",
       metaDescription: "Old Dominion (ODFL) valide 8 critères sur 10 malgré une vraie récession du fret. Mon analyse de la qualité, du prix et de la menace Amazon.",
       answer: "Old Dominion Freight Line traverse une vraie récession de ses volumes de transport (chiffre d'affaires en baisse depuis 2022), mais mon filtre qualité valide tout de même 8 critères sur 10 grâce à des marges élevées et une discipline de rachats d'actions. Mon modèle de prix juge l'action en surcote de 36,9 %, un prix qui ne laisse aucune marge d'erreur.",
@@ -78330,7 +78330,7 @@ const articleODFL: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (27 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Old Dominion (ODFL) stock in 2026?",
+      title: "Old Dominion (ODFL): terminal density is the moat",
       excerpt: "Old Dominion has built a reputation as the most reliable trucking carrier in the US, with margins that put competitors to shame. But the company is going through its worst volume slump in years, and Amazon just opened its own freight network to every customer. My quality filter still finds a verdict.",
       metaDescription: "Old Dominion (ODFL) validates 8 out of 10 criteria despite a real freight downturn. My analysis of quality, price, and the Amazon threat.",
       answer: "Old Dominion Freight Line is going through a real downturn in its shipping volumes (revenue declining since 2022), but my quality filter still validates 8 out of 10 criteria thanks to high margins and disciplined buybacks. My price model judges the stock overvalued by 36.9%, a price leaving no room for error.",
@@ -78369,7 +78369,7 @@ const articleODFL: Article = {
       disclaimer: "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (July 27, 2026), subject to change. Do your own research.",
     },
     es: {
-      title: "¿Debo comprar acciones de Old Dominion (ODFL) en 2026?",
+      title: "Old Dominion (ODFL): la densidad de terminales protege",
       excerpt: "Old Dominion se ha construido la reputación del transportista por carretera más fiable de Estados Unidos, con márgenes que hacen palidecer a sus competidores. Pero la empresa atraviesa su peor caída de volúmenes en años, y Amazon acaba de abrir su propia red de transporte a todos los clientes. Mi filtro de calidad emite igualmente un veredicto.",
       metaDescription: "Old Dominion (ODFL) valida 8 de 10 criterios pese a una auténtica recesión del transporte. Mi análisis de calidad, precio y la amenaza de Amazon.",
       answer: "Old Dominion Freight Line atraviesa una auténtica recesión en sus volúmenes de transporte (ingresos en caída desde 2022), pero mi filtro de calidad valida igualmente 8 de 10 criterios gracias a márgenes elevados y una disciplina de recompras de acciones. Mi modelo de precio juzga la acción sobrevalorada en un 36,9 %, un precio que no deja margen de error.",
@@ -78641,7 +78641,7 @@ const articleCopart2026: Article = {
   ticker: 'CPRT',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Copart (CPRT) en 2026 ?",
+      title: "Copart (CPRT) : plus d'épaves, moins de véhicules",
       excerpt: "Copart valide 8 critères sur 10 dans mon filtre qualité, avec un signal rare : mon modèle indique une décote de plus de 100 %. Mais le nombre de véhicules qui lui arrivent via les assureurs recule. Voici comment je lis cette tension.",
       metaDescription: "Copart (CPRT) analysée en 2026 : quasi aucune dette, valorisation proche du plus bas de son historique. Mon verdict sur le prix.",
       answer: "Copart valide 8 critères sur 10 dans mon filtre qualité et affiche un signal rare : mon modèle de prix d'achat raisonnable pointe vers une décote de plus de 100 % par rapport au cours actuel. L'entreprise domine les enchères en ligne de véhicules accidentés, mais fait face à un paradoxe : la fréquence de perte totale grimpe, tandis que le nombre de véhicules qui lui arrivent via les assureurs américains recule. Voici comment je tranche.",
@@ -78677,7 +78677,7 @@ const articleCopart2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (28 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Copart (CPRT) stock in 2026?",
+      title: "Copart (CPRT): more wrecks, fewer insurer cars",
       excerpt: "Copart passes 8 out of 10 criteria in my quality screen, with a rare signal: my model points to a discount of more than 100%. But the flow of vehicles it receives from insurers is declining. Here is how I read this tension.",
       metaDescription: "Copart (CPRT) analyzed in 2026: near-zero debt, valuation near the low end of its own history, but a declining insurer vehicle flow. My verdict on the price.",
       answer: "Copart passes 8 out of 10 criteria in my quality screen and shows a rare signal: my reasonable buy-price model points to a discount of more than 100% versus the current price. The company dominates online salvage vehicle auctions, but faces a paradox: total-loss frequency is rising while the number of vehicles it receives from US insurers is declining. Here is how I settle it.",
@@ -78713,7 +78713,7 @@ const articleCopart2026: Article = {
       disclaimer: "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 28, 2026), subject to change. Do your own research.",
     },
     es: {
-      title: "¿Hay que comprar acciones de Copart (CPRT) en 2026?",
+      title: "Copart (CPRT): más siniestros, menos coches",
       excerpt: "Copart valida 8 de 10 criterios en mi filtro de calidad, con una señal rara: mi modelo indica un descuento de más del 100 %. Pero el flujo de vehículos que recibe de las aseguradoras está cayendo. Así interpreto esta tensión.",
       metaDescription: "Copart (CPRT) analizada en 2026: deuda casi nula, valoración cerca del nivel más bajo de su historia, pero un flujo de vehículos de aseguradoras a la baja.",
       answer: "Copart valida 8 de 10 criterios en mi filtro de calidad y muestra una señal rara: mi modelo de precio de compra razonable apunta a un descuento de más del 100 % frente al precio actual. La empresa domina las subastas online de vehículos siniestrados, pero enfrenta una paradoja: la frecuencia de pérdida total aumenta mientras el número de vehículos que recibe de las aseguradoras estadounidenses cae. Así lo resuelvo.",
@@ -78760,7 +78760,7 @@ const articleChubb2026: Article = {
   ticker: 'CB',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Chubb (CB) en 2026 ?",
+      title: "Chubb (CB) : pourquoi une dette nulle trompe",
       excerpt: "Chubb valide la quasi-totalité de mes critères qualité, à un prix qui semble bon marché sur son cash flow. Mais mon modèle la juge surcotée de 38,8 %. Comment un multiple aussi bas peut-il être jugé cher ? Voici le mécanisme d'assurance qui explique ce paradoxe.",
       metaDescription: "Chubb (CB) analysée en 2026 : assureur mondial de grande qualité, sous-évaluée en apparence sur son cash flow. Mon verdict complet sur le prix.",
       answer: "Chubb valide 9 critères sur 10 dans mon filtre qualité, avec un ratio combiné de 83,8 % (l'assureur encaisse plus de primes qu'il ne paie de sinistres et de frais) et un P/FCF de seulement 9,4 fois qui semble bon marché en absolu. Mais mon modèle, qui tient compte de la trajectoire réelle de cash, la juge surcotée d'environ 39 %. Voici pourquoi un multiple aussi bas peut quand même signaler un prix trop élevé.",
@@ -78794,7 +78794,7 @@ const articleChubb2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (28 juillet 2026), susceptibles d'évoluer. Fais tes propres recherches.",
     },
     en: {
-      title: "Should you buy Chubb (CB) stock in 2026?",
+      title: "Chubb (CB): why zero debt misleads at an insurer",
       excerpt: "Chubb passes nearly all criteria in my quality screen, at a price that looks cheap versus its cash flow. But my model judges it overvalued by 38.8%. How can such a low multiple still be judged expensive? Here is the insurance mechanic behind this paradox.",
       metaDescription: "Chubb (CB) analyzed in 2026: high-quality global insurer, seemingly cheap versus its cash flow. My full verdict on the price.",
       answer: "Chubb passes 9 out of 10 criteria in my quality screen, with an 83.8% combined ratio (the insurer collects more in premiums than it pays out in claims and expenses) and a P/FCF of just 9.4 times that looks cheap in absolute terms. But my model, which accounts for the actual cash trajectory, judges it overvalued by about 39%. Here is why such a low multiple can still signal too high a price.",
@@ -78828,7 +78828,7 @@ const articleChubb2026: Article = {
       disclaimer: "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (July 28, 2026), subject to change. Do your own research.",
     },
     es: {
-      title: "¿Hay que comprar acciones de Chubb (CB) en 2026?",
+      title: "Chubb (CB): por qué una deuda nula engaña",
       excerpt: "Chubb valida casi todos los criterios en mi filtro de calidad, a un precio que parece barato frente a su flujo de caja. Pero mi modelo la considera sobrevalorada un 38,8 %. ¿Cómo puede un múltiplo tan bajo considerarse caro? Este es el mecanismo asegurador que explica la paradoja.",
       metaDescription: "Chubb (CB) analizada en 2026: aseguradora global de gran calidad, aparentemente barata frente a su flujo de caja. Mi veredicto sobre el precio.",
       answer: "Chubb valida 9 de 10 criterios en mi filtro de calidad, con un ratio combinado del 83,8 % (la aseguradora cobra más en primas de lo que paga en siniestros y gastos) y un P/FCF de solo 9,4 veces que parece barato en términos absolutos. Pero mi modelo, que tiene en cuenta la trayectoria real de caja, la considera sobrevalorada en torno a un 39 %. Te explico por qué un múltiplo tan bajo puede seguir señalando un precio demasiado alto.",
@@ -81674,7 +81674,7 @@ const articleAirLiquide2026: Article = {
   "ticker": "AI.PA",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Air Liquide (AI) en 2026 ?",
+      "title": "Air Liquide (AI) : le monopole local invisible",
       "excerpt": "Air Liquide domine son marché local presque sans concurrent, mais mon filtre qualité ne valide que 6 critères sur 10 et mon modèle voit une nette surcote. Voici ce que je découvre en creusant au-delà de la réputation.",
       "metaDescription": "Air Liquide (AI) est-elle une bonne action à acheter en 2026 ? Mon analyse fondamentale complète : moat local, hydrogène, dividende et verdict sur le prix.",
       "answer": "Air Liquide valide 6 de mes 10 critères de qualité, portée par un moat local puissant et des marges en expansion. Mais son chiffre d'affaires recule depuis trois ans et mon modèle indique une action nettement plus chère que mon prix d'achat raisonnable. Une belle entreprise, mais pas au prix actuel selon mes calculs. Voici pourquoi.",
@@ -81712,7 +81712,7 @@ const articleAirLiquide2026: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer."
     },
     "en": {
-      "title": "Should you buy Air Liquide (AI) stock in 2026?",
+      "title": "Air Liquide (AI): the invisible local monopoly",
       "excerpt": "Air Liquide dominates its local markets with almost no rival, but my quality filter validates only 6 out of 10 criteria and my model sees a clear premium. Here is what I find digging beyond the reputation.",
       "metaDescription": "Is Air Liquide (AI) a good stock to buy in 2026? My full fundamental analysis: local moat, hydrogen bet, dividend, and verdict on the price.",
       "answer": "Air Liquide validates 6 of my 10 quality criteria, backed by a powerful local moat and expanding margins. But its revenue has declined for three years and my model shows a stock trading well above my reasonable buy price. A fine company, but not at today's price by my numbers. Here is why.",
@@ -81750,7 +81750,7 @@ const articleAirLiquide2026: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change."
     },
     "es": {
-      "title": "¿Hay que comprar la acción de Air Liquide (AI) en 2026?",
+      "title": "Air Liquide (AI): el monopolio local invisible",
       "excerpt": "Air Liquide domina sus mercados locales casi sin rivales, pero mi filtro de calidad valida solo 6 de 10 criterios y mi modelo ve una clara sobrevaloración. Esto es lo que encuentro al indagar más allá de la reputación.",
       "metaDescription": "¿Es Air Liquide (AI) una buena acción para comprar en 2026? Mi análisis fundamental completo: foso local, apuesta por el hidrógeno, dividendo y veredicto sobre el precio.",
       "answer": "Air Liquide valida 6 de mis 10 criterios de calidad, respaldada por un poderoso foso local y márgenes en expansión. Pero sus ingresos han caído durante tres años y mi modelo muestra una acción claramente más cara que mi precio de compra razonable. Una gran empresa, pero no al precio actual según mis cálculos. Esto es por qué.",
@@ -81798,7 +81798,7 @@ const articleAmundi2026: Article = {
   "ticker": "AMUN.PA",
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Amundi (AMUN) en 2026 ?",
+      "title": "Amundi (AMUN) : un prix bas qui cache un piège",
       "excerpt": "Amundi affiche un multiple de valorisation qui semble bon marché au premier regard. Mon modèle voit pourtant une nette surcote. Voici un cas d'école du piège value que j'explique en détail.",
       "metaDescription": "Amundi (AMUN) est-elle sous-évaluée en 2026 malgré un multiple bas ? Mon analyse fondamentale complète : encours, marges, dividende et le vrai piège du multiple.",
       "answer": "Amundi valide 6 de mes 10 critères de qualité, avec une marge de free cash flow solide de 27 % et un dividende de 4,5 %. Son multiple de valorisation semble bon marché à 11,2 fois le free cash flow, mais mon modèle indique quand même une surcote de 55,9 % : un exemple concret du piège d'un multiple bas sans croissance derrière. Voici pourquoi.",
@@ -81834,7 +81834,7 @@ const articleAmundi2026: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer."
     },
     "en": {
-      "title": "Should you buy Amundi (AMUN) stock in 2026?",
+      "title": "Amundi (AMUN): a low price hiding a classic trap",
       "excerpt": "Amundi trades at just 11.2 times free cash flow, a multiple that looks cheap at first glance. My model still sees a clear premium. Here is a textbook value trap I break down in detail.",
       "metaDescription": "Is Amundi (AMUN) undervalued in 2026 despite a low valuation multiple? My full fundamental analysis: assets under management, margins, dividend, and the real multiple trap.",
       "answer": "Amundi validates 6 of my 10 quality criteria, with a solid 27% free cash flow margin and a 4.5% dividend. Its valuation multiple looks cheap at 11.2 times free cash flow, yet my model still shows a 55.9% premium: a concrete example of the trap of a low multiple without enough growth behind it. Here is why.",
@@ -81870,7 +81870,7 @@ const articleAmundi2026: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change."
     },
     "es": {
-      "title": "¿Hay que comprar la acción de Amundi (AMUN) en 2026?",
+      "title": "Amundi (AMUN): un precio bajo que oculta una trampa",
       "excerpt": "Amundi cotiza a solo 11,2 veces su flujo de caja libre, un múltiplo que parece barato a primera vista. Mi modelo, sin embargo, ve una clara sobrevaloración. Este es un caso de manual de trampa de valor que explico en detalle.",
       "metaDescription": "¿Está infravalorada Amundi (AMUN) en 2026 pese a un múltiplo bajo? Mi análisis fundamental completo: activos gestionados, márgenes, dividendo y la verdadera trampa del múltiplo.",
       "answer": "Amundi valida 6 de mis 10 criterios de calidad, con un sólido margen de flujo de caja libre del 27 % y un dividendo del 4,5 %. Su múltiplo de valoración parece barato a 11,2 veces el flujo de caja libre, pero mi modelo aun así muestra una sobrevaloración del 55,9 %: un ejemplo concreto de la trampa de un múltiplo bajo sin suficiente crecimiento detrás. Esto es por qué.",
@@ -81915,7 +81915,7 @@ const articleVallourec2026: Article = {
   "readingTime": 7,
   "content": {
     "fr": {
-      "title": "Faut-il acheter l'action Vallourec (VK) en 2026 ?",
+      "title": "Vallourec (VK) : de la faillite à la trésorerie nette",
       "excerpt": "Vallourec a frôlé la faillite en 2021, s'est restructurée, et affiche aujourd'hui une trésorerie nette positive. Une vraie histoire de redressement. Mais mon modèle indique que le marché a peut-être déjà payé plus que ce que la tendance ne justifie.",
       "metaDescription": "Vallourec (VK) est-elle sous-évaluée en 2026 après sa restructuration ? Mon analyse fondamentale complète : dette, dividende exceptionnel et verdict sur le prix.",
       "answer": "Vallourec valide 6 de mes 10 critères de qualité, avec une trésorerie nette désormais positive après une restructuration de sa dette qui l'a menée près de la faillite en 2021. Mais le chiffre d'affaires recule depuis 2023 et mon modèle indique une surcote de 75,2 % malgré un multiple qui semble raisonnable. Voici mon verdict.",
@@ -81952,7 +81952,7 @@ const articleVallourec2026: Article = {
       "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer."
     },
     "en": {
-      "title": "Should you buy Vallourec (VK) stock in 2026?",
+      "title": "Vallourec (VK): from near bankruptcy to net cash",
       "excerpt": "Vallourec came close to bankruptcy in 2021, restructured, and now shows positive net cash. A genuine turnaround story. But my model suggests the market may already have paid more than the recent trend justifies.",
       "metaDescription": "Is Vallourec (VK) undervalued in 2026 after its restructuring? My full fundamental analysis: debt, exceptional dividend, and verdict on the price.",
       "answer": "Vallourec validates 6 of my 10 quality criteria, with net cash now positive after a debt restructuring that brought it close to bankruptcy in 2021. But revenue has declined since 2023 and my model shows a 75.2% premium despite a seemingly reasonable multiple. Here is my verdict.",
@@ -81989,7 +81989,7 @@ const articleVallourec2026: Article = {
       "disclaimer": "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change."
     },
     "es": {
-      "title": "¿Hay que comprar la acción de Vallourec (VK) en 2026?",
+      "title": "Vallourec (VK): de la quiebra a la caja neta",
       "excerpt": "Vallourec estuvo cerca de la quiebra en 2021, se reestructuró, y hoy muestra una tesorería neta positiva. Una auténtica historia de recuperación. Pero mi modelo indica que el mercado ya podría haber pagado más de lo que justifica la tendencia reciente.",
       "metaDescription": "¿Está infravalorada Vallourec (VK) en 2026 tras su reestructuración? Mi análisis fundamental completo: deuda, dividendo excepcional y veredicto sobre el precio.",
       "answer": "Vallourec valida 6 de mis 10 criterios de calidad, con una tesorería neta ahora positiva tras una reestructuración de deuda que la llevó cerca de la quiebra en 2021. Pero los ingresos caen desde 2023 y mi modelo muestra una sobrevaloración del 75,2 % pese a un múltiplo en apariencia razonable. Este es mi veredicto.",
@@ -82235,7 +82235,7 @@ const articleConstellationSoftware2026: Article = {
   ticker: 'CSU.TO',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Constellation Software (CSU) en 2026 ?",
+      title: "Constellation (CSU) : une machine à racheter du logiciel",
       excerpt: "Une marge nette de seulement 4,4 %, et pourtant l'une des meilleures machines à cash que j'ai analysées. Constellation Software n'est pas un éditeur de logiciels comme les autres : c'est une machine à racheter des entreprises. Voici comment je la juge.",
       metaDescription: "Constellation Software (CSU) est-elle sous-évaluée en 2026 ? Mon analyse fondamentale complète : modèle par acquisitions, succession de Mark Leonard, valorisation.",
       answer: "Constellation Software valide 9 de mes 10 critères de qualité, avec un rendement du capital investi de 49 % et une marge de free cash flow de 22,9 %, malgré une marge nette comptable de seulement 4,4 %. Mon modèle indique même une légère décote de 4,8 % par rapport à mon prix d'achat raisonnable, un signal rare.",
@@ -82277,7 +82277,7 @@ const articleConstellationSoftware2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: 'Should you buy Constellation Software (CSU) stock in 2026?',
+      title: "Constellation (CSU): a software buying machine",
       excerpt: "A net margin of just 4.4%, yet one of the best cash machines I have analyzed. Constellation Software is not a typical software vendor: it is a machine for buying companies. Here is how I judge it.",
       metaDescription: "Is Constellation Software (CSU) undervalued in 2026? My full fundamental analysis: acquisition-driven model, Mark Leonard's succession, valuation.",
       answer: "Constellation Software passes 9 of my 10 quality criteria, with a 49% return on invested capital and a 22.9% free cash flow margin, despite a reported net margin of just 4.4%. My model even shows a slight 4.8% discount to my fair buy price, a rare signal. Here is why, and what changed at the top this year.",
@@ -82319,7 +82319,7 @@ const articleConstellationSoftware2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: '¿Deberías comprar la acción de Constellation Software (CSU) en 2026?',
+      title: "Constellation (CSU): una máquina de comprar software",
       excerpt: "Un margen neto de solo el 4,4 %, y aun así una de las mejores máquinas de generar efectivo que he analizado. Constellation Software no es un editor de software cualquiera: es una máquina de comprar empresas. Así es como la evalúo.",
       metaDescription: "¿Está Constellation Software (CSU) infravalorada en 2026? Mi análisis fundamental completo: modelo por adquisiciones, sucesión de Mark Leonard, valoración.",
       answer: "Constellation Software cumple 9 de mis 10 criterios de calidad, con una rentabilidad del capital invertido del 49 % y un margen de flujo de caja libre del 22,9 %, pese a un margen neto contable de solo el 4,4 %. Mi modelo incluso muestra un ligero descuento del 4,8 % respecto a mi precio de compra razonable, una señal poco frecuente.",
@@ -82372,7 +82372,7 @@ const articleNovartis2026: Article = {
   ticker: 'NVS',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Novartis (NVS) en 2026 ?",
+      title: "Novartis (NVS) : son plus grand plongeon de brevets",
       excerpt: "2026 est l'année du plus grand plongeon de brevets de l'histoire de Novartis. Mais l'action se paie presque au plus cher de ces cinq dernières années. J'ai regardé les chiffres pour comprendre si le marché a raison d'y croire.",
       metaDescription: "Novartis (NVS) est-elle sous-évaluée en 2026 malgré le plongeon de brevets sur l'Entresto ? Mon analyse fondamentale complète : qualité, croissance, valorisation.",
       answer: "Novartis valide 9 de mes 10 critères de qualité, avec un rendement du capital investi de 32 % et un cash par action qui a progressé de 43 % en trois ans. Mais l'action se valorise 20 fois son free cash flow, proche de son plus cher en cinq ans, et mon modèle indique une surcote de 26,7 %. Voici mon verdict, chiffres à l'appui.",
@@ -82413,7 +82413,7 @@ const articleNovartis2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: 'Should you buy Novartis (NVS) stock in 2026?',
+      title: "Novartis (NVS): its largest ever patent cliff",
       excerpt: "2026 is the largest patent cliff in Novartis' history. Yet the stock trades near its most expensive level in five years. I looked at the numbers to see whether the market is right to believe in it.",
       metaDescription: "Is Novartis (NVS) undervalued in 2026 despite the Entresto patent cliff? My full fundamental analysis: quality, growth, valuation.",
       answer: "Novartis passes 9 of my 10 quality criteria, with a 32% return on invested capital and cash per share that has grown 43% in three years. But the stock trades at 20 times its free cash flow, near its most expensive level in five years, and my model shows a 26.7% overvaluation. Here is my verdict, backed by the numbers.",
@@ -82454,7 +82454,7 @@ const articleNovartis2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: '¿Deberías comprar la acción de Novartis (NVS) en 2026?',
+      title: "Novartis (NVS): su mayor precipicio de patentes",
       excerpt: "2026 es el mayor precipicio de patentes de la historia de Novartis. Aun así, la acción cotiza cerca de su nivel más caro en cinco años. Analicé las cifras para ver si el mercado tiene razón en confiar.",
       metaDescription: "¿Está Novartis (NVS) infravalorada en 2026 pese al precipicio de patentes del Entresto? Mi análisis fundamental completo: calidad, crecimiento, valoración.",
       answer: "Novartis cumple 9 de mis 10 criterios de calidad, con una rentabilidad del capital invertido del 32 % y un efectivo por acción que ha crecido un 43 % en tres años. Pero la acción cotiza a 20 veces su flujo de caja libre, cerca de su nivel más caro en cinco años, y mi modelo indica una sobrevaloración del 26,7 %. Aquí está mi veredicto, respaldado por las cifras.",
@@ -82702,7 +82702,7 @@ const articleCostco2026: Article = {
   ticker: 'COST',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Costco (COST) en 2026 ?",
+      title: "Costco (COST) : le moteur, ce sont les cotisations",
       excerpt: "Costco valide 7 de mes 10 critères de qualité, mais mon modèle indique une surcote de 49,8 %. Voici pourquoi le club le plus fidélisant du commerce peut aussi être le piège le plus cher.",
       metaDescription: "Costco (COST) en 2026 : la mécanique des cotisations expliquée, et pourquoi mon modèle la juge trop chère malgré une fidélité record.",
       answer: "Costco valide 7 de mes 10 critères de qualité : une fidélité client quasi inégalée (92,2 % de renouvellement), mais une croissance de ventes qui ralentit sous mon seuil. Le prix, lui, n'a presque jamais varié : l'action se valorise 53,6 fois son free cash flow, quasiment son niveau moyen des cinq dernières années. Mon modèle indique malgré tout une surcote de 49,8 %. Voici pourquoi.",
@@ -82744,7 +82744,7 @@ const articleCostco2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy Costco (COST) stock in 2026?",
+      title: "Costco (COST): memberships are the real engine",
       excerpt: "Costco validates 7 of my 10 quality criteria, but my model shows a 49.8% overvaluation. Here is why the most loyalty-inducing club in retail can also be the most expensive trap.",
       metaDescription: "Costco (COST) in 2026: the membership-fee mechanic explained, and why my model flags an expensive stock despite record customer loyalty.",
       answer: "Costco validates 7 of my 10 quality criteria: near-unmatched customer loyalty (92.2% renewal), but sales growth that is slowing below my threshold. The price, meanwhile, has barely moved: the stock trades at 53.6 times free cash flow, almost exactly its five-year average. My model still flags a 49.8% overvaluation. Here is why.",
@@ -82786,7 +82786,7 @@ const articleCostco2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Deberías comprar acciones de Costco (COST) en 2026?",
+      title: "Costco (COST): el motor son las cuotas",
       excerpt: "Costco cumple 7 de mis 10 criterios de calidad, pero mi modelo indica una sobrevaloración del 49,8 %. Por qué el club más fidelizador del comercio también puede ser la trampa más cara.",
       metaDescription: "Costco (COST) en 2026: el mecanismo de las cuotas explicado, y por qué mi modelo la marca cara pese a una fidelidad de clientes récord.",
       answer: "Costco cumple 7 de mis 10 criterios de calidad: una fidelidad de clientes casi inigualable (92,2 % de renovación), pero un crecimiento de ventas que se desacelera por debajo de mi umbral. El precio, por su parte, casi no se ha movido: la acción cotiza a 53,6 veces su flujo de caja libre, casi su promedio de los últimos cinco años. Aun así, mi modelo marca una sobrevaloración del 49,8 %. Aquí explico por qué.",
@@ -83142,7 +83142,7 @@ const articleSanofi2026: Article = {
   ticker: 'SNY',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Sanofi (SNY) en 2026 ?",
+      title: "Sanofi (SNY) : rentable, mais qui grandit à peine",
       excerpt: "Sanofi ne valide que 5 de mes 10 critères de qualité : rentable, mais une croissance et un free cash flow par action qui reculent. Le prix parait raisonnable, mon modèle indique pourtant une lourde surcote.",
       metaDescription: "Sanofi (SNY) en 2026 : pourquoi mon modèle juge l'action bien plus chère qu'elle n'en a l'air, malgré des résultats trimestriels solides.",
       answer: "Sanofi ne valide que 5 de mes 10 critères de qualité : une rentabilité correcte, mais une croissance des ventes et du free cash flow par action trop faibles, voire en déclin. Le prix semble raisonnable (16,5 fois le free cash flow), mais mon modèle indique une surcote sévère de 53 %. Voici comment une qualité moyenne et un prix apparemment sage peuvent quand même former un mauvais pari.",
@@ -83182,7 +83182,7 @@ const articleSanofi2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy Sanofi (SNY) stock in 2026?",
+      title: "Sanofi (SNY): profitable, but barely growing",
       excerpt: "Sanofi validates only 5 of my 10 quality criteria: profitable, but growth and free cash flow per share are shrinking. The price looks reasonable, yet my model flags a heavy overvaluation.",
       metaDescription: "Sanofi (SNY) in 2026: why my model finds the stock far pricier than it looks, despite a reasonable cash multiple and strong quarterly results.",
       answer: "Sanofi validates only 5 of my 10 quality criteria: decent profitability, but sales growth and free cash flow per share that are too weak, even declining. The price looks reasonable (16.5 times free cash flow), yet my model flags a severe 53% overvaluation. Here is how middling quality and a seemingly sensible price can still add up to a bad bet.",
@@ -83222,7 +83222,7 @@ const articleSanofi2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Deberías comprar acciones de Sanofi (SNY) en 2026?",
+      title: "Sanofi (SNY): rentable, pero que apenas crece",
       excerpt: "Sanofi solo cumple 5 de mis 10 criterios de calidad: rentable, pero con crecimiento y flujo de caja libre por acción a la baja. El precio parece razonable, pero mi modelo indica una fuerte sobrevaloración.",
       metaDescription: "Sanofi (SNY) en 2026: por qué mi modelo la considera mucho más cara de lo que parece, pese a un múltiplo de caja razonable y buenos resultados trimestrales.",
       answer: "Sanofi solo cumple 5 de mis 10 criterios de calidad: rentabilidad correcta, pero un crecimiento de ventas y un flujo de caja libre por acción demasiado débiles, incluso a la baja. El precio parece razonable (16,5 veces el flujo de caja libre), pero mi modelo indica una sobrevaloración severa del 53 %. Así es como una calidad mediocre y un precio aparentemente sensato pueden formar igualmente una mala apuesta.",
@@ -83273,7 +83273,7 @@ const articleImax2026: Article = {
   ticker: 'IMAX',
   content: {
     fr: {
-      title: "IMAX Corporation (IMAX) est-elle sous-évaluée en 2026 ?",
+      title: "IMAX : la marque qui ne possède aucune salle",
       excerpt: "IMAX valide mes 10 critères de qualité, une note parfaite rare, ET mon modèle indique une décote de 36,9 %. Marque de cinéma la plus reconnue au monde, à un prix que mon modèle juge sincèrement bon marché.",
       metaDescription: "IMAX (IMAX) en 2026 : note de qualité parfaite et décote de 36,9 % selon mon modèle. Le modèle de licence qui explique une rentabilité hors norme.",
       answer: "IMAX Corporation valide mes 10 critères de qualité, une note parfaite rare dans mon screener, ET mon modèle indique une décote de 36,9 % par rapport à son prix d'achat raisonnable. Une combinaison peu fréquente : la marque de cinéma grand format la plus reconnue au monde, à un prix que mon modèle juge sincèrement bon marché. Voici pourquoi.",
@@ -83316,7 +83316,7 @@ const articleImax2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Is IMAX Corporation (IMAX) stock undervalued in 2026?",
+      title: "IMAX: the brand that owns no cinema",
       excerpt: "IMAX validates all 10 of my quality criteria, a rare perfect score, AND my model shows a 36.9% discount. The most recognized cinema brand in the world, at a price my model genuinely calls cheap.",
       metaDescription: "IMAX (IMAX) in 2026: a perfect quality score and a 36.9% discount by my model. The licensing model behind an unusually high level of profitability.",
       answer: "IMAX Corporation validates all 10 of my quality criteria, a rare perfect score in my screener, AND my model shows a 36.9% discount versus its fair buy price. An uncommon combination: the most recognized giant-screen cinema brand in the world, at a price my model genuinely calls cheap. Here is why.",
@@ -83359,7 +83359,7 @@ const articleImax2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Está infravalorada la acción de IMAX Corporation (IMAX)?",
+      title: "IMAX: la marca que no posee ninguna sala",
       excerpt: "IMAX cumple mis 10 criterios de calidad, una nota perfecta poco frecuente, Y mi modelo indica un descuento del 36,9 %. La marca de cine más reconocida del mundo, a un precio que mi modelo considera realmente barato.",
       metaDescription: "IMAX (IMAX) en 2026: nota de calidad perfecta y descuento del 36,9 % según mi modelo. El modelo de licencia detrás de una rentabilidad fuera de lo común.",
       answer: "IMAX Corporation cumple mis 10 criterios de calidad, una nota perfecta poco frecuente en mi screener, Y mi modelo indica un descuento del 36,9 % frente a su precio de compra razonable. Una combinación poco común: la marca de cine de gran formato más reconocida del mundo, a un precio que mi modelo considera realmente barato. Aquí explico por qué.",
@@ -83413,7 +83413,7 @@ const articleArgan2026: Article = {
   ticker: 'AGX',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Argan (AGX) en 2026 ?",
+      title: "Argan (AGX) : le discret de la ruée électrique IA",
       excerpt: "Argan valide mes 10 critères de qualité, portée par la demande explosive d'électricité des centres de données IA. Mon modèle indique pourtant une surcote sévère de 52 % : le narratif est réel, le prix l'a déjà largement intégré.",
       metaDescription: "Argan (AGX) en 2026 : note de qualité parfaite, rendement du capital extrême, mais mon modèle juge le prix déjà trop élevé face au narratif électricité IA.",
       answer: "Argan valide mes 10 critères de qualité, une note parfaite, portée par la demande explosive d'électricité des centres de données pour l'IA. Mais mon modèle indique une surcote sévère de 52 % : le narratif est réel, le prix l'a déjà largement intégré. Voici comment je sépare l'histoire du prix.",
@@ -83454,7 +83454,7 @@ const articleArgan2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy Argan (AGX) stock in 2026?",
+      title: "Argan (AGX): the quiet name behind the AI power rush",
       excerpt: "Argan validates all 10 of my quality criteria, driven by explosive AI data center electricity demand. My model still flags a severe 52% overvaluation: the narrative is real, the price has already priced in a lot of it.",
       metaDescription: "Argan (AGX) in 2026: a perfect quality score and an extreme return on capital, but my model finds the price already too rich versus the AI power narrative.",
       answer: "Argan validates all 10 of my quality criteria, a perfect score, driven by explosive electricity demand from AI data centers. But my model flags a severe 52% overvaluation: the narrative is real, the price has already priced in much of it. Here is how I separate the story from the price.",
@@ -83495,7 +83495,7 @@ const articleArgan2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Deberías comprar acciones de Argan (AGX) en 2026?",
+      title: "Argan (AGX): el discreto detrás de la fiebre eléctrica IA",
       excerpt: "Argan cumple mis 10 criterios de calidad, impulsada por la demanda explosiva de electricidad de los centros de datos de IA. Mi modelo indica aun así una sobrevaloración severa del 52 %: el relato es real, el precio ya lo ha incorporado en gran parte.",
       metaDescription: "Argan (AGX) en 2026: nota de calidad perfecta y un rendimiento del capital extremo, pero mi modelo considera el precio ya demasiado alto.",
       answer: "Argan cumple mis 10 criterios de calidad, una nota perfecta, impulsada por la demanda explosiva de electricidad de los centros de datos de IA. Pero mi modelo indica una sobrevaloración severa del 52 %: el relato es real, el precio ya ha incorporado gran parte de él. Así es como separo la historia del precio.",

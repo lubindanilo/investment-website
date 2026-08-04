@@ -836,10 +836,33 @@ du tableau `ARTICLES`. Le blog passe de 348 à **338 articles**. La première de
 faux, et exécuter tel quel aurait fusionné des articles qui ne se recouvrent pas. Le chiffre juste
 est 10.
 
-**78 titres à reprendre.** 78 articles portent encore un titre qui duplique celui de leur fiche.
-Le check CI bloque les nouveaux ; les 78 existants sont un lot de retitrage à traiter, avec l'angle
-tiré du contenu de chaque article, pas d'un gabarit. Cela ne fera pas bouger le trafic à court
-terme, ces pages n'ayant pas de demande humaine, mais cela supprime un conflit auto-infligé.
+**Les titres qui dupliquaient la fiche : FAIT le 4 août 2026.** 83 articles au total, dans les trois
+langues, ne portent plus le gabarit de la fiche. Vérifié après coup sur les 338 articles : **zéro
+titre** reprenant « Faut-il acheter l'action X », « Should you buy X », « X est-elle sous-évaluée »
+ou leurs équivalents espagnols, et zéro jargon.
+
+**La méthode, et c'est ce qui compte.** Aucun titre n'a été généré au gabarit. Chaque nouveau titre
+vient de l'**angle déjà présent dans l'article**, le plus souvent de son premier ou deuxième H2, qui
+était déjà écrit pour accrocher : « Un marché que tout le monde a fui, sauf eux » devient
+« Universal (UVE) : le marché que tous ont fui, sauf eux », « Le modèle que presque personne ne
+comprend vraiment » devient « Roper (ROP) : le modèle que presque personne ne comprend ». C'est la
+seule façon de retitrer 83 articles sans recréer le motif de gabarit répété que Google sanctionne.
+
+Format imposé respecté partout : `Nom (TICKER) : angle`, deux-points comme séparateur, jamais de
+tiret, 60 caractères au plus, apostrophe droite.
+
+**Deux surprises pendant le travail.**
+
+- Mon extraction initiale filtrait sur le titre **français** et annonçait 78 articles. Il en restait
+  **9 de plus** qui ne portaient le gabarit qu'en anglais ou en espagnol, dont un comparatif
+  légitime (« T-Mobile or Verizon: Which Stock Should You Buy? ») que le check CI aurait bloqué à
+  tort. Total réel : 83.
+- 29 des 83 n'ont pas été modifiés au premier passage : le fichier mélange trois styles de clés
+  (`fr:`, `"fr":`, `'fr':`), exactement l'angle mort que le playbook de l'agent documente comme
+  cause racine des doublons. Le second passage tolère les trois.
+
+Les deux copies du fichier d'articles restent synchronisées : 1 044 titres identiques de part et
+d'autre, vérifié.
 
 ---
 
