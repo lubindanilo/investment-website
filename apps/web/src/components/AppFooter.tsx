@@ -31,6 +31,9 @@ export default function AppFooter() {
             <li>
               <Link to="/methodologie">{t('footer.links.methodology')}</Link>
             </li>
+            <li>
+              <Link to="/faq">{t('footer.links.faq')}</Link>
+            </li>
           </ul>
         </div>
 

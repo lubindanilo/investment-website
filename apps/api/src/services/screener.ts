@@ -12,7 +12,8 @@
  * reste en cache ; dès qu'elle est atteinte, le ticker redevient "dû" et est re-noté
  * (ce qui récupère la nouvelle date). Fallback TTL pour les dates inconnues.
  */
-import type { ResilienceSummary } from '@lubin/shared';
+import { createHash } from 'node:crypto';
+import type { ResilienceSummary, DerivedMetrics } from '@lubin/shared';
 import { prisma } from '../db/client.js';
 import { getStockSymbols } from './finnhub.js';
 import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
@@ -209,7 +210,7 @@ async function pickDueTickers(limit: number, region?: string): Promise<{ ticker:
 
   // Phase 1a — earnings atteint, TIER PRIORITAIRE (large cap / haute note) → le lendemain.
   acc.push(...await prisma.screenerTicker.findMany({
-    where: { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff }, ...regionFilter, ...priorityWhere },
+    where: { status: 'scored', nextEarningsDate: { lte: today }, lastAttemptAt: { lt: cooldownCutoff }, ...regionFilter, ...priorityWhere },
     orderBy: [{ scoreRatio: { sort: 'desc', nulls: 'last' } }, { marketCapUsd: { sort: 'desc', nulls: 'last' } }, { nextEarningsDate: 'asc' }],
     take: room(),
     select: { ticker: true },
@@ -219,7 +220,7 @@ async function pickDueTickers(limit: number, region?: string): Promise<{ ticker:
   // Phase 1b — earnings atteint, mid/small : classés par NOTE puis capi. Le budget étant limité, la
   // traîne déborde d'elle-même sur les jours suivants (= « dans la semaine / le mois »).
   acc.push(...await prisma.screenerTicker.findMany({
-    where: { status: 'scored', nextEarningsDate: { lte: today }, lastScoredAt: { lt: cooldownCutoff }, ...regionFilter, NOT: priorityWhere },
+    where: { status: 'scored', nextEarningsDate: { lte: today }, lastAttemptAt: { lt: cooldownCutoff }, ...regionFilter, NOT: priorityWhere },
     orderBy: [{ scoreRatio: { sort: 'desc', nulls: 'last' } }, { marketCapUsd: { sort: 'desc', nulls: 'last' } }],
     take: room(),
     select: { ticker: true },
@@ -234,18 +235,18 @@ async function pickDueTickers(limit: number, region?: string): Promise<{ ticker:
       ...regionFilter,
       OR: [
         { status: 'pending' },
-        { status: 'scored', nextEarningsDate: null, marketCapUsd: { gte: DAYAFTER_CAP_USD }, lastScoredAt: { lt: ttlCutoff } },
-        { status: 'scored', nextEarningsDate: null, scoreRatio: { gte: HIGH_SCORE_RATIO }, lastScoredAt: { lt: ttlCutoff } },
-        { status: 'scored', nextEarningsDate: null, marketCapUsd: { gte: MID_CAP_USD, lt: DAYAFTER_CAP_USD }, lastScoredAt: { lt: midTtlCutoff } },
-        { status: 'scored', nextEarningsDate: null, marketCapUsd: { lt: MID_CAP_USD }, lastScoredAt: { lt: smallTtlCutoff } },
+        { status: 'scored', nextEarningsDate: null, marketCapUsd: { gte: DAYAFTER_CAP_USD }, lastAttemptAt: { lt: ttlCutoff } },
+        { status: 'scored', nextEarningsDate: null, scoreRatio: { gte: HIGH_SCORE_RATIO }, lastAttemptAt: { lt: ttlCutoff } },
+        { status: 'scored', nextEarningsDate: null, marketCapUsd: { gte: MID_CAP_USD, lt: DAYAFTER_CAP_USD }, lastAttemptAt: { lt: midTtlCutoff } },
+        { status: 'scored', nextEarningsDate: null, marketCapUsd: { lt: MID_CAP_USD }, lastAttemptAt: { lt: smallTtlCutoff } },
         // Cap USD pas encore renseigné (titre d'avant cette version) → refresh au rythme de base.
-        { status: 'scored', nextEarningsDate: null, marketCapUsd: null, lastScoredAt: { lt: ttlCutoff } },
-        { status: 'error', attempts: { lt: MAX_ATTEMPTS }, lastScoredAt: { lt: cooldownCutoff } },
+        { status: 'scored', nextEarningsDate: null, marketCapUsd: null, lastAttemptAt: { lt: ttlCutoff } },
+        { status: 'error', attempts: { lt: MAX_ATTEMPTS }, lastAttemptAt: { lt: cooldownCutoff } },
         // Auto-réparation : titre noté mais sans cours (échec transitoire au scoring de masse).
-        { status: 'scored', price: null, lastScoredAt: { lt: cooldownCutoff } },
+        { status: 'scored', price: null, lastAttemptAt: { lt: cooldownCutoff } },
       ],
     },
-    orderBy: [{ priority: 'asc' }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
+    orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
     take: room(),
     select: { ticker: true },
   }));
@@ -365,19 +366,52 @@ export async function refreshOpportunitiesLive(): Promise<{ refreshed: number; f
  * throttle transitoire (Yahoo depuis les IP Vercel) fait basculer un titre `scored`→`error` et
  * il disparaît de la liste alors qu'on a toujours sa dernière note. On ne pose donc `error`/
  * `nodata` que si le titre n'avait PAS encore de note valide ; s'il en avait une, on la conserve
- * et on ne bump que `attempts` + `lastScoredAt` (pour la cadence de re-tentative / cooldown).
+ * et on ne bump que `attempts` + `lastAttemptAt` (pour la cadence de re-tentative / cooldown).
  */
 async function markScoreFailure(ticker: string, status: Exclude<ScoreOutcome, 'scored'>): Promise<void> {
   const existing = await prisma.screenerTicker
     .findUnique({ where: { ticker }, select: { status: true, scoreChiffresMax: true } })
     .catch(() => null);
   const wasScored = existing?.status === 'scored' && (existing.scoreChiffresMax ?? 0) > 0;
+  // ⚠️ On bumpe `lastAttemptAt` (cadence) et JAMAIS `lastScoredAt` : un échec n'apporte
+  // aucune donnée nouvelle, donc la fraîcheur SEO de la fiche ne doit pas bouger. C'était
+  // le bug : un throttle transitoire faisait avancer le `lastmod` du sitemap pour rien.
   await prisma.screenerTicker.update({
     where: { ticker },
     data: wasScored
-      ? { attempts: { increment: 1 }, lastScoredAt: new Date() }
-      : { status, attempts: { increment: 1 }, lastScoredAt: new Date() },
+      ? { attempts: { increment: 1 }, lastAttemptAt: new Date() }
+      : { status, attempts: { increment: 1 }, lastAttemptAt: new Date() },
   }).catch(() => {});
+}
+
+/**
+ * Empreinte des fondamentaux INDÉPENDANTS DU COURS.
+ *
+ * Sert à répondre à une seule question : « de vraies nouvelles données financières sont-elles
+ * arrivées depuis le dernier passage ? ». Si l'empreinte est identique, c'est que le trimestre
+ * n'a pas été republié et que rien n'a changé au bilan : on ne touche donc pas à
+ * `lastScoredAt`, qui alimente la fraîcheur SEO (dateModified + lastmod du sitemap).
+ *
+ * ⚠️ EXCLUT délibérément prix, capitalisation, P/FCF, percentile et flag d'opportunité : tous
+ * bougent chaque jour avec le cours, sans qu'aucun compte n'ait été publié. Les inclure
+ * reviendrait à déclarer la fiche « modifiée » quotidiennement, ce qu'on cherche à éviter.
+ *
+ * Les nombres sont arrondis avant hachage : sans ça, un écart de dernière décimale dû à un
+ * recalcul en virgule flottante suffirait à faire croire à une nouvelle publication.
+ */
+export function fundamentalsFingerprint(input: {
+  scoreChiffres: number; scoreChiffresMax: number; metrics: DerivedMetrics;
+}): string {
+  const m = input.metrics;
+  const r = (v: number | null | undefined, digits = 4): string =>
+    v == null || !isFinite(v) ? 'x' : v.toFixed(digits);
+  const parts = [
+    input.scoreChiffres, input.scoreChiffresMax,
+    r(m.netMargin), r(m.revenueCagr), r(m.fcfPerShareCagr), r(m.fcfPerShareGrowth2Y),
+    r(m.shareCagr), r(m.fcfMargin), m.operatingLeverage === null ? 'x' : String(m.operatingLeverage),
+    r(m.cashROCE), r(m.netDebtFcf), r(m.ccr), r(m.ccc, 1),
+  ];
+  return createHash('sha1').update(parts.join('|')).digest('hex').slice(0, 16);
 }
 
 /** Note un ticker (quanti only) et met à jour sa ligne ScreenerTicker. */
@@ -419,6 +453,27 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     const opp = hasScore
       ? await computeOpportunityAtScore(ticker, score10, pfcfConsistent, snap.nextEarningsDate ?? null)
       : { opportunity: false, pfcfPercentile: null, pfcfDecile10: null };
+
+    // ─── Fraîcheur HONNÊTE : `lastScoredAt` ne bouge QUE si les données ont changé ────────
+    // Le scoring tourne en continu (cadence earnings + TTL). S'il bumpait la date à chaque
+    // passage, les ~30k fiches déclareraient un `lastmod` frais en permanence sans qu'une
+    // seule ligne de compte ait changé, ce qui est mesuré comme un signal de faible valeur.
+    const fingerprint = fundamentalsFingerprint({
+      scoreChiffres: snap.scoreChiffres, scoreChiffresMax: snap.scoreChiffresMax, metrics: snap.metrics,
+    });
+    const prev = await prisma.screenerTicker
+      .findUnique({ where: { ticker }, select: { lastScoredAt: true, fundamentalsFingerprint: true } })
+      .catch(() => null);
+    const dataChanged =
+      // Jamais noté : la fiche est réellement neuve, sa date de fraîcheur doit être posée.
+      prev?.lastScoredAt == null
+        // Première empreinte observée sur un titre déjà noté : on l'ENREGISTRE sans bumper.
+        // Sinon le déploiement de ce changement déclencherait une vague de dates fraîches sur
+        // tout l'univers, précisément le refresh de masse qu'on cherche à éviter.
+        ? true
+        : prev.fundamentalsFingerprint == null
+        ? false
+        : prev.fundamentalsFingerprint !== fingerprint;
     await prisma.screenerTicker.update({
       where: { ticker },
       data: {
@@ -442,7 +497,10 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
         // Le scoring vient de (ré)évaluer l'opportunité au prix du moment → marque la fraîcheur live.
         oppRefreshedAt: new Date(),
         nextEarningsDate: snap.nextEarningsDate ?? null,
-        lastScoredAt: new Date(),
+        // Cadence : toujours. Fraîcheur SEO : seulement si les fondamentaux ont bougé.
+        lastAttemptAt: new Date(),
+        ...(dataChanged ? { lastScoredAt: new Date() } : {}),
+        fundamentalsFingerprint: fingerprint,
         attempts: { increment: 1 },
       },
     });
@@ -474,7 +532,7 @@ const PER_TICKER_MS_NON_US = 20_000;
 
 const TIMEOUT_SENTINEL = Symbol('timeout');
 
-/** Marque un ticker abandonné (timeout) : incrémente attempts + lastScoredAt (le deprioritise). */
+/** Marque un ticker abandonné (timeout) : incrémente attempts + lastAttemptAt (le deprioritise). */
 async function markTimedOut(ticker: string): Promise<void> {
   console.warn(`[screener score ${ticker}] timeout — abandonné, re-tenté plus tard`);
   // Anti-dégradation : un timeout ne rétrograde pas un titre déjà noté (cf. markScoreFailure).
