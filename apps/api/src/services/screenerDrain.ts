@@ -143,8 +143,12 @@ export async function drainPending(opts: DrainOptions): Promise<DrainResult> {
       while (next < batch.length && now() < deadline && attempted.size < opts.maxTickers) {
         const ticker = batch[next++]!;
         attempted.add(ticker);
-        const timer = new Promise<typeof TIMEOUT>(res => setTimeout(() => res(TIMEOUT), PER_TICKER_MS));
+        // Le timer est ANNULÉ dès que le scoring gagne la course : un setTimeout de 90 s laissé
+        // en vol garde la boucle Node vivante d'autant, et un job de cron doit se terminer.
+        let handle: ReturnType<typeof setTimeout> | undefined;
+        const timer = new Promise<typeof TIMEOUT>(res => { handle = setTimeout(() => res(TIMEOUT), PER_TICKER_MS); });
         const outcome = await Promise.race([scoreOne(ticker), timer]);
+        if (handle) clearTimeout(handle);
         if (outcome === TIMEOUT) timeout++;
         else if (outcome === 'scored') scored++;
         else if (outcome === 'nodata') nodata++;

@@ -122,4 +122,13 @@ main()
     console.error(`::error::Drain en échec : ${e.message}`);
     process.exitCode = 1;
   })
-  .finally(() => prisma.$disconnect());
+  .finally(async () => {
+    await prisma.$disconnect().catch(() => {});
+    // Sortie EXPLICITE. Un scoring abandonné sur timeout continue en arrière-plan (fetches en vol,
+    // et surtout les files des limiters Bottleneck : stockanalysis tourne à 1 req/s), ce qui garde
+    // la boucle Node vivante longtemps après la fin du drain — observé au canari du 04/08/2026, où
+    // l'étape a dépassé de plusieurs minutes son plafond de 5 min. Ces continuations sont
+    // best-effort (leurs écritures sont un bonus, jamais la comptabilité du run, déjà écrite), et
+    // un job de cron doit se terminer de façon déterministe. La connexion base est relâchée avant.
+    process.exit(process.exitCode ?? 0);
+  });
