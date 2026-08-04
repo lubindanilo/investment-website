@@ -8,8 +8,16 @@
  * par instance), la plupart des visiteurs tombent sur un cache vide. Un hero ne peut pas attendre
  * une base de données.
  *
- * Les valeurs figées sont donc rendues DÈS le premier paint, sans squelette. Le front rafraîchit
- * ensuite en arrière-plan et corrige les chiffres si la base a bougé (cf. useLandingData).
+ * Les valeurs figées sont donc rendues DÈS le premier paint, sans squelette, et la landing
+ * n'appelle plus l'API du tout (cf. useLandingData) : ce fichier EST ce que voit le visiteur.
+ *
+ * LES CRITÈRES SONT FIGÉS DANS LES TROIS LANGUES
+ * Le nom d'un critère et sa valeur sont du contenu généré, donc localisés côté API (« Marge
+ * nette » / « Net margin » / « Margen neto », « 0.57 ans » / « 0.57 years »). Comme plus rien
+ * n'est demandé au serveur au chargement, on interroge la vitrine UNE FOIS PAR LANGUE et on
+ * fige les trois réponses ; le front choisit au rendu. Ne figer que le français afficherait
+ * une fiche française aux visiteurs anglophones et hispanophones (régression corrigée le
+ * 2026-08-04). Le script refuse d'écrire si l'API n'a pas réellement traduit.
  *
  * Usage :  node scripts/gen-landing-showcase.mjs                 (API locale sur :3001)
  *          node scripts/gen-landing-showcase.mjs --api=https://lubin-investment.com
@@ -35,9 +43,12 @@ const ENDPOINTS = {
   pea: '/api/screener/top?zones=pea&minMax=8&maxPfcf=15&caps=large&limit=4',
 };
 
-async function get(url) {
-  const r = await fetch(`${API}${url}`, { headers: { 'Accept-Language': 'fr' } });
-  if (!r.ok) throw new Error(`${url} → HTTP ${r.status}`);
+/** Les langues du site (mêmes codes que SUPPORTED_LANGS côté web et API_LANGS côté API). */
+const LANGS = ['fr', 'en', 'es'];
+
+async function get(url, lang = 'fr') {
+  const r = await fetch(`${API}${url}`, { headers: { 'Accept-Language': lang } });
+  if (!r.ok) throw new Error(`${url} [${lang}] → HTTP ${r.status}`);
   return r.json();
 }
 
@@ -59,23 +70,80 @@ function toStock(r) {
   };
 }
 
-function toSlot(s) {
+/**
+ * Un emplacement de vitrine à partir des TROIS réponses du même titre (une par langue).
+ *
+ * La clé du critère (`netMargin`, `ccc`…) et son statut ne dépendent pas de la langue : ils sont
+ * pris sur la réponse française et servent à vérifier que les trois listes parlent bien des mêmes
+ * critères, dans le même ordre. Seuls le libellé et la valeur sont conservés par langue.
+ */
+function toSlot(byLang) {
+  const ref = byLang.fr;
+  const criteria = (ref.criteria ?? []).map((c, i) => {
+    if (!c.key) throw new Error(`${ref.ticker} : critère sans clé (« ${c.name} ») — API trop ancienne ?`);
+    const name = {};
+    const value = {};
+    for (const lang of LANGS) {
+      const same = byLang[lang].criteria?.[i];
+      if (!same || same.key !== c.key) {
+        throw new Error(`${ref.ticker} : critères désalignés entre fr (${c.key}) et ${lang} (${same?.key ?? '—'})`);
+      }
+      name[lang] = same.name;
+      value[lang] = same.value;
+    }
+    return { key: c.key, status: c.status, name, value };
+  });
+  // Sans snapshot en cache, l'API renvoie une liste vide : la fiche s'afficherait sans ses dix
+  // critères, c'est-à-dire sans ce qu'elle est censée démontrer. Mieux vaut ne rien écrire.
+  if (!criteria.length) throw new Error(`${ref.ticker} : aucun critère renvoyé (snapshot absent) — la fiche serait vide`);
   return {
-    stock: toStock(s),
-    criteria: (s.criteria ?? []).map(c => ({ name: c.name, value: c.value, status: c.status })),
-    resilience: s.resilience ?? null,
-    pfcfPercentile: s.pfcfPercentile ?? null,
+    stock: toStock(ref),
+    criteria,
+    resilience: ref.resilience ?? null,
+    pfcfPercentile: ref.pfcfPercentile ?? null,
   };
+}
+
+/**
+ * Filet anti-régression : si l'API a servi du français aux trois requêtes (en-tête ignoré, cache
+ * partagé entre langues, catalogue incomplet…), les dix libellés sont identiques d'une langue à
+ * l'autre. On préfère alors ne rien écrire plutôt que de renvoyer la landing en français pour
+ * les anglophones — c'est exactement le bug corrigé le 2026-08-04.
+ */
+function assertLocalized(slots) {
+  for (const s of slots) {
+    for (const lang of LANGS.filter(l => l !== 'fr')) {
+      const names = s.criteria.map(c => c.name[lang]).join('|');
+      if (names === s.criteria.map(c => c.name.fr).join('|')) {
+        throw new Error(`${s.stock.ticker} : libellés identiques en fr et en ${lang} — l'API n'a pas traduit`);
+      }
+    }
+  }
 }
 
 async function main() {
   console.log(`Source : ${API}`);
-  const [showcase, monitor, pea] = await Promise.all([
-    get(ENDPOINTS.showcase), get(ENDPOINTS.monitor), get(ENDPOINTS.pea),
-  ]);
+  // Les lignes de veille et PEA ne contiennent aucun texte généré (ticker, nom, secteur, chiffres) :
+  // une seule requête suffit. La vitrine, elle, en contient dix par titre → une requête par langue.
+  const [monitor, pea] = await Promise.all([get(ENDPOINTS.monitor), get(ENDPOINTS.pea)]);
+  const byLang = {};
+  for (const lang of LANGS) {
+    // Séquentiel : le cache de /showcase ne garde qu'une langue à la fois côté serveur.
+    byLang[lang] = await get(ENDPOINTS.showcase, lang).then(r => (Array.isArray(r) ? r : [r]));
+    console.log(`   vitrine ${lang} : ${byLang[lang].map(s => s.ticker).join(', ')}`);
+  }
 
-  const slots = (Array.isArray(showcase) ? showcase : [showcase]).map(toSlot);
+  // La vitrine est choisie par le serveur : si la base bouge entre deux requêtes, les trois
+  // réponses ne parlent plus des mêmes sociétés et le mélange donnerait une fiche incohérente.
+  const tickers = byLang.fr.map(s => s.ticker).join(',');
+  for (const lang of LANGS) {
+    const got = byLang[lang].map(s => s.ticker).join(',');
+    if (got !== tickers) throw new Error(`la vitrine a changé entre deux requêtes (fr : ${tickers} / ${lang} : ${got}) — relance le script`);
+  }
+
+  const slots = byLang.fr.map((_, i) => toSlot(Object.fromEntries(LANGS.map(l => [l, byLang[l][i]]))));
   if (!slots.length) throw new Error('vitrine vide : rien à figer');
+  assertLocalized(slots);
   // Les lignes de veille sont triées par capitalisation côté front : on fige le résultat final.
   const rows = monitor.map(toStock).filter(s => s.note10 != null)
     .sort((a, b) => (b.marketCap ?? 0) - (a.marketCap ?? 0)).slice(0, 5);
@@ -88,24 +156,27 @@ async function main() {
  *
  * Relevé le ${stamp}. Ces valeurs sont rendues dès le premier paint pour que la fiche du hero
  * n'attende NI une fonction serverless NI le réveil de Neon (mesuré à 1,25 s en local, davantage
- * en production). useLandingData rafraîchit ensuite en arrière-plan et corrige les chiffres.
+ * en production) : la landing ne fait AUCUN appel réseau, ce fichier est ce que voit le visiteur.
  *
- * Elles vieillissent donc entre deux exécutions du script : le cours et les multiples surtout.
- * C'est assumé, l'affichage se corrige en une seconde côté client.
+ * Les valeurs vieillissent donc entre deux exécutions du script : le cours et les multiples
+ * surtout, les notes et la résilience beaucoup plus lentement.
+ *
+ * Chaque critère porte son libellé et sa valeur dans les TROIS langues du site : le nom comme
+ * les unités sont du contenu localisé côté API, et le front n'a plus personne à qui les demander.
  */
-import type { LandingCriterion, LandingShowcase, LandingStock } from '../components/landing/useLandingData.js';
+import type { FrozenCriterion, FrozenShowcase, LandingStock } from '../components/landing/useLandingData.js';
 
 /** Date du relevé, pour savoir d'un coup d'œil si le fichier a vieilli. */
 export const SHOWCASE_AS_OF = '${stamp}';
 
-export const FROZEN_SLOTS: LandingShowcase[] = ${JSON.stringify(slots, null, 2)};
+export const FROZEN_SLOTS: FrozenShowcase[] = ${JSON.stringify(slots, null, 2)};
 
 export const FROZEN_ROWS: LandingStock[] = ${JSON.stringify(rows, null, 2)};
 
 export const FROZEN_PEA_ROWS: LandingStock[] = ${JSON.stringify(peaRows, null, 2)};
 
 /** Référencé pour que le type reste importé même si l'inférence suffit. */
-export type { LandingCriterion };
+export type { FrozenCriterion };
 `;
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, body);
@@ -115,6 +186,9 @@ export type { LandingCriterion };
     const label = ['hero', 'mécanisme', 'connecteur'][i] ?? `slot ${i}`;
     console.log(`   ${label.padEnd(11)} ${s.stock.ticker.padEnd(8)} ${s.stock.note10}/10 · résilience ${s.resilience?.grade ?? '—'} · ${s.criteria.length} critères`);
   }
+  // Preuve visible que les trois langues sont bien figées, sur le premier critère du hero.
+  const proof = slots[0].criteria[0];
+  console.log(`   langues     ${LANGS.map(l => `${l} « ${proof.name[l]} : ${proof.value[l]} »`).join(' · ')}`);
   console.log(`   veille      ${rows.map(r => r.ticker).join(', ')}`);
   console.log(`   PEA         ${peaRows.map(r => r.ticker).join(', ')}`);
 }
