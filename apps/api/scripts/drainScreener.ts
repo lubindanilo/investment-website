@@ -110,8 +110,16 @@ async function main(): Promise<void> {
   if (r.cuHoursSpent != null) {
     console.log(`  coût Neon mesuré : ${r.cuHoursSpent.toFixed(3)} CU-h${r.scored ? ` (${(r.cuHoursSpent / r.scored * 1000).toFixed(2)} mCU-h par titre noté)` : ''}`);
   }
+  // Projection exprimée à partir du DÉBIT, pas du volume du run : `pendingLeft / scored` donnerait
+  // « 593 nuits » après un canari de 10 min et « 51 nuits » après une vraie nuit, pour le même débit.
   if (r.pendingLeft >= 0) {
-    console.log(`  reste en attente : ${r.pendingLeft}${r.scored ? ` → ~${Math.ceil(r.pendingLeft / r.scored)} nuits à ce rythme` : ''}`);
+    let projection = '';
+    if (r.scored > 0 && mins > 0) {
+      const perMin = r.scored / mins;
+      const hours = r.pendingLeft / perMin / 60;
+      projection = ` → ${hours.toFixed(0)} h de drain à ce débit, soit ~${Math.ceil(hours / 2)} nuits de 2 h`;
+    }
+    console.log(`  reste en attente : ${r.pendingLeft}${projection}`);
   }
 
   // Garde anti-stall HONNÊTE : un timeout ou une erreur n'est pas du travail fait.
