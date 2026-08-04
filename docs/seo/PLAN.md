@@ -101,8 +101,48 @@ clics.** Les rapports quotidiens qualifient cela quatorze fois de suite de « l�
 fenêtre glissante ». Ce n'est pas une lecture tenable : une fenêtre glissante ne divise pas un
 volume par 36.
 
-Trois hypothèses, à départager en vingt minutes dans la Search Console (§5.1), et elles ne
-demandent pas les mêmes réponses.
+### 2.2 bis Le diagnostic, fait le 4 août 2026 : ce n'était pas un effondrement
+
+Relevé dans la Search Console, propriété **par préfixe d'URL** `https://lubin-investment.com/`. La
+propriété **domaine** était ce jour-là en « traitement des données », donc inutilisable : c'est un
+piège à connaître, l'historique lisible est dans la propriété par préfixe.
+
+| Vérification | Résultat |
+|---|---|
+| Actions manuelles | **Aucun problème détecté.** Hypothèse écartée |
+| Positions | Accueil à 3,8 sur 90 jours, certaines fiches à **1,1 et 1,7**. Aucun déclassement |
+| 90 jours | 129 clics, 7 850 impressions, CTR 1,6 %, position moyenne 9,3 |
+| Page la plus vue | `/blog/micron-mu-avant-resultats-24-juin-2026?lng=en` : **4 207 impressions**, 0 % de CTR, position 8,8 |
+| Même article en français | **57 impressions** |
+| Accueil | 51 clics pour 79 impressions, CTR 64,6 % |
+| 28 derniers jours | 15 clics, dont **14 sur l'accueil** |
+
+**La cause est identifiée, et ce n'est aucune des trois hypothèses.** Une seule page, la version
+anglaise d'une preview avant les résultats de Micron, a produit 54 % des impressions du trimestre.
+Les requêtes qui l'ont générée sont « micron earnings june 2026 results guidance hbm ai demand june
+2026 » et une dizaine de variantes quasi identiques, à 0 % de clic, positions 5 à 10. Personne ne
+tape ça : ce sont des **requêtes de grounding de modèles**. Le corpus le décrit exactement ainsi, et
+prévient de ne pas traiter les positions hautes sans clic comme un échec. La même signature revient
+sur 28 jours : `/analyse/TFC?lng=en` fait 131 impressions en position 1,7 pour zéro clic, sur la
+requête `"truist financial" "banks (regional)" damodaran`.
+
+L'événement Micron du 24 juin est sorti de la fenêtre de 28 jours, et le total est retombé à son
+niveau réel. **Il n'y a jamais eu de chute : il y a eu une bosse.**
+
+Ce que le relevé établit en revanche, et qui est beaucoup plus important :
+
+- **Le trafic humain réel est d'environ 78 clics en 90 jours** hors accueil, pour 5 500 URL.
+- **L'accueil concentre 40 % des clics**, en recherche de marque, avec un taux de clic sain.
+- **Le site est très visible pour les modèles et invisible pour les humains.** Il classe en
+  position 1 sur des requêtes que seules des machines formulent.
+- **Les variantes anglaises sont ce que les modèles lisent** : 4 207 impressions contre 57 sur la
+  même page. Les traductions ne sont pas un bonus, c'est le canal.
+
+La conséquence éditoriale est au §6.5, et elle remplace la lecture précédente : le problème n'est
+pas d'avoir trop publié, c'est d'avoir publié sur des requêtes que personne ne formule.
+
+Les trois hypothèses ci-dessous sont conservées pour mémoire, parce que la méthode reste la bonne
+même si la réponse était ailleurs.
 
 1. **Purge d'impressions robots.** Le corpus documente que les impressions au-delà de la position
    50 étaient largement générées par des robots, et qu'un changement technique les a supprimées
@@ -117,8 +157,8 @@ demandent pas les mêmes réponses.
    manuelles. Si c'est ça, tout le reste du plan attend, parce que le délai de rétablissement
    documenté est de 2 à 3 ans et le taux de rétablissement d'environ 3 % (ch. 8, 12).
 
-**Ne rien écrire de neuf avant d'avoir tranché entre ces trois hypothèses.** C'est la seule action
-de ce plan qui bloque les autres.
+~~**Ne rien écrire de neuf avant d'avoir tranché entre ces trois hypothèses.**~~ Fait le 4 août, voir
+§2.2 bis. Le blocage est levé.
 
 ### 2.3 Ce qui est déjà très bien fait, et qu'il faut protéger
 
@@ -710,6 +750,62 @@ commodité (ch. 13).
 des pages quasi dupliquées en une seule page complète améliore les classements (ch. 14), et c'est la
 version prudente du geste de purge. Cible réaliste : de 348 à environ 250 articles, dont 30
 substantiellement enrichis.
+
+### 6.5 La ligne éditoriale, arbitrée le 4 août 2026
+
+Elle découle directement du §2.2 bis et elle remplace le §6.4.
+
+**Cadence : 4 à 5 articles par semaine, plus 3 par jour.** 338 articles publiés en deux mois ont
+produit 15 clics sur 28 jours. Le rendement marginal d'un article de plus est indiscernable de
+zéro. Le repère du corpus : un site publiant un article par semaine a atteint 130 000 visites
+mensuelles en moins de deux ans.
+
+**Six archétypes, par ordre de priorité.**
+
+| # | Archétype | Ce que c'est | Pourquoi |
+|---|---|---|---|
+| 1 | `classement-intention` | « Meilleures actions PEA sous-évaluées », « actions résilientes à l'IA » | 841 % de hausse des ventes mesurés en passant de catégories produit à catégories d'intention |
+| 2 | `palmares-secteur` | Analyse approfondie d'un secteur ou d'un pays | L'actif de backlinks, et l'autorité est le vrai goulot |
+| 3 | `pedago-methode` | Une notion expliquée avec nos données | Evergreen, et personne d'autre n'a nos chiffres |
+| 4 | `comparatif-duo` | « X ou Y » | Seul motif programmatique validé par un test du corpus |
+| 5 | `actu-earnings` | Filet de complétude mega-cap | Capte le grounding des modèles, pas le trafic. Plafonné |
+| 6 | `these-action` | Mono-ticker | **Quasi gelé** : la fiche répond déjà à la même requête |
+
+Répartition cible sur cinq articles : deux classements ou secteurs dont au moins une étude de
+données, un pédago, un comparatif, un libre.
+
+**La règle qui évite de se tromper de support.** Un classement qui n'est qu'un tableau doit devenir
+une page `/classement/<slug>`, evergreen et auto-mise à jour depuis la base, pas un article daté.
+Un ARTICLE de classement n'existe que s'il porte ce que le tableau ne peut pas porter : pourquoi
+ces sociétés, ce qui les sépare, ce qui casserait la thèse. Les deux couches se complètent, la page
+produit capte la requête, l'article construit l'autorité et les liens.
+
+**Ce que le cas Micron ne dit pas.** Les recaps d'earnings ne sont pas inutiles, ils captent
+massivement le grounding des modèles. Ils sont inutiles **en trafic**. On les garde comme filet de
+complétude sur les mega-caps, on ne les compte pas comme croissance, et on ne fait jamais de
+preview avant résultats.
+
+**Câblé le 4 août** dans `vault/projects/li-seo/config.yaml` (`max_publish_per_week: 5`,
+`max_publish_per_run: 1`, `weekly_mix`, `these_action.max_per_week: 1`,
+`require_angle_absent_from_fiche`) et en tête de la section blog de `operator-playbook.md`.
+
+### 6.6 Le nettoyage du blog, fait le 4 août 2026
+
+**10 vrais doublons consolidés.** Sur les 24 tickers portant deux articles, seuls 10 étaient de
+vrais doublons : une **preview avant résultats** plus le **recap post-résultats** du même
+trimestre. Les 12 autres sont un recap plus une thèse, donc deux intentions distinctes, et les 2
+derniers sont deux trimestres différents. La preview est redirigée en 301 vers le recap et retirée
+du tableau `ARTICLES`. Le blog passe de 348 à **338 articles**. La première de la liste est
+`micron-mu-avant-resultats-24-juin-2026`, celle des 4 207 impressions sans clic.
+
+**Correction de ma propre formulation :** j'avais écrit « consolider les 24 doublons ». C'était
+faux, et exécuter tel quel aurait fusionné des articles qui ne se recouvrent pas. Le chiffre juste
+est 10.
+
+**78 titres à reprendre.** 78 articles portent encore un titre qui duplique celui de leur fiche.
+Le check CI bloque les nouveaux ; les 78 existants sont un lot de retitrage à traiter, avec l'angle
+tiré du contenu de chaque article, pas d'un gabarit. Cela ne fera pas bouger le trafic à court
+terme, ces pages n'ayant pas de demande humaine, mais cela supprime un conflit auto-infligé.
 
 ---
 
