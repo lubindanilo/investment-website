@@ -645,7 +645,12 @@
       "pending": "Backfill in progress: this company has not received its 5-star Resilience score yet.",
       "flagged": "In review",
       "scoreLabel": "Resilience: {{score}} out of 5 stars",
-      "axisRule": "Each axis is worth 0, 0.5 or 1 star. The displayed sentence summarizes the retained judgment.",
+      "axisRule": "Each axis is marked No, Partial or Yes. The total aggregates those five judgments into stars.",
+      "axisStatus": {
+        "yes": "Yes",
+        "partial": "Partial",
+        "no": "No"
+      },
       "verdict": {
         "agree": "Score validated by both models.",
         "resolved": "Score validated after resolving a model disagreement.",
@@ -1112,28 +1117,28 @@
       },
       "besoin": {
         "label": "Paid role demand",
-        "measure": "Paid demand for the role survives and grows through 2033.",
-        "scoreRule": "0, 0.5 or 1 star depending on the persistence and growth of the need."
+        "measure": "This checks whether customers will still pay for this economic role in 2033, and whether that paid demand is truly growing.",
+        "scoreRule": "Yes if paid demand persists and grows structurally. Partial if it survives but shrinks or commoditizes. No if it collapses."
       },
       "controle": {
         "label": "Rare control",
-        "measure": "A clean, rare and hard-to-bypass control protects the economic role.",
-        "scoreRule": "0, 0.5 or 1 star depending on the control's rarity and defensibility."
+        "measure": "This looks for what the company truly controls at the core of the business: scarce asset, regulated right, network, data, stack, brand or installed base.",
+        "scoreRule": "Yes if the control covers the majority of the core and remains hard to bypass. Partial if real but narrow, contested or replicable. No if it does not protect the core."
       },
       "forces": {
         "label": "Structural forces",
-        "measure": "The model holds up against AI, robotics and China.",
-        "scoreRule": "0, 0.5 or 1 star depending on net exposure to these forces."
+        "measure": "This tests the role against the three scenario forces: AI and agents, advanced robotics, and China's industrial rise.",
+        "scoreRule": "Yes if at least two forces strengthen the company. Partial if the net effect is mixed or neutral. No if one force can absorb more than half of the role."
       },
       "adjacent": {
         "label": "Adjacent pull",
-        "measure": "The company can pull adjacent profit pools through its installed base.",
-        "scoreRule": "0, 0.5 or 1 star depending on its ability to expand the profitable perimeter."
+        "measure": "This asks whether the installed base gives the company an edge in absorbing neighboring needs and delivering a fuller customer outcome.",
+        "scoreRule": "Yes if the company already absorbs adjacent needs through its base. Partial if the edge is real but limited. No if it is more likely to be absorbed or the option is speculative."
       },
       "capture": {
         "label": "Durable capture",
-        "measure": "The company can keep getting paid without a fatal fragility.",
-        "scoreRule": "0, 0.5 or 1 star depending on monetization durability."
+        "measure": "This checks whether the company can keep getting paid through pricing power, switching costs, margins or tolls, without a fatal single dependency.",
+        "scoreRule": "Yes if capture is durable and no fatal shock is identified. Partial if it is paid but under pressure or partly dependent. No if capture erodes or relies on a major shock point."
       }
     },
     "horizonAll": "All",
@@ -1157,7 +1162,7 @@
       },
       "resilience": {
         "title": "Resilience",
-        "sub": "5 axes · half stars · independent from quality"
+        "sub": "Will the economic role still be useful, controlled and monetizable in 2033?"
       },
       "management": {
         "title": "Management",

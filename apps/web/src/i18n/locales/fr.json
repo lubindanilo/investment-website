@@ -670,7 +670,12 @@
       "pending": "Backfill en cours : cette entreprise n'a pas encore reçu son score Résilience 5 étoiles.",
       "flagged": "En revue",
       "scoreLabel": "Résilience : {{score}} sur 5 étoiles",
-      "axisRule": "Chaque axe vaut 0, 0,5 ou 1 étoile. La phrase affichée résume le jugement retenu.",
+      "axisRule": "Chaque axe vaut Non, Partiel ou Oui. Le total agrège ces cinq jugements en étoiles.",
+      "axisStatus": {
+        "yes": "Oui",
+        "partial": "Partiel",
+        "no": "Non"
+      },
       "verdict": {
         "agree": "Score validé par les deux modèles.",
         "resolved": "Score validé après résolution d'un écart entre modèles.",
@@ -1137,28 +1142,28 @@
       },
       "besoin": {
         "label": "Demande payée du rôle",
-        "measure": "La demande payée du rôle survit et grandit à l'horizon 2033.",
-        "scoreRule": "0, 0,5 ou 1 étoile selon la persistance et la croissance du besoin."
+        "measure": "Ce critère vérifie si les clients paieront encore pour ce rôle économique en 2033, et si cette demande grandit vraiment.",
+        "scoreRule": "Oui si la demande payée persiste et croît structurellement. Partiel si elle survit mais se contracte ou se banalise. Non si elle s'effondre."
       },
       "controle": {
         "label": "Contrôle rare",
-        "measure": "Un contrôle propre, rare et difficile à contourner protège le rôle économique.",
-        "scoreRule": "0, 0,5 ou 1 étoile selon la rareté et la défendabilité du contrôle."
+        "measure": "Ce critère cherche ce que l'entreprise contrôle vraiment sur le cœur du business : actif rare, droit réglementé, réseau, données, stack, marque ou base installée.",
+        "scoreRule": "Oui si le contrôle couvre la majorité du cœur et reste difficile à contourner. Partiel s'il est réel mais étroit, contesté ou réplicable. Non s'il ne protège pas le cœur."
       },
       "forces": {
         "label": "Forces structurelles",
-        "measure": "Le modèle tient face aux forces IA, robotique et Chine.",
-        "scoreRule": "0, 0,5 ou 1 étoile selon l'exposition nette à ces forces."
+        "measure": "Ce critère teste l'exposition du rôle économique aux trois forces du scénario : IA et agents, robotique avancée, montée industrielle chinoise.",
+        "scoreRule": "Oui si au moins deux forces renforcent l'entreprise. Partiel si l'effet net est mitigé ou neutre. Non si une force peut absorber plus de la moitié du rôle."
       },
       "adjacent": {
         "label": "Aspiration de l'adjacent",
-        "measure": "L'entreprise peut absorber l'adjacent grâce à sa base installée.",
-        "scoreRule": "0, 0,5 ou 1 étoile selon la capacité à étendre le périmètre rentable."
+        "measure": "Ce critère regarde si la base installée donne un avantage pour absorber des besoins voisins et livrer un résultat plus complet au client.",
+        "scoreRule": "Oui si l'entreprise absorbe déjà l'adjacent grâce à sa base. Partiel si l'avantage existe mais reste limité. Non si elle est plutôt absorbée ou si l'option est spéculative."
       },
       "capture": {
         "label": "Capture durable",
-        "measure": "L'entreprise peut se faire payer durablement sans fragilité fatale.",
-        "scoreRule": "0, 0,5 ou 1 étoile selon la solidité de la monétisation."
+        "measure": "Ce critère vérifie si l'entreprise peut continuer à se faire payer : prix, switching costs, marge ou péage, sans dépendance unique fatale.",
+        "scoreRule": "Oui si la capture est durable et sans choc fatal identifié. Partiel si elle est payée mais sous pression ou partiellement dépendante. Non si la capture s'érode ou dépend d'un choc majeur."
       }
     },
     "horizonAll": "Tout",
@@ -1182,7 +1187,7 @@
       },
       "resilience": {
         "title": "Résilience",
-        "sub": "5 axes · demi-étoiles · score autonome de la qualité"
+        "sub": "Le rôle économique restera-t-il utile, contrôlé et monétisable en 2033 ?"
       },
       "management": {
         "title": "Management",

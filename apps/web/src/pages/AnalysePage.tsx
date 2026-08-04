@@ -17,7 +17,7 @@ import { TickerSearch } from '../components/TickerSearch.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
 import { PriceChart } from '../components/ui/charts.js';
 import { AnalysisHeader, ResilienceStarsGrid } from '../components/ResilienceAnalysis.js';
-import { ResilienceStarsBadge } from '../components/ResilienceStars.js';
+import { ResilienceStarsBadge, StarMeter } from '../components/ResilienceStars.js';
 import SeoHead from '../components/SeoHead.js';
 import './AnalysePage.css';
 
@@ -496,7 +496,15 @@ function AnalysisView({ analysis, chiffres, management, watched, onWatch, onGene
           />
         </Section>
 
-        <Section title={t('analyse.sections.resilience.title')} sub={t('analyse.sections.resilience.sub')}>
+        <Section
+          title={t('analyse.sections.resilience.title')}
+          sub={t('analyse.sections.resilience.sub')}
+          right={analysis.resilienceStars
+            ? <span className="anl-section-resilience-stars">
+                <StarMeter value={analysis.resilienceStars.total} label={t('analyse.resilienceStars.scoreLabel', { score: analysis.resilienceStars.total })} />
+              </span>
+            : undefined}
+        >
           <ResilienceStarsGrid score={analysis.resilienceStars ?? null} />
         </Section>
 

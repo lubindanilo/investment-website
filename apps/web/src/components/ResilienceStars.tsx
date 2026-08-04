@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { ResilienceStarCriterionId, ResilienceStars as ResilienceStarsData } from '@lubin/shared';
 import { prettifyJustification } from '../lib/resilienceText.js';
-import { Icon } from './ui/primitives.js';
+import { Icon, InfoPop } from './ui/primitives.js';
 import './ResilienceStars.css';
 
 export const RESILIENCE_STAR_CRITERIA: ResilienceStarCriterionId[] = [
@@ -72,8 +72,14 @@ export function ResilienceStarsHeader({ score }: { score?: ResilienceStarsData |
   );
 }
 
+function axisStatus(star: number): 'yes' | 'partial' | 'no' {
+  if (star >= 1) return 'yes';
+  if (star >= 0.5) return 'partial';
+  return 'no';
+}
+
 export function ResilienceStarsGrid({ score }: { score?: ResilienceStarsData | null }) {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   if (!score) {
     return (
       <div className="anl-resilience-pending">
@@ -88,13 +94,20 @@ export function ResilienceStarsGrid({ score }: { score?: ResilienceStarsData | n
       {RESILIENCE_STAR_CRITERIA.map(id => {
         const criterion = score.criteria[id];
         const star = criterion.star;
+        const status = axisStatus(star);
+        const label = t(`analyse.resilienceStars.axisStatus.${status}`);
         return (
           <article className="rs-axis-card" key={id}>
             <div className="rs-axis-head">
-              <h3>{t(`analyse.resilienceCriteria.${id}.label`)}</h3>
-              <span className="rs-axis-score">
-                <StarMeter value={star} max={1} label={`${formatStars(star, i18n.language)}/1`} />
-              </span>
+              <div className="rs-axis-title">
+                <h3>{t(`analyse.resilienceCriteria.${id}.label`)}</h3>
+                <InfoPop
+                  title={t(`analyse.resilienceCriteria.${id}.label`)}
+                  why={t(`analyse.resilienceCriteria.${id}.measure`)}
+                  calc={t(`analyse.resilienceCriteria.${id}.scoreRule`)}
+                />
+              </div>
+              <span className={`rs-axis-score rs-axis-score-${status}`}>{label}</span>
             </div>
             <p>{prettifyJustification(criterion.justification)}</p>
           </article>

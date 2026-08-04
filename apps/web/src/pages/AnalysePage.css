@@ -57,6 +57,12 @@
 .anl-qual-kicker { color: var(--ink-3); }
 .anl-section-total { display: inline-flex; align-items: center; gap: 8px; color: var(--ink-2); font-size: 12px; }
 .anl-section-total strong { color: var(--ink); }
+.anl-section-resilience-stars {
+  display: inline-flex;
+  align-items: center;
+  color: var(--brand);
+  font-size: 18px;
+}
 
 /* Le contenu des dix cartes reste identique. Quatre colonnes gardent chaque KPI lisible. */
 .criteria-grid.anl-quality-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }

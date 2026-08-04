@@ -645,7 +645,12 @@
       "pending": "Backfill en curso: esta empresa aún no ha recibido su puntuación de Resiliencia de 5 estrellas.",
       "flagged": "En revisión",
       "scoreLabel": "Resiliencia: {{score}} de 5 estrellas",
-      "axisRule": "Cada eje vale 0, 0,5 o 1 estrella. La frase mostrada resume el juicio retenido.",
+      "axisRule": "Cada eje se marca como No, Parcial o Sí. El total agrega esos cinco juicios en estrellas.",
+      "axisStatus": {
+        "yes": "Sí",
+        "partial": "Parcial",
+        "no": "No"
+      },
       "verdict": {
         "agree": "Puntuación validada por ambos modelos.",
         "resolved": "Puntuación validada tras resolver una divergencia entre modelos.",
@@ -1112,28 +1117,28 @@
       },
       "besoin": {
         "label": "Demanda pagada del rol",
-        "measure": "La demanda pagada del rol sobrevive y crece hasta 2033.",
-        "scoreRule": "0, 0,5 o 1 estrella según la persistencia y el crecimiento de la necesidad."
+        "measure": "Comprueba si los clientes seguirán pagando por este papel económico en 2033, y si esa demanda pagada crece de verdad.",
+        "scoreRule": "Sí si la demanda pagada persiste y crece estructuralmente. Parcial si sobrevive pero se contrae o se banaliza. No si se derrumba."
       },
       "controle": {
         "label": "Control raro",
-        "measure": "Un control propio, raro y difícil de sortear protege el papel económico.",
-        "scoreRule": "0, 0,5 o 1 estrella según la rareza y defensa del control."
+        "measure": "Busca lo que la empresa controla realmente en el núcleo del negocio: activo escaso, derecho regulado, red, datos, stack, marca o base instalada.",
+        "scoreRule": "Sí si el control cubre la mayoría del núcleo y sigue siendo difícil de sortear. Parcial si es real pero estrecho, disputado o replicable. No si no protege el núcleo."
       },
       "forces": {
         "label": "Fuerzas estructurales",
-        "measure": "El modelo resiste frente a la IA, la robótica y China.",
-        "scoreRule": "0, 0,5 o 1 estrella según la exposición neta a estas fuerzas."
+        "measure": "Prueba el papel económico frente a tres fuerzas del escenario: IA y agentes, robótica avanzada y ascenso industrial chino.",
+        "scoreRule": "Sí si al menos dos fuerzas refuerzan la empresa. Parcial si el efecto neto es mixto o neutro. No si una fuerza puede absorber más de la mitad del papel."
       },
       "adjacent": {
         "label": "Aspiración del adyacente",
-        "measure": "La empresa puede absorber segmentos adyacentes gracias a su base instalada.",
-        "scoreRule": "0, 0,5 o 1 estrella según su capacidad de ampliar el perímetro rentable."
+        "measure": "Evalúa si la base instalada da ventaja para absorber necesidades vecinas y entregar un resultado más completo al cliente.",
+        "scoreRule": "Sí si la empresa ya absorbe lo adyacente gracias a su base. Parcial si la ventaja existe pero es limitada. No si es más probable que sea absorbida o si la opción es especulativa."
       },
       "capture": {
         "label": "Captura duradera",
-        "measure": "La empresa puede cobrar de forma duradera sin una fragilidad fatal.",
-        "scoreRule": "0, 0,5 o 1 estrella según la solidez de la monetización."
+        "measure": "Comprueba si la empresa puede seguir cobrando mediante poder de precio, costes de cambio, márgenes o peajes, sin una dependencia única fatal.",
+        "scoreRule": "Sí si la captura es duradera y no hay choque fatal identificado. Parcial si cobra pero bajo presión o con dependencia parcial. No si la captura se erosiona o depende de un punto de choque importante."
       }
     },
     "horizonAll": "Todo",
@@ -1157,7 +1162,7 @@
       },
       "resilience": {
         "title": "Resiliencia",
-        "sub": "5 ejes · medias estrellas · independiente de la calidad"
+        "sub": "¿El papel económico seguirá siendo útil, controlado y monetizable en 2033?"
       },
       "management": {
         "title": "Dirección",

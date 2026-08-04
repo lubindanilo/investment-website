@@ -107,9 +107,16 @@
   gap: 10px;
 }
 
+.rs-axis-title {
+  min-height: 38px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
 .rs-axis-card h3 {
   margin: 0;
-  min-height: 38px;
   color: var(--ink);
   font-size: 13.5px;
   line-height: 1.35;
@@ -120,17 +127,31 @@
   display: inline-flex;
   width: max-content;
   align-items: center;
-  gap: 2px;
-  padding: 0;
-  font-size: 12px;
+  justify-content: center;
+  padding: 4px 9px;
+  border-radius: 8px;
+  font-size: 12.5px;
   font-weight: 800;
-  color: var(--brand);
-  background: transparent;
-  border: 0;
+  line-height: 1;
+  border: 1px solid transparent;
 }
 
-.rs-axis-score .rs-stars {
-  font-size: 16px;
+.rs-axis-score-yes {
+  color: var(--good-ink);
+  background: var(--good-bg);
+  border-color: color-mix(in oklch, var(--good) 24%, transparent);
+}
+
+.rs-axis-score-partial {
+  color: var(--warn-ink);
+  background: var(--warn-bg);
+  border-color: color-mix(in oklch, var(--warn) 28%, transparent);
+}
+
+.rs-axis-score-no {
+  color: var(--bad-ink);
+  background: var(--bad-bg);
+  border-color: color-mix(in oklch, var(--bad) 22%, transparent);
 }
 
 .rs-axis-card p {
@@ -155,5 +176,5 @@
   .rs-review-dot { display: none; }
   .rs-axis-grid { grid-template-columns: 1fr; }
   .rs-axis-card { min-height: 0; padding: 13px; }
-  .rs-axis-card h3 { min-height: 0; }
+  .rs-axis-title { min-height: 0; }
 }
