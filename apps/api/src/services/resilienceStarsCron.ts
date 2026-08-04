@@ -91,12 +91,16 @@ export async function runResilienceCron(
       due.map(entry => ({ name: entry.name, brief: entry.brief })),
       { model: options.model },
     );
-    scored = due.map((entry, index) => ({
-      ...results[index],
-      ticker: entry.ticker,
-      marketCapUsd: entry.marketCapUsd,
-      scoredAt: options.now,
-    }));
+    scored = due.map((entry, index) => {
+      const result = results[index];
+      if (!result) throw new Error(`Aucun score pour ${entry.name}`);
+      return {
+        ...result,
+        ticker: entry.ticker,
+        marketCapUsd: entry.marketCapUsd,
+        scoredAt: options.now,
+      };
+    });
     for (const score of scored) store[score.ticker] = score;
     await saveStore(options.storePath, store);
   }

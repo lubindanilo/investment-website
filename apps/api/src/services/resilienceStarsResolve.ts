@@ -34,9 +34,11 @@ export function detectStable(runs: ResilienceStarScore[][]): Map<string, Stabili
   }
   const result = new Map<string, StabilityInfo>();
   for (const [name, scores] of byName) {
+    const first = scores[0];
+    if (!first) continue;
     const totals = scores.map(s => s.total);
     const stable = totals.length > 0 && Math.max(...totals) - Math.min(...totals) === 0;
-    result.set(name, { stable, totals, first: scores[0] });
+    result.set(name, { stable, totals, first });
   }
   return result;
 }
@@ -67,7 +69,7 @@ export async function scoreWithEscalation(
     // Escalade individuelle (attention maximale) a temperature 0.
     for (const company of litigious) {
       const [score] = await scoreCompaniesApi([company], { model: options.model, temperature: 0 });
-      apiByName.set(company.name, score);
+      if (score) apiByName.set(company.name, score);
     }
   }
 

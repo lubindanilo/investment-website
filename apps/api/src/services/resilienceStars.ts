@@ -111,5 +111,6 @@ export async function scoreCompany(
   options: ScoreOptions = {},
 ): Promise<ResilienceStarScore> {
   const [score] = await scoreCompanies([company], options);
+  if (!score) throw new Error(`Aucun score pour ${company.name}`);
   return score;
 }

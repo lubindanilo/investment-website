@@ -25,7 +25,7 @@ describe('aggregateTotal', () => {
 
 describe('parseScores', () => {
   it('parse un tableau JSON valide', () => {
-    const [row] = parseScores(sample);
+    const row = parseScores(sample)[0]!;
     expect(row.nom).toBe('Acme');
     expect(row.criteria.besoin.star).toBe(1);
     expect(row.criteria.capture.justification).toBe('durable');
@@ -33,7 +33,7 @@ describe('parseScores', () => {
   });
 
   it('tolere un fencing markdown ```json', () => {
-    const [row] = parseScores('```json\n' + sample + '\n```');
+    const row = parseScores('```json\n' + sample + '\n```')[0]!;
     expect(row.criteria.forces.star).toBe(0);
   });
 
