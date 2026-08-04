@@ -537,9 +537,9 @@
   .lp .mech-steps { position: static; }
   .lp .mstep { opacity: 1; padding: 9px 0 9px 14px; }
   .lp .mstep h3 { font-size: 18px; }
-  .lp .mech-stage { position: static; height: auto; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -14px; padding: 2px 14px 12px; scrollbar-width: none; }
+  .lp .mech-stage { position: static; height: auto; display: grid; gap: 14px; overflow: visible; margin: 0; padding: 0; }
   .lp .mech-stage::-webkit-scrollbar { display: none; }
-  .lp .mcard { position: static; opacity: 1 !important; transform: none !important; pointer-events: auto !important; min-width: 84vw; scroll-snap-align: center; align-content: start; }
+  .lp .mcard { position: static; opacity: 1 !important; transform: none !important; pointer-events: auto !important; width: 100%; min-width: 0; scroll-snap-align: none; align-content: start; }
 
   .lp .mgrid2 { grid-template-columns: 1fr; }
   .lp .field { height: 158px; }
@@ -564,14 +564,14 @@
   .lp .connect { grid-template-columns: 1fr; gap: 14px; padding: 16px; margin-top: 18px; }
   .lp .connect-steps { line-height: 1.6; font-size: 13px; }
   .lp .connect-url code { font-size: 11.5px; padding: 9px 11px; word-break: break-all; }
-  .lp .proof-grid, .lp .proof-grid.two { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 26px -14px 0; padding: 0 14px 12px; scrollbar-width: none; }
+  .lp .proof-grid, .lp .proof-grid.two { display: grid; grid-template-columns: 1fr; overflow: visible; gap: 12px; margin: 22px 0 0; padding: 0; scrollbar-width: none; }
   .lp .proof-grid::-webkit-scrollbar { display: none; }
-  .lp .pcard { min-width: 84vw; scroll-snap-align: center; }
+  .lp .pcard { min-width: 0; scroll-snap-align: none; }
   /* Track record : les 4 cas défilent au doigt, à la même échelle qu'en grand écran. */
   .lp .pal { padding: 16px; margin-top: 26px; }
-  .lp .pal-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; margin: 0 -16px; padding: 0 16px 10px; scrollbar-width: none; }
+  .lp .pal-grid { display: grid; grid-template-columns: 1fr; overflow: visible; gap: 10px; margin: 0; padding: 0; scrollbar-width: none; }
   .lp .pal-grid::-webkit-scrollbar { display: none; }
-  .lp .tcard { min-width: 74vw; scroll-snap-align: center; }
+  .lp .tcard { min-width: 0; scroll-snap-align: none; }
   .lp .pal-head { margin-bottom: 16px; gap: 12px; }
   .lp .pal-head h3 { font-size: 18px; }
   .lp .forwho { grid-template-columns: 1fr; }
@@ -589,6 +589,80 @@
   .lp .pcard { padding: 18px; }
   .lp .final-form, .lp .final .tickbox { width: 100%; }
   .lp .hero { padding: 26px 0 30px; }
+}
+
+@media (max-width: 560px) {
+  .lp .sec { padding: 34px 0; }
+  .lp .sec-head { max-width: none; }
+  .lp .sec-head h2, .lp .split-title { font-size: 27px; line-height: 1.08; }
+  .lp .hero { gap: 18px; padding: 18px 0 26px; }
+  .lp .hero-chip { max-width: 100%; margin-bottom: 16px; padding: 5px 10px; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .lp .hero h1 { font-size: 34px; line-height: 1.05; max-width: 13ch; }
+  .lp .hero-sub { font-size: 16px; line-height: 1.45; max-width: 31ch; }
+  .lp .tickform { gap: 9px; margin-top: 22px; }
+  .lp .tickform .input { height: 46px; font-size: 14px; }
+  .lp .tickform .btn { min-height: 48px; }
+  .lp .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+  .lp .hero-stats .v { font-size: 23px; }
+  .lp .hero-stats .l { max-width: 15ch; font-size: 12px; }
+  .lp .acard { border-radius: var(--r-md); padding: 14px; }
+  .lp .acard-head { gap: 10px; padding-bottom: 13px; }
+  .lp .tick-badge { width: 40px; height: 40px; }
+  .lp .acard-score { align-items: center; gap: 12px; }
+  .lp .acard-score .ring-wrap, .lp .mock-score .ring-wrap { transform: scale(.9); transform-origin: left center; }
+  .lp .acard-res { padding: 10px 11px; }
+  .lp .acard-foot-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+
+  .lp .friction { padding: 24px 0 30px; }
+  .lp .stack { height: 116px; width: 100%; margin-bottom: 18px; overflow: hidden; }
+  .lp .stack .sheet { width: 126px; height: 84px; }
+  .lp .friction h2 { font-size: 23px; line-height: 1.14; max-width: 18ch; }
+
+  .lp .mech .sec-head { margin-bottom: 26px !important; }
+  .lp .mech-steps { border-left: 2px solid var(--line); margin-left: 2px; }
+  .lp .mstep { border-left: 0; padding: 0 0 18px 18px; }
+  .lp .mstep + .mstep { padding-top: 2px; }
+  .lp .mstep h3 { max-width: 22ch; font-size: 19px; line-height: 1.15; }
+  .lp .mstep .n { margin-bottom: 6px; font-size: 11px; }
+  .lp .mstep-bar { margin-top: 10px; }
+  .lp .panel { border-radius: var(--r-md); padding: 18px; box-shadow: var(--sh-sm); }
+  .lp .panel h4 { margin-bottom: 14px; font-size: 12px; }
+  .lp .panel .crits { grid-template-columns: minmax(0, 1fr); }
+  .lp .mock-head, .lp .mock-score { margin-bottom: 12px; }
+  .lp .slider { display: grid; grid-template-columns: minmax(0, 1fr) 58px; gap: 8px 12px; }
+  .lp .slider-l { width: auto; }
+  .lp .slider-v { width: auto; }
+  .lp .track { grid-column: 1 / -1; order: 3; }
+  .lp .buyresult { margin-top: 20px; padding-top: 18px; }
+  .lp .masked { font-size: 26px; }
+
+  .lp .field { height: 132px; margin-top: 24px; border-radius: var(--r-md); }
+  .lp .screener-rows { gap: 8px; }
+  .lp .srow { grid-template-columns: 46px minmax(0, 1fr) 54px 20px; gap: 8px; padding: 9px 10px 9px 13px; }
+
+  .lp .claude { padding: 42px 0; }
+  .lp .claude-sub { font-size: 15px; }
+  .lp .screen { border-radius: var(--r-md); }
+  .lp .thread.live { height: 390px; }
+  .lp .bub-u { max-width: 88%; font-size: 13.5px; }
+  .lp .bub-a { font-size: 13.5px; }
+  .lp .composer { padding: 12px 14px; }
+
+  .lp .pal { border-radius: var(--r-md); padding: 14px; margin-top: 22px; }
+  .lp .pal-grid { gap: 8px; }
+  .lp .tcard { border-radius: var(--r-sm); padding: 13px; gap: 10px; }
+  .lp .tcard:nth-child(n+3) { display: none; }
+  .lp .tcard-x b { font-size: 27px; }
+  .lp .pal-foot { margin-top: 14px; padding-top: 14px; }
+  .lp .pcard { border-radius: var(--r-md); padding: 16px; gap: 12px; }
+  .lp .pcard h3 { font-size: 18px; }
+  .lp .formula { overflow-wrap: anywhere; font-size: 11.5px; }
+
+  .lp .who { border-radius: var(--r-md); padding: 18px; }
+  .lp .who h3 { font-size: 19px; max-width: none; }
+  .lp .final { padding: 38px 0 42px; }
+  .lp .final h2 { font-size: 28px; }
+  .lp .faq { margin-top: 30px; }
 }
 
 /* ---------- accessibilité : mouvement réduit ---------- */
