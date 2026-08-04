@@ -7,6 +7,7 @@
  *   npm run resilience:stars:deepseek-test -- no-ref  # V3 seul (economise l'abonnement)
  */
 import 'dotenv/config';
+import { writeFile, mkdir } from 'node:fs/promises';
 import { scoreCompanies, CRITERION_KEYS, type ResilienceStarScore } from '../src/services/resilienceStars.js';
 import { scoreCompaniesDeepseek, hasDeepseekKey } from '../src/services/resilienceStarsDeepseek.js';
 import { FRESH20_COHORT } from '../src/services/resilienceStarsUniverseFresh20.js';
@@ -20,10 +21,12 @@ async function main(): Promise<void> {
     console.error('DEEPSEEK_API_KEY absent. Pose-la dans apps/api/.env puis relance.');
     process.exit(1);
   }
-  const withRef = process.argv[2] !== 'no-ref';
+  const withRef = process.argv.includes('ref'); // defaut : V3 seul ; ajouter 'ref' pour la reference Sonnet
 
   console.log('DeepSeek-V3 (deepseek-chat)...');
   const v3 = byName(await scoreCompaniesDeepseek(FRESH20_COHORT, { model: 'deepseek-chat', chunkSize: 6, maxTokens: 8000 }));
+  await mkdir('.data', { recursive: true });
+  await writeFile('.data/deepseek_v3_fresh20.json', `${JSON.stringify([...v3.values()], null, 2)}\n`, 'utf8');
 
   let sonnet = new Map<string, ResilienceStarScore>();
   if (withRef) {
