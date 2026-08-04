@@ -32,7 +32,9 @@ import { getEarningsInfo } from './earnings.js';
 import type { EarningsInfo } from '@lubin/shared';
 import { computeDerivedMetrics } from './derivedMetrics.js';
 import type { DerivedMetrics } from '@lubin/shared';
-import type { CachedQuantSnapshot } from './quantCache.js';
+import { computeLivePfcf, type CachedQuantSnapshot } from './quantCache.js';
+import { getSecReportingCurrency } from './secEdgar.js';
+import { getFxRateNow } from './fx.js';
 
 export interface QuantData {
   metrics: DerivedMetrics;
@@ -53,6 +55,13 @@ export interface QuantData {
   // Données brutes que certains callers veulent persister (cf. watchlist live P/FCF)
   rawFhFcfAdj: AdjustedFcfResult | null;
   rawFhCapEmp: CapitalEmployedSnapshot | null;
+  /**
+   * Facteur ramenant le FCF de sa devise de REPORTING vers la devise de COTATION du prix.
+   * 1 pour la quasi-totalité des titres ; ~0,148 pour un ADR chinois. Persisté dans le
+   * snapshot pour que les recomputes live (watchlist, screener, percentile) l'appliquent sans
+   * appel réseau. Cf `computeLivePfcf` et le module `fx`.
+   */
+  fcfFxToQuote: number | null;
 }
 
 export interface LoadQuantOptions {
@@ -111,11 +120,10 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
     const livePrice = quote?.c != null && quote.c > 0 ? quote.c : null;
     if (livePrice != null) {
       metrics.price = livePrice;
-      // Recompute P/FCF live (price × shares / adjFcfTtm) — même formule que la watchlist.
-      if (cached.adjFcfTtm != null && cached.adjFcfTtm !== 0 && cached.sharesOutstanding != null) {
-        const p = (livePrice * cached.sharesOutstanding) / cached.adjFcfTtm;
-        if (Number.isFinite(p) && p > 0) metrics.pfcfTTM = p;
-      }
+      // Recompute P/FCF live — formule partagée avec la watchlist, le screener et le percentile
+      // (cf computeLivePfcf : elle porte aussi la conversion de devise du FCF).
+      const p = computeLivePfcf(livePrice, cached.sharesOutstanding, cached.adjFcfTtm, cached.fcfFxToQuote);
+      if (p != null) metrics.pfcfTTM = p;
     }
     if (log) console.log(`[quant ${ticker}] FAST PATH done in ${ms()}ms`);
     return {
@@ -132,6 +140,8 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
       finnhubCompletelyEmpty: false,
       rawFhFcfAdj: null,
       rawFhCapEmp: null,
+      // Chemin rapide : on reconduit le facteur figé dans le snapshot (pas de re-sondage).
+      fcfFxToQuote: cached.fcfFxToQuote ?? null,
     };
   }
 
@@ -326,11 +336,21 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   const yProfile = await getAssetProfileYahoo(yahooSymbol ?? ticker).catch(() => ({ sector: null, industry: null, description: null }));
   const detailedIndustry = yProfile.industry ?? yProfile.sector ?? fhProfile?.finnhubIndustry ?? null;
 
+  // Change FCF → devise de cotation, figé ici pour tous les recomputes live en aval.
+  // La devise de reporting vient d'EDGAR : `getCik` écarte gratuitement les tickers suffixés,
+  // donc seuls les titres cotés aux États-Unis sont sondés — exactement le périmètre des ADR,
+  // et sans toucher au limiter Yahoo qui plafonne le débit du drain nocturne.
+  const reportingCurrency = await getSecReportingCurrency(ticker).catch(() => null);
+  const fcfFxToQuote = reportingCurrency ? await getFxRateNow(reportingCurrency, currency).catch(() => null) : 1;
+  if (reportingCurrency && fcfFxToQuote != null && fcfFxToQuote !== 1) {
+    if (log) console.log(`[quant ${ticker}] FCF en ${reportingCurrency}, prix en ${currency} → facteur de change ${fcfFxToQuote}`);
+  }
+
   return {
     metrics, company, fundamentalsAvailable, fundamentalsSource, currency, yahooSymbol,
     rawNews, earnings: earningsInfo, finnhubCompletelyEmpty,
     industry: detailedIndustry,
     dayChangePct: quote?.dp ?? yahooDayChangePct ?? null,
-    rawFhFcfAdj, rawFhCapEmp,
+    rawFhFcfAdj, rawFhCapEmp, fcfFxToQuote,
   };
 }

@@ -30,7 +30,7 @@ import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
 import { getResilienceStars } from '../services/resilienceStars.js';
 import {
-  getCachedSnapshot, getCachedSnapshotsBatch, writeCachedSnapshot,
+  getCachedSnapshot, getCachedSnapshotsBatch, writeCachedSnapshot, computeLivePfcf,
   type CachedQuantSnapshot,
 } from '../services/quantCache.js';
 // computeAndCache + la limite Free vivent dans un service partagé avec la couche MCP
@@ -63,6 +63,7 @@ function toWatchlistEntry(s: CachedQuantSnapshot): WatchlistEntry {
     nextEarningsDate: s.nextEarningsDate ?? null,
     adjFcfTtm: s.adjFcfTtm,
     sharesOutstanding: s.sharesOutstanding,
+    fcfFxToQuote: s.fcfFxToQuote ?? null,
   };
 }
 
@@ -92,11 +93,10 @@ async function enrichWithLivePrice(entries: WatchlistEntry[]): Promise<Watchlist
         if (!livePrice || livePrice <= 0) return snap;
         // Price toujours mis à jour, même sans cache
         const updated: WatchlistEntry = { ...snap, price: livePrice };
-        // P/FCF live SI on a les composants statiques cachés
-        if (snap.adjFcfTtm != null && snap.sharesOutstanding != null) {
-          const livePfcf = (livePrice * snap.sharesOutstanding) / snap.adjFcfTtm;
-          if (Number.isFinite(livePfcf) && livePfcf > 0) updated.pfcfTTM = livePfcf;
-        }
+        // P/FCF live SI on a les composants statiques cachés (formule partagée : elle porte
+        // aussi la conversion de devise du FCF, cf computeLivePfcf).
+        const livePfcf = computeLivePfcf(livePrice, snap.sharesOutstanding, snap.adjFcfTtm, snap.fcfFxToQuote);
+        if (livePfcf != null) updated.pfcfTTM = livePfcf;
         return updated;
       } catch {
         return snap;

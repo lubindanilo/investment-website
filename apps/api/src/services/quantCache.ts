@@ -43,6 +43,19 @@ export interface CachedQuantSnapshot {
   // Pour le recompute LIVE du P/FCF en watchlist (price × shares / adjFcfTtm)
   adjFcfTtm: number | null;
   sharesOutstanding: number | null;
+  /**
+   * Facteur convertissant `adjFcfTtm` de sa devise de REPORTING vers la devise de COTATION du
+   * prix. 1 pour tout émetteur qui publie dans sa devise de cotation (la quasi-totalité), ~0,148
+   * pour un ADR chinois. Figé au calcul du snapshot pour que les recomputes live (watchlist,
+   * screener, percentile) n'aient pas à retaper le réseau. Voir `computeLivePfcf` et le module `fx`.
+   */
+  fcfFxToQuote?: number | null;
+  /**
+   * Génération de la LOGIQUE de calcul. `getServableSnapshot` refuse un snapshot d'une
+   * génération antérieure : c'est le seul moyen de faire sortir un correctif de formule, sinon
+   * le cache reste servi jusqu'au prochain earnings (jusqu'à 120 jours).
+   */
+  logicVersion?: number;
 
   // ─── Prochain earnings (affiché en watchlist) ───────────────────────────
   /** Date du prochain earnings (YYYY-MM-DD). Null si inconnue. */
@@ -57,6 +70,42 @@ export interface CachedQuantSnapshot {
   sector?: string | null;
   /** Variation du jour en % (quote.dp). */
   dayChangePct?: number | null;
+}
+
+/**
+ * Génération courante de la logique de calcul du snapshot. À INCRÉMENTER dès qu'une formule
+ * change de résultat, sinon les caches déjà écrits continuent de servir l'ancien chiffre.
+ *
+ * 1 — conversion de devise du P/FCF. Le multiple divisait une capitalisation en devise de
+ *     cotation par un FCF en devise de reporting : les ADR chinois affichaient PDD à 1,28×
+ *     pour ~8,0× réel, ZTO à 3,34× pour ~20,8×.
+ */
+export const SNAPSHOT_LOGIC_VERSION = 1;
+
+/**
+ * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.
+ *
+ * Recalculé à cinq endroits (chemin rapide d'analyze, percentile d'opportunité, watchlist,
+ * screener ×2) et la cohérence entre eux est le principe fondateur de ce cache : la formule
+ * vit donc ICI, pas dupliquée. Un percentile calculé sur une base différente de l'historique
+ * bascule les cas limites (cas réel DOCU : 24,54 vs 25,30).
+ *
+ * `fcfFxToQuote` ramène le FCF dans la devise du prix (cf `CachedQuantSnapshot`). Absent ou
+ * null → 1, ce qui reproduit exactement le comportement d'avant pour les émetteurs qui
+ * publient dans leur devise de cotation.
+ */
+export function computeLivePfcf(
+  price: number | null | undefined,
+  sharesOutstanding: number | null | undefined,
+  adjFcfTtm: number | null | undefined,
+  fcfFxToQuote?: number | null,
+): number | null {
+  if (price == null || !(price > 0)) return null;
+  if (sharesOutstanding == null || !(sharesOutstanding > 0)) return null;
+  if (adjFcfTtm == null || adjFcfTtm === 0) return null;
+  const fcfInQuoteCurrency = adjFcfTtm * (fcfFxToQuote ?? 1);
+  const pfcf = (price * sharesOutstanding) / fcfInQuoteCurrency;
+  return Number.isFinite(pfcf) && pfcf > 0 ? pfcf : null;
 }
 
 /** Lit le snapshot caché pour un ticker. Retourne null si absent (jamais analysé). */
@@ -81,6 +130,9 @@ export async function getServableSnapshot(ticker: string): Promise<CachedQuantSn
   if (!row) return null;
   const snap = row.snapshot as unknown as CachedQuantSnapshot;
   if (!snap.fundamentalsAvailable) return null; // ne sert pas un cache "nodata"
+  // Snapshot calculé par une logique périmée → on recalcule, quelle que soit sa fraîcheur.
+  // Sans ce test, un correctif de formule n'atteint l'utilisateur qu'au prochain earnings.
+  if ((snap.logicVersion ?? 0) < SNAPSHOT_LOGIC_VERSION) return null;
   const ageMs = Date.now() - row.refreshedAt.getTime();
   if (ageMs > HARD_MAX_AGE_MS) return null;
   const today = new Date().toISOString().slice(0, 10);
@@ -170,7 +222,10 @@ export function isQualityDegradation(prev: CachedQuantSnapshot, next: CachedQuan
  * on ne persiste pas le recompute dégradé. Renvoie le snapshot EFFECTIVEMENT en cache (le
  * conservé ou le nouveau) — les appelants (screener) doivent l'utiliser pour rester cohérents.
  */
-export async function writeCachedSnapshot(ticker: string, snapshot: CachedQuantSnapshot): Promise<CachedQuantSnapshot> {
+export async function writeCachedSnapshot(ticker: string, snapshotIn: CachedQuantSnapshot): Promise<CachedQuantSnapshot> {
+  // Estampille de génération posée ICI, au point de passage unique des trois producteurs
+  // (analyze, watchlist, scoring) → aucun d'eux ne peut oublier de la mettre.
+  const snapshot: CachedQuantSnapshot = { ...snapshotIn, logicVersion: SNAPSHOT_LOGIC_VERSION };
   const existing = await getCachedSnapshot(ticker).catch(() => null);
   if (existing && isQualityDegradation(existing, snapshot)) {
     console.warn(
