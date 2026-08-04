@@ -1,14 +1,26 @@
 /**
- * /sitemap.xml — sitemap dynamique pour le référencement.
+ * Sitemaps dynamiques pour le référencement.
  *
- * Inclut :
- *   - les pages statiques principales (home, pricing, screener, compare, etc.)
- *     avec balises hreflang fr/en/es (xhtml:link) ;
- *   - jusqu'à 5000 tickers scorés, ordonnés par scoreRatio décroissant
- *     (les meilleures notes en premier → meilleur signal pour les crawlers).
+ * ⚠️ ARCHITECTURE (revue audit masterclass SEO 2026-08-04) : ce n'est plus UN sitemap
+ * monolithique mais un INDEX qui pointe vers plusieurs sitemaps thématiques :
  *
- * Cache mémoire 1 h : le sitemap est régénéré au plus toutes les heures
- * (les jobs de scoring tournent en continu, mais inutile d'interroger Prisma à chaque hit).
+ *   /sitemap.xml              → index (c'est l'URL déclarée dans robots.txt et la GSC)
+ *   /sitemap-pages.xml        → pages statiques (home, pricing, screener, légal…)
+ *   /sitemap-articles.xml     → articles de blog
+ *   /sitemap-hubs.xml         → hubs secteur + classements
+ *   /sitemap-tickers-1.xml…N  → fiches /analyse, par tranches de 1000
+ *
+ * Pourquoi : le corpus mesure que plusieurs petits sitemaps s'indexent PLUS VITE qu'un
+ * gros, et surtout un découpage thématique rend le diagnostic possible dans la Search
+ * Console (elle affiche le taux de couverture PAR sitemap). Avec un fichier unique de
+ * 5000 URLs, impossible de savoir si le problème d'indexation touche les fiches, les
+ * articles ou les hubs. Là, on le lit directement.
+ *
+ * Chaque sitemap porte des balises hreflang fr/en/es (xhtml:link) et les fiches ticker
+ * sont ordonnées par scoreRatio décroissant (les meilleures notes en premier).
+ *
+ * Cache mémoire 1 h par sitemap : les jobs de scoring tournent en continu, inutile
+ * d'interroger Prisma à chaque hit.
  */
 import { Router, type Request, type Response } from 'express';
 import { asyncHandler } from '../middleware/error.js';
@@ -20,7 +32,7 @@ import { prisma } from '../db/client.js';
 // TODO : à terme, transformer @lubin/shared en vrai package compilé (tsc → dist/) et virer
 // cette duplication.
 import { listArticles } from '../data/articles.js';
-import { slugifySector } from './seoPrerender.js';
+import { slugifySector, COMPARE_PAIRS, comparePairSlug } from './seoPrerender.js';
 
 export const sitemapRouter: Router = Router();
 
@@ -30,6 +42,14 @@ const SITE_URL = (process.env.SITE_URL || 'https://lubin-investment.com').replac
 /** Locales gérées par l'app (hreflang). La langue par défaut est le français. */
 const LOCALES = ['fr', 'en', 'es'] as const;
 
+/** Nombre max de fiches ticker par sitemap. Google autorise 50 000 URLs par fichier :
+ *  on descend très en dessous, l'objectif étant la vitesse d'indexation et la lisibilité
+ *  du rapport de couverture, pas de tenir dans la limite. */
+const TICKERS_PER_SITEMAP = 1000;
+
+/** Plafond global de fiches advertisées (inchangé par rapport au sitemap monolithique). */
+const MAX_TICKERS = 5000;
+
 /** Pages statiques + leurs hints SEO. */
 const STATIC_PAGES: Array<{ path: string; changefreq: string; priority: number }> = [
   { path: '/',                  changefreq: 'daily',   priority: 1.0 },
@@ -38,6 +58,7 @@ const STATIC_PAGES: Array<{ path: string; changefreq: string; priority: number }
   { path: '/compare',           changefreq: 'weekly',  priority: 0.7 },
   { path: '/methodologie',      changefreq: 'monthly', priority: 0.6 },
   { path: '/palmares',          changefreq: 'monthly', priority: 0.6 },
+  { path: '/faq',               changefreq: 'monthly', priority: 0.7 },
   { path: '/blog',              changefreq: 'weekly',  priority: 0.7 },
   { path: '/mentions-legales',  changefreq: 'yearly',  priority: 0.2 },
   { path: '/cgu',               changefreq: 'yearly',  priority: 0.2 },
@@ -45,7 +66,7 @@ const STATIC_PAGES: Array<{ path: string; changefreq: string; priority: number }
   { path: '/confidentialite',   changefreq: 'yearly',  priority: 0.2 },
 ];
 
-/** Cache mémoire — clé unique car le sitemap est global (pas multi-tenant). */
+/** Cache mémoire, une entrée par sitemap (clé = nom du sitemap). */
 const CACHE = new Map<string, { xml: string; ts: number }>();
 const CACHE_TTL_MS = 60 * 60 * 1000; // 1 h
 
@@ -134,18 +155,22 @@ function buildHubUrlBlock(path: string, lastmod: string): string {
   ].join('\n');
 }
 
-/** Assemble le XML complet (statiques + hubs + tickers scorés). */
-async function buildSitemap(): Promise<string> {
-  const lastmod = new Date().toISOString().slice(0, 10);
+/** Enveloppe une liste de blocs <url> dans un <urlset> complet. */
+function wrapUrlset(blocks: string[]): string {
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    ...blocks,
+    '</urlset>',
+  ].join('\n');
+}
 
-  // Tickers scorés, meilleurs ratios en premier (limite Google : 50 000 URLs / sitemap).
-  // On récupère scoreRatio (pour différencier la priority) et lastScoredAt (lastmod réel)
-  // afin d'envoyer à Google de vrais signaux de fraîcheur + d'importance par fiche.
-  // Tickers à INDEXER — cohérent avec la règle robots de seoPrerender (renderTickerHtml) :
-  // on exclut le « bas » (note < 5/10 ET (very small cap US < 500 M$ OU pas de P/FCF OU penny
-  // < 1 $)), SAUF opportunité du moment ou ticker rattaché à un article. Cf. audit SEO 2026-07-19.
-  // ⚠️ Toute évolution de cette règle DOIT être répliquée dans seoPrerender.ts (sinon on advertise
-  // des pages en noindex, signaux incohérents).
+/** Tickers à INDEXER — cohérent avec la règle robots de seoPrerender (renderTickerHtml) :
+ *  on exclut le « bas » (note < 5/10 ET (very small cap US < 500 M$ OU pas de P/FCF OU penny
+ *  < 1 $)), SAUF opportunité du moment ou ticker rattaché à un article. Cf. audit SEO 2026-07-19.
+ *  ⚠️ Toute évolution de cette règle DOIT être répliquée dans seoPrerender.ts (sinon on advertise
+ *  dans le sitemap des pages en noindex, signaux incohérents). */
+function tickerWhere() {
   const articleTickers = Array.from(
     new Set(
       listArticles()
@@ -153,29 +178,69 @@ async function buildSitemap(): Promise<string> {
         .filter((s) => s.length > 0),
     ),
   );
-  const tickers = await prisma.screenerTicker.findMany({
-    where: {
-      status: 'scored',
-      OR: [
-        { scoreRatio: { gte: 0.5 } },
-        { scoreRatio: null },
-        { opportunity: true },
-        { ticker: { in: articleTickers } },
-        {
-          AND: [
-            { pfcfTTM: { not: null } },
-            { OR: [{ price: null }, { price: { gte: 1 } }] },
-            { NOT: { region: 'US', marketCap: { lt: 500_000_000 } } },
-          ],
-        },
-      ],
-    },
-    orderBy: { scoreRatio: 'desc' },
-    take: 5000,
-    select: { ticker: true, scoreRatio: true, lastScoredAt: true, updatedAt: true },
-  });
+  return {
+    status: 'scored',
+    OR: [
+      { scoreRatio: { gte: 0.5 } },
+      { scoreRatio: null },
+      { opportunity: true },
+      { ticker: { in: articleTickers } },
+      {
+        AND: [
+          { pfcfTTM: { not: null } },
+          { OR: [{ price: null }, { price: { gte: 1 } }] },
+          { NOT: { region: 'US', marketCap: { lt: 500_000_000 } } },
+        ],
+      },
+    ],
+  };
+}
 
-  // Hubs secteur : un par secteur ayant au moins un ticker scoré (pages d'indexation/maillage).
+/** Nombre de tranches de fiches ticker (au moins 1, pour que l'index ne soit jamais vide). */
+async function countTickerChunks(): Promise<number> {
+  const total = Math.min(await prisma.screenerTicker.count({ where: tickerWhere() }), MAX_TICKERS);
+  return Math.max(1, Math.ceil(total / TICKERS_PER_SITEMAP));
+}
+
+/** Index de sitemaps : c'est CE fichier qui reste déclaré dans robots.txt et la GSC. */
+async function buildSitemapIndex(): Promise<string> {
+  const lastmod = new Date().toISOString().slice(0, 10);
+  const chunks = await countTickerChunks();
+  const children = [
+    '/sitemap-pages.xml',
+    '/sitemap-articles.xml',
+    '/sitemap-hubs.xml',
+    ...Array.from({ length: chunks }, (_, i) => `/sitemap-tickers-${i + 1}.xml`),
+  ];
+  return [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...children.map((p) => [
+      '  <sitemap>',
+      `    <loc>${xmlEscape(`${SITE_URL}${p}`)}</loc>`,
+      `    <lastmod>${lastmod}</lastmod>`,
+      '  </sitemap>',
+    ].join('\n')),
+    '</sitemapindex>',
+  ].join('\n');
+}
+
+/** Sitemap des pages statiques. */
+function buildPagesSitemap(): string {
+  const lastmod = new Date().toISOString().slice(0, 10);
+  return wrapUrlset(STATIC_PAGES.map((p) => buildStaticUrlBlock(p.path, p.changefreq, p.priority, lastmod)));
+}
+
+/** Sitemap des articles de blog. lastmod = date de mise à jour de l'article. */
+function buildArticlesSitemap(): string {
+  return wrapUrlset(
+    listArticles().map((a) => buildStaticUrlBlock(`/blog/${a.slug}`, 'monthly', 0.6, a.updated)),
+  );
+}
+
+/** Sitemap des hubs : classements transverses (toujours présents) + un hub par secteur. */
+async function buildHubsSitemap(): Promise<string> {
+  const lastmod = new Date().toISOString().slice(0, 10);
   const sectorRows = await prisma.screenerTicker.findMany({
     where: { status: 'scored', sector: { not: null } },
     distinct: ['sector'],
@@ -188,49 +253,101 @@ async function buildSitemap(): Promise<string> {
         .filter((s) => s.length > 0),
     ),
   );
-
-  const staticBlocks = STATIC_PAGES.map((p) => buildStaticUrlBlock(p.path, p.changefreq, p.priority, lastmod));
-  // Articles de blog (hreflang fr/en/es via ?lng). lastmod = date de mise à jour de l'article.
-  const articleBlocks = listArticles().map((a) =>
-    buildStaticUrlBlock(`/blog/${a.slug}`, 'monthly', 0.6, a.updated),
-  );
-  // Hubs : classements transverses (toujours présents) + un hub par secteur.
-  const hubBlocks = [
+  return wrapUrlset([
     buildHubUrlBlock('/classement/qualite-10-sur-10', lastmod),
     buildHubUrlBlock('/classement/sous-evaluees', lastmod),
     ...sectorSlugs.map((slug) => buildHubUrlBlock(`/secteur/${slug}`, lastmod)),
-  ];
-  const tickerBlocks = tickers.map((t) => {
-    // lastmod réel : dernière analyse (lastScoredAt) > updatedAt > date du jour.
-    const tickerLastmod = (t.lastScoredAt ?? t.updatedAt)?.toISOString().slice(0, 10) ?? lastmod;
-    return buildTickerUrlBlock(t.ticker, tickerLastmod, t.scoreRatio);
-  });
+    // Pages de comparaison « X vs Y » : liste curée (~20), servies en HTML pré-rendu aux
+    // bots. Elles n'ont aucun lien entrant naturel puisqu'elles viennent d'être créées, or
+    // une page orpheline est ignorée ou déprioritisée : le sitemap est ici le canal de
+    // découverte, en plus du lien depuis chaque fiche concernée.
+    ...COMPARE_PAIRS.map(([a, b]) =>
+      buildStaticUrlBlock(`/comparer/${comparePairSlug(a, b)}`, 'weekly', 0.7, lastmod),
+    ),
+  ]);
+}
 
-  return [
-    '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-    ...staticBlocks,
-    ...articleBlocks,
-    ...hubBlocks,
-    ...tickerBlocks,
-    '</urlset>',
-  ].join('\n');
+/** Sitemap d'une tranche de fiches ticker (1-indexé), meilleurs scoreRatio en premier. */
+async function buildTickersSitemap(chunk: number): Promise<string> {
+  const fallbackLastmod = new Date().toISOString().slice(0, 10);
+  const skip = (chunk - 1) * TICKERS_PER_SITEMAP;
+  // On respecte le plafond global : la dernière tranche peut être plus courte.
+  const take = Math.max(0, Math.min(TICKERS_PER_SITEMAP, MAX_TICKERS - skip));
+  if (take === 0) return wrapUrlset([]);
+  const tickers = await prisma.screenerTicker.findMany({
+    where: tickerWhere(),
+    // ⚠️ Tri STABLE obligatoire : sans le tie-break sur `ticker`, deux fiches de même
+    // scoreRatio peuvent permuter entre deux requêtes et une URL se retrouverait dans
+    // deux tranches à la fois (ou dans aucune) selon la pagination.
+    orderBy: [{ scoreRatio: 'desc' }, { ticker: 'asc' }],
+    skip,
+    take,
+    select: { ticker: true, scoreRatio: true, lastScoredAt: true, updatedAt: true },
+  });
+  return wrapUrlset(
+    tickers.map((t) => {
+      // lastmod réel : dernière analyse (lastScoredAt) > updatedAt > date du jour.
+      const tickerLastmod = (t.lastScoredAt ?? t.updatedAt)?.toISOString().slice(0, 10) ?? fallbackLastmod;
+      return buildTickerUrlBlock(t.ticker, tickerLastmod, t.scoreRatio);
+    }),
+  );
+}
+
+/** Sert un sitemap avec cache mémoire + cache CDN. */
+async function serveSitemap(res: Response, key: string, build: () => Promise<string> | string): Promise<void> {
+  const now = Date.now();
+  const cached = CACHE.get(key);
+  let xml: string;
+  if (cached && now - cached.ts < CACHE_TTL_MS) {
+    xml = cached.xml;
+  } else {
+    xml = await build();
+    CACHE.set(key, { xml, ts: now });
+  }
+  res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+  res.setHeader('Cache-Control', 'public, max-age=3600');
+  res.status(200).send(xml);
 }
 
 sitemapRouter.get(
   '/sitemap.xml',
   asyncHandler(async (_req: Request, res: Response) => {
-    const now = Date.now();
-    const cached = CACHE.get('default');
-    let xml: string;
-    if (cached && now - cached.ts < CACHE_TTL_MS) {
-      xml = cached.xml;
-    } else {
-      xml = await buildSitemap();
-      CACHE.set('default', { xml, ts: now });
+    await serveSitemap(res, 'index', buildSitemapIndex);
+  }),
+);
+
+sitemapRouter.get(
+  '/sitemap-pages.xml',
+  asyncHandler(async (_req: Request, res: Response) => {
+    await serveSitemap(res, 'pages', buildPagesSitemap);
+  }),
+);
+
+sitemapRouter.get(
+  '/sitemap-articles.xml',
+  asyncHandler(async (_req: Request, res: Response) => {
+    await serveSitemap(res, 'articles', buildArticlesSitemap);
+  }),
+);
+
+sitemapRouter.get(
+  '/sitemap-hubs.xml',
+  asyncHandler(async (_req: Request, res: Response) => {
+    await serveSitemap(res, 'hubs', buildHubsSitemap);
+  }),
+);
+
+sitemapRouter.get(
+  '/sitemap-tickers-:chunk.xml',
+  asyncHandler(async (req: Request, res: Response) => {
+    const raw = typeof req.params.chunk === 'string' ? req.params.chunk : '';
+    const chunk = Number.parseInt(raw, 10);
+    // Borne haute = nombre réel de tranches : évite qu'un crawler (ou un scan) déclenche
+    // des requêtes DB à l'infini sur /sitemap-tickers-99999.xml.
+    if (!Number.isInteger(chunk) || chunk < 1 || chunk > (await countTickerChunks())) {
+      res.status(404).set('Content-Type', 'text/plain; charset=utf-8').send('Not found');
+      return;
     }
-    res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-    res.setHeader('Cache-Control', 'public, max-age=3600');
-    res.status(200).send(xml);
+    await serveSitemap(res, `tickers-${chunk}`, () => buildTickersSitemap(chunk));
   }),
 );

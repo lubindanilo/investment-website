@@ -170,6 +170,32 @@ type TickerTr = {
   disclaimer: string;
   h1Analysis: string; // "Analyse fondamentale" / "Fundamental analysis" / ...
   pfcfClauseTpl: (pfcf: string) => string;
+
+  // ─── Ajouts audit masterclass SEO (2026-08-04) ───────────────────────────────
+  /** Titre long multi-intention (~150-250 car.). Le corpus mesure +10 à 40 % de trafic
+   *  vs un titre court, l'essentiel devant rester dans les 12 premiers mots. Testé sur
+   *  la moitié des fiches seulement (cf. useLongTitle), pour pouvoir comparer en GSC. */
+  titleLong: (name: string, ticker: string, score: string, pfcfPart: string, year: number) => string;
+  /** Fragment de titre long dédié au P/FCF (omis si la donnée manque). */
+  titleLongPfcf: (pfcf: string) => string;
+  /** Lien sortant « littérature » inséré DANS la section méthode (1 lien par section :
+   *  c'est le geste on-page le mieux prouvé du corpus, 4 tests indépendants). */
+  sourcesLiterature: string;
+  /** Lien sortant « documents officiels » (EDGAR), inséré dans la section méthode. US only. */
+  sourcesFilings: (name: string, href: string) => string;
+  /** Section « prix face aux comparables » : texte dérivé de la DB, donc unique par fiche
+   *  (contre-mesure au motif de gabarit répété, ch. 2/9/12). */
+  peerH2: string;
+  peerBody: (name: string, pfcf: string, median: string, n: number, sector: string, cheaper: boolean) => string;
+  /** Lecture croisée qualité × prix : 4 variantes selon (qualité haute ?, prix bas ?). */
+  crossVerdict: (name: string, goodQuality: boolean, cheap: boolean) => string;
+  /** Signature auteur visible (E-E-A-T ; la réputation d'auteur est stockée par Google,
+   *  et la finance est en régime YMYL renforcé). */
+  authorByline: (href: string) => string;
+  /** Libellé du hub « actions sous-évaluées » (remplace un lien dupliqué du header). */
+  resUndervalued: string;
+  /** Libellé du lien vers la page de comparaison « X vs Y », quand elle existe. */
+  resCompare: (other: string) => string;
 };
 
 const TICKER_TR: Record<ArticleLang, TickerTr> = {
@@ -186,7 +212,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     introVerdict: (n, score, quality, pfcfClause) => `On a analysé l'action ${n} sur les 10 critères de qualité de Lubin Investment. L'entreprise obtient une note de <strong>${score}</strong> synonyme de qualité ${quality}${pfcfClause}.`,
     sectorPriceLine: (sector, exchange, price) => `Secteur : ${sector}.${exchange ? ` Place de cotation : ${exchange}.` : ''}${price ? ` Cours actuel : ${price}.` : ''}`,
     methodH2: 'Méthode de notation Lubin',
-    methodBody: (n, ticker) => `La note de ${n} (${ticker}) est calculée automatiquement à partir de 10 critères financiers objectifs, sans intervention humaine ni opinion. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). La note finale est le total des validations.`,
+    methodBody: (n, ticker) => `La note ${deFr(n)} (${ticker}) est calculée automatiquement à partir de 10 critères financiers objectifs, sans intervention humaine ni opinion. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). La note finale est le total des validations.`,
     criteriaH2: 'Les 10 critères chiffrés analysés',
     criteria: [
       "<strong>Rentable</strong> : marge nette positive",
@@ -231,6 +257,28 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     disclaimer: "Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Ce service ne constitue pas un conseil en investissement personnalisé au sens de l'article L.321-1 du Code monétaire et financier. Les performances passées ne préjugent pas des performances futures.",
     h1Analysis: 'Analyse fondamentale',
     pfcfClauseTpl: (p) => `, et un multiple de valorisation P/FCF de ${p}`,
+    titleLong: (n, ticker, score, pfcfPart, year) =>
+      `Faut-il acheter l'action ${n} (${ticker}) ? Avis et analyse fondamentale : note de qualité ${score}${pfcfPart}, sous-évaluée ou pas, les 10 critères chiffrés. Notre verdict ${year}.`,
+    titleLongPfcf: (p) => `, valorisation P/FCF ${p}`,
+    sourcesLiterature:
+      `Les seuils viennent de la littérature financière, pas de nos préférences : voir les travaux de valorisation d'<a href="https://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a> et les <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">ressources pédagogiques de la SEC (investor.gov)</a>.`,
+    sourcesFilings: (n, href) =>
+      `Les comptes ${deFr(n)} sont publics : tu peux vérifier chaque chiffre dans ses <a href="${href}" target="_blank" rel="noopener nofollow">dépôts officiels 10-K auprès de la SEC (EDGAR)</a>.`,
+    peerH2: 'Son prix face à ses comparables',
+    peerBody: (n, pfcf, median, count, sector, cheaper) =>
+      `Face aux ${count} autres valeurs du secteur ${sector} que nous avons notées, ${n} se paie ${pfcf} son free cash flow, contre une médiane de ${median} pour ce panier. Sur ce seul critère de prix, ${n} est donc ${cheaper ? 'moins chère' : 'plus chère'} que ses comparables. Cela ne dit rien de sa qualité : chez Lubin Investment, la qualité et le prix sont jugés séparément, et un multiple bas n'est une bonne affaire que si la qualité tient.`,
+    crossVerdict: (n, goodQuality, cheap) =>
+      goodQuality && cheap
+        ? `Le cas de figure que nous cherchons : ${n} valide une large majorité de nos critères de qualité tout en se payant un multiple de free cash flow bas. C'est exactement le profil « entreprise de qualité au bon prix », celui qui mérite d'être regardé de près.`
+        : goodQuality && !cheap
+        ? `${n} est une entreprise de qualité selon nos critères, mais son prix ne suit pas : le multiple de free cash flow reste élevé. Une bonne entreprise payée trop cher reste un mauvais placement, donc c'est typiquement un titre à surveiller en attendant un meilleur point d'entrée.`
+        : !goodQuality && cheap
+        ? `${n} se paie un multiple de free cash flow bas, mais échoue sur une partie de nos critères de qualité. Attention au piège : un prix bas n'est pas une décote si le business se dégrade. Le multiple faible peut simplement refléter un problème réel.`
+        : `${n} échoue sur une partie de nos critères de qualité sans que le prix compense. Ni la qualité ni la valorisation ne plaident en sa faveur aujourd'hui, selon nos 10 critères chiffrés.`,
+    authorByline: (href) =>
+      `Méthode et analyse par <a href="${href}">Lubin Danilo, fondateur de Lubin Investment</a>. Note calculée automatiquement, sans opinion humaine.`,
+    resUndervalued: 'Les actions de qualité sous-évaluées',
+    resCompare: (o) => `Comparer avec ${o}`,
   },
   en: {
     ogLocale: 'en_US',
@@ -290,6 +338,28 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     disclaimer: 'Lubin Investment is a decision-support tool for individual investors. This service does not constitute personalized investment advice within the meaning of Article L.321-1 of the French Monetary and Financial Code. Past performance is no guarantee of future results.',
     h1Analysis: 'Fundamental analysis',
     pfcfClauseTpl: (p) => `, and a P/FCF valuation multiple of ${p}`,
+    titleLong: (n, ticker, score, pfcfPart, year) =>
+      `Should you buy ${n} (${ticker}) stock? Review and fundamental analysis: quality score ${score}${pfcfPart}, undervalued or not, all 10 hard criteria. Our ${year} verdict.`,
+    titleLongPfcf: (p) => `, P/FCF valuation ${p}`,
+    sourcesLiterature:
+      `The thresholds come from the financial literature, not from our preferences: see the valuation work of <a href="https://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a> and the <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">SEC investor education resources (investor.gov)</a>.`,
+    sourcesFilings: (n, href) =>
+      `${n}'s accounts are public: you can check every figure in its <a href="${href}" target="_blank" rel="noopener nofollow">official 10-K filings with the SEC (EDGAR)</a>.`,
+    peerH2: 'Its price against peers',
+    peerBody: (n, pfcf, median, count, sector, cheaper) =>
+      `Against the ${count} other ${sector} stocks we have scored, ${n} trades at ${pfcf} its free cash flow, versus a median of ${median} for that basket. On price alone, ${n} is therefore ${cheaper ? 'cheaper' : 'more expensive'} than its peers. That says nothing about its quality: at Lubin Investment, quality and price are judged separately, and a low multiple is only a bargain if the quality holds up.`,
+    crossVerdict: (n, goodQuality, cheap) =>
+      goodQuality && cheap
+        ? `This is the setup we look for: ${n} passes a large majority of our quality criteria while trading at a low free cash flow multiple. That is exactly the "quality company at the right price" profile, the one worth a closer look.`
+        : goodQuality && !cheap
+        ? `${n} is a quality company by our criteria, but the price does not follow: the free cash flow multiple stays high. A great company bought too expensively is still a poor investment, so this is typically one to watch while waiting for a better entry point.`
+        : !goodQuality && cheap
+        ? `${n} trades at a low free cash flow multiple but fails part of our quality criteria. Mind the trap: a low price is not a discount if the business is deteriorating. The low multiple may simply reflect a real problem.`
+        : `${n} fails part of our quality criteria without the price making up for it. Neither quality nor valuation argues in its favour today, according to our 10 hard criteria.`,
+    authorByline: (href) =>
+      `Method and analysis by <a href="${href}">Lubin Danilo, founder of Lubin Investment</a>. Score computed automatically, with no human opinion.`,
+    resUndervalued: 'Undervalued quality stocks',
+    resCompare: (o) => `Compare with ${o}`,
   },
   es: {
     ogLocale: 'es_ES',
@@ -349,6 +419,28 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     disclaimer: 'Lubin Investment es una herramienta de ayuda a la decisión para inversores particulares. Este servicio no constituye un consejo de inversión personalizado en el sentido del artículo L.321-1 del Código Monetario y Financiero francés. Las rentabilidades pasadas no garantizan rentabilidades futuras.',
     h1Analysis: 'Análisis fundamental',
     pfcfClauseTpl: (p) => `, y un múltiplo de valoración P/FCF de ${p}`,
+    titleLong: (n, ticker, score, pfcfPart, year) =>
+      `¿Comprar la acción ${n} (${ticker})? Opinión y análisis fundamental: nota de calidad ${score}${pfcfPart}, infravalorada o no, los 10 criterios. Nuestro veredicto ${year}.`,
+    titleLongPfcf: (p) => `, valoración P/FCF ${p}`,
+    sourcesLiterature:
+      `Los umbrales vienen de la literatura financiera, no de nuestras preferencias: ver los trabajos de valoración de <a href="https://pages.stern.nyu.edu/~adamodar/" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a> y los <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">recursos educativos de la SEC (investor.gov)</a>.`,
+    sourcesFilings: (n, href) =>
+      `Las cuentas de ${n} son públicas: puedes verificar cada cifra en sus <a href="${href}" target="_blank" rel="noopener nofollow">informes oficiales 10-K ante la SEC (EDGAR)</a>.`,
+    peerH2: 'Su precio frente a sus comparables',
+    peerBody: (n, pfcf, median, count, sector, cheaper) =>
+      `Frente a las ${count} otras acciones del sector ${sector} que hemos puntuado, ${n} cotiza a ${pfcf} su free cash flow, frente a una mediana de ${median} para esa cesta. Solo por precio, ${n} es por tanto ${cheaper ? 'más barata' : 'más cara'} que sus comparables. Eso no dice nada de su calidad: en Lubin Investment, la calidad y el precio se juzgan por separado, y un múltiplo bajo solo es una oportunidad si la calidad se sostiene.`,
+    crossVerdict: (n, goodQuality, cheap) =>
+      goodQuality && cheap
+        ? `Este es el caso que buscamos: ${n} valida una amplia mayoría de nuestros criterios de calidad y además cotiza a un múltiplo de free cash flow bajo. Es exactamente el perfil de «empresa de calidad al precio correcto», el que merece una mirada atenta.`
+        : goodQuality && !cheap
+        ? `${n} es una empresa de calidad según nuestros criterios, pero el precio no acompaña: el múltiplo de free cash flow sigue alto. Una buena empresa pagada demasiado cara sigue siendo una mala inversión, así que es un valor para vigilar esperando un mejor punto de entrada.`
+        : !goodQuality && cheap
+        ? `${n} cotiza a un múltiplo de free cash flow bajo pero falla en parte de nuestros criterios de calidad. Cuidado con la trampa: un precio bajo no es un descuento si el negocio se deteriora. El múltiplo bajo puede reflejar simplemente un problema real.`
+        : `${n} falla en parte de nuestros criterios de calidad sin que el precio lo compense. Hoy ni la calidad ni la valoración están a su favor, según nuestros 10 criterios.`,
+    authorByline: (href) =>
+      `Método y análisis por <a href="${href}">Lubin Danilo, fundador de Lubin Investment</a>. Nota calculada automáticamente, sin opinión humana.`,
+    resUndervalued: 'Las acciones de calidad infravaloradas',
+    resCompare: (o) => `Comparar con ${o}`,
   },
 };
 
@@ -358,6 +450,49 @@ function qualityLabelI18n(tr: TickerTr, score: number | null, max: number | null
   if (ratio >= 0.8) return tr.qualityHigh;
   if (ratio >= 0.5) return tr.qualityMid;
   return tr.qualityLow;
+}
+
+/**
+ * Bucket A/B DÉTERMINISTE (≈50 % des tickers) pour le titre long multi-intention.
+ *
+ * Le corpus mesure +10 à 40 % de trafic avec des titres de 150-250 caractères couvrant
+ * 3-4 intentions, contre un titre court « propre » ≤ 60 car. Mais ce chiffre vient
+ * exclusivement de sites anglophones, et notre titre court actuel est un choix délibéré.
+ * On n'inverse donc pas 30 000 fiches sur une preuve non répliquée en français : la moitié
+ * des tickers reçoit le titre long, l'autre garde l'ancien, et la Search Console tranche
+ * (le corpus insiste : ne tester qu'une variable à la fois).
+ *
+ * Déterministe et stable dans le temps : un ticker ne doit JAMAIS changer de bucket entre
+ * deux crawls, sinon le test est inexploitable et Google voit un titre instable.
+ */
+export function useLongTitle(ticker: string): boolean {
+  let h = 0;
+  for (let i = 0; i < ticker.length; i++) h = (h * 31 + ticker.charCodeAt(i)) % 1_000_003;
+  return h % 2 === 0;
+}
+
+/** Élision française devant voyelle ou h muet : « de Apple » → « d'Apple ». Les noms de
+ *  sociétés étant injectés dans des phrases générées, sans ça le texte FR sonne faux. */
+function deFr(name: string): string {
+  return /^[aeiouàâäéèêëîïôöuùûüyh]/i.test(name.trim()) ? `d'${name}` : `de ${name}`;
+}
+
+/** Dépôts 10-K sur EDGAR. US uniquement : la SEC ne couvre pas les autres places de cotation. */
+function edgarFilingsUrl(ticker: string): string {
+  return `https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=${encodeURIComponent(
+    ticker,
+  )}&type=10-K&dateb=&owner=include&count=40`;
+}
+
+/** Médiane d'une série (sert à situer le P/FCF d'une fiche face à ses comparables sectoriels). */
+function medianOf(values: Array<number | null | undefined>): number | null {
+  const xs = values
+    .filter((v): v is number => v != null && isFinite(v))
+    .sort((a, b) => a - b);
+  if (xs.length === 0) return null;
+  const mid = Math.floor(xs.length / 2);
+  if (xs.length % 2 === 0) return ((xs[mid - 1] as number) + (xs[mid] as number)) / 2;
+  return xs[mid] as number;
 }
 
 // HTML pré-rendu riche pour un ticker scoré. C'est le cœur du fix Soft 404 :
@@ -449,9 +584,26 @@ export function renderTickerHtml(
     if (lastSpace > 8) cut = cut.slice(0, lastSpace); // coupe sur un mot entier
     titleName = cut.trimEnd() + '…';
   }
-  const rawTitle = `${tr.titlePrefix}${titleName}${tr.titleSuffix}`;
+  const shortTitle = `${tr.titlePrefix}${titleName}${tr.titleSuffix}`;
+  // Variante longue multi-intention (avis / faut-il acheter / note / valorisation /
+  // sous-évaluée), servie à la moitié des tickers pour mesurer l'écart en GSC.
+  // Le vocabulaire est choisi pour recouper les sous-requêtes que les moteurs IA génèrent
+  // au moment du « fan-out » (le corpus mesure que c'est ce vocabulaire, et non la question
+  // complète de l'utilisateur, qui décide de la récupération).
+  const verdictYear = (t.lastScoredAt ?? new Date()).getFullYear();
+  const longTitle = tr.titleLong(
+    displayName,
+    t.ticker,
+    score,
+    t.pfcfTTM != null && isFinite(t.pfcfTTM) ? tr.titleLongPfcf(pfcf) : '',
+    verdictYear,
+  );
+  const rawTitle = useLongTitle(t.ticker) ? longTitle : shortTitle;
   const title = escapeHtml(rawTitle);
 
+  // ⚠️ Description : elle n'alimente PLUS de <meta name="description"> (cf. plus bas).
+  // Elle reste utilisée pour Open Graph / Twitter, où le texte est réellement repris tel
+  // quel par les réseaux sociaux (usage différent du snippet Google).
   const rawDescription = tr.metaDescription(displayName);
   const description = escapeHtml(rawDescription);
 
@@ -500,7 +652,7 @@ export function renderTickerHtml(
 
 <h2>${relatedHeading}</h2>
 <ul>
-${related.map((r) => {
+${related.slice(0, 4).map((r) => {
   const rTicker = escapeHtml(r.ticker);
   const rRawName = r.name || r.ticker;
   const rDisplayName = escapeHtml(stripLegalSuffix(rRawName));
@@ -510,9 +662,71 @@ ${related.map((r) => {
   const rPfcf = r.pfcfTTM != null && isFinite(r.pfcfTTM)
     ? `${r.pfcfTTM.toFixed(1)}×`
     : null;
-  return `<li><a href="${SITE_URL}/analyse/${rTicker}${lq}">${rDisplayName} (${rTicker})</a> — ${tr.scoreNoted} ${rScore}${rPfcf ? `, P/FCF ${rPfcf}` : ''}</li>`;
+  return `<li><a href="${SITE_URL}/analyse/${rTicker}${lq}">${rDisplayName} (${rTicker})</a>, ${tr.scoreNoted} ${rScore}${rPfcf ? `, P/FCF ${rPfcf}` : ''}</li>`;
 }).join('\n')}
 </ul>` : '';
+
+  // ─── Texte dérivé de la DB, donc UNIQUE par fiche ────────────────────────────
+  // Contre-mesure au risque n°1 de ce site : ~30 000 pages dans un même dossier dont les
+  // slugs ne varient que par le ticker, c'est le motif que Google traite comme des pages
+  // satellites « même si le contenu est correct ». La défense documentée n'est pas de
+  // supprimer les pages, c'est que chaque page porte de la donnée propriétaire réelle.
+  // Ici : médiane de P/FCF du panier sectoriel + lecture croisée qualité × prix.
+  const peerMedian = medianOf(related.map((r) => r.pfcfTTM));
+  const hasPfcf = t.pfcfTTM != null && isFinite(t.pfcfTTM);
+  const peerSection =
+    hasPfcf && peerMedian != null && sectorLabel && related.length >= 2
+      ? `\n\n<h2>${tr.peerH2}</h2>\n<p>${tr.peerBody(
+          displayNameEsc,
+          pfcf,
+          `${peerMedian.toFixed(1)}×`,
+          related.length,
+          sectorLabel,
+          (t.pfcfTTM as number) < peerMedian,
+        )}</p>`
+      : '';
+
+  // « Cher / pas cher » : relatif aux comparables quand on a une médiane sectorielle,
+  // sinon repli sur un seuil absolu aligné sur la règle « opportunité » du screener.
+  const cheap =
+    hasPfcf && peerMedian != null
+      ? (t.pfcfTTM as number) < peerMedian
+      : hasPfcf && (t.pfcfTTM as number) < 20;
+  const goodQuality = ratio != null && ratio >= 0.7;
+  // Rendu seulement si la fiche est réellement notée ET valorisée : sinon la phrase
+  // affirmerait quelque chose que la donnée ne soutient pas.
+  const crossSection =
+    ratio != null && hasPfcf
+      ? `\n<p>${tr.crossVerdict(displayNameEsc, goodQuality, cheap)}</p>`
+      : '';
+
+  // Liens sortants vers sources autoritaires, placés DANS la section concernée (et non
+  // regroupés en fin de page) : c'est le geste on-page le mieux prouvé du corpus, et un
+  // signal de confiance en régime YMYL. `nofollow` par prudence sur des liens templatisés
+  // à l'échelle de 30 000 pages, le bénéfice mesuré portant sur le fait de citer ses sources.
+  const filingsLine =
+    t.region === 'US'
+      ? `\n<p>${tr.sourcesFilings(displayNameEsc, edgarFilingsUrl(t.ticker))}</p>`
+      : '';
+  const literatureLine = `\n<p>${tr.sourcesLiterature}</p>`;
+
+  // Signature auteur (E-E-A-T). On met la BYLINE seule, pas la bio complète : dupliquer
+  // 1 500 caractères de biographie sur 30 000 fiches serait précisément le boilerplate
+  // que la politique « contenu à l'échelle » cible. La bio complète reste sur les articles.
+  const bylineLine = `<p><small>${tr.authorByline(`${SITE_URL}/methodologie${lq}`)}</small></p>`;
+
+  // Lien vers la page de comparaison « X vs Y » quand ce ticker fait partie d'une paire
+  // curée. Indispensable : une page de comparaison qui vient d'être créée n'a AUCUN lien
+  // entrant, et une page orpheline est ignorée ou déprioritisée par Google. La fiche est
+  // justement une page déjà crawlée, donc c'est le bon émetteur de ce lien.
+  const comparePair = COMPARE_PAIRS.find(([x, y]) => x === t.ticker || y === t.ticker);
+  const compareLink = comparePair
+    ? (() => {
+        const other = comparePair[0] === t.ticker ? comparePair[1] : comparePair[0];
+        const href = `${SITE_URL}/comparer/${comparePairSlug(comparePair[0], comparePair[1])}${lq}`;
+        return `\n<a href="${href}">${escapeHtml(tr.resCompare(other))}</a> ·`;
+      })()
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="${lang}">
@@ -520,7 +734,15 @@ ${related.map((r) => {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
-<meta name="description" content="${description}">
+<!-- AUCUNE balise meta de description ici, VOLONTAIREMENT (audit masterclass SEO 2026-08-04).
+     Mesures du corpus : Google ignore la description fournie 63 % du temps, les siennes
+     obtiennent +3 % de clics vs une description écrite, et surtout les descriptions
+     GÉNÉRÉES PAR GABARIT font moins bien que PAS de description du tout. Nos 30 000 fiches
+     étaient exactement ce cas (une seule phrase templatisée par langue). On laisse donc
+     Google composer le snippet depuis le texte de la page. Les descriptions écrites à la
+     main sont conservées sur les pages clés (articles, pages statiques).
+     La variable "description" reste utilisée pour Open Graph / Twitter juste en dessous :
+     là, le texte est repris tel quel par les réseaux, ce n'est pas un snippet de SERP. -->
 <meta name="robots" content="${robots}">
 <link rel="canonical" href="${canonical}">
 ${hreflang}
@@ -557,6 +779,15 @@ ${JSON.stringify({
     name: rawName,
     tickerSymbol: t.ticker,
     ...(t.exchange ? { tickerExchange: t.exchange } : {}),
+  },
+  // Auteur identifié : la finance est en régime YMYL renforcé, et la réputation d'auteur
+  // est un signal conservé par Google. Les fiches n'en portaient aucun (seuls les articles
+  // en avaient). Bio volontairement absente ici, cf. bylineLine.
+  author: {
+    '@type': 'Person',
+    name: AUTHOR_NAME,
+    jobTitle: AUTHOR_JOBTITLE[lang],
+    url: `${SITE_URL}/methodologie${lq}`,
   },
   publisher: {
     '@type': 'Organization',
@@ -606,20 +837,23 @@ ${JSON.stringify({
 
 <h1>${tr.h1Analysis} ${safeTicker} (${name})</h1>
 <p><small>${tr.updatedOn} ${dateLoc}</small></p>
+${bylineLine}
 
 <p>${tr.introVerdict(displayNameEsc, score, quality, pfcfClause)}</p>
+${crossSection}
 
 <p>${tr.sectorPriceLine(sector, t.exchange ? escapeHtml(t.exchange) : '', price)}</p>
 
 ${oppBadge}
 
 <h2>${tr.methodH2}</h2>
-<p>${tr.methodBody(name, safeTicker)}</p>
+<p>${tr.methodBody(name, safeTicker)}</p>${literatureLine}${filingsLine}
 
 <h2>${tr.criteriaH2}</h2>
 <ol>
 ${tr.criteria.map((c) => `<li>${c}</li>`).join('\n')}
 </ol>
+${peerSection}
 
 <h2>${tr.faqH2}</h2>
 ${faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n')}
@@ -629,11 +863,14 @@ ${relatedSection}
 <h2>${tr.goFurtherH2}</h2>
 <p>👉 <a href="${canonical}"><strong>${tr.goFurtherCta(safeTicker)}</strong></a></p>
 
-<p>${tr.otherResources} :
-<a href="${SITE_URL}/methodologie${lq}">${tr.resMethod}</a> ·
+<!-- Ressources : on ne relie ICI que des cibles ABSENTES du header (hubs secteur + classements).
+     Raison mesurée : Google ne compte que le PREMIER lien d'une page vers une URL donnée. Le
+     header pointe déjà vers /screener, /methodologie et /pricing avec une ancre générique, donc
+     les rappeler ici avec une belle ancre descriptive ne transmettait rien, ça ne faisait que
+     gonfler le nombre de liens (le corpus recommande ~5 liens utiles dans le corps, pas 50). -->
+<p>${tr.otherResources} :${compareLink}
 ${sectorHubHref ? `<a href="${sectorHubHref}">${tr.resSectorHub(sectorHubLabel || '')}</a> ·\n` : ''}<a href="${SITE_URL}/classement/qualite-10-sur-10${lq}">${tr.resQuality10}</a> ·
-<a href="${SITE_URL}/screener${lq}">${tr.resTopQuality}</a> ·
-<a href="${SITE_URL}/pricing${lq}">${tr.resPricing}</a>.</p>
+<a href="${SITE_URL}/classement/sous-evaluees${lq}">${tr.resUndervalued}</a>.</p>
 
 </main>
 
@@ -708,6 +945,400 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
     // En cas d'erreur DB, on renvoie un 503 plutôt qu'une page vide, Google retentera plus tard.
     console.error('[seoPrerender]', ticker, (err as Error).message);
     res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(ticker));
+  }
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Pages de comparaison « X vs Y » (/comparer/aapl-vs-msft)
+//
+// Pourquoi ce format précisément : c'est le SEUL motif programmatique du corpus validé
+// par une expérience contrôlée (15 à 20 pages de comparaison concurrent classées en
+// première page en 3 semaines), et « X vs Y » est l'un des patrons de sous-requêtes que
+// les moteurs génératifs produisent au fan-out. Le site avait un comparateur interactif
+// (/compare) mais AUCUNE page indexable dédiée : rien ne pouvait donc se classer dessus.
+//
+// Garde-fous appliqués :
+//   - liste CURÉE et courte (pas de génération combinatoire sur 30 000 tickers, qui
+//     produirait des millions d'URLs quasi vides, exactement le motif sanctionné) ;
+//   - tout le texte est DÉRIVÉ des deux fiches réelles (notes, P/FCF, capi), donc le
+//     contenu dépend des variables et diffère d'une paire à l'autre ;
+//   - parité éditoriale stricte : le verdict suit la donnée, aucune des deux valeurs
+//     n'est favorisée. Le corpus mesure que c'est LA variable de survie en YMYL
+//     (ClickUp -97,6 % en s'auto-favorisant, Zapier -53 % à traitement égal).
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Paires curées : même secteur, deux sociétés que les investisseurs comparent vraiment.
+ *  Ajouter une paire = ajouter une page. Rester dans cet ordre de grandeur (~20). */
+export const COMPARE_PAIRS: ReadonlyArray<readonly [string, string]> = [
+  ['MSFT', 'GOOGL'], ['ADBE', 'CRM'], ['NVDA', 'AMD'], ['TSM', 'INTC'],
+  ['V', 'MA'], ['COST', 'WMT'], ['HD', 'LOW'], ['KO', 'PEP'],
+  ['NFLX', 'DIS'], ['LLY', 'MRK'], ['JNJ', 'PFE'], ['JPM', 'BAC'],
+  ['PGR', 'ALL'], ['LMT', 'RTX'], ['NKE', 'LULU'], ['MCD', 'SBUX'],
+  ['UPS', 'FDX'], ['SPGI', 'MSCI'], ['ASML', 'AMAT'],
+];
+
+/** Slug canonique d'une paire (minuscules, « -vs- »). Contient le token « vs », qui est
+ *  le patron de sous-requête visé, et reste stable dans le temps (les tickers ne bougent
+ *  pas, contrairement aux raisons sociales). */
+export function comparePairSlug(a: string, b: string): string {
+  return `${a.toLowerCase()}-vs-${b.toLowerCase()}`;
+}
+
+/** Parse « aapl-vs-msft » → ['AAPL','MSFT']. Null si la forme n'est pas reconnue. */
+function parseComparePair(slug: string): [string, string] | null {
+  const m = /^([a-z0-9.\-]{1,12})-vs-([a-z0-9.\-]{1,12})$/i.exec(slug);
+  if (!m || !m[1] || !m[2]) return null;
+  const a = m[1].toUpperCase();
+  const b = m[2].toUpperCase();
+  if (a === b) return null;
+  return [a, b];
+}
+
+type CompareTr = {
+  title: (an: string, at: string, bn: string, bt: string) => string;
+  h1: (an: string, at: string, bn: string, bt: string) => string;
+  intro: (an: string, bn: string, qualityWinner: string, priceWinner: string) => string;
+  introTie: (an: string, bn: string) => string;
+  tableH2: string;
+  thMetric: string; thScore: string; thPfcf: string; thSector: string; thPrice: string; thCap: string;
+  qualityH2: string;
+  qualityBody: (hn: string, hs: string, ln: string, ls: string) => string;
+  qualityEqual: (an: string, bn: string, sc: string) => string;
+  priceH2: string;
+  priceBody: (cn: string, cp: string, dn: string, dp: string) => string;
+  priceMissing: string;
+  verdictH2: string;
+  verdictBody: (an: string, bn: string) => string;
+  goFurtherH2: string;
+  seeA: (n: string, t: string) => string;
+  interactive: string;
+  na: string;
+  faqH2: string;
+  faqBetterQ: (an: string, bn: string) => string;
+  faqCheaperQ: (an: string, bn: string) => string;
+  faqBothQ: string;
+  faqBothA: string;
+  breadcrumbCompare: string;
+  /** « contre » / « against » / « frente a » : le comparatif etait code en dur en FR. */
+  vsWord: string;
+};
+
+const COMPARE_TR: Record<ArticleLang, CompareTr> = {
+  fr: {
+    title: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}) : quelle action est la meilleure ? Notes de qualité, valorisation P/FCF et verdict`,
+    h1: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}) : la comparaison chiffrée`,
+    intro: (an, bn, qw, pw) => `Sur nos 10 critères de qualité, c'est ${qw} qui l'emporte. Sur le prix, c'est ${pw} qui se paie le moins cher rapporté à son free cash flow. Autrement dit, comparer ${an} et ${bn} demande de répondre à deux questions séparées, et elles n'ont pas forcément la même réponse.`,
+    introTie: (an, bn) => `${an} et ${bn} obtiennent la même note de qualité sur nos 10 critères. Le départage se joue donc sur le prix, et sur ce que tu penses de leurs perspectives.`,
+    tableH2: 'Les deux actions côte à côte',
+    thMetric: 'Critère', thScore: 'Note de qualité', thPfcf: 'P/FCF', thSector: 'Secteur', thPrice: 'Cours', thCap: 'Capitalisation',
+    qualityH2: 'La qualité : qui valide le plus de critères',
+    qualityBody: (hn, hs, ln, ls) => `${hn} valide ${hs} de nos critères de qualité, contre ${ls} pour ${ln}. Ces critères sont les mêmes pour les deux : rentabilité, croissance du chiffre d'affaires et du free cash flow par action, contrôle du nombre d'actions, marge de free cash flow, expansion des marges, rendement du capital, endettement, conversion du bénéfice en cash et cycle de trésorerie. Aucune pondération, aucun avis : c'est un décompte.`,
+    qualityEqual: (an, bn, sc) => `${an} et ${bn} valident autant de critères l'une que l'autre, ${sc}. La qualité financière ne permet donc pas de les départager sur nos critères.`,
+    priceH2: 'Le prix : qui se paie le moins cher',
+    priceBody: (cn, cp, dn, dp) => `${cn} se paie ${cp} son free cash flow, contre ${dp} pour ${dn}. Un multiple plus bas veut dire que tu paies moins d'années de cash pour la même part d'entreprise. Attention au réflexe : un multiple bas n'est une bonne affaire que si la qualité tient. C'est pour ça que nous jugeons les deux séparément, et jamais l'un à travers l'autre.`,
+    priceMissing: "Le multiple P/FCF n'est pas calculable sur l'une des deux valeurs, faute de free cash flow exploitable. La comparaison de prix est donc incomplète, et seule la qualité est comparable ici.",
+    verdictH2: 'Comment trancher',
+    verdictBody: (an, bn) => `Il n'y a pas de « meilleure action » dans l'absolu, il y a une meilleure action pour un objectif donné. Si tu cherches la qualité financière la plus solide, suis la note. Si tu cherches à payer le moins cher le cash produit, suis le P/FCF. Si les deux pointent vers la même valeur, le cas est simple. Si elles divergent, tu es en train d'arbitrer entre payer plus pour un meilleur business et payer moins pour un business plus discutable. Les deux fiches détaillées ci-dessous donnent le détail critère par critère pour ${an} et pour ${bn}.`,
+    goFurtherH2: 'Aller plus loin',
+    seeA: (n, t) => `L'analyse complète ${deFr(n)} (${t})`,
+    interactive: 'Comparer ces deux actions dans le comparateur interactif',
+    na: 'non disponible',
+    faqH2: 'Questions fréquentes',
+    faqBetterQ: (an, bn) => `Faut-il acheter ${an} ou ${bn} ?`,
+    faqCheaperQ: (an, bn) => `${an} ou ${bn} : laquelle est la moins chère ?`,
+    faqBothQ: 'Peut-on détenir les deux ?',
+    faqBothA: "Rien ne l'interdit, et c'est fréquent quand les deux valident nos critères de qualité. Garde en tête que deux sociétés du même secteur réagissent souvent aux mêmes chocs, donc les détenir toutes les deux diversifie moins qu'il n'y paraît. Cette page est une comparaison chiffrée, pas une recommandation.",
+    breadcrumbCompare: 'Comparer',
+    vsWord: 'contre',
+  },
+  en: {
+    title: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}): which stock is better? Quality scores, P/FCF valuation and verdict`,
+    h1: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}): the numbers side by side`,
+    intro: (an, bn, qw, pw) => `On our 10 quality criteria, ${qw} comes out ahead. On price, ${pw} trades cheapest relative to its free cash flow. In other words, comparing ${an} and ${bn} means answering two separate questions, and they do not necessarily have the same answer.`,
+    introTie: (an, bn) => `${an} and ${bn} score the same on our 10 quality criteria. The tie-break therefore comes down to price, and to what you make of their prospects.`,
+    tableH2: 'Both stocks side by side',
+    thMetric: 'Metric', thScore: 'Quality score', thPfcf: 'P/FCF', thSector: 'Sector', thPrice: 'Price', thCap: 'Market cap',
+    qualityH2: 'Quality: which one passes more criteria',
+    qualityBody: (hn, hs, ln, ls) => `${hn} passes ${hs} of our quality criteria, against ${ls} for ${ln}. The criteria are identical for both: profitability, revenue and free cash flow per share growth, share count control, free cash flow margin, margin expansion, return on capital, debt, conversion of earnings into cash, and cash conversion cycle. No weighting, no opinion: it is a count.`,
+    qualityEqual: (an, bn, sc) => `${an} and ${bn} pass the same number of criteria, ${sc}. Financial quality therefore does not separate them on our criteria.`,
+    priceH2: 'Price: which one is cheaper',
+    priceBody: (cn, cp, dn, dp) => `${cn} trades at ${cp} its free cash flow, against ${dp} for ${dn}. A lower multiple means you pay fewer years of cash for the same slice of the business. Mind the reflex though: a low multiple is only a bargain if the quality holds up. That is why we judge the two separately, and never one through the other.`,
+    priceMissing: 'The P/FCF multiple cannot be computed for one of the two stocks, for lack of usable free cash flow. The price comparison is therefore incomplete, and only quality is comparable here.',
+    verdictH2: 'How to decide',
+    verdictBody: (an, bn) => `There is no "better stock" in the abstract, there is a better stock for a given goal. If you want the most solid financial quality, follow the score. If you want to pay the least for the cash produced, follow the P/FCF. If both point to the same name, the case is simple. If they diverge, you are trading off paying more for a better business against paying less for a more questionable one. The two detailed pages below give the criterion-by-criterion breakdown for ${an} and for ${bn}.`,
+    goFurtherH2: 'Go further',
+    seeA: (n, t) => `The full analysis of ${n} (${t})`,
+    interactive: 'Compare these two stocks in the interactive comparator',
+    na: 'not available',
+    faqH2: 'Frequently asked questions',
+    faqBetterQ: (an, bn) => `Should you buy ${an} or ${bn}?`,
+    faqCheaperQ: (an, bn) => `${an} or ${bn}: which one is cheaper?`,
+    faqBothQ: 'Can you hold both?',
+    faqBothA: 'Nothing prevents it, and it is common when both pass our quality criteria. Keep in mind that two companies in the same sector often react to the same shocks, so holding both diversifies less than it looks. This page is a numbers comparison, not a recommendation.',
+    breadcrumbCompare: 'Compare',
+    vsWord: 'against',
+  },
+  es: {
+    title: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}): ¿qué acción es mejor? Notas de calidad, valoración P/FCF y veredicto`,
+    h1: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}): la comparación en cifras`,
+    intro: (an, bn, qw, pw) => `En nuestros 10 criterios de calidad, gana ${qw}. En precio, ${pw} cotiza más barata respecto a su free cash flow. Es decir, comparar ${an} y ${bn} exige responder a dos preguntas separadas, y no tienen necesariamente la misma respuesta.`,
+    introTie: (an, bn) => `${an} y ${bn} obtienen la misma nota en nuestros 10 criterios de calidad. El desempate se juega entonces en el precio, y en lo que pienses de sus perspectivas.`,
+    tableH2: 'Las dos acciones lado a lado',
+    thMetric: 'Criterio', thScore: 'Nota de calidad', thPfcf: 'P/FCF', thSector: 'Sector', thPrice: 'Precio', thCap: 'Capitalización',
+    qualityH2: 'La calidad: cuál valida más criterios',
+    qualityBody: (hn, hs, ln, ls) => `${hn} valida ${hs} de nuestros criterios de calidad, frente a ${ls} de ${ln}. Los criterios son idénticos para ambas: rentabilidad, crecimiento de los ingresos y del free cash flow por acción, control del número de acciones, margen de free cash flow, expansión de márgenes, rentabilidad del capital, deuda, conversión del beneficio en cash y ciclo de tesorería. Sin ponderación y sin opinión: es un recuento.`,
+    qualityEqual: (an, bn, sc) => `${an} y ${bn} validan el mismo número de criterios, ${sc}. La calidad financiera no permite por tanto separarlas con nuestros criterios.`,
+    priceH2: 'El precio: cuál cotiza más barata',
+    priceBody: (cn, cp, dn, dp) => `${cn} cotiza a ${cp} su free cash flow, frente a ${dp} de ${dn}. Un múltiplo más bajo significa que pagas menos años de cash por la misma parte del negocio. Cuidado con el reflejo: un múltiplo bajo solo es una oportunidad si la calidad se sostiene. Por eso juzgamos ambas cosas por separado, y nunca una a través de la otra.`,
+    priceMissing: 'El múltiplo P/FCF no se puede calcular en una de las dos acciones, por falta de free cash flow utilizable. La comparación de precio queda incompleta y aquí solo la calidad es comparable.',
+    verdictH2: 'Cómo decidir',
+    verdictBody: (an, bn) => `No hay una «mejor acción» en abstracto, hay una mejor acción para un objetivo dado. Si buscas la calidad financiera más sólida, sigue la nota. Si buscas pagar lo menos posible por el cash generado, sigue el P/FCF. Si ambas señalan el mismo nombre, el caso es simple. Si divergen, estás eligiendo entre pagar más por un mejor negocio y pagar menos por uno más discutible. Las dos fichas detalladas de abajo dan el desglose criterio por criterio de ${an} y de ${bn}.`,
+    goFurtherH2: 'Saber más',
+    seeA: (n, t) => `El análisis completo de ${n} (${t})`,
+    interactive: 'Comparar estas dos acciones en el comparador interactivo',
+    na: 'no disponible',
+    faqH2: 'Preguntas frecuentes',
+    faqBetterQ: (an, bn) => `¿Comprar ${an} o ${bn}?`,
+    faqCheaperQ: (an, bn) => `${an} o ${bn}: ¿cuál es más barata?`,
+    faqBothQ: '¿Se pueden tener las dos?',
+    faqBothA: 'Nada lo impide, y es frecuente cuando ambas validan nuestros criterios de calidad. Ten en cuenta que dos empresas del mismo sector reaccionan a menudo a los mismos golpes, así que tenerlas ambas diversifica menos de lo que parece. Esta página es una comparación en cifras, no una recomendación.',
+    breadcrumbCompare: 'Comparar',
+    vsWord: 'frente a',
+  },
+};
+
+type CompareRow = {
+  ticker: string; name: string | null; sector: string | null;
+  scoreChiffres: number | null; scoreChiffresMax: number | null;
+  pfcfTTM: number | null; currency: string | null; price: number | null;
+  marketCap: number | null; region: string; lastScoredAt: Date | null;
+};
+
+/** Capitalisation lisible (2 chiffres significatifs suffisent pour une comparaison). */
+function formatCap(v: number | null, lang: ArticleLang): string | null {
+  if (v == null || !isFinite(v) || v <= 0) return null;
+  // En francais on reste en milliards meme au-dela de 1000 (« 5000 Md » et pas « 5 T »),
+  // c'est la convention de place ; en EN/ES on bascule sur T/B/M.
+  if (lang === 'fr') {
+    // Séparateur de milliers français : « 5 003 Md » et non « 5003 Md ».
+    if (v >= 1e12) return `${Math.round(v / 1e9).toLocaleString('fr-FR')} Md`;
+    if (v >= 1e9) return `${(v / 1e9).toFixed(1)} Md`;
+    if (v >= 1e6) return `${(v / 1e6).toFixed(1)} M`;
+    return String(Math.round(v));
+  }
+  const units: Array<[number, string]> = [[1e12, 'T'], [1e9, 'B'], [1e6, 'M']];
+  for (const [div, suffix] of units) {
+    if (v >= div) return `${(v / div).toFixed(1)}${suffix}`;
+  }
+  return String(Math.round(v));
+}
+
+function renderCompareHtml(a: CompareRow, b: CompareRow, lang: ArticleLang): string {
+  const tr = COMPARE_TR[lang];
+  const lq = lang === 'fr' ? '' : `?lng=${lang}`;
+  const aName = stripLegalSuffix(a.name || a.ticker);
+  const bName = stripLegalSuffix(b.name || b.ticker);
+  const aNameEsc = escapeHtml(aName);
+  const bNameEsc = escapeHtml(bName);
+  const aT = escapeHtml(a.ticker);
+  const bT = escapeHtml(b.ticker);
+
+  const aScore = formatScore(a.scoreChiffres, a.scoreChiffresMax);
+  const bScore = formatScore(b.scoreChiffres, b.scoreChiffresMax);
+  const aRatio = a.scoreChiffres != null && a.scoreChiffresMax ? a.scoreChiffres / a.scoreChiffresMax : null;
+  const bRatio = b.scoreChiffres != null && b.scoreChiffresMax ? b.scoreChiffres / b.scoreChiffresMax : null;
+
+  const aPfcfOk = a.pfcfTTM != null && isFinite(a.pfcfTTM) && a.pfcfTTM > 0;
+  const bPfcfOk = b.pfcfTTM != null && isFinite(b.pfcfTTM) && b.pfcfTTM > 0;
+  const aPfcf = aPfcfOk ? `${(a.pfcfTTM as number).toFixed(1)}×` : tr.na;
+  const bPfcf = bPfcfOk ? `${(b.pfcfTTM as number).toFixed(1)}×` : tr.na;
+
+  // Gagnants, STRICTEMENT dérivés de la donnée (parité éditoriale : rien d'arbitraire).
+  const qualityTie = aRatio != null && bRatio != null && aRatio === bRatio;
+  const qualityWinner = aRatio == null || bRatio == null ? null : (aRatio > bRatio ? 'a' : 'b');
+  const priceWinner = !aPfcfOk || !bPfcfOk ? null : ((a.pfcfTTM as number) < (b.pfcfTTM as number) ? 'a' : 'b');
+
+  const introHtml = qualityTie || qualityWinner == null || priceWinner == null
+    ? (qualityTie ? tr.introTie(aNameEsc, bNameEsc) : tr.intro(aNameEsc, bNameEsc, qualityWinner === 'b' ? bNameEsc : aNameEsc, priceWinner === 'b' ? bNameEsc : aNameEsc))
+    : tr.intro(aNameEsc, bNameEsc, qualityWinner === 'a' ? aNameEsc : bNameEsc, priceWinner === 'a' ? aNameEsc : bNameEsc);
+
+  const qualityHtml = qualityTie
+    ? tr.qualityEqual(aNameEsc, bNameEsc, aScore)
+    : qualityWinner == null
+    ? tr.qualityEqual(aNameEsc, bNameEsc, `${aScore} / ${bScore}`)
+    : qualityWinner === 'a'
+    ? tr.qualityBody(aNameEsc, aScore, bNameEsc, bScore)
+    : tr.qualityBody(bNameEsc, bScore, aNameEsc, aScore);
+
+  const priceHtml = priceWinner == null
+    ? tr.priceMissing
+    : priceWinner === 'a'
+    ? tr.priceBody(aNameEsc, aPfcf, bNameEsc, bPfcf)
+    : tr.priceBody(bNameEsc, bPfcf, aNameEsc, aPfcf);
+
+  const fmtPrice = (r: CompareRow) =>
+    r.price != null && isFinite(r.price) ? `${r.price.toFixed(2)} ${escapeHtml(r.currency || 'USD')}` : tr.na;
+  const aCap = formatCap(a.marketCap, lang) ?? tr.na;
+  const bCap = formatCap(b.marketCap, lang) ?? tr.na;
+
+  const slug = comparePairSlug(a.ticker, b.ticker);
+  const baseCanonical = `${SITE_URL}/comparer/${slug}`;
+  const canonical = lang === 'fr' ? baseCanonical : `${baseCanonical}?lng=${lang}`;
+  const hreflang = (['fr', 'en', 'es'] as const)
+    .map((l) => `<link rel="alternate" hreflang="${l}" href="${l === 'fr' ? baseCanonical : `${baseCanonical}?lng=${l}`}">`)
+    .join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${baseCanonical}">`;
+
+  const rawTitle = tr.title(aName, a.ticker, bName, b.ticker);
+  const title = escapeHtml(rawTitle);
+
+  // Liens sortants par section vers les comptes officiels (US) + la littérature.
+  const filings = [a, b]
+    .filter((r) => r.region === 'US')
+    .map((r) => `<p>${tr === COMPARE_TR.fr
+      ? `Les comptes ${deFr(escapeHtml(stripLegalSuffix(r.name || r.ticker)))} sont publics : <a href="${edgarFilingsUrl(r.ticker)}" target="_blank" rel="noopener nofollow">dépôts 10-K auprès de la SEC (EDGAR)</a>.`
+      : tr === COMPARE_TR.es
+      ? `Las cuentas de ${escapeHtml(stripLegalSuffix(r.name || r.ticker))} son públicas: <a href="${edgarFilingsUrl(r.ticker)}" target="_blank" rel="noopener nofollow">informes 10-K ante la SEC (EDGAR)</a>.`
+      : `${escapeHtml(stripLegalSuffix(r.name || r.ticker))}'s accounts are public: <a href="${edgarFilingsUrl(r.ticker)}" target="_blank" rel="noopener nofollow">10-K filings with the SEC (EDGAR)</a>.`
+    }</p>`).join('\n');
+
+  const scoredAt = (a.lastScoredAt && b.lastScoredAt)
+    ? (a.lastScoredAt > b.lastScoredAt ? a.lastScoredAt : b.lastScoredAt)
+    : (a.lastScoredAt ?? b.lastScoredAt ?? new Date());
+  const isoDate = scoredAt.toISOString();
+
+  const faq = [
+    { q: tr.faqBetterQ(aName, bName), a: `${stripTags(qualityHtml)} ${stripTags(priceHtml)}` },
+    { q: tr.faqCheaperQ(aName, bName), a: priceWinner == null ? stripTags(tr.priceMissing) : `${priceWinner === 'a' ? aName : bName} : ${priceWinner === 'a' ? aPfcf : bPfcf} ${tr.vsWord} ${priceWinner === 'a' ? bPfcf : aPfcf}.` },
+    { q: tr.faqBothQ, a: tr.faqBothA },
+  ];
+
+  return `<!DOCTYPE html>
+<html lang="${lang}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="${canonical}">
+${hreflang}
+<link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${title}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:site_name" content="Lubin Investment">
+<meta property="og:image" content="${SITE_URL}/og-default.png">
+<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'AnalysisNewsArticle',
+  headline: rawTitle,
+  url: canonical,
+  inLanguage: TICKER_TR[lang].inLanguage,
+  datePublished: isoDate,
+  dateModified: isoDate,
+  author: { '@type': 'Person', name: AUTHOR_NAME, jobTitle: AUTHOR_JOBTITLE[lang], url: `${SITE_URL}/methodologie${lq}` },
+  publisher: { '@type': 'Organization', name: 'Lubin Investment', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` } },
+  mainEntityOfPage: canonical,
+}, null, 2)}
+</script>
+</head>
+<body>
+<header>
+  <p><span data-nosnippet><a href="${SITE_URL}/${lq}">Lubin Investment</a> · <a href="${SITE_URL}/screener${lq}">Screener</a> · <a href="${SITE_URL}/methodologie${lq}">${escapeHtml(STATIC_TR[lang].nav)}</a></span></p>
+</header>
+<main>
+<nav aria-label="${escapeHtml(tr.breadcrumbCompare)}"><span data-nosnippet><a href="${SITE_URL}/${lq}">${escapeHtml(STATIC_TR[lang].home)}</a> › <a href="${SITE_URL}/compare${lq}">${escapeHtml(tr.breadcrumbCompare)}</a> › ${aT} vs ${bT}</span></nav>
+
+<h1>${escapeHtml(tr.h1(aName, a.ticker, bName, b.ticker))}</h1>
+<p><small>${escapeHtml(AUTHOR_BYLINE[lang])}</small></p>
+
+<p><strong>${introHtml}</strong></p>
+
+<h2>${escapeHtml(tr.tableH2)}</h2>
+<table style="border-collapse:collapse;width:100%">
+<thead><tr><th>${escapeHtml(tr.thMetric)}</th><th>${aNameEsc} (${aT})</th><th>${bNameEsc} (${bT})</th></tr></thead>
+<tbody>
+<tr><td>${escapeHtml(tr.thScore)}</td><td>${aScore}</td><td>${bScore}</td></tr>
+<tr><td>${escapeHtml(tr.thPfcf)}</td><td>${escapeHtml(aPfcf)}</td><td>${escapeHtml(bPfcf)}</td></tr>
+<tr><td>${escapeHtml(tr.thSector)}</td><td>${a.sector ? escapeHtml(displaySector(a.sector)) : escapeHtml(tr.na)}</td><td>${b.sector ? escapeHtml(displaySector(b.sector)) : escapeHtml(tr.na)}</td></tr>
+<tr><td>${escapeHtml(tr.thPrice)}</td><td>${fmtPrice(a)}</td><td>${fmtPrice(b)}</td></tr>
+<tr><td>${escapeHtml(tr.thCap)}</td><td>${escapeHtml(aCap)}</td><td>${escapeHtml(bCap)}</td></tr>
+</tbody>
+</table>
+
+<h2>${escapeHtml(tr.qualityH2)}</h2>
+<p>${qualityHtml}</p>
+
+<h2>${escapeHtml(tr.priceH2)}</h2>
+<p>${priceHtml}</p>
+${filings}
+
+<h2>${escapeHtml(tr.verdictH2)}</h2>
+<p>${tr.verdictBody(aNameEsc, bNameEsc)}</p>
+
+<h2>${escapeHtml(tr.faqH2)}</h2>
+${faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n')}
+
+<h2>${escapeHtml(tr.goFurtherH2)}</h2>
+<ul>
+<li><a href="${SITE_URL}/analyse/${aT}${lq}">${escapeHtml(tr.seeA(aName, a.ticker))}</a></li>
+<li><a href="${SITE_URL}/analyse/${bT}${lq}">${escapeHtml(tr.seeA(bName, b.ticker))}</a></li>
+<li><a href="${SITE_URL}/compare?tickers=${aT},${bT}${lang === 'fr' ? '' : `&lng=${lang}`}">${escapeHtml(tr.interactive)}</a></li>
+</ul>
+</main>
+<footer><p><small><span data-nosnippet>${TICKER_TR[lang].disclaimer}</span></small></p></footer>
+</body>
+</html>`;
+}
+
+/** Retire les balises HTML d'un fragment (les réponses de FAQ doivent être du texte pur). */
+function stripTags(html: string): string {
+  return html.replace(/<[^>]+>/g, '');
+}
+
+// GET /comparer/:pair — servi UNIQUEMENT aux bots (rewrite Vercel conditionnel).
+// Les humains sont redirigés par la SPA vers /compare?tickers=A,B (comparateur interactif).
+seoPrerenderRouter.get('/comparer/:pair', async (req: Request, res: Response) => {
+  const raw = typeof req.params.pair === 'string' ? req.params.pair : '';
+  const parsed = parseComparePair(raw.slice(0, 40));
+  if (!parsed) {
+    res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(raw || '?'));
+    return;
+  }
+  const [aT, bT] = parsed;
+  // ⚠️ Seules les paires CURÉES sont servies. Sans cette garde, /comparer/X-vs-Y ouvrirait
+  // des millions d'URLs générables à la demande : c'est précisément le motif de pages
+  // satellites que Google sanctionne, et ça donnerait un puits de crawl infini.
+  const isCurated = COMPARE_PAIRS.some(([x, y]) => (x === aT && y === bT) || (x === bT && y === aT));
+  if (!isCurated) {
+    res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(`${aT} vs ${bT}`));
+    return;
+  }
+  try {
+    const rows = await prisma.screenerTicker.findMany({
+      where: { ticker: { in: [aT, bT] }, status: 'scored' },
+      select: {
+        ticker: true, name: true, sector: true, scoreChiffres: true, scoreChiffresMax: true,
+        pfcfTTM: true, currency: true, price: true, marketCap: true, region: true, lastScoredAt: true,
+      },
+    });
+    const a = rows.find((r) => r.ticker === aT);
+    const b = rows.find((r) => r.ticker === bT);
+    // Si l'une des deux n'est pas encore notée, la comparaison n'a pas de contenu : vrai 404
+    // plutôt qu'une page à moitié vide (qui serait du thin content).
+    if (!a || !b) {
+      res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(`${aT} vs ${bT}`));
+      return;
+    }
+    const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
+    res
+      .status(200)
+      .set('Content-Type', 'text/html; charset=utf-8')
+      .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
+      .send(renderCompareHtml(a, b, lang));
+  } catch (err) {
+    console.error('[seoPrerender comparer]', raw, (err as Error).message);
+    res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(`${aT} vs ${bT}`));
   }
 });
 
@@ -1483,6 +2114,84 @@ const STATIC_SEO: StaticSeo[] = [
           { n: 8, name: '8. Endeudamiento controlado', formula: 'Deuda neta / free cash flow', threshold: '< 3 años', why: 'Cuántos años de cash harían falta para devolver toda la deuda. Más allá de 3 años, el riesgo se vuelve serio ante un imprevisto.' },
           { n: 9, name: '9. Beneficios convertidos en efectivo', formula: 'Free cash flow / beneficio neto', threshold: '> 1', why: 'Verifica que los beneficios anunciados se convierten en dinero real, no solo en un apunte contable. Un ratio sostenidamente por debajo de 1 es una señal de alerta.' },
           { n: 10, name: '10. Plazo de cobro neto', formula: 'Días en que el dinero queda bloqueado en el ciclo (clientes, existencias, proveedores)', threshold: 'Bajo o negativo', why: 'El tiempo, en días, que el dinero está inmovilizado entre que la empresa paga a sus proveedores y que sus clientes le pagan. Corto o negativo es excelente: sus proveedores financian su crecimiento (Apple, Amazon).' },
+        ],
+      },
+    },
+  },
+  {
+    // FAQ de marque. Objectif mesuré : une FAQ officielle qui pose explicitement ce que le
+    // produit fait, ne fait PAS, ce qu'il coûte et ce que la note signifie empêche les
+    // modèles de langage d'inventer des affirmations sur la marque. C'est le correctif
+    // documenté (test) contre les hallucinations, et un signal de confiance en YMYL.
+    // Pas de FAQPage JSON-LD : Google a retiré les résultats enrichis FAQ le 07/05/2026 et
+    // le corpus mesure un effet nul du schema sur la citation par les IA (elles extraient
+    // le HTML visible). Ce sont donc les questions/réponses en clair qui font le travail.
+    path: '/faq',
+    content: {
+      fr: {
+        title: 'FAQ : ce que fait Lubin Investment, et ce qu\'il ne fait pas',
+        desc: "Les réponses officielles : ce qu'est Lubin Investment, ce que la note sur 10 signifie et ne signifie pas, les tarifs, les sources de données et qui est derrière.",
+        h1: 'Questions fréquentes sur Lubin Investment',
+        intro: "Cette page est la référence officielle sur le service. Si tu lis une affirmation sur Lubin Investment ailleurs, y compris dans la réponse d'une intelligence artificielle, c'est cette page qui fait foi.",
+        sections: [
+          { h2: "Qu'est-ce que Lubin Investment ?", p: "Un outil d'analyse fondamentale d'actions. Il note la qualité financière d'une entreprise sur 10 critères chiffrés, et juge séparément son prix via le multiple P/FCF (cours divisé par le free cash flow). Le calcul est automatique, à partir de données publiques, sans opinion humaine." },
+          { h2: 'Est-ce un conseil en investissement ?', p: "Non. Lubin Investment est un outil d'aide à la décision. Le service ne délivre aucune recommandation personnalisée et ne constitue pas un conseil en investissement au sens de l'article L.321-1 du Code monétaire et financier. Aucune note, aucun classement et aucun article ne te dit d'acheter ou de vendre. Tu décides, et tu restes seul responsable de tes décisions." },
+          { h2: 'Que signifie la note sur 10 ?', p: "C'est le nombre de critères de qualité validés sur 10, chacun testé contre un seuil issu de la littérature financière (rentabilité, croissance du chiffre d'affaires et du free cash flow par action, rachats d'actions, marge de FCF, levier opérationnel, Cash ROCE, dette nette sur FCF, conversion du cash, cycle de trésorerie). Une note de 8 sur 10 veut dire que 8 critères sont validés." },
+          { h2: 'Ce que la note ne dit PAS', p: "Elle ne dit pas si l'action est bon marché : la qualité et le prix sont jugés séparément, exprès. Elle ne prédit pas le cours de l'action, ni à court ni à long terme. Elle ne remplace pas la lecture des comptes ni la compréhension du métier de l'entreprise. Et une note élevée sur une action chère ne fait pas un bon placement." },
+          { h2: 'Combien ça coûte ?', p: "Le plan gratuit donne la note de qualité et la valorisation de n'importe quelle action, plus le screener et la watchlist. Le plan Pro coûte 19 euros par mois, ou 159 euros par an, et débloque les analyses illimitées, l'analyse qualitative, les opportunités, les comparaisons jusqu'à 5 actions et les données Europe et international." },
+          { h2: "Comment le site gagne-t-il de l'argent ?", p: "Uniquement par l'abonnement Pro. Le site ne vend pas de produits financiers, ne touche aucune commission de courtier, et n'est rémunéré par aucune des entreprises qu'il note. Les notes sont calculées de la même façon pour toutes les actions, y compris quand le résultat est mauvais." },
+          { h2: "D'où viennent les données ?", p: "Des états financiers publics des entreprises et de fournisseurs de données de marché. Pour les valeurs américaines, les comptes sont vérifiables dans les dépôts officiels auprès de la SEC (EDGAR). Les données peuvent comporter des retards ou des erreurs de source : c'est aussi pour ça que chaque fiche renvoie vers les documents d'origine." },
+          { h2: 'Combien d\'actions sont couvertes ?', p: "Plusieurs dizaines de milliers, sur les marchés américain, européen et international. Toutes ne sont pas notées en permanence : la note est recalculée en priorité autour des publications de résultats." },
+          { h2: 'Qui est derrière le site ?', p: "Lubin Danilo, fondateur de Lubin Investment, investisseur particulier autodidacte et développeur. J'ai construit cet outil pour ma propre stratégie d'investissement avant d'en ouvrir l'accès. La méthode complète est publiée sur la page Méthodologie, et le track record des opportunités passées sur la page Palmarès, biais compris." },
+        ],
+        links: [
+          { href: '/methodologie', label: 'La méthodologie en détail' },
+          { href: '/palmares', label: 'Le track record, biais compris' },
+          { href: '/pricing', label: 'Les tarifs' },
+        ],
+      },
+      en: {
+        title: 'FAQ: what Lubin Investment does, and what it does not',
+        desc: 'The official answers: what Lubin Investment is, what the score out of 10 means and does not mean, pricing, data sources and who is behind it.',
+        h1: 'Frequently asked questions about Lubin Investment',
+        intro: "This page is the official reference about the service. If you read a claim about Lubin Investment anywhere else, including in an answer from an AI assistant, this page is what counts.",
+        sections: [
+          { h2: 'What is Lubin Investment?', p: "A fundamental stock analysis tool. It scores a company's financial quality against 10 hard criteria, and judges its price separately through the P/FCF multiple (price divided by free cash flow). The computation is automatic, from public data, with no human opinion." },
+          { h2: 'Is this investment advice?', p: "No. Lubin Investment is a decision-support tool. The service issues no personalized recommendation and does not constitute investment advice within the meaning of Article L.321-1 of the French Monetary and Financial Code. No score, ranking or article tells you to buy or sell. You decide, and you remain solely responsible for your decisions." },
+          { h2: 'What does the score out of 10 mean?', p: "It is the number of quality criteria passed out of 10, each tested against a threshold drawn from the financial literature (profitability, revenue and free cash flow per share growth, buybacks, FCF margin, operating leverage, Cash ROCE, net debt to FCF, cash conversion, cash conversion cycle). A score of 8 out of 10 means 8 criteria are passed." },
+          { h2: 'What the score does NOT say', p: "It does not say whether the stock is cheap: quality and price are judged separately, on purpose. It does not predict the share price, short or long term. It does not replace reading the accounts or understanding the business. And a high score on an expensive stock does not make a good investment." },
+          { h2: 'How much does it cost?', p: "The free plan gives the quality score and valuation of any stock, plus the screener and watchlist. The Pro plan costs 19 euros per month, or 159 euros per year, and unlocks unlimited analyses, qualitative analysis, opportunities, comparisons of up to 5 stocks, and European and international data." },
+          { h2: 'How does the site make money?', p: "Only through the Pro subscription. The site does not sell financial products, receives no broker commission, and is not paid by any of the companies it scores. Scores are computed the same way for every stock, including when the result is bad." },
+          { h2: 'Where does the data come from?', p: "From companies' public financial statements and from market data providers. For US stocks, the accounts can be verified in the official filings with the SEC (EDGAR). Data can carry delays or source errors: that is also why every page links back to the original documents." },
+          { h2: 'How many stocks are covered?', p: "Several tens of thousands, across the US, European and international markets. Not all of them are scored continuously: the score is recomputed first around earnings releases." },
+          { h2: 'Who is behind the site?', p: "Lubin Danilo, founder of Lubin Investment, a self-taught individual investor and developer. I built this tool for my own investment strategy before opening access to it. The full method is published on the Methodology page, and the track record of past opportunities on the Track record page, biases included." },
+        ],
+        links: [
+          { href: '/methodologie', label: 'The methodology in detail' },
+          { href: '/palmares', label: 'The track record, biases included' },
+          { href: '/pricing', label: 'Pricing' },
+        ],
+      },
+      es: {
+        title: 'FAQ: qué hace Lubin Investment y qué no hace',
+        desc: 'Las respuestas oficiales: qué es Lubin Investment, qué significa y qué no significa la nota sobre 10, precios, fuentes de datos y quién está detrás.',
+        h1: 'Preguntas frecuentes sobre Lubin Investment',
+        intro: "Esta página es la referencia oficial sobre el servicio. Si lees una afirmación sobre Lubin Investment en otro sitio, incluida la respuesta de una inteligencia artificial, esta página es la que vale.",
+        sections: [
+          { h2: '¿Qué es Lubin Investment?', p: "Una herramienta de análisis fundamental de acciones. Puntúa la calidad financiera de una empresa con 10 criterios cuantitativos y juzga su precio por separado mediante el múltiplo P/FCF (precio dividido por el free cash flow). El cálculo es automático, a partir de datos públicos, sin opinión humana." },
+          { h2: '¿Es un consejo de inversión?', p: "No. Lubin Investment es una herramienta de ayuda a la decisión. El servicio no emite ninguna recomendación personalizada y no constituye un consejo de inversión en el sentido del artículo L.321-1 del Código Monetario y Financiero francés. Ninguna nota, clasificación o artículo te dice que compres o vendas. Tú decides y sigues siendo el único responsable de tus decisiones." },
+          { h2: '¿Qué significa la nota sobre 10?', p: "Es el número de criterios de calidad validados sobre 10, cada uno comparado con un umbral sacado de la literatura financiera (rentabilidad, crecimiento de los ingresos y del free cash flow por acción, recompras, margen de FCF, apalancamiento operativo, Cash ROCE, deuda neta sobre FCF, conversión del cash, ciclo de tesorería). Una nota de 8 sobre 10 significa que se validan 8 criterios." },
+          { h2: 'Lo que la nota NO dice', p: "No dice si la acción está barata: la calidad y el precio se juzgan por separado, a propósito. No predice la cotización, ni a corto ni a largo plazo. No sustituye la lectura de las cuentas ni la comprensión del negocio. Y una nota alta en una acción cara no es una buena inversión." },
+          { h2: '¿Cuánto cuesta?', p: "El plan gratuito da la nota de calidad y la valoración de cualquier acción, además del screener y la watchlist. El plan Pro cuesta 19 euros al mes, o 159 euros al año, y desbloquea los análisis ilimitados, el análisis cualitativo, las oportunidades, las comparaciones de hasta 5 acciones y los datos de Europa e internacionales." },
+          { h2: '¿Cómo gana dinero el sitio?', p: "Únicamente con la suscripción Pro. El sitio no vende productos financieros, no cobra ninguna comisión de bróker y no recibe pagos de ninguna de las empresas que puntúa. Las notas se calculan igual para todas las acciones, incluso cuando el resultado es malo." },
+          { h2: '¿De dónde vienen los datos?', p: "De los estados financieros públicos de las empresas y de proveedores de datos de mercado. Para los valores estadounidenses, las cuentas se pueden verificar en los informes oficiales ante la SEC (EDGAR). Los datos pueden tener retrasos o errores de origen: también por eso cada ficha enlaza a los documentos originales." },
+          { h2: '¿Cuántas acciones están cubiertas?', p: "Varias decenas de miles, en los mercados estadounidense, europeo e internacional. No todas se puntúan de forma continua: la nota se recalcula con prioridad en torno a la publicación de resultados." },
+          { h2: '¿Quién está detrás del sitio?', p: "Lubin Danilo, fundador de Lubin Investment, inversor particular autodidacta y desarrollador. Construí esta herramienta para mi propia estrategia de inversión antes de abrir el acceso. El método completo está publicado en la página Metodología, y el track record de las oportunidades pasadas en la página Palmarés, sesgos incluidos." },
+        ],
+        links: [
+          { href: '/methodologie', label: 'La metodología en detalle' },
+          { href: '/palmares', label: 'El track record, sesgos incluidos' },
+          { href: '/pricing', label: 'Los precios' },
         ],
       },
     },

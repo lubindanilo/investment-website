@@ -250,3 +250,17 @@
   .anl-loading-title { font-size: 15px; }
   .anl-loading-steps li { font-size: 13px; }
 }
+
+/* Résumé-verdict en tête de fiche (2-3 phrases, dérivées de la donnée chargée).
+   Le corpus SEO mesure +33 % de conversion quand une page de ce type commence par un
+   résumé auto-porté, avant tout autre bloc. Volontairement en texte plein, pas dans un
+   encart replié : le texte visible bat nettement le texte masqué. */
+.anl-verdict {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  padding: 0.95rem 1.15rem;
+  border-left: 3px solid var(--brand, #6366f1);
+  background: color-mix(in oklch, var(--brand, #6366f1) 7%, transparent);
+  border-radius: 0 8px 8px 0;
+}
