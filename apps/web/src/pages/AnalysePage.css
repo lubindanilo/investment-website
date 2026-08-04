@@ -257,6 +257,10 @@
    encart replié : le texte visible bat nettement le texte masqué. */
 .anl-verdict {
   margin: 0;
+  /* Le parent est une colonne flex : sans ca le bloc se dimensionnait sur son contenu et
+     s'arretait a mi-largeur, alors que les cartes au-dessus occupent toute la ligne
+     (constate au navigateur sur /analyse/AAPL). */
+  align-self: stretch;
   font-size: 1.05rem;
   line-height: 1.65;
   padding: 0.95rem 1.15rem;

@@ -269,7 +269,25 @@ model ScreenerTicker {
   fundamentalsSource String?
   /// Date du prochain earnings (YYYY-MM-DD) — pilote le re-scoring
   nextEarningsDate   String?
+  /// Dernière fois que les DONNÉES FINANCIÈRES de ce titre ont réellement CHANGÉ (nouveau
+  /// trimestre publié, révision des comptes). PAS la dernière fois qu'on a fait tourner le
+  /// scoring : un re-scoring qui retrouve les mêmes fondamentaux ne touche PAS ce champ.
+  /// C'est ce qui alimente `dateModified` (JSON-LD) et `lastmod` (sitemap), donc ça doit
+  /// rester un signal de fraîcheur HONNÊTE. Bumper la date sans changement de contenu est
+  /// mesuré comme contre-productif quand c'est fait en masse.
+  /// ⚠️ Pour la CADENCE de re-scoring, utiliser `lastAttemptAt`, jamais ce champ.
   lastScoredAt       DateTime?
+  /// Dernière TENTATIVE de scoring, qu'elle ait réussi ou échoué. Pilote toute la cadence :
+  /// cooldown de re-tentative, TTL de rafraîchissement par tier, ordre de la file.
+  /// Séparé de `lastScoredAt` depuis 2026-08-04 : avant, un échec transitoire (throttle Yahoo
+  /// depuis les IP Vercel) bumpait `lastScoredAt` et faisait donc avancer le `lastmod` SEO
+  /// sans qu'une seule donnée ait changé.
+  lastAttemptAt      DateTime?
+  /// Empreinte des fondamentaux INDÉPENDANTS DU COURS (note + marges, croissances, ROCE,
+  /// dette, CCC…). Sert uniquement à répondre à « est-ce que de vraies nouvelles données
+  /// sont arrivées ? ». Exclut délibérément prix, capitalisation et P/FCF, qui bougent
+  /// chaque jour sans qu'aucun compte n'ait été publié.
+  fundamentalsFingerprint String?
   attempts           Int       @default(0)
   /// Dernière fois que les séries de graphiques (ChartCache) ont été préremplies pour ce
   /// ticker. Null = jamais → la veille les comble progressivement (comme elle a scoré l'univers).
@@ -286,7 +304,8 @@ model ScreenerTicker {
   oppRefreshedAt     DateTime?
   updatedAt          DateTime  @updatedAt
 
-  @@index([status, priority, lastScoredAt])
+  /// Index de la FILE de scoring : elle trie et filtre désormais sur lastAttemptAt.
+  @@index([status, priority, lastAttemptAt])
   @@index([scoreRatio])
   @@index([opportunity])
 }
