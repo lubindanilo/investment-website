@@ -762,6 +762,12 @@ export interface CashRoceHistoryResponse {
   ticker: string;
   years: number;
   points: CashRoceHistoryPoint[];
+  /**
+   * true quand la série servie est annuelle (EU, ou ADR 20-F sans trimestriel exploitable).
+   * Elle est alors identique quelle que soit la fenêtre demandée → l'UI masque le sélecteur
+   * de période au lieu d'afficher cinq fois la même vue.
+   */
+  annualOnly?: boolean;
   cached: boolean;
   ageMs?: number;
   fetchedInMs?: number;

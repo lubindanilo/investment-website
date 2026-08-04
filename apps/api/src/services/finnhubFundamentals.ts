@@ -869,13 +869,68 @@ function hasQuarterlyGap(points: TimeseriesPoint[]): boolean {
 
 interface TtmPoint { date: string; ts: number; value: number }
 
+/**
+ * Tolérance d'étendue d'une fenêtre TTM, en multiple de l'espacement médian de la série.
+ * Une somme « TTM » n'a de sens que si ses 4 périodes se SUIVENT vraiment, soit 3
+ * intervalles de cadence normale. ×1,6 absorbe les exercices 52/53 semaines et la dérive
+ * des dates de clôture (un trimestre Finnhub/EDGAR va de 84 à 98 jours).
+ *
+ * Pourquoi un seuil RELATIF à la médiane et pas un absolu en jours : le store mélange des
+ * cadences. ~25 % des EU publient nativement en semestriel (LVMH, Nestlé, L'Oréal — cf
+ * stockanalysisFundamentals), et quelques séries sont annuelles. Un absolu à 400 j les
+ * aurait toutes supprimées, alors que le défaut visé est ailleurs : une série TROUÉE dont
+ * on somme 4 points étalés sur des années.
+ *
+ * Cas réel qui a motivé ce garde-fou (TCOM, Trip.com) : Finnhub ne renvoie AUCUN filing
+ * (déposant 20-F), et la série cfo du store, recopiée de stockanalysis, n'a de points que
+ * sur 2015-2016, 2018-2019, puis 2023-03 et 2024-03 isolés. Le « TTM » du point
+ * 2024-03-31 était donc la somme de 2018-12, 2019-06, 2023-03 et 2024-03 : cinq ans
+ * agrégés, étiquetés TTM. Le graphe Cash ROCE affichait 55 % sur cette base.
+ *
+ * Effet de bord ASSUMÉ : ces faux points masquaient les trous vis-à-vis de
+ * detectDiscontinuity (300 j), qui ne les voyait donc pas et laissait passer une
+ * croissance calculée sur du vide. Les séries à trou récent renvoient désormais `null`
+ * avec un motif, au lieu d'un chiffre faux. C'est le principe déjà posé ailleurs dans le
+ * pipeline : mieux vaut un trou qu'un chiffre faux.
+ *
+ * NB : une série à cadence ANNUELLE (médiane ≥ ~365 j) reste acceptée telle quelle — 4
+ * points annuels y forment une fenêtre « normale » pour ce seuil relatif. C'est le
+ * comportement actuel, inchangé volontairement (le corriger déplacerait des scores sans
+ * qu'on sache dire dans quel sens : cf le cas des séries `sbc` annuelles).
+ */
+const TTM_SPAN_TOLERANCE = 1.6;
+
+/** Espacement médian entre deux points consécutifs (ms). 0 si indéterminable. */
+function medianGapMs(sorted: TimeseriesPoint[]): number {
+  if (sorted.length < 2) return 0;
+  const gaps: number[] = [];
+  for (let i = 1; i < sorted.length; i++) gaps.push(tsOf(sorted[i]!.date) - tsOf(sorted[i - 1]!.date));
+  gaps.sort((a, b) => a - b);
+  return gaps[Math.floor(gaps.length / 2)]!;
+}
+
+/**
+ * Étendue max d'une fenêtre de 4 points pour que sa somme soit un vrai TTM.
+ * Exporté pour tests. Renvoie Infinity si la cadence n'est pas déterminable (série trop
+ * courte ou dates dupliquées) → on ne coupe rien sur une hypothèse vide.
+ */
+export function maxTtmSpanMs(sorted: TimeseriesPoint[]): number {
+  const median = medianGapMs(sorted);
+  return median > 0 ? 3 * median * TTM_SPAN_TOLERANCE : Infinity;
+}
+
 function rollingTtmSum(points: TimeseriesPoint[]): TtmPoint[] {
   const sorted = [...points].sort((a, b) => a.date.localeCompare(b.date));
+  const maxSpan = maxTtmSpanMs(sorted);
   const out: TtmPoint[] = [];
+  let straddling = 0;
   for (let i = 3; i < sorted.length; i++) {
+    // Fenêtre à cheval sur un trou → ce n'est pas un TTM, on n'émet pas de point.
+    if (tsOf(sorted[i]!.date) - tsOf(sorted[i - 3]!.date) > maxSpan) { straddling++; continue; }
     const sum = sorted[i]!.value + sorted[i-1]!.value + sorted[i-2]!.value + sorted[i-3]!.value;
     out.push({ date: sorted[i]!.date, ts: tsOf(sorted[i]!.date), value: sum });
   }
+  if (straddling > 0) console.log(`[ttm] ${straddling} fenêtre(s) écartée(s) (à cheval sur un trou de la série, étendue > ${Math.round(maxSpan / 86_400_000)}j)`);
   return out;
 }
 

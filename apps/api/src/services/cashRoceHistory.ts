@@ -52,12 +52,30 @@ function findLatestAsOf<T extends { date: string }>(
 }
 
 /**
+ * Nombre de points sous lequel le graphe n'est pas lisible — aligné sur la gate de sparsité
+ * du front (CashRoceChartModal : `data.length < 3` affiche « pas assez d'historique »).
+ *
+ * Sert de critère de SUFFISANCE pour le repli annuel. L'ancien test `length === 0` produisait
+ * une incohérence entre fenêtres chez les déposants 20-F : en 5Y le fenêtrage ne laissait pas
+ * assez de trimestres pour un seul TTM → 0 point → repli annuel propre ; en 10Y la série
+ * trouée en produisait 1 ou 2 → « non vide » → aucun repli → le client affichait « pas assez
+ * d'historique » sur la fenêtre LARGE alors que la fenêtre étroite fonctionnait.
+ */
+const MIN_CHART_POINTS = 3;
+
+export interface CashRoceHistoryResult {
+  points: CashRoceHistoryPoint[];
+  /** Granularité réellement servie. 'annual' → l'UI masque les boutons de période. */
+  freq: 'quarterly' | 'annual';
+}
+
+/**
  * Calcule la timeseries Cash ROCE pour un ticker.
  *
  * @param ticker  Symbole boursier (ex BKNG, MEDP, NESN.SW)
  * @param years   Profondeur (1, 5, 10, 20, 50)
  */
-export async function getCashRoceHistory(ticker: string, years: number): Promise<CashRoceHistoryPoint[]> {
+export async function getCashRoceHistory(ticker: string, years: number): Promise<CashRoceHistoryResult> {
   // Route US/EU selon résolution Yahoo (même logique que pfcfHistory.ts)
   // EU / non-US = devise ≠ USD. On se base sur la DEVISE et non sur « symbol ≠ ticker » :
   // un ticker déjà suffixé (EL.PA, NESN.SW) résout vers lui-même, donc l'ancien test le
@@ -66,15 +84,20 @@ export async function getCashRoceHistory(ticker: string, years: number): Promise
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
-    return getCashRoceHistoryAnnualYahoo(resolved.symbol, years);
+    return { points: await getCashRoceHistoryAnnualYahoo(resolved.symbol, years), freq: 'annual' };
   }
 
   const usResult = await getCashRoceHistoryUs(ticker, years);
-  if (usResult.length === 0) {
-    console.log(`[cashRoce ${ticker}] Finnhub vide → fallback annual Yahoo (probable ADR étranger)`);
-    return getCashRoceHistoryAnnualYahoo(resolved?.symbol ?? ticker, years);
+  if (usResult.length < MIN_CHART_POINTS) {
+    // Trimestriel insuffisant (ADR 20-F sans filing Finnhub, ou série trop trouée pour
+    // produire des TTM contigus) → repli annuel Yahoo, homogène en devise de reporting.
+    const annual = await getCashRoceHistoryAnnualYahoo(resolved?.symbol ?? ticker, years);
+    if (annual.length > usResult.length) {
+      console.log(`[cashRoce ${ticker}] US insuffisant (${usResult.length} pt) → annual Yahoo ${annual.length} pts`);
+      return { points: annual, freq: 'annual' };
+    }
   }
-  return usResult;
+  return { points: usResult, freq: 'quarterly' };
 }
 
 /** Path US : Finnhub quarterly. Join FCF_adj_TTM par quarter avec equity+debt par quarter. */

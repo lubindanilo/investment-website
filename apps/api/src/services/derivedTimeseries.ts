@@ -23,7 +23,7 @@
  * carte. Côté annuel Yahoo c'est le FCF brut (comme pfcfHistory/cashRoceHistory).
  */
 import type { RatioMetricKey, TimeseriesPoint } from '@lubin/shared';
-import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundamentals.js';
+import { getReportedTimeseries, getAdjustedFcfTtmSeries, maxTtmSpanMs } from './finnhubFundamentals.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 import { yahooLimiter } from '../lib/limiter.js';
 
@@ -57,17 +57,48 @@ export interface RatioTimeseriesResult {
   unit: 'percent' | 'multiple';
   /** Granularité réellement produite : 'quarterly' (US TTM) ou 'annual' (EU/ADR). */
   freq: 'quarterly' | 'annual';
-  /** true uniquement pour les vrais tickers EU (suffixe d'exchange) → masque les boutons de période. */
-  isEuTicker: boolean;
+  /**
+   * true dès que la série servie est ANNUELLE, donc identique quelle que soit la fenêtre
+   * demandée → l'UI masque les boutons de période et affiche un tag « Données annuelles ».
+   *
+   * Avant, ce drapeau ne valait true que pour les vrais tickers EU (devise ≠ USD). Les ADR
+   * 20-F cotant en USD (TCOM, PDD, NTES…) passaient donc à travers : ils tombaient sur le
+   * même repli annuel Yahoo mais gardaient les 5 boutons, et comme Yahoo plafonne à ~4
+   * exercices quoi qu'on demande, « 1Y » affichait exactement la vue « 5Y ». C'est
+   * précisément l'UX trompeuse que le garde-fou EU était censé éviter.
+   */
+  annualOnly: boolean;
 }
+
+/**
+ * Nombre de points sous lequel un graphe n'est pas lisible. Aligné sur la gate de sparsité
+ * du front (HistogramModal : `data.length < 3` affiche « pas de données trimestrielles »).
+ *
+ * Sert de critère de SUFFISANCE pour décider du repli annuel. L'ancien test `us.length === 0`
+ * laissait passer les cas 1-2 points : chez TCOM, la fenêtre 10Y/20Y/All produisait 2 points
+ * depuis une série trouée, donc « non vide », donc AUCUN repli, donc un graphe vide côté
+ * client — alors que la fenêtre 5Y, elle, tombait à 0 point et basculait proprement sur les
+ * 4 barres annuelles Yahoo. D'où le « 5Y marche, 10Y dit no data » incohérent.
+ */
+const MIN_CHART_POINTS = 3;
 
 // ─── Helpers de combinaison de séries ────────────────────────────────────────
 
-/** Somme glissante TTM (4 trimestres) sur une série quarterly triée. */
+/**
+ * Somme glissante TTM (4 trimestres) sur une série quarterly triée.
+ *
+ * Même garde-fou de contiguïté que finnhubFundamentals.rollingTtmSum (cf `maxTtmSpanMs`) :
+ * une fenêtre à cheval sur un trou n'est pas un TTM et n'émet pas de point. Sans ça, une
+ * série trouée (déposants 20-F dont la source ne couvre que quelques exercices épars)
+ * produisait des « TTM » étalés sur plusieurs années.
+ */
 function rollingTtmSum(points: TimeseriesPoint[]): TimeseriesPoint[] {
   const s = [...points].sort((a, b) => a.date.localeCompare(b.date));
+  const maxSpan = maxTtmSpanMs(s);
   const out: TimeseriesPoint[] = [];
   for (let i = 3; i < s.length; i++) {
+    const span = Date.parse(s[i]!.date) - Date.parse(s[i - 3]!.date);
+    if (span > maxSpan) continue;
     out.push({ date: s[i]!.date, value: s[i]!.value + s[i - 1]!.value + s[i - 2]!.value + s[i - 3]!.value });
   }
   return out;
@@ -284,6 +315,11 @@ async function computeAnnualRatio(symbol: string, ratio: RatioMetricKey, years: 
     // Même garde-fou qu'en trimestriel US, indexé par exercice.
     raw = divideByYear(netDebt, dropImmaterialDenominator(fcf, rev, d => d.slice(0, 4)), scale);
   }
+  // Plancher à 5 ans : Yahoo /fundamentals-timeseries plafonne à ~4 exercices quoi qu'on
+  // demande (vérifié : un period1 à -25 ans renvoie les mêmes 4 points). Fenêtrer à 1 an
+  // ne rendrait donc qu'un seul exercice, sans que la source ait plus à offrir. On sert la
+  // série complète et on le DIT au client via `annualOnly`, qui masque les boutons de
+  // période — sinon « 1Y » et « 5Y » affichent la même chose sans explication.
   return filterWindow(raw, Math.max(years, 5));
 }
 
@@ -303,16 +339,22 @@ export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, 
   if (isEuTicker && resolved) {
     const points = await computeAnnualRatio(resolved.symbol, ratio, years);
     console.log(`[ratio ${ticker}/${ratio}] EU annual ${points.length} pts`);
-    return { points, unit, freq: 'annual', isEuTicker: true };
+    return { points, unit, freq: 'annual', annualOnly: true };
   }
 
   const us = await computeUsRatio(ticker, ratio, years);
-  if (us.length === 0) {
-    // ADR étranger 20-F (Finnhub quarterly vide) → repli annuel Yahoo.
-    const points = await computeAnnualRatio(resolved?.symbol ?? ticker, ratio, years);
-    console.log(`[ratio ${ticker}/${ratio}] ADR/20-F → Yahoo annual ${points.length} pts`);
-    return { points, unit, freq: 'annual', isEuTicker: false };
+  if (us.length < MIN_CHART_POINTS) {
+    // Trimestriel US insuffisant (ADR 20-F sans filing Finnhub, ou série trop trouée pour
+    // produire des TTM contigus) → repli annuel Yahoo. On ne garde l'annuel que s'il fait
+    // mieux : sinon on préserve le peu de trimestriel plutôt que de dégrader.
+    const annual = await computeAnnualRatio(resolved?.symbol ?? ticker, ratio, years);
+    if (annual.length > us.length) {
+      console.log(`[ratio ${ticker}/${ratio}] US TTM insuffisant (${us.length} pt) → Yahoo annual ${annual.length} pts`);
+      return { points: annual, unit, freq: 'annual', annualOnly: true };
+    }
+    console.log(`[ratio ${ticker}/${ratio}] US TTM ${us.length} pt, repli annuel pas mieux (${annual.length}) → on garde l'US`);
+  } else {
+    console.log(`[ratio ${ticker}/${ratio}] US TTM ${us.length} pts`);
   }
-  console.log(`[ratio ${ticker}/${ratio}] US TTM ${us.length} pts`);
-  return { points: us, unit, freq: 'quarterly', isEuTicker: false };
+  return { points: us, unit, freq: 'quarterly', annualOnly: false };
 }
