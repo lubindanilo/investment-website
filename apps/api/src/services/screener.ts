@@ -710,8 +710,20 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
   return onlyOpportunities ? withRes.filter(r => r.opportunity) : withRes;
 }
 
-/** Compteurs de progression de la veille. */
-export async function getStats(): Promise<{ pending: number; scored: number; nodata: number; error: number; total: number }> {
+export interface ScreenerStatsCounts { pending: number; scored: number; nodata: number; error: number; total: number }
+
+/**
+ * Mémo des compteurs : /stats est désormais appelé par le screener PUBLIC (compteur de
+ * couverture), donc à chaque visite et à chaque pré-rendu bot. Or le groupBy balaie ~30k
+ * lignes, et le compute Neon (plan Free) est la ressource rare. Les compteurs ne bougent que
+ * de quelques unités par jour → 15 min de fraîcheur suffisent largement.
+ */
+const STATS_TTL_MS = 15 * 60 * 1000;
+let statsCache: { at: number; counts: ScreenerStatsCounts } | null = null;
+
+/** Compteurs de progression de la veille (mémoïsés STATS_TTL_MS). */
+export async function getStats(): Promise<ScreenerStatsCounts> {
+  if (statsCache && Date.now() - statsCache.at < STATS_TTL_MS) return statsCache.counts;
   const grouped = await prisma.screenerTicker.groupBy({ by: ['status'], _count: { _all: true } });
   const out = { pending: 0, scored: 0, nodata: 0, error: 0, total: 0 };
   for (const g of grouped) {
@@ -721,6 +733,7 @@ export async function getStats(): Promise<{ pending: number; scored: number; nod
     }
     out.total += c;
   }
+  statsCache = { at: Date.now(), counts: out };
   return out;
 }
 

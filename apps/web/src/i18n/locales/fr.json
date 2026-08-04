@@ -111,10 +111,8 @@
     "loadMore": "Charger plus",
     "title": "Screener",
     "subtitle": "Les meilleures notes de l'univers, triées par la veille. Les 10/10 en tête.",
-    "progress": {
-      "label": "Veille de l'univers",
-      "upToDate": "À jour",
-      "scored": "{{scored}} / {{total}} titres réévalués"
+    "coverage": {
+      "label": "titres avec données financières"
     },
     "filters": {
       "kicker": "Filtres",
