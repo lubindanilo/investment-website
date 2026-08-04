@@ -180,10 +180,14 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { slug = '' } = useParams();
-  const S = STRINGS[pickLang(i18n.language)];
+  const lang = pickLang(i18n.language);
+  const S = STRINGS[lang];
 
   const [rows, setRows] = useState<ScreenerTopRow[]>([]);
   const [sectorName, setSectorName] = useState<string | null>(null);
+  /** Copy servi par l'API pour les collections. Fait autorité sur les libellés locaux : c'est
+   *  la même source que le titre et le H1 vus par les robots. */
+  const [apiCopy, setApiCopy] = useState<{ title: string; h1: string; intro: string } | null>(null);
   const [status, setStatus] = useState<'loading' | 'ready' | 'notfound' | 'error'>('loading');
   const [errMsg, setErrMsg] = useState('');
 
@@ -191,6 +195,7 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
     let cancelled = false;
     setStatus('loading');
     setSectorName(null);
+    setApiCopy(null);
     (async () => {
       try {
         if (kind === 'sector') {
@@ -206,21 +211,21 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
           setRows(top);
           setStatus('ready');
         } else {
-          let top: ScreenerTopRow[];
-          if (slug === 'qualite-10-sur-10') {
-            top = await api.screener.top({ minRatio: 1, minMax: 10, limit: 60 });
-          } else if (slug === 'sous-evaluees') {
-            top = await api.screener.top({ opportunities: true, limit: 60 });
-          } else {
-            if (!cancelled) setStatus('notfound');
-            return;
-          }
+          // Une seule source pour les 17 collections : l'API délègue à resolveClassement(),
+          // la même fonction que le pré-rendu bot. Avant le 2026-08-04 cette branche ne
+          // connaissait que 2 slugs et renvoyait « notfound » sur les 15 autres, pendant que
+          // Googlebot en recevait la version complète. Ne jamais re-coder les filtres ici.
+          const res = await api.screener.classement(slug, lang);
           if (cancelled) return;
-          setRows(top);
+          setApiCopy(res.copy);
+          setRows(res.rows);
           setStatus('ready');
         }
       } catch (e) {
         if (cancelled) return;
+        // Un slug inconnu (ou une collection vide) doit rendre la page « introuvable », pas un
+        // message d'erreur technique : c'est le même 404 que sert le pré-rendu aux robots.
+        if (e instanceof ApiError && e.status === 404) { setStatus('notfound'); return; }
         setErrMsg(e instanceof ApiError ? e.userMessage : (e as Error).message);
         setStatus('error');
       }
@@ -237,11 +242,15 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
       const label = sectorName ? t(`industries.${sectorSlug(sectorName)}`, { defaultValue: sectorName }) : '';
       return { title: S.sectorTitle(label), desc: S.sectorDesc(label), h1: S.sectorH1(label), intro: S.sectorIntro(label) };
     }
+    // Le copy de l'API fait autorité : c'est la même chaîne que le <title> et le <h1> du
+    // pré-rendu, donc aucun écart possible entre la page vue par un robot et par un lecteur.
+    if (apiCopy) return { title: apiCopy.title, desc: apiCopy.intro, h1: apiCopy.h1, intro: apiCopy.intro };
+    // Repli pendant le chargement, sur les deux collections historiques.
     if (slug === 'qualite-10-sur-10') {
       return { title: S.quality.title, desc: S.quality.desc, h1: S.quality.h1, intro: S.quality.intro };
     }
     return { title: S.value.title, desc: S.value.desc, h1: S.value.h1, intro: S.value.intro };
-  }, [kind, slug, sectorName, S, t]);
+  }, [kind, slug, sectorName, apiCopy, S, t]);
 
   if (status === 'notfound') {
     return (

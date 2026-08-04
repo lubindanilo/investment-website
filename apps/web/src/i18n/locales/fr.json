@@ -12,6 +12,12 @@
     "breadcrumb": "Fil d'Ariane"
   },
   "blog": {
+    "collections": {
+      "title": "Les classements",
+      "lede": "Des sélections construites par nos 10 critères, pas par une opinion. Elles se recalculent en continu, contrairement aux articles ci-dessous qui sont datés.",
+      "badge": "Mis à jour en continu",
+      "cardCta": "Voir le classement"
+    },
     "ctaSeeAnalysis": "{{name}} : voir l'analyse complète",
     "ctaAnalyzeStock": "Analyser une action",
     "ctaOpportunities": "Nos opportunités du moment",

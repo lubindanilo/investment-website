@@ -2384,6 +2384,48 @@ const CLASSEMENTS: Record<string, Classement> = {
 /** Slugs des collections, dans l'ordre d'affichage. Exporté pour le sitemap et le maillage. */
 export const CLASSEMENT_SLUGS: string[] = Object.keys(CLASSEMENTS);
 
+/**
+ * Résout une collection : applique le filtre, l'ordre, le post-filtre et la troncature, puis
+ * renvoie le copy de la langue demandée. **Seul chemin de code** qui décide de la composition
+ * d'un classement.
+ *
+ * ⚠️ POURQUOI CETTE FONCTION EXISTE. Jusqu'au 2026-08-04, ces définitions n'étaient lues que
+ * par le pré-rendu bot, et `HubPage.tsx` ne savait traiter que 2 des 17 slugs : Googlebot
+ * recevait 36 Ko et 100 titres sur /classement/actions-pea-eligibles-de-qualite pendant qu'un
+ * humain recevait un 404. C'est un motif de cloaking, involontaire mais indiscernable de
+ * l'extérieur. Tout appelant qui aurait besoin d'une liste de classement DOIT passer par ici :
+ * ré-exprimer les filtres ailleurs (via les paramètres de `getTop`, par exemple) recréerait
+ * mécaniquement la divergence entre ce que voit un robot et ce que voit un lecteur.
+ */
+export async function resolveClassement(
+  slug: string,
+  lang: ArticleLang,
+): Promise<{ copy: ClassementCopy; rows: HubRow[] } | null> {
+  const def = CLASSEMENTS[slug];
+  if (!def) return null;
+  // `pfcfTTM: { not: null }` est imposé partout : c'est la même condition que la règle
+  // d'indexation des fiches (palier 1). Une collection ne doit jamais lister une page que
+  // Google ne peut pas indexer, sinon elle envoie du budget d'exploration dans un mur.
+  const raw = await prisma.screenerTicker.findMany({
+    where: { status: 'scored', pfcfTTM: { not: null }, ...def.where },
+    orderBy: [{ scoreRatio: 'desc' }, { ticker: 'asc' }],
+    take: def.postFilter ? def.take * 4 : def.take,
+    select: HUB_SELECT,
+  });
+  const rows = (def.postFilter ? raw.filter(def.postFilter) : raw).slice(0, def.take);
+  // Une collection vide serait une page sans contenu : l'appelant doit rendre un 404 franc.
+  if (rows.length === 0) return null;
+  return { copy: def.copy[lang], rows };
+}
+
+/** Index des collections pour le maillage humain (section épinglée du blog). */
+export function listClassements(lang: ArticleLang): Array<{ slug: string; title: string; h1: string; intro: string }> {
+  return CLASSEMENT_SLUGS.map((slug) => {
+    const c = CLASSEMENTS[slug]!.copy[lang];
+    return { slug, title: c.title, h1: c.h1, intro: c.intro };
+  });
+}
+
 // GET /secteur/:slug : meilleures actions d'un secteur (servi aux bots).
 seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => {
   const slug = String(req.params.slug || '').toLowerCase().slice(0, 80);
@@ -2417,22 +2459,12 @@ seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => 
 seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) => {
   const slug = String(req.params.slug || '').toLowerCase().slice(0, 80);
   const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
-  const def = CLASSEMENTS[slug];
-  if (!def) { res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return; }
   try {
-    const copy = def.copy[lang];
-    // `pfcfTTM: { not: null }` est imposé partout : c'est la même condition que la règle
-    // d'indexation des fiches (palier 1). Une collection ne doit jamais lister une page que
-    // Google ne peut pas indexer, sinon elle envoie du budget d'exploration dans un mur.
-    const raw = await prisma.screenerTicker.findMany({
-      where: { status: 'scored', pfcfTTM: { not: null }, ...def.where },
-      orderBy: [{ scoreRatio: 'desc' }, { ticker: 'asc' }],
-      take: def.postFilter ? def.take * 4 : def.take,
-      select: HUB_SELECT,
-    });
-    const rows = (def.postFilter ? raw.filter(def.postFilter) : raw).slice(0, def.take);
-    // Une collection vide serait une page sans contenu : mieux vaut un 404 franc.
-    if (rows.length === 0) { res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return; }
+    // Même appel que l'API humaine (/api/screener/classement/:slug) : c'est ce qui garantit
+    // que le robot et le lecteur voient la même composition. Voir resolveClassement().
+    const resolved = await resolveClassement(slug, lang);
+    if (!resolved) { res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return; }
+    const { copy, rows } = resolved;
     res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
       title: copy.title, h1: copy.h1, intro: copy.intro, path: `/classement/${slug}`, rows, lang,
       outbound: 'ranking',

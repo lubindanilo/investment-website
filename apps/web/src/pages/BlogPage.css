@@ -192,3 +192,187 @@
   .blog-cta { padding: 24px 16px; }
   .blog-cta-title { font-size: 19px; }
 }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Classements — bande épinglée en tête du blog.
+
+   Elle doit se lire comme un objet DIFFÉRENT des articles : panneau teinté marque,
+   badge « mis à jour en continu », aucune date. Les cartes d'article en dessous sont
+   sur fond de page et portent une date : le contraste fait la distinction.
+
+   Hiérarchie à deux niveaux (3 cartes larges + le reste en compact) : dix-sept cartes
+   identiques se lisent comme un pied de page et n'invitent à cliquer sur aucune.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+.blog-collections {
+  position: relative;
+  margin: 4px 0 38px;
+  padding: 28px 26px 26px;
+  border-radius: var(--r-xl);
+  border: 1px solid var(--brand-soft);
+  background:
+    radial-gradient(760px 300px at 8% -20%, var(--brand-soft) 0%, transparent 72%),
+    linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+  box-shadow: var(--sh-sm);
+}
+
+/* Filet de marque en haut du panneau : signe qu'on n'est pas dans le flux éditorial. */
+.blog-collections::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  border-radius: var(--r-xl) var(--r-xl) 0 0;
+  background: linear-gradient(90deg, var(--brand) 0%, oklch(0.66 0.19 277) 45%, transparent 100%);
+}
+
+.blog-collections-head { margin-bottom: 22px; }
+
+.blog-collections-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px 5px 9px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 1px solid var(--brand-soft);
+  color: var(--brand-ink);
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+/* Point « vivant » : la liste bouge sans intervention éditoriale. */
+.blog-collections-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--good);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--good) 20%, transparent);
+}
+
+.blog-collections-title {
+  margin: 13px 0 0;
+  font-size: clamp(23px, 2.5vw, 29px);
+  font-weight: 800;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+}
+
+.blog-collections-lede {
+  margin: 9px 0 0;
+  max-width: 64ch;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* — Listes — */
+.blog-collections-featured,
+.blog-collections-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 11px;
+}
+
+.blog-collections-featured {
+  grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+  margin-bottom: 11px;
+}
+
+.blog-collections-grid {
+  grid-template-columns: repeat(auto-fill, minmax(238px, 1fr));
+}
+
+/* — Carte — */
+.blog-collection-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 11px;
+  height: 100%;
+  padding: 13px 13px 13px 14px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  text-decoration: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.blog-collection-card.is-featured {
+  grid-template-columns: auto 1fr auto;
+  /* La flèche reste sur la ligne du titre : mise sur sa propre ligne sous l'extrait, elle
+     flottait dans du vide et cassait l'alignement du bas des trois cartes. */
+  grid-template-areas:
+    'num  name  arrow'
+    '.    intro intro';
+  align-items: start;
+  row-gap: 7px;
+  padding: 16px 16px 15px;
+}
+
+.blog-collection-card:hover,
+.blog-collection-card:focus-visible {
+  border-color: color-mix(in oklch, var(--brand) 42%, transparent);
+  box-shadow: var(--sh-md);
+  transform: translateY(-2px);
+}
+
+.blog-collection-num {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink-4);
+  transition: color 150ms ease;
+}
+
+.is-featured .blog-collection-num { grid-area: num; padding-top: 2px; }
+.blog-collection-card:hover .blog-collection-num { color: var(--brand); }
+
+.blog-collection-name {
+  min-width: 0;
+  font-size: 14.5px;
+  font-weight: 650;
+  line-height: 1.35;
+  letter-spacing: -0.006em;
+  color: var(--ink);
+}
+
+.is-featured .blog-collection-name { grid-area: name; font-size: 16px; }
+
+.blog-collection-intro {
+  grid-area: intro;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+/* Une flèche discrète remplace un libellé d'action : répété dix-sept fois, « voir le
+   classement » n'apporte aucune information et sature la section de bleu. */
+.blog-collection-arrow {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink-4);
+  opacity: 0.55;
+  transform: translateX(-2px);
+  transition: color 150ms ease, opacity 150ms ease, transform 150ms ease;
+}
+
+.is-featured .blog-collection-arrow { grid-area: arrow; margin-top: 3px; }
+
+.blog-collection-card:hover .blog-collection-arrow,
+.blog-collection-card:focus-visible .blog-collection-arrow {
+  color: var(--brand);
+  opacity: 1;
+  transform: translateX(1px);
+}
+
+@media (max-width: 560px) {
+  .blog-collections { padding: 22px 16px 18px; border-radius: var(--r-lg); }
+  .blog-collections-featured,
+  .blog-collections-grid { grid-template-columns: 1fr; }
+}

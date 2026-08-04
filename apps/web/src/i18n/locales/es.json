@@ -95,6 +95,12 @@
     "breadcrumb": "Migas de pan"
   },
   "blog": {
+    "collections": {
+      "title": "Las clasificaciones",
+      "lede": "Selecciones construidas por nuestros 10 criterios, no por una opinión. Se recalculan de forma continua, al contrario que los artículos fechados de abajo.",
+      "badge": "Actualizado en continuo",
+      "cardCta": "Ver la clasificación"
+    },
     "ctaSeeAnalysis": "{{name}}: ver el análisis completo",
     "ctaAnalyzeStock": "Analizar una acción",
     "ctaOpportunities": "Nuestras oportunidades del momento",

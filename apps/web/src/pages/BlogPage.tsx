@@ -11,10 +11,11 @@
  *
  * TODO i18n : extraire vers locales/*.json en sprint 3 quand on aura plusieurs articles.
  */
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { listArticles, toArticleLang } from '@lubin/shared';
+import { api } from '../lib/api.js';
 import SeoHead from '../components/SeoHead.js';
 import { Icon } from '../components/ui/primitives.js';
 import './BlogPage.css';
@@ -68,6 +69,12 @@ export function BlogPage() {
           <h1 className="blog-hero-title">{t('blog.hero.title')}</h1>
           <p className="blog-hero-lede">{t('blog.hero.lede')}</p>
         </header>
+
+        {/* Classements — section ÉPINGLÉE, au-dessus et hors du flux daté des articles.
+            Ce sont des sélections recalculées en continu, pas des billets : les mélanger aux
+            articles brouillerait les deux formats. C'est aussi le seul maillage interne vers
+            ces 17 pages, qui n'étaient liées depuis AUCUNE page du site. */}
+        <ClassementsSection />
 
         {/* Barre de recherche (affichée seulement s'il y a des articles) */}
         {articles.length > 0 && (
@@ -133,6 +140,98 @@ export function BlogPage() {
 
       </div>
     </div>
+  );
+}
+
+/**
+ * Section épinglée listant les collections d'intention (/classement/:slug).
+ *
+ * La liste vient de l'API (`/api/screener/classements`), donc de la même définition
+ * `CLASSEMENTS` que le pré-rendu bot : pas de liste de slugs recopiée côté front, qui
+ * dériverait au premier ajout de collection.
+ *
+ * Rendu silencieux si l'appel échoue : le blog doit rester lisible même API en panne.
+ */
+type ClassementItem = { slug: string; title: string; intro: string };
+
+/** Coupe une intro sur la dernière frontière de mot, sans couper un mot en deux. */
+function clip(s: string, max: number): string {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  return cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:]$/, '') + '…';
+}
+
+function ClassementsSection() {
+  const { t, i18n } = useTranslation();
+  const lang = toArticleLang(i18n.language);
+  const [items, setItems] = useState<ClassementItem[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    api.screener
+      .classements(lang)
+      .then((list) => { if (!cancelled) setItems(list); })
+      .catch(() => { /* section masquée, le reste du blog reste intact */ });
+    return () => { cancelled = true; };
+  }, [lang]);
+
+  if (items.length === 0) return null;
+
+  // Hiérarchie volontaire : 17 cartes identiques se lisent comme une liste de liens et
+  // n'invitent à cliquer sur aucune. Les 3 premières (ordre de déclaration côté API, donc
+  // les collections à plus forte intention) prennent une carte large avec un extrait ;
+  // le reste passe en cartes compactes. Toutes restent liées, c'est le but du maillage.
+  const featured = items.slice(0, 3);
+  const rest = items.slice(3);
+
+  return (
+    <section className="blog-collections" aria-labelledby="blog-collections-title">
+      <div className="blog-collections-head">
+        <span className="blog-collections-badge">
+          <span className="blog-collections-dot" aria-hidden="true" />
+          {t('blog.collections.badge')}
+        </span>
+        <h2 id="blog-collections-title" className="blog-collections-title">
+          {t('blog.collections.title')}
+        </h2>
+        <p className="blog-collections-lede">{t('blog.collections.lede')}</p>
+      </div>
+
+      <ul className="blog-collections-featured">
+        {featured.map((c, i) => (
+          <li key={c.slug}>
+            <Link to={`/classement/${c.slug}`} className="blog-collection-card is-featured">
+              <span className="blog-collection-num" aria-hidden="true">
+                {(i + 1).toString().padStart(2, '0')}
+              </span>
+              <span className="blog-collection-name">{c.title}</span>
+              {c.intro && <span className="blog-collection-intro">{clip(c.intro, 108)}</span>}
+              <span className="blog-collection-arrow" aria-hidden="true">
+                <Icon name="arrowRight" size={15} />
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      {rest.length > 0 && (
+        <ul className="blog-collections-grid">
+          {rest.map((c, i) => (
+            <li key={c.slug}>
+              <Link to={`/classement/${c.slug}`} className="blog-collection-card">
+                <span className="blog-collection-num" aria-hidden="true">
+                  {(i + 4).toString().padStart(2, '0')}
+                </span>
+                <span className="blog-collection-name">{c.title}</span>
+                <span className="blog-collection-arrow" aria-hidden="true">
+                  <Icon name="chevronR" size={15} />
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
   );
 }
 

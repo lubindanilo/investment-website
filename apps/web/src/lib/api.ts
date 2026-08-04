@@ -232,6 +232,18 @@ export const api = {
       const qs = q.toString();
       return safeRequest<ScreenerTopRow[]>(`/api/screener/top${qs ? `?${qs}` : ''}`);
     },
+    /** Index des collections d'intention (section épinglée du blog). */
+    classements: (lng?: string) =>
+      safeRequest<Array<{ slug: string; title: string; h1: string; intro: string }>>(
+        `/api/screener/classements${lng ? `?lng=${encodeURIComponent(lng)}` : ''}`,
+      ),
+    /** Une collection : copy + lignes. Même composition que le pré-rendu servi aux robots. */
+    classement: (slug: string, lng?: string) =>
+      safeRequest<{
+        slug: string;
+        copy: { title: string; h1: string; intro: string };
+        rows: ScreenerTopRow[];
+      }>(`/api/screener/classement/${encodeURIComponent(slug)}${lng ? `?lng=${encodeURIComponent(lng)}` : ''}`),
     stats: () => safeRequest<ScreenerStats>('/api/screener/stats'),
     sectors: () => safeRequest<{ sector: string; count: number }[]>('/api/screener/sectors'),
     search: (q: string) => safeRequest<TickerSuggestion[]>(`/api/screener/search?q=${encodeURIComponent(q)}`),

@@ -24,9 +24,75 @@ import { getAssetProfileYahoo } from '../services/yahoo.js';
 import { getCachedSnapshot } from '../services/quantCache.js';
 import { buildQuantitativeCriteria } from '../services/derivedMetrics.js';
 import { parseLang, type Lang } from '../i18n/index.js';
+import { resolveClassement, listClassements } from './seoPrerender.js';
+import { toArticleLang } from '../data/articles.js';
 import { prisma } from '../db/client.js';
 
 export const screenerRouter: Router = Router();
+
+// ── Collections d'intention (« classements ») ───────────────────────────────
+// Ces deux routes servent aux HUMAINS ce que /classement/:slug du pré-rendu sert aux robots.
+// Elles délèguent la composition à resolveClassement(), qui est le seul endroit où un filtre
+// de classement est défini. Ne JAMAIS ré-exprimer ces filtres ici : c'est ce qui a produit le
+// cloaking involontaire corrigé le 2026-08-04 (Googlebot voyait 100 titres, l'humain un 404).
+
+/** Index des collections, pour la section épinglée du blog. */
+screenerRouter.get('/classements', asyncHandler(async (req: Request, res: Response) => {
+  const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : parseLang(req.header('accept-language')));
+  res.set('Cache-Control', 'public, max-age=600');
+  res.json(listClassements(lang));
+}));
+
+/** Une collection : son copy + ses lignes, enrichies pour l'UI (résilience, cours). */
+screenerRouter.get('/classement/:slug', asyncHandler(async (req: Request, res: Response) => {
+  const slug = String(req.params.slug || '').toLowerCase().slice(0, 80);
+  const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : parseLang(req.header('accept-language')));
+  const resolved = await resolveClassement(slug, lang);
+  if (!resolved) { res.status(404).json({ error: 'Classement inconnu', code: 'NOT_FOUND' }); return; }
+
+  // La LISTE et son ORDRE viennent de resolveClassement. On n'ajoute que des colonnes :
+  // le pré-rendu bot se contente de ticker/nom/note/P-FCF, l'UI affiche aussi la résilience,
+  // le cours et le drapeau opportunité.
+  const tickers = resolved.rows.map((r) => r.ticker);
+  const [extra, stars] = await Promise.all([
+    prisma.screenerTicker.findMany({
+      where: { ticker: { in: tickers } },
+      // Complète HUB_SELECT jusqu'à la forme ScreenerTopRow, pour que le front réutilise son
+      // tableau de screener sans second type de ligne.
+      select: {
+        ticker: true, sector: true, price: true, currency: true, opportunity: true,
+        nextEarningsDate: true, dayChangePct: true, spark: true, pfcfPercentile: true,
+      },
+    }),
+    getResilienceStars(tickers),
+  ]);
+  const byTicker = new Map(extra.map((r) => [r.ticker, r]));
+
+  res.set('Cache-Control', 'public, max-age=600');
+  res.json({
+    slug,
+    copy: resolved.copy,
+    rows: resolved.rows.map((r) => {
+      const e = byTicker.get(r.ticker);
+      return {
+        ticker: r.ticker,
+        name: r.name,
+        scoreChiffres: r.scoreChiffres,
+        scoreChiffresMax: r.scoreChiffresMax,
+        pfcfTTM: r.pfcfTTM,
+        sector: e?.sector ?? null,
+        price: e?.price ?? null,
+        currency: e?.currency ?? null,
+        opportunity: e?.opportunity ?? false,
+        nextEarningsDate: e?.nextEarningsDate ?? null,
+        dayChangePct: e?.dayChangePct ?? null,
+        spark: (e?.spark as number[] | null) ?? null,
+        pfcfPercentile: e?.pfcfPercentile ?? null,
+        resilienceStars: stars.get(r.ticker) ?? null,
+      };
+    }),
+  });
+}));
 
 /** Garde : exige le secret partagé. Refuse si SCREENER_TOKEN absent côté serveur. */
 function requireScreenerToken(req: Request, _res: Response, next: NextFunction): void {

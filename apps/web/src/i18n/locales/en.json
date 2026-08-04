@@ -12,6 +12,12 @@
     "breadcrumb": "Breadcrumb"
   },
   "blog": {
+    "collections": {
+      "title": "The rankings",
+      "lede": "Selections built by our 10 criteria, not by an opinion. They are recomputed continuously, unlike the dated articles below.",
+      "badge": "Continuously updated",
+      "cardCta": "View the ranking"
+    },
     "ctaSeeAnalysis": "{{name}}: see the full analysis",
     "ctaAnalyzeStock": "Analyze a stock",
     "ctaOpportunities": "Our opportunities of the moment",
