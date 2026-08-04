@@ -22,9 +22,9 @@ on:
   workflow_dispatch:
     inputs:
       minutes:
-        description: 'Duree demandee en minutes (plafond ; le solde Neon peut la reduire)'
+        description: 'Duree demandee en minutes (vide = variable DRAIN_MINUTES ; le solde Neon peut toujours reduire)'
         required: false
-        default: '120'
+        default: ''
       region:
         description: 'Zone a drainer (US, EU, INTL, ou vide = univers entier)'
         required: false
