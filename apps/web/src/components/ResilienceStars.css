@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   gap: 2px;
-  color: oklch(0.38 0.12 255);
+  color: var(--brand);
   line-height: 1;
   white-space: nowrap;
 }
@@ -40,7 +40,7 @@
 .rs-badge-sm { min-width: 56px; padding: 0; font-size: 12.5px; }
 
 .rs-badge-scored {
-  color: oklch(0.38 0.12 255);
+  color: var(--brand);
   background: transparent;
   border: 0;
 }
@@ -66,7 +66,7 @@
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: oklch(0.38 0.12 255);
+  color: var(--brand);
 }
 
 .rs-header-score .rs-stars {
@@ -124,7 +124,7 @@
   padding: 0;
   font-size: 12px;
   font-weight: 800;
-  color: oklch(0.38 0.12 255);
+  color: var(--brand);
   background: transparent;
   border: 0;
 }

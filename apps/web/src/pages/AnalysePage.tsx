@@ -706,7 +706,7 @@ function LandingDiscovery({ onPick }: { onPick: (ticker: string) => void }) {
                       <span className="anl-landing-name">{p.name ?? p.ticker}</span>
                       <span className="num anl-landing-ticker">{p.ticker}</span>
                     </div>
-                    <div className="row gap-6" style={{ alignItems: 'center', flexShrink: 0 }}>
+                    <div className="row gap-6 anl-landing-scores">
                       <ScorePill score={s} />
                       <ResilienceStarsBadge score={p.resilienceStars ?? null} />
                     </div>

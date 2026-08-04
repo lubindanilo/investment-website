@@ -128,13 +128,15 @@
 .anl-landing-head { margin: 4px 0 14px; }
 .anl-landing-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: 14px; }
 .anl-landing-card {
-  text-align: left; padding: 16px; cursor: pointer; display: flex; flex-direction: column; gap: 12px;
+  text-align: left; padding: 16px 13px 16px 16px; cursor: pointer; display: flex; flex-direction: column; gap: 12px;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-md); box-shadow: var(--sh-sm);
   transition: transform .12s, box-shadow .14s;
 }
 .anl-landing-card:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
 .anl-landing-name { font-weight: 700; font-size: 14px; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .anl-landing-ticker { font-size: 12px; color: var(--ink-3); }
+.anl-landing-scores { align-items: center; flex-shrink: 0; gap: 5px; margin-right: -2px; }
+.anl-landing-scores .rs-badge-md { min-width: 66px; font-size: 14px; }
 .anl-landing-foot { border-top: 1px solid var(--line-soft); padding-top: 10px; }
 
 /* Maillage interne : autres actions du même secteur, en bas de la page d'analyse. */
