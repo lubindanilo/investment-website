@@ -37,7 +37,7 @@
       "items": [
         "La méthode Lubin expliquée critère par critère",
         "Lire un 10-K en 15 minutes : la cheat sheet",
-        "Cash ROCE vs ROIC : pourquoi nous avons choisi la version de Bettin-Mauboussin",
+        "Cash ROCE vs ROIC : pourquoi nous retirons le goodwill du capital employé",
         "5 pièges des fiches Yahoo Finance que personne ne mentionne",
         "Pourquoi nous excluons l'or et les commodities de notre univers"
       ]
@@ -1747,7 +1747,7 @@
       "items": [
         {
           "q": "Comment la note de qualité est-elle calculée ?",
-          "a": "Sur 10 critères financiers objectifs : rentabilité, croissance des ventes, croissance des profits par action, marges en expansion, rendement du capital investi, endettement maîtrisé, conversion des bénéfices en cash, et cycle d'encaissement. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Buffett, Bettin-Mauboussin, Damodaran). La note finale est le total."
+          "a": "Sur 10 critères financiers objectifs : rentabilité, croissance des ventes, croissance des profits par action, marges en expansion, rendement du capital investi, endettement maîtrisé, conversion des bénéfices en cash, et cycle d'encaissement. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Buffett, Mauboussin, Damodaran). La note finale est le total."
         },
         {
           "q": "Quels titres sont couverts ?",

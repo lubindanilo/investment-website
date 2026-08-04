@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { LINKEDIN_URL, X_HANDLE, X_URL } from '../lib/socialProfiles.js';
 import './AppFooter.css';
 
 // Pied de page partagé de l'application : navigation produit, légal et contact.
@@ -63,11 +64,13 @@ export default function AppFooter() {
             <li>
               <a href="mailto:admin@lubin-investment.com">admin@lubin-investment.com</a>
             </li>
+            {/* Profils officiels. Ils servent aussi de signal d'entité : les mêmes URL
+                sont déclarées en `sameAs` dans le JSON-LD du pré-rendu (seoPrerender.ts). */}
             <li>
-              <a href="#" rel="noopener noreferrer">Twitter</a>
+              <a href={X_URL} target="_blank" rel="me noopener noreferrer">X (@{X_HANDLE})</a>
             </li>
             <li>
-              <a href="#" rel="noopener noreferrer">LinkedIn</a>
+              <a href={LINKEDIN_URL} target="_blank" rel="me noopener noreferrer">LinkedIn</a>
             </li>
             <li>FR · EN · ES</li>
           </ul>
@@ -75,7 +78,7 @@ export default function AppFooter() {
       </div>
 
       <div className="app-footer-bottom">
-        © {year} Lubin Investment — {t('footer.disclaimerShort')}
+        © {year} Lubin Investment. {t('footer.disclaimerShort')}
       </div>
     </footer>
   );

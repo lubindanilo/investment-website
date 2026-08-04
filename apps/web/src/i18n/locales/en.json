@@ -37,7 +37,7 @@
       "items": [
         "The Lubin method explained criterion by criterion",
         "Read a 10-K in 15 minutes: the cheat sheet",
-        "Cash ROCE vs ROIC: why we picked the Bettin-Mauboussin version",
+        "Cash ROCE vs ROIC: why we strip goodwill out of capital employed",
         "5 Yahoo Finance pitfalls nobody talks about",
         "Why we exclude gold and commodities from our universe"
       ]
@@ -1747,7 +1747,7 @@
       "items": [
         {
           "q": "How is the quality score computed?",
-          "a": "On 10 objective financial criteria: profitability, sales growth, per-share earnings growth, expanding margins, return on invested capital, leverage under control, earnings-to-cash conversion, and collection cycle. Each criterion is validated (YES / PARTIAL / NO) against thresholds drawn from the financial literature (Buffett, Bettin-Mauboussin, Damodaran). The final score is the total."
+          "a": "On 10 objective financial criteria: profitability, sales growth, per-share earnings growth, expanding margins, return on invested capital, leverage under control, earnings-to-cash conversion, and collection cycle. Each criterion is validated (YES / PARTIAL / NO) against thresholds drawn from the financial literature (Buffett, Mauboussin, Damodaran). The final score is the total."
         },
         {
           "q": "Which stocks are covered?",

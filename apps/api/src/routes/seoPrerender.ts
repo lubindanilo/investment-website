@@ -32,6 +32,19 @@ export const seoPrerenderRouter: Router = Router();
 
 const SITE_URL = process.env.SITE_URL || 'https://lubin-investment.com';
 
+// ─── Profils sociaux officiels ────────────────────────────────────────────────
+// Dupliqués depuis apps/web/src/lib/socialProfiles.ts, à dessein : le garde-fou
+// scripts/check-api-shared-imports.mjs interdit tout import de VALEUR depuis
+// '@lubin/shared' dans apps/api (ça casse la lambda au boot), donc pas de constante
+// partagée possible. Toute modification doit toucher les DEUX fichiers dans le même
+// commit. Déclaré tout en haut plutôt qu'à côté des AUTHOR_* pour éviter la classe de
+// bug TDZ déjà rencontrée dans apps/api (const utilisée avant son initialisation).
+const X_HANDLE = 'lubin_danilo';
+const X_URL = `https://x.com/${X_HANDLE}`;
+const LINKEDIN_URL = 'https://www.linkedin.com/in/lubin-danilo/';
+/** Déclaration d'identité réutilisée dans tous les `sameAs` du JSON-LD. */
+const SAME_AS: readonly string[] = [LINKEDIN_URL, X_URL];
+
 // Échappement HTML pour éviter injection via name/sector qui viennent de sources externes.
 function escapeHtml(s: string): string {
   return s
@@ -212,7 +225,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     introVerdict: (n, score, quality, pfcfClause) => `On a analysé l'action ${n} sur les 10 critères de qualité de Lubin Investment. L'entreprise obtient une note de <strong>${score}</strong> synonyme de qualité ${quality}${pfcfClause}.`,
     sectorPriceLine: (sector, exchange, price) => `Secteur : ${sector}.${exchange ? ` Place de cotation : ${exchange}.` : ''}${price ? ` Cours actuel : ${price}.` : ''}`,
     methodH2: 'Méthode de notation Lubin',
-    methodBody: (n, ticker) => `La note ${deFr(n)} (${ticker}) est calculée automatiquement à partir de 10 critères financiers objectifs, sans intervention humaine ni opinion. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). La note finale est le total des validations.`,
+    methodBody: (n, ticker) => `La note ${deFr(n)} (${ticker}) est calculée automatiquement à partir de 10 critères financiers objectifs, sans intervention humaine ni opinion. Chaque critère est validé (OUI / PARTIEL / NON) en fonction de seuils issus de la littérature financière (Warren Buffett, Michael Mauboussin, Aswath Damodaran). La note finale est le total des validations.`,
     criteriaH2: 'Les 10 critères chiffrés analysés',
     criteria: [
       "<strong>Rentable</strong> : marge nette positive",
@@ -221,7 +234,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
       "<strong>Nombre d'actions maîtrisé</strong> : stable ou en baisse (rachats nets = création de valeur pour l'actionnaire)",
       "<strong>Profitabilité cash</strong> : marge de free cash flow &gt; 10 % du chiffre d'affaires",
       "<strong>Marges en expansion</strong> : la marge opérationnelle s'élargit sur 5 ans (operating leverage)",
-      "<strong>Rendement du capital investi</strong> : Cash ROCE Bettin-Mauboussin &gt; 15 % par an",
+      "<strong>Rendement du capital investi</strong> : Cash ROCE &gt; 15 % par an",
       "<strong>Endettement maîtrisé</strong> : dette nette remboursable en moins de 3 ans de free cash flow",
       "<strong>Bénéfices transformés en cash</strong> : le free cash flow excède le bénéfice net comptable",
       "<strong>Délai d'encaissement net</strong> : cycle de trésorerie court ou négatif",
@@ -293,7 +306,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     introVerdict: (n, score, quality, pfcfClause) => `We analyzed ${n} stock against the 10 quality criteria of Lubin Investment. The company gets a quality score of <strong>${score}</strong>, meaning ${quality} quality${pfcfClause}.`,
     sectorPriceLine: (sector, exchange, price) => `Sector: ${sector}.${exchange ? ` Listing: ${exchange}.` : ''}${price ? ` Current price: ${price}.` : ''}`,
     methodH2: 'Lubin scoring methodology',
-    methodBody: (n, ticker) => `${n} (${ticker})'s score is calculated automatically from 10 objective financial criteria, with no human intervention or opinion. Each criterion is validated (YES / PARTIAL / NO) based on thresholds drawn from the financial literature (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). The final score is the sum of validations.`,
+    methodBody: (n, ticker) => `${n} (${ticker})'s score is calculated automatically from 10 objective financial criteria, with no human intervention or opinion. Each criterion is validated (YES / PARTIAL / NO) based on thresholds drawn from the financial literature (Warren Buffett, Michael Mauboussin, Aswath Damodaran). The final score is the sum of validations.`,
     criteriaH2: 'The 10 quantitative criteria analyzed',
     criteria: [
       "<strong>Profitable</strong>: positive net margin",
@@ -302,7 +315,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
       "<strong>Share count under control</strong>: stable or declining (net buybacks = value creation for shareholders)",
       "<strong>Cash profitability</strong>: free cash flow margin &gt; 10% of revenue",
       "<strong>Expanding margins</strong>: operating margin widens over 5 years (operating leverage)",
-      "<strong>Return on invested capital</strong>: Bettin-Mauboussin Cash ROCE &gt; 15% per year",
+      "<strong>Return on invested capital</strong>: Cash ROCE &gt; 15% per year",
       "<strong>Debt under control</strong>: net debt repayable in less than 3 years of free cash flow",
       "<strong>Earnings converted to cash</strong>: free cash flow exceeds accounting net income",
       "<strong>Net collection period</strong>: short or negative cash conversion cycle",
@@ -374,7 +387,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     introVerdict: (n, score, quality, pfcfClause) => `Analizamos la acción ${n} con los 10 criterios de calidad de Lubin Investment. La empresa obtiene una nota de calidad de <strong>${score}</strong>, lo que significa calidad ${quality}${pfcfClause}.`,
     sectorPriceLine: (sector, exchange, price) => `Sector: ${sector}.${exchange ? ` Bolsa de cotización: ${exchange}.` : ''}${price ? ` Precio actual: ${price}.` : ''}`,
     methodH2: 'Metodología de puntuación Lubin',
-    methodBody: (n, ticker) => `La nota de ${n} (${ticker}) se calcula automáticamente a partir de 10 criterios financieros objetivos, sin intervención humana ni opinión. Cada criterio se valida (SÍ / PARCIAL / NO) según umbrales sacados de la literatura financiera (Warren Buffett, Bettin-Mauboussin, Aswath Damodaran). La nota final es el total de las validaciones.`,
+    methodBody: (n, ticker) => `La nota de ${n} (${ticker}) se calcula automáticamente a partir de 10 criterios financieros objetivos, sin intervención humana ni opinión. Cada criterio se valida (SÍ / PARCIAL / NO) según umbrales sacados de la literatura financiera (Warren Buffett, Michael Mauboussin, Aswath Damodaran). La nota final es el total de las validaciones.`,
     criteriaH2: 'Los 10 criterios cuantitativos analizados',
     criteria: [
       "<strong>Rentable</strong>: margen neto positivo",
@@ -383,7 +396,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
       "<strong>Número de acciones controlado</strong>: estable o en bajada (recompras netas = creación de valor para el accionista)",
       "<strong>Rentabilidad cash</strong>: margen de free cash flow &gt; 10% de los ingresos",
       "<strong>Márgenes en expansión</strong>: el margen operativo se amplía en 5 años (operating leverage)",
-      "<strong>Rentabilidad del capital invertido</strong>: Cash ROCE Bettin-Mauboussin &gt; 15% al año",
+      "<strong>Rentabilidad del capital invertido</strong>: Cash ROCE &gt; 15% al año",
       "<strong>Deuda controlada</strong>: deuda neta amortizable en menos de 3 años de free cash flow",
       "<strong>Beneficios transformados en cash</strong>: el free cash flow supera el beneficio neto contable",
       "<strong>Plazo de cobro neto</strong>: ciclo de tesorería corto o negativo",
@@ -844,6 +857,8 @@ ${hreflang}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@${X_HANDLE}">
+<meta name="twitter:creator" content="@${X_HANDLE}">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${SITE_URL}/og-default.png">
@@ -1517,13 +1532,14 @@ function renderArticleHtml(article: Article, lang: ArticleLang): string {
       description: AUTHOR_BIO[lang],
       worksFor: { '@type': 'Organization', name: 'Lubin Investment', url: SITE_URL },
       url: SITE_URL,
-      sameAs: ['https://www.linkedin.com/in/lubin-danilo/'],
+      sameAs: SAME_AS,
     },
     publisher: {
       '@type': 'Organization',
       name: 'Lubin Investment',
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` },
+      sameAs: SAME_AS,
     },
     mainEntityOfPage: canonical,
   };
@@ -1577,6 +1593,8 @@ ${hreflang}
 <meta property="og:locale" content="${ogLocale}">
 <meta property="og:image" content="${SITE_URL}/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@${X_HANDLE}">
+<meta name="twitter:creator" content="@${X_HANDLE}">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${SITE_URL}/og-default.png">
@@ -2686,7 +2704,7 @@ function renderStaticHtml(o: StaticSeo, lang: ArticleLang, extraBlock = ''): str
         url: `${SITE_URL}/`, inLanguage: lang,
       })}</script>\n<script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Organization', name: 'Lubin Investment',
-        url: `${SITE_URL}/`, logo: `${SITE_URL}/icon-512.png`,
+        url: `${SITE_URL}/`, logo: `${SITE_URL}/icon-512.png`, sameAs: SAME_AS,
       })}</script>`
     : '';
   return `<!DOCTYPE html>

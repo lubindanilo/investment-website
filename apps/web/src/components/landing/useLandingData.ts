@@ -22,10 +22,23 @@
  *
  * Rafraîchir :  node scripts/gen-landing-showcase.mjs
  *
+ * LES CRITÈRES SONT FIGÉS DANS LES TROIS LANGUES
+ * Le nom et la valeur d'un critère sont du contenu GÉNÉRÉ, donc localisés côté API (catalogue
+ * de apps/api/src/i18n) : « Marge nette » / « Net margin » / « Margen neto », mais aussi les
+ * unités (« 0.57 ans » / « 0.57 years », « 17 j » / « 17 d »). Comme la landing n'appelle plus
+ * l'API, le générateur interroge la vitrine UNE FOIS PAR LANGUE et fige les trois réponses ;
+ * `useLandingData` ne fait plus que choisir la bonne au rendu.
+ *
+ * Le type `Record<Lang, string>` est ce qui empêche la régression de revenir : un fichier
+ * regénéré en français seulement ne compile pas (`tsc -b` tourne dans `build:vercel`).
+ *
  * La recherche du champ « nom d'entreprise » reste un appel réel : elle est déclenchée par la
  * frappe, pas par le chargement (cf. TickerForm).
  */
+import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FROZEN_PEA_ROWS, FROZEN_ROWS, FROZEN_SLOTS, SHOWCASE_AS_OF } from '../../data/landingShowcase.js';
+import { currentLang, type Lang } from '../../i18n/index.js';
 import type { ResilienceStars } from '@lubin/shared';
 
 export interface LandingStock {
@@ -45,8 +58,27 @@ export interface LandingStock {
   spark: number[] | null;
 }
 
-/** Critère affiché dans la fiche (même vue que /analyser). */
-export interface LandingCriterion { name: string; value: string; status: 'pass' | 'warn' | 'fail' }
+/** Critère affiché dans la fiche (même vue que /analyser), déjà résolu dans la langue courante. */
+export interface LandingCriterion {
+  /** Identifiant stable du critère (`netMargin`, `ccc`…) : ne dépend d'aucune langue. */
+  key: string;
+  name: string;
+  value: string;
+  status: 'pass' | 'warn' | 'fail';
+}
+
+/**
+ * Un critère TEL QU'IL EST FIGÉ : la clé et le statut sont les mêmes dans les trois langues, le
+ * libellé et la valeur non (les unités aussi sont traduites : « ans » / « years » / « años »).
+ * Le générateur les remplit depuis l'API, une requête par langue — le front ne reformate rien,
+ * il choisit.
+ */
+export interface FrozenCriterion {
+  key: string;
+  status: 'pass' | 'warn' | 'fail';
+  name: Record<Lang, string>;
+  value: Record<Lang, string>;
+}
 
 /**
  * Un titre de vitrine AVEC tout ce que la landing affiche de lui. Trois emplacements en
@@ -61,6 +93,11 @@ export interface LandingShowcase {
   resilienceStars?: ResilienceStars | null;
   /** Percentile du P/FCF dans son historique (0 = jamais aussi bon marché). */
   pfcfPercentile: number | null;
+}
+
+/** Ce que contient le fichier généré : un `LandingShowcase` dont les critères sont trilingues. */
+export interface FrozenShowcase extends Omit<LandingShowcase, 'criteria'> {
+  criteria: FrozenCriterion[];
 }
 
 export interface LandingData {
@@ -78,6 +115,19 @@ export interface LandingData {
   asOf: string;
 }
 
+/** Choisit, pour chaque critère figé, le libellé et la valeur de la langue demandée. */
+function localize(slot: FrozenShowcase, lang: Lang): LandingShowcase {
+  return {
+    ...slot,
+    criteria: slot.criteria.map(c => ({
+      key: c.key,
+      name: c.name[lang],
+      value: c.value[lang],
+      status: c.status,
+    })),
+  };
+}
+
 /**
  * Les données de la landing. Purement synchrone : rien à attendre, rien à charger.
  *
@@ -85,15 +135,22 @@ export interface LandingData {
  * fichier vide), donc on réutilise le premier quand il y en a moins de trois.
  */
 export function useLandingData(): LandingData {
-  const first = FROZEN_SLOTS[0]!;
-  return {
-    hero: first,
-    mech: FROZEN_SLOTS[1] ?? first,
-    mcp: FROZEN_SLOTS[2] ?? first,
-    rows: FROZEN_ROWS,
-    peaRows: FROZEN_PEA_ROWS,
-    asOf: SHOWCASE_AS_OF,
-  };
+  // Abonne la page au changement de langue : sans ça, le sélecteur FR/EN/ES laisserait les
+  // critères dans la langue du premier rendu (le reste de la page, lui, se retraduirait).
+  useTranslation();
+  const lang = currentLang();
+  return useMemo(() => {
+    const slots = FROZEN_SLOTS.map(s => localize(s, lang));
+    const first = slots[0]!;
+    return {
+      hero: first,
+      mech: slots[1] ?? first,
+      mcp: slots[2] ?? first,
+      rows: FROZEN_ROWS,
+      peaRows: FROZEN_PEA_ROWS,
+      asOf: SHOWCASE_AS_OF,
+    };
+  }, [lang]);
 }
 
 /** Formate un cours avec sa devise (symbole court, locale courante). */

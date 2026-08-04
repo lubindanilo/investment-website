@@ -188,7 +188,7 @@ export function CriteriaList({ criteria, compact = false }: { criteria: LandingC
   return (
     <div className={compact ? 'crits crits-compact' : 'crits'}>
       {criteria.map((c, i) => (
-        <div key={c.name} className={`crit ${c.status}`} style={{ ['--i' as string]: i }}>
+        <div key={c.key} className={`crit ${c.status}`} style={{ ['--i' as string]: i }}>
           <span className="cd" />
           <span className="cn">{c.name}</span>
           <span className="cv num">{c.value}</span>
