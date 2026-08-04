@@ -875,6 +875,7 @@ ${sectorHubHref ? `<a href="${sectorHubHref}">${tr.resSectorHub(sectorHubLabel |
 </main>
 
 <footer>
+${renderFooterNav(lang, lq, ['/screener', '/methodologie', '/pricing', '/classement/qualite-10-sur-10', '/classement/sous-evaluees'])}
 <p><small><span data-nosnippet>${tr.disclaimer}</span></small></p>
 </footer>
 
@@ -1556,6 +1557,72 @@ type HubRow = {
   scoreChiffres: number | null; scoreChiffresMax: number | null; pfcfTTM: number | null;
 };
 
+// ─── Maillage pied de page (Q4 du plan SEO) ──────────────────────────────────
+// Deux raisons mesurées, distinctes.
+//   1. Indexation : une page liée depuis une page souvent explorée est indexée en quelques
+//      heures, et corriger des pages orphelines a produit 6 fois plus d'impressions en 24 h.
+//      /compare, /palmares, /faq et /pricing n'étaient liés depuis AUCUNE page pré-rendue
+//      autre que quelques fiches.
+//   2. Google signale comme motif de pages satellites des pages volontairement absentes de
+//      la navigation. On ne veut pas de page publique atteignable seulement par le sitemap.
+//
+// ⚠️ RÈGLE DU PREMIER LIEN : Google ne compte que le PREMIER lien d'une page vers une URL
+// donnée. Répéter dans le pied de page une cible déjà présente dans le header ou le corps
+// ne transmet RIEN, ça ne fait que gonfler le nombre de liens (le corpus recommande environ
+// 5 liens utiles dans le corps, pas 50). Chaque appelant passe donc la liste de ce qu'il
+// relie déjà, et seul le complément est émis.
+const FOOTER_NAV: Record<ArticleLang, ReadonlyArray<readonly [string, string]>> = {
+  fr: [
+    ['/screener', "Screener d'actions"],
+    ['/classement/qualite-10-sur-10', 'Actions de la meilleure qualité'],
+    ['/classement/sous-evaluees', 'Actions de qualité sous-évaluées'],
+    ['/compare', 'Comparer deux actions'],
+    ['/palmares', 'Palmarès des opportunités repérées'],
+    ['/methodologie', 'Méthodologie de notation'],
+    ['/blog', 'Blog : analyses et méthode'],
+    ['/faq', 'Questions fréquentes'],
+    ['/pricing', 'Tarifs'],
+  ],
+  en: [
+    ['/screener', 'Stock screener'],
+    ['/classement/qualite-10-sur-10', 'Highest quality stocks'],
+    ['/classement/sous-evaluees', 'Undervalued quality stocks'],
+    ['/compare', 'Compare two stocks'],
+    ['/palmares', 'Track record of spotted opportunities'],
+    ['/methodologie', 'Scoring methodology'],
+    ['/blog', 'Blog: analysis and method'],
+    ['/faq', 'Frequently asked questions'],
+    ['/pricing', 'Pricing'],
+  ],
+  es: [
+    ['/screener', 'Screener de acciones'],
+    ['/classement/qualite-10-sur-10', 'Acciones de mayor calidad'],
+    ['/classement/sous-evaluees', 'Acciones de calidad infravaloradas'],
+    ['/compare', 'Comparar dos acciones'],
+    ['/palmares', 'Historial de oportunidades detectadas'],
+    ['/methodologie', 'Metodología de puntuación'],
+    ['/blog', 'Blog: análisis y método'],
+    ['/faq', 'Preguntas frecuentes'],
+    ['/pricing', 'Precios'],
+  ],
+};
+
+const FOOTER_NAV_H2: Record<ArticleLang, string> = {
+  fr: 'Explorer le site', en: 'Explore the site', es: 'Explorar el sitio',
+};
+
+/** Liens de pied de page, moins ceux que la page relie déjà (règle du premier lien).
+ *  `alreadyLinked` prend des chemins nus, sans suffixe de langue. */
+function renderFooterNav(lang: ArticleLang, lq: string, alreadyLinked: ReadonlyArray<string>): string {
+  const skip = new Set(alreadyLinked);
+  const items = FOOTER_NAV[lang].filter(([href]) => !skip.has(href));
+  if (items.length === 0) return '';
+  const links = items
+    .map(([href, label]) => `<li><a href="${SITE_URL}${href}${lq}">${escapeHtml(label)}</a></li>`)
+    .join('\n');
+  return `<nav aria-label="${escapeHtml(FOOTER_NAV_H2[lang])}">\n<ul>\n${links}\n</ul>\n</nav>`;
+}
+
 // Chrome multilingue des hubs (fr/en/es). Le tableau (tickers/notes/P/FCF) est neutre ;
 // seuls les libellés et le texte changent. Permet hreflang propre (SEO multilingue).
 const HUB_T = {
@@ -1642,6 +1709,9 @@ ${rowsHtml}
 <p>${tr.methodo} <a href="${SITE_URL}/methodologie">${tr.methodoLink}</a>.</p>
 <p><a href="${SITE_URL}/screener">${tr.explore}</a></p>
 </main>
+<footer>
+${renderFooterNav(o.lang, o.lang === 'fr' ? '' : `?lng=${o.lang}`, ['/screener', '/methodologie', o.path])}
+</footer>
 </body>
 </html>`;
 }
@@ -1777,7 +1847,147 @@ function renderArticleListBlock(lang: ArticleLang, lq: string, limit?: number): 
   return `<h2>${h2}</h2>\n<ul>\n${items}\n</ul>${viewAllLink}`;
 }
 
-function renderStaticHtml(o: StaticSeo, lang: ArticleLang): string {
+// ─── Blocs de maillage dynamiques des pages-hub (Q2 et Q3 du plan SEO) ──────────
+// Le diagnostic du 4 août 2026 : /screener servait 8 liens et AUCUN vers les 5000 fiches
+// ni vers les 181 hubs secteur ; /compare servait 0 lien vers les 19 pages « X vs Y ».
+// C'est exactement le bug déjà corrigé sur /blog en juin (cf. renderArticleListBlock),
+// laissé ouvert sur les deux autres hubs. Sans ces liens, les fiches et les hubs ne sont
+// atteignables que par le sitemap, or le sitemap aide à DÉCOUVRIR, il ne convainc pas
+// Google de GARDER : environ la moitié des 5538 URL n'était pas indexée.
+
+const SCREENER_BLOCK_TR: Record<ArticleLang, {
+  h2Sectors: string; introSectors: string; h2Top: string; introTop: string;
+  thAction: string; thScore: string;
+}> = {
+  fr: {
+    h2Sectors: 'Les meilleures actions, secteur par secteur',
+    introSectors: 'Chaque secteur a sa page : les entreprises les mieux notées de ce secteur, classées de la meilleure qualité à la moins bonne, avec leur valorisation.',
+    h2Top: 'Les actions les mieux notées, toutes bourses confondues',
+    introTop: 'Les cent meilleures notes de qualité du moment. Une note élevée ne dit rien du prix : la colonne de valorisation est là pour ça.',
+    thAction: 'Action', thScore: 'Note qualité',
+  },
+  en: {
+    h2Sectors: 'The best stocks, sector by sector',
+    introSectors: 'Every sector has its page: the highest-scoring companies of that sector, ranked from best to worst quality, with their valuation.',
+    h2Top: 'The highest-scoring stocks, all exchanges',
+    introTop: 'The hundred best quality scores right now. A high score says nothing about price: that is what the valuation column is for.',
+    thAction: 'Stock', thScore: 'Quality score',
+  },
+  es: {
+    h2Sectors: 'Las mejores acciones, sector por sector',
+    introSectors: 'Cada sector tiene su página: las empresas mejor puntuadas de ese sector, ordenadas de mayor a menor calidad, con su valoración.',
+    h2Top: 'Las acciones mejor puntuadas, todas las bolsas',
+    introTop: 'Las cien mejores notas de calidad del momento. Una nota alta no dice nada del precio: para eso está la columna de valoración.',
+    thAction: 'Acción', thScore: 'Nota de calidad',
+  },
+};
+
+/** Nombre de fiches liées depuis /screener. Volontairement borné : lier plus de 500 pages
+ *  depuis une même page divise l'autorité transmise, et réduire une navigation aux pages
+ *  qui comptent a augmenté leur classement. Cent suffit à amorcer le graphe, les hubs
+ *  secteur ci-dessous couvrent le reste du catalogue (181 hubs x 60 fiches). */
+const SCREENER_TOP_LIMIT = 100;
+
+/** Bloc de maillage de /screener : les 181 hubs secteur + les 100 meilleures fiches.
+ *  Dégrade en chaîne vide si la base ne répond pas, pour ne jamais casser la page. */
+async function renderScreenerHubBlock(lang: ArticleLang, lq: string): Promise<string> {
+  const t = SCREENER_BLOCK_TR[lang];
+  try {
+    const [sectorRows, topRows] = await Promise.all([
+      prisma.screenerTicker.findMany({
+        where: { status: 'scored', sector: { not: null } },
+        distinct: ['sector'], select: { sector: true },
+      }),
+      prisma.screenerTicker.findMany({
+        where: { status: 'scored' }, orderBy: { scoreRatio: 'desc' },
+        take: SCREENER_TOP_LIMIT, select: HUB_SELECT,
+      }),
+    ]);
+
+    const sectors = sectorRows
+      .map((r) => r.sector)
+      .filter((s): s is string => !!s)
+      .map((s) => ({ slug: slugifySector(s), label: displaySector(s) }))
+      .filter((s) => !!s.slug)
+      .sort((a, b) => a.label.localeCompare(b.label));
+
+    const sectorsHtml = sectors.length === 0 ? '' : [
+      `<h2>${escapeHtml(t.h2Sectors)}</h2>`,
+      `<p>${escapeHtml(t.introSectors)}</p>`,
+      '<ul>',
+      ...sectors.map((s) => `<li><a href="${SITE_URL}/secteur/${s.slug}${lq}">${escapeHtml(s.label)}</a></li>`),
+      '</ul>',
+    ].join('\n');
+
+    const topHtml = topRows.length === 0 ? '' : [
+      `<h2>${escapeHtml(t.h2Top)}</h2>`,
+      `<p>${escapeHtml(t.introTop)}</p>`,
+      '<table>',
+      `<thead><tr><th>#</th><th>${escapeHtml(t.thAction)}</th><th>${escapeHtml(t.thScore)}</th><th>P/FCF</th></tr></thead>`,
+      '<tbody>',
+      ...topRows.map((r, i) => {
+        const tk = escapeHtml(r.ticker);
+        const nm = escapeHtml(r.name || r.ticker);
+        const score = r.scoreChiffres != null && r.scoreChiffresMax ? `${r.scoreChiffres}/${r.scoreChiffresMax}` : 'n.d.';
+        const pfcf = r.pfcfTTM != null && isFinite(r.pfcfTTM) ? `${r.pfcfTTM.toFixed(1)}x` : 'n.d.';
+        return `<tr><td>${i + 1}</td><td><a href="${SITE_URL}/analyse/${tk}${lq}">${nm} (${tk})</a></td><td>${score}</td><td>${pfcf}</td></tr>`;
+      }),
+      '</tbody>',
+      '</table>',
+    ].join('\n');
+
+    return [sectorsHtml, topHtml].filter(Boolean).join('\n');
+  } catch (err) {
+    console.error('[screener hub block]', (err as Error).message);
+    return '';
+  }
+}
+
+const COMPARE_BLOCK_TR: Record<ArticleLang, { h2: string; intro: string; anchor: (a: string, b: string) => string }> = {
+  fr: {
+    h2: 'Les comparaisons les plus demandées',
+    intro: 'Deux entreprises du même secteur, mises face à face sur la qualité du business et sur le prix payé. Le verdict suit la donnée, aucune des deux n\'est favorisée.',
+    anchor: (a, b) => `${a} ou ${b} : laquelle acheter`,
+  },
+  en: {
+    h2: 'The most requested comparisons',
+    intro: 'Two companies from the same sector, put face to face on business quality and on the price paid. The verdict follows the data, neither side is favoured.',
+    anchor: (a, b) => `${a} or ${b}: which one to buy`,
+  },
+  es: {
+    h2: 'Las comparaciones más solicitadas',
+    intro: 'Dos empresas del mismo sector, cara a cara sobre la calidad del negocio y el precio pagado. El veredicto sigue el dato, ninguna de las dos se favorece.',
+    anchor: (a, b) => `${a} o ${b}: cuál comprar`,
+  },
+};
+
+/** Bloc de maillage de /compare : les 19 paires curées, avec le nom réel des sociétés en
+ *  ancre plutôt que le ticker (le corpus mesure qu'un décalage entre l'ancre et la page
+ *  d'arrivée entraîne une rétrogradation, et « X ou Y » est le patron de sous-requête visé). */
+async function renderComparePairsBlock(lang: ArticleLang, lq: string): Promise<string> {
+  const t = COMPARE_BLOCK_TR[lang];
+  const tickers = [...new Set(COMPARE_PAIRS.flat())];
+  let names = new Map<string, string>();
+  try {
+    const rows = await prisma.screenerTicker.findMany({
+      where: { ticker: { in: tickers } }, select: { ticker: true, name: true },
+    });
+    names = new Map(rows.map((r) => [r.ticker, stripLegalSuffix(r.name || r.ticker)]));
+  } catch (err) {
+    // Sans les noms on garde les tickers en ancre : dégradé mais le lien existe, et c'est
+    // le lien qui porte l'indexation.
+    console.error('[compare pairs block]', (err as Error).message);
+  }
+  const items = COMPARE_PAIRS.map(([a, b]) => {
+    const an = names.get(a) || a;
+    const bn = names.get(b) || b;
+    const slug = comparePairSlug(a, b);
+    return `<li><a href="${SITE_URL}/comparer/${slug}${lq}">${escapeHtml(t.anchor(an, bn))}</a></li>`;
+  }).join('\n');
+  return `<h2>${escapeHtml(t.h2)}</h2>\n<p>${escapeHtml(t.intro)}</p>\n<ul>\n${items}\n</ul>`;
+}
+
+function renderStaticHtml(o: StaticSeo, lang: ArticleLang, extraBlock = ''): string {
   const tr = STATIC_TR[lang];
   const c = o.content[lang];
   const base = `${SITE_URL}${o.path === '/' ? '/' : o.path}`;
@@ -1858,9 +2068,13 @@ ${hreflang}
 ${sectionsHtml}
 ${o.path === '/blog' ? renderArticleListBlock(lang, lq) : ''}
 ${o.path === '/' ? renderArticleListBlock(lang, lq, 5) : ''}
+${extraBlock}
 ${criteriaHtml}
 <p>${linksHtml}</p>
 </main>
+<footer>
+${renderFooterNav(lang, lq, ['/screener', '/methodologie', '/blog', o.path, ...c.links.map((l) => l.href)])}
+</footer>
 </body>
 </html>`;
 }
@@ -2555,15 +2769,27 @@ const STATIC_SEO: StaticSeo[] = [
 
 const STATIC_BY_PATH: Record<string, StaticSeo> = Object.fromEntries(STATIC_SEO.map((s) => [s.path, s]));
 
+/** Pages statiques qui portent un bloc de maillage tiré de la base (Q2 et Q3 du plan SEO).
+ *  Leur cache CDN est plus court que celui des pages figées : la liste des meilleures notes
+ *  bouge au fil des re-scorings. */
+const STATIC_DYNAMIC_BLOCK: Record<string, (lang: ArticleLang, lq: string) => Promise<string>> = {
+  '/screener': renderScreenerHubBlock,
+  '/compare': renderComparePairsBlock,
+};
+
 for (const seo of STATIC_SEO) {
-  seoPrerenderRouter.get(seo.path, (req: Request, res: Response) => {
+  seoPrerenderRouter.get(seo.path, async (req: Request, res: Response) => {
     // Langue demandée par le bot via ?lng= (les alternates hreflang du sitemap pointent
     // vers ?lng=en / ?lng=es). Défaut fr. Le cache CDN distingue les langues car ?lng=
     // fait partie de l'URL.
     const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
+    const lq = lang === 'fr' ? '' : `?lng=${lang}`;
+    const build = STATIC_DYNAMIC_BLOCK[seo.path];
+    // Le bloc dégrade déjà en chaîne vide en cas d'erreur DB : la page part toujours en 200.
+    const extraBlock = build ? await build(lang, lq) : '';
     res.status(200)
       .set('Content-Type', 'text/html; charset=utf-8')
-      .set('Cache-Control', 'public, max-age=3600, s-maxage=86400')
-      .send(renderStaticHtml(STATIC_BY_PATH[seo.path]!, lang));
+      .set('Cache-Control', build ? 'public, max-age=3600, s-maxage=3600' : 'public, max-age=3600, s-maxage=86400')
+      .send(renderStaticHtml(STATIC_BY_PATH[seo.path]!, lang, extraBlock));
   });
 }
