@@ -194,6 +194,8 @@ type TickerTr = {
   authorByline: (href: string) => string;
   /** Libellé du hub « actions sous-évaluées » (remplace un lien dupliqué du header). */
   resUndervalued: string;
+  /** Libellé du lien vers la page de comparaison « X vs Y », quand elle existe. */
+  resCompare: (other: string) => string;
 };
 
 const TICKER_TR: Record<ArticleLang, TickerTr> = {
@@ -276,6 +278,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     authorByline: (href) =>
       `Méthode et analyse par <a href="${href}">Lubin Danilo, fondateur de Lubin Investment</a>. Note calculée automatiquement, sans opinion humaine.`,
     resUndervalued: 'Les actions de qualité sous-évaluées',
+    resCompare: (o) => `Comparer avec ${o}`,
   },
   en: {
     ogLocale: 'en_US',
@@ -356,6 +359,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     authorByline: (href) =>
       `Method and analysis by <a href="${href}">Lubin Danilo, founder of Lubin Investment</a>. Score computed automatically, with no human opinion.`,
     resUndervalued: 'Undervalued quality stocks',
+    resCompare: (o) => `Compare with ${o}`,
   },
   es: {
     ogLocale: 'es_ES',
@@ -436,6 +440,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     authorByline: (href) =>
       `Método y análisis por <a href="${href}">Lubin Danilo, fundador de Lubin Investment</a>. Nota calculada automáticamente, sin opinión humana.`,
     resUndervalued: 'Las acciones de calidad infravaloradas',
+    resCompare: (o) => `Comparar con ${o}`,
   },
 };
 
@@ -710,6 +715,19 @@ ${related.slice(0, 4).map((r) => {
   // que la politique « contenu à l'échelle » cible. La bio complète reste sur les articles.
   const bylineLine = `<p><small>${tr.authorByline(`${SITE_URL}/methodologie${lq}`)}</small></p>`;
 
+  // Lien vers la page de comparaison « X vs Y » quand ce ticker fait partie d'une paire
+  // curée. Indispensable : une page de comparaison qui vient d'être créée n'a AUCUN lien
+  // entrant, et une page orpheline est ignorée ou déprioritisée par Google. La fiche est
+  // justement une page déjà crawlée, donc c'est le bon émetteur de ce lien.
+  const comparePair = COMPARE_PAIRS.find(([x, y]) => x === t.ticker || y === t.ticker);
+  const compareLink = comparePair
+    ? (() => {
+        const other = comparePair[0] === t.ticker ? comparePair[1] : comparePair[0];
+        const href = `${SITE_URL}/comparer/${comparePairSlug(comparePair[0], comparePair[1])}${lq}`;
+        return `\n<a href="${href}">${escapeHtml(tr.resCompare(other))}</a> ·`;
+      })()
+    : '';
+
   return `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
@@ -850,7 +868,7 @@ ${relatedSection}
      header pointe déjà vers /screener, /methodologie et /pricing avec une ancre générique, donc
      les rappeler ici avec une belle ancre descriptive ne transmettait rien, ça ne faisait que
      gonfler le nombre de liens (le corpus recommande ~5 liens utiles dans le corps, pas 50). -->
-<p>${tr.otherResources} :
+<p>${tr.otherResources} :${compareLink}
 ${sectorHubHref ? `<a href="${sectorHubHref}">${tr.resSectorHub(sectorHubLabel || '')}</a> ·\n` : ''}<a href="${SITE_URL}/classement/qualite-10-sur-10${lq}">${tr.resQuality10}</a> ·
 <a href="${SITE_URL}/classement/sous-evaluees${lq}">${tr.resUndervalued}</a>.</p>
 
@@ -927,6 +945,400 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
     // En cas d'erreur DB, on renvoie un 503 plutôt qu'une page vide, Google retentera plus tard.
     console.error('[seoPrerender]', ticker, (err as Error).message);
     res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(ticker));
+  }
+});
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Pages de comparaison « X vs Y » (/comparer/aapl-vs-msft)
+//
+// Pourquoi ce format précisément : c'est le SEUL motif programmatique du corpus validé
+// par une expérience contrôlée (15 à 20 pages de comparaison concurrent classées en
+// première page en 3 semaines), et « X vs Y » est l'un des patrons de sous-requêtes que
+// les moteurs génératifs produisent au fan-out. Le site avait un comparateur interactif
+// (/compare) mais AUCUNE page indexable dédiée : rien ne pouvait donc se classer dessus.
+//
+// Garde-fous appliqués :
+//   - liste CURÉE et courte (pas de génération combinatoire sur 30 000 tickers, qui
+//     produirait des millions d'URLs quasi vides, exactement le motif sanctionné) ;
+//   - tout le texte est DÉRIVÉ des deux fiches réelles (notes, P/FCF, capi), donc le
+//     contenu dépend des variables et diffère d'une paire à l'autre ;
+//   - parité éditoriale stricte : le verdict suit la donnée, aucune des deux valeurs
+//     n'est favorisée. Le corpus mesure que c'est LA variable de survie en YMYL
+//     (ClickUp -97,6 % en s'auto-favorisant, Zapier -53 % à traitement égal).
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Paires curées : même secteur, deux sociétés que les investisseurs comparent vraiment.
+ *  Ajouter une paire = ajouter une page. Rester dans cet ordre de grandeur (~20). */
+export const COMPARE_PAIRS: ReadonlyArray<readonly [string, string]> = [
+  ['MSFT', 'GOOGL'], ['ADBE', 'CRM'], ['NVDA', 'AMD'], ['TSM', 'INTC'],
+  ['V', 'MA'], ['COST', 'WMT'], ['HD', 'LOW'], ['KO', 'PEP'],
+  ['NFLX', 'DIS'], ['LLY', 'MRK'], ['JNJ', 'PFE'], ['JPM', 'BAC'],
+  ['PGR', 'ALL'], ['LMT', 'RTX'], ['NKE', 'LULU'], ['MCD', 'SBUX'],
+  ['UPS', 'FDX'], ['SPGI', 'MSCI'], ['ASML', 'AMAT'],
+];
+
+/** Slug canonique d'une paire (minuscules, « -vs- »). Contient le token « vs », qui est
+ *  le patron de sous-requête visé, et reste stable dans le temps (les tickers ne bougent
+ *  pas, contrairement aux raisons sociales). */
+export function comparePairSlug(a: string, b: string): string {
+  return `${a.toLowerCase()}-vs-${b.toLowerCase()}`;
+}
+
+/** Parse « aapl-vs-msft » → ['AAPL','MSFT']. Null si la forme n'est pas reconnue. */
+function parseComparePair(slug: string): [string, string] | null {
+  const m = /^([a-z0-9.\-]{1,12})-vs-([a-z0-9.\-]{1,12})$/i.exec(slug);
+  if (!m || !m[1] || !m[2]) return null;
+  const a = m[1].toUpperCase();
+  const b = m[2].toUpperCase();
+  if (a === b) return null;
+  return [a, b];
+}
+
+type CompareTr = {
+  title: (an: string, at: string, bn: string, bt: string) => string;
+  h1: (an: string, at: string, bn: string, bt: string) => string;
+  intro: (an: string, bn: string, qualityWinner: string, priceWinner: string) => string;
+  introTie: (an: string, bn: string) => string;
+  tableH2: string;
+  thMetric: string; thScore: string; thPfcf: string; thSector: string; thPrice: string; thCap: string;
+  qualityH2: string;
+  qualityBody: (hn: string, hs: string, ln: string, ls: string) => string;
+  qualityEqual: (an: string, bn: string, sc: string) => string;
+  priceH2: string;
+  priceBody: (cn: string, cp: string, dn: string, dp: string) => string;
+  priceMissing: string;
+  verdictH2: string;
+  verdictBody: (an: string, bn: string) => string;
+  goFurtherH2: string;
+  seeA: (n: string, t: string) => string;
+  interactive: string;
+  na: string;
+  faqH2: string;
+  faqBetterQ: (an: string, bn: string) => string;
+  faqCheaperQ: (an: string, bn: string) => string;
+  faqBothQ: string;
+  faqBothA: string;
+  breadcrumbCompare: string;
+  /** « contre » / « against » / « frente a » : le comparatif etait code en dur en FR. */
+  vsWord: string;
+};
+
+const COMPARE_TR: Record<ArticleLang, CompareTr> = {
+  fr: {
+    title: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}) : quelle action est la meilleure ? Notes de qualité, valorisation P/FCF et verdict`,
+    h1: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}) : la comparaison chiffrée`,
+    intro: (an, bn, qw, pw) => `Sur nos 10 critères de qualité, c'est ${qw} qui l'emporte. Sur le prix, c'est ${pw} qui se paie le moins cher rapporté à son free cash flow. Autrement dit, comparer ${an} et ${bn} demande de répondre à deux questions séparées, et elles n'ont pas forcément la même réponse.`,
+    introTie: (an, bn) => `${an} et ${bn} obtiennent la même note de qualité sur nos 10 critères. Le départage se joue donc sur le prix, et sur ce que tu penses de leurs perspectives.`,
+    tableH2: 'Les deux actions côte à côte',
+    thMetric: 'Critère', thScore: 'Note de qualité', thPfcf: 'P/FCF', thSector: 'Secteur', thPrice: 'Cours', thCap: 'Capitalisation',
+    qualityH2: 'La qualité : qui valide le plus de critères',
+    qualityBody: (hn, hs, ln, ls) => `${hn} valide ${hs} de nos critères de qualité, contre ${ls} pour ${ln}. Ces critères sont les mêmes pour les deux : rentabilité, croissance du chiffre d'affaires et du free cash flow par action, contrôle du nombre d'actions, marge de free cash flow, expansion des marges, rendement du capital, endettement, conversion du bénéfice en cash et cycle de trésorerie. Aucune pondération, aucun avis : c'est un décompte.`,
+    qualityEqual: (an, bn, sc) => `${an} et ${bn} valident autant de critères l'une que l'autre, ${sc}. La qualité financière ne permet donc pas de les départager sur nos critères.`,
+    priceH2: 'Le prix : qui se paie le moins cher',
+    priceBody: (cn, cp, dn, dp) => `${cn} se paie ${cp} son free cash flow, contre ${dp} pour ${dn}. Un multiple plus bas veut dire que tu paies moins d'années de cash pour la même part d'entreprise. Attention au réflexe : un multiple bas n'est une bonne affaire que si la qualité tient. C'est pour ça que nous jugeons les deux séparément, et jamais l'un à travers l'autre.`,
+    priceMissing: "Le multiple P/FCF n'est pas calculable sur l'une des deux valeurs, faute de free cash flow exploitable. La comparaison de prix est donc incomplète, et seule la qualité est comparable ici.",
+    verdictH2: 'Comment trancher',
+    verdictBody: (an, bn) => `Il n'y a pas de « meilleure action » dans l'absolu, il y a une meilleure action pour un objectif donné. Si tu cherches la qualité financière la plus solide, suis la note. Si tu cherches à payer le moins cher le cash produit, suis le P/FCF. Si les deux pointent vers la même valeur, le cas est simple. Si elles divergent, tu es en train d'arbitrer entre payer plus pour un meilleur business et payer moins pour un business plus discutable. Les deux fiches détaillées ci-dessous donnent le détail critère par critère pour ${an} et pour ${bn}.`,
+    goFurtherH2: 'Aller plus loin',
+    seeA: (n, t) => `L'analyse complète ${deFr(n)} (${t})`,
+    interactive: 'Comparer ces deux actions dans le comparateur interactif',
+    na: 'non disponible',
+    faqH2: 'Questions fréquentes',
+    faqBetterQ: (an, bn) => `Faut-il acheter ${an} ou ${bn} ?`,
+    faqCheaperQ: (an, bn) => `${an} ou ${bn} : laquelle est la moins chère ?`,
+    faqBothQ: 'Peut-on détenir les deux ?',
+    faqBothA: "Rien ne l'interdit, et c'est fréquent quand les deux valident nos critères de qualité. Garde en tête que deux sociétés du même secteur réagissent souvent aux mêmes chocs, donc les détenir toutes les deux diversifie moins qu'il n'y paraît. Cette page est une comparaison chiffrée, pas une recommandation.",
+    breadcrumbCompare: 'Comparer',
+    vsWord: 'contre',
+  },
+  en: {
+    title: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}): which stock is better? Quality scores, P/FCF valuation and verdict`,
+    h1: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}): the numbers side by side`,
+    intro: (an, bn, qw, pw) => `On our 10 quality criteria, ${qw} comes out ahead. On price, ${pw} trades cheapest relative to its free cash flow. In other words, comparing ${an} and ${bn} means answering two separate questions, and they do not necessarily have the same answer.`,
+    introTie: (an, bn) => `${an} and ${bn} score the same on our 10 quality criteria. The tie-break therefore comes down to price, and to what you make of their prospects.`,
+    tableH2: 'Both stocks side by side',
+    thMetric: 'Metric', thScore: 'Quality score', thPfcf: 'P/FCF', thSector: 'Sector', thPrice: 'Price', thCap: 'Market cap',
+    qualityH2: 'Quality: which one passes more criteria',
+    qualityBody: (hn, hs, ln, ls) => `${hn} passes ${hs} of our quality criteria, against ${ls} for ${ln}. The criteria are identical for both: profitability, revenue and free cash flow per share growth, share count control, free cash flow margin, margin expansion, return on capital, debt, conversion of earnings into cash, and cash conversion cycle. No weighting, no opinion: it is a count.`,
+    qualityEqual: (an, bn, sc) => `${an} and ${bn} pass the same number of criteria, ${sc}. Financial quality therefore does not separate them on our criteria.`,
+    priceH2: 'Price: which one is cheaper',
+    priceBody: (cn, cp, dn, dp) => `${cn} trades at ${cp} its free cash flow, against ${dp} for ${dn}. A lower multiple means you pay fewer years of cash for the same slice of the business. Mind the reflex though: a low multiple is only a bargain if the quality holds up. That is why we judge the two separately, and never one through the other.`,
+    priceMissing: 'The P/FCF multiple cannot be computed for one of the two stocks, for lack of usable free cash flow. The price comparison is therefore incomplete, and only quality is comparable here.',
+    verdictH2: 'How to decide',
+    verdictBody: (an, bn) => `There is no "better stock" in the abstract, there is a better stock for a given goal. If you want the most solid financial quality, follow the score. If you want to pay the least for the cash produced, follow the P/FCF. If both point to the same name, the case is simple. If they diverge, you are trading off paying more for a better business against paying less for a more questionable one. The two detailed pages below give the criterion-by-criterion breakdown for ${an} and for ${bn}.`,
+    goFurtherH2: 'Go further',
+    seeA: (n, t) => `The full analysis of ${n} (${t})`,
+    interactive: 'Compare these two stocks in the interactive comparator',
+    na: 'not available',
+    faqH2: 'Frequently asked questions',
+    faqBetterQ: (an, bn) => `Should you buy ${an} or ${bn}?`,
+    faqCheaperQ: (an, bn) => `${an} or ${bn}: which one is cheaper?`,
+    faqBothQ: 'Can you hold both?',
+    faqBothA: 'Nothing prevents it, and it is common when both pass our quality criteria. Keep in mind that two companies in the same sector often react to the same shocks, so holding both diversifies less than it looks. This page is a numbers comparison, not a recommendation.',
+    breadcrumbCompare: 'Compare',
+    vsWord: 'against',
+  },
+  es: {
+    title: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}): ¿qué acción es mejor? Notas de calidad, valoración P/FCF y veredicto`,
+    h1: (an, at, bn, bt) => `${an} (${at}) vs ${bn} (${bt}): la comparación en cifras`,
+    intro: (an, bn, qw, pw) => `En nuestros 10 criterios de calidad, gana ${qw}. En precio, ${pw} cotiza más barata respecto a su free cash flow. Es decir, comparar ${an} y ${bn} exige responder a dos preguntas separadas, y no tienen necesariamente la misma respuesta.`,
+    introTie: (an, bn) => `${an} y ${bn} obtienen la misma nota en nuestros 10 criterios de calidad. El desempate se juega entonces en el precio, y en lo que pienses de sus perspectivas.`,
+    tableH2: 'Las dos acciones lado a lado',
+    thMetric: 'Criterio', thScore: 'Nota de calidad', thPfcf: 'P/FCF', thSector: 'Sector', thPrice: 'Precio', thCap: 'Capitalización',
+    qualityH2: 'La calidad: cuál valida más criterios',
+    qualityBody: (hn, hs, ln, ls) => `${hn} valida ${hs} de nuestros criterios de calidad, frente a ${ls} de ${ln}. Los criterios son idénticos para ambas: rentabilidad, crecimiento de los ingresos y del free cash flow por acción, control del número de acciones, margen de free cash flow, expansión de márgenes, rentabilidad del capital, deuda, conversión del beneficio en cash y ciclo de tesorería. Sin ponderación y sin opinión: es un recuento.`,
+    qualityEqual: (an, bn, sc) => `${an} y ${bn} validan el mismo número de criterios, ${sc}. La calidad financiera no permite por tanto separarlas con nuestros criterios.`,
+    priceH2: 'El precio: cuál cotiza más barata',
+    priceBody: (cn, cp, dn, dp) => `${cn} cotiza a ${cp} su free cash flow, frente a ${dp} de ${dn}. Un múltiplo más bajo significa que pagas menos años de cash por la misma parte del negocio. Cuidado con el reflejo: un múltiplo bajo solo es una oportunidad si la calidad se sostiene. Por eso juzgamos ambas cosas por separado, y nunca una a través de la otra.`,
+    priceMissing: 'El múltiplo P/FCF no se puede calcular en una de las dos acciones, por falta de free cash flow utilizable. La comparación de precio queda incompleta y aquí solo la calidad es comparable.',
+    verdictH2: 'Cómo decidir',
+    verdictBody: (an, bn) => `No hay una «mejor acción» en abstracto, hay una mejor acción para un objetivo dado. Si buscas la calidad financiera más sólida, sigue la nota. Si buscas pagar lo menos posible por el cash generado, sigue el P/FCF. Si ambas señalan el mismo nombre, el caso es simple. Si divergen, estás eligiendo entre pagar más por un mejor negocio y pagar menos por uno más discutible. Las dos fichas detalladas de abajo dan el desglose criterio por criterio de ${an} y de ${bn}.`,
+    goFurtherH2: 'Saber más',
+    seeA: (n, t) => `El análisis completo de ${n} (${t})`,
+    interactive: 'Comparar estas dos acciones en el comparador interactivo',
+    na: 'no disponible',
+    faqH2: 'Preguntas frecuentes',
+    faqBetterQ: (an, bn) => `¿Comprar ${an} o ${bn}?`,
+    faqCheaperQ: (an, bn) => `${an} o ${bn}: ¿cuál es más barata?`,
+    faqBothQ: '¿Se pueden tener las dos?',
+    faqBothA: 'Nada lo impide, y es frecuente cuando ambas validan nuestros criterios de calidad. Ten en cuenta que dos empresas del mismo sector reaccionan a menudo a los mismos golpes, así que tenerlas ambas diversifica menos de lo que parece. Esta página es una comparación en cifras, no una recomendación.',
+    breadcrumbCompare: 'Comparar',
+    vsWord: 'frente a',
+  },
+};
+
+type CompareRow = {
+  ticker: string; name: string | null; sector: string | null;
+  scoreChiffres: number | null; scoreChiffresMax: number | null;
+  pfcfTTM: number | null; currency: string | null; price: number | null;
+  marketCap: number | null; region: string; lastScoredAt: Date | null;
+};
+
+/** Capitalisation lisible (2 chiffres significatifs suffisent pour une comparaison). */
+function formatCap(v: number | null, lang: ArticleLang): string | null {
+  if (v == null || !isFinite(v) || v <= 0) return null;
+  // En francais on reste en milliards meme au-dela de 1000 (« 5000 Md » et pas « 5 T »),
+  // c'est la convention de place ; en EN/ES on bascule sur T/B/M.
+  if (lang === 'fr') {
+    // Séparateur de milliers français : « 5 003 Md » et non « 5003 Md ».
+    if (v >= 1e12) return `${Math.round(v / 1e9).toLocaleString('fr-FR')} Md`;
+    if (v >= 1e9) return `${(v / 1e9).toFixed(1)} Md`;
+    if (v >= 1e6) return `${(v / 1e6).toFixed(1)} M`;
+    return String(Math.round(v));
+  }
+  const units: Array<[number, string]> = [[1e12, 'T'], [1e9, 'B'], [1e6, 'M']];
+  for (const [div, suffix] of units) {
+    if (v >= div) return `${(v / div).toFixed(1)}${suffix}`;
+  }
+  return String(Math.round(v));
+}
+
+function renderCompareHtml(a: CompareRow, b: CompareRow, lang: ArticleLang): string {
+  const tr = COMPARE_TR[lang];
+  const lq = lang === 'fr' ? '' : `?lng=${lang}`;
+  const aName = stripLegalSuffix(a.name || a.ticker);
+  const bName = stripLegalSuffix(b.name || b.ticker);
+  const aNameEsc = escapeHtml(aName);
+  const bNameEsc = escapeHtml(bName);
+  const aT = escapeHtml(a.ticker);
+  const bT = escapeHtml(b.ticker);
+
+  const aScore = formatScore(a.scoreChiffres, a.scoreChiffresMax);
+  const bScore = formatScore(b.scoreChiffres, b.scoreChiffresMax);
+  const aRatio = a.scoreChiffres != null && a.scoreChiffresMax ? a.scoreChiffres / a.scoreChiffresMax : null;
+  const bRatio = b.scoreChiffres != null && b.scoreChiffresMax ? b.scoreChiffres / b.scoreChiffresMax : null;
+
+  const aPfcfOk = a.pfcfTTM != null && isFinite(a.pfcfTTM) && a.pfcfTTM > 0;
+  const bPfcfOk = b.pfcfTTM != null && isFinite(b.pfcfTTM) && b.pfcfTTM > 0;
+  const aPfcf = aPfcfOk ? `${(a.pfcfTTM as number).toFixed(1)}×` : tr.na;
+  const bPfcf = bPfcfOk ? `${(b.pfcfTTM as number).toFixed(1)}×` : tr.na;
+
+  // Gagnants, STRICTEMENT dérivés de la donnée (parité éditoriale : rien d'arbitraire).
+  const qualityTie = aRatio != null && bRatio != null && aRatio === bRatio;
+  const qualityWinner = aRatio == null || bRatio == null ? null : (aRatio > bRatio ? 'a' : 'b');
+  const priceWinner = !aPfcfOk || !bPfcfOk ? null : ((a.pfcfTTM as number) < (b.pfcfTTM as number) ? 'a' : 'b');
+
+  const introHtml = qualityTie || qualityWinner == null || priceWinner == null
+    ? (qualityTie ? tr.introTie(aNameEsc, bNameEsc) : tr.intro(aNameEsc, bNameEsc, qualityWinner === 'b' ? bNameEsc : aNameEsc, priceWinner === 'b' ? bNameEsc : aNameEsc))
+    : tr.intro(aNameEsc, bNameEsc, qualityWinner === 'a' ? aNameEsc : bNameEsc, priceWinner === 'a' ? aNameEsc : bNameEsc);
+
+  const qualityHtml = qualityTie
+    ? tr.qualityEqual(aNameEsc, bNameEsc, aScore)
+    : qualityWinner == null
+    ? tr.qualityEqual(aNameEsc, bNameEsc, `${aScore} / ${bScore}`)
+    : qualityWinner === 'a'
+    ? tr.qualityBody(aNameEsc, aScore, bNameEsc, bScore)
+    : tr.qualityBody(bNameEsc, bScore, aNameEsc, aScore);
+
+  const priceHtml = priceWinner == null
+    ? tr.priceMissing
+    : priceWinner === 'a'
+    ? tr.priceBody(aNameEsc, aPfcf, bNameEsc, bPfcf)
+    : tr.priceBody(bNameEsc, bPfcf, aNameEsc, aPfcf);
+
+  const fmtPrice = (r: CompareRow) =>
+    r.price != null && isFinite(r.price) ? `${r.price.toFixed(2)} ${escapeHtml(r.currency || 'USD')}` : tr.na;
+  const aCap = formatCap(a.marketCap, lang) ?? tr.na;
+  const bCap = formatCap(b.marketCap, lang) ?? tr.na;
+
+  const slug = comparePairSlug(a.ticker, b.ticker);
+  const baseCanonical = `${SITE_URL}/comparer/${slug}`;
+  const canonical = lang === 'fr' ? baseCanonical : `${baseCanonical}?lng=${lang}`;
+  const hreflang = (['fr', 'en', 'es'] as const)
+    .map((l) => `<link rel="alternate" hreflang="${l}" href="${l === 'fr' ? baseCanonical : `${baseCanonical}?lng=${l}`}">`)
+    .join('\n') + `\n<link rel="alternate" hreflang="x-default" href="${baseCanonical}">`;
+
+  const rawTitle = tr.title(aName, a.ticker, bName, b.ticker);
+  const title = escapeHtml(rawTitle);
+
+  // Liens sortants par section vers les comptes officiels (US) + la littérature.
+  const filings = [a, b]
+    .filter((r) => r.region === 'US')
+    .map((r) => `<p>${tr === COMPARE_TR.fr
+      ? `Les comptes ${deFr(escapeHtml(stripLegalSuffix(r.name || r.ticker)))} sont publics : <a href="${edgarFilingsUrl(r.ticker)}" target="_blank" rel="noopener nofollow">dépôts 10-K auprès de la SEC (EDGAR)</a>.`
+      : tr === COMPARE_TR.es
+      ? `Las cuentas de ${escapeHtml(stripLegalSuffix(r.name || r.ticker))} son públicas: <a href="${edgarFilingsUrl(r.ticker)}" target="_blank" rel="noopener nofollow">informes 10-K ante la SEC (EDGAR)</a>.`
+      : `${escapeHtml(stripLegalSuffix(r.name || r.ticker))}'s accounts are public: <a href="${edgarFilingsUrl(r.ticker)}" target="_blank" rel="noopener nofollow">10-K filings with the SEC (EDGAR)</a>.`
+    }</p>`).join('\n');
+
+  const scoredAt = (a.lastScoredAt && b.lastScoredAt)
+    ? (a.lastScoredAt > b.lastScoredAt ? a.lastScoredAt : b.lastScoredAt)
+    : (a.lastScoredAt ?? b.lastScoredAt ?? new Date());
+  const isoDate = scoredAt.toISOString();
+
+  const faq = [
+    { q: tr.faqBetterQ(aName, bName), a: `${stripTags(qualityHtml)} ${stripTags(priceHtml)}` },
+    { q: tr.faqCheaperQ(aName, bName), a: priceWinner == null ? stripTags(tr.priceMissing) : `${priceWinner === 'a' ? aName : bName} : ${priceWinner === 'a' ? aPfcf : bPfcf} ${tr.vsWord} ${priceWinner === 'a' ? bPfcf : aPfcf}.` },
+    { q: tr.faqBothQ, a: tr.faqBothA },
+  ];
+
+  return `<!DOCTYPE html>
+<html lang="${lang}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title}</title>
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="${canonical}">
+${hreflang}
+<link rel="icon" type="image/svg+xml" href="${SITE_URL}/favicon.svg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${title}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:site_name" content="Lubin Investment">
+<meta property="og:image" content="${SITE_URL}/og-default.png">
+<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'AnalysisNewsArticle',
+  headline: rawTitle,
+  url: canonical,
+  inLanguage: TICKER_TR[lang].inLanguage,
+  datePublished: isoDate,
+  dateModified: isoDate,
+  author: { '@type': 'Person', name: AUTHOR_NAME, jobTitle: AUTHOR_JOBTITLE[lang], url: `${SITE_URL}/methodologie${lq}` },
+  publisher: { '@type': 'Organization', name: 'Lubin Investment', url: SITE_URL, logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` } },
+  mainEntityOfPage: canonical,
+}, null, 2)}
+</script>
+</head>
+<body>
+<header>
+  <p><span data-nosnippet><a href="${SITE_URL}/${lq}">Lubin Investment</a> · <a href="${SITE_URL}/screener${lq}">Screener</a> · <a href="${SITE_URL}/methodologie${lq}">${escapeHtml(STATIC_TR[lang].nav)}</a></span></p>
+</header>
+<main>
+<nav aria-label="${escapeHtml(tr.breadcrumbCompare)}"><span data-nosnippet><a href="${SITE_URL}/${lq}">${escapeHtml(STATIC_TR[lang].home)}</a> › <a href="${SITE_URL}/compare${lq}">${escapeHtml(tr.breadcrumbCompare)}</a> › ${aT} vs ${bT}</span></nav>
+
+<h1>${escapeHtml(tr.h1(aName, a.ticker, bName, b.ticker))}</h1>
+<p><small>${escapeHtml(AUTHOR_BYLINE[lang])}</small></p>
+
+<p><strong>${introHtml}</strong></p>
+
+<h2>${escapeHtml(tr.tableH2)}</h2>
+<table style="border-collapse:collapse;width:100%">
+<thead><tr><th>${escapeHtml(tr.thMetric)}</th><th>${aNameEsc} (${aT})</th><th>${bNameEsc} (${bT})</th></tr></thead>
+<tbody>
+<tr><td>${escapeHtml(tr.thScore)}</td><td>${aScore}</td><td>${bScore}</td></tr>
+<tr><td>${escapeHtml(tr.thPfcf)}</td><td>${escapeHtml(aPfcf)}</td><td>${escapeHtml(bPfcf)}</td></tr>
+<tr><td>${escapeHtml(tr.thSector)}</td><td>${a.sector ? escapeHtml(displaySector(a.sector)) : escapeHtml(tr.na)}</td><td>${b.sector ? escapeHtml(displaySector(b.sector)) : escapeHtml(tr.na)}</td></tr>
+<tr><td>${escapeHtml(tr.thPrice)}</td><td>${fmtPrice(a)}</td><td>${fmtPrice(b)}</td></tr>
+<tr><td>${escapeHtml(tr.thCap)}</td><td>${escapeHtml(aCap)}</td><td>${escapeHtml(bCap)}</td></tr>
+</tbody>
+</table>
+
+<h2>${escapeHtml(tr.qualityH2)}</h2>
+<p>${qualityHtml}</p>
+
+<h2>${escapeHtml(tr.priceH2)}</h2>
+<p>${priceHtml}</p>
+${filings}
+
+<h2>${escapeHtml(tr.verdictH2)}</h2>
+<p>${tr.verdictBody(aNameEsc, bNameEsc)}</p>
+
+<h2>${escapeHtml(tr.faqH2)}</h2>
+${faq.map((f) => `<h3>${escapeHtml(f.q)}</h3>\n<p>${escapeHtml(f.a)}</p>`).join('\n')}
+
+<h2>${escapeHtml(tr.goFurtherH2)}</h2>
+<ul>
+<li><a href="${SITE_URL}/analyse/${aT}${lq}">${escapeHtml(tr.seeA(aName, a.ticker))}</a></li>
+<li><a href="${SITE_URL}/analyse/${bT}${lq}">${escapeHtml(tr.seeA(bName, b.ticker))}</a></li>
+<li><a href="${SITE_URL}/compare?tickers=${aT},${bT}${lang === 'fr' ? '' : `&lng=${lang}`}">${escapeHtml(tr.interactive)}</a></li>
+</ul>
+</main>
+<footer><p><small><span data-nosnippet>${TICKER_TR[lang].disclaimer}</span></small></p></footer>
+</body>
+</html>`;
+}
+
+/** Retire les balises HTML d'un fragment (les réponses de FAQ doivent être du texte pur). */
+function stripTags(html: string): string {
+  return html.replace(/<[^>]+>/g, '');
+}
+
+// GET /comparer/:pair — servi UNIQUEMENT aux bots (rewrite Vercel conditionnel).
+// Les humains sont redirigés par la SPA vers /compare?tickers=A,B (comparateur interactif).
+seoPrerenderRouter.get('/comparer/:pair', async (req: Request, res: Response) => {
+  const raw = typeof req.params.pair === 'string' ? req.params.pair : '';
+  const parsed = parseComparePair(raw.slice(0, 40));
+  if (!parsed) {
+    res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(raw || '?'));
+    return;
+  }
+  const [aT, bT] = parsed;
+  // ⚠️ Seules les paires CURÉES sont servies. Sans cette garde, /comparer/X-vs-Y ouvrirait
+  // des millions d'URLs générables à la demande : c'est précisément le motif de pages
+  // satellites que Google sanctionne, et ça donnerait un puits de crawl infini.
+  const isCurated = COMPARE_PAIRS.some(([x, y]) => (x === aT && y === bT) || (x === bT && y === aT));
+  if (!isCurated) {
+    res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(`${aT} vs ${bT}`));
+    return;
+  }
+  try {
+    const rows = await prisma.screenerTicker.findMany({
+      where: { ticker: { in: [aT, bT] }, status: 'scored' },
+      select: {
+        ticker: true, name: true, sector: true, scoreChiffres: true, scoreChiffresMax: true,
+        pfcfTTM: true, currency: true, price: true, marketCap: true, region: true, lastScoredAt: true,
+      },
+    });
+    const a = rows.find((r) => r.ticker === aT);
+    const b = rows.find((r) => r.ticker === bT);
+    // Si l'une des deux n'est pas encore notée, la comparaison n'a pas de contenu : vrai 404
+    // plutôt qu'une page à moitié vide (qui serait du thin content).
+    if (!a || !b) {
+      res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(`${aT} vs ${bT}`));
+      return;
+    }
+    const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
+    res
+      .status(200)
+      .set('Content-Type', 'text/html; charset=utf-8')
+      .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
+      .send(renderCompareHtml(a, b, lang));
+  } catch (err) {
+    console.error('[seoPrerender comparer]', raw, (err as Error).message);
+    res.status(503).set('Content-Type', 'text/html; charset=utf-8').send(render404(`${aT} vs ${bT}`));
   }
 });
 

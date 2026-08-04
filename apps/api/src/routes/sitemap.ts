@@ -32,7 +32,7 @@ import { prisma } from '../db/client.js';
 // TODO : à terme, transformer @lubin/shared en vrai package compilé (tsc → dist/) et virer
 // cette duplication.
 import { listArticles } from '../data/articles.js';
-import { slugifySector } from './seoPrerender.js';
+import { slugifySector, COMPARE_PAIRS, comparePairSlug } from './seoPrerender.js';
 
 export const sitemapRouter: Router = Router();
 
@@ -257,6 +257,13 @@ async function buildHubsSitemap(): Promise<string> {
     buildHubUrlBlock('/classement/qualite-10-sur-10', lastmod),
     buildHubUrlBlock('/classement/sous-evaluees', lastmod),
     ...sectorSlugs.map((slug) => buildHubUrlBlock(`/secteur/${slug}`, lastmod)),
+    // Pages de comparaison « X vs Y » : liste curée (~20), servies en HTML pré-rendu aux
+    // bots. Elles n'ont aucun lien entrant naturel puisqu'elles viennent d'être créées, or
+    // une page orpheline est ignorée ou déprioritisée : le sitemap est ici le canal de
+    // découverte, en plus du lien depuis chaque fiche concernée.
+    ...COMPARE_PAIRS.map(([a, b]) =>
+      buildStaticUrlBlock(`/comparer/${comparePairSlug(a, b)}`, 'weekly', 0.7, lastmod),
+    ),
   ]);
 }
 
