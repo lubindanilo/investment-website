@@ -32,10 +32,21 @@ export const openaiLimiter = new Bottleneck({
 /**
  * Yahoo Finance n'a pas de quota officiel mais throttle agressivement si on burst.
  * 30/min avec concurrence 3 est une marge raisonnable.
+ *
+ * ⚠️ Ce réservoir est PAR PROCESS. Sur Vercel, chaque instance de lambda s'accorde donc ses propres
+ * 30 req/min : le débit sortant réel est un multiple inconnu de 30, et c'est ce burst qui faisait
+ * throttler Yahoo (cf. PR #147). Un process unique (le drain nocturne sur runner) est le seul cas où
+ * le chiffre est honnête, et c'est donc aussi celui où il devient le PLAFOND DE DÉBIT : ~8 requêtes
+ * par titre non-US, soit ~4 titres/min au mieux, à partager entre les workers.
+ *
+ * `YAHOO_RPM` permet de relever ce plafond pour ce process-là seulement (variable du workflow de
+ * drain), sans toucher au réglage de l'app. À ne monter qu'avec une mesure en main : le throttle
+ * Yahoo est la panne qu'on vient de faire disparaître.
  */
+const YAHOO_RPM = Math.max(1, Number(process.env.YAHOO_RPM) || 30);
 export const yahooLimiter = new Bottleneck({
-  reservoir: 30,
-  reservoirRefreshAmount: 30,
+  reservoir: YAHOO_RPM,
+  reservoirRefreshAmount: YAHOO_RPM,
   reservoirRefreshInterval: 60_000,
   maxConcurrent: 3,
 });
