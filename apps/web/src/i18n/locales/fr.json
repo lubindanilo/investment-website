@@ -435,8 +435,8 @@
     },
     "claude": {
       "kicker": "Connecteur MCP",
-      "title": "Ton analyse, dans la conversation.",
-      "sub": "Branche Lubin à Claude. Il interroge tes notes, ton screener et ta watchlist.",
+      "title": "Utilisable dans ton IA préférée directement",
+      "sub": "Elle détecte automatiquement les meilleures opportunités du moment selon tes propres critères.",
       "a": {
         "answer": "{{name}} sort à {{note}}/10 sur les 10 critères de qualité. Voici le détail, avec le P/FCF et le grade de résilience.",
         "question": "Est-ce que {{name}} est une bonne affaire en ce moment ?"
@@ -465,8 +465,8 @@
       },
       "quotas": "Gratuit : 10 analyses par jour, 2 titres comparés, 10 lignes de watchlist. Pro : illimité, 5 titres comparés, watchlist sans limite.",
       "connect": {
-        "kicker": "Connecter en 30 secondes",
-        "step1": "Dans Claude, ouvre les paramètres, puis les connecteurs.",
+        "kicker": "Branche Lubin à n'importe quelle IA en 30 secondes",
+        "step1": "Une fenêtre s'ouvre dans ton navigateur, connecte-toi et c'est déjà fonctionnel !",
         "step2": "Ajoute un connecteur et colle l'URL ci-contre.",
         "step3": "Autorise ton compte Lubin, et c'est branché.",
         "copy": "Copier l'URL",
@@ -531,7 +531,7 @@
       },
       "2": {
         "q": "Est-ce que l'IA invente les chiffres ?",
-        "a": "Non. Les notes sont calculées par Lubin à partir des données publiées par les sociétés. Dans Claude, le connecteur MCP ne fait qu'appeler les 10 outils Lubin et restituer leur résultat : le modèle lit tes chiffres, il ne les produit pas."
+        "a": "Non. Les notes sont calculées par Lubin à partir des données publiées par les sociétés. Le connecteur MCP ne fait qu'appeler les 10 outils Lubin et restituer leur résultat : le modèle lit tes chiffres, il ne les produit pas."
       },
       "3": {
         "q": "Est-ce que c'est du conseil en investissement ?",
@@ -539,7 +539,7 @@
       },
       "4": {
         "q": "Qu'est-ce qui est gratuit, qu'est-ce qui est Pro ?",
-        "a": "Gratuit : 10 analyses par jour, 2 titres comparés, 10 lignes de watchlist, connecteur Claude inclus. Pro : analyses illimitées, 5 titres comparés, watchlist sans limite."
+        "a": "Gratuit : 10 analyses par jour, 2 titres comparés, 10 lignes de watchlist, connecteur MCP inclus. Pro : analyses illimitées, 5 titres comparés, watchlist sans limite."
       },
       "5": {
         "q": "D'où viennent les données ?",
