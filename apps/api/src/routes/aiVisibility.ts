@@ -17,16 +17,29 @@ import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
 import { aiVisibilityLimiter } from '../middleware/rateLimit.js';
 import { CheckError, checkAiVisibility } from '../lib/aiVisibility.js';
+import { toCheckerLang } from '../lib/aiVisibilityCopy.js';
 
 export const aiVisibilityRouter: Router = Router();
 
-const bodySchema = z.object({ url: z.string().min(1).max(2048) });
+const bodySchema = z.object({
+  url: z.string().min(1).max(2048),
+  // Langue des constats. Le défaut est le français ; toCheckerLang retombe dessus pour
+  // toute valeur inconnue, donc aucune entrée ne peut casser la réponse.
+  lang: z.string().max(10).optional(),
+});
 
-async function handle(rawUrl: string, res: Response, cacheSeconds: number): Promise<void> {
+async function handle(
+  rawUrl: string,
+  res: Response,
+  cacheSeconds: number,
+  lang: string | undefined,
+): Promise<void> {
   try {
-    const report = await checkAiVisibility(rawUrl);
+    const report = await checkAiVisibility(rawUrl, toCheckerLang(lang));
     if (cacheSeconds > 0) {
       res.setHeader('Cache-Control', `public, max-age=0, s-maxage=${cacheSeconds}, stale-while-revalidate=60`);
+      // Sans Vary, un visiteur anglophone recevrait la version française mise en cache.
+      res.setHeader('Vary', 'Accept-Language');
     } else {
       res.setHeader('Cache-Control', 'no-store');
     }
@@ -51,7 +64,7 @@ aiVisibilityRouter.post(
       res.status(400).json({ error: 'Indique une URL à vérifier.', code: 'invalid_body' });
       return;
     }
-    await handle(parsed.data.url, res, 0);
+    await handle(parsed.data.url, res, 0, parsed.data.lang);
   },
 );
 
@@ -64,6 +77,7 @@ aiVisibilityRouter.get(
       res.status(400).json({ error: 'Paramètre `url` requis.', code: 'invalid_query' });
       return;
     }
-    await handle(url, res, 600);
+    const lang = typeof req.query.lang === 'string' ? req.query.lang : undefined;
+    await handle(url, res, 600, lang);
   },
 );

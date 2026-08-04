@@ -15,6 +15,7 @@ import { requireAuth } from '../middleware/auth.js';
 import { asyncHandler } from '../middleware/error.js';
 import {
   createCheckoutSession,
+  isPlanPurchasable,
   createPortalSession,
   isProActive,
   isStripeConfigured,
@@ -23,22 +24,28 @@ import {
 export const billingRouter: Router = Router();
 
 // ─── POST /api/billing/checkout ───────────────────────────────────────────────
-const CheckoutBody = z.object({ plan: z.enum(['monthly', 'yearly']) });
+const CheckoutBody = z.object({
+  plan: z.enum(['monthly', 'yearly', 'seo_solo', 'seo_studio', 'seo_agency']),
+});
 
 billingRouter.post(
   '/checkout',
   requireAuth,
   asyncHandler(async (req: Request, res: Response) => {
-    if (!isStripeConfigured()) {
-      res.status(503).json({ error: 'Paiements non configurés sur cet environnement' });
-      return;
-    }
     const parsed = CheckoutBody.safeParse(req.body);
     if (!parsed.success) {
-      res.status(400).json({ error: 'Plan invalide (monthly | yearly)' });
+      res.status(400).json({
+        error: 'Plan invalide (monthly | yearly | seo_solo | seo_studio | seo_agency)',
+      });
       return;
     }
     const { plan } = parsed.data;
+    // Disponibilité évaluée POUR CE PLAN : les deux offres ont des prix distincts, et l'une
+    // peut être ouverte à la vente sans l'autre.
+    if (!isPlanPurchasable(plan)) {
+      res.status(503).json({ error: `Ce palier n'est pas encore ouvert à la vente (plan=${plan})` });
+      return;
+    }
 
     const user = await prisma.user.findUnique({
       where: { id: req.user!.userId },

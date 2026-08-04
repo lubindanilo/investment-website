@@ -51,6 +51,12 @@ const HubPage = lazy(() => import('./pages/HubPage.js').then((m) => ({ default: 
 const AiVisibilityPage = lazy(() =>
   import('./pages/AiVisibilityPage.js').then((m) => ({ default: m.AiVisibilityPage })),
 );
+const AuditSeoPage = lazy(() =>
+  import('./pages/AuditSeoPage.js').then((m) => ({ default: m.AuditSeoPage })),
+);
+const AuditSeoPricingPage = lazy(() =>
+  import('./pages/AuditSeoPricingPage.js').then((m) => ({ default: m.AuditSeoPricingPage })),
+);
 
 // Pages légales — lazy aussi (faible trafic, on les sort du bundle d'entrée).
 const MentionsLegalesPage = lazy(() =>
@@ -196,6 +202,11 @@ export function App() {
             <Route path="/blog/:slug" element={<BlogArticlePage />} />
             {/* Vérificateur public de visibilité IA. Le splat porte l'URL cible, ce qui rend
                 le résultat partageable par simple lien (/visibilite-ia/exemple.fr/page). */}
+            {/* Offre SEO : la landing et les tarifs sont AUSSI pré-rendus côté API pour les
+                robots (cf. routes/seoOfferPrerender.ts) — une page qui vend la détection des
+                sites illisibles par les IA ne peut pas être elle-même illisible. */}
+            <Route path="/audit-seo" element={<AuditSeoPage />} />
+            <Route path="/audit-seo/tarifs" element={<AuditSeoPricingPage />} />
             <Route path="/visibilite-ia" element={<AiVisibilityPage />} />
             <Route path="/visibilite-ia/*" element={<AiVisibilityPage />} />
             <Route path="/compte" element={<RequireAuth><AccountPage /></RequireAuth>} />

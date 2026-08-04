@@ -40,9 +40,20 @@ export function getStripe(): Stripe | null {
   return _stripe;
 }
 
-/** `true` si la config Stripe est complète et le service peut fonctionner. */
+/** `true` si la config Stripe de l'offre « investissement » est complète. */
 export function isStripeConfigured(): boolean {
   return !!(SECRET && PRICE_MONTHLY && PRICE_YEARLY);
+}
+
+/**
+ * `true` si le plan demandé est réellement achetable.
+ *
+ * Distinct de `isStripeConfigured` : celle-ci exige les prix de l'offre investissement, et
+ * s'en servir pour un checkout SEO renverrait 503 alors que le prix SEO est bien configuré.
+ * Chaque offre a ses propres prix, donc son propre état de disponibilité.
+ */
+export function isPlanPurchasable(plan: CheckoutPlan): boolean {
+  return !!(SECRET && priceIdForPlan(plan));
 }
 
 export interface CheckoutOptions {
@@ -50,7 +61,27 @@ export interface CheckoutOptions {
   email: string;
   /** Existant ? On le réutilise pour ne pas créer un doublon côté Stripe. */
   stripeCustomerId?: string | null;
-  plan: 'monthly' | 'yearly';
+  /**
+   * Deux offres distinctes derrière un même endpoint :
+   *   `monthly` / `yearly`            → abonnement Pro « investissement »
+   *   `seo_solo` / `seo_studio` / `seo_agency` → paliers de l'offre SEO
+   * Les mélanger ici est volontaire : c'est le même tunnel Stripe, le même customer, et
+   * le webhook sait déjà distinguer les deux par le price ID.
+   */
+  plan: CheckoutPlan;
+}
+
+export type CheckoutPlan = 'monthly' | 'yearly' | 'seo_solo' | 'seo_studio' | 'seo_agency';
+
+/** Price ID correspondant à un plan de checkout, toutes offres confondues. */
+function priceIdForPlan(plan: CheckoutPlan): string | undefined {
+  switch (plan) {
+    case 'monthly': return PRICE_MONTHLY;
+    case 'yearly': return PRICE_YEARLY;
+    case 'seo_solo': return PRICE_SEO_SOLO;
+    case 'seo_studio': return PRICE_SEO_STUDIO;
+    case 'seo_agency': return PRICE_SEO_AGENCY;
+  }
 }
 
 /**
@@ -65,7 +96,7 @@ export async function createCheckoutSession({
 }: CheckoutOptions): Promise<{ url: string }> {
   const stripe = getStripe();
   if (!stripe) throw new Error('Stripe non configuré (STRIPE_SECRET_KEY manquante)');
-  const priceId = plan === 'monthly' ? PRICE_MONTHLY : PRICE_YEARLY;
+  const priceId = priceIdForPlan(plan);
   if (!priceId) throw new Error(`Stripe price ID manquant pour plan=${plan}`);
 
   const session = await stripe.checkout.sessions.create({
@@ -77,7 +108,9 @@ export async function createCheckoutSession({
     ...(stripeCustomerId ? { customer: stripeCustomerId } : { customer_email: email }),
     line_items: [{ price: priceId, quantity: 1 }],
     success_url: `${SITE_URL}/compte?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${SITE_URL}/pricing?checkout=cancel`,
+    cancel_url: plan.startsWith('seo_')
+      ? `${SITE_URL}/audit-seo/tarifs?checkout=cancel`
+      : `${SITE_URL}/pricing?checkout=cancel`,
     // metadata récupérée par le webhook pour matcher la session à l'user en DB
     metadata: { userId, plan },
     // Important : conformité TVA française. Stripe gère la "facturation TVA" si on l'active

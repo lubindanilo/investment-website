@@ -29,6 +29,7 @@
  * corps plafonné et délai borné.
  */
 import { lookup } from 'node:dns/promises';
+import { findingCopy, type CheckerLang, type CopyKey, type CopyVars } from './aiVisibilityCopy.js';
 import { isIP } from 'node:net';
 
 /** UA d'un robot IA réel — c'est LUI qui décide de ce que le site nous montre. */
@@ -325,151 +326,55 @@ export interface Finding {
   evidence: string;
 }
 
-function buildFindings(r: Omit<VisibilityReport, 'findings'>): Finding[] {
+function buildFindings(
+  r: Omit<VisibilityReport, 'findings'>,
+  lang: CheckerLang,
+): Finding[] {
   const f: Finding[] = [];
+  const vars: CopyVars = {
+    botWords: r.botWords,
+    rawWords: r.rawWords,
+    titleLength: r.title?.length ?? 0,
+    contentType: r.contentType.split(';')[0] ?? r.contentType,
+  };
+  // Les textes vivent dans lib/aiVisibilityCopy.ts, traduits fr/en/es : cette page est
+  // publique et partagée, servir des constats en français sur une interface anglaise se voit.
+  const put = (id: string, level: Finding['level'], key: CopyKey, evidence: string) => {
+    const c = findingCopy(lang, key, vars);
+    f.push({ id, level, title: c.title, detail: c.detail, evidence });
+  };
 
-  if (r.verdict === 'invisible') {
-    f.push({
-      id: 'A1',
-      level: 'blocking',
-      title: 'Le contenu de cette page a besoin de JavaScript pour apparaître',
-      detail:
-        `Un robot d'IA ne reçoit que ${r.botWords} mots. Aucun grand robot d'IA n'exécute JavaScript : ` +
-        'ils téléchargent les fichiers .js sans les évaluer. Cette page ne peut donc pas être citée. ' +
-        'Le correctif est le rendu serveur, la génération statique ou le prérendu au build — ' +
-        'il suffit que le texte parte avec la page, sans changer de stack.',
-      evidence: 'test + data · consensus',
-    });
-  } else if (r.verdict === 'dynamic') {
-    f.push({
-      id: 'A1',
-      level: 'warn',
-      title: 'Pré-rendu conditionné à l’user-agent — ça marche, mais c’est fragile',
-      detail:
-        `Un robot d'IA reçoit ${r.botWords} mots, un navigateur n'en reçoit que ${r.rawWords} avant ` +
-        "l'exécution du JavaScript. Le site sert donc du HTML pré-rendu aux user-agents qu'il " +
-        'reconnaît. La visibilité dépend alors du maintien de cette liste : tout robot absent de la ' +
-        'liste reçoit la coquille vide. À surveiller à chaque nouveau moteur IA.',
-      evidence: 'test + data · consensus',
-    });
-  } else if (r.verdict === 'thin') {
-    f.push({
-      id: 'A1',
-      level: 'warn',
-      title: 'La page est lisible, mais elle contient peu de texte',
-      detail:
-        `${r.botWords} mots lisibles. Le rendu n'est pas le problème : la page est servie telle quelle. ` +
-        "Le corpus ne demande pas d'écrire long — une page de vente efficace fait 415 mots en moyenne — " +
-        'mais en dessous de cent mots, il n’y a pas de quoi répondre à une requête.',
-      evidence: 'test · single-source',
-    });
-  } else {
-    f.push({
-      id: 'A1',
-      level: 'ok',
-      title: 'Le texte part avec la page',
-      detail:
-        `${r.botWords} mots lisibles sans exécuter de JavaScript. C'est l'état idéal : la page existe ` +
-        'pour les robots d’IA comme pour les moteurs de recherche, sans dépendre d’une liste ' +
-        'de user-agents à maintenir.',
-      evidence: 'test + data · consensus',
-    });
-  }
+  if (r.verdict === 'invisible') put('A1', 'blocking', 'a1.invisible', 'test + data · consensus');
+  else if (r.verdict === 'dynamic') put('A1', 'warn', 'a1.dynamic', 'test + data · consensus');
+  else if (r.verdict === 'thin') put('A1', 'warn', 'a1.thin', 'test · single-source');
+  else put('A1', 'ok', 'a1.ssr', 'test + data · consensus');
 
-  // Les contrôles on-page ci-dessous portent sur des balises HTML. Si le site a servi du
-  // markdown au robot — négociation de contenu, cas des sites les mieux préparés — parler
-  // de « title manquant » ou de « H1 absent » serait un constat faux.
+  // Les contrôles ci-dessous portent sur des balises HTML. Si le site a servi du markdown au
+  // robot — négociation de contenu, cas des sites les mieux préparés — parler de « title
+  // manquant » ou de « H1 absent » serait un constat faux.
   if (!r.isHtml) {
-    f.push({
-      id: 'H1',
-      level: 'ok',
-      title: 'Ce site sert une version texte dédiée aux robots d’IA',
-      detail:
-        `Le serveur a répondu en « ${r.contentType.split(';')[0]} » à un user-agent de robot IA, au lieu ` +
-        'de HTML. C’est de la négociation de contenu volontaire, et c’est le signe d’un site déjà ' +
-        'préparé pour les moteurs IA. Les contrôles de balises HTML ne s’appliquent pas ici.',
-      evidence: 'observation',
-    });
+    put('H1', 'ok', 'h1.negotiated', 'observation');
     return f;
   }
 
   if (r.title) {
-    const len = r.title.length;
-    if (len < 150) {
-      f.push({
-        id: 'B2',
-        level: 'info',
-        title: `Titre de ${len} caractères`,
-        detail:
-          'Le corpus mesure +10 à 40 % de trafic pour des titres longs multi-intention de 150 à 250 ' +
-          'caractères, avec l’essentiel dans les douze premiers mots. La règle des 60 caractères ' +
-          'ne tient pas. Attention toutefois : Google Discover demande l’inverse.',
-        evidence: 'test · single-source',
-      });
-    } else {
-      f.push({
-        id: 'B2',
-        level: 'ok',
-        title: `Titre de ${len} caractères`,
-        detail: 'Dans la fourchette de 150 à 250 caractères que le corpus mesure comme la plus rentable.',
-        evidence: 'test · single-source',
-      });
-    }
+    put('B2', 'info', r.title.length < 150 ? 'b2.short' : 'b2.ok', 'test · single-source');
   } else {
-    f.push({
-      id: 'B1',
-      level: 'warn',
-      title: 'Aucune balise title lisible',
-      detail:
-        'Le titre est l’un des cinq emplacements qui portent 70 % du résultat on-page — avec l’URL, ' +
-        'le H1, le début de la première phrase et la meta description.',
-      evidence: 'test · 9 corroborations',
-    });
+    put('B1', 'warn', 'b1.noTitle', 'test · 9 corroborations');
   }
 
-  if (r.metaDescription) {
-    f.push({
-      id: 'B3',
-      level: 'info',
-      title: 'Cette page a une meta description',
-      detail:
-        'Google en ignore 63 %, et celles qu’il rédige lui-même convertissent 3 % mieux. Le corpus ' +
-        'recommande de n’en écrire que sur cinq à dix pages clés, et de ne jamais en générer ' +
-        'automatiquement — les descriptions générées font mesurablement moins bien que pas de description.',
-      evidence: 'data · single-source',
-    });
-  }
-
-  if (r.hasJsonLd) {
-    f.push({
-      id: 'L1',
-      level: 'info',
-      title: 'Balisage schema détecté',
-      detail:
-        'Quatre tests indépendants, dont un déploiement complet sur deux ans : aucun effet mesurable sur ' +
-        'le classement. Effet sur la citation par les IA : +2,4 %, indiscernable de zéro. À garder si ' +
-        'c’est là pour un usage précis (nom de site dans les résultats, fiches produit, Google ' +
-        'Shopping), mais pas à étendre en attendant du classement.',
-      evidence: 'test ×4',
-    });
-  }
-
-  if (r.h1Count === 0) {
-    f.push({
-      id: 'B1',
-      level: 'warn',
-      title: 'Aucun H1',
-      detail: 'Le H1 est l’un des cinq emplacements. Son absence est un défaut ; en revanche le corpus ' +
-        'ne tranche pas sur leur NOMBRE, et aucune position n’a d’effet démontré.',
-      evidence: 'test · 9 corroborations',
-    });
-  }
+  if (r.metaDescription) put('B3', 'info', 'b3.hasDesc', 'data · single-source');
+  if (r.hasJsonLd) put('L1', 'info', 'l1.jsonLd', 'test ×4');
+  if (r.h1Count === 0) put('B1', 'warn', 'b1.noH1', 'test · 9 corroborations');
 
   return f;
 }
 
 /** Lance la vérification complète sur une URL utilisateur. */
-export async function checkAiVisibility(rawUrl: string): Promise<VisibilityReport> {
+export async function checkAiVisibility(
+  rawUrl: string,
+  lang: CheckerLang = 'fr',
+): Promise<VisibilityReport> {
   const url = await assertPublicUrl(normalizeInput(rawUrl));
 
   // Les deux requêtes en parallèle : la comparaison est le cœur du diagnostic.
@@ -514,7 +419,7 @@ export async function checkAiVisibility(rawUrl: string): Promise<VisibilityRepor
     excerpt: botText.slice(0, 400),
   };
 
-  return { ...base, findings: buildFindings(base) };
+  return { ...base, findings: buildFindings(base, lang) };
 }
 
 /**

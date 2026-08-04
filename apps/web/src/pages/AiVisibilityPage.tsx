@@ -43,7 +43,7 @@ interface Report {
 const API = (import.meta.env?.VITE_API_URL as string | undefined) ?? '';
 
 export function AiVisibilityPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const params = useParams();
   // La route est déclarée en `/visibilite-ia/*` : la cible est dans le splat.
@@ -64,7 +64,9 @@ export function AiVisibilityPage() {
       const res = await fetch(`${API}/api/ai-visibility/check`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ url }),
+        // Les constats sont générés côté API : sans la langue, l'interface serait
+        // traduite et les constats non.
+        body: JSON.stringify({ url, lang: i18n.language }),
       });
       const data = (await res.json()) as Report & { error?: string };
       if (!res.ok) {
@@ -77,7 +79,7 @@ export function AiVisibilityPage() {
     } finally {
       setLoading(false);
     }
-  }, [t]);
+  }, [t, i18n.language]);
 
   // Lien partagé : on lance la vérif au chargement, une seule fois par cible.
   useEffect(() => {
