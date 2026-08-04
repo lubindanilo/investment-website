@@ -46,7 +46,7 @@
   padding: 3px 9px; border-radius: 7px; align-self: center;
 }
 .anl-price { font-size: 14px; color: var(--ink-2); font-weight: 600; margin-top: 2px; }
-.anl-verdict { font-size: 15px; line-height: 1.5; color: var(--ink-2); max-width: 620px; }
+.anl-verdict { font-size: 15px; line-height: 1.5; color: var(--ink-2); }
 .anl-composition { max-width: 440px; }
 .anl-comp-counts { white-space: nowrap; }
 
@@ -263,6 +263,8 @@
      s'arretait a mi-largeur, alors que les cartes au-dessus occupent toute la ligne
      (constate au navigateur sur /analyse/AAPL). */
   align-self: stretch;
+  width: 100%;
+  max-width: none;
   font-size: 1.05rem;
   line-height: 1.65;
   padding: 0.95rem 1.15rem;
