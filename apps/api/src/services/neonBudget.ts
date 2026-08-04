@@ -48,31 +48,76 @@ export interface NeonUsage {
   periodFromCalendar: boolean;
 }
 
-async function neonGet<T>(path: string, apiKey: string): Promise<T> {
-  const res = await fetch(`${NEON_API}${path}`, {
-    headers: { Accept: 'application/json', Authorization: `Bearer ${apiKey}` },
-    signal: AbortSignal.timeout(NEON_TIMEOUT_MS),
-  });
-  if (!res.ok) {
-    const body = await res.text().catch(() => '');
-    throw new Error(`Neon API ${path} → HTTP ${res.status} ${body}`.slice(0, 300));
+/** Lecture GET de l'API Neon. Injectable pour tester la résolution du projet sans réseau. */
+export type NeonGetter = <T>(path: string) => Promise<T>;
+
+export interface NeonAccess {
+  apiKey: string;
+  /** Court-circuite toute la découverte (variable NEON_PROJECT_ID). */
+  projectId?: string;
+  /** Évite l'appel de découverte des organisations (variable NEON_ORG_ID). */
+  orgId?: string;
+  get?: NeonGetter;
+}
+
+function makeGetter(apiKey: string): NeonGetter {
+  return async <T>(path: string): Promise<T> => {
+    const res = await fetch(`${NEON_API}${path}`, {
+      headers: { Accept: 'application/json', Authorization: `Bearer ${apiKey}` },
+      signal: AbortSignal.timeout(NEON_TIMEOUT_MS),
+    });
+    if (!res.ok) {
+      const body = await res.text().catch(() => '');
+      throw new Error(`Neon API ${path} → HTTP ${res.status} ${body}`.slice(0, 300));
+    }
+    return await res.json() as T;
+  };
+}
+
+/** Organisations visibles par une clé personnelle. */
+async function listOrgIds(get: NeonGetter): Promise<string[]> {
+  const r = await get<{ organizations?: { id?: string }[] }>('/users/me/organizations');
+  const ids = (r.organizations ?? []).map(o => o.id).filter((id): id is string => !!id);
+  if (!ids.length) {
+    throw new Error('Aucune organisation Neon visible : renseigne NEON_PROJECT_ID (console Neon → Settings → General).');
   }
-  return await res.json() as T;
+  return ids;
 }
 
 /**
- * Résout l'ID du projet Neon. Sans `explicit`, on liste les projets visibles par la clé : un seul
- * projet (cas normal) → on le prend ; plusieurs → on refuse de deviner (mesurer le mauvais projet
- * donnerait un budget faux, donc un dépassement silencieux).
+ * Résout l'ID du projet Neon. Sans `projectId` explicite, on liste les projets visibles par la
+ * clé : un seul projet (cas normal) → on le prend ; plusieurs → on refuse de deviner (mesurer le
+ * mauvais projet donnerait un budget faux, donc un dépassement silencieux).
+ *
+ * Compte ORGANISATION : `GET /projects` répond alors 400 « org_id is required » (les projets
+ * appartiennent à l'organisation, pas au compte), et une clé personnelle doit passer par
+ * `GET /projects?org_id=…`. On enchaîne donc sur la découverte des organisations. Cas rencontré au
+ * premier run du drain (04/08/2026).
  */
-export async function resolveNeonProjectId(apiKey: string, explicit?: string): Promise<string> {
-  if (explicit) return explicit;
-  const { projects } = await neonGet<{ projects: NeonProjectPayload[] }>('/projects', apiKey);
-  if (!projects?.length) throw new Error('Aucun projet Neon visible avec cette clé API.');
-  if (projects.length > 1) {
-    throw new Error(`${projects.length} projets Neon visibles — renseigne NEON_PROJECT_ID (${projects.map(p => p.id).join(', ')}).`);
+export async function resolveNeonProjectId(access: NeonAccess): Promise<string> {
+  if (access.projectId) return access.projectId;
+  const get = access.get ?? makeGetter(access.apiKey);
+
+  // 1. Projets rattachés directement au compte (cas hors organisation).
+  const own = await get<{ projects?: NeonProjectPayload[] }>('/projects').catch((e: Error) => {
+    if (!/org_id is required/i.test(e.message)) throw e;
+    return null;
+  });
+  const found: NeonProjectPayload[] = own?.projects ?? [];
+
+  // 2. Sinon (400 org_id, ou compte sans projet propre) : par organisation.
+  if (!found.length) {
+    for (const orgId of access.orgId ? [access.orgId] : await listOrgIds(get)) {
+      const r = await get<{ projects?: NeonProjectPayload[] }>(`/projects?org_id=${encodeURIComponent(orgId)}`);
+      found.push(...(r.projects ?? []));
+    }
   }
-  return projects[0]!.id;
+
+  if (!found.length) throw new Error('Aucun projet Neon visible avec cette clé API.');
+  if (found.length > 1) {
+    throw new Error(`${found.length} projets Neon visibles — renseigne NEON_PROJECT_ID (${found.map(p => p.id).join(', ')}).`);
+  }
+  return found[0]!.id;
 }
 
 /** Bornes du mois calendaire en UTC — repli quand l'API ne peuple pas la période de consommation. */
@@ -108,9 +153,10 @@ export function parseNeonUsage(project: NeonProjectPayload, now: Date): NeonUsag
   };
 }
 
-export async function fetchNeonUsage(opts: { apiKey: string; projectId?: string; now?: Date }): Promise<NeonUsage> {
-  const id = await resolveNeonProjectId(opts.apiKey, opts.projectId);
-  const { project } = await neonGet<{ project: NeonProjectPayload }>(`/projects/${id}`, opts.apiKey);
+export async function fetchNeonUsage(opts: NeonAccess & { now?: Date }): Promise<NeonUsage> {
+  const get = opts.get ?? makeGetter(opts.apiKey);
+  const id = await resolveNeonProjectId(opts);
+  const { project } = await get<{ project: NeonProjectPayload }>(`/projects/${id}`);
   return parseNeonUsage({ ...project, id }, opts.now ?? new Date());
 }
 

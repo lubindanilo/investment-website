@@ -51,7 +51,11 @@ async function main(): Promise<void> {
     console.warn(`⚠️  NEON_API_KEY absente : run à l'aveugle, plafonné à ${minutes} min (aucune mesure du solde compute).`);
   } else {
     // Projet résolu UNE fois : le drain relit la conso plusieurs fois pendant le run.
-    const projectId = await resolveNeonProjectId(apiKey, process.env.NEON_PROJECT_ID?.trim() || undefined);
+    const projectId = await resolveNeonProjectId({
+      apiKey,
+      projectId: process.env.NEON_PROJECT_ID?.trim() || undefined,
+      orgId: process.env.NEON_ORG_ID?.trim() || undefined,
+    });
     const usage = await fetchNeonUsage({ apiKey, projectId });
     const budget = computeDrainBudget({
       usedCuH: usage.cuHours,
