@@ -107,6 +107,11 @@
   gap: 10px;
 }
 
+.rs-axis-head .s-badge {
+  justify-self: start;
+  width: max-content;
+}
+
 .rs-axis-title {
   min-height: 38px;
   display: flex;
