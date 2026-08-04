@@ -28,6 +28,69 @@ const HORIZONS: Record<string, { years: number; interval: '1d' | '1wk' | '1mo' }
   'Tout': { years: 30, interval: '1mo' },
 };
 
+/**
+ * Résumé-verdict de 2-3 phrases, placé tout en haut de la fiche.
+ *
+ * Pourquoi : c'est le geste le mieux documenté du corpus SEO pour ce type de page
+ * (+33 % de conversion, 6 occurrences indépendantes), et il donne la réponse dans les
+ * 100 premiers mots, ce qui est aussi ce que les moteurs génératifs extraient.
+ *
+ * Règle de fond : CHAQUE phrase est dérivée d'un chiffre déjà chargé dans la fiche.
+ * Rien n'est affirmé qui ne soit adossé à une donnée, et le texte reste factuel (pas de
+ * recommandation d'achat : le service n'est pas un conseil en investissement).
+ */
+function AnalysisVerdict({ analysis, qualityScore }: { analysis: AnalyzeResponse; qualityScore: number }) {
+  const { t } = useTranslation();
+  const pfcf = analysis.metrics?.pfcfTTM;
+  const hasPfcf = pfcf != null && isFinite(pfcf) && pfcf > 0;
+  const bench = analysis.sectorBenchmark?.medianPfcf;
+  const hasBench = hasPfcf && bench != null && isFinite(bench) && bench > 0;
+  const pct = analysis.pfcfPercentile;
+
+  const quality = qualityScore >= 8 ? t('analyse.verdict.qualityHigh')
+    : qualityScore >= 5 ? t('analyse.verdict.qualityMid')
+    : t('analyse.verdict.qualityLow');
+
+  // « Pas cher » : relatif au secteur quand on a une médiane de pairs, sinon on retombe
+  // sur le percentile historique du titre (décile bas = le critère « opportunité »).
+  const cheap = hasBench ? (pfcf as number) < (bench as number)
+    : pct != null ? pct <= 30
+    : false;
+  const goodQuality = qualityScore >= 7;
+
+  const sentences: string[] = [
+    t('analyse.verdict.line1', { company: analysis.company || analysis.ticker, score: qualityScore, quality }),
+  ];
+  if (hasPfcf) {
+    sentences.push(t('analyse.verdict.pfcf', { pfcf: (pfcf as number).toFixed(1) }));
+    if (hasBench) {
+      sentences.push(
+        cheap
+          ? t('analyse.verdict.pfcfCheapSector', { bench: (bench as number).toFixed(1) })
+          : t('analyse.verdict.pfcfDearSector', { bench: (bench as number).toFixed(1) }),
+      );
+    }
+    if (pct != null) {
+      sentences.push(
+        pct <= 50
+          ? t('analyse.verdict.percentileLow', { pct: Math.round(pct) })
+          : t('analyse.verdict.percentileHigh', { pct: Math.round(pct) }),
+      );
+    }
+    sentences.push(
+      goodQuality && cheap ? t('analyse.verdict.crossGoodCheap')
+        : goodQuality && !cheap ? t('analyse.verdict.crossGoodDear')
+        : !goodQuality && cheap ? t('analyse.verdict.crossWeakCheap')
+        : t('analyse.verdict.crossWeakDear'),
+    );
+  } else {
+    sentences.push(t('analyse.verdict.noPfcf'));
+  }
+  sentences.push(t('analyse.verdict.separate'));
+
+  return <p className="anl-verdict">{sentences.join(' ')}</p>;
+}
+
 function scoreOf(items: { statut: 'pass' | 'fail' | 'warn' }[]) {
   const pass = items.filter(c => c.statut === 'pass').length;
   const warn = items.filter(c => c.statut === 'warn').length;
@@ -396,6 +459,14 @@ function AnalysisView({ analysis, chiffres, management, watched, onWatch, onGene
           watched={watched}
           onWatch={onWatch}
         />
+
+        {/* Résumé-verdict en tête, avant tout autre bloc. C'est le geste le mieux
+            documenté du corpus SEO pour une page de ce type : un résumé auto-porté de
+            2-3 phrases placé en haut mesure +33 % de conversion, et il donne la réponse
+            dans les 100 premiers mots (ce que cherchent aussi les moteurs génératifs).
+            Le texte est intégralement DÉRIVÉ de la donnée déjà chargée : aucune
+            affirmation qui ne soit adossée à un chiffre de la fiche. */}
+        <AnalysisVerdict analysis={analysis} qualityScore={s10} />
 
         {/* Cours */}
         <PriceSection ticker={analysis.ticker} currency={currency} />
