@@ -11,17 +11,11 @@ export const RESILIENCE_STAR_CRITERIA: ResilienceStarCriterionId[] = [
   'capture',
 ];
 
-function toneForTotal(total: number): 'good' | 'warn' | 'bad' {
-  if (total >= 4) return 'good';
-  if (total >= 2.5) return 'warn';
-  return 'bad';
-}
-
 function formatStars(value: number, language: string): string {
   return new Intl.NumberFormat(language, { minimumFractionDigits: value % 1 === 0 ? 0 : 1, maximumFractionDigits: 1 }).format(value);
 }
 
-function StarMeter({ value, max = 5, label }: { value: number; max?: 1 | 5; label: string }) {
+export function StarMeter({ value, max = 5, label }: { value: number; max?: 1 | 5; label: string }) {
   return (
     <span className={`rs-stars rs-stars-${max}`} role="img" aria-label={label}>
       {Array.from({ length: max }).map((_, index) => {
@@ -42,16 +36,14 @@ export function ResilienceStarsBadge({
 }) {
   const { t, i18n } = useTranslation();
   if (!score) return <ResilienceStarsPending size={size} />;
-  const tone = toneForTotal(score.total);
   const total = formatStars(score.total, i18n.language);
   return (
     <span
-      className={`rs-badge rs-badge-${tone} rs-badge-${size}${score.verdict === 'flagged' ? ' is-flagged' : ''}`}
+      className={`rs-badge rs-badge-scored rs-badge-${size}${score.verdict === 'flagged' ? ' is-flagged' : ''}`}
       title={`${t('analyse.resilience')} ${total}/5${score.verdict === 'flagged' ? ` · ${t('analyse.resilienceStars.flagged')}` : ''}`}
       aria-label={`${t('analyse.resilience')} ${total}/5`}
     >
       <StarMeter value={score.total} label={`${total}/5`} />
-      <span className="num rs-badge-score">{total}/5</span>
     </span>
   );
 }
@@ -72,9 +64,8 @@ export function ResilienceStarsHeader({ score }: { score?: ResilienceStarsData |
   }
   const total = formatStars(score.total, i18n.language);
   return (
-    <div className={`rs-header-score rs-tone-${toneForTotal(score.total)}${score.verdict === 'flagged' ? ' is-flagged' : ''}`}>
+    <div className={`rs-header-score${score.verdict === 'flagged' ? ' is-flagged' : ''}`}>
       <StarMeter value={score.total} label={t('analyse.resilienceStars.scoreLabel', { score: total })} />
-      <span className="num rs-header-total">{total}<small>/5</small></span>
       {score.verdict === 'flagged' && <span className="rs-review-dot">{t('analyse.resilienceStars.flagged')}</span>}
     </div>
   );
@@ -97,12 +88,11 @@ export function ResilienceStarsGrid({ score }: { score?: ResilienceStarsData | n
         const criterion = score.criteria[id];
         const star = criterion.star;
         return (
-          <article className={`rs-axis-card rs-axis-${toneForTotal(star * 5)}`} key={id}>
+          <article className="rs-axis-card" key={id}>
             <div className="rs-axis-head">
               <h3>{t(`analyse.resilienceCriteria.${id}.label`)}</h3>
               <span className="rs-axis-score">
                 <StarMeter value={star} max={1} label={`${formatStars(star, i18n.language)}/1`} />
-                <span className="num">{formatStars(star, i18n.language)}/1</span>
               </span>
             </div>
             <p>{criterion.justification}</p>

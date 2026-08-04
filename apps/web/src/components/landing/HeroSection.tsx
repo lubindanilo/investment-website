@@ -20,6 +20,7 @@ import { api } from '../../lib/api.js';
 import { Def, ScoreRing, useParallax, useSectionIn } from './bits.js';
 import { useMotion, useRichMotion } from './motion.js';
 import { fmtPrice, type LandingCriterion, type LandingShowcase } from './useLandingData.js';
+import { StarMeter } from '../ResilienceStars.js';
 
 /**
  * Champ de recherche + bouton : le point d'entrée réel de la page (hero et CTA final).
@@ -208,18 +209,15 @@ export function CriteriaList({ criteria, compact = false }: { criteria: LandingC
 export function ResilienceRow({ resilienceStars }: { resilienceStars?: ResilienceStars | null }) {
   const { t } = useTranslation();
   const total = resilienceStars?.total ?? null;
-  const pct = total == null ? 0 : Math.max(0, Math.min(100, (total / 5) * 100));
   return (
     <div className={`acard-res${resilienceStars ? '' : ' none'}`}>
       <div className="res-top">
         <span className="kicker res-k"><Def def={t('landing.def.resilience')}>{t('landing.card.resilience')}</Def></span>
-        <span className="res-pill" data-g="-">★</span>
       </div>
       <div className="res-detail">
-        <b className="num res-score">{resilienceStars ? `${total}/5` : t('analyse.resilienceStars.pendingShort')}</b>
-        <div className="res-bar" aria-hidden="true">
-          <i style={{ width: `${pct}%` }} />
-        </div>
+        {total == null
+          ? <b className="num res-score">{t('analyse.resilienceStars.pendingShort')}</b>
+          : <StarMeter value={total} label={t('analyse.resilienceStars.scoreLabel', { score: total })} />}
       </div>
     </div>
   );

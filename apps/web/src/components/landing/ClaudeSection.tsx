@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { ScoreRing, useSectionIn, SplitTitle } from './bits.js';
 import { CompositionStrip, CriteriaList } from './HeroSection.js';
+import { StarMeter } from '../ResilienceStars.js';
 import { CompanyLogo } from '../ui/CompanyLogo.js';
 import { useMotion } from './motion.js';
 import { fmtPrice, type LandingShowcase, type LandingStock } from './useLandingData.js';
@@ -394,8 +395,8 @@ export function ClaudeSection({ show, peaRows, rows }: {
               </div>
               {show.resilienceStars && (
                 <div className="lc-score">
-                  <span className="lc-grade" data-g="-">★</span>
-                  <span className="tiny muted">{t('landing.card.resilience')} · {show.resilienceStars.total}/5</span>
+                  <StarMeter value={show.resilienceStars.total} label={t('analyse.resilienceStars.scoreLabel', { score: show.resilienceStars.total })} />
+                  <span className="tiny muted">{t('landing.card.resilience')}</span>
                 </div>
               )}
               <div className="lc-crit">
