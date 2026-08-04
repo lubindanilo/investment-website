@@ -44,6 +44,18 @@ const RENDER_SAMPLE = 8;
 const MAX_SITEMAPS = 50;
 /** En dessous, une page n'a pas de contenu exploitable. Même seuil que le vérificateur. */
 const CONTENT_FLOOR_WORDS = 120;
+/**
+ * Budget de temps par défaut, en dessous du plafond de 60 s de la lambda Vercel
+ * (`maxDuration` dans vercel.json) avec la marge nécessaire à l'écriture en base.
+ *
+ * Mesuré : ~14 pages/s sur un site rapide. Les plafonds de 5 000 et 50 000 pages ne peuvent
+ * donc PAS être honorés dans une invocation unique — ils exigent un traitement par tranches.
+ * En attendant, on s'arrête proprement et on le dit dans le rapport, au lieu de se faire
+ * tuer à 60 s et de perdre le travail.
+ */
+const DEFAULT_TIME_BUDGET_MS = 45_000;
+/** Cadence maximale qu'on s'impose même sans Crawl-delay déclaré. */
+const DEFAULT_MIN_INTERVAL_MS = 0;
 
 export interface PageResult {
   url: string;
@@ -92,6 +104,10 @@ export interface CrawlReport {
   medianBotWords: number;
   robotsBlocked: number;
   sitemapUrlCount: number;
+  /** Pourquoi le crawl s'est arrêté — décide de ce qu'on peut conclure. */
+  stoppedReason: 'exhausted' | 'page-cap' | 'time-budget';
+  /** Cadence imposée par le robots.txt de la cible, en secondes (0 = non déclarée). */
+  crawlDelaySec: number;
   pages: PageResult[];
   aggregate: AggregateFinding[];
 }
@@ -114,6 +130,8 @@ export interface AggregateFinding {
 interface Robots {
   disallow: string[];
   sitemaps: string[];
+  /** Secondes entre deux requêtes, déclarées par la cible. 0 = non déclaré. */
+  crawlDelaySec: number;
 }
 
 /**
@@ -124,7 +142,7 @@ interface Robots {
  * et la majorité des sites n'en ont pas de pertinent.
  */
 async function readRobots(origin: URL): Promise<Robots> {
-  const out: Robots = { disallow: [], sitemaps: [] };
+  const out: Robots = { disallow: [], sitemaps: [], crawlDelaySec: 0 };
   try {
     const res = await fetchWithUa(new URL('/robots.txt', origin), AI_BOT_UA, { allowXml: true });
     if (res.status !== 200) return out;
@@ -142,6 +160,12 @@ async function readRobots(origin: URL): Promise<Robots> {
         out.disallow.push(value);
       } else if (key === 'sitemap' && value) {
         out.sitemaps.push(value);
+      } else if (key === 'crawl-delay' && applies && value) {
+        // Directive non standardisée mais largement publiée, et la respecter est la
+        // différence entre un crawler et un agresseur. Un WAF finit par répondre 403 à qui
+        // l'ignore, et le rapport sort alors faux sans le dire.
+        const d = Number.parseFloat(value.replace(',', '.'));
+        if (Number.isFinite(d) && d > 0) out.crawlDelaySec = Math.max(out.crawlDelaySec, d);
       }
     }
   } catch {
@@ -365,6 +389,24 @@ async function analyzePage(url: URL, depth: number | null, withRender: boolean):
 // Crawl
 // ─────────────────────────────────────────────────────────────────────────────
 
+const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+
+/**
+ * Cadenceur global : garantit `minIntervalMs` entre deux départs de requête, quelle que
+ * soit la concurrence. Plus simple et plus juste que de forcer la concurrence à 1 — ce qui
+ * compte pour la cible est le débit reçu, pas le nombre de connexions ouvertes.
+ */
+function makePacer(minIntervalMs: number): () => Promise<void> {
+  let nextSlot = 0;
+  return async () => {
+    if (minIntervalMs <= 0) return;
+    const now = Date.now();
+    const slot = Math.max(now, nextSlot);
+    nextSlot = slot + minIntervalMs;
+    if (slot > now) await sleep(slot - now);
+  };
+}
+
 /** Exécute `jobs` avec au plus `CONCURRENCY` en vol. Aucun job ne fait échouer les autres. */
 async function pool<T>(jobs: Array<() => Promise<T>>): Promise<T[]> {
   const out: T[] = new Array(jobs.length);
@@ -382,12 +424,21 @@ async function pool<T>(jobs: Array<() => Promise<T>>): Promise<T[]> {
   return out;
 }
 
-export async function crawlSite(rawEntry: string, pageCap: number): Promise<CrawlReport> {
+export async function crawlSite(
+  rawEntry: string,
+  pageCap: number,
+  opts: { timeBudgetMs?: number } = {},
+): Promise<CrawlReport> {
+  const deadline = Date.now() + (opts.timeBudgetMs ?? DEFAULT_TIME_BUDGET_MS);
   const startedAt = new Date().toISOString();
   const entry = await assertPublicUrl(normalizeInput(rawEntry));
   const host = entry.host;
 
   const robots = await readRobots(entry);
+  // La cible impose sa cadence. On ne la contourne pas : on réduit le nombre de pages.
+  const pace = makePacer(robots.crawlDelaySec > 0
+    ? robots.crawlDelaySec * 1000
+    : DEFAULT_MIN_INTERVAL_MS);
   const sitemapSeeds = robots.sitemaps.length
     ? robots.sitemaps
     : [new URL('/sitemap.xml', entry).toString()];
@@ -420,8 +471,10 @@ export async function crawlSite(rawEntry: string, pageCap: number): Promise<Craw
   // profondeur de clic gratuitement (A6) et garde la concurrence bornée.
   let frontier: string[] = [normEntry];
   let depth = 0;
+  let stoppedReason: CrawlReport['stoppedReason'] = 'exhausted';
 
   while (frontier.length && visited.size < pageCap) {
+    if (Date.now() >= deadline) { stoppedReason = 'time-budget'; break; }
     const batch: string[] = [];
     for (const u of frontier) {
       if (visited.has(u) || batch.includes(u)) continue;
@@ -439,7 +492,9 @@ export async function crawlSite(rawEntry: string, pageCap: number): Promise<Craw
 
     const results = await pool(
       batch.map((u) => async () => {
-        const withRender = renderSampled < RENDER_SAMPLE;
+        // Cadence d'abord : c'est ce qui rend le crawl acceptable pour la cible.
+        await pace();
+        const withRender = renderSampled < RENDER_SAMPLE && Date.now() < deadline;
         if (withRender) renderSampled++;
         return analyzePage(new URL(u), queued.get(u) ?? depth, withRender);
       }),
@@ -460,6 +515,7 @@ export async function crawlSite(rawEntry: string, pageCap: number): Promise<Craw
     frontier = nextFrontier;
     depth++;
   }
+  if (stoppedReason === 'exhausted' && visited.size >= pageCap) stoppedReason = 'page-cap';
 
   // Ce qui restait à faire quand le plafond est tombé : on le compte, on ne le cache pas.
   const discovered = new Set<string>([...queued.keys(), ...linkedTo]);
@@ -502,8 +558,13 @@ export async function crawlSite(rawEntry: string, pageCap: number): Promise<Craw
     medianBotWords,
     robotsBlocked,
     sitemapUrlCount: sitemapUrls.length,
+    stoppedReason,
+    crawlDelaySec: robots.crawlDelaySec,
     pages,
-    aggregate: aggregate(pages, { renderVerdict, renderMixed, orphans, orphansDeterminable, maxDepth, pagesSkipped, pageCap }),
+    aggregate: aggregate(pages, {
+      renderVerdict, renderMixed, orphans, orphansDeterminable, maxDepth, pagesSkipped, pageCap,
+      stoppedReason, crawlDelaySec: robots.crawlDelaySec,
+    }),
   };
 }
 
@@ -531,7 +592,11 @@ function f(
 
 function aggregate(
   pages: PageResult[],
-  ctx: { renderVerdict: Verdict; renderMixed: boolean; orphans: string[]; orphansDeterminable: boolean; maxDepth: number; pagesSkipped: number; pageCap: number },
+  ctx: {
+    renderVerdict: Verdict; renderMixed: boolean; orphans: string[]; orphansDeterminable: boolean;
+    maxDepth: number; pagesSkipped: number; pageCap: number;
+    stoppedReason: CrawlReport['stoppedReason']; crawlDelaySec: number;
+  },
 ): AggregateFinding[] {
   const out: AggregateFinding[] = [];
   const ok = pages.filter((p) => !p.error && p.status === 200);
@@ -676,7 +741,18 @@ function aggregate(
   }
 
   // ── Plafond atteint : ce n'est pas un constat SEO, c'est une information de périmètre ──
-  if (ctx.pagesSkipped > 0) {
+  if (ctx.stoppedReason === 'time-budget') {
+    out.push(f('CAP', 'info', 'Le crawl s’est arrêté sur le budget de temps',
+      `${ctx.pagesSkipped} page(s) restaient à examiner. ` +
+      (ctx.crawlDelaySec > 0
+        ? `Le robots.txt de la cible impose ${ctx.crawlDelaySec} s entre deux requêtes, ce qui borne ` +
+          'mécaniquement le nombre de pages atteignables. On respecte cette cadence plutôt que de ' +
+          'la contourner.'
+        : 'Le site est plus lent que la moyenne, ou plus profond que le temps imparti.') +
+      ' Les constats ne portent que sur les pages examinées, et la détection des pages orphelines ' +
+      'est désactivée.',
+      'périmètre', []));
+  } else if (ctx.pagesSkipped > 0) {
     out.push(f('CAP', 'info', `${ctx.pagesSkipped} page(s) découverte(s) mais non examinée(s)`,
       `L’audit s’est arrêté au plafond de ${ctx.pageCap} pages de votre palier. Les constats ci-dessus ` +
       'ne portent que sur les pages examinées. En particulier, la détection des pages orphelines (A5) ' +

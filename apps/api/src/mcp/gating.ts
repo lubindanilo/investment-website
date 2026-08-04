@@ -108,43 +108,85 @@ export async function loadMcpContext(
 export async function consumeAuditQuota(userId: string): Promise<QuotaResult> {
   const user = await prisma.user.findUnique({
     where: { id: userId },
-    select: {
-      subscriptionStatus: true,
-      subscriptionCurrentPeriodEnd: true,
-      seoTier: true,
-      monthlyAuditCount: true,
-      monthlyAuditResetAt: true,
-    },
+    select: { subscriptionStatus: true, subscriptionCurrentPeriodEnd: true, seoTier: true },
   });
   if (!user) return { ok: false };
 
-  const tier = effectiveSeoTier(user);
-  const limit = AUDITS_PER_MONTH[tier];
+  const limit = AUDITS_PER_MONTH[effectiveSeoTier(user)];
   if (limit === null) return { ok: true };
+  return consumeWindowedQuota({ userId, limit, windowMs: AUDIT_WINDOW_MS, kind: 'audit' });
+}
 
-  const now = Date.now();
-  const elapsed = now - user.monthlyAuditResetAt.getTime();
+/**
+ * Décompte ATOMIQUE sur une fenêtre glissante, commun aux deux quotas.
+ *
+ * Le motif naïf — lire le compteur, comparer à la limite, puis incrémenter — laisse passer
+ * autant de requêtes qu'il y en a en parallèle : dix appels simultanés lisent tous 0 et
+ * passent tous, sur un plan qui autorise un seul audit. Sur un endpoint payant c'est un
+ * contournement trivial du palier gratuit.
+ *
+ * On fait donc porter la CONDITION par la requête d'écriture elle-même, en deux temps :
+ *
+ *   1. Réarmement de la fenêtre, conditionné sur `resetAt < début de fenêtre`. Postgres
+ *      sérialise les UPDATE concurrents sur la même ligne : le premier passe et repose
+ *      `resetAt = maintenant`, les suivants ne matchent plus et affectent 0 ligne.
+ *   2. Incrément conditionné sur `count < limite`. Même sérialisation, donc jamais plus de
+ *      `limite` incréments réussis dans la fenêtre.
+ *
+ * `count === 1` identifie donc le gagnant sans transaction explicite ni verrou applicatif.
+ */
+async function consumeWindowedQuota(opts: {
+  userId: string;
+  limit: number;
+  windowMs: number;
+  kind: 'analysis' | 'audit';
+}): Promise<QuotaResult> {
+  const { userId, limit, windowMs, kind } = opts;
+  const now = new Date();
+  const windowStart = new Date(now.getTime() - windowMs);
 
-  if (elapsed >= AUDIT_WINDOW_MS) {
-    await prisma.user.update({
-      where: { id: userId },
-      data: { monthlyAuditCount: 1, monthlyAuditResetAt: new Date(now) },
-    });
-    return { ok: true };
-  }
-  if (user.monthlyAuditCount >= limit) {
-    return {
-      ok: false,
-      used: user.monthlyAuditCount,
-      limit,
-      resetInMinutes: Math.ceil((AUDIT_WINDOW_MS - elapsed) / 60000),
-    };
-  }
-  await prisma.user.update({
+  // 1. La fenêtre est-elle expirée ? Si oui, un seul concurrent la réarme.
+  const reset = kind === 'audit'
+    ? await prisma.user.updateMany({
+        where: { id: userId, monthlyAuditResetAt: { lt: windowStart } },
+        data: { monthlyAuditCount: 1, monthlyAuditResetAt: now },
+      })
+    : await prisma.user.updateMany({
+        where: { id: userId, dailyAnalysisResetAt: { lt: windowStart } },
+        data: { dailyAnalysisCount: 1, dailyAnalysisResetAt: now },
+      });
+  if (reset.count === 1) return { ok: true };
+
+  // 2. Fenêtre courante : incrément conditionné sur la limite.
+  const bumped = kind === 'audit'
+    ? await prisma.user.updateMany({
+        where: { id: userId, monthlyAuditCount: { lt: limit } },
+        data: { monthlyAuditCount: { increment: 1 } },
+      })
+    : await prisma.user.updateMany({
+        where: { id: userId, dailyAnalysisCount: { lt: limit } },
+        data: { dailyAnalysisCount: { increment: 1 } },
+      });
+  if (bumped.count === 1) return { ok: true };
+
+  // Refusé : on relit uniquement pour renseigner le message (used / reset dans X minutes).
+  const u = await prisma.user.findUnique({
     where: { id: userId },
-    data: { monthlyAuditCount: { increment: 1 } },
+    select: {
+      monthlyAuditCount: true, monthlyAuditResetAt: true,
+      dailyAnalysisCount: true, dailyAnalysisResetAt: true,
+    },
   });
-  return { ok: true };
+  if (!u) return { ok: false };
+  const used = kind === 'audit' ? u.monthlyAuditCount : u.dailyAnalysisCount;
+  const resetAt = kind === 'audit' ? u.monthlyAuditResetAt : u.dailyAnalysisResetAt;
+  const elapsed = now.getTime() - resetAt.getTime();
+  return {
+    ok: false,
+    used,
+    limit,
+    resetInMinutes: Math.max(1, Math.ceil((windowMs - elapsed) / 60000)),
+  };
 }
 
 /**
@@ -175,37 +217,14 @@ export interface QuotaResult {
 export async function consumeAnalysisQuota(userId: string): Promise<QuotaResult> {
   const user = await prisma.user.findUnique({
     where: { id: userId },
-    select: {
-      subscriptionStatus: true,
-      subscriptionCurrentPeriodEnd: true,
-      dailyAnalysisCount: true,
-      dailyAnalysisResetAt: true,
-    },
+    select: { subscriptionStatus: true, subscriptionCurrentPeriodEnd: true },
   });
   if (!user) return { ok: false };
   if (isProActive(user)) return { ok: true };
-
-  const now = Date.now();
-  const elapsed = now - user.dailyAnalysisResetAt.getTime();
-
-  if (elapsed >= RESET_WINDOW_MS) {
-    await prisma.user.update({
-      where: { id: userId },
-      data: { dailyAnalysisCount: 1, dailyAnalysisResetAt: new Date(now) },
-    });
-    return { ok: true };
-  }
-  if (user.dailyAnalysisCount >= FREE_DAILY_ANALYSIS_LIMIT) {
-    return {
-      ok: false,
-      used: user.dailyAnalysisCount,
-      limit: FREE_DAILY_ANALYSIS_LIMIT,
-      resetInMinutes: Math.ceil((RESET_WINDOW_MS - elapsed) / 60000),
-    };
-  }
-  await prisma.user.update({
-    where: { id: userId },
-    data: { dailyAnalysisCount: { increment: 1 } },
+  return consumeWindowedQuota({
+    userId,
+    limit: FREE_DAILY_ANALYSIS_LIMIT,
+    windowMs: RESET_WINDOW_MS,
+    kind: 'analysis',
   });
-  return { ok: true };
 }
