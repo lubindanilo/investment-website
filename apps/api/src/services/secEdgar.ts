@@ -50,20 +50,90 @@ async function getCik(ticker: string): Promise<string | null> {
 
 // ─── Fetch d'un concept XBRL (cache process) ─────────────────────────────────
 interface ConceptEntry { start?: string; end: string; val: number; fy?: number; fp?: string; form?: string }
-const conceptCache = new Map<string, ConceptEntry[] | null>();
+const unitsCache = new Map<string, Record<string, ConceptEntry[]> | null>();
 
-async function fetchConcept(cik: string, taxonomy: string, concept: string, unit: 'USD' | 'shares'): Promise<ConceptEntry[] | null> {
+/**
+ * Vrai si le tableau `USD` d'un concept XBRL n'est qu'une **conversion de convenance** :
+ * l'émetteur reporte dans une autre devise (déposant 20-F étranger — TCOM en CNY, FUTU en
+ * HKD, TM en JPY…) et joint une colonne USD indicative dans son 20-F.
+ *
+ * Pourquoi c'est bloquant : EDGAR ne sert ICI qu'à COMBLER les trous d'une série dont le
+ * reste (Finnhub, stockanalysis, Yahoo) est libellé en devise de REPORTING. Injecter la
+ * colonne USD mélange donc deux devises dans la MÊME série du store, et tout ratio qui
+ * croise un poste de bilan avec un flux devient faux du taux de change.
+ * Cas constaté en prod (TCOM) : bilan en USD via EDGAR (totalAssets, currentLiabilities,
+ * goodwill, equity…) et flux en CNY via stockanalysis (cfo, capex, sbc, revenue) → le
+ * graphe Cash ROCE traçait FCF(CNY)/CapitalEmployed(USD), soit ~7× trop haut, sous une
+ * ligne de seuil à 15 %. Idem pour le CCC (AR/AP en USD, CA en CNY).
+ *
+ * Signal retenu : présence d'une clé d'unité MONÉTAIRE ≠ USD. Mesuré sur 29 déposants
+ * (AAPL, MSFT, AMZN, WMT, KR, TGT, CVS, DAL, LUV, F, GM, INTC, NVDA, BKNG, MEDP, JPM,
+ * XOM, PG, KO, MCD, NKE, ADBE, CRM, TPL + les étrangers qui reportent en USD : SHOP,
+ * MELI, MNDY, FVRR, GLBE) → `units` ne contient que `USD` dans TOUS les cas, donc zéro
+ * faux positif. À l'inverse les déposants en devise étrangère ont toujours leur devise
+ * native en plus, et mieux fournie (TCOM CNY:36 vs USD:18, FUTU HKD:17 vs USD:7,
+ * TM JPY:32 vs USD:4). Ceux qui ne publient QUE leur devise native (ASML → EUR seul)
+ * étaient déjà écartés : `units.USD` est alors absent.
+ *
+ * Conséquence voulue : pour ces émetteurs, EDGAR ne comble plus rien et les services de
+ * graphe basculent sur leur repli annuel Yahoo, homogène en devise de reporting.
+ */
+export function foreignReportingCurrency(units: Record<string, unknown>): string | null {
+  // Les clés d'unité XBRL sont soit un code ISO 4217 ('USD', 'CNY'), soit 'shares',
+  // 'pure', 'USD/shares'… Seules les monnaies pures nous intéressent.
+  return Object.keys(units).find(k => k !== 'USD' && /^[A-Z]{3}$/.test(k)) ?? null;
+}
+
+/** Toutes les unités d'un concept, mémoïsées (un seul download par concept et par process). */
+async function fetchConceptUnits(cik: string, taxonomy: string, concept: string): Promise<Record<string, ConceptEntry[]> | null> {
   const key = `${cik}|${taxonomy}|${concept}`;
-  if (conceptCache.has(key)) return conceptCache.get(key)!;
+  if (unitsCache.has(key)) return unitsCache.get(key)!;
   try {
     const url = `${CONCEPT_BASE}/CIK${cik}/${taxonomy}/${encodeURIComponent(concept)}.json`;
     const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
-    if (!res.ok) { conceptCache.set(key, null); return null; }
+    if (!res.ok) { unitsCache.set(key, null); return null; }
     const data = await res.json() as { units?: Record<string, ConceptEntry[]> };
-    const arr = data.units?.[unit] ?? null;
-    conceptCache.set(key, arr);
-    return arr;
-  } catch { conceptCache.set(key, null); return null; }
+    const units = data.units ?? {};
+    unitsCache.set(key, units);
+    return units;
+  } catch { unitsCache.set(key, null); return null; }
+}
+
+async function fetchConcept(cik: string, taxonomy: string, concept: string, unit: 'USD' | 'shares'): Promise<ConceptEntry[] | null> {
+  const units = await fetchConceptUnits(cik, taxonomy, concept);
+  if (!units) return null;
+  if (unit === 'USD') {
+    const native = foreignReportingCurrency(units);
+    if (native) {
+      console.log(`[edgar CIK${cik}/${concept}] devise de reporting ${native} ≠ USD → EDGAR ignoré (la colonne USD n'est qu'une conversion de convenance, cf foreignReportingCurrency)`);
+      return null;
+    }
+  }
+  return units[unit] ?? null;
+}
+
+/**
+ * Devise de reporting d'un déposant SEC, ou null s'il reporte en USD (ou est introuvable).
+ *
+ * Sert aux ratios de VALORISATION, qui croisent un prix en devise de cotation avec un
+ * fondamental en devise de reporting (cf le module `fx`). On la lit chez EDGAR et non chez
+ * Yahoo pour deux raisons :
+ *   - `getCik` écarte gratuitement tout ticker suffixé, donc les ~25 000 titres non-US du
+ *     screener ne coûtent AUCUNE requête : seuls les tickers cotés aux États-Unis sont sondés,
+ *     et c'est exactement le périmètre concerné (les ADR) ;
+ *   - data.sec.gov n'est pas la ressource fragile ici. Le limiter Yahoo plafonne à 30 req/min
+ *     et son throttle a déjà provoqué une panne (PR #147) : une requête Yahoo de plus par
+ *     titre aurait amputé le débit du drain nocturne.
+ *
+ * Le concept sonde est `Assets` : tout déposant qui publie un bilan l'expose. Mémoïsé par le
+ * cache de `fetchConceptUnits`, donc un seul download par process et par émetteur.
+ */
+export async function getSecReportingCurrency(ticker: string): Promise<string | null> {
+  const cik = await getCik(ticker);
+  if (!cik) return null;
+  const units = await fetchConceptUnits(cik, 'us-gaap', 'Assets');
+  if (!units) return null;
+  return foreignReportingCurrency(units);
 }
 
 const daysBetween = (a: string, b: string) => (Date.parse(b) - Date.parse(a)) / 86400000;

@@ -32,8 +32,12 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
   }
   const ticker = t.data;
   const years = y.data;
-  // Cache key dédié — namespace différent de pfcf-history pour éviter collisions
-  const key = cache.cacheKey(ticker, 'cash-roce-history', 'computed', years);
+  // Cache key dédié — namespace différent de pfcf-history pour éviter collisions.
+  // 'computed2' : bump de génération après le garde-fou de contiguïté du TTM, la nouvelle
+  // condition de repli annuel et l'abandon de la colonne USD d'EDGAR pour les déposants en
+  // devise étrangère. Sans ça les séries en cache continueraient à servir leurs points
+  // aberrants jusqu'aux prochains résultats (TTL = date d'earnings, 2-3 mois).
+  const key = cache.cacheKey(ticker, 'cash-roce-history', 'computed2', years);
 
   const hit = await cache.get(key);
   if (hit) {
@@ -41,6 +45,7 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
       ticker,
       years,
       points: hit.points.map(p => ({ date: p.date, cashRoce: p.value })),
+      annualOnly: hit.servedFreq === 'annual',
       cached: true,
       ageMs: Date.now() - hit.storedAt,
     });
@@ -49,7 +54,7 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
 
   const startedAt = Date.now();
   const earningsPromise = getNextEarningsDate(ticker);
-  const points = await getCashRoceHistory(ticker, years);
+  const { points, freq } = await getCashRoceHistory(ticker, years);
   const elapsedMs = Date.now() - startedAt;
 
   const nextEarnings = await earningsPromise;
@@ -59,12 +64,18 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
     points.map(p => ({ date: p.date, value: p.cashRoce })),
     'finnhub',
     ttlMs,
+    { servedFreq: freq },
   );
 
   res.json({
     ticker,
     years,
     points,
+    // Une série annuelle est identique quelle que soit la fenêtre demandée (Yahoo plafonne
+    // à ~4 exercices) → l'UI masque les boutons de période plutôt que d'afficher 5 fois la
+    // même vue. Vaut aussi pour les ADR 20-F cotant en USD, que la détection page-level
+    // (`fundamentalsSource === 'yahoo'`) classait à tort en trimestriel.
+    annualOnly: freq === 'annual',
     cached: false,
     fetchedInMs: elapsedMs,
     cacheTtlHours: Math.round(ttlMs / 3_600_000),

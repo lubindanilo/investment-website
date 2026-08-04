@@ -21,7 +21,7 @@ interface Props {
 
 export function HistogramModal({ ticker, config, currency = 'USD', onClose }: Props) {
   const { t } = useTranslation();
-  const chartTitle = t(config.labelKey, { defaultValue: config.label });
+  const rawTitle = t(config.labelKey, { defaultValue: config.label });
   const [period, setPeriod] = useState<TimeseriesPeriod>('5Y');
   const [data, setData] = useState<TimeseriesPoint[] | null>(null);
   const [loading, setLoading] = useState(false);
@@ -54,6 +54,11 @@ export function HistogramModal({ ticker, config, currency = 'USD', onClose }: Pr
   // Utilise toujours actualFreq (ce que le backend a effectivement servi) pour
   // formater les ticks/tooltips correctement.
   const freq = actualFreq;
+
+  // Les libellés des ratios sont suffixés « (TTM) » parce que le chemin trimestriel US
+  // calcule bien un TTM glissant. Sur le repli annuel (EU, ADR 20-F) chaque barre est un
+  // EXERCICE, pas un TTM : on retire le suffixe plutôt que d'annoncer faux.
+  const chartTitle = freq === 'annual' ? rawTitle.replace(/\s*\(TTM\)\s*$/i, '') : rawTitle;
 
   // Échap pour fermer
   useEffect(() => {
@@ -97,13 +102,18 @@ export function HistogramModal({ ticker, config, currency = 'USD', onClose }: Pr
     const avg = values.reduce((s, v) => s + v, 0) / values.length;
     // CAGR : seulement pour les séries strictement positives ET sans gap (sinon
     // calcul absurde sur 2 segments discontinus — typique des changements de ticker).
+    //
+    // Jamais sur un MULTIPLE (conversion cash FCF/RN, dette nette/FCF) : annualiser la
+    // variation d'un ratio ne produit pas un taux de croissance. Sur TCOM la conversion
+    // cash passait de 1,53× à 0,41× et s'affichait « -35,59 %/an » en rouge, lu comme une
+    // dégradation composée alors que c'est juste un ratio plus bas qu'il y a trois ans.
     let cagr: number | null = null;
-    if (oldest.value > 0 && latest.value > 0 && gaps.length === 0) {
+    if (config.unit !== 'multiple' && oldest.value > 0 && latest.value > 0 && gaps.length === 0) {
       const years = (new Date(latest.date).getTime() - new Date(oldest.date).getTime()) / (365.25 * 24 * 3600 * 1000);
       if (years >= 1) cagr = Math.pow(latest.value / oldest.value, 1 / years) - 1;
     }
     return { latest, avg, cagr };
-  }, [data, gaps]);
+  }, [data, gaps, config.unit]);
 
   // Insère des "trous" visuels : pour chaque gap détecté, on ajoute des barres
   // fantômes (value=null) aux dates manquantes → recharts laisse un espace vide

@@ -28,11 +28,13 @@ export async function warmChartCacheForTicker(ticker: string, nextEarningsDate: 
   const [pfcf, pfcfAll, croce] = await Promise.all([
     getPfcfHistory(ticker, YEARS).catch(() => []),
     getPfcfHistory(ticker, OPP_YEARS).catch(() => []),
-    getCashRoceHistory(ticker, YEARS).catch(() => []),
+    getCashRoceHistory(ticker, YEARS).catch(() => ({ points: [], freq: 'quarterly' as const })),
   ]);
-  if (pfcf.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed-adj', YEARS), pfcf.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
-  if (pfcfAll.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed-adj', OPP_YEARS), pfcfAll.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
-  if (croce.length) await cache.set(cache.cacheKey(ticker, 'cash-roce-history', 'computed', YEARS), croce.map(p => ({ date: p.date, value: p.cashRoce })), 'finnhub', ttl).catch(() => {});
+  if (pfcf.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx', YEARS), pfcf.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  if (pfcfAll.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx', OPP_YEARS), pfcfAll.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  // Clé + méta alignées sur la route /api/cash-roce-history (génération 'computed2', servedFreq
+  // porte annualOnly) — sinon le warm remplirait une clé que la route ne lit pas.
+  if (croce.points.length) await cache.set(cache.cacheKey(ticker, 'cash-roce-history', 'computed2', YEARS), croce.points.map(p => ({ date: p.date, value: p.cashRoce })), 'finnhub', ttl, { servedFreq: croce.freq }).catch(() => {});
 
   // NB : le flag « opportunité du moment » (ScreenerTicker.opportunity/pfcfPercentile) est calculé
   // au scoring (scoreOne) — source unique, couvre tout l'univers — pas ici (warm = cache graphes).

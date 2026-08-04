@@ -84,11 +84,12 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // Le `freq` demandé est ignoré : getRatioTimeseries choisit lui-même la granularité.
   if (RATIO_SET.has(requestedMetric)) {
     const ratioKey = requestedMetric as RatioMetricKey;
-    // 'ratio2' : bump de génération après l'ajout du garde-fou de matérialité du
-    // dénominateur (cf. dropImmaterialDenominator). Sans ça les séries déjà en cache
+    // 'ratio3' : bump de génération après le garde-fou de contiguïté du TTM + la nouvelle
+    // condition de repli annuel (cf derivedTimeseries). Sans ça les séries déjà en cache
     // continueraient à servir leurs points aberrants jusqu'aux prochains résultats
-    // (TTL = date d'earnings, soit 2-3 mois). Les vieilles clés 'ratio' expirent seules.
-    const key = cache.cacheKey(ticker, ratioKey, 'ratio2', years);
+    // (TTL = date d'earnings, soit 2-3 mois). Générations précédentes : 'ratio' (origine),
+    // 'ratio2' (matérialité du dénominateur). Les vieilles clés expirent seules.
+    const key = cache.cacheKey(ticker, ratioKey, 'ratio3', years);
     const hit = await cache.get(key);
     if (hit) {
       res.json({
@@ -107,14 +108,15 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     const elapsedMs = Date.now() - startedAt;
     const nextEarnings = await earningsPromise.catch(() => null);
     const ttlMs = ttlUntilNextEarnings(nextEarnings);
-    // annualFallback réutilisé pour porter isEuTicker (masque les boutons côté UI pour les vrais EU).
-    cache.set(key, ratio.points, source, ttlMs, { servedFreq: ratio.freq, annualFallback: ratio.isEuTicker });
+    // annualFallback porte `annualOnly` : masque les boutons de période côté UI dès que la
+    // série servie est annuelle (vrais EU comme ADR 20-F — cf RatioTimeseriesResult).
+    cache.set(key, ratio.points, source, ttlMs, { servedFreq: ratio.freq, annualFallback: ratio.annualOnly });
     res.json({
       ticker, metric: ratioKey,
       freq: ratio.freq, years, points: ratio.points, source,
       cached: false, fetchedInMs: elapsedMs,
       cacheTtlHours: Math.round(ttlMs / 3_600_000),
-      nextEarnings, euAnnualOnly: ratio.isEuTicker,
+      nextEarnings, euAnnualOnly: ratio.annualOnly,
     });
     return;
   }

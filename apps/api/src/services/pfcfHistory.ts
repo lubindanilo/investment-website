@@ -22,6 +22,8 @@
  *   - Pas assez de quarters pour calculer TTM (besoin ≥ 4)
  */
 import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundamentals.js';
+import { getSecReportingCurrency } from './secEdgar.js';
+import { getFxSeries, fxAt } from './fx.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 import { yahooLimiter } from '../lib/limiter.js';
 import type { TimeseriesPoint, NegativeFcfInterval } from '@lubin/shared';
@@ -197,7 +199,7 @@ export async function getPfcfHistory(ticker: string, years: number): Promise<Pfc
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
-    return getPfcfHistoryAnnualYahoo(resolved.symbol, years);
+    return getPfcfHistoryAnnualYahoo(resolved.symbol, years, resolved.currency);
   }
 
   // Path US : tente Finnhub quarterly d'abord (vraies TTM rolling, ~60 pts).
@@ -207,7 +209,7 @@ export async function getPfcfHistory(ticker: string, years: number): Promise<Pfc
   const usResult = await getPfcfHistoryUs(ticker, years);
   if (usResult.length === 0) {
     console.log(`[pfcf ${ticker}] Finnhub vide → fallback annual Yahoo (probablement un ADR étranger)`);
-    return getPfcfHistoryAnnualYahoo(resolved?.symbol ?? ticker, years);
+    return getPfcfHistoryAnnualYahoo(resolved?.symbol ?? ticker, years, resolved?.currency ?? 'USD');
   }
   return usResult;
 }
@@ -223,7 +225,8 @@ export async function getPfcfNegativeIntervals(ticker: string, years: number): P
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
   let series: TimeseriesPoint[] = [];
   if (isEuTicker && resolved) {
-    series = await fetchYahooAnnualBasic(resolved.symbol, 'annualFreeCashFlow').catch(() => [] as TimeseriesPoint[]);
+    // Le signe du FCF ne dépend pas de la devise → pas de conversion nécessaire ici.
+    series = await fetchYahooAnnualBasic(resolved.symbol, 'annualFreeCashFlow').then(r => r.points).catch(() => [] as TimeseriesPoint[]);
   } else {
     series = await getAdjustedFcfTtmSeries(ticker, years + 1).catch(() => [] as TimeseriesPoint[]);
   }
@@ -260,10 +263,11 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
   // FCF TTM AJUSTÉ DU SBC (CFO − CapEx − SBC) — même définition que le P/FCF de la carte
   // (metrics.pfcfTTM = marketCap / adjFcfTtm). On NE prend plus le FCF brut, sinon le graphe
   // et le percentile divergent de la carte (cas DocuSign : 10× brut vs 25× ajusté).
-  const [prices, adjFcfTtm, sharesQ] = await Promise.all([
+  const [prices, adjFcfTtm, sharesQ, quoteCurrency] = await Promise.all([
     fetchPriceHistory(ticker, years, interval),
     getAdjustedFcfTtmSeries(ticker, fcfYears),
     getReportedTimeseries(ticker, 'shares', 'quarterly', fcfYears),
+    resolveYahooTicker(ticker).then(r => r?.currency ?? 'USD').catch(() => 'USD'),
   ]);
 
   if (prices.length === 0) {
@@ -275,14 +279,27 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
     return [];
   }
 
+  // Change : le prix est en devise de COTATION, le FCF en devise de REPORTING (cf module `fx`).
+  // Pour un ADR (TCOM/CNY, FUTU/HKD…) les deux diffèrent et le multiple serait divisé par le
+  // taux. On convertit au taux de CHAQUE point, pas au taux du jour : le prix de 2020 doit
+  // rencontrer le FCF de 2020 au taux de 2020 (le drift JPY/USD atteint −34 % sur la période).
+  const reporting = await getSecReportingCurrency(ticker).catch(() => null);
+  const fxSeries = reporting ? await getFxSeries(reporting, quoteCurrency) : [];
+  if (reporting && fxSeries == null) {
+    console.warn(`[pfcf ${ticker}] taux ${reporting}→${quoteCurrency} indisponible → série omise plutôt que fausse`);
+    return [];
+  }
+
   const points: PfcfHistoryPoint[] = [];
   for (const p of prices) {
     const ttm = findLatestAsOf(adjFcfTtm, p.date);   // {date, value} = FCF ajusté TTM
     const sh = findLatestAsOf(sharesQ, p.date);
     if (!ttm || !sh) continue;
     if (ttm.value <= 0 || sh.value <= 0) continue;   // FCF ajusté ≤ 0 → P/FCF non pertinent (omis)
+    const fx = fxAt(fxSeries, p.date);
+    if (fx == null) continue;
     const marketCap = p.value * sh.value;
-    const pfcf = marketCap / ttm.value;
+    const pfcf = marketCap / (ttm.value * fx);
     if (!Number.isFinite(pfcf) || pfcf <= 0) continue;
     if (pfcf > 200) continue;   // FCF ajusté ≈ 0 → multiple explosif (>200× = rendement FCF <0,5%) → bruit
     points.push({ date: p.date, pfcf: Math.round(pfcf * 100) / 100 });
@@ -303,7 +320,7 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
  * Yahoo annual ~4 ans → 4 points P/FCF (1 par fin d'année fiscale) :
  *   pfcf(année N) = price(fin année N) × shares(année N, split-adj) / FCF(année N)
  */
-async function getPfcfHistoryAnnualYahoo(yahooSymbol: string, years: number): Promise<PfcfHistoryPoint[]> {
+async function getPfcfHistoryAnnualYahoo(yahooSymbol: string, years: number, quoteCurrency: string): Promise<PfcfHistoryPoint[]> {
   // Fetch direct des séries annuelles via le helper bas-niveau.
   // Note : on n'applique PLUS cumulativeSplitFactor sur les shares annuelles — Yahoo
   // restate déjà l'historique post-split (cas NVO 2:1 2023, AAPL 4:1 2020 vérifiés).
@@ -313,20 +330,32 @@ async function getPfcfHistoryAnnualYahoo(yahooSymbol: string, years: number): Pr
     fetchYahooAnnualBasic(yahooSymbol, 'annualDilutedAverageShares'),
     fetchPriceHistory(yahooSymbol, Math.max(years, 5), '1mo'),
   ]);
-  if (annualFcf.length === 0 || annualShares.length === 0 || prices.length === 0) {
-    console.warn(`[pfcf ${yahooSymbol}] EU pas assez de données (fcf=${annualFcf.length}, shares=${annualShares.length}, prices=${prices.length})`);
+  if (annualFcf.points.length === 0 || annualShares.points.length === 0 || prices.length === 0) {
+    console.warn(`[pfcf ${yahooSymbol}] EU pas assez de données (fcf=${annualFcf.points.length}, shares=${annualShares.points.length}, prices=${prices.length})`);
+    return [];
+  }
+
+  // Change : `prices` est en devise de COTATION, `annualFcf` en devise de REPORTING que Yahoo
+  // nous donne gratuitement (`currencyCode`). Identiques pour un vrai titre EU (NESN.SW cote et
+  // publie en CHF), différentes pour un ADR (TCOM cote en USD et publie en CNY) — c'est là que
+  // le multiple était divisé par le taux de change. Taux à la date de chaque exercice, pas au
+  // taux du jour, pour ne pas réécrire l'historique au gré du drift de la devise.
+  const reporting = annualFcf.currency;
+  const fxSeries = reporting && reporting !== quoteCurrency ? await getFxSeries(reporting, quoteCurrency) : [];
+  if (fxSeries == null) {
+    console.warn(`[pfcf ${yahooSymbol}] taux ${reporting}→${quoteCurrency} indisponible → série omise plutôt que fausse`);
     return [];
   }
 
   // Index par année
   const fcfByYear: Record<string, number> = {};
   const sharesByYear: Record<string, number> = {};
-  for (const p of annualFcf) fcfByYear[p.date.slice(0, 4)] = p.value;
-  for (const p of annualShares) sharesByYear[p.date.slice(0, 4)] = p.value;
+  for (const p of annualFcf.points) fcfByYear[p.date.slice(0, 4)] = p.value;
+  for (const p of annualShares.points) sharesByYear[p.date.slice(0, 4)] = p.value;
 
   // Pour chaque année où on a (FCF, shares), on trouve le prix de fin d'année correspondant
   const points: PfcfHistoryPoint[] = [];
-  const annualDates = annualFcf.map(p => p.date).sort();
+  const annualDates = annualFcf.points.map(p => p.date).sort();
   for (const yearEnd of annualDates) {
     const yr = yearEnd.slice(0, 4);
     const fcf = fcfByYear[yr];
@@ -339,36 +368,46 @@ async function getPfcfHistoryAnnualYahoo(yahooSymbol: string, years: number): Pr
       else break;
     }
     if (priceAt == null) continue;
+    const fx = fxAt(fxSeries, yearEnd);
+    if (fx == null) continue;
     const marketCap = priceAt * sh;
-    const pfcf = marketCap / fcf;
+    const pfcf = marketCap / (fcf * fx);
     if (!Number.isFinite(pfcf) || pfcf <= 0) continue;
     points.push({ date: yearEnd, pfcf: Math.round(pfcf * 100) / 100 });
   }
 
-  console.log(`[pfcf ${yahooSymbol}] EU ${points.length} pts annual — fcf=${annualFcf.length} shares=${annualShares.length}`);
+  console.log(`[pfcf ${yahooSymbol}] EU ${points.length} pts annual — fcf=${annualFcf.points.length} shares=${annualShares.points.length}${reporting && reporting !== quoteCurrency ? ` (FCF ${reporting} → ${quoteCurrency})` : ''}`);
   return points;
 }
 
-/** Helper bas-niveau pour récupérer un type annuel Yahoo (sans crumb). */
-async function fetchYahooAnnualBasic(symbol: string, type: string): Promise<Array<{ date: string; value: number }>> {
+/**
+ * Helper bas-niveau pour récupérer un type annuel Yahoo (sans crumb).
+ *
+ * Renvoie aussi la devise de REPORTING, que Yahoo place sur chaque ligne (`currencyCode`) et
+ * qu'on jetait jusqu'ici. C'est la source gratuite dont ce chemin a besoin pour convertir un
+ * FCF avant de le croiser avec un prix : aucune requête supplémentaire (cf module `fx`).
+ */
+async function fetchYahooAnnualBasic(symbol: string, type: string): Promise<{ points: Array<{ date: string; value: number }>; currency: string | null }> {
   return yahooLimiter.schedule(async () => {
     const BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
     const now = Math.floor(Date.now() / 1000);
     const url = `${BASE}/${encodeURIComponent(symbol)}?symbol=${encodeURIComponent(symbol)}&type=${encodeURIComponent(type)}&period1=${now - 10 * 365 * 86400}&period2=${now}`;
+    const empty = { points: [] as Array<{ date: string; value: number }>, currency: null };
     try {
       const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
-      if (!res.ok) return [];
+      if (!res.ok) return empty;
       const data = await res.json() as { timeseries?: { result?: Array<Record<string, unknown> & { meta?: { type?: string[] } }> } };
       const result = data.timeseries?.result?.find(r => r.meta?.type?.includes(type));
-      const rows = (result?.[type] as Array<{ asOfDate?: string; reportedValue?: { raw?: number } }> | undefined) ?? [];
-      return rows
+      const rows = (result?.[type] as Array<{ asOfDate?: string; reportedValue?: { raw?: number }; currencyCode?: string }> | undefined) ?? [];
+      const points = rows
         .map(r => (r.asOfDate && typeof r.reportedValue?.raw === 'number')
           ? { date: r.asOfDate, value: r.reportedValue.raw }
           : null)
         .filter((x): x is { date: string; value: number } => x !== null)
         .sort((a, b) => a.date.localeCompare(b.date));
+      return { points, currency: rows.find(r => r.currencyCode)?.currencyCode ?? null };
     } catch {
-      return [];
+      return empty;
     }
   });
 }

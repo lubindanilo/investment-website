@@ -26,6 +26,8 @@ import { yahooLimiter } from '../lib/limiter.js';
 import { computeExcessCash } from './finnhubFundamentals.js';
 import { computeFcfPerShareCagr as computeFcfPerShareCagrYahoo } from './yahoo.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
+import { getSecReportingCurrency } from './secEdgar.js';
+import { getFxRateNow } from './fx.js';
 import type { DerivedMetrics } from '@lubin/shared';
 
 // Le fetch annuel Yahoo + la persistance sont désormais centralisés dans yahooAnnualStore
@@ -285,6 +287,16 @@ export async function getYahooFundamentals(
       const nwc = currentRatio != null ? (currentRatio < 1 ? -1 : 1) : null;
 
       // P/FCF TTM = market_cap / FCF (dernier exercice, strict — pas de fallback).
+      //
+      // ⚠ SEUL ratio de cette fonction à croiser deux devises : `price` est en devise de
+      // COTATION (celle de resolveYahooTicker) alors que `latestFcf` est en devise de
+      // REPORTING. Pour un ADR coté aux États-Unis qui publie en CNY / HKD / JPY, les deux
+      // diffèrent, et diviser l'une par l'autre divise le multiple par le taux de change.
+      // Constaté en prod : PDD affiché 1,28× pour ~8,0× réel, NTES 1,73× pour ~11,0×,
+      // ZTO 3,34× pour ~20,8× — un facteur ~6,2 (USD/CNY) qui faisait passer tous les ADR
+      // chinois pour les titres les moins chers du site.
+      // Tous les autres ratios ici (marge nette, marge FCF, Cash ROCE, dette nette/FCF, CCR,
+      // current ratio) sont fondamental ÷ fondamental, donc homogènes et non concernés.
       let marketCap: number | null = null;
       if (!latestShares) reasons.marketCap = 'Nombre d\'actions indisponible';
       else if (price <= 0) reasons.marketCap = 'Prix actuel indisponible';
@@ -294,7 +306,18 @@ export async function getYahooFundamentals(
       if (!marketCap) reasons.pfcfTTM = reasons.marketCap ?? 'Market cap non calculable';
       else if (!latestFcf) reasons.pfcfTTM = 'FCF indisponible';
       else if (latestFcf.value <= 0) reasons.pfcfTTM = 'FCF négatif sur le dernier exercice';
-      else pfcfTTM = marketCap / latestFcf.value;
+      else {
+        // On convertit le FCF vers la devise de cotation (et pas l'inverse) pour laisser
+        // `marketCap` et `price` cohérents entre eux dans la payload exposée.
+        const reporting = await getSecReportingCurrency(ticker).catch(() => null);
+        const fx = reporting ? await getFxRateNow(reporting, currency).catch(() => null) : 1;
+        if (fx == null) {
+          reasons.pfcfTTM = `Taux de change ${reporting}→${currency} indisponible — un P/FCF mélangeant deux devises serait faux`;
+        } else {
+          pfcfTTM = marketCap / (latestFcf.value * fx);
+          if (fx !== 1) console.log(`[yahoo fund ${yahooSymbol}] P/FCF converti : FCF en ${reporting} × ${fx} → ${currency} (multiple ${pfcfTTM.toFixed(2)}× au lieu de ${(marketCap / latestFcf.value).toFixed(2)}×)`);
+        }
+      }
 
       // Propage la raison d'anomalie FCF/action vers notCalculableReasons
       if (fcfPerShareCagr == null && fcfPerShareCagrReason) {

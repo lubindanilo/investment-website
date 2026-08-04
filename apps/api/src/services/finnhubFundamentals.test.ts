@@ -7,7 +7,17 @@
  * formule reste correcte si quelqu'un refactor un jour.
  */
 import { describe, it, expect } from 'vitest';
-import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, OPERATING_CASH_PCT_OF_REVENUE } from './finnhubFundamentals.js';
+import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, maxTtmSpanMs, OPERATING_CASH_PCT_OF_REVENUE } from './finnhubFundamentals.js';
+
+const DAY = 86_400_000;
+/** Série de dates espacées de `stepDays`, valeur indifférente (seules les dates comptent). */
+function series(start: string, stepDays: number, n: number) {
+  const t0 = Date.parse(start);
+  return Array.from({ length: n }, (_, i) => ({
+    date: new Date(t0 + i * stepDays * DAY).toISOString().slice(0, 10),
+    value: 1,
+  }));
+}
 
 describe('computeFcfBrut (FCF = CFO − |CapEx|)', () => {
   it('soustrait CapEx positif (cas standard Finnhub)', () => {
@@ -171,5 +181,69 @@ describe('computeExcessCash (heuristique Damodaran 2% du revenue)', () => {
   it('accepte un pourcentage opérationnel custom (override de la constante)', () => {
     // Si l'utilisateur veut un seuil différent (ex 5% pour les retailers à fort BFR)
     expect(computeExcessCash(100_000_000, 1_000_000_000, 0.05)).toBe(50_000_000); // op need = 50M, excess = 50M
+  });
+});
+
+/**
+ * Garde-fou de CONTIGUÏTÉ du TTM.
+ *
+ * Cas réel qui l'a motivé (TCOM, Trip.com) : Finnhub ne renvoie aucun filing (déposant 20-F)
+ * et la série `cfo` du store, recopiée de stockanalysis, n'a de points que sur 2015-2016,
+ * 2018-2019, puis 2023-03 et 2024-03 isolés. `rollingTtmSum` sommait 4 points CONSÉCUTIFS DU
+ * TABLEAU sans regarder les dates : le « TTM » du point 2024-03-31 était la somme de 2018-12,
+ * 2019-06, 2023-03 et 2024-03. Le graphe Cash ROCE affichait 55 % sur cette base.
+ *
+ * Le seuil est RELATIF à l'espacement médian de la série, parce que le store mélange les
+ * cadences : trimestriel US, semestriel natif (~25 % des EU : LVMH, Nestlé, L'Oréal…), et
+ * quelques séries annuelles. Un absolu en jours les aurait toutes supprimées.
+ */
+describe('maxTtmSpanMs (contiguïté des fenêtres TTM)', () => {
+  it('accepte une fenêtre trimestrielle normale (3 × 91j ≈ 273j)', () => {
+    const q = series('2020-03-31', 91, 20);
+    expect(maxTtmSpanMs(q) / DAY).toBeCloseTo(437, 0);
+    expect(273 * DAY).toBeLessThan(maxTtmSpanMs(q)); // la fenêtre réelle passe
+  });
+
+  it('tolère la dérive des exercices 52/53 semaines (trimestres de 84 à 98j)', () => {
+    const q = [
+      { date: '2024-02-03', value: 1 }, // 13 semaines
+      { date: '2024-05-04', value: 1 },
+      { date: '2024-08-03', value: 1 },
+      { date: '2024-11-02', value: 1 },
+      { date: '2025-02-01', value: 1 }, // 14 semaines sur l'exercice long
+    ];
+    const span = Date.parse('2025-02-01') - Date.parse('2024-05-04'); // fenêtre la plus longue
+    expect(span).toBeLessThanOrEqual(maxTtmSpanMs(q));
+  });
+
+  it('rejette une fenêtre à cheval sur un trou d’un an (le cas TCOM)', () => {
+    // cfo TCOM : 2018-2019 en trimestriel, puis 2023-03 et 2024-03 isolés.
+    const holed = [
+      ...series('2015-03-31', 91, 8),   // 2015 + 2016
+      ...series('2018-03-31', 91, 8),   // 2018 + 2019
+      { date: '2023-03-31', value: 1 },
+      { date: '2024-03-31', value: 1 },
+    ];
+    const max = maxTtmSpanMs(holed);
+    expect(max / DAY).toBeCloseTo(437, 0);                                              // cadence lue = trimestrielle
+    expect(Date.parse('2018-03-31') - Date.parse('2016-06-30')).toBeGreaterThan(max);   // pont 2016→2018 rejeté
+    expect(Date.parse('2024-03-31') - Date.parse('2018-12-31')).toBeGreaterThan(max);   // pont 2018→2024 rejeté
+    expect(Date.parse('2015-12-31') - Date.parse('2015-03-31')).toBeLessThan(max);      // bloc contigu conservé
+  });
+
+  it('laisse passer une cadence semestrielle native (LVMH, Nestlé…)', () => {
+    const h = series('2019-06-30', 182, 12);
+    // 4 semestres = 546j, ce qu'un seuil absolu à 400j aurait supprimé.
+    expect(546 * DAY).toBeLessThan(maxTtmSpanMs(h));
+  });
+
+  it('ne coupe rien quand la cadence est indéterminable', () => {
+    expect(maxTtmSpanMs([])).toBe(Infinity);
+    expect(maxTtmSpanMs([{ date: '2025-03-31', value: 1 }])).toBe(Infinity);
+    // dates dupliquées → médiane à 0 : on ne tranche pas sur une hypothèse vide
+    expect(maxTtmSpanMs([
+      { date: '2025-03-31', value: 1 },
+      { date: '2025-03-31', value: 2 },
+    ])).toBe(Infinity);
   });
 });
