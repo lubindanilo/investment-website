@@ -58,7 +58,6 @@ export function WatchlistPage() {
   const { isPro } = useSubscription();
   const [items, setItems] = useState<WatchlistEntry[]>([]);
   const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
   const [adding, setAdding] = useState(false);
   const [newTicker, setNewTicker] = useState('');
   const [sort, setSort] = useState<SortState>(() => loadSort());
@@ -82,13 +81,6 @@ export function WatchlistPage() {
       saveSort(next); return next;
     });
   }
-
-  const refresh = useCallback(async () => {
-    setRefreshing(true);
-    try { setItems(await api.watchlist.refresh(true)); }
-    catch (e) { toast.push('error', (e as Error).message); }
-    finally { setRefreshing(false); }
-  }, [toast]);
 
   const inFlight = useRef(false);
   const load = useCallback(async () => {
@@ -162,9 +154,6 @@ export function WatchlistPage() {
             </p>
           </div>
           <div className="row gap-10">
-            <button className="btn btn-ghost btn-sm" onClick={refresh} disabled={refreshing}>
-              {refreshing ? <><span className="spinner" /> {t('watchlist.refreshing')}</> : <><Icon name="refresh" size={15} /> {t('watchlist.refresh')}</>}
-            </button>
             <Link to="/screener" className="btn btn-ghost btn-sm"><Icon name="plus" size={15} /> {t('watchlist.fromScreener')}</Link>
           </div>
         </div>
