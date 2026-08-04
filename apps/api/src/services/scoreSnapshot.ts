@@ -67,6 +67,9 @@ export async function buildAndCacheQuantSnapshot(
     scoreChiffresMax: evaluable.length,
     adjFcfTtm,
     sharesOutstanding,
+    // Facteur de change FCF → devise de cotation, consommé par tous les recomputes live
+    // (watchlist, screener, percentile) via computeLivePfcf.
+    fcfFxToQuote: quant.fcfFxToQuote,
     // Date du prochain earnings : Yahoo/Finnhub, sinon (A-shares chinoises, non couvertes) on
     // synthétise via le calendrier réglementaire CSRC (exercice au 31/12, dépôts avr/août/oct).
     nextEarningsDate: quant.earnings?.next?.date

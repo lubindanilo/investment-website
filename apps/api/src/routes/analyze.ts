@@ -20,7 +20,7 @@ import { getMetric, getQuote } from '../services/finnhub.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { fetchBusinessAnalysis, fetchManagementAnalysis, fetchMarketShare } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
-import { writeCachedSnapshot, getServableSnapshot, type CachedQuantSnapshot } from '../services/quantCache.js';
+import { writeCachedSnapshot, getServableSnapshot, computeLivePfcf, type CachedQuantSnapshot } from '../services/quantCache.js';
 import { pfcfPercentile, pfcfMedian, isPfcfOpportunity, getPfcfHistory, PFCF_OPP_MIN_SCORE10 } from '../services/pfcfHistory.js';
 import { ttlUntilNextEarnings } from '../services/earnings.js';
 import * as chartCache from '../lib/timeseriesCache.js';
@@ -224,6 +224,7 @@ async function computeOpportunity(
   cachedPfcf: number | null,
   adjFcfTtm: number | null,
   sharesOutstanding: number | null,
+  fcfFxToQuote: number | null,
 ): Promise<{ pfcfPercentile: number | null; pfcfMedian: number | null; opportunity: boolean }> {
   // 1) Distribution HISTORIQUE du P/FCF (lente, cadence earnings → cache OK).
   const key = chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx', OPP_YEARS);
@@ -258,11 +259,8 @@ async function computeOpportunity(
   let current = points[points.length - 1]?.pfcf ?? null;
   if (adjFcfTtm != null && adjFcfTtm !== 0 && sharesOutstanding != null) {
     const live = await getQuote(ticker).catch(() => null);
-    const livePrice = live?.c ?? null;
-    if (livePrice != null && livePrice > 0) {
-      const p = (livePrice * sharesOutstanding) / adjFcfTtm;
-      if (Number.isFinite(p) && p > 0) current = p;
-    }
+    const p = computeLivePfcf(live?.c ?? null, sharesOutstanding, adjFcfTtm, fcfFxToQuote);
+    if (p != null) current = p;
   } else if (cachedPfcf != null && cachedPfcf > 0) {
     current = cachedPfcf; // snapshot : pfcfTTM déjà live + base prix×shares/adjFcfTtm
   }
@@ -313,7 +311,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
   // « Opportunité du moment » : percentile du P/FCF live vs historique (cache).
-  const { pfcfPercentile: pct, pfcfMedian: pfcfMed, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
+  const { pfcfPercentile: pct, pfcfMedian: pfcfMed, opportunity } = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null, quant.fcfFxToQuote);
   // Benchmark sectoriel du P/FCF (médiane des pairs cotés de l'industrie) + dividende (Yahoo).
   const [sectorBenchmark, dividend, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
@@ -402,6 +400,9 @@ async function persistQuantCache(
     scoreChiffresMax: evaluable.length,
     adjFcfTtm,
     sharesOutstanding,
+    // Facteur de change FCF → devise de cotation, consommé par tous les recomputes live
+    // (watchlist, screener, percentile) via computeLivePfcf.
+    fcfFxToQuote: quant.fcfFxToQuote,
     // L'analyse fetch déjà les earnings → on profite pour cacher la date du prochain
     // (affichée en watchlist, cachée jusqu'à la date).
     nextEarningsDate: response.earnings?.next?.date ?? null,
@@ -489,7 +490,7 @@ analyzeRouter.post('/qualitative', analyzeLimiter, requireAuth, requirePro, asyn
     managementCachedAt = existingMgmt!.updatedAt;
   }
 
-  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
+  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null, quant.fcfFxToQuote);
   const [sectorBenchmark, dividend, resilience, resilienceStars, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
@@ -533,7 +534,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePr
   const business = businessRow && isBusinessCacheValid(businessRow.business) ? businessRow.business : null;
   const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
-  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
+  const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null, quant.fcfFxToQuote);
   const [sectorBenchmark, dividend, resilience, resilienceStars, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),

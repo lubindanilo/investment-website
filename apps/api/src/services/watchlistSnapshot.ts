@@ -60,6 +60,9 @@ export async function computeAndCache(ticker: string): Promise<CachedQuantSnapsh
     scoreChiffresMax: evaluable.length,
     adjFcfTtm,
     sharesOutstanding,
+    // Facteur de change FCF → devise de cotation, consommé par tous les recomputes live
+    // (watchlist, screener, percentile) via computeLivePfcf.
+    fcfFxToQuote: quant.fcfFxToQuote,
     nextEarningsDate: prev?.nextEarningsDate ?? null,
     earningsCheckedAt: prev?.earningsCheckedAt ?? null,
   };

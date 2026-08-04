@@ -423,11 +423,13 @@ export interface WatchlistEntry {
   /** Nouveau score Resilience 5 etoiles. Null/absent si le ticker n'est pas encore scoré. */
   resilienceStars?: ResilienceStars | null;
   // ─── Champs internes pour recompute P/FCF live ──────────────────────────
-  // Ces 2 champs ne changent qu'à chaque earnings (FCF) ou très peu (shares).
-  // Ils permettent de recomputer pfcfTTM = (price × shares) / adjFcfTtm avec un
+  // Ces champs ne changent qu'à chaque earnings (FCF) ou très peu (shares, change).
+  // Ils permettent de recomputer pfcfTTM = (price × shares) / (adjFcfTtm × fx) avec un
   // prix temps réel à chaque GET, sans refaire tous les calculs lourds.
   adjFcfTtm?: number | null;
   sharesOutstanding?: number | null;
+  /** Ramène adjFcfTtm dans la devise du prix (1 sauf ADR publiant en devise étrangère). */
+  fcfFxToQuote?: number | null;
 }
 
 // ─── Comparaison side-by-side ──────────────────────────────────────────────

@@ -20,6 +20,7 @@ import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './
 import { getResilienceStars } from './resilienceStars.js';
 import { buildAndCacheQuantSnapshot } from './scoreSnapshot.js';
 import { getSparkSeries } from './priceSeries.js';
+import { computeLivePfcf } from './quantCache.js';
 import { warmChartCacheForTicker } from './chartWarm.js';
 import { getPfcfHistory, pfcfPercentile, pfcfDecileThreshold, isOpportunity, PFCF_OPP_MIN_SCORE10, PFCF_OPP_MAX } from './pfcfHistory.js';
 import { getYahooBatchQuotes } from './yahoo.js';
@@ -326,10 +327,11 @@ export async function refreshOpportunitiesLive(): Promise<{ refreshed: number; f
     where: { ticker: { in: tickers } },
     select: { ticker: true, snapshot: true },
   });
-  const fund = new Map<string, { shares: number | null; adjFcf: number | null }>();
+  const fund = new Map<string, { shares: number | null; adjFcf: number | null; fx: number | null }>();
   for (const s of snaps) {
-    const snap = s.snapshot as { sharesOutstanding?: number | null; adjFcfTtm?: number | null } | null;
-    fund.set(s.ticker, { shares: snap?.sharesOutstanding ?? null, adjFcf: snap?.adjFcfTtm ?? null });
+    const snap = s.snapshot as { sharesOutstanding?: number | null; adjFcfTtm?: number | null; fcfFxToQuote?: number | null } | null;
+    // fx : ramène le FCF dans la devise du prix (1 sauf ADR publiant en devise étrangère).
+    fund.set(s.ticker, { shares: snap?.sharesOutstanding ?? null, adjFcf: snap?.adjFcfTtm ?? null, fx: snap?.fcfFxToQuote ?? null });
   }
   // Prix du jour en batch (le ticker app = symbole Yahoo : US direct, non-US déjà suffixé .PA/.SW…).
   const prices = await getYahooBatchQuotes(tickers);
@@ -344,8 +346,9 @@ export async function refreshOpportunitiesLive(): Promise<{ refreshed: number; f
     if (price == null || price <= 0 || !f || f.shares == null || f.shares <= 0 || f.adjFcf == null || f.adjFcf === 0) {
       continue; // prix ou fondamentaux indispo → on ne touche rien (re-tenté au prochain passage)
     }
-    const livePfcf = (price * f.shares) / f.adjFcf;
-    const opportunity = livePfcf > 0 && livePfcf < PFCF_OPP_MAX && c.pfcfDecile10 != null && livePfcf <= c.pfcfDecile10;
+    const livePfcf = computeLivePfcf(price, f.shares, f.adjFcf, f.fx);
+    if (livePfcf == null) continue;
+    const opportunity = livePfcf < PFCF_OPP_MAX && c.pfcfDecile10 != null && livePfcf <= c.pfcfDecile10;
     priced.push(c.ticker);
     if (opportunity !== c.opportunity) {
       flipped++;
@@ -434,9 +437,8 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     // adjFcfTtm), pas sur metrics.pfcfTTM qui peut être sur une base marketCap Finnhub différente
     // (nb d'actions ≠) → sinon le percentile est biaisé et bascule les cas limites (ex DOCU).
     const score10 = hasScore ? Math.round((snap.scoreChiffres / snap.scoreChiffresMax) * 10) : 0;
-    const pfcfConsistent = (snap.adjFcfTtm != null && snap.adjFcfTtm !== 0 && snap.sharesOutstanding != null && snap.metrics.price != null && snap.metrics.price > 0)
-      ? (snap.metrics.price * snap.sharesOutstanding) / snap.adjFcfTtm
-      : snap.metrics.pfcfTTM ?? null;
+    const pfcfConsistent = computeLivePfcf(snap.metrics.price, snap.sharesOutstanding, snap.adjFcfTtm, snap.fcfFxToQuote)
+      ?? snap.metrics.pfcfTTM ?? null;
     // Capitalisation figée au scoring → alimente le filtre Small/Mid/Large cap. On PRÉFÈRE la
     // valeur publiée par le fournisseur au recalcul prix × actions : le nombre d'actions de
     // /financials-reported est parfois faux de plusieurs ordres de grandeur (cf. marketCapResolve).
