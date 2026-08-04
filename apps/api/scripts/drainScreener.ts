@@ -34,7 +34,11 @@ async function main(): Promise<void> {
   const askedMinutes = num(process.env.DRAIN_MINUTES, 120);
   const region = (process.env.DRAIN_REGION ?? '').trim().toUpperCase() || undefined;
   const maxTickers = num(process.env.DRAIN_MAX_TICKERS, 5_000);
-  const concurrency = num(process.env.DRAIN_CONCURRENCY, 6);
+  // Concurrence 2 par défaut, PAS 6 : le réservoir Yahoo (30 req/min) est partagé par le process,
+  // donc empiler les workers ne fait que rallonger l'attente de chacun jusqu'à son plafond. Mesuré
+  // au canari du 04/08 : concurrence 6 → 1 titre noté sur 25 tentés, 22 dépassements.
+  const concurrency = num(process.env.DRAIN_CONCURRENCY, 2);
+  const perTickerMs = num(process.env.DRAIN_PER_TICKER_S, 240) * 1_000;
   const batchSize = num(process.env.DRAIN_BATCH, 100);
   const minSuccessRatio = num(process.env.DRAIN_MIN_SUCCESS_RATIO, 0.5);
   const apiKey = (process.env.NEON_API_KEY ?? '').trim();
@@ -89,9 +93,9 @@ async function main(): Promise<void> {
     console.log(`Remise en file des titres abandonnés (attempts ≥ 5, sans note) : ${requeued}`);
   }
 
-  console.log(`Drain : région=${region ?? 'toutes'} durée=${minutes} min concurrence=${concurrency} lot=${batchSize} max=${maxTickers} titres`);
+  console.log(`Drain : région=${region ?? 'toutes'} durée=${minutes} min concurrence=${concurrency} plafond/titre=${perTickerMs / 1000} s lot=${batchSize} max=${maxTickers} titres`);
   const r = await drainPending({
-    region, maxMinutes: minutes, maxTickers, concurrency, batchSize,
+    region, maxMinutes: minutes, maxTickers, concurrency, batchSize, perTickerMs,
     allowanceCuH, readUsage,
     log: line => console.log(line),
   });

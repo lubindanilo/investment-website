@@ -26,10 +26,14 @@ import { scoreOne } from './screener.js';
 type ScoreOutcome = Awaited<ReturnType<typeof scoreOne>>;
 
 /**
- * Plafond par titre. Généreux (le runner n'est pas throttlé, un titre non-US complet tient en
- * quelques secondes) : il ne sert qu'à empêcher un fetch pendu de bloquer un worker toute la nuit.
+ * Plafond par titre. MESURÉ au canari du 04/08/2026 : à 90 s, 22 titres sur 25 dépassaient. La cause
+ * n'est pas Yahoo qui nous bloque mais NOTRE PROPRE limiter (`yahooLimiter` : 30 req/min partagées,
+ * cf. lib/limiter.ts). Un titre non-US neuf demande ~8 requêtes Yahoo plus l'accumulation historique
+ * stockanalysis à 1 req/s : le seul temps de file dépasse la minute dès que plusieurs titres se
+ * partagent le réservoir. Il n'y a plus de lambda de 60 s ici, donc rien ne justifie un plafond
+ * serré : il ne sert qu'à écarter un fetch réellement pendu.
  */
-const PER_TICKER_MS = 90_000;
+const DEFAULT_PER_TICKER_MS = 240_000;
 /** Fréquence de relecture de la consommation Neon en cours de run. */
 const DEFAULT_POLL_MS = 10 * 60_000;
 /** Combien de tickers déjà tentés on exclut des piochés suivants (cf. pickPending). */
@@ -44,8 +48,16 @@ export interface DrainOptions {
   maxMinutes: number;
   /** Plafond de titres tentés — garde-fou contre une boucle qui partirait en vrille. */
   maxTickers: number;
-  /** Titres scorés de front. Au-delà du débit des limiters sortants, ça ne fait que remplir leur file. */
+  /**
+   * Titres scorés de front. ATTENTION, ce n'est PAS un levier de débit : le réservoir Yahoo est
+   * partagé par le process, donc N workers ne vont pas N fois plus vite, ils se répartissent le même
+   * débit. Pire, chacun attend alors N fois plus longtemps et dépasse son plafond par titre : au
+   * canari du 04/08, concurrence 6 donnait 1 titre noté sur 25 tentés (22 dépassements). Une
+   * concurrence basse (1-2) laisse chaque titre avancer et sortir de la file.
+   */
   concurrency: number;
+  /** Plafond par titre (ms). Défaut DEFAULT_PER_TICKER_MS. */
+  perTickerMs?: number;
   /** Taille d'un lot pioché en base. */
   batchSize: number;
   /** Budget compute de ce run en CU-heures. Ignoré sans `readUsage`. */
@@ -98,6 +110,7 @@ export async function drainPending(opts: DrainOptions): Promise<DrainResult> {
   const log = opts.log ?? (() => {});
   const now = opts.now ?? (() => Date.now());
   const pollMs = opts.pollMs ?? DEFAULT_POLL_MS;
+  const perTickerMs = opts.perTickerMs ?? DEFAULT_PER_TICKER_MS;
   const start = now();
   const deadline = start + opts.maxMinutes * 60_000;
 
@@ -143,10 +156,10 @@ export async function drainPending(opts: DrainOptions): Promise<DrainResult> {
       while (next < batch.length && now() < deadline && attempted.size < opts.maxTickers) {
         const ticker = batch[next++]!;
         attempted.add(ticker);
-        // Le timer est ANNULÉ dès que le scoring gagne la course : un setTimeout de 90 s laissé
-        // en vol garde la boucle Node vivante d'autant, et un job de cron doit se terminer.
+        // Le timer est ANNULÉ dès que le scoring gagne la course : un setTimeout de plusieurs
+        // minutes laissé en vol garde la boucle Node vivante d'autant, et un cron doit se terminer.
         let handle: ReturnType<typeof setTimeout> | undefined;
-        const timer = new Promise<typeof TIMEOUT>(res => { handle = setTimeout(() => res(TIMEOUT), PER_TICKER_MS); });
+        const timer = new Promise<typeof TIMEOUT>(res => { handle = setTimeout(() => res(TIMEOUT), perTickerMs); });
         const outcome = await Promise.race([scoreOne(ticker), timer]);
         if (handle) clearTimeout(handle);
         if (outcome === TIMEOUT) timeout++;
