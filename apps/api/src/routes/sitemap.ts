@@ -165,11 +165,16 @@ function wrapUrlset(blocks: string[]): string {
   ].join('\n');
 }
 
-/** Tickers à INDEXER — cohérent avec la règle robots de seoPrerender (renderTickerHtml) :
- *  on exclut le « bas » (note < 5/10 ET (very small cap US < 500 M$ OU pas de P/FCF OU penny
- *  < 1 $)), SAUF opportunité du moment ou ticker rattaché à un article. Cf. audit SEO 2026-07-19.
+/** Tickers à INDEXER, STRICTEMENT le miroir de la règle robots de seoPrerender
+ *  (renderTickerHtml). On exclut :
+ *    - toute fiche SANS multiple de valorisation (palier 1 de la réduction du catalogue,
+ *      2026-08-04 : la fiche ne peut pas répondre à la question que son titre pose) ;
+ *    - le « bas » historique : note < 5/10 ET (very small cap US < 500 M$ OU penny < 1 $),
+ *      cf. audit SEO 2026-07-19 ;
+ *  SAUF opportunité du moment ou ticker rattaché à un article.
  *  ⚠️ Toute évolution de cette règle DOIT être répliquée dans seoPrerender.ts (sinon on advertise
- *  dans le sitemap des pages en noindex, signaux incohérents). */
+ *  dans le sitemap des pages en noindex, signaux incohérents). Le test
+ *  `sitemap.indexRule.test.ts` verrouille l'équivalence des deux. */
 function tickerWhere() {
   const articleTickers = Array.from(
     new Set(
@@ -181,15 +186,26 @@ function tickerWhere() {
   return {
     status: 'scored',
     OR: [
-      { scoreRatio: { gte: 0.5 } },
-      { scoreRatio: null },
       { opportunity: true },
       { ticker: { in: articleTickers } },
       {
         AND: [
+          // Condition non négociable depuis le palier 1 : il faut un multiple de valorisation.
           { pfcfTTM: { not: null } },
-          { OR: [{ price: null }, { price: { gte: 1 } }] },
-          { NOT: { region: 'US', marketCap: { lt: 500_000_000 } } },
+          {
+            OR: [
+              // Note >= 5/10 (ou pas encore de note) : la fiche a quelque chose à dire.
+              { scoreRatio: { gte: 0.5 } },
+              { scoreRatio: null },
+              // Note < 5/10 : tolérée seulement hors penny stock et hors micro cap US.
+              {
+                AND: [
+                  { OR: [{ price: null }, { price: { gte: 1 } }] },
+                  { NOT: { region: 'US', marketCap: { lt: 500_000_000 } } },
+                ],
+              },
+            ],
+          },
         ],
       },
     ],
@@ -351,3 +367,6 @@ sitemapRouter.get(
     await serveSitemap(res, `tickers-${chunk}`, () => buildTickersSitemap(chunk));
   }),
 );
+
+/** Export de test uniquement : permet de rejouer la clause reelle contre la base. */
+export const __tickerWhereForTest = tickerWhere;
