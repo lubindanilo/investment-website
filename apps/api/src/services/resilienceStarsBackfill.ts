@@ -1,5 +1,5 @@
 import { PrismaClient, type Prisma } from '@prisma/client';
-import { scoreWithCrossCheck, type CrossCheckOptions } from './resilienceStarsCrossCheck.js';
+import { scoreWithCrossCheck, type CrossCheckOptions, type CrossCheckedScore } from './resilienceStarsCrossCheck.js';
 import type { CompanyBrief } from './resilienceStars.js';
 
 /**
@@ -33,6 +33,35 @@ interface UniverseRow {
   marketCapUsd: number | null;
 }
 
+function normalizeName(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+export function pairScoresWithRows(
+  rows: UniverseRow[],
+  scores: CrossCheckedScore[],
+): { row: UniverseRow; score: CrossCheckedScore }[] {
+  const byExactName = new Map(rows.map(row => [row.name ?? row.ticker, row]));
+  const byNormalizedName = new Map(rows.map(row => [normalizeName(row.name ?? row.ticker), row]));
+  const used = new Set<string>();
+
+  return scores.flatMap((score, index) => {
+    const row =
+      byExactName.get(score.name) ??
+      byNormalizedName.get(normalizeName(score.name)) ??
+      rows[index] ??
+      null;
+    if (!row || used.has(row.ticker)) return [];
+    used.add(row.ticker);
+    return [{ row, score }];
+  });
+}
+
 /** Pas de brief fige : on demande au modele d'utiliser sa propre connaissance. */
 export function toCompanyBrief(row: UniverseRow): CompanyBrief {
   const label = row.name ?? row.ticker;
@@ -61,13 +90,12 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
       return { scored: 0, remaining: pending.length, totalUniverse: universe.length, flagged: 0 };
     }
 
-    const byName = new Map(due.map(row => [row.name ?? row.ticker, row]));
     const scores = await scoreWithCrossCheck(due.map(toCompanyBrief), options.crossCheck);
+    const pairs = pairScoresWithRows(due, scores);
 
     let flagged = 0;
-    for (const score of scores) {
-      const row = byName.get(score.name);
-      if (!row) continue;
+    let persisted = 0;
+    for (const { row, score } of pairs) {
       if (score.verdict === 'flagged') flagged += 1;
       const criteria = score.criteria as unknown as Prisma.InputJsonValue;
       const sonnetTotals = score.sonnetTotals as unknown as Prisma.InputJsonValue;
@@ -96,11 +124,12 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
           scoredAt: new Date(),
         },
       });
+      persisted += 1;
     }
 
     return {
-      scored: scores.length,
-      remaining: pending.length - due.length,
+      scored: persisted,
+      remaining: pending.length - persisted,
       totalUniverse: universe.length,
       flagged,
     };
