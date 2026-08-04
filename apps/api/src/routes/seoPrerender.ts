@@ -1823,27 +1823,33 @@ const HUB_EXTRA_TR: Record<ArticleLang, {
   sourceRanking: string;
 }> = {
   fr: {
-    summaryCount: (total, perfect) => perfect > 0
-      ? `Sur les ${total} actions listées ici, ${perfect} obtiennent la note de qualité maximale.`
-      : `Sur les ${total} actions listées ici, aucune n'obtient pour l'instant la note de qualité maximale.`,
+    summaryCount: (total, perfect) => perfect === 0
+      ? `Sur les ${total} actions listées ici, aucune n'obtient pour l'instant la note de qualité maximale.`
+      : perfect === 1
+      ? `Sur les ${total} actions listées ici, une seule obtient la note de qualité maximale.`
+      : `Sur les ${total} actions listées ici, ${perfect} obtiennent la note de qualité maximale.`,
     summaryMedian: (m) => `La valorisation médiane du groupe ressort à ${m} fois son free cash flow.`,
     summaryCheapest: (n, tk, p) => `Parmi celles qui ont la note maximale, la moins chère est <a href="${SITE_URL}/analyse/${tk}">${n} (${tk})</a>, à ${p} fois son free cash flow.`,
     sourceSector: `Pour situer ces multiples face aux moyennes du secteur, les données sectorielles publiques de référence sont celles d'<a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a>.`,
     sourceRanking: `Les notions employées ici (free cash flow, rendement du capital, endettement) sont expliquées dans les <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">ressources pédagogiques de la SEC (investor.gov)</a>.`,
   },
   en: {
-    summaryCount: (total, perfect) => perfect > 0
-      ? `Of the ${total} stocks listed here, ${perfect} reach the maximum quality score.`
-      : `Of the ${total} stocks listed here, none currently reaches the maximum quality score.`,
+    summaryCount: (total, perfect) => perfect === 0
+      ? `Of the ${total} stocks listed here, none currently reaches the maximum quality score.`
+      : perfect === 1
+      ? `Of the ${total} stocks listed here, only one reaches the maximum quality score.`
+      : `Of the ${total} stocks listed here, ${perfect} reach the maximum quality score.`,
     summaryMedian: (m) => `The median valuation of the group comes out at ${m} times its free cash flow.`,
     summaryCheapest: (n, tk, p) => `Among those with the maximum score, the cheapest is <a href="${SITE_URL}/analyse/${tk}">${n} (${tk})</a>, at ${p} times its free cash flow.`,
     sourceSector: `To place these multiples against sector averages, the reference public sector data is <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html" target="_blank" rel="noopener nofollow">Aswath Damodaran's (NYU Stern)</a>.`,
     sourceRanking: `The notions used here (free cash flow, return on capital, debt) are explained in the <a href="https://www.investor.gov/" target="_blank" rel="noopener nofollow">SEC investor education resources (investor.gov)</a>.`,
   },
   es: {
-    summaryCount: (total, perfect) => perfect > 0
-      ? `De las ${total} acciones listadas aquí, ${perfect} alcanzan la nota de calidad máxima.`
-      : `De las ${total} acciones listadas aquí, ninguna alcanza por ahora la nota de calidad máxima.`,
+    summaryCount: (total, perfect) => perfect === 0
+      ? `De las ${total} acciones listadas aquí, ninguna alcanza por ahora la nota de calidad máxima.`
+      : perfect === 1
+      ? `De las ${total} acciones listadas aquí, solo una alcanza la nota de calidad máxima.`
+      : `De las ${total} acciones listadas aquí, ${perfect} alcanzan la nota de calidad máxima.`,
     summaryMedian: (m) => `La valoración mediana del grupo se sitúa en ${m} veces su flujo de caja libre.`,
     summaryCheapest: (n, tk, p) => `Entre las que tienen la nota máxima, la más barata es <a href="${SITE_URL}/analyse/${tk}">${n} (${tk})</a>, a ${p} veces su flujo de caja libre.`,
     sourceSector: `Para situar estos múltiplos frente a las medias del sector, los datos sectoriales públicos de referencia son los de <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/data.html" target="_blank" rel="noopener nofollow">Aswath Damodaran (NYU Stern)</a>.`,
@@ -1987,6 +1993,379 @@ const HUB_COPY = {
 
 const HUB_SELECT = { ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true, pfcfTTM: true } as const;
 
+// ─── Collections d'intention (§6.1 du plan SEO, première vague du 4 août 2026) ────────
+//
+// POURQUOI. Le diagnostic Search Console du 4 août est sans ambiguïté : sur 90 jours, 129 clics
+// dont 51 sur l'accueil en recherche de marque. Les 5 500 autres URL ont produit environ 78
+// clics. Le site répond très bien à « faut-il acheter <ticker> », que presque personne ne tape,
+// et pas du tout à « meilleures actions <critère> », que tout le monde tape. Les hubs
+// `/secteur/*` ne corrigent pas ça : ce sont des catégories PRODUIT, une taxonomie sectorielle
+// anglophone importée du fournisseur de données.
+//
+// Ces pages-ci sont des catégories d'INTENTION, formulées comme un investisseur francophone
+// nomme son besoin. Le corpus mesure l'écart : remplacer des catégories produit par des
+// catégories d'intention a produit 841 % de hausse des ventes, et passer du vocabulaire interne
+// au vocabulaire client 567 % d'événements clés en plus.
+//
+// TAILLE DU LOT. 15 pages d'un coup, et c'est délibéré : le seul motif programmatique validé par
+// une expérience contrôlée du corpus est précisément un lot de 15 à 20 pages, classé en première
+// page en trois semaines. La première version du plan disait « 2 par semaine au maximum » ;
+// c'était une lecture trop prudente du seuil de détection, qui porte sur plus de 100 pages en 10
+// secondes. 15 pages adossées à une base propriétaire ne sont pas un réseau de pages satellites.
+//
+// CE QUI REND CHAQUE PAGE UNIQUE. Le tableau vient d'un filtre différent, donc les sociétés
+// listées diffèrent, et le résumé en tête est recalculé depuis les lignes de la page
+// (`renderHubSummary`). Vérifié avant livraison : aucune paire de collections ne partage plus de
+// 70 % de ses tickers. C'est la garantie qui manque aux gabarits sanctionnés.
+//
+// AJOUTER UNE COLLECTION = une entrée ici. La route, le sitemap, le maillage depuis /screener et
+// le fil d'Ariane se branchent automatiquement.
+//
+// ⚠️ PIÈGE DE DONNÉE MESURÉ. `pfcfPercentile` n'est renseigné que sur 567 fiches sur 4 814 (12 %),
+// parce qu'il demande un historique de valorisation. Toute collection bâtie sur le percentile est
+// donc structurellement maigre : `sous-evaluees` ne sort que 72 lignes, et un premier essai
+// d'« européennes sous-évaluées » sur le percentile n'en sortait qu'UNE. Les collections de
+// valorisation ci-dessous utilisent donc un SEUIL ABSOLU de multiple, pas le percentile.
+
+type ClassementCopy = { title: string; h1: string; intro: string };
+type Classement = {
+  /** Filtre Prisma, appliqué en plus de `status: 'scored'` et d'un multiple non nul. */
+  where: Record<string, unknown>;
+  /** Nombre de lignes affichées. */
+  take: number;
+  copy: Record<ArticleLang, ClassementCopy>;
+  /** Post-filtre facultatif, quand la condition n'est pas exprimable en Prisma. */
+  postFilter?: (r: HubRow) => boolean;
+};
+
+/** Bourses de l'Espace économique européen (approximation d'éligibilité PEA par la place de
+ *  cotation). L'éligibilité réelle dépend du siège de l'émetteur, pas de la place : c'est dit
+ *  explicitement dans l'intro de la page, on ne laisse pas le lecteur le deviner. */
+const EEA_EXCHANGES = ['PA', 'AS', 'BR', 'LS', 'DE', 'MI', 'MC', 'ST', 'HE', 'CO', 'OL', 'VI', 'WA', 'IR', 'AT', 'BD'];
+const TECH_SECTORS = ['Software', 'Semiconductor', 'Information Technology Services', 'Electronic', 'Computer', 'Communication Equipment', 'Internet Content'];
+const HEALTH_SECTORS = ['Biotechnology', 'Drug Manufacturers', 'Medical', 'Diagnostics', 'Healthcare', 'Health Information'];
+const FIN_SECTORS = ['Banks', 'Capital Markets', 'Asset Management', 'Financial', 'Credit Services', 'Insurance'];
+const INDUS_SECTORS = ['Industrial', 'Aerospace', 'Engineering', 'Building', 'Farm & Heavy', 'Specialty Business', 'Railroads', 'Trucking', 'Integrated Freight', 'Electrical Equipment', 'Tools'];
+const CONSO_SECTORS = ['Restaurants', 'Apparel', 'Packaged Foods', 'Beverages', 'Household', 'Personal', 'Specialty Retail', 'Discount Stores', 'Footwear', 'Luxury', 'Leisure'];
+const sectorIn = (keys: string[]) => ({ OR: keys.map((k) => ({ sector: { contains: k } })) });
+
+const CLASSEMENTS: Record<string, Classement> = {
+  'qualite-10-sur-10': {
+    where: {}, take: 100,
+    postFilter: (r) => r.scoreChiffres != null && r.scoreChiffresMax != null && r.scoreChiffres >= r.scoreChiffresMax,
+    copy: {
+      fr: HUB_COPY.q10.fr, en: HUB_COPY.q10.en, es: HUB_COPY.q10.es,
+    },
+  },
+  'sous-evaluees': {
+    where: { opportunity: true }, take: 100,
+    copy: { fr: HUB_COPY.sousval.fr, en: HUB_COPY.sousval.en, es: HUB_COPY.sousval.es },
+  },
+  'actions-pea-eligibles-de-qualite': {
+    where: { exchange: { in: EEA_EXCHANGES }, scoreRatio: { gte: 0.8 } }, take: 100,
+    copy: {
+      fr: {
+        title: 'Actions de qualité éligibles au PEA',
+        h1: 'Les actions de qualité cotées dans la zone du PEA',
+        intro: "Les sociétés les mieux notées par notre analyse fondamentale et cotées sur une place de l'Espace économique européen, celles qui alimentent en général un PEA. Attention, l'éligibilité réelle dépend du siège de l'émetteur et non de la place de cotation : vérifie toujours auprès de ton courtier avant d'acheter.",
+      },
+      en: {
+        title: 'Quality stocks listed in the EEA',
+        h1: 'Quality stocks listed in the European Economic Area',
+        intro: 'The companies with the highest scores from our fundamental analysis listed on a European Economic Area exchange. Note that eligibility for a French PEA account depends on where the issuer is domiciled, not where it is listed: check with your broker before buying.',
+      },
+      es: {
+        title: 'Acciones de calidad cotizadas en el EEE',
+        h1: 'Acciones de calidad cotizadas en el Espacio Económico Europeo',
+        intro: 'Las empresas mejor puntuadas por nuestro análisis fundamental y cotizadas en un mercado del Espacio Económico Europeo. Ojo: la elegibilidad para una cuenta PEA francesa depende del domicilio del emisor, no del mercado de cotización. Confírmalo con tu bróker antes de comprar.',
+      },
+    },
+  },
+  'actions-francaises-de-qualite': {
+    where: { exchange: 'PA' }, take: 60,
+    copy: {
+      fr: {
+        title: 'Meilleures actions françaises : le classement',
+        h1: 'Les meilleures actions françaises selon nos critères',
+        intro: "Toutes les sociétés cotées à Paris que nous analysons, classées de la meilleure qualité à la moins bonne sur nos 10 critères financiers, avec leur valorisation. La note juge le business, la colonne de valorisation juge le prix : les deux se lisent séparément.",
+      },
+      en: {
+        title: 'Best French stocks: the ranking',
+        h1: 'The best French stocks by our criteria',
+        intro: 'Every Paris-listed company we cover, ranked from best to worst quality on our 10 financial criteria, with its valuation. The score judges the business, the valuation column judges the price: read them separately.',
+      },
+      es: {
+        title: 'Mejores acciones francesas: el ranking',
+        h1: 'Las mejores acciones francesas según nuestros criterios',
+        intro: 'Todas las empresas cotizadas en París que analizamos, ordenadas de mayor a menor calidad sobre nuestros 10 criterios financieros, con su valoración. La nota juzga el negocio, la columna de valoración juzga el precio: se leen por separado.',
+      },
+    },
+  },
+  'actions-europeennes-sous-evaluees': {
+    where: { region: 'EU', pfcfTTM: { lte: 15, gte: 3 } }, take: 100,
+    copy: {
+      fr: {
+        title: 'Actions européennes sous-évaluées',
+        h1: 'Les actions européennes les moins chères de notre univers',
+        intro: "Les sociétés européennes qui se valorisent moins de 15 fois leur free cash flow, classées par note de qualité décroissante. Un multiple bas ne suffit pas : c'est la combinaison d'un multiple bas ET d'une note élevée qui fait une occasion, pas le multiple seul.",
+      },
+      en: {
+        title: 'Undervalued European stocks',
+        h1: 'The cheapest European stocks in our universe',
+        intro: 'European companies valued at less than 15 times their free cash flow, ranked by descending quality score. A low multiple is not enough: what makes an opportunity is a low multiple AND a high score, not the multiple on its own.',
+      },
+      es: {
+        title: 'Acciones europeas infravaloradas',
+        h1: 'Las acciones europeas más baratas de nuestro universo',
+        intro: 'Empresas europeas valoradas en menos de 15 veces su flujo de caja libre, ordenadas por nota de calidad descendente. Un múltiplo bajo no basta: lo que crea una oportunidad es un múltiplo bajo Y una nota alta, no el múltiplo por sí solo.',
+      },
+    },
+  },
+  'actions-a-acheter-maintenant': {
+    where: { scoreRatio: { gte: 0.9 }, pfcfTTM: { lte: 25, gte: 3 } }, take: 100,
+    copy: {
+      fr: {
+        title: 'Quelles actions acheter maintenant ?',
+        h1: 'Les actions qui cumulent une note élevée et un prix raisonnable',
+        intro: "La liste que notre méthode produit quand on croise les deux seuls critères qui comptent : une note de qualité d'au moins 9 sur 10 et une valorisation sous 25 fois le free cash flow. C'est une liste de départ pour ta propre analyse, pas une recommandation d'achat.",
+      },
+      en: {
+        title: 'Which stocks to buy now?',
+        h1: 'Stocks combining a high score with a reasonable price',
+        intro: 'The list our method produces when we cross the only two criteria that matter: a quality score of at least 9 out of 10 and a valuation below 25 times free cash flow. It is a starting point for your own analysis, not a buy recommendation.',
+      },
+      es: {
+        title: '¿Qué acciones comprar ahora?',
+        h1: 'Las acciones que combinan nota alta y precio razonable',
+        intro: 'La lista que produce nuestro método al cruzar los dos únicos criterios que importan: una nota de calidad de al menos 9 sobre 10 y una valoración por debajo de 25 veces el flujo de caja libre. Es un punto de partida para tu propio análisis, no una recomendación de compra.',
+      },
+    },
+  },
+  'actions-de-qualite-pas-cheres': {
+    where: { scoreRatio: { gte: 0.8 }, pfcfTTM: { lte: 15, gte: 3 } }, take: 100,
+    copy: {
+      fr: {
+        title: 'Actions de qualité pas chères',
+        h1: 'Les actions de qualité qui se valorisent moins de 15 fois leur cash',
+        intro: "Une bonne entreprise payée trop cher reste un mauvais placement : c'est la règle de départ de la méthode. Cette page ne garde que les sociétés bien notées dont le prix reste modéré face au free cash flow qu'elles produisent.",
+      },
+      en: {
+        title: 'Cheap quality stocks',
+        h1: 'Quality stocks valued at less than 15 times their cash',
+        intro: 'A good company bought too expensively is still a bad investment: that is the starting rule of the method. This page keeps only well-scored companies whose price stays moderate against the free cash flow they generate.',
+      },
+      es: {
+        title: 'Acciones de calidad baratas',
+        h1: 'Acciones de calidad valoradas en menos de 15 veces su caja',
+        intro: 'Una buena empresa pagada demasiado cara sigue siendo una mala inversión: es la regla de partida del método. Esta página solo conserva empresas bien puntuadas cuyo precio se mantiene moderado frente al flujo de caja libre que generan.',
+      },
+    },
+  },
+  'small-caps-de-qualite': {
+    where: { scoreRatio: { gte: 0.8 }, marketCapUsd: { gt: 0, lt: 2_000_000_000 } }, take: 100,
+    copy: {
+      fr: {
+        title: 'Meilleures small caps de qualité',
+        h1: 'Les petites capitalisations les mieux notées',
+        intro: "Les sociétés de moins de 2 milliards de dollars de capitalisation qui passent nos critères de qualité. Peu suivies par les analystes, donc plus souvent mal valorisées, dans les deux sens : la liquidité et la volatilité y sont aussi plus fortes.",
+      },
+      en: {
+        title: 'Best quality small caps',
+        h1: 'The highest-scoring small capitalisations',
+        intro: 'Companies under 2 billion dollars of market capitalisation that pass our quality criteria. Thinly covered by analysts, therefore more often mispriced, in both directions: liquidity and volatility are also rougher here.',
+      },
+      es: {
+        title: 'Mejores small caps de calidad',
+        h1: 'Las pequeñas capitalizaciones mejor puntuadas',
+        intro: 'Empresas por debajo de 2.000 millones de dólares de capitalización que superan nuestros criterios de calidad. Poco seguidas por los analistas y por tanto peor valoradas más a menudo, en ambos sentidos: la liquidez y la volatilidad también son más duras aquí.',
+      },
+    },
+  },
+  'grandes-capitalisations-de-qualite': {
+    where: { scoreRatio: { gte: 0.8 }, marketCapUsd: { gte: 50_000_000_000 } }, take: 100,
+    copy: {
+      fr: {
+        title: 'Meilleures grandes capitalisations',
+        h1: 'Les grandes capitalisations les mieux notées',
+        intro: "Les sociétés de plus de 50 milliards de dollars qui passent nos critères. Ce sont les noms les plus suivis du marché, donc les moins souvent mal valorisés : la note sert ici surtout à trier ce qui mérite d'être détenu longtemps.",
+      },
+      en: {
+        title: 'Best large capitalisations',
+        h1: 'The highest-scoring large capitalisations',
+        intro: 'Companies above 50 billion dollars that pass our criteria. These are the most closely followed names on the market, therefore the least often mispriced: here the score mostly sorts what deserves to be held for years.',
+      },
+      es: {
+        title: 'Mejores grandes capitalizaciones',
+        h1: 'Las grandes capitalizaciones mejor puntuadas',
+        intro: 'Empresas por encima de 50.000 millones de dólares que superan nuestros criterios. Son los nombres más seguidos del mercado y por tanto los menos veces mal valorados: aquí la nota sirve sobre todo para ordenar lo que merece mantenerse años.',
+      },
+    },
+  },
+  'actions-technologiques-de-qualite': {
+    where: { scoreRatio: { gte: 0.8 }, ...sectorIn(TECH_SECTORS) }, take: 100,
+    copy: {
+      fr: {
+        title: 'Meilleures actions technologiques',
+        h1: 'Les actions technologiques les mieux notées',
+        intro: "Logiciels, semi-conducteurs, services informatiques et composants électroniques : les sociétés du secteur qui passent nos 10 critères. Un secteur où les marges et le rendement du capital sont structurellement élevés, et où les multiples le sont aussi.",
+      },
+      en: {
+        title: 'Best technology stocks',
+        h1: 'The highest-scoring technology stocks',
+        intro: 'Software, semiconductors, IT services and electronic components: the companies in the sector that pass our 10 criteria. A sector where margins and return on capital are structurally high, and where multiples are too.',
+      },
+      es: {
+        title: 'Mejores acciones tecnológicas',
+        h1: 'Las acciones tecnológicas mejor puntuadas',
+        intro: 'Software, semiconductores, servicios informáticos y componentes electrónicos: las empresas del sector que superan nuestros 10 criterios. Un sector donde los márgenes y el rendimiento del capital son estructuralmente altos, y los múltiplos también.',
+      },
+    },
+  },
+  'actions-technologiques-sous-evaluees': {
+    where: { pfcfTTM: { lte: 20, gte: 3 }, ...sectorIn(TECH_SECTORS) }, take: 100,
+    copy: {
+      fr: {
+        title: 'Actions technologiques sous-évaluées',
+        h1: 'Les actions technologiques les moins chères de notre univers',
+        intro: "La technologie se valorise cher par construction, ce qui rend un multiple sous 20 fois le free cash flow inhabituel dans le secteur. Cette page liste ces cas, classés par note de qualité : à toi de juger si le prix bas est une occasion ou un avertissement.",
+      },
+      en: {
+        title: 'Undervalued technology stocks',
+        h1: 'The cheapest technology stocks in our universe',
+        intro: 'Technology carries high valuations by construction, which makes a multiple below 20 times free cash flow unusual in the sector. This page lists those cases, ranked by quality score: it is up to you to judge whether the low price is an opportunity or a warning.',
+      },
+      es: {
+        title: 'Acciones tecnológicas infravaloradas',
+        h1: 'Las acciones tecnológicas más baratas de nuestro universo',
+        intro: 'La tecnología se valora caro por construcción, lo que hace inusual en el sector un múltiplo por debajo de 20 veces el flujo de caja libre. Esta página lista esos casos, ordenados por nota de calidad: a ti te toca juzgar si el precio bajo es una oportunidad o una advertencia.',
+      },
+    },
+  },
+  'actions-sante-de-qualite': {
+    where: { scoreRatio: { gte: 0.8 }, ...sectorIn(HEALTH_SECTORS) }, take: 100,
+    copy: {
+      fr: {
+        title: 'Meilleures actions du secteur santé',
+        h1: 'Les actions de santé les mieux notées',
+        intro: "Laboratoires, dispositifs médicaux, diagnostics et sous-traitance pharmaceutique : les sociétés du secteur qui passent nos critères. Un secteur où la falaise des brevets et le cycle de la recherche font que la note de qualité passée ne dit pas tout de l'avenir.",
+      },
+      en: {
+        title: 'Best healthcare stocks',
+        h1: 'The highest-scoring healthcare stocks',
+        intro: 'Drug makers, medical devices, diagnostics and pharmaceutical outsourcing: the companies in the sector that pass our criteria. A sector where the patent cliff and the research cycle mean a past quality score does not tell you everything about the future.',
+      },
+      es: {
+        title: 'Mejores acciones del sector salud',
+        h1: 'Las acciones de salud mejor puntuadas',
+        intro: 'Laboratorios, dispositivos médicos, diagnóstico y subcontratación farmacéutica: las empresas del sector que superan nuestros criterios. Un sector donde el precipicio de patentes y el ciclo de investigación hacen que una nota de calidad pasada no lo diga todo del futuro.',
+      },
+    },
+  },
+  'actions-bancaires-et-financieres-de-qualite': {
+    where: { scoreRatio: { gte: 0.8 }, ...sectorIn(FIN_SECTORS) }, take: 100,
+    copy: {
+      fr: {
+        title: 'Meilleures actions bancaires et financières',
+        h1: 'Les actions financières les mieux notées',
+        intro: "Banques, assurance, gestion d'actifs et marchés de capitaux : les sociétés du secteur qui passent nos critères. Réserve de méthode à connaître : le free cash flow d'une banque ne se lit pas comme celui d'un industriel, donc lis la valorisation de ce secteur avec prudence.",
+      },
+      en: {
+        title: 'Best bank and financial stocks',
+        h1: 'The highest-scoring financial stocks',
+        intro: 'Banks, insurance, asset management and capital markets: the companies in the sector that pass our criteria. One methodological caveat: a bank\'s free cash flow does not read like an industrial company\'s, so treat valuations in this sector with care.',
+      },
+      es: {
+        title: 'Mejores acciones bancarias y financieras',
+        h1: 'Las acciones financieras mejor puntuadas',
+        intro: 'Bancos, seguros, gestión de activos y mercados de capitales: las empresas del sector que superan nuestros criterios. Una reserva de método: el flujo de caja libre de un banco no se lee como el de una industrial, así que interpreta con cautela las valoraciones de este sector.',
+      },
+    },
+  },
+  'actions-industrielles-de-qualite': {
+    where: { scoreRatio: { gte: 0.8 }, ...sectorIn(INDUS_SECTORS) }, take: 100,
+    copy: {
+      fr: {
+        title: 'Meilleures actions industrielles',
+        h1: 'Les actions industrielles les mieux notées',
+        intro: "Aéronautique et défense, machines, ingénierie, transport et équipements électriques : les sociétés du secteur qui passent nos critères. C'est le terrain de chasse classique des sociétés discrètes à fort rendement du capital, souvent moins suivies que la technologie.",
+      },
+      en: {
+        title: 'Best industrial stocks',
+        h1: 'The highest-scoring industrial stocks',
+        intro: 'Aerospace and defence, machinery, engineering, transport and electrical equipment: the companies in the sector that pass our criteria. This is the classic hunting ground for quiet businesses with high returns on capital, often less followed than technology.',
+      },
+      es: {
+        title: 'Mejores acciones industriales',
+        h1: 'Las acciones industriales mejor puntuadas',
+        intro: 'Aeronáutica y defensa, maquinaria, ingeniería, transporte y equipos eléctricos: las empresas del sector que superan nuestros criterios. Es el terreno de caza clásico de negocios discretos con alto rendimiento del capital, a menudo menos seguidos que la tecnología.',
+      },
+    },
+  },
+  'actions-de-consommation-de-qualite': {
+    where: { scoreRatio: { gte: 0.8 }, ...sectorIn(CONSO_SECTORS) }, take: 100,
+    copy: {
+      fr: {
+        title: 'Meilleures actions de consommation',
+        h1: 'Les actions de consommation les mieux notées',
+        intro: "Alimentation, boissons, restauration, distribution spécialisée, habillement et luxe : les sociétés du secteur qui passent nos critères. Le secteur où le pouvoir de fixer ses prix se voit le plus directement dans les marges.",
+      },
+      en: {
+        title: 'Best consumer stocks',
+        h1: 'The highest-scoring consumer stocks',
+        intro: 'Food, beverages, restaurants, specialty retail, apparel and luxury: the companies in the sector that pass our criteria. The sector where pricing power shows up most directly in the margins.',
+      },
+      es: {
+        title: 'Mejores acciones de consumo',
+        h1: 'Las acciones de consumo mejor puntuadas',
+        intro: 'Alimentación, bebidas, restauración, distribución especializada, textil y lujo: las empresas del sector que superan nuestros criterios. El sector donde el poder de fijar precios se ve de forma más directa en los márgenes.',
+      },
+    },
+  },
+  'actions-britanniques-de-qualite': {
+    where: { exchange: 'L' }, take: 100,
+    copy: {
+      fr: {
+        title: 'Meilleures actions britanniques',
+        h1: 'Les meilleures actions britanniques selon nos critères',
+        intro: "Les sociétés cotées à Londres que nous analysons, classées par note de qualité. Marché souvent moins cher que les États-Unis à qualité comparable, et hors PEA depuis le Brexit : le gain de valorisation se paie en fiscalité.",
+      },
+      en: {
+        title: 'Best UK stocks',
+        h1: 'The best UK stocks by our criteria',
+        intro: 'The London-listed companies we cover, ranked by quality score. A market often cheaper than the United States at comparable quality, and outside the French PEA wrapper since Brexit: the valuation gain comes at a tax cost.',
+      },
+      es: {
+        title: 'Mejores acciones británicas',
+        h1: 'Las mejores acciones británicas según nuestros criterios',
+        intro: 'Las empresas cotizadas en Londres que analizamos, ordenadas por nota de calidad. Un mercado a menudo más barato que Estados Unidos a calidad comparable, y fuera del PEA francés desde el Brexit: la ganancia de valoración se paga en fiscalidad.',
+      },
+    },
+  },
+  'actions-japonaises-de-qualite': {
+    where: { exchange: 'T' }, take: 100,
+    copy: {
+      fr: {
+        title: 'Meilleures actions japonaises',
+        h1: 'Les meilleures actions japonaises selon nos critères',
+        intro: "Les sociétés cotées à Tokyo que nous analysons, classées par note de qualité. Marché historiquement peu valorisé, où la réforme de la gouvernance pousse depuis quelques années au rachat d'actions et à la remontée du rendement du capital.",
+      },
+      en: {
+        title: 'Best Japanese stocks',
+        h1: 'The best Japanese stocks by our criteria',
+        intro: 'The Tokyo-listed companies we cover, ranked by quality score. A historically cheap market, where governance reform has been pushing companies towards buybacks and higher returns on capital for several years.',
+      },
+      es: {
+        title: 'Mejores acciones japonesas',
+        h1: 'Las mejores acciones japonesas según nuestros criterios',
+        intro: 'Las empresas cotizadas en Tokio que analizamos, ordenadas por nota de calidad. Un mercado históricamente barato, donde la reforma del gobierno corporativo empuja desde hace años hacia las recompras y un mayor rendimiento del capital.',
+      },
+    },
+  },
+};
+
+/** Slugs des collections, dans l'ordre d'affichage. Exporté pour le sitemap et le maillage. */
+export const CLASSEMENT_SLUGS: string[] = Object.keys(CLASSEMENTS);
+
 // GET /secteur/:slug : meilleures actions d'un secteur (servi aux bots).
 seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => {
   const slug = String(req.params.slug || '').toLowerCase().slice(0, 80);
@@ -2020,22 +2399,22 @@ seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => 
 seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) => {
   const slug = String(req.params.slug || '').toLowerCase().slice(0, 80);
   const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
+  const def = CLASSEMENTS[slug];
+  if (!def) { res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return; }
   try {
-    let rows: HubRow[]; let copy: { title: string; h1: string; intro: string };
-    if (slug === 'qualite-10-sur-10') {
-      const raw = await prisma.screenerTicker.findMany({
-        where: { status: 'scored' }, orderBy: { scoreRatio: 'desc' }, take: 200, select: HUB_SELECT,
-      });
-      rows = raw.filter((r) => r.scoreChiffres != null && r.scoreChiffresMax != null && r.scoreChiffres >= r.scoreChiffresMax).slice(0, 100);
-      copy = HUB_COPY.q10[lang];
-    } else if (slug === 'sous-evaluees') {
-      rows = await prisma.screenerTicker.findMany({
-        where: { status: 'scored', opportunity: true }, orderBy: { scoreRatio: 'desc' }, take: 100, select: HUB_SELECT,
-      });
-      copy = HUB_COPY.sousval[lang];
-    } else {
-      res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return;
-    }
+    const copy = def.copy[lang];
+    // `pfcfTTM: { not: null }` est imposé partout : c'est la même condition que la règle
+    // d'indexation des fiches (palier 1). Une collection ne doit jamais lister une page que
+    // Google ne peut pas indexer, sinon elle envoie du budget d'exploration dans un mur.
+    const raw = await prisma.screenerTicker.findMany({
+      where: { status: 'scored', pfcfTTM: { not: null }, ...def.where },
+      orderBy: [{ scoreRatio: 'desc' }, { ticker: 'asc' }],
+      take: def.postFilter ? def.take * 4 : def.take,
+      select: HUB_SELECT,
+    });
+    const rows = (def.postFilter ? raw.filter(def.postFilter) : raw).slice(0, def.take);
+    // Une collection vide serait une page sans contenu : mieux vaut un 404 franc.
+    if (rows.length === 0) { res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return; }
     res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
       title: copy.title, h1: copy.h1, intro: copy.intro, path: `/classement/${slug}`, rows, lang,
       outbound: 'ranking',
@@ -2108,10 +2487,13 @@ function renderArticleListBlock(lang: ArticleLang, lq: string, limit?: number): 
 // Google de GARDER : environ la moitié des 5538 URL n'était pas indexée.
 
 const SCREENER_BLOCK_TR: Record<ArticleLang, {
+  h2Collections: string; introCollections: string;
   h2Sectors: string; introSectors: string; h2Top: string; introTop: string;
   thAction: string; thScore: string;
 }> = {
   fr: {
+    h2Collections: 'Les classements les plus demandés',
+    introCollections: "Des listes prêtes à l'emploi, construites sur nos 10 critères et recalculées en continu : par enveloppe fiscale, par pays, par taille et par secteur.",
     h2Sectors: 'Les meilleures actions, secteur par secteur',
     introSectors: 'Chaque secteur a sa page : les entreprises les mieux notées de ce secteur, classées de la meilleure qualité à la moins bonne, avec leur valorisation.',
     h2Top: 'Les actions les mieux notées, toutes bourses confondues',
@@ -2119,6 +2501,8 @@ const SCREENER_BLOCK_TR: Record<ArticleLang, {
     thAction: 'Action', thScore: 'Note qualité',
   },
   en: {
+    h2Collections: 'The most requested rankings',
+    introCollections: 'Ready-made lists built on our 10 criteria and recomputed continuously: by tax wrapper, by country, by size and by sector.',
     h2Sectors: 'The best stocks, sector by sector',
     introSectors: 'Every sector has its page: the highest-scoring companies of that sector, ranked from best to worst quality, with their valuation.',
     h2Top: 'The highest-scoring stocks, all exchanges',
@@ -2126,6 +2510,8 @@ const SCREENER_BLOCK_TR: Record<ArticleLang, {
     thAction: 'Stock', thScore: 'Quality score',
   },
   es: {
+    h2Collections: 'Los rankings más solicitados',
+    introCollections: 'Listas listas para usar, construidas sobre nuestros 10 criterios y recalculadas de forma continua: por envoltorio fiscal, por país, por tamaño y por sector.',
     h2Sectors: 'Las mejores acciones, sector por sector',
     introSectors: 'Cada sector tiene su página: las empresas mejor puntuadas de ese sector, ordenadas de mayor a menor calidad, con su valoración.',
     h2Top: 'Las acciones mejor puntuadas, todas las bolsas',
@@ -2163,6 +2549,17 @@ async function renderScreenerHubBlock(lang: ArticleLang, lq: string): Promise<st
       .filter((s) => !!s.slug)
       .sort((a, b) => a.label.localeCompare(b.label));
 
+    const collectionsHtml = [
+      `<h2>${escapeHtml(t.h2Collections)}</h2>`,
+      `<p>${escapeHtml(t.introCollections)}</p>`,
+      '<ul>',
+      ...CLASSEMENT_SLUGS.map((slug) => {
+        const c = CLASSEMENTS[slug]!.copy[lang];
+        return `<li><a href="${SITE_URL}/classement/${slug}${lq}">${escapeHtml(c.h1)}</a></li>`;
+      }),
+      '</ul>',
+    ].join('\n');
+
     const sectorsHtml = sectors.length === 0 ? '' : [
       `<h2>${escapeHtml(t.h2Sectors)}</h2>`,
       `<p>${escapeHtml(t.introSectors)}</p>`,
@@ -2188,7 +2585,7 @@ async function renderScreenerHubBlock(lang: ArticleLang, lq: string): Promise<st
       '</table>',
     ].join('\n');
 
-    return [sectorsHtml, topHtml].filter(Boolean).join('\n');
+    return [collectionsHtml, sectorsHtml, topHtml].filter(Boolean).join('\n');
   } catch (err) {
     console.error('[screener hub block]', (err as Error).message);
     return '';

@@ -634,6 +634,40 @@ défendable du site.
 existantes. Ajouter une collection coûte une entrée dans `HUB_COPY` et une clause Prisma, donc
 quelques heures pour la première et une heure pour les suivantes.
 
+**État : PREMIÈRE VAGUE DE 15 LIVRÉE le 4 août 2026.** Le routeur `/classement/:slug` n'est plus
+une chaîne de `if` sur deux slugs mais un **registre** `CLASSEMENTS` : une entrée porte son filtre
+Prisma, son nombre de lignes et sa copie trilingue. Ajouter une collection est désormais une entrée,
+et la route, le sitemap, le maillage depuis `/screener` et le fil d'Ariane se branchent tout seuls.
+Le sitemap des hubs passe de 202 à **217 URL**.
+
+Les 17 collections en ligne (les 2 anciennes plus les 15 nouvelles), avec leur nombre de lignes
+réel : PEA 100, françaises 60, européennes sous-évaluées 100, à acheter maintenant 100, qualité pas
+chères 100, small caps 100, grandes capitalisations 100, technologiques 100, technologiques
+sous-évaluées 100, santé 100, financières 100, industrielles 100, consommation 91, britanniques 100,
+japonaises 57, notées 10 sur 10 (85) et sous-évaluées (73).
+
+**Trois choses mesurées avant d'écrire une ligne de copie**, et elles ont changé le plan.
+
+1. **Deux collections du plan initial étaient impossibles.** « Grandes valeurs sous-évaluées »
+   retourne **0 ligne** (aucune méga-capitalisation n'est marquée opportunité), et « résistantes à
+   l'IA » **4 lignes**, la table `ResilienceStarScore` n'étant remplie que sur 4 tickers. Elles sont
+   retirées, pas livrées vides.
+2. **`pfcfPercentile` n'est renseigné que sur 567 fiches sur 4 814**, soit 12 %, parce qu'il demande
+   un historique de valorisation. Toute collection bâtie sur le percentile est donc structurellement
+   maigre : « européennes sous-évaluées » sur le percentile ne sortait **qu'une seule ligne**. Les
+   collections de valorisation utilisent donc un **seuil absolu de multiple**. C'est le piège de
+   donnée le plus utile trouvé aujourd'hui.
+3. **Aucune paire de collections ne partage plus de 70 % de ses tickers.** Vérifié
+   programmatiquement sur les 25 candidates avant de choisir les 15. C'est la garantie qui manque
+   aux gabarits sanctionnés, et elle se re-teste en une commande à chaque ajout.
+
+**Révision d'une consigne que j'avais écrite.** Le plan disait « publier deux collections par
+semaine au maximum, jamais un lot ». J'en livre 15 d'un coup, et c'est délibéré : le seul motif
+programmatique validé par une expérience contrôlée du corpus est précisément un lot de **15 à 20
+pages**, classé en première page en trois semaines. Le seuil de détection porte sur plus de 100
+pages en dix secondes. Ma consigne initiale était une lecture trop prudente, et elle contredisait le
+test que je citais par ailleurs.
+
 **Pourquoi :** remplacer des catégories produit par des catégories d'intention a produit **841 % de
 hausse des ventes**, et découper un mot-clé concurrentiel en collections de longue traîne classe
 plus vite et rapporte plus tôt que viser le terme principal (ch. 1, `test` `consensus`). Les 181
