@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import type { ResilienceStarCriterionId, ResilienceStars as ResilienceStarsData } from '@lubin/shared';
 import { prettifyJustification } from '../lib/resilienceText.js';
-import { Icon, InfoPop } from './ui/primitives.js';
+import { Icon, InfoPop, StatusBadge, type DataStatus } from './ui/primitives.js';
 import './ResilienceStars.css';
 
 export const RESILIENCE_STAR_CRITERIA: ResilienceStarCriterionId[] = [
@@ -72,10 +72,10 @@ export function ResilienceStarsHeader({ score }: { score?: ResilienceStarsData |
   );
 }
 
-function axisStatus(star: number): 'yes' | 'partial' | 'no' {
-  if (star >= 1) return 'yes';
-  if (star >= 0.5) return 'partial';
-  return 'no';
+function axisStatus(star: number): DataStatus {
+  if (star >= 1) return 'good';
+  if (star >= 0.5) return 'warn';
+  return 'bad';
 }
 
 export function ResilienceStarsGrid({ score }: { score?: ResilienceStarsData | null }) {
@@ -95,7 +95,6 @@ export function ResilienceStarsGrid({ score }: { score?: ResilienceStarsData | n
         const criterion = score.criteria[id];
         const star = criterion.star;
         const status = axisStatus(star);
-        const label = t(`analyse.resilienceStars.axisStatus.${status}`);
         return (
           <article className="rs-axis-card" key={id}>
             <div className="rs-axis-head">
@@ -107,7 +106,7 @@ export function ResilienceStarsGrid({ score }: { score?: ResilienceStarsData | n
                   calc={t(`analyse.resilienceCriteria.${id}.scoreRule`)}
                 />
               </div>
-              <span className={`rs-axis-score rs-axis-score-${status}`}>{label}</span>
+              <StatusBadge status={status} />
             </div>
             <p>{prettifyJustification(criterion.justification)}</p>
           </article>

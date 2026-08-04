@@ -646,11 +646,6 @@
       "flagged": "In review",
       "scoreLabel": "Resilience: {{score}} out of 5 stars",
       "axisRule": "Each axis is marked No, Partial or Yes. The total aggregates those five judgments into stars.",
-      "axisStatus": {
-        "yes": "Yes",
-        "partial": "Partial",
-        "no": "No"
-      },
       "verdict": {
         "agree": "Score validated by both models.",
         "resolved": "Score validated after resolving a model disagreement.",

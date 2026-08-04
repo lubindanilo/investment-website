@@ -646,11 +646,6 @@
       "flagged": "En revisión",
       "scoreLabel": "Resiliencia: {{score}} de 5 estrellas",
       "axisRule": "Cada eje se marca como No, Parcial o Sí. El total agrega esos cinco juicios en estrellas.",
-      "axisStatus": {
-        "yes": "Sí",
-        "partial": "Parcial",
-        "no": "No"
-      },
       "verdict": {
         "agree": "Puntuación validada por ambos modelos.",
         "resolved": "Puntuación validada tras resolver una divergencia entre modelos.",

@@ -671,11 +671,6 @@
       "flagged": "En revue",
       "scoreLabel": "Résilience : {{score}} sur 5 étoiles",
       "axisRule": "Chaque axe vaut Non, Partiel ou Oui. Le total agrège ces cinq jugements en étoiles.",
-      "axisStatus": {
-        "yes": "Oui",
-        "partial": "Partiel",
-        "no": "Non"
-      },
       "verdict": {
         "agree": "Score validé par les deux modèles.",
         "resolved": "Score validé après résolution d'un écart entre modèles.",
