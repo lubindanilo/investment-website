@@ -17,7 +17,8 @@
     "resilience:stars:bench": "tsx scripts/resilienceStarsBench.ts",
     "resilience:stars:cron": "tsx scripts/resilienceStarsCron.ts",
     "resilience:stars:escalate-demo": "tsx scripts/resilienceStarsEscalateDemo.ts",
-    "resilience:stars:deepseek-test": "tsx scripts/resilienceStarsDeepseekTest.ts"
+    "resilience:stars:deepseek-test": "tsx scripts/resilienceStarsDeepseekTest.ts",
+    "resilience:stars:backfill": "tsx scripts/resilienceStarsBackfill.ts"
   },
   "dependencies": {
     "@lubin/shared": "workspace:*",

@@ -168,6 +168,31 @@ model ResilienceAnalysisHistory {
   @@index([ticker, version, asOf])
 }
 
+/// Score Resilience 5 etoiles (nouveau modele, remplace ResilienceAnalysis A-E/0-100).
+/// Ecrit par le backfill de nuit (services/resilienceStars*), lu par l'UI.
+/// Chaque critere vaut 0/0,5/1 ; total 0..5. `criteria` = { <axe>: { star, justification } }.
+model ResilienceStarScore {
+  ticker       String   @id
+  name         String?
+  /// Somme des 5 etoiles, 0..5 (resolution a la demi-etoile).
+  total        Float
+  /// { besoin:{star,justification}, controle:{...}, forces:{...}, adjacent:{...}, capture:{...} }
+  criteria     Json
+  /// Qualite du scoring croise : agree | resolved | flagged (flagged = revue humaine).
+  verdict      String   @default("agree")
+  /// Modele / version du scoreur ayant produit le total retenu.
+  model        String
+  /// Totaux des passages Sonnet (tracage de variance).
+  sonnetTotals Json?
+  /// Total du controle croise DeepSeek-V3 (independant).
+  v3Total      Float?
+  marketCapUsd Float?
+  scoredAt     DateTime @default(now())
+
+  @@index([total])
+  @@index([verdict])
+}
+
 /// Cache GLOBAL par ticker du résultat de l'analyse quant.
 ///
 /// Source unique de vérité partagée entre /api/analyze et /api/watchlist :
