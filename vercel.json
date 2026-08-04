@@ -14,21 +14,54 @@
     {
       "source": "/assets/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
       ]
     }
   ],
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/api/[...all]" },
-    { "source": "/sitemap-:slug([a-z0-9-]+).xml", "destination": "/api/[...all]" },
-    { "source": "/health", "destination": "/api/[...all]" },
-    { "source": "/.well-known/oauth-authorization-server", "destination": "/api/[...all]" },
-    { "source": "/.well-known/oauth-authorization-server/(.*)", "destination": "/api/[...all]" },
-    { "source": "/.well-known/oauth-protected-resource", "destination": "/api/[...all]" },
-    { "source": "/.well-known/oauth-protected-resource/(.*)", "destination": "/api/[...all]" },
-    { "source": "/.well-known/openid-configuration", "destination": "/api/[...all]" },
-    { "source": "/.well-known/openid-configuration/(.*)", "destination": "/api/[...all]" },
-    { "source": "/api/(.*)", "destination": "/api/[...all]" },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/[...all]"
+    },
+    {
+      "source": "/sitemap-:slug([a-z0-9-]+).xml",
+      "destination": "/api/[...all]"
+    },
+    {
+      "source": "/health",
+      "destination": "/api/[...all]"
+    },
+    {
+      "source": "/.well-known/oauth-authorization-server",
+      "destination": "/api/[...all]"
+    },
+    {
+      "source": "/.well-known/oauth-authorization-server/(.*)",
+      "destination": "/api/[...all]"
+    },
+    {
+      "source": "/.well-known/oauth-protected-resource",
+      "destination": "/api/[...all]"
+    },
+    {
+      "source": "/.well-known/oauth-protected-resource/(.*)",
+      "destination": "/api/[...all]"
+    },
+    {
+      "source": "/.well-known/openid-configuration",
+      "destination": "/api/[...all]"
+    },
+    {
+      "source": "/.well-known/openid-configuration/(.*)",
+      "destination": "/api/[...all]"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/[...all]"
+    },
     {
       "source": "/analyse/:ticker",
       "has": [
@@ -86,23 +119,105 @@
     },
     {
       "source": "/",
-      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*" }],
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*"
+        }
+      ],
       "destination": "/api/[...all]"
     },
     {
       "source": "/(screener|methodologie|palmares|faq|blog|pricing|analyser|compare|mentions-legales|cgu|cgv|confidentialite)",
-      "has": [{ "type": "header", "key": "user-agent", "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*" }],
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*"
+        }
+      ],
       "destination": "/api/[...all]"
     },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
-  "redirects": [
-    { "source": "/blog/bentley-bsy-vs-roper-rop-logiciel-10-10", "destination": "/blog/meilleures-actions-logicielles-10-sur-10-juin-2026", "permanent": true },
-    { "source": "/blog/qualys-qlys-intuit-intu-comparatif-10-sur-10", "destination": "/blog/meilleures-actions-logicielles-10-sur-10-juin-2026", "permanent": true },
-    { "source": "/blog/meilleures-actions-reassurance-10-10", "destination": "/blog/assurance-actions-10-10-pfcf-bas-juin-2026", "permanent": true },
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.lubin-investment.com" }],
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/blog/starbucks-sbux-avant-resultats-q3-2026",
+      "destination": "/blog/starbucks-sbux-resultats-t3-fy2026-verdict",
+      "permanent": true
+    },
+    {
+      "source": "/blog/morgan-stanley-ms-avant-resultats-q2-2026",
+      "destination": "/blog/morgan-stanley-ms-resultats-t2-2026-verdict",
+      "permanent": true
+    },
+    {
+      "source": "/blog/pepsico-pep-avant-resultats-9-juillet-methode",
+      "destination": "/blog/pepsico-pep-resultats-q2-2026-verdict",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nike-nke-avant-resultats-q4-fy2026-analyse-fondamentale",
+      "destination": "/blog/nike-nke-q4-fy2026-resultats-verdict",
+      "permanent": true
+    },
+    {
+      "source": "/blog/acuity-brands-ayi-avant-resultats-25-juin-2026",
+      "destination": "/blog/acuity-brands-ayi-q3-fy2026-resultats-verdict",
+      "permanent": true
+    },
+    {
+      "source": "/blog/micron-mu-avant-resultats-24-juin-2026",
+      "destination": "/blog/micron-mu-q3-fy2026-resultats-beat-analyse",
+      "permanent": true
+    },
+    {
+      "source": "/blog/acheter-action-adobe-avant-resultats",
+      "destination": "/blog/adobe-resultats-q2-2026-action-chute",
+      "permanent": true
+    },
+    {
+      "source": "/blog/paychex-payx-resultats-q4-fy2026-analyse",
+      "destination": "/blog/paychex-payx-q4-fy2026-resultats-verdict-post",
+      "permanent": true
+    },
+    {
+      "source": "/blog/carnival-ccl-resultats-q2-2026-analyse",
+      "destination": "/blog/carnival-ccl-q2-2026-chiffres-verdict",
+      "permanent": true
+    },
+    {
+      "source": "/blog/fedex-fdx-resultats-q4-fy2026-analyse",
+      "destination": "/blog/fedex-fdx-q4-fy2026-chiffres-verdict",
+      "permanent": true
+    },
+    {
+      "source": "/blog/bentley-bsy-vs-roper-rop-logiciel-10-10",
+      "destination": "/blog/meilleures-actions-logicielles-10-sur-10-juin-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/qualys-qlys-intuit-intu-comparatif-10-sur-10",
+      "destination": "/blog/meilleures-actions-logicielles-10-sur-10-juin-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/meilleures-actions-reassurance-10-10",
+      "destination": "/blog/assurance-actions-10-10-pfcf-bas-juin-2026",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.lubin-investment.com"
+        }
+      ],
       "destination": "https://lubin-investment.com/$1",
       "permanent": true
     }
