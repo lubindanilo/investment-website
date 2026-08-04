@@ -649,7 +649,7 @@
       "verdict": {
         "agree": "Puntuación validada por ambos modelos.",
         "resolved": "Puntuación validada tras resolver una divergencia entre modelos.",
-        "flagged": "Puntuación provisional: los modelos divergieron y está prevista una revisión humana."
+        "flagged": "En revisión."
       }
     },
     "updating": "Actualizando…",

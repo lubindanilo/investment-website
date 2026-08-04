@@ -63,8 +63,7 @@ export function AnalysisHeader({
   watched: boolean;
   onWatch: () => void;
 }) {
-  const { t, i18n } = useTranslation();
-  const lang = currentLang(i18n.language);
+  const { t } = useTranslation();
   const resilience = analysis.resilience ?? null;
   const resilienceStars = analysis.resilienceStars ?? null;
   const currency = analysis.currency || 'USD';
@@ -117,11 +116,7 @@ export function AnalysisHeader({
             <ResilienceStarsHeader score={resilienceStars} />
             <span className="anl-score-kind">{t('analyse.resilience')}</span>
           </div>
-          <p className="anl-score-story-text">
-            {resilienceStars
-              ? t(`analyse.resilienceStars.verdict.${resilienceStars.verdict}`)
-              : (resilience ? resilience.verdict[lang] : t('analyse.resilienceStars.pending'))}
-          </p>
+          {!resilienceStars && !resilience && <p className="anl-score-story-text">{t('analyse.resilienceStars.pending')}</p>}
         </div>
       </div>
     </section>

@@ -649,7 +649,7 @@
       "verdict": {
         "agree": "Score validated by both models.",
         "resolved": "Score validated after resolving a model disagreement.",
-        "flagged": "Provisional score: the models diverged and human review is planned."
+        "flagged": "In review."
       }
     },
     "updating": "Updating…",

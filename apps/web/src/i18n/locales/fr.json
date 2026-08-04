@@ -674,7 +674,7 @@
       "verdict": {
         "agree": "Score validé par les deux modèles.",
         "resolved": "Score validé après résolution d'un écart entre modèles.",
-        "flagged": "Score provisoire : les modèles ont divergé et une revue humaine est prévue."
+        "flagged": "En revue."
       }
     },
     "updating": "Maj…",
