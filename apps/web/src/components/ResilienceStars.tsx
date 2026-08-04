@@ -98,17 +98,17 @@ export function ResilienceStarsGrid({ score }: { score?: ResilienceStarsData | n
         return (
           <article className="rs-axis-card" key={id}>
             <div className="rs-axis-head">
-              <div className="rs-axis-title">
-                <h3>{t(`analyse.resilienceCriteria.${id}.label`)}</h3>
-                <InfoPop
-                  title={t(`analyse.resilienceCriteria.${id}.label`)}
-                  why={t(`analyse.resilienceCriteria.${id}.measure`)}
-                  calc={t(`analyse.resilienceCriteria.${id}.scoreRule`)}
-                />
-              </div>
+              <h3>{t(`analyse.resilienceCriteria.${id}.label`)}</h3>
               <StatusBadge status={status} />
             </div>
             <p>{prettifyJustification(criterion.justification)}</p>
+            <div className="rs-axis-foot">
+              <InfoPop
+                title={t(`analyse.resilienceCriteria.${id}.label`)}
+                why={t(`analyse.resilienceCriteria.${id}.measure`)}
+                calc={t(`analyse.resilienceCriteria.${id}.scoreRule`)}
+              />
+            </div>
           </article>
         );
       })}

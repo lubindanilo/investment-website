@@ -103,25 +103,15 @@
 }
 
 .rs-axis-head {
-  display: grid;
-  gap: 10px;
-}
-
-.rs-axis-head .s-badge {
-  justify-self: start;
-  width: max-content;
-}
-
-.rs-axis-title {
-  min-height: 38px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
 }
 
 .rs-axis-card h3 {
   margin: 0;
+  max-width: 72%;
   color: var(--ink);
   font-size: 13.5px;
   line-height: 1.35;
@@ -133,6 +123,15 @@
   color: var(--ink-2);
   font-size: 13px;
   line-height: 1.5;
+}
+
+.rs-axis-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 9px;
 }
 
 @media (max-width: 1100px) {
@@ -150,5 +149,6 @@
   .rs-review-dot { display: none; }
   .rs-axis-grid { grid-template-columns: 1fr; }
   .rs-axis-card { min-height: 0; padding: 13px; }
-  .rs-axis-title { min-height: 0; }
+  .rs-axis-card h3 { max-width: 68%; }
+  .rs-axis-foot { padding-top: 8px; }
 }
