@@ -83547,7 +83547,7 @@ const articleAMD2026: Article = {
   ticker: 'AMD',
   content: {
     fr: {
-      title: "Faut-il acheter l'action AMD (AMD) en 2026 ?",
+      title: "AMD : pourquoi l'action recule après un trimestre record",
       excerpt: "AMD publie un chiffre d'affaires record porté par une explosion de la demande de puces IA, et pourtant l'action recule après l'annonce. Voici ce que mon modèle en dit.",
       metaDescription: "AMD (AMD) en 2026 : résultats trimestriels record, mais l'action recule après l'annonce. Mon analyse qualité et prix du jour, chiffres à l'appui.",
       answer: "AMD vient de publier un trimestre record, porté par une explosion de la demande de puces pour l'intelligence artificielle, et pourtant l'action a reculé après l'annonce. La qualité de l'entreprise ne fait pas débat pour moi. Le prix, si : mon modèle le juge déjà nettement trop élevé. Voici pourquoi ces deux jugements coexistent.",
@@ -83565,7 +83565,7 @@ const articleAMD2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy AMD (AMD) stock in 2026?",
+      title: "AMD (AMD): why the stock fell after a record quarter",
       excerpt: "AMD posted record revenue on an explosion in AI chip demand, and yet the stock fell after the announcement. Here is what my model says.",
       metaDescription: "AMD (AMD) in 2026: record quarterly results, but the stock falls after the announcement. My quality and price read for the day, backed by real numbers.",
       answer: "AMD just posted a record quarter, driven by an explosion in demand for artificial intelligence chips, and yet the stock fell after the announcement. The quality of the business is not in question for me. The price is: my model already judges it clearly too high. Here is why both verdicts can be true at once.",
@@ -83583,7 +83583,7 @@ const articleAMD2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Deberías comprar acciones de AMD (AMD) en 2026?",
+      title: "AMD (AMD): por qué la acción cayó tras un trimestre récord",
       excerpt: "AMD publicó ingresos récord gracias a una explosión de la demanda de chips de IA, y aun así la acción cayó tras el anuncio. Esto es lo que dice mi modelo.",
       metaDescription: "AMD (AMD) en 2026: resultados trimestrales récord, pero la acción cae tras el anuncio. Mi lectura de calidad y precio del día, con cifras reales.",
       answer: "AMD acaba de publicar un trimestre récord, impulsado por una explosión de la demanda de chips para inteligencia artificial, y aun así la acción cayó tras el anuncio. La calidad de la empresa no está en duda para mí. El precio, sí: mi modelo ya lo considera claramente demasiado elevado. Aquí explico por qué ambos veredictos pueden coexistir.",
@@ -83611,7 +83611,7 @@ const articleMCD2026: Article = {
   ticker: 'MCD',
   content: {
     fr: {
-      title: "Faut-il acheter l'action McDonald's (MCD) en 2026 ?",
+      title: "McDonald's (MCD) : ralentit aux USA, records ailleurs",
       excerpt: "McDonald's bat de peu les attentes de bénéfice mais rate le chiffre d'affaires, avec un ralentissement américain masqué par des marges record à l'international. Les chiffres, en deux tableaux.",
       metaDescription: "McDonald's (MCD) en 2026 : résultats du T2, ralentissement aux États-Unis, marges record à l'international. Mon analyse qualité et prix en chiffres.",
       answer: "McDonald's a battu de très peu le consensus de bénéfice ce trimestre, mais raté le chiffre d'affaires : les ventes comparables ralentissent aux États-Unis pendant que les marges franchisées à l'international atteignent un record. Mon filtre qualité ne valide que 6 critères sur 10, et mon modèle juge le prix actuel largement excessif. Voici les chiffres, en deux tableaux.",
@@ -83653,7 +83653,7 @@ const articleMCD2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy McDonald's (MCD) stock in 2026?",
+      title: "McDonald's (MCD): US slowdown, records everywhere else",
       excerpt: "McDonald's narrowly beat profit estimates but missed on revenue, with a US slowdown masked by record international margins. The numbers, in two tables.",
       metaDescription: "McDonald's (MCD) in 2026: Q2 results, US slowdown, record international margins. My quality and price read for the day, in real numbers.",
       answer: "McDonald's narrowly beat the profit consensus this quarter but missed on revenue: comparable sales are slowing in the US while franchised margins abroad hit a record. My quality filter passes only 6 out of 10 criteria, and my model judges the current price clearly excessive. Here are the numbers, in two tables.",
@@ -83695,7 +83695,7 @@ const articleMCD2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Deberías comprar acciones de McDonald's (MCD) en 2026?",
+      title: "McDonald's (MCD): desaceleración en EE. UU., récords fuera",
       excerpt: "McDonald's superó por poco las previsiones de beneficio pero no llegó a los ingresos esperados, con una desaceleración en EE. UU. disimulada por márgenes récord a nivel internacional. Las cifras, en dos tablas.",
       metaDescription: "McDonald's (MCD) en 2026: resultados del T2, desaceleración en EE. UU., márgenes récord internacionales. Mi lectura de calidad y precio en cifras.",
       answer: "McDonald's superó por muy poco el consenso de beneficio este trimestre, pero no llegó a los ingresos esperados: las ventas comparables se desaceleran en EE. UU. mientras los márgenes franquiciados en el extranjero alcanzan un récord. Mi filtro de calidad solo aprueba 6 de 10 criterios, y mi modelo considera el precio actual claramente excesivo. Aquí están las cifras, en dos tablas.",
@@ -83747,7 +83747,7 @@ const articlePrimerica2026: Article = {
   ticker: 'PRI',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Primerica (PRI) en 2026 ?",
+      title: "Primerica (PRI) : l'assurance que Wall Street ignore",
       excerpt: "Primerica vend de l'assurance-vie et des placements aux familles à revenu moyen, un marché que les banques traditionnelles délaissent. Mon filtre qualité valide 9 critères sur 10, mais une anomalie de données m'empêche de trancher franchement sur le prix.",
       metaDescription: "Primerica (PRI) en 2026 : 9 critères de qualité sur 10, mais une anomalie de données sur la valorisation. Mon analyse complète, chiffres à l'appui.",
       answer: "Primerica vend de l'assurance-vie et des placements aux familles à revenu moyen d'Amérique du Nord, via un réseau de plus de 150 000 représentants indépendants. Mon filtre qualité valide 9 critères sur 10 : c'est une entreprise réellement solide. Mais une incohérence dans les données de cash disponibles m'empêche de te donner un prix d'achat fiable aujourd'hui, et je préfère te le dire plutôt qu'inventer un chiffre.",
@@ -83777,7 +83777,7 @@ const articlePrimerica2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy Primerica (PRI) stock in 2026?",
+      title: "Primerica (PRI): the insurer Wall Street overlooks",
       excerpt: "Primerica sells life insurance and investments to middle-income families, a market traditional banks largely ignore. My quality filter passes 9 out of 10 criteria, but a data anomaly stops me from giving a straight answer on price.",
       metaDescription: "Primerica (PRI) in 2026: 9 out of 10 quality criteria, but a data anomaly on valuation. My full analysis, backed by real numbers.",
       answer: "Primerica sells term life insurance and investment products to middle-income families across North America, through a network of more than 150,000 independent representatives. My quality filter passes 9 out of 10 criteria: this is a genuinely solid business. But an inconsistency in the available cash flow data stops me from giving you a reliable buy price today, and I would rather tell you that than invent a number.",
@@ -83807,7 +83807,7 @@ const articlePrimerica2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Deberías comprar acciones de Primerica (PRI) en 2026?",
+      title: "Primerica (PRI): la aseguradora que Wall Street ignora",
       excerpt: "Primerica vende seguros de vida e inversiones a familias de ingresos medios, un mercado que los bancos tradicionales suelen ignorar. Mi filtro de calidad aprueba 9 de 10 criterios, pero una anomalía en los datos me impide dar una respuesta clara sobre el precio.",
       metaDescription: "Primerica (PRI) en 2026: 9 de 10 criterios de calidad, pero una anomalía de datos en la valoración. Mi análisis completo, con cifras reales.",
       answer: "Primerica vende seguros de vida temporales y productos de inversión a familias de ingresos medios en Norteamérica, a través de una red de más de 150.000 representantes independientes. Mi filtro de calidad aprueba 9 de 10 criterios: es un negocio realmente sólido. Pero una incoherencia en los datos de flujo de caja disponibles me impide darte un precio de compra fiable hoy, y prefiero decírtelo antes que inventar una cifra.",
@@ -83846,7 +83846,7 @@ const articleNRRPedago: Article = {
   readingTime: 10,
   content: {
     fr: {
-      title: "Le taux de rétention net : pourquoi les investisseurs en logiciels l'adorent",
+      title: "Le taux de rétention net, expliqué simplement",
       excerpt: "Un chiffre revient sans cesse dans les résultats des éditeurs de logiciels par abonnement : le taux de rétention net. Ce qu'il mesure vraiment, pourquoi au-dessus de 100 % c'est un signal rare, et pourquoi mon filtre qualité ne le calcule pas directement.",
       metaDescription: "Le taux de rétention net expliqué simplement : ce qu'il mesure, pourquoi les investisseurs en logiciels l'adorent, avec des exemples réels chiffrés.",
       answer: "Le taux de rétention net mesure combien les clients déjà présents dépensent d'une année sur l'autre, sans compter les nouveaux clients. Au-dessus de 100 %, les clients existants dépensent plus qu'avant : c'est le signal qu'un produit devient plus indispensable avec le temps, pas moins. C'est pour ça que ce chiffre pèse autant dans la valorisation des éditeurs de logiciels.",
@@ -83878,7 +83878,7 @@ const articleNRRPedago: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Net revenue retention: why software investors love this number",
+      title: "Net revenue retention, explained simply",
       excerpt: "One number keeps coming up in subscription software earnings: net revenue retention. What it actually measures, why above 100% is a rare signal, and why my quality filter does not calculate it directly.",
       metaDescription: "Net revenue retention explained simply: what it measures, why software investors love it, with real, sourced numbers as examples.",
       answer: "Net revenue retention measures how much existing customers spend from one year to the next, excluding new customers entirely. Above 100%, existing customers are spending more than before: it is a signal that a product is becoming more essential over time, not less. That is why this single number carries so much weight in how software companies get valued.",
@@ -83910,7 +83910,7 @@ const articleNRRPedago: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "Retención neta de ingresos: por qué los inversores en software la adoran",
+      title: "Retención neta de ingresos, explicada de forma simple",
       excerpt: "Una cifra aparece constantemente en los resultados de las empresas de software por suscripción: la retención neta de ingresos. Qué mide realmente, por qué superar el 100 % es una señal rara, y por qué mi filtro de calidad no la calcula directamente.",
       metaDescription: "Retención neta de ingresos explicada de forma simple: qué mide, por qué la adoran los inversores en software, con ejemplos reales y cifras.",
       answer: "La retención neta de ingresos mide cuánto gastan los clientes existentes de un año a otro, sin contar a los clientes nuevos en absoluto. Por encima del 100 %, los clientes existentes gastan más que antes: es una señal de que un producto se vuelve más imprescindible con el tiempo, no menos. Por eso esta única cifra pesa tanto en cómo se valoran las empresas de software.",
@@ -83952,9 +83952,9 @@ const articleFairIsaac2026: Article = {
   ticker: 'FICO',
   content: {
     fr: {
-      title: "Faut-il acheter l'action Fair Isaac (FICO) en 2026 ?",
+      title: "Fair Isaac (FICO) : le pouvoir de prix du score de crédit",
       excerpt: "Fair Isaac possède le score de crédit utilisé par la quasi-totalité des prêteurs américains, et vient de démontrer un pouvoir de fixation des prix rare. Mon filtre valide 8 critères sur 10, malgré une dette qui interroge au premier regard.",
-      metaDescription: "Fair Isaac (FICO) en 2026 : pouvoir de fixation des prix rare, score qualité 8/10, décote selon mon modèle. Mon analyse complète en questions-réponses.",
+      metaDescription: "Fair Isaac (FICO) en 2026 : pouvoir de fixation des prix rare et décote selon mon modèle. Mon analyse complète en questions-réponses.",
       answer: "Fair Isaac possède le score de crédit utilisé par la quasi-totalité des prêteurs américains, une position proche du monopole qui lui donne un pouvoir de fixation des prix rare. Mon filtre valide 8 critères de qualité sur 10, et mon modèle indique une décote de 46 % par rapport à son prix d'achat raisonnable. Voici comment je le lis, question par question.",
       body: [
         { type: 'h2', text: "Qu'est-ce que Fair Isaac fait exactement ?" },
@@ -83983,9 +83983,9 @@ const articleFairIsaac2026: Article = {
       disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
     },
     en: {
-      title: "Should you buy Fair Isaac (FICO) stock in 2026?",
+      title: "Fair Isaac (FICO): the pricing power behind your score",
       excerpt: "Fair Isaac owns the credit score used by nearly every US lender, and just demonstrated rare pricing power. My filter passes 8 out of 10 criteria, despite a debt level that raises eyebrows at first glance.",
-      metaDescription: "Fair Isaac (FICO) in 2026: rare pricing power, 8/10 quality score, undervalued by my model. My full analysis in question-and-answer form.",
+      metaDescription: "Fair Isaac (FICO) in 2026: rare pricing power and undervalued by my model. My full analysis in question-and-answer form.",
       answer: "Fair Isaac owns the credit score used by nearly every US lender, a near-monopoly position that gives it rare pricing power. My filter passes 8 out of 10 quality criteria, and my model shows a 46% discount to its fair buy price. Here is how I read it, question by question.",
       body: [
         { type: 'h2', text: "What exactly does Fair Isaac do?" },
@@ -84014,9 +84014,9 @@ const articleFairIsaac2026: Article = {
       disclaimer: "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
     },
     es: {
-      title: "¿Deberías comprar acciones de Fair Isaac (FICO) en 2026?",
+      title: "Fair Isaac (FICO): fija precios gracias a tu puntuación",
       excerpt: "Fair Isaac posee la puntuación de crédito que usan casi todos los prestamistas estadounidenses, y acaba de demostrar un poder de fijación de precios poco habitual. Mi filtro aprueba 8 de 10 criterios, a pesar de una deuda que llama la atención a primera vista.",
-      metaDescription: "Fair Isaac (FICO) en 2026: poder de fijación de precios excepcional, calidad 8/10, infravalorada según mi modelo. Mi análisis completo en preguntas y respuestas.",
+      metaDescription: "Fair Isaac (FICO) en 2026: poder de fijación de precios excepcional e infravalorada según mi modelo. Análisis completo en preguntas y respuestas.",
       answer: "Fair Isaac posee la puntuación de crédito que usan casi todos los prestamistas estadounidenses, una posición cercana al monopolio que le otorga un poder de fijación de precios excepcional. Mi filtro aprueba 8 de 10 criterios de calidad, y mi modelo muestra un descuento del 46 % sobre su precio de compra razonable. Así es como lo leo, pregunta por pregunta.",
       body: [
         { type: 'h2', text: "¿Qué hace exactamente Fair Isaac?" },
