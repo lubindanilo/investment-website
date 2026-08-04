@@ -6,6 +6,9 @@
  *     ne casse pas ; pratique en dev/CI). Les endpoints répondent quand même 200.
  *   - EMAIL_FROM     : expéditeur, ex. "Lubin Investment <no-reply@lubin-investment.com>".
  *     Le domaine DOIT être vérifié sur Resend (DNS SPF/DKIM) pour la délivrabilité.
+ *   - SIGNUP_NOTIFY_TO : destinataire des notifications internes « nouvelle inscription »
+ *     (le propriétaire du site, PAS l'inscrit). ABSENTE → aucune notif envoyée. Pas de
+ *     valeur par défaut en dur : le repo est public, l'adresse reste dans l'env Vercel.
  */
 import type { Lang } from '../i18n/index.js';
 
@@ -70,3 +73,52 @@ const RESET: Record<Lang, (link: string) => Tpl> = {
 
 export function verifyEmailContent(lang: Lang, link: string): Tpl { return VERIFY[lang](link); }
 export function resetEmailContent(lang: Lang, link: string): Tpl { return RESET[lang](link); }
+
+// ─── Notification interne « nouvelle inscription » ───────────────────────────
+/** Destinataire de la notif interne, ou null si la variable n'est pas posée. */
+export function signupNotifyTo(): string | null {
+  return process.env.SIGNUP_NOTIFY_TO?.trim() || null;
+}
+
+/** Échappe le texte saisi par l'inscrit (prénom/nom libres) avant injection HTML. */
+function esc(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+/**
+ * Contenu de la notif interne. Toujours en français (un seul lecteur : le propriétaire).
+ * `rank` = numéro du compte (total après création), `lang` = langue du site à l'inscription.
+ */
+export function signupNoticeContent(u: {
+  email: string; firstName: string | null; lastName: string | null;
+  createdAt: Date; lang: Lang; rank: number | null;
+}): Tpl {
+  const nom = [u.firstName, u.lastName].filter(Boolean).join(' ') || '(pas de nom saisi)';
+  const quand = new Intl.DateTimeFormat('fr-FR', {
+    dateStyle: 'full', timeStyle: 'short', timeZone: 'Europe/Paris',
+  }).format(u.createdAt);
+  const rows: Array<[string, string]> = [
+    ['Email', u.email],
+    ['Nom', nom],
+    ['Langue du site', u.lang],
+    ['Inscrit le', `${quand} (Paris)`],
+  ];
+  if (u.rank !== null) rows.push(['Total comptes', String(u.rank)]);
+
+  const cells = rows
+    .map(([k, v]) => `<tr><td style="padding:6px 14px 6px 0;color:#8a8a99;font-size:13px;white-space:nowrap">${k}</td><td style="padding:6px 0;font-size:14px;font-weight:600;word-break:break-all">${esc(v)}</td></tr>`)
+    .join('');
+
+  return {
+    subject: `Nouvelle inscription : ${u.email}`,
+    html: `<!doctype html><html><body style="margin:0;background:#f4f4f7;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1a1a2e">
+  <div style="max-width:480px;margin:0 auto;padding:32px 20px">
+    <div style="background:#fff;border-radius:14px;padding:32px;border:1px solid #e7e7ee">
+      <div style="font-weight:800;font-size:18px;color:#4f46e5;margin-bottom:18px">Lubin Investment</div>
+      <h1 style="font-size:19px;margin:0 0 18px">Nouvelle inscription</h1>
+      <table style="border-collapse:collapse;width:100%">${cells}</table>
+      <p style="font-size:12.5px;line-height:1.6;color:#8a8a99;margin:24px 0 0">Notification interne, envoyée à l'adresse SIGNUP_NOTIFY_TO.</p>
+    </div>
+  </div></body></html>`,
+  };
+}

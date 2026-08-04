@@ -1,6 +1,7 @@
 /**
  * Routes d'authentification :
- *   POST /api/auth/signup   → crée user + login
+ *   POST /api/auth/signup   → crée user + login (+ email de vérif à l'inscrit,
+ *                             + notification interne au propriétaire si SIGNUP_NOTIFY_TO)
  *   POST /api/auth/login    → vérifie credentials + set cookie
  *   POST /api/auth/logout   → clear cookie
  *   GET  /api/auth/me       → renvoie user courant (ou 401 si pas auth)
@@ -21,7 +22,7 @@ import { hashPassword, verifyPassword, signToken, COOKIE_NAME, cookieOptions,
   signActionToken, verifyActionToken, peekActionUserId } from '../lib/auth.js';
 import { authLimiter } from '../middleware/rateLimit.js';
 import { parseLang, tt, type Lang } from '../i18n/index.js';
-import { sendEmail, verifyEmailContent, resetEmailContent } from '../lib/email.js';
+import { sendEmail, verifyEmailContent, resetEmailContent, signupNoticeContent, signupNotifyTo } from '../lib/email.js';
 
 const SITE_URL = process.env.SITE_URL || 'https://lubin-investment.com';
 /** Lien d'action localisé (en/es portent ?lng pour que la page s'ouvre dans la bonne langue). */
@@ -34,6 +35,21 @@ async function sendVerifyEmail(user: { id: string; email: string }, lang: Lang):
   const link = actionLink('/verify', signActionToken('verify', user.id), lang);
   const { subject, html } = verifyEmailContent(lang, link);
   await sendEmail({ to: user.email, subject, html });
+}
+/**
+ * Prévient le propriétaire du site qu'un compte vient d'être créé (best-effort, jamais
+ * bloquant). Destinataire = SIGNUP_NOTIFY_TO ; variable absente → on ne fait rien.
+ */
+async function sendSignupNotice(
+  user: { email: string; firstName: string | null; lastName: string | null; createdAt: Date },
+  lang: Lang,
+): Promise<void> {
+  const to = signupNotifyTo();
+  if (!to) return;
+  // Numéro du compte : agréable à lire dans la notif, et un count() ne coûte rien.
+  const rank = await prisma.user.count().catch(() => null);
+  const { subject, html } = signupNoticeContent({ ...user, lang, rank });
+  await sendEmail({ to, subject, html });
 }
 
 export const authRouter: Router = Router();
@@ -79,8 +95,10 @@ authRouter.post('/signup', authLimiter, asyncHandler(async (req: Request, res: R
   res.cookie(COOKIE_NAME, token, cookieOptions());
   res.status(201).json(publicUser(user));
 
-  // Email de vérification (best-effort, après la réponse : ne ralentit pas le signup).
+  // Emails best-effort, après la réponse : ne ralentissent pas le signup.
+  // 1) lien de vérification à l'inscrit, 2) notification interne au propriétaire.
   sendVerifyEmail(user, lang).catch((e) => console.error('[auth] verify email signup', e));
+  sendSignupNotice(user, lang).catch((e) => console.error('[auth] signup notice', e));
 }));
 
 authRouter.post('/login', authLimiter, asyncHandler(async (req: Request, res: Response) => {
