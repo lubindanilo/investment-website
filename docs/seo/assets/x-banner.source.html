@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:        oklch(0.515 0.193 277);
+    --brand-lift:   oklch(0.66 0.19 277);
+    --ink-on-dark:  oklch(0.985 0.004 270);
+    --ink2-on-dark: oklch(0.78 0.02 273);
+    --ink3-on-dark: oklch(0.62 0.025 273);
+    --good:         oklch(0.66 0.15 156);
+    --sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1500px;height:500px;overflow:hidden}
+  body{
+    font-family:var(--sans);
+    background:
+      radial-gradient(1100px 620px at 78% 12%, oklch(0.40 0.16 277) 0%, transparent 62%),
+      radial-gradient(760px 520px at 4% 96%, oklch(0.32 0.13 285) 0%, transparent 60%),
+      linear-gradient(150deg, oklch(0.205 0.045 278) 0%, oklch(0.155 0.030 275) 58%, oklch(0.125 0.022 272) 100%);
+    color:var(--ink-on-dark);
+    position:relative;
+  }
+  /* Grille fine, rappel de l'univers data du site */
+  .grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(to right, oklch(1 0 0 / 0.028) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(1 0 0 / 0.028) 1px, transparent 1px);
+    background-size:50px 50px;
+    mask-image:linear-gradient(105deg, black 0%, black 46%, transparent 74%);
+  }
+  .wrap{position:relative;height:100%;display:flex;align-items:center;padding:0 62px}
+
+  /* ── Colonne gauche ─────────────────────────────────────────────
+     Remontée de 26px : sur le profil X, l'avatar recouvre le coin
+     bas-gauche de la bannière (~240x120px). Rien ne doit y tomber. ── */
+  .left{width:790px;flex:none;transform:translateY(-26px)}
+  .lockup{display:flex;align-items:center;gap:11px;margin-bottom:26px}
+  .mark{
+    width:31px;height:31px;border-radius:9px;flex:none;
+    background:linear-gradient(160deg, var(--brand-lift), var(--brand));
+    box-shadow:0 2px 10px oklch(0.515 0.193 277 / 0.55);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .mark svg{width:18px;height:18px}
+  .lockup span{
+    font-size:14.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+    color:oklch(0.90 0.02 273);
+  }
+  h1{
+    font-size:51px;line-height:1.09;font-weight:800;letter-spacing:-0.021em;
+    max-width:730px;
+  }
+  h1 em{font-style:normal;color:var(--brand-lift)}
+  .sub{
+    margin-top:19px;font-size:20.5px;line-height:1.45;font-weight:500;
+    color:var(--ink2-on-dark);max-width:610px;
+  }
+  .facts{display:flex;align-items:center;gap:15px;margin-top:31px}
+  .fact{
+    font-family:var(--mono);font-size:13.5px;font-weight:500;letter-spacing:.01em;
+    color:oklch(0.88 0.02 273);
+    background:oklch(1 0 0 / 0.055);
+    border:1px solid oklch(1 0 0 / 0.10);
+    border-radius:999px;padding:7px 15px;white-space:nowrap;
+  }
+  .fact b{color:#fff;font-weight:600}
+  .url{
+    position:absolute;right:64px;bottom:42px;
+    font-family:var(--mono);font-size:14.5px;letter-spacing:.02em;
+    color:var(--ink3-on-dark);
+  }
+
+  /* ── Colonne droite : extrait réel de l'app ─────────────────── */
+  .shot{
+    margin-left:auto;flex:none;
+    width:620px;height:223px;
+    border-radius:15px;overflow:hidden;
+    background-image:url("home-en.png");
+    background-repeat:no-repeat;
+    background-size:1498px auto;
+    background-position:-773px -227px;
+    box-shadow:
+      0 2px 6px oklch(0 0 0 / 0.28),
+      0 26px 70px oklch(0 0 0 / 0.46),
+      0 0 0 1px oklch(1 0 0 / 0.10);
+    transform:translateY(-14px) rotate(-1.35deg);
+  }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="wrap">
+    <div class="left">
+      <div class="lockup">
+        <div class="mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 17l5.5-6 4 4L21 6"/>
+          </svg>
+        </div>
+        <span>Lubin Investment</span>
+      </div>
+      <h1>Stop paying the wrong price for a <em>great company.</em></h1>
+      <p class="sub">Quality scored out of 10. Then the price worth paying for it.</p>
+      <div class="facts">
+        <div class="fact"><b>16,000+</b> stocks</div>
+        <div class="fact"><b>10</b> quality criteria</div>
+        <div class="fact">Updated <b>continuously</b></div>
+      </div>
+    </div>
+    <div class="shot"></div>
+  </div>
+  <div class="url">lubin-investment.com</div>
+</body>
+</html>

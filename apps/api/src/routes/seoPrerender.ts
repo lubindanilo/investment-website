@@ -32,6 +32,19 @@ export const seoPrerenderRouter: Router = Router();
 
 const SITE_URL = process.env.SITE_URL || 'https://lubin-investment.com';
 
+// ─── Profils sociaux officiels ────────────────────────────────────────────────
+// Dupliqués depuis apps/web/src/lib/socialProfiles.ts, à dessein : le garde-fou
+// scripts/check-api-shared-imports.mjs interdit tout import de VALEUR depuis
+// '@lubin/shared' dans apps/api (ça casse la lambda au boot), donc pas de constante
+// partagée possible. Toute modification doit toucher les DEUX fichiers dans le même
+// commit. Déclaré tout en haut plutôt qu'à côté des AUTHOR_* pour éviter la classe de
+// bug TDZ déjà rencontrée dans apps/api (const utilisée avant son initialisation).
+const X_HANDLE = 'lubin_danilo';
+const X_URL = `https://x.com/${X_HANDLE}`;
+const LINKEDIN_URL = 'https://www.linkedin.com/in/lubin-danilo/';
+/** Déclaration d'identité réutilisée dans tous les `sameAs` du JSON-LD. */
+const SAME_AS: readonly string[] = [LINKEDIN_URL, X_URL];
+
 // Échappement HTML pour éviter injection via name/sector qui viennent de sources externes.
 function escapeHtml(s: string): string {
   return s
@@ -844,6 +857,8 @@ ${hreflang}
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@${X_HANDLE}">
+<meta name="twitter:creator" content="@${X_HANDLE}">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${SITE_URL}/og-default.png">
@@ -1517,13 +1532,14 @@ function renderArticleHtml(article: Article, lang: ArticleLang): string {
       description: AUTHOR_BIO[lang],
       worksFor: { '@type': 'Organization', name: 'Lubin Investment', url: SITE_URL },
       url: SITE_URL,
-      sameAs: ['https://www.linkedin.com/in/lubin-danilo/'],
+      sameAs: SAME_AS,
     },
     publisher: {
       '@type': 'Organization',
       name: 'Lubin Investment',
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/icon-512.png` },
+      sameAs: SAME_AS,
     },
     mainEntityOfPage: canonical,
   };
@@ -1577,6 +1593,8 @@ ${hreflang}
 <meta property="og:locale" content="${ogLocale}">
 <meta property="og:image" content="${SITE_URL}/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@${X_HANDLE}">
+<meta name="twitter:creator" content="@${X_HANDLE}">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${SITE_URL}/og-default.png">
@@ -2686,7 +2704,7 @@ function renderStaticHtml(o: StaticSeo, lang: ArticleLang, extraBlock = ''): str
         url: `${SITE_URL}/`, inLanguage: lang,
       })}</script>\n<script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Organization', name: 'Lubin Investment',
-        url: `${SITE_URL}/`, logo: `${SITE_URL}/icon-512.png`,
+        url: `${SITE_URL}/`, logo: `${SITE_URL}/icon-512.png`, sameAs: SAME_AS,
       })}</script>`
     : '';
   return `<!DOCTYPE html>

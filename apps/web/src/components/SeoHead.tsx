@@ -3,6 +3,7 @@
 // ainsi que l'attribut lang du <html>, en fonction de la langue i18next.
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { X_HANDLE } from '../lib/socialProfiles.js';
 
 // Props du composant SeoHead
 export interface SeoHeadProps {
@@ -162,8 +163,11 @@ export default function SeoHead({
     setMeta('property', 'og:type', type);
     setMeta('property', 'og:locale', ogLocale);
 
-    // Twitter Card
+    // Twitter Card. `site` et `creator` attribuent la carte au compte : sans eux, un partage
+    // du site sur X ne crédite personne et ne renvoie aucun trafic vers le profil.
     setMeta('name', 'twitter:card', 'summary_large_image');
+    setMeta('name', 'twitter:site', `@${X_HANDLE}`);
+    setMeta('name', 'twitter:creator', `@${X_HANDLE}`);
     setMeta('name', 'twitter:title', title);
     setMeta('name', 'twitter:description', description);
     setMeta('name', 'twitter:image', imageUrl);
