@@ -1871,6 +1871,10 @@
         "title": "Política de privacidad · RGPD · Lubin Investment",
         "desc": "Datos recopilados, finalidades, plazos, encargados (Stripe, Vercel, Neon, OpenAI), tus derechos RGPD y el uso de cookies en Lubin Investment."
       }
+    },
+    "aiVisibility": {
+      "title": "¿Qué ve ChatGPT de tu sitio? Test gratis · Lubin Investment",
+      "desc": "Cuenta en diez segundos las palabras que los rastreadores de IA reciben de tu página. Gratis, sin cuenta."
     }
   },
   "notFound": {
@@ -2092,5 +2096,51 @@
     "goLogin": "Iniciar sesión",
     "resend": "Reenviar enlace de confirmación",
     "resent": "Enlace reenviado, revisa tu correo."
+  },
+  "aiVisibility": {
+    "h1": "¿Qué ve ChatGPT de tu página?",
+    "lede": "Pega una dirección. Consultamos tu página con el user-agent real de los rastreadores de IA y contamos las palabras que reciben de verdad.",
+    "placeholder": "ejemplo.es/tu-pagina",
+    "cta": "Verificar",
+    "checking": "Verificando…",
+    "noAccount": "Gratis, sin registro, no se guarda nada.",
+    "loadingDetail": "Dos peticiones en curso: una con el user-agent de un rastreador de IA, otra con el de un navegador.",
+    "errTitle": "Verificación imposible",
+    "errGeneric": "La verificación ha fallado.",
+    "errNetwork": "Conexión imposible. Inténtalo de nuevo.",
+    "wordsSeen": "palabras recibidas por un rastreador de IA",
+    "botSees": "Rastreador de IA",
+    "rawSees": "HTML en bruto",
+    "share": "Copiar enlace",
+    "copied": "Enlace copiado",
+    "excerptTitle": "Lo que lee el rastreador, palabra por palabra",
+    "findingsTitle": "Hallazgos",
+    "evidenceHelp": "Nivel de prueba: test, data, anecdote u opinion — y consensus, single-source o contested.",
+    "nextTitle": "¿Y el resto de la página?",
+    "nextBody": "Esta prueba cubre un punto de noventa. La auditoría completa revisa la indexación, las cinco ubicaciones de la palabra clave, el enlazado interno, la paridad editorial de las comparativas, y enumera el trabajo SEO ya hecho que la medición considera inútil.",
+    "nextCta": "Ver la auditoría completa",
+    "checkAnother": "Probar otra página",
+    "howTitle": "Cómo funciona",
+    "howBody": "Ningún gran rastreador de IA ejecuta JavaScript. GPTBot, ClaudeBot, PerplexityBot, Bytespider y los demás descargan tus archivos .js sin evaluarlos. Si tu página se construye en el navegador, no ven nada.",
+    "howBody2": "Por eso enviamos dos peticiones: una con el user-agent de un rastreador de IA, otra con el de un navegador. La diferencia entre ambas lo dice todo. Muchos sitios sirven una versión prerrenderizada solo a los user-agents que reconocen: un verificador que no enviara el user-agent correcto concluiría erróneamente que el sitio es invisible.",
+    "seoTitleResult": "ChatGPT ve {{n}} palabras de {{host}} · Lubin Investment",
+    "verdict": {
+      "ssr": {
+        "label": "Legible",
+        "sub": "El texto viaja con la página. Los rastreadores de IA y los motores de búsqueda la leen sin ejecutar nada."
+      },
+      "dynamic": {
+        "label": "Legible con condiciones",
+        "sub": "La página se prerrenderiza para los rastreadores reconocidos, pero un navegador recibe una cáscara vacía. La visibilidad depende de una lista de user-agents que hay que mantener: cualquier motor de IA nuevo que falte no verá nada."
+      },
+      "invisible": {
+        "label": "Invisible",
+        "sub": "Esta página necesita JavaScript para mostrar su contenido. Los rastreadores de IA no lo ejecutan: no ven casi nada y la página no puede ser citada."
+      },
+      "thin": {
+        "label": "Poco contenido",
+        "sub": "La página se sirve correctamente, pero contiene muy poco texto. No es un problema de renderizado."
+      }
+    }
   }
 }

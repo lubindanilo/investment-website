@@ -1871,6 +1871,10 @@
         "title": "Politique de confidentialité · RGPD · Lubin Investment",
         "desc": "Données collectées, finalités, durées de conservation, sous-traitants (Stripe, Vercel, Neon, OpenAI), vos droits RGPD et l'usage des cookies sur Lubin Investment."
       }
+    },
+    "aiVisibility": {
+      "title": "Que voit ChatGPT de votre site ? Test gratuit · Lubin Investment",
+      "desc": "Comptez en dix secondes les mots que les robots d’IA reçoivent réellement de votre page. Gratuit, sans compte."
     }
   },
   "notFound": {
@@ -2092,5 +2096,51 @@
     "goLogin": "Se connecter",
     "resend": "Renvoyer un lien de confirmation",
     "resent": "Lien renvoyé, vérifie ta boîte mail."
+  },
+  "aiVisibility": {
+    "h1": "Que voit ChatGPT de votre page ?",
+    "lede": "Collez une adresse. On interroge votre page avec le vrai user-agent des robots d’IA et on compte les mots qu’ils reçoivent réellement.",
+    "placeholder": "exemple.fr/votre-page",
+    "cta": "Vérifier",
+    "checking": "Vérification…",
+    "noAccount": "Gratuit, sans inscription, rien n’est conservé.",
+    "loadingDetail": "Deux requêtes en cours : une avec l’user-agent d’un robot d’IA, une avec celui d’un navigateur.",
+    "errTitle": "Vérification impossible",
+    "errGeneric": "La vérification a échoué.",
+    "errNetwork": "Connexion impossible. Réessayez.",
+    "wordsSeen": "mots reçus par un robot d’IA",
+    "botSees": "Robot d’IA",
+    "rawSees": "HTML brut",
+    "share": "Copier le lien",
+    "copied": "Lien copié",
+    "excerptTitle": "Ce que le robot lit, mot pour mot",
+    "findingsTitle": "Constats",
+    "evidenceHelp": "Niveau de preuve : test, data, anecdote ou opinion — et consensus, single-source ou contested.",
+    "nextTitle": "Et le reste de la page ?",
+    "nextBody": "Ce test couvre un point sur quatre-vingt-dix. L’audit complet passe l’indexation, les cinq emplacements du mot-clé, le maillage interne, la parité éditoriale des comparatifs, et rend la liste du travail SEO inutile déjà en place.",
+    "nextCta": "Voir l’audit complet",
+    "checkAnother": "Tester une autre page",
+    "howTitle": "Comment ça marche",
+    "howBody": "Aucun grand robot d’IA n’exécute JavaScript. GPTBot, ClaudeBot, PerplexityBot, Bytespider et les autres téléchargent vos fichiers .js sans les évaluer. Si votre page se construit dans le navigateur, ils ne voient rien.",
+    "howBody2": "On envoie donc deux requêtes : une avec l’user-agent d’un robot d’IA, une avec celui d’un navigateur. L’écart entre les deux dit tout. Beaucoup de sites servent une version pré-rendue uniquement aux user-agents qu’ils reconnaissent — un vérificateur qui n’enverrait pas le bon user-agent conclurait faussement que le site est invisible.",
+    "seoTitleResult": "ChatGPT voit {{n}} mots de {{host}} · Lubin Investment",
+    "verdict": {
+      "ssr": {
+        "label": "Lisible",
+        "sub": "Le texte part avec la page. Les robots d’IA comme les moteurs de recherche la lisent sans rien exécuter."
+      },
+      "dynamic": {
+        "label": "Lisible sous condition",
+        "sub": "La page est pré-rendue pour les robots reconnus, mais un navigateur reçoit une coquille vide. La visibilité dépend d’une liste d’user-agents à maintenir : tout nouveau moteur IA absent de la liste ne verra rien."
+      },
+      "invisible": {
+        "label": "Invisible",
+        "sub": "Cette page a besoin de JavaScript pour afficher son contenu. Les robots d’IA ne l’exécutent pas : ils ne voient presque rien, et la page ne peut pas être citée."
+      },
+      "thin": {
+        "label": "Peu de contenu",
+        "sub": "La page est bien servie, mais elle contient très peu de texte. Ce n’est pas un problème de rendu."
+      }
+    }
   }
 }

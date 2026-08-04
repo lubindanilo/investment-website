@@ -48,6 +48,9 @@ const AccountPage = lazy(() => import('./pages/AccountPage.js').then((m) => ({ d
 const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage.js').then((m) => ({ default: m.BlogArticlePage })));
 // Pages-hub SEO (SPEC-001) : secteurs et classements. Mêmes URLs que celles servies aux bots.
 const HubPage = lazy(() => import('./pages/HubPage.js').then((m) => ({ default: m.HubPage })));
+const AiVisibilityPage = lazy(() =>
+  import('./pages/AiVisibilityPage.js').then((m) => ({ default: m.AiVisibilityPage })),
+);
 
 // Pages légales — lazy aussi (faible trafic, on les sort du bundle d'entrée).
 const MentionsLegalesPage = lazy(() =>
@@ -191,6 +194,10 @@ export function App() {
             <Route path="/comparer/:pair" element={<ComparePairRedirect />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogArticlePage />} />
+            {/* Vérificateur public de visibilité IA. Le splat porte l'URL cible, ce qui rend
+                le résultat partageable par simple lien (/visibilite-ia/exemple.fr/page). */}
+            <Route path="/visibilite-ia" element={<AiVisibilityPage />} />
+            <Route path="/visibilite-ia/*" element={<AiVisibilityPage />} />
             <Route path="/compte" element={<RequireAuth><AccountPage /></RequireAuth>} />
             <Route path="/mentions-legales" element={<MentionsLegalesPage />} />
             <Route path="/cgu" element={<CguPage />} />

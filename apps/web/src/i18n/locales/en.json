@@ -1871,6 +1871,10 @@
         "title": "Privacy policy · GDPR · Lubin Investment",
         "desc": "Data collected, purposes, retention, processors (Stripe, Vercel, Neon, OpenAI), your GDPR rights and the use of cookies on Lubin Investment."
       }
+    },
+    "aiVisibility": {
+      "title": "What does ChatGPT see on your site? Free test · Lubin Investment",
+      "desc": "Count in ten seconds the words AI crawlers actually receive from your page. Free, no account."
     }
   },
   "notFound": {
@@ -2092,5 +2096,51 @@
     "goLogin": "Sign in",
     "resend": "Resend confirmation link",
     "resent": "Link resent, check your inbox."
+  },
+  "aiVisibility": {
+    "h1": "What does ChatGPT see on your page?",
+    "lede": "Paste an address. We request your page with the real user-agent of AI crawlers and count the words they actually receive.",
+    "placeholder": "example.com/your-page",
+    "cta": "Check",
+    "checking": "Checking…",
+    "noAccount": "Free, no signup, nothing stored.",
+    "loadingDetail": "Two requests running: one with an AI crawler user-agent, one with a browser user-agent.",
+    "errTitle": "Check failed",
+    "errGeneric": "The check failed.",
+    "errNetwork": "Connection failed. Try again.",
+    "wordsSeen": "words received by an AI crawler",
+    "botSees": "AI crawler",
+    "rawSees": "Raw HTML",
+    "share": "Copy link",
+    "copied": "Link copied",
+    "excerptTitle": "What the crawler reads, word for word",
+    "findingsTitle": "Findings",
+    "evidenceHelp": "Evidence level: test, data, anecdote or opinion — plus consensus, single-source or contested.",
+    "nextTitle": "What about the rest of the page?",
+    "nextBody": "This test covers one point out of ninety. The full audit goes through indexation, the five keyword placements, internal linking, editorial parity in comparison pages, and lists the SEO work already in place that measurement says is useless.",
+    "nextCta": "See the full audit",
+    "checkAnother": "Check another page",
+    "howTitle": "How it works",
+    "howBody": "No major AI crawler executes JavaScript. GPTBot, ClaudeBot, PerplexityBot, Bytespider and the others download your .js files without evaluating them. If your page is built in the browser, they see nothing.",
+    "howBody2": "So we send two requests: one with an AI crawler user-agent, one with a browser user-agent. The gap between them tells the whole story. Many sites serve a prerendered version only to user-agents they recognise — a checker that failed to send the right user-agent would wrongly conclude the site is invisible.",
+    "seoTitleResult": "ChatGPT sees {{n}} words of {{host}} · Lubin Investment",
+    "verdict": {
+      "ssr": {
+        "label": "Readable",
+        "sub": "The text ships with the page. AI crawlers and search engines read it without executing anything."
+      },
+      "dynamic": {
+        "label": "Conditionally readable",
+        "sub": "The page is prerendered for recognised crawlers, but a browser receives an empty shell. Visibility depends on a user-agent list you have to maintain: any new AI engine missing from it sees nothing."
+      },
+      "invisible": {
+        "label": "Invisible",
+        "sub": "This page needs JavaScript to show its content. AI crawlers do not run it: they see almost nothing, and the page cannot be cited."
+      },
+      "thin": {
+        "label": "Little content",
+        "sub": "The page is served correctly, but it holds very little text. This is not a rendering problem."
+      }
+    }
   }
 }

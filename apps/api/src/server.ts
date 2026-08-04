@@ -35,6 +35,7 @@ import { billingRouter, meRouter } from './routes/billing.js';
 import { stripeWebhookRouter } from './routes/stripeWebhook.js';
 import { oauthRouter, wellKnownRouter } from './routes/oauth.js';
 import { mcpRouter } from './routes/mcp.js';
+import { aiVisibilityRouter } from './routes/aiVisibility.js';
 import { apiLimiter } from './middleware/rateLimit.js';
 import { errorHandler } from './middleware/error.js';
 
@@ -115,6 +116,9 @@ app.use('/api/portfolio', portfolioRouter);
 app.use('/api/compare', compareRouter);
 app.use('/api/billing', billingRouter);
 app.use('/api/me', meRouter);
+// Vérificateur public de visibilité IA — sans authentification (outil d'acquisition).
+// Le router porte lui-même le préfixe /ai-visibility de ses routes.
+app.use('/api', aiVisibilityRouter);
 
 // Sitemap dynamique — accessible à DEUX chemins :
 //   - /api/sitemap.xml      (chemin direct, utile en dev local sans rewrite)

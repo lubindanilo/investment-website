@@ -128,6 +128,25 @@ export const mcpLimiter = rateLimit({
 });
 
 /**
+ * /ai-visibility — 12/min/IP.
+ *
+ * Endpoint public SANS compte : c'est l'outil d'acquisition, il doit rester sans friction.
+ * Mais chaque appel déclenche DEUX requêtes HTTP sortantes vers une URL fournie par
+ * l'utilisateur — donc c'est aussi un amplificateur potentiel (on fait requêter notre
+ * infra à la place de l'appelant). 12/min laisse un humain enchaîner ses pages et rend
+ * l'usage en proxy de scan inintéressant. La garde SSRF est dans lib/aiVisibility.ts.
+ */
+export const aiVisibilityLimiter = rateLimit({
+  windowMs: 60_000,
+  limit: 12,
+  standardHeaders: 'draft-7',
+  legacyHeaders: false,
+  validate: { trustProxy: false },
+  message: { error: 'Trop de vérifications — patiente une minute.', scope: 'ai-visibility' },
+  skip: () => SKIP_IN_TESTS,
+});
+
+/**
  * /auth signup/login — 10/min/IP.
  * Limite serrée pour casser les attaques brute-force sans gêner un humain qui se trompe.
  * ⚠ À appliquer sur TOUT endpoint qui vérifie un mot de passe, y compris le POST
