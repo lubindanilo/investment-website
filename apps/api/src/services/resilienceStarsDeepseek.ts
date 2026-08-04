@@ -15,7 +15,7 @@ import { parseScores, aggregateTotal, type CompanyBrief, type ResilienceStarScor
 const DEFAULT_BASE_URL = 'https://api.deepseek.com';
 
 interface OpenAiChatResponse {
-  choices?: { message?: { content?: string } }[];
+  choices?: { message?: { content?: string; reasoning_content?: string }; finish_reason?: string }[];
 }
 
 export function hasDeepseekKey(): boolean {
@@ -27,6 +27,12 @@ export interface DeepseekOptions {
   model?: string;
   /** Taille des lots (sortie plafonnee cote DeepSeek). Defaut 6. */
   chunkSize?: number;
+  /**
+   * Plafond de tokens de sortie. R1 (reasoner) consomme enormement de tokens
+   * de raisonnement AVANT la reponse : il faut un plafond eleve et de petits
+   * lots, sinon le raisonnement epuise le budget et le contenu revient vide.
+   */
+  maxTokens?: number;
 }
 
 function chunk<T>(items: T[], size: number): T[][] {
@@ -35,7 +41,7 @@ function chunk<T>(items: T[], size: number): T[][] {
   return groups;
 }
 
-async function callDeepseek(prompt: string, model: string): Promise<string> {
+async function callDeepseek(prompt: string, model: string, maxTokens: number): Promise<string> {
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) throw new Error('DEEPSEEK_API_KEY absent : pose la cle dans apps/api/.env.');
   const baseUrl = process.env.DEEPSEEK_BASE_URL || DEFAULT_BASE_URL;
@@ -46,7 +52,7 @@ async function callDeepseek(prompt: string, model: string): Promise<string> {
     body: JSON.stringify({
       model,
       temperature: 0,
-      max_tokens: 8000,
+      max_tokens: maxTokens,
       messages: [{ role: 'user', content: prompt }],
     }),
   });
@@ -56,8 +62,12 @@ async function callDeepseek(prompt: string, model: string): Promise<string> {
     throw new Error(`DeepSeek ${response.status}: ${detail.slice(0, 300)}`);
   }
   const data = (await response.json()) as OpenAiChatResponse;
-  const text = data.choices?.[0]?.message?.content ?? '';
-  if (!text) throw new Error('DeepSeek: reponse vide');
+  const choice = data.choices?.[0];
+  const text = choice?.message?.content ?? '';
+  if (!text) {
+    const reason = choice?.finish_reason ?? 'inconnue';
+    throw new Error(`DeepSeek(${model}): contenu vide (finish_reason=${reason}). Augmente maxTokens ou reduis chunkSize.`);
+  }
   return text;
 }
 
@@ -68,10 +78,11 @@ export async function scoreCompaniesDeepseek(
   if (companies.length === 0) return [];
   const model = options.model ?? 'deepseek-chat';
   const chunkSize = Math.max(1, options.chunkSize ?? 6);
+  const maxTokens = options.maxTokens ?? 8000;
 
   const results: ResilienceStarScore[] = [];
   for (const group of chunk(companies, chunkSize)) {
-    const text = await callDeepseek(buildScoringPrompt(group), model);
+    const text = await callDeepseek(buildScoringPrompt(group), model, maxTokens);
     const parsed = parseScores(text);
     for (const company of group) {
       const match = parsed.find(p => p.nom.toLowerCase() === company.name.toLowerCase());
