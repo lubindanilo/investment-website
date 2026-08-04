@@ -364,6 +364,9 @@ export function ScreenerPage() {
   const [sectors, setSectors] = useState<{ sector: string; count: number }[]>([]);
   const [sort, setSort] = useState<SortState>({ col: 'score', dir: 'desc' });
   const [visibleCount, setVisibleCount] = useState(60);   // pagination "charger plus" (Pro)
+  // Couverture : combien de titres de la base ont réellement des fondamentaux (= statut `scored`).
+  // null tant qu'on ne sait pas / si l'appel échoue → le bloc n'est simplement pas affiché.
+  const [covered, setCovered] = useState<number | null>(null);
 
   // Deep-link « Nos opportunités du moment » (?opp=1, ex. depuis le blog) : une fois l'abonnement
   // connu, on active le filtre pour un Pro, sinon on ouvre l'upgrade (le filtre est réservé Pro).
@@ -372,6 +375,13 @@ export function ScreenerPage() {
     if (isPro) setOnlyOpp(true);
     else setUpgrade(true);
   }, [subLoading, isPro, searchParams]);
+
+  // Compteur de couverture (une fois au montage). Réponse mémoïsée côté API + cache 15 min.
+  useEffect(() => {
+    api.screener.stats()
+      .then(s => setCovered(s.scored))
+      .catch(() => {});
+  }, []);
 
   // Liste des industries disponibles (une fois) → options du filtre, triées par libellé traduit.
   useEffect(() => {
@@ -474,6 +484,13 @@ export function ScreenerPage() {
             <h1 className="scr-title">{t('screener.title')}</h1>
             <p className="muted" style={{ fontSize: 14 }}>{t('screener.subtitle')}</p>
           </div>
+          {/* Couverture de la base : le nombre de titres dont les fondamentaux sont chargés. */}
+          {covered != null && (
+            <div className="scr-count">
+              <span className="num scr-count-num">{covered.toLocaleString(currentLocale())}</span>
+              <span className="scr-count-label">{t('screener.coverage.label')}</span>
+            </div>
+          )}
         </div>
 
         {/* Filtres — tout regroupé sous un bouton unique, sauf « Opportunités du moment » (toggle à droite). */}

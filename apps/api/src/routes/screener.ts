@@ -152,6 +152,9 @@ screenerRouter.get('/earnings', asyncHandler(async (req: Request, res: Response)
 
 // ── GET /stats ──────────────────────────────────────────────────────────────
 screenerRouter.get('/stats', asyncHandler(async (_req: Request, res: Response) => {
+  // Compteur public (couverture affichée sur le screener) : cache navigateur/CDN 15 min,
+  // aligné sur le mémo serveur. Les compteurs bougent de quelques unités par jour.
+  res.setHeader('Cache-Control', 'public, max-age=900');
   res.json(await getStats());
 }));
 

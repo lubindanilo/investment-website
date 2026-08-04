@@ -3,9 +3,13 @@
 
 .scr-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 12px; }
 .scr-title { font-size: 26px; font-weight: 700; letter-spacing: -0.025em; }
-.scr-progress { width: 280px; align-items: flex-end; }
-.scr-progress-track { width: 100%; height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; }
-.scr-progress-fill { height: 100%; border-radius: 99px; transition: width .3s; }
+/* Compteur de couverture, à droite du titre : le nombre de titres de la base dont les
+   fondamentaux sont chargés (statut `scored`). Volontairement minimal : un nombre + un libellé. */
+.scr-count { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; flex: none; text-align: right; }
+.scr-count-num { font-size: 26px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); }
+/* 220px : le libellé le plus long (FR/ES) tient sur une ligne, et au-delà il passe à la ligne
+   proprement au lieu de comprimer le titre. */
+.scr-count-label { font-size: 12px; color: var(--ink-3); max-width: 220px; }
 
 .scr-filters {
   display: flex; gap: 28px; align-items: center; flex-wrap: wrap;
@@ -40,8 +44,12 @@
 .scr-empty p { font-size: 14px; max-width: 420px; margin: 0 auto; }
 
 @media (max-width: 880px) {
-  .scr-head { flex-direction: column; }
-  .scr-progress { width: 100%; align-items: flex-start; }
+  .scr-head { flex-direction: column; gap: 10px; }
+  /* Empilé : le compteur passe sur UNE ligne (« 6 818 titres avec données financières »)
+     plutôt qu'un gros nombre orphelin sous le sous-titre. */
+  .scr-count { flex-direction: row; align-items: baseline; gap: 6px; text-align: left; }
+  .scr-count-num { font-size: 18px; }
+  .scr-count-label { max-width: none; }
 }
 
 @media (max-width: 640px) {

@@ -111,10 +111,8 @@
     "loadMore": "Load more",
     "title": "Screener",
     "subtitle": "The highest scores across the universe, ranked by our monitoring. The 10/10s on top.",
-    "progress": {
-      "label": "Universe monitoring",
-      "upToDate": "Up to date",
-      "scored": "{{scored}} / {{total}} stocks re-evaluated"
+    "coverage": {
+      "label": "stocks with financial data"
     },
     "filters": {
       "kicker": "Filters",

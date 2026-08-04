@@ -194,10 +194,8 @@
     "loadMore": "Cargar más",
     "title": "Screener",
     "subtitle": "Las mejores puntuaciones del universo, ordenadas por el seguimiento. Los 10/10 a la cabeza.",
-    "progress": {
-      "label": "Seguimiento del universo",
-      "upToDate": "Al día",
-      "scored": "{{scored}} / {{total}} valores reevaluados"
+    "coverage": {
+      "label": "valores con datos financieros"
     },
     "filters": {
       "kicker": "Filtros",
