@@ -17,6 +17,11 @@ const SECRET = process.env.STRIPE_SECRET_KEY;
 const WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
 const PRICE_MONTHLY = process.env.STRIPE_PRICE_MONTHLY;
 const PRICE_YEARLY = process.env.STRIPE_PRICE_YEARLY;
+// Offre SEO — un price ID par palier, mensuel. Facultatifs : tant qu'ils ne sont pas
+// définis, tout le monde reste en `free` et l'offre SEO est simplement inactive.
+const PRICE_SEO_SOLO = process.env.STRIPE_PRICE_SEO_SOLO;
+const PRICE_SEO_STUDIO = process.env.STRIPE_PRICE_SEO_STUDIO;
+const PRICE_SEO_AGENCY = process.env.STRIPE_PRICE_SEO_AGENCY;
 const SITE_URL = (process.env.SITE_URL || 'https://lubin-investment.com').replace(/\/$/, '');
 
 let _stripe: Stripe | null = null;
@@ -35,9 +40,20 @@ export function getStripe(): Stripe | null {
   return _stripe;
 }
 
-/** `true` si la config Stripe est complète et le service peut fonctionner. */
+/** `true` si la config Stripe de l'offre « investissement » est complète. */
 export function isStripeConfigured(): boolean {
   return !!(SECRET && PRICE_MONTHLY && PRICE_YEARLY);
+}
+
+/**
+ * `true` si le plan demandé est réellement achetable.
+ *
+ * Distinct de `isStripeConfigured` : celle-ci exige les prix de l'offre investissement, et
+ * s'en servir pour un checkout SEO renverrait 503 alors que le prix SEO est bien configuré.
+ * Chaque offre a ses propres prix, donc son propre état de disponibilité.
+ */
+export function isPlanPurchasable(plan: CheckoutPlan): boolean {
+  return !!(SECRET && priceIdForPlan(plan));
 }
 
 export interface CheckoutOptions {
@@ -45,7 +61,27 @@ export interface CheckoutOptions {
   email: string;
   /** Existant ? On le réutilise pour ne pas créer un doublon côté Stripe. */
   stripeCustomerId?: string | null;
-  plan: 'monthly' | 'yearly';
+  /**
+   * Deux offres distinctes derrière un même endpoint :
+   *   `monthly` / `yearly`            → abonnement Pro « investissement »
+   *   `seo_solo` / `seo_studio` / `seo_agency` → paliers de l'offre SEO
+   * Les mélanger ici est volontaire : c'est le même tunnel Stripe, le même customer, et
+   * le webhook sait déjà distinguer les deux par le price ID.
+   */
+  plan: CheckoutPlan;
+}
+
+export type CheckoutPlan = 'monthly' | 'yearly' | 'seo_solo' | 'seo_studio' | 'seo_agency';
+
+/** Price ID correspondant à un plan de checkout, toutes offres confondues. */
+function priceIdForPlan(plan: CheckoutPlan): string | undefined {
+  switch (plan) {
+    case 'monthly': return PRICE_MONTHLY;
+    case 'yearly': return PRICE_YEARLY;
+    case 'seo_solo': return PRICE_SEO_SOLO;
+    case 'seo_studio': return PRICE_SEO_STUDIO;
+    case 'seo_agency': return PRICE_SEO_AGENCY;
+  }
 }
 
 /**
@@ -60,7 +96,7 @@ export async function createCheckoutSession({
 }: CheckoutOptions): Promise<{ url: string }> {
   const stripe = getStripe();
   if (!stripe) throw new Error('Stripe non configuré (STRIPE_SECRET_KEY manquante)');
-  const priceId = plan === 'monthly' ? PRICE_MONTHLY : PRICE_YEARLY;
+  const priceId = priceIdForPlan(plan);
   if (!priceId) throw new Error(`Stripe price ID manquant pour plan=${plan}`);
 
   const session = await stripe.checkout.sessions.create({
@@ -72,7 +108,9 @@ export async function createCheckoutSession({
     ...(stripeCustomerId ? { customer: stripeCustomerId } : { customer_email: email }),
     line_items: [{ price: priceId, quantity: 1 }],
     success_url: `${SITE_URL}/compte?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${SITE_URL}/pricing?checkout=cancel`,
+    cancel_url: plan.startsWith('seo_')
+      ? `${SITE_URL}/audit-seo/tarifs?checkout=cancel`
+      : `${SITE_URL}/pricing?checkout=cancel`,
     // metadata récupérée par le webhook pour matcher la session à l'user en DB
     metadata: { userId, plan },
     // Important : conformité TVA française. Stripe gère la "facturation TVA" si on l'active
@@ -131,6 +169,50 @@ export function planFromPriceId(priceId: string | null | undefined): 'monthly' |
   if (priceId === PRICE_MONTHLY) return 'monthly';
   if (priceId === PRICE_YEARLY) return 'yearly';
   return null;
+}
+
+/** Les quatre paliers de l'offre SEO, du moins au plus large. L'ordre est significatif. */
+export const SEO_TIERS = ['free', 'solo', 'studio', 'agency'] as const;
+export type SeoTier = (typeof SEO_TIERS)[number];
+
+/** Vrai si `value` est un palier connu — garde d'entrée pour la valeur lue en base. */
+export function isSeoTier(value: string | null | undefined): value is SeoTier {
+  return !!value && (SEO_TIERS as readonly string[]).includes(value);
+}
+
+/**
+ * Palier SEO correspondant à un price ID Stripe.
+ *
+ * Renvoie `null` quand le price ID n'est pas un price SEO — cas normal : un abonné à
+ * l'offre « investissement » (mensuel/annuel) n'est pas client de l'offre SEO. Le webhook
+ * doit alors laisser `seoTier` inchangé plutôt que de le remettre à `free`, sinon un
+ * changement d'abonnement investissement écraserait un abonnement SEO valide.
+ */
+export function seoTierFromPriceId(priceId: string | null | undefined): SeoTier | null {
+  if (!priceId) return null;
+  if (PRICE_SEO_SOLO && priceId === PRICE_SEO_SOLO) return 'solo';
+  if (PRICE_SEO_STUDIO && priceId === PRICE_SEO_STUDIO) return 'studio';
+  if (PRICE_SEO_AGENCY && priceId === PRICE_SEO_AGENCY) return 'agency';
+  return null;
+}
+
+/** Vrai si au moins un price SEO est configuré — sinon l'offre SEO n'est pas ouverte. */
+export function isSeoBillingConfigured(): boolean {
+  return !!(SECRET && (PRICE_SEO_SOLO || PRICE_SEO_STUDIO || PRICE_SEO_AGENCY));
+}
+
+/**
+ * Palier SEO effectif d'un utilisateur : ce qu'il a payé, MAIS ramené à `free` dès que
+ * l'abonnement n'est plus honoré. Même règle de validité que `isProActive` — statut actif
+ * et période non expirée — pour qu'un impayé ne laisse pas un palier ouvert indéfiniment.
+ */
+export function effectiveSeoTier(user: {
+  seoTier: string;
+  subscriptionStatus: string;
+  subscriptionCurrentPeriodEnd: Date | null;
+}): SeoTier {
+  if (!isSeoTier(user.seoTier) || user.seoTier === 'free') return 'free';
+  return isProActive(user) ? user.seoTier : 'free';
 }
 
 /** Source de vérité pour le gate Pro côté API : statut actif ET période non expirée. */

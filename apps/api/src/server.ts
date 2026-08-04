@@ -31,10 +31,12 @@ import { compareRouter } from './routes/compare.js';
 import { authRouter } from './routes/auth.js';
 import { sitemapRouter } from './routes/sitemap.js';
 import { seoPrerenderRouter } from './routes/seoPrerender.js';
+import { seoOfferPrerenderRouter } from './routes/seoOfferPrerender.js';
 import { billingRouter, meRouter } from './routes/billing.js';
 import { stripeWebhookRouter } from './routes/stripeWebhook.js';
 import { oauthRouter, wellKnownRouter } from './routes/oauth.js';
 import { mcpRouter } from './routes/mcp.js';
+import { aiVisibilityRouter } from './routes/aiVisibility.js';
 import { apiLimiter } from './middleware/rateLimit.js';
 import { errorHandler } from './middleware/error.js';
 
@@ -115,6 +117,9 @@ app.use('/api/portfolio', portfolioRouter);
 app.use('/api/compare', compareRouter);
 app.use('/api/billing', billingRouter);
 app.use('/api/me', meRouter);
+// Vérificateur public de visibilité IA — sans authentification (outil d'acquisition).
+// Le router porte lui-même le préfixe /ai-visibility de ses routes.
+app.use('/api', aiVisibilityRouter);
 
 // Sitemap dynamique — accessible à DEUX chemins :
 //   - /api/sitemap.xml      (chemin direct, utile en dev local sans rewrite)
@@ -134,6 +139,11 @@ app.use('/', sitemapRouter);
 // que Vercel route via /api/[...all] ou directement).
 app.use('/', seoPrerenderRouter);
 app.use('/api', seoPrerenderRouter);
+
+// Pré-rendu des pages de l'offre SEO (résultat partagé, landing, tarifs). Séparé de
+// seoPrerenderRouter qui fait déjà 3 400 lignes, monté aux deux mêmes chemins.
+app.use('/', seoOfferPrerenderRouter);
+app.use('/api', seoOfferPrerenderRouter);
 
 // 404 fallback (avant l'error handler)
 app.use((req, res) => {

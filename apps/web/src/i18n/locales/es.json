@@ -1871,6 +1871,18 @@
         "title": "Política de privacidad · RGPD · Lubin Investment",
         "desc": "Datos recopilados, finalidades, plazos, encargados (Stripe, Vercel, Neon, OpenAI), tus derechos RGPD y el uso de cookies en Lubin Investment."
       }
+    },
+    "aiVisibility": {
+      "title": "¿Qué ve ChatGPT de tu sitio? Test gratis · Lubin Investment",
+      "desc": "Cuenta en diez segundos las palabras que los rastreadores de IA reciben de tu página. Gratis, sin cuenta."
+    },
+    "auditSeo": {
+      "title": "Auditoría SEO y de visibilidad IA: qué lee ChatGPT de tu sitio · Lubin Investment",
+      "desc": "90 verificaciones SEO con nivel de prueba explícito, más la lista de qué dejar de hacer. Test de visibilidad IA gratis e ilimitado."
+    },
+    "auditSeoPricing": {
+      "title": "Precios de la auditoría SEO y de visibilidad IA: 0 €, 39 €, 149 € o 490 € al mes · Lubin Investment",
+      "desc": "Cuatro planes, límites de páginas, historial y comparativa sectorial. El test de visibilidad IA sigue gratis e ilimitado."
     }
   },
   "notFound": {
@@ -2092,5 +2104,205 @@
     "goLogin": "Iniciar sesión",
     "resend": "Reenviar enlace de confirmación",
     "resent": "Enlace reenviado, revisa tu correo."
+  },
+  "aiVisibility": {
+    "h1": "¿Qué ve ChatGPT de tu página?",
+    "lede": "Pega una dirección. Consultamos tu página con el user-agent real de los rastreadores de IA y contamos las palabras que reciben de verdad.",
+    "placeholder": "ejemplo.es/tu-pagina",
+    "cta": "Verificar",
+    "checking": "Verificando…",
+    "noAccount": "Gratis, sin registro, no se guarda nada.",
+    "loadingDetail": "Dos peticiones en curso: una con el user-agent de un rastreador de IA, otra con el de un navegador.",
+    "errTitle": "Verificación imposible",
+    "errGeneric": "La verificación ha fallado.",
+    "errNetwork": "Conexión imposible. Inténtalo de nuevo.",
+    "wordsSeen": "palabras recibidas por un rastreador de IA",
+    "botSees": "Rastreador de IA",
+    "rawSees": "HTML en bruto",
+    "share": "Copiar enlace",
+    "copied": "Enlace copiado",
+    "excerptTitle": "Lo que lee el rastreador, palabra por palabra",
+    "findingsTitle": "Hallazgos",
+    "evidenceHelp": "Nivel de prueba: test, data, anecdote u opinion — y consensus, single-source o contested.",
+    "nextTitle": "¿Y el resto de la página?",
+    "nextBody": "Esta prueba cubre un punto de noventa. La auditoría completa revisa la indexación, las cinco ubicaciones de la palabra clave, el enlazado interno, la paridad editorial de las comparativas, y enumera el trabajo SEO ya hecho que la medición considera inútil.",
+    "nextCta": "Ver la auditoría completa",
+    "checkAnother": "Probar otra página",
+    "howTitle": "Cómo funciona",
+    "howBody": "Ningún gran rastreador de IA ejecuta JavaScript. GPTBot, ClaudeBot, PerplexityBot, Bytespider y los demás descargan tus archivos .js sin evaluarlos. Si tu página se construye en el navegador, no ven nada.",
+    "howBody2": "Por eso enviamos dos peticiones: una con el user-agent de un rastreador de IA, otra con el de un navegador. La diferencia entre ambas lo dice todo. Muchos sitios sirven una versión prerrenderizada solo a los user-agents que reconocen: un verificador que no enviara el user-agent correcto concluiría erróneamente que el sitio es invisible.",
+    "seoTitleResult": "ChatGPT ve {{n}} palabras de {{host}} · Lubin Investment",
+    "verdict": {
+      "ssr": {
+        "label": "Legible",
+        "sub": "El texto viaja con la página. Los rastreadores de IA y los motores de búsqueda la leen sin ejecutar nada."
+      },
+      "dynamic": {
+        "label": "Legible con condiciones",
+        "sub": "La página se prerrenderiza para los rastreadores reconocidos, pero un navegador recibe una cáscara vacía. La visibilidad depende de una lista de user-agents que hay que mantener: cualquier motor de IA nuevo que falte no verá nada."
+      },
+      "invisible": {
+        "label": "Invisible",
+        "sub": "Esta página necesita JavaScript para mostrar su contenido. Los rastreadores de IA no lo ejecutan: no ven casi nada y la página no puede ser citada."
+      },
+      "thin": {
+        "label": "Poco contenido",
+        "sub": "La página se sirve correctamente, pero contiene muy poco texto. No es un problema de renderizado."
+      }
+    }
+  },
+  "seoOffer": {
+    "h1": "Auditoría SEO y de visibilidad IA, con el nivel de prueba de cada recomendación",
+    "lede": "Una auditoría que rechaza las falsas buenas ideas. Las recomendaciones vienen de un corpus de 839 vídeos destilados en 9 011 afirmaciones, 1 592 de ellas medidas. Cada hallazgo lleva su nivel de prueba, y el producto también te dice qué dejar de hacer.",
+    "ctaTest": "Hacer el test gratis",
+    "ctaPricing": "Ver precios",
+    "heroNote": "El test de visibilidad IA es gratis, ilimitado y sin cuenta.",
+    "startTitle": "Empieza por el test que lo decide todo",
+    "startBody": "Ningún gran rastreador de IA ejecuta JavaScript. Si tu sitio se construye en el navegador, ChatGPT, Claude y Perplexity no ven nada de tus páginas, y ningún otro trabajo SEO sirve antes de arreglar eso.",
+    "checksTitle": "Qué revisa la auditoría",
+    "checksIntro": "Noventa verificaciones, ordenadas por rendimiento: lo gratuito y medido primero, lo caro y supuesto al final.",
+    "group": {
+      "index": {
+        "name": "Existencia e indexación",
+        "detail": "Renderizado sin JavaScript, tasa real de indexación, páginas huérfanas, profundidad de clic, sitemap, forma de las URL."
+      },
+      "onpage": {
+        "name": "On-page",
+        "detail": "Las cinco ubicaciones de la palabra clave, longitud de los títulos, resumen al inicio, texto encerrado en acordeones, enlaces salientes."
+      },
+      "links": {
+        "name": "Enlazado interno",
+        "detail": "Anclas no descriptivas, canibalización, páginas estratégicas demasiado profundas."
+      },
+      "trust": {
+        "name": "Confianza",
+        "detail": "Paridad editorial en las comparativas, firma de autor, página FAQ oficial."
+      }
+    },
+    "stopTitle": "Qué dejar de hacer",
+    "stopIntro": "Es la parte más rentable, porque no pide trabajo: lo elimina. Cuarenta y una tácticas que la medición considera inútiles o nocivas, y que un asistente genérico aplica por reflejo.",
+    "stop": {
+      "schema": {
+        "what": "Marcado schema para el posicionamiento",
+        "why": "cuatro pruebas independientes, incluida una implantación completa de dos años: ningún efecto medible."
+      },
+      "llms": {
+        "what": "Archivo llms.txt",
+        "why": "diez peticiones de rastreadores de IA sobre mil dominios observados. Nadie lo lee."
+      },
+      "cwv": {
+        "what": "Core Web Vitals para el SEO",
+        "why": "un sitio pasó de 40 s a 1,68 s de carga: ningún cambio de tráfico."
+      },
+      "meta": {
+        "what": "Meta descripciones generadas",
+        "why": "medidas como peores que no poner ninguna. Google ignora el 63 %."
+      },
+      "city": {
+        "what": "Páginas por ciudad",
+        "why": "80 % de las posiciones perdidas en treinta días en el caso medido."
+      }
+    },
+    "fixTitle": "Corregir, no solo constatar",
+    "fixBody": "La auditoría corre dentro del asistente que ya usas, así que alcanza lo que esté conectado: tu repositorio, tu hosting, tu Search Console. Veintitrés de las noventa verificaciones salen como Pull Request aplicable — nunca un envío directo a producción, un lote por Pull Request, con el antes/después en la descripción.",
+    "fixHuman": "El resto exige una persona: publicar una herramienta gratuita, responder a peticiones de periodistas, pedir reseñas a clientes. El producto los prioriza y redacta los entregables; no pretende hacerlos por ti.",
+    "vsTitle": "Alternativa a las herramientas SEO clásicas",
+    "vsBody": "Una herramienta como Ahrefs o Semrush entrega un informe. No toca tu código, no sabe qué lee ChatGPT de tus páginas, y no te dirá que dejes el trabajo que te vende. La diferencia no es el volumen de datos, es el nivel de prueba y la capacidad de corregir.",
+    "pricingTitle": "Precios",
+    "pricingDetail": "Detalle de cada plan",
+    "limitsTitle": "Lo que este producto no sabe hacer",
+    "limitsBody": "Mejor decirlo antes de comprar. Ninguna medición del corpus se hizo en francés ni en español: las tasas de resúmenes IA, de cero clic y de citación vienen del inglés — encuadran, no predicen. Ninguna medición cubre sitios realmente pequeños; los casos cuantificados son de sitios que ya tenían tráfico que perder. Nada sobre hreflang. Y cuatro contradicciones del corpus siguen sin resolver: el producto muestra las dos posiciones en vez de elegir una.",
+    "faqTitle": "Preguntas frecuentes",
+    "faq": {
+      "account": {
+        "q": "¿Hace falta una cuenta para probar?",
+        "a": "No. El test de visibilidad IA es gratis, ilimitado y sin cuenta en todos los planes."
+      },
+      "autofix": {
+        "q": "¿Modifica mi sitio por su cuenta?",
+        "a": "No. Las correcciones llegan como Pull Request que tú validas. Nunca un envío directo a producción."
+      },
+      "delay": {
+        "q": "¿Cuánto tarda en verse un efecto?",
+        "a": "Semanas. Por eso los planes de pago conservan el historial: sin antes/después no se puede atribuir un efecto a una corrección."
+      },
+      "source": {
+        "q": "¿Por qué el corpus viene de una sola fuente?",
+        "a": "Porque es lo que permite mantener la trazabilidad: cada afirmación lleva su nivel de prueba y un enlace con marca temporal a su origen. También es una limitación, y está escrita arriba."
+      }
+    },
+    "sourcesTitle": "Verifica el punto central tú mismo",
+    "sourcesBody": "Que los rastreadores de IA no ejecuten JavaScript se verifica en la documentación oficial:",
+    "sourceGoogle": "Google — renderizado dinámico",
+    "sourceOpenai": "OpenAI — sus rastreadores",
+    "pricingH1": "Precios de la auditoría SEO y de visibilidad IA",
+    "pricingLede": "El test de visibilidad IA es gratis e ilimitado en todos los planes, con cuenta o sin ella. Lo que se factura es la auditoría completa del sitio, la conservación del historial y la comparativa sectorial.",
+    "detailTitle": "Qué incluye cada plan",
+    "billingFaqTitle": "Preguntas sobre la facturación",
+    "billingFaq": {
+      "whyFree": {
+        "q": "¿Por qué el test de visibilidad IA sigue siendo gratis?",
+        "a": "Porque cuesta una petición y responde a la pregunta que decide todo lo demás. Racionarlo sería racionar nuestra propia difusión."
+      },
+      "whatCounts": {
+        "q": "¿Qué cuenta exactamente el límite de páginas?",
+        "a": "Las páginas realmente examinadas durante una auditoría. Cada página cuesta peticiones salientes: el límite corresponde a un coste real, no a una restricción inventada. Cuando se alcanza, el informe indica cuántas páginas se descubrieron sin examinar."
+      },
+      "cancel": {
+        "q": "¿Se puede cancelar?",
+        "a": "Sí, desde tu cuenta, y el acceso sigue abierto hasta el final del periodo pagado."
+      },
+      "staleness": {
+        "q": "¿Y si el corpus caduca?",
+        "a": "Es precisamente lo que financia la suscripción. El consejo SEO caduca en doce meses; las reglas se reingestan a medida que aparecen nuevas mediciones."
+      }
+    },
+    "backToOffer": "Volver a la presentación de la oferta",
+    "checkoutCanceled": "Pago cancelado — no se ha cobrado nada.",
+    "resumePlan": "Estabas a punto de elegir el plan {{plan}}.",
+    "notOpenYet": "Este plan aún no está a la venta. El test de visibilidad IA sigue siendo gratis e ilimitado.",
+    "perMonth": "/ mes",
+    "startFree": "Empezar gratis",
+    "choose": "Elegir",
+    "redirecting": "Redirigiendo…",
+    "tableNote": "El test de visibilidad IA es gratis e ilimitado en todos los planes, sin cuenta.",
+    "tier": {
+      "free": {
+        "name": "Gratis",
+        "priceLabel": "0 €",
+        "for": "Ver si el sitio existe para los rastreadores de IA.",
+        "detail": "Test de visibilidad IA ilimitado. Una auditoría completa al mes, limitada a 25 páginas. Sin historial: la auditoría no se conserva, así que no hay antes/después."
+      },
+      "seo_solo": {
+        "name": "Solo",
+        "priceLabel": "39 € al mes",
+        "for": "Un sitio, seguido en el tiempo.",
+        "detail": "Auditorías ilimitadas, hasta 500 páginas por auditoría, un sitio seguido. El historial se conserva: es lo que permite atribuir un efecto a una corrección en un canal donde los efectos tardan semanas."
+      },
+      "seo_studio": {
+        "name": "Studio",
+        "priceLabel": "149 € al mes",
+        "for": "Varios sitios, más la comparativa.",
+        "detail": "Hasta 5 000 páginas por auditoría, diez sitios seguidos, y la comparativa sectorial: tu sitio frente a la mediana de los sitios de la misma stack ya auditados. La comparativa solo aparece por encima de cinco sitios en la cohorte — por debajo sería un número inventado."
+      },
+      "seo_agency": {
+        "name": "Agencia",
+        "priceLabel": "490 € al mes",
+        "for": "Cartera de clientes, informe de marca blanca.",
+        "detail": "Hasta 50 000 páginas por auditoría, sitios seguidos ilimitados, informe de marca blanca."
+      }
+    },
+    "feat": {
+      "aiTest": "Test de visibilidad IA ilimitado",
+      "audits": "{{n}} auditoría(s) completa(s) al mes",
+      "pages": "{{n}} páginas por auditoría",
+      "sites": "{{n}} sitio(s) seguido(s)",
+      "history": "Historial antes/después",
+      "benchmark": "Comparativa sectorial",
+      "whiteLabel": "Informe de marca blanca",
+      "auditsUnlimited": "Auditorías completas ilimitadas",
+      "sitesNone": "Sin seguimiento de sitios",
+      "sitesUnlimited": "Sitios seguidos ilimitados"
+    }
   }
 }

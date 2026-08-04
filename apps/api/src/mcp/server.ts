@@ -7,7 +7,15 @@ import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
 import type { Lang } from '../i18n/index.js';
 import * as tools from './tools.js';
-import { consumeAnalysisQuota, FREE_MAX_COMPARE, MAX_COMPARE, type McpContext } from './gating.js';
+import * as seoTools from './seoTools.js';
+import {
+  AUDITS_PER_MONTH,
+  CRAWL_PAGE_CAP,
+  consumeAnalysisQuota,
+  FREE_MAX_COMPARE,
+  MAX_COMPARE,
+  type McpContext,
+} from './gating.js';
 import { FREE_WATCHLIST_LIMIT } from '../services/watchlistSnapshot.js';
 
 const LangSchema = z.enum(['fr', 'en', 'es']).default('en');
@@ -157,6 +165,53 @@ export function buildMcpServer(ctx: McpContext): McpServer {
     // Supprime une ligne user (réversible via add_to_watchlist), donc destructiveHint.
     annotations: { readOnlyHint: false, destructiveHint: true, idempotentHint: true, openWorldHint: true },
   }, async ({ ticker }) => ok(await tools.removeFromWatchlist(ctx.userId, ticker)));
+
+  // ─── Offre SEO ─────────────────────────────────────────────────────────────
+  // Produit distinct de l'analyse d'actions : il ne partage que l'infrastructure OAuth.
+  // Un résultat `{ ok: false }` porte son propre code et son lien d'upgrade — on le
+  // transmet tel quel plutôt que de le réécrire, pour que l'assistant puisse proposer
+  // l'action suivante au lieu d'annoncer un refus sec.
+  const seoOut = (r: { ok: boolean; message?: string }): ToolResult =>
+    r.ok ? ok(r) : fail(r.message ?? 'Refusé.', { ...(r as object) } as Record<string, unknown>);
+
+  server.registerTool('seo_ai_visibility', {
+    title: 'Visibilité IA d’une page',
+    description:
+      "Compte les mots qu'un robot d'IA reçoit RÉELLEMENT d'une page, en l'interrogeant avec un vrai user-agent de robot. Verdict en quatre états : ssr (le texte part avec la page), dynamic (pré-rendu conditionné à l'user-agent), invisible (la page a besoin de JavaScript), thin (servie mais peu de texte). GRATUIT et ILLIMITÉ, tous paliers, aucun quota. Attention : interroger l'URL avec un user-agent ordinaire donne un faux « invisible » sur tout site qui fait du pré-rendu conditionnel — c'est pour ça que ce tool existe.",
+    inputSchema: { url: z.string().min(1).max(2048) },
+    annotations: READ_ONLY,
+  }, async ({ url }) => seoOut(await seoTools.aiVisibility(url)));
+
+  server.registerTool('seo_audit', {
+    title: 'Auditer un site',
+    description: `Crawle un site et rend les constats agrégés, triés par gravité, chacun avec son niveau de preuve. Couvre le rendu, les pages orphelines, la profondeur de clic, les titres, les résumés en tête, le texte caché, les liens sortants, les ancres et le balisage inutile. DÉCOMPTÉ du quota mensuel (${AUDITS_PER_MONTH.free} audit en palier gratuit, illimité au-delà) et borné en pages selon le palier (${CRAWL_PAGE_CAP.free} / ${CRAWL_PAGE_CAP.solo} / ${CRAWL_PAGE_CAP.studio} / ${CRAWL_PAGE_CAP.agency}). Pour un simple test de rendu sur une page, utiliser seo_ai_visibility qui est gratuit.`,
+    inputSchema: { url: z.string().min(1).max(2048) },
+    annotations: READ_ONLY,
+  }, async ({ url }) => seoOut(await seoTools.auditSite(ctx, url)));
+
+  server.registerTool('seo_history', {
+    title: 'Historique des audits',
+    description:
+      "Évolution des indicateurs d'un site audit après audit : constats bloquants, avertissements, mots vus par un robot, orphelines, profondeur. C'est ce qui permet de rattacher une correction à son effet. Palier Solo et au-delà.",
+    inputSchema: { host: z.string().max(255).optional() },
+    annotations: READ_ONLY,
+  }, async ({ host }) => seoOut(await seoTools.seoHistory(ctx, host)));
+
+  server.registerTool('seo_benchmark', {
+    title: 'Comparatif sectoriel',
+    description:
+      "Situe un site face à la médiane des sites de MÊME STACK déjà audités (comparer un Webflow à un Next.js n'apprend rien). Ne renvoie une médiane qu'au-delà de 5 sites dans la cohorte — en dessous ce serait un chiffre inventé. Palier Studio et au-delà.",
+    inputSchema: { host: z.string().min(1).max(255) },
+    annotations: READ_ONLY,
+  }, async ({ host }) => seoOut(await seoTools.seoBenchmark(ctx, host)));
+
+  server.registerTool('seo_plan', {
+    title: 'Plafonds du palier courant',
+    description:
+      "Palier SEO de l'utilisateur et ses plafonds (audits par mois, pages par crawl, sites suivis, historique, comparatif). À appeler avant de proposer un audit pour savoir ce qui est disponible sans tâtonner.",
+    inputSchema: {},
+    annotations: READ_ONLY,
+  }, async () => ok(seoTools.seoPlan(ctx)));
 
   return server;
 }

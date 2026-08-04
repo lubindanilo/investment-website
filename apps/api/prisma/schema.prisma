@@ -23,45 +23,64 @@ datasource db {
 /// Utilisateur — auth email/password locale (pas de social pour le moment).
 /// Le passwordHash est un bcrypt cost 12. L'email est normalisé en lowercase à l'insert.
 model User {
-  id           String   @id @default(cuid())
-  email        String   @unique
-  passwordHash String
+  id            String   @id @default(cuid())
+  email         String   @unique
+  passwordHash  String
   /// Prénom / nom saisis à l'inscription. Nullable : les comptes créés avant cette
   /// colonne n'en ont pas (les initiales du menu sont alors dérivées de l'email).
-  firstName    String?
-  lastName     String?
+  firstName     String?
+  lastName      String?
   /// Email vérifié via le lien envoyé à l'inscription. Non bloquant (signal de confiance).
-  emailVerified Boolean @default(false)
-  createdAt    DateTime @default(now())
+  emailVerified Boolean  @default(false)
+  createdAt     DateTime @default(now())
 
   // ─── Abonnement Stripe ─────────────────────────────────────────────────────
   /// Customer ID Stripe — créé au premier checkout, réutilisé pour le portail
   /// de gestion d'abonnement. Null tant que l'utilisateur n'a jamais tenté un
   /// paiement.
-  stripeCustomerId String? @unique
+  stripeCustomerId             String?   @unique
   /// Statut d'abonnement : `free` (défaut), `active`, `past_due`, `canceled`,
   /// `unpaid`, `incomplete`, `incomplete_expired`. Mis à jour par le webhook
   /// Stripe (customer.subscription.created/updated/deleted).
-  subscriptionStatus String @default("free")
+  subscriptionStatus           String    @default("free")
   /// Plan en cours : `monthly` ou `yearly` (null si free).
-  subscriptionPlan   String?
+  subscriptionPlan             String?
   /// Fin de la période payée en cours — l'accès Pro reste actif jusqu'à cette
   /// date même si l'utilisateur a déjà annulé (renouvellement off). Source de
   /// vérité pour le gate `isPro` côté API.
   subscriptionCurrentPeriodEnd DateTime?
   /// Stripe subscription ID — utile pour les webhooks et le portail.
-  stripeSubscriptionId String? @unique
+  stripeSubscriptionId         String?   @unique
 
   // ─── Quota d'analyses gratuites ────────────────────────────────────────────
   /// Nombre d'analyses faites aujourd'hui (UTC). Reset par dailyAnalysisResetAt.
   /// Non utilisé pour les utilisateurs Pro (= illimité).
-  dailyAnalysisCount Int      @default(0)
+  dailyAnalysisCount   Int      @default(0)
   /// Date du début de la fenêtre 24h en cours. Le compteur reset quand un
   /// nouvel appel arrive après que 24h se soient écoulées depuis cette date.
   dailyAnalysisResetAt DateTime @default(now())
 
-  watchlist WatchlistEntry[]
-  portfolio PortfolioPosition[]
+  // ─── Offre SEO : niveau de plan + quota d'audits ───────────────────────────
+  /// Niveau de l'offre SEO : `free` | `solo` | `studio` | `agency`.
+  ///
+  /// Distinct de `subscriptionPlan`, qui dit la PÉRIODICITÉ (`monthly`/`yearly`) de
+  /// l'abonnement historique Lubin Investment. Ici c'est le NIVEAU de service, dérivé du
+  /// price ID Stripe par `seoTierFromPriceId`. Les deux coexistent : un abonné Pro
+  /// « investissement » n'est pas automatiquement client de l'offre SEO.
+  ///
+  /// `free` par défaut, y compris pour les comptes existants — aucune régression.
+  seoTier             String   @default("free")
+  /// Nombre d'audits complets lancés dans la fenêtre de 30 jours en cours.
+  /// Le test de visibilité IA n'est JAMAIS décompté ici : c'est l'outil d'acquisition,
+  /// il reste gratuit et illimité pour tout le monde.
+  monthlyAuditCount   Int      @default(0)
+  /// Début de la fenêtre glissante de 30 jours. Même motif que dailyAnalysisResetAt :
+  /// reset paresseux au premier appel arrivant après expiration, pas de cron.
+  monthlyAuditResetAt DateTime @default(now())
+
+  watchlist          WatchlistEntry[]
+  siteAudits         SiteAudit[]
+  portfolio          PortfolioPosition[]
   oauthAuthCodes     OAuthAuthCode[]
   oauthRefreshTokens OAuthRefreshToken[]
 }
@@ -136,18 +155,18 @@ model ManagementAnalysis {
 
 /// Snapshot Resilience publie, calcule hors du chemin de lecture d'Analyze.
 model ResilienceAnalysis {
-  ticker        String
-  version       String
-  status        String
-  analysis      Json?
+  ticker          String
+  version         String
+  status          String
+  analysis        Json?
   researchDossier String?
-  researchHash  String?
-  asOf          DateTime?
-  attempts      Int      @default(0)
-  lastError     String?
-  lastAttemptAt DateTime?
-  createdAt     DateTime @default(now())
-  refreshedAt   DateTime @default(now())
+  researchHash    String?
+  asOf            DateTime?
+  attempts        Int       @default(0)
+  lastError       String?
+  lastAttemptAt   DateTime?
+  createdAt       DateTime  @default(now())
+  refreshedAt     DateTime  @default(now())
 
   @@id([ticker, version])
   @@index([version, status, refreshedAt])
@@ -262,38 +281,38 @@ model FundamentalsSeries {
 ///
 /// Couverture progressive : priority 0=US, 1=EU, 2=OTHER (le worker pioche dans cet ordre).
 model ScreenerTicker {
-  ticker             String    @id
-  exchange           String?
-  name               String?
-  currency           String?
-  region             String    @default("US")
-  priority           Int       @default(0)
+  ticker                  String    @id
+  exchange                String?
+  name                    String?
+  currency                String?
+  region                  String    @default("US")
+  priority                Int       @default(0)
   /// pending | scored | nodata | error
-  status             String    @default("pending")
-  scoreChiffres      Int?
-  scoreChiffresMax   Int?
+  status                  String    @default("pending")
+  scoreChiffres           Int?
+  scoreChiffresMax        Int?
   /// scoreChiffres / scoreChiffresMax — indexé pour le tri "meilleures notes"
-  scoreRatio         Float?
-  pfcfTTM            Float?
+  scoreRatio              Float?
+  pfcfTTM                 Float?
   /// Métadonnées d'affichage du screener
-  sector             String?
-  price              Float?
+  sector                  String?
+  price                   Float?
   /// Variation du jour en %
-  dayChangePct       Float?
+  dayChangePct            Float?
   /// Capitalisation boursière figée au scoring, en DEVISE LOCALE du titre (donc en pence pour
   /// Londres, en yens pour Tokyo). Recoupée entre le recalcul prix × actions et la valeur publiée
   /// par le fournisseur, cf. services/marketCapResolve.ts. Null quand rien n'est vérifiable.
   /// Sert à l'AFFICHAGE ; ne jamais y appliquer un seuil en dollars.
-  marketCap          Float?
+  marketCap               Float?
   /// marketCap normalisé en USD (table de change statique, cf. marketTiers.ts). C'est la colonne
   /// COMPARABLE entre bourses : elle porte le filtre Small/Mid/Large du screener ET les tiers de
   /// cadence de re-scoring. Null quand la capitalisation n'est pas déterminable.
-  marketCapUsd       Float?
+  marketCapUsd            Float?
   /// Closes mensuels ~1 an pour la sparkline (number[])
-  spark              Json?
-  fundamentalsSource String?
+  spark                   Json?
+  fundamentalsSource      String?
   /// Date du prochain earnings (YYYY-MM-DD) — pilote le re-scoring
-  nextEarningsDate   String?
+  nextEarningsDate        String?
   /// Dernière fois que les DONNÉES FINANCIÈRES de ce titre ont réellement CHANGÉ (nouveau
   /// trimestre publié, révision des comptes). PAS la dernière fois qu'on a fait tourner le
   /// scoring : un re-scoring qui retrouve les mêmes fondamentaux ne touche PAS ce champ.
@@ -301,33 +320,33 @@ model ScreenerTicker {
   /// rester un signal de fraîcheur HONNÊTE. Bumper la date sans changement de contenu est
   /// mesuré comme contre-productif quand c'est fait en masse.
   /// ⚠️ Pour la CADENCE de re-scoring, utiliser `lastAttemptAt`, jamais ce champ.
-  lastScoredAt       DateTime?
+  lastScoredAt            DateTime?
   /// Dernière TENTATIVE de scoring, qu'elle ait réussi ou échoué. Pilote toute la cadence :
   /// cooldown de re-tentative, TTL de rafraîchissement par tier, ordre de la file.
   /// Séparé de `lastScoredAt` depuis 2026-08-04 : avant, un échec transitoire (throttle Yahoo
   /// depuis les IP Vercel) bumpait `lastScoredAt` et faisait donc avancer le `lastmod` SEO
   /// sans qu'une seule donnée ait changé.
-  lastAttemptAt      DateTime?
+  lastAttemptAt           DateTime?
   /// Empreinte des fondamentaux INDÉPENDANTS DU COURS (note + marges, croissances, ROCE,
   /// dette, CCC…). Sert uniquement à répondre à « est-ce que de vraies nouvelles données
   /// sont arrivées ? ». Exclut délibérément prix, capitalisation et P/FCF, qui bougent
   /// chaque jour sans qu'aucun compte n'ait été publié.
   fundamentalsFingerprint String?
-  attempts           Int       @default(0)
+  attempts                Int       @default(0)
   /// Dernière fois que les séries de graphiques (ChartCache) ont été préremplies pour ce
   /// ticker. Null = jamais → la veille les comble progressivement (comme elle a scoré l'univers).
-  chartsWarmedAt     DateTime?
+  chartsWarmedAt          DateTime?
   /// « Opportunité du moment » : P/FCF dans son décile bas historique (≤10) ET < 25.
-  opportunity        Boolean   @default(false)
+  opportunity             Boolean   @default(false)
   /// Percentile actuel du P/FCF vs son historique (0-100). Null si indisponible.
-  pfcfPercentile     Float?
+  pfcfPercentile          Float?
   /// Seuil P/FCF du décile bas historique (valeur au 10e percentile), figé au scoring.
   /// Permet de RÉ-ÉVALUER l'opportunité EN LIVE (pfcf_live ≤ pfcfDecile10) avec juste le prix
   /// du jour, sans recharger toute la distribution. La distribution ne bouge qu'aux earnings.
-  pfcfDecile10       Float?
+  pfcfDecile10            Float?
   /// Dernière ré-évaluation LIVE du flag opportunity (au prix du jour). Pilote le throttle (~10 min).
-  oppRefreshedAt     DateTime?
-  updatedAt          DateTime  @updatedAt
+  oppRefreshedAt          DateTime?
+  updatedAt               DateTime  @updatedAt
 
   /// Index de la FILE de scoring : elle trie et filtre désormais sur lastAttemptAt.
   @@index([status, priority, lastAttemptAt])
@@ -339,12 +358,12 @@ model ScreenerTicker {
 /// Les champs `snapshot` + `refreshedAt` sont legacy — gardés pour backward-compat mais
 /// plus utilisés depuis l'introduction de TickerQuantSnapshot (cache global).
 model WatchlistEntry {
-  id        Int      @id @default(autoincrement())
-  userId    String
-  ticker    String
-  addedAt   DateTime @default(now())
+  id          Int       @id @default(autoincrement())
+  userId      String
+  ticker      String
+  addedAt     DateTime  @default(now())
   /// Snapshot du dernier refresh (P/FCF, score chiffres, etc.) — nullable au premier ajout
-  snapshot  Json?
+  snapshot    Json?
   /// Date du dernier rafraîchissement
   refreshedAt DateTime?
 
@@ -452,4 +471,61 @@ model OAuthRefreshToken {
 
   @@index([userId])
   @@index([expiresAt])
+}
+
+/// Audit SEO historisé — un enregistrement par site et par passage.
+///
+/// C'est la table qui transforme un audit ponctuel en abonnement : sans historique, on vend
+/// un one-shot ; avec, on peut dire « tu as corrigé A1 il y a trois semaines, voilà ce que
+/// ton taux d'indexation a fait depuis ». Sur un canal où les effets prennent des semaines,
+/// c'est la seule façon de prouver la valeur.
+///
+/// C'est aussi la matière du comparatif sectoriel : la médiane par stack et par taille de
+/// site se calcule sur l'agrégat de cette table. Personne ne peut la copier, et elle
+/// s'améliore à chaque client — donc elle ne stocke QUE des données publiques (ce que
+/// n'importe qui verrait en visitant le site), jamais de contenu privé.
+model SiteAudit {
+  id       String @id @default(cuid())
+  userId   String
+  /// Hôte canonique audité (`exemple.fr`), sans schéma ni slash final. Sert de clé de
+  /// regroupement pour l'historique d'un même site.
+  host     String
+  /// URL exacte du point d'entrée demandé.
+  entryUrl String
+
+  createdAt DateTime @default(now())
+  /// Plan au moment de l'audit — un historique doit rester interprétable même si
+  /// l'utilisateur change de palier ensuite (le plafond de crawl appliqué en dépend).
+  tier      String
+
+  // ─── Indicateurs suivis dans le temps ────────────────────────────────────
+  /// Verdict de rendu du point d'entrée : `ssr` | `dynamic` | `invisible` | `thin`.
+  renderVerdict  String
+  /// Pages réellement examinées (borné par le plafond du plan).
+  pagesCrawled   Int
+  /// Pages découvertes mais NON examinées faute de plafond. Non nul = l'utilisateur voit
+  /// concrètement ce que son palier lui coûte, sans qu'on ait à le lui dire.
+  pagesSkipped   Int     @default(0)
+  /// Nombre de constats par gravité, pour tracer une courbe sans relire le détail.
+  blockingCount  Int     @default(0)
+  warnCount      Int     @default(0)
+  /// Mots médians vus par un robot d'IA sur les pages examinées.
+  medianBotWords Int     @default(0)
+  /// Pages orphelines détectées (A5), profondeur maximale constatée (A6).
+  orphanCount    Int     @default(0)
+  maxDepth       Int     @default(0)
+  /// Stack devinée depuis les en-têtes et le HTML (`next`, `vite`, `webflow`, `wordpress`…).
+  /// Sert d'axe au comparatif sectoriel : la médiane n'a de sens qu'à stack comparable.
+  stack          String?
+
+  /// Rapport complet sérialisé (constats, par page). Json et pas des colonnes : le format
+  /// des constats bougera à chaque mise à jour du corpus, et on ne veut pas une migration
+  /// par nouvelle vérification.
+  report Json
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([host, createdAt])
+  @@index([stack])
 }

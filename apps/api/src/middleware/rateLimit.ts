@@ -3,6 +3,7 @@
  * Distinct des limiteurs OUTBOUND (lib/limiter.ts) qui protègent les fournisseurs externes.
  */
 import rateLimit, { type RateLimitRequestHandler } from 'express-rate-limit';
+import { storeOption } from './rateLimitStore.js';
 
 /**
  * En tests on désactive tous les limiters (NODE_ENV=test).
@@ -19,6 +20,7 @@ const handler = (label: string, limit: number): RateLimitRequestHandler => rateL
   // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
   // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
   validate: { trustProxy: false },
+  ...storeOption(),
   message: { error: `Trop de requêtes — réessaie dans une minute.`, scope: label },
   skip: () => SKIP_IN_TESTS,
 });
@@ -44,6 +46,7 @@ export const apiLimiter = rateLimit({
   // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
   // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
   validate: { trustProxy: false },
+  ...storeOption(),
   message: { error: `Trop de requêtes — réessaie dans une minute.`, scope: 'global' },
   skip: (req) => {
     if (SKIP_IN_TESTS) return true;
@@ -64,6 +67,7 @@ export const analyzeLimiter = rateLimit({
   // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
   // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
   validate: { trustProxy: false },
+  ...storeOption(),
   message: { error: 'Trop d\'analyses récentes — patiente 1 minute.', scope: 'analyze' },
   skip: () => SKIP_IN_TESTS,
 });
@@ -77,6 +81,7 @@ export const watchlistMutateLimiter = rateLimit({
   // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
   // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
   validate: { trustProxy: false },
+  ...storeOption(),
   message: { error: 'Trop de modifications de watchlist — patiente.', scope: 'watchlist' },
   skip: () => SKIP_IN_TESTS,
 });
@@ -92,6 +97,7 @@ export const oauthRegisterLimiter = rateLimit({
   standardHeaders: 'draft-7',
   legacyHeaders: false,
   validate: { trustProxy: false },
+  ...storeOption(),
   message: { error: 'Trop d\'enregistrements de clients — patiente 1 minute.', scope: 'oauth-register' },
   skip: () => SKIP_IN_TESTS,
 });
@@ -107,6 +113,7 @@ export const oauthTokenLimiter = rateLimit({
   standardHeaders: 'draft-7',
   legacyHeaders: false,
   validate: { trustProxy: false },
+  ...storeOption(),
   message: { error: 'Trop de requêtes de token — patiente 1 minute.', scope: 'oauth-token' },
   skip: () => SKIP_IN_TESTS,
 });
@@ -123,7 +130,28 @@ export const mcpLimiter = rateLimit({
   standardHeaders: 'draft-7',
   legacyHeaders: false,
   validate: { trustProxy: false },
+  ...storeOption(),
   message: { error: 'Trop de requêtes MCP — patiente 1 minute.', scope: 'mcp' },
+  skip: () => SKIP_IN_TESTS,
+});
+
+/**
+ * /ai-visibility — 12/min/IP.
+ *
+ * Endpoint public SANS compte : c'est l'outil d'acquisition, il doit rester sans friction.
+ * Mais chaque appel déclenche DEUX requêtes HTTP sortantes vers une URL fournie par
+ * l'utilisateur — donc c'est aussi un amplificateur potentiel (on fait requêter notre
+ * infra à la place de l'appelant). 12/min laisse un humain enchaîner ses pages et rend
+ * l'usage en proxy de scan inintéressant. La garde SSRF est dans lib/aiVisibility.ts.
+ */
+export const aiVisibilityLimiter = rateLimit({
+  windowMs: 60_000,
+  limit: 12,
+  standardHeaders: 'draft-7',
+  legacyHeaders: false,
+  validate: { trustProxy: false },
+  ...storeOption(),
+  message: { error: 'Trop de vérifications — patiente une minute.', scope: 'ai-visibility' },
   skip: () => SKIP_IN_TESTS,
 });
 
@@ -141,6 +169,7 @@ export const authLimiter = rateLimit({
   // trust proxy est activé (Vercel) → on désactive la validation "permissive trust proxy"
   // d'express-rate-limit (un simple warning console, sans incidence sur le keying par IP).
   validate: { trustProxy: false },
+  ...storeOption(),
   message: { error: 'Trop de tentatives — patiente 1 minute.', scope: 'auth' },
   skip: () => SKIP_IN_TESTS,
 });

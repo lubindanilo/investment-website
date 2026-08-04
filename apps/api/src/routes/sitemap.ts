@@ -60,6 +60,13 @@ const STATIC_PAGES: Array<{ path: string; changefreq: string; priority: number }
   { path: '/palmares',          changefreq: 'monthly', priority: 0.6 },
   { path: '/faq',               changefreq: 'monthly', priority: 0.7 },
   { path: '/blog',              changefreq: 'weekly',  priority: 0.7 },
+  // Offre SEO. `/visibilite-ia` est l'outil gratuit (l'entrée du tunnel), la landing et les
+  // tarifs sont les pages de décision. Les URL de RÉSULTAT `/visibilite-ia/<cible>` ne sont
+  // volontairement PAS listées : ce sont des milliers de pages générées par les visiteurs,
+  // quasi dupliquées, et elles sortent déjà en noindex côté pré-rendu.
+  { path: '/audit-seo',         changefreq: 'weekly',  priority: 0.9 },
+  { path: '/audit-seo/tarifs',  changefreq: 'weekly',  priority: 0.8 },
+  { path: '/visibilite-ia',     changefreq: 'weekly',  priority: 0.9 },
   { path: '/mentions-legales',  changefreq: 'yearly',  priority: 0.2 },
   { path: '/cgu',               changefreq: 'yearly',  priority: 0.2 },
   { path: '/cgv',               changefreq: 'yearly',  priority: 0.2 },

@@ -311,7 +311,9 @@ export const api = {
    * existant). Les deux retournent une URL Stripe vers laquelle rediriger l'utilisateur.
    */
   billing: {
-    checkout: (plan: 'monthly' | 'yearly') =>
+    // `monthly`/`yearly` = offre investissement ; `seo_*` = paliers de l'offre SEO.
+    // Même endpoint, même customer Stripe, le webhook distingue par le price ID.
+    checkout: (plan: 'monthly' | 'yearly' | 'seo_solo' | 'seo_studio' | 'seo_agency') =>
       safeRequest<{ url: string }>('/api/billing/checkout', {
         method: 'POST',
         body: JSON.stringify({ plan }),

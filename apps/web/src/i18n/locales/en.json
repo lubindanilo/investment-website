@@ -1871,6 +1871,18 @@
         "title": "Privacy policy · GDPR · Lubin Investment",
         "desc": "Data collected, purposes, retention, processors (Stripe, Vercel, Neon, OpenAI), your GDPR rights and the use of cookies on Lubin Investment."
       }
+    },
+    "aiVisibility": {
+      "title": "What does ChatGPT see on your site? Free test · Lubin Investment",
+      "desc": "Count in ten seconds the words AI crawlers actually receive from your page. Free, no account."
+    },
+    "auditSeo": {
+      "title": "SEO and AI-visibility audit: what ChatGPT reads of your site · Lubin Investment",
+      "desc": "90 SEO checks with explicit evidence levels, plus the list of what to stop doing. Free unlimited AI-visibility test."
+    },
+    "auditSeoPricing": {
+      "title": "SEO and AI-visibility audit pricing: €0, €39, €149 or €490 per month · Lubin Investment",
+      "desc": "Four tiers, page caps, history and sector benchmark. The AI-visibility test stays free and unlimited."
     }
   },
   "notFound": {
@@ -2092,5 +2104,205 @@
     "goLogin": "Sign in",
     "resend": "Resend confirmation link",
     "resent": "Link resent, check your inbox."
+  },
+  "aiVisibility": {
+    "h1": "What does ChatGPT see on your page?",
+    "lede": "Paste an address. We request your page with the real user-agent of AI crawlers and count the words they actually receive.",
+    "placeholder": "example.com/your-page",
+    "cta": "Check",
+    "checking": "Checking…",
+    "noAccount": "Free, no signup, nothing stored.",
+    "loadingDetail": "Two requests running: one with an AI crawler user-agent, one with a browser user-agent.",
+    "errTitle": "Check failed",
+    "errGeneric": "The check failed.",
+    "errNetwork": "Connection failed. Try again.",
+    "wordsSeen": "words received by an AI crawler",
+    "botSees": "AI crawler",
+    "rawSees": "Raw HTML",
+    "share": "Copy link",
+    "copied": "Link copied",
+    "excerptTitle": "What the crawler reads, word for word",
+    "findingsTitle": "Findings",
+    "evidenceHelp": "Evidence level: test, data, anecdote or opinion — plus consensus, single-source or contested.",
+    "nextTitle": "What about the rest of the page?",
+    "nextBody": "This test covers one point out of ninety. The full audit goes through indexation, the five keyword placements, internal linking, editorial parity in comparison pages, and lists the SEO work already in place that measurement says is useless.",
+    "nextCta": "See the full audit",
+    "checkAnother": "Check another page",
+    "howTitle": "How it works",
+    "howBody": "No major AI crawler executes JavaScript. GPTBot, ClaudeBot, PerplexityBot, Bytespider and the others download your .js files without evaluating them. If your page is built in the browser, they see nothing.",
+    "howBody2": "So we send two requests: one with an AI crawler user-agent, one with a browser user-agent. The gap between them tells the whole story. Many sites serve a prerendered version only to user-agents they recognise — a checker that failed to send the right user-agent would wrongly conclude the site is invisible.",
+    "seoTitleResult": "ChatGPT sees {{n}} words of {{host}} · Lubin Investment",
+    "verdict": {
+      "ssr": {
+        "label": "Readable",
+        "sub": "The text ships with the page. AI crawlers and search engines read it without executing anything."
+      },
+      "dynamic": {
+        "label": "Conditionally readable",
+        "sub": "The page is prerendered for recognised crawlers, but a browser receives an empty shell. Visibility depends on a user-agent list you have to maintain: any new AI engine missing from it sees nothing."
+      },
+      "invisible": {
+        "label": "Invisible",
+        "sub": "This page needs JavaScript to show its content. AI crawlers do not run it: they see almost nothing, and the page cannot be cited."
+      },
+      "thin": {
+        "label": "Little content",
+        "sub": "The page is served correctly, but it holds very little text. This is not a rendering problem."
+      }
+    }
+  },
+  "seoOffer": {
+    "h1": "SEO and AI-visibility audit, with the evidence level of every recommendation",
+    "lede": "An audit that refuses the popular bad ideas. Recommendations come from a corpus of 839 videos distilled into 9,011 claims, 1,592 of them measured. Every finding carries its evidence level — and the product also tells you what to stop doing.",
+    "ctaTest": "Run the free test",
+    "ctaPricing": "See pricing",
+    "heroNote": "The AI-visibility test is free, unlimited, and needs no account.",
+    "startTitle": "Start with the test that decides everything else",
+    "startBody": "No major AI crawler executes JavaScript. If your site is built in the browser, ChatGPT, Claude and Perplexity see nothing of your pages — and no other SEO work matters until that is fixed.",
+    "checksTitle": "What the audit checks",
+    "checksIntro": "Ninety checks, ranked by return: free and measured first, expensive and assumed last.",
+    "group": {
+      "index": {
+        "name": "Existence and indexation",
+        "detail": "Rendering without JavaScript, real indexation rate, orphan pages, click depth, sitemap, URL shape."
+      },
+      "onpage": {
+        "name": "On-page",
+        "detail": "The five keyword placements, title length, lead summary, text locked in accordions, outbound links."
+      },
+      "links": {
+        "name": "Internal linking",
+        "detail": "Non-descriptive anchors, cannibalisation, strategic pages buried too deep."
+      },
+      "trust": {
+        "name": "Trust",
+        "detail": "Editorial parity in comparison pages, author bylines, official FAQ page."
+      }
+    },
+    "stopTitle": "What to stop doing",
+    "stopIntro": "This is the most profitable part, because it asks for no work — it removes some. Forty-one tactics that measurement says are useless or harmful, and that a general-purpose assistant applies by reflex.",
+    "stop": {
+      "schema": {
+        "what": "Schema markup for rankings",
+        "why": "four independent tests, including a full two-year rollout: no measurable effect."
+      },
+      "llms": {
+        "what": "An llms.txt file",
+        "why": "ten AI-crawler requests across a thousand observed domains. Nobody reads it."
+      },
+      "cwv": {
+        "what": "Core Web Vitals for SEO",
+        "why": "a site went from 40 s to 1.68 s load time: no traffic change at all."
+      },
+      "meta": {
+        "what": "Generated meta descriptions",
+        "why": "measured as performing worse than no description. Google ignores 63 % of them."
+      },
+      "city": {
+        "what": "City pages",
+        "why": "80 % of rankings lost in thirty days in the measured case."
+      }
+    },
+    "fixTitle": "Fix, not just report",
+    "fixBody": "The audit runs inside the assistant you already use, so it reaches whatever is connected there: your repository, your host, your Search Console. Twenty-three of the ninety checks come out as an appliable Pull Request — never a direct push to production, one batch per Pull Request, with the before/after in the description.",
+    "fixHuman": "The rest needs a human: publishing a free tool, answering journalist requests, asking customers for reviews. The product prioritises them and drafts the deliverables; it does not pretend to do them for you.",
+    "vsTitle": "An alternative to classic SEO tools",
+    "vsBody": "A tool like Ahrefs or Semrush hands you a report. It does not touch your code, it does not know what ChatGPT reads of your pages, and it will not tell you to stop the work it sells you. The difference is not data volume — it is evidence level and the ability to fix.",
+    "pricingTitle": "Pricing",
+    "pricingDetail": "Full breakdown of each tier",
+    "limitsTitle": "What this product cannot do",
+    "limitsBody": "Better said before you buy. None of the corpus measurements were made in French: AI-summary, zero-click and citation rates all come from English — they frame, they do not predict. No measurement covers genuinely small sites; the quantified cases involve sites that already had traffic to lose. Nothing on hreflang. And four contradictions in the corpus remain unresolved: the product shows both positions instead of picking one.",
+    "faqTitle": "Frequently asked questions",
+    "faq": {
+      "account": {
+        "q": "Do I need an account to test?",
+        "a": "No. The AI-visibility test is free, unlimited and account-free on every tier."
+      },
+      "autofix": {
+        "q": "Does it change my site on its own?",
+        "a": "No. Fixes arrive as a Pull Request you approve. Never a direct push to production."
+      },
+      "delay": {
+        "q": "How long before I see an effect?",
+        "a": "Weeks. That is why the paid tiers keep history: without a before/after you cannot tie a fix to its effect."
+      },
+      "source": {
+        "q": "Why does the corpus come from a single source?",
+        "a": "Because that is what keeps it traceable: every claim carries its evidence level and a timestamped link to its origin. It is also a limitation, stated above."
+      }
+    },
+    "sourcesTitle": "Verify the central claim yourself",
+    "sourcesBody": "That AI crawlers do not execute JavaScript is verifiable in the official documentation:",
+    "sourceGoogle": "Google — dynamic rendering",
+    "sourceOpenai": "OpenAI — its crawlers",
+    "pricingH1": "Pricing for the SEO and AI-visibility audit",
+    "pricingLede": "The AI-visibility test is free and unlimited on every tier, account or not. What is billed is the full site audit, keeping the history, and the sector benchmark.",
+    "detailTitle": "What each tier includes",
+    "billingFaqTitle": "Billing questions",
+    "billingFaq": {
+      "whyFree": {
+        "q": "Why does the AI-visibility test stay free?",
+        "a": "Because it costs one request and answers the question that decides everything else. Rationing it would mean rationing our own distribution."
+      },
+      "whatCounts": {
+        "q": "What exactly does the page cap count?",
+        "a": "Pages actually examined during an audit. Each page costs outbound requests: the cap maps to a real cost, not an invented restriction. When it is reached, the report says how many pages were discovered without being examined."
+      },
+      "cancel": {
+        "q": "Can I cancel?",
+        "a": "Yes, from your account, and access stays open until the end of the paid period."
+      },
+      "staleness": {
+        "q": "What if the corpus goes stale?",
+        "a": "That is precisely what the subscription funds. SEO advice goes stale within twelve months; the rules are re-ingested as new measurements appear."
+      }
+    },
+    "backToOffer": "Back to the offer",
+    "checkoutCanceled": "Payment cancelled — nothing was charged.",
+    "resumePlan": "You were about to pick the {{plan}} tier.",
+    "notOpenYet": "This tier is not open for sale yet. The AI-visibility test stays free and unlimited.",
+    "perMonth": "/ month",
+    "startFree": "Start for free",
+    "choose": "Choose",
+    "redirecting": "Redirecting…",
+    "tableNote": "The AI-visibility test is free and unlimited on every tier, no account needed.",
+    "tier": {
+      "free": {
+        "name": "Free",
+        "priceLabel": "0 €",
+        "for": "See whether the site exists for AI crawlers.",
+        "detail": "Unlimited AI-visibility testing. One full audit per month, capped at 25 pages. No history: the audit is not kept, so there is no before/after."
+      },
+      "seo_solo": {
+        "name": "Solo",
+        "priceLabel": "39 € per month",
+        "for": "One site, tracked over time.",
+        "detail": "Unlimited audits, up to 500 pages per audit, one site tracked. History is kept — that is what lets you tie a fix to its effect on a channel where effects take weeks."
+      },
+      "seo_studio": {
+        "name": "Studio",
+        "priceLabel": "149 € per month",
+        "for": "Several sites, plus the benchmark.",
+        "detail": "Up to 5,000 pages per audit, ten sites tracked, and the sector benchmark: your site against the median of already-audited sites on the same stack. The benchmark only appears beyond five sites in the cohort — below that it would be an invented number."
+      },
+      "seo_agency": {
+        "name": "Agency",
+        "priceLabel": "490 € per month",
+        "for": "Client portfolio, white-label report.",
+        "detail": "Up to 50,000 pages per audit, unlimited sites tracked, white-label report."
+      }
+    },
+    "feat": {
+      "aiTest": "Unlimited AI-visibility testing",
+      "audits": "{{n}} full audit(s) per month",
+      "pages": "{{n}} pages per audit",
+      "sites": "{{n}} site(s) tracked",
+      "history": "Before/after history",
+      "benchmark": "Sector benchmark",
+      "whiteLabel": "White-label report",
+      "auditsUnlimited": "Unlimited full audits",
+      "sitesNone": "No site tracking",
+      "sitesUnlimited": "Unlimited sites tracked"
+    }
   }
 }

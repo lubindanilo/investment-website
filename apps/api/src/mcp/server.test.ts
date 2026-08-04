@@ -7,8 +7,8 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildMcpServer } from './server.js';
 
-async function connect(isPro = false) {
-  const server = buildMcpServer({ userId: 'test-user', email: 'test@example.com', isPro, baseUrl: 'https://lubin-investment.com' });
+async function connect(isPro = false, seoTier: 'free' | 'solo' | 'studio' | 'agency' = 'free') {
+  const server = buildMcpServer({ userId: 'test-user', email: 'test@example.com', isPro, seoTier, baseUrl: 'https://lubin-investment.com' });
   const [clientTransport, serverTransport] = InMemoryTransport.createLinkedPair();
   const client = new Client({ name: 'test-client', version: '0.0.0' });
   await Promise.all([server.connect(serverTransport), client.connect(clientTransport)]);
@@ -31,6 +31,12 @@ describe('MCP server', () => {
       'remove_from_watchlist',
       'screen_stocks',
       'search_ticker',
+      // Offre SEO — produit distinct, même infrastructure OAuth.
+      'seo_ai_visibility',
+      'seo_audit',
+      'seo_benchmark',
+      'seo_history',
+      'seo_plan',
     ]);
     // Les schémas d'entrée ont été convertis en JSON Schema par le SDK (sinon registerTool aurait jeté).
     for (const t of tools) expect(t.inputSchema).toBeTruthy();
