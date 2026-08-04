@@ -80,9 +80,11 @@ jobs:
       NEON_MONTHLY_CU_H: ${{ vars.NEON_MONTHLY_CU_H || '100' }}
       NEON_TARGET_SHARE: ${{ vars.NEON_TARGET_SHARE || '0.8' }}
       NEON_DRAIN_SHARE: ${{ vars.NEON_DRAIN_SHARE || '0.5' }}
-      # Premiere nuit : 120 min demandees (le solde peut reduire). Les runs planifies suivants
-      # reprennent cette valeur et s'ajustent seuls sur le solde.
-      DRAIN_MINUTES: ${{ inputs.minutes || '120' }}
+      # Duree demandee des runs planifies : variable de repo DRAIN_MINUTES, defaut 120. Le solde
+      # Neon peut toujours la reduire, jamais l'augmenter. Mesure du 04/08 : 0,25 CU moyen et une
+      # part de 1,296 CU-h financent ~309 min, donc il y a de la marge au-dessus de 120 si on veut
+      # accelerer le backfill (debit mesure : 3,7 titres notes/min).
+      DRAIN_MINUTES: ${{ inputs.minutes || vars.DRAIN_MINUTES || '120' }}
       DRAIN_REGION: ${{ inputs.region }}
       DRAIN_MAX_TICKERS: ${{ inputs.max_tickers || '5000' }}
       DRAIN_REQUEUE_ABANDONED: ${{ inputs.requeue_abandoned || '0' }}
