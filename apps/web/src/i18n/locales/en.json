@@ -340,7 +340,7 @@
   },
   "landing": {
     "hero": {
-      "chip": "Available in Claude, ChatGPT, Mistral…",
+      "chip": "Available in your favorite AI",
       "title": "Stop paying the wrong price for a great company.",
       "sub": "Type a company name: its quality scored out of 10, and the price at which it is worth buying.",
       "placeholder": "Microsoft, LVMH, Visa…",
@@ -410,8 +410,8 @@
     },
     "claude": {
       "kicker": "MCP connector",
-      "title": "Your analysis, inside the conversation.",
-      "sub": "Connect Lubin to Claude. It queries your scores, your screener and your watchlist.",
+      "title": "Usable directly inside your favorite AI",
+      "sub": "It automatically detects the best opportunities of the moment based on your own criteria.",
       "a": {
         "answer": "{{name}} scores {{note}}/10 across the 10 quality criteria. Here is the detail, with the P/FCF and the resilience grade.",
         "question": "Is {{name}} a good deal right now?"
@@ -440,10 +440,10 @@
       },
       "quotas": "Free: 10 analyses a day, 2 stocks compared, 10 watchlist rows. Pro: unlimited, 5 stocks compared, watchlist without limit.",
       "connect": {
-        "kicker": "Connect in 30 seconds",
-        "step1": "In Claude, open settings, then connectors.",
-        "step2": "Add a connector and paste the URL shown here.",
-        "step3": "Authorize your Lubin account, and you are connected.",
+        "kicker": "Connect Lubin to any AI in 30 seconds",
+        "step1": "Add the connector in your AI and paste the URL shown here.",
+        "step2": "A browser window opens: sign in to Lubin.",
+        "step3": "Go back to your AI: the connector is ready to answer.",
         "copy": "Copy the URL",
         "copied": "Copied"
       }
@@ -506,7 +506,7 @@
       },
       "2": {
         "q": "Does the AI make the numbers up?",
-        "a": "No. Scores are computed by Lubin from figures published by the companies. Inside Claude, the MCP connector only calls the 10 Lubin tools and reports their output: the model reads your figures, it does not produce them."
+        "a": "No. Scores are computed by Lubin from figures published by the companies. The MCP connector only calls the 10 Lubin tools and reports their output: the model reads your figures, it does not produce them."
       },
       "3": {
         "q": "Is this investment advice?",
@@ -514,7 +514,7 @@
       },
       "4": {
         "q": "What is free, and what is Pro?",
-        "a": "Free: 10 analyses a day, 2 stocks compared, 10 watchlist rows, Claude connector included. Pro: unlimited analyses, 5 stocks compared, watchlist without limit."
+        "a": "Free: 10 analyses a day, 2 stocks compared, 10 watchlist rows, MCP connector included. Pro: unlimited analyses, 5 stocks compared, watchlist without limit."
       },
       "5": {
         "q": "Where does the data come from?",

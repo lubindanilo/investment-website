@@ -365,7 +365,7 @@
   },
   "landing": {
     "hero": {
-      "chip": "Disponible dans Claude, ChatGPT, Mistral…",
+      "chip": "Disponible dans ton IA préférée",
       "title": "Ne paie plus une bonne entreprise au mauvais prix.",
       "sub": "Tape le nom d’une entreprise : sa qualité notée sur 10, et le prix à partir duquel elle vaut le coup.",
       "placeholder": "Microsoft, LVMH, Visa…",
@@ -466,9 +466,9 @@
       "quotas": "Gratuit : 10 analyses par jour, 2 titres comparés, 10 lignes de watchlist. Pro : illimité, 5 titres comparés, watchlist sans limite.",
       "connect": {
         "kicker": "Branche Lubin à n'importe quelle IA en 30 secondes",
-        "step1": "Une fenêtre s'ouvre dans ton navigateur, connecte-toi et c'est déjà fonctionnel !",
-        "step2": "Ajoute un connecteur et colle l'URL ci-contre.",
-        "step3": "Autorise ton compte Lubin, et c'est branché.",
+        "step1": "Ajoute le connecteur dans ton IA et colle l'URL ci-contre.",
+        "step2": "Une fenêtre s'ouvre dans ton navigateur : connecte-toi à Lubin.",
+        "step3": "Reviens dans ton IA : le connecteur est prêt à répondre.",
         "copy": "Copier l'URL",
         "copied": "Copié"
       }

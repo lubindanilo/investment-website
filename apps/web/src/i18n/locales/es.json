@@ -340,7 +340,7 @@
   },
   "landing": {
     "hero": {
-      "chip": "Disponible en Claude, ChatGPT, Mistral…",
+      "chip": "Disponible en tu IA preferida",
       "title": "Deja de pagar mal una buena empresa.",
       "sub": "Escribe el nombre de una empresa: su calidad puntuada sobre 10, y el precio a partir del cual merece la pena.",
       "placeholder": "Microsoft, LVMH, Visa…",
@@ -410,8 +410,8 @@
     },
     "claude": {
       "kicker": "Conector MCP",
-      "title": "Tu análisis, dentro de la conversación.",
-      "sub": "Conecta Lubin a Claude. Consulta tus notas, tu screener y tu watchlist.",
+      "title": "Utilizable directamente en tu IA preferida",
+      "sub": "Detecta automáticamente las mejores oportunidades del momento según tus propios criterios.",
       "a": {
         "answer": "{{name}} obtiene {{note}}/10 en los 10 criterios de calidad. Aquí tienes el detalle, con el P/FCF y el grado de resiliencia.",
         "question": "¿{{name}} es una buena oportunidad ahora mismo?"
@@ -440,10 +440,10 @@
       },
       "quotas": "Gratis: 10 análisis al día, 2 valores comparados, 10 líneas de watchlist. Pro: ilimitado, 5 valores comparados, watchlist sin límite.",
       "connect": {
-        "kicker": "Conectar en 30 segundos",
-        "step1": "En Claude, abre los ajustes y luego los conectores.",
-        "step2": "Añade un conector y pega la URL de al lado.",
-        "step3": "Autoriza tu cuenta Lubin, y ya está conectado.",
+        "kicker": "Conecta Lubin a cualquier IA en 30 segundos",
+        "step1": "Añade el conector en tu IA y pega la URL de al lado.",
+        "step2": "Se abre una ventana en tu navegador: inicia sesión en Lubin.",
+        "step3": "Vuelve a tu IA: el conector ya está listo para responder.",
         "copy": "Copiar la URL",
         "copied": "Copiado"
       }
@@ -506,7 +506,7 @@
       },
       "2": {
         "q": "¿La IA se inventa las cifras?",
-        "a": "No. Las notas las calcula Lubin a partir de los datos publicados por las empresas. En Claude, el conector MCP solo llama a las 10 herramientas de Lubin y devuelve su resultado: el modelo lee tus cifras, no las produce."
+        "a": "No. Las notas las calcula Lubin a partir de los datos publicados por las empresas. El conector MCP solo llama a las 10 herramientas de Lubin y devuelve su resultado: el modelo lee tus cifras, no las produce."
       },
       "3": {
         "q": "¿Esto es asesoramiento de inversión?",
@@ -514,7 +514,7 @@
       },
       "4": {
         "q": "¿Qué es gratis y qué es Pro?",
-        "a": "Gratis: 10 análisis al día, 2 valores comparados, 10 líneas de watchlist, conector Claude incluido. Pro: análisis ilimitados, 5 valores comparados, watchlist sin límite."
+        "a": "Gratis: 10 análisis al día, 2 valores comparados, 10 líneas de watchlist, conector MCP incluido. Pro: análisis ilimitados, 5 valores comparados, watchlist sin límite."
       },
       "5": {
         "q": "¿De dónde vienen los datos?",
