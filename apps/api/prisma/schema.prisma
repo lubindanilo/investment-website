@@ -108,7 +108,7 @@ model BusinessAnalysis {
   /// JSON contenant business: Criterion[] (10 critères)
   business      Json
   /// 1-2 phrases punchy
-  verdictDirect String
+  verdictDirect String   @default("")
   /// « Part de marché du moment » — un Criterion enrichi (part estimée + tendance + concurrents
   /// + source), généré avec l'analyse business. Affiché dans la partie quali mais HORS notation.
   /// Nullable : les analyses générées avant cette feature ne l'ont pas (régénération pour l'obtenir).
@@ -285,10 +285,20 @@ model ScreenerTicker {
   /// Dernière ré-évaluation LIVE du flag opportunity (au prix du jour). Pilote le throttle (~10 min).
   oppRefreshedAt     DateTime?
   updatedAt          DateTime  @updatedAt
+  /// Colonnes deja presentes en PROD (migrations Codex appliquees a la DB sans etre mergees
+  /// dans main). Ajoutees ici pour realigner le schema sur la prod (2026-08) et eviter qu'une
+  /// migration ne les supprime.
+  lastAttemptAt           DateTime?
+  marketCapUsdRefreshedAt DateTime?
+  fundamentalsFingerprint String?
 
-  @@index([status, priority, lastScoredAt])
+  @@index([status, priority, lastAttemptAt])
+  @@index([marketCapUsd])
   @@index([scoreRatio])
   @@index([opportunity])
+  // Prod : 2 index GIN trigram (pg_trgm) sur `name` et `ticker` pour l'autocomplete existent
+  // deja en base. Non representables sans la preview `postgresqlExtensions` ; Prisma ne les gere
+  // donc pas et ne les supprime pas. Laisses hors schema volontairement.
 }
 
 /// Watchlist par utilisateur. Un même ticker peut apparaître chez plusieurs users (différentes lignes).
