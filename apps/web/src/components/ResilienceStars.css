@@ -1,0 +1,188 @@
+.rs-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.rs-star {
+  position: relative;
+  display: inline-block;
+  color: var(--line);
+}
+
+.rs-star.is-full {
+  color: inherit;
+}
+
+.rs-star.is-half::before {
+  content: '★';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 50%;
+  overflow: hidden;
+  color: inherit;
+}
+
+.rs-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border-radius: 8px;
+  font-weight: 800;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.rs-badge-md { min-width: 76px; padding: 4px 9px; font-size: 13px; }
+.rs-badge-sm { min-width: 58px; padding: 3px 7px; font-size: 11.5px; border-radius: 7px; }
+.rs-badge-sm .rs-badge-score { display: none; }
+
+.rs-badge-good { color: var(--good-ink); background: var(--good-bg); }
+.rs-badge-warn { color: var(--warn-ink); background: var(--warn-bg); }
+.rs-badge-bad { color: var(--bad-ink); background: var(--bad-bg); }
+
+.rs-badge-empty {
+  color: var(--ink-3);
+  background: var(--bg-soft);
+  font-weight: 600;
+}
+
+.rs-badge.is-flagged {
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--warn) 45%, transparent);
+}
+
+.rs-badge-score {
+  font-weight: 800;
+  opacity: 0.82;
+}
+
+.rs-header-score {
+  width: 136px;
+  min-height: 96px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+}
+
+.rs-header-score.rs-tone-good { color: var(--good); background: var(--good-bg); border-color: color-mix(in oklch, var(--good) 24%, transparent); }
+.rs-header-score.rs-tone-warn { color: var(--warn); background: var(--warn-bg); border-color: color-mix(in oklch, var(--warn) 28%, transparent); }
+.rs-header-score.rs-tone-bad { color: var(--bad); background: var(--bad-bg); border-color: color-mix(in oklch, var(--bad) 24%, transparent); }
+
+.rs-header-score .rs-stars {
+  font-size: 19px;
+}
+
+.rs-header-total {
+  color: var(--ink);
+  font-size: 25px;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.rs-header-total small {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.rs-header-pending {
+  color: var(--ink-3);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.rs-review-dot {
+  padding: 3px 7px;
+  border-radius: 999px;
+  color: var(--warn-ink);
+  background: color-mix(in oklch, var(--warn-bg) 75%, var(--surface));
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.rs-axis-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.rs-axis-card {
+  min-height: 168px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  box-shadow: var(--sh-sm);
+}
+
+.rs-axis-head {
+  display: grid;
+  gap: 10px;
+}
+
+.rs-axis-card h3 {
+  margin: 0;
+  min-height: 38px;
+  color: var(--ink);
+  font-size: 13.5px;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.rs-axis-score {
+  display: inline-flex;
+  width: max-content;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.rs-axis-score .rs-stars {
+  font-size: 14px;
+}
+
+.rs-axis-card p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.rs-axis-good .rs-axis-score { color: var(--good-ink); background: var(--good-bg); }
+.rs-axis-warn .rs-axis-score { color: var(--warn-ink); background: var(--warn-bg); }
+.rs-axis-bad .rs-axis-score { color: var(--bad-ink); background: var(--bad-bg); }
+
+@media (max-width: 1100px) {
+  .rs-axis-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .rs-header-score {
+    width: 94px;
+    min-height: 76px;
+    padding: 9px;
+    gap: 6px;
+  }
+
+  .rs-header-score .rs-stars { font-size: 13px; }
+  .rs-header-total { font-size: 21px; }
+  .rs-review-dot { display: none; }
+  .rs-axis-grid { grid-template-columns: 1fr; }
+  .rs-axis-card { min-height: 0; padding: 13px; }
+  .rs-axis-card h3 { min-height: 0; }
+}

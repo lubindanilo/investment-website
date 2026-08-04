@@ -135,6 +135,11 @@
         "largeRange": "> 10 Md$"
       },
       "scoreAll": "Tout",
+      "resilienceBands": {
+        "strong": "4-5★",
+        "watch": "2,5-3,5★",
+        "fragile": "0-2★"
+      },
       "market": "Marché",
       "zone": {
         "pea": "PEA",
@@ -660,6 +665,18 @@
     "resilienceScoreLabel": "Résilience : grade {{grade}}, {{score}} sur 100",
     "resiliencePendingShort": "En attente",
     "resiliencePendingVerdict": "La veille Résilience n'a pas encore couvert cette entreprise. La note apparaîtra automatiquement après son passage dans la file.",
+    "resilienceStars": {
+      "pendingShort": "En attente",
+      "pending": "Backfill en cours : cette entreprise n'a pas encore reçu son score Résilience 5 étoiles.",
+      "flagged": "En revue",
+      "scoreLabel": "Résilience : {{score}} sur 5 étoiles",
+      "axisRule": "Chaque axe vaut 0, 0,5 ou 1 étoile. La phrase affichée résume le jugement retenu.",
+      "verdict": {
+        "agree": "Score validé par les deux modèles.",
+        "resolved": "Score validé après résolution d'un écart entre modèles.",
+        "flagged": "Score provisoire : les modèles ont divergé et une revue humaine est prévue."
+      }
+    },
     "updating": "Maj…",
     "generateQual": "Lancer l'analyse qualitative",
     "generateManagement": "Analyser le management",
@@ -1117,6 +1134,31 @@
         "label": "Récurrence et capacité d'absorption",
         "measure": "La récurrence des revenus et la capacité financière à absorber un choc sans casser le modèle.",
         "scoreRule": "Un point pour la récurrence des revenus et un point pour un bilan capable d'absorber un choc ; total de 0 à 2."
+      },
+      "besoin": {
+        "label": "Demande payée du rôle",
+        "measure": "La demande payée du rôle survit et grandit à l'horizon 2033.",
+        "scoreRule": "0, 0,5 ou 1 étoile selon la persistance et la croissance du besoin."
+      },
+      "controle": {
+        "label": "Contrôle rare",
+        "measure": "Un contrôle propre, rare et difficile à contourner protège le rôle économique.",
+        "scoreRule": "0, 0,5 ou 1 étoile selon la rareté et la défendabilité du contrôle."
+      },
+      "forces": {
+        "label": "Forces structurelles",
+        "measure": "Le modèle tient face aux forces IA, robotique et Chine.",
+        "scoreRule": "0, 0,5 ou 1 étoile selon l'exposition nette à ces forces."
+      },
+      "adjacent": {
+        "label": "Aspiration de l'adjacent",
+        "measure": "L'entreprise peut absorber l'adjacent grâce à sa base installée.",
+        "scoreRule": "0, 0,5 ou 1 étoile selon la capacité à étendre le périmètre rentable."
+      },
+      "capture": {
+        "label": "Capture durable",
+        "measure": "L'entreprise peut se faire payer durablement sans fragilité fatale.",
+        "scoreRule": "0, 0,5 ou 1 étoile selon la solidité de la monétisation."
       }
     },
     "horizonAll": "Tout",
@@ -1140,7 +1182,7 @@
       },
       "resilience": {
         "title": "Résilience",
-        "sub": "Six critères indépendants · un trou de données ne retire aucun point"
+        "sub": "5 axes · demi-étoiles · score autonome de la qualité"
       },
       "management": {
         "title": "Management",

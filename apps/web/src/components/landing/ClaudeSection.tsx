@@ -103,7 +103,7 @@ export function ClaudeSection({ show, peaRows, rows }: {
   peaRows: LandingStock[];
   rows: LandingStock[];
 }) {
-  const { stock: featured, criteria, resilience, pfcfPercentile } = show;
+  const { stock: featured, criteria, pfcfPercentile } = show;
   const { t } = useTranslation();
   const locale = currentLocale();
   const [headRef, headIn] = useSectionIn<HTMLDivElement>();
@@ -392,10 +392,10 @@ export function ClaudeSection({ show, peaRows, rows }: {
                 <ScoreRing note10={featured.note10} size={78} />
                 <span className="tiny muted">{t('landing.card.qualityKicker')}</span>
               </div>
-              {resilience && (
+              {show.resilienceStars && (
                 <div className="lc-score">
-                  <span className="lc-grade" data-g={resilience.grade}>{resilience.grade}</span>
-                  <span className="tiny muted">{t('landing.card.resilience')} · {resilience.score}/100</span>
+                  <span className="lc-grade" data-g="-">★</span>
+                  <span className="tiny muted">{t('landing.card.resilience')} · {show.resilienceStars.total}/5</span>
                 </div>
               )}
               <div className="lc-crit">

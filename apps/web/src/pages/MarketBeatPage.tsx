@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import type { MarketBeatRow, ForwardCompareResponse, ForwardComparePosition } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, OpportunityBadge } from '../components/ui/primitives.js';
-import { ResilienceBadge } from '../components/ResilienceBadge.js';
+import { ResilienceStarsBadge } from '../components/ResilienceStars.js';
 import { sectorSlug } from '../lib/sector.js';
 import { formatPrice } from '../lib/format.js';
 import './ScreenerPage.css';
@@ -157,7 +157,7 @@ function ForwardCompare() {
                   <tr key={p.ticker} className={p.opportunity ? 'is-opp' : undefined}>
                     <td>
                       <div className="scr-soc">
-                        <span className="num scr-soc-ticker row gap-6">{p.ticker}{p.opportunity && <OpportunityBadge compact />}{p.resilience && <ResilienceBadge summary={p.resilience} size="sm" />}</span>
+                        <span className="num scr-soc-ticker row gap-6">{p.ticker}{p.opportunity && <OpportunityBadge compact />}<ResilienceStarsBadge score={p.resilienceStars ?? null} size="sm" /></span>
                         <span className="scr-soc-name">{p.name ?? p.ticker}</span>
                       </div>
                     </td>
@@ -191,7 +191,7 @@ function PositionRow({ p, closing, setClosing, sell, setSell, closePos, delPos, 
     <tr className={p.opportunity ? 'is-opp' : undefined}>
       <td>
         <div className="scr-soc">
-          <span className="num scr-soc-ticker row gap-6">{p.ticker}{p.opportunity && <OpportunityBadge compact />}{p.resilience && <ResilienceBadge summary={p.resilience} size="sm" />}</span>
+          <span className="num scr-soc-ticker row gap-6">{p.ticker}{p.opportunity && <OpportunityBadge compact />}<ResilienceStarsBadge score={p.resilienceStars ?? null} size="sm" /></span>
           <span className="scr-soc-name">{p.name ?? p.ticker}</span>
         </div>
       </td>

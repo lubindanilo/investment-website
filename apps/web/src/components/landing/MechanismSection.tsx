@@ -21,7 +21,7 @@ import { Def, ScoreRing, Spark, useSectionIn, SplitTitle } from './bits.js';
 import { fmtPrice, type LandingShowcase, type LandingStock } from './useLandingData.js';
 
 export function MechanismSection({ show }: { show: LandingShowcase }) {
-  const { stock: featured, criteria, resilience, pfcfPercentile } = show;
+  const { stock: featured, criteria, pfcfPercentile } = show;
   const { t } = useTranslation();
   const locale = currentLocale();
   const [step, setStep] = useState(0);
@@ -110,7 +110,7 @@ export function MechanismSection({ show }: { show: LandingShowcase }) {
                       <CompositionStrip criteria={criteria} />
                     </div>
                   </div>
-                  <ResilienceRow resilience={resilience} />
+                  <ResilienceRow resilienceStars={show.resilienceStars ?? null} />
                   <div className="scanbox">
                     <CriteriaList criteria={criteria} />
                     {step === 0 && <span className="scanbar" aria-hidden="true" />}

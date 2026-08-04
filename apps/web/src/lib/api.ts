@@ -20,6 +20,7 @@ import type {
   CompareResponse,
   TickerSuggestion,
   ResilienceSummary,
+  ResilienceStars,
 } from '@lubin/shared';
 import { captureException } from './sentry.js';
 import { currentLang } from '../i18n/index.js';
@@ -36,6 +37,7 @@ export interface TickerPreview {
   currency: string | null;
   opportunity: boolean;
   resilience?: ResilienceSummary | null;
+  resilienceStars?: ResilienceStars | null;
 }
 
 /** Vitrine de la landing : opportunité du moment + détail des 10 critères (lecture publique). */

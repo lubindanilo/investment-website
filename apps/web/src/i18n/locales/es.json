@@ -218,6 +218,11 @@
         "largeRange": "> 10 mil M$"
       },
       "scoreAll": "Todas",
+      "resilienceBands": {
+        "strong": "4-5★",
+        "watch": "2,5-3,5★",
+        "fragile": "0-2★"
+      },
       "market": "Mercado",
       "zone": {
         "pea": "PEA",
@@ -635,6 +640,18 @@
     "resilienceScoreLabel": "Resiliencia: grado {{grade}}, {{score}} sobre 100",
     "resiliencePendingShort": "Pendiente",
     "resiliencePendingVerdict": "La vigilancia de Resiliencia aún no ha cubierto esta empresa. La nota aparecerá automáticamente tras su procesamiento.",
+    "resilienceStars": {
+      "pendingShort": "Pendiente",
+      "pending": "Backfill en curso: esta empresa aún no ha recibido su puntuación de Resiliencia de 5 estrellas.",
+      "flagged": "En revisión",
+      "scoreLabel": "Resiliencia: {{score}} de 5 estrellas",
+      "axisRule": "Cada eje vale 0, 0,5 o 1 estrella. La frase mostrada resume el juicio retenido.",
+      "verdict": {
+        "agree": "Puntuación validada por ambos modelos.",
+        "resolved": "Puntuación validada tras resolver una divergencia entre modelos.",
+        "flagged": "Puntuación provisional: los modelos divergieron y está prevista una revisión humana."
+      }
+    },
     "updating": "Actualizando…",
     "generateQual": "Iniciar el análisis cualitativo",
     "generateManagement": "Analizar la dirección",
@@ -1092,6 +1109,31 @@
         "label": "Recurrencia y absorción de choques",
         "measure": "La recurrencia de ingresos y la capacidad financiera de absorber choques sin romper el modelo.",
         "scoreRule": "Un punto por la recurrencia de ingresos y otro por un balance capaz de absorber un choque, para un total de 0 a 2."
+      },
+      "besoin": {
+        "label": "Demanda pagada del rol",
+        "measure": "La demanda pagada del rol sobrevive y crece hasta 2033.",
+        "scoreRule": "0, 0,5 o 1 estrella según la persistencia y el crecimiento de la necesidad."
+      },
+      "controle": {
+        "label": "Control raro",
+        "measure": "Un control propio, raro y difícil de sortear protege el papel económico.",
+        "scoreRule": "0, 0,5 o 1 estrella según la rareza y defensa del control."
+      },
+      "forces": {
+        "label": "Fuerzas estructurales",
+        "measure": "El modelo resiste frente a la IA, la robótica y China.",
+        "scoreRule": "0, 0,5 o 1 estrella según la exposición neta a estas fuerzas."
+      },
+      "adjacent": {
+        "label": "Aspiración del adyacente",
+        "measure": "La empresa puede absorber segmentos adyacentes gracias a su base instalada.",
+        "scoreRule": "0, 0,5 o 1 estrella según su capacidad de ampliar el perímetro rentable."
+      },
+      "capture": {
+        "label": "Captura duradera",
+        "measure": "La empresa puede cobrar de forma duradera sin una fragilidad fatal.",
+        "scoreRule": "0, 0,5 o 1 estrella según la solidez de la monetización."
       }
     },
     "horizonAll": "Todo",
@@ -1115,7 +1157,7 @@
       },
       "resilience": {
         "title": "Resiliencia",
-        "sub": "Seis criterios independientes · un dato ausente nunca resta puntos"
+        "sub": "5 ejes · medias estrellas · independiente de la calidad"
       },
       "management": {
         "title": "Dirección",

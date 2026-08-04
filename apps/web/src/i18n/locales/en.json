@@ -135,6 +135,11 @@
         "largeRange": "> $10B"
       },
       "scoreAll": "All",
+      "resilienceBands": {
+        "strong": "4-5★",
+        "watch": "2.5-3.5★",
+        "fragile": "0-2★"
+      },
       "market": "Market",
       "zone": {
         "pea": "PEA",
@@ -635,6 +640,18 @@
     "resilienceScoreLabel": "Resilience: grade {{grade}}, {{score}} out of 100",
     "resiliencePendingShort": "Pending",
     "resiliencePendingVerdict": "The Resilience watch has not covered this company yet. Its score will appear automatically after processing.",
+    "resilienceStars": {
+      "pendingShort": "Pending",
+      "pending": "Backfill in progress: this company has not received its 5-star Resilience score yet.",
+      "flagged": "In review",
+      "scoreLabel": "Resilience: {{score}} out of 5 stars",
+      "axisRule": "Each axis is worth 0, 0.5 or 1 star. The displayed sentence summarizes the retained judgment.",
+      "verdict": {
+        "agree": "Score validated by both models.",
+        "resolved": "Score validated after resolving a model disagreement.",
+        "flagged": "Provisional score: the models diverged and human review is planned."
+      }
+    },
     "updating": "Updating…",
     "generateQual": "Run qualitative analysis",
     "generateManagement": "Analyze management",
@@ -1092,6 +1109,31 @@
         "label": "Recurrence and shock absorption",
         "measure": "Revenue recurrence and the financial capacity to absorb shocks without breaking the model.",
         "scoreRule": "One point for revenue recurrence and one point for a balance sheet able to absorb a shock, for a total of 0 to 2."
+      },
+      "besoin": {
+        "label": "Paid role demand",
+        "measure": "Paid demand for the role survives and grows through 2033.",
+        "scoreRule": "0, 0.5 or 1 star depending on the persistence and growth of the need."
+      },
+      "controle": {
+        "label": "Rare control",
+        "measure": "A clean, rare and hard-to-bypass control protects the economic role.",
+        "scoreRule": "0, 0.5 or 1 star depending on the control's rarity and defensibility."
+      },
+      "forces": {
+        "label": "Structural forces",
+        "measure": "The model holds up against AI, robotics and China.",
+        "scoreRule": "0, 0.5 or 1 star depending on net exposure to these forces."
+      },
+      "adjacent": {
+        "label": "Adjacent pull",
+        "measure": "The company can pull adjacent profit pools through its installed base.",
+        "scoreRule": "0, 0.5 or 1 star depending on its ability to expand the profitable perimeter."
+      },
+      "capture": {
+        "label": "Durable capture",
+        "measure": "The company can keep getting paid without a fatal fragility.",
+        "scoreRule": "0, 0.5 or 1 star depending on monetization durability."
       }
     },
     "horizonAll": "All",
@@ -1115,7 +1157,7 @@
       },
       "resilience": {
         "title": "Resilience",
-        "sub": "Six independent criteria · missing data never removes points"
+        "sub": "5 axes · half stars · independent from quality"
       },
       "management": {
         "title": "Management",

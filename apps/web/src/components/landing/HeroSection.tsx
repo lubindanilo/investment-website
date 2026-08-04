@@ -11,7 +11,7 @@
  */
 import { type FormEvent, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { TickerSuggestion } from '@lubin/shared';
+import type { ResilienceStars, TickerSuggestion } from '@lubin/shared';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../../i18n/index.js';
 import { Icon } from '../ui/primitives.js';
@@ -205,19 +205,20 @@ export function CriteriaList({ criteria, compact = false }: { criteria: LandingC
  * titres dont l'analyse est publiée : quand elle manque, on garde la ligne (le gabarit ne
  * saute pas) mais on le DIT, plutôt que d'afficher un vide.
  */
-export function ResilienceRow({ resilience }: { resilience: { grade: string; score: number } | null }) {
+export function ResilienceRow({ resilienceStars }: { resilienceStars?: ResilienceStars | null }) {
   const { t } = useTranslation();
-  const grade = resilience?.grade ?? null;
+  const total = resilienceStars?.total ?? null;
+  const pct = total == null ? 0 : Math.max(0, Math.min(100, (total / 5) * 100));
   return (
-    <div className={`acard-res${resilience ? '' : ' none'}`}>
+    <div className={`acard-res${resilienceStars ? '' : ' none'}`}>
       <div className="res-top">
         <span className="kicker res-k"><Def def={t('landing.def.resilience')}>{t('landing.card.resilience')}</Def></span>
-        <span className="res-pill" data-g={grade ?? '-'}>{grade ?? '—'}</span>
+        <span className="res-pill" data-g="-">★</span>
       </div>
       <div className="res-detail">
-        <b className="num res-score">{resilience ? `${resilience.score}/100` : t('landing.card.resilienceNone')}</b>
+        <b className="num res-score">{resilienceStars ? `${total}/5` : t('analyse.resilienceStars.pendingShort')}</b>
         <div className="res-bar" aria-hidden="true">
-          <i style={{ width: `${resilience?.score ?? 0}%` }} />
+          <i style={{ width: `${pct}%` }} />
         </div>
       </div>
     </div>
@@ -225,7 +226,7 @@ export function ResilienceRow({ resilience }: { resilience: { grade: string; sco
 }
 
 export function HeroSection({ show }: { show: LandingShowcase }) {
-  const { stock: featured, criteria, resilience } = show;
+  const { stock: featured, criteria } = show;
   const { t } = useTranslation();
   const locale = currentLocale();
   const rich = useRichMotion();
@@ -280,7 +281,7 @@ export function HeroSection({ show }: { show: LandingShowcase }) {
 
             {/* La résilience se lit JUSTE SOUS la qualité : deux notes, deux questions
                 différentes (est-elle bonne / tient-elle le choc), dans cet ordre. */}
-            <ResilienceRow resilience={resilience} />
+            <ResilienceRow resilienceStars={show.resilienceStars ?? null} />
 
             <CriteriaList criteria={criteria} />
 

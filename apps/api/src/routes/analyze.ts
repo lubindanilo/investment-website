@@ -12,7 +12,7 @@
  */
 import { Router, type Request, type Response } from 'express';
 import { z } from 'zod';
-import type { AnalyzeResponse, ValoParams, Criterion, MarketShare, SectorBenchmark, DividendInfo, ResilienceAnalysis } from '@lubin/shared';
+import type { AnalyzeResponse, ValoParams, Criterion, MarketShare, SectorBenchmark, DividendInfo, ResilienceAnalysis, ResilienceStars } from '@lubin/shared';
 import { getSectorPfcfBenchmark } from '../services/screener.js';
 import { getDividendInfoYahoo, getAssetProfileYahoo } from '../services/yahoo.js';
 import { parseLang, tt, type Lang } from '../i18n/index.js';
@@ -34,6 +34,7 @@ import {
   PUBLISHED_RESILIENCE_VERSION,
 } from '../services/resiliencePublished.js';
 import { resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
+import { getResilienceStarsForTicker } from '../services/resilienceStars.js';
 import { getLocalizedBusinessDescription } from '../services/translate.js';
 
 export const analyzeRouter: Router = Router();
@@ -101,6 +102,7 @@ function buildResponse(args: {
   verdictDirect: string | null;
   management: Criterion[] | null;
   resilience: ResilienceAnalysis | null;
+  resilienceStars: ResilienceStars | null;
   businessCachedAt: Date | null;
   managementCachedAt: Date | null;
   pfcfPercentile?: number | null;
@@ -112,7 +114,7 @@ function buildResponse(args: {
   businessDescription?: string | null;
   lang?: Lang;
 }): AnalyzeResponse {
-  const { ticker, quant, business, verdictDirect, management, resilience, businessCachedAt, managementCachedAt, lang = 'fr' } = args;
+  const { ticker, quant, business, verdictDirect, management, resilience, resilienceStars, businessCachedAt, managementCachedAt, lang = 'fr' } = args;
   const { metrics, company, fundamentalsAvailable, fundamentalsSource, currency, yahooSymbol, rawNews, earnings } = quant;
 
   const chiffres = buildQuantitativeCriteria(metrics, lang);     // 10 critères qualité (localisés)
@@ -181,6 +183,7 @@ function buildResponse(args: {
     achat: scoreMax > 0 && score / scoreMax >= 0.7,
     verdict_direct: verdictDirect ?? '',
     resilience,
+    resilienceStars,
     news: filterNews(rawNews, ticker, company),
     valuation,
     valoParams,
@@ -295,13 +298,14 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   // refetch la watchlist séparément, ce qui éliminait les faux "Ajouter" quand ce 2e
   // fetch échouait/traînait.
   const userId = req.user?.userId;
-  const [businessRow, managementRow, watchlistRow, resilience] = await Promise.all([
+  const [businessRow, managementRow, watchlistRow, resilience, resilienceStars] = await Promise.all([
     prisma.businessAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } }),
     prisma.managementAnalysis.findUnique({ where: { ticker_lang: { ticker, lang } } }),
     userId
       ? prisma.watchlistEntry.findUnique({ where: { userId_ticker: { userId, ticker } } })
       : Promise.resolve(null),
     getPublishedResilience(ticker),
+    getResilienceStarsForTicker(ticker),
   ]);
 
   const business = businessRow && isBusinessCacheValid(businessRow.business) ? businessRow.business : null;
@@ -324,6 +328,7 @@ analyzeRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
     verdictDirect: businessRow?.verdictDirect ?? null,
     management,
     resilience,
+    resilienceStars,
     businessCachedAt: business ? businessRow!.createdAt : null,
     managementCachedAt: management ? managementRow!.updatedAt : null,
     pfcfPercentile: pct,
@@ -485,14 +490,15 @@ analyzeRouter.post('/qualitative', analyzeLimiter, requireAuth, requirePro, asyn
   }
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
-  const [sectorBenchmark, dividend, resilience, profile] = await Promise.all([
+  const [sectorBenchmark, dividend, resilience, resilienceStars, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
     getPublishedResilience(ticker),
+    getResilienceStarsForTicker(ticker),
     getAssetProfileYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
   ]);
   res.json(buildResponse({
-    ticker, quant, business, verdictDirect, management, resilience, businessCachedAt, managementCachedAt,
+    ticker, quant, business, verdictDirect, management, resilience, resilienceStars, businessCachedAt, managementCachedAt,
     pfcfPercentile: opp.pfcfPercentile, opportunity: opp.opportunity, marketShare, sectorBenchmark, dividend,
     businessDescription: await getLocalizedBusinessDescription(ticker, profile?.description, lang), lang,
   }));
@@ -528,10 +534,11 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePr
   const marketShare = businessRow && isMarketShareValid(businessRow.marketShare) ? businessRow.marketShare : null;
 
   const opp = await computeOpportunity(ticker, quant.earnings?.next?.date ?? null, quant.metrics.pfcfTTM ?? null, quant.rawFhFcfAdj?.ttmFcfAdj ?? null, quant.rawFhCapEmp?.sharesLatest ?? null);
-  const [sectorBenchmark, dividend, resilience, profile] = await Promise.all([
+  const [sectorBenchmark, dividend, resilience, resilienceStars, profile] = await Promise.all([
     getSectorPfcfBenchmark(quant.industry, quant.metrics.pfcfTTM),
     getDividendInfoYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
     getPublishedResilience(ticker),
+    getResilienceStarsForTicker(ticker),
     getAssetProfileYahoo(quant.yahooSymbol ?? ticker).catch(() => null),
   ]);
   res.json(buildResponse({
@@ -541,6 +548,7 @@ analyzeRouter.post('/refresh-management', analyzeLimiter, requireAuth, requirePr
     verdictDirect: businessRow?.verdictDirect ?? null,
     management: fresh.management,
     resilience,
+    resilienceStars,
     businessCachedAt: business ? businessRow!.createdAt : null,
     managementCachedAt: upserted.updatedAt,
     marketShare,

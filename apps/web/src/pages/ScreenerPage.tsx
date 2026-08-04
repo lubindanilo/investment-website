@@ -2,13 +2,13 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../i18n/index.js';
-import type { ScreenerTopRow, ResilienceGrade } from '@lubin/shared';
+import type { ScreenerTopRow } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { sectorSlug } from '../lib/sector.js';
 import SeoHead from '../components/SeoHead.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
-import { ResilienceBadge, ResilienceNotScored } from '../components/ResilienceBadge.js';
+import { ResilienceStarsBadge } from '../components/ResilienceStars.js';
 import { CompanyLogo } from '../components/ui/CompanyLogo.js';
 import { useSubscription } from '../contexts/SubscriptionContext.js';
 import './ScreenerPage.css';
@@ -28,7 +28,8 @@ const CAP_OPTS: CapBucket[] = ['small', 'mid', 'large'];
 /** Zones géographiques / éligibilité PEA — filtre multi-choix, gratuit. */
 type GeoZone = 'pea' | 'us' | 'intl';
 const ZONE_OPTS: GeoZone[] = ['pea', 'us', 'intl'];
-const GRADE_OPTS: ResilienceGrade[] = ['A', 'B', 'C', 'D', 'E'];
+type ResilienceBand = 'strong' | 'watch' | 'fragile';
+const RESILIENCE_BANDS: ResilienceBand[] = ['strong', 'watch', 'fragile'];
 
 type SortCol = 'score' | 'resilience' | 'pfcf' | 'price' | 'earnings';
 interface SortState { col: SortCol; dir: 'asc' | 'desc' }
@@ -36,7 +37,7 @@ interface SortState { col: SortCol; dir: 'asc' | 'desc' }
 function ratioOf(r: ScreenerTopRow) { return r.scoreChiffresMax ? (r.scoreChiffres ?? 0) / r.scoreChiffresMax : 0; }
 function valOf(r: ScreenerTopRow, col: SortCol): number {
   if (col === 'score') return ratioOf(r);
-  if (col === 'resilience') return r.resilience?.score ?? -Infinity;   // non scoré → en bas (desc)
+  if (col === 'resilience') return r.resilienceStars?.total ?? -Infinity;   // non scoré → en bas (desc)
   if (col === 'pfcf') return r.pfcfTTM ?? Infinity;
   if (col === 'price') return r.price ?? -Infinity;
   // earnings : null → en bas (date "infinie"). Sinon Date.parse → ms (asc = plus proche en premier).
@@ -56,21 +57,20 @@ function formatEarnings(iso?: string | null): string {
 export interface AppliedFilters {
   sectors: string[];
   minScore: number;
-  /** Grades de résilience retenus (A–E). Vide = pas de filtre. Filtré côté client (la résilience
-   *  n'est pas un critère de la requête API). Non-vide masque les tickers non scorés. */
-  resilienceGrades: ResilienceGrade[];
+  /** Tranches de resilience 5 etoiles. Vide = pas de filtre. Non-vide masque les tickers non scores. */
+  resilienceBands: ResilienceBand[];
   maxPfcf: number;
   caps: CapBucket[];
   zones: GeoZone[];
 }
 
-const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, resilienceGrades: [], maxPfcf: PFCF_MAX, caps: [], zones: [] };
+const DEFAULT_FILTERS: AppliedFilters = { sectors: [], minScore: DEFAULT_MIN_SCORE, resilienceBands: [], maxPfcf: PFCF_MAX, caps: [], zones: [] };
 
 /** Nombre d'axes de filtre non-défaut (pour le badge du bouton). « Opportunités » est géré à part. */
 function countActive(v: AppliedFilters): number {
   return (v.sectors.length > 0 ? 1 : 0)
     + (v.minScore !== DEFAULT_MIN_SCORE ? 1 : 0)
-    + (v.resilienceGrades.length > 0 ? 1 : 0)
+    + (v.resilienceBands.length > 0 ? 1 : 0)
     + (v.maxPfcf < PFCF_MAX ? 1 : 0)
     + (v.caps.length > 0 ? 1 : 0)
     + (v.zones.length > 0 ? 1 : 0);
@@ -108,7 +108,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
   const toggleSector = (s: string) => onApply({ ...value, sectors: value.sectors.includes(s) ? value.sectors.filter(x => x !== s) : [...value.sectors, s] });
   const toggleCap = (c: CapBucket) => onApply({ ...value, caps: value.caps.includes(c) ? value.caps.filter(x => x !== c) : [...value.caps, c] });
   const toggleZone = (z: GeoZone) => onApply({ ...value, zones: value.zones.includes(z) ? value.zones.filter(x => x !== z) : [...value.zones, z] });
-  const toggleGrade = (g: ResilienceGrade) => onApply({ ...value, resilienceGrades: value.resilienceGrades.includes(g) ? value.resilienceGrades.filter(x => x !== g) : [...value.resilienceGrades, g] });
+  const toggleResilienceBand = (band: ResilienceBand) => onApply({ ...value, resilienceBands: value.resilienceBands.includes(band) ? value.resilienceBands.filter(x => x !== band) : [...value.resilienceBands, band] });
   const setMinScore = (n: number) => onApply({ ...value, minScore: n });
   const setMaxPfcf = (n: number) => onApply({ ...value, maxPfcf: n });
   const reset = () => onApply(DEFAULT_FILTERS);
@@ -169,18 +169,17 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
             </div>
           </div>
 
-          {/* Résilience — filtre par lettre (multi-choix, client). Vide = toutes ; sélection = seuls
-              les titres scorés dont le grade est coché. Le tri par score reste dispo par-dessus. */}
+          {/* Résilience — filtre par tranche d'etoiles (multi-choix, client). Vide = toutes. */}
           <div className="col gap-6">
             <span className="tiny" style={{ fontWeight: 700, color: 'var(--ink-3)' }}>{t('analyse.resilience')}</span>
             <div className="row gap-6">
-              {GRADE_OPTS.map(g => {
-                const on = value.resilienceGrades.includes(g);
+              {RESILIENCE_BANDS.map(band => {
+                const on = value.resilienceBands.includes(band);
                 return (
                   <button
-                    key={g}
+                    key={band}
                     type="button"
-                    onClick={() => toggleGrade(g)}
+                    onClick={() => toggleResilienceBand(band)}
                     data-active={on}
                     className="num"
                     style={{
@@ -192,7 +191,7 @@ function FiltersPanel({ sectors, value, onApply, isPro, onLockedPfcf }: {
                       color: on ? 'var(--brand-ink)' : 'var(--ink-2)',
                     }}
                   >
-                    {g}
+                    {t(`screener.filters.resilienceBands.${band}`)}
                   </button>
                 );
               })}
@@ -418,15 +417,14 @@ export function ScreenerPage() {
 
   const sorted = useMemo(() => {
     const dir = sort.dir === 'desc' ? -1 : 1;
-    // Filtre résilience par lettre côté client. Un titre NON noté (pas encore évalué par la veille)
-    // ne doit PAS être pénalisé : on le garde visible même sous filtre. Le filtre ne retire donc que
-    // les grades explicitement écartés (ex. filtre « A » → garde A + non notés, masque B/C/D/E).
-    const grades = filters.resilienceGrades;
-    const base = grades.length > 0
-      ? rows.filter(r => r.resilience == null || grades.includes(r.resilience.grade))
+    const bands = filters.resilienceBands;
+    const inBand = (total: number, band: ResilienceBand) =>
+      band === 'strong' ? total >= 4 : band === 'watch' ? total >= 2.5 && total < 4 : total < 2.5;
+    const base = bands.length > 0
+      ? rows.filter(r => r.resilienceStars != null && bands.some(b => inBand(r.resilienceStars!.total, b)))
       : rows;
     return [...base].sort((a, b) => (valOf(a, sort.col) - valOf(b, sort.col)) * dir);
-  }, [rows, sort, filters.resilienceGrades]);
+  }, [rows, sort, filters.resilienceBands]);
 
   // Reset de la pagination quand les données / le tri / les filtres changent.
   useEffect(() => { setVisibleCount(60); }, [rows, sort, filters, onlyOpp]);
@@ -557,7 +555,7 @@ export function ScreenerPage() {
                       </td>
                       <td className="muted col-hide-sm" style={{ fontSize: 13 }}>{r.sector ? t(`industries.${sectorSlug(r.sector)}`, { defaultValue: r.sector }) : '—'}</td>
                       <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
-                      <td>{r.resilience ? <ResilienceBadge summary={r.resilience} showScore /> : <ResilienceNotScored />}</td>
+                      <td><ResilienceStarsBadge score={r.resilienceStars ?? null} /></td>
                       <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
                       <td className="col-hide-sm">
                         <span className="num tiny wl-earn">

@@ -100,6 +100,31 @@ export interface ResilienceCriterionScore {
   maxScore: number;
 }
 
+// ─── Resilience 5 etoiles ─────────────────────────────────────────────────
+
+export type ResilienceStarCriterionId = 'besoin' | 'controle' | 'forces' | 'adjacent' | 'capture';
+export type ResilienceStarValue = 0 | 0.5 | 1;
+export type ResilienceStarVerdict = 'agree' | 'resolved' | 'flagged';
+
+export interface ResilienceStarCriterion {
+  star: ResilienceStarValue;
+  justification: string;
+}
+
+/**
+ * Nouveau score autonome de resilience, separe de Quality/10.
+ * Null/absent dans les payloads quand le backfill n'a pas encore couvert le ticker.
+ */
+export interface ResilienceStars {
+  ticker: string;
+  name: string;
+  total: number;
+  criteria: Record<ResilienceStarCriterionId, ResilienceStarCriterion>;
+  verdict: ResilienceStarVerdict;
+  marketCapUsd: number | null;
+  scoredAt: string;
+}
+
 export type CriteriaCategory = 'chiffres' | 'business' | 'management' | 'valorisation';
 
 /** Un pair coté du secteur avec son P/FCF (pour le détail concurrentiel). */
@@ -307,6 +332,8 @@ export interface AnalyzeResponse {
   qualityVerdict?: string;
   /** Snapshot Resilience v2.5 pre-calcule par la veille. Null/absent tant que le cron ne l'a pas couvert. */
   resilience?: ResilienceAnalysis | null;
+  /** Nouveau score Resilience 5 etoiles. Null/absent tant que le backfill n'a pas couvert le ticker. */
+  resilienceStars?: ResilienceStars | null;
   /** Management explicite, separe de l'ancien tableau positionnel `criteres`. Optionnel tant que le backend ne l'expose pas. */
   management?: Criterion[] | null;
   managementAvailable?: boolean;
@@ -393,6 +420,8 @@ export interface WatchlistEntry {
   pfcfPercentile?: number | null;
   /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
   resilience?: ResilienceSummary | null;
+  /** Nouveau score Resilience 5 etoiles. Null/absent si le ticker n'est pas encore scoré. */
+  resilienceStars?: ResilienceStars | null;
   // ─── Champs internes pour recompute P/FCF live ──────────────────────────
   // Ces 2 champs ne changent qu'à chaque earnings (FCF) ou très peu (shares).
   // Ils permettent de recomputer pfcfTTM = (price × shares) / adjFcfTtm avec un
@@ -432,6 +461,8 @@ export interface CompareTicker {
   resilience?: ResilienceSummary | null;
   /** Ventilation par critère (6 lignes) pour la section Résilience. Null/absent si non scoré. */
   resilienceCriteria?: ResilienceCriterionScore[] | null;
+  /** Nouveau score Resilience 5 etoiles, avec justifications par axe. */
+  resilienceStars?: ResilienceStars | null;
 }
 
 /** Définition (localisée) d'un critère pour les libellés de lignes de la comparaison. */
@@ -480,6 +511,8 @@ export interface ScreenerTopRow {
   marketCap: number | null;
   /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
   resilience?: ResilienceSummary | null;
+  /** Nouveau score Resilience 5 etoiles. Null/absent si le ticker n'est pas encore scoré. */
+  resilienceStars?: ResilienceStars | null;
 }
 
 /**
@@ -507,6 +540,8 @@ export interface MarketBeatRow {
   marketCap: number | null;
   /** Poids équipondéré dans le panier (ex. 0,05 = 5 %). */
   weight: number;
+  /** Nouveau score Resilience 5 etoiles. Null/absent si le ticker n'est pas encore scoré. */
+  resilienceStars?: ResilienceStars | null;
 }
 
 /** Position d'un portefeuille suivi (prix d'entrée figé + prix live + flag pépite). */
@@ -521,6 +556,8 @@ export interface ForwardComparePosition {
   opportunity: boolean;
   /** Résumé de résilience publié (grade + score). Null/absent si le ticker n'est pas scoré. */
   resilience?: ResilienceSummary | null;
+  /** Nouveau score Resilience 5 etoiles. Null/absent si le ticker n'est pas encore scoré. */
+  resilienceStars?: ResilienceStars | null;
   // ── Champs « Ma sélection » uniquement (positions gérées par l'utilisateur) ──
   id?: string;
   buyDate?: string;

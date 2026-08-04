@@ -26,6 +26,7 @@
  * frappe, pas par le chargement (cf. TickerForm).
  */
 import { FROZEN_PEA_ROWS, FROZEN_ROWS, FROZEN_SLOTS, SHOWCASE_AS_OF } from '../../data/landingShowcase.js';
+import type { ResilienceStars } from '@lubin/shared';
 
 export interface LandingStock {
   ticker: string;
@@ -57,6 +58,7 @@ export interface LandingShowcase {
   /** Les 10 critères de qualité (même vue que /analyser). */
   criteria: LandingCriterion[];
   resilience: { grade: string; score: number } | null;
+  resilienceStars?: ResilienceStars | null;
   /** Percentile du P/FCF dans son historique (0 = jamais aussi bon marché). */
   pfcfPercentile: number | null;
 }

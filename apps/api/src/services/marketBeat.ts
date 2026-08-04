@@ -21,6 +21,7 @@ import { getSp500Universe } from './sp500Universe.js';
 import { FORWARD_INCEPTION, SYSTEM_POSITIONS, SPY_ENTRY } from '../data/forwardCompare.js';
 import type { MarketBeatRow, ForwardCompareResponse, ForwardComparePosition } from '@lubin/shared';
 import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
+import { getResilienceStars } from './resilienceStars.js';
 
 /**
  * Univers de sélection :
@@ -86,9 +87,10 @@ export async function getMarketBeat(opts: MarketBeatOpts = {}): Promise<MarketBe
   // 5. Overlay LIVE (prix + market cap) sur les seules lignes retenues (~20) : prix du jour en
   //    batch Yahoo + actions/adjFcf du snapshot (ne bougent qu'aux earnings) — comme le screener.
   const tickers = picks.map((p) => p.row.ticker);
-  const [snaps, livePrices] = await Promise.all([
+  const [snaps, livePrices, stars] = await Promise.all([
     prisma.tickerQuantSnapshot.findMany({ where: { ticker: { in: tickers } }, select: { ticker: true, snapshot: true } }),
     getYahooBatchQuotes(tickers).catch(() => new Map<string, number>()),
+    getResilienceStars(tickers),
   ]);
   const fund = new Map<string, { shares: number | null; adjFcf: number | null }>();
   for (const s of snaps) {
@@ -112,6 +114,7 @@ export async function getMarketBeat(opts: MarketBeatOpts = {}): Promise<MarketBe
       pfcfTTM: livePfcf ?? c.pfcfTTM, currency: c.currency, nextEarningsDate: c.nextEarningsDate,
       sector: c.sector, price, dayChangePct: c.dayChangePct, spark: (c.spark as number[] | null) ?? null,
       opportunity: c.opportunity, pfcfPercentile: c.pfcfPercentile,
+      resilienceStars: stars.get(c.ticker) ?? null,
       momentum12m: p.mom, marketCap, weight,
     };
   });
@@ -136,10 +139,11 @@ export async function getForwardCompare(userId?: string): Promise<ForwardCompare
   const mineRaw = dbPos.map((p) => ({ id: p.id as string | undefined, ticker: p.ticker, entry: p.buyPrice, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note }));
 
   const allTickers = [...new Set([...mineRaw.map((p) => p.ticker), ...SYSTEM_POSITIONS.map((p) => p.ticker), 'SPY'])];
-  const [quotes, meta, resiliences] = await Promise.all([
+  const [quotes, meta, resiliences, stars] = await Promise.all([
     getYahooBatchQuotes(allTickers).catch(() => new Map<string, number>()),
     prisma.screenerTicker.findMany({ where: { ticker: { in: allTickers } }, select: { ticker: true, name: true, opportunity: true } }),
     getPublishedResilienceSummaries(allTickers),
+    getResilienceStars(allTickers),
   ]);
   const info = new Map(meta.map((m) => [m.ticker, m]));
   const ret = (entry: number | null, live: number | null) =>
@@ -151,13 +155,13 @@ export async function getForwardCompare(userId?: string): Promise<ForwardCompare
     const live = p.sellPrice != null ? p.sellPrice : (quotes.get(p.ticker.toUpperCase()) ?? null);
     const m = info.get(p.ticker);
     const res = resiliences.get(p.ticker.toUpperCase()) ?? null;
-    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: (m?.opportunity ?? false) && resilienceAllowsOpportunity(res?.grade), resilience: res, id: p.id, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note };
+    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: (m?.opportunity ?? false) && resilienceAllowsOpportunity(res?.grade), resilience: res, resilienceStars: stars.get(p.ticker.toUpperCase()) ?? null, id: p.id, buyDate: p.buyDate, sellDate: p.sellDate, sellPrice: p.sellPrice, note: p.note };
   });
   const systemPositions: ForwardComparePosition[] = SYSTEM_POSITIONS.map((p) => {
     const live = quotes.get(p.ticker.toUpperCase()) ?? null;
     const m = info.get(p.ticker);
     const res = resiliences.get(p.ticker.toUpperCase()) ?? null;
-    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: (m?.opportunity ?? false) && resilienceAllowsOpportunity(res?.grade), resilience: res };
+    return { ticker: p.ticker, name: m?.name ?? null, entry: p.entry, live, ret: ret(p.entry, live), opportunity: (m?.opportunity ?? false) && resilienceAllowsOpportunity(res?.grade), resilience: res, resilienceStars: stars.get(p.ticker.toUpperCase()) ?? null };
   });
 
   const spyLive = quotes.get('SPY') ?? null;

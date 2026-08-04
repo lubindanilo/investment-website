@@ -12,7 +12,7 @@ import { MAX_COMPARE_TICKERS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScoreCircle, scoreColor, StatusBadge, InfoPop } from '../components/ui/primitives.js';
 import { CompanyLogo } from '../components/ui/CompanyLogo.js';
-import { ResilienceBadge } from '../components/ResilienceBadge.js';
+import { RESILIENCE_STAR_CRITERIA, ResilienceStarsBadge } from '../components/ResilienceStars.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import SeoHead from '../components/SeoHead.js';
 import './ComparePage.css';
@@ -264,11 +264,6 @@ function CritRow({ crit, companies }: { crit: CompareCriterionDef; companies: Co
   );
 }
 
-const RESILIENCE_CRITERIA_IDS = [
-  'moat', 'disruption_resilience', 'residual_dependencies',
-  'structural_demand_capture', 'economic_persistence', 'recurrence_balance',
-] as const;
-
 /** Couleur du score d'un critère selon le ratio atteint (mêmes paliers que les cartes analyze). */
 function critScoreColor(score: number | null, maxScore: number): string {
   if (score == null || maxScore <= 0) return 'var(--ink-3)';
@@ -280,12 +275,12 @@ function critScoreColor(score: number | null, maxScore: number): string {
 }
 
 /**
- * Section « Résilience » de la comparaison : une ligne de synthèse (grade + score global, meilleur
- * surligné) puis les 6 critères détaillés (score /max par ticker, coloré selon le ratio).
+ * Section « Résilience » de la comparaison : une ligne de synthèse 5 étoiles, puis les 5 axes
+ * détaillés avec justification.
  */
 function ResilienceRows({ companies }: { companies: CompanyView[] }) {
   const { t } = useTranslation();
-  const scores = companies.map(c => (isLive(c) ? c.resilience?.score ?? null : null));
+  const scores = companies.map(c => (isLive(c) ? c.resilienceStars?.total ?? null : null));
   const max = Math.max(...scores.filter((s): s is number => s != null), -Infinity);
   const soleBest = scores.filter(s => s === max).length === 1 ? companies[scores.indexOf(max)]?.ticker : null;
   return (
@@ -294,22 +289,23 @@ function ResilienceRows({ companies }: { companies: CompanyView[] }) {
         <span style={{ fontSize: 13.5, fontWeight: 600, color: 'var(--ink)', lineHeight: 1.25 }}>{t('compare.sections.resilienceRow')}</span>
       </div>
       {companies.map(c => {
-        const live = isLive(c) && c.resilience ? c.resilience : null;
+        const live = isLive(c) && c.resilienceStars ? c.resilienceStars : null;
         const best = live != null && soleBest === c.ticker;
         return (
           <div className="cmp-cellw" key={c.ticker}>
             <div className="cmp-cell" style={best ? { boxShadow: 'inset 0 0 0 2px var(--good)', borderColor: 'var(--good)' } : undefined}>
               {best && <span className="cmp-cell-mark" title={t('compare.best')}><Icon name="check" size={14} stroke={2.6} /></span>}
-              {live ? <ResilienceBadge summary={live} showScore /> : <span className="num muted">—</span>}
+              <ResilienceStarsBadge score={live} />
             </div>
           </div>
         );
       })}
-      {RESILIENCE_CRITERIA_IDS.map(id => {
+      {RESILIENCE_STAR_CRITERIA.map(id => {
         // Meilleur par ligne (comme les sections chiffres/valo) : gagnant unique, égalités non surlignées.
-        const rowScores = companies.map(c => (isLive(c) ? (c.resilienceCriteria?.find(x => x.id === id)?.score ?? null) : null));
-        const rowMax = Math.max(...rowScores.filter((s): s is number => s != null), -Infinity);
-        const rowBest = rowScores.filter(s => s === rowMax).length === 1 ? companies[rowScores.indexOf(rowMax)]?.ticker : null;
+        const rowScores = companies.map(c => (isLive(c) ? (c.resilienceStars?.criteria[id]?.star ?? null) : null));
+        const rowMax = Math.max(...rowScores.filter((s): s is NonNullable<typeof s> => s != null), -Infinity);
+        const bestIndex = rowScores.findIndex(s => s === rowMax);
+        const rowBest = Number.isFinite(rowMax) && rowScores.filter(s => s === rowMax).length === 1 ? companies[bestIndex]?.ticker : null;
         return (
           <Fragment key={id}>
             <div className="cmp-label">
@@ -318,19 +314,19 @@ function ResilienceRows({ companies }: { companies: CompanyView[] }) {
                 <InfoPop
                   title={t(`analyse.resilienceCriteria.${id}.label`)}
                   why={t(`analyse.resilienceCriteria.${id}.measure`)}
-                  calc={t(`analyse.resilienceCriteria.${id}.scoreRule`)}
+                  calc={t('analyse.resilienceStars.axisRule')}
                 />
               </div>
             </div>
             {companies.map(c => {
-              const crit = isLive(c) ? (c.resilienceCriteria?.find(x => x.id === id) ?? null) : null;
-              const best = crit?.score != null && rowBest === c.ticker;
+              const crit = isLive(c) ? (c.resilienceStars?.criteria[id] ?? null) : null;
+              const best = crit?.star != null && rowBest === c.ticker;
               return (
                 <div className="cmp-cellw" key={c.ticker}>
                   <div className="cmp-cell" style={best ? { boxShadow: 'inset 0 0 0 2px var(--good)', borderColor: 'var(--good)' } : undefined}>
                     {best && <span className="cmp-cell-mark" title={t('compare.best')}><Icon name="check" size={14} stroke={2.6} /></span>}
-                    {crit && crit.score != null
-                      ? <span className="num" style={{ fontSize: 15, fontWeight: 700, color: critScoreColor(crit.score, crit.maxScore) }}>{crit.score}/{crit.maxScore}</span>
+                    {crit
+                      ? <span className="num" title={crit.justification} style={{ fontSize: 15, fontWeight: 700, color: critScoreColor(crit.star, 1) }}>{crit.star}/1</span>
                       : <span className="num muted">—</span>}
                   </div>
                 </div>

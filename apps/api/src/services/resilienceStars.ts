@@ -1,4 +1,6 @@
 import { z } from 'zod';
+import type { ResilienceStars, ResilienceStarVerdict } from '@lubin/shared';
+import { prisma } from '../db/client.js';
 import { runClaudeJson, resolveModel } from './resilienceStarsCli.js';
 import { buildScoringPrompt } from './resilienceStarsPrompt.js';
 
@@ -37,6 +39,17 @@ export interface ResilienceStarScore {
 }
 
 const starSchema = z.union([z.literal(0), z.literal(0.5), z.literal(1)]);
+const publicCriterionSchema = z.object({
+  star: starSchema,
+  justification: z.string().trim().min(1),
+});
+const publicCriteriaSchema = z.object({
+  besoin: publicCriterionSchema,
+  controle: publicCriterionSchema,
+  forces: publicCriterionSchema,
+  adjacent: publicCriterionSchema,
+  capture: publicCriterionSchema,
+});
 const criterionSchema = z.object({ s: starSchema, r: z.string().trim().min(1) });
 const companySchema = z.object({
   nom: z.string().trim().min(1),
@@ -113,4 +126,60 @@ export async function scoreCompany(
   const [score] = await scoreCompanies([company], options);
   if (!score) throw new Error(`Aucun score pour ${company.name}`);
   return score;
+}
+
+function isVerdict(value: string): value is ResilienceStarVerdict {
+  return value === 'agree' || value === 'resolved' || value === 'flagged';
+}
+
+function toPublicStars(row: {
+  ticker: string;
+  name: string | null;
+  total: number;
+  criteria: unknown;
+  verdict: string;
+  marketCapUsd: number | null;
+  scoredAt: Date;
+}): ResilienceStars | null {
+  if (!isVerdict(row.verdict)) return null;
+  const criteria = publicCriteriaSchema.safeParse(row.criteria);
+  if (!criteria.success) return null;
+  return {
+    ticker: row.ticker,
+    name: row.name ?? row.ticker,
+    total: row.total,
+    criteria: criteria.data,
+    verdict: row.verdict,
+    marketCapUsd: row.marketCapUsd,
+    scoredAt: row.scoredAt.toISOString(),
+  };
+}
+
+/** Lecture batch du nouveau score Resilience 5 etoiles. Absence = backfill en cours. */
+export async function getResilienceStars(tickers: string[]): Promise<Map<string, ResilienceStars>> {
+  const out = new Map<string, ResilienceStars>();
+  const unique = [...new Set(tickers.map(t => t.toUpperCase()).filter(Boolean))];
+  if (unique.length === 0) return out;
+
+  const rows = await prisma.resilienceStarScore.findMany({
+    where: { ticker: { in: unique } },
+    select: {
+      ticker: true,
+      name: true,
+      total: true,
+      criteria: true,
+      verdict: true,
+      marketCapUsd: true,
+      scoredAt: true,
+    },
+  });
+  for (const row of rows) {
+    const stars = toPublicStars(row);
+    if (stars) out.set(row.ticker, stars);
+  }
+  return out;
+}
+
+export async function getResilienceStarsForTicker(ticker: string): Promise<ResilienceStars | null> {
+  return (await getResilienceStars([ticker])).get(ticker.toUpperCase()) ?? null;
 }

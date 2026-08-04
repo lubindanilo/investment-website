@@ -11,6 +11,7 @@ import type {
 } from '@lubin/shared';
 import { Icon } from './ui/primitives.js';
 import { CompanyLogo } from './ui/CompanyLogo.js';
+import { ResilienceStarsHeader, ResilienceStarsGrid } from './ResilienceStars.js';
 import './ResilienceAnalysis.css';
 
 type ResilienceLang = keyof LocalizedText;
@@ -65,7 +66,7 @@ export function AnalysisHeader({
   const { t, i18n } = useTranslation();
   const lang = currentLang(i18n.language);
   const resilience = analysis.resilience ?? null;
-  const resilienceScore = resilience?.finalScore ?? null;
+  const resilienceStars = analysis.resilienceStars ?? null;
   const currency = analysis.currency || 'USD';
 
   return (
@@ -113,24 +114,13 @@ export function AnalysisHeader({
 
         <div className="anl-score-story">
           <div className="anl-score-unit">
-            <div
-              className={`anl-score-ring${resilienceScore == null ? ' is-pending' : ''}`}
-              style={ringStyle(resilienceTone(resilience), resilienceScore)}
-              aria-label={resilienceScore == null
-                ? t('analyse.resiliencePendingShort')
-                : t('analyse.resilienceScoreLabel', { grade: resilience!.grade, score: resilienceScore })}
-            >
-              <div className="anl-score-ring-inner">
-                <span className="anl-resilience-grade">{resilience?.grade ?? '-'}</span>
-                <span className="num anl-resilience-number">
-                  {resilienceScore == null ? t('analyse.resiliencePendingShort') : `${resilienceScore}/100`}
-                </span>
-              </div>
-            </div>
+            <ResilienceStarsHeader score={resilienceStars} />
             <span className="anl-score-kind">{t('analyse.resilience')}</span>
           </div>
           <p className="anl-score-story-text">
-            {resilience ? resilience.verdict[lang] : t('analyse.resiliencePendingVerdict')}
+            {resilienceStars
+              ? t(`analyse.resilienceStars.verdict.${resilienceStars.verdict}`)
+              : (resilience ? resilience.verdict[lang] : t('analyse.resilienceStars.pending'))}
           </p>
         </div>
       </div>
@@ -1202,3 +1192,5 @@ export function ResilienceGrid({ analysis }: { analysis: ResilienceAnalysis | nu
     </div>
   );
 }
+
+export { ResilienceStarsGrid };

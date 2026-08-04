@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import type { ScreenerTopRow } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import { Icon, ScorePill } from '../components/ui/primitives.js';
-import { ResilienceBadge } from '../components/ResilienceBadge.js';
+import { ResilienceStarsBadge } from '../components/ResilienceStars.js';
 import { sectorSlug, sectorHubSlug } from '../lib/sector.js';
 import { formatPrice } from '../lib/format.js';
 import SeoHead from '../components/SeoHead.js';
@@ -314,7 +314,7 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
                       </div>
                     </td>
                     <td><ScorePill score={Math.round(ratioOf(r) * 10)} /></td>
-                    <td>{r.resilience ? <ResilienceBadge summary={r.resilience} showScore /> : <span className="muted">—</span>}</td>
+                    <td><ResilienceStarsBadge score={r.resilienceStars ?? null} /></td>
                     <td className="num" style={{ fontWeight: 600 }}>{r.pfcfTTM != null && r.pfcfTTM > 0 ? r.pfcfTTM.toFixed(1) + '×' : '—'}</td>
                     <td className="num col-hide-sm">{formatPrice(r.price, r.currency)}</td>
                     <td className="col-hide-sm" style={{ width: 40, textAlign: 'right' }}>

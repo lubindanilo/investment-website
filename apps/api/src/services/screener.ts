@@ -13,10 +13,11 @@
  * (ce qui récupère la nouvelle date). Fallback TTL pour les dates inconnues.
  */
 import { createHash } from 'node:crypto';
-import type { ResilienceSummary, DerivedMetrics } from '@lubin/shared';
+import type { ResilienceSummary, ResilienceStars, DerivedMetrics } from '@lubin/shared';
 import { prisma } from '../db/client.js';
 import { getStockSymbols } from './finnhub.js';
 import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
+import { getResilienceStars } from './resilienceStars.js';
 import { buildAndCacheQuantSnapshot } from './scoreSnapshot.js';
 import { getSparkSeries } from './priceSeries.js';
 import { warmChartCacheForTicker } from './chartWarm.js';
@@ -659,6 +660,7 @@ export interface TopRow {
   pfcfPercentile: number | null;
   marketCap: number | null;
   resilience: ResilienceSummary | null;
+  resilienceStars: ResilienceStars | null;
 }
 
 /** Meilleures notes pour la vue screener. Tri par ratio décroissant, indexé. */
@@ -689,16 +691,20 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
       sector: true, price: true, dayChangePct: true, spark: true,
       opportunity: true, pfcfPercentile: true, marketCap: true,
     },
-  }) as Omit<TopRow, 'resilience'>[];
+  }) as Omit<TopRow, 'resilience' | 'resilienceStars'>[];
 
   // Résilience publiée (batch, 1 requête) → badge dans le tableau. Absente pour la
   // plupart des titres (seuls ~50 sont scorés) : null = l'UI ne montre rien.
-  const resiliences = await getPublishedResilienceSummaries(rows.map(r => r.ticker));
+  const tickers = rows.map(r => r.ticker);
+  const [resiliences, stars] = await Promise.all([
+    getPublishedResilienceSummaries(tickers),
+    getResilienceStars(tickers),
+  ]);
   const withRes = rows.map(r => {
     const resilience = resiliences.get(r.ticker) ?? null;
     // Opportunité du moment : on refuse en plus les résiliences fragiles (D/E) — cf. resilienceAllowsOpportunity.
     const opportunity = r.opportunity && resilienceAllowsOpportunity(resilience?.grade);
-    return { ...r, resilience, opportunity };
+    return { ...r, resilience, resilienceStars: stars.get(r.ticker) ?? null, opportunity };
   });
   // Quand on ne veut que les opportunités, on retire celles recalées par la résilience.
   return onlyOpportunities ? withRes.filter(r => r.opportunity) : withRes;

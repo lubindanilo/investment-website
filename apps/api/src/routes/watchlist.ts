@@ -28,6 +28,7 @@ import { getNextEarningsDate } from '../services/earnings.js';
 import { getEarningsInfoYahoo } from '../services/yahoo.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from '../services/resilienceSummary.js';
+import { getResilienceStars } from '../services/resilienceStars.js';
 import {
   getCachedSnapshot, getCachedSnapshotsBatch, writeCachedSnapshot,
   type CachedQuantSnapshot,
@@ -175,10 +176,15 @@ async function refreshStaleEarnings(
  */
 async function attachResilience(entries: WatchlistEntry[]): Promise<void> {
   if (!entries.length) return;
-  const summaries = await getPublishedResilienceSummaries(entries.map(e => e.ticker));
+  const tickers = entries.map(e => e.ticker);
+  const [summaries, stars] = await Promise.all([
+    getPublishedResilienceSummaries(tickers),
+    getResilienceStars(tickers),
+  ]);
   for (const e of entries) {
     const r = summaries.get(e.ticker) ?? null;
     e.resilience = r;
+    e.resilienceStars = stars.get(e.ticker) ?? null;
     if (e.opportunity && !resilienceAllowsOpportunity(r?.grade)) e.opportunity = false;
   }
 }

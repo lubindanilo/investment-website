@@ -18,6 +18,7 @@ import { requireOwner } from '../middleware/owner.js';
 import { seedRegion, tick, getTop, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
 import { getMarketBeat, getForwardCompare } from '../services/marketBeat.js';
 import { getPublishedResilienceSummaries } from '../services/resilienceSummary.js';
+import { getResilienceStars } from '../services/resilienceStars.js';
 import { getProfile2 } from '../services/finnhub.js';
 import { getAssetProfileYahoo } from '../services/yahoo.js';
 import { getCachedSnapshot } from '../services/quantCache.js';
@@ -363,7 +364,10 @@ screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response)
   const rows = await pickShowcaseRows(SHOWCASE_COUNT);
   if (!rows.length) { res.status(404).json({ error: 'Aucune opportunité disponible', code: 'NOT_FOUND' }); return; }
 
-  const resiliences = await getPublishedResilienceSummaries(rows.map(r => r.ticker));
+  const [resiliences, resilienceStars] = await Promise.all([
+    getPublishedResilienceSummaries(rows.map(r => r.ticker)),
+    getResilienceStars(rows.map(r => r.ticker)),
+  ]);
   const payload = await Promise.all(rows.map(async row => {
     const snapshot = await getCachedSnapshot(row.ticker).catch(() => null);
     const criteria = snapshot
@@ -384,6 +388,7 @@ screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response)
       currency: row.currency,
       opportunity: row.opportunity,
       resilience: resiliences.get(row.ticker) ?? null,
+      resilienceStars: resilienceStars.get(row.ticker) ?? null,
       criteria,
     };
   }));
@@ -487,6 +492,9 @@ screenerRouter.get('/ticker/:ticker', asyncHandler(async (req: Request, res: Res
     },
   });
   if (!row) { res.status(404).json({ error: 'Ticker non couvert ou non scoré', code: 'NOT_FOUND' }); return; }
-  const resiliences = await getPublishedResilienceSummaries([ticker]);
-  res.json({ ...row, resilience: resiliences.get(ticker) ?? null });
+  const [resiliences, resilienceStars] = await Promise.all([
+    getPublishedResilienceSummaries([ticker]),
+    getResilienceStars([ticker]),
+  ]);
+  res.json({ ...row, resilience: resiliences.get(ticker) ?? null, resilienceStars: resilienceStars.get(ticker) ?? null });
 }));

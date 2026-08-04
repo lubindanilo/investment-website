@@ -7,7 +7,7 @@ import { api, ApiError } from '../lib/api.js';
 import { useToast } from '../components/Toast.js';
 import { Icon, ScorePill, OpportunityBadge } from '../components/ui/primitives.js';
 import { CompanyLogo } from '../components/ui/CompanyLogo.js';
-import { ResilienceBadge } from '../components/ResilienceBadge.js';
+import { ResilienceStarsBadge } from '../components/ResilienceStars.js';
 import { TickerSearch } from '../components/TickerSearch.js';
 import { UpgradeModal } from '../components/UpgradeModal.js';
 import { useSubscription } from '../contexts/SubscriptionContext.js';
@@ -35,7 +35,7 @@ function sortItems(items: WatchlistEntry[], { key, dir }: SortState): WatchlistE
     let cmp = 0;
     if (key === 'price') { const av = a.price, bv = b.price; if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
     else if (key === 'pfcf') { const av = a.pfcfTTM, bv = b.pfcfTTM; if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
-    else if (key === 'resilience') { const av = a.resilience?.score, bv = b.resilience?.score; if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
+    else if (key === 'resilience') { const av = a.resilienceStars?.total, bv = b.resilienceStars?.total; if (av == null) return 1; if (bv == null) return -1; cmp = av - bv; }
     else if (key === 'earnings') { const av = a.nextEarningsDate, bv = b.nextEarningsDate; if (!av) return 1; if (!bv) return -1; cmp = av.localeCompare(bv); }
     else { const ra = a.scoreChiffresMax > 0 ? a.scoreChiffres / a.scoreChiffresMax : -1; const rb = b.scoreChiffresMax > 0 ? b.scoreChiffres / b.scoreChiffresMax : -1; cmp = ra - rb; }
     return dir === 'asc' ? cmp : -cmp;
@@ -261,7 +261,7 @@ export function WatchlistPage() {
                       <td className="num-cell num" style={{ fontWeight: 600 }}>{formatPrice(w.price, w.currency)}</td>
                       <td className="num-cell num">{w.pfcfTTM != null && w.pfcfTTM > 0 ? w.pfcfTTM.toFixed(1) + '×' : '—'}</td>
                       <td className="num-cell">{s != null ? <ScorePill score={s} /> : <span className="muted">—</span>}</td>
-                      <td>{w.resilience ? <ResilienceBadge summary={w.resilience} showScore /> : <span className="muted">—</span>}</td>
+                      <td><ResilienceStarsBadge score={w.resilienceStars ?? null} /></td>
                       <td className="col-hide-sm"><span className="num tiny wl-earn"><Icon name="calendar" size={13} style={{ color: 'var(--ink-4)' }} />{formatEarnings(w.nextEarningsDate)}</span></td>
                       <td className="num-cell" style={{ width: 50 }}>
                         <button className="wl-remove" onClick={e => { e.stopPropagation(); remove(w.ticker); }} aria-label={t('watchlist.remove')}>

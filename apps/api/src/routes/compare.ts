@@ -19,6 +19,7 @@ import { parseLang, type Lang } from '../i18n/index.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { getServableSnapshot } from '../services/quantCache.js';
 import { getPublishedResilienceBreakdowns } from '../services/resilienceSummary.js';
+import { getResilienceStars } from '../services/resilienceStars.js';
 import { buildQuantitativeCriteria, buildPfcfCriterion, buildValuation } from '../services/derivedMetrics.js';
 import { getPfcfHistory, pfcfPercentile as computePfcfPercentile } from '../services/pfcfHistory.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
@@ -156,11 +157,16 @@ compareRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const results = await Promise.all(parsed.map(t => buildCompareTicker(t, lang).catch(() => null)));
   const tickers = results.filter((x): x is CompareTicker => x != null);
   // Résilience publiée (batch) → grade global + ventilation par critère. Absente = null (masqué UI).
-  const resiliences = await getPublishedResilienceBreakdowns(tickers.map(t => t.ticker));
+  const compareTickers = tickers.map(t => t.ticker);
+  const [resiliences, resilienceStars] = await Promise.all([
+    getPublishedResilienceBreakdowns(compareTickers),
+    getResilienceStars(compareTickers),
+  ]);
   for (const t of tickers) {
     const r = resiliences.get(t.ticker);
     t.resilience = r ? { grade: r.grade, score: r.score } : null;
     t.resilienceCriteria = r ? r.criteria : null;
+    t.resilienceStars = resilienceStars.get(t.ticker) ?? null;
   }
   // Définitions de lignes (label + cible localisés) — constantes par langue (les libellés ne
   // dépendent pas des valeurs), donc construites à partir de métriques nulles.
