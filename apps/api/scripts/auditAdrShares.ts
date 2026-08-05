@@ -29,6 +29,7 @@
  *   pnpm exec tsx scripts/auditAdrShares.ts [--limit=200] [--out=/tmp/audit.json]
  */
 import 'dotenv/config';
+import type { TimeseriesPoint } from '@lubin/shared';
 import { PrismaClient } from '@prisma/client';
 import { foreignReportingCurrency, getEdgarAnnualNative } from '../src/services/secEdgar.js';
 import { yahooLimiter } from '../src/lib/limiter.js';
@@ -174,10 +175,11 @@ async function main(): Promise<void> {
     const yahoo = await yahooAnnualShares(r.ticker);
     r.yahooShares = yahoo.length ? yahoo[yahoo.length - 1]!.value : null;
     if (r.classe === 'us-gaap-native') {
-      const edgar = (await getEdgarAnnualNative(r.ticker, ['annualDilutedAverageShares']).catch(() => new Map()))
-        .get('annualDilutedAverageShares') ?? [];
+      const fetched = await getEdgarAnnualNative(r.ticker, ['annualDilutedAverageShares'])
+        .catch(() => new Map<string, TimeseriesPoint[]>());
+      const edgar: TimeseriesPoint[] = fetched.get('annualDilutedAverageShares') ?? [];
       r.edgarShares = edgar.length ? edgar[edgar.length - 1]!.value : null;
-      const eByYear = new Map(edgar.map((p: { date: string; value: number }) => [p.date.slice(0, 4), p.value]));
+      const eByYear = new Map<string, number>(edgar.map(p => [p.date.slice(0, 4), p.value]));
       const ratios = yahoo
         .map(p => { const e = eByYear.get(p.date.slice(0, 4)); return e ? p.value / e : null; })
         .filter((x): x is number => x !== null && Number.isFinite(x));
