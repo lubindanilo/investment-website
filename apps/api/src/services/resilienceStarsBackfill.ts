@@ -17,6 +17,14 @@ export interface BackfillOptions {
   dailyCap: number;
   prisma?: PrismaClient;
   crossCheck?: CrossCheckOptions;
+  /**
+   * Entreprises notees puis ECRITES avant de passer aux suivantes. Defaut 12.
+   *
+   * Ne jamais repasser a une ecriture unique en fin de run : le 05/08/2026 un run de 60 est mort
+   * sur la derniere etape du controle croise et a jete 21 min de scoring sans ecrire une ligne.
+   * Une tranche perdue ne coute plus que la tranche.
+   */
+  batchSize?: number;
 }
 
 export interface BackfillResult {
@@ -24,6 +32,10 @@ export interface BackfillResult {
   remaining: number;
   totalUniverse: number;
   flagged: number;
+  /** Notees par Sonnet mais sans controle croise : NON ecrites, repiochees au prochain run. */
+  skippedNoCrossCheck: number;
+  /** Tranches perdues sur erreur ; le run continue avec les suivantes. */
+  failedBatches: number;
 }
 
 interface UniverseRow {
@@ -134,44 +146,66 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
       cap === 0 ? Promise.resolve([] as UniverseRow[]) : pickDue(prisma, cap),
     ]);
     if (due.length === 0) {
-      return { scored: 0, remaining, totalUniverse, flagged: 0 };
+      return { scored: 0, remaining, totalUniverse, flagged: 0, skippedNoCrossCheck: 0, failedBatches: 0 };
     }
 
-    const scores = await scoreWithCrossCheck(due.map(toCompanyBrief), options.crossCheck);
-    const pairs = pairScoresWithRows(due, scores);
-
+    const batchSize = Math.max(1, options.batchSize ?? 12);
     let flagged = 0;
     let persisted = 0;
-    for (const { row, score } of pairs) {
-      if (score.verdict === 'flagged') flagged += 1;
-      const criteria = score.criteria as unknown as Prisma.InputJsonValue;
-      const sonnetTotals = score.sonnetTotals as unknown as Prisma.InputJsonValue;
-      await prisma.resilienceStarScore.upsert({
-        where: { ticker: row.ticker },
-        create: {
-          ticker: row.ticker,
-          name: row.name,
-          total: score.total,
-          criteria,
-          verdict: score.verdict,
-          model: score.model,
-          sonnetTotals,
-          v3Total: score.v3Total ?? null,
-          marketCapUsd: row.marketCapUsd,
-        },
-        update: {
-          name: row.name,
-          total: score.total,
-          criteria,
-          verdict: score.verdict,
-          model: score.model,
-          sonnetTotals,
-          v3Total: score.v3Total ?? null,
-          marketCapUsd: row.marketCapUsd,
-          scoredAt: new Date(),
-        },
-      });
-      persisted += 1;
+    let skippedNoCrossCheck = 0;
+    let failedBatches = 0;
+
+    for (let start = 0; start < due.length; start += batchSize) {
+      const slice = due.slice(start, start + batchSize);
+      const label = `${start + 1}-${start + slice.length}/${due.length}`;
+      try {
+        const scores = await scoreWithCrossCheck(slice.map(toCompanyBrief), options.crossCheck);
+        let written = 0;
+        for (const { row, score } of pairScoresWithRows(slice, scores)) {
+          // Pas de controle croise sur cette ligne = defaillance technique, pas un cas difficile.
+          // On ne l'ecrit PAS : une ligne ecrite n'est plus jamais repiochee par pickDue, elle
+          // resterait figee en `flagged` a vie. La laisser dehors la remet au menu demain.
+          if (score.v3Total == null) {
+            skippedNoCrossCheck += 1;
+            continue;
+          }
+          if (score.verdict === 'flagged') flagged += 1;
+          const criteria = score.criteria as unknown as Prisma.InputJsonValue;
+          const sonnetTotals = score.sonnetTotals as unknown as Prisma.InputJsonValue;
+          await prisma.resilienceStarScore.upsert({
+            where: { ticker: row.ticker },
+            create: {
+              ticker: row.ticker,
+              name: row.name,
+              total: score.total,
+              criteria,
+              verdict: score.verdict,
+              model: score.model,
+              sonnetTotals,
+              v3Total: score.v3Total,
+              marketCapUsd: row.marketCapUsd,
+            },
+            update: {
+              name: row.name,
+              total: score.total,
+              criteria,
+              verdict: score.verdict,
+              model: score.model,
+              sonnetTotals,
+              v3Total: score.v3Total,
+              marketCapUsd: row.marketCapUsd,
+              scoredAt: new Date(),
+            },
+          });
+          written += 1;
+        }
+        persisted += written;
+        console.log(`[resilience] tranche ${label} : ${written} ecrites (cumul ${persisted}).`);
+      } catch (error) {
+        failedBatches += 1;
+        const first = (error as Error).message.split('\n')[0];
+        console.error(`[resilience] tranche ${label} perdue, on continue : ${first}`);
+      }
     }
 
     return {
@@ -179,6 +213,8 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
       remaining: Math.max(0, remaining - persisted),
       totalUniverse,
       flagged,
+      skippedNoCrossCheck,
+      failedBatches,
     };
   } finally {
     if (!options.prisma) await prisma.$disconnect();

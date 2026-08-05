@@ -1,5 +1,13 @@
 import { buildScoringPrompt } from './resilienceStarsPrompt.js';
-import { parseScores, aggregateTotal, type CompanyBrief, type ResilienceStarScore } from './resilienceStars.js';
+import {
+  parseScores,
+  aggregateTotal,
+  pairByCompanyName,
+  type CompanyBrief,
+  type CriterionKey,
+  type CriterionScore,
+  type ResilienceStarScore,
+} from './resilienceStars.js';
 
 /**
  * Adaptateur DeepSeek (API OpenAI-compatible), a temperature 0.
@@ -71,6 +79,30 @@ async function callDeepseek(prompt: string, model: string, maxTokens: number): P
   return text;
 }
 
+/**
+ * Apparie la reponse du modele avec le lot demande, par nom canonique puis par position.
+ *
+ * Une entreprise que le modele n'a pas rendue est OMISE, jamais une exception : le controle croise
+ * est un avis d'appoint, son absence sur une ligne ne doit pas jeter le travail des autres. C'est
+ * exactement ce qui s'est produit le 05/08/2026, « aucun score pour HSBC Holdings plc » a tue un
+ * run de 60 entreprises apres 21 min, sans rien ecrire en base.
+ */
+export function pairDeepseekScores(
+  group: CompanyBrief[],
+  parsed: { nom: string; criteria: Record<CriterionKey, CriterionScore> }[],
+  model: string,
+): ResilienceStarScore[] {
+  const paired = pairByCompanyName(group, parsed);
+  return group.flatMap((company, index) => {
+    const match = paired[index];
+    if (!match) {
+      console.warn(`[resilience] DeepSeek(${model}) : aucun score pour ${company.name}, ligne ignoree.`);
+      return [];
+    }
+    return [{ name: company.name, criteria: match.criteria, total: aggregateTotal(match.criteria), model }];
+  });
+}
+
 export async function scoreCompaniesDeepseek(
   companies: CompanyBrief[],
   options: DeepseekOptions = {},
@@ -83,17 +115,7 @@ export async function scoreCompaniesDeepseek(
   const results: ResilienceStarScore[] = [];
   for (const group of chunk(companies, chunkSize)) {
     const text = await callDeepseek(buildScoringPrompt(group), model, maxTokens);
-    const parsed = parseScores(text);
-    for (const company of group) {
-      const match = parsed.find(p => p.nom.toLowerCase() === company.name.toLowerCase());
-      if (!match) throw new Error(`DeepSeek(${model}): aucun score pour ${company.name}`);
-      results.push({
-        name: company.name,
-        criteria: match.criteria,
-        total: aggregateTotal(match.criteria),
-        model,
-      });
-    }
+    results.push(...pairDeepseekScores(group, parseScores(text), model));
   }
   return results;
 }
