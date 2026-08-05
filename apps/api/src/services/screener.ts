@@ -442,11 +442,21 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     // Capitalisation figée au scoring → alimente le filtre Small/Mid/Large cap. On PRÉFÈRE la
     // valeur publiée par le fournisseur au recalcul prix × actions : le nombre d'actions de
     // /financials-reported est parfois faux de plusieurs ordres de grandeur (cf. marketCapResolve).
+    //
+    // La ligne existante sert de REPLI quand le snapshot n'a pas de prix : sans prix,
+    // resolveMarketCap ne peut rien recouper et accepte la capi publiée telle quelle — c'est par
+    // ce trou qu'EQNR a été figé à 907 Md$ (capi Finnhub en COURONNES sur un titre étiqueté USD,
+    // cf. le commentaire du garde-fou dans marketCapResolve). Le prix de la ligne est rafraîchi
+    // en continu par la ré-évaluation live du flag « opportunité », il est donc fiable.
+    const prev = await prisma.screenerTicker
+      .findUnique({ where: { ticker }, select: { lastScoredAt: true, fundamentalsFingerprint: true, price: true } })
+      .catch(() => null);
+    const priceForCap = snap.metrics.price ?? prev?.price ?? null;
     const { marketCap } = resolveMarketCap(
       {
         fundamentalsSource: snap.fundamentalsSource,
         reportedMarketCap: snap.metrics.marketCap ?? null,
-        price: snap.metrics.price ?? null,
+        price: priceForCap,
         sharesOutstanding: snap.sharesOutstanding,
       },
       value => marketCapToUsd(value, snap.currency),
@@ -464,9 +474,7 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     const fingerprint = fundamentalsFingerprint({
       scoreChiffres: snap.scoreChiffres, scoreChiffresMax: snap.scoreChiffresMax, metrics: snap.metrics,
     });
-    const prev = await prisma.screenerTicker
-      .findUnique({ where: { ticker }, select: { lastScoredAt: true, fundamentalsFingerprint: true } })
-      .catch(() => null);
+    // `prev` est lu plus haut (repli de prix pour resolveMarketCap) — même ligne, même lecture.
     const dataChanged =
       // Jamais noté : la fiche est réellement neuve, sa date de fraîcheur doit être posée.
       prev?.lastScoredAt == null
