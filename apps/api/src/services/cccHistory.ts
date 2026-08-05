@@ -4,7 +4,7 @@
  * Le cœur du calcul reste `computeCccSeries` (Finnhub quarterly, TTM rolling) pour les
  * tickers US. Mais Finnhub renvoie **403** sur tout symbole suffixé (EL.PA, NESN.SW…) :
  * ces marchés ne sont pas couverts par le plan. Ce module ajoute donc un chemin EU annuel
- * basé sur les séries annuelles Yahoo (comme pfcfHistory.ts et cashRoceHistory.ts), et
+ * basé sur le store annuel Yahoo + EDGAR natif (comme pfcfHistory.ts et cashRoceHistory.ts), et
  * garantit qu'un ticker sans données ne renvoie JAMAIS d'erreur dure (502) : il dégrade
  * proprement vers `{ points: [], reason }`, que la modale affiche telle quelle.
  *
@@ -16,10 +16,7 @@
  */
 import { computeCccSeries, type CccResult, type CccPoint } from './finnhubFundamentals.js';
 import { resolveYahooTicker } from './yahooResolve.js';
-import { yahooLimiter } from '../lib/limiter.js';
-
-const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
-const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Lubin-Investment/0.1';
+import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
 
 /**
  * Point d'entrée route/modale. Route US → Finnhub quarterly ; EU (devise ≠ USD) → Yahoo annuel.
@@ -30,7 +27,7 @@ export async function getCccHistory(ticker: string, years: number): Promise<CccR
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
-    return getCccHistoryAnnualYahoo(resolved.symbol, years);
+    return getCccHistoryAnnualYahoo(ticker, resolved.symbol, years);
   }
 
   // Path US : Finnhub quarterly (comportement historique inchangé).
@@ -38,7 +35,7 @@ export async function getCccHistory(ticker: string, years: number): Promise<CccR
   // Fallback ADR étranger (ASML, NSRGY… : bare symbol USD mais Finnhub ne file que de l'annuel
   // → 0 quarter). Si le chemin US est trop pauvre ET qu'on a un symbole Yahoo, tente l'annuel.
   if (us.points.length < 3 && resolved) {
-    const eu = await getCccHistoryAnnualYahoo(resolved.symbol, years);
+    const eu = await getCccHistoryAnnualYahoo(ticker, resolved.symbol, years);
     if (eu.points.length > us.points.length) return eu;
   }
   return us;
@@ -49,15 +46,22 @@ function emptyResult(reason: string): CccResult {
   return { points: [], current: null, slopeDaysPerYear: null, hasInventory: false, approximated: false, reason };
 }
 
-/** Path EU/annuel : reconstitue le CCC par exercice depuis les séries annuelles Yahoo. */
-async function getCccHistoryAnnualYahoo(yahooSymbol: string, years: number): Promise<CccResult> {
-  const [rev, cogs, ar, inv, ap] = await Promise.all([
-    fetchYahooAnnualBasic(yahooSymbol, 'annualTotalRevenue'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualCostOfRevenue'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualAccountsReceivable'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualInventory'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualAccountsPayable'),
-  ]);
+/**
+ * Path EU/annuel : reconstitue le CCC par exercice depuis le store annuel (Yahoo + profondeur
+ * EDGAR en devise native pour les ADR 20-F). Avant : 5 fetches Yahoo directs par appel,
+ * plafonnés à ~4 exercices — un ADR type TCOM rendait un CCC vide ou trop court.
+ */
+async function getCccHistoryAnnualYahoo(ticker: string, yahooSymbol: string, years: number): Promise<CccResult> {
+  const TYPES = [
+    'annualTotalRevenue', 'annualCostOfRevenue', 'annualAccountsReceivable',
+    'annualInventory', 'annualAccountsPayable',
+  ];
+  const batch = await getYahooAnnualBatchCached(ticker, yahooSymbol, TYPES, Date.now());
+  const get = (type: string) => batch?.get(type) ?? [];
+  const [rev, cogs, ar, inv, ap] = [
+    get('annualTotalRevenue'), get('annualCostOfRevenue'), get('annualAccountsReceivable'),
+    get('annualInventory'), get('annualAccountsPayable'),
+  ];
   if (rev.length === 0 || ar.length === 0 || ap.length === 0) {
     console.warn(`[ccc ${yahooSymbol}] EU données annuelles insuffisantes (rev=${rev.length}, ar=${ar.length}, ap=${ap.length})`);
     return emptyResult('Cycle de cash indisponible pour ce marché (données annuelles manquantes).');
@@ -123,25 +127,3 @@ async function getCccHistoryAnnualYahoo(yahooSymbol: string, years: number): Pro
   return { points, current, slopeDaysPerYear, hasInventory, approximated: current.approximated === true };
 }
 
-/** Helper bas-niveau pour une série annuelle Yahoo (clone de pfcfHistory / cashRoceHistory). */
-async function fetchYahooAnnualBasic(symbol: string, type: string): Promise<Array<{ date: string; value: number }>> {
-  return yahooLimiter.schedule(async () => {
-    const now = Math.floor(Date.now() / 1000);
-    const url = `${TIMESERIES_BASE}/${encodeURIComponent(symbol)}?symbol=${encodeURIComponent(symbol)}&type=${encodeURIComponent(type)}&period1=${now - 10 * 365 * 86400}&period2=${now}`;
-    try {
-      const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
-      if (!res.ok) return [];
-      const data = await res.json() as { timeseries?: { result?: Array<Record<string, unknown> & { meta?: { type?: string[] } }> } };
-      const result = data.timeseries?.result?.find(r => r.meta?.type?.includes(type));
-      const rows = (result?.[type] as Array<{ asOfDate?: string; reportedValue?: { raw?: number } }> | undefined) ?? [];
-      return rows
-        .map(r => (r.asOfDate && typeof r.reportedValue?.raw === 'number')
-          ? { date: r.asOfDate, value: r.reportedValue.raw }
-          : null)
-        .filter((x): x is { date: string; value: number } => x !== null)
-        .sort((a, b) => a.date.localeCompare(b.date));
-    } catch {
-      return [];
-    }
-  });
-}

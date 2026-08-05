@@ -175,6 +175,11 @@ const ANNUAL_TYPE_TO_METRIC: Record<string, MetricKey> = {
   annualGoodwill: 'goodwill',
   annualStockholdersEquity: 'equity',
   annualDilutedAverageShares: 'shares',
+  // Postes du CCC (DSO/DIO/DPO) : bilan (instant) sauf COGS (flux cumulatif).
+  annualCostOfRevenue: 'costOfRevenue',
+  annualAccountsReceivable: 'accountsReceivable',
+  annualInventory: 'inventory',
+  annualAccountsPayable: 'accountsPayable',
 };
 export const EDGAR_ANNUAL_TYPES: ReadonlySet<string> = new Set([...Object.keys(ANNUAL_TYPE_TO_METRIC), 'annualFreeCashFlow']);
 

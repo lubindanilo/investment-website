@@ -96,6 +96,20 @@ describe('annualDurationPoints (flux annuels : CFO, capex, sbc, NI, revenue, sha
   });
 });
 
+/**
+ * Le CCC annuel des ADR (cccHistory.ts) dépend de ces 4 types : les retirer du périmètre
+ * EDGAR ne casserait aucun type mais renverrait un CCC vide/court en silence pour TCOM & co.
+ */
+import { EDGAR_ANNUAL_TYPES } from './secEdgar.js';
+
+describe('EDGAR_ANNUAL_TYPES', () => {
+  it('couvre les 4 postes du CCC (DSO/DIO/DPO)', () => {
+    for (const t of ['annualCostOfRevenue', 'annualAccountsReceivable', 'annualInventory', 'annualAccountsPayable']) {
+      expect(EDGAR_ANNUAL_TYPES.has(t), t).toBe(true);
+    }
+  });
+});
+
 describe('annualInstantPoints (bilan : assets, curLiab, goodwill, equity)', () => {
   it('garde les instantanés de fin d’exercice des 20-F, écarte les 6-K intérimaires', () => {
     // Cas réel TCOM : Assets contient 16 entrées 20-F (fins d'exercice) + 2 entrées 6-K
