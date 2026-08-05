@@ -148,8 +148,10 @@ describe('middleware.ts : pré-rendu bot de la page d\'accueil', () => {
     // Le middleware sert `/` (fichier statique résolu avant les rewrites) ; vercel.json sert
     // tout le reste. Deux listes divergentes = une famille de robots voit la home vide sans
     // qu'aucun rapport ne le montre. C'est arrivé le 5 août 2026 (27 jetons contre 55).
-    const middlewareTokens = new Set(botUaMatch![1].split('|'));
-    const vercelGroup = uaRules[0].ua.replace(/^\(\?i\)\.\*\(/, '').replace(/\)\.\*$/, '');
+    // Repli sur '' si l'extraction échoue : les jeux de jetons divergent alors forcément et
+    // le test échoue avec un message lisible, au lieu d'un crash sur undefined.
+    const middlewareTokens = new Set((botUaMatch?.[1] ?? '').split('|'));
+    const vercelGroup = (uaRules[0]?.ua ?? '').replace(/^\(\?i\)\.\*\(/, '').replace(/\)\.\*$/, '');
     const vercelTokens = new Set(vercelGroup.split('|'));
     const missing = [...vercelTokens].filter((t) => !middlewareTokens.has(t));
     const extra = [...middlewareTokens].filter((t) => !vercelTokens.has(t));
