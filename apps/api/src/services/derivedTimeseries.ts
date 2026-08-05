@@ -17,18 +17,16 @@
  *
  * Sources, comme les autres graphes-ratio :
  *   - US (Finnhub quarterly) : TTM glissant sur ~20 trimestres
- *   - EU + ADRs étrangers 20-F (Yahoo annual) : ratio par exercice (~4-5 ans)
+ *   - EU + ADRs étrangers 20-F (store annuel Yahoo + EDGAR natif) : ratio par exercice
+ *     (~4 ans pour l'EU, 14-18 exercices pour les ADR 20-F)
  *
  * Le FCF utilisé côté US est le FCF ajusté SBC (getAdjustedFcfTtmSeries) — identique à la
  * carte. Côté annuel Yahoo c'est le FCF brut (comme pfcfHistory/cashRoceHistory).
  */
 import type { RatioMetricKey, TimeseriesPoint } from '@lubin/shared';
-import { getReportedTimeseries, getAdjustedFcfTtmSeries, maxTtmSpanMs } from './finnhubFundamentals.js';
+import { getReportedTimeseries, getAdjustedFcfTtmSeries, maxTtmGapMs } from './finnhubFundamentals.js';
+import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
 import { resolveYahooTicker } from './yahooResolve.js';
-import { yahooLimiter } from '../lib/limiter.js';
-
-const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
-const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Lubin-Investment/0.1';
 
 /** Unité d'affichage de chaque ratio (alignée sur CriterionHistogram.unit côté shared). */
 const RATIO_UNIT: Record<RatioMetricKey, 'percent' | 'multiple'> = {
@@ -86,18 +84,19 @@ const MIN_CHART_POINTS = 3;
 /**
  * Somme glissante TTM (4 trimestres) sur une série quarterly triée.
  *
- * Même garde-fou de contiguïté que finnhubFundamentals.rollingTtmSum (cf `maxTtmSpanMs`) :
- * une fenêtre à cheval sur un trou n'est pas un TTM et n'émet pas de point. Sans ça, une
- * série trouée (déposants 20-F dont la source ne couvre que quelques exercices épars)
- * produisait des « TTM » étalés sur plusieurs années.
+ * Même garde-fou de contiguïté que finnhubFundamentals.rollingTtmSum (cf `maxTtmGapMs`) :
+ * un écart anormal entre deux points CONSÉCUTIFS de la fenêtre → pas un TTM, pas de point.
+ * Sans ça, une série trouée (déposants 20-F dont la source ne couvre que quelques exercices
+ * épars) produisait des « TTM » étalés sur plusieurs années.
  */
 function rollingTtmSum(points: TimeseriesPoint[]): TimeseriesPoint[] {
   const s = [...points].sort((a, b) => a.date.localeCompare(b.date));
-  const maxSpan = maxTtmSpanMs(s);
+  const maxGap = maxTtmGapMs(s);
+  const gaps: number[] = [0];
+  for (let i = 1; i < s.length; i++) gaps.push(Date.parse(s[i]!.date) - Date.parse(s[i - 1]!.date));
   const out: TimeseriesPoint[] = [];
   for (let i = 3; i < s.length; i++) {
-    const span = Date.parse(s[i]!.date) - Date.parse(s[i - 3]!.date);
-    if (span > maxSpan) continue;
+    if (gaps[i]! > maxGap || gaps[i - 1]! > maxGap || gaps[i - 2]! > maxGap) continue;
     out.push({ date: s[i]!.date, value: s[i]!.value + s[i - 1]!.value + s[i - 2]!.value + s[i - 3]!.value });
   }
   return out;
@@ -241,28 +240,12 @@ async function computeUsRatio(ticker: string, ratio: RatioMetricKey, years: numb
   return filterWindow(raw, years);
 }
 
-// ─── Path EU/ADR : Yahoo annual, ratio par exercice ──────────────────────────
-
-/** Helper bas-niveau Yahoo annual (clone du pattern pfcfHistory/cashRoceHistory). */
-async function fetchYahooAnnual(symbol: string, type: string): Promise<TimeseriesPoint[]> {
-  return yahooLimiter.schedule(async () => {
-    const now = Math.floor(Date.now() / 1000);
-    const url = `${TIMESERIES_BASE}/${encodeURIComponent(symbol)}?symbol=${encodeURIComponent(symbol)}&type=${encodeURIComponent(type)}&period1=${now - 10 * 365 * 86400}&period2=${now}`;
-    try {
-      const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
-      if (!res.ok) return [];
-      const data = await res.json() as { timeseries?: { result?: Array<Record<string, unknown> & { meta?: { type?: string[] } }> } };
-      const result = data.timeseries?.result?.find(r => r.meta?.type?.includes(type));
-      const rows = (result?.[type] as Array<{ asOfDate?: string; reportedValue?: { raw?: number } }> | undefined) ?? [];
-      return rows
-        .map(r => (r.asOfDate && typeof r.reportedValue?.raw === 'number') ? { date: r.asOfDate, value: r.reportedValue.raw } : null)
-        .filter((x): x is TimeseriesPoint => x !== null)
-        .sort((a, b) => a.date.localeCompare(b.date));
-    } catch {
-      return [];
-    }
-  });
-}
+// ─── Path EU/ADR : annuel via le STORE (Yahoo + profondeur EDGAR native) ─────
+//
+// Avant, ce chemin fetchait Yahoo en DIRECT à chaque cache-miss, en contournant le store
+// canonique : les mêmes exercices étaient re-téléchargés par la carte et par chaque graphe,
+// et surtout la profondeur EDGAR (14-18 exercices pour les ADR 20-F, contre ~4 chez Yahoo)
+// n'atteignait jamais les graphes. getYahooAnnualBatchCached persiste et enrichit tout seul.
 
 /** num(année) / den(année) indexé par année, scale=100 pour %, 1 pour ×. */
 function divideByYear(num: TimeseriesPoint[], den: TimeseriesPoint[], scale: number): TimeseriesPoint[] {
@@ -289,36 +272,33 @@ function subtractByYear(a: TimeseriesPoint[], b: TimeseriesPoint[]): TimeseriesP
   return out;
 }
 
-async function computeAnnualRatio(symbol: string, ratio: RatioMetricKey, years: number): Promise<TimeseriesPoint[]> {
+async function computeAnnualRatio(ticker: string, symbol: string, ratio: RatioMetricKey, years: number): Promise<TimeseriesPoint[]> {
   const scale = scaleFor(ratio);
+  // UN batch par ratio (les types manquants reviennent []), lu à travers le store persistant.
+  const TYPES: Record<RatioMetricKey, string[]> = {
+    netMargin:       ['annualNetIncome', 'annualTotalRevenue'],
+    operatingMargin: ['annualOperatingIncome', 'annualTotalRevenue'],
+    fcfMargin:       ['annualFreeCashFlow', 'annualTotalRevenue'],
+    cashConversion:  ['annualFreeCashFlow', 'annualNetIncome', 'annualTotalRevenue'],
+    netDebtFcf:      ['annualFreeCashFlow', 'annualTotalRevenue', 'annualTotalDebt', 'annualCashAndCashEquivalents'],
+  };
+  const batch = await getYahooAnnualBatchCached(ticker, symbol, TYPES[ratio], Date.now());
+  const get = (type: string) => batch?.get(type) ?? [];
+
   let raw: TimeseriesPoint[] = [];
   if (ratio === 'fcfMargin' || ratio === 'netMargin' || ratio === 'operatingMargin') {
     const numType = ratio === 'fcfMargin' ? 'annualFreeCashFlow' : ratio === 'netMargin' ? 'annualNetIncome' : 'annualOperatingIncome';
-    const [num, rev] = await Promise.all([fetchYahooAnnual(symbol, numType), fetchYahooAnnual(symbol, 'annualTotalRevenue')]);
-    raw = divideByYear(num, rev, scale);
+    raw = divideByYear(get(numType), get('annualTotalRevenue'), scale);
   } else if (ratio === 'cashConversion') {
-    const [fcf, ni, rev] = await Promise.all([
-      fetchYahooAnnual(symbol, 'annualFreeCashFlow'),
-      fetchYahooAnnual(symbol, 'annualNetIncome'),
-      fetchYahooAnnual(symbol, 'annualTotalRevenue'),
-    ]);
-    raw = divideByYear(fcf, dropImmaterialDenominator(ni, rev, d => d.slice(0, 4)), scale);
+    raw = divideByYear(get('annualFreeCashFlow'), dropImmaterialDenominator(get('annualNetIncome'), get('annualTotalRevenue'), d => d.slice(0, 4)), scale);
   } else { // netDebtFcf
-    const [fcf, rev, debt, cash] = await Promise.all([
-      fetchYahooAnnual(symbol, 'annualFreeCashFlow'),
-      fetchYahooAnnual(symbol, 'annualTotalRevenue'),
-      fetchYahooAnnual(symbol, 'annualTotalDebt'),
-      fetchYahooAnnual(symbol, 'annualCashAndCashEquivalents'),
-    ]);
-    const netDebt = subtractByYear(debt, cash);
+    const netDebt = subtractByYear(get('annualTotalDebt'), get('annualCashAndCashEquivalents'));
     // Même garde-fou qu'en trimestriel US, indexé par exercice.
-    raw = divideByYear(netDebt, dropImmaterialDenominator(fcf, rev, d => d.slice(0, 4)), scale);
+    raw = divideByYear(netDebt, dropImmaterialDenominator(get('annualFreeCashFlow'), get('annualTotalRevenue'), d => d.slice(0, 4)), scale);
   }
-  // Plancher à 5 ans : Yahoo /fundamentals-timeseries plafonne à ~4 exercices quoi qu'on
-  // demande (vérifié : un period1 à -25 ans renvoie les mêmes 4 points). Fenêtrer à 1 an
-  // ne rendrait donc qu'un seul exercice, sans que la source ait plus à offrir. On sert la
-  // série complète et on le DIT au client via `annualOnly`, qui masque les boutons de
-  // période — sinon « 1Y » et « 5Y » affichent la même chose sans explication.
+  // Plancher à 5 ans : Yahoo seul plafonne à ~4 exercices, donc une fenêtre de 1 an ne
+  // rendrait qu'un point. Avec la profondeur EDGAR des ADR, 10Y/20Y/All fenêtrent maintenant
+  // un historique qui existe vraiment.
   return filterWindow(raw, Math.max(years, 5));
 }
 
@@ -336,7 +316,7 @@ export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, 
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
-    const points = await computeAnnualRatio(resolved.symbol, ratio, years);
+    const points = await computeAnnualRatio(ticker, resolved.symbol, ratio, years);
     console.log(`[ratio ${ticker}/${ratio}] EU annual ${points.length} pts`);
     return { points, unit, freq: 'annual', annualOnly: true };
   }
@@ -346,7 +326,7 @@ export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, 
     // Trimestriel US insuffisant (ADR 20-F sans filing Finnhub, ou série trop trouée pour
     // produire des TTM contigus) → repli annuel Yahoo. On ne garde l'annuel que s'il fait
     // mieux : sinon on préserve le peu de trimestriel plutôt que de dégrader.
-    const annual = await computeAnnualRatio(resolved?.symbol ?? ticker, ratio, years);
+    const annual = await computeAnnualRatio(ticker, resolved?.symbol ?? ticker, ratio, years);
     if (annual.length > us.length) {
       console.log(`[ratio ${ticker}/${ratio}] US TTM insuffisant (${us.length} pt) → Yahoo annual ${annual.length} pts`);
       // annualOnly reste false : on n'escamote pas le sélecteur de période pour un ADR.

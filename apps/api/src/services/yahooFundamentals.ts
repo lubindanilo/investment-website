@@ -106,12 +106,22 @@ export async function getYahooFundamentals(
       ];
       // Store annuel canonique (persisté, partagé avec les graphiques). Toutes les lignes
       // fraîches → ZÉRO appel Yahoo. `series(type)` re-dérive fiscalYear depuis la date.
-      const batch = await getYahooAnnualBatchCached(ticker, yahooSymbol, types, Date.now());
+      const nowMs = Date.now();
+      const batch = await getYahooAnnualBatchCached(ticker, yahooSymbol, types, nowMs);
       if (!batch) {
         console.warn(`[yahoo fund ${yahooSymbol}] batch annuel indisponible`);
         return null;
       }
+      // FENÊTRE 5,5 ANS, délibérée : depuis l'enrichissement EDGAR, le store peut contenir
+      // 14-18 exercices pour les ADR — mais cagr() prend le plus ancien point de la série,
+      // donc sans garde-fou revenueCagr/shareCagr/fcfPerShareCagr changeraient de base de
+      // calcul pour toute la classe ADR. 5,5 ans ≈ 5 exercices pleins : la même définition
+      // « croissance 5 ans » que le chemin Finnhub (computeRevenueGrowthFromQuarterlies à
+      // windowYears=5) et le plafond naturel de Yahoo avant enrichissement. La profondeur
+      // EDGAR est réservée aux GRAPHES, qui fenêtrent selon la période demandée.
+      const windowCutoff = new Date(nowMs - 5.5 * 365.25 * 24 * 3600 * 1000).toISOString().slice(0, 10);
       const series = (type: string) => (batch.get(type) ?? [])
+        .filter(p => p.date >= windowCutoff)
         .map(p => ({ fiscalYear: Number(p.date.slice(0, 4)), date: p.date, value: p.value }))
         .filter(x => Number.isFinite(x.fiscalYear));
 

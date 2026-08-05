@@ -252,6 +252,16 @@ const FIELDS_CASHFLOW: Record<string, string> = {
 const FIELDS_BALANCE: Record<string, string> = {
   debt: 'totalDebt',
   cashneq: 'cash',
+  // Postes du bilan présents dans le payload mais longtemps non mappés (vérifié sur la page
+  // quarterly de TCOM : `assets` et `liabilitiesc` remplis 20/20, en devise NATIVE). Ils
+  // donnent le capital employé TRIMESTRIEL des ADR/EU — sans goodwill : la page ne l'expose
+  // pas, la chaîne de repli du Cash ROCE traite son absence comme 0 (CE plus grand → ROCE
+  // sous-estimé, direction conservatrice). AR/AP/inventory absents aussi → le CCC reste
+  // hors de portée de cette source.
+  assets: 'totalAssets',
+  assetsc: 'currentAssets',
+  liabilitiesc: 'currentLiabilities',
+  equity: 'equity',
 };
 
 export interface StockanalysisBatch {

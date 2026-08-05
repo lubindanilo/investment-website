@@ -17,12 +17,9 @@
  * du graphique = la valeur affichée dans le critère.
  */
 import { getAdjustedFcfTtmSeries, getCapitalEmployedSeries, computeExcessCash } from './finnhubFundamentals.js';
+import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
 import { resolveYahooTicker } from './yahooResolve.js';
-import { yahooLimiter } from '../lib/limiter.js';
 import type { TimeseriesPoint } from '@lubin/shared';
-
-const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
-const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Lubin-Investment/0.1';
 
 export interface CashRoceHistoryPoint {
   /** YYYY-MM-DD — fin de quarter (US) ou fin de FY (EU) */
@@ -84,16 +81,17 @@ export async function getCashRoceHistory(ticker: string, years: number): Promise
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
-    return { points: await getCashRoceHistoryAnnualYahoo(resolved.symbol, years), freq: 'annual' };
+    return { points: await getCashRoceHistoryAnnualYahoo(ticker, resolved.symbol, years), freq: 'annual' };
   }
 
   const usResult = await getCashRoceHistoryUs(ticker, years);
   if (usResult.length < MIN_CHART_POINTS) {
     // Trimestriel insuffisant (ADR 20-F sans filing Finnhub, ou série trop trouée pour
-    // produire des TTM contigus) → repli annuel Yahoo, homogène en devise de reporting.
-    const annual = await getCashRoceHistoryAnnualYahoo(resolved?.symbol ?? ticker, years);
+    // produire des TTM contigus) → repli annuel (store Yahoo + profondeur EDGAR native),
+    // homogène en devise de reporting.
+    const annual = await getCashRoceHistoryAnnualYahoo(ticker, resolved?.symbol ?? ticker, years);
     if (annual.length > usResult.length) {
-      console.log(`[cashRoce ${ticker}] US insuffisant (${usResult.length} pt) → annual Yahoo ${annual.length} pts`);
+      console.log(`[cashRoce ${ticker}] US insuffisant (${usResult.length} pt) → annual ${annual.length} pts`);
       return { points: annual, freq: 'annual' };
     }
   }
@@ -144,18 +142,21 @@ async function getCashRoceHistoryUs(ticker: string, years: number): Promise<Cash
  *
  * Cohérent avec yahooFundamentals.ts (snapshot) et derivedMetrics.ts.
  */
-async function getCashRoceHistoryAnnualYahoo(yahooSymbol: string, years: number): Promise<CashRoceHistoryPoint[]> {
-  const [fcf, assets, curLiab, goodwill, cashSti, cashOnly, revenue, equity, totalDebt] = await Promise.all([
-    fetchYahooAnnualBasic(yahooSymbol, 'annualFreeCashFlow'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualTotalAssets'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualCurrentLiabilities'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualGoodwill'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualCashAndShortTermInvestments'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualCashAndCashEquivalents'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualTotalRevenue'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualStockholdersEquity'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualTotalDebt'),
-  ]);
+async function getCashRoceHistoryAnnualYahoo(ticker: string, yahooSymbol: string, years: number): Promise<CashRoceHistoryPoint[]> {
+  // UN batch via le store persistant (Yahoo + profondeur EDGAR native pour les ADR 20-F).
+  // Avant : 9 fetches Yahoo directs par cache-miss, plafonnés à ~4 exercices.
+  const TYPES = [
+    'annualFreeCashFlow', 'annualTotalAssets', 'annualCurrentLiabilities', 'annualGoodwill',
+    'annualCashAndShortTermInvestments', 'annualCashAndCashEquivalents', 'annualTotalRevenue',
+    'annualStockholdersEquity', 'annualTotalDebt',
+  ];
+  const batch = await getYahooAnnualBatchCached(ticker, yahooSymbol, TYPES, Date.now());
+  const get = (type: string) => batch?.get(type) ?? [];
+  const [fcf, assets, curLiab, goodwill, cashSti, cashOnly, revenue, equity, totalDebt] = [
+    get('annualFreeCashFlow'), get('annualTotalAssets'), get('annualCurrentLiabilities'),
+    get('annualGoodwill'), get('annualCashAndShortTermInvestments'), get('annualCashAndCashEquivalents'),
+    get('annualTotalRevenue'), get('annualStockholdersEquity'), get('annualTotalDebt'),
+  ];
   if (fcf.length === 0 || assets.length === 0) {
     console.warn(`[cashRoce ${yahooSymbol}] EU pas assez de données (fcf=${fcf.length}, assets=${assets.length})`);
     return [];
@@ -228,29 +229,6 @@ async function getCashRoceHistoryAnnualYahoo(yahooSymbol: string, years: number)
 
   console.log(`[cashRoce ${yahooSymbol}] EU ${points.length} pts annual — fcf=${fcf.length} assets=${assets.length} curLiab=${curLiab.length} goodwill=${goodwill.length} cash=${cash.length} rev=${revenue.length}`);
   return points;
-}
-
-/** Helper bas-niveau (clone de pfcfHistory.fetchYahooAnnualBasic). */
-async function fetchYahooAnnualBasic(symbol: string, type: string): Promise<Array<{ date: string; value: number }>> {
-  return yahooLimiter.schedule(async () => {
-    const now = Math.floor(Date.now() / 1000);
-    const url = `${TIMESERIES_BASE}/${encodeURIComponent(symbol)}?symbol=${encodeURIComponent(symbol)}&type=${encodeURIComponent(type)}&period1=${now - 10 * 365 * 86400}&period2=${now}`;
-    try {
-      const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
-      if (!res.ok) return [];
-      const data = await res.json() as { timeseries?: { result?: Array<Record<string, unknown> & { meta?: { type?: string[] } }> } };
-      const result = data.timeseries?.result?.find(r => r.meta?.type?.includes(type));
-      const rows = (result?.[type] as Array<{ asOfDate?: string; reportedValue?: { raw?: number } }> | undefined) ?? [];
-      return rows
-        .map(r => (r.asOfDate && typeof r.reportedValue?.raw === 'number')
-          ? { date: r.asOfDate, value: r.reportedValue.raw }
-          : null)
-        .filter((x): x is { date: string; value: number } => x !== null)
-        .sort((a, b) => a.date.localeCompare(b.date));
-    } catch {
-      return [];
-    }
-  });
 }
 
 // Type re-export pour faciliter l'usage par les routes/tests
