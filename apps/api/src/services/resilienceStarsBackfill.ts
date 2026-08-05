@@ -72,22 +72,69 @@ export function toCompanyBrief(row: UniverseRow): CompanyBrief {
   };
 }
 
+/**
+ * Reveille la base et attend qu'elle reponde avant de travailler.
+ *
+ * Le plan Free suspend l'endpoint Neon apres 5 min d'inactivite. Lance a 3 h du matin, ce backfill
+ * est la premiere chose a toucher la base depuis des heures, et sa premiere requete peut mourir
+ * PENDANT le reveil : c'est exactement ce qui s'est passe le 05/08/2026 (P1017 « Server has closed
+ * the connection » au bout de 16 min, zero entreprise notee, et un log qui annonçait exit=0).
+ * Un `SELECT 1` avec quelques essais espaces absorbe le demarrage a froid.
+ */
+async function waitForDb(prisma: PrismaClient, attempts = 5): Promise<void> {
+  for (let i = 1; i <= attempts; i += 1) {
+    try {
+      await prisma.$queryRaw`SELECT 1`;
+      return;
+    } catch (error) {
+      if (i === attempts) throw error;
+      const first = (error as Error).message.split('\n')[0];
+      console.warn(`[resilience] base injoignable (essai ${i}/${attempts}) : ${first}`);
+      await new Promise(resolve => setTimeout(resolve, i * 3_000));
+    }
+  }
+}
+
+/**
+ * Candidats du jour : capi connue, pas encore de score de resilience, les plus grosses d'abord.
+ *
+ * Anti-jointure BORNEE cote serveur. L'ancienne version chargeait tout l'univers ayant une capi
+ * puis coupait en memoire : 7 453 lignes le 05/08/2026, et ~30 000 quand le drain aura fini de
+ * remplir le screener, pour n'en utiliser que `cap`. Mesure : 331 ms pour la version non bornee
+ * contre 73 ms pour celle-ci, et l'ecart grandit avec l'univers.
+ */
+async function pickDue(prisma: PrismaClient, cap: number): Promise<UniverseRow[]> {
+  return prisma.$queryRaw<UniverseRow[]>`
+    SELECT s.ticker, s.name, s.sector, s."marketCapUsd"
+    FROM "ScreenerTicker" s
+    LEFT JOIN "ResilienceStarScore" r ON r.ticker = s.ticker
+    WHERE s."marketCapUsd" IS NOT NULL AND r.ticker IS NULL
+    ORDER BY s."marketCapUsd" DESC
+    LIMIT ${cap}`;
+}
+
+/** Nombre de candidats restants AVANT le travail de ce run (meme filtre que pickDue). */
+async function countPending(prisma: PrismaClient): Promise<number> {
+  const rows = await prisma.$queryRaw<{ n: bigint }[]>`
+    SELECT COUNT(*)::bigint AS n
+    FROM "ScreenerTicker" s
+    LEFT JOIN "ResilienceStarScore" r ON r.ticker = s.ticker
+    WHERE s."marketCapUsd" IS NOT NULL AND r.ticker IS NULL`;
+  return Number(rows[0]?.n ?? 0);
+}
+
 export async function runBackfill(options: BackfillOptions): Promise<BackfillResult> {
   const prisma = options.prisma ?? new PrismaClient();
   try {
-    const alreadyScored = new Set(
-      (await prisma.resilienceStarScore.findMany({ select: { ticker: true } })).map(r => r.ticker),
-    );
-    const universe: UniverseRow[] = await prisma.screenerTicker.findMany({
-      where: { marketCapUsd: { not: null } },
-      orderBy: { marketCapUsd: 'desc' },
-      select: { ticker: true, name: true, sector: true, marketCapUsd: true },
-    });
-
-    const pending = universe.filter(row => !alreadyScored.has(row.ticker));
-    const due = pending.slice(0, Math.max(0, options.dailyCap));
+    await waitForDb(prisma);
+    const cap = Math.max(0, options.dailyCap);
+    const [totalUniverse, remaining, due] = await Promise.all([
+      prisma.screenerTicker.count({ where: { marketCapUsd: { not: null } } }),
+      countPending(prisma),
+      cap === 0 ? Promise.resolve([] as UniverseRow[]) : pickDue(prisma, cap),
+    ]);
     if (due.length === 0) {
-      return { scored: 0, remaining: pending.length, totalUniverse: universe.length, flagged: 0 };
+      return { scored: 0, remaining, totalUniverse, flagged: 0 };
     }
 
     const scores = await scoreWithCrossCheck(due.map(toCompanyBrief), options.crossCheck);
@@ -129,8 +176,8 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
 
     return {
       scored: persisted,
-      remaining: pending.length - persisted,
-      totalUniverse: universe.length,
+      remaining: Math.max(0, remaining - persisted),
+      totalUniverse,
       flagged,
     };
   } finally {

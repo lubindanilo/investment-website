@@ -1,0 +1,120 @@
+name: Resilience backfill (5 etoiles)
+
+# Note le 3e pilier (resilience 5 etoiles) d'un lot d'entreprises par nuit, les plus grosses
+# capitalisations d'abord, et s'arrete au plafond quotidien.
+#
+# POURQUOI CE WORKFLOW EXISTE. Jusqu'au 05/08/2026 ce backfill etait declenche par un job launchd
+# sur le Mac de Lubin, pointant sur un script d'un WORKTREE non merge (.claude/worktrees/
+# resilience-5star), avec la cle DeepSeek stockee dans le .env de ce meme worktree. Trois points de
+# defaillance hors versioning, et le jour ou ce repertoire est nettoye tout disparait, y compris la
+# seule copie de la cle. La nuit du 05/08 le job a tourne, est mort en P1017 sur une base Neon
+# froide, n'a note AUCUNE entreprise, et a ecrit « exit=0 » dans son log (bug de capture de $?).
+# Personne ne pouvait le savoir : ni alerte, ni surveillance, ni etat visible.
+#
+# AUTHENTIFICATION. Le scoreur passe par le binaire `claude` (services/resilienceStarsCli.ts) et
+# non par l'API HTTP, pour s'authentifier via l'ABONNEMENT et non au token facture. En CI cela se
+# fait avec un jeton long terme genere par `claude setup-token` (necessite un abonnement), pose en
+# secret CLAUDE_CODE_OAUTH_TOKEN. Un ANTHROPIC_API_KEY est accepte en repli, mais il est FACTURE a
+# l'usage : c'est un choix de cout, pas un detail de configuration.
+#
+# Secrets requis : DATABASE_URL, DEEPSEEK_API_KEY, et CLAUDE_CODE_OAUTH_TOKEN (ou ANTHROPIC_API_KEY).
+# Variable optionnelle : RESILIENCE_STARS_DAILY_CAP (defaut 250).
+
+on:
+  workflow_dispatch:
+    inputs:
+      cap:
+        description: 'Entreprises a noter sur ce run (vide = variable RESILIENCE_STARS_DAILY_CAP, sinon 250)'
+        required: false
+        default: ''
+  schedule:
+    # 21:37 UTC. Minute VOLONTAIREMENT hors debut d'heure : GitHub retarde les workflows planifies
+    # en periode de charge, et le pic est le debut de chaque heure. Mesure sur ce repo : les crons
+    # en `0 X` partent 2 a 3 h en retard, tous les jours. Cet horaire laisse aussi le job passer
+    # avant la fenetre du drain screener, pour ne pas tenir la base Neon eveillee a deux.
+    - cron: '37 21 * * *'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: resilience-backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      # Prisma exige `directUrl` a la generation. Ce job ne migre rien : la meme URL suffit.
+      DIRECT_URL: ${{ secrets.DATABASE_URL }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      RESILIENCE_STARS_DAILY_CAP: ${{ inputs.cap || vars.RESILIENCE_STARS_DAILY_CAP || '250' }}
+    steps:
+      - name: Garde-fou secrets
+        run: |
+          fail=0
+          if [ -z "${DATABASE_URL:-}" ]; then
+            echo "::error::Le secret DATABASE_URL est requis."
+            fail=1
+          fi
+          if [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}" ] && [ -z "${ANTHROPIC_API_KEY:-}" ]; then
+            echo "::error::Il faut CLAUDE_CODE_OAUTH_TOKEN (abonnement, genere par \`claude setup-token\`) ou ANTHROPIC_API_KEY (facture a l'usage)."
+            fail=1
+          fi
+          # Sans controle croise, classifyVerdict renvoie `flagged` pour TOUTES les entreprises
+          # (v3 == null). Elles seraient alors ecrites en base marquees « revue humaine » et
+          # ne seraient plus jamais repiochees, puisque le backfill saute ce qui est deja note.
+          # Mieux vaut ne pas tourner que polluer la table.
+          if [ -z "${DEEPSEEK_API_KEY:-}" ]; then
+            echo "::error::DEEPSEEK_API_KEY manquante : sans le controle croise, toutes les notes seraient marquees flagged de façon definitive."
+            fail=1
+          fi
+          [ "$fail" = "0" ] || exit 1
+          echo "Plafond du run : ${RESILIENCE_STARS_DAILY_CAP} entreprises"
+      - uses: actions/checkout@v4
+      # Pas de `version:` : pnpm/action-setup lit `packageManager` dans package.json.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
+
+      - name: Installer le CLI claude
+        run: npm install -g @anthropic-ai/claude-code
+
+      # Echoue en quelques secondes si l'authentification est mauvaise, plutot que de le decouvrir
+      # apres avoir engage le scoring d'un lot entier.
+      - name: Verifier l authentification du CLI
+        run: |
+          set -o pipefail
+          out="$(printf 'Reponds exactement OK.' | claude -p --model claude-sonnet-5 --output-format json 2>&1)" || {
+            echo "::error::Le CLI claude n'est pas authentifie : ${out}"
+            exit 1
+          }
+          echo "CLI claude operationnel."
+
+      - name: Backfill
+        run: pnpm --filter @lubin/api run resilience:stars:backfill
+
+      # Meme canal d'alerte que les autres crons : action pinnee sur son SHA de release.
+      - name: Alerte e-mail en cas d echec
+        if: failure()
+        uses: dawidd6/action-send-mail@94de994a9f6fffee200243214e17002e2920bb59 # v18
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: lubindanilo2@gmail.com
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: Resilience Backfill <lubindanilo2@gmail.com>
+          to: lubindanilo2@gmail.com
+          subject: "[Lubin Investment] Backfill Resilience en ECHEC"
+          body: |
+            Le backfill du score de resilience a echoue : aucune entreprise notee cette nuit.
+
+            Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            Declencheur : ${{ github.event_name }}
