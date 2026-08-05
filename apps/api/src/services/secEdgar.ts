@@ -12,7 +12,7 @@
  * US uniquement (EDGAR ne couvre que les émetteurs SEC). Non-US → renvoie [] (le caller garde Finnhub/Yahoo).
  */
 import type { TimeseriesPoint } from '@lubin/shared';
-import { METRICS, type MetricKey } from './finnhubFundamentals.js';
+import { METRICS, computeCashAndEquivalents, type MetricKey } from './finnhubFundamentals.js';
 
 const UA = 'lubin-investment (admin@hyperstack.studio)'; // SEC exige un User-Agent identifiable
 const CONCEPT_BASE = 'https://data.sec.gov/api/xbrl/companyconcept';
@@ -159,9 +159,9 @@ export function annualInstantPoints(entries: ConceptEntry[]): TimeseriesPoint[] 
 }
 
 /**
- * Types annuels du store (clés Yahoo) reconstructibles depuis EDGAR. `annualFreeCashFlow` est
- * composé (cfo − |capex|), les autres mappent un MetricKey. totalDebt et cash n'y sont pas :
- * ce sont des métriques multi-concepts computed côté Finnhub, sans équivalent direct fiable.
+ * Types annuels du store (clés Yahoo) qui mappent DIRECTEMENT un MetricKey. Les types composés
+ * de plusieurs concepts XBRL (FCF, dette totale, trésorerie) sont traités à part, cf.
+ * COMPOSED_ANNUAL_TYPES.
  */
 const ANNUAL_TYPE_TO_METRIC: Record<string, MetricKey> = {
   annualTotalRevenue: 'revenue',
@@ -181,7 +181,38 @@ const ANNUAL_TYPE_TO_METRIC: Record<string, MetricKey> = {
   annualInventory: 'inventory',
   annualAccountsPayable: 'accountsPayable',
 };
-export const EDGAR_ANNUAL_TYPES: ReadonlySet<string> = new Set([...Object.keys(ANNUAL_TYPE_TO_METRIC), 'annualFreeCashFlow']);
+/**
+ * Composantes XBRL des types annuels COMPOSÉS (dette totale, trésorerie). Miroir exact des
+ * listes de `extractValue` (__computed_totalDebt__ / __computed_cash__) côté Finnhub : les deux
+ * pipelines doivent produire la MÊME définition, sinon la fusion append-only du store mélange
+ * deux conventions de dette dans la même série.
+ *
+ * Dans chaque rôle, les concepts sont essayés dans l'ordre et le PREMIER renseigné gagne, par
+ * date (une société change de tag XBRL au fil des années).
+ */
+// `annualTotalDebt` reste VOLONTAIREMENT hors périmètre. Mesuré en composant les mêmes concepts
+// que Finnhub sur 4 ADR : le total EDGAR ne vaut que 5 à 77 % de celui de Yahoo, et le rapport
+// varie d'un exercice à l'autre (TCOM 0,24-0,51 ; BABA 0,07-0,17 ; NTES 0,05-0,16 ; JD 0,39-0,77).
+// Ce n'est donc pas un écart de convention rattrapable par calibration : la dette de ces
+// émetteurs vit sous des tags que la définition actuelle n'interroge pas (TCOM expose
+// `DebtCurrent` sur 26 exercices, plus des convertibles). L'injecter donnerait des exercices
+// profonds sous-endettés de façon erratique, donc un netDebtFcf faussement rassurant.
+// La reprendre suppose de redéfinir la dette des déposants étrangers ET de garder le miroir
+// avec le chemin trimestriel Finnhub, sans double compter : c'est un chantier à part entière.
+
+const CASH_PARTS = {
+  cash: ['us-gaap_CashAndCashEquivalentsAtCarryingValue', 'us-gaap_CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents', 'us-gaap_Cash'],
+  shortTermInvestments: ['us-gaap_ShortTermInvestments', 'us-gaap_MarketableSecuritiesCurrent', 'us-gaap_AvailableForSaleSecuritiesCurrent'],
+} as const;
+
+/** Types annuels reconstruits en composant plusieurs concepts, pas en mappant un MetricKey. */
+const COMPOSED_ANNUAL_TYPES = [
+  'annualFreeCashFlow',                 // cfo − |capex|
+  'annualCashAndCashEquivalents',       // cash seul
+  'annualCashAndShortTermInvestments',  // cash + placements court terme
+] as const;
+
+export const EDGAR_ANNUAL_TYPES: ReadonlySet<string> = new Set([...Object.keys(ANNUAL_TYPE_TO_METRIC), ...COMPOSED_ANNUAL_TYPES]);
 
 /**
  * Séries ANNUELLES en devise NATIVE pour un déposant 20-F étranger.
@@ -201,6 +232,7 @@ export async function getEdgarAnnualNative(ticker: string, types: string[]): Pro
   if (!native) return out;
 
   const needFcf = wanted.includes('annualFreeCashFlow');
+  const needCash = wanted.includes('annualCashAndCashEquivalents') || wanted.includes('annualCashAndShortTermInvestments');
   const metricSet = new Set<MetricKey>();
   for (const t of wanted) { const m = ANNUAL_TYPE_TO_METRIC[t]; if (m) metricSet.add(m); }
   if (needFcf) { metricSet.add('cfo'); metricSet.add('capex'); }
@@ -237,8 +269,69 @@ export async function getEdgarAnnualNative(ticker: string, types: string[]): Pro
     const fcf = cfo.map(c => ({ date: c.date, value: c.value - (capexByDate.get(c.date) ?? 0) }));
     if (fcf.length) out.set('annualFreeCashFlow', fcf);
   }
+  if (needCash) {
+    const parts = await annualPartsByRole(cik, native, CASH_PARTS);
+    if (wanted.includes('annualCashAndCashEquivalents')) {
+      const c = composeAnnual(parts, v => v.cash);
+      if (c.length) out.set('annualCashAndCashEquivalents', c);
+    }
+    if (wanted.includes('annualCashAndShortTermInvestments')) {
+      const c = composeAnnual(parts, v => computeCashAndEquivalents({ cash: v.cash, shortTermInvestments: v.shortTermInvestments }));
+      if (c.length) out.set('annualCashAndShortTermInvestments', c);
+    }
+  }
   if (out.size) {
     console.log(`[edgar annual ${ticker}] ${native} : ${[...out.entries()].map(([t, p]) => `${t}=${p.length}`).join(' ')}`);
+  }
+  return out;
+}
+
+/**
+ * Pour chaque RÔLE d'un type composé, la série annuelle de bilan en devise native, indexée par
+ * date. Les concepts d'un rôle sont essayés dans l'ordre et le premier renseigné gagne POUR
+ * CHAQUE DATE — une société qui change de tag XBRL en cours de route garde une série continue.
+ */
+async function annualPartsByRole<K extends string>(
+  cik: string,
+  unit: string,
+  roles: Record<K, readonly string[]>,
+): Promise<Map<K, Map<string, number>>> {
+  const out = new Map<K, Map<string, number>>();
+  for (const role of Object.keys(roles) as K[]) {
+    const byDate = new Map<string, number>();
+    for (const raw of roles[role]) {
+      const [taxonomy, ...rest] = raw.split('_');
+      const concept = rest.join('_');
+      if (!taxonomy || !concept) continue;
+      const units = await fetchConceptUnits(cik, taxonomy, concept);
+      const entries = units?.[unit];
+      if (!entries?.length) continue;
+      for (const p of annualInstantPoints(entries)) {
+        if (!byDate.has(p.date)) byDate.set(p.date, p.value); // premier concept renseigné gagne
+      }
+    }
+    out.set(role, byDate);
+  }
+  return out;
+}
+
+/**
+ * Applique une formule de composition à chaque exercice présent dans AU MOINS un rôle. Un rôle
+ * absent à une date vaut `null` — c'est exactement ce qu'attendent computeTotalDebt et
+ * computeCashAndEquivalents, qui distinguent « composante absente » de « zéro ».
+ */
+function composeAnnual<K extends string>(
+  parts: Map<K, Map<string, number>>,
+  formula: (values: Record<K, number | null>) => number | null,
+): TimeseriesPoint[] {
+  const dates = new Set<string>();
+  for (const byDate of parts.values()) for (const d of byDate.keys()) dates.add(d);
+  const out: TimeseriesPoint[] = [];
+  for (const date of [...dates].sort()) {
+    const values = {} as Record<K, number | null>;
+    for (const [role, byDate] of parts) values[role] = byDate.get(date) ?? null;
+    const v = formula(values);
+    if (v != null && Number.isFinite(v)) out.push({ date, value: v });
   }
   return out;
 }
