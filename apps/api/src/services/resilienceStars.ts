@@ -61,9 +61,59 @@ const companySchema = z.object({
 });
 const arraySchema = z.array(companySchema);
 
+/**
+ * Nom canonique pour apparier la reponse d'un modele avec nos lignes.
+ *
+ * Les modeles reecrivent les raisons sociales : « HSBC » pour « HSBC Holdings plc », « LVMH Moet
+ * Hennessy » pour « LVMH Moët Hennessy ». Une egalite stricte fait echouer l'appariement, et le
+ * 05/08/2026 cet echec a tue un run entier de 60 entreprises apres 21 min de scoring.
+ */
+export function normalizeCompanyName(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
 /** Agregation deterministe : le total n'est jamais decide par le LLM. */
 export function aggregateTotal(criteria: Record<CriterionKey, CriterionScore>): number {
   return CRITERION_KEYS.reduce((sum, key) => sum + criteria[key].star, 0);
+}
+
+/**
+ * Apparie le lot demande avec la reponse du modele : nom canonique d'abord, puis les RESTES par
+ * position, et uniquement s'il en reste autant des deux cotes.
+ *
+ * L'ordre des deux passes n'est pas un detail. Attribuer par position avant d'avoir epuise les noms
+ * permute deux entreprises des que le modele reordonne sa reponse, et une note attribuee a la
+ * mauvaise societe est bien plus grave qu'une note manquante. Quand les restes ne s'equilibrent pas,
+ * on ne devine pas : la case sort `undefined` et l'appelant decide (Sonnet echoue, V3 omet).
+ */
+export function pairByCompanyName<T extends { nom: string }>(
+  companies: CompanyBrief[],
+  parsed: T[],
+): (T | undefined)[] {
+  const paired: (T | undefined)[] = companies.map(() => undefined);
+  const used = new Set<number>();
+
+  companies.forEach((company, index) => {
+    const wanted = normalizeCompanyName(company.name);
+    const found = parsed.findIndex((p, i) => !used.has(i) && normalizeCompanyName(p.nom) === wanted);
+    if (found === -1) return;
+    paired[index] = parsed[found];
+    used.add(found);
+  });
+
+  const orphanCompanies = paired.flatMap((match, index) => (match ? [] : [index]));
+  const orphanParsed = parsed.flatMap((_, index) => (used.has(index) ? [] : [index]));
+  if (orphanCompanies.length === orphanParsed.length) {
+    orphanCompanies.forEach((companyIndex, rank) => {
+      paired[companyIndex] = parsed[orphanParsed[rank]!];
+    });
+  }
+  return paired;
 }
 
 interface RawScore {
@@ -105,9 +155,10 @@ export async function scoreCompanies(
   const resultText = await runClaudeJson(prompt, { model, timeoutMs: options.timeoutMs });
   const parsed = parseScores(resultText);
 
+  const paired = pairByCompanyName(companies, parsed);
+
   return companies.map((company, index) => {
-    const match =
-      parsed.find(p => p.nom.toLowerCase() === company.name.toLowerCase()) ?? parsed[index];
+    const match = paired[index];
     if (!match) throw new Error(`Aucun score renvoye pour ${company.name}`);
     return {
       name: company.name,
