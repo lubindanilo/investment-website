@@ -86,6 +86,34 @@ jobs:
       - name: Installer le CLI claude
         run: npm install -g @anthropic-ai/claude-code
 
+      # DEBUG TEMPORAIRE (branche uniquement, a retirer) : comprendre le 401 sur trois jetons
+      # differents. On n'affiche jamais le jeton, seulement sa forme.
+      - name: DEBUG forme du secret
+        env:
+          TOK: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          printf 'longueur          : %s\n' "${#TOK}"
+          printf 'prefixe de format : %s\n' "$(printf '%s' "$TOK" | cut -c1-12)"
+          printf 'empreinte (8 hex) : %s\n' "$(printf '%s' "$TOK" | sha256sum | cut -c1-8)"
+          case "$TOK" in
+            *[[:space:]]*) echo "ATTENTION : espace ou retour a la ligne dans le secret" ;;
+            *) echo "pas d espace ni de retour a la ligne" ;;
+          esac
+          claude --version
+
+      - name: DEBUG ce que repond l API a ce jeton
+        env:
+          TOK: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          code=$(curl -s -o /tmp/body.json -w '%{http_code}' https://api.anthropic.com/v1/messages \
+            -H "Authorization: Bearer ${TOK}" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "anthropic-beta: oauth-2025-04-20" \
+            -H "content-type: application/json" \
+            -d '{"model":"claude-sonnet-5","max_tokens":8,"messages":[{"role":"user","content":"OK"}]}')
+          echo "HTTP ${code}"
+          head -c 600 /tmp/body.json; echo
+
       # Echoue en quelques secondes si l'authentification est mauvaise, plutot que de le decouvrir
       # apres avoir engage le scoring d'un lot entier.
       - name: Verifier l authentification du CLI
