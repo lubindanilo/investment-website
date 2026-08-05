@@ -97,7 +97,8 @@ export async function getYahooAnnualBatchCached(
   }
 
   // Profondeur EDGAR (devise native) fusionnée AVANT la persistance → une seule écriture.
-  const deep = await edgarAnnualDepth(ticker, types, stored, nowMs);
+  // `fetched` sert de référence de vérification (dette) : ce sont les valeurs Yahoo du jour.
+  const deep = await edgarAnnualDepth(ticker, types, stored, nowMs, fetched);
 
   // Persistance append-only de chaque type (persistEmpty : un type non fourni est mis en
   // cache négatif borné → ne re-déclenche pas un fetch à chaque appel).
@@ -225,12 +226,16 @@ async function edgarAnnualDepth(
   types: string[],
   stored: Map<string, Awaited<ReturnType<typeof readSeries>>>,
   nowMs: number,
+  /** Séries Yahoo de référence (fraîchement fetchées ou stockées) : la dette EDGAR n'est
+   *  fusionnée QUE si sa composition reconstitue Yahoo (cf composeVerifiedDebt). */
+  reference?: Map<string, TimeseriesPoint[]>,
 ): Promise<Map<string, TimeseriesPoint[]> | null> {
   if (ticker.includes('.')) return null;
   if (edgarDepthNone.has(ticker)) return null;
   const shallow = types.filter(t => EDGAR_ANNUAL_TYPES.has(t) && !hasDeepHistory(stored.get(t)?.points ?? [], nowMs));
   if (shallow.length === 0) return null;
-  const deep = await getEdgarAnnualNative(ticker, shallow).catch(() => new Map<string, TimeseriesPoint[]>());
+  const debtRef = reference?.get('annualTotalDebt') ?? stored.get('annualTotalDebt')?.points ?? [];
+  const deep = await getEdgarAnnualNative(ticker, shallow, { debtRef }).catch(() => new Map<string, TimeseriesPoint[]>());
   if (deep.size === 0) {
     edgarDepthNone.add(ticker);
     return null;
