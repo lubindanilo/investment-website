@@ -26,6 +26,8 @@ import { getSecReportingCurrency } from './secEdgar.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
 import { getFxSeries, fxAt } from './fx.js';
 import { resolveYahooTicker } from './yahooResolve.js';
+import { getYahooMarketCap } from './yahoo.js';
+import { reconcileAdsMarketCap } from './marketCapResolve.js';
 import { yahooLimiter } from '../lib/limiter.js';
 import type { TimeseriesPoint, NegativeFcfInterval } from '@lubin/shared';
 
@@ -161,6 +163,41 @@ async function fetchPriceHistory(
 
 
 /**
+ * Facteur de CONVENTION de la série de shares, mesuré au DERNIER point contre la capitalisation
+ * publiée par Yahoo pour le symbole même du prix. Même angle mort que le live (audit ADS du
+ * 05/08/2026) : pour un ADR, la série de shares (XBRL ou Yahoo annual) n'est pas toujours dans
+ * la convention de l'ADS dont on croise le prix — SBS publie 17,6 Md d'actions XBRL pour une
+ * capi de ~19 Md$, IX/MFG comptent en ordinaires pour un prix d'ADS. TOUTE la série P/FCF sort
+ * alors fausse du même facteur, et comme le P/FCF courant est désormais recoupé (cf.
+ * reconcileAdsMarketCap), le percentile comparerait un courant juste à un historique décalé —
+ * pour un facteur > 1, l'historique paraît trop cher et le courant faussement « bas vs son
+ * historique » : faux signal d'opportunité.
+ *
+ * Hypothèse assumée : un écart de convention est un facteur CONSTANT (même postulat que
+ * calibrateAdsShares). Si la série a en plus un accident ponctuel (reverse split non restaté),
+ * au moins les points récents — ceux qui dominent le percentile — redeviennent justes.
+ *
+ * Renvoie 1 (aucun rescale) si la capi publiée manque, si sa devise ne correspond pas, ou si
+ * les deux s'accordent (facteur ≤ 1,4). Appel memoïsé 6 h, HORS yahooLimiter (cf. yahoo.ts).
+ */
+async function sharesConventionScale(
+  symbol: string,
+  quoteCurrency: string,
+  lastPrice: number | null,
+  lastShares: number | null,
+): Promise<number> {
+  if (lastPrice == null || !(lastPrice > 0) || lastShares == null || !(lastShares > 0)) return 1;
+  const published = await getYahooMarketCap(symbol).catch(() => null);
+  if (!published || (published.currency != null && published.currency !== quoteCurrency)) return 1;
+  const rec = reconcileAdsMarketCap(lastPrice * lastShares, published.marketCap);
+  if (rec?.corrected && rec.factor != null && rec.factor > 0) {
+    console.warn(`[pfcf ${symbol}] série de shares hors convention ADS (prix × actions / capi publiée = ${rec.factor.toFixed(2)}) → multiples rescalés ÷${rec.factor.toFixed(2)}`);
+    return rec.factor;
+  }
+  return 1;
+}
+
+/**
  * Index : pour une date `t`, retrouve le dernier point de la série dont date ≤ t.
  * Renvoie null si pas de point récent (within `maxStalenessDays`).
  */
@@ -291,6 +328,16 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
     return [];
   }
 
+  // Convention de la série de shares XBRL, recoupée contre la capi Yahoo publiée. Gaté aux
+  // ADR (reporting étranger), le même périmètre que le recoupement du P/FCF de la carte.
+  const scale = reporting
+    ? await sharesConventionScale(
+        ticker, quoteCurrency,
+        prices[prices.length - 1]?.value ?? null,
+        sharesQ[sharesQ.length - 1]?.value ?? null,
+      )
+    : 1;
+
   const points: PfcfHistoryPoint[] = [];
   for (const p of prices) {
     const ttm = findLatestAsOf(adjFcfTtm, p.date);   // {date, value} = FCF ajusté TTM
@@ -299,7 +346,7 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
     if (ttm.value <= 0 || sh.value <= 0) continue;   // FCF ajusté ≤ 0 → P/FCF non pertinent (omis)
     const fx = fxAt(fxSeries, p.date);
     if (fx == null) continue;
-    const marketCap = p.value * sh.value;
+    const marketCap = (p.value * sh.value) / scale;
     const pfcf = marketCap / (ttm.value * fx);
     if (!Number.isFinite(pfcf) || pfcf <= 0) continue;
     if (pfcf > 200) continue;   // FCF ajusté ≈ 0 → multiple explosif (>200× = rendement FCF <0,5%) → bruit
@@ -353,6 +400,16 @@ async function getPfcfHistoryAnnualYahoo(ticker: string, yahooSymbol: string, ye
     return [];
   }
 
+  // Convention de la série de shares annuelles, recoupée contre la capi Yahoo publiée —
+  // même gate ADR (reporting ≠ cotation) que le chemin US et que le P/FCF de la carte.
+  const scale = reporting && reporting !== quoteCurrency
+    ? await sharesConventionScale(
+        yahooSymbol, quoteCurrency,
+        prices[prices.length - 1]?.value ?? null,
+        sharesPts[sharesPts.length - 1]?.value ?? null,
+      )
+    : 1;
+
   // Index par année
   const fcfByYear: Record<string, number> = {};
   const sharesByYear: Record<string, number> = {};
@@ -380,7 +437,7 @@ async function getPfcfHistoryAnnualYahoo(ticker: string, yahooSymbol: string, ye
     if (priceAt == null) continue;
     const fx = fxAt(fxSeries, yearEnd);
     if (fx == null) continue;
-    const marketCap = priceAt * sh;
+    const marketCap = (priceAt * sh) / scale;
     const pfcf = marketCap / (fcf * fx);
     if (!Number.isFinite(pfcf) || pfcf <= 0) continue;
     points.push({ date: yearEnd, pfcf: Math.round(pfcf * 100) / 100 });

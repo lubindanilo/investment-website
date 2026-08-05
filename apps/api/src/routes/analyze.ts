@@ -227,7 +227,7 @@ async function computeOpportunity(
   fcfFxToQuote: number | null,
 ): Promise<{ pfcfPercentile: number | null; pfcfMedian: number | null; opportunity: boolean }> {
   // 1) Distribution HISTORIQUE du P/FCF (lente, cadence earnings → cache OK).
-  const key = chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx2', OPP_YEARS);
+  const key = chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx3', OPP_YEARS);
   let points: { date: string; pfcf: number }[] = [];
   const entry = await chartCache.get(key).catch(() => null);
   if (entry && entry.points.length) {
