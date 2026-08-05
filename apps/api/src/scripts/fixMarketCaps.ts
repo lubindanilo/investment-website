@@ -1,6 +1,6 @@
 /**
  * fixMarketCaps — recalcule `marketCap` / `marketCapUsd` des titres déjà notés, avec la règle
- * de marketCapResolve, SANS re-scorer et SANS aucun appel réseau.
+ * de marketCapResolve, SANS re-scorer et (par défaut) SANS aucun appel réseau.
  *
  * Pourquoi ce script plutôt qu'un re-scoring : la base est sur Neon Free (~100 CU-h/mois),
  * c'est le facteur limitant du projet. Toutes les données nécessaires sont déjà là, dans le
@@ -13,16 +13,30 @@
  *   2. `marketCapUsd` vide sur 6 618 lignes sur 6 818, alors que c'est désormais la colonne qui
  *      porte le filtre Small/Mid/Large (les seuils en dollars n'ont aucun sens en yens).
  *
+ * MODE --adr (opt-in, seul mode à faire du réseau) : recoupe en plus les ADR contre la capi
+ * publiée Yahoo (référence de convention, cf. audit ADS du 05/08/2026 et marketCapResolve).
+ * C'est le correctif one-shot des capis Finnhub arrivées en devise NATIVE sous le seuil de
+ * désaccord ×10 (BEKE : 146,8 Md « USD » qui sont des CNY, réel ~18,6 Md$) et des shares XBRL
+ * fausses de la même façon que la capi (SBS). Sans lui, ces lignes ne se répareraient qu'au
+ * prochain re-scoring de chaque titre — le drain n'avance pas assez vite.
+ * Réseau induit : ~1-2 sondes SEC par ticker US non suffixé (devise de reporting, memoïsé)
+ * et 1 quoteSummary Yahoo par ADR étranger détecté (~700, memoïsé 6 h).
+ *
  * Usage :
- *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts            → SIMULATION
- *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts --apply    → écrit en base
+ *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts                  → SIMULATION
+ *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts --apply          → écrit en base
+ *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts --adr [--apply]  → + recoupement Yahoo des ADR
  */
+import '../env.js';
 import { Prisma } from '@prisma/client';
 import { prisma } from '../db/client.js';
 import { resolveMarketCap } from '../services/marketCapResolve.js';
 import { marketCapToUsd } from '../services/marketTiers.js';
+import { getSecReportingCurrency } from '../services/secEdgar.js';
+import { getYahooMarketCap } from '../services/yahoo.js';
 
 const APPLY = process.argv.includes('--apply');
+const ADR = process.argv.includes('--adr');
 /** Restreint la correction à quelques tickers, pour traiter une anomalie identifiée sans
  *  réécrire toute la table (le reste des écarts n'est souvent que de la dérive de prix). */
 const ONLY = ((process.argv.find(a => a.startsWith('--tickers=')) ?? '').split('=')[1] ?? '')
@@ -55,6 +69,41 @@ function fmt(v: number | null): string {
 
 interface Update { ticker: string; marketCap: number | null; marketCapUsd: number | null }
 
+/** Pool de concurrence borné — SEC plafonne à 10 req/s, on vise ~6 (même réglage que l'audit). */
+async function pool<T, R>(items: T[], size: number, fn: (t: T) => Promise<R>): Promise<R[]> {
+  const out: R[] = new Array(items.length);
+  let next = 0;
+  await Promise.all(Array.from({ length: Math.min(size, items.length) }, async () => {
+    while (next < items.length) {
+      const i = next++;
+      out[i] = await fn(items[i]!);
+      await new Promise(r => setTimeout(r, 350));
+    }
+  }));
+  return out;
+}
+
+/**
+ * Capi Yahoo (référence de convention) pour les ADR étrangers d'une page : tickers US non
+ * suffixés dont la devise de REPORTING (EDGAR, us-gaap puis ifrs-full) n'est pas l'USD.
+ * Renvoie Map<ticker, capi absolue en devise de cotation> — vide hors mode --adr.
+ * Les deux sondes sont memoïsées par process : un même ticker ne coûte jamais deux fois.
+ */
+async function fetchIndependentCaps(rows: Array<{ ticker: string; currency: string | null }>): Promise<Map<string, number>> {
+  const out = new Map<string, number>();
+  if (!ADR) return out;
+  const candidates = rows.filter(r => !r.ticker.includes('.'));
+  await pool(candidates, 3, async (r) => {
+    // getSecReportingCurrency renvoie null pour un déposant USD (rien à convertir) ET pour un
+    // ticker sans XBRL : dans les deux cas, pas de risque de convention → pas d'appel Yahoo.
+    const reporting = await getSecReportingCurrency(r.ticker).catch(() => null);
+    if (!reporting) return;
+    const cap = await getYahooMarketCap(r.ticker).catch(() => null);
+    if (cap && (cap.currency == null || cap.currency === r.currency)) out.set(r.ticker, cap.marketCap);
+  });
+  return out;
+}
+
 /**
  * Écrit une page en UNE requête, via une liste VALUES. `Prisma.sql` paramètre chaque valeur,
  * donc pas de concaténation de chaînes dans le SQL.
@@ -70,9 +119,10 @@ async function flush(updates: Update[]): Promise<void> {
 
 async function main() {
   console.log(APPLY ? '⚠️  MODE ÉCRITURE (--apply)\n' : 'Mode simulation (ajoute --apply pour écrire)\n');
+  if (ADR) console.log('Mode --adr : recoupement des ADR contre la capi publiée Yahoo (sondes SEC + Yahoo)\n');
 
   let cursor: string | undefined;
-  let seen = 0, changed = 0, cleared = 0, reclassified = 0, noSnapshot = 0;
+  let seen = 0, changed = 0, cleared = 0, reclassified = 0, noSnapshot = 0, viaIndependent = 0;
   const samples: string[] = [];
   const pending: Update[] = [];
 
@@ -92,6 +142,9 @@ async function main() {
       select: { ticker: true, snapshot: true },
     });
     const byTicker = new Map(snaps.map(s => [s.ticker, s.snapshot as SnapshotShape]));
+    // Capi Yahoo des ADR étrangers de la page (Map vide hors --adr). Pré-passe réseau groupée
+    // pour ne pas sérialiser une sonde SEC + un quoteSummary dans la boucle ligne à ligne.
+    const independentCaps = await fetchIndependentCaps(rows);
 
     for (const row of rows) {
       seen++;
@@ -108,12 +161,14 @@ async function main() {
       // alors que le titre est étiqueté USD. Avec le prix, le recoupement prix × actions ramène
       // 94 Md$ et la règle de désaccord tranche pour la plus petite des deux.
       const price = snap.metrics?.price ?? row.price ?? null;
-      const { marketCap } = resolveMarketCap({
+      const { marketCap, source } = resolveMarketCap({
         fundamentalsSource: snap.fundamentalsSource ?? null,
         reportedMarketCap: snap.metrics?.marketCap ?? null,
         price,
         sharesOutstanding: snap.sharesOutstanding ?? null,
+        independentCap: independentCaps.get(row.ticker) ?? null,
       }, value => marketCapToUsd(value, row.currency));
+      if (source === 'independent') viaIndependent++;
       const marketCapUsd = marketCapToUsd(marketCap, row.currency);
 
       // On compare les DEUX colonnes : la capi locale peut être inchangée alors que sa conversion
@@ -156,6 +211,7 @@ async function main() {
   console.log(`capitalisations corrigées : ${changed}`);
   console.log(`  dont mises à null       : ${cleared} (aucune valeur crédible)`);
   console.log(`  dont changent de tranche: ${reclassified}`);
+  if (ADR) console.log(`  dont via capi Yahoo     : ${viaIndependent} (référence de convention ADR)`);
   if (samples.length) {
     console.log("\nÉchantillon des corrections :");
     console.log(samples.join('\n'));
