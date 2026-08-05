@@ -18,14 +18,18 @@
  *   - un ticker déjà profond ne déclenche aucun appel SEC.
  * Autrement dit, il ne produit rien que la première visite n'aurait produit — juste plus tôt.
  *
- * COÛT
- * Une requête Yahoo par ticker non frais + quelques requêtes SEC par ticker peu profond. Le
- * compute Neon est le facteur limitant du projet : le script est donc SÉQUENTIEL et borné par
- * --limit, à lancer hors des fenêtres de scoring.
+ * COÛT NEON — c'est le facteur limitant du projet, pas les API
+ * Le sondage SEC qui identifie les ADR ne touche PAS la base, mais il dure ~30 min. On ferme
+ * donc la connexion pendant cette phase : l'endpoint Neon Free se suspend au bout de 5 min
+ * d'inactivité, et ne se réveille que pour la phase d'écriture. Sans ça le compute tournerait
+ * une demi-heure à ne rien faire.
+ * `--tickers=A,B,C` saute entièrement le sondage quand la liste est déjà connue (elle l'est,
+ * cf scripts/auditAdrShares.ts) : c'est le mode le moins cher.
+ * Le script reste SÉQUENTIEL et bornable par --limit, à lancer hors des fenêtres de scoring.
  *
  * USAGE (dry-run par défaut, n'écrit rien) :
  *   DATABASE_URL=... tsx scripts/warmEdgarAnnualDepth.ts [--limit=200]
- *   DATABASE_URL=... tsx scripts/warmEdgarAnnualDepth.ts --apply [--limit=200]
+ *   DATABASE_URL=... tsx scripts/warmEdgarAnnualDepth.ts --apply --tickers=BABA,TCOM,NTES
  */
 import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
@@ -36,6 +40,8 @@ import { resolveYahooTicker } from '../src/services/yahooResolve.js';
 const prisma = new PrismaClient();
 const APPLY = process.argv.includes('--apply');
 const LIMIT = Number((process.argv.find(a => a.startsWith('--limit=')) ?? '--limit=0').split('=')[1]) || Infinity;
+const EXPLICIT = ((process.argv.find(a => a.startsWith('--tickers=')) ?? '').split('=')[1] ?? '')
+  .split(',').map(t => t.trim().toUpperCase()).filter(Boolean);
 
 /**
  * Types réchauffés : exactement ceux que consomment les trois chemins de graphes annuels
@@ -63,21 +69,36 @@ async function main(): Promise<void> {
   // Candidats : titres cotés aux US (un ticker suffixé n'a pas de CIK, donc pas d'EDGAR),
   // déjà notés, avec une capitalisation connue — on réchauffe les plus consultés d'abord.
   const candidates = await prisma.screenerTicker.findMany({
-    where: { ticker: { not: { contains: '.' } }, status: 'scored', marketCapUsd: { not: null } },
+    where: {
+      ticker: EXPLICIT.length ? { in: EXPLICIT } : { not: { contains: '.' } },
+      status: 'scored',
+      marketCapUsd: { not: null },
+    },
     select: { ticker: true, name: true, marketCapUsd: true },
     orderBy: { marketCapUsd: 'desc' },
   });
-  console.log(`${candidates.length} titres US-listés notés. Sonde la devise de reporting chez SEC…`);
 
-  // Seuls les déposants en devise NATIVE ont une profondeur EDGAR à récupérer.
-  const targets: typeof candidates = [];
-  let probed = 0;
-  for (const c of candidates) {
-    const native = await getSecReportingCurrency(c.ticker).catch(() => null);
-    if (native) targets.push(c);
-    if (++probed % 500 === 0) console.log(`  … ${probed}/${candidates.length} sondés, ${targets.length} ADR trouvés`);
-    if (targets.length >= LIMIT) break;
-    await new Promise(r => setTimeout(r, 120)); // SEC ≤10 req/s, on reste loin dessous
+  let targets: typeof candidates;
+  if (EXPLICIT.length) {
+    // Liste fournie : on fait confiance à l'appelant (elle vient d'auditAdrShares.ts) et on
+    // économise ~30 min de sondage SEC.
+    targets = candidates.slice(0, Number.isFinite(LIMIT) ? LIMIT : undefined);
+    console.log(`${targets.length} titres fournis explicitement (sondage SEC sauté).`);
+  } else {
+    // Le sondage ne touche pas la base : on ferme la connexion pour laisser l'endpoint Neon se
+    // suspendre pendant la demi-heure que ça prend, au lieu de payer du compute à ne rien faire.
+    await prisma.$disconnect();
+    console.log(`${candidates.length} titres US-listés notés. Sonde la devise de reporting chez SEC (connexion DB fermée)…`);
+    const found: typeof candidates = [];
+    let probed = 0;
+    for (const c of candidates) {
+      const native = await getSecReportingCurrency(c.ticker).catch(() => null);
+      if (native) found.push(c);
+      if (++probed % 500 === 0) console.log(`  … ${probed}/${candidates.length} sondés, ${found.length} ADR trouvés`);
+      if (found.length >= LIMIT) break;
+      await new Promise(r => setTimeout(r, 120)); // SEC ≤10 req/s, on reste loin dessous
+    }
+    targets = found;
   }
   console.log(`\n${targets.length} déposants en devise étrangère à réchauffer.`);
 
