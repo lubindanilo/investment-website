@@ -9,7 +9,7 @@
  */
 import { loadQuantData } from './quantSnapshot.js';
 import { buildQuantitativeCriteria } from './derivedMetrics.js';
-import { writeCachedSnapshot, type CachedQuantSnapshot } from './quantCache.js';
+import { writeCachedSnapshot, extractLivePfcfInputs, type CachedQuantSnapshot } from './quantCache.js';
 import { accumulateYahooQuarterly, accumulateStockanalysisQuarterly } from './yahooAnnualStore.js';
 import { readSeries } from './fundamentalsStore.js';
 import { isChinaAshare, nextAshareDisclosure } from './marketTiers.js';
@@ -41,18 +41,9 @@ export async function buildAndCacheQuantSnapshot(
   const pass = evaluable.filter(c => c.statut === 'pass').length;
   const warn = evaluable.filter(c => c.statut === 'warn').length;
 
-  let adjFcfTtm: number | null = null;
-  let sharesOutstanding: number | null = null;
-  if (quant.fundamentalsSource === 'finnhub' && quant.rawFhFcfAdj && quant.rawFhCapEmp) {
-    adjFcfTtm = quant.rawFhFcfAdj.ttmFcfAdj;
-    sharesOutstanding = quant.rawFhCapEmp.sharesLatest;
-  } else if (quant.fundamentalsSource === 'yahoo') {
-    const m = quant.metrics;
-    sharesOutstanding = (m.marketCap != null && m.price != null && m.price > 0)
-      ? m.marketCap / m.price : null;
-    adjFcfTtm = (m.marketCap != null && m.pfcfTTM != null && m.pfcfTTM > 0)
-      ? m.marketCap / m.pfcfTTM : null;
-  }
+  // Composants du recompute live — helper partagé (rétro-dérivation en devise de REPORTING
+  // sur le chemin Yahoo, cf. extractLivePfcfInputs).
+  const { adjFcfTtm, sharesOutstanding } = extractLivePfcfInputs(quant);
 
   const snapshot: CachedQuantSnapshot = {
     ticker,

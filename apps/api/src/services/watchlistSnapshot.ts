@@ -7,7 +7,7 @@
  */
 import { loadQuantData } from './quantSnapshot.js';
 import { buildQuantitativeCriteria } from './derivedMetrics.js';
-import { getCachedSnapshot, writeCachedSnapshot, type CachedQuantSnapshot } from './quantCache.js';
+import { getCachedSnapshot, writeCachedSnapshot, extractLivePfcfInputs, type CachedQuantSnapshot } from './quantCache.js';
 
 /** Limite watchlist pour les comptes Free. Les Pro sont illimités. */
 export const FREE_WATCHLIST_LIMIT = 10;
@@ -33,19 +33,9 @@ export async function computeAndCache(ticker: string): Promise<CachedQuantSnapsh
   const pass = evaluable.filter(c => c.statut === 'pass').length;
   const warn = evaluable.filter(c => c.statut === 'warn').length;
 
-  // Extraction shares + adjFcfTtm pour le recompute P/FCF live
-  let adjFcfTtm: number | null = null;
-  let sharesOutstanding: number | null = null;
-  if (quant.fundamentalsSource === 'finnhub' && quant.rawFhFcfAdj && quant.rawFhCapEmp) {
-    adjFcfTtm = quant.rawFhFcfAdj.ttmFcfAdj;
-    sharesOutstanding = quant.rawFhCapEmp.sharesLatest;
-  } else if (quant.fundamentalsSource === 'yahoo') {
-    const m = quant.metrics;
-    sharesOutstanding = (m.marketCap != null && m.price != null && m.price > 0)
-      ? m.marketCap / m.price : null;
-    adjFcfTtm = (m.marketCap != null && m.pfcfTTM != null && m.pfcfTTM > 0)
-      ? m.marketCap / m.pfcfTTM : null;
-  }
+  // Extraction shares + adjFcfTtm pour le recompute P/FCF live — helper partagé
+  // (rétro-dérivation en devise de REPORTING sur le chemin Yahoo, cf. extractLivePfcfInputs).
+  const { adjFcfTtm, sharesOutstanding } = extractLivePfcfInputs(quant);
 
   const snapshot: CachedQuantSnapshot = {
     ticker,

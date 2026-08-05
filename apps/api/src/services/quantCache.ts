@@ -79,8 +79,13 @@ export interface CachedQuantSnapshot {
  * 1 — conversion de devise du P/FCF. Le multiple divisait une capitalisation en devise de
  *     cotation par un FCF en devise de reporting : les ADR chinois affichaient PDD à 1,28×
  *     pour ~8,0× réel, ZTO à 3,34× pour ~20,8×.
+ * 2 — cohérence prix ↔ actions ↔ capitalisation des ADR : la capi Yahoo publiée sert de
+ *     référence de convention (shares annuelles hors convention ADS → capi publiée retenue,
+ *     cf. reconcileAdsMarketCap), et la rétro-dérivation d'adjFcfTtm retombe en devise de
+ *     REPORTING (extractLivePfcfInputs) — la double conversion de la génération 1 rendait le
+ *     P/FCF live ~7× trop CHER pour un ADR chinois (fx appliqué deux fois).
  */
-export const SNAPSHOT_LOGIC_VERSION = 1;
+export const SNAPSHOT_LOGIC_VERSION = 2;
 
 /**
  * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.
@@ -106,6 +111,40 @@ export function computeLivePfcf(
   const fcfInQuoteCurrency = adjFcfTtm * (fcfFxToQuote ?? 1);
   const pfcf = (price * sharesOutstanding) / fcfInQuoteCurrency;
   return Number.isFinite(pfcf) && pfcf > 0 ? pfcf : null;
+}
+
+/**
+ * Composants du recompute live (`sharesOutstanding` + `adjFcfTtm`) extraits d'un compute
+ * frais. La logique vivait EN TROIS COPIES (analyze, scoreSnapshot, watchlistSnapshot) — et
+ * les trois portaient le même défaut : sur le chemin Yahoo, `metrics.pfcfTTM` inclut DÉJÀ la
+ * conversion de devise, donc la rétro-dérivation `marketCap / pfcfTTM` tombe en devise de
+ * COTATION ; or `computeLivePfcf` attend un FCF en devise de REPORTING (contrat du chemin
+ * Finnhub, où /financials-reported publie en devise native) et remultiplie par `fcfFxToQuote`.
+ * Résultat : fx appliqué DEUX fois, P/FCF live ~7× trop cher pour un ADR chinois — vraies
+ * opportunités tuées et percentile biaisé. On divise donc par le facteur pour retomber en
+ * reporting. fx = 1 (la quasi-totalité des titres) : strictement identique à avant.
+ */
+export function extractLivePfcfInputs(quant: {
+  fundamentalsSource: 'finnhub' | 'yahoo' | null;
+  metrics: Pick<DerivedMetrics, 'marketCap' | 'price' | 'pfcfTTM'>;
+  rawFhFcfAdj: { ttmFcfAdj: number | null } | null;
+  rawFhCapEmp: { sharesLatest: number | null } | null;
+  fcfFxToQuote: number | null;
+}): { adjFcfTtm: number | null; sharesOutstanding: number | null } {
+  if (quant.fundamentalsSource === 'finnhub' && quant.rawFhFcfAdj && quant.rawFhCapEmp) {
+    return { adjFcfTtm: quant.rawFhFcfAdj.ttmFcfAdj, sharesOutstanding: quant.rawFhCapEmp.sharesLatest };
+  }
+  if (quant.fundamentalsSource === 'yahoo') {
+    const m = quant.metrics;
+    const sharesOutstanding = (m.marketCap != null && m.price != null && m.price > 0)
+      ? m.marketCap / m.price : null;
+    const fx = (quant.fcfFxToQuote != null && Number.isFinite(quant.fcfFxToQuote) && quant.fcfFxToQuote > 0)
+      ? quant.fcfFxToQuote : 1;
+    const adjFcfTtm = (m.marketCap != null && m.pfcfTTM != null && m.pfcfTTM > 0)
+      ? m.marketCap / m.pfcfTTM / fx : null;
+    return { adjFcfTtm, sharesOutstanding };
+  }
+  return { adjFcfTtm: null, sharesOutstanding: null };
 }
 
 /** Lit le snapshot caché pour un ticker. Retourne null si absent (jamais analysé). */
