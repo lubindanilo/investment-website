@@ -1,6 +1,6 @@
 import { PrismaClient, type Prisma } from '@prisma/client';
-import { scoreWithCrossCheck, type CrossCheckOptions, type CrossCheckedScore } from './resilienceStarsCrossCheck.js';
-import type { CompanyBrief } from './resilienceStars.js';
+import { scoreWithCrossCheck, type CrossCheckOptions } from './resilienceStarsCrossCheck.js';
+import { normalizeCompanyName, type CompanyBrief } from './resilienceStars.js';
 
 /**
  * Backfill de nuit du score Resilience 5 etoiles.
@@ -45,33 +45,31 @@ interface UniverseRow {
   marketCapUsd: number | null;
 }
 
-function normalizeName(value: string): string {
-  return value
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim();
+export interface CompanyGroup {
+  brief: CompanyBrief;
+  /** Tous les tickers qui designent cette meme societe, plus grosse capi en tete. */
+  rows: UniverseRow[];
 }
 
-export function pairScoresWithRows(
-  rows: UniverseRow[],
-  scores: CrossCheckedScore[],
-): { row: UniverseRow; score: CrossCheckedScore }[] {
-  const byExactName = new Map(rows.map(row => [row.name ?? row.ticker, row]));
-  const byNormalizedName = new Map(rows.map(row => [normalizeName(row.name ?? row.ticker), row]));
-  const used = new Set<string>();
-
-  return scores.flatMap((score, index) => {
-    const row =
-      byExactName.get(score.name) ??
-      byNormalizedName.get(normalizeName(score.name)) ??
-      rows[index] ??
-      null;
-    if (!row || used.has(row.ticker)) return [];
-    used.add(row.ticker);
-    return [{ row, score }];
-  });
+/**
+ * Regroupe les lignes qui designent la MEME societe : double cotation, ADR plus ligne locale.
+ *
+ * Sept societes du seul haut de tableau existent sous plusieurs tickers (BRK.A/BRK.B, GOOG/GOOGL,
+ * HSBC en trois lignes, BABA/9988.HK...). Sans regroupement, deux defauts se cumulaient : les maps
+ * de scoreWithCrossCheck etant indexees par NOM, les homonymes s'ecrasaient, et l'appariement final
+ * en jetait un. Le 05/08/2026 un run de 60 n'ecrivait que 56 lignes, sans aucun avertissement, et
+ * les 4 perdues revenaient chaque nuit sans jamais etre notees.
+ *
+ * Regrouper corrige aussi une depense inutile : la resilience juge une ENTREPRISE, pas une ligne de
+ * cotation. Une note obtenue une fois est ecrite sur tous ses tickers.
+ */
+export function groupRowsByCompany(rows: UniverseRow[]): CompanyGroup[] {
+  const groups = new Map<string, UniverseRow[]>();
+  for (const row of rows) {
+    const key = normalizeCompanyName(row.name ?? row.ticker);
+    groups.set(key, [...(groups.get(key) ?? []), row]);
+  }
+  return [...groups.values()].map(group => ({ brief: toCompanyBrief(group[0]!), rows: group }));
 }
 
 /** Pas de brief fige : on demande au modele d'utiliser sa propre connaissance. */
@@ -159,48 +157,64 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
       const slice = due.slice(start, start + batchSize);
       const label = `${start + 1}-${start + slice.length}/${due.length}`;
       try {
-        const scores = await scoreWithCrossCheck(slice.map(toCompanyBrief), options.crossCheck);
+        const groups = groupRowsByCompany(slice);
+        const scores = await scoreWithCrossCheck(groups.map(group => group.brief), options.crossCheck);
+        if (scores.length !== groups.length) {
+          throw new Error(`${scores.length} notes pour ${groups.length} societes demandees`);
+        }
         let written = 0;
-        for (const { row, score } of pairScoresWithRows(slice, scores)) {
+        let skippedInSlice = 0;
+        for (const [index, group] of groups.entries()) {
+          const score = scores[index]!;
           // Pas de controle croise sur cette ligne = defaillance technique, pas un cas difficile.
           // On ne l'ecrit PAS : une ligne ecrite n'est plus jamais repiochee par pickDue, elle
           // resterait figee en `flagged` a vie. La laisser dehors la remet au menu demain.
           if (score.v3Total == null) {
-            skippedNoCrossCheck += 1;
+            skippedInSlice += group.rows.length;
             continue;
           }
           if (score.verdict === 'flagged') flagged += 1;
           const criteria = score.criteria as unknown as Prisma.InputJsonValue;
           const sonnetTotals = score.sonnetTotals as unknown as Prisma.InputJsonValue;
-          await prisma.resilienceStarScore.upsert({
-            where: { ticker: row.ticker },
-            create: {
-              ticker: row.ticker,
-              name: row.name,
-              total: score.total,
-              criteria,
-              verdict: score.verdict,
-              model: score.model,
-              sonnetTotals,
-              v3Total: score.v3Total,
-              marketCapUsd: row.marketCapUsd,
-            },
-            update: {
-              name: row.name,
-              total: score.total,
-              criteria,
-              verdict: score.verdict,
-              model: score.model,
-              sonnetTotals,
-              v3Total: score.v3Total,
-              marketCapUsd: row.marketCapUsd,
-              scoredAt: new Date(),
-            },
-          });
-          written += 1;
+          // Une societe, une note, ecrite sur TOUS ses tickers (double cotation, ADR).
+          for (const row of group.rows) {
+            await prisma.resilienceStarScore.upsert({
+              where: { ticker: row.ticker },
+              create: {
+                ticker: row.ticker,
+                name: row.name,
+                total: score.total,
+                criteria,
+                verdict: score.verdict,
+                model: score.model,
+                sonnetTotals,
+                v3Total: score.v3Total,
+                marketCapUsd: row.marketCapUsd,
+              },
+              update: {
+                name: row.name,
+                total: score.total,
+                criteria,
+                verdict: score.verdict,
+                model: score.model,
+                sonnetTotals,
+                v3Total: score.v3Total,
+                marketCapUsd: row.marketCapUsd,
+                scoredAt: new Date(),
+              },
+            });
+            written += 1;
+          }
         }
         persisted += written;
-        console.log(`[resilience] tranche ${label} : ${written} ecrites (cumul ${persisted}).`);
+        skippedNoCrossCheck += skippedInSlice;
+        const perdues = slice.length - written - skippedInSlice;
+        console.log(
+          `[resilience] tranche ${label} : ${groups.length} societes notees, ${written} tickers ecrits (cumul ${persisted}).`,
+        );
+        // Aucune ligne ne doit disparaitre sans etre comptee : c'est exactement ce qui a masque la
+        // perte des doubles cotations.
+        if (perdues > 0) console.warn(`[resilience] tranche ${label} : ${perdues} ligne(s) non ecrites sans raison connue.`);
       } catch (error) {
         failedBatches += 1;
         const first = (error as Error).message.split('\n')[0];

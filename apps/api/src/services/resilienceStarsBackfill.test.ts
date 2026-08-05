@@ -1,47 +1,48 @@
 import { describe, expect, it } from 'vitest';
-import { pairScoresWithRows } from './resilienceStarsBackfill.js';
-import type { CrossCheckedScore } from './resilienceStarsCrossCheck.js';
-import type { CriterionKey, CriterionScore } from './resilienceStars.js';
+import { groupRowsByCompany } from './resilienceStarsBackfill.js';
 
-const criteria: Record<CriterionKey, CriterionScore> = {
-  besoin: { star: 1, justification: 'x' },
-  controle: { star: 1, justification: 'x' },
-  forces: { star: 1, justification: 'x' },
-  adjacent: { star: 1, justification: 'x' },
-  capture: { star: 1, justification: 'x' },
-};
+const row = (ticker: string, name: string | null, marketCapUsd = 1) => ({
+  ticker,
+  name,
+  sector: null,
+  marketCapUsd,
+});
 
-function score(name: string): CrossCheckedScore {
-  return {
-    name,
-    criteria,
-    total: 5,
-    model: 'test',
-    sonnetTotals: [5],
-    v3Total: 5,
-    verdict: 'agree',
-  };
-}
+describe('groupRowsByCompany', () => {
+  it('regroupe les doubles cotations d une meme societe', () => {
+    const groups = groupRowsByCompany([
+      row('BRK.B', 'Berkshire Hathaway Inc', 3),
+      row('AAPL', 'Apple Inc.', 2),
+      row('BRK.A', 'Berkshire Hathaway Inc', 1),
+    ]);
 
-describe('pairScoresWithRows', () => {
-  it('tolere un nom de score legerement different du nom en base', () => {
-    const pairs = pairScoresWithRows(
-      [{ ticker: 'LVMH.PA', name: 'LVMH Moët Hennessy', sector: null, marketCapUsd: 1 }],
-      [score('LVMH Moet Hennessy')],
-    );
-
-    expect(pairs.map(pair => pair.row.ticker)).toEqual(['LVMH.PA']);
+    expect(groups).toHaveLength(2);
+    expect(groups[0]!.rows.map(r => r.ticker)).toEqual(['BRK.B', 'BRK.A']);
+    expect(groups[1]!.rows.map(r => r.ticker)).toEqual(['AAPL']);
   });
 
-  it('retombe sur la position du lot quand le nom est introuvable', () => {
-    const pairs = pairScoresWithRows(
-      [
-        { ticker: 'AAPL', name: 'Apple', sector: null, marketCapUsd: 2 },
-        { ticker: 'MSFT', name: 'Microsoft', sector: null, marketCapUsd: 1 },
-      ],
-      [score('Apple Inc.'), score('Microsoft Corporation')],
-    );
+  it('regroupe les trois lignes HSBC malgre les accents et la ponctuation', () => {
+    const groups = groupRowsByCompany([
+      row('0005.HK', 'HSBC Holdings plc'),
+      row('HSBA.L', 'HSBC  Holdings, plc'),
+      row('HSBC', 'HSBC Holdings PLC'),
+    ]);
 
-    expect(pairs.map(pair => pair.row.ticker)).toEqual(['AAPL', 'MSFT']);
+    expect(groups).toHaveLength(1);
+    expect(groups[0]!.rows.map(r => r.ticker)).toEqual(['0005.HK', 'HSBA.L', 'HSBC']);
+  });
+
+  it('note la societe sous le nom de sa plus grosse ligne, et n en perd aucune', () => {
+    const rows = [row('9988.HK', 'Alibaba Group Holding Limited', 2), row('BABA', 'Alibaba Group Holding Limited', 1)];
+    const groups = groupRowsByCompany(rows);
+
+    expect(groups[0]!.brief.name).toBe('Alibaba Group Holding Limited');
+    expect(groups.flatMap(g => g.rows)).toHaveLength(rows.length);
+  });
+
+  it('retombe sur le ticker quand le nom manque, sans fusionner les anonymes', () => {
+    const groups = groupRowsByCompany([row('AAA', null), row('BBB', null)]);
+
+    expect(groups).toHaveLength(2);
   });
 });
