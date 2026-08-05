@@ -114,8 +114,15 @@ export async function scoreCompaniesDeepseek(
 
   const results: ResilienceStarScore[] = [];
   for (const group of chunk(companies, chunkSize)) {
-    const text = await callDeepseek(buildScoringPrompt(group), model, maxTokens);
-    results.push(...pairDeepseekScores(group, parseScores(text), model));
+    // Un lot perdu (429, 500, sortie tronquee) ne prive que son lot de controle croise : ces
+    // entreprises ressortiront sans avis V3, donc non ecrites, donc repiochees au run suivant.
+    try {
+      const text = await callDeepseek(buildScoringPrompt(group), model, maxTokens);
+      results.push(...pairDeepseekScores(group, parseScores(text), model));
+    } catch (error) {
+      const first = (error as Error).message.split('\n')[0];
+      console.warn(`[resilience] DeepSeek(${model}) : lot de ${group.length} perdu, on continue (${first}).`);
+    }
   }
   return results;
 }

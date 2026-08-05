@@ -9,8 +9,11 @@ async function main(): Promise<void> {
   // flagge que les VRAIS desaccords (>= 1,5 etoile), pas la generosite normale de V3.
   const r = await runBackfill({ dailyCap, crossCheck: { threshold: 1.5 } });
   console.log(`Scorees: ${r.scored} (dont ${r.flagged} en revue) | restant a scorer: ${r.remaining}/${r.totalUniverse}`);
+  if (r.copiedFromHomonym > 0) {
+    console.log(`Recopiees depuis un homonyme deja note (aucun appel aux modeles) : ${r.copiedFromHomonym}`);
+  }
   if (r.skippedNoCrossCheck > 0) {
-    console.log(`Sans controle croise, NON ecrites, a repiocher demain : ${r.skippedNoCrossCheck}`);
+    console.log(`Sans note ou sans controle croise, NON ecrites, a repiocher demain : ${r.skippedNoCrossCheck}`);
   }
 
   // Sortie en erreur quand du travail a ete perdu, ou qu'un run n'a rien produit alors qu'il restait

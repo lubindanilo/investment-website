@@ -57,6 +57,13 @@ export interface CrossCheckOptions {
   v3Model?: string;
 }
 
+/**
+ * Un lot Sonnet qui echoue n'emporte que son lot.
+ *
+ * Sans ce filet, un seul appel en timeout ou une reponse mal formee fait remonter l'exception
+ * jusqu'en haut et jette le scoring de TOUTES les autres entreprises du run. Les entreprises du lot
+ * perdu ressortent simplement sans note, donc non ecrites, donc repiochees au run suivant.
+ */
 async function sonnetChunked(
   companies: CompanyBrief[],
   chunkSize: number,
@@ -66,7 +73,12 @@ async function sonnetChunked(
   const out: ResilienceStarScore[] = [];
   for (let i = 0; i < companies.length; i += chunkSize) {
     const group = companies.slice(i, i + chunkSize);
-    out.push(...(await scoreCompanies(group, { model, timeoutMs })));
+    try {
+      out.push(...(await scoreCompanies(group, { model, timeoutMs })));
+    } catch (error) {
+      const first = (error as Error).message.split('\n')[0];
+      console.warn(`[resilience] Sonnet : lot de ${group.length} perdu, on continue (${first}).`);
+    }
   }
   return out;
 }
@@ -87,10 +99,13 @@ export async function scoreWithCrossCheck(
     (await scoreCompaniesDeepseek(companies, { model: options.v3Model })).map(s => [s.name, s.total]),
   );
 
+  // Escalade uniquement sur les entreprises que Sonnet a notees : sans note de base il n'y a rien
+  // a arbitrer, et l'entreprise ressortira sans resultat.
   const disagreeing = companies.filter(c => {
     const s = sonnetBase.get(c.name)?.total;
+    if (s == null) return false;
     const v = v3.get(c.name);
-    return s == null || v == null || Math.abs(s - v) > threshold;
+    return v == null || Math.abs(s - v) > threshold;
   });
 
   const extraSonnet = new Map<string, number[]>();
@@ -103,13 +118,18 @@ export async function scoreWithCrossCheck(
     }
   }
 
-  return companies.map(company => {
+  // Une entreprise sans note Sonnet est OMISE, jamais une exception : elle serait sinon en train
+  // d'annuler le travail deja fait sur les autres. L'appelant la comptera et la repiochera.
+  return companies.flatMap(company => {
     const base = sonnetBase.get(company.name);
-    if (!base) throw new Error(`Sonnet: aucun score pour ${company.name}`);
+    if (!base) {
+      console.warn(`[resilience] Sonnet : aucune note pour ${company.name}, entreprise reportee.`);
+      return [];
+    }
     const v = v3.get(company.name) ?? null;
     const sonnetTotals = [base.total, ...(extraSonnet.get(company.name) ?? [])];
     const med = median(sonnetTotals);
     const verdict = classifyVerdict(base.total, med, v, threshold);
-    return { ...base, total: med, sonnetTotals, v3Total: v, verdict };
+    return [{ ...base, total: med, sonnetTotals, v3Total: v, verdict }];
   });
 }
