@@ -58,14 +58,13 @@ export interface RatioTimeseriesResult {
   /** Granularité réellement produite : 'quarterly' (US TTM) ou 'annual' (EU/ADR). */
   freq: 'quarterly' | 'annual';
   /**
-   * true dès que la série servie est ANNUELLE, donc identique quelle que soit la fenêtre
-   * demandée → l'UI masque les boutons de période et affiche un tag « Données annuelles ».
+   * true pour les vrais tickers EU (devise ≠ USD) → l'UI remplace les boutons de période par
+   * un tag statique, Yahoo n'exposant que ~4 exercices.
    *
-   * Avant, ce drapeau ne valait true que pour les vrais tickers EU (devise ≠ USD). Les ADR
-   * 20-F cotant en USD (TCOM, PDD, NTES…) passaient donc à travers : ils tombaient sur le
-   * même repli annuel Yahoo mais gardaient les 5 boutons, et comme Yahoo plafonne à ~4
-   * exercices quoi qu'on demande, « 1Y » affichait exactement la vue « 5Y ». C'est
-   * précisément l'UX trompeuse que le garde-fou EU était censé éviter.
+   * PAS activé pour les ADR 20-F servis en annuel : masquer le sélecteur revient à présenter
+   * le trou de données comme une caractéristique du titre. On garde donc les boutons, quitte
+   * à ce que « 1Y » et « 5Y » rendent la même vue tant que la profondeur trimestrielle manque
+   * en base — c'est la profondeur qu'il faut corriger, pas l'affichage.
    */
   annualOnly: boolean;
 }
@@ -350,7 +349,8 @@ export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, 
     const annual = await computeAnnualRatio(resolved?.symbol ?? ticker, ratio, years);
     if (annual.length > us.length) {
       console.log(`[ratio ${ticker}/${ratio}] US TTM insuffisant (${us.length} pt) → Yahoo annual ${annual.length} pts`);
-      return { points: annual, unit, freq: 'annual', annualOnly: true };
+      // annualOnly reste false : on n'escamote pas le sélecteur de période pour un ADR.
+      return { points: annual, unit, freq: 'annual', annualOnly: false };
     }
     console.log(`[ratio ${ticker}/${ratio}] US TTM ${us.length} pt, repli annuel pas mieux (${annual.length}) → on garde l'US`);
   } else {

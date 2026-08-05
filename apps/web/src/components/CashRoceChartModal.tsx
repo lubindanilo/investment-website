@@ -37,12 +37,12 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
   const [data, setData] = useState<CashRoceHistoryPoint[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  // Granularité annoncée par l'API pour CE ticker. La prop `annualOnly` vient de la page
-  // (`fundamentalsSource === 'yahoo'`), qui se trompe sur les ADR 20-F : TCOM est annoncé
-  // 'finnhub' alors que Finnhub n'a aucun filing pour lui et que la série servie est
-  // annuelle. On fait donc confiance à la réponse en priorité.
-  const [servedAnnualOnly, setServedAnnualOnly] = useState(false);
-  const isAnnual = annualOnly || servedAnnualOnly;
+  // Granularité réellement servie par l'API pour CE ticker. Sert à formater les libellés
+  // (dernier exercice vs dernier trimestre, largeur des trous) — mais PAS à masquer le
+  // sélecteur de période : un ADR dont la profondeur trimestrielle manque en base garde ses
+  // boutons, le trou de données n'est pas une caractéristique du titre.
+  const [servedAnnual, setServedAnnual] = useState(false);
+  const isAnnual = annualOnly || servedAnnual;
 
   useEffect(() => {
     let cancelled = false;
@@ -52,7 +52,7 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
       .then(res => {
         if (cancelled) return;
         setData(res.points);
-        setServedAnnualOnly(res.annualOnly ?? false);
+        setServedAnnual(res.annualOnly ?? false);
       })
       .catch(e => {
         if (!cancelled) setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
@@ -159,7 +159,7 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
         </header>
 
         <div className="croce-periods">
-          {isAnnual ? (
+          {annualOnly ? (
             <span className="period-static">{t('chart.croceAnnualOnlyTag')}</span>
           ) : (
             PERIODS.map(p => (
