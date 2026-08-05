@@ -190,15 +190,110 @@ const ANNUAL_TYPE_TO_METRIC: Record<string, MetricKey> = {
  * Dans chaque rôle, les concepts sont essayés dans l'ordre et le PREMIER renseigné gagne, par
  * date (une société change de tag XBRL au fil des années).
  */
-// `annualTotalDebt` reste VOLONTAIREMENT hors périmètre. Mesuré en composant les mêmes concepts
-// que Finnhub sur 4 ADR : le total EDGAR ne vaut que 5 à 77 % de celui de Yahoo, et le rapport
-// varie d'un exercice à l'autre (TCOM 0,24-0,51 ; BABA 0,07-0,17 ; NTES 0,05-0,16 ; JD 0,39-0,77).
-// Ce n'est donc pas un écart de convention rattrapable par calibration : la dette de ces
-// émetteurs vit sous des tags que la définition actuelle n'interroge pas (TCOM expose
-// `DebtCurrent` sur 26 exercices, plus des convertibles). L'injecter donnerait des exercices
-// profonds sous-endettés de façon erratique, donc un netDebtFcf faussement rassurant.
-// La reprendre suppose de redéfinir la dette des déposants étrangers ET de garder le miroir
-// avec le chemin trimestriel Finnhub, sans double compter : c'est un chantier à part entière.
+// ─── Dette totale annuelle : composition VÉRIFIÉE contre Yahoo ────────────────
+//
+// La dette des déposants étrangers vit sous des tags variables : composer les mêmes concepts
+// que Finnhub ne rendait que 5 à 77 % du total Yahoo, de façon erratique. La décomposition par
+// concept (05/08) montre pourquoi ET jusqu'où c'est réparable :
+//   - TCOM : DebtCurrent + LongTermDebtNoncurrent + OperatingLeaseLiability = Yahoo, EXACT
+//     sur les 3 exercices communs (45,6 / 40,3 / 31,5 Md CNY) ;
+//   - NTES : ShortTermBankLoansAndNotesPayable + LTD + OpLease = Yahoo, exact aussi ;
+//   - JD   : ~21 Md CNY manquants systématiques (notes hors famille standard) ;
+//   - BABA : ses senior notes (~145 Md CNY) n'apparaissent sous AUCUN tag standard.
+//
+// D'où la règle : on compose large, puis on ne FUSIONNE que si la composition RECONSTITUE
+// Yahoo sur les exercices communs (majorité dans ±12 %). TCOM et NTES gagnent leur profondeur,
+// JD et BABA gardent le statu quo — une série courte mais juste. Aucune tolérance au doute :
+// un netDebtFcf sous-estimé ferait paraître l'endettement maîtrisé à tort.
+//
+// Chaque GROUPE préfère son AGRÉGAT quand il existe (DebtCurrent inclut déjà la portion
+// courante de LT et les emprunts CT : additionner les deux double-compterait), et retombe sur
+// la somme des composantes sinon.
+const DEBT_GROUPS = {
+  current: {
+    aggregate: ['us-gaap_DebtCurrent'],
+    parts: {
+      ltdCurrent: ['us-gaap_LongTermDebtCurrent'],
+      stBorrowings: ['us-gaap_ShortTermBorrowings', 'us-gaap_ShortTermBankLoansAndNotesPayable', 'us-gaap_NotesPayableCurrent', 'us-gaap_CommercialPaper'],
+      convertibleCurrent: ['us-gaap_ConvertibleDebtCurrent', 'us-gaap_ConvertibleNotesPayableCurrent'],
+    },
+  },
+  noncurrent: {
+    aggregate: [] as string[],
+    parts: {
+      ltdNoncurrent: ['us-gaap_LongTermDebtNoncurrent'],
+      convertibleNoncurrent: ['us-gaap_ConvertibleDebtNoncurrent'],
+    },
+  },
+  opLease: {
+    aggregate: ['us-gaap_OperatingLeaseLiability'],
+    parts: {
+      opLeaseCurrent: ['us-gaap_OperatingLeaseLiabilityCurrent'],
+      opLeaseNoncurrent: ['us-gaap_OperatingLeaseLiabilityNoncurrent'],
+    },
+  },
+  finLease: {
+    aggregate: ['us-gaap_FinanceLeaseLiability'],
+    parts: {
+      finLeaseCurrent: ['us-gaap_FinanceLeaseLiabilityCurrent'],
+      finLeaseNoncurrent: ['us-gaap_FinanceLeaseLiabilityNoncurrent'],
+    },
+  },
+} as const;
+type DebtGroupKey = keyof typeof DEBT_GROUPS;
+
+/** Tolérance de reconstitution vs Yahoo (±12 %) et minimum d'exercices communs concordants. */
+const DEBT_VERIFY_TOLERANCE = 0.12;
+const DEBT_VERIFY_MIN_YEARS = 2;
+
+/** Valeur d'un groupe pour un exercice : agrégat s'il existe, sinon somme des composantes. */
+export type DebtGroupValues = Partial<Record<DebtGroupKey, number>>;
+
+/**
+ * Compose la dette annuelle par exercice puis la VÉRIFIE contre la référence Yahoo.
+ * Renvoie null si la composition ne reconstitue pas Yahoo (majorité des exercices communs
+ * dans ±12 %, minimum 2) — mieux vaut pas de profondeur qu'une dette sous-estimée.
+ *
+ * Filtre de STABILITÉ des exercices profonds : un groupe « cœur » (présent sur TOUS les
+ * exercices vérifiés, hors leases — absentes du bilan avant ASC 842/2019, ce qui est légitime)
+ * doit être présent pour qu'un exercice profond soit émis. Sinon l'exercice est écarté : un
+ * tag qui disparaît dans le passé (JD n'a plus LongTermDebt avant 2024) produirait une dette
+ * partielle indétectable par la vérification, qui ne voit que les exercices récents.
+ * Exporté pour tests.
+ */
+export function composeVerifiedDebt(
+  byYear: Map<string, { date: string; groups: DebtGroupValues }>,
+  yahooRef: TimeseriesPoint[],
+): TimeseriesPoint[] | null {
+  const total = (g: DebtGroupValues): number | null => {
+    const vals = Object.values(g).filter((v): v is number => v != null && Number.isFinite(v));
+    return vals.length ? vals.reduce((s, v) => s + v, 0) : null;
+  };
+  const yByYear = new Map(yahooRef.filter(p => p.value > 0).map(p => [p.date.slice(0, 4), p.value]));
+  // 1. Vérification sur les exercices communs
+  const verified: string[] = [];
+  let agree = 0;
+  for (const [yr, { groups }] of byYear) {
+    const y = yByYear.get(yr);
+    if (y == null) continue;
+    const t = total(groups);
+    if (t == null || t <= 0) continue;
+    verified.push(yr);
+    if (Math.abs(t / y - 1) <= DEBT_VERIFY_TOLERANCE) agree++;
+  }
+  if (agree < DEBT_VERIFY_MIN_YEARS || agree * 2 < verified.length + 1) return null;
+  // 2. Groupes cœur = présents sur tous les exercices vérifiés (les leases n'en font pas partie)
+  const core = (['current', 'noncurrent'] as DebtGroupKey[])
+    .filter(k => verified.every(yr => byYear.get(yr)!.groups[k] != null));
+  // 3. Émission, en écartant les exercices profonds où un groupe cœur manque
+  const out: TimeseriesPoint[] = [];
+  for (const { date, groups } of byYear.values()) {
+    if (core.some(k => groups[k] == null)) continue;
+    const t = total(groups);
+    if (t != null && t > 0) out.push({ date, value: t });
+  }
+  return out.sort((a, b) => a.date.localeCompare(b.date));
+}
 
 const CASH_PARTS = {
   cash: ['us-gaap_CashAndCashEquivalentsAtCarryingValue', 'us-gaap_CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents', 'us-gaap_Cash'],
@@ -218,11 +313,14 @@ const CASH_PARTS = {
 // sont présents quasi partout ; goodwill et capex manquent chez certains ; les banques (RY)
 // n'ont pas de bilan classé, ce qui est déjà géré par le repli secteur financier du Cash ROCE.
 //
-// `shares` est VOLONTAIREMENT absent : aucun de ces déposants n'expose de nombre d'actions
-// dilué moyen exploitable (seul `AdjustedWeightedAverageShares` traîne, de sémantique incertaine)
-// et c'est la métrique où une erreur d'unité coûte le plus cher — un ADS TSM vaut 5 actions
-// ordinaires, exactement le piège traité par la calibration ADS. Les shares restent donc celles
-// de Yahoo, et la profondeur IFRS bénéficie au Cash ROCE et au CCC, pas au P/FCF.
+// `shares` n'a pas de concept direct exploitable (seul `AdjustedWeightedAverageShares` traîne,
+// de sémantique incertaine). On les DÉRIVE : shares = ProfitLossAttributableToOwnersOfParent ÷
+// DilutedEarningsLossPerShare, les deux étant sur la même base « owners of parent ». Mesuré
+// sur les exercices communs avec Yahoo : NVS, AZN et EQNR à 1,000-1,001 (10-11 exercices) ;
+// TSM à 0,200 CONSTANT — le ratio ADS 5:1 exact, que la calibration ADS aval convertit ;
+// RY (1 seul exercice commun) et SHEL (pas d'EPS FY) sont écartés par cette même calibration.
+// Le résultat est un compte d'actions ORDINAIRES : il ne part jamais en base sans passer par
+// `calibrateAdsShares`, comme les shares us-gaap.
 const IFRS_ANNUAL_CONCEPTS: Partial<Record<MetricKey, { concepts: string[]; cumulative: boolean }>> = {
   revenue:            { concepts: ['ifrs-full_RevenueFromSaleOfGoods', 'ifrs-full_RevenueFromContractsWithCustomers', 'ifrs-full_Revenue'], cumulative: true },
   netIncome:          { concepts: ['ifrs-full_ProfitLoss', 'ifrs-full_ProfitLossAttributableToOwnersOfParent'], cumulative: true },
@@ -248,6 +346,7 @@ const COMPOSED_ANNUAL_TYPES = [
   'annualFreeCashFlow',                 // cfo − |capex|
   'annualCashAndCashEquivalents',       // cash seul
   'annualCashAndShortTermInvestments',  // cash + placements court terme
+  'annualTotalDebt',                    // groupes DEBT_GROUPS, vérifiés contre Yahoo (cf composeVerifiedDebt)
 ] as const;
 
 export const EDGAR_ANNUAL_TYPES: ReadonlySet<string> = new Set([...Object.keys(ANNUAL_TYPE_TO_METRIC), ...COMPOSED_ANNUAL_TYPES]);
@@ -260,7 +359,11 @@ export const EDGAR_ANNUAL_TYPES: ReadonlySet<string> = new Set([...Object.keys(A
  * Le point de vigilance devise ne se pose pas : on ne lit QUE la colonne de la devise de
  * reporting, homogène avec Yahoo et stockanalysis.
  */
-export async function getEdgarAnnualNative(ticker: string, types: string[]): Promise<Map<string, TimeseriesPoint[]>> {
+export async function getEdgarAnnualNative(
+  ticker: string,
+  types: string[],
+  opts?: { debtRef?: TimeseriesPoint[] },
+): Promise<Map<string, TimeseriesPoint[]>> {
   const out = new Map<string, TimeseriesPoint[]>();
   const wanted = types.filter(t => EDGAR_ANNUAL_TYPES.has(t));
   if (wanted.length === 0) return out;
@@ -278,6 +381,9 @@ export async function getEdgarAnnualNative(ticker: string, types: string[]): Pro
 
   const needFcf = wanted.includes('annualFreeCashFlow');
   const needCash = wanted.includes('annualCashAndCashEquivalents') || wanted.includes('annualCashAndShortTermInvestments');
+  // Dette : composition us-gaap uniquement (les groupes sont des tags us-gaap), et JAMAIS sans
+  // référence Yahoo — la vérification est ce qui rend la fusion sûre (cf composeVerifiedDebt).
+  const needDebt = wanted.includes('annualTotalDebt') && !isIfrs && (opts?.debtRef?.length ?? 0) > 0;
   const metricSet = new Set<MetricKey>();
   for (const t of wanted) { const m = ANNUAL_TYPE_TO_METRIC[t]; if (m) metricSet.add(m); }
   if (needFcf) { metricSet.add('cfo'); metricSet.add('capex'); }
@@ -325,10 +431,95 @@ export async function getEdgarAnnualNative(ticker: string, types: string[]): Pro
       if (c.length) out.set('annualCashAndShortTermInvestments', c);
     }
   }
+  if (needDebt) {
+    const byYear = await collectDebtGroups(cik, native);
+    const debt = byYear.size ? composeVerifiedDebt(byYear, opts!.debtRef!) : null;
+    if (debt?.length) out.set('annualTotalDebt', debt);
+    else if (byYear.size) console.log(`[edgar annual ${ticker}] dette non reconstituable vs Yahoo → profondeur dette abandonnée`);
+  }
+  if (isIfrs && wanted.includes('annualDilutedAverageShares')) {
+    const shares = await ifrsImpliedShares(cik, native);
+    if (shares.length) out.set('annualDilutedAverageShares', shares);
+  }
   if (out.size) {
     console.log(`[edgar annual ${ticker}] ${native} : ${[...out.entries()].map(([t, p]) => `${t}=${p.length}`).join(' ')}`);
   }
   return out;
+}
+
+/**
+ * Valeurs des groupes de dette par exercice (clé = ANNÉE, un 20-F n'a qu'une fin d'exercice).
+ * Chaque groupe préfère son agrégat ; sinon somme des composantes présentes. Un groupe sans
+ * aucune valeur pour un exercice est simplement absent de `groups` (≠ zéro).
+ */
+async function collectDebtGroups(cik: string, native: string): Promise<Map<string, { date: string; groups: DebtGroupValues }>> {
+  const byDate = new Map<string, { date: string; groups: DebtGroupValues }>();
+  for (const gkey of Object.keys(DEBT_GROUPS) as DebtGroupKey[]) {
+    const spec = DEBT_GROUPS[gkey];
+    const roles = await annualPartsByRole(cik, native, {
+      __aggregate__: spec.aggregate as readonly string[],
+      ...spec.parts,
+    } as Record<string, readonly string[]>);
+    const agg = roles.get('__aggregate__')!;
+    const dates = new Set<string>();
+    for (const m of roles.values()) for (const d of m.keys()) dates.add(d);
+    for (const date of dates) {
+      let val = agg.get(date) ?? null;
+      if (val == null) {
+        const parts = [...roles.entries()].filter(([k]) => k !== '__aggregate__').map(([, m]) => m.get(date)).filter((x): x is number => x != null);
+        if (parts.length) val = parts.reduce((s, v) => s + v, 0);
+      }
+      if (val == null) continue;
+      if (!byDate.has(date)) byDate.set(date, { date, groups: {} });
+      byDate.get(date)!.groups[gkey] = val;
+    }
+  }
+  // Une entrée par ANNÉE (la plus récente si collision, ce qui n'arrive pas sur des fins de FY).
+  const byYear = new Map<string, { date: string; groups: DebtGroupValues }>();
+  for (const e of [...byDate.values()].sort((a, b) => a.date.localeCompare(b.date))) byYear.set(e.date.slice(0, 4), e);
+  return byYear;
+}
+
+/**
+ * Shares annuelles IMPLICITES d'un déposant IFRS : NI attribuable aux actionnaires ÷ EPS dilué,
+ * les deux sur la même base « owners of parent ». Résultat en actions ORDINAIRES — la
+ * calibration ADS aval (calibrateAdsShares) le convertit ou l'écarte, jamais de fusion directe.
+ * L'arrondi de l'EPS publié (2 décimales) pèse <1 %, très en dessous de la tolérance ADS (8 %).
+ */
+async function ifrsImpliedShares(cik: string, native: string): Promise<TimeseriesPoint[]> {
+  const NI_CONCEPTS = ['ProfitLossAttributableToOwnersOfParent', 'ProfitLoss'];
+  const EPS_CONCEPTS = ['DilutedEarningsLossPerShare', 'BasicAndDilutedEarningsLossPerShare'];
+
+  let ni: TimeseriesPoint[] = [];
+  for (const c of NI_CONCEPTS) {
+    const units = await fetchConceptUnits(cik, 'ifrs-full', c);
+    const pts = annualDurationPoints(units?.[native] ?? []);
+    if (pts.length) { ni = pts; break; }
+  }
+  if (!ni.length) return [];
+
+  let eps: TimeseriesPoint[] = [];
+  for (const c of EPS_CONCEPTS) {
+    const units = await fetchConceptUnits(cik, 'ifrs-full', c);
+    if (!units) continue;
+    // L'unité d'un EPS est composée (« TWD/shares », « USD/shares ») : on prend celle de la
+    // devise de reporting, et à défaut la seule unité par-action disponible.
+    const perShareKeys = Object.keys(units).filter(k => k.endsWith('/shares'));
+    const key = perShareKeys.includes(`${native}/shares`) ? `${native}/shares`
+      : perShareKeys.length === 1 ? perShareKeys[0]! : null;
+    if (!key) continue;
+    const pts = annualDurationPoints(units[key] ?? []);
+    if (pts.length) { eps = pts; break; }
+  }
+  if (!eps.length) return [];
+
+  const epsByDate = new Map(eps.map(p => [p.date, p.value]));
+  return ni
+    .map(p => {
+      const e = epsByDate.get(p.date);
+      return e && e !== 0 ? { date: p.date, value: p.value / e } : null;
+    })
+    .filter((x): x is TimeseriesPoint => x !== null && x.value > 0);
 }
 
 /**
@@ -414,7 +605,7 @@ export async function getSecReportingCurrency(ticker: string): Promise<string | 
  * ouvre les 478 déposants IFRS restés sans profondeur jusqu'ici. Mémoïsé par le cache de
  * `fetchConceptUnits`, donc au plus deux téléchargements par émetteur et par process.
  */
-async function secReportingProfile(ticker: string): Promise<{ taxonomy: 'us-gaap' | 'ifrs-full'; currency: string } | null> {
+export async function secReportingProfile(ticker: string): Promise<{ taxonomy: 'us-gaap' | 'ifrs-full'; currency: string } | null> {
   const cik = await getCik(ticker);
   if (!cik) return null;
   const gaap = await fetchConceptUnits(cik, 'us-gaap', 'Assets');

@@ -115,14 +115,88 @@ describe('EDGAR_ANNUAL_TYPES', () => {
   });
 
   /**
-   * Garde-fou explicite, pas un oubli. La dette composée depuis les concepts us-gaap ne vaut
-   * que 5-77 % de celle de Yahoo chez les déposants étrangers, de façon erratique d'un exercice
-   * à l'autre (TCOM 0,24-0,51 ; BABA 0,07-0,17 ; NTES 0,05-0,16 ; JD 0,39-0,77) : leur dette
-   * vit sous des tags non interrogés. L'ajouter ici rendrait le netDebtFcf des exercices
-   * profonds faussement rassurant.
+   * La dette est exposée mais GATÉE : getEdgarAnnualNative ne la sert que si la composition
+   * reconstitue Yahoo sur les exercices communs (cf composeVerifiedDebt ci-dessous). Sans
+   * référence Yahoo fournie par l'appelant, elle n'est jamais servie.
    */
-  it("n'expose PAS la dette totale (couverture de tags insuffisante hors US)", () => {
-    expect(EDGAR_ANNUAL_TYPES.has('annualTotalDebt')).toBe(false);
+  it('expose la dette totale (vérifiée contre Yahoo avant fusion)', () => {
+    expect(EDGAR_ANNUAL_TYPES.has('annualTotalDebt')).toBe(true);
+  });
+});
+
+/**
+ * Composition vérifiée de la dette annuelle.
+ *
+ * Mesuré en prod (05/08) : la dette des déposants étrangers vit sous des tags variables.
+ * TCOM et NTES se reconstituent EXACTEMENT depuis les groupes (DebtCurrent + LTD + leases) ;
+ * JD a ~21 Md CNY hors famille standard et BABA ~145 Md (senior notes non taguées). La
+ * vérification contre Yahoo est ce qui permet de servir les deux premiers sans jamais servir
+ * les deux autres — un netDebtFcf sous-estimé ferait paraître l'endettement maîtrisé à tort.
+ */
+import { composeVerifiedDebt } from './secEdgar.js';
+
+describe('composeVerifiedDebt', () => {
+  const yr = (y: string, groups: Record<string, number>) => [y, { date: `${y}-12-31`, groups }] as const;
+  const yahoo = (vals: Record<string, number>) =>
+    Object.entries(vals).map(([y, value]) => ({ date: `${y}-12-31`, value }));
+
+  /** Cas TCOM : reconstitution exacte sur les exercices communs → toute la profondeur passe. */
+  it('sert la profondeur quand la composition reconstitue Yahoo', () => {
+    const byYear = new Map([
+      yr('2015', { current: 10, noncurrent: 5 }),                      // profond, pré-leases (légitime)
+      yr('2023', { current: 25.9, noncurrent: 19.1, opLease: 0.6 }),
+      yr('2024', { current: 19.4, noncurrent: 20.1, opLease: 0.8 }),
+      yr('2025', { current: 19.3, noncurrent: 11.4, opLease: 0.8 }),
+    ]);
+    const out = composeVerifiedDebt(byYear, yahoo({ '2023': 45.6, '2024': 40.3, '2025': 31.6 }));
+    expect(out).not.toBeNull();
+    expect(out!.map(p => p.date.slice(0, 4))).toEqual(['2015', '2023', '2024', '2025']);
+    expect(out![0]!.value).toBe(15);
+  });
+
+  /** Cas JD : écart systématique (~20 %) → aucune profondeur, statu quo. */
+  it('renonce quand la composition rate une part systématique de la dette', () => {
+    const byYear = new Map([
+      yr('2023', { current: 5.0, noncurrent: 26.5, opLease: 21.4 }),   // Yahoo 68.4 → ratio 0.77
+      yr('2024', { current: 11.3, noncurrent: 31.7, opLease: 25.7 }),  // Yahoo 89.8 → ratio 0.76
+      yr('2025', { current: 11.2, noncurrent: 41.7, opLease: 33.1 }),  // Yahoo 107.1 → ratio 0.80
+    ]);
+    expect(composeVerifiedDebt(byYear, yahoo({ '2023': 68.4, '2024': 89.8, '2025': 107.1 }))).toBeNull();
+  });
+
+  /**
+   * Filtre de stabilité : la vérification ne voit que les exercices récents. Si un groupe cœur
+   * (présent sur TOUS les exercices vérifiés) disparaît dans le passé, l'exercice est écarté —
+   * une dette partielle y serait indétectable.
+   */
+  it('écarte un exercice profond où un groupe cœur manque', () => {
+    const byYear = new Map([
+      yr('2014', { noncurrent: 8 }),                                   // `current` manquant → écarté
+      yr('2015', { current: 9, noncurrent: 6 }),                       // complet → gardé
+      yr('2024', { current: 19.4, noncurrent: 20.1 }),
+      yr('2025', { current: 19.3, noncurrent: 11.4 }),
+    ]);
+    const out = composeVerifiedDebt(byYear, yahoo({ '2024': 39.5, '2025': 30.7 }));
+    expect(out!.map(p => p.date.slice(0, 4))).toEqual(['2015', '2024', '2025']);
+  });
+
+  /** Les leases ne sont jamais un groupe cœur : absentes du bilan avant ASC 842 (2019). */
+  it('tolère l’absence de leases sur les exercices pré-2019', () => {
+    const byYear = new Map([
+      yr('2016', { current: 10, noncurrent: 5 }),                      // pas de leases → gardé
+      yr('2024', { current: 20, noncurrent: 10, opLease: 2 }),
+      yr('2025', { current: 18, noncurrent: 12, opLease: 2 }),
+    ]);
+    const out = composeVerifiedDebt(byYear, yahoo({ '2024': 32, '2025': 32 }));
+    expect(out!.map(p => p.date.slice(0, 4))).toEqual(['2016', '2024', '2025']);
+  });
+
+  it('renonce avec moins de deux exercices communs concordants', () => {
+    const byYear = new Map([
+      yr('2024', { current: 20, noncurrent: 10 }),
+      yr('2025', { current: 100, noncurrent: 100 }),                   // discordant
+    ]);
+    expect(composeVerifiedDebt(byYear, yahoo({ '2024': 30, '2025': 32 }))).toBeNull();
   });
 });
 

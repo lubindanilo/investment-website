@@ -33,7 +33,7 @@
  */
 import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
-import { getSecReportingCurrency } from '../src/services/secEdgar.js';
+import { secReportingProfile } from '../src/services/secEdgar.js';
 import { getYahooAnnualBatchCached } from '../src/services/yahooAnnualStore.js';
 import { resolveYahooTicker } from '../src/services/yahooResolve.js';
 
@@ -49,12 +49,14 @@ const EXPLICIT = ((process.argv.find(a => a.startsWith('--tickers=')) ?? '').spl
  * et une seule passe EDGAR par ticker.
  */
 const TYPES = [
-  // Cash ROCE annuel
+  // Cash ROCE annuel (annualTotalDebt sert aussi son repli secteur financier)
   'annualFreeCashFlow', 'annualTotalAssets', 'annualCurrentLiabilities', 'annualGoodwill',
   'annualCashAndShortTermInvestments', 'annualCashAndCashEquivalents', 'annualTotalRevenue',
   'annualStockholdersEquity',
   // P/FCF annuel
   'annualDilutedAverageShares',
+  // netDebtFcf annuel (dette vérifiée contre Yahoo avant fusion, cf composeVerifiedDebt)
+  'annualTotalDebt',
   // CCC annuel
   'annualCostOfRevenue', 'annualAccountsReceivable', 'annualInventory', 'annualAccountsPayable',
 ];
@@ -92,9 +94,12 @@ async function main(): Promise<void> {
     const found: typeof candidates = [];
     let probed = 0;
     for (const c of candidates) {
-      const native = await getSecReportingCurrency(c.ticker).catch(() => null);
-      if (native) found.push(c);
-      if (++probed % 500 === 0) console.log(`  … ${probed}/${candidates.length} sondés, ${found.length} ADR trouvés`);
+      // Deux populations ont une profondeur EDGAR : les déposants us-gaap en devise NATIVE
+      // (~221) et les déposants IFRS quelle que soit leur devise (~478 — beaucoup publient en
+      // USD, comme NVS ou SHEL, et c'est leur vraie devise de publication).
+      const profile = await secReportingProfile(c.ticker).catch(() => null);
+      if (profile && (profile.taxonomy === 'ifrs-full' || profile.currency !== 'USD')) found.push(c);
+      if (++probed % 500 === 0) console.log(`  … ${probed}/${candidates.length} sondés, ${found.length} cibles trouvées`);
       if (found.length >= LIMIT) break;
       await new Promise(r => setTimeout(r, 120)); // SEC ≤10 req/s, on reste loin dessous
     }
