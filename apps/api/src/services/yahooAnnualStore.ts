@@ -12,8 +12,9 @@
  * Pas d'ajustement splits (l'annuel Yahoo est déjà en base courante).
  */
 import type { TimeseriesPoint } from '@lubin/shared';
-import { readSeries, isFresh, appendMergePersist, type ExpiryCadence } from './fundamentalsStore.js';
+import { readSeries, isFresh, appendMergePersist, appendOnlyMerge, type ExpiryCadence } from './fundamentalsStore.js';
 import { getYahooQuarterlyBatch } from './yahoo.js';
+import { getEdgarAnnualNative, EDGAR_ANNUAL_TYPES } from './secEdgar.js';
 import { getStockanalysisQuarterlyBatch } from './stockanalysisFundamentals.js';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Lubin-Investment/0.1';
@@ -71,6 +72,10 @@ export async function getYahooAnnualBatchCached(
   if (allFresh) {
     const out = new Map<string, TimeseriesPoint[]>();
     for (const type of types) out.set(type, stored.get(type)!.points);
+    // Même frais, un store peu profond peut être enrichi par EDGAR (one-shot, cf. helper).
+    // Sans ce passage, un ticker dont les lignes viennent d'être posées par Yahoo resterait
+    // à ~4 exercices jusqu'à leur expiration (~400 j).
+    await enrichWithEdgarAnnualDepth(ticker, types, stored, out, nowMs);
     return out;
   }
 
@@ -91,17 +96,83 @@ export async function getYahooAnnualBatchCached(
     return out;
   }
 
+  // Profondeur EDGAR (devise native) fusionnée AVANT la persistance → une seule écriture.
+  const deep = await edgarAnnualDepth(ticker, types, stored, nowMs);
+
   // Persistance append-only de chaque type (persistEmpty : un type non fourni est mis en
   // cache négatif borné → ne re-déclenche pas un fetch à chaque appel).
   const out = new Map<string, TimeseriesPoint[]>();
   for (const type of types) {
-    const built = fetched.get(type) ?? [];
-    const source = built.length === 0 ? 'yahoo-empty' : 'yahoo';
+    let built = fetched.get(type) ?? [];
+    const deepPts = deep?.get(type);
+    // Yahoo PRIME sur collision de date (±20j) : le dernier exercice reste celui de la carte.
+    if (deepPts?.length) built = appendOnlyMerge(built, deepPts);
+    const source = built.length === 0 ? 'yahoo-empty' : (deepPts?.length ? 'yahoo+edgar-annual' : 'yahoo');
     const eff = await appendMergePersist(ticker, type, stored.get(type) ?? null, built, source, nowMs,
       { freq: 'annual', cadence: ANNUAL_CADENCE, persistEmpty: true });
     out.set(type, eff);
   }
   return out;
+}
+
+// ─── Profondeur annuelle EDGAR (devise native, déposants 20-F étrangers) ─────
+//
+// Yahoo plafonne à ~4 exercices ; les 20-F d'EDGAR en re-publient 14-18 (colonne devise
+// NATIVE, homogène avec Yahoo). L'append-only rend l'opération one-shot : une fois les
+// exercices anciens en base, ils n'expirent jamais et le seuil de profondeur ci-dessous
+// court-circuite tout nouvel appel EDGAR.
+
+/** Un historique qui remonte à plus de ~6,5 ans ne peut pas venir de Yahoo (~4 exercices) :
+ *  l'enrichissement EDGAR a déjà eu lieu → plus rien à faire pour ce ticker. */
+const DEEP_HISTORY_MS = 6.5 * 365.25 * 24 * 3600 * 1000;
+function hasDeepHistory(points: TimeseriesPoint[], nowMs: number): boolean {
+  return points.length > 0 && Date.parse(points[0]!.date) <= nowMs - DEEP_HISTORY_MS;
+}
+
+/** Cache négatif process : tickers sans profondeur EDGAR (pas de CIK, reporting USD, concepts
+ *  absents). Évite de re-sonder la SEC à chaque lecture pour les ~totalité des titres. */
+const edgarDepthNone = new Set<string>();
+
+/**
+ * Sonde EDGAR pour les types demandés encore PEU PROFONDS. Renvoie null si rien à faire
+ * (ticker suffixé → pas de CIK, déjà profond, déjà connu vide, ou EDGAR sans données).
+ */
+async function edgarAnnualDepth(
+  ticker: string,
+  types: string[],
+  stored: Map<string, Awaited<ReturnType<typeof readSeries>>>,
+  nowMs: number,
+): Promise<Map<string, TimeseriesPoint[]> | null> {
+  if (ticker.includes('.')) return null;
+  if (edgarDepthNone.has(ticker)) return null;
+  const shallow = types.filter(t => EDGAR_ANNUAL_TYPES.has(t) && !hasDeepHistory(stored.get(t)?.points ?? [], nowMs));
+  if (shallow.length === 0) return null;
+  const deep = await getEdgarAnnualNative(ticker, shallow).catch(() => new Map<string, TimeseriesPoint[]>());
+  if (deep.size === 0) {
+    edgarDepthNone.add(ticker);
+    return null;
+  }
+  return deep;
+}
+
+/** Variante du chemin FRAIS : enrichit + persiste les types concernés, et met à jour `out`. */
+async function enrichWithEdgarAnnualDepth(
+  ticker: string,
+  types: string[],
+  stored: Map<string, Awaited<ReturnType<typeof readSeries>>>,
+  out: Map<string, TimeseriesPoint[]>,
+  nowMs: number,
+): Promise<void> {
+  const deep = await edgarAnnualDepth(ticker, types, stored, nowMs);
+  if (!deep) return;
+  for (const type of types) {
+    const deepPts = deep.get(type);
+    if (!deepPts?.length) continue;
+    // appendMergePersist garde l'existant (Yahoo) et n'ajoute que les exercices absents.
+    const eff = await appendMergePersist(ticker, type, stored.get(type) ?? null, deepPts, 'yahoo+edgar-annual', nowMs,
+      { freq: 'annual', cadence: ANNUAL_CADENCE, persistEmpty: true });
+    out.set(type, eff);
+  }
 }
 
 /**

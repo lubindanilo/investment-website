@@ -112,6 +112,132 @@ async function fetchConcept(cik: string, taxonomy: string, concept: string, unit
   return units[unit] ?? null;
 }
 
+// ─── Séries ANNUELLES en devise NATIVE (déposants 20-F étrangers) ─────────────
+//
+// Pour un déposant en devise étrangère, `fetchConcept` refuse la colonne USD (conversion de
+// convenance) → EDGAR ne fournit plus RIEN à ces émetteurs côté trimestriel. Mais leur colonne
+// NATIVE, elle, est la plus profonde qui existe : chaque 20-F re-publie les exercices
+// comparatifs, soit 14-18 exercices là où Yahoo plafonne à ~4 (mesuré sur TCOM : CFO 14,
+// CapEx 18, Assets/CurLiab/Goodwill 17, NI 18). C'est ce qui permet aux graphes annuels des
+// ADR d'avoir un vrai historique — sans mélange de devises, puisque Yahoo
+// /fundamentals-timeseries est lui aussi en devise de reporting.
+
+/** Formulaires ANNUELS acceptés. Écarte les 6-K (snapshots intérimaires à dates non-FY). */
+const EDGAR_ANNUAL_FORMS = new Set(['20-F', '20-F/A', '40-F', '40-F/A', '10-K', '10-K/A']);
+
+/**
+ * Points annuels d'un concept de FLUX (ou moyenne pondérée type shares) : une entrée par
+ * exercice plein (durée 330-400 j — tolère les exercices 52/53 semaines et décalés).
+ * Dédup par date de fin, DERNIER gagne : les 20-F suivants re-publient les exercices
+ * comparatifs, éventuellement restatés — on garde la version la plus récente.
+ * Exporté pour tests.
+ */
+export function annualDurationPoints(entries: ConceptEntry[]): TimeseriesPoint[] {
+  const byEnd = new Map<string, number>();
+  for (const e of entries) {
+    if (!e.start || !e.end || !Number.isFinite(e.val)) continue;
+    if (!EDGAR_ANNUAL_FORMS.has(e.form ?? '')) continue;
+    const dur = daysBetween(e.start, e.end);
+    if (dur < 330 || dur > 400) continue;
+    byEnd.set(e.end, e.val);
+  }
+  return [...byEnd.entries()].map(([date, value]) => ({ date, value })).sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/**
+ * Points annuels d'un concept de BILAN (instantané, pas de `start`). Le filtre de formulaire
+ * fait le tri des dates : un 20-F ne publie que des fins d'exercice. Exporté pour tests.
+ */
+export function annualInstantPoints(entries: ConceptEntry[]): TimeseriesPoint[] {
+  const byEnd = new Map<string, number>();
+  for (const e of entries) {
+    if (e.start || !e.end || !Number.isFinite(e.val)) continue;
+    if (!EDGAR_ANNUAL_FORMS.has(e.form ?? '')) continue;
+    byEnd.set(e.end, e.val);
+  }
+  return [...byEnd.entries()].map(([date, value]) => ({ date, value })).sort((a, b) => a.date.localeCompare(b.date));
+}
+
+/**
+ * Types annuels du store (clés Yahoo) reconstructibles depuis EDGAR. `annualFreeCashFlow` est
+ * composé (cfo − |capex|), les autres mappent un MetricKey. totalDebt et cash n'y sont pas :
+ * ce sont des métriques multi-concepts computed côté Finnhub, sans équivalent direct fiable.
+ */
+const ANNUAL_TYPE_TO_METRIC: Record<string, MetricKey> = {
+  annualTotalRevenue: 'revenue',
+  annualNetIncome: 'netIncome',
+  annualOperatingIncome: 'operatingIncome',
+  annualOperatingCashFlow: 'cfo',
+  annualCapitalExpenditure: 'capex',
+  annualTotalAssets: 'totalAssets',
+  annualCurrentLiabilities: 'currentLiabilities',
+  annualCurrentAssets: 'currentAssets',
+  annualGoodwill: 'goodwill',
+  annualStockholdersEquity: 'equity',
+  annualDilutedAverageShares: 'shares',
+};
+export const EDGAR_ANNUAL_TYPES: ReadonlySet<string> = new Set([...Object.keys(ANNUAL_TYPE_TO_METRIC), 'annualFreeCashFlow']);
+
+/**
+ * Séries ANNUELLES en devise NATIVE pour un déposant 20-F étranger.
+ *
+ * Renvoie une Map vide si l'émetteur reporte en USD (son pipeline existant couvre déjà), n'a
+ * pas de CIK (tickers suffixés → non-US), ou si EDGAR n'a rien. Best-effort, jamais de throw.
+ * Le point de vigilance devise ne se pose pas : on ne lit QUE la colonne de la devise de
+ * reporting, homogène avec Yahoo et stockanalysis.
+ */
+export async function getEdgarAnnualNative(ticker: string, types: string[]): Promise<Map<string, TimeseriesPoint[]>> {
+  const out = new Map<string, TimeseriesPoint[]>();
+  const wanted = types.filter(t => EDGAR_ANNUAL_TYPES.has(t));
+  if (wanted.length === 0) return out;
+  const cik = await getCik(ticker);
+  if (!cik) return out;
+  const native = await getSecReportingCurrency(ticker);
+  if (!native) return out;
+
+  const needFcf = wanted.includes('annualFreeCashFlow');
+  const metricSet = new Set<MetricKey>();
+  for (const t of wanted) { const m = ANNUAL_TYPE_TO_METRIC[t]; if (m) metricSet.add(m); }
+  if (needFcf) { metricSet.add('cfo'); metricSet.add('capex'); }
+
+  const byMetric = new Map<MetricKey, TimeseriesPoint[]>();
+  for (const metric of metricSet) {
+    const cfg = METRICS[metric];
+    if (!cfg) continue;
+    const concepts = cfg.concepts.filter(c => !c.startsWith('__'));
+    // shares est une moyenne pondérée sur l'exercice (durée FY), pas un montant monétaire.
+    const unit = metric === 'shares' ? 'shares' : native;
+    const all: ConceptEntry[] = [];
+    for (const raw of concepts) {
+      const [taxonomy, ...rest] = raw.split('_');
+      const concept = rest.join('_');
+      if (!taxonomy || !concept) continue;
+      const units = await fetchConceptUnits(cik, taxonomy, concept);
+      const entries = units?.[unit];
+      if (entries?.length) all.push(...entries);
+    }
+    const pts = (metric === 'shares' || cfg.cumulative) ? annualDurationPoints(all) : annualInstantPoints(all);
+    if (pts.length) byMetric.set(metric, pts);
+  }
+
+  for (const t of wanted) {
+    if (t === 'annualFreeCashFlow') continue;
+    const pts = byMetric.get(ANNUAL_TYPE_TO_METRIC[t]!);
+    if (pts?.length) out.set(t, pts);
+  }
+  if (needFcf) {
+    // Même définition que le fcf trimestriel EDGAR : CFO − |CapEx|, capex absent = 0.
+    const cfo = byMetric.get('cfo') ?? [];
+    const capexByDate = new Map((byMetric.get('capex') ?? []).map(p => [p.date, Math.abs(p.value)]));
+    const fcf = cfo.map(c => ({ date: c.date, value: c.value - (capexByDate.get(c.date) ?? 0) }));
+    if (fcf.length) out.set('annualFreeCashFlow', fcf);
+  }
+  if (out.size) {
+    console.log(`[edgar annual ${ticker}] ${native} : ${[...out.entries()].map(([t, p]) => `${t}=${p.length}`).join(' ')}`);
+  }
+  return out;
+}
+
 /**
  * Devise de reporting d'un déposant SEC, ou null s'il reporte en USD (ou est introuvable).
  *

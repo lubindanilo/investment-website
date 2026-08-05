@@ -23,6 +23,7 @@
  */
 import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundamentals.js';
 import { getSecReportingCurrency } from './secEdgar.js';
+import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
 import { getFxSeries, fxAt } from './fx.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 import { yahooLimiter } from '../lib/limiter.js';
@@ -199,7 +200,7 @@ export async function getPfcfHistory(ticker: string, years: number): Promise<Pfc
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
-    return getPfcfHistoryAnnualYahoo(resolved.symbol, years, resolved.currency);
+    return getPfcfHistoryAnnualYahoo(ticker, resolved.symbol, years, resolved.currency);
   }
 
   // Path US : tente Finnhub quarterly d'abord (vraies TTM rolling, ~60 pts).
@@ -209,7 +210,7 @@ export async function getPfcfHistory(ticker: string, years: number): Promise<Pfc
   const usResult = await getPfcfHistoryUs(ticker, years);
   if (usResult.length === 0) {
     console.log(`[pfcf ${ticker}] Finnhub vide → fallback annual Yahoo (probablement un ADR étranger)`);
-    return getPfcfHistoryAnnualYahoo(resolved?.symbol ?? ticker, years, resolved?.currency ?? 'USD');
+    return getPfcfHistoryAnnualYahoo(ticker, resolved?.symbol ?? ticker, years, resolved?.currency ?? 'USD');
   }
   return usResult;
 }
@@ -317,30 +318,35 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
  *   2. ADRs étrangers cotés US (ASML, NSRGY, TSM…) qui filent en 20-F annuel
  *      → Finnhub /financials-reported renvoie 0 quarter, on tombe sur ce path
  *
- * Yahoo annual ~4 ans → 4 points P/FCF (1 par fin d'année fiscale) :
+ * Store annuel (Yahoo ~4 exercices, + profondeur EDGAR native pour les ADR 20-F) :
+ * 1 point P/FCF par fin d'année fiscale :
  *   pfcf(année N) = price(fin année N) × shares(année N, split-adj) / FCF(année N)
  */
-async function getPfcfHistoryAnnualYahoo(yahooSymbol: string, years: number, quoteCurrency: string): Promise<PfcfHistoryPoint[]> {
-  // Fetch direct des séries annuelles via le helper bas-niveau.
+async function getPfcfHistoryAnnualYahoo(ticker: string, yahooSymbol: string, years: number, quoteCurrency: string): Promise<PfcfHistoryPoint[]> {
+  // POINTS via le store persistant (Yahoo + profondeur EDGAR native : 14-18 exercices pour
+  // les ADR 20-F, contre ~4 chez Yahoo seul). La DEVISE de reporting, elle, reste lue sur une
+  // ligne Yahoo (currencyCode) : le store ne porte pas cette métadonnée, et c'est elle qui
+  // sait que TCOM publie en CNY quand TSM publie en TWD.
   // Note : on n'applique PLUS cumulativeSplitFactor sur les shares annuelles — Yahoo
   // restate déjà l'historique post-split (cas NVO 2:1 2023, AAPL 4:1 2020 vérifiés).
-  // Double-comptage évité.
-  const [annualFcf, annualShares, prices] = await Promise.all([
+  const [batch, currencyProbe, prices] = await Promise.all([
+    getYahooAnnualBatchCached(ticker, yahooSymbol, ['annualFreeCashFlow', 'annualDilutedAverageShares'], Date.now()),
     fetchYahooAnnualBasic(yahooSymbol, 'annualFreeCashFlow'),
-    fetchYahooAnnualBasic(yahooSymbol, 'annualDilutedAverageShares'),
     fetchPriceHistory(yahooSymbol, Math.max(years, 5), '1mo'),
   ]);
-  if (annualFcf.points.length === 0 || annualShares.points.length === 0 || prices.length === 0) {
-    console.warn(`[pfcf ${yahooSymbol}] EU pas assez de données (fcf=${annualFcf.points.length}, shares=${annualShares.points.length}, prices=${prices.length})`);
+  const fcfPts = batch?.get('annualFreeCashFlow') ?? [];
+  const sharesPts = batch?.get('annualDilutedAverageShares') ?? [];
+  if (fcfPts.length === 0 || sharesPts.length === 0 || prices.length === 0) {
+    console.warn(`[pfcf ${yahooSymbol}] EU pas assez de données (fcf=${fcfPts.length}, shares=${sharesPts.length}, prices=${prices.length})`);
     return [];
   }
 
-  // Change : `prices` est en devise de COTATION, `annualFcf` en devise de REPORTING que Yahoo
+  // Change : `prices` est en devise de COTATION, le FCF en devise de REPORTING que Yahoo
   // nous donne gratuitement (`currencyCode`). Identiques pour un vrai titre EU (NESN.SW cote et
   // publie en CHF), différentes pour un ADR (TCOM cote en USD et publie en CNY) — c'est là que
   // le multiple était divisé par le taux de change. Taux à la date de chaque exercice, pas au
   // taux du jour, pour ne pas réécrire l'historique au gré du drift de la devise.
-  const reporting = annualFcf.currency;
+  const reporting = currencyProbe.currency;
   const fxSeries = reporting && reporting !== quoteCurrency ? await getFxSeries(reporting, quoteCurrency) : [];
   if (fxSeries == null) {
     console.warn(`[pfcf ${yahooSymbol}] taux ${reporting}→${quoteCurrency} indisponible → série omise plutôt que fausse`);
@@ -350,12 +356,16 @@ async function getPfcfHistoryAnnualYahoo(yahooSymbol: string, years: number, quo
   // Index par année
   const fcfByYear: Record<string, number> = {};
   const sharesByYear: Record<string, number> = {};
-  for (const p of annualFcf.points) fcfByYear[p.date.slice(0, 4)] = p.value;
-  for (const p of annualShares.points) sharesByYear[p.date.slice(0, 4)] = p.value;
+  for (const p of fcfPts) fcfByYear[p.date.slice(0, 4)] = p.value;
+  for (const p of sharesPts) sharesByYear[p.date.slice(0, 4)] = p.value;
+
+  // Fenêtre demandée : avec la profondeur EDGAR, la série peut couvrir 15+ exercices — on ne
+  // trace que ceux de la période (plancher 5 ans, comme le reste du chemin annuel).
+  const cutoffIso = new Date(Date.now() - Math.max(years, 5) * 365.25 * 24 * 3600 * 1000).toISOString().slice(0, 10);
 
   // Pour chaque année où on a (FCF, shares), on trouve le prix de fin d'année correspondant
   const points: PfcfHistoryPoint[] = [];
-  const annualDates = annualFcf.points.map(p => p.date).sort();
+  const annualDates = fcfPts.map(p => p.date).filter(d => d >= cutoffIso).sort();
   for (const yearEnd of annualDates) {
     const yr = yearEnd.slice(0, 4);
     const fcf = fcfByYear[yr];
@@ -376,7 +386,7 @@ async function getPfcfHistoryAnnualYahoo(yahooSymbol: string, years: number, quo
     points.push({ date: yearEnd, pfcf: Math.round(pfcf * 100) / 100 });
   }
 
-  console.log(`[pfcf ${yahooSymbol}] EU ${points.length} pts annual — fcf=${annualFcf.points.length} shares=${annualShares.points.length}${reporting && reporting !== quoteCurrency ? ` (FCF ${reporting} → ${quoteCurrency})` : ''}`);
+  console.log(`[pfcf ${yahooSymbol}] EU ${points.length} pts annual — fcf=${fcfPts.length} shares=${sharesPts.length}${reporting && reporting !== quoteCurrency ? ` (FCF ${reporting} → ${quoteCurrency})` : ''}`);
   return points;
 }
 

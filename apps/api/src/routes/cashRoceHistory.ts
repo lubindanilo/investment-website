@@ -33,11 +33,10 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
   const ticker = t.data;
   const years = y.data;
   // Cache key dédié — namespace différent de pfcf-history pour éviter collisions.
-  // 'computed2' : bump de génération après le garde-fou de contiguïté du TTM, la nouvelle
-  // condition de repli annuel et l'abandon de la colonne USD d'EDGAR pour les déposants en
-  // devise étrangère. Sans ça les séries en cache continueraient à servir leurs points
-  // aberrants jusqu'aux prochains résultats (TTL = date d'earnings, 2-3 mois).
-  const key = cache.cacheKey(ticker, 'cash-roce-history', 'computed2', years);
+  // 'computed3' : bump après le branchement du repli annuel sur le store enrichi EDGAR
+  // (profondeur 14-18 exercices pour les ADR 20-F). Générations précédentes : 'computed'
+  // (origine), 'computed2' (contiguïté TTM + refus de la colonne USD d'EDGAR).
+  const key = cache.cacheKey(ticker, 'cash-roce-history', 'computed3', years);
 
   const hit = await cache.get(key);
   if (hit) {

@@ -84,12 +84,11 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // Le `freq` demandé est ignoré : getRatioTimeseries choisit lui-même la granularité.
   if (RATIO_SET.has(requestedMetric)) {
     const ratioKey = requestedMetric as RatioMetricKey;
-    // 'ratio3' : bump de génération après le garde-fou de contiguïté du TTM + la nouvelle
-    // condition de repli annuel (cf derivedTimeseries). Sans ça les séries déjà en cache
-    // continueraient à servir leurs points aberrants jusqu'aux prochains résultats
-    // (TTL = date d'earnings, soit 2-3 mois). Générations précédentes : 'ratio' (origine),
-    // 'ratio2' (matérialité du dénominateur). Les vieilles clés expirent seules.
-    const key = cache.cacheKey(ticker, ratioKey, 'ratio3', years);
+    // 'ratio4' : bump après le branchement du repli annuel sur le store enrichi EDGAR
+    // (profondeur 14-18 exercices pour les ADR 20-F). Générations précédentes : 'ratio'
+    // (origine), 'ratio2' (matérialité du dénominateur), 'ratio3' (contiguïté TTM +
+    // condition de repli). Les vieilles clés expirent seules.
+    const key = cache.cacheKey(ticker, ratioKey, 'ratio4', years);
     const hit = await cache.get(key);
     if (hit) {
       res.json({

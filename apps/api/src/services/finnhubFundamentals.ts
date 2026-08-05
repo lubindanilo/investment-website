@@ -870,10 +870,10 @@ function hasQuarterlyGap(points: TimeseriesPoint[]): boolean {
 interface TtmPoint { date: string; ts: number; value: number }
 
 /**
- * Tolérance d'étendue d'une fenêtre TTM, en multiple de l'espacement médian de la série.
- * Une somme « TTM » n'a de sens que si ses 4 périodes se SUIVENT vraiment, soit 3
- * intervalles de cadence normale. ×1,6 absorbe les exercices 52/53 semaines et la dérive
- * des dates de clôture (un trimestre Finnhub/EDGAR va de 84 à 98 jours).
+ * Tolérance d'écart entre deux points CONSÉCUTIFS d'une fenêtre TTM, en multiple de
+ * l'espacement médian de la série. Une somme « TTM » n'a de sens que si ses 4 périodes se
+ * SUIVENT vraiment. ×1,6 absorbe les exercices 52/53 semaines et la dérive des dates de
+ * clôture (un trimestre Finnhub/EDGAR va de 84 à 98 jours).
  *
  * Pourquoi un seuil RELATIF à la médiane et pas un absolu en jours : le store mélange des
  * cadences. ~25 % des EU publient nativement en semestriel (LVMH, Nestlé, L'Oréal — cf
@@ -898,7 +898,7 @@ interface TtmPoint { date: string; ts: number; value: number }
  * comportement actuel, inchangé volontairement (le corriger déplacerait des scores sans
  * qu'on sache dire dans quel sens : cf le cas des séries `sbc` annuelles).
  */
-const TTM_SPAN_TOLERANCE = 1.6;
+const TTM_GAP_TOLERANCE = 1.6;
 
 /** Espacement médian entre deux points consécutifs (ms). 0 si indéterminable. */
 function medianGapMs(sorted: TimeseriesPoint[]): number {
@@ -910,27 +910,39 @@ function medianGapMs(sorted: TimeseriesPoint[]): number {
 }
 
 /**
- * Étendue max d'une fenêtre de 4 points pour que sa somme soit un vrai TTM.
- * Exporté pour tests. Renvoie Infinity si la cadence n'est pas déterminable (série trop
- * courte ou dates dupliquées) → on ne coupe rien sur une hypothèse vide.
+ * Écart max entre deux points CONSÉCUTIFS d'une fenêtre TTM. Exporté pour tests. Renvoie
+ * Infinity si la cadence n'est pas déterminable (série trop courte ou dates dupliquées) →
+ * on ne coupe rien sur une hypothèse vide.
+ *
+ * Le test porte sur CHAQUE écart de la fenêtre, pas sur son étendue totale. La première
+ * version (étendue ≤ 3 × médiane × 1,6) avait deux angles morts, constatés sur TCOM :
+ *   - une fenêtre 91 j + 91 j + 182 j (un trimestre manquant au milieu) passait sous
+ *     l'étendue max alors que la somme omet un trimestre entier → TTM sous-estimé ;
+ *   - sur une fenêtre COURTE d'une série trouée, la médiane elle-même est polluée par les
+ *     trous : les 4 points de cfo restants sur 5 ans (92 j / 1187 j / 366 j d'écarts) ont une
+ *     médiane à 366 j, donc une étendue max à ~1757 j que la fenêtre respectait — et le
+ *     graphe P/FCF 5Y traçait 7 points à 45× depuis un « TTM » qui sommait 2019 + 2023 + 2024.
+ * Par-écart, le pont de 1187 j dépasse 366 × 1,6 → fenêtre rejetée dans les deux cas.
  */
-export function maxTtmSpanMs(sorted: TimeseriesPoint[]): number {
+export function maxTtmGapMs(sorted: TimeseriesPoint[]): number {
   const median = medianGapMs(sorted);
-  return median > 0 ? 3 * median * TTM_SPAN_TOLERANCE : Infinity;
+  return median > 0 ? median * TTM_GAP_TOLERANCE : Infinity;
 }
 
 function rollingTtmSum(points: TimeseriesPoint[]): TtmPoint[] {
   const sorted = [...points].sort((a, b) => a.date.localeCompare(b.date));
-  const maxSpan = maxTtmSpanMs(sorted);
+  const maxGap = maxTtmGapMs(sorted);
+  const gaps: number[] = [0];
+  for (let i = 1; i < sorted.length; i++) gaps.push(tsOf(sorted[i]!.date) - tsOf(sorted[i - 1]!.date));
   const out: TtmPoint[] = [];
   let straddling = 0;
   for (let i = 3; i < sorted.length; i++) {
-    // Fenêtre à cheval sur un trou → ce n'est pas un TTM, on n'émet pas de point.
-    if (tsOf(sorted[i]!.date) - tsOf(sorted[i - 3]!.date) > maxSpan) { straddling++; continue; }
+    // Un écart anormal DANS la fenêtre → ce n'est pas un TTM, on n'émet pas de point.
+    if (gaps[i]! > maxGap || gaps[i - 1]! > maxGap || gaps[i - 2]! > maxGap) { straddling++; continue; }
     const sum = sorted[i]!.value + sorted[i-1]!.value + sorted[i-2]!.value + sorted[i-3]!.value;
     out.push({ date: sorted[i]!.date, ts: tsOf(sorted[i]!.date), value: sum });
   }
-  if (straddling > 0) console.log(`[ttm] ${straddling} fenêtre(s) écartée(s) (à cheval sur un trou de la série, étendue > ${Math.round(maxSpan / 86_400_000)}j)`);
+  if (straddling > 0) console.log(`[ttm] ${straddling} fenêtre(s) écartée(s) (écart interne > ${Math.round(maxGap / 86_400_000)}j — trou dans la série)`);
   return out;
 }
 

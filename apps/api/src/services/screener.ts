@@ -283,7 +283,7 @@ async function computeOpportunityAtScore(
   const pts = await getPfcfHistory(ticker, OPP_YEARS).catch(() => [] as { date: string; pfcf: number }[]);
   if (!pts.length) return { opportunity: false, pfcfPercentile: null, pfcfDecile10: null };
   const ttl = ttlUntilNextEarnings(nextEarningsDate);
-  await chartCache.set(chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx', OPP_YEARS), pts.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  await chartCache.set(chartCache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx2', OPP_YEARS), pts.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
   // On classe le P/FCF COURANT (cohérent, fourni par le caller) contre la distribution historique —
   // et non le dernier point de l'historique (close mensuel), pour que le gate < 25 et le percentile
   // utilisent la même valeur que ce qu'on affiche au prix du moment.

@@ -7,7 +7,7 @@
  * formule reste correcte si quelqu'un refactor un jour.
  */
 import { describe, it, expect } from 'vitest';
-import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, maxTtmSpanMs, OPERATING_CASH_PCT_OF_REVENUE } from './finnhubFundamentals.js';
+import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, maxTtmGapMs, OPERATING_CASH_PCT_OF_REVENUE } from './finnhubFundamentals.js';
 
 const DAY = 86_400_000;
 /** Série de dates espacées de `stepDays`, valeur indifférente (seules les dates comptent). */
@@ -197,11 +197,11 @@ describe('computeExcessCash (heuristique Damodaran 2% du revenue)', () => {
  * cadences : trimestriel US, semestriel natif (~25 % des EU : LVMH, Nestlé, L'Oréal…), et
  * quelques séries annuelles. Un absolu en jours les aurait toutes supprimées.
  */
-describe('maxTtmSpanMs (contiguïté des fenêtres TTM)', () => {
-  it('accepte une fenêtre trimestrielle normale (3 × 91j ≈ 273j)', () => {
+describe('maxTtmGapMs (contiguïté des fenêtres TTM, testée PAR ÉCART)', () => {
+  it('accepte les écarts trimestriels normaux (~91j, plafond ~146j)', () => {
     const q = series('2020-03-31', 91, 20);
-    expect(maxTtmSpanMs(q) / DAY).toBeCloseTo(437, 0);
-    expect(273 * DAY).toBeLessThan(maxTtmSpanMs(q)); // la fenêtre réelle passe
+    expect(maxTtmGapMs(q) / DAY).toBeCloseTo(146, 0);
+    expect(91 * DAY).toBeLessThan(maxTtmGapMs(q));
   });
 
   it('tolère la dérive des exercices 52/53 semaines (trimestres de 84 à 98j)', () => {
@@ -212,36 +212,58 @@ describe('maxTtmSpanMs (contiguïté des fenêtres TTM)', () => {
       { date: '2024-11-02', value: 1 },
       { date: '2025-02-01', value: 1 }, // 14 semaines sur l'exercice long
     ];
-    const span = Date.parse('2025-02-01') - Date.parse('2024-05-04'); // fenêtre la plus longue
-    expect(span).toBeLessThanOrEqual(maxTtmSpanMs(q));
+    const worstGap = Date.parse('2025-02-01') - Date.parse('2024-11-02');
+    expect(worstGap).toBeLessThanOrEqual(maxTtmGapMs(q));
   });
 
-  it('rejette une fenêtre à cheval sur un trou d’un an (le cas TCOM)', () => {
-    // cfo TCOM : 2018-2019 en trimestriel, puis 2023-03 et 2024-03 isolés.
+  it("rejette un trimestre manquant AU MILIEU d'une fenêtre (91+91+182j)", () => {
+    // L'ancienne règle d'étendue totale (≤ 3 × médiane × 1,6 = 437j) laissait passer cette
+    // fenêtre (364j) alors que la somme omet un trimestre entier → TTM sous-estimé.
+    const q = series('2020-03-31', 91, 12);
+    expect(182 * DAY).toBeGreaterThan(maxTtmGapMs(q));
+  });
+
+  it('rejette les ponts pluriannuels de la série trouée de TCOM (fenêtre longue)', () => {
+    // cfo TCOM : 2015-2016 puis 2018-2019 en trimestriel, puis 2023-03 et 2024-03 isolés.
     const holed = [
       ...series('2015-03-31', 91, 8),   // 2015 + 2016
       ...series('2018-03-31', 91, 8),   // 2018 + 2019
       { date: '2023-03-31', value: 1 },
       { date: '2024-03-31', value: 1 },
     ];
-    const max = maxTtmSpanMs(holed);
-    expect(max / DAY).toBeCloseTo(437, 0);                                              // cadence lue = trimestrielle
-    expect(Date.parse('2018-03-31') - Date.parse('2016-06-30')).toBeGreaterThan(max);   // pont 2016→2018 rejeté
-    expect(Date.parse('2024-03-31') - Date.parse('2018-12-31')).toBeGreaterThan(max);   // pont 2018→2024 rejeté
-    expect(Date.parse('2015-12-31') - Date.parse('2015-03-31')).toBeLessThan(max);      // bloc contigu conservé
+    const max = maxTtmGapMs(holed);
+    expect(max / DAY).toBeCloseTo(145.6, 0);                                          // cadence lue = trimestrielle (91 × 1,6)
+    expect(Date.parse('2018-03-31') - Date.parse('2016-12-31')).toBeGreaterThan(max); // pont 2016→2018 rejeté
+    expect(Date.parse('2023-03-31') - Date.parse('2019-12-31')).toBeGreaterThan(max); // pont 2019→2023 rejeté
+    expect(91 * DAY).toBeLessThan(max);                                               // bloc contigu conservé
+  });
+
+  it('rejette le cas TCOM 5Y : médiane polluée par les trous sur une fenêtre courte', () => {
+    // Après fenêtrage à ~6 ans il ne restait que 4 points (écarts 92 / 1187 / 366j). La
+    // médiane vaut 366j → l'ancienne règle d'étendue (3 × 366 × 1,6 ≈ 1757j) acceptait la
+    // fenêtre entière (1644j) : le graphe P/FCF 5Y traçait 7 points à 45× depuis un « TTM »
+    // sommant 2019 + 2023 + 2024. Par-écart, le pont de 1187j dépasse 366 × 1,6 = 586j.
+    const short = [
+      { date: '2019-09-30', value: 1 },
+      { date: '2019-12-31', value: 1 },
+      { date: '2023-03-31', value: 1 },
+      { date: '2024-03-31', value: 1 },
+    ];
+    const max = maxTtmGapMs(short);
+    expect(Date.parse('2023-03-31') - Date.parse('2019-12-31')).toBeGreaterThan(max);
   });
 
   it('laisse passer une cadence semestrielle native (LVMH, Nestlé…)', () => {
     const h = series('2019-06-30', 182, 12);
-    // 4 semestres = 546j, ce qu'un seuil absolu à 400j aurait supprimé.
-    expect(546 * DAY).toBeLessThan(maxTtmSpanMs(h));
+    // Écart normal 182j, ce qu'un seuil absolu calé sur le trimestriel aurait supprimé.
+    expect(182 * DAY).toBeLessThan(maxTtmGapMs(h));
   });
 
   it('ne coupe rien quand la cadence est indéterminable', () => {
-    expect(maxTtmSpanMs([])).toBe(Infinity);
-    expect(maxTtmSpanMs([{ date: '2025-03-31', value: 1 }])).toBe(Infinity);
+    expect(maxTtmGapMs([])).toBe(Infinity);
+    expect(maxTtmGapMs([{ date: '2025-03-31', value: 1 }])).toBe(Infinity);
     // dates dupliquées → médiane à 0 : on ne tranche pas sur une hypothèse vide
-    expect(maxTtmSpanMs([
+    expect(maxTtmGapMs([
       { date: '2025-03-31', value: 1 },
       { date: '2025-03-31', value: 2 },
     ])).toBe(Infinity);
