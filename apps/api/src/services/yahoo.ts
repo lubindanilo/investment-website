@@ -713,6 +713,76 @@ export async function getEarningsInfoYahoo(symbol: string): Promise<EarningsInfo
   });
 }
 
+// ── Capitalisation publiée via Yahoo quoteSummary (module price) ──────
+//
+// Sert de RÉFÉRENCE DE CONVENTION pour les ADR : la capitalisation publiée par Yahoo est
+// cohérente par construction avec le prix du MÊME symbole (c'est leur prix × leur nombre
+// d'actions courant, dans la convention de l'ADS). La recouper contre nos propres estimations
+// démasque deux familles d'erreurs mesurées en prod (audit ADS du 05/08/2026) :
+//   - shares Yahoo annuelles hors convention ADS (prix ADS × ordinaires → capi fausse du
+//     facteur du ratio ADS) ;
+//   - capi Finnhub publiée en devise NATIVE sur un titre étiqueté USD (BEKE : 146 Md « USD »
+//     qui sont des CNY, facteur 7,3 — SOUS le seuil de désaccord ×10 de resolveMarketCap).
+//
+// ⚠ PAS de yahooLimiter.schedule ici : l'appelant principal (getYahooFundamentals) s'exécute
+// DÉJÀ dans un yahooLimiter.schedule, et une planification imbriquée s'interbloque à
+// maxConcurrent 3 (même règle que le module fx). Le cache 6 h borne le débit : un appel par
+// ADR et par fenêtre, uniquement pour les émetteurs en devise étrangère.
+
+const MARKET_CAP_TTL_MS = 6 * 60 * 60 * 1000;
+export interface YahooMarketCap {
+  /** Capitalisation en unités absolues, dans la devise de cotation du symbole. */
+  marketCap: number;
+  /** Devise annoncée par le module price (l'appelant DOIT la recouper avec celle du prix). */
+  currency: string | null;
+}
+interface CachedMarketCap { data: YahooMarketCap | null; cachedAt: number }
+const marketCapCache = new Map<string, CachedMarketCap>();
+
+/**
+ * Capitalisation publiée par Yahoo pour un symbole (déjà résolu). Mémoïsé 6 h, cache négatif
+ * compris : sans donnée fiable on renvoie null et l'appelant garde son estimation interne.
+ */
+export async function getYahooMarketCap(symbol: string): Promise<YahooMarketCap | null> {
+  const hit = marketCapCache.get(symbol);
+  if (hit && Date.now() - hit.cachedAt < MARKET_CAP_TTL_MS) return hit.data;
+  try {
+    const fetchOnce = async (session: YahooSession): Promise<Response> => {
+      const url = `${QUOTE_SUMMARY_BASE}/${encodeURIComponent(symbol)}`
+        + `?modules=price&crumb=${encodeURIComponent(session.crumb)}`;
+      const headers: Record<string, string> = { 'User-Agent': UA, Accept: 'application/json' };
+      if (session.cookies) headers.Cookie = session.cookies;
+      return fetch(url, { headers });
+    };
+    let session = await getSession();
+    let res = await fetchOnce(session);
+    if (res.status === 401 || res.status === 403) {
+      invalidateSession();
+      session = await getSession();
+      res = await fetchOnce(session);
+    }
+    if (!res.ok) throw new Error(`Yahoo quoteSummary HTTP ${res.status}`);
+    const data = await res.json() as {
+      quoteSummary?: {
+        result?: Array<{ price?: { marketCap?: { raw?: number }; currency?: string } }>;
+        error?: { description?: string } | null;
+      };
+    };
+    if (data.quoteSummary?.error) throw new Error(data.quoteSummary.error.description ?? 'quoteSummary error');
+    const p = data.quoteSummary?.result?.[0]?.price;
+    const raw = p?.marketCap?.raw;
+    const out: YahooMarketCap | null = typeof raw === 'number' && Number.isFinite(raw) && raw > 0
+      ? { marketCap: raw, currency: p?.currency ?? null }
+      : null;
+    marketCapCache.set(symbol, { data: out, cachedAt: Date.now() });
+    return out;
+  } catch (e) {
+    console.warn(`[yahoo mcap ${symbol}] échec :`, (e as Error).message);
+    marketCapCache.set(symbol, { data: null, cachedAt: Date.now() });
+    return null;
+  }
+}
+
 // ── Profil sectoriel via Yahoo quoteSummary (sector + industry granulaire) ──────
 // Finnhub /profile2 ne donne qu'un secteur large (« Technology »). Yahoo assetProfile
 // expose `sector` (large) ET `industry` (fin : « Information Technology Services »,

@@ -24,10 +24,11 @@
  */
 import { yahooLimiter } from '../lib/limiter.js';
 import { computeExcessCash } from './finnhubFundamentals.js';
-import { computeFcfPerShareCagr as computeFcfPerShareCagrYahoo } from './yahoo.js';
+import { computeFcfPerShareCagr as computeFcfPerShareCagrYahoo, getYahooMarketCap } from './yahoo.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
 import { getSecReportingCurrency } from './secEdgar.js';
 import { getFxRateNow } from './fx.js';
+import { reconcileAdsMarketCap } from './marketCapResolve.js';
 import type { DerivedMetrics } from '@lubin/shared';
 
 // Le fetch annuel Yahoo + la persistance sont désormais centralisés dans yahooAnnualStore
@@ -307,10 +308,39 @@ export async function getYahooFundamentals(
       // chinois pour les titres les moins chers du site.
       // Tous les autres ratios ici (marge nette, marge FCF, Cash ROCE, dette nette/FCF, CCR,
       // current ratio) sont fondamental ÷ fondamental, donc homogènes et non concernés.
+      // Le couple reporting/fx est résolu ICI (et pas dans la branche du P/FCF) car il gate
+      // aussi le recoupement de convention ci-dessous. Les deux appels sont mémoïsés.
+      const reporting = await getSecReportingCurrency(ticker).catch(() => null);
+      const fx = reporting ? await getFxRateNow(reporting, currency).catch(() => null) : 1;
+
       let marketCap: number | null = null;
       if (!latestShares) reasons.marketCap = 'Nombre d\'actions indisponible';
       else if (price <= 0) reasons.marketCap = 'Prix actuel indisponible';
       else marketCap = price * latestShares.value;
+
+      // ── Recoupement de CONVENTION prix ↔ actions (ADR en devise étrangère) ─────────
+      // `price` est le prix de l'ADS, mais rien ne garantit que les shares annuelles Yahoo
+      // soient comptées en ADS : l'audit du 05/08/2026 a mesuré ~17 ADR où prix × shares
+      // s'écarte de la capitalisation d'un facteur 0,13 à 10 (ratio ADS non appliqué, reverse
+      // split non répercuté). Un facteur < 1 rend le P/FCF artificiellement bas — faux signal
+      // d'« opportunité du moment ». On recoupe donc contre la capi publiée par Yahoo pour le
+      // MÊME symbole (cohérente avec le prix par construction) et on la retient en cas de
+      // contradiction. Gaté aux émetteurs en devise de reporting étrangère : c'est le
+      // périmètre exact du risque ADS, et ça évite un appel Yahoo pour les ~22k titres sains.
+      if (reporting && reporting !== currency && (marketCap != null || latestShares == null)) {
+        const published = await getYahooMarketCap(yahooSymbol).catch(() => null);
+        if (published && (published.currency == null || published.currency === currency)) {
+          const rec = reconcileAdsMarketCap(marketCap, published.marketCap);
+          if (rec?.corrected) {
+            console.warn(
+              `[yahoo fund ${yahooSymbol}] prix × actions (${marketCap != null ? (marketCap / 1e9).toFixed(2) : '—'} Md) hors convention `
+              + `vs capi publiée (${(published.marketCap / 1e9).toFixed(2)} Md${rec.factor != null ? `, facteur ${rec.factor.toFixed(2)}` : ''}) → capi publiée retenue`,
+            );
+            marketCap = rec.marketCap;
+            delete reasons.marketCap;
+          }
+        }
+      }
 
       let pfcfTTM: number | null = null;
       if (!marketCap) reasons.pfcfTTM = reasons.marketCap ?? 'Market cap non calculable';
@@ -319,8 +349,6 @@ export async function getYahooFundamentals(
       else {
         // On convertit le FCF vers la devise de cotation (et pas l'inverse) pour laisser
         // `marketCap` et `price` cohérents entre eux dans la payload exposée.
-        const reporting = await getSecReportingCurrency(ticker).catch(() => null);
-        const fx = reporting ? await getFxRateNow(reporting, currency).catch(() => null) : 1;
         if (fx == null) {
           reasons.pfcfTTM = `Taux de change ${reporting}→${currency} indisponible — un P/FCF mélangeant deux devises serait faux`;
         } else {

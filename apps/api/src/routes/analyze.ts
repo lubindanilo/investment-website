@@ -20,7 +20,7 @@ import { getMetric, getQuote } from '../services/finnhub.js';
 import { loadQuantData } from '../services/quantSnapshot.js';
 import { fetchBusinessAnalysis, fetchManagementAnalysis, fetchMarketShare } from '../services/openai.js';
 import { computeDerivedMetrics, buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, filterNews } from '../services/derivedMetrics.js';
-import { writeCachedSnapshot, getServableSnapshot, computeLivePfcf, type CachedQuantSnapshot } from '../services/quantCache.js';
+import { writeCachedSnapshot, getServableSnapshot, computeLivePfcf, extractLivePfcfInputs, type CachedQuantSnapshot } from '../services/quantCache.js';
 import { pfcfPercentile, pfcfMedian, isPfcfOpportunity, getPfcfHistory, PFCF_OPP_MIN_SCORE10 } from '../services/pfcfHistory.js';
 import { ttlUntilNextEarnings } from '../services/earnings.js';
 import * as chartCache from '../lib/timeseriesCache.js';
@@ -373,19 +373,9 @@ async function persistQuantCache(
   const pass = evaluable.filter(c => c.statut === 'pass').length;
   const warn = evaluable.filter(c => c.statut === 'warn').length;
 
-  // Extraction shares + adjFcfTtm pour le live recompute P/FCF
-  let adjFcfTtm: number | null = null;
-  let sharesOutstanding: number | null = null;
-  if (quant.fundamentalsSource === 'finnhub' && quant.rawFhFcfAdj && quant.rawFhCapEmp) {
-    adjFcfTtm = quant.rawFhFcfAdj.ttmFcfAdj;
-    sharesOutstanding = quant.rawFhCapEmp.sharesLatest;
-  } else if (quant.fundamentalsSource === 'yahoo') {
-    const m = quant.metrics;
-    sharesOutstanding = (m.marketCap != null && m.price != null && m.price > 0)
-      ? m.marketCap / m.price : null;
-    adjFcfTtm = (m.marketCap != null && m.pfcfTTM != null && m.pfcfTTM > 0)
-      ? m.marketCap / m.pfcfTTM : null;
-  }
+  // Extraction shares + adjFcfTtm pour le live recompute P/FCF — helper partagé
+  // (rétro-dérivation en devise de REPORTING sur le chemin Yahoo, cf. extractLivePfcfInputs).
+  const { adjFcfTtm, sharesOutstanding } = extractLivePfcfInputs(quant);
 
   const snapshot: CachedQuantSnapshot = {
     ticker,

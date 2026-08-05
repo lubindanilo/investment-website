@@ -4,7 +4,10 @@
  * première version du correctif (préférer aveuglément la capi publiée cassait AGBK et AKO.A).
  */
 import { describe, it, expect } from 'vitest';
-import { resolveMarketCap, absoluteReportedCap, DISAGREEMENT_FACTOR, IMPLIED_SHARE_COUNT_MAX, MARKET_CAP_SANITY_MAX_USD } from './marketCapResolve.js';
+import {
+  resolveMarketCap, absoluteReportedCap, reconcileAdsMarketCap,
+  DISAGREEMENT_FACTOR, IMPLIED_SHARE_COUNT_MAX, MARKET_CAP_SANITY_MAX_USD, ADS_CONVENTION_FACTOR,
+} from './marketCapResolve.js';
 import { marketCapToUsd } from './marketTiers.js';
 
 const usd = (currency: string) => (v: number | null) => marketCapToUsd(v, currency);
@@ -239,5 +242,138 @@ describe('resolveMarketCap — bornes', () => {
       );
       expect(res.marketCap! / 1e9).toBeCloseTo(92.7, 0);
     });
+  });
+});
+
+describe('reconcileAdsMarketCap — prix × actions vs capi publiée du même symbole', () => {
+  it('BABA : conventions cohérentes → le dérivé, comportement historique', () => {
+    // Audit 05/08 : prix × sharesYahoo / capi = 1,00 sur BABA (Yahoo compte en ADS).
+    const rec = reconcileAdsMarketCap(119.875 * 2.404e9, 2.882e11)!;
+    expect(rec.corrected).toBe(false);
+    expect(rec.marketCap).toBeCloseTo(119.875 * 2.404e9, 0);
+  });
+
+  it('SSM : shares hors convention (×5,49) → la capi publiée', () => {
+    const derived = 5.49 * 5.59e6;    // ratioCap mesuré 5,49
+    const rec = reconcileAdsMarketCap(derived, 5.59e6)!;
+    expect(rec.corrected).toBe(true);
+    expect(rec.marketCap).toBe(5.59e6);
+    expect(rec.factor).toBeCloseTo(5.49, 2);
+  });
+
+  it('RCON (×1,43) : le plus petit cas réel mesuré est attrapé', () => {
+    const rec = reconcileAdsMarketCap(1.43 * 3.68e6, 3.68e6)!;
+    expect(rec.corrected).toBe(true);
+  });
+
+  it('un rachat d\'actions de 15 % sur l\'exercice ne déclenche PAS de correction', () => {
+    // Les shares annuelles MOYENNES vs la capi du jour divergent naturellement de ce bruit-là.
+    const rec = reconcileAdsMarketCap(1.15e10, 1e10)!;
+    expect(rec.corrected).toBe(false);
+    expect(rec.marketCap).toBe(1.15e10);
+  });
+
+  it('ratio < 1 (titre paraissant MOINS cher — direction du faux signal) : corrigé aussi', () => {
+    const rec = reconcileAdsMarketCap(0.13 * 1.87e10, 1.87e10)!;
+    expect(rec.corrected).toBe(true);
+    expect(rec.marketCap).toBe(1.87e10);
+  });
+
+  it('capi publiée seule (shares Yahoo absentes) : elle prend le relais', () => {
+    const rec = reconcileAdsMarketCap(null, 1.87e10)!;
+    expect(rec.corrected).toBe(true);
+    expect(rec.marketCap).toBe(1.87e10);
+  });
+
+  it('capi publiée absente ou invalide : le dérivé reste, aucune correction', () => {
+    expect(reconcileAdsMarketCap(1e10, null)!.marketCap).toBe(1e10);
+    expect(reconcileAdsMarketCap(1e10, 0)!.marketCap).toBe(1e10);
+    expect(reconcileAdsMarketCap(1e10, Number.NaN)!.marketCap).toBe(1e10);
+  });
+
+  it('rien des deux côtés : null', () => {
+    expect(reconcileAdsMarketCap(null, null)).toBeNull();
+  });
+
+  it('le seuil laisse le bruit légitime sous lui et les cas réels au-dessus', () => {
+    expect(ADS_CONVENTION_FACTOR).toBeGreaterThan(1.2);   // rachats/dilution d'un exercice
+    expect(ADS_CONVENTION_FACTOR).toBeLessThan(1.43);     // RCON, plus petit cas mesuré
+  });
+});
+
+describe('resolveMarketCap — independentCap (capi Yahoo, référence de convention des ADR)', () => {
+  it('BEKE : capi Finnhub en CNY (×7,3, sous le seuil ×10) et pas d\'actions → la capi Yahoo', () => {
+    // Prod du 05/08 : stocké 146,8 Md$ (146 790 M « USD » qui sont des CNY), réel ~18,7 Md$.
+    const res = resolveMarketCap({
+      fundamentalsSource: 'finnhub',
+      reportedMarketCap: 146_790.34,
+      price: 16.16,
+      sharesOutstanding: null,
+      independentCap: 1.87e10,
+    }, usd('USD'));
+    expect(res.source).toBe('independent');
+    expect(res.marketCap! / 1e9).toBeCloseTo(18.7, 1);
+  });
+
+  it('SBS : shares XBRL et capi publiée fausses DE LA MÊME FAÇON (base BRL) → la capi Yahoo', () => {
+    // derived = 5,35 × 17,6e9 = 94,3 Md ≈ reported 96 Md : le recoupement interne ne voit rien.
+    const res = resolveMarketCap({
+      fundamentalsSource: 'finnhub',
+      reportedMarketCap: 95_973.055,
+      price: 5.35,
+      sharesOutstanding: 1.7619e10,
+      independentCap: 1.1e10,
+    }, usd('USD'));
+    expect(res.source).toBe('independent');
+    expect(res.marketCap! / 1e9).toBeCloseTo(11, 0);
+  });
+
+  it('cas sain : les estimations internes s\'accordent avec la capi Yahoo → rien ne bouge', () => {
+    const res = resolveMarketCap({
+      fundamentalsSource: 'finnhub',
+      reportedMarketCap: 4_537_000,
+      price: 308.91,
+      sharesOutstanding: 1.477e10,
+      independentCap: 4.55e12,
+    }, usd('USD'));
+    expect(res.source).toBe('derived');
+    expect(res.marketCap! / 1e12).toBeCloseTo(4.562, 2);
+  });
+
+  it('rien de vérifiable en interne mais une capi Yahoo plausible → elle classe le titre', () => {
+    const res = resolveMarketCap({
+      fundamentalsSource: 'finnhub',
+      reportedMarketCap: null,
+      price: 22.8,
+      sharesOutstanding: null,
+      independentCap: 2.1e9,
+    }, usd('USD'));
+    expect(res.source).toBe('independent');
+    expect(res.marketCap).toBe(2.1e9);
+  });
+
+  it('capi Yahoo au nombre d\'actions implicite invraisemblable : ignorée', () => {
+    const res = resolveMarketCap({
+      fundamentalsSource: 'finnhub',
+      reportedMarketCap: null,
+      price: 0.02,
+      sharesOutstanding: null,
+      independentCap: 5e10,       // 2 500 milliards d'actions implicites à 2 cents
+    }, usd('USD'));
+    expect(res.source).toBe('none');
+    expect(res.marketCap).toBeNull();
+  });
+
+  it('capi Yahoo invalide (0, NaN, négative) : ignorée', () => {
+    for (const junk of [0, Number.NaN, -5]) {
+      const res = resolveMarketCap({
+        fundamentalsSource: 'finnhub',
+        reportedMarketCap: 4_537_000,
+        price: 308.91,
+        sharesOutstanding: 1.477e10,
+        independentCap: junk,
+      }, usd('USD'));
+      expect(res.source).toBe('derived');
+    }
   });
 });

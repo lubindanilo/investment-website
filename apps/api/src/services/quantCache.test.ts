@@ -6,7 +6,7 @@
  * change que sur un vrai changement de fondamentaux (recompute de qualité ≥ au cache).
  */
 import { describe, it, expect } from 'vitest';
-import { isQualityDegradation, computeLivePfcf, type CachedQuantSnapshot } from './quantCache.js';
+import { isQualityDegradation, computeLivePfcf, extractLivePfcfInputs, type CachedQuantSnapshot } from './quantCache.js';
 import type { DerivedMetrics } from '@lubin/shared';
 
 const QUALITY_KEYS = [
@@ -112,5 +112,74 @@ describe('computeLivePfcf', () => {
 
   it('renvoie null sur un FCF négatif (le multiple n’a pas de sens)', () => {
     expect(computeLivePfcf(100, 10_000_000, -50_000_000, 1)).toBeNull();
+  });
+});
+
+/**
+ * `extractLivePfcfInputs` alimente le contrat de `computeLivePfcf` : `adjFcfTtm` en devise de
+ * REPORTING. Sur le chemin Yahoo, `metrics.pfcfTTM` inclut DÉJÀ la conversion, donc la
+ * rétro-dérivation doit REdiviser par le facteur — sinon fx est appliqué deux fois et le
+ * P/FCF live d'un ADR chinois sort ~7× trop cher (régression de la génération 1 du snapshot).
+ * L'invariant testé : computeLivePfcf(extraction) == metrics.pfcfTTM au même prix.
+ */
+describe('extractLivePfcfInputs', () => {
+  const yahooQuant = (opts: { marketCap: number; price: number; pfcfTTM: number; fx: number | null }) => ({
+    fundamentalsSource: 'yahoo' as const,
+    metrics: { marketCap: opts.marketCap, price: opts.price, pfcfTTM: opts.pfcfTTM },
+    rawFhFcfAdj: null,
+    rawFhCapEmp: null,
+    fcfFxToQuote: opts.fx,
+  });
+
+  it('chemin Finnhub : passe-plat des valeurs /financials-reported (devise de reporting)', () => {
+    const out = extractLivePfcfInputs({
+      fundamentalsSource: 'finnhub',
+      metrics: { marketCap: 1e6, price: 100, pfcfTTM: 20 },
+      rawFhFcfAdj: { ttmFcfAdj: 5e9 },
+      rawFhCapEmp: { sharesLatest: 1e9 },
+      fcfFxToQuote: 1,
+    });
+    expect(out.adjFcfTtm).toBe(5e9);
+    expect(out.sharesOutstanding).toBe(1e9);
+  });
+
+  it('chemin Yahoo fx=1 : rétro-dérivation inchangée (comportement historique)', () => {
+    // capi 1 Md, prix 100 → 10 M d'actions ; P/FCF 20× → FCF 50 M
+    const out = extractLivePfcfInputs(yahooQuant({ marketCap: 1e9, price: 100, pfcfTTM: 20, fx: 1 }));
+    expect(out.sharesOutstanding).toBeCloseTo(1e7, 3);
+    expect(out.adjFcfTtm).toBeCloseTo(5e7, 3);
+  });
+
+  /**
+   * Cas ADR chinois (PDD-like) : capi 125,17 Md$ à 84,44 $, FCF publié 105,79 Md CNY,
+   * fx CNY→USD 0,1484. metrics.pfcfTTM (déjà converti) ≈ 7,97×.
+   */
+  it('chemin Yahoo ADR : adjFcfTtm retombe en devise de REPORTING (pas de double conversion)', () => {
+    const fx = 0.1484;
+    const marketCap = 125.17e9;
+    const fcfCny = 105.79e9;
+    const pfcfTTM = marketCap / (fcfCny * fx);              // ce que stocke yahooFundamentals
+    const out = extractLivePfcfInputs(yahooQuant({ marketCap, price: 84.44, pfcfTTM, fx }));
+    expect(out.adjFcfTtm! / 1e9).toBeCloseTo(105.79, 1);    // CNY, pas USD
+
+    // Invariant de cohérence : le recompute live au MÊME prix redonne le pfcfTTM du snapshot.
+    const live = computeLivePfcf(84.44, out.sharesOutstanding, out.adjFcfTtm, fx)!;
+    expect(live).toBeCloseTo(pfcfTTM, 6);
+  });
+
+  it('fx null ou dégénéré est traité comme 1 (et l\'invariant tient toujours)', () => {
+    const out = extractLivePfcfInputs(yahooQuant({ marketCap: 1e9, price: 100, pfcfTTM: 20, fx: null }));
+    expect(out.adjFcfTtm).toBeCloseTo(5e7, 3);
+    const live = computeLivePfcf(100, out.sharesOutstanding, out.adjFcfTtm, null)!;
+    expect(live).toBeCloseTo(20, 6);
+  });
+
+  it('source inconnue ou métriques absentes : rien à recomputer', () => {
+    expect(extractLivePfcfInputs({
+      fundamentalsSource: null,
+      metrics: { marketCap: null, price: null, pfcfTTM: null },
+      rawFhFcfAdj: null, rawFhCapEmp: null, fcfFxToQuote: null,
+    })).toEqual({ adjFcfTtm: null, sharesOutstanding: null });
+    expect(extractLivePfcfInputs(yahooQuant({ marketCap: 1e9, price: 100, pfcfTTM: 0 as number, fx: 1 })).adjFcfTtm).toBeNull();
   });
 });

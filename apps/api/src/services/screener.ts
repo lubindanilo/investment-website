@@ -23,7 +23,7 @@ import { getSparkSeries } from './priceSeries.js';
 import { computeLivePfcf } from './quantCache.js';
 import { warmChartCacheForTicker } from './chartWarm.js';
 import { getPfcfHistory, pfcfPercentile, pfcfDecileThreshold, isOpportunity, PFCF_OPP_MIN_SCORE10, PFCF_OPP_MAX } from './pfcfHistory.js';
-import { getYahooBatchQuotes } from './yahoo.js';
+import { getYahooBatchQuotes, getYahooMarketCap } from './yahoo.js';
 import { ttlUntilNextEarnings } from './earnings.js';
 import { marketCapToUsd, DAYAFTER_CAP_USD, MID_CAP_USD, HIGH_SCORE_RATIO } from './marketTiers.js';
 import { resolveMarketCap } from './marketCapResolve.js';
@@ -452,12 +452,25 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
       .findUnique({ where: { ticker }, select: { lastScoredAt: true, fundamentalsFingerprint: true, price: true } })
       .catch(() => null);
     const priceForCap = snap.metrics.price ?? prev?.price ?? null;
+    // Capi Yahoo comme RÉFÉRENCE DE CONVENTION, pour les ADR en devise étrangère servis par
+    // Finnhub : c'est là que la capi publiée arrive parfois en devise NATIVE (BEKE : 146 Md
+    // « USD » qui sont des CNY, facteur 7,3 — SOUS le seuil de désaccord ×10) et que le nombre
+    // d'actions XBRL peut être faux de la même façon (SBS : les deux concordent entre elles).
+    // Le chemin Yahoo n'en a pas besoin : metrics.marketCap y est déjà recoupé à la source
+    // (cf. yahooFundamentals). Appel direct memoïsé 6 h, HORS yahooLimiter (règle
+    // anti-interblocage du module fx) — ~700 ADR concernés, débit négligeable.
+    const isForeignReporterUs = !ticker.includes('.') && snap.fcfFxToQuote != null && snap.fcfFxToQuote !== 1;
+    const yahooCap = snap.fundamentalsSource === 'finnhub' && isForeignReporterUs
+      ? await getYahooMarketCap(ticker).catch(() => null)
+      : null;
     const { marketCap } = resolveMarketCap(
       {
         fundamentalsSource: snap.fundamentalsSource,
         reportedMarketCap: snap.metrics.marketCap ?? null,
         price: priceForCap,
         sharesOutstanding: snap.sharesOutstanding,
+        independentCap: yahooCap && (yahooCap.currency == null || yahooCap.currency === snap.currency)
+          ? yahooCap.marketCap : null,
       },
       value => marketCapToUsd(value, snap.currency),
     );
