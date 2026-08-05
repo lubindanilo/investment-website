@@ -11,11 +11,16 @@
  * qui alimente l'index de recherche de ChatGPT) recevait 3 648 octets là où Googlebot en
  * recevait 21 717.
  *
- * Ce test verrouille trois choses :
+ * Ce test verrouille quatre choses :
  *   1. tous les robots dont dépend la visibilité du site sont bien dans la liste ;
  *   2. les 7 règles de réécriture partagent EXACTEMENT la même liste (le vrai risque de
  *      régression : quelqu'un en met à jour une et oublie les six autres) ;
- *   3. un navigateur humain n'est PAS réécrit vers le pré-rendu (les humains gardent la SPA).
+ *   3. un navigateur humain n'est PAS réécrit vers le pré-rendu (les humains gardent la SPA) ;
+ *   4. le BOT_UA de middleware.ts (qui sert la page d'accueil aux bots, car le fichier
+ *      statique de la SPA est résolu avant les rewrites pour `/`) porte le MÊME jeu de
+ *      jetons que vercel.json. La régression s'est produite : au 5 août 2026, le middleware
+ *      était resté à 27 jetons quand vercel.json en portait 55 — OAI-SearchBot recevait la
+ *      coquille vide sur `/` et sur elle seule, invisible dans tous les rapports.
  *
  * Note d'implémentation : Vercel évalue ces motifs avec le moteur RE2 de Go, qui accepte le
  * drapeau en ligne `(?i)`. JavaScript ne le connaît pas, on le convertit donc en drapeau `i`.
@@ -124,5 +129,51 @@ describe('vercel.json : liste d\'autorisation du pré-rendu bot', () => {
         `pré-rendu au lieu de l'application.`,
       ).toBe(false);
     }
+  });
+});
+
+describe('middleware.ts : pré-rendu bot de la page d\'accueil', () => {
+  const middlewareSource = readFileSync(path.join(REPO_ROOT, 'middleware.ts'), 'utf8');
+  const botUaMatch = middlewareSource.match(/const BOT_UA =\s*\/\(([^)]+)\)\/i;/);
+
+  it('déclare bien un motif BOT_UA extractible', () => {
+    expect(
+      botUaMatch,
+      'Impossible d\'extraire BOT_UA de middleware.ts : si sa forme a changé, adapter ce test ' +
+      'plutôt que de perdre la garantie de synchronisation avec vercel.json.',
+    ).not.toBeNull();
+  });
+
+  it('porte EXACTEMENT les mêmes jetons que les règles de vercel.json', () => {
+    // Le middleware sert `/` (fichier statique résolu avant les rewrites) ; vercel.json sert
+    // tout le reste. Deux listes divergentes = une famille de robots voit la home vide sans
+    // qu'aucun rapport ne le montre. C'est arrivé le 5 août 2026 (27 jetons contre 55).
+    const middlewareTokens = new Set(botUaMatch![1].split('|'));
+    const vercelGroup = uaRules[0].ua.replace(/^\(\?i\)\.\*\(/, '').replace(/\)\.\*$/, '');
+    const vercelTokens = new Set(vercelGroup.split('|'));
+    const missing = [...vercelTokens].filter((t) => !middlewareTokens.has(t));
+    const extra = [...middlewareTokens].filter((t) => !vercelTokens.has(t));
+    expect(
+      { manquants_dans_middleware: missing, en_trop_dans_middleware: extra },
+      'middleware.ts et vercel.json doivent porter le même jeu de robots.',
+    ).toEqual({ manquants_dans_middleware: [], en_trop_dans_middleware: [] });
+  });
+
+  it.each(MUST_MATCH)('la home pré-rendue est servie à %s', (name, ua) => {
+    const botUa = new RegExp(`(${botUaMatch![1]})`, 'i');
+    expect(
+      botUa.test(ua),
+      `${name} ne correspond pas au BOT_UA de middleware.ts : ce robot recevrait la coquille ` +
+      `SPA vide sur la page d'accueil (et sur elle seule).`,
+    ).toBe(true);
+  });
+
+  it.each(MUST_NOT_MATCH)('la home SPA est conservée pour %s', (name, ua) => {
+    const botUa = new RegExp(`(${botUaMatch![1]})`, 'i');
+    expect(
+      botUa.test(ua),
+      `${name} correspond au BOT_UA de middleware.ts : un humain recevrait le pré-rendu ` +
+      `d'accueil au lieu de l'application.`,
+    ).toBe(false);
   });
 });
