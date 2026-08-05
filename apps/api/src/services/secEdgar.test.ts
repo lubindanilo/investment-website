@@ -96,6 +96,36 @@ describe('annualDurationPoints (flux annuels : CFO, capex, sbc, NI, revenue, sha
   });
 });
 
+/**
+ * Le CCC annuel des ADR (cccHistory.ts) dépend de ces 4 types : les retirer du périmètre
+ * EDGAR ne casserait aucun type mais renverrait un CCC vide/court en silence pour TCOM & co.
+ */
+import { EDGAR_ANNUAL_TYPES } from './secEdgar.js';
+
+describe('EDGAR_ANNUAL_TYPES', () => {
+  it('couvre les 4 postes du CCC (DSO/DIO/DPO)', () => {
+    for (const t of ['annualCostOfRevenue', 'annualAccountsReceivable', 'annualInventory', 'annualAccountsPayable']) {
+      expect(EDGAR_ANNUAL_TYPES.has(t), t).toBe(true);
+    }
+  });
+
+  it('couvre la trésorerie (excess cash du Cash ROCE annuel)', () => {
+    expect(EDGAR_ANNUAL_TYPES.has('annualCashAndCashEquivalents')).toBe(true);
+    expect(EDGAR_ANNUAL_TYPES.has('annualCashAndShortTermInvestments')).toBe(true);
+  });
+
+  /**
+   * Garde-fou explicite, pas un oubli. La dette composée depuis les concepts us-gaap ne vaut
+   * que 5-77 % de celle de Yahoo chez les déposants étrangers, de façon erratique d'un exercice
+   * à l'autre (TCOM 0,24-0,51 ; BABA 0,07-0,17 ; NTES 0,05-0,16 ; JD 0,39-0,77) : leur dette
+   * vit sous des tags non interrogés. L'ajouter ici rendrait le netDebtFcf des exercices
+   * profonds faussement rassurant.
+   */
+  it("n'expose PAS la dette totale (couverture de tags insuffisante hors US)", () => {
+    expect(EDGAR_ANNUAL_TYPES.has('annualTotalDebt')).toBe(false);
+  });
+});
+
 describe('annualInstantPoints (bilan : assets, curLiab, goodwill, equity)', () => {
   it('garde les instantanés de fin d’exercice des 20-F, écarte les 6-K intérimaires', () => {
     // Cas réel TCOM : Assets contient 16 entrées 20-F (fins d'exercice) + 2 entrées 6-K

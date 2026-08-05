@@ -103,8 +103,9 @@ export async function getYahooAnnualBatchCached(
   // cache négatif borné → ne re-déclenche pas un fetch à chaque appel).
   const out = new Map<string, TimeseriesPoint[]>();
   for (const type of types) {
-    let built = fetched.get(type) ?? [];
-    const deepPts = deep?.get(type);
+    const built0 = fetched.get(type) ?? [];
+    let built = built0;
+    const deepPts = calibrateAdsIfShares(ticker, type, built0, deep?.get(type));
     // Yahoo PRIME sur collision de date (±20j) : le dernier exercice reste celui de la carte.
     if (deepPts?.length) built = appendOnlyMerge(built, deepPts);
     const source = built.length === 0 ? 'yahoo-empty' : (deepPts?.length ? 'yahoo+edgar-annual' : 'yahoo');
@@ -132,6 +133,88 @@ function hasDeepHistory(points: TimeseriesPoint[], nowMs: number): boolean {
 /** Cache négatif process : tickers sans profondeur EDGAR (pas de CIK, reporting USD, concepts
  *  absents). Évite de re-sonder la SEC à chaque lecture pour les ~totalité des titres. */
 const edgarDepthNone = new Set<string>();
+
+// ─── Ratio ADS : les shares EDGAR ne sont pas dans la même unité que Yahoo ────
+//
+// Un ADS représente N actions ORDINAIRES (BABA 8, TSM 5, PDD 4…). Yahoo compte en ADS —
+// c'est la bonne convention ici, puisque le prix qu'on croise est celui de l'ADS (vérifié :
+// prix × sharesYahoo / marketCap = 1,00 sur BABA). EDGAR, lui, publie le nombre d'actions
+// ORDINAIRES. Fusionner les deux dans `annualDilutedAverageShares` injecte donc des exercices
+// profonds N× trop grands, et le P/FCF de ces années sort N× trop cher (mesuré sur BABA :
+// ratio Yahoo/EDGAR = 0,13 ≈ 1/8). Comme un P/FCF historique gonflé fait passer le multiple
+// courant pour bas, c'est un faux « opportunité du moment » en puissance.
+//
+// Parade : calibrer EDGAR sur Yahoo via les exercices COMMUNS, puis étendre. Un écart de
+// convention est un facteur CONSTANT — si les ratios annuels ne convergent pas, c'est autre
+// chose (rachats mal datés, changement de flottant) et on préfère renoncer à la profondeur
+// plutôt que servir une série d'unité douteuse.
+//
+// Le contrôle de cohérence est fait à la MAJORITÉ, pas au pire cas : EDGAR sort parfois un
+// exercice aberrant (PDD 2022 : 5,1 M d'actions au lieu de ~5 400 M) qui, sur un critère de
+// dispersion max, condamnerait une calibration par ailleurs nette (PDD 3,71 / 3,74 / 3,77 pour
+// un ratio officiel de 4). Ratios mesurés en prod, tous des entiers ADS : BABA 8, FUTU 8,
+// NTES 5, PDD 4, JD 2, TCOM 1.
+// Note : un exercice EDGAR aberrant TOMBANT dans la fenêtre Yahoo est neutralisé à la fusion
+// (Yahoo prime sur collision de date) ; hors de cette fenêtre, aucun recoupement n'existe.
+
+/** Tolérance de dispersion des ratios annuels (±8 %) et d'écart à 1 au-delà duquel on rescale. */
+const ADS_SPREAD_TOLERANCE = 0.08;
+const ADS_RESCALE_THRESHOLD = 0.05;
+
+const medianOf = (xs: number[]): number => {
+  const s = [...xs].sort((a, b) => a - b);
+  const m = Math.floor(s.length / 2);
+  return s.length % 2 ? s[m]! : (s[m - 1]! + s[m]!) / 2;
+};
+
+/**
+ * Aligne les shares EDGAR sur la convention Yahoo (ADS). Renvoie la série EDGAR telle quelle
+ * si les deux conventions coïncident déjà, rescalée si un facteur constant les sépare, ou
+ * `undefined` s'il n'y a pas de quoi trancher (mieux vaut une série courte qu'une série fausse).
+ * Exporté pour tests.
+ */
+export function calibrateAdsShares(
+  yahooPts: TimeseriesPoint[],
+  edgarPts: TimeseriesPoint[],
+): { points: TimeseriesPoint[]; ratio: number } | null {
+  const yByYear = new Map(yahooPts.filter(p => p.value > 0).map(p => [p.date.slice(0, 4), p.value]));
+  const ratios: number[] = [];
+  for (const e of edgarPts) {
+    if (e.value <= 0) continue;
+    const y = yByYear.get(e.date.slice(0, 4));
+    if (y != null) ratios.push(y / e.value);
+  }
+  // Moins de 2 exercices communs : un ratio isolé peut venir d'un décalage de date ou d'une
+  // année de restatement, pas d'une convention. On renonce.
+  if (ratios.length < 2) return null;
+  const seed = medianOf(ratios);
+  if (!Number.isFinite(seed) || seed <= 0) return null;
+  // Cohérence à la MAJORITÉ : on garde les exercices qui s'accordent avec la médiane, et on
+  // exige qu'ils soient au moins deux ET majoritaires. Un exercice EDGAR aberrant isolé ne
+  // condamne donc plus la calibration, mais deux lectures contradictoires si.
+  const inliers = ratios.filter(r => Math.abs(r / seed - 1) <= ADS_SPREAD_TOLERANCE);
+  if (inliers.length < 2 || inliers.length * 2 < ratios.length) return null;
+  const ratio = medianOf(inliers);
+  if (Math.abs(ratio - 1) <= ADS_RESCALE_THRESHOLD) return { points: edgarPts, ratio: 1 };
+  return { points: edgarPts.map(p => ({ date: p.date, value: p.value * ratio })), ratio };
+}
+
+/** Applique la calibration ADS au seul type `shares` ; passe-plat pour tous les autres. */
+function calibrateAdsIfShares(
+  ticker: string,
+  type: string,
+  yahooPts: TimeseriesPoint[],
+  deepPts: TimeseriesPoint[] | undefined,
+): TimeseriesPoint[] | undefined {
+  if (type !== 'annualDilutedAverageShares' || !deepPts?.length) return deepPts;
+  const cal = calibrateAdsShares(yahooPts, deepPts);
+  if (!cal) {
+    console.warn(`[ads ${ticker}] convention shares EDGAR non calibrable sur Yahoo → profondeur abandonnée pour ce type`);
+    return undefined;
+  }
+  if (cal.ratio !== 1) console.log(`[ads ${ticker}] shares EDGAR rescalées ×${cal.ratio.toFixed(4)} (≈1/${(1 / cal.ratio).toFixed(2)} ADS)`);
+  return cal.points;
+}
 
 /**
  * Sonde EDGAR pour les types demandés encore PEU PROFONDS. Renvoie null si rien à faire
@@ -166,7 +249,9 @@ async function enrichWithEdgarAnnualDepth(
   const deep = await edgarAnnualDepth(ticker, types, stored, nowMs);
   if (!deep) return;
   for (const type of types) {
-    const deepPts = deep.get(type);
+    // Même calibration ADS que le chemin (re)fetch — ici la référence de convention est la
+    // série DÉJÀ stockée (posée par Yahoo), puisqu'aucun fetch Yahoo n'a eu lieu.
+    const deepPts = calibrateAdsIfShares(ticker, type, stored.get(type)?.points ?? [], deep.get(type));
     if (!deepPts?.length) continue;
     // appendMergePersist garde l'existant (Yahoo) et n'ajoute que les exercices absents.
     const eff = await appendMergePersist(ticker, type, stored.get(type) ?? null, deepPts, 'yahoo+edgar-annual', nowMs,

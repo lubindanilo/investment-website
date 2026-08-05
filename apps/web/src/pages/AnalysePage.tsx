@@ -398,7 +398,14 @@ function AnalysisView({ analysis, chiffres, management, watched, onWatch, onGene
   const { t, i18n } = useTranslation();
   const s10 = score10(chiffres);
   const currency = analysis.currency || 'USD';
-  const annualOnly = analysis.fundamentalsSource === 'yahoo';
+  // « Réellement annuel » = cotation hors USD, c'est-à-dire un vrai titre européen ou asiatique
+  // pour lequel Yahoo n'expose que l'annuel. C'est le MÊME test que le routage US/EU de l'API
+  // (cashRoceHistory, pfcfHistory), donc l'affichage ne peut plus diverger de la donnée servie.
+  //
+  // Ne pas se fier à `fundamentalsSource === 'yahoo'` : c'est aussi la source des ADR cotés aux
+  // États-Unis (TCOM, BABA…), qui disposent désormais de 14-18 exercices via EDGAR. Sur eux les
+  // périodes diffèrent vraiment, et masquer le sélecteur privait l'utilisateur d'un choix réel.
+  const annualOnly = currency !== 'USD';
   // Fil d'actus unifié, trié du plus récent au plus ancien : les 5 actus externes les plus
   // fraîches (flux d'actus externe, déjà plafonné à 5 par le backend) + les articles du blog liés à
   // ce ticker (article.ticker, liens internes /blog/:slug — miroir SPA du maillage bots de

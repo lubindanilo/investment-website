@@ -110,6 +110,15 @@ export function resolveMarketCap(
   // Allegion…). On l'accepte, mais on la recoupe contre le PRIX : le nombre d'actions qu'elle
   // implique doit rester crédible. C'est ce qui écarte AKO.A (166 milliards d'actions implicites)
   // sans sacrifier les autres.
+  // ⚠ SANS PRIX, ce recoupement ne s'applique PAS et la capi publiée passe telle quelle. Mesuré
+  // en prod : 29 snapshots n'ont pas de prix, et EQNR y a conservé 907 Md$ — Finnhub publie sa
+  // capitalisation en COURONNES (907 528 M NOK) alors que le titre est étiqueté USD, exactement
+  // le travers d'AKO.A en pesos. Le nombre d'actions était pourtant là (2,503e9) : c'est le prix
+  // qui manquait pour confronter les deux.
+  // L'APPELANT doit donc fournir un prix dès qu'il en connaît un — la ligne screener en porte un,
+  // rafraîchi en continu, même quand le snapshot n'en a pas (cf. scripts/fixMarketCaps.ts).
+  // On ne refuse pas pour autant les 25 autres, dont la capi publiée est juste (CME, GEV, CTVA…) :
+  // les priver de tranche sur un doute non étayé coûterait plus que ça ne protège.
   if (derived == null) {
     if (!plausibleCap(reported)) return { marketCap: null, source: 'none' };
     if (hasPrice && reported! / price! > IMPLIED_SHARE_COUNT_MAX) return { marketCap: null, source: 'none' };

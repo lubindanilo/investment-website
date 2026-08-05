@@ -209,4 +209,35 @@ describe('resolveMarketCap — bornes', () => {
   it('le plafond de capi se situe au-dessus de la plus grosse capitalisation réelle', () => {
     expect(MARKET_CAP_SANITY_MAX_USD).toBeGreaterThan(5e12);
   });
+
+  /**
+   * Cas EQNR mesuré en prod. Finnhub publie la capitalisation d'Equinor en COURONNES
+   * (907 528 M NOK) alors que le titre est étiqueté USD — le travers d'AKO.A en pesos. Le nombre
+   * d'actions était disponible (2,503e9), seul le prix manquait dans le snapshot.
+   */
+  describe('capi publiée dans la mauvaise devise (EQNR)', () => {
+    const EQNR = { fundamentalsSource: 'finnhub', reportedMarketCap: 907_528.4, sharesOutstanding: 2.503e9 };
+
+    it('sans prix, la valeur en couronnes passe faute de quoi la recouper', () => {
+      const res = resolveMarketCap({ ...EQNR, price: null }, usd('USD'));
+      expect(res.source).toBe('reported');
+      expect(res.marketCap! / 1e9).toBeCloseTo(907.5, 0);
+    });
+
+    it('avec le prix de la ligne screener, le recoupement ramène la vraie capitalisation', () => {
+      const res = resolveMarketCap({ ...EQNR, price: 37.59 }, usd('USD'));
+      expect(res.source).toBe('derived');
+      expect(res.marketCap! / 1e9).toBeCloseTo(94.1, 0);
+    });
+
+    /** Le garde-fou ne doit pas se retourner contre les capis publiées JUSTES : CME est cité
+     *  dans l'en-tête du module comme un cas sain sans nombre d'actions au snapshot. */
+    it('laisse intacte une capi publiée cohérente avec le prix (CME)', () => {
+      const res = resolveMarketCap(
+        { fundamentalsSource: 'finnhub', reportedMarketCap: 91_100, price: 257.42, sharesOutstanding: 3.6e8 },
+        usd('USD'),
+      );
+      expect(res.marketCap! / 1e9).toBeCloseTo(92.7, 0);
+    });
+  });
 });

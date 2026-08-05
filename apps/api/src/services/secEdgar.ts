@@ -12,7 +12,7 @@
  * US uniquement (EDGAR ne couvre que les émetteurs SEC). Non-US → renvoie [] (le caller garde Finnhub/Yahoo).
  */
 import type { TimeseriesPoint } from '@lubin/shared';
-import { METRICS, type MetricKey } from './finnhubFundamentals.js';
+import { METRICS, computeCashAndEquivalents, type MetricKey } from './finnhubFundamentals.js';
 
 const UA = 'lubin-investment (admin@hyperstack.studio)'; // SEC exige un User-Agent identifiable
 const CONCEPT_BASE = 'https://data.sec.gov/api/xbrl/companyconcept';
@@ -159,9 +159,9 @@ export function annualInstantPoints(entries: ConceptEntry[]): TimeseriesPoint[] 
 }
 
 /**
- * Types annuels du store (clés Yahoo) reconstructibles depuis EDGAR. `annualFreeCashFlow` est
- * composé (cfo − |capex|), les autres mappent un MetricKey. totalDebt et cash n'y sont pas :
- * ce sont des métriques multi-concepts computed côté Finnhub, sans équivalent direct fiable.
+ * Types annuels du store (clés Yahoo) qui mappent DIRECTEMENT un MetricKey. Les types composés
+ * de plusieurs concepts XBRL (FCF, dette totale, trésorerie) sont traités à part, cf.
+ * COMPOSED_ANNUAL_TYPES.
  */
 const ANNUAL_TYPE_TO_METRIC: Record<string, MetricKey> = {
   annualTotalRevenue: 'revenue',
@@ -175,8 +175,82 @@ const ANNUAL_TYPE_TO_METRIC: Record<string, MetricKey> = {
   annualGoodwill: 'goodwill',
   annualStockholdersEquity: 'equity',
   annualDilutedAverageShares: 'shares',
+  // Postes du CCC (DSO/DIO/DPO) : bilan (instant) sauf COGS (flux cumulatif).
+  annualCostOfRevenue: 'costOfRevenue',
+  annualAccountsReceivable: 'accountsReceivable',
+  annualInventory: 'inventory',
+  annualAccountsPayable: 'accountsPayable',
 };
-export const EDGAR_ANNUAL_TYPES: ReadonlySet<string> = new Set([...Object.keys(ANNUAL_TYPE_TO_METRIC), 'annualFreeCashFlow']);
+/**
+ * Composantes XBRL des types annuels COMPOSÉS (dette totale, trésorerie). Miroir exact des
+ * listes de `extractValue` (__computed_totalDebt__ / __computed_cash__) côté Finnhub : les deux
+ * pipelines doivent produire la MÊME définition, sinon la fusion append-only du store mélange
+ * deux conventions de dette dans la même série.
+ *
+ * Dans chaque rôle, les concepts sont essayés dans l'ordre et le PREMIER renseigné gagne, par
+ * date (une société change de tag XBRL au fil des années).
+ */
+// `annualTotalDebt` reste VOLONTAIREMENT hors périmètre. Mesuré en composant les mêmes concepts
+// que Finnhub sur 4 ADR : le total EDGAR ne vaut que 5 à 77 % de celui de Yahoo, et le rapport
+// varie d'un exercice à l'autre (TCOM 0,24-0,51 ; BABA 0,07-0,17 ; NTES 0,05-0,16 ; JD 0,39-0,77).
+// Ce n'est donc pas un écart de convention rattrapable par calibration : la dette de ces
+// émetteurs vit sous des tags que la définition actuelle n'interroge pas (TCOM expose
+// `DebtCurrent` sur 26 exercices, plus des convertibles). L'injecter donnerait des exercices
+// profonds sous-endettés de façon erratique, donc un netDebtFcf faussement rassurant.
+// La reprendre suppose de redéfinir la dette des déposants étrangers ET de garder le miroir
+// avec le chemin trimestriel Finnhub, sans double compter : c'est un chantier à part entière.
+
+const CASH_PARTS = {
+  cash: ['us-gaap_CashAndCashEquivalentsAtCarryingValue', 'us-gaap_CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalents', 'us-gaap_Cash'],
+  shortTermInvestments: ['us-gaap_ShortTermInvestments', 'us-gaap_MarketableSecuritiesCurrent', 'us-gaap_AvailableForSaleSecuritiesCurrent'],
+} as const;
+
+// ─── Déposants IFRS (taxonomie ifrs-full) ─────────────────────────────────────
+//
+// Le reste de ce module suppose la taxonomie us-gaap. Or 478 des 5 587 titres cotés aux US
+// déposent en `ifrs-full` (TSM, NVS, AZN, SHEL, HSBC, RY, EQNR…) : `us-gaap/Assets` leur est
+// absent, donc jusqu'ici ni devise de reporting ni profondeur annuelle. C'est plus du double
+// des 221 déposants us-gaap en devise étrangère, et ces émetteurs n'ont AUCUNE autre source
+// profonde — Yahoo les plafonne aux mêmes ~4 exercices.
+//
+// Couverture mesurée sur 6 gros déposants (nombre d'entrées par concept) : revenue, netIncome,
+// cfo, totalAssets, currentAssets, currentLiabilities, equity, inventory, cash et costOfRevenue
+// sont présents quasi partout ; goodwill et capex manquent chez certains ; les banques (RY)
+// n'ont pas de bilan classé, ce qui est déjà géré par le repli secteur financier du Cash ROCE.
+//
+// `shares` est VOLONTAIREMENT absent : aucun de ces déposants n'expose de nombre d'actions
+// dilué moyen exploitable (seul `AdjustedWeightedAverageShares` traîne, de sémantique incertaine)
+// et c'est la métrique où une erreur d'unité coûte le plus cher — un ADS TSM vaut 5 actions
+// ordinaires, exactement le piège traité par la calibration ADS. Les shares restent donc celles
+// de Yahoo, et la profondeur IFRS bénéficie au Cash ROCE et au CCC, pas au P/FCF.
+const IFRS_ANNUAL_CONCEPTS: Partial<Record<MetricKey, { concepts: string[]; cumulative: boolean }>> = {
+  revenue:            { concepts: ['ifrs-full_RevenueFromSaleOfGoods', 'ifrs-full_RevenueFromContractsWithCustomers', 'ifrs-full_Revenue'], cumulative: true },
+  netIncome:          { concepts: ['ifrs-full_ProfitLoss', 'ifrs-full_ProfitLossAttributableToOwnersOfParent'], cumulative: true },
+  operatingIncome:    { concepts: ['ifrs-full_ProfitLossFromOperatingActivities'], cumulative: true },
+  cfo:                { concepts: ['ifrs-full_CashFlowsFromUsedInOperatingActivities'], cumulative: true },
+  capex:              { concepts: ['ifrs-full_PurchaseOfPropertyPlantAndEquipmentClassifiedAsInvestingActivities'], cumulative: true },
+  costOfRevenue:      { concepts: ['ifrs-full_CostOfSales'], cumulative: true },
+  totalAssets:        { concepts: ['ifrs-full_Assets'], cumulative: false },
+  currentAssets:      { concepts: ['ifrs-full_CurrentAssets'], cumulative: false },
+  currentLiabilities: { concepts: ['ifrs-full_CurrentLiabilities'], cumulative: false },
+  goodwill:           { concepts: ['ifrs-full_Goodwill'], cumulative: false },
+  equity:             { concepts: ['ifrs-full_Equity', 'ifrs-full_EquityAttributableToOwnersOfParent'], cumulative: false },
+  inventory:          { concepts: ['ifrs-full_Inventories'], cumulative: false },
+  accountsReceivable: { concepts: ['ifrs-full_TradeAndOtherCurrentReceivables', 'ifrs-full_CurrentTradeReceivables'], cumulative: false },
+  accountsPayable:    { concepts: ['ifrs-full_TradeAndOtherCurrentPayables', 'ifrs-full_CurrentTradePayables'], cumulative: false },
+};
+
+/** Trésorerie IFRS. Pas d'équivalent direct des placements court terme → cash seul. */
+const IFRS_CASH_PARTS = { cash: ['ifrs-full_CashAndCashEquivalents'], shortTermInvestments: [] as string[] } as const;
+
+/** Types annuels reconstruits en composant plusieurs concepts, pas en mappant un MetricKey. */
+const COMPOSED_ANNUAL_TYPES = [
+  'annualFreeCashFlow',                 // cfo − |capex|
+  'annualCashAndCashEquivalents',       // cash seul
+  'annualCashAndShortTermInvestments',  // cash + placements court terme
+] as const;
+
+export const EDGAR_ANNUAL_TYPES: ReadonlySet<string> = new Set([...Object.keys(ANNUAL_TYPE_TO_METRIC), ...COMPOSED_ANNUAL_TYPES]);
 
 /**
  * Séries ANNUELLES en devise NATIVE pour un déposant 20-F étranger.
@@ -192,18 +266,26 @@ export async function getEdgarAnnualNative(ticker: string, types: string[]): Pro
   if (wanted.length === 0) return out;
   const cik = await getCik(ticker);
   if (!cik) return out;
-  const native = await getSecReportingCurrency(ticker);
-  if (!native) return out;
+  const profile = await secReportingProfile(ticker);
+  if (!profile) return out;
+  const isIfrs = profile.taxonomy === 'ifrs-full';
+  // Déposant us-gaap qui reporte en USD : son pipeline trimestriel (Finnhub + EDGAR) le couvre
+  // déjà, pas de profondeur annuelle à aller chercher. Les déposants IFRS, eux, y ont droit
+  // quelle que soit leur devise — c'est leur SEULE source profonde, et la colonne USD n'y est
+  // pas une conversion de convenance mais bien leur devise de publication.
+  if (!isIfrs && profile.currency === 'USD') return out;
+  const native = profile.currency;
 
   const needFcf = wanted.includes('annualFreeCashFlow');
+  const needCash = wanted.includes('annualCashAndCashEquivalents') || wanted.includes('annualCashAndShortTermInvestments');
   const metricSet = new Set<MetricKey>();
   for (const t of wanted) { const m = ANNUAL_TYPE_TO_METRIC[t]; if (m) metricSet.add(m); }
   if (needFcf) { metricSet.add('cfo'); metricSet.add('capex'); }
 
   const byMetric = new Map<MetricKey, TimeseriesPoint[]>();
   for (const metric of metricSet) {
-    const cfg = METRICS[metric];
-    if (!cfg) continue;
+    const cfg = isIfrs ? IFRS_ANNUAL_CONCEPTS[metric] : METRICS[metric];
+    if (!cfg) continue;   // métrique sans équivalent IFRS (shares, dette) → simplement absente
     const concepts = cfg.concepts.filter(c => !c.startsWith('__'));
     // shares est une moyenne pondérée sur l'exercice (durée FY), pas un montant monétaire.
     const unit = metric === 'shares' ? 'shares' : native;
@@ -232,8 +314,69 @@ export async function getEdgarAnnualNative(ticker: string, types: string[]): Pro
     const fcf = cfo.map(c => ({ date: c.date, value: c.value - (capexByDate.get(c.date) ?? 0) }));
     if (fcf.length) out.set('annualFreeCashFlow', fcf);
   }
+  if (needCash) {
+    const parts = await annualPartsByRole(cik, native, isIfrs ? IFRS_CASH_PARTS : CASH_PARTS);
+    if (wanted.includes('annualCashAndCashEquivalents')) {
+      const c = composeAnnual(parts, v => v.cash);
+      if (c.length) out.set('annualCashAndCashEquivalents', c);
+    }
+    if (wanted.includes('annualCashAndShortTermInvestments')) {
+      const c = composeAnnual(parts, v => computeCashAndEquivalents({ cash: v.cash, shortTermInvestments: v.shortTermInvestments }));
+      if (c.length) out.set('annualCashAndShortTermInvestments', c);
+    }
+  }
   if (out.size) {
     console.log(`[edgar annual ${ticker}] ${native} : ${[...out.entries()].map(([t, p]) => `${t}=${p.length}`).join(' ')}`);
+  }
+  return out;
+}
+
+/**
+ * Pour chaque RÔLE d'un type composé, la série annuelle de bilan en devise native, indexée par
+ * date. Les concepts d'un rôle sont essayés dans l'ordre et le premier renseigné gagne POUR
+ * CHAQUE DATE — une société qui change de tag XBRL en cours de route garde une série continue.
+ */
+async function annualPartsByRole<K extends string>(
+  cik: string,
+  unit: string,
+  roles: Record<K, readonly string[]>,
+): Promise<Map<K, Map<string, number>>> {
+  const out = new Map<K, Map<string, number>>();
+  for (const role of Object.keys(roles) as K[]) {
+    const byDate = new Map<string, number>();
+    for (const raw of roles[role]) {
+      const [taxonomy, ...rest] = raw.split('_');
+      const concept = rest.join('_');
+      if (!taxonomy || !concept) continue;
+      const units = await fetchConceptUnits(cik, taxonomy, concept);
+      const entries = units?.[unit];
+      if (!entries?.length) continue;
+      for (const p of annualInstantPoints(entries)) {
+        if (!byDate.has(p.date)) byDate.set(p.date, p.value); // premier concept renseigné gagne
+      }
+    }
+    out.set(role, byDate);
+  }
+  return out;
+}
+
+/**
+ * Applique une formule de composition à chaque exercice présent dans AU MOINS un rôle. Un rôle
+ * absent à une date vaut `null` — c'est exactement ce qu'attendent computeTotalDebt et
+ * computeCashAndEquivalents, qui distinguent « composante absente » de « zéro ».
+ */
+function composeAnnual<K extends string>(
+  parts: Map<K, Map<string, number>>,
+  formula: (values: Record<K, number | null>) => number | null,
+): TimeseriesPoint[] {
+  const dates = new Set<string>();
+  for (const byDate of parts.values()) for (const d of byDate.keys()) dates.add(d);
+  const out: TimeseriesPoint[] = [];
+  for (const date of [...dates].sort()) {
+    const values = {} as Record<K, number | null>;
+    for (const [role, byDate] of parts) values[role] = byDate.get(date) ?? null;
+    const v = formula(values);
+    if (v != null && Number.isFinite(v)) out.push({ date, value: v });
   }
   return out;
 }
@@ -255,11 +398,34 @@ export async function getEdgarAnnualNative(ticker: string, types: string[]): Pro
  * cache de `fetchConceptUnits`, donc un seul download par process et par émetteur.
  */
 export async function getSecReportingCurrency(ticker: string): Promise<string | null> {
+  const profile = await secReportingProfile(ticker);
+  if (!profile) return null;
+  // Contrat inchangé : null quand l'émetteur publie en USD (rien à convertir en aval).
+  return profile.currency === 'USD' ? null : profile.currency;
+}
+
+/**
+ * Taxonomie de dépôt et devise de PUBLICATION d'un émetteur SEC, ou null s'il n'expose aucun
+ * bilan XBRL. Contrairement à `getSecReportingCurrency`, la devise est toujours renseignée,
+ * USD compris — l'extraction a besoin de savoir dans quelle colonne lire, pas seulement s'il
+ * faut convertir.
+ *
+ * On sonde `Assets` dans us-gaap puis, à défaut, dans ifrs-full : c'est ce second passage qui
+ * ouvre les 478 déposants IFRS restés sans profondeur jusqu'ici. Mémoïsé par le cache de
+ * `fetchConceptUnits`, donc au plus deux téléchargements par émetteur et par process.
+ */
+async function secReportingProfile(ticker: string): Promise<{ taxonomy: 'us-gaap' | 'ifrs-full'; currency: string } | null> {
   const cik = await getCik(ticker);
   if (!cik) return null;
-  const units = await fetchConceptUnits(cik, 'us-gaap', 'Assets');
-  if (!units) return null;
-  return foreignReportingCurrency(units);
+  const gaap = await fetchConceptUnits(cik, 'us-gaap', 'Assets');
+  if (gaap && Object.keys(gaap).length > 0) {
+    return { taxonomy: 'us-gaap', currency: foreignReportingCurrency(gaap) ?? 'USD' };
+  }
+  const ifrs = await fetchConceptUnits(cik, 'ifrs-full', 'Assets');
+  if (ifrs && Object.keys(ifrs).length > 0) {
+    return { taxonomy: 'ifrs-full', currency: foreignReportingCurrency(ifrs) ?? 'USD' };
+  }
+  return null;
 }
 
 const daysBetween = (a: string, b: string) => (Date.parse(b) - Date.parse(a)) / 86400000;

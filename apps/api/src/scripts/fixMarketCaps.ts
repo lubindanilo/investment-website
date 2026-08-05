@@ -23,6 +23,10 @@ import { resolveMarketCap } from '../services/marketCapResolve.js';
 import { marketCapToUsd } from '../services/marketTiers.js';
 
 const APPLY = process.argv.includes('--apply');
+/** Restreint la correction à quelques tickers, pour traiter une anomalie identifiée sans
+ *  réécrire toute la table (le reste des écarts n'est souvent que de la dérive de prix). */
+const ONLY = ((process.argv.find(a => a.startsWith('--tickers=')) ?? '').split('=')[1] ?? '')
+  .split(',').map(t => t.trim().toUpperCase()).filter(Boolean);
 const PAGE = 500;
 /** Écart relatif en dessous duquel on ne touche pas la ligne (bruit de recalcul). */
 const REL_TOLERANCE = 0.01;
@@ -74,11 +78,11 @@ async function main() {
 
   for (;;) {
     const rows = await prisma.screenerTicker.findMany({
-      where: { status: 'scored' },
+      where: { status: 'scored', ...(ONLY.length ? { ticker: { in: ONLY } } : {}) },
       orderBy: { ticker: 'asc' },
       take: PAGE,
       ...(cursor ? { skip: 1, cursor: { ticker: cursor } } : {}),
-      select: { ticker: true, currency: true, marketCap: true, marketCapUsd: true },
+      select: { ticker: true, currency: true, marketCap: true, marketCapUsd: true, price: true },
     });
     if (!rows.length) break;
     cursor = rows[rows.length - 1]!.ticker;
@@ -96,10 +100,18 @@ async function main() {
       // prochain scoring la corrigera avec la nouvelle règle.
       if (!snap) { noSnapshot++; continue; }
 
+      // Prix : celui du snapshot, sinon celui de la ligne screener (rafraîchi en continu par la
+      // ré-évaluation live du flag « opportunité »). 29 snapshots n'ont PAS de prix, dont 26 dont
+      // la ligne en a un — et sans prix, `resolveMarketCap` ne peut RIEN recouper et accepte la
+      // capi publiée telle quelle. C'est par ce trou qu'EQNR a gardé 907 Md$ : Finnhub publie sa
+      // capitalisation en COURONNES (907 528 M NOK, le travers déjà constaté sur AKO.A en pesos)
+      // alors que le titre est étiqueté USD. Avec le prix, le recoupement prix × actions ramène
+      // 94 Md$ et la règle de désaccord tranche pour la plus petite des deux.
+      const price = snap.metrics?.price ?? row.price ?? null;
       const { marketCap } = resolveMarketCap({
         fundamentalsSource: snap.fundamentalsSource ?? null,
         reportedMarketCap: snap.metrics?.marketCap ?? null,
-        price: snap.metrics?.price ?? null,
+        price,
         sharesOutstanding: snap.sharesOutstanding ?? null,
       }, value => marketCapToUsd(value, row.currency));
       const marketCapUsd = marketCapToUsd(marketCap, row.currency);
@@ -118,11 +130,15 @@ async function main() {
       const toBucket = bucket(marketCapUsd);
       changed++;
       if (marketCap == null && before != null) cleared++;
-      if (fromBucket !== toBucket) {
-        reclassified++;
-        if (samples.length < 25) {
-          samples.push(`  ${row.ticker.padEnd(12)} ${fmt(before).padStart(12)} → ${fmt(marketCap).padStart(12)} ${String(row.currency).padEnd(4)} [${fromBucket} → ${toBucket}]`);
-        }
+      if (fromBucket !== toBucket) reclassified++;
+      // On montre les changements de TRANCHE et les corrections d'AMPLEUR. Sans ce second cas,
+      // la correction la plus grave passait inaperçue : EQNR tombe de 907 Md$ à 94 Md$ (capi
+      // publiée en couronnes) mais reste « large » d'un bout à l'autre, donc rien ne s'affichait.
+      const bigSwing = before != null && marketCap != null
+        && (before / marketCap > 2 || marketCap / before > 2);
+      if ((fromBucket !== toBucket || bigSwing) && samples.length < 25) {
+        const flag = fromBucket !== toBucket ? `[${fromBucket} → ${toBucket}]` : `[×${(before! / marketCap!).toFixed(1)}, tranche inchangée]`;
+        samples.push(`  ${row.ticker.padEnd(12)} ${fmt(before).padStart(12)} → ${fmt(marketCap).padStart(12)} ${String(row.currency).padEnd(4)} ${flag}`);
       }
 
       pending.push({ ticker: row.ticker, marketCap, marketCapUsd });
@@ -141,7 +157,7 @@ async function main() {
   console.log(`  dont mises à null       : ${cleared} (aucune valeur crédible)`);
   console.log(`  dont changent de tranche: ${reclassified}`);
   if (samples.length) {
-    console.log('\nÉchantillon des reclassements :');
+    console.log("\nÉchantillon des corrections :");
     console.log(samples.join('\n'));
   }
   console.log(APPLY ? '\n✅ Écrit en base.' : '\nRien écrit. Relance avec --apply pour appliquer.');
