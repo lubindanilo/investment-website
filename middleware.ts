@@ -21,9 +21,13 @@
  */
 import { rewrite, next } from '@vercel/functions';
 
-// Même liste de crawlers que les règles `has` de vercel.json (à garder synchronisée).
+// Même liste de crawlers que les règles `has` de vercel.json. La synchronisation n'est
+// plus une consigne de commentaire : seoBotRewrites.test.ts compare jeton par jeton ce
+// motif à celui de vercel.json et échoue à la moindre divergence. (Le 5 août 2026, cette
+// liste était restée à 27 jetons quand vercel.json en portait 55 : OAI-SearchBot recevait
+// la coquille SPA vide sur `/`, la page la plus importante du site, et sur elle seule.)
 const BOT_UA =
-  /(googlebot|bingbot|google-inspectiontool|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|applebot|petalbot|ahrefsbot|semrushbot|mj12bot|dotbot|chatgpt-user|gptbot|claudebot|perplexitybot|google-extended)/i;
+  /(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot)/i;
 
 export const config = {
   // Limite stricte à la racine : tout le reste est déjà géré par vercel.json.
