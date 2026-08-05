@@ -1,0 +1,61 @@
+name: DEBUG auth CLI claude
+
+# TEMPORAIRE, a supprimer une fois le 401 compris. Ne touche NI la base NI le scoring.
+# Objectif : savoir pourquoi CLAUDE_CODE_OAUTH_TOKEN est refuse en 401 alors que trois jetons
+# differents ont ete poses. On n'affiche jamais le jeton : seulement sa longueur, son prefixe de
+# format (public : `sk-ant-oat01` = jeton d'abonnement, `sk-ant-api03` = cle API posee au mauvais
+# endroit), et une empreinte tronquee pour comparer deux jetons sans les lire.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Forme du secret
+        env:
+          TOK: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          printf 'longueur          : %s\n' "${#TOK}"
+          printf 'prefixe de format : %s\n' "$(printf '%s' "$TOK" | cut -c1-12)"
+          printf 'empreinte (8 hex) : %s\n' "$(printf '%s' "$TOK" | sha256sum | cut -c1-8)"
+          case "$TOK" in
+            *[[:space:]]*) echo "ATTENTION : le secret contient une espace ou un retour a la ligne." ;;
+            *) echo "pas d espace ni de retour a la ligne" ;;
+          esac
+          if [ -n "${{ secrets.ANTHROPIC_API_KEY }}" ]; then
+            echo "ANTHROPIC_API_KEY : posee"
+          else
+            echo "ANTHROPIC_API_KEY : absente"
+          fi
+
+      - name: Que dit l API a ce jeton
+        env:
+          TOK: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          # Le corps d erreur de l API est souvent plus explicite que le message du CLI.
+          code=$(curl -s -o /tmp/body.json -w '%{http_code}' https://api.anthropic.com/v1/messages \
+            -H "Authorization: Bearer ${TOK}" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "anthropic-beta: oauth-2025-04-20" \
+            -H "content-type: application/json" \
+            -d '{"model":"claude-sonnet-5","max_tokens":8,"messages":[{"role":"user","content":"OK"}]}')
+          echo "HTTP ${code}"
+          head -c 600 /tmp/body.json; echo
+
+      - name: Version du CLI installee sur le runner
+        run: |
+          npm install -g @anthropic-ai/claude-code >/dev/null 2>&1
+          claude --version
+
+      - name: Le CLI, en verbeux
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          printf 'Reponds exactement OK.' | claude -p --model claude-sonnet-5 --debug 2>&1 \
+            | grep -viE 'sk-ant|bearer' | tail -40 || true
