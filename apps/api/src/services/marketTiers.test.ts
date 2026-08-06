@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { marketCapToUsd, fxPerUsd, nextAshareDisclosure, isChinaAshare } from './marketTiers.js';
+import { marketCapToUsd, fxPerUsd, minorUnitsPerMajor, nextAshareDisclosure, isChinaAshare } from './marketTiers.js';
 
 describe('marketCapToUsd', () => {
   it('convertit la devise locale en USD', () => {
@@ -36,6 +36,19 @@ describe('unités secondaires de cotation (GBp, ZAc, ILA)', () => {
     const usd = marketCapToUsd(7.89e12, 'GBp')!;
     expect(usd / 1e9).toBeGreaterThan(50);
     expect(usd / 1e9).toBeLessThan(200);
+  });
+
+  it('minorUnitsPerMajor : 100 pour les sous-unités, 1 pour les devises majeures et l\'absence', () => {
+    // Consommé par le recoupement de convention du chemin Yahoo : la capi publiée arrive en
+    // unité MAJEURE (AZN.L : 187,46 Md GBP) alors que prix × actions est en pence — sans ce
+    // facteur, tout Londres serait « corrigé » d'un facteur 100.
+    expect(minorUnitsPerMajor('GBp')).toBe(100);
+    expect(minorUnitsPerMajor('ZAc')).toBe(100);
+    expect(minorUnitsPerMajor('ILA')).toBe(100);
+    expect(minorUnitsPerMajor('GBP')).toBe(1);
+    expect(minorUnitsPerMajor('EUR')).toBe(1);
+    expect(minorUnitsPerMajor(null)).toBe(1);
+    expect(minorUnitsPerMajor(undefined)).toBe(1);
   });
 });
 

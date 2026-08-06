@@ -13,8 +13,8 @@
  *   2. `marketCapUsd` vide sur 6 618 lignes sur 6 818, alors que c'est désormais la colonne qui
  *      porte le filtre Small/Mid/Large (les seuils en dollars n'ont aucun sens en yens).
  *
- * MODE --adr (opt-in, seul mode à faire du réseau) : recoupe en plus les ADR contre la capi
- * publiée Yahoo (référence de convention, cf. audit ADS du 05/08/2026 et marketCapResolve).
+ * MODE --adr (opt-in, fait du réseau) : recoupe en plus les ADR contre la capi publiée Yahoo
+ * (référence de convention, cf. audit ADS du 05/08/2026 et marketCapResolve).
  * C'est le correctif one-shot des capis Finnhub arrivées en devise NATIVE sous le seuil de
  * désaccord ×10 (BEKE : 146,8 Md « USD » qui sont des CNY, réel ~18,6 Md$) et des shares XBRL
  * fausses de la même façon que la capi (SBS). Sans lui, ces lignes ne se répareraient qu'au
@@ -22,25 +22,46 @@
  * Réseau induit : ~1-2 sondes SEC par ticker US non suffixé (devise de reporting, memoïsé)
  * et 1 quoteSummary Yahoo par ADR étranger détecté (~700, memoïsé 6 h).
  *
+ * MODE --yahoo (opt-in, fait du réseau) : recoupe les lignes servies par le CHEMIN YAHOO
+ * (fundamentalsSource = 'yahoo', EU/INTL essentiellement) contre la capi publiée Yahoo.
+ * Sur ce chemin, derived et reported sont IDENTIQUES par construction (sharesOutstanding du
+ * snapshot = marketCap / price), donc le recoupement interne de resolveMarketCap est aveugle :
+ * seule une référence indépendante démasque les séries d'actions Yahoo à échelle mélangée
+ * (mesuré le 06/08/2026 : ALFPC.PA stocké à 143,67 Md€ pour ~145 M€ réels, facteur 1000 sur
+ * annualDilutedAverageShares — la nano-cap volait la tête de la file résilience). La capi
+ * publiée arrive en unité MAJEURE quand le prix cote en sous-unité (GBp) → conversion avant
+ * comparaison. En SIMULATION, ce mode sert aussi de QUANTIFICATION des lignes touchées.
+ * Réseau induit : 1 quoteSummary Yahoo par ligne yahoo notée (memoïsé 6 h).
+ * ⚠ À COMBINER avec --adr pour une passe d'écriture : sans référence de convention, les ADR
+ * corrigés par un précédent --adr RÉGRESSENT au recalcul interne (mesuré le 06/08/2026 :
+ * HDB retombait à null — capi Finnhub en ROUPIES au-dessus du plafond de vraisemblance —
+ * et IX au dérivé faux 8,4 Md$ pour ~44,9 Md$ réels).
+ *
  * Usage :
- *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts                  → SIMULATION
- *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts --apply          → écrit en base
- *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts --adr [--apply]  → + recoupement Yahoo des ADR
+ *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts                    → SIMULATION
+ *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts --apply            → écrit en base
+ *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts --adr [--apply]    → + recoupement Yahoo des ADR
+ *   pnpm --filter @lubin/api exec tsx src/scripts/fixMarketCaps.ts --yahoo [--apply]  → + recoupement des lignes chemin Yahoo
+ *   … --dump=corrections.csv : écrit CHAQUE correction (l'échantillon console est plafonné à 25)
  */
+import { writeFile } from 'node:fs/promises';
 import '../env.js';
 import { Prisma } from '@prisma/client';
 import { prisma } from '../db/client.js';
 import { resolveMarketCap } from '../services/marketCapResolve.js';
-import { marketCapToUsd } from '../services/marketTiers.js';
+import { marketCapToUsd, minorUnitsPerMajor } from '../services/marketTiers.js';
 import { getSecReportingCurrency } from '../services/secEdgar.js';
 import { getYahooMarketCap } from '../services/yahoo.js';
 
 const APPLY = process.argv.includes('--apply');
 const ADR = process.argv.includes('--adr');
+const YAHOO = process.argv.includes('--yahoo');
 /** Restreint la correction à quelques tickers, pour traiter une anomalie identifiée sans
  *  réécrire toute la table (le reste des écarts n'est souvent que de la dérive de prix). */
 const ONLY = ((process.argv.find(a => a.startsWith('--tickers=')) ?? '').split('=')[1] ?? '')
   .split(',').map(t => t.trim().toUpperCase()).filter(Boolean);
+/** Chemin d'un CSV d'audit listant TOUTES les corrections (la console n'en montre que 25). */
+const DUMP = (process.argv.find(a => a.startsWith('--dump=')) ?? '').split('=')[1] ?? '';
 const PAGE = 500;
 /** Écart relatif en dessous duquel on ne touche pas la ligne (bruit de recalcul). */
 const REL_TOLERANCE = 0.01;
@@ -48,6 +69,7 @@ const REL_TOLERANCE = 0.01;
 interface SnapshotShape {
   fundamentalsSource?: string | null;
   sharesOutstanding?: number | null;
+  yahooSymbol?: string | null;
   metrics?: { marketCap?: number | null; price?: number | null } | null;
 }
 
@@ -84,24 +106,66 @@ async function pool<T, R>(items: T[], size: number, fn: (t: T) => Promise<R>): P
 }
 
 /**
- * Capi Yahoo (référence de convention) pour les ADR étrangers d'une page : tickers US non
- * suffixés dont la devise de REPORTING (EDGAR, us-gaap puis ifrs-full) n'est pas l'USD.
- * Renvoie Map<ticker, capi absolue en devise de cotation> — vide hors mode --adr.
- * Les deux sondes sont memoïsées par process : un même ticker ne coûte jamais deux fois.
+ * Capi Yahoo (référence de convention) pour une page de lignes. Deux périmètres cumulables :
+ *   --adr   : tickers US non suffixés dont la devise de REPORTING (EDGAR, us-gaap puis
+ *             ifrs-full) n'est pas l'USD ;
+ *   --yahoo : lignes servies par le chemin Yahoo (fundamentalsSource = 'yahoo' du snapshot),
+ *             où derived et reported sont identiques par construction — seule cette référence
+ *             indépendante peut les contredire. Symbole sondé = yahooSymbol du snapshot,
+ *             sinon le ticker (les suffixés de l'univers SONT des symboles Yahoo).
+ * Renvoie Map<ticker, capi absolue en devise de cotation, sous-unité du prix comprise> +
+ * l'ensemble des tickers dont une SONDE A ÉCHOUÉ (réseau, throttle) — vide hors --adr/--yahoo.
+ * Sondes memoïsées par process : un ticker ne coûte jamais deux fois.
+ *
+ * ⚠ Échec de sonde ≠ absence de donnée. Mesuré le 06/08/2026 : une coupure réseau en plein run
+ * a transformé les échecs en « pas de référence de convention » et le recalcul interne aurait
+ * écrasé des ADR corrects (HDB → null, IX → dérivé faux). D'où les sondes en failHard et le
+ * périmètre `failed` : l'appelant SAUTE ces lignes, un run ultérieur les traitera.
  */
-async function fetchIndependentCaps(rows: Array<{ ticker: string; currency: string | null }>): Promise<Map<string, number>> {
-  const out = new Map<string, number>();
-  if (!ADR) return out;
-  const candidates = rows.filter(r => !r.ticker.includes('.'));
-  await pool(candidates, 3, async (r) => {
-    // getSecReportingCurrency renvoie null pour un déposant USD (rien à convertir) ET pour un
-    // ticker sans XBRL : dans les deux cas, pas de risque de convention → pas d'appel Yahoo.
-    const reporting = await getSecReportingCurrency(r.ticker).catch(() => null);
-    if (!reporting) return;
-    const cap = await getYahooMarketCap(r.ticker).catch(() => null);
-    if (cap && (cap.currency == null || cap.currency === r.currency)) out.set(r.ticker, cap.marketCap);
-  });
-  return out;
+async function fetchIndependentCaps(
+  rows: Array<{ ticker: string; currency: string | null }>,
+  snapByTicker: Map<string, SnapshotShape>,
+): Promise<{ caps: Map<string, number>; failed: Set<string> }> {
+  const caps = new Map<string, number>();
+  const failed = new Set<string>();
+  if (!ADR && !YAHOO) return { caps, failed };
+
+  const keep = (r: { ticker: string; currency: string | null }, cap: { marketCap: number; currency: string | null } | null): void => {
+    if (!cap || (cap.currency != null && cap.currency !== r.currency)) return;
+    // La capi publiée est en unité MAJEURE même quand le prix cote en sous-unité (AZN.L :
+    // 187,46 Md GBP pour un prix en pence) → on la ramène dans l'unité du prix de la ligne.
+    caps.set(r.ticker, cap.marketCap * minorUnitsPerMajor(r.currency));
+  };
+
+  if (ADR) {
+    const candidates = rows.filter(r => !r.ticker.includes('.'));
+    await pool(candidates, 3, async (r) => {
+      try {
+        // getSecReportingCurrency renvoie null pour un déposant USD (rien à convertir) ET pour un
+        // ticker sans XBRL : dans les deux cas, pas de risque de convention → pas d'appel Yahoo.
+        const reporting = await getSecReportingCurrency(r.ticker, { failHard: true });
+        if (!reporting) return;
+        keep(r, await getYahooMarketCap(r.ticker, { failHard: true }));
+      } catch {
+        failed.add(r.ticker);
+      }
+    });
+  }
+
+  if (YAHOO) {
+    const candidates = rows.filter(r => !caps.has(r.ticker) && !failed.has(r.ticker)
+      && snapByTicker.get(r.ticker)?.fundamentalsSource === 'yahoo');
+    await pool(candidates, 3, async (r) => {
+      try {
+        const symbol = snapByTicker.get(r.ticker)?.yahooSymbol ?? r.ticker;
+        keep(r, await getYahooMarketCap(symbol, { failHard: true }));
+      } catch {
+        failed.add(r.ticker);
+      }
+    });
+  }
+
+  return { caps, failed };
 }
 
 /**
@@ -110,21 +174,34 @@ async function fetchIndependentCaps(rows: Array<{ ticker: string; currency: stri
  */
 async function flush(updates: Update[]): Promise<void> {
   const values = Prisma.join(updates.map(u => Prisma.sql`(${u.ticker}, ${u.marketCap}::double precision, ${u.marketCapUsd}::double precision)`));
-  await prisma.$executeRaw`
-    UPDATE "ScreenerTicker" AS s
-       SET "marketCap" = v.cap, "marketCapUsd" = v.cap_usd
-      FROM (VALUES ${values}) AS v(ticker, cap, cap_usd)
-     WHERE s.ticker = v.ticker`;
+  // 3 tentatives espacées : un timeout transitoire du pool Neon a tué le run du 06/08 après
+  // 25 minutes de sondes — l'UPDATE est idempotent, le retry est sans risque.
+  for (let attempt = 1; ; attempt++) {
+    try {
+      await prisma.$executeRaw`
+        UPDATE "ScreenerTicker" AS s
+           SET "marketCap" = v.cap, "marketCapUsd" = v.cap_usd
+          FROM (VALUES ${values}) AS v(ticker, cap, cap_usd)
+         WHERE s.ticker = v.ticker`;
+      return;
+    } catch (e) {
+      if (attempt >= 3) throw e;
+      console.warn(`\n[flush] échec (tentative ${attempt}/3), nouvel essai dans ${10 * attempt} s : ${(e as Error).message.split('\n')[0]}`);
+      await new Promise(r => setTimeout(r, 10_000 * attempt));
+    }
+  }
 }
 
 async function main() {
   console.log(APPLY ? '⚠️  MODE ÉCRITURE (--apply)\n' : 'Mode simulation (ajoute --apply pour écrire)\n');
   if (ADR) console.log('Mode --adr : recoupement des ADR contre la capi publiée Yahoo (sondes SEC + Yahoo)\n');
+  if (YAHOO) console.log('Mode --yahoo : recoupement des lignes chemin Yahoo contre la capi publiée Yahoo\n');
 
   let cursor: string | undefined;
-  let seen = 0, changed = 0, cleared = 0, reclassified = 0, noSnapshot = 0, viaIndependent = 0;
+  let seen = 0, changed = 0, cleared = 0, reclassified = 0, noSnapshot = 0, viaIndependent = 0, probeFailed = 0;
   const samples: string[] = [];
   const pending: Update[] = [];
+  const dumpLines: string[] = [];
 
   for (;;) {
     const rows = await prisma.screenerTicker.findMany({
@@ -142,9 +219,9 @@ async function main() {
       select: { ticker: true, snapshot: true },
     });
     const byTicker = new Map(snaps.map(s => [s.ticker, s.snapshot as SnapshotShape]));
-    // Capi Yahoo des ADR étrangers de la page (Map vide hors --adr). Pré-passe réseau groupée
-    // pour ne pas sérialiser une sonde SEC + un quoteSummary dans la boucle ligne à ligne.
-    const independentCaps = await fetchIndependentCaps(rows);
+    // Capi Yahoo des candidats de la page (Map vide hors --adr/--yahoo). Pré-passe réseau
+    // groupée pour ne pas sérialiser une sonde SEC + un quoteSummary dans la boucle ligne à ligne.
+    const { caps: independentCaps, failed: probeFailures } = await fetchIndependentCaps(rows, byTicker);
 
     for (const row of rows) {
       seen++;
@@ -152,6 +229,9 @@ async function main() {
       // Sans snapshot on ne peut rien recalculer : on laisse la ligne telle quelle, son
       // prochain scoring la corrigera avec la nouvelle règle.
       if (!snap) { noSnapshot++; continue; }
+      // Sonde en échec (réseau, throttle) : recalculer SANS la référence de convention pourrait
+      // écraser une valeur juste (HDB → null pendant la coupure du 06/08). On saute la ligne.
+      if (probeFailures.has(row.ticker)) { probeFailed++; continue; }
 
       // Prix : celui du snapshot, sinon celui de la ligne screener (rafraîchi en continu par la
       // ré-évaluation live du flag « opportunité »). 29 snapshots n'ont PAS de prix, dont 26 dont
@@ -196,6 +276,9 @@ async function main() {
         samples.push(`  ${row.ticker.padEnd(12)} ${fmt(before).padStart(12)} → ${fmt(marketCap).padStart(12)} ${String(row.currency).padEnd(4)} ${flag}`);
       }
 
+      if (DUMP) {
+        dumpLines.push([row.ticker, before, marketCap, row.currency, source, price, fromBucket, toBucket].join(';'));
+      }
       pending.push({ ticker: row.ticker, marketCap, marketCapUsd });
     }
 
@@ -208,13 +291,18 @@ async function main() {
   console.log('\n');
   console.log(`lignes notées examinées   : ${seen}`);
   console.log(`sans snapshot en cache    : ${noSnapshot} (corrigées à leur prochain scoring)`);
+  console.log(`sondes en échec (sautées) : ${probeFailed} (relancer le script pour les traiter)`);
   console.log(`capitalisations corrigées : ${changed}`);
   console.log(`  dont mises à null       : ${cleared} (aucune valeur crédible)`);
   console.log(`  dont changent de tranche: ${reclassified}`);
-  if (ADR) console.log(`  dont via capi Yahoo     : ${viaIndependent} (référence de convention ADR)`);
+  if (ADR || YAHOO) console.log(`  dont via capi Yahoo     : ${viaIndependent} (référence de convention)`);
   if (samples.length) {
     console.log("\nÉchantillon des corrections :");
     console.log(samples.join('\n'));
+  }
+  if (DUMP) {
+    await writeFile(DUMP, `ticker;avant;apres;devise;source;prix;tranche_avant;tranche_apres\n${dumpLines.join('\n')}\n`, 'utf8');
+    console.log(`\nAudit complet (${dumpLines.length} corrections) → ${DUMP}`);
   }
   console.log(APPLY ? '\n✅ Écrit en base.' : '\nRien écrit. Relance avec --apply pour appliquer.');
   await prisma.$disconnect();

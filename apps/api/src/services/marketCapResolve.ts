@@ -61,6 +61,15 @@ export const DISAGREEMENT_FACTOR = 10;
 export const IMPLIED_SHARE_COUNT_MAX = 5e10;
 
 /**
+ * Plancher symétrique : une capi publiée qui implique MOINS d'actions que ça au prix du titre
+ * est de la donnée poubelle vers le BAS. Mesuré en prod le 06/08/2026 : Yahoo publie 47 actions
+ * et 34 € de capitalisation pour ALNEV.PA (Neovacs) — sans ce plancher, la « référence de
+ * convention » aurait écrasé une estimation interne correcte avec 34 €. Aucune cotée n'a moins
+ * de 10 000 actions (même règle que normalizeShareValues côté yahooSplits).
+ */
+export const IMPLIED_SHARE_COUNT_MIN = 1e4;
+
+/**
  * Facteur au-delà duquel prix × actions et capitalisation publiée ne racontent plus la même
  * histoire de CONVENTION (ADS vs ordinaires, capi en devise native, reverse split non
  * répercuté) — et non un simple bruit de mesure. Le bruit légitime entre les deux est borné :
@@ -182,7 +191,10 @@ export function resolveMarketCap(
     // les priver de tranche sur un doute non étayé coûterait plus que ça ne protège.
     if (derived == null) {
       if (!plausibleCap(reported)) return { marketCap: null, source: 'none' };
-      if (hasPrice && reported! / price! > IMPLIED_SHARE_COUNT_MAX) return { marketCap: null, source: 'none' };
+      const impliedShares = hasPrice ? reported! / price! : null;
+      if (impliedShares != null && (impliedShares > IMPLIED_SHARE_COUNT_MAX || impliedShares < IMPLIED_SHARE_COUNT_MIN)) {
+        return { marketCap: null, source: 'none' };
+      }
       return { marketCap: reported, source: 'reported' };
     }
 
@@ -221,8 +233,9 @@ export function resolveMarketCap(
   const indep = inputs.independentCap;
   if (indep == null || !isFinite(indep) || indep <= 0 || !plausibleCap(indep)) return internal;
   // Même garde-fou que pour une capi publiée sans recoupement : le nombre d'actions qu'elle
-  // implique au prix du titre doit rester crédible.
-  if (hasPrice && indep / price! > IMPLIED_SHARE_COUNT_MAX) return internal;
+  // implique au prix du titre doit rester crédible — dans les DEUX sens (cf. ALNEV.PA : Yahoo
+  // publie 47 actions / 34 € de capi, une référence poubelle ne doit rien arbitrer).
+  if (hasPrice && (indep / price! > IMPLIED_SHARE_COUNT_MAX || indep / price! < IMPLIED_SHARE_COUNT_MIN)) return internal;
   if (internal.marketCap == null) return { marketCap: indep, source: 'independent' };
   const factor = internal.marketCap / indep;
   if (factor > ADS_CONVENTION_FACTOR || factor < 1 / ADS_CONVENTION_FACTOR) {

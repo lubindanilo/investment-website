@@ -41,6 +41,15 @@ const MINOR_UNIT_PER_MAJOR: Record<string, { major: string; per: number }> = {
   ILA: { major: 'ILS', per: 100 },   // agorot par shekel
 };
 
+/**
+ * Sous-unités par unité majeure pour une devise de COTATION (GBp → 100, EUR → 1).
+ * Sert à comparer une capitalisation publiée en unité majeure (la convention Yahoo : AZN.L
+ * cote 12 087 GBp mais publie 187 Md GBP) avec un recalcul prix × actions fait en sous-unité.
+ */
+export function minorUnitsPerMajor(currency: string | null | undefined): number {
+  return (currency && MINOR_UNIT_PER_MAJOR[currency]?.per) || 1;
+}
+
 /** Unités de la devise de cotation pour 1 USD, en tenant compte des unités secondaires. */
 export function fxPerUsd(currency: string | null | undefined): number | null {
   if (!currency) return 1;

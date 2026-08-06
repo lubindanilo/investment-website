@@ -40,12 +40,17 @@ async function loadCikMap(): Promise<Map<string, string>> {
   return cikMapPromise;
 }
 
-async function getCik(ticker: string): Promise<string | null> {
+async function getCik(ticker: string, opts?: { failHard?: boolean }): Promise<string | null> {
   if (ticker.includes('.')) return null; // non-US → pas EDGAR
   try {
     const m = await loadCikMap();
     return m.get(ticker.toUpperCase()) ?? null;
-  } catch { return null; }
+  } catch (e) {
+    // failHard : un échec RÉSEAU ne doit pas se déguiser en « ticker inconnu d'EDGAR » —
+    // l'appelant (script de réparation) préfère sauter la ligne que décider sans la donnée.
+    if (opts?.failHard) throw e;
+    return null;
+  }
 }
 
 // ─── Fetch d'un concept XBRL (cache process) ─────────────────────────────────
@@ -85,18 +90,30 @@ export function foreignReportingCurrency(units: Record<string, unknown>): string
 }
 
 /** Toutes les unités d'un concept, mémoïsées (un seul download par concept et par process). */
-async function fetchConceptUnits(cik: string, taxonomy: string, concept: string): Promise<Record<string, ConceptEntry[]> | null> {
+async function fetchConceptUnits(cik: string, taxonomy: string, concept: string, opts?: { failHard?: boolean }): Promise<Record<string, ConceptEntry[]> | null> {
   const key = `${cik}|${taxonomy}|${concept}`;
   if (unitsCache.has(key)) return unitsCache.get(key)!;
   try {
     const url = `${CONCEPT_BASE}/CIK${cik}/${taxonomy}/${encodeURIComponent(concept)}.json`;
     const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
-    if (!res.ok) { unitsCache.set(key, null); return null; }
+    if (!res.ok) {
+      // 404 = concept réellement absent chez ce déposant : une vraie réponse, cachée même en
+      // failHard. Tout autre statut est un échec de sonde (throttle, 5xx) : en failHard on le
+      // REMONTE sans le mettre en cache — sinon l'échec réseau se déguiserait en « pas de donnée »
+      // pour tout le restant du process.
+      if (opts?.failHard && res.status !== 404) throw new Error(`EDGAR ${concept} HTTP ${res.status}`);
+      unitsCache.set(key, null);
+      return null;
+    }
     const data = await res.json() as { units?: Record<string, ConceptEntry[]> };
     const units = data.units ?? {};
     unitsCache.set(key, units);
     return units;
-  } catch { unitsCache.set(key, null); return null; }
+  } catch (e) {
+    if (opts?.failHard) throw e;
+    unitsCache.set(key, null);
+    return null;
+  }
 }
 
 async function fetchConcept(cik: string, taxonomy: string, concept: string, unit: 'USD' | 'shares'): Promise<ConceptEntry[] | null> {
@@ -588,8 +605,8 @@ function composeAnnual<K extends string>(
  * Le concept sonde est `Assets` : tout déposant qui publie un bilan l'expose. Mémoïsé par le
  * cache de `fetchConceptUnits`, donc un seul download par process et par émetteur.
  */
-export async function getSecReportingCurrency(ticker: string): Promise<string | null> {
-  const profile = await secReportingProfile(ticker);
+export async function getSecReportingCurrency(ticker: string, opts?: { failHard?: boolean }): Promise<string | null> {
+  const profile = await secReportingProfile(ticker, opts);
   if (!profile) return null;
   // Contrat inchangé : null quand l'émetteur publie en USD (rien à convertir en aval).
   return profile.currency === 'USD' ? null : profile.currency;
@@ -605,14 +622,14 @@ export async function getSecReportingCurrency(ticker: string): Promise<string | 
  * ouvre les 478 déposants IFRS restés sans profondeur jusqu'ici. Mémoïsé par le cache de
  * `fetchConceptUnits`, donc au plus deux téléchargements par émetteur et par process.
  */
-export async function secReportingProfile(ticker: string): Promise<{ taxonomy: 'us-gaap' | 'ifrs-full'; currency: string } | null> {
-  const cik = await getCik(ticker);
+export async function secReportingProfile(ticker: string, opts?: { failHard?: boolean }): Promise<{ taxonomy: 'us-gaap' | 'ifrs-full'; currency: string } | null> {
+  const cik = await getCik(ticker, opts);
   if (!cik) return null;
-  const gaap = await fetchConceptUnits(cik, 'us-gaap', 'Assets');
+  const gaap = await fetchConceptUnits(cik, 'us-gaap', 'Assets', opts);
   if (gaap && Object.keys(gaap).length > 0) {
     return { taxonomy: 'us-gaap', currency: foreignReportingCurrency(gaap) ?? 'USD' };
   }
-  const ifrs = await fetchConceptUnits(cik, 'ifrs-full', 'Assets');
+  const ifrs = await fetchConceptUnits(cik, 'ifrs-full', 'Assets', opts);
   if (ifrs && Object.keys(ifrs).length > 0) {
     return { taxonomy: 'ifrs-full', currency: foreignReportingCurrency(ifrs) ?? 'USD' };
   }
