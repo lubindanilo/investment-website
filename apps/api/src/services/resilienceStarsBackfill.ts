@@ -1,6 +1,7 @@
 import { PrismaClient, type Prisma } from '@prisma/client';
 import { scoreWithCrossCheck, type CrossCheckOptions } from './resilienceStarsCrossCheck.js';
 import { normalizeCompanyName, type CompanyBrief } from './resilienceStars.js';
+import { isNonOperatingVehicle } from '../lib/nonOperatingVehicle.js';
 
 /**
  * Backfill de nuit du score Resilience 5 etoiles.
@@ -91,25 +92,21 @@ interface StoredScore {
 }
 
 /**
- * UNE requete par tranche : les notes deja en base des societes de la tranche, par nom canonique.
+ * Index par nom canonique de TOUTES les notes deja en base, charge UNE fois par run puis tenu a
+ * jour en memoire au fil des ecritures.
  *
  * Le drain du screener ajoute les lignes d'une meme societe a des nuits differentes : `BABA` est
  * notee, `9988.HK` arrive trois semaines plus tard. Sans cette recopie, la seconde ligne repasse
  * devant les modeles, ce qui coute un appel pour rien et peut sortir une note DIFFERENTE pour la
  * meme entreprise, donc deux notes contradictoires affichees sur le site.
  *
- * Appariement sur le nom exact tel qu'il est stocke, puis canonisation cote JS : une variante de
- * ponctuation echappera a la recopie et sera notee normalement, ce qui est sans danger.
+ * L'index est charge en entier (et non requete par tranche sur le nom exact) parce que les
+ * fournisseurs n'ecrivent pas la meme raison sociale : « The Toronto-Dominion Bank » en base et
+ * « Toronto-Dominion Bank » dans la tranche ne se retrouvent que par la cle CANONIQUE, qui ne se
+ * calcule pas en SQL. Audit du 06/08/2026 : six societes avaient deux notes divergentes par ce trou.
  */
-async function findScoredHomonyms(
-  prisma: PrismaClient,
-  groups: CompanyGroup[],
-): Promise<Map<string, StoredScore>> {
-  const names = [...new Set(groups.flatMap(group => group.rows.map(row => row.name).filter(Boolean)))] as string[];
-  if (names.length === 0) return new Map();
-
+async function loadScoredIndex(prisma: PrismaClient): Promise<Map<string, StoredScore>> {
   const rows = await prisma.resilienceStarScore.findMany({
-    where: { name: { in: names } },
     select: { name: true, total: true, criteria: true, verdict: true, model: true, sonnetTotals: true, v3Total: true },
     orderBy: { scoredAt: 'desc' },
   });
@@ -201,14 +198,30 @@ async function waitForDb(prisma: PrismaClient, attempts = 5): Promise<void> {
  * remplir le screener, pour n'en utiliser que `cap`. Mesure : 331 ms pour la version non bornee
  * contre 73 ms pour celle-ci, et l'ecart grandit avec l'univers.
  */
+/**
+ * Le scoreur ne recoit QUE nom + ticker + secteur : sans nom exploitable il noterait un code
+ * boursier a l'aveugle (7 lignes notees ainsi le 05/08, dont FDX.WI, la ligne technique
+ * « when issued » de FedEx, notee 2/5 quand FDX est a 2,5). On exige donc un nom, different du
+ * ticker, et on ecarte ce que le screener a classe sans donnees (dont les vehicules non operants).
+ */
 async function pickDue(prisma: PrismaClient, cap: number): Promise<UniverseRow[]> {
-  return prisma.$queryRaw<UniverseRow[]>`
+  const rows = await prisma.$queryRaw<UniverseRow[]>`
     SELECT s.ticker, s.name, s.sector, s."marketCapUsd"
     FROM "ScreenerTicker" s
     LEFT JOIN "ResilienceStarScore" r ON r.ticker = s.ticker
     WHERE s."marketCapUsd" IS NOT NULL AND r.ticker IS NULL
+      AND s.name IS NOT NULL AND s.name <> '' AND s.name <> s.ticker
+      AND s.status NOT IN ('nodata', 'error')
     ORDER BY s."marketCapUsd" DESC
     LIMIT ${cap}`;
+  // Double filet cote JS : les vehicules pas encore re-classes par le screener (statut encore
+  // `scored`/`pending`) ne doivent pas consommer un appel aux modeles. On accepte un run un peu
+  // plus court plutot que de repiocher derriere eux.
+  return rows.filter(row => {
+    if (!isNonOperatingVehicle(row.name)) return true;
+    console.warn(`[resilience] ${row.ticker} (${row.name}) ecarte : vehicule non operant.`);
+    return false;
+  });
 }
 
 /** Nombre de candidats restants AVANT le travail de ce run (meme filtre que pickDue). */
@@ -217,7 +230,9 @@ async function countPending(prisma: PrismaClient): Promise<number> {
     SELECT COUNT(*)::bigint AS n
     FROM "ScreenerTicker" s
     LEFT JOIN "ResilienceStarScore" r ON r.ticker = s.ticker
-    WHERE s."marketCapUsd" IS NOT NULL AND r.ticker IS NULL`;
+    WHERE s."marketCapUsd" IS NOT NULL AND r.ticker IS NULL
+      AND s.name IS NOT NULL AND s.name <> '' AND s.name <> s.ticker
+      AND s.status NOT IN ('nodata', 'error')`;
   return Number(rows[0]?.n ?? 0);
 }
 
@@ -250,6 +265,9 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
     let failedBatches = 0;
     let copiedFromHomonym = 0;
 
+    // Index des notes existantes par nom canonique, tenu a jour au fil des ecritures du run.
+    const scoredIndex = await loadScoredIndex(prisma);
+
     for (let start = 0; start < due.length; start += batchSize) {
       const slice = due.slice(start, start + batchSize);
       const label = `${start + 1}-${start + slice.length}/${due.length}`;
@@ -260,10 +278,9 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
         const groups = groupRowsByCompany(slice);
 
         // 1. Recopie : une societe dont un autre ticker est deja note ne repasse pas par les modeles.
-        const homonyms = await findScoredHomonyms(prisma, groups);
         const toScore: CompanyGroup[] = [];
         for (const group of groups) {
-          const existing = homonyms.get(group.key);
+          const existing = scoredIndex.get(group.key);
           if (!existing) {
             toScore.push(group);
             continue;
@@ -289,14 +306,17 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
             continue;
           }
           if (score.verdict === 'flagged') flagged += 1;
-          written += await writeScoreToRows(prisma, group.rows, {
+          const stored: StoredScore = {
             total: score.total,
             criteria: score.criteria as unknown as Prisma.InputJsonValue,
             verdict: score.verdict,
             model: score.model,
             sonnetTotals: score.sonnetTotals as unknown as Prisma.InputJsonValue,
             v3Total: score.v3Total,
-          });
+          };
+          written += await writeScoreToRows(prisma, group.rows, stored);
+          // L'index suit les ecritures : la meme societe apparue plus loin dans CE run sera recopiee.
+          scoredIndex.set(group.key, stored);
         }
       } catch (error) {
         // Ne reste ici que l'imprevu (base, bug) : les pertes de lots LLM sont deja absorbees plus

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { aggregateTotal, parseScores, CRITERION_KEYS, type CriterionKey, type CriterionScore } from './resilienceStars.js';
+import { aggregateTotal, parseScores, normalizeCompanyName, CRITERION_KEYS, type CriterionKey, type CriterionScore } from './resilienceStars.js';
 
 const sample = `[
   {"nom":"Acme","besoin":{"s":1,"r":"demande croit"},"controle":{"s":0.5,"r":"conteste"},"forces":{"s":0,"r":"absorbee"},"adjacent":{"s":0.5,"r":"partiel"},"capture":{"s":1,"r":"durable"}}
@@ -45,5 +45,29 @@ describe('parseScores', () => {
   it('rejette une justification vide', () => {
     const bad = sample.replace('"r":"demande croit"', '"r":""');
     expect(() => parseScores(bad)).toThrow();
+  });
+});
+
+describe('normalizeCompanyName', () => {
+  it('aplatit casse, accents et ponctuation', () => {
+    expect(normalizeCompanyName('LVMH Moët Hennessy')).toBe(normalizeCompanyName('LVMH Moet Hennessy'));
+  });
+
+  it('neutralise les formes juridiques et l article de tete', () => {
+    expect(normalizeCompanyName('The Toronto-Dominion Bank')).toBe(normalizeCompanyName('Toronto-Dominion Bank'));
+    expect(normalizeCompanyName('Sumitomo Mitsui Financial Group Inc')).toBe(normalizeCompanyName('Sumitomo Mitsui Financial Group, Inc.'));
+    expect(normalizeCompanyName('BP p.l.c.')).toBe(normalizeCompanyName('BP plc'));
+    expect(normalizeCompanyName('Petróleo Brasileiro S.A. - Petrobras')).toBe(normalizeCompanyName('Petroleo Brasileiro SA Petrobras'));
+    expect(normalizeCompanyName('Banco Bilbao Vizcaya Argentaria, S.A.')).toBe(normalizeCompanyName('Banco Bilbao Vizcaya Argentaria SA'));
+  });
+
+  it('ne confond pas deux societes distinctes', () => {
+    expect(normalizeCompanyName('Boeing Co')).not.toBe(normalizeCompanyName('BAE Systems plc'));
+    // « AG » en TETE est un vrai mot (AG Growth International), pas une forme juridique.
+    expect(normalizeCompanyName('AG Growth International Inc')).toBe('ag growth international');
+  });
+
+  it('ne renvoie jamais une cle vide', () => {
+    expect(normalizeCompanyName('S.A.')).not.toBe('');
   });
 });

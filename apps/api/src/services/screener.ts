@@ -19,6 +19,7 @@ import { getStockSymbols } from './finnhub.js';
 import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
 import { getResilienceStars } from './resilienceStars.js';
 import { buildAndCacheQuantSnapshot } from './scoreSnapshot.js';
+import { isNonOperatingVehicle } from '../lib/nonOperatingVehicle.js';
 import { getSparkSeries } from './priceSeries.js';
 import { computeLivePfcf } from './quantCache.js';
 import { warmChartCacheForTicker } from './chartWarm.js';
@@ -421,6 +422,22 @@ export function fundamentalsFingerprint(input: {
 /** Note un ticker (quanti only) et met à jour sa ligne ScreenerTicker. */
 export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
   try {
+    // SPAC, coquilles, produits à levier : pas des entreprises. On les sort AVANT de dépenser le
+    // moindre appel de données, et on dégrade VOLONTAIREMENT ceux qui auraient déjà été notés
+    // (c'est l'exception assumée au garde-fou anti-dégradation : une note de qualité sur un
+    // véhicule vide est une pollution, pas une donnée à protéger). Audit du 06/08/2026 : 229
+    // véhicules notés dans le screener, 37 entrés en trois jours.
+    const row = await prisma.screenerTicker
+      .findUnique({ where: { ticker }, select: { name: true } })
+      .catch(() => null);
+    if (isNonOperatingVehicle(row?.name)) {
+      await prisma.screenerTicker.update({
+        where: { ticker },
+        data: { status: 'nodata', lastAttemptAt: new Date(), attempts: { increment: 1 } },
+      }).catch(() => {});
+      return 'nodata';
+    }
+
     const snap = await buildAndCacheQuantSnapshot(ticker, { includeEarnings: true });
     const hasScore = snap.scoreChiffresMax > 0;
     // Pas de note calculable ce passage (fondamentaux indispo / source vide) : on NE dégrade
@@ -449,7 +466,7 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
     // cf. le commentaire du garde-fou dans marketCapResolve). Le prix de la ligne est rafraîchi
     // en continu par la ré-évaluation live du flag « opportunité », il est donc fiable.
     const prev = await prisma.screenerTicker
-      .findUnique({ where: { ticker }, select: { lastScoredAt: true, fundamentalsFingerprint: true, price: true } })
+      .findUnique({ where: { ticker }, select: { lastScoredAt: true, fundamentalsFingerprint: true, price: true, nextEarningsDate: true } })
       .catch(() => null);
     const priceForCap = snap.metrics.price ?? prev?.price ?? null;
     // Capi Yahoo comme RÉFÉRENCE DE CONVENTION, pour les ADR en devise étrangère servis par
@@ -520,7 +537,14 @@ export async function scoreOne(ticker: string): Promise<ScoreOutcome> {
         pfcfDecile10: opp.pfcfDecile10,
         // Le scoring vient de (ré)évaluer l'opportunité au prix du moment → marque la fraîcheur live.
         oppRefreshedAt: new Date(),
-        nextEarningsDate: snap.nextEarningsDate ?? null,
+        // Un échec transitoire du fetch earnings (Yahoo throttle) ne doit PAS effacer une date
+        // FUTURE déjà connue : mesuré le 06/08/2026, 22UA.DE (BioNTech Francfort) a une date chez
+        // Yahoo mais la ligne était à null, écrasée par un passage précédent. Une date PASSÉE en
+        // revanche est bien remplacée par null : la garder bloquerait le titre en phase earnings.
+        nextEarningsDate: snap.nextEarningsDate
+          ?? (prev?.nextEarningsDate && prev.nextEarningsDate >= new Date().toISOString().slice(0, 10)
+            ? prev.nextEarningsDate
+            : null),
         // Cadence : toujours. Fraîcheur SEO : seulement si les fondamentaux ont bougé.
         lastAttemptAt: new Date(),
         ...(dataChanged ? { lastScoredAt: new Date() } : {}),
