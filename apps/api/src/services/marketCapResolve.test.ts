@@ -364,6 +364,32 @@ describe('resolveMarketCap — independentCap (capi Yahoo, référence de conven
     expect(res.marketCap).toBeNull();
   });
 
+  it('ALNEV : capi Yahoo poubelle vers le BAS (47 actions implicites) : ignorée', () => {
+    // Prod du 06/08 : Yahoo publie 47 actions et 34 € de capitalisation pour Neovacs. Sans le
+    // plancher IMPLIED_SHARE_COUNT_MIN, la « référence de convention » écrasait l'estimation
+    // interne (199 497 €) avec 34 €.
+    const res = resolveMarketCap({
+      fundamentalsSource: 'yahoo',
+      reportedMarketCap: 199_497,
+      price: 0.7254,
+      sharesOutstanding: 275_017,
+      independentCap: 34,
+    }, usd('EUR'));
+    expect(res.source).toBe('derived');
+    expect(res.marketCap! / 1e3).toBeCloseTo(199.5, 0);
+  });
+
+  it('sans recoupement possible, une capi publiée au nombre d\'actions implicite trop PETIT est refusée', () => {
+    const res = resolveMarketCap({
+      fundamentalsSource: 'yahoo',
+      reportedMarketCap: 34,      // 47 actions implicites à 0,7254 €
+      price: 0.7254,
+      sharesOutstanding: null,
+    }, usd('EUR'));
+    expect(res.source).toBe('none');
+    expect(res.marketCap).toBeNull();
+  });
+
   it('capi Yahoo invalide (0, NaN, négative) : ignorée', () => {
     for (const junk of [0, Number.NaN, -5]) {
       const res = resolveMarketCap({

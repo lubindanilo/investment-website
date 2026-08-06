@@ -28,7 +28,8 @@ import { computeFcfPerShareCagr as computeFcfPerShareCagrYahoo, getYahooMarketCa
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
 import { getSecReportingCurrency } from './secEdgar.js';
 import { getFxRateNow } from './fx.js';
-import { reconcileAdsMarketCap } from './marketCapResolve.js';
+import { reconcileAdsMarketCap, IMPLIED_SHARE_COUNT_MIN, IMPLIED_SHARE_COUNT_MAX } from './marketCapResolve.js';
+import { minorUnitsPerMajor } from './marketTiers.js';
 import type { DerivedMetrics } from '@lubin/shared';
 
 // Le fetch annuel Yahoo + la persistance sont désormais centralisés dans yahooAnnualStore
@@ -308,8 +309,8 @@ export async function getYahooFundamentals(
       // chinois pour les titres les moins chers du site.
       // Tous les autres ratios ici (marge nette, marge FCF, Cash ROCE, dette nette/FCF, CCR,
       // current ratio) sont fondamental ÷ fondamental, donc homogènes et non concernés.
-      // Le couple reporting/fx est résolu ICI (et pas dans la branche du P/FCF) car il gate
-      // aussi le recoupement de convention ci-dessous. Les deux appels sont mémoïsés.
+      // Le couple reporting/fx ne sert plus qu'au P/FCF (le recoupement de convention
+      // ci-dessous couvre désormais tout le chemin Yahoo). Les deux appels sont mémoïsés.
       const reporting = await getSecReportingCurrency(ticker).catch(() => null);
       const fx = reporting ? await getFxRateNow(reporting, currency).catch(() => null) : 1;
 
@@ -318,23 +319,40 @@ export async function getYahooFundamentals(
       else if (price <= 0) reasons.marketCap = 'Prix actuel indisponible';
       else marketCap = price * latestShares.value;
 
-      // ── Recoupement de CONVENTION prix ↔ actions (ADR en devise étrangère) ─────────
-      // `price` est le prix de l'ADS, mais rien ne garantit que les shares annuelles Yahoo
-      // soient comptées en ADS : l'audit du 05/08/2026 a mesuré ~17 ADR où prix × shares
-      // s'écarte de la capitalisation d'un facteur 0,13 à 10 (ratio ADS non appliqué, reverse
-      // split non répercuté). Un facteur < 1 rend le P/FCF artificiellement bas — faux signal
-      // d'« opportunité du moment ». On recoupe donc contre la capi publiée par Yahoo pour le
-      // MÊME symbole (cohérente avec le prix par construction) et on la retient en cas de
-      // contradiction. Gaté aux émetteurs en devise de reporting étrangère : c'est le
-      // périmètre exact du risque ADS, et ça évite un appel Yahoo pour les ~22k titres sains.
-      if (reporting && reporting !== currency && (marketCap != null || latestShares == null)) {
+      // ── Recoupement de CONVENTION prix ↔ actions contre la capi publiée Yahoo ─────────
+      // `price` est le prix de cotation, mais rien ne garantit que les shares annuelles Yahoo
+      // soient dans la même convention. Deux familles mesurées en prod :
+      //   - ADR : shares hors convention ADS, facteurs 0,13 à 10 (audit du 05/08/2026, ~17 cas) —
+      //     un facteur < 1 rend le P/FCF artificiellement bas, faux signal d'« opportunité » ;
+      //   - EU purs (mesuré le 06/08/2026) : séries d'actions à échelle MÉLANGÉE chez Yahoo.
+      //     ALFPC.PA (Fountaine Pajot, ~145 M€) alterne 1,67 M et 1,66 Md d'actions selon
+      //     l'exercice dans annualDilutedAverageShares → capi stockée 143,67 Md€, la nano-cap
+      //     volait la tête de la file résilience (triée par marketCapUsd DESC) et sortait du
+      //     filtre Small. normalizeShareValues ne tranche pas ce cas : à 2 points par échelle,
+      //     sa médiane peut ancrer la MAUVAISE échelle.
+      // On recoupe donc TOUT le chemin Yahoo (plus seulement les émetteurs en devise de
+      // reporting étrangère) contre la capi publiée par Yahoo pour le MÊME symbole, cohérente
+      // avec le prix par construction, et on la retient en cas de contradiction (> ×1,4).
+      // Coût : 1 quoteSummary par ticker, memoïsé 6 h cache négatif compris (getYahooMarketCap),
+      // marginal devant le batch annuel + earnings + assetProfile déjà payés par ce chemin.
+      if (marketCap != null || latestShares == null) {
         const published = await getYahooMarketCap(yahooSymbol).catch(() => null);
         if (published && (published.currency == null || published.currency === currency)) {
-          const rec = reconcileAdsMarketCap(marketCap, published.marketCap);
+          // Yahoo publie la capi en unité MAJEURE même quand le prix cote en sous-unité
+          // (AZN.L : prix 12 087 GBp, capi 187,46 Md GBP). On la ramène dans l'unité du prix
+          // avant de comparer, sinon tout Londres serait « corrigé » d'un facteur 100.
+          const publishedInQuote = published.marketCap * minorUnitsPerMajor(currency);
+          // Référence crédible seulement : le nombre d'actions qu'elle implique au prix du
+          // titre doit rester plausible dans les deux sens (ALNEV.PA : Yahoo publie 47 actions
+          // et 34 € de capi — une référence poubelle ne doit rien écraser).
+          const impliedShares = price > 0 ? publishedInQuote / price : null;
+          const credible = impliedShares == null
+            || (impliedShares >= IMPLIED_SHARE_COUNT_MIN && impliedShares <= IMPLIED_SHARE_COUNT_MAX);
+          const rec = credible ? reconcileAdsMarketCap(marketCap, publishedInQuote) : null;
           if (rec?.corrected) {
             console.warn(
               `[yahoo fund ${yahooSymbol}] prix × actions (${marketCap != null ? (marketCap / 1e9).toFixed(2) : '—'} Md) hors convention `
-              + `vs capi publiée (${(published.marketCap / 1e9).toFixed(2)} Md${rec.factor != null ? `, facteur ${rec.factor.toFixed(2)}` : ''}) → capi publiée retenue`,
+              + `vs capi publiée (${(publishedInQuote / 1e9).toFixed(2)} Md${rec.factor != null ? `, facteur ${rec.factor.toFixed(2)}` : ''}) → capi publiée retenue`,
             );
             marketCap = rec.marketCap;
             delete reasons.marketCap;

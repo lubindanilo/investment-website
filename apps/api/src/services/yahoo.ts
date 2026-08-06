@@ -742,8 +742,14 @@ const marketCapCache = new Map<string, CachedMarketCap>();
 /**
  * Capitalisation publiée par Yahoo pour un symbole (déjà résolu). Mémoïsé 6 h, cache négatif
  * compris : sans donnée fiable on renvoie null et l'appelant garde son estimation interne.
+ *
+ * `failHard` : un échec de SONDE (réseau, throttle, 5xx) est REMONTÉ au lieu d'être déguisé en
+ * « pas de donnée » (et il n'est pas mis en cache négatif). Indispensable au script de réparation :
+ * mesuré le 06/08/2026, une coupure réseau en plein run transformait tous les null d'échec en
+ * « recalcule sans référence de convention », ce qui aurait écrasé des ADR corrects (HDB → null).
+ * Un HTTP 404 reste une vraie réponse (« Yahoo ne connaît pas ce symbole ») : null, même en failHard.
  */
-export async function getYahooMarketCap(symbol: string): Promise<YahooMarketCap | null> {
+export async function getYahooMarketCap(symbol: string, opts?: { failHard?: boolean }): Promise<YahooMarketCap | null> {
   const hit = marketCapCache.get(symbol);
   if (hit && Date.now() - hit.cachedAt < MARKET_CAP_TTL_MS) return hit.data;
   try {
@@ -761,6 +767,11 @@ export async function getYahooMarketCap(symbol: string): Promise<YahooMarketCap 
       session = await getSession();
       res = await fetchOnce(session);
     }
+    if (res.status === 404) {
+      // Symbole inconnu de Yahoo : une vraie réponse, cachée même en failHard.
+      marketCapCache.set(symbol, { data: null, cachedAt: Date.now() });
+      return null;
+    }
     if (!res.ok) throw new Error(`Yahoo quoteSummary HTTP ${res.status}`);
     const data = await res.json() as {
       quoteSummary?: {
@@ -777,6 +788,7 @@ export async function getYahooMarketCap(symbol: string): Promise<YahooMarketCap 
     marketCapCache.set(symbol, { data: out, cachedAt: Date.now() });
     return out;
   } catch (e) {
+    if (opts?.failHard) throw e;
     console.warn(`[yahoo mcap ${symbol}] échec :`, (e as Error).message);
     marketCapCache.set(symbol, { data: null, cachedAt: Date.now() });
     return null;
