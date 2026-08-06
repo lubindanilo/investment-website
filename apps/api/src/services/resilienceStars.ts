@@ -62,19 +62,47 @@ const companySchema = z.object({
 const arraySchema = z.array(companySchema);
 
 /**
- * Nom canonique pour apparier la reponse d'un modele avec nos lignes.
+ * Formes juridiques supprimees en FIN de nom uniquement : en tete ou au milieu elles peuvent etre
+ * un vrai mot (« AG Growth International », « Co-operators »). On les retire en boucle, car elles
+ * s'empilent (« ... Holding Co., Ltd. »).
+ */
+const TRAILING_LEGAL_TOKENS = new Set([
+  'inc', 'incorporated', 'corp', 'corporation', 'co', 'company', 'plc', 'ltd', 'limited', 'llc',
+  'lp', 'sa', 'nv', 'se', 'ag', 'ab', 'asa', 'oyj', 'spa', 'sae', 'kgaa', 'adr', 'ads',
+]);
+
+/** Celles-ci ne sont JAMAIS un mot : on peut les retirer n'importe ou (« SA Petrobras »). */
+const ANYWHERE_LEGAL_TOKENS = new Set(['plc', 'sa', 'nv', 'oyj', 'asa', 'kgaa', 'aktiengesellschaft']);
+
+/**
+ * Nom canonique pour apparier la reponse d'un modele avec nos lignes, et regrouper les cotations
+ * multiples d'une meme societe.
  *
- * Les modeles reecrivent les raisons sociales : « HSBC » pour « HSBC Holdings plc », « LVMH Moet
- * Hennessy » pour « LVMH Moët Hennessy ». Une egalite stricte fait echouer l'appariement, et le
- * 05/08/2026 cet echec a tue un run entier de 60 entreprises apres 21 min de scoring.
+ * Les modeles reecrivent les raisons sociales (« HSBC » pour « HSBC Holdings plc »), et les
+ * fournisseurs de donnees ne s'accordent pas entre eux : « The Toronto-Dominion Bank » vs
+ * « Toronto-Dominion Bank », « Petróleo Brasileiro S.A. - Petrobras » vs « Petroleo Brasileiro SA
+ * Petrobras ». Une egalite trop litterale a tue un run entier le 05/08/2026 (appariement), puis
+ * laisse six societes multi-cotees porter deux notes divergentes (audit du 06/08/2026).
+ *
+ * Regles, dans l'ordre : casse/accents/ponctuation aplatis, « the » de tete supprime, lettres
+ * isolees supprimees (« S.A. » devient « s a »), formes juridiques supprimees en fin de nom et,
+ * pour celles qui ne sont jamais un mot, n'importe ou. Si tout disparait, on garde la forme
+ * aplatie d'origine plutot qu'une cle vide.
  */
 export function normalizeCompanyName(value: string): string {
-  return value
+  const flat = value
     .toLowerCase()
     .normalize('NFD')
     .replace(/\p{Diacritic}/gu, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim();
+
+  let tokens = flat.split(' ').filter(Boolean);
+  if (tokens[0] === 'the') tokens = tokens.slice(1);
+  tokens = tokens.filter(token => token.length > 1 && !ANYWHERE_LEGAL_TOKENS.has(token));
+  while (tokens.length > 1 && TRAILING_LEGAL_TOKENS.has(tokens[tokens.length - 1]!)) tokens.pop();
+
+  return tokens.length > 0 ? tokens.join(' ') : flat;
 }
 
 /** Agregation deterministe : le total n'est jamais decide par le LLM. */

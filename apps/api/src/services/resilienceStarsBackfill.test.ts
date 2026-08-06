@@ -87,8 +87,8 @@ function fakePrisma(due: ReturnType<typeof row>[], stored: StoredRow[]) {
     },
     screenerTicker: { count: async () => due.length },
     resilienceStarScore: {
-      findMany: async ({ where }: { where: { name: { in: string[] } } }) =>
-        stored.filter(entry => where.name.in.includes(entry.name)),
+      // L'index des notes existantes est charge en entier, une fois par run.
+      findMany: async () => stored,
       upsert: async ({ where }: { where: { ticker: string } }) => {
         upserted.push(where.ticker);
         return {};
@@ -126,6 +126,47 @@ describe('runBackfill', () => {
     expect(upserted).toEqual(['9988.HK', 'AAPL']);
     expect(result.copiedFromHomonym).toBe(1);
     expect(result.scored).toBe(2);
+  });
+
+  it('recopie malgre une raison sociale ecrite differemment par les deux fournisseurs', async () => {
+    const { prisma, upserted } = fakePrisma(
+      [row('TD.TO', 'The Toronto-Dominion Bank')],
+      [
+        {
+          name: 'Toronto-Dominion Bank',
+          total: 4,
+          criteria,
+          verdict: 'agree',
+          model: 'sonnet',
+          sonnetTotals: [4],
+          v3Total: 4,
+        },
+      ],
+    );
+    scorer.mockResolvedValue([]);
+
+    const result = await runBackfill({ dailyCap: 1, prisma });
+
+    expect(upserted).toEqual(['TD.TO']);
+    expect(result.copiedFromHomonym).toBe(1);
+    // Rien a noter : la recopie a tout couvert, les modeles recoivent un lot vide.
+    expect(scorer.mock.calls[0]![0]).toEqual([]);
+  });
+
+  it('ecarte les vehicules non operants sans consommer d appel aux modeles', async () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const { prisma, upserted } = fakePrisma(
+      [row('CXII', 'Churchill Capital Corp XII Acquisition Corp'), row('AAPL', 'Apple Inc.')],
+      [],
+    );
+    scorer.mockResolvedValue([crossChecked('Apple Inc.')]);
+
+    const result = await runBackfill({ dailyCap: 2, prisma });
+
+    expect(scorer.mock.calls[0]![0].map(brief => brief.name)).toEqual(['Apple Inc.']);
+    expect(upserted).toEqual(['AAPL']);
+    expect(result.scored).toBe(1);
+    warn.mockRestore();
   });
 
   it('une societe sans note ne fait pas tomber les autres du run', async () => {
