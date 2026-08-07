@@ -121,6 +121,10 @@ async function main(): Promise<void> {
     }
     console.log(`  reste en attente : ${r.pendingLeft}${projection}`);
   }
+  // Deuxième file, servie EN PREMIER par pickDue : le rafraîchissement d'après résultats. La suivre
+  // séparément est le seul moyen de voir si le drain tient la fraîcheur ou s'il ne fait que grossir
+  // la couverture (c'est l'arbitrage réel sur Neon Free : les deux files partagent un seul budget).
+  if (r.earningsLeft >= 0) console.log(`  reste à rafraîchir après résultats : ${r.earningsLeft}`);
 
   // Garde anti-stall HONNÊTE : un timeout ou une erreur n'est pas du travail fait.
   if (r.attempted >= RATIO_MIN_SAMPLE && ratio < minSuccessRatio) {

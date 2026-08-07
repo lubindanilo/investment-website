@@ -2,15 +2,17 @@ import 'dotenv/config';
 import { runBackfill } from '../src/services/resilienceStarsBackfill.js';
 
 const dailyCap = Number(process.argv[2] ?? process.env.RESILIENCE_STARS_DAILY_CAP ?? 250);
+// Rang de depart dans la file, pour le decoupage en shards du cron (cf. BackfillOptions.offset).
+const offset = Number(process.argv[3] ?? process.env.RESILIENCE_STARS_OFFSET ?? 0);
 
 async function main(): Promise<void> {
-  console.log(`Backfill Resilience 5 etoiles — plafond=${dailyCap}`);
+  console.log(`Backfill Resilience 5 etoiles — plafond=${dailyCap} offset=${offset}`);
   // Sonnet (mediane) = la note autoritaire ; V3 = arbitre de confiance. Le seuil de 1,5 posait
   // sur l'hypothese « V3 note ~1 etoile plus haut », CONTREDITE par la mesure du 06/08/2026 sur
   // 379 lignes : ecart moyen -0,10 etoile, et V3 plus souvent SEVERE (150) que genereux (116).
   // A 1,5, 32 notes (8 %) sortaient en `agree` avec 1,5 etoile d'ecart. A 1,0, ces cas partent en
   // escalade (mediane de 3 passages Sonnet), ce pour quoi le mecanisme existe.
-  const r = await runBackfill({ dailyCap, crossCheck: { threshold: 1.0 } });
+  const r = await runBackfill({ dailyCap, offset, crossCheck: { threshold: 1.0 } });
   console.log(`Scorees: ${r.scored} (dont ${r.flagged} en revue) | restant a scorer: ${r.remaining}/${r.totalUniverse}`);
   if (r.copiedFromHomonym > 0) {
     console.log(`Recopiees depuis un homonyme deja note (aucun appel aux modeles) : ${r.copiedFromHomonym}`);

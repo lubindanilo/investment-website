@@ -107,23 +107,31 @@ jobs:
             N="${MANUAL_N:-25}"
             DEADLINE="${MANUAL_DEADLINE:-45}"
             PASSES="${MANUAL_PASSES:-400}"
-            WARM="1"
+            WARM="1"; FAST="0"
           else
             # Run quotidien minimal, earnings d'abord (phase 1), puis trickle du plus ancien.
             # Scoring en concurrence bornee cote API (K=4) → plus de titres par appel a compute
             # Neon egal. warm=0 : on coupe la phase warm graphiques (fetch + ecritures ChartCache)
             # sur le run quotidien pour economiser le compute Neon Free ; les graphes se
-            # reconstruisent a la 1re consultation. 30s/appel laisse tenir les non-US.
-            REGION=""; N="25"; DEADLINE="30"; PASSES="40"; WARM="0"
+            # reconstruisent a la 1re consultation.
+            #
+            # fast=1 (07/08/2026) : ne pioche QUE les tickers sans point. Mesure du run du 06/08 :
+            # 40 passes, 243 titres traites, 6 notes. Le budget par titre non-US est de 20 s et la
+            # deadline d'appel de 30 s : un seul cycle rentrait, et il expirait. Pire, chaque
+            # expiration bumpait `lastAttemptAt` donc rearmait le cooldown, et les memes titres
+            # revenaient la nuit suivante (attempts a 11 sur 2330.TW) sans jamais etre notes.
+            # Le non-US est desormais servi par le drain (runner sans lambda, 240 s par titre).
+            REGION=""; N="25"; DEADLINE="30"; PASSES="40"; WARM="0"; FAST="1"
           fi
 
-          QS="n=${N}&deadline=${DEADLINE}&warm=${WARM}"
+          QS="n=${N}&deadline=${DEADLINE}&warm=${WARM}&fast=${FAST}"
           if [ -n "${REGION}" ]; then QS="${QS}&region=${REGION}"; fi
           echo "Cible : ${SITE_URL}/api/screener/tick?${QS} (max ${PASSES} appels)"
 
           total_scored=0
           run_processed=0
           dead_streak=0
+          barren_streak=0
           last_picked=0
           for pass in $(seq 1 "${PASSES}"); do
             # --fail-with-body : sort en erreur (donc job en echec -> alerte) sur HTTP >= 400,
@@ -159,6 +167,22 @@ jobs:
               fi
             else
               dead_streak=0
+            fi
+
+            # Garde de RENDEMENT (07/08/2026). La garde ci-dessus compte un timeout comme un titre
+            # « traite », si bien qu'un run peut expirer sur 243 titres, n'en noter que 6, et rester
+            # VERT — c'est exactement ce qui s'est passe toutes les nuits du 01 au 06/08. Or c'est
+            # la panne que ce workflow existe pour detecter. On surveille donc aussi ce que le run
+            # PRODUIT, pas seulement qu'il s'agite. Seuil large (10) : une passe peut legitimement
+            # ne rien noter si tous les titres piochés sortent en nodata.
+            if [ "$scored" -eq 0 ]; then
+              barren_streak=$((barren_streak + 1))
+              if [ "$barren_streak" -ge 10 ]; then
+                echo "::error::Scoreur sterile : picked>0 mais 0 titre NOTE sur 10 appels consecutifs (timeouts ?)."
+                exit 1
+              fi
+            else
+              barren_streak=0
             fi
 
             total_scored=$((total_scored + scored))

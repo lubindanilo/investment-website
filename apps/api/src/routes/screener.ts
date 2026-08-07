@@ -55,7 +55,10 @@ screenerRouter.post('/tick', requireScreenerToken, asyncHandler(async (req: Requ
   const region = ['US', 'EU', 'INTL'].includes(rawRegion) ? rawRegion : undefined;
   // warm=0 : désactive la phase warm graphiques (économie compute Neon Free sur le cron quotidien).
   const warm = String(req.query.warm ?? '1') !== '0';
-  const result = await tick(n, deadlineMs, region, { warm });
+  // fast=1 : ne pioche que les tickers tenables dans la deadline lambda (sans point). Le cron
+  // planifié l'active — sans lui il passait 40 appels à expirer sur du non-US (6 notés sur 243).
+  const onlyFast = String(req.query.fast ?? '0') === '1';
+  const result = await tick(n, deadlineMs, region, { warm, onlyFast });
   res.json(result);
 }));
 
