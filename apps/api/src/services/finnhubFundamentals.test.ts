@@ -7,7 +7,7 @@
  * formule reste correcte si quelqu'un refactor un jour.
  */
 import { describe, it, expect } from 'vitest';
-import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, maxTtmGapMs, OPERATING_CASH_PCT_OF_REVENUE, resolveSbc, extractValue, METRICS } from './finnhubFundamentals.js';
+import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, extractCustomerFloat, extractCustomerFloatOffset, floatDeductedFromTtm, maxTtmGapMs, OPERATING_CASH_PCT_OF_REVENUE, resolveSbc, extractValue, METRICS, type FinnhubFiling } from './finnhubFundamentals.js';
 
 const DAY = 86_400_000;
 /** Série de dates espacées de `stepDays`, valeur indifférente (seules les dates comptent). */
@@ -67,6 +67,225 @@ describe('computeFcfAdj (FCF_adj = CFO − |CapEx| − SBC)', () => {
     const fcfAdj = computeFcfAdj(139_510_000_000, 131_820_000_000, 19_470_000_000);
     expect(fcfAdj).toBeLessThan(0);
     expect(fcfAdj).toBeCloseTo(-11_780_000_000, -3);
+  });
+});
+
+describe('extractCustomerFloat (argent des clients logé dans le CFO)', () => {
+  /** Fabrique un filing minimal : `cf` = [lignes opérationnelles…, sous-total CFO, lignes hors-op…]. */
+  function filing(cf: Array<[string, number]>): FinnhubFiling {
+    return {
+      year: 2025, quarter: 0, startDate: '2025-01-01', endDate: '2025-12-31', form: '10-K',
+      report: { cf: cf.map(([concept, value]) => ({ concept, value })) },
+    };
+  }
+
+  it('additionne les lignes de flottant du bloc opérationnel (cas MELI 2025)', () => {
+    // 10-K MercadoLibre 2025 : CFO 12 116 M$ dont 5 341 M$ de seule croissance du solde
+    // des portefeuilles Mercado Pago. Tag PROPRE à l'émetteur → le namespace doit être ignoré.
+    const f = filing([
+      ['us-gaap_NetIncomeLoss', 1_997e6],
+      ['us-gaap_IncreaseDecreaseInAccountsReceivable', 1_508e6],
+      ['meli_IncreaseDecreaseInFundsPayableToCustomers', 5_341e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 12_116e6],
+      ['us-gaap_PaymentsToAcquireProductiveAssets', 1_343e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(5_341e6);
+    // FCF actionnaire = 12 116 − 1 343 − 5 341 = 5 432 M$, et non 10 773 M$.
+    expect(computeFcfBrut(12_116e6, 1_343e6, extractCustomerFloat(f))).toBeCloseTo(5_432e6, -3);
+  });
+
+  it("N'AJUSTE PAS le règlement carte de MELI (sa contrepartie à l'actif est déjà dans le CFO)", () => {
+    // Les créances cartes (7,0 Md$) dépassent les dettes cartes (3,8 Md$) et vivent dans la
+    // ligne « Receivables » du même CFO. Retrancher le seul passif sur-corrigerait.
+    const f = filing([
+      ['meli_IncreaseDecreaseInAmountsPayableDueToCreditAndDebitCardTransactions', 1_592e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 12_116e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(0);
+  });
+
+  it('capte le tag standard des courtiers (IBKR / SCHW / HOOD)', () => {
+    const f = filing([
+      ['us-gaap_IncreaseDecreaseInPayablesToCustomers', 38_993e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 15_811e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(38_993e6);
+    // Chez un courtier le flottant DÉPASSE le CFO → FCF actionnaire négatif, donc P/FCF
+    // non calculable en aval. C'est la réponse honnête, pas un 8,8× trompeur.
+    expect(computeFcfBrut(15_811e6, 100e6, extractCustomerFloat(f))).toBeLessThan(0);
+  });
+
+  it('IGNORE une ligne de flottant située APRÈS le sous-total CFO (banque : dépôts en financement)', () => {
+    // Une banque classe la collecte de dépôts en financement : son CFO n'est pas gonflé,
+    // il ne faut donc RIEN retrancher, sinon on double-compte.
+    const f = filing([
+      ['us-gaap_NetIncomeLoss', 1_000e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 3_000e6],
+      ['us-gaap_IncreaseDecreaseInPayablesToCustomers', 20_000e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(0);
+  });
+
+  it("s'arrête au sous-total financement quand Finnhub range les sous-totaux en désordre", () => {
+    // Constaté sur les dépôts 2011-2019 (MSFT, T, AXS…) : Finnhub place parfois le sous-total
+    // d'exploitation APRÈS ceux d'investissement et de financement. Sans cette borne basse, on
+    // retrancherait du CFO la collecte de dépôts d'une banque, classée en financement.
+    const f = filing([
+      ['us-gaap_NetIncomeLoss', 1_000e6],
+      ['us-gaap_NetCashProvidedByUsedInFinancingActivities', 500e6],
+      ['us-gaap_IncreaseDecreaseInPayablesToCustomers', 20_000e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 3_000e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(0);
+  });
+
+  it('capte quand même le flottant si le sous-total hors-op vient APRÈS celui du CFO', () => {
+    const f = filing([
+      ['meli_IncreaseDecreaseInFundsPayableToCustomers', 5_341e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 12_116e6],
+      ['us-gaap_NetCashProvidedByUsedInInvestingActivities', -6_179e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(5_341e6);
+  });
+
+  it('renvoie 0 (et non null) pour une société sans flottant — série plate, pas un trou', () => {
+    const f = filing([
+      ['us-gaap_NetIncomeLoss', 100e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 120e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(0);
+    // Et le FCF des 99 % de sociétés reste strictement CFO − |CapEx|.
+    expect(computeFcfBrut(120e6, 20e6, extractCustomerFloat(f))).toBe(100e6);
+  });
+
+  it('mesure un flottant qui se vide en signe négatif (constat brut)', () => {
+    const f = filing([
+      ['us-gaap_IncreaseDecreaseInPayablesToCustomers', -2_000e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 1_000e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(-2_000e6);
+    // computeFcfBrut reste l'arithmétique EXACTE (série `fcf` absolue, valeurs cumulées YTD) :
+    // le drain y est réintégré. C'est floatDeductedFromTtm qui protège les MULTIPLES.
+    expect(computeFcfBrut(1_000e6, 0, extractCustomerFloat(f))).toBe(3_000e6);
+  });
+
+  it('renvoie null si le sous-total CFO est introuvable (bloc opérationnel non délimitable)', () => {
+    expect(extractCustomerFloat(filing([['us-gaap_IncreaseDecreaseInPayablesToCustomers', 500e6]]))).toBeNull();
+    expect(extractCustomerFloat(filing([]))).toBeNull();
+  });
+
+  it("renvoie null si le sous-total CFO est la 1re ligne (rien à balayer, format inattendu)", () => {
+    expect(extractCustomerFloat(filing([
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 500e6],
+      ['us-gaap_IncreaseDecreaseInPayablesToCustomers', 500e6],
+    ]))).toBeNull();
+  });
+
+  it('ne confond PAS les acomptes clients de Corning avec du flottant custodial', () => {
+    // `glw_IncreaseDecreaseInCustomerDepositsAndIncentives` = avances définitivement acquises
+    // pour financer des capacités. Du cash actionnaire, pas de l'argent détenu pour autrui.
+    const f = filing([
+      ['glw_IncreaseDecreaseInCustomerDepositsAndIncentives', 268e6],
+      ['bro_MarkToMarketOfEscrowLiability', -54e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 2_695e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(0);
+  });
+});
+
+describe('extractCustomerFloatOffset (contrepartie à l\'actif = flottant non isolable)', () => {
+  function filing(cf: Array<[string, number]>): FinnhubFiling {
+    return {
+      year: 2025, quarter: 0, startDate: '2025-01-01', endDate: '2025-12-31', form: '10-K',
+      report: { cf: cf.map(([concept, value]) => ({ concept, value })) },
+    };
+  }
+
+  it('MELI : aucune contrepartie dans l\'exploitation → le passif client est isolable', () => {
+    // Les soldes Mercado Pago sont adossés à du cash et des placements qui ne passent PAS par
+    // l'exploitation : les 5,3 Md$ de passif ont donc bien gonflé le CFO de 5,3 Md$.
+    const f = filing([
+      ['us-gaap_IncreaseDecreaseInAccountsReceivable', 1_508e6],
+      ['meli_IncreaseDecreaseInFundsPayableToCustomers', 5_341e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 12_116e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(5_341e6);
+    expect(extractCustomerFloatOffset(f)).toBe(0);
+  });
+
+  it('IBKR : créances clients dans le MÊME bloc → non isolable (sur-correction de 26 Md$ évitée)', () => {
+    const f = filing([
+      ['us-gaap_IncreaseDecreaseInReceivablesFromCustomersNet', -26_045e6],
+      ['us-gaap_IncreaseDecreaseInPayablesToCustomers', 38_993e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 15_811e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(38_993e6);
+    expect(extractCustomerFloatOffset(f)).toBe(-26_045e6);
+  });
+
+  it('SCHW : additionne les trois jambes d\'actif (créances clients, courtiers, titres ségrégués)', () => {
+    const f = filing([
+      ['us-gaap_IncreaseDecreaseOfRestrictedInvestments', 4_510e6],
+      ['us-gaap_IncreaseDecreaseInBrokerageReceivables', 4_750e6],
+      ['us-gaap_IncreaseDecreaseInReceivablesFromBrokerageClients', 19_390e6],
+      ['us-gaap_IncreaseDecreaseInPayablesToCustomers', 14_782e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 9_311e6],
+    ]);
+    expect(extractCustomerFloatOffset(f)).toBeCloseTo(28_650e6, -3);
+  });
+
+  it('FLUT : les placements adossés aux dépôts joueurs comptent comme contrepartie', () => {
+    const f = filing([
+      ['flut_IncreaseDecreaseInPlayerDepositInvestments', -120e6],
+      ['flut_IncreaseDecreaseInPlayerDepositLiability', -227e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 1_184e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(-227e6);
+    expect(extractCustomerFloatOffset(f)).toBe(-120e6);
+  });
+
+  it('un flottant non isolable ne doit RIEN retrancher au FCF absolu du graphe', () => {
+    // IBKR : retrancher le seul passif afficherait −23 Md$ de FCF au lieu des +15,8 Md$ publiés.
+    const float: number = 38_993e6;
+    const offset: number = -26_045e6;
+    const floatApplique = offset !== 0 ? null : float;
+    expect(computeFcfBrut(15_811e6, 0, floatApplique)).toBe(15_811e6);
+  });
+
+  it('ne compte pas une contrepartie située hors du bloc opérationnel', () => {
+    const f = filing([
+      ['us-gaap_IncreaseDecreaseInPayablesToCustomers', 374e6],
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 2_580e6],
+      ['us-gaap_IncreaseDecreaseInBrokerageReceivables', 900e6],
+    ]);
+    expect(extractCustomerFloat(f)).toBe(374e6);
+    expect(extractCustomerFloatOffset(f)).toBe(0);
+  });
+});
+
+describe('floatDeductedFromTtm (un drain custodial ne crédite pas la société)', () => {
+  it('retranche un flottant en hausse (cas MELI : correction de la surévaluation du CFO)', () => {
+    expect(floatDeductedFromTtm(5_868e6)).toBe(5_868e6);
+  });
+
+  it('NE réintègre PAS un flottant en baisse (cas Schwab 2022 : ×27 sur le FCF évité)', () => {
+    // CFO 2 057 M$, capex 971 M$, flottant −28 233 M$ (retraits clients massifs).
+    // Symétrique : FCF = 1 086 + 28 233 = 29 319 M$ → un multiple ridiculement bas.
+    // Plafonné : FCF = 1 086 M$ → le titre paraît cher, jamais faussement bon marché.
+    expect(floatDeductedFromTtm(-28_233e6)).toBe(0);
+    expect(2_057e6 - 971e6 - floatDeductedFromTtm(-28_233e6)).toBeCloseTo(1_086e6, -3);
+  });
+
+  it('traite null et 0 comme « rien à retrancher » (les 99 % de sociétés)', () => {
+    expect(floatDeductedFromTtm(null)).toBe(0);
+    expect(floatDeductedFromTtm(0)).toBe(0);
+  });
+
+  it("ne peut JAMAIS augmenter un FCF — propriété qui garantit l'absence de faux signal", () => {
+    const fcfBrut = 1_000e6;
+    for (const flot of [-50_000e6, -1e6, 0, 1e6, 50_000e6]) {
+      expect(fcfBrut - floatDeductedFromTtm(flot)).toBeLessThanOrEqual(fcfBrut);
+    }
   });
 });
 

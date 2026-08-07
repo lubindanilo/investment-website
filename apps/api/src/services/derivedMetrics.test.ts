@@ -207,6 +207,58 @@ describe('computeDerivedMetrics', () => {
   });
 });
 
+describe('fallback pfcfShareTTM gaté (le refus doit tenir jusqu\'à l\'écran)', () => {
+  /** Métriques Finnhub minimales : le précomputed pfcfShareTTM est PRÉSENT et appétissant. */
+  const metricAvecPrecomputed = {
+    metric: { pfcfShareTTM: 2.3, revenuePerShareTTM: 10, marketCapitalization: 100_000 },
+  };
+  const quote = { c: 50, d: 0, dp: 0, h: 0, l: 0, pc: 0 };
+
+  it('FCF refusé (flottant non isolable) → pfcfTTM null, le précomputed Finnhub ne ressort PAS', () => {
+    // Cas IBKR/Schwab : computeAdjustedFcfTtm renvoie null + notMeaningfulReason. Sans le
+    // gate, le else retombait sur pfcfShareTTM (2,3× — float inclus) et le refus était défait.
+    const reason = "Cash d'exploitation dominé par les mouvements de comptes clients";
+    const m = computeDerivedMetrics({
+      metric: metricAvecPrecomputed, profile: null, quote,
+      adjFcfTtm: null,
+      fcfNotMeaningfulReason: reason,
+    });
+    expect(m.pfcfTTM).toBeNull();
+    expect(m.notCalculableReasons?.pfcfTTM).toBe(reason);
+    // La marge FCF du fallback (dérivée du même précomputed) ne doit pas ressortir non plus.
+    expect(m.fcfMargin).toBeNull();
+    expect(m.notCalculableReasons?.fcfMargin).toBe(reason);
+  });
+
+  it('FCF TTM négatif calculé par NOUS → pas de fallback vers un multiple positif tiers', () => {
+    // Cas JPM : notre CFO TTM est négatif, Finnhub précompute pourtant un 5,6× invérifiable.
+    const m = computeDerivedMetrics({
+      metric: metricAvecPrecomputed, profile: null, quote,
+      adjFcfTtm: -108e9,
+    });
+    expect(m.pfcfTTM).toBeNull();
+    expect(m.notCalculableReasons?.pfcfTTM).toMatch(/négatif/i);
+  });
+
+  it('TTM non constructible (données manquantes, sans refus) → le fallback reste permis', () => {
+    // Jeune cotation avec < 4 trimestres : le précomputed Finnhub vaut mieux que rien.
+    const m = computeDerivedMetrics({
+      metric: metricAvecPrecomputed, profile: null, quote,
+      adjFcfTtm: null,
+    });
+    expect(m.pfcfTTM).toBe(2.3);
+  });
+
+  it('FCF ajusté positif → formule directe, le gate ne change rien', () => {
+    const m = computeDerivedMetrics({
+      metric: metricAvecPrecomputed, profile: null, quote,
+      adjFcfTtm: 5e9,
+    });
+    // marketCapitalization est en millions chez Finnhub → 100 Md$ / 5 Md$ = 20×.
+    expect(m.pfcfTTM).toBeCloseTo(20, 5);
+  });
+});
+
 describe('buildQuantitativeCriteria', () => {
   it('produit exactement 10 critères (P/FCF est désormais traité à part en valorisation)', () => {
     const m = computeDerivedMetrics({ metric: null, profile: null, quote: null });

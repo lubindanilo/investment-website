@@ -402,6 +402,10 @@ export async function getYahooFundamentals(
         marketCap,
         price,
         sbcShareOfFcf: null, // pas dispo en free
+        // Le flottant client suppose le détail ligne à ligne du tableau de flux, que Yahoo
+        // n'expose pas : le chemin non-US ne peut donc PAS corriger un CFO gonflé par des
+        // dépôts clients (cf CUSTOMER_FLOAT_CONCEPTS côté Finnhub).
+        floatShareOfCfo: null,
         notCalculableReasons: Object.keys(reasons).length > 0 ? reasons : undefined,
       };
 

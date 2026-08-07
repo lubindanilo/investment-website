@@ -27,7 +27,7 @@ interface FinnhubReportItem {
   unit?: string;
   value: number;
 }
-interface FinnhubFiling {
+export interface FinnhubFiling {
   year: number;
   quarter: number;
   startDate: string;
@@ -149,6 +149,26 @@ export const METRICS: Record<string, MetricConfig> = {
       'us-gaap_PaymentsToAcquireProductiveAssets',
       'us-gaap_PaymentsToAcquirePropertyPlantAndEquipment',  // standard — gagne en coexistence
     ],
+    cumulative: true,
+  },
+  /**
+   * Variation du FLOTTANT CLIENT sur la période : l'argent que la société DÉTIENT POUR
+   * SES CLIENTS (soldes de portefeuille Mercado Pago, cash des comptes-titres d'un
+   * courtier). Voir CUSTOMER_FLOAT_CONCEPTS pour le pourquoi et extractCustomerFloat
+   * pour le comment. Se soustrait du CFO pour obtenir un FCF actionnaire.
+   */
+  customerFloat: {
+    section: 'cf',
+    concepts: ['__computed_customerFloat__'],
+    cumulative: true,
+  },
+  /**
+   * Contrepartie à l'actif du flottant dans le même bloc opérationnel. ≠ 0 ⟹ le flottant
+   * n'est pas isolable et le FCF n'est pas publiable (cf CUSTOMER_FLOAT_OFFSET_CONCEPTS).
+   */
+  customerFloatOffset: {
+    section: 'cf',
+    concepts: ['__computed_customerFloatOffset__'],
     cumulative: true,
   },
   shares: {
@@ -504,10 +524,204 @@ async function fetchReportedMerged(ticker: string, freq: Frequency): Promise<Fin
   return merged;
 }
 
+// ═══════════════════════════════════════════════════════════════════════════
+// Flottant client (argent des clients logé dans le cash-flow d'exploitation)
+// ═══════════════════════════════════════════════════════════════════════════
+//
+// Certaines sociétés DÉTIENNENT de l'argent qui ne leur appartient pas : le solde du
+// portefeuille Mercado Pago chez MercadoLibre, le cash du compte-titres chez un courtier
+// (IBKR, Schwab, Robinhood). Quand ce solde grossit, la trésorerie entre — et comme la
+// contrepartie est un passif d'EXPLOITATION, la hausse est comptée dans le cash-flow
+// opérationnel. Le CFO publié gonfle donc de l'argent des déposants, que la société devra
+// rendre à la demande et qui n'ira jamais à l'actionnaire.
+//
+// Cas MELI 2025 : CFO 12,1 Md$ dont 5,3 Md$ de seule croissance des « funds payable to
+// customers ». FCF « brut » 10,8 Md$ → P/FCF 8,3× (et un flag « opportunité du moment »
+// sur un titre qui se paie en réalité ~18× son FCF actionnaire).
+//
+// On soustrait donc cette variation du CFO. Trois précautions :
+//
+//  1. UNIQUEMENT le bloc opérationnel. Une banque classe la collecte de dépôts en
+//     FINANCEMENT : son CFO n'est pas gonflé et il ne faut rien retrancher. D'où le
+//     découpage sur le sous-total CFO dans extractCustomerFloat.
+//  2. UNIQUEMENT l'argent CUSTODIAL. Les acomptes clients (« customer deposits » de
+//     Corning) sont du cash définitivement acquis, à la deferred revenue — pas du
+//     flottant. Les mark-to-market d'escrow (BRO) sont non-cash. D'où une liste EXACTE
+//     de concepts plutôt qu'un motif large sur « deposit » / « customer ».
+//  3. PAS les décalages de règlement carte (`AmountsPayableDueToCreditAndDebitCard…` chez
+//     MELI). Leur contrepartie à l'actif (créances cartes, 7,0 Md$ vs 3,8 Md$ au passif)
+//     vit dans la ligne « Receivables » du même CFO, déjà comptée en sortie. Retrancher
+//     le seul passif SUR-corrigerait (P/FCF MELI 25× au lieu de 18×).
+//
+// Le namespace est retiré avant comparaison : le concept est standard chez les courtiers
+// (`us-gaap_IncreaseDecreaseInPayablesToCustomers`) mais propre à l'émetteur chez MELI
+// (`meli_IncreaseDecreaseInFundsPayableToCustomers`).
+export const CUSTOMER_FLOAT_CONCEPTS: readonly string[] = [
+  'IncreaseDecreaseInPayablesToCustomers',        // IBKR, SCHW, HOOD, SNEX, JEF, OPY, XYZ (Block)
+  'IncreaseDecreaseInFundsPayableToCustomers',    // MELI
+  'IncreaseDecreaseInPlayerDepositLiability',     // FLUT — soldes de compte des joueurs
+  'IncreaseDecreaseInPlayersLiabilities',         // RSI
+  'IncreaseDecreaseInCustomerFunds',
+  'IncreaseDecreaseInClientFundsObligation',
+  'IncreaseDecreaseInDepositsHeldForCustomers',
+];
+
+/**
+ * Contrepartie à l'ACTIF du flottant, quand elle transite elle aussi par l'exploitation :
+ * créances sur les clients (prêts sur marge d'un courtier), titres ségrégués détenus pour
+ * le compte des clients, placements adossés aux dépôts des joueurs.
+ *
+ * POURQUOI C'EST DÉCISIF. Retrancher le passif client suppose que la trésorerie
+ * correspondante soit entrée SÈCHE dans le CFO. C'est le cas de MercadoLibre : les soldes
+ * Mercado Pago sont adossés à du cash et à des placements qui ne passent PAS par
+ * l'exploitation, donc les 5,3 Md$ de passif ont bien gonflé le CFO de 5,3 Md$.
+ *
+ * Chez un courtier, non. Interactive Brokers 2025 : +38,99 Md$ de « payable to customers »
+ * MAIS aussi −26,05 Md$ de « receivables from customers » dans le MÊME bloc opérationnel.
+ * Les deux jambes s'y compensent en partie, et retrancher le seul passif sur-corrigeait de
+ * 26 Md$ : le FCF tombait à −25,6 Md$, un chiffre qui ne veut rien dire. Idem Schwab
+ * (3 lignes d'actif dont 19,4 Md$ de créances clients), Robinhood, StoneX, Jefferies,
+ * Oppenheimer, Flutter.
+ *
+ * Isoler proprement le flottant net demanderait de modéliser tout le bilan d'un courtier
+ * (titres empruntés/prêtés, instruments financiers…) : hors de portée d'une liste de tags.
+ * Quand une contrepartie est présente, on REFUSE donc de publier un FCF plutôt que d'en
+ * publier un faux — cf `customerFloatOffset` et son usage dans computeAdjustedFcfTtm.
+ *
+ * NB : c'est la présence d'un MONTANT non nul qui compte. Une ligne présente mais à 0 n'a
+ * de toute façon aucun effet sur le CFO de la période, la traiter comme absente est sans
+ * conséquence arithmétique.
+ */
+export const CUSTOMER_FLOAT_OFFSET_CONCEPTS: readonly string[] = [
+  'IncreaseDecreaseInReceivablesFromCustomersNet',        // IBKR
+  'IncreaseDecreaseInReceivableFromCustomers',            // OPY
+  'IncreaseDecreaseInReceivablesFromBrokerageClients',    // SCHW
+  'IncreaseDecreaseInBrokerageReceivables',               // SCHW, HOOD, SNEX, JEF, OPY
+  'IncreaseDecreaseOfRestrictedInvestments',              // SCHW — titres ségrégués
+  'IncreaseDecreaseInSegregatedSecuritiesUnderFederalAndOtherRegulations', // HOOD
+  'DecreaseIncreaseInCashAndSecuritiesSegregatedAndOnDepositForRegulatoryPurposes', // JEF
+  'IncreaseDecreaseInPlayerDepositAssets',                // FLUT
+  'IncreaseDecreaseInPlayerDepositInvestments',           // FLUT
+];
+
+/** Sous-totaux qui marquent la FIN du bloc opérationnel dans le tableau de flux. */
+const CFO_SUBTOTAL_CONCEPTS: readonly string[] = [
+  'NetCashProvidedByUsedInOperatingActivities',
+  'NetCashProvidedByUsedInOperatingActivitiesContinuingOperations',
+];
+
+/**
+ * Sous-totaux HORS exploitation. Une ligne qui les suit n'est certainement PAS opérationnelle,
+ * et la retrancher du CFO serait un double-comptage (le cas dangereux : la collecte de dépôts
+ * d'une banque, classée en financement).
+ *
+ * Pourquoi ce second garde-fou en plus de la borne CFO : l'ordre du tableau restitué par
+ * Finnhub n'est fiable que sur les dépôts récents. Mesuré sur 10 377 dépôts en cache, le
+ * sous-total d'exploitation précède les deux autres dans 70 % des cas seulement — la casse est
+ * concentrée sur 2011-2019, où Finnhub range les sous-totaux dans un ordre arbitraire en fin de
+ * tableau. Aucun faux positif observé (les lignes de DÉTAIL, elles, restent avant les
+ * sous-totaux, et 0 dépôt déclencheur postérieur à 2019 est désordonné), mais on ne veut pas
+ * dépendre d'une propriété non garantie pour une correction qui divise un P/FCF par deux.
+ */
+const NON_OPERATING_SUBTOTAL_CONCEPTS: readonly string[] = [
+  'NetCashProvidedByUsedInInvestingActivities',
+  'NetCashProvidedByUsedInInvestingActivitiesContinuingOperations',
+  'NetCashProvidedByUsedInFinancingActivities',
+  'NetCashProvidedByUsedInFinancingActivitiesContinuingOperations',
+];
+
+/**
+ * Part du flottant TTM réellement retranchée d'un FCF qui sert de DÉNOMINATEUR DE MULTIPLE.
+ *
+ * L'ajustement corrige une SURÉVALUATION du CFO : de l'argent des clients est entré et a été
+ * compté comme du cash généré. Quand le flottant se VIDE, l'arithmétique symétrique voudrait
+ * qu'on réintègre la sortie — sauf que ça CRÉDITE la société d'un cash qu'elle n'a jamais
+ * gagné ni gardé, et que ça fabrique un titre optiquement bon marché au pire moment.
+ *
+ * Mesuré sur les données réelles : Schwab 2022, les clients retirent 28,2 Md$, le FCF
+ * symétrique passe de 1,1 à 29,3 Md$ (×27) ; Block 2024 ×2,2 ; Jefferies 2015 de −0,8 à
+ * +2,7 Md$. Un multiple calculé là-dessus aurait crié « opportunité » sur une fuite de dépôts.
+ *
+ * On plafonne donc à 0 : l'ajustement ne peut QUE rendre un titre plus cher, jamais moins.
+ * Sur une année de drain, le FCF reste celui du CFO déprimé (souvent ≤ 0 → P/FCF non
+ * calculable, la réponse honnête pour une activité de dépositaire).
+ *
+ * ⚠ Ne s'applique QU'AUX agrégats TTM, jamais à `computeFcfBrut` :
+ *   - `computeFcfBrut` travaille sur des valeurs CUMULÉES YTD ensuite décumulées ; plafonner
+ *     un cumul avant décumulation produirait des trimestres faux (un Q1 à −100 puis un YTD
+ *     Q2 à +50 donneraient un « Q2 » de 50 au lieu de 150).
+ *   - la série `fcf` absolue est un CONSTAT de ce qui est arrivé à la trésorerie ; c'est le
+ *     MULTIPLE, pas le graphe, qui n'a pas à se laisser flatter par un drain custodial.
+ */
+export function floatDeductedFromTtm(ttmCustomerFloat: number | null): number {
+  return Math.max(0, ttmCustomerFloat ?? 0);
+}
+
+/** Retire le préfixe de namespace XBRL (`us-gaap_Foo`, `meli:Foo` → `Foo`). */
+function bareConcept(concept: string): string {
+  const cut = concept.search(/[_:]/);
+  return cut === -1 ? concept : concept.slice(cut + 1);
+}
+
+/**
+ * Variation du flottant client sur la période, en signe XBRL naturel :
+ * POSITIF = le passif envers les clients a grossi = de la trésorerie est entrée sans
+ * appartenir à l'actionnaire (donc à retrancher du CFO).
+ *
+ * Renvoie 0 — et non null — quand le tableau de flux est lisible mais ne porte aucune
+ * ligne de flottant : c'est le cas de l'écrasante majorité des sociétés, et c'est une
+ * information VRAIE (« pas de flottant »), pas un trou de données. Ça évite aussi de
+ * déclencher le comble-trous EDGAR sur une série légitimement plate (EDGAR ne publie de
+ * toute façon pas les tags propres à l'émetteur, et ne dit pas dans quel bloc du tableau
+ * de flux une ligne se trouve — il ne peut donc pas arbitrer le point 1 ci-dessus).
+ *
+ * Renvoie null si la section `cf` est absente ou sans sous-total CFO identifiable : on ne
+ * sait alors pas délimiter le bloc opérationnel, et on préfère ne pas ajuster du tout.
+ *
+ * Exporté pour tests unitaires.
+ */
+export function extractCustomerFloat(filing: FinnhubFiling): number | null {
+  return sumOperatingConcepts(filing, CUSTOMER_FLOAT_CONCEPTS);
+}
+
+/**
+ * Somme des contreparties à l'ACTIF du flottant présentes dans le bloc opérationnel.
+ * 0 = aucune, donc le passif client est isolable et l'ajustement est fiable.
+ * ≠ 0 = les deux jambes se compensent dans le CFO, l'ajustement n'est PAS fiable.
+ * Voir CUSTOMER_FLOAT_OFFSET_CONCEPTS. Exporté pour tests unitaires.
+ */
+export function extractCustomerFloatOffset(filing: FinnhubFiling): number | null {
+  return sumOperatingConcepts(filing, CUSTOMER_FLOAT_OFFSET_CONCEPTS);
+}
+
+/**
+ * Somme des lignes dont le concept est dans `wanted`, restreinte au bloc D'EXPLOITATION.
+ * Renvoie null si ce bloc n'est pas délimitable (pas de section `cf`, pas de sous-total CFO,
+ * ou sous-total en première position) : on préfère ne rien ajuster à ajuster au hasard.
+ */
+function sumOperatingConcepts(filing: FinnhubFiling, wanted: readonly string[]): number | null {
+  const items = filing.report?.cf;
+  if (!items || items.length === 0) return null;
+  // Finnhub restitue les lignes dans l'ORDRE DU TABLEAU publié : tout ce qui précède le
+  // sous-total « Net cash provided by operating activities » est du flux d'exploitation.
+  const cfoIdx = items.findIndex(i => CFO_SUBTOTAL_CONCEPTS.includes(bareConcept(i.concept ?? '')));
+  if (cfoIdx <= 0) return null;
+  // Deuxième borne, plus basse si l'ordre des sous-totaux est cassé : on ne balaie jamais
+  // au-delà d'un sous-total investissement/financement (cf NON_OPERATING_SUBTOTAL_CONCEPTS).
+  const nonOpIdx = items.findIndex(i => NON_OPERATING_SUBTOTAL_CONCEPTS.includes(bareConcept(i.concept ?? '')));
+  const boundary = nonOpIdx > 0 && nonOpIdx < cfoIdx ? nonOpIdx : cfoIdx;
+  let total = 0;
+  for (const item of items.slice(0, boundary)) {
+    if (!wanted.includes(bareConcept(item.concept ?? ''))) continue;
+    if (typeof item.value === 'number' && Number.isFinite(item.value)) total += item.value;
+  }
+  return total;
+}
+
 /**
  * Formule pure du Free Cash Flow brut (avant ajustement SBC).
  *
- * FCF = CFO − |CapEx|
+ * FCF = CFO − |CapEx| − ΔFlottantClient
  *
  * ⚠ CRITIQUE : Finnhub renvoie les concepts `us-gaap_PaymentsToAcquirePropertyPlantAndEquipment`
  * en VALEUR ABSOLUE positive (= montant payé). Pas en signed cash flow négatif.
@@ -517,20 +731,34 @@ async function fetchReportedMerged(ticker: string, freq: Frequency): Promise<Fin
  * outflows → FCF doublé. AMZN passait de $7.7B réel à $271B factice. Tous les ratios
  * dérivés étaient gonflés. Test ci-dessous pour anti-regression.
  *
+ * `customerFloat` est en signe XBRL naturel (positif = passif client en hausse = cash
+ * entré qui n'est pas à l'actionnaire) → on le soustrait TEL QUEL, sans valeur absolue :
+ * un flottant qui se vide (négatif) est une vraie sortie de cash à réintégrer.
+ * Absent/null = 0, donc les 99 % de sociétés sans flottant gardent FCF = CFO − |CapEx|.
+ *
  * Exporté pour tests unitaires.
  */
-export function computeFcfBrut(cfo: number | null, capex: number | null): number | null {
+export function computeFcfBrut(
+  cfo: number | null,
+  capex: number | null,
+  customerFloat: number | null = null,
+): number | null {
   if (cfo == null) return null;
-  return cfo - Math.abs(capex ?? 0);
+  return cfo - Math.abs(capex ?? 0) - (customerFloat ?? 0);
 }
 
 /**
  * Formule pure du FCF ajusté SBC.
- * FCF_adj = CFO − |CapEx| − SBC
+ * FCF_adj = CFO − |CapEx| − ΔFlottantClient − SBC
  * (SBC est positif chez Finnhub, on soustrait pour annuler l'add-back non-cash dans CFO)
  */
-export function computeFcfAdj(cfo: number | null, capex: number | null, sbc: number | null): number | null {
-  const brut = computeFcfBrut(cfo, capex);
+export function computeFcfAdj(
+  cfo: number | null,
+  capex: number | null,
+  sbc: number | null,
+  customerFloat: number | null = null,
+): number | null {
+  const brut = computeFcfBrut(cfo, capex, customerFloat);
   if (brut == null) return null;
   return brut - (sbc ?? 0);
 }
@@ -626,10 +854,22 @@ export function computeExcessCash(
 }
 
 export function extractValue(filing: FinnhubFiling, cfg: MetricConfig): number | null {
+  if (cfg.concepts.includes('__computed_customerFloat__')) {
+    return extractCustomerFloat(filing);
+  }
+  if (cfg.concepts.includes('__computed_customerFloatOffset__')) {
+    return extractCustomerFloatOffset(filing);
+  }
   if (cfg.concepts.includes('__computed_fcf__')) {
     const cfo = extractFirst(filing, 'cf', METRICS.cfo!.concepts);
     const capex = extractFirst(filing, 'cf', METRICS.capex!.concepts);
-    return computeFcfBrut(cfo, capex);
+    // Flottant non isolable (contrepartie à l'actif dans le même bloc) → on ne retranche RIEN :
+    // retrancher le seul passif donnerait un FCF absurde sur le graphe (IBKR : −23 Md$ au lieu
+    // de +15,8 Md$). On sert alors le CFO − CapEx tel que publié, qui est au moins un constat
+    // vérifiable. C'est le MULTIPLE qui est refusé en aval, pas la lecture du tableau de flux.
+    const offset = extractCustomerFloatOffset(filing);
+    const float = offset != null && offset !== 0 ? null : extractCustomerFloat(filing);
+    return computeFcfBrut(cfo, capex, float);
   }
   if (cfg.concepts.includes('__computed_totalDebt__')) {
     return computeTotalDebt({
@@ -1131,7 +1371,7 @@ function discontinuityReason(gap: { missing: number; from: string; to: string })
 // re-soustraire. Critique pour les tickers tech (META, GOOGL, AMZN avec $20B/an+).
 
 export interface AdjustedFcfResult {
-  /** TTM CFO − SBC + CapEx du dernier trimestre dispo. Null si données insuffisantes. */
+  /** TTM CFO − |CapEx| − ΔFlottantClient − SBC. Null si données insuffisantes. */
   ttmFcfAdj: number | null;
   /** TTM CFO brut (pour debug + ratio SBC) */
   ttmCfo: number | null;
@@ -1141,8 +1381,26 @@ export interface AdjustedFcfResult {
   ttmCapex: number | null;
   /** Ratio SBC / FCF non ajusté — > 0.15 = alerte qualité FCF. Null si non calculable. */
   sbcShareOfFcf: number | null;
+  /**
+   * TTM de la variation du flottant client retranchée du CFO (cf CUSTOMER_FLOAT_CONCEPTS).
+   * 0 pour l'immense majorité des sociétés. Null si la série est indisponible.
+   */
+  ttmCustomerFloat: number | null;
+  /**
+   * Part du CFO qui n'était que de l'argent des clients. > 0,20 = le P/FCF publié avant
+   * correction était structurellement faux (cas MELI, courtiers). Null si non calculable.
+   */
+  floatShareOfCfo: number | null;
   /** Date du quarter le plus récent utilisé pour le TTM */
   asOf: string | null;
+  /**
+   * Renseigné quand le FCF est volontairement null malgré des données présentes : le cash
+   * d'exploitation est dominé par des mouvements de comptes clients dont les deux jambes
+   * (passif ET actif) transitent par l'exploitation. Aucun FCF actionnaire n'en est
+   * extractible. Le caller le propage en « Non calculable » plutôt que d'afficher un faux
+   * multiple. Cf CUSTOMER_FLOAT_OFFSET_CONCEPTS.
+   */
+  notMeaningfulReason?: string;
 }
 
 // ─── Capital Employé Bettin/Mauboussin (snapshot) ───────────────────────────
@@ -1314,14 +1572,31 @@ export async function computeCapitalEmployedSnapshot(ticker: string): Promise<Ca
 
 export async function computeAdjustedFcfTtm(ticker: string): Promise<AdjustedFcfResult> {
   const empty: AdjustedFcfResult = {
-    ttmFcfAdj: null, ttmCfo: null, ttmSbc: null, ttmCapex: null, sbcShareOfFcf: null, asOf: null,
+    ttmFcfAdj: null, ttmCfo: null, ttmSbc: null, ttmCapex: null, sbcShareOfFcf: null,
+    ttmCustomerFloat: null, floatShareOfCfo: null, asOf: null,
   };
-  const [cfoQ, capexQ, sbcQ] = await Promise.all([
+  const [cfoQ, capexQ, sbcQ, floatQ, offsetQ] = await Promise.all([
     getReportedTimeseries(ticker, 'cfo', 'quarterly', 2),
     getReportedTimeseries(ticker, 'capex', 'quarterly', 2),
     getReportedTimeseries(ticker, 'sbc', 'quarterly', 2),
+    getReportedTimeseries(ticker, 'customerFloat', 'quarterly', 2),
+    getReportedTimeseries(ticker, 'customerFloatOffset', 'quarterly', 2),
   ]);
   if (cfoQ.length < 4) return empty;
+
+  // Flottant NON ISOLABLE : les deux jambes (passif ET actif clients) transitent par
+  // l'exploitation, donc aucun FCF actionnaire n'en est extractible — courtiers, paris
+  // sportifs (cf CUSTOMER_FLOAT_OFFSET_CONCEPTS). On refuse de publier plutôt que de publier
+  // un faux multiple : sans ce garde-fou, retrancher le seul passif sortait IBKR à −25,6 Md$
+  // de FCF (sur-correction de 26 Md$) et Schwab à −6,4 Md$. Verdict porté sur TOUTE la
+  // fenêtre, pas trimestre par trimestre, pour qu'il soit stable dans le temps.
+  if (floatQ.some(p => p.value !== 0) && offsetQ.some(p => p.value !== 0)) {
+    console.log(`[fcf ${ticker}] flottant client NON isolable (dettes ET créances clients dans l'exploitation) → FCF non publié`);
+    return {
+      ...empty,
+      notMeaningfulReason: "Cash d'exploitation dominé par les mouvements de comptes clients (dettes ET créances clients y transitent) — aucun free cash flow actionnaire n'en est extractible",
+    };
+  }
 
   // Société sans AUCUNE ligne CapEx (ex: TPL, trust foncier/royalties — capex ≈ 0) → on
   // assume CapEx = 0 plutôt que d'échouer (le `?? 0` plus bas ne vaut 0 que si capexTtm est
@@ -1331,22 +1606,60 @@ export async function computeAdjustedFcfTtm(ticker: string): Promise<AdjustedFcf
   const cfoTtm = rollingTtmSum(cfoQ);
   const capexTtm = rollingTtmSum(capexQ);
   const sbcTtm = sbcQ.length >= 4 ? rollingTtmSum(sbcQ) : [];
+  const floatTtm = floatQ.length >= 4 ? rollingTtmSum(floatQ) : [];
 
   if (cfoTtm.length === 0) return empty;
+
+  // Société À FLOTTANT ? (au moins un trimestre non nul sur la fenêtre). Décide de la
+  // sévérité de l'alignement ci-dessous : pour les 99 % sans flottant, rien ne change.
+  const hasFloat = floatQ.some(p => p.value !== 0);
+
   // On prend le dernier TTM. Match par date (le plus récent commun à toutes les séries).
-  const lastCfo = cfoTtm[cfoTtm.length - 1]!;
+  //
+  // Exception pour une société à flottant : le comble-trous EDGAR peut avancer les séries
+  // cfo/capex d'un trimestre que Finnhub n'a pas encore publié — or EDGAR ne fournit JAMAIS
+  // le flottant (tag propre à l'émetteur chez MELI, et companyfacts ne dit pas dans quel bloc
+  // du tableau de flux une ligne se trouve). Sans garde-fou, le TTM le plus récent tomberait
+  // sur une date sans flottant, l'ajustement serait silencieusement abandonné et on
+  // republierait le P/FCF gonflé qu'on cherche justement à corriger. On RECULE donc l'ancre
+  // jusqu'au dernier trimestre réellement corrigeable : un FCF d'un trimestre plus vieux vaut
+  // mieux qu'un FCF faux de 2×.
+  const lastCfo = hasFloat
+    ? [...cfoTtm].reverse().find(c => floatTtm.some(f => f.date === c.date))
+    : cfoTtm[cfoTtm.length - 1];
+  if (!lastCfo) return empty;
+  if (hasFloat && lastCfo.date !== cfoTtm[cfoTtm.length - 1]!.date) {
+    console.log(`[fcf ${ticker}] flottant client absent au ${cfoTtm[cfoTtm.length - 1]!.date} (probable trimestre comblé par EDGAR) → TTM ancré au ${lastCfo.date}`);
+  }
   const capexAtDate = capexTtm.find(c => c.date === lastCfo.date) ?? capexTtm[capexTtm.length - 1];
   const sbcAtDate = sbcTtm.find(s => s.date === lastCfo.date) ?? sbcTtm[sbcTtm.length - 1];
+  // Flottant : on n'accepte QUE le TTM aligné sur la même date que le CFO. Pas de repli sur
+  // le dernier point connu comme pour capex/SBC — retrancher un flottant d'une autre période
+  // du CFO courant fabriquerait un FCF faux dans les deux sens.
+  const floatAtDate = floatTtm.find(f => f.date === lastCfo.date);
 
   const ttmCfo = lastCfo.value;
   const ttmCapex = capexAtDate?.value ?? 0;
   const ttmSbc = sbcAtDate?.value ?? null;
+  const ttmCustomerFloat = floatAtDate?.value ?? null;
+  // Plafonné à 0 : un flottant qui se vide ne crédite pas la société (cf floatDeductedFromTtm).
+  const floatDeducted = floatDeductedFromTtm(ttmCustomerFloat);
   // CapEx est en valeur absolue chez Finnhub (cf commentaire dans extractValue) → toujours soustraire.
-  const rawFcf = ttmCfo - Math.abs(ttmCapex);
+  const rawFcf = ttmCfo - Math.abs(ttmCapex) - floatDeducted;
   const ttmFcfAdj = ttmSbc != null ? rawFcf - ttmSbc : rawFcf; // si pas de SBC, FCF non ajusté
   const sbcShareOfFcf = (ttmSbc != null && rawFcf > 0) ? ttmSbc / rawFcf : null;
+  const floatShareOfCfo = (ttmCustomerFloat != null && ttmCfo > 0) ? ttmCustomerFloat / ttmCfo : null;
 
-  return { ttmFcfAdj, ttmCfo, ttmSbc, ttmCapex, sbcShareOfFcf, asOf: lastCfo.date };
+  if (floatDeducted > 0 && floatShareOfCfo != null) {
+    console.log(`[fcf ${ticker}] flottant client retranché : ${(floatDeducted / 1e9).toFixed(2)}B sur ${(ttmCfo / 1e9).toFixed(2)}B de CFO (${(floatShareOfCfo * 100).toFixed(0)}%) → FCF_adj ${(ttmFcfAdj / 1e9).toFixed(2)}B`);
+  } else if (ttmCustomerFloat != null && ttmCustomerFloat < 0) {
+    console.log(`[fcf ${ticker}] flottant client en BAISSE de ${(-ttmCustomerFloat / 1e9).toFixed(2)}B (retraits clients) — NON réintégré au FCF, on ne crédite pas un drain custodial`);
+  }
+
+  return {
+    ttmFcfAdj, ttmCfo, ttmSbc, ttmCapex, sbcShareOfFcf,
+    ttmCustomerFloat, floatShareOfCfo, asOf: lastCfo.date,
+  };
 }
 
 /**
@@ -1355,31 +1668,49 @@ export async function computeAdjustedFcfTtm(ticker: string): Promise<AdjustedFcf
  * de l'historique complet, pas juste du dernier.
  */
 export async function getAdjustedFcfTtmSeries(ticker: string, windowYears: number): Promise<TtmPoint[]> {
-  const [cfoQ, capexQ, sbcQ] = await Promise.all([
+  const [cfoQ, capexQ, sbcQ, floatQ, offsetQ] = await Promise.all([
     getReportedTimeseries(ticker, 'cfo', 'quarterly', windowYears + 1),
     getReportedTimeseries(ticker, 'capex', 'quarterly', windowYears + 1),
     getReportedTimeseries(ticker, 'sbc', 'quarterly', windowYears + 1),
+    getReportedTimeseries(ticker, 'customerFloat', 'quarterly', windowYears + 1),
+    getReportedTimeseries(ticker, 'customerFloatOffset', 'quarterly', windowYears + 1),
   ]);
   if (cfoQ.length < 4) return [];
+
+  // Flottant non isolable → série VIDE, comme dans computeAdjustedFcfTtm. Le graphe P/FCF, son
+  // percentile et les ratios dérivés n'ont alors aucune base honnête (cf le même garde-fou là-bas).
+  if (floatQ.some(p => p.value !== 0) && offsetQ.some(p => p.value !== 0)) return [];
 
   const cfoTtm = rollingTtmSum(cfoQ);
   const capexTtm = rollingTtmSum(capexQ);
   const sbcTtm = sbcQ.length >= 4 ? rollingTtmSum(sbcQ) : [];
+  const floatTtm = floatQ.length >= 4 ? rollingTtmSum(floatQ) : [];
   const capexByDate = new Map(capexTtm.map(p => [p.date, p.value]));
   const sbcByDate = new Map(sbcTtm.map(p => [p.date, p.value]));
+  const floatByDate = new Map(floatTtm.map(p => [p.date, p.value]));
 
   // Société sans AUCUNE ligne CapEx (ex: TPL, trust foncier/royalties) → CapEx = 0.
   // On NE fabrique PAS de 0 si la série existe mais a un trou ponctuel (risque de
   // surestimer le FCF d'une boîte capex-heavy) : dans ce cas on skip le quarter.
   const noCapexReported = capexQ.length === 0;
+  // Même raisonnement pour le flottant, mais l'asymétrie est inverse : « pas de ligne de
+  // flottant » est le cas NORMAL (extractCustomerFloat renvoie 0, pas null) donc 0 est
+  // légitime. En revanche, chez une société QUI a du flottant, un trimestre sans valeur
+  // (typiquement un trimestre comblé par EDGAR, qui ne porte jamais ce tag) donnerait un
+  // point 2× trop haut au milieu de la courbe P/FCF. On le skip.
+  const hasFloat = floatQ.some(p => p.value !== 0);
 
   const out: TtmPoint[] = [];
   for (const p of cfoTtm) {
     const capex = capexByDate.get(p.date);
     if (capex == null && !noCapexReported) continue;
+    const float = floatByDate.get(p.date);
+    if (float == null && hasFloat) continue;
     const sbc = sbcByDate.get(p.date) ?? 0; // si pas de SBC ce quarter, on assume 0 (boîte sans SBC)
-    // CapEx en valeur absolue chez Finnhub → toujours soustraire la magnitude.
-    out.push({ date: p.date, ts: p.ts, value: p.value - Math.abs(capex ?? 0) - sbc });
+    // CapEx en valeur absolue chez Finnhub → toujours soustraire la magnitude. Flottant plafonné
+    // à 0 comme dans computeAdjustedFcfTtm : cette série alimente le graphe P/FCF et son
+    // percentile, donc un trimestre de drain custodial ne doit pas y créer un faux point bas.
+    out.push({ date: p.date, ts: p.ts, value: p.value - Math.abs(capex ?? 0) - floatDeductedFromTtm(float ?? 0) - sbc });
   }
   return out;
 }

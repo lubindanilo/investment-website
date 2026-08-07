@@ -157,7 +157,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
     timed('fh rev regress',    computeRevenueGrowthFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
     timed('fh shares regress', computeSharesGrowthFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
     timed('fh opLev regress',  computeOperatingMarginTrendFromQuarterlies(ticker, 5)).catch(() => ({ value: null as number | null, reason: 'Erreur calcul' as string | undefined })),
-    timed('fh fcfAdj ttm',     computeAdjustedFcfTtm(ticker)).catch(() => ({ ttmFcfAdj: null as number | null, ttmCfo: null, ttmSbc: null, ttmCapex: null, sbcShareOfFcf: null, asOf: null } as AdjustedFcfResult)),
+    timed('fh fcfAdj ttm',     computeAdjustedFcfTtm(ticker)).catch(() => ({ ttmFcfAdj: null as number | null, ttmCfo: null, ttmSbc: null, ttmCapex: null, sbcShareOfFcf: null, ttmCustomerFloat: null, floatShareOfCfo: null, asOf: null } as AdjustedFcfResult)),
     timed('fh capEmp',         computeCapitalEmployedSnapshot(ticker)).catch(() => ({ totalAssets: null, currentLiabilities: null, currentAssets: null, goodwill: null, equity: null, totalDebt: null, totalCash: null, revenueTtm: null, netIncomeTtm: null, sharesLatest: null, excessCash: null, formulaUsed: null, capitalEmployed: null, asOf: null, reason: 'Erreur fetch capital employé' } as CapitalEmployedSnapshot)),
     timed('fh ccc',            computeCccSeries(ticker, 6)).catch(() => ({ points: [], current: null, slopeDaysPerYear: null, hasInventory: false, approximated: false, reason: 'Erreur calcul CCC' } as CccResult)),
   ] as const);
@@ -262,6 +262,8 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
         opMarginTrendReason: fhOpLev.reason,
         adjFcfTtm: fhFcfAdj.ttmFcfAdj,
         sbcShareOfFcf: fhFcfAdj.sbcShareOfFcf,
+        floatShareOfCfo: fhFcfAdj.floatShareOfCfo,
+        fcfNotMeaningfulReason: fhFcfAdj.notMeaningfulReason,
         capitalEmployed: fhCapEmp.capitalEmployed,
         capitalEmployedReason: fhCapEmp.reason,
         capitalEmployedFormula: fhCapEmp.formulaUsed,

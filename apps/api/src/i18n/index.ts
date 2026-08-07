@@ -64,6 +64,7 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'fcfMargin.target': '> 10 % du chiffre d\'affaires',
     'fcfMargin.solid': 'Solide marge de cash généré',
     'fcfMargin.weak': 'Marge de cash généré insuffisante',
+    'fcfMargin.note.customerFloat': ' (hors argent des clients logé dans le cash d\'exploitation, voir ⓘ)',
     // operatingLeverage
     'operatingLeverage.name': 'Marges en expansion',
     'operatingLeverage.target': 'Marge qui s\'élargit sur 5 ans',
@@ -143,6 +144,7 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'fcfMargin.target': '> 10 % of revenue',
     'fcfMargin.solid': 'Solid cash margin',
     'fcfMargin.weak': 'Weak cash margin',
+    'fcfMargin.note.customerFloat': ' (excludes customer money sitting in operating cash flow, see ⓘ)',
     'operatingLeverage.name': 'Expanding margins',
     'operatingLeverage.target': 'Margin widening over 5 years',
     'operatingLeverage.expansionVal': '✓ Expansion',
@@ -215,6 +217,7 @@ const CATALOG: Record<Lang, Record<string, string>> = {
     'fcfMargin.target': '> 10 % de los ingresos',
     'fcfMargin.solid': 'Margen de efectivo sólido',
     'fcfMargin.weak': 'Margen de efectivo débil',
+    'fcfMargin.note.customerFloat': ' (excluye el dinero de los clientes alojado en el flujo de explotación, ver ⓘ)',
     'operatingLeverage.name': 'Márgenes en expansión',
     'operatingLeverage.target': 'Margen que se amplía sobre 5 años',
     'operatingLeverage.expansionVal': '✓ Expansión',
