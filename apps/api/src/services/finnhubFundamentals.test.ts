@@ -7,7 +7,7 @@
  * formule reste correcte si quelqu'un refactor un jour.
  */
 import { describe, it, expect } from 'vitest';
-import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, extractCustomerFloat, extractCustomerFloatOffset, floatDeductedFromTtm, maxTtmGapMs, OPERATING_CASH_PCT_OF_REVENUE, type FinnhubFiling } from './finnhubFundamentals.js';
+import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, extractCustomerFloat, extractCustomerFloatOffset, floatDeductedFromTtm, maxTtmGapMs, OPERATING_CASH_PCT_OF_REVENUE, resolveSbc, extractValue, METRICS, type FinnhubFiling } from './finnhubFundamentals.js';
 
 const DAY = 86_400_000;
 /** Série de dates espacées de `stepDays`, valeur indifférente (seules les dates comptent). */
@@ -286,6 +286,121 @@ describe('floatDeductedFromTtm (un drain custodial ne crédite pas la société)
     for (const flot of [-50_000e6, -1e6, 0, 1e6, 50_000e6]) {
       expect(fcfBrut - floatDeductedFromTtm(flot)).toBeLessThanOrEqual(fcfBrut);
     }
+  });
+});
+
+/**
+ * SBC : arbitrage entre tags XBRL concurrents.
+ *
+ * Pourquoi ces tests existent : `computeAdjustedFcfTtm` renvoyait ttmSbc = 0 pour tous les
+ * émetteurs qui ont migré leur libellé XBRL (MELI tague son LTRP sous
+ * `us-gaap_StockOptionPlanExpense`, 303 M$ en 2025 ; idem Southern Co, HEICO, Chevron,
+ * Robert Half, CTS, Progressive) → le « FCF ajusté SBC » ne déduisait strictement rien.
+ * Élargir la liste de concepts n'est sûr que si l'arbitrage reste explicite : un tag étroit
+ * ne doit jamais évincer un tag total, et deux tags ne doivent JAMAIS être additionnés
+ * (MELI loge son total sous un libellé étroit — additionner double-compterait).
+ *
+ * Chiffres de référence : sondage 40 titres / 1901 filings Finnhub + census frames SEC
+ * CY2022-CY2024, rejoués le 2026-08-07.
+ */
+describe('resolveSbc (arbitrage entre tags SBC concurrents)', () => {
+  it('renvoie null quand aucun tag n’est renseigné', () => {
+    expect(resolveSbc([null, null, null], [null, null])).toBeNull();
+  });
+
+  it('préfère toujours un tag TOTAL, même minuscule face à une brique énorme', () => {
+    // Garde-fou anti-inversion : la brique ne doit pas gagner par sa taille.
+    expect(resolveSbc([1_000_000], [43_000_000, null])).toBe(1_000_000);
+  });
+
+  it('respecte l’ordre des tags totaux (ShareBasedCompensation avant Allocated…)', () => {
+    // GOOGL 2025 : ShareBasedCompensation 24,95 Md$ vs Allocated 27,1 Md$ → on prend le premier.
+    expect(resolveSbc([24_953_000_000, null, 27_100_000_000], [])).toBe(24_953_000_000);
+  });
+
+  it('ignore les tags totaux à 0 seulement s’ils sont absents, pas s’ils valent 0', () => {
+    // 0 est une VALEUR (boîte sans SBC ce trimestre), pas une absence.
+    expect(resolveSbc([0, null, 5_000_000], [7_000_000])).toBe(0);
+  });
+
+  it('retombe sur la brique quand aucun tag total n’existe (cas MELI)', () => {
+    // MELI 2025 : LTRP sous StockOptionPlanExpense uniquement.
+    expect(resolveSbc([null, null, null], [303_000_000, null])).toBe(303_000_000);
+  });
+
+  it('prend la PLUS GRANDE brique, pas la première (cas RHI 2010, écart ×250)', () => {
+    // options 0,17 M$ vs actions gratuites 43 M$ : un ordre fixe se tromperait d’un ordre
+    // de grandeur. Ici la première brique de la liste est la petite.
+    expect(resolveSbc([null], [170_000, 43_043_000])).toBe(43_043_000);
+  });
+
+  it('prend la plus grande brique dans l’autre sens aussi (cas MELI 2022)', () => {
+    // Même configuration, gagnant inverse : 59 M$ d’options vs 1 M$ d’actions gratuites.
+    expect(resolveSbc([null], [59_000_000, 1_000_000])).toBe(59_000_000);
+  });
+
+  it('n’ADDITIONNE jamais deux briques (le double-comptage est le risque principal)', () => {
+    const r = resolveSbc([null], [59_000_000, 1_000_000]);
+    expect(r).not.toBe(60_000_000);
+    expect(r).toBe(59_000_000);
+  });
+});
+
+describe('extractValue / sbc (lecture d’un filing Finnhub réel)', () => {
+  const cfg = METRICS.sbc!;
+  const filing = (cf: { concept: string; value: number }[]) => ({
+    year: 2025, quarter: 3, startDate: '2025-01-01', endDate: '2025-09-30', form: '10-Q',
+    report: { cf },
+  });
+
+  it('lit le LTRP de MELI, que l’ancienne liste de concepts manquait (0 → 252 M$)', () => {
+    // Payload réel MELI 2025 Q3, section cf, libellé « Long term retention program (LTRP) ».
+    const meli = filing([
+      { concept: 'us-gaap_NetCashProvidedByUsedInOperatingActivities', value: 7_000_000_000 },
+      { concept: 'us-gaap_StockOptionPlanExpense', value: 252_000_000 },
+      { concept: 'us-gaap_PaymentsForRepurchaseOfCommonStock', value: 1_000_000 },
+    ]);
+    expect(extractValue(meli, cfg)).toBe(252_000_000);
+  });
+
+  it('ne change RIEN pour les émetteurs déjà couverts (non-régression META)', () => {
+    // META publie ShareBasedCompensation ET Allocated… avec la même valeur : le premier gagne.
+    const meta = filing([
+      { concept: 'us-gaap_ShareBasedCompensation', value: 20_427_000_000 },
+      { concept: 'us-gaap_AllocatedShareBasedCompensationExpense', value: 20_427_000_000 },
+    ]);
+    expect(extractValue(meta, cfg)).toBe(20_427_000_000);
+  });
+
+  it('garde le tag total quand une brique à 0 coexiste (cas NVDA 2011)', () => {
+    // Le piège inverse : une brique renseignée à 0 ne doit pas écraser le total.
+    const nvda = filing([
+      { concept: 'us-gaap_ShareBasedCompensation', value: 74_985_000 },
+      { concept: 'us-gaap_StockOptionPlanExpense', value: 0 },
+    ]);
+    expect(extractValue(nvda, cfg)).toBe(74_985_000);
+  });
+
+  it('départage deux briques coexistantes par la plus grande (cas RHI 2010)', () => {
+    const rhi = filing([
+      { concept: 'us-gaap_StockOptionPlanExpense', value: 170_000 },
+      { concept: 'us-gaap_RestrictedStockExpense', value: 43_043_000 },
+    ]);
+    expect(extractValue(rhi, cfg)).toBe(43_043_000);
+  });
+
+  it('renvoie null quand le filing ne porte aucun tag SBC (vraie absence, pas 0)', () => {
+    // Distinction qui compte en aval : null laisse computeFcfAdj renvoyer le FCF brut.
+    const sansSbc = filing([{ concept: 'us-gaap_NetCashProvidedByUsedInOperatingActivities', value: 500_000 }]);
+    expect(extractValue(sansSbc, cfg)).toBeNull();
+  });
+
+  it('ne lit pas la SBC hors du tableau de flux (section cf uniquement)', () => {
+    const icOnly = {
+      year: 2025, quarter: 3, startDate: '2025-01-01', endDate: '2025-09-30', form: '10-Q',
+      report: { ic: [{ concept: 'us-gaap_ShareBasedCompensation', value: 999 }] },
+    };
+    expect(extractValue(icOnly, cfg)).toBeNull();
   });
 });
 
