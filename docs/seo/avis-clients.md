@@ -1,7 +1,10 @@
 # Avis clients : demander, encaisser, répondre
 
-Application opérationnelle du §5.4 du [PLAN.md](PLAN.md). Trois artefacts : les messages de
-demande, les archétypes d'avis à anticiper, les réponses prêtes.
+Application opérationnelle du §5.4 du [PLAN.md](PLAN.md).
+
+**Commence par la [partie 3](#partie-3--quels-avis-valent-quelque-chose-en-seo).** C'est elle qui
+détermine le plan de demandes : elle classe les avis par valeur SEO réelle et donne, pour chacun,
+la question qui le provoque. Les messages de la partie 1 ne sont que le véhicule.
 
 ## Les règles qui ne se négocient pas
 
@@ -249,6 +252,189 @@ vite.
 > [Prénom], désolé pour ça. Je règle le cas immédiatement : écris-moi à [adresse] avec l'e-mail du
 > compte et je m'en occupe aujourd'hui. La résiliation se fait en autonomie depuis [endroit], et si
 > ça n'a pas fonctionné c'est un bug de mon côté, pas une manœuvre. Lubin
+
+---
+
+## Partie 3 : quels avis valent quelque chose en SEO
+
+**Le texte d'un avis ne se commande pas, la question qui le provoque, si.** C'est tout l'objet de
+cette partie. Les modèles ci-dessous ne sont pas à publier : Trustpilot détecte les avis rédigés par
+la marque, et de toute façon un avis fabriqué est générique, donc sans valeur SEO. Ce qui a de la
+valeur, c'est la colonne « question qui le provoque ».
+
+### Les 6 ingrédients qui font la valeur SEO d'un avis
+
+| # | Ingrédient | Ce que ça te rapporte |
+|---|---|---|
+| 1 | **Nommer l'outil quitté** | Te fait apparaître sur « alternative à [X] » et « [X] vs », requêtes à intention d'achat maximale |
+| 2 | **Vocabulaire de sous-requête** (avis, vs, alternative, meilleur ... pour ...) | Le corpus dit de le mettre dans tes titres. Un avis tiers le place sur un domaine à forte autorité, ce que tu ne peux pas faire toi-même |
+| 3 | **Cas d'usage nommé** aligné sur tes archétypes (PEA, small caps européennes, résilience) | Rattache la marque à l'intention que tu vises, côté Google et côté modèles |
+| 4 | **Spécificité vécue** (chiffres, tickers, durée) | Le corpus mesure que le vécu spécifique dépasse le générique |
+| 5 | **Une question à l'auteur** | Crée un fil. Ta réponse est du contenu que **tu** contrôles, sur un domaine qui n'est pas le tien |
+| 6 | **Marque en toutes lettres** | « Lubin Investment », pas « ce site ». C'est ce qui nourrit le volume de recherche de marque du §9 |
+
+**Le contre-intuitif à retenir :** l'avis 5 étoiles enthousiaste est souvent le plus pauvre en SEO,
+et le 4 étoiles circonstancié le plus riche. Optimiser la note moyenne et optimiser le SEO sont deux
+objectifs différents. Si tu ne demandes que des 5 étoiles, tu récoltes du vide.
+
+---
+
+### Rendement maximal : les migrations
+
+#### Modèle 1 · Note ⭐⭐⭐⭐⭐ · Valeur SEO 🟢🟢🟢🟢🟢
+
+> **J'ai arrêté [outil payant concurrent] au bout de deux ans**
+>
+> Je payais [outil] 30 € par mois pour screener des actions européennes. Je suis passé sur Lubin
+> Investment surtout parce que la note de qualité et la valorisation sont affichées ensemble, alors
+> qu'avant je reconstruisais le croisement à la main dans un tableur. Concrètement je filtre les
+> valeurs éligibles au PEA avec une note supérieure à 7 et un P/FCF sous la médiane du secteur, ce
+> qui me sort une vingtaine de noms par mois que je n'aurais pas creusés seul. Sur trois d'entre
+> eux j'ai ouvert une ligne.
+>
+> Une question pour Lubin : est-ce que tu prévois d'étendre la couverture aux small caps allemandes
+> du Scale ? C'est mon seul angle mort aujourd'hui.
+
+**Ingrédients présents :** 1, 2, 3, 4, 5, 6. Le maximum.
+**Ta réponse :**
+> Merci [Prénom]. Le croisement qualité et valorisation en une seule vue est effectivement ce pour
+> quoi le screener existe, et savoir qu'il remplace un tableur me va très bien. Sur le Scale
+> allemand : la couverture européenne s'étend par bourse et Francfort est déjà là pour le Prime
+> Standard, le segment Scale demande une source de fondamentaux différente. Je ne promets pas de
+> date. Écris-moi les tickers qui te manquent, ça pèse sur l'ordre de priorité. Lubin
+
+**La question qui le provoque :** « Tu utilisais quoi avant, et qu'est-ce qui t'a fait changer ? »
+
+#### Modèle 2 · Note ⭐⭐⭐⭐ · Valeur SEO 🟢🟢🟢🟢🟢
+
+> **Bonne alternative gratuite à [outil], avec des limites**
+>
+> Je cherchais une alternative à [outil] sans payer 40 € par mois. Lubin Investment couvre la
+> plupart de ce dont j'ai besoin en gratuit : la note sur 10 critères, le P/FCF historique et le
+> percentile de valorisation. Ce qui manque par rapport à [outil], c'est l'export et les alertes
+> par e-mail. Pour un investisseur qui suit une dizaine de lignes, le compromis est très bon.
+>
+> Lubin, est-ce que l'export CSV est prévu un jour, ou c'est un choix assumé de ne pas le faire ?
+
+**Ingrédients :** 1, 2, 3, 5, 6. Le 4 étoiles vaut ici plus que beaucoup de 5.
+**Ta réponse :**
+> Merci [Prénom], et la comparaison est juste, y compris sur ce qui manque. L'export n'est pas un
+> refus de principe, c'est une question de priorité : il passe après l'élargissement de la
+> couverture, qui bénéficie à tout le monde. Les alertes, en revanche, sont un vrai sujet et je les
+> regarde. Lubin
+
+**La question qui le provoque :** « À quoi tu compares Lubin Investment, et qu'est-ce qui manque
+encore par rapport à ça ? »
+
+---
+
+### Bon rendement : le cas d'usage nommé
+
+#### Modèle 3 · Note ⭐⭐⭐⭐⭐ · Valeur SEO 🟢🟢🟢🟢
+
+> **Enfin un screener qui pense PEA**
+>
+> La plupart des outils sont pensés pour le marché américain et le PEA est un angle mort. Ici je
+> peux filtrer directement sur les valeurs éligibles, croiser avec la note de qualité et sortir une
+> liste d'actions européennes sous-évaluées en deux minutes. J'ai découvert [secteur] comme ça,
+> alors que je n'y serais jamais allé de moi-même.
+
+**Ingrédients :** 2, 3, 4, 6. Il manque la comparaison et la question, d'où le 🟢×4.
+**La question qui le provoque :** « Pour quel type de recherche tu t'en sers, concrètement ? »
+
+#### Modèle 4 · Note ⭐⭐⭐⭐⭐ · Valeur SEO 🟢🟢🟢🟢
+
+> **Le connecteur MCP dans Claude est le vrai différenciateur**
+>
+> J'utilise Lubin Investment presque uniquement via le connecteur MCP dans Claude. Je demande
+> « sors-moi les actions européennes notées au-dessus de 8 avec un P/FCF dans le premier quartile
+> historique » et j'ai la réponse, sourcée, sans ouvrir le site. Je ne connais aucun autre outil
+> d'analyse fondamentale qui expose ses données comme ça.
+>
+> Question : est-ce que le connecteur donne accès aux mêmes données que l'abonnement, ou c'est un
+> sous-ensemble ?
+
+**Ingrédients :** 2, 3, 4, 5, 6. Vocabulaire de niche très peu concurrentiel, et exactement ce que
+les modèles citent quand on leur demande un outil branchable.
+**La question qui le provoque :** « Qu'est-ce que tu fais avec le connecteur que tu ne faisais pas
+avant ? »
+
+---
+
+### Rendement moyen : le reproche circonstancié
+
+#### Modèle 5 · Note ⭐⭐⭐ · Valeur SEO 🟢🟢🟢
+
+> **Très bon fond, méthodologie trop opaque au début**
+>
+> L'outil est sérieux et les données tiennent la route. Mon reproche : j'ai mis trois semaines à
+> comprendre ce qu'il y avait derrière la note sur 10. Une fois qu'on a lu le détail des critères
+> c'est limpide, mais rien ne pousse à aller le lire.
+>
+> Lubin, pourquoi ne pas mettre le détail des 10 critères directement au survol de la note ?
+
+**Pourquoi ça vaut quand même 🟢🟢🟢 :** ta réponse peut placer toute la méthodologie, avec un lien.
+Un avis critique bien traité convertit mieux qu'un dithyrambe, et le corpus mesure que répondre aux
+avis moyens construit plus de confiance que répondre aux bons.
+**La question qui le provoque :** « Qu'est-ce qui t'a pris le plus de temps à comprendre ? »
+
+#### Modèle 6 · Note ⭐⭐ · Valeur SEO 🟢🟢
+
+> **Une donnée fausse sur [ticker]**
+>
+> La capitalisation affichée sur [ticker] était fausse d'un facteur 1000, ce qui faussait tout le
+> ratio. Signalé par mail, corrigé en 24 h, mais ça fait réfléchir sur le reste.
+
+**La valeur n'est pas dans l'avis, elle est dans ta réponse.** Reconnaître, dater, dire ce que tu as
+vérifié en plus autour. C'est le seul avis qui peut faire remonter la confiance plus haut qu'un 5
+étoiles. Voir l'archétype 7 de la partie 2.
+**Ne le provoque pas.** Il viendra tout seul.
+
+---
+
+### Rendement nul, à ne pas chercher
+
+#### Modèle 7 · Note ⭐⭐⭐⭐⭐ · Valeur SEO ⚪
+
+> **Super outil, je recommande !**
+>
+> Site très bien fait, je recommande à tous les investisseurs. Merci !
+
+Aucun ingrédient. Ni marque nommée, ni cas d'usage, ni comparaison, ni question. Monte la note
+moyenne, n'apporte rien en référencement et rien en conversion. C'est ce que produit une demande
+formulée « est-ce que tu peux me laisser un avis ? ».
+
+#### Modèle 8 · Note ⭐ · Valeur SEO 🔴
+
+> **J'ai perdu de l'argent en suivant ce site**
+
+Valeur négative, et le seul risque réel du dispositif. Traité par l'archétype 9 de la partie 2, avec
+une réponse qui ne promet jamais rien sur un cours. Prévention : ne sollicite jamais quelqu'un juste
+après une baisse marquée sur une valeur qu'il suit.
+
+---
+
+### Le plan de demandes qui en découle
+
+Tu ne peux pas dicter un avis, mais tu choisis **à qui** tu demandes et **quelle question** tu poses.
+C'est là que se joue la valeur SEO.
+
+| Question posée | Avis obtenu | Valeur | À qui la poser |
+|---|---|---|---|
+| « Tu utilisais quoi avant, et pourquoi tu as changé ? » | Modèle 1 | 🟢🟢🟢🟢🟢 | Abonnés venus d'un outil payant (messages 4 à 7) |
+| « À quoi tu compares, et qu'est-ce qui manque ? » | Modèle 2 | 🟢🟢🟢🟢🟢 | Gratuits actifs (messages 8 à 10) |
+| « Qu'est-ce que tu fais avec le connecteur ? » | Modèle 4 | 🟢🟢🟢🟢 | Utilisateurs MCP (messages 1 à 3) |
+| « Pour quel type de recherche tu t'en sers ? » | Modèle 3 | 🟢🟢🟢🟢 | Tout le monde, question par défaut |
+| « Qu'est-ce qui t'a pris le plus de temps à comprendre ? » | Modèle 5 | 🟢🟢🟢 | Bêta-testeurs, utilisateurs qui ont posé une question |
+| « Tu peux me laisser un avis ? » | Modèle 7 | ⚪ | Personne. C'est la formulation à bannir |
+
+**Conséquence pratique sur les 15 messages de la partie 1 :** chacun doit se terminer par une de ces
+questions, pas par « laisse un avis ». La question fait la différence entre un 5 étoiles vide et un
+4 étoiles qui te positionne sur « alternative à [concurrent] ».
+
+**Cible de répartition sur les 10 premiers avis :** 3 migrations, 3 cas d'usage nommés, 2 connecteur
+MCP, 2 reproches circonstanciés. Ça donne mécaniquement une moyenne autour de 4,6 à 4,8, ce qui est
+la zone visée, et une couverture de vocabulaire bien plus large qu'une série de 5 étoiles.
 
 ---
 
