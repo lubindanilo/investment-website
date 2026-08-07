@@ -267,6 +267,13 @@ export interface DerivedMetrics {
   /** Part du SBC sur le FCF — alerte si > 0.15 */
   sbcShareOfFcf: number | null;
   /**
+   * Part du cash d'exploitation qui n'était que de l'ARGENT DES CLIENTS (soldes de
+   * portefeuille, cash des comptes-titres) et qui a été retranchée du FCF. 0 pour
+   * l'immense majorité des sociétés ; ~0,45 chez MercadoLibre, > 1 chez les courtiers.
+   * Null si non calculable (source non-US notamment).
+   */
+  floatShareOfCfo: number | null;
+  /**
    * Raisons spécifiques pour les ratios qui sont null. Permet au front d'afficher
    * "Non calculable" + un message précis (ex: "FCF négatif sur le dernier exercice")
    * plutôt qu'un vague "N/A" — principe d'honnêteté radicale, pas de fallback caché.

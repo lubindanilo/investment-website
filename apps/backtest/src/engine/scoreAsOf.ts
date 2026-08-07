@@ -179,7 +179,7 @@ async function annualTtmFallback(ticker: string): Promise<{ adjFcfTtm: number | 
   return { adjFcfTtm, revenueTtm: last(rev), netIncomeTtm: last(ni) };
 }
 
-const EMPTY_FCF_ADJ: AdjustedFcfResult = { ttmFcfAdj: null, ttmCfo: null, ttmSbc: null, ttmCapex: null, sbcShareOfFcf: null, asOf: null };
+const EMPTY_FCF_ADJ: AdjustedFcfResult = { ttmFcfAdj: null, ttmCfo: null, ttmSbc: null, ttmCapex: null, sbcShareOfFcf: null, ttmCustomerFloat: null, floatShareOfCfo: null, asOf: null };
 const EMPTY_CAP_EMP: CapitalEmployedSnapshot = {
   totalAssets: null, currentLiabilities: null, currentAssets: null, goodwill: null, equity: null,
   totalDebt: null, totalCash: null, revenueTtm: null, netIncomeTtm: null, sharesLatest: null,
@@ -239,6 +239,8 @@ async function scoreAsOfCore(ticker: string, asOf: string, prices: PricePoint[],
       opMarginTrend: fhOpLev.value ?? annual.opMarginTrend,
       adjFcfTtm,
       sbcShareOfFcf: fhFcfAdj.sbcShareOfFcf,
+      floatShareOfCfo: fhFcfAdj.floatShareOfCfo,
+      fcfNotMeaningfulReason: fhFcfAdj.notMeaningfulReason,
       capitalEmployed: fhCapEmp.capitalEmployed,
       capitalEmployedReason: fhCapEmp.reason,
       capitalEmployedFormula: fhCapEmp.formulaUsed,

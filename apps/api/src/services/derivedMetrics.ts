@@ -44,6 +44,15 @@ export function computeDerivedMetrics(input: {
   adjFcfTtm?: number | null;
   /** SBC / FCF brut sur TTM (alerte qualité FCF si > 0.15) */
   sbcShareOfFcf?: number | null;
+  /** Part du CFO qui n'était que de l'argent des clients, retranchée du FCF (cf FLOAT_NOTE_MIN). */
+  floatShareOfCfo?: number | null;
+  /**
+   * Renseigné quand le FCF est volontairement absent parce que le cash d'exploitation est
+   * dominé par des mouvements de comptes clients (courtiers, paris sportifs). On l'affiche
+   * TEL QUEL sur tous les ratios dérivés du FCF : mieux vaut « non calculable » expliqué
+   * qu'un multiple faux. Cf AdjustedFcfResult.notMeaningfulReason.
+   */
+  fcfNotMeaningfulReason?: string;
   /**
    * Capital employé Bettin/Mauboussin = Total Assets − Current Liabilities − Goodwill − Excess Cash.
    * Snapshot du dernier quarter. Utilisé comme dénominateur du Cash ROCE.
@@ -317,21 +326,21 @@ export function computeDerivedMetrics(input: {
   if (revenueCagr == null) reasons.revenueCagr = degenReasons.revenueCagr ?? 'Historique insuffisant pour estimer la croissance du chiffre d\'affaires';
   if (shareCagr == null) reasons.shareCagr = 'Historique insuffisant pour estimer l\'évolution du nombre d\'actions';
   if (netMargin == null) reasons.netMargin = degenReasons.netMargin ?? 'Marge nette indisponible';
-  if (fcfMargin == null) reasons.fcfMargin = degenReasons.fcfMargin ?? 'Marge de free cash flow indisponible';
+  if (fcfMargin == null) reasons.fcfMargin = input.fcfNotMeaningfulReason ?? degenReasons.fcfMargin ?? 'Marge de free cash flow indisponible';
   // notCalculableReasons.cashROCE est exposé dans 2 cas :
   //  - ROCE non calculable (donnée manquante / CE négatif) → la raison explique pourquoi
   //  - ROCE calculé mais via un fallback (ultra-cash-rich, financial) → la raison explique
   //    quelle variante de formule a été appliquée. La carte UI peut ainsi afficher
   //    transparemment le fallback (principe "pas de fallback caché").
   if (cashROCE == null) {
-    reasons.cashROCE = cashROCEReason ?? 'ROCE non calculable (FCF ou capital employé manquant)';
+    reasons.cashROCE = cashROCEReason ?? input.fcfNotMeaningfulReason ?? 'ROCE non calculable (FCF ou capital employé manquant)';
   } else if (cashROCEReason) {
     reasons.cashROCE = cashROCEReason;
   }
-  if (netDebtFcf == null) reasons.netDebtFcf = 'Dette nette / FCF indisponible';
-  if (ccr == null) reasons.ccr = 'Taux de conversion du cash indisponible';
+  if (netDebtFcf == null) reasons.netDebtFcf = input.fcfNotMeaningfulReason ?? 'Dette nette / FCF indisponible';
+  if (ccr == null) reasons.ccr = input.fcfNotMeaningfulReason ?? 'Taux de conversion du cash indisponible';
   if (operatingLeverage == null) reasons.operatingLeverage = 'Historique insuffisant pour estimer la tendance des marges';
-  if (pfcfTTM == null) reasons.pfcfTTM = 'P/FCF indisponible';
+  if (pfcfTTM == null) reasons.pfcfTTM = input.fcfNotMeaningfulReason ?? 'P/FCF indisponible';
   if (currentRatio == null) reasons.nwcCurrentRatio = 'Ratio de liquidité indisponible';
   if (input.cccCurrent == null) reasons.ccc = input.cccReason ?? 'Cycle de conversion du cash indisponible (créances, stocks ou COGS manquants)';
 
@@ -360,6 +369,7 @@ export function computeDerivedMetrics(input: {
     price,
     // SBC / FCF brut — utile pour afficher un warning UI si > 15%
     sbcShareOfFcf: input.sbcShareOfFcf ?? null,
+    floatShareOfCfo: input.floatShareOfCfo ?? null,
     notCalculableReasons: Object.keys(reasons).length > 0 ? reasons : undefined,
   };
 }
@@ -375,6 +385,13 @@ function fmtRaw(v: number | null, digits = 2): string {
 
 /** Valeur "non calculable" par défaut (français) — pour pfcf/valuation non affichés en UI. */
 const NOT_CALC = 'Non calculable';
+
+/**
+ * Seuil à partir duquel on signale au lecteur que du flottant client a été retranché du
+ * cash d'exploitation. 5 % : en dessous, la mention est du bruit ; au-dessus, l'écart avec
+ * le CFO publié devient visible à l'œil nu pour qui refait le calcul.
+ */
+const FLOAT_NOTE_MIN = 0.05;
 
 /**
  * Raison spécifique de non-calcul si dispo (FCF négatif, données manquantes…), sinon fallback.
@@ -443,16 +460,23 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
         explication: base,
       } as const;
     })(),
-    {
-      key: 'fcfMargin',
-      nom: tt(lang, 'fcfMargin.name'),
-      valeur: m.fcfMargin == null ? NOT_CALC : fmtPct(m.fcfMargin),
-      cible: tt(lang, 'fcfMargin.target'),
-      statut: m.fcfMargin == null ? 'warn' : m.fcfMargin > 0.10 ? 'pass' : m.fcfMargin > 0.05 ? 'warn' : 'fail',
-      explication: m.fcfMargin == null
-        ? reasonOr(m, 'fcfMargin', unavailable, lang)
-        : m.fcfMargin > 0.10 ? tt(lang, 'fcfMargin.solid') : tt(lang, 'fcfMargin.weak'),
-    },
+    (() => {
+      // Mention discrète quand une part notable du cash d'exploitation était de l'argent
+      // des clients : sans elle, un lecteur qui recalcule le ratio depuis le CFO publié
+      // trouverait un tout autre chiffre et croirait à une erreur de notre part.
+      const floatNote = (m.floatShareOfCfo != null && Math.abs(m.floatShareOfCfo) > FLOAT_NOTE_MIN)
+        ? tt(lang, 'fcfMargin.note.customerFloat') : '';
+      return {
+        key: 'fcfMargin',
+        nom: tt(lang, 'fcfMargin.name'),
+        valeur: m.fcfMargin == null ? NOT_CALC : fmtPct(m.fcfMargin),
+        cible: tt(lang, 'fcfMargin.target'),
+        statut: m.fcfMargin == null ? 'warn' : m.fcfMargin > 0.10 ? 'pass' : m.fcfMargin > 0.05 ? 'warn' : 'fail',
+        explication: m.fcfMargin == null
+          ? reasonOr(m, 'fcfMargin', unavailable, lang)
+          : (m.fcfMargin > 0.10 ? tt(lang, 'fcfMargin.solid') : tt(lang, 'fcfMargin.weak')) + floatNote,
+      } as const;
+    })(),
     {
       key: 'operatingLeverage',
       nom: tt(lang, 'operatingLeverage.name'),
