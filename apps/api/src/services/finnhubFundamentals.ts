@@ -169,14 +169,18 @@ export const METRICS: Record<string, MetricConfig> = {
    * non-cash (les boîtes l'ajoutent au CFO). On le soustrait pour calculer le "FCF
    * ajusté SBC" qui reflète la vraie création de valeur économique (la SBC est une
    * dilution réelle même si elle ne passe pas par le cash).
+   *
+   * Métrique COMPOSÉE (cf __computed_sbc__ dans extractValue et le miroir dans
+   * secEdgar.getEdgarQuarterlySeries) : la priorité entre tags doit être EXPLICITE,
+   * parce que les deux pipelines ne départagent pas une liste de concepts de la même
+   * façon (Finnhub : premier match gagne ; EDGAR : union des concepts, dernier écrit
+   * gagne). Une simple liste donnait donc deux réponses différentes pour le même
+   * trimestre, et pire, l'union EDGAR pouvait mélanger deux tags dans une même chaîne
+   * YTD (annuel d'un tag − 9M d'un autre = Q4 fantaisiste).
    */
   sbc: {
     section: 'cf',
-    concepts: [
-      'us-gaap_ShareBasedCompensation',
-      'us-gaap_StockBasedCompensation',
-      'us-gaap_AllocatedShareBasedCompensationExpense',
-    ],
+    concepts: ['__computed_sbc__'],
     cumulative: true,
   },
   /**
@@ -348,6 +352,61 @@ export const METRICS: Record<string, MetricConfig> = {
 };
 
 export type MetricKey = keyof typeof METRICS;
+
+/**
+ * Tags XBRL qui portent la SBC **TOTALE** de la période, par ordre de préférence.
+ *
+ * `ShareBasedCompensation` est l'add-back du tableau de flux — exactement ce qu'on veut
+ * soustraire du FCF. `AllocatedShareBasedCompensationExpense` est la version compte de
+ * résultat : identique dans 6264 des 8653 exercices-déposants où les deux coexistent
+ * (census frames SEC CY2022-CY2024), mais parfois d'un périmètre différent (GOOGL 2025 :
+ * 24,95 Md$ contre 27,1 Md$) → il ne sert qu'en repli.
+ * `StockBasedCompensation` n'existe PAS dans la taxonomie us-gaap (0 déposant sur les
+ * trois exercices) ; on le garde uniquement pour le repli « nom nu » d'extractFirst, que
+ * de vieux filings Finnhub utilisent.
+ */
+export const SBC_TOTAL_CONCEPTS = [
+  'us-gaap_ShareBasedCompensation',
+  'us-gaap_StockBasedCompensation',
+  'us-gaap_AllocatedShareBasedCompensationExpense',
+];
+
+/**
+ * Tags qui ne portent qu'une **BRIQUE** de la SBC. Dernier recours : ils ne servent que
+ * si aucun tag total n'est renseigné à cette date.
+ *
+ * Beaucoup d'émetteurs ont migré leur libellé et ne publient plus QUE l'un d'eux :
+ * MELI (LTRP, 303 M$ en 2025), Southern Co, HEICO, Chevron, Robert Half, CTS, Progressive.
+ * Sans eux, `computeAdjustedFcfTtm` renvoyait ttmSbc = 0 et le « FCF ajusté SBC » ne
+ * déduisait rien du tout pour ces titres.
+ */
+export const SBC_PARTIAL_CONCEPTS = [
+  'us-gaap_StockOptionPlanExpense',
+  'us-gaap_RestrictedStockExpense',
+];
+
+/**
+ * Départage les tags SBC d'UNE période. Deux règles, une seule raison : ne jamais
+ * additionner deux tags, parce qu'un émetteur peut très bien loger son TOTAL sous un
+ * libellé étroit (MELI publie tout son LTRP sous `StockOptionPlanExpense`).
+ *
+ *  1. Un tag total renseigné gagne toujours, dans l'ordre de SBC_TOTAL_CONCEPTS.
+ *  2. Sinon, on prend le PLUS GRAND des tags partiels — jamais leur somme, et surtout
+ *     pas le premier venu : les deux briques coexistent dans 16 des 1901 filings du
+ *     sondage 40 titres, et l'écart entre elles va jusqu'à ×250 (RHI 2010 : options
+ *     0,17 M$ contre actions gratuites 43 M$ ; MELI 2022 : l'inverse, 59 M$ contre
+ *     1 M$). Un ordre fixe se trompe donc d'un ordre de grandeur dans un sens ou dans
+ *     l'autre selon l'émetteur ; le max borne l'erreur à la brique la plus petite.
+ *
+ * Exporté pour les tests et pour le miroir EDGAR (secEdgar.getEdgarQuarterlySeries).
+ */
+export function resolveSbc(totals: (number | null)[], partials: (number | null)[]): number | null {
+  const total = totals.find((v): v is number => v != null);
+  if (total != null) return total;
+  const present = partials.filter((v): v is number => v != null);
+  if (present.length === 0) return null;
+  return present.reduce((a, b) => (Math.abs(b) > Math.abs(a) ? b : a));
+}
 
 /**
  * Tickers liés par un changement de nom : Finnhub conserve les filings sous le
@@ -601,6 +660,14 @@ export function extractValue(filing: FinnhubFiling, cfg: MetricConfig): number |
         'us-gaap_AvailableForSaleSecuritiesCurrent',
       ]),
     });
+  }
+  if (cfg.concepts.includes('__computed_sbc__')) {
+    // Chaque tag est lu SÉPARÉMENT : resolveSbc a besoin de savoir lesquels sont
+    // renseignés dans CE filing, pas seulement du premier qui matche.
+    return resolveSbc(
+      [extractFirst(filing, 'cf', SBC_TOTAL_CONCEPTS)],
+      SBC_PARTIAL_CONCEPTS.map(c => extractFirst(filing, 'cf', [c])),
+    );
   }
   if (cfg.concepts.includes('__computed_operatingIncome__')) {
     // 1. Tag direct prioritaire (95% des déposants US le publient).

@@ -12,7 +12,14 @@
  * US uniquement (EDGAR ne couvre que les émetteurs SEC). Non-US → renvoie [] (le caller garde Finnhub/Yahoo).
  */
 import type { TimeseriesPoint } from '@lubin/shared';
-import { METRICS, computeCashAndEquivalents, type MetricKey } from './finnhubFundamentals.js';
+import {
+  METRICS,
+  computeCashAndEquivalents,
+  resolveSbc,
+  SBC_TOTAL_CONCEPTS,
+  SBC_PARTIAL_CONCEPTS,
+  type MetricKey,
+} from './finnhubFundamentals.js';
 
 const UA = 'lubin-investment (admin@hyperstack.studio)'; // SEC exige un User-Agent identifiable
 const CONCEPT_BASE = 'https://data.sec.gov/api/xbrl/companyconcept';
@@ -735,6 +742,40 @@ export async function getEdgarQuarterlySeries(ticker: string, metric: MetricKey)
       .filter(p => sgaByDate.has(p.date))
       .map(p => ({ date: p.date, value: p.value - sgaByDate.get(p.date)! }));
   }
+  // SBC : miroir de __computed_sbc__ (extractValue). Deux différences avec le chemin
+  // générique plus bas, et elles comptent toutes les deux :
+  //  1. On dé-cumule chaque tag SÉPARÉMENT. L'union suivie d'une dé-cumulation commune
+  //     mélangeait les tags dans une même chaîne YTD (les points partagent le `start` de
+  //     l'exercice, dernier écrit gagne) : un déposant qui publie le total au trimestre
+  //     et la seule brique options au 10-K sortait un Q4 = brique − 9M total, négatif.
+  //  2. On arbitre PAR DATE, pas par série. MELI publie ShareBasedCompensation jusqu'en
+  //     2018 puis StockOptionPlanExpense depuis : un « premier concept non vide gagne »
+  //     à l'échelle de la série aurait rendu l'historique 2016-2018 et rien de récent.
+  if (metric === 'sbc') {
+    const cik = await getCik(ticker);
+    if (!cik) return [];
+    const fetchSeries = async (raw: string) => {
+      const [taxonomy, ...rest] = raw.split('_');
+      const concept = rest.join('_');
+      if (!taxonomy || !concept) return new Map<string, number>();
+      const entries = await fetchConcept(cik, taxonomy, concept, 'USD');
+      return new Map((entries?.length ? decumulateFlow(entries) : []).map(p => [p.date, p.value]));
+    };
+    const totals = await Promise.all(SBC_TOTAL_CONCEPTS.map(fetchSeries));
+    const partials = await Promise.all(SBC_PARTIAL_CONCEPTS.map(fetchSeries));
+    const dates = new Set<string>();
+    for (const m of [...totals, ...partials]) for (const d of m.keys()) dates.add(d);
+    const out: TimeseriesPoint[] = [];
+    for (const date of [...dates].sort()) {
+      const value = resolveSbc(
+        totals.map(m => m.get(date) ?? null),
+        partials.map(m => m.get(date) ?? null),
+      );
+      if (value != null) out.push({ date, value });
+    }
+    return out;
+  }
+
   const cfg = METRICS[metric];
   if (!cfg) return [];
   const concepts = cfg.concepts.filter(c => !c.startsWith('__')); // skip les métriques computed (totalDebt, cash)
