@@ -26,6 +26,19 @@ export interface BackfillOptions {
    * Une tranche perdue ne coute plus que la tranche.
    */
   batchSize?: number;
+  /**
+   * Rang de depart dans la file (candidats tries par capi decroissante). Defaut 0.
+   *
+   * Sert au DECOUPAGE EN SHARDS du cron : un runner GitHub est tue a 6 h, et le debit mesure le
+   * 07/08/2026 est de ~2,2 entreprises/min (250 en 117 min). Au-dela de ~780 un seul job ne rentre
+   * plus. N jobs paralleles prenant `offset = shard * cap` se partagent donc la file sans se
+   * marcher dessus : les lots sont lus AVANT toute ecriture, les fenetres sont disjointes.
+   *
+   * Effet de bord assume : un groupe d'homonymes (BRK.A/BRK.B) pose a cheval sur une frontiere de
+   * shard est note deux fois au lieu d'etre recopie. Les homonymes ont des capis voisines donc sont
+   * quasi toujours contigus ; au pire (shards - 1) groupes par nuit, chacun garde son controle croise.
+   */
+  offset?: number;
 }
 
 export interface BackfillResult {
@@ -204,7 +217,7 @@ async function waitForDb(prisma: PrismaClient, attempts = 5): Promise<void> {
  * « when issued » de FedEx, notee 2/5 quand FDX est a 2,5). On exige donc un nom, different du
  * ticker, et on ecarte ce que le screener a classe sans donnees (dont les vehicules non operants).
  */
-async function pickDue(prisma: PrismaClient, cap: number): Promise<UniverseRow[]> {
+async function pickDue(prisma: PrismaClient, cap: number, offset: number): Promise<UniverseRow[]> {
   const rows = await prisma.$queryRaw<UniverseRow[]>`
     SELECT s.ticker, s.name, s.sector, s."marketCapUsd"
     FROM "ScreenerTicker" s
@@ -213,7 +226,7 @@ async function pickDue(prisma: PrismaClient, cap: number): Promise<UniverseRow[]
       AND s.name IS NOT NULL AND s.name <> '' AND s.name <> s.ticker
       AND s.status NOT IN ('nodata', 'error')
     ORDER BY s."marketCapUsd" DESC
-    LIMIT ${cap}`;
+    LIMIT ${cap} OFFSET ${offset}`;
   // Double filet cote JS : les vehicules pas encore re-classes par le screener (statut encore
   // `scored`/`pending`) ne doivent pas consommer un appel aux modeles. On accepte un run un peu
   // plus court plutot que de repiocher derriere eux.
@@ -241,10 +254,11 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
   try {
     await waitForDb(prisma);
     const cap = Math.max(0, options.dailyCap);
+    const offset = Math.max(0, options.offset ?? 0);
     const [totalUniverse, remaining, due] = await Promise.all([
       prisma.screenerTicker.count({ where: { marketCapUsd: { not: null } } }),
       countPending(prisma),
-      cap === 0 ? Promise.resolve([] as UniverseRow[]) : pickDue(prisma, cap),
+      cap === 0 ? Promise.resolve([] as UniverseRow[]) : pickDue(prisma, cap, offset),
     ]);
     if (due.length === 0) {
       return {

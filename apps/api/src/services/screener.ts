@@ -193,13 +193,21 @@ async function seedEu(): Promise<SeedResult> {
  *   2. Le reste : jamais noté (front de progression), dates inconnues (TTL), erreurs — par
  *      priorité de région puis ancienneté.
  */
-async function pickDueTickers(limit: number, region?: string): Promise<{ ticker: string }[]> {
+async function pickDueTickers(limit: number, region?: string, onlyFast = false): Promise<{ ticker: string }[]> {
   const today = new Date().toISOString().slice(0, 10);
   const ttlCutoff = new Date(Date.now() - RESCORE_TTL_MS);
   const cooldownCutoff = new Date(Date.now() - RESCORE_COOLDOWN_MS);
   // Filtre région optionnel : permet à un cron de backfill de DRAINER une zone précise
   // (ex : EU pending) sans être affamée par la priorité US (priority 0). Vide = univers entier.
   const regionFilter = region ? { region } : {};
+  // `onlyFast` : ne pioche QUE les tickers sans point, ceux dont le budget est PER_TICKER_MS (10 s).
+  // Mesure du 06/08/2026 : sur 40 passes du cron HTTP, 243 titres traités pour 6 notés — les
+  // non-US (budget 20 s) expiraient tous, faute de tenir dans la deadline de 30 s de la lambda.
+  // Chaque expiration bumpait `lastAttemptAt`, réarmant le cooldown : les mêmes titres revenaient
+  // la nuit suivante pour re-expirer (attempts à 11 sur 2330.TW). Le non-US relève du drain, qui
+  // tourne sur un runner sans lambda avec un plafond de 240 s par titre.
+  // `not: { contains }` plutôt que `NOT:` — la clé `NOT` est déjà prise par la phase 1b.
+  const fastFilter = onlyFast ? { ticker: { not: { contains: '.' } } } : {};
 
   const midTtlCutoff = new Date(Date.now() - RESCORE_TTL_MID_MS);
   const smallTtlCutoff = new Date(Date.now() - RESCORE_TTL_SMALL_MS);
@@ -213,7 +221,7 @@ async function pickDueTickers(limit: number, region?: string): Promise<{ ticker:
 
   // Phase 1a — earnings atteint, TIER PRIORITAIRE (large cap / haute note) → le lendemain.
   acc.push(...await prisma.screenerTicker.findMany({
-    where: { status: 'scored', nextEarningsDate: { lte: today }, lastAttemptAt: { lt: cooldownCutoff }, ...regionFilter, ...priorityWhere },
+    where: { status: 'scored', nextEarningsDate: { lte: today }, lastAttemptAt: { lt: cooldownCutoff }, ...regionFilter, ...fastFilter, ...priorityWhere },
     orderBy: [{ scoreRatio: { sort: 'desc', nulls: 'last' } }, { marketCapUsd: { sort: 'desc', nulls: 'last' } }, { nextEarningsDate: 'asc' }],
     take: room(),
     select: { ticker: true },
@@ -223,7 +231,7 @@ async function pickDueTickers(limit: number, region?: string): Promise<{ ticker:
   // Phase 1b — earnings atteint, mid/small : classés par NOTE puis capi. Le budget étant limité, la
   // traîne déborde d'elle-même sur les jours suivants (= « dans la semaine / le mois »).
   acc.push(...await prisma.screenerTicker.findMany({
-    where: { status: 'scored', nextEarningsDate: { lte: today }, lastAttemptAt: { lt: cooldownCutoff }, ...regionFilter, NOT: priorityWhere },
+    where: { status: 'scored', nextEarningsDate: { lte: today }, lastAttemptAt: { lt: cooldownCutoff }, ...regionFilter, ...fastFilter, NOT: priorityWhere },
     orderBy: [{ scoreRatio: { sort: 'desc', nulls: 'last' } }, { marketCapUsd: { sort: 'desc', nulls: 'last' } }],
     take: room(),
     select: { ticker: true },
@@ -236,6 +244,7 @@ async function pickDueTickers(limit: number, region?: string): Promise<{ ticker:
   acc.push(...await prisma.screenerTicker.findMany({
     where: {
       ...regionFilter,
+      ...fastFilter,
       OR: [
         { status: 'pending' },
         { status: 'scored', nextEarningsDate: null, marketCapUsd: { gte: DAYAFTER_CAP_USD }, lastAttemptAt: { lt: ttlCutoff } },
@@ -616,6 +625,9 @@ export interface TickOptions {
   warm?: boolean;
   /** Concurrence de scoring (défaut SCORE_CONCURRENCY). */
   concurrency?: number;
+  /** Ne piocher que les tickers tenables dans la deadline lambda (sans point, budget 10 s).
+   *  Le cron planifié l'active : le non-US relève du drain. Cf. pickDueTickers. */
+  onlyFast?: boolean;
 }
 
 export async function tick(
@@ -625,7 +637,7 @@ export async function tick(
   opts: TickOptions = {},
 ): Promise<TickResult> {
   const start = Date.now();
-  const due = await pickDueTickers(limit, region);
+  const due = await pickDueTickers(limit, region, opts.onlyFast ?? false);
   let scored = 0, nodata = 0, error = 0, timeout = 0;
   const justScored: string[] = [];
 

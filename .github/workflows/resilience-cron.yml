@@ -17,14 +17,22 @@ name: Resilience backfill (5 etoiles)
 # secret CLAUDE_CODE_OAUTH_TOKEN. Un ANTHROPIC_API_KEY est accepte en repli, mais il est FACTURE a
 # l'usage : c'est un choix de cout, pas un detail de configuration.
 #
+# DEBIT ET DECOUPAGE (07/08/2026). Le run de 250 a tenu 117 min pour un `timeout-minutes` de 120 :
+# il est passe a 3 minutes du couperet. Le debit mesure est de ~2,2 entreprises/min, donc 800 en un
+# seul job demanderaient ~364 min, au-dela de la limite DURE de 6 h d'un runner GitHub. Le job est
+# donc decoupe en 4 shards paralleles de 200 (800/nuit), chacun sur une fenetre disjointe de la file
+# triee par capi (cf. BackfillOptions.offset). Pour revenir a un seul lot, remettre `shard: [0]`.
+#
 # Secrets requis : DATABASE_URL, DEEPSEEK_API_KEY, et CLAUDE_CODE_OAUTH_TOKEN (ou ANTHROPIC_API_KEY).
-# Variable optionnelle : RESILIENCE_STARS_DAILY_CAP (defaut 250).
+# Secret OPTIONNEL mais recommande : CLAUDE_CODE_OAUTH_TOKEN_2 (2e abonnement). Les shards pairs
+# utilisent le 1er jeton, les impairs le 2e ; sans ce secret les 4 shards partagent le 1er jeton.
+# Variable optionnelle : RESILIENCE_STARS_DAILY_CAP = plafond PAR SHARD (defaut 200).
 
 on:
   workflow_dispatch:
     inputs:
       cap:
-        description: 'Entreprises a noter sur ce run (vide = variable RESILIENCE_STARS_DAILY_CAP, sinon 250)'
+        description: 'Entreprises PAR SHARD (4 shards en parallele : total = 4x cette valeur). Vide = variable RESILIENCE_STARS_DAILY_CAP, sinon 200.'
         required: false
         default: ''
   schedule:
@@ -44,15 +52,26 @@ concurrency:
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    # 300 min. Un runner GitHub est TUE a 6 h (360 min) : a 200 entreprises par shard et ~2,2/min
+    # mesurees le 07/08/2026, un shard tient en ~90 min et garde une marge large. C'est la raison
+    # d'etre du decoupage : 800 en un seul job demanderaient ~364 min, soit au-dela du couperet.
+    timeout-minutes: 300
+    strategy:
+      # Un shard qui tombe ne doit pas emporter les trois autres : chacun ecrit ses propres lignes.
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       # Prisma exige `directUrl` a la generation. Ce job ne migre rien : la meme URL suffit.
       DIRECT_URL: ${{ secrets.DATABASE_URL }}
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      # Deux abonnements Claude : les shards pairs prennent le premier jeton, les impairs le second,
+      # pour ne pas concentrer quatre scoreurs simultanes sur une seule limite de debit. Si le
+      # second secret n'est pas pose, tout retombe sur le premier (degrade mais fonctionnel).
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ matrix.shard % 2 == 0 && secrets.CLAUDE_CODE_OAUTH_TOKEN || (secrets.CLAUDE_CODE_OAUTH_TOKEN_2 || secrets.CLAUDE_CODE_OAUTH_TOKEN) }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      RESILIENCE_STARS_DAILY_CAP: ${{ inputs.cap || vars.RESILIENCE_STARS_DAILY_CAP || '250' }}
+      RESILIENCE_STARS_DAILY_CAP: ${{ inputs.cap || vars.RESILIENCE_STARS_DAILY_CAP || '200' }}
     steps:
       - name: Garde-fou secrets
         run: |
@@ -98,7 +117,15 @@ jobs:
           echo "CLI claude operationnel."
 
       - name: Backfill
-        run: pnpm --filter @lubin/api run resilience:stars:backfill
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          set -euo pipefail
+          # Fenetre disjointe : chaque shard lit `cap` candidats a partir du rang `cap * shard`.
+          # Les quatre lectures ont lieu avant toute ecriture, donc les fenetres ne se recouvrent pas.
+          export RESILIENCE_STARS_OFFSET=$(( RESILIENCE_STARS_DAILY_CAP * SHARD ))
+          echo "Shard ${SHARD} : ${RESILIENCE_STARS_DAILY_CAP} entreprises a partir du rang ${RESILIENCE_STARS_OFFSET}."
+          pnpm --filter @lubin/api run resilience:stars:backfill
 
       # Meme canal d'alerte que les autres crons : action pinnee sur son SHA de release.
       - name: Alerte e-mail en cas d echec
@@ -112,9 +139,10 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           from: Resilience Backfill <lubindanilo2@gmail.com>
           to: lubindanilo2@gmail.com
-          subject: "[Lubin Investment] Backfill Resilience en ECHEC"
+          subject: "[Lubin Investment] Backfill Resilience en ECHEC (shard ${{ matrix.shard }})"
           body: |
-            Le backfill du score de resilience a echoue : aucune entreprise notee cette nuit.
+            Le backfill du score de resilience a echoue sur le shard ${{ matrix.shard }} :
+            aucune entreprise notee par ce shard cette nuit. Les autres shards ont pu aboutir.
 
             Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
             Declencheur : ${{ github.event_name }}

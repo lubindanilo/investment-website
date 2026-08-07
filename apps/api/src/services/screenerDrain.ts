@@ -36,8 +36,14 @@ type ScoreOutcome = Awaited<ReturnType<typeof scoreOne>>;
 const DEFAULT_PER_TICKER_MS = 240_000;
 /** Fréquence de relecture de la consommation Neon en cours de run. */
 const DEFAULT_POLL_MS = 10 * 60_000;
-/** Combien de tickers déjà tentés on exclut des piochés suivants (cf. pickPending). */
+/** Combien de tickers déjà tentés on exclut des piochés suivants (cf. pickDue). */
 const EXCLUDE_WINDOW = 1_000;
+/**
+ * Délai minimum entre deux vraies re-notations d'un titre à résultats échus (cf. pickDue).
+ * 3 jours : assez court pour rattraper une publication, assez long pour ne pas repasser toutes les
+ * nuits sur les titres dont le fournisseur tarde à publier la date du trimestre suivant.
+ */
+const EARNINGS_RESCORE_COOLDOWN_MS = 3 * 24 * 3600 * 1000;
 
 export type StopReason = 'queue-empty' | 'time' | 'max-tickers' | 'neon-budget';
 
@@ -83,25 +89,67 @@ export interface DrainResult {
   cuHoursSpent: number | null;
   /** Titres encore `pending` après le run (même filtre région). */
   pendingLeft: number;
+  /** Titres à résultats échus restant à re-noter après le run (hors cooldown, même filtre région). */
+  earningsLeft: number;
 }
 
 /**
- * Pioche des `pending`, du plus prioritaire au plus ancien. `exclude` écarte les titres déjà tentés
- * dans CE run : un scoring qui part en timeout laisse la ligne en `pending` (aucun statut écrit),
- * elle serait donc repiochée en boucle par le lot suivant.
+ * Pioche le prochain lot, EARNINGS ÉCHUS D'ABORD puis `pending`. `exclude` écarte les titres déjà
+ * tentés dans CE run : un scoring qui part en timeout laisse la ligne en `pending` (aucun statut
+ * écrit), elle serait donc repiochée en boucle par le lot suivant.
+ *
+ * POURQUOI LES EARNINGS ICI (07/08/2026). Le drain ne prenait que `status: 'pending'`, donc le
+ * rafraîchissement d'après résultats n'était servi QUE par le cron HTTP de 06:00. Or celui-ci
+ * tourne derrière une lambda avec 30 s par appel et 20 s de budget par titre non-US : il expirait
+ * sur tout ce qui n'était pas américain. Mesure sur la file au 07/08 : 3 632 titres à résultats
+ * échus, dont 325 seulement réellement re-notés depuis 7 jours et 647 dont la dernière vraie note
+ * datait de plus de 60 jours. Le drain, lui, tourne sur un runner sans lambda avec 240 s par titre
+ * et a noté 868 titres sur 900 tentés dans la nuit du 06/08, sans un seul timeout. C'est donc lui
+ * qui doit porter cette file.
+ *
+ * L'ordre compte : une fiche fausse nuit plus qu'une fiche absente, donc le rafraîchissement passe
+ * AVANT l'élargissement de couverture. Le budget Neon étant le vrai plafond, le backfill `pending`
+ * consomme ce qui reste du lot.
  */
-async function pickPending(limit: number, region: string | undefined, exclude: string[]): Promise<string[]> {
-  const rows = await prisma.screenerTicker.findMany({
+async function pickDue(limit: number, region: string | undefined, exclude: string[]): Promise<string[]> {
+  const today = new Date().toISOString().slice(0, 10);
+  const common = {
+    ...(region ? { region } : {}),
+    ...(exclude.length ? { ticker: { notIn: exclude } } : {}),
+  };
+
+  // 1. Résultats tombés : re-noter, les plus grosses capis d'abord. `lastScoredAt` (et non
+  //    `lastAttemptAt`) trie sur la vraie ancienneté de la donnée : un titre qui a échoué dix fois
+  //    a un `lastAttemptAt` récent mais une note toujours périmée.
+  //
+  //    Le cooldown n'est PAS une optimisation, c'est ce qui empêche la file de tourner en rond.
+  //    `nextEarningsDate <= today` reste vrai tant que le fournisseur n'a pas publié la date du
+  //    trimestre suivant, et ce délai va de quelques jours à quelques semaines (mesure au 07/08 :
+  //    1 921 titres dont la date est dépassée depuis plus de 7 jours, dont 326 pourtant re-notés
+  //    dans la semaine). Sans cooldown, ces titres seraient repêchés CHAQUE nuit après avoir déjà
+  //    été rafraîchis, affamant le backfill `pending` et brûlant du compute Neon pour rien.
+  const earningsCooldown = new Date(Date.now() - EARNINGS_RESCORE_COOLDOWN_MS);
+  const earnings = await prisma.screenerTicker.findMany({
     where: {
-      status: 'pending',
-      ...(region ? { region } : {}),
-      ...(exclude.length ? { ticker: { notIn: exclude } } : {}),
+      ...common,
+      status: 'scored',
+      nextEarningsDate: { lte: today },
+      OR: [{ lastScoredAt: null }, { lastScoredAt: { lt: earningsCooldown } }],
     },
-    orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
+    orderBy: [{ marketCapUsd: { sort: 'desc', nulls: 'last' } }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
     take: limit,
     select: { ticker: true },
   });
-  return rows.map(r => r.ticker);
+  if (earnings.length >= limit) return earnings.map(r => r.ticker);
+
+  // 2. Le reste du lot : élargissement de couverture, ordre historique.
+  const pending = await prisma.screenerTicker.findMany({
+    where: { ...common, status: 'pending' },
+    orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
+    take: limit - earnings.length,
+    select: { ticker: true },
+  });
+  return [...earnings, ...pending].map(r => r.ticker);
 }
 
 const TIMEOUT = Symbol('timeout');
@@ -141,7 +189,7 @@ export async function drainPending(opts: DrainOptions): Promise<DrainResult> {
     if (now() >= deadline) { stopReason = 'time'; break; }
     if (attempted.size >= opts.maxTickers) { stopReason = 'max-tickers'; break; }
 
-    const batch = await pickPending(
+    const batch = await pickDue(
       Math.min(opts.batchSize, opts.maxTickers - attempted.size),
       opts.region,
       [...attempted].slice(-EXCLUDE_WINDOW),
@@ -182,13 +230,22 @@ export async function drainPending(opts: DrainOptions): Promise<DrainResult> {
   // Mesure finale (même quand l'arrêt vient de la durée) pour alimenter le calibrage de la nuit suivante.
   if (trackBudget && usageStart != null) await overBudget();
 
+  const regionWhere = opts.region ? { region: opts.region } : {};
   const pendingLeft = await prisma.screenerTicker.count({
-    where: { status: 'pending', ...(opts.region ? { region: opts.region } : {}) },
+    where: { status: 'pending', ...regionWhere },
+  }).catch(() => -1);
+  const earningsLeft = await prisma.screenerTicker.count({
+    where: {
+      ...regionWhere,
+      status: 'scored',
+      nextEarningsDate: { lte: new Date().toISOString().slice(0, 10) },
+      OR: [{ lastScoredAt: null }, { lastScoredAt: { lt: new Date(Date.now() - EARNINGS_RESCORE_COOLDOWN_MS) } }],
+    },
   }).catch(() => -1);
 
   return {
     attempted: attempted.size, scored, nodata, error, timeout, batches,
-    elapsedMs: now() - start, stopReason, cuHoursSpent, pendingLeft,
+    elapsedMs: now() - start, stopReason, cuHoursSpent, pendingLeft, earningsLeft,
   };
 }
 
