@@ -179,8 +179,12 @@ export function computeDerivedMetrics(input: {
       const revenueAbs = rps * sharesAbs;
       if (revenueAbs > 0) fcfMargin = input.adjFcfTtm / revenueAbs;
     }
-  } else {
-    // Fallback : ratios Finnhub précomputed (FCF brut, non ajusté SBC)
+  } else if (input.fcfNotMeaningfulReason == null && (input.adjFcfTtm == null || mcap == null || mcap <= 0)) {
+    // Fallback : ratios Finnhub précomputed (FCF brut, non ajusté SBC).
+    // RÉSERVÉ aux cas où NOTRE pipeline n'a pas pu conclure (TTM non constructible, capi
+    // absente). Jamais quand il a conclu : un FCF refusé (flottant client non isolable —
+    // cf notMeaningfulReason) ou négatif ré-afficherait via Finnhub le multiple qu'on vient
+    // d'écarter (IBKR « refusé » qui ressortait à 2,3×, JPM à 5,6× sur un CFO TTM négatif).
     pfcfTTM = val('pfcfShareTTM');
     if (price != null && pfcfTTM != null && pfcfTTM > 0 && rps != null && rps > 0) {
       fcfMargin = (price / pfcfTTM) / rps;
@@ -340,7 +344,12 @@ export function computeDerivedMetrics(input: {
   if (netDebtFcf == null) reasons.netDebtFcf = input.fcfNotMeaningfulReason ?? 'Dette nette / FCF indisponible';
   if (ccr == null) reasons.ccr = input.fcfNotMeaningfulReason ?? 'Taux de conversion du cash indisponible';
   if (operatingLeverage == null) reasons.operatingLeverage = 'Historique insuffisant pour estimer la tendance des marges';
-  if (pfcfTTM == null) reasons.pfcfTTM = input.fcfNotMeaningfulReason ?? 'P/FCF indisponible';
+  if (pfcfTTM == null) {
+    reasons.pfcfTTM = input.fcfNotMeaningfulReason
+      ?? (input.adjFcfTtm != null && input.adjFcfTtm <= 0
+        ? 'Free cash flow négatif ou nul sur les 12 derniers mois — P/FCF non significatif'
+        : 'P/FCF indisponible');
+  }
   if (currentRatio == null) reasons.nwcCurrentRatio = 'Ratio de liquidité indisponible';
   if (input.cccCurrent == null) reasons.ccc = input.cccReason ?? 'Cycle de conversion du cash indisponible (créances, stocks ou COGS manquants)';
 

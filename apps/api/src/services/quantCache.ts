@@ -84,8 +84,12 @@ export interface CachedQuantSnapshot {
  *     cf. reconcileAdsMarketCap), et la rétro-dérivation d'adjFcfTtm retombe en devise de
  *     REPORTING (extractLivePfcfInputs) — la double conversion de la génération 1 rendait le
  *     P/FCF live ~7× trop CHER pour un ADR chinois (fx appliqué deux fois).
+ * 3 — flottant client retranché du FCF (CUSTOMER_FLOAT_CONCEPTS) + SBC des émetteurs qui
+ *     ont migré de tag XBRL (resolveSbc) + fin du fallback pfcfShareTTM quand notre calcul
+ *     a CONCLU (FCF refusé ou ≤ 0). Sans invalidation, les snapshots servaient encore le
+ *     P/FCF gonflé (MELI 8,3× pour 17,3× corrigé) jusqu'au prochain earnings.
  */
-export const SNAPSHOT_LOGIC_VERSION = 2;
+export const SNAPSHOT_LOGIC_VERSION = 3;
 
 /**
  * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.
