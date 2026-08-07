@@ -140,15 +140,21 @@ export const METRICS: Record<string, MetricConfig> = {
     ],
     cumulative: true,
   },
+  /**
+   * CapEx — SOMME des lignes d'investissement en actifs productifs, avec dédoublonnage
+   * agrégat/composantes. Voir __computed_capex__ dans extractValue et CAPEX_ROLES.
+   *
+   * Avant ce fix, on prenait le PREMIER concept qui matchait dans une liste de trois, donc
+   * UNE SEULE ligne d'investissement par dépôt : les sociétés qui ventilent leur capex sur
+   * plusieurs lignes étaient sous-comptées (EOG : 6 115 M$ de pétrole retenus, 479 M$ de PP&E
+   * perdus) et celles qui n'utilisent AUCUN des trois tags n'avaient pas de capex du tout —
+   * donc un FCF = CFO. Cas mesurés : Corning (capex 1 282 M$ sous PaymentsForCapitalImprovements,
+   * FCF surévalué de 91 %), EA (230 M$ sous PaymentsToAcquireOtherPropertyPlantAndEquipment),
+   * Alaska Air (1 588 M$ ventilés sur trois lignes), Gallagher (145 M$).
+   */
   capex: {
     section: 'cf',
-    // PaymentsToAcquireOilAndGasPropertyAndEquipment débloque les pétroliers/gaziers (PNRG)
-    // qui isolent ces investissements dans un tag dédié.
-    concepts: [
-      'us-gaap_PaymentsToAcquireOilAndGasPropertyAndEquipment',
-      'us-gaap_PaymentsToAcquireProductiveAssets',
-      'us-gaap_PaymentsToAcquirePropertyPlantAndEquipment',  // standard — gagne en coexistence
-    ],
+    concepts: ['__computed_capex__'],
     cumulative: true,
   },
   /**
@@ -810,6 +816,118 @@ export function computeTotalDebt(parts: {
   return allMissing ? null : total;
 }
 
+// ─── CapEx : rôles XBRL et règle anti-double-comptage ─────────────────────────
+//
+// Le capex d'une société est ventilé sur autant de lignes du tableau de flux que son
+// plan comptable le veut. Prendre le premier tag qui matche revient à retenir UNE ligne
+// et à jeter les autres. La composition ci-dessous est calibrée sur 666 exercices de
+// l'univers US recoupés contre la convention « Capital Expenditures » de stockanalysis,
+// en ne gardant que les exercices où notre CFO XBRL égale le leur à ±2 % (verrou de
+// devise, d'échelle et de période) — soit 556 exercices de référence :
+//
+//   premier match (production avant ce fix) : 86 % d'accord, 73 sous-comptes, 4 sur-comptes
+//   composition ci-dessous                  : 90 % d'accord, 52 sous-comptes, 5 sur-comptes
+//   + logiciel capitalisé                   : 86 % d'accord, 52 sous-comptes, 28 sur-comptes
+//   + logiciel + autres incorporels         : 79 % d'accord, 52 sous-comptes, 65 sur-comptes
+//
+// D'où le PÉRIMÈTRE retenu : les actifs corporels et les investissements de développement
+// pétrolier/minier, PAS le logiciel capitalisé ni les incorporels. Ce n'est pas un oubli :
+// c'est ce que mesure le tableau. Élargir aux incorporels ÉLOIGNE de la convention externe
+// (Flutter : 105 M$ de PP&E contre 777 M$ en ajoutant incorporels + logiciel, quand
+// stockanalysis publie 105) et surtout créerait une ASYMÉTRIE dans l'univers : les lignes
+// EU/INTL tirent leur capex de Yahoo et stockanalysis, qui appliquent la convention étroite.
+// Un titre US paraîtrait alors structurellement plus cher qu'un titre EU comparable, pour un
+// motif de convention comptable. Le débat est légitime mais il se tranche pour TOUTES les
+// sources à la fois, pas dans ce seul chemin.
+//
+// Chaque RÔLE vaut la SOMME des magnitudes de ses concepts présents (deux lignes distinctes
+// du même dépôt s'additionnent : Alaska Air = matériel de vol 1 063 + autres immos 309).
+const CAPEX_ROLES = {
+  /**
+   * Agrégat total : la définition us-gaap de `ProductiveAssets` couvre PP&E + logiciel +
+   * incorporels d'un seul tenant. Présent → il PRIME sur tout le reste (sinon on
+   * double-compterait les composantes). Mesuré sur les 19 déposants qui publient l'agrégat
+   * ET des composantes : rapport somme/agrégat ≈ 1,00 dans la majorité des cas.
+   */
+  aggregate: ['us-gaap_PaymentsToAcquireProductiveAssets'],
+  /** Ligne PP&E standard, publiée par ~80 % des déposants. */
+  ppeMain: ['us-gaap_PaymentsToAcquirePropertyPlantAndEquipment'],
+  /** Lignes corporelles ventilées, ADDITIVES entre elles et avec ppeMain. */
+  ppeOther: [
+    'us-gaap_PaymentsToAcquireOtherPropertyPlantAndEquipment',
+    'us-gaap_PaymentsToAcquireMachineryAndEquipment',
+    'us-gaap_PaymentsToAcquireBuildings',
+    'us-gaap_PaymentsToAcquireLand',
+    'us-gaap_PaymentsForCapitalImprovements',
+    'us-gaap_PaymentsForFlightEquipment',
+  ],
+  /** Matériel donné en location (CAT, DE, PCAR, GD) : ligne d'investissement à part entière. */
+  lease: ['us-gaap_PaymentsToAcquireEquipmentOnLease'],
+  /**
+   * Développement pétrolier / gazier / minier. `PaymentsToAcquireOilAndGasProperty`
+   * (SANS « AndEquipment ») est délibérément ABSENT : c'est l'ACQUISITION de gisements, du
+   * M&A et non du capex de maintien — Diamondback publie 5 938 M$ sous ce tag et 3 523 M$
+   * de développement, et la convention externe retient les 3 523.
+   */
+  oilGas: [
+    'us-gaap_PaymentsToExploreAndDevelopOilAndGasProperties',
+    'us-gaap_PaymentsToAcquireOilAndGasPropertyAndEquipment',
+    'us-gaap_PaymentsToAcquireOilAndGasEquipment',
+    'us-gaap_PaymentsToAcquireMiningAssets',
+  ],
+  /**
+   * Fourre-tout « autres actifs productifs ». Compté SEULEMENT quand la ligne PP&E standard
+   * est absente, c'est-à-dire quand c'est là que vit le capex (EA, ADP, Ameresco, Alaska).
+   * L'ajouter inconditionnellement fabriquait 10 sur-comptes (McDonald's, Occidental,
+   * Quanta, Teradyne, Microchip présentent ces montants hors capex conventionnel).
+   */
+  residual: [
+    'us-gaap_PaymentsToAcquireOtherProductiveAssets',
+    'us-gaap_PaymentsToAcquireAssetsInvestingActivities',
+    'us-gaap_PaymentsToDevelopRealEstateAssets',
+  ],
+} as const;
+
+export type CapexRole = keyof typeof CAPEX_ROLES;
+export type CapexParts = Partial<Record<CapexRole, number | null>>;
+
+/** Les rôles et leurs concepts, pour que les pipelines EDGAR composent le MÊME capex. */
+export const CAPEX_ROLE_CONCEPTS: Record<CapexRole, readonly string[]> = CAPEX_ROLES;
+
+/**
+ * CapEx = agrégat `ProductiveAssets` s'il existe, sinon somme des lignes corporelles
+ * (PP&E standard + lignes ventilées + matériel en location + développement pétrolier),
+ * le fourre-tout `residual` n'entrant que si la ligne PP&E standard est absente.
+ *
+ * Renvoie une MAGNITUDE positive (les concepts XBRL de paiement sont publiés en valeur
+ * absolue chez Finnhub, signés négatifs chez d'autres : on somme des magnitudes, et l'aval
+ * soustrait — cf computeFcfBrut).
+ *
+ * Renvoie null quand AUCUN rôle n'est renseigné. C'est important : null signifie « la
+ * société ne publie pas cette ligne sous un tag que l'on connaît », pas « capex = 0 ». Les
+ * deux ne se valent pas — un 0 fabriqué remonte le FCF de tout le capex manquant, ce qui
+ * fait passer une société capex-heavy pour bon marché.
+ *
+ * ⚠️ Un tag NON retenu et qui doit le rester : `PropertyPlantAndEquipmentAdditions`. Il
+ * ressemble à du capex mais n'est pas un flux de trésorerie (montant d'additions, engagements
+ * inclus) : mesuré sur les 42 déposants qui le publient EN PLUS des paiements PP&E, il diverge
+ * dans 19 cas, jusqu'à l'absurde (Chevron 91 568 M$ contre 16 830 M$ de capex réel, Cabot 4 M$
+ * contre 281 M$). Même famille de piège que `CapitalExpendituresIncurredButNotYetPaid`, qui est
+ * une DETTE d'investissement non encore payée.
+ *
+ * Exporté pour tests unitaires.
+ */
+export function computeCapex(parts: CapexParts): number | null {
+  const present = (Object.keys(CAPEX_ROLES) as CapexRole[]).some(r => parts[r] != null);
+  if (!present) return null;
+  const mag = (v: number | null | undefined) => (v == null ? 0 : Math.abs(v));
+  // L'agrégat inclut déjà toutes les composantes : on le prend SEUL.
+  if (parts.aggregate != null) return mag(parts.aggregate);
+  const corporel = mag(parts.ppeMain) + mag(parts.ppeOther) + mag(parts.lease) + mag(parts.oilGas);
+  const residual = parts.ppeMain == null ? mag(parts.residual) : 0;
+  return corporel + residual;
+}
+
 /**
  * Cash + équivalents + investissements court terme — la trésorerie réellement
  * mobilisable pour rembourser la dette. Pour Damodaran-style net capital employed.
@@ -862,14 +980,16 @@ export function extractValue(filing: FinnhubFiling, cfg: MetricConfig): number |
   }
   if (cfg.concepts.includes('__computed_fcf__')) {
     const cfo = extractFirst(filing, 'cf', METRICS.cfo!.concepts);
-    const capex = extractFirst(filing, 'cf', METRICS.capex!.concepts);
     // Flottant non isolable (contrepartie à l'actif dans le même bloc) → on ne retranche RIEN :
     // retrancher le seul passif donnerait un FCF absurde sur le graphe (IBKR : −23 Md$ au lieu
     // de +15,8 Md$). On sert alors le CFO − CapEx tel que publié, qui est au moins un constat
     // vérifiable. C'est le MULTIPLE qui est refusé en aval, pas la lecture du tableau de flux.
     const offset = extractCustomerFloatOffset(filing);
     const float = offset != null && offset !== 0 ? null : extractCustomerFloat(filing);
-    return computeFcfBrut(cfo, capex, float);
+    return computeFcfBrut(cfo, extractCapex(filing), float);
+  }
+  if (cfg.concepts.includes('__computed_capex__')) {
+    return extractCapex(filing);
   }
   if (cfg.concepts.includes('__computed_totalDebt__')) {
     return computeTotalDebt({
@@ -922,7 +1042,29 @@ export function extractValue(filing: FinnhubFiling, cfg: MetricConfig): number |
   return extractFirst(filing, cfg.section, cfg.concepts);
 }
 
-function extractFirst(filing: FinnhubFiling, section: Section, concepts: string[]): number | null {
+/** CapEx composé d'un dépôt Finnhub : un rôle = somme des magnitudes de ses concepts présents. */
+function extractCapex(filing: FinnhubFiling): number | null {
+  const parts: CapexParts = {};
+  for (const role of Object.keys(CAPEX_ROLE_CONCEPTS) as CapexRole[]) {
+    parts[role] = extractSumAbs(filing, 'cf', CAPEX_ROLE_CONCEPTS[role]);
+  }
+  return computeCapex(parts);
+}
+
+/** Somme des magnitudes de TOUS les concepts présents (null si aucun) — pour les rôles additifs. */
+function extractSumAbs(filing: FinnhubFiling, section: Section, concepts: readonly string[]): number | null {
+  let sum = 0;
+  let found = false;
+  for (const concept of concepts) {
+    const v = extractFirst(filing, section, [concept]);
+    if (v == null) continue;
+    sum += Math.abs(v);
+    found = true;
+  }
+  return found ? sum : null;
+}
+
+function extractFirst(filing: FinnhubFiling, section: Section, concepts: readonly string[]): number | null {
   const items = filing.report?.[section];
   if (!items) return null;
   for (const concept of concepts) {

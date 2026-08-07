@@ -15,6 +15,8 @@ import type { TimeseriesPoint } from '@lubin/shared';
 import {
   METRICS,
   computeCashAndEquivalents,
+  computeCapex,
+  CAPEX_ROLE_CONCEPTS,
   resolveSbc,
   SBC_TOTAL_CONCEPTS,
   SBC_PARTIAL_CONCEPTS,
@@ -414,6 +416,19 @@ export async function getEdgarAnnualNative(
 
   const byMetric = new Map<MetricKey, TimeseriesPoint[]>();
   for (const metric of metricSet) {
+    // CapEx us-gaap : composition par rôles (même définition que le trimestriel et que
+    // Finnhub). Sans cette branche, le filtre `__computed_` plus bas la laisserait VIDE et
+    // annualFreeCashFlow vaudrait CFO tout court pour tous les déposants étrangers.
+    if (metric === 'capex' && !isIfrs) {
+      const roles = await partsByRole(cik, CAPEX_ROLE_CONCEPTS, {
+        fetch: async (taxonomy, concept) => (await fetchConceptUnits(cik, taxonomy, concept))?.[native] ?? null,
+        points: annualDurationPoints,
+        combine: 'sum',
+      });
+      const pts = composeByDate(roles, v => computeCapex(v));
+      if (pts.length) byMetric.set(metric, pts);
+      continue;
+    }
     const cfg = isIfrs ? IFRS_ANNUAL_CONCEPTS[metric] : METRICS[metric];
     if (!cfg) continue;   // métrique sans équivalent IFRS (shares, dette) → simplement absente
     const concepts = cfg.concepts.filter(c => !c.startsWith('__'));
@@ -447,11 +462,11 @@ export async function getEdgarAnnualNative(
   if (needCash) {
     const parts = await annualPartsByRole(cik, native, isIfrs ? IFRS_CASH_PARTS : CASH_PARTS);
     if (wanted.includes('annualCashAndCashEquivalents')) {
-      const c = composeAnnual(parts, v => v.cash);
+      const c = composeByDate(parts, v => v.cash);
       if (c.length) out.set('annualCashAndCashEquivalents', c);
     }
     if (wanted.includes('annualCashAndShortTermInvestments')) {
-      const c = composeAnnual(parts, v => computeCashAndEquivalents({ cash: v.cash, shortTermInvestments: v.shortTermInvestments }));
+      const c = composeByDate(parts, v => computeCashAndEquivalents({ cash: v.cash, shortTermInvestments: v.shortTermInvestments }));
       if (c.length) out.set('annualCashAndShortTermInvestments', c);
     }
   }
@@ -547,14 +562,22 @@ async function ifrsImpliedShares(cik: string, native: string): Promise<Timeserie
 }
 
 /**
- * Pour chaque RÔLE d'un type composé, la série annuelle de bilan en devise native, indexée par
- * date. Les concepts d'un rôle sont essayés dans l'ordre et le premier renseigné gagne POUR
- * CHAQUE DATE — une société qui change de tag XBRL en cours de route garde une série continue.
+ * Pour chaque RÔLE d'un type composé, la série par date issue des concepts du rôle.
+ *
+ * `combine` dit comment plusieurs concepts d'un MÊME rôle cohabitent à une même date :
+ *   - 'first' : le premier renseigné gagne — des ALTERNATIVES (une société qui change de tag
+ *     XBRL en cours de route garde une série continue). C'est le cas de la dette et du cash.
+ *   - 'sum'   : magnitudes ADDITIONNÉES — des lignes distinctes du même dépôt (le capex d'Alaska
+ *     Air vit sur matériel de vol + autres immobilisations, les deux la même année).
  */
-async function annualPartsByRole<K extends string>(
+async function partsByRole<K extends string>(
   cik: string,
-  unit: string,
   roles: Record<K, readonly string[]>,
+  opts: {
+    fetch: (taxonomy: string, concept: string) => Promise<ConceptEntry[] | null>;
+    points: (entries: ConceptEntry[]) => TimeseriesPoint[];
+    combine: 'first' | 'sum';
+  },
 ): Promise<Map<K, Map<string, number>>> {
   const out = new Map<K, Map<string, number>>();
   for (const role of Object.keys(roles) as K[]) {
@@ -563,11 +586,11 @@ async function annualPartsByRole<K extends string>(
       const [taxonomy, ...rest] = raw.split('_');
       const concept = rest.join('_');
       if (!taxonomy || !concept) continue;
-      const units = await fetchConceptUnits(cik, taxonomy, concept);
-      const entries = units?.[unit];
+      const entries = await opts.fetch(taxonomy, concept);
       if (!entries?.length) continue;
-      for (const p of annualInstantPoints(entries)) {
-        if (!byDate.has(p.date)) byDate.set(p.date, p.value); // premier concept renseigné gagne
+      for (const p of opts.points(entries)) {
+        if (opts.combine === 'sum') byDate.set(p.date, (byDate.get(p.date) ?? 0) + Math.abs(p.value));
+        else if (!byDate.has(p.date)) byDate.set(p.date, p.value);
       }
     }
     out.set(role, byDate);
@@ -575,12 +598,44 @@ async function annualPartsByRole<K extends string>(
   return out;
 }
 
+/** Rôles de BILAN annuels en devise native (dette, cash) : instantanés, alternatives. */
+async function annualPartsByRole<K extends string>(
+  cik: string,
+  unit: string,
+  roles: Record<K, readonly string[]>,
+): Promise<Map<K, Map<string, number>>> {
+  return partsByRole(cik, roles, {
+    fetch: async (taxonomy, concept) => (await fetchConceptUnits(cik, taxonomy, concept))?.[unit] ?? null,
+    points: annualInstantPoints,
+    combine: 'first',
+  });
+}
+
 /**
- * Applique une formule de composition à chaque exercice présent dans AU MOINS un rôle. Un rôle
- * absent à une date vaut `null` — c'est exactement ce qu'attendent computeTotalDebt et
- * computeCashAndEquivalents, qui distinguent « composante absente » de « zéro ».
+ * Rôles de FLUX trimestriels (capex) : dé-cumulés par concept AVANT sommation. Dé-cumuler
+ * l'union de deux concepts additifs mélangerait leurs chaînes YTD et produirait des
+ * trimestres faux — on dé-cumule donc chacun séparément, puis on somme par date.
+ * `fetchConcept` (et non `fetchConceptUnits`) : il refuse la colonne USD des déposants en
+ * devise étrangère, pour ne pas injecter une conversion de convenance dans la série.
  */
-function composeAnnual<K extends string>(
+async function quarterlyPartsByRole<K extends string>(
+  cik: string,
+  roles: Record<K, readonly string[]>,
+): Promise<Map<K, Map<string, number>>> {
+  return partsByRole(cik, roles, {
+    fetch: (taxonomy, concept) => fetchConcept(cik, taxonomy, concept, 'USD'),
+    points: decumulateFlow,
+    combine: 'sum',
+  });
+}
+
+/**
+ * Applique une formule de composition à chaque DATE présente dans AU MOINS un rôle (exercices
+ * annuels ou trimestres, la fonction ne présume rien de la cadence). Un rôle absent à une date
+ * vaut `null` — c'est exactement ce qu'attendent computeTotalDebt, computeCashAndEquivalents et
+ * computeCapex, qui distinguent « composante absente » de « zéro ».
+ */
+function composeByDate<K extends string>(
   parts: Map<K, Map<string, number>>,
   formula: (values: Record<K, number | null>) => number | null,
 ): TimeseriesPoint[] {
@@ -718,6 +773,17 @@ export async function getEdgarQuarterlySeries(ticker: string, metric: MetricKey)
     if (cfo.length === 0) return [];
     const capexByDate = new Map(capex.map(p => [p.date, Math.abs(p.value)]));
     return cfo.map(c => ({ date: c.date, value: c.value - (capexByDate.get(c.date) ?? 0) }));
+  }
+
+  // CapEx : somme des lignes d'investissement, dédoublonnage agrégat/composantes. MÊME
+  // composition que __computed_capex__ côté Finnhub (les deux pipelines alimentent la même
+  // série du store en append-only : deux définitions différentes y mélangeraient deux
+  // conventions de capex, donc deux FCF, dans un seul historique).
+  if (metric === 'capex') {
+    const cik = await getCik(ticker);
+    if (!cik) return [];
+    const roles = await quarterlyPartsByRole(cik, CAPEX_ROLE_CONCEPTS);
+    return composeByDate(roles, v => computeCapex(v));
   }
 
   // Operating income : tag direct prioritaire (us-gaap_OperatingIncomeLoss). Fallback

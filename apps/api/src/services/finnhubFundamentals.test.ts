@@ -7,7 +7,7 @@
  * formule reste correcte si quelqu'un refactor un jour.
  */
 import { describe, it, expect } from 'vitest';
-import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, extractCustomerFloat, extractCustomerFloatOffset, floatDeductedFromTtm, maxTtmGapMs, OPERATING_CASH_PCT_OF_REVENUE, resolveSbc, extractValue, METRICS, type FinnhubFiling } from './finnhubFundamentals.js';
+import { computeFcfBrut, computeFcfAdj, computeTotalDebt, computeCashAndEquivalents, computeExcessCash, computeCapex, CAPEX_ROLE_CONCEPTS, extractCustomerFloat, extractCustomerFloatOffset, floatDeductedFromTtm, maxTtmGapMs, OPERATING_CASH_PCT_OF_REVENUE, resolveSbc, extractValue, METRICS, type FinnhubFiling } from './finnhubFundamentals.js';
 
 const DAY = 86_400_000;
 /** Série de dates espacées de `stepDays`, valeur indifférente (seules les dates comptent). */
@@ -456,6 +456,172 @@ describe('computeTotalDebt (somme LT + ST + leases, dédoublonnage LT)', () => {
       financeLeaseNoncurrent: 0, financeLeaseCurrent: 0,
     };
     expect(computeTotalDebt(zeros)).toBe(0);
+  });
+});
+
+describe('computeCapex (somme des lignes d\'investissement, dédoublonnage agrégat/composantes)', () => {
+  it('renvoie null quand AUCUN rôle n\'est renseigné (≠ 0 : le capex est INCONNU, pas nul)', () => {
+    // La distinction porte tout le reste : un 0 fabriqué remonterait le FCF de tout le capex
+    // manquant et ferait passer une société capex-heavy pour bon marché.
+    expect(computeCapex({})).toBeNull();
+    expect(computeCapex({ ppeMain: null, ppeOther: null, oilGas: null })).toBeNull();
+  });
+
+  it('renvoie 0 quand une ligne est explicitement à 0 (vraie valeur trouvée)', () => {
+    expect(computeCapex({ ppeMain: 0 })).toBe(0);
+  });
+
+  it('cas standard : une seule ligne PP&E (~80 % des déposants)', () => {
+    expect(computeCapex({ ppeMain: 3_365_000_000 })).toBe(3_365_000_000);
+  });
+
+  it('cas EOG : additionne pétrole et PP&E au lieu de retenir le premier tag', () => {
+    // FY2025 réel : PaymentsToAcquireOilAndGasPropertyAndEquipment 6 115 M$ +
+    // PaymentsToAcquirePropertyPlantAndEquipment 479 M$. L'ancien « premier match » gardait
+    // 6 115 et jetait 479 ; stockanalysis publie bien 6 594 pour cet exercice.
+    expect(computeCapex({ oilGas: 6_115_000_000, ppeMain: 479_000_000 })).toBe(6_594_000_000);
+  });
+
+  it('cas Caterpillar : le matériel donné en location s\'ajoute au PP&E', () => {
+    // FY2025 réel : PP&E 2 821 M$ + EquipmentOnLease 1 465 M$ = 4 286 M$, la valeur publiée
+    // par la référence externe. Les deux sont des lignes distinctes du tableau de flux.
+    expect(computeCapex({ ppeMain: 2_821_000_000, lease: 1_465_000_000 })).toBe(4_286_000_000);
+  });
+
+  it('cas Alaska Air : trois lignes ventilées, aucune sous le tag PP&E standard', () => {
+    // FY2025 réel : matériel de vol 1 063 M$ + autres immos 309 M$ + autres actifs productifs
+    // 216 M$ = 1 588 M$ (= référence externe). Avant, capex introuvable → FCF = CFO.
+    // `residual` compte ici PARCE QUE la ligne PP&E standard est absente.
+    expect(computeCapex({ ppeOther: 1_372_000_000, residual: 216_000_000 })).toBe(1_588_000_000);
+  });
+
+  it('cas Corning / Gallagher : le capex ne vit que sous « améliorations d\'actifs »', () => {
+    // Corning FY2025 : 1 282 M$ sous PaymentsForCapitalImprovements, aucun tag PP&E. Non
+    // capté, son FCF valait son CFO (2 695 M$ au lieu de 1 413 M$, +91 %).
+    expect(computeCapex({ ppeOther: 1_282_000_000 })).toBe(1_282_000_000);
+  });
+
+  it('préfère l\'agrégat ProductiveAssets SEUL quand il coexiste avec ses composantes', () => {
+    // MercadoLibre & co agrègent tout sous ProductiveAssets. Si une société publie l'agrégat
+    // ET la ligne PP&E, additionner double-compterait (Delta : agrégat 4 499 = PP&E 3 521 +
+    // autres 978, les deux présentations du MÊME investissement).
+    expect(computeCapex({ aggregate: 4_499_000_000, ppeMain: 3_521_000_000, residual: 978_000_000 }))
+      .toBe(4_499_000_000);
+  });
+
+  it('n\'ajoute PAS le fourre-tout « autres actifs productifs » quand la ligne PP&E existe', () => {
+    // McDonald's FY2025 : PP&E 3 365 M$ + OtherProductiveAssets 354 M$. La convention externe
+    // retient 3 365 — ces montants sont présentés hors capex. Même schéma chez Occidental,
+    // Quanta, Teradyne, Microchip (10 sur-comptes mesurés si on l'ajoute inconditionnellement).
+    expect(computeCapex({ ppeMain: 3_365_000_000, residual: 354_000_000 })).toBe(3_365_000_000);
+  });
+
+  it('somme des MAGNITUDES : un signe négatif ne retranche jamais du capex', () => {
+    // Les paiements XBRL sont publiés en valeur absolue chez Finnhub, signés négatifs ailleurs.
+    // Mélanger les deux conventions dans une somme donnerait un capex qui s'annule lui-même.
+    expect(computeCapex({ ppeMain: -2_821_000_000, lease: -1_465_000_000 })).toBe(4_286_000_000);
+    expect(computeCapex({ ppeMain: 2_821_000_000, lease: -1_465_000_000 })).toBe(4_286_000_000);
+  });
+
+  it('le périmètre EXCLUT logiciel capitalisé et incorporels (décision mesurée, pas un oubli)', () => {
+    // Flutter FY2025 : PP&E 105 M$, incorporels 162 M$, logiciel 510 M$. Le périmètre retenu
+    // rend 105, comme la convention externe. Les élargir ferait tomber l'accord avec cette
+    // référence de 90 % à 79 % sur 556 exercices, et désalignerait les lignes US des lignes
+    // EU/INTL, dont le capex vient de Yahoo et stockanalysis (convention étroite).
+    // Ce test VERROUILLE le périmètre : l'élargir est un choix éditorial à assumer
+    // explicitement, pour toutes les sources à la fois.
+    const roles = Object.keys(CAPEX_ROLE_CONCEPTS);
+    expect(roles).not.toContain('software');
+    expect(roles).not.toContain('intangibles');
+    const flatConcepts = roles.flatMap(r => [...CAPEX_ROLE_CONCEPTS[r as keyof typeof CAPEX_ROLE_CONCEPTS]]);
+    expect(flatConcepts).not.toContain('us-gaap_PaymentsForSoftware');
+    expect(flatConcepts).not.toContain('us-gaap_PaymentsToAcquireIntangibleAssets');
+  });
+
+  it('exclut les tags qui RESSEMBLENT à du capex sans être des flux de trésorerie', () => {
+    // PropertyPlantAndEquipmentAdditions : Chevron y publie 91 568 M$ pour 16 830 M$ de capex
+    // réel, Cabot 4 M$ pour 281 M$ — un montant d'additions engagements inclus, pas un
+    // paiement. CapitalExpendituresIncurredButNotYetPaid est une DETTE d'investissement.
+    // PaymentsToAcquireOilAndGasProperty (sans « AndEquipment ») est de l'acquisition de
+    // gisements : Diamondback y met 5 938 M$ quand son capex de développement est 3 523 M$.
+    const flatConcepts = Object.values(CAPEX_ROLE_CONCEPTS).flatMap(c => [...c]);
+    expect(flatConcepts).not.toContain('us-gaap_PropertyPlantAndEquipmentAdditions');
+    expect(flatConcepts).not.toContain('us-gaap_CapitalExpendituresIncurredButNotYetPaid');
+    expect(flatConcepts).not.toContain('us-gaap_PaymentsToAcquireOilAndGasProperty');
+    // Le tag pétrolier retenu est bien celui du DÉVELOPPEMENT (et l'ancien, avec « AndEquipment »).
+    expect(flatConcepts).toContain('us-gaap_PaymentsToExploreAndDevelopOilAndGasProperties');
+    expect(flatConcepts).toContain('us-gaap_PaymentsToAcquireOilAndGasPropertyAndEquipment');
+  });
+});
+
+describe('extractValue capex (extraction des rôles depuis un dépôt Finnhub)', () => {
+  /** Dépôt minimal : seule la section `cf` compte pour le capex. */
+  const filing = (cf: Array<[string, number]>) => ({
+    year: 2025, quarter: 0, startDate: '2025-01-01', endDate: '2025-12-31', form: '10-K',
+    report: { cf: cf.map(([concept, value]) => ({ concept, label: concept, value })) },
+  });
+
+  it('cas Flutter : ne retient que le PP&E, laisse incorporels et logiciel de côté', () => {
+    const v = extractValue(filing([
+      ['us-gaap_PaymentsToAcquirePropertyPlantAndEquipment', 105_000_000],
+      ['us-gaap_PaymentsToAcquireIntangibleAssets', 162_000_000],
+      ['us-gaap_PaymentsForSoftware', 510_000_000],
+    ]), METRICS.capex!);
+    expect(v).toBe(105_000_000);
+  });
+
+  it('cas Alaska Air : somme les lignes ventilées d\'un même dépôt', () => {
+    const v = extractValue(filing([
+      ['us-gaap_PaymentsForFlightEquipment', 1_063_000_000],
+      ['us-gaap_PaymentsToAcquireOtherPropertyPlantAndEquipment', 309_000_000],
+      ['us-gaap_PaymentsToAcquireOtherProductiveAssets', 216_000_000],
+    ]), METRICS.capex!);
+    expect(v).toBe(1_588_000_000);
+  });
+
+  it('ignore les lignes voisines du bloc investissement qui ne sont pas du capex', () => {
+    // Flutter FY2025 : 2 688 M$ d'acquisitions et 1 123 M$ de rachats d'actions cohabitent
+    // avec le capex dans la même section `cf`.
+    const v = extractValue(filing([
+      ['us-gaap_PaymentsToAcquirePropertyPlantAndEquipment', 105_000_000],
+      ['us-gaap_PaymentsToAcquireBusinessesNetOfCashAcquired', 2_688_000_000],
+      ['us-gaap_PaymentsForRepurchaseOfCommonStock', 1_123_000_000],
+      ['us-gaap_CapitalExpendituresIncurredButNotYetPaid', 15_000_000],
+    ]), METRICS.capex!);
+    expect(v).toBe(105_000_000);
+  });
+
+  it('renvoie null quand le dépôt ne porte aucune ligne de capex connue', () => {
+    expect(extractValue(filing([['us-gaap_NetCashProvidedByUsedInOperatingActivities', 1_184_000_000]]), METRICS.capex!)).toBeNull();
+  });
+
+  it('accepte les concepts SANS préfixe us-gaap_ (vieux dépôts, cf ADBE Q2 FY21)', () => {
+    const v = extractValue(filing([['PaymentsToAcquirePropertyPlantAndEquipment', 42_000_000]]), METRICS.capex!);
+    expect(v).toBe(42_000_000);
+  });
+
+  it('le FCF du dépôt utilise le capex COMPOSÉ (pas la première ligne trouvée)', () => {
+    const v = extractValue(filing([
+      ['us-gaap_NetCashProvidedByUsedInOperatingActivities', 11_739_000_000],
+      ['us-gaap_PaymentsToAcquirePropertyPlantAndEquipment', 2_821_000_000],
+      ['us-gaap_PaymentsToAcquireEquipmentOnLease', 1_465_000_000],
+    ]), METRICS.fcf!);
+    expect(v).toBe(7_453_000_000); // Caterpillar : 11 739 − 4 286
+  });
+});
+
+describe('computeFcfBrut alimenté par computeCapex (bout en bout de la formule)', () => {
+  it('cas Corning : le capex retrouvé divise le FCF par ~2', () => {
+    const cfo = 2_695_000_000;
+    expect(computeFcfBrut(cfo, computeCapex({}))).toBe(cfo);                              // avant : FCF = CFO
+    expect(computeFcfBrut(cfo, computeCapex({ ppeOther: 1_282_000_000 }))).toBe(1_413_000_000);
+  });
+
+  it('cas EOG : les 479 M$ de PP&E oubliés retranchent bien du FCF', () => {
+    const cfo = 12_000_000_000;
+    expect(computeFcfBrut(cfo, computeCapex({ oilGas: 6_115_000_000 }))).toBe(5_885_000_000);
+    expect(computeFcfBrut(cfo, computeCapex({ oilGas: 6_115_000_000, ppeMain: 479_000_000 })))
+      .toBe(5_406_000_000);
   });
 });
 
