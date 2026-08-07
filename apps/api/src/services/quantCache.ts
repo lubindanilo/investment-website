@@ -88,8 +88,12 @@ export interface CachedQuantSnapshot {
  *     ont migré de tag XBRL (resolveSbc) + fin du fallback pfcfShareTTM quand notre calcul
  *     a CONCLU (FCF refusé ou ≤ 0). Sans invalidation, les snapshots servaient encore le
  *     P/FCF gonflé (MELI 8,3× pour 17,3× corrigé) jusqu'au prochain earnings.
+ * 4 — capex COMPOSÉ (computeCapex : somme des lignes d'investissement corporelles avec
+ *     dédoublonnage agrégat/composantes, au lieu du premier tag qui matche). Débloque les
+ *     déposants sans aucun des trois anciens tags (Corning 1 282 M$, EA, Alaska Air,
+ *     Gallagher — leur FCF valait leur CFO) et complète les ventilés (CAT ×1,52, EOG ×1,08).
  */
-export const SNAPSHOT_LOGIC_VERSION = 3;
+export const SNAPSHOT_LOGIC_VERSION = 4;
 
 /**
  * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.
