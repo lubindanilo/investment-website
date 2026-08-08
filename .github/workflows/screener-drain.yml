@@ -52,6 +52,8 @@ on:
 
 permissions:
   contents: read
+  # Canal d'alerte de secours (cf. step « Ouvrir une issue en cas d echec »).
+  issues: write
 
 concurrency:
   group: screener-drain
@@ -134,3 +136,24 @@ jobs:
 
             Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
             Declencheur : ${{ github.event_name }}
+
+      # Second canal, SANS AUCUN SECRET (08/08/2026) : le mot de passe d'application Gmail partage
+      # par les trois crons etait invalide, donc l'unique canal d'alerte etait mort en silence.
+      - name: Ouvrir une issue en cas d echec
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: '[cron] Drain Screener en echec'
+        run: |
+          set -euo pipefail
+          body="$(printf '%s\n' \
+            "Le drain des titres pending a echoue (scoring degrade ou erreur du run)." \
+            "" \
+            "- Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            "- Declencheur : ${{ github.event_name }}")"
+          existing="$(gh issue list --state open --search "\"${TITLE}\" in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "${existing}" ]; then
+            gh issue comment "${existing}" --body "${body}"
+          else
+            gh issue create --title "${TITLE}" --body "${body}"
+          fi

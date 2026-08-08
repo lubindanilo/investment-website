@@ -58,7 +58,21 @@ screenerRouter.post('/tick', requireScreenerToken, asyncHandler(async (req: Requ
   // fast=1 : ne pioche que les tickers tenables dans la deadline lambda (sans point). Le cron
   // planifié l'active — sans lui il passait 40 appels à expirer sur du non-US (6 notés sur 243).
   const onlyFast = String(req.query.fast ?? '0') === '1';
-  const result = await tick(n, deadlineMs, region, { warm, onlyFast });
+  // Budget PAR TITRE (s), optionnel. Le defaut code (10 s US / 20 s non-US) est calibre pour une
+  // deadline d'appel de 15 s, mais un snapshot complet demande ~30 s : mesure du drain du
+  // 08/08/2026, 800 titres notes a 3,9/min en concurrence 2. Sous 10 s, TOUS les titres expirent
+  // — le run planifie du 08/08 a fait 11 passes, 8 timeouts par passe, 0 note. Plafonne a 50 s
+  // pour rester sous le maxDuration de 60 s de la lambda (cf. vercel.json).
+  const rawPer = Number(req.query.per);
+  const perTickerMs = Number.isFinite(rawPer) && rawPer > 0
+    ? Math.min(rawPer, 50) * 1_000
+    : undefined;
+  // Concurrence, optionnelle. Les limiteurs d'API sont GLOBAUX au process : monter la concurrence
+  // n'accelere pas un titre, elle allonge la latence de chacun. A budget par titre serre, il faut
+  // donc la BAISSER (le drain tourne a 2), sinon les titres expirent tous ensemble.
+  const rawConc = Number(req.query.conc);
+  const concurrency = Number.isFinite(rawConc) && rawConc > 0 ? Math.min(rawConc, 8) : undefined;
+  const result = await tick(n, deadlineMs, region, { warm, onlyFast, perTickerMs, concurrency });
   res.json(result);
 }));
 

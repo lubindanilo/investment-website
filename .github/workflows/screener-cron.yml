@@ -48,6 +48,8 @@ on:
 
 permissions:
   contents: read
+  # Canal d'alerte de secours (cf. step « Ouvrir une issue en cas d echec »).
+  issues: write
 
 concurrency:
   group: screener-scoring
@@ -121,10 +123,26 @@ jobs:
             # expiration bumpait `lastAttemptAt` donc rearmait le cooldown, et les memes titres
             # revenaient la nuit suivante (attempts a 11 sur 2330.TW) sans jamais etre notes.
             # Le non-US est desormais servi par le drain (runner sans lambda, 240 s par titre).
-            REGION=""; N="25"; DEADLINE="30"; PASSES="40"; WARM="0"; FAST="1"
+            #
+            # BUDGET PAR TITRE (08/08/2026). fast=1 n'a pas suffi : le run du 08/08 a fait 11
+            # passes a picked=25 / timeout=8 / scored=0, et le garde de rendement (ajoute la
+            # veille) l'a enfin fait echouer. La cause n'est pas le choix des titres mais le
+            # budget : 10 s par titre pour un snapshot qui en demande ~30 (mesure du drain de la
+            # meme nuit — 800 titres notes, 0 timeout, 3,9/min en concurrence 2). Tout expirait.
+            # On passe donc a 45 s par titre (?per=45), deadline 50 s, concurrence 2 (?conc=2 :
+            # les limiteurs d'API sont globaux, monter la concurrence allonge la latence de chaque
+            # titre au lieu de la reduire), n=6 pour laisser un worker enchainer si un titre sort
+            # vite en nodata. Attendu : ~2 titres notes par appel au lieu de 0.
+            # Cout : 40 passes x ~50 s = ~33 min d'endpoint actif, du meme ordre que les ~35 min
+            # du run precedent qui, lui, ne notait rien.
+            REGION=""; N="6"; DEADLINE="50"; PASSES="40"; WARM="0"; FAST="1"; PER="45"; CONC="2"
           fi
 
           QS="n=${N}&deadline=${DEADLINE}&warm=${WARM}&fast=${FAST}"
+          # `per`/`conc` : uniquement sur le run planifie (contraint par la lambda). Le rattrapage
+          # manuel garde les defauts du code, qui conviennent a ses deadlines plus larges.
+          if [ -n "${PER:-}" ]; then QS="${QS}&per=${PER}"; fi
+          if [ -n "${CONC:-}" ]; then QS="${QS}&conc=${CONC}"; fi
           if [ -n "${REGION}" ]; then QS="${QS}&region=${REGION}"; fi
           echo "Cible : ${SITE_URL}/api/screener/tick?${QS} (max ${PASSES} appels)"
 
@@ -136,7 +154,9 @@ jobs:
           for pass in $(seq 1 "${PASSES}"); do
             # --fail-with-body : sort en erreur (donc job en echec -> alerte) sur HTTP >= 400,
             # ce qui couvre endpoint down, token rejete, deploiement casse.
-            response="$(curl --fail-with-body --silent --show-error --max-time 60 \
+            # --max-time 75 : la lambda a un maxDuration de 60 s et le run planifie l'occupe
+            # jusqu'a ~50 s (deadline) + overhead. A 60 s, curl coupait avant la reponse.
+            response="$(curl --fail-with-body --silent --show-error --max-time 75 \
               -X POST \
               -H "x-screener-token: ${SCREENER_TOKEN}" \
               "${SITE_URL}/api/screener/tick?${QS}")"
@@ -222,3 +242,29 @@ jobs:
 
             Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
             Declencheur : ${{ github.event_name }}
+
+      # Second canal, SANS AUCUN SECRET (08/08/2026). L'e-mail ci-dessus est un point de
+      # defaillance unique, et il ETAIT tombe : le run du 08/08 a echoue puis n'a pas pu alerter
+      # (`530-5.7.0 Authentication Required` — mot de passe d'application Gmail invalide). La
+      # panne existait, personne ne l'a su : exactement le scenario que ce workflow existe pour
+      # rendre impossible. Une issue GitHub ne depend que de `github.token`, donc elle ne peut pas
+      # expirer, et elle notifie par les abonnements du repo. Idempotente : si une issue du meme
+      # titre est deja ouverte, on y ajoute un commentaire au lieu d'en empiler une par nuit.
+      - name: Ouvrir une issue en cas d echec
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: '[cron] Screener scoring en echec'
+        run: |
+          set -euo pipefail
+          body="$(printf '%s\n' \
+            "Le cron de notation du screener a echoue (rappel : panne silencieuse du 9 juin 2026)." \
+            "" \
+            "- Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            "- Declencheur : ${{ github.event_name }}")"
+          existing="$(gh issue list --state open --search "\"${TITLE}\" in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "${existing}" ]; then
+            gh issue comment "${existing}" --body "${body}"
+          else
+            gh issue create --title "${TITLE}" --body "${body}"
+          fi
