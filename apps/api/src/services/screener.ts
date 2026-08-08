@@ -628,6 +628,10 @@ export interface TickOptions {
   /** Ne piocher que les tickers tenables dans la deadline lambda (sans point, budget 10 s).
    *  Le cron planifié l'active : le non-US relève du drain. Cf. pickDueTickers. */
   onlyFast?: boolean;
+  /** Budget par titre (ms), tous marchés confondus. Défaut : PER_TICKER_MS / PER_TICKER_MS_NON_US.
+   *  Le cron planifié le relève à 45 s : à 10 s, un snapshot complet (~30 s mesurées sur le drain
+   *  du 08/08/2026) expire SYSTÉMATIQUEMENT et le run ne note rien. */
+  perTickerMs?: number;
 }
 
 export async function tick(
@@ -647,8 +651,9 @@ export async function tick(
   const worker = async (): Promise<void> => {
     while (next < due.length) {
       const t = due[next++]!;
-      // Budget adapté à la source : non-US (Yahoo, lent depuis Vercel) → plus large.
-      const perTicker = t.ticker.includes('.') ? PER_TICKER_MS_NON_US : PER_TICKER_MS;
+      // Budget adapté à la source : non-US (Yahoo, lent depuis Vercel) → plus large. Surchargeable
+      // par appel (`?per=`) : le cron planifié le porte à 45 s, faute de quoi tout expire.
+      const perTicker = opts.perTickerMs ?? (t.ticker.includes('.') ? PER_TICKER_MS_NON_US : PER_TICKER_MS);
       // Pas assez de budget pour garantir un cycle complet → ce worker s'arrête.
       if (Date.now() - start + perTicker > softDeadlineMs) break;
       const timer = new Promise<typeof TIMEOUT_SENTINEL>((res) => setTimeout(() => res(TIMEOUT_SENTINEL), perTicker));

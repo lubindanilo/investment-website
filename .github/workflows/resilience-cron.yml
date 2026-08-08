@@ -44,6 +44,8 @@ on:
 
 permissions:
   contents: read
+  # Canal d'alerte de secours (cf. step « Ouvrir une issue en cas d echec »).
+  issues: write
 
 concurrency:
   group: resilience-backfill
@@ -59,8 +61,21 @@ jobs:
     strategy:
       # Un shard qui tombe ne doit pas emporter les trois autres : chacun ecrit ses propres lignes.
       fail-fast: false
+      # Le nom du secret de jeton est porte par la MATRICE, pas calcule dans une expression.
+      # Les expressions GitHub n'ont AUCUN operateur arithmetique : le `matrix.shard % 2 == 0`
+      # d'origine (#259) rendait le fichier illisible pour GitHub, qui l'enregistrait sous son
+      # chemin au lieu de son `name:` et refusait de le lancer — le cron du 07/08 n'a jamais
+      # existe, sans meme un run en echec (donc sans alerte : `if: failure()` n'a pas de job).
       matrix:
-        shard: [0, 1, 2, 3]
+        include:
+          - shard: 0
+            token_secret: CLAUDE_CODE_OAUTH_TOKEN
+          - shard: 1
+            token_secret: CLAUDE_CODE_OAUTH_TOKEN_2
+          - shard: 2
+            token_secret: CLAUDE_CODE_OAUTH_TOKEN
+          - shard: 3
+            token_secret: CLAUDE_CODE_OAUTH_TOKEN_2
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
       # Prisma exige `directUrl` a la generation. Ce job ne migre rien : la meme URL suffit.
@@ -69,7 +84,9 @@ jobs:
       # Deux abonnements Claude : les shards pairs prennent le premier jeton, les impairs le second,
       # pour ne pas concentrer quatre scoreurs simultanes sur une seule limite de debit. Si le
       # second secret n'est pas pose, tout retombe sur le premier (degrade mais fonctionnel).
-      CLAUDE_CODE_OAUTH_TOKEN: ${{ matrix.shard % 2 == 0 && secrets.CLAUDE_CODE_OAUTH_TOKEN || (secrets.CLAUDE_CODE_OAUTH_TOKEN_2 || secrets.CLAUDE_CODE_OAUTH_TOKEN) }}
+      # `secrets[...]` indexe le contexte par le nom porte par la matrice ; le `||` retombe sur le
+      # 1er jeton si le 2e secret n'est pas pose (degrade mais fonctionnel).
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets[matrix.token_secret] || secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       RESILIENCE_STARS_DAILY_CAP: ${{ inputs.cap || vars.RESILIENCE_STARS_DAILY_CAP || '200' }}
     steps:
@@ -146,3 +163,28 @@ jobs:
 
             Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
             Declencheur : ${{ github.event_name }}
+
+      # Second canal, SANS AUCUN SECRET (08/08/2026) : le mot de passe d'application Gmail du
+      # step ci-dessus etait invalide (`530-5.7.0 Authentication Required` cote screener), donc
+      # le canal unique d'alerte etait mort sans que rien ne le signale. Une issue GitHub ne
+      # depend que de `github.token`. Un seul fil pour les 4 shards : le 1er shard en echec ouvre
+      # l'issue, les suivants commentent.
+      - name: Ouvrir une issue en cas d echec
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: '[cron] Backfill Resilience en echec'
+        run: |
+          set -euo pipefail
+          body="$(printf '%s\n' \
+            "Le backfill du score de resilience a echoue sur le shard ${{ matrix.shard }} : aucune" \
+            "entreprise notee par ce shard. Les autres shards ont pu aboutir." \
+            "" \
+            "- Run : ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            "- Declencheur : ${{ github.event_name }}")"
+          existing="$(gh issue list --state open --search "\"${TITLE}\" in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "${existing}" ]; then
+            gh issue comment "${existing}" --body "${body}"
+          else
+            gh issue create --title "${TITLE}" --body "${body}"
+          fi
