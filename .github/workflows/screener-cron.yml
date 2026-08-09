@@ -31,6 +31,26 @@ on:
         description: 'Nombre max d appels avant arret'
         required: false
         default: '400'
+      # Les quatre reglages que le run planifie fixe lui-meme (cf. sa branche plus bas). Ouverts au
+      # lancement manuel pour une raison precise : sans eux, un `workflow_dispatch` ne peut PAS
+      # reproduire la configuration du cron, donc pas verifier un correctif qui la concerne. Vides
+      # = comportement manuel d'origine (budget du code, concurrence 4, warm actif, toutes files).
+      per:
+        description: 'Budget PAR TITRE en secondes (max 50). Vide = defaut du code (10 s US, 20 s non-US).'
+        required: false
+        default: ''
+      conc:
+        description: 'Titres scores en parallele. Vide = defaut du code (4). A BAISSER si les titres expirent.'
+        required: false
+        default: ''
+      fast:
+        description: '1 = ne piocher que les titres tenables dans la deadline lambda (comme le run planifie).'
+        required: false
+        default: ''
+      warm:
+        description: '0 = coupe la phase warm graphiques (economise le compute Neon), comme le run planifie.'
+        required: false
+        default: ''
       seed:
         description: 'Seed uniquement (insere les tickers du code en base) : liste de regions ex "INTL,EU,US". Vide = pas de seed, scoring normal.'
         required: false
@@ -68,6 +88,10 @@ jobs:
       MANUAL_DEADLINE: ${{ inputs.deadline }}
       MANUAL_PASSES: ${{ inputs.passes }}
       MANUAL_SEED: ${{ inputs.seed }}
+      MANUAL_PER: ${{ inputs.per }}
+      MANUAL_CONC: ${{ inputs.conc }}
+      MANUAL_FAST: ${{ inputs.fast }}
+      MANUAL_WARM: ${{ inputs.warm }}
     steps:
       - name: Score due tickers
         shell: bash
@@ -109,7 +133,9 @@ jobs:
             N="${MANUAL_N:-25}"
             DEADLINE="${MANUAL_DEADLINE:-45}"
             PASSES="${MANUAL_PASSES:-400}"
-            WARM="1"; FAST="0"
+            # Defauts historiques du lancement manuel, surchargeables input par input.
+            WARM="${MANUAL_WARM:-1}"; FAST="${MANUAL_FAST:-0}"
+            PER="${MANUAL_PER:-}"; CONC="${MANUAL_CONC:-}"
           else
             # Run quotidien minimal, earnings d'abord (phase 1), puis trickle du plus ancien.
             # Scoring en concurrence bornee cote API (K=4) → plus de titres par appel a compute
