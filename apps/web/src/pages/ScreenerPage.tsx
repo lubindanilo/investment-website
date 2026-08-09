@@ -367,6 +367,9 @@ export function ScreenerPage() {
   // Couverture : combien de titres de la base ont réellement des fondamentaux (= statut `scored`).
   // null tant qu'on ne sait pas / si l'appel échoue → le bloc n'est simplement pas affiché.
   const [covered, setCovered] = useState<number | null>(null);
+  // Même logique pour la Résilience : combien de titres ont un score en base (table dédiée,
+  // remplie par un backfill distinct → le chiffre est plus bas que la couverture fondamentaux).
+  const [resilienceCovered, setResilienceCovered] = useState<number | null>(null);
 
   // Deep-link « Nos opportunités du moment » (?opp=1, ex. depuis le blog) : une fois l'abonnement
   // connu, on active le filtre pour un Pro, sinon on ouvre l'upgrade (le filtre est réservé Pro).
@@ -379,7 +382,7 @@ export function ScreenerPage() {
   // Compteur de couverture (une fois au montage). Réponse mémoïsée côté API + cache 15 min.
   useEffect(() => {
     api.screener.stats()
-      .then(s => setCovered(s.scored))
+      .then(s => { setCovered(s.scored); setResilienceCovered(s.resilienceScored ?? null); })
       .catch(() => {});
   }, []);
 
@@ -484,11 +487,21 @@ export function ScreenerPage() {
             <h1 className="scr-title">{t('screener.title')}</h1>
             <p className="muted" style={{ fontSize: 14 }}>{t('screener.subtitle')}</p>
           </div>
-          {/* Couverture de la base : le nombre de titres dont les fondamentaux sont chargés. */}
-          {covered != null && (
-            <div className="scr-count">
-              <span className="num scr-count-num">{covered.toLocaleString(currentLocale())}</span>
-              <span className="scr-count-label">{t('screener.coverage.label')}</span>
+          {/* Couverture de la base : fondamentaux chargés, puis titres dont la Résilience est scorée. */}
+          {(covered != null || resilienceCovered != null) && (
+            <div className="scr-counts">
+              {covered != null && (
+                <div className="scr-count">
+                  <span className="num scr-count-num">{covered.toLocaleString(currentLocale())}</span>
+                  <span className="scr-count-label">{t('screener.coverage.label')}</span>
+                </div>
+              )}
+              {resilienceCovered != null && (
+                <div className="scr-count">
+                  <span className="num scr-count-num">{resilienceCovered.toLocaleString(currentLocale())}</span>
+                  <span className="scr-count-label">{t('screener.coverage.resilienceLabel')}</span>
+                </div>
+              )}
             </div>
           )}
         </div>

@@ -774,7 +774,7 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
   return onlyOpportunities ? withRes.filter(r => r.opportunity) : withRes;
 }
 
-export interface ScreenerStatsCounts { pending: number; scored: number; nodata: number; error: number; total: number }
+export interface ScreenerStatsCounts { pending: number; scored: number; nodata: number; error: number; total: number; resilienceScored: number }
 
 /**
  * Mémo des compteurs : /stats est désormais appelé par le screener PUBLIC (compteur de
@@ -788,8 +788,14 @@ let statsCache: { at: number; counts: ScreenerStatsCounts } | null = null;
 /** Compteurs de progression de la veille (mémoïsés STATS_TTL_MS). */
 export async function getStats(): Promise<ScreenerStatsCounts> {
   if (statsCache && Date.now() - statsCache.at < STATS_TTL_MS) return statsCache.counts;
-  const grouped = await prisma.screenerTicker.groupBy({ by: ['status'], _count: { _all: true } });
-  const out = { pending: 0, scored: 0, nodata: 0, error: 0, total: 0 };
+  // Deux compteurs indépendants : les fondamentaux (ScreenerTicker.status) et la Résilience,
+  // écrite dans sa propre table par le backfill de nuit — un titre `scored` n'a donc pas
+  // forcément son grade de résilience, d'où le second compteur affiché sur le screener.
+  const [grouped, resilienceScored] = await Promise.all([
+    prisma.screenerTicker.groupBy({ by: ['status'], _count: { _all: true } }),
+    prisma.resilienceStarScore.count(),
+  ]);
+  const out = { pending: 0, scored: 0, nodata: 0, error: 0, total: 0, resilienceScored };
   for (const g of grouped) {
     const c = g._count._all;
     if (g.status === 'pending' || g.status === 'scored' || g.status === 'nodata' || g.status === 'error') {

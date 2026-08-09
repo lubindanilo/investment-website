@@ -112,7 +112,8 @@
     "title": "Screener",
     "subtitle": "Les meilleures notes de l'univers, triées par la veille. Les 10/10 en tête.",
     "coverage": {
-      "label": "titres avec données financières"
+      "label": "titres avec données financières",
+      "resilienceLabel": "titres avec Résilience scorée"
     },
     "filters": {
       "kicker": "Filtres",

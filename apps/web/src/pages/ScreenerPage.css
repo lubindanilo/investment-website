@@ -5,6 +5,9 @@
 .scr-title { font-size: 26px; font-weight: 700; letter-spacing: -0.025em; }
 /* Compteur de couverture, à droite du titre : le nombre de titres de la base dont les
    fondamentaux sont chargés (statut `scored`). Volontairement minimal : un nombre + un libellé. */
+/* Deux compteurs côte à côte (fondamentaux / Résilience) : ils restent alignés à droite du
+   titre et passent l'un sous l'autre quand la largeur ne suffit plus. */
+.scr-counts { display: flex; align-items: flex-start; justify-content: flex-end; gap: 24px; flex-wrap: wrap; flex: none; }
 .scr-count { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; flex: none; text-align: right; }
 .scr-count-num { font-size: 26px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); }
 /* 220px : le libellé le plus long (FR/ES) tient sur une ligne, et au-delà il passe à la ligne
@@ -47,6 +50,7 @@
   .scr-head { flex-direction: column; gap: 10px; }
   /* Empilé : le compteur passe sur UNE ligne (« 6 818 titres avec données financières »)
      plutôt qu'un gros nombre orphelin sous le sous-titre. */
+  .scr-counts { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 4px; }
   .scr-count { flex-direction: row; align-items: baseline; gap: 6px; text-align: left; }
   .scr-count-num { font-size: 18px; }
   .scr-count-label { max-width: none; }

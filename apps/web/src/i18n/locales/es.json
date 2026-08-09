@@ -195,7 +195,8 @@
     "title": "Screener",
     "subtitle": "Las mejores puntuaciones del universo, ordenadas por el seguimiento. Los 10/10 a la cabeza.",
     "coverage": {
-      "label": "valores con datos financieros"
+      "label": "valores con datos financieros",
+      "resilienceLabel": "valores con Resiliencia puntuada"
     },
     "filters": {
       "kicker": "Filtros",

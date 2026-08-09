@@ -610,6 +610,8 @@ export interface ScreenerStats {
   nodata: number;
   error: number;
   total: number;
+  /** Titres ayant un score de Résilience en base (table dédiée, alimentée séparément). */
+  resilienceScored: number;
 }
 
 export interface EarningsResult {

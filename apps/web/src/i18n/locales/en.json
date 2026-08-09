@@ -112,7 +112,8 @@
     "title": "Screener",
     "subtitle": "The highest scores across the universe, ranked by our monitoring. The 10/10s on top.",
     "coverage": {
-      "label": "stocks with financial data"
+      "label": "stocks with financial data",
+      "resilienceLabel": "stocks with a Resilience score"
     },
     "filters": {
       "kicker": "Filters",
