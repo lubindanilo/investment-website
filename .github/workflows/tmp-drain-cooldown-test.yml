@@ -1,0 +1,39 @@
+name: TMP verif cooldown drain
+
+# JOB TEMPORAIRE, A SUPPRIMER AVANT MERGE. Aucun workflow de ce repo ne lance vitest et Node
+# n'est pas installe sur la machine de dev : ce job sert uniquement a executer le test de
+# regression du cooldown et a prouver qu'il ECHOUE sur le motif fautif.
+on:
+  push:
+    branches: [crons/cooldown-earnings-lastattemptat]
+
+permissions:
+  contents: read
+
+jobs:
+  verif:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
+
+      - name: Le test passe sur le code corrige
+        run: pnpm --filter @lubin/api exec vitest run src/services/screenerDrainCooldown.test.ts
+
+      - name: Et il ECHOUE si on remet le cooldown sur lastScoredAt
+        run: |
+          set -uo pipefail
+          f=apps/api/src/services/screenerDrain.ts
+          # Remet le motif d'origine : eligibilite jugee sur lastScoredAt.
+          perl -0pi -e 's/OR: \[\{ lastAttemptAt: null \}, \{ lastAttemptAt: \{ lt: cooldownBefore \} \}\]/OR: [{ lastScoredAt: null }, { lastScoredAt: { lt: cooldownBefore } }]/' "$f"
+          grep -q 'lastScoredAt: { lt: cooldownBefore }' "$f" || { echo "::error::le patch de regression ne s est pas applique"; exit 1; }
+          if pnpm --filter @lubin/api exec vitest run src/services/screenerDrainCooldown.test.ts; then
+            echo "::error::le test PASSE sur le code fautif — il ne verrouille donc rien."
+            exit 1
+          fi
+          echo "OK : le test echoue bien sur le motif lastScoredAt."
