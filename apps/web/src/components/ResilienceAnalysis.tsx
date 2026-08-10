@@ -75,7 +75,7 @@ export function AnalysisHeader({
           <div className="anl-company-line">
             {/* Logo officiel de la société : repère visuel immédiat, repli sur son code
                 boursier quand aucun logo n'est connu (cf. <CompanyLogo>). */}
-            <span className="anl-company-logo" aria-hidden="true"><CompanyLogo ticker={analysis.ticker} /></span>
+            <span className="anl-company-logo" aria-hidden="true"><CompanyLogo ticker={analysis.ticker} name={analysis.company} /></span>
             <h1 id="analysis-company-name" className="anl-company">{analysis.company}</h1>
             <span className="num anl-ticker-badge">{analysis.ticker}</span>
           </div>
