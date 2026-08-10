@@ -39,11 +39,39 @@ const DEFAULT_POLL_MS = 10 * 60_000;
 /** Combien de tickers déjà tentés on exclut des piochés suivants (cf. pickDue). */
 const EXCLUDE_WINDOW = 1_000;
 /**
- * Délai minimum entre deux vraies re-notations d'un titre à résultats échus (cf. pickDue).
+ * Délai minimum entre deux PASSAGES du scoreur sur un titre à résultats échus (cf. pickDue).
  * 3 jours : assez court pour rattraper une publication, assez long pour ne pas repasser toutes les
  * nuits sur les titres dont le fournisseur tarde à publier la date du trimestre suivant.
  */
 const EARNINGS_RESCORE_COOLDOWN_MS = 3 * 24 * 3600 * 1000;
+
+/**
+ * Clause d'éligibilité de la file « résultats tombés », partagée par `pickDue` (ce qu'on pioche) et
+ * par le compteur `earningsLeft` du rapport de fin de run (ce qu'il reste). Les deux DOIVENT lire le
+ * même critère : quand ils divergeaient, le rapport affichait une file qui ne bougeait pas alors que
+ * le run notait 762 titres, ce qui a masqué le bug ci-dessous pendant trois nuits.
+ *
+ * LE COOLDOWN PORTE SUR `lastAttemptAt`, JAMAIS SUR `lastScoredAt` (10/08/2026). `lastScoredAt`
+ * n'est écrit QUE si l'empreinte des fondamentaux a changé (cf. la garde « fraîcheur honnête » de
+ * screener.ts, qui protège le `lastmod` du sitemap), et le schéma le dit explicitement :
+ * « ⚠️ Pour la CADENCE de re-scoring, utiliser `lastAttemptAt`, jamais ce champ ». Fonder
+ * l'éligibilité sur `lastScoredAt` rendait donc le cooldown INOPÉRANT dans le cas normal : un titre
+ * re-noté dont le trimestre n'est pas encore publié ressortait avec `lastScoredAt` inchangé, donc
+ * immédiatement re-éligible. Mesure sur les logs des nuits du 08, 09 et 10/08/2026 : sur les 762
+ * titres notés le 10/08, 264 (35 % du run) l'avaient déjà été 24 h plus tôt et 111 trois nuits
+ * d'affilée — les plus grosses capis, que le tri par capitalisation remonte en tête chaque nuit
+ * (Asahi, Takeda, Sony, NTT…). Un tiers du budget Neon partait en re-scorings de moins de 24 h,
+ * pendant que la file `pending` restait figée à 19 840 titres, deux nuits de suite au titre près.
+ */
+function earningsDueWhere(today: string, cooldownBefore: Date) {
+  return {
+    status: 'scored',
+    nextEarningsDate: { lte: today },
+    // `{ lt: … }` seul exclurait les lignes à null : une ligne notée sans tentative enregistrée
+    // (héritage d'avant la séparation des deux champs) doit rester éligible.
+    OR: [{ lastAttemptAt: null }, { lastAttemptAt: { lt: cooldownBefore } }],
+  };
+}
 
 export type StopReason = 'queue-empty' | 'time' | 'max-tickers' | 'neon-budget';
 
@@ -111,31 +139,30 @@ export interface DrainResult {
  * AVANT l'élargissement de couverture. Le budget Neon étant le vrai plafond, le backfill `pending`
  * consomme ce qui reste du lot.
  */
-async function pickDue(limit: number, region: string | undefined, exclude: string[]): Promise<string[]> {
+export async function pickDue(limit: number, region: string | undefined, exclude: string[]): Promise<string[]> {
   const today = new Date().toISOString().slice(0, 10);
   const common = {
     ...(region ? { region } : {}),
     ...(exclude.length ? { ticker: { notIn: exclude } } : {}),
   };
 
-  // 1. Résultats tombés : re-noter, les plus grosses capis d'abord. `lastScoredAt` (et non
-  //    `lastAttemptAt`) trie sur la vraie ancienneté de la donnée : un titre qui a échoué dix fois
-  //    a un `lastAttemptAt` récent mais une note toujours périmée.
+  // 1. Résultats tombés : re-noter, les plus grosses capis d'abord.
   //
   //    Le cooldown n'est PAS une optimisation, c'est ce qui empêche la file de tourner en rond.
   //    `nextEarningsDate <= today` reste vrai tant que le fournisseur n'a pas publié la date du
   //    trimestre suivant, et ce délai va de quelques jours à quelques semaines (mesure au 07/08 :
   //    1 921 titres dont la date est dépassée depuis plus de 7 jours, dont 326 pourtant re-notés
-  //    dans la semaine). Sans cooldown, ces titres seraient repêchés CHAQUE nuit après avoir déjà
-  //    été rafraîchis, affamant le backfill `pending` et brûlant du compute Neon pour rien.
+  //    dans la semaine). Sans cooldown EFFECTIF, ces titres sont repêchés CHAQUE nuit après avoir
+  //    déjà été rafraîchis, affamant le backfill `pending` et brûlant du compute Neon pour rien —
+  //    c'est exactement ce qui s'est produit jusqu'au 10/08/2026, cf. `earningsDueWhere`.
+  //
+  //    Le TRI, lui, reste sur `lastScoredAt` : l'éligibilité est une question de cadence (« quand
+  //    est-on passé ? » → `lastAttemptAt`), l'ordre une question de péremption (« quelle note est la
+  //    plus vieille ? » → `lastScoredAt`). Un titre qui a échoué dix fois a un `lastAttemptAt`
+  //    récent mais une note toujours périmée : il doit passer devant.
   const earningsCooldown = new Date(Date.now() - EARNINGS_RESCORE_COOLDOWN_MS);
   const earnings = await prisma.screenerTicker.findMany({
-    where: {
-      ...common,
-      status: 'scored',
-      nextEarningsDate: { lte: today },
-      OR: [{ lastScoredAt: null }, { lastScoredAt: { lt: earningsCooldown } }],
-    },
+    where: { ...common, ...earningsDueWhere(today, earningsCooldown) },
     orderBy: [{ marketCapUsd: { sort: 'desc', nulls: 'last' } }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
     take: limit,
     select: { ticker: true },
@@ -237,9 +264,10 @@ export async function drainPending(opts: DrainOptions): Promise<DrainResult> {
   const earningsLeft = await prisma.screenerTicker.count({
     where: {
       ...regionWhere,
-      status: 'scored',
-      nextEarningsDate: { lte: new Date().toISOString().slice(0, 10) },
-      OR: [{ lastScoredAt: null }, { lastScoredAt: { lt: new Date(Date.now() - EARNINGS_RESCORE_COOLDOWN_MS) } }],
+      ...earningsDueWhere(
+        new Date().toISOString().slice(0, 10),
+        new Date(Date.now() - EARNINGS_RESCORE_COOLDOWN_MS),
+      ),
     },
   }).catch(() => -1);
 
