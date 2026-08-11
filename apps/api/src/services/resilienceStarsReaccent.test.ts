@@ -1,5 +1,16 @@
 import { describe, it, expect, vi } from 'vitest';
-import { needsReaccent, parseReaccented, reaccentTexts } from './resilienceStarsReaccent.js';
+import { buildReaccentPrompt, needsReaccent, parseReaccented, reaccentTexts } from './resilienceStarsReaccent.js';
+
+describe('buildReaccentPrompt', () => {
+  it('interdit la 2e personne, la faute reellement observee en run', () => {
+    // Run du 11/08/2026 : « boucle de données possèdes » pour « possédés ». La regle de 3e
+    // personne rend cette forme impossible ; si elle disparait du prompt, la faute revient.
+    const prompt = buildReaccentPrompt(['une phrase']);
+    expect(prompt).toContain('2e personne du singulier');
+    expect(prompt).toContain('possédés');
+    expect(prompt).toContain('1. une phrase');
+  });
+});
 
 describe('needsReaccent', () => {
   it('flagge une phrase desaccentuee, laisse passer du francais correct', () => {
