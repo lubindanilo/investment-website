@@ -115,11 +115,12 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // Le `freq` demandé est ignoré : getRatioTimeseries choisit lui-même la granularité.
   if (RATIO_SET.has(requestedMetric)) {
     const ratioKey = requestedMetric as RatioMetricKey;
-    // 'ratio5' : bump après l'approfondissement du store annuel par stockanalysis (un exercice
-    // de plus pour les titres EU hors périmètre EDGAR). Générations précédentes : 'ratio'
-    // (origine), 'ratio2' (matérialité du dénominateur), 'ratio3' (contiguïté TTM + condition
-    // de repli), 'ratio4' (repli sur le store enrichi EDGAR). Les vieilles clés expirent seules.
-    const key = cache.cacheKey(ticker, ratioKey, 'ratio5', years);
+    // 'ratio6' : bump après le branchement du chemin EU intra-annuel (12 mois glissants sur le
+    // store) — les ratios des titres EU ne commencent plus tous en 2022. Générations précédentes :
+    // 'ratio' (origine), 'ratio2' (matérialité du dénominateur), 'ratio3' (contiguïté TTM +
+    // condition de repli), 'ratio4' (repli sur le store enrichi EDGAR), 'ratio5' (profondeur
+    // annuelle stockanalysis). Les vieilles clés expirent seules.
+    const key = cache.cacheKey(ticker, ratioKey, 'ratio6', years);
     const hit = await cache.get(key);
     if (hit) {
       cacheable();
@@ -135,7 +136,9 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     const earningsPromise = getNextEarningsDate(ticker);
     const startedAt = Date.now();
     const ratio = await getRatioTimeseries(ticker, ratioKey, years);
-    const source = ratio.freq === 'annual' ? 'yahoo' : 'finnhub';
+    // Portée par le service : la déduire du `freq` étiquetait « finnhub » une série EU
+    // trimestrielle relue du store.
+    const source = ratio.source;
     const elapsedMs = Date.now() - startedAt;
     const nextEarnings = await earningsPromise.catch(() => null);
     const ttlMs = ttlUntilNextEarnings(nextEarnings);

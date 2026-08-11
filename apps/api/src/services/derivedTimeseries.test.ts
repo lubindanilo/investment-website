@@ -1,11 +1,13 @@
 /**
- * Tests du garde-fou de matérialité du dénominateur des ratios en × (dette nette / FCF).
+ * Tests des helpers purs des séries-ratio : matérialité du dénominateur (ratios en ×) et
+ * somme glissante sur douze mois.
  *
- * Pas de test bout-en-bout : getRatioTimeseries tape Finnhub + Yahoo. On teste le helper
- * pur, qui porte toute la décision « ce point est du bruit → on ne le trace pas ».
+ * Pas de test bout-en-bout : getRatioTimeseries tape Finnhub + Yahoo + le store. On teste les
+ * helpers, qui portent les deux décisions structurantes — « ce point est du bruit → on ne le
+ * trace pas », et « ces N périodes forment-elles vraiment douze mois contigus ».
  */
 import { describe, it, expect } from 'vitest';
-import { dropImmaterialDenominator, MIN_DENOMINATOR_PCT_OF_REVENUE } from './derivedTimeseries.js';
+import { dropImmaterialDenominator, MIN_DENOMINATOR_PCT_OF_REVENUE, rollingYearSum } from './derivedTimeseries.js';
 
 const byDate = (d: string) => d;
 const byYear = (d: string) => d.slice(0, 4);
@@ -94,5 +96,52 @@ describe('dropImmaterialDenominator', () => {
     const rev = [{ date: '2025-03-31', value: 100e9 }];
     const atThreshold = [{ date: '2025-03-31', value: 100e9 * MIN_DENOMINATOR_PCT_OF_REVENUE }];
     expect(dropImmaterialDenominator(atThreshold, rev, byDate)).toEqual(atThreshold);
+  });
+});
+
+describe('rollingYearSum', () => {
+  it('somme 4 trimestres et date le point sur le dernier', () => {
+    const q = [
+      { date: '2025-03-31', value: 10 }, { date: '2025-06-30', value: 20 },
+      { date: '2025-09-30', value: 30 }, { date: '2025-12-31', value: 40 },
+    ];
+    expect(rollingYearSum(q, 4)).toEqual([{ date: '2025-12-31', value: 100 }]);
+  });
+
+  /**
+   * Émetteur SEMESTRIEL : deux semestres font douze mois. Contrôle sur les vrais flux de
+   * trésorerie d'exploitation de Vinci — la somme glissante doit redonner À L'IDENTIQUE les
+   * exercices que la société publie (11 714 M€ en 2024, 11 886 M€ en 2025), sinon la marge
+   * tracée ne recouperait pas la carte.
+   */
+  it('somme 2 semestres et retrouve les exercices publiés', () => {
+    const sem = [
+      { date: '2024-06-30', value: 2_878 }, { date: '2024-12-31', value: 8_836 },
+      { date: '2025-06-30', value: 2_408 }, { date: '2025-12-31', value: 9_478 },
+    ];
+    expect(rollingYearSum(sem, 2)).toEqual([
+      { date: '2024-12-31', value: 11_714 }, // exercice 2024 publié
+      { date: '2025-06-30', value: 11_244 }, // 12 mois glissants à cheval
+      { date: '2025-12-31', value: 11_886 }, // exercice 2025 publié
+    ]);
+  });
+
+  /** Un trou dans la série ne doit pas produire un « douze mois » de vingt-quatre mois. */
+  it('n’émet pas de point pour une fenêtre à cheval sur un trou', () => {
+    const hole = [
+      { date: '2022-06-30', value: 1 }, { date: '2022-12-31', value: 2 },
+      // 2023 entier manquant
+      { date: '2024-06-30', value: 3 }, { date: '2024-12-31', value: 4 },
+      { date: '2025-06-30', value: 5 },
+    ];
+    const out = rollingYearSum(hole, 2);
+    expect(out.map(p => p.date)).toEqual(['2022-12-31', '2024-12-31', '2025-06-30']);
+    // La fenêtre 2022-12-31 → 2024-06-30 (18 mois) est écartée, pas sommée à 5.
+    expect(out.some(p => p.date === '2024-06-30')).toBe(false);
+  });
+
+  it('renvoie une série vide quand il n’y a pas assez de périodes', () => {
+    expect(rollingYearSum([{ date: '2025-12-31', value: 1 }], 2)).toEqual([]);
+    expect(rollingYearSum([], 4)).toEqual([]);
   });
 });
