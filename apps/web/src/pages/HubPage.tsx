@@ -29,9 +29,7 @@ interface HubCopy {
   pfcfExplain: string;
   methodologyCta: string;
   screenerCta: string;
-  otherHubs: string;
-  seeAll10: string;
-  seeUndervalued: string;
+  goFurther: string;
   bySector: string;
   empty: string;
   crumbHome: string;
@@ -43,8 +41,6 @@ interface HubCopy {
   sectorDesc: (s: string) => string;
   sectorH1: (s: string) => string;
   sectorIntro: (s: string) => string;
-  quality: { title: string; desc: string; h1: string; intro: string };
-  value: { title: string; desc: string; h1: string; intro: string };
 }
 
 const STRINGS: Record<Lang, HubCopy> = {
@@ -59,15 +55,13 @@ const STRINGS: Record<Lang, HubCopy> = {
       'Le P/FCF (price to free cash flow) rapporte le prix de l’action au cash qu’elle génère vraiment une fois ses factures payées. Un P/FCF bas veut dire qu’elle se paie bon marché, un P/FCF élevé qu’elle est chère. Une note haute avec un P/FCF bas, c’est de la qualité à prix raisonnable.',
     methodologyCta: 'Comment nous notons une action',
     screenerCta: 'Explorer le screener complet',
-    otherHubs: 'Autres classements',
-    seeAll10: 'Actions notées 10 sur 10',
-    seeUndervalued: 'Actions sous-évaluées',
+    goFurther: 'Aller plus loin',
     bySector: 'Classement par secteur',
     empty: 'Aucune action à afficher pour le moment.',
     crumbHome: 'Accueil',
     crumbScreener: 'Screener',
     notFoundTitle: 'Page introuvable',
-    notFoundDesc: 'Ce classement ou ce secteur n’existe pas.',
+    notFoundDesc: 'Ce secteur n’existe pas.',
     backHome: 'Retour à l’accueil',
     sectorTitle: (s) => `${s} : meilleures actions de qualité`,
     sectorDesc: (s) =>
@@ -75,20 +69,6 @@ const STRINGS: Record<Lang, HubCopy> = {
     sectorH1: (s) => `Meilleures actions du secteur ${s}`,
     sectorIntro: (s) =>
       `Voici les entreprises du secteur ${s} les mieux notées par notre analyse fondamentale, classées par qualité du business. Pour chacune, tu vois notre note sur dix et le P/FCF, le prix rapporté au cash généré. Clique sur une ligne pour l’analyse complète.`,
-    quality: {
-      title: 'Actions notées 10 sur 10 : le classement qualité',
-      desc: 'Les entreprises qui valident nos dix critères de qualité financière. Classement complet, mis à jour en continu.',
-      h1: 'Les actions notées 10 sur 10',
-      intro:
-        'Une action notée 10 sur 10 valide les dix critères financiers que nous jugeons décisifs pour un business solide. Cela ne dit rien du prix : regarde aussi le P/FCF pour savoir si elle est chère ou bon marché.',
-    },
-    value: {
-      title: 'Actions sous-évaluées : la qualité à prix bas',
-      desc: 'Des entreprises de qualité dont l’action se paie bon marché par rapport au cash qu’elles génèrent.',
-      h1: 'Les actions sous-évaluées du moment',
-      intro:
-        'Ces entreprises affichent une bonne note de qualité ET un P/FCF bas par rapport à leur historique : de la qualité qui se paie aujourd’hui à prix réduit. Un prix bas n’est une affaire que si la qualité tient, c’est pourquoi nous jugeons toujours la qualité avant le prix.',
-    },
   },
   en: {
     rank: 'Rank',
@@ -101,15 +81,13 @@ const STRINGS: Record<Lang, HubCopy> = {
       'The P/FCF (price to free cash flow) divides the share price by the cash the company truly generates once its bills are paid. A low P/FCF means the stock is cheap, a high one means it is expensive. A high score with a low P/FCF is quality at a reasonable price.',
     methodologyCta: 'How we score a stock',
     screenerCta: 'Explore the full screener',
-    otherHubs: 'Other rankings',
-    seeAll10: 'Stocks rated 10 out of 10',
-    seeUndervalued: 'Undervalued stocks',
+    goFurther: 'Go further',
     bySector: 'Ranking by sector',
     empty: 'No stocks to show right now.',
     crumbHome: 'Home',
     crumbScreener: 'Screener',
     notFoundTitle: 'Page not found',
-    notFoundDesc: 'This ranking or sector does not exist.',
+    notFoundDesc: 'This sector does not exist.',
     backHome: 'Back to home',
     sectorTitle: (s) => `${s}: best quality stocks`,
     sectorDesc: (s) =>
@@ -117,20 +95,6 @@ const STRINGS: Record<Lang, HubCopy> = {
     sectorH1: (s) => `Best ${s} stocks`,
     sectorIntro: (s) =>
       `Here are the ${s} companies with the highest scores from our fundamental analysis, ranked by business quality. For each, you see our score out of ten and the P/FCF, the price relative to the cash generated. Click a row for the full analysis.`,
-    quality: {
-      title: 'Stocks rated 10 out of 10: the quality ranking',
-      desc: 'The companies that pass all ten of our financial quality criteria. Full ranking, updated continuously.',
-      h1: 'Stocks rated 10 out of 10',
-      intro:
-        'A stock rated 10 out of 10 passes the ten financial criteria we consider decisive for a solid business. That says nothing about price: check the P/FCF too, to know whether it is cheap or expensive.',
-    },
-    value: {
-      title: 'Undervalued stocks: quality at a low price',
-      desc: 'Quality companies whose shares trade cheaply relative to the cash they generate.',
-      h1: 'Undervalued stocks right now',
-      intro:
-        'These companies show a strong quality score AND a low P/FCF versus their own history: quality available today at a reduced price. A low price is only a bargain if the quality holds up, which is why we always judge quality before price.',
-    },
   },
   es: {
     rank: 'Puesto',
@@ -143,15 +107,13 @@ const STRINGS: Record<Lang, HubCopy> = {
       'El P/FCF (price to free cash flow) divide el precio de la acción entre el efectivo que la empresa genera de verdad una vez pagadas sus facturas. Un P/FCF bajo significa que la acción está barata, uno alto que está cara. Una nota alta con un P/FCF bajo es calidad a un precio razonable.',
     methodologyCta: 'Cómo puntuamos una acción',
     screenerCta: 'Explorar el screener completo',
-    otherHubs: 'Otras clasificaciones',
-    seeAll10: 'Acciones con nota 10 sobre 10',
-    seeUndervalued: 'Acciones infravaloradas',
+    goFurther: 'Ir más lejos',
     bySector: 'Clasificación por sector',
     empty: 'No hay acciones que mostrar por ahora.',
     crumbHome: 'Inicio',
     crumbScreener: 'Screener',
     notFoundTitle: 'Página no encontrada',
-    notFoundDesc: 'Esta clasificación o este sector no existe.',
+    notFoundDesc: 'Este sector no existe.',
     backHome: 'Volver al inicio',
     sectorTitle: (s) => `${s}: mejores acciones de calidad`,
     sectorDesc: (s) =>
@@ -159,24 +121,10 @@ const STRINGS: Record<Lang, HubCopy> = {
     sectorH1: (s) => `Mejores acciones del sector ${s}`,
     sectorIntro: (s) =>
       `Estas son las empresas del sector ${s} mejor puntuadas por nuestro análisis fundamental, ordenadas por calidad del negocio. De cada una ves nuestra nota sobre diez y el P/FCF, el precio respecto a la caja generada. Haz clic en una fila para el análisis completo.`,
-    quality: {
-      title: 'Acciones con nota 10 sobre 10: la clasificación de calidad',
-      desc: 'Las empresas que cumplen los diez criterios de calidad financiera. Clasificación completa, actualizada en continuo.',
-      h1: 'Las acciones con nota 10 sobre 10',
-      intro:
-        'Una acción con nota 10 sobre 10 cumple los diez criterios financieros que consideramos decisivos para un negocio sólido. Eso no dice nada del precio: mira también el P/FCF para saber si está cara o barata.',
-    },
-    value: {
-      title: 'Acciones infravaloradas: calidad a precio bajo',
-      desc: 'Empresas de calidad cuya acción cotiza barata respecto al efectivo que generan.',
-      h1: 'Acciones infravaloradas ahora mismo',
-      intro:
-        'Estas empresas muestran una buena nota de calidad Y un P/FCF bajo frente a su propio historial: calidad disponible hoy a precio reducido. Un precio bajo solo es una ganga si la calidad se sostiene, por eso siempre juzgamos la calidad antes que el precio.',
-    },
   },
 };
 
-export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
+export function HubPage() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { slug = '' } = useParams();
@@ -193,32 +141,17 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
     setSectorName(null);
     (async () => {
       try {
-        if (kind === 'sector') {
-          const sectors = await api.screener.sectors();
-          const match = sectors.find((s) => sectorHubSlug(s.sector) === slug);
-          if (!match) {
-            if (!cancelled) setStatus('notfound');
-            return;
-          }
-          const top = await api.screener.top({ sector: match.sector, limit: 60 });
-          if (cancelled) return;
-          setSectorName(match.sector);
-          setRows(top);
-          setStatus('ready');
-        } else {
-          let top: ScreenerTopRow[];
-          if (slug === 'qualite-10-sur-10') {
-            top = await api.screener.top({ minRatio: 1, minMax: 10, limit: 60 });
-          } else if (slug === 'sous-evaluees') {
-            top = await api.screener.top({ opportunities: true, limit: 60 });
-          } else {
-            if (!cancelled) setStatus('notfound');
-            return;
-          }
-          if (cancelled) return;
-          setRows(top);
-          setStatus('ready');
+        const sectors = await api.screener.sectors();
+        const match = sectors.find((s) => sectorHubSlug(s.sector) === slug);
+        if (!match) {
+          if (!cancelled) setStatus('notfound');
+          return;
         }
+        const top = await api.screener.top({ sector: match.sector, limit: 60 });
+        if (cancelled) return;
+        setSectorName(match.sector);
+        setRows(top);
+        setStatus('ready');
       } catch (e) {
         if (cancelled) return;
         setErrMsg(e instanceof ApiError ? e.userMessage : (e as Error).message);
@@ -228,20 +161,14 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
     return () => {
       cancelled = true;
     };
-  }, [kind, slug]);
+  }, [slug]);
 
-  const path = kind === 'sector' ? `/secteur/${slug}` : `/classement/${slug}`;
+  const path = `/secteur/${slug}`;
 
   const meta = useMemo(() => {
-    if (kind === 'sector') {
-      const label = sectorName ? t(`industries.${sectorSlug(sectorName)}`, { defaultValue: sectorName }) : '';
-      return { title: S.sectorTitle(label), desc: S.sectorDesc(label), h1: S.sectorH1(label), intro: S.sectorIntro(label) };
-    }
-    if (slug === 'qualite-10-sur-10') {
-      return { title: S.quality.title, desc: S.quality.desc, h1: S.quality.h1, intro: S.quality.intro };
-    }
-    return { title: S.value.title, desc: S.value.desc, h1: S.value.h1, intro: S.value.intro };
-  }, [kind, slug, sectorName, S, t]);
+    const label = sectorName ? t(`industries.${sectorSlug(sectorName)}`, { defaultValue: sectorName }) : '';
+    return { title: S.sectorTitle(label), desc: S.sectorDesc(label), h1: S.sectorH1(label), intro: S.sectorIntro(label) };
+  }, [sectorName, S, t]);
 
   if (status === 'notfound') {
     return (
@@ -327,11 +254,9 @@ export function HubPage({ kind }: { kind: 'sector' | 'classement' }) {
           </div>
         )}
 
-        {/* Maillage interne : liens vers les autres hubs + méthode + screener. */}
+        {/* Maillage interne : méthode + screener. */}
         <div className="card" style={{ display: 'flex', flexWrap: 'wrap', gap: 14, alignItems: 'center', fontSize: 13.5 }}>
-          <strong style={{ marginRight: 4 }}>{S.otherHubs} :</strong>
-          {slug !== 'qualite-10-sur-10' && <Link to="/classement/qualite-10-sur-10">{S.seeAll10}</Link>}
-          {slug !== 'sous-evaluees' && <Link to="/classement/sous-evaluees">{S.seeUndervalued}</Link>}
+          <strong style={{ marginRight: 4 }}>{S.goFurther} :</strong>
           <Link to="/screener">{S.screenerCta}</Link>
           <Link to="/methodologie">{S.methodologyCta}</Link>
         </div>
