@@ -136,9 +136,9 @@
 }
 .hist-gap-warning strong { color: var(--orange); }
 
-/* Tag static affiché à la place du sélecteur de période pour les tickers EU/ADR
-   qui n'ont que 4 ans annuels (limite Yahoo) */
-.period-static {
+/* Mention affichée À CÔTÉ du sélecteur (et non plus à sa place) quand le titre n'a que de
+   l'annuel : le choix de période reste offert, on signale juste la granularité servie. */
+.period-note {
   font-size: 11px;
   font-family: var(--mono);
   color: var(--text2);

@@ -133,20 +133,19 @@ export function PfcfChartModal({ ticker, currentPfcf, annualOnly = false, onClos
           <button className="pfcf-close" onClick={onClose} aria-label={t('chart.close')}>×</button>
         </header>
 
+        {/* Sélecteur affiché pour TOUS les titres : le domaine X est déjà recadré sur les
+            données (cf. xDomain), donc une fenêtre plus longue que l'historique n'ouvre aucun
+            vide — elle rend simplement la même vue que la précédente. */}
         <div className="pfcf-periods">
-          {annualOnly ? (
-            <span className="period-static">{t('chart.pfcfAnnualOnlyTag')}</span>
-          ) : (
-            PERIODS.map(p => (
-              <button
-                key={p}
-                className={`period-btn ${p === period ? 'active' : ''}`}
-                onClick={() => setPeriod(p)}
-              >
-                {p}
-              </button>
-            ))
-          )}
+          {PERIODS.map(p => (
+            <button
+              key={p}
+              className={`period-btn ${p === period ? 'active' : ''}`}
+              onClick={() => setPeriod(p)}
+            >
+              {p}
+            </button>
+          ))}
         </div>
 
         {loading && <div className="pfcf-loading"><span className="spinner" /> {t('common.loading')}</div>}

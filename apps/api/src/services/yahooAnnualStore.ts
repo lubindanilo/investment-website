@@ -15,7 +15,7 @@ import type { TimeseriesPoint } from '@lubin/shared';
 import { readSeries, isFresh, appendMergePersist, appendOnlyMerge, type ExpiryCadence } from './fundamentalsStore.js';
 import { getYahooQuarterlyBatch } from './yahoo.js';
 import { getEdgarAnnualNative, EDGAR_ANNUAL_TYPES } from './secEdgar.js';
-import { getStockanalysisQuarterlyBatch } from './stockanalysisFundamentals.js';
+import { getStockanalysisQuarterlyBatch, getStockanalysisAnnualBatch } from './stockanalysisFundamentals.js';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Lubin-Investment/0.1';
 const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
@@ -313,6 +313,89 @@ export async function accumulateStockanalysisQuarterly(ticker: string, nowMs: nu
   }
   if (metricsStored > 0) console.log(`[sa Q-accum ${ticker}] ${metricsStored} métriques accumulées (freq=${batch.freq}, append-only)`);
   return metricsStored;
+}
+
+// ─── Profondeur annuelle stockanalysis (titres non-US sans dépôt SEC) ────────
+//
+// EDGAR ne peut rien pour un émetteur qui ne dépose pas aux États-Unis : Vinci, Air Liquide,
+// LVMH… n'ont pas de CIK, et edgarAnnualDepth les écarte de toute façon d'entrée (ticker
+// suffixé). Ces titres restaient donc plafonnés aux ~4 exercices de Yahoo, quelle que soit la
+// fenêtre demandée — d'où des boutons 1Y/5Y/10Y/All qui rendaient tous le même graphe.
+//
+// stockanalysis en publie ~5 en accès libre. Le gain immédiat est d'un exercice, mais le store
+// étant APPEND-ONLY il ne se perd plus : chaque exercice qui tombe s'ajoute, donc la profondeur
+// croît d'un an par an sans re-fetch de l'historique.
+//
+// ⚠ Effet de bord ASSUMÉ sur la note : yahooFundamentals fenêtre à 5,5 ans et prend le point le
+// plus ancien comme base de CAGR. Un 5ᵉ exercice fait donc passer les CAGR revenus / FCF par
+// action des titres EU d'une base à 3-4 ans à une base à 5 ans — c'est-à-dire à la définition
+// que le libellé « croissance 5 ans » annonce déjà, et à celle du chemin US.
+
+/** Mapping clé métrique interne (stockanalysis) → type annuel Yahoo du store. */
+const SA_TO_YAHOO_ANNUAL: Record<string, string> = {
+  revenue:             'annualTotalRevenue',
+  netIncome:           'annualNetIncome',
+  operatingIncome:     'annualOperatingIncome',
+  fcf:                 'annualFreeCashFlow',
+  cfo:                 'annualOperatingCashFlow',
+  capex:               'annualCapitalExpenditure',
+  totalDebt:           'annualTotalDebt',
+  cash:                'annualCashAndCashEquivalents',
+  totalAssets:         'annualTotalAssets',
+  currentAssets:       'annualCurrentAssets',
+  currentLiabilities:  'annualCurrentLiabilities',
+  equity:              'annualStockholdersEquity',
+};
+
+/** Profondeur (en exercices) au-delà de laquelle stockanalysis n'a plus rien à apporter. */
+const SA_ANNUAL_DEPTH_TARGET = 5;
+
+/** Cache négatif process : tickers dont stockanalysis n'a pas de page annuelle exploitable. */
+const saAnnualNone = new Set<string>();
+
+/**
+ * Complète le store ANNUEL avec les exercices de stockanalysis. Append-only : les valeurs Yahoo
+ * déjà stockées restent la référence (mêmes chiffres carte ↔ graphe), on n'ajoute que les
+ * exercices dont la date est absente (±20j). Renvoie le nb de types enrichis (0 = rien à faire).
+ *
+ * Gaté sur la profondeur de `annualTotalRevenue` : une fois la cible atteinte, plus aucun fetch.
+ */
+export async function accumulateStockanalysisAnnual(ticker: string, nowMs: number): Promise<number> {
+  if (saAnnualNone.has(ticker)) return 0;
+  const pivot = await readSeries(ticker, 'annualTotalRevenue');
+  if ((pivot?.points.length ?? 0) >= SA_ANNUAL_DEPTH_TARGET) return 0;
+
+  const batch = await getStockanalysisAnnualBatch(ticker).catch(() => null);
+  if (!batch || batch.series.size === 0) {
+    saAnnualNone.add(ticker);
+    return 0;
+  }
+  // Une page annuelle qui se lit comme du trimestriel signalerait un mauvais parsing (ou une
+  // page servie dans la mauvaise périodicité) : on préfère ne rien écrire.
+  if (batch.freq !== 'annual') {
+    console.warn(`[sa annual ${ticker}] cadence détectée « ${batch.freq} » sur la page annuelle → ignorée`);
+    return 0;
+  }
+
+  let enriched = 0;
+  for (const [metricKey, pts] of batch.series) {
+    const type = SA_TO_YAHOO_ANNUAL[metricKey];
+    if (!type || !pts.length) continue;
+    const stored = await readSeries(ticker, type);
+    const before = stored?.points.length ?? 0;
+    const eff = await appendMergePersist(ticker, type, stored, pts, 'yahoo+stockanalysis-annual', nowMs,
+      { freq: 'annual', cadence: ANNUAL_CADENCE, persistEmpty: true });
+    if (eff.length > before) enriched++;
+  }
+  if (enriched > 0) {
+    console.log(`[sa annual ${ticker}] ${enriched} types annuels approfondis (append-only)`);
+  } else {
+    // Page lisible mais qui n'apporte aucun exercice de plus (même profondeur que Yahoo) : sans
+    // ce marquage, le gate sur `annualTotalRevenue` resterait sous la cible et on re-fetcherait
+    // 3 pages à CHAQUE scoring de ce ticker, pour rien. Cache process → réévalué au cold start.
+    saAnnualNone.add(ticker);
+  }
+  return enriched;
 }
 
 /** Série annuelle store-cachée pour UN type Yahoo (graphiques). [] si indisponible. */

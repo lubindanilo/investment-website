@@ -62,7 +62,8 @@ const MIN_CHART_POINTS = 3;
 
 export interface CashRoceHistoryResult {
   points: CashRoceHistoryPoint[];
-  /** Granularité réellement servie. 'annual' → l'UI masque les boutons de période. */
+  /** Granularité réellement servie — l'UI s'en sert pour étiqueter les points (exercice vs
+   *  trimestre) et calibrer sa détection de trous, pas pour masquer le sélecteur de période. */
   freq: 'quarterly' | 'annual';
 }
 

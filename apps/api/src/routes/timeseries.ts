@@ -3,13 +3,18 @@
  *   → renvoie { ticker, metric, freq, years, points: [{date, value}, ...], source, cached }
  *
  * `metric`  : clé haut-niveau ('revenue', 'netIncome', 'fcf', 'shares', 'totalDebt', etc.)
- * `freq`    : 'quarterly' (défaut) ou 'annual'
+ * `freq`    : 'quarterly' (défaut) ou 'annual' — ce que le client DEMANDE ; la réponse porte dans
+ *             `freq` ce qui a été SERVI, qui peut être 'semiannual' (émetteurs EU sans Q1/Q3).
  * `years`   : 1, 5, 10, 20, 50 ('All')
  *
  * Stratégie source :
- *   • years ≤ 10 → Yahoo /fundamentals-timeseries (rapide, ~500 KB)
+ *   • ticker EU (devise ≠ USD) → store intra-annuel (Yahoo-Q + stockanalysis, jusqu'à 10 ans de
+ *                  semestres) sur fenêtre courte ; store annuel (Yahoo + stockanalysis) sinon
+ *   • US, years ≤ 10 → Yahoo /fundamentals-timeseries (rapide, ~500 KB)
  *                  Fallback Finnhub si Yahoo renvoie < 4 points
- *   • years > 10 → Finnhub /stock/financials-reported direct (historique plus profond)
+ *   • US, years > 10 → Finnhub /stock/financials-reported direct (historique plus profond)
+ *   • ADR 20-F : repli Yahoo trimestriel puis annuel (+ profondeur EDGAR) dès que la source
+ *                primaire rend moins de MIN_CHART_POINTS points
  *
  * Cache :
  *   • TTL ≈ prochaine date d'earnings du ticker + 1 jour (typique 2-3 mois)
@@ -22,6 +27,8 @@ import { getReportedTimeseries, METRICS, type MetricKey } from '../services/finn
 import { getYahooMetricTimeseries } from '../services/yahoo.js';
 import { normalizeShareScale } from '../services/yahooSplits.js';
 import { getYahooAnnualSingleCached } from '../services/yahooAnnualStore.js';
+import { readSeries } from '../services/fundamentalsStore.js';
+import { detectCadence } from '../services/stockanalysisFundamentals.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { getNextEarningsDate, ttlUntilNextEarnings } from '../services/earnings.js';
 import { getRatioTimeseries, RATIO_METRIC_KEYS } from '../services/derivedTimeseries.js';
@@ -29,7 +36,7 @@ import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 // ⚠ RatioMetricKey en import TYPE uniquement : @lubin/shared résout vers src/index.ts (pas de
 // build dist/), que Node ne sait pas charger en prod. Importer une VALEUR depuis shared crashe
 // donc la lambda (ERR_MODULE_NOT_FOUND). Les types sont effacés au build → sans danger.
-import type { RatioMetricKey } from '@lubin/shared';
+import type { RatioMetricKey, TimeseriesFreq, TimeseriesPoint } from '@lubin/shared';
 import * as cache from '../lib/timeseriesCache.js';
 
 export const timeseriesRouter: Router = Router();
@@ -46,6 +53,20 @@ const YearsSchema = z.coerce.number().int().min(1).max(50).default(5);
  * Au-delà, on tape Finnhub directement (qui a 10-15 ans d'historique).
  */
 const YAHOO_MAX_YEARS_QUARTERLY = 1;
+
+/**
+ * Nombre de points sous lequel un graphe n'est pas lisible — aligné sur la gate de sparsité du
+ * front (`data.length < 3` → « pas de données »). Sert de critère de SUFFISANCE d'une source :
+ * en dessous, on tente le repli plutôt que de servir une série que le client refusera d'afficher.
+ */
+const MIN_CHART_POINTS = 3;
+
+/**
+ * Génération de clé de cache. À bumper dès que la STRATÉGIE de source change, sinon les entrées
+ * déjà en base continuent de servir l'ancienne réponse jusqu'à leur TTL (calé sur les earnings,
+ * donc jusqu'à ~3 mois). Générations précédentes : (aucune, clé = freq nue).
+ */
+const CACHE_GEN = 'g2';
 
 /**
  * Repli ADR étranger (déposant 20-F : NVO, OMAB, ASML, NSRGY…) : Finnhub n'a aucun
@@ -94,11 +115,11 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // Le `freq` demandé est ignoré : getRatioTimeseries choisit lui-même la granularité.
   if (RATIO_SET.has(requestedMetric)) {
     const ratioKey = requestedMetric as RatioMetricKey;
-    // 'ratio4' : bump après le branchement du repli annuel sur le store enrichi EDGAR
-    // (profondeur 14-18 exercices pour les ADR 20-F). Générations précédentes : 'ratio'
-    // (origine), 'ratio2' (matérialité du dénominateur), 'ratio3' (contiguïté TTM +
-    // condition de repli). Les vieilles clés expirent seules.
-    const key = cache.cacheKey(ticker, ratioKey, 'ratio4', years);
+    // 'ratio5' : bump après l'approfondissement du store annuel par stockanalysis (un exercice
+    // de plus pour les titres EU hors périmètre EDGAR). Générations précédentes : 'ratio'
+    // (origine), 'ratio2' (matérialité du dénominateur), 'ratio3' (contiguïté TTM + condition
+    // de repli), 'ratio4' (repli sur le store enrichi EDGAR). Les vieilles clés expirent seules.
+    const key = cache.cacheKey(ticker, ratioKey, 'ratio5', years);
     const hit = await cache.get(key);
     if (hit) {
       cacheable();
@@ -118,8 +139,8 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     const elapsedMs = Date.now() - startedAt;
     const nextEarnings = await earningsPromise.catch(() => null);
     const ttlMs = ttlUntilNextEarnings(nextEarnings);
-    // annualFallback porte `annualOnly` : masque les boutons de période côté UI dès que la
-    // série servie est annuelle (vrais EU comme ADR 20-F — cf RatioTimeseriesResult).
+    // annualFallback porte `annualOnly` : signale côté UI que la série servie est annuelle
+    // (vrais EU comme ADR 20-F — cf RatioTimeseriesResult), sans masquer le sélecteur.
     cache.set(key, ratio.points, source, ttlMs, { servedFreq: ratio.freq, annualFallback: ratio.annualOnly });
     cacheable();
     res.json({
@@ -145,11 +166,7 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // est propre et déjà ajusté des splits. Les ADR US (NSRGY, ASML…) restent en USD → chemin US.
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
-  // Pour les tickers EU, Yahoo n'expose QUE l'annuel (4 ans max) — pas de quarterly.
-  // On override le freq demandé par le client pour ne pas servir des séries vides.
-  const effectiveFreq: 'quarterly' | 'annual' = isEuTicker ? 'annual' : requestedFreq;
-  const effectiveYears = isEuTicker ? Math.max(years, 4) : years;
-  const key = cache.cacheKey(ticker, metric, effectiveFreq, effectiveYears);
+  const key = cache.cacheKey(ticker, metric, `${requestedFreq}${CACHE_GEN}`, years);
 
   // ─── 2. Cache hit ? ────────────────────────────────────────────
   const hit = await cache.get(key);
@@ -158,13 +175,13 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     res.json({
       ticker,
       metric,
-      freq: hit.servedFreq ?? effectiveFreq,
-      years: effectiveYears,
+      freq: hit.servedFreq ?? requestedFreq,
+      years,
       points: hit.points,
       source: hit.source,
       cached: true,
       ageMs: Date.now() - hit.storedAt,
-      euAnnualOnly: isEuTicker,
+      euAnnualOnly: !!hit.annualFallback,
     });
     return;
   }
@@ -174,25 +191,58 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   const startedAt = Date.now();
 
   // Décide la source :
-  //   • EU ticker            → Yahoo annual (seule donnée dispo)
+  //   • EU ticker            → store intra-annuel sur fenêtre courte ; sur fenêtre longue, celle
+  //                            des deux séries (intra-annuelle / annuelle) qui remonte le plus loin
   //   • US quarterly 1Y      → Yahoo (rapide, exact, 4 pts)
   //   • US tout le reste     → Finnhub
   let points = [] as Awaited<ReturnType<typeof getReportedTimeseries>>;
-  let source: 'yahoo' | 'finnhub' = 'finnhub';
-  // Granularité réellement servie : peut différer de la demande pour un ADR 20-F
-  // (repli quarterly→annual selon la profondeur de fenêtre, cf. cascade ci-dessous).
-  let servedFreq: 'quarterly' | 'annual' = effectiveFreq;
+  let source: cache.ChartSource = 'finnhub';
+  // Granularité réellement servie : peut différer de la demande (semestriel d'un émetteur EU,
+  // repli quarterly→annual d'un ADR 20-F selon la profondeur de fenêtre).
+  let servedFreq: TimeseriesFreq = requestedFreq;
   let annualFallback = false;
-  const minPoints = minPointsExpected(effectiveFreq, effectiveYears);
+  const minPoints = minPointsExpected(requestedFreq, years);
 
   if (isEuTicker) {
-    // Yahoo annual via le symbol résolu. Le mapping METRIC_TO_YAHOO pointe sur quarterly*,
-    // on doit donc taper directement le type annuel correspondant.
-    const annualType = mapMetricToYahooAnnual(metric);
-    if (annualType && resolved) {
+    // Deux granularités possibles :
+    //   • fenêtre courte (client en trimestriel) → série INTRA-ANNUELLE du store, accumulée
+    //     depuis Yahoo-Q + stockanalysis. Vrai trimestriel pour ~60 % des large caps EU,
+    //     SEMESTRIEL pour ~25 % (Vinci, LVMH… ne publient pas de Q1/Q3) ;
+    //   • fenêtre longue (annuel demandé)      → store annuel (Yahoo + profondeur stockanalysis),
+    //     sauf si l'intra-annuel remonte plus loin (cf. arbitrage ci-dessous).
+    //
+    // Avant, la branche EU tapait l'annuel Yahoo dans TOUS les cas : ses ~4 exercices étaient
+    // donc la seule réponse possible quelle que soit la période choisie — alors que les séries
+    // intra-annuelles étaient déjà en base (jusqu'à 10 ans de semestres sur DG.PA).
+    const readAnnual = async (): Promise<Awaited<ReturnType<typeof getReportedTimeseries>>> => {
+      const annualType = mapMetricToYahooAnnual(metric);
+      if (!annualType) return [];
       // Store annuel canonique (partagé avec getYahooFundamentals → mêmes chiffres carte/graphe).
-      points = windowAnnual(await getYahooAnnualSingleCached(ticker, resolved.symbol, annualType, Date.now()), effectiveYears);
-      source = 'yahoo';
+      return windowAnnual(await getYahooAnnualSingleCached(ticker, resolved?.symbol ?? ticker, annualType, Date.now()), years);
+    };
+    const useStored = (s: { points: TimeseriesPoint[]; freq: 'quarterly' | 'semiannual' }): void => {
+      points = s.points;
+      servedFreq = s.freq;
+      source = 'store';
+    };
+    const intra = await readStoredIntraYear(ticker, metric, years);
+    if (intra && requestedFreq === 'quarterly') {
+      useStored(intra);
+    } else {
+      const annual = await readAnnual();
+      // Sur fenêtre longue, on sert la série qui REMONTE LE PLUS LOIN — l'annuel gagne à égalité,
+      // ses barres étant plus lisibles. La profondeur diffère par métrique : sur DG.PA le FCF
+      // semestriel couvre 2016→2026 quand l'annuel s'arrête à 2021, donc servir l'annuel sur 10Y
+      // jetterait la moitié de l'historique dont on dispose. Et un annuel trop court laisse aussi
+      // la main à l'intra-annuel, plutôt que de déclencher le « pas de données » du client.
+      if (intra && (annual.length < MIN_CHART_POINTS || intra.points[0]!.date < annual[0]!.date)) {
+        useStored(intra);
+      } else {
+        points = annual;
+        servedFreq = 'annual';
+        source = 'yahoo';
+        annualFallback = requestedFreq === 'quarterly' && annual.length > 0;
+      }
     }
   } else {
     const useYahooPrimary = requestedFreq === 'quarterly' && years <= YAHOO_MAX_YEARS_QUARTERLY;
@@ -215,22 +265,32 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     // Yahoo, lui, expose leurs comptes intérimaires. Cascade :
     //   • trimestriel demandé + fenêtre courte (≤ ADR_QUARTERLY_MAX_YEARS) → trimestriel Yahoo (~5 pts récents)
     //   • sinon (fenêtre longue, ou annuel demandé)                        → annuel Yahoo (~4-5 ans dispo)
-    if (points.length === 0) {
+    //
+    // Déclenché au seuil MIN_CHART_POINTS et non sur « série vide » : Finnhub renvoie parfois UN
+    // point isolé (BABA, 20Y annuel → le seul exercice 2011), ce qui suffisait à annuler le repli.
+    // La fenêtre la PLUS LARGE devenait alors la plus pauvre — 10Y : 11 exercices Yahoo+EDGAR,
+    // 20Y : 1 point, donc « pas de données » côté client. Et on ne remplace que par une série
+    // strictement plus dense : jamais troquer des points exploitables contre moins.
+    if (points.length < MIN_CHART_POINTS) {
+      const primaryCount = points.length;
       const yq = (requestedFreq === 'quarterly' && years <= ADR_QUARTERLY_MAX_YEARS)
         ? await getYahooMetricTimeseries(ticker, metric, years)
         : [];
-      if (yq.length >= 3) {
+      if (yq.length >= MIN_CHART_POINTS) {
         points = yq;
         source = 'yahoo';
         servedFreq = 'quarterly';
         console.log(`[timeseries ${ticker}/${metric}] ADR/20-F → Yahoo quarterly ${yq.length} pts`);
       } else {
         const annualType = mapMetricToYahooAnnual(metric);
-        if (annualType) {
-          points = windowAnnual(await getYahooAnnualSingleCached(ticker, resolved?.symbol ?? ticker, annualType, Date.now()), Math.max(years, 5));
+        const annual = annualType
+          ? windowAnnual(await getYahooAnnualSingleCached(ticker, resolved?.symbol ?? ticker, annualType, Date.now()), Math.max(years, 5))
+          : [];
+        if (annual.length > primaryCount) {
+          points = annual;
           source = 'yahoo';
           servedFreq = 'annual';
-          annualFallback = points.length > 0;
+          annualFallback = true;
           console.log(`[timeseries ${ticker}/${metric}] ADR/20-F → Yahoo annual ${points.length} pts (trimestriel indispo sur ${years}Y)`);
         }
       }
@@ -242,9 +302,10 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // (getReportedTimeseries → splitAdjustIfNeeded) → ré-application idempotente. Cf. normalizeShareScale.
   if (metric === 'shares') points = normalizeShareScale(points);
 
-  // euAnnualOnly masque les boutons de période (UI) : réservé aux EU, 100 % annuels.
-  // Pour un ADR on garde les boutons — 1Y reste trimestriel ; la granularité réelle de
-  // chaque fenêtre est portée par `freq` (servedFreq) dans le sous-titre du graphe.
+  // `euAnnualOnly` est désormais purement INFORMATIF (« on n'a que de l'annuel pour ce titre ») :
+  // le sélecteur de période reste affiché pour tout le monde. Le masquer présentait un trou de
+  // données comme une caractéristique du titre — et empêchait de constater qu'une fenêtre plus
+  // large existe. La granularité réelle de chaque fenêtre est portée par `freq` (servedFreq).
   const elapsedMs = Date.now() - startedAt;
   const tag = isEuTicker ? '/EU' : annualFallback ? '/ADR-annual' : '';
   console.log(`[timeseries ${ticker}/${metric}] ${source}${tag} OK ${points.length} pts (${servedFreq}) en ${elapsedMs}ms`);
@@ -259,16 +320,50 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     ticker,
     metric,
     freq: servedFreq,
-    years: effectiveYears,
+    years,
     points,
     source,
     cached: false,
     fetchedInMs: elapsedMs,
     cacheTtlHours: Math.round(ttlMs / 3_600_000),
     nextEarnings,
-    euAnnualOnly: isEuTicker,
+    euAnnualOnly: annualFallback,
   });
 }));
+
+/**
+ * Série INTRA-ANNUELLE du store (FundamentalsSeries), fenêtrée sur `years`. null si le store n'a
+ * rien d'exploitable pour cette fenêtre.
+ *
+ * La cadence est REDÉRIVÉE des points au lieu d'être lue dans la colonne `freq` : les lignes
+ * écrites avant l'introduction de cette colonne valent toutes 'quarterly' par défaut, ce qui
+ * ferait annoncer « Trimestre » sur les barres semestrielles d'un Vinci ou d'un LVMH.
+ *
+ * Pas d'ajustement splits ici : réservé au chemin US (store Finnhub, volontairement pré-split),
+ * alors que les sources de ces lignes-là — Yahoo trimestriel, stockanalysis — publient déjà en
+ * base courante. Reste l'exposition connue de l'append-only, un regroupement d'actions survenu
+ * en cours d'accumulation (AF.PA 10:1) mêlant deux bases : `normalizeShareScale`, appliqué en
+ * sortie de handler pour `shares`, rattrape ces sauts d'échelle — exactement comme sur le
+ * chemin annuel EU, qui ne s'ajuste pas davantage.
+ */
+async function readStoredIntraYear(
+  ticker: string,
+  metric: MetricKey,
+  years: number,
+): Promise<{ points: TimeseriesPoint[]; freq: 'quarterly' | 'semiannual' } | null> {
+  const stored = await readSeries(ticker, metric).catch(() => null);
+  if (!stored || stored.points.length === 0) return null;
+  const cutoff = new Date();
+  cutoff.setFullYear(cutoff.getFullYear() - years);
+  const iso = cutoff.toISOString().slice(0, 10);
+  const points = stored.points.filter(p => p.date >= iso);
+  if (points.length < MIN_CHART_POINTS) return null;
+  const cadence = detectCadence(points.map(p => p.date));
+  // Une série annuelle rangée sous une clé intra-annuelle n'apporte rien ici : le chemin annuel
+  // la sert déjà, en plus profond.
+  if (cadence === 'annual') return null;
+  return { points, freq: cadence };
+}
 
 /** Mappe une clé high-level (revenue, fcf…) vers le type annuel Yahoo équivalent. */
 function mapMetricToYahooAnnual(metric: MetricKey): string | null {

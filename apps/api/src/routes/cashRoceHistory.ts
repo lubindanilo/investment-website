@@ -70,10 +70,10 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
     ticker,
     years,
     points,
-    // Une série annuelle est identique quelle que soit la fenêtre demandée (Yahoo plafonne
-    // à ~4 exercices) → l'UI masque les boutons de période plutôt que d'afficher 5 fois la
-    // même vue. Vaut aussi pour les ADR 20-F cotant en USD, que la détection page-level
-    // (`fundamentalsSource === 'yahoo'`) classait à tort en trimestriel.
+    // Granularité servie, remontée telle quelle à l'UI : elle s'en sert pour étiqueter les
+    // points (exercice vs trimestre) et non plus pour masquer les boutons de période, qui
+    // restent offerts à tous les titres. Vaut aussi pour les ADR 20-F cotant en USD, que la
+    // détection page-level (`fundamentalsSource === 'yahoo'`) classait à tort en trimestriel.
     annualOnly: freq === 'annual',
     cached: false,
     fetchedInMs: elapsedMs,
