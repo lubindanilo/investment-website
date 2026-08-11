@@ -111,7 +111,7 @@ export function CriterionCard({ c, ticker, currency = 'USD', annualOnly = false 
         <PfcfChartModal ticker={ticker} currentPfcf={extractPfcfMultiple(c)} annualOnly={annualOnly} onClose={() => setOpen(false)} />
       )}
       {open && ticker && chartKind === 'line' && lineConfig?.kind === 'cashRoce' && (
-        <CashRoceChartModal ticker={ticker} annualOnly={annualOnly} onClose={() => setOpen(false)} />
+        <CashRoceChartModal ticker={ticker} onClose={() => setOpen(false)} />
       )}
       {open && ticker && chartKind === 'ccc' && (
         <CccChartModal ticker={ticker} currency={currency} onClose={() => setOpen(false)} />

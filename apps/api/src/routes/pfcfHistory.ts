@@ -50,7 +50,8 @@ pfcfHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req: Req
   const ticker = t.data;
   const years = y.data;
   // On stocke dans le même cache que timeseries en utilisant un "metric" virtuel "pfcf-history"
-  const key = cache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx3', years);
+  // 'computed-adj-fx4' : bump pour le chemin EU intra-annuel (courbe mensuelle depuis le store).
+  const key = cache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx4', years);
 
   // 1. Cache hit ? (les intervalles FCF négatif sont recalculés à la volée — lecture DB légère,
   //    pas d'appel Yahoo — pour ne pas alourdir le cache typé TimeseriesPoint.)

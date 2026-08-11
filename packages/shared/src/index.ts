@@ -784,9 +784,14 @@ export interface CashRoceHistoryResponse {
   years: number;
   points: CashRoceHistoryPoint[];
   /**
-   * true quand la série servie est annuelle (EU, ou ADR 20-F sans trimestriel exploitable).
-   * Elle est alors identique quelle que soit la fenêtre demandée → l'UI masque le sélecteur
-   * de période au lieu d'afficher cinq fois la même vue.
+   * Granularité RÉELLEMENT servie pour ce titre : 'quarterly', 'semiannual' (émetteurs EU sans
+   * Q1/Q3, servis depuis le store intra-annuel) ou 'annual'. L'UI s'en sert pour étiqueter les
+   * points et calibrer sa détection de trous — un écart de 182 jours est normal en semestriel.
+   */
+  freq?: TimeseriesFreq;
+  /**
+   * true quand la série servie est annuelle (EU sans profondeur intra-annuelle exploitable, ou
+   * ADR 20-F sans trimestriel). Purement informatif : le sélecteur de période reste affiché.
    */
   annualOnly?: boolean;
   cached: boolean;
