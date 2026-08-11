@@ -25,6 +25,7 @@
 import { Router, type Request, type Response } from 'express';
 import { asyncHandler } from '../middleware/error.js';
 import { prisma } from '../db/client.js';
+import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 // ⚠️ On NE peut PAS importer de valeur depuis '@lubin/shared' (pas de build dist/ → crash
 // de la lambda en prod, cf. scripts/check-api-shared-imports.mjs). On consomme donc une
 // COPIE locale du module articles. La source de vérité reste packages/shared/src/articles.ts
@@ -329,7 +330,10 @@ async function serveSitemap(res: Response, key: string, build: () => Promise<str
     CACHE.set(key, { xml, ts: now });
   }
   res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-  res.setHeader('Cache-Control', 'public, max-age=3600');
+  // Le cache mémoire ci-dessus ne vit que le temps d'une instance de lambda : c'est `s-maxage`,
+  // partagé, qui évite de relire 1 000 lignes par fichier de tickers à chaque passage de robot.
+  // La liste ne change qu'au scoring nocturne (cf. lib/publicCache.ts).
+  res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.nightly, 3600));
   res.status(200).send(xml);
 }
 

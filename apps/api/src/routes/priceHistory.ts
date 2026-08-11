@@ -14,6 +14,7 @@ import { z } from 'zod';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { yahooLimiter } from '../lib/limiter.js';
+import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 
 export const priceHistoryRouter: Router = Router();
 
@@ -57,9 +58,19 @@ priceHistoryRouter.get('/', asyncHandler(async (req: Request, res: Response) => 
   const years = y.data;
   const interval = i.data;
 
+  /**
+   * Série de cours, lecture publique clé sur les paramètres d'URL. TTL intermédiaire : un graphe
+   * historique tolère quelques heures de retard sur son dernier point. Posé sur les seules sorties
+   * 200 — un échec Yahoo remonte en 5xx et ne doit pas être figé par le CDN.
+   */
+  const cacheable = (): void => {
+    res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.ranking));
+  };
+
   const cacheKey = `${ticker}|${years}|${interval}`;
   const hit = cache.get(cacheKey);
   if (hit && Date.now() - hit.cachedAt < CACHE_TTL_MS) {
+    cacheable();
     res.json({
       ticker,
       symbol: hit.symbol,
@@ -95,6 +106,7 @@ priceHistoryRouter.get('/', asyncHandler(async (req: Request, res: Response) => 
   const points = await fetchYahooPrices(symbol, years, interval);
   cache.set(cacheKey, { points, symbol, currency, cachedAt: Date.now() });
 
+  cacheable();
   res.json({
     ticker,
     symbol,

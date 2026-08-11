@@ -25,6 +25,7 @@ import { getYahooAnnualSingleCached } from '../services/yahooAnnualStore.js';
 import { resolveYahooTicker } from '../services/yahooResolve.js';
 import { getNextEarningsDate, ttlUntilNextEarnings } from '../services/earnings.js';
 import { getRatioTimeseries, RATIO_METRIC_KEYS } from '../services/derivedTimeseries.js';
+import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 // ⚠ RatioMetricKey en import TYPE uniquement : @lubin/shared résout vers src/index.ts (pas de
 // build dist/), que Node ne sait pas charger en prod. Importer une VALEUR depuis shared crashe
 // donc la lambda (ERR_MODULE_NOT_FOUND). Les types sont effacés au build → sans danger.
@@ -79,6 +80,15 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   const requestedFreq = f.data;
   const years = y.data;
 
+  /**
+   * Lecture PUBLIQUE (aucune donnée d'utilisateur) et clé sur les paramètres d'URL : le CDN peut la
+   * mutualiser. Posé sur les seules sorties 200 et JAMAIS en tête de handler : une panne de
+   * fournisseur remonte en 5xx par le middleware d'erreur, et cet en-tête la figerait 24 h.
+   */
+  const cacheable = (): void => {
+    res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.nightly));
+  };
+
   // ─── 0. Métriques-RATIO (marge nette/FCF, levier op, dette/FCF, conversion) ─────
   // Calculées à partir de 2 séries (TTM glissant US / annuel EU-ADR) par un service dédié.
   // Le `freq` demandé est ignoré : getRatioTimeseries choisit lui-même la granularité.
@@ -91,6 +101,7 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     const key = cache.cacheKey(ticker, ratioKey, 'ratio4', years);
     const hit = await cache.get(key);
     if (hit) {
+      cacheable();
       res.json({
         ticker, metric: ratioKey,
         freq: hit.servedFreq ?? 'quarterly',
@@ -110,6 +121,7 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     // annualFallback porte `annualOnly` : masque les boutons de période côté UI dès que la
     // série servie est annuelle (vrais EU comme ADR 20-F — cf RatioTimeseriesResult).
     cache.set(key, ratio.points, source, ttlMs, { servedFreq: ratio.freq, annualFallback: ratio.annualOnly });
+    cacheable();
     res.json({
       ticker, metric: ratioKey,
       freq: ratio.freq, years, points: ratio.points, source,
@@ -142,6 +154,7 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // ─── 2. Cache hit ? ────────────────────────────────────────────
   const hit = await cache.get(key);
   if (hit) {
+    cacheable();
     res.json({
       ticker,
       metric,
@@ -241,6 +254,7 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   const ttlMs = ttlUntilNextEarnings(nextEarnings);
   await cache.set(key, points, source, ttlMs, { servedFreq, annualFallback });
 
+  cacheable();
   res.json({
     ticker,
     metric,

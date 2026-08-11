@@ -24,6 +24,7 @@ import { getAssetProfileYahoo } from '../services/yahoo.js';
 import { getCachedSnapshot } from '../services/quantCache.js';
 import { buildQuantitativeCriteria } from '../services/derivedMetrics.js';
 import { parseLang, type Lang } from '../i18n/index.js';
+import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 import { prisma } from '../db/client.js';
 
 export const screenerRouter: Router = Router();
@@ -110,6 +111,11 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
     caps,
     zones,
   });
+  // Grille du screener : porte des prix, donc le TTL le plus court du lot. Lecture strictement
+  // publique (aucune donnée d'utilisateur ici), et le CDN clé sur l'URL complète, donc chaque
+  // combinaison de filtres a son entrée. Sans cet en-tête, chaque affichage de la page tapait
+  // Postgres et empêchait Neon de se suspendre (cf. lib/publicCache.ts).
+  res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.quotes));
   res.json(rows);
 }));
 
@@ -135,6 +141,8 @@ screenerRouter.get('/forward-compare', requireAuth, requireOwner, asyncHandler(a
 
 // ── GET /sectors (industries distinctes pour le filtre) ──────────────────────
 screenerRouter.get('/sectors', asyncHandler(async (_req: Request, res: Response) => {
+  // La liste des industries distinctes ne change que quand un titre d'un secteur inédit est noté.
+  res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.nightly));
   res.json(await getSectors());
 }));
 
@@ -164,6 +172,9 @@ screenerRouter.get('/earnings', asyncHandler(async (req: Request, res: Response)
       nextEarningsDate: true, opportunity: true,
     },
   });
+  // Fenêtre de dates : le CDN clé sur `from`/`to`, et le contenu d'une fenêtre donnée ne bouge
+  // qu'au re-scoring des titres concernés.
+  res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.ranking));
   res.json(rows);
 }));
 
@@ -196,6 +207,8 @@ screenerRouter.get('/search', asyncHandler(async (req: Request, res: Response) =
   // Remonte les préfixes exacts de ticker en tête (UX recherche).
   const qu = q.toUpperCase();
   rows.sort((a, b) => Number(b.ticker.startsWith(qu)) - Number(a.ticker.startsWith(qu)));
+  // Autocomplétion : le CDN clé sur `q`, donc les préfixes courts (les plus tapés) se mutualisent.
+  res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.ranking));
   res.json(rows as TickerSuggestion[]);
 }));
 
@@ -375,7 +388,20 @@ async function pickShowcaseRows(count: number): Promise<ShowcaseRow[]> {
 
 screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response) => {
   const lang = parseLang(req.header('accept-language'));
+  // ⚠️ Cette réponse dépend d'un EN-TÊTE, pas de l'URL. Le CDN ne clé que sur l'URL : sans ce
+  // `Vary`, la première réponse mise en cache (souvent fr) serait servie aux visiteurs anglophones
+  // et hispanophones. Le corollaire est que le taux de HIT est partiel, l'en-tête `accept-language`
+  // réel étant très varié — c'est le prix de la correction, et il reste très supérieur à l'absence
+  // totale de cache. Passer la langue en paramètre d'URL rendrait le cache pleinement efficace.
+  res.vary('Accept-Language');
+  // Vitrine de la landing : appelée à CHAQUE visite de la page d'accueil. Le mémo mémoire
+  // ci-dessous ne vit que le temps d'une instance de lambda, il ne remplace pas le cache partagé.
+  // Posé sur les seules sorties 200 : un 404 mis en cache 30 min figerait une landing vide.
+  const cacheShowcase = (): void => {
+    res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.quotes));
+  };
   if (showcaseCache && showcaseCache.lang === lang && Date.now() - showcaseCache.at < SHOWCASE_TTL_MS) {
+    cacheShowcase();
     res.json(showcaseCache.payload); return;
   }
 
@@ -413,6 +439,7 @@ screenerRouter.get('/showcase', asyncHandler(async (req: Request, res: Response)
     };
   }));
   showcaseCache = { at: Date.now(), lang, payload };
+  cacheShowcase();
   res.json(payload);
 }));
 
@@ -516,5 +543,9 @@ screenerRouter.get('/ticker/:ticker', asyncHandler(async (req: Request, res: Res
     getPublishedResilienceSummaries([ticker]),
     getResilienceStars([ticker]),
   ]);
+  // Socle public d'une fiche, appelé par le SPA à chaque ouverture de /analyse/:ticker. Porte un
+  // prix → TTL court. Posé ici et pas plus haut : le 404 « ticker non couvert » ne doit pas être
+  // figé par le CDN, un titre non scoré aujourd'hui le sera demain.
+  res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.quotes));
   res.json({ ...row, resilience: resiliences.get(ticker) ?? null, resilienceStars: resilienceStars.get(ticker) ?? null });
 }));
