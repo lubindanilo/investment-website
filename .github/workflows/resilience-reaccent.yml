@@ -42,6 +42,10 @@ on:
         description: 'Nombre de tickers a traiter (les plus grosses capis d abord). Vide = tous.'
         required: false
         default: ''
+      offset:
+        description: 'Sauter les N premiers tickers. Sert a decouper en tranches reprenables (700, puis 1400...).'
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -107,10 +111,29 @@ jobs:
           APPLY: ${{ inputs.apply }}
           NO_LLM: ${{ inputs.no_llm }}
           LIMIT: ${{ inputs.limit }}
+          OFFSET: ${{ inputs.offset }}
         run: |
           set -euo pipefail
           args=""
-          [ "${APPLY}" = "true" ] && args="${args} --apply" || echo "Mode SIMULATION (cocher 'apply' pour ecrire)."
+          # La sauvegarde n'est demandee qu'en ecriture : en simulation il n'y a rien a perdre.
+          if [ "${APPLY}" = "true" ]; then
+            args="${args} --apply --backup reaccent-backup.json"
+          else
+            echo "Mode SIMULATION (cocher 'apply' pour ecrire)."
+          fi
           [ "${NO_LLM}" = "true" ] && args="${args} --no-llm" || true
           [ -n "${LIMIT}" ] && args="${args} --limit ${LIMIT}" || true
+          [ -n "${OFFSET}" ] && args="${args} --offset ${OFFSET}" || true
           pnpm --filter @lubin/api run resilience:stars:reaccent -- ${args}
+
+      # Le texte d'origine sort d'un LLM : ecrase, il ne se regenere pas a l'identique. L'artefact
+      # est le seul chemin de retour en arriere, il est donc archive meme si le job a echoue apres
+      # avoir ecrit une partie des lignes.
+      - name: Archiver le texte d origine
+        if: always() && inputs.apply == true
+        uses: actions/upload-artifact@v4
+        with:
+          name: reaccent-backup-${{ inputs.offset || 0 }}
+          path: apps/api/reaccent-backup.json
+          if-no-files-found: warn
+          retention-days: 90
