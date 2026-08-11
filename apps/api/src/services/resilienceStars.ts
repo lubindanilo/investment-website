@@ -44,7 +44,12 @@ const publicCriterionSchema = z.object({
   star: starSchema,
   justification: z.string().trim().min(1),
 });
-const publicCriteriaSchema = z.object({
+/**
+ * Forme de `criteria` telle que l'UI la lit : cinq axes, chacun une etoile 0/0,5/1 et sa
+ * justification. Exportee pour que les audits de la base valident les lignes deja ecrites contre
+ * CE schema-la, celui qui decide si une note s'affiche (cf. toPublicStars).
+ */
+export const publicCriteriaSchema = z.object({
   besoin: publicCriterionSchema,
   controle: publicCriterionSchema,
   forces: publicCriterionSchema,
