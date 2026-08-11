@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { aggregateTotal, parseScores, normalizeCompanyName, CRITERION_KEYS, type CriterionKey, type CriterionScore } from './resilienceStars.js';
+import { describe, it, expect, vi } from 'vitest';
+import { aggregateTotal, parseScores, normalizeCompanyName, isSameCompany, pairByCompanyName, CRITERION_KEYS, type CriterionKey, type CriterionScore } from './resilienceStars.js';
 
 const sample = `[
   {"nom":"Acme","besoin":{"s":1,"r":"demande croit"},"controle":{"s":0.5,"r":"conteste"},"forces":{"s":0,"r":"absorbee"},"adjacent":{"s":0.5,"r":"partiel"},"capture":{"s":1,"r":"durable"}}
@@ -67,7 +67,94 @@ describe('normalizeCompanyName', () => {
     expect(normalizeCompanyName('AG Growth International Inc')).toBe('ag growth international');
   });
 
+  it('ne confond pas Merck KGaA avec Merck & Co', () => {
+    // Le suffixe est ici le SEUL discriminant entre deux societes sans rapport. MRK.DE a porte en
+    // prod la note de MRK, justifications sur Keytruda comprises (constate le 11/08/2026).
+    expect(normalizeCompanyName('Merck KGaA')).not.toBe(normalizeCompanyName('Merck & Co., Inc.'));
+  });
+
+  it('garde les initiales de tete, qui font partie du nom', () => {
+    // Jeter les lettres isolees reduisait ces noms a « bank », « block » et « technologies ».
+    expect(normalizeCompanyName('M&T Bank Corp')).toBe('mt bank');
+    expect(normalizeCompanyName('H & R Block Inc')).not.toBe(normalizeCompanyName('Block Inc'));
+    expect(normalizeCompanyName('S&T Bancorp Inc')).not.toBe(normalizeCompanyName('Bancorp Inc'));
+    expect(normalizeCompanyName('R C M Technologies Inc')).not.toBe(normalizeCompanyName('Q/C Technologies Inc'));
+  });
+
+  it('jette encore la lettre SEULE d une classe d action ou d un flux tronque', () => {
+    // Sinon GOOG/GOOGL, BRK.A/BRK.B et les lignes suffixees « N. » cessent de se regrouper.
+    expect(normalizeCompanyName('Alphabet Inc Class A')).toBe(normalizeCompanyName('Alphabet Inc Class C'));
+    expect(normalizeCompanyName('AMRIZE N')).toBe(normalizeCompanyName('Amrize AG'));
+  });
+
   it('ne renvoie jamais une cle vide', () => {
     expect(normalizeCompanyName('S.A.')).not.toBe('');
+  });
+});
+
+describe('isSameCompany', () => {
+  const line = (ticker: string, name: string) => ({ ticker, name });
+
+  it('regroupe les cotations multiples d une meme societe', () => {
+    expect(isSameCompany(line('TD.TO', 'The Toronto-Dominion Bank'), line('TD', 'Toronto-Dominion Bank'))).toBe(true);
+    expect(isSameCompany(line('0005.HK', 'HSBC Holdings plc'), line('HSBC', 'HSBC Holdings PLC'))).toBe(true);
+    expect(isSameCompany(line('PBR', 'Petróleo Brasileiro S.A. - Petrobras'), line('PBR.A', 'Petroleo Brasileiro SA Petrobras'))).toBe(true);
+    expect(isSameCompany(line('IBN', 'ICICI Bank Ltd'), line('ICICIBANK.NS', 'ICICI Bank Limited'))).toBe(true);
+    // Une ligne sans forme juridique reste compatible avec tout : les fournisseurs l'omettent souvent.
+    expect(isSameCompany(line('AMRZ', 'Amrize AG'), line('AMRZ.SW', 'AMRIZE N'))).toBe(true);
+  });
+
+  it('refuse deux societes que seule la forme juridique separe', () => {
+    // Toutes relevees par l'audit du 11/08/2026 sur les 8 631 lignes du screener.
+    expect(isSameCompany(line('MRK', 'Merck & Co Inc'), line('MRK.DE', 'Merck KGaA'))).toBe(false);
+    expect(isSameCompany(line('AGX', 'Argan Inc'), line('ARG.PA', 'Argan SA'))).toBe(false);
+    expect(isSameCompany(line('LGO', 'Largo Inc.'), line('ALLGO.PA', 'Largo SA'))).toBe(false);
+    expect(isSameCompany(line('IREN', 'IREN Ltd'), line('IRE.MI', 'Iren SpA'))).toBe(false);
+    expect(isSameCompany(line('TITAN.NS', 'Titan Company Limited'), line('TITC.AT', 'Titan S.A.'))).toBe(false);
+    expect(isSameCompany(line('SIE.DE', 'Siemens Aktiengesellschaft'), line('SIEMENS.NS', 'Siemens Limited'))).toBe(false);
+  });
+
+  it('refuse les homonymes inscrits a la main, que le nom ne separe pas', () => {
+    // « Toro Co » (tondeuses) contre « Toro Corp. » (transport maritime).
+    expect(isSameCompany(line('TTC', 'Toro Co'), line('TORO', 'Toro Corp.'))).toBe(false);
+    expect(isSameCompany(line('FBP', 'First BanCorp'), line('FNLC', 'First Bancorp Inc'))).toBe(false);
+  });
+
+  it('reconnait une ligne comme elle-meme', () => {
+    expect(isSameCompany(line('TORO', 'Toro Corp.'), line('TORO', 'Toro Corp.'))).toBe(true);
+  });
+});
+
+describe('pairByCompanyName', () => {
+  const brief = (name: string) => ({ name, brief: 'x' });
+
+  it('apparie par nom meme quand le modele reordonne sa reponse', () => {
+    const paired = pairByCompanyName(
+      [brief('Apple Inc.'), brief('Microsoft Corporation')],
+      [{ nom: 'Microsoft Corp' }, { nom: 'Apple' }],
+    );
+    expect(paired.map(p => p?.nom)).toEqual(['Apple', 'Microsoft Corp']);
+  });
+
+  it('n apparie plus par nom deux entreprises homonymes du meme lot', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    // Le modele ne renvoie qu'une fois « Merck » : sans garde-fou, la premiere des deux prenait
+    // cette note et l'autre restait vide, sans qu'on sache laquelle avait ete servie.
+    const paired = pairByCompanyName(
+      [brief('Merck'), brief('Merck')],
+      [{ nom: 'Merck' }, { nom: 'Merck' }],
+    );
+    // Restes equilibres : la position tranche, et c'est l'ordre demande au modele.
+    expect(paired.map(p => p?.nom)).toEqual(['Merck', 'Merck']);
+    expect(warn).toHaveBeenCalled();
+    warn.mockRestore();
+  });
+
+  it('laisse la case vide plutot que de deviner quand les restes ne s equilibrent pas', () => {
+    const paired = pairByCompanyName(
+      [brief('Apple Inc.'), brief('Microsoft Corporation'), brief('Nvidia Corporation')],
+      [{ nom: 'Apple' }],
+    );
+    expect(paired.map(p => p?.nom)).toEqual(['Apple', undefined, undefined]);
   });
 });

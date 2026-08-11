@@ -1,6 +1,6 @@
 import { PrismaClient, type Prisma } from '@prisma/client';
 import { scoreWithCrossCheck, type CrossCheckOptions } from './resilienceStarsCrossCheck.js';
-import { normalizeCompanyName, type CompanyBrief } from './resilienceStars.js';
+import { isSameCompany, normalizeCompanyName, type CompanyBrief, type CompanyLine } from './resilienceStars.js';
 import { isNonOperatingVehicle } from '../lib/nonOperatingVehicle.js';
 
 /**
@@ -62,11 +62,19 @@ interface UniverseRow {
 }
 
 export interface CompanyGroup {
-  /** Nom canonique de la societe : la cle de regroupement ET d'appariement des notes. */
+  /**
+   * Nom canonique de la societe. Sert de PANIER de recherche dans l'index des notes, pas de preuve
+   * d'identite : deux groupes peuvent le partager quand `isSameCompany` a refuse de les fusionner
+   * (Merck KGaA contre Merck & Co, Titan S.A. contre Titan Company Limited...).
+   */
   key: string;
   brief: CompanyBrief;
   /** Tous les tickers qui designent cette meme societe, plus grosse capi en tete. */
   rows: UniverseRow[];
+}
+
+function toCompanyLine(row: UniverseRow): CompanyLine {
+  return { ticker: row.ticker, name: row.name ?? row.ticker };
 }
 
 /**
@@ -80,18 +88,24 @@ export interface CompanyGroup {
  *
  * Regrouper corrige aussi une depense inutile : la resilience juge une ENTREPRISE, pas une ligne de
  * cotation. Une note obtenue une fois est ecrite sur tous ses tickers.
+ *
+ * Le regroupement passe par `isSameCompany` et NON par la seule cle canonique : la cle seule a
+ * fusionne Merck KGaA avec Merck & Co, et une vingtaine d'autres paires de societes sans rapport
+ * (audit du 11/08/2026). Deux lignes homonymes mais distinctes forment desormais deux groupes, donc
+ * deux notes independantes.
  */
 export function groupRowsByCompany(rows: UniverseRow[]): CompanyGroup[] {
-  const groups = new Map<string, UniverseRow[]>();
+  const groups: CompanyGroup[] = [];
   for (const row of rows) {
-    const key = normalizeCompanyName(row.name ?? row.ticker);
-    groups.set(key, [...(groups.get(key) ?? []), row]);
+    const line = toCompanyLine(row);
+    const host = groups.find(group => isSameCompany(toCompanyLine(group.rows[0]!), line));
+    if (host) {
+      host.rows.push(row);
+      continue;
+    }
+    groups.push({ key: normalizeCompanyName(line.name), brief: toCompanyBrief(row), rows: [row] });
   }
-  return [...groups.entries()].map(([key, group]) => ({
-    key,
-    brief: toCompanyBrief(group[0]!),
-    rows: group,
-  }));
+  return groups;
 }
 
 /** Note deja en base, prete a etre recopiee sur une autre ligne de la meme societe. */
@@ -102,6 +116,12 @@ interface StoredScore {
   model: string;
   sonnetTotals: Prisma.InputJsonValue;
   v3Total: number | null;
+}
+
+/** Une note deja en base, avec la ligne dont elle vient : sans le nom, rien ne prouve l'identite. */
+interface IndexedScore {
+  line: CompanyLine;
+  score: StoredScore;
 }
 
 /**
@@ -117,29 +137,53 @@ interface StoredScore {
  * fournisseurs n'ecrivent pas la meme raison sociale : « The Toronto-Dominion Bank » en base et
  * « Toronto-Dominion Bank » dans la tranche ne se retrouvent que par la cle CANONIQUE, qui ne se
  * calcule pas en SQL. Audit du 06/08/2026 : six societes avaient deux notes divergentes par ce trou.
+ *
+ * Chaque panier porte PLUSIEURS entrees, une par societe distincte tombee sur la meme cle. C'est ce
+ * chemin-la qui a casse MRK.DE : sa ligne supprimee le 07/08 a bien ete repiochee, mais le panier
+ * « merck » ne contenait qu'une entree — celle de Merck & Co — et la note a ete recopiee sans meme
+ * appeler un modele (justifications sur Keytruda, a l'identique, constatees le 11/08/2026).
  */
-async function loadScoredIndex(prisma: PrismaClient): Promise<Map<string, StoredScore>> {
+async function loadScoredIndex(prisma: PrismaClient): Promise<Map<string, IndexedScore[]>> {
   const rows = await prisma.resilienceStarScore.findMany({
-    select: { name: true, total: true, criteria: true, verdict: true, model: true, sonnetTotals: true, v3Total: true },
+    select: { ticker: true, name: true, total: true, criteria: true, verdict: true, model: true, sonnetTotals: true, v3Total: true },
     orderBy: { scoredAt: 'desc' },
   });
 
-  const byName = new Map<string, StoredScore>();
+  const byName = new Map<string, IndexedScore[]>();
   for (const row of rows) {
     if (!row.name) continue;
+    const line: CompanyLine = { ticker: row.ticker, name: row.name };
     const key = normalizeCompanyName(row.name);
-    // La plus recente gagne (tri decroissant) : on ne remplace pas une entree deja posee.
-    if (byName.has(key)) continue;
-    byName.set(key, {
-      total: row.total,
-      criteria: row.criteria as Prisma.InputJsonValue,
-      verdict: row.verdict,
-      model: row.model,
-      sonnetTotals: row.sonnetTotals as Prisma.InputJsonValue,
-      v3Total: row.v3Total,
+    const bucket = byName.get(key) ?? [];
+    // La plus recente gagne (tri decroissant) : on ne remplace pas une societe deja posee. Une AUTRE
+    // societe partageant la cle, elle, prend sa propre entree dans le panier.
+    if (bucket.some(entry => isSameCompany(entry.line, line))) continue;
+    bucket.push({
+      line,
+      score: {
+        total: row.total,
+        criteria: row.criteria as Prisma.InputJsonValue,
+        verdict: row.verdict,
+        model: row.model,
+        sonnetTotals: row.sonnetTotals as Prisma.InputJsonValue,
+        v3Total: row.v3Total,
+      },
     });
+    byName.set(key, bucket);
   }
   return byName;
+}
+
+/** Note deja acquise par la MEME societe, s'il y en a une dans le panier de cette cle. */
+function findScoreForGroup(index: Map<string, IndexedScore[]>, group: CompanyGroup): IndexedScore | undefined {
+  const line = toCompanyLine(group.rows[0]!);
+  return index.get(group.key)?.find(entry => isSameCompany(entry.line, line));
+}
+
+function rememberScore(index: Map<string, IndexedScore[]>, group: CompanyGroup, score: StoredScore): void {
+  const bucket = index.get(group.key) ?? [];
+  bucket.push({ line: toCompanyLine(group.rows[0]!), score });
+  index.set(group.key, bucket);
 }
 
 /** Ecrit une note sur TOUS les tickers d'une societe. Renvoie le nombre de lignes ecrites. */
@@ -294,24 +338,30 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
         // 1. Recopie : une societe dont un autre ticker est deja note ne repasse pas par les modeles.
         const toScore: CompanyGroup[] = [];
         for (const group of groups) {
-          const existing = scoredIndex.get(group.key);
+          const existing = findScoreForGroup(scoredIndex, group);
           if (!existing) {
             toScore.push(group);
             continue;
           }
-          const rows = await writeScoreToRows(prisma, group.rows, existing);
+          const rows = await writeScoreToRows(prisma, group.rows, existing.score);
           written += rows;
           copiedInSlice += rows;
+          // Toute recopie sous un nom DIFFERENT est tracee : c'est le seul endroit ou une fusion a
+          // tort resterait invisible, et c'est ce silence qui a laisse MRK.DE porter la note de MRK.
+          if (existing.line.name !== group.brief.name) {
+            console.log(`[resilience] ${group.rows.map(r => r.ticker).join(', ')} (${group.brief.name}) : note recopiee de ${existing.line.ticker} (${existing.line.name}).`);
+          }
         }
 
         // 2. Notation des societes reellement nouvelles. Le lot peut revenir INCOMPLET (un lot
-        //    Sonnet ou DeepSeek perdu n'emporte que le sien), d'ou l'appariement par nom canonique
-        //    plutot que par position.
+        //    Sonnet ou DeepSeek perdu n'emporte que le sien), d'ou l'appariement par nom plutot que
+        //    par position. Le nom EXACT du brief, pas la cle canonique : deux groupes distincts
+        //    peuvent partager la cle, et l'un prendrait alors la note de l'autre.
         const scores = await scoreWithCrossCheck(toScore.map(group => group.brief), options.crossCheck);
-        const byKey = new Map(scores.map(score => [normalizeCompanyName(score.name), score]));
+        const byName = new Map(scores.map(score => [score.name, score]));
 
         for (const group of toScore) {
-          const score = byKey.get(group.key);
+          const score = byName.get(group.brief.name);
           // Ni note Sonnet, ni controle croise : defaillance technique, pas un cas difficile. On
           // n'ecrit PAS, sinon la ligne serait figee (pickDue ignore tout ticker deja present) :
           // en la laissant dehors elle revient au menu au prochain run.
@@ -330,7 +380,7 @@ export async function runBackfill(options: BackfillOptions): Promise<BackfillRes
           };
           written += await writeScoreToRows(prisma, group.rows, stored);
           // L'index suit les ecritures : la meme societe apparue plus loin dans CE run sera recopiee.
-          scoredIndex.set(group.key, stored);
+          rememberScore(scoredIndex, group, stored);
         }
       } catch (error) {
         // Ne reste ici que l'imprevu (base, bug) : les pertes de lots LLM sont deja absorbees plus

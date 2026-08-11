@@ -65,14 +65,73 @@ const arraySchema = z.array(companySchema);
  * Formes juridiques supprimees en FIN de nom uniquement : en tete ou au milieu elles peuvent etre
  * un vrai mot (« AG Growth International », « Co-operators »). On les retire en boucle, car elles
  * s'empilent (« ... Holding Co., Ltd. »).
+ *
+ * `kgaa` est volontairement ABSENT de cette liste ET de la suivante, alors que c'est bien une forme
+ * juridique. Chez Merck il est le SEUL discriminant entre deux societes sans rapport : « Merck
+ * KGaA » (outils de life science, chimie de specialite) et « Merck & Co., Inc. » (pharma US) se
+ * reduisaient tous deux a « merck », et la note de la seconde a fini recopiee mot pour mot sur la
+ * premiere — MRK.DE affichait 1,5/5 en citant Keytruda (constate en prod le 11/08/2026).
+ *
+ * Le choix inverse ne coute rien au regroupement : nos fournisseurs ecrivent le suffixe sur TOUTES
+ * les lignes d'une meme KGaA (HEN.DE, SAX.DE, SPG.DE, FRE.DE...), donc les cotations multiples d'une
+ * KGaA continuent de se retrouver entre elles. Et une KGaA qui se scinderait quand meme en deux
+ * groupes serait notee deux fois : un surcout, pas une note fausse.
  */
 const TRAILING_LEGAL_TOKENS = new Set([
   'inc', 'incorporated', 'corp', 'corporation', 'co', 'company', 'plc', 'ltd', 'limited', 'llc',
-  'lp', 'sa', 'nv', 'se', 'ag', 'ab', 'asa', 'oyj', 'spa', 'sae', 'kgaa', 'adr', 'ads',
+  'lp', 'sa', 'nv', 'se', 'ag', 'ab', 'asa', 'oyj', 'spa', 'sae', 'adr', 'ads',
 ]);
 
 /** Celles-ci ne sont JAMAIS un mot : on peut les retirer n'importe ou (« SA Petrobras »). */
-const ANYWHERE_LEGAL_TOKENS = new Set(['plc', 'sa', 'nv', 'oyj', 'asa', 'kgaa', 'aktiengesellschaft']);
+const ANYWHERE_LEGAL_TOKENS = new Set(['plc', 'sa', 'nv', 'oyj', 'asa', 'aktiengesellschaft']);
+
+/**
+ * Recolle les SUITES d'au moins deux lettres isolees, et jette les lettres vraiment seules.
+ *
+ * Un acronyme pointe arrive ici aplati en lettres isolees (« S.A. » -> « s a », « p.l.c. » ->
+ * « p l c ») : il faut le recoller pour que la forme juridique redevienne reconnaissable. Une lettre
+ * SEULE, elle, est une classe d'action ou un artefact de flux (« Alphabet Inc Class A », « AMRIZE N »,
+ * « ... Company N. ») : la jeter est ce qui permet a ces lignes de rejoindre leur societe.
+ *
+ * L'ancienne regle jetait toutes les lettres isolees sans distinction, et detruisait au passage des
+ * raisons sociales entieres : « M&T Bank Corp » se canonisait en « bank », « H & R Block Inc » en
+ * « block » (donc en Block Inc), « S&T Bancorp Inc » en « bancorp », « R C M Technologies » et
+ * « Q/C Technologies » toutes deux en « technologies ». Autant de collisions entre societes sans
+ * rapport, de la meme famille que Merck (audit du 11/08/2026).
+ */
+function collapseIsolatedLetters(tokens: string[]): string[] {
+  const out: string[] = [];
+  let i = 0;
+  while (i < tokens.length) {
+    if (tokens[i]!.length > 1) {
+      out.push(tokens[i]!);
+      i += 1;
+      continue;
+    }
+    let end = i;
+    while (end < tokens.length && tokens[end]!.length === 1) end += 1;
+    const run = tokens.slice(i, end);
+    if (run.length > 1) out.push(run.join(''));
+    i = end;
+  }
+  return out;
+}
+
+/** Casse, accents et ponctuation aplatis. Dernier recours quand tout le reste disparait. */
+function flattenName(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+/** Forme aplatie, « the » de tete supprime. Base commune a la cle et aux signaux d'identite. */
+function rawTokens(value: string): string[] {
+  const tokens = flattenName(value).split(' ').filter(Boolean);
+  return tokens[0] === 'the' ? tokens.slice(1) : tokens;
+}
 
 /**
  * Nom canonique pour apparier la reponse d'un modele avec nos lignes, et regrouper les cotations
@@ -84,25 +143,108 @@ const ANYWHERE_LEGAL_TOKENS = new Set(['plc', 'sa', 'nv', 'oyj', 'asa', 'kgaa', 
  * Petrobras ». Une egalite trop litterale a tue un run entier le 05/08/2026 (appariement), puis
  * laisse six societes multi-cotees porter deux notes divergentes (audit du 06/08/2026).
  *
- * Regles, dans l'ordre : casse/accents/ponctuation aplatis, « the » de tete supprime, lettres
- * isolees supprimees (« S.A. » devient « s a »), formes juridiques supprimees en fin de nom et,
- * pour celles qui ne sont jamais un mot, n'importe ou. Si tout disparait, on garde la forme
- * aplatie d'origine plutot qu'une cle vide.
+ * Regles, dans l'ordre : casse/accents/ponctuation aplatis, « the » de tete supprime, suites de
+ * lettres isolees recollees et lettres seules jetees (cf. collapseIsolatedLetters), formes
+ * juridiques supprimees en fin de nom et, pour celles qui ne sont jamais un mot, n'importe ou. Si
+ * tout disparait, on garde la forme aplatie d'origine plutot qu'une cle vide.
+ *
+ * ATTENTION : cette cle ne SUFFIT PAS a decider que deux lignes sont la meme societe — deux
+ * societes sans rapport peuvent la partager. C'est `isSameCompany` qui tranche.
  */
 export function normalizeCompanyName(value: string): string {
-  const flat = value
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/\p{Diacritic}/gu, '')
-    .replace(/[^a-z0-9]+/g, ' ')
-    .trim();
-
-  let tokens = flat.split(' ').filter(Boolean);
-  if (tokens[0] === 'the') tokens = tokens.slice(1);
-  tokens = tokens.filter(token => token.length > 1 && !ANYWHERE_LEGAL_TOKENS.has(token));
+  const tokens = collapseIsolatedLetters(rawTokens(value))
+    .filter(token => !ANYWHERE_LEGAL_TOKENS.has(token));
   while (tokens.length > 1 && TRAILING_LEGAL_TOKENS.has(tokens[tokens.length - 1]!)) tokens.pop();
 
-  return tokens.length > 0 ? tokens.join(' ') : flat;
+  return tokens.length > 0 ? tokens.join(' ') : flattenName(value);
+}
+
+/**
+ * Famille juridique par juridiction. Deux raisons sociales qui portent des formes de familles
+ * DISJOINTES ne designent pas la meme societe, meme sous un nom canonique identique : « Largo Inc. »
+ * (vanadium, Toronto) contre « Largo SA » (distribution electronique, Paris), « Titan Company
+ * Limited » (joaillerie indienne) contre « Titan S.A. » (ciment grec), « IREN Ltd » (minage de
+ * bitcoin) contre « Iren SpA » (utility italienne). C'est le signal qui rattrape la classe entiere
+ * de collisions dont Merck n'etait qu'un cas.
+ *
+ * ABSENTS VOLONTAIREMENT : `co` et `company`, qui apparaissent dans les raisons sociales allemandes
+ * (« Henkel AG & Co. KGaA ») et y feraient croire a une forme americaine ; `se`, qui est europeenne
+ * et se porte aussi bien en Allemagne (E.ON SE) qu'en France (Airbus SE) ; `adr` et `ads`, qui
+ * designent par construction la MEME societe que la ligne locale.
+ */
+const LEGAL_FAMILY: Record<string, string> = {
+  inc: 'us', incorporated: 'us', corp: 'us', corporation: 'us', llc: 'us', lp: 'us',
+  plc: 'uk',
+  ltd: 'commonwealth', limited: 'commonwealth',
+  ag: 'allemande', aktiengesellschaft: 'allemande', kgaa: 'allemande', gmbh: 'allemande',
+  sa: 'latine', spa: 'latine', sae: 'latine', nv: 'latine',
+  ab: 'nordique', asa: 'nordique', oyj: 'nordique',
+};
+
+function legalFamilies(name: string): Set<string> {
+  const families = new Set<string>();
+  for (const token of collapseIsolatedLetters(rawTokens(name))) {
+    const family = LEGAL_FAMILY[token];
+    if (family) families.add(family);
+  }
+  return families;
+}
+
+/**
+ * Initiales de TETE (« S&T », « H & R », « R C M », « X-Energy »), avant le premier vrai mot.
+ *
+ * Elles font partie de l'identite de la societe, contrairement a une lettre de fin qui est une
+ * classe d'action. Deux noms canoniques identiques mais des initiales differentes = deux societes.
+ */
+function leadingInitials(name: string): string {
+  const tokens = rawTokens(name);
+  const end = tokens.findIndex(token => token.length > 1);
+  return tokens.slice(0, end === -1 ? tokens.length : end).join('');
+}
+
+/**
+ * Tickers dont le nom canonique percute une societe SANS RAPPORT que ni les initiales ni la famille
+ * juridique ne separent, releve par l'audit du 11/08/2026
+ * (`scripts/resilienceStarsHomonymAudit.ts`) : « Toro Co » (tondeuses) contre « Toro Corp. »
+ * (transport maritime), « First BanCorp » (Porto Rico) contre « First Bancorp Inc » (Maine),
+ * « Blue Owl Capital Inc » (le gerant) contre « Blue Owl Capital Corp » (sa BDC), et deux vehicules
+ * Cantor que seul un chiffre romain distingue.
+ *
+ * Un ticker liste ici ne se regroupe qu'avec LUI-MEME : il est note pour lui, jamais recopie. Le
+ * cout est une note payee deux fois pour une societe multi-cotee qui y figurerait a tort.
+ */
+const SEPARATE_COMPANIES = new Set(['TORO', 'FNLC', 'OBDC', 'CEPV', 'CEPO']);
+
+/** Une ligne de cotation : le ticker tranche ce que le nom laisse ambigu. */
+export interface CompanyLine {
+  ticker: string;
+  name: string;
+}
+
+/**
+ * Deux lignes designent-elles la MEME societe ? Seule reponse autorisee a recopier une note d'une
+ * ligne sur l'autre.
+ *
+ * Le nom canonique seul ne suffit pas : sur 8 631 lignes du screener, 42 cles canoniques etaient
+ * partagees par des raisons sociales differentes, dont une vingtaine par des societes sans aucun
+ * rapport (audit du 11/08/2026). On exige donc, en plus de la cle : les memes initiales de tete, et
+ * des familles juridiques non disjointes. Un nom sans forme juridique reste compatible avec tout
+ * (les fournisseurs en omettent une ligne sur deux : « Toronto-Dominion Bank » contre « The
+ * Toronto-Dominion Bank »), sinon on refuserait de regrouper de vraies doubles cotations.
+ *
+ * En cas de doute on REFUSE. Refuser coute un appel au modele et, au pire, deux notes voisines pour
+ * une meme societe ; accepter a tort affiche sur une societe la note argumentee d'une autre.
+ */
+export function isSameCompany(a: CompanyLine, b: CompanyLine): boolean {
+  if (a.ticker === b.ticker) return true;
+  if (SEPARATE_COMPANIES.has(a.ticker) || SEPARATE_COMPANIES.has(b.ticker)) return false;
+  if (normalizeCompanyName(a.name) !== normalizeCompanyName(b.name)) return false;
+  if (leadingInitials(a.name) !== leadingInitials(b.name)) return false;
+
+  const familiesA = legalFamilies(a.name);
+  const familiesB = legalFamilies(b.name);
+  if (familiesA.size === 0 || familiesB.size === 0) return true;
+  return [...familiesA].some(family => familiesB.has(family));
 }
 
 /** Agregation deterministe : le total n'est jamais decide par le LLM. */
@@ -118,6 +260,11 @@ export function aggregateTotal(criteria: Record<CriterionKey, CriterionScore>): 
  * permute deux entreprises des que le modele reordonne sa reponse, et une note attribuee a la
  * mauvaise societe est bien plus grave qu'une note manquante. Quand les restes ne s'equilibrent pas,
  * on ne devine pas : la case sort `undefined` et l'appelant decide (Sonnet echoue, V3 omet).
+ *
+ * Deux entreprises du MEME lot qui partagent un nom canonique sortent de la passe par nom : le
+ * premier match gagnerait la case de l'autre, donc au moins une des deux porterait la note d'une
+ * societe differente. Elles ne se resolvent plus que par la position, qui est justement l'ordre
+ * demande au modele, et seulement si les restes s'equilibrent.
  */
 export function pairByCompanyName<T extends { nom: string }>(
   companies: CompanyBrief[],
@@ -126,8 +273,15 @@ export function pairByCompanyName<T extends { nom: string }>(
   const paired: (T | undefined)[] = companies.map(() => undefined);
   const used = new Set<number>();
 
+  const wantedKeys = companies.map(company => normalizeCompanyName(company.name));
+  const ambiguous = new Set(wantedKeys.filter((key, index) => wantedKeys.indexOf(key) !== index));
+  for (const key of ambiguous) {
+    console.warn(`[resilience] lot ambigu : « ${key} » designe plusieurs entreprises demandees, appariement par nom desactive pour elles.`);
+  }
+
   companies.forEach((company, index) => {
-    const wanted = normalizeCompanyName(company.name);
+    const wanted = wantedKeys[index]!;
+    if (ambiguous.has(wanted)) return;
     const found = parsed.findIndex((p, i) => !used.has(i) && normalizeCompanyName(p.nom) === wanted);
     if (found === -1) return;
     paired[index] = parsed[found];
