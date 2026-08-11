@@ -22,7 +22,8 @@
     "resilience:stars:manual-review": "tsx scripts/resilienceStarsManualReview.ts",
     "resilience:stars:homonyms": "tsx scripts/resilienceStarsHomonymAudit.ts",
     "resilience:stars:reaccent": "tsx scripts/resilienceStarsReaccent.ts",
-    "screener:drain": "tsx scripts/drainScreener.ts"
+    "screener:drain": "tsx scripts/drainScreener.ts",
+    "stockanalysis:backfill": "tsx src/_backfill_stockanalysis.ts"
   },
   "dependencies": {
     "@lubin/shared": "workspace:*",
