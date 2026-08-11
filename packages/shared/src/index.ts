@@ -648,16 +648,23 @@ export interface TimeseriesPoint {
   value: number;
 }
 
+/**
+ * Granularité d'une série servie. 'semiannual' n'est pas un repli dégradé : c'est la cadence
+ * RÉELLE de publication de ~25 % des émetteurs EU (Vinci, LVMH, L'Oréal, Nestlé…), qui ne
+ * publient pas de Q1/Q3 (directive Transparence UE 2013). Une barre = un semestre.
+ */
+export type TimeseriesFreq = 'quarterly' | 'semiannual' | 'annual';
+
 export interface TimeseriesResponse {
   ticker: string;
   metric: string;
-  freq: 'quarterly' | 'annual';
+  freq: TimeseriesFreq;
   years: number;
   points: TimeseriesPoint[];
   /**
-   * true si le ticker est non-US et que la donnée vient de Yahoo annual.
-   * Yahoo /fundamentals-timeseries n'expose PAS le quarterly pour les bourses européennes
-   * (juste 4 années annuelles). Le front affiche un petit notice pour expliquer.
+   * true quand ce ticker n'a QUE de l'annuel (aucune série intra-annuelle en base). Purement
+   * informatif : le sélecteur de période reste affiché dans tous les cas — une fenêtre plus
+   * profonde que l'historique se cadre sur les données au lieu d'ouvrir du vide.
    */
   euAnnualOnly?: boolean;
 }

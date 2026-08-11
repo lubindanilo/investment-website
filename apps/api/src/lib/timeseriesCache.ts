@@ -11,19 +11,25 @@
  * Le jour d'une nouvelle publication, l'entrée expire → recompute incorporant le trimestre.
  * Donc l'invalidation post-résultats est gratuite (pas besoin de toucher au cache à la main).
  */
-import type { TimeseriesPoint } from '@lubin/shared';
+import type { TimeseriesFreq, TimeseriesPoint } from '@lubin/shared';
 import { prisma } from '../db/client.js';
 
+/**
+ * Origine de la série servie. 'store' = série intra-annuelle relue du store FundamentalsSeries
+ * (accumulée depuis Yahoo trimestriel + stockanalysis), par opposition à un fetch direct.
+ */
+export type ChartSource = 'yahoo' | 'finnhub' | 'store';
+
 export interface CacheMeta {
-  /** Granularité effectivement servie ('quarterly' ou 'annual'), si différente de la clé. */
-  servedFreq?: 'quarterly' | 'annual';
-  /** true si on a basculé sur l'annuel Yahoo faute de trimestriel (ADR 20-F). */
+  /** Granularité effectivement servie, si différente de celle demandée. */
+  servedFreq?: TimeseriesFreq;
+  /** true si on a basculé sur l'annuel faute d'intra-annuel (ADR 20-F, EU sans historique). */
   annualFallback?: boolean;
 }
 
 export interface CacheEntry extends CacheMeta {
   points: TimeseriesPoint[];
-  source: 'yahoo' | 'finnhub';
+  source: ChartSource;
   expiresAt: number;
   storedAt: number;
 }
@@ -51,8 +57,8 @@ export async function get(key: string): Promise<CacheEntry | null> {
     if (now > expiresAt) return null; // expiré (purge paresseuse au prochain set)
     const entry: CacheEntry = {
       points: row.points as unknown as TimeseriesPoint[],
-      source: (row.source as 'yahoo' | 'finnhub') ?? 'finnhub',
-      servedFreq: (row.servedFreq as 'quarterly' | 'annual' | null) ?? undefined,
+      source: (row.source as ChartSource) ?? 'finnhub',
+      servedFreq: (row.servedFreq as TimeseriesFreq | null) ?? undefined,
       annualFallback: row.annualFallback ?? undefined,
       expiresAt,
       storedAt: row.storedAt.getTime(),
@@ -68,7 +74,7 @@ export async function get(key: string): Promise<CacheEntry | null> {
 export async function set(
   key: string,
   points: TimeseriesPoint[],
-  source: 'yahoo' | 'finnhub',
+  source: ChartSource,
   ttlMs: number,
   meta?: CacheMeta,
 ): Promise<void> {

@@ -158,20 +158,18 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
           <button className="croce-close" onClick={onClose} aria-label={t('chart.close')}>×</button>
         </header>
 
+        {/* Sélecteur affiché pour TOUS les titres : le domaine X est recadré sur les données
+            (cf. xDomain), une fenêtre plus longue que l'historique n'ouvre donc aucun vide. */}
         <div className="croce-periods">
-          {annualOnly ? (
-            <span className="period-static">{t('chart.croceAnnualOnlyTag')}</span>
-          ) : (
-            PERIODS.map(p => (
-              <button
-                key={p}
-                className={`period-btn ${p === period ? 'active' : ''}`}
-                onClick={() => setPeriod(p)}
-              >
-                {p}
-              </button>
-            ))
-          )}
+          {PERIODS.map(p => (
+            <button
+              key={p}
+              className={`period-btn ${p === period ? 'active' : ''}`}
+              onClick={() => setPeriod(p)}
+            >
+              {p}
+            </button>
+          ))}
         </div>
 
         {loading && <div className="croce-loading"><span className="spinner" /> {t('common.loading')}</div>}

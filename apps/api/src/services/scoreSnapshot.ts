@@ -10,7 +10,7 @@
 import { loadQuantData } from './quantSnapshot.js';
 import { buildQuantitativeCriteria } from './derivedMetrics.js';
 import { writeCachedSnapshot, extractLivePfcfInputs, type CachedQuantSnapshot } from './quantCache.js';
-import { accumulateYahooQuarterly, accumulateStockanalysisQuarterly } from './yahooAnnualStore.js';
+import { accumulateYahooQuarterly, accumulateStockanalysisQuarterly, accumulateStockanalysisAnnual } from './yahooAnnualStore.js';
 import { readSeries } from './fundamentalsStore.js';
 import { isChinaAshare, nextAshareDisclosure } from './marketTiers.js';
 
@@ -74,15 +74,18 @@ export async function buildAndCacheQuantSnapshot(
   // pour que le screener écrive une note cohérente avec le cache et stable côté client.
   const effective = await writeCachedSnapshot(ticker, snapshot);
 
-  // Titres non-US : on ACCUMULE en arrière-plan deux sources complémentaires :
+  // Titres non-US : on ACCUMULE en arrière-plan trois sources complémentaires :
   //   1. Yahoo trimestriel : fenêtre glissante ~5 trim, accumulation append-only → comble vers le
   //      passé au fil des publications.
-  //   2. stockanalysis.com : ~20 périodes (5 ans quarterly OU 10 ans semestriel selon la cadence
-  //      native de la société) → couverture HISTORIQUE immédiate dès le premier scoring.
+  //   2. stockanalysis.com intra-annuel : jusqu'à 20 périodes (5 ans quarterly OU 10 ans
+  //      semestriel selon la cadence native) → couverture HISTORIQUE dès le premier scoring.
+  //   3. stockanalysis.com annuel : ~5 exercices, pour les titres hors périmètre EDGAR (pas de
+  //      dépôt SEC) que Yahoo plafonne à ~4. Auto-gaté sur la profondeur déjà en base.
   // Best-effort, jamais bloquant. ~3 req/s sur stockanalysis (throttle interne au service).
   if (quant.fundamentalsSource === 'yahoo' && quant.yahooSymbol) {
     await accumulateYahooQuarterly(ticker, quant.yahooSymbol, Date.now()).catch(() => {});
     await accumulateStockanalysisQuarterly(ticker, Date.now()).catch(() => {});
+    await accumulateStockanalysisAnnual(ticker, Date.now()).catch(() => {});
   } else if (quant.fundamentalsSource === 'finnhub' && !ticker.includes('.')) {
     // US : Finnhub + EDGAR couvrent la quasi-totalité. Mais un émetteur étranger coté US
     // (SHOP, ex-40-F/6-K) n'a que ~5 trimestres récents chez Finnhub et EDGAR ne connaît pas

@@ -5,7 +5,9 @@
  *   - On itère sur ScreenerTicker (status = scored | pending) où ticker contient un point
  *     (= non-US par convention) OU region != 'US'.
  *   - Pour chaque ticker, on appelle accumulateStockanalysisQuarterly (3 fetches au throttle
- *     1 req/s = ~3s/ticker).
+ *     1 req/s = ~3s/ticker) PUIS accumulateStockanalysisAnnual (3 fetches de plus, mais seulement
+ *     tant que le store annuel n'a pas atteint sa profondeur cible — donc ~0 pour les titres déjà
+ *     approfondis par EDGAR).
  *   - Append-only : si une période existe déjà dans le store (ex via Yahoo accumulé), on n'écrase
  *     pas — on AJOUTE les périodes manquantes.
  *   - Reprenable : si le job meurt et qu'on relance, la sélection refait le tour ; les tickers
@@ -15,7 +17,7 @@
  * Vitesse attendue : ~1.2-3s par ticker × 1500 tickers = ~30-75 min.
  */
 import { prisma } from './db/client.js';
-import { accumulateStockanalysisQuarterly } from './services/yahooAnnualStore.js';
+import { accumulateStockanalysisQuarterly, accumulateStockanalysisAnnual } from './services/yahooAnnualStore.js';
 import { readSeries, isFresh } from './services/fundamentalsStore.js';
 
 async function withRetry<T>(fn: () => Promise<T>, attempts = 5): Promise<T> {
@@ -57,12 +59,18 @@ for (const c of candidates) {
     // Skip si le revenu trimestriel/semestriel est déjà frais pour ce ticker
     // (= store FundamentalsSeries.expiresAt > now). Repère honnête de progression.
     const stored = await withRetry(() => readSeries(c.ticker, 'revenue'));
-    if (stored && isFresh(stored, now) && (stored.source === 'stockanalysis' || stored.source === 'finnhub+edgar')) {
+    const intraFresh = stored && isFresh(stored, now)
+      && (stored.source === 'stockanalysis' || stored.source === 'finnhub+edgar');
+    // Passe ANNUELLE dans tous les cas (y compris quand l'intra-annuel est déjà frais) : elle
+    // alimente d'autres clés de store (annualXxx) et s'auto-gate sur la profondeur déjà atteinte,
+    // donc elle ne coûte 3 fetches que pour les tickers qui ont réellement quelque chose à gagner.
+    const annual = await accumulateStockanalysisAnnual(c.ticker, now);
+    if (intraFresh) {
       skip++;
       continue;
     }
     const n = await accumulateStockanalysisQuarterly(c.ticker, now);
-    if (n === 0) noData++;
+    if (n === 0 && annual === 0) noData++;
     else ok++;
   } catch (e) {
     err++;

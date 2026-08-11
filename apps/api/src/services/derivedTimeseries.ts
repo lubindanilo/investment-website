@@ -17,8 +17,8 @@
  *
  * Sources, comme les autres graphes-ratio :
  *   - US (Finnhub quarterly) : TTM glissant sur ~20 trimestres
- *   - EU + ADRs étrangers 20-F (store annuel Yahoo + EDGAR natif) : ratio par exercice
- *     (~4 ans pour l'EU, 14-18 exercices pour les ADR 20-F)
+ *   - EU + ADRs étrangers 20-F (store annuel Yahoo + EDGAR natif + stockanalysis) : ratio par
+ *     exercice (~5 ans pour l'EU, 14-18 exercices pour les ADR 20-F)
  *
  * Le FCF utilisé côté US est le FCF ajusté SBC (getAdjustedFcfTtmSeries) — identique à la
  * carte. Côté annuel Yahoo c'est le FCF brut (comme pfcfHistory/cashRoceHistory).
@@ -56,13 +56,12 @@ export interface RatioTimeseriesResult {
   /** Granularité réellement produite : 'quarterly' (US TTM) ou 'annual' (EU/ADR). */
   freq: 'quarterly' | 'annual';
   /**
-   * true pour les vrais tickers EU (devise ≠ USD) → l'UI remplace les boutons de période par
-   * un tag statique, Yahoo n'exposant que ~4 exercices.
-   *
-   * PAS activé pour les ADR 20-F servis en annuel : masquer le sélecteur revient à présenter
-   * le trou de données comme une caractéristique du titre. On garde donc les boutons, quitte
-   * à ce que « 1Y » et « 5Y » rendent la même vue tant que la profondeur trimestrielle manque
-   * en base — c'est la profondeur qu'il faut corriger, pas l'affichage.
+   * true pour les vrais tickers EU (devise ≠ USD), dont ce chemin ne sait produire qu'un ratio
+   * PAR EXERCICE. Purement informatif désormais : l'UI garde le sélecteur de période pour tout
+   * le monde et se contente de signaler la granularité servie. Masquer le sélecteur revenait à
+   * présenter un trou de données comme une caractéristique du titre — c'est la profondeur qu'il
+   * faut corriger, pas l'affichage (raisonnement déjà retenu pour les ADR 20-F, désormais
+   * généralisé).
    */
   annualOnly: boolean;
 }

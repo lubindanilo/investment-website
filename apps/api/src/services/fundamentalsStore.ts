@@ -30,6 +30,13 @@ const QUARTERLY_CADENCE: ExpiryCadence = { cadenceDays: 120, floorDays: 14 };
 export interface StoredSeries {
   points: TimeseriesPoint[];
   source: string;
+  /**
+   * Cadence RÉELLE des points stockés : 'quarterly' | 'semiannual' | 'annual'.
+   * Indispensable côté lecture : ~25 % des émetteurs EU (LVMH, L'Oréal, Vinci…) ne publient pas
+   * de Q1/Q3 (directive Transparence UE), leurs points sont des SEMESTRES. Les servir en les
+   * annonçant « trimestriels » afficherait « Trimestre S1 2025 » sur des barres de 6 mois.
+   */
+  freq: string;
   lastEnd: string | null;
   expiresAt: Date;
 }
@@ -44,6 +51,7 @@ export async function readSeries(ticker: string, metric: string): Promise<Stored
     return {
       points: (row.points as unknown as TimeseriesPoint[]) ?? [],
       source: row.source,
+      freq: row.freq,
       lastEnd: row.lastEnd,
       expiresAt: row.expiresAt,
     };

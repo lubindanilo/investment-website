@@ -2,15 +2,20 @@
  * stockanalysisFundamentals — source EU/INTL des fondamentaux (TRIMESTRIEL / SEMESTRIEL).
  *
  * Yahoo ne donne que ~5 trimestres glissants pour les non-US. Finnhub free ne couvre pas les
- * EU. stockanalysis.com (gratuit, server-rendered HTML) expose en revanche **20 périodes**
- * (5 ans quarterly OU 10 ans semestriel selon la cadence native de la société) dans un payload
- * JS embarqué (`financialData:{...}`) que l'on parse directement.
+ * EU. stockanalysis.com (gratuit, server-rendered HTML) expose en revanche **jusqu'à 20 périodes
+ * intra-annuelles** (5 ans quarterly OU 10 ans semestriel selon la cadence native de la société)
+ * et **~5 exercices annuels** (au-delà = compte Pro), dans un payload JS embarqué que l'on parse
+ * directement (cf. extractBlob : le nom de la clé conteneur varie selon la page).
  *
  * Couverture vérifiée :
  *   - ~60 % des large caps EU/INTL : vrai trimestriel, 5 ans (SAP, ASML, SHEL, AZN, NVS…)
  *   - ~25 % : semestriel natif, 10 ans (LVMH, Hermès, L'Oréal, Air Liquide, Nestlé, Roche…)
  *     — c'est la cadence RÉELLE de publication de ces sociétés (directive Transparence UE 2013)
  *   - ~15 % : indisponible → fallback Yahoo annuel via yahooAnnualStore
+ *
+ * La profondeur peut DIFFÉRER d'une page à l'autre pour un même titre : sur DG.PA, cash-flow et
+ * bilan remontent à 2016 (20 semestres) quand le compte de résultat s'arrête à 2021 (10). Chaque
+ * métrique porte donc son propre historique — c'est voulu, on ne tronque pas au plus court.
  *
  * Robustesse :
  *   - throttle 1 req/s (token bucket global)
@@ -27,6 +32,9 @@ const BASE = 'https://stockanalysis.com';
 
 // Throttle : 1 req/s, max 2 concurrentes (pour ne pas déclencher Cloudflare).
 const limiter = new Bottleneck({ minTime: 1000, maxConcurrent: 2 });
+
+/** Une colonne n'est une période datée que si son `datekey` est une date ISO (cf. « TTM »). */
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 
 // ─── Mapping suffixe Yahoo → segment URL stockanalysis ──────────────────────
 // Format URL : https://stockanalysis.com/quote/{segment}/{base}/financials/...
@@ -79,8 +87,15 @@ function splitTicker(yahooTicker: string): YahooTickerInfo {
     : { base: yahooTicker.slice(0, i), suffix: yahooTicker.slice(i) };
 }
 
+/** Périodicité de la page demandée (paramètre `?p=` de stockanalysis). */
+export type SaPeriod = 'quarterly' | 'annual';
+
 /** Construit les URL candidates (primaire, fallback) pour un ticker. */
-export function buildUrls(yahooTicker: string, statement: 'income' | 'cash-flow' | 'balance-sheet'): string[] {
+export function buildUrls(
+  yahooTicker: string,
+  statement: 'income' | 'cash-flow' | 'balance-sheet',
+  period: SaPeriod = 'quarterly',
+): string[] {
   const { base, suffix } = splitTicker(yahooTicker.toUpperCase());
   // Vérifié verbatim sur les pages :
   //   income        → /financials/
@@ -95,22 +110,22 @@ export function buildUrls(yahooTicker: string, statement: 'income' | 'cash-flow'
 
   // Cotation US directe (pour les ADR/dual-listed connus) — slug en minuscules.
   if (US_LISTED_DIRECT.has(base) || !suffix) {
-    urls.push(`${BASE}/stocks/${base.toLowerCase()}/${path}/?p=quarterly`);
+    urls.push(`${BASE}/stocks/${base.toLowerCase()}/${path}/?p=${period}`);
   }
   // Cotation native via segment exchange — slug en MAJUSCULES (vérifié sur MC.PA = /quote/epa/MC/).
   if (seg) {
-    urls.push(`${BASE}/quote/${seg}/${base}/${path}/?p=quarterly`);
+    urls.push(`${BASE}/quote/${seg}/${base}/${path}/?p=${period}`);
   }
   // Fallback générique : /stocks/{base}/ — pour les sociétés US-listed qu'on n'a pas explicitement
   // dans US_LISTED_DIRECT (ex Ferrari RACE.MI = /stocks/race/). Tenté en dernier recours, ne coûte
   // qu'un fetch additionnel si les URLs précédentes ont retourné 404.
   if (!US_LISTED_DIRECT.has(base)) {
-    urls.push(`${BASE}/stocks/${base.toLowerCase()}/${path}/?p=quarterly`);
+    urls.push(`${BASE}/stocks/${base.toLowerCase()}/${path}/?p=${period}`);
   }
   return urls;
 }
 
-interface ParseResult {
+export interface ParseResult {
   /** Dates de fin de période, du plus récent au plus ancien (ordre natif stockanalysis). */
   dates: string[];
   /** Cadence détectée à partir de l'écart médian entre 2 dates consécutives. */
@@ -119,19 +134,52 @@ interface ParseResult {
   fields: Record<string, (number | null)[]>;
 }
 
-/** Extrait la première occurrence du blob `financialData:{...}` du HTML. */
-function extractBlob(html: string): string | null {
-  // Le payload est un objet JS (clés sans guillemets) : on cherche `financialData:{...}` et
-  // on prend tout jusqu'à la première accolade fermante de bon niveau.
-  const i = html.indexOf('financialData:{');
-  if (i < 0) return null;
+/** Étend `{` à l'index `open` jusqu'à son accolade fermante de même niveau. */
+function objectAt(html: string, open: number): string | null {
   let depth = 0;
-  for (let j = i + 'financialData:'.length; j < html.length; j++) {
+  for (let j = open; j < html.length; j++) {
     const c = html[j];
     if (c === '{') depth++;
     else if (c === '}') {
       depth--;
-      if (depth === 0) return html.slice(i + 'financialData:'.length, j + 1);
+      if (depth === 0) return html.slice(open, j + 1);
+    }
+  }
+  return null;
+}
+
+/**
+ * Extrait l'objet JS (clés sans guillemets) qui porte les séries de la page.
+ *
+ * Deux formes coexistent sur le site, et la SEULE invariante est la présence de `datekey:[…]` :
+ *   - `financialData:{…}` — pages cash-flow et balance-sheet ;
+ *   - `financialData:void 0,…,data:{datekey:[…]}` — page income (compte de résultat), dont le
+ *     payload a été déplacé sous une autre clé. L'ancienne implémentation ne cherchait que
+ *     `financialData:{` : elle renvoyait null sur TOUTES les pages income, donc revenue /
+ *     résultat opérationnel / résultat net n'étaient jamais accumulés (échec silencieux, le
+ *     caller traitant `null` comme « source indisponible pour ce ticker »).
+ *
+ * On ancre donc sur `datekey:[` et on remonte à l'accolade ouvrante de l'objet qui le contient :
+ * insensible au nom de la clé conteneur, donc au prochain déplacement.
+ */
+function extractBlob(html: string): string | null {
+  const direct = html.indexOf('financialData:{');
+  if (direct >= 0) {
+    const blob = objectAt(html, direct + 'financialData:'.length);
+    if (blob?.includes('datekey:[')) return blob;
+  }
+  const dk = html.indexOf('datekey:[');
+  if (dk < 0) return null;
+  // Remontée vers l'accolade ouvrante de l'objet contenant `datekey` : en scannant à l'envers,
+  // chaque `}` rencontré ferme un objet frère (profondeur +1), chaque `{` en referme un — la
+  // première accolade ouvrante à profondeur 0 est celle qu'on cherche.
+  let depth = 0;
+  for (let i = dk; i >= 0; i--) {
+    const c = html[i];
+    if (c === '}') depth++;
+    else if (c === '{') {
+      if (depth === 0) return objectAt(html, i);
+      depth--;
     }
   }
   return null;
@@ -171,8 +219,13 @@ function parseStrings(raw: string): string[] {
   return out;
 }
 
-/** Détecte la cadence à partir de l'écart médian entre 2 dates successives (jours). */
-function detectFreq(dates: string[]): 'quarterly' | 'semiannual' | 'annual' {
+/**
+ * Détecte la cadence à partir de l'écart médian entre 2 dates successives (jours).
+ * Insensible à l'ordre (écarts en valeur absolue) et aux dates non parsables (colonne « TTM »).
+ * Exporté : la route timeseries s'en sert pour qualifier une série RELUE du store, dont la
+ * colonne `freq` peut mentir sur les lignes écrites avant son introduction.
+ */
+export function detectCadence(dates: string[]): 'quarterly' | 'semiannual' | 'annual' {
   if (dates.length < 2) return 'quarterly'; // par défaut
   const gaps: number[] = [];
   for (let i = 1; i < dates.length; i++) {
@@ -188,7 +241,7 @@ function detectFreq(dates: string[]): 'quarterly' | 'semiannual' | 'annual' {
   return 'annual';
 }
 
-function parsePage(html: string, fieldsWanted: string[]): ParseResult | null {
+export function parsePage(html: string, fieldsWanted: string[]): ParseResult | null {
   const blob = extractBlob(html);
   if (!blob) return null;
   const dkRaw = extractArrayRaw(blob, 'datekey');
@@ -201,7 +254,7 @@ function parsePage(html: string, fieldsWanted: string[]): ParseResult | null {
     if (raw == null) continue;
     fields[k] = parseValues(raw);
   }
-  return { dates, freq: detectFreq(dates), fields };
+  return { dates, freq: detectCadence(dates), fields };
 }
 
 async function fetchOnce(url: string): Promise<string> {
@@ -237,11 +290,16 @@ async function fetchWithRetry(urls: string[]): Promise<string | null> {
 }
 
 // Mapping clés stockanalysis → clés métriques internes (MetricKey de finnhubFundamentals).
+// ⚠ Les clés du compte de résultat sont celles du payload ACTUEL, relevées sur les pages
+// /financials/ de DG.PA et MSFT : `opinc`, `netinccmn`. Les anciennes (`netIncome`,
+// `operatingIncome`, `sharesDiluted`) n'existent plus dans le payload — et le nombre d'actions
+// n'y figure plus du tout, d'où son absence ici : il continue de venir de Yahoo
+// (annualDilutedAverageShares). Le dériver de netinccmn/epsdil serait tentant, mais l'EPS est
+// arrondi à 2 décimales → ~0,5 % d'erreur, soit une fausse dilution/relution sur le graphe.
 const FIELDS_INCOME: Record<string, string> = {
   revenue: 'revenue',
-  netIncome: 'netIncome',
-  operatingIncome: 'operatingIncome',
-  sharesDiluted: 'shares',
+  opinc: 'operatingIncome',
+  netinccmn: 'netIncome',
 };
 const FIELDS_CASHFLOW: Record<string, string> = {
   ncfo: 'cfo',
@@ -254,10 +312,13 @@ const FIELDS_BALANCE: Record<string, string> = {
   cashneq: 'cash',
   // Postes du bilan présents dans le payload mais longtemps non mappés (vérifié sur la page
   // quarterly de TCOM : `assets` et `liabilitiesc` remplis 20/20, en devise NATIVE). Ils
-  // donnent le capital employé TRIMESTRIEL des ADR/EU — sans goodwill : la page ne l'expose
-  // pas, la chaîne de repli du Cash ROCE traite son absence comme 0 (CE plus grand → ROCE
-  // sous-estimé, direction conservatrice). AR/AP/inventory absents aussi → le CCC reste
-  // hors de portée de cette source.
+  // donnent le capital employé TRIMESTRIEL des ADR/EU — sans goodwill : la chaîne de repli du
+  // Cash ROCE traite son absence comme 0 (CE plus grand → ROCE sous-estimé, direction
+  // conservatrice).
+  // ⚠ Le goodwill EST en réalité disponible sous `balance_sheet_goodwill` (relevé sur DG.PA et
+  // MSFT) : le mapper corrigerait ce biais conservateur, mais DÉPLACERAIT le Cash ROCE de tous
+  // les titres concernés — donc leur note. À faire à part, avec la mesure de l'écart.
+  // AR/AP/inventory, eux, restent absents → le CCC hors de portée de cette source.
   assets: 'totalAssets',
   assetsc: 'currentAssets',
   liabilitiesc: 'currentLiabilities',
@@ -270,12 +331,27 @@ export interface StockanalysisBatch {
   series: Map<string, TimeseriesPoint[]>;
 }
 
+/** Fetch + parse les 3 statements TRIMESTRIELS (ou semestriels) pour un ticker Yahoo. */
+export function getStockanalysisQuarterlyBatch(yahooTicker: string): Promise<StockanalysisBatch | null> {
+  return getStockanalysisBatch(yahooTicker, 'quarterly');
+}
+
+/**
+ * Fetch + parse les 3 statements ANNUELS. Profondeur ~5 exercices (le 10 ans est derrière le
+ * compte Pro de stockanalysis), soit un exercice de plus que Yahoo pour les titres EU, et
+ * surtout un historique qui S'APPROFONDIT tout seul : le store étant append-only, chaque
+ * passage annuel ajoute l'exercice qui vient de tomber sans jamais perdre les précédents.
+ */
+export function getStockanalysisAnnualBatch(yahooTicker: string): Promise<StockanalysisBatch | null> {
+  return getStockanalysisBatch(yahooTicker, 'annual');
+}
+
 /** Fetch + parse les 3 statements pour un ticker Yahoo. Renvoie null si tout échoue. */
-export async function getStockanalysisQuarterlyBatch(yahooTicker: string): Promise<StockanalysisBatch | null> {
+async function getStockanalysisBatch(yahooTicker: string, period: SaPeriod): Promise<StockanalysisBatch | null> {
   const pages = await Promise.all([
-    fetchWithRetry(buildUrls(yahooTicker, 'income')),
-    fetchWithRetry(buildUrls(yahooTicker, 'cash-flow')),
-    fetchWithRetry(buildUrls(yahooTicker, 'balance-sheet')),
+    fetchWithRetry(buildUrls(yahooTicker, 'income', period)),
+    fetchWithRetry(buildUrls(yahooTicker, 'cash-flow', period)),
+    fetchWithRetry(buildUrls(yahooTicker, 'balance-sheet', period)),
   ]);
   const [incomeHtml, cfHtml, bsHtml] = pages;
   if (!incomeHtml && !cfHtml && !bsHtml) return null;
@@ -291,24 +367,60 @@ export async function getStockanalysisQuarterlyBatch(yahooTicker: string): Promi
 
   // Construit les séries en ORDRE CHRONOLOGIQUE CROISSANT (l'ordre attendu downstream).
   const series = new Map<string, TimeseriesPoint[]>();
-  const addAll = (parsed: ParseResult | null, mapping: Record<string, string>) => {
-    if (!parsed) return;
-    const dates = parsed.dates;
-    for (const [src, dst] of Object.entries(mapping)) {
-      const vals = parsed.fields[src];
-      if (!vals) continue;
-      const pts: TimeseriesPoint[] = [];
-      for (let i = 0; i < dates.length; i++) {
-        const v = vals[i];
-        if (typeof v === 'number' && Number.isFinite(v)) pts.push({ date: dates[i]!, value: v });
-      }
-      pts.sort((a, b) => a.date.localeCompare(b.date));
-      if (pts.length) series.set(dst, pts);
-    }
-  };
-  addAll(parsedIncome,   FIELDS_INCOME);
-  addAll(parsedCashflow, FIELDS_CASHFLOW);
-  addAll(parsedBalance,  FIELDS_BALANCE);
+  addSeries(series, parsedIncome,   FIELDS_INCOME);
+  addSeries(series, parsedCashflow, FIELDS_CASHFLOW);
+  addSeries(series, parsedBalance,  FIELDS_BALANCE);
+  deriveFcf(series);
 
   return { freq, series };
+}
+
+/**
+ * Reconstitue `fcf` = cfo + capex quand la page ne le publie pas.
+ *
+ * La ligne `fcf` manque sur certaines pages intra-annuelles (vérifié : DG.PA trimestriel l'omet
+ * alors que sa page annuelle l'a) — or c'est EXACTEMENT la définition utilisée partout ailleurs
+ * ici, et `capex` est déjà signé négativement par la source. Recoupé sur l'exercice 2025 de
+ * Vinci : 11 886 − 3 873 = 8 013, à l'euro près la valeur publiée. Sans cette dérivation, le
+ * titre perdait 10 ans de FCF semestriel que ses deux autres lignes couvrent pourtant.
+ * Exporté pour tests.
+ */
+export function deriveFcf(series: Map<string, TimeseriesPoint[]>): void {
+  if (series.has('fcf')) return;
+  const cfo = series.get('cfo');
+  const capex = series.get('capex');
+  if (!cfo?.length || !capex?.length) return;
+  const capexByDate = new Map(capex.map(p => [p.date, p.value]));
+  const pts = cfo
+    .filter(p => capexByDate.has(p.date))
+    .map(p => ({ date: p.date, value: p.value + capexByDate.get(p.date)! }));
+  if (pts.length) series.set('fcf', pts);
+}
+
+/**
+ * Verse les champs d'une page parsée dans `out` sous les clés métriques internes.
+ * Exporté (avec parsePage) pour que les tests couvrent les DEUX formes de payload du site.
+ */
+export function addSeries(
+  out: Map<string, TimeseriesPoint[]>,
+  parsed: ParseResult | null,
+  mapping: Record<string, string>,
+): void {
+  if (!parsed) return;
+  const dates = parsed.dates;
+  for (const [src, dst] of Object.entries(mapping)) {
+    const vals = parsed.fields[src];
+    if (!vals) continue;
+    const pts: TimeseriesPoint[] = [];
+    for (let i = 0; i < dates.length; i++) {
+      // Les pages ANNUELLES ouvrent sur une colonne « TTM » (datekey:["TTM","2025-12-31",…]).
+      // Non filtrée, elle entrait en base comme un point de date "TTM" — qui trie après toute
+      // date ISO, devient donc `lastEnd` et fait croire à une période plus récente qu'elle.
+      if (!ISO_DATE.test(dates[i]!)) continue;
+      const v = vals[i];
+      if (typeof v === 'number' && Number.isFinite(v)) pts.push({ date: dates[i]!, value: v });
+    }
+    pts.sort((a, b) => a.date.localeCompare(b.date));
+    if (pts.length) out.set(dst, pts);
+  }
 }
