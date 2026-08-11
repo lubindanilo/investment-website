@@ -711,19 +711,23 @@ function LandingDiscovery({ onPick }: { onPick: (ticker: string) => void }) {
       </div>
       <div className="anl-landing-grid">
         {!loaded
-          ? Array.from({ length: 6 }).map((_, i) => <div key={i} className="card skel-ui" style={{ height: 96 }} />)
+          ? Array.from({ length: 6 }).map((_, i) => <div key={i} className="card skel-ui" style={{ height: 118 }} />)
           : picks.map(p => {
               const s = p.scoreChiffresMax ? Math.round((p.scoreChiffres ?? 0) / p.scoreChiffresMax * 10) : 0;
               return (
                 <button key={p.ticker} className="card anl-landing-card" onClick={() => onPick(p.ticker)}>
-                  <div className="row between">
-                    <div className="col gap-2" style={{ minWidth: 0, flex: 1 }}>
+                  {/* Deux lignes plutôt qu'une : à ~232 px de large, le nom + la pastille + les
+                      5 étoiles ne tiennent pas côte à côte — soit le nom se faisait tronquer à
+                      « Alphabe… », soit les étoiles débordaient de la carte. On garde donc un
+                      rail droit (pastille au-dessus des étoiles) sur deux lignes. */}
+                  <div className="col gap-4">
+                    <div className="row between gap-8">
                       <span className="anl-landing-name">{p.name ?? p.ticker}</span>
-                      <span className="num anl-landing-ticker">{p.ticker}</span>
-                    </div>
-                    <div className="row gap-6 anl-landing-scores">
                       <ScorePill score={s} />
-                      <ResilienceStarsBadge score={p.resilienceStars ?? null} />
+                    </div>
+                    <div className="row between gap-8">
+                      <span className="num anl-landing-ticker">{p.ticker}</span>
+                      <span className="anl-landing-stars"><ResilienceStarsBadge score={p.resilienceStars ?? null} /></span>
                     </div>
                   </div>
                   {p.pfcfTTM != null && p.pfcfTTM > 0 && (
