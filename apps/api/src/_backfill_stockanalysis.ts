@@ -2,8 +2,9 @@
  * Backfill stockanalysis.com pour TOUS les tickers non-US (EU / INTL) en DB.
  *
  * Stratégie :
- *   - On itère sur ScreenerTicker (status = scored | pending) où ticker contient un point
- *     (= non-US par convention) OU region != 'US'.
+ *   - On itère sur ScreenerTicker où ticker contient un point (= non-US par convention) OU
+ *     region != 'US'. Aucun filtre de statut : les titres jamais notés sont inclus, ce qui compte
+ *     pour l'ordre de passage ci-dessous.
  *   - Pour chaque ticker, on appelle accumulateStockanalysisQuarterly (3 fetches au throttle
  *     1 req/s = ~3s/ticker) PUIS accumulateStockanalysisAnnual (3 fetches de plus, mais seulement
  *     tant que le store annuel n'a pas atteint sa profondeur cible — donc ~0 pour les titres déjà
@@ -14,7 +15,17 @@
  *     dont le store est FRAIS pour `revenue` (TTL store, ~120j) sont skippés.
  *   - Retry sur erreurs Neon transitoires (3000ms exponentiel).
  *
- * Vitesse attendue : ~1.2-3s par ticker × 1500 tickers = ~30-75 min.
+ * ORDRE DE PASSAGE : les titres NOTÉS d'abord, du mieux noté au moins bien noté. `scoreRatio DESC`
+ * seul ne suffit pas — Postgres place les NULL EN TÊTE en tri descendant, si bien que les milliers
+ * de titres `pending` (jamais notés, donc scoreRatio null) passaient AVANT les titres que
+ * quelqu'un consulte réellement. Mesuré le 11/08/2026 : après 180 min et 925 titres traités, Vinci
+ * — noté 9/10 — n'avait toujours pas été atteint. D'où `nulls: 'last'`.
+ *
+ * Vitesse mesurée (11/08/2026) : ~5 titres/min, pour un univers non-US de 24 152 lignes, soit
+ * ~64 h pour un tour complet. Ce n'est donc PAS un job qu'on lance d'un bloc : soit on le passe en
+ * `--opp-only` (les seuls titres bien notés, quelques centaines), soit on le relance en plusieurs
+ * fois — il est reprenable, et l'ordre ci-dessus garantit que chaque run avance sur les titres qui
+ * comptent le plus.
  */
 import { prisma } from './db/client.js';
 import { accumulateStockanalysisQuarterly, accumulateStockanalysisAnnual } from './services/yahooAnnualStore.js';
@@ -46,7 +57,9 @@ const where = ONLY_PFCF_OPP_CANDIDATES
 const candidates = await withRetry(() => prisma.screenerTicker.findMany({
   where,
   select: { ticker: true },
-  orderBy: [{ priority: 'asc' }, { scoreRatio: 'desc' }],
+  // `nulls: 'last'` est LE point important : sans lui, les titres jamais notés passent devant
+  // (NULLS FIRST par défaut en DESC côté Postgres) et un run de 3 h n'atteint aucun titre utile.
+  orderBy: [{ priority: 'asc' }, { scoreRatio: { sort: 'desc', nulls: 'last' } }],
 }));
 console.log(`${candidates.length} tickers non-US à backfiller${ONLY_PFCF_OPP_CANDIDATES ? ' (filtre: opp candidates note ≥ 8)' : ''}`);
 
