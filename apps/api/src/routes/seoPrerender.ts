@@ -24,6 +24,7 @@ import { prisma } from '../db/client.js';
 // ⚠️ Imports de valeur (`getArticleBySlug`, `toArticleLang`) interdits depuis '@lubin/shared'
 //, pas de build dist/, crash lambda Vercel. On consomme la copie locale apps/api/src/data/.
 // Les types restent OK à puiser depuis '@lubin/shared' (effacés à la compilation).
+import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 import { getArticleBySlug, listArticles, toArticleLang } from '../data/articles.js';
 import { companyDisplayName } from '../data/companyNames.js';
 import type { Article, ArticleLang } from '@lubin/shared';
@@ -1036,11 +1037,14 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
     // vers ?lng=en / ?lng=es). Défaut fr. Le cache CDN distingue les langues car ?lng=
     // fait partie de l'URL canonique.
     const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
-    // Cache CDN : on peut se permettre 1h, les notes bougent lentement.
+    // Cache CDN : les notes bougent lentement, et cette route est la plus nombreuse de tout le
+    // site (5 000 fiches sur les 5 577 URL des sitemaps). Le TTL d'1 h d'origine était 24 fois
+    // trop court pour une donnée qui ne change qu'au re-scoring du titre : c'est ce qui gardait
+    // Neon éveillé en continu (cf. lib/publicCache.ts).
     res
       .status(200)
       .set('Content-Type', 'text/html; charset=utf-8')
-      .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
+      .set('Cache-Control', publicCacheControl(CDN_TTL.nightly, 3600))
       .send(renderTickerHtml(t, related, lang));
   } catch (err) {
     // En cas d'erreur DB, on renvoie un 503 plutôt qu'une page vide, Google retentera plus tard.
@@ -1435,7 +1439,7 @@ seoPrerenderRouter.get('/comparer/:pair', async (req: Request, res: Response) =>
     res
       .status(200)
       .set('Content-Type', 'text/html; charset=utf-8')
-      .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
+      .set('Cache-Control', publicCacheControl(CDN_TTL.nightly, 3600))
       .send(renderCompareHtml(a, b, lang));
   } catch (err) {
     console.error('[seoPrerender comparer]', raw, (err as Error).message);
@@ -1640,7 +1644,7 @@ seoPrerenderRouter.get('/blog/:slug', (req: Request, res: Response) => {
   res
     .status(200)
     .set('Content-Type', 'text/html; charset=utf-8')
-    .set('Cache-Control', 'public, max-age=3600, s-maxage=3600')
+    .set('Cache-Control', publicCacheControl(CDN_TTL.nightly, 3600))
     .send(renderArticleHtml(article, lng));
 });
 
@@ -2402,7 +2406,7 @@ seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => 
     // longs comme "Drug Manufacturers...") ; laisse la place au préfixe traduit.
     const dispTitle = disp.length > 26 ? disp.slice(0, 25).trimEnd() + '…' : disp;
     const copy = HUB_COPY.secteur[lang](disp);
-    res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
+    res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', publicCacheControl(CDN_TTL.ranking, 3600)).send(renderHubHtml({
       title: HUB_COPY.secteur[lang](dispTitle).title,
       h1: copy.h1, intro: copy.intro, path: `/secteur/${slug}`, rows, lang,
       outbound: 'sector',
@@ -2433,7 +2437,7 @@ seoPrerenderRouter.get('/classement/:slug', async (req: Request, res: Response) 
     const rows = (def.postFilter ? raw.filter(def.postFilter) : raw).slice(0, def.take);
     // Une collection vide serait une page sans contenu : mieux vaut un 404 franc.
     if (rows.length === 0) { res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return; }
-    res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', 'public, max-age=3600, s-maxage=3600').send(renderHubHtml({
+    res.status(200).set('Content-Type', 'text/html; charset=utf-8').set('Cache-Control', publicCacheControl(CDN_TTL.ranking, 3600)).send(renderHubHtml({
       title: copy.title, h1: copy.h1, intro: copy.intro, path: `/classement/${slug}`, rows, lang,
       outbound: 'ranking',
     }));
@@ -3456,7 +3460,7 @@ for (const seo of STATIC_SEO) {
     const extraBlock = build ? await build(lang, lq) : '';
     res.status(200)
       .set('Content-Type', 'text/html; charset=utf-8')
-      .set('Cache-Control', build ? 'public, max-age=3600, s-maxage=3600' : 'public, max-age=3600, s-maxage=86400')
+      .set('Cache-Control', publicCacheControl(build ? CDN_TTL.ranking : CDN_TTL.nightly, 3600))
       .send(renderStaticHtml(STATIC_BY_PATH[seo.path]!, lang, extraBlock));
   });
 }
