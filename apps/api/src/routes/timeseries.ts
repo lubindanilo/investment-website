@@ -62,11 +62,18 @@ const YAHOO_MAX_YEARS_QUARTERLY = 1;
 const MIN_CHART_POINTS = 3;
 
 /**
- * Génération de clé de cache. À bumper dès que la STRATÉGIE de source change, sinon les entrées
- * déjà en base continuent de servir l'ancienne réponse jusqu'à leur TTL (calé sur les earnings,
- * donc jusqu'à ~3 mois). Générations précédentes : (aucune, clé = freq nue).
+ * Génération de clé de cache des grandeurs ABSOLUES (les familles dérivées du FCF ont la leur, cf
+ * FCF_CHART_GENERATION). À bumper dès que la STRATÉGIE de source change, sinon les entrées déjà en
+ * base continuent de servir l'ancienne réponse jusqu'à leur TTL (calé sur les earnings, donc
+ * jusqu'à ~3 mois).
+ *
+ * Générations précédentes : (aucune, clé = freq nue), puis 'g2' (chemin EU intra-annuel, #274).
+ * 'g3' ne suit aucun changement de code : c'est la même purge unique de données que le passage de
+ * CHART_STRATEGY_GENERATION à 6 — le backfill du 11/08/2026 a enrichi les séries avant que la
+ * purge par ticker de #291 n'existe, et sans ce bump ces graphes-là restaient courts pendant des
+ * semaines alors que la donnée profonde était en base.
  */
-const CACHE_GEN = 'g2';
+const CACHE_GEN = 'g3';
 
 /**
  * Repli ADR étranger (déposant 20-F : NVO, OMAB, ASML, NSRGY…) : Finnhub n'a aucun

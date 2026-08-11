@@ -50,8 +50,15 @@ export function cacheKey(ticker: string, metric: string, freq: string, years: nu
  * qu'il remplace : 'computed-adj-fx4' (P/FCF), 'computed4' (Cash ROCE), 'ratio7' (ratios).
  *
  * 5 = état de #286 (P/FCF et Cash ROCE EU au-delà de 4 exercices), point de départ commun.
+ * 6 = purge unique après le backfill du 11/08/2026. Ce bump-là ne suit AUCUN changement de code :
+ *     c'est un événement de DONNÉE. Le backfill a enrichi 161 titres (Vinci : FCF de 4 exercices
+ *     à 20 semestres) avant que la purge par ticker de #291 n'existe, donc ces entrées-là ne
+ *     seront balayées par rien — leur TTL court jusqu'aux prochains résultats. Un bump global les
+ *     périme d'un coup. À ne refaire que dans ce cas précis : un rattrapage de masse antérieur au
+ *     mécanisme de purge. Les enrichissements suivants sont couverts par #291, ticker par ticker,
+ *     sans rien reconstruire ailleurs.
  */
-const CHART_STRATEGY_GENERATION = 5;
+const CHART_STRATEGY_GENERATION = 6;
 
 /**
  * Génération des graphes DÉRIVÉS DU FCF (P/FCF, Cash ROCE, ratios marge FCF / dette-FCF /
