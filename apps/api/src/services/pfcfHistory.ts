@@ -11,6 +11,7 @@
  *   - price(t)    : Yahoo /v8/finance/chart (split-adjusté automatiquement par Yahoo)
  *   - shares(t)   : Finnhub /financials-reported quarterly (split-adjusté via yahooSplits)
  *   - FCF(t)      : Finnhub /financials-reported quarterly (sur 4 derniers Q = TTM)
+ *   - titres EU   : store intra-annuel (FCF douze mois glissants + actions), sinon annuel Yahoo
  *
  * Resolution :
  *   - 1Y    → weekly  (~52 points)
@@ -23,7 +24,9 @@
  */
 import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundamentals.js';
 import { getSecReportingCurrency } from './secEdgar.js';
+import { normalizeShareScale } from './yahooSplits.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
+import { loadIntraYearSet, agreesWithAnnual, seriesDeviation, MIN_INTRA_POINTS } from './intraYearStore.js';
 import { getFxSeries, fxAt } from './fx.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 import { getYahooMarketCap } from './yahoo.js';
@@ -237,6 +240,11 @@ export async function getPfcfHistory(ticker: string, years: number): Promise<Pfc
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
+    // Le chemin intra-annuel (store) donne une courbe MENSUELLE sur 10 ans là où l'annuel ne
+    // pose qu'un point par exercice. Il n'est adopté que s'il recoupe l'annuel de référence :
+    // cf. getPfcfHistoryIntraYear pour le détail du contrôle.
+    const intra = await getPfcfHistoryIntraYear(ticker, resolved.symbol, years, resolved.currency);
+    if (intra) return intra;
     return getPfcfHistoryAnnualYahoo(ticker, resolved.symbol, years, resolved.currency);
   }
 
@@ -354,6 +362,85 @@ async function getPfcfHistoryUs(ticker: string, years: number): Promise<PfcfHist
   }
 
   console.log(`[pfcf ${ticker}] US ${points.length} pts (${interval}, FCF ajusté SBC) — prices=${prices.length} adjFcf=${adjFcfTtm.length} sharesQ=${sharesQ.length}`);
+  return points;
+}
+
+/**
+ * Path EU INTRA-ANNUEL : mêmes mécaniques que le chemin US, mais alimenté par le store.
+ *
+ * L'annuel ne pose qu'un point par exercice (4 à 5 pour un titre EU) : sur un graphe de multiple,
+ * ça ne montre ni la respiration du cours ni les points d'entrée. Le store, lui, porte jusqu'à
+ * 10 ans de FCF et de nombre d'actions intra-annuels — de quoi tracer une courbe MENSUELLE, en
+ * croisant chaque prix avec le FCF douze mois glissants connu à cette date (`findLatestAsOf`,
+ * exactement comme le chemin US).
+ *
+ * Deux conditions avant d'adopter cette profondeur, sinon on rend null et l'annuel reprend :
+ *   1. assez de points pour un graphe lisible ;
+ *   2. le FCF recomposé doit RECOUPER l'annuel Yahoo sur les exercices communs. Le P/FCF de la
+ *      carte est calculé depuis l'annuel : si les deux sources ne parlent pas du même FCF, le
+ *      graphe contredirait sa propre carte (cf. intraYearStore.agreesWithAnnual, et l'incident
+ *      Nestlé sur la marge opérationnelle).
+ *
+ * FCF BRUT, comme le chemin annuel EU et donc comme la carte — pas le FCF ajusté SBC du chemin US.
+ */
+async function getPfcfHistoryIntraYear(
+  ticker: string,
+  yahooSymbol: string,
+  years: number,
+  quoteCurrency: string,
+): Promise<PfcfHistoryPoint[] | null> {
+  const W = years + 1; // +1 an pour amorcer le premier douze mois glissant
+  const [set, batch, currencyProbe, prices] = await Promise.all([
+    loadIntraYearSet(ticker, 'fcf', ['shares'], W),
+    getYahooAnnualBatchCached(ticker, yahooSymbol, ['annualFreeCashFlow'], Date.now()),
+    fetchYahooAnnualBasic(yahooSymbol, 'annualFreeCashFlow'),
+    fetchPriceHistory(yahooSymbol, years, years <= 1 ? '1wk' : '1mo'),
+  ]);
+  if (!set || prices.length === 0) return null;
+  const fcfYear = set.flow('fcf');
+  // normalizeShareScale : les sources publient par intermittence un nombre d'actions ÷1000 ou
+  // ×1e6. Sur un multiple, un tel glitch ne fait pas un point aberrant qu'on écarterait — il fait
+  // un P/FCF mille fois trop BAS, qui passe tous les garde-fous et ressemble à une occasion en or.
+  const shares = normalizeShareScale(set.snapshot('shares'));
+  if (fcfYear.length < MIN_INTRA_POINTS || shares.length === 0) return null;
+
+  // Contrôle de définition contre la référence annuelle qui alimente la carte.
+  const annualFcf = batch?.get('annualFreeCashFlow') ?? [];
+  if (!agreesWithAnnual(fcfYear, annualFcf)) {
+    const dev = seriesDeviation(fcfYear, annualFcf);
+    console.log(`[pfcf ${ticker}] EU profondeur abandonnée : FCF du store à ${dev == null ? 'écart invérifiable' : (dev * 100).toFixed(1) + ' % de l\'annuel'} → chemin annuel`);
+    return null;
+  }
+
+  // Change : `prices` est en devise de COTATION, le FCF en devise de REPORTING. Identiques pour un
+  // vrai titre EU (Vinci cote et publie en EUR), et c'est bien ce chemin-là ; on garde tout de même
+  // la conversion au taux de CHAQUE point, pour ne pas dépendre de cette coïncidence.
+  const reporting = currencyProbe.currency;
+  const fxSeries = reporting && reporting !== quoteCurrency ? await getFxSeries(reporting, quoteCurrency) : [];
+  if (fxSeries == null) {
+    console.warn(`[pfcf ${ticker}] taux ${reporting}→${quoteCurrency} indisponible → série omise plutôt que fausse`);
+    return null;
+  }
+
+  // Tolérance de fraîcheur : une publication vaut jusqu'à sa relève, donc ~6 mois de plus chez
+  // un émetteur semestriel que chez un trimestriel.
+  const staleness = set.freq === 'semiannual' ? 400 : 200;
+  const points: PfcfHistoryPoint[] = [];
+  for (const p of prices) {
+    const ttm = findLatestAsOf(fcfYear, p.date, staleness);
+    const sh = findLatestAsOf(shares, p.date, staleness);
+    if (!ttm || !sh) continue;
+    if (ttm.value <= 0 || sh.value <= 0) continue; // FCF ≤ 0 → P/FCF non pertinent (omis)
+    const fx = fxAt(fxSeries, p.date);
+    if (fx == null) continue;
+    const pfcf = (p.value * sh.value) / (ttm.value * fx);
+    if (!Number.isFinite(pfcf) || pfcf <= 0) continue;
+    if (pfcf > 200) continue; // FCF ≈ 0 → multiple explosif, du bruit
+    points.push({ date: p.date, pfcf: Math.round(pfcf * 100) / 100 });
+  }
+  if (points.length < MIN_INTRA_POINTS) return null;
+
+  console.log(`[pfcf ${ticker}] EU ${points.length} pts ${set.freq} (store) — fcf12m=${fcfYear.length} shares=${shares.length} prix=${prices.length}`);
   return points;
 }
 

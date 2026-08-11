@@ -36,7 +36,9 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
   // 'computed3' : bump après le branchement du repli annuel sur le store enrichi EDGAR
   // (profondeur 14-18 exercices pour les ADR 20-F). Générations précédentes : 'computed'
   // (origine), 'computed2' (contiguïté TTM + refus de la colonne USD d'EDGAR).
-  const key = cache.cacheKey(ticker, 'cash-roce-history', 'computed3', years);
+  // 'computed4' : bump pour le chemin EU intra-annuel (le seul moyen de ne pas servir l'ancienne
+  // série annuelle jusqu'aux prochains résultats — cf. l'oubli de #281, rattrapé par #284).
+  const key = cache.cacheKey(ticker, 'cash-roce-history', 'computed4', years);
 
   const hit = await cache.get(key);
   if (hit) {
@@ -44,6 +46,7 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
       ticker,
       years,
       points: hit.points.map(p => ({ date: p.date, cashRoce: p.value })),
+      freq: hit.servedFreq ?? 'quarterly',
       annualOnly: hit.servedFreq === 'annual',
       cached: true,
       ageMs: Date.now() - hit.storedAt,
@@ -74,6 +77,7 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
     // points (exercice vs trimestre) et non plus pour masquer les boutons de période, qui
     // restent offerts à tous les titres. Vaut aussi pour les ADR 20-F cotant en USD, que la
     // détection page-level (`fundamentalsSource === 'yahoo'`) classait à tort en trimestriel.
+    freq,
     annualOnly: freq === 'annual',
     cached: false,
     fetchedInMs: elapsedMs,

@@ -13,7 +13,7 @@ import {
 } from 'recharts';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../i18n/index.js';
-import type { TimeseriesPeriod, CashRoceHistoryPoint } from '@lubin/shared';
+import type { TimeseriesPeriod, TimeseriesFreq, CashRoceHistoryPoint } from '@lubin/shared';
 import { PERIOD_YEARS } from '@lubin/shared';
 import { api, ApiError } from '../lib/api.js';
 import './CashRoceChartModal.css';
@@ -23,26 +23,29 @@ const PERIODS: TimeseriesPeriod[] = ['1Y', '5Y', '10Y', '20Y', 'All'];
 /** Seuil pass/fail visualisé sur le chart — cohérent avec buildQuantitativeCriteria. */
 const THRESHOLD = 0.15;
 
+/** Cadence attendue entre deux points, par granularité servie (cf. gapZones). */
+const PERIOD_DAYS: Record<TimeseriesFreq, number> = { quarterly: 91, semiannual: 182, annual: 365 };
+
 interface Props {
   ticker: string;
-  /** True si le ticker n'a que des données annuelles (EU + ADRs étrangers) →
-   *  ~4 points annuels max, le sélecteur de période n'a plus de sens. */
-  annualOnly?: boolean;
   onClose: () => void;
 }
 
-export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Props) {
+export function CashRoceChartModal({ ticker, onClose }: Props) {
   const { t } = useTranslation();
   const [period, setPeriod] = useState<TimeseriesPeriod>('5Y');
   const [data, setData] = useState<CashRoceHistoryPoint[] | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  // Granularité réellement servie par l'API pour CE ticker. Sert à formater les libellés
-  // (dernier exercice vs dernier trimestre, largeur des trous) — mais PAS à masquer le
-  // sélecteur de période : un ADR dont la profondeur trimestrielle manque en base garde ses
-  // boutons, le trou de données n'est pas une caractéristique du titre.
-  const [servedAnnual, setServedAnnual] = useState(false);
-  const isAnnual = annualOnly || servedAnnual;
+  // Granularité réellement servie par l'API pour CE ticker : elle formate les libellés et
+  // calibre la détection de trous, mais ne masque PAS le sélecteur de période — un trou de
+  // données n'est pas une caractéristique du titre.
+  // Portée par l'API elle-même. On NE la déduit plus du prop `annualOnly`
+  // (devise ≠ USD côté page) : depuis que le chemin EU sert des SEMESTRES quand le store les a,
+  // un titre européen n'est plus forcément annuel, et le prendre pour tel donnait une cadence
+  // attendue de 365 j — donc un « trou de données » signalé entre chaque semestre.
+  const [servedFreq, setServedFreq] = useState<TimeseriesFreq>('quarterly');
+  const isAnnual = servedFreq === 'annual';
 
   useEffect(() => {
     let cancelled = false;
@@ -52,7 +55,7 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
       .then(res => {
         if (cancelled) return;
         setData(res.points);
-        setServedAnnual(res.annualOnly ?? false);
+        setServedFreq(res.freq ?? (res.annualOnly ? 'annual' : 'quarterly'));
       })
       .catch(e => {
         if (!cancelled) setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
@@ -105,15 +108,15 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
 
   /**
    * Trous INTERNES de la série : chaque écart nettement supérieur à la cadence attendue
-   * (~91 j en trimestriel, ~365 j en annuel) devient une zone hachurée « on n'a pas la
-   * donnée », et la ligne ne la traverse pas.
+   * (~91 j en trimestriel, ~182 j en semestriel, ~365 j en annuel) devient une zone hachurée
+   * « on n'a pas la donnée », et la ligne ne la traverse pas.
    *
    * Distinct du grisé « ratio non calculable » de P/FCF : ici il n'y a pas de FCF négatif à
    * signaler, seulement une absence de publication exploitable.
    */
   const gapZones = useMemo<{ from: number; to: number }[]>(() => {
     if (chartData.length < 2) return [];
-    const stepMs = (isAnnual ? 365 : 91) * 24 * 3600 * 1000;
+    const stepMs = PERIOD_DAYS[servedFreq] * 24 * 3600 * 1000;
     const out: { from: number; to: number }[] = [];
     for (let i = 1; i < chartData.length; i++) {
       const a = chartData[i - 1]!.ts;
@@ -121,7 +124,7 @@ export function CashRoceChartModal({ ticker, annualOnly = false, onClose }: Prop
       if (b - a > stepMs * 1.8) out.push({ from: a, to: b });
     }
     return out;
-  }, [chartData, isAnnual]);
+  }, [chartData, servedFreq]);
 
   // Zone « pas de données » en tête de fenêtre : partie antérieure au plus ancien point.
   const noDataZone = useMemo<{ from: number; to: number } | null>(() => {

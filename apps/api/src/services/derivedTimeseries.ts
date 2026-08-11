@@ -24,10 +24,11 @@
  * carte. Côté annuel Yahoo c'est le FCF brut (comme pfcfHistory/cashRoceHistory).
  */
 import type { RatioMetricKey, TimeseriesFreq, TimeseriesPoint } from '@lubin/shared';
-import { getReportedTimeseries, getAdjustedFcfTtmSeries, maxTtmGapMs } from './finnhubFundamentals.js';
+import { getReportedTimeseries, getAdjustedFcfTtmSeries } from './finnhubFundamentals.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
-import { readSeries } from './fundamentalsStore.js';
-import { detectCadence } from './stockanalysisFundamentals.js';
+import {
+  loadIntraYearSet, rollingYearSum, seriesDeviation, agreesWithAnnual, type IntraCadence,
+} from './intraYearStore.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 
 /** Unité d'affichage de chaque ratio (alignée sur CriterionHistogram.unit côté shared). */
@@ -99,35 +100,6 @@ const MIN_CHART_POINTS = 3;
  */
 function rollingTtmSum(points: TimeseriesPoint[]): TimeseriesPoint[] {
   return rollingYearSum(points, 4);
-}
-
-/**
- * Somme glissante sur DOUZE MOIS, quelle que soit la cadence de publication : 4 trimestres,
- * ou 2 SEMESTRES pour les émetteurs qui ne publient pas de Q1/Q3 (Vinci, LVMH, Nestlé…).
- *
- * Sommer 12 mois plutôt que rapporter la période brute n'est pas cosmétique : chez un émetteur
- * semestriel, H1 et H2 ne sont pas comparables (le CFO de Vinci est ~4× plus élevé au S2), donc
- * une marge par semestre dessinerait une dent de scie saisonnière et le dernier point ne
- * correspondrait pas à la valeur de la carte, qui est un 12 mois. Exporté pour tests.
- */
-export function rollingYearSum(points: TimeseriesPoint[], periods: number): TimeseriesPoint[] {
-  const s = [...points].sort((a, b) => a.date.localeCompare(b.date));
-  const maxGap = maxTtmGapMs(s);
-  const gaps: number[] = [0];
-  for (let i = 1; i < s.length; i++) gaps.push(Date.parse(s[i]!.date) - Date.parse(s[i - 1]!.date));
-  const out: TimeseriesPoint[] = [];
-  for (let i = periods - 1; i < s.length; i++) {
-    // Un écart anormal DANS la fenêtre → ce n'est pas un 12 mois, on n'émet pas de point.
-    let contiguous = true;
-    let sum = 0;
-    for (let k = 0; k < periods; k++) {
-      if (k > 0 && gaps[i - k + 1]! > maxGap) { contiguous = false; break; }
-      sum += s[i - k]!.value;
-    }
-    if (!contiguous) continue;
-    out.push({ date: s[i]!.date, value: sum });
-  }
-  return out;
 }
 
 /** num(t) / den(t) joint par date exacte. scale=100 pour les %, 1 pour les multiples. */
@@ -341,79 +313,29 @@ async function computeAnnualRatio(ticker: string, symbol: string, ratio: RatioMe
 // fait déjà le chemin annuel EU, et donc ce que montre la carte. Mieux vaut un graphe cohérent
 // avec la carte qu'un graphe « plus juste » qui ne recoupe rien.
 
-/**
- * Écart relatif MAXIMAL toléré entre le ratio recomposé depuis le store et le ratio annuel de
- * référence, sur les exercices communs.
- *
- * Pourquoi ce garde-fou : « résultat opérationnel » ne désigne pas la même ligne d'une source à
- * l'autre. Mesuré en prod sur le dernier exercice — L'Oréal 0,0 %, Air Liquide 0,8 %, Hermès
- * 1,9 %, LVMH 3,2 %, Vinci 4,5 %, Nestlé 12,2 % (carte 15,55 % contre 13,66 % pour la dernière
- * barre de son propre graphe). Le résultat net, lui, concorde partout à 0,4 % près.
- *
- * L'écart n'est pas un facteur constant (Nestlé : 21 %, 10 %, 6 %, 12 % selon l'exercice), donc
- * pas question de recalibrer comme on le fait pour la convention ADS des shares : c'est une
- * différence de DÉFINITION, pas d'unité. On renonce alors à la profondeur, comme
- * calibrateAdsShares renonce quand il ne sait pas trancher — un graphe qui contredit la valeur
- * de sa propre carte est pire qu'un graphe court.
- *
- * 2 % laisse passer les sources qui décrivent la même ligne (bruit d'arrondi et de change) et
- * écarte celles qui décrivent une autre ligne.
- */
-const RATIO_DEFINITION_TOLERANCE = 0.02;
-
-/**
- * Écart relatif MÉDIAN entre une série intra-annuelle et la série annuelle de référence, sur les
- * exercices communs. Médian et non maximal : un exercice retraité isolé ne doit pas condamner une
- * série par ailleurs cohérente (même raisonnement que la calibration ADS). `null` = moins de deux
- * exercices communs, donc rien à conclure. Exporté pour tests.
- */
-export function ratioSeriesDeviation(intra: TimeseriesPoint[], annual: TimeseriesPoint[]): number | null {
-  // Dernier point intra-annuel de chaque année = sa clôture d'exercice (série triée ASC), donc
-  // le point directement comparable à l'exercice annuel.
-  const intraByYear = new Map<string, number>();
-  for (const p of intra) intraByYear.set(p.date.slice(0, 4), p.value);
-  const devs: number[] = [];
-  for (const a of annual) {
-    const i = intraByYear.get(a.date.slice(0, 4));
-    if (i == null || a.value === 0) continue;
-    devs.push(Math.abs(i - a.value) / Math.abs(a.value));
-  }
-  if (devs.length < 2) return null;
-  devs.sort((x, y) => x - y);
-  return devs[Math.floor(devs.length / 2)]!;
-}
-
-/** Série intra-annuelle du store, fenêtrée. [] si absente, trop courte, ou annuelle. */
-async function readIntraSeries(ticker: string, metric: string, years: number): Promise<TimeseriesPoint[]> {
-  const stored = await readSeries(ticker, metric).catch(() => null);
-  if (!stored?.points.length) return [];
-  const pts = filterWindow(stored.points, years);
-  if (pts.length < 2) return [];
-  // Cadence redérivée des points : la colonne `freq` vaut 'quarterly' par défaut sur les lignes
-  // écrites avant son introduction, y compris pour des séries semestrielles.
-  return detectCadence(pts.map(p => p.date)) === 'annual' ? [] : pts;
-}
-
-/** Le poste de trésorerie porte deux clés selon la source qui a alimenté le store. */
-async function readIntraCash(ticker: string, years: number): Promise<TimeseriesPoint[]> {
-  const sa = await readIntraSeries(ticker, 'cash', years);
-  return sa.length ? sa : readIntraSeries(ticker, 'cashAndEquivalents', years);
-}
+/** Métriques du store nécessaires à chaque ratio (au-delà du CA, toujours chargé comme pivot). */
+const INTRA_METRICS: Record<RatioMetricKey, string[]> = {
+  netMargin:       ['netIncome'],
+  operatingMargin: ['operatingIncome'],
+  fcfMargin:       ['fcf'],
+  cashConversion:  ['fcf', 'netIncome'],
+  // 'cash' côté stockanalysis, 'cashAndEquivalents' côté Finnhub : on charge les deux et on
+  // prend celle que la source du store a effectivement remplie.
+  netDebtFcf:      ['fcf', 'totalDebt', 'cash', 'cashAndEquivalents'],
+};
 
 async function computeEuIntraYearRatio(
   ticker: string,
   ratio: RatioMetricKey,
   years: number,
-): Promise<{ points: TimeseriesPoint[]; freq: 'quarterly' | 'semiannual' } | null> {
+): Promise<{ points: TimeseriesPoint[]; freq: IntraCadence } | null> {
   const W = years + 1; // +1 an pour amorcer le premier 12 mois glissant
   const scale = scaleFor(ratio);
-  const rev = await readIntraSeries(ticker, 'revenue', W);
-  if (rev.length < MIN_CHART_POINTS) return null;
-  const cadence = detectCadence(rev.map(p => p.date));
-  if (cadence === 'annual') return null;
-  const periods = cadence === 'semiannual' ? 2 : 4;
-  const sum = (pts: TimeseriesPoint[]): TimeseriesPoint[] => rollingYearSum(pts, periods);
-  const revYear = sum(rev);
+  // Le CA est le pivot : il donne la cadence commune, et sert de dénominateur ou de référence de
+  // matérialité à tous les ratios.
+  const set = await loadIntraYearSet(ticker, 'revenue', INTRA_METRICS[ratio], W);
+  if (!set) return null;
+  const revYear = set.flow('revenue');
 
   let raw: TimeseriesPoint[];
   switch (ratio) {
@@ -421,35 +343,30 @@ async function computeEuIntraYearRatio(
     case 'operatingMargin':
     case 'fcfMargin': {
       const numKey = ratio === 'netMargin' ? 'netIncome' : ratio === 'operatingMargin' ? 'operatingIncome' : 'fcf';
-      const num = await readIntraSeries(ticker, numKey, W);
+      const num = set.flow(numKey);
       if (num.length < MIN_CHART_POINTS) return null;
-      raw = divideByDate(sum(num), revYear, scale);
+      raw = divideByDate(num, revYear, scale);
       break;
     }
     case 'cashConversion': {
-      const [fcf, ni] = await Promise.all([
-        readIntraSeries(ticker, 'fcf', W),
-        readIntraSeries(ticker, 'netIncome', W),
-      ]);
+      const [fcf, ni] = [set.flow('fcf'), set.flow('netIncome')];
       if (fcf.length < MIN_CHART_POINTS || ni.length < MIN_CHART_POINTS) return null;
-      raw = divideByDate(sum(fcf), dropImmaterialDenominator(sum(ni), revYear, d => d), scale);
+      raw = divideByDate(fcf, dropImmaterialDenominator(ni, revYear, d => d), scale);
       break;
     }
     case 'netDebtFcf': {
       // La dette et le cash sont des SNAPSHOTS de fin de période : pas de somme glissante sur
       // eux, seulement sur le FCF qui les rapporte à douze mois d'activité.
-      const [fcf, debt, cash] = await Promise.all([
-        readIntraSeries(ticker, 'fcf', W),
-        readIntraSeries(ticker, 'totalDebt', W),
-        readIntraCash(ticker, W),
-      ]);
+      const fcf = set.flow('fcf');
+      const debt = set.snapshot('totalDebt');
+      const cash = set.snapshot('cash').length ? set.snapshot('cash') : set.snapshot('cashAndEquivalents');
       if (fcf.length < MIN_CHART_POINTS || !debt.length || !cash.length) return null;
-      raw = divideByDate(subtractByDate(debt, cash), dropImmaterialDenominator(sum(fcf), revYear, d => d), scale);
+      raw = divideByDate(subtractByDate(debt, cash), dropImmaterialDenominator(fcf, revYear, d => d), scale);
       break;
     }
   }
   const points = filterWindow(raw, years);
-  return points.length >= MIN_CHART_POINTS ? { points, freq: cadence } : null;
+  return points.length >= MIN_CHART_POINTS ? { points, freq: set.freq } : null;
 }
 
 // ─── Point d'entrée ──────────────────────────────────────────────────────────
@@ -475,14 +392,12 @@ export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, 
     // pour les grandeurs absolues, donc même profondeur affichée d'une carte à l'autre.
     if (intra && (annual.length < MIN_CHART_POINTS || intra.points[0]!.date < annual[0]!.date)) {
       // Garde-fou de DÉFINITION : on n'accepte la profondeur que si les deux sources décrivent
-      // bien la même ligne comptable sur les exercices communs. Non vérifiable (moins de deux
-      // exercices communs) → on ne sert l'intra-annuel que s'il est notre seule option.
-      const dev = ratioSeriesDeviation(intra.points, annual);
-      const coherent = dev == null ? annual.length < MIN_CHART_POINTS : dev <= RATIO_DEFINITION_TOLERANCE;
-      if (coherent) {
+      // bien la même ligne comptable sur les exercices communs (cf. intraYearStore).
+      if (agreesWithAnnual(intra.points, annual)) {
         console.log(`[ratio ${ticker}/${ratio}] EU ${intra.freq} (store) ${intra.points.length} pts vs ${annual.length} annuels`);
         return { points: intra.points, unit, freq: intra.freq, source: 'store', annualOnly: false };
       }
+      const dev = seriesDeviation(intra.points, annual);
       console.log(`[ratio ${ticker}/${ratio}] EU profondeur abandonnée : écart médian ${dev == null ? 'invérifiable' : (dev * 100).toFixed(1) + ' %'} vs l'annuel de référence (définitions différentes) → ${annual.length} exercices`);
     }
     console.log(`[ratio ${ticker}/${ratio}] EU annual ${annual.length} pts`);
