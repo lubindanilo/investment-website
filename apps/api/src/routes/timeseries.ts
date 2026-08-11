@@ -115,12 +115,16 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // Le `freq` demandé est ignoré : getRatioTimeseries choisit lui-même la granularité.
   if (RATIO_SET.has(requestedMetric)) {
     const ratioKey = requestedMetric as RatioMetricKey;
-    // 'ratio6' : bump après le branchement du chemin EU intra-annuel (12 mois glissants sur le
-    // store) — les ratios des titres EU ne commencent plus tous en 2022. Générations précédentes :
-    // 'ratio' (origine), 'ratio2' (matérialité du dénominateur), 'ratio3' (contiguïté TTM +
-    // condition de repli), 'ratio4' (repli sur le store enrichi EDGAR), 'ratio5' (profondeur
-    // annuelle stockanalysis). Les vieilles clés expirent seules.
-    const key = cache.cacheKey(ticker, ratioKey, 'ratio6', years);
+    // 'ratio7' : bump pour le garde-fou de définition (#281), OUBLIÉ dans cette PR — les entrées
+    // 'ratio6' écrites juste après le déploiement de #278 continuaient donc de servir la série
+    // profonde incohérente avec la carte, et leur TTL court jusqu'aux prochains résultats. Le
+    // correctif était bien en prod : seul le cache le masquait. Rappel de la règle en tête de
+    // fichier — TOUTE évolution de la stratégie de source doit bumper la génération, y compris
+    // quand elle ne fait que RESTREINDRE ce qui est servi. Générations précédentes : 'ratio'
+    // (origine), 'ratio2' (matérialité du dénominateur), 'ratio3' (contiguïté TTM + condition de
+    // repli), 'ratio4' (repli sur le store enrichi EDGAR), 'ratio5' (profondeur annuelle
+    // stockanalysis), 'ratio6' (chemin EU intra-annuel). Les vieilles clés expirent seules.
+    const key = cache.cacheKey(ticker, ratioKey, 'ratio7', years);
     const hit = await cache.get(key);
     if (hit) {
       cacheable();
