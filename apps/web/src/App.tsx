@@ -46,7 +46,9 @@ const ComparePairRedirect = lazy(() => import('./pages/ComparePairRedirect.js'))
 const BlogPage = lazy(() => import('./pages/BlogPage.js').then((m) => ({ default: m.BlogPage })));
 const AccountPage = lazy(() => import('./pages/AccountPage.js').then((m) => ({ default: m.AccountPage })));
 const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage.js').then((m) => ({ default: m.BlogArticlePage })));
-// Pages-hub SEO (SPEC-001) : secteurs et classements. Mêmes URLs que celles servies aux bots.
+// Pages-hub SEO (SPEC-001) : secteurs. Mêmes URLs que celles servies aux bots.
+// Les collections /classement/* ont été retirées (redirigées 301 vers /screener dans
+// vercel.json) : elles sont remplacées par les landings éditoriales type top actions PEA.
 const HubPage = lazy(() => import('./pages/HubPage.js').then((m) => ({ default: m.HubPage })));
 const AiVisibilityPage = lazy(() =>
   import('./pages/AiVisibilityPage.js').then((m) => ({ default: m.AiVisibilityPage })),
@@ -187,8 +189,7 @@ export function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/analyser" element={<AnalysePage />} />
             <Route path="/analyse/:ticker" element={<AnalysePage />} />
-            <Route path="/secteur/:slug" element={<HubPage kind="sector" />} />
-            <Route path="/classement/:slug" element={<HubPage kind="classement" />} />
+            <Route path="/secteur/:slug" element={<HubPage />} />
             <Route path="/watchlist" element={<RequireAuth><WatchlistPage /></RequireAuth>} />
             <Route path="/screener" element={<ScreenerPage />} />
             <Route path="/strategie-portefeuille" element={isOwner ? <MarketBeatPage /> : <Navigate to="/" replace />} />

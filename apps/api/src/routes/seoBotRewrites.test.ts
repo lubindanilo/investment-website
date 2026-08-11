@@ -13,8 +13,8 @@
  *
  * Ce test verrouille quatre choses :
  *   1. tous les robots dont dépend la visibilité du site sont bien dans la liste ;
- *   2. les 7 règles de réécriture partagent EXACTEMENT la même liste (le vrai risque de
- *      régression : quelqu'un en met à jour une et oublie les six autres) ;
+ *   2. les règles de réécriture partagent EXACTEMENT la même liste (le vrai risque de
+ *      régression : quelqu'un en met à jour une et oublie les autres) ;
  *   3. un navigateur humain n'est PAS réécrit vers le pré-rendu (les humains gardent la SPA) ;
  *   4. le BOT_UA de middleware.ts (qui sert la page d'accueil aux bots, car le fichier
  *      statique de la SPA est résolu avant les rewrites pour `/`) porte le MÊME jeu de
@@ -97,9 +97,10 @@ const MUST_NOT_MATCH: ReadonlyArray<readonly [string, string]> = [
 
 describe('vercel.json : liste d\'autorisation du pré-rendu bot', () => {
   it('expose bien les règles conditionnées au User-Agent', () => {
-    // 7 aujourd'hui : /analyse/:ticker, /blog/:slug, /secteur/:slug, /comparer/:pair,
-    // /classement/:slug, /, et le groupe des pages statiques.
-    expect(uaRules.length).toBeGreaterThanOrEqual(7);
+    // 6 aujourd'hui : /analyse/:ticker, /blog/:slug, /secteur/:slug, /comparer/:pair,
+    // /, et le groupe des pages statiques. (/classement/:slug a été retiré : les
+    // collections sont remplacées par les landings, avec une redirection 301.)
+    expect(uaRules.length).toBeGreaterThanOrEqual(6);
   });
 
   it('applique la MÊME liste de robots à toutes les règles', () => {

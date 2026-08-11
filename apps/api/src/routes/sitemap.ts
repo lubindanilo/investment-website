@@ -7,7 +7,7 @@
  *   /sitemap.xml              → index (c'est l'URL déclarée dans robots.txt et la GSC)
  *   /sitemap-pages.xml        → pages statiques (home, pricing, screener, légal…)
  *   /sitemap-articles.xml     → articles de blog
- *   /sitemap-hubs.xml         → hubs secteur + classements
+ *   /sitemap-hubs.xml         → hubs secteur + comparaisons
  *   /sitemap-tickers-1.xml…N  → fiches /analyse, par tranches de 1000
  *
  * Pourquoi : le corpus mesure que plusieurs petits sitemaps s'indexent PLUS VITE qu'un
@@ -33,7 +33,7 @@ import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 // TODO : à terme, transformer @lubin/shared en vrai package compilé (tsc → dist/) et virer
 // cette duplication.
 import { listArticles } from '../data/articles.js';
-import { slugifySector, COMPARE_PAIRS, comparePairSlug, CLASSEMENT_SLUGS } from './seoPrerender.js';
+import { slugifySector, COMPARE_PAIRS, comparePairSlug } from './seoPrerender.js';
 
 export const sitemapRouter: Router = Router();
 
@@ -262,7 +262,7 @@ function buildArticlesSitemap(): string {
   );
 }
 
-/** Sitemap des hubs : classements transverses (toujours présents) + un hub par secteur. */
+/** Sitemap des hubs : un hub par secteur + les pages de comparaison curées. */
 async function buildHubsSitemap(): Promise<string> {
   const lastmod = new Date().toISOString().slice(0, 10);
   const sectorRows = await prisma.screenerTicker.findMany({
@@ -278,9 +278,6 @@ async function buildHubsSitemap(): Promise<string> {
     ),
   );
   return wrapUrlset([
-    // Collections d'intention : la liste vient du registre de seoPrerender, donc ajouter une
-    // collection la met automatiquement dans le sitemap. Plus de liste en double à la main.
-    ...CLASSEMENT_SLUGS.map((slug) => buildHubUrlBlock(`/classement/${slug}`, lastmod)),
     ...sectorSlugs.map((slug) => buildHubUrlBlock(`/secteur/${slug}`, lastmod)),
     // Pages de comparaison « X vs Y » : liste curée (~20), servies en HTML pré-rendu aux
     // bots. Elles n'ont aucun lien entrant naturel puisqu'elles viennent d'être créées, or

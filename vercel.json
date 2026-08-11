@@ -107,17 +107,6 @@
       "destination": "/api/[...all]"
     },
     {
-      "source": "/classement/:slug",
-      "has": [
-        {
-          "type": "header",
-          "key": "user-agent",
-          "value": "(?i).*(googlebot|google-inspectiontool|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|petalbot|qwantify|seznambot|mojeek|bravebot|yeti|oai-searchbot|chatgpt-user|gptbot|claudebot|claude-user|claude-searchbot|anthropic-ai|perplexitybot|perplexity-user|google-extended|google-cloudvertexbot|applebot|amazonbot|bytespider|meta-externalagent|meta-externalfetcher|ccbot|cohere-ai|mistralai-user|duckassistbot|youbot|diffbot|timpibot|ai2bot|webzio-extended|omgili|facebot|facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot|discordbot|slackbot|pinterest|redditbot|ahrefsbot|semrushbot|mj12bot|dotbot).*"
-        }
-      ],
-      "destination": "/api/[...all]"
-    },
-    {
       "source": "/",
       "has": [
         {
@@ -252,6 +241,11 @@
     {
       "source": "/blog/meilleures-actions-reassurance-10-10",
       "destination": "/blog/assurance-actions-10-10-pfcf-bas-juin-2026",
+      "permanent": true
+    },
+    {
+      "source": "/classement/:slug",
+      "destination": "/screener",
       "permanent": true
     },
     {
