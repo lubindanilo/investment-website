@@ -220,9 +220,9 @@ const DELETIONS: { tickers: string[]; why: string; appliedOn?: string }[] = [
     // cotation consultee. Les lignes portent le meme nom canonique, donc la recopie aurait du jouer :
     // elle n'a pas pu, les lignes etant tombees dans deux shards paralleles du backfill, chacun ayant
     // charge l'index des notes AVANT que l'autre n'ecrive (effet de bord assume, cf.
-    // BackfillOptions.offset). Balayage du 11/08/2026 sur les 212 societes multi-cotees de l'univers :
-    // 18 affichaient deux TOTAUX differents, et l'ecart n'etait pas cosmetique (KT 2,5 contre 4,
-    // XPeng 1 contre 2, Tenaris 2,5 contre 1,5).
+    // BackfillOptions.offset). Balayage du 11/08/2026 sur les societes multi-cotees de l'univers :
+    // 20 affichaient deux TOTAUX differents, et l'ecart n'etait pas cosmetique (KT 2,5 contre 4,
+    // XPeng 1 contre 2, Tenaris 2,5 contre 1,5, Inventiva 0,5 contre 1,5).
     //
     // QUELLE LIGNE ON GARDE. Celle de plus grosse capi, sans arbitrer le fond : c'est deja la regle du
     // backfill (groupRowsByCompany prend le brief de la premiere ligne, la file etant triee par capi
@@ -256,6 +256,12 @@ const DELETIONS: { tickers: string[]; why: string; appliedOn?: string }[] = [
       'TEN.MI',      // Tenaris                      <- TS (1,5 contre 2,5)
       'WF',          // Woori Financial Group        <- 316140.KS (3 contre 2,5)
       'XPEV',        // XPeng                        <- 9868.HK (2 contre 1)
+      // Ces deux societes sont sorties du premier releve, fait sur les endpoints publics : ils ne
+      // servent que les lignes au statut `scored`, quand le backfill note tout l'univers. L'audit
+      // lance sur la base (4 614 notes) les a trouvees.
+      'IVA.PA',      // Inventiva                    <- IVA (1,5 contre 0,5)
+      'LBTYA',       // Liberty Global               <- LBTYB (3 contre 3,5)
+      'LBTYK',       // idem
       // Under Armour est le seul cas ou on supprime LES DEUX lignes plutot que d'en recopier une :
       // UA porte 0,75/5, un QUART d'etoile, que le bareme n'autorise pas (les 5 criteres valent 0,
       // 0,5 ou 1, donc un total tombe forcement sur la demi-etoile). C'est la mediane de DEUX
