@@ -165,11 +165,23 @@ const CORRECTIONS: Correction[] = [
   },
 ];
 
-/** Ligne ecrite par recopie d'homonyme depuis une societe SANS RAPPORT (cf. normalizeCompanyName). */
-const DELETIONS = [
+/**
+ * Lignes ecrites par recopie d'homonyme depuis une societe SANS RAPPORT (cf. normalizeCompanyName).
+ *
+ * ATTENTION, une suppression n'est PAS idempotente : contrairement aux corrections, qui se gardent
+ * par `from`/`to`, elle repart des que la ligne reexiste. Une campagne consommee doit donc porter
+ * `appliedOn`, sinon le prochain lancement du script detruit ce que le backfill a re-note depuis.
+ */
+const DELETIONS: { ticker: string; why: string; appliedOn?: string }[] = [
   {
     ticker: 'MRK.DE',
     why: "Merck KGaA porte la note de Merck & Co, recopiee mot pour mot : la canonisation des raisons sociales reduit les deux a « merck ». Deux societes sans rapport (outils de life science contre pharma US). On supprime pour que le backfill la note pour elle-meme.",
+    // CONSOMMEE, ET LA REPARATION A ECHOUE. La ligne a bien ete supprimee le 07/08 et le backfill
+    // l'a re-notee, mais a 1,5 avec des justifications qui citent Keytruda : c'est encore Merck & Co.
+    // Re-supprimer ne ferait que rejouer la meme recopie en brulant un appel au modele. Le vrai
+    // correctif est en amont (`kgaa` est retire par normalizeCompanyName, donc « Merck KGaA » et
+    // « Merck & Co » se canonisent tous deux en « merck ») et sort du perimetre de ce script.
+    appliedOn: '2026-08-07',
   },
 ];
 
@@ -218,6 +230,7 @@ async function main(): Promise<void> {
     }
 
     for (const d of DELETIONS) {
+      if (d.appliedOn) { console.log(`  = ${d.ticker} suppression deja consommee le ${d.appliedOn}, ignore.`); skipped++; continue; }
       const row = await prisma.resilienceStarScore.findUnique({ where: { ticker: d.ticker }, select: { total: true } });
       if (!row) { console.log(`  = ${d.ticker} deja absent, ignore.`); skipped++; continue; }
       console.log(`  ✕ ${d.ticker} supprime (note ${row.total}) — ${d.why}`);
