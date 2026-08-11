@@ -649,12 +649,22 @@ export function renderTickerHtml(
 
   // Titre format question + verdict, vraie phrase plutôt qu'assemblage de mots-clés.
   // Nom tronqué si besoin pour viser ≤ 60 car (Google tronque souvent au-delà).
+  //
+  // ⚠️ 2026-08-11 (QA) : le préfixe + suffixe de certaines langues laisse un budget nom
+  // ridiculement court (9 car. en FR). L'ancien `Math.max(6, nameBudget - 1)` produisait
+  // des fragments coupés en plein milieu d'un mot, sans même respecter le seuil de coupe
+  // sur mot entier (ex. « Hong Kong Exchanges and Clearing Limited » → « Hong Kon… »,
+  // ticker 0388.HK). On garantit désormais un minimum de caractères lisibles, quitte à
+  // dépasser légèrement les 60 car. cible : un titre un peu plus long mais compréhensible
+  // vaut mieux qu'un fragment tronqué au milieu d'un mot.
   let titleName = displayName;
   const nameBudget = 60 - tr.titlePrefix.length - tr.titleSuffix.length;
+  const MIN_NAME_CHARS = 20;
   if (titleName.length > nameBudget) {
-    let cut = displayName.slice(0, Math.max(6, nameBudget - 1));
+    const cutLen = Math.max(MIN_NAME_CHARS, nameBudget - 1);
+    let cut = displayName.slice(0, cutLen);
     const lastSpace = cut.lastIndexOf(' ');
-    if (lastSpace > 8) cut = cut.slice(0, lastSpace); // coupe sur un mot entier
+    if (lastSpace > cutLen * 0.5) cut = cut.slice(0, lastSpace); // coupe sur un mot entier
     titleName = cut.trimEnd() + '…';
   }
   const shortTitle = `${tr.titlePrefix}${titleName}${tr.titleSuffix}`;
