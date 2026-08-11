@@ -341,6 +341,48 @@ async function computeAnnualRatio(ticker: string, symbol: string, ratio: RatioMe
 // fait déjà le chemin annuel EU, et donc ce que montre la carte. Mieux vaut un graphe cohérent
 // avec la carte qu'un graphe « plus juste » qui ne recoupe rien.
 
+/**
+ * Écart relatif MAXIMAL toléré entre le ratio recomposé depuis le store et le ratio annuel de
+ * référence, sur les exercices communs.
+ *
+ * Pourquoi ce garde-fou : « résultat opérationnel » ne désigne pas la même ligne d'une source à
+ * l'autre. Mesuré en prod sur le dernier exercice — L'Oréal 0,0 %, Air Liquide 0,8 %, Hermès
+ * 1,9 %, LVMH 3,2 %, Vinci 4,5 %, Nestlé 12,2 % (carte 15,55 % contre 13,66 % pour la dernière
+ * barre de son propre graphe). Le résultat net, lui, concorde partout à 0,4 % près.
+ *
+ * L'écart n'est pas un facteur constant (Nestlé : 21 %, 10 %, 6 %, 12 % selon l'exercice), donc
+ * pas question de recalibrer comme on le fait pour la convention ADS des shares : c'est une
+ * différence de DÉFINITION, pas d'unité. On renonce alors à la profondeur, comme
+ * calibrateAdsShares renonce quand il ne sait pas trancher — un graphe qui contredit la valeur
+ * de sa propre carte est pire qu'un graphe court.
+ *
+ * 2 % laisse passer les sources qui décrivent la même ligne (bruit d'arrondi et de change) et
+ * écarte celles qui décrivent une autre ligne.
+ */
+const RATIO_DEFINITION_TOLERANCE = 0.02;
+
+/**
+ * Écart relatif MÉDIAN entre une série intra-annuelle et la série annuelle de référence, sur les
+ * exercices communs. Médian et non maximal : un exercice retraité isolé ne doit pas condamner une
+ * série par ailleurs cohérente (même raisonnement que la calibration ADS). `null` = moins de deux
+ * exercices communs, donc rien à conclure. Exporté pour tests.
+ */
+export function ratioSeriesDeviation(intra: TimeseriesPoint[], annual: TimeseriesPoint[]): number | null {
+  // Dernier point intra-annuel de chaque année = sa clôture d'exercice (série triée ASC), donc
+  // le point directement comparable à l'exercice annuel.
+  const intraByYear = new Map<string, number>();
+  for (const p of intra) intraByYear.set(p.date.slice(0, 4), p.value);
+  const devs: number[] = [];
+  for (const a of annual) {
+    const i = intraByYear.get(a.date.slice(0, 4));
+    if (i == null || a.value === 0) continue;
+    devs.push(Math.abs(i - a.value) / Math.abs(a.value));
+  }
+  if (devs.length < 2) return null;
+  devs.sort((x, y) => x - y);
+  return devs[Math.floor(devs.length / 2)]!;
+}
+
 /** Série intra-annuelle du store, fenêtrée. [] si absente, trop courte, ou annuelle. */
 async function readIntraSeries(ticker: string, metric: string, years: number): Promise<TimeseriesPoint[]> {
   const stored = await readSeries(ticker, metric).catch(() => null);
@@ -432,8 +474,16 @@ export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, 
     // exercices, plus lisibles qu'un 12 mois glissant). Même arbitrage que la route timeseries
     // pour les grandeurs absolues, donc même profondeur affichée d'une carte à l'autre.
     if (intra && (annual.length < MIN_CHART_POINTS || intra.points[0]!.date < annual[0]!.date)) {
-      console.log(`[ratio ${ticker}/${ratio}] EU ${intra.freq} (store) ${intra.points.length} pts vs ${annual.length} annuels`);
-      return { points: intra.points, unit, freq: intra.freq, source: 'store', annualOnly: false };
+      // Garde-fou de DÉFINITION : on n'accepte la profondeur que si les deux sources décrivent
+      // bien la même ligne comptable sur les exercices communs. Non vérifiable (moins de deux
+      // exercices communs) → on ne sert l'intra-annuel que s'il est notre seule option.
+      const dev = ratioSeriesDeviation(intra.points, annual);
+      const coherent = dev == null ? annual.length < MIN_CHART_POINTS : dev <= RATIO_DEFINITION_TOLERANCE;
+      if (coherent) {
+        console.log(`[ratio ${ticker}/${ratio}] EU ${intra.freq} (store) ${intra.points.length} pts vs ${annual.length} annuels`);
+        return { points: intra.points, unit, freq: intra.freq, source: 'store', annualOnly: false };
+      }
+      console.log(`[ratio ${ticker}/${ratio}] EU profondeur abandonnée : écart médian ${dev == null ? 'invérifiable' : (dev * 100).toFixed(1) + ' %'} vs l'annuel de référence (définitions différentes) → ${annual.length} exercices`);
     }
     console.log(`[ratio ${ticker}/${ratio}] EU annual ${annual.length} pts`);
     return { points: annual, unit, freq: 'annual', source: 'yahoo', annualOnly: true };
