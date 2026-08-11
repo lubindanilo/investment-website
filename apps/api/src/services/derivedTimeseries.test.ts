@@ -7,7 +7,9 @@
  * trace pas », et « ces N périodes forment-elles vraiment douze mois contigus ».
  */
 import { describe, it, expect } from 'vitest';
-import { dropImmaterialDenominator, MIN_DENOMINATOR_PCT_OF_REVENUE, rollingYearSum } from './derivedTimeseries.js';
+import {
+  dropImmaterialDenominator, MIN_DENOMINATOR_PCT_OF_REVENUE, rollingYearSum, ratioSeriesDeviation,
+} from './derivedTimeseries.js';
 
 const byDate = (d: string) => d;
 const byYear = (d: string) => d.slice(0, 4);
@@ -143,5 +145,50 @@ describe('rollingYearSum', () => {
   it('renvoie une série vide quand il n’y a pas assez de périodes', () => {
     expect(rollingYearSum([{ date: '2025-12-31', value: 1 }], 2)).toEqual([]);
     expect(rollingYearSum([], 4)).toEqual([]);
+  });
+});
+
+/**
+ * Garde-fou de DÉFINITION du chemin EU intra-annuel : « résultat opérationnel » ne désigne pas la
+ * même ligne d'une source à l'autre, et l'écart n'est pas un facteur constant qu'on pourrait
+ * recalibrer. Sans ce contrôle, le graphe d'un critère contredisait la valeur de sa propre carte.
+ * Les chiffres ci-dessous sont ceux mesurés en production.
+ */
+describe('ratioSeriesDeviation', () => {
+  const pts = (byYear: Record<string, number>) =>
+    Object.entries(byYear).map(([y, v]) => ({ date: `${y}-12-31`, value: v }));
+
+  /** Nestlé : carte 15,55 % contre 13,66 % sur la dernière barre — deux lignes différentes. */
+  it('détecte une divergence de définition (marge opérationnelle Nestlé)', () => {
+    const annual = pts({ 2022: 16.53, 2023: 16.79, 2024: 17.02, 2025: 15.55 });
+    const intra = pts({ 2022: 13.00, 2023: 15.06, 2024: 16.05, 2025: 13.66 });
+    expect(ratioSeriesDeviation(intra, annual)!).toBeCloseTo(0.1215, 3);
+  });
+
+  /** Le résultat net, lui, concorde : la profondeur est légitime. */
+  it('laisse passer deux sources qui décrivent la même ligne (marge nette Vinci)', () => {
+    const annual = pts({ 2024: 6.29, 2025: 6.48 });
+    const intra = pts({ 2024: 6.31, 2025: 6.51 });
+    expect(ratioSeriesDeviation(intra, annual)!).toBeLessThan(0.02);
+  });
+
+  /** Un seul exercice commun ne tranche rien (un retraitement isolé suffirait à condamner). */
+  it('refuse de conclure sous deux exercices communs', () => {
+    expect(ratioSeriesDeviation(pts({ 2025: 12 }), pts({ 2025: 11 }))).toBeNull();
+    expect(ratioSeriesDeviation([], pts({ 2025: 11 }))).toBeNull();
+  });
+
+  /**
+   * Comparaison sur la CLÔTURE : c'est le dernier point intra-annuel de l'année qui vaut
+   * l'exercice. Prendre le S1 (12 mois glissants à cheval, ici volontairement aberrant)
+   * ferait échouer des séries parfaitement cohérentes.
+   */
+  it('compare la clôture d’exercice, pas le premier point de l’année', () => {
+    const annual = pts({ 2024: 11.79, 2025: 11.89 });
+    const intra = [
+      { date: '2024-06-30', value: 19.0 }, { date: '2024-12-31', value: 12.12 },
+      { date: '2025-06-30', value: 20.0 }, { date: '2025-12-31', value: 12.42 },
+    ];
+    expect(ratioSeriesDeviation(intra, annual)!).toBeCloseTo(0.0446, 3);
   });
 });
