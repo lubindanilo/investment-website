@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
+import { aggregateTotal, publicCriteriaSchema } from '../src/services/resilienceStars.js';
 
 /**
  * Revue manuelle : corrige a la main une poignee de notes de resilience jugees incoherentes,
@@ -182,8 +183,21 @@ const CORRECTIONS: Correction[] = [
  * NE SUPPRIMER QU'APRES avoir merge le correctif d'identite : sans lui le backfill rejoue exactement
  * la meme recopie, sans meme appeler un modele (l'index des notes existantes est interroge avant).
  * C'est ce qui est arrive a MRK.DE le 07/08.
+ *
+ * `guard` rend la campagne IDEMPOTENTE quand le defaut est lisible sur la ligne elle-meme : la
+ * suppression ne part que si le defaut y est encore, comme `from`/`to` protege une correction. Une
+ * campagne large en a besoin — entre le moment ou on ecrit la liste et celui ou on la joue, le
+ * backfill a pu re-noter, et une liste nue detruirait la note neuve.
  */
-const DELETIONS: { tickers: string[]; why: string; appliedOn?: string }[] = [
+interface Deletion {
+  tickers: string[];
+  why: string;
+  appliedOn?: string;
+  /** `incoherent` : ne supprimer que si `total` contredit encore la somme des cinq criteres. */
+  guard?: 'incoherent';
+}
+
+const DELETIONS: Deletion[] = [
   {
     tickers: ['MRK.DE'],
     why: "Merck KGaA porte la note de Merck & Co, recopiee mot pour mot : la canonisation des raisons sociales reduit les deux a « merck ». Deux societes sans rapport (outils de life science contre pharma US). On supprime pour que le backfill la note pour elle-meme.",
@@ -214,6 +228,10 @@ const DELETIONS: { tickers: string[]; why: string; appliedOn?: string }[] = [
       'STBA',        // S&T Bancorp Inc                      <- Bancorp Inc (TBBK)
     ],
     why: "note recopiee a l'identique depuis une societe homonyme sans rapport ; supprimee pour que le backfill la note pour elle-meme",
+    // CONSOMMEE le 11/08/2026 : les 9 lignes sont absentes de la base, le backfill ne les a pas
+    // encore repiochees. Sans cette marque, la campagne suivante lancee avec --apply detruirait
+    // les notes neuves des qu'il l'aura fait.
+    appliedOn: '2026-08-11',
   },
   {
     // MUTUALISATION DES NOTES DIVERGENTES. Une meme entreprise affichait DEUX notes selon la place de
@@ -271,6 +289,96 @@ const DELETIONS: { tickers: string[]; why: string; appliedOn?: string }[] = [
       'UAA',
     ],
     why: "meme societe notee deux fois avec des totaux divergents : supprimee pour que le backfill recopie la note de la ligne de reference (la plus grosse capi)",
+    // CONSOMMEE le 11/08/2026 : aucune des 24 lignes n'est en base.
+    appliedOn: '2026-08-11',
+  },
+  {
+    // LE TOTAL AFFICHE CONTREDISAIT LES CINQ ETOILES AFFICHEES SOUS LUI. Le controle croise
+    // composait la note retenue ainsi : `{ ...base, total: median(sonnetTotals) }`. Les CRITERES
+    // venaient du passage Sonnet de base, le TOTAL de la mediane des passages : des qu'une escalade
+    // retenait une autre valeur, la carte annoncait un chiffre que son propre detail ne sommait pas
+    // (ResilienceStars.tsx lit les deux champs de la MEME ligne). La source est refermee
+    // (`pickSonnetPass`, PR #277) ; ces lignes-la ont ete ecrites avant.
+    //
+    // Releve du 11/08/2026 par scripts/resilienceStarsTotalAudit.ts sur 4 581 notes : 321 lignes
+    // incoherentes (~314 societes), 3 d'entre elles au quart d'etoile. 118 ecarts valent une etoile
+    // ou plus, jusqu'a 2,5 (TROX affichait 1/5 pour un detail qui somme 3,5). Aucune ligne ne sort
+    // du motif de l'ancien code, et `criteria` est lisible partout.
+    //
+    // POURQUOI SUPPRIMER PLUTOT QUE REECRIRE LE TOTAL SUR LA SOMME. Le geste gratuit semblait
+    // preferable — il ne coute aucun appel modele — mais il revient a RETENIR LE PASSAGE DE BASE,
+    // puisque les criteres stockes sont les siens. Or ces lignes ont escalade precisement PARCE QUE
+    // le passage de base s'ecartait de V3 de plus d'une demi-etoile : c'est le declencheur de
+    // l'escalade. Recalcule sur ce passage, le verdict des 321 redevient `flagged`, dont les 186
+    // aujourd'hui `resolved`. On rendrait la ligne coherente en lui restituant la note que le
+    // controle croise avait justement ecartee, et en convertissant 186 arbitrages en revues
+    // humaines. Appliquer `pickSonnetPass` retroactivement n'est pas possible non plus : seuls les
+    // TOTAUX des autres passages sont en base, pas leurs criteres.
+    //
+    // La re-notation est donc le seul chemin vers une note a la fois coherente et arbitree. Elle
+    // repasse devant les deux modeles, par capi decroissante, sur quelques nuits ; d'ici la ces
+    // societes n'affichent plus de note, ce qui vaut mieux qu'un total qui se contredit.
+    //
+    // La liste se REGENERE, elle ne se maintient pas a la main :
+    //   pnpm --filter @lubin/api exec tsx scripts/resilienceStarsTotalAudit.ts --csv
+    guard: 'incoherent',
+    tickers: [
+      '000270.KS',   '010130.KS',   '032830.KS',   '0939.HK',     '1177.HK',     '1AST.VI',
+      '2303.TW',     '2784.T',      '2884.TW',     '300842.SZ',   '300871.SZ',   '300872.SZ',
+      '300905.SZ',   '300926.SZ',   '3302.T',      '3382.T',      '4188.T',      '6670.TW',
+      '6719.TW',     '6752.T',      '6949.TW',     '7459.T',      '7610.TW',     '7740.T',
+      '7744.T',      '7747.T',      '7995.T',      'AA',          'ABG',         'ACGL',
+      'ACM',         'ADEN.SW',     'AFRM',        'AGL.AX',      'ALGT',        'ALO.PA',
+      'ALR.WA',      'AMC',         'AMRZ',        'AMRZ.SW',     'AMRZE.SW',    'AMSC',
+      'ANIP',        'APLE',        'ARB.AX',      'ARI',         'ARLO',        'ASC',
+      'ASIC',        'ATEN',        'ATHM',        'AXSM',        'AXTI',        'BAP',
+      'BBDC',        'BCSS',        'BDX.WA',      'BFC',         'BFG.MI',      'BIM.PA',
+      'BIOA',        'BIRK',        'BKV',         'BLFS',        'BLSH',        'BOOT',
+      'BW',          'CASH.MC',     'CAT',         'CCB',         'CCO',         'CDNL',
+      'CIB',         'CIPLA.NS',    'CLF',         'CLS',         'CMO.MC',      'CNA',
+      'CNO',         'COALINDIA.NS','CPAC',        'CRAP.PA',     'CRSP',        'CRWV',
+      'CSIQ',        'CSWC',        'CUBE',        'CWK.L',       'CWR.L',       'DEO',
+      'DGE.L',       'DGED.L',      'DHC',         'DIE.BR',      'DIVISLAB.NS', 'DNLI',
+      'DNLM.L',      'ECPG',        'EDNR.MI',     'EDU',         'EEX',         'EIX',
+      'ELE',         'EN.PA',       'ENVX',        'EOSE',        'EPIC.SW',     'EQBK',
+      'ERG.MI',      'ES',          'ESTA',        'EWTX',        'EXLS',        'EZJ.L',
+      'F34.SI',      'FBK.MI',      'FEIM',        'FIZZ',        'FMC',         'FSG.L',
+      'GCBC',        'GEBNE.SW',    'GIC',         'GILT',        'GLIBA',       'GLNG',
+      'GNFT.PA',     'GNW',         'GRAB',        'GSL',         'GSM',         'GWRE',
+      'GXO',         'HCSG',        'HGTY',        'HIMS',        'HLMA.L',      'HLX',
+      'HMC.AX',      'HMSO.L',      'HNI',         'HNRG',        'HOG',         'HTFL',
+      'ICHR',        'IDT',         'IESC',        'IFCN.SW',     'IHP.L',       'IMOS',
+      'IMPN.SW',     'INF.L',       'INSM',        'ISN.SW',      'ISS.CO',      'ITRI',
+      'ITRN',        'IVG.MI',      'IVZ',         'JBSS',        'JGGI.L',      'JKHY',
+      'JOYY',        'KEEL',        'KEN',         'KER.PA',      'KLIC',        'KNSA',
+      'KNX',         'KRUS',        'LAR',         'LB',          'LIFE',        'LILA',
+      'LILAK',       'LMAT',        'LOPE',        'LPX',         'LQDT',        'LSTR',
+      'LUN.TO',      'LUXE',        'MANH',        'MBLY',        'MCRI',        'MDGL',
+      'MESO',        'MFIC',        'MGAM.L',      'MGM',         'MIAX',        'MNKD',
+      'MRLN',        'MRO.L',       'MRTN',        'MTO.L',       'MZTI',        'NA.TO',
+      'NAMS',        'NBG6.DE',     'NBS.L',       'NCH2.DE',     'NET',         'NG',
+      'NHC.AX',      'NHY.OL',      'NN',          'NN.AS',       'NPKI',        'NRGV',
+      'NUE',         'NUVB',        'NXT',         'OCSL',        'OLED',        'ONDS',
+      'OPK',         'OR',          'ORA',         'OSB.L',       'OSW',         'OTP.BD',
+      'PCRX',        'PCT',         'PDFS',        'PECO',        'PFSI',        'PGNY',
+      'PHAT',        'PHR',         'PHVS',        'PLGO',        'PLNT',        'PLS.AX',
+      'POST.VI',     'PRAA',        'PRCT',        'PRGO',        'PRSU',        'PTCT',
+      'PUB.PA',      'QNT',         'QUEST.AT',    'REY.MI',      'RGEN',        'RIVN',
+      'RMD',         'ROOT',        'RPI.L',       'RRR',         'RXRX',        'S63.SI',
+      'S92.DE',      'SAB.MC',      'SAFE',        'SAR.AT',      'SARO',        'SBGI',
+      'SBILIFE.NS',  'SBLK',        'SDHC',        'SGI',         'SHG',         'SIG.AX',
+      'SKE',         'SLR.MC',      'SLRC',        'SN',          'SNAP',        'SOUN',
+      'SPA.BR',      'SPG.DE',      'SQM',         'SSPG.L',      'ST',          'STDN',
+      'STLD',        'STOK',        'STVN',        'SUBC.OL',     'TBBK',        'TBN',
+      'TEL2-B.ST',   'TFIN',        'TGLS',        'TGT',         'TNE.AX',      'TOTS3.SA',
+      'TRN.L',       'TROX',        'TSAT.TO',     'TSK.MC',      'TTMI',        'TXRH',
+      'UCTT',        'UHAL',        'UHAL.B',      'UMC',         'USAS',        'V03.SI',
+      'VALE',        'VALE3.SA',    'VEL',         'VIL.PA',      'VINP',        'VIR',
+      'VIRT',        'VLTO',        'VLX.L',       'VPG',         'WAWI.OL',     'WD',
+      'WEST',        'WFRD',        'WIE.VI',      'WLY',         'WLYB',        'WOLF',
+      'WRT1V.HE',    'WYFI',        'YALA',
+    ],
+    why: "total ecrit par l'ancien controle croise, contredit par la somme de ses propres criteres ; supprimee pour re-notation sous le code corrige",
   },
 ];
 
@@ -320,12 +428,24 @@ async function main(): Promise<void> {
 
     for (const d of DELETIONS) {
       if (d.appliedOn) {
-        console.log(`  = ${d.tickers.join(', ')} suppression deja consommee le ${d.appliedOn}, ignore.`);
+        console.log(`  = ${d.tickers.length} ticker(s) : suppression deja consommee le ${d.appliedOn}, ignore.`);
         skipped += d.tickers.length; continue;
       }
       for (const ticker of d.tickers) {
-        const row = await prisma.resilienceStarScore.findUnique({ where: { ticker }, select: { total: true } });
+        const row = await prisma.resilienceStarScore.findUnique({
+          where: { ticker },
+          select: { total: true, criteria: true },
+        });
         if (!row) { console.log(`  = ${ticker} deja absent, ignore.`); skipped++; continue; }
+        // Garde-fou de campagne large : la ligne a pu etre re-notee depuis que la liste a ete
+        // ecrite. Une note redevenue coherente n'est plus celle qu'on visait, on n'y touche pas.
+        if (d.guard === 'incoherent') {
+          const criteria = publicCriteriaSchema.safeParse(row.criteria);
+          if (criteria.success && aggregateTotal(criteria.data) === row.total) {
+            console.log(`  = ${ticker.padEnd(12)} re-notee et coherente (${row.total}/5), ignore.`);
+            skipped++; continue;
+          }
+        }
         console.log(`  ✕ ${ticker.padEnd(12)} supprime (note ${row.total}) — ${d.why}`);
         if (apply) await prisma.resilienceStarScore.delete({ where: { ticker } });
         changed++;
