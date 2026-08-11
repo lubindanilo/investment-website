@@ -56,13 +56,24 @@ function countDiacritics(text: string): number {
   return (text.normalize('NFD').match(/\p{Diacritic}/gu) ?? []).length;
 }
 
+/**
+ * Les trois regles qui suivent la premiere ne sont pas decoratives : elles viennent d'un run reel
+ * (20 tickers, 100 phrases, 11/08/2026). Haiku y a ecrit « boucle de données possèdes » (2e
+ * personne du singulier) la ou il fallait « possédés », et laisse « peripherique » nu au milieu
+ * d'une phrase par ailleurs bien accentuee. D'ou la regle de 3e personne, qui rend la forme fautive
+ * IMPOSSIBLE par construction, et la consigne d'exhaustivite.
+ */
 export function buildReaccentPrompt(texts: string[]): string {
   const list = texts.map((text, index) => `${index + 1}. ${text}`).join('\n');
   return `Tu remets les accents du français sur des phrases écrites sans accents.
 
 RÈGLE ABSOLUE: tu ne changes RIEN d'autre. Pas un mot ajouté, pas un mot retiré, pas un synonyme, pas une reformulation, pas de traduction, pas de correction de style ou de grammaire. Tu ajoutes uniquement les diacritiques (é è ê ë à â ù û ô î ï ç), la ligature œ, les apostrophes manquantes (l'IA, jusqu'à, qu'Apple) et les majuscules accentuées (État). Si une phrase est déjà correcte, tu la renvoies à l'identique.
 
-Attention aux cas qui demandent de LIRE la phrase: "a" (verbe avoir) contre "à" (préposition), "developpe" (il développe) contre "développé" (participe), "ou" contre "où", "des" contre "dès". Le sens de la phrase tranche.
+3e PERSONNE, TOUJOURS: ces phrases décrivent une entreprise, à la 3e personne. Il n'y a JAMAIS de tutoiement, donc AUCUNE forme verbale de 2e personne du singulier n'est possible. "possedes" est donc "possédés" (participe passé), jamais "possèdes". Même chose pour "detiens", "controles", "livres": si la forme obtenue s'adresse à quelqu'un, elle est fausse.
+
+EXHAUSTIVITÉ: relis chaque mot de la phrase, pas seulement le début. Une phrase à moitié accentuée est une réponse ratée: "peripherique" doit devenir "périphérique" même s'il arrive après dix mots déjà corrects.
+
+CAS QUI DEMANDENT DE LIRE LA PHRASE: "a" (verbe avoir) contre "à" (préposition); "developpe" (il développe) contre "développé" (participe); "ou" contre "où"; "des" contre "dès". Après "est", "reste", "semble" ou un auxiliaire, c'est un participe passé accentué ("reste demandé", pas "reste demande"). Le sens de la phrase tranche.
 
 Renvoie UNIQUEMENT un tableau JSON de ${texts.length} chaînes, dans le même ordre, sans commentaire ni balise de code.
 
