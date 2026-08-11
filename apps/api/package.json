@@ -20,6 +20,7 @@
     "resilience:stars:deepseek-test": "tsx scripts/resilienceStarsDeepseekTest.ts",
     "resilience:stars:backfill": "tsx scripts/resilienceStarsBackfill.ts",
     "resilience:stars:manual-review": "tsx scripts/resilienceStarsManualReview.ts",
+    "resilience:stars:homonyms": "tsx scripts/resilienceStarsHomonymAudit.ts",
     "screener:drain": "tsx scripts/drainScreener.ts"
   },
   "dependencies": {

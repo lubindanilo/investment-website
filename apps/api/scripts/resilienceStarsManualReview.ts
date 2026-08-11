@@ -166,22 +166,105 @@ const CORRECTIONS: Correction[] = [
 ];
 
 /**
- * Lignes ecrites par recopie d'homonyme depuis une societe SANS RAPPORT (cf. normalizeCompanyName).
+ * Suppressions : lignes dont la note en base est FAUSSE par identite, pas par jugement.
+ *
+ * Deux cas, symetriques. Une note recopiee depuis une societe SANS RAPPORT (le nom canonique les
+ * confondait, cf. isSameCompany). Et l'inverse : une meme societe portant DEUX notes divergentes,
+ * parce que ses lignes sont tombees dans deux shards paralleles du backfill et qu'aucune n'a vu
+ * l'autre (cf. BackfillOptions.offset). Dans les deux cas la reparation est la meme : supprimer les
+ * lignes fautives et laisser le backfill les reprendre — il recopie desormais la note de la societe
+ * quand c'est bien la meme, et la refuse quand ce n'en est pas une.
  *
  * ATTENTION, une suppression n'est PAS idempotente : contrairement aux corrections, qui se gardent
  * par `from`/`to`, elle repart des que la ligne reexiste. Une campagne consommee doit donc porter
  * `appliedOn`, sinon le prochain lancement du script detruit ce que le backfill a re-note depuis.
+ *
+ * NE SUPPRIMER QU'APRES avoir merge le correctif d'identite : sans lui le backfill rejoue exactement
+ * la meme recopie, sans meme appeler un modele (l'index des notes existantes est interroge avant).
+ * C'est ce qui est arrive a MRK.DE le 07/08.
  */
-const DELETIONS: { ticker: string; why: string; appliedOn?: string }[] = [
+const DELETIONS: { tickers: string[]; why: string; appliedOn?: string }[] = [
   {
-    ticker: 'MRK.DE',
+    tickers: ['MRK.DE'],
     why: "Merck KGaA porte la note de Merck & Co, recopiee mot pour mot : la canonisation des raisons sociales reduit les deux a « merck ». Deux societes sans rapport (outils de life science contre pharma US). On supprime pour que le backfill la note pour elle-meme.",
-    // CONSOMMEE, ET LA REPARATION A ECHOUE. La ligne a bien ete supprimee le 07/08 et le backfill
-    // l'a re-notee, mais a 1,5 avec des justifications qui citent Keytruda : c'est encore Merck & Co.
-    // Re-supprimer ne ferait que rejouer la meme recopie en brulant un appel au modele. Le vrai
-    // correctif est en amont (`kgaa` est retire par normalizeCompanyName, donc « Merck KGaA » et
-    // « Merck & Co » se canonisent tous deux en « merck ») et sort du perimetre de ce script.
+    // CONSOMMEE, ET LA REPARATION A ECHOUE. La ligne a bien ete supprimee le 07/08, mais le backfill
+    // ne l'a pas re-notee : il a retrouve « merck » dans l'index des notes existantes et recopie
+    // Merck & Co une seconde fois, sans appel au modele (meme empreinte de justifications, Keytruda
+    // compris, ecrite le 09/08). La reprise est plus bas, apres le correctif d'identite.
     appliedOn: '2026-08-07',
+  },
+  {
+    // Les 9 lignes que l'audit du 11/08/2026 (scripts/resilienceStarsHomonymAudit.ts) trouve en base
+    // avec l'empreinte de justifications EXACTE d'une autre societe. La note affichee n'est pas la
+    // leur : elle argumente l'activite d'une entreprise sans rapport.
+    //
+    // Le correctif d'identite (`isSameCompany` : initiales de tete + famille juridique, `kgaa` rendu
+    // discriminant) refuse desormais chacune de ces fusions, donc le backfill les repioche et les
+    // note pour elles-memes. Elles reviennent par capi decroissante, sur plusieurs nuits pour les
+    // plus petites ; d'ici la elles n'affichent plus de note, ce qui vaut mieux que celle d'une autre.
+    tickers: [
+      'MRK.DE',      // Merck KGaA (life science)            <- Merck & Co Inc (pharma US)
+      'SIEMENS.NS',  // Siemens Limited (Inde)               <- Siemens Aktiengesellschaft
+      'HRB',         // H & R Block Inc (fiscalite)          <- Block Inc (paiements)
+      'TITC.BR',     // Titan S.A. (ciment)                  <- Titan Company Limited (joaillerie IN)
+      'TITC.AT',     // idem, seconde cotation
+      'IRE.MI',      // Iren SpA (utility italienne)         <- IREN Ltd (minage de bitcoin)
+      '051900.KS',   // LG H&H (soins, cosmetique)           <- LG Corp (holding)
+      'ARG.PA',      // Argan SA (REIT logistique)           <- Argan Inc (BTP US)
+      'STBA',        // S&T Bancorp Inc                      <- Bancorp Inc (TBBK)
+    ],
+    why: "note recopiee a l'identique depuis une societe homonyme sans rapport ; supprimee pour que le backfill la note pour elle-meme",
+  },
+  {
+    // MUTUALISATION DES NOTES DIVERGENTES. Une meme entreprise affichait DEUX notes selon la place de
+    // cotation consultee. Les lignes portent le meme nom canonique, donc la recopie aurait du jouer :
+    // elle n'a pas pu, les lignes etant tombees dans deux shards paralleles du backfill, chacun ayant
+    // charge l'index des notes AVANT que l'autre n'ecrive (effet de bord assume, cf.
+    // BackfillOptions.offset). Balayage du 11/08/2026 sur les 212 societes multi-cotees de l'univers :
+    // 18 affichaient deux TOTAUX differents, et l'ecart n'etait pas cosmetique (KT 2,5 contre 4,
+    // XPeng 1 contre 2, Tenaris 2,5 contre 1,5).
+    //
+    // QUELLE LIGNE ON GARDE. Celle de plus grosse capi, sans arbitrer le fond : c'est deja la regle du
+    // backfill (groupRowsByCompany prend le brief de la premiere ligne, la file etant triee par capi
+    // decroissante), et les deux notes sortent du meme bareme et du meme controle croise. Les autres
+    // lignes ne repassent PAS devant les modeles : elles retrouvent la ligne gardee dans l'index et
+    // `isSameCompany` confirme la meme societe, donc la note est recopiee, gratuitement.
+    //
+    // Les 13 societes ou seules les JUSTIFICATIONS divergent, a total identique, sont laissees en
+    // place : rien de contradictoire ne s'affiche, et les toucher couterait des lignes pour rien.
+    tickers: [
+      'AMCR',        // Amcor                        <- AMC.AX (1 contre 2)
+      'AMS.SW',      // ams-OSRAM                    <- AMS2.VI (0,5 contre 2)
+      'BELFA',       // Bel Fuse                     <- BELFB (1 contre 3)
+      'BIO.B',       // Bio-Rad Laboratories         <- BIO (3 contre 4)
+      'LISP.SW',     // Lindt & Sprungli             <- LISN.SW (4 contre 3,5)
+      'DGICA',       // Donegal Group                <- DGICB (3 contre 2,5)
+      // Seule paire de la liste dont l'identite n'est pas certaine : « EchoStar Corp » (SATS) et
+      // « EchoStar Corporation » (ECHO), meme secteur, capis voisines. Vraisemblablement deux lignes
+      // du meme emetteur chez le fournisseur. Si ce sont deux societes, l'audit des homonymes le
+      // dira au prochain passage (empreinte de justifications identique sur deux societes).
+      'ECHO',        // EchoStar                     <- SATS (2 contre 2,5)
+      'HAFN',        // Hafnia                       <- HAFNI.OL (0,5 contre 1)
+      '6592.TW',     // Hotai Finance                <- 6592A.TW (2 contre 2,5)
+      '6592B.TW',    // idem, justifications reecrites a total egal
+      'KT',          // KT Corporation               <- 030200.KS (4 contre 2,5)
+      'LOGNE.SW',    // Logitech International       <- LOGI (2 contre 2,5)
+      'LOGN.SW',     // idem
+      'PHARM.AS',    // Pharming Group               <- PHAR (1,5 contre 2,5)
+      'RTO',         // Rentokil Initial             <- RTO.L (4 contre 3,5)
+      'RUSHB',       // Rush Enterprises             <- RUSHA (3 contre 3,5)
+      'TEN.MI',      // Tenaris                      <- TS (1,5 contre 2,5)
+      'WF',          // Woori Financial Group        <- 316140.KS (3 contre 2,5)
+      'XPEV',        // XPeng                        <- 9868.HK (2 contre 1)
+      // Under Armour est le seul cas ou on supprime LES DEUX lignes plutot que d'en recopier une :
+      // UA porte 0,75/5, un QUART d'etoile, que le bareme n'autorise pas (les 5 criteres valent 0,
+      // 0,5 ou 1, donc un total tombe forcement sur la demi-etoile). C'est la mediane de DEUX
+      // passages Sonnet — `median` fait la moyenne sur un nombre pair — donc une note a re-notter
+      // entierement, pas a propager sur UAA.
+      'UA',
+      'UAA',
+    ],
+    why: "meme societe notee deux fois avec des totaux divergents : supprimee pour que le backfill recopie la note de la ligne de reference (la plus grosse capi)",
   },
 ];
 
@@ -230,12 +313,17 @@ async function main(): Promise<void> {
     }
 
     for (const d of DELETIONS) {
-      if (d.appliedOn) { console.log(`  = ${d.ticker} suppression deja consommee le ${d.appliedOn}, ignore.`); skipped++; continue; }
-      const row = await prisma.resilienceStarScore.findUnique({ where: { ticker: d.ticker }, select: { total: true } });
-      if (!row) { console.log(`  = ${d.ticker} deja absent, ignore.`); skipped++; continue; }
-      console.log(`  ✕ ${d.ticker} supprime (note ${row.total}) — ${d.why}`);
-      if (apply) await prisma.resilienceStarScore.delete({ where: { ticker: d.ticker } });
-      changed++;
+      if (d.appliedOn) {
+        console.log(`  = ${d.tickers.join(', ')} suppression deja consommee le ${d.appliedOn}, ignore.`);
+        skipped += d.tickers.length; continue;
+      }
+      for (const ticker of d.tickers) {
+        const row = await prisma.resilienceStarScore.findUnique({ where: { ticker }, select: { total: true } });
+        if (!row) { console.log(`  = ${ticker} deja absent, ignore.`); skipped++; continue; }
+        console.log(`  ✕ ${ticker.padEnd(12)} supprime (note ${row.total}) — ${d.why}`);
+        if (apply) await prisma.resilienceStarScore.delete({ where: { ticker } });
+        changed++;
+      }
     }
 
     console.log(`\n${apply ? 'Applique' : 'Simule'} : ${changed} ligne(s), ${skipped} ignoree(s).`);

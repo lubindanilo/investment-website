@@ -1,0 +1,35 @@
+name: API tests (vitest)
+
+# POURQUOI CE WORKFLOW EXISTE (11/08/2026). L'API porte une vingtaine de fichiers de tests
+# (apps/api/src/**/*.test.ts) que RIEN n'executait : ni la CI (seul `api-typecheck.yml` tournait, et
+# il ne fait que `tsc --noEmit`), ni le build Vercel (`build:vercel` s'arrete a prisma generate + le
+# build web). Ces tests encodent des invariants qu'un typecheck ne peut pas voir — l'appariement des
+# notes de resilience avec la reponse du modele, l'identite des societes homonymes, les rewrites bot
+# de `vercel.json` contre `middleware.ts` — c'est-a-dire exactement les regles dont une regression
+# passe inapercue jusqu'a la prod.
+#
+# Hermetique : aucun secret, aucune base. Les tests qui touchent Prisma passent par un client simule
+# (cf. resilienceStarsBackfill.test.ts). Le client Prisma est genere pour que les TYPES resolvent.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      # Pas de `version:` : pnpm/action-setup lit `packageManager` dans package.json.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      # Le client Prisma doit exister pour que les imports de types resolvent (hermetique, sans DB).
+      - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
+      - run: pnpm --filter @lubin/api run test

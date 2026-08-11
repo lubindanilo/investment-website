@@ -1,0 +1,69 @@
+name: Resilience audit des homonymes (lecture seule)
+
+# Cherche les societes SANS RAPPORT qui partagent un nom canonique dans le screener, et les notes
+# deja recopiees de l'une sur l'autre (apps/api/scripts/resilienceStarsHomonymAudit.ts).
+#
+# POURQUOI CE WORKFLOW EXISTE (11/08/2026). L'audit ne sert a rien s'il ne peut pas etre lance :
+# comme la revue manuelle, le script a besoin du DATABASE_URL de prod, que seul ce depot detient en
+# secret. C'est le meme constat que resilience-manual-review.yml — sans point d'entree en CI, la
+# verification depend d'un poste qui a Node et un .env, et ne se fait donc pas.
+#
+# A LANCER apres un gros ajout de lignes par le drain du screener : l'univers passera de ~8 600 a
+# ~30 000, donc la population d'homonymes va grandir. Les cas que ni les initiales de tete ni la
+# famille juridique ne separent (« Toro Co » contre « Toro Corp. ») s'inscrivent a la main dans
+# SEPARATE_COMPANIES (services/resilienceStars.ts) ; les notes deja recopiees se suppriment via
+# resilience-manual-review.yml.
+#
+# LECTURE SEULE : ce job n'ecrit ni ne supprime rien, il n'a donc pas de garde-fou `apply`.
+#
+# Secret requis : DATABASE_URL.
+
+on:
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Detailler aussi les regroupements acceptes dont la raison sociale differe.'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: resilience-homonym-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      # Prisma exige `directUrl` a la generation. Ce job ne migre rien : la meme URL suffit.
+      DIRECT_URL: ${{ secrets.DATABASE_URL }}
+    steps:
+      - name: Garde-fou secret
+        run: |
+          if [ -z "${DATABASE_URL:-}" ]; then
+            echo "::error::Le secret DATABASE_URL est requis."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+      # Pas de `version:` : pnpm/action-setup lit `packageManager` dans package.json.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
+
+      - name: Audit des homonymes
+        env:
+          ALL: ${{ inputs.all }}
+        run: |
+          set -euo pipefail
+          if [ "${ALL}" = "true" ]; then
+            pnpm --filter @lubin/api run resilience:stars:homonyms -- --all
+          else
+            pnpm --filter @lubin/api run resilience:stars:homonyms
+          fi
