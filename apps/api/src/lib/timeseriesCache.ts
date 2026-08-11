@@ -131,3 +131,32 @@ export async function set(
 }
 
 export function clear(): void { l1.clear(); }
+
+/**
+ * Invalide TOUS les graphes d'un ticker (toutes familles, toutes fenêtres, toutes générations).
+ *
+ * Le TTL de ce cache est calé sur les prochains résultats, sur l'hypothèse que la donnée sous-
+ * jacente ne bouge qu'à ce moment-là. L'accumulation du store la dément : un backfill, une source
+ * réparée ou un rattrapage d'historique ENRICHISSENT la série entre deux publications. Mesuré le
+ * 11/08/2026 sur Vinci — le backfill a porté son FCF de 4 exercices à 20 semestres remontant à
+ * 2016, et l'API a continué de servir les 4 exercices, parce que l'entrée de cache avait été
+ * écrite quelques heures plus tôt et courait jusqu'aux résultats suivants. Sans cet appel, tout
+ * utilisateur ayant ouvert le graphe avant le rattrapage gardait la version courte des semaines.
+ *
+ * Appelé par les accumulations quand elles ont RÉELLEMENT ajouté des périodes — pas à chaque
+ * passage, un backfill ne doit pas invalider les 24 000 tickers qu'il visite pour rien.
+ *
+ * Limite connue et bornée : le L1 des instances web déjà chaudes n'est pas touché (il vit dans un
+ * autre process que l'accumulation). Ces instances resservent leur copie jusqu'à recyclage, de
+ * l'ordre de la minute à l'heure — sans commune mesure avec les semaines que dure le L2.
+ */
+export async function purgeTicker(ticker: string): Promise<number> {
+  const prefix = `${ticker.toUpperCase()}|`;
+  for (const k of l1.keys()) if (k.startsWith(prefix)) l1.delete(k);
+  try {
+    const { count } = await prisma.chartCache.deleteMany({ where: { key: { startsWith: prefix } } });
+    return count;
+  } catch {
+    return 0; // best-effort : une purge ratée se rattrape au TTL, elle ne doit rien casser
+  }
+}

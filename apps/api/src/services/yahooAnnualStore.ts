@@ -16,6 +16,7 @@ import { readSeries, isFresh, appendMergePersist, appendOnlyMerge, type ExpiryCa
 import { getYahooQuarterlyBatch } from './yahoo.js';
 import { getEdgarAnnualNative, EDGAR_ANNUAL_TYPES } from './secEdgar.js';
 import { getStockanalysisQuarterlyBatch, getStockanalysisAnnualBatch } from './stockanalysisFundamentals.js';
+import { purgeTicker } from '../lib/timeseriesCache.js';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Lubin-Investment/0.1';
 const TIMESERIES_BASE = 'https://query1.finance.yahoo.com/ws/fundamentals-timeseries/v1/finance/timeseries';
@@ -284,7 +285,10 @@ export async function accumulateYahooQuarterly(ticker: string, symbol: string, n
     await appendMergePersist(ticker, metricKey, stored, pts, 'yahoo-q', nowMs, { freq: 'quarterly' });
     metricsStored++;
   }
-  if (metricsStored > 0) console.log(`[yahoo Q-accum ${ticker}] ${metricsStored} métriques trimestrielles accumulées (append-only)`);
+  if (metricsStored > 0) {
+    console.log(`[yahoo Q-accum ${ticker}] ${metricsStored} métriques trimestrielles accumulées (append-only)`);
+    await purgeChartsOf(ticker);
+  }
   return metricsStored;
 }
 
@@ -311,7 +315,10 @@ export async function accumulateStockanalysisQuarterly(ticker: string, nowMs: nu
     await appendMergePersist(ticker, metricKey, stored, pts, 'stockanalysis', nowMs, { freq: batch.freq });
     metricsStored++;
   }
-  if (metricsStored > 0) console.log(`[sa Q-accum ${ticker}] ${metricsStored} métriques accumulées (freq=${batch.freq}, append-only)`);
+  if (metricsStored > 0) {
+    console.log(`[sa Q-accum ${ticker}] ${metricsStored} métriques accumulées (freq=${batch.freq}, append-only)`);
+    await purgeChartsOf(ticker);
+  }
   return metricsStored;
 }
 
@@ -389,6 +396,7 @@ export async function accumulateStockanalysisAnnual(ticker: string, nowMs: numbe
   }
   if (enriched > 0) {
     console.log(`[sa annual ${ticker}] ${enriched} types annuels approfondis (append-only)`);
+    await purgeChartsOf(ticker);
   } else {
     // Page lisible mais qui n'apporte aucun exercice de plus (même profondeur que Yahoo) : sans
     // ce marquage, le gate sur `annualTotalRevenue` resterait sous la cible et on re-fetcherait
@@ -396,6 +404,17 @@ export async function accumulateStockanalysisAnnual(ticker: string, nowMs: numbe
     saAnnualNone.add(ticker);
   }
   return enriched;
+}
+
+/**
+ * Une accumulation qui a RÉELLEMENT ajouté des périodes rend caducs les graphes déjà calculés de
+ * ce ticker : leur TTL court jusqu'aux prochains résultats, alors que la donnée vient de changer
+ * entre deux publications. Best-effort et silencieux à l'échec — une purge ratée se rattrape au
+ * TTL, elle ne doit jamais faire échouer une accumulation par ailleurs réussie.
+ */
+async function purgeChartsOf(ticker: string): Promise<void> {
+  const purged = await purgeTicker(ticker).catch(() => 0);
+  if (purged > 0) console.log(`[charts ${ticker}] ${purged} entrée(s) de cache invalidée(s) — la série vient de s'enrichir`);
 }
 
 /** Série annuelle store-cachée pour UN type Yahoo (graphiques). [] si indisponible. */
