@@ -19,6 +19,7 @@
     "resilience:stars:escalate-demo": "tsx scripts/resilienceStarsEscalateDemo.ts",
     "resilience:stars:deepseek-test": "tsx scripts/resilienceStarsDeepseekTest.ts",
     "resilience:stars:backfill": "tsx scripts/resilienceStarsBackfill.ts",
+    "resilience:stars:manual-review": "tsx scripts/resilienceStarsManualReview.ts",
     "screener:drain": "tsx scripts/drainScreener.ts"
   },
   "dependencies": {
