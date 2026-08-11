@@ -13,6 +13,7 @@
  */
 import type { TimeseriesFreq, TimeseriesPoint } from '@lubin/shared';
 import { prisma } from '../db/client.js';
+import { SNAPSHOT_LOGIC_VERSION } from '../services/quantCache.js';
 
 /**
  * Origine de la série servie. 'store' = série intra-annuelle relue du store FundamentalsSeries
@@ -41,6 +42,38 @@ const PURGE_THRESHOLD = 500;
 export function cacheKey(ticker: string, metric: string, freq: string, years: number): string {
   return `${ticker}|${metric}|${freq}|${years}`;
 }
+
+/**
+ * Compteur de la STRATÉGIE DE SOURCE des graphes dérivés du FCF : d'où viennent les points
+ * (store intra-annuel EU, repli annuel, profondeur EDGAR/stockanalysis, garde-fou de cohérence…).
+ * À bumper à la main quand cette stratégie change, comme le faisaient les compteurs par famille
+ * qu'il remplace : 'computed-adj-fx4' (P/FCF), 'computed4' (Cash ROCE), 'ratio7' (ratios).
+ *
+ * 5 = état de #286 (P/FCF et Cash ROCE EU au-delà de 4 exercices), point de départ commun.
+ */
+const CHART_STRATEGY_GENERATION = 5;
+
+/**
+ * Génération des graphes DÉRIVÉS DU FCF (P/FCF, Cash ROCE, ratios marge FCF / dette-FCF /
+ * conversion). À placer dans le `freq` de leur clé de cache, derrière le préfixe propre à chaque
+ * famille pour qu'elles ne se télescopent pas.
+ *
+ * Deux causes d'invalidation, d'où deux composantes :
+ *   - la STRATÉGIE de source du graphe → `CHART_STRATEGY_GENERATION`, bumpé à la main ;
+ *   - la FORMULE du FCF → `SNAPSHOT_LOGIC_VERSION`, qui invalide déjà les fiches, et qu'on
+ *     rattache ICI pour qu'un correctif de formule ne puisse plus atteindre la fiche sans
+ *     atteindre son graphe.
+ *
+ * Ce second point est un vrai mode d'échec, pas une précaution théorique. Il s'est produit deux
+ * fois : le graphe P/FCF de MELI servait 7,8× quand sa fiche affichait 15,2×, et traçait une
+ * courbe À L'INTÉRIEUR des zones grisées « FCF négatif » (celles-ci sont recalculées à la volée,
+ * donc déjà à la formule courante). Le commentaire de 'ratio7' raconte le même oubli sur #281.
+ * Un compteur par famille, c'est un compteur oublié : il n'y en a plus qu'un.
+ *
+ * Coût assumé : un bump de l'une des deux composantes reconstruit les trois familles au premier
+ * accès, comme après une publication de résultats. Du recalcul, jamais un chiffre faux.
+ */
+export const FCF_CHART_GENERATION = `s${CHART_STRATEGY_GENERATION}fcf${SNAPSHOT_LOGIC_VERSION}`;
 
 /** Lit le cache (L1 mémoire → L2 DB). Retourne null si absent ou expiré. */
 export async function get(key: string): Promise<CacheEntry | null> {

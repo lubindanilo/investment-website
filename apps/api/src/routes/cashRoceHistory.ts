@@ -33,12 +33,12 @@ cashRoceHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req:
   const ticker = t.data;
   const years = y.data;
   // Cache key dédié — namespace différent de pfcf-history pour éviter collisions.
-  // 'computed3' : bump après le branchement du repli annuel sur le store enrichi EDGAR
-  // (profondeur 14-18 exercices pour les ADR 20-F). Générations précédentes : 'computed'
-  // (origine), 'computed2' (contiguïté TTM + refus de la colonne USD d'EDGAR).
-  // 'computed4' : bump pour le chemin EU intra-annuel (le seul moyen de ne pas servir l'ancienne
-  // série annuelle jusqu'aux prochains résultats — cf. l'oubli de #281, rattrapé par #284).
-  const key = cache.cacheKey(ticker, 'cash-roce-history', 'computed4', years);
+  // Génération partagée (cf FCF_CHART_GENERATION) : le Cash ROCE a le FCF ajusté au numérateur,
+  // sa stratégie de source ET la formule du FCF doivent donc l'invalider. Générations manuelles
+  // précédentes : 'computed' (origine), 'computed2' (contiguïté TTM + refus de la colonne USD
+  // d'EDGAR), 'computed3' (repli annuel sur le store enrichi EDGAR, profondeur 14-18 exercices
+  // pour les ADR 20-F), 'computed4' (chemin EU intra-annuel, cf. l'oubli de #281 rattrapé par #284).
+  const key = cache.cacheKey(ticker, 'cash-roce-history', `computed-${cache.FCF_CHART_GENERATION}`, years);
 
   const hit = await cache.get(key);
   if (hit) {

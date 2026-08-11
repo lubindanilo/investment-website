@@ -50,8 +50,13 @@ pfcfHistoryRouter.get('/', requireAuth, requirePro, asyncHandler(async (req: Req
   const ticker = t.data;
   const years = y.data;
   // On stocke dans le même cache que timeseries en utilisant un "metric" virtuel "pfcf-history"
-  // 'computed-adj-fx4' : bump pour le chemin EU intra-annuel (courbe mensuelle depuis le store).
-  const key = cache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx4', years);
+  // Génération partagée (cf FCF_CHART_GENERATION) : elle suit À LA FOIS la stratégie de source
+  // et la formule du FCF. Indispensable ICI en particulier, parce que la réponse mélange des
+  // points VENUS DU CACHE et des intervalles « FCF négatif » RECALCULÉS à la volée juste en
+  // dessous : si la formule change sans invalider le cache, le graphe trace une courbe à
+  // l'intérieur de ses propres zones grisées (constaté sur MELI). Générations manuelles
+  // précédentes : 'computed-adj' … 'computed-adj-fx4' (chemin EU intra-annuel).
+  const key = cache.cacheKey(ticker, 'pfcf-history', `computed-adj-${cache.FCF_CHART_GENERATION}`, years);
 
   // 1. Cache hit ? (les intervalles FCF négatif sont recalculés à la volée — lecture DB légère,
   //    pas d'appel Yahoo — pour ne pas alourdir le cache typé TimeseriesPoint.)

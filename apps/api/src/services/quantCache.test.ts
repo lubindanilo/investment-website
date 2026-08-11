@@ -6,7 +6,8 @@
  * change que sur un vrai changement de fondamentaux (recompute de qualité ≥ au cache).
  */
 import { describe, it, expect } from 'vitest';
-import { isQualityDegradation, computeLivePfcf, extractLivePfcfInputs, type CachedQuantSnapshot } from './quantCache.js';
+import { isQualityDegradation, computeLivePfcf, extractLivePfcfInputs, SNAPSHOT_LOGIC_VERSION, type CachedQuantSnapshot } from './quantCache.js';
+import { FCF_CHART_GENERATION, cacheKey } from '../lib/timeseriesCache.js';
 import type { DerivedMetrics } from '@lubin/shared';
 
 const QUALITY_KEYS = [
@@ -181,5 +182,32 @@ describe('extractLivePfcfInputs', () => {
       rawFhFcfAdj: null, rawFhCapEmp: null, fcfFxToQuote: null,
     })).toEqual({ adjFcfTtm: null, sharesOutstanding: null });
     expect(extractLivePfcfInputs(yahooQuant({ marketCap: 1e9, price: 100, pfcfTTM: 0 as number, fx: 1 })).adjFcfTtm).toBeNull();
+  });
+});
+
+describe('FCF_CHART_GENERATION (graphes dérivés du FCF et fiche jamais désynchronisés)', () => {
+  it('embarque la version de la logique FCF, donc un correctif de formule invalide AUSSI les graphes', () => {
+    // Le mode d'échec que ça ferme : la fiche MELI affichait 15,2× pendant que son graphe
+    // servait 7,8× depuis un cache jamais invalidé, avec une courbe tracée à l'intérieur des
+    // zones grisées « FCF négatif » (elles, recalculées à la volée à chaque requête).
+    expect(FCF_CHART_GENERATION).toContain(String(SNAPSHOT_LOGIC_VERSION));
+  });
+
+  it('garde une composante de STRATÉGIE distincte de la version de formule', () => {
+    // Sans elle, un changement de source du graphe (chemin EU intra-annuel, profondeur EDGAR)
+    // ne pourrait plus invalider quoi que ce soit : ces bumps-là ne touchent pas la fiche.
+    expect(FCF_CHART_GENERATION).toMatch(/^s\d+fcf\d+$/);
+  });
+
+  it('produit une clé distincte par famille de graphe (pas de collision entre eux)', () => {
+    const pfcf = cacheKey('MELI', 'pfcf-history', `computed-adj-${FCF_CHART_GENERATION}`, 10);
+    const roce = cacheKey('MELI', 'cash-roce-history', `computed-${FCF_CHART_GENERATION}`, 10);
+    const ratio = cacheKey('MELI', 'fcfMargin', `ratio-${FCF_CHART_GENERATION}`, 10);
+    expect(new Set([pfcf, roce, ratio]).size).toBe(3);
+  });
+
+  it("change de clé d'une génération à l'autre (l'ancienne n'est plus lue)", () => {
+    const cle = (gen: string) => cacheKey('MELI', 'pfcf-history', `computed-adj-${gen}`, 10);
+    expect(cle(FCF_CHART_GENERATION)).not.toBe(cle('s0fcf0'));
   });
 });
