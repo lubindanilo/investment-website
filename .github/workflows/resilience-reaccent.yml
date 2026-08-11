@@ -1,0 +1,116 @@
+name: Resilience accents (rattrapage du texte deja ecrit)
+
+# Remet les accents sur les justifications de resilience DEJA en base
+# (apps/api/scripts/resilienceStarsReaccent.ts).
+#
+# POURQUOI CE WORKFLOW EXISTE (11/08/2026). Le bareme etait ecrit en francais desaccentue, le
+# modele a imite son prompt, et des centaines de fiches affichent « Concessions regulees de tres
+# longue duree ». Le prompt est corrige et parseScores repare desormais a l'ecriture, mais le
+# backfill ne repioche QUE les tickers absents de la table : les lignes deja notees ne seront
+# jamais re-notees. Il faut donc les reparer sur place, et depuis la CI plutot que depuis un poste
+# (meme lecon que resilience-manual-review.yml : un correctif qui depend d'une machine unique
+# n'arrive pas en prod le jour ou cette machine n'a ni Node ni .env).
+#
+# CE QUE CE JOB PEUT ET NE PEUT PAS FAIRE. Il ne touche QUE le texte. Les etoiles, les totaux et
+# les verdicts ne sont ni relus ni recalcules, et chaque phrase renvoyee par Haiku est comparee
+# lettre a lettre a l'originale : une reformulation est rejetee, l'originale conservee. Le pire cas
+# de ce job est un accent qui manque encore, jamais une note qui bouge.
+#
+# GARDE-FOUS. `apply` est FAUX par defaut (simulation, affiche les cinq premieres lignes qui
+# changeraient). Le script est idempotent : une ligne deja propre ne declenche aucun appel.
+#
+# AUTHENTIFICATION. Haiku est appele via le binaire `claude`, donc sur l'ABONNEMENT (secret
+# CLAUDE_CODE_OAUTH_TOKEN), pas au token facture. `--no-llm` permet de tourner sans aucun jeton :
+# la passe deterministe seule, gratuite, qui traite deja la majorite du texte.
+#
+# Secrets requis : DATABASE_URL. Et CLAUDE_CODE_OAUTH_TOKEN sauf si `no_llm` est coche.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Ecrire en base. Decoche = simulation seule.'
+        type: boolean
+        required: false
+        default: false
+      no_llm:
+        description: 'Passe deterministe seule (aucun appel au modele, aucun jeton requis).'
+        type: boolean
+        required: false
+        default: false
+      limit:
+        description: 'Nombre de tickers a traiter (les plus grosses capis d abord). Vide = tous.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: resilience-reaccent
+  cancel-in-progress: false
+
+jobs:
+  reaccent:
+    runs-on: ubuntu-latest
+    # Cinq phrases par ticker, vingt phrases par appel : un appel pour quatre tickers, soit ~250
+    # appels pour un univers de 1 000. A ~20 s par appel du CLI, compter ~1 h 30. Le runner est
+    # TUE a 6 h ; en cas de doute, decouper avec `limit` plutot que de pousser ce plafond.
+    timeout-minutes: 240
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      # Prisma exige `directUrl` a la generation. Ce job ne migre rien : la meme URL suffit.
+      DIRECT_URL: ${{ secrets.DATABASE_URL }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - name: Garde-fou secrets
+        env:
+          NO_LLM: ${{ inputs.no_llm }}
+        run: |
+          fail=0
+          if [ -z "${DATABASE_URL:-}" ]; then
+            echo "::error::Le secret DATABASE_URL est requis."
+            fail=1
+          fi
+          if [ "${NO_LLM}" != "true" ] && [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}" ] && [ -z "${ANTHROPIC_API_KEY:-}" ]; then
+            echo "::error::Il faut CLAUDE_CODE_OAUTH_TOKEN (abonnement) ou ANTHROPIC_API_KEY, ou cocher 'no_llm'."
+            fail=1
+          fi
+          [ "$fail" = "0" ] || exit 1
+      - uses: actions/checkout@v4
+      # Pas de `version:` : pnpm/action-setup lit `packageManager` dans package.json.
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '24', cache: 'pnpm' }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @lubin/api exec prisma generate --schema=prisma/schema.prisma
+
+      - name: Installer le CLI claude
+        if: inputs.no_llm != true
+        run: npm install -g @anthropic-ai/claude-code
+
+      # Echoue en quelques secondes si l'authentification est mauvaise, plutot que de le decouvrir
+      # apres avoir lu toute la table.
+      - name: Verifier l authentification du CLI
+        if: inputs.no_llm != true
+        run: |
+          set -o pipefail
+          out="$(printf 'Reponds exactement OK.' | claude -p --model claude-haiku-4-5-20251001 --output-format json 2>&1)" || {
+            echo "::error::Le CLI claude n'est pas authentifie : ${out}"
+            exit 1
+          }
+          echo "CLI claude operationnel."
+
+      - name: Rattrapage des accents
+        env:
+          APPLY: ${{ inputs.apply }}
+          NO_LLM: ${{ inputs.no_llm }}
+          LIMIT: ${{ inputs.limit }}
+        run: |
+          set -euo pipefail
+          args=""
+          [ "${APPLY}" = "true" ] && args="${args} --apply" || echo "Mode SIMULATION (cocher 'apply' pour ecrire)."
+          [ "${NO_LLM}" = "true" ] && args="${args} --no-llm" || true
+          [ -n "${LIMIT}" ] && args="${args} --limit ${LIMIT}" || true
+          pnpm --filter @lubin/api run resilience:stars:reaccent -- ${args}

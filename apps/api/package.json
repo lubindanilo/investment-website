@@ -21,6 +21,7 @@
     "resilience:stars:backfill": "tsx scripts/resilienceStarsBackfill.ts",
     "resilience:stars:manual-review": "tsx scripts/resilienceStarsManualReview.ts",
     "resilience:stars:homonyms": "tsx scripts/resilienceStarsHomonymAudit.ts",
+    "resilience:stars:reaccent": "tsx scripts/resilienceStarsReaccent.ts",
     "screener:drain": "tsx scripts/drainScreener.ts"
   },
   "dependencies": {
