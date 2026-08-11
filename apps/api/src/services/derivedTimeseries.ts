@@ -23,9 +23,11 @@
  * Le FCF utilisé côté US est le FCF ajusté SBC (getAdjustedFcfTtmSeries) — identique à la
  * carte. Côté annuel Yahoo c'est le FCF brut (comme pfcfHistory/cashRoceHistory).
  */
-import type { RatioMetricKey, TimeseriesPoint } from '@lubin/shared';
+import type { RatioMetricKey, TimeseriesFreq, TimeseriesPoint } from '@lubin/shared';
 import { getReportedTimeseries, getAdjustedFcfTtmSeries, maxTtmGapMs } from './finnhubFundamentals.js';
 import { getYahooAnnualBatchCached } from './yahooAnnualStore.js';
+import { readSeries } from './fundamentalsStore.js';
+import { detectCadence } from './stockanalysisFundamentals.js';
 import { resolveYahooTicker } from './yahooResolve.js';
 
 /** Unité d'affichage de chaque ratio (alignée sur CriterionHistogram.unit côté shared). */
@@ -53,15 +55,22 @@ function scaleFor(ratio: RatioMetricKey): number {
 export interface RatioTimeseriesResult {
   points: TimeseriesPoint[];
   unit: 'percent' | 'multiple';
-  /** Granularité réellement produite : 'quarterly' (US TTM) ou 'annual' (EU/ADR). */
-  freq: 'quarterly' | 'annual';
   /**
-   * true pour les vrais tickers EU (devise ≠ USD), dont ce chemin ne sait produire qu'un ratio
-   * PAR EXERCICE. Purement informatif désormais : l'UI garde le sélecteur de période pour tout
-   * le monde et se contente de signaler la granularité servie. Masquer le sélecteur revenait à
-   * présenter un trou de données comme une caractéristique du titre — c'est la profondeur qu'il
-   * faut corriger, pas l'affichage (raisonnement déjà retenu pour les ADR 20-F, désormais
-   * généralisé).
+   * Granularité réellement produite : 'quarterly' (TTM glissant US, ou EU trimestriel du store),
+   * 'semiannual' (émetteurs EU sans Q1/Q3, 12 mois glissants sur 2 semestres) ou 'annual'.
+   */
+  freq: TimeseriesFreq;
+  /** Origine de la série : store intra-annuel, Yahoo annuel, ou Finnhub trimestriel. */
+  source: 'store' | 'yahoo' | 'finnhub';
+  /**
+   * true quand ce titre n'a QUE de l'annuel pour ce ratio — donc plus systématiquement vrai pour
+   * l'EU depuis que le chemin intra-annuel existe : il ne reste allumé que si le store n'a pas
+   * les composantes intra-annuelles du ratio (typiquement dette/FCF, dont la dette n'a pas de
+   * série intra-annuelle chez la plupart des émetteurs EU).
+   *
+   * Purement informatif : l'UI garde le sélecteur de période pour tout le monde et se contente
+   * de signaler la granularité servie. Le masquer revenait à présenter un trou de données comme
+   * une caractéristique du titre — c'est la profondeur qu'il faut corriger, pas l'affichage.
    */
   annualOnly: boolean;
 }
@@ -89,14 +98,34 @@ const MIN_CHART_POINTS = 3;
  * épars) produisait des « TTM » étalés sur plusieurs années.
  */
 function rollingTtmSum(points: TimeseriesPoint[]): TimeseriesPoint[] {
+  return rollingYearSum(points, 4);
+}
+
+/**
+ * Somme glissante sur DOUZE MOIS, quelle que soit la cadence de publication : 4 trimestres,
+ * ou 2 SEMESTRES pour les émetteurs qui ne publient pas de Q1/Q3 (Vinci, LVMH, Nestlé…).
+ *
+ * Sommer 12 mois plutôt que rapporter la période brute n'est pas cosmétique : chez un émetteur
+ * semestriel, H1 et H2 ne sont pas comparables (le CFO de Vinci est ~4× plus élevé au S2), donc
+ * une marge par semestre dessinerait une dent de scie saisonnière et le dernier point ne
+ * correspondrait pas à la valeur de la carte, qui est un 12 mois. Exporté pour tests.
+ */
+export function rollingYearSum(points: TimeseriesPoint[], periods: number): TimeseriesPoint[] {
   const s = [...points].sort((a, b) => a.date.localeCompare(b.date));
   const maxGap = maxTtmGapMs(s);
   const gaps: number[] = [0];
   for (let i = 1; i < s.length; i++) gaps.push(Date.parse(s[i]!.date) - Date.parse(s[i - 1]!.date));
   const out: TimeseriesPoint[] = [];
-  for (let i = 3; i < s.length; i++) {
-    if (gaps[i]! > maxGap || gaps[i - 1]! > maxGap || gaps[i - 2]! > maxGap) continue;
-    out.push({ date: s[i]!.date, value: s[i]!.value + s[i - 1]!.value + s[i - 2]!.value + s[i - 3]!.value });
+  for (let i = periods - 1; i < s.length; i++) {
+    // Un écart anormal DANS la fenêtre → ce n'est pas un 12 mois, on n'émet pas de point.
+    let contiguous = true;
+    let sum = 0;
+    for (let k = 0; k < periods; k++) {
+      if (k > 0 && gaps[i - k + 1]! > maxGap) { contiguous = false; break; }
+      sum += s[i - k]!.value;
+    }
+    if (!contiguous) continue;
+    out.push({ date: s[i]!.date, value: sum });
   }
   return out;
 }
@@ -301,6 +330,86 @@ async function computeAnnualRatio(ticker: string, symbol: string, ratio: RatioMe
   return filterWindow(raw, Math.max(years, 5));
 }
 
+// ─── Path EU intra-annuel : ratios 12 mois glissants depuis le STORE ─────────
+//
+// Le chemin EU ne connaissait que l'annuel Yahoo, soit ~4 exercices : marge nette, marge FCF,
+// marge opérationnelle, conversion cash et dette/FCF d'un titre européen commençaient toutes en
+// 2022, alors que le store porte jusqu'à 10 ans de périodes intra-annuelles pour les grandeurs
+// qui les composent (Vinci : CA et résultats semestriels depuis 2016).
+//
+// Le FCF utilisé est le FCF BRUT du store, pas le FCF ajusté SBC du chemin US : c'est ce que
+// fait déjà le chemin annuel EU, et donc ce que montre la carte. Mieux vaut un graphe cohérent
+// avec la carte qu'un graphe « plus juste » qui ne recoupe rien.
+
+/** Série intra-annuelle du store, fenêtrée. [] si absente, trop courte, ou annuelle. */
+async function readIntraSeries(ticker: string, metric: string, years: number): Promise<TimeseriesPoint[]> {
+  const stored = await readSeries(ticker, metric).catch(() => null);
+  if (!stored?.points.length) return [];
+  const pts = filterWindow(stored.points, years);
+  if (pts.length < 2) return [];
+  // Cadence redérivée des points : la colonne `freq` vaut 'quarterly' par défaut sur les lignes
+  // écrites avant son introduction, y compris pour des séries semestrielles.
+  return detectCadence(pts.map(p => p.date)) === 'annual' ? [] : pts;
+}
+
+/** Le poste de trésorerie porte deux clés selon la source qui a alimenté le store. */
+async function readIntraCash(ticker: string, years: number): Promise<TimeseriesPoint[]> {
+  const sa = await readIntraSeries(ticker, 'cash', years);
+  return sa.length ? sa : readIntraSeries(ticker, 'cashAndEquivalents', years);
+}
+
+async function computeEuIntraYearRatio(
+  ticker: string,
+  ratio: RatioMetricKey,
+  years: number,
+): Promise<{ points: TimeseriesPoint[]; freq: 'quarterly' | 'semiannual' } | null> {
+  const W = years + 1; // +1 an pour amorcer le premier 12 mois glissant
+  const scale = scaleFor(ratio);
+  const rev = await readIntraSeries(ticker, 'revenue', W);
+  if (rev.length < MIN_CHART_POINTS) return null;
+  const cadence = detectCadence(rev.map(p => p.date));
+  if (cadence === 'annual') return null;
+  const periods = cadence === 'semiannual' ? 2 : 4;
+  const sum = (pts: TimeseriesPoint[]): TimeseriesPoint[] => rollingYearSum(pts, periods);
+  const revYear = sum(rev);
+
+  let raw: TimeseriesPoint[];
+  switch (ratio) {
+    case 'netMargin':
+    case 'operatingMargin':
+    case 'fcfMargin': {
+      const numKey = ratio === 'netMargin' ? 'netIncome' : ratio === 'operatingMargin' ? 'operatingIncome' : 'fcf';
+      const num = await readIntraSeries(ticker, numKey, W);
+      if (num.length < MIN_CHART_POINTS) return null;
+      raw = divideByDate(sum(num), revYear, scale);
+      break;
+    }
+    case 'cashConversion': {
+      const [fcf, ni] = await Promise.all([
+        readIntraSeries(ticker, 'fcf', W),
+        readIntraSeries(ticker, 'netIncome', W),
+      ]);
+      if (fcf.length < MIN_CHART_POINTS || ni.length < MIN_CHART_POINTS) return null;
+      raw = divideByDate(sum(fcf), dropImmaterialDenominator(sum(ni), revYear, d => d), scale);
+      break;
+    }
+    case 'netDebtFcf': {
+      // La dette et le cash sont des SNAPSHOTS de fin de période : pas de somme glissante sur
+      // eux, seulement sur le FCF qui les rapporte à douze mois d'activité.
+      const [fcf, debt, cash] = await Promise.all([
+        readIntraSeries(ticker, 'fcf', W),
+        readIntraSeries(ticker, 'totalDebt', W),
+        readIntraCash(ticker, W),
+      ]);
+      if (fcf.length < MIN_CHART_POINTS || !debt.length || !cash.length) return null;
+      raw = divideByDate(subtractByDate(debt, cash), dropImmaterialDenominator(sum(fcf), revYear, d => d), scale);
+      break;
+    }
+  }
+  const points = filterWindow(raw, years);
+  return points.length >= MIN_CHART_POINTS ? { points, freq: cadence } : null;
+}
+
 // ─── Point d'entrée ──────────────────────────────────────────────────────────
 
 /**
@@ -315,9 +424,19 @@ export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, 
   const isEuTicker = !!resolved && resolved.currency !== 'USD';
 
   if (isEuTicker && resolved) {
-    const points = await computeAnnualRatio(ticker, resolved.symbol, ratio, years);
-    console.log(`[ratio ${ticker}/${ratio}] EU annual ${points.length} pts`);
-    return { points, unit, freq: 'annual', annualOnly: true };
+    const [intra, annual] = await Promise.all([
+      computeEuIntraYearRatio(ticker, ratio, years),
+      computeAnnualRatio(ticker, resolved.symbol, ratio, years),
+    ]);
+    // On sert la série qui REMONTE LE PLUS LOIN, l'annuel gagnant à égalité (ses points sont des
+    // exercices, plus lisibles qu'un 12 mois glissant). Même arbitrage que la route timeseries
+    // pour les grandeurs absolues, donc même profondeur affichée d'une carte à l'autre.
+    if (intra && (annual.length < MIN_CHART_POINTS || intra.points[0]!.date < annual[0]!.date)) {
+      console.log(`[ratio ${ticker}/${ratio}] EU ${intra.freq} (store) ${intra.points.length} pts vs ${annual.length} annuels`);
+      return { points: intra.points, unit, freq: intra.freq, source: 'store', annualOnly: false };
+    }
+    console.log(`[ratio ${ticker}/${ratio}] EU annual ${annual.length} pts`);
+    return { points: annual, unit, freq: 'annual', source: 'yahoo', annualOnly: true };
   }
 
   const us = await computeUsRatio(ticker, ratio, years);
@@ -329,11 +448,11 @@ export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, 
     if (annual.length > us.length) {
       console.log(`[ratio ${ticker}/${ratio}] US TTM insuffisant (${us.length} pt) → Yahoo annual ${annual.length} pts`);
       // annualOnly reste false : on n'escamote pas le sélecteur de période pour un ADR.
-      return { points: annual, unit, freq: 'annual', annualOnly: false };
+      return { points: annual, unit, freq: 'annual', source: 'yahoo', annualOnly: false };
     }
     console.log(`[ratio ${ticker}/${ratio}] US TTM ${us.length} pt, repli annuel pas mieux (${annual.length}) → on garde l'US`);
   } else {
     console.log(`[ratio ${ticker}/${ratio}] US TTM ${us.length} pts`);
   }
-  return { points: us, unit, freq: 'quarterly', annualOnly: false };
+  return { points: us, unit, freq: 'quarterly', source: 'finnhub', annualOnly: false };
 }
