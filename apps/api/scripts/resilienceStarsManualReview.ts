@@ -2,8 +2,10 @@ import 'dotenv/config';
 import { PrismaClient } from '@prisma/client';
 
 /**
- * Revue manuelle du 2026-08-07 : corrige a la main une poignee de notes de resilience jugees
- * incoherentes a l'audit, et supprime une ligne qui n'aurait jamais du etre ecrite.
+ * Revue manuelle : corrige a la main une poignee de notes de resilience jugees incoherentes,
+ * et supprime une ligne qui n'aurait jamais du etre ecrite. Le fichier ACCUMULE les campagnes
+ * datees (chaque correction porte sa propre marque, cf. `mark`) : rejouer le script est sans
+ * effet sur les lignes deja corrigees, les garde-fous `from`/`to` les ignorent.
  *
  * POURQUOI A LA MAIN ET PAS DANS LE BAREME. Chacun de ces cas est un desaccord de jugement sur UNE
  * societe, pas un defaut de population : les moyennes par secteur sont coherentes (chemins de fer
@@ -36,7 +38,13 @@ interface Correction {
   to: number;
   /** Seuls les criteres qui changent, avec la justification reecrite. */
   set: Partial<Record<CriterionKey, { star: Star; justification: string }>>;
+  /** Campagne d'ou vient la correction. Defaut : la revue d'audit du 2026-08-07. */
+  mark?: string;
 }
+
+/** Tracabilite sans migration : concatene a `model`, qui n'est pas expose a l'UI (cf. ResilienceStars). */
+const MARK = 'revue-manuelle-2026-08-07';
+const MARK_2026_08_11 = 'revue-manuelle-2026-08-11';
 
 const CORRECTIONS: Correction[] = [
   {
@@ -135,6 +143,26 @@ const CORRECTIONS: Correction[] = [
       },
     },
   },
+  {
+    // La note initiale opposait la concurrence chinoise du contracting international a une societe
+    // dont la valeur est dans les concessions, ou la Chine est structurellement exclue (l'Etat
+    // concede). Neutraliser cette force ne suffit pourtant pas : « neutre » vaut 0,5 au bareme. Le 1
+    // vient des DEUX forces qui la renforcent vraiment, la robotique et l'IA. `adjacent` reste a 0,5
+    // : Cobra IS a ete ACHETE a ACS, pas absorbe depuis la base installee, et Vinci Energies gagne
+    // ses chantiers en appel d'offres comme n'importe quel contractant — avantage reel mais partiel,
+    // au meme niveau que Visa (0,5) dans les exemples de calibrage.
+    tickers: ['DG.PA', 'VCISY', 'VCISF', 'DG.F'],
+    label: 'Vinci',
+    from: 4,
+    to: 4.5,
+    set: {
+      forces: {
+        star: 1,
+        justification: "Deux forces la renforcent : la robotique baisse le cout des travaux qu'elle execute sur ses propres actifs concedes, et l'electrification tiree par l'IA remplit le carnet de Vinci Energies ; la Chine, elle, n'a pas acces aux concessions francaises.",
+      },
+    },
+    mark: MARK_2026_08_11,
+  },
 ];
 
 /** Ligne ecrite par recopie d'homonyme depuis une societe SANS RAPPORT (cf. normalizeCompanyName). */
@@ -144,8 +172,6 @@ const DELETIONS = [
     why: "Merck KGaA porte la note de Merck & Co, recopiee mot pour mot : la canonisation des raisons sociales reduit les deux a « merck ». Deux societes sans rapport (outils de life science contre pharma US). On supprime pour que le backfill la note pour elle-meme.",
   },
 ];
-
-const MARK = 'revue-manuelle-2026-08-07';
 
 async function main(): Promise<void> {
   const apply = process.argv.includes('--apply');
@@ -176,13 +202,13 @@ async function main(): Promise<void> {
 
         console.log(`  → ${ticker.padEnd(10)} ${c.label.padEnd(10)} ${c.from} → ${c.to}  (${Object.keys(c.set).join(', ')})`);
         if (apply) {
+          const mark = c.mark ?? MARK;
           await prisma.resilienceStarScore.update({
             where: { ticker },
             data: {
               total,
               criteria,
-              // Tracabilite sans migration : `model` n'est pas expose a l'UI (cf. ResilienceStars).
-              model: row.model.includes(MARK) ? row.model : `${row.model}+${MARK}`,
+              model: row.model.includes(mark) ? row.model : `${row.model}+${mark}`,
               scoredAt: new Date(),
             },
           });
