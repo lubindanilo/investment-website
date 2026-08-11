@@ -30,11 +30,14 @@ export async function warmChartCacheForTicker(ticker: string, nextEarningsDate: 
     getPfcfHistory(ticker, OPP_YEARS).catch(() => []),
     getCashRoceHistory(ticker, YEARS).catch(() => ({ points: [], freq: 'quarterly' as const })),
   ]);
-  if (pfcf.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx3', YEARS), pfcf.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
-  if (pfcfAll.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', 'computed-adj-fx3', OPP_YEARS), pfcfAll.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
-  // Clé + méta alignées sur la route /api/cash-roce-history (génération 'computed3', servedFreq
-  // porte annualOnly) — sinon le warm remplirait une clé que la route ne lit pas.
-  if (croce.points.length) await cache.set(cache.cacheKey(ticker, 'cash-roce-history', 'computed3', YEARS), croce.points.map(p => ({ date: p.date, value: p.cashRoce })), 'finnhub', ttl, { servedFreq: croce.freq }).catch(() => {});
+  if (pfcf.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', `computed-adj-${cache.FCF_CHART_GENERATION}`, YEARS), pfcf.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  if (pfcfAll.length) await cache.set(cache.cacheKey(ticker, 'pfcf-history', `computed-adj-${cache.FCF_CHART_GENERATION}`, OPP_YEARS), pfcfAll.map(p => ({ date: p.date, value: p.pfcf })), 'finnhub', ttl).catch(() => {});
+  // Clé + méta alignées sur la route /api/cash-roce-history (même génération partagée, servedFreq
+  // porte annualOnly) — sinon le warm remplirait une clé que la route ne lit pas. C'est
+  // exactement ce qui s'est produit tant que les générations étaient écrites en dur des deux
+  // côtés : la route est passée à 'computed4' et le warm est resté à 'computed3', donc toute la
+  // préchauffe nocturne du Cash ROCE et du P/FCF atterrissait dans des clés mortes.
+  if (croce.points.length) await cache.set(cache.cacheKey(ticker, 'cash-roce-history', `computed-${cache.FCF_CHART_GENERATION}`, YEARS), croce.points.map(p => ({ date: p.date, value: p.cashRoce })), 'finnhub', ttl, { servedFreq: croce.freq }).catch(() => {});
 
   // NB : le flag « opportunité du moment » (ScreenerTicker.opportunity/pfcfPercentile) est calculé
   // au scoring (scoreOne) — source unique, couvre tout l'univers — pas ici (warm = cache graphes).

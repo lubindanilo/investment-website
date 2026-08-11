@@ -115,16 +115,17 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
   // Le `freq` demandé est ignoré : getRatioTimeseries choisit lui-même la granularité.
   if (RATIO_SET.has(requestedMetric)) {
     const ratioKey = requestedMetric as RatioMetricKey;
-    // 'ratio7' : bump pour le garde-fou de définition (#281), OUBLIÉ dans cette PR — les entrées
-    // 'ratio6' écrites juste après le déploiement de #278 continuaient donc de servir la série
-    // profonde incohérente avec la carte, et leur TTL court jusqu'aux prochains résultats. Le
-    // correctif était bien en prod : seul le cache le masquait. Rappel de la règle en tête de
-    // fichier — TOUTE évolution de la stratégie de source doit bumper la génération, y compris
-    // quand elle ne fait que RESTREINDRE ce qui est servi. Générations précédentes : 'ratio'
-    // (origine), 'ratio2' (matérialité du dénominateur), 'ratio3' (contiguïté TTM + condition de
-    // repli), 'ratio4' (repli sur le store enrichi EDGAR), 'ratio5' (profondeur annuelle
-    // stockanalysis), 'ratio6' (chemin EU intra-annuel). Les vieilles clés expirent seules.
-    const key = cache.cacheKey(ticker, ratioKey, 'ratio7', years);
+    // Génération partagée (cf FCF_CHART_GENERATION) : ces ratios ont le FCF ajusté au numérateur
+    // ou au dénominateur, leur stratégie de source ET la formule du FCF doivent donc les
+    // invalider. La règle du fichier reste entière (TOUTE évolution de la stratégie bumpe, y
+    // compris quand elle ne fait que RESTREINDRE ce qui est servi) : elle se joue maintenant sur
+    // CHART_STRATEGY_GENERATION, en un seul endroit pour les trois familles de graphes.
+    // Générations manuelles précédentes : 'ratio' (origine), 'ratio2' (matérialité du
+    // dénominateur), 'ratio3' (contiguïté TTM + condition de repli), 'ratio4' (repli sur le store
+    // enrichi EDGAR), 'ratio5' (profondeur annuelle stockanalysis), 'ratio6' (chemin EU
+    // intra-annuel), 'ratio7' (garde-fou de définition #281, oublié puis rattrapé par #284 —
+    // c'est précisément l'oubli que la génération partagée rend impossible).
+    const key = cache.cacheKey(ticker, ratioKey, `ratio-${cache.FCF_CHART_GENERATION}`, years);
     const hit = await cache.get(key);
     if (hit) {
       cacheable();
