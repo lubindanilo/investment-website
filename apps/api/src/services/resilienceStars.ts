@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import type { ResilienceStars, ResilienceStarVerdict } from '@lubin/shared';
 import { prisma } from '../db/client.js';
+import { repairAccents } from '../lib/frenchAccents.js';
 import { runClaudeJson, resolveModel } from './resilienceStarsCli.js';
 import { buildScoringPrompt } from './resilienceStarsPrompt.js';
 
@@ -303,7 +304,17 @@ interface RawScore {
   criteria: Record<CriterionKey, CriterionScore>;
 }
 
-/** Extrait et valide le tableau JSON renvoye par le modele (tolere un fencing markdown). */
+/**
+ * Extrait et valide le tableau JSON renvoye par le modele (tolere un fencing markdown).
+ *
+ * Les justifications passent par `repairAccents` ICI, c'est-a-dire au point de passage unique
+ * des trois adaptateurs (CLI, API, DeepSeek) : ce qui part en base est deja accentue, quel que
+ * soit le scoreur. Le prompt demande deja du francais accentue ; ceci est le filet.
+ *
+ * On repare l'ORTHOGRAPHE, pas la typographie : la casse et les espaces restent ceux du modele,
+ * et la mise en forme d'affichage (`polishFrenchText`) reste au front. Ce qu'on stocke est ce que
+ * le modele a ecrit, moins la faute d'accent.
+ */
 export function parseScores(resultText: string): RawScore[] {
   const cleaned = resultText.replace(/```json/gi, '').replace(/```/g, '').trim();
   const match = cleaned.match(/\[[\s\S]*\]/);
@@ -312,7 +323,7 @@ export function parseScores(resultText: string): RawScore[] {
   return parsed.map(entry => ({
     nom: entry.nom,
     criteria: Object.fromEntries(
-      CRITERION_KEYS.map(key => [key, { star: entry[key].s, justification: entry[key].r }]),
+      CRITERION_KEYS.map(key => [key, { star: entry[key].s, justification: repairAccents(entry[key].r) }]),
     ) as Record<CriterionKey, CriterionScore>,
   }));
 }

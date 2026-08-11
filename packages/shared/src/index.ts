@@ -7,6 +7,9 @@
 export * from './articles.js';
 export * from './companyNames.js';
 
+// ─── Orthographe française des textes produits par un LLM ───────────────────
+export * from './frenchAccents.js';
+
 // ─── Critères ──────────────────────────────────────────────────────────────
 
 export type CriterionStatus = 'pass' | 'fail' | 'warn';
