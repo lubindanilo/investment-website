@@ -78,13 +78,18 @@ const MATERIAL_COVERAGE_GAP_MS = 365 * 24 * 3600 * 1000;
  * base continuent de servir l'ancienne réponse jusqu'à leur TTL (calé sur les earnings, donc
  * jusqu'à ~3 mois).
  *
- * Générations précédentes : (aucune, clé = freq nue), puis 'g2' (chemin EU intra-annuel, #274).
- * 'g3' ne suit aucun changement de code : c'est la même purge unique de données que le passage de
- * CHART_STRATEGY_GENERATION à 6 — le backfill du 11/08/2026 a enrichi les séries avant que la
- * purge par ticker de #291 n'existe, et sans ce bump ces graphes-là restaient courts pendant des
- * semaines alors que la donnée profonde était en base.
+ * Générations précédentes : (aucune, clé = freq nue), puis 'g2' (chemin EU intra-annuel, #274),
+ * 'g3' (purge unique après le backfill du 11/08/2026, antérieur au mécanisme de purge de #291).
+ * 'g4' : arbitrage de couverture des fenêtres courtes (#295).
+ *
+ * ⚠ #295 avait sauté ce bump, au motif que la purge 'g3' venait de vider le cache — sauf que les
+ * requêtes de VÉRIFICATION passées entre les deux déploiements avaient déjà réchauffé les clés
+ * regardées. Résultat : la dette de DG.PA restait à 4 semestres sur 5Y (clé chaude) alors que les
+ * fenêtres voisines 4Y et 6Y, froides, servaient déjà la bonne réponse. Toute vérification
+ * repeuple le cache : un changement de stratégie qui la suit exige donc son propre bump, même
+ * quand une purge vient d'avoir lieu.
  */
-const CACHE_GEN = 'g3';
+const CACHE_GEN = 'g4';
 
 /**
  * Repli ADR étranger (déposant 20-F : NVO, OMAB, ASML, NSRGY…) : Finnhub n'a aucun
