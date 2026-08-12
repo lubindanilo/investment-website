@@ -92,8 +92,12 @@ export interface CachedQuantSnapshot {
  *     dédoublonnage agrégat/composantes, au lieu du premier tag qui matche). Débloque les
  *     déposants sans aucun des trois anciens tags (Corning 1 282 M$, EA, Alaska Air,
  *     Gallagher — leur FCF valait leur CFO) et complète les ventilés (CAT ×1,52, EOG ×1,08).
+ * 5 — critère n°5 remplacé : évolution du CA par employé (effectifs stockanalysis,
+ *     revenuePerEmployeeCagr) à la place de la profitabilité cash, qui devient son REPLI
+ *     quand l'historique d'effectifs manque. Sans invalidation, les snapshots serviraient
+ *     l'ancienne grille (et des métriques sans les champs employés) jusqu'au prochain earnings.
  */
-export const SNAPSHOT_LOGIC_VERSION = 4;
+export const SNAPSHOT_LOGIC_VERSION = 5;
 
 /**
  * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.
@@ -211,7 +215,10 @@ export async function getCachedSnapshotsBatch(tickers: string[]): Promise<Map<st
 function computableMetrics(snap: CachedQuantSnapshot): number {
   const m = snap.metrics ?? ({} as DerivedMetrics);
   const vals = [
-    m.netMargin, m.revenueCagr, m.fcfPerShareCagr, m.shareCagr, m.fcfMargin,
+    // Critère n°5 = CA/employé, avec fcfMargin en repli : calculable si L'UN des deux l'est
+    // (même logique que buildQuantitativeCriteria — compter les deux gonflerait le total à 11
+    // et déclarerait « dégradé » tout recompute qui perd l'un en gagnant l'autre).
+    m.netMargin, m.revenueCagr, m.fcfPerShareCagr, m.shareCagr, m.revenuePerEmployeeCagr ?? m.fcfMargin,
     m.operatingLeverage, m.cashROCE, m.netDebtFcf, m.ccr, m.nwcCurrentRatio,
   ];
   return vals.filter((v) => v != null).length;
@@ -248,6 +255,7 @@ export function hasAberrantMetric(snap: CachedQuantSnapshot): boolean {
     ab(m.revenueCagr,     x => Math.abs(x) > 5)  ||
     ab(m.netMargin,       x => x < -20 || x > 10) ||
     ab(m.fcfMargin,       x => x < -20 || x > 10) ||
+    ab(m.revenuePerEmployeeCagr, x => Math.abs(x) > 5) ||
     ab(m.cashROCE,        x => Math.abs(x) > 20)
   );
 }

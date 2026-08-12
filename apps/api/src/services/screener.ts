@@ -422,7 +422,8 @@ export function fundamentalsFingerprint(input: {
   const parts = [
     input.scoreChiffres, input.scoreChiffresMax,
     r(m.netMargin), r(m.revenueCagr), r(m.fcfPerShareCagr), r(m.fcfPerShareGrowth2Y),
-    r(m.shareCagr), r(m.fcfMargin), m.operatingLeverage === null ? 'x' : String(m.operatingLeverage),
+    r(m.shareCagr), r(m.fcfMargin), r(m.revenuePerEmployeeCagr),
+    m.operatingLeverage === null ? 'x' : String(m.operatingLeverage),
     r(m.cashROCE), r(m.netDebtFcf), r(m.ccr), r(m.ccc, 1),
   ];
   return createHash('sha1').update(parts.join('|')).digest('hex').slice(0, 16);

@@ -225,6 +225,18 @@ export interface DerivedMetrics {
   /** Origine du chiffre, pour transparence côté UI/logs. */
   shareCagrSource: 'yahoo' | 'finnhub-derived' | null;
   fcfMargin: number | null;
+  /**
+   * Croissance annualisée du CA PAR EMPLOYÉ sur ~5 ans (régression log-linéaire sur les
+   * exercices où effectif ET chiffre d'affaires sont connus). Neutre en devise (le CA de
+   * reporting est constant dans le temps). Null si l'historique d'effectifs manque — le
+   * critère n°5 retombe alors sur fcfMargin (repli explicite, grille toujours à 10).
+   * Optionnel : absent des snapshots antérieurs au critère.
+   */
+  revenuePerEmployeeCagr?: number | null;
+  /** CA par employé du dernier exercice, en devise de REPORTING (contexte, pas de comparaison inter-titres). */
+  revenuePerEmployee?: number | null;
+  /** Effectif du dernier exercice connu (stockanalysis). */
+  employees?: number | null;
   operatingLeverage: boolean | null;
   cashROCE: number | null;
   /**
@@ -693,8 +705,8 @@ export type TimeseriesMetricKey = 'revenue' | 'netIncome' | 'operatingIncome' | 
  * la série renvoyée est déjà le ratio lui-même — marge en % (unit 'percent') ou multiple
  * × (unit 'multiple') — pas une grandeur absolue. Le dernier point = la valeur de la carte.
  */
-export type RatioMetricKey = 'netMargin' | 'fcfMargin' | 'operatingMargin' | 'netDebtFcf' | 'cashConversion';
-export const RATIO_METRIC_KEYS: readonly RatioMetricKey[] = ['netMargin', 'fcfMargin', 'operatingMargin', 'netDebtFcf', 'cashConversion'];
+export type RatioMetricKey = 'netMargin' | 'fcfMargin' | 'operatingMargin' | 'netDebtFcf' | 'cashConversion' | 'revenuePerEmployee';
+export const RATIO_METRIC_KEYS: readonly RatioMetricKey[] = ['netMargin', 'fcfMargin', 'operatingMargin', 'netDebtFcf', 'cashConversion', 'revenuePerEmployee'];
 
 /**
  * Nombre maxi de titres comparables côté /comparer. Source unique de vérité partagée
@@ -721,6 +733,7 @@ export interface CriterionHistogram {
 // graphiques, briefs et catalogues i18n sans dépendre du libellé localisé.
 export type QuantCriterionKey =
   | 'netMargin' | 'revenueGrowth5y' | 'fcfGrowth5y' | 'shareCount5y' | 'fcfMargin'
+  | 'revenuePerEmployeeGrowth5y'
   | 'operatingLeverage' | 'cashRoce' | 'netDebtFcf' | 'cashConversion' | 'ccc'
   | 'pfcf' | 'valuation';
 
@@ -737,6 +750,7 @@ export const CRITERION_HISTOGRAMS: Record<string, CriterionHistogram> = {
   fcfGrowth5y:       { metricKey: 'fcf',             label: 'Free cash flow trimestriel',         labelKey: 'charts.fcf',             unit: 'currency' },
   shareCount5y:      { metricKey: 'shares',          label: 'Actions diluées (moyenne)',          labelKey: 'charts.shares',          unit: 'count'    },
   fcfMargin:         { metricKey: 'fcfMargin',       label: 'Marge FCF (TTM)',                    labelKey: 'charts.fcfMargin',       unit: 'percent'  },
+  revenuePerEmployeeGrowth5y: { metricKey: 'revenuePerEmployee', label: 'CA par employé (exercice)', labelKey: 'charts.revenuePerEmployee', unit: 'currency' },
   operatingLeverage: { metricKey: 'operatingMargin', label: 'Marge opérationnelle (TTM)',         labelKey: 'charts.operatingMargin', unit: 'percent'  },
   netDebtFcf:        { metricKey: 'netDebtFcf',      label: 'Dette nette / FCF (TTM)',            labelKey: 'charts.netDebtFcf',      unit: 'multiple' },
   cashConversion:    { metricKey: 'cashConversion',  label: 'Conversion cash FCF/RN (TTM)',       labelKey: 'charts.cashConversion',  unit: 'multiple' },

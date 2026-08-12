@@ -30,14 +30,16 @@ import {
   loadIntraYearSet, rollingYearSum, seriesDeviation, agreesWithAnnual, type IntraCadence,
 } from './intraYearStore.js';
 import { resolveYahooTicker } from './yahooResolve.js';
+import { getRevenuePerEmployee } from './employeesStore.js';
 
 /** Unité d'affichage de chaque ratio (alignée sur CriterionHistogram.unit côté shared). */
-const RATIO_UNIT: Record<RatioMetricKey, 'percent' | 'multiple'> = {
+const RATIO_UNIT: Record<RatioMetricKey, 'percent' | 'multiple' | 'currency'> = {
   netMargin: 'percent',
   fcfMargin: 'percent',
   operatingMargin: 'percent',
   cashConversion: 'multiple', // ratio FCF/RN (ex 1.05×) — même unité que la carte (fmtRaw)
   netDebtFcf: 'multiple',
+  revenuePerEmployee: 'currency', // montant par tête, devise de reporting — servi par un chemin dédié
 };
 
 /**
@@ -48,14 +50,21 @@ const RATIO_UNIT: Record<RatioMetricKey, 'percent' | 'multiple'> = {
  */
 export const RATIO_METRIC_KEYS = Object.keys(RATIO_UNIT) as RatioMetricKey[];
 
+/**
+ * Ratios calculés par les trois chemins génériques (US TTM / annuel / EU intra-annuel).
+ * revenuePerEmployee en est exclu : sa cadence est annuelle par nature (l'effectif tombe au
+ * rapport annuel) et sa série vit dans employeesStore — chemin dédié dans getRatioTimeseries.
+ */
+type ComputedRatioKey = Exclude<RatioMetricKey, 'revenuePerEmployee'>;
+
 /** Facteur d'échelle : 100 pour exprimer une marge en points de %, 1 pour un multiple ×. */
-function scaleFor(ratio: RatioMetricKey): number {
+function scaleFor(ratio: ComputedRatioKey): number {
   return RATIO_UNIT[ratio] === 'percent' ? 100 : 1;
 }
 
 export interface RatioTimeseriesResult {
   points: TimeseriesPoint[];
-  unit: 'percent' | 'multiple';
+  unit: 'percent' | 'multiple' | 'currency';
   /**
    * Granularité réellement produite : 'quarterly' (TTM glissant US, ou EU trimestriel du store),
    * 'semiannual' (émetteurs EU sans Q1/Q3, 12 mois glissants sur 2 semestres) ou 'annual'.
@@ -193,7 +202,7 @@ async function fcfAdjTtm(ticker: string, years: number): Promise<TimeseriesPoint
   return (await getAdjustedFcfTtmSeries(ticker, years)).map(p => ({ date: p.date, value: p.value }));
 }
 
-async function computeUsRatio(ticker: string, ratio: RatioMetricKey, years: number): Promise<TimeseriesPoint[]> {
+async function computeUsRatio(ticker: string, ratio: ComputedRatioKey, years: number): Promise<TimeseriesPoint[]> {
   const W = years + 1; // +1 an pour amorcer le premier TTM
   const scale = scaleFor(ratio);
   let raw: TimeseriesPoint[];
@@ -272,10 +281,10 @@ function subtractByYear(a: TimeseriesPoint[], b: TimeseriesPoint[]): TimeseriesP
   return out;
 }
 
-async function computeAnnualRatio(ticker: string, symbol: string, ratio: RatioMetricKey, years: number): Promise<TimeseriesPoint[]> {
+async function computeAnnualRatio(ticker: string, symbol: string, ratio: ComputedRatioKey, years: number): Promise<TimeseriesPoint[]> {
   const scale = scaleFor(ratio);
   // UN batch par ratio (les types manquants reviennent []), lu à travers le store persistant.
-  const TYPES: Record<RatioMetricKey, string[]> = {
+  const TYPES: Record<ComputedRatioKey, string[]> = {
     netMargin:       ['annualNetIncome', 'annualTotalRevenue'],
     operatingMargin: ['annualOperatingIncome', 'annualTotalRevenue'],
     fcfMargin:       ['annualFreeCashFlow', 'annualTotalRevenue'],
@@ -314,7 +323,7 @@ async function computeAnnualRatio(ticker: string, symbol: string, ratio: RatioMe
 // avec la carte qu'un graphe « plus juste » qui ne recoupe rien.
 
 /** Métriques du store nécessaires à chaque ratio (au-delà du CA, toujours chargé comme pivot). */
-const INTRA_METRICS: Record<RatioMetricKey, string[]> = {
+const INTRA_METRICS: Record<ComputedRatioKey, string[]> = {
   netMargin:       ['netIncome'],
   operatingMargin: ['operatingIncome'],
   fcfMargin:       ['fcf'],
@@ -326,7 +335,7 @@ const INTRA_METRICS: Record<RatioMetricKey, string[]> = {
 
 async function computeEuIntraYearRatio(
   ticker: string,
-  ratio: RatioMetricKey,
+  ratio: ComputedRatioKey,
   years: number,
 ): Promise<{ points: TimeseriesPoint[]; freq: IntraCadence } | null> {
   const W = years + 1; // +1 an pour amorcer le premier 12 mois glissant
@@ -376,6 +385,17 @@ async function computeEuIntraYearRatio(
  */
 export async function getRatioTimeseries(ticker: string, ratio: RatioMetricKey, years: number): Promise<RatioTimeseriesResult> {
   const unit = RATIO_UNIT[ratio];
+
+  // CA par employé : cadence annuelle par nature (l'effectif tombe au rapport annuel), même
+  // chemin pour US et EU — la série vient d'employeesStore (mêmes points que la carte).
+  // Plancher 5 ans comme le chemin annuel : une fenêtre courte ne rendrait qu'un point.
+  if (ratio === 'revenuePerEmployee') {
+    const rpe = await getRevenuePerEmployee(ticker, Date.now());
+    const points = filterWindow(rpe.points, Math.max(years, 5));
+    console.log(`[ratio ${ticker}/${ratio}] annuel employés ${points.length} pts`);
+    return { points, unit, freq: 'annual', source: 'store', annualOnly: true };
+  }
+
   const resolved = await resolveYahooTicker(ticker).catch(() => null);
   // Détection EU par DEVISE (≠ USD) et non « symbol ≠ ticker » : un ticker déjà suffixé
   // (AF.PA, MC.PA…) résout vers lui-même → l'ancien test le classait à tort en US → Finnhub SEC

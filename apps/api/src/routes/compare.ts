@@ -20,7 +20,7 @@ import { loadQuantData } from '../services/quantSnapshot.js';
 import { getServableSnapshot } from '../services/quantCache.js';
 import { getPublishedResilienceBreakdowns } from '../services/resilienceSummary.js';
 import { getResilienceStars } from '../services/resilienceStars.js';
-import { buildQuantitativeCriteria, buildPfcfCriterion, buildValuation } from '../services/derivedMetrics.js';
+import { buildQuantitativeCriteria, buildPfcfCriterion, buildValuation, buildRevenuePerEmployeeCriterion, buildFcfMarginCriterion } from '../services/derivedMetrics.js';
 import { getPfcfHistory, pfcfPercentile as computePfcfPercentile } from '../services/pfcfHistory.js';
 import { asyncHandler, ApiError } from '../middleware/error.js';
 import { analyzeLimiter } from '../middleware/rateLimit.js';
@@ -44,6 +44,7 @@ const NUM_BY_KEY: Record<string, (m: DerivedMetrics) => number | null> = {
   fcfGrowth5y: m => m.fcfPerShareCagr,
   shareCount5y: m => m.shareCagr,
   fcfMargin: m => m.fcfMargin,
+  revenuePerEmployeeGrowth5y: m => m.revenuePerEmployeeCagr ?? null,
   operatingLeverage: () => null,
   cashRoce: m => m.cashROCE,
   netDebtFcf: m => m.netDebtFcf,
@@ -62,6 +63,12 @@ async function buildCompareTicker(ticker: string, lang: Lang): Promise<CompareTi
   for (const c of chiffres) {
     if (!c.key) continue;
     cells[c.key] = { d: c.valeur, n: NUM_BY_KEY[c.key]?.(m) ?? null, s: toData(c.statut) };
+  }
+  // Le critère n°5 est exclusif dans la grille (CA/employé OU son repli fcfMargin) mais le
+  // comparateur affiche LES DEUX lignes pour tous les titres : on complète la cellule que la
+  // grille n'a pas produite (les deux métriques sont calculées indépendamment du critère retenu).
+  for (const c of [buildRevenuePerEmployeeCriterion(m, lang), buildFcfMarginCriterion(m, lang)]) {
+    if (c.key && !cells[c.key]) cells[c.key] = { d: c.valeur, n: NUM_BY_KEY[c.key]?.(m) ?? null, s: toData(c.statut) };
   }
 
   // P/FCF (ligne valorisation)
@@ -174,6 +181,11 @@ compareRouter.get('/', analyzeLimiter, optionalAuth, asyncHandler(async (req: Re
   const criteria: CompareCriterionDef[] = buildQuantitativeCriteria(NULL_METRICS, lang)
     .filter(c => c.key)
     .map(c => ({ key: c.key as string, label: c.nom, target: c.cible }));
+  // Sur métriques nulles, la grille rend le REPLI (fcfMargin) en n°5 : on insère la ligne
+  // CA/employé juste avant pour que le tableau porte les deux (cf. cellules ci-dessus).
+  const rpeDef = buildRevenuePerEmployeeCriterion(NULL_METRICS, lang);
+  const fcfIdx = criteria.findIndex(c => c.key === 'fcfMargin');
+  criteria.splice(fcfIdx < 0 ? criteria.length : fcfIdx, 0, { key: rpeDef.key as string, label: rpeDef.nom, target: rpeDef.cible });
   const response: CompareResponse = { tickers, criteria };
   res.json(response);
 }));

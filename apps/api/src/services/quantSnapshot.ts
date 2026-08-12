@@ -31,6 +31,7 @@ import { getYahooFundamentals } from './yahooFundamentals.js';
 import { getEarningsInfo } from './earnings.js';
 import type { EarningsInfo } from '@lubin/shared';
 import { computeDerivedMetrics } from './derivedMetrics.js';
+import { getRevenuePerEmployee, applyRevenuePerEmployee } from './employeesStore.js';
 import type { DerivedMetrics } from '@lubin/shared';
 import { computeLivePfcf, type CachedQuantSnapshot } from './quantCache.js';
 import { getSecReportingCurrency } from './secEdgar.js';
@@ -309,6 +310,14 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   // croissance en valorisation. Calculée ici car sharesHistory (annuel) est disponible pour
   // TOUS les chemins (Finnhub, Yahoo ADR, Yahoo pur), là où le CAGR dépend de la source.
   if (metrics) metrics.fcfPerShareGrowth2Y = computeFcfPerShareGrowth2Y(sharesHistory);
+
+  // CA par employé : effectifs stockanalysis (lecture-traversante, cadence annuelle) croisés
+  // avec le CA que le chemin fondamental vient d'écrire en base. Post-traitement commun aux
+  // deux chemins — un échec laisse le critère n°5 en repli fcfMargin (cf. buildQuantitativeCriteria).
+  if (metrics) {
+    const rpe = await timed('employees rpe', getRevenuePerEmployee(ticker, Date.now())).catch(() => null);
+    applyRevenuePerEmployee(metrics, rpe);
+  }
 
   const fundamentalsAvailable = fundamentalsSource !== null;
   const company = companyFromSource ?? fhProfile?.name ?? ticker;

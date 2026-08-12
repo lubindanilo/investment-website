@@ -469,23 +469,13 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
         explication: base,
       } as const;
     })(),
-    (() => {
-      // Mention discrète quand une part notable du cash d'exploitation était de l'argent
-      // des clients : sans elle, un lecteur qui recalcule le ratio depuis le CFO publié
-      // trouverait un tout autre chiffre et croirait à une erreur de notre part.
-      const floatNote = (m.floatShareOfCfo != null && Math.abs(m.floatShareOfCfo) > FLOAT_NOTE_MIN)
-        ? tt(lang, 'fcfMargin.note.customerFloat') : '';
-      return {
-        key: 'fcfMargin',
-        nom: tt(lang, 'fcfMargin.name'),
-        valeur: m.fcfMargin == null ? NOT_CALC : fmtPct(m.fcfMargin),
-        cible: tt(lang, 'fcfMargin.target'),
-        statut: m.fcfMargin == null ? 'warn' : m.fcfMargin > 0.10 ? 'pass' : m.fcfMargin > 0.05 ? 'warn' : 'fail',
-        explication: m.fcfMargin == null
-          ? reasonOr(m, 'fcfMargin', unavailable, lang)
-          : (m.fcfMargin > 0.10 ? tt(lang, 'fcfMargin.solid') : tt(lang, 'fcfMargin.weak')) + floatNote,
-      } as const;
-    })(),
+    // Critère n°5 : évolution du CA par employé (productivité). Quand l'historique
+    // d'effectifs manque (source non couverte, série trop courte), on retombe EXPLICITEMENT
+    // sur l'ancien critère de profitabilité cash — la grille reste à 10 critères partout et
+    // les titres non couverts ne gagnent pas un warn gratuit (0,5 pt) sur un trou de donnée.
+    m.revenuePerEmployeeCagr != null
+      ? buildRevenuePerEmployeeCriterion(m, lang)
+      : buildFcfMarginCriterion(m, lang),
     {
       key: 'operatingLeverage',
       nom: tt(lang, 'operatingLeverage.name'),
@@ -591,6 +581,54 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
       } as const;
     })(),
   ];
+}
+
+/**
+ * Critère « CA par employé en croissance » — productivité par tête sur ~5 exercices.
+ * Rendu même à null (valeur « Non calculable ») pour que le comparateur puisse afficher la
+ * ligne pour tous les titres ; dans la GRILLE de score, buildQuantitativeCriteria ne
+ * l'utilise que si la croissance est calculable (sinon repli fcfMargin, jamais deux warns).
+ */
+export function buildRevenuePerEmployeeCriterion(m: DerivedMetrics, lang: Lang = 'fr'): Criterion {
+  const g = m.revenuePerEmployeeCagr ?? null;
+  const perYear = tt(lang, 'common.perYear');
+  return {
+    key: 'revenuePerEmployeeGrowth5y',
+    nom: tt(lang, 'revenuePerEmployeeGrowth5y.name'),
+    valeur: g == null ? tt(lang, 'common.notCalc') : fmtPct(g, perYear),
+    cible: tt(lang, 'revenuePerEmployeeGrowth5y.target'),
+    statut: g == null ? 'warn' : g > 0.05 ? 'pass' : g > 0 ? 'warn' : 'fail',
+    explication: g == null
+      ? reasonOr(m, 'revenuePerEmployeeCagr', tt(lang, 'revenuePerEmployeeGrowth5y.unavailable'), lang)
+      : g > 0.05
+        ? tt(lang, 'revenuePerEmployeeGrowth5y.strong')
+        : g > 0
+          ? tt(lang, 'revenuePerEmployeeGrowth5y.stable')
+          : tt(lang, 'revenuePerEmployeeGrowth5y.declining'),
+  };
+}
+
+/**
+ * Critère « Profitabilité cash » (marge de FCF ajusté). N'entre plus dans la grille que
+ * comme REPLI du critère CA par employé (historique d'effectifs indisponible) — et reste
+ * exposé tel quel au comparateur, la métrique fcfMargin étant calculée pour tous.
+ */
+export function buildFcfMarginCriterion(m: DerivedMetrics, lang: Lang = 'fr'): Criterion {
+  // Mention discrète quand une part notable du cash d'exploitation était de l'argent
+  // des clients : sans elle, un lecteur qui recalcule le ratio depuis le CFO publié
+  // trouverait un tout autre chiffre et croirait à une erreur de notre part.
+  const floatNote = (m.floatShareOfCfo != null && Math.abs(m.floatShareOfCfo) > FLOAT_NOTE_MIN)
+    ? tt(lang, 'fcfMargin.note.customerFloat') : '';
+  return {
+    key: 'fcfMargin',
+    nom: tt(lang, 'fcfMargin.name'),
+    valeur: m.fcfMargin == null ? tt(lang, 'common.notCalc') : fmtPct(m.fcfMargin),
+    cible: tt(lang, 'fcfMargin.target'),
+    statut: m.fcfMargin == null ? 'warn' : m.fcfMargin > 0.10 ? 'pass' : m.fcfMargin > 0.05 ? 'warn' : 'fail',
+    explication: m.fcfMargin == null
+      ? reasonOr(m, 'fcfMargin', tt(lang, 'common.unavailable'), lang)
+      : (m.fcfMargin > 0.10 ? tt(lang, 'fcfMargin.solid') : tt(lang, 'fcfMargin.weak')) + floatNote,
+  };
 }
 
 /**

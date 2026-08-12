@@ -1248,6 +1248,10 @@
       "why": "Out of €100 in sales, how much turns into cash that's actually available, once investments are paid. This is the cash that can be paid back to you or reinvested.",
       "how": "Free cash ÷ sales."
     },
+    "revenuePerEmployeeGrowth5y": {
+      "why": "A quality company generates more sales with the same team, year after year. When revenue per employee grows, the organization is getting more efficient; when it declines, headcount is growing faster than the business.",
+      "how": "Annual revenue ÷ number of employees at fiscal year end, trend over the last 5 years. When employee history is unavailable, the card shows cash profitability instead (free cash ÷ sales)."
+    },
     "operatingLeverage": {
       "why": "Are sales growing faster than costs over the years? If so, margins widen (a favorable scissors effect) and the company gets more profitable as it grows; if costs rise faster, margins compress.",
       "how": "We track the operating margin (the share of sales left after running costs) over the last 5 years, to see whether the gap between sales and costs works in the company's favor."
@@ -1302,6 +1306,7 @@
     "totalDebt": "Long-term debt",
     "netMargin": "Net margin (TTM)",
     "fcfMargin": "FCF margin (TTM)",
+    "revenuePerEmployee": "Revenue per employee (fiscal year)",
     "operatingMargin": "Operating margin (TTM)",
     "netDebtFcf": "Net debt / FCF (TTM)",
     "cashConversion": "Cash conversion FCF/NI (TTM)"
@@ -1330,7 +1335,7 @@
   "heroPreview": {
     "composition": "Breakdown",
     "cashRoce": "Capital return",
-    "fcfMargin": "Cash profitability",
+    "revPerEmployee": "Revenue / employee",
     "revenueGrowth": "Sales growth",
     "debtFcf": "Leverage",
     "netMargin": "Net margin",
@@ -2004,10 +2009,10 @@
       },
       {
         "num": 5,
-        "nom": "Cash profitability",
-        "formule": "Cash margin = free cash flow / revenue",
-        "seuil": "> 10 %",
-        "pourquoi": "Free cash flow is the money actually left in the bank once everything is paid, far more reliable than accounting earnings. A high margin means each euro of revenue generates real cash."
+        "nom": "Growing revenue per employee",
+        "formule": "Annual revenue / number of employees, trend over 5 years",
+        "seuil": "> 5 % per year",
+        "pourquoi": "Generating more sales with the same team is the mark of an organization getting more efficient: automation, pricing power, economies of scale. When employee history is unavailable, we grade cash profitability instead (free cash flow / revenue, 10 % threshold)."
       },
       {
         "num": 6,
