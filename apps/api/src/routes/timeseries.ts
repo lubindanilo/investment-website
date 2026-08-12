@@ -62,6 +62,17 @@ const YAHOO_MAX_YEARS_QUARTERLY = 1;
 const MIN_CHART_POINTS = 3;
 
 /**
+ * Écart de couverture au-delà duquel une série annuelle l'emporte sur l'intra-annuelle malgré sa
+ * granularité plus grossière, sur une fenêtre courte.
+ *
+ * Un an : en deçà, l'écart entre les deux points de départ n'est qu'une différence de calendrier
+ * d'exercice ou un semestre d'accumulation en plus, et la granularité fine reste préférable.
+ * Au-delà, l'annuel raconte vraiment une période que l'intra-annuel ne couvre pas — cas mesuré
+ * sur la dette de DG.PA, dont le store ne remonte qu'à fin 2024 quand l'annuel part de 2021.
+ */
+const MATERIAL_COVERAGE_GAP_MS = 365 * 24 * 3600 * 1000;
+
+/**
  * Génération de clé de cache des grandeurs ABSOLUES (les familles dérivées du FCF ont la leur, cf
  * FCF_CHART_GENERATION). À bumper dès que la STRATÉGIE de source change, sinon les entrées déjà en
  * base continuent de servir l'ancienne réponse jusqu'à leur TTL (calé sur les earnings, donc
@@ -223,8 +234,8 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     //   • fenêtre courte (client en trimestriel) → série INTRA-ANNUELLE du store, accumulée
     //     depuis Yahoo-Q + stockanalysis. Vrai trimestriel pour ~60 % des large caps EU,
     //     SEMESTRIEL pour ~25 % (Vinci, LVMH… ne publient pas de Q1/Q3) ;
-    //   • fenêtre longue (annuel demandé)      → store annuel (Yahoo + profondeur stockanalysis),
-    //     sauf si l'intra-annuel remonte plus loin (cf. arbitrage ci-dessous).
+    //   • fenêtre longue (annuel demandé)      → store annuel (Yahoo + profondeur stockanalysis).
+    // Dans les deux cas c'est la COUVERTURE de la fenêtre demandée qui tranche (cf. ci-dessous).
     //
     // Avant, la branche EU tapait l'annuel Yahoo dans TOUS les cas : ses ~4 exercices étaient
     // donc la seule réponse possible quelle que soit la période choisie — alors que les séries
@@ -240,24 +251,25 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
       servedFreq = s.freq;
       source = 'store';
     };
-    const intra = await readStoredIntraYear(ticker, metric, years);
-    if (intra && requestedFreq === 'quarterly') {
+    const [intra, annual] = await Promise.all([readStoredIntraYear(ticker, metric, years), readAnnual()]);
+    // Arbitrage par COUVERTURE de la fenêtre demandée, et non par granularité :
+    //   • fenêtre longue → la profondeur prime. L'annuel gagne à égalité, ses barres étant plus
+    //     lisibles qu'une succession de semestres. Sur DG.PA le FCF semestriel couvre 2016→2026
+    //     quand l'annuel s'arrête à 2021 : servir l'annuel sur 10Y jetterait la moitié de
+    //     l'historique dont on dispose.
+    //   • fenêtre courte → la granularité fine prime, SAUF si l'annuel couvre matériellement
+    //     plus. Sans cette réserve, la dette de DG.PA rendait sur 5Y les 4 semestres accumulés
+    //     depuis 2024 — soit DEUX ans — quand l'annuel en couvrait cinq : la fenêtre étroite
+    //     était donc moins remplie que la large, ce qui n'a aucun sens pour qui compare.
+    // Un annuel trop court laisse dans tous les cas la main à l'intra-annuel, plutôt que de
+    // déclencher le « pas de données » du client.
+    if (intra && preferIntraYear(intra.points, annual, requestedFreq)) {
       useStored(intra);
     } else {
-      const annual = await readAnnual();
-      // Sur fenêtre longue, on sert la série qui REMONTE LE PLUS LOIN — l'annuel gagne à égalité,
-      // ses barres étant plus lisibles. La profondeur diffère par métrique : sur DG.PA le FCF
-      // semestriel couvre 2016→2026 quand l'annuel s'arrête à 2021, donc servir l'annuel sur 10Y
-      // jetterait la moitié de l'historique dont on dispose. Et un annuel trop court laisse aussi
-      // la main à l'intra-annuel, plutôt que de déclencher le « pas de données » du client.
-      if (intra && (annual.length < MIN_CHART_POINTS || intra.points[0]!.date < annual[0]!.date)) {
-        useStored(intra);
-      } else {
-        points = annual;
-        servedFreq = 'annual';
-        source = 'yahoo';
-        annualFallback = requestedFreq === 'quarterly' && annual.length > 0;
-      }
+      points = annual;
+      servedFreq = 'annual';
+      source = 'yahoo';
+      annualFallback = requestedFreq === 'quarterly' && annual.length > 0;
     }
   } else {
     const useYahooPrimary = requestedFreq === 'quarterly' && years <= YAHOO_MAX_YEARS_QUARTERLY;
@@ -345,6 +357,29 @@ timeseriesRouter.get('/', asyncHandler(async (req: Request, res: Response) => {
     euAnnualOnly: annualFallback,
   });
 }));
+
+/**
+ * Faut-il servir la série intra-annuelle plutôt que l'annuelle ? Décidé sur la COUVERTURE de la
+ * fenêtre demandée, pas sur la granularité. Pur → testable (cf. timeseries.coverageRule.test.ts).
+ *
+ * `requestedFreq` porte l'intention du client : 'quarterly' = fenêtre courte, où le détail
+ * intra-annuel est ce qu'on est venu chercher ; 'annual' = fenêtre longue, où c'est la profondeur.
+ */
+export function preferIntraYear(
+  intra: TimeseriesPoint[],
+  annual: TimeseriesPoint[],
+  requestedFreq: 'quarterly' | 'annual',
+): boolean {
+  if (intra.length < MIN_CHART_POINTS) return false;
+  // Annuel inexploitable : l'intra-annuel est notre seule option, mieux vaut ça que « pas de
+  // données » côté client.
+  if (annual.length < MIN_CHART_POINTS) return true;
+  const gapMs = Date.parse(intra[0]!.date) - Date.parse(annual[0]!.date);
+  // Fenêtre courte : le détail prime, sauf si l'annuel couvre matériellement plus de la période.
+  if (requestedFreq === 'quarterly') return gapMs <= MATERIAL_COVERAGE_GAP_MS;
+  // Fenêtre longue : la profondeur prime, l'annuel gagnant à égalité.
+  return gapMs < 0;
+}
 
 /**
  * Série INTRA-ANNUELLE du store (FundamentalsSeries), fenêtrée sur `years`. null si le store n'a
