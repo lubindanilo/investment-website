@@ -6,8 +6,8 @@
  * warn gratuit (0,5 pt) — la grille retombe sur l'ancien critère de profitabilité cash.
  */
 import { describe, it, expect } from 'vitest';
-import { parseEmployeesPayload } from './stockanalysisFundamentals.js';
-import { buildRevenuePerEmployeePoints, computeRevenuePerEmployeeGrowth, applyRevenuePerEmployee } from './employeesStore.js';
+import { parseEmployeesPayload, parseRevenuePayload } from './stockanalysisFundamentals.js';
+import { buildRevenuePerEmployeePoints, computeRevenuePerEmployeeGrowth, applyRevenuePerEmployee, extendWithDeepRevenue } from './employeesStore.js';
 import { appendOnlyMerge } from './fundamentalsStore.js';
 import { buildQuantitativeCriteria } from './derivedMetrics.js';
 import type { DerivedMetrics, TimeseriesPoint } from '@lubin/shared';
@@ -214,5 +214,83 @@ describe('applyRevenuePerEmployee', () => {
     expect(m2.revenuePerEmployeeCagr).toBeCloseTo(0.06, 6);
     expect(m2.employees).toBe(166000);
     expect(m2.notCalculableReasons?.revenuePerEmployeeCagr).toBeUndefined();
+  });
+});
+
+// ─── CA annuel profond (page /revenue/, jusqu'à 2005) ────────────────────────
+
+/** Payload minimal reproduisant la page /revenue/ (SPGI, 12/08/2026) : le nœud porte
+ *  `data` → { annual: [{date, revenue, …}] }, une entrée invalide à ignorer. */
+const REVENUE_PAYLOAD = JSON.stringify({
+  type: 'data',
+  nodes: [
+    { type: 'data', data: [{ session: 1 }, 'x'] },
+    {
+      type: 'data',
+      data: [
+        { data: 1, meta: 8 },
+        { annual: 2 },
+        [3, 6, 9],                              // annual : 3 lignes
+        { date: 4, revenue: 5 },
+        '2025-12-31', 15_336_000_000,
+        { date: 7, revenue: 8 },                // revenue pointe une string → ignorée
+        '2024-12-31', 'meta',
+        { date: 10, revenue: 11 },
+        '2005-12-31', 6_003_642_000,
+      ],
+    },
+  ],
+});
+
+describe('parseRevenuePayload', () => {
+  it('décode la série annuelle et la trie en ordre chronologique', () => {
+    expect(parseRevenuePayload(REVENUE_PAYLOAD)).toEqual([
+      { date: '2005-12-31', value: 6_003_642_000 },
+      { date: '2025-12-31', value: 15_336_000_000 },
+    ]);
+  });
+
+  it('renvoie null sur un payload sans série annual', () => {
+    expect(parseRevenuePayload('{"nodes":[{"data":[{"info":1},"x"]}]}')).toBeNull();
+    expect(parseRevenuePayload('pas du json')).toBeNull();
+  });
+});
+
+describe('extendWithDeepRevenue', () => {
+  const primary = [emp('2023-12-31', 12.5e9), emp('2024-12-31', 14.2e9), emp('2025-12-31', 15.3e9)];
+
+  it('étend vers le passé quand les exercices communs concordent', () => {
+    const deep = [emp('2005-12-31', 6.0e9), emp('2023-12-31', 12.4e9), emp('2025-12-31', 15.3e9)];
+    const out = extendWithDeepRevenue(primary, deep);
+    expect(out.map(p => p.date.slice(0, 4))).toEqual(['2005', '2023', '2024', '2025']);
+    // Jamais d'écrasement : sur 2023, la référence (12,5) gagne sur la profondeur (12,4).
+    expect(out[1]!.value).toBe(12.5e9);
+  });
+
+  it('refuse la profondeur quand la convention diverge (ADR : USD vs devise de reporting)', () => {
+    // Cas PDD-like : page /revenue/ en USD, store annuel en CNY → ratio ~1/7 sur les communs.
+    const deepUsd = [emp('2005-12-31', 0.9e9), emp('2024-12-31', 2.0e9), emp('2025-12-31', 2.2e9)];
+    expect(extendWithDeepRevenue(primary, deepUsd)).toEqual(primary);
+  });
+
+  it('refuse la profondeur sans exercice commun (convention invérifiable)', () => {
+    const deep = [emp('2005-12-31', 6.0e9), emp('2006-12-31', 6.2e9)];
+    expect(extendWithDeepRevenue(primary, deep)).toEqual(primary);
+  });
+
+  it('accepte la profondeur seule quand aucune référence n\'existe (US natif sans store annuel)', () => {
+    const deep = [emp('2006-12-31', 6.2e9), emp('2005-12-31', 6.0e9)];
+    expect(extendWithDeepRevenue([], deep).map(p => p.date.slice(0, 4))).toEqual(['2005', '2006']);
+  });
+});
+
+describe('buildRevenuePerEmployeePoints avec CA profond', () => {
+  it('produit les points anciens que le CA ordinaire ne couvre pas', () => {
+    const employees = [emp('2005-12-31', 20000), emp('2024-12-31', 43000), emp('2025-12-31', 44500)];
+    const annual = [emp('2024-12-31', 14.2e9), emp('2025-12-31', 15.3e9)];
+    const deep = [emp('2005-12-31', 6.0e9), emp('2024-12-31', 14.2e9)];
+    const pts = buildRevenuePerEmployeePoints(employees, annual, [], deep);
+    expect(pts).toHaveLength(3);
+    expect(pts[0]).toEqual({ date: '2005-12-31', value: 6.0e9 / 20000 });
   });
 });

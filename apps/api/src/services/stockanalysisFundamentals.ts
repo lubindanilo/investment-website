@@ -487,6 +487,65 @@ export async function getStockanalysisEmployees(yahooTicker: string): Promise<Ti
   return parseEmployeesPayload(text);
 }
 
+// ─── Historique PROFOND du chiffre d'affaires annuel ─────────────────────────
+//
+// Comme /employees/, stockanalysis expose une page /revenue/ dédiée dont le __data.json
+// contient BEAUCOUP plus d'exercices annuels que les pages financials (plafonnées à ~5 en
+// gratuit) : 21 exercices (2005→2025) relevés sur SPGI/AAPL/Hermès, 22 sur Toyota, 10-14 sur
+// HK/Vietnam/micro-caps (sondage du 12/08/2026). C'est le plafond du gratuit : au-delà de
+// 2005, il n'existe AUCUNE source structurée non payante (XBRL démarre en 2009, EDGAR
+// électronique en 1993).
+//
+// ⚠ Devise : pour un émetteur étranger coté US (ADR), cette page publie des montants
+// CONVERTIS EN USD, quand notre store annuel est en devise de REPORTING. Le caller
+// (employeesStore.extendWithDeepRevenue) recoupe donc les exercices communs avant d'étendre
+// une série avec ces points — jamais de fusion aveugle.
+
+/**
+ * Parse le payload __data.json de la page /revenue/ → série annuelle {date, value} ASC.
+ * Structure : un nœud dont data[0] porte `data` → { annual: [{date, revenue, …}], … }.
+ * Exporté pour tests.
+ */
+export function parseRevenuePayload(text: string): TimeseriesPoint[] | null {
+  let doc: { nodes?: unknown[] };
+  try { doc = JSON.parse(text) as { nodes?: unknown[] }; } catch { return null; }
+  const nodes = Array.isArray(doc?.nodes) ? doc.nodes : [];
+  for (const node of nodes) {
+    const data = (node as { data?: unknown[] } | null)?.data;
+    if (!Array.isArray(data) || data.length === 0) continue;
+    const root = data[0];
+    if (root === null || typeof root !== 'object' || Array.isArray(root)) continue;
+    const dataIdx = (root as Record<string, unknown>).data;
+    if (typeof dataIdx !== 'number') continue;
+    const payload = decodeDevalue(data, dataIdx);
+    if (payload === null || typeof payload !== 'object' || Array.isArray(payload)) continue;
+    const annual = (payload as Record<string, unknown>).annual;
+    if (!Array.isArray(annual)) continue;
+    const pts: TimeseriesPoint[] = [];
+    for (const row of annual) {
+      const r = row as { date?: unknown; revenue?: unknown } | undefined;
+      const date = r?.date;
+      const revenue = r?.revenue;
+      if (typeof date !== 'string' || !ISO_DATE.test(date)) continue;
+      if (typeof revenue !== 'number' || !Number.isFinite(revenue) || revenue <= 0) continue;
+      pts.push({ date, value: revenue });
+    }
+    if (pts.length > 0) {
+      pts.sort((a, b) => a.date.localeCompare(b.date));
+      return pts;
+    }
+  }
+  return null;
+}
+
+/** Fetch l'historique annuel profond du CA. Mêmes conventions que getStockanalysisEmployees. */
+export async function getStockanalysisRevenueHistory(yahooTicker: string): Promise<TimeseriesPoint[] | null> {
+  const urls = candidateBases(yahooTicker).map(b => `${b}/revenue/__data.json`);
+  const text = await fetchWithRetry(urls);
+  if (!text) return null;
+  return parseRevenuePayload(text);
+}
+
 /**
  * Verse les champs d'une page parsée dans `out` sous les clés métriques internes.
  * Exporté (avec parsePage) pour que les tests couvrent les DEUX formes de payload du site.

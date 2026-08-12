@@ -20,9 +20,15 @@
  */
 import type { TimeseriesPoint, DerivedMetrics } from '@lubin/shared';
 import { readSeries, isFresh, appendMergePersist, type ExpiryCadence } from './fundamentalsStore.js';
-import { getStockanalysisEmployees, detectCadence } from './stockanalysisFundamentals.js';
+import { getStockanalysisEmployees, getStockanalysisRevenueHistory, detectCadence } from './stockanalysisFundamentals.js';
 
 const EMPLOYEES_METRIC = 'employees';
+/**
+ * CA annuel PROFOND (page /revenue/ de stockanalysis, jusqu'à 2005) — série séparée de
+ * 'annualTotalRevenue', qui appartient au store annuel Yahoo et suit sa propre cadence.
+ * Ne sert qu'à étendre l'appariement CA/employé vers le passé (cf. extendWithDeepRevenue).
+ */
+const DEEP_REVENUE_METRIC = 'annualRevenueDeep';
 /** L'effectif tombe une fois par an (rapport annuel) : re-check ~400 j après le dernier point. */
 const ANNUAL_CADENCE: ExpiryCadence = { cadenceDays: 400, floorDays: 30 };
 
@@ -65,6 +71,22 @@ export async function getEmployeesHistory(ticker: string, nowMs: number): Promis
   if (isFresh(stored, nowMs)) return stored!.points;
   const built = await getStockanalysisEmployees(ticker).catch(() => null);
   return appendMergePersist(ticker, EMPLOYEES_METRIC, stored, built ?? [], 'stockanalysis', nowMs, {
+    freq: 'annual',
+    cadence: ANNUAL_CADENCE,
+    persistEmpty: true,
+  });
+}
+
+/**
+ * CA annuel profond, lecture-traversante (mêmes conventions que getEmployeesHistory).
+ * N'est sollicité par getRevenuePerEmployee que si l'effectif remonte plus loin que le CA
+ * déjà en base — la plupart des tickers n'en ont donc besoin qu'une fois.
+ */
+export async function getDeepAnnualRevenueHistory(ticker: string, nowMs: number): Promise<TimeseriesPoint[]> {
+  const stored = await readSeries(ticker, DEEP_REVENUE_METRIC);
+  if (isFresh(stored, nowMs)) return stored!.points;
+  const built = await getStockanalysisRevenueHistory(ticker).catch(() => null);
+  return appendMergePersist(ticker, DEEP_REVENUE_METRIC, stored, built ?? [], 'stockanalysis', nowMs, {
     freq: 'annual',
     cadence: ANNUAL_CADENCE,
     persistEmpty: true,
@@ -115,16 +137,50 @@ function fiscalYearFromIntra(sorted: TimeseriesPoint[], t: number): number | nul
 }
 
 /**
+ * Écart médian toléré entre le CA profond et le CA de référence sur les exercices communs.
+ * Au-delà, les deux séries ne parlent pas la même convention — cas réel : la page /revenue/
+ * d'un ADR publie des USD convertis quand le store annuel est en devise de reporting (CNY,
+ * JPY…) — et on écarte la profondeur plutôt que de tracer une marche de change (×7 sur PDD).
+ * 25 % absorbe les vraies divergences bénignes (restatements, arrondis, périmètres).
+ */
+const DEEP_AGREEMENT_TOLERANCE = 0.25;
+
+/**
+ * Étend la série de CA de référence avec les exercices ANTÉRIEURS du CA profond, après
+ * recoupement de convention sur les exercices communs (médiane des ratios par année).
+ * Jamais d'écrasement : sur une année couverte par les deux, la référence gagne. Sans
+ * exercice commun ET avec une référence non vide, la profondeur est refusée (invérifiable).
+ * Pur → testable.
+ */
+export function extendWithDeepRevenue(primary: TimeseriesPoint[], deep: TimeseriesPoint[]): TimeseriesPoint[] {
+  if (deep.length === 0) return primary;
+  if (primary.length === 0) return [...deep].sort(byDate);
+  const primaryByYear = new Map(primary.map(p => [p.date.slice(0, 4), p.value]));
+  const ratios: number[] = [];
+  for (const d of deep) {
+    const ref = primaryByYear.get(d.date.slice(0, 4));
+    if (ref != null && ref > 0 && d.value > 0) ratios.push(d.value / ref);
+  }
+  if (ratios.length === 0) return primary; // aucun exercice commun → convention invérifiable
+  ratios.sort((a, b) => a - b);
+  const median = ratios[Math.floor(ratios.length / 2)]!;
+  if (Math.abs(median - 1) > DEEP_AGREEMENT_TOLERANCE) return primary; // devise/convention différente
+  const extension = deep.filter(d => !primaryByYear.has(d.date.slice(0, 4)));
+  return [...primary, ...extension].sort(byDate);
+}
+
+/**
  * Série du CA par employé : pour chaque point d'effectif (≥ EMPLOYEE_MIN), le CA de
- * l'exercice qui se termine à la même date — annuel d'abord, recomposition intra-annuelle
- * en repli. Pur → testable.
+ * l'exercice qui se termine à la même date — annuel d'abord (étendu par le CA profond
+ * après recoupement), recomposition intra-annuelle en repli. Pur → testable.
  */
 export function buildRevenuePerEmployeePoints(
   employees: TimeseriesPoint[],
   annualRevenue: TimeseriesPoint[],
   intraRevenue: TimeseriesPoint[],
+  deepAnnualRevenue: TimeseriesPoint[] = [],
 ): TimeseriesPoint[] {
-  const annual = [...annualRevenue].sort(byDate);
+  const annual = extendWithDeepRevenue([...annualRevenue].sort(byDate), deepAnnualRevenue);
   const intra = [...intraRevenue].sort(byDate);
   const out: TimeseriesPoint[] = [];
   for (const emp of [...employees].sort(byDate)) {
@@ -189,7 +245,19 @@ export async function getRevenuePerEmployee(ticker: string, nowMs: number): Prom
     readSeries(ticker, 'annualTotalRevenue').catch(() => null),
     readSeries(ticker, 'revenue').catch(() => null),
   ]);
-  const points = buildRevenuePerEmployeePoints(employees, annualRev?.points ?? [], intraRev?.points ?? []);
+  // CA profond (page /revenue/, jusqu'à 2005) : sollicité SEULEMENT si l'effectif remonte
+  // au moins un an plus loin que le CA déjà en base — les effectifs stockanalysis couvrent
+  // souvent 20-40 exercices quand le CA ordinaire s'arrête à 5-16, et sans cette extension
+  // le graphe perd tout ce passé. Le gate épargne le fetch aux tickers déjà couverts.
+  const oldestEmployeeTs = Date.parse(employees[0]!.date);
+  const oldestRevTs = Math.min(
+    annualRev?.points?.[0] ? Date.parse(annualRev.points[0].date) : Infinity,
+    intraRev?.points?.[0] ? Date.parse(intraRev.points[0].date) : Infinity,
+  );
+  const deepRev = oldestEmployeeTs < oldestRevTs - YEAR_MS
+    ? await getDeepAnnualRevenueHistory(ticker, nowMs).catch(() => [] as TimeseriesPoint[])
+    : [];
+  const points = buildRevenuePerEmployeePoints(employees, annualRev?.points ?? [], intraRev?.points ?? [], deepRev);
   if (points.length === 0) {
     return {
       cagr: null, latest: null, employeesLatest, points: [],
