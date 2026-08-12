@@ -25,9 +25,14 @@
  *   pnpm exec tsx scripts/employeesAnnualReportBackfill.ts --ticker=RMS.PA --apply    # écrit
  *   pnpm exec tsx scripts/employeesAnnualReportBackfill.ts --ticker=XX.YY --manifest=./urls.json --apply
  *
- * Prérequis locaux : `pdftotext` (poppler) et `unzip` dans le PATH, DATABASE_URL et
- * OPENAI_API_KEY dans l'environnement. Modèle : EMPLOYEES_BACKFILL_MODEL (défaut gpt-4o-mini —
- * l'extraction se fait sur des fenêtres courtes et chiffrées, pas besoin de plus).
+ * Prérequis locaux : `pdftotext` (poppler), `unzip` et le CLI `claude` dans le PATH,
+ * DATABASE_URL dans l'environnement.
+ *
+ * EXTRACTION : par défaut via `claude -p` (headless) — donc sur l'ABONNEMENT Claude de la
+ * machine, AUCUNE clé API (même mécanique que l'automate SEO du second-brain). Modèle :
+ * EMPLOYEES_BACKFILL_CLAUDE_MODEL (défaut haiku — l'extraction se fait sur des fenêtres
+ * courtes et chiffrées, pas besoin de plus). --llm=openai bascule sur l'API OpenAI
+ * (OPENAI_API_KEY + EMPLOYEES_BACKFILL_MODEL) si un jour une clé créditée existe.
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -39,7 +44,8 @@ import { normalizeCompanyTokens, companyNamesMatch } from '../src/services/usLis
 import type { TimeseriesPoint } from '@lubin/shared';
 
 const ODS_BASE = 'https://info-financiere.gouv.fr/api/explore/v2.1/catalog/datasets/flux-amf-new-prod/records';
-const MODEL = process.env.EMPLOYEES_BACKFILL_MODEL ?? 'gpt-4o-mini';
+const OPENAI_MODEL = process.env.EMPLOYEES_BACKFILL_MODEL ?? 'gpt-4o-mini';
+const CLAUDE_MODEL = process.env.EMPLOYEES_BACKFILL_CLAUDE_MODEL ?? 'haiku';
 const OPENAI_KEY = process.env.OPENAI_API_KEY ?? '';
 /** Tolérance sur la médiane des ratios rapport/store sur les exercices communs. */
 const OVERLAP_TOLERANCE = 0.15;
@@ -61,9 +67,11 @@ const FROM_YEAR = Number(args.get('--from') ?? 2005);
 const DUMP_DIR = args.get('--dump') ?? null;
 /** --rows=file.json : saute manifest+extraction, charge des lignes [{fiscalYear, employees}] déjà extraites. */
 const ROWS_PATH = args.get('--rows') ?? null;
+/** Backend d'extraction : 'claude' (CLI headless, abonnement — défaut) ou 'openai' (clé API). */
+const LLM = args.get('--llm') ?? 'claude';
 
-if (!TICKER) { console.error('usage: --ticker=RMS.PA [--apply] [--manifest=urls.json] [--from=2005] [--dump=dir] [--rows=rows.json]'); process.exit(1); }
-if (!OPENAI_KEY && !DUMP_DIR && !ROWS_PATH) { console.error('OPENAI_API_KEY manquant (ou utiliser --dump / --rows)'); process.exit(1); }
+if (!TICKER) { console.error('usage: --ticker=RMS.PA [--apply] [--manifest=urls.json] [--from=2005] [--llm=claude|openai] [--dump=dir] [--rows=rows.json]'); process.exit(1); }
+if (LLM === 'openai' && !OPENAI_KEY && !DUMP_DIR && !ROWS_PATH) { console.error('OPENAI_API_KEY manquant (ou utiliser --llm=claude / --dump / --rows)'); process.exit(1); }
 
 const log = (...a: unknown[]) => console.log(`[backfill ${TICKER}]`, ...a);
 
@@ -75,26 +83,54 @@ const isAnnualReportTitle = (t: string): boolean =>
   && !/(modalit|mise [àa] disposition|disponibilit|actualisation|rectificatif)/i.test(t);
 
 async function buildManifestFromAmf(companyName: string): Promise<ManifestEntry[]> {
-  // Le nom déposé à l'AMF (« HERMES INTERNATIONAL ») ne porte jamais la forme juridique
-  // complète de Yahoo (« … Société en commandite par actions ») : on cherche sur les TOKENS
-  // D'IDENTITÉ, puis on re-vérifie chaque dépôt par correspondance de nom — même garde-fou
-  // que la cotation US (usListingResolve). Le filtre de TITRE est appliqué côté serveur pour
-  // ne pas noyer les rapports annuels sous les communiqués (Hermès : 1 222 dépôts).
-  const query = normalizeCompanyTokens(companyName).join(' ');
-  const where = `search(identificationsociete_iso_nom_soc,"${query.replace(/"/g, '')}")`
-    + ` and (search(informationdeposee_inf_tit_inf,"enregistrement universel")`
-    + ` or search(informationdeposee_inf_tit_inf,"document de reference")`
-    + ` or search(informationdeposee_inf_tit_inf,"rapport annuel"))`;
-  const url = `${ODS_BASE}?where=${encodeURIComponent(where)}&select=identificationsociete_iso_nom_soc,informationdeposee_inf_tit_inf,informationdeposee_inf_dat_emt,url_de_recuperation&order_by=informationdeposee_inf_dat_emt%20asc&limit=100`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`AMF ODS HTTP ${res.status}`);
-  const data = await res.json() as { results: { identificationsociete_iso_nom_soc: string; informationdeposee_inf_tit_inf: string; informationdeposee_inf_dat_emt: string; url_de_recuperation: string | null }[] };
+  // Le nom déposé à l'AMF est souvent COURT (« LVMH », « HERMES INTERNATIONAL ») là où Yahoo
+  // porte la raison sociale complète : on interroge sur les 2 premiers tokens d'identité
+  // (search() d'ODS est un AND — le nom complet ne matcherait jamais « LVMH »), puis on
+  // re-vérifie chaque dépôt : correspondance pleine (Jaccard, cf. usListingResolve) OU nom
+  // AMF sous-ensemble du nom attendu ANCRÉ sur le premier token (« lvmh » ⊆ « lvmh moet
+  // hennessy louis vuitton »). Le filtre de TITRE est appliqué côté serveur pour ne pas
+  // noyer les rapports annuels sous les communiqués (Hermès : 1 222 dépôts).
+  const expectedTokens = normalizeCompanyTokens(companyName);
+  interface AmfRecord { identificationsociete_iso_nom_soc: string; informationdeposee_inf_tit_inf: string; informationdeposee_inf_dat_emt: string; url_de_recuperation: string | null }
+  const runQuery = async (q: string): Promise<AmfRecord[]> => {
+    const where = `search(identificationsociete_iso_nom_soc,"${q.replace(/"/g, '')}")`
+      + ` and (search(informationdeposee_inf_tit_inf,"enregistrement universel")`
+      + ` or search(informationdeposee_inf_tit_inf,"document de reference")`
+      + ` or search(informationdeposee_inf_tit_inf,"rapport annuel"))`;
+    const url = `${ODS_BASE}?where=${encodeURIComponent(where)}&select=identificationsociete_iso_nom_soc,informationdeposee_inf_tit_inf,informationdeposee_inf_dat_emt,url_de_recuperation&order_by=informationdeposee_inf_dat_emt%20asc&limit=100`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`AMF ODS HTTP ${res.status}`);
+    return ((await res.json()) as { results: AmfRecord[] }).results;
+  };
+  // Deux requêtes fusionnées : la PRÉCISE (2 tokens) et la LARGE (1er token) — le search()
+  // d'ODS est un AND, or l'AMF enregistre souvent un nom COURT (« LVMH ») que la requête
+  // précise ne retournerait jamais. Le bruit de la large est éliminé par l'acceptation.
+  const queries = [...new Set([expectedTokens.slice(0, 2).join(' '), expectedTokens[0] ?? ''])].filter(Boolean);
+  const merged: AmfRecord[] = [];
+  const seenRecordUrls = new Set<string>();
+  for (const q of queries) {
+    for (const r of await runQuery(q)) {
+      const k = r.url_de_recuperation ?? `${r.informationdeposee_inf_dat_emt}|${r.informationdeposee_inf_tit_inf}`;
+      if (seenRecordUrls.has(k)) continue;
+      seenRecordUrls.add(k);
+      merged.push(r);
+    }
+  }
+  merged.sort((a, b) => a.informationdeposee_inf_dat_emt.localeCompare(b.informationdeposee_inf_dat_emt));
+  const data = { results: merged };
   const out: ManifestEntry[] = [];
   const perYear = new Map<number, number>();
   const seenUrls = new Set<string>();
+  const amfNameAcceptable = (amfName: string): boolean => {
+    if (companyNamesMatch(amfName, companyName)) return true;
+    const amfTokens = normalizeCompanyTokens(amfName);
+    return amfTokens.length > 0
+      && amfTokens[0] === expectedTokens[0]
+      && amfTokens.every(t => expectedTokens.includes(t));
+  };
   for (const r of data.results) {
     const title = r.informationdeposee_inf_tit_inf ?? '';
-    if (!companyNamesMatch(r.identificationsociete_iso_nom_soc ?? '', companyName)) continue;
+    if (!amfNameAcceptable(r.identificationsociete_iso_nom_soc ?? '')) continue;
     if (!isAnnualReportTitle(title) || !r.url_de_recuperation) continue;
     if (seenUrls.has(r.url_de_recuperation)) continue;
     seenUrls.add(r.url_de_recuperation);
@@ -135,7 +171,7 @@ function documentText(file: string, dir: string): string | null {
     try { execFileSync('unzip', ['-o', '-q', file, '-d', outDir]); } catch { return null; }
     const inner = fs.readdirSync(outDir, { recursive: true })
       .map(String)
-      .filter(f => /\.(pdf|xhtml|html)$/i.test(f))
+      .filter(f => /\.(pdf|xhtml|html|xbri)$/i.test(f))
       .map(f => path.join(outDir, f))
       .filter(f => fs.statSync(f).isFile());
     if (inner.length === 0) return null;
@@ -144,7 +180,8 @@ function documentText(file: string, dir: string): string | null {
   if (/\.pdf$/i.test(doc)) {
     return execFileSync('pdftotext', ['-layout', '-q', doc, '-'], { maxBuffer: 256 * 1024 * 1024 }).toString('utf8');
   }
-  if (/\.(xhtml|html)$/i.test(doc)) {
+  // .xbri : document XBRL inline servi NU par l'AMF (HTML brut, vérifié sur LVMH 2025).
+  if (/\.(xhtml|html|xbri)$/i.test(doc)) {
     return fs.readFileSync(doc, 'utf8')
       .replace(/<(script|style)[\s\S]*?<\/\1>/gi, ' ')
       .replace(/<br\s*\/?>|<\/(p|div|tr|td|th|h[1-6]|li)>/gi, '\n')
@@ -178,8 +215,15 @@ function employeeWindows(txt: string): string {
 
 // ─── 3. Extraction LLM (JSON strict) ─────────────────────────────────────────
 
-async function extractWithLlm(companyName: string, year: number, windows: string): Promise<ExtractedRow[]> {
-  const prompt = `Voici des extraits du rapport annuel ${year} de ${companyName} (document d'enregistrement universel ou document de référence).
+/** Filtrage commun des lignes extraites, quel que soit le backend. */
+function sanitizeRows(rows: ExtractedRow[] | undefined, year: number): ExtractedRow[] {
+  return (rows ?? []).filter(r =>
+    Number.isInteger(r.fiscalYear) && r.fiscalYear >= 1990 && r.fiscalYear <= year
+    && Number.isFinite(r.employees) && r.employees >= EMPLOYEE_FLOOR);
+}
+
+function extractionPrompt(companyName: string, year: number, windows: string): string {
+  return `Voici des extraits du rapport annuel ${year} de ${companyName} (document d'enregistrement universel ou document de référence).
 Extrais l'EFFECTIF TOTAL DU GROUPE (consolidé, toutes sociétés du groupe, monde entier) par exercice.
 Règles strictes :
 - uniquement les exercices dont l'effectif TOTAL GROUPE est explicitement chiffré dans les extraits ;
@@ -191,22 +235,48 @@ Réponds UNIQUEMENT ce JSON : {"rows":[{"fiscalYear":${year},"closingDate":"${ye
 
 EXTRAITS :
 ${windows}`;
+}
+
+/**
+ * Extraction via le CLI `claude -p` (headless) : tourne sur l'ABONNEMENT Claude connecté sur
+ * la machine, aucune clé API. L'enveloppe --output-format json porte la réponse dans
+ * `result` ; on tolère des clôtures markdown autour du JSON.
+ */
+function extractWithClaudeCli(companyName: string, year: number, windows: string): ExtractedRow[] {
+  const raw = execFileSync('claude', ['-p', '--output-format', 'json', '--model', CLAUDE_MODEL], {
+    input: extractionPrompt(companyName, year, windows),
+    maxBuffer: 64 * 1024 * 1024,
+    timeout: 240_000,
+  }).toString('utf8');
+  const envelope = JSON.parse(raw) as { is_error?: boolean; result?: string };
+  if (envelope.is_error || typeof envelope.result !== 'string') throw new Error('claude -p : réponse en erreur');
+  const jsonText = envelope.result.replace(/^[\s\S]*?\{/, '{').replace(/\}[^}]*$/, '}');
+  const parsed = JSON.parse(jsonText) as { rows?: ExtractedRow[] };
+  return sanitizeRows(parsed.rows, year);
+}
+
+/** Extraction via l'API OpenAI (nécessite une clé créditée) — conservée en option --llm=openai. */
+async function extractWithOpenAi(companyName: string, year: number, windows: string): Promise<ExtractedRow[]> {
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${OPENAI_KEY}` },
     body: JSON.stringify({
-      model: MODEL,
+      model: OPENAI_MODEL,
       temperature: 0,
       response_format: { type: 'json_object' },
-      messages: [{ role: 'user', content: prompt }],
+      messages: [{ role: 'user', content: extractionPrompt(companyName, year, windows) }],
     }),
   });
   if (!res.ok) throw new Error(`OpenAI HTTP ${res.status} : ${(await res.text()).slice(0, 200)}`);
   const data = await res.json() as { choices: { message: { content: string } }[] };
   const parsed = JSON.parse(data.choices[0]!.message.content) as { rows?: ExtractedRow[] };
-  return (parsed.rows ?? []).filter(r =>
-    Number.isInteger(r.fiscalYear) && r.fiscalYear >= 1990 && r.fiscalYear <= year
-    && Number.isFinite(r.employees) && r.employees >= EMPLOYEE_FLOOR);
+  return sanitizeRows(parsed.rows, year);
+}
+
+async function extractWithLlm(companyName: string, year: number, windows: string): Promise<ExtractedRow[]> {
+  return LLM === 'openai'
+    ? extractWithOpenAi(companyName, year, windows)
+    : extractWithClaudeCli(companyName, year, windows);
 }
 
 // ─── 4. Consolidation + validation + écriture ────────────────────────────────
