@@ -114,7 +114,9 @@ async function fetchDeepViaUsListing(
 export async function getEmployeesHistory(ticker: string, nowMs: number): Promise<TimeseriesPoint[]> {
   const stored = await readSeries(ticker, EMPLOYEES_METRIC);
   const isSuffixed = ticker.includes('.');
-  if (isFresh(stored, nowMs) && (!isSuffixed || stored!.source === DEEP_SOURCE)) return stored!.points;
+  // startsWith : le backfill rapports annuels suffixe la source ('stockanalysis-deep+annual-report')
+  // sans invalider le marqueur « recherche de cotation US déjà menée à terme ».
+  if (isFresh(stored, nowMs) && (!isSuffixed || stored!.source.startsWith(DEEP_SOURCE))) return stored!.points;
 
   const persist = (built: TimeseriesPoint[], source: string) =>
     appendMergePersist(ticker, EMPLOYEES_METRIC, stored, built, source, nowMs, {
