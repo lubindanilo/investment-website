@@ -60,8 +60,11 @@ export function cacheKey(ticker: string, metric: string, freq: string, years: nu
  * 7 = CA par employé étendu par le CA annuel profond (page /revenue/ de stockanalysis, jusqu'à
  *     2005) : la stratégie de source du graphe change, donc bump — y compris pour une clé
  *     récente dont le cache paraît froid, cf. la leçon de #295 (toute vérification réchauffe).
+ * 8 = effectifs profonds via la cotation US des dual-listed : l'enrichissement arrive par le
+ *     STORE (retro-upgrade paresseux à la lecture), donc AUCUN mécanisme ne purge les entrées
+ *     de graphe déjà réchauffées — même famille d'événement de donnée que la génération 6.
  */
-const CHART_STRATEGY_GENERATION = 7;
+const CHART_STRATEGY_GENERATION = 8;
 
 /**
  * Génération des graphes DÉRIVÉS DU FCF (P/FCF, Cash ROCE, ratios marge FCF / dette-FCF /
