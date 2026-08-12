@@ -188,17 +188,6 @@ input { font-family: inherit; }
 }
 .user-menu-avatar:hover { background: var(--brand); color: #fff; }
 
-.user-menu-logout {
-  background: none;
-  border: 1px solid var(--border-strong);
-  color: var(--text2);
-  font-size: 12px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  transition: border-color 0.15s, color 0.15s;
-}
-.user-menu-logout:hover { border-color: var(--brand); color: var(--brand); }
-
 .app-nav {
   display: flex;
   gap: 0;
@@ -455,7 +444,6 @@ input { font-family: inherit; }
   .lang-switcher-select { font-size: 14px; }
   .user-menu { gap: 10px; flex-wrap: wrap; }
   .user-menu-link,
-  .user-menu-logout,
   .user-menu-signup {
     min-height: 44px;
     display: inline-flex;

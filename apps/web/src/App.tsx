@@ -1,12 +1,12 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
-import { Link, NavLink, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { LangSwitcher } from './components/ui/LangSwitcher.js';
 import { HomePage } from './pages/HomePage.js';
 import { AnalysePage } from './pages/AnalysePage.js';
 import { RequireAuth } from './components/RequireAuth.js';
 import { useAuth } from './contexts/AuthContext.js';
-import { useToast } from './components/Toast.js';
+import { useSubscription } from './contexts/SubscriptionContext.js';
 import { Logo } from './components/ui/primitives.js';
 import AppFooter from './components/AppFooter.js';
 import { NotFoundPage } from './pages/NotFoundPage.js';
@@ -214,31 +214,26 @@ export function App() {
 
 /**
  * Bloc utilisateur en haut à droite :
- *   - Auth → email + bouton "Se déconnecter"
+ *   - Auth → avatar vers la page Compte, où se trouve la déconnexion
+ *   - Non-Pro → lien Tarifs (anonyme ou compte gratuit)
  *   - Non auth → liens Connexion / Inscription
  *   - Pendant le bootstrap → vide (évite le flash "non connecté" sur sessions valides)
  */
 function UserMenu() {
-  const { user, loading, logout } = useAuth();
-  const navigate = useNavigate();
-  const toast = useToast();
+  const { user, loading: authLoading } = useAuth();
+  const { isPro, loading: subscriptionLoading } = useSubscription();
   const { t } = useTranslation();
 
-  if (loading) return <div className="user-menu user-menu-loading" aria-hidden />;
+  if (authLoading) return <div className="user-menu user-menu-loading" aria-hidden />;
 
-  async function onLogout() {
-    try {
-      await logout();
-      toast.push('success', t('userMenu.loggedOut'));
-      navigate('/login');
-    } catch (e) {
-      toast.push('error', (e as Error).message);
-    }
-  }
+  // Un anonyme est toujours Free. Pour un utilisateur connecté, on attend la réponse
+  // d'abonnement afin de ne pas faire clignoter le lien Tarifs chez les abonnés Pro.
+  const showPricing = !user || (!subscriptionLoading && !isPro);
 
   if (!user) {
     return (
       <div className="user-menu">
+        {showPricing && <NavLink to="/pricing" className="user-menu-link">{t('nav.pricing')}</NavLink>}
         <NavLink to="/login" className="user-menu-link">{t('userMenu.login')}</NavLink>
         <NavLink to="/signup" className="btn-secondary user-menu-signup">{t('userMenu.signup')}</NavLink>
       </div>
@@ -247,11 +242,11 @@ function UserMenu() {
 
   return (
     <div className="user-menu">
+      {showPricing && <NavLink to="/pricing" className="user-menu-link">{t('nav.pricing')}</NavLink>}
       {/* Avatar initiales cliquable → page /compte (gérer abonnement, voir statut Pro, etc.) */}
       <NavLink to="/compte" className="user-menu-avatar" title={user.email} aria-label={t('userMenu.account')}>
         {userInitials(user)}
       </NavLink>
-      <button type="button" className="user-menu-logout" onClick={onLogout}>{t('userMenu.logout')}</button>
     </div>
   );
 }
