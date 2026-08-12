@@ -6,7 +6,7 @@
  * warn gratuit (0,5 pt) — la grille retombe sur l'ancien critère de profitabilité cash.
  */
 import { describe, it, expect } from 'vitest';
-import { parseEmployeesPayload, parseRevenuePayload } from './stockanalysisFundamentals.js';
+import { parseEmployeesPayload, parseRevenuePayload, parseSaCompanyName } from './stockanalysisFundamentals.js';
 import { buildRevenuePerEmployeePoints, computeRevenuePerEmployeeGrowth, applyRevenuePerEmployee, extendWithDeepRevenue } from './employeesStore.js';
 import { appendOnlyMerge } from './fundamentalsStore.js';
 import { buildQuantitativeCriteria } from './derivedMetrics.js';
@@ -53,6 +53,18 @@ describe('parseEmployeesPayload', () => {
   it('renvoie null sur un payload sans historique ou illisible', () => {
     expect(parseEmployeesPayload('{"nodes":[{"data":[{"intro":1},"x"]}]}')).toBeNull();
     expect(parseEmployeesPayload('pas du json')).toBeNull();
+  });
+});
+
+describe('parseSaCompanyName', () => {
+  it('extrait le nom de société du nœud info (vérification anti-homonyme)', () => {
+    const payload = JSON.stringify({
+      nodes: [
+        { type: 'data', data: [{ info: 1 }, { nameFull: 2, name: 3, ticker: 4 }, 'TotalEnergies SE', 'TotalEnergies', 'TTE'] },
+      ],
+    });
+    expect(parseSaCompanyName(payload)).toBe('TotalEnergies SE');
+    expect(parseSaCompanyName('{"nodes":[]}')).toBeNull();
   });
 });
 

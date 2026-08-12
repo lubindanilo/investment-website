@@ -20,7 +20,9 @@
  */
 import type { TimeseriesPoint, DerivedMetrics } from '@lubin/shared';
 import { readSeries, isFresh, appendMergePersist, type ExpiryCadence } from './fundamentalsStore.js';
-import { getStockanalysisEmployees, getStockanalysisRevenueHistory, detectCadence } from './stockanalysisFundamentals.js';
+import { getStockanalysisEmployees, getStockanalysisEmployeesUs, getStockanalysisRevenueHistory, detectCadence } from './stockanalysisFundamentals.js';
+import { findUsListingByName, companyNamesMatch } from './usListingResolve.js';
+import { resolveYahooTicker } from './yahooResolve.js';
 
 const EMPLOYEES_METRIC = 'employees';
 /**
@@ -62,19 +64,78 @@ export interface RevenuePerEmployeeResult {
 }
 
 /**
+ * Marqueur : la recherche d'une cotation US (historique profond) a été menée À TERME pour ce
+ * ticker suffixé — trouvée ou pas. Sans lui, chaque lecture retenterait la résolution ; avec
+ * lui, les lignes déjà écrites en 5 exercices (pages exchange) sont RETRO-UPGRADÉES à la
+ * première lecture suivant ce déploiement, sans attendre leur expiry (~400 j).
+ */
+const DEEP_SOURCE = 'stockanalysis-deep';
+
+/**
+ * Tentative d'historique PROFOND via une cotation NYSE/NASDAQ de la même société : les pages
+ * /stocks/ de stockanalysis servent l'intégralité gratuitement (ASML 25 exercices) là où les
+ * pages exchange plafonnent à 5. Deux candidats : le symbole domestique nu (TTE.PA → /stocks/tte)
+ * et le symbole trouvé par NOM dans le référentiel SEC (NOVO-B.CO → NVO). Chaque candidat est
+ * validé par le nom de société du payload — piège réel : /stocks/mc = Moelis, pas LVMH.
+ *
+ *  - 'found'  → points profonds vérifiés ;
+ *  - 'none'   → recherche menée à terme, pas de cotation US exploitable (résultat durable) ;
+ *  - 'error'  → échec TRANSITOIRE (résolution du nom) → à retenter, pas à mémoriser.
+ */
+async function fetchDeepViaUsListing(
+  ticker: string,
+): Promise<{ status: 'found'; points: TimeseriesPoint[] } | { status: 'none' } | { status: 'error' }> {
+  const resolved = await resolveYahooTicker(ticker).catch(() => null);
+  const expected = resolved?.longName ?? null;
+  if (!expected) return { status: 'error' };
+  const base = ticker.slice(0, ticker.lastIndexOf('.'));
+  const candidates = [base];
+  const viaSec = await findUsListingByName(expected).catch(() => null);
+  if (viaSec && !candidates.some(c => c.toUpperCase() === viaSec.toUpperCase())) candidates.push(viaSec);
+  let best: TimeseriesPoint[] | null = null;
+  for (const candidate of candidates) {
+    const r = await getStockanalysisEmployeesUs(candidate).catch(() => null);
+    if (!r?.name || r.points.length === 0) continue;
+    if (!companyNamesMatch(r.name, expected)) continue; // autre société sous le même code
+    if (!best || r.points.length > best.length) best = r.points;
+  }
+  return best ? { status: 'found', points: best } : { status: 'none' };
+}
+
+/**
  * Historique d'effectif d'un ticker, lecture-traversante : store frais → zéro réseau ;
  * périmé/absent → fetch stockanalysis puis persistance append-only (série vide comprise :
  * cache négatif borné pour les titres que la source ne couvre pas).
+ *
+ * Tickers suffixés : la cotation US de la société est tentée d'abord (historique intégral
+ * gratuit), la page exchange (5 exercices) n'est que le repli. Une ligne fraîche écrite AVANT
+ * ce mécanisme (source 'stockanalysis') est re-tentée une fois malgré sa fraîcheur.
  */
 export async function getEmployeesHistory(ticker: string, nowMs: number): Promise<TimeseriesPoint[]> {
   const stored = await readSeries(ticker, EMPLOYEES_METRIC);
-  if (isFresh(stored, nowMs)) return stored!.points;
+  const isSuffixed = ticker.includes('.');
+  if (isFresh(stored, nowMs) && (!isSuffixed || stored!.source === DEEP_SOURCE)) return stored!.points;
+
+  const persist = (built: TimeseriesPoint[], source: string) =>
+    appendMergePersist(ticker, EMPLOYEES_METRIC, stored, built, source, nowMs, {
+      freq: 'annual',
+      cadence: ANNUAL_CADENCE,
+      persistEmpty: true,
+    });
+
+  if (!isSuffixed) {
+    // Ticker US : la page /stocks/ porte déjà l'historique intégral.
+    const built = await getStockanalysisEmployees(ticker).catch(() => null);
+    return persist(built ?? [], 'stockanalysis');
+  }
+
+  const deep = await fetchDeepViaUsListing(ticker).catch(() => ({ status: 'error' as const }));
+  if (deep.status === 'found') return persist(deep.points, DEEP_SOURCE);
+  // Repli : page exchange (5 exercices gratuits). 'none' = recherche aboutie → on mémorise
+  // DEEP_SOURCE pour ne pas la refaire à chaque lecture ; 'error' = transitoire → source
+  // ordinaire, la prochaine lecture retentera la cotation US.
   const built = await getStockanalysisEmployees(ticker).catch(() => null);
-  return appendMergePersist(ticker, EMPLOYEES_METRIC, stored, built ?? [], 'stockanalysis', nowMs, {
-    freq: 'annual',
-    cadence: ANNUAL_CADENCE,
-    persistEmpty: true,
-  });
+  return persist(built ?? [], deep.status === 'none' ? DEEP_SOURCE : 'stockanalysis');
 }
 
 /**
