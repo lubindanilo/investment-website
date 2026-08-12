@@ -487,6 +487,49 @@ export async function getStockanalysisEmployees(yahooTicker: string): Promise<Ti
   return parseEmployeesPayload(text);
 }
 
+/**
+ * Nom de la société porté par un payload __data.json (nœud `info` : nameFull, sinon name).
+ * Indispensable avant d'ingérer une page /stocks/ atteinte par HEURISTIQUE de symbole :
+ * le même code de ticker désigne des sociétés différentes selon la place (cas réel :
+ * /stocks/mc = Moelis & Company, pas LVMH dont le symbole Paris est MC). Exporté pour tests.
+ */
+export function parseSaCompanyName(text: string): string | null {
+  let doc: { nodes?: unknown[] };
+  try { doc = JSON.parse(text) as { nodes?: unknown[] }; } catch { return null; }
+  const nodes = Array.isArray(doc?.nodes) ? doc.nodes : [];
+  for (const node of nodes) {
+    const data = (node as { data?: unknown[] } | null)?.data;
+    if (!Array.isArray(data) || data.length === 0) continue;
+    const root = data[0];
+    if (root === null || typeof root !== 'object' || Array.isArray(root)) continue;
+    const infoIdx = (root as Record<string, unknown>).info;
+    if (typeof infoIdx !== 'number') continue;
+    const info = decodeDevalue(data, infoIdx);
+    if (info === null || typeof info !== 'object' || Array.isArray(info)) continue;
+    const i = info as Record<string, unknown>;
+    const name = i.nameFull ?? i.name;
+    if (typeof name === 'string' && name.trim()) return name.trim();
+  }
+  return null;
+}
+
+/**
+ * Historique d'employés via une cotation US /stocks/{symbole} EXPLICITE, avec le nom de la
+ * société pour vérification par le caller. Contrairement aux pages exchange (quote/…) et OTC,
+ * les pages /stocks/ servent l'historique INTÉGRAL gratuitement (ASML 25 exercices, SAP/NVO
+ * 28 — sondage du 12/08/2026) : le paywall de la source suit le type de page, pas la
+ * nationalité de la société.
+ */
+export async function getStockanalysisEmployeesUs(
+  usSymbol: string,
+): Promise<{ points: TimeseriesPoint[]; name: string | null } | null> {
+  const text = await fetchWithRetry([`${BASE}/stocks/${usSymbol.toLowerCase()}/employees/__data.json`]);
+  if (!text) return null;
+  const points = parseEmployeesPayload(text);
+  if (!points || points.length === 0) return null;
+  return { points, name: parseSaCompanyName(text) };
+}
+
 // ─── Historique PROFOND du chiffre d'affaires annuel ─────────────────────────
 //
 // Comme /employees/, stockanalysis expose une page /revenue/ dédiée dont le __data.json
