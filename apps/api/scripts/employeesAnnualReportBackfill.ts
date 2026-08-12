@@ -117,7 +117,10 @@ async function buildManifestFromAmf(companyName: string): Promise<ManifestEntry[
     const url = `${ODS_BASE}?where=${encodeURIComponent(where)}&select=identificationsociete_iso_nom_soc,informationdeposee_inf_tit_inf,informationdeposee_inf_dat_emt,url_de_recuperation&order_by=informationdeposee_inf_dat_emt%20asc&limit=100`;
     const res = await fetch(url);
     if (!res.ok) throw new Error(`AMF ODS HTTP ${res.status}`);
-    return ((await res.json()) as { results: AmfRecord[] }).results;
+    // Certains enregistrements du flux ont une date d'émission NULLE (constaté sur la requête
+    // large : 8 tickers de la première campagne plantés au tri) — inexploitables, écartés.
+    return ((await res.json()) as { results: AmfRecord[] }).results
+      .filter(r => typeof r.informationdeposee_inf_dat_emt === 'string' && r.informationdeposee_inf_dat_emt.length >= 4);
   };
   // Deux requêtes fusionnées : la PRÉCISE (2 tokens) et la LARGE (1er token) — le search()
   // d'ODS est un AND, or l'AMF enregistre souvent un nom COURT (« LVMH ») que la requête
