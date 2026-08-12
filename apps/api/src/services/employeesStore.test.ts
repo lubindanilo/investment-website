@@ -8,6 +8,7 @@
 import { describe, it, expect } from 'vitest';
 import { parseEmployeesPayload } from './stockanalysisFundamentals.js';
 import { buildRevenuePerEmployeePoints, computeRevenuePerEmployeeGrowth, applyRevenuePerEmployee } from './employeesStore.js';
+import { appendOnlyMerge } from './fundamentalsStore.js';
 import { buildQuantitativeCriteria } from './derivedMetrics.js';
 import type { DerivedMetrics, TimeseriesPoint } from '@lubin/shared';
 
@@ -96,6 +97,37 @@ describe('buildRevenuePerEmployeePoints', () => {
     const employees = [emp('2025-12-31', 5)];
     const annual = [emp('2025-12-31', 1_000_000)];
     expect(buildRevenuePerEmployeePoints(employees, annual, [])).toEqual([]);
+  });
+});
+
+// ─── Durabilité : l'historique survit à l'extinction de la source ────────────
+//
+// L'effectif n'existe QUE chez stockanalysis : si la page disparaît, change de format ou
+// passe derrière un paywall, l'historique déjà accumulé doit rester exploitable. C'est le
+// contrat append-only du store, vérifié ici sur les trois modes de panne réels.
+
+describe('durabilité de l\'historique d\'effectifs', () => {
+  const stock = [
+    emp('2023-12-31', 42000),
+    emp('2024-12-31', 43000),
+    emp('2025-12-31', 44500),
+  ];
+
+  it('conserve le stock quand la source ne renvoie plus rien (404, parser cassé)', () => {
+    expect(appendOnlyMerge(stock, [])).toEqual(stock);
+  });
+
+  it('conserve la profondeur quand la source tronque son historique (paywall)', () => {
+    expect(appendOnlyMerge(stock, [emp('2025-12-31', 44500)])).toEqual(stock);
+  });
+
+  it('ne réécrit pas une valeur passée révisée par la source (stabilité point-in-time)', () => {
+    expect(appendOnlyMerge(stock, [emp('2024-12-31', 99999)])).toEqual(stock);
+  });
+
+  it('ajoute le nouvel exercice sans toucher aux précédents', () => {
+    const merged = appendOnlyMerge(stock, [emp('2026-12-31', 46000)]);
+    expect(merged).toEqual([...stock, emp('2026-12-31', 46000)]);
   });
 });
 
