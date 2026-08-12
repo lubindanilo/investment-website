@@ -57,8 +57,11 @@ export function cacheKey(ticker: string, metric: string, freq: string, years: nu
  *     périme d'un coup. À ne refaire que dans ce cas précis : un rattrapage de masse antérieur au
  *     mécanisme de purge. Les enrichissements suivants sont couverts par #291, ticker par ticker,
  *     sans rien reconstruire ailleurs.
+ * 7 = CA par employé étendu par le CA annuel profond (page /revenue/ de stockanalysis, jusqu'à
+ *     2005) : la stratégie de source du graphe change, donc bump — y compris pour une clé
+ *     récente dont le cache paraît froid, cf. la leçon de #295 (toute vérification réchauffe).
  */
-const CHART_STRATEGY_GENERATION = 6;
+const CHART_STRATEGY_GENERATION = 7;
 
 /**
  * Génération des graphes DÉRIVÉS DU FCF (P/FCF, Cash ROCE, ratios marge FCF / dette-FCF /
