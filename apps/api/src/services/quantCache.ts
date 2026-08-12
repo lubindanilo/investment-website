@@ -96,8 +96,12 @@ export interface CachedQuantSnapshot {
  *     revenuePerEmployeeCagr) à la place de la profitabilité cash, qui devient son REPLI
  *     quand l'historique d'effectifs manque. Sans invalidation, les snapshots serviraient
  *     l'ancienne grille (et des métriques sans les champs employés) jusqu'au prochain earnings.
+ * 6 — critère n°5 croisé avec la croissance du CA total : Oui seulement si les deux CAGR
+ *     atteignent 10 %/an, Partiel dans les deux combinaisons 10 % / [5 %, 10 %[ définies
+ *     par la méthode. Sans invalidation, notes et statuts continueraient de refléter le palier
+ *     historique du seul CA par employé (> 5 %/an).
  */
-export const SNAPSHOT_LOGIC_VERSION = 5;
+export const SNAPSHOT_LOGIC_VERSION = 6;
 
 /**
  * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.

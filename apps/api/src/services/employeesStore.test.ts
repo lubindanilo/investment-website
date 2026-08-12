@@ -185,8 +185,8 @@ const baseMetrics = (over: Partial<DerivedMetrics>): DerivedMetrics => ({
 });
 
 describe('critère n°5 : CA/employé avec repli fcfMargin', () => {
-  it('utilise le CA/employé quand la croissance est calculable', () => {
-    const chiffres = buildQuantitativeCriteria(baseMetrics({ revenuePerEmployeeCagr: 0.08, fcfMargin: 0.02 }));
+  it('valide uniquement quand CA et CA/employé atteignent chacun 10 %/an', () => {
+    const chiffres = buildQuantitativeCriteria(baseMetrics({ revenueCagr: 0.10, revenuePerEmployeeCagr: 0.10, fcfMargin: 0.02 }));
     const c5 = chiffres[4]!;
     expect(c5.key).toBe('revenuePerEmployeeGrowth5y');
     expect(c5.statut).toBe('pass');
@@ -194,9 +194,28 @@ describe('critère n°5 : CA/employé avec repli fcfMargin', () => {
     expect(chiffres.some(c => c.key === 'fcfMargin')).toBe(false);
   });
 
-  it('note warn entre 0 et 5 %/an, fail sous 0', () => {
-    expect(buildQuantitativeCriteria(baseMetrics({ revenuePerEmployeeCagr: 0.03 }))[4]!.statut).toBe('warn');
-    expect(buildQuantitativeCriteria(baseMetrics({ revenuePerEmployeeCagr: -0.02 }))[4]!.statut).toBe('fail');
+  it('reste partiel si le CA/employé atteint 10 % mais pas le CA total', () => {
+    expect(buildQuantitativeCriteria(baseMetrics({ revenueCagr: 0.0999, revenuePerEmployeeCagr: 0.10 }))[4]!.statut).toBe('warn');
+  });
+
+  it('reste partiel si le CA atteint 10 % et le CA/employé est entre 5 % inclus et 10 % exclus', () => {
+    expect(buildQuantitativeCriteria(baseMetrics({ revenueCagr: 0.10, revenuePerEmployeeCagr: 0.05 }))[4]!.statut).toBe('warn');
+    expect(buildQuantitativeCriteria(baseMetrics({ revenueCagr: 0.20, revenuePerEmployeeCagr: 0.0999 }))[4]!.statut).toBe('warn');
+  });
+
+  it('note Non tous les autres couples de croissance', () => {
+    expect(buildQuantitativeCriteria(baseMetrics({ revenueCagr: 0.0999, revenuePerEmployeeCagr: 0.0999 }))[4]!.statut).toBe('fail');
+    expect(buildQuantitativeCriteria(baseMetrics({ revenueCagr: 0.10, revenuePerEmployeeCagr: 0.0499 }))[4]!.statut).toBe('fail');
+    expect(buildQuantitativeCriteria(baseMetrics({ revenueCagr: -0.02, revenuePerEmployeeCagr: -0.02 }))[4]!.statut).toBe('fail');
+  });
+
+  it('respecte la monotonie aux frontières 5 % et 10 %', () => {
+    const statusAt = (revenuePerEmployeeCagr: number) => buildQuantitativeCriteria(baseMetrics({ revenueCagr: 0.10, revenuePerEmployeeCagr }))[4]!.statut;
+    expect([statusAt(0.0499), statusAt(0.05), statusAt(0.10)]).toEqual(['fail', 'warn', 'pass']);
+  });
+
+  it('ne transforme pas un CA total manquant en faiblesse quand le CA/employé est fort', () => {
+    expect(buildQuantitativeCriteria(baseMetrics({ revenueCagr: null, revenuePerEmployeeCagr: 0.10 }))[4]!.statut).toBe('warn');
   });
 
   it('retombe sur fcfMargin quand l\'historique d\'effectifs manque', () => {
@@ -211,6 +230,16 @@ describe('critère n°5 : CA/employé avec repli fcfMargin', () => {
     const chiffres = buildQuantitativeCriteria(baseMetrics({ fcfMargin: 0.07 }));
     expect(chiffres[4]!.key).toBe('fcfMargin');
     expect(chiffres[4]!.statut).toBe('warn');
+  });
+});
+
+describe('libellé de marge nette', () => {
+  it.each([
+    ['fr', '> 5 % de marge nette'],
+    ['en', '> 5 % net margin'],
+    ['es', '> 5 % de margen neto'],
+  ] as const)('affiche le vrai seuil de validation en %s', (lang, cible) => {
+    expect(buildQuantitativeCriteria(baseMetrics({ netMargin: 0.06 }), lang)[0]!.cible).toBe(cible);
   });
 });
 

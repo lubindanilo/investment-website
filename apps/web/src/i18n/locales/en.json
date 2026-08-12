@@ -1249,8 +1249,8 @@
       "how": "Free cash ÷ sales."
     },
     "revenuePerEmployeeGrowth5y": {
-      "why": "A quality company generates more sales with the same team, year after year. When revenue per employee grows, the organization is getting more efficient; when it declines, headcount is growing faster than the business.",
-      "how": "Annual revenue ÷ number of employees at fiscal year end, trend over the last 5 years. When employee history is unavailable, the card shows cash profitability instead (free cash ÷ sales)."
+      "why": "Revenue per employee growth measures efficiency, but it is not enough when total revenue is stagnating. The criterion therefore combines productivity and revenue growth.",
+      "how": "Over 5 years: Pass when revenue and revenue per employee each grow by at least 10%/year; Partial when only revenue per employee reaches 10%, or when revenue reaches 10% with revenue per employee between 5% and 10%. When employee history is unavailable, the card shows cash profitability instead."
     },
     "operatingLeverage": {
       "why": "Are sales growing faster than costs over the years? If so, margins widen (a favorable scissors effect) and the company gets more profitable as it grows; if costs rise faster, margins compress.",
@@ -1983,7 +1983,7 @@
         "num": 1,
         "nom": "Profitable",
         "formule": "Net margin = Net income / Revenue",
-        "seuil": "> 0 %",
+        "seuil": "> 5 %",
         "pourquoi": "A company that doesn't make money isn't an investment case. This first filter eliminates structurally loss-making companies."
       },
       {
@@ -2011,8 +2011,8 @@
         "num": 5,
         "nom": "Growing revenue per employee",
         "formule": "Annual revenue / number of employees, trend over 5 years",
-        "seuil": "> 5 % per year",
-        "pourquoi": "Generating more sales with the same team is the mark of an organization getting more efficient: automation, pricing power, economies of scale. When employee history is unavailable, we grade cash profitability instead (free cash flow / revenue, 10 % threshold)."
+        "seuil": "Revenue and revenue per employee ≥ 10% per year",
+        "pourquoi": "Revenue per employee measures efficiency, but it fully passes only when total revenue also grows by at least 10% per year. One of the two growth drivers earns Partial under the defined tiers. When employee history is unavailable, we grade cash profitability instead (free cash flow / revenue, 10% threshold)."
       },
       {
         "num": 6,

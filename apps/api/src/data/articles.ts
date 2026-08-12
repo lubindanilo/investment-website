@@ -42162,7 +42162,7 @@ const articleWDFC: Article = {
         { type: 'p', text: "Avant de parler prix, je juge toujours la qualité du business, séparément, avec des critères financiers concrets plutôt qu'avec mon ressenti sur la marque. Sur mon site, chaque action reçoit une note sur 10 construite à partir d'une dizaine de critères : rentabilité, croissance des ventes, croissance du cash par action, rachats d'actions, marge de cash, rendement du capital investi, endettement, conversion du bénéfice en cash. WD-40 obtient 8 sur 10, une bonne note, portée par plusieurs points forts très nets." },
         { type: 'p', text: "Le premier point fort : le Cash ROCE, le rendement du capital investi mesuré en cash plutôt qu'en bénéfice comptable, atteint 32 % par an. Autrement dit, chaque dollar que l'entreprise réinvestit dans son activité lui rapporte 32 cents de cash par an, un niveau qu'on trouve rarement hors des entreprises à très fort moat. Deuxième point fort : la marge de free cash flow, l'argent qui reste vraiment en caisse une fois toutes les factures payées (salaires, impôts, sous-traitance, marketing), atteint 12 % du chiffre d'affaires. Troisième point : la dette est quasi inexistante, remboursable en 0,67 an de cash généré, et l'entreprise rachète ses propres actions plutôt que d'en émettre de nouvelles." },
         { type: 'table', headers: ['Critère', 'WD-40 (WDFC)', 'Ma cible', 'Évaluation'], rows: [
-          ['Rentabilité (marge nette)', '12,6 %', '> 0 %', 'Rentable'],
+          ['Rentabilité (marge nette)', '12,6 %', '> 5 %', 'Rentable'],
           ['Croissance des ventes (5 ans)', '6,4 %/an', '> 10 %/an', 'Insuffisante'],
           ['Croissance du cash par action (5 ans)', '22,9 %/an', '> 10 %/an', 'Solide'],
           ['Marge de free cash flow', '12,0 %', '> 10 %', 'Solide'],
@@ -42227,7 +42227,7 @@ const articleWDFC: Article = {
         { type: 'p', text: "Before talking about price, I always judge the quality of the business separately, using concrete financial criteria rather than my gut feeling about the brand. On my site, every stock gets a score out of 10 built from about ten criteria: profitability, sales growth, cash-per-share growth, buybacks, cash margin, return on invested capital, debt, and how much profit converts into cash. WD-40 scores 8 out of 10, a good score, driven by several clear strengths." },
         { type: 'p', text: "The first strength: Cash ROCE, the return on invested capital measured in cash rather than accounting profit, reaches 32% a year. In other words, every dollar the company reinvests in the business brings back 32 cents of cash a year, a level rarely seen outside companies with a very strong moat. Second strength: the free cash flow margin, the money that truly stays in the till once every bill is paid (wages, taxes, outsourcing, marketing), reaches 12% of revenue. Third point: debt is almost nonexistent, repayable in 0.67 years of cash generated, and the company buys back its own shares rather than issuing new ones." },
         { type: 'table', headers: ['Criterion', 'WD-40 (WDFC)', 'My target', 'Assessment'], rows: [
-          ['Profitability (net margin)', '12.6%', '> 0%', 'Profitable'],
+          ['Profitability (net margin)', '12.6%', '> 5%', 'Profitable'],
           ['Sales growth (5 years)', '6.4%/yr', '> 10%/yr', 'Insufficient'],
           ['Cash per share growth (5 years)', '22.9%/yr', '> 10%/yr', 'Solid'],
           ['Free cash flow margin', '12.0%', '> 10%', 'Solid'],
@@ -42292,7 +42292,7 @@ const articleWDFC: Article = {
         { type: 'p', text: "Antes de hablar de precio, siempre juzgo la calidad del negocio por separado, con criterios financieros concretos en lugar de mi percepción sobre la marca. En mi sitio, cada acción recibe una nota sobre 10 construida a partir de una decena de criterios: rentabilidad, crecimiento de las ventas, crecimiento del efectivo por acción, recompras de acciones, margen de caja, rentabilidad del capital invertido, endeudamiento y conversión del beneficio en efectivo. WD-40 obtiene 8 sobre 10, una buena nota, respaldada por varios puntos fuertes muy claros." },
         { type: 'p', text: "El primer punto fuerte: el Cash ROCE, la rentabilidad del capital invertido medida en efectivo en lugar de en beneficio contable, alcanza el 32% anual. Es decir, cada dólar que la empresa reinvierte en su negocio le devuelve 32 centavos de efectivo al año, un nivel que rara vez se ve fuera de empresas con un moat muy fuerte. Segundo punto fuerte: el margen de flujo de caja libre, el dinero que realmente queda en caja una vez pagadas todas las facturas (salarios, impuestos, subcontratación, marketing), alcanza el 12% de las ventas. Tercer punto: la deuda es casi inexistente, pagable en 0,67 años de efectivo generado, y la empresa recompra sus propias acciones en lugar de emitir nuevas." },
         { type: 'table', headers: ['Criterio', 'WD-40 (WDFC)', 'Mi objetivo', 'Evaluación'], rows: [
-          ['Rentabilidad (margen neto)', '12,6%', '> 0%', 'Rentable'],
+          ['Rentabilidad (margen neto)', '12,6%', '> 5%', 'Rentable'],
           ['Crecimiento de ventas (5 años)', '6,4%/año', '> 10%/año', 'Insuficiente'],
           ['Crecimiento del efectivo por acción (5 años)', '22,9%/año', '> 10%/año', 'Sólido'],
           ['Margen de flujo de caja libre', '12,0%', '> 10%', 'Sólido'],

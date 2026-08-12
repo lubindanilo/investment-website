@@ -1249,8 +1249,8 @@
       "how": "Caja libre ÷ ventas."
     },
     "revenuePerEmployeeGrowth5y": {
-      "why": "Una empresa de calidad genera más ventas con el mismo equipo, año tras año. Cuando los ingresos por empleado crecen, la organización gana en eficiencia; cuando retroceden, la plantilla crece más rápido que el negocio.",
-      "how": "Ingresos anuales ÷ número de empleados al cierre del ejercicio, tendencia en los últimos 5 años. Cuando falta el historial de plantilla, la tarjeta muestra la rentabilidad de caja (caja libre ÷ ventas)."
+      "why": "El crecimiento de los ingresos por empleado mide la eficiencia, pero no basta si los ingresos totales se estancan. El criterio combina por tanto productividad y crecimiento de ingresos.",
+      "how": "En 5 años: Sí cuando los ingresos y los ingresos por empleado crecen cada uno al menos un 10%/año; Parcial cuando solo los ingresos por empleado alcanzan el 10%, o cuando los ingresos alcanzan el 10% con ingresos por empleado entre el 5% y el 10%. Cuando falta el historial de plantilla, la tarjeta muestra la rentabilidad de caja."
     },
     "operatingLeverage": {
       "why": "¿Las ventas crecen más rápido que los costes con los años? Si es así, los márgenes se amplían (efecto tijera favorable) y la empresa se vuelve más rentable al crecer; si los costes suben más rápido, los márgenes se comprimen.",
@@ -1983,7 +1983,7 @@
         "num": 1,
         "nom": "Rentable",
         "formule": "Margen neto = Beneficio neto / Ventas",
-        "seuil": "> 0 %",
+        "seuil": "> 5 %",
         "pourquoi": "Una empresa que no gana dinero no es una tesis de inversión. Este primer filtro elimina las sociedades estructuralmente deficitarias."
       },
       {
@@ -2011,8 +2011,8 @@
         "num": 5,
         "nom": "Ingresos por empleado en crecimiento",
         "formule": "Ingresos anuales / número de empleados, tendencia a 5 años",
-        "seuil": "> 5 % al año",
-        "pourquoi": "Generar más ventas con el mismo equipo es la marca de una organización que gana en eficiencia: automatización, poder de fijación de precios, economías de escala. Cuando falta el historial de plantilla, puntuamos en su lugar la rentabilidad de caja (free cash flow / ingresos, umbral del 10 %)."
+        "seuil": "Ingresos e ingresos por empleado ≥ 10% al año",
+        "pourquoi": "Los ingresos por empleado miden la eficiencia, pero solo validan plenamente el criterio si los ingresos totales también crecen al menos un 10% al año. Uno solo de los dos motores da Parcial según los tramos definidos. Cuando falta el historial de plantilla, puntuamos en su lugar la rentabilidad de caja (free cash flow / ingresos, umbral del 10%)."
       },
       {
         "num": 6,

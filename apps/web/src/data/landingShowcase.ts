@@ -91,7 +91,7 @@ export const FROZEN_SLOTS: FrozenShowcase[] = [
       },
       {
         "key": "revenuePerEmployeeGrowth5y",
-        "status": "warn",
+        "status": "fail",
         "name": {
           "fr": "CA par employé en progression",
           "en": "Growing revenue per employee",
@@ -253,7 +253,7 @@ export const FROZEN_SLOTS: FrozenShowcase[] = [
       },
       {
         "key": "revenuePerEmployeeGrowth5y",
-        "status": "warn",
+        "status": "fail",
         "name": {
           "fr": "CA par employé en progression",
           "en": "Growing revenue per employee",

@@ -591,20 +591,44 @@ export function buildQuantitativeCriteria(m: DerivedMetrics, lang: Lang = 'fr'):
  */
 export function buildRevenuePerEmployeeCriterion(m: DerivedMetrics, lang: Lang = 'fr'): Criterion {
   const g = m.revenuePerEmployeeCagr ?? null;
+  const revenueGrowth = m.revenueCagr ?? null;
   const perYear = tt(lang, 'common.perYear');
+  const revenueAtLeastTen = revenueGrowth != null && revenueGrowth >= 0.10;
+  const employeeAtLeastTen = g != null && g >= 0.10;
+  const employeeBetweenFiveAndTen = g != null && g >= 0.05 && g < 0.10;
+
+  // Le CA/employé ne valide pleinement le critère que si l'activité totale suit aussi :
+  // - Oui : CA >= 10 %/an ET CA/employé >= 10 %/an ;
+  // - Partiel : un seul des deux scénarios demandés (ou CA total inconnu avec CA/employé fort) ;
+  // - Non : tous les autres cas. Une donnée manquante reste inconnue, jamais une faiblesse.
+  const statut: Criterion['statut'] = g == null
+    ? 'warn'
+    : revenueAtLeastTen && employeeAtLeastTen
+      ? 'pass'
+      : (employeeAtLeastTen && (revenueGrowth == null || revenueGrowth < 0.10))
+        || (revenueAtLeastTen && employeeBetweenFiveAndTen)
+        ? 'warn'
+        : 'fail';
+
+  const explanationKey = statut === 'pass'
+    ? 'revenuePerEmployeeGrowth5y.strong'
+    : statut === 'fail'
+      ? 'revenuePerEmployeeGrowth5y.weak'
+      : revenueGrowth == null
+        ? 'revenuePerEmployeeGrowth5y.revenueUnavailable'
+        : revenueAtLeastTen
+          ? 'revenuePerEmployeeGrowth5y.revenueStrongEmployeePartial'
+          : 'revenuePerEmployeeGrowth5y.employeeStrongRevenueWeak';
+
   return {
     key: 'revenuePerEmployeeGrowth5y',
     nom: tt(lang, 'revenuePerEmployeeGrowth5y.name'),
     valeur: g == null ? tt(lang, 'common.notCalc') : fmtPct(g, perYear),
     cible: tt(lang, 'revenuePerEmployeeGrowth5y.target'),
-    statut: g == null ? 'warn' : g > 0.05 ? 'pass' : g > 0 ? 'warn' : 'fail',
+    statut,
     explication: g == null
       ? reasonOr(m, 'revenuePerEmployeeCagr', tt(lang, 'revenuePerEmployeeGrowth5y.unavailable'), lang)
-      : g > 0.05
-        ? tt(lang, 'revenuePerEmployeeGrowth5y.strong')
-        : g > 0
-          ? tt(lang, 'revenuePerEmployeeGrowth5y.stable')
-          : tt(lang, 'revenuePerEmployeeGrowth5y.declining'),
+      : tt(lang, explanationKey),
   };
 }
 

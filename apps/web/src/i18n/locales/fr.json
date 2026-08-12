@@ -1275,8 +1275,8 @@
       "how": "Cash libre ÷ ventes."
     },
     "revenuePerEmployeeGrowth5y": {
-      "why": "Une entreprise de qualité fait plus de ventes avec la même équipe, année après année. Quand le CA par employé progresse, l'organisation gagne en efficacité ; quand il recule, les effectifs grossissent plus vite que l'activité.",
-      "how": "Chiffre d'affaires annuel ÷ nombre d'employés en fin d'exercice, tendance sur les 5 dernières années. Quand l'historique d'effectifs manque, la carte affiche à la place la profitabilité cash (cash libre ÷ ventes)."
+      "why": "La progression du CA par employé mesure l'efficacité, mais elle ne suffit pas si l'activité totale stagne. Le critère croise donc productivité et croissance du CA.",
+      "how": "Sur 5 ans : Oui si CA et CA par employé progressent chacun d'au moins 10 %/an ; Partiel si seul le CA par employé atteint 10 %, ou si le CA atteint 10 % avec un CA par employé entre 5 % et 10 %. Quand l'historique d'effectifs manque, la carte affiche à la place la profitabilité cash."
     },
     "operatingLeverage": {
       "why": "Est-ce que les ventes progressent plus vite que les coûts au fil des années ? Si oui, les marges s'élargissent (effet de ciseau favorable) et l'entreprise devient plus rentable en grandissant ; si les coûts montent plus vite, les marges se compriment.",
@@ -1983,7 +1983,7 @@
         "num": 1,
         "nom": "Rentable",
         "formule": "Marge nette = Résultat net / Chiffre d'affaires",
-        "seuil": "> 0 %",
+        "seuil": "> 5 %",
         "pourquoi": "Une entreprise qui ne gagne pas d'argent n'est pas une affaire d'investissement. Ce premier filtre élimine les sociétés structurellement déficitaires."
       },
       {
@@ -2011,8 +2011,8 @@
         "num": 5,
         "nom": "CA par employé en progression",
         "formule": "Chiffre d'affaires annuel / nombre d'employés, évolution sur 5 ans",
-        "seuil": "> 5 % par an",
-        "pourquoi": "Faire plus de ventes avec la même équipe, c'est le signe d'une organisation qui gagne en efficacité : automatisation, pricing power, effet d'échelle. Quand l'historique d'effectifs n'est pas disponible, on note à la place la profitabilité cash (free cash flow / chiffre d'affaires, seuil 10 %)."
+        "seuil": "CA et CA par employé ≥ 10 % par an",
+        "pourquoi": "Le CA par employé mesure l'efficacité, mais ne valide pleinement le critère que si l'activité totale progresse elle aussi d'au moins 10 % par an. Un seul des deux moteurs donne Partiel selon les paliers définis. Quand l'historique d'effectifs n'est pas disponible, on note à la place la profitabilité cash (free cash flow / chiffre d'affaires, seuil 10 %)."
       },
       {
         "num": 6,
