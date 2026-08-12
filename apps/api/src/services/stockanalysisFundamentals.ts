@@ -90,13 +90,36 @@ function splitTicker(yahooTicker: string): YahooTickerInfo {
 /** Périodicité de la page demandée (paramètre `?p=` de stockanalysis). */
 export type SaPeriod = 'quarterly' | 'annual';
 
+/**
+ * Bases d'URL candidates (primaire puis fallbacks) pour un ticker — sans le chemin de page.
+ * Mêmes règles de slug que depuis l'origine :
+ *   - cotation US directe (ADR/dual-listed connus ou ticker sans suffixe) → /stocks/{base} ;
+ *   - cotation native via segment exchange — slug en MAJUSCULES (vérifié sur MC.PA = /quote/epa/MC/) ;
+ *   - fallback générique /stocks/{base} en dernier recours (ex Ferrari RACE.MI = /stocks/race/),
+ *     ne coûte qu'un fetch additionnel si les URLs précédentes ont retourné 404.
+ */
+function candidateBases(yahooTicker: string): string[] {
+  const { base, suffix } = splitTicker(yahooTicker.toUpperCase());
+  const seg = SUFFIX_TO_SEG[suffix];
+  const bases: string[] = [];
+  if (US_LISTED_DIRECT.has(base) || !suffix) {
+    bases.push(`${BASE}/stocks/${base.toLowerCase()}`);
+  }
+  if (seg) {
+    bases.push(`${BASE}/quote/${seg}/${base}`);
+  }
+  if (!US_LISTED_DIRECT.has(base)) {
+    bases.push(`${BASE}/stocks/${base.toLowerCase()}`);
+  }
+  return [...new Set(bases)];
+}
+
 /** Construit les URL candidates (primaire, fallback) pour un ticker. */
 export function buildUrls(
   yahooTicker: string,
   statement: 'income' | 'cash-flow' | 'balance-sheet',
   period: SaPeriod = 'quarterly',
 ): string[] {
-  const { base, suffix } = splitTicker(yahooTicker.toUpperCase());
   // Vérifié verbatim sur les pages :
   //   income        → /financials/
   //   cash-flow     → /financials/cash-flow-statement/
@@ -105,24 +128,7 @@ export function buildUrls(
     statement === 'income'        ? 'financials' :
     statement === 'cash-flow'     ? 'financials/cash-flow-statement' :
     /* balance-sheet */            'financials/balance-sheet';
-  const seg = SUFFIX_TO_SEG[suffix];
-  const urls: string[] = [];
-
-  // Cotation US directe (pour les ADR/dual-listed connus) — slug en minuscules.
-  if (US_LISTED_DIRECT.has(base) || !suffix) {
-    urls.push(`${BASE}/stocks/${base.toLowerCase()}/${path}/?p=${period}`);
-  }
-  // Cotation native via segment exchange — slug en MAJUSCULES (vérifié sur MC.PA = /quote/epa/MC/).
-  if (seg) {
-    urls.push(`${BASE}/quote/${seg}/${base}/${path}/?p=${period}`);
-  }
-  // Fallback générique : /stocks/{base}/ — pour les sociétés US-listed qu'on n'a pas explicitement
-  // dans US_LISTED_DIRECT (ex Ferrari RACE.MI = /stocks/race/). Tenté en dernier recours, ne coûte
-  // qu'un fetch additionnel si les URLs précédentes ont retourné 404.
-  if (!US_LISTED_DIRECT.has(base)) {
-    urls.push(`${BASE}/stocks/${base.toLowerCase()}/${path}/?p=${period}`);
-  }
-  return urls;
+  return candidateBases(yahooTicker).map(b => `${b}/${path}/?p=${period}`);
 }
 
 export interface ParseResult {
@@ -395,6 +401,90 @@ export function deriveFcf(series: Map<string, TimeseriesPoint[]>): void {
     .filter(p => capexByDate.has(p.date))
     .map(p => ({ date: p.date, value: p.value + capexByDate.get(p.date)! }));
   if (pts.length) series.set('fcf', pts);
+}
+
+// ─── Historique du nombre d'employés ─────────────────────────────────────────
+//
+// stockanalysis expose une page /employees/ distincte des financials, avec l'historique
+// ANNUEL de l'effectif (dates = fins d'exercice fiscal, 9-32 exercices selon le titre,
+// couverture vérifiée sur 26 bourses dont micro-caps le 12/08/2026). On la lit via son
+// endpoint SvelteKit `__data.json` : payload JSON encodé « devalue » (chaque objet référence
+// ses valeurs par INDEX dans le tableau `data` du nœud), bien plus stable que le HTML.
+//
+// ⚠ La donnée est rattachée à la cotation PRIMAIRE : la page 404 sur une cotation
+// secondaire (SHOP.TO → NYSE, Sixt FRA → Xetra). candidateBases couvre déjà ce cas
+// (slug exchange puis fallback /stocks/).
+
+/**
+ * Décodage minimal du format « devalue » de SvelteKit : la valeur à l'index `idx` est un
+ * scalaire, ou un objet/tableau dont chaque champ est un INDEX vers une autre entrée de
+ * `data`. Les index négatifs sont des trous (undefined). Profondeur bornée : le payload
+ * employees est plat (liste d'objets de scalaires), tout cycle serait un payload corrompu.
+ */
+function decodeDevalue(data: unknown[], idx: number, depth = 0): unknown {
+  if (depth > 8 || !Number.isInteger(idx) || idx < 0 || idx >= data.length) return undefined;
+  const v = data[idx];
+  if (Array.isArray(v)) {
+    return v.map(i => (typeof i === 'number' ? decodeDevalue(data, i, depth + 1) : undefined));
+  }
+  if (v !== null && typeof v === 'object') {
+    const out: Record<string, unknown> = {};
+    for (const [k, i] of Object.entries(v as Record<string, unknown>)) {
+      if (typeof i === 'number') out[k] = decodeDevalue(data, i, depth + 1);
+    }
+    return out;
+  }
+  return v;
+}
+
+/**
+ * Parse le payload __data.json de la page /employees/ → série {date, value} ASC.
+ * On préfère `historical_annual` (les fins d'exercice) à `historical` qui, sur les émetteurs
+ * publiant l'effectif en trimestriel (HK, Suède), peut pointer la vue trimestrielle.
+ * Exporté pour tests.
+ */
+export function parseEmployeesPayload(text: string): TimeseriesPoint[] | null {
+  let doc: { nodes?: unknown[] };
+  try { doc = JSON.parse(text) as { nodes?: unknown[] }; } catch { return null; }
+  const nodes = Array.isArray(doc?.nodes) ? doc.nodes : [];
+  for (const node of nodes) {
+    const data = (node as { data?: unknown[] } | null)?.data;
+    if (!Array.isArray(data) || data.length === 0) continue;
+    const root = data[0];
+    if (root === null || typeof root !== 'object' || Array.isArray(root)) continue;
+    const r = root as Record<string, unknown>;
+    const histIdx = typeof r.historical_annual === 'number' ? r.historical_annual
+      : typeof r.historical === 'number' ? r.historical : null;
+    if (histIdx == null) continue;
+    const hist = decodeDevalue(data, histIdx);
+    if (!Array.isArray(hist)) continue;
+    const pts: TimeseriesPoint[] = [];
+    for (const h of hist) {
+      const row = h as { date?: unknown; count?: unknown } | undefined;
+      const date = row?.date;
+      const count = row?.count;
+      if (typeof date !== 'string' || !ISO_DATE.test(date)) continue;
+      if (typeof count !== 'number' || !Number.isFinite(count) || count <= 0) continue;
+      pts.push({ date, value: count });
+    }
+    if (pts.length > 0) {
+      pts.sort((a, b) => a.date.localeCompare(b.date));
+      return pts;
+    }
+  }
+  return null;
+}
+
+/**
+ * Fetch l'historique annuel du nombre d'employés d'un ticker. Null si la page n'existe pas
+ * (cotation secondaire sans fallback valide, ou titre non couvert) ou si le payload a changé.
+ * Passe par le même throttle/retry que les pages financials.
+ */
+export async function getStockanalysisEmployees(yahooTicker: string): Promise<TimeseriesPoint[] | null> {
+  const urls = candidateBases(yahooTicker).map(b => `${b}/employees/__data.json`);
+  const text = await fetchWithRetry(urls);
+  if (!text) return null;
+  return parseEmployeesPayload(text);
 }
 
 /**

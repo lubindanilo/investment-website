@@ -361,6 +361,7 @@
     "totalDebt": "Dette long terme",
     "netMargin": "Marge nette (TTM)",
     "fcfMargin": "Marge FCF (TTM)",
+    "revenuePerEmployee": "CA par employé (exercice)",
     "operatingMargin": "Marge opérationnelle (TTM)",
     "netDebtFcf": "Dette nette / FCF (TTM)",
     "cashConversion": "Conversion cash FCF/RN (TTM)"
@@ -1273,6 +1274,10 @@
       "why": "Sur 100 € de ventes, combien se transforment en cash réellement disponible, une fois les investissements payés. C'est ce cash qui peut t'être reversé ou réinvesti.",
       "how": "Cash libre ÷ ventes."
     },
+    "revenuePerEmployeeGrowth5y": {
+      "why": "Une entreprise de qualité fait plus de ventes avec la même équipe, année après année. Quand le CA par employé progresse, l'organisation gagne en efficacité ; quand il recule, les effectifs grossissent plus vite que l'activité.",
+      "how": "Chiffre d'affaires annuel ÷ nombre d'employés en fin d'exercice, tendance sur les 5 dernières années. Quand l'historique d'effectifs manque, la carte affiche à la place la profitabilité cash (cash libre ÷ ventes)."
+    },
     "operatingLeverage": {
       "why": "Est-ce que les ventes progressent plus vite que les coûts au fil des années ? Si oui, les marges s'élargissent (effet de ciseau favorable) et l'entreprise devient plus rentable en grandissant ; si les coûts montent plus vite, les marges se compriment.",
       "how": "On suit la marge d'exploitation (part des ventes qui reste après les coûts de fonctionnement) sur les 5 dernières années, pour voir si l'écart entre ventes et coûts joue en faveur de l'entreprise."
@@ -1330,7 +1335,7 @@
   "heroPreview": {
     "composition": "Composition",
     "cashRoce": "Rendement capital",
-    "fcfMargin": "Profitabilité cash",
+    "revPerEmployee": "CA par employé",
     "revenueGrowth": "Croissance ventes",
     "debtFcf": "Endettement",
     "netMargin": "Marge nette",
@@ -2004,10 +2009,10 @@
       },
       {
         "num": 5,
-        "nom": "Profitabilité cash",
-        "formule": "Marge de cash = cash disponible (free cash flow) / chiffre d'affaires",
-        "seuil": "> 10 %",
-        "pourquoi": "Le free cash flow, c'est l'argent qui reste vraiment en caisse une fois tout payé, bien plus fiable que le bénéfice comptable. Une marge élevée veut dire que chaque euro de vente génère du vrai cash."
+        "nom": "CA par employé en progression",
+        "formule": "Chiffre d'affaires annuel / nombre d'employés, évolution sur 5 ans",
+        "seuil": "> 5 % par an",
+        "pourquoi": "Faire plus de ventes avec la même équipe, c'est le signe d'une organisation qui gagne en efficacité : automatisation, pricing power, effet d'échelle. Quand l'historique d'effectifs n'est pas disponible, on note à la place la profitabilité cash (free cash flow / chiffre d'affaires, seuil 10 %)."
       },
       {
         "num": 6,

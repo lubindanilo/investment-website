@@ -180,6 +180,8 @@ function toTrend(quant: LoadedQuant, ticker: string) {
     shareCountCagr5yPct: pct(m.shareCagr),
     netMarginPct: pct(m.netMargin),
     fcfMarginPct: pct(m.fcfMargin),
+    revenuePerEmployeeCagr5yPct: pct(m.revenuePerEmployeeCagr ?? null),
+    employees: m.employees ?? null,
     cashROCEPct: pct(m.cashROCE),
     netDebtToFcfYears: round2(m.netDebtFcf),
     cashConversionRatio: round2(m.ccr),

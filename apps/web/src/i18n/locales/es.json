@@ -1248,6 +1248,10 @@
       "why": "De cada 100 € de ventas, cuánto se convierte en caja realmente disponible, una vez pagadas las inversiones. Es la caja que puede devolvértele o reinvertirse.",
       "how": "Caja libre ÷ ventas."
     },
+    "revenuePerEmployeeGrowth5y": {
+      "why": "Una empresa de calidad genera más ventas con el mismo equipo, año tras año. Cuando los ingresos por empleado crecen, la organización gana en eficiencia; cuando retroceden, la plantilla crece más rápido que el negocio.",
+      "how": "Ingresos anuales ÷ número de empleados al cierre del ejercicio, tendencia en los últimos 5 años. Cuando falta el historial de plantilla, la tarjeta muestra la rentabilidad de caja (caja libre ÷ ventas)."
+    },
     "operatingLeverage": {
       "why": "¿Las ventas crecen más rápido que los costes con los años? Si es así, los márgenes se amplían (efecto tijera favorable) y la empresa se vuelve más rentable al crecer; si los costes suben más rápido, los márgenes se comprimen.",
       "how": "Seguimos el margen operativo (la parte de las ventas que queda tras los costes de funcionamiento) en los últimos 5 años, para ver si la brecha entre ventas y costes juega a favor de la empresa."
@@ -1302,6 +1306,7 @@
     "totalDebt": "Deuda a largo plazo",
     "netMargin": "Margen neto (TTM)",
     "fcfMargin": "Margen FCF (TTM)",
+    "revenuePerEmployee": "Ingresos por empleado (ejercicio)",
     "operatingMargin": "Margen operativo (TTM)",
     "netDebtFcf": "Deuda neta / FCF (TTM)",
     "cashConversion": "Conversión de caja FCF/BN (TTM)"
@@ -1330,7 +1335,7 @@
   "heroPreview": {
     "composition": "Composición",
     "cashRoce": "Rentab. capital",
-    "fcfMargin": "Rentab. caja",
+    "revPerEmployee": "Ingresos/empleado",
     "revenueGrowth": "Crec. ventas",
     "debtFcf": "Endeudamiento",
     "netMargin": "Margen neto",
@@ -2004,10 +2009,10 @@
       },
       {
         "num": 5,
-        "nom": "Rentabilidad de caja",
-        "formule": "Margen de caja = free cash flow / ventas",
-        "seuil": "> 10 %",
-        "pourquoi": "El free cash flow es el dinero que queda realmente en caja una vez pagado todo, mucho más fiable que el beneficio contable. Un margen alto significa que cada euro de ingreso genera caja real."
+        "nom": "Ingresos por empleado en crecimiento",
+        "formule": "Ingresos anuales / número de empleados, tendencia a 5 años",
+        "seuil": "> 5 % al año",
+        "pourquoi": "Generar más ventas con el mismo equipo es la marca de una organización que gana en eficiencia: automatización, poder de fijación de precios, economías de escala. Cuando falta el historial de plantilla, puntuamos en su lugar la rentabilidad de caja (free cash flow / ingresos, umbral del 10 %)."
       },
       {
         "num": 6,
