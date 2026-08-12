@@ -54,6 +54,7 @@ const MAX_TICKERS = 5000;
 /** Pages statiques + leurs hints SEO. */
 const STATIC_PAGES: Array<{ path: string; changefreq: string; priority: number }> = [
   { path: '/',                  changefreq: 'daily',   priority: 1.0 },
+  { path: '/analyser',          changefreq: 'weekly',  priority: 0.9 },
   { path: '/pricing',           changefreq: 'weekly',  priority: 0.8 },
   { path: '/screener',          changefreq: 'daily',   priority: 0.9 },
   { path: '/compare',           changefreq: 'weekly',  priority: 0.7 },

@@ -38,7 +38,20 @@ export default function AppFooter() {
           </ul>
         </div>
 
-        {/* Colonne 2 — Légal */}
+        {/* Colonne 2 — Ressources éditoriales retirées de la navigation principale. */}
+        <div className="app-footer-col">
+          <h3>{t('footer.resources')}</h3>
+          <ul>
+            <li>
+              <Link to="/palmares">{t('footer.links.trackRecord')}</Link>
+            </li>
+            <li>
+              <Link to="/blog">{t('footer.links.blog')}</Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Colonne 3 — Légal */}
         <div className="app-footer-col">
           <h3>{t('footer.legal')}</h3>
           <ul>
@@ -57,7 +70,7 @@ export default function AppFooter() {
           </ul>
         </div>
 
-        {/* Colonne 3 — Contact */}
+        {/* Colonne 4 — Contact */}
         <div className="app-footer-col">
           <h3>{t('footer.contact')}</h3>
           <ul>

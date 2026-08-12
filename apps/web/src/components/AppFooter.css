@@ -10,18 +10,18 @@
   max-width: 1080px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
 }
 
 @media (max-width: 760px) {
   .app-footer-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
 }
 
-/* Téléphone : 3 colonnes empilées = ~600px de pied de page. Deux colonnes suffisent
+/* Téléphone : quatre colonnes empilées seraient trop longues. Deux colonnes suffisent
    et le pied revient à ~300px. */
 @media (max-width: 560px) {
   .app-footer { padding: 24px 14px 18px; margin-top: 36px; }

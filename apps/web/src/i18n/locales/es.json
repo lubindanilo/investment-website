@@ -319,7 +319,7 @@
   "nav": {
     "analyse": "Analizar",
     "watchlist": "Mis favoritos",
-    "screener": "Top acciones",
+    "screener": "Screener",
     "marketBeat": "Estrategia de cartera",
     "compare": "Comparar",
     "blog": "Blog",
@@ -1902,6 +1902,7 @@
   },
   "footer": {
     "product": "Producto",
+    "resources": "Recursos",
     "legal": "Legal",
     "contact": "Contacto",
     "links": {
@@ -1914,7 +1915,9 @@
       "cgu": "Condiciones de uso",
       "cgv": "Condiciones de venta",
       "confidentialite": "Privacidad",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "trackRecord": "Palmarés",
+      "blog": "Blog"
     },
     "disclaimerShort": "Herramienta de ayuda a la decisión. No constituye asesoramiento de inversión personalizado."
   },

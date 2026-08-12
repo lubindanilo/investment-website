@@ -6,7 +6,6 @@ import { HomePage } from './pages/HomePage.js';
 import { AnalysePage } from './pages/AnalysePage.js';
 import { RequireAuth } from './components/RequireAuth.js';
 import { useAuth } from './contexts/AuthContext.js';
-import { useSubscription } from './contexts/SubscriptionContext.js';
 import { useToast } from './components/Toast.js';
 import { Logo } from './components/ui/primitives.js';
 import AppFooter from './components/AppFooter.js';
@@ -77,7 +76,6 @@ export function App() {
   const { pathname } = useLocation();
   const { t } = useTranslation();
   const { user } = useAuth();
-  const { isPro } = useSubscription();
   const isOwner = (user?.email ?? '').toLowerCase() === OWNER_EMAIL;
   // Onglets d'app masqués uniquement sur les pages d'auth. Présents sur l'accueil pour
   // garder Watchlist / Screener / Analyser accessibles depuis la landing.
@@ -127,17 +125,13 @@ export function App() {
           className={'app-nav' + (navOpen ? ' open' : '')}
           onClick={() => setNavOpen(false)}
         >
-          {/* Ordre voulu : Analyser, Screener, Watchlist, Comparer, Méthodologie, Blog,
-              puis Stratégie Portefeuille (réservé au propriétaire). Tarifs reste accessible
-              via le footer et les modales d'upgrade. */}
+          {/* Navigation produit courte : les pages éditoriales et commerciales secondaires
+              (méthodologie, palmarès, blog, tarifs) restent accessibles dans le footer. */}
           <NavLink to="/analyser" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.analyse')}
           </NavLink>
           <NavLink to="/screener" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.screener')}
-          </NavLink>
-          <NavLink to="/palmares" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.palmares')}
           </NavLink>
           <NavLink to="/watchlist" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.watchlist')}
@@ -145,22 +139,11 @@ export function App() {
           <NavLink to="/compare" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
             {t('nav.compare')}
           </NavLink>
-          <NavLink to="/methodologie" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.methodologie')}
-          </NavLink>
-          <NavLink to="/blog" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t('nav.blog')}
-          </NavLink>
           {isOwner && (
             <NavLink to="/strategie-portefeuille" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
               {t('nav.marketBeat')}
             </NavLink>
           )}
-          {/* Label conditionnel : un Pro voit « Mon abonnement » (pertinent), un Free/anonyme voit
-              « Passer Pro » (conversion). Maximise le CTR sans frustrer les abonnés. */}
-          <NavLink to="/pricing" className={({ isActive }) => 'tab' + (isActive ? ' active' : '')}>
-            {t(isPro ? 'nav.subscription' : 'nav.pricingPro')}
-          </NavLink>
           {/* Actions (langue + compte) repliées dans le menu sur mobile uniquement.
               stopPropagation : interagir avec le sélecteur de langue ou le menu compte
               ne doit pas refermer le menu (seules les navigations le ferment, via l'effet). */}

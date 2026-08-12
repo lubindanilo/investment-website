@@ -177,7 +177,7 @@ type TickerTr = {
   resSectorHub: (sector: string) => string;
   resTopQuality: string;
   resPricing: string;
-  headerNav: { home: string; screener: string; method: string; pricing: string };
+  headerNav: { home: string; analyze: string; screener: string; compare: string };
   breadcrumbHome: string;
   breadcrumbScreener: string;
   disclaimer: string;
@@ -262,7 +262,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     resSectorHub: (s) => `Toutes les actions du secteur ${s}`,
     resTopQuality: 'Top des entreprises de qualité',
     resPricing: 'Tarifs Lubin Investment',
-    headerNav: { home: 'Lubin Investment', screener: 'Screener', method: 'Méthodologie', pricing: 'Tarifs' },
+    headerNav: { home: 'Lubin Investment', analyze: 'Analyser', screener: 'Screener', compare: 'Comparer' },
     breadcrumbHome: 'Accueil',
     breadcrumbScreener: 'Screener',
     disclaimer: "Lubin Investment est un outil d'aide à la décision pour investisseurs particuliers. Ce service ne constitue pas un conseil en investissement personnalisé au sens de l'article L.321-1 du Code monétaire et financier. Les performances passées ne préjugent pas des performances futures.",
@@ -341,7 +341,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     resSectorHub: (s) => `All stocks in the ${s} sector`,
     resTopQuality: 'Top quality companies',
     resPricing: 'Lubin Investment pricing',
-    headerNav: { home: 'Lubin Investment', screener: 'Screener', method: 'Methodology', pricing: 'Pricing' },
+    headerNav: { home: 'Lubin Investment', analyze: 'Analyze', screener: 'Screener', compare: 'Compare' },
     breadcrumbHome: 'Home',
     breadcrumbScreener: 'Screener',
     disclaimer: 'Lubin Investment is a decision-support tool for individual investors. This service does not constitute personalized investment advice within the meaning of Article L.321-1 of the French Monetary and Financial Code. Past performance is no guarantee of future results.',
@@ -420,7 +420,7 @@ const TICKER_TR: Record<ArticleLang, TickerTr> = {
     resSectorHub: (s) => `Todas las acciones del sector ${s}`,
     resTopQuality: 'Top empresas de calidad',
     resPricing: 'Tarifas Lubin Investment',
-    headerNav: { home: 'Lubin Investment', screener: 'Screener', method: 'Metodología', pricing: 'Tarifas' },
+    headerNav: { home: 'Lubin Investment', analyze: 'Analizar', screener: 'Screener', compare: 'Comparar' },
     breadcrumbHome: 'Inicio',
     breadcrumbScreener: 'Screener',
     disclaimer: 'Lubin Investment es una herramienta de ayuda a la decisión para inversores particulares. Este servicio no constituye un consejo de inversión personalizado en el sentido del artículo L.321-1 del Código Monetario y Financiero francés. Las rentabilidades pasadas no garantizan rentabilidades futuras.',
@@ -938,7 +938,7 @@ ${JSON.stringify({
 <body>
 
 <header>
-  <p><span data-nosnippet><a href="${SITE_URL}/${lq}">${tr.headerNav.home}</a> · <a href="${SITE_URL}/screener${lq}">${tr.headerNav.screener}</a> · <a href="${SITE_URL}/methodologie${lq}">${tr.headerNav.method}</a> · <a href="${SITE_URL}/pricing${lq}">${tr.headerNav.pricing}</a></span></p>
+  <p><span data-nosnippet><a href="${SITE_URL}/${lq}">${tr.headerNav.home}</a> · <a href="${SITE_URL}/analyser${lq}">${tr.headerNav.analyze}</a> · <a href="${SITE_URL}/screener${lq}">${tr.headerNav.screener}</a> · <a href="${SITE_URL}/compare${lq}">${tr.headerNav.compare}</a></span></p>
 </header>
 
 <main>
@@ -975,7 +975,7 @@ ${relatedSection}
 
 <!-- Ressources : on ne relie ICI que des cibles ABSENTES du header (comparaison curée, hub
      secteur). Raison mesurée : Google ne compte que le PREMIER lien d'une page vers une URL
-     donnée. Le header pointe déjà vers /screener, /methodologie et /pricing avec une ancre
+     donnée. Le header pointe déjà vers /analyser, /screener et /compare avec une ancre
      générique, donc les rappeler ici ne transmettait rien, ça ne faisait que gonfler le nombre
      de liens (le corpus recommande ~5 liens utiles dans le corps, pas 50). -->
 ${resourceLinks.length ? `<p>${tr.otherResources} :${resourceLinks.join(' ·')}.</p>` : ''}
@@ -983,7 +983,7 @@ ${resourceLinks.length ? `<p>${tr.otherResources} :${resourceLinks.join(' ·')}.
 </main>
 
 <footer>
-${renderFooterNav(lang, lq, ['/screener', '/methodologie', '/pricing'])}
+${renderFooterNav(lang, lq, ['/analyser', '/screener', '/compare'])}
 <p><small><span data-nosnippet>${tr.disclaimer}</span></small></p>
 </footer>
 
@@ -1356,7 +1356,7 @@ ${JSON.stringify({
 </head>
 <body>
 <header>
-  <p><span data-nosnippet><a href="${SITE_URL}/${lq}">Lubin Investment</a> · <a href="${SITE_URL}/screener${lq}">Screener</a> · <a href="${SITE_URL}/methodologie${lq}">${escapeHtml(STATIC_TR[lang].nav)}</a></span></p>
+  <p><span data-nosnippet><a href="${SITE_URL}/${lq}">Lubin Investment</a> · <a href="${SITE_URL}/analyser${lq}">${escapeHtml(TICKER_TR[lang].headerNav.analyze)}</a> · <a href="${SITE_URL}/screener${lq}">Screener</a> · <a href="${SITE_URL}/compare${lq}">${escapeHtml(TICKER_TR[lang].headerNav.compare)}</a></span></p>
 </header>
 <main>
 <nav aria-label="${escapeHtml(tr.breadcrumbCompare)}"><span data-nosnippet><a href="${SITE_URL}/${lq}">${escapeHtml(STATIC_TR[lang].home)}</a> › <a href="${SITE_URL}/compare${lq}">${escapeHtml(tr.breadcrumbCompare)}</a> › ${aT} vs ${bT}</span></nav>
@@ -1750,6 +1750,7 @@ type HubRow = {
 // relie déjà, et seul le complément est émis.
 const FOOTER_NAV: Record<ArticleLang, ReadonlyArray<readonly [string, string]>> = {
   fr: [
+    ['/analyser', 'Analyser une action'],
     ['/screener', "Screener d'actions"],
     ['/compare', 'Comparer deux actions'],
     ['/palmares', 'Palmarès des opportunités repérées'],
@@ -1759,6 +1760,7 @@ const FOOTER_NAV: Record<ArticleLang, ReadonlyArray<readonly [string, string]>> 
     ['/pricing', 'Tarifs'],
   ],
   en: [
+    ['/analyser', 'Analyze a stock'],
     ['/screener', 'Stock screener'],
     ['/compare', 'Compare two stocks'],
     ['/palmares', 'Track record of spotted opportunities'],
@@ -1768,6 +1770,7 @@ const FOOTER_NAV: Record<ArticleLang, ReadonlyArray<readonly [string, string]>> 
     ['/pricing', 'Pricing'],
   ],
   es: [
+    ['/analyser', 'Analizar una acción'],
     ['/screener', 'Screener de acciones'],
     ['/compare', 'Comparar dos acciones'],
     ['/palmares', 'Historial de oportunidades detectadas'],
@@ -1972,7 +1975,7 @@ ${hreflang}
 <script type="application/ld+json">${JSON.stringify(breadcrumbLd, null, 2)}</script>
 </head>
 <body>
-<header><p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/methodologie">Méthodologie</a></p></header>
+<header><p><a href="${SITE_URL}/">Lubin Investment</a> · <a href="${SITE_URL}/analyser">${escapeHtml(TICKER_TR[o.lang].headerNav.analyze)}</a> · <a href="${SITE_URL}/screener">Screener</a> · <a href="${SITE_URL}/compare">${escapeHtml(TICKER_TR[o.lang].headerNav.compare)}</a></p></header>
 <main>
 <nav aria-label="Fil d'Ariane"><a href="${SITE_URL}/">${tr.bcHome}</a> › <a href="${SITE_URL}/screener">Screener</a> › ${escapeHtml(o.h1)}</nav>
 <h1>${escapeHtml(o.h1)}</h1>
@@ -1989,7 +1992,7 @@ ${rowsHtml}
 <p><a href="${SITE_URL}/screener">${tr.explore}</a></p>
 </main>
 <footer>
-${renderFooterNav(o.lang, o.lang === 'fr' ? '' : `?lng=${o.lang}`, ['/screener', '/methodologie', o.path])}
+${renderFooterNav(o.lang, o.lang === 'fr' ? '' : `?lng=${o.lang}`, ['/analyser', '/screener', '/compare', '/methodologie', o.path])}
 </footer>
 </body>
 </html>`;
@@ -2301,7 +2304,7 @@ ${hreflang}
 <script type="application/ld+json">${JSON.stringify(breadcrumbLd)}</script>${websiteLd}${criteriaLd}
 </head>
 <body>
-<header><p><a href="${homeUrl}">Lubin Investment</a> · <a href="${SITE_URL}/screener${lq}">Screener</a> · <a href="${SITE_URL}/methodologie${lq}">${escapeHtml(tr.nav)}</a> · <a href="${SITE_URL}/blog${lq}">Blog</a></p></header>
+<header><p><a href="${homeUrl}">Lubin Investment</a> · <a href="${SITE_URL}/analyser${lq}">${escapeHtml(TICKER_TR[lang].headerNav.analyze)}</a> · <a href="${SITE_URL}/screener${lq}">Screener</a> · <a href="${SITE_URL}/compare${lq}">${escapeHtml(TICKER_TR[lang].headerNav.compare)}</a></p></header>
 <main>
 <nav aria-label="Breadcrumb"><a href="${homeUrl}">${escapeHtml(tr.home)}</a>${o.path === '/' ? '' : ` › ${escapeHtml(c.h1)}`}</nav>
 <h1>${escapeHtml(c.h1)}</h1>
@@ -2314,7 +2317,7 @@ ${criteriaHtml}
 <p>${linksHtml}</p>
 </main>
 <footer>
-${renderFooterNav(lang, lq, ['/screener', '/methodologie', '/blog', o.path, ...c.links.map((l) => l.href)])}
+${renderFooterNav(lang, lq, ['/analyser', '/screener', '/compare', o.path, ...c.links.map((l) => l.href)])}
 </footer>
 </body>
 </html>`;

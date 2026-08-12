@@ -319,7 +319,7 @@
   "nav": {
     "analyse": "Analyze",
     "watchlist": "My favorites",
-    "screener": "Top stocks",
+    "screener": "Screener",
     "marketBeat": "Portfolio Strategy",
     "compare": "Compare",
     "blog": "Blog",
@@ -1902,6 +1902,7 @@
   },
   "footer": {
     "product": "Product",
+    "resources": "Resources",
     "legal": "Legal",
     "contact": "Contact",
     "links": {
@@ -1914,7 +1915,9 @@
       "cgu": "Terms of use",
       "cgv": "Terms of sale",
       "confidentialite": "Privacy",
-      "faq": "FAQ"
+      "faq": "FAQ",
+      "trackRecord": "Track record",
+      "blog": "Blog"
     },
     "disclaimerShort": "Decision-support tool. Does not constitute personalized investment advice."
   },
