@@ -7,7 +7,7 @@ import { api, ApiError, type TickerPreview } from '../lib/api.js';
 import { AnalysisPreview } from '../components/AnalysisPreview.js';
 import { useToast } from '../components/Toast.js';
 import { useAuth } from '../contexts/AuthContext.js';
-import { CriteriaGrid, QualGrid } from '../components/CriterionCard.js';
+import { CriteriaGrid } from '../components/CriterionCard.js';
 import { ValuationBlock } from '../components/ui/ValuationBlock.js';
 import { PfcfRatioCard } from '../components/PfcfCards.js';
 import { DividendCard } from '../components/DividendCard.js';
@@ -91,11 +91,6 @@ function AnalysisVerdict({ analysis, qualityScore }: { analysis: AnalyzeResponse
   return <p className="anl-verdict">{sentences.join(' ')}</p>;
 }
 
-function scoreOf(items: { statut: 'pass' | 'fail' | 'warn' }[]) {
-  const pass = items.filter(c => c.statut === 'pass').length;
-  const warn = items.filter(c => c.statut === 'warn').length;
-  return `${pass + Math.round(warn * 0.5)}/${items.length}`;
-}
 /** Note ramenée sur 10 (le path Yahoo peut avoir moins de critères évaluables). */
 function score10(items: Criterion[]): number {
   if (items.length === 0) return 0;
@@ -129,8 +124,6 @@ export function AnalysePage() {
   // de la session avant de lancer la requête (cf. useEffect), pour ne pas flasher l'écran de saisie.
   const [loading, setLoading] = useState(!!routeTicker);
   const [error, setError] = useState<ApiError | null>(null);
-  const [refreshingManagement, setRefreshingManagement] = useState(false);
-  const [generatingManagement, setGeneratingManagement] = useState(false);
   const [inWatchlist, setInWatchlist] = useState<Set<string>>(new Set());
   const [lastTicker, setLastTicker] = useState('');
   // Modale d'upgrade Pro déclenchée par les 403 PRO_REQUIRED (qualitatif IA, etc.)
@@ -228,40 +221,7 @@ export function AnalysePage() {
     } catch (e) { toast.push('error', (e as Error).message); }
   }
 
-  async function generateManagement() {
-    if (!analysis) return;
-    if (!user) { setShowSignupModal(true); return; }
-    setGeneratingManagement(true);
-    try { setAnalysis(await api.generateManagement(analysis.ticker)); toast.push('success', t('analyse.toast.managementGenerated')); }
-    catch (e) {
-      const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
-      if (err.requiresPro) {
-        setUpgrade({ feature: t('upgrade.management.feature'), detail: t('upgrade.management.detail') });
-      } else {
-        toast.push('error', err.userMessage);
-      }
-    }
-    finally { setGeneratingManagement(false); }
-  }
-
-  async function refreshManagementOnly() {
-    if (!analysis) return;
-    if (!user) { setShowSignupModal(true); return; }
-    setRefreshingManagement(true);
-    try { setAnalysis(await api.refreshManagement(analysis.ticker)); toast.push('success', t('analyse.toast.mgmtUpdated')); }
-    catch (e) {
-      const err = e instanceof ApiError ? e : new ApiError(0, (e as Error).message);
-      if (err.requiresPro) {
-        setUpgrade({ feature: t('upgrade.refreshMgmt.feature'), detail: t('upgrade.refreshMgmt.detail') });
-      } else {
-        toast.push('error', err.userMessage);
-      }
-    }
-    finally { setRefreshingManagement(false); }
-  }
-
   const chiffres = analysis?.criteres.slice(0, 10) ?? [];
-  const management = analysis?.management ?? [];
   const watched = !!analysis && (analysis.inWatchlist === true || inWatchlist.has(analysis.ticker));
 
   return (
@@ -315,13 +275,8 @@ export function AnalysePage() {
             <AnalysisView
               analysis={analysis}
               chiffres={chiffres}
-              management={management}
               watched={watched}
               onWatch={addToWatchlist}
-              onGenerateManagement={generateManagement}
-              generatingManagement={generatingManagement}
-              refreshingManagement={refreshingManagement}
-              onRefreshMgmt={refreshManagementOnly}
             />
             {/* Maillage interne : 5 actions du même secteur les mieux notées, cliquables.
                 Améliore le crawl Google + propose au lecteur d'explorer des entreprises comparables. */}
@@ -389,11 +344,10 @@ function Section({ title, sub, right, children }: {
 }
 
 // ─── Vue remplie ─────────────────────────────────────────────────────────────
-function AnalysisView({ analysis, chiffres, management, watched, onWatch, onGenerateManagement, generatingManagement, refreshingManagement, onRefreshMgmt }: {
+function AnalysisView({ analysis, chiffres, watched, onWatch }: {
   analysis: AnalyzeResponse;
-  chiffres: Criterion[]; management: Criterion[];
-  watched: boolean; onWatch: () => void; onGenerateManagement: () => void; generatingManagement: boolean;
-  refreshingManagement: boolean; onRefreshMgmt: () => void;
+  chiffres: Criterion[];
+  watched: boolean; onWatch: () => void;
 }) {
   const { t, i18n } = useTranslation();
   const s10 = score10(chiffres);
@@ -515,33 +469,7 @@ function AnalysisView({ analysis, chiffres, management, watched, onWatch, onGene
           <ResilienceStarsGrid score={analysis.resilienceStars ?? null} />
         </Section>
 
-        {/* Le management reste le seul bloc qualitatif à la demande. */}
-        <Section
-          title={t('analyse.sections.management.title')}
-          sub={t('analyse.sections.management.sub')}
-          right={analysis.managementAvailable
-            ? <div className="anl-management-actions">
-                <span className="anl-section-total">{t('analyse.managementEvaluation')} <strong className="num">{scoreOf(management)}</strong></span>
-                <button className="btn btn-ghost btn-sm" onClick={onRefreshMgmt} disabled={refreshingManagement}>
-                  {refreshingManagement ? <><span className="spinner" /> {t('analyse.updating')}</> : <><Icon name="refresh" size={14} /> {t('analyse.refreshManagement')}</>}
-                </button>
-              </div>
-            : undefined}
-        >
-          {analysis.managementAvailable ? (
-            <QualGrid items={management} className="anl-management-grid" />
-          ) : (
-            <div className="card anl-qual-cta">
-              <div className="anl-qual-cta-icon"><Icon name="layers" size={22} /></div>
-              <p>{t('analyse.managementCtaText')}</p>
-              <button className="btn btn-soft" onClick={onGenerateManagement} disabled={generatingManagement}>
-                {generatingManagement ? <><span className="spinner" /> {t('analyse.generating')}</> : t('analyse.generateManagement')}
-              </button>
-            </div>
-          )}
-        </Section>
-
-        {/* Résultats (sous le qualitatif) */}
+        {/* Résultats */}
         {(analysis.earnings?.next || analysis.earnings?.last) && (
           <Section title={t('analyse.sections.resultats.title')} sub={t('analyse.sections.resultats.sub')}>
             <EarningsPanel ticker={analysis.ticker} earnings={analysis.earnings} currency={currency} />
