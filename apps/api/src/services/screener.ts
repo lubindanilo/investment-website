@@ -13,7 +13,15 @@
  * (ce qui récupère la nouvelle date). Fallback TTL pour les dates inconnues.
  */
 import { createHash } from 'node:crypto';
-import type { ResilienceSummary, ResilienceStars, DerivedMetrics } from '@lubin/shared';
+import type {
+  ResilienceSummary,
+  ResilienceStars,
+  DerivedMetrics,
+  ScreenerResilienceBand,
+  ScreenerSortCol,
+  ScreenerSortDir,
+} from '@lubin/shared';
+import type { Prisma } from '@prisma/client';
 import { prisma } from '../db/client.js';
 import { getStockSymbols } from './finnhub.js';
 import { getPublishedResilienceSummaries, resilienceAllowsOpportunity } from './resilienceSummary.js';
@@ -728,38 +736,134 @@ export interface TopRow {
   resilienceStars: ResilienceStars | null;
 }
 
-/** Meilleures notes pour la vue screener. Tri par ratio décroissant, indexé. */
-export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; onlyOpportunities?: boolean; sectors?: string[]; caps?: CapBucket[]; zones?: GeoZone[] } = {}): Promise<TopRow[]> {
-  const { minRatio = 0, maxPfcf, minMax = 8, limit = 100, onlyOpportunities = false, sectors, caps, zones } = opts;
+export interface TopPage {
+  rows: TopRow[];
+  nextCursor: string | null;
+  /** Calcule uniquement sur la premiere page pour eviter un COUNT a chaque "Charger plus". */
+  total: number | null;
+}
+
+interface ScreenerCursorPayload { v: 1; ticker: string }
+
+/** Le curseur reste opaque pour le client ; Prisma repart de la cle primaire stable. */
+export function encodeScreenerCursor(ticker: string): string {
+  return Buffer.from(JSON.stringify({ v: 1, ticker } satisfies ScreenerCursorPayload)).toString('base64url');
+}
+
+/** Renvoie null plutot que de laisser un curseur arbitraire atteindre Prisma. */
+export function decodeScreenerCursor(cursor: string): string | null {
+  if (!cursor || cursor.length > 160) return null;
+  try {
+    const parsed = JSON.parse(Buffer.from(cursor, 'base64url').toString('utf8')) as Partial<ScreenerCursorPayload>;
+    return parsed.v === 1 && typeof parsed.ticker === 'string' && VALID_SYMBOL.test(parsed.ticker)
+      ? parsed.ticker
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+function resilienceTotalWhere(bands: ScreenerResilienceBand[]): Prisma.ResilienceStarScoreWhereInput | null {
+  const valid = bands.filter((b): b is ScreenerResilienceBand => b === 'strong' || b === 'watch' || b === 'fragile');
+  if (valid.length === 0 || valid.length === 3) return null;
+  return {
+    OR: valid.map(band => band === 'strong'
+      ? { total: { gte: 4 } }
+      : band === 'watch'
+        ? { total: { gte: 2.5, lt: 4 } }
+        : { total: { gte: 0, lt: 2.5 } }),
+  };
+}
+
+function screenerOrderBy(sort: ScreenerSortCol, dir: ScreenerSortDir): Prisma.ScreenerTickerOrderByWithRelationInput[] {
+  const nullsLast = { sort: dir, nulls: 'last' as const };
+  if (sort === 'resilience') return [{ resilienceStarScore: { total: dir } }, { scoreRatio: 'desc' }, { ticker: 'asc' }];
+  if (sort === 'pfcf') return [{ pfcfTTM: nullsLast }, { scoreRatio: 'desc' }, { ticker: 'asc' }];
+  if (sort === 'price') return [{ price: nullsLast }, { scoreRatio: 'desc' }, { ticker: 'asc' }];
+  if (sort === 'earnings') return [{ nextEarningsDate: nullsLast }, { scoreRatio: 'desc' }, { ticker: 'asc' }];
+  return [{ scoreRatio: { sort: dir, nulls: 'last' } }, { scoreChiffresMax: 'desc' }, { ticker: 'asc' }];
+}
+
+/**
+ * Page stable du screener. Tous les filtres sont appliques AVANT `take`, y compris la Resilience.
+ * Le `take + 1` indique s'il reste une page sans COUNT supplementaire sur les pages profondes.
+ */
+export interface GetTopOptions {
+  minRatio?: number;
+  maxPfcf?: number;
+  minMax?: number;
+  limit?: number;
+  cursor?: string;
+  sort?: ScreenerSortCol;
+  dir?: ScreenerSortDir;
+  resilienceBands?: ScreenerResilienceBand[];
+  onlyOpportunities?: boolean;
+  sectors?: string[];
+  caps?: CapBucket[];
+  zones?: GeoZone[];
+}
+
+export async function getTopPage(opts: GetTopOptions = {}): Promise<TopPage> {
+  const {
+    minRatio = 0,
+    maxPfcf,
+    minMax = 8,
+    limit = 60,
+    cursor,
+    sort = 'score',
+    dir = 'desc',
+    resilienceBands = [],
+    onlyOpportunities = false,
+    sectors,
+    caps,
+    zones,
+  } = opts;
+  const pageSize = Math.max(1, Math.min(Math.floor(limit), 100));
+  const cursorTicker = cursor ? decodeScreenerCursor(cursor) : null;
+  if (cursor && !cursorTicker) throw new Error('Curseur screener invalide');
   // Capitalisation et zone géographique : chacun un OR des options cochées (0 ou toutes → aucun
   // filtre). Les deux étant des groupes OR indépendants, on les combine via un AND explicite.
   const capBuckets = caps?.filter((c): c is CapBucket => c === 'small' || c === 'mid' || c === 'large') ?? [];
   const zoneList = zones?.filter((z): z is GeoZone => z === 'pea' || z === 'us' || z === 'intl') ?? [];
-  const andClauses: object[] = [];
+  const andClauses: Prisma.ScreenerTickerWhereInput[] = [];
   if (capBuckets.length > 0 && capBuckets.length < 3) andClauses.push({ OR: capBuckets.map(b => ({ marketCapUsd: capBucketWhere(b) })) });
   if (zoneList.length > 0 && zoneList.length < 3) andClauses.push({ OR: zoneList.map(geoZoneWhere) });
-  const rows = await prisma.screenerTicker.findMany({
-    where: {
-      status: 'scored',
-      scoreChiffresMax: { gte: minMax },       // dénominateur significatif (évite 2/2 = 100%)
-      scoreRatio: { gte: minRatio },
-      ...(maxPfcf != null ? { pfcfTTM: { gt: 0, lte: maxPfcf } } : {}),
-      ...(onlyOpportunities ? { opportunity: true } : {}),
-      ...(sectors && sectors.length ? { sector: { in: sectors } } : {}),   // 1+ industries (valeurs canoniques anglaises)
-      ...(andClauses.length ? { AND: andClauses } : {}),
-    },
-    orderBy: [{ scoreRatio: 'desc' }, { scoreChiffresMax: 'desc' }],
-    take: Math.min(limit, 500),
+  const resilienceWhere = resilienceTotalWhere(resilienceBands);
+  if (resilienceWhere) andClauses.push({ resilienceStarScore: { is: resilienceWhere } });
+  // Une ligne non scoree n'a pas de valeur de tri. On l'ecarte uniquement quand l'utilisateur
+  // trie explicitement par Resilience ; dans tous les autres tris elle reste dans l'univers.
+  else if (sort === 'resilience') andClauses.push({ resilienceStarScore: { isNot: null } });
+
+  const where: Prisma.ScreenerTickerWhereInput = {
+    status: 'scored',
+    scoreChiffresMax: { gte: minMax },       // dénominateur significatif (évite 2/2 = 100%)
+    scoreRatio: { gte: minRatio },
+    ...(maxPfcf != null ? { pfcfTTM: { gt: 0, lte: maxPfcf } } : {}),
+    ...(onlyOpportunities ? { opportunity: true } : {}),
+    ...(sectors && sectors.length ? { sector: { in: sectors } } : {}),   // 1+ industries (valeurs canoniques anglaises)
+    ...(andClauses.length ? { AND: andClauses } : {}),
+  };
+
+  const [rawRows, total] = await Promise.all([
+    prisma.screenerTicker.findMany({
+      where,
+      orderBy: screenerOrderBy(sort, dir),
+      take: pageSize + 1,
+      ...(cursorTicker ? { cursor: { ticker: cursorTicker }, skip: 1 } : {}),
     select: {
       ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true,
       pfcfTTM: true, currency: true, nextEarningsDate: true,
       sector: true, price: true, dayChangePct: true, spark: true,
       opportunity: true, pfcfPercentile: true, marketCap: true,
     },
-  }) as Omit<TopRow, 'resilience' | 'resilienceStars'>[];
+    }),
+    cursorTicker ? Promise.resolve(null) : prisma.screenerTicker.count({ where }),
+  ]);
+  const hasMore = rawRows.length > pageSize;
+  const rows = rawRows.slice(0, pageSize) as Omit<TopRow, 'resilience' | 'resilienceStars'>[];
 
   // Résilience publiée (batch, 1 requête) → badge dans le tableau. Absente pour la
-  // plupart des titres (seuls ~50 sont scorés) : null = l'UI ne montre rien.
+  // partie de l'univers pas encore scoree : null = l'UI ne montre rien.
   const tickers = rows.map(r => r.ticker);
   const [resiliences, stars] = await Promise.all([
     getPublishedResilienceSummaries(tickers),
@@ -772,7 +876,19 @@ export async function getTop(opts: { minRatio?: number; maxPfcf?: number; minMax
     return { ...r, resilience, resilienceStars: stars.get(r.ticker) ?? null, opportunity };
   });
   // Quand on ne veut que les opportunités, on retire celles recalées par la résilience.
-  return onlyOpportunities ? withRes.filter(r => r.opportunity) : withRes;
+  // Le flag SQL est volontairement plus large ; ce dernier garde-fou peut donc raccourcir une
+  // page. Le curseur reste celui de la derniere ligne SQL consommee pour ne jamais boucler.
+  const pageRows = onlyOpportunities ? withRes.filter(r => r.opportunity) : withRes;
+  return {
+    rows: pageRows,
+    nextCursor: hasMore && rows.length > 0 ? encodeScreenerCursor(rows[rows.length - 1]!.ticker) : null,
+    total,
+  };
+}
+
+/** Compatibilite des consommateurs internes (showcase, MCP) qui ne demandent qu'une page. */
+export async function getTop(opts: Omit<GetTopOptions, 'cursor'> = {}): Promise<TopRow[]> {
+  return (await getTopPage(opts)).rows;
 }
 
 export interface ScreenerStatsCounts { pending: number; scored: number; nodata: number; error: number; total: number; resilienceScored: number }

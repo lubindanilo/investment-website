@@ -539,6 +539,18 @@ export interface ScreenerTopRow {
   resilienceStars?: ResilienceStars | null;
 }
 
+/** Colonnes et sens de tri geres par la pagination serveur du screener. */
+export type ScreenerSortCol = 'score' | 'resilience' | 'pfcf' | 'price' | 'earnings';
+export type ScreenerSortDir = 'asc' | 'desc';
+export type ScreenerResilienceBand = 'strong' | 'watch' | 'fragile';
+
+/** Une page du screener. `total` n'est calcule que sur la premiere page. */
+export interface ScreenerTopPage {
+  rows: ScreenerTopRow[];
+  nextCursor: string | null;
+  total: number | null;
+}
+
 /**
  * Ligne du panier « Bat le marché » (stratégie value + momentum, validée en backtest :
  * Sharpe ~1,5, bat le S&P500 à risque comparable). Sélection : parmi le top 50 % des actions

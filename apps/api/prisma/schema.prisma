@@ -208,7 +208,12 @@ model ResilienceStarScore {
   marketCapUsd Float?
   scoredAt     DateTime @default(now())
 
+  /// Relation 1:1 avec la ligne du screener. Le ticker est deja commun aux deux tables ;
+  /// l'expliciter permet d'appliquer le filtre et le tri Resilience avant la pagination.
+  screenerTicker ScreenerTicker @relation(fields: [ticker], references: [ticker], onDelete: Cascade)
+
   @@index([total])
+  @@index([total, ticker])
   @@index([verdict])
 }
 
@@ -348,9 +353,16 @@ model ScreenerTicker {
   oppRefreshedAt          DateTime?
   updatedAt               DateTime  @updatedAt
 
+  /// Score Resilience 5 etoiles, absent tant que le backfill n'a pas note ce ticker.
+  resilienceStarScore ResilienceStarScore?
+
   /// Index de la FILE de scoring : elle trie et filtre désormais sur lastAttemptAt.
   @@index([status, priority, lastAttemptAt])
   @@index([scoreRatio])
+  @@index([scoreRatio, scoreChiffresMax, ticker])
+  @@index([pfcfTTM, ticker])
+  @@index([price, ticker])
+  @@index([nextEarningsDate, ticker])
   @@index([opportunity])
 }
 

@@ -52,6 +52,13 @@ async function get(url, lang = 'fr') {
   return r.json();
 }
 
+/** Compatibilite pendant le deploiement : ancienne API = tableau, nouvelle API = page. */
+function rowsOfTop(response, endpoint) {
+  if (Array.isArray(response)) return response;
+  if (response && Array.isArray(response.rows)) return response.rows;
+  throw new Error(`${endpoint} : reponse screener invalide`);
+}
+
 /** Ne garde que les champs réellement affichés : le fichier reste lisible et léger. */
 function toStock(r) {
   const max = r.scoreChiffresMax ?? 0;
@@ -125,7 +132,9 @@ async function main() {
   console.log(`Source : ${API}`);
   // Les lignes de veille et PEA ne contiennent aucun texte généré (ticker, nom, secteur, chiffres) :
   // une seule requête suffit. La vitrine, elle, en contient dix par titre → une requête par langue.
-  const [monitor, pea] = await Promise.all([get(ENDPOINTS.monitor), get(ENDPOINTS.pea)]);
+  const [monitorResponse, peaResponse] = await Promise.all([get(ENDPOINTS.monitor), get(ENDPOINTS.pea)]);
+  const monitor = rowsOfTop(monitorResponse, ENDPOINTS.monitor);
+  const pea = rowsOfTop(peaResponse, ENDPOINTS.pea);
   const byLang = {};
   for (const lang of LANGS) {
     // Séquentiel : le cache de /showcase ne garde qu'une langue à la fois côté serveur.

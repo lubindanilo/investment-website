@@ -150,7 +150,7 @@ export function HubPage() {
         const top = await api.screener.top({ sector: match.sector, limit: 60 });
         if (cancelled) return;
         setSectorName(match.sector);
-        setRows(top);
+        setRows(top.rows);
         setStatus('ready');
       } catch (e) {
         if (cancelled) return;

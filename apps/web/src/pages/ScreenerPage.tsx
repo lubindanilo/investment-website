@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { currentLocale } from '../i18n/index.js';
@@ -35,16 +35,6 @@ type SortCol = 'score' | 'resilience' | 'pfcf' | 'price' | 'earnings';
 interface SortState { col: SortCol; dir: 'asc' | 'desc' }
 
 function ratioOf(r: ScreenerTopRow) { return r.scoreChiffresMax ? (r.scoreChiffres ?? 0) / r.scoreChiffresMax : 0; }
-function valOf(r: ScreenerTopRow, col: SortCol): number {
-  if (col === 'score') return ratioOf(r);
-  if (col === 'resilience') return r.resilienceStars?.total ?? -Infinity;   // non scoré → en bas (desc)
-  if (col === 'pfcf') return r.pfcfTTM ?? Infinity;
-  if (col === 'price') return r.price ?? -Infinity;
-  // earnings : null → en bas (date "infinie"). Sinon Date.parse → ms (asc = plus proche en premier).
-  if (!r.nextEarningsDate) return Number.POSITIVE_INFINITY;
-  const t = Date.parse(r.nextEarningsDate + 'T12:00:00Z');
-  return Number.isFinite(t) ? t : Number.POSITIVE_INFINITY;
-}
 
 /** Format date d'earnings — même style que WatchlistPage (ex "12 mars 2026"). */
 function formatEarnings(iso?: string | null): string {
@@ -363,7 +353,9 @@ export function ScreenerPage() {
   const [onlyOpp, setOnlyOpp] = useState(false);   // « Opportunités du moment » : toggle séparé
   const [sectors, setSectors] = useState<{ sector: string; count: number }[]>([]);
   const [sort, setSort] = useState<SortState>({ col: 'score', dir: 'desc' });
-  const [visibleCount, setVisibleCount] = useState(60);   // pagination "charger plus" (Pro)
+  const [nextCursor, setNextCursor] = useState<string | null>(null);
+  const [total, setTotal] = useState<number | null>(null);
+  const [loadingMore, setLoadingMore] = useState(false);
   // Couverture : combien de titres de la base ont réellement des fondamentaux (= statut `scored`).
   // null tant qu'on ne sait pas / si l'appel échoue → le bloc n'est simplement pas affiché.
   const [covered, setCovered] = useState<number | null>(null);
@@ -400,55 +392,72 @@ export function ScreenerPage() {
   // Séquence de requête : le filtrage est LIVE, plusieurs fetches peuvent s'enchaîner (ex. slider).
   // On ignore toute réponse qui n'est pas la plus récente pour éviter un affichage périmé.
   const reqSeq = useRef(0);
-  const load = useCallback(async () => {
-    const seq = ++reqSeq.current;
-    setLoading(true); setError(null);
+  const topParams = useCallback((cursor?: string) => ({
+    minRatio: filters.minScore / 10,
+    maxPfcf: filters.maxPfcf >= PFCF_MAX ? undefined : filters.maxPfcf,
+    minMax: 8,
+    limit: 60,
+    cursor,
+    sort: sort.col,
+    dir: sort.dir,
+    resilience: filters.resilienceBands.length ? filters.resilienceBands.join(',') : undefined,
+    opportunities: onlyOpp,
+    sector: filters.sectors.length ? filters.sectors.join(',') : undefined,
+    caps: filters.caps.length ? filters.caps.join(',') : undefined,
+    zones: filters.zones.length ? filters.zones.join(',') : undefined,
+  }), [filters, onlyOpp, sort]);
+
+  const loadFirstPage = useCallback(async (seq: number) => {
     try {
-      const top = await api.screener.top({
-        minRatio: filters.minScore / 10,
-        maxPfcf: filters.maxPfcf >= PFCF_MAX ? undefined : filters.maxPfcf,
-        minMax: 8,
-        limit: 300,
-        opportunities: onlyOpp,
-        sector: filters.sectors.length ? filters.sectors.join(',') : undefined,
-        caps: filters.caps.length ? filters.caps.join(',') : undefined,
-        zones: filters.zones.length ? filters.zones.join(',') : undefined,
-      });
+      const page = await api.screener.top(topParams());
       if (seq !== reqSeq.current) return;   // réponse périmée
-      setRows(top);
+      setRows(page.rows);
+      setNextCursor(page.nextCursor);
+      setTotal(page.total);
     } catch (e) {
       if (seq !== reqSeq.current) return;
       setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
     } finally { if (seq === reqSeq.current) setLoading(false); }
-  }, [filters, onlyOpp]);
+  }, [topParams]);
 
   // Debounce : coalesce les changements rapides (glissement de slider) en une seule requête.
   useEffect(() => {
-    const id = setTimeout(load, 200);
+    const seq = ++reqSeq.current;
+    setLoading(true);
+    setLoadingMore(false);
+    setError(null);
+    setNextCursor(null);
+    const id = setTimeout(() => { void loadFirstPage(seq); }, 200);
     return () => clearTimeout(id);
-  }, [load]);
+  }, [loadFirstPage]);
 
-  const sorted = useMemo(() => {
-    const dir = sort.dir === 'desc' ? -1 : 1;
-    const bands = filters.resilienceBands;
-    const inBand = (total: number, band: ResilienceBand) =>
-      band === 'strong' ? total >= 4 : band === 'watch' ? total >= 2.5 && total < 4 : total < 2.5;
-    const base = bands.length > 0
-      ? rows.filter(r => r.resilienceStars != null && bands.some(b => inBand(r.resilienceStars!.total, b)))
-      : rows;
-    return [...base].sort((a, b) => (valOf(a, sort.col) - valOf(b, sort.col)) * dir);
-  }, [rows, sort, filters.resilienceBands]);
+  const loadMore = useCallback(async () => {
+    if (!nextCursor || loadingMore) return;
+    const seq = reqSeq.current;
+    const cursor = nextCursor;
+    setLoadingMore(true);
+    setError(null);
+    try {
+      const page = await api.screener.top(topParams(cursor));
+      if (seq !== reqSeq.current) return;
+      setRows(previous => {
+        const seen = new Set(previous.map(row => row.ticker));
+        return [...previous, ...page.rows.filter(row => !seen.has(row.ticker))];
+      });
+      setNextCursor(page.nextCursor);
+    } catch (e) {
+      if (seq !== reqSeq.current) return;
+      if (e instanceof ApiError && e.requiresPro) setUpgrade(true);
+      else setError(e instanceof ApiError ? e.userMessage : (e as Error).message);
+    } finally {
+      if (seq === reqSeq.current) setLoadingMore(false);
+    }
+  }, [loadingMore, nextCursor, topParams]);
 
-  // Reset de la pagination quand les données / le tri / les filtres changent.
-  useEffect(() => { setVisibleCount(60); }, [rows, sort, filters, onlyOpp]);
-
-  // Évite de rendre des centaines de lignes (page de 18-24k px sur mobile). Free : top
-  // gratuit + ~12 lignes floutées sous l'overlay (le total est annoncé PAR l'overlay, pas en
-  // rendant 290 lignes). Pro : pagination par paquets de 60 via "charger plus".
-  const renderCount = isPro
-    ? Math.min(visibleCount, sorted.length)
-    : Math.min(sorted.length, FREE_SCREENER_TOP + 12);
-  const visible = sorted.slice(0, renderCount);
+  // Free : top gratuit + ~12 lignes floutees sous l'overlay. Pro : toutes les lignes deja
+  // chargees, puis la page suivante via "Charger plus".
+  const visible = isPro ? rows : rows.slice(0, FREE_SCREENER_TOP + 12);
+  const resultTotal = total ?? rows.length;
 
   // Haut de l'overlay « Voir tout — Pro » : mesuré sur la 1re ligne verrouillée.
   // Un `top` en clamp()/% ne suit pas la hauteur réelle des lignes (qui grimpe quand
@@ -540,7 +549,7 @@ export function ScreenerPage() {
 
         {loading ? (
           <div className="card skel-ui" style={{ height: 320 }} />
-        ) : sorted.length === 0 ? (
+        ) : rows.length === 0 ? (
           <div className="card scr-empty">
             <h3>{t('screener.empty.title')}</h3>
             <p className="muted">{t('screener.empty.desc')}</p>
@@ -602,7 +611,7 @@ export function ScreenerPage() {
             {/* Overlay Pro : positionné au-dessus de la zone floutée, ne couvre QUE la partie >10.
                 Le tableau reste structurellement présent (SEO + nombre total visible), mais
                 l'utilisateur Free ne peut pas piocher dans le top 7000+ sans Pro. */}
-            {!isPro && sorted.length > FREE_SCREENER_TOP && (
+            {!isPro && resultTotal > FREE_SCREENER_TOP && (
               <div
                 className="scr-pro-overlay"
                 style={overlayTop != null ? { top: overlayTop } : undefined}
@@ -611,7 +620,7 @@ export function ScreenerPage() {
                 <div className="scr-pro-overlay-inner">
                   <div className="scr-pro-overlay-badge">{t('screener.proLock.badge')}</div>
                   <div className="scr-pro-overlay-title">
-                    {t('screener.proLock.overlayTitle', { count: sorted.length })}
+                    {t('screener.proLock.overlayTitle', { count: resultTotal })}
                   </div>
                   <div className="scr-pro-overlay-sub">{t('screener.proLock.overlaySub')}</div>
                   <button type="button" className="btn btn-brand scr-pro-overlay-cta">
@@ -622,10 +631,12 @@ export function ScreenerPage() {
             )}
           </div>
         )}
-        {!loading && isPro && visibleCount < sorted.length && (
+        {!loading && isPro && nextCursor && (
           <div className="row" style={{ justifyContent: 'center', marginTop: 16 }}>
-            <button type="button" className="btn btn-ghost" onClick={() => setVisibleCount((v) => v + 60)}>
-              {t('screener.loadMore')} ({sorted.length - visibleCount})
+            <button type="button" className="btn btn-ghost" disabled={loadingMore} onClick={() => { void loadMore(); }}>
+              {loadingMore
+                ? t('common.loading')
+                : `${t('screener.loadMore')}${total != null ? ` (${Math.max(0, total - rows.length)})` : ''}`}
             </button>
           </div>
         )}

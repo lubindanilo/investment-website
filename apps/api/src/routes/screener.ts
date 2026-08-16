@@ -11,11 +11,11 @@
  * secret n'est pas configuré, ils sont refusés.
  */
 import { Router, type Request, type Response, type NextFunction } from 'express';
-import type { TickerSuggestion } from '@lubin/shared';
+import type { ScreenerResilienceBand, ScreenerSortCol, ScreenerSortDir, TickerSuggestion } from '@lubin/shared';
 import { asyncHandler, ApiError } from '../middleware/error.js';
-import { requireAuth } from '../middleware/auth.js';
+import { optionalAuth, requireAuth } from '../middleware/auth.js';
 import { requireOwner } from '../middleware/owner.js';
-import { seedRegion, tick, getTop, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
+import { decodeScreenerCursor, seedRegion, tick, getTop, getTopPage, getStats, getSectors, refreshOpportunitiesLive } from '../services/screener.js';
 import { getMarketBeat, getForwardCompare } from '../services/marketBeat.js';
 import { getPublishedResilienceSummaries } from '../services/resilienceSummary.js';
 import { getResilienceStars } from '../services/resilienceStars.js';
@@ -26,6 +26,7 @@ import { buildQuantitativeCriteria } from '../services/derivedMetrics.js';
 import { parseLang, type Lang } from '../i18n/index.js';
 import { CDN_TTL, publicCacheControl } from '../lib/publicCache.js';
 import { prisma } from '../db/client.js';
+import { isProActive } from '../services/stripe.js';
 
 export const screenerRouter: Router = Router();
 
@@ -78,7 +79,9 @@ screenerRouter.post('/tick', requireScreenerToken, asyncHandler(async (req: Requ
 }));
 
 // ── GET /top ────────────────────────────────────────────────────────────────
-screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
+// Premiere page publique (SEO + top Free). Les pages suivantes portent un curseur et sont Pro :
+// sans ce garde, l'endpoint pagine rendrait trivial le telechargement des 7 000+ notes.
+screenerRouter.get('/top', optionalAuth, asyncHandler(async (req: Request, res: Response) => {
   const num = (v: unknown): number | undefined => {
     const n = Number(v);
     return Number.isFinite(n) ? n : undefined;
@@ -94,6 +97,27 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
   const zones = typeof req.query.zones === 'string' && req.query.zones.trim()
     ? req.query.zones.split(',').map(s => s.trim().toLowerCase()).filter((z): z is 'pea' | 'us' | 'intl' => z === 'pea' || z === 'us' || z === 'intl')
     : undefined;
+  const resilienceBands = typeof req.query.resilience === 'string' && req.query.resilience.trim()
+    ? req.query.resilience.split(',').map(s => s.trim().toLowerCase()).filter((b): b is ScreenerResilienceBand => b === 'strong' || b === 'watch' || b === 'fragile')
+    : undefined;
+  const rawSort = typeof req.query.sort === 'string' ? req.query.sort : '';
+  const sort: ScreenerSortCol = rawSort === 'resilience' || rawSort === 'pfcf' || rawSort === 'price' || rawSort === 'earnings'
+    ? rawSort
+    : 'score';
+  const dir: ScreenerSortDir = req.query.dir === 'asc' ? 'asc' : 'desc';
+  const cursor = typeof req.query.cursor === 'string' && req.query.cursor.trim() ? req.query.cursor.trim() : undefined;
+  if (cursor && !decodeScreenerCursor(cursor)) throw new ApiError(400, 'Curseur screener invalide');
+  if (cursor) {
+    if (!req.user) throw new ApiError(401, 'Non authentifie', { code: 'AUTH_REQUIRED' });
+    const user = await prisma.user.findUnique({
+      where: { id: req.user.userId },
+      select: { subscriptionStatus: true, subscriptionCurrentPeriodEnd: true },
+    });
+    if (!user) throw new ApiError(401, 'Utilisateur introuvable', { code: 'AUTH_REQUIRED' });
+    if (!isProActive(user)) {
+      throw new ApiError(403, 'Les pages suivantes du screener necessitent un abonnement Pro', { code: 'PRO_REQUIRED' });
+    }
+  }
   const onlyOpportunities = req.query.opportunities === 'true';
   // Vue « opportunités » : on ré-évalue le flag AU PRIX DU JOUR avant de filtrer (auto-throttlé
   // ~10 min). La pépite dépend du cours → on ne veut pas servir un flag figé au dernier earnings.
@@ -101,11 +125,15 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
   if (onlyOpportunities) {
     await refreshOpportunitiesLive().catch(() => {});
   }
-  const rows = await getTop({
+  const page = await getTopPage({
     minRatio: num(req.query.minRatio),
     maxPfcf: num(req.query.maxPfcf),
     minMax: num(req.query.minMax),
     limit: num(req.query.limit),
+    cursor,
+    sort,
+    dir,
+    resilienceBands,
     onlyOpportunities,
     sectors,
     caps,
@@ -115,8 +143,8 @@ screenerRouter.get('/top', asyncHandler(async (req: Request, res: Response) => {
   // publique (aucune donnée d'utilisateur ici), et le CDN clé sur l'URL complète, donc chaque
   // combinaison de filtres a son entrée. Sans cet en-tête, chaque affichage de la page tapait
   // Postgres et empêchait Neon de se suspendre (cf. lib/publicCache.ts).
-  res.setHeader('Cache-Control', publicCacheControl(CDN_TTL.quotes));
-  res.json(rows);
+  res.setHeader('Cache-Control', cursor ? 'private, no-store' : publicCacheControl(CDN_TTL.quotes));
+  res.json(page);
 }));
 
 // ── GET /market-beat (panier value+momentum, page PRIVÉE → réservé au propriétaire) ──

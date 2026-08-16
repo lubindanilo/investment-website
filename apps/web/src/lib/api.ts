@@ -13,6 +13,9 @@ import type {
   CashRoceHistoryResponse,
   PublicUser,
   ScreenerTopRow,
+  ScreenerTopPage,
+  ScreenerSortCol,
+  ScreenerSortDir,
   MarketBeatRow,
   ForwardCompareResponse,
   PortfolioPositionDTO,
@@ -226,11 +229,24 @@ export const api = {
     }>(`/api/price-history?${q}`);
   },
   screener: {
-    top: (params: { minRatio?: number; maxPfcf?: number; minMax?: number; limit?: number; opportunities?: boolean; sector?: string; caps?: string; zones?: string } = {}) => {
+    top: (params: {
+      minRatio?: number;
+      maxPfcf?: number;
+      minMax?: number;
+      limit?: number;
+      cursor?: string;
+      sort?: ScreenerSortCol;
+      dir?: ScreenerSortDir;
+      resilience?: string;
+      opportunities?: boolean;
+      sector?: string;
+      caps?: string;
+      zones?: string;
+    } = {}) => {
       const q = new URLSearchParams();
       for (const [k, v] of Object.entries(params)) if (v != null && v !== false && v !== '') q.set(k, String(v));
       const qs = q.toString();
-      return safeRequest<ScreenerTopRow[]>(`/api/screener/top${qs ? `?${qs}` : ''}`);
+      return safeRequest<ScreenerTopPage>(`/api/screener/top${qs ? `?${qs}` : ''}`);
     },
     stats: () => safeRequest<ScreenerStats>('/api/screener/stats'),
     sectors: () => safeRequest<{ sector: string; count: number }[]>('/api/screener/sectors'),

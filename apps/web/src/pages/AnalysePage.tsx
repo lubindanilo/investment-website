@@ -687,9 +687,9 @@ function RelatedTickers({ ticker, sector }: { ticker: string; sector: string | n
     // Le secteur peut contenir des tirets/duplications (« X - X ») → on garde la valeur brute,
     // le backend matche exactement la colonne sector qu'il a stockée.
     api.screener.top({ sector, limit: 6 })
-      .then(rows => {
+      .then(page => {
         if (cancelled) return;
-        setRelated(rows.filter(r => r.ticker !== ticker).slice(0, 5));
+        setRelated(page.rows.filter(r => r.ticker !== ticker).slice(0, 5));
         setLoaded(true);
       })
       .catch(() => { if (!cancelled) setLoaded(true); });
