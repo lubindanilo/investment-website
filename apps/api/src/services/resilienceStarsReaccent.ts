@@ -119,6 +119,8 @@ export interface ReaccentOptions {
   timeoutMs?: number;
   /** Injectable pour les tests (par defaut : le binaire `claude`). */
   run?: (prompt: string, options: { model: string; timeoutMs?: number }) => Promise<string>;
+  /** Horloge injectable : sert a distinguer un refus immediat d'un vrai appel. */
+  clock?: () => number;
 }
 
 export interface ReaccentReport {
@@ -129,7 +131,25 @@ export interface ReaccentReport {
   rejected: number;
   /** Lots perdus (timeout, JSON illisible) : leurs phrases sortent inchangees. */
   failedBatches: number;
+  /**
+   * Rang du premier lot d'une rafale d'echecs instantanes, quand la passe s'est ARRETEE dessus.
+   * `undefined` = la passe est allee au bout. Sert a dire ou reprendre.
+   */
+  abortedAtBatch?: number;
 }
+
+/**
+ * Une reponse en moins de 3 s n'est pas un travail de modele : c'est un refus immediat (quota
+ * atteint, authentification perdue). Mesure du run du 11/08/2026 : les appels utiles prenaient
+ * 28 s, les 63 echecs qui ont suivi le plafond d'abonnement sont tombes en 1,25 s chacun.
+ */
+const INSTANT_FAILURE_MS = 3_000;
+
+/** Nombre d'echecs instantanes consecutifs au-dela duquel on arrete au lieu de brûler la file. */
+const ABORT_AFTER_INSTANT_FAILURES = 3;
+
+/** Un echec isole peut etre transitoire (reseau, JSON tronque) : on redonne sa chance au lot. */
+const RETRIES_PER_BATCH = 1;
 
 /**
  * Passe Haiku sur TOUTES les phrases fournies (cf. `needsReaccent` : on ne sait pas reconnaitre
@@ -142,6 +162,7 @@ export async function reaccentTexts(texts: string[], options: ReaccentOptions = 
   const model = options.model ?? REACCENT_MODEL;
   const batchSize = Math.max(1, options.batchSize ?? DEFAULT_BATCH);
   const run = options.run ?? ((prompt, opts) => runClaudeJson(prompt, opts));
+  const clock = options.clock ?? (() => Date.now());
 
   const out = [...texts];
   const todo = texts.map((_, index) => index);
@@ -149,25 +170,59 @@ export async function reaccentTexts(texts: string[], options: ReaccentOptions = 
   let rejected = 0;
   let failedBatches = 0;
 
+  let instantFailures = 0;
+  let abortedAtBatch: number | undefined;
+
   for (let start = 0; start < todo.length; start += batchSize) {
     const indexes = todo.slice(start, start + batchSize);
     const originals = indexes.map(index => texts[index]!);
-    try {
-      const answer = await run(buildReaccentPrompt(originals), { model, timeoutMs: options.timeoutMs });
-      const parsed = parseReaccented(answer, originals);
-      rejected += parsed.rejected;
-      indexes.forEach((index, rank) => {
-        const repaired = parsed.texts[rank]!;
-        if (repaired !== texts[index]) changed += 1;
-        out[index] = repaired;
-      });
-    } catch (error) {
-      failedBatches += 1;
-      console.warn(`[reaccent] lot de ${indexes.length} perdu, phrases inchangees (${(error as Error).message.split('\n')[0]}).`);
+    const batchRank = start / batchSize;
+    let lastError: Error | undefined;
+    let done = false;
+
+    for (let attempt = 0; attempt <= RETRIES_PER_BATCH && !done; attempt += 1) {
+      const startedAt = clock();
+      try {
+        const answer = await run(buildReaccentPrompt(originals), { model, timeoutMs: options.timeoutMs });
+        const parsed = parseReaccented(answer, originals);
+        rejected += parsed.rejected;
+        indexes.forEach((index, rank) => {
+          const repaired = parsed.texts[rank]!;
+          if (repaired !== texts[index]) changed += 1;
+          out[index] = repaired;
+        });
+        instantFailures = 0;
+        done = true;
+      } catch (error) {
+        lastError = error as Error;
+        // Un echec INSTANTANE ne se rejoue pas : rien n'a ete tente, le refus est structurel.
+        if (clock() - startedAt < INSTANT_FAILURE_MS) {
+          instantFailures += 1;
+          break;
+        }
+        instantFailures = 0;
+      }
+    }
+
+    if (done) continue;
+
+    failedBatches += 1;
+    console.warn(`[reaccent] lot de ${indexes.length} perdu, phrases inchangees (${lastError?.message.split('\n')[0]}).`);
+
+    // Rafale d'echecs instantanes = plafond d'abonnement atteint ou authentification perdue.
+    // Continuer brûlerait toute la file en quelques secondes en la declarant « traitee » : le
+    // run du 11/08/2026 a ainsi perdu 63 lots (1 260 phrases) en 79 s, sous une coche verte.
+    if (instantFailures >= ABORT_AFTER_INSTANT_FAILURES) {
+      abortedAtBatch = batchRank - instantFailures + 1;
+      console.warn(
+        `[reaccent] ${instantFailures} refus immediats d'affilee : plafond atteint, on ARRETE ici ` +
+        `plutot que de perdre le reste de la file.`,
+      );
+      break;
     }
   }
 
-  return { texts: out, changed, rejected, failedBatches };
+  return { texts: out, changed, rejected, failedBatches, abortedAtBatch };
 }
 
 export type Criteria = Record<CriterionKey, CriterionScore>;
