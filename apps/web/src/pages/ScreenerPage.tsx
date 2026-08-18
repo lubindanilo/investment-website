@@ -582,7 +582,7 @@ export function ScreenerPage() {
                     >
                       <td>
                         <div className="scr-soc-cell">
-                          <span className="scr-soc-logo" aria-hidden="true"><CompanyLogo ticker={r.ticker} /></span>
+                          <span className="scr-soc-logo" aria-hidden="true"><CompanyLogo ticker={r.ticker} name={r.name ?? undefined} /></span>
                           <div className="scr-soc">
                             <span className="num scr-soc-ticker row gap-6">
                               {r.ticker}
