@@ -41,6 +41,9 @@ async function main(): Promise<void> {
   const perTickerMs = num(process.env.DRAIN_PER_TICKER_S, 240) * 1_000;
   const batchSize = num(process.env.DRAIN_BATCH, 100);
   const minSuccessRatio = num(process.env.DRAIN_MIN_SUCCESS_RATIO, 0.5);
+  // Part de chaque lot réservée aux `pending`. `num` refuse 0 (il retombe sur le défaut) : pour
+  // couper la réserve, passer explicitement "0".
+  const pendingShare = process.env.DRAIN_PENDING_SHARE?.trim() === '0' ? 0 : num(process.env.DRAIN_PENDING_SHARE, 0.5);
   const apiKey = (process.env.NEON_API_KEY ?? '').trim();
   const monthlyCuH = num(process.env.NEON_MONTHLY_CU_H, 100);
   const targetShare = num(process.env.NEON_TARGET_SHARE, 0.8);
@@ -93,9 +96,9 @@ async function main(): Promise<void> {
     console.log(`Remise en file des titres abandonnés (attempts ≥ 5, sans note) : ${requeued}`);
   }
 
-  console.log(`Drain : région=${region ?? 'toutes'} durée=${minutes} min concurrence=${concurrency} plafond/titre=${perTickerMs / 1000} s lot=${batchSize} max=${maxTickers} titres`);
+  console.log(`Drain : région=${region ?? 'toutes'} durée=${minutes} min concurrence=${concurrency} plafond/titre=${perTickerMs / 1000} s lot=${batchSize} max=${maxTickers} titres réserve pending=${Math.round(pendingShare * 100)} %`);
   const r = await drainPending({
-    region, maxMinutes: minutes, maxTickers, concurrency, batchSize, perTickerMs,
+    region, maxMinutes: minutes, maxTickers, concurrency, batchSize, perTickerMs, pendingShare,
     allowanceCuH, readUsage,
     log: line => console.log(line),
   });

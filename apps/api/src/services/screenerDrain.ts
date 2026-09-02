@@ -1,5 +1,6 @@
 /**
- * screenerDrain — vide les files `error` retentables et `pending` du screener, HORS Vercel.
+ * screenerDrain — vide les files du screener HORS Vercel : résultats échus, `error` retentables et
+ * `pending`, avec une part de chaque lot réservée aux `pending`.
  *
  * POURQUOI UN CHEMIN SÉPARÉ DE `tick()` :
  *   1. Famine. `pickDueTickers` sert d'abord les titres déjà notés dont la date de résultats est
@@ -46,6 +47,11 @@ const MAX_ATTEMPTS = 5;
  * nuits sur les titres dont le fournisseur tarde à publier la date du trimestre suivant.
  */
 const EARNINGS_RESCORE_COOLDOWN_MS = 3 * 24 * 3600 * 1000;
+/**
+ * Part de chaque lot RÉSERVÉE aux `pending` (élargissement de couverture), le reste allant au
+ * rafraîchissement (résultats échus puis erreurs retentables). Cf. pickDue pour la mesure qui l'impose.
+ */
+const DEFAULT_PENDING_SHARE = 0.5;
 
 /**
  * Clause d'éligibilité de la file « résultats tombés », partagée par `pickDue` (ce qu'on pioche) et
@@ -96,6 +102,11 @@ export interface DrainOptions {
   perTickerMs?: number;
   /** Taille d'un lot pioché en base. */
   batchSize: number;
+  /**
+   * Part de chaque lot réservée aux `pending`, 0..1. Défaut DEFAULT_PENDING_SHARE. À 0 on retrouve
+   * l'ordre strict « rafraîchissement d'abord », qui a figé la couverture (cf. pickDue).
+   */
+  pendingShare?: number;
   /** Budget compute de ce run en CU-heures. Ignoré sans `readUsage`. */
   allowanceCuH?: number;
   /** Lit la consommation compute cumulée du mois (CU-h). Injecté pour rester testable sans réseau. */
@@ -138,15 +149,33 @@ export interface DrainResult {
  * qui doit porter cette file.
  *
  * L'ordre compte : une fiche fausse nuit plus qu'une fiche absente, donc le rafraîchissement passe
- * AVANT l'élargissement de couverture. Le budget Neon étant le vrai plafond, le backfill `pending`
- * consomme ce qui reste du lot.
+ * AVANT l'élargissement de couverture dans sa part du lot.
+ *
+ * MAIS UNE PART DU LOT EST RÉSERVÉE AUX `pending` (02/09/2026). « Le backfill consomme ce qui reste »
+ * ne laissait RIEN dès que la file de rafraîchissement dépassait la capacité d'une nuit, et elle la
+ * dépasse structurellement : `nextEarningsDate <= today` reste vrai des jours à des semaines après
+ * la publication, le cooldown de 3 jours ne fait que la faire tourner. Mesure : le run du 02/09
+ * (240 min, 998 titres tentés, 998 notés) n'a pas pioché UN SEUL `pending` ; il en restait 1 143
+ * en file de rafraîchissement après coup, et les `pending` étaient à 19 840 — le même chiffre
+ * qu'au 10/08, figé depuis trois semaines. À ~1 000 titres par nuit, tant que la file earnings
+ * dépasse 1 000, la couverture ne grandit jamais. La réserve n'est pas perdue quand les `pending`
+ * viennent à manquer : ce qui n'est pas consommé retourne au rafraîchissement.
  */
-export async function pickDue(limit: number, region: string | undefined, exclude: string[]): Promise<string[]> {
+export async function pickDue(
+  limit: number,
+  region: string | undefined,
+  exclude: string[],
+  pendingShare: number = DEFAULT_PENDING_SHARE,
+): Promise<string[]> {
   const today = new Date().toISOString().slice(0, 10);
   const common = {
     ...(region ? { region } : {}),
     ...(exclude.length ? { ticker: { notIn: exclude } } : {}),
   };
+  // `floor` : à lot 1 la réserve est nulle et le rafraîchissement garde la main, comme avant.
+  const share = Math.min(1, Math.max(0, Number.isFinite(pendingShare) ? pendingShare : DEFAULT_PENDING_SHARE));
+  const reserved = Math.floor(limit * share);
+  const refreshQuota = limit - reserved;
 
   // 1. Résultats tombés : re-noter, les plus grosses capis d'abord.
   //
@@ -163,35 +192,56 @@ export async function pickDue(limit: number, region: string | undefined, exclude
   //    plus vieille ? » → `lastScoredAt`). Un titre qui a échoué dix fois a un `lastAttemptAt`
   //    récent mais une note toujours périmée : il doit passer devant.
   const earningsCooldown = new Date(Date.now() - EARNINGS_RESCORE_COOLDOWN_MS);
-  const earnings = await prisma.screenerTicker.findMany({
+  const earningsOrder = [
+    { marketCapUsd: { sort: 'desc' as const, nulls: 'last' as const } },
+    { lastScoredAt: { sort: 'asc' as const, nulls: 'first' as const } },
+  ];
+  const earnings = refreshQuota === 0 ? [] : await prisma.screenerTicker.findMany({
     where: { ...common, ...earningsDueWhere(today, earningsCooldown) },
-    orderBy: [{ marketCapUsd: { sort: 'desc', nulls: 'last' } }, { lastScoredAt: { sort: 'asc', nulls: 'first' } }],
-    take: limit,
+    orderBy: earningsOrder,
+    take: refreshQuota,
     select: { ticker: true },
   });
-  if (earnings.length >= limit) return earnings.map(r => r.ticker);
 
   // 2. Réparation des échecs transitoires. Indispensable pour les titres non-US : le cron HTTP
   // planifié tourne avec `fast=1` et exclut donc les symboles suffixés (.PA, .L, .DE…). Sans cette
   // file, un GTT.PA passé une fois en `error` n'était repris ni par le cron, ni par le drain.
-  const errors = await prisma.screenerTicker.findMany({
+  const errors = refreshQuota - earnings.length <= 0 ? [] : await prisma.screenerTicker.findMany({
     where: { ...common, status: 'error', attempts: { lt: MAX_ATTEMPTS } },
     orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
-    take: limit - earnings.length,
+    take: refreshQuota - earnings.length,
     select: { ticker: true },
   });
-  if (earnings.length + errors.length >= limit) {
-    return [...earnings, ...errors].map(r => r.ticker);
+  const picked = [...earnings, ...errors].map(r => r.ticker);
+
+  // 3. Élargissement de couverture, ordre historique : la réserve, plus ce que le rafraîchissement
+  //    n'a pas rempli de sa propre part.
+  if (picked.length < limit) {
+    const pending = await prisma.screenerTicker.findMany({
+      where: { ...common, status: 'pending' },
+      orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
+      take: limit - picked.length,
+      select: { ticker: true },
+    });
+    picked.push(...pending.map(r => r.ticker));
   }
 
-  // 3. Le reste du lot : élargissement de couverture, ordre historique.
-  const pending = await prisma.screenerTicker.findMany({
-    where: { ...common, status: 'pending' },
-    orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
-    take: limit - earnings.length - errors.length,
-    select: { ticker: true },
-  });
-  return [...earnings, ...errors, ...pending].map(r => r.ticker);
+  // 4. Réserve non consommée (la file `pending` s'épuise) : elle retourne au rafraîchissement, qui
+  //    avait été borné à sa part. Une requête de plus, seulement dans ce cas.
+  if (picked.length < limit && reserved > 0) {
+    const topUp = await prisma.screenerTicker.findMany({
+      where: {
+        ...common,
+        ...earningsDueWhere(today, earningsCooldown),
+        ticker: { notIn: [...exclude, ...picked] },
+      },
+      orderBy: earningsOrder,
+      take: limit - picked.length,
+      select: { ticker: true },
+    });
+    picked.push(...topUp.map(r => r.ticker));
+  }
+  return picked;
 }
 
 const TIMEOUT = Symbol('timeout');
@@ -235,6 +285,7 @@ export async function drainPending(opts: DrainOptions): Promise<DrainResult> {
       Math.min(opts.batchSize, opts.maxTickers - attempted.size),
       opts.region,
       [...attempted].slice(-EXCLUDE_WINDOW),
+      opts.pendingShare ?? DEFAULT_PENDING_SHARE,
     );
     if (!batch.length) { stopReason = 'queue-empty'; break; }
     batches++;

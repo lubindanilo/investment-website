@@ -201,6 +201,47 @@ describe('pickDue — file des résultats tombés', () => {
     expect(await pickDue(10, 'EU', [])).toEqual([]);
   });
 
+  it('réserve la moitié du lot aux `pending` même quand la file earnings déborde', async () => {
+    // Le run du 02/09/2026 : 998 titres notés en 240 min, tous en rafraîchissement, zéro `pending`
+    // pioché, la couverture figée à 19 840 depuis le 10/08. La réserve garantit que la nuit fait
+    // avancer les deux files.
+    rows = [
+      row({ ticker: 'E1', marketCapUsd: 900, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E2', marketCapUsd: 800, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E3', marketCapUsd: 700, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E4', marketCapUsd: 600, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'P1', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+      row({ ticker: 'P2', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+      row({ ticker: 'P3', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+    ];
+
+    expect(await pickDue(4, undefined, [])).toEqual(['E1', 'E2', 'P1', 'P2']);
+  });
+
+  it('rend au rafraîchissement la réserve que les `pending` ne consomment pas', async () => {
+    // Fin de backfill : un seul `pending` reste, la place libre revient aux résultats échus plutôt
+    // que de sortir un lot incomplet.
+    rows = [
+      row({ ticker: 'E1', marketCapUsd: 900, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E2', marketCapUsd: 800, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E3', marketCapUsd: 700, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E4', marketCapUsd: 600, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'P1', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+    ];
+
+    expect(await pickDue(4, undefined, [])).toEqual(['E1', 'E2', 'P1', 'E3']);
+  });
+
+  it('à réserve nulle, retrouve l ordre strict « rafraîchissement d abord »', async () => {
+    rows = [
+      row({ ticker: 'E1', marketCapUsd: 900, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E2', marketCapUsd: 800, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'P1', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+    ];
+
+    expect(await pickDue(2, undefined, [], 0)).toEqual(['E1', 'E2']);
+  });
+
   it('écarte les tickers déjà tentés dans ce run', async () => {
     rows = [
       row({ ticker: 'A', marketCapUsd: 900, lastAttemptAt: new Date(NOW - 4 * DAY) }),

@@ -94,6 +94,10 @@ jobs:
       # repo pour la valeur par defaut des runs planifies. Les defauts du script viennent de la
       # mesure du canari du 04/08 : concurrence 2, 240 s par titre.
       DRAIN_CONCURRENCY: ${{ inputs.concurrency || vars.DRAIN_CONCURRENCY }}
+      # Part de chaque lot reservee aux `pending` (defaut 0,5 dans le script). Sans reserve, la file
+      # de rafraichissement d'apres resultats prenait tout le lot des qu'elle depassait ~1 000
+      # titres, et la couverture est restee figee a 19 840 pending du 10/08 au 02/09/2026.
+      DRAIN_PENDING_SHARE: ${{ vars.DRAIN_PENDING_SHARE }}
       DRAIN_PER_TICKER_S: ${{ inputs.per_ticker_s || vars.DRAIN_PER_TICKER_S }}
       # Plafond Yahoo de CE process uniquement (30/min par defaut, cf. lib/limiter.ts). C'est le
       # veritable plafond de debit du drain : ~8 requetes par titre non-US.
