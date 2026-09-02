@@ -85336,7 +85336,413 @@ const articleDroitDeVoteMultiple: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple];
+const articleFranceQualiteEcart: Article = {
+  slug: 'actions-francaises-qualite-ecart-valorisation-2026',
+  date: '2026-09-02',
+  updated: '2026-09-02',
+  readingTime: 9,
+  content: {
+    fr: {
+      title: 'Actions françaises de qualité : pourquoi les prix divergent',
+      excerpt:
+        "Vingt et une actions françaises passent mon filtre qualité, du micro-cap méconnu à la multinationale du luxe. Leurs prix en bourse racontent une tout autre histoire, et aucune n'est vraiment soldée.",
+      metaDescription:
+        "21 actions françaises passent mon filtre qualité. Leur prix en bourse va du très bon marché au très cher, à qualité quasi identique. Voici pourquoi.",
+      answer:
+        "Vingt et une actions françaises, de Cegedim à Hermès, valident 8 ou 9 de mes 10 critères de qualité. Leur prix en bourse va pourtant du très bon marché au très cher, un écart de plus de vingt fois. Aucune ne déclenche mon signal d'achat. La qualité ne dit rien du prix, et voici pourquoi.",
+      body: [
+        { type: 'h2', text: 'Vingt et une actions françaises passent mon filtre qualité' },
+        {
+          type: 'p',
+          text: "Je juge chaque action sur dix critères financiers concrets, indépendamment de son pays ou de sa taille : est-elle rentable, ses ventes et son free cash flow augmentent-ils dans la durée, rachète-t-elle ses propres actions plutôt que de les diluer, sa dette reste-t-elle maîtrisable, son rendement du capital est-il solide. Je ne regarde jamais le prix à ce stade. La qualité et le prix sont deux questions séparées, et je réponds toujours à la première avant la seconde.",
+        },
+        {
+          type: 'p',
+          text: "En appliquant ce filtre à l'ensemble des actions cotées à Paris, avec au moins 6 critères sur 10 validés, 21 noms ressortent aujourd'hui. Le plus petit, Klea Holding, pèse à peine 46 millions de dollars en bourse. Le plus gros, L'Oréal, en pèse plus de 200 milliards. Entre les deux, des noms que tout le monde croise sans forcément savoir qu'ils sont cotés, JCDecaux dans la rue ou Edenred dans les titres restaurant, et d'autres réservés aux initiés, comme Antin Infrastructure Partners ou Klea Holding. Voici les 21, classées par ce qu'elles coûtent aujourd'hui rapporté au cash qu'elles génèrent réellement chaque année.",
+        },
+        {
+          type: 'table',
+          headers: ['Entreprise', 'Secteur', 'Note', 'Valorisation (P/FCF)'],
+          rows: [
+            ['Cegedim (ALCGM)', 'Données de santé', '8/10', '1,8×'],
+            ['Lagardère (MMB)', 'Médias', '8/10', '2,4×'],
+            ['Catering International & Services (ALCIS)', 'Services aux entreprises', '9/10', '4,0×'],
+            ['AXA (CS)', 'Assurance', '8/10', '4,1×'],
+            ['Sogeclair (ALSOG)', 'Aéronautique et défense', '8/10', '5,5×'],
+            ['JCDecaux (DEC)', 'Publicité extérieure', '8/10', '5,8×'],
+            ['Edenred (EDEN)', 'Avantages salariés', '9/10', '6,9×'],
+            ['Vinci (DG)', 'BTP et concessions', '9/10', '8,0×'],
+            ['Lexibook (ALLEX)', 'Loisirs', '8/10', '8,7×'],
+            ['Publicis Groupe (PUB)', 'Publicité', '8/10', '9,2×'],
+            ['Klea Holding (ALKLH)', 'Diagnostic médical', '9/10', '11,8×'],
+            ['Antin Infrastructure Partners (ANTIN)', "Gestion d'actifs", '8/10', '12,7×'],
+            ['74Software (74SW)', 'Édition de logiciels', '8/10', '14,1×'],
+            ['Bureau Veritas (BVI)', 'Conseil et certification', '8/10', '14,3×'],
+            ['Entech (ALESE)', 'Énergies renouvelables', '9/10', '15,4×'],
+            ['Thales (HO)', 'Aéronautique et défense', '8/10', '20,7×'],
+            ['Euronext (ENX)', 'Infrastructure de marché', '8/10', '24,2×'],
+            ["L'Oréal (OR)", 'Cosmétique', '9/10', '28,7×'],
+            ['Schneider Electric (SU)', 'Équipements industriels', '8/10', '35,0×'],
+            ['Safran (SAF)', 'Aéronautique et défense', '9/10', '35,2×'],
+            ['Hermès (RMS)', 'Luxe', '8/10', '38,3×'],
+          ],
+        },
+        { type: 'h2', text: 'Un facteur supérieur à vingt entre la moins chère et la plus chère' },
+        {
+          type: 'p',
+          text: "Le chiffre qui organise ce tableau s'appelle le P/FCF, pour price-to-free-cash-flow. C'est le prix de l'action divisé par le free cash flow, l'argent qui reste vraiment dans les caisses de l'entreprise une fois toutes les factures payées, investissements compris. Un P/FCF de 5 veut dire que tu paies aujourd'hui cinq années de ce cash pour posséder l'action. Plus le chiffre est bas, moins l'action est chère pour le cash qu'elle produit réellement. C'est la même logique que celle détaillée par [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/), professeur de valorisation à NYU, dont les travaux inspirent une partie de ma méthode.",
+        },
+        {
+          type: 'p',
+          text: "Sur ces 21 actions, notées de façon quasi identique par mon filtre, le P/FCF va de 1,8 pour Cegedim à 38,3 pour Hermès. À qualité comparable, une action se valorise donc plus de vingt fois plus cher que l'autre rapportée à son cash. Ce n'est pas un accident isolé : trois autres noms, Lagardère, Catering International & Services et AXA, se valorisent eux aussi sous 5 fois leur free cash flow, pendant que Safran, Schneider Electric et Euronext se valorisent au-dessus de 20 fois. La qualité, telle que je la mesure, ne prédit donc à peu près rien du prix que le marché accepte de payer.",
+        },
+        { type: 'h2', text: 'Pourquoi Cegedim, Lagardère et AXA restent bon marché' },
+        {
+          type: 'p',
+          text: "Cegedim est la moins chère des 21. C'est une [entreprise française de données de santé](/analyse/ALCGM.PA), née en 1969, qui collecte et fait circuler l'information médicale pour les professionnels de santé, les mutuelles et les entreprises, à travers trois métiers : assurance santé et RH, professionnels de santé, cloud. Elle emploie un peu plus de 6 500 personnes dans près de 80 pays et a généré 654,5 millions d'euros de chiffre d'affaires en 2024, en hausse de 6,25 % sur un an. Sa capitalisation boursière, environ 146 millions d'euros, en fait une micro-capitalisation, trop petite pour la plupart des gérants institutionnels, qui doivent respecter des règles de liquidité minimale avant même d'ouvrir ses comptes. C'est cette taille, pas un défaut caché, qui explique une grande partie de la décote.",
+        },
+        {
+          type: 'p',
+          text: "Lagardère, qui possède notamment les librairies Relay et le magazine Elle, est dans une situation différente mais qui aboutit au même résultat : un prix bas malgré des ventes en croissance de 16,2 % par an en moyenne. Depuis que [Vivendi, contrôlé par la famille Bolloré, a finalisé la prise de contrôle du groupe](https://www.letemps.ch/economie/vivendi-finalise-sa-prise-de-controle-de-lagardere) après une offre publique d'achat lancée en 2022, il détient environ 60 % du capital de Lagardère. Quand un actionnaire majoritaire tient une telle part, les actionnaires minoritaires ont peu de poids sur les décisions de gestion, les fusions ou la distribution du capital. Le marché applique alors ce qu'on appelle une décote de contrôle : un prix plus bas pour compenser l'absence de pouvoir réel des autres actionnaires, même si l'activité sous-jacente se porte bien.",
+        },
+        {
+          type: 'p',
+          text: "AXA illustre un troisième mécanisme, propre à l'assurance : le float. Un assureur encaisse les cotisations de ses clients aujourd'hui et ne paie les sinistres que plus tard, parfois des années après pour l'assurance vie. Entre les deux, il investit cet argent qui ne lui appartient pas encore. Ce float ressemble à une dette dans un bilan classique, mais ce n'en est pas une, et c'est justement ce qui rend beaucoup d'investisseurs méfiants envers le secteur, qu'ils jugent opaque. Pourtant, au [premier semestre 2026, AXA a publié un résultat opérationnel de 4,5 milliards d'euros](https://www.axa.com/fr/actualites/resultats-semestriels-2026-actualites), en hausse de 4 % sur un an, avec +6 % sur l'assurance dommages et +11 % sur la vie et la santé, pour 66,3 milliards d'euros de revenus. La rentabilité progresse, le prix reste comprimé par cette méfiance structurelle envers le secteur.",
+        },
+        { type: 'h2', text: 'Pourquoi Hermès et Vinci se valorisent bien plus cher' },
+        {
+          type: 'p',
+          text: "À l'autre bout du classement, [Hermès](/analyse/RMS.PA) est la plus chère des 21. La maison de maroquinerie et de mode augmente ses prix presque chaque année, sur une clientèle qui accepte de payer plus pour un sac plutôt que d'attendre une baisse, parfois via une liste d'attente. C'est un pouvoir de fixation des prix presque sans équivalent dans le commerce de détail. Sur cinq ans, ses ventes progressent de 15,5 % par an en moyenne et sa marge de free cash flow atteint 26,3 %, ce qui veut dire que sur 100 euros de ventes, plus de 26 finissent en cash réellement disponible. Le marché paie cette rareté organisée au prix fort, 38,3 fois le free cash flow, contre 1,8 pour Cegedim.",
+        },
+        {
+          type: 'p',
+          text: "[Vinci](/analyse/DG.PA) illustre un deuxième ressort, différent : la concession. Quand l'État confie à Vinci la construction et l'exploitation d'une autoroute ou d'un aéroport pour plusieurs décennies, en échange d'un investissement initial, l'entreprise collecte ensuite des péages ou des redevances pendant toute la durée du contrat, sans concurrent sur ce tronçon précis. En juillet 2026, [Vinci a d'ailleurs été désignée concessionnaire pressenti de la future autoroute A154-A120](https://www.globenewswire.com/news-release/2026/07/29/3335498/0/fr/vinci-excellente-performance-%C3%A9conomique-au-s1-2026.html), un nouvel axe de 97 kilomètres à l'ouest de Paris, pour une durée de 35 ans. Ce type de contrat vaut plus cher aux yeux du marché qu'une activité de croissance rapide mais incertaine, parce que le revenu, lui, est quasiment garanti sur des décennies. Le trafic sur les autoroutes existantes a pourtant reculé de 2,9 % au premier semestre 2026, pénalisé par le prix du carburant et des épisodes de canicule, sans que cela n'entame la confiance du marché : un semestre de trafic en baisse ne remet pas en cause un contrat de 35 ans.",
+        },
+        { type: 'h2', text: 'Pourquoi aucune de ces 21 actions ne déclenche mon signal d’achat' },
+        {
+          type: 'p',
+          text: "Mon site calcule, pour chaque action, un signal que j'appelle opportunité. Il ne se déclenche que si deux conditions sont réunies en même temps : le P/FCF doit être sous un seuil absolu ET sous le dixième percentile de l'historique propre du titre sur cinq ans, c'est-à-dire parmi les niveaux les plus bas jamais atteints par cette action précise. La première condition seule ne suffit pas : une action peut sembler bon marché dans l'absolu tout en étant chère par rapport à son propre passé.",
+        },
+        {
+          type: 'p',
+          text: "Sur ces 21 françaises, aucune ne coche les deux cases en même temps aujourd'hui, y compris Cegedim malgré son P/FCF de 1,8. Mon modèle affiche même, pour Cegedim, un prix d'achat théorique très supérieur au cours actuel, ce qui donnerait une décote de plusieurs centaines de pour cent si on le prenait au pied de la lettre. Je me méfie de ce genre de chiffre extrême : sur une micro-capitalisation au free cash flow ponctuellement compressé, un tel écart dit surtout que le modèle extrapole une base de cash trop étroite, pas qu'il existe une vraie aubaine à ce prix. Un P/FCF bas n'est jamais un signal d'achat en soi, seulement un point de départ pour creuser.",
+        },
+        { type: 'h2', text: 'Ce que je fais de ce classement' },
+        {
+          type: 'p',
+          text: "Je ne transforme jamais ce type de tableau en liste d'achat automatique. Ce qui en ressort, c'est plutôt une carte : 21 noms qui méritent un vrai regard, avec pour chacun une raison différente de coûter ce qu'il coûte, taille, structure de contrôle, opacité sectorielle ou pouvoir de marque. La suite du travail, ticker par ticker, c'est exactement ce que mon site fait pour n'importe quelle action française ou étrangère, séparer la qualité du prix, et donner un prix d'achat raisonnable plutôt qu'un avis vague.",
+        },
+        {
+          type: 'p',
+          text: "C'est exactement ce que je voulais pouvoir faire en quelques secondes pour n'importe quelle action cotée en France, alors j'ai construit mon [site d'investissement](/methodologie) pour ça.",
+        },
+        { type: 'h2', text: 'En cinq points' },
+        {
+          type: 'ul',
+          items: [
+            'Vingt et une actions françaises valident aujourd’hui 8 ou 9 de mes 10 critères de qualité, de la micro-capitalisation à la multinationale.',
+            'Leur valorisation va de 1,8 à 38,3 fois leur free cash flow, un facteur supérieur à vingt entre les deux extrêmes, à qualité quasi identique.',
+            'Les moins chères, Cegedim, Lagardère et AXA, le sont pour des raisons structurelles : taille, structure de contrôle ou opacité sectorielle, pas parce que leur activité se dégrade.',
+            'Les plus chères, Hermès et Vinci, doivent leur prix à un vrai moat : le pouvoir de marque pour l’une, la concession de long terme pour l’autre.',
+            'Aucune des 21 ne déclenche mon signal d’achat aujourd’hui : un prix bas n’est jamais une aubaine en soi, seulement un point de départ pour creuser.',
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "C'est quoi le P/FCF, le ratio utilisé dans ce classement ?",
+          a: "Le P/FCF (price-to-free-cash-flow) compare le prix d'une action au free cash flow qu'elle génère chaque année, l'argent qui reste vraiment disponible une fois toutes les factures et tous les investissements payés. Un P/FCF de 10 veut dire que tu paies dix années de ce cash pour posséder l'action. Plus il est bas, moins l'action est chère pour le cash réellement produit.",
+        },
+        {
+          q: "Pourquoi une action de qualité peut-elle rester bon marché pendant longtemps ?",
+          a: "Pour des raisons souvent indépendantes de la qualité du business : une capitalisation trop petite pour attirer les grands investisseurs, comme Cegedim, un actionnaire majoritaire qui réduit le pouvoir des minoritaires, comme Lagardère, ou un secteur jugé opaque, comme l'assurance pour AXA. Le marché prend en compte bien plus que les seuls résultats financiers.",
+        },
+        {
+          q: "Qu'est-ce que le signal d'achat de mon modèle, et pourquoi ne se déclenche-t-il pour aucune de ces 21 actions ?",
+          a: "Il exige un P/FCF sous un seuil absolu ET sous le dixième percentile de l'historique propre du titre sur cinq ans. Sur ces 21 françaises, aucune ne remplit les deux conditions à la fois aujourd'hui, y compris les moins chères en apparence, dont le prix bas s'explique par des facteurs structurels plutôt que par une vraie occasion de marché.",
+        },
+        {
+          q: "Ces 21 actions sont-elles éligibles au PEA ?",
+          a: "La grande majorité, oui : une action d'une entreprise ayant son siège dans l'Union européenne, cotée sur un marché réglementé ou organisé comme Euronext Paris ou Euronext Growth, est éligible au PEA. C'est le cas des 21 sociétés de ce classement, toutes cotées à Paris.",
+        },
+        {
+          q: "Faut-il acheter la moins chère du classement, Cegedim ?",
+          a: "Pas seulement parce qu'elle affiche le P/FCF le plus bas. Mon modèle ne déclenche pas de signal d'achat sur Cegedim : sa taille réduit sa liquidité, et l'écart de valorisation qu'affiche mon modèle est si extrême qu'il mérite d'être vérifié en détail avant d'être pris au sérieux, pas suivi tel quel. Ceci n'est pas un conseil en investissement, fais tes propres recherches.",
+        },
+      ],
+      tags: ['actions françaises', 'CAC 40', 'valorisation', 'PEA', 'Cegedim', 'Vinci', 'Hermès', 'AXA', 'Lagardère', 'analyse fondamentale'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 2 septembre 2026, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Fais tes propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'French quality stocks: why the prices differ so much',
+      excerpt:
+        "Twenty-one French stocks pass my quality filter, from an unknown micro-cap to a luxury multinational. Their stock prices tell a completely different story, and none of them is actually cheap enough to buy.",
+      metaDescription:
+        "21 French stocks pass my quality filter. Their price ranges from very cheap to very expensive, for nearly identical quality. Here is why.",
+      answer:
+        "Twenty-one French stocks, from Cegedim to Hermès, pass 8 or 9 of my 10 quality criteria today. Their stock prices still range from very cheap to very expensive, a gap of more than twenty times between the two extremes. None of them triggers my buy signal. Quality says nothing about price, and here is why.",
+      body: [
+        { type: 'h2', text: 'Twenty-one French stocks pass my quality filter' },
+        {
+          type: 'p',
+          text: "I score every stock on ten concrete financial criteria, regardless of its country or size: is it profitable, do sales and free cash flow keep growing over time, does it buy back its own shares instead of diluting them, is its debt manageable, is its return on capital strong. I never look at the price at this stage. Quality and price are two separate questions, and I always answer the first before the second.",
+        },
+        {
+          type: 'p',
+          text: "Applying this filter to every stock listed in Paris, with at least 6 of 10 criteria validated, 21 names show up today. The smallest, Klea Holding, is worth barely $46 million on the market. The biggest, L'Oréal, is worth more than $200 billion. In between sit names most people cross paths with without knowing they are publicly traded, JCDecaux on the street or Edenred in meal vouchers, and others known only to specialists, like Antin Infrastructure Partners or Klea Holding. Here are the 21, ranked by what they cost today relative to the cash they actually generate each year.",
+        },
+        {
+          type: 'table',
+          headers: ['Company', 'Sector', 'Score', 'Valuation (P/FCF)'],
+          rows: [
+            ['Cegedim (ALCGM)', 'Health data', '8/10', '1.8×'],
+            ['Lagardère (MMB)', 'Media', '8/10', '2.4×'],
+            ['Catering International & Services (ALCIS)', 'Business services', '9/10', '4.0×'],
+            ['AXA (CS)', 'Insurance', '8/10', '4.1×'],
+            ['Sogeclair (ALSOG)', 'Aerospace & defense', '8/10', '5.5×'],
+            ['JCDecaux (DEC)', 'Outdoor advertising', '8/10', '5.8×'],
+            ['Edenred (EDEN)', 'Employee benefits', '9/10', '6.9×'],
+            ['Vinci (DG)', 'Construction & concessions', '9/10', '8.0×'],
+            ['Lexibook (ALLEX)', 'Leisure', '8/10', '8.7×'],
+            ['Publicis Groupe (PUB)', 'Advertising', '8/10', '9.2×'],
+            ['Klea Holding (ALKLH)', 'Medical diagnostics', '9/10', '11.8×'],
+            ['Antin Infrastructure Partners (ANTIN)', 'Asset management', '8/10', '12.7×'],
+            ['74Software (74SW)', 'Software publishing', '8/10', '14.1×'],
+            ['Bureau Veritas (BVI)', 'Testing & certification', '8/10', '14.3×'],
+            ['Entech (ALESE)', 'Renewable energy', '9/10', '15.4×'],
+            ['Thales (HO)', 'Aerospace & defense', '8/10', '20.7×'],
+            ['Euronext (ENX)', 'Market infrastructure', '8/10', '24.2×'],
+            ["L'Oréal (OR)", 'Cosmetics', '9/10', '28.7×'],
+            ['Schneider Electric (SU)', 'Industrial equipment', '8/10', '35.0×'],
+            ['Safran (SAF)', 'Aerospace & defense', '9/10', '35.2×'],
+            ['Hermès (RMS)', 'Luxury goods', '8/10', '38.3×'],
+          ],
+        },
+        { type: 'h2', text: 'A gap of more than twenty times between the cheapest and the priciest' },
+        {
+          type: 'p',
+          text: "The number that organizes this table is called P/FCF, for price-to-free-cash-flow. It is the stock price divided by free cash flow, the money that really stays in the company's coffers once every bill is paid, including investment spending. A P/FCF of 5 means you are paying today for five years of that cash to own the stock. The lower the number, the cheaper the stock is relative to the cash it actually produces. It follows the same logic laid out by [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/), an NYU valuation professor whose work informs part of my method.",
+        },
+        {
+          type: 'p',
+          text: "Across these 21 stocks, rated almost identically by my filter, P/FCF ranges from 1.8 for Cegedim to 38.3 for Hermès. At comparable quality, one stock trades at more than twenty times the price of another, relative to its cash. This is not an isolated fluke: three other names, Lagardère, Catering International & Services, and AXA, also trade below 5 times free cash flow, while Safran, Schneider Electric, and Euronext trade above 20 times. Quality, as I measure it, predicts almost nothing about the price the market is willing to pay.",
+        },
+        { type: 'h2', text: 'Why Cegedim, Lagardère, and AXA stay cheap' },
+        {
+          type: 'p',
+          text: "[Cegedim](/analyse/ALCGM.PA) is the cheapest of the 21. It is a French health-data company, founded in 1969, that collects and distributes medical information for healthcare professionals, insurers, and businesses, across three lines: health insurance and HR, healthcare professionals, and cloud services. It employs a little over 6,500 people in nearly 80 countries and generated 654.5 million euros in revenue in 2024, up 6.25% year over year. Its market cap, around 146 million euros, makes it a micro-cap, too small for most institutional managers, who must meet minimum liquidity rules before they even open its books. That size, not a hidden flaw, explains most of the discount.",
+        },
+        {
+          type: 'p',
+          text: "Lagardère, which owns the Relay newsstands and Elle magazine among other assets, sits in a different situation that leads to the same outcome: a low price despite sales growing 16.2% a year on average. Since [Vivendi, controlled by the Bolloré family, completed its takeover of the group](https://www.letemps.ch/economie/vivendi-finalise-sa-prise-de-controle-de-lagardere) after a tender offer launched in 2022, it has held about 60% of Lagardère's capital. When a majority shareholder holds such a stake, minority shareholders carry little weight over management decisions, mergers, or capital distribution. The market then applies what is called a control discount: a lower price to compensate for the other shareholders' lack of real say, even when the underlying business is doing fine.",
+        },
+        {
+          type: 'p',
+          text: "AXA illustrates a third mechanism specific to insurance: float. An insurer collects premiums from customers today and only pays claims later, sometimes years later for life insurance. In between, it invests money that is not yet its own. This float looks like debt on a standard balance sheet, but it is not one, and that is exactly what makes many investors wary of the sector, which they see as opaque. Yet in the [first half of 2026, AXA reported an operating result of 4.5 billion euros](https://www.axa.com/fr/actualites/resultats-semestriels-2026-actualites), up 4% year over year, with property and casualty up 6% and life and health up 11%, on 66.3 billion euros of revenue. Profitability is rising, while the price stays compressed by that structural distrust of the sector.",
+        },
+        { type: 'h2', text: 'Why Hermès and Vinci trade so much more expensive' },
+        {
+          type: 'p',
+          text: "At the other end of the ranking, [Hermès](/analyse/RMS.PA) is the priciest of the 21. The leather goods and fashion house raises its prices almost every year, on customers willing to pay more for a bag rather than wait for a discount, sometimes via a waiting list. That is pricing power with almost no equivalent in retail. Over five years, its sales have grown 15.5% a year on average, and its free cash flow margin reaches 26.3%, meaning that out of every 100 euros of sales, more than 26 end up as cash the company can actually use. The market pays top price for this engineered scarcity, 38.3 times free cash flow, against 1.8 for Cegedim.",
+        },
+        {
+          type: 'p',
+          text: "[Vinci](/analyse/DG.PA) illustrates a second, different lever: the concession. When the French state grants Vinci the right to build and operate a highway or an airport for several decades, in exchange for an upfront investment, the company then collects tolls or fees for the entire length of the contract, without a competitor on that specific stretch. In July 2026, [Vinci was in fact named preferred bidder for the future A154-A120 highway](https://www.globenewswire.com/news-release/2026/07/29/3335498/0/fr/vinci-excellente-performance-%C3%A9conomique-au-s1-2026.html), a new 97-kilometer stretch west of Paris, for a 35-year term. That kind of contract is worth more to the market than a fast-growing but uncertain business, because the revenue itself is nearly guaranteed for decades. Traffic on existing highways still fell 2.9% in the first half of 2026, hurt by fuel prices and heat waves, without denting the market's confidence: one half-year of lower traffic does not undo a 35-year contract.",
+        },
+        { type: 'h2', text: 'Why none of these 21 stocks triggers my buy signal' },
+        {
+          type: 'p',
+          text: "My site calculates, for every stock, a signal I call opportunity. It only fires if two conditions are met at the same time: P/FCF must be below an absolute threshold AND below the tenth percentile of the stock's own five-year history, meaning among the lowest levels that specific stock has ever reached. The first condition alone is not enough: a stock can look cheap in absolute terms while still being expensive relative to its own past.",
+        },
+        {
+          type: 'p',
+          text: "Among these 21 French stocks, none checks both boxes at once today, including Cegedim despite its P/FCF of 1.8. My model even shows, for Cegedim, a theoretical fair buy price far above the current stock price, which would imply a discount of several hundred percent if taken literally. I distrust that kind of extreme number: on a micro-cap with a temporarily compressed free cash flow, such a gap mostly signals that the model is extrapolating from too narrow a cash base, not that a real bargain exists at this price. A low P/FCF is never a buy signal on its own, only a starting point worth digging into.",
+        },
+        { type: 'h2', text: 'What I do with this ranking' },
+        {
+          type: 'p',
+          text: "I never turn this kind of table into an automatic buy list. What comes out of it is more like a map: 21 names worth a real look, each with a different reason for costing what it costs, size, control structure, sector opacity, or brand power. The next step, ticker by ticker, is exactly what my site does for any French or foreign stock, separating quality from price and giving you a fair buy price instead of a vague opinion.",
+        },
+        {
+          type: 'p',
+          text: "That is exactly what I wanted to be able to do in a few seconds for any stock listed in France, so I built my [investment site](/methodologie) to do it.",
+        },
+        { type: 'h2', text: 'Five takeaways' },
+        {
+          type: 'ul',
+          items: [
+            "Twenty-one French stocks pass 8 or 9 of my 10 quality criteria today, from micro-caps to a global multinational.",
+            "Their valuation ranges from 1.8 to 38.3 times free cash flow, a gap of more than twenty times between the two extremes, at nearly identical quality.",
+            "The cheapest ones, Cegedim, Lagardère, and AXA, are cheap for structural reasons: size, control structure, or sector opacity, not because their business is deteriorating.",
+            "The priciest ones, Hermès and Vinci, owe their price to a real moat: brand power for one, long-term concessions for the other.",
+            "None of the 21 triggers my buy signal today: a low price is never a bargain on its own, only a starting point worth digging into.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "What is P/FCF, the ratio used in this ranking?",
+          a: "P/FCF (price-to-free-cash-flow) compares a stock's price to the free cash flow it generates each year, the money that is really available once every bill and every investment is paid. A P/FCF of 10 means you are paying ten years of that cash to own the stock. The lower it is, the cheaper the stock is relative to the cash it actually produces.",
+        },
+        {
+          q: "Why can a quality stock stay cheap for a long time?",
+          a: "Often for reasons unrelated to the quality of the business: a market cap too small to attract large investors, like Cegedim, a majority shareholder that limits minority shareholders' power, like Lagardère, or a sector seen as opaque, like insurance for AXA. The market prices in far more than financial results alone.",
+        },
+        {
+          q: "What is my model's buy signal, and why doesn't it fire for any of these 21 stocks?",
+          a: "It requires a P/FCF below an absolute threshold AND below the tenth percentile of the stock's own five-year history. Among these 21 French stocks, none meets both conditions at once today, including the ones that look cheapest on paper, whose low price comes from structural factors rather than a real market opportunity.",
+        },
+        {
+          q: "Are these 21 stocks eligible for a French PEA account?",
+          a: "The vast majority, yes: a stock from a company headquartered in the European Union, listed on a regulated or organized market like Euronext Paris or Euronext Growth, is eligible for a PEA. That is the case for all 21 companies in this ranking, all listed in Paris.",
+        },
+        {
+          q: "Should you buy the cheapest one on the list, Cegedim?",
+          a: "Not just because it shows the lowest P/FCF. My model does not trigger a buy signal on Cegedim: its size limits liquidity, and the valuation gap my model shows is so extreme it needs to be checked in detail before being taken seriously, not followed as is. This is not investment advice, do your own research.",
+        },
+      ],
+      tags: ['French stocks', 'CAC 40', 'valuation', 'PEA', 'Cegedim', 'Vinci', 'Hermès', 'AXA', 'Lagardère', 'fundamental analysis'],
+      disclaimer:
+        "Educational analysis, not personalized investment advice. Past performance does not guarantee future results. Figures as of September 2, 2026, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid offering. I'm telling you this so you can read this analysis with that in mind. Do your own research before any investment decision.",
+    },
+    es: {
+      title: 'Acciones francesas de calidad: por qué el precio varía',
+      excerpt:
+        "Veintiuna acciones francesas superan mi filtro de calidad, desde una micro-capitalización desconocida hasta una multinacional del lujo. Sus precios en bolsa cuentan una historia muy distinta, y ninguna resulta realmente barata.",
+      metaDescription:
+        "21 acciones francesas superan mi filtro de calidad. Su precio va de muy barato a muy caro, con una calidad casi idéntica. Te explico por qué.",
+      answer:
+        "Veintiuna acciones francesas, de Cegedim a Hermès, cumplen hoy 8 o 9 de mis 10 criterios de calidad. Su precio en bolsa va de muy barato a muy caro, una diferencia de más de veinte veces. Ninguna activa mi señal de compra. La calidad no dice nada del precio, y aquí te explico por qué.",
+      body: [
+        { type: 'h2', text: 'Veintiuna acciones francesas superan mi filtro de calidad' },
+        {
+          type: 'p',
+          text: "Evalúo cada acción con diez criterios financieros concretos, sin importar su país o su tamaño: ¿es rentable?, ¿crecen sus ventas y su flujo de caja libre con el tiempo?, ¿recompra sus propias acciones en lugar de diluirlas?, ¿es su deuda manejable?, ¿es sólida su rentabilidad sobre el capital? En esta fase nunca miro el precio. Calidad y precio son dos preguntas separadas, y siempre respondo primero a la primera.",
+        },
+        {
+          type: 'p',
+          text: "Al aplicar este filtro a todas las acciones cotizadas en París, con al menos 6 de 10 criterios cumplidos, hoy aparecen 21 nombres. La más pequeña, Klea Holding, vale apenas 46 millones de dólares en bolsa. La más grande, L'Oréal, vale más de 200.000 millones. Entre ambas hay nombres que cualquiera cruza sin saber que cotizan en bolsa, JCDecaux en la calle o Edenred en los vales de comida, y otros reservados a especialistas, como Antin Infrastructure Partners o Klea Holding. Aquí están las 21, ordenadas por lo que cuestan hoy en relación con el efectivo que realmente generan cada año.",
+        },
+        {
+          type: 'table',
+          headers: ['Empresa', 'Sector', 'Nota', 'Valoración (P/FCF)'],
+          rows: [
+            ['Cegedim (ALCGM)', 'Datos de salud', '8/10', '1,8×'],
+            ['Lagardère (MMB)', 'Medios', '8/10', '2,4×'],
+            ['Catering International & Services (ALCIS)', 'Servicios empresariales', '9/10', '4,0×'],
+            ['AXA (CS)', 'Seguros', '8/10', '4,1×'],
+            ['Sogeclair (ALSOG)', 'Aeroespacial y defensa', '8/10', '5,5×'],
+            ['JCDecaux (DEC)', 'Publicidad exterior', '8/10', '5,8×'],
+            ['Edenred (EDEN)', 'Beneficios para empleados', '9/10', '6,9×'],
+            ['Vinci (DG)', 'Construcción y concesiones', '9/10', '8,0×'],
+            ['Lexibook (ALLEX)', 'Ocio', '8/10', '8,7×'],
+            ['Publicis Groupe (PUB)', 'Publicidad', '8/10', '9,2×'],
+            ['Klea Holding (ALKLH)', 'Diagnóstico médico', '9/10', '11,8×'],
+            ['Antin Infrastructure Partners (ANTIN)', 'Gestión de activos', '8/10', '12,7×'],
+            ['74Software (74SW)', 'Software', '8/10', '14,1×'],
+            ['Bureau Veritas (BVI)', 'Certificación e inspección', '8/10', '14,3×'],
+            ['Entech (ALESE)', 'Energías renovables', '9/10', '15,4×'],
+            ['Thales (HO)', 'Aeroespacial y defensa', '8/10', '20,7×'],
+            ['Euronext (ENX)', 'Infraestructura de mercado', '8/10', '24,2×'],
+            ["L'Oréal (OR)", 'Cosmética', '9/10', '28,7×'],
+            ['Schneider Electric (SU)', 'Equipos industriales', '8/10', '35,0×'],
+            ['Safran (SAF)', 'Aeroespacial y defensa', '9/10', '35,2×'],
+            ['Hermès (RMS)', 'Lujo', '8/10', '38,3×'],
+          ],
+        },
+        { type: 'h2', text: 'Una diferencia de más de veinte veces entre la más barata y la más cara' },
+        {
+          type: 'p',
+          text: "La cifra que ordena esta tabla se llama P/FCF, price-to-free-cash-flow. Es el precio de la acción dividido entre el flujo de caja libre, el dinero que realmente queda en la caja de la empresa una vez pagadas todas las facturas, inversiones incluidas. Un P/FCF de 5 significa que hoy pagas cinco años de ese efectivo por poseer la acción. Cuanto más bajo sea el número, más barata es la acción en relación con el efectivo que realmente produce. Sigue la misma lógica que expone [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/), profesor de valoración en la Universidad de Nueva York, cuyos trabajos inspiran parte de mi método.",
+        },
+        {
+          type: 'p',
+          text: "Entre estas 21 acciones, calificadas de forma casi idéntica por mi filtro, el P/FCF va de 1,8 en Cegedim a 38,3 en Hermès. Con una calidad comparable, una acción se valora más de veinte veces más cara que otra en relación con su efectivo. No es un caso aislado: otros tres nombres, Lagardère, Catering International & Services y AXA, también se valoran por debajo de 5 veces su flujo de caja libre, mientras que Safran, Schneider Electric y Euronext se valoran por encima de 20 veces. La calidad, tal como yo la mido, no predice casi nada sobre el precio que el mercado está dispuesto a pagar.",
+        },
+        { type: 'h2', text: 'Por qué Cegedim, Lagardère y AXA siguen siendo baratas' },
+        {
+          type: 'p',
+          text: "[Cegedim](/analyse/ALCGM.PA) es la más barata de las 21. Es una empresa francesa de datos de salud, fundada en 1969, que recopila y distribuye información médica para profesionales sanitarios, aseguradoras y empresas, a través de tres áreas: seguros de salud y RR. HH., profesionales sanitarios y servicios en la nube. Emplea a algo más de 6.500 personas en casi 80 países y generó 654,5 millones de euros de ingresos en 2024, un 6,25 % más que el año anterior. Su capitalización bursátil, unos 146 millones de euros, la convierte en una microcapitalización, demasiado pequeña para la mayoría de los gestores institucionales, que deben cumplir requisitos mínimos de liquidez antes incluso de revisar sus cuentas. Ese tamaño, y no un defecto oculto, explica buena parte del descuento.",
+        },
+        {
+          type: 'p',
+          text: "Lagardère, propietaria entre otros activos de las tiendas Relay y la revista Elle, vive una situación distinta que lleva al mismo resultado: un precio bajo pese a unas ventas que crecen un 16,2 % anual de media. Desde que [Vivendi, controlada por la familia Bolloré, completó la toma de control del grupo](https://www.letemps.ch/economie/vivendi-finalise-sa-prise-de-controle-de-lagardere) tras una oferta pública de adquisición lanzada en 2022, posee alrededor del 60 % del capital de Lagardère. Cuando un accionista mayoritario controla una participación así, los accionistas minoritarios tienen poco peso sobre las decisiones de gestión, las fusiones o el reparto del capital. El mercado aplica entonces lo que se llama un descuento de control: un precio más bajo para compensar la falta de poder real del resto de accionistas, aunque el negocio subyacente vaya bien.",
+        },
+        {
+          type: 'p',
+          text: "AXA ilustra un tercer mecanismo, propio del seguro: el float. Una aseguradora cobra hoy las primas de sus clientes y solo paga los siniestros más tarde, a veces años después en el caso de los seguros de vida. Entre medias, invierte un dinero que todavía no le pertenece del todo. Ese float se parece a una deuda en un balance clásico, pero no lo es, y eso es precisamente lo que hace desconfiar a muchos inversores de un sector que consideran opaco. Aun así, en el [primer semestre de 2026, AXA publicó un resultado operativo de 4.500 millones de euros](https://www.axa.com/fr/actualites/resultats-semestriels-2026-actualites), un 4 % más que el año anterior, con un +6 % en el seguro de daños y un +11 % en vida y salud, sobre 66.300 millones de euros de ingresos. La rentabilidad mejora, pero el precio sigue comprimido por esa desconfianza estructural hacia el sector.",
+        },
+        { type: 'h2', text: 'Por qué Hermès y Vinci se valoran mucho más caras' },
+        {
+          type: 'p',
+          text: "En el otro extremo del ranking, [Hermès](/analyse/RMS.PA) es la más cara de las 21. La casa de marroquinería y moda sube sus precios casi cada año, ante una clientela dispuesta a pagar más por un bolso antes que esperar una rebaja, a veces mediante una lista de espera. Es un poder de fijación de precios casi sin equivalente en el comercio minorista. En cinco años, sus ventas han crecido un 15,5 % anual de media y su margen de flujo de caja libre alcanza el 26,3 %, lo que significa que de cada 100 euros de ventas, más de 26 acaban siendo efectivo realmente disponible. El mercado paga caro por esta escasez organizada, 38,3 veces el flujo de caja libre, frente a 1,8 en Cegedim.",
+        },
+        {
+          type: 'p',
+          text: "[Vinci](/analyse/DG.PA) ilustra un segundo mecanismo, distinto: la concesión. Cuando el Estado francés otorga a Vinci el derecho de construir y explotar una autopista o un aeropuerto durante varias décadas, a cambio de una inversión inicial, la empresa cobra después peajes o tarifas durante toda la duración del contrato, sin competencia en ese tramo concreto. En julio de 2026, [Vinci fue designada de hecho concesionaria preferente de la futura autopista A154-A120](https://www.globenewswire.com/news-release/2026/07/29/3335498/0/fr/vinci-excellente-performance-%C3%A9conomique-au-s1-2026.html), un nuevo eje de 97 kilómetros al oeste de París, por un plazo de 35 años. Este tipo de contrato vale más a ojos del mercado que una actividad de crecimiento rápido pero incierto, porque el ingreso está prácticamente garantizado durante décadas. El tráfico en las autopistas ya existentes cayó, aun así, un 2,9 % en el primer semestre de 2026, penalizado por el precio del combustible y las olas de calor, sin que eso afectara a la confianza del mercado: un semestre de tráfico a la baja no invalida un contrato de 35 años.",
+        },
+        { type: 'h2', text: 'Por qué ninguna de estas 21 acciones activa mi señal de compra' },
+        {
+          type: 'p',
+          text: "Mi sitio calcula, para cada acción, una señal que llamo oportunidad. Solo se activa si se cumplen dos condiciones a la vez: el P/FCF debe estar por debajo de un umbral absoluto Y por debajo del percentil diez del propio historial del valor a cinco años, es decir, entre los niveles más bajos que esa acción concreta ha alcanzado alguna vez. La primera condición por sí sola no basta: una acción puede parecer barata en términos absolutos y, aun así, ser cara respecto a su propio pasado.",
+        },
+        {
+          type: 'p',
+          text: "Entre estas 21 francesas, ninguna cumple hoy ambas condiciones a la vez, ni siquiera Cegedim pese a su P/FCF de 1,8. Mi modelo llega a mostrar, para Cegedim, un precio de compra teórico muy por encima del precio actual, lo que implicaría un descuento de varios cientos por ciento si se tomara al pie de la letra. Desconfío de este tipo de cifra extrema: en una microcapitalización con un flujo de caja libre puntualmente comprimido, una diferencia así indica sobre todo que el modelo extrapola desde una base de efectivo demasiado estrecha, no que exista una verdadera ganga a ese precio. Un P/FCF bajo nunca es, por sí solo, una señal de compra, solo un punto de partida para investigar más.",
+        },
+        { type: 'h2', text: 'Qué hago yo con este ranking' },
+        {
+          type: 'p',
+          text: "Nunca convierto este tipo de tabla en una lista de compra automática. Lo que se extrae de aquí es más bien un mapa: 21 nombres que merecen una mirada real, cada uno con una razón distinta para costar lo que cuesta, tamaño, estructura de control, opacidad sectorial o poder de marca. El siguiente paso, valor por valor, es exactamente lo que hace mi sitio con cualquier acción francesa o extranjera, separar la calidad del precio y ofrecer un precio de compra razonable en lugar de una opinión vaga.",
+        },
+        {
+          type: 'p',
+          text: "Es exactamente lo que quería poder hacer en unos segundos para cualquier acción cotizada en Francia, así que construí mi [sitio de inversión](/methodologie) para eso.",
+        },
+        { type: 'h2', text: 'Cinco ideas para quedarte' },
+        {
+          type: 'ul',
+          items: [
+            'Veintiuna acciones francesas cumplen hoy 8 o 9 de mis 10 criterios de calidad, desde microcapitalizaciones hasta una multinacional global.',
+            'Su valoración va de 1,8 a 38,3 veces el flujo de caja libre, una diferencia de más de veinte veces entre los dos extremos, con una calidad casi idéntica.',
+            'Las más baratas, Cegedim, Lagardère y AXA, lo son por razones estructurales: tamaño, estructura de control u opacidad sectorial, no porque su negocio se esté deteriorando.',
+            'Las más caras, Hermès y Vinci, deben su precio a un foso competitivo real: el poder de marca en un caso, las concesiones a largo plazo en el otro.',
+            'Ninguna de las 21 activa hoy mi señal de compra: un precio bajo nunca es, por sí solo, una ganga, solo un punto de partida para investigar más.',
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qué es el P/FCF, el ratio usado en este ranking?",
+          a: "El P/FCF (price-to-free-cash-flow) compara el precio de una acción con el flujo de caja libre que genera cada año, el dinero que realmente queda disponible una vez pagadas todas las facturas e inversiones. Un P/FCF de 10 significa que pagas diez años de ese efectivo por poseer la acción. Cuanto más bajo, más barata es la acción respecto al efectivo que realmente produce.",
+        },
+        {
+          q: "¿Por qué una acción de calidad puede seguir siendo barata durante mucho tiempo?",
+          a: "A menudo por razones ajenas a la calidad del negocio: una capitalización demasiado pequeña para atraer a grandes inversores, como Cegedim, un accionista mayoritario que reduce el poder de los minoritarios, como Lagardère, o un sector considerado opaco, como el seguro en el caso de AXA. El mercado incorpora mucho más que los resultados financieros.",
+        },
+        {
+          q: "¿Qué es la señal de compra de mi modelo, y por qué no se activa en ninguna de estas 21 acciones?",
+          a: "Exige un P/FCF por debajo de un umbral absoluto Y por debajo del percentil diez del propio historial del valor a cinco años. Entre estas 21 acciones francesas, ninguna cumple ambas condiciones a la vez hoy, incluidas las que parecen más baratas sobre el papel, cuyo precio bajo se explica por factores estructurales y no por una verdadera oportunidad de mercado.",
+        },
+        {
+          q: "¿Son estas 21 acciones aptas para un PEA francés?",
+          a: "La gran mayoría, sí: una acción de una empresa con sede en la Unión Europea, cotizada en un mercado regulado u organizado como Euronext Paris o Euronext Growth, es apta para el PEA. Es el caso de las 21 empresas de este ranking, todas cotizadas en París.",
+        },
+        {
+          q: "¿Hay que comprar la más barata del ranking, Cegedim?",
+          a: "No solo porque muestre el P/FCF más bajo. Mi modelo no activa una señal de compra sobre Cegedim: su tamaño limita su liquidez, y la diferencia de valoración que muestra mi modelo es tan extrema que merece revisarse en detalle antes de tomarla en serio, no seguirla tal cual. Esto no es un consejo de inversión, investiga por tu cuenta.",
+        },
+      ],
+      tags: ['acciones francesas', 'CAC 40', 'valoración', 'PEA', 'Cegedim', 'Vinci', 'Hermès', 'AXA', 'Lagardère', 'análisis fundamental'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es un consejo de inversión personalizado. Los rendimientos pasados no garantizan resultados futuros. Cifras a 2 de septiembre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con esto en cuenta. Investiga por tu cuenta antes de tomar cualquier decisión de inversión.",
+    },
+  },
+};
+
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart];
 
 
 /** Articles triés du plus récent au plus ancien. */
