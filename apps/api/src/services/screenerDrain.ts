@@ -1,5 +1,5 @@
 /**
- * screenerDrain — vide la file des titres `pending` du screener, HORS Vercel.
+ * screenerDrain — vide les files `error` retentables et `pending` du screener, HORS Vercel.
  *
  * POURQUOI UN CHEMIN SÉPARÉ DE `tick()` :
  *   1. Famine. `pickDueTickers` sert d'abord les titres déjà notés dont la date de résultats est
@@ -38,6 +38,8 @@ const DEFAULT_PER_TICKER_MS = 240_000;
 const DEFAULT_POLL_MS = 10 * 60_000;
 /** Combien de tickers déjà tentés on exclut des piochés suivants (cf. pickDue). */
 const EXCLUDE_WINDOW = 1_000;
+/** Même borne que le cron HTTP : après 5 échecs, le titre relève de `requeueAbandoned`. */
+const MAX_ATTEMPTS = 5;
 /**
  * Délai minimum entre deux PASSAGES du scoreur sur un titre à résultats échus (cf. pickDue).
  * 3 jours : assez court pour rattraper une publication, assez long pour ne pas repasser toutes les
@@ -122,9 +124,9 @@ export interface DrainResult {
 }
 
 /**
- * Pioche le prochain lot, EARNINGS ÉCHUS D'ABORD puis `pending`. `exclude` écarte les titres déjà
- * tentés dans CE run : un scoring qui part en timeout laisse la ligne en `pending` (aucun statut
- * écrit), elle serait donc repiochée en boucle par le lot suivant.
+ * Pioche le prochain lot, EARNINGS ÉCHUS D'ABORD, puis erreurs retentables, puis `pending`.
+ * `exclude` écarte les titres déjà tentés dans CE run : un scoring qui part en timeout peut laisser
+ * la ligne dans son état initial, elle serait donc repiochée en boucle par le lot suivant.
  *
  * POURQUOI LES EARNINGS ICI (07/08/2026). Le drain ne prenait que `status: 'pending'`, donc le
  * rafraîchissement d'après résultats n'était servi QUE par le cron HTTP de 06:00. Or celui-ci
@@ -169,14 +171,27 @@ export async function pickDue(limit: number, region: string | undefined, exclude
   });
   if (earnings.length >= limit) return earnings.map(r => r.ticker);
 
-  // 2. Le reste du lot : élargissement de couverture, ordre historique.
-  const pending = await prisma.screenerTicker.findMany({
-    where: { ...common, status: 'pending' },
+  // 2. Réparation des échecs transitoires. Indispensable pour les titres non-US : le cron HTTP
+  // planifié tourne avec `fast=1` et exclut donc les symboles suffixés (.PA, .L, .DE…). Sans cette
+  // file, un GTT.PA passé une fois en `error` n'était repris ni par le cron, ni par le drain.
+  const errors = await prisma.screenerTicker.findMany({
+    where: { ...common, status: 'error', attempts: { lt: MAX_ATTEMPTS } },
     orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
     take: limit - earnings.length,
     select: { ticker: true },
   });
-  return [...earnings, ...pending].map(r => r.ticker);
+  if (earnings.length + errors.length >= limit) {
+    return [...earnings, ...errors].map(r => r.ticker);
+  }
+
+  // 3. Le reste du lot : élargissement de couverture, ordre historique.
+  const pending = await prisma.screenerTicker.findMany({
+    where: { ...common, status: 'pending' },
+    orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
+    take: limit - earnings.length - errors.length,
+    select: { ticker: true },
+  });
+  return [...earnings, ...errors, ...pending].map(r => r.ticker);
 }
 
 const TIMEOUT = Symbol('timeout');

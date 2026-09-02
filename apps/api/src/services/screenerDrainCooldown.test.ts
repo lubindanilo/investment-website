@@ -25,6 +25,7 @@ interface Row {
   lastAttemptAt: Date | null;
   lastScoredAt: Date | null;
   marketCapUsd: number | null;
+  attempts: number;
 }
 
 const DAY = 24 * 3600 * 1000;
@@ -40,19 +41,21 @@ function row(over: Partial<Row> & { ticker: string }): Row {
     lastAttemptAt: null,
     lastScoredAt: null,
     marketCapUsd: 1_000,
+    attempts: 0,
     ...over,
   };
 }
 
 // ── Faux Prisma : applique where + orderBy + take sur `rows` ──────────────────────────────────
-type Cmp = { lt?: Date; lte?: string; notIn?: string[] };
+type Cmp = { lt?: Date | number; lte?: string; notIn?: string[] };
 
 function matchField(value: unknown, cond: unknown): boolean {
   if (cond === null) return value === null;
   if (cond instanceof Date) return value instanceof Date && value.getTime() === cond.getTime();
   if (typeof cond === 'object' && cond !== null) {
     const c = cond as Cmp;
-    if (c.lt !== undefined) return value instanceof Date && value.getTime() < c.lt.getTime();
+    if (c.lt instanceof Date) return value instanceof Date && value.getTime() < c.lt.getTime();
+    if (typeof c.lt === 'number') return typeof value === 'number' && value < c.lt;
     // `lte` porte ici sur nextEarningsDate, une date ISO stockée en texte. null n'est pas comparable :
     // c'est ce qui fait sortir de la file un titre dont la date du trimestre suivant est inconnue.
     if (c.lte !== undefined) return typeof value === 'string' && value <= c.lte;
@@ -179,6 +182,23 @@ describe('pickDue — file des résultats tombés', () => {
     ];
 
     expect(await pickDue(3, undefined, [])).toEqual(['DUE', 'NEW1', 'NEW2']);
+  });
+
+  it('reprend les erreurs non-US retentables avant les nouveaux titres', async () => {
+    rows = [
+      row({ ticker: 'GTT.PA', region: 'EU', status: 'error', attempts: 2, nextEarningsDate: null, lastAttemptAt: new Date(NOW - 20 * DAY) }),
+      row({ ticker: 'NEW.PA', region: 'EU', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+    ];
+
+    expect(await pickDue(2, 'EU', [])).toEqual(['GTT.PA', 'NEW.PA']);
+  });
+
+  it('laisse de côté une erreur arrivée au plafond de tentatives', async () => {
+    rows = [
+      row({ ticker: 'ABANDON.PA', region: 'EU', status: 'error', attempts: 5, nextEarningsDate: null }),
+    ];
+
+    expect(await pickDue(10, 'EU', [])).toEqual([]);
   });
 
   it('écarte les tickers déjà tentés dans ce run', async () => {
