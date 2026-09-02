@@ -25,6 +25,13 @@ import { aggregateTotal, publicCriteriaSchema } from '../src/services/resilience
  *
  *   pnpm --filter @lubin/api exec tsx scripts/resilienceStarsManualReview.ts          # simulation
  *   pnpm --filter @lubin/api exec tsx scripts/resilienceStarsManualReview.ts --apply  # ecrit
+ *
+ * Par defaut les DEUX moities passent : les corrections ET les campagnes de suppression encore
+ * ouvertes (celles sans `appliedOn`). Pour n'en jouer qu'une — appliquer une correction sans
+ * declencher une campagne de suppression de plusieurs centaines de lignes, ou l'inverse :
+ *
+ *   ... resilienceStarsManualReview.ts --apply --corrections-only
+ *   ... resilienceStarsManualReview.ts --apply --deletions-only
  */
 
 type Star = 0 | 0.5 | 1;
@@ -46,6 +53,7 @@ interface Correction {
 /** Tracabilite sans migration : concatene a `model`, qui n'est pas expose a l'UI (cf. ResilienceStars). */
 const MARK = 'revue-manuelle-2026-08-07';
 const MARK_2026_08_11 = 'revue-manuelle-2026-08-11';
+const MARK_2026_08_12 = 'revue-manuelle-2026-08-12';
 
 const CORRECTIONS: Correction[] = [
   {
@@ -163,6 +171,44 @@ const CORRECTIONS: Correction[] = [
       },
     },
     mark: MARK_2026_08_11,
+  },
+  {
+    // LE 1 N'A JAMAIS ETE ARBITRE CONTRE LE 2. XPeng fait partie des 20 societes multi-cotees que la
+    // campagne du 11/08 a trouvees avec deux totaux divergents (XPEV 2, 9868.HK 1, cf. la deletion
+    // plus bas). La regle appliquee gardait la ligne de plus grosse capi SANS arbitrer le fond : le 1
+    // a gagne par ordre de file, et les deux capis se tiennent a 0,1 Md$ pres. La ligne porte en plus
+    // le verdict `flagged` — Sonnet et V3 ne se sont jamais rejoints — donc elle attendait
+    // explicitement cette revue-ci. On tranche ici, en corrigeant les deux criteres qui ne tiennent
+    // pas la lettre du bareme.
+    //
+    // `controle` 0 -> 0,5. Le 0 est reserve a « aucun contrôle » ou a une interface reconstructible ;
+    // le 0,5 couvre le contrôle « reel mais etroit/conteste/replicable sous ~5 ans ». Or « stack/
+    // donnee proprietaire » est un contrôle recevable au bareme, et XPeng a sa pile ADAS integree, sa
+    // puce Turing et la boucle de donnees de sa flotte. La justification ecrite par le modele
+    // (« reproductibles par des dizaines de concurrents chinois ») EST la definition du 0,5.
+    //
+    // `adjacent` 0 -> 0,5. La regle « jamais une option speculative » condamne a juste titre les
+    // robots humanoides et les voitures volantes, et la justification ne parlait que de ceux-la. Elle
+    // ignorait l'adjacent DEJA REALISE : la vente d'architecture E/E et de logiciel a Volkswagen,
+    // qui produit du revenu aujourd'hui. C'est « avantage adjacent reel mais partiel », soit 0,5.
+    //
+    // Les trois autres criteres ne bougent pas : `besoin` 0,5 et `capture` 0 collent a un
+    // constructeur chinois en guerre des prix, et `forces` 0,5 est deja le mitige du bareme.
+    tickers: ['XPEV', '9868.HK'],
+    label: 'XPeng',
+    from: 1,
+    to: 2,
+    set: {
+      controle: {
+        star: 0.5,
+        justification: "Pile ADAS développée en interne, puce Turing maison et boucle de données de la flotte : contrôle réel, mais étroit et réplicable sous cinq ans par les autres constructeurs chinois.",
+      },
+      adjacent: {
+        star: 0.5,
+        justification: "La vente d'architecture E/E et de logiciel à Volkswagen est une adjacence déjà réalisée et rémunérée : avantage réel mais partiel, les humanoïdes et voitures volantes restant spéculatifs.",
+      },
+    },
+    mark: MARK_2026_08_12,
   },
 ];
 
@@ -384,10 +430,19 @@ const DELETIONS: Deletion[] = [
 
 async function main(): Promise<void> {
   const apply = process.argv.includes('--apply');
+  // Les deux moities du script n'ont pas le meme rayon d'action : une correction touche une poignee
+  // de lignes et se garde par `from`/`to`, une campagne de suppression en retire des centaines et
+  // les rend invisibles jusqu'a ce que le backfill les repioche (250 par nuit). Vouloir appliquer
+  // une correction d'une societe ne devrait pas obliger a declencher la campagne de suppression en
+  // cours dans le meme fichier : ces deux drapeaux permettent de jouer une moitie a la fois. Sans
+  // eux, les deux passent — comportement d'origine, conserve par defaut.
+  const only = process.argv.includes('--corrections-only') ? 'corrections'
+    : process.argv.includes('--deletions-only') ? 'deletions'
+    : null;
   const prisma = new PrismaClient();
   let changed = 0, skipped = 0;
   try {
-    for (const c of CORRECTIONS) {
+    for (const c of only === 'deletions' ? [] : CORRECTIONS) {
       for (const ticker of c.tickers) {
         const row = await prisma.resilienceStarScore.findUnique({
           where: { ticker },
@@ -426,7 +481,7 @@ async function main(): Promise<void> {
       }
     }
 
-    for (const d of DELETIONS) {
+    for (const d of only === 'corrections' ? [] : DELETIONS) {
       if (d.appliedOn) {
         console.log(`  = ${d.tickers.length} ticker(s) : suppression deja consommee le ${d.appliedOn}, ignore.`);
         skipped += d.tickers.length; continue;
@@ -452,7 +507,8 @@ async function main(): Promise<void> {
       }
     }
 
-    console.log(`\n${apply ? 'Applique' : 'Simule'} : ${changed} ligne(s), ${skipped} ignoree(s).`);
+    const scope = only ? ` (${only} seulement)` : '';
+    console.log(`\n${apply ? 'Applique' : 'Simule'}${scope} : ${changed} ligne(s), ${skipped} ignoree(s).`);
     if (!apply) console.log('Relancer avec --apply pour ecrire.');
   } finally {
     await prisma.$disconnect();
