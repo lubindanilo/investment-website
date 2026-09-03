@@ -184,6 +184,40 @@ describe('pickDue — file des résultats tombés', () => {
     expect(await pickDue(3, undefined, [])).toEqual(['DUE', 'NEW1', 'NEW2']);
   });
 
+  it('sert les erreurs MÊME quand la file earnings sature la part rafraîchissement', async () => {
+    // LE BUG DE PRODUCTION (03/09/2026). `nextEarningsDate <= today` porte en permanence plus de
+    // mille titres, donc la requête earnings remplissait toute la part rafraîchissement et la file
+    // `error`, servie derrière, était sautée à chaque lot de chaque nuit. Constat sur la base : six
+    // semaines après leur échec, les 315 titres tombés le 20/07 avaient encore
+    // `lastAttemptAt = 2026-07-20` — la reprise des erreurs n'avait jamais rien repris. Sur le motif
+    // fautif (erreurs après earnings, sans part réservée), ce test ne rend aucun ticker en `error`.
+    rows = [
+      row({ ticker: 'E1', marketCapUsd: 900, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E2', marketCapUsd: 800, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E3', marketCapUsd: 700, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E4', marketCapUsd: 600, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'GTT.PA', status: 'error', attempts: 2, nextEarningsDate: null, lastAttemptAt: new Date(NOW - 45 * DAY) }),
+      row({ ticker: 'P1', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+      row({ ticker: 'P2', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+    ];
+
+    expect(await pickDue(4, undefined, [])).toEqual(['E1', 'GTT.PA', 'P1', 'P2']);
+  });
+
+  it('rend la part entière aux earnings dès que la file error est vide', async () => {
+    // Le plafond des erreurs ne coûte rien en régime établi : c'est une file finie, et une fois
+    // résorbée le rafraîchissement récupère toute sa part.
+    rows = [
+      row({ ticker: 'E1', marketCapUsd: 900, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E2', marketCapUsd: 800, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'E3', marketCapUsd: 700, lastAttemptAt: new Date(NOW - 4 * DAY) }),
+      row({ ticker: 'P1', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+      row({ ticker: 'P2', status: 'pending', nextEarningsDate: null, lastAttemptAt: null }),
+    ];
+
+    expect(await pickDue(4, undefined, [])).toEqual(['E1', 'E2', 'P1', 'P2']);
+  });
+
   it('reprend les erreurs non-US retentables avant les nouveaux titres', async () => {
     rows = [
       row({ ticker: 'GTT.PA', region: 'EU', status: 'error', attempts: 2, nextEarningsDate: null, lastAttemptAt: new Date(NOW - 20 * DAY) }),

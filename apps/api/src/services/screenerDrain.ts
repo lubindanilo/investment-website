@@ -176,8 +176,41 @@ export async function pickDue(
   const share = Math.min(1, Math.max(0, Number.isFinite(pendingShare) ? pendingShare : DEFAULT_PENDING_SHARE));
   const reserved = Math.floor(limit * share);
   const refreshQuota = limit - reserved;
+  /**
+   * Part des erreurs retentables DANS la part rafraîchissement (03/09/2026).
+   *
+   * Sans elle, cette file n'est jamais servie. `nextEarningsDate <= today` porte en permanence plus
+   * de mille titres (1 143 au 03/09), donc la requête earnings remplit TOUJOURS la totalité de la
+   * part rafraîchissement, et la file `error` — qui vient après — était sautée à chaque lot, chaque
+   * nuit. Constat sur la base : les 315 titres tombés le 20/07/2026 avaient encore, six semaines
+   * plus tard, `lastAttemptAt = 2026-07-20` et `attempts = 2`. La reprise des erreurs ajoutée à ce
+   * fichier n'avait donc jamais rien repris.
+   *
+   * `ceil` plutôt que `floor` : une part rafraîchissement de 1 doit valoir une place, sinon la file
+   * disparaît de nouveau sur les petits lots.
+   *
+   * Cette borne ne coûte rien en régime établi : la file `error` est FINIE (315 lignes, plafonnées
+   * à 5 tentatives), elle s'épuise en une à deux nuits, après quoi `errors` revient vide et la part
+   * entière retourne aux résultats tombés. Le plafond n'existe que pour que la résorption d'un
+   * arriéré ne fasse pas attendre le rafraîchissement des plus grosses capitalisations.
+   */
+  const errorQuota = refreshQuota > 0 ? Math.ceil(refreshQuota / 2) : 0;
 
-  // 1. Résultats tombés : re-noter, les plus grosses capis d'abord.
+  // 1. Réparation des échecs transitoires, bornée à `errorQuota`. Indispensable pour les titres
+  //    non-US : le cron HTTP planifié tourne avec `fast=1` et exclut donc les symboles suffixés
+  //    (.PA, .L, .DE…). Sans cette file, un GTT.PA passé une fois en `error` n'est repris ni par le
+  //    cron, ni par le drain. Elle passe DEVANT les résultats tombés parce que servie derrière, elle
+  //    ne l'était jamais (cf. `errorQuota`) ; c'est une file finie, elle s'épuise puis s'effface.
+  const errors = errorQuota === 0 ? [] : await prisma.screenerTicker.findMany({
+    where: { ...common, status: 'error', attempts: { lt: MAX_ATTEMPTS } },
+    orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
+    take: errorQuota,
+    select: { ticker: true },
+  });
+
+  // 2. Résultats tombés : re-noter, les plus grosses capis d'abord. Prend le RESTE de la part
+  //    rafraîchissement, donc la part entière dès que la file `error` est vide — son état normal
+  //    une fois l'arriéré résorbé.
   //
   //    Le cooldown n'est PAS une optimisation, c'est ce qui empêche la file de tourner en rond.
   //    `nextEarningsDate <= today` reste vrai tant que le fournisseur n'a pas publié la date du
@@ -196,22 +229,13 @@ export async function pickDue(
     { marketCapUsd: { sort: 'desc' as const, nulls: 'last' as const } },
     { lastScoredAt: { sort: 'asc' as const, nulls: 'first' as const } },
   ];
-  const earnings = refreshQuota === 0 ? [] : await prisma.screenerTicker.findMany({
+  const earnings = refreshQuota - errors.length <= 0 ? [] : await prisma.screenerTicker.findMany({
     where: { ...common, ...earningsDueWhere(today, earningsCooldown) },
     orderBy: earningsOrder,
-    take: refreshQuota,
+    take: refreshQuota - errors.length,
     select: { ticker: true },
   });
 
-  // 2. Réparation des échecs transitoires. Indispensable pour les titres non-US : le cron HTTP
-  // planifié tourne avec `fast=1` et exclut donc les symboles suffixés (.PA, .L, .DE…). Sans cette
-  // file, un GTT.PA passé une fois en `error` n'était repris ni par le cron, ni par le drain.
-  const errors = refreshQuota - earnings.length <= 0 ? [] : await prisma.screenerTicker.findMany({
-    where: { ...common, status: 'error', attempts: { lt: MAX_ATTEMPTS } },
-    orderBy: [{ priority: 'asc' }, { lastAttemptAt: { sort: 'asc', nulls: 'first' } }],
-    take: refreshQuota - earnings.length,
-    select: { ticker: true },
-  });
   const picked = [...earnings, ...errors].map(r => r.ticker);
 
   // 3. Élargissement de couverture, ordre historique : la réserve, plus ce que le rafraîchissement
