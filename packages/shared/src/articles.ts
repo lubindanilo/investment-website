@@ -85738,7 +85738,298 @@ const articleFranceQualiteEcart: Article = {
 };
 
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart];
+const articleSignalOpportunite: Article = {
+  slug: "signal-sous-evaluee-verifie-action-par-action-2026",
+  date: "2026-09-03",
+  updated: "2026-09-03",
+  readingTime: 6,
+  content: {
+    fr: {
+      title: "Mon signal sous-évaluée, vérifié action par action",
+      excerpt:
+        "J'ai vérifié une par une les actions que mon outil signale comme sous-évaluées aujourd'hui. Résultat : de vraies décotes, et des signaux fondés sur une donnée fausse.",
+      metaDescription:
+        "J'ai vérifié une par une les actions signalées sous-évaluées par mon outil. Résultat : de vraies décotes, et des signaux fondés sur une donnée fausse.",
+      answer:
+        "Mon site flague chaque jour les actions dont le prix semble décoté par rapport au cash qu'elles génèrent. J'ai vérifié un par un treize de ces signaux actifs aujourd'hui : sept tiennent avec des chiffres cohérents, trois reposent sur une donnée fausse (cache non à jour, conversion de devise ratée). Voici lesquels sont fiables, lesquels ne le sont pas, et pourquoi.",
+      body: [
+        { type: "h2", text: "Un signal automatique, et la question qu'il ne se pose jamais" },
+        {
+          type: "p",
+          text: "Mon site calcule chaque jour, pour environ 9500 actions dans le monde, un ratio appelé P/FCF (price-to-free-cash-flow) : le prix de l'action divisé par le free cash flow, l'argent qui reste vraiment dans les caisses de l'entreprise une fois toutes les factures payées. Un P/FCF de 10 veut dire que tu paies aujourd'hui dix années de ce cash pour posséder l'action. Quand ce chiffre tombe sous un seuil absolu et sous le dixième percentile de l'historique propre du titre sur cinq ans, mon outil allume un signal que j'appelle « opportunité ». Aujourd'hui, 60 actions portent ce signal sur la première page accessible sans compte payant.",
+        },
+        {
+          type: "p",
+          text: "Le problème, c'est qu'un signal automatique ne sait pas quand la donnée qui l'alimente est mauvaise. Une conversion de devise mal appliquée, un cache qui n'a pas suivi le cours depuis des semaines, un free cash flow par action recalculé de travers après un mouvement de bilan : tout ça peut faire clignoter « sous-évaluée » sur une action qui ne l'est pas du tout. Avant d'écrire cet article, j'ai donc fait ce que [ma méthode](/methodologie) recommande à n'importe quel lecteur : revérifier individuellement, action par action, via ma page d'analyse en direct plutôt que via la liste brute. Sur treize des soixante signaux passés au crible, sept tiennent avec des chiffres cohérents entre mes deux sources, et trois affichent une divergence assez large pour être écartés sans hésiter.",
+        },
+        { type: "h2", text: "Les sept qui tiennent la route" },
+        {
+          type: "p",
+          text: "Voici sept actions dont j'ai confirmé la décote en direct, avec un score de qualité qui tient sur mes dix critères et un P/FCF cohérent entre la liste et la vérification individuelle.",
+        },
+        {
+          type: "table",
+          headers: ["Action", "Secteur", "Note", "P/FCF"],
+          rows: [
+            ["Deckers Outdoor (DECK)", "Chaussures (HOKA, UGG)", "9/10", "10,8×"],
+            ["Mercury General (MCY)", "Assurance auto", "10/10", "4,0×"],
+            ["Planet Fitness (PLNT)", "Salles de sport", "8/10", "16,3×"],
+            ["GE Vernova (GEV)", "Équipements énergie", "8/10", "22,5×"],
+            ["FactSet (FDS)", "Données financières", "8/10", "17,5×"],
+            ["Bright Horizons (BFAM)", "Crèches d'entreprise", "8/10", "18,1×"],
+            ["Morningstar (MORN)", "Notation financière", "8/10", "18,6×"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Deux d'entre elles méritent un mot de plus. [Deckers Outdoor](/analyse/DECK), propriétaire des marques HOKA et UGG, vient de publier un premier trimestre d'exercice 2027 record, plus d'un milliard de dollars de ventes trimestrielles, avec HOKA en hausse de 8 % à 704 millions de dollars grâce aux modèles Clifton et Bondi, selon le [communiqué officiel de la direction](https://ir.deckers.com/news-events/press-releases/detail/661/deckers-brands-reports-first-quarter-fiscal-year-2027-financial-results). L'action se valorise pourtant 10,8 fois son free cash flow, un niveau bas pour une marque qui continue de gagner des parts de marché face à des concurrents bien plus gros.",
+        },
+        {
+          type: "p",
+          text: "[Mercury General](/analyse/MCY), assureur auto californien, affiche le P/FCF le plus bas du tableau, à 4 fois. Ce chiffre s'explique par une mécanique propre aux assureurs : une compagnie encaisse les primes de ses clients avant de payer le moindre sinistre, parfois des années plus tard. Cet argent en attente, appelé le float, gonfle temporairement le cash disponible sans être un profit définitivement acquis. Son [dernier rapport trimestriel déposé auprès de la SEC](https://www.sec.gov/Archives/edgar/data/0000064996/000006499626000020/mcy-20260630.htm) montre un ratio combiné de 89,6 % sur le premier semestre 2026 : l'assureur dépense 89,6 cents en sinistres et frais pour chaque dollar de prime encaissée, et sous 100 % l'activité d'assurance elle-même est rentable, avant même de compter le rendement du float. C'est ce qui rend sa décote plus solide qu'un chiffre brut ne le laisse penser.",
+        },
+        { type: "h2", text: "Les trois qui ont menti" },
+        {
+          type: "p",
+          text: "Sur la même liste, trois signaux ne survivent pas à la vérification individuelle.",
+        },
+        {
+          type: "table",
+          headers: ["Action", "P/FCF liste", "P/FCF vérifié", "Le problème"],
+          rows: [
+            ["Wipro (WIT)", "0,2×", "13,6×", "Cache non à jour, la décote a disparu"],
+            ["Nutanix (NTNX)", "41,9×", "0,05×", "Deux sources contradictoires, écarté par prudence"],
+            ["Afya (AFYA)", "~1×", "~1× (réel ≈ 9×)", "Conversion réal/dollar probablement faussée sur l'ADR"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Pour Wipro, le problème ressemble à un cache qui n'a pas suivi le cours de l'action : revérifié en direct, le P/FCF remonte à 13,6 fois, un niveau normal qui ne remplit plus du tout le critère de décote. Pour Nutanix, mes deux sources se contredisent si fort (41,9 fois contre 0,05) qu'aucune des deux ne mérite d'être citée comme un fait : je l'écarte par prudence, sans trancher laquelle est correcte.",
+        },
+        {
+          type: "p",
+          text: "Le cas d'Afya est le plus instructif, parce que mes deux sources internes s'accordent, et qu'elles ont tort ensemble. Afya est une entreprise brésilienne de formation médicale cotée à New York sous forme d'ADR, un certificat qui représente des actions étrangères sur une bourse américaine, coté en dollars alors que l'entreprise facture en réal brésilien. Mon P/FCF affiché tourne autour de 1 fois, ce qui reviendrait à dire que le marché valorise l'entreprise à peine une année de son cash. Le [communiqué de résultats du premier semestre 2026 d'Afya](https://www.morningstar.com/news/business-wire/20260813136104/afya-limited-announces-second-quarter-and-first-half-2026-financial-results) évoque plutôt un rendement de cash sur capitaux propres d'environ 11 %, ce qui correspond à un P/FCF proche de 9 fois, dans la même logique de valorisation par les flux de trésorerie que documente [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/). L'écart vient très probablement d'une conversion réal/dollar mal appliquée quelque part dans la chaîne de calcul, un piège classique des actions étrangères cotées en ADR.",
+        },
+        { type: "h2", text: "Un point de départ, jamais un verdict" },
+        {
+          type: "p",
+          text: "Trois signaux qui posent un problème sur treize vérifiés, ça ne rend pas le signal « opportunité » inutile : sur les sept restants, la décote tient, avec une mécanique différente à chaque fois, une marque qui gagne des parts de marché, un assureur dont le float gonfle le cash, une franchise qui grandit. Ça veut simplement dire que le signal est un point de départ pour chercher, jamais un verdict à recopier tel quel. C'est exactement pour ça que je sépare toujours la qualité du prix, et que je revérifie chaque chiffre avant de l'écrire noir sur blanc.",
+        },
+        {
+          type: "p",
+          text: "Si un signal sous-évaluée t'intéresse sur une action précise, [mon outil d'analyse](/screener) affiche le détail complet, gratuitement, pour que tu puisses faire la même vérification que je viens de faire ici.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce que le signal « opportunité » de mon site ?",
+          a: "Un repérage automatique quotidien : une action passe ce filtre quand son P/FCF, le prix divisé par le cash qu'elle génère réellement, tombe sous un seuil absolu et sous le dixième percentile de son propre historique sur cinq ans. C'est un point de départ pour chercher, pas une recommandation.",
+        },
+        {
+          q: "Pourquoi une action peut-elle sembler sous-évaluée alors qu'elle ne l'est pas ?",
+          a: "Le plus souvent à cause d'une donnée mal rafraîchie ou d'une conversion de devise ratée, en particulier sur les actions étrangères cotées via un ADR, où le prix est en dollars mais les comptes en monnaie locale. Une vérification individuelle suffit en général à repérer l'anomalie.",
+        },
+        {
+          q: "Un P/FCF bas est-il toujours une bonne affaire ?",
+          a: "Non. Il n'a de sens que si la qualité de l'entreprise tient derrière : rentabilité, croissance, dette maîtrisée. Un P/FCF bas sur une entreprise qui se dégrade est un piège de valeur, pas une aubaine.",
+        },
+      ],
+      tags: ["screener", "sous-évaluation", "P/FCF", "vérification des données", "ADR"],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause.",
+    },
+    en: {
+      title: "My undervalued signal, checked stock by stock",
+      excerpt:
+        "I checked, one by one, the stocks my tool flags as undervalued today. Result: several real discounts, and a few signals built on bad data.",
+      metaDescription:
+        "I checked, one by one, the stocks my tool flags as undervalued. Result: several real discounts, and a few signals built on bad data.",
+      answer:
+        "My site flags stocks every day whose price looks cheap relative to the cash they generate. I checked thirteen of today's active signals one by one: seven hold up with consistent numbers, three rest on bad data (a stale cache, a botched currency conversion). Here is which ones are reliable, which are not, and why.",
+      body: [
+        { type: "h2", text: "An automatic signal, and the question it never asks itself" },
+        {
+          type: "p",
+          text: "My site computes, every day, for about 9,500 stocks worldwide, a ratio called P/FCF (price-to-free-cash-flow): the stock price divided by free cash flow, the money that really stays in a company's coffers once every bill is paid. A P/FCF of 10 means you are paying today for ten years of that cash to own the stock. When that number falls below an absolute threshold and below the tenth percentile of the stock's own five-year history, my tool lights up a signal I call \"opportunity.\" Today, 60 stocks carry that signal on the first page you can reach without a paid account.",
+        },
+        {
+          type: "p",
+          text: "The problem is that an automatic signal has no idea when the data feeding it is wrong. A mishandled currency conversion, a cache that has not tracked the price for weeks, a free cash flow per share recalculated wrong after a balance sheet move: any of these can flash \"undervalued\" on a stock that is not undervalued at all. Before writing this piece, I did what [my method](/methodologie) recommends to any reader: recheck each name individually through my live analysis page instead of trusting the raw list. Out of thirteen of the sixty signals I put through that check, seven hold up with consistent numbers between my two sources, and three show a gap wide enough to rule out without hesitation.",
+        },
+        { type: "h2", text: "The seven that hold up" },
+        {
+          type: "p",
+          text: "Here are seven stocks whose discount I confirmed live, with a quality score that holds across my ten criteria and a P/FCF that agrees between the list and the individual check.",
+        },
+        {
+          type: "table",
+          headers: ["Stock", "Sector", "Score", "P/FCF"],
+          rows: [
+            ["Deckers Outdoor (DECK)", "Footwear (HOKA, UGG)", "9/10", "10.8x"],
+            ["Mercury General (MCY)", "Auto insurance", "10/10", "4.0x"],
+            ["Planet Fitness (PLNT)", "Gyms", "8/10", "16.3x"],
+            ["GE Vernova (GEV)", "Energy equipment", "8/10", "22.5x"],
+            ["FactSet (FDS)", "Financial data", "8/10", "17.5x"],
+            ["Bright Horizons (BFAM)", "Employer-sponsored childcare", "8/10", "18.1x"],
+            ["Morningstar (MORN)", "Financial research", "8/10", "18.6x"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Two of them deserve a closer look. [Deckers Outdoor](/analyse/DECK), the owner of the HOKA and UGG brands, just posted a record fiscal 2027 first quarter, over a billion dollars in quarterly sales, with HOKA revenue up 8% to 704 million dollars on the strength of the Clifton and Bondi models, according to the [company's own press release](https://ir.deckers.com/news-events/press-releases/detail/661/deckers-brands-reports-first-quarter-fiscal-year-2027-financial-results). Yet the stock trades at 10.8 times free cash flow, a low level for a brand that keeps taking market share from far bigger rivals.",
+        },
+        {
+          type: "p",
+          text: "[Mercury General](/analyse/MCY), a California auto insurer, shows the lowest P/FCF on the table, at 4 times. That number comes from a mechanism specific to insurers: a carrier collects premiums from customers before paying out a single claim, sometimes years later. That waiting cash, called the float, temporarily inflates available cash without being profit the company has permanently earned. Its [latest quarterly report filed with the SEC](https://www.sec.gov/Archives/edgar/data/0000064996/000006499626000020/mcy-20260630.htm) shows a combined ratio of 89.6% for the first half of 2026: the insurer spends 89.6 cents on claims and expenses for every dollar of premium collected, and under 100% the underwriting business itself is profitable, before even counting what the float earns. That is what makes its discount sturdier than the raw number suggests.",
+        },
+        { type: "h2", text: "The three that lied" },
+        {
+          type: "p",
+          text: "On the same list, three signals do not survive an individual check.",
+        },
+        {
+          type: "table",
+          headers: ["Stock", "Listed P/FCF", "Checked P/FCF", "The problem"],
+          rows: [
+            ["Wipro (WIT)", "0.2x", "13.6x", "Stale cache, the discount is gone"],
+            ["Nutanix (NTNX)", "41.9x", "0.05x", "Two contradicting sources, ruled out"],
+            ["Afya (AFYA)", "~1x", "~1x (real ≈9x)", "Real/dollar conversion likely wrong on the ADR"],
+          ],
+        },
+        {
+          type: "p",
+          text: "For Wipro, the problem looks like a cache that stopped tracking the stock price: rechecked live, the P/FCF climbs back to 13.6 times, a normal level that no longer meets the discount criterion at all. For Nutanix, my two sources contradict each other so sharply (41.9 times versus 0.05) that neither number deserves to be treated as fact: I am ruling it out rather than picking a winner.",
+        },
+        {
+          type: "p",
+          text: "Afya's case is the most instructive, because my two internal sources agree with each other, and they are both wrong together. Afya is a Brazilian medical-education company listed in New York as an ADR, a certificate that represents foreign shares on a US exchange, priced in dollars while the company reports in Brazilian reais. My displayed P/FCF sits around 1 time, which would mean the market values the whole company at barely one year of its cash. [Afya's own first-half 2026 earnings release](https://www.morningstar.com/news/business-wire/20260813136104/afya-limited-announces-second-quarter-and-first-half-2026-financial-results) instead points to a cash return on equity of roughly 11%, which works out to a P/FCF close to 9 times, the same discounted-cash-flow logic documented by [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/). The gap most likely comes from a real/dollar conversion applied incorrectly somewhere in the calculation, a classic trap for foreign stocks listed as ADRs.",
+        },
+        { type: "h2", text: "A starting point, never a verdict" },
+        {
+          type: "p",
+          text: "Three flawed signals out of thirteen checked does not make the \"opportunity\" signal useless: on the seven that remain, the discount holds, each for a different reason, a brand taking market share, an insurer whose float inflates cash, a franchise still growing. It simply means the signal is a starting point for research, never a verdict to copy as is. That is exactly why I always separate quality from price, and why I recheck every number before writing it down.",
+        },
+        {
+          type: "p",
+          text: "If an undervalued signal catches your eye on a specific stock, [my analysis tool](/screener) shows the full detail for free, so you can run the same check I just ran here.",
+        },
+      ],
+      faq: [
+        {
+          q: "What is my site's \"opportunity\" signal?",
+          a: "A daily automatic screen: a stock passes this filter when its P/FCF, the price divided by the cash it actually generates, falls below an absolute threshold and below the tenth percentile of its own five-year history. It is a starting point for research, not a recommendation.",
+        },
+        {
+          q: "Why can a stock look undervalued when it is not?",
+          a: "Most often because of stale data or a mishandled currency conversion, especially for foreign stocks listed as ADRs, where the price is in dollars but the accounts are in local currency. An individual check usually catches the anomaly.",
+        },
+        {
+          q: "Is a low P/FCF always a good deal?",
+          a: "No. It only matters if the underlying quality holds up: profitability, growth, manageable debt. A low P/FCF on a deteriorating company is a value trap, not a bargain.",
+        },
+      ],
+      tags: ["screener", "undervalued", "P/FCF", "data verification", "ADR"],
+      disclaimer:
+        "Educational and informational analysis, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I'm telling you this so you can read this analysis with that in mind.",
+    },
+    es: {
+      title: "Mi señal de acciones baratas, verificada acción por acción",
+      excerpt:
+        "Verifiqué una por una las acciones que mi herramienta señala hoy como baratas. Resultado: varios descuentos reales y algunas señales basadas en datos erróneos.",
+      metaDescription:
+        "Verifiqué una por una las acciones que mi herramienta señala como baratas. Resultado: varios descuentos reales y señales basadas en datos erróneos.",
+      answer:
+        "Mi sitio señala cada día las acciones cuyo precio parece bajo frente al efectivo que generan. Verifiqué trece de esas señales activas hoy, una por una: siete se sostienen con cifras coherentes, tres se basan en un dato erróneo (caché desactualizada, conversión de divisa mal aplicada). Aquí van cuáles son fiables, cuáles no, y por qué.",
+      body: [
+        { type: "h2", text: "Una señal automática, y la pregunta que nunca se hace" },
+        {
+          type: "p",
+          text: "Mi sitio calcula cada día, para unas 9500 acciones en el mundo, un ratio llamado P/FCF (price-to-free-cash-flow): el precio de la acción dividido entre el flujo de caja libre, el dinero que realmente queda en la caja de la empresa una vez pagadas todas las facturas. Un P/FCF de 10 significa que hoy pagas diez años de ese efectivo por poseer la acción. Cuando esa cifra cae por debajo de un umbral absoluto y por debajo del percentil diez del propio historial de cinco años del título, mi herramienta activa una señal que llamo \"oportunidad\". Hoy, 60 acciones llevan esa señal en la primera página accesible sin cuenta de pago.",
+        },
+        {
+          type: "p",
+          text: "El problema es que una señal automática no sabe cuándo el dato que la alimenta está mal. Una conversión de divisa mal aplicada, una caché que no ha seguido la cotización en semanas, un flujo de caja libre por acción recalculado de forma incorrecta tras un movimiento de balance: cualquiera de estas cosas puede hacer parpadear \"barata\" en una acción que no lo está en absoluto. Antes de escribir este artículo hice lo que [mi método](/methodologie) recomienda a cualquier lector: revisar cada nombre individualmente en mi página de análisis en vivo, en lugar de fiarme de la lista bruta. De trece de las sesenta señales que revisé una por una, siete se sostienen con cifras coherentes entre mis dos fuentes, y tres muestran una diferencia demasiado grande para no descartarlas.",
+        },
+        { type: "h2", text: "Las siete que se sostienen" },
+        {
+          type: "p",
+          text: "Aquí van siete acciones cuyo descuento confirmé en vivo, con una nota de calidad que se mantiene en mis diez criterios y un P/FCF coherente entre la lista y la verificación individual.",
+        },
+        {
+          type: "table",
+          headers: ["Acción", "Sector", "Nota", "P/FCF"],
+          rows: [
+            ["Deckers Outdoor (DECK)", "Calzado (HOKA, UGG)", "9/10", "10,8×"],
+            ["Mercury General (MCY)", "Seguros de auto", "10/10", "4,0×"],
+            ["Planet Fitness (PLNT)", "Gimnasios", "8/10", "16,3×"],
+            ["GE Vernova (GEV)", "Equipos de energía", "8/10", "22,5×"],
+            ["FactSet (FDS)", "Datos financieros", "8/10", "17,5×"],
+            ["Bright Horizons (BFAM)", "Guarderías corporativas", "8/10", "18,1×"],
+            ["Morningstar (MORN)", "Calificación financiera", "8/10", "18,6×"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Dos de ellas merecen un comentario aparte. [Deckers Outdoor](/analyse/DECK), propietaria de las marcas HOKA y UGG, acaba de publicar un primer trimestre fiscal 2027 récord, más de mil millones de dólares en ventas trimestrales, con HOKA creciendo un 8% hasta 704 millones de dólares gracias a los modelos Clifton y Bondi, según el [comunicado oficial de la propia empresa](https://ir.deckers.com/news-events/press-releases/detail/661/deckers-brands-reports-first-quarter-fiscal-year-2027-financial-results). Aun así, la acción cotiza a 10,8 veces su flujo de caja libre, un nivel bajo para una marca que sigue ganando cuota frente a rivales mucho más grandes.",
+        },
+        {
+          type: "p",
+          text: "[Mercury General](/analyse/MCY), aseguradora de autos en California, muestra el P/FCF más bajo de la tabla, 4 veces. Esa cifra se explica por un mecanismo propio de las aseguradoras: la compañía cobra las primas de sus clientes antes de pagar el más mínimo siniestro, a veces años después. Ese dinero en espera, llamado float, infla temporalmente el efectivo disponible sin ser un beneficio definitivamente ganado. Su [último informe trimestral presentado ante la SEC](https://www.sec.gov/Archives/edgar/data/0000064996/000006499626000020/mcy-20260630.htm) muestra un ratio combinado del 89,6% en el primer semestre de 2026: la aseguradora gasta 89,6 centavos en siniestros y gastos por cada dólar de prima cobrado, y por debajo del 100% el propio negocio asegurador ya es rentable, antes incluso de contar el rendimiento del float. Eso hace que su descuento sea más sólido de lo que sugiere la cifra bruta.",
+        },
+        { type: "h2", text: "Las tres que mintieron" },
+        {
+          type: "p",
+          text: "En la misma lista, tres señales no sobreviven a la verificación individual.",
+        },
+        {
+          type: "table",
+          headers: ["Acción", "P/FCF en lista", "P/FCF verificado", "El problema"],
+          rows: [
+            ["Wipro (WIT)", "0,2×", "13,6×", "Caché desactualizada, el descuento desaparece"],
+            ["Nutanix (NTNX)", "41,9×", "0,05×", "Dos fuentes contradictorias, descartada"],
+            ["Afya (AFYA)", "~1×", "~1× (real ≈9×)", "Conversión real/dólar probablemente errónea en el ADR"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Para Wipro, el problema parece una caché que dejó de seguir la cotización: revisado en vivo, el P/FCF sube a 13,6 veces, un nivel normal que ya no cumple en absoluto el criterio de descuento. Para Nutanix, mis dos fuentes se contradicen tan fuerte (41,9 veces frente a 0,05) que ninguna de las dos merece tratarse como un hecho: la descarto por prudencia, sin decidir cuál es la correcta.",
+        },
+        {
+          type: "p",
+          text: "El caso de Afya es el más instructivo, porque mis dos fuentes internas coinciden entre sí, y las dos se equivocan juntas. Afya es una empresa brasileña de formación médica que cotiza en Nueva York como ADR, un certificado que representa acciones extranjeras en una bolsa estadounidense, cotizado en dólares mientras la empresa reporta en reales brasileños. Mi P/FCF mostrado ronda 1 vez, lo que equivaldría a decir que el mercado valora la empresa en apenas un año de su efectivo. El [comunicado de resultados del primer semestre de 2026 de Afya](https://www.morningstar.com/news/business-wire/20260813136104/afya-limited-announces-second-quarter-and-first-half-2026-financial-results) apunta más bien a un rendimiento de caja sobre el capital de alrededor del 11%, lo que equivale a un P/FCF cercano a 9 veces, la misma lógica de valoración por flujos de caja que documenta [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/). La diferencia probablemente viene de una conversión real/dólar mal aplicada en algún punto del cálculo, una trampa clásica de las acciones extranjeras cotizadas como ADR.",
+        },
+        { type: "h2", text: "Un punto de partida, nunca un veredicto" },
+        {
+          type: "p",
+          text: "Tres señales con problemas de trece verificadas no convierte la señal \"oportunidad\" en inútil: en las siete restantes, el descuento se sostiene, cada una por un mecanismo distinto, una marca que gana cuota, una aseguradora cuyo float infla el efectivo, una franquicia que sigue creciendo. Simplemente significa que la señal es un punto de partida para investigar, nunca un veredicto para copiar tal cual. Por eso separo siempre la calidad del precio, y por eso reviso cada cifra antes de escribirla.",
+        },
+        {
+          type: "p",
+          text: "Si una señal de infravaloración te interesa sobre una acción concreta, [mi herramienta de análisis](/screener) muestra el detalle completo, gratis, para que puedas hacer la misma verificación que acabo de hacer aquí.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qué es la señal \"oportunidad\" de mi sitio?",
+          a: "Un rastreo automático diario: una acción pasa este filtro cuando su P/FCF, el precio dividido entre el efectivo que realmente genera, cae por debajo de un umbral absoluto y por debajo del percentil diez de su propio historial de cinco años. Es un punto de partida para investigar, no una recomendación.",
+        },
+        {
+          q: "¿Por qué una acción puede parecer barata sin estarlo?",
+          a: "Casi siempre por un dato desactualizado o una conversión de divisa mal aplicada, sobre todo en acciones extranjeras cotizadas como ADR, donde el precio está en dólares pero las cuentas en moneda local. Una verificación individual suele bastar para detectar la anomalía.",
+        },
+        {
+          q: "¿Un P/FCF bajo es siempre una buena oportunidad?",
+          a: "No. Solo importa si la calidad de la empresa se sostiene detrás: rentabilidad, crecimiento, deuda controlada. Un P/FCF bajo en una empresa que se deteriora es una trampa de valor, no una ganga.",
+        },
+      ],
+      tags: ["screener", "infravaloración", "P/FCF", "verificación de datos", "ADR"],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiéndolo.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleSignalOpportunite];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
