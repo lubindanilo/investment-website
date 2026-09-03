@@ -20,7 +20,9 @@
  * Aucune donnée privée n'est exposée.
  */
 import { Router, type Request, type Response } from 'express';
-import { prisma } from '../db/client.js';
+import {
+  getByTickers, getBySector, getRelatedBySector, getSectors, getTickerRow, getTopByScore,
+} from '../services/seoTickerSnapshot.js';
 // ⚠️ Imports de valeur (`getArticleBySlug`, `toArticleLang`) interdits depuis '@lubin/shared'
 //, pas de build dist/, crash lambda Vercel. On consomme la copie locale apps/api/src/data/.
 // Les types restent OK à puiser depuis '@lubin/shared' (effacés à la compilation).
@@ -1002,26 +1004,7 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
   }
 
   try {
-    const t = await prisma.screenerTicker.findUnique({
-      where: { ticker },
-      select: {
-        ticker: true,
-        name: true,
-        sector: true,
-        scoreChiffres: true,
-        scoreChiffresMax: true,
-        pfcfTTM: true,
-        currency: true,
-        price: true,
-        opportunity: true,
-        region: true,
-        marketCap: true,
-        scoreRatio: true,
-        exchange: true,
-        status: true,
-        lastScoredAt: true,
-      },
-    });
+    const t = await getTickerRow(ticker);
 
     if (!t || t.status !== 'scored') {
       // Pas encore scoré (ou ticker inconnu) → vrai 404 indexable
@@ -1031,14 +1014,7 @@ seoPrerenderRouter.get('/analyse/:ticker', async (req: Request, res: Response) =
 
     // Maillage interne : 5 tickers du même secteur les mieux notés, exclus le courant.
     // Construit un graphe que Googlebot crawle facilement + signal de pertinence sectorielle.
-    const related = t.sector
-      ? await prisma.screenerTicker.findMany({
-          where: { status: 'scored', sector: t.sector, NOT: { ticker: t.ticker } },
-          orderBy: { scoreRatio: 'desc' },
-          take: 5,
-          select: { ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true, pfcfTTM: true },
-        })
-      : [];
+    const related = t.sector ? await getRelatedBySector(t.sector, t.ticker, 5) : [];
 
     // Langue demandée par le bot via ?lng= (les alternates hreflang du sitemap pointent
     // vers ?lng=en / ?lng=es). Défaut fr. Le cache CDN distingue les langues car ?lng=
@@ -1427,13 +1403,7 @@ seoPrerenderRouter.get('/comparer/:pair', async (req: Request, res: Response) =>
     return;
   }
   try {
-    const rows = await prisma.screenerTicker.findMany({
-      where: { ticker: { in: [aT, bT] }, status: 'scored' },
-      select: {
-        ticker: true, name: true, sector: true, scoreChiffres: true, scoreChiffresMax: true,
-        pfcfTTM: true, currency: true, price: true, marketCap: true, region: true, lastScoredAt: true,
-      },
-    });
+    const rows = await getByTickers([aT, bT]);
     const a = rows.find((r) => r.ticker === aT);
     const b = rows.find((r) => r.ticker === bT);
     // Si l'une des deux n'est pas encore notée, la comparaison n'a pas de contenu : vrai 404
@@ -2007,20 +1977,13 @@ const HUB_COPY = {
   },
 } as const;
 
-const HUB_SELECT = { ticker: true, name: true, scoreChiffres: true, scoreChiffresMax: true, pfcfTTM: true } as const;
-
 // GET /secteur/:slug : meilleures actions d'un secteur (servi aux bots).
 seoPrerenderRouter.get('/secteur/:slug', async (req: Request, res: Response) => {
   const slug = String(req.params.slug || '').toLowerCase().slice(0, 80);
   try {
-    const distinct = await prisma.screenerTicker.findMany({
-      where: { status: 'scored', sector: { not: null } }, distinct: ['sector'], select: { sector: true },
-    });
-    const sector = distinct.map((d) => d.sector).find((s): s is string => !!s && slugifySector(s) === slug);
+    const sector = (await getSectors()).find((s) => slugifySector(s) === slug);
     if (!sector) { res.status(404).set('Content-Type', 'text/html; charset=utf-8').send(render404(slug)); return; }
-    const rows = await prisma.screenerTicker.findMany({
-      where: { status: 'scored', sector }, orderBy: { scoreRatio: 'desc' }, take: 60, select: HUB_SELECT,
-    });
+    const rows = await getBySector(sector, 60);
     const lang = toArticleLang(typeof req.query.lng === 'string' ? req.query.lng : 'fr');
     const disp = displaySector(sector, lang);
     // Titre ≤ 60 car : on borne le nom de secteur à 26 (sinon Google tronque les noms
@@ -2137,20 +2100,12 @@ const SCREENER_TOP_LIMIT = 100;
 async function renderScreenerHubBlock(lang: ArticleLang, lq: string): Promise<string> {
   const t = SCREENER_BLOCK_TR[lang];
   try {
-    const [sectorRows, topRows] = await Promise.all([
-      prisma.screenerTicker.findMany({
-        where: { status: 'scored', sector: { not: null } },
-        distinct: ['sector'], select: { sector: true },
-      }),
-      prisma.screenerTicker.findMany({
-        where: { status: 'scored' }, orderBy: { scoreRatio: 'desc' },
-        take: SCREENER_TOP_LIMIT, select: HUB_SELECT,
-      }),
+    const [sectorNames, topRows] = await Promise.all([
+      getSectors(),
+      getTopByScore(SCREENER_TOP_LIMIT),
     ]);
 
-    const sectors = sectorRows
-      .map((r) => r.sector)
-      .filter((s): s is string => !!s)
+    const sectors = sectorNames
       .map((s) => ({ slug: slugifySector(s), label: displaySector(s, lang) }))
       .filter((s) => !!s.slug)
       .sort((a, b) => a.label.localeCompare(b.label));
@@ -2213,9 +2168,9 @@ async function renderComparePairsBlock(lang: ArticleLang, lq: string): Promise<s
   const tickers = [...new Set(COMPARE_PAIRS.flat())];
   let names = new Map<string, string>();
   try {
-    const rows = await prisma.screenerTicker.findMany({
-      where: { ticker: { in: tickers } }, select: { ticker: true, name: true },
-    });
+    // L'instantané ne porte que les lignes NOTÉES : une paire curée dont un titre n'est pas encore
+    // noté garde son ticker en ancre, ce qui est déjà le dégradé prévu par le catch ci-dessous.
+    const rows = await getByTickers(tickers);
     names = new Map(rows.map((r) => [r.ticker, stripLegalSuffix(r.name || r.ticker)]));
   } catch (err) {
     // Sans les noms on garde les tickers en ancre : dégradé mais le lien existe, et c'est
