@@ -86029,7 +86029,376 @@ const articleSignalOpportunite: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleSignalOpportunite];
+const articlePfcfMoyenneMent: Article = {
+  slug: "prix-moyen-actions-parfaites-bug-devise-2026",
+  date: "2026-09-04",
+  updated: "2026-09-04",
+  readingTime: 9,
+  content: {
+    fr: {
+      title: "Actions parfaites : pourquoi la moyenne des prix ment",
+      excerpt:
+        "J'ai calculé le prix moyen que paient les cent actions les mieux notées de mon site. Le chiffre était absurde. En vérifiant un par un, j'ai trouvé un bug de devise resté invisible pendant des mois.",
+      metaDescription:
+        "Le prix moyen de mes cent actions les mieux notées semblait absurde. En vérifiant chaque titre un par un, j'ai découvert un bug de conversion resté caché depuis des mois.",
+      answer:
+        "Le prix moyen que paient mes cent actions notées parfaites rapporté à leur cash ressort à 190 fois, un chiffre absurde. En vérifiant chaque titre individuellement, j'ai trouvé la cause : neuf actions cotées à Londres en pence, mal converties en livres. Une fois corrigées, la moyenne retombe à 18 fois, presque identique à la médiane.",
+      body: [
+        {
+          type: "p",
+          text: "Une fois par mois environ, je reprends le même calcul : parmi les actions que mon site note parfaites sur mes dix critères de qualité, combien coûte-t-il en moyenne de posséder une part de leur cash ? Ce mois-ci, le chiffre est tombé, et il ne veut rien dire : 190 fois. Cent quatre-vingt-dix années de cash généré pour payer une action, en moyenne, sur les cent entreprises les mieux notées de mon univers. Pas une exception isolée : la moyenne de cent entreprises.",
+        },
+        {
+          type: "p",
+          text: "Ma première réaction n'a pas été de croire le chiffre, mais de chercher le mouton noir qui le tirait vers le haut. D'habitude, une moyenne qui dérape a un ou deux coupables évidents : une action en pleine bulle spéculative, un trimestre exceptionnel mal digéré par le calcul. J'ai donc fait ce que je recommande toujours à un lecteur avant de croire un chiffre agrégé, y compris les miens : vérifier action par action, plutôt que de se fier à la liste brute.",
+        },
+        {
+          type: "p",
+          text: "Il n'y avait pas un mouton noir. Il y en avait neuf, sur cent. Et les neuf partageaient un point commun qui n'avait strictement rien à voir avec la qualité de leurs affaires : elles cotent toutes à la Bourse de Londres, dans une devise que presque personne ne pense à vérifier.",
+        },
+        { type: "h2", text: "Le piège d'une moyenne sur cent entreprises" },
+        {
+          type: "p",
+          text: "Le chiffre que je calcule s'appelle le P/FCF (price-to-free-cash-flow) : le prix de l'action divisé par le free cash flow, l'argent qui reste vraiment dans les caisses de l'entreprise une fois toutes les factures payées. Un P/FCF de 15 veut dire que tu paies aujourd'hui quinze années de ce cash pour posséder l'action. Plus il est bas, moins l'action est chère par rapport à ce qu'elle produit réellement.",
+        },
+        {
+          type: "p",
+          text: "Une moyenne, en statistique, se laisse déformer par une poignée de valeurs extrêmes. Imagine dix personnes dans une pièce : neuf gagnent 3000 euros par mois, la dixième en gagne 3 millions. Le revenu moyen de la pièce dépasse 300000 euros, un chiffre qui ne décrit la vie de personne à l'intérieur. La médiane, elle, la valeur du milieu une fois tout le monde classé par ordre, resterait à 3000 euros : beaucoup plus fidèle à ce que vit réellement la plupart du groupe. [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/), dont j'utilise largement les travaux sur la valorisation par les flux de trésorerie, recommande d'ailleurs presque toujours la médiane plutôt que la moyenne pour comparer des multiples entre entreprises, précisément pour cette raison.",
+        },
+        {
+          type: "p",
+          text: "Sur mes cent actions notées parfaites, la médiane du P/FCF ressort à 17,3 fois : un niveau tout à fait raisonnable pour des entreprises de cette qualité. La moyenne, elle, grimpe à 190 fois. L'écart entre les deux n'est pas un détail statistique, c'est un symptôme : quelque chose, quelque part dans l'échantillon, ne va pas.",
+        },
+        { type: "h2", text: "L'enquête action par action" },
+        {
+          type: "p",
+          text: "J'ai donc reclassé les cent lignes par P/FCF décroissant. Les dix premières sautent aux yeux : leurs multiples vont de 585 à 3403 fois, contre 115 fois pour la onzième de la liste, déjà l'action la plus chère du lot restant. Avant de crier au bug, j'ai vérifié individuellement chacune de ces neuf entreprises via [ma page d'analyse en direct](/screener) plutôt que via la liste brute, exactement la méthode que je recommandais déjà dans [mon dernier article sur mon signal de sous-évaluation](/blog/signal-sous-evaluee-verifie-action-par-action-2026).",
+        },
+        {
+          type: "p",
+          text: "Le résultat écarte tout de suite l'hypothèse la plus inquiétante : ces entreprises ne sont pas au bord du gouffre, avec un cash qui se serait effondré. Leur marge de free cash flow, la part de chaque euro de vente qui se transforme en cash réellement disponible, va de 15 % à 68 % selon les cas : des niveaux sains, parfois excellents. Le problème n'est donc pas dans le cash généré. Il est dans le prix affiché.",
+        },
+        {
+          type: "p",
+          text: "[Games Workshop](/analyse/GAW.L) illustre bien le piège. L'entreprise derrière l'univers de figurines Warhammer affiche une marge de free cash flow de 35,7 %, un chiffre solide pour une société qui vend surtout des boîtes de plastique peintes à la main par ses clients. Rien dans ce chiffre ne hurle une erreur. Le problème apparaît seulement quand on rapporte le prix de l'action à ce cash : à 20260 pence, soit 202,60 livres si le système convertit correctement, le nombre affiché semble d'abord anodin. C'est justement ce qui rend ce genre de bug difficile à repérer d'un simple coup d'œil : il ressemble toujours à un prix plausible, jamais à une erreur de saisie évidente comme un zéro en trop.",
+        },
+        { type: "h2", text: "Le vrai coupable : une conversion de devise oubliée" },
+        {
+          type: "p",
+          text: "Les neuf entreprises partagent un détail que j'avais déjà croisé une fois, en juillet, sur un tout autre titre : Wise, la fintech britannique de transferts d'argent. Cette action-là aussi affichait des chiffres incohérents, et l'explication la plus probable à l'époque tenait à une particularité de la Bourse de Londres. Beaucoup d'actions y cotent en pence, notées [GBp ou GBX](https://en.wikipedia.org/wiki/GBX), pas en livres sterling : cent pence font une livre, exactement comme cent centimes font un euro. Si un système traite par erreur un prix en pence comme s'il était déjà en livres, ou l'inverse, chaque calcul qui utilise ce prix, la valeur totale de l'entreprise, le prix rapporté au cash par action, se retrouve gonflé ou écrasé d'un facteur cent.",
+        },
+        {
+          type: "p",
+          text: "La plupart des grandes places boursières cotent directement dans l'unité monétaire principale : le dollar à New York, l'euro à Paris, le yen à Tokyo. Londres fait exception depuis l'époque où la livre se divisait en shillings et en pence, bien avant la décimalisation de 1971 : la convention de coter en pence a survécu, alors que le reste du système monétaire a changé depuis. Un pipeline de données construit sur l'hypothèse que le prix affiché est toujours dans l'unité principale du pays tombe juste presque partout dans le monde, sauf sur cette place précise.",
+        },
+        {
+          type: "p",
+          text: "En juillet, je n'avais qu'un seul cas pour appuyer cette hypothèse. Cette fois, j'ai neuf répétitions du même symptôme, sur neuf secteurs différents (mine d'argent, jeux de figurines, machines industrielles, location de linge professionnel, distribution de vêtements, cosmétiques en ligne), qui n'ont rien en commun sinon leur devise de cotation. C'est exactement le genre de motif qui transforme une anomalie isolée en un vrai bug de pipeline de données.",
+        },
+        {
+          type: "table",
+          headers: ["Action", "Secteur", "P/FCF affiché", "P/FCF probable (÷100)"],
+          rows: [
+            ["Halma", "Conglomérat technologique", "3403×", "34,0×"],
+            ["Games Workshop", "Jeux de figurines", "3242×", "32,4×"],
+            ["Goodwin", "Machines industrielles", "3194×", "31,9×"],
+            ["NEXT", "Distribution de vêtements", "1669×", "16,7×"],
+            ["The Beauty Tech Group", "Cosmétiques en ligne", "1548×", "15,5×"],
+            ["Baltic Classifieds Group", "Petites annonces en ligne", "1532×", "15,3×"],
+            ["Fresnillo", "Extraction argent/or", "1117×", "11,2×"],
+            ["Hochschild Mining", "Extraction argent/or", "1066×", "10,7×"],
+            ["Johnson Service Group", "Location de linge professionnel", "585×", "5,9×"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Divisé par cent, chacun des neuf chiffres retombe entre 5,9 et 34 fois : une fourchette banale pour des entreprises notées parfaites, comparable au reste de l'échantillon. Rien ne dit que la division par cent est exactement le mécanisme en jeu au centime près, mais la régularité du motif, toujours des actions cotées en pence, jamais les autres, pointe fortement vers un problème de conversion, pas vers neuf entreprises qui seraient réellement devenues hors de prix du jour au lendemain.",
+        },
+        { type: "h2", text: "Vérifié de l'extérieur, sur une entreprise réelle" },
+        {
+          type: "p",
+          text: "Pour sortir de mes propres données, j'ai vérifié un chiffre public sur l'une des neuf : [Halma](/analyse/HLMA.L), un conglomérat technologique britannique (sécurité, santé, contrôle environnemental) noté parfait sur mes dix critères. Mon site calcule pour elle une valeur totale d'environ 1394 milliards de livres. Divisé par cent : 13,9 milliards. Les données de marché publiques de cet été situent la capitalisation réelle de Halma entre 13,8 et 15,2 milliards de livres selon la date exacte, un chiffre que tu peux vérifier toi-même sur la [page investisseurs de Halma](https://www.halma.com/investors/share-price-centre). La division par cent ne tombe pas à côté : elle tombe exactement dans la fourchette réelle, à la livre près.",
+        },
+        { type: "h2", text: "Ce qui reste vrai une fois les intrus retirés" },
+        {
+          type: "p",
+          text: "Si je retire ces neuf actions de mon calcul, il reste 91 entreprises. Leur P/FCF moyen tombe à 18 fois. Leur médiane, à 16,3 fois. Les deux chiffres se rejoignent enfin, à moins de deux points d'écart, ce qui est précisément ce à quoi une moyenne saine doit ressembler : proche de sa médiane, pas à onze fois sa valeur.",
+        },
+        {
+          type: "p",
+          text: "Ce bug ne joue jamais en faveur d'une fausse bonne affaire. Il pousse la valorisation vers le haut, jamais vers le bas : aucune des neuf actions concernées ne déclenche mon signal de sous-évaluation, alors qu'une lecture rapide du chiffre brut aurait plutôt donné l'impression inverse, celle d'entreprises devenues absurdement chères du jour au lendemain, ce qu'elles ne sont pas. Leur note de qualité, elle, reste entièrement valable : elle ne dépend jamais du prix, seulement des critères de qualité (rentabilité, croissance, dette, rachats).",
+        },
+        {
+          type: "p",
+          text: "La leçon que j'en tire dépasse ces neuf lignes. Une moyenne calculée sur des centaines d'entreprises, la mienne ou celle de n'importe quel site financier, mérite d'être questionnée avant d'être citée : un petit nombre de données erronées suffit à la rendre méconnaissable, alors que la médiane résiste beaucoup mieux. Si un chiffre agrégé te semble trop beau ou trop absurde pour être vrai, [mon outil d'analyse](/screener) permet de vérifier n'importe quelle ligne individuellement, exactement comme je viens de le faire ici.",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce que le P/FCF ?",
+          a: "Le prix d'une action divisé par le free cash flow qu'elle génère chaque année, l'argent qui reste vraiment disponible une fois toutes les factures payées. Un P/FCF de 15 signifie que tu paies aujourd'hui quinze années de ce cash pour posséder l'action.",
+        },
+        {
+          q: "Pourquoi une moyenne peut-elle être trompeuse alors que la médiane ne l'est pas ?",
+          a: "Une moyenne additionne toutes les valeurs et divise par leur nombre : une poignée de valeurs extrêmes suffit à la faire dériver loin de la réalité de la majorité. La médiane, la valeur du milieu une fois tout classé, résiste beaucoup mieux à ces extrêmes.",
+        },
+        {
+          q: "Pourquoi les actions cotées à Londres posent-elles ce problème particulier ?",
+          a: "Beaucoup de sociétés britanniques cotent en pence (GBX ou GBp) plutôt qu'en livres sterling, cent pence valant une livre. Une conversion oubliée ou mal appliquée quelque part dans une chaîne de données peut alors gonfler ou écraser un calcul d'un facteur cent, sans que rien d'autre ne change dans l'entreprise elle-même.",
+        },
+        {
+          q: "Ce bug remet-il en cause la note de qualité de ces entreprises ?",
+          a: "Non. La note de qualité repose sur des critères comme la rentabilité, la croissance des ventes et du cash, la dette ou les rachats d'actions, jamais sur le prix. Seul le calcul du prix rapporté au cash (P/FCF) est faussé pour ces neuf actions, pas leur évaluation de qualité.",
+        },
+      ],
+      tags: ["données", "P/FCF", "médiane", "Bourse de Londres", "vérification"],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause.",
+    },
+    en: {
+      title: "Perfect-score stocks: the average price is a lie",
+      excerpt:
+        "I calculated the average price the hundred best-rated stocks on my site pay for their cash. The number was absurd. Checking each one individually, I found a currency bug hiding for months.",
+      metaDescription:
+        "The average price of my hundred best-rated stocks looked absurd. Checking each stock one by one, I found a conversion bug that had been hiding for months.",
+      answer:
+        "The average price my hundred perfect-score stocks pay for their cash comes out at 190 times, an absurd number. Checking each stock individually, I found the cause: nine London-listed stocks, quoted in pence, mishandled in the conversion to pounds. Once corrected, the average drops to 18 times, almost identical to the median.",
+      body: [
+        {
+          type: "p",
+          text: "About once a month, I run the same calculation: among the stocks my site rates perfect on my ten quality criteria, how much does it cost on average to own a share of their cash? This month the number came out, and it means nothing: 190 times. A hundred and ninety years of generated cash to pay for a stock, on average, across the hundred best-rated companies in my universe. Not one outlier, the average of a hundred companies.",
+        },
+        {
+          type: "p",
+          text: "My first reaction was not to believe the number, but to hunt for the black sheep dragging it upward. Usually a skewed average has one or two obvious culprits: a stock caught in a speculative bubble, an unusual quarter miscalculated somewhere. So I did what I always tell a reader to do before trusting any aggregated number, including my own: check stock by stock, instead of trusting the raw list.",
+        },
+        {
+          type: "p",
+          text: "There was no single black sheep. There were nine, out of a hundred. And the nine shared one thing in common that had nothing to do with the quality of their business: they all trade on the London Stock Exchange, in a currency almost nobody thinks to double-check.",
+        },
+        { type: "h2", text: "The trap of averaging a hundred companies" },
+        {
+          type: "p",
+          text: "The number I calculate is called P/FCF (price-to-free-cash-flow): a stock's price divided by its free cash flow, the money that really stays in a company's coffers once every bill is paid. A P/FCF of 15 means you are paying today for fifteen years of that cash to own the stock. The lower it is, the cheaper the stock relative to what it actually produces.",
+        },
+        {
+          type: "p",
+          text: "An average, statistically, bends under a handful of extreme values. Picture ten people in a room: nine earn 3,000 dollars a month, the tenth earns 3 million. The room's average income tops 300,000 dollars, a number that describes nobody's actual life inside it. The median, the middle value once everyone is ranked in order, would stay at 3,000 dollars: far more faithful to what most of the group actually lives on. [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/), whose work on cash-flow valuation I rely on heavily, recommends the median over the average for comparing multiples across companies almost every time, for exactly this reason.",
+        },
+        {
+          type: "p",
+          text: "Across my hundred perfect-score stocks, the median P/FCF comes out at 17.3 times: a perfectly reasonable level for companies of this quality. The average, meanwhile, climbs to 190 times. The gap between the two is not a statistical footnote, it is a symptom: something, somewhere in the sample, is wrong.",
+        },
+        { type: "h2", text: "The stock-by-stock investigation" },
+        {
+          type: "p",
+          text: "So I re-sorted all hundred rows by descending P/FCF. The top ten jump out immediately: their multiples range from 585 to 3,403 times, against 115 times for the eleventh name on the list, already the most expensive of the remaining pack. Before crying bug, I checked each of these nine companies individually through [my live analysis page](/screener) rather than the raw list, exactly the method I already recommended in [my last article about my undervalued signal](/blog/signal-sous-evaluee-verifie-action-par-action-2026).",
+        },
+        {
+          type: "p",
+          text: "The result rules out the most worrying hypothesis right away: these companies are not on the brink, with cash generation that has collapsed. Their free cash flow margin, the share of every dollar of sales that turns into cash actually available, ranges from 15% to 68% depending on the name: healthy levels, sometimes excellent ones. So the problem is not in the cash being generated. It is in the price being displayed.",
+        },
+        {
+          type: "p",
+          text: "[Games Workshop](/analyse/GAW.L) illustrates the trap well. The company behind the Warhammer tabletop universe shows a free cash flow margin of 35.7%, a solid number for a business that mostly sells boxes of plastic figures its own customers paint by hand. Nothing about that number screams error. The problem only shows up once you divide the stock's price by that cash: at 20,260 pence, or 202.60 pounds if the system converts correctly, the displayed number looks perfectly plausible at first glance. That is exactly what makes this kind of bug hard to spot at a glance: it always looks like a plausible price, never like an obvious typo such as an extra zero.",
+        },
+        { type: "h2", text: "The real culprit: a forgotten currency conversion" },
+        {
+          type: "p",
+          text: "The nine companies share a detail I had already run into once, back in July, on a completely different name: Wise, the British money-transfer fintech. That stock also showed inconsistent numbers, and the most likely explanation at the time was a quirk of the London Stock Exchange. Many stocks there are quoted in pence, labeled [GBp or GBX](https://en.wikipedia.org/wiki/GBX), not in pounds sterling: a hundred pence make a pound, exactly like a hundred cents make a dollar. If a system mistakenly treats a price in pence as if it were already in pounds, or the reverse, every calculation using that price, a company's total value, the price relative to cash per share, ends up inflated or crushed by a factor of a hundred.",
+        },
+        {
+          type: "p",
+          text: "Most major stock exchanges quote directly in the main currency unit: the dollar in New York, the euro in Paris, the yen in Tokyo. London is the exception, a holdover from when the pound was divided into shillings and pence, long before decimalization in 1971: the convention of quoting in pence survived even as the rest of the monetary system changed. A data pipeline built on the assumption that a displayed price is always in a country's main currency unit gets it right almost everywhere in the world, except on this one exchange.",
+        },
+        {
+          type: "p",
+          text: "Back in July, I only had one case to support that hypothesis. This time, I have nine repetitions of the exact same symptom, across nine different sectors (silver mining, tabletop games, industrial machinery, professional linen rental, clothing retail, online cosmetics), which share nothing in common except their listing currency. That is exactly the kind of pattern that turns an isolated anomaly into a genuine data pipeline bug.",
+        },
+        {
+          type: "table",
+          headers: ["Stock", "Sector", "Displayed P/FCF", "Likely P/FCF (÷100)"],
+          rows: [
+            ["Halma", "Technology conglomerate", "3,403x", "34.0x"],
+            ["Games Workshop", "Tabletop games", "3,242x", "32.4x"],
+            ["Goodwin", "Industrial machinery", "3,194x", "31.9x"],
+            ["NEXT", "Clothing retail", "1,669x", "16.7x"],
+            ["The Beauty Tech Group", "Online cosmetics", "1,548x", "15.5x"],
+            ["Baltic Classifieds Group", "Online classifieds", "1,532x", "15.3x"],
+            ["Fresnillo", "Silver/gold mining", "1,117x", "11.2x"],
+            ["Hochschild Mining", "Silver/gold mining", "1,066x", "10.7x"],
+            ["Johnson Service Group", "Professional linen rental", "585x", "5.9x"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Divided by a hundred, each of the nine numbers falls back between 5.9 and 34 times: an ordinary range for perfect-score companies, comparable to the rest of the sample. That does not prove dividing by a hundred is exactly the mechanism at play to the penny, but the regularity of the pattern, always pence-quoted stocks, never the others, points strongly toward a conversion problem, not toward nine companies that genuinely became absurdly expensive overnight.",
+        },
+        { type: "h2", text: "Verified from the outside, on a real company" },
+        {
+          type: "p",
+          text: "To step outside my own data, I checked a public figure on one of the nine: [Halma](/analyse/HLMA.L), a British technology conglomerate (safety, health, environmental monitoring) rated perfect on my ten criteria. My site calculates a total value for it of about 1,394 billion pounds. Divided by a hundred: 13.9 billion. Public market data from this summer put Halma's real market capitalization between 13.8 and 15.2 billion pounds depending on the exact date, a figure you can check yourself on [Halma's own investor page](https://www.halma.com/investors/share-price-centre). Dividing by a hundred does not land nearby: it lands exactly inside the real range, to the pound.",
+        },
+        { type: "h2", text: "What still holds once the intruders are removed" },
+        {
+          type: "p",
+          text: "If I remove these nine stocks from my calculation, 91 companies remain. Their average P/FCF drops to 18 times. Their median, to 16.3 times. The two numbers finally converge, within two points of each other, which is exactly what a healthy average should look like: close to its median, not eleven times its value.",
+        },
+        {
+          type: "p",
+          text: "This bug never works in favor of a fake bargain. It pushes valuations up, never down: none of the nine affected stocks trigger my undervaluation signal, even though a quick read of the raw number would rather give the opposite impression, that of companies that became absurdly expensive overnight, which they are not. Their quality score, meanwhile, remains entirely valid: it never depends on price, only on quality criteria (profitability, growth, debt, buybacks).",
+        },
+        {
+          type: "p",
+          text: "The lesson I take from this goes beyond these nine rows. An average computed across hundreds of companies, mine or any other financial site's, deserves to be questioned before being quoted: a small handful of bad data points is enough to make it unrecognizable, while the median holds up far better. If an aggregated number looks too good, or too absurd, to be true, [my analysis tool](/screener) lets you check any single row yourself, exactly as I just did here.",
+        },
+      ],
+      faq: [
+        {
+          q: "What is P/FCF?",
+          a: "A stock's price divided by the free cash flow it generates every year, the money that is really available once every bill is paid. A P/FCF of 15 means you are paying today for fifteen years of that cash to own the stock.",
+        },
+        {
+          q: "Why can an average be misleading when the median is not?",
+          a: "An average adds up every value and divides by their count: a handful of extreme values is enough to drag it far from what most of the group actually looks like. The median, the middle value once everything is ranked, resists those extremes far better.",
+        },
+        {
+          q: "Why do London-listed stocks cause this specific problem?",
+          a: "Many British companies are quoted in pence (GBX or GBp) rather than pounds sterling, with a hundred pence making a pound. A forgotten or mishandled conversion somewhere in a data pipeline can then inflate or crush a calculation by a factor of a hundred, without anything else changing about the company itself.",
+        },
+        {
+          q: "Does this bug call these companies' quality scores into question?",
+          a: "No. The quality score rests on criteria like profitability, sales and cash growth, debt, or share buybacks, never on price. Only the price-to-cash calculation (P/FCF) is wrong for these nine stocks, not their quality assessment.",
+        },
+      ],
+      tags: ["data", "P/FCF", "median", "London Stock Exchange", "data verification"],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you this so you can read this analysis with that in mind.",
+    },
+    es: {
+      title: "Acciones perfectas: por qué el precio medio miente",
+      excerpt:
+        "Calculé el precio medio que pagan las cien acciones mejor calificadas de mi sitio. La cifra era absurda. Al revisarlas una por una, encontré un error de divisa oculto desde hacía meses.",
+      metaDescription:
+        "El precio medio de mis cien acciones mejor calificadas parecía absurdo. Al revisar cada acción una por una, encontré un error de conversión oculto desde hacía meses.",
+      answer:
+        "El precio medio que pagan mis cien acciones con nota perfecta por su efectivo asciende a 190 veces, una cifra absurda. Al revisar cada acción individualmente, encontré la causa: nueve acciones cotizadas en Londres en peniques, mal convertidas a libras. Una vez corregidas, la media baja a 18 veces, casi idéntica a la mediana.",
+      body: [
+        {
+          type: "p",
+          text: "Más o menos una vez al mes repito el mismo cálculo: entre las acciones que mi sitio califica como perfectas según mis diez criterios de calidad, ¿cuánto cuesta en promedio poseer una parte de su efectivo? Este mes salió una cifra que no significa nada: 190 veces. Ciento noventa años de efectivo generado para pagar una acción, en promedio, entre las cien empresas mejor calificadas de mi universo. No una excepción aislada: el promedio de cien empresas.",
+        },
+        {
+          type: "p",
+          text: "Mi primera reacción no fue creer la cifra, sino buscar la oveja negra que la arrastraba hacia arriba. Normalmente, un promedio que se dispara tiene uno o dos culpables evidentes: una acción en plena burbuja especulativa, un trimestre excepcional mal calculado en algún punto. Así que hice lo que siempre recomiendo a un lector antes de confiar en una cifra agregada, incluidas las mías: verificar acción por acción, en lugar de fiarme de la lista en bruto.",
+        },
+        {
+          type: "p",
+          text: "No había una sola oveja negra. Había nueve, de cien. Y las nueve compartían un detalle que no tenía absolutamente nada que ver con la calidad de su negocio: todas cotizan en la Bolsa de Londres, en una divisa que casi nadie piensa en comprobar.",
+        },
+        { type: "h2", text: "La trampa de promediar cien empresas" },
+        {
+          type: "p",
+          text: "La cifra que calculo se llama P/FCF (price-to-free-cash-flow): el precio de la acción dividido entre el free cash flow, el dinero que realmente queda en las arcas de la empresa una vez pagadas todas las facturas. Un P/FCF de 15 significa que hoy pagas quince años de ese efectivo para poseer la acción. Cuanto más bajo, más barata resulta la acción respecto a lo que realmente genera.",
+        },
+        {
+          type: "p",
+          text: "Un promedio, en estadística, se deja deformar por un puñado de valores extremos. Imagina diez personas en una sala: nueve ganan 3000 dólares al mes, la décima gana 3 millones. El ingreso promedio de la sala supera los 300000 dólares, una cifra que no describe la vida de nadie ahí dentro. La mediana, el valor central una vez ordenados todos, se quedaría en 3000 dólares: mucho más fiel a lo que realmente vive la mayoría del grupo. [Aswath Damodaran](https://pages.stern.nyu.edu/~adamodar/), cuyo trabajo sobre valoración por flujos de caja utilizo ampliamente, recomienda casi siempre la mediana en lugar del promedio para comparar múltiplos entre empresas, precisamente por esta razón.",
+        },
+        {
+          type: "p",
+          text: "Entre mis cien acciones con nota perfecta, la mediana del P/FCF sale en 17,3 veces: un nivel bastante razonable para empresas de esta calidad. El promedio, en cambio, se dispara a 190 veces. La diferencia entre ambos no es un detalle estadístico, es un síntoma: algo, en algún punto de la muestra, no anda bien.",
+        },
+        { type: "h2", text: "La investigación acción por acción" },
+        {
+          type: "p",
+          text: "Así que reordené las cien filas por P/FCF descendente. Las diez primeras saltan a la vista: sus múltiplos van de 585 a 3403 veces, frente a 115 veces de la undécima de la lista, ya la acción más cara del resto. Antes de gritar que había un error, verifiqué individualmente cada una de estas nueve empresas mediante [mi página de análisis en vivo](/screener) en lugar de la lista en bruto, exactamente el método que ya recomendaba en [mi último artículo sobre mi señal de infravaloración](/blog/signal-sous-evaluee-verifie-action-par-action-2026).",
+        },
+        {
+          type: "p",
+          text: "El resultado descarta de inmediato la hipótesis más preocupante: estas empresas no están al borde del abismo, con un efectivo que se hubiera desplomado. Su margen de free cash flow, la parte de cada dólar de ventas que se convierte en efectivo realmente disponible, va del 15% al 68% según el caso: niveles sanos, a veces excelentes. El problema no está entonces en el efectivo generado. Está en el precio mostrado.",
+        },
+        {
+          type: "p",
+          text: "[Games Workshop](/analyse/GAW.L) ilustra bien la trampa. La empresa detrás del universo de figuras Warhammer muestra un margen de free cash flow del 35,7%, una cifra sólida para una compañía que sobre todo vende cajas de plástico que sus propios clientes pintan a mano. Nada en esa cifra grita error. El problema aparece solo al dividir el precio de la acción entre ese efectivo: a 20260 peniques, es decir 202,60 libras si el sistema convierte correctamente, el número mostrado parece a primera vista razonable. Eso es justo lo que hace que este tipo de error sea difícil de detectar a simple vista: siempre parece un precio plausible, nunca un error de tecleo evidente como un cero de más.",
+        },
+        { type: "h2", text: "El verdadero culpable: una conversión de divisa olvidada" },
+        {
+          type: "p",
+          text: "Las nueve empresas comparten un detalle que ya había encontrado una vez, en julio, en un valor totalmente distinto: Wise, la fintech británica de transferencias de dinero. Esa acción también mostraba cifras incoherentes, y la explicación más probable en ese momento era una particularidad de la Bolsa de Londres. Muchas acciones allí cotizan en peniques, señaladas como [GBp o GBX](https://en.wikipedia.org/wiki/GBX), no en libras esterlinas: cien peniques hacen una libra, igual que cien centavos hacen un dólar. Si un sistema trata por error un precio en peniques como si ya estuviera en libras, o al revés, cualquier cálculo que use ese precio, el valor total de la empresa, el precio respecto al efectivo por acción, termina inflado o aplastado por un factor de cien.",
+        },
+        {
+          type: "p",
+          text: "La mayoría de las grandes bolsas cotizan directamente en la unidad monetaria principal: el dólar en Nueva York, el euro en París, el yen en Tokio. Londres es la excepción, herencia de la época en que la libra se dividía en chelines y peniques, mucho antes de la decimalización de 1971: la costumbre de cotizar en peniques sobrevivió, aunque el resto del sistema monetario cambiara después. Un sistema de datos construido sobre la idea de que el precio mostrado siempre está en la unidad principal del país acierta casi en todo el mundo, salvo en esta bolsa concreta.",
+        },
+        {
+          type: "p",
+          text: "En julio solo tenía un caso para respaldar esta hipótesis. Esta vez tengo nueve repeticiones del mismo síntoma, en nueve sectores distintos (minería de plata, juegos de figuras, maquinaria industrial, alquiler de ropa de trabajo, distribución de ropa, cosmética en línea), que no tienen nada en común salvo su divisa de cotización. Es exactamente el tipo de patrón que convierte una anomalía aislada en un verdadero error del sistema de datos.",
+        },
+        {
+          type: "table",
+          headers: ["Acción", "Sector", "P/FCF mostrado", "P/FCF probable (÷100)"],
+          rows: [
+            ["Halma", "Conglomerado tecnológico", "3403×", "34,0×"],
+            ["Games Workshop", "Juegos de figuras", "3242×", "32,4×"],
+            ["Goodwin", "Maquinaria industrial", "3194×", "31,9×"],
+            ["NEXT", "Distribución de ropa", "1669×", "16,7×"],
+            ["The Beauty Tech Group", "Cosmética en línea", "1548×", "15,5×"],
+            ["Baltic Classifieds Group", "Anuncios clasificados en línea", "1532×", "15,3×"],
+            ["Fresnillo", "Minería de plata/oro", "1117×", "11,2×"],
+            ["Hochschild Mining", "Minería de plata/oro", "1066×", "10,7×"],
+            ["Johnson Service Group", "Alquiler de ropa de trabajo", "585×", "5,9×"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Dividido entre cien, cada una de las nueve cifras cae entre 5,9 y 34 veces: un rango normal para empresas con nota perfecta, comparable al resto de la muestra. Nada garantiza que dividir entre cien sea exactamente el mecanismo en juego al céntimo, pero la regularidad del patrón, siempre acciones cotizadas en peniques, nunca las demás, apunta con fuerza a un problema de conversión, no a nueve empresas que realmente se hubieran vuelto absurdamente caras de la noche a la mañana.",
+        },
+        { type: "h2", text: "Verificado desde fuera, con una empresa real" },
+        {
+          type: "p",
+          text: "Para salir de mis propios datos, verifiqué una cifra pública de una de las nueve: [Halma](/analyse/HLMA.L), un conglomerado tecnológico británico (seguridad, salud, control ambiental) con nota perfecta en mis diez criterios. Mi sitio calcula para ella un valor total de unos 1394 mil millones de libras. Dividido entre cien: 13,9 mil millones. Los datos públicos de mercado de este verano sitúan la capitalización real de Halma entre 13,8 y 15,2 mil millones de libras según la fecha exacta, una cifra que puedes comprobar tú mismo en la [página de inversores de Halma](https://www.halma.com/investors/share-price-centre). Dividir entre cien no cae cerca: cae exactamente dentro del rango real, casi a la libra.",
+        },
+        { type: "h2", text: "Lo que sigue siendo cierto una vez retirados los intrusos" },
+        {
+          type: "p",
+          text: "Si retiro estas nueve acciones de mi cálculo, quedan 91 empresas. Su P/FCF promedio baja a 18 veces. Su mediana, a 16,3 veces. Ambas cifras por fin convergen, con menos de dos puntos de diferencia, que es precisamente el aspecto que debe tener un promedio sano: cercano a su mediana, no once veces su valor.",
+        },
+        {
+          type: "p",
+          text: "Este error nunca juega a favor de una falsa ganga. Empuja la valoración hacia arriba, nunca hacia abajo: ninguna de las nueve acciones afectadas activa mi señal de infravaloración, aunque una lectura rápida de la cifra bruta daría más bien la impresión contraria, la de empresas que se habrían vuelto absurdamente caras de la noche a la mañana, algo que no son. Su nota de calidad, en cambio, sigue siendo totalmente válida: nunca depende del precio, solo de los criterios de calidad (rentabilidad, crecimiento, deuda, recompras).",
+        },
+        {
+          type: "p",
+          text: "La lección que saco de esto va más allá de estas nueve filas. Un promedio calculado sobre cientos de empresas, el mío o el de cualquier otro sitio financiero, merece cuestionarse antes de citarse: un puñado de datos erróneos basta para volverlo irreconocible, mientras que la mediana resiste mucho mejor. Si una cifra agregada te parece demasiado buena, o demasiado absurda, para ser cierta, [mi herramienta de análisis](/screener) te permite verificar cualquier fila individualmente, tal como acabo de hacer aquí.",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qué es el P/FCF?",
+          a: "El precio de una acción dividido entre el free cash flow que genera cada año, el dinero que realmente queda disponible una vez pagadas todas las facturas. Un P/FCF de 15 significa que hoy pagas quince años de ese efectivo para poseer la acción.",
+        },
+        {
+          q: "¿Por qué un promedio puede engañar mientras que la mediana no?",
+          a: "Un promedio suma todos los valores y divide entre su número: un puñado de valores extremos basta para alejarlo mucho de la realidad de la mayoría. La mediana, el valor central una vez ordenado todo, resiste mucho mejor esos extremos.",
+        },
+        {
+          q: "¿Por qué las acciones cotizadas en Londres causan este problema en particular?",
+          a: "Muchas empresas británicas cotizan en peniques (GBX o GBp) en lugar de libras esterlinas, siendo cien peniques una libra. Una conversión olvidada o mal aplicada en algún punto de una cadena de datos puede entonces inflar o aplastar un cálculo por un factor de cien, sin que nada más cambie en la empresa misma.",
+        },
+        {
+          q: "¿Este error pone en duda la nota de calidad de estas empresas?",
+          a: "No. La nota de calidad se basa en criterios como la rentabilidad, el crecimiento de ventas y efectivo, la deuda o las recompras de acciones, nunca en el precio. Solo el cálculo del precio respecto al efectivo (P/FCF) está mal en estas nueve acciones, no su evaluación de calidad.",
+        },
+      ],
+      tags: ["datos", "P/FCF", "mediana", "Bolsa de Londres", "verificación de datos"],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. El rendimiento pasado no garantiza resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis sabiéndolo.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleSignalOpportunite, articlePfcfMoyenneMent];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
