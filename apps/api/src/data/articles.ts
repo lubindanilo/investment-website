@@ -86402,7 +86402,178 @@ const articlePfcfMoyenneMent: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleSignalOpportunite, articlePfcfMoyenneMent];
+const articleCanadaQualite: Article = {
+  slug: "actions-canadiennes-qualite-rarement-bon-marche-2026",
+  date: "2026-09-05",
+  updated: "2026-09-05",
+  readingTime: 5,
+  content: {
+    fr: {
+      title: "Sept actions canadiennes de qualité, presque toutes chères",
+      excerpt:
+        "Sept sociétés canadiennes valident aujourd'hui l'essentiel de mes critères de qualité financière. Un mois après mon premier passage, l'une d'elles est tombée, deux autres l'ont rejoint, et mon modèle n'en trouve que deux à bon prix.",
+      metaDescription:
+        "Sept actions canadiennes valident presque tous mes critères de qualité. Mon modèle ne les trouve bon marché que pour deux d'entre elles aujourd'hui.",
+      answer:
+        "Sur les actions canadiennes que je note, sept valident aujourd'hui neuf ou dix de mes dix critères de qualité financière : Kinross Gold, Descartes Systems, Kinaxis, CGI, CCL Industries, Dollarama et Cameco. Mon modèle ne les trouve sous leur prix d'achat raisonnable que pour deux d'entre elles, Kinross Gold et CCL Industries.",
+      body: [
+        { type: "h2", text: "Sept sociétés qui tiennent la barre aujourd'hui, une qui est tombée" },
+        {
+          type: "p",
+          text: "Début août, un passage sur les 500 meilleures notes mondiales de mon screener ne remontait que six valeurs canadiennes notées huit à dix sur mes dix critères de qualité financière (rentabilité, croissance, dette maîtrisée, rachats d'actions). Un marché domestique étroit, dominé par les banques et les matières premières, deux familles de sociétés que ma grille retient rarement. Un mois plus tard, j'ai revérifié chaque ligne individuellement plutôt que de recopier la liste d'août, exactement la méthode que je recommande à un lecteur avant de croire un chiffre agrégé, le mien ou celui de n'importe quel site financier.",
+        },
+        {
+          type: "p",
+          text: "Le résultat a bougé. Senvest Capital, un gestionnaire d'actifs qui validait neuf critères sur dix début août, n'en valide plus que six aujourd'hui : une activité de gestion pour compte propre, dont le cash généré varie avec la performance des marchés financiers d'un trimestre à l'autre, n'a pas la régularité qu'exige ma grille. Elle sort donc du groupe. À l'inverse, mon relevé du jour fait apparaître deux valeurs à la note parfaite absentes de mon repérage d'août : [Descartes Systems Group](/analyse/DSG.TO) et [Kinaxis](/analyse/KXS.TO), deux éditeurs de logiciels spécialisés dans la gestion de chaîne logistique.",
+        },
+        {
+          type: "p",
+          text: "Voici les sept qui restent, avec la valorisation que leur donne mon modèle aujourd'hui.",
+        },
+        {
+          type: "table",
+          headers: ["Société (Ticker)", "Secteur", "Note qualité", "Verdict prix aujourd'hui"],
+          rows: [
+            ["Kinross Gold (K.TO)", "Extraction d'or", "10 sur 10", "Décote de 7,9 %"],
+            ["Descartes Systems (DSG.TO)", "Logiciel logistique", "10 sur 10", "Surcote de 30,3 %"],
+            ["Kinaxis (KXS.TO)", "Logiciel chaîne logistique", "10 sur 10", "Surcote de 31,5 %"],
+            ["CCL Industries (CCL-B.TO)", "Emballage", "9 sur 10", "Décote de 7,1 %"],
+            ["CGI Inc. (GIB-A.TO)", "Conseil et services informatiques", "9 sur 10", "Surcote de 27,6 %"],
+            ["Dollarama (DOL.TO)", "Distribution à bas prix", "9 sur 10", "Surcote de 37,4 %"],
+            ["Cameco (CCO.TO)", "Extraction d'uranium", "9 sur 10", "Surcote de 12,4 %"],
+          ],
+        },
+        { type: "h2", text: "Pourquoi la moitié se valorise déjà cher" },
+        {
+          type: "p",
+          text: "[Kinross Gold](/analyse/K.TO) est la moins chère du lot malgré une note parfaite, et le paradoxe s'explique par la nature de son activité. [Kinross vient de publier un premier trimestre 2026 record](https://www.kinross.com/English/news-and-investors/news-releases/press-release-details/2026/Kinross-reports-strong-2026-first-quarter-results/default.aspx), sa quatrième trimestrielle record consécutive de free cash flow à environ 840 millions de dollars, portée par une marge par once vendue en hausse de 92 % sur un an. Ce type de résultat vient presque toujours d'un seul facteur externe, ici le cours de l'or, qui a battu plusieurs records cette année sous l'effet d'achats massifs des banques centrales. Le marché traite historiquement ce genre de bénéfice comme un vent favorable temporaire plutôt que comme une preuve durable de qualité de gestion, et continue donc de valoriser Kinross comme une matière première cyclique, pas comme une machine à cash. Même mécanisme pour [CCL Industries](/analyse/CCL-B.TO) : son multiple actuel tombe exactement à la médiane de son secteur de l'emballage, jugé mature et peu excitant par le marché, qui ne récompense donc pas sa qualité par une prime.",
+        },
+        {
+          type: "p",
+          text: "À l'autre bout, [Cameco](/analyse/CCO.TO) affiche le multiple le plus élevé des sept, porté par une thèse devenue difficile à ignorer : la demande d'électricité des centres de données d'intelligence artificielle relance la filière nucléaire. [Le patron de Cameco décrivait début mai des centrales à l'arrêt remises en service face à cette demande](https://www.bnnbloomberg.ca/business/2026/05/05/energy-hungry-data-centers-are-bringing-dead-reactors-to-life-as-nuclear-power-soars-cameco-ceo/), dans un marché de l'uranium que l'entreprise elle-même juge sous-approvisionné depuis treize années consécutives. Le marché paie donc Cameco pour une pénurie structurelle qu'il tient déjà pour acquise, pas seulement pour son bilan d'aujourd'hui. [Descartes Systems](/analyse/DSG.TO) et [Kinaxis](/analyse/KXS.TO) suivent une logique voisine mais différente : leurs clients gèrent des chaînes logistiques rendues plus complexes par les droits de douane, [une complexité que Descartes évoquait elle-même dans ses derniers résultats trimestriels](https://www.descartes.com/resources/news/descartes-announces-fiscal-2026-second-quarter-financial-results), et un logiciel qui aide à s'y retrouver devient plus indispensable, pas moins, quand le commerce mondial se complique. [Dollarama](/analyse/DOL.TO), enfin, illustre un mécanisme différent : une enseigne de bas prix profite du réflexe défensif des consommateurs quand l'incertitude économique grimpe, ce qui lui vaut la prime la plus élevée du groupe alors même que son nom promet des prix bas, pas à ses actionnaires.",
+        },
+        {
+          type: "p",
+          text: "Sept sociétés canadiennes valident donc aujourd'hui l'essentiel de ma grille de qualité. Mais si tu cherches spécifiquement une affaire, au sens strict de mon modèle, la liste honnête se réduit à deux noms : Kinross Gold et CCL Industries. Les cinq autres ne sont pas de mauvaises entreprises, simplement des entreprises déjà chères pour des raisons identifiables. Tu peux vérifier chacune de ces sept fiches en direct sur [mon outil d'analyse](/screener), et retrouver comment je calcule un prix d'achat raisonnable dans [ma méthodologie complète](/methodologie).",
+        },
+      ],
+      faq: [],
+      tags: ["Canada", "palmarès", "valorisation", "or", "uranium"],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer.",
+    },
+    en: {
+      title: "Seven high-quality Canadian stocks, most of them pricey",
+      excerpt:
+        "Seven Canadian companies pass nearly all of my financial quality criteria today. A month after my first screen, one of them dropped out, two more joined, and my model finds only two of them fairly priced.",
+      metaDescription:
+        "Seven Canadian stocks pass nearly all of my quality criteria. My model finds only two of them cheap today.",
+      answer:
+        "Among the Canadian stocks I score, seven pass nine or ten of my ten financial quality criteria today: Kinross Gold, Descartes Systems, Kinaxis, CGI, CCL Industries, Dollarama, and Cameco. My model finds only two of them trading below a fair buy price, Kinross Gold and CCL Industries.",
+      body: [
+        { type: "h2", text: "Seven names holding up today, one that fell off" },
+        {
+          type: "p",
+          text: "In early August, a screen of the 500 top-rated companies worldwide in my model returned only six Canadian stocks scoring eight to ten out of my ten financial quality criteria (profitability, growth, controlled debt, buybacks). A narrow domestic market, dominated by banks and commodity producers, two families my grid rarely rewards. A month later, I rechecked every line individually rather than copy the August list, exactly the method I recommend to a reader before trusting any aggregated figure, mine or any other financial site's.",
+        },
+        {
+          type: "p",
+          text: "The result moved. Senvest Capital, an asset manager that passed nine of ten criteria in early August, passes only six today: a proprietary asset-management business, whose generated cash swings with financial market performance quarter to quarter, does not have the consistency my grid demands. It drops out of the group. Conversely, today's screen surfaces two perfect scores absent from my August scan: [Descartes Systems Group](/analyse/DSG.TO) and [Kinaxis](/analyse/KXS.TO), two software companies specialized in supply chain management.",
+        },
+        {
+          type: "p",
+          text: "Here are the seven that remain, with the valuation my model gives them today.",
+        },
+        {
+          type: "table",
+          headers: ["Company (Ticker)", "Sector", "Quality score", "Today's price verdict"],
+          rows: [
+            ["Kinross Gold (K.TO)", "Gold mining", "10 out of 10", "7.9% discount"],
+            ["Descartes Systems (DSG.TO)", "Logistics software", "10 out of 10", "30.3% premium"],
+            ["Kinaxis (KXS.TO)", "Supply chain software", "10 out of 10", "31.5% premium"],
+            ["CCL Industries (CCL-B.TO)", "Packaging", "9 out of 10", "7.1% discount"],
+            ["CGI Inc. (GIB-A.TO)", "IT consulting and services", "9 out of 10", "27.6% premium"],
+            ["Dollarama (DOL.TO)", "Discount retail", "9 out of 10", "37.4% premium"],
+            ["Cameco (CCO.TO)", "Uranium mining", "9 out of 10", "12.4% premium"],
+          ],
+        },
+        { type: "h2", text: "Why half of them are already priced high" },
+        {
+          type: "p",
+          text: "[Kinross Gold](/analyse/K.TO) is the cheapest of the group despite a perfect score, and the paradox comes down to the nature of its business. [Kinross just reported a record first quarter of 2026](https://www.kinross.com/English/news-and-investors/news-releases/press-release-details/2026/Kinross-reports-strong-2026-first-quarter-results/default.aspx), its fourth consecutive record quarter for free cash flow at roughly $840 million, driven by a margin per ounce sold up 92% year over year. This kind of result almost always comes from a single external factor, here the price of gold, which set several records this year on massive central bank buying. The market historically treats this kind of profit as a temporary tailwind rather than lasting proof of management quality, and keeps pricing Kinross like a cyclical commodity producer, not a cash machine. The same mechanism applies to [CCL Industries](/analyse/CCL-B.TO): its current multiple sits exactly at the median of its packaging sector, seen by the market as mature and unexciting, which does not reward its quality with a premium.",
+        },
+        {
+          type: "p",
+          text: "At the other end, [Cameco](/analyse/CCO.TO) carries the highest multiple of the seven, driven by a thesis that has become hard to dismiss: electricity demand from artificial intelligence data centers is reviving the nuclear industry. [Cameco's CEO described idle reactors being brought back online to meet this demand in early May](https://www.bnnbloomberg.ca/business/2026/05/05/energy-hungry-data-centers-are-bringing-dead-reactors-to-life-as-nuclear-power-soars-cameco-ceo/), in a uranium market the company itself calls undersupplied for thirteen consecutive years. The market is paying Cameco for a structural shortage it already treats as certain, not just for today's balance sheet. [Descartes Systems](/analyse/DSG.TO) and [Kinaxis](/analyse/KXS.TO) follow a related but different logic: their customers manage supply chains made more complex by tariffs, [a complexity Descartes itself referenced in its latest quarterly results](https://www.descartes.com/resources/news/descartes-announces-fiscal-2026-second-quarter-financial-results), and software that helps navigate it becomes more essential, not less, as global trade grows more complicated. [Dollarama](/analyse/DOL.TO), finally, illustrates a different mechanism: a discount retailer benefits from consumers' defensive reflex when economic uncertainty rises, earning it the highest premium in the group even though its own name promises low prices, not to its shareholders.",
+        },
+        {
+          type: "p",
+          text: "Seven Canadian companies pass most of my quality grid today. But if you are specifically looking for a bargain, in the strict sense of my model, the honest list narrows to two names: Kinross Gold and CCL Industries. The other five are not bad companies, just companies already priced high for identifiable reasons. You can check each of these seven pages live on [my analysis tool](/screener), and see how I calculate a fair buy price in my [full methodology](/methodologie).",
+        },
+      ],
+      faq: [],
+      tags: ["Canada", "ranking", "valuation", "gold", "uranium"],
+      disclaimer:
+        "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change.",
+    },
+    es: {
+      title: "Siete acciones canadienses de calidad, casi todas caras",
+      excerpt:
+        "Siete empresas canadienses cumplen hoy casi todos mis criterios de calidad financiera. Un mes después de mi primer análisis, una cayó del grupo, otras dos se unieron, y mi modelo solo encuentra dos a buen precio.",
+      metaDescription:
+        "Siete acciones canadienses cumplen casi todos mis criterios de calidad. Mi modelo solo encuentra dos de ellas baratas hoy.",
+      answer:
+        "De las acciones canadienses que califico, siete cumplen hoy nueve o diez de mis diez criterios de calidad financiera: Kinross Gold, Descartes Systems, Kinaxis, CGI, CCL Industries, Dollarama y Cameco. Mi modelo solo las encuentra por debajo de un precio de compra razonable en dos casos, Kinross Gold y CCL Industries.",
+      body: [
+        { type: "h2", text: "Siete nombres que aguantan hoy, uno que cayó" },
+        {
+          type: "p",
+          text: "A principios de agosto, un barrido de las 500 mejores notas del mundo en mi modelo solo devolvía seis acciones canadienses con una puntuación de ocho a diez sobre mis diez criterios de calidad financiera (rentabilidad, crecimiento, deuda controlada, recompras). Un mercado doméstico estrecho, dominado por bancos y materias primas, dos familias que mi criba rara vez premia. Un mes después, revisé cada línea individualmente en lugar de copiar la lista de agosto, exactamente el método que recomiendo a cualquier lector antes de creerse una cifra agregada, la mía o la de cualquier otro sitio financiero.",
+        },
+        {
+          type: "p",
+          text: "El resultado cambió. Senvest Capital, una gestora de activos que cumplía nueve de diez criterios a principios de agosto, hoy solo cumple seis: una actividad de gestión por cuenta propia, cuyo efectivo generado varía con el rendimiento de los mercados financieros de un trimestre a otro, no tiene la regularidad que exige mi criba. Sale por tanto del grupo. En cambio, mi revisión de hoy muestra dos notas perfectas ausentes de mi barrido de agosto: [Descartes Systems Group](/analyse/DSG.TO) y [Kinaxis](/analyse/KXS.TO), dos empresas de software especializadas en la gestión de la cadena de suministro.",
+        },
+        {
+          type: "p",
+          text: "Aquí están las siete que quedan, con la valoración que les da mi modelo hoy.",
+        },
+        {
+          type: "table",
+          headers: ["Empresa (Ticker)", "Sector", "Nota de calidad", "Veredicto de precio hoy"],
+          rows: [
+            ["Kinross Gold (K.TO)", "Extracción de oro", "10 sobre 10", "Descuento del 7,9 %"],
+            ["Descartes Systems (DSG.TO)", "Software logístico", "10 sobre 10", "Sobreprecio del 30,3 %"],
+            ["Kinaxis (KXS.TO)", "Software de cadena de suministro", "10 sobre 10", "Sobreprecio del 31,5 %"],
+            ["CCL Industries (CCL-B.TO)", "Envase y embalaje", "9 sobre 10", "Descuento del 7,1 %"],
+            ["CGI Inc. (GIB-A.TO)", "Consultoría y servicios de TI", "9 sobre 10", "Sobreprecio del 27,6 %"],
+            ["Dollarama (DOL.TO)", "Distribución de bajo precio", "9 sobre 10", "Sobreprecio del 37,4 %"],
+            ["Cameco (CCO.TO)", "Extracción de uranio", "9 sobre 10", "Sobreprecio del 12,4 %"],
+          ],
+        },
+        { type: "h2", text: "Por qué la mitad ya cotiza cara" },
+        {
+          type: "p",
+          text: "[Kinross Gold](/analyse/K.TO) es la más barata del grupo pese a una nota perfecta, y la paradoja se explica por la naturaleza de su negocio. [Kinross acaba de publicar un primer trimestre de 2026 récord](https://www.kinross.com/English/news-and-investors/news-releases/press-release-details/2026/Kinross-reports-strong-2026-first-quarter-results/default.aspx), su cuarto trimestre consecutivo con un flujo de caja libre récord de unos 840 millones de dólares, impulsado por un margen por onza vendida un 92 % superior al año anterior. Este tipo de resultado casi siempre viene de un único factor externo, aquí el precio del oro, que batió varios récords este año por las compras masivas de los bancos centrales. El mercado trata históricamente este tipo de beneficio como un viento de cola temporal, no como una prueba duradera de calidad de gestión, y sigue valorando a Kinross como una materia prima cíclica, no como una máquina de generar caja. El mismo mecanismo se aplica a [CCL Industries](/analyse/CCL-B.TO): su múltiplo actual se sitúa exactamente en la mediana de su sector del envase y embalaje, que el mercado considera maduro y poco emocionante, por lo que no premia su calidad con una prima.",
+        },
+        {
+          type: "p",
+          text: "En el otro extremo, [Cameco](/analyse/CCO.TO) tiene el múltiplo más alto de las siete, impulsado por una tesis cada vez más difícil de ignorar: la demanda eléctrica de los centros de datos de inteligencia artificial está revitalizando la industria nuclear. [El consejero delegado de Cameco describía a principios de mayo centrales paradas que vuelven a ponerse en marcha ante esta demanda](https://www.bnnbloomberg.ca/business/2026/05/05/energy-hungry-data-centers-are-bringing-dead-reactors-to-life-as-nuclear-power-soars-cameco-ceo/), en un mercado del uranio que la propia empresa considera desabastecido desde hace trece años consecutivos. El mercado paga por tanto a Cameco por una escasez estructural que ya da por segura, no solo por su balance de hoy. [Descartes Systems](/analyse/DSG.TO) y [Kinaxis](/analyse/KXS.TO) siguen una lógica parecida pero distinta: sus clientes gestionan cadenas de suministro que los aranceles han hecho más complejas, [una complejidad que la propia Descartes mencionaba en sus últimos resultados trimestrales](https://www.descartes.com/resources/news/descartes-announces-fiscal-2026-second-quarter-financial-results), y un software que ayuda a manejarla se vuelve más imprescindible, no menos, cuando el comercio mundial se complica. [Dollarama](/analyse/DOL.TO), por último, ilustra un mecanismo distinto: una cadena de bajo precio se beneficia del reflejo defensivo de los consumidores cuando crece la incertidumbre económica, lo que le otorga la prima más alta del grupo aunque su propio nombre prometa precios bajos, no a sus accionistas.",
+        },
+        {
+          type: "p",
+          text: "Siete empresas canadienses cumplen hoy la mayor parte de mi criba de calidad. Pero si buscas específicamente una ganga, en el sentido estricto de mi modelo, la lista honesta se reduce a dos nombres: Kinross Gold y CCL Industries. Las otras cinco no son malas empresas, simplemente empresas ya caras por razones identificables. Puedes comprobar cada una de estas siete fichas en directo en [mi herramienta de análisis](/screener), y ver cómo calculo un precio de compra razonable en mi [metodología completa](/methodologie).",
+        },
+      ],
+      faq: [],
+      tags: ["Canadá", "ranking", "valoración", "oro", "uranio"],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizada. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleSignalOpportunite, articlePfcfMoyenneMent, articleCanadaQualite];
 
 
 /** Articles triés du plus récent au plus ancien. */
