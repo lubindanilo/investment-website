@@ -86569,7 +86569,310 @@ const articleCanadaQualite: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleSignalOpportunite, articlePfcfMoyenneMent, articleCanadaQualite];
+const articleJaponQualite: Article = {
+  slug: "japon-actions-qualite-ignorees-france-2026",
+  date: "2026-09-06",
+  updated: "2026-09-06",
+  readingTime: 7,
+  content: {
+    fr: {
+      title: "Japon : ces actions de qualité que la France ignore",
+      excerpt:
+        "Sur les milliers d'actions que mon filtre note chaque jour, trois valeurs japonaises valident presque tous mes critères de qualité financière, sans qu'aucun site francophone n'en parle jamais. Une quatrième affiche un chiffre trop beau pour être vrai, et je t'explique pourquoi je ne la crois pas.",
+      metaDescription:
+        "Trois actions japonaises valident neuf ou dix de mes dix critères de qualité, jamais couvertes en France. Une quatrième cache un piège de données que j'évite.",
+      answer:
+        "Trois entreprises japonaises, un fabricant de fils de guidage cardiaques, un spécialiste des tests vibratoires et un éditeur de logiciel de caisse, valident aujourd'hui neuf ou dix de mes dix critères de qualité financière, sans jamais être citées en France. Une quatrième affiche une valorisation extrêmement basse que je ne crois pas, pour une raison précise que je détaille.",
+      body: [
+        { type: "h2", text: "Pourquoi si peu d'actions japonaises passent mon filtre" },
+        {
+          type: "p",
+          text: "Je note chaque action sur dix critères financiers concrets : est-elle rentable, ses ventes et son free cash flow (l'argent qui reste vraiment en caisse une fois toutes les factures et tous les investissements payés) progressent-ils dans la durée, rachète-t-elle ses propres actions plutôt que de les diluer, sa dette reste-t-elle maîtrisable, son rendement du capital investi est-il solide. Le Japon est pourtant la deuxième place boursière mondiale par le nombre de sociétés cotées, et mon écran couvre plusieurs milliers de tickers japonais. Malgré cette taille, une poignée seulement valide neuf ou dix de mes dix critères à un instant donné : un marché longtemps critiqué pour son faible rendement du capital, ses participations croisées entre entreprises et sa réticence historique aux rachats d'actions, trois habitudes qui pèsent directement sur les critères que je mesure.",
+        },
+        {
+          type: "p",
+          text: "Cette rareté rend les rares survivantes d'autant plus intéressantes. J'ai vérifié aujourd'hui, ticker par ticker sur mon outil d'analyse plutôt que de recopier un classement en cache, quatre entreprises japonaises qui avaient toutes atteint la note parfaite à un moment ou un autre ces dernières semaines. Aucune des trois qui tiennent encore la barre n'est jamais mentionnée dans la presse financière française, aucune ne possède de sigle à trois lettres familier, et la quatrième mérite un avertissement plutôt qu'une place dans le classement.",
+        },
+        { type: "h2", text: "Trois profils que mon site n'avait jamais mentionnés" },
+        {
+          type: "p",
+          text: "Voici les trois qui tiennent la barre aujourd'hui, avec la valorisation que leur donne mon modèle. La colonne de droite compare le prix actuel à mon prix d'achat raisonnable, le niveau au-delà duquel je considère qu'une action de cette qualité devient chère.",
+        },
+        {
+          type: "table",
+          headers: ["Entreprise (Ticker)", "Secteur", "Note qualité", "Valorisation (P/FCF)", "Verdict prix aujourd'hui"],
+          rows: [
+            ["Asahi Intecc (7747.T)", "Dispositifs médicaux cardiovasculaires", "10 sur 10", "30,8×", "Décote de 4,5 %"],
+            ["Smaregi (4431.T)", "Logiciel de caisse en cloud", "9 sur 10", "26,1×", "Décote de 4,1 %"],
+            ["IMV Corporation (7760.T)", "Systèmes de tests vibratoires", "9 sur 10", "14,2×", "Décote de 4,3 %"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Un détail frappe immédiatement : les trois se logent à quelques points de pourcentage seulement de mon prix d'achat raisonnable, ni bradées ni excessivement chères. Le marché a donc déjà repéré une partie de leur qualité, même sans couverture médiatique française. Ce n'est pas une affaire flagrante que je te présente ici, c'est un point aveugle géographique.",
+        },
+        { type: "h2", text: "Asahi Intecc (7747.T) : le champion discret du fil de guidage cardiaque" },
+        {
+          type: "p",
+          text: "Asahi Intecc fabrique des fils de guidage et des cathéters utilisés lors des interventions cardiovasculaires mini-invasives : un cardiologue insère ce fil, fin comme un cheveu, dans une artère pour atteindre une zone bouchée sans ouvrir le thorax. Avec Boston Scientific, Terumo, Abbott et Medtronic, ces cinq entreprises se partagent environ 65 % du marché mondial des fils de guidage. La barrière à l'entrée n'est pas un brevet isolé mais un savoir-faire de fabrication tacite, la capacité à produire un fil ultra-fin d'une régularité extrême, difficile à copier même en connaissant la formule, combinée à une préférence forte et durable des cardiologues pour la marque qu'ils maîtrisent déjà en salle d'opération. En [février 2025, Asahi Intecc a lancé en Europe son fil ASAHI Miracle Neo 3](https://asahi-intecc.eu/news/press-release-launch-of-asahi-miracle-neo-3-guidewire/), conçu pour améliorer la sécurité lors des reprises de bifurcations complexes, la preuve que l'entreprise continue d'investir dans cette niche plutôt que de se diversifier au hasard.",
+        },
+        {
+          type: "p",
+          text: "Le chiffre le plus parlant n'est pas figé, il bouge dans le bon sens. Le free cash flow d'Asahi Intecc était négatif en 2021, à moins d'un milliard de yens. Cinq ans plus tard, il dépasse 32 milliards de yens, une trajectoire qui accompagne un chiffre d'affaires qui a presque doublé sur la même période, tiré par l'expansion aux États-Unis et en Europe où les procédures cardiovasculaires assistées par robotique se multiplient et consomment davantage de ces consommables de précision. C'est exactement le genre de mécanique que je cherche : une niche qui semble ennuyeuse de l'extérieur, mais où la demande structurelle (vieillissement de la population, généralisation de la chirurgie mini-invasive) tire la croissance sans dépendre d'un seul contrat ou d'un seul pays.",
+        },
+        {
+          type: "p",
+          text: "Le prix suit cette qualité : à 30,8 fois son free cash flow annuel, [Asahi Intecc](/analyse/7747.T) est la plus chère des trois, et c'est le seul de mes dix critères qu'elle ne valide pas totalement dans mon modèle (signalé comme un point de vigilance plutôt qu'un échec). Le marché paie une prime pour un moat rare et une croissance qui s'accélère plutôt que ralentit, ce que je juge justifié tant que la demande en chirurgie cardiovasculaire mini-invasive continue de croître. Le risque à surveiller : une dépendance quasi totale à un seul type de produit, sans diversification vers d'autres familles de dispositifs médicaux qui amortirait un choc réglementaire ou un remboursement moins généreux dans un grand marché.",
+        },
+        { type: "h2", text: "Smaregi et IMV Corporation : qualité réelle, mais un point de contrôle qui manque" },
+        {
+          type: "p",
+          text: "Smaregi vend un logiciel de caisse en cloud aux commerçants et restaurateurs japonais : plus de 54 900 points de vente actifs début 2026, un chiffre qui grossit avec le basculement du Japon vers le paiement sans espèces et avec la réforme fiscale de 2026 qui numérise le remboursement de la taxe de vente aux touristes, un processus jusqu'ici largement manuel. En [mars 2026, Smaregi a lancé Shusse-barai](https://finance.stockweather.co.jp/contents/dispPDF.aspx?disclosure=20260313581659) (littéralement « paiement au succès »), un service qui avance jusqu'à 20 millions de yens en un jour ouvré à un commerçant, sans garantie ni caution, en s'appuyant sur l'historique réel de ses encaissements via sa solution de paiement PAYGATE plutôt que sur un dossier bancaire classique. C'est le mécanisme classique du logiciel qui devient aussi prêteur : l'entreprise connaît déjà le chiffre d'affaires réel de son client en temps réel, elle peut donc évaluer un risque de crédit que ferait une banque traditionnelle bien plus lentement.",
+        },
+        {
+          type: "p",
+          text: "Son free cash flow a été multiplié par plus de dix en quatre ans (de 214 millions de yens en 2022 à plus de 2,4 milliards en 2026), une trajectoire de croissance composée typique d'un modèle par abonnement où chaque nouveau client s'ajoute à une base de revenus récurrents sans effacer les précédents. IMV Corporation, à l'inverse, vend des systèmes de tests vibratoires : des machines qui simulent en quelques heures des années de vibrations, de chocs et de variations de température, pour vérifier qu'une pièce automobile, un composant aérospatial ou un circuit électronique tiendra le coup avant sa mise en service réelle. Son free cash flow a connu une année franchement négative en 2023 avant de tripler entre 2023 et 2025, un profil bien plus heurté que celui de Smaregi, cohérent avec une activité qui facture de gros équipements ponctuels plutôt que des abonnements mensuels lissés.",
+        },
+        {
+          type: "p",
+          text: "Les deux ont perdu un point sur ma grille ces dernières semaines, passant de dix à neuf sur dix : dans les deux cas, le critère qui a basculé porte sur la progression du chiffre d'affaires par employé, un signal que je surveille pour repérer si la croissance vient de vrais gains de productivité ou simplement d'embauches. Ce n'est pas un signal d'alarme en soi, plutôt un rappel que même une note quasi parfaite reste une photo prise à un instant donné, pas une garantie permanente. Sur le volet qualitatif, IMV se distingue par l'absence d'un verrou propriétaire clair : la fabrication de systèmes de tests vibratoires attire d'autres fournisseurs mondiaux capables de proposer une alternative comparable, contrairement à Asahi Intecc où la préférence des praticiens crée une vraie barrière. Smaregi, elle, bénéficie d'un coût de changement réel une fois qu'un commerçant a intégré son système de caisse à sa comptabilité et à ses paiements, mais ce coût de changement reste contestable face à des concurrents cloud internationaux mieux financés.",
+        },
+        { type: "h2", text: "Une quatrième candidate que je préfère laisser de côté" },
+        {
+          type: "p",
+          text: "Une quatrième entreprise, Simplex Financial Holdings, un sponsor de fonds spéculatifs coté sur le TOKYO PRO Market (un compartiment de la Bourse de Tokyo réservé aux investisseurs professionnels, avec des obligations de publication plus légères que le marché principal), affichait elle aussi la note parfaite il y a quelques semaines, et affiche aujourd'hui une valorisation de seulement 1,8 fois son free cash flow annuel, ce qui en ferait, si le chiffre était fiable, la moins chère et la plus rentable des quatre de très loin. Avant de la citer comme une opportunité, j'ai vérifié l'historique de son nombre d'actions en circulation sur cinq ans : 210 millions en 2022, 6,4 millions en 2023, 3,9 millions en 2024, puis 51 millions en 2025. Aucun rachat d'actions réel, même le plus agressif, ne produit une telle scie. C'est la signature d'un problème de donnée, probablement une division ou un regroupement d'actions mal reflété dans la série que j'utilise, pas une histoire économique réelle.",
+        },
+        {
+          type: "p",
+          text: "Mon propre modèle confirme l'anomalie autrement : il affiche une décote de plus de 600 % par rapport à mon prix d'achat raisonnable, un chiffre qui n'existe simplement pas dans la réalité d'une action cotée. Sur le plan de l'activité, ce que fait vraiment Simplex Financial Holdings est réel et intéressant : la société [accompagne le développement d'une interface de connexion pour les portefeuilles utilisant le JPYC](https://www.simplex.inc/news/2026/3581/), le stablecoin en yen japonais, un signe du mouvement plus large de tokenisation des actifs financiers au Japon en 2026. Mais un lecteur qui achèterait sur la foi du seul chiffre de valorisation affiché achèterait sur une donnée cassée, pas sur une vraie pépite. Je préfère te montrer pourquoi je l'écarte plutôt que de la citer sans vérification, exactement la méthode que je recommande avant de croire n'importe quel chiffre agrégé, le mien ou celui d'un autre site.",
+        },
+        { type: "h2", text: "Le prix : trois valeurs proches de leur juste valeur, aucune bradée" },
+        {
+          type: "p",
+          text: "Remets ces trois multiples côte à côte : 14,2 fois pour [IMV Corporation](/analyse/7760.T), 26,1 fois pour [Smaregi](/analyse/4431.T), 30,8 fois pour Asahi Intecc. Le classement suit presque exactement celui de la solidité du moat que je viens de décrire, du plus fragile (IMV, sans verrou propriétaire clair) au plus robuste (Asahi Intecc, savoir-faire de fabrication et préférence des praticiens). C'est cohérent : le marché paie plus cher pour une qualité qui a de meilleures chances de durer. Aucune des trois ne se négocie avec une franche décote, toutes les trois flottent à quatre ou cinq points de pourcentage de mon prix d'achat raisonnable, ce que je lis comme des actions correctement valorisées plutôt que comme des opportunités évidentes. La vraie information n'est donc pas « fonce », c'est « voici trois entreprises que ton courtier ne mettra jamais sous tes yeux ». Tu peux vérifier chacune de ces fiches en direct sur [mon outil d'analyse](/screener), et retrouver comment je calcule un prix d'achat raisonnable dans [ma méthodologie complète](/methodologie).",
+        },
+        { type: "h2", text: "À retenir" },
+        {
+          type: "ul",
+          items: [
+            "Asahi Intecc (7747.T) : note parfaite, moat le plus solide des trois (fabrication ultra-fine, préférence des cardiologues), valorisation la plus élevée à 30,8× le free cash flow, décote de 4,5 % sur mon prix d'achat raisonnable.",
+            "Smaregi (4431.T) : neuf critères sur dix (redescendue de dix), croissance du free cash flow la plus rapide des trois, valorisation à 26,1×, décote de 4,1 %.",
+            "IMV Corporation (7760.T) : neuf critères sur dix (redescendue de dix), moat le plus fragile, free cash flow plus erratique, valorisation la plus basse à 14,2×, décote de 4,3 %.",
+            "Simplex Financial Holdings (7176.T) : écartée du classement. Son historique d'actions en circulation est incohérent et mon modèle affiche une décote supérieure à 600 %, un signe de donnée cassée, pas d'opportunité réelle.",
+            "Aucune des trois retenues ne se négocie avec une franche décote : le marché a déjà repéré une partie de leur qualité, malgré l'absence totale de couverture française.",
+          ],
+        },
+      ],
+      faq: [
+        { q: "Comment acheter une action japonaise comme Asahi Intecc depuis la France ?", a: "Ces trois valeurs sont cotées uniquement à la Bourse de Tokyo, sous leur ticker suivi de « .T ». Un courtier donnant accès aux marchés internationaux comme Interactive Brokers permet d'y accéder directement. La conversion euro/yen ajoute un risque de change à prendre en compte, en plus du risque propre à chaque entreprise." },
+        { q: "Pourquoi une note de qualité peut-elle baisser d'un mois sur l'autre ?", a: "Ma note recalcule dix critères à chaque mise à jour des comptes. IMV Corporation et Smaregi sont passées de dix à neuf sur dix après le recul d'un seul critère, la progression du chiffre d'affaires par employé, un indicateur qui peut fluctuer d'un trimestre à l'autre sans que l'entreprise se dégrade fondamentalement. Une note n'est jamais un acquis permanent, je la revérifie toujours avant de la citer." },
+        { q: "La valorisation très basse de Simplex Financial Holdings est-elle une vraie occasion ?", a: "Non, je ne la crois pas. L'historique du nombre d'actions en circulation de cette société varie de façon incohérente d'une année à l'autre, et mon propre modèle affiche une décote supérieure à 600 %, un chiffre impossible pour une action réelle. C'est le signe d'un problème dans la donnée source, pas d'une pépite sous-évaluée. Je préfère l'écarter que de citer un chiffre que je ne crois pas moi-même." },
+        { q: "Le marché japonais fonctionne-t-il différemment des marchés occidentaux ?", a: "Depuis 2023, la Bourse de Tokyo fait pression sur les sociétés cotées avec un prix de l'action inférieur à leur valeur comptable pour qu'elles améliorent leur rendement du capital, notamment via davantage de rachats d'actions, une pratique longtemps moins répandue au Japon qu'aux États-Unis. Cette réforme progresse mais reste inégale, ce qui explique en partie pourquoi si peu d'actions japonaises valident encore l'ensemble de mes critères de rendement du capital et de discipline sur le nombre d'actions." },
+      ],
+      tags: ["Japon", "Asahi Intecc", "Smaregi", "IMV Corporation", "actions internationales", "qualité financière"],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Investir sur des marchés étrangers comporte des risques spécifiques (change, fiscalité, accès via courtier).",
+    },
+    en: {
+      title: "Japan: the quality stocks France never notices",
+      excerpt:
+        "Among the thousands of stocks my screener rates every day, three Japanese companies pass nearly all of my financial quality criteria, yet no financial site ever covers them. A fourth one shows a number that looks too good to be true, and I explain why I don't believe it.",
+      metaDescription:
+        "Three Japanese stocks pass nine or ten of my ten quality criteria, never covered by financial media. A fourth one hides a data trap I chose to avoid.",
+      answer:
+        "Three Japanese companies, a maker of cardiac guidewires, a vibration-testing specialist, and a cloud point-of-sale software vendor, currently pass nine or ten of my ten financial quality criteria, without ever being covered by financial media. A fourth shows an extremely low valuation I don't trust, for a specific reason I detail below.",
+      body: [
+        { type: "h2", text: "Why so few Japanese stocks pass my screen" },
+        {
+          type: "p",
+          text: "I score every stock against ten concrete financial criteria: is it profitable, do its sales and free cash flow (the cash actually left in the till once every bill and every investment is paid) grow over time, does it buy back its own shares rather than dilute them, is its debt manageable, is its return on invested capital solid. Japan is the world's second-largest stock market by number of listed companies, and my screen covers several thousand Japanese tickers. Despite that scale, only a handful pass nine or ten of my ten criteria at any given time, a market long criticized for weak returns on capital, cross-shareholdings between companies, and a historical reluctance toward share buybacks, three habits that directly weigh on the criteria I measure.",
+        },
+        {
+          type: "p",
+          text: "That scarcity makes the survivors more interesting. I checked today, ticker by ticker on my analysis tool rather than copying a cached ranking, four Japanese companies that had all reached a perfect score at some point in recent weeks. None of the three still holding the line is ever mentioned in French or English financial media, none carries a familiar three-letter ticker, and the fourth deserves a warning rather than a spot in the ranking.",
+        },
+        { type: "h2", text: "Three names my site had never mentioned" },
+        {
+          type: "p",
+          text: "Here are the three still holding up today, with the valuation my model assigns them. The right column compares today's price to my fair buy price, the level beyond which I consider a stock of that quality expensive.",
+        },
+        {
+          type: "table",
+          headers: ["Company (Ticker)", "Sector", "Quality score", "Valuation (P/FCF)", "Today's price verdict"],
+          rows: [
+            ["Asahi Intecc (7747.T)", "Cardiovascular medical devices", "10 out of 10", "30.8x", "4.5% discount"],
+            ["Smaregi (4431.T)", "Cloud point-of-sale software", "9 out of 10", "26.1x", "4.1% discount"],
+            ["IMV Corporation (7760.T)", "Vibration testing systems", "9 out of 10", "14.2x", "4.3% discount"],
+          ],
+        },
+        {
+          type: "p",
+          text: "One detail jumps out immediately: all three sit within a few percentage points of my fair buy price, neither dirt cheap nor overpriced. The market has already spotted part of their quality, even without French coverage. This isn't a screaming bargain I'm handing you, it's a geographic blind spot.",
+        },
+        { type: "h2", text: "Asahi Intecc (7747.T): the quiet champion of cardiac guidewires" },
+        {
+          type: "p",
+          text: "Asahi Intecc makes guidewires and catheters used in minimally invasive cardiovascular procedures: a cardiologist threads this wire, thinner than a hair, through an artery to reach a blockage without opening the chest. Together with Boston Scientific, Terumo, Abbott and Medtronic, these five companies share roughly 65% of the global guidewire market. The barrier to entry isn't a single patent but tacit manufacturing know-how, the ability to produce an ultra-fine wire with extreme consistency, hard to copy even knowing the formula, combined with a durable preference among cardiologists for the brand they already trust in the operating room. In [February 2025, Asahi Intecc launched its ASAHI Miracle Neo 3 wire in Europe](https://asahi-intecc.eu/news/press-release-launch-of-asahi-miracle-neo-3-guidewire/), designed to improve safety in complex bifurcation rewiring, proof the company keeps investing in this niche rather than diversifying at random.",
+        },
+        {
+          type: "p",
+          text: "The most telling number isn't static, it's moving in the right direction. Asahi Intecc's free cash flow was negative in 2021, below one billion yen. Five years later it exceeds 32 billion yen, a trajectory that tracks revenue nearly doubling over the same period, driven by expansion into the US and Europe where robotically assisted cardiovascular procedures are multiplying and consuming more of these precision consumables. This is exactly the kind of mechanism I look for: a niche that looks boring from the outside, where structural demand (an aging population, the spread of minimally invasive surgery) drives growth without depending on a single contract or country.",
+        },
+        {
+          type: "p",
+          text: "Price follows that quality: at 30.8 times its annual free cash flow, [Asahi Intecc](/analyse/7747.T) is the priciest of the three, and it's the only one of my ten criteria it doesn't fully clear in my model (flagged as a watch point rather than a failure). The market is paying a premium for a rare moat and accelerating rather than slowing growth, which I judge justified as long as demand for minimally invasive cardiovascular surgery keeps growing. The risk to watch: near-total dependence on a single product family, without diversification into other medical device categories that would cushion a regulatory shock or less generous reimbursement in a major market.",
+        },
+        { type: "h2", text: "Smaregi and IMV Corporation: real quality, but a missing lock-in" },
+        {
+          type: "p",
+          text: "Smaregi sells cloud point-of-sale software to Japanese retailers and restaurants: over 54,900 active stores in early 2026, a figure growing alongside Japan's shift to cashless payments and its 2026 tax reform digitizing sales-tax refunds for tourists, a process that used to be largely manual. In [March 2026, Smaregi launched Shusse-barai](https://finance.stockweather.co.jp/contents/dispPDF.aspx?disclosure=20260313581659) (literally \"pay as you grow\"), a service advancing up to 20 million yen in a single business day to a merchant, with no collateral or guarantor, relying on the merchant's actual payment history through its PAYGATE payment solution rather than a traditional bank file. It's the classic move from software vendor to lender: the company already knows its client's real-time revenue, so it can assess credit risk far faster than a traditional bank.",
+        },
+        {
+          type: "p",
+          text: "Its free cash flow has more than tenfold in four years (from 214 million yen in 2022 to over 2.4 billion in 2026), a compounding growth pattern typical of a subscription model where every new client adds to a recurring revenue base without erasing the previous ones. IMV Corporation, by contrast, sells vibration-testing systems: machines that simulate years of vibration, shock and temperature swings in a few hours, to verify an automotive part, an aerospace component or an electronic circuit will hold up before it ever enters real service. Its free cash flow had a flatly negative year in 2023 before tripling between 2023 and 2025, a far choppier profile than Smaregi's, consistent with a business billing large one-off equipment orders rather than smoothed monthly subscriptions.",
+        },
+        {
+          type: "p",
+          text: "Both dropped one point on my grid in recent weeks, from ten to nine out of ten: in both cases, the criterion that flipped concerns revenue growth per employee, a signal I track to spot whether growth comes from real productivity gains or simply from hiring. It isn't an alarm bell by itself, more a reminder that even a near-perfect score is a snapshot, not a permanent guarantee. On the qualitative side, IMV stands out for lacking a clear proprietary lock-in: manufacturing vibration-testing systems attracts other global suppliers capable of offering a comparable alternative, unlike Asahi Intecc where practitioner preference creates a real barrier. Smaregi does benefit from a genuine switching cost once a merchant has integrated its point-of-sale system into its accounting and payments, but that switching cost remains contestable against better-funded international cloud competitors.",
+        },
+        { type: "h2", text: "A fourth candidate I prefer to set aside" },
+        {
+          type: "p",
+          text: "A fourth company, Simplex Financial Holdings, a hedge-fund sponsor listed on the TOKYO PRO Market (a Tokyo Stock Exchange segment reserved for professional investors, with lighter disclosure requirements than the main board), also showed a perfect score a few weeks ago, and today shows a valuation of just 1.8 times its annual free cash flow, which would make it, if the figure were reliable, by far the cheapest and most profitable of the four. Before citing it as an opportunity, I checked its share count history over five years: 210 million in 2022, 6.4 million in 2023, 3.9 million in 2024, then 51 million in 2025. No real buyback program, however aggressive, produces that kind of sawtooth. It's the signature of a data problem, likely a stock split or reverse split not properly reflected in the series I use, not a real economic story.",
+        },
+        {
+          type: "p",
+          text: "My own model confirms the anomaly another way: it shows a discount of over 600% versus my fair buy price, a number that simply cannot exist for a real listed stock. On the business side, what Simplex Financial Holdings actually does is real and interesting: the company [supports the development of a connection interface for wallets using JPYC](https://www.simplex.inc/news/2026/3581/), Japan's yen-denominated stablecoin, a sign of the broader tokenization movement in Japanese financial assets in 2026. But a reader buying on the strength of the displayed valuation number alone would be buying broken data, not a real gem. I'd rather show you why I'm excluding it than cite it unverified, exactly the method I recommend before trusting any aggregated number, mine or anyone else's.",
+        },
+        { type: "h2", text: "Price: three stocks near fair value, none of them cheap" },
+        {
+          type: "p",
+          text: "Line up the three multiples: 14.2x for [IMV Corporation](/analyse/7760.T), 26.1x for [Smaregi](/analyse/4431.T), 30.8x for Asahi Intecc. The ranking tracks almost exactly the moat strength I just described, from weakest (IMV, no clear proprietary lock-in) to strongest (Asahi Intecc, manufacturing know-how and practitioner preference). That's consistent: the market pays more for quality that's more likely to last. None of the three trades at a real discount, all three float within four or five percentage points of my fair buy price, which I read as fairly priced rather than an obvious opportunity. The real takeaway isn't \"buy now\", it's \"here are three companies your broker will never surface for you.\" You can check each of these profiles live on [my analysis tool](/screener), and see how I calculate a fair buy price in my [full methodology](/methodologie).",
+        },
+        { type: "h2", text: "Key takeaways" },
+        {
+          type: "ul",
+          items: [
+            "Asahi Intecc (7747.T): perfect score, the strongest moat of the three (ultra-fine manufacturing, cardiologist preference), highest valuation at 30.8x free cash flow, 4.5% discount to my fair buy price.",
+            "Smaregi (4431.T): nine out of ten criteria (down from ten), fastest free cash flow growth of the three, valued at 26.1x, 4.1% discount.",
+            "IMV Corporation (7760.T): nine out of ten criteria (down from ten), weakest moat, choppier free cash flow, lowest valuation at 14.2x, 4.3% discount.",
+            "Simplex Financial Holdings (7176.T): excluded from the ranking. Its share count history is inconsistent and my model shows a discount above 600%, a sign of broken data, not a real opportunity.",
+            "None of the three I kept trades at a real discount: the market has already spotted part of their quality, despite zero coverage in French or English financial media.",
+          ],
+        },
+      ],
+      faq: [
+        { q: "How can I buy a Japanese stock like Asahi Intecc from outside Japan?", a: "All three trade only on the Tokyo Stock Exchange, under their ticker followed by \".T\". A broker offering international market access, such as Interactive Brokers, gives direct access. EUR/USD to yen conversion adds currency risk on top of each company's own business risk." },
+        { q: "Why can a quality score drop from one month to the next?", a: "My score recalculates ten criteria every time financial statements update. IMV Corporation and Smaregi both dropped from ten to nine out of ten after a single criterion slipped, revenue growth per employee, an indicator that can swing quarter to quarter without the business fundamentally deteriorating. A score is never a permanent fact, I always re-verify it before citing it." },
+        { q: "Is Simplex Financial Holdings' very low valuation a real opportunity?", a: "No, I don't believe it. This company's share count history swings inconsistently year to year, and my own model shows a discount above 600%, a number that's impossible for a real stock. That's a sign of a source-data problem, not an undervalued gem. I'd rather exclude it than cite a number I don't believe myself." },
+        { q: "Does the Japanese market work differently from Western markets?", a: "Since 2023, the Tokyo Stock Exchange has pressured listed companies trading below book value to improve capital returns, notably through more share buybacks, a practice historically far less common in Japan than in the US. This reform is progressing but unevenly, which partly explains why so few Japanese stocks still pass all of my capital-return and share-discipline criteria." },
+      ],
+      tags: ["Japan", "Asahi Intecc", "Smaregi", "IMV Corporation", "international stocks", "financial quality"],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date, subject to change. Investing in foreign markets carries specific risks (currency, taxation, broker access).",
+    },
+    es: {
+      title: "Japón: las acciones de calidad que Francia ignora",
+      excerpt:
+        "Entre los miles de acciones que mi filtro puntúa cada día, tres empresas japonesas cumplen casi todos mis criterios de calidad financiera, sin que ningún medio financiero las cubra jamás. Una cuarta muestra una cifra demasiado buena para ser cierta, y explico por qué no la creo.",
+      metaDescription:
+        "Tres acciones japonesas cumplen nueve o diez de mis diez criterios de calidad, nunca cubiertas por medios financieros. Una cuarta esconde una trampa de datos.",
+      answer:
+        "Tres empresas japonesas, un fabricante de guías cardíacas, un especialista en pruebas de vibración y un proveedor de software de caja en la nube, cumplen hoy nueve o diez de mis diez criterios de calidad financiera, sin ser cubiertas jamás por medios financieros. Una cuarta muestra una valoración extremadamente baja que no creo, por una razón concreta que explico.",
+      body: [
+        { type: "h2", text: "Por qué tan pocas acciones japonesas pasan mi filtro" },
+        {
+          type: "p",
+          text: "Puntúo cada acción según diez criterios financieros concretos: si es rentable, si sus ventas y su flujo de caja libre (el efectivo que realmente queda en caja una vez pagadas todas las facturas e inversiones) crecen con el tiempo, si recompra sus propias acciones en lugar de diluirlas, si su deuda es manejable, si su rentabilidad sobre el capital invertido es sólida. Japón es la segunda bolsa mundial por número de empresas cotizadas, y mi filtro cubre varios miles de tickers japoneses. A pesar de ese tamaño, solo un puñado cumple nueve o diez de mis diez criterios en un momento dado: un mercado durante mucho tiempo criticado por su bajo rendimiento del capital, sus participaciones cruzadas entre empresas y su reticencia histórica a las recompras de acciones, tres hábitos que pesan directamente en los criterios que mido.",
+        },
+        {
+          type: "p",
+          text: "Esa rareza hace que las pocas supervivientes sean aún más interesantes. Hoy verifiqué, ticker por ticker en mi herramienta de análisis en lugar de copiar un ranking en caché, cuatro empresas japonesas que habían alcanzado la puntuación perfecta en algún momento de las últimas semanas. Ninguna de las tres que aún se mantienen aparece jamás en la prensa financiera francesa o hispana, ninguna tiene un ticker de tres letras conocido, y la cuarta merece una advertencia más que un puesto en el ranking.",
+        },
+        { type: "h2", text: "Tres perfiles que mi sitio nunca había mencionado" },
+        {
+          type: "p",
+          text: "Estas son las tres que se mantienen hoy, con la valoración que les asigna mi modelo. La columna de la derecha compara el precio actual con mi precio de compra razonable, el nivel a partir del cual considero cara a una acción de esa calidad.",
+        },
+        {
+          type: "table",
+          headers: ["Empresa (Ticker)", "Sector", "Puntuación", "Valoración (P/FCF)", "Veredicto de precio hoy"],
+          rows: [
+            ["Asahi Intecc (7747.T)", "Dispositivos médicos cardiovasculares", "10 de 10", "30,8×", "Descuento del 4,5 %"],
+            ["Smaregi (4431.T)", "Software de caja en la nube", "9 de 10", "26,1×", "Descuento del 4,1 %"],
+            ["IMV Corporation (7760.T)", "Sistemas de pruebas de vibración", "9 de 10", "14,2×", "Descuento del 4,3 %"],
+          ],
+        },
+        {
+          type: "p",
+          text: "Un detalle llama la atención de inmediato: las tres se sitúan a pocos puntos porcentuales de mi precio de compra razonable, ni regaladas ni excesivamente caras. El mercado ya ha detectado parte de su calidad, incluso sin cobertura mediática en español o francés. No es una ganga evidente lo que te presento aquí, es un punto ciego geográfico.",
+        },
+        { type: "h2", text: "Asahi Intecc (7747.T): el campeón discreto de las guías cardíacas" },
+        {
+          type: "p",
+          text: "Asahi Intecc fabrica guías y catéteres utilizados en procedimientos cardiovasculares mínimamente invasivos: un cardiólogo introduce este hilo, más fino que un cabello, en una arteria para alcanzar una obstrucción sin abrir el tórax. Junto con Boston Scientific, Terumo, Abbott y Medtronic, estas cinco empresas se reparten cerca del 65 % del mercado mundial de guías. La barrera de entrada no es una patente aislada sino un saber hacer de fabricación tácito, la capacidad de producir un hilo ultrafino con una regularidad extrema, difícil de copiar incluso conociendo la fórmula, combinada con una preferencia fuerte y duradera de los cardiólogos por la marca que ya dominan en quirófano. En [febrero de 2025, Asahi Intecc lanzó en Europa su guía ASAHI Miracle Neo 3](https://asahi-intecc.eu/news/press-release-launch-of-asahi-miracle-neo-3-guidewire/), diseñada para mejorar la seguridad en recanalizaciones complejas de bifurcaciones, prueba de que la empresa sigue invirtiendo en este nicho en lugar de diversificarse al azar.",
+        },
+        {
+          type: "p",
+          text: "La cifra más reveladora no está congelada, se mueve en la dirección correcta. El flujo de caja libre de Asahi Intecc era negativo en 2021, por debajo de mil millones de yenes. Cinco años después supera los 32.000 millones de yenes, una trayectoria que acompaña una facturación casi duplicada en el mismo periodo, impulsada por la expansión en Estados Unidos y Europa, donde se multiplican los procedimientos cardiovasculares asistidos por robótica que consumen más de estos consumibles de precisión. Es exactamente el tipo de mecánica que busco: un nicho que parece aburrido desde fuera, pero donde la demanda estructural (envejecimiento de la población, generalización de la cirugía mínimamente invasiva) impulsa el crecimiento sin depender de un solo contrato o país.",
+        },
+        {
+          type: "p",
+          text: "El precio acompaña esa calidad: a 30,8 veces su flujo de caja libre anual, [Asahi Intecc](/analyse/7747.T) es la más cara de las tres, y es el único de mis diez criterios que no cumple del todo en mi modelo (señalado como un punto de vigilancia, no como un fallo). El mercado paga una prima por un foso competitivo poco común y un crecimiento que se acelera en lugar de frenar, algo que considero justificado mientras la demanda de cirugía cardiovascular mínimamente invasiva siga creciendo. El riesgo a vigilar: una dependencia casi total de una sola familia de productos, sin diversificación hacia otras categorías de dispositivos médicos que amortiguaría un choque regulatorio o un reembolso menos generoso en un mercado importante.",
+        },
+        { type: "h2", text: "Smaregi e IMV Corporation: calidad real, pero sin un cierre de mercado claro" },
+        {
+          type: "p",
+          text: "Smaregi vende software de caja en la nube a comercios y restaurantes japoneses: más de 54.900 puntos de venta activos a principios de 2026, una cifra que crece junto con el giro de Japón hacia los pagos sin efectivo y con la reforma fiscal de 2026 que digitaliza el reembolso del impuesto a las ventas para turistas, un proceso hasta ahora en gran parte manual. En [marzo de 2026, Smaregi lanzó Shusse-barai](https://finance.stockweather.co.jp/contents/dispPDF.aspx?disclosure=20260313581659) (literalmente \"pago al éxito\"), un servicio que adelanta hasta 20 millones de yenes en un día hábil a un comercio, sin garantía ni aval, basándose en el historial real de cobros a través de su solución de pago PAYGATE en lugar de un expediente bancario clásico. Es el movimiento clásico del software que se convierte también en prestamista: la empresa ya conoce en tiempo real la facturación real de su cliente, por lo que puede evaluar un riesgo de crédito mucho más rápido que un banco tradicional.",
+        },
+        {
+          type: "p",
+          text: "Su flujo de caja libre se multiplicó por más de diez en cuatro años (de 214 millones de yenes en 2022 a más de 2.400 millones en 2026), una trayectoria de crecimiento compuesto típica de un modelo de suscripción donde cada nuevo cliente se suma a una base de ingresos recurrentes sin borrar a los anteriores. IMV Corporation, en cambio, vende sistemas de pruebas de vibración: máquinas que simulan en pocas horas años de vibraciones, golpes y cambios de temperatura, para verificar que una pieza de automóvil, un componente aeroespacial o un circuito electrónico resistirá antes de entrar en servicio real. Su flujo de caja libre tuvo un año claramente negativo en 2023 antes de triplicarse entre 2023 y 2025, un perfil mucho más irregular que el de Smaregi, coherente con un negocio que factura grandes equipos puntuales en lugar de suscripciones mensuales suavizadas.",
+        },
+        {
+          type: "p",
+          text: "Ambas perdieron un punto en mi tabla en las últimas semanas, pasando de diez a nueve sobre diez: en los dos casos, el criterio que cambió es el crecimiento de la facturación por empleado, una señal que sigo para detectar si el crecimiento viene de ganancias reales de productividad o simplemente de nuevas contrataciones. No es una señal de alarma en sí misma, más bien un recordatorio de que incluso una puntuación casi perfecta es una fotografía tomada en un momento dado, no una garantía permanente. En el plano cualitativo, IMV se distingue por la ausencia de un cierre de mercado propietario claro: fabricar sistemas de pruebas de vibración atrae a otros proveedores mundiales capaces de ofrecer una alternativa comparable, a diferencia de Asahi Intecc, donde la preferencia de los especialistas crea una barrera real. Smaregi, por su parte, se beneficia de un coste de cambio real una vez que un comercio ha integrado su sistema de caja en su contabilidad y sus pagos, pero ese coste de cambio sigue siendo cuestionable frente a competidores internacionales en la nube mejor financiados.",
+        },
+        { type: "h2", text: "Una cuarta candidata que prefiero dejar de lado" },
+        {
+          type: "p",
+          text: "Una cuarta empresa, Simplex Financial Holdings, un patrocinador de fondos de cobertura que cotiza en el TOKYO PRO Market (un segmento de la Bolsa de Tokio reservado a inversores profesionales, con requisitos de divulgación más ligeros que el mercado principal), también mostraba la puntuación perfecta hace unas semanas, y hoy muestra una valoración de solo 1,8 veces su flujo de caja libre anual, lo que la convertiría, si la cifra fuera fiable, en la más barata y rentable de las cuatro con gran diferencia. Antes de citarla como una oportunidad, verifiqué el historial de su número de acciones en circulación en cinco años: 210 millones en 2022, 6,4 millones en 2023, 3,9 millones en 2024, y luego 51 millones en 2025. Ningún programa de recompra real, por agresivo que sea, produce ese tipo de sierra. Es la firma de un problema de datos, probablemente una división o agrupación de acciones mal reflejada en la serie que utilizo, no una historia económica real.",
+        },
+        {
+          type: "p",
+          text: "Mi propio modelo confirma la anomalía de otra forma: muestra un descuento superior al 600 % respecto a mi precio de compra razonable, una cifra que simplemente no puede existir para una acción cotizada real. En cuanto a su actividad, lo que realmente hace Simplex Financial Holdings es real e interesante: la empresa [apoya el desarrollo de una interfaz de conexión para monederos que usan JPYC](https://www.simplex.inc/news/2026/3581/), la stablecoin en yenes japonesa, una señal del movimiento más amplio de tokenización de activos financieros en Japón en 2026. Pero un lector que comprara basándose únicamente en la cifra de valoración mostrada estaría comprando datos rotos, no una verdadera joya. Prefiero mostrarte por qué la descarto antes que citarla sin verificar, exactamente el método que recomiendo antes de creer cualquier cifra agregada, la mía o la de cualquier otro sitio.",
+        },
+        { type: "h2", text: "El precio: tres valores cerca de su valor justo, ninguno regalado" },
+        {
+          type: "p",
+          text: "Pon los tres múltiplos uno junto al otro: 14,2 veces para [IMV Corporation](/analyse/7760.T), 26,1 veces para [Smaregi](/analyse/4431.T), 30,8 veces para Asahi Intecc. El orden sigue casi exactamente la solidez del foso competitivo que acabo de describir, del más frágil (IMV, sin cierre de mercado propietario claro) al más robusto (Asahi Intecc, saber hacer de fabricación y preferencia de los especialistas). Es coherente: el mercado paga más por una calidad con más probabilidades de durar. Ninguna de las tres cotiza con un descuento real, las tres flotan a cuatro o cinco puntos porcentuales de mi precio de compra razonable, lo que interpreto como acciones correctamente valoradas más que como oportunidades evidentes. El verdadero mensaje no es \"compra ya\", es \"aquí tienes tres empresas que tu bróker nunca te mostrará\". Puedes comprobar cada una de estas fichas en directo en [mi herramienta de análisis](/screener), y ver cómo calculo un precio de compra razonable en mi [metodología completa](/methodologie).",
+        },
+        { type: "h2", text: "En resumen" },
+        {
+          type: "ul",
+          items: [
+            "Asahi Intecc (7747.T): puntuación perfecta, el foso competitivo más sólido de las tres (fabricación ultrafina, preferencia de los cardiólogos), la valoración más alta a 30,8× el flujo de caja libre, descuento del 4,5 % sobre mi precio de compra razonable.",
+            "Smaregi (4431.T): nueve de diez criterios (bajó de diez), el crecimiento del flujo de caja libre más rápido de las tres, valorada a 26,1×, descuento del 4,1 %.",
+            "IMV Corporation (7760.T): nueve de diez criterios (bajó de diez), el foso competitivo más frágil, flujo de caja libre más irregular, la valoración más baja a 14,2×, descuento del 4,3 %.",
+            "Simplex Financial Holdings (7176.T): excluida del ranking. Su historial de acciones en circulación es incoherente y mi modelo muestra un descuento superior al 600 %, señal de datos rotos, no de una oportunidad real.",
+            "Ninguna de las tres seleccionadas cotiza con un descuento real: el mercado ya ha detectado parte de su calidad, pese a la ausencia total de cobertura en medios financieros en español o francés.",
+          ],
+        },
+      ],
+      faq: [
+        { q: "¿Cómo comprar una acción japonesa como Asahi Intecc desde fuera de Japón?", a: "Las tres cotizan únicamente en la Bolsa de Tokio, bajo su ticker seguido de \".T\". Un bróker con acceso a mercados internacionales, como Interactive Brokers, permite acceder directamente. La conversión euro/yen añade un riesgo de cambio que se suma al riesgo propio de cada empresa." },
+        { q: "¿Por qué puede bajar una puntuación de calidad de un mes a otro?", a: "Mi puntuación recalcula diez criterios cada vez que se actualizan las cuentas. IMV Corporation y Smaregi pasaron de diez a nueve sobre diez tras el retroceso de un solo criterio, el crecimiento de la facturación por empleado, un indicador que puede oscilar de un trimestre a otro sin que la empresa se deteriore fundamentalmente. Una puntuación nunca es un hecho permanente, siempre la reverifico antes de citarla." },
+        { q: "¿Es la valoración tan baja de Simplex Financial Holdings una oportunidad real?", a: "No, no la creo. El historial del número de acciones en circulación de esta empresa varía de forma incoherente de un año a otro, y mi propio modelo muestra un descuento superior al 600 %, una cifra imposible para una acción real. Es la señal de un problema en los datos de origen, no de una joya infravalorada. Prefiero descartarla antes que citar una cifra que ni yo mismo creo." },
+        { q: "¿Funciona el mercado japonés de forma distinta a los mercados occidentales?", a: "Desde 2023, la Bolsa de Tokio presiona a las empresas cotizadas por debajo de su valor contable para que mejoren la rentabilidad del capital, sobre todo mediante más recompras de acciones, una práctica históricamente mucho menos habitual en Japón que en Estados Unidos. Esta reforma avanza, pero de forma desigual, lo que explica en parte por qué tan pocas acciones japonesas cumplen todavía todos mis criterios de rentabilidad del capital y disciplina sobre el número de acciones." },
+      ],
+      tags: ["Japón", "Asahi Intecc", "Smaregi", "IMV Corporation", "acciones internacionales", "calidad financiera"],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizada. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Invertir en mercados extranjeros conlleva riesgos específicos (divisa, fiscalidad, acceso vía bróker).",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleSignalOpportunite, articlePfcfMoyenneMent, articleCanadaQualite, articleJaponQualite];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
