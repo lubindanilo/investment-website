@@ -36,6 +36,7 @@ import type { DerivedMetrics } from '@lubin/shared';
 import { computeLivePfcf, type CachedQuantSnapshot } from './quantCache.js';
 import { getFxRateNow } from './fx.js';
 import { resolveReportingCurrency } from './reportingCurrency.js';
+import { getYahooMarketCap } from './yahoo.js';
 import { secReportingProfile } from './secEdgar.js';
 
 export interface QuantData {
@@ -222,8 +223,16 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
     // quand la capitalisation Finnhub est en dollars : le facteur doit entrer dans le P/FCF ici,
     // comme il entrait déjà dans le recompute live — sinon liste et fiche se contredisent.
     reportingCurrency = secProfile?.currency ?? null;
+    let marketCapQuoteAbsolute: number | null = null;
     if (reportingCurrency && reportingCurrency !== currency) {
       fcfFxToQuote = await getFxRateNow(reportingCurrency, currency).catch(() => null);
+      // La métrique Finnhub est en devise des COMPTES et `price × sharesLatest` compte des actions
+      // ordinaires face à un prix par ADS : pour un émetteur étranger, la seule capitalisation sûre
+      // en devise de cotation est celle publiée par Yahoo (mémoïsée 6 h, hors limiter).
+      const published = await getYahooMarketCap(ticker).catch(() => null);
+      if (published && (published.currency == null || published.currency === currency) && published.marketCap > 0) {
+        marketCapQuoteAbsolute = published.marketCap;
+      }
     }
 
     // FCF/action : fallback Yahoo si Finnhub quarterly KO (ADRs étrangers)
@@ -284,6 +293,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
         opMarginTrendReason: fhOpLev.reason,
         adjFcfTtm: fhFcfAdj.ttmFcfAdj,
         fcfFxToQuote,
+        marketCapQuoteAbsolute,
         sbcShareOfFcf: fhFcfAdj.sbcShareOfFcf,
         floatShareOfCfo: fhFcfAdj.floatShareOfCfo,
         fcfNotMeaningfulReason: fhFcfAdj.notMeaningfulReason,

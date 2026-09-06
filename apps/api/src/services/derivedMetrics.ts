@@ -102,12 +102,22 @@ export function computeDerivedMetrics(input: {
    * publiant en livres. `null` = taux INCONNU : on ne publie alors pas de multiple plutôt qu'un
    * multiple faux.
    *
-   * Sans ce facteur (03/09/2026), ce chemin divisait une capitalisation en dollars par un FCF en
-   * won, roupies ou réaux : KB Financial à 0,01×, Wipro à 0,16× (13,6× réel), et de FAUX signaux
-   * d'opportunité — pendant que le chemin live (`computeLivePfcf`) appliquait bien le taux, d'où
-   * des fiches en contradiction avec la liste.
+   * OÙ IL S'APPLIQUE, ET OÙ IL NE S'APPLIQUE PAS (06/09/2026, vérifié en production). La
+   * `marketCapitalization` de /stock/metric est publiée dans la devise des COMPTES, comme
+   * /financials-reported : KB Financial 60 019 470 M (des wons), Wipro 1 754 384 M (des roupies).
+   * Métrique ÷ FCF est donc déjà homogène, et lui appliquer le taux multiplie le multiple par 1/fx
+   * (KB à 38 437×, Wipro à 1 283× pendant vingt minutes de mise en production). Le facteur ne vaut
+   * que face à une capitalisation en devise de COTATION : le repli `price × sharesLatest` (prix en
+   * dollars) — d'où venaient les 0,01× de KB et 0,16× de Wipro — et l'ancre `marketCapQuoteAbsolute`.
    */
   fcfFxToQuote?: number | null;
+  /**
+   * Capitalisation en devise de COTATION (absolue), publiée par Yahoo pour ce symbole, à la bonne
+   * convention ADS. Fournie par l'appelant quand `fcfFxToQuote` ≠ 1 : elle prime alors sur la
+   * métrique Finnhub (devise des comptes) et sur `price × sharesLatest` (actions ordinaires face à
+   * un prix par ADS), les deux ambiguës pour un émetteur étranger.
+   */
+  marketCapQuoteAbsolute?: number | null;
 }): DerivedMetrics {
   const m = input.metric?.metric ?? {};
   const price = input.quote?.c ?? null;
@@ -183,10 +193,19 @@ export function computeDerivedMetrics(input: {
   // `undefined` = pas de conversion demandée (1) ; `null` = taux inconnu, multiple non publiable.
   const fcfFx = input.fcfFxToQuote === undefined ? 1 : input.fcfFxToQuote;
   const fxUnknown = fcfFx == null || !Number.isFinite(fcfFx) || fcfFx <= 0;
-  if (input.adjFcfTtm != null && input.adjFcfTtm > 0 && mcap != null && mcap > 0) {
-    const mcapAbsolute = mcap * 1_000_000;
-    // FCF ramené dans la devise de la capitalisation avant division (cf. fcfFxToQuote).
-    pfcfTTM = fxUnknown ? null : mcapAbsolute / (input.adjFcfTtm * fcfFx);
+  const fxNeeded = fcfFx !== 1;
+  // Ancre Yahoo (devise de cotation) : retenue seulement quand une conversion est en jeu, pour ne
+  // rien changer aux titres qui publient dans leur devise de cotation (la quasi-totalité).
+  const anchor = fxNeeded && input.marketCapQuoteAbsolute != null && input.marketCapQuoteAbsolute > 0
+    ? input.marketCapQuoteAbsolute : null;
+  if (input.adjFcfTtm != null && input.adjFcfTtm > 0 && (anchor != null || (mcap != null && mcap > 0))) {
+    const mcapAbsolute = anchor ?? mcap! * 1_000_000;
+    // La capitalisation est-elle en devise de COTATION (ancre Yahoo, prix × actions) ou dans celle
+    // des COMPTES (métrique Finnhub) ? Le FCF n'est ramené dans la devise de la capitalisation que
+    // dans le premier cas ; dans le second, le ratio est déjà homogène (cf. fcfFxToQuote).
+    const mcapInQuoteCurrency = anchor != null || mcapSource === 'financials-reported';
+    if (mcapInQuoteCurrency && fxUnknown) pfcfTTM = null;
+    else pfcfTTM = mcapAbsolute / (input.adjFcfTtm * (mcapInQuoteCurrency ? fcfFx! : 1));
     // Marge FCF — préfère le revenueTtm direct de /financials-reported, fallback sur la
     // dérivation revenuePerShareTTM × shares de /stock/metric (le code original).
     if (input.revenueTtm != null && input.revenueTtm > 0) {
@@ -365,7 +384,7 @@ export function computeDerivedMetrics(input: {
     reasons.pfcfTTM = input.fcfNotMeaningfulReason
       ?? (input.adjFcfTtm != null && input.adjFcfTtm <= 0
         ? 'Free cash flow négatif ou nul sur les 12 derniers mois — P/FCF non significatif'
-        : fxUnknown && input.adjFcfTtm != null && input.adjFcfTtm > 0
+        : fxUnknown && fxNeeded && input.adjFcfTtm != null && input.adjFcfTtm > 0
           ? 'Taux de change devise de reporting → devise de cotation indisponible — un P/FCF mélangeant deux devises serait faux'
           : 'P/FCF indisponible');
   }

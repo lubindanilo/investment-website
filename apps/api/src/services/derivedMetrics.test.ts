@@ -454,30 +454,55 @@ describe('filterNews', () => {
   });
 });
 
-describe('P/FCF et devise de reporting (fcfFxToQuote)', () => {
-  // KB Financial : capi Finnhub 30 000 M$ ; FCF ajusté 4 000 Md KRW ; 1 KRW = 0,00074 $.
-  const base = { metric: { metric: { marketCapitalization: 30_000 } } as never, profile: null as never, quote: { c: 99.89 } as never };
+describe('P/FCF et devise de reporting (fcfFxToQuote) — chemin Finnhub', () => {
+  // KB Financial (ADR en USD, comptes en KRW). Vérifié en production le 06/09/2026 :
+  // /stock/metric marketCapitalization = 60 019 470 M — des WONS, comme /financials-reported.
+  const KRW_USD = 0.00074;
+  const withMetric = { metric: { metric: { marketCapitalization: 60_019_470 } } as never, profile: null as never, quote: { c: 128.68 } as never };
+  const noMetric = { metric: { metric: {} } as never, profile: null as never, quote: { c: 128.68 } as never };
 
-  it('ramène le FCF dans la devise de la capitalisation avant de diviser', () => {
-    const m = computeDerivedMetrics({ ...base, adjFcfTtm: 4_000e9, fcfFxToQuote: 0.00074 });
-    // 30 000 M$ / (4 000 Md KRW × 0,00074) = 30e9 / 2,96e9 ≈ 10,1×
+  it('métrique Finnhub présente : capi et FCF sont dans la devise des comptes, aucun taux appliqué', () => {
+    // 60 019 470 M KRW / 4 000 Md KRW = 15,0×. Appliquer le taux ici donnait 38 437× (1/fx de trop).
+    const m = computeDerivedMetrics({ ...withMetric, adjFcfTtm: 4_000e9, fcfFxToQuote: KRW_USD });
+    expect(m.pfcfTTM).toBeCloseTo(15.0, 1);
+  });
+
+  it('repli prix × actions (dollars) : le FCF en won est ramené en dollars', () => {
+    // 128,68 $ × 400 M actions = 51,5 Md$ ; 4 000 Md KRW × 0,00074 = 2,96 Md$ → 17,4×. Sans le taux : 0,013×.
+    const m = computeDerivedMetrics({ ...noMetric, sharesLatest: 400e6, adjFcfTtm: 4_000e9, fcfFxToQuote: KRW_USD });
+    expect(m.pfcfTTM).toBeCloseTo(17.4, 1);
+  });
+
+  it('ancre Yahoo en devise de cotation : elle prime sur la métrique et sur prix × actions', () => {
+    // Capi publiée 30 Md$ → 30e9 / 2,96e9 = 10,1×, quelle que soit la métrique Finnhub.
+    const m = computeDerivedMetrics({ ...withMetric, adjFcfTtm: 4_000e9, fcfFxToQuote: KRW_USD, marketCapQuoteAbsolute: 30e9 });
     expect(m.pfcfTTM).toBeCloseTo(10.14, 1);
   });
 
+  it('sans conversion en jeu, l ancre est ignorée et rien ne change pour un émetteur américain', () => {
+    const m = computeDerivedMetrics({ ...withMetric, adjFcfTtm: 4e9, marketCapQuoteAbsolute: 999e9 });
+    expect(m.pfcfTTM).toBeCloseTo(60_019_470e6 / 4e9, 3);
+  });
+
   it('sans facteur, comportement historique : taux 1', () => {
-    const m = computeDerivedMetrics({ ...base, adjFcfTtm: 3e9 });
-    expect(m.pfcfTTM).toBeCloseTo(10, 6);
+    const m = computeDerivedMetrics({ ...withMetric, adjFcfTtm: 6e12 });
+    expect(m.pfcfTTM).toBeCloseTo(10.0, 1);
   });
 
-  it('le facteur 100 d une sous-unité : capi en pence ÷ FCF en livres', () => {
-    // 1 394 Md pence de capi (Halma) pour 400 M£ de FCF : 1 394e9 / (400e6 × 100) = 34,85×, pas 3 485×.
-    const m = computeDerivedMetrics({ ...base, metric: { metric: { marketCapitalization: 1_394_000 } } as never, adjFcfTtm: 400e6, fcfFxToQuote: 100 });
-    expect(m.pfcfTTM).toBeCloseTo(34.85, 1);
+  it('sous-unité par le repli prix × actions : 3 676 p × actions ÷ (FCF en livres × 100)', () => {
+    // Halma : 3 676 p × 379 M = 1 393 Md p ; 400 M£ × 100 = 40 Md p → 34,8×, pas 3 483×.
+    const m = computeDerivedMetrics({ ...noMetric, quote: { c: 3676 } as never, sharesLatest: 379e6, adjFcfTtm: 400e6, fcfFxToQuote: 100 });
+    expect(m.pfcfTTM).toBeCloseTo(34.8, 1);
   });
 
-  it('taux inconnu (null) : pas de multiple faux, et la raison le dit', () => {
-    const m = computeDerivedMetrics({ ...base, adjFcfTtm: 3e9, fcfFxToQuote: null });
+  it('taux inconnu (null) face à une capi en devise de cotation : pas de multiple faux, la raison le dit', () => {
+    const m = computeDerivedMetrics({ ...noMetric, sharesLatest: 400e6, adjFcfTtm: 4_000e9, fcfFxToQuote: null });
     expect(m.pfcfTTM).toBeNull();
     expect(m.notCalculableReasons?.pfcfTTM).toMatch(/Taux de change/);
+  });
+
+  it('taux inconnu mais métrique Finnhub homogène : le multiple reste calculable', () => {
+    const m = computeDerivedMetrics({ ...withMetric, adjFcfTtm: 4_000e9, fcfFxToQuote: null });
+    expect(m.pfcfTTM).toBeCloseTo(15.0, 1);
   });
 });
