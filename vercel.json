@@ -244,6 +244,16 @@
       "permanent": true
     },
     {
+      "source": "/blog/prix-moyen-actions-parfaites-bug-devise-2026",
+      "destination": "/blog/60-actions-qualite-parfaite-portrait-screener-lubin-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/signal-sous-evaluee-verifie-action-par-action-2026",
+      "destination": "/blog/50-actions-sous-evaluees-screener-lubin-juin-2026",
+      "permanent": true
+    },
+    {
       "source": "/classement/:slug",
       "destination": "/screener",
       "permanent": true
