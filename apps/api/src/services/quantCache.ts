@@ -276,11 +276,19 @@ export function hasAberrantMetric(snap: CachedQuantSnapshot): boolean {
 }
 
 export function isQualityDegradation(prev: CachedQuantSnapshot, next: CachedQuantSnapshot): boolean {
+  // Perdre TOUS les fondamentaux n'est jamais un progrès, quelle que soit la génération.
+  if (prev.fundamentalsAvailable && !next.fundamentalsAvailable) return true;
+  // GÉNÉRATION ANTÉRIEURE : un snapshot calculé avec une logique périmée ne protège jamais contre
+  // un recompute de la logique courante — c'est tout le sens de SNAPSHOT_LOGIC_VERSION. Constaté le
+  // 06/09/2026 (génération 7, correctif de devise) : Wipro recalculé à 13,1× et Afya à 5,7× étaient
+  // REFUSÉS parce qu'ils publiaient un critère de moins que leurs snapshots de juin, et la liste
+  // gardait 0,16× et 1,05× — des multiples faux mais pas assez extrêmes pour hasAberrantMetric.
+  // Le drain passe par la même garde : sans cette règle, la re-notation n'aurait rien corrigé.
+  if ((prev.logicVersion ?? 0) < SNAPSHOT_LOGIC_VERSION) return false;
   // DÉBLOCAGE : si le cache existant est aberrant et que le recompute est propre, on AUTORISE
   // l'écrasement même s'il a moins de critères calculables — corriger une aberration prime sur
   // la complétude (sinon l'aberration reste épinglée à vie, cf. cas FLY shareCagr=22,33).
   if (hasAberrantMetric(prev) && !hasAberrantMetric(next)) return false;
-  if (prev.fundamentalsAvailable && !next.fundamentalsAvailable) return true;
   if (prev.fundamentalsSource === 'finnhub' && next.fundamentalsSource === 'yahoo') return true;
   if (computableMetrics(next) < computableMetrics(prev)) return true;
   return false;

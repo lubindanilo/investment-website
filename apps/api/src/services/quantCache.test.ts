@@ -24,6 +24,8 @@ function snap(opts: { source: 'finnhub' | 'yahoo' | null; available?: boolean; c
     ticker: 'X', company: 'X', currency: 'USD',
     fundamentalsSource: opts.source,
     fundamentalsAvailable: opts.available ?? true,
+    // Version courante : c'est ce que writeCachedSnapshot estampille sur toute ecriture.
+    logicVersion: SNAPSHOT_LOGIC_VERSION,
     metrics: m as unknown as DerivedMetrics,
     chiffres: [],
     scoreChiffres: 0, scoreChiffresMax: 0,
@@ -224,5 +226,32 @@ describe('hasAberrantMetric — multiple de devise cassée', () => {
     expect(hasAberrantMetric(snap(34.3))).toBe(false);
     expect(hasAberrantMetric(snap(0.9))).toBe(false);
     expect(hasAberrantMetric(snap(null))).toBe(false);
+  });
+});
+
+describe('isQualityDegradation — génération de logique', () => {
+  const snap = (over: Record<string, unknown>) => ({
+    fundamentalsAvailable: true, fundamentalsSource: 'finnhub',
+    metrics: { pfcfTTM: 10, netMargin: 0.1, fcfMargin: 0.1, cashROCE: 0.2, revenueCagr: 0.05, shareCagr: 0, fcfPerShareCagr: 0.05 },
+    ...over,
+  } as never);
+
+  it('un snapshot d une génération antérieure ne protège pas contre un recompute courant, même moins complet', () => {
+    // Wipro, 06/09/2026 : v6 à 0,16x (8 critères) contre v7 à 13,1x (6 critères) — le v7 doit passer.
+    const prev = snap({ logicVersion: SNAPSHOT_LOGIC_VERSION - 1, metrics: { pfcfTTM: 0.16, netMargin: 0.1, fcfMargin: 0.1, cashROCE: 0.2, revenueCagr: 0.05, shareCagr: 0, fcfPerShareCagr: 0.05, netDebtFcf: 1 } });
+    const next = snap({ logicVersion: SNAPSHOT_LOGIC_VERSION, metrics: { pfcfTTM: 13.1, netMargin: 0.1, fcfMargin: 0.1, cashROCE: null, revenueCagr: 0.05, shareCagr: null, fcfPerShareCagr: 0.05 } });
+    expect(isQualityDegradation(prev, next)).toBe(false);
+  });
+
+  it('même génération : un recompute moins complet reste une dégradation (comportement historique)', () => {
+    const prev = snap({ logicVersion: SNAPSHOT_LOGIC_VERSION });
+    const next = snap({ logicVersion: SNAPSHOT_LOGIC_VERSION, metrics: { pfcfTTM: 10, netMargin: null, fcfMargin: null, cashROCE: null, revenueCagr: 0.05, shareCagr: 0, fcfPerShareCagr: 0.05 } });
+    expect(isQualityDegradation(prev, next)).toBe(true);
+  });
+
+  it('perdre tous les fondamentaux est refusé quelle que soit la génération', () => {
+    const prev = snap({ logicVersion: 1 });
+    const next = snap({ logicVersion: SNAPSHOT_LOGIC_VERSION, fundamentalsAvailable: false, fundamentalsSource: null });
+    expect(isQualityDegradation(prev, next)).toBe(true);
   });
 });
