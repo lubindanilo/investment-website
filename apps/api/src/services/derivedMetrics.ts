@@ -95,6 +95,19 @@ export function computeDerivedMetrics(input: {
   cccApproximated?: boolean;
   /** Raison spécifique quand CCC indisponible. */
   cccReason?: string;
+  /**
+   * Facteur convertissant `adjFcfTtm` de sa devise de REPORTING vers la devise de COTATION du
+   * prix (et de `marketCapitalization`). 1 ou absent pour un émetteur qui publie dans sa devise
+   * de cotation, ~0,00074 pour un ADR coréen publiant en KRW, 100 pour un titre coté en pence
+   * publiant en livres. `null` = taux INCONNU : on ne publie alors pas de multiple plutôt qu'un
+   * multiple faux.
+   *
+   * Sans ce facteur (03/09/2026), ce chemin divisait une capitalisation en dollars par un FCF en
+   * won, roupies ou réaux : KB Financial à 0,01×, Wipro à 0,16× (13,6× réel), et de FAUX signaux
+   * d'opportunité — pendant que le chemin live (`computeLivePfcf`) appliquait bien le taux, d'où
+   * des fiches en contradiction avec la liste.
+   */
+  fcfFxToQuote?: number | null;
 }): DerivedMetrics {
   const m = input.metric?.metric ?? {};
   const price = input.quote?.c ?? null;
@@ -167,9 +180,13 @@ export function computeDerivedMetrics(input: {
   const rps = val('revenuePerShareTTM');
   let pfcfTTM: number | null = null;
   let fcfMargin: number | null = null;
+  // `undefined` = pas de conversion demandée (1) ; `null` = taux inconnu, multiple non publiable.
+  const fcfFx = input.fcfFxToQuote === undefined ? 1 : input.fcfFxToQuote;
+  const fxUnknown = fcfFx == null || !Number.isFinite(fcfFx) || fcfFx <= 0;
   if (input.adjFcfTtm != null && input.adjFcfTtm > 0 && mcap != null && mcap > 0) {
     const mcapAbsolute = mcap * 1_000_000;
-    pfcfTTM = mcapAbsolute / input.adjFcfTtm;
+    // FCF ramené dans la devise de la capitalisation avant division (cf. fcfFxToQuote).
+    pfcfTTM = fxUnknown ? null : mcapAbsolute / (input.adjFcfTtm * fcfFx);
     // Marge FCF — préfère le revenueTtm direct de /financials-reported, fallback sur la
     // dérivation revenuePerShareTTM × shares de /stock/metric (le code original).
     if (input.revenueTtm != null && input.revenueTtm > 0) {
@@ -348,7 +365,9 @@ export function computeDerivedMetrics(input: {
     reasons.pfcfTTM = input.fcfNotMeaningfulReason
       ?? (input.adjFcfTtm != null && input.adjFcfTtm <= 0
         ? 'Free cash flow négatif ou nul sur les 12 derniers mois — P/FCF non significatif'
-        : 'P/FCF indisponible');
+        : fxUnknown && input.adjFcfTtm != null && input.adjFcfTtm > 0
+          ? 'Taux de change devise de reporting → devise de cotation indisponible — un P/FCF mélangeant deux devises serait faux'
+          : 'P/FCF indisponible');
   }
   if (currentRatio == null) reasons.nwcCurrentRatio = 'Ratio de liquidité indisponible';
   if (input.cccCurrent == null) reasons.ccc = input.cccReason ?? 'Cycle de conversion du cash indisponible (créances, stocks ou COGS manquants)';

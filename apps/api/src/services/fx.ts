@@ -31,8 +31,21 @@
  * `yahooLimiter` : son réservoir (30 req/min) est le plafond de débit du drain nocturne, et
  * surtout `getYahooFundamentals` s'exécute DÉJÀ dans un `yahooLimiter.schedule` — une
  * planification imbriquée s'interbloquerait à maxConcurrent 3.
+ *
+ * SOUS-UNITÉS DE COTATION (03/09/2026)
+ * Londres cote en pence (`GBp`), Johannesbourg en cents (`ZAc`), Tel-Aviv en agorot (`ILA`),
+ * alors que les comptes sont publiés en livres, rands et shekels. Ce module passait par
+ * `toUpperCase()`, donc `GBp` devenait `GBP`, `from === to`, et le taux GBP→GBp valait 1 au lieu
+ * de 100. Conséquence mesurée : 400 des 578 titres cotés en pence à un P/FCF > 100 (médiane
+ * 1 311 contre 18 en USD), Halma à 3 427× pour ~34× réel, et un prix d'achat de 26 £ face à un
+ * cours de 3 702 p, soit « 140× surévalué » sur sa fiche. La casse est donc SIGNIFIANTE : on
+ * résout chaque code en (devise majeure, sous-unités par unité) via `resolveCurrencyUnit`, on
+ * cherche le taux entre MAJEURES, puis on applique le facteur d'unités. GBP→GBp = 100,
+ * GBp→GBP = 0,01, GBp→USD = fx(GBP→USD) ÷ 100 — et une sous-unité vers sa propre devise ne
+ * touche jamais le réseau.
  */
 import type { TimeseriesPoint } from '@lubin/shared';
+import { resolveCurrencyUnit } from './marketTiers.js';
 
 const CHART_BASE = 'https://query1.finance.yahoo.com/v8/finance/chart';
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 Lubin-Investment/0.1';
@@ -53,7 +66,21 @@ const inflight = new Map<string, Promise<TimeseriesPoint[] | null>>();
  * est l'inverse (~6,75 CNY pour 1 USD) : on ne l'utilise pas.
  */
 export async function getFxSeries(from: string, to: string): Promise<TimeseriesPoint[] | null> {
-  const f = from.toUpperCase(), t = to.toUpperCase();
+  const f = resolveCurrencyUnit(from), t = resolveCurrencyUnit(to);
+  // Sous-unités `to` pour une sous-unité `from`, à taux 1:1 entre majeures : GBP→GBp = 100.
+  const unitScale = t.per / f.per;
+  if (f.major === t.major) {
+    if (unitScale === 1) return [];
+    // Facteur constant, sans réseau. Un seul point très ancien : `fxAt` le sert à toute date.
+    return [{ date: '1970-01-01', value: unitScale }];
+  }
+  const major = await getMajorFxSeries(f.major, t.major);
+  if (major == null) return null;
+  return unitScale === 1 ? major : major.map(p => ({ date: p.date, value: p.value * unitScale }));
+}
+
+/** Série entre deux devises MAJEURES (codes ISO), mise en cache par paire. */
+async function getMajorFxSeries(f: string, t: string): Promise<TimeseriesPoint[] | null> {
   if (f === t) return [];
   const key = `${f}${t}`;
   const hit = cache.get(key);
@@ -137,4 +164,9 @@ export async function getFxRateNow(from: string, to: string): Promise<number | n
 export function __resetFxCache(): void {
   cache.clear();
   inflight.clear();
+}
+
+/** Injecte une série majeure→majeure dans le cache — tests uniquement (pas de réseau). */
+export function __primeFxSeriesForTests(fromMajor: string, toMajor: string, series: TimeseriesPoint[]): void {
+  cache.set(`${fromMajor.toUpperCase()}${toMajor.toUpperCase()}`, { series, cachedAt: Date.now() });
 }

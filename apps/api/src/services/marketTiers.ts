@@ -36,10 +36,24 @@ export const FX_PER_USD: Record<string, number> = {
  * La casse est donc SIGNIFIANTE ici, on résout avant de normaliser.
  */
 const MINOR_UNIT_PER_MAJOR: Record<string, { major: string; per: number }> = {
-  GBp: { major: 'GBP', per: 100 },   // pence par livre
+  GBp: { major: 'GBP', per: 100 },   // pence par livre (graphie Yahoo)
+  GBX: { major: 'GBP', per: 100 },   // pence par livre (graphie LSE / autres fournisseurs)
   ZAc: { major: 'ZAR', per: 100 },   // cents par rand
   ILA: { major: 'ILS', per: 100 },   // agorot par shekel
 };
+
+/**
+ * Unité MAJEURE et facteur d'une devise de cotation : GBp → { GBP, 100 }, EUR → { EUR, 1 }.
+ *
+ * C'est la brique que `fx` utilise pour convertir entre une sous-unité et sa devise, ou entre une
+ * sous-unité et une devise tierce. Sans elle, `fx` passait par `toUpperCase()` : GBp et GBP se
+ * confondaient, le taux GBP→GBp valait 1 au lieu de 100, et tout ratio prix ÷ fondamental d'un
+ * titre londonien sortait cent fois trop haut (03/09/2026 : 400 des 578 titres cotés en pence à
+ * un P/FCF > 100, médiane 1 311 contre 18 en USD ; Halma 3 427× pour ~34× réel).
+ */
+export function resolveCurrencyUnit(currency: string): { major: string; per: number } {
+  return MINOR_UNIT_PER_MAJOR[currency] ?? { major: currency.toUpperCase(), per: 1 };
+}
 
 /**
  * Sous-unités par unité majeure pour une devise de COTATION (GBp → 100, EUR → 1).

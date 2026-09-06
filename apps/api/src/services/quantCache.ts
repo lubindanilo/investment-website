@@ -100,8 +100,14 @@ export interface CachedQuantSnapshot {
  *     atteignent 10 %/an, Partiel dans les deux combinaisons 10 % / [5 %, 10 %[ définies
  *     par la méthode. Sans invalidation, notes et statuts continueraient de refléter le palier
  *     historique du seul CA par employé (> 5 %/an).
+ * 7 — devises : `fx` distingue les SOUS-UNITÉS de cotation (GBp, ZAc, ILA) de leur devise
+ *     (GBP→GBp = 100 au lieu de 1), la devise de reporting est résolue hors SEC via le lot
+ *     Yahoo, et le chemin Finnhub applique enfin le taux reporting→cotation (fcfFxToQuote)
+ *     comme le chemin live. Sans invalidation, 400 titres londoniens garderaient un P/FCF
+ *     ×100 (Halma 3 427× pour ~34×) et les ADR en devise locale un P/FCF ÷ taux (KB 0,01×),
+ *     avec les prix d'achat et flags d'opportunité qui en découlent, jusqu'au prochain earnings.
  */
-export const SNAPSHOT_LOGIC_VERSION = 6;
+export const SNAPSHOT_LOGIC_VERSION = 7;
 
 /**
  * P/FCF « live » = capitalisation au prix courant ÷ FCF ajusté TTM.
@@ -260,7 +266,12 @@ export function hasAberrantMetric(snap: CachedQuantSnapshot): boolean {
     ab(m.netMargin,       x => x < -20 || x > 10) ||
     ab(m.fcfMargin,       x => x < -20 || x > 10) ||
     ab(m.revenuePerEmployeeCagr, x => Math.abs(x) > 5) ||
-    ab(m.cashROCE,        x => Math.abs(x) > 20)
+    ab(m.cashROCE,        x => Math.abs(x) > 20) ||
+    // Multiple de devise cassée (03/09/2026) : un P/FCF > 1 000× (prix en pence ÷ FCF en livres,
+    // Halma 3 427×) ou < 0,05× (capi en dollars ÷ FCF en won, KB 0,01×) n'a aucun sens
+    // économique. Le déclarer aberrant autorise le recompute corrigé à l'écraser même s'il
+    // publie un critère de moins, sinon la garde anti-dégradation épinglerait le faux à vie.
+    ab(m.pfcfTTM,         x => x > 1000 || x < 0.05)
   );
 }
 

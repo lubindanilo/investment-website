@@ -10,7 +10,8 @@
  * porte la décision « taux historique et pas taux du jour ».
  */
 import { describe, it, expect } from 'vitest';
-import { fxAt } from './fx.js';
+import { fxAt, getFxSeries, getFxRateNow, __resetFxCache, __primeFxSeriesForTests } from './fx.js';
+import { beforeEach } from 'vitest';
 
 // CNY→USD, quelques points mensuels réels (Yahoo CNYUSD=X).
 const CNYUSD = [
@@ -58,5 +59,48 @@ describe('fxAt', () => {
    */
   it('renvoie null quand le taux est inconnu, pour que le point soit omis', () => {
     expect(fxAt(null, '2025-06-30')).toBeNull();
+  });
+});
+
+describe('sous-unités de cotation (GBp, ZAc, ILA) — le bug des multiples londoniens ×100', () => {
+  beforeEach(() => __resetFxCache());
+
+  it('GBP→GBp vaut 100, sans réseau : un FCF en livres se compare à un prix en pence', async () => {
+    // Avant : toUpperCase() confondait les deux, from === to, taux 1 → Halma à 3 427× au lieu de ~34×.
+    expect(await getFxRateNow('GBP', 'GBp')).toBe(100);
+    expect(await getFxRateNow('ZAR', 'ZAc')).toBe(100);
+    expect(await getFxRateNow('ILS', 'ILA')).toBe(100);
+  });
+
+  it('GBp→GBP vaut 0,01 (sens inverse)', async () => {
+    expect(await getFxRateNow('GBp', 'GBP')).toBeCloseTo(0.01, 10);
+  });
+
+  it('la même devise, même unité, reste l identité (série vide → 1)', async () => {
+    expect(await getFxSeries('GBp', 'GBp')).toEqual([]);
+    expect(await getFxSeries('EUR', 'eur')).toEqual([]);
+    expect(await getFxRateNow('USD', 'USD')).toBe(1);
+  });
+
+  it('le facteur constant est servi à TOUTE date par fxAt (historique compris)', async () => {
+    const series = await getFxSeries('GBP', 'GBp');
+    expect(fxAt(series, '2015-03-01')).toBe(100);
+    expect(fxAt(series, '2026-09-06')).toBe(100);
+  });
+
+  it('sous-unité vers devise tierce : taux entre majeures divisé par le facteur (GBp→USD)', async () => {
+    // GBP→USD ≈ 1,27 injecté sans réseau ; 1 pence = 1,27/100 dollar.
+    __primeFxSeriesForTests('GBP', 'USD', [{ date: '2026-01-01', value: 1.27 }]);
+    expect(await getFxRateNow('GBp', 'USD')).toBeCloseTo(0.0127, 10);
+    // et dans l'autre sens, un FCF en livres vers un prix en pence tiers : USD→GBp = (1/1,27)… non
+    // testé ici car la paire inverse n'est pas dérivée automatiquement (comportement d'origine).
+  });
+
+  it('le facteur s applique point par point sur une série historique', async () => {
+    __primeFxSeriesForTests('GBP', 'USD', [{ date: '2020-01-01', value: 1.30 }, { date: '2026-01-01', value: 1.27 }]);
+    const s = await getFxSeries('GBp', 'USD');
+    expect(s?.map(p => p.date)).toEqual(['2020-01-01', '2026-01-01']);
+    expect(s![0]!.value).toBeCloseTo(0.013, 10);
+    expect(s![1]!.value).toBeCloseTo(0.0127, 10);
   });
 });

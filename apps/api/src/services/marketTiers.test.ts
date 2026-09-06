@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { marketCapToUsd, fxPerUsd, minorUnitsPerMajor, nextAshareDisclosure, isChinaAshare } from './marketTiers.js';
+import { resolveCurrencyUnit, marketCapToUsd, fxPerUsd, minorUnitsPerMajor, nextAshareDisclosure, isChinaAshare } from './marketTiers.js';
 
 describe('marketCapToUsd', () => {
   it('convertit la devise locale en USD', () => {
@@ -96,5 +96,24 @@ describe('FX_PER_USD — couverture de l\'univers', () => {
     const usd = marketCapToUsd(2.2e12, 'HUF')!;
     expect(usd / 1e9).toBeGreaterThan(2);
     expect(usd / 1e9).toBeLessThan(20);
+  });
+});
+
+describe('resolveCurrencyUnit (la brique de fx pour les sous-unités)', () => {
+  it('une sous-unité renvoie sa devise majeure et son facteur', () => {
+    expect(resolveCurrencyUnit('GBp')).toEqual({ major: 'GBP', per: 100 });
+    expect(resolveCurrencyUnit('GBX')).toEqual({ major: 'GBP', per: 100 });
+    expect(resolveCurrencyUnit('ZAc')).toEqual({ major: 'ZAR', per: 100 });
+    expect(resolveCurrencyUnit('ILA')).toEqual({ major: 'ILS', per: 100 });
+  });
+
+  it('une devise majeure se renvoie elle-même, normalisée en majuscules, facteur 1', () => {
+    expect(resolveCurrencyUnit('GBP')).toEqual({ major: 'GBP', per: 1 });
+    expect(resolveCurrencyUnit('usd')).toEqual({ major: 'USD', per: 1 });
+  });
+
+  it('la casse est significative : GBp (pence) et GBP (livre) ne sont pas la même unité', () => {
+    // C'est exactement ce que `toUpperCase()` effaçait, d'où un taux GBP→GBp de 1 au lieu de 100.
+    expect(resolveCurrencyUnit('GBp').per).not.toBe(resolveCurrencyUnit('GBP').per);
   });
 });

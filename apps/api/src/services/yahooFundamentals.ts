@@ -67,6 +67,23 @@ interface YahooFundamentalsResult {
   metrics: DerivedMetrics;
   currency: string;
   companyName: string | null;
+  /** Devise dans laquelle les comptes lus sont publiés (celle du P/FCF avant conversion). */
+  reportingCurrency: string | null;
+  /**
+   * Facteur reporting → cotation appliqué au P/FCF (1 = même devise, 100 = livres → pence,
+   * ~0,00074 = won → dollars). null = taux indisponible, P/FCF non publié. Le chemin live
+   * (`computeLivePfcf`) doit réutiliser CE facteur pour rester cohérent avec la note.
+   */
+  fcfFxToQuote: number | null;
+}
+
+export interface YahooFundamentalsOptions {
+  /**
+   * Devise de reporting déjà résolue par l'appelant (cf. `resolveReportingCurrency`), qui a pu
+   * consulter la sonde Yahoo HORS du limiter. Absente : repli sur la seule SEC, qui ignore les
+   * émetteurs sans dépôt américain — et donc tout Londres.
+   */
+  reportingCurrency?: string | null;
 }
 
 /**
@@ -83,6 +100,7 @@ export async function getYahooFundamentals(
   price: number,
   currency: string,
   companyName: string | null = null,
+  options: YahooFundamentalsOptions = {},
 ): Promise<YahooFundamentalsResult | null> {
   return yahooLimiter.schedule(async () => {
     try {
@@ -311,7 +329,12 @@ export async function getYahooFundamentals(
       // current ratio) sont fondamental ÷ fondamental, donc homogènes et non concernés.
       // Le couple reporting/fx ne sert plus qu'au P/FCF (le recoupement de convention
       // ci-dessous couvre désormais tout le chemin Yahoo). Les deux appels sont mémoïsés.
-      const reporting = await getSecReportingCurrency(ticker).catch(() => null);
+      // Devise de reporting : celle résolue par l'appelant (SEC, puis sonde Yahoo, puis devise
+      // majeure de la cotation — cf. reportingCurrency.ts), sinon la seule SEC. `getFxRateNow`
+      // sait qu'un titre coté en pence publiant en livres vaut un facteur 100, pas 1.
+      const reporting = options.reportingCurrency !== undefined
+        ? options.reportingCurrency
+        : await getSecReportingCurrency(ticker).catch(() => null);
       const fx = reporting ? await getFxRateNow(reporting, currency).catch(() => null) : 1;
 
       let marketCap: number | null = null;
@@ -411,7 +434,7 @@ export async function getYahooFundamentals(
 
       console.log(`[yahoo fund ${yahooSymbol}] OK (${currency}, ${revenue.length}Y revenue, ${fcf.length}Y FCF)`);
       void companyName; // companyName est exposé via resolveYahooTicker, pas besoin ici
-      return { metrics, currency, companyName };
+      return { metrics, currency, companyName, reportingCurrency: reporting ?? null, fcfFxToQuote: fx };
     } catch (e) {
       console.warn(`[yahoo fund ${yahooSymbol}] échec :`, (e as Error).message);
       return null;

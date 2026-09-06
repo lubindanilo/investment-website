@@ -34,8 +34,9 @@ import { computeDerivedMetrics } from './derivedMetrics.js';
 import { getRevenuePerEmployee, applyRevenuePerEmployee } from './employeesStore.js';
 import type { DerivedMetrics } from '@lubin/shared';
 import { computeLivePfcf, type CachedQuantSnapshot } from './quantCache.js';
-import { getSecReportingCurrency } from './secEdgar.js';
 import { getFxRateNow } from './fx.js';
+import { resolveReportingCurrency } from './reportingCurrency.js';
+import { secReportingProfile } from './secEdgar.js';
 
 export interface QuantData {
   metrics: DerivedMetrics;
@@ -63,6 +64,8 @@ export interface QuantData {
    * appel réseau. Cf `computeLivePfcf` et le module `fx`.
    */
   fcfFxToQuote: number | null;
+  /** Devise de publication des comptes retenue pour le facteur ci-dessus (diagnostic). */
+  reportingCurrency: string | null;
 }
 
 export interface LoadQuantOptions {
@@ -143,6 +146,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
       rawFhCapEmp: null,
       // Chemin rapide : on reconduit le facteur figé dans le snapshot (pas de re-sondage).
       fcfFxToQuote: cached.fcfFxToQuote ?? null,
+      reportingCurrency: null,
     };
   }
 
@@ -200,6 +204,13 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   let rawFhCapEmp: CapitalEmployedSnapshot | null = null;
   // Variation du jour côté Yahoo (Finnhub /quote est US-only → null pour l'EU/Asie).
   let yahooDayChangePct: number | null = null;
+  // Facteur devise de reporting → devise de cotation du FCF, fixé par le chemin qui a produit les
+  // fondamentaux (Finnhub : profil SEC ; Yahoo : le facteur que getYahooFundamentals a appliqué).
+  // Le chemin live (computeLivePfcf) le rejoue tel quel : il DOIT être celui de la note.
+  let fcfFxToQuote: number | null = 1;
+  let reportingCurrency: string | null = null;
+  // Profil SEC lu une fois, partagé par les deux chemins (mémoïsé côté secEdgar).
+  const secProfile = await secReportingProfile(ticker).catch(() => null);
 
   if (finnhubUsable) {
     fundamentalsSource = 'finnhub';
@@ -207,6 +218,13 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
     const [fhFcfPs, fhRev, fhShares, fhOpLev, fhFcfAdj, fhCapEmp, fhCcc] = await (batch2Early ?? runFinancials());
     rawFhFcfAdj = fhFcfAdj;
     rawFhCapEmp = fhCapEmp;
+    // /financials-reported publie en devise de REPORTING (KRW pour KB Financial, INR pour Wipro)
+    // quand la capitalisation Finnhub est en dollars : le facteur doit entrer dans le P/FCF ici,
+    // comme il entrait déjà dans le recompute live — sinon liste et fiche se contredisent.
+    reportingCurrency = secProfile?.currency ?? null;
+    if (reportingCurrency && reportingCurrency !== currency) {
+      fcfFxToQuote = await getFxRateNow(reportingCurrency, currency).catch(() => null);
+    }
 
     // FCF/action : fallback Yahoo si Finnhub quarterly KO (ADRs étrangers)
     let fcfPsCagrValue = fhFcfPs.value;
@@ -242,10 +260,13 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
         currency = resolved.currency;
         companyFromSource = resolved.longName ?? null;
         yahooDayChangePct = resolved.dayChangePct ?? null;
-        const yfund = await timed('yahoo fundamentals (ADR)', getYahooFundamentals(ticker, resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null)).catch(() => null);
+        const rc = await resolveReportingCurrency(ticker, resolved.symbol, resolved.currency, secProfile?.currency ?? null).catch(() => null);
+        const yfund = await timed('yahoo fundamentals (ADR)', getYahooFundamentals(ticker, resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null, { reportingCurrency: rc?.currency ?? null })).catch(() => null);
         if (yfund) {
           fundamentalsSource = 'yahoo';
           metrics = yfund.metrics;
+          reportingCurrency = yfund.reportingCurrency;
+          fcfFxToQuote = yfund.fcfFxToQuote;
         }
       }
     }
@@ -262,6 +283,7 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
         opMarginTrend: fhOpLev.value,
         opMarginTrendReason: fhOpLev.reason,
         adjFcfTtm: fhFcfAdj.ttmFcfAdj,
+        fcfFxToQuote,
         sbcShareOfFcf: fhFcfAdj.sbcShareOfFcf,
         floatShareOfCfo: fhFcfAdj.floatShareOfCfo,
         fcfNotMeaningfulReason: fhFcfAdj.notMeaningfulReason,
@@ -294,10 +316,14 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
       currency = resolved.currency;
       companyFromSource = resolved.longName ?? null;
       yahooDayChangePct = resolved.dayChangePct ?? null;
-      const yfund = await timed('yahoo fundamentals', getYahooFundamentals(ticker, resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null)).catch(() => null);
+      const rc = await resolveReportingCurrency(ticker, resolved.symbol, resolved.currency, secProfile?.currency ?? null).catch(() => null);
+      if (log && rc && rc.source !== 'sec') console.log(`[quant ${ticker}] devise de reporting ${rc.currency} (${rc.source}) pour une cotation en ${resolved.currency}`);
+      const yfund = await timed('yahoo fundamentals', getYahooFundamentals(ticker, resolved.symbol, resolved.price, resolved.currency, resolved.longName ?? null, { reportingCurrency: rc?.currency ?? null })).catch(() => null);
       if (yfund) {
         fundamentalsSource = 'yahoo';
         metrics = yfund.metrics;
+        reportingCurrency = yfund.reportingCurrency;
+        fcfFxToQuote = yfund.fcfFxToQuote;
       } else {
         metrics = computeDerivedMetrics({ metric, profile: fhProfile, quote });
       }
@@ -351,8 +377,6 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
   // La devise de reporting vient d'EDGAR : `getCik` écarte gratuitement les tickers suffixés,
   // donc seuls les titres cotés aux États-Unis sont sondés — exactement le périmètre des ADR,
   // et sans toucher au limiter Yahoo qui plafonne le débit du drain nocturne.
-  const reportingCurrency = await getSecReportingCurrency(ticker).catch(() => null);
-  const fcfFxToQuote = reportingCurrency ? await getFxRateNow(reportingCurrency, currency).catch(() => null) : 1;
   if (reportingCurrency && fcfFxToQuote != null && fcfFxToQuote !== 1) {
     if (log) console.log(`[quant ${ticker}] FCF en ${reportingCurrency}, prix en ${currency} → facteur de change ${fcfFxToQuote}`);
   }
@@ -362,6 +386,6 @@ export async function loadQuantData(ticker: string, opts: LoadQuantOptions = {})
     rawNews, earnings: earningsInfo, finnhubCompletelyEmpty,
     industry: detailedIndustry,
     dayChangePct: quote?.dp ?? yahooDayChangePct ?? null,
-    rawFhFcfAdj, rawFhCapEmp, fcfFxToQuote,
+    rawFhFcfAdj, rawFhCapEmp, fcfFxToQuote, reportingCurrency,
   };
 }

@@ -453,3 +453,31 @@ describe('filterNews', () => {
     expect(filterNews([make('A beaten-down sector rebounds')])).toHaveLength(0);
   });
 });
+
+describe('P/FCF et devise de reporting (fcfFxToQuote)', () => {
+  // KB Financial : capi Finnhub 30 000 M$ ; FCF ajusté 4 000 Md KRW ; 1 KRW = 0,00074 $.
+  const base = { metric: { metric: { marketCapitalization: 30_000 } } as never, profile: null as never, quote: { c: 99.89 } as never };
+
+  it('ramène le FCF dans la devise de la capitalisation avant de diviser', () => {
+    const m = computeDerivedMetrics({ ...base, adjFcfTtm: 4_000e9, fcfFxToQuote: 0.00074 });
+    // 30 000 M$ / (4 000 Md KRW × 0,00074) = 30e9 / 2,96e9 ≈ 10,1×
+    expect(m.pfcfTTM).toBeCloseTo(10.14, 1);
+  });
+
+  it('sans facteur, comportement historique : taux 1', () => {
+    const m = computeDerivedMetrics({ ...base, adjFcfTtm: 3e9 });
+    expect(m.pfcfTTM).toBeCloseTo(10, 6);
+  });
+
+  it('le facteur 100 d une sous-unité : capi en pence ÷ FCF en livres', () => {
+    // 1 394 Md pence de capi (Halma) pour 400 M£ de FCF : 1 394e9 / (400e6 × 100) = 34,85×, pas 3 485×.
+    const m = computeDerivedMetrics({ ...base, metric: { metric: { marketCapitalization: 1_394_000 } } as never, adjFcfTtm: 400e6, fcfFxToQuote: 100 });
+    expect(m.pfcfTTM).toBeCloseTo(34.85, 1);
+  });
+
+  it('taux inconnu (null) : pas de multiple faux, et la raison le dit', () => {
+    const m = computeDerivedMetrics({ ...base, adjFcfTtm: 3e9, fcfFxToQuote: null });
+    expect(m.pfcfTTM).toBeNull();
+    expect(m.notCalculableReasons?.pfcfTTM).toMatch(/Taux de change/);
+  });
+});

@@ -6,7 +6,7 @@
  * change que sur un vrai changement de fondamentaux (recompute de qualité ≥ au cache).
  */
 import { describe, it, expect } from 'vitest';
-import { isQualityDegradation, computeLivePfcf, extractLivePfcfInputs, SNAPSHOT_LOGIC_VERSION, type CachedQuantSnapshot } from './quantCache.js';
+import { hasAberrantMetric, isQualityDegradation, computeLivePfcf, extractLivePfcfInputs, SNAPSHOT_LOGIC_VERSION, type CachedQuantSnapshot } from './quantCache.js';
 import { FCF_CHART_GENERATION, cacheKey } from '../lib/timeseriesCache.js';
 import type { DerivedMetrics } from '@lubin/shared';
 
@@ -209,5 +209,20 @@ describe('FCF_CHART_GENERATION (graphes dérivés du FCF et fiche jamais désync
   it("change de clé d'une génération à l'autre (l'ancienne n'est plus lue)", () => {
     const cle = (gen: string) => cacheKey('MELI', 'pfcf-history', `computed-adj-${gen}`, 10);
     expect(cle(FCF_CHART_GENERATION)).not.toBe(cle('s0fcf0'));
+  });
+});
+
+describe('hasAberrantMetric — multiple de devise cassée', () => {
+  const snap = (pfcfTTM: number | null) => ({ metrics: { pfcfTTM } } as never);
+
+  it('un P/FCF > 1 000× ou < 0,05× est aberrant (pence ÷ livres, dollars ÷ won)', () => {
+    expect(hasAberrantMetric(snap(3427))).toBe(true);   // Halma avant correctif
+    expect(hasAberrantMetric(snap(0.01))).toBe(true);   // KB Financial avant correctif
+  });
+
+  it('un multiple plausible ne l est pas', () => {
+    expect(hasAberrantMetric(snap(34.3))).toBe(false);
+    expect(hasAberrantMetric(snap(0.9))).toBe(false);
+    expect(hasAberrantMetric(snap(null))).toBe(false);
   });
 });
