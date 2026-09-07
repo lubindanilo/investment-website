@@ -86216,7 +86216,232 @@ const articleJaponQualite: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite];
+const articleDevisesQualite2026: Article = {
+  slug: "devise-cotation-nationalite-entreprise-2026",
+  date: "2026-09-07",
+  updated: "2026-09-07",
+  readingTime: 6,
+  content: {
+    fr: {
+      title: "Ces actions en dollars ne sont pas toutes américaines",
+      excerpt:
+        "Plus de la moitié des actions notées parfaites par mon outil aujourd'hui se négocient en dollars. Mais la devise ne dit pas où vit vraiment l'entreprise : je vérifie trois cas concrets, de Buenos Aires aux Bermudes.",
+      metaDescription:
+        "Sur mon écran d'actions notées parfaites, plus de la moitié se négocient en dollars. Mais la devise ne dit pas où vit l'entreprise : 3 cas vérifiés.",
+      answer:
+        "Ce matin, 55 des 100 actions notées parfaites par mon outil se négocient en dollars américains, les 45 autres se répartissent sur quatorze autres devises. Mais le dollar ne veut pas dire Amérique : MercadoLibre est basée à Buenos Aires, Arch Capital et RenaissanceRe aux Bermudes. La devise de cotation dit où l'action s'échange, pas où l'entreprise vit vraiment.",
+      body: [
+        { type: "h2", text: "Le réflexe que je corrige tout le temps" },
+        {
+          type: "p",
+          text: "Ce matin, 100 actions valident la totalité de mes dix critères de qualité financière sur mon outil d'analyse, le maximum que me renvoie la pagination gratuite de mon propre écran (au-delà, l'accès complet à l'historique est réservé à l'offre payante, je le précise pour rester honnête sur ce que je mesure exactement). Sur ces 100, 55 se négocient en dollars américains. Le réflexe presque automatique quand on voit un prix en dollars : penser entreprise américaine. C'est faux, et l'écart entre les deux est plus large que ce que j'imaginais avant de vérifier ticker par ticker.",
+        },
+        {
+          type: "p",
+          text: "Les 45 autres actions se répartissent sur quatorze devises différentes : roupie indienne, euro, livre sterling cotée en pence, dollar de Hong Kong, yen japonais, dollar canadien, roupie indonésienne, franc suisse, won coréen, yuan, dollar taïwanais, cent sud-africain, dollar australien, réal brésilien. Mais l'inverse du réflexe est tout aussi trompeur : une bonne partie des 55 « en dollars » n'a rien d'américain non plus, ni le siège, ni les employés, ni les clients. C'est ce mélange que je détaille ici, chiffres à l'appui, avec trois cas que j'ai vérifiés individuellement plutôt que de me fier à un classement en cache.",
+        },
+        {
+          type: "table",
+          headers: ["Devise", "Nombre de sociétés", "Part de l'échantillon"],
+          rows: [
+            ["Dollar US (USD)", "55", "55 %"],
+            ["Roupie indienne (INR)", "8", "8 %"],
+            ["Euro (EUR)", "8", "8 %"],
+            ["Livre sterling en pence (GBp)", "7", "7 %"],
+            ["Dollar de Hong Kong (HKD)", "4", "4 %"],
+            ["Yen japonais (JPY)", "4", "4 %"],
+            ["Dollar canadien (CAD)", "3", "3 %"],
+            ["Roupie indonésienne (IDR)", "3", "3 %"],
+            ["Franc suisse (CHF)", "2", "2 %"],
+            ["Won, yuan, dollar taïwanais, cent sud-africain, dollar australien, réal brésilien", "6", "6 %"],
+          ],
+        },
+        { type: "h2", text: "Le mécanisme qui met une entreprise étrangère en dollars" },
+        {
+          type: "p",
+          text: "Une entreprise basée à Buenos Aires ou aux Bermudes peut coter ses actions à Wall Street de deux façons. La première, la plus connue, s'appelle l'ADR (American Depositary Receipt) : une banque dépositaire américaine détient les vraies actions locales en garde et émet en échange un certificat négociable à New York, en dollars, avec un dividende automatiquement converti. La seconde, plus radicale, consiste à faire de la société cotée elle-même une coquille juridique américaine, en général incorporée dans le Delaware, pendant que le siège opérationnel, les employés et les clients restent entièrement à l'étranger. Dans les deux cas, le résultat visible pour toi est identique : un prix en dollars, un ticker à trois ou quatre lettres, l'impression d'acheter une action comme une autre du Nasdaq.",
+        },
+        {
+          type: "p",
+          text: "[MercadoLibre](/analyse/MELI), la plus grande plateforme de commerce en ligne et de paiement d'Amérique latine, illustre la seconde voie. Son siège social réel se trouve à Buenos Aires, en Argentine, là où travaillent ses dirigeants et où l'entreprise a été fondée en 1999, mais [la société elle-même est une coquille incorporée dans le Delaware depuis sa création](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=MELI&type=10-K), comme le confirme chacun de ses dépôts annuels auprès du régulateur boursier américain. Pourquoi ce détour juridique ? Il ouvre l'accès au marché de capitaux le plus profond et le plus liquide du monde, ce qui compte énormément pour une entreprise qui doit lever de l'argent régulièrement pour financer sa croissance, plutôt que de dépendre d'un marché argentin plus étroit et historiquement plus instable.",
+        },
+        { type: "h2", text: "Bermudes : la capitale improbable de la réassurance en dollars" },
+        {
+          type: "p",
+          text: "Deux autres noms de mon échantillon, Arch Capital Group et RenaissanceRe, partagent la même adresse à quelques rues près : Pembroke, aux [Bermudes](https://www.archgroup.com/about/), pas un gratte-ciel de Manhattan. Ce n'est pas un hasard isolé, c'est tout un secteur qui s'y est installé. L'histoire commence en 1992 avec l'ouragan Andrew, qui a infligé aux assureurs américains des pertes record pour l'époque, environ 23 milliards de dollars. Le marché de la réassurance catastrophe s'est retrouvé à court de capacité du jour au lendemain, et [près de 4 milliards de dollars de capital frais ont afflué vers les Bermudes en quelques mois](https://www.businessinsurance.com/article/20120819/news06/308199986/hurricane-andrew-changed-the-worldwide-reinsurance-market) pour créer de nouveaux réassureurs, un groupe que le secteur surnomme encore aujourd'hui la « Class of 93 ».",
+        },
+        {
+          type: "p",
+          text: "Le mécanisme qui explique pourquoi ces entreprises restent en dollars malgré leur adresse bermudienne : leurs clients sont des assureurs américains qui leur cèdent une part de leurs risques d'ouragan ou de tremblement de terre, et ces contrats de réassurance se négocient en dollars, comme la quasi-totalité du marché mondial de l'assurance dommages. Coter à New York leur donne aussi accès aux mêmes investisseurs institutionnels profonds que MercadoLibre, indispensables pour reconstituer rapidement du capital après une grosse année de sinistres. J'ai déjà détaillé la thèse complète sur ces deux entreprises dans mon [analyse d'Arch Capital](/blog/arch-capital-acgl-analyse-fondamentale-reassurance) et mon [étude de RenaissanceRe](/blog/renaissancere-rnr-reassurance-10-10) ; je ne la refais pas ici, l'angle de cet article est ailleurs.",
+        },
+        { type: "h2", text: "Pourquoi ça change vraiment quelque chose pour toi" },
+        {
+          type: "p",
+          text: "La différence n'est pas qu'anecdotique, elle change ton exposition au risque de change. Si tu achètes MercadoLibre, Arch Capital ou n'importe quelle des 55 actions en dollars de mon échantillon, ton risque de change en tant qu'investisseur européen s'arrête au taux euro/dollar, exactement le même que pour Apple ou Microsoft, quelle que soit la nationalité réelle de l'entreprise. Si en revanche tu achètes une des 45 actions cotées dans une devise locale, tu ajoutes un second risque de change, indépendant de la performance de l'entreprise elle-même : j'ai détaillé cette mécanique en profondeur, exemples réels à l'appui, dans mon [guide sur le risque de change](/blog/risque-change-actions-etrangeres-methode-lubin).",
+        },
+        {
+          type: "p",
+          text: "Ce que je voulais montrer ici est différent et en amont de ce guide : avant même de calculer un risque de change, il faut savoir de quelle devise on parle vraiment, et le prix affiché ne suffit pas à répondre à la question « cette entreprise est-elle américaine ? ». La qualité du business reste toujours mon premier filtre, la devise et la nationalité ne sont qu'une couche d'information supplémentaire, que j'affiche systématiquement sur chaque fiche de mon [outil d'analyse](/screener) plutôt que de la laisser dans l'angle mort. Tu retrouveras comment je construis chacun de mes dix critères dans ma [méthodologie complète](/methodologie).",
+        },
+      ],
+      faq: [
+        { q: "Pourquoi une entreprise étrangère se cote-t-elle en dollars plutôt que dans sa devise locale ?", a: "Deux mécanismes possibles : l'ADR, où une banque américaine détient les vraies actions et émet un certificat négociable à New York, ou l'incorporation directe de la société cotée dans un État américain comme le Delaware pendant que le siège opérationnel reste à l'étranger. Dans les deux cas, l'objectif est le même : accéder au marché de capitaux le plus profond et le plus liquide du monde." },
+        { q: "La devise de cotation change-t-elle mon risque de change en tant qu'investisseur européen ?", a: "Oui, mais seulement si l'action n'est pas déjà en dollars. Une action en dollars, quelle que soit la nationalité réelle de l'entreprise, ne t'expose qu'au taux euro/dollar. Une action cotée directement en yen, en roupie ou en couronne ajoute un second risque de change, indépendant de la performance réelle de l'entreprise." },
+        { q: "Pourquoi certaines actions britanniques sont-elles cotées en pence (GBp) et pas en livres ?", a: "C'est une convention historique de la Bourse de Londres : la plupart des actions y sont cotées en pence (100 pence pour une livre), pas en livres entières. C'est un piège classique de lecture de données : un prix affiché « 850 » en GBp vaut 8,50 livres, pas 850. Je le signale parce que confondre les deux fausse un calcul de valorisation par un facteur 100." },
+        { q: "Comment savoir où est vraiment basée une entreprise avant d'investir ?", a: "La devise de cotation ou le nom du marché ne suffisent pas. Le document le plus fiable est le rapport annuel déposé auprès du régulateur (10-K pour une valeur cotée aux États-Unis, accessible sur SEC EDGAR), qui indique noir sur blanc l'adresse du siège social réel, pas celle de la coquille juridique." },
+      ],
+      tags: ["devises", "actions internationales", "ADR", "Bermudes", "risque de change"],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Investir dans une devise étrangère ajoute un risque de change spécifique, distinct du risque propre à l'entreprise.",
+    },
+    en: {
+      title: "Not every dollar-priced stock is American",
+      excerpt:
+        "More than half of the perfect-score stocks on my screener trade in dollars today. But currency doesn't tell you where a company really lives: I check three concrete cases, from Buenos Aires to Bermuda.",
+      metaDescription:
+        "More than half of the perfect-score stocks on my screener trade in dollars today. But currency doesn't say where a company really lives: three verified cases.",
+      answer:
+        "This morning, 55 of the 100 stocks scoring a perfect 10 out of 10 on my screener trade in US dollars, the other 45 spread across fourteen other currencies. But a dollar price doesn't mean an American company: MercadoLibre is headquartered in Buenos Aires, Arch Capital and RenaissanceRe in Bermuda. The listing currency tells you where a stock trades, not where the company actually lives.",
+      body: [
+        { type: "h2", text: "The reflex I keep correcting" },
+        {
+          type: "p",
+          text: "This morning, 100 stocks pass all ten of my financial quality criteria on my screening tool, the maximum my free tier's pagination returns (beyond that, full historical access is a paid feature, worth stating plainly since I'm being precise about what I'm actually measuring). Of those 100, 55 trade in US dollars. The near automatic reflex when you see a dollar price is to assume an American company. That's wrong, and the gap is wider than I expected before checking ticker by ticker.",
+        },
+        {
+          type: "p",
+          text: "The other 45 stocks spread across fourteen different currencies: Indian rupee, euro, British pence, Hong Kong dollar, Japanese yen, Canadian dollar, Indonesian rupiah, Swiss franc, Korean won, Chinese yuan, Taiwan dollar, South African cent, Australian dollar, Brazilian real. But the reverse of the reflex is just as misleading: a good chunk of the 55 dollar names aren't American either, not the headquarters, not the employees, not the customers. That's the mix I break down here, backed by numbers and three cases I checked individually rather than trusting a cached ranking.",
+        },
+        {
+          type: "table",
+          headers: ["Currency", "Number of companies", "Share of the sample"],
+          rows: [
+            ["US dollar (USD)", "55", "55%"],
+            ["Indian rupee (INR)", "8", "8%"],
+            ["Euro (EUR)", "8", "8%"],
+            ["British pence (GBp)", "7", "7%"],
+            ["Hong Kong dollar (HKD)", "4", "4%"],
+            ["Japanese yen (JPY)", "4", "4%"],
+            ["Canadian dollar (CAD)", "3", "3%"],
+            ["Indonesian rupiah (IDR)", "3", "3%"],
+            ["Swiss franc (CHF)", "2", "2%"],
+            ["Won, yuan, Taiwan dollar, South African cent, Australian dollar, Brazilian real", "6", "6%"],
+          ],
+        },
+        { type: "h2", text: "The mechanism that puts a foreign company in dollars" },
+        {
+          type: "p",
+          text: "A company based in Buenos Aires or Bermuda can list its shares on Wall Street two ways. The best known is the ADR, American Depositary Receipt: a US custodian bank holds the real local shares and issues a tradeable certificate in New York, priced in dollars, with dividends automatically converted. The more radical route makes the listed entity itself a US legal shell, usually incorporated in Delaware, while operations, employees and customers stay entirely abroad. Either way, what you see looks identical: a dollar price, a three or four letter ticker, the feeling of buying just another Nasdaq stock.",
+        },
+        {
+          type: "p",
+          text: "[MercadoLibre](/analyse/MELI), Latin America's largest online commerce and payments platform, illustrates the second route. Its real headquarters sits in Buenos Aires, Argentina, where its executives actually work and where the company was founded in 1999, but [the listed entity itself has been a Delaware shell since inception](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=MELI&type=10-K), as every one of its annual filings with the US securities regulator confirms. Why the legal detour? It opens access to the deepest, most liquid capital market on earth, which matters enormously for a company that needs to raise money regularly to fund growth, rather than depending on a narrower and historically less stable Argentine market.",
+        },
+        { type: "h2", text: "Bermuda: the improbable capital of dollar-denominated reinsurance" },
+        {
+          type: "p",
+          text: "Two other names in my sample, Arch Capital Group and RenaissanceRe, share nearly the same address: Pembroke, [Bermuda](https://www.archgroup.com/about/), not a Manhattan tower. That's not an isolated coincidence, it's an entire industry that settled there. The story starts in 1992 with Hurricane Andrew, which inflicted what was then a record loss on US insurers, roughly $23 billion. The catastrophe reinsurance market ran short of capacity overnight, and [close to $4 billion in fresh capital flowed into Bermuda within months](https://www.businessinsurance.com/article/20120819/news06/308199986/hurricane-andrew-changed-the-worldwide-reinsurance-market) to form new reinsurers, a cohort the industry still calls the Class of 93.",
+        },
+        {
+          type: "p",
+          text: "The mechanism behind why these companies still trade in dollars despite their Bermuda address: their clients are US insurers ceding a slice of their hurricane or earthquake risk, and those reinsurance contracts are priced in dollars, like nearly all of the global property and casualty market. Listing in New York also gives them access to the same deep institutional investors as MercadoLibre, essential for rebuilding capital quickly after a heavy loss year. I've already covered the full thesis on both names in my [Arch Capital analysis](/blog/arch-capital-acgl-analyse-fondamentale-reassurance) and my [RenaissanceRe deep dive](/blog/renaissancere-rnr-reassurance-10-10); I won't repeat it here, this piece is about something else.",
+        },
+        { type: "h2", text: "Why this actually matters to you" },
+        {
+          type: "p",
+          text: "The difference isn't just trivia, it changes your currency exposure. If you buy MercadoLibre, Arch Capital, or any of the 55 dollar-priced stocks in my sample, your currency risk as a European investor stops at the euro/dollar rate, exactly the same as for Apple or Microsoft, regardless of the company's real nationality. Buy one of the 45 stocks priced directly in a local currency instead, and you add a second layer of currency risk, independent of how the company itself performs: I've covered that mechanic in depth, with real examples, in my [currency risk guide](/blog/risque-change-actions-etrangeres-methode-lubin).",
+        },
+        {
+          type: "p",
+          text: "What I wanted to show here comes one step before that guide: before you can even calculate a currency risk, you need to know which currency you're actually dealing with, and the price on screen doesn't answer the question of whether a company is American. Business quality still comes first in my method, currency and nationality are just an extra layer of information, one I display on every page of my [screening tool](/screener) rather than leaving it in a blind spot. You'll find how I build each of my ten criteria in my [full methodology](/methodologie).",
+        },
+      ],
+      faq: [
+        { q: "Why does a foreign company list in dollars instead of its local currency?", a: "Two possible mechanisms: an ADR, where a US bank holds the real shares and issues a tradeable certificate in New York, or direct incorporation of the listed entity in a US state like Delaware while operations stay abroad. Either way, the goal is the same: access to the deepest, most liquid capital market in the world." },
+        { q: "Does the listing currency change my currency risk as a European investor?", a: "Yes, but only if the stock isn't already priced in dollars. A dollar-priced stock, whatever the company's real nationality, only exposes you to the euro/dollar rate. A stock priced directly in yen, rupees or krona adds a second currency risk, independent of the company's actual performance." },
+        { q: "Why are some British stocks quoted in pence (GBp) instead of pounds?", a: "It's a historical London Stock Exchange convention: most shares there are quoted in pence, 100 pence to the pound, not whole pounds. It's a classic data reading trap: a price shown as 850 in GBp is worth 8.50 pounds, not 850. I flag it because confusing the two throws off a valuation calculation by a factor of 100." },
+        { q: "How do I find out where a company is actually based before investing?", a: "Listing currency or exchange name aren't enough. The most reliable document is the annual report filed with the regulator, a 10-K for a US-listed stock, available on SEC EDGAR, which states the real headquarters address in black and white, not the legal shell's." },
+      ],
+      tags: ["currencies", "international stocks", "ADR", "Bermuda", "currency risk"],
+      disclaimer:
+        "Analysis for informational and educational purposes only, not personalized investment advice. Past performance doesn't guarantee future results. Figures as of publication date, subject to change. Investing in a foreign currency adds a specific currency risk, distinct from the company's own risk.",
+    },
+    es: {
+      title: "No toda acción cotizada en dólares es estadounidense",
+      excerpt:
+        "Más de la mitad de las acciones con nota perfecta en mi filtro cotizan hoy en dólares. Pero la divisa no dice dónde vive realmente la empresa: reviso tres casos concretos, de Buenos Aires a las Bermudas.",
+      metaDescription:
+        "Más de la mitad de las acciones con nota perfecta en mi filtro cotizan hoy en dólares. Pero la divisa no dice donde vive la empresa: tres casos verificados.",
+      answer:
+        "Esta mañana, 55 de las 100 acciones con nota perfecta en mi filtro cotizan en dólares estadounidenses, las otras 45 se reparten en catorce divisas distintas. Pero cotizar en dólares no significa ser una empresa estadounidense: MercadoLibre tiene su sede en Buenos Aires, Arch Capital y RenaissanceRe en las Bermudas. La divisa de cotización dice dónde se negocia la acción, no dónde vive realmente la empresa.",
+      body: [
+        { type: "h2", text: "El reflejo que corrijo constantemente" },
+        {
+          type: "p",
+          text: "Esta mañana, 100 acciones cumplen mis diez criterios de calidad financiera en mi herramienta de análisis, el máximo que devuelve la paginación gratuita de mi propio filtro (más allá de eso, el acceso completo al histórico queda reservado a la oferta de pago, lo aclaro para ser honesto sobre lo que mido exactamente). De esas 100, 55 cotizan en dólares estadounidenses. El reflejo casi automático al ver un precio en dólares es pensar en una empresa estadounidense. Es falso, y la diferencia es mayor de lo que imaginaba antes de comprobarlo empresa por empresa.",
+        },
+        {
+          type: "p",
+          text: "Las otras 45 acciones se reparten en catorce divisas distintas: rupia india, euro, libra esterlina cotizada en peniques, dólar de Hong Kong, yen japonés, dólar canadiense, rupia indonesia, franco suizo, won coreano, yuan, dólar taiwanés, céntimo sudafricano, dólar australiano, real brasileño. Pero el reflejo inverso es igual de engañoso: buena parte de las 55 acciones en dólares tampoco tienen nada de estadounidense, ni la sede, ni los empleados, ni los clientes. Es esa mezcla la que detallo aquí, con datos concretos y tres casos que verifiqué individualmente en lugar de fiarme de una clasificación en caché.",
+        },
+        {
+          type: "table",
+          headers: ["Divisa", "Número de empresas", "Parte de la muestra"],
+          rows: [
+            ["Dólar estadounidense (USD)", "55", "55 %"],
+            ["Rupia india (INR)", "8", "8 %"],
+            ["Euro (EUR)", "8", "8 %"],
+            ["Libra esterlina en peniques (GBp)", "7", "7 %"],
+            ["Dólar de Hong Kong (HKD)", "4", "4 %"],
+            ["Yen japonés (JPY)", "4", "4 %"],
+            ["Dólar canadiense (CAD)", "3", "3 %"],
+            ["Rupia indonesia (IDR)", "3", "3 %"],
+            ["Franco suizo (CHF)", "2", "2 %"],
+            ["Won, yuan, dólar taiwanés, céntimo sudafricano, dólar australiano, real brasileño", "6", "6 %"],
+          ],
+        },
+        { type: "h2", text: "El mecanismo que pone en dólares a una empresa extranjera" },
+        {
+          type: "p",
+          text: "Una empresa con sede en Buenos Aires o en las Bermudas puede cotizar sus acciones en Wall Street de dos formas. La más conocida es el ADR (American Depositary Receipt): un banco depositario estadounidense custodia las acciones locales reales y emite a cambio un certificado negociable en Nueva York, en dólares, con el dividendo convertido automáticamente. La segunda vía, más radical, consiste en que la propia sociedad cotizada sea una estructura jurídica estadounidense, normalmente constituida en Delaware, mientras la sede operativa, los empleados y los clientes permanecen enteramente en el extranjero. En ambos casos, lo que ves es idéntico: un precio en dólares, un ticker de tres o cuatro letras, la sensación de comprar una acción más del Nasdaq.",
+        },
+        {
+          type: "p",
+          text: "[MercadoLibre](/analyse/MELI), la mayor plataforma de comercio electrónico y pagos de América Latina, ilustra la segunda vía. Su sede real está en Buenos Aires, Argentina, donde trabajan sus directivos y donde se fundó la empresa en 1999, pero [la sociedad cotizada es una estructura constituida en Delaware desde su creación](https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&ticker=MELI&type=10-K), como confirma cada uno de sus informes anuales ante el regulador bursátil estadounidense. ¿Por qué este rodeo jurídico? Abre el acceso al mercado de capitales más profundo y líquido del mundo, algo que importa enormemente para una empresa que necesita levantar capital con regularidad para financiar su crecimiento, en lugar de depender de un mercado argentino más estrecho e históricamente más inestable.",
+        },
+        { type: "h2", text: "Bermudas: la improbable capital del reaseguro en dólares" },
+        {
+          type: "p",
+          text: "Otros dos nombres de mi muestra, Arch Capital Group y RenaissanceRe, comparten casi la misma dirección: Pembroke, [Bermudas](https://www.archgroup.com/about/), no una torre de Manhattan. No es una coincidencia aislada, es todo un sector el que se instaló allí. La historia empieza en 1992 con el huracán Andrew, que infligió a las aseguradoras estadounidenses pérdidas récord para la época, unos 23.000 millones de dólares. El mercado del reaseguro de catástrofes se quedó sin capacidad de la noche a la mañana, y [cerca de 4.000 millones de dólares de capital fresco llegaron a las Bermudas en pocos meses](https://www.businessinsurance.com/article/20120819/news06/308199986/hurricane-andrew-changed-the-worldwide-reinsurance-market) para crear nuevas reaseguradoras, un grupo que el sector todavía llama la Class of 93.",
+        },
+        {
+          type: "p",
+          text: "El mecanismo que explica por qué estas empresas siguen cotizando en dólares pese a su dirección en Bermudas: sus clientes son aseguradoras estadounidenses que les ceden parte de su riesgo de huracán o terremoto, y esos contratos de reaseguro se pactan en dólares, como casi todo el mercado mundial de seguros de daños. Cotizar en Nueva York también les da acceso a los mismos inversores institucionales profundos que MercadoLibre, esenciales para reconstituir capital rápidamente tras un mal año de siniestros. Ya detallé la tesis completa de ambas empresas en mi [análisis de Arch Capital](/blog/arch-capital-acgl-analyse-fondamentale-reassurance) y mi [estudio de RenaissanceRe](/blog/renaissancere-rnr-reassurance-10-10); no la repito aquí, este artículo va por otro lado.",
+        },
+        { type: "h2", text: "Por qué esto te importa de verdad" },
+        {
+          type: "p",
+          text: "La diferencia no es solo una curiosidad, cambia tu exposición al riesgo de cambio. Si compras MercadoLibre, Arch Capital o cualquiera de las 55 acciones en dólares de mi muestra, tu riesgo de cambio como inversor europeo se limita al tipo euro/dólar, exactamente igual que con Apple o Microsoft, sea cual sea la nacionalidad real de la empresa. Si en cambio compras una de las 45 acciones cotizadas directamente en una divisa local, añades un segundo riesgo de cambio, independiente del comportamiento de la propia empresa: detallé esta mecánica en profundidad, con ejemplos reales, en mi [guía sobre el riesgo de cambio](/blog/risque-change-actions-etrangeres-methode-lubin).",
+        },
+        {
+          type: "p",
+          text: "Lo que quería mostrar aquí es previo a esa guía: antes de calcular un riesgo de cambio hace falta saber de qué divisa se trata realmente, y el precio que ves en pantalla no responde a la pregunta de si una empresa es estadounidense. La calidad del negocio sigue siendo siempre mi primer filtro, la divisa y la nacionalidad son solo una capa adicional de información, que muestro de forma sistemática en cada ficha de mi [herramienta de análisis](/screener) en lugar de dejarla en un punto ciego. Encontrarás cómo construyo cada uno de mis diez criterios en mi [metodología completa](/methodologie).",
+        },
+      ],
+      faq: [
+        { q: "¿Por qué una empresa extranjera cotiza en dólares en lugar de en su divisa local?", a: "Dos mecanismos posibles: el ADR, donde un banco estadounidense custodia las acciones reales y emite un certificado negociable en Nueva York, o la constitución directa de la sociedad cotizada en un estado de EE. UU. como Delaware mientras las operaciones permanecen en el extranjero. En ambos casos el objetivo es el mismo: acceder al mercado de capitales más profundo y líquido del mundo." },
+        { q: "¿Cambia la divisa de cotización mi riesgo de cambio como inversor europeo?", a: "Sí, pero solo si la acción no cotiza ya en dólares. Una acción en dólares, sea cual sea la nacionalidad real de la empresa, solo te expone al tipo euro/dólar. Una acción cotizada directamente en yenes, rupias o coronas añade un segundo riesgo de cambio, independiente del comportamiento real de la empresa." },
+        { q: "¿Por qué algunas acciones británicas cotizan en peniques (GBp) y no en libras?", a: "Es una convención histórica de la Bolsa de Londres: la mayoría de las acciones allí cotizan en peniques, 100 peniques equivalen a una libra, no en libras enteras. Es una trampa clásica de lectura de datos: un precio mostrado como «850» en GBp vale 8,50 libras, no 850. Lo señalo porque confundir ambos falsea un cálculo de valoración por un factor de 100." },
+        { q: "¿Cómo sé dónde está realmente basada una empresa antes de invertir?", a: "La divisa de cotización o el nombre del mercado no bastan. El documento más fiable es el informe anual presentado ante el regulador, un 10-K para una acción cotizada en EE. UU., disponible en SEC EDGAR, que indica la dirección real de la sede, no la de la estructura jurídica." },
+      ],
+      tags: ["divisas", "acciones internacionales", "ADR", "Bermudas", "riesgo de cambio"],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizada. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Invertir en una divisa extranjera añade un riesgo de cambio específico, distinto del riesgo propio de la empresa.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026];
 
 
 /** Articles triés du plus récent au plus ancien. */
