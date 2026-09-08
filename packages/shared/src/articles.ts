@@ -86437,7 +86437,335 @@ const articleDevisesQualite2026: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026];
+const articleMachinesIndustrielles: Article = {
+  slug: "machines-industrielles-specialite-2026",
+  date: "2026-09-08",
+  updated: "2026-09-08",
+  readingTime: 8,
+  content: {
+    fr: {
+      title: "Ces actions industrielles que personne ne remarque",
+      excerpt:
+        "Ascenseurs, pompes industrielles, moteurs de porte-conteneurs : j'ai vérifié aujourd'hui, ticker par ticker, quelles entreprises de ce secteur invisible valident encore ma grille de qualité. Il n'en reste que trois avec la meilleure note, et leur prix en bourse varie du simple au quintuple.",
+      metaDescription:
+        "Ascenseurs, pompes industrielles, moteurs de cargo : entreprises discrètes qui valident ma grille qualité, à des prix très différents les uns des autres.",
+      answer:
+        "Le secteur des machines industrielles de spécialité, ascenseurs, pompes, moteurs marins, réunit près de deux cents entreprises cotées. Vérifié aujourd'hui ticker par ticker : seules trois valident encore la quasi-totalité de mes critères de qualité financière. Leur prix, lui, varie de onze à plus de trente fois le cash généré, pour des raisons que je détaille une par une.",
+      body: [
+        {
+          type: "p",
+          text: "La dernière fois que tu as pris un ascenseur, tu n'as sûrement pas pensé une seconde à qui l'a construit, ni à qui grimpe dedans une fois par mois pour vérifier que le câble tient. Même chose pour le porte-conteneurs que tu as peut-être aperçu au large d'un port, ou pour la pompe qui fait circuler l'eau potable dans ta ville sans que personne n'y prête attention. Ces machines sont partout, elles tombent rarement en panne, et il ne viendrait à l'idée de presque personne d'y voir une action en bourse.",
+        },
+        {
+          type: "p",
+          text: "C'est pourtant exactement le genre d'entreprise que mon filtre qualité aime repérer : un besoin physique qui ne disparaît pas avec la prochaine mode, une clientèle captive une fois l'équipement installé, et une facturation qui continue longtemps après la vente initiale. Mon écran range ces fabricants dans une catégorie que la presse financière française ne nomme presque jamais, les machines industrielles de spécialité, ascenseurs, pompes, vannes, moteurs marins, équipements d'emballage. Près de deux cents entreprises cotées dans le monde y répondent aujourd'hui.",
+        },
+        {
+          type: "p",
+          text: "J'ai vérifié ce matin, ticker par ticker sur mon outil d'analyse plutôt que de me fier à un classement en cache, lesquelles de ces deux cents valident encore la quasi-totalité de mes dix critères de qualité financière. Il n'en reste que trois. Ce n'était pas le cas il y a encore quelques semaines : la plupart des noms que je m'attendais à retrouver en tête ont glissé d'un cran, presque tous pour la même raison, que je détaille plus bas. Et parmi les entreprises qui restent solidement notées, le prix que le marché accepte de payer varie de onze à plus de trente fois le cash généré, pour des raisons que je peux expliquer une par une plutôt que de les mettre sur le compte du hasard.",
+        },
+        { type: "h2", text: "Pourquoi la plupart d'entre elles ont perdu un point ce mois-ci" },
+        {
+          type: "p",
+          text: "Je note chaque action sur dix critères concrets : est-elle rentable, ses ventes et son free cash flow (l'argent qui reste vraiment en caisse une fois toutes les factures et tous les investissements payés) progressent-ils dans la durée, rachète-t-elle ses propres actions plutôt que de les diluer, sa dette reste-t-elle maîtrisable, son rendement du capital investi est-il solide. Sur les presque deux cents entreprises de machines industrielles de spécialité que couvre mon écran, vingt-trois valident encore au moins huit de ces dix critères aujourd'hui. Un mois plus tôt, la plupart de ces mêmes noms en validaient neuf.",
+        },
+        {
+          type: "p",
+          text: "Seules trois tiennent encore neuf ou dix critères sur dix à l'heure où j'écris : Gorman-Rupp, un fabricant américain de pompes industrielles déjà couvert sur mon site, dix sur dix sans le moindre critère en échec ; Krones, un fabricant allemand de lignes d'embouteillage et d'emballage, neuf sur dix ; et Schindler, le géant suisse de l'ascenseur, neuf sur dix également. Tous les autres noms solides du secteur, Wärtsilä, Flowserve, AMETEK, Parker-Hannifin, Graco, KONE, Innio, ont glissé d'un cran ce mois-ci, et six sur sept d'entre eux ont basculé exactement sur le même critère : le chiffre d'affaires par employé, une mesure de productivité qui distingue une croissance qui vient de vrais gains d'efficacité d'une croissance qui vient simplement d'embaucher davantage de monde. Ce n'est pas un effondrement, juste une photo à un instant donné qui rappelle qu'une note n'est jamais acquise pour toujours.",
+        },
+        { type: "h2", text: "Wärtsilä (WRT1V.HE) : les moteurs qui font avancer les cargos, sans être chers" },
+        {
+          type: "p",
+          text: "Wärtsilä fabrique les gros moteurs diesel et désormais bicarburant qui propulsent une partie significative de la flotte marchande mondiale, cargos, porte-conteneurs, méthaniers, ainsi que des centrales électriques de secours utilisées quand le réseau local est instable. Construire un moteur marin de cette taille, capable de tourner des dizaines de milliers d'heures sans faillir, n'est pas à la portée de n'importe quel fabricant industriel : le marché mondial se partage entre une poignée d'acteurs, dont Wärtsilä, et les chantiers navals qui ont déjà intégré la maintenance et les pièces détachées d'une marque à leur flotte changent rarement de fournisseur en cours de route, pour une raison simple, un moteur mal entretenu immobilise un navire entier.",
+        },
+        {
+          type: "p",
+          text: "Le carnet de commandes confirme que ce moat tient toujours. Au premier semestre 2026, [les prises de commandes de Wärtsilä ont bondi de 23 % à 4,93 milliards d'euros](https://www.wartsila.com/media/news/21-07-2026-wartsila-s-half-year-financial-report-january-june-2026-3773763), avec un deuxième trimestre record à lui seul, porté notamment par des commandes de moteurs fonctionnant à l'ammoniac, un carburant sans carbone que le secteur maritime commence tout juste à adopter pour respecter les futures normes d'émissions. Le carnet de commandes total atteint désormais 8,98 milliards d'euros, en hausse de 13 % sur un an : une visibilité de plusieurs trimestres que peu d'industriels peuvent afficher.",
+        },
+        {
+          type: "p",
+          text: "Mon modèle valide huit de mes dix critères pour Wärtsilä, avec un seul vrai point faible, le chiffre d'affaires par employé, déjà expliqué plus haut. Le reste de la grille est solide : aucune dette nette, un free cash flow par action qui progresse de plus de 46 % par an sur cinq ans, porté par l'expansion des marges. Et contrairement à Schindler ou Krones plus bas, Wärtsilä ne se valorise pas cher : à 11,9 fois son free cash flow annuel, mon modèle l'estime à seulement 4 % de son prix d'achat raisonnable, quasiment à la valeur juste. Ni une affaire flagrante, ni une action à éviter, un cas rare de qualité sérieuse au prix du marché.",
+        },
+        { type: "h2", text: "Schindler (SCHP.SW) : l'ascenseur qui facture longtemps après la vente" },
+        {
+          type: "p",
+          text: "Un ascenseur, une fois installé dans un immeuble, doit être inspecté et entretenu pendant des décennies pour rester conforme aux normes de sécurité locales. Changer de prestataire de maintenance en cours de route est rare : le nouveau venu doit reprendre la documentation technique d'un équipement qu'il n'a pas conçu, avec la responsabilité légale que cela implique en cas d'accident. Résultat, le fabricant qui a vendu l'ascenseur garde presque toujours le contrat d'entretien pendant toute la durée de vie de l'appareil, souvent vingt ans ou plus. Chez Schindler, l'entretien et la modernisation représentent aujourd'hui environ 45 % du chiffre d'affaires du groupe, un flux de revenus qui ne dépend pas du rythme des nouvelles constructions.",
+        },
+        {
+          type: "p",
+          text: "Les [résultats annuels 2025 de Schindler](https://group.schindler.com/en/media/press-releases/annual-results-2025.html), publiés en mars 2026, illustrent bien ce mécanisme : le chiffre d'affaires n'a progressé que de 1,3 % en monnaies locales, mais la marge opérationnelle est passée de 11,2 % à 13,0 % sur l'année, portée justement par ce mix de plus en plus orienté vers l'entretien récurrent plutôt que vers l'installation de nouveaux ascenseurs, un marché plus cyclique et moins rentable.",
+        },
+        {
+          type: "p",
+          text: "Sur cinq ans, les ventes de Schindler reculent même très légèrement, de 1,2 % par an en moyenne, ce qui fait échouer ce critère précis dans ma grille. Mais le free cash flow par action, lui, grimpe de 34,6 % par an sur la même période, tiré par l'expansion des marges et par des rachats d'actions réguliers. C'est une leçon utile : une entreprise dont les ventes stagnent peut quand même créer beaucoup de valeur par action, à condition que chaque euro de revenu génère de plus en plus de cash et que le nombre d'actions en circulation diminue. Le hic, c'est le prix : à 19,8 fois son free cash flow annuel, mon modèle affiche une surcote de 36,6 % pour Schindler. Une excellente entreprise, mais dont je n'achèterais pas les actions à ce niveau.",
+        },
+        { type: "h2", text: "Flowserve (FLS) : les pompes et vannes qui reviennent après la première facture" },
+        {
+          type: "p",
+          text: "Flowserve fabrique des pompes, vannes et joints industriels utilisés dans le pétrole et le gaz, la chimie, et de plus en plus dans le nucléaire civil. Comme pour Wärtsilä, la vente initiale n'est qu'une entrée en matière : une raffinerie ou une centrale qui a installé une pompe Flowserve continue d'acheter les pièces détachées et le service après-vente pendant toute la durée de vie de l'installation, souvent plusieurs décennies, parce que remplacer une pièce critique par celle d'un autre fournisseur exige une nouvelle certification coûteuse. Ce flux de pièces et de service, ce que l'industrie appelle l'aftermarket, pèse de plus en plus lourd dans les résultats du groupe.",
+        },
+        {
+          type: "p",
+          text: "Au deuxième trimestre 2026, [Flowserve a enregistré 1,35 milliard de dollars de nouvelles commandes, en hausse de 26 % sur un an, avec un niveau record de commandes aftermarket](https://www.sec.gov/Archives/edgar/data/0000030625/000119312526323649/d15165dex991.htm). Le groupe a aussi refermé le 30 juin 2026 le rachat de la division vannes de Trillium Flow Technologies, un pari sur la demande croissante d'équipements certifiés pour le nucléaire, un marché où la barrière réglementaire à l'entrée est particulièrement haute. À l'inverse, les ventes au Moyen-Orient reculent d'environ 60 millions de dollars depuis le début de l'année, un rappel que même une entreprise de cette qualité reste exposée à la géopolitique régionale.",
+        },
+        {
+          type: "p",
+          text: "Mon modèle valide huit critères sur dix pour Flowserve, avec le même point faible que Wärtsilä sur le chiffre d'affaires par employé, et une dette un peu plus tendue, remboursable en 3,8 ans de cash généré contre moins de 3 ans dans l'idéal. À 26,5 fois son free cash flow annuel, l'action se négocie avec une légère décote de 7,4 % par rapport à mon prix d'achat raisonnable, un profil entre les deux précédents, ni la meilleure affaire ni la plus chère du groupe.",
+        },
+        { type: "h2", text: "Le tableau : la même grille de qualité, presque un facteur trois sur le prix" },
+        {
+          type: "p",
+          text: "Remets ces multiples côte à côte et un motif apparaît : plus le modèle économique dépend de contrats d'entretien récurrents et d'un moat difficile à contourner, plus le marché accepte de payer cher, et inversement. Un détail mérite un avertissement avant le tableau : Krones, le fabricant allemand de lignes d'embouteillage, affiche le P/FCF le plus bas du groupe, 11,5 fois seulement, ce qui pourrait ressembler à la meilleure affaire. Mais son cash par action a bondi de 22,6 % par an sur cinq ans, un rythme que mon modèle ne prolonge volontairement pas tel quel dans le futur, une accélération aussi forte s'essouffle presque toujours. Une fois ce ralentissement anticipé intégré, mon prix d'achat raisonnable tombe très en dessous du cours actuel, d'où une surcote de 73 % malgré un multiple d'apparence basse. Le chiffre affiché seul aurait menti.",
+        },
+        {
+          type: "table",
+          headers: ["Entreprise (Ticker)", "Ce qu'elle fabrique", "Critères validés", "Valorisation (P/FCF)", "Verdict prix aujourd'hui"],
+          rows: [
+            ["Gorman-Rupp (GRC)", "Pompes industrielles", "10 sur 10", "20,6×", "Surcote de 4,7 %"],
+            ["Krones (KRN.DE)", "Lignes d'embouteillage", "9 sur 10", "11,5×", "Surcote de 73,2 %"],
+            ["Schindler (SCHP.SW)", "Ascenseurs et escaliers mécaniques", "9 sur 10", "19,8×", "Surcote de 36,6 %"],
+            ["Wärtsilä (WRT1V.HE)", "Moteurs marins et centrales", "8 sur 10", "11,9×", "Décote de 4,0 %"],
+            ["Flowserve (FLS)", "Pompes et vannes industrielles", "8 sur 10", "26,5×", "Décote de 7,4 %"],
+            ["Innio (INIO)", "Moteurs à gaz industriels", "8 sur 10", "22,7×", "Décote de 3,8 %"],
+            ["Graco (GGG)", "Pompes de précision, peinture", "8 sur 10", "21,7×", "Décote de 26,8 %"],
+            ["KONE (KNEBV.HE)", "Ascenseurs et escaliers mécaniques", "8 sur 10", "22,7×", "Surcote de 42,3 %"],
+            ["AMETEK (AME)", "Instruments de mesure électroniques", "8 sur 10", "32,9×", "Surcote de 67,7 %"],
+            ["Parker-Hannifin (PH)", "Composants hydrauliques et pneumatiques", "8 sur 10", "34,6×", "Surcote de 60,9 %"],
+          ],
+        },
+        { type: "h2", text: "Mon verdict : pas de bradée évidente, trois profils à suivre" },
+        {
+          type: "p",
+          text: "Aucune des dix ne saute aux yeux comme une franche décote assortie d'une note quasi parfaite, le combo que je préfère. Gorman-Rupp, la seule à dix sur dix, se négocie avec une légère prime de 4,7 %, quasiment à la valeur juste. Wärtsilä et Innio, à huit sur dix mais achetables sous mon prix cible, sont les deux profils que je garde à l'œil en priorité : bonne qualité, un seul critère manquant sur la productivité par employé, et un prix qui laisse encore une petite marge de sécurité. Krones, Schindler, KONE, AMETEK et Parker-Hannifin partagent un point commun, une vraie qualité, mais un prix qui a déjà intégré cette qualité et plus encore. Ce n'est pas une raison de les vendre si tu les détiens déjà, mais ce n'en est pas une non plus pour les acheter à ce niveau selon ma méthode. Tu peux vérifier chacune de ces dix fiches en direct sur [mon outil d'analyse](/screener), et retrouver comment je calcule un prix d'achat raisonnable dans [ma méthodologie complète](/methodologie).",
+        },
+      ],
+      faq: [
+        { q: "Qu'est-ce qu'une entreprise de « machines industrielles de spécialité » ?", a: "C'est une catégorie boursière qui regroupe les fabricants d'équipements industriels très spécifiques plutôt que de biens de grande série : ascenseurs, pompes, vannes, moteurs marins, machines d'emballage. Ce ne sont presque jamais des noms grand public, mais leurs produits sont indispensables à l'industrie, aux infrastructures et au transport maritime, ce qui leur donne une demande stable dans la durée." },
+        { q: "Pourquoi Wärtsilä est-elle moins chère que Schindler alors que les deux sont bien notées ?", a: "Le modèle économique diffère. Wärtsilä vend des moteurs neufs pour des navires et des centrales, un marché plus cyclique lié aux commandes de construction navale. Schindler tire près de 45 % de son chiffre d'affaires de contrats d'entretien récurrents sur des ascenseurs déjà installés, un revenu bien plus prévisible. Le marché paie généralement plus cher cette prévisibilité, ce qui explique une bonne partie de l'écart de valorisation entre les deux." },
+        { q: "Une entreprise dont les ventes reculent peut-elle rester une bonne action ?", a: "Oui, à condition que le cash généré par action continue de croître. C'est le cas de Schindler : ses ventes reculent légèrement depuis cinq ans, mais son free cash flow par action grimpe de 34,6 % par an grâce à l'expansion des marges et aux rachats d'actions. Ce n'est pas la règle générale, mais un exemple concret que le chiffre d'affaires seul ne raconte pas toute l'histoire." },
+        { q: "Un P/FCF bas signifie-t-il toujours qu'une action est sous-évaluée ?", a: "Non, l'exemple de Krones dans cet article le montre bien. Son P/FCF de 11,5 fois est le plus bas du groupe, mais son rythme de croissance récent du free cash flow par action, 22,6 % par an, est probablement temporaire. Une fois ce ralentissement anticipé pris en compte, mon modèle estime l'action en surcote de 73 % malgré ce multiple d'apparence attractive." },
+      ],
+      tags: ["industrie", "Wärtsilä", "Schindler", "Flowserve", "palmarès sectoriel", "machines industrielles"],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication, susceptibles d'évoluer. Investir sur des marchés étrangers comporte des risques spécifiques (change, fiscalité, accès via courtier).",
+    },
+    en: {
+      title: "These industrial stocks nobody notices",
+      excerpt:
+        "Elevators, industrial pumps, cargo ship engines: I checked today, ticker by ticker, which companies in this invisible sector still pass my quality screen. Only three keep the top score, and their stock prices range from cheap to more than four times pricier.",
+      metaDescription:
+        "Elevators, industrial pumps, cargo engines: quietly excellent companies that pass my quality screen, priced very differently from one to the next.",
+      answer:
+        "The specialty industrial machinery sector, elevators, pumps, marine engines, includes nearly two hundred listed companies. Checked today, ticker by ticker: only three still pass nearly all of my financial quality criteria. Their stock prices, meanwhile, range from eleven to more than thirty times the cash they generate, for specific reasons I break down one by one.",
+      body: [
+        {
+          type: "p",
+          text: "The last time you rode an elevator, you probably didn't spend a second wondering who built it, or who climbs into the shaft once a month to check the cable. Same with the container ship you might have spotted off a port, or the pump moving drinking water through your city without anyone noticing. These machines are everywhere, they rarely break down, and almost nobody thinks of them as a stock.",
+        },
+        {
+          type: "p",
+          text: "That is exactly the kind of business my quality screen likes to find: a physical need that doesn't go out of fashion, a captive customer once the equipment is installed, and billing that keeps going long after the original sale. My screener groups these manufacturers into a category financial media almost never names, specialty industrial machinery, elevators, pumps, valves, marine engines, packaging equipment. Nearly two hundred listed companies worldwide fall into it today.",
+        },
+        {
+          type: "p",
+          text: "This morning I checked, ticker by ticker on my own analysis tool rather than trusting a cached ranking, which of those two hundred still pass nearly all ten of my financial quality criteria. Only three are left. That wasn't the case a few weeks ago: most of the names I expected to still be at the top slipped a notch, almost all for the same reason, which I break down below. And among the companies that remain solidly rated, the price the market is willing to pay ranges from eleven to more than thirty times the cash they generate, for reasons I can explain one by one rather than chalk up to noise.",
+        },
+        { type: "h2", text: "Why most of them lost a point this month" },
+        {
+          type: "p",
+          text: "I score every stock on ten concrete criteria: is it profitable, do its sales and free cash flow (the cash that's actually left in the bank once every bill and every investment is paid) keep growing over time, does it buy back its own shares instead of diluting them, is its debt manageable, is its return on invested capital solid. Of the nearly two hundred specialty industrial machinery companies my screener covers, twenty three still pass at least eight of these ten criteria today. A month earlier, most of those same names passed nine.",
+        },
+        {
+          type: "p",
+          text: "Only three still hold nine or ten out of ten as I write this: Gorman-Rupp, a US pump maker already covered on my site, a perfect ten with not a single failed criterion; Krones, a German bottling and packaging line maker, nine out of ten; and Schindler, the Swiss elevator giant, nine out of ten as well. Every other solid name in the sector, Wärtsilä, Flowserve, AMETEK, Parker-Hannifin, Graco, KONE, Innio, slipped a notch this month, and six out of those seven tripped on the exact same criterion: revenue per employee, a productivity measure that separates growth driven by real efficiency gains from growth that simply comes from hiring more people. It's not a collapse, just a snapshot at a point in time, a reminder that a score is never permanent.",
+        },
+        { type: "h2", text: "Wärtsilä (WRT1V.HE): the engines that move cargo ships, without the expensive price tag" },
+        {
+          type: "p",
+          text: "Wärtsilä builds the large diesel, and now dual-fuel, engines that power a meaningful share of the world's merchant fleet, cargo ships, container vessels, LNG carriers, plus backup power plants used when the local grid is unstable. Building a marine engine of that size, able to run tens of thousands of hours without failing, isn't within reach of just any industrial manufacturer: the global market is split among a handful of players, Wärtsilä among them, and shipyards that have already built a brand's maintenance and spare parts into their fleet rarely switch suppliers midstream, for a simple reason, a badly maintained engine strands an entire ship.",
+        },
+        {
+          type: "p",
+          text: "The order book confirms that moat still holds. In the first half of 2026, [Wärtsilä's order intake jumped 23% to €4.93 billion](https://www.wartsila.com/media/news/21-07-2026-wartsila-s-half-year-financial-report-january-june-2026-3773763), with a record second quarter on its own, driven in part by orders for ammonia-fueled engines, a carbon-free fuel the shipping industry is only just starting to adopt to meet future emissions rules. The total order book now stands at €8.98 billion, up 13% year on year, several quarters of visibility that few industrial companies can show.",
+        },
+        {
+          type: "p",
+          text: "My model passes Wärtsilä on eight of my ten criteria, with one real weak spot, revenue per employee, already explained above. The rest of the scorecard is solid: no net debt, free cash flow per share growing more than 46% a year over five years, driven by margin expansion. And unlike Schindler or Krones further down, Wärtsilä isn't priced richly: at 11.9 times its annual free cash flow, my model puts it just 4% below my fair buy price, essentially at fair value. Not an obvious bargain, not a stock to avoid either, a rare case of solid quality priced at what the market thinks it's worth.",
+        },
+        { type: "h2", text: "Schindler (SCHP.SW): the elevator that keeps billing long after it's sold" },
+        {
+          type: "p",
+          text: "Once installed in a building, an elevator has to be inspected and maintained for decades to stay compliant with local safety codes. Switching maintenance providers partway through is rare: the newcomer has to take over the technical documentation of equipment it didn't design, along with the legal liability that comes with it in case of an accident. As a result, the manufacturer that sold the elevator almost always keeps the maintenance contract for the equipment's entire lifespan, often twenty years or more. At Schindler, maintenance and modernization now make up about 45% of group revenue, a revenue stream that doesn't depend on the pace of new construction.",
+        },
+        {
+          type: "p",
+          text: "[Schindler's 2025 full year results](https://group.schindler.com/en/media/press-releases/annual-results-2025.html), published in March 2026, illustrate that mechanism well: revenue grew just 1.3% in local currencies, but the operating margin rose from 11.2% to 13.0% over the year, driven precisely by that shift toward recurring maintenance rather than new elevator installations, a more cyclical and less profitable market.",
+        },
+        {
+          type: "p",
+          text: "Over five years, Schindler's sales have actually declined slightly, by 1.2% a year on average, which fails that specific criterion on my scorecard. But free cash flow per share climbs 34.6% a year over the same period, driven by margin expansion and steady buybacks. It's a useful lesson: a company whose sales are flat can still create plenty of value per share, as long as every dollar of revenue turns into more and more cash and the share count keeps shrinking. The catch is the price: at 19.8 times its annual free cash flow, my model shows Schindler trading 36.6% above fair value. An excellent business, but not one I would buy at this level.",
+        },
+        { type: "h2", text: "Flowserve (FLS): the pumps and valves that keep billing after the first invoice" },
+        {
+          type: "p",
+          text: "Flowserve makes industrial pumps, valves and seals used in oil and gas, chemicals, and increasingly civilian nuclear power. Just like with Wärtsilä, the initial sale is only the opening chapter: a refinery or power plant that installed a Flowserve pump keeps buying spare parts and after-sales service for the equipment's entire lifespan, often several decades, because swapping a critical part for one from another supplier requires an expensive new certification. That flow of parts and service, what the industry calls the aftermarket, weighs more and more in the group's results.",
+        },
+        {
+          type: "p",
+          text: "In the second quarter of 2026, [Flowserve booked $1.35 billion in new orders, up 26% year on year, with a record level of aftermarket bookings](https://www.sec.gov/Archives/edgar/data/0000030625/000119312526323649/d15165dex991.htm). The group also closed the acquisition of Trillium Flow Technologies' valve division on June 30, 2026, a bet on rising demand for certified nuclear equipment, a market with a particularly high regulatory barrier to entry. On the other hand, Middle East sales have declined by about $60 million since the start of the year, a reminder that even a business of this quality remains exposed to regional geopolitics.",
+        },
+        {
+          type: "p",
+          text: "My model passes Flowserve on eight of ten criteria, with the same weak spot as Wärtsilä on revenue per employee, and slightly tighter debt, payable in 3.8 years of cash generated versus under 3 years in the ideal case. At 26.5 times its annual free cash flow, the stock trades at a modest 7.4% discount to my fair buy price, a profile between the two names above, neither the best deal nor the priciest in the group.",
+        },
+        { type: "h2", text: "The table: the same quality scorecard, a near threefold gap on price" },
+        {
+          type: "p",
+          text: "Line these multiples up side by side and a pattern emerges: the more a business model depends on recurring maintenance contracts and a moat that's hard to route around, the more the market is willing to pay, and vice versa. One name deserves a warning before the table: Krones, the German bottling line maker, shows the lowest P/FCF in the group, just 11.5 times, which might look like the best deal here. But its cash per share jumped 22.6% a year over five years, a pace my model deliberately doesn't carry forward as is, that strong an acceleration almost always cools off. Once that expected slowdown is priced in, my fair buy price falls well below the current stock price, hence a 73% premium despite a headline multiple that looks cheap. The number alone would have been misleading.",
+        },
+        {
+          type: "table",
+          headers: ["Company (Ticker)", "What it makes", "Criteria passed", "Valuation (P/FCF)", "Today's price verdict"],
+          rows: [
+            ["Gorman-Rupp (GRC)", "Industrial pumps", "10 out of 10", "20.6×", "4.7% premium"],
+            ["Krones (KRN.DE)", "Bottling lines", "9 out of 10", "11.5×", "73.2% premium"],
+            ["Schindler (SCHP.SW)", "Elevators and escalators", "9 out of 10", "19.8×", "36.6% premium"],
+            ["Wärtsilä (WRT1V.HE)", "Marine engines and power plants", "8 out of 10", "11.9×", "4.0% discount"],
+            ["Flowserve (FLS)", "Industrial pumps and valves", "8 out of 10", "26.5×", "7.4% discount"],
+            ["Innio (INIO)", "Industrial gas engines", "8 out of 10", "22.7×", "3.8% discount"],
+            ["Graco (GGG)", "Precision pumps, coatings", "8 out of 10", "21.7×", "26.8% discount"],
+            ["KONE (KNEBV.HE)", "Elevators and escalators", "8 out of 10", "22.7×", "42.3% premium"],
+            ["AMETEK (AME)", "Electronic measurement instruments", "8 out of 10", "32.9×", "67.7% premium"],
+            ["Parker-Hannifin (PH)", "Hydraulic and pneumatic components", "8 out of 10", "34.6×", "60.9% premium"],
+          ],
+        },
+        { type: "h2", text: "My take: no obvious bargain, three names worth watching" },
+        {
+          type: "p",
+          text: "None of the ten jumps out as a clear discount paired with a near perfect score, the combination I like best. Gorman-Rupp, the only perfect ten, trades at a modest 4.7% premium, essentially at fair value. Wärtsilä and Innio, at eight out of ten but priced below my target, are the two names I'm watching most closely: solid quality, one missing criterion on employee productivity, and a price that still leaves a small margin of safety. Krones, Schindler, KONE, AMETEK and Parker-Hannifin share something in common, real quality, but a price that has already priced in that quality and then some. That's not a reason to sell if you already own them, but it's not a reason to buy at this level under my method either. You can check every one of these ten profiles live on [my analysis tool](/screener), and see how I calculate a fair buy price in my [full methodology](/methodologie).",
+        },
+      ],
+      faq: [
+        { q: "What counts as a 'specialty industrial machinery' company?", a: "It's a stock market category covering makers of highly specific industrial equipment rather than mass market goods: elevators, pumps, valves, marine engines, packaging machinery. These are almost never household names, but their products are essential to industry, infrastructure and shipping, which gives them steady, durable demand." },
+        { q: "Why is Wärtsilä cheaper than Schindler when both score well?", a: "The business model differs. Wärtsilä sells new engines for ships and power plants, a more cyclical market tied to shipbuilding orders. Schindler draws about 45% of revenue from recurring maintenance contracts on elevators already installed, a far more predictable income stream. The market generally pays more for that predictability, which explains much of the valuation gap between the two." },
+        { q: "Can a company with declining sales still be a good stock?", a: "Yes, as long as the cash generated per share keeps growing. That's the case with Schindler: sales have edged down slightly over five years, but free cash flow per share climbs 34.6% a year thanks to margin expansion and buybacks. It's not the general rule, but a concrete example that revenue alone doesn't tell the whole story." },
+        { q: "Does a low P/FCF always mean a stock is undervalued?", a: "No, Krones in this article is a good example. Its P/FCF of 11.5 times is the lowest in the group, but its recent pace of free cash flow per share growth, 22.6% a year, is likely temporary. Once that expected slowdown is accounted for, my model puts the stock at a 73% premium despite that attractive-looking multiple." },
+      ],
+      tags: ["industrials", "Wärtsilä", "Schindler", "Flowserve", "sector ranking", "industrial machinery"],
+      disclaimer:
+        "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date, subject to change. Investing in foreign markets carries specific risks (currency, taxation, access via a broker).",
+    },
+    es: {
+      title: "Estas acciones industriales que nadie mira",
+      excerpt:
+        "Ascensores, bombas industriales, motores de buques de carga: hoy comprobé, ticker a ticker, qué empresas de este sector invisible aún superan mi filtro de calidad. Solo quedan tres con la mejor nota, y su precio en bolsa varía del más barato a más de cuatro veces más caro.",
+      metaDescription:
+        "Ascensores, bombas industriales, motores de buques: empresas discretas que superan mi filtro de calidad, a precios muy distintos entre sí.",
+      answer:
+        "El sector de la maquinaria industrial especializada, ascensores, bombas, motores marinos, reúne a casi doscientas empresas cotizadas. Comprobado hoy, ticker a ticker: solo tres siguen superando casi todos mis criterios de calidad financiera. Su precio, en cambio, varía entre once y más de treinta veces el efectivo que generan, por razones que explico una a una.",
+      body: [
+        {
+          type: "p",
+          text: "La última vez que subiste a un ascensor, seguramente no pensaste ni un segundo en quién lo construyó, ni en quién sube al hueco una vez al mes para comprobar que el cable aguanta. Lo mismo pasa con el portacontenedores que quizá viste frente a un puerto, o con la bomba que hace circular el agua potable en tu ciudad sin que nadie le preste atención. Estas máquinas están en todas partes, casi nunca fallan, y a casi nadie se le ocurriría verlas como una acción en bolsa.",
+        },
+        {
+          type: "p",
+          text: "Y sin embargo es exactamente el tipo de empresa que mi filtro de calidad busca: una necesidad física que no desaparece con la próxima moda, una clientela cautiva una vez instalado el equipo, y una facturación que continúa mucho después de la venta inicial. Mi selector agrupa a estos fabricantes en una categoría que la prensa financiera en español casi nunca nombra, la maquinaria industrial especializada, ascensores, bombas, válvulas, motores marinos, equipos de embalaje. Casi doscientas empresas cotizadas en el mundo entran hoy en esta categoría.",
+        },
+        {
+          type: "p",
+          text: "Esta mañana comprobé, ticker a ticker en mi propia herramienta de análisis en lugar de fiarme de una clasificación en caché, cuáles de esas doscientas siguen superando casi todos mis diez criterios de calidad financiera. Solo quedan tres. No era así hace unas semanas: la mayoría de los nombres que esperaba encontrar arriba bajaron un escalón, casi todos por la misma razón, que explico más abajo. Y entre las empresas que siguen bien calificadas, el precio que el mercado acepta pagar varía entre once y más de treinta veces el efectivo generado, por razones que puedo explicar una por una en lugar de atribuirlas al azar.",
+        },
+        { type: "h2", text: "Por qué la mayoría perdió un punto este mes" },
+        {
+          type: "p",
+          text: "Califico cada acción con diez criterios concretos: si es rentable, si sus ventas y su flujo de caja libre (el dinero que realmente queda en caja una vez pagadas todas las facturas e inversiones) crecen con el tiempo, si recompra sus propias acciones en lugar de diluirlas, si su deuda es manejable, si su rentabilidad sobre el capital invertido es sólida. De las casi doscientas empresas de maquinaria industrial especializada que cubre mi selector, veintitrés siguen superando hoy al menos ocho de estos diez criterios. Hace un mes, la mayoría de esos mismos nombres superaba nueve.",
+        },
+        {
+          type: "p",
+          text: "Solo tres mantienen hoy nueve o diez de diez: Gorman-Rupp, un fabricante estadounidense de bombas industriales ya cubierto en mi sitio, un diez perfecto sin un solo criterio fallido; Krones, un fabricante alemán de líneas de embotellado y embalaje, nueve de diez; y Schindler, el gigante suizo del ascensor, también nueve de diez. Todos los demás nombres sólidos del sector, Wärtsilä, Flowserve, AMETEK, Parker-Hannifin, Graco, KONE, Innio, bajaron un escalón este mes, y seis de esos siete fallaron exactamente en el mismo criterio: los ingresos por empleado, una medida de productividad que distingue un crecimiento que viene de ganancias reales de eficiencia de uno que simplemente viene de contratar más gente. No es un derrumbe, solo una foto en un momento dado, un recordatorio de que ninguna nota es permanente.",
+        },
+        { type: "h2", text: "Wärtsilä (WRT1V.HE): los motores que mueven los buques de carga, sin ser caros" },
+        {
+          type: "p",
+          text: "Wärtsilä fabrica los grandes motores diésel, y ahora de doble combustible, que impulsan una parte significativa de la flota mercante mundial, buques de carga, portacontenedores, metaneros, además de centrales eléctricas de respaldo usadas cuando la red local es inestable. Construir un motor marino de este tamaño, capaz de funcionar decenas de miles de horas sin fallar, no está al alcance de cualquier fabricante industrial: el mercado mundial se reparte entre un puñado de actores, entre ellos Wärtsilä, y los astilleros que ya integraron el mantenimiento y los repuestos de una marca en su flota rara vez cambian de proveedor a mitad de camino, por una razón simple, un motor mal mantenido inmoviliza un barco entero.",
+        },
+        {
+          type: "p",
+          text: "La cartera de pedidos confirma que ese foso competitivo sigue intacto. En el primer semestre de 2026, [los pedidos de Wärtsilä subieron un 23 % hasta 4930 millones de euros](https://www.wartsila.com/media/news/21-07-2026-wartsila-s-half-year-financial-report-january-june-2026-3773763), con un segundo trimestre récord por sí solo, impulsado en parte por pedidos de motores que funcionan con amoníaco, un combustible sin carbono que el sector marítimo apenas empieza a adoptar para cumplir las futuras normas de emisiones. La cartera total de pedidos alcanza ya 8980 millones de euros, un 13 % más que hace un año, una visibilidad de varios trimestres que pocas industriales pueden mostrar.",
+        },
+        {
+          type: "p",
+          text: "Mi modelo valida ocho de mis diez criterios para Wärtsilä, con un único punto débil real, los ingresos por empleado, ya explicado antes. El resto de la tabla es sólido: sin deuda neta, un flujo de caja libre por acción que crece más de un 46 % anual en cinco años, impulsado por la expansión de márgenes. Y a diferencia de Schindler o Krones más abajo, Wärtsilä no cotiza cara: a 11,9 veces su flujo de caja libre anual, mi modelo la sitúa apenas un 4 % por debajo de mi precio de compra razonable, prácticamente en su valor justo. Ni una ganga evidente, ni una acción para evitar, un caso raro de calidad seria al precio del mercado.",
+        },
+        { type: "h2", text: "Schindler (SCHP.SW): el ascensor que sigue facturando mucho después de venderse" },
+        {
+          type: "p",
+          text: "Un ascensor, una vez instalado en un edificio, debe inspeccionarse y mantenerse durante décadas para seguir cumpliendo las normas de seguridad locales. Cambiar de proveedor de mantenimiento a mitad de camino es raro: el nuevo proveedor tiene que hacerse cargo de la documentación técnica de un equipo que no diseñó, junto con la responsabilidad legal que eso implica en caso de accidente. El resultado es que el fabricante que vendió el ascensor casi siempre conserva el contrato de mantenimiento durante toda la vida útil del aparato, a menudo veinte años o más. En Schindler, el mantenimiento y la modernización representan hoy cerca del 45 % de los ingresos del grupo, un flujo de ingresos que no depende del ritmo de las nuevas construcciones.",
+        },
+        {
+          type: "p",
+          text: "Los [resultados anuales de 2025 de Schindler](https://group.schindler.com/en/media/press-releases/annual-results-2025.html), publicados en marzo de 2026, ilustran bien este mecanismo: los ingresos crecieron solo un 1,3 % en moneda local, pero el margen operativo pasó del 11,2 % al 13,0 % en el año, impulsado precisamente por ese giro hacia el mantenimiento recurrente en lugar de la instalación de ascensores nuevos, un mercado más cíclico y menos rentable.",
+        },
+        {
+          type: "p",
+          text: "En cinco años, las ventas de Schindler incluso retroceden ligeramente, un 1,2 % anual en promedio, lo que hace fallar ese criterio concreto en mi tabla. Pero el flujo de caja libre por acción sube un 34,6 % anual en el mismo período, impulsado por la expansión de márgenes y las recompras constantes de acciones. Es una lección útil: una empresa con ventas estancadas puede seguir creando mucho valor por acción, siempre que cada euro de ingreso genere cada vez más efectivo y el número de acciones en circulación disminuya. El problema es el precio: a 19,8 veces su flujo de caja libre anual, mi modelo muestra a Schindler con una sobrevaloración del 36,6 %. Una excelente empresa, pero no compraría sus acciones a este nivel.",
+        },
+        { type: "h2", text: "Flowserve (FLS): las bombas y válvulas que siguen facturando después de la primera venta" },
+        {
+          type: "p",
+          text: "Flowserve fabrica bombas, válvulas y juntas industriales usadas en petróleo y gas, química, y cada vez más en energía nuclear civil. Igual que con Wärtsilä, la venta inicial es solo el primer capítulo: una refinería o una central que instaló una bomba Flowserve sigue comprando repuestos y servicio posventa durante toda la vida útil de la instalación, a menudo varias décadas, porque sustituir una pieza crítica por la de otro proveedor exige una nueva certificación costosa. Ese flujo de piezas y servicio, lo que la industria llama el mercado de repuestos, pesa cada vez más en los resultados del grupo.",
+        },
+        {
+          type: "p",
+          text: "En el segundo trimestre de 2026, [Flowserve registró 1350 millones de dólares en nuevos pedidos, un 26 % más que un año antes, con un nivel récord de pedidos de repuestos y servicio](https://www.sec.gov/Archives/edgar/data/0000030625/000119312526323649/d15165dex991.htm). El grupo también cerró el 30 de junio de 2026 la compra de la división de válvulas de Trillium Flow Technologies, una apuesta por la creciente demanda de equipos certificados para el sector nuclear, un mercado con una barrera regulatoria de entrada especialmente alta. En sentido contrario, las ventas en Oriente Medio caen unos 60 millones de dólares desde principios de año, un recordatorio de que incluso una empresa de esta calidad sigue expuesta a la geopolítica regional.",
+        },
+        {
+          type: "p",
+          text: "Mi modelo valida ocho de diez criterios para Flowserve, con el mismo punto débil que Wärtsilä en ingresos por empleado, y una deuda algo más ajustada, pagable en 3,8 años de efectivo generado frente a menos de 3 años en el caso ideal. A 26,5 veces su flujo de caja libre anual, la acción cotiza con un descuento moderado del 7,4 % respecto a mi precio de compra razonable, un perfil entre los dos anteriores, ni la mejor ganga ni la más cara del grupo.",
+        },
+        { type: "h2", text: "La tabla: la misma exigencia de calidad, casi el triple de diferencia en el precio" },
+        {
+          type: "p",
+          text: "Pon estos múltiplos uno junto a otro y aparece un patrón: cuanto más depende el modelo de negocio de contratos de mantenimiento recurrentes y de un foso competitivo difícil de sortear, más está dispuesto a pagar el mercado, y viceversa. Un nombre merece una advertencia antes de la tabla: Krones, el fabricante alemán de líneas de embotellado, muestra el P/FCF más bajo del grupo, solo 11,5 veces, lo que podría parecer la mejor ganga aquí. Pero su efectivo por acción saltó un 22,6 % anual en cinco años, un ritmo que mi modelo deliberadamente no proyecta igual hacia el futuro, una aceleración tan fuerte casi siempre se enfría. Una vez incorporada esa desaceleración esperada, mi precio de compra razonable cae muy por debajo de la cotización actual, de ahí una sobrevaloración del 73 % pese a un múltiplo de apariencia barata. La cifra sola habría engañado.",
+        },
+        {
+          type: "table",
+          headers: ["Empresa (Ticker)", "Qué fabrica", "Criterios superados", "Valoración (P/FCF)", "Veredicto de precio hoy"],
+          rows: [
+            ["Gorman-Rupp (GRC)", "Bombas industriales", "10 de 10", "20,6×", "Sobrevaloración del 4,7 %"],
+            ["Krones (KRN.DE)", "Líneas de embotellado", "9 de 10", "11,5×", "Sobrevaloración del 73,2 %"],
+            ["Schindler (SCHP.SW)", "Ascensores y escaleras mecánicas", "9 de 10", "19,8×", "Sobrevaloración del 36,6 %"],
+            ["Wärtsilä (WRT1V.HE)", "Motores marinos y centrales", "8 de 10", "11,9×", "Descuento del 4,0 %"],
+            ["Flowserve (FLS)", "Bombas y válvulas industriales", "8 de 10", "26,5×", "Descuento del 7,4 %"],
+            ["Innio (INIO)", "Motores industriales a gas", "8 de 10", "22,7×", "Descuento del 3,8 %"],
+            ["Graco (GGG)", "Bombas de precisión, pintura", "8 de 10", "21,7×", "Descuento del 26,8 %"],
+            ["KONE (KNEBV.HE)", "Ascensores y escaleras mecánicas", "8 de 10", "22,7×", "Sobrevaloración del 42,3 %"],
+            ["AMETEK (AME)", "Instrumentos de medición electrónicos", "8 de 10", "32,9×", "Sobrevaloración del 67,7 %"],
+            ["Parker-Hannifin (PH)", "Componentes hidráulicos y neumáticos", "8 de 10", "34,6×", "Sobrevaloración del 60,9 %"],
+          ],
+        },
+        { type: "h2", text: "Mi veredicto: ninguna ganga evidente, tres nombres a vigilar" },
+        {
+          type: "p",
+          text: "Ninguna de las diez salta a la vista como un descuento claro combinado con una nota casi perfecta, la combinación que prefiero. Gorman-Rupp, la única con diez de diez, cotiza con una prima moderada del 4,7 %, prácticamente en su valor justo. Wärtsilä e Innio, con ocho de diez pero por debajo de mi precio objetivo, son los dos nombres que vigilo con más atención: buena calidad, un solo criterio pendiente en productividad por empleado, y un precio que aún deja un pequeño margen de seguridad. Krones, Schindler, KONE, AMETEK y Parker-Hannifin comparten algo en común, calidad real, pero un precio que ya incorpora esa calidad y algo más. Eso no es motivo para venderlas si ya las tienes, pero tampoco lo es para comprarlas a este nivel según mi método. Puedes comprobar cada una de estas diez fichas en directo en [mi herramienta de análisis](/screener), y ver cómo calculo un precio de compra razonable en [mi metodología completa](/methodologie).",
+        },
+      ],
+      faq: [
+        { q: "¿Qué es una empresa de 'maquinaria industrial especializada'?", a: "Es una categoría bursátil que agrupa a fabricantes de equipos industriales muy específicos en lugar de bienes de gran consumo: ascensores, bombas, válvulas, motores marinos, maquinaria de embalaje. Casi nunca son marcas conocidas por el público general, pero sus productos son imprescindibles para la industria, las infraestructuras y el transporte marítimo, lo que les da una demanda estable en el tiempo." },
+        { q: "¿Por qué Wärtsilä es más barata que Schindler si ambas tienen buena nota?", a: "El modelo de negocio es distinto. Wärtsilä vende motores nuevos para barcos y centrales, un mercado más cíclico ligado a los pedidos de construcción naval. Schindler obtiene cerca del 45 % de sus ingresos de contratos de mantenimiento recurrentes sobre ascensores ya instalados, un ingreso mucho más previsible. El mercado suele pagar más por esa previsibilidad, lo que explica buena parte de la diferencia de valoración entre ambas." },
+        { q: "¿Puede una empresa con ventas en declive seguir siendo una buena acción?", a: "Sí, siempre que el efectivo generado por acción siga creciendo. Es el caso de Schindler: sus ventas bajan ligeramente desde hace cinco años, pero el flujo de caja libre por acción sube un 34,6 % anual gracias a la expansión de márgenes y las recompras. No es la regla general, pero sí un ejemplo concreto de que los ingresos por sí solos no cuentan toda la historia." },
+        { q: "¿Un P/FCF bajo siempre significa que una acción está infravalorada?", a: "No, el ejemplo de Krones en este artículo lo demuestra. Su P/FCF de 11,5 veces es el más bajo del grupo, pero su reciente ritmo de crecimiento del flujo de caja libre por acción, un 22,6 % anual, probablemente sea temporal. Una vez incorporada esa desaceleración esperada, mi modelo sitúa la acción con una sobrevaloración del 73 % pese a ese múltiplo de apariencia atractiva." },
+      ],
+      tags: ["industria", "Wärtsilä", "Schindler", "Flowserve", "ranking sectorial", "maquinaria industrial"],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizada. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación, sujetas a cambios. Invertir en mercados extranjeros conlleva riesgos específicos (cambio de divisa, fiscalidad, acceso a través de un bróker).",
+    },
+  },
+};
+
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
