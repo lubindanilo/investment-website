@@ -87346,7 +87346,457 @@ const articleResilienceVsQualite2026: Article = {
 };
 
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026];
+const articleDividendePeaVerifie: Article = {
+  slug: 'pea-dividende-croissant-verifie-annee-par-annee',
+  date: '2026-09-15',
+  updated: '2026-09-15',
+  readingTime: 10,
+  content: {
+    fr: {
+      title: "PEA : ces actions augmentent leur dividende chaque année",
+      excerpt:
+        "Je croise l'éligibilité PEA avec l'historique réel de versement, pas la simple existence d'un dividende. Résultat : une hausse continue depuis seize ans chez UCB, une reprise nette chez Edenred après une coupe pendant le Covid, et un nom, Cegedim, qui n'a payé qu'une seule fois en onze ans, sans jamais promettre de le refaire.",
+      metaDescription:
+        "PEA : je vérifie, versement par versement, quelles actions éligibles augmentent vraiment leur dividende chaque année, et laquelle ne fait que le laisser croire.",
+      answer:
+        "Avoir un dividende n'est pas la même chose que le voir grandir. J'ai vérifié, versement par versement, l'historique réel de chaque action éligible au PEA que mon filtre note bien. UCB l'augmente sans interruption depuis seize ans. Cegedim, elle, en a versé un seul en onze ans, à moitié prix, et ne promet rien pour la suite.",
+      body: [
+        { type: 'h2', text: "Payer un dividende n'est pas la même chose que le faire grandir" },
+        {
+          type: 'p',
+          text: "Tape \"action dividende croissant PEA\" dans un moteur de recherche et tu tombes vite sur des listes qui cochent une seule case : l'entreprise a-t-elle versé de l'argent à ses actionnaires cette année ? Cette case ne dit rien de la régularité du versement, ni de sa trajectoire. Une entreprise qui verse un demi-euro par action cette année, après onze ans de silence, coche exactement la même case qu'une entreprise qui augmente son dividende sans interruption depuis seize ans.",
+        },
+        {
+          type: 'p',
+          text: "J'ai voulu vérifier, versement par versement, laquelle des actions éligibles au PEA que mon filtre qualité juge bien notées fait vraiment ce que \"dividende croissant\" promet. Pas la moyenne lissée sur cinq ans qu'affichent la plupart des sites, qui peut cacher une chute suivie d'un rebond derrière un chiffre d'apparence positive, mais l'historique complet, exercice après exercice.",
+        },
+        {
+          type: 'p',
+          text: "Rappel rapide pour qui découvre le sujet : le PEA (Plan d'Épargne en Actions) exonère d'impôt sur le revenu les plus-values et dividendes après cinq ans de détention, à condition que le siège social de l'entreprise reste dans l'Union européenne ou l'Espace économique européen. J'ai déjà détaillé cette règle et son évolution récente dans [mon article sur la réforme du PEA-PME](/blog/pea-pme-reforme-2024-nouveau-seuil), et croisé ce filtre avec la valorisation dans [mon classement des actions PEA sous-évaluées](/blog/pea-actions-qualite-sous-evaluees-2026). Ici, la question est différente : parmi ces actions éligibles, lesquelles augmentent vraiment leur dividende, et lesquelles se contentent d'en verser un de temps en temps ?",
+        },
+        { type: 'h2', text: "Ma méthode : l'historique complet, pas un chiffre moyen sur cinq ans" },
+        {
+          type: 'p',
+          text: "Le champ \"croissance du dividende sur 5 ans\" qu'affichent la plupart des screeners est une moyenne annuelle composée entre deux points : la valeur d'il y a cinq ans et celle d'aujourd'hui. Le problème, c'est que cette moyenne ne dit rien du chemin parcouru entre les deux. Une action qui a coupé son dividende de moitié puis l'a fait plus que doubler depuis affichera la même croissance moyenne positive qu'une action qui l'a simplement augmenté de 8 % chaque année, sans à-coup. Les deux n'ont pourtant rien à voir comme placement de revenu.",
+        },
+        {
+          type: 'p',
+          text: "J'ai donc repris, pour chaque action éligible au PEA que mon filtre note au moins 8 sur 10, l'historique complet des versements disponible sur ma plateforme (remontant parfois jusqu'à l'an 2000), regroupé les versements d'une même année civile (certaines entreprises versent un acompte puis un solde, à des dates différentes), puis vérifié, année après année, si le total montait, stagnait, ou reculait. Je me suis arrêté aux versements effectués jusqu'en 2025 : plusieurs actions affichaient pour 2026 un montant qui ressemblait à une baisse, révélé après vérification comme un versement encore incomplet de l'exercice en cours, pas une vraie coupe.",
+        },
+        {
+          type: 'p',
+          text: "Sur ce périmètre, une bonne partie des noms qui ressortent bien notés par mon filtre s'écartent vite du PEA-PME au sens strict (plafond de 2 milliards d'euros de capitalisation depuis la réforme de 2024) : ce sont surtout de grandes actions européennes établies, plus stables dans leur politique de versement, qui dominent ce classement précis. Ce n'est pas un biais de méthode, c'est un vrai résultat : la régularité d'un dividende se construit sur des décennies de discipline financière, un luxe que les jeunes entreprises en forte croissance n'ont généralement pas encore.",
+        },
+        { type: 'h2', text: "Le classement : qui augmente vraiment, sans interruption" },
+        {
+          type: 'p',
+          text: "Voici, du plus long historique ininterrompu au plus court, les actions éligibles au PEA que mon filtre note 8 sur 10 ou mieux et qui ont réellement augmenté leur dividende versé, année après année, jusqu'en 2025.",
+        },
+        {
+          type: 'table',
+          headers: ['Action (ticker)', 'Secteur', 'Note qualité', 'Hausses consécutives (jusqu\'en 2025)', 'Rendement actuel'],
+          rows: [
+            ['UCB (UCB.BR)', 'Biopharma', '9/10', '16 ans', '0,7 %'],
+            ['Euronext (ENX.PA)', 'Opérateur boursier', '8/10', '6 ans', '2,0 %'],
+            ['AXA (CS.PA)', 'Assurance', '8/10', '5 ans', '5,4 %'],
+            ['Vinci (DG.PA)', 'Concessions et BTP', '9/10', '5 ans', '4,5 %'],
+            ['Edenred (EDEN.PA)', 'Paiement salarié', '9/10', '5 ans', '4,8 %'],
+            ['Allianz (ALV.DE)', 'Assurance', '8/10', '4 ans', '3,9 %'],
+            ['Bureau Veritas (BVI.PA)', 'Certification', '8/10', '4 ans', '3,3 %'],
+            ['Generali (G.MI)', 'Assurance', '8/10', '3 ans', '3,6 %'],
+            ['Technogym (TGYM.MI)', 'Fitness', '10/10', '3 ans', '3,1 %'],
+            ['Amadeus (AMS.MC)', 'Tech du voyage', '10/10', '2 ans', '2,8 %'],
+            ['ASML (ASML.AS)', 'Semi-conducteurs', '9/10', '2 ans', '0,5 %'],
+            ['JCDecaux (DEC.PA)', 'Publicité extérieure', '8/10', '0 an', '2,7 %'],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Deux séries se prolongent déjà d'un exercice de plus, confirmé après ma coupure de calcul : UCB a fait approuver un dividende de 1,45 € par action lors de son assemblée générale du 30 avril 2026, en hausse de 4 % sur 2025, [confirmé par UCB elle-même](https://www.ucb.com/newsroom/press-releases/article/ucb-s-general-meeting-of-shareholders-2026), ce qui porte sa série à 17 ans. Edenred, de son côté, revendique elle-même une sixième hausse consécutive avec le versement annoncé pour 2026. À l'autre bout du tableau, JCDecaux illustre la limite de cet exercice : son dividende, suspendu de 2020 à 2024, n'a repris qu'en 2025, à un niveau encore inférieur à celui de 2019, avant qu'une vraie hausse n'arrive en 2026. Un an à zéro dans mon tableau ne veut donc pas dire que l'action est mauvaise, seulement que sa série de hausses vient tout juste de repartir de zéro.",
+        },
+        {
+          type: 'p',
+          text: "Un détail mérite d'être corrigé publiquement : dans [l'article que j'ai consacré à UCB](/blog/ucb-ucbbr-pharma-belge-immunologie-analyse-fondamentale) en juin dernier, j'avais annoncé 25 années consécutives de hausse. Ce nouveau passage systématique sur l'historique brut n'en retrouve que 16 sans interruption stricte jusqu'en 2025, avec un palier, pas une baisse, en 2009, en pleine crise financière. La différence tient probablement à la définition retenue par ma source de l'époque, qui comptait peut-être un palier comme une hausse ou partait d'une année de référence différente. Je préfère corriger que laisser deux chiffres différents circuler sur le même site.",
+        },
+        { type: 'h2', text: "Edenred : la hausse a repris, le prix reste raisonnable" },
+        {
+          type: 'p',
+          text: "Edenred édite des titres-restaurant et des solutions de paiement dédiées aux entreprises, comme Ticket Restaurant. Le mécanisme qui fait gagner de l'argent à Edenred est moins évident qu'il n'y paraît : l'entreprise cliente crédite le compte de ses salariés en début de mois, mais ceux-ci dépensent cette somme progressivement chez les commerçants partenaires, jour après jour. Entre le moment où Edenred reçoit l'argent et celui où le commerçant le récupère, l'entreprise dispose temporairement de sommes qui ne lui appartiennent pas encore tout à fait : ce mécanisme de flottant, commun à toute entreprise qui gère des paiements différés, génère un revenu financier en plus de la commission prélevée sur chaque transaction.",
+        },
+        {
+          type: 'p',
+          text: "Ce modèle explique aussi pourquoi 2020 a fait mal : restaurants fermés pendant les confinements, salariés au chômage partiel qui n'utilisaient plus leurs titres, Edenred a réduit son dividende d'environ 19 %, de 0,86 € à 0,70 € par action. Depuis, la reprise est nette et documentée par [l'entreprise elle-même](https://www.edenred.com/en/investors-shareholders/dividend) : cinq hausses consécutives jusqu'en 2025, une sixième déjà revendiquée pour 2026, soit une progression de plus de 90 % depuis le point bas.",
+        },
+        {
+          type: 'p',
+          text: "Le prix, lui, reste raisonnable. Edenred se valorise aujourd'hui 6,6 fois son free cash flow, le cash réellement disponible une fois les factures payées, un multiple bas pour une entreprise notée 9 sur 10 par mon filtre. Mon modèle de prix d'achat raisonnable, qui projette le cash par action sur cinq ans plutôt que de se fier au seul multiple du jour, ressort à 41,95 $ contre un cours actuel de 28,55 $, soit une décote d'environ 47 %. Avec un taux de distribution de 65 % seulement du cash généré, l'entreprise garde de la marge pour continuer à augmenter ce dividende sans mettre en danger ses investissements.",
+        },
+        { type: 'h2', text: "Euronext : la hausse continue, le prix ne l'est plus vraiment" },
+        {
+          type: 'p',
+          text: "À ne pas confondre avec Euronext Athens Holding, sa filiale grecque que j'ai déjà citée dans mon article sur le PEA-PME : Euronext N.V. est la maison mère, cotée à Paris, qui exploite les bourses de Paris, Amsterdam, Bruxelles, Lisbonne, Dublin, Milan et Oslo. Une bourse gagne de l'argent de deux façons complémentaires : une commission sur chaque transaction exécutée, variable et dépendante du volume échangé, et un abonnement récurrent pour l'accès aux données de marché en temps réel, vendu aux banques, fonds et plateformes de trading, plus stable et prévisible. C'est cette seconde source de revenu qui explique une bonne partie de la régularité du dividende.",
+        },
+        {
+          type: 'p',
+          text: "Le dividende versé a augmenté six années de suite entre 2020 et 2025, de 1,45 € à 2,90 € par action, soit un quasi doublement en cinq ans. Une septième hausse est déjà confirmée pour 2026 : 3,18 € par action, en hausse de 9,8 %, [annoncé officiellement par Euronext](https://www.globenewswire.com/news-release/2026/04/07/3269447/0/en/Euronext-publishes-its-detailed-dividend-payment-schedule-for-2026.html), qui reverse la moitié de son bénéfice net à ses actionnaires par politique affichée.",
+        },
+        {
+          type: 'p',
+          text: "Le prix, en revanche, n'est plus une aubaine. Euronext se valorise 23,8 fois son free cash flow, et mon modèle situe le prix d'achat raisonnable à 57,54 $ contre un cours actuel de 157,70 $, soit une action qui se traite environ 64 % au-dessus de ce que je considère comme un point d'entrée sûr. C'est exactement le genre de situation où qualité et prix racontent deux histoires différentes : une entreprise qui augmente son dividende sans faute depuis six ans n'est pas automatiquement une occasion d'achat aujourd'hui. Les deux jugements, qualité et prix, restent toujours séparés dans ma méthode.",
+        },
+        { type: 'h2', text: "Cegedim : le piège que le rendement, à lui seul, ne voit jamais" },
+        {
+          type: 'p',
+          text: "Cegedim est une entreprise française de technologie et de données de santé, cotée sur Euronext Paris, notée 8 sur 10 par mon filtre. Si tu cherches \"actions PEA qui versent un dividende\" dans un screener basique, elle y figure aujourd'hui, puisqu'elle a versé 0,50 € par action en 2022. C'est là que le piège se referme : ce genre de filtre ne demande jamais depuis quand, ni si ça va continuer.",
+        },
+        {
+          type: 'p',
+          text: "L'historique réel raconte une tout autre histoire. De 2000 à 2011, Cegedim a effectivement augmenté son dividende chaque année, de 0,33 € à 1,00 € par action. Puis plus rien pendant onze ans. Le versement de 2022, celui que capte le screener aujourd'hui, n'est pas une reprise de la hausse : c'est un versement unique, à la moitié du dernier montant versé en 2011, et rien n'a été reversé depuis.",
+        },
+        {
+          type: 'p',
+          text: "[Cegedim le dit elle-même sur sa page investisseurs](https://www.cegedim.com/finance/share/Pages/shareid.aspx) : le groupe \"ne prévoit pas de verser de dividendes réguliers en numéraire\", une décision qui reste à la discrétion de son conseil d'administration selon les résultats, la trésorerie disponible et les clauses de ses emprunts. Ce n'est pas un problème de solvabilité affiché publiquement, c'est un choix assumé de ne pas s'engager sur une politique de versement régulière, ce qu'aucun taux de rendement affiché à un instant donné ne peut révéler.",
+        },
+        { type: 'h2', text: "Comment vérifier ça toi-même avant d'acheter" },
+        {
+          type: 'p',
+          text: "Trois réflexes suffisent. D'abord, cherche la page \"dividend history\" ou \"historique des dividendes\" sur le site investisseurs de l'entreprise, souvent plus complète en anglais que la version française, plutôt que le seul rendement affiché par ton courtier. Ensuite, compte les années une par une, plutôt que de te fier à une moyenne sur 5 ans : un palier ou une coupe se cache facilement derrière un chiffre moyen positif.",
+        },
+        {
+          type: 'p',
+          text: "Enfin, cherche une phrase explicite sur la politique de l'entreprise, souvent dans le rapport annuel ou la page \"shareholders\" : certaines s'engagent formellement à augmenter leur dividende chaque année, comme UCB ou Edenred, qui documentent leur propre série sur leur site, d'autres, comme Cegedim, préviennent clairement qu'elles ne le feront pas. C'est cette phrase, plus que le montant du dernier versement, qui te dit à quoi t'attendre l'an prochain. Mon [screener complet](/screener) et ma [méthodologie](/methodologie) détaillent comment je construis la note de qualité sur 10 qui sert de premier filtre avant ce genre de vérification manuelle.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "UCB affiche la plus longue série sans interruption stricte de ce classement : 16 ans vérifiés jusqu'en 2025, 17 en comptant la hausse déjà approuvée pour 2026.",
+            "Edenred a coupé son dividende de 19 % en 2020, puis enchaîné cinq hausses jusqu'en 2025 (une sixième déjà revendiquée pour 2026), et se valorise encore à une décote d'environ 47 % selon mon modèle.",
+            "Euronext augmente son dividende versé depuis six ans, mais se traite aujourd'hui environ 64 % au-dessus de mon prix d'achat raisonnable : bonne entreprise, mauvais moment.",
+            "Cegedim a versé un dividende en 2022 après onze ans sans rien verser, à la moitié du dernier montant, et dit elle-même ne pas prévoir de régularité : un rendement affiché ne dit jamais depuis quand ni pour combien de temps.",
+            "Vérifie toujours l'historique complet, année par année, sur le site investisseurs de l'entreprise plutôt qu'un seul chiffre de rendement ou une moyenne sur 5 ans.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce qui différencie un dividende qui existe d'un dividende qui grandit ?",
+          a: "Un dividende \"qui existe\" veut simplement dire qu'un versement, même unique ou ancien, a eu lieu. Un dividende qui grandit implique une hausse réelle et si possible régulière, exercice après exercice. La plupart des filtres boursiers ne distinguent pas les deux : ils cochent la même case pour une entreprise qui augmente son dividende depuis 16 ans et pour une autre qui en a versé un seul en onze ans.",
+        },
+        {
+          q: "Le rendement affiché par mon courtier suffit-il à juger la qualité d'un dividende ?",
+          a: "Non. Le rendement, le montant annuel divisé par le cours de l'action, est un instantané, pas une trajectoire. Une action peut afficher un rendement élevé simplement parce que son cours a chuté, ou un rendement modeste tout en augmentant son dividende chaque année depuis des décennies, comme UCB. Il faut regarder l'historique complet, pas la photo du jour.",
+        },
+        {
+          q: "Ces actions sont-elles toutes éligibles au PEA classique, ou seulement au PEA-PME ?",
+          a: "Toutes celles de ce classement sont éligibles au PEA classique : leur siège social se situe dans l'Union européenne ou l'Espace économique européen, la seule condition légale, indépendamment de leur taille. Plusieurs, comme UCB, Allianz ou ASML, dépassent largement le plafond de capitalisation du PEA-PME, fixé à 2 milliards d'euros depuis la réforme de 2024 détaillée dans [mon article dédié](/blog/pea-pme-reforme-2024-nouveau-seuil).",
+        },
+        {
+          q: "Où puis-je vérifier moi-même l'historique de versement d'une action ?",
+          a: "Directement sur le site investisseurs de l'entreprise, en cherchant \"dividend history\" ou \"investor relations\", qui publie généralement un tableau complet, exercice par exercice. C'est la source la plus fiable, plus complète que le résumé sur 5 ans qu'affichent la plupart des courtiers et agrégateurs financiers.",
+        },
+      ],
+      tags: ['PEA', 'dividende', 'Europe', 'méthode'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (15 septembre 2026), vérifiés individuellement via l'historique de versement de chaque action au moment de la rédaction. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Fais tes propres recherches.",
+    },
+    en: {
+      title: "PEA stocks that actually raise their dividend yearly",
+      excerpt:
+        "I cross-check PEA eligibility with the real year-by-year payment record, not just whether a dividend exists. Result: sixteen straight years of increases at UCB, a clean comeback at Edenred after a Covid-era cut, and one name, Cegedim, that paid just once in eleven years, with no promise of doing it again.",
+      metaDescription:
+        "PEA-eligible: I check payment by payment which stocks truly raise their dividend every year, and which one only looks like it does.",
+      answer:
+        "Paying a dividend is not the same thing as growing it. I checked, payment by payment, the real record of every PEA-eligible stock my quality filter rates well. UCB has raised it without interruption for sixteen years. Cegedim, meanwhile, paid one single dividend in eleven years, at half the old rate, with no promise of another.",
+      body: [
+        { type: 'h2', text: "Paying a dividend is not the same as growing it" },
+        {
+          type: 'p',
+          text: "Search for \"growing dividend PEA stock\" and you quickly land on lists that tick a single box: did the company pay shareholders anything this year? That box says nothing about how reliable the payment is, or where it is headed. A company that pays half a euro per share this year, after eleven years of silence, ticks the exact same box as one that has raised its dividend without interruption for sixteen years.",
+        },
+        {
+          type: 'p',
+          text: "I wanted to check, payment by payment, which PEA-eligible stocks my quality filter rates well actually deliver on what \"growing dividend\" promises. Not the smoothed five-year average most sites display, which can hide a crash followed by a rebound behind a number that looks positive, but the full year-by-year record.",
+        },
+        {
+          type: 'p',
+          text: "A quick reminder for anyone new to this: the PEA (Plan d'Epargne en Actions) is a French tax wrapper that exempts capital gains and dividends from income tax after five years of holding, on the condition that the company's registered office stays within the European Union or the European Economic Area. I already covered that rule and its recent update in [my article on the PEA-PME reform](/blog/pea-pme-reforme-2024-nouveau-seuil), and crossed that filter with valuation in [my ranking of undervalued PEA stocks](/blog/pea-actions-qualite-sous-evaluees-2026). Here the question is different: among these eligible stocks, which ones truly grow their dividend, and which ones just pay one from time to time?",
+        },
+        { type: 'h2', text: "My method: the full record, not a five-year average" },
+        {
+          type: 'p',
+          text: "The \"5-year dividend growth\" field most screeners display is a compound annual average between two points: the value five years ago and today's value. The problem is that average says nothing about the path in between. A stock that cut its dividend in half and then more than doubled it since will show the same positive average growth as one that simply raised it by 8% every year, without a single hiccup. The two have nothing in common as an income holding.",
+        },
+        {
+          type: 'p',
+          text: "So for every PEA-eligible stock my filter rates 8 out of 10 or better, I pulled the full payment history available on my platform (going back to the year 2000 for some), grouped payments made in the same calendar year (some companies pay an interim installment and a final one on different dates), then checked, year by year, whether the total rose, stayed flat, or fell. I stopped at payments made through 2025: several stocks showed what looked like a drop for 2026, which turned out, on closer inspection, to be an incomplete payment for the year still in progress, not a real cut.",
+        },
+        {
+          type: 'p',
+          text: "Within this scope, a good share of the names that come out well rated by my filter quickly move past the strict PEA-PME cap (2 billion euros in market capitalization since the 2024 reform): it is mostly large, established European stocks, more stable in their payout policy, that dominate this particular ranking. That is not a methodology bias, it is a real finding: dividend consistency is built over decades of financial discipline, a luxury that young, fast-growing companies generally do not have yet.",
+        },
+        { type: 'h2', text: "The ranking: who actually raises it, without a break" },
+        {
+          type: 'p',
+          text: "Here, from the longest unbroken record to the shortest, are the PEA-eligible stocks my filter rates 8 out of 10 or better that truly raised their paid dividend, year after year, through 2025.",
+        },
+        {
+          type: 'table',
+          headers: ['Stock (ticker)', 'Sector', 'Quality score', 'Consecutive raises (through 2025)', 'Current yield'],
+          rows: [
+            ['UCB (UCB.BR)', 'Biopharma', '9/10', '16 years', '0.7%'],
+            ['Euronext (ENX.PA)', 'Exchange operator', '8/10', '6 years', '2.0%'],
+            ['AXA (CS.PA)', 'Insurance', '8/10', '5 years', '5.4%'],
+            ['Vinci (DG.PA)', 'Concessions and construction', '9/10', '5 years', '4.5%'],
+            ['Edenred (EDEN.PA)', 'Employee payments', '9/10', '5 years', '4.8%'],
+            ['Allianz (ALV.DE)', 'Insurance', '8/10', '4 years', '3.9%'],
+            ['Bureau Veritas (BVI.PA)', 'Certification', '8/10', '4 years', '3.3%'],
+            ['Generali (G.MI)', 'Insurance', '8/10', '3 years', '3.6%'],
+            ['Technogym (TGYM.MI)', 'Fitness equipment', '10/10', '3 years', '3.1%'],
+            ['Amadeus (AMS.MC)', 'Travel technology', '10/10', '2 years', '2.8%'],
+            ['ASML (ASML.AS)', 'Semiconductor equipment', '9/10', '2 years', '0.5%'],
+            ['JCDecaux (DEC.PA)', 'Outdoor advertising', '8/10', '0 years', '2.7%'],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Two records already extend one exercise further, confirmed after my data cutoff: UCB had a dividend of 1.45 euros per share approved at its annual general meeting on April 30, 2026, a 4% increase over 2025, [confirmed by UCB itself](https://www.ucb.com/newsroom/press-releases/article/ucb-s-general-meeting-of-shareholders-2026), which brings its streak to 17 years. Edenred, for its part, claims a sixth consecutive increase with the payment announced for 2026. At the other end of the table, JCDecaux shows the limit of this exercise: its dividend, suspended from 2020 to 2024, only resumed in 2025, still below its 2019 level, before a real increase arrived in 2026. A zero in my table does not mean the stock is bad, only that its streak of raises has just restarted from scratch.",
+        },
+        {
+          type: 'p',
+          text: "One detail deserves a public correction: in [the article I dedicated to UCB](/blog/ucb-ucbbr-pharma-belge-immunologie-analyse-fondamentale) back in June, I stated 25 consecutive years of increases. This new systematic pass over the raw record finds only 16 without a strict break through 2025, with a flat year, not a cut, in 2009, at the height of the financial crisis. The difference likely comes down to the exact definition used by my source at the time, which may have counted a flat year as a raise or started from a different reference year. I would rather correct the record than let two different figures circulate on the same site.",
+        },
+        { type: 'h2', text: "Edenred: the increases resumed, the price is still reasonable" },
+        {
+          type: 'p',
+          text: "Edenred issues meal vouchers and payment solutions for businesses, such as Ticket Restaurant. The mechanism behind how Edenred actually makes money is less obvious than it looks: the client company credits its employees' accounts at the start of the month, but employees spend that amount gradually at partner merchants, day after day. Between the moment Edenred receives the money and the moment the merchant collects it, the company temporarily holds funds that are not quite its own yet: this float mechanism, common to any business that manages deferred payments, generates a financial income on top of the fee charged on every transaction.",
+        },
+        {
+          type: 'p',
+          text: "That model also explains why 2020 hurt: restaurants closed during lockdowns, furloughed employees no longer spending their vouchers, and Edenred cut its dividend by about 19%, from 0.86 euros to 0.70 euros per share. Since then, the recovery has been clear and documented by [the company itself](https://www.edenred.com/en/investors-shareholders/dividend): five consecutive raises through 2025, a sixth already claimed for 2026, a rise of more than 90% since the low point.",
+        },
+        {
+          type: 'p',
+          text: "The price, meanwhile, stays reasonable. Edenred trades today at 6.6 times its free cash flow, the cash actually left over once bills are paid, a low multiple for a company my filter rates 9 out of 10. My fair buy price model, which projects cash per share five years out rather than trusting a single day's multiple, comes out at $41.95 against a current price of $28.55, a discount of roughly 47%. With a payout ratio of only 65% of cash generated, the company keeps room to keep raising this dividend without putting its investments at risk.",
+        },
+        { type: 'h2', text: "Euronext: the raises continue, the price no longer does" },
+        {
+          type: 'p',
+          text: "Not to be confused with Euronext Athens Holding, its Greek subsidiary already mentioned in my PEA-PME article: Euronext N.V. is the parent company, listed in Paris, which operates the exchanges in Paris, Amsterdam, Brussels, Lisbon, Dublin, Milan and Oslo. An exchange earns money two complementary ways: a fee on every executed transaction, variable and dependent on trading volume, and a recurring subscription for real-time market data access, sold to banks, funds and trading platforms, more stable and predictable. That second revenue stream explains much of the dividend's consistency.",
+        },
+        {
+          type: 'p',
+          text: "The dividend paid rose six years in a row between 2020 and 2025, from 1.45 to 2.90 euros per share, nearly doubling in five years. A seventh raise is already confirmed for 2026: 3.18 euros per share, up 9.8%, [officially announced by Euronext](https://www.globenewswire.com/news-release/2026/04/07/3269447/0/en/Euronext-publishes-its-detailed-dividend-payment-schedule-for-2026.html), which pays out half its net profit to shareholders as a stated policy.",
+        },
+        {
+          type: 'p',
+          text: "The price, on the other hand, is no longer a bargain. Euronext trades at 23.8 times its free cash flow, and my model puts the fair buy price at $57.54 against a current price of $157.70, meaning the stock trades roughly 64% above what I consider a safe entry point. This is exactly the kind of situation where quality and price tell two different stories: a company that has raised its dividend without fail for six years is not automatically a buying opportunity today. Quality and price stay two separate judgments in my method, always.",
+        },
+        { type: 'h2', text: "Cegedim: the trap that yield alone never sees" },
+        {
+          type: 'p',
+          text: "Cegedim is a French health data and technology company, listed on Euronext Paris, rated 8 out of 10 by my filter. Search for \"PEA stocks that pay a dividend\" in a basic screener and it shows up today, because it paid 0.50 euros per share in 2022. That is exactly where the trap closes: this kind of filter never asks since when, or whether it will happen again.",
+        },
+        {
+          type: 'p',
+          text: "The real record tells a very different story. From 2000 to 2011, Cegedim did raise its dividend every year, from 0.33 to 1.00 euro per share. Then nothing for eleven years. The 2022 payment, the one a screener picks up today, is not a resumption of growth: it is a one-off payment, at half the last amount paid in 2011, and nothing has been paid since.",
+        },
+        {
+          type: 'p',
+          text: "[Cegedim says so itself on its investor page](https://www.cegedim.com/finance/share/Pages/shareid.aspx): the group \"does not plan to pay regular cash dividends,\" a decision that remains at the discretion of its board of directors depending on results, available cash, and loan covenants. This is not a solvency problem stated publicly, it is a deliberate choice not to commit to a regular payout policy, something no yield figure shown at a given moment can ever reveal.",
+        },
+        { type: 'h2', text: "How to check this yourself before you buy" },
+        {
+          type: 'p',
+          text: "Three habits are enough. First, look for the \"dividend history\" page on the company's investor relations site, often more complete in English than in other languages, rather than the single yield your broker displays. Second, count the years one by one instead of trusting a 5-year average: a flat year or a cut easily hides behind a positive average figure.",
+        },
+        {
+          type: 'p',
+          text: "Finally, look for an explicit statement about the company's policy, often in the annual report or the \"shareholders\" page: some formally commit to raising their dividend every year, like UCB or Edenred, which both document their own record on their site, others, like Cegedim, clearly warn they will not. That sentence, more than the amount of the last payment, tells you what to expect next year. My [full screener](/screener) and my [methodology](/methodologie) detail how I build the quality score out of 10 that serves as the first filter before this kind of manual check.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "UCB shows the longest unbroken record in this ranking: 16 verified years through 2025, 17 counting the raise already approved for 2026.",
+            "Edenred cut its dividend by 19% in 2020, then delivered five straight raises through 2025 (a sixth already claimed for 2026), and still trades at a discount of roughly 47% per my model.",
+            "Euronext has raised its paid dividend for six years, but now trades about 64% above my fair buy price: a good company, at the wrong moment.",
+            "Cegedim paid a dividend in 2022 after eleven years of nothing, at half its last amount, and says itself it does not plan on regularity: a displayed yield never tells you since when, or for how long.",
+            "Always check the full year-by-year record on the company's investor relations site rather than a single yield figure or a 5-year average.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "What is the difference between a dividend that exists and one that grows?",
+          a: "A dividend that \"exists\" simply means a payment, even a single or old one, took place. A dividend that grows implies a real, and ideally regular, increase, year after year. Most stock screeners do not distinguish the two: they tick the same box for a company that has raised its dividend for 16 years and for one that paid a single dividend in eleven years.",
+        },
+        {
+          q: "Is the yield shown by my broker enough to judge a dividend's quality?",
+          a: "No. Yield, the annual amount divided by the share price, is a snapshot, not a trajectory. A stock can show a high yield simply because its price fell, or a modest yield while raising its dividend every year for decades, like UCB. You need to look at the full record, not the picture of a single day.",
+        },
+        {
+          q: "Are all these stocks eligible for the standard PEA, or only the PEA-PME?",
+          a: "Every stock in this ranking is eligible for the standard PEA: its registered office sits within the European Union or the European Economic Area, the only legal condition, regardless of size. Several, like UCB, Allianz or ASML, far exceed the PEA-PME market cap ceiling, set at 2 billion euros since the 2024 reform detailed in [my dedicated article](/blog/pea-pme-reforme-2024-nouveau-seuil).",
+        },
+        {
+          q: "Where can I check a stock's payment history myself?",
+          a: "Directly on the company's investor relations site, by searching for \"dividend history\" or \"investor relations,\" which usually publishes a full year-by-year table. That is the most reliable source, more complete than the 5-year summary shown by most brokers and financial aggregators.",
+        },
+      ],
+      tags: ['PEA', 'dividends', 'Europe', 'method'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (September 15, 2026), individually verified against each stock's payment history at the time of writing. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you so you can read this analysis with that in mind. Do your own research.",
+    },
+    es: {
+      title: "PEA: estas acciones suben su dividendo cada año",
+      excerpt:
+        "Cruzo la elegibilidad PEA con el historial real de pagos, no solo si existe un dividendo. Resultado: dieciséis años seguidos de subidas en UCB, una recuperación clara en Edenred tras un recorte por la pandemia, y un nombre, Cegedim, que solo pagó una vez en once años, sin prometer repetirlo.",
+      metaDescription:
+        "PEA: compruebo pago por pago qué acciones elegibles suben de verdad su dividendo cada año, y cuál solo lo aparenta.",
+      answer:
+        "Tener un dividendo no es lo mismo que verlo crecer. Comprobé, pago por pago, el historial real de cada acción elegible para el PEA que mi filtro de calidad valora bien. UCB lo sube sin interrupción desde hace dieciséis años. Cegedim, en cambio, pagó uno solo en once años, a la mitad del importe anterior, y no promete repetirlo.",
+      body: [
+        { type: 'h2', text: "Pagar un dividendo no es lo mismo que hacerlo crecer" },
+        {
+          type: 'p',
+          text: "Busca \"acción dividendo creciente PEA\" y enseguida encuentras listas que marcan una sola casilla: ¿pagó la empresa algo a sus accionistas este año? Esa casilla no dice nada sobre la regularidad del pago, ni sobre su trayectoria. Una empresa que paga medio euro por acción este año, tras once años de silencio, marca exactamente la misma casilla que otra que sube su dividendo sin interrupción desde hace dieciséis años.",
+        },
+        {
+          type: 'p',
+          text: "Quise comprobar, pago por pago, cuál de las acciones elegibles para el PEA que mi filtro de calidad valora bien cumple de verdad lo que promete un \"dividendo creciente\". No la media suavizada a cinco años que muestran la mayoría de las webs, que puede esconder una caída seguida de un rebote detrás de una cifra de aspecto positivo, sino el historial completo, ejercicio por ejercicio.",
+        },
+        {
+          type: 'p',
+          text: "Recordatorio rápido para quien descubre el tema: el PEA (Plan d'Epargne en Actions) es un producto fiscal francés que exime del impuesto sobre la renta las plusvalías y los dividendos tras cinco años de tenencia, siempre que la sede social de la empresa permanezca en la Unión Europea o en el Espacio Económico Europeo. Ya detallé esta norma y su reciente reforma en [mi artículo sobre la reforma del PEA-PME](/blog/pea-pme-reforme-2024-nouveau-seuil), y crucé ese filtro con la valoración en [mi ranking de acciones PEA infravaloradas](/blog/pea-actions-qualite-sous-evaluees-2026). Aquí la pregunta es distinta: entre estas acciones elegibles, ¿cuáles suben de verdad su dividendo, y cuáles se limitan a pagar uno de vez en cuando?",
+        },
+        { type: 'h2', text: "Mi método: el historial completo, no una media a cinco años" },
+        {
+          type: 'p',
+          text: "El dato de \"crecimiento del dividendo a 5 años\" que muestran la mayoría de los screeners es una media anual compuesta entre dos puntos: el valor de hace cinco años y el de hoy. El problema es que esa media no dice nada del camino recorrido entre ambos. Una acción que recortó su dividendo a la mitad y luego lo más que duplicó desde entonces mostrará la misma media de crecimiento positiva que otra que simplemente lo subió un 8% cada año, sin sobresaltos. Las dos no tienen nada que ver como inversión de renta.",
+        },
+        {
+          type: 'p',
+          text: "Por eso repasé, para cada acción elegible para el PEA que mi filtro califica con 8 sobre 10 o más, el historial completo de pagos disponible en mi plataforma (que en algunos casos llega hasta el año 2000), agrupé los pagos de un mismo año natural (algunas empresas pagan un adelanto y luego un resto, en fechas distintas), y comprobé, año a año, si el total subía, se mantenía, o bajaba. Me detuve en los pagos realizados hasta 2025: varias acciones mostraban para 2026 un importe que parecía una bajada, y que tras comprobarlo resultó ser un pago aún incompleto del ejercicio en curso, no un recorte real.",
+        },
+        {
+          type: 'p',
+          text: "Dentro de este alcance, buena parte de los nombres que salen bien valorados por mi filtro se alejan rápido del PEA-PME en sentido estricto (límite de 2 000 millones de euros de capitalización desde la reforma de 2024): son sobre todo grandes acciones europeas consolidadas, más estables en su política de pago, las que dominan este ranking concreto. No es un sesgo del método, es un resultado real: la regularidad de un dividendo se construye sobre décadas de disciplina financiera, un lujo que las empresas jóvenes de alto crecimiento normalmente aún no tienen.",
+        },
+        { type: 'h2', text: "El ranking: quién sube de verdad, sin interrupción" },
+        {
+          type: 'p',
+          text: "Aquí tienes, del historial ininterrumpido más largo al más corto, las acciones elegibles para el PEA que mi filtro califica con 8 sobre 10 o más y que realmente subieron su dividendo pagado, año tras año, hasta 2025.",
+        },
+        {
+          type: 'table',
+          headers: ['Acción (ticker)', 'Sector', 'Nota de calidad', 'Subidas consecutivas (hasta 2025)', 'Rentabilidad actual'],
+          rows: [
+            ['UCB (UCB.BR)', 'Biofarmacéutica', '9/10', '16 años', '0,7 %'],
+            ['Euronext (ENX.PA)', 'Operador bursátil', '8/10', '6 años', '2,0 %'],
+            ['AXA (CS.PA)', 'Seguros', '8/10', '5 años', '5,4 %'],
+            ['Vinci (DG.PA)', 'Concesiones y construcción', '9/10', '5 años', '4,5 %'],
+            ['Edenred (EDEN.PA)', 'Pagos a empleados', '9/10', '5 años', '4,8 %'],
+            ['Allianz (ALV.DE)', 'Seguros', '8/10', '4 años', '3,9 %'],
+            ['Bureau Veritas (BVI.PA)', 'Certificación', '8/10', '4 años', '3,3 %'],
+            ['Generali (G.MI)', 'Seguros', '8/10', '3 años', '3,6 %'],
+            ['Technogym (TGYM.MI)', 'Equipamiento fitness', '10/10', '3 años', '3,1 %'],
+            ['Amadeus (AMS.MC)', 'Tecnología de viajes', '10/10', '2 años', '2,8 %'],
+            ['ASML (ASML.AS)', 'Equipos de semiconductores', '9/10', '2 años', '0,5 %'],
+            ['JCDecaux (DEC.PA)', 'Publicidad exterior', '8/10', '0 años', '2,7 %'],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Dos series ya se prolongan un ejercicio más, confirmado tras mi corte de datos: UCB aprobó un dividendo de 1,45 euros por acción en su junta general del 30 de abril de 2026, un 4% más que en 2025, [confirmado por la propia UCB](https://www.ucb.com/newsroom/press-releases/article/ucb-s-general-meeting-of-shareholders-2026), lo que lleva su serie a 17 años. Edenred, por su parte, reivindica ella misma una sexta subida consecutiva con el pago anunciado para 2026. En el otro extremo de la tabla, JCDecaux ilustra el límite de este ejercicio: su dividendo, suspendido de 2020 a 2024, solo se reanudó en 2025, todavía por debajo de su nivel de 2019, antes de que llegara una subida real en 2026. Un cero en mi tabla no significa que la acción sea mala, solo que su serie de subidas acaba de reiniciarse desde cero.",
+        },
+        {
+          type: 'p',
+          text: "Un detalle merece una corrección pública: en [el artículo que dediqué a UCB](/blog/ucb-ucbbr-pharma-belge-immunologie-analyse-fondamentale) el pasado junio, afirmé 25 años consecutivos de subidas. Este nuevo repaso sistemático del historial en bruto solo encuentra 16 sin interrupción estricta hasta 2025, con un año plano, no una bajada, en 2009, en plena crisis financiera. La diferencia probablemente se deba a la definición exacta usada por mi fuente de entonces, que quizás contaba un año plano como una subida o partía de un año de referencia distinto. Prefiero corregirlo a dejar dos cifras distintas circulando en la misma web.",
+        },
+        { type: 'h2', text: "Edenred: la subida se reanudó, el precio sigue siendo razonable" },
+        {
+          type: 'p',
+          text: "Edenred emite vales de comida y soluciones de pago para empresas, como Ticket Restaurant. El mecanismo por el que Edenred realmente gana dinero es menos evidente de lo que parece: la empresa cliente abona la cuenta de sus empleados a principios de mes, pero estos gastan ese importe poco a poco en los comercios asociados, día tras día. Entre el momento en que Edenred recibe el dinero y aquel en que el comercio lo cobra, la empresa dispone temporalmente de fondos que todavía no son del todo suyos: este mecanismo de flotante, común a cualquier empresa que gestiona pagos diferidos, genera un ingreso financiero además de la comisión cobrada en cada transacción.",
+        },
+        {
+          type: 'p',
+          text: "Este modelo también explica por qué 2020 dolió: restaurantes cerrados durante los confinamientos, empleados en ERTE que ya no usaban sus vales, y Edenred redujo su dividendo cerca de un 19%, de 0,86 a 0,70 euros por acción. Desde entonces, la recuperación es clara y está documentada por [la propia empresa](https://www.edenred.com/en/investors-shareholders/dividend): cinco subidas consecutivas hasta 2025, una sexta ya reivindicada para 2026, una progresión de más del 90% desde el mínimo.",
+        },
+        {
+          type: 'p',
+          text: "El precio, por su parte, sigue siendo razonable. Edenred se valora hoy a 6,6 veces su flujo de caja libre, el efectivo realmente disponible una vez pagadas las facturas, un múltiplo bajo para una empresa que mi filtro califica con 9 sobre 10. Mi modelo de precio de compra razonable, que proyecta el efectivo por acción a cinco años en lugar de fiarse del múltiplo de un solo día, sitúa el precio en 41,95 dólares frente a una cotización actual de 28,55 dólares, un descuento de alrededor del 47%. Con una tasa de reparto de solo el 65% del efectivo generado, la empresa conserva margen para seguir subiendo este dividendo sin poner en riesgo sus inversiones.",
+        },
+        { type: 'h2', text: "Euronext: la subida continúa, el precio ya no tanto" },
+        {
+          type: 'p',
+          text: "No confundir con Euronext Athens Holding, su filial griega ya citada en mi artículo sobre el PEA-PME: Euronext N.V. es la matriz, cotizada en París, que opera las bolsas de París, Ámsterdam, Bruselas, Lisboa, Dublín, Milán y Oslo. Una bolsa gana dinero de dos formas complementarias: una comisión por cada operación ejecutada, variable y dependiente del volumen negociado, y una suscripción recurrente por el acceso a los datos de mercado en tiempo real, vendida a bancos, fondos y plataformas de trading, más estable y previsible. Esta segunda fuente de ingresos explica buena parte de la regularidad del dividendo.",
+        },
+        {
+          type: 'p',
+          text: "El dividendo pagado subió seis años seguidos entre 2020 y 2025, de 1,45 a 2,90 euros por acción, casi duplicándose en cinco años. Una séptima subida ya está confirmada para 2026: 3,18 euros por acción, un 9,8% más, [anunciado oficialmente por Euronext](https://www.globenewswire.com/news-release/2026/04/07/3269447/0/en/Euronext-publishes-its-detailed-dividend-payment-schedule-for-2026.html), que reparte la mitad de su beneficio neto entre sus accionistas como política declarada.",
+        },
+        {
+          type: 'p',
+          text: "El precio, en cambio, ya no es una ganga. Euronext se valora a 23,8 veces su flujo de caja libre, y mi modelo sitúa el precio de compra razonable en 57,54 dólares frente a una cotización actual de 157,70 dólares, es decir, la acción cotiza alrededor de un 64% por encima de lo que considero un punto de entrada seguro. Es exactamente el tipo de situación en la que calidad y precio cuentan dos historias distintas: una empresa que sube su dividendo sin fallar desde hace seis años no es automáticamente una oportunidad de compra hoy. Calidad y precio siguen siendo dos juicios separados en mi método, siempre.",
+        },
+        { type: 'h2', text: "Cegedim: la trampa que la rentabilidad, por sí sola, nunca ve" },
+        {
+          type: 'p',
+          text: "Cegedim es una empresa francesa de tecnología y datos de salud, cotizada en Euronext París, calificada con 8 sobre 10 por mi filtro. Si buscas \"acciones PEA que pagan dividendo\" en un screener básico, aparece hoy, porque pagó 0,50 euros por acción en 2022. Ahí es donde se cierra la trampa: este tipo de filtro nunca pregunta desde cuándo, ni si va a continuar.",
+        },
+        {
+          type: 'p',
+          text: "El historial real cuenta una historia muy distinta. De 2000 a 2011, Cegedim sí subió su dividendo cada año, de 0,33 a 1,00 euro por acción. Después, nada durante once años. El pago de 2022, el que capta hoy el screener, no es una reanudación de la subida: es un pago único, a la mitad del último importe pagado en 2011, y no se ha repartido nada desde entonces.",
+        },
+        {
+          type: 'p',
+          text: "[La propia Cegedim lo dice en su página de inversores](https://www.cegedim.com/finance/share/Pages/shareid.aspx): el grupo \"no tiene previsto pagar dividendos regulares en efectivo\", una decisión que queda a discreción de su consejo de administración según los resultados, la caja disponible y las cláusulas de sus préstamos. No es un problema de solvencia declarado públicamente, es una decisión consciente de no comprometerse con una política de pago regular, algo que ninguna rentabilidad mostrada en un momento dado puede revelar.",
+        },
+        { type: 'h2', text: "Cómo comprobarlo tú mismo antes de comprar" },
+        {
+          type: 'p',
+          text: "Bastan tres hábitos. Primero, busca la página \"dividend history\" o \"historial de dividendos\" en la web de inversores de la empresa, a menudo más completa en inglés que en otros idiomas, en lugar de fiarte solo de la rentabilidad que muestra tu bróker. Segundo, cuenta los años uno a uno, en lugar de fiarte de una media a 5 años: un año plano o un recorte se esconden fácilmente detrás de una cifra media positiva.",
+        },
+        {
+          type: 'p',
+          text: "Por último, busca una frase explícita sobre la política de la empresa, a menudo en el informe anual o en la página \"shareholders\": algunas se comprometen formalmente a subir su dividendo cada año, como UCB o Edenred, que documentan su propia serie en su web, otras, como Cegedim, avisan claramente de que no lo harán. Esa frase, más que el importe del último pago, te dice qué esperar el año que viene. Mi [screener completo](/screener) y mi [metodología](/methodologie) detallan cómo construyo la nota de calidad sobre 10 que sirve de primer filtro antes de este tipo de comprobación manual.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "UCB muestra la serie ininterrumpida más larga de este ranking: 16 años verificados hasta 2025, 17 contando la subida ya aprobada para 2026.",
+            "Edenred recortó su dividendo un 19% en 2020, y desde entonces encadenó cinco subidas hasta 2025 (una sexta ya reivindicada para 2026), y aún cotiza con un descuento de alrededor del 47% según mi modelo.",
+            "Euronext sube su dividendo pagado desde hace seis años, pero hoy cotiza cerca de un 64% por encima de mi precio de compra razonable: buena empresa, mal momento.",
+            "Cegedim pagó un dividendo en 2022 tras once años sin repartir nada, a la mitad del último importe, y ella misma dice no prever regularidad: una rentabilidad mostrada nunca dice desde cuándo ni por cuánto tiempo.",
+            "Comprueba siempre el historial completo, año por año, en la web de inversores de la empresa en lugar de una sola cifra de rentabilidad o una media a 5 años.",
+          ],
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qué diferencia hay entre un dividendo que existe y uno que crece?",
+          a: "Un dividendo \"que existe\" solo significa que hubo un pago, aunque sea único o antiguo. Un dividendo que crece implica una subida real y, a ser posible, regular, ejercicio tras ejercicio. La mayoría de los filtros bursátiles no distinguen entre ambos: marcan la misma casilla para una empresa que sube su dividendo desde hace 16 años y para otra que pagó uno solo en once años.",
+        },
+        {
+          q: "¿Basta la rentabilidad que muestra mi bróker para juzgar la calidad de un dividendo?",
+          a: "No. La rentabilidad, el importe anual dividido entre la cotización, es una foto fija, no una trayectoria. Una acción puede mostrar una rentabilidad alta simplemente porque su cotización cayó, o una rentabilidad modesta mientras sube su dividendo cada año desde hace décadas, como UCB. Hay que mirar el historial completo, no la foto de un solo día.",
+        },
+        {
+          q: "¿Son todas estas acciones elegibles para el PEA clásico, o solo para el PEA-PME?",
+          a: "Todas las de este ranking son elegibles para el PEA clásico: su sede social se encuentra en la Unión Europea o en el Espacio Económico Europeo, la única condición legal, sin importar su tamaño. Varias, como UCB, Allianz o ASML, superan con creces el límite de capitalización del PEA-PME, fijado en 2 000 millones de euros desde la reforma de 2024 detallada en [mi artículo dedicado](/blog/pea-pme-reforme-2024-nouveau-seuil).",
+        },
+        {
+          q: "¿Dónde puedo comprobar yo mismo el historial de pagos de una acción?",
+          a: "Directamente en la web de inversores de la empresa, buscando \"dividend history\" o \"investor relations\", que normalmente publica una tabla completa, ejercicio por ejercicio. Es la fuente más fiable, más completa que el resumen a 5 años que muestran la mayoría de los brókeres y agregadores financieros.",
+        },
+      ],
+      tags: ['PEA', 'dividendos', 'Europa', 'método'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (15 de septiembre de 2026), verificadas individualmente con el historial de pagos de cada acción en el momento de la redacción. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Haz tu propia investigación.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
