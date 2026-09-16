@@ -59,6 +59,42 @@ describe('reaccentTexts', () => {
     expect(report.changed).toBe(1);
   });
 
+  it('ARRETE la passe sur une rafale de refus immediats, au lieu de brûler la file', async () => {
+    // Le run du 11/08/2026 : plafond d'abonnement atteint, puis 63 lots perdus en 79 s.
+    let now = 0;
+    const clock = () => now;
+    const run = vi.fn(async () => {
+      now += 1_000; // refus immediat : 1 s, loin des 28 s d'un vrai appel
+      throw new Error('claude: code de sortie 1: ');
+    });
+    const textes = Array.from({ length: 100 }, (_, i) => `phrase ${i} sans accent`);
+    const report = await reaccentTexts(textes, { run, clock, batchSize: 10 });
+
+    // 10 lots possibles, mais on s'arrete apres 3 refus immediats d'affilee.
+    expect(run).toHaveBeenCalledTimes(3);
+    expect(report.failedBatches).toBe(3);
+    expect(report.abortedAtBatch).toBe(0);
+    expect(report.texts).toEqual(textes);
+  });
+
+  it('REJOUE un echec lent isole, sans le compter comme une rafale', async () => {
+    let now = 0;
+    const clock = () => now;
+    let calls = 0;
+    const run = vi.fn(async () => {
+      calls += 1;
+      now += 30_000; // duree d'un vrai appel : l'echec est transitoire, pas un refus
+      if (calls === 1) throw new Error('reseau coupe');
+      return JSON.stringify(['phrase corrigée']);
+    });
+    const report = await reaccentTexts(['phrase corrigee'], { run, clock });
+
+    expect(run).toHaveBeenCalledTimes(2);
+    expect(report.failedBatches).toBe(0);
+    expect(report.abortedAtBatch).toBeUndefined();
+    expect(report.texts[0]).toBe('phrase corrigée');
+  });
+
   it('REJETTE une reponse qui retire des accents', async () => {
     const original = "Péages indexés pour l'État concédant.";
     const run = vi.fn(async () => JSON.stringify(["Peages indexes pour l'Etat concedant."]));
