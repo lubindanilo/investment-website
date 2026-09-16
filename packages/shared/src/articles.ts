@@ -87796,7 +87796,344 @@ const articleDividendePeaVerifie: Article = {
   },
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie];
+const articleKOvsPEP2026: Article = {
+  slug: 'coca-cola-pepsico-marche-tranche-2026',
+  date: '2026-09-16',
+  updated: '2026-09-16',
+  readingTime: 8,
+  content: {
+    fr: {
+      title: "Coca-Cola (KO) ou PepsiCo (PEP) : le marché tranche",
+      excerpt:
+        "Coca-Cola et PepsiCo vendent les mêmes boissons sucrées depuis un siècle, mais leurs actions viennent de prendre deux chemins opposés en 2026. Voici ce que révèle ma méthode qualité et valorisation sur ce grand écart.",
+      metaDescription:
+        "Coca-Cola grimpe de 29 % en 2026, PepsiCo recule de 2 %. Mon analyse fondamentale compare qualité, dette et valorisation des deux géants des boissons et snacks.",
+      answer:
+        "Coca-Cola grimpe de 29 % en 2026 sur un effet Coupe du Monde ponctuel, quand PepsiCo recule de 2 % à cause d'un ralentissement de Frito-Lay. Ma grille les note presque pareil (6/10 contre 5/10), mais mon modèle juge les deux actions surcotées, pour des raisons opposées : un prix déjà cher pour l'une, une croissance trop faible pour l'autre.",
+      body: [
+        { type: 'h2', text: "Pourquoi le marché ne traite plus Coca-Cola et PepsiCo pareil ?" },
+        {
+          type: 'p',
+          text: "Coca-Cola et PepsiCo vendent depuis un siècle des boissons sucrées dans les mêmes rayons des mêmes supermarchés, et pourtant leurs actions viennent de prendre deux chemins opposés. Depuis le 1er janvier 2026, Coca-Cola (KO) a grimpé d'environ 29 %, quand PepsiCo (PEP) recule de 2 % et traite près de son plus bas sur douze mois. Mon filtre qualité et valorisation à 10 critères note les deux entreprises de façon proche (6 sur 10 pour Coca-Cola, 5 sur 10 pour PepsiCo), un écart bien trop faible pour expliquer, à lui seul, une telle divergence boursière.",
+        },
+        {
+          type: 'p',
+          text: "La vraie explication tient en un mot pour chacune : Coca-Cola profite d'un catalyseur ponctuel exceptionnel, la Coupe du Monde de la FIFA, quand PepsiCo encaisse un ralentissement plus structurel de sa division snacking aux États-Unis. Deux histoires très différentes se cachent derrière deux notes de qualité proches, et c'est précisément ce genre d'écart que ma méthode est censée éclairer : séparer ce qui relève du narratif de marché de ce que disent réellement les chiffres.",
+        },
+        { type: 'h2', text: "D'où vient la hausse historique des volumes de Coca-Cola ?" },
+        {
+          type: 'p',
+          text: "Coca-Cola a publié fin juillet sa plus forte croissance de volume trimestrielle en 17 ans (+5 %), portée par la Coupe du Monde de la FIFA : l'effet sur la consommation de boissons dans les zones de rassemblement et les points de vente a dépassé les propres attentes internes de l'entreprise. Le chiffre d'affaires a bondi de 7 % à 13,38 milliards de dollars, et le groupe a relevé sa guidance annuelle de bénéfice par action à 9-10 % de croissance (le détail complet de ce trimestre est dans mon [analyse dédiée à Coca-Cola](/blog/coca-cola-ko-resultats-t2-2026-verdict)).",
+        },
+        {
+          type: 'p',
+          text: "Mais un tournoi mondial de football ne se rejoue pas chaque trimestre. Le marché semble avoir extrapolé un catalyseur ponctuel en tendance durable : le titre a grimpé de 6 % le jour de la publication et continue de monter depuis, alors que Coca-Cola vient elle-même d'annoncer un [plan d'investissement de 10 milliards de dollars aux États-Unis d'ici 2030](https://investors.coca-colacompany.com/news-events/press-releases/detail/1171/the-coca-cola-system-a-140-year-legacy-that-continues-to-deliver-for-america), un signal de confiance dans la demande locale plutôt qu'un simple sursaut lié au ballon rond. Reste que la comparaison de croissance du troisième trimestre face à ce deuxième trimestre exceptionnel sera mécaniquement bien plus difficile.",
+        },
+        { type: 'h2', text: "Pourquoi Frito-Lay tire PepsiCo vers le bas ?" },
+        {
+          type: 'p',
+          text: "PepsiCo a publié le 9 juillet des [résultats plus nuancés](https://investors.pepsico.com/docs/pepsico-5v9wci20/media/Files/investors/q2-2026-earnings-release.pdf) : un chiffre d'affaires de 24,18 milliards de dollars (+6,4 %) qui a battu le consensus, mais un bénéfice par action de 2,20 dollars légèrement sous les attentes. Le vrai problème n'est pas dans le chiffre global, il est dans sa répartition géographique : les volumes internationaux progressent (+3 % pour les snacks, +2 % pour les boissons), mais aux États-Unis, la division Frito-Lay (Lay's, Doritos, Cheetos, Tostitos) stagne, malgré des baisses de prix pouvant atteindre 15 % sur ces mêmes marques pour tenter de relancer la demande (j'étais déjà entré dans le détail de ce trimestre dans mon [analyse dédiée à PepsiCo](/blog/pepsico-pep-resultats-q2-2026-verdict)).",
+        },
+        {
+          type: 'p',
+          text: "Une partie du secteur lie ce ralentissement à l'essor des médicaments GLP-1 (Ozempic et ses équivalents) : leur adoption est passée de 9 % à 21 % des foyers américains entre janvier 2025 et mai 2026, et [une partie de la presse spécialisée documente un marché du snacking qui ralentit en conséquence](https://www.bakeryandsnacks.com/Article/2026/03/04/pepsico-campbells-and-smucker-cut-plants-as-snack-market-slows-amid-glp-1-impact-and-soft-volumes/). Le directeur général Ramon Laguarta tempère : il dit ne pas observer d'impact « direct » de ces médicaments sur les ventes, et préfère pointer un consommateur américain sous pression budgétaire générale. Les deux explications ne s'excluent pas, et c'est précisément cette incertitude sur la cause qui pèse sur le titre : le marché n'aime pas ne pas savoir si un problème est passager ou structurel.",
+        },
+        { type: 'h2', text: "Que dit ma grille de qualité sur chacune des deux ?" },
+        {
+          type: 'p',
+          text: "Mon filtre à 10 critères valide aujourd'hui 6 critères sur 10 pour Coca-Cola et 5 sur 10 pour PepsiCo (voir [la fiche complète de Coca-Cola](/analyse/KO) et [celle de PepsiCo](/analyse/PEP)), deux notes moyennes qui masquent des profils très différents. Coca-Cola affiche une marge nette confortable de 28,6 %, contre 10,8 % pour PepsiCo, presque trois fois moins. La raison tient à un mécanisme structurel : Coca-Cola vend le concentré et possède la marque, mais confie l'essentiel des usines d'embouteillage et de la logistique physique à des sociétés d'embouteillage partenaires, un modèle de franchise qui allège considérablement les coûts et le capital nécessaires. PepsiCo, à l'inverse, possède directement une bonne partie de ses usines de snacks et de boissons : un modèle plus intégré, avec plus de contrôle, mais aussi plus de charges fixes à absorber quand les volumes stagnent.",
+        },
+        {
+          type: 'p',
+          text: "Ce même mécanisme explique une autre différence qui saute aux yeux : l'endettement net de Coca-Cola se rembourse en 2,49 années de free cash flow (mon seuil de tolérance est de 3 ans, donc validé), contre 4,79 années pour PepsiCo, jugé élevé par mon filtre. Un bilan plus léger, hérité du modèle de franchise, donne à Coca-Cola davantage de marge de manœuvre financière. Les deux entreprises échouent en revanche sur les deux mêmes critères : leur croissance des ventes sur 5 ans reste sous mon seuil de 10 % par an (5,1 % pour Coca-Cola, 3,7 % pour PepsiCo), et leurs marges se compriment plutôt qu'elles ne s'élargissent, signe que les coûts (ingrédients, logistique, marketing) grandissent plus vite que le chiffre d'affaires chez les deux.",
+        },
+        {
+          type: 'table',
+          headers: ['Critère', 'Coca-Cola (KO)', 'PepsiCo (PEP)'],
+          rows: [
+            ['Note qualité (sur 10)', '6/10', '5/10'],
+            ['Marge nette', '28,6 %', '10,8 %'],
+            ['P/FCF actuel', '31,0×', '20,7×'],
+            ['Prix d’achat raisonnable vs cours', '10,74 $ vs 88,71 $ (surcote 87,9 %)', '64,56 $ vs 135,50 $ (surcote 52,4 %)'],
+            ['Endettement net (années de FCF)', '2,49 ans', '4,79 ans'],
+            ['Croissance des ventes (5 ans)', '5,1 %/an', '3,7 %/an'],
+            ['Performance boursière YTD (14/09/2026)', '+29 %', '-2 %'],
+          ],
+        },
+        { type: 'h2', text: "Le cash généré est-il aussi fiable chez les deux ?" },
+        {
+          type: 'p',
+          text: "Un chiffre isolé de marge de free cash flow ne dit rien sans sa trajectoire. En reconstituant les quatre derniers trimestres glissants sur les deux dernières années à partir des données publiques du site, PepsiCo raconte une histoire simple et positive : sa marge de FCF est passée de 7,3 % il y a deux ans à 9,6 % aujourd'hui, une progression régulière malgré les difficultés de Frito-Lay. Le groupe génère donc, en proportion, un peu plus de cash disponible qu'avant, même en pleine tourmente sur les volumes.",
+        },
+        {
+          type: 'p',
+          text: "Coca-Cola raconte une histoire beaucoup plus heurtée : sa marge de FCF trimestrielle glissante est passée de négative (-2,0 %) il y a un an à 25,5 % aujourd'hui, avec des creux et des pics violents entre les deux. Ce n'est pas un signe d'instabilité opérationnelle, c'est la conséquence du même mécanisme de franchise évoqué plus haut. Les cessions et rachats ponctuels de participations dans des sociétés d'embouteillage font entrer et sortir de gros montants de cash du bilan par à-coups, ce qui rend n'importe quelle lecture trimestre par trimestre trompeuse pour cette action précise. Il faut lire Coca-Cola sur cash annualisé, jamais sur un seul trimestre.",
+        },
+        { type: 'h2', text: "Laquelle des deux est la plus chère selon mon modèle ?" },
+        {
+          type: 'p',
+          text: "Sur le ratio brut, Coca-Cola se valorise 31,0 fois son free cash flow annuel, contre 20,7 fois pour PepsiCo (mon seuil de tolérance est 25 fois) : PepsiCo semble donc, à première vue, nettement moins chère. Mon analyse de juillet situait déjà le multiple de Coca-Cola au 86ᵉ percentile de son historique sur 5 ans, c'est-à-dire plus cher que 86 % des jours de cotation de cette période : proche du plus cher jamais payé pour cette action précise. Le multiple d'aujourd'hui (31,0 fois) est quasiment identique à celui de juillet (31,1 fois), malgré une action qui a continué de grimper depuis : le marché paie donc toujours une prime proche de son record pour Coca-Cola.",
+        },
+        {
+          type: 'p',
+          text: "Mais mon modèle de prix d'achat raisonnable, qui projette la trajectoire réelle de cash par action des cinq dernières années plutôt que de se fier au seul ratio du jour, inverse presque le classement. Pour PepsiCo, il ressort à 64,56 dollars contre un cours de 135,50 dollars, soit une surcote de 52,4 % : le ratio a beau sembler raisonnable, le modèle pénalise une entreprise dont le cash par action progresse à peine plus vite que l'inflation (+6,2 %/an), après des années où même son chiffre d'affaires stagne sous 4 % par an. Pour Coca-Cola, le calcul brut ressort à seulement 10,74 dollars, un chiffre extrême qu'il faut lire avec la même prudence que je l'avais déjà signalé en juillet : la base de comparaison sur 5 ans est faussée par les cessions et acquisitions de participations dans des embouteilleurs évoquées plus haut, qui font bouger le périmètre du free cash flow par action d'une année sur l'autre. Sur cette action précise, je préfère donc me fier au signal de percentile (chère dans sa propre histoire) plutôt qu'à ce prix calculé brut.",
+        },
+        { type: 'h2', text: "Qu'est-ce qui pourrait faire dérailler chacune des deux thèses ?" },
+        {
+          type: 'p',
+          text: "Pour Coca-Cola, le risque le plus concret est la dépendance à un catalyseur qui ne se répète pas : sans Coupe du Monde au troisième trimestre, la comparaison de croissance sera mécaniquement bien plus dure, et une action qui vient de monter de 29 % sur la promesse d'une dynamique durable a beaucoup à perdre si la croissance retombe vers son rythme normal de 1 à 2 % par an. S'ajoute un risque réglementaire de fond : la pression politique et médicale contre le sucre ajouté continue de croître dans plusieurs marchés développés.",
+        },
+        {
+          type: 'p',
+          text: "Pour PepsiCo, la question centrale est de savoir si le ralentissement de Frito-Lay est passager ou structurel. Si les baisses de prix de 15 % relancent vraiment les volumes dans les prochains trimestres, une action déjà proche de son plus bas sur un an pourrait offrir un vrai point d'entrée. Mais si l'adoption des médicaments GLP-1 continue de grimper au rythme observé depuis janvier 2025, le problème n'est pas une baisse de prix mal calibrée : c'est un changement durable de la demande pour toute une catégorie de produits, qui touchera aussi les autres géants du snacking, pas seulement PepsiCo.",
+        },
+        { type: 'h2', text: "Alors, laquelle choisir selon ma méthode ?" },
+        {
+          type: 'p',
+          text: "Ma méthode ne dit ni « achète Coca-Cola » ni « achète PepsiCo » : elle dit que les deux, aujourd'hui, se valorisent au-dessus de mon prix d'achat raisonnable, avec deux problèmes de nature opposée. Coca-Cola est l'entreprise la plus solide des deux sur le papier (marge, bilan, franchise capital-légère), mais son cours intègre déjà un trimestre exceptionnel qui a peu de chances de se reproduire à l'identique. PepsiCo affiche un ratio plus sobre et un cours déjà dégonflé, mais fait face à une vraie question sur la durabilité de sa demande, pas seulement un accident de communication trimestrielle.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Coca-Cola (score 6/10) grimpe de 29 % depuis janvier sur un effet Coupe du Monde ponctuel, à 31,0 fois son free cash flow annuel, proche de son plus cher historique ; PepsiCo (score 5/10) recule de 2 %, à 20,7 fois son FCF, un ratio plus sobre mais pénalisé par une croissance faible.",
+            "Le bilan plus léger de Coca-Cola (dette remboursable en 2,49 années de FCF) vient de son modèle de franchise d'embouteillage ; celui de PepsiCo (4,79 années), plus lourd, vient de son modèle intégré qui possède directement ses usines.",
+            "La marge de cash de PepsiCo progresse régulièrement (de 7,3 % à 9,6 % en deux ans) malgré Frito-Lay ; celle de Coca-Cola est erratique trimestre par trimestre à cause des mouvements de participations dans ses embouteilleurs, et se lit uniquement en cash annualisé.",
+            "Mon modèle de prix d'achat raisonnable trouve les deux actions surcotées (87,9 % pour Coca-Cola, 52,4 % pour PepsiCo), pour des raisons opposées : un multiple déjà cher pour l'une, une croissance trop faible pour l'autre. Ceci n'est pas un conseil en investissement, fais tes propres recherches.",
+          ],
+        },
+      ],
+      faq: [
+        { q: "Coca-Cola ou PepsiCo, laquelle a la meilleure note qualité sur mon site ?", a: "Coca-Cola valide 6 critères sur 10 dans mon filtre, contre 5 sur 10 pour PepsiCo, principalement grâce à une marge nette bien plus élevée (28,6 % contre 10,8 %) et un bilan plus léger, hérité de son modèle de franchise d'embouteillage." },
+        { q: "PepsiCo est-elle vraiment moins chère que Coca-Cola en bourse ?", a: "Sur le ratio brut, oui : PepsiCo se valorise 20,7 fois son free cash flow contre 31,0 fois pour Coca-Cola. Mais mon modèle de prix d'achat raisonnable, qui intègre la trajectoire de croissance, juge les deux actions surcotées par rapport à leur cours actuel." },
+        { q: "Pourquoi Coca-Cola a-t-elle autant grimpé en bourse en 2026 ?", a: "Portée par sa plus forte croissance de volume trimestrielle en 17 ans (+5 %), attribuée à l'effet de la Coupe du Monde de la FIFA sur la consommation de boissons, Coca-Cola gagne environ 29 % depuis le 1er janvier 2026." },
+        { q: "Le ralentissement de PepsiCo est-il lié aux médicaments GLP-1 ?", a: "C'est une explication avancée par une partie du secteur, avec une adoption des GLP-1 passée de 9 % à 21 % des foyers américains entre janvier 2025 et mai 2026. Le directeur général de PepsiCo affirme ne pas observer d'impact direct et pointe plutôt un consommateur sous pression budgétaire." },
+      ],
+      tags: ['Coca-Cola', 'PepsiCo', 'KO', 'PEP', 'Consommation défensive', 'Comparatif'],
+      disclaimer: "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (16 septembre 2026), susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Fais tes propres recherches.",
+    },
+    en: {
+      title: "Coca-Cola (KO) or PepsiCo (PEP): one side is winning",
+      excerpt:
+        "Coca-Cola and PepsiCo have sold the same sugary drinks on the same shelves for a century, yet their stocks just took two opposite paths in 2026. Here is what my quality and valuation method reveals about that gap.",
+      metaDescription:
+        "Coca-Cola is up 29% in 2026, PepsiCo down 2%. My fundamental analysis compares quality, debt and valuation between the two beverage and snack giants.",
+      answer:
+        "Coca-Cola is up 29% in 2026 on a one-off World Cup effect, while PepsiCo is down 2% on a Frito-Lay slowdown. My screen scores them almost the same (6/10 versus 5/10), but my model flags both stocks as overvalued, for opposite reasons: an already-rich price for one, growth that is too weak for the other.",
+      body: [
+        { type: 'h2', text: "Why has the market stopped treating Coca-Cola and PepsiCo the same way?" },
+        {
+          type: 'p',
+          text: "Coca-Cola and PepsiCo have sold sugary drinks on the same supermarket shelves for a century, yet their stocks just took two opposite paths. Since January 1, 2026, Coca-Cola (KO) has gained roughly 29%, while PepsiCo (PEP) is down 2% and trading near its 12-month low. My 10-criteria quality and valuation screen scores the two companies closely (6 out of 10 for Coca-Cola, 5 out of 10 for PepsiCo), a gap far too small to explain such a stock-price divergence on its own.",
+        },
+        {
+          type: 'p',
+          text: "The real explanation fits in one word for each: Coca-Cola is riding an exceptional one-off catalyst, the FIFA World Cup, while PepsiCo is absorbing a more structural slowdown in its US snacking division. Two very different stories hide behind two close quality scores, and that is exactly the kind of gap my method is built to clarify: separating market narrative from what the numbers actually say.",
+        },
+        { type: 'h2', text: "Where does Coca-Cola's historic volume growth come from?" },
+        {
+          type: 'p',
+          text: "Coca-Cola reported in late July its strongest quarterly volume growth in 17 years (+5%), driven by the FIFA World Cup: the effect on beverage consumption at gathering venues and points of sale exceeded the company's own internal expectations. Revenue jumped 7% to $13.38 billion, and the group raised its full-year EPS growth guidance to 9-10% (the full breakdown of that quarter is in my [dedicated Coca-Cola analysis](/blog/coca-cola-ko-resultats-t2-2026-verdict)).",
+        },
+        {
+          type: 'p',
+          text: "But a global football tournament does not repeat every quarter. The market seems to have extrapolated a one-off catalyst into a lasting trend: the stock jumped 6% on the day of the release and has kept climbing since, right as Coca-Cola announced a [$10 billion US investment plan through 2030](https://investors.coca-colacompany.com/news-events/press-releases/detail/1171/the-coca-cola-system-a-140-year-legacy-that-continues-to-deliver-for-america), a signal of confidence in domestic demand rather than just a World Cup bounce. Still, the third-quarter growth comparison against this exceptional second quarter will mechanically be much tougher.",
+        },
+        { type: 'h2', text: "Why is Frito-Lay dragging PepsiCo down?" },
+        {
+          type: 'p',
+          text: "PepsiCo reported [more mixed results](https://investors.pepsico.com/docs/pepsico-5v9wci20/media/Files/investors/q2-2026-earnings-release.pdf) on July 9: revenue of $24.18 billion (+6.4%) that beat consensus, but earnings per share of $2.20 slightly below expectations. The real problem is not the headline number, it is its geographic split: international volumes are growing (+3% for snacks, +2% for beverages), but in the US, the Frito-Lay division (Lay's, Doritos, Cheetos, Tostitos) is flat, despite price cuts of up to 15% on those same brands to try to reignite demand (I already went into that quarter's detail in my [dedicated PepsiCo analysis](/blog/pepsico-pep-resultats-q2-2026-verdict)).",
+        },
+        {
+          type: 'p',
+          text: "Part of the industry links this slowdown to the rise of GLP-1 drugs (Ozempic and its equivalents): adoption rose from 9% to 21% of US households between January 2025 and May 2026, and [part of the trade press documents a snack market slowing as a result](https://www.bakeryandsnacks.com/Article/2026/03/04/pepsico-campbells-and-smucker-cut-plants-as-snack-market-slows-amid-glp-1-impact-and-soft-volumes/). CEO Ramon Laguarta pushes back: he says he does not see a “direct” impact from these drugs on sales, and instead points to a US consumer under broader budget pressure. The two explanations are not mutually exclusive, and it is precisely this uncertainty over the cause that weighs on the stock: the market does not like not knowing whether a problem is temporary or structural.",
+        },
+        { type: 'h2', text: "What does my quality screen say about each of them?" },
+        {
+          type: 'p',
+          text: "My 10-criteria screen currently validates 6 out of 10 criteria for Coca-Cola and 5 out of 10 for PepsiCo (see [Coca-Cola's full profile](/analyse/KO) and [PepsiCo's](/analyse/PEP)), two average scores that hide very different profiles. Coca-Cola posts a comfortable net margin of 28.6%, versus 10.8% for PepsiCo, nearly three times less. The reason is a structural mechanism: Coca-Cola sells the concentrate and owns the brand, but hands most bottling plants and physical logistics to partner bottling companies, a franchise model that considerably lightens costs and capital needs. PepsiCo, by contrast, directly owns a large share of its snack and beverage plants: a more integrated model, with more control, but also more fixed costs to absorb when volumes stall.",
+        },
+        {
+          type: 'p',
+          text: "The same mechanism explains another glaring difference: Coca-Cola's net debt is repayable in 2.49 years of free cash flow (my tolerance threshold is 3 years, so it passes), versus 4.79 years for PepsiCo, flagged as high by my screen. A lighter balance sheet, inherited from the franchise model, gives Coca-Cola more financial flexibility. Both companies fail the same two criteria, though: their 5-year sales growth sits below my 10%-a-year threshold (5.1% for Coca-Cola, 3.7% for PepsiCo), and their margins are compressing rather than expanding, a sign that costs (ingredients, logistics, marketing) are growing faster than revenue at both.",
+        },
+        {
+          type: 'table',
+          headers: ['Criterion', 'Coca-Cola (KO)', 'PepsiCo (PEP)'],
+          rows: [
+            ['Quality score (out of 10)', '6/10', '5/10'],
+            ['Net margin', '28.6%', '10.8%'],
+            ['Current P/FCF', '31.0x', '20.7x'],
+            ['Reasonable buy price vs price', '$10.74 vs $88.71 (87.9% premium)', '$64.56 vs $135.50 (52.4% premium)'],
+            ['Net debt (years of FCF)', '2.49 years', '4.79 years'],
+            ['Sales growth (5 years)', '5.1%/yr', '3.7%/yr'],
+            ['Stock performance YTD (09/14/2026)', '+29%', '-2%'],
+          ],
+        },
+        { type: 'h2', text: "Is the cash they generate equally reliable?" },
+        {
+          type: 'p',
+          text: "A single free-cash-flow-margin number says nothing without its trajectory. Rebuilding the last four trailing quarters over the past two years from the site's public data, PepsiCo tells a simple, positive story: its FCF margin rose from 7.3% two years ago to 9.6% today, a steady improvement despite Frito-Lay's struggles. The group is generating, proportionally, a bit more available cash than before, even in the middle of a volume slump.",
+        },
+        {
+          type: 'p',
+          text: "Coca-Cola tells a much choppier story: its trailing quarterly FCF margin went from negative (-2.0%) a year ago to 25.5% today, with sharp troughs and spikes in between. This is not a sign of operational instability, it is the consequence of the same franchise mechanism described above. One-off divestitures and buybacks of bottler stakes move large amounts of cash on and off the balance sheet in lumps, which makes any single-quarter reading misleading for this specific stock. Coca-Cola has to be read on annualized cash, never on one quarter alone.",
+        },
+        { type: 'h2', text: "Which of the two is pricier according to my model?" },
+        {
+          type: 'p',
+          text: "On the raw ratio, Coca-Cola trades at 31.0 times its annual free cash flow, versus 20.7 times for PepsiCo (my tolerance threshold is 25 times): PepsiCo looks, at first glance, notably cheaper. My July analysis already placed Coca-Cola's multiple at the 86th percentile of its own 5-year history, meaning it was more expensive than 86% of trading days over that period: near the priciest this specific stock has ever been. Today's multiple (31.0 times) is nearly identical to July's (31.1 times), despite a stock that kept climbing since then: the market is still paying a near-record premium for Coca-Cola.",
+        },
+        {
+          type: 'p',
+          text: "But my reasonable-buy-price model, which projects the actual five-year cash-per-share trajectory rather than trusting a single day's ratio, nearly flips the ranking. For PepsiCo, it comes out at $64.56 against a price of $135.50, a 52.4% premium: the ratio may look reasonable, but the model penalizes a company whose cash per share is growing barely faster than inflation (+6.2%/year), after years where even revenue stalled below 4% a year. For Coca-Cola, the raw calculation comes out at just $10.74, an extreme figure that needs the same caution I already flagged in July: the five-year comparison base is distorted by the bottler stake divestitures and acquisitions mentioned above, which shift the free-cash-flow-per-share perimeter from one year to the next. For this specific stock, I prefer to trust the percentile signal (expensive versus its own history) over this raw calculated price.",
+        },
+        { type: 'h2', text: "What could derail each of the two theses?" },
+        {
+          type: 'p',
+          text: "For Coca-Cola, the most concrete risk is reliance on a catalyst that will not repeat: without a World Cup in the third quarter, the growth comparison will mechanically be much tougher, and a stock that just climbed 29% on the promise of a lasting momentum has a lot to lose if growth falls back to its normal 1-2%-a-year pace. There is also a deeper regulatory risk: political and medical pressure against added sugar keeps rising in several developed markets.",
+        },
+        {
+          type: 'p',
+          text: "For PepsiCo, the central question is whether the Frito-Lay slowdown is temporary or structural. If the 15% price cuts genuinely reignite volumes in coming quarters, a stock already near its one-year low could offer a real entry point. But if GLP-1 drug adoption keeps rising at the pace seen since January 2025, the problem is not a poorly calibrated price cut: it is a lasting shift in demand for an entire product category, one that will hit other snacking giants too, not just PepsiCo.",
+        },
+        { type: 'h2', text: "So which one should you pick, according to my method?" },
+        {
+          type: 'p',
+          text: "My method says neither “buy Coca-Cola” nor “buy PepsiCo”: it says both, today, trade above my reasonable buy price, for two opposite kinds of problems. Coca-Cola is the stronger business of the two on paper (margin, balance sheet, capital-light franchise), but its price already bakes in an exceptional quarter that is unlikely to repeat identically. PepsiCo shows a more modest ratio and an already-deflated price, but faces a genuine question about the durability of its demand, not just a rough quarterly headline.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Coca-Cola (score 6/10) is up 29% since January on a one-off World Cup effect, at 31.0 times its annual free cash flow, near its priciest ever; PepsiCo (score 5/10) is down 2%, at 20.7 times its FCF, a more modest ratio penalized by weak growth.",
+            "Coca-Cola's lighter balance sheet (debt repayable in 2.49 years of FCF) comes from its bottler franchise model; PepsiCo's heavier one (4.79 years) comes from its integrated model, which directly owns its plants.",
+            "PepsiCo's cash margin is steadily improving (from 7.3% to 9.6% in two years) despite Frito-Lay's woes; Coca-Cola's is erratic quarter to quarter because of bottler-stake movements, and only reads cleanly on an annualized basis.",
+            "My reasonable-buy-price model finds both stocks overvalued (87.9% for Coca-Cola, 52.4% for PepsiCo), for opposite reasons: an already-expensive multiple for one, growth that is too weak for the other. This is not investment advice, do your own research.",
+          ],
+        },
+      ],
+      faq: [
+        { q: "Coca-Cola or PepsiCo, which one scores better on my site?", a: "Coca-Cola validates 6 out of 10 criteria in my screen, versus 5 out of 10 for PepsiCo, mainly thanks to a much higher net margin (28.6% versus 10.8%) and a lighter balance sheet, inherited from its bottler franchise model." },
+        { q: "Is PepsiCo really cheaper than Coca-Cola in the market?", a: "On the raw ratio, yes: PepsiCo trades at 20.7 times free cash flow versus 31.0 times for Coca-Cola. But my reasonable-buy-price model, which factors in growth trajectory, judges both stocks overvalued relative to their current price." },
+        { q: "Why has Coca-Cola stock risen so much in 2026?", a: "Driven by its strongest quarterly volume growth in 17 years (+5%), attributed to the FIFA World Cup's effect on beverage consumption, Coca-Cola is up roughly 29% since January 1, 2026." },
+        { q: "Is PepsiCo's slowdown linked to GLP-1 drugs?", a: "That is one explanation raised by part of the industry, with GLP-1 adoption rising from 9% to 21% of US households between January 2025 and May 2026. PepsiCo's CEO says he does not see a direct impact and instead points to a consumer under budget pressure." },
+      ],
+      tags: ['Coca-Cola', 'PepsiCo', 'KO', 'PEP', 'Consumer staples', 'Comparison'],
+      disclaimer: "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (September 16, 2026), subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you so you can read this analysis with that in mind. Do your own research.",
+    },
+    es: {
+      title: "Coca-Cola (KO) o PepsiCo (PEP): el mercado ya eligió",
+      excerpt:
+        "Coca-Cola y PepsiCo venden las mismas bebidas azucaradas desde hace un siglo, pero sus acciones acaban de tomar dos caminos opuestos en 2026. Esto es lo que revela mi método de calidad y valoración sobre esa brecha.",
+      metaDescription:
+        "Coca-Cola sube un 29% en 2026, PepsiCo cae un 2%. Mi análisis fundamental compara calidad, deuda y valoración entre los dos gigantes de bebidas y snacks.",
+      answer:
+        "Coca-Cola sube un 29% en 2026 por un efecto puntual del Mundial, mientras PepsiCo cae un 2% por una desaceleración de Frito-Lay. Mi filtro las puntúa casi igual (6/10 frente a 5/10), pero mi modelo considera ambas acciones sobrevaloradas, por razones opuestas: un precio ya caro para una, un crecimiento demasiado débil para la otra.",
+      body: [
+        { type: 'h2', text: "¿Por qué el mercado ya no trata igual a Coca-Cola y PepsiCo?" },
+        {
+          type: 'p',
+          text: "Coca-Cola y PepsiCo venden desde hace un siglo bebidas azucaradas en los mismos estantes de los mismos supermercados, y sin embargo sus acciones acaban de tomar dos caminos opuestos. Desde el 1 de enero de 2026, Coca-Cola (KO) ha subido alrededor de un 29 %, mientras PepsiCo (PEP) cae un 2 % y cotiza cerca de su mínimo de doce meses. Mi filtro de calidad y valoración de 10 criterios puntúa a ambas empresas de forma parecida (6 sobre 10 para Coca-Cola, 5 sobre 10 para PepsiCo), una diferencia demasiado pequeña para explicar, por sí sola, semejante divergencia bursátil.",
+        },
+        {
+          type: 'p',
+          text: "La explicación real cabe en una palabra para cada una: Coca-Cola se beneficia de un catalizador puntual excepcional, el Mundial de la FIFA, mientras PepsiCo absorbe una desaceleración más estructural de su división de snacks en Estados Unidos. Detrás de dos puntuaciones de calidad parecidas se esconden dos historias muy distintas, y es exactamente el tipo de brecha que mi método pretende aclarar: separar lo que es narrativa de mercado de lo que realmente dicen los números.",
+        },
+        { type: 'h2', text: "¿De dónde viene el aumento histórico de volumen de Coca-Cola?" },
+        {
+          type: 'p',
+          text: "Coca-Cola publicó a finales de julio su mayor crecimiento trimestral de volumen en 17 años (+5 %), impulsado por el Mundial de la FIFA: el efecto sobre el consumo de bebidas en puntos de encuentro y de venta superó las propias expectativas internas de la empresa. Los ingresos subieron un 7 % hasta 13.380 millones de dólares, y el grupo elevó su guía anual de crecimiento del beneficio por acción al 9-10 % (el detalle completo de ese trimestre está en mi [análisis dedicado a Coca-Cola](/blog/coca-cola-ko-resultats-t2-2026-verdict)).",
+        },
+        {
+          type: 'p',
+          text: "Pero un torneo mundial de fútbol no se repite cada trimestre. El mercado parece haber extrapolado un catalizador puntual como si fuera una tendencia duradera: la acción subió un 6 % el día de la publicación y sigue subiendo desde entonces, justo cuando Coca-Cola acaba de anunciar un [plan de inversión de 10.000 millones de dólares en Estados Unidos hasta 2030](https://investors.coca-colacompany.com/news-events/press-releases/detail/1171/the-coca-cola-system-a-140-year-legacy-that-continues-to-deliver-for-america), una señal de confianza en la demanda local más que un simple impulso futbolístico. Aun así, la comparación de crecimiento del tercer trimestre frente a este segundo trimestre excepcional será mecánicamente mucho más difícil.",
+        },
+        { type: 'h2', text: "¿Por qué Frito-Lay arrastra a PepsiCo hacia abajo?" },
+        {
+          type: 'p',
+          text: "PepsiCo publicó el 9 de julio unos [resultados más matizados](https://investors.pepsico.com/docs/pepsico-5v9wci20/media/Files/investors/q2-2026-earnings-release.pdf): unos ingresos de 24.180 millones de dólares (+6,4 %) que superaron el consenso, pero un beneficio por acción de 2,20 dólares ligeramente por debajo de lo esperado. El verdadero problema no está en la cifra global, sino en su reparto geográfico: los volúmenes internacionales crecen (+3 % en snacks, +2 % en bebidas), pero en Estados Unidos la división Frito-Lay (Lay's, Doritos, Cheetos, Tostitos) está estancada, pese a bajadas de precio de hasta un 15 % en esas mismas marcas para intentar reactivar la demanda (ya entré en el detalle de ese trimestre en mi [análisis dedicado a PepsiCo](/blog/pepsico-pep-resultats-q2-2026-verdict)).",
+        },
+        {
+          type: 'p',
+          text: "Parte del sector vincula esta desaceleración al auge de los medicamentos GLP-1 (Ozempic y sus equivalentes): su adopción pasó del 9 % al 21 % de los hogares estadounidenses entre enero de 2025 y mayo de 2026, y [parte de la prensa especializada documenta un mercado del snacking que se ralentiza como consecuencia](https://www.bakeryandsnacks.com/Article/2026/03/04/pepsico-campbells-and-smucker-cut-plants-as-snack-market-slows-amid-glp-1-impact-and-soft-volumes/). El consejero delegado Ramon Laguarta lo matiza: dice no observar un impacto “directo” de estos medicamentos en las ventas, y prefiere señalar a un consumidor estadounidense bajo presión presupuestaria general. Las dos explicaciones no se excluyen, y es precisamente esa incertidumbre sobre la causa lo que pesa sobre la acción: al mercado no le gusta no saber si un problema es pasajero o estructural.",
+        },
+        { type: 'h2', text: "¿Qué dice mi filtro de calidad sobre cada una de las dos?" },
+        {
+          type: 'p',
+          text: "Mi filtro de 10 criterios valida hoy 6 de 10 criterios para Coca-Cola y 5 de 10 para PepsiCo (ver [la ficha completa de Coca-Cola](/analyse/KO) y [la de PepsiCo](/analyse/PEP)), dos notas medias que esconden perfiles muy distintos. Coca-Cola muestra un margen neto cómodo del 28,6 %, frente al 10,8 % de PepsiCo, casi tres veces menos. La razón es un mecanismo estructural: Coca-Cola vende el concentrado y posee la marca, pero deja la mayoría de las plantas embotelladoras y la logística física en manos de embotelladoras socias, un modelo de franquicia que aligera considerablemente los costes y el capital necesario. PepsiCo, en cambio, posee directamente buena parte de sus plantas de snacks y bebidas: un modelo más integrado, con más control, pero también más costes fijos que absorber cuando los volúmenes se estancan.",
+        },
+        {
+          type: 'p',
+          text: "Ese mismo mecanismo explica otra diferencia evidente: la deuda neta de Coca-Cola se repaga en 2,49 años de flujo de caja libre (mi umbral de tolerancia es 3 años, así que aprueba), frente a 4,79 años para PepsiCo, considerado elevado por mi filtro. Un balance más ligero, heredado del modelo de franquicia, da a Coca-Cola más margen financiero. Ambas empresas fallan, en cambio, en los dos mismos criterios: su crecimiento de ventas a 5 años queda por debajo de mi umbral del 10 % anual (5,1 % para Coca-Cola, 3,7 % para PepsiCo), y sus márgenes se comprimen en lugar de expandirse, señal de que los costes (ingredientes, logística, marketing) crecen más rápido que los ingresos en ambas.",
+        },
+        {
+          type: 'table',
+          headers: ['Criterio', 'Coca-Cola (KO)', 'PepsiCo (PEP)'],
+          rows: [
+            ['Nota de calidad (sobre 10)', '6/10', '5/10'],
+            ['Margen neto', '28,6 %', '10,8 %'],
+            ['P/FCF actual', '31,0x', '20,7x'],
+            ['Precio de compra razonable vs cotización', '10,74 $ vs 88,71 $ (sobreprecio 87,9 %)', '64,56 $ vs 135,50 $ (sobreprecio 52,4 %)'],
+            ['Deuda neta (años de FCF)', '2,49 años', '4,79 años'],
+            ['Crecimiento de ventas (5 años)', '5,1 %/año', '3,7 %/año'],
+            ['Rendimiento bursátil en 2026 (14/09/2026)', '+29 %', '-2 %'],
+          ],
+        },
+        { type: 'h2', text: "¿Es igual de fiable el efectivo que genera cada una?" },
+        {
+          type: 'p',
+          text: "Una cifra aislada de margen de flujo de caja libre no dice nada sin su trayectoria. Reconstruyendo los últimos cuatro trimestres móviles de los dos últimos años a partir de los datos públicos del sitio, PepsiCo cuenta una historia simple y positiva: su margen de FCF pasó del 7,3 % hace dos años al 9,6 % hoy, una mejora constante pese a las dificultades de Frito-Lay. El grupo genera, en proporción, algo más de caja disponible que antes, incluso en plena turbulencia de volúmenes.",
+        },
+        {
+          type: 'p',
+          text: "Coca-Cola cuenta una historia mucho más accidentada: su margen de FCF trimestral móvil pasó de negativo (-2,0 %) hace un año al 25,5 % hoy, con caídas y picos muy marcados entre medias. No es una señal de inestabilidad operativa, es la consecuencia del mismo mecanismo de franquicia mencionado antes. Las desinversiones y recompras puntuales de participaciones en embotelladoras mueven grandes cantidades de caja dentro y fuera del balance de golpe, lo que hace engañosa cualquier lectura trimestre a trimestre para esta acción en concreto. Hay que leer a Coca-Cola en caja anualizada, nunca en un solo trimestre.",
+        },
+        { type: 'h2', text: "¿Cuál de las dos es más cara según mi modelo?" },
+        {
+          type: 'p',
+          text: "En el ratio bruto, Coca-Cola se valora en 31,0 veces su flujo de caja libre anual, frente a 20,7 veces para PepsiCo (mi umbral de tolerancia es 25 veces): PepsiCo parece, a primera vista, notablemente más barata. Mi análisis de julio ya situaba el múltiplo de Coca-Cola en el percentil 86 de su historial de 5 años, es decir, más cara que el 86 % de las jornadas de cotización de ese periodo: cerca del nivel más caro jamás pagado por esta acción en concreto. El múltiplo de hoy (31,0 veces) es casi idéntico al de julio (31,1 veces), pese a una acción que ha seguido subiendo desde entonces: el mercado sigue pagando una prima cercana a su récord por Coca-Cola.",
+        },
+        {
+          type: 'p',
+          text: "Pero mi modelo de precio de compra razonable, que proyecta la trayectoria real de caja por acción de los últimos cinco años en lugar de fiarse solo del ratio del día, casi invierte la clasificación. Para PepsiCo, resulta en 64,56 dólares frente a una cotización de 135,50 dólares, un sobreprecio del 52,4 %: aunque el ratio parezca razonable, el modelo penaliza a una empresa cuya caja por acción crece apenas más rápido que la inflación (+6,2 %/año), tras años en los que incluso sus ingresos se estancaron por debajo del 4 % anual. Para Coca-Cola, el cálculo bruto resulta en solo 10,74 dólares, una cifra extrema que hay que leer con la misma prudencia que ya señalé en julio: la base de comparación a 5 años está distorsionada por las desinversiones y adquisiciones de participaciones en embotelladoras mencionadas antes, que mueven el perímetro del flujo de caja libre por acción de un año a otro. Para esta acción en concreto, prefiero fiarme de la señal de percentil (cara frente a su propia historia) antes que de este precio calculado en bruto.",
+        },
+        { type: 'h2', text: "¿Qué podría hacer descarrilar cada una de las dos tesis?" },
+        {
+          type: 'p',
+          text: "Para Coca-Cola, el riesgo más concreto es la dependencia de un catalizador que no se repite: sin Mundial en el tercer trimestre, la comparación de crecimiento será mecánicamente mucho más dura, y una acción que acaba de subir un 29 % sobre la promesa de un impulso duradero tiene mucho que perder si el crecimiento vuelve a su ritmo normal del 1 al 2 % anual. Se añade un riesgo regulatorio de fondo: la presión política y médica contra el azúcar añadido sigue creciendo en varios mercados desarrollados.",
+        },
+        {
+          type: 'p',
+          text: "Para PepsiCo, la pregunta central es si la desaceleración de Frito-Lay es pasajera o estructural. Si las bajadas de precio del 15 % realmente reactivan los volúmenes en los próximos trimestres, una acción ya cerca de su mínimo de un año podría ofrecer un buen punto de entrada. Pero si la adopción de medicamentos GLP-1 sigue subiendo al ritmo observado desde enero de 2025, el problema no es una bajada de precio mal calibrada: es un cambio duradero en la demanda de toda una categoría de productos, que también afectará a otros gigantes del snacking, no solo a PepsiCo.",
+        },
+        { type: 'h2', text: "Entonces, ¿cuál elegir según mi método?" },
+        {
+          type: 'p',
+          text: "Mi método no dice ni “compra Coca-Cola” ni “compra PepsiCo”: dice que ambas, hoy, cotizan por encima de mi precio de compra razonable, con dos problemas de naturaleza opuesta. Coca-Cola es la empresa más sólida de las dos sobre el papel (margen, balance, franquicia ligera en capital), pero su cotización ya incorpora un trimestre excepcional que difícilmente se repetirá de forma idéntica. PepsiCo muestra un ratio más contenido y una cotización ya desinflada, pero se enfrenta a una pregunta real sobre la durabilidad de su demanda, no solo a un tropiezo de comunicación trimestral.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Coca-Cola (nota 6/10) sube un 29 % desde enero por un efecto puntual del Mundial, a 31,0 veces su flujo de caja libre anual, cerca de su nivel más caro histórico; PepsiCo (nota 5/10) cae un 2 %, a 20,7 veces su FCF, un ratio más contenido pero penalizado por un crecimiento débil.",
+            "El balance más ligero de Coca-Cola (deuda repagable en 2,49 años de FCF) viene de su modelo de franquicia embotelladora; el de PepsiCo (4,79 años), más pesado, viene de su modelo integrado que posee directamente sus plantas.",
+            "El margen de caja de PepsiCo mejora de forma constante (del 7,3 % al 9,6 % en dos años) pese a los problemas de Frito-Lay; el de Coca-Cola es errático trimestre a trimestre por los movimientos de participaciones en sus embotelladoras, y solo se lee bien en caja anualizada.",
+            "Mi modelo de precio de compra razonable encuentra ambas acciones sobrevaloradas (87,9 % Coca-Cola, 52,4 % PepsiCo), por razones opuestas: un múltiplo ya caro para una, un crecimiento demasiado débil para la otra. Esto no es asesoramiento de inversión, haz tu propia investigación.",
+          ],
+        },
+      ],
+      faq: [
+        { q: "Coca-Cola o PepsiCo, ¿cuál puntúa mejor en mi sitio?", a: "Coca-Cola valida 6 de 10 criterios en mi filtro, frente a 5 de 10 para PepsiCo, sobre todo gracias a un margen neto mucho más alto (28,6 % frente a 10,8 %) y un balance más ligero, heredado de su modelo de franquicia embotelladora." },
+        { q: "¿Es PepsiCo realmente más barata que Coca-Cola en bolsa?", a: "En el ratio bruto, sí: PepsiCo se valora en 20,7 veces su flujo de caja libre frente a 31,0 veces para Coca-Cola. Pero mi modelo de precio de compra razonable, que incorpora la trayectoria de crecimiento, considera ambas acciones sobrevaloradas respecto a su cotización actual." },
+        { q: "¿Por qué ha subido tanto la acción de Coca-Cola en 2026?", a: "Impulsada por su mayor crecimiento trimestral de volumen en 17 años (+5 %), atribuido al efecto del Mundial de la FIFA sobre el consumo de bebidas, Coca-Cola sube alrededor de un 29 % desde el 1 de enero de 2026." },
+        { q: "¿Está la desaceleración de PepsiCo ligada a los medicamentos GLP-1?", a: "Es una explicación planteada por parte del sector, con una adopción de GLP-1 que pasó del 9 % al 21 % de los hogares estadounidenses entre enero de 2025 y mayo de 2026. El consejero delegado de PepsiCo afirma no observar un impacto directo y señala más bien a un consumidor bajo presión presupuestaria." },
+      ],
+      tags: ['Coca-Cola', 'PepsiCo', 'KO', 'PEP', 'Consumo defensivo', 'Comparativa'],
+      disclaimer: "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (16 de septiembre de 2026), sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Haz tu propia investigación.",
+    },
+  },
+};
+
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
