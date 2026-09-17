@@ -88137,7 +88137,344 @@ const articleKOvsPEP2026: Article = {
 };
 
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026];
+const articleEuropeQualitePrix2026: Article = {
+  slug: 'actions-europeennes-qualite-prix-2026',
+  date: '2026-09-17',
+  updated: '2026-09-17',
+  readingTime: 7,
+  content: {
+    fr: {
+      title: 'Actions européennes de qualité : qui est bon marché ?',
+      excerpt:
+        "Onze actions cotées en Europe passent la barre la plus haute de mon filtre qualité. Leur prix, lui, ne suit pas la même logique : certaines sont bradées, d'autres se paient une vraie prime. Le classement complet, avec deux pièges de calcul à connaître avant d'y croire.",
+      metaDescription:
+        "Onze actions européennes notées au sommet de mon filtre qualité : qui est bon marché, qui se paie une prime, et deux pièges de calcul à connaître.",
+      answer:
+        "J'ai appliqué mon filtre qualité, dix critères financiers, à toutes les actions cotées en Europe et gardé les meilleures notes. Sur les onze qui ressortent, huit affichent une décote face à mon prix d'achat raisonnable et trois une prime, mais aucune ne déclenche mon signal d'achat strict : la qualité ne dit jamais le prix.",
+      body: [
+        { type: 'h2', text: 'Le filtre, appliqué à toute l\'Europe' },
+        {
+          type: 'p',
+          text: "Je juge chaque action sur dix critères financiers concrets, sans regarder son pays ni sa taille : est-elle rentable, ses ventes et son free cash flow progressent-ils dans la durée, rachète-t-elle ses propres actions plutôt que de les diluer, sa dette reste-t-elle maîtrisable. Le prix n'entre nulle part dans cette note. C'est volontaire : je réponds à la question de la qualité avant de me poser celle du prix.",
+        },
+        {
+          type: 'p',
+          text: "En appliquant ce filtre à l'ensemble des Bourses européennes et en ne gardant que les notes de 9 ou 10 sur 10, la barre la plus haute que je mesure, onze noms ressortent aujourd'hui : un opérateur boursier grec, deux mines d'or britanniques, un fabricant néerlandais des machines qui gravent les puces les plus avancées au monde. Pour chacun, je compare ensuite le prix actuel à mon prix d'achat raisonnable, une projection prudente du cash que l'entreprise devrait générer sur cinq ans. En dessous, c'est une décote ; au-dessus, une surcote.",
+        },
+        { type: 'h2', text: 'Le classement complet' },
+        {
+          type: 'p',
+          text: "Voici les onze, classées de la décote la plus large à la surcote la plus élevée.",
+        },
+        {
+          type: 'table',
+          headers: ['Action', 'Secteur et pays', 'Note', 'Valorisation (P/FCF)', "Écart au prix d'achat"],
+          rows: [
+            ['Fiera Milano (FM.MI)', 'Salons et événementiel, Italie', '10/10', '3,6×', 'Décote de 240 %'],
+            ['Capricorn Energy (CNE.L)', 'Pétrole et gaz, Royaume-Uni', '10/10', '6,1×', 'Décote de 101 %'],
+            ['Fresnillo (FRES.L)', 'Argent et or, Mexique (cotée à Londres)', '10/10', '16,6×', 'Décote de 79 %'],
+            ['Lancashire Holdings (LRE.L)', 'Assurance spécialisée, Royaume-Uni', '10/10', '6,6×', 'Décote de 50 %'],
+            ['Euronext Athens Holding (EXAE.AT)', 'Opérateur boursier, Grèce', '10/10', '9,4×', 'Décote de 32 %'],
+            ['Integrated Diagnostics Holdings (IDHC.L)', 'Diagnostic médical, Égypte (cotée à Londres)', '10/10', '11,3×', 'Décote de 10 %'],
+            ["Endeavour Mining (EDV.L)", "Or, Afrique de l'Ouest (cotée à Londres)", '10/10', '14,0×', 'Décote de 6 %'],
+            ['On the Beach (OTB.L)', 'Voyages en ligne, Royaume-Uni', '10/10', '12,3×', 'Quasiment au prix (décote de 1 %)'],
+            ['ASML (ASML.AS)', 'Équipements de lithographie, Pays-Bas', '9/10', '52,6×', 'Surcote de 13 %'],
+            ['Galderma (GALD.SW)', 'Dermatologie, Suisse', '10/10', '43,2×', 'Surcote de 14 %'],
+            ['Amadeus IT Group (AMS.MC)', 'Technologie du voyage, Espagne', '10/10', '17,5×', 'Surcote de 37 %'],
+          ],
+        },
+        { type: 'h2', text: "Une décote de 240 %, ça sent le piège, pas l'aubaine" },
+        {
+          type: 'p',
+          text: "En tête du classement, Fiera Milano organise des salons professionnels et des foires commerciales en Italie et à l'étranger. Sur le papier, l'écart est vertigineux : mon modèle affiche une décote de 240 % face au prix actuel. Je me méfie systématiquement de ce genre de chiffre. Mon calcul suppose, par défaut, que le free cash flow d'une entreprise va croître de 20 % par an pendant cinq ans, une hypothèse raisonnable pour un grand groupe établi. Sur une capitalisation de 539 millions d'euros comme Fiera Milano, dont le cash généré dépend fortement du calendrier des salons d'une année sur l'autre, cette même hypothèse composée cinq fois de suite produit un prix cible complètement disproportionné. Un écart énorme dit souvent que l'hypothèse ne correspond pas à l'entreprise, pas qu'il existe une vraie occasion en or.",
+        },
+        {
+          type: 'p',
+          text: "Preuve que je ne l'invente pas : mon site calcule aussi un signal plus strict, que j'appelle opportunité, qui exige en plus que le prix se situe parmi les niveaux les plus bas jamais atteints par le titre sur cinq ans. Ce signal ne se déclenche sur aucune des onze actions de ce classement, pas même Fiera Milano et sa décote à trois chiffres. Un peu plus bas dans le tableau, Euronext Athens Holding affiche un écart bien plus raisonnable, 32 %, et une histoire plus solide : l'opérateur du marché boursier grec, [racheté à 74,3 % par le groupe Euronext](https://athens.euronext.com/en/about/the-athex) fin 2025 puis rebaptisé Euronext Athens en avril 2026, encaisse une commission sur chaque transaction avec quasiment aucun coût marginal supplémentaire quand les volumes augmentent, et les sociétés cotées ne changent pratiquement jamais de Bourse. C'est un vrai moat, pas un artefact de calcul.",
+        },
+        { type: 'h2', text: 'Le piège des pence, et pourquoi les deux mines d\'or ne se ressemblent pas' },
+        {
+          type: 'p',
+          text: "Cinq des onze actions de ce classement, dont les deux mines d'or, cotent à Londres, où les prix s'affichent en pence et non en livres. Un cours de « 628,5 GBp » pour Lancashire Holdings veut dire 6,285 livres, pas 628,50 livres : rater cette conversion, c'est se tromper d'un facteur 100 sur n'importe quel calcul de capitalisation ou de valorisation fait à la main, un piège que je corrige systématiquement avant de publier un chiffre issu d'une action britannique. Le [glossaire de Morningstar sur le GBX](https://www.morningstar.co.uk/uk/glossary/98134/gbx.aspx) documente cette convention, propre à la Bourse de Londres.",
+        },
+        {
+          type: 'p',
+          text: "Une fois la conversion faite, Endeavour Mining et Fresnillo, les deux mines d'or de ce classement, racontent deux histoires opposées malgré un même métal et un même cycle : 6 % de décote pour la première, quasiment le prix juste, contre 79 % pour la seconde. Le free cash flow d'une société minière suit de près le cours de l'or et de l'argent, pas seulement sa propre production : un P/FCF bas au sommet d'un cycle des matières premières peut se dégonfler tout seul si les cours reculent, sans que rien ne change dans les mines elles-mêmes. Une décote sur un minier mérite donc un coup d'œil au cycle des métaux, pas seulement au ratio.",
+        },
+        { type: 'h2', text: 'Pourquoi le marché fait payer une prime ailleurs' },
+        {
+          type: 'p',
+          text: "À l'autre bout du classement, [ASML](/analyse/ASML.AS) affiche une prime de 13 %. L'entreprise néerlandaise est la seule au monde à savoir fabriquer les machines de lithographie en ultraviolet extrême indispensables pour graver les puces les plus avancées de la planète, un quasi-monopole sans lequel l'industrie des semi-conducteurs de pointe s'arrêterait net. [ASML a clôturé son exercice 2025 avec 32,7 milliards d'euros de chiffre d'affaires et un carnet de commandes de 38,8 milliards d'euros](https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results), en poursuivant sa croissance sur 2026. Mon modèle lui accorde d'ailleurs le multiple de sortie le plus généreux du classement, 37 fois le free cash flow, contre 8 fois pour un assureur spécialisé comme Lancashire Holdings : plus un avantage concurrentiel paraît durable, plus le prix que le marché accepte de payer grimpe.",
+        },
+        {
+          type: 'p',
+          text: "Galderma, le groupe suisse de dermatologie, et [Amadeus IT Group](/analyse/AMS.MC), le processeur de transactions du secteur du voyage, suivent la même logique avec des primes de 14 % et 37 %. Dans les trois cas, la qualité mesurée par mon filtre est identique, 9 ou 10 sur 10 : ce qui change, c'est la conviction du marché que l'avantage va durer. La note ne prédit jamais le prix.",
+        },
+        { type: 'h2', text: "Ce que dit l'ensemble" },
+        {
+          type: 'p',
+          text: "Le tableau ci-dessous résume ce qu'il faut retenir de ces onze noms.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicateur', 'Valeur'],
+          rows: [
+            ['Actions notées 9 ou 10 sur 10 passées au crible', '11'],
+            ["En décote face au prix d'achat raisonnable", '8 sur 11'],
+            ['En surcote', '3 sur 11'],
+            ['Valorisation médiane (P/FCF)', '12,3×'],
+            ["Signal d'achat strict déclenché", '0 sur 11'],
+            ['Multiple de sortie le plus généreux', '37× (ASML, quasi-monopole de la lithographie EUV)'],
+            ['Multiple de sortie le plus prudent', '8× (Lancashire Holdings, assurance spécialisée)'],
+          ],
+        },
+        { type: 'h2', text: 'Ce que je fais de ce classement' },
+        {
+          type: 'p',
+          text: "Comme pour mon [classement équivalent sur les actions françaises](/blog/actions-francaises-qualite-ecart-valorisation-2026), je ne transforme jamais ce type de tableau en liste d'achat automatique, encore moins ici où le signal d'achat strict ne se déclenche sur aucune des onze. Ce qui en ressort, c'est une carte : onze entreprises qui méritent un vrai regard, avec pour chacune une raison différente de coûter ce qu'elle coûte. C'est exactement ce que mon [outil d'analyse](/methodologie) fait pour n'importe quelle action cotée en Bourse, en France, à Londres, à Athènes ou ailleurs, et tu peux le vérifier toi-même sur mon [screener public](/screener).",
+        },
+      ],
+      faq: [
+        {
+          q: "Qu'est-ce qu'une décote ou une surcote dans ce classement ?",
+          a: "Mon prix d'achat raisonnable est une projection prudente du free cash flow d'une entreprise sur cinq ans, actualisée à un rendement cible. Une décote veut dire que le cours actuel est en dessous de ce prix, une surcote qu'il est au-dessus. Ce n'est ni une note de qualité ni une prédiction, seulement un repère de valorisation.",
+        },
+        {
+          q: "Pourquoi les prix des actions britanniques de ce classement semblent-ils énormes ?",
+          a: "Parce qu'à Londres, les cours s'affichent en pence (GBp) et non en livres : il faut diviser par 100 pour obtenir un prix en livres sterling. Une capitalisation calculée sans cette conversion serait surestimée d'un facteur 100, une erreur facile à faire sur une action étrangère.",
+        },
+        {
+          q: "Une décote de plusieurs centaines de pour cent veut-elle dire qu'il faut acheter tout de suite ?",
+          a: "Non. Sur ce classement, aucune des onze actions ne déclenche mon signal d'achat strict, qui exige en plus un prix parmi les plus bas de son propre historique sur cinq ans. Une décote extrême sur une petite capitalisation, en particulier, mérite d'être vérifiée en détail avant d'être prise au sérieux. Ceci n'est pas un conseil en investissement, fais tes propres recherches.",
+        },
+      ],
+      tags: ['actions européennes', 'screener', 'valorisation', 'Bourse de Londres', 'ASML', 'palmarès', 'analyse fondamentale'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres au 17 septembre 2026, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Fais tes propres recherches avant toute décision d'investissement.",
+    },
+    en: {
+      title: 'European quality stocks: which ones are actually cheap?',
+      excerpt:
+        "Eleven European stocks clear the highest bar of my quality filter. Their prices don't follow the same logic: some are dirt cheap, others carry a real premium. The full ranking, plus two calculation traps worth knowing before you trust the numbers.",
+      metaDescription:
+        "Eleven European stocks pass the top score of my quality filter: which ones are genuinely cheap, which carry a premium, and two calculation traps to know first.",
+      answer:
+        "I ran my quality filter, ten financial criteria, across every European stock and kept only the top scores. Of the eleven that qualify, eight trade at a discount to my fair buy price and three at a premium, but not one triggers my strict buy signal: quality never tells you the price.",
+      body: [
+        { type: 'h2', text: 'The filter, applied across Europe' },
+        {
+          type: 'p',
+          text: "I score every stock on ten concrete financial criteria, regardless of country or size: is it profitable, do sales and free cash flow keep growing over time, does it buy back its own shares instead of diluting them, is its debt manageable. Price plays no role in that score. That is deliberate: I answer the quality question before I ever ask about price.",
+        },
+        {
+          type: 'p',
+          text: "Running that filter across every European exchange and keeping only the 9s and 10s out of 10, the highest bar I measure, eleven names come up today: a Greek stock exchange operator, two British gold miners, a Dutch maker of the machines that etch the world's most advanced computer chips. For each one I then compare today's price with my fair buy price, a conservative five-year projection of the cash the business should generate. Below it, that's a discount; above it, a premium.",
+        },
+        { type: 'h2', text: 'The full ranking' },
+        {
+          type: 'p',
+          text: "Here are the eleven, ranked from the widest discount to the steepest premium.",
+        },
+        {
+          type: 'table',
+          headers: ['Stock', 'Sector and country', 'Score', 'Valuation (P/FCF)', 'Gap to fair buy price'],
+          rows: [
+            ['Fiera Milano (FM.MI)', 'Trade fairs and events, Italy', '10/10', '3.6x', '240% discount'],
+            ['Capricorn Energy (CNE.L)', 'Oil and gas, United Kingdom', '10/10', '6.1x', '101% discount'],
+            ['Fresnillo (FRES.L)', 'Silver and gold, Mexico (listed in London)', '10/10', '16.6x', '79% discount'],
+            ['Lancashire Holdings (LRE.L)', 'Specialty insurance, United Kingdom', '10/10', '6.6x', '50% discount'],
+            ['Euronext Athens Holding (EXAE.AT)', 'Stock exchange operator, Greece', '10/10', '9.4x', '32% discount'],
+            ['Integrated Diagnostics Holdings (IDHC.L)', 'Medical diagnostics, Egypt (listed in London)', '10/10', '11.3x', '10% discount'],
+            ['Endeavour Mining (EDV.L)', 'Gold, West Africa (listed in London)', '10/10', '14.0x', '6% discount'],
+            ['On the Beach (OTB.L)', 'Online travel, United Kingdom', '10/10', '12.3x', 'Essentially fair price (1% discount)'],
+            ['ASML (ASML.AS)', 'Lithography equipment, Netherlands', '9/10', '52.6x', '13% premium'],
+            ['Galderma (GALD.SW)', 'Dermatology, Switzerland', '10/10', '43.2x', '14% premium'],
+            ['Amadeus IT Group (AMS.MC)', 'Travel technology, Spain', '10/10', '17.5x', '37% premium'],
+          ],
+        },
+        { type: 'h2', text: 'A 240% discount looks like a trap, not a bargain' },
+        {
+          type: 'p',
+          text: "At the top of the list, Fiera Milano organizes trade shows and exhibitions in Italy and abroad. On paper the gap is staggering: my model shows a 240% discount to the current price. I am always wary of a number like that. My calculation assumes, by default, that a company's free cash flow will grow 20% a year for five years, a reasonable assumption for a large, established group. On a 539-million-euro company like Fiera Milano, whose cash generation depends heavily on the trade-show calendar from one year to the next, that same assumption compounded five times over produces a wildly inflated price target. A gap that large usually means the assumption doesn't fit the company, not that a real bargain exists.",
+        },
+        {
+          type: 'p',
+          text: "Proof I'm not making that up: my site also runs a stricter check, which I call an opportunity signal, that additionally requires the price to sit among the lowest levels the stock has ever traded at over five years. That signal doesn't fire on a single one of these eleven stocks, not even Fiera Milano with its triple-digit discount. Further down the table, Euronext Athens Holding shows a far more modest gap, 32%, and a sturdier story behind it: the operator of the Greek stock market, [acquired at a 74.3% controlling stake by the Euronext group](https://athens.euronext.com/en/about/the-athex) in late 2025 and rebranded Euronext Athens in April 2026, collects a fee on every trade at almost no extra marginal cost as volumes rise, and listed companies almost never switch exchanges. That's a real moat, not a modeling artifact.",
+        },
+        { type: 'h2', text: "The pence trap, and why the two gold miners don't tell the same story" },
+        {
+          type: 'p',
+          text: "Five of the eleven stocks in this ranking, including both gold miners, trade in London, where prices are quoted in pence, not pounds. A price of '628.5 GBp' for Lancashire Holdings means £6.285, not £628.50: miss that conversion and any market-cap or valuation math done by hand is off by a factor of 100, a trap I systematically correct for before publishing any number drawn from a UK stock. [Morningstar's glossary entry on GBX](https://www.morningstar.co.uk/uk/glossary/98134/gbx.aspx) documents this London Stock Exchange convention.",
+        },
+        {
+          type: 'p',
+          text: "Once the conversion is made, Endeavour Mining and Fresnillo, the two gold miners on this list, tell opposite stories despite riding the same metal and the same cycle: a 6% discount for the former, essentially fair value, against 79% for the latter. A mining company's free cash flow tracks the price of gold and silver closely, not just its own output: a low P/FCF at the top of a commodity cycle can deflate on its own if prices pull back, with nothing changing at the mine itself. A discount on a miner deserves a look at the metal cycle, not just the ratio.",
+        },
+        { type: 'h2', text: 'Why the market pays a premium elsewhere' },
+        {
+          type: 'p',
+          text: "At the other end of the ranking, [ASML](/analyse/ASML.AS) trades at a 13% premium. The Dutch company is the only one in the world that knows how to build the extreme ultraviolet lithography machines needed to etch the planet's most advanced chips, a near-monopoly without which the leading edge of the chip industry would grind to a halt. [ASML closed fiscal year 2025 with €32.7 billion in net sales and a €38.8 billion order backlog](https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results), and expects growth to continue through 2026. My model actually grants it the most generous exit multiple in this ranking, 37 times free cash flow, against 8 times for a specialty insurer like Lancashire Holdings: the more durable a moat looks, the more the market is willing to pay for it.",
+        },
+        {
+          type: 'p',
+          text: "Galderma, the Swiss dermatology group, and [Amadeus IT Group](/analyse/AMS.MC), the travel industry's transaction processor, follow the same logic with premiums of 14% and 37%. In all three cases, the quality my filter measures is identical, 9 or 10 out of 10: what differs is how convinced the market is that the edge will last. The score never predicts the price.",
+        },
+        { type: 'h2', text: 'What the whole set says' },
+        {
+          type: 'p',
+          text: "The table below sums up what's worth remembering from these eleven names.",
+        },
+        {
+          type: 'table',
+          headers: ['Metric', 'Value'],
+          rows: [
+            ['Stocks scored 9 or 10 out of 10 screened', '11'],
+            ['Trading at a discount to fair buy price', '8 of 11'],
+            ['Trading at a premium', '3 of 11'],
+            ['Median valuation (P/FCF)', '12.3x'],
+            ['Strict buy signal triggered', '0 of 11'],
+            ['Most generous exit multiple assumed', '37x (ASML, near-monopoly in EUV lithography)'],
+            ['Most conservative exit multiple assumed', '8x (Lancashire Holdings, specialty insurance)'],
+          ],
+        },
+        { type: 'h2', text: 'What I do with this ranking' },
+        {
+          type: 'p',
+          text: "Just like my equivalent ranking of [French quality stocks](/blog/actions-francaises-qualite-ecart-valorisation-2026), I never turn a table like this into an automatic buy list, even less so here, where the strict buy signal doesn't fire on a single one of the eleven. What it gives you instead is a map: eleven companies worth a real look, each with a different reason for costing what it costs. That is exactly what my [analysis tool](/methodologie) does for any stock listed anywhere, in France, London, Athens or elsewhere, and you can check it yourself on my [public screener](/screener).",
+        },
+      ],
+      faq: [
+        {
+          q: "What does a discount or premium mean in this ranking?",
+          a: "My fair buy price is a conservative five-year projection of a company's free cash flow, discounted back at a target return. A discount means the current price sits below that price, a premium means it sits above it. It isn't a quality score or a prediction, just a valuation marker.",
+        },
+        {
+          q: "Why do the UK stock prices in this table look so huge?",
+          a: "Because London quotes share prices in pence (GBp), not pounds: you need to divide by 100 to get a price in pounds sterling. A market cap calculated without that conversion would be overstated by a factor of 100, an easy mistake to make on a foreign stock.",
+        },
+        {
+          q: "Does a discount of several hundred percent mean I should buy right away?",
+          a: "No. None of the eleven stocks in this ranking trigger my strict buy signal, which additionally requires a price among the lowest in the stock's own five-year history. An extreme discount on a small-cap in particular deserves a close look before being taken at face value. This is not investment advice, do your own research.",
+        },
+      ],
+      tags: ['European stocks', 'screener', 'valuation', 'London Stock Exchange', 'ASML', 'ranking', 'fundamental analysis'],
+      disclaimer:
+        "Analysis for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of September 17, 2026, subject to change. I'm the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I'm telling you so you can read this analysis with that in mind. Do your own research before making any investment decision.",
+    },
+    es: {
+      title: 'Acciones europeas de calidad: ¿cuáles son baratas?',
+      excerpt:
+        "Once acciones europeas superan el listón más alto de mi filtro de calidad. Sus precios no siguen la misma lógica: algunas están muy baratas, otras cotizan con una prima real. El ranking completo, con dos trampas de cálculo que conviene conocer antes de fiarse de las cifras.",
+      metaDescription:
+        "Once acciones europeas superan mi filtro de calidad más exigente: cuáles son baratas, cuáles cotizan con prima, y dos trampas de cálculo a conocer.",
+      answer:
+        "Apliqué mi filtro de calidad, diez criterios financieros, a todas las acciones europeas y me quedé solo con las mejores notas. De las once que superan el filtro, ocho cotizan con descuento frente a mi precio de compra razonable y tres con prima, pero ninguna activa mi señal de compra estricta: la calidad nunca dice el precio.",
+      body: [
+        { type: 'h2', text: 'El filtro, aplicado a toda Europa' },
+        {
+          type: 'p',
+          text: "Evalúo cada acción con diez criterios financieros concretos, sin mirar su país ni su tamaño: es rentable, sus ventas y su flujo de caja libre crecen con el tiempo, recompra sus propias acciones en lugar de diluirlas, su deuda es manejable. El precio no entra en esa nota. Es deliberado: respondo primero a la pregunta de la calidad, y solo después a la del precio.",
+        },
+        {
+          type: 'p',
+          text: "Al aplicar este filtro a todas las bolsas europeas y quedarme solo con las notas de 9 o 10 sobre 10, el listón más alto que mido, hoy salen once nombres: un operador bursátil griego, dos mineras de oro británicas, un fabricante neerlandés de las máquinas que graban los chips más avanzados del mundo. Para cada una comparo después el precio actual con mi precio de compra razonable, una proyección prudente a cinco años del efectivo que debería generar el negocio. Por debajo, es un descuento; por encima, una prima.",
+        },
+        { type: 'h2', text: 'El ranking completo' },
+        {
+          type: 'p',
+          text: "Aquí están las once, ordenadas del mayor descuento a la mayor prima.",
+        },
+        {
+          type: 'table',
+          headers: ['Acción', 'Sector y país', 'Nota', 'Valoración (P/FCF)', 'Diferencia con el precio de compra'],
+          rows: [
+            ['Fiera Milano (FM.MI)', 'Ferias y eventos, Italia', '10/10', '3,6×', 'Descuento del 240 %'],
+            ['Capricorn Energy (CNE.L)', 'Petróleo y gas, Reino Unido', '10/10', '6,1×', 'Descuento del 101 %'],
+            ['Fresnillo (FRES.L)', 'Plata y oro, México (cotiza en Londres)', '10/10', '16,6×', 'Descuento del 79 %'],
+            ['Lancashire Holdings (LRE.L)', 'Seguros especializados, Reino Unido', '10/10', '6,6×', 'Descuento del 50 %'],
+            ['Euronext Athens Holding (EXAE.AT)', 'Operador bursátil, Grecia', '10/10', '9,4×', 'Descuento del 32 %'],
+            ['Integrated Diagnostics Holdings (IDHC.L)', 'Diagnóstico médico, Egipto (cotiza en Londres)', '10/10', '11,3×', 'Descuento del 10 %'],
+            ['Endeavour Mining (EDV.L)', 'Oro, África Occidental (cotiza en Londres)', '10/10', '14,0×', 'Descuento del 6 %'],
+            ['On the Beach (OTB.L)', 'Viajes en línea, Reino Unido', '10/10', '12,3×', 'Prácticamente al precio justo (descuento del 1 %)'],
+            ['ASML (ASML.AS)', 'Equipos de litografía, Países Bajos', '9/10', '52,6×', 'Prima del 13 %'],
+            ['Galderma (GALD.SW)', 'Dermatología, Suiza', '10/10', '43,2×', 'Prima del 14 %'],
+            ['Amadeus IT Group (AMS.MC)', 'Tecnología de viajes, España', '10/10', '17,5×', 'Prima del 37 %'],
+          ],
+        },
+        { type: 'h2', text: 'Un descuento del 240 %: más trampa que ganga' },
+        {
+          type: 'p',
+          text: "En lo más alto del ranking, Fiera Milano organiza ferias y salones profesionales en Italia y en el extranjero. Sobre el papel, la diferencia es vertiginosa: mi modelo muestra un descuento del 240 % frente al precio actual. Desconfío sistemáticamente de una cifra así. Mi cálculo asume, por defecto, que el flujo de caja libre de una empresa crecerá un 20 % anual durante cinco años, una hipótesis razonable para un gran grupo consolidado. En una capitalización de 539 millones de euros como Fiera Milano, cuya generación de caja depende en gran medida del calendario de ferias de un año a otro, esa misma hipótesis compuesta cinco veces produce un precio objetivo completamente desproporcionado. Una diferencia tan grande suele indicar que la hipótesis no encaja con la empresa, no que exista una verdadera ganga.",
+        },
+        {
+          type: 'p',
+          text: "Prueba de que no me lo invento: mi sitio calcula también una señal más estricta, que llamo oportunidad, que además exige que el precio esté entre los niveles más bajos alcanzados por la acción en cinco años. Esa señal no se activa en ninguna de las once acciones de este ranking, ni siquiera en Fiera Milano con su descuento de tres dígitos. Más abajo en la tabla, Euronext Athens Holding muestra una diferencia mucho más razonable, del 32 %, y una historia más sólida detrás: el operador del mercado bursátil griego, [adquirido con una participación de control del 74,3 % por el grupo Euronext](https://athens.euronext.com/en/about/the-athex) a finales de 2025 y renombrado Euronext Athens en abril de 2026, cobra una comisión por cada operación con un coste marginal casi nulo cuando el volumen aumenta, y las empresas cotizadas casi nunca cambian de bolsa. Eso es un foso competitivo real, no un artefacto de cálculo.",
+        },
+        { type: 'h2', text: 'La trampa de los peniques, y por qué las dos mineras de oro no cuentan la misma historia' },
+        {
+          type: 'p',
+          text: "Cinco de las once acciones de este ranking, incluidas las dos mineras de oro, cotizan en Londres, donde los precios se muestran en peniques y no en libras. Un precio de « 628,5 GBp » para Lancashire Holdings significa 6,285 libras, no 628,50 libras: pasar por alto esa conversión es equivocarse por un factor de 100 en cualquier cálculo de capitalización o valoración hecho a mano, una trampa que corrijo sistemáticamente antes de publicar cualquier cifra de una acción británica. El [glosario de Morningstar sobre el GBX](https://www.morningstar.co.uk/uk/glossary/98134/gbx.aspx) documenta esta convención propia de la Bolsa de Londres.",
+        },
+        {
+          type: 'p',
+          text: "Una vez hecha la conversión, Endeavour Mining y Fresnillo, las dos mineras de oro de este ranking, cuentan historias opuestas pese a compartir metal y ciclo: un 6 % de descuento la primera, prácticamente el precio justo, y un 79 % la segunda. El flujo de caja libre de una minera sigue de cerca el precio del oro y la plata, no solo su propia producción: un P/FCF bajo en la cima de un ciclo de materias primas puede desinflarse solo si los precios retroceden, sin que cambie nada en la mina. Un descuento en una minera merece un vistazo al ciclo del metal, no solo al ratio.",
+        },
+        { type: 'h2', text: 'Por qué el mercado paga una prima en otros casos' },
+        {
+          type: 'p',
+          text: "En el otro extremo del ranking, [ASML](/analyse/ASML.AS) cotiza con una prima del 13 %. La empresa neerlandesa es la única en el mundo que sabe fabricar las máquinas de litografía ultravioleta extrema necesarias para grabar los chips más avanzados del planeta, un cuasi monopolio sin el cual la vanguardia de la industria de semiconductores se detendría en seco. [ASML cerró el ejercicio 2025 con 32.700 millones de euros en ventas netas y una cartera de pedidos de 38.800 millones de euros](https://www.asml.com/en/news/press-releases/2026/q4-2025-financial-results), y espera que el crecimiento continúe en 2026. Mi modelo le asigna, de hecho, el múltiplo de salida más generoso de este ranking, 37 veces el flujo de caja libre, frente a 8 veces para una aseguradora especializada como Lancashire Holdings: cuanto más duradera parece una ventaja competitiva, más está dispuesto a pagar el mercado por ella.",
+        },
+        {
+          type: 'p',
+          text: "Galderma, el grupo suizo de dermatología, y [Amadeus IT Group](/analyse/AMS.MC), el procesador de transacciones de la industria del viaje, siguen la misma lógica con primas del 14 % y el 37 %. En los tres casos, la calidad que mide mi filtro es idéntica, 9 o 10 sobre 10: lo que cambia es cuán convencido está el mercado de que esa ventaja durará. La nota nunca predice el precio.",
+        },
+        { type: 'h2', text: 'Lo que dice el conjunto' },
+        {
+          type: 'p',
+          text: "La tabla siguiente resume lo más importante de estos once nombres.",
+        },
+        {
+          type: 'table',
+          headers: ['Indicador', 'Valor'],
+          rows: [
+            ['Acciones con nota 9 o 10 sobre 10 analizadas', '11'],
+            ['Con descuento sobre el precio de compra razonable', '8 de 11'],
+            ['Con prima', '3 de 11'],
+            ['Valoración mediana (P/FCF)', '12,3×'],
+            ['Señal de compra estricta activada', '0 de 11'],
+            ['Múltiplo de salida más generoso asumido', '37× (ASML, cuasi monopolio en litografía EUV)'],
+            ['Múltiplo de salida más prudente asumido', '8× (Lancashire Holdings, seguros especializados)'],
+          ],
+        },
+        { type: 'h2', text: 'Qué hago yo con este ranking' },
+        {
+          type: 'p',
+          text: "Igual que en mi [ranking equivalente sobre acciones francesas de calidad](/blog/actions-francaises-qualite-ecart-valorisation-2026), nunca convierto una tabla así en una lista de compra automática, y menos aún aquí, donde la señal de compra estricta no se activa en ninguna de las once. Lo que queda es un mapa: once empresas que merecen una mirada real, cada una con un motivo distinto para costar lo que cuesta. Es exactamente lo que hace mi [herramienta de análisis](/methodologie) con cualquier acción cotizada, en Francia, Londres, Atenas o donde sea, y puedes comprobarlo tú mismo en mi [screener público](/screener).",
+        },
+      ],
+      faq: [
+        {
+          q: "¿Qué significa un descuento o una prima en este ranking?",
+          a: "Mi precio de compra razonable es una proyección prudente a cinco años del flujo de caja libre de una empresa, descontada a una rentabilidad objetivo. Un descuento significa que el precio actual está por debajo de ese precio, una prima que está por encima. No es una nota de calidad ni una predicción, solo una referencia de valoración.",
+        },
+        {
+          q: "¿Por qué los precios de las acciones británicas de esta tabla parecen tan enormes?",
+          a: "Porque en Londres los precios se muestran en peniques (GBp) y no en libras: hay que dividir entre 100 para obtener un precio en libras esterlinas. Una capitalización calculada sin esa conversión estaría sobrestimada por un factor de 100, un error fácil de cometer con una acción extranjera.",
+        },
+        {
+          q: "¿Un descuento de varios cientos por ciento significa que debo comprar ya?",
+          a: "No. Ninguna de las once acciones de este ranking activa mi señal de compra estricta, que además exige un precio entre los más bajos de los últimos cinco años de la propia acción. Un descuento extremo en una capitalización pequeña, en particular, merece revisarse a fondo antes de tomarlo al pie de la letra. Esto no es asesoramiento de inversión, haz tu propia investigación.",
+        },
+      ],
+      tags: ['acciones europeas', 'screener', 'valoración', 'Bolsa de Londres', 'ASML', 'ranking', 'análisis fundamental'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras al 17 de septiembre de 2026, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Haz tu propia investigación antes de tomar cualquier decisión de inversión.",
+    },
+  },
+};
+
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026];
 
 
 /** Articles triés du plus récent au plus ancien. */
