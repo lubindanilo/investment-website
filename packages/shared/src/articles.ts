@@ -88586,7 +88586,612 @@ const articleRheinmetallCashTension: Article = {
 };
 
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension];
+const articleRailFusionCapital: Article = {
+  "slug": "rail-nord-americain-fusion-capital-cash-roce",
+  "date": "2026-09-21",
+  "updated": "2026-09-21",
+  "readingTime": 9,
+  "content": {
+    "fr": {
+      "title": "Fusion ferroviaire : le capital pèse sur ces actions",
+      "excerpt": "Union Pacific veut racheter Norfolk Southern pour créer le premier réseau ferroviaire transcontinental américain. Mais Canadian Pacific, déjà fusionnée en 2023, montre que grossir n'a pas réglé le vrai problème du secteur : le capital qu'il faut engloutir chaque année juste pour rester sur les rails.",
+      "metaDescription": "La mégafusion Union Pacific, Norfolk Southern change-t-elle le vrai problème du rail nord-américain ? Mon filtre qualité répond, chiffres à l'appui.",
+      "answer": "Union Pacific veut racheter Norfolk Southern pour bâtir le premier réseau ferroviaire transcontinental des États-Unis. Mais Canadian Pacific, déjà fusionnée avec Kansas City Southern en 2023, montre que grossir n'a rien réglé : sa dette rapportée à son cash reste la plus lourde et son rendement du capital le plus faible des cinq compagnies de ce classement.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Pourquoi le rail a la réputation du compounder parfait"
+        },
+        {
+          "type": "p",
+          "text": "Construire un réseau ferroviaire de marchandises à l'échelle d'un continent est devenu quasiment impossible aujourd'hui : il faudrait racheter des dizaines de milliers de kilomètres de terrain, obtenir des droits de passage face à des propriétaires privés et des municipalités, et convaincre des régulateurs qui n'ont plus autorisé de nouveau réseau majeur depuis un siècle. Ce mur à l'entrée, les investisseurs l'appellent un moat, un fossé défensif qui protège l'entreprise de la concurrence. C'est en grande partie ce qui a poussé Warren Buffett à racheter la totalité de BNSF en 2010 : un actif qu'on ne peut plus reconstruire, avec des clients qui n'ont souvent aucune alternative pour déplacer du charbon, des céréales ou des conteneurs sur de longues distances."
+        },
+        {
+          "type": "p",
+          "text": "Cette réputation de forteresse imprenable colle à tout le secteur. Sur le papier, les chiffres la confirment : les cinq plus grandes compagnies ferroviaires nord-américaines affichent des marges nettes qui vont de 21 à 29 %, un niveau que beaucoup d'entreprises industrielles n'atteignent jamais. Le problème, comme on va le voir, c'est que mon filtre qualité regarde autre chose que la marge nette."
+        },
+        {
+          "type": "h2",
+          "text": "Cinq géants nord-américains, un même filtre : le classement complet"
+        },
+        {
+          "type": "p",
+          "text": "J'ai passé les cinq plus grandes compagnies ferroviaires de marchandises cotées en Amérique du Nord au crible de mes dix critères financiers : rentabilité, croissance des ventes et du cash, rachats d'actions, expansion des marges, rendement du capital investi, endettement. Voici le résultat, chiffres vérifiés individuellement au moment de la rédaction."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Compagnie",
+            "Note /10",
+            "Croissance CA (5 ans)",
+            "Rendement du capital investi",
+            "Dette nette / cash annuel",
+            "Multiple sur le cash",
+            "Écart au prix d'achat"
+          ],
+          "rows": [
+            [
+              "Union Pacific (UNP)",
+              "4/10",
+              "+1,3 %/an",
+              "9,7 %",
+              "4,5 ans",
+              "26,0×",
+              "Surcote de 39,6 %"
+            ],
+            [
+              "Canadian Pacific Kansas City (CP)",
+              "4/10",
+              "+19,7 %/an (fusion KSU)",
+              "3,3 %",
+              "12,0 ans",
+              "52,3×",
+              "Surcote de 21,9 %"
+            ],
+            [
+              "Canadian National (CNI)",
+              "5/10",
+              "+1,3 %/an",
+              "Non calculable",
+              "6,2 ans",
+              "28,1×",
+              "Surcote de 62,4 %"
+            ],
+            [
+              "CSX",
+              "3/10",
+              "-0,3 %/an",
+              "4,7 %",
+              "9,7 ans",
+              "47,1×",
+              "Surcote de 92,1 %"
+            ],
+            [
+              "Norfolk Southern (NSC)",
+              "3/10",
+              "+0,7 %/an",
+              "3,8 %",
+              "10,0 ans",
+              "45,4×",
+              "Surcote de 31,9 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Aucune des cinq ne dépasse 5 sur 10. Aucune ne déclenche mon signal d'achat strict, qui exige en plus que le prix actuel soit proche des niveaux les plus bas atteints sur cinq ans. Un secteur réputé pour sa qualité, et pourtant un plafond de verre net sur ma note."
+        },
+        {
+          "type": "h2",
+          "text": "Une marge nette de 20 à 29 %, c'est excellent. Pourquoi la note est-elle si basse ?"
+        },
+        {
+          "type": "p",
+          "text": "La marge nette mesure ce qu'il reste du chiffre d'affaires une fois toutes les charges comptables déduites, amortissements compris. Elle est bonne partout dans ce classement. Mais l'amortissement est une charge comptable, pas une sortie de cash réelle : il étale sur plusieurs années une dépense d'investissement déjà payée. Le vrai test, celui que je fais passer à chaque entreprise, c'est de regarder le cash qui sort réellement des caisses chaque année pour entretenir le réseau : remplacer les rails usés, renforcer les ponts, moderniser les triages, racheter des locomotives. Cette dépense s'appelle le capex de maintenance, et pour un réseau ferroviaire elle est énorme et perpétuelle, contrairement à une entreprise logicielle qui n'a quasiment aucun actif physique à entretenir."
+        },
+        {
+          "type": "p",
+          "text": "C'est cet écart entre le profit comptable et le cash réellement disponible après entretien qui explique le grand écart de ce classement : une marge nette flatteuse qui masque un cash disponible bien plus maigre une fois le réseau entretenu."
+        },
+        {
+          "type": "h2",
+          "text": "Le rendement du capital investi, le chiffre qui trahit le vrai coût du rail"
+        },
+        {
+          "type": "p",
+          "text": "Le rendement du capital investi, que j'appelle cash ROCE, rapporte ce cash réellement disponible après entretien au capital total immobilisé dans l'entreprise, terrains, voies, matériel roulant compris. J'exige plus de 15 % par an. Ici, il plafonne à 9,7 % pour Union Pacific, la meilleure du lot sur ce critère, et tombe à 3,3 % pour Canadian Pacific Kansas City. Concrètement : pour 100 dollars immobilisés dans le réseau, Union Pacific en fait revenir un peu moins de 10 chaque année sous forme de cash disponible, et Canadian Pacific à peine plus de 3."
+        },
+        {
+          "type": "p",
+          "text": "L'image qui aide à comprendre, c'est celle d'un propriétaire immobilier dont l'immeuble a besoin d'une rénovation coûteuse en permanence, toiture, plomberie, façade, juste pour continuer à le louer au même prix. Les loyers encaissés paraissent confortables sur le papier, mais une fois les travaux payés chaque année, ce qui reste dans la poche du propriétaire est bien plus modeste. C'est exactement la situation d'un réseau ferroviaire : posséder l'infrastructure impose un entretien permanent qui ne s'arrête jamais, même quand le volume de marchandises transportées stagne."
+        },
+        {
+          "type": "h2",
+          "text": "Pourquoi ces entreprises portent-elles autant de dette rapportée à leur cash ?"
+        },
+        {
+          "type": "p",
+          "text": "Je regarde aussi combien d'années de cash disponible il faudrait à chaque entreprise pour rembourser intégralement sa dette nette. J'exige moins de 3 ans. Ici, l'écart va de 4,5 ans pour Union Pacific à 12 ans pour Canadian Pacific Kansas City : la plus endettée du lot mettrait douze ans de cash disponible actuel à se désendetter complètement. Ce n'est pas nécessairement de l'imprudence : quand le rendement du capital investi est aussi faible, emprunter pour financer l'entretien du réseau ou les rachats d'actions coûte souvent moins cher que de puiser dans un cash-flow déjà étroit. Mais cela signifie aussi que ces entreprises ont très peu de marge de manœuvre si les taux d'intérêt remontent ou si le trafic ralentit fortement."
+        },
+        {
+          "type": "h2",
+          "text": "La croissance de 19,7 % de Canadian Pacific est-elle vraiment organique ?"
+        },
+        {
+          "type": "p",
+          "text": "À première vue, Canadian Pacific Kansas City affiche la meilleure croissance des ventes du groupe, 19,7 % par an sur cinq ans, très loin devant les autres qui plafonnent entre -0,3 % et 1,3 %. Mais ce chiffre est trompeur : il vient presque entièrement de la fusion avec Kansas City Southern, bouclée en 2023, qui a créé le premier réseau ferroviaire reliant directement le Canada, les États-Unis et le Mexique. Une fusion ajoute mécaniquement tout le chiffre d'affaires de l'entreprise absorbée, ce qui gonfle la croissance mesurée sans qu'aucun client supplémentaire n'ait été gagné sur le terrain la même année. C'est une croissance par acquisition, pas une croissance organique, et les deux ne se lisent pas de la même façon."
+        },
+        {
+          "type": "p",
+          "text": "En dehors de cet effet de fusion, le secteur reste quasiment plat : entre -0,3 % et +1,3 % par an pour les quatre autres, un rythme qui trahit un trafic ferroviaire de marchandises structurellement mature aux États-Unis et au Canada, plombé par le recul du charbon depuis une décennie. Cela ne veut pas dire que l'activité est mauvaise partout : Union Pacific a par exemple [enregistré au premier trimestre 2026 son meilleur volume de céréales depuis 2008](https://freightflowadvisor.substack.com/p/union-pacific-just-broke-records), porté par la demande d'exportation, et [CSX a vu ses volumes intermodaux progresser de 6 % sur un an au premier trimestre 2026](https://www.supplychaindive.com/news/csx-sees-volume-uptick-from-spike-in-truck-to-rail-conversions/818728/), des chargeurs préférant le rail face à la hausse du coût du carburant routier. Mais ces bons signaux opérationnels n'ont pour l'instant pas suffi à faire bouger la croissance moyenne sur cinq ans, ni le rendement du capital investi."
+        },
+        {
+          "type": "h2",
+          "text": "Le rail va-t-il encore grossir ? La mégafusion Union Pacific, Norfolk Southern"
+        },
+        {
+          "type": "p",
+          "text": "Le 28 juillet 2025, Union Pacific et Norfolk Southern ont signé un accord de fusion qui créerait le premier réseau ferroviaire véritablement transcontinental des États-Unis, reliant pour la première fois les côtes Est et Ouest sous un seul opérateur. Chaque action Norfolk Southern serait convertie en une action Union Pacific plus 88,82 dollars en cash, pour un total d'environ 225 millions d'actions émises et 20 milliards de dollars en cash. Le régulateur américain du rail, le Surface Transportation Board, a accepté le dossier comme complet le 28 mai 2026, et [Union Pacific et Norfolk Southern ont renforcé leur dossier fin juillet 2026 avec de nouvelles garanties pour leurs clients](https://www.up.com/press-releases/growth/stb-supplemental-second-round-270727), avant un calendrier procédural qui s'étend jusqu'en février 2027, avec une décision attendue courant 2027."
+        },
+        {
+          "type": "p",
+          "text": "La question qui m'intéresse le plus n'est pas de savoir si cette fusion se fera, c'est de savoir si elle règle le vrai problème du secteur, celui que ce classement met en évidence : un rendement du capital investi structurellement faible. Sur ce point, Canadian Pacific Kansas City est le test le plus proche qu'on ait déjà sous les yeux, puisque sa fusion avec Kansas City Southern est bouclée depuis 2023. Le résultat n'est pas encourageant : Canadian Pacific Kansas City affiche aujourd'hui le rendement du capital investi le plus faible du groupe, 3,3 %, et la dette rapportée au cash la plus lourde, 12 ans. Grossir a ajouté du chiffre d'affaires et un réseau plus étendu, mais rien n'indique que cela ait résolu le vrai problème : un réseau plus grand reste un réseau qui demande un entretien perpétuel proportionnellement plus grand. Un seul cas ne prouve rien de définitif, mais c'est un signal à surveiller de près si la fusion Union Pacific, Norfolk Southern se conclut."
+        },
+        {
+          "type": "h2",
+          "text": "Le prix suit-il la même pente que la qualité ?"
+        },
+        {
+          "type": "p",
+          "text": "Pour chaque entreprise, mon modèle calcule un prix d'achat raisonnable à partir du cash qu'elle devrait générer sur les cinq prochaines années, puis compare ce prix au cours actuel. Les cinq compagnies de ce classement se paient aujourd'hui plus cher que ce prix, de 21,9 % de trop pour Canadian Pacific Kansas City à 92,1 % de trop pour CSX. Aucune ne déclenche mon signal d'opportunité, qui exige en plus un cours proche de ses plus bas niveaux sur cinq ans."
+        },
+        {
+          "type": "p",
+          "text": "L'écart de CSX mérite un mot d'explication, parce qu'il paraît énorme pour un multiple de 47,1 fois le cash annuel, déjà élevé mais pas extrême en soi. La raison, c'est que le cash généré par action de CSX a reculé de 5,7 % par an sur cinq ans : mon modèle projette ce cash sur cinq ans à partir de sa tendance récente, et une tendance qui se dégrade rend le prix cible beaucoup plus bas. Un multiple qui paraît raisonnable à l'œil nu peut donc rester très cher si le cash contre lequel on le compare est lui-même en train de fondre."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que ce classement m'apprend au-delà du rail"
+        },
+        {
+          "type": "p",
+          "text": "Ce qui vaut pour le rail vaut pour toute entreprise qui possède une infrastructure physique lourde : réseaux électriques, pipelines, autoroutes à péage, pylônes de télécommunications. La marge nette comptable peut rester flatteuse pendant des années alors que le rendement réel du capital, une fois l'entretien perpétuel déduit, est médiocre. C'est exactement pour cette raison que ma méthode ne s'arrête jamais à un seul chiffre : elle croise rentabilité, croissance, rendement du capital investi et endettement, et je détaille cette grille complète sur ma [page méthodologie](/methodologie)."
+        },
+        {
+          "type": "p",
+          "text": "J'ai construit mon outil d'analyse pour pouvoir faire tourner ce filtre en quelques secondes sur n'importe quelle action, plutôt que de refaire ce calcul à la main chaque fois qu'un secteur à bonne réputation attire mon attention. Tu peux consulter la fiche complète de [Union Pacific](/analyse/UNP), de [CSX](/analyse/CSX), de [Norfolk Southern](/analyse/NSC), de [Canadian Pacific Kansas City](/analyse/CP) ou de [Canadian National](/analyse/CNI), et pour un autre angle sur ce même secteur, ma comparaison entre [Wabtec et les opérateurs ferroviaires](/blog/wabtec-union-pacific-csx-chemins-fer-palmares) montre pourquoi le fournisseur d'équipement s'en sort mieux que les compagnies qui possèdent les rails."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Le rail est-il un mauvais secteur pour investir ?",
+          "a": "Pas nécessairement mauvais, mais un secteur où la réputation de qualité, portée par des marges nettes élevées, ne suffit pas à elle seule. Il faut vérifier le rendement du capital investi et la dette rapportée au cash avant de conclure, deux critères que la marge nette seule ne montre pas."
+        },
+        {
+          "q": "Qu'est-ce que le rendement du capital investi (cash ROCE), en une phrase ?",
+          "a": "Le cash réellement généré chaque année, une fois l'entretien et le renouvellement des actifs payés, rapporté au capital total investi dans l'entreprise, terrains et équipements compris."
+        },
+        {
+          "q": "La fusion Union Pacific, Norfolk Southern va-t-elle améliorer leur rendement du capital ?",
+          "a": "Rien ne le garantit. Le précédent de Canadian Pacific, fusionnée avec Kansas City Southern depuis 2023, montre au contraire le rendement du capital le plus faible et la dette la plus lourde des cinq compagnies de ce classement."
+        },
+        {
+          "q": "Pourquoi Canadian Pacific Kansas City affiche-t-elle +19,7 % de croissance quand les autres stagnent ?",
+          "a": "Ce chiffre vient presque entièrement de sa fusion avec Kansas City Southern bouclée en 2023, qui ajoute mécaniquement tout le chiffre d'affaires de l'entreprise absorbée. C'est une croissance par acquisition, pas une croissance organique."
+        }
+      ],
+      "tags": [
+        "rail",
+        "chemins de fer",
+        "Union Pacific",
+        "Norfolk Southern",
+        "fusion",
+        "cash ROCE",
+        "méthode"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (21 septembre 2026), vérifiés individuellement via mon outil d'analyse au moment de la rédaction. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "Rail merger: capital still weighs on these stocks",
+      "excerpt": "Union Pacific wants to buy Norfolk Southern to build America's first transcontinental freight railroad. But Canadian Pacific, already merged in 2023, shows that getting bigger has not fixed the sector's real problem: the capital it must swallow every year just to stay on the rails.",
+      "metaDescription": "Does the Union Pacific, Norfolk Southern megamerger fix North American rail's real problem? My quality filter answers, with the numbers to back it up.",
+      "answer": "Union Pacific wants to buy Norfolk Southern to build America's first transcontinental freight railroad. But Canadian Pacific, already merged with Kansas City Southern in 2023, shows that getting bigger fixed nothing: its debt relative to cash is the heaviest and its cash return on capital the weakest of the five companies in this ranking.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Why railroads have the reputation of the perfect compounder"
+        },
+        {
+          "type": "p",
+          "text": "Building a continent-scale freight rail network is essentially impossible today: you would need to buy tens of thousands of miles of land, secure right-of-way against private owners and municipalities, and convince regulators who have not approved a major new network in a century. Investors call this wall of entry a moat, a defensive trench that protects a business from competition. That is largely what pushed Warren Buffett to buy all of BNSF outright in 2010: an asset that can no longer be rebuilt, serving customers who often have no alternative for moving coal, grain, or containers over long distances."
+        },
+        {
+          "type": "p",
+          "text": "That reputation of an unbreakable fortress sticks to the whole sector. On paper, the numbers back it up: the five largest North American freight railroads post net margins ranging from 21% to 29%, a level many industrial companies never reach. The problem, as we will see, is that my quality filter looks at something other than net margin."
+        },
+        {
+          "type": "h2",
+          "text": "Five North American giants, one filter: the full ranking"
+        },
+        {
+          "type": "p",
+          "text": "I ran the five largest publicly traded North American freight railroads through my ten financial criteria: profitability, sales and cash growth, buybacks, margin expansion, cash return on capital, debt. Here is the result, figures individually verified at the time of writing."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Score /10",
+            "Revenue growth (5yr)",
+            "Cash return on capital",
+            "Net debt / annual cash",
+            "Multiple on cash",
+            "Gap to buy price"
+          ],
+          "rows": [
+            [
+              "Union Pacific (UNP)",
+              "4/10",
+              "+1.3%/yr",
+              "9.7%",
+              "4.5 years",
+              "26.0x",
+              "39.6% above buy price"
+            ],
+            [
+              "Canadian Pacific Kansas City (CP)",
+              "4/10",
+              "+19.7%/yr (KSU merger)",
+              "3.3%",
+              "12.0 years",
+              "52.3x",
+              "21.9% above buy price"
+            ],
+            [
+              "Canadian National (CNI)",
+              "5/10",
+              "+1.3%/yr",
+              "Not computable",
+              "6.2 years",
+              "28.1x",
+              "62.4% above buy price"
+            ],
+            [
+              "CSX",
+              "3/10",
+              "-0.3%/yr",
+              "4.7%",
+              "9.7 years",
+              "47.1x",
+              "92.1% above buy price"
+            ],
+            [
+              "Norfolk Southern (NSC)",
+              "3/10",
+              "+0.7%/yr",
+              "3.8%",
+              "10.0 years",
+              "45.4x",
+              "31.9% above buy price"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "None of the five scores above 5 out of 10. None triggers my strict buy signal, which also requires the current price to sit near its lowest levels of the past five years. A sector known for quality, and yet a clear ceiling on my score."
+        },
+        {
+          "type": "h2",
+          "text": "A net margin of 20% to 29% is excellent. Why is the score so low?"
+        },
+        {
+          "type": "p",
+          "text": "Net margin measures what is left of revenue once every accounting charge is deducted, depreciation included. It is strong across this ranking. But depreciation is an accounting charge, not a real cash outflow: it spreads an investment already paid for over several years. The real test I run on every company is the cash that actually leaves the till each year to keep the network running: replacing worn-out rails, reinforcing bridges, modernizing rail yards, buying new locomotives. That spending is called maintenance capex, and for a rail network it is enormous and never ending, unlike a software company that has almost no physical assets to maintain."
+        },
+        {
+          "type": "p",
+          "text": "That gap between accounting profit and the cash truly left over after upkeep is exactly what explains the wide spread in this ranking: a flattering net margin that hides a far thinner pool of usable cash once the network has been maintained."
+        },
+        {
+          "type": "h2",
+          "text": "Cash return on capital, the number that gives away rail's real cost"
+        },
+        {
+          "type": "p",
+          "text": "Cash return on capital employed, what I call cash ROCE, divides that leftover cash after upkeep by the total capital tied up in the business, land, track, and rolling stock included. I require more than 15% a year. Here it caps out at 9.7% for Union Pacific, the best of the group on this metric, and drops to 3.3% for Canadian Pacific Kansas City. In plain terms: for every 100 dollars tied up in the network, Union Pacific turns just under 10 back into usable cash each year, and Canadian Pacific barely more than 3."
+        },
+        {
+          "type": "p",
+          "text": "The image that helps here is a landlord whose building constantly needs expensive renovation, roof, plumbing, facade, just to keep renting it out at the same price. The rent collected looks comfortable on paper, but once the yearly repair bill is paid, what is left in the landlord's pocket is far more modest. That is exactly the position of a rail network: owning the infrastructure imposes never ending upkeep, even when the volume of freight moved stalls."
+        },
+        {
+          "type": "h2",
+          "text": "Why do these companies carry so much debt relative to their cash?"
+        },
+        {
+          "type": "p",
+          "text": "I also look at how many years of current cash it would take each company to fully repay its net debt. I require under 3 years. Here the gap runs from 4.5 years for Union Pacific to 12 years for Canadian Pacific Kansas City, the most indebted of the group, which would need twelve years of its current cash just to become debt free. That is not necessarily reckless: when cash return on capital is this low, borrowing to fund network upkeep or buybacks is often cheaper than draining an already tight cash flow. But it also means these companies have very little room to maneuver if interest rates rise or freight volumes slow sharply."
+        },
+        {
+          "type": "h2",
+          "text": "Is Canadian Pacific's 19.7% growth actually organic?"
+        },
+        {
+          "type": "p",
+          "text": "At first glance, Canadian Pacific Kansas City shows the group's best sales growth, 19.7% a year over five years, far ahead of the others, which cap out between -0.3% and 1.3%. But that number is misleading: it comes almost entirely from the merger with Kansas City Southern, completed in 2023, which created the first rail network directly connecting Canada, the United States, and Mexico. A merger mechanically adds the entire revenue of the absorbed company, inflating measured growth without a single extra customer won on the ground that same year. That is growth by acquisition, not organic growth, and the two do not read the same way."
+        },
+        {
+          "type": "p",
+          "text": "Outside that merger effect, the sector is essentially flat: between -0.3% and +1.3% a year for the other four, a pace that reflects structurally mature freight rail traffic in the United States and Canada, weighed down by a decade of declining coal volumes. That does not mean activity is weak everywhere: Union Pacific, for instance, [posted its best first-quarter grain volume since 2008 in early 2026](https://freightflowadvisor.substack.com/p/union-pacific-just-broke-records), driven by export demand, and [CSX saw intermodal volumes rise 6% year over year in the first quarter of 2026](https://www.supplychaindive.com/news/csx-sees-volume-uptick-from-spike-in-truck-to-rail-conversions/818728/), as shippers turned to rail amid rising trucking fuel costs. But these solid operating signals have not, so far, moved the five-year average growth rate or the cash return on capital."
+        },
+        {
+          "type": "h2",
+          "text": "Is rail about to get bigger? The Union Pacific, Norfolk Southern megamerger"
+        },
+        {
+          "type": "p",
+          "text": "On July 28, 2025, Union Pacific and Norfolk Southern signed a merger agreement that would create the first genuinely transcontinental U.S. freight railroad, linking the East and West coasts under a single operator for the first time. Each Norfolk Southern share would convert into one Union Pacific share plus 88.82 dollars in cash, for a total of roughly 225 million new shares and 20 billion dollars in cash. The U.S. rail regulator, the Surface Transportation Board, accepted the application as complete on May 28, 2026, and [Union Pacific and Norfolk Southern strengthened their filing in late July 2026 with new customer protections](https://www.up.com/press-releases/growth/stb-supplemental-second-round-270727), ahead of a procedural schedule running through February 2027, with a decision expected sometime in 2027."
+        },
+        {
+          "type": "p",
+          "text": "The question I care about most is not whether this merger will happen, but whether it fixes the sector's real problem, the one this ranking exposes: a structurally weak cash return on capital. On that point, Canadian Pacific Kansas City is the closest test case we already have, since its merger with Kansas City Southern has been completed since 2023. The result is not encouraging: Canadian Pacific Kansas City now posts the weakest cash return on capital in the group, 3.3%, and the heaviest debt relative to cash, 12 years. Getting bigger added revenue and a wider network, but nothing suggests it solved the real problem: a bigger network is still a network that needs proportionally bigger perpetual upkeep. One case proves nothing definitive, but it is a signal worth watching closely if the Union Pacific, Norfolk Southern merger goes through."
+        },
+        {
+          "type": "h2",
+          "text": "Does price follow the same slope as quality?"
+        },
+        {
+          "type": "p",
+          "text": "For each company, my model calculates a reasonable buy price from the cash it should generate over the next five years, then compares that price to the current share price. All five companies in this ranking trade above that price today, from 21.9% too expensive for Canadian Pacific Kansas City to 92.1% too expensive for CSX. None triggers my opportunity signal, which also requires a price near its five-year lows."
+        },
+        {
+          "type": "p",
+          "text": "CSX's gap deserves a word of explanation, because it looks enormous for a multiple of 47.1 times annual cash, already high but not extreme on its own. The reason is that CSX's cash generated per share has declined 5.7% a year over five years: my model projects that cash forward five years from its recent trend, and a deteriorating trend pushes the target price much lower. A multiple that looks reasonable at a glance can therefore still be expensive if the cash it is measured against is itself shrinking."
+        },
+        {
+          "type": "h2",
+          "text": "What this ranking teaches beyond rail"
+        },
+        {
+          "type": "p",
+          "text": "What holds for rail holds for any business that owns heavy physical infrastructure: power grids, pipelines, toll roads, telecom towers. Accounting net margin can stay flattering for years while the real return on capital, once perpetual upkeep is deducted, is mediocre. That is exactly why my method never stops at a single number: it cross checks profitability, growth, cash return on capital, and debt, and I detail the full grid on my [methodology page](/methodologie)."
+        },
+        {
+          "type": "p",
+          "text": "I built my analysis tool to run this filter in seconds on any stock, instead of redoing this calculation by hand every time a well reputed sector catches my eye. You can check the full profile of [Union Pacific](/analyse/UNP), [CSX](/analyse/CSX), [Norfolk Southern](/analyse/NSC), [Canadian Pacific Kansas City](/analyse/CP), or [Canadian National](/analyse/CNI), and for another angle on this same sector, my comparison between [Wabtec and the rail operators](/blog/wabtec-union-pacific-csx-chemins-fer-palmares) shows why the equipment supplier fares better than the companies that own the rails."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Is rail a bad sector to invest in?",
+          "a": "Not necessarily bad, but a sector where a reputation for quality, built on high net margins, is not enough on its own. You need to check cash return on capital and debt relative to cash before concluding, two criteria net margin alone does not show."
+        },
+        {
+          "q": "What is cash return on capital (cash ROCE), in one sentence?",
+          "a": "The cash actually generated each year, after paying for upkeep and asset renewal, divided by the total capital invested in the business, land and equipment included."
+        },
+        {
+          "q": "Will the Union Pacific, Norfolk Southern merger improve their cash return on capital?",
+          "a": "Nothing guarantees it. The precedent of Canadian Pacific, merged with Kansas City Southern since 2023, shows the opposite: the weakest cash return on capital and the heaviest debt of the five companies in this ranking."
+        },
+        {
+          "q": "Why does Canadian Pacific Kansas City show 19.7% growth when the others are flat?",
+          "a": "That figure comes almost entirely from its 2023 merger with Kansas City Southern, which mechanically adds the entire revenue of the absorbed company. That is growth by acquisition, not organic growth."
+        }
+      ],
+      "tags": [
+        "rail",
+        "railroads",
+        "Union Pacific",
+        "Norfolk Southern",
+        "merger",
+        "cash ROCE",
+        "method"
+      ],
+      "disclaimer": "This analysis is for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (September 21, 2026), individually verified through my analysis tool at the time of writing. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you this so you can read this analysis with that in mind. Do your own research."
+    },
+    "es": {
+      "title": "Fusión ferroviaria: el capital pesa sobre estas acciones",
+      "excerpt": "Union Pacific quiere comprar Norfolk Southern para crear el primer ferrocarril transcontinental de mercancías de Estados Unidos. Pero Canadian Pacific, ya fusionada en 2023, muestra que crecer no resolvió el verdadero problema del sector: el capital que hay que tragarse cada año solo para seguir sobre los raíles.",
+      "metaDescription": "¿Resuelve la megafusión Union Pacific, Norfolk Southern el verdadero problema del ferrocarril norteamericano? Mi filtro de calidad responde, con cifras.",
+      "answer": "Union Pacific quiere comprar Norfolk Southern para construir el primer ferrocarril transcontinental de EE. UU. Pero Canadian Pacific, ya fusionada con Kansas City Southern en 2023, muestra que crecer no resolvió nada: su deuda sobre la caja es la más pesada y su rentabilidad del capital invertido la más baja de las cinco compañías.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Por qué el ferrocarril tiene fama de compounder perfecto"
+        },
+        {
+          "type": "p",
+          "text": "Construir una red ferroviaria de mercancías a escala de un continente es hoy casi imposible: habría que comprar decenas de miles de kilómetros de terreno, conseguir derechos de paso frente a propietarios privados y municipios, y convencer a reguladores que no autorizan una red nueva de gran tamaño desde hace un siglo. Los inversores llaman a esta barrera de entrada un moat, un foso defensivo que protege a la empresa de la competencia. Eso es en gran parte lo que llevó a Warren Buffett a comprar la totalidad de BNSF en 2010: un activo que ya no se puede reconstruir, con clientes que a menudo no tienen alternativa para mover carbón, cereales o contenedores a largas distancias."
+        },
+        {
+          "type": "p",
+          "text": "Esa fama de fortaleza inexpugnable se le pega a todo el sector. Sobre el papel, las cifras lo confirman: las cinco mayores compañías ferroviarias de mercancías de Norteamérica muestran márgenes netos de entre el 21 % y el 29 %, un nivel que muchas empresas industriales nunca alcanzan. El problema, como veremos, es que mi filtro de calidad mira otra cosa distinta del margen neto."
+        },
+        {
+          "type": "h2",
+          "text": "Cinco gigantes norteamericanos, un mismo filtro: la clasificación completa"
+        },
+        {
+          "type": "p",
+          "text": "Pasé a las cinco mayores compañías ferroviarias de mercancías cotizadas en Norteamérica por mis diez criterios financieros: rentabilidad, crecimiento de ventas y de caja, recompras de acciones, expansión de márgenes, rentabilidad del capital invertido, endeudamiento. Este es el resultado, cifras verificadas individualmente en el momento de escribir este análisis."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Nota /10",
+            "Crecimiento de ventas (5 años)",
+            "Rentabilidad del capital invertido",
+            "Deuda neta / caja anual",
+            "Múltiplo sobre la caja",
+            "Diferencia al precio de compra"
+          ],
+          "rows": [
+            [
+              "Union Pacific (UNP)",
+              "4/10",
+              "+1,3 %/año",
+              "9,7 %",
+              "4,5 años",
+              "26,0x",
+              "Sobreprecio del 39,6 %"
+            ],
+            [
+              "Canadian Pacific Kansas City (CP)",
+              "4/10",
+              "+19,7 %/año (fusión con KSU)",
+              "3,3 %",
+              "12,0 años",
+              "52,3x",
+              "Sobreprecio del 21,9 %"
+            ],
+            [
+              "Canadian National (CNI)",
+              "5/10",
+              "+1,3 %/año",
+              "No calculable",
+              "6,2 años",
+              "28,1x",
+              "Sobreprecio del 62,4 %"
+            ],
+            [
+              "CSX",
+              "3/10",
+              "-0,3 %/año",
+              "4,7 %",
+              "9,7 años",
+              "47,1x",
+              "Sobreprecio del 92,1 %"
+            ],
+            [
+              "Norfolk Southern (NSC)",
+              "3/10",
+              "+0,7 %/año",
+              "3,8 %",
+              "10,0 años",
+              "45,4x",
+              "Sobreprecio del 31,9 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Ninguna de las cinco supera el 5 sobre 10. Ninguna activa mi señal de compra estricta, que exige además que el precio actual esté cerca de sus niveles más bajos de los últimos cinco años. Un sector con fama de calidad y, sin embargo, un techo de cristal claro en mi nota."
+        },
+        {
+          "type": "h2",
+          "text": "Un margen neto del 20 % al 29 % es excelente. ¿Por qué la nota es tan baja?"
+        },
+        {
+          "type": "p",
+          "text": "El margen neto mide lo que queda de las ventas una vez deducidos todos los gastos contables, incluidas las amortizaciones. Es bueno en toda esta clasificación. Pero la amortización es un gasto contable, no una salida real de caja: reparte a lo largo de varios años un gasto de inversión ya pagado. La prueba real que aplico a cada empresa es mirar el efectivo que realmente sale de caja cada año para mantener la red: sustituir raíles gastados, reforzar puentes, modernizar patios de maniobras, comprar locomotoras nuevas. Ese gasto se llama capex de mantenimiento, y en una red ferroviaria es enorme y perpetuo, a diferencia de una empresa de software que apenas tiene activos físicos que mantener."
+        },
+        {
+          "type": "p",
+          "text": "Esa diferencia entre el beneficio contable y el efectivo realmente disponible tras el mantenimiento es justo lo que explica la gran distancia de esta clasificación: un margen neto favorecedor que esconde una caja disponible mucho más escasa una vez mantenida la red."
+        },
+        {
+          "type": "h2",
+          "text": "La rentabilidad del capital invertido, la cifra que delata el verdadero coste del ferrocarril"
+        },
+        {
+          "type": "p",
+          "text": "La rentabilidad del capital invertido, lo que llamo cash ROCE, divide ese efectivo disponible tras el mantenimiento entre el capital total inmovilizado en la empresa, terrenos, vías y material rodante incluidos. Exijo más del 15 % anual. Aquí llega como máximo al 9,7 % en Union Pacific, la mejor del grupo en este criterio, y cae al 3,3 % en Canadian Pacific Kansas City. En términos concretos: por cada 100 dólares inmovilizados en la red, Union Pacific recupera cada año algo menos de 10 en efectivo disponible, y Canadian Pacific apenas más de 3."
+        },
+        {
+          "type": "p",
+          "text": "La imagen que ayuda a entenderlo es la de un propietario cuyo edificio necesita constantemente una reforma cara, tejado, fontanería, fachada, solo para seguir alquilándolo al mismo precio. Las rentas cobradas parecen cómodas sobre el papel, pero una vez pagadas las obras de cada año, lo que queda en el bolsillo del propietario es mucho más modesto. Es exactamente la situación de una red ferroviaria: poseer la infraestructura impone un mantenimiento permanente que no se detiene nunca, incluso cuando el volumen de mercancías transportadas se estanca."
+        },
+        {
+          "type": "h2",
+          "text": "¿Por qué estas empresas cargan tanta deuda en relación con su caja?"
+        },
+        {
+          "type": "p",
+          "text": "También miro cuántos años de caja actual necesitaría cada empresa para devolver íntegramente su deuda neta. Exijo menos de 3 años. Aquí la diferencia va de 4,5 años en Union Pacific a 12 años en Canadian Pacific Kansas City, la más endeudada del grupo, que necesitaría doce años de su caja actual solo para quedar libre de deuda. Esto no es necesariamente imprudencia: cuando la rentabilidad del capital invertido es tan baja, endeudarse para financiar el mantenimiento de la red o las recompras de acciones suele costar menos que vaciar un flujo de caja ya ajustado. Pero también significa que estas empresas tienen muy poco margen de maniobra si los tipos de interés suben o el tráfico se ralentiza con fuerza."
+        },
+        {
+          "type": "h2",
+          "text": "¿Es realmente orgánico el crecimiento del 19,7 % de Canadian Pacific?"
+        },
+        {
+          "type": "p",
+          "text": "A primera vista, Canadian Pacific Kansas City muestra el mejor crecimiento de ventas del grupo, un 19,7 % anual en cinco años, muy por delante de las demás, que se quedan entre el -0,3 % y el 1,3 %. Pero esa cifra engaña: procede casi por completo de la fusión con Kansas City Southern, cerrada en 2023, que creó la primera red ferroviaria que conecta directamente Canadá, Estados Unidos y México. Una fusión suma mecánicamente todos los ingresos de la empresa absorbida, lo que infla el crecimiento medido sin que se haya ganado ni un cliente adicional sobre el terreno ese mismo año. Es crecimiento por adquisición, no crecimiento orgánico, y ambos no se leen de la misma manera."
+        },
+        {
+          "type": "p",
+          "text": "Al margen de este efecto de fusión, el sector permanece casi plano: entre el -0,3 % y el +1,3 % anual para las otras cuatro, un ritmo que revela un tráfico ferroviario de mercancías estructuralmente maduro en Estados Unidos y Canadá, lastrado por el declive del carbón durante la última década. Esto no significa que la actividad sea mala en todas partes: Union Pacific, por ejemplo, [registró su mejor volumen de grano de un primer trimestre desde 2008 a comienzos de 2026](https://freightflowadvisor.substack.com/p/union-pacific-just-broke-records), impulsado por la demanda de exportación, y [CSX vio crecer sus volúmenes intermodales un 6 % interanual en el primer trimestre de 2026](https://www.supplychaindive.com/news/csx-sees-volume-uptick-from-spike-in-truck-to-rail-conversions/818728/), con cargadores que preferían el ferrocarril ante el aumento del coste del combustible por carretera. Pero estas buenas señales operativas no han bastado, por ahora, para mover el crecimiento medio a cinco años ni la rentabilidad del capital invertido."
+        },
+        {
+          "type": "h2",
+          "text": "¿Va a crecer todavía más el ferrocarril? La megafusión Union Pacific, Norfolk Southern"
+        },
+        {
+          "type": "p",
+          "text": "El 28 de julio de 2025, Union Pacific y Norfolk Southern firmaron un acuerdo de fusión que crearía la primera red ferroviaria de mercancías verdaderamente transcontinental de Estados Unidos, uniendo por primera vez las costas Este y Oeste bajo un único operador. Cada acción de Norfolk Southern se convertiría en una acción de Union Pacific más 88,82 dólares en efectivo, por un total de unos 225 millones de acciones nuevas y 20 000 millones de dólares en efectivo. El regulador ferroviario estadounidense, el Surface Transportation Board, aceptó el expediente como completo el 28 de mayo de 2026, y [Union Pacific y Norfolk Southern reforzaron su expediente a finales de julio de 2026 con nuevas garantías para sus clientes](https://www.up.com/press-releases/growth/stb-supplemental-second-round-270727), antes de un calendario procesal que se extiende hasta febrero de 2027, con una decisión esperada durante 2027."
+        },
+        {
+          "type": "p",
+          "text": "La pregunta que más me interesa no es si esta fusión se producirá, sino si resuelve el verdadero problema del sector, el que pone de relieve esta clasificación: una rentabilidad del capital invertido estructuralmente débil. En este punto, Canadian Pacific Kansas City es el caso de prueba más cercano que ya tenemos, puesto que su fusión con Kansas City Southern está cerrada desde 2023. El resultado no es alentador: Canadian Pacific Kansas City muestra hoy la rentabilidad del capital invertido más baja del grupo, un 3,3 %, y la deuda en relación con la caja más pesada, 12 años. Crecer añadió ingresos y una red más extensa, pero nada indica que resolviera el verdadero problema: una red más grande sigue siendo una red que exige un mantenimiento perpetuo proporcionalmente mayor. Un solo caso no demuestra nada definitivo, pero es una señal que vigilar de cerca si se concreta la fusión entre Union Pacific y Norfolk Southern."
+        },
+        {
+          "type": "h2",
+          "text": "¿Sigue el precio la misma pendiente que la calidad?"
+        },
+        {
+          "type": "p",
+          "text": "Para cada empresa, mi modelo calcula un precio de compra razonable a partir del efectivo que debería generar en los próximos cinco años, y compara ese precio con la cotización actual. Las cinco compañías de esta clasificación cotizan hoy por encima de ese precio, desde un 21,9 % de sobreprecio en Canadian Pacific Kansas City hasta un 92,1 % en CSX. Ninguna activa mi señal de oportunidad, que exige además una cotización cercana a sus mínimos de cinco años."
+        },
+        {
+          "type": "p",
+          "text": "La diferencia de CSX merece una explicación, porque parece enorme para un múltiplo de 47,1 veces la caja anual, ya alto pero no extremo por sí solo. La razón es que el efectivo generado por acción de CSX ha caído un 5,7 % anual en cinco años: mi modelo proyecta ese efectivo a cinco años a partir de su tendencia reciente, y una tendencia que se deteriora reduce mucho el precio objetivo. Un múltiplo que a simple vista parece razonable puede, por tanto, seguir siendo muy caro si el efectivo con el que se compara se está reduciendo él mismo."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que esta clasificación enseña más allá del ferrocarril"
+        },
+        {
+          "type": "p",
+          "text": "Lo que vale para el ferrocarril vale para cualquier empresa que posea infraestructura física pesada: redes eléctricas, oleoductos, autopistas de peaje, torres de telecomunicaciones. El margen neto contable puede seguir siendo favorecedor durante años mientras la rentabilidad real del capital, una vez deducido el mantenimiento perpetuo, es mediocre. Por eso mi método nunca se detiene en una sola cifra: cruza rentabilidad, crecimiento, rentabilidad del capital invertido y endeudamiento, y detallo esta rejilla completa en mi [página de metodología](/methodologie)."
+        },
+        {
+          "type": "p",
+          "text": "Construí mi herramienta de análisis para poder aplicar este filtro en segundos a cualquier acción, en lugar de repetir este cálculo a mano cada vez que un sector con buena fama capta mi atención. Puedes consultar la ficha completa de [Union Pacific](/analyse/UNP), [CSX](/analyse/CSX), [Norfolk Southern](/analyse/NSC), [Canadian Pacific Kansas City](/analyse/CP) o [Canadian National](/analyse/CNI), y para otro ángulo sobre este mismo sector, mi comparación entre [Wabtec y los operadores ferroviarios](/blog/wabtec-union-pacific-csx-chemins-fer-palmares) muestra por qué el proveedor de equipos sale mejor parado que las compañías propietarias de las vías."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Es el ferrocarril un mal sector para invertir?",
+          "a": "No necesariamente malo, pero un sector donde la fama de calidad, sostenida por márgenes netos altos, no basta por sí sola. Hay que comprobar la rentabilidad del capital invertido y la deuda en relación con la caja antes de concluir, dos criterios que el margen neto solo no muestra."
+        },
+        {
+          "q": "¿Qué es la rentabilidad del capital invertido (cash ROCE), en una frase?",
+          "a": "El efectivo realmente generado cada año, una vez pagado el mantenimiento y la renovación de los activos, dividido entre el capital total invertido en la empresa, terrenos y equipos incluidos."
+        },
+        {
+          "q": "¿Mejorará la fusión Union Pacific, Norfolk Southern su rentabilidad del capital?",
+          "a": "Nada lo garantiza. El precedente de Canadian Pacific, fusionada con Kansas City Southern desde 2023, muestra lo contrario: la rentabilidad del capital más baja y la deuda más pesada de las cinco compañías de esta clasificación."
+        },
+        {
+          "q": "¿Por qué Canadian Pacific Kansas City muestra un 19,7 % de crecimiento cuando las demás están estancadas?",
+          "a": "Esa cifra procede casi por completo de su fusión con Kansas City Southern cerrada en 2023, que suma mecánicamente todos los ingresos de la empresa absorbida. Es crecimiento por adquisición, no crecimiento orgánico."
+        }
+      ],
+      "tags": [
+        "ferrocarril",
+        "Union Pacific",
+        "Norfolk Southern",
+        "fusión",
+        "cash ROCE",
+        "método"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (21 de septiembre de 2026), verificadas individualmente con mi herramienta de análisis en el momento de escribir este texto. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Haz tu propia investigación."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
