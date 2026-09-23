@@ -89341,7 +89341,568 @@ const articleHowmetAerospace: Article = {
 };
 
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace];
+const articleCoreeQualiteDecote: Article = {
+  "slug": "coree-du-sud-actions-qualite-decote-value-up",
+  "date": "2026-09-23",
+  "updated": "2026-09-23",
+  "readingTime": 7,
+  "content": {
+    "fr": {
+      "title": "Corée du Sud : 5 actions qualité sacrifiées par la décote",
+      "excerpt": "Mon screener trouve cinq entreprises sud-coréennes parmi les mieux notées du site, valorisées à une fraction de leurs pairs mondiaux. Ce que change la réforme de gouvernance en cours, et ce qu'elle ne résout pas encore.",
+      "metaDescription": "Cinq entreprises sud-coréennes solides selon mon modèle, sous-valorisées face à leurs pairs mondiaux malgré une réforme de gouvernance inédite. Mon analyse.",
+      "answer": "Mon screener a repéré cinq entreprises sud-coréennes qui valident la quasi-totalité de mes critères de qualité financière, de la construction navale au casino, valorisées deux à cinq fois moins cher que leurs pairs mondiaux du même secteur. Une réforme de gouvernance vise à combler cet écart, mais pas partout : une des cinq l'a déjà rattrapé.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Pourquoi la Corée du Sud reste l'angle mort des investisseurs français"
+        },
+        {
+          "type": "p",
+          "text": "Le Japon a eu sa vague de réformes de gouvernance et son afflux d'investisseurs étrangers largement commentés ces dernières années. La Corée du Sud vit exactement la même histoire, avec dix ans de retard médiatique et une décote plus sévère encore. Le phénomène a même un nom que les analystes utilisent depuis des décennies : le « Korea Discount », la tendance structurelle des actions coréennes à se valoriser nettement moins cher que des entreprises comparables ailleurs dans le monde, à qualité financière égale."
+        },
+        {
+          "type": "p",
+          "text": "La cause n'est pas un problème de rentabilité, c'est un problème de gouvernance. La plupart des grands groupes coréens, les chaebols, ces conglomérats familiaux comme Samsung ou Hyundai, sont structurés en participations croisées : la société A détient une part de la société B qui détient une part de la société C qui détient une part de la société A. La famille fondatrice contrôle l'ensemble avec une fraction du capital réel, les actionnaires minoritaires encaissent des dividendes historiquement faibles, et les rachats d'actions, quand ils existaient, n'étaient pas toujours annulés : l'entreprise les gardait en réserve plutôt que de réduire réellement son nombre de titres en circulation."
+        },
+        {
+          "type": "h2",
+          "text": "Une réforme qui n'est plus une promesse depuis 2025"
+        },
+        {
+          "type": "p",
+          "text": "Ce qui change la donne, c'est que le Corporate Value-up Program lancé par le gouvernement coréen en 2024 a pris une tournure contraignante l'année suivante. En juillet puis en août 2025, le Parlement coréen a adopté deux amendements au Code de commerce qui élargissent explicitement le devoir fiduciaire des dirigeants : ils doivent désormais agir dans l'intérêt de tous les actionnaires, pas seulement de la famille qui contrôle le groupe, comme le rapporte le [Korea Herald sur l'adoption de ce texte](https://www.koreaherald.com/article/10441154). Une seconde loi, tout aussi structurante, oblige désormais les entreprises à annuler les actions propres qu'elles rachètent plutôt que de les garder en réserve, ce qui transforme un rachat d'actions en réduction réelle du nombre de titres en circulation."
+        },
+        {
+          "type": "p",
+          "text": "Le régulateur des marchés coréens documente cette réforme en détail sur [sa page dédiée à la réforme du marché des capitaux](https://www.fsc.go.kr/eng/po110101/82795). Le KOSPI, l'indice phare de la bourse de Séoul, a franchi pour la première fois de son histoire le seuil des 5 000 points pendant que cette réforme avançait, un mouvement que [Bloomberg reliait directement à l'adoption d'un nouveau texte en faveur des actionnaires en février 2026](https://www.bloomberg.com/news/articles/2026-02-25/korea-passes-another-reform-bill-in-push-for-shareholder-value)."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que mon screener trouve sous cette réforme"
+        },
+        {
+          "type": "p",
+          "text": "J'ai passé mon modèle de notation, qui juge chaque entreprise sur dix critères financiers concrets (rentabilité, croissance des ventes et du cash, rachats d'actions réels, marges, dette maîtrisable), sur l'ensemble des actions que mon site suit. Cinq entreprises sud-coréennes ressortent avec la note maximale, 10 sur 10 : elles cochent chacun de mes dix critères sans exception. Ce n'est pas une coïncidence isolée sur un seul nom, c'est un signal sur tout un marché."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Entreprise",
+            "Secteur",
+            "Note qualité",
+            "Valorisation (P/FCF)",
+            "Face à ses pairs mondiaux"
+          ],
+          "rows": [
+            [
+              "Haein Corporation (003010.KS)",
+              "Distribution industrielle",
+              "10/10",
+              "2,0×",
+              "Moins chère qu'environ 96 % de ses 55 pairs (médiane du secteur 20,8×)"
+            ],
+            [
+              "HD Korea Shipbuilding (009540.KS)",
+              "Aérospatiale et défense navale",
+              "10/10",
+              "7,6×",
+              "Moins chère qu'environ 96 % de ses 105 pairs (médiane 37,8×)"
+            ],
+            [
+              "Samsung Heavy Industries (010140.KS)",
+              "Aérospatiale et défense navale",
+              "10/10",
+              "13,7×",
+              "Moins chère qu'environ 89 % de ses 105 pairs (médiane 37,8×)"
+            ],
+            [
+              "SNT Energy (100840.KS)",
+              "Machines industrielles",
+              "10/10",
+              "7,5×",
+              "Moins chère qu'environ 91 % de ses 245 pairs (médiane 30,9×)"
+            ],
+            [
+              "Grand Korea Leisure (114090.KS)",
+              "Casinos et loisirs",
+              "10/10",
+              "5,7×",
+              "Moins chère qu'environ 87 % de ses 32 pairs (médiane 14,8×)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le tableau se lit simplement : le P/FCF (le prix de l'action divisé par le cash que l'entreprise génère réellement chaque année) mesure combien d'années de ce cash tu paies aujourd'hui. Plus il est bas, moins cher est payé chaque dollar de cash produit. Un P/FCF de 2, comme celui de Haein, veut dire que tu paies deux années de son cash annuel, quand ses pairs internationaux du même secteur se négocient en moyenne à plus de vingt fois. Même Samsung Heavy Industries, la moins bon marché des cinq en valeur absolue, reste nettement moins chère que la médiane de son secteur."
+        },
+        {
+          "type": "h2",
+          "text": "La nuance qui compte : la note ne dit rien du bon moment pour acheter"
+        },
+        {
+          "type": "p",
+          "text": "Sur mon site, je juge toujours la qualité d'une entreprise séparément de son prix : une excellente entreprise achetée trop cher reste un mauvais placement. Sur les cinq noms de ce palmarès, quatre affichent encore une vraie marge de sécurité entre le cours actuel et mon prix d'achat raisonnable calculé par le modèle. La cinquième, Samsung Heavy Industries, a déjà dépassé le sien d'environ 9,5 % : la belle histoire de la défense navale coréenne s'est en partie reflétée dans le cours, et je ne l'achèterais pas au prix d'aujourd'hui malgré une note qualité parfaite."
+        },
+        {
+          "type": "p",
+          "text": "Une mise en garde pratique avant de foncer : ces cinq titres se négocient sur le KOSPI, hors PEA, et nécessitent un courtier qui donne accès aux marchés asiatiques, avec des frais de change et souvent une liquidité plus faible que sur une action américaine standard. C'est particulièrement vrai pour Haein Corporation, dont la capitalisation boursière tourne autour de 68 millions de dollars : un accès plus contraignant, un flottant plus mince, à garder en tête avant de dimensionner une position."
+        },
+        {
+          "type": "h2",
+          "text": "Le risque qui revient sur trois des cinq dossiers"
+        },
+        {
+          "type": "p",
+          "text": "Trois entreprises de ce palmarès, Haein, HD Korea Shipbuilding et Samsung Heavy Industries, partagent la même menace structurelle identifiée par mon modèle de résilience : la montée en puissance industrielle des chantiers navals chinois, qui grignotent chaque année une part croissante des commandes mondiales de navires commerciaux standards, même si le segment le plus technique (méthaniers, navires de classe glace, contrats de défense) reste pour l'instant mieux protégé."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Entreprise",
+            "Score résilience",
+            "Risque principal identifié par mon modèle"
+          ],
+          "rows": [
+            [
+              "Haein Corporation",
+              "1/5 (signalée)",
+              "Concurrence industrielle chinoise croissante sur les composants navals spécialisés"
+            ],
+            [
+              "HD Korea Shipbuilding",
+              "3/5",
+              "Rattrapage technologique chinois sur les segments complexes (GNL, classe glace) sous 5 ans"
+            ],
+            [
+              "Samsung Heavy Industries",
+              "3/5",
+              "Domination croissante des chantiers chinois sur le carnet de commandes commercial mondial"
+            ],
+            [
+              "SNT Energy",
+              "1/5 (signalée)",
+              "Activité d'appels d'offres à faible pouvoir de prix, facilement reproductible"
+            ],
+            [
+              "Grand Korea Leisure",
+              "2/5 (résolue)",
+              "Dépendance aux flux touristiques chinois et japonais, concurrence de Macao"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Grand Korea Leisure porte un risque différent : sa licence de casino réservée aux touristes étrangers dépend directement des flux venus de Chine et du Japon, exposés aux politiques de restriction du tourisme sortant décidées à Pékin. SNT Energy, de son côté, vend des équipements sur appels d'offres sans brevet ni actif rare qui la protège durablement, même si sa croissance récente (44 % de hausse annuelle du chiffre d'affaires ces cinq dernières années) reste la plus rapide des cinq."
+        },
+        {
+          "type": "h2",
+          "text": "Comment je lis cette liste"
+        },
+        {
+          "type": "p",
+          "text": "La réforme coréenne est réelle, datée, et déjà inscrite dans la loi depuis 2025 : ce n'est plus une promesse de campagne. Mais elle ne supprime pas le risque industriel propre à chaque entreprise, elle corrige la façon dont le marché valorise les bénéfices, pas la solidité du métier lui-même. C'est exactement pour ça que je sépare toujours les deux questions, la qualité du business et le bon prix pour l'acheter, plutôt que de transformer une histoire macro séduisante en achat les yeux fermés. Tu peux consulter le détail de chacune de ces fiches, par exemple [HD Korea Shipbuilding](/analyse/009540.KS) ou [Samsung Heavy Industries](/analyse/010140.KS), et retrouver l'intégralité de ma grille sur [la page méthodologie](/methodologie)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Qu'est-ce que le Korea Discount ?",
+          "a": "C'est la tendance structurelle des actions sud-coréennes à se valoriser moins cher que des entreprises comparables ailleurs dans le monde, à qualité financière égale. La cause principale est la structure de gouvernance des grands groupes familiaux, les chaebols, avec des participations croisées et des dirigeants historiquement peu tenus de servir tous les actionnaires."
+        },
+        {
+          "q": "Une note qualité de 10 sur 10 veut-elle dire qu'il faut acheter tout de suite ?",
+          "a": "Non. Ma note qualité juge uniquement la solidité financière de l'entreprise, jamais son prix. Sur les cinq entreprises de cet article, quatre affichent encore une vraie décote face à mon prix d'achat raisonnable, mais la cinquième, Samsung Heavy Industries, l'a déjà dépassé d'environ 9,5 %."
+        },
+        {
+          "q": "Peut-on acheter des actions coréennes dans un PEA ?",
+          "a": "Non, les actions cotées en Corée du Sud ne sont pas éligibles au PEA français. Il faut un compte-titres ordinaire chez un courtier qui donne accès aux marchés asiatiques, avec des frais de change et parfois une liquidité plus faible que sur les marchés américains ou européens."
+        },
+        {
+          "q": "Pourquoi le risque chinois revient-il sur trois des cinq entreprises ?",
+          "a": "Parce que trois d'entre elles, Haein, HD Korea Shipbuilding et Samsung Heavy Industries, dépendent du même secteur, la construction navale et les équipements associés, où les chantiers chinois gagnent des parts de marché mondiales chaque année sur les segments commerciaux standards."
+        }
+      ],
+      "tags": [
+        "Corée du Sud",
+        "Actions asiatiques",
+        "Value-up Program",
+        "Palmarès qualité",
+        "Gouvernance d'entreprise"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (23 septembre 2026), vérifiés en direct via mon outil d'analyse le jour de la rédaction, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "South Korea: 5 quality stocks the discount still hits",
+      "excerpt": "My screener found five South Korean companies among the best rated on my site, priced at a fraction of their global peers. What the ongoing governance reform changes, and what it does not fix yet.",
+      "metaDescription": "Five South Korean companies my model rates as very solid, still priced well below global peers despite a landmark governance reform. My full analysis.",
+      "answer": "My screener flagged five South Korean companies that pass nearly every one of my financial quality criteria, from shipbuilding to casinos, priced two to five times cheaper than their global sector peers. A governance reform is meant to close that gap, but not everywhere yet: one of the five has already caught up to my fair buy price.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Why South Korea stays a blind spot for foreign investors"
+        },
+        {
+          "type": "p",
+          "text": "Japan had its wave of governance reform and foreign inflows, widely covered in the financial press over the past few years. South Korea is living through the exact same story, roughly a decade behind in coverage, with an even steeper discount. The phenomenon even has a name analysts have used for decades: the 'Korea Discount', the structural tendency of Korean stocks to trade well below comparable companies elsewhere in the world, at equal financial quality."
+        },
+        {
+          "type": "p",
+          "text": "The cause is not profitability, it is governance. Most large Korean groups, the chaebols, family conglomerates like Samsung or Hyundai, are structured through cross-shareholdings: company A holds a stake in company B, which holds a stake in company C, which holds a stake in company A. The founding family controls the whole web with a fraction of the real capital, minority shareholders have historically received thin dividends, and share buybacks, when they happened, were not always cancelled: the company kept the shares in reserve instead of genuinely shrinking its share count."
+        },
+        {
+          "type": "h2",
+          "text": "A reform that stopped being a promise in 2025"
+        },
+        {
+          "type": "p",
+          "text": "What changed the picture is that the Corporate Value-up Program launched by the Korean government in 2024 turned binding the following year. In July and then August 2025, Korea's National Assembly passed two amendments to the Commercial Act that explicitly expand directors' fiduciary duty: they must now act in the interest of all shareholders, not just the controlling family, as reported by [the Korea Herald on the passage of the bill](https://www.koreaherald.com/article/10441154). A second, equally structural law now forces companies to cancel the treasury shares they buy back instead of keeping them in reserve, turning a buyback into an actual reduction of shares outstanding."
+        },
+        {
+          "type": "p",
+          "text": "Korea's markets regulator documents this reform in detail on [its dedicated capital market reform page](https://www.fsc.go.kr/eng/po110101/82795). The KOSPI, Seoul's benchmark index, crossed the 5,000 point mark for the first time in its history while this reform was advancing, a move [Bloomberg tied directly to the passage of a new shareholder-friendly bill in February 2026](https://www.bloomberg.com/news/articles/2026-02-25/korea-passes-another-reform-bill-in-push-for-shareholder-value)."
+        },
+        {
+          "type": "h2",
+          "text": "What my screener finds underneath this reform"
+        },
+        {
+          "type": "p",
+          "text": "I ran my rating model, which grades every company on ten concrete financial criteria (profitability, sales and cash growth, real share buybacks, margins, manageable debt), across every stock my site tracks. Five South Korean companies come out with the maximum score, 10 out of 10: each one passes all ten criteria without exception. That is not a coincidence on a single name, it is a signal about an entire market."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Sector",
+            "Quality score",
+            "Valuation (P/FCF)",
+            "Versus global peers"
+          ],
+          "rows": [
+            [
+              "Haein Corporation (003010.KS)",
+              "Industrial Distribution",
+              "10/10",
+              "2.0x",
+              "Cheaper than about 96% of its 55 peers (sector median 20.8x)"
+            ],
+            [
+              "HD Korea Shipbuilding (009540.KS)",
+              "Aerospace & Defense",
+              "10/10",
+              "7.6x",
+              "Cheaper than about 96% of its 105 peers (median 37.8x)"
+            ],
+            [
+              "Samsung Heavy Industries (010140.KS)",
+              "Aerospace & Defense",
+              "10/10",
+              "13.7x",
+              "Cheaper than about 89% of its 105 peers (median 37.8x)"
+            ],
+            [
+              "SNT Energy (100840.KS)",
+              "Specialty Industrial Machinery",
+              "10/10",
+              "7.5x",
+              "Cheaper than about 91% of its 245 peers (median 30.9x)"
+            ],
+            [
+              "Grand Korea Leisure (114090.KS)",
+              "Resorts & Casinos",
+              "10/10",
+              "5.7x",
+              "Cheaper than about 87% of its 32 peers (median 14.8x)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The table reads simply: P/FCF (the share price divided by the cash the company genuinely generates each year) measures how many years of that cash you are paying for today. The lower it is, the less you pay for each dollar of cash produced. A P/FCF of 2, like Haein's, means you are paying two years of its annual cash, while its international peers in the same sector trade at over twenty times on average. Even Samsung Heavy Industries, the priciest of the five in absolute terms, still trades well below its sector median."
+        },
+        {
+          "type": "h2",
+          "text": "The nuance that matters: the score says nothing about the right time to buy"
+        },
+        {
+          "type": "p",
+          "text": "On my site, I always judge a company's quality separately from its price: a great company bought too expensive stays a bad investment. Among these five names, four still show a real margin of safety between the current price and my model's fair buy price. The fifth, Samsung Heavy Industries, has already overshot its own by about 9.5%: the good story around Korean naval defense has already been partly priced in, and I would not buy it at today's level despite the perfect quality score."
+        },
+        {
+          "type": "p",
+          "text": "A practical warning before jumping in: these five names trade on the KOSPI, outside a French PEA tax wrapper, and require a broker with access to Asian markets, with currency conversion fees and often lower liquidity than a standard US stock. That is especially true for Haein Corporation, whose market cap sits around 68 million dollars: tighter access and a thinner float, worth keeping in mind before sizing a position."
+        },
+        {
+          "type": "h2",
+          "text": "The risk that shows up on three of the five names"
+        },
+        {
+          "type": "p",
+          "text": "Three companies in this list, Haein, HD Korea Shipbuilding and Samsung Heavy Industries, share the same structural threat flagged by my resilience model: the rise of Chinese shipyards, which gain a growing share of global standard commercial vessel orders every year, even though the most technical segment (LNG carriers, ice-class ships, defense contracts) remains better protected for now."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Resilience score",
+            "Main risk flagged by my model"
+          ],
+          "rows": [
+            [
+              "Haein Corporation",
+              "1/5 (flagged)",
+              "Growing Chinese industrial competition on specialized naval components"
+            ],
+            [
+              "HD Korea Shipbuilding",
+              "3/5",
+              "Chinese technology catch-up on complex segments (LNG, ice-class) within 5 years"
+            ],
+            [
+              "Samsung Heavy Industries",
+              "3/5",
+              "Growing Chinese dominance of the global commercial order book"
+            ],
+            [
+              "SNT Energy",
+              "1/5 (flagged)",
+              "Low-pricing-power tender business, easily replicated"
+            ],
+            [
+              "Grand Korea Leisure",
+              "2/5 (resolved)",
+              "Dependence on Chinese and Japanese tourist flows, competition from Macau"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Grand Korea Leisure carries a different risk: its foreigner-only casino license depends directly on tourist flows from China and Japan, exposed to outbound travel restrictions decided in Beijing. SNT Energy, for its part, sells equipment through competitive tenders without a patent or rare asset to protect it durably, even though its recent growth (44% annual revenue growth over five years) is the fastest of the five."
+        },
+        {
+          "type": "h2",
+          "text": "How I read this list"
+        },
+        {
+          "type": "p",
+          "text": "Korea's reform is real, dated, and already written into law since 2025: it is no longer a campaign promise. But it does not erase the industrial risk specific to each company, it corrects how the market prices earnings, not the underlying strength of the business itself. That is exactly why I always separate the two questions, the quality of the business and the right price to pay for it, rather than turning an appealing macro story into a blind buy. You can check each of these companies in detail, for example [HD Korea Shipbuilding](/analyse/009540.KS?lng=en) or [Samsung Heavy Industries](/analyse/010140.KS?lng=en), and find my full framework on [the methodology page](/methodologie?lng=en)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "What is the Korea Discount?",
+          "a": "It is the structural tendency of South Korean stocks to trade cheaper than comparable companies elsewhere in the world, at equal financial quality. The main cause is the governance structure of large family conglomerates, the chaebols, with cross-shareholdings and directors historically not required to serve all shareholders equally."
+        },
+        {
+          "q": "Does a 10 out of 10 quality score mean I should buy right away?",
+          "a": "No. My quality score only judges a company's financial strength, never its price. Among the five companies in this article, four still show a real discount to my fair buy price, but the fifth, Samsung Heavy Industries, has already overshot it by about 9.5%."
+        },
+        {
+          "q": "Can I buy Korean stocks in a French PEA?",
+          "a": "No, stocks listed in South Korea are not eligible for the French PEA tax wrapper. You need a standard brokerage account with access to Asian markets, with currency conversion fees and sometimes lower liquidity than US or European markets."
+        },
+        {
+          "q": "Why does the China risk show up on three of the five companies?",
+          "a": "Because three of them, Haein, HD Korea Shipbuilding and Samsung Heavy Industries, depend on the same sector, shipbuilding and related equipment, where Chinese shipyards gain global market share every year on standard commercial segments."
+        }
+      ],
+      "tags": [
+        "South Korea",
+        "Asian stocks",
+        "Value-up Program",
+        "Quality ranking",
+        "Corporate governance"
+      ],
+      "disclaimer": "Informational and educational analysis, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (September 23, 2026), verified live through my analysis tool on the day of writing, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you this so you can read this analysis with that in mind. Do your own research."
+    },
+    "es": {
+      "title": "Corea del Sur: 5 acciones de calidad que el descuento golpea",
+      "excerpt": "Mi screener encontró cinco empresas surcoreanas entre las mejor valoradas de mi sitio, cotizando muy por debajo de sus pares globales. Lo que cambia la reforma de gobernanza en curso, y lo que aún no resuelve.",
+      "metaDescription": "Cinco empresas surcoreanas muy sólidas según mi modelo, infravaloradas frente a sus pares globales pese a una reforma de gobernanza histórica. Mi análisis.",
+      "answer": "Mi screener detectó cinco empresas surcoreanas que superan casi todos mis criterios de calidad financiera, desde astilleros hasta casinos, cotizando de dos a cinco veces más baratas que sus pares globales del mismo sector. Una reforma de gobernanza busca cerrar esa brecha, pero no en todos los casos: una de las cinco ya alcanzó mi precio de compra razonable.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Por qué Corea del Sur sigue siendo un punto ciego para el inversor extranjero"
+        },
+        {
+          "type": "p",
+          "text": "Japón tuvo su ola de reformas de gobernanza y su entrada masiva de inversores extranjeros, ampliamente comentada en la prensa financiera de los últimos años. Corea del Sur vive exactamente la misma historia, con una década de retraso mediático y un descuento aún más severo. El fenómeno tiene incluso un nombre que los analistas usan desde hace décadas: el 'Korea Discount', la tendencia estructural de las acciones surcoreanas a cotizar mucho más baratas que empresas comparables en el resto del mundo, con la misma calidad financiera."
+        },
+        {
+          "type": "p",
+          "text": "La causa no es de rentabilidad, es de gobernanza. La mayoría de los grandes grupos coreanos, los chaebols, conglomerados familiares como Samsung o Hyundai, se estructuran mediante participaciones cruzadas: la empresa A posee parte de la empresa B, que posee parte de la empresa C, que posee parte de la empresa A. La familia fundadora controla todo el conjunto con una fracción del capital real, los accionistas minoritarios han recibido históricamente dividendos escasos, y las recompras de acciones, cuando existían, no siempre se cancelaban: la empresa las guardaba en reserva en lugar de reducir de verdad el número de acciones en circulación."
+        },
+        {
+          "type": "h2",
+          "text": "Una reforma que dejó de ser una promesa en 2025"
+        },
+        {
+          "type": "p",
+          "text": "Lo que cambia el panorama es que el Corporate Value-up Program lanzado por el gobierno coreano en 2024 se volvió vinculante al año siguiente. En julio y luego en agosto de 2025, la Asamblea Nacional de Corea aprobó dos enmiendas al Código de Comercio que amplían explícitamente el deber fiduciario de los directivos: ahora deben actuar en interés de todos los accionistas, no solo de la familia que controla el grupo, según [informó el Korea Herald sobre la aprobación de la ley](https://www.koreaherald.com/article/10441154). Una segunda ley, igual de estructural, obliga ahora a las empresas a cancelar las acciones propias que recompran en lugar de guardarlas en reserva, lo que convierte una recompra en una reducción real del número de acciones en circulación."
+        },
+        {
+          "type": "p",
+          "text": "El regulador de los mercados coreanos documenta esta reforma en detalle en [su página dedicada a la reforma del mercado de capitales](https://www.fsc.go.kr/eng/po110101/82795). El KOSPI, el índice de referencia de la bolsa de Seúl, superó por primera vez en su historia el umbral de los 5.000 puntos mientras esta reforma avanzaba, un movimiento que [Bloomberg vinculó directamente a la aprobación de una nueva ley a favor de los accionistas en febrero de 2026](https://www.bloomberg.com/news/articles/2026-02-25/korea-passes-another-reform-bill-in-push-for-shareholder-value)."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que encuentra mi screener bajo esta reforma"
+        },
+        {
+          "type": "p",
+          "text": "Pasé mi modelo de puntuación, que evalúa cada empresa según diez criterios financieros concretos (rentabilidad, crecimiento de ventas y de caja, recompras de acciones reales, márgenes, deuda manejable), sobre todas las acciones que sigue mi sitio. Cinco empresas surcoreanas obtienen la puntuación máxima, 10 sobre 10: cumplen cada uno de mis diez criterios sin excepción. No es una coincidencia aislada en un solo nombre, es una señal sobre todo un mercado."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Sector",
+            "Nota de calidad",
+            "Valoración (P/FCF)",
+            "Frente a sus pares globales"
+          ],
+          "rows": [
+            [
+              "Haein Corporation (003010.KS)",
+              "Distribución industrial",
+              "10/10",
+              "2,0x",
+              "Más barata que aproximadamente el 96% de sus 55 pares (mediana del sector 20,8x)"
+            ],
+            [
+              "HD Korea Shipbuilding (009540.KS)",
+              "Aeroespacial y defensa naval",
+              "10/10",
+              "7,6x",
+              "Más barata que aproximadamente el 96% de sus 105 pares (mediana 37,8x)"
+            ],
+            [
+              "Samsung Heavy Industries (010140.KS)",
+              "Aeroespacial y defensa naval",
+              "10/10",
+              "13,7x",
+              "Más barata que aproximadamente el 89% de sus 105 pares (mediana 37,8x)"
+            ],
+            [
+              "SNT Energy (100840.KS)",
+              "Maquinaria industrial especializada",
+              "10/10",
+              "7,5x",
+              "Más barata que aproximadamente el 91% de sus 245 pares (mediana 30,9x)"
+            ],
+            [
+              "Grand Korea Leisure (114090.KS)",
+              "Casinos y ocio",
+              "10/10",
+              "5,7x",
+              "Más barata que aproximadamente el 87% de sus 32 pares (mediana 14,8x)"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "La tabla se lee de forma sencilla: el P/FCF (el precio de la acción dividido entre el efectivo que la empresa genera realmente cada año) mide cuántos años de ese efectivo estás pagando hoy. Cuanto más bajo, menos pagas por cada dólar de efectivo producido. Un P/FCF de 2, como el de Haein, significa que pagas dos años de su efectivo anual, mientras sus pares internacionales del mismo sector cotizan de media a más de veinte veces. Incluso Samsung Heavy Industries, la más cara de las cinco en términos absolutos, sigue cotizando muy por debajo de la mediana de su sector."
+        },
+        {
+          "type": "h2",
+          "text": "El matiz que importa: la nota no dice nada sobre el momento de comprar"
+        },
+        {
+          "type": "p",
+          "text": "En mi sitio, siempre juzgo la calidad de una empresa por separado de su precio: una empresa excelente comprada demasiado cara sigue siendo una mala inversión. De estos cinco nombres, cuatro todavía muestran un margen de seguridad real entre el precio actual y mi precio de compra razonable calculado por el modelo. La quinta, Samsung Heavy Industries, ya superó el suyo en aproximadamente un 9,5%: la buena historia de la defensa naval coreana ya se refleja en parte en la cotización, y no la compraría al precio actual pese a su nota de calidad perfecta."
+        },
+        {
+          "type": "p",
+          "text": "Una advertencia práctica antes de lanzarte: estos cinco valores cotizan en el KOSPI, fuera de cualquier envoltorio fiscal tipo PEA francés, y requieren un bróker con acceso a mercados asiáticos, con comisiones de cambio de divisa y a menudo menor liquidez que una acción estadounidense estándar. Esto es especialmente cierto para Haein Corporation, cuya capitalización bursátil ronda los 68 millones de dólares: un acceso más restringido y un free float más reducido, algo a tener en cuenta antes de dimensionar una posición."
+        },
+        {
+          "type": "h2",
+          "text": "El riesgo que se repite en tres de los cinco casos"
+        },
+        {
+          "type": "p",
+          "text": "Tres empresas de esta lista, Haein, HD Korea Shipbuilding y Samsung Heavy Industries, comparten la misma amenaza estructural señalada por mi modelo de resiliencia: el auge industrial de los astilleros chinos, que ganan cada año una cuota creciente de los pedidos mundiales de buques comerciales estándar, aunque el segmento más técnico (metaneros, buques de clase hielo, contratos de defensa) sigue mejor protegido por ahora."
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Puntuación de resiliencia",
+            "Riesgo principal identificado por mi modelo"
+          ],
+          "rows": [
+            [
+              "Haein Corporation",
+              "1/5 (señalada)",
+              "Creciente competencia industrial china en componentes navales especializados"
+            ],
+            [
+              "HD Korea Shipbuilding",
+              "3/5",
+              "Alcance tecnológico chino en segmentos complejos (GNL, clase hielo) en menos de 5 años"
+            ],
+            [
+              "Samsung Heavy Industries",
+              "3/5",
+              "Creciente dominio de los astilleros chinos sobre la cartera de pedidos comercial mundial"
+            ],
+            [
+              "SNT Energy",
+              "1/5 (señalada)",
+              "Negocio de licitaciones con bajo poder de fijación de precios, fácilmente replicable"
+            ],
+            [
+              "Grand Korea Leisure",
+              "2/5 (resuelta)",
+              "Dependencia de los flujos turísticos chinos y japoneses, competencia de Macao"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Grand Korea Leisure carga con un riesgo distinto: su licencia de casino exclusiva para turistas extranjeros depende directamente de los flujos procedentes de China y Japón, expuestos a las restricciones al turismo emisor decididas en Pekín. SNT Energy, por su parte, vende equipos mediante licitaciones competitivas sin una patente o un activo raro que la proteja de forma duradera, aunque su crecimiento reciente (44% de crecimiento anual de ingresos en los últimos cinco años) es el más rápido de las cinco."
+        },
+        {
+          "type": "h2",
+          "text": "Cómo leo esta lista"
+        },
+        {
+          "type": "p",
+          "text": "La reforma coreana es real, tiene fecha, y ya está escrita en la ley desde 2025: ya no es una promesa electoral. Pero no elimina el riesgo industrial propio de cada empresa, corrige cómo el mercado valora los beneficios, no la solidez del negocio en sí. Por eso siempre separo las dos preguntas, la calidad del negocio y el precio correcto para comprarlo, en lugar de convertir una historia macro atractiva en una compra a ciegas. Puedes consultar el detalle de cada una de estas fichas, por ejemplo [HD Korea Shipbuilding](/analyse/009540.KS?lng=es) o [Samsung Heavy Industries](/analyse/010140.KS?lng=es), y encontrar toda mi metodología en [la página de metodología](/methodologie?lng=es)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Qué es el Korea Discount?",
+          "a": "Es la tendencia estructural de las acciones surcoreanas a cotizar más baratas que empresas comparables en el resto del mundo, con la misma calidad financiera. La causa principal es la estructura de gobernanza de los grandes conglomerados familiares, los chaebols, con participaciones cruzadas y directivos históricamente no obligados a servir a todos los accionistas por igual."
+        },
+        {
+          "q": "¿Una nota de calidad de 10 sobre 10 significa que debo comprar ya?",
+          "a": "No. Mi nota de calidad solo evalúa la solidez financiera de la empresa, nunca su precio. De las cinco empresas de este artículo, cuatro todavía muestran un descuento real frente a mi precio de compra razonable, pero la quinta, Samsung Heavy Industries, ya lo superó en aproximadamente un 9,5%."
+        },
+        {
+          "q": "¿Puedo comprar acciones coreanas en un PEA francés?",
+          "a": "No, las acciones cotizadas en Corea del Sur no son elegibles para el envoltorio fiscal PEA francés. Necesitas una cuenta de valores estándar con un bróker que dé acceso a mercados asiáticos, con comisiones de cambio de divisa y a veces menor liquidez que los mercados estadounidenses o europeos."
+        },
+        {
+          "q": "¿Por qué el riesgo chino aparece en tres de las cinco empresas?",
+          "a": "Porque tres de ellas, Haein, HD Korea Shipbuilding y Samsung Heavy Industries, dependen del mismo sector, la construcción naval y los equipos asociados, donde los astilleros chinos ganan cuota de mercado mundial cada año en los segmentos comerciales estándar."
+        }
+      ],
+      "tags": [
+        "Corea del Sur",
+        "Acciones asiáticas",
+        "Value-up Program",
+        "Ranking de calidad",
+        "Gobierno corporativo"
+      ],
+      "disclaimer": "Análisis informativo y educativo, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a fecha de publicación (23 de septiembre de 2026), verificadas en directo con mi herramienta de análisis el día de la redacción, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con esa información. Haz tu propia investigación."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
