@@ -89906,7 +89906,391 @@ const articleCoreeQualiteDecote: Article = {
   }
 };
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote];
+const articleLLYvsMRK2026: Article = {
+  slug: 'eli-lilly-merck-quelle-action-pharma-acheter',
+  date: '2026-09-24',
+  updated: '2026-09-24',
+  readingTime: 9,
+  content: {
+    fr: {
+      title: "Eli Lilly ou Merck : quelle action pharma acheter en 2026 ?",
+      excerpt:
+        "Eli Lilly explose ses ventes et flambe en bourse, Merck vient d'afficher une perte trimestrielle de plusieurs milliards. Voici ce que révèlent, chiffres à l'appui, ma grille qualité et mon modèle de prix sur ces deux géants pharmaceutiques.",
+      metaDescription:
+        "Eli Lilly explose grâce aux traitements anti-obésité mais brûle son cash ; Merck absorbe une perte comptable ponctuelle. Comparaison qualité, dette, prix.",
+      answer:
+        "Eli Lilly explose ses ventes grâce aux traitements anti-obésité, mais sa croissance dévore son propre cash : stocks et créances ont presque quadruplé, la dette a doublé. Merck affiche une perte comptable de 4,2 milliards en un trimestre, sans que son activité réelle ait perdu un centime. Mon modèle juge les deux actions trop chères, pour des raisons opposées.",
+      body: [
+        {
+          type: 'p',
+          text: "Le 23 septembre 2026, sur CNBC, le patron d'Eli Lilly explique que ses traitements contre l'obésité captent déjà 70 % des nouveaux patients seniors depuis que Medicare a accepté, cet été, de rembourser ces médicaments. Le même jour, un cofondateur de Home Depot avance publiquement que l'action pourrait valoir 2 000 dollars d'ici trois à quatre ans. Elle en vaut déjà plus de 1 150.",
+        },
+        {
+          type: 'p',
+          text: "Au même moment, dans le New Jersey, Merck vient de publier un trimestre qui affiche, sur le papier, une perte nette de plus de 4 milliards de dollars. Ce n'est pas un effondrement des ventes : c'est un chèque de 9 milliards signé pour racheter une biotech dont le médicament vedette n'a même pas encore reçu d'autorisation de mise sur le marché.",
+        },
+        {
+          type: 'p',
+          text: "Deux entreprises pharmaceutiques, deux trimestres, deux histoires que Wall Street raconte très différemment. Mon travail n'est jamais de préférer une histoire à l'autre : c'est de séparer, pour chacune, ce qui relève de la qualité réelle du business de ce qui relève du prix qu'il faut payer pour la détenir. Voici ce que ma grille à 10 critères en dit, chiffres à l'appui.",
+        },
+        { type: 'h2', text: "Le vertige Eli Lilly : une machine à croissance" },
+        {
+          type: 'p',
+          text: "Le chiffre d'affaires d'Eli Lilly est passé de 24,5 milliards de dollars en 2020 à plus de 65,2 milliards en 2025, un bond de 2,7 fois en cinq ans porté par sa famille de traitements contre le diabète et l'obésité (le tirzépatide, vendu sous les marques Mounjaro et Zepbound). Sur le seul premier trimestre 2026, les ventes ont encore grimpé de 56 % sur un an, à 19,8 milliards de dollars, ce qui a poussé le groupe à relever sa prévision de chiffre d'affaires 2026 à une fourchette de 82 à 85 milliards de dollars, selon son [communiqué de résultats du quatrième trimestre 2025 déposé auprès du régulateur américain](https://www.sec.gov/Archives/edgar/data/59478/000005947826000008/q425lillysalesandearningsp.htm).",
+        },
+        {
+          type: 'p',
+          text: "Sur [la fiche complète de Lilly](/analyse/LLY), mon filtre à 10 critères valide la plupart des cases : marge nette de 33,5 % (l'entreprise garde un tiers de chaque dollar de vente en bénéfice), rachats d'actions nets plutôt que dilution, marges qui s'élargissent au lieu de se comprimer. La note qualité ressort à 6 sur 10, tirée vers le haut par un moat (un avantage concurrentiel difficile à copier) solide : mon modèle de résilience estime que la protection par brevet du tirzépatide dure encore environ 11 ans, avec un verdict qui juge que le rôle économique futur soutient le profil, la résistance aux ruptures restant le principal point de vigilance.",
+        },
+        {
+          type: 'p',
+          text: "Mais un chiffre détonne au milieu de ce tableau flatteur : le free cash flow (l'argent qui reste vraiment en caisse une fois toutes les factures et tous les investissements payés) par action recule en moyenne de 1,8 % par an sur cinq ans, d'après mon calcul. Une entreprise dont les ventes triplent et dont le cash disponible par action diminue : voilà le paradoxe qu'il faut comprendre avant de payer quoi que ce soit pour cette action.",
+        },
+        { type: 'h2', text: "Pourquoi la croissance ne se transforme pas (encore) en cash" },
+        {
+          type: 'p',
+          text: "La première explication, ce sont les stocks. Eli Lilly avait 4,0 milliards de dollars de stocks fin 2020 ; ils atteignaient 13,7 milliards fin 2025, et déjà 16,8 milliards à la mi-2026 d'après son [dernier rapport trimestriel déposé auprès du régulateur américain](https://www.sec.gov/Archives/edgar/data/59478/000005947826000081/lly-20260630.htm). Une part précise de cette masse, 1,5 milliard de dollars, est un stock construit par avance pour orforglipron, le futur comprimé oral contre l'obésité encore en attente d'autorisation, contre seulement 548 millions un an plus tôt. La logique de gestion est saine (le secteur a déjà connu des pénuries de traitements GLP-1 faute de capacité de production, et Lilly préfère stocker en amont), mais construire un stock immobilise du cash avant même d'avoir vendu le produit.",
+        },
+        {
+          type: 'p',
+          text: "La seconde explication est plus inquiétante : les créances clients (l'argent que les distributeurs et assureurs doivent encore à Lilly pour des produits déjà livrés) sont passées de 5,9 à 17,8 milliards de dollars sur la même période, et le délai moyen d'encaissement atteint désormais 373 jours, en allongement de 43 jours par an. Autrement dit, Lilly vend de plus en plus, comptabilise la vente immédiatement, mais met de plus en plus de temps à réellement toucher l'argent. Résultat mesuré par mon filtre : seulement 42 % des bénéfices comptables se transforment en cash réel, sous mon seuil d'alerte.",
+        },
+        {
+          type: 'p',
+          text: "Pour financer cet écart croissant entre facturer et encaisser, tout en construisant de nouvelles usines, la dette totale du groupe est passée de 16,6 à 40,9 milliards de dollars entre 2020 et 2025, soit plus du double. Mon critère de rendement du capital investi, qui doit dépasser 15 % pour être validé, ressort à 13,7 % : sous le seuil. Une entreprise en pleine explosion commerciale, donc, mais dont la discipline de cash se dégrade exactement au moment où elle accélère.",
+        },
+        { type: 'h2', text: "Le choc comptable de Merck : une vraie perte, pas un vrai problème" },
+        {
+          type: 'p',
+          text: "Merck a publié, le 30 avril 2026, un chiffre d'affaires trimestriel de 16,3 milliards de dollars (+5 % sur un an), un rythme de croisière plutôt sage. Et pourtant, la même annonce affiche une perte nette de 4,24 milliards de dollars, soit 1,72 dollar de perte par action, d'après le [communiqué officiel de résultats du premier trimestre 2026 de Merck](https://www.merck.com/news/merck-co-inc-rahway-n-j-usa-announces-first-quarter-2026-financial-results-highlights-significant-regulatory-approvals-and-clinical-milestones/). De quoi faire fuir n'importe quel investisseur pressé, [sur la fiche de Merck](/analyse/MRK) comme ailleurs.",
+        },
+        {
+          type: 'p',
+          text: "Sauf que cette perte tient presque entièrement à une seule ligne : une charge de 9 milliards de dollars (3,62 dollars par action) liée au rachat de Cidara Therapeutics, une biotech spécialisée dans les antiviraux, pour environ 9,2 milliards de dollars annoncés fin 2025, avec une prime de 109 % sur le cours de bourse d'avant l'offre selon le [communiqué d'acquisition de Merck](https://www.merck.com/news/merck-to-acquire-cidara-therapeutics-inc-diversifying-its-portfolio-to-include-late-phase-antiviral-agent/). Son actif principal, CD388, un traitement préventif contre la grippe à action prolongée, n'a pour l'instant qu'une désignation accélérée de la FDA, pas une autorisation de mise sur le marché.",
+        },
+        {
+          type: 'p',
+          text: "C'est là qu'intervient une règle comptable propre au secteur pharmaceutique, à connaître avant de juger un résultat trimestriel : quand une entreprise rachète de la recherche et développement encore en cours, sans autre usage possible que ce produit précis, la norme comptable américaine oblige à passer tout le prix payé en charge immédiate, d'un coup, plutôt que de l'étaler sur plusieurs années comme un investissement normal. Un vrai pari stratégique, payé cash, se transforme ainsi en perte comptable du trimestre, même si rien dans l'activité réelle de l'entreprise ne s'est dégradé. À titre de comparaison, l'acquisition de Verona Pharma par Merck (finalisée en octobre 2025, un peu plus de 10 milliards de dollars), dont le médicament vedette contre les maladies respiratoires était déjà approuvé, n'a coûté qu'un ajustement de stock de 237 millions de dollars : la différence de traitement comptable tient au statut réglementaire du produit racheté, pas à la taille du chèque.",
+        },
+        {
+          type: 'p',
+          text: "Cette mécanique explique pourquoi mon filtre affiche des signaux contradictoires sur Merck : la marge nette s'écrase à 4,8 % (un échec net sur mon critère de rentabilité), pendant que le rendement du capital investi reste excellent à 17,5 % et que le taux de transformation des bénéfices en cash grimpe à 419 %. Ce dernier chiffre spectaculaire n'est pas un signe de génie opérationnel : c'est un artefact mathématique. Quand le bénéfice comptable (le dénominateur du ratio) s'effondre à cause d'une charge exceptionnelle, n'importe quel cash généré normalement fait exploser ce même ratio. Un chiffre à lire avec prudence, pas à brandir comme une preuve de qualité.",
+        },
+        { type: 'h2', text: "Le vrai risque de chacune : une croissance à crédit contre une falaise qui approche" },
+        {
+          type: 'p',
+          text: "Le trimestre comptable perturbé n'est pas le vrai sujet chez Merck. Le vrai sujet, c'est Keytruda, son traitement phare contre le cancer, qui pèse à lui seul environ 31,7 milliards de dollars de ventes en 2025, presque la moitié du chiffre d'affaires total du groupe. Or l'exclusivité de son brevet américain expire fin 2028. La parade de Merck consiste à faire basculer les patients vers Keytruda Qlex, une nouvelle version injectable sous la peau protégée par une propriété intellectuelle distincte et plus récente : mais cette version n'a généré que 128 millions de dollars au premier trimestre 2026, une somme presque anecdotique face aux 8,0 milliards que rapporte encore chaque trimestre la version historique. L'autre relais de croissance, Winrevair (un traitement contre l'hypertension pulmonaire), progresse vite (+88 % sur un an à 525 millions de dollars au premier trimestre 2026), et des analystes de marché tablent sur 4,9 milliards de dollars de ventes annuelles d'ici 2029. Réel, mais encore loin de pouvoir remplacer, à lui seul, ce que Keytruda perdra.",
+        },
+        {
+          type: 'p',
+          text: "Le risque d'Eli Lilly est le miroir inversé de celui de Merck : ce n'est pas un problème de demande, c'est un problème de discipline financière. La dette a plus que doublé, les stocks et les créances gonflent plus vite que les ventes, et le rendement du capital investi est passé sous le seuil que j'exige. Si la demande pour les traitements GLP-1 venait à ralentir, ou qu'un concurrent grignotait des parts de marché, Lilly porterait beaucoup plus de levier et de besoins en fonds de roulement qu'il y a cinq ans pour un volume d'activité comparable. En résumé, le risque de Merck est daté et déjà connu de tout le marché (2028) ; celui de Lilly est plus insidieux, une histoire de croissance qui pourrait continuer à grimper sans jamais vraiment se transformer en cash disponible pour l'actionnaire.",
+        },
+        { type: 'h2', text: "Le prix, sans émotion" },
+        {
+          type: 'p',
+          text: "Eli Lilly se valorise aujourd'hui 98,5 fois son free cash flow annuel. Le [secteur des fabricants de médicaments](/secteur/drug-manufacturers-general) auquel mon modèle la compare (46 entreprises, dont Sanofi à 8,8 fois, Bristol-Myers Squibb à 11,5 fois, Gilead à 13,8 fois, Novartis à 13,8 fois ou GSK à 15,5 fois) affiche une valorisation médiane de seulement 22,6 fois. Lilly se classe ainsi au 96ᵉ percentile de son secteur : plus chère que 96 % de ses pairs. Face à sa PROPRE histoire de cinq ans, en revanche, elle ne se situe qu'au 60ᵉ percentile : ce niveau de prix n'a rien d'inédit pour cette action précise, qui s'est toujours valorisée cher. Ce qui a changé, c'est l'écart avec le reste du secteur : le marché parie que les traitements anti-obésité ouvrent une catégorie entièrement nouvelle. Mon [modèle de prix d'achat raisonnable](/methodologie), qui projette la trajectoire réelle de cash par action plutôt que de se fier au seul ratio du jour, ressort à 578,21 dollars contre un cours de 1 150,99 dollars : une surcote de 49,8 %.",
+        },
+        {
+          type: 'p',
+          text: "Merck se valorise 27,9 fois son free cash flow, au-dessus de la médiane du secteur mais loin de l'extrême de Lilly : 63ᵉ percentile sectoriel. Face à sa propre histoire en revanche, elle se situe au 88ᵉ percentile, proche de son plus cher jamais payé, ce qui colle avec un constat relevé mi-septembre par la presse financière : l'action a presque doublé en un an sans que sa croissance de ventes n'ait vraiment changé de rythme, portée par l'espoir que Winrevair et le reste du pipeline prennent le relais de Keytruda. Mon prix d'achat raisonnable pour Merck ressort à 118,21 dollars contre un cours de 148,08 dollars : une surcote de 20,2 %.",
+        },
+        {
+          type: 'p',
+          text: "Les deux actions échouent donc aujourd'hui mon test de discipline de prix, mais pour des raisons inverses : Lilly est chère parce que le marché paie une histoire de croissance qui se vérifie déjà dans les chiffres ; Merck est chère, par rapport à elle-même, parce que le marché paie une histoire de redressement qui ne s'est pas encore matérialisée dans les résultats.",
+        },
+        {
+          type: 'table',
+          headers: ["Critère", "Eli Lilly (LLY)", "Merck (MRK)"],
+          rows: [
+            ["Note qualité (sur 10)", "6/10", "5/10"],
+            ["Marge nette", "33,5 %", "4,8 % (perturbée par une charge exceptionnelle)"],
+            ["P/FCF actuel (multiple du free cash flow)", "98,5 fois", "27,9 fois"],
+            ["Rang dans son secteur (P/FCF)", "96e percentile (la plus chère)", "63e percentile"],
+            ["Prix d'achat raisonnable vs cours actuel", "578,21 $ vs 1 150,99 $ (surcote 49,8 %)", "118,21 $ vs 148,08 $ (surcote 20,2 %)"],
+            ["Rendement du capital investi", "13,7 %", "17,5 %"],
+            ["Dette totale, 2020 vers 2025", "16,6 Md$ vers 40,9 Md$", "25,4 Md$ vers 46,8 Md$"],
+            ["Trimestriel le plus récent (T1 2026)", "chiffre d'affaires +56 % sur un an", "perte nette de 4,24 Md$ (charge Cidara)"],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Deux façons opposées de raconter une belle histoire : l'une où la croissance explose mais paie cash sa propre expansion, l'autre où une décision comptable ponctuelle éclipse un vrai risque structurel qui, lui, n'a rien de ponctuel. Aucune des deux actions ne passe aujourd'hui mon test de prix, ce qui n'est pas un jugement sur leur qualité de long terme, seulement un principe que je m'impose : ne jamais payer, sous prétexte qu'une histoire est belle, plus cher que ce que mes propres calculs autorisent. Juger séparément la qualité d'une entreprise et le prix qu'on paie pour elle, en quelques secondes et pour n'importe quelle action : c'est exactement ce que je voulais pouvoir faire, alors j'ai construit mon site d'investissement pour ça.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Eli Lilly (note 6/10) a multiplié son chiffre d'affaires par 2,7 en cinq ans grâce aux traitements contre l'obésité, mais ses stocks et créances ont presque quadruplé et sa dette a plus que doublé sur la même période : le free cash flow par action recule légèrement malgré l'explosion des ventes.",
+            "Merck (note 5/10) a affiché une perte nette de 4,24 milliards de dollars au premier trimestre 2026, causée à 9 milliards par une charge comptable liée au rachat de Cidara Therapeutics, pas par une dégradation de son activité réelle.",
+            "Le vrai risque de Merck est daté et connu de tout le marché : Keytruda, la moitié de ses ventes, perd son exclusivité de brevet américaine fin 2028. Le vrai risque de Lilly est plus discret : une dette qui double et un cash qui met de plus en plus de temps à rentrer.",
+            "Mon modèle de prix d'achat raisonnable juge les deux actions surcotées aujourd'hui (49,8 % pour Lilly, 20,2 % pour Merck), pour des raisons opposées : une prime de croissance déjà payée pour l'une, une prime d'espoir pas encore vérifiée pour l'autre. Ceci n'est pas un conseil en investissement, fais tes propres recherches.",
+          ],
+        }
+      ],
+      faq: [
+        { q: "Eli Lilly ou Merck : laquelle a la meilleure note qualité sur mon site ?", a: "Eli Lilly valide 6 critères sur 10 dans mon filtre, contre 5 sur 10 pour Merck, portée par une marge nette bien plus confortable (33,5 % contre 4,8 %, ce dernier chiffre étant temporairement écrasé par une charge comptable exceptionnelle) et une croissance de ventes bien plus rapide." },
+        { q: "Pourquoi Merck a-t-elle affiché une perte trimestrielle en 2026 ?", a: "Une charge comptable de 9 milliards de dollars liée au rachat de la biotech Cidara Therapeutics (dont le médicament vedette n'est pas encore approuvé) a fait basculer un trimestre par ailleurs solide (+5 % de chiffre d'affaires) en perte nette de 4,24 milliards de dollars. Ce n'est pas un problème opérationnel." },
+        { q: "Pourquoi le cash d'Eli Lilly recule-t-il malgré l'explosion des ventes ?", a: "Ses stocks et ses créances clients ont presque quadruplé en cinq ans pour financer la montée en puissance de sa production, financée par une dette qui a plus que doublé. Résultat : le free cash flow par action recule légèrement malgré des ventes qui ont presque triplé." },
+        { q: "Eli Lilly ou Merck, laquelle est la plus chère en bourse ?", a: "Eli Lilly, largement : elle se valorise 98,5 fois son free cash flow annuel, contre 27,9 fois pour Merck, et se classe au 96e percentile le plus cher de son secteur. Mon modèle juge malgré tout les deux actions surcotées par rapport à leur cours actuel." },
+        { q: "Quel est le vrai risque à surveiller pour Merck d'ici 2028 ?", a: "La perte de l'exclusivité du brevet américain de Keytruda, son traitement contre le cancer qui représente près de la moitié de ses ventes. Merck mise sur une nouvelle formulation injectable sous la peau et sur d'autres médicaments comme Winrevair pour compenser, mais ces relais restent, pour l'instant, très petits face à Keytruda." }
+      ],
+      tags: ['Eli Lilly', 'Merck', 'LLY', 'MRK', 'Pharmaceutique', 'Comparatif'],
+      disclaimer:
+        "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (24 septembre 2026), issus des communiqués officiels et des documents déposés auprès du régulateur américain, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Fais tes propres recherches.",
+    },
+    en: {
+      title: "Eli Lilly or Merck: which pharma stock to buy in 2026?",
+      excerpt:
+        "Eli Lilly's sales and stock price are exploding, while Merck just reported a multi-billion-dollar quarterly loss. Here is what my quality screen and pricing model reveal, numbers in hand, about these two pharma giants.",
+      metaDescription:
+        "Eli Lilly is booming on obesity drugs but burning cash; Merck absorbed a one-off accounting loss. I compare quality, debt, and price for both giants.",
+      answer:
+        "Eli Lilly is booming on obesity drugs, but its growth is eating its own cash: inventory and receivables nearly quadrupled, debt has doubled. Merck posted a $4.2 billion accounting loss in one quarter, without its real business losing a cent. My model flags both stocks as too expensive, for opposite reasons.",
+      body: [
+        {
+          type: 'p',
+          text: "On September 23, 2026, on CNBC, Eli Lilly's CEO explained that its obesity treatments already capture 70% of new senior patients since Medicare agreed this summer to cover these drugs. The same day, a Home Depot co-founder publicly claimed the stock could be worth $2,000 within three to four years. It already trades above $1,150.",
+        },
+        {
+          type: 'p',
+          text: "At the same time, in New Jersey, Merck just reported a quarter that shows, on paper, a net loss of more than $4 billion. Not a collapse in sales: a $9 billion check written to acquire a biotech whose flagship drug hasn't even received marketing approval yet.",
+        },
+        {
+          type: 'p',
+          text: "Two pharmaceutical companies, two quarters, two stories Wall Street is telling very differently. My job is never to prefer one story over the other: it's to separate, for each, what belongs to the real quality of the business from what belongs to the price you have to pay to own it. Here is what my 10-criteria screen says, numbers in hand.",
+        },
+        { type: 'h2', text: "The Eli Lilly vertigo: a growth machine" },
+        {
+          type: 'p',
+          text: "Eli Lilly's revenue rose from $24.5 billion in 2020 to more than $65.2 billion in 2025, a 2.7-fold jump in five years driven by its diabetes and obesity drug family (tirzepatide, sold as Mounjaro and Zepbound). In the first quarter of 2026 alone, sales jumped another 56% year over year to $19.8 billion, pushing the company to raise its 2026 revenue guidance to a range of $82 to $85 billion, according to its [fourth-quarter 2025 earnings release filed with the US regulator](https://www.sec.gov/Archives/edgar/data/59478/000005947826000008/q425lillysalesandearningsp.htm).",
+        },
+        {
+          type: 'p',
+          text: "On [Lilly's full analysis page](/analyse/LLY), my 10-criteria screen validates most of the boxes: a 33.5% net margin (the company keeps a third of every sales dollar as profit), net buybacks rather than dilution, margins that widen instead of shrinking. The quality score comes out at 6 out of 10, lifted by a solid moat (a competitive edge that's hard to copy): my resilience model estimates tirzepatide's patent protection still has about 11 years left, with a verdict that the future economic role supports the profile, disruption resilience being the main thing to watch.",
+        },
+        {
+          type: 'p',
+          text: "But one number stands out in this otherwise flattering picture: free cash flow (the cash that truly stays in the bank once every bill and every investment is paid) per share has declined by an average of 1.8% a year over five years, by my calculation. A company whose sales triple while its cash available per share shrinks: that's the paradox to understand before paying anything for this stock.",
+        },
+        { type: 'h2', text: "Why growth isn't (yet) turning into cash" },
+        {
+          type: 'p',
+          text: "The first explanation is inventory. Eli Lilly held $4.0 billion of inventory at the end of 2020; that reached $13.7 billion by the end of 2025, and already $16.8 billion by mid-2026 according to its [latest quarterly report filed with the US regulator](https://www.sec.gov/Archives/edgar/data/59478/000005947826000081/lly-20260630.htm). A precise slice of that pile, $1.5 billion, is pre-launch inventory built ahead of approval for orforglipron, the future oral obesity pill still awaiting approval, up from just $548 million a year earlier. The logic is sound (the sector has already suffered GLP-1 shortages from insufficient production capacity, and Lilly would rather stock up in advance), but building inventory ties up cash before the product is even sold.",
+        },
+        {
+          type: 'p',
+          text: "The second explanation is more worrying: accounts receivable (money distributors and insurers still owe Lilly for products already delivered) rose from $5.9 billion to $17.8 billion over the same period, and the average collection period now stands at 373 days, lengthening by 43 days a year. In other words, Lilly is selling more and more, booking the sale immediately, but taking longer and longer to actually collect the cash. The result, measured by my screen: only 42% of accounting profits turn into real cash, below my warning threshold.",
+        },
+        {
+          type: 'p',
+          text: "To fund this widening gap between billing and collecting, while also building new factories, the group's total debt rose from $16.6 billion to $40.9 billion between 2020 and 2025, more than doubling. My cash return on capital criterion, which needs to clear 15% to pass, comes out at 13.7%: below the bar. A company in the middle of a commercial explosion, then, but whose cash discipline is deteriorating exactly as it accelerates.",
+        },
+        { type: 'h2', text: "Merck's accounting shock: a real loss, not a real problem" },
+        {
+          type: 'p',
+          text: "On April 30, 2026, Merck reported quarterly revenue of $16.3 billion (+5% year over year), a fairly steady cruising speed. And yet the same announcement shows a net loss of $4.24 billion, or a loss of $1.72 per share, according to [Merck's official first-quarter 2026 results release](https://www.merck.com/news/merck-co-inc-rahway-n-j-usa-announces-first-quarter-2026-financial-results-highlights-significant-regulatory-approvals-and-clinical-milestones/). Enough to scare off any investor in a hurry, [on Merck's full analysis page](/analyse/MRK) as much as anywhere else.",
+        },
+        {
+          type: 'p',
+          text: "Except that loss comes down almost entirely to a single line: a $9 billion charge ($3.62 per share) tied to the acquisition of Cidara Therapeutics, an antiviral-focused biotech, for roughly $9.2 billion announced in late 2025, at a 109% premium to its pre-offer share price according to [Merck's acquisition announcement](https://www.merck.com/news/merck-to-acquire-cidara-therapeutics-inc-diversifying-its-portfolio-to-include-late-phase-antiviral-agent/). Its lead asset, CD388, a long-acting flu-prevention treatment, currently only holds an FDA breakthrough therapy designation, not marketing approval.",
+        },
+        {
+          type: 'p',
+          text: "This is where a pharma-specific accounting rule kicks in, one worth knowing before judging any quarterly result: when a company acquires research and development still in progress, with no alternative use beyond that one specific product, US accounting rules force the entire purchase price to be expensed immediately, all at once, rather than spread over several years like a normal investment. A genuine, cash-funded strategic bet turns into a quarterly accounting loss, even though nothing in the company's real operations actually deteriorated. By comparison, Merck's acquisition of Verona Pharma (closed in October 2025, a bit over $10 billion), whose flagship respiratory drug was already approved, only cost a $237 million inventory step-up: the difference in accounting treatment comes down to the acquired product's regulatory status, not the size of the check.",
+        },
+        {
+          type: 'p',
+          text: "This mechanic explains why my screen shows contradictory signals on Merck: net margin is crushed to 4.8% (a clear fail on my profitability criterion), while cash return on capital stays excellent at 17.5% and the ratio of profits converted into cash jumps to 419%. That last, spectacular number isn't a sign of operational genius: it's a mathematical artifact. When accounting profit (the ratio's denominator) collapses because of a one-off charge, any normally generated cash makes that same ratio explode. A number to read with caution, not to wave around as proof of quality.",
+        },
+        { type: 'h2', text: "The real risk for each: growth on credit versus an approaching cliff" },
+        {
+          type: 'p',
+          text: "The messy accounting quarter isn't the real story at Merck. The real story is Keytruda, its flagship cancer drug, which alone accounts for about $31.7 billion in 2025 sales, nearly half the group's total revenue. Its US patent exclusivity expires in late 2028. Merck's answer is to shift patients toward Keytruda Qlex, a new under-the-skin injectable version protected by separate, more recent intellectual property: but that version only generated $128 million in the first quarter of 2026, an almost rounding-error sum next to the $8.0 billion the original version still brings in every quarter. The other growth lever, Winrevair (a pulmonary hypertension treatment), is growing fast (+88% year over year to $525 million in the first quarter of 2026), and market analysts expect $4.9 billion in annual sales by 2029. Real, but still far from being able to replace, on its own, what Keytruda will lose.",
+        },
+        {
+          type: 'p',
+          text: "Eli Lilly's risk is the mirror image of Merck's: it isn't a demand problem, it's a financial discipline problem. Debt has more than doubled, inventory and receivables are inflating faster than sales, and cash return on capital has fallen below the bar I require. If GLP-1 demand were to slow, or a competitor were to take market share, Lilly would be carrying far more leverage and working-capital needs than five years ago for a comparable level of business. In short, Merck's risk is dated and already known to the entire market (2028); Lilly's is more insidious, a growth story that could keep climbing without ever really turning into cash available to shareholders.",
+        },
+        { type: 'h2', text: "The price, without emotion" },
+        {
+          type: 'p',
+          text: "Eli Lilly currently trades at 98.5 times its annual free cash flow. The [drug manufacturers sector](/secteur/drug-manufacturers-general) my model compares it against (46 companies, including Sanofi at 8.8 times, Bristol-Myers Squibb at 11.5 times, Gilead at 13.8 times, Novartis at 13.8 times, or GSK at 15.5 times) shows a median valuation of only 22.6 times. Lilly thus ranks in the 96th percentile of its sector: more expensive than 96% of its peers. Against its OWN five-year history, though, it only sits in the 60th percentile: this price level is nothing new for this specific stock, which has always traded rich. What changed is the gap with the rest of the sector: the market is betting that obesity treatments are opening an entirely new category. My [reasonable buy price model](/methodologie), which projects the real cash-per-share trajectory rather than relying on today's ratio alone, comes out at $578.21 against a $1,150.99 share price: a 49.8% premium.",
+        },
+        {
+          type: 'p',
+          text: "Merck trades at 27.9 times its free cash flow, above the sector median but far from Lilly's extreme: the 63rd sector percentile. Against its own history, though, it sits at the 88th percentile, close to the richest it has ever been, which fits an observation made in mid-September by the financial press: the stock has nearly doubled in a year without its sales growth really changing pace, carried by hope that Winrevair and the rest of the pipeline will pick up where Keytruda leaves off. My reasonable buy price for Merck comes out at $118.21 against a $148.08 share price: a 20.2% premium.",
+        },
+        {
+          type: 'p',
+          text: "Both stocks therefore fail my price-discipline test today, but for opposite reasons: Lilly is expensive because the market is paying for a growth story that already shows up in the numbers; Merck is expensive, relative to itself, because the market is paying for a turnaround story that hasn't yet materialized in the results.",
+        },
+        {
+          type: 'table',
+          headers: ["Criterion", "Eli Lilly (LLY)", "Merck (MRK)"],
+          rows: [
+            ["Quality score (out of 10)", "6/10", "5/10"],
+            ["Net margin", "33.5%", "4.8% (distorted by a one-off charge)"],
+            ["Current P/FCF (multiple of free cash flow)", "98.5x", "27.9x"],
+            ["Rank within its sector (P/FCF)", "96th percentile (the most expensive)", "63rd percentile"],
+            ["Reasonable buy price vs current price", "$578.21 vs $1,150.99 (49.8% premium)", "$118.21 vs $148.08 (20.2% premium)"],
+            ["Cash return on capital", "13.7%", "17.5%"],
+            ["Total debt, 2020 to 2025", "$16.6B to $40.9B", "$25.4B to $46.8B"],
+            ["Most recent quarter (Q1 2026)", "revenue +56% year over year", "net loss of $4.24B (Cidara charge)"],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Two opposite ways of telling a good story: one where growth explodes but pays for its own expansion in cash, the other where a one-off accounting decision eclipses a real structural risk that is anything but one-off. Neither stock passes my price test today, which isn't a judgment on their long-term quality, only a rule I hold myself to: never pay more, just because a story is compelling, than my own math allows. Judging a company's quality and the price you pay for it separately, in seconds, for any stock: that's exactly what I wanted to be able to do, so I built my investing website for that.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Eli Lilly (score 6/10) multiplied its revenue by 2.7 in five years thanks to obesity treatments, but its inventory and receivables nearly quadrupled and its debt more than doubled over the same period: free cash flow per share is slightly declining despite the sales explosion.",
+            "Merck (score 5/10) reported a $4.24 billion net loss in the first quarter of 2026, $9 billion of which came from an accounting charge tied to the Cidara Therapeutics acquisition, not from any deterioration in its real business.",
+            "Merck's real risk is dated and known to the whole market: Keytruda, half its sales, loses US patent exclusivity in late 2028. Lilly's real risk is quieter: debt that keeps doubling and cash that takes longer and longer to actually come in.",
+            "My reasonable buy price model judges both stocks overvalued today (49.8% for Lilly, 20.2% for Merck), for opposite reasons: an already-paid growth premium for one, a not-yet-verified hope premium for the other. This is not investment advice, do your own research.",
+          ],
+        }
+      ],
+      faq: [
+        { q: "Eli Lilly or Merck: which one scores better on my quality screen?", a: "Eli Lilly passes 6 out of 10 criteria on my screen, versus 5 out of 10 for Merck, lifted by a far more comfortable net margin (33.5% versus 4.8%, the latter temporarily crushed by a one-off accounting charge) and much faster sales growth." },
+        { q: "Why did Merck report a quarterly loss in 2026?", a: "A $9 billion accounting charge tied to the acquisition of biotech Cidara Therapeutics (whose flagship drug isn't approved yet) turned an otherwise solid quarter (+5% revenue) into a $4.24 billion net loss. This is not an operating problem." },
+        { q: "Why is Eli Lilly's cash flow declining despite exploding sales?", a: "Its inventory and accounts receivable nearly quadrupled in five years to fund its production ramp-up, funded by debt that more than doubled. The result: free cash flow per share is slightly declining despite sales that nearly tripled." },
+        { q: "Eli Lilly or Merck, which one is more expensive on the stock market?", a: "Eli Lilly, by far: it trades at 98.5 times its annual free cash flow, versus 27.9 times for Merck, and ranks in the 96th, most expensive percentile of its sector. My model still flags both stocks as overvalued relative to their current price." },
+        { q: "What's the real risk to watch for Merck by 2028?", a: "The loss of US patent exclusivity for Keytruda, its cancer drug that accounts for nearly half of its sales. Merck is betting on a new under-the-skin injectable formulation and on other drugs like Winrevair to offset this, but those remain, for now, very small next to Keytruda." }
+      ],
+      tags: ['Eli Lilly', 'Merck', 'LLY', 'MRK', 'Pharmaceuticals', 'Comparison'],
+      disclaimer:
+        "Analysis for informational and educational purposes, not personalized investment advice. Past performance does not guarantee future results. Figures as of publication date (September 24, 2026), sourced from official press releases and US regulatory filings, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I'm telling you this so you read this analysis with that in mind. Do your own research.",
+    },
+    es: {
+      title: "Eli Lilly o Merck: ¿qué acción farmacéutica comprar en 2026?",
+      excerpt:
+        "Las ventas y la cotización de Eli Lilly se disparan, mientras Merck acaba de anunciar una pérdida trimestral de varios miles de millones. Esto es lo que revelan, con cifras en la mano, mi filtro de calidad y mi modelo de precio sobre estos dos gigantes farmacéuticos.",
+      metaDescription:
+        "Eli Lilly crece con fármacos contra la obesidad pero quema caja; Merck absorbió una pérdida contable puntual. Comparo calidad, deuda y precio.",
+      answer:
+        "Eli Lilly dispara sus ventas gracias a los tratamientos contra la obesidad, pero su crecimiento devora su propio efectivo: inventarios y cuentas por cobrar casi se cuadruplicaron, la deuda se duplicó. Merck registró una pérdida contable de 4200 millones en un solo trimestre, sin que su actividad real perdiera un céntimo. Mi modelo considera ambas acciones demasiado caras, por razones opuestas.",
+      body: [
+        {
+          type: 'p',
+          text: "El 23 de septiembre de 2026, en la CNBC, el consejero delegado de Eli Lilly explicó que sus tratamientos contra la obesidad ya captan el 70 % de los nuevos pacientes mayores desde que Medicare aceptó, este verano, cubrir estos medicamentos. Ese mismo día, un cofundador de Home Depot afirmó públicamente que la acción podría valer 2000 dólares dentro de tres o cuatro años. Ya vale más de 1150.",
+        },
+        {
+          type: 'p',
+          text: "Al mismo tiempo, en Nueva Jersey, Merck acaba de publicar un trimestre que muestra, sobre el papel, una pérdida neta de más de 4000 millones de dólares. No es un desplome de las ventas: es un cheque de 9000 millones firmado para comprar una biotecnológica cuyo medicamento estrella ni siquiera tiene todavía autorización de comercialización.",
+        },
+        {
+          type: 'p',
+          text: "Dos farmacéuticas, dos trimestres, dos historias que Wall Street cuenta de forma muy distinta. Mi trabajo nunca es preferir una historia a otra: es separar, para cada una, lo que corresponde a la calidad real del negocio de lo que corresponde al precio que hay que pagar por poseerlo. Esto es lo que dice mi filtro de 10 criterios, con cifras en la mano.",
+        },
+        { type: 'h2', text: "El vértigo de Eli Lilly: una máquina de crecimiento" },
+        {
+          type: 'p',
+          text: "Los ingresos de Eli Lilly pasaron de 24 500 millones de dólares en 2020 a más de 65 200 millones en 2025, un salto de 2,7 veces en cinco años impulsado por su familia de tratamientos contra la diabetes y la obesidad (la tirzepatida, comercializada como Mounjaro y Zepbound). Solo en el primer trimestre de 2026, las ventas crecieron otro 56 % interanual, hasta 19 800 millones de dólares, lo que llevó al grupo a elevar su previsión de ingresos para 2026 a un rango de 82 000 a 85 000 millones de dólares, según su [comunicado de resultados del cuarto trimestre de 2025 presentado ante el regulador estadounidense](https://www.sec.gov/Archives/edgar/data/59478/000005947826000008/q425lillysalesandearningsp.htm).",
+        },
+        {
+          type: 'p',
+          text: "En [la ficha completa de Lilly](/analyse/LLY), mi filtro de 10 criterios valida casi todo: un margen neto del 33,5 % (la empresa conserva un tercio de cada dólar de venta como beneficio), recompras netas de acciones en lugar de dilución, márgenes que se amplían en vez de comprimirse. La nota de calidad sale en 6 sobre 10, impulsada por un moat (una ventaja competitiva difícil de copiar) sólido: mi modelo de resiliencia estima que la protección de patente de la tirzepatida dura todavía unos 11 años, con un veredicto que considera que el papel económico futuro sostiene el perfil, siendo la resistencia a las disrupciones el principal punto de vigilancia.",
+        },
+        {
+          type: 'p',
+          text: "Pero una cifra desentona en medio de este cuadro tan favorable: el free cash flow (el dinero que realmente queda en caja una vez pagadas todas las facturas y todas las inversiones) por acción cae, de media, un 1,8 % al año durante cinco años, según mi cálculo. Una empresa cuyas ventas se triplican y cuyo efectivo disponible por acción disminuye: esa es la paradoja que hay que entender antes de pagar nada por esta acción.",
+        },
+        { type: 'h2', text: "Por qué el crecimiento todavía no se convierte en efectivo" },
+        {
+          type: 'p',
+          text: "La primera explicación son los inventarios. Eli Lilly tenía 4000 millones de dólares en inventarios a finales de 2020; alcanzaron los 13 700 millones a finales de 2025, y ya 16 800 millones a mediados de 2026, según su [último informe trimestral presentado ante el regulador estadounidense](https://www.sec.gov/Archives/edgar/data/59478/000005947826000081/lly-20260630.htm). Una parte concreta de esa masa, 1500 millones de dólares, es inventario construido por anticipado para orforglipron, la futura píldora oral contra la obesidad todavía a la espera de aprobación, frente a solo 548 millones un año antes. La lógica de gestión es sana (el sector ya ha sufrido escasez de tratamientos GLP-1 por falta de capacidad de producción, y Lilly prefiere acumular inventario por adelantado), pero construir ese inventario inmoviliza efectivo antes incluso de haber vendido el producto.",
+        },
+        {
+          type: 'p',
+          text: "La segunda explicación es más preocupante: las cuentas por cobrar (el dinero que distribuidores y aseguradoras todavía deben a Lilly por productos ya entregados) pasaron de 5900 a 17 800 millones de dólares en el mismo periodo, y el plazo medio de cobro alcanza ya los 373 días, alargándose 43 días cada año. Dicho de otro modo, Lilly vende cada vez más, contabiliza la venta de inmediato, pero tarda cada vez más en cobrar realmente el dinero. Resultado medido por mi filtro: solo el 42 % de los beneficios contables se convierten en efectivo real, por debajo de mi umbral de alerta.",
+        },
+        {
+          type: 'p',
+          text: "Para financiar esta brecha creciente entre facturar y cobrar, y a la vez construir nuevas fábricas, la deuda total del grupo pasó de 16 600 a 40 900 millones de dólares entre 2020 y 2025, más del doble. Mi criterio de rentabilidad sobre el capital invertido, que debe superar el 15 % para aprobarse, sale en el 13,7 %: por debajo del umbral. Una empresa en plena explosión comercial, por tanto, pero cuya disciplina de caja se deteriora justo cuando acelera.",
+        },
+        { type: 'h2', text: "El shock contable de Merck: una pérdida real, no un problema real" },
+        {
+          type: 'p',
+          text: "Merck publicó, el 30 de abril de 2026, unos ingresos trimestrales de 16 300 millones de dólares (+5 % interanual), un ritmo bastante tranquilo. Y sin embargo, el mismo anuncio muestra una pérdida neta de 4240 millones de dólares, es decir, 1,72 dólares de pérdida por acción, según el [comunicado oficial de resultados del primer trimestre de 2026 de Merck](https://www.merck.com/news/merck-co-inc-rahway-n-j-usa-announces-first-quarter-2026-financial-results-highlights-significant-regulatory-approvals-and-clinical-milestones/). Suficiente para asustar a cualquier inversor con prisa, [en la ficha de Merck](/analyse/MRK) como en cualquier otro sitio.",
+        },
+        {
+          type: 'p',
+          text: "Salvo que esa pérdida se debe casi por completo a una sola partida: un cargo de 9000 millones de dólares (3,62 dólares por acción) ligado a la compra de Cidara Therapeutics, una biotecnológica especializada en antivirales, por unos 9200 millones de dólares anunciados a finales de 2025, con una prima del 109 % sobre la cotización previa a la oferta, según el [comunicado de adquisición de Merck](https://www.merck.com/news/merck-to-acquire-cidara-therapeutics-inc-diversifying-its-portfolio-to-include-late-phase-antiviral-agent/). Su activo principal, CD388, un tratamiento preventivo de acción prolongada contra la gripe, solo cuenta por ahora con una designación acelerada de la FDA, no con una autorización de comercialización.",
+        },
+        {
+          type: 'p',
+          text: "Aquí entra en juego una norma contable propia del sector farmacéutico que conviene conocer antes de juzgar cualquier resultado trimestral: cuando una empresa compra investigación y desarrollo todavía en curso, sin otro uso posible que ese producto concreto, la normativa contable estadounidense obliga a contabilizar todo el precio pagado como gasto inmediato, de golpe, en lugar de repartirlo en varios años como una inversión normal. Una auténtica apuesta estratégica, pagada en efectivo, se convierte así en pérdida contable del trimestre, aunque nada en la actividad real de la empresa se haya deteriorado. A modo de comparación, la adquisición de Verona Pharma por parte de Merck (cerrada en octubre de 2025, algo más de 10 000 millones de dólares), cuyo medicamento estrella contra enfermedades respiratorias ya estaba aprobado, solo costó un ajuste de inventario de 237 millones de dólares: la diferencia de tratamiento contable depende del estatus regulatorio del producto comprado, no del tamaño del cheque.",
+        },
+        {
+          type: 'p',
+          text: "Este mecanismo explica por qué mi filtro muestra señales contradictorias sobre Merck: el margen neto se desploma al 4,8 % (un suspenso claro en mi criterio de rentabilidad), mientras que la rentabilidad sobre el capital invertido sigue siendo excelente, en el 17,5 %, y la tasa de conversión de beneficios en efectivo se dispara al 419 %. Esta última cifra, espectacular, no es señal de genio operativo: es un artefacto matemático. Cuando el beneficio contable (el denominador del ratio) se hunde por un cargo excepcional, cualquier efectivo generado con normalidad hace explotar ese mismo ratio. Una cifra que hay que leer con cautela, no para presumir de calidad.",
+        },
+        { type: 'h2', text: "El riesgo real de cada una: crecimiento a crédito frente a un precipicio que se acerca" },
+        {
+          type: 'p',
+          text: "El trimestre contable revuelto no es el verdadero tema en Merck. El verdadero tema es Keytruda, su tratamiento estrella contra el cáncer, que por sí solo supone unos 31 700 millones de dólares en ventas de 2025, casi la mitad de los ingresos totales del grupo. Y la exclusividad de su patente estadounidense expira a finales de 2028. La respuesta de Merck consiste en trasladar a los pacientes hacia Keytruda Qlex, una nueva versión inyectable bajo la piel protegida por propiedad intelectual distinta y más reciente: pero esa versión solo generó 128 millones de dólares en el primer trimestre de 2026, una cifra casi anecdótica frente a los 8000 millones que la versión histórica sigue aportando cada trimestre. El otro motor de crecimiento, Winrevair (un tratamiento contra la hipertensión pulmonar), crece rápido (+88 % interanual, hasta 525 millones de dólares en el primer trimestre de 2026), y los analistas de mercado prevén 4900 millones de dólares en ventas anuales de aquí a 2029. Real, pero todavía lejos de poder sustituir, por sí solo, lo que Keytruda perderá.",
+        },
+        {
+          type: 'p',
+          text: "El riesgo de Eli Lilly es la imagen invertida del de Merck: no es un problema de demanda, es un problema de disciplina financiera. La deuda se ha más que duplicado, los inventarios y las cuentas por cobrar crecen más rápido que las ventas, y la rentabilidad sobre el capital invertido ha caído por debajo del umbral que exijo. Si la demanda de tratamientos GLP-1 se ralentizara, o un competidor le arrebatara cuota de mercado, Lilly cargaría con mucho más apalancamiento y necesidades de capital circulante que hace cinco años para un volumen de negocio comparable. En resumen, el riesgo de Merck está fechado y ya lo conoce todo el mercado (2028); el de Lilly es más discreto, una historia de crecimiento que podría seguir subiendo sin llegar nunca a convertirse realmente en efectivo disponible para el accionista.",
+        },
+        { type: 'h2', text: "El precio, sin emoción" },
+        {
+          type: 'p',
+          text: "Eli Lilly cotiza hoy a 98,5 veces su free cash flow anual. El [sector de fabricantes de medicamentos](/secteur/drug-manufacturers-general) con el que mi modelo la compara (46 empresas, entre ellas Sanofi a 8,8 veces, Bristol-Myers Squibb a 11,5 veces, Gilead a 13,8 veces, Novartis a 13,8 veces o GSK a 15,5 veces) muestra una valoración mediana de solo 22,6 veces. Lilly se sitúa así en el percentil 96 de su sector: más cara que el 96 % de sus pares. Frente a su PROPIA historia de cinco años, en cambio, solo se sitúa en el percentil 60: este nivel de precio no tiene nada de inédito para esta acción en concreto, que siempre se ha valorado cara. Lo que ha cambiado es la brecha con el resto del sector: el mercado apuesta a que los tratamientos contra la obesidad abren una categoría completamente nueva. Mi [modelo de precio de compra razonable](/methodologie), que proyecta la trayectoria real de efectivo por acción en lugar de fiarse solo del ratio del día, sale en 578,21 dólares frente a una cotización de 1150,99 dólares: una sobrevaloración del 49,8 %.",
+        },
+        {
+          type: 'p',
+          text: "Merck cotiza a 27,9 veces su free cash flow, por encima de la mediana del sector pero lejos del extremo de Lilly: percentil 63 del sector. Frente a su propia historia, en cambio, se sitúa en el percentil 88, cerca de lo más caro que ha estado nunca, lo que encaja con una observación de la prensa financiera a mediados de septiembre: la acción casi se ha duplicado en un año sin que su crecimiento de ventas cambiara realmente de ritmo, impulsada por la esperanza de que Winrevair y el resto de la cartera tomen el relevo de Keytruda. Mi precio de compra razonable para Merck sale en 118,21 dólares frente a una cotización de 148,08 dólares: una sobrevaloración del 20,2 %.",
+        },
+        {
+          type: 'p',
+          text: "Ambas acciones suspenden hoy mi prueba de disciplina de precio, pero por razones opuestas: Lilly es cara porque el mercado paga por una historia de crecimiento que ya se refleja en las cifras; Merck es cara, respecto a sí misma, porque el mercado paga por una historia de recuperación que todavía no se ha materializado en los resultados.",
+        },
+        {
+          type: 'table',
+          headers: ["Criterio", "Eli Lilly (LLY)", "Merck (MRK)"],
+          rows: [
+            ["Nota de calidad (sobre 10)", "6/10", "5/10"],
+            ["Margen neto", "33,5 %", "4,8 % (distorsionado por un cargo excepcional)"],
+            ["P/FCF actual (múltiplo del free cash flow)", "98,5 veces", "27,9 veces"],
+            ["Posición en su sector (P/FCF)", "percentil 96 (la más cara)", "percentil 63"],
+            ["Precio de compra razonable vs cotización actual", "578,21 $ frente a 1150,99 $ (sobrevaloración del 49,8 %)", "118,21 $ frente a 148,08 $ (sobrevaloración del 20,2 %)"],
+            ["Rentabilidad sobre el capital invertido", "13,7 %", "17,5 %"],
+            ["Deuda total, 2020 a 2025", "16 600 M$ a 40 900 M$", "25 400 M$ a 46 800 M$"],
+            ["Trimestre más reciente (T1 2026)", "ingresos +56 % interanual", "pérdida neta de 4240 M$ (cargo Cidara)"],
+          ],
+        },
+        {
+          type: 'p',
+          text: "Dos formas opuestas de contar una buena historia: una en la que el crecimiento explota pero paga en efectivo su propia expansión, otra en la que una decisión contable puntual eclipsa un riesgo estructural real que, ese sí, no tiene nada de puntual. Ninguna de las dos acciones supera hoy mi prueba de precio, lo cual no es un juicio sobre su calidad a largo plazo, solo una norma que me impongo: nunca pagar, con el pretexto de que una historia es bonita, más de lo que mis propios cálculos permiten. Juzgar por separado la calidad de una empresa y el precio que se paga por ella, en segundos y para cualquier acción: es exactamente lo que quería poder hacer, así que construí mi sitio de inversión para eso.",
+        },
+        {
+          type: 'ul',
+          items: [
+            "Eli Lilly (nota 6/10) multiplicó sus ingresos por 2,7 en cinco años gracias a los tratamientos contra la obesidad, pero sus inventarios y cuentas por cobrar casi se cuadruplicaron y su deuda se más que duplicó en el mismo periodo: el free cash flow por acción retrocede ligeramente pese a la explosión de las ventas.",
+            "Merck (nota 5/10) registró una pérdida neta de 4240 millones de dólares en el primer trimestre de 2026, de los cuales 9000 millones proceden de un cargo contable ligado a la compra de Cidara Therapeutics, no de un deterioro de su actividad real.",
+            "El riesgo real de Merck está fechado y todo el mercado lo conoce: Keytruda, la mitad de sus ventas, pierde su exclusividad de patente estadounidense a finales de 2028. El riesgo real de Lilly es más discreto: una deuda que no deja de duplicarse y un efectivo que tarda cada vez más en entrar.",
+            "Mi modelo de precio de compra razonable considera ambas acciones sobrevaloradas hoy (49,8 % para Lilly, 20,2 % para Merck), por razones opuestas: una prima de crecimiento ya pagada para una, una prima de esperanza todavía no verificada para la otra. Esto no es un consejo de inversión, haz tu propia investigación.",
+          ],
+        }
+      ],
+      faq: [
+        { q: "Eli Lilly o Merck: ¿cuál tiene mejor nota de calidad en mi filtro?", a: "Eli Lilly valida 6 de 10 criterios en mi filtro, frente a 5 de 10 en el caso de Merck, gracias a un margen neto mucho más cómodo (33,5 % frente a 4,8 %, esta última cifra temporalmente aplastada por un cargo contable excepcional) y un crecimiento de ventas mucho más rápido." },
+        { q: "¿Por qué Merck registró una pérdida trimestral en 2026?", a: "Un cargo contable de 9000 millones de dólares ligado a la compra de la biotecnológica Cidara Therapeutics (cuyo medicamento estrella todavía no está aprobado) convirtió un trimestre por lo demás sólido (+5 % de ingresos) en una pérdida neta de 4240 millones de dólares. No es un problema operativo." },
+        { q: "¿Por qué el efectivo de Eli Lilly retrocede pese a la explosión de las ventas?", a: "Sus inventarios y cuentas por cobrar casi se cuadruplicaron en cinco años para financiar el aumento de su producción, financiado con una deuda que se más que duplicó. Resultado: el free cash flow por acción retrocede ligeramente pese a unas ventas que casi se triplicaron." },
+        { q: "Eli Lilly o Merck, ¿cuál es más cara en bolsa?", a: "Eli Lilly, con diferencia: cotiza a 98,5 veces su free cash flow anual, frente a 27,9 veces en el caso de Merck, y se sitúa en el percentil 96, el más caro de su sector. Aun así, mi modelo considera ambas acciones sobrevaloradas respecto a su cotización actual." },
+        { q: "¿Cuál es el riesgo real que hay que vigilar en Merck de aquí a 2028?", a: "La pérdida de la exclusividad de la patente estadounidense de Keytruda, su tratamiento contra el cáncer que representa casi la mitad de sus ventas. Merck apuesta por una nueva formulación inyectable bajo la piel y por otros medicamentos como Winrevair para compensarlo, pero de momento estos siguen siendo muy pequeños frente a Keytruda." }
+      ],
+      tags: ['Eli Lilly', 'Merck', 'LLY', 'MRK', 'Farmacéutico', 'Comparativa'],
+      disclaimer:
+        "Análisis con fines informativos y educativos, no es asesoramiento de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (24 de septiembre de 2026), procedentes de comunicados oficiales y documentos presentados ante el regulador estadounidense, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Haz tu propia investigación.",
+    },
+  },
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026];
 
 
 /** Articles triés du plus récent au plus ancien. */
