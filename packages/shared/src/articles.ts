@@ -90693,7 +90693,628 @@ const articleIndonesieQualitePrix2026: Article = {
 };
 
 
-export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026];
+const articleTaiwanIAQualitePrix2026: Article = {
+  "slug": "taiwan-actions-ia-qualite-prix-divergents-2026",
+  "date": "2026-09-29",
+  "updated": "2026-09-29",
+  "readingTime": 8,
+  "content": {
+    "fr": {
+      "title": "Taïwan : trois actions de l'IA, trois prix très différents",
+      "excerpt": "Derrière TSMC, Taïwan fabrique les commutateurs réseau, les rails de serveurs et les caisses enregistreuses que mon screener place tout en haut de ma grille de qualité. Trois sociétés, un même sommet de qualité, mais un prix qui raconte trois histoires opposées.",
+      "metaDescription": "Taïwan : trois actions au sommet de ma grille de qualité, du réseau pour l'IA aux caisses. L'une se négocie sous mon estimation, l'autre bien au-dessus.",
+      "answer": "Trois sociétés taïwanaises jamais couvertes ici valident les dix critères de ma grille de qualité : Accton (commutateurs réseau pour l'IA), King Slide (rails de serveurs) et Posiflex (terminaux de caisse). Leur prix diverge : Accton se négocie sous mon estimation, King Slide bien au-dessus, et la décote de Posiflex repose sur un cash exceptionnel.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Pourquoi regarder Taïwan au-delà de TSMC ?"
+        },
+        {
+          "type": "p",
+          "text": "TSMC fabrique les puces, mais un serveur d'intelligence artificielle, ce sont aussi des commutateurs qui relient des milliers de machines entre elles, des rails mécaniques qui les portent dans les baies, des châssis, du refroidissement. Une grande part de cette chaîne est taïwanaise. J'ai déjà consacré un article à [TSMC et au risque Taïwan](/blog/taiwan-semiconductor-tsm-analyse-fondamentale) ; cette fois, je regarde les fournisseurs que personne ne cite."
+        },
+        {
+          "type": "p",
+          "text": "Mon screener en remonte trois qui obtiennent la note maximale de 10 sur 10. Cette note mesure la qualité du business (marges, croissance du cash par action, dette, rendement du capital), jugée séparément du prix. Le prix se juge ensuite avec le P/FCF, le prix de l'action rapporté au cash réellement dégagé chaque année : un P/FCF de 30 veut dire que tu paies 30 ans de ce cash. Le détail est dans ma [méthodologie](/methodologie)."
+        },
+        {
+          "type": "h2",
+          "text": "Ces trois sociétés valent-elles leur prix ?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société (ticker)",
+            "Métier",
+            "Note",
+            "P/FCF (rang dans son historique)",
+            "Cours",
+            "Prix d'achat estimé",
+            "Verdict prix"
+          ],
+          "rows": [
+            [
+              "Accton (2345.TW)",
+              "Commutateurs réseau pour centres de données",
+              "10/10",
+              "34,7× (23ᵉ percentile)",
+              "1 840 TWD",
+              "2 621 TWD",
+              "Décote de 42 %"
+            ],
+            [
+              "King Slide (2059.TW)",
+              "Rails de serveurs",
+              "10/10",
+              "110,4× (94ᵉ percentile)",
+              "12 045 TWD",
+              "5 397 TWD",
+              "Surcote de 55 %"
+            ],
+            [
+              "Posiflex (8114.TW)",
+              "Terminaux de caisse et kiosques",
+              "10/10",
+              "3,1× (historique indisponible)",
+              "179 TWD",
+              "714 TWD",
+              "Décote apparente, cash à vérifier"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Le « prix d'achat estimé » vient de mon modèle : il projette le cash par action dans cinq ans, lui applique un multiple de sortie, puis ramène le tout à aujourd'hui en exigeant 15 % de rendement annuel. Un cours sous ce prix laisse une marge de sécurité, un cours au-dessus n'en laisse pas. Trois notes identiques, donc, et trois verdicts de prix opposés."
+        },
+        {
+          "type": "h2",
+          "text": "Accton : les aiguilleurs des serveurs d'IA"
+        },
+        {
+          "type": "p",
+          "text": "Un commutateur (switch) est l'aiguilleur d'un centre de données : il fait circuler les données entre des milliers de serveurs à des débits de plus en plus élevés. Accton en fabrique en ODM, c'est-à-dire pour le compte de grands clients qui les vendent ou les utilisent sous leur propre bannière. Sa croissance est spectaculaire : chiffre d'affaires du premier trimestre 2026 à 70,1 milliards de dollars taïwanais (TWD), en hausse de 64 % sur un an, puis [39,5 milliards en juillet, en hausse de 72 %](https://www.digitimes.com/news/a20260807PD205/demand-revenue-accton-switch-high-end.html), selon Digitimes."
+        },
+        {
+          "type": "p",
+          "text": "Le contre-poids se lit dans la trajectoire. Le chiffre d'affaires est passé de 110 à 248 milliards de TWD entre 2024 et 2025, et le cash disponible de 7,0 à 29,8 milliards. Mais la marge de cash est de 12 %, contre 19 % en 2023 : l'assemblage de matériel pour de gros clients laisse des marges fines, et ces clients sont peu nombreux. C'est exactement ce que note mon indicateur de résilience : 3,5 sur 5, parce que la demande d'IA est forte mais que la concentration client limite le pouvoir de prix."
+        },
+        {
+          "type": "p",
+          "text": "Côté prix, Accton se valorise 34,7 fois son cash, ce qui la place au 23ᵉ percentile de son propre historique : elle a été plus chère environ trois quarts du temps. Le marché la punit pour une raison claire, la peur qu'une pause des dépenses des grands opérateurs de centres de données retourne la courbe. Cette peur est légitime, mais elle est déjà largement dans le prix : mon estimation ressort à 2 621 TWD contre 1 840 au cours."
+        },
+        {
+          "type": "h2",
+          "text": "King Slide : le rail à marge de logiciel"
+        },
+        {
+          "type": "p",
+          "text": "Un rail de serveur est la glissière qui permet de sortir une machine de sa baie. Banal ? Plus depuis l'IA : un serveur d'IA dépasse 70 kg contre moins de 50 kg auparavant, et le refroidissement liquide réduit la place disponible, donc les rails doivent porter plus dans un volume plus fin. King Slide détient [plus de 30 % du marché mondial de ces rails, qui font 98 % de son chiffre d'affaires](https://www.taiwannews.com.tw/news/6416372), et son chiffre d'affaires de juillet 2026 a bondi de 355 % sur un an. Une usine nord-américaine doit démarrer en septembre 2026."
+        },
+        {
+          "type": "p",
+          "text": "La conséquence est visible dans les comptes : une marge nette de 56 % et une marge de cash de 59 %, des niveaux que l'on associe à un éditeur de logiciels, pas à un fabricant de pièces métalliques. La raison est simple : la panne d'un rail dans une baie qui vaut des centaines de milliers de dollars coûte infiniment plus cher que le rail. Le client paie donc pour la fiabilité, pas pour l'acier. Le risque : des concurrents chinois, qui font baisser la note de résilience à 3 sur 5."
+        },
+        {
+          "type": "p",
+          "text": "Le prix, lui, laisse peu de place à l'erreur. King Slide se valorise 110 fois son cash, un niveau que l'action n'avait dépassé que 6 % du temps dans son historique (94ᵉ percentile). Mon modèle suppose une croissance du cash par action de 20 % par an, alors que la réalité est de 51 % par an : l'hypothèse est prudente. Mais elle donne 5 397 TWD contre 12 045 au cours. Il faudrait que l'hypercroissance dure très longtemps pour justifier ce prix, et le moindre ralentissement se paierait cher."
+        },
+        {
+          "type": "h2",
+          "text": "Que disent les trajectoires du chiffre d'affaires et du cash ?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Société",
+            "CA 2023",
+            "CA 2025",
+            "Cash dispo. 2023",
+            "Cash dispo. 2024",
+            "Cash dispo. 2025",
+            "Marge de cash 2025"
+          ],
+          "rows": [
+            [
+              "Accton",
+              "84,2 Md TWD",
+              "248,3 Md TWD",
+              "16,1 Md",
+              "7,0 Md",
+              "29,8 Md",
+              "12 %"
+            ],
+            [
+              "King Slide",
+              "5,8 Md TWD",
+              "17,5 Md TWD",
+              "2,9 Md",
+              "4,8 Md",
+              "10,4 Md",
+              "59 %"
+            ],
+            [
+              "Posiflex",
+              "9,9 Md TWD",
+              "18,2 Md TWD",
+              "1,9 Md",
+              "1,6 Md",
+              "4,5 Md",
+              "25 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Les trois doublent ou presque leur chiffre d'affaires en deux ans. La différence est ce qu'ils en font : King Slide transforme plus de la moitié de ses ventes en cash, Accton un huitième, et le cash de Posiflex a fait un bond de 1,6 à 4,5 milliards en un an, ce qui appelle une vérification."
+        },
+        {
+          "type": "h2",
+          "text": "Posiflex : la décote la plus spectaculaire est aussi la plus suspecte"
+        },
+        {
+          "type": "p",
+          "text": "Posiflex fabrique des terminaux de point de vente : caisses, écrans tactiles, kiosques de commande. L'activité reprend fort : [chiffre d'affaires du deuxième trimestre 2026 en hausse de 46 % sur le trimestre précédent](https://www.digitimes.com/news/a20260730PD217/posiflex-revenue-asia-europe-2026.html), à 5,18 milliards de TWD, porté par l'Europe et l'Asie, avec un bénéfice net de 467 millions contre 295 millions au premier trimestre."
+        },
+        {
+          "type": "p",
+          "text": "Sur le papier, tout crie « bon marché » : 3,1 fois le cash, un prix d'achat estimé à 714 TWD pour un cours de 179, un dividende de 6,5 %. Mais regarde l'écart entre le cash de 2025 (4,48 milliards) et le bénéfice net (1,99 milliard) : le cash vaut 2,25 fois le bénéfice. Quand une entreprise encaisse bien plus que ce qu'elle gagne, c'est très souvent une libération ponctuelle de besoin en fonds de roulement, c'est-à-dire des clients qui règlent leurs factures ou des stocks qui se vident. Ça ne se répète pas chaque année."
+        },
+        {
+          "type": "p",
+          "text": "Si le cash normal de Posiflex se situe plutôt autour de 2 milliards (mon inférence, pas un chiffre publié), la valorisation passe d'environ 3 à environ 7 fois le cash : encore bas, mais plus le mirage du premier écran. Ajoute un dividende qui absorbe 87 % du bénéfice et une résilience de 0,5 sur 5, parce que le terminal de caisse est un matériel banalisé. Mon verdict : société de qualité, opportunité à confirmer, pas évidence."
+        },
+        {
+          "type": "h2",
+          "text": "Ce que trois notes identiques m'apprennent"
+        },
+        {
+          "type": "p",
+          "text": "Une même note de qualité ne dit rien du prix. Accton est la plus intéressante à ce stade : bon business, mais valorisé comme si le pire était possible. King Slide est peut-être la meilleure entreprise des trois, et pourtant la moins attractive au cours actuel. Posiflex enseigne la prudence : un P/FCF très bas n'a de sens que si le cash qui le produit se répète."
+        },
+        {
+          "type": "p",
+          "text": "Les risques communs ne sont pas anodins : ces titres cotent en dollars taïwanais, ne sont pas éligibles au PEA, et dépendent du cycle des dépenses d'IA comme de la géopolitique du détroit. C'est le tri que je voulais pouvoir faire pour n'importe quelle action, alors je l'ai construit : les fiches [Accton](/analyse/2345.TW), [King Slide](/analyse/2059.TW) et [Posiflex](/analyse/8114.TW) détaillent chaque critère. Pour un autre pays où le prix diverge de la qualité, relis [l'étude sur l'Indonésie](/blog/indonesie-actions-qualite-prix-divergents-2026)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Peut-on loger Accton, King Slide ou Posiflex dans un PEA ?",
+          "a": "Non. Le PEA est réservé aux sociétés européennes. Ces trois valeurs se logent dans un compte-titres ordinaire, chez un courtier donnant accès à la bourse de Taïwan, avec un risque de change sur le dollar taïwanais."
+        },
+        {
+          "q": "Pourquoi une note de 10 sur 10 ne suffit-elle pas pour acheter ?",
+          "a": "Parce que la note mesure la qualité du business, pas son prix. King Slide a la note maximale et se valorise 110 fois son cash : une excellente entreprise achetée trop cher peut décevoir."
+        },
+        {
+          "q": "Pourquoi la décote de Posiflex est-elle à prendre avec prudence ?",
+          "a": "Son cash de 2025 vaut plus de deux fois son bénéfice net, ce qui ressemble à une libération ponctuelle de besoin en fonds de roulement. Sur un cash plus normal, la valorisation serait plutôt autour de 7 fois."
+        },
+        {
+          "q": "Le risque géopolitique autour de Taïwan change-t-il l'analyse ?",
+          "a": "Oui, c'est un risque que je ne sais pas chiffrer et qui pèse sur toutes les sociétés cotées sur l'île. Je le traite comme une raison d'exiger une marge de sécurité plus grande, pas comme un détail."
+        }
+      ],
+      "tags": [
+        "Taïwan",
+        "Actions asiatiques",
+        "Palmarès pays",
+        "Intelligence artificielle",
+        "Infrastructure IA"
+      ],
+      "disclaimer": "Analyse à but informatif et éducatif, pas un conseil en investissement personnalisé. Les performances passées ne préjugent pas du futur. Chiffres à la date de publication (29 septembre 2026), vérifiés en direct via mon outil d'analyse le jour de la rédaction, susceptibles d'évoluer. Je suis le fondateur de Lubin Investment, qui propose un outil d'analyse gratuit et une offre payante. Je te le dis pour que tu lises cette analyse en connaissance de cause. Fais tes propres recherches."
+    },
+    "en": {
+      "title": "Taiwan: three AI stocks, three very different prices",
+      "excerpt": "Behind TSMC, Taiwan makes the network switches, server rails and cash registers that my screener places at the very top of my quality grid. Three companies, one top quality score, and prices that tell three opposite stories.",
+      "metaDescription": "Taiwan: three stocks at the top of my quality grid, from AI networking to cash registers. One trades below my estimate, one far above it.",
+      "answer": "Three Taiwanese companies never covered here pass all ten criteria of my quality grid: Accton (AI network switches), King Slide (server rails) and Posiflex (point-of-sale terminals). Their prices diverge: Accton trades below my estimate, King Slide far above it, and Posiflex's discount rests on an exceptional cash figure.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "Why look at Taiwan beyond TSMC?"
+        },
+        {
+          "type": "p",
+          "text": "TSMC makes the chips, but an artificial intelligence server is also switches that link thousands of machines together, mechanical rails that hold them in the rack, chassis, cooling. A large part of that chain is Taiwanese. I already wrote about [TSMC and the Taiwan risk](/blog/taiwan-semiconductor-tsm-analyse-fondamentale); this time I look at the suppliers nobody mentions."
+        },
+        {
+          "type": "p",
+          "text": "My screener returns three that earn the maximum score of 10 out of 10. That score measures business quality (margins, growth of cash per share, debt, return on capital), judged separately from price. Price is then judged with P/FCF, the share price divided by the cash the company actually generates each year: a P/FCF of 30 means you pay 30 years of that cash. The details are in my [methodology](/methodologie)."
+        },
+        {
+          "type": "h2",
+          "text": "Are these three companies worth their price?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company (ticker)",
+            "Business",
+            "Score",
+            "P/FCF (rank in its own history)",
+            "Price",
+            "Estimated buy price",
+            "Price verdict"
+          ],
+          "rows": [
+            [
+              "Accton (2345.TW)",
+              "Network switches for data centers",
+              "10/10",
+              "34.7× (23rd percentile)",
+              "1,840 TWD",
+              "2,621 TWD",
+              "42% discount"
+            ],
+            [
+              "King Slide (2059.TW)",
+              "Server rails",
+              "10/10",
+              "110.4× (94th percentile)",
+              "12,045 TWD",
+              "5,397 TWD",
+              "55% premium"
+            ],
+            [
+              "Posiflex (8114.TW)",
+              "Point-of-sale terminals and kiosks",
+              "10/10",
+              "3.1× (history unavailable)",
+              "179 TWD",
+              "714 TWD",
+              "Apparent discount, cash to verify"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The \"estimated buy price\" comes from my model: it projects cash per share five years out, applies an exit multiple, then brings it back to today by demanding a 15% annual return. A price below it leaves a margin of safety, a price above it leaves none. Three identical scores, then, and three opposite price verdicts."
+        },
+        {
+          "type": "h2",
+          "text": "Accton: the traffic controllers of AI servers"
+        },
+        {
+          "type": "p",
+          "text": "A switch is the traffic controller of a data center: it moves data between thousands of servers at ever higher speeds. Accton builds them as an ODM, meaning for large customers who sell or use them under their own banner. Growth is spectacular: first-quarter 2026 revenue of 70.1 billion Taiwan dollars (TWD), up 64% year on year, then [39.5 billion in July, up 72%](https://www.digitimes.com/news/a20260807PD205/demand-revenue-accton-switch-high-end.html), according to Digitimes."
+        },
+        {
+          "type": "p",
+          "text": "The counterweight shows in the trajectory. Revenue went from 110 to 248 billion TWD between 2024 and 2025, and free cash from 7.0 to 29.8 billion. But the cash margin is 12%, against 19% in 2023: assembling hardware for big customers leaves thin margins, and there are few customers. That is what my resilience indicator captures: 3.5 out of 5, because AI demand is strong but customer concentration limits pricing power."
+        },
+        {
+          "type": "p",
+          "text": "On price, Accton is valued at 34.7 times its cash, the 23rd percentile of its own history: it has been more expensive about three quarters of the time. The market punishes it for a clear reason, the fear that a pause in spending by the big data center operators would reverse the curve. The fear is legitimate, but it is already largely in the price: my estimate is 2,621 TWD against 1,840 today."
+        },
+        {
+          "type": "h2",
+          "text": "King Slide: the rail with software margins"
+        },
+        {
+          "type": "p",
+          "text": "A server rail is the slide that lets you pull a machine out of its rack. Mundane? Not since AI: an AI server weighs over 70 kg versus under 50 kg before, and liquid cooling shrinks the available space, so rails must carry more in a thinner volume. King Slide holds [over 30% of the global market for these rails, which make up 98% of its revenue](https://www.taiwannews.com.tw/news/6416372), and its July 2026 revenue jumped 355% year on year. A North American plant is due to start in September 2026."
+        },
+        {
+          "type": "p",
+          "text": "The result shows in the accounts: a 56% net margin and a 59% cash margin, levels associated with a software vendor, not a maker of metal parts. The reason is simple: a rail failing in a rack worth hundreds of thousands of dollars costs far more than the rail. The customer pays for reliability, not steel. The risk: Chinese competitors, which pull the resilience score down to 3 out of 5."
+        },
+        {
+          "type": "p",
+          "text": "The price leaves little room for error. King Slide is valued at 110 times its cash, a level the stock exceeded only 6% of the time in its history (94th percentile). My model assumes cash per share growth of 20% a year, while reality is 51% a year: the assumption is cautious. Even so it gives 5,397 TWD against 12,045 today. Hypergrowth would have to last a very long time to justify that price, and any slowdown would be costly."
+        },
+        {
+          "type": "h2",
+          "text": "What do the revenue and cash trajectories say?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Company",
+            "Revenue 2023",
+            "Revenue 2025",
+            "Free cash 2023",
+            "Free cash 2024",
+            "Free cash 2025",
+            "Cash margin 2025"
+          ],
+          "rows": [
+            [
+              "Accton",
+              "84.2 bn TWD",
+              "248.3 bn TWD",
+              "16.1 bn",
+              "7.0 bn",
+              "29.8 bn",
+              "12%"
+            ],
+            [
+              "King Slide",
+              "5.8 bn TWD",
+              "17.5 bn TWD",
+              "2.9 bn",
+              "4.8 bn",
+              "10.4 bn",
+              "59%"
+            ],
+            [
+              "Posiflex",
+              "9.9 bn TWD",
+              "18.2 bn TWD",
+              "1.9 bn",
+              "1.6 bn",
+              "4.5 bn",
+              "25%"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "All three roughly double revenue in two years. The difference is what they do with it: King Slide turns more than half of its sales into cash, Accton one eighth, and Posiflex's cash jumped from 1.6 to 4.5 billion in one year, which calls for a check."
+        },
+        {
+          "type": "h2",
+          "text": "Posiflex: the most spectacular discount is also the most suspicious"
+        },
+        {
+          "type": "p",
+          "text": "Posiflex makes point-of-sale terminals: cash registers, touchscreens, ordering kiosks. Activity is rebounding hard: [second-quarter 2026 revenue up 46% on the previous quarter](https://www.digitimes.com/news/a20260730PD217/posiflex-revenue-asia-europe-2026.html), at 5.18 billion TWD, driven by Europe and Asia, with net profit of 467 million against 295 million in the first quarter."
+        },
+        {
+          "type": "p",
+          "text": "On paper everything screams \"cheap\": 3.1 times cash, an estimated buy price of 714 TWD for a price of 179, a 6.5% dividend. But look at the gap between 2025 cash (4.48 billion) and net profit (1.99 billion): cash is worth 2.25 times profit. When a company collects far more than it earns, it is very often a one-off release of working capital, meaning customers settling invoices or inventory shrinking. That does not repeat every year."
+        },
+        {
+          "type": "p",
+          "text": "If Posiflex's normal cash is closer to 2 billion (my inference, not a published figure), the valuation moves from about 3 to about 7 times cash: still low, but no longer the mirage of the first screen. Add a dividend absorbing 87% of profit and a resilience of 0.5 out of 5, because the checkout terminal is a commoditized product. My verdict: a quality company, an opportunity to confirm, not a given."
+        },
+        {
+          "type": "h2",
+          "text": "What three identical scores teach me"
+        },
+        {
+          "type": "p",
+          "text": "The same quality score says nothing about price. Accton is the most interesting at this stage: a good business, valued as if the worst were possible. King Slide may be the best company of the three, and yet the least attractive at the current price. Posiflex teaches caution: a very low P/FCF only means something if the cash producing it repeats."
+        },
+        {
+          "type": "p",
+          "text": "The shared risks are not trivial: these stocks trade in Taiwan dollars, are not eligible for the French PEA, and depend on the AI spending cycle as well as on strait geopolitics. This is the sorting I wanted to be able to do for any stock, so I built it: the pages for [Accton](/analyse/2345.TW), [King Slide](/analyse/2059.TW) and [Posiflex](/analyse/8114.TW) detail each criterion. For another country where price diverges from quality, read the [Indonesia study](/blog/indonesie-actions-qualite-prix-divergents-2026)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "Can Accton, King Slide or Posiflex be held in a French PEA?",
+          "a": "No. The PEA is reserved for European companies. These three stocks can only be held in a standard brokerage account, with a broker offering access to the Taiwan exchange, and with currency risk on the Taiwan dollar."
+        },
+        {
+          "q": "Why is a 10 out of 10 score not enough to buy?",
+          "a": "Because the score measures the quality of the business, not its price. King Slide has the maximum score and is valued at 110 times its cash: an excellent company bought too dear can disappoint."
+        },
+        {
+          "q": "Why should Posiflex's discount be taken with caution?",
+          "a": "Its 2025 cash is worth more than twice its net profit, which looks like a one-off release of working capital. On a more normal cash figure the valuation would be closer to 7 times."
+        },
+        {
+          "q": "Does the geopolitical risk around Taiwan change the analysis?",
+          "a": "Yes, it is a risk I cannot quantify and it weighs on every company listed on the island. I treat it as a reason to demand a larger margin of safety, not as a detail."
+        }
+      ],
+      "tags": [
+        "Taiwan",
+        "Asian stocks",
+        "Country ranking",
+        "Artificial intelligence",
+        "AI infrastructure"
+      ],
+      "disclaimer": "This analysis is for informational and educational purposes only, not personalized investment advice. Past performance does not guarantee future results. Figures as of the publication date (September 29, 2026), checked live with my analysis tool the day this was written, subject to change. I am the founder of Lubin Investment, which offers a free analysis tool and a paid plan. I am telling you this so you can read this analysis with that in mind. Do your own research."
+    },
+    "es": {
+      "title": "Taiwán: tres acciones de la IA, tres precios muy distintos",
+      "excerpt": "Detrás de TSMC, Taiwán fabrica los conmutadores de red, los rieles de servidores y las cajas registradoras que mi analizador coloca en lo más alto de mi criterio de calidad. Tres empresas, una misma cima de calidad y precios que cuentan tres historias opuestas.",
+      "metaDescription": "Taiwán: tres acciones en lo más alto de mi criterio de calidad, de la red para la IA a las cajas. Una cotiza bajo mi estimación, otra muy por encima.",
+      "answer": "Tres empresas taiwanesas nunca cubiertas aquí cumplen los diez criterios de mi cuadro de calidad: Accton (conmutadores de red para la IA), King Slide (rieles de servidores) y Posiflex (terminales de caja). Sus precios divergen: Accton cotiza bajo mi estimación, King Slide muy por encima, y el descuento de Posiflex descansa en un flujo de caja excepcional.",
+      "body": [
+        {
+          "type": "h2",
+          "text": "¿Por qué mirar Taiwán más allá de TSMC?"
+        },
+        {
+          "type": "p",
+          "text": "TSMC fabrica los chips, pero un servidor de inteligencia artificial también son conmutadores que unen miles de máquinas, rieles mecánicos que las sostienen en el bastidor, chasis, refrigeración. Buena parte de esa cadena es taiwanesa. Ya dediqué un artículo a [TSMC y el riesgo Taiwán](/blog/taiwan-semiconductor-tsm-analyse-fondamentale); esta vez miro a los proveedores que nadie cita."
+        },
+        {
+          "type": "p",
+          "text": "Mi analizador devuelve tres que obtienen la nota máxima de 10 sobre 10. Esa nota mide la calidad del negocio (márgenes, crecimiento del flujo de caja por acción, deuda, rentabilidad del capital), juzgada por separado del precio. El precio se juzga después con el P/FCF, el precio de la acción dividido por el flujo de caja que la empresa genera realmente cada año: un P/FCF de 30 significa que pagas 30 años de ese flujo. El detalle está en mi [metodología](/methodologie)."
+        },
+        {
+          "type": "h2",
+          "text": "¿Valen estas tres empresas su precio?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa (ticker)",
+            "Negocio",
+            "Nota",
+            "P/FCF (posición en su historial)",
+            "Precio",
+            "Precio de compra estimado",
+            "Veredicto de precio"
+          ],
+          "rows": [
+            [
+              "Accton (2345.TW)",
+              "Conmutadores de red para centros de datos",
+              "10/10",
+              "34,7× (percentil 23)",
+              "1.840 TWD",
+              "2.621 TWD",
+              "Descuento del 42 %"
+            ],
+            [
+              "King Slide (2059.TW)",
+              "Rieles de servidores",
+              "10/10",
+              "110,4× (percentil 94)",
+              "12.045 TWD",
+              "5.397 TWD",
+              "Sobreprecio del 55 %"
+            ],
+            [
+              "Posiflex (8114.TW)",
+              "Terminales de caja y quioscos",
+              "10/10",
+              "3,1× (historial no disponible)",
+              "179 TWD",
+              "714 TWD",
+              "Descuento aparente, caja por verificar"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "El «precio de compra estimado» sale de mi modelo: proyecta el flujo de caja por acción dentro de cinco años, le aplica un múltiplo de salida y lo trae al presente exigiendo un 15 % de rentabilidad anual. Un precio por debajo deja margen de seguridad, un precio por encima no deja ninguno. Tres notas idénticas, pues, y tres veredictos de precio opuestos."
+        },
+        {
+          "type": "h2",
+          "text": "Accton: los controladores de tráfico de los servidores de IA"
+        },
+        {
+          "type": "p",
+          "text": "Un conmutador (switch) es el controlador de tráfico de un centro de datos: hace circular los datos entre miles de servidores a velocidades cada vez mayores. Accton los fabrica como ODM, es decir, para grandes clientes que los venden o usan con su propia marca. Su crecimiento es espectacular: ingresos del primer trimestre de 2026 de 70.100 millones de dólares taiwaneses (TWD), un 64 % más en un año, y después [39.500 millones en julio, un 72 % más](https://www.digitimes.com/news/a20260807PD205/demand-revenue-accton-switch-high-end.html), según Digitimes."
+        },
+        {
+          "type": "p",
+          "text": "El contrapeso se lee en la trayectoria. Los ingresos pasaron de 110.000 a 248.000 millones de TWD entre 2024 y 2025, y el flujo de caja libre de 7.000 a 29.800 millones. Pero el margen de caja es del 12 %, frente al 19 % de 2023: ensamblar hardware para grandes clientes deja márgenes finos, y esos clientes son pocos. Es lo que recoge mi indicador de resiliencia: 3,5 sobre 5, porque la demanda de IA es fuerte pero la concentración de clientes limita el poder de fijar precios."
+        },
+        {
+          "type": "p",
+          "text": "En precio, Accton se valora en 34,7 veces su flujo de caja, el percentil 23 de su propio historial: ha estado más cara aproximadamente tres cuartas partes del tiempo. El mercado la castiga por una razón clara, el miedo a que una pausa del gasto de los grandes operadores de centros de datos invierta la curva. Es un miedo legítimo, pero ya está en gran parte en el precio: mi estimación sale a 2.621 TWD frente a 1.840 de cotización."
+        },
+        {
+          "type": "h2",
+          "text": "King Slide: el riel con margen de software"
+        },
+        {
+          "type": "p",
+          "text": "Un riel de servidor es la guía que permite sacar una máquina de su bastidor. ¿Banal? Ya no desde la IA: un servidor de IA supera los 70 kg frente a menos de 50 kg antes, y la refrigeración líquida reduce el espacio disponible, así que los rieles deben soportar más en un volumen más fino. King Slide tiene [más del 30 % del mercado mundial de estos rieles, que suponen el 98 % de sus ingresos](https://www.taiwannews.com.tw/news/6416372), y sus ingresos de julio de 2026 se dispararon un 355 % en un año. Una fábrica norteamericana debe arrancar en septiembre de 2026."
+        },
+        {
+          "type": "p",
+          "text": "La consecuencia se ve en las cuentas: un margen neto del 56 % y un margen de caja del 59 %, niveles propios de una empresa de software, no de un fabricante de piezas metálicas. La razón es simple: la avería de un riel en un bastidor que vale cientos de miles de dólares cuesta muchísimo más que el riel. El cliente paga por la fiabilidad, no por el acero. El riesgo: competidores chinos, que bajan la nota de resiliencia a 3 sobre 5."
+        },
+        {
+          "type": "p",
+          "text": "El precio deja poco margen de error. King Slide se valora en 110 veces su flujo de caja, un nivel que la acción solo superó el 6 % del tiempo en su historial (percentil 94). Mi modelo supone un crecimiento del flujo de caja por acción del 20 % anual, cuando la realidad es del 51 % anual: la hipótesis es prudente. Aun así da 5.397 TWD frente a 12.045 de cotización. Haría falta que el hipercrecimiento durara mucho tiempo para justificar ese precio, y cualquier desaceleración saldría cara."
+        },
+        {
+          "type": "h2",
+          "text": "¿Qué dicen las trayectorias de ingresos y de caja?"
+        },
+        {
+          "type": "table",
+          "headers": [
+            "Empresa",
+            "Ingresos 2023",
+            "Ingresos 2025",
+            "Caja libre 2023",
+            "Caja libre 2024",
+            "Caja libre 2025",
+            "Margen de caja 2025"
+          ],
+          "rows": [
+            [
+              "Accton",
+              "84,2 mil M TWD",
+              "248,3 mil M TWD",
+              "16,1 mil M",
+              "7,0 mil M",
+              "29,8 mil M",
+              "12 %"
+            ],
+            [
+              "King Slide",
+              "5,8 mil M TWD",
+              "17,5 mil M TWD",
+              "2,9 mil M",
+              "4,8 mil M",
+              "10,4 mil M",
+              "59 %"
+            ],
+            [
+              "Posiflex",
+              "9,9 mil M TWD",
+              "18,2 mil M TWD",
+              "1,9 mil M",
+              "1,6 mil M",
+              "4,5 mil M",
+              "25 %"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Las tres duplican casi sus ingresos en dos años. La diferencia es lo que hacen con ellos: King Slide convierte más de la mitad de sus ventas en caja, Accton un octavo, y la caja de Posiflex saltó de 1.600 a 4.500 millones en un año, lo que pide una comprobación."
+        },
+        {
+          "type": "h2",
+          "text": "Posiflex: el descuento más espectacular es también el más sospechoso"
+        },
+        {
+          "type": "p",
+          "text": "Posiflex fabrica terminales de punto de venta: cajas, pantallas táctiles, quioscos de pedido. La actividad repunta con fuerza: [ingresos del segundo trimestre de 2026 un 46 % por encima del trimestre anterior](https://www.digitimes.com/news/a20260730PD217/posiflex-revenue-asia-europe-2026.html), hasta 5.180 millones de TWD, impulsados por Europa y Asia, con un beneficio neto de 467 millones frente a 295 millones en el primer trimestre."
+        },
+        {
+          "type": "p",
+          "text": "Sobre el papel todo grita «barato»: 3,1 veces el flujo de caja, un precio de compra estimado de 714 TWD para una cotización de 179, un dividendo del 6,5 %. Pero mira la diferencia entre la caja de 2025 (4.480 millones) y el beneficio neto (1.990 millones): la caja vale 2,25 veces el beneficio. Cuando una empresa cobra mucho más de lo que gana, suele ser una liberación puntual de capital circulante, es decir, clientes que pagan facturas o inventarios que se vacían. Eso no se repite cada año."
+        },
+        {
+          "type": "p",
+          "text": "Si la caja normal de Posiflex ronda más bien los 2.000 millones (inferencia mía, no una cifra publicada), la valoración pasa de unas 3 a unas 7 veces la caja: todavía baja, pero ya no el espejismo de la primera pantalla. Añade un dividendo que absorbe el 87 % del beneficio y una resiliencia de 0,5 sobre 5, porque el terminal de caja es un producto banalizado. Mi veredicto: empresa de calidad, oportunidad por confirmar, no una evidencia."
+        },
+        {
+          "type": "h2",
+          "text": "Lo que me enseñan tres notas idénticas"
+        },
+        {
+          "type": "p",
+          "text": "Una misma nota de calidad no dice nada del precio. Accton es la más interesante en este momento: buen negocio, valorado como si lo peor fuera posible. King Slide quizá sea la mejor empresa de las tres, y sin embargo la menos atractiva al precio actual. Posiflex enseña prudencia: un P/FCF muy bajo solo significa algo si la caja que lo produce se repite."
+        },
+        {
+          "type": "p",
+          "text": "Los riesgos comunes no son menores: estos valores cotizan en dólares taiwaneses, no son elegibles para el PEA francés y dependen del ciclo de gasto en IA y de la geopolítica del estrecho. Es la selección que quería poder hacer con cualquier acción, así que la construí: las fichas de [Accton](/analyse/2345.TW), [King Slide](/analyse/2059.TW) y [Posiflex](/analyse/8114.TW) detallan cada criterio. Para otro país donde el precio se aparta de la calidad, lee el [estudio sobre Indonesia](/blog/indonesie-actions-qualite-prix-divergents-2026)."
+        }
+      ],
+      "faq": [
+        {
+          "q": "¿Se pueden tener Accton, King Slide o Posiflex en un PEA francés?",
+          "a": "No. El PEA está reservado a empresas europeas. Estos tres valores solo caben en una cuenta de valores ordinaria, con un bróker que dé acceso a la bolsa de Taiwán, y con riesgo de cambio sobre el dólar taiwanés."
+        },
+        {
+          "q": "¿Por qué una nota de 10 sobre 10 no basta para comprar?",
+          "a": "Porque la nota mide la calidad del negocio, no su precio. King Slide tiene la nota máxima y se valora en 110 veces su flujo de caja: una excelente empresa comprada demasiado cara puede decepcionar."
+        },
+        {
+          "q": "¿Por qué hay que tomar con cautela el descuento de Posiflex?",
+          "a": "Su caja de 2025 vale más del doble de su beneficio neto, lo que parece una liberación puntual de capital circulante. Con una caja más normal, la valoración estaría más bien en torno a 7 veces."
+        },
+        {
+          "q": "¿El riesgo geopolítico en torno a Taiwán cambia el análisis?",
+          "a": "Sí, es un riesgo que no sé cuantificar y que pesa sobre todas las empresas cotizadas en la isla. Lo trato como una razón para exigir un mayor margen de seguridad, no como un detalle."
+        }
+      ],
+      "tags": [
+        "Taiwán",
+        "Acciones asiáticas",
+        "Ranking de país",
+        "Inteligencia artificial",
+        "Infraestructura de IA"
+      ],
+      "disclaimer": "Análisis con fines informativos y educativos, no un consejo de inversión personalizado. Los resultados pasados no garantizan resultados futuros. Cifras a la fecha de publicación (29 de septiembre de 2026), verificadas en directo con mi herramienta de análisis el día de la redacción, sujetas a cambios. Soy el fundador de Lubin Investment, que ofrece una herramienta de análisis gratuita y un plan de pago. Te lo digo para que leas este análisis con conocimiento de causa. Haz tu propia investigación."
+    }
+  }
+};
+
+export const ARTICLES: Article[] = [articleBUDQ2Post, articleBMYQ2Post, articleMOQ2Post, articleMAQ2Post, articleAAPLQ3Post, articleAMZNQ2Post, articleCashROCEPalmares, articleSBUXQ3Post, articleKLACQ4Post, articlePGQ4Post, articleQCOMQ3Post, articleMETAQ2Post, articleMSFTQ4Post, articleDetteEbitdaFcf, articleChubb2026, articleCopart2026, articleKOQ2Post, articleVisaQ3Post, articleODFL, articleOwnerEarnings, articleBandaiNamco, articleAZNQ2Post, articleMEDPQ2Post, articleBACvsWFC, articleFBKvsHWC, articleCitigroupPreQ2, articleRotationJuillet2026, articleWINA, articleUNTY, articleCapitalLegerLourd, articleDelaiEncaissement, articleTRYGQ2Post, articleDALQ2Post, articleROICvsWACC, articleIPORecentePedago, articleVRTvsPOWL, articlePANWvsFTNT, articleRDDT2026, articleYELP2026, articleBLKvsSTT, articleTCSvsHCL, articleDiversification, articleValueTrap, articleFastRetailingQ3, articlePEPQ2, articleJBHT, articleJPM, articleFDS, articleNKEPost, articleBAH, articleALL, articleMANH, articleFISV, articleMEDP, articleDRIPost, articleAYIPost, pharmaPalmares2026, pricingPowerFcf, ryanairRYAAY, futuHoldings, micronQ3Post, note10sur10, adobeResults, gddy, methodeQualite, softwareApp, dataSecteurs, bkng, afya, rnr, meli, pfcfSous5x, reperer10sous, topMoinsCheres, assuranceTop, kgc, techPfcf, rotation, kinsale, actionsAsiatiques, sp500RecordJuin2026, pfcfEleve, croissanceVsFcf, oracleQ4FY26, alphabetQ12026, articleMRVL, articleAVGO, articleCRM, article_pcty, article_hae, article_nssc, intu, qlys, sousEvaluees2026, genieCivil2026, article_credit_services_2026, accentureQ3FY2026, carMaxQ1FY27, wrb, articleTT, doximityDOCS2026, asml, tsm, articleSKYW, articleMCY, articleUVE, articleROP, articleBSY, articleBSYvsROP, articleCOLL, articleBMI, articleMA, articlePGR, articleACGL, articleABNB, articleAPP, articleMCO, articleNFLX, articlePYPL, articleScore9vs10, articleRestaurants, articleServicesRecurrents, articleMargeBrute, articleRachats, articleMonopoles, articleScreenerGuide, articleSoftwareComparatif, articleQLYSvsINTU, articleETFvsStocks, articlePEVsPFCF, articleQualiteValorisationMethode, articleDetteMethode, articleSecteursSans10, articleDividendesMethode, articleFCFCompose, articleERIE, articleVRSN, articleJKHY, articleRendementFCF, articleRecession, articleDECK, articleCINF, articleSoftwareInfra, article60Actions, articleROIC, articleSIGI, articleCALM, articleGRC, articleREITs, article50SousEvaluees, articleAIZ, articleEXEL, articleMedicalDevices, articleNOW, articleMargeFCF, articleNVDA, articleFinancialData, articleADSK, articleEVEBITDA, articleSBC, articleFTI, articleSHOP, articleGAFAM, articleHMO, articleALLE, articleSEZL, articleFCFS, articleDPM, articleTSY, articleAviationSecteur, articleHEROMOTOCO, articleWHD, articleSLB, articleDefenseSecteur, articleGoodwill, articleMSCI, articleCCLPost, articleFDXPost, articleLULU, articleRendementTotal, articleRealtyIncome, articleNNNReit, articleTripleNet, articleStripCenters, articleSTAGIndustrial, articleFRT, articleSPGMAC, articleAFFO, articleRMD, articleOrMining, articleLatAm, articleMidcaps, articleHorsUS, articleBilanS1, articleCalendrierEarnings, articleUCB, articleSecteurInattendus, articlePFCFSectoriel, articleRecurrenceRevenus, articleFCFDurabilite, allocationCapital, biotechPalmares, dexcomDXCM, margesFCFClassement, nutanixNTNX, oilGasServicesPalmares, paychexPAYXPost, payxVsPctyComparatif, pfcfJuillet2026, presqueParfaits9sur10, reassurancePalmares, utilitiesRenouvelables, articleAZZ, articleWDFC, articleDAL, articleBANRFFIN, getingeGETI, roeVsRoic, bfrSignalQualite, saisonResultatsQ2, genieCivilAGXUpdate, articleSemisMetaCompute, articleOMAB, articleVeolia, articleCycliqueCompounder, articleCashROCE, articleFCFNegatif, articleDeepValueJuillet2026, articleEricsson, articleFastRetailing, articleMonarchCasino, articleOmnicom, articleFirstIndustrialRealty, articleKongsberg, articleChurchillDowns, articleMargesExpansion, articleCashConversion, articleMargeNette, articlePNFPCBSH, articleGormanRupTrelleborg, articleCintas, articleTravelers, articleHKEX, articleKLA, articlePerfectCorp, articleYuanbao, articleOrion, articleAdvantest, articleMoatPedago, articleManagementPedago, articleSemisPalmares, articleFedTaux, articleSTERIS, articlePaycom, articleTCS, articleMSCIndustrial, articleMargeSecurite, articleRisqueChange, articleAssuranceNordique, articleFastenal, articleMakeMyTrip, articleGS, articleABB, articleAZZQ1FY27, articlePriceSmart, articleBanquesIndiennes, articleAddtechLifco, articleCapexPedago, articleValorisationBanques, articleHLT, articleURI, articleSplitAction, articleYoYvsQoQ, articleTMUSvsVZ, articleORLYvsAZO, articleGMPre, articleCMG, articleIBKR, articleSBCPedago, articleSpinoff, articleRailPalmares, articleAssetMgmtPalmares, articlePLDPre, articleRRC, articleIPAR, articleWFRDvsTDW, articleRLIvsWTM, articleHCLTechQ1FY27, articleHOOD2026, articleTSMQ2Post, articlePriceToBook, articleThalesVsVinci, articleNFLXQ2Post, articleJPMQ2Post, articleBACQ2Post, articleJNJQ2Post, articleASMLQ2Post, articleMSQ2Post, articleABTQ2Post, articleMNST2026, articleGRMN2026, articleAAPL2026, articlePEGRatio, articleDDOGvsDT, articlePLTR2026, articleADP2026, articleColgateLoreal2026, articleBetaPedago2026, articleTSLAQ2Post, articleGOOGLQ2Post, articleIBMQ2Post, articlePMQ2Post, articleSAPQ2Post, articleINTCQ2Post, articleTXNQ2Post, articleNEMQ2Post, articleHermesLVMHKering, articleAXPQ2Post, articleCapVsEV, articleSecteurMoinsCher2026, articleNoteesBonMarche2026, articleAmadeus2026, articleMomentumQualite2026, articleLireUnBilan, articleXOMQ2Post, articleAirLiquide2026, articleAmundi2026, articleVallourec2026, articleResiliencePalmares2026, articleConstellationSoftware2026, articleNovartis2026, articlePeaSousEvaluees2026, articleCostco2026, articleCroissanceOrganiqueVsAcquisition, articleMarriott2026, articleSanofi2026, articleImax2026, articleArgan2026, articleAMD2026, articleMCD2026, articlePrimerica2026, articleNRRPedago, articleFairIsaac2026, articleMegaCapsCriterion, articleReseauOuvertFerme, articleWorkdayFondateurIA, articleDCFPedago, articleEcartModeleMarche, articleFerrariResilience, articleDividendes95, articlePeaPmeReforme2024, articleDroitDeVoteMultiple, articleFranceQualiteEcart, articleCanadaQualite, articleJaponQualite, articleDevisesQualite2026, articleMachinesIndustrielles, articleMotorolaSolutions2026, articleRatioCoursVentes, articlePetitesCapsInconnues, articleResilienceVsQualite2026, articleDividendePeaVerifie, articleKOvsPEP2026, articleEuropeQualitePrix2026, articleRheinmetallCashTension, articleRailFusionCapital, articleHowmetAerospace, articleCoreeQualiteDecote, articleLLYvsMRK2026, articleIndeQualitePrix2026, articleIndonesieQualitePrix2026, articleTaiwanIAQualitePrix2026];
 
 /** Articles triés du plus récent au plus ancien. */
 export function listArticles(): Article[] {
